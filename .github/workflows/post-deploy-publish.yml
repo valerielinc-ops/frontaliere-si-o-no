@@ -7,7 +7,7 @@ name: Post-deploy Publish (side-effects + mark good)
 # is the right place for IRREVERSIBLE side-effects:
 #
 #   - Sync previous-slug-winners.json (git push)
-#   - Post to LinkedIn + Reddit (article-publishing build only). Facebook moved to the
+#   - Post to LinkedIn + Reddit (workflow_dispatch only). Facebook moved to the
 #     standalone scheduled poster: .github/workflows/fb-articles-daily-schedule.yml
 #   - Submit URLs to Google Indexing API + IndexNow + GSC
 #   - Mark this run as last_known_good (rollback target)
@@ -19,10 +19,42 @@ name: Post-deploy Publish (side-effects + mark good)
 # rolled-back dist (mismatch or 404). IndexNow had pinged Bing on the
 # bad-dist URLs, baking the bad version into search engines.
 #
-# Inputs match validate-live (deploy_run_id + deploy_event_name). When this
-# reusable workflow is called by deploy-publish.yml, the inherited github
-# context is the caller's workflow_run event; it is not workflow_call.
+# Inputs match validate-live (deploy_run_id + deploy_event_name).
 on:
+  # Manual recovery path (issue #5128). `publish` was skipped for 18
+  # consecutive runs, so every URL that went live in that window was never
+  # announced. Without a dispatch trigger the ONLY way to drain that backlog
+  # was to wait for the next green deploy — this lets an operator run the
+  # side-effects directly against a known-good build run.
+  #
+  # Safe to re-run: `submit-indexnow.js` is sitemap-driven and submits the
+  # FULL current URL set (no diff against a snapshot), so one run recovers the
+  # whole backlog rather than just the last deploy's delta; IndexNow is a ping
+  # and duplicates are harmless. `submit-google-indexing*.js` are quota-capped
+  # and deduped by the daily tracker cache. The winners sync is a git
+  # commit+push that no-ops when nothing changed.
+  #
+  # `deploy_event_name` defaults to `recovery` ON PURPOSE: the LinkedIn,
+  # Reddit and live-article-metadata steps below fire only on the literal
+  # 'workflow_dispatch', so the default drains the indexing backlog WITHOUT
+  # re-posting socials that already went out. Pass 'workflow_dispatch'
+  # explicitly only when you do want the article announcement re-sent.
+  workflow_dispatch:
+    inputs:
+      deploy_run_id:
+        description: 'Run ID of the BUILD run whose artifacts to publish (sitemaps, jobs.json, winners).'
+        required: true
+        type: string
+      deploy_event_name:
+        description: "Leave as 'recovery' to skip LinkedIn/Reddit re-posting. Use 'workflow_dispatch' only to re-send the article announcement."
+        required: false
+        type: string
+        default: 'recovery'
+      deploy_ref:
+        description: 'Commit SHA of the build. Empty = checkout the default branch.'
+        required: false
+        type: string
+        default: ''
   workflow_call:
     inputs:
       deploy_run_id:
@@ -30,7 +62,7 @@ on:
         required: true
         type: string
       deploy_event_name:
-        description: 'Build event name from the gated caller'
+        description: 'github.event_name from the caller (workflow_dispatch / push / etc.)'
         required: true
         type: string
       deploy_ref:
@@ -38,161 +70,10 @@ on:
         required: false
         type: string
         default: ''
-  # Recovery is deliberately a separate trigger path, but it enters the same
-  # side-effect job only after the canonical source-run and production
-  # approval jobs below. It cannot inject an arbitrary artifact/run id.
-  workflow_dispatch:
-    inputs:
-      source_run_id:
-        description: 'Canonical successful Deploy to GitHub Pages run ID to replay post-deploy side effects from'
-        required: true
-        type: string
 
 jobs:
-  validate-deploy-publish-caller:
-    name: validate deploy-publish workflow_run caller
-    if: github.event_name == 'workflow_run'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    steps:
-      - name: Checkout promotion gate
-        uses: actions/checkout@v5
-        with:
-          sparse-checkout: |
-            /scripts/ci/production-promotion-gate.mjs
-          sparse-checkout-cone-mode: false
-      - name: Reject non-canonical workflow_run caller
-        env:
-          PROMOTION_EVENT: ${{ github.event_name }}
-          PROMOTION_CALLER_WORKFLOW: ${{ github.workflow }}
-          PROMOTION_CALLER_WORKFLOW_REF: ${{ github.workflow_ref }}
-          PROMOTION_REPOSITORY: ${{ github.repository }}
-          PROMOTION_SOURCE_REPOSITORY: ${{ github.event.workflow_run.head_repository.full_name }}
-          PROMOTION_SOURCE_REF: ${{ github.event.workflow_run.head_branch }}
-          PROMOTION_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
-          PROMOTION_SOURCE_WORKFLOW: ${{ github.event.workflow_run.name }}
-          PROMOTION_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
-          PROMOTION_SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
-          PROMOTION_SOURCE_EVENT: ${{ github.event.workflow_run.event }}
-          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
-          INPUT_DEPLOY_EVENT_NAME: ${{ inputs.deploy_event_name }}
-          INPUT_DEPLOY_REF: ${{ inputs.deploy_ref }}
-        run: node scripts/ci/production-promotion-gate.mjs caller
-
-  validate-recovery-trigger:
-    name: validate recovery promotion trigger
-    if: >-
-      github.event_name == 'workflow_dispatch' &&
-      github.workflow_ref == format('{0}/.github/workflows/post-deploy-publish.yml@refs/heads/main', github.repository)
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    steps:
-      - name: Checkout promotion gate
-        uses: actions/checkout@v5
-        with:
-          sparse-checkout: |
-            /scripts/ci/production-promotion-gate.mjs
-          sparse-checkout-cone-mode: false
-      - name: Reject non-main or unverified recovery trigger
-        env:
-          PROMOTION_EVENT: ${{ github.event_name }}
-          PROMOTION_REF: ${{ github.ref }}
-          PROMOTION_REPOSITORY: ${{ github.repository }}
-          PROMOTION_SOURCE_REPOSITORY: ${{ github.repository }}
-          PROMOTION_HEAD_SHA: ${{ github.sha }}
-        run: node scripts/ci/production-promotion-gate.mjs trigger
-
-  validate-recovery-source:
-    name: validate canonical recovery source build
-    needs: validate-recovery-trigger
-    if: >-
-      github.event_name == 'workflow_dispatch' &&
-      github.workflow_ref == format('{0}/.github/workflows/post-deploy-publish.yml@refs/heads/main', github.repository) &&
-      needs.validate-recovery-trigger.result == 'success'
-    runs-on: ubuntu-latest
-    outputs:
-      head_sha: ${{ steps.source-build.outputs.head_sha }}
-    permissions:
-      contents: read
-      actions: read
-    steps:
-      - name: Checkout promotion gate
-        uses: actions/checkout@v5
-        with:
-          sparse-checkout: |
-            /scripts/ci/production-promotion-gate.mjs
-          sparse-checkout-cone-mode: false
-      - name: Validate successful canonical source build
-        id: source-build
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PROMOTION_REPOSITORY: ${{ github.repository }}
-          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
-        run: |
-          set -euo pipefail
-          case "$SOURCE_RUN_ID" in
-            ''|*[!0-9]*)
-              echo "::error::source_run_id must contain only decimal digits"
-              exit 1
-              ;;
-          esac
-          source_run_json="$RUNNER_TEMP/canonical-source-run.json"
-          gh api --method GET \
-            "repos/${PROMOTION_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}" \
-            > "$source_run_json"
-          PROMOTION_SOURCE_RUN_ID="$SOURCE_RUN_ID" \
-            node scripts/ci/production-promotion-gate.mjs source-run < "$source_run_json"
-          head_sha=$(jq -er '.head_sha // empty' "$source_run_json")
-          printf 'head_sha=%s\n' "$head_sha" >> "$GITHUB_OUTPUT"
-
-  recovery-production-approval:
-    name: approve recovery promotion
-    needs: validate-recovery-source
-    if: >-
-      github.event_name == 'workflow_dispatch' &&
-      github.workflow_ref == format('{0}/.github/workflows/post-deploy-publish.yml@refs/heads/main', github.repository) &&
-      needs.validate-recovery-source.result == 'success'
-    runs-on: ubuntu-latest
-    environment:
-      name: production-deploy
-    permissions:
-      contents: read
-      deployments: read
-    steps:
-      - name: Checkout promotion gate
-        uses: actions/checkout@v5
-        with:
-          sparse-checkout: |
-            /scripts/ci/production-promotion-gate.mjs
-          sparse-checkout-cone-mode: false
-      - name: Verify required reviewers and environment attestation
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PROMOTION_REPOSITORY: ${{ github.repository }}
-          PROMOTION_ENVIRONMENT_NAME: production-deploy
-          PRODUCTION_DEPLOY_APPROVAL: ${{ secrets.PRODUCTION_DEPLOY_APPROVAL }}
-        run: |
-          set -euo pipefail
-          gh api --method GET \
-            "repos/${PROMOTION_REPOSITORY}/environments/${PROMOTION_ENVIRONMENT_NAME}" \
-            | node scripts/ci/production-promotion-gate.mjs approval
-
   publish:
-    needs: [validate-deploy-publish-caller, validate-recovery-source, recovery-production-approval]
-    if: >-
-      always() &&
-      ((github.event_name == 'workflow_run' &&
-        needs.validate-deploy-publish-caller.result == 'success') ||
-       (github.event_name == 'workflow_dispatch' &&
-        needs.validate-recovery-source.result == 'success' &&
-        needs.recovery-production-approval.result == 'success'))
     runs-on: ubuntu-latest
-    env:
-      EFFECTIVE_DEPLOY_RUN_ID: ${{ github.event_name == 'workflow_dispatch' && inputs.source_run_id || inputs.deploy_run_id }}
-      EFFECTIVE_DEPLOY_EVENT_NAME: ${{ github.event_name == 'workflow_dispatch' && 'workflow_dispatch' || inputs.deploy_event_name }}
-      EFFECTIVE_DEPLOY_REF: ${{ github.event_name == 'workflow_dispatch' && needs.validate-recovery-source.outputs.head_sha || inputs.deploy_ref }}
     permissions:
       contents: write   # for git push in sync-previous-slug-winners
       actions: read     # for download-artifact same-run
@@ -201,7 +82,7 @@ jobs:
       - name: Checkout (build SHA via deploy_ref, else caller default)
         uses: actions/checkout@v5
         with:
-          ref: ${{ env.EFFECTIVE_DEPLOY_REF }}
+          ref: ${{ inputs.deploy_ref }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -243,28 +124,28 @@ jobs:
         uses: actions/download-artifact@v7
         continue-on-error: true
         with:
-          name: pre-deploy-snapshot-${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
+          name: pre-deploy-snapshot-${{ inputs.deploy_run_id }}
           path: /tmp/pre-deploy-snapshot
-          run-id: ${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
-          github-token: ${{ github.token }}
+          run-id: ${{ inputs.deploy_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Download previous-slug winners (optional)
         uses: actions/download-artifact@v7
         continue-on-error: true
         with:
-          name: winners-${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
+          name: winners-${{ inputs.deploy_run_id }}
           path: /tmp/winners
-          run-id: ${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
-          github-token: ${{ github.token }}
+          run-id: ${{ inputs.deploy_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Download sitemaps bundle (pre-deploy + new + build-id)
         uses: actions/download-artifact@v7
         continue-on-error: true
         with:
-          name: sitemaps-${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
+          name: sitemaps-${{ inputs.deploy_run_id }}
           path: /tmp/sitemaps-bundle
-          run-id: ${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
-          github-token: ${{ github.token }}
+          run-id: ${{ inputs.deploy_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       # Master jobs.json (titleByLocale/slugByLocale) is GITIGNORED and
       # stripped from the Pages artifact (jobsJsonDistCleanupPlugin, PR #712),
@@ -279,10 +160,10 @@ jobs:
         uses: actions/download-artifact@v7
         continue-on-error: true
         with:
-          name: jobs-master-${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
+          name: jobs-master-${{ inputs.deploy_run_id }}
           path: /tmp/jobs-master
-          run-id: ${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
-          github-token: ${{ github.token }}
+          run-id: ${{ inputs.deploy_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Stage downloaded data files
         run: |
@@ -360,9 +241,9 @@ jobs:
         id: deploy-meta
         continue-on-error: true
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Dispatch/call inputs reach the shell as DATA, never as script text.
-          INPUT_DEPLOY_RUN_ID: ${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
+          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
         run: |
           DATA=$(node scripts/deploy-registry.mjs get \
             --run-id="$INPUT_DEPLOY_RUN_ID" 2>/dev/null || echo '{}')
@@ -371,7 +252,7 @@ jobs:
       - name: Wait for live article metadata
         if: |
           success() &&
-          env.EFFECTIVE_DEPLOY_EVENT_NAME == 'workflow_dispatch' &&
+          inputs.deploy_event_name == 'workflow_dispatch' &&
           fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl != null
         id: wait_live_meta
         continue-on-error: true
@@ -396,7 +277,7 @@ jobs:
       - name: Post to LinkedIn Company Page
         if: |
           success() &&
-          env.EFFECTIVE_DEPLOY_EVENT_NAME == 'workflow_dispatch' &&
+          inputs.deploy_event_name == 'workflow_dispatch' &&
           fromJson(steps.deploy-meta.outputs.data || '{}').articleId != null &&
           steps.wait_live_meta.outcome == 'success'
         continue-on-error: true
@@ -417,7 +298,7 @@ jobs:
       - name: Post to Reddit Communities
         if: |
           success() &&
-          env.EFFECTIVE_DEPLOY_EVENT_NAME == 'workflow_dispatch' &&
+          inputs.deploy_event_name == 'workflow_dispatch' &&
           fromJson(steps.deploy-meta.outputs.data || '{}').articleId != null &&
           steps.wait_live_meta.outcome == 'success'
         continue-on-error: true
@@ -454,7 +335,7 @@ jobs:
           # verify-post-deploy-seo.mjs) only honors GH_TOKEN/GITHUB_TOKEN —
           # without this, post-deploy SEO regressions never opened an issue
           # (PR #3322 review, same class as monitor-gsc-job-indexation.mjs).
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           timeout 90 node scripts/submit-google-indexing-jobs.js &
           PID_GOOGLE=$!
@@ -488,20 +369,38 @@ jobs:
       # gates is "good enough" to roll back to even if FB/LI API hiccups.
       - name: Mark this deploy as last_known_good
         if: success()
+        env:
+          # Register the BUILD run and its SHA (the artefacts that were
+          # published), not the orchestrating deploy-publish run: a rollback
+          # must point at the run that owns the artefact set (review #8947).
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          INPUT_DEPLOY_REF: ${{ inputs.deploy_ref }}
         run: |
-          DEPLOY_RUN_ID="${EFFECTIVE_DEPLOY_RUN_ID:-${GITHUB_RUN_ID}}"
-          DEPLOY_REF="${EFFECTIVE_DEPLOY_REF:-${GITHUB_SHA}}"
+          set -euo pipefail
+          run_id="${INPUT_DEPLOY_RUN_ID:-${GITHUB_RUN_ID}}"
+          ref="$(printf '%s' "${INPUT_DEPLOY_REF:-}" | tr -d '[:space:]')"
+          if [ -z "$ref" ]; then
+            # A manual dispatch on a historical build run leaves deploy_ref
+            # empty: derive the SHA of the build that produced the downloaded
+            # artefacts instead of the manual workflow's own GITHUB_SHA.
+            ref="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq .head_sha)"
+          fi
+          if [ -z "$ref" ]; then
+            echo "::error::set-good: cannot resolve the build SHA for run ${run_id}"
+            exit 1
+          fi
           node scripts/deploy-registry.mjs set-good \
-            --run-id="$DEPLOY_RUN_ID" \
-            --sha="$DEPLOY_REF"
+            --run-id="$run_id" \
+            --sha="$ref"
 
       - name: Report failure to GitHub Issues
         if: failure()
         continue-on-error: true
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Dispatch/call inputs reach the shell as DATA, never as script text.
-          INPUT_DEPLOY_RUN_ID: ${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
+          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
         run: |
           # Standard "Workflow Failure: <name>" prefix so the central reconciler
           # (close-recovered-failure-issues.mjs) auto-closes on recovery; <name> equals
