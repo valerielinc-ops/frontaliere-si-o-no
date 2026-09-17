@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unispital-basel",
-  "assembledAt": "2026-09-17T06:57:30.559Z",
+  "assembledAt": "2026-09-17T19:02:21.580Z",
   "jobs": [
     {
       "id": "unispital-basel-a292aece20e2",
@@ -2852,81 +2852,6 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "unispital-basel-3f9fc2090ad6",
-      "slug": "system-ingegnere-client-engineering-universitatsspital-basel-basel",
-      "slugByLocale": {
-        "it": "system-ingegnere-client-engineering-universitatsspital-basel-basel",
-        "en": "system-engineer-client-engineering-universitatsspital-basel-basel",
-        "de": "system-engineer-client-engineering-unispital-basel-ch",
-        "fr": "system-ingenieur-client-engineering-universitatsspital-basel-basel"
-      },
-      "company": "Universitätsspital Basel",
-      "companyKey": "unispital-basel",
-      "companyDomain": "unispital-basel.ch",
-      "title": "System Engineer (Client Engineering)",
-      "titleByLocale": {
-        "it": "System Ingegnere (Client Engineering)",
-        "en": "System Engineer (Client Engineering)",
-        "de": "System Ingenieur (Client Engineering)",
-        "fr": "System Ingénieur (Client Engineering)"
-      },
-      "description": "Aufgaben:\n• Mitverantwortung für den Betrieb, die Überwachung und Weiterentwicklung unserer Windows Clients und Mobile Devices (iOS/iPadOS) inklusive OS-Deployment und Applikationsverteilung via SCCM und Microsoft Intune\n\n• Evaluieren von Betriebssoftware und Durchführen von Betriebssystemwechseln\n\n• Erstellen von Scripts, Batchfiles und administrativen Programmieraufgaben\n\n• Betreuung von Apple Business Manager und Apple Developer Program\n\nAnforderungen:\n• Abgeschlossene Informatik-Ausbildung (Studium/Berufsausbildung) oder gleichwertige Ausbildung\n\n• Gute Fachkenntnisse mit den Produkten und Techniken: Microsoft Intune/SCCM, MDM, Apple DEP (ABM)\n\n• Hohe Dienstleistungs- und Qualitätsorientierung, gepaart mit Verantwortungsbewusstsein im Umgang mit sensiblen Daten\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse sowie gute technische Englischkenntnisse\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Responsabilità condivisa per il funzionamento, il monitoraggio e l'ulteriore sviluppo dei nostri clienti Windows e dispositivi mobili (iOS/iPadOS) tra cui distribuzione di OS e distribuzione di applicazioni tramite SCCM e Microsoft Intune\n\n• Valutazione del software operativo e delle modifiche del sistema operativo\n\n• Creazione di script, batchfile e compiti di programmazione amministrativa\n\n• Apple Business Manager e Programma Sviluppatore Apple\n\nRequisiti\n• Formazione informatica (formazione professionale) o equivalente\n\n• Buona esperienza con i prodotti e le tecniche: Microsoft Intune/SCCM, MDM, Apple DEP (ABM)\n\n• Alta assistenza e orientamento di qualità, accoppiato con un senso di responsabilità nel trattare con dati sensibili\n\n• Ottima conoscenza orale e scritta del tedesco e buona conoscenza tecnica dell'inglese\n\nOffriamo:\n• Politica salariale attraente e benefici sociali eccellenti\n\n• Vantaggi per shopping, sport e tempo libero\n\n• Assistenza nel trasferimento e nella ricerca di alloggi\n\n• 25 giorni festivi plus 5 anche free flexitage\n\n• Sostegno all'ulteriore istruzione e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e l'angolo trinazionale\n\n• Servizi per l'infanzia completi\n\n• Programma gratuito di sport ed esercizio",
-        "en": "Tasks:\n• Shared responsibility for the operation, monitoring and further development of our Windows clients and mobile devices (iOS/iPadOS) including OS deployment and application distribution via SCCM and Microsoft Intune\n\n• Evaluating operational software and performing operating system changes\n\n• Creating scripts, batchfiles and administrative programming tasks\n\n• Apple Business Manager and Apple Developer Program\n\nRequirements\n• Computer science training (study/vocational training) or equivalent\n\n• Good expertise with the products and techniques: Microsoft Intune/SCCM, MDM, Apple DEP (ABM)\n\n• High service and quality orientation, coupled with a sense of responsibility in dealing with sensitive data\n\n• Very good oral and written knowledge of German and good technical knowledge of English\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Advantages for shopping, sports and leisure\n\n• Assistance in moving and finding accommodation\n\n• 25 holiday days plus 5 also free flexitage\n\n• Support for further education and career planning\n\n• Campus in the heart of Basel and the Trinational Corner\n\n• Comprehensive childcare facilities\n\n• Free Sports and Exercise Program",
-        "de": "Aufgaben:\n• Mitverantwortung für den Betrieb, die Überwachung und Weiterentwicklung unserer Windows Clients und Mobile Devices (iOS/iPadOS) inklusive OS-Deployment und Applikationsverteilung via SCCM und Microsoft Intune\n\n• Evaluieren von Betriebssoftware und Durchführen von Betriebssystemwechseln\n\n• Erstellen von Scripts, Batchfiles und administrativen Programmieraufgaben\n\n• Betreuung von Apple Business Manager und Apple Developer Program\n\nAnforderungen:\n• Abgeschlossene Informatik-Ausbildung (Studium/Berufsausbildung) oder gleichwertige Ausbildung\n\n• Gute Fachkenntnisse mit den Produkten und Techniken: Microsoft Intune/SCCM, MDM, Apple DEP (ABM)\n\n• Hohe Dienstleistungs- und Qualitätsorientierung, gepaart mit Verantwortungsbewusstsein im Umgang mit sensiblen Daten\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse sowie gute technische Englischkenntnisse\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Tâches :\n• Responsabilité partagée pour l'exploitation, le suivi et le développement de nos clients Windows et de nos appareils mobiles (iOS/iPadOS) y compris le déploiement et la distribution d'applications OS via SCCM et Microsoft Intune\n\n• Évaluer les logiciels opérationnels et effectuer les changements de système d'exploitation\n\n• Création de scripts, batchfiles et tâches de programmation administrative\n\n• Apple Business Manager et Apple Developer Program\n\nExigences\n• Formation en informatique (études/formation professionnelle) ou équivalent\n\n• Bonne expertise des produits et des techniques: Microsoft Intune/SCCM, MDM, Apple DEP (ABM)\n\n• Un service élevé et une orientation de qualité, associé à un sens des responsabilités dans le traitement des données sensibles\n\n• Très bonne connaissance orale et écrite de l'allemand et bonne connaissance technique de l'anglais\n\nNous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n\n• Avantages pour le shopping, le sport et les loisirs\n\n• Aide au déménagement et à la recherche d ' un logement\n\n• 25 jours de vacances plus 5 flexitage gratuit\n\n• Appui à la formation continue et à la planification des carrières\n\n• Campus au cœur de Bâle et du Coin Trinational\n\n• Établissements complets de garde d ' enfants\n\n• Programme de sports et d'exercices gratuits"
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://job.unispital-basel.ch/offene-stellen/system-engineer-client-engineering/e7374558-d874-4dec-99f0-b6db048c39e6",
-      "source": "USB Dedicated Parser (Prospective API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-17T06:56:59.151Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4031",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-12",
-      "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27514",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "system-engineer-client-engineering-unispital-basel-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "system-engineer-client-engineering-unispital-basel-ch"
-        ],
-        "fr": [
-          "system-engineer-client-engineering-unispital-basel-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-13T22:31:23.963Z",
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 110500,
           "unitText": "YEAR"
         }
       }
