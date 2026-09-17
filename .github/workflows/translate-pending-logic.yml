@@ -251,9 +251,11 @@ jobs:
         env:
           ROLLOUT_REPOSITORY: ${{ github.repository }}
           ROLLOUT_SWITCH: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          OPUSMT_RESCUE_SWITCH: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
         run: |
           echo "Translation rollout repository=$ROLLOUT_REPOSITORY"
           echo "LOCAL_MT_LANG_AWARE_OVERWRITE=$ROLLOUT_SWITCH"
+          echo "LOCAL_MT_OPUSMT_RESCUE=$OPUSMT_RESCUE_SWITCH"
 
       # ── Phase 2a: Local MT BULK (Argos / CTranslate2) — PRIMARY workhorse ──
       - name: "Phase 2a: Local MT bulk translate (Argos)"
@@ -276,6 +278,11 @@ jobs:
           # Default '0' = the arm runs and COUNTS but withholds the write, so a run
           # can be read before it is allowed to act. Set the repo variable to '1'.
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          # Default '0' = OpusMT rescue is not invoked. Set the repo variable to '1'
+          # only after the rollout is approved.
+          LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
+          MT_LOCAL_OPUSMT: '1'
+          TRANSFORMERS_CACHE: .cache/transformers
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
 
@@ -326,7 +333,9 @@ jobs:
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
+          # Translation and metadata calls deliberately keep the normal
+          # cascade; Codex preference is scoped to body generation inside
+          # create-article.
           JOBS_CASCADE_DEADLINE_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '15000000' || '5400000' }}
           # A/B sul thinking di Codex Luna Max. Ogni azienda va a un braccio
           # (sale = id della run, quindi l'assegnazione cambia a ogni giro), e
@@ -415,6 +424,11 @@ jobs:
           # Default '0' = the arm runs and COUNTS but withholds the write, so a run
           # can be read before it is allowed to act. Set the repo variable to '1'.
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          # Default '0' = OpusMT rescue is not invoked. Set the repo variable to '1'
+          # only after the rollout is approved.
+          LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
+          MT_LOCAL_OPUSMT: '1'
+          TRANSFORMERS_CACHE: .cache/transformers
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
 

@@ -1,8 +1,9 @@
 name: Loop fleet independent lifecycle observer
 
 # Reconstructs only GitHub-observable downstream lifecycle events. The
-# observer is read-only; persistence, when needed, goes through the same
-# reviewed ledger branch/PR used by the durable evidence bridge.
+# observer is read-only; persistence, when needed, goes through its own
+# reviewed lifecycle-ledger branch/PR so it cannot collide with the durable
+# evidence bridge's source-batch branches.
 on:
   schedule:
     - cron: '41 8 * * *'
@@ -14,7 +15,7 @@ permissions:
   pull-requests: read
 
 # Serialize with the durable ledger bridge because both may update the same
-# reviewed ledger branch. Neither workflow can write main directly.
+# append-only ledger file. Neither workflow can write main directly.
 concurrency:
   group: loop-fleet-durable-ledger
   cancel-in-progress: false
@@ -34,6 +35,7 @@ jobs:
             /data/loop-fleet/ledger/
             /scripts/ci/observe-loop-fleet-lifecycle.mjs
             /scripts/ci/append-loop-fleet-lifecycle.mjs
+            /scripts/ci/loop-fleet-epoch-policy.mjs
             /scripts/ci/mint-app-token.mjs
             /scripts/ci/pr-body-check-gate.mjs
             /scripts/ci/lib/hook-exit-codes.mjs
@@ -134,24 +136,83 @@ jobs:
           bounded_remote git fetch origin main
           git checkout --detach origin/main
 
-          base_branch='chore/loop-fleet-ledger'
-          open_pr=$(bounded_remote gh pr list --repo "$GITHUB_REPOSITORY" --state open --head "$base_branch" --json number --jq '.[0].number // ""')
-          branch="$base_branch"
+          base_branch='chore/loop-fleet-ledger-lifecycle'
+          open_pr_record=$(bounded_remote gh pr list \
+            --repo "$GITHUB_REPOSITORY" \
+            --state open \
+            --json number,headRefName,baseRefName,createdAt \
+            --jq 'map(select(.baseRefName == "main" and (.headRefName | test("^chore/loop-fleet-ledger-lifecycle-[0-9]+-[0-9]+$")))) | sort_by(.number) | if length == 0 then "" else .[-1] | [(.number | tostring), .headRefName, .createdAt] | @tsv end')
+          open_pr=''
+          open_branch=''
+          open_created_at=''
+          if [ -n "$open_pr_record" ]; then
+            IFS=$'\t' read -r open_pr open_branch open_created_at <<<"$open_pr_record"
+          fi
+          branch="${base_branch}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
           base_branch_ref=''
-          if [ -z "$open_pr" ]; then
+          ledger_branch=''
+          orphan_recovery='false'
+          frozen_epoch='false'
+
+          # A bounded observer epoch is also a routing decision: preserve the
+          # event file in a new lifecycle-only PR instead of exiting before the
+          # append or borrowing the evidence bridge's namespace.
+          if [ -n "$open_pr" ]; then
+            bounded_remote git fetch origin "$open_branch"
+            epoch_batch_count=$(git log "origin/$open_branch" --format='%s' --not origin/main \
+              | awk '/^chore\(loop-fleet\): persist / { count += 1 } END { print count + 0 }')
+            epoch_age_minutes=''
+            if [ -n "$open_created_at" ]; then
+              created_epoch=$(date -d "$open_created_at" +%s 2>/dev/null || true)
+              now_epoch=$(date +%s)
+              if [ -n "$created_epoch" ] && [ "$now_epoch" -ge "$created_epoch" ]; then
+                epoch_age_minutes=$(( (now_epoch - created_epoch) / 60 ))
+              fi
+            fi
+            epoch_decision=$(node scripts/ci/loop-fleet-epoch-policy.mjs \
+              --open-pr true \
+              --batch-count "$epoch_batch_count" \
+              --age-minutes "$epoch_age_minutes")
+            if [ "$(jq -r '.allow' <<<"$epoch_decision")" != 'true' ]; then
+              reason=$(jq -r '.reason' <<<"$epoch_decision")
+              echo "::notice::lifecycle epoch routed to a new PR because PR #$open_pr is bounded ($reason); observed events are preserved."
+              open_pr=''
+              open_branch=''
+              open_created_at=''
+              branch="${base_branch}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+              frozen_epoch='true'
+            else
+              branch="$open_branch"
+              ledger_branch="$open_branch"
+            fi
+          fi
+
+          source_orphan_branch=$(bounded_remote git ls-remote --heads origin "refs/heads/${base_branch}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" | sed -n '1{s#.*refs/heads/##;p}')
+          if [ -z "$open_pr" ] && [ "$frozen_epoch" != 'true' ] && [ -z "$source_orphan_branch" ]; then
             base_branch_ref=$(bounded_remote git ls-remote --heads origin "refs/heads/$base_branch")
           fi
           merged_dir="$RUNNER_TEMP/loop-fleet-lifecycle-merged"
           rm -rf "$merged_dir"
           mkdir -p "$merged_dir"
 
-          if [ -n "$open_pr" ]; then
-            bounded_remote git fetch origin "$base_branch"
-            if git cat-file -e "origin/$base_branch:data/loop-fleet/ledger/lifecycle-events.jsonl" 2>/dev/null; then
-              git show "origin/$base_branch:data/loop-fleet/ledger/lifecycle-events.jsonl" > "$merged_dir/lifecycle-events.jsonl"
+          if [ "$frozen_epoch" = 'true' ] && [ -n "$source_orphan_branch" ]; then
+            ledger_branch="$source_orphan_branch"
+            branch="$source_orphan_branch"
+            orphan_recovery='true'
+          elif [ -z "$open_pr" ] && [ "$frozen_epoch" != 'true' ] && [ -n "$source_orphan_branch" ]; then
+            ledger_branch="$source_orphan_branch"
+            branch="$source_orphan_branch"
+            orphan_recovery='true'
+          elif [ -z "$open_pr" ] && [ "$frozen_epoch" != 'true' ] && [ -n "$base_branch_ref" ]; then
+            branch="${base_branch}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+            ledger_branch="$base_branch"
+            orphan_recovery='true'
+          fi
+          if [ -n "$ledger_branch" ]; then
+            bounded_remote git fetch origin "$ledger_branch"
+            if git cat-file -e "origin/$ledger_branch:data/loop-fleet/ledger/lifecycle-events.jsonl" 2>/dev/null; then
+              git show "origin/$ledger_branch:data/loop-fleet/ledger/lifecycle-events.jsonl" > "$merged_dir/lifecycle-events.jsonl"
             fi
-          elif [ -n "$base_branch_ref" ]; then
-            branch="${base_branch}-lifecycle-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
           fi
 
           node scripts/ci/append-loop-fleet-lifecycle.mjs \
@@ -159,8 +220,8 @@ jobs:
             --ledger-dir "$merged_dir" \
             --registry data/loop-fleet/loop-registry.json
 
-          if [ -n "$open_pr" ]; then
-            git checkout -b "$branch" "origin/$base_branch"
+          if [ -n "$ledger_branch" ]; then
+            git checkout -b "$branch" "origin/$ledger_branch"
           else
             git checkout -b "$branch"
           fi
@@ -168,13 +229,19 @@ jobs:
           cp "$merged_dir/lifecycle-events.jsonl" data/loop-fleet/ledger/lifecycle-events.jsonl
 
           if git diff --quiet -- data/loop-fleet/ledger/lifecycle-events.jsonl \
-              && [ -z "$(git ls-files --others --exclude-standard data/loop-fleet/ledger/lifecycle-events.jsonl)" ]; then
+              && [ -z "$(git ls-files --others --exclude-standard data/loop-fleet/ledger/lifecycle-events.jsonl)" ] \
+              && [ "$orphan_recovery" != 'true' ]; then
             echo 'Observed lifecycle events are already present on the reviewed branch.'
             exit 0
           fi
 
-          git add data/loop-fleet/ledger/lifecycle-events.jsonl
-          git commit -m 'chore(loop-fleet): persist observed lifecycle evidence'
+          if ! git diff --quiet -- data/loop-fleet/ledger/lifecycle-events.jsonl \
+              || [ -n "$(git ls-files --others --exclude-standard data/loop-fleet/ledger/lifecycle-events.jsonl)" ]; then
+            git add data/loop-fleet/ledger/lifecycle-events.jsonl
+            git commit -m 'chore(loop-fleet): persist observed lifecycle evidence'
+          else
+            echo 'Recovering an orphan lifecycle-ledger branch that already contains these observed events.'
+          fi
           basic_auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 | tr -d '\n')
           GIT_CONFIG_COUNT=1 \
           GIT_CONFIG_KEY_0='http.https://github.com/.extraheader' \
@@ -184,7 +251,7 @@ jobs:
 
           body="$RUNNER_TEMP/loop-fleet-lifecycle-pr-body.md"
           cat > "$body" <<EOF
-          Auto-generated from an independent GitHub PR/Actions lifecycle observation run [${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}).
+          Auto-generated from an independent GitHub PR/Actions lifecycle observation run [${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}). This lifecycle batch uses a dedicated branch namespace.
 
           ## Implementato
           - In questa PR persiste gli eventi downstream verificati indipendentemente: PR aperta, test conclusi, review `## LGTM`, merge e verifica post-merge sullo SHA del merge.

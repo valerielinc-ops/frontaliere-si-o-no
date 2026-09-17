@@ -63,6 +63,7 @@ jobs:
             /data/loop-fleet/loop-registry.json
             /data/loop-fleet/ledger/
             /scripts/ci/merge-loop-fleet-ledger.mjs
+            /scripts/ci/loop-fleet-epoch-policy.mjs
             /scripts/lib/canonical-json-digest.mjs
             /scripts/ci/mint-app-token.mjs
             /scripts/ci/pr-body-check-gate.mjs
@@ -228,32 +229,68 @@ jobs:
           open_pr_record=$(bounded_remote gh pr list \
             --repo "$GITHUB_REPOSITORY" \
             --state open \
-            --json number,headRefName,baseRefName \
-            --jq 'map(select(.baseRefName == "main" and (.headRefName == "chore/loop-fleet-ledger" or (.headRefName | startswith("chore/loop-fleet-ledger-"))))) | sort_by(.number) | if length == 0 then "" else .[-1] | [(.number | tostring), .headRefName] | @tsv end')
+            --json number,headRefName,baseRefName,createdAt \
+            --jq 'map(select(.baseRefName == "main" and (.headRefName == "chore/loop-fleet-ledger" or (.headRefName | test("^chore/loop-fleet-ledger-L([0-9]|1[01])-[0-9]+-[0-9]+$"))))) | sort_by(.number) | if length == 0 then "" else .[-1] | [(.number | tostring), .headRefName, .createdAt] | @tsv end')
           open_pr=''
           open_branch=''
+          open_created_at=''
           if [ -n "$open_pr_record" ]; then
-            IFS=$'\t' read -r open_pr open_branch <<<"$open_pr_record"
-          fi
-          source_orphan_branch=''
-          base_branch_ref=''
-          if [ -z "$open_pr" ]; then
-            source_orphan_branch=$(bounded_remote git ls-remote --heads origin "refs/heads/${base_branch}-${SOURCE_LOOP}-${SOURCE_RUN_ID}-*" | sed -n '1{s#.*refs/heads/##;p}')
-            if [ -z "$source_orphan_branch" ]; then
-              base_branch_ref=$(bounded_remote git ls-remote --heads origin "refs/heads/$base_branch")
-            fi
+            IFS=$'\t' read -r open_pr open_branch open_created_at <<<"$open_pr_record"
           fi
           branch="$base_branch"
           ledger_branch=''
           orphan_recovery='false'
+          frozen_epoch='false'
+
+          # An epoch cap is a routing decision, not a discard decision. Keep
+          # the source batch durable by opening a bridge-only suffixed PR from
+          # origin/main; never append it to a frozen PR and never share the
+          # lifecycle observer's branch namespace.
           if [ -n "$open_pr" ]; then
-            branch="$open_branch"
-            ledger_branch="$open_branch"
-          elif [ -n "$source_orphan_branch" ]; then
+            bounded_remote git fetch origin "$open_branch"
+            epoch_batch_count=$(git log "origin/$open_branch" --format='%s' --not origin/main \
+              | awk '/^chore\(loop-fleet\): persist / { count += 1 } END { print count + 0 }')
+            epoch_age_minutes=''
+            if [ -n "$open_created_at" ]; then
+              created_epoch=$(date -d "$open_created_at" +%s 2>/dev/null || true)
+              now_epoch=$(date +%s)
+              if [ -n "$created_epoch" ] && [ "$now_epoch" -ge "$created_epoch" ]; then
+                epoch_age_minutes=$(( (now_epoch - created_epoch) / 60 ))
+              fi
+            fi
+            epoch_decision=$(node scripts/ci/loop-fleet-epoch-policy.mjs \
+              --open-pr true \
+              --batch-count "$epoch_batch_count" \
+              --age-minutes "$epoch_age_minutes")
+            if [ "$(jq -r '.allow' <<<"$epoch_decision")" != 'true' ]; then
+              reason=$(jq -r '.reason' <<<"$epoch_decision")
+              echo "::notice::ledger epoch routed to a new batch PR because PR #$open_pr is bounded ($reason); source run $SOURCE_RUN_ID is preserved."
+              open_pr=''
+              open_branch=''
+              open_created_at=''
+              branch="${base_branch}-${SOURCE_LOOP}-${SOURCE_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+              frozen_epoch='true'
+            else
+              branch="$open_branch"
+              ledger_branch="$open_branch"
+            fi
+          fi
+
+          source_orphan_branch=''
+          base_branch_ref=''
+          source_orphan_branch=$(bounded_remote git ls-remote --heads origin "refs/heads/${base_branch}-${SOURCE_LOOP}-${SOURCE_RUN_ID}-*" | sed -n '1{s#.*refs/heads/##;p}')
+          if [ -z "$open_pr" ] && [ "$frozen_epoch" != 'true' ] && [ -z "$source_orphan_branch" ]; then
+            base_branch_ref=$(bounded_remote git ls-remote --heads origin "refs/heads/$base_branch")
+          fi
+          if [ "$frozen_epoch" = 'true' ] && [ -n "$source_orphan_branch" ]; then
             ledger_branch="$source_orphan_branch"
             branch="$source_orphan_branch"
             orphan_recovery='true'
-          elif [ -n "$base_branch_ref" ]; then
+          elif [ -z "$open_pr" ] && [ "$frozen_epoch" != 'true' ] && [ -n "$source_orphan_branch" ]; then
+            ledger_branch="$source_orphan_branch"
+            branch="$source_orphan_branch"
+            orphan_recovery='true'
+          elif [ -z "$open_pr" ] && [ "$frozen_epoch" != 'true' ] && [ -n "$base_branch_ref" ]; then
             ledger_branch="$base_branch"
             branch="${base_branch}-${SOURCE_LOOP}-${SOURCE_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
             orphan_recovery='true'
@@ -311,7 +348,7 @@ jobs:
           body="$RUNNER_TEMP/loop-fleet-ledger-pr-body.md"
           cat > "$body" <<EOF
           Auto-generated ledger PR. Latest immutable batch: [${SOURCE_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}) for ${SOURCE_LOOP}.
-          This PR can accumulate multiple validated batches while it is open; earlier batches remain preserved in the durable ledger diff.
+          This PR contains one bounded source batch; bridge-only suffixed PRs are used when an older epoch reaches its liveness cap.
 
           ## Implementato
           - Appended the validated observation, decision, health and lifecycle records for the latest ${SOURCE_LOOP} batch to the durable JSONL ledger; duplicate record IDs are idempotent and conflicting duplicates fail closed.

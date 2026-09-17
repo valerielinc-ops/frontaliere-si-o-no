@@ -2,8 +2,14 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
-// @ts-expect-error — the status roll-up is a dependency-free ESM CI script.
-import { buildStatusRows, collectStatus, summarizeLifecycleEvents } from '../scripts/ci/loop-fleet-status.mjs';
+import {
+  buildStatusRows,
+  collectStatus,
+  renderMarkdown,
+  summarizeLifecycleDetails,
+  summarizeLifecycleEvents,
+  summarizeStatusTable,
+} from '../scripts/ci/loop-fleet-status.mjs';
 
 const registry = JSON.parse(fs.readFileSync(path.resolve('data/loop-fleet/loop-registry.json'), 'utf8'));
 
@@ -358,6 +364,169 @@ describe('loop fleet status', () => {
     });
   });
 
+  it('rende completa la riga live con lifecycle, identità, freshness e prossima azione automatica', () => {
+    const now = new Date('2026-09-12T15:00:00.000Z');
+    const policy = registry.loops.find((row: any) => row.loopId === 'L0');
+    const lifecycle = policy.lifecycle;
+    const owner = policy.owner;
+    const sourceRefs = policy.sourceRefs;
+    const candidate = (candidateId: string, eventType: string, occurredAt: string, index: number, artifactOrPr: string | null = null) => ({
+      recordType: 'lifecycle-event',
+      schemaVersion: 1,
+      recordId: `lifecycle-${index}`,
+      eventType,
+      loopId: 'L0',
+      candidateId,
+      owner,
+      sourceRecordId: `decision-${candidateId}`,
+      sourceRefs,
+      lifecycle,
+      occurredAt,
+      artifactOrPr,
+    });
+    const events = [
+      candidate('candidate-complete', 'candidate', '2026-09-12T12:00:00.000Z', 1),
+      candidate('candidate-complete', 'owner_assigned', '2026-09-12T12:00:01.000Z', 2),
+      candidate('candidate-complete', 'pr_opened', '2026-09-12T12:00:02.000Z', 3, 'https://example.test/pull/42'),
+      candidate('candidate-complete', 'tests_passed', '2026-09-12T12:00:03.000Z', 4, 'artifact://tests/42'),
+      candidate('candidate-complete', 'review_approved', '2026-09-12T12:00:04.000Z', 5, 'https://example.test/pull/42'),
+      candidate('candidate-complete', 'merged', '2026-09-12T12:00:05.000Z', 6, 'https://example.test/pull/42'),
+      candidate('candidate-complete', 'post_merge_verified', '2026-09-12T12:00:06.000Z', 7, 'artifact://post-merge/42'),
+      candidate('candidate-pending', 'candidate', '2026-09-12T12:00:00.000Z', 8),
+      candidate('candidate-pending', 'owner_assigned', '2026-09-12T12:00:01.000Z', 9),
+    ];
+    const health = {
+      recordType: 'health',
+      recordId: 'health-42',
+      recordedAt: '2026-09-12T12:01:00.000Z',
+      execution: { runId: '42', sha: 'a'.repeat(40), recordedAt: '2026-09-12T12:01:00.000Z' },
+      issueCount: 0,
+      warningCount: 0,
+      durationSeconds: 1.5,
+      retryCount: 0,
+      quotaUnits: 1,
+      collisions: 0,
+      gateBypass: false,
+      operationalMetricsComplete: true,
+    };
+    const evidence = {
+      loopId: 'L0',
+      recordedAt: '2026-09-12T12:01:00.000Z',
+      quality: 'observed',
+      evidenceComplete: true,
+      lifecycleCompliant: true,
+      policyCompliant: true,
+      outcomePolicyCompliant: true,
+      decision: 'observing',
+      actionClass: 'observe',
+      requiredAutonomy: 'A0',
+      run: { runId: '42', sha: 'a'.repeat(40), recordedAt: '2026-09-12T12:01:00.000Z' },
+      health,
+      outcome: {
+        outcomeId: 'fresh-complete-published-data',
+        status: 'observed',
+        independent: true,
+        sourceRefs: ['manifest-api-corpus'],
+        primaryMetric: 'fresh_complete_manifest_rate',
+        numerator: 1,
+        denominator: 1,
+        requiredFieldsPresent: ['generatedAt', 'numerator', 'denominator'],
+        missingFields: [],
+        reason: 'complete test outcome',
+      },
+    };
+    const rows = buildStatusRows(
+      registry,
+      { L0: run(42) },
+      {
+        L0: {
+          evidence,
+          canonicalHealth: health,
+          lifecycleEvents: summarizeLifecycleDetails(events, now),
+          error: null,
+        },
+      },
+      { now },
+    );
+    const l0 = rows.find((row: any) => row.loopId === 'L0');
+    expect(l0).toMatchObject({
+      rollbackOwner: policy.lifecycle.rollbackOwner,
+      deadlineAt: '2026-09-12T14:00:00.000Z',
+      lifecycleCounts: {
+        eventCount: 9,
+        candidateCount: 2,
+        completeCount: 1,
+        incompleteCount: 1,
+        pendingCount: 1,
+        byEvent: {
+          candidate: 2,
+          owner_assigned: 2,
+          pr_opened: 1,
+          tests_passed: 1,
+          review_approved: 1,
+          merged: 1,
+          post_merge_verified: 1,
+        },
+      },
+      ids: {
+        runId: 42,
+        evidenceRunId: '42',
+        healthRecordId: 'health-42',
+        candidateIds: ['candidate-complete', 'candidate-pending'],
+        lifecycleRecordIds: ['lifecycle-1', 'lifecycle-2', 'lifecycle-3', 'lifecycle-4', 'lifecycle-5', 'lifecycle-6', 'lifecycle-7', 'lifecycle-8', 'lifecycle-9'],
+        lastLifecycleEventId: 'lifecycle-7',
+      },
+      freshness: {
+        status: 'available',
+        asOf: '2026-09-12T12:01:00.000Z',
+        source: 'runUpdatedAt',
+        ageSeconds: 10740,
+      },
+      tableComplete: true,
+      nextAutomaticAction: 'defer the candidate, enforce its lifecycle SLA and record trusted terminal evidence',
+    });
+    expect(l0).not.toHaveProperty('nextHumanAction');
+
+    const markdown = renderMarkdown([l0]);
+    expect(markdown).toContain('Rollback owner');
+    expect(markdown).toContain('Lifecycle counts');
+    expect(markdown).toContain('Lifecycle IDs');
+    expect(markdown).toContain('Freshness');
+    expect(markdown).toContain('candidate-complete');
+    expect(markdown).toContain('health-42');
+    expect(markdown).toContain('complete');
+    expect(summarizeStatusTable([l0])).toMatchObject({
+      expectedRowCount: 1,
+      rowCount: 1,
+      complete: true,
+      missingRows: [],
+    });
+  });
+
+  it('mantiene fail-closed la riga quando una timestamp di freshness è invalida', () => {
+    const now = new Date('2026-09-12T15:00:00.000Z');
+    const rows = buildStatusRows(
+      registry,
+      { L0: run(43) },
+      {
+        L0: {
+          evidence: { recordedAt: 'not-a-timestamp' },
+          lifecycleEvents: summarizeLifecycleDetails([], now),
+          error: null,
+        },
+      },
+      { now },
+    );
+    expect(rows.find((row: any) => row.loopId === 'L0')).toMatchObject({
+      freshness: {
+        status: 'unmeasurable',
+        invalidSources: ['evidenceRecordedAt'],
+      },
+      tableComplete: false,
+      tableCompleteness: { missing: ['freshness'] },
+    });
+  });
+
   it('marks pre-lifecycle evidence incomplete during migration', () => {
     const rows = buildStatusRows(
       registry,
@@ -550,5 +719,18 @@ describe('loop fleet status', () => {
         postMergeVerificationHours: policy.lifecycle.postMergeVerificationHours,
       });
     }
+  });
+
+  it('usa il workflow dichiarato dal binding registry per ogni run status', () => {
+    const seenWorkflows: string[] = [];
+    const rows = collectStatus({
+      ghRun: (workflow: string) => {
+        seenWorkflows.push(workflow);
+        return { run: null, error: 'fixture: no completed run' };
+      },
+      download: () => ({ evidence: null, error: 'not called' }),
+    });
+    expect(rows).toHaveLength(registry.loops.length);
+    expect(seenWorkflows).toEqual(registry.loops.map((policy: any) => policy.binding.workflow));
   });
 });
