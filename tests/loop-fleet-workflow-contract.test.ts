@@ -225,6 +225,14 @@ describe('loop fleet workflow contract', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
     expect(source).toContain('remote_timeout_seconds=90');
     expect(source).toContain('timeout --signal=TERM --kill-after=10s');
+    expect(source).toContain('persist-credentials: false');
+    expect(source).toContain('local operation="${1:-remote-command}"');
+    expect(source).toContain("remote operation '${operation}' failed or exceeded");
+    expect(source).not.toContain('): $*');
+    expect(source).not.toContain('push_url=');
+    expect(source).toContain("GIT_CONFIG_KEY_0='http.https://github.com/.extraheader'");
+    expect(source).toContain('GIT_CONFIG_VALUE_0="AUTHORIZATION: bearer ${GH_TOKEN}"');
+    expect(source).toContain('bounded_remote git push --set-upstream origin "$branch"');
     expect(source).toContain('export GIT_TERMINAL_PROMPT=0');
     expect(source).toContain('export GH_PAGER=cat');
     for (const command of [
@@ -232,7 +240,6 @@ describe('loop fleet workflow contract', () => {
       'bounded_remote gh pr list',
       'bounded_remote git ls-remote --heads origin',
       'bounded_remote git fetch origin "$ledger_branch"',
-      'bounded_remote git -c http.https://github.com/.extraheader= push',
       'bounded_remote gh pr edit',
       'bounded_remote gh pr create',
     ]) {
@@ -244,6 +251,14 @@ describe('loop fleet workflow contract', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-lifecycle-observer.yml'), 'utf8');
     expect(source).toContain('remote_timeout_seconds=90');
     expect(source).toContain('timeout --signal=TERM --kill-after=10s');
+    expect(source).toContain('persist-credentials: false');
+    expect(source).toContain('local operation="${1:-remote-command}"');
+    expect(source).toContain("remote operation '${operation}' failed or exceeded");
+    expect(source).not.toContain('): $*');
+    expect(source).not.toContain('push_url=');
+    expect(source).toContain("GIT_CONFIG_KEY_0='http.https://github.com/.extraheader'");
+    expect(source).toContain('GIT_CONFIG_VALUE_0="AUTHORIZATION: bearer ${GH_TOKEN}"');
+    expect(source).toContain('bounded_remote git push --set-upstream origin "$branch"');
     expect(source).toContain('export GIT_TERMINAL_PROMPT=0');
     expect(source).toContain('export GH_PAGER=cat');
     expect(source).toContain('if [ -z "$open_pr" ]; then\n            base_branch_ref=$(bounded_remote git ls-remote --heads origin');
@@ -252,7 +267,6 @@ describe('loop fleet workflow contract', () => {
       'bounded_remote gh pr list',
       'bounded_remote git ls-remote --heads origin',
       'bounded_remote git fetch origin "$base_branch"',
-      'bounded_remote git -c http.https://github.com/.extraheader= push',
       'bounded_remote gh pr edit',
       'bounded_remote gh pr create',
     ]) {
