@@ -8,7 +8,8 @@
  *
  * This script:
  *   1. Fetches the full job listing from the static Solique data.json.
- *   2. Filters for Swiss positions, preferring Italian language.
+ *   2. Filters for source-backed Swiss positions across all 26 cantons,
+ *      preferring the Italian language variant.
  *   3. Deduplicates by job ID (same job appears in de/fr/it).
  *   4. Merges discovered jobs into data/jobs.json.
  *   5. Updates the adapter config with discovered seed URLs.
@@ -47,8 +48,8 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseYoustyApprenticeshipHtml } from './lib/yousty-job-parser.mjs';
-import { getCompanyDefaults, SWISS_CANTONS } from './lib/crawler-location-config.mjs';
-import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { SWISS_CANTONS } from './lib/crawler-location-config.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -66,7 +67,6 @@ const GALENICA_KEY = 'galenica';
 // cross-process-racy write pattern behind #3769/#3770. Scope it per-company.
 const DATA_JOBS = crawlerScratchPathFor(GALENICA_KEY);
 const PUBLIC_DATA_JOBS = `${DATA_JOBS}.public.json`;
-const DEFAULT_CANTON = getCompanyDefaults(GALENICA_KEY)?.canton || 'TI';
 const GALENICA_COMPANY_NAME = 'Galenica AG';
 const GALENICA_HOST = 'jobs.galenica.com';
 const GALENICA_DATA_URL =
@@ -140,18 +140,31 @@ function buildJobUrl(job) {
 }
 
 /**
- * Determine whether a Solique data.json item is a Swiss position.
- * A populated but non-Swiss `contact.state` must not be overridden by a
- * city-name alias match (e.g. a foreign city that happens to alias a Swiss
- * canton) — the city-alias fallback only applies when the state is
- * unknown/blank. Sibling fix of the UBS resolveSwissLocation guard,
- * issue #3055 item 3 (item 2 is the UBS counterpart).
+ * Resolve a Solique contact to a Swiss canton without inventing a fixed
+ * employer canton. `contact.state` is authoritative when present, while
+ * `inferAnyCanton` resolves the city for blank/localized state values. The
+ * canton name is included in the `isTargetSwissLocation` signal because the
+ * source uses localities such as "Blonay" and "Wabern" that are not all
+ * represented as standalone municipality aliases in the current BFS file.
  */
+const SWISS_COUNTRY_VALUES = new Set(['CH', 'CHE', 'SWITZERLAND', 'SCHWEIZ', 'SUISSE', 'SVIZZERA']);
+
+function resolveGalenicaCanton(contact = {}) {
+  const city = String(contact.city || '').trim();
+  const rawState = String(contact.state || '').trim();
+  const stateCanton = inferAnyCanton(rawState);
+  const country = String(contact.country || contact.countryCode || '').trim().toUpperCase();
+
+  if (!city || (rawState && !stateCanton) || (country && !SWISS_COUNTRY_VALUES.has(country))) return '';
+
+  const canton = inferAnyCanton(city) || stateCanton;
+  const cantonNames = SWISS_CANTONS[canton]?.names || [];
+  const locationSignal = [city, ...cantonNames].filter(Boolean).join(' ');
+  return canton && isTargetSwissLocation(locationSignal) ? canton : '';
+}
+
 export function isSwissGalenicaItem(item) {
-  const state = String(item?.contact?.state || '').toUpperCase().trim();
-  if (SWISS_CANTONS[state]) return true;
-  if (state) return false;
-  return Boolean(inferAnyCanton(item?.contact?.city || ''));
+  return Boolean(resolveGalenicaCanton(item?.contact || {}));
 }
 
 /* ── Fetch & parse ─────────────────────────────────────────── */
@@ -232,13 +245,13 @@ async function fetchGalenicaJobs() {
 
   console.log(`📋 Solique data.json returned ${allItems.length} total listings.`);
 
- // Filter for Swiss jobs across all cantons.
- const swissItems = allItems.filter(isSwissGalenicaItem);
- console.log(`📋 Swiss listings: ${swissItems.length} (across all languages).`);
+  // Filter for source-backed Swiss jobs across all 26 cantons.
+  const swissItems = allItems.filter(isSwissGalenicaItem);
+  console.log(`📋 Swiss listings: ${swissItems.length} (across all languages).`);
 
   // Group by job ID to deduplicate multi-language entries
   const byId = new Map();
- for (const item of swissItems) {
+  for (const item of swissItems) {
     const id = String(item.id || '');
     if (!id) continue;
     if (!byId.has(id)) byId.set(id, []);
@@ -267,10 +280,12 @@ async function fetchGalenicaJobs() {
     }
 
     const firm = contact.firm || GALENICA_COMPANY_NAME;
-    const city = contact.city || '';
- const canton = SWISS_CANTONS[String(contact.state || '').toUpperCase()]
-  ? String(contact.state).toUpperCase()
-  : inferAnyCanton(city) || DEFAULT_CANTON;
+    const city = String(contact.city || '').trim();
+    const canton = resolveGalenicaCanton(contact);
+    if (!city || !canton) {
+      console.log(`⚠️  Skipping job ID ${id}: source location did not resolve to a Swiss canton`);
+      continue;
+    }
     const jobUrl = buildJobUrl(preferred);
 
     const category = detectCategory(title);
@@ -311,9 +326,14 @@ async function fetchGalenicaJobs() {
       company: `${firm} (Galenica)`,
       companyKey: GALENICA_KEY,
       url: jobUrl,
- location: city || 'Svizzera',
+      location: city,
       canton,
       country: 'CH',
+      addressLocality: city,
+      addressRegion: canton,
+      addressCountry: 'CH',
+      postalCode: String(contact.zip || contact.postalCode || '').trim(),
+      streetAddress: String(contact.street || '').trim(),
       category,
       description: descEn,
       descriptionIt: descIt,
@@ -430,7 +450,7 @@ function updateAdapterConfig(seedUrls) {
     seedUrls,
     seedMetaByUrl,
     notes:
-      'Solique data.json crawler — static JSON endpoint. Galenica AG healthcare group: Sun Store, Amavita, Coop Vitality, UFD subsidiaries across Switzerland.',
+      'Solique data.json crawler — static national endpoint. Galenica AG healthcare group: Sun Store, Amavita, Coop Vitality and UFD subsidiaries across all 26 Swiss cantons. Each item keeps its source city, postal code and canton; foreign or unresolved locations are dropped.',
     updatedAt: new Date().toISOString(),
   };
 

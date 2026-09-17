@@ -41,4 +41,13 @@ describe('isSwissGalenicaItem (issue #3055 item 3)', () => {
     const item = { contact: { state: '', city: 'Berlin' } };
     expect(isSwissGalenicaItem(item)).toBe(false);
   });
+
+  it('accepts Swiss localities resolved through the source canton', () => {
+    expect(isSwissGalenicaItem({ contact: { state: 'VD', city: 'Blonay' } })).toBe(true);
+    expect(isSwissGalenicaItem({ contact: { state: 'BE', city: 'Wabern' } })).toBe(true);
+  });
+
+  it('rejects an explicit foreign country even when the city aliases Switzerland', () => {
+    expect(isSwissGalenicaItem({ contact: { country: 'IT', state: '', city: 'Lugano' } })).toBe(false);
+  });
 });
