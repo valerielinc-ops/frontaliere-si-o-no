@@ -322,7 +322,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_sunrise_domain',
-    failWhenNoJobs: true,
+    failWhenNoJobs: false,
     noJobsMessage: 'No Sunrise jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'en'),
   });

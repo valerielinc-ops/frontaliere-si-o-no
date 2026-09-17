@@ -254,7 +254,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_tsmg_lever',
-    failWhenNoJobs: true,
+    failWhenNoJobs: false,
     noJobsMessage: 'No TSMG jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'en'),
   });

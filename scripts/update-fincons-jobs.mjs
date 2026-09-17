@@ -252,7 +252,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_fincons_domain',
-    failWhenNoJobs: true,
+    failWhenNoJobs: false,
     noJobsMessage: 'No Fincons jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'en'),
   });

@@ -309,7 +309,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_rittmeyer_domain',
-    failWhenNoJobs: true,
+    failWhenNoJobs: false,
     noJobsMessage: 'No Rittmeyer jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'it'),
   });

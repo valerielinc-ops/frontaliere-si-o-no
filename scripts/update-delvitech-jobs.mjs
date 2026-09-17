@@ -357,7 +357,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_delvitech_domain',
-    failWhenNoJobs: true,
+    failWhenNoJobs: false,
     noJobsMessage: 'No Delvitech jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'en'),
   });

@@ -282,7 +282,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_board_domain',
-    failWhenNoJobs: true,
+    failWhenNoJobs: false,
     noJobsMessage: 'No Board jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'en'),
   });

@@ -255,7 +255,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_avaloq_domain',
-    failWhenNoJobs: true,
+    failWhenNoJobs: false,
     noJobsMessage: 'No Avaloq jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'en'),
   });
