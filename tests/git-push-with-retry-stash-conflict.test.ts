@@ -21,14 +21,16 @@ describe('git-push-with-retry.sh --stash-dirty', () => {
   it('never restores the stash while a conflicting rebase is still active', () => {
     const source = readFileSync(SCRIPT_PATH, 'utf8');
     const conflictStart = source.indexOf('  if ! git rebase "origin/${BRANCH}"; then');
-    const conflictEnd = source.indexOf('  elif [ "$stashed" = "1" ]; then', conflictStart);
+    const conflictEnd = source.indexOf('\n  elif [ "$stashed" = "1" ]; then', conflictStart);
     expect(conflictStart).toBeGreaterThanOrEqual(0);
     expect(conflictEnd).toBeGreaterThan(conflictStart);
 
     const conflictBlock = source.slice(conflictStart, conflictEnd);
     expect(conflictBlock).not.toContain('git stash pop');
 
-    const noResolverStart = conflictBlock.indexOf('    else\n      echo "::error::Rebase conflict and no resolver provided"');
+    const noResolverStart = conflictBlock.indexOf(
+      '\n    else\n      echo "::error::Rebase conflict and no resolver provided"',
+    );
     expect(noResolverStart).toBeGreaterThanOrEqual(0);
     const noResolverBlock = conflictBlock.slice(noResolverStart);
     const abortIndex = noResolverBlock.indexOf('git rebase --abort');
