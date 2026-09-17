@@ -2,6 +2,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 
 const HQ = getCompanyDefaults('delvitech');
@@ -55,6 +56,7 @@ export function parseDelvitechCareerPage(html = '') {
   const dom = new JSDOM(html);
   const document = dom.window.document;
   const cards = [...document.querySelectorAll('.post-content a.fusion-column-anchor[href*="legacy.delvi.tech/"]')];
+  const listingContainer = document.querySelector('.post-content');
   const seen = new Set();
   const jobs = [];
   let skippedMalformedRows = 0;
@@ -75,11 +77,13 @@ export function parseDelvitechCareerPage(html = '') {
   }
 
   Object.defineProperties(jobs, {
-    delvitechListingMarkupSeen: { value: Boolean(document.querySelector('.post-content')), enumerable: false },
+    delvitechListingMarkupSeen: { value: Boolean(listingContainer), enumerable: false },
     delvitechListingRecordCount: { value: cards.length, enumerable: false },
     delvitechListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
     delvitechListingEmptyStateObserved: {
-      value: hasExplicitEmptyJobListing(document.body?.textContent || ''),
+      value: hasExplicitEmptyJobListing(listingContainer?.textContent || '', {
+        scopedToListing: Boolean(listingContainer),
+      }),
       enumerable: false,
     },
   });
@@ -150,6 +154,7 @@ export function isDelvitechTicinoJob(detail = {}) {
   const location = normalizeSpace(detail.location || '');
   const description = normalizeSpace(detail.description || '');
   const combined = `${title} ${location} ${description}`;
+  if (isLocationExplicitlyForeign(combined)) return false;
   if (/germany/i.test(combined)) return false;
   return isTargetSwissLocation(combined) || /switzerland/i.test(combined);
 }

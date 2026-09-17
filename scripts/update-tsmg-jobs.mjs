@@ -29,6 +29,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
   appendSlugDisambiguator,
+  isLocationExplicitlyForeign,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   isTsmgTargetLocation,
@@ -130,7 +131,10 @@ function assertCompleteTsmgSourceSnapshot(payload) {
     }
     const normalizedCountry = normalizeTsmgCountry(country);
     const normalizedLocation = location.trim();
-    if (normalizedCountry === 'CH' && !inferAnyCanton(normalizedLocation)) {
+    if (normalizedCountry === 'CH' && (
+      isLocationExplicitlyForeign(normalizedLocation)
+      || !inferAnyCanton(normalizedLocation)
+    )) {
       throw new Error(
         `TSMG Lever returned a degraded snapshot at posting ${index + 1}: `
         + `categories.location "${normalizedLocation}" is not a recognised Swiss location`,

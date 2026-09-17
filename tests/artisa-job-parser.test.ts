@@ -240,6 +240,21 @@ describe('assertCompleteArtisaSnapshot', () => {
     expect(assertCompleteArtisaTargetSnapshot(rows)).toBe(true);
   });
 
+  it('does not treat a Swiss municipality plus an explicit foreign country as Swiss', () => {
+    const rows = parseArtisaCareerPage(`
+      <div>
+        <h2>Carriera</h2>
+        <h2>Architect role</h2>
+        <h4>Lugano, Italy</h4>
+        <a href="https://app.smartsheet.com/b/form/019c46ebd5137236a9d1b0d500840bf4">Scopri di piu</a>
+        <h2>Le nostre sedi</h2>
+      </div>
+    `);
+
+    expect(rows).toHaveLength(0);
+    expect(assertCompleteArtisaTargetSnapshot(rows)).toBe(true);
+  });
+
   // Issue #7425 item 3. The two failures below are indistinguishable from the
   // crawler's floor error alone, yet demand opposite responses: a re-worded
   // landmark is a parser fix and stays red forever, a real opening is the

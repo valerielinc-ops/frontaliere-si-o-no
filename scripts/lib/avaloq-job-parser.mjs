@@ -180,7 +180,9 @@ export async function fetchAvaloqJobsFromApi(timeoutMs = 20000, locationFilter =
     }
     throw err;
   }
-  const targetDetails = details.filter((detail) => locationFilter(detail.location));
+  const targetDetails = details.filter((detail) => locationFilter(
+    Reflect.get(detail, 'avaloqSourceLocation') || detail.location,
+  ));
   Object.defineProperties(targetDetails, {
     avaloqSourceSnapshot: { value: 'authoritative-api-snapshot', enumerable: false },
     avaloqSourceReadComplete: {
@@ -241,6 +243,11 @@ export function assertCompleteAvaloqSnapshot(details) {
 function buildDetailFromPosting(posting) {
   const loc = posting.location || {};
   const city = normalizeSpace(loc.city || '');
+  const sourceLocation = normalizeSpace(
+    [loc.fullLocation, city, normalizeSpace(loc.region || ''), normalizeCountry(loc.country)]
+      .filter(Boolean)
+      .join(', '),
+  );
   const sections = [];
   const jobDesc = (posting.jobAd?.sections?.jobDescription?.text || '').trim();
   const qualif = (posting.jobAd?.sections?.qualifications?.text || '').trim();
@@ -249,7 +256,7 @@ function buildDetailFromPosting(posting) {
   if (qualif) sections.push(`## Qualifiche\n\n${htmlToMarkdown(qualif)}`);
   if (addInfo) sections.push(`## Informazioni aggiuntive\n\n${htmlToMarkdown(addInfo)}`);
   const description = sections.join('\n\n').trim() || normalizeSpace(posting.name || '');
-  return {
+  const detail = {
     title: normalizeSpace(posting.name || ''),
     description,
     canonicalUrl: `https://www.avaloq.com/careers/job-openings/${posting.id}`,
@@ -259,6 +266,11 @@ function buildDetailFromPosting(posting) {
     workArrangement: posting.typeOfEmployment?.label || '',
     releasedDate: posting.releasedDate || '',
   };
+  Object.defineProperty(detail, 'avaloqSourceLocation', {
+    value: sourceLocation,
+    enumerable: false,
+  });
+  return detail;
 }
 
 export function parseAvaloqJobDetail(html = '', url = '') {
@@ -309,7 +321,8 @@ export function parseAvaloqJobDetail(html = '', url = '') {
 }
 
 export function isAvaloqTargetLocation(raw = '') {
-  return isTargetSwissLocation(raw, { includeGrigioni: true });
+  return !isLocationExplicitlyForeign(raw)
+    && isTargetSwissLocation(raw, { includeGrigioni: true });
 }
 
 export function inferAvaloqCanton(raw = '') {

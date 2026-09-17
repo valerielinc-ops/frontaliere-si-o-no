@@ -1,6 +1,7 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -74,7 +75,8 @@ export function inferSunriseCanton(job = {}) {
  * resolves to one of the 26 Swiss cantons. Drops non-CH / unresolved postings.
  */
 export function isSunriseTargetLocation(job = {}) {
-  return inferSunriseCanton(job) !== '';
+  const signal = sunriseCitySignal(job);
+  return !isLocationExplicitlyForeign(signal) && inferAnyCanton(signal) !== '';
 }
 
 export function parseSunriseSearchPage(html = '') {

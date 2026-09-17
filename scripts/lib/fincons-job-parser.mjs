@@ -70,13 +70,16 @@ export function parseFinconsListingsPage(html = '') {
       return valid;
     });
   const sourceRowCount = sourceRows.length;
-  const emptyStateObserved = hasExplicitEmptyJobListing(document.body?.textContent || '');
+  const listingContainer = document.querySelector('#jobs_table');
+  const emptyStateObserved = hasExplicitEmptyJobListing(listingContainer?.textContent || '', {
+    scopedToListing: Boolean(listingContainer),
+  });
   const sourceReadComplete = Boolean(
-    document.querySelector('#jobs_table')
+    listingContainer
     && (sourceRowCount > 0 ? rows.length === sourceRowCount : emptyStateObserved),
   );
   Object.defineProperties(rows, {
-    finconsListingMarkupSeen: { value: Boolean(document.querySelector('#jobs_table')), enumerable: false },
+    finconsListingMarkupSeen: { value: Boolean(listingContainer), enumerable: false },
     finconsListingSourceRowCount: { value: sourceRowCount, enumerable: false },
     finconsListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
     finconsListingEmptyStateObserved: { value: emptyStateObserved, enumerable: false },

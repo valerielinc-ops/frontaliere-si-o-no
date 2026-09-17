@@ -1,6 +1,6 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
-import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 
 function normalizeSpace(value = '') {
@@ -38,8 +38,8 @@ function isCandidateTitle(value = '') {
 function classifyArtisaLocation(value = '') {
   const location = normalizeSpace(value);
   if (!location) return 'unrecognised';
-  if (inferAnyCanton(location)) return 'swiss';
   if (isLocationExplicitlyForeign(location)) return 'foreign';
+  if (inferAnyCanton(location)) return 'swiss';
   return 'unrecognised';
 }
 
@@ -104,7 +104,7 @@ export function parseArtisaCareerPage(html = '') {
   }
 
   flush();
-  const targetJobs = jobs.filter((job) => isTargetSwissLocation(job.location));
+  const targetJobs = jobs.filter((job) => classifyArtisaLocation(job.location) === 'swiss');
   const landmarksComplete = LANDMARK_TITLES.every((title) => landmarks.has(title));
   const locationClassifications = jobs.map((job) => classifyArtisaLocation(job.location));
   const unrecognisedLocations = locationClassifications

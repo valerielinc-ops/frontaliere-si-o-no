@@ -6159,17 +6159,6 @@ export function isLocationExplicitlyForeign(locationField) {
   const lower = String(locationField || '').toLowerCase();
   if (!lower || lower.length < 3) return false;
   if (/(\bch\b|swiss|svizzera|switzerland|schweiz|suisse)/i.test(lower)) return false;
-  if (/\b(ticino|tessin|ti|graubunden|graubünden|grigioni|grisons|gr)\b/i.test(lower)) return false;
-  // Word-boundary aware target-location check (NOT a substring scan, which let
-  // "Pany" (GR) match inside "company" and wrongly clear a foreign location).
-  // includeBorderProximity:false so an Italian/French border town in the field
-  // (e.g. "Como, Italy") is not mistaken for a Swiss location.
-  if (isTargetSwissLocation(lower, { includeBorderProximity: false })) return false;
-  // Guard against Swiss cities that contain substrings of foreign names
-  // (e.g. Münchenstein contains München, Lausanne contains "usa").
-  // Uses the full BFS dataset (2,110 municipalities + aliases) instead of
-  // a manual list, so every Swiss city is protected.
-  if (isKnownSwissMunicipality(lower)) return false;
   const foreignCountries = [
     'malaysia', 'italy', 'italia', 'france', 'germany', 'deutschland',
     'austria', 'österreich', 'spain', 'españa', 'portugal',
@@ -6182,6 +6171,21 @@ export function isLocationExplicitlyForeign(locationField) {
     'poland', 'czech republic', 'hungary', 'romania', 'greece',
     'russia', 'ukraine', 'turkey', 'bermuda',
   ];
+  const markerText = ` ${lower.replace(/[^\p{L}\p{N}]+/gu, ' ').replace(/\s+/g, ' ').trim()} `;
+  // Check explicit country markers before canton inference so a mixed
+  // string such as "Lugano, Italy" cannot be classified as Swiss.
+  if (foreignCountries.some((k) => markerText.includes(` ${k} `))) return true;
+  if (/\b(ticino|tessin|ti|graubunden|graubünden|grigioni|grisons|gr)\b/i.test(lower)) return false;
+  // Word-boundary aware target-location check (NOT a substring scan, which let
+  // "Pany" (GR) match inside "company" and wrongly clear a foreign location).
+  // includeBorderProximity:false so an Italian/French border town in the field
+  // (e.g. "Como, Italy") is not mistaken for a Swiss location.
+  if (isTargetSwissLocation(lower, { includeBorderProximity: false })) return false;
+  // Guard against Swiss cities that contain substrings of foreign names
+  // (e.g. Münchenstein contains München, Lausanne contains "usa").
+  // Uses the full BFS dataset (2,110 municipalities + aliases) instead of
+  // a manual list, so every Swiss city is protected.
+  if (isKnownSwissMunicipality(lower)) return false;
   const foreignCities = [
     // Italian cities
     'kuala lumpur', 'milano', 'milan', 'roma', 'rome', 'firenze', 'florence',

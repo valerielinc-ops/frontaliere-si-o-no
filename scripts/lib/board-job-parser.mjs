@@ -1,6 +1,7 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
+import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 
 function normalizeSpace(value = '') {
@@ -88,12 +89,20 @@ function extractTextAfterIcon(container, selector) {
   return normalizeSpace(node?.textContent || '');
 }
 
+function findBoardListingContainer(document, { atsItems = [], cards = [] } = {}) {
+  return document.querySelector('ul.list-group, .job-list, #job-list, [data-job-list], .career-list, .jobs-list')
+    || atsItems[0]?.parentElement
+    || cards[0]?.parentElement
+    || null;
+}
+
 export function parseBoardListings(html = '') {
   const document = new JSDOM(html).window.document;
 
   // Primary: ApplyToJob ATS listing structure (li.list-group-item)
   const atsItems = [...document.querySelectorAll('li.list-group-item')];
   if (atsItems.length) {
+    const listingContainer = findBoardListingContainer(document, { atsItems });
     let skippedMalformedRows = 0;
     const rows = atsItems
       .map((li) => {
@@ -114,7 +123,9 @@ export function parseBoardListings(html = '') {
       boardListingMarkupSeen: { value: true, enumerable: false },
       boardListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
       boardListingEmptyStateObserved: {
-        value: hasExplicitEmptyJobListing(document.body?.textContent || ''),
+        value: hasExplicitEmptyJobListing(listingContainer?.textContent || '', {
+          scopedToListing: Boolean(listingContainer),
+        }),
         enumerable: false,
       },
     });
@@ -123,6 +134,7 @@ export function parseBoardListings(html = '') {
 
   // Fallback: board.com card layout (legacy)
   const cards = [...document.querySelectorAll('article.card--career')];
+  const listingContainer = findBoardListingContainer(document, { cards });
   let skippedMalformedRows = 0;
   const rows = cards
     .map((article) => ({
@@ -136,10 +148,12 @@ export function parseBoardListings(html = '') {
       return valid;
     });
   Object.defineProperties(rows, {
-    boardListingMarkupSeen: { value: cards.length > 0, enumerable: false },
+    boardListingMarkupSeen: { value: Boolean(listingContainer), enumerable: false },
     boardListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
     boardListingEmptyStateObserved: {
-      value: hasExplicitEmptyJobListing(document.body?.textContent || ''),
+      value: hasExplicitEmptyJobListing(listingContainer?.textContent || '', {
+        scopedToListing: Boolean(listingContainer),
+      }),
       enumerable: false,
     },
   });
@@ -147,7 +161,9 @@ export function parseBoardListings(html = '') {
 }
 
 export function isBoardTargetLocation(raw = '') {
-  return isTargetSwissLocation(raw, { includeGrigioni: true });
+  const value = normalizeSpace(raw);
+  return !isLocationExplicitlyForeign(value)
+    && isTargetSwissLocation(value, { includeGrigioni: true });
 }
 
 export function inferBoardCanton(raw = '') {

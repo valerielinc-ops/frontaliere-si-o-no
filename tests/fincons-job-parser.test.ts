@@ -64,6 +64,16 @@ describe('fincons-job-parser', () => {
     expect(rows.finconsListingReadComplete).toBe(true);
   });
 
+  it('does not prove an empty snapshot from unrelated body copy without the listing container', () => {
+    const rows = parseFinconsListingsPage(`
+      <main><p>No open positions are currently available.</p></main>
+    `);
+
+    expect(rows).toHaveLength(0);
+    expect(rows.finconsListingEmptyStateObserved).toBe(false);
+    expect(rows.finconsListingReadComplete).toBe(false);
+  });
+
   it('parses detail page and JSON-LD fields', () => {
     const html = `
       <link rel="canonical" href="https://fincons.applytojob.com/apply/RJq7pkxbLu/Angular-Java-Senior-FullStack-Developer" />

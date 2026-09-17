@@ -243,8 +243,8 @@ async function fetchListings() {
 
 function classifyDelvitechSourceLocation(detail = {}) {
   const location = String(detail.location || '').trim();
-  if (inferAnyCanton(location)) return 'swiss';
   if (isLocationExplicitlyForeign(location)) return 'foreign';
+  if (inferAnyCanton(location)) return 'swiss';
   return '';
 }
 

@@ -118,6 +118,7 @@ describe('avaloq-job-parser', () => {
   it('matches Ticino and Grigioni locations', () => {
     expect(isAvaloqTargetLocation('Bioggio')).toBe(true);
     expect(isAvaloqTargetLocation('Chur')).toBe(true);
+    expect(isAvaloqTargetLocation('Lugano, Italy')).toBe(false);
     expect(inferAvaloqCanton('Bioggio')).toBe('TI');
     expect(inferAvaloqCanton('Chur')).toBe('GR');
   });

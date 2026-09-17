@@ -3,6 +3,7 @@ import { JSDOM } from 'jsdom';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { getCantonDisplayName } from './crawler-location-config.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './swiss-locality-sentence-split.mjs';
+import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 
 function compact(text = '') {
@@ -48,7 +49,8 @@ const ALTEN_TITLE_TRANSLATIONS = {
 // rows (e.g. a bare "Switzerland" with no city/region) stay unresolved and
 // are dropped — we never default an unresolved job to a canton.
 export function isAltenSwissLocation(location = '') {
-  return Boolean(inferAnyCanton(compact(location)));
+  const value = compact(location);
+  return !isLocationExplicitlyForeign(value) && Boolean(inferAnyCanton(value));
 }
 
 export function inferAltenCategory(title = '', description = '') {
@@ -62,6 +64,7 @@ export function parseAltenListingHtml(html = '') {
   const dom = new JSDOM(html);
   const document = dom.window.document;
   const cards = Array.from(document.querySelectorAll('.wp-block-webfactory-card .card-inner.offer-item'));
+  const listingContainer = document.querySelector('.wp-block-webfactory-card');
   const rawRows = cards
     .map((card) => {
       const anchor = card.querySelector('a.card-title[href*="/jobs/"]');
@@ -73,11 +76,13 @@ export function parseAltenListingHtml(html = '') {
     });
   const rows = rawRows.filter((item) => item.title && item.href);
   Object.defineProperties(rows, {
-    altenListingMarkupSeen: { value: cards.length > 0, enumerable: false },
+    altenListingMarkupSeen: { value: Boolean(listingContainer), enumerable: false },
     altenListingRecordCount: { value: rawRows.length, enumerable: false },
     altenListingSkippedMalformedRows: { value: rawRows.length - rows.length, enumerable: false },
     altenListingEmptyStateObserved: {
-      value: hasExplicitEmptyJobListing(document.body?.textContent || ''),
+      value: hasExplicitEmptyJobListing(listingContainer?.textContent || '', {
+        scopedToListing: Boolean(listingContainer),
+      }),
       enumerable: false,
     },
   });

@@ -40,6 +40,7 @@ import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { hasAuthoritativeListingPageEvidence } from './lib/job-listing-evidence.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -117,8 +118,7 @@ async function fetchDamianiListings() {
   const discovered = [];
   const seen = new Set();
   let skippedMalformedRowsTotal = 0;
-  let sourceMarkupSeen = false;
-  let emptyStateObserved = false;
+  let terminalPageEvidenceProven = false;
   let terminationProven = false;
   const PAGE_SIZE = 25;
   const MAX_PAGES = 1000;
@@ -133,8 +133,6 @@ async function fetchDamianiListings() {
       searchTableRendered,
       emptyStateObserved: pageEmptyStateObserved,
     } = parseDamianiSearchPage(html);
-    sourceMarkupSeen ||= searchTableRendered === true;
-    emptyStateObserved ||= pageEmptyStateObserved === true;
     skippedMalformedRowsTotal += skippedMalformedRows;
     const diagnostic = classifyMalformedRowDrift(rows.length, skippedMalformedRows);
     if (skippedMalformedRows > 0) {
@@ -151,6 +149,11 @@ async function fetchDamianiListings() {
     }
     if (rows.length === 0) {
       terminationProven = true;
+      terminalPageEvidenceProven = hasAuthoritativeListingPageEvidence({
+        isTerminalPage: true,
+        listingMarkupSeen: searchTableRendered,
+        emptyStateObserved: pageEmptyStateObserved,
+      });
       break;
     }
     for (const row of rows) {
@@ -161,6 +164,11 @@ async function fetchDamianiListings() {
     }
     if (rows.length < PAGE_SIZE) {
       terminationProven = true;
+      terminalPageEvidenceProven = hasAuthoritativeListingPageEvidence({
+        isTerminalPage: true,
+        listingMarkupSeen: searchTableRendered,
+        emptyStateObserved: pageEmptyStateObserved,
+      });
       break;
     }
   }
@@ -169,7 +177,7 @@ async function fetchDamianiListings() {
   const sourceReadComplete = Boolean(
     terminationProven
     && skippedMalformedRowsTotal === 0
-    && (discovered.length > 0 ? sourceMarkupSeen : emptyStateObserved),
+    && terminalPageEvidenceProven,
   );
   console.log(`📋 Total search rows: ${discovered.length}`);
   console.log(`📋 TI/GR-relevant rows: ${relevant.length}`);

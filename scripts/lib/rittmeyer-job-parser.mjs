@@ -1,6 +1,7 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 
 function normalize(value = '') {
@@ -55,12 +56,17 @@ export function parseRittmeyerListingsPage(html = '') {
     }
   }
   const rows = [...byHref.values()];
+  const listingContainer = document.querySelector(
+    'ul.rex-navi2, .job-list, [data-job-list], [class*="job-list"], [class*="stellen"], [class*="career"]',
+  );
   Object.defineProperties(rows, {
-    rittmeyerListingMarkupSeen: { value: rows.length > 0, enumerable: false },
+    rittmeyerListingMarkupSeen: { value: Boolean(listingContainer), enumerable: false },
     rittmeyerListingRecordCount: { value: rows.length, enumerable: false },
     rittmeyerListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
     rittmeyerListingEmptyStateObserved: {
-      value: hasExplicitEmptyJobListing(document.body?.textContent || ''),
+      value: hasExplicitEmptyJobListing(listingContainer?.textContent || '', {
+        scopedToListing: Boolean(listingContainer),
+      }),
       enumerable: false,
     },
   });
@@ -69,7 +75,7 @@ export function parseRittmeyerListingsPage(html = '') {
 
 export function isRittmeyerTicinoListing(listing = {}) {
   const haystack = normalize([listing.href, listing.title, listing.snippet].filter(Boolean).join(' '));
-  return isTargetSwissLocation(haystack);
+  return !isLocationExplicitlyForeign(haystack) && isTargetSwissLocation(haystack);
 }
 
 export function parseRittmeyerJobDetail(html = '') {

@@ -38,6 +38,7 @@ import {
   buildBoardLocalizedContent,
 } from './lib/board-job-parser.mjs';
 import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { hasAuthoritativeListingPageEvidence } from './lib/job-listing-evidence.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -134,8 +135,7 @@ async function fetchBoardListings() {
   const allDiscovered = [];
   const seenPageUrls = new Set(); // cycle guard: a ciclic paginator (A→B→A) would otherwise spin to MAX_PAGES
   let skippedMalformedRows = 0;
-  let sourceMarkupSeen = false;
-  let emptyStateObserved = false;
+  let terminalPageEvidenceProven = false;
   let terminationProven = false;
   let pageUrl = CAREERS_URL;
   let page = 1;
@@ -146,8 +146,6 @@ async function fetchBoardListings() {
     console.log(`📄 Fetching page ${page}: ${pageUrl}`);
     const html = await fetchText(pageUrl);
     const discovered = parseBoardListings(html);
-    sourceMarkupSeen ||= discovered.boardListingMarkupSeen === true;
-    emptyStateObserved ||= discovered.boardListingEmptyStateObserved === true;
     skippedMalformedRows += Number(discovered.boardListingSkippedMalformedRows || 0);
     console.log(`  → Found ${discovered.length} listings on page ${page}`);
     allDiscovered.push(...discovered);
@@ -156,6 +154,11 @@ async function fetchBoardListings() {
     const nextUrl = extractNextPageUrl(html, pageUrl);
     if (!nextUrl) {
       terminationProven = true;
+      terminalPageEvidenceProven = hasAuthoritativeListingPageEvidence({
+        isTerminalPage: true,
+        listingMarkupSeen: discovered.boardListingMarkupSeen,
+        emptyStateObserved: discovered.boardListingEmptyStateObserved,
+      });
       break;
     }
     if (!seenPageUrls.has(nextUrl)) {
@@ -172,7 +175,7 @@ async function fetchBoardListings() {
   const sourceReadComplete = Boolean(
     terminationProven
     && skippedMalformedRows === 0
-    && (allDiscovered.length > 0 ? sourceMarkupSeen : emptyStateObserved),
+    && terminalPageEvidenceProven,
   );
   console.log(`📋 Total listing rows (all pages): ${allDiscovered.length}`);
   console.log(`📋 Ticino/Grigioni rows: ${target.length}`);

@@ -39,6 +39,7 @@ import {
 } from './lib/skyguide-job-parser.mjs';
 import { classifyMalformedRowDrift } from './lib/malformed-row-observability.mjs';
 import { evaluateAuthoritativeSnapshot, fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { hasAuthoritativeListingPageEvidence } from './lib/job-listing-evidence.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { readCurrentRunJobs } from './lib/crawler-run-jobs.mjs';
@@ -147,8 +148,7 @@ async function fetchListings() {
   const discovered = [];
   const seen = new Set();
   let skippedMalformedRowsTotal = 0;
-  let sourceMarkupSeen = false;
-  let emptyStateObserved = false;
+  let terminalPageEvidenceProven = false;
   let terminationProven = false;
 
   for (let page = 0; page < LISTING_MAX_PAGES; page += 1) {
@@ -163,8 +163,6 @@ async function fetchListings() {
       listingMarkupSeen,
       emptyStateObserved: pageEmptyStateObserved,
     } = parseSkyguideListings(html);
-    sourceMarkupSeen ||= listingMarkupSeen === true;
-    emptyStateObserved ||= pageEmptyStateObserved === true;
     skippedMalformedRowsTotal += skippedMalformedRows;
     const diagnostic = classifyMalformedRowDrift(rows.length, skippedMalformedRows);
     if (skippedMalformedRows > 0) {
@@ -183,6 +181,11 @@ async function fetchListings() {
     console.log(`📋 Page ${page + 1} (startrow ${startRow}): ${rows.length} rows`);
     if (rows.length === 0) {
       terminationProven = true;
+      terminalPageEvidenceProven = hasAuthoritativeListingPageEvidence({
+        isTerminalPage: true,
+        listingMarkupSeen,
+        emptyStateObserved: pageEmptyStateObserved,
+      });
       break;
     }
     for (const row of rows) {
@@ -197,6 +200,11 @@ async function fetchListings() {
     // because SuccessFactors paginates sequentially by startrow.)
     if (rows.length < LISTING_PAGE_SIZE) {
       terminationProven = true;
+      terminalPageEvidenceProven = hasAuthoritativeListingPageEvidence({
+        isTerminalPage: true,
+        listingMarkupSeen,
+        emptyStateObserved: pageEmptyStateObserved,
+      });
       break;
     }
   }
@@ -206,7 +214,7 @@ async function fetchListings() {
   const sourceReadComplete = Boolean(
     terminationProven
     && skippedMalformedRowsTotal === 0
-    && (discovered.length > 0 ? sourceMarkupSeen : emptyStateObserved),
+    && terminalPageEvidenceProven,
   );
   if (target.length === 0) {
     console.log('ℹ️  Nessun annuncio trovato per Skyguide — non è un errore, il crawler prosegue.');

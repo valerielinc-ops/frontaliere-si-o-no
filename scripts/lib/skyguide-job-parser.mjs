@@ -6,6 +6,7 @@ import {
   sanitizeSuccessFactorsField,
   stripSuccessFactorsMoreLocations,
 } from './successfactors-jobs2web-widget-guard.mjs';
+import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 
 function normalizeSpace(value = '') {
@@ -93,17 +94,21 @@ export function parseSkyguideListings(html = '') {
     }
     rows.push(parsed);
   }
+  const listingContainer = document.querySelector('#searchresults');
   return {
     rows,
     skippedMalformedRows,
     ignoredNonJobRows,
     listingMarkupSeen: Boolean(document.querySelector('#searchresults')),
-    emptyStateObserved: hasExplicitEmptyJobListing(document.body?.textContent || ''),
+    emptyStateObserved: hasExplicitEmptyJobListing(listingContainer?.textContent || '', {
+      scopedToListing: Boolean(listingContainer),
+    }),
   };
 }
 
 export function isSkyguideTargetLocation(raw = '') {
-  return isTargetSwissLocation(raw, { includeGrigioni: true });
+  return !isLocationExplicitlyForeign(raw)
+    && isTargetSwissLocation(raw, { includeGrigioni: true });
 }
 
 export function inferSkyguideCanton(raw = '') {

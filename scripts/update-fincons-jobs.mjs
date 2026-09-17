@@ -247,7 +247,7 @@ function updateAdapterConfig(jobs) {
 
 function isRecognizedFinconsSourceLocation(raw = '') {
   const value = String(raw || '').trim();
-  return Boolean(value && (isTargetSwissLocation(value) || isLocationExplicitlyForeign(value)));
+  return Boolean(value && (isLocationExplicitlyForeign(value) || isTargetSwissLocation(value)));
 }
 
 function copyFinconsSourceEvidence(jobs, sourceRows, targetRows) {

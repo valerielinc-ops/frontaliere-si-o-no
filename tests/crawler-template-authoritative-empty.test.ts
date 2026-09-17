@@ -94,7 +94,10 @@ import {
   exitCrawlerOnError,
   runStandardCrawlerPipeline,
 } from '../scripts/lib/crawler-template.mjs';
-import { hasExplicitEmptyJobListing } from '../scripts/lib/job-listing-evidence.mjs';
+import {
+  hasAuthoritativeListingPageEvidence,
+  hasExplicitEmptyJobListing,
+} from '../scripts/lib/job-listing-evidence.mjs';
 
 const COMPANY_KEY = 'authoritative-empty-test';
 const SCRATCH_PATH = path.join(os.tmpdir(), `frontaliere-jobs-scratch-${COMPANY_KEY}.json`);
@@ -273,8 +276,29 @@ describe('standard crawler authoritative-empty policy', () => {
   });
 
   it('requires an explicit listing marker rather than an empty parser result', () => {
-    expect(hasExplicitEmptyJobListing('No open positions are currently available.')).toBe(true);
+    expect(hasExplicitEmptyJobListing('No open positions are currently available.', {
+      scopedToListing: true,
+    })).toBe(true);
+    expect(hasExplicitEmptyJobListing('No open positions are currently available.')).toBe(false);
     expect(hasExplicitEmptyJobListing('')).toBe(false);
+  });
+
+  it('requires listing evidence on the page that proved termination', () => {
+    expect(hasAuthoritativeListingPageEvidence({
+      isTerminalPage: false,
+      listingMarkupSeen: true,
+    })).toBe(false);
+    expect(hasAuthoritativeListingPageEvidence({
+      isTerminalPage: true,
+      listingMarkupSeen: true,
+    })).toBe(true);
+    expect(hasAuthoritativeListingPageEvidence({
+      isTerminalPage: true,
+      emptyStateObserved: true,
+    })).toBe(true);
+    expect(hasAuthoritativeListingPageEvidence({
+      isTerminalPage: true,
+    })).toBe(false);
   });
 
   it.each([
