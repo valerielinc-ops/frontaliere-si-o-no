@@ -276,7 +276,7 @@ async function main() {
   console.log(`📋 Switzerland jobs: ${swiss.length}`);
   console.log(`📋 Ticino/Grigioni jobs: ${target.length}`);
   if (target.length === 0) {
-    console.log('ℹ️  Nessun annuncio trovato per TSMG in Ticino/Grigioni — non è un errore, il crawler prosegue.');
+    console.log('ℹ️  Nessun annuncio trovato per TSMG — non è un errore, il crawler prosegue.');
   }
   const discoveredJobs = target.map(buildJob);
   const { total, added, updated, diff} = mergeJobs(discoveredJobs);

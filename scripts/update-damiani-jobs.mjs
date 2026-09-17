@@ -151,7 +151,7 @@ async function fetchDamianiListings() {
     console.log(`  📄 ${row.title} (${row.location})`);
   }
   if (relevant.length === 0) {
-    console.log('ℹ️  Nessun annuncio trovato per Damiani Group in Ticino/Grigioni — non è un errore, il crawler prosegue.');
+    console.log('ℹ️  Nessun annuncio trovato per Damiani Group — non è un errore, il crawler prosegue.');
   }
   return relevant;
 }

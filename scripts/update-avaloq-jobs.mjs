@@ -141,7 +141,7 @@ async function buildAvaloqJobs() {
     console.log(`  📄 ${detail.title} (${detail.location || 'n/a'})`);
   }
   if (target.length === 0) {
-    console.log('ℹ️  Nessun annuncio trovato per Avaloq Ticino/Grigioni — non è un errore, il crawler prosegue.');
+    console.log('ℹ️  Nessun annuncio trovato per Avaloq — non è un errore, il crawler prosegue.');
   }
   return target.map((detail) => {
     const localized = buildAvaloqLocalizedContent(detail, COMPANY_NAME);

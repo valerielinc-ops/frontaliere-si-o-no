@@ -160,7 +160,7 @@ async function fetchBoardListings() {
     console.log(`  📄 ${row.title} (${row.location})`);
   }
   if (target.length === 0) {
-    console.log('ℹ️  Nessun annuncio trovato per Board International in Ticino/Grigioni — non è un errore, il crawler prosegue.');
+    console.log('ℹ️  Nessun annuncio trovato per Board International — non è un errore, il crawler prosegue.');
   }
   return target;
 }

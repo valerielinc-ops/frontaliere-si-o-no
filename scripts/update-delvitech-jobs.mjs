@@ -395,7 +395,7 @@ async function main() {
   if (skipped) console.log(`  ⚠️  Skipped ${skipped}/${listings.length} listings due to errors`);
 
   if (jobs.length === 0) {
-    console.log('ℹ️  Nessun annuncio trovato per Delvitech SA in Ticino/Grigioni — non è un errore, il crawler prosegue.');
+    console.log('ℹ️  Nessun annuncio trovato per Delvitech SA — non è un errore, il crawler prosegue.');
   }
 
   const { total, diff} = mergeJobs(jobs);

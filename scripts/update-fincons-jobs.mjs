@@ -116,7 +116,7 @@ async function fetchListings() {
   const rows = parseFinconsListingsPage(html);
   console.log(`📋 Lugano job rows found: ${rows.length}`);
   if (rows.length === 0) {
-    console.log('ℹ️  Nessun annuncio trovato per Fincons Group a Lugano — non è un errore, il crawler prosegue.');
+    console.log('ℹ️  Nessun annuncio trovato per Fincons Group — non è un errore, il crawler prosegue.');
   }
   rows.forEach((row) => console.log(`  📄 ${row.title} (${row.location})`));
   return rows;

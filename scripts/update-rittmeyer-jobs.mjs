@@ -181,7 +181,7 @@ async function fetchListings() {
     console.log(`  📄 ${row.title}`);
   }
   if (rows.length === 0) {
-    console.log('ℹ️  Nessun annuncio trovato per Rittmeyer in Ticino — non è un errore, il crawler prosegue.');
+    console.log('ℹ️  Nessun annuncio trovato per Rittmeyer — non è un errore, il crawler prosegue.');
   }
   return rows;
 }
