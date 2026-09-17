@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Dedicated La Côte International School (Nord Anglia Education) crawler runner.
+ * Dedicated Nord Anglia Education Switzerland crawler runner.
  *
- * Uses the standard crawler template with the La Côte International School (Nord Anglia Education) parser.
+ * Uses the standard crawler template with the national Nord Anglia parser.
  * All fetch/parse logic lives in ./lib/nord-anglia-job-parser.mjs.
  */
 import path from 'node:path';
@@ -28,6 +28,6 @@ runStandardCrawlerPipeline({
   isTrustedDomain,
   defaultSourceLang: 'en',
 }).catch((err) => {
-  console.error(`❌ La Côte International School (Nord Anglia Education) crawler failed: ${err?.message || err}`);
+  console.error(`❌ Nord Anglia Education Switzerland crawler failed: ${err?.message || err}`);
   process.exit(1);
 });

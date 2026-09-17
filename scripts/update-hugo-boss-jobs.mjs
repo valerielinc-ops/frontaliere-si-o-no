@@ -1,15 +1,16 @@
 #!/usr/bin/env node
 /**
- * Dedicated Hugo Boss (Coldrerio, TI) crawler runner.
+ * Dedicated Hugo Boss Switzerland crawler runner.
  *
  * Hugo Boss uses the Phenom People platform at careers.hugoboss.com.
  * Job data is embedded in the phApp.ddo JavaScript object on the search
- * results page. We filter for Coldrerio/Ticino positions.
+ * results page. We fetch the national result set and filter Swiss positions
+ * with the shared location helper.
  *
  * Discovery flow:
- *   1. Fetch https://careers.hugoboss.com/global/en/search-results?keywords=&location=Coldrerio
+ *   1. Fetch the unfiltered national search endpoint
  *   2. Extract phApp.ddo.eagerLoadRefineSearch.data.jobs
- *   3. Filter for Ticino/Coldrerio positions
+ *   3. Filter for Swiss positions across all 26 cantons
  *   4. Build job objects with detail URLs
  *   5. Merge into data/jobs.json
  *   6. Run base crawler for AI localization
@@ -26,8 +27,8 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parseSearchPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/hugo-boss-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { extractPhenomDdo, parseSearchPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/hugo-boss-job-parser.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -44,10 +45,10 @@ const COMPANY_KEY = 'hugo-boss';
 // of #3775/#3768).
 const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
-const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Hugo Boss';
 const COMPANY_HOST = 'careers.hugoboss.com';
-const CAREERS_URL = 'https://careers.hugoboss.com/global/en/search-results?keywords=&location=Coldrerio';
+const CAREERS_URL = 'https://careers.hugoboss.com/global/en/search-results?keywords=';
+const PAGE_SIZE = 100;
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 function normalize(value = '') { return String(value || '').trim().toLowerCase(); }
@@ -88,34 +89,72 @@ function slugify(value = '') {
 
 async function fetchJobs() {
   console.log(`🔍 Fetching Hugo Boss jobs from ${CAREERS_URL}`);
-  const html = await fetchPage(CAREERS_URL, 25000);
-  if (!html) { console.error('❌ Failed to fetch Hugo Boss careers page.'); return []; }
-  console.log(`  📄 Page fetched (${html.length} chars)`);
+  const allJobsById = new Map();
+  let from = 0;
+  let totalHits = null;
+  const MAX_PAGES = 20;
 
-  const allJobs = parseSearchPage(html);
-  console.log(`  📋 Total jobs in DDO: ${allJobs.length}`);
+  for (let page = 0; page < MAX_PAGES; page += 1) {
+    const pageUrl = new URL(CAREERS_URL);
+    pageUrl.searchParams.set('from', String(from));
+    pageUrl.searchParams.set('pageSize', String(PAGE_SIZE));
+    const html = await fetchPage(pageUrl.href, 25000);
+    if (!html) {
+      if (page === 0) console.error('❌ Failed to fetch Hugo Boss careers page.');
+      break;
+    }
+    const ddo = extractPhenomDdo(html);
+    const reportedTotal = Number(
+      ddo?.eagerLoadRefineSearch?.data?.totalHits
+      ?? ddo?.eagerLoadRefineSearch?.data?.total
+      ?? ddo?.eagerLoadRefineSearch?.totalHits
+      ?? 0,
+    );
+    if (reportedTotal > 0) totalHits = reportedTotal;
+    const pageJobs = parseSearchPage(html);
+    console.log(`  📄 Page ${page + 1}: ${pageJobs.length} jobs (from=${from}${totalHits ? `, total=${totalHits}` : ''})`);
+    for (const job of pageJobs) {
+      const key = job.jobId || job.reqId;
+      if (key && !allJobsById.has(key)) allJobsById.set(key, job);
+    }
+    if (pageJobs.length < PAGE_SIZE || (totalHits !== null && from + pageJobs.length >= totalHits)) break;
+    from += pageJobs.length;
+  }
 
-  const ticinoJobs = allJobs.filter(isHugoBossTargetLocation);
-  console.log(`  🎯 Ticino/Coldrerio jobs: ${ticinoJobs.length}`);
+  const allJobs = [...allJobsById.values()];
+  console.log(`  📋 Total jobs in national DDO: ${allJobs.length}`);
 
-  return ticinoJobs.map((raw) => {
+  const swissJobs = allJobs.filter(isHugoBossTargetLocation);
+  console.log(`  🎯 Swiss jobs across all cantons: ${swissJobs.length}`);
+
+  return swissJobs.map((raw) => {
+    const location = raw.city || raw.cityState || raw.cityStateCountry || '';
+    const canton = inferAnyCanton([
+      raw.city,
+      raw.state,
+      raw.cityState,
+      raw.cityStateCountry,
+      raw.address,
+    ].filter(Boolean).join(' '));
+    if (!canton) return null;
     const detailUrl = buildDetailUrl(raw);
-    const slug = slugify(`${raw.title} hugo-boss coldrerio`);
+    const locationToken = location || canton;
+    const slug = slugify(`${raw.title} hugo-boss ${locationToken}`);
     return {
       url: detailUrl || CAREERS_URL,
       applyUrl: raw.applyUrl ? `https://${COMPANY_HOST}${raw.applyUrl}` : detailUrl,
       title: raw.title,
       company: COMPANY_NAME,
       companyKey: COMPANY_KEY,
-      location: raw.city || 'Coldrerio',
-      canton: DEFAULT_CANTON,
+      location,
+      canton,
       country: 'CH',
-      addressLocality: raw.city || 'Coldrerio',
-      addressRegion: 'TI',
+      addressLocality: raw.city || location,
+      addressRegion: canton,
       addressCountry: 'CH',
-      postalCode: '6862',
-      streetAddress: 'Hugo Boss Ticino SA, Rancate/Coldrerio',
-      description: raw.description || `${raw.title} position at Hugo Boss in Coldrerio, Ticino, Switzerland.`,
+      postalCode: raw.postalCode || '',
+      streetAddress: raw.address || '',
+      description: raw.description || `${raw.title} position at Hugo Boss in ${locationToken}, Switzerland.`,
       titleByLocale: { en: raw.title },
       descriptionByLocale: { en: raw.description || '' },
       slug,
@@ -128,7 +167,7 @@ async function fetchJobs() {
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Moda / Lusso',
     };
-  });
+  }).filter(Boolean);
 }
 
 async function mergeJobs(discoveredJobs) {

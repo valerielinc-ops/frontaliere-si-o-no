@@ -2,7 +2,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Prada Group — jobs.pradagroup.com job parser
  *
- * Prada Group operates luxury fashion brands with a major site in Mendrisio, Ticino.
+ * Prada Group operates luxury fashion brands with offices and boutiques across Switzerland.
  * The careers portal uses SAP SuccessFactors at:
  *   https://jobs.pradagroup.com/
  *
@@ -21,9 +21,9 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  *   </table>
  */
 
-import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
+import { inferAnyCanton, isSwissLocationText, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import {
   isSuccessFactorsWidgetText,
   sanitizeSuccessFactorsField,
@@ -31,10 +31,8 @@ import {
 } from './successfactors-jobs2web-widget-guard.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
-const HQ = getCompanyDefaults('prada');
-
 const SEARCH_URL = 'https://jobs.pradagroup.com/search/?q=&locationsearch=switzerland&searchby=location';
-const TICINO_SEARCH_URL = 'https://jobs.pradagroup.com/search/?q=&locationsearch=ticino&searchby=location';
+const SECONDARY_SEARCH_URL = 'https://jobs.pradagroup.com/search/?q=&locationsearch=ticino&searchby=location';
 const CAREERS_BASE = 'https://jobs.pradagroup.com';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
@@ -66,29 +64,89 @@ function stripLeadingSwissPostalCode(value = '') {
 }
 
 /**
- * Resolve a Prada listing to the only location owned by this Ticino crawler.
+ * Resolve a Prada listing to a Swiss location proven by the source location
+ * and/or the canonical SuccessFactors route.
  * The upstream `locationsearch` parameters are currently ignored by the
  * SuccessFactors tenant, so the listing location plus the canonical route are
  * the source of truth. When the listing location is absent, the route alone
- * may prove Mendrisio; unknown and conflicting evidence fails closed.
+ * may prove a Swiss locality; unknown and conflicting evidence fails closed.
  *
  * @param {{location?: string, url?: string}} job
  * @returns {string|null}
  */
-export function resolvePradaTicinoLocation(job = {}) {
+export function resolvePradaSwissLocation(job = {}) {
   const location = normalizeSpace(job?.location || '');
   const safeUrl = normalizePradaJobUrl(job?.url || '');
   if (!safeUrl) return null;
   try {
-    const path = decodeURIComponent(new URL(safeUrl).pathname);
-    const routeIsMendrisio = /^\/job\/Mendrisio(?:-|\/)/i.test(path);
-    if (!routeIsMendrisio) return null;
-    if (!location) return 'Mendrisio';
-    const candidate = stripLeadingSwissPostalCode(location);
-    return /^mendrisio(?:\b|\s*[,(/-])/i.test(candidate) ? 'Mendrisio' : null;
+    const pathname = new URL(safeUrl).pathname;
+    const routeLocation = extractPradaRouteLocation(pathname);
+    const sourceLocation = extractPradaSourceLocation(location);
+    const sourceIsSwiss = location && isSwissPradaLocation(location);
+    if (location && !sourceIsSwiss) return null;
+    if (location && !sourceLocation && !/\b(?:switzerland|schweiz|suisse|svizzera|swiss)\b/i.test(location)) {
+      return null;
+    }
+    if (extractPradaRouteSegment(pathname) && !routeLocation) return null;
+
+    const sourceCanton = inferAnyCanton(sourceLocation || location);
+    const routeCanton = inferAnyCanton(routeLocation);
+    if (sourceCanton && routeCanton && sourceCanton !== routeCanton) return null;
+
+    // Prefer the source spelling (for example Zürich rather than the
+    // transliterated Zurich route token), then use the route only when the
+    // source is absent or country-level.
+    const resolved = sourceLocation && sourceCanton
+      ? sourceLocation
+      : routeLocation && routeCanton
+        ? routeLocation
+        : '';
+    return resolved && inferAnyCanton(resolved) ? resolved : null;
   } catch {
     return null;
   }
+}
+
+function isSwissPradaLocation(value = '') {
+  return isTargetSwissLocation(value, { includeGrigioni: true, includeBorderProximity: false })
+    || isSwissLocationText(value);
+}
+
+function extractPradaSourceLocation(value = '') {
+  const candidate = stripLeadingSwissPostalCode(normalizeSpace(value));
+  if (!candidate) return '';
+  if (/^\d{4}(?:\b|-)/u.test(candidate)) return '';
+  return normalizePradaLocality(candidate.split(',')[0]);
+}
+
+function extractPradaRouteSegment(pathname = '') {
+  return String(pathname || '').match(/^\/job\/([^/]+)\/\d+\/?$/i)?.[1] || '';
+}
+
+function extractPradaRouteLocation(pathname = '') {
+  const routeSegment = extractPradaRouteSegment(pathname);
+  if (!routeSegment) return '';
+  const segments = decodeURIComponent(routeSegment).split('-').filter(Boolean);
+  // SuccessFactors encodes multi-word localities as a prefix of the slug
+  // (`St-Moritz-...`, `Villars-sur-Ollon-...`) and sometimes marks the
+  // boundary with an underscore. Try increasingly long prefixes and let the
+  // shared location helper identify the first Swiss locality; no city list is
+  // needed here.
+  for (let length = 1; length <= segments.length; length += 1) {
+    const rawCandidate = segments.slice(0, length).join(' ');
+    const candidate = normalizePradaLocality(rawCandidate.replace(/_/g, ' '));
+    if (candidate && isSwissPradaLocation(candidate)) return candidate;
+  }
+  return '';
+}
+
+function normalizePradaLocality(value = '') {
+  const normalized = normalizeSpace(String(value || '')
+    .replace(/_/g, ' ')
+    .replace(/\bSt\s+(?=\p{L})/iu, 'St. '));
+  return /^[A-ZÀ-ÖØ-Þ\s.'-]+$/u.test(normalized) && normalized.length > 1
+    ? normalized.charAt(0) + normalized.slice(1).toLowerCase()
+    : normalized;
 }
 
 function normalizeSpace(value = '') {
@@ -209,7 +267,7 @@ export function parsePradaListingHtml(html) {
       title: rawTitle,
       url: fullUrl,
       location: resolvedLocation,
-      canton: HQ.canton,
+      canton: inferAnyCanton(resolvedLocation),
       department,
       jobId,
     });
@@ -236,11 +294,11 @@ export function parsePradaListingHtml(html) {
         id: `prada-${jobId}`,
         title: rawTitle,
         url: fullUrl,
-        // Do not invent the Ticino HQ for a row whose source exposes no
-        // location. resolvePradaTicinoLocation may still prove Mendrisio from
-        // the canonical route, while every other unknown fails closed.
+        // Do not invent a headquarters for a row whose source exposes no
+        // location. The runner resolves a Swiss locality from the canonical
+        // route when possible; every other unknown fails closed.
         location: '',
-        canton: HQ.canton,
+        canton: '',
         department: '',
         jobId,
       });
@@ -369,14 +427,14 @@ export function parsePradaDetailHtml(html) {
 
 /**
  * Fetch all job URLs from the Prada Group SuccessFactors search endpoint.
- * Searches for both "switzerland" and "ticino" to maximize coverage.
+ * Searches the national route plus a secondary route to maximize coverage.
  */
 export async function fetchPradaJobUrls(timeoutMs = 15000) {
   try {
     const allJobs = [];
     const seenIds = new Set();
 
-    for (const searchUrl of [SEARCH_URL, TICINO_SEARCH_URL]) {
+    for (const searchUrl of [SEARCH_URL, SECONDARY_SEARCH_URL]) {
       const html = await fetchWithRetry(async () => {
         const controller = new AbortController();
         const timer = setTimeout(() => controller.abort(), timeoutMs);

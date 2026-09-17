@@ -37,6 +37,7 @@ phApp.ddo = {
           "state": "Ticino",
           "cityState": "Coldrerio, Ticino",
           "cityStateCountry": "Coldrerio, Ticino, Switzerland",
+          "country": "Switzerland",
           "address": "",
           "category": "Design & Brands",
           "multi_category": ["Design & Brands"],
@@ -53,6 +54,7 @@ phApp.ddo = {
           "state": "Ticino",
           "cityState": "Coldrerio, Ticino",
           "cityStateCountry": "Coldrerio, Ticino, Switzerland",
+          "country": "Switzerland",
           "address": "",
           "category": "Product Development & Digital Excellence",
           "multi_category": ["Product Development & Digital Excellence"],
@@ -69,6 +71,7 @@ phApp.ddo = {
           "state": "Hessen",
           "cityState": "Frankfurt, Hessen",
           "cityStateCountry": "Frankfurt, Hessen, Germany",
+          "country": "Germany",
           "address": "",
           "category": "Retail",
           "postedDate": "2026-03-12",
@@ -166,6 +169,7 @@ describe('parseSearchPage', () => {
     const jobs = parseSearchPage(FIXTURE_SEARCH_PAGE);
     expect(jobs[0].city).toBe('Coldrerio');
     expect(jobs[0].state).toBe('Ticino');
+    expect(jobs[0].country).toBe('Switzerland');
   });
 
   it('returns empty array for empty input', () => {
@@ -178,16 +182,28 @@ describe('parseSearchPage', () => {
 });
 
 describe('isHugoBossTargetLocation', () => {
-  it('matches Coldrerio Ticino', () => {
+  it('matches a Swiss location in Ticino', () => {
     expect(isHugoBossTargetLocation({ city: 'Coldrerio', state: 'Ticino' })).toBe(true);
   });
 
-  it('matches cityStateCountry containing Ticino', () => {
+  it('matches country-qualified Swiss location text', () => {
     expect(isHugoBossTargetLocation({ cityStateCountry: 'Coldrerio, Ticino, Switzerland' })).toBe(true);
   });
 
   it('does not match Frankfurt', () => {
     expect(isHugoBossTargetLocation({ city: 'Frankfurt', state: 'Hessen' })).toBe(false);
+  });
+
+  it('matches a Swiss location outside the original single-location scope', () => {
+    expect(isHugoBossTargetLocation({ city: 'Zürich', state: 'Zürich', country: 'Switzerland' })).toBe(true);
+  });
+
+  it('rejects a foreign city that shares a Swiss municipality name', () => {
+    expect(isHugoBossTargetLocation({
+      city: 'Bellevue',
+      cityStateCountry: 'Bellevue, Washington, United States',
+      country: 'United States',
+    })).toBe(false);
   });
 
   it('does not match empty job', () => {

@@ -5,6 +5,7 @@ import {
   isSwissLifeJob,
   isTrustedDomain,
   parseWorkdayLocation,
+  resolveSwissLifeLocation,
 } from '../scripts/lib/swiss-life-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -20,6 +21,16 @@ describe('Swiss Life crawler parser', () => {
     expect(parseWorkdayLocation('Sion-VS')).toBe('Sion');
     expect(parseWorkdayLocation('Visp-Switzerland')).toBe('Visp');
     expect(parseWorkdayLocation('ST-MAURICE')).toBe('ST-MAURICE');
+  });
+
+  it('resolves Swiss locations across cantons', () => {
+    expect(resolveSwissLifeLocation({ location: 'Zürich, Switzerland' })).toBe('Zürich');
+    expect(resolveSwissLifeLocation({ location: 'Lugano, Ticino' })).toBe('Lugano');
+  });
+
+  it('fails closed when no Swiss locality and canton can be resolved', () => {
+    expect(resolveSwissLifeLocation({ location: 'Switzerland' })).toBe('');
+    expect(resolveSwissLifeLocation({ location: 'Arezzo, Italy' })).toBe('');
   });
 
   // ── isCompanyJob ──

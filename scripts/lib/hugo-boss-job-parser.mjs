@@ -6,7 +6,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  * The careers page embeds job data in a phApp.ddo JavaScript object.
  *
  * Listing URL:
- *   https://careers.hugoboss.com/global/en/search-results?keywords=&location=Coldrerio
+ *   https://careers.hugoboss.com/global/en/search-results?keywords=
  *
  * Detail URL pattern:
  *   https://careers.hugoboss.com/global/en/job/{jobSeqNo}/{title-slug}
@@ -17,7 +17,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  */
 
 import { JSDOM } from 'jsdom';
-import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { isSwissLocationText, isTargetSwissLocation } from './target-swiss-locations.mjs';
 
 const HUGO_BOSS_HOST = 'careers.hugoboss.com';
 
@@ -77,9 +77,13 @@ export function extractPhenomDdo(html = '') {
 }
 
 /**
- * Check whether a Phenom job object is located in Ticino or relevant Swiss areas.
+ * Check whether a Phenom job object is located in Switzerland.
  */
 export function isHugoBossTargetLocation(job = {}) {
+  const explicitCountry = normalizeSpace(job?.country || extractCountryFromLocation(job?.cityStateCountry || ''));
+  if (explicitCountry && !/^(?:ch|switzerland|schweiz|suisse|svizzera)$/i.test(explicitCountry)) {
+    return false;
+  }
   const haystack = [
     job?.state,
     job?.city,
@@ -88,7 +92,13 @@ export function isHugoBossTargetLocation(job = {}) {
     job?.address,
     job?.location,
   ].filter(Boolean).join(' ');
-  return isTargetSwissLocation(haystack);
+  return isTargetSwissLocation(haystack, { includeGrigioni: true, includeBorderProximity: false })
+    || isSwissLocationText(haystack);
+}
+
+function extractCountryFromLocation(value = '') {
+  const parts = String(value || '').split(',').map((part) => normalizeSpace(part)).filter(Boolean);
+  return parts.length >= 3 ? parts.at(-1) : '';
 }
 
 /**
@@ -107,6 +117,8 @@ export function parseSearchPage(html = '') {
     state: normalizeSpace(job.state || ''),
     cityState: normalizeSpace(job.cityState || ''),
     cityStateCountry: normalizeSpace(job.cityStateCountry || ''),
+    country: normalizeSpace(job.country || ''),
+    postalCode: normalizeSpace(job.postalCode || job.zipCode || ''),
     address: normalizeSpace(job.address || ''),
     category: Array.isArray(job.multi_category)
       ? normalizeSpace(job.multi_category[0] || '')

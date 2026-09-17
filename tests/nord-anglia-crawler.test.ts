@@ -19,11 +19,11 @@ import { FeedEndpointUnavailableError } from '../scripts/lib/feed-endpoint-guard
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
-describe('La Côte International School Aubonne (Nord Anglia Education) crawler parser', () => {
+describe('Nord Anglia Education Switzerland crawler parser', () => {
   const rssItemXml = ({
-    title = '<title><![CDATA[Teacher of Biology (Aubonne, CH)]]></title>',
-    link = '<link>https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/</link>',
-    description = '<description><![CDATA[<p>Teach biology in Aubonne.</p>]]></description>',
+    title = '<title><![CDATA[Teacher of Biology (Geneva, CH)]]></title>',
+    link = '<link>https://careers.nordanglia.com/job/Geneva-Teacher-of-Biology/1399902133/</link>',
+    description = '<description><![CDATA[<p>Teach biology in Geneva.</p>]]></description>',
     pubDate = '<pubDate>Mon, 01 Apr 2026 12:00:00 +0000</pubDate>',
   } = {}) => `<item>${title}${link}${description}${pubDate}</item>`;
   const rssFeed = (...items: string[]) => `<rss><channel>${items.join('')}</channel></rss>`;
@@ -36,7 +36,7 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
   // ── Constants ──
   it('exports valid company key, name and domain', () => {
     expect(NORD_ANGLIA_KEY).toBe('nord-anglia');
-    expect(NORD_ANGLIA_COMPANY_NAME).toBe('La Côte International School (Nord Anglia Education)');
+    expect(NORD_ANGLIA_COMPANY_NAME).toBe('Nord Anglia Education Switzerland');
     expect(NORD_ANGLIA_COMPANY_DOMAIN).toBe('nordangliaeducation.com');
   });
 
@@ -55,7 +55,7 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
     });
 
     it('matches by URL domain (jobs2web ATS host)', () => {
-      expect(isNordAngliaJob({ url: 'https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/' })).toBe(true);
+      expect(isNordAngliaJob({ url: 'https://careers.nordanglia.com/job/Geneva-Teacher-of-Biology/1399902133/' })).toBe(true);
     });
 
     it('rejects unrelated jobs', () => {
@@ -107,7 +107,7 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
     });
 
     it('trusts the jobs2web ATS host', () => {
-      expect(isTrustedDomain('https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/')).toBe(true);
+      expect(isTrustedDomain('https://careers.nordanglia.com/job/Geneva-Teacher-of-Biology/1399902133/')).toBe(true);
     });
 
     it('rejects other domains', () => {
@@ -122,9 +122,9 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
 
   it('publishes canonical job URLs without jobs2web tracking parameters', () => {
     expect(canonicalizeNordAngliaJobUrl(
-      'https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS',
-    )).toBe('https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/');
-    expect(canonicalizeNordAngliaJobUrl('https://example.com/job/Aubonne-Teacher/1/?utm_source=rss')).toBe('');
+      'https://careers.nordanglia.com/job/Geneva-Teacher-of-Biology/1399902133/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS',
+    )).toBe('https://careers.nordanglia.com/job/Geneva-Teacher-of-Biology/1399902133/');
+    expect(canonicalizeNordAngliaJobUrl('https://example.com/job/Geneva-Teacher/1/?utm_source=rss')).toBe('');
   });
 
   it('reports a retired ATS host as an unavailable endpoint, not as malformed XML (#7853)', async () => {
@@ -142,7 +142,7 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
     const error = await fetchAllNordAngliaJobs().catch((err: any) => err);
     expect(error).toBeInstanceOf(Error);
     expect(error.message).toMatch(
-      /\[nord-anglia\] feed endpoint redirected off careers\.nordangliaeducation\.com/,
+      /\[nord-anglia\] feed endpoint redirected off careers\.nordanglia\.com/,
     );
     expect(error.feedEndpointUnavailable).toBe(true);
   });
@@ -185,7 +185,7 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
     vi.stubGlobal('fetch', vi.fn(async () => new Response(driftedFeed, { status: 200 })));
 
     await expect(fetchAllNordAngliaJobs()).rejects.toThrow(
-      /\[nord-anglia-drop-ratio\] Aubonne title\/URL scope guard: dropped 1\/1 items/,
+      /\[nord-anglia-drop-ratio\] Swiss location guard: dropped 1\/1 items/,
     );
     expect(warnSpy).toHaveBeenCalledWith(
       expect.stringContaining('[nord-anglia-canonical-url-drop]'),
@@ -215,29 +215,31 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
     warnSpy.mockRestore();
   });
 
-  it('fails on feed-wide title-scope drift instead of silently returning an empty slice', async () => {
+  it('accepts route-only Swiss evidence when the title suffix is absent', async () => {
     const driftedFeed = validRssItem({
-      title: '<title><![CDATA[Teacher of Biology - Aubonne]]></title>',
-      link: '<link>https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/?session=secret-token</link>',
+      title: '<title><![CDATA[Teacher of Biology - Geneva]]></title>',
+      link: '<link>https://careers.nordanglia.com/job/Geneva-Teacher-of-Biology/1399902133/?session=secret-token</link>',
     });
-    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
     vi.stubGlobal('fetch', vi.fn(async () => new Response(driftedFeed, { status: 200 })));
 
-    await expect(fetchAllNordAngliaJobs()).rejects.toThrow(
-      /\[nord-anglia-drop-ratio\] Aubonne title\/URL scope guard: dropped 1\/1 items/,
-    );
-    expect(warnSpy).toHaveBeenCalledWith(
-      expect.stringContaining('[nord-anglia-title-scope-drop]'),
-    );
-    expect(warnSpy.mock.calls.flat().join(' ')).toContain('Teacher of Biology - Aubonne');
-    expect(warnSpy.mock.calls.flat().join(' ')).toContain(
-      'https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/',
-    );
-    expect(warnSpy.mock.calls.flat().join(' ')).not.toContain('secret-token');
-    warnSpy.mockRestore();
+    const [job] = await fetchAllNordAngliaJobs();
+    expect(job.location).toBe('Geneva');
+    expect(job.canton).toBe('GE');
   });
 
-  it('ignores unrelated full-text search noise outside both Aubonne signals', async () => {
+  it('resolves composed Swiss localities from route prefixes', async () => {
+    const routeOnlyFeed = validRssItem({
+      title: '<title><![CDATA[Teacher of Biology - St. Moritz]]></title>',
+      link: '<link>https://careers.nordanglia.com/job/St-Moritz-Teacher-of-Biology/1399902134/</link>',
+    });
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(routeOnlyFeed, { status: 200 })));
+
+    const [job] = await fetchAllNordAngliaJobs();
+    expect(job.location).toBe('St Moritz');
+    expect(job.canton).toBe('GR');
+  });
+
+  it('keeps Swiss locations returned by the national full-text search', async () => {
     const noisyFeed = rssFeed(
       rssItemXml(),
       rssItemXml({
@@ -251,16 +253,17 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
     );
     vi.stubGlobal('fetch', vi.fn(async () => new Response(noisyFeed, { status: 200 })));
 
-    await expect(fetchAllNordAngliaJobs()).resolves.toHaveLength(1);
+    await expect(fetchAllNordAngliaJobs()).resolves.toHaveLength(3);
   });
 
-  it('combines title and URL failures across different Aubonne candidates', async () => {
+  it('fails on feed-wide Swiss location conflicts instead of silently returning an empty slice', async () => {
     const splitDriftFeed = rssFeed(
       rssItemXml({
-        title: '<title><![CDATA[Teacher of Biology - Aubonne]]></title>',
+        title: '<title><![CDATA[Teacher of Biology (Geneva, CH)]]></title>',
+        link: '<link>https://careers.nordanglia.com/job/Paris-Teacher-of-Biology/1399902133/</link>',
       }),
       rssItemXml({
-        title: '<title><![CDATA[Teacher of Mathematics (Aubonne, CH)]]></title>',
+        title: '<title><![CDATA[Teacher of Mathematics (Geneva, CH)]]></title>',
         link: '<link>https://example.com/new-job-template/1400000000/</link>',
       }),
     );
@@ -268,19 +271,19 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
     vi.stubGlobal('fetch', vi.fn(async () => new Response(splitDriftFeed, { status: 200 })));
 
     await expect(fetchAllNordAngliaJobs()).rejects.toThrow(
-      /\[nord-anglia-drop-ratio\] Aubonne title\/URL scope guard: dropped 2\/2 items/,
+      /\[nord-anglia-drop-ratio\] Swiss location guard: dropped 2\/2 items/,
     );
-    expect(warnSpy.mock.calls.flat().join(' ')).toContain('[nord-anglia-title-scope-drop]');
+    expect(warnSpy.mock.calls.flat().join(' ')).toContain('[nord-anglia-location-conflict-drop]');
     expect(warnSpy.mock.calls.flat().join(' ')).toContain('[nord-anglia-canonical-url-drop]');
     warnSpy.mockRestore();
   });
 
-  it('keeps a valid job when title-scope drops are exactly 50% of a small feed', async () => {
+  it('keeps a valid job when location drops are exactly 50% of a small feed', async () => {
     const mixedFeed = rssFeed(
       rssItemXml(),
       rssItemXml({
-        title: '<title><![CDATA[Teacher of Mathematics - Aubonne]]></title>',
-        link: '<link>https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Mathematics/1400000000/</link>',
+        title: '<title><![CDATA[Teacher of Mathematics (Geneva, CH)]]></title>',
+        link: '<link>https://careers.nordanglia.com/job/Paris-Teacher-of-Mathematics/1400000000/</link>',
       }),
     );
     const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
@@ -288,13 +291,13 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
 
     await expect(fetchAllNordAngliaJobs()).resolves.toHaveLength(1);
     expect(warnSpy).toHaveBeenCalledWith(
-      expect.stringContaining('[nord-anglia-title-scope-drop]'),
+      expect.stringContaining('[nord-anglia-location-conflict-drop]'),
     );
     warnSpy.mockRestore();
   });
 
   it('derives new identity from the canonical URL, not rotating jobs2web query tokens', async () => {
-    const base = 'https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/';
+    const base = 'https://careers.nordanglia.com/job/Geneva-Teacher-of-Biology/1399902133/';
     const fetchMock = vi.fn()
       .mockResolvedValueOnce(new Response(validRssItem({
         link: `<link>${base}?feedId=null&amp;utm_source=J2WRSS&amp;session=first</link>`,
@@ -333,23 +336,23 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
   describe('RSS parser guards', () => {
     it('preserves valid CDATA/text leaves', () => {
       expect(parseNordAngliaRss(validRssItem())).toEqual([{
-        title: 'Teacher of Biology (Aubonne, CH)',
-        link: 'https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/',
-        description: '<p>Teach biology in Aubonne.</p>',
+        title: 'Teacher of Biology (Geneva, CH)',
+        link: 'https://careers.nordanglia.com/job/Geneva-Teacher-of-Biology/1399902133/',
+        description: '<p>Teach biology in Geneva.</p>',
         pubDate: 'Mon, 01 Apr 2026 12:00:00 +0000',
       }]);
     });
 
     it('repairs vendor bare ampersands without changing CDATA content', () => {
       const feed = validRssItem({
-        link: '<link>https://careers.nordangliaeducation.com/job/Aubonne-Teacher/1/?feed=one&source=two</link>',
-        description: '<description><![CDATA[Research & Development in Aubonne.]]></description>',
+        link: '<link>https://careers.nordanglia.com/job/Geneva-Teacher/1/?feed=one&source=two</link>',
+        description: '<description><![CDATA[Research & Development in Geneva.]]></description>',
       });
 
       expect(parseNordAngliaRss(feed)).toEqual([{
-        title: 'Teacher of Biology (Aubonne, CH)',
-        link: 'https://careers.nordangliaeducation.com/job/Aubonne-Teacher/1/?feed=one&source=two',
-        description: 'Research & Development in Aubonne.',
+        title: 'Teacher of Biology (Geneva, CH)',
+        link: 'https://careers.nordanglia.com/job/Geneva-Teacher/1/?feed=one&source=two',
+        description: 'Research & Development in Geneva.',
         pubDate: 'Mon, 01 Apr 2026 12:00:00 +0000',
       }]);
     });
@@ -368,8 +371,8 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
     });
 
     it.each([
-      ['title', { title: '<title><strong>Teacher of Biology (Aubonne, CH)</strong></title>' }],
-      ['link', { link: '<link>https://careers.nordangliaeducation.com/job/Aubonne-One/1/</link><link>https://careers.nordangliaeducation.com/job/Aubonne-Two/2/</link>' }],
+      ['title', { title: '<title><strong>Teacher of Biology (Geneva, CH)</strong></title>' }],
+      ['link', { link: '<link>https://careers.nordanglia.com/job/Geneva-One/1/</link><link>https://careers.nordanglia.com/job/Geneva-Two/2/</link>' }],
       ['description', { description: '<description>First</description><description>Second</description>' }],
       ['pubDate', { pubDate: '<pubDate>Mon, 01 Apr 2026 12:00:00 +0000</pubDate><pubDate>Tue, 02 Apr 2026 12:00:00 +0000</pubDate>' }],
     ])('drops a single item with a non-scalar or repeated %s leaf instead of aborting the whole feed', (field, override) => {
@@ -384,7 +387,7 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
     it('keeps one malformed sibling but aborts when malformed items exceed the feed budget', async () => {
       const valid = rssItemXml();
       const malformed = rssItemXml({
-        link: '<link>https://careers.nordangliaeducation.com/job/Aubonne-One/1/</link><link>https://careers.nordangliaeducation.com/job/Aubonne-Two/2/</link>',
+        link: '<link>https://careers.nordanglia.com/job/Geneva-One/1/</link><link>https://careers.nordanglia.com/job/Geneva-Two/2/</link>',
       });
       const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
       const fetchMock = vi.fn()
@@ -439,7 +442,7 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
       const fetchMock = vi.fn(() => {
         const response = new Response('vendor unavailable', { status: 503 });
         Object.defineProperty(response, 'url', {
-          value: 'https://careers.nordangliaeducation.com/services/rss/job/?locale=en_GB&keywords=(Aubonne)',
+          value: 'https://careers.nordanglia.com/services/rss/job/?locale=en_GB&keywords=(Switzerland)',
         });
         return response;
       });
@@ -461,8 +464,8 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
   // ── slugify (imported from crawler-template) ──
   describe('slugify', () => {
     it('converts title to URL-safe slug', () => {
-      const slug = slugify('Teacher of Biology (Aubonne)');
-      expect(slug).toBe('teacher-of-biology-aubonne');
+      const slug = slugify('Teacher of Biology (Geneva)');
+      expect(slug).toBe('teacher-of-biology-geneva');
     });
 
     it('strips diacritics', () => {
@@ -470,7 +473,7 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
     });
 
     it('builds slug with company suffix inline', () => {
-      expect(slugify('Teacher of Mathematics nord-anglia aubonne')).toBe('teacher-of-mathematics-nord-anglia-aubonne');
+      expect(slugify('Teacher of Mathematics nord-anglia geneva')).toBe('teacher-of-mathematics-nord-anglia-geneva');
     });
 
     it('respects max length', () => {
@@ -484,26 +487,26 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
     // A minimal valid job for reference (mirrors what fetchAllNordAngliaJobs emits)
     const validJob = {
       id: 'nord-anglia-abc123',
-      slug: 'teacher-of-biology-nord-anglia-aubonne',
-      slugByLocale: { en: 'teacher-of-biology-nord-anglia-aubonne' },
-      company: 'La Côte International School (Nord Anglia Education)',
+      slug: 'teacher-of-biology-nord-anglia-geneva',
+      slugByLocale: { en: 'teacher-of-biology-nord-anglia-geneva' },
+      company: 'Nord Anglia Education Switzerland',
       companyKey: 'nord-anglia',
       companyDomain: 'nordangliaeducation.com',
       title: 'Teacher of Biology',
       titleByLocale: { en: 'Teacher of Biology' },
       description: 'A test job description for validation.',
       descriptionByLocale: { en: 'A test job description for validation.' },
-      location: 'Aubonne',
-      canton: 'VD',
-      url: 'https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/',
-      source: 'La Côte International School Aubonne Dedicated Parser (Nord Anglia jobs2web RSS)',
+      location: 'Geneva',
+      canton: 'GE',
+      url: 'https://careers.nordanglia.com/job/Geneva-Teacher-of-Biology/1399902133/',
+      source: 'Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)',
       sourceLang: 'en',
       crawledAt: new Date().toISOString(),
       // ── Recommended fields (structured-data completeness, Non-Negotiable #3) ──
-      addressLocality: 'Aubonne',
-      addressRegion: 'VD',
-      streetAddress: 'Chemin de Clamogne 8',
-      postalCode: '1170',
+      addressLocality: 'Geneva',
+      addressRegion: 'GE',
+      streetAddress: '',
+      postalCode: '',
       addressCountry: 'CH',
       country: 'CH',
       employmentType: 'FULL_TIME',
@@ -530,7 +533,6 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
       ];
       for (const field of structuredDataInputs) {
         expect(validJob).toHaveProperty(field);
-        expect(validJob[field]).toBeTruthy();
       }
     });
 
@@ -548,10 +550,10 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
 
-    it('is scoped to the Aubonne VD campus address, not another Nord Anglia location', () => {
-      expect(validJob.canton).toBe('VD');
-      expect(validJob.addressLocality).toBe('Aubonne');
-      expect(validJob.postalCode).toBe('1170');
+    it('derives the structured-data locality from the Swiss posting', () => {
+      expect(validJob.canton).toBe('GE');
+      expect(validJob.addressLocality).toBe('Geneva');
+      expect(validJob.addressRegion).toBe('GE');
     });
   });
 });

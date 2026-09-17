@@ -13,7 +13,7 @@ import {
   fetchPradaDetailPage,
   fetchPradaJobUrls,
   normalizePradaJobUrl,
-  resolvePradaTicinoLocation,
+  resolvePradaSwissLocation,
   parsePradaListingHtml,
   parsePradaDetailHtml,
   slugify,
@@ -271,72 +271,88 @@ describe('Prada Group crawler — URL boundary', () => {
   });
 });
 
-describe('Prada Group crawler — Ticino ownership', () => {
-  it('accepts source-backed Mendrisio locations and canonical route fallback', () => {
+describe('Prada Group crawler — Swiss ownership', () => {
+  it('accepts source-backed Swiss locations and canonical route fallback', () => {
     const url = 'https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980233/';
-    expect(resolvePradaTicinoLocation({ location: 'Mendrisio', url })).toBe('Mendrisio');
-    expect(resolvePradaTicinoLocation({ location: 'Mendrisio, TI, Switzerland', url }))
+    expect(resolvePradaSwissLocation({ location: 'Mendrisio', url })).toBe('Mendrisio');
+    expect(resolvePradaSwissLocation({ location: 'Mendrisio, TI, Switzerland', url }))
       .toBe('Mendrisio');
-    expect(resolvePradaTicinoLocation({
+    expect(resolvePradaSwissLocation({
       location: '',
       url,
     })).toBe('Mendrisio');
+    expect(resolvePradaSwissLocation({
+      location: 'Zürich, Switzerland',
+      url: 'https://jobs.pradagroup.com/job/Zurich-Client-Advisor/1377980234/',
+    })).toBe('Zürich');
+    expect(resolvePradaSwissLocation({
+      location: 'St. Moritz, Switzerland',
+      url: 'https://jobs.pradagroup.com/job/St-Moritz-Client-Advisor/1377980235/',
+    })).toBe('St. Moritz');
+    expect(resolvePradaSwissLocation({
+      location: '',
+      url: 'https://jobs.pradagroup.com/job/Villars-sur-Ollon-Teacher/1377980236/',
+    })).toBe('Villars sur Ollon');
   });
 
   it.each([
     ['Arezzo Purchasing intern', 'https://jobs.pradagroup.com/job/Arezzo-Purchasing-intern/1387030233/'],
     ['Nearest Major Market: Las Vegas', 'https://jobs.pradagroup.com/job/Las-Vegas-Client-Advisor/1387030234/'],
-    ['St. Moritz', 'https://jobs.pradagroup.com/job/St-Moritz-Client-Advisor/1387030235/'],
     ['', 'https://jobs.pradagroup.com/job/Milano-Digital-Content-Intern/1387030236/'],
-  ])('rejects non-Ticino source evidence: %s', (location, url) => {
-    expect(resolvePradaTicinoLocation({ location, url })).toBeNull();
+  ])('rejects foreign or unresolved source evidence: %s', (location, url) => {
+    expect(resolvePradaSwissLocation({ location, url })).toBeNull();
   });
 
-  it('tolerates real SuccessFactors detail-page location formatting without dropping a valid Mendrisio job', () => {
+  it('tolerates real SuccessFactors detail-page location formatting without dropping valid Swiss jobs', () => {
     const url = 'https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980233/';
     // Postal-code-prefixed variants seen on detail pages (same convention
     // already handled for other crawlers, e.g. agroscope-job-parser.mjs).
-    expect(resolvePradaTicinoLocation({ location: '6850 Mendrisio', url })).toBe('Mendrisio');
-    expect(resolvePradaTicinoLocation({ location: 'CH-6850 Mendrisio, Ticino', url }))
+    expect(resolvePradaSwissLocation({ location: '6850 Mendrisio', url })).toBe('Mendrisio');
+    expect(resolvePradaSwissLocation({ location: 'CH-6850 Mendrisio, Ticino', url }))
       .toBe('Mendrisio');
     // Hyphen-joined variant (same bug class: a space-only strip left this
     // unstripped and still fail-closed).
-    expect(resolvePradaTicinoLocation({ location: '6850-Mendrisio', url })).toBe('Mendrisio');
+    expect(resolvePradaSwissLocation({ location: '6850-Mendrisio', url })).toBe('Mendrisio');
     // Case and stray whitespace already tolerated — kept here as regression guards.
-    expect(resolvePradaTicinoLocation({ location: '  MENDRISIO  ', url })).toBe('Mendrisio');
+    expect(resolvePradaSwissLocation({ location: '  MENDRISIO  ', url })).toBe('Mendrisio');
   });
 
-  it('canonicalizes every accepted variant before slug and JobPosting locality consumers', () => {
+  it('canonicalizes accepted variants before slug and JobPosting locality consumers', () => {
+    const resolved = [
+      ['Mendrisio', 'https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980233/', 'TI'],
+      ['6850 Mendrisio', 'https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980233/', 'TI'],
+      ['8001 Zürich', 'https://jobs.pradagroup.com/job/Zurich-Client-Advisor/1377980234/', 'ZH'],
+    ].map(([location, url]) => resolvePradaSwissLocation({ location, url }));
+
+    expect(resolved).toEqual(['Mendrisio', 'Mendrisio', 'Zürich']);
+    expect(slugify(`Client Advisor-prada-group-${resolved[2]}`))
+      .toBe('client-advisor-prada-group-zurich');
+    expect(sanitizeLocalityForRegion(String(resolved[0]), 'TI')).toBe('Mendrisio');
+    expect(sanitizeLocalityForRegion(String(resolved[2]), 'ZH')).toBe('Zürich');
+  });
+
+  it('rejects a bare postal code and conflicting or foreign location evidence', () => {
     const url = 'https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980233/';
-    const resolved = ['Mendrisio', '6850 Mendrisio', '6850-Mendrisio']
-      .map((location) => resolvePradaTicinoLocation({ location, url }));
-
-    expect(resolved).toEqual(['Mendrisio', 'Mendrisio', 'Mendrisio']);
-    expect(new Set(resolved.map((location) => slugify(`Client Advisor-prada-group-${location}`))))
-      .toEqual(new Set(['client-advisor-prada-group-mendrisio']));
-    for (const location of resolved) {
-      expect(sanitizeLocalityForRegion(String(location), 'TI')).toBe('Mendrisio');
-    }
+    expect(resolvePradaSwissLocation({ location: '6850', url })).toBeNull();
+    expect(resolvePradaSwissLocation({ location: '6850--', url })).toBeNull();
+    expect(resolvePradaSwissLocation({ location: '6850--Mendrisio', url })).toBeNull();
+    expect(resolvePradaSwissLocation({ location: '1003 Lausanne', url })).toBeNull();
+    expect(resolvePradaSwissLocation({ location: '1003-Lausanne', url })).toBeNull();
+    expect(resolvePradaSwissLocation({
+      location: 'Arezzo',
+      url: 'https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980237/',
+    })).toBeNull();
   });
 
-  it('still rejects a bare postal code or a foreign city sharing no Mendrisio prefix', () => {
-    const url = 'https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980233/';
-    expect(resolvePradaTicinoLocation({ location: '6850', url })).toBeNull();
-    expect(resolvePradaTicinoLocation({ location: '6850--', url })).toBeNull();
-    expect(resolvePradaTicinoLocation({ location: '6850--Mendrisio', url })).toBeNull();
-    expect(resolvePradaTicinoLocation({ location: '6900 Lugano', url })).toBeNull();
-    expect(resolvePradaTicinoLocation({ location: '6900-Lugano', url })).toBeNull();
-  });
-
-  it('does not let a Mendrisio title override an authoritative foreign location', () => {
-    expect(resolvePradaTicinoLocation({
+  it('does not let a Swiss title override an authoritative foreign location', () => {
+    expect(resolvePradaSwissLocation({
       location: 'Arezzo',
       url: 'https://jobs.pradagroup.com/job/Arezzo-Mendrisio-Manager/1387030237/',
     })).toBeNull();
   });
 
-  it('rejects a historical foreign route even when its stale location was defaulted to Mendrisio', () => {
-    expect(resolvePradaTicinoLocation({
+  it('rejects a historical foreign route even when its stale location was Swiss', () => {
+    expect(resolvePradaSwissLocation({
       location: 'Mendrisio',
       url: 'https://jobs.pradagroup.com/job/Paris-Client-Advisor/1387030238/',
     })).toBeNull();
@@ -356,7 +372,7 @@ describe('Prada Group crawler — Ticino ownership', () => {
       previousSlugsByLocale: { it: ['vecchio-stage-acquisti-prada-arezzo'] },
     };
     try {
-      const retired = [prior].filter((job) => !resolvePradaTicinoLocation(job));
+      const retired = [prior].filter((job) => !resolvePradaSwissLocation(job));
       expect(archiveRemovedJobsToSlice(retired, 'prada', { dir })).toBe(1);
       const archived = JSON.parse(readFileSync(path.join(dir, 'prada.json'), 'utf8'));
       expect(archived[0]).toMatchObject({
@@ -430,9 +446,9 @@ describe('Prada Group crawler — SuccessFactors listing parsing', () => {
     expect(parsePradaListingHtml(EMPTY_SEARCH_HTML)).toHaveLength(0);
   });
 
-  it('sets canton to TI', () => {
+  it('infers the canton from each Swiss listing location', () => {
     const jobs = parsePradaListingHtml(LISTING_HTML_FIXTURE);
-    jobs.forEach((j) => expect(j.canton).toBe('TI'));
+    expect(jobs.map((job) => job.canton)).toEqual(['TI', 'GR']);
   });
 
   it('sets id with prada- prefix', () => {
