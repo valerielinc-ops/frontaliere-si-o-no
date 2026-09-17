@@ -14,6 +14,7 @@ import {
 } from '@/scripts/lib/capri-holdings-job-parser.mjs';
 import {
   assertWorkdayPage,
+  assertUniqueWorkdayPostings,
   isSwissWorkdayListing,
   resolveWorkdayCity,
   resolveWorkdayLocation,
@@ -116,6 +117,25 @@ describe('Capri Workday location resolution', () => {
     expect(() => assertWorkdayPage({ jobPostings: [] }, {
       brand: 'Versace', searchText: 'Switzerland', offset: 0,
     })).toThrow(/invalid total/);
+  });
+
+  it('fails closed when Workday declares a null or blank total', () => {
+    for (const total of [null, '']) {
+      expect(() => assertWorkdayPage({ jobPostings: [], total }, {
+        brand: 'Versace', searchText: 'Switzerland', offset: 0,
+      })).toThrow(/invalid total/);
+    }
+  });
+
+  it('fails closed when a query repeats a posting identity across pages', () => {
+    const seen = new Set();
+    assertUniqueWorkdayPostings([{ externalPath: '/job/Zurich/role-1' }], {
+      brand: 'Michael Kors', searchText: 'Switzerland', offset: 0, seen,
+    });
+
+    expect(() => assertUniqueWorkdayPostings([{ externalPath: '/job/Zurich/role-1' }], {
+      brand: 'Michael Kors', searchText: 'Switzerland', offset: 20, seen,
+    })).toThrow(/repeated posting identity/);
   });
 });
 

@@ -362,6 +362,7 @@ async function listSwissJobs(site, brand) {
     let offset = 0;
     const limit = 20;
     let queryPostingsFetched = 0;
+    const queryPostingIdentities = new Set();
     while (true) {
       const body = JSON.stringify({ appliedFacets: {}, limit, offset, searchText });
       const data = await fetchJson(apiUrl, { method: 'POST', body });
@@ -371,6 +372,12 @@ async function listSwissJobs(site, brand) {
         offset,
       });
       const pageLength = jobPostings.length;
+      assertUniqueWorkdayPostings(jobPostings, {
+        brand,
+        searchText,
+        offset,
+        seen: queryPostingIdentities,
+      });
       queryPostingsFetched += pageLength;
       if (queryPostingsFetched > declaredTotal) {
         throw new Error(
@@ -415,14 +422,43 @@ export function assertWorkdayPage(data, { brand = 'Capri Holdings', searchText =
       `Workday ${brand} ${searchText || 'empty'} search returned a malformed page at offset ${offset}`,
     );
   }
-  const declaredTotal = Number(data.total);
-  if (!Number.isInteger(declaredTotal) || declaredTotal < 0) {
+  const rawTotal = data.total;
+  const rawTotalText = typeof rawTotal === 'string' ? rawTotal.trim() : '';
+  const hasNumericTotal = (typeof rawTotal === 'number' && Number.isFinite(rawTotal))
+    || (typeof rawTotal === 'string' && /^\d+$/.test(rawTotalText));
+  const declaredTotal = hasNumericTotal ? Number(rawTotal) : NaN;
+  if (!hasNumericTotal || !Number.isInteger(declaredTotal) || declaredTotal < 0) {
     throw new Error(
       `Workday ${brand} ${searchText || 'empty'} search returned an invalid total `
-      + `${data.total ?? '?'} at offset ${offset}`,
+      + `${rawTotal ?? '?'} at offset ${offset}`,
     );
   }
   return { jobPostings: data.jobPostings, declaredTotal };
+}
+
+export function assertUniqueWorkdayPostings(
+  jobPostings,
+  { brand = 'Capri Holdings', searchText = '', offset = 0, seen = new Set() } = {},
+) {
+  for (const posting of jobPostings) {
+    const identity = typeof posting?.externalPath === 'string'
+      ? normalizeSpace(posting.externalPath)
+      : '';
+    if (!identity) {
+      throw new Error(
+        `Workday ${brand} ${searchText || 'empty'} search returned a posting without an identity `
+        + `at offset ${offset}`,
+      );
+    }
+    if (seen.has(identity)) {
+      throw new Error(
+        `Workday ${brand} ${searchText || 'empty'} search repeated posting identity `
+        + `${identity} at offset ${offset}`,
+      );
+    }
+    seen.add(identity);
+  }
+  return seen;
 }
 
 /**
