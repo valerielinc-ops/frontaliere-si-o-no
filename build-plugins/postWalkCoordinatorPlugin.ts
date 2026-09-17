@@ -94,6 +94,7 @@ import {
   postWalkIncrementalEnabled,
   postWalkIncrementalVerifyEnabled,
   postWalkIncrementalVerifySampleSize,
+  replacePostWalkPathList,
   selectPostWalkVerificationPaths,
   type PostWalkIncrementalPlan,
 } from './shared/postWalkIncremental';
@@ -508,12 +509,10 @@ export function postWalkCoordinatorPlugin(
               manifests: manifests.pair,
             });
             if (incrementalPlan.mode === 'incremental') {
-              processHtmlPaths.length = 0;
-              processHtmlPaths.push(...incrementalPlan.processHtmlPaths);
+              replacePostWalkPathList(processHtmlPaths, incrementalPlan.processHtmlPaths);
             } else {
               // Keep the pre-existing full path when the proof is incomplete.
-              processHtmlPaths.length = 0;
-              processHtmlPaths.push(...fullProcessHtmlPaths);
+              replacePostWalkPathList(processHtmlPaths, fullProcessHtmlPaths);
             }
             if (incrementalPlan.fallbackReason) {
               // eslint-disable-next-line no-console
@@ -593,8 +592,7 @@ export function postWalkCoordinatorPlugin(
               affected: 0,
               fallbackReason: reason,
             };
-            processHtmlPaths.length = 0;
-            processHtmlPaths.push(...fullProcessHtmlPaths);
+            replacePostWalkPathList(processHtmlPaths, fullProcessHtmlPaths);
           }
         }
 

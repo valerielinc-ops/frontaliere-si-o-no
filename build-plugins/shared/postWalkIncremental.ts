@@ -95,6 +95,15 @@ export type PostWalkIncrementalPlan = {
   readonly reasonsByPath: ReadonlyMap<string, ReadonlySet<PostWalkPathReason>>;
 };
 
+/** Replace a coordinator path list without passing every item as an argument. */
+export function replacePostWalkPathList(
+  target: string[],
+  source: readonly string[],
+): void {
+  target.length = 0;
+  for (const filePath of source) target.push(filePath);
+}
+
 function normalizeLogicalPath(value: string): string {
   return String(value)
     .replaceAll('\\', '/')

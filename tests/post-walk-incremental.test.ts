@@ -1,6 +1,8 @@
+import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 import { afterEach, describe, expect, it } from 'vitest';
 
@@ -10,9 +12,11 @@ import {
   comparePostWalkVerification,
   loadPostWalkManifestPair,
   postWalkIncrementalEnabled,
+  replacePostWalkPathList,
 } from '../build-plugins/shared/postWalkIncremental';
 
 const BASE_URL = 'https://frontaliereticino.ch';
+const ROOT = path.resolve(__dirname, '..');
 const roots: string[] = [];
 
 function writeManifest(
@@ -263,6 +267,28 @@ describe('post-walk incremental planning', () => {
 
     expect(comparison.wouldWriteButSkipped).toEqual([skipped]);
     expect(comparison.processedButWouldNotWrite).toEqual([processed]);
+  });
+
+  it('copies large coordinator path lists without overflowing the call stack', () => {
+    const moduleUrl = pathToFileURL(
+      path.join(ROOT, 'build-plugins/shared/postWalkIncremental.ts'),
+    ).href;
+    const script = `
+      import { replacePostWalkPathList } from ${JSON.stringify(moduleUrl)};
+      const source = Array.from({ length: 200_000 }, (_, index) => '/fake/' + index + '/index.html');
+      const target = ['/stale/index.html'];
+      replacePostWalkPathList(target, source);
+      if (target.length !== source.length || target[0] !== source[0] || target.at(-1) !== source.at(-1)) {
+        process.exit(1);
+      }
+    `;
+    const result = spawnSync(
+      process.execPath,
+      ['--import', 'tsx', '--input-type=module', '--eval', script],
+      { cwd: ROOT, encoding: 'utf8' },
+    );
+
+    expect(result.status, result.stderr).toBe(0);
   });
 
   it('keeps the incremental flag opt-in', () => {
