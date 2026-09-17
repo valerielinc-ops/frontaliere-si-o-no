@@ -1350,7 +1350,6 @@
         "grand-vendeur-senior-sales-associate-richemont-geneva",
         "grand-vendeur-addetto-alle-vendite-senior-roger-dubuis-geneva",
         "grand-vendeur-associato-senior-alle-vendite-roger-dubuis-geneva",
-        "senior-sales-associate-richemont-geneva-n74jn7",
         "senior-sales-associate-cartier-geneva"
       ],
       "previousSlugsByLocale": {
@@ -1375,7 +1374,6 @@
           "associe-de-vente-senior-cartier-geneva",
           "avocat-principal-cartier-geneva",
           "grand-vendeur-senior-sales-associate-richemont-geneva",
-          "senior-sales-associate-richemont-geneva-n74jn7",
           "senior-sales-associate-richemont-geneva"
         ]
       },
@@ -3973,14 +3971,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "procurement-category-manager-richemont-plan-les-ouates-2",
-        "procurement-category-manager-richemont-plan-les-ouates",
-        "procurement-category-manager-piaget-plan-les-ouates"
+        "procurement-category-manager-richemont-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "procurement-category-manager-richemont-plan-les-ouates-2",
-          "procurement-category-manager-richemont-plan-les-ouates",
-          "procurement-category-manager-piaget-plan-les-ouates"
+          "procurement-category-manager-richemont-plan-les-ouates"
         ],
         "de": [
           "procurement-category-manager-richemont-plan-les-ouates-2"
@@ -9507,13 +9503,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sales-associate-richemont-zurich",
-        "sales-associate-richemont-zurich-t0sdvd",
-        "sales-associate-van-cleef-arpels-zurich"
+        "sales-associate-richemont-zurich-t0sdvd"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-associate-richemont-zurich",
-          "sales-associate-van-cleef-arpels-zurich"
+          "sales-associate-richemont-zurich"
         ],
         "de": [
           "sales-associate-richemont-zurich"
@@ -9986,7 +9980,7 @@
       "slug": "orologiaio-di-boutique-richemont-zurich",
       "slugByLocale": {
         "it": "orologiaio-di-boutique-richemont-zurich",
-        "en": "boutique-watchmaker-richemont-zurich",
+        "en": "boutique-watch-arrival-richemont-zurich",
         "de": "boutique-watchmaker-richemont-zurich",
         "fr": "boutique-horlogerie-richemont-zurich"
       },
@@ -10034,6 +10028,9 @@
           "boutique-watchmaker-richemont-zurich"
         ],
         "it": [
+          "boutique-watchmaker-richemont-zurich"
+        ],
+        "en": [
           "boutique-watchmaker-richemont-zurich"
         ]
       },
@@ -10507,15 +10504,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ]
-      },
-      "previousSlugs": [
-        "specialiste-analyses-materiaux-richemont-glovelier"
-      ]
+      }
     },
     {
       "id": "richemont-beb532d93689",
@@ -11369,8 +11358,8 @@
       "slugByLocale": {
         "it": "formateur-metiers-cartier-manufacture-le-cret-du-locle",
         "en": "formateur-metiers-richemont-le-cret-du-locle",
-        "de": "formateur-metiers-cartier-manufacture-le-cret-du-locle",
-        "fr": "formateur-metiers-richemont-le-cret-du-locle"
+        "de": "formblatt-fur-die-anmeldung-cartier-manufacture-le-cret-du-locle",
+        "fr": "formulaire-cartier-manufacture-le-cret-du-locle"
       },
       "company": "Cartier Manufacture",
       "companyKey": "richemont",
@@ -11432,6 +11421,9 @@
         "de": [
           "formateur-metiers-richemont-le-cret-du-locle",
           "berufsausbildung-cartier-manufacture-le-cret-du-locle"
+        ],
+        "fr": [
+          "formateur-metiers-richemont-le-cret-du-locle"
         ]
       },
       "needsRetranslation": true,
@@ -11455,7 +11447,7 @@
       "slug": "technicien-de-maintenance-richemont-le-cret-du-locle",
       "slugByLocale": {
         "it": "technicien-de-maintenance-richemont-le-cret-du-locle",
-        "en": "maintenance-technician-cartier-manufacture-le-cret-du-locle",
+        "en": "technicien-de-flippa-cartier-manufacture-le-cret-du-locle",
         "de": "technik-fur-instandhaltung-cartier-manufacture-le-cret-du-locle",
         "fr": "technicien-de-maintenance-cartier-manufacture-le-cret-du-locle"
       },
@@ -11502,7 +11494,8 @@
         "wartungstechniker-cartier-manufacture-le-cret-du-locle",
         "manutenzione-tecnica-cartier-manufacture-le-cret-du-locle",
         "instandhaltungstechniker-cartier-manufacture-le-cret-du-locle",
-        "technicien-de-maintenance-cartier-manufacture-le-cret-du-locle"
+        "technicien-de-maintenance-cartier-manufacture-le-cret-du-locle",
+        "maintenance-technician-cartier-manufacture-le-cret-du-locle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11512,6 +11505,9 @@
           "wartungstechniker-cartier-manufacture-le-cret-du-locle",
           "instandhaltungstechniker-cartier-manufacture-le-cret-du-locle",
           "technicien-de-maintenance-cartier-manufacture-le-cret-du-locle"
+        ],
+        "en": [
+          "maintenance-technician-cartier-manufacture-le-cret-du-locle"
         ]
       },
       "firstSeenAt": "2026-08-25T10:01:33.214Z",
@@ -13636,7 +13632,7 @@
       "slugByLocale": {
         "it": "apprenti-polymecanicien-cfc-richemont-le-cret-du-locle",
         "en": "apprenti-polymecanicien-cfc-richemont-le-cret-du-locle",
-        "de": "apprenti-polymecanicien-cfc-richemont-le-cret-du-locle",
+        "de": "anwendende-polymecanicien-cfc-cartier-manufacture-le-cret-du-locle",
         "fr": "apprenti-polymecanicien-cfc-cartier-manufacture-le-cret-du-locle"
       },
       "company": "Cartier Manufacture",
@@ -13836,7 +13832,7 @@
       "slugByLocale": {
         "it": "stagiaire-ingenieur-cybersecurite-richemont-le-sentier",
         "en": "stagiaire-ingenieur-cybersecurite-richemont-le-sentier",
-        "de": "stagiaire-ingenieur-cybersecurite-richemont-le-sentier",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-buchstabe-a-genannten-ma-nahmen-zu-prufen",
         "fr": "stagiaire-ingenieur-cybersecurite-jaeger-lecoultre-le-sentier"
       },
       "company": "Jaeger-LeCoultre",
@@ -14055,7 +14051,7 @@
         "it": "stagiaire-ingenieur-habillage-richemont-le-sentier",
         "en": "stagiaire-ingenieur-habillage-richemont-le-sentier",
         "de": "stagiaire-ingenieur-habillage-richemont-le-sentier",
-        "fr": "stagiaire-ingenieur-habillage-jaeger-lecoultre-le-sentier"
+        "fr": "etagiere-maintenant-jaeger-lecoultre-le-sentier"
       },
       "company": "Jaeger-LeCoultre",
       "companyKey": "richemont",
@@ -14110,7 +14106,15 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "fr": [
+          "stagiaire-ingenieur-habillage-jaeger-lecoultre-le-sentier"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-ingenieur-habillage-jaeger-lecoultre-le-sentier"
+      ]
     },
     {
       "id": "richemont-e22e3adf5e0a",
@@ -14347,7 +14351,7 @@
         "it": "stagiaire-demarches-de-progres-richemont-la-chaux-de-fonds",
         "en": "stagiaire-demarches-de-progres-richemont-la-chaux-de-fonds",
         "de": "stagiaire-demarches-de-progres-richemont-la-chaux-de-fonds",
-        "fr": "stagiaire-demarches-de-progres-richemont-la-chaux-de-fonds"
+        "fr": "stade-demarches-de-progres-procadrans-la-chaux-de-fonds"
       },
       "company": "ProCadrans",
       "companyKey": "richemont",
@@ -14419,7 +14423,7 @@
         "en": "client-data-insights-manager-richemont-plan-les-ouates",
         "it": "gestione-dei-dati-e-delle-informazioni-cliente-vacheron-constantin-plan-les-ouates",
         "de": "kundendaten-insights-manager-vacheron-constantin-plan-les-ouates",
-        "fr": "client-data-insights-manager-richemont-plan-les-ouates"
+        "fr": "gestionnaire-de-donnees-et-d-informations-client-vacheron-constantin-plan-les-ouates"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -14481,6 +14485,9 @@
           "client-data-insights-manager-richemont-plan-les-ouates"
         ],
         "de": [
+          "client-data-insights-manager-richemont-plan-les-ouates"
+        ],
+        "fr": [
           "client-data-insights-manager-richemont-plan-les-ouates"
         ]
       },
@@ -14572,7 +14579,7 @@
         "it": "stagiaire-ingenieur-flux-industriel-richemont-le-sentier",
         "en": "stagiaire-ingenieur-flux-industriel-richemont-le-sentier",
         "de": "stagiaire-ingenieur-flux-industriel-richemont-le-sentier",
-        "fr": "stagiaire-ingenieur-flux-industriel-jaeger-lecoultre-le-sentier"
+        "fr": "les-donnees-sont-disponibles-sur-le-site-internet-de-l-office-statistique-des-communautes-europeennes-jaeger-lecoultre"
       },
       "company": "Jaeger-LeCoultre",
       "companyKey": "richemont",
@@ -14627,7 +14634,15 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "fr": [
+          "stagiaire-ingenieur-flux-industriel-jaeger-lecoultre-le-sentier"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-ingenieur-flux-industriel-jaeger-lecoultre-le-sentier"
+      ]
     },
     {
       "id": "richemont-111e92a96c12",
@@ -14991,10 +15006,10 @@
     },
     {
       "id": "richemont-9b5c797f74f6",
-      "slug": "apprenti-automaticien-cfc-h-f-richemont-villars-sur-glane",
+      "slug": "apprendista-cfc-m-f-richemont-villars-sur-glane",
       "slugByLocale": {
-        "it": "apprenti-automaticien-cfc-h-f-richemont-villars-sur-glane",
-        "en": "apprenti-automaticien-cfc-h-f-richemont-villars-sur-glane",
+        "it": "apprendista-cfc-m-f-richemont-villars-sur-glane",
+        "en": "apprentice-cfc-m-f-richemont-villars-sur-glane",
         "de": "auszubildende-automaticis-cfc-m-w-richemont-villars-sur-glane",
         "fr": "apprenti-automaticien-cfc-h-f-richemont-villars-sur-glane"
       },
@@ -15050,7 +15065,18 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-automaticien-cfc-h-f-richemont-villars-sur-glane"
+        ],
+        "en": [
+          "apprenti-automaticien-cfc-h-f-richemont-villars-sur-glane"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-automaticien-cfc-h-f-richemont-villars-sur-glane"
+      ]
     },
     {
       "id": "richemont-65c8d2bbd231",
@@ -15199,7 +15225,7 @@
       "slugByLocale": {
         "it": "apprenti-polymecanicien-cfc-richemont-villars-sur-glane",
         "en": "apprenti-polymecanicien-cfc-richemont-villars-sur-glane",
-        "de": "apprenti-polymecanicien-cfc-richemont-villars-sur-glane",
+        "de": "anwendende-polymecanicien-cfc-cartier-manufacture-villars-sur-glane",
         "fr": "apprenti-polymecanicien-cfc-cartier-manufacture-villars-sur-glane"
       },
       "company": "Cartier Manufacture",
@@ -15477,10 +15503,10 @@
     },
     {
       "id": "richemont-cc0bfb291de2",
-      "slug": "manager-mecanique-et-outillage-richemont-le-sentier",
+      "slug": "gestore-mecanique-et-outillage-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
         "en": "manager-mecanique-et-outillage-richemont-le-sentier",
-        "it": "manager-mecanique-et-outillage-richemont-le-sentier",
+        "it": "gestore-mecanique-et-outillage-jaeger-lecoultre-le-sentier",
         "de": "manager-mecanique-et-outillage-richemont-le-sentier",
         "fr": "gestionnaire-mecanique-et-outillage-jaeger-lecoultre-le-sentier"
       },
@@ -15539,7 +15565,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-16T09:31:35.837Z"
+      "firstSeenAt": "2026-09-16T09:31:35.837Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-mecanique-et-outillage-richemont-le-sentier"
+        ]
+      },
+      "previousSlugs": [
+        "manager-mecanique-et-outillage-richemont-le-sentier"
+      ]
     },
     {
       "id": "richemont-b4ce8f77a05b",

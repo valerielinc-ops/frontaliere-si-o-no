@@ -2,14 +2,14 @@
 /**
  * Dedicated Vir Biotechnology (Humabs BioMed) crawler runner.
  *
- * Vir Biotechnology acquired Humabs BioMed SA, with R&D operations
- * in Bellinzona, Canton Ticino. Uses Greenhouse ATS.
+ * Vir Biotechnology acquired Humabs BioMed SA, with Swiss R&D operations
+ * including Bellinzona, Canton Ticino. Uses Greenhouse ATS.
  *
  * Greenhouse API: https://boards-api.greenhouse.io/v1/boards/virbiotechnologyinc/jobs?content=true
  *
  * Discovery flow:
  *   1. Query Greenhouse API for all jobs
- *   2. Filter for Switzerland/Bellinzona positions
+ *   2. Filter for Swiss positions and infer each posting's canton
  *   3. Build job objects
  *   4. Merge into data/jobs.json
  *   5. Run base crawler for AI localization
@@ -113,7 +113,7 @@ async function fetchGreenhouseJobs() {
 function buildJobFromGreenhouse(parsed) {
   const slug = slugify(parsed.title, 'vir-biotechnology');
   const descEn = parsed.description || `${parsed.title} position at Vir Biotechnology (Humabs BioMed) in ${parsed.city}, Switzerland.`;
-  const descIt = `Posizione aperta presso Vir Biotechnology (Humabs BioMed) a ${parsed.city}.\nRuolo: ${parsed.title}.\n\nVir Biotechnology è un'azienda biotecnologica globale. Humabs BioMed SA opera a Bellinzona, Ticino.`;
+  const descIt = `Posizione aperta presso Vir Biotechnology (Humabs BioMed) a ${parsed.city}.\nRuolo: ${parsed.title}.\n\nVir Biotechnology è un'azienda biotecnologica globale. Humabs BioMed SA ha attività di ricerca in Svizzera, tra cui la sede di Bellinzona, Ticino.`;
 
   return {
     url: parsed.url,
@@ -180,7 +180,7 @@ async function mergeJobs(discoveredJobs) {
 function updateAdapterConfig() {
   const adapterPath = path.join(ADAPTERS_DIR, `${COMPANY_KEY}.json`);
   const adapter = fs.existsSync(adapterPath) ? JSON.parse(fs.readFileSync(adapterPath, 'utf-8')) : {};
-  Object.assign(adapter, { companyKey: COMPANY_KEY, companyName: COMPANY_NAME, companyHost: COMPANY_HOST, enabled: true, priority: Math.max(adapter.priority || 0, 10), crawlerModes: ['api'], seedUrls: [GREENHOUSE_API], notes: 'Greenhouse API — filter Swiss locations (Bellinzona TI).', updatedAt: new Date().toISOString() });
+  Object.assign(adapter, { companyKey: COMPANY_KEY, companyName: COMPANY_NAME, companyHost: COMPANY_HOST, enabled: true, priority: Math.max(adapter.priority || 0, 10), crawlerModes: ['api'], seedUrls: [GREENHOUSE_API], notes: 'Greenhouse API — filter Swiss locations and retain the resolved canton per posting.', updatedAt: new Date().toISOString() });
   fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
   fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
 }

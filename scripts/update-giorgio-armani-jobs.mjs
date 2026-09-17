@@ -256,7 +256,7 @@ async function discoverSwissJobs() {
       }
 
       const swiss = listings.filter((l) => isGiorgioArmaniSwissJob(l.title, l.country));
-      console.log(`🇨🇭 ${swiss.length}/${listings.length} jobs match Switzerland (TI/GR).`);
+      console.log(`🇨🇭 ${swiss.length}/${listings.length} jobs match Swiss locations.`);
 
       const out = [];
       for (const job of swiss) {
@@ -409,7 +409,7 @@ function updateAdapterConfig(jobs) {
     priority: 16,
     crawlerModes: ['playwright', 'html'],
     seedUrls: [CAREERS_URL],
-    notes: `Dedicated Giorgio Armani crawler renders the SuccessFactors SPA (company=${SF_COMPANY_ID}) with a headless browser (Playwright): paginates the hydrated job listing, filters for Switzerland-based positions (TI/GR), and parses the hydrated detail .joqReqDescription. The listing/detail pages are no longer curl-fetchable (DWR-rendered SPA).`,
+    notes: `Dedicated Giorgio Armani crawler renders the SuccessFactors SPA (company=${SF_COMPANY_ID}) with a headless browser (Playwright): paginates the hydrated job listing, filters for Switzerland-based positions across all cantons, and parses the hydrated detail .joqReqDescription. The listing/detail pages are no longer curl-fetchable (DWR-rendered SPA).`,
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });

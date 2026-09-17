@@ -633,9 +633,9 @@
     },
     {
       "id": "tally-weijl-8adfd90046bb",
-      "slug": "store-manager-100-m-w-d-tally-weijl-bern",
+      "slug": "direttore-100-m-w-d-tally-weijl-bern",
       "slugByLocale": {
-        "it": "store-manager-100-m-w-d-tally-weijl-bern",
+        "it": "direttore-100-m-w-d-tally-weijl-bern",
         "en": "store-manager-100-m-w-d-tally-weijl-bern",
         "de": "store-manager-100-m-w-d-tally-weijl-bern",
         "fr": "gestionnaire-a-100-m-w-d-tally-weijl-bern"
@@ -691,7 +691,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "store-manager-100-m-w-d-tally-weijl-bern"
+        ]
+      },
+      "previousSlugs": [
+        "store-manager-100-m-w-d-tally-weijl-bern"
+      ]
     },
     {
       "id": "tally-weijl-4f4e9000aa51",

@@ -8,7 +8,7 @@
       "slugByLocale": {
         "en": "casino-slots-and-technical-operations-manager-msc-geneva",
         "it": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva",
-        "de": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva",
+        "de": "casino-slots-und-technischer-betriebsmanager-msc-group-geneva",
         "fr": "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
       },
       "company": "MSC Group",
@@ -84,7 +84,7 @@
         "it": "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva",
         "en": "jewellery-product-development-senior-manager-msc-geneva",
         "de": "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
-        "fr": "jewellery-product-development-senior-manager-msc-geneva"
+        "fr": "jewellery-product-development-gestionnaire-principal-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -136,6 +136,9 @@
         ],
         "de": [
           "jewellery-product-development-senior-manager-msc-geneva"
+        ],
+        "fr": [
+          "jewellery-product-development-senior-manager-msc-geneva"
         ]
       },
       "firstSeenAt": "2026-09-11T10:02:58.299Z",
@@ -159,7 +162,7 @@
       "slugByLocale": {
         "it": "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva",
         "en": "retail-learning-development-manager-msc-geneva",
-        "de": "retail-learning-development-manager-msc-geneva",
+        "de": "manager-fur-einzelhandel-lernen-und-entwicklung-msc-group-geneva",
         "fr": "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva"
       },
       "company": "MSC Group",
@@ -214,6 +217,9 @@
         ],
         "fr": [
           "retail-learning-development-manager-msc-geneva"
+        ],
+        "de": [
+          "retail-learning-development-manager-msc-geneva"
         ]
       },
       "firstSeenAt": "2026-09-09T23:11:03.974Z",
@@ -238,7 +244,7 @@
         "it": "gestione-dello-sviluppo-e-della-consegna-dell-esperienza-msc-group-geneva",
         "en": "experience-development-delivery-manager-msc-geneva",
         "de": "erfahrungsentwicklung-delivery-manager-msc-group-geneva",
-        "fr": "experience-development-delivery-manager-msc-geneva"
+        "fr": "gestionnaire-de-developpement-et-de-prestation-de-l-experience-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -289,6 +295,9 @@
           "experience-development-delivery-manager-msc-geneva"
         ],
         "de": [
+          "experience-development-delivery-manager-msc-geneva"
+        ],
+        "fr": [
           "experience-development-delivery-manager-msc-geneva"
         ]
       },
@@ -543,7 +552,7 @@
       "slugByLocale": {
         "en": "revenue-management-senior-business-analyst-msc-geneva",
         "it": "revenue-management-senior-business-analyst-msc-geneva",
-        "de": "revenue-management-senior-business-analyst-msc-geneva",
+        "de": "umsatzmanagement-senior-business-ansager-msc-group-geneva",
         "fr": "revenue-management-senior-business-analyst-msc-geneva"
       },
       "company": "MSC Group",
@@ -608,7 +617,7 @@
       "slugByLocale": {
         "it": "responsabile-marketing-al-dettaglio-msc-group-geneva",
         "en": "retail-marketing-manager-msc-geneva",
-        "de": "retail-marketing-manager-msc-geneva",
+        "de": "einzelhandelsmarketing-manager-msc-group-geneva",
         "fr": "directeur-du-marketing-de-detail-msc-group-geneva"
       },
       "company": "MSC Group",
@@ -660,6 +669,9 @@
           "retail-marketing-manager-msc-geneva"
         ],
         "fr": [
+          "retail-marketing-manager-msc-geneva"
+        ],
+        "de": [
           "retail-marketing-manager-msc-geneva"
         ]
       },
@@ -918,9 +930,9 @@
     },
     {
       "id": "msc-cargo-b97d5d608b1c",
-      "slug": "visual-merchandising-manager-msc-geneva",
+      "slug": "gestore-di-merchandising-visuale-msc-group-geneva",
       "slugByLocale": {
-        "it": "visual-merchandising-manager-msc-geneva",
+        "it": "gestore-di-merchandising-visuale-msc-group-geneva",
         "en": "visual-merchandising-manager-msc-geneva",
         "de": "visual-merchandising-manager-msc-geneva",
         "fr": "gestionnaire-de-marchandises-visuelles-msc-group-geneva"
@@ -965,11 +977,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gestionnaire-de-marchandises-visuelles-msc-group-geneva"
+        "gestionnaire-de-marchandises-visuelles-msc-group-geneva",
+        "visual-merchandising-manager-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-de-marchandises-visuelles-msc-group-geneva"
+          "gestionnaire-de-marchandises-visuelles-msc-group-geneva",
+          "visual-merchandising-manager-msc-geneva"
         ]
       },
       "needsRetranslation": true,
