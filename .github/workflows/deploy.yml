@@ -543,9 +543,10 @@ jobs:
         uses: actions/cache/restore@v5
         with:
           path: .cache/incremental-html
+          # Exact key only (review #8940): a prefix fallback could restore
+          # the HTML snapshot of a different run than the previous manifest
+          # restored above, and lookup() only checks the per-entry hash.
           key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
-          restore-keys: |
-            jobs-seo-html-${{ matrix.locale }}-
 
       - name: Stash previous incremental manifest before build overwrites it
         shell: bash
