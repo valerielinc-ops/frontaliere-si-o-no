@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "avocat-e-s-stagiaires-geneve-lalive-ginevra",
-        "avoluzione-stagiaria-geneva-lalive-ginevra"
+        "avocat-e-s-stagiaires-geneve-lalive-ginevra"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "avocat-e-s-stagiaires-geneve-lalive-ginevra",
-          "avoluzione-stagiaria-geneva-lalive-ginevra"
+          "avocat-e-s-stagiaires-geneve-lalive-ginevra"
         ],
         "en": [
           "avocat-e-s-stagiaires-geneve-lalive-ginevra"
@@ -130,13 +128,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "avocat-e-collaborateur-trice-clientele-privee-geneve-lalive-ginevra",
-        "cliente-privato-geneva-lalive-ginevra"
+        "avocat-e-collaborateur-trice-clientele-privee-geneve-lalive-ginevra"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "avocat-e-collaborateur-trice-clientele-privee-geneve-lalive-ginevra",
-          "cliente-privato-geneva-lalive-ginevra"
+          "avocat-e-collaborateur-trice-clientele-privee-geneve-lalive-ginevra"
         ],
         "en": [
           "avocat-e-collaborateur-trice-clientele-privee-geneve-lalive-ginevra"
@@ -209,13 +205,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "international-trainees-lalive-ginevra",
-        "traine-internazionali-lalive-ginevra"
+        "international-trainees-lalive-ginevra"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "international-trainees-lalive-ginevra",
-          "traine-internazionali-lalive-ginevra"
+          "international-trainees-lalive-ginevra"
         ],
         "de": [
           "international-trainees-lalive-ginevra"
@@ -288,13 +282,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra",
-        "associato-internazionale-di-arbitrazione-sviluppo-geneva-zurich-lalive-ginevra"
+        "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra",
-          "associato-internazionale-di-arbitrazione-sviluppo-geneva-zurich-lalive-ginevra"
+          "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra"
         ],
         "de": [
           "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra"
@@ -430,13 +422,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "substitut-innen-zurich-lalive-zurigo",
-        "istituti-dentro-austria-lalive-zurigo"
+        "substitut-innen-zurich-lalive-zurigo"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "substitut-innen-zurich-lalive-zurigo",
-          "istituti-dentro-austria-lalive-zurigo"
+          "substitut-innen-zurich-lalive-zurigo"
         ],
         "en": [
           "substitut-innen-zurich-lalive-zurigo"
@@ -462,9 +452,9 @@
     },
     {
       "id": "lalive-793e2caa68fe",
-      "slug": "support-staff-geneva-zurich-london-lalive-ginevra",
+      "slug": "personale-di-sostegno-geneva-zuricco-london-lalive-ginevra",
       "slugByLocale": {
-        "it": "support-staff-geneva-zurich-london-lalive-ginevra",
+        "it": "personale-di-sostegno-geneva-zuricco-london-lalive-ginevra",
         "en": "support-staff-geneva-zurich-london-lalive-ginevra",
         "de": "unterstutzungspersonal-geneva-zurich-london-lalive-ginevra",
         "fr": "personnel-d-appui-geneve-zurich-london-lalive-ginevra"
@@ -521,7 +511,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "support-staff-geneva-zurich-london-lalive-ginevra"
+        ]
+      },
+      "previousSlugs": [
+        "support-staff-geneva-zurich-london-lalive-ginevra"
+      ]
     }
   ]
 }

@@ -1904,7 +1904,7 @@
       "slugByLocale": {
         "it": "fabbrica-di-software-per-studenti-di-lavoro-comms-siemens-si-40-60-siemens-zug",
         "en": "working-student-software-factory-comms-siemens-si-40-60-siemens-zug",
-        "de": "working-student-software-factory-comms-siemens-si-40-60-siemens-zug",
+        "de": "werk-fur-studentensoftware-siemens-si-40-60-siemens-zug",
         "fr": "working-student-software-factory-comms-siemens-si-40-60-siemens-zug"
       },
       "company": "Siemens",
@@ -1957,6 +1957,9 @@
         "it": [
           "working-student-software-factory-comms-siemens-si-40-60-siemens-zug",
           "fabbrica-di-software-per-studenti-di-lavoro-comms-siemens-si-40-60-siemens-zug"
+        ],
+        "de": [
+          "working-student-software-factory-comms-siemens-si-40-60-siemens-zug"
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:11.093Z",
@@ -2561,7 +2564,7 @@
       "slugByLocale": {
         "it": "working-student-powerbi-dashboard-siemens-si-40-60-siemens-zug",
         "en": "working-student-powerbi-dashboard-siemens-si-40-60-siemens-zug",
-        "de": "working-student-powerbi-dashboard-siemens-si-40-60-siemens-zug",
+        "de": "arbeitsstudent-powerbi-dashboard-siemens-si-40-60-siemens-zug",
         "fr": "tableau-de-bord-de-powerbi-pour-etudiants-en-activite-siemens-si-40-60-siemens-zug"
       },
       "company": "Siemens",
@@ -3610,10 +3613,10 @@
       "id": "siemens-653fe08c1e9d",
       "slug": "supporto-tecnico-commerciale-professional-80-100-siemens-ostermundigen",
       "slugByLocale": {
+        "de": "technical-sales-support-professional-80-100-siemens-ostermundigen",
         "it": "supporto-tecnico-commerciale-professional-80-100-siemens-ostermundigen",
         "en": "technical-sales-support-professional-80-100-siemens-ostermundigen",
-        "de": "technical-sales-support-professional-80-100-siemens-ostermundigen",
-        "fr": "technical-sales-support-professional-80-100-siemens-ostermundigen"
+        "fr": "technique-de-support-de-vente-professionnel-80-100-siemens-ostermundigen"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -3678,6 +3681,9 @@
           "professionista-tecnico-del-supporto-alle-vendite-80-100-siemens-ostermundigen",
           "technical-sales-support-professional-80-100-siemens-ostermundigen",
           "supporto-tecnico-commerciale-professional-80-100-siemens-ostermundigen"
+        ],
+        "fr": [
+          "technical-sales-support-professional-80-100-siemens-ostermundigen"
         ]
       },
       "previousSlugs": [

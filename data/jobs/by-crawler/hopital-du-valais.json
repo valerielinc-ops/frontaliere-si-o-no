@@ -976,9 +976,9 @@
     },
     {
       "id": "hopital-du-valais-2520ca52dabc",
-      "slug": "koch-kochin-efz-hopital-du-valais-brig",
+      "slug": "cook-cooker-efz-hopital-du-valais-brig",
       "slugByLocale": {
-        "it": "koch-kochin-efz-hopital-du-valais-brig",
+        "it": "cook-cooker-efz-hopital-du-valais-brig",
         "en": "chef-efz-hopital-du-valais-brig",
         "de": "koch-kochin-efz-hopital-du-valais-brig",
         "fr": "chef-efz-hopital-du-valais-brig"
@@ -1039,7 +1039,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-efz-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-efz-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-8e5094a93b02",
@@ -4280,12 +4288,12 @@
     },
     {
       "id": "hopital-du-valais-c4475def2427",
-      "slug": "apprenti-e-s-logistica-ne-s-hopital-du-valais-sion",
+      "slug": "learn-e-s-cauien-ne-s-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "apprenti-e-s-logisticien-ne-s-hopital-du-valais-sion",
-        "it": "apprenti-e-s-logistica-ne-s-hopital-du-valais-sion",
+        "it": "learn-e-s-cauien-ne-s-hopital-du-valais-sion",
         "en": "apprenti-e-s-logisticien-ne-s-hopital-du-valais-sion",
-        "de": "apprenti-e-s-logisticien-ne-s-hopital-du-valais-sion"
+        "de": "lernen-e-s-cauien-ne-s-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4346,11 +4354,16 @@
       "firstSeenAt": "2026-09-17T03:48:36.470Z",
       "previousSlugsByLocale": {
         "it": [
+          "apprenti-e-s-logisticien-ne-s-hopital-du-valais-sion",
+          "apprenti-e-s-logistica-ne-s-hopital-du-valais-sion"
+        ],
+        "de": [
           "apprenti-e-s-logisticien-ne-s-hopital-du-valais-sion"
         ]
       },
       "previousSlugs": [
-        "apprenti-e-s-logisticien-ne-s-hopital-du-valais-sion"
+        "apprenti-e-s-logisticien-ne-s-hopital-du-valais-sion",
+        "apprenti-e-s-logistica-ne-s-hopital-du-valais-sion"
       ]
     },
     {
@@ -4441,7 +4454,7 @@
         "fr": "apprenti-e-laborantin-e-option-chimie-hopital-du-valais-sion",
         "it": "apprenti-e-laborantin-e-opzione-chimica-hopital-du-valais-sion",
         "en": "apprenti-e-laborantin-e-option-chimie-hopital-du-valais-sion",
-        "de": "apprenti-e-laborantin-e-chemieoption-hopital-du-valais-sion"
+        "de": "anwendende-laborantin-e-chemie-option-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4506,11 +4519,13 @@
           "apprenti-e-laborantin-e-option-chimie-hopital-du-valais-sion"
         ],
         "de": [
-          "apprenti-e-laborantin-e-option-chimie-hopital-du-valais-sion"
+          "apprenti-e-laborantin-e-option-chimie-hopital-du-valais-sion",
+          "apprenti-e-laborantin-e-chemieoption-hopital-du-valais-sion"
         ]
       },
       "previousSlugs": [
-        "apprenti-e-laborantin-e-option-chimie-hopital-du-valais-sion"
+        "apprenti-e-laborantin-e-option-chimie-hopital-du-valais-sion",
+        "apprenti-e-laborantin-e-chemieoption-hopital-du-valais-sion"
       ]
     },
     {
