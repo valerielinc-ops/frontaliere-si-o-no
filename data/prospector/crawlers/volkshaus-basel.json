@@ -1,0 +1,23 @@
+{
+  "companyKey": "volkshaus-basel",
+  "companyName": "Volkshaus Basel Betriebs AG",
+  "companyHost": "volkshaus-basel.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://volkshaus-basel.ch/jobs/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Aushilfe service mit erfahrung (M/W/D)",
+    "Aushilfe service frühstück (M/W/D)",
+    "Aushilfe Koch (M/W/D)",
+    "Arbeiten bei uns wirkt &rarr;"
+  ],
+  "canton": "BS",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-17T10:09:49.742Z"
+}

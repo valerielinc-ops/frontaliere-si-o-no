@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { chmod, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { chmod, mkdir, mkdtemp, readFile, readlink, rm, symlink, writeFile } from 'node:fs/promises';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -30,7 +30,7 @@ function configureIdentity(cwd) {
   git(cwd, ['config', 'user.email', 'test@example.invalid']);
 }
 
-async function setupScenario({ overlappingWip = false } = {}) {
+async function setupScenario({ overlappingWip = false, stagedOnlyWip = false, untrackedWip = false } = {}) {
   const root = await mkdtemp(join(tmpdir(), 'git-push-with-retry-'));
   const bare = join(root, 'remote.git');
   const seed = join(root, 'seed');
@@ -43,7 +43,12 @@ async function setupScenario({ overlappingWip = false } = {}) {
   configureIdentity(seed);
   await writeFile(join(seed, 'conflict.txt'), 'base\n');
   await writeFile(join(seed, 'wip.txt'), 'base\n');
-  git(seed, ['add', 'conflict.txt', 'wip.txt']);
+  const seedFiles = ['conflict.txt', 'wip.txt'];
+  if (stagedOnlyWip) {
+    await writeFile(join(seed, 'staged-only.txt'), 'base\n');
+    seedFiles.push('staged-only.txt');
+  }
+  git(seed, ['add', ...seedFiles]);
   git(seed, ['commit', '-m', 'base']);
   git(seed, ['remote', 'add', 'origin', bare]);
   git(seed, ['push', 'origin', 'main']);
@@ -59,6 +64,16 @@ async function setupScenario({ overlappingWip = false } = {}) {
   await writeFile(join(local, 'wip.txt'), 'dirty WIP\n');
   if (overlappingWip) {
     await writeFile(join(local, 'conflict.txt'), 'dirty WIP conflict\n');
+  }
+  if (stagedOnlyWip) {
+    await rm(join(local, 'staged-only.txt'));
+    await symlink('staged-only-target', join(local, 'staged-only.txt'));
+    git(local, ['add', 'staged-only.txt']);
+    await rm(join(local, 'staged-only.txt'));
+    await writeFile(join(local, 'staged-only.txt'), 'base\n');
+  }
+  if (untrackedWip) {
+    await writeFile(join(local, 'untracked-wip.txt'), 'untracked WIP\n');
   }
 
   await writeFile(join(updater, 'conflict.txt'), 'remote change\n');
@@ -163,6 +178,67 @@ test('in-place resolver can resolve the rebase while WIP is applied', async () =
 
     assert.equal(result.status, 0, result.output);
     await assertWipRestored(scenario);
+    assert.equal(await readFile(scenario.file('conflict.txt'), 'utf8'), 'resolved\n');
+  } finally {
+    await rm(scenario.root, { recursive: true, force: true });
+  }
+});
+
+test('in-place resolver preserves WIP staged only in the original stash index', async () => {
+  const scenario = await setupScenario({ stagedOnlyWip: true });
+  const resolver = join(scenario.root, 'resolver.sh');
+  try {
+    await writeFile(
+      resolver,
+      "#!/bin/sh\nset -eu\ntest -L staged-only.txt\ntest \"$(readlink staged-only.txt)\" = \"staged-only-target\"\nprintf 'resolved\\n' > conflict.txt\ngit add conflict.txt\n",
+    );
+    await chmod(resolver, 0o755);
+
+    const result = invoke(scenario, ['--in-place-resolver-cmd', `bash '${resolver}'`]);
+
+    assert.equal(result.status, 0, result.output);
+    await assertWipRestored(scenario);
+    assert.equal(await readlink(scenario.file('staged-only.txt')), 'staged-only-target');
+  } finally {
+    await rm(scenario.root, { recursive: true, force: true });
+  }
+});
+
+test('in-place resolver leaves an unstaged untracked WIP path available', async () => {
+  const scenario = await setupScenario({ untrackedWip: true });
+  const resolver = join(scenario.root, 'resolver.sh');
+  try {
+    await writeFile(
+      resolver,
+      "#!/bin/sh\nset -eu\ntest \"$(cat untracked-wip.txt)\" = \"untracked WIP\"\nprintf 'resolved\\n' > conflict.txt\ngit add conflict.txt\n",
+    );
+    await chmod(resolver, 0o755);
+
+    const result = invoke(scenario, ['--in-place-resolver-cmd', `bash '${resolver}'`]);
+
+    assert.equal(result.status, 0, result.output);
+    await assertWipRestored(scenario);
+    assert.equal(await readFile(scenario.file('untracked-wip.txt'), 'utf8'), 'untracked WIP\n');
+  } finally {
+    await rm(scenario.root, { recursive: true, force: true });
+  }
+});
+
+test('in-place resolver keeps broadly staged original WIP out of the rebased commit', async () => {
+  const scenario = await setupScenario();
+  const resolver = join(scenario.root, 'resolver.sh');
+  try {
+    await writeFile(
+      resolver,
+      "#!/bin/sh\nset -eu\ntest \"$(cat wip.txt)\" = \"dirty WIP\"\nprintf 'resolved\\n' > conflict.txt\ngit add -A\n",
+    );
+    await chmod(resolver, 0o755);
+
+    const result = invoke(scenario, ['--in-place-resolver-cmd', `bash '${resolver}'`]);
+
+    assert.equal(result.status, 0, result.output);
+    await assertWipRestored(scenario);
+    assert.equal(git(scenario.local, ['show', 'HEAD:wip.txt']), 'base');
     assert.equal(await readFile(scenario.file('conflict.txt'), 'utf8'), 'resolved\n');
   } finally {
     await rm(scenario.root, { recursive: true, force: true });

@@ -15,6 +15,7 @@ import {
   extractLocationContractSegment,
   hasStandaloneSwissSignal,
   preferAlpiqDetailDescription,
+  repairThinAlpiqLocaleDescriptions,
   slugify,
   stripHtml,
 } from '@/scripts/lib/alpiq-job-parser.mjs';
@@ -272,6 +273,35 @@ describe('Alpiq crawler — detail page parsing', () => {
       bullets: [],
       sections: [],
     })).toBe('About the Role | Location: Olten');
+  });
+});
+
+describe('Alpiq crawler — stale locale repair', () => {
+  const sourceDescription = Array.from({ length: 100 }, (_, i) => `sourceword${i}`).join(' ');
+
+  it('replaces thin locale copies and queues retranslation', () => {
+    const job = {
+      sourceLang: 'en',
+      description: sourceDescription,
+      descriptionByLocale: { en: sourceDescription, it: 'old listing snippet' },
+    };
+
+    expect(repairThinAlpiqLocaleDescriptions([job])).toBe(1);
+    expect(job.descriptionByLocale.it).toBe(sourceDescription);
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('preserves a locale copy that is not a thin stub', () => {
+    const adequateLocale = sourceDescription.slice(0, Math.floor(sourceDescription.length * 0.6));
+    const job = {
+      sourceLang: 'en',
+      description: sourceDescription,
+      descriptionByLocale: { en: sourceDescription, it: adequateLocale },
+    };
+
+    expect(repairThinAlpiqLocaleDescriptions([job])).toBe(0);
+    expect(job.descriptionByLocale.it).toBe(adequateLocale);
+    expect(job.needsRetranslation).toBeUndefined();
   });
 });
 
