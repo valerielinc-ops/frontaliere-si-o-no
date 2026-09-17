@@ -42,6 +42,17 @@ describe('Capri structured address resolution', () => {
         city: 'Zürich', canton: 'ZH', postalCode: '8001', streetAddress: 'Bahnhofstrasse 1',
       });
   });
+
+  it('does not carry a source street into a canton fallback tuple', () => {
+    expect(resolveSwissStructuredAddress({
+      city: 'Küsnacht (ZH)',
+      canton: 'ZH',
+      postalCode: '9999',
+      streetAddress: 'Via Penate',
+    })).toMatchObject({
+      city: 'Zürich', canton: 'ZH', postalCode: '8001', streetAddress: 'Bahnhofstrasse 1',
+    });
+  });
 });
 
 describe('Capri Workday location resolution', () => {
