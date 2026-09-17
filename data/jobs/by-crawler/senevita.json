@@ -7901,15 +7901,7 @@
           "maxValue": 72300,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "fachverantwortliche-r-aktivierung-m-w-i-60-senevita-lu-ebikon"
-        ]
-      },
-      "previousSlugs": [
-        "fachverantwortliche-r-aktivierung-m-w-i-60-senevita-lu-ebikon"
-      ]
+      }
     },
     {
       "id": "senevita-612ff1b80627",
@@ -8283,12 +8275,12 @@
     },
     {
       "id": "senevita-5747244c3ab2",
-      "slug": "koch-kochin-efz-100-senevita-zh-zurich",
+      "slug": "cuoco-afc-senevita-zh-zurich",
       "slugByLocale": {
-        "it": "koch-kochin-efz-100-senevita-zh-zurich",
-        "en": "koch-kochin-efz-100-senevita-zh-zurich",
+        "it": "cuoco-afc-senevita-zh-zurich",
+        "en": "cooker-cooker-efz-100-senevita-zh-zurich",
         "de": "koch-kochin-efz-100-senevita-zh-zurich",
-        "fr": "koch-kochin-efz-100-senevita-zh-zurich"
+        "fr": "cuisiniere-cuisiniere-efz-100-senevita-zh-zurich"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -8345,16 +8337,30 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-efz-100-senevita-zh-zurich"
+        ],
+        "en": [
+          "koch-kochin-efz-100-senevita-zh-zurich"
+        ],
+        "fr": [
+          "koch-kochin-efz-100-senevita-zh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-efz-100-senevita-zh-zurich"
+      ]
     },
     {
       "id": "senevita-b69201242144",
-      "slug": "koch-kochin-efz-60-100-senevita-so-olten",
+      "slug": "cuoco-a-afc-60-100-senevita-so-olten",
       "slugByLocale": {
-        "it": "koch-kochin-efz-60-100-senevita-so-olten",
-        "en": "koch-kochin-efz-60-100-senevita-so-olten",
+        "it": "cuoco-a-afc-60-100-senevita-so-olten",
+        "en": "cooker-efz-60-100-senevita-so-olten",
         "de": "koch-kochin-efz-60-100-senevita-so-olten",
-        "fr": "koch-kochin-efz-60-100-senevita-so-olten"
+        "fr": "cuisiniere-efz-60-100-senevita-so-olten"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -8398,11 +8404,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "koch-kochin-efz-60-senevita-olten-so"
+        "koch-kochin-efz-60-senevita-olten-so",
+        "koch-kochin-efz-60-100-senevita-so-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "koch-kochin-efz-60-senevita-olten-so"
+          "koch-kochin-efz-60-senevita-olten-so",
+          "koch-kochin-efz-60-100-senevita-so-olten"
+        ],
+        "en": [
+          "koch-kochin-efz-60-100-senevita-so-olten"
+        ],
+        "fr": [
+          "koch-kochin-efz-60-100-senevita-so-olten"
         ]
       },
       "firstSeenAt": "2026-09-02T13:45:47.281Z",
