@@ -4,6 +4,13 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
+import {
+  validateActionClassAgainstPolicy,
+  validateDecisionLifecycle,
+  validateLifecycleEvent,
+  validateLoopRegistry,
+  validateOutcomeAgainstPolicy,
+} from '../lib/loop-fleet-contract.mjs';
 
 export const TEST_REVIEW_MARKER = '<!-- TEST_ONLY_AUTOMATIC_REVIEW -->';
 export const LOOP_FLEET_LEDGER_REVIEW_MARKER = '<!-- LOOP_FLEET_LEDGER_AUTOMATIC_REVIEW -->';
@@ -13,6 +20,7 @@ export const LOOP_FLEET_LEDGER_FILES = Object.freeze([
   'data/loop-fleet/ledger/loop-health-history.jsonl',
   'data/loop-fleet/ledger/lifecycle-events.jsonl',
 ]);
+export const LOOP_FLEET_LEDGER_BRANCH_RE = /^(?:chore\/loop-fleet-ledger|chore\/loop-fleet-ledger-L(?:[0-9]|1[01])-[0-9]+-[0-9]+|chore\/loop-fleet-ledger-lifecycle-[0-9]+-[0-9]+)$/u;
 const LOOP_FLEET_LEDGER_STATUS_SET = new Set(['added', 'modified']);
 const LOOP_FLEET_LEDGER_PATH_RE = /^data\/loop-fleet\/ledger\/(?:loop-observations|loop-decisions|loop-health-history|lifecycle-events)\.jsonl$/u;
 const SHA_RE = /^[a-f0-9]{40}$/iu;
@@ -25,11 +33,12 @@ const LOOP_FLEET_LEDGER_RECORD_TYPE_BY_PATH = Object.freeze({
 const LOOP_FLEET_LOOP_ID_RE = /^L(?:[0-9]|1[01])$/u;
 const MAX_LOOP_FLEET_LEDGER_CONTENT_BYTES = 16 * 1024 * 1024;
 const MAX_LOOP_FLEET_LEDGER_RECORDS = 50_000;
+const LOOP_FLEET_REGISTRY_PATH = 'data/loop-fleet/loop-registry.json';
 
 // The bounded ledger tier shares the normal tests job, but it can publish its
-// automatic review before the long test/review chain. Keep the body predicate
-// dependency-free: native-automerge-gate.mjs imports this module from a raw
-// helper bundle and must not acquire a new import closure.
+// automatic review before the long test/review chain. The body predicate stays
+// dependency-free; the ledger-only command additionally uses the canonical
+// contract and the native helper bootstrap downloads that one dependency.
 const PR_BODY_IMPL_RE = /^[ \t]{0,3}#{2,3}[ \t]+Implementato\b[^\n]*/imu;
 const PR_BODY_NON_IMPL_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato[^\n]*\(ancora\)[^\n]*/imu;
 const MULTI_CLOSE_RE = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\b\s*(?:[\w.-]+\/[\w.-]+)?#\d+(?:\s*(?:,|:|;|&|\band\b)?\s*(?:[\w.-]+\/[\w.-]+)?#\d+)/iu;
@@ -53,13 +62,20 @@ function isIsoTimestamp(value) {
   return typeof value === 'string' && Number.isFinite(Date.parse(value));
 }
 
-function sameJsonValue(left, right) {
-  try {
-    return JSON.stringify(left) === JSON.stringify(right);
-  } catch {
-    return false;
-  }
+function isNonEmptyString(value) {
+  return typeof value === 'string' && value.trim() !== '';
 }
+
+function isGithubNotFoundError(error) {
+  const status = Number(error?.status ?? error?.response?.status);
+  if (status === 404) return true;
+  const diagnostic = [error?.stderr, error?.stdout, error?.message, error]
+    .map((value) => String(value ?? ''))
+    .join(' ');
+  return /(?:\bHTTP(?:\/\d(?:\.\d)?)?\s+404\b|\b404\s+(?:not[ -]?found|resource)|\bstatus(?:_code)?[=: ]+404\b)/iu.test(diagnostic);
+}
+
+const GITHUB_NOT_FOUND = Object.freeze({ notFound: true });
 
 /**
  * Bounded structural guard for the exact ledger files.
@@ -68,10 +84,27 @@ function sameJsonValue(left, right) {
  * before it opens a PR. This second, intentionally smaller check validates the
  * bytes at the PR HEAD, so a later push/body edit cannot turn that provenance
  * into an approval for malformed or hand-edited JSONL. It does not replace the
- * full ledger audit: failures here simply deny the fast lane and leave the
- * ordinary tests/review path in charge.
+ * full ledger audit: known nonmatches deny the fast lane and leave the
+ * ordinary tests/review path in charge; unverifiable results fail the
+ * required ledger step closed.
  */
-export function validateLoopFleetLedgerJsonl(content, path) {
+function validateLedgerRecordAgainstRegistry(record, expectedType, registry) {
+  if (!registry) return '';
+  try {
+    if (expectedType === 'lifecycle-event') {
+      validateLifecycleEvent(registry, record.loopId, record);
+    } else {
+      validateActionClassAgainstPolicy(registry, record.loopId, record.actionClass);
+      if (expectedType === 'decision') validateDecisionLifecycle(registry, record.loopId, record);
+      validateOutcomeAgainstPolicy(registry, record.loopId, record.outcome);
+    }
+    return '';
+  } catch (error) {
+    return `registry contract non valido: ${error.message}`;
+  }
+}
+
+export function validateLoopFleetLedgerJsonl(content, path, { registry = null } = {}) {
   if (!isLoopFleetLedgerPath(path)) return { ok: false, reason: 'path ledger non canonico' };
   if (typeof content !== 'string') return { ok: false, reason: 'contenuto ledger non testuale' };
   const bytes = Buffer.byteLength(content, 'utf8');
@@ -114,9 +147,10 @@ export function validateLoopFleetLedgerJsonl(content, path) {
     if (expectedType === 'lifecycle-event' && !isIsoTimestamp(record.recordedAt)) {
       return { ok: false, reason: `${path} riga ${index + 1}: lifecycle recordedAt mancante` };
     }
-    const previous = seen.get(record.recordId);
-    if (previous && !sameJsonValue(previous, record)) {
-      return { ok: false, reason: `${path} riga ${index + 1}: duplicate recordId confliggente` };
+    const contractError = validateLedgerRecordAgainstRegistry(record, expectedType, registry);
+    if (contractError) return { ok: false, reason: `${path} riga ${index + 1}: ${contractError}` };
+    if (seen.has(record.recordId)) {
+      return { ok: false, reason: `${path} riga ${index + 1}: duplicate recordId` };
     }
     seen.set(record.recordId, record);
     records.push(record);
@@ -182,11 +216,15 @@ export function isTestOnlySnapshot(snapshot) {
   return snapshot?.complete === true && Array.isArray(snapshot.files)
     && snapshot.files.length > 0 && snapshot.files.every(isReviewTestPath);
 }
-export function gh(args, { json = true, allowFail = false, input } = {}) {
+export function gh(args, { json = true, allowFail = false, allowNotFound = false, input } = {}) {
   try {
     const out = execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, input });
     return json ? JSON.parse(out) : out;
-  } catch (error) { if (allowFail) return null; throw error; }
+  } catch (error) {
+    if (allowNotFound && isGithubNotFoundError(error)) return GITHUB_NOT_FOUND;
+    if (allowFail) return null;
+    throw error;
+  }
 }
 export function verifyTestOnlyHead(ghFn, repo, pr, head) {
   const current = () => ghFn(['api', `repos/${repo}/pulls/${pr}`]);
@@ -268,6 +306,33 @@ function sameLedgerMetadata(left, right) {
     && JSON.stringify(left?.labels) === JSON.stringify(right?.labels);
 }
 
+function hasVerifiableLedgerMetadataShape(metadata) {
+  return isObject(metadata)
+    && isNonEmptyString(metadata.state)
+    && typeof metadata.draft === 'boolean'
+    && isNonEmptyString(metadata.title)
+    && typeof metadata.body === 'string'
+    && isNonEmptyString(metadata.authorType)
+    && isNonEmptyString(metadata.authorLogin)
+    && isNonEmptyString(metadata.headSha)
+    && isNonEmptyString(metadata.headRef)
+    && isNonEmptyString(metadata.headRepoFullName)
+    && isNonEmptyString(metadata.baseRef)
+    && isNonEmptyString(metadata.baseSha)
+    && Array.isArray(metadata.labels);
+}
+
+function isKnownLedgerMetadataMismatch(metadata, repo) {
+  return hasVerifiableLedgerMetadataShape(metadata)
+    && (metadata.state !== 'open'
+      || metadata.draft !== false
+      || metadata.baseRef !== 'main'
+      || metadata.authorType !== 'Bot'
+      || metadata.authorLogin !== 'frontaliere-automation[bot]'
+      || !LOOP_FLEET_LEDGER_BRANCH_RE.test(metadata.headRef)
+      || metadata.headRepoFullName !== repo);
+}
+
 function invalidLedgerMetadataReason(metadata, head, repo, { includeBody = true } = {}) {
   if (!metadata) return 'metadata PR non verificabili';
   if (metadata.state !== 'open') return `PR non aperta (state=${String(metadata.state)})`;
@@ -276,7 +341,7 @@ function invalidLedgerMetadataReason(metadata, head, repo, { includeBody = true 
   if (metadata.authorType !== 'Bot' || metadata.authorLogin !== 'frontaliere-automation[bot]') {
     return 'autore PR non è il producer trusted';
   }
-  if (metadata.headRef !== 'chore/loop-fleet-ledger') return 'branch producer non autorizzato';
+  if (!LOOP_FLEET_LEDGER_BRANCH_RE.test(metadata.headRef)) return 'branch producer non autorizzato';
   if (metadata.headRepoFullName !== repo) return 'repository HEAD diverso dal repository PR';
   if (metadata.headSha !== head) return 'HEAD PR diversa da quella richiesta';
   if (!SHA_RE.test(String(metadata.headSha || '')) || !SHA_RE.test(String(metadata.baseSha || ''))) {
@@ -289,6 +354,41 @@ function invalidLedgerMetadataReason(metadata, head, repo, { includeBody = true 
 
 function inspectionFailure(kind, reason) {
   return { ok: false, kind, reason };
+}
+
+function readRawLedgerAtRef(ghFn, repo, filename, ref, { allowNotFound = false } = {}) {
+  try {
+    const raw = ghFn([
+      'api', `repos/${repo}/contents/${filename}?ref=${ref}`,
+      '--header', 'Accept: application/vnd.github.raw',
+    ], { json: false, ...(allowNotFound ? { allowNotFound: true } : {}) });
+    if (raw?.notFound === true) return { kind: 'not-found' };
+    if (typeof raw !== 'string') return { kind: 'unverifiable', reason: `contenuto ledger non testuale (${filename})` };
+    return { kind: 'content', content: raw };
+  } catch (error) {
+    if (allowNotFound && isGithubNotFoundError(error)) return { kind: 'not-found' };
+    return { kind: 'unverifiable', reason: `contenuto ledger non leggibile (${filename})` };
+  }
+}
+
+function readLocalLedgerRegistry() {
+  try {
+    return validateLoopRegistry(JSON.parse(readFileSync(resolve(LOOP_FLEET_REGISTRY_PATH), 'utf8')));
+  } catch (error) {
+    throw new Error(`registry ledger non verificabile: ${error.message}`);
+  }
+}
+
+function isRawLedgerAppendOnly(baseContent, headContent) {
+  if (typeof baseContent !== 'string' || typeof headContent !== 'string') return false;
+  const baseBytes = Buffer.from(baseContent, 'utf8');
+  const headBytes = Buffer.from(headContent, 'utf8');
+  // A tracked JSONL file must end at a record boundary before a new record is
+  // appended. This closes the otherwise-valid-looking case where HEAD merely
+  // completes an unterminated base line.
+  if (baseBytes.length > 0 && baseBytes.at(-1) !== 0x0a) return false;
+  return headBytes.length > baseBytes.length
+    && headBytes.subarray(0, baseBytes.length).equals(baseBytes);
 }
 
 /**
@@ -320,15 +420,10 @@ export function inspectLedgerOnlyHead(ghFn, repo, pr, head) {
     return inspectionFailure('not-ledger-only', 'veto needs-human presente');
   }
   if (metadataReason) {
-    const knownNonMatch = beforeMetadata
-      && (beforeMetadata.state !== 'open'
-        || beforeMetadata.draft !== false
-        || beforeMetadata.baseRef !== 'main'
-        || beforeMetadata.authorType !== 'Bot'
-        || beforeMetadata.authorLogin !== 'frontaliere-automation[bot]'
-        || beforeMetadata.headRef !== 'chore/loop-fleet-ledger'
-        || beforeMetadata.headRepoFullName !== repo);
-    return inspectionFailure(knownNonMatch ? 'not-ledger-only' : 'unverifiable', metadataReason);
+    return inspectionFailure(
+      isKnownLedgerMetadataMismatch(beforeMetadata, repo) ? 'not-ledger-only' : 'unverifiable',
+      metadataReason,
+    );
   }
 
   let snapshot;
@@ -342,6 +437,13 @@ export function inspectLedgerOnlyHead(ghFn, repo, pr, head) {
   }
   if (!isLoopFleetLedgerSnapshot(snapshot)) {
     return inspectionFailure('not-ledger-only', 'file-list mixed, unknown, duplicata o fuori dai quattro path canonici');
+  }
+
+  let registry;
+  try {
+    registry = readLocalLedgerRegistry();
+  } catch (error) {
+    return inspectionFailure('unverifiable', error.message);
   }
 
   let pages;
@@ -384,18 +486,28 @@ export function inspectLedgerOnlyHead(ghFn, repo, pr, head) {
         && file.previous_filename !== '') {
       return inspectionFailure('not-ledger-only', `rename rilevato (${file.previous_filename} → ${file.filename})`);
     }
-    let content;
-    try {
-      content = ghFn([
-        'api', `repos/${repo}/contents/${file.filename}?ref=${head}`,
-        '--header', 'Accept: application/vnd.github.raw',
-      ], { json: false });
-    } catch {
-      return inspectionFailure('unverifiable', `contenuto ledger non leggibile (${file.filename})`);
+    const baseRead = readRawLedgerAtRef(ghFn, repo, file.filename, beforeMetadata.baseSha, { allowNotFound: true });
+    if (baseRead.kind === 'unverifiable') return inspectionFailure('unverifiable', baseRead.reason);
+    if (file.status === 'added' && baseRead.kind !== 'not-found') {
+      return inspectionFailure('not-ledger-only', `file dichiarato added ma presente alla base (${file.filename})`);
     }
-    const contentResult = validateLoopFleetLedgerJsonl(content, file.filename);
+    if (file.status === 'modified' && baseRead.kind !== 'content') {
+      return inspectionFailure('unverifiable', `contenuto ledger alla base non verificabile (${file.filename})`);
+    }
+
+    const headRead = readRawLedgerAtRef(ghFn, repo, file.filename, head);
+    if (headRead.kind !== 'content') {
+      return inspectionFailure(
+        'unverifiable',
+        headRead.reason || `contenuto ledger non disponibile (${file.filename})`,
+      );
+    }
+    const contentResult = validateLoopFleetLedgerJsonl(headRead.content, file.filename, { registry });
     if (!contentResult.ok) {
       return inspectionFailure('unverifiable', contentResult.reason);
+    }
+    if (file.status === 'modified' && !isRawLedgerAppendOnly(baseRead.content, headRead.content)) {
+      return inspectionFailure('not-ledger-only', `contenuto ledger non append-only rispetto alla base (${file.filename})`);
     }
   }
 
@@ -413,7 +525,13 @@ export function inspectLedgerOnlyHead(ghFn, repo, pr, head) {
   if (afterReason || !sameLedgerMetadata(beforeMetadata, afterMetadata)) {
     return inspectionFailure('unverifiable', afterReason || 'HEAD, body, titolo, base o label cambiati durante la verifica');
   }
-  return { ok: true, kind: 'eligible', reason: 'ledger-only verificato su HEAD e file-list stabili', snapshot };
+  return {
+    ok: true,
+    kind: 'eligible',
+    reason: 'ledger-only verificato su HEAD e file-list stabili',
+    snapshot,
+    metadata: afterMetadata,
+  };
 }
 
 export function verifyLedgerOnlyHead(ghFn, repo, pr, head) {
@@ -454,16 +572,26 @@ export function postLedgerOnlyReview({ repo, pr, head, ghFn = gh }) {
 - HEAD esatta verificata: \`${head}\`.
 - File-list completa verificata: esclusivamente i quattro JSONL canonici del ledger; nessun path mixed, unknown o rename.
 - PR body, titolo, base e label stabili durante la verifica; veto \`needs-human\` assente.
-- Producer trusted verificato: \`frontaliere-automation[bot]\` su \`chore/loop-fleet-ledger\` nel repository della PR.
+- Producer trusted verificato: \`frontaliere-automation[bot]\` nel repository della PR, su branch ledger allowlistato.
 
 ## Findings (Important: 0, Nit: 0)
 - Nessun finding: percorso bounded ledger-only verificato.
 
 ## LGTM
 `;
-  ghFn(['api', `repos/${repo}/pulls/${pr}/reviews`, '--method', 'POST', '--input', '-'], {
+  const posted = ghFn(['api', `repos/${repo}/pulls/${pr}/reviews`, '--method', 'POST', '--input', '-'], {
     input: JSON.stringify({ commit_id: head, event: 'COMMENT', body }),
   });
+  if (posted?.user?.type !== 'Bot' || posted.user.login !== 'frontaliere-automation[bot]') {
+    throw new Error('identità della review App non verificabile o non autorizzata');
+  }
+  const afterPost = inspectLedgerOnlyHead(ghFn, repo, pr, head);
+  if (!afterPost.ok) {
+    throw new Error(`PR cambiata dopo la review: ${afterPost.reason}`);
+  }
+  if (!sameLedgerMetadata(final.metadata, afterPost.metadata)) {
+    throw new Error('PR cambiata dopo la review: body, HEAD o metadata non più identici');
+  }
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {

@@ -50,9 +50,11 @@ permissions:
 #   correct.
 #
 #   The bridge PR is the exception: its append-only pushes and pull_request.edited
-#   body churn can cancel the only run before `ledger-post` executes. The exact
-#   branch name is a narrow operational identity for that producer; the policy still
-#   verifies the exact HEAD/body/file-list immediately before posting.
+#   body churn can cancel the only run before `ledger-post` executes. The
+#   exception is enabled only for a pull_request targeting main whose API
+#   metadata identifies the trusted Bot, same-repository head and an explicit
+#   ledger/lifecycle branch shape. The classifier remains the stricter regex
+#   authority; this expression has no regex support, so it enumerates L0..L11.
 #
 #   Direct pushes to main and merge queues ask the same question as a PR:
 #   does the tree pass the source gate before it becomes the next main head?
@@ -62,7 +64,7 @@ concurrency:
   # the bounded loop-fleet bridge lane above. Direct pushes to main and merge
   # queues must not cancel one another: each emitted head needs a completed
   # source-gate verdict before it can become the next health signal.
-  cancel-in-progress: ${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.head_ref != 'chore/loop-fleet-ledger') }}
+  cancel-in-progress: ${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && !(github.event.pull_request.base.ref == 'main' && github.event.pull_request.user.type == 'Bot' && github.event.pull_request.user.login == 'frontaliere-automation[bot]' && github.event.pull_request.head.repo.full_name == github.repository && (github.head_ref == 'chore/loop-fleet-ledger' || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L0-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L1-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L2-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L3-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L4-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L5-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L6-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L7-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L8-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L9-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L10-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L11-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-lifecycle-')))) }}
 
 jobs:
   # Unconditional job: admitted code events must always produce a real verdict.
@@ -657,9 +659,9 @@ jobs:
 
       # Classify and authorize the bounded ledger lane immediately after the
       # trusted checkout, before npm/setup and the long Vitest chain. Mixed,
-      # unknown, renamed or otherwise unverifiable diffs are deliberately
-      # treated as ordinary PRs: this step never grants them a review and the
-      # normal tests/Codex path remains their owner.
+      # unknown or renamed diffs are known non-matches and remain on the
+      # ordinary path; an unverifiable result is a hard job failure. This step
+      # never grants an LGTM to an unknown scope.
       - name: Classify bounded loop-fleet ledger path
         id: ledger_scope
         if: ${{ steps.body_contract.outcome != 'failure' && github.event_name == 'pull_request' }}
@@ -684,11 +686,11 @@ jobs:
               echo 'Ledger fast path non applicabile: il percorso ordinario resta attivo.'
               ;;
             *)
-              # An API race, incomplete file list or malformed content must
-              # not become a fast LGTM. Leave the full PR path in charge.
-              echo 'ledger_only=false' >> "$GITHUB_OUTPUT"
-              echo 'ledger_status=unverifiable' >> "$GITHUB_OUTPUT"
-              echo "::warning::ledger fast path non verificabile (exit $status): percorso ordinario mantenuto."
+              # An API race, incomplete file list, malformed JSONL or
+              # unverifiable metadata is an error, not an ordinary PR. Do not
+              # fall through to a data/minimal tier with an unknown scope.
+              echo "::error::ledger fast path non verificabile (exit $status): job fail-closed."
+              exit "$status"
               ;;
           esac
 
@@ -709,7 +711,6 @@ jobs:
       - name: Publish bounded ledger-only automatic LGTM
         id: ledger_review
         if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() && steps.ledger_scope.outputs.ledger_only == 'true' }}
-        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}

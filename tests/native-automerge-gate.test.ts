@@ -771,6 +771,8 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(workflow).toContain('scripts/ci/lib/automation-risk-policy.mjs?ref=main');
     expect(workflow).toContain('scripts/ci/lib/fetchPrFiles.mjs?ref=main');
     expect(workflow).toContain('scripts/ci/lib/vitestCheck.mjs?ref=main');
+    expect(workflow).toContain('scripts/lib/loop-fleet-contract.mjs?ref=main');
+    expect(workflow).toContain('contract_tmp="$helper_dir/../lib/loop-fleet-contract-check.mjs"');
     expect(workflow).toContain('node --check "$gate_tmp"');
     expect(workflow).not.toContain('native-automerge-gate.mjs.tmp');
     expect(workflow).toContain("if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'");
@@ -790,6 +792,8 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(retry).toContain('scripts/ci/lib/automation-risk-policy.mjs?ref=main');
     expect(retry).toContain('scripts/ci/lib/fetchPrFiles.mjs?ref=main');
     expect(retry).toContain('scripts/ci/lib/vitestCheck.mjs?ref=main');
+    expect(retry).toContain('scripts/lib/loop-fleet-contract.mjs?ref=main');
+    expect(retry).toContain('contract_tmp="$helper_dir/../lib/loop-fleet-contract-check.mjs"');
     expect(retry).toContain('node --check "$gate_tmp"');
     expect(retry).not.toContain('native-automerge-gate.mjs.tmp');
     expect(retry).not.toContain('.[:$max][]');

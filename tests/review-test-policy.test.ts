@@ -8,6 +8,7 @@ import {
   findTestOnlyApproval,
   TEST_REVIEW_MARKER,
   LOOP_FLEET_LEDGER_FILES,
+  LOOP_FLEET_LEDGER_BRANCH_RE,
   LOOP_FLEET_LEDGER_REVIEW_MARKER,
   isLoopFleetLedgerPath,
   isLoopFleetLedgerSnapshot,
@@ -40,6 +41,83 @@ const ledgerBody = `## Implementato
 `;
 const ledgerHead = 'c'.repeat(40);
 const ledgerBase = 'd'.repeat(40);
+const ledgerRegistry = JSON.parse(readFileSync('data/loop-fleet/loop-registry.json', 'utf8'));
+const ledgerPolicy = ledgerRegistry.loops.find((loop: any) => loop.loopId === 'L6');
+
+function ledgerRecordType(filename: string) {
+  return filename.endsWith('loop-observations.jsonl') ? 'observation'
+    : filename.endsWith('loop-decisions.jsonl') ? 'decision'
+      : filename.endsWith('loop-health-history.jsonl') ? 'health'
+        : 'lifecycle-event';
+}
+
+function ledgerRecord(filename: string, suffix: string, sha: string) {
+  const recordType = ledgerRecordType(filename);
+  const record = {
+    recordType,
+    schemaVersion: 1,
+    loopId: 'L6',
+    recordId: `lf-test-${recordType}-${suffix}`,
+    recordedAt: '2026-09-17T00:00:00.000Z',
+    occurredAt: '2026-09-17T00:00:00.000Z',
+    execution: {
+      loopId: 'L6',
+      runId: '123',
+      sha,
+      recordedAt: '2026-09-17T00:00:00.000Z',
+    },
+  };
+  if (recordType === 'lifecycle-event') {
+    return {
+      ...record,
+      eventType: 'candidate',
+      candidateId: `lf-test-candidate-${suffix}`,
+      owner: ledgerPolicy.owner,
+      sourceRecordId: `lf-test-source-${suffix}`,
+      sourceRefs: ledgerPolicy.sourceRefs,
+      lifecycle: ledgerPolicy.lifecycle,
+      artifactOrPr: null,
+    };
+  }
+  const contractRecord = {
+    ...record,
+    actionClass: recordType === 'decision' ? 'candidate' : 'observe',
+    outcome: {
+      recordType: 'outcome',
+      schemaVersion: 1,
+      outcomeId: ledgerPolicy.outcome.outcomeId,
+      status: 'partial',
+      independent: false,
+      sourceRefs: ledgerPolicy.outcome.sourceRefs,
+      primaryMetric: ledgerPolicy.primaryMetric,
+      numerator: null,
+      denominator: null,
+      requiredFieldsPresent: [],
+      missingFields: ledgerPolicy.outcome.requiredFields,
+      reason: 'fixture evidence is intentionally partial',
+      observedAt: null,
+      allowNumeratorExceedDenominator: false,
+      recordedAt: '2026-09-17T00:00:00.000Z',
+    },
+  };
+  if (recordType === 'decision') {
+    return {
+      ...contractRecord,
+      decision: 'candidate',
+      startedAt: '2026-09-17T00:00:00.000Z',
+      expiresAt: '2026-09-18T00:00:00.000Z',
+      decidedAt: '2026-09-17T00:00:00.000Z',
+    };
+  }
+  return contractRecord;
+}
+
+function defaultLedgerContent(filename: string, base: boolean) {
+  const prefix = JSON.stringify(ledgerRecord(filename, 'base', ledgerBase));
+  return base
+    ? `${prefix}\n`
+    : `${prefix}\n${JSON.stringify(ledgerRecord(filename, 'head', ledgerHead))}\n`;
+}
 
 function ledgerFixture({
   files = [...LOOP_FLEET_LEDGER_FILES],
@@ -51,6 +129,8 @@ function ledgerFixture({
   additions = {} as Record<string, number>,
   deletions = {} as Record<string, number>,
   contents = {} as Record<string, string>,
+  baseContents = {} as Record<string, string>,
+  baseMissing = [] as string[],
   reviews = [] as any[],
   body = ledgerBody,
   labels = [] as any[],
@@ -61,10 +141,14 @@ function ledgerFixture({
   authorLogin = 'frontaliere-automation[bot]',
   headRef = 'chore/loop-fleet-ledger',
   headRepoFullName = 'owner/repo',
+  postRace = '' as '' | 'head' | 'body',
+  postAuthorType = 'Bot',
+  postAuthorLogin = 'frontaliere-automation[bot]',
   title = 'chore(loop-fleet): persist durable evidence batches',
 } = {}) {
   const posts: any[] = [];
   let reads = 0;
+  let postRaceActive = false;
   const entries = files.map((filename) => ({
     filename,
     status: statuses[filename] ?? 'modified',
@@ -73,7 +157,11 @@ function ledgerFixture({
     ...(previous ? { previous_filename: previous } : {}),
   }));
   const ghFn = (args: string[], options: any = {}) => {
-    if (args.includes('POST')) { posts.push(JSON.parse(options.input)); return {}; }
+    if (args.includes('POST')) {
+      posts.push(JSON.parse(options.input));
+      postRaceActive = postRace === 'head' || postRace === 'body';
+      return { user: { type: postAuthorType, login: postAuthorLogin } };
+    }
     if (args[0] === 'pr') return { changedFiles: complete ? files.length : files.length + 1, files };
     const endpoint = String(args[1] ?? '');
     if (endpoint.endsWith('/files')) {
@@ -82,34 +170,31 @@ function ledgerFixture({
     if (endpoint.endsWith('/reviews')) return reviews;
     if (endpoint.includes('/contents/')) {
       const filename = endpoint.split('/contents/')[1].split('?')[0];
+      const ref = endpoint.split('?ref=')[1] ?? '';
+      if (ref === ledgerBase) {
+        const entry = entries.find((item) => item.filename === filename);
+        if (baseMissing.includes(filename)
+            || (entry?.status === 'added' && baseContents[filename] === undefined)) {
+          const error = new Error('HTTP 404: Not Found');
+          (error as any).status = 404;
+          throw error;
+        }
+        if (baseContents[filename] !== undefined) return baseContents[filename];
+        return defaultLedgerContent(filename, true);
+      }
       if (contents[filename] !== undefined) return contents[filename];
-      const recordType = filename.endsWith('loop-observations.jsonl') ? 'observation'
-        : filename.endsWith('loop-decisions.jsonl') ? 'decision'
-        : filename.endsWith('loop-health-history.jsonl') ? 'health'
-        : 'lifecycle-event';
-      return `${JSON.stringify({
-        recordType,
-        schemaVersion: 1,
-        loopId: 'L6',
-        recordId: `lf-test-${recordType}`,
-        recordedAt: '2026-09-17T00:00:00.000Z',
-        occurredAt: '2026-09-17T00:00:00.000Z',
-        execution: {
-          loopId: 'L6',
-          runId: '123',
-          sha: ledgerHead,
-          recordedAt: '2026-09-17T00:00:00.000Z',
-        },
-      })}\n`;
+      return defaultLedgerContent(filename, false);
     }
     reads += 1;
     return {
       state,
       draft,
       title,
-      body: changedBody && reads > 1 ? `${body}\nbody edit race` : body,
+      body: (changedBody && reads > 1) || (postRaceActive && postRace === 'body')
+        ? `${body}\nbody edit race` : body,
       head: {
-        sha: changedHead && reads > 1 ? 'e'.repeat(40) : ledgerHead,
+        sha: (changedHead && reads > 1) || (postRaceActive && postRace === 'head')
+          ? 'e'.repeat(40) : ledgerHead,
         ref: headRef,
         repo: { full_name: headRepoFullName },
       },
@@ -198,6 +283,7 @@ describe('owner policy excluding test files from review', () => {
       ['{broken', LOOP_FLEET_LEDGER_FILES[0]],
       [JSON.stringify({ ...JSON.parse(valid), recordType: 'decision' }), LOOP_FLEET_LEDGER_FILES[0]],
       [JSON.stringify({ ...JSON.parse(valid), execution: { loopId: 'L6', runId: '123', sha: 'bad' } }), LOOP_FLEET_LEDGER_FILES[0]],
+      [`${valid}\n${valid}`, LOOP_FLEET_LEDGER_FILES[0]],
       ['', LOOP_FLEET_LEDGER_FILES[0]],
       [valid, 'data/loop-fleet/ledger/unknown.jsonl'],
     ] as const) expect(validateLoopFleetLedgerJsonl(content, path).ok).toBe(false);
@@ -213,6 +299,76 @@ describe('owner policy excluding test files from review', () => {
   ])('fails closed without publishing for $label ledger input', ({ label: _label, ...options }) => {
     const f = ledgerFixture(options);
     expect(() => postLedgerOnlyReview({ repo: 'owner/repo', pr: 1, head: ledgerHead, ghFn: f.ghFn })).toThrow();
+    expect(f.posts).toEqual([]);
+  });
+  it('rejects a valid JSONL insertion in the middle despite additions>0 and deletions=0', () => {
+    const path = LOOP_FLEET_LEDGER_FILES[0];
+    const baseContent = [
+      JSON.stringify(ledgerRecord(path, 'first', ledgerBase)),
+      JSON.stringify(ledgerRecord(path, 'last', ledgerBase)),
+      '',
+    ].join('\n');
+    const insertedContent = [
+      JSON.stringify(ledgerRecord(path, 'first', ledgerBase)),
+      JSON.stringify(ledgerRecord(path, 'inserted', ledgerHead)),
+      JSON.stringify(ledgerRecord(path, 'last', ledgerBase)),
+      '',
+    ].join('\n');
+    const f = ledgerFixture({
+      files: [path],
+      baseContents: { [path]: baseContent },
+      contents: { [path]: insertedContent },
+    });
+    expect(inspectLedgerOnlyHead(f.ghFn, 'owner/repo', 1, ledgerHead)).toMatchObject({
+      ok: false,
+      kind: 'not-ledger-only',
+    });
+    expect(() => postLedgerOnlyReview({ repo: 'owner/repo', pr: 1, head: ledgerHead, ghFn: f.ghFn })).toThrow();
+    expect(f.posts).toEqual([]);
+  });
+  it('accepts a genuinely added ledger file only when base lookup is a distinct 404', () => {
+    const path = LOOP_FLEET_LEDGER_FILES[0];
+    const f = ledgerFixture({
+      files: [path],
+      statuses: { [path]: 'added' },
+      contents: { [path]: `${JSON.stringify(ledgerRecord(path, 'new', ledgerHead))}\n` },
+    });
+    expect(inspectLedgerOnlyHead(f.ghFn, 'owner/repo', 1, ledgerHead)).toMatchObject({
+      ok: true,
+      kind: 'eligible',
+    });
+  });
+  it('rejects an added ledger file when the base lookup returns content instead of a real 404', () => {
+    const path = LOOP_FLEET_LEDGER_FILES[0];
+    const f = ledgerFixture({
+      files: [path],
+      statuses: { [path]: 'added' },
+      baseContents: { [path]: `${JSON.stringify(ledgerRecord(path, 'base', ledgerBase))}\n` },
+      contents: { [path]: `${JSON.stringify(ledgerRecord(path, 'new', ledgerHead))}\n` },
+    });
+    expect(inspectLedgerOnlyHead(f.ghFn, 'owner/repo', 1, ledgerHead)).toMatchObject({
+      ok: false,
+      kind: 'not-ledger-only',
+    });
+    expect(f.posts).toEqual([]);
+  });
+  it('fails closed when a modified file base lookup is not a verifiable content response', () => {
+    const path = LOOP_FLEET_LEDGER_FILES[0];
+    const f = ledgerFixture({ files: [path], baseMissing: [path] });
+    expect(inspectLedgerOnlyHead(f.ghFn, 'owner/repo', 1, ledgerHead)).toMatchObject({
+      ok: false,
+      kind: 'unverifiable',
+    });
+    expect(() => postLedgerOnlyReview({ repo: 'owner/repo', pr: 1, head: ledgerHead, ghFn: f.ghFn })).toThrow();
+    expect(f.posts).toEqual([]);
+  });
+  it('classifies malformed candidate JSONL as unverifiable rather than an ordinary known mismatch', () => {
+    const path = LOOP_FLEET_LEDGER_FILES[0];
+    const f = ledgerFixture({ files: [path], contents: { [path]: '{not-json\n' } });
+    expect(inspectLedgerOnlyHead(f.ghFn, 'owner/repo', 1, ledgerHead)).toMatchObject({
+      ok: false,
+      kind: 'unverifiable',
+    });
     expect(f.posts).toEqual([]);
   });
   it('routes a mixed PR with an invalid body to the ordinary owner, never to a competing fast check', () => {
@@ -238,6 +394,32 @@ describe('owner policy excluding test files from review', () => {
     expect(f.posts[0].body).toContain('## LGTM');
   });
   it.each([
+    'chore/loop-fleet-ledger-L6-35160222880-1',
+    'chore/loop-fleet-ledger-lifecycle-35160615088-1',
+  ])('accepts the trusted suffixed producer branch %s', (headRef) => {
+    const f = ledgerFixture({ headRef });
+    expect(LOOP_FLEET_LEDGER_BRANCH_RE.test(headRef)).toBe(true);
+    expect(inspectLedgerOnlyHead(f.ghFn, 'owner/repo', 1, ledgerHead)).toMatchObject({
+      ok: true,
+      kind: 'eligible',
+    });
+  });
+  it.each([
+    'chore/loop-fleet-ledger-L12-35160222880-1',
+    'chore/loop-fleet-ledger-L6-35160222880-attempt-1',
+    'chore/loop-fleet-ledger-L6-35160222880-1-extra',
+    'chore/loop-fleet-ledger-lifecycle-abc-1',
+  ])('rejects a near-valid producer branch %s', (headRef) => {
+    const f = ledgerFixture({ headRef });
+    expect(LOOP_FLEET_LEDGER_BRANCH_RE.test(headRef)).toBe(false);
+    expect(inspectLedgerOnlyHead(f.ghFn, 'owner/repo', 1, ledgerHead)).toMatchObject({
+      ok: false,
+      kind: 'not-ledger-only',
+    });
+    expect(() => postLedgerOnlyReview({ repo: 'owner/repo', pr: 1, head: ledgerHead, ghFn: f.ghFn })).toThrow();
+    expect(f.posts).toEqual([]);
+  });
+  it.each([
     { authorType: 'User', label: 'author type' },
     { authorLogin: 'other[bot]', label: 'author login' },
     { headRef: 'other-branch', label: 'head branch' },
@@ -252,6 +434,15 @@ describe('owner policy excluding test files from review', () => {
     expect(() => postLedgerOnlyReview({ repo: 'owner/repo', pr: 1, head: ledgerHead, ghFn: f.ghFn })).toThrow();
     expect(f.posts).toEqual([]);
   });
+  it('classifies missing trusted producer metadata as unverifiable', () => {
+    const f = ledgerFixture({ authorType: null as any });
+    expect(inspectLedgerOnlyHead(f.ghFn, 'owner/repo', 1, ledgerHead)).toMatchObject({
+      ok: false,
+      kind: 'unverifiable',
+    });
+    expect(() => postLedgerOnlyReview({ repo: 'owner/repo', pr: 1, head: ledgerHead, ghFn: f.ghFn })).toThrow();
+    expect(f.posts).toEqual([]);
+  });
   it.each([
     { changedHead: true, label: 'HEAD' },
     { changedBody: true, label: 'body' },
@@ -261,6 +452,17 @@ describe('owner policy excluding test files from review', () => {
     const f = ledgerFixture(options);
     expect(() => postLedgerOnlyReview({ repo: 'owner/repo', pr: 1, head: ledgerHead, ghFn: f.ghFn })).toThrow();
     expect(f.posts).toEqual([]);
+  });
+  it.each(['body', 'head'])('fails the current run when %s changes immediately after POST', (postRace) => {
+    const f = ledgerFixture({ postRace });
+    expect(() => postLedgerOnlyReview({ repo: 'owner/repo', pr: 1, head: ledgerHead, ghFn: f.ghFn })).toThrow(/dopo la review/iu);
+    expect(f.posts).toHaveLength(1);
+  });
+  it('fails closed when the POST response is not authored by the trusted App', () => {
+    const f = ledgerFixture({ postAuthorLogin: 'other[bot]' });
+    expect(() => postLedgerOnlyReview({ repo: 'owner/repo', pr: 1, head: ledgerHead, ghFn: f.ghFn }))
+      .toThrow(/identità della review App/iu);
+    expect(f.posts).toHaveLength(1);
   });
   it('recognizes only the exact App review marker on the current verified head and never reposts it', () => {
     const review = {
@@ -298,7 +500,23 @@ describe('owner policy excluding test files from review', () => {
     expect(source).toContain('ledger-post');
     expect(source).toContain("set_tier ledger-only bounded 0");
     expect(source).toContain("steps.tier.outputs.tier != 'ledger-only'");
-    expect(source).toContain("github.head_ref != 'chore/loop-fleet-ledger'");
+    const ledgerScope = workflow.jobs.vitest.steps.find((step: any) => step.id === 'ledger_scope');
+    expect(ledgerScope.run).toContain('10)');
+    const unknownExit = ledgerScope.run.slice(ledgerScope.run.indexOf('*)'));
+    expect(unknownExit).toContain('exit "$status"');
+    expect(unknownExit).not.toContain('ledger_only=false');
+    expect(source).toContain("github.event.pull_request.base.ref == 'main'");
+    expect(source).toContain("github.event.pull_request.user.type == 'Bot'");
+    expect(source).toContain("github.event.pull_request.user.login == 'frontaliere-automation[bot]'");
+    expect(source).toContain('github.event.pull_request.head.repo.full_name == github.repository');
+    for (const loop of ['L0', 'L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7', 'L8', 'L9', 'L10', 'L11']) {
+      expect(source).toContain(`startsWith(github.head_ref, 'chore/loop-fleet-ledger-${loop}-')`);
+    }
+    expect(source).toContain("startsWith(github.head_ref, 'chore/loop-fleet-ledger-lifecycle-')");
+    expect(source).not.toContain("startsWith(github.head_ref, 'chore/loop-fleet-ledger-')");
+    const ledgerReview = workflow.jobs.vitest.steps.find((step: any) => step.id === 'ledger_review');
+    expect(ledgerReview['continue-on-error']).toBeUndefined();
+    expect(ledgerReview.run).toContain('APP_TOKEN');
     expect(source).not.toContain('ledger-fast-review.yml');
   });
 });
