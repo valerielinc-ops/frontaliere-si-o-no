@@ -13,7 +13,11 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  *   3. Link-based extraction (LinkedIn apply URLs with surrounding context)
  */
 
-import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+import {
+  isTargetSwissLocation,
+  inferAnyCanton,
+  swissCityFromLocationField,
+} from './target-swiss-locations.mjs';
 
 const BASE_URL = 'https://www.artificialy.com';
 
@@ -106,8 +110,7 @@ function extractHtmlJobCards(html) {
       if (!title || title.length < 5) continue;
 
       // Extract location
-      const locMatch = block.match(/(?:Lugano|Zurich|Zürich|Locarno|Bellinzona|Switzerland|Svizzera|Schweiz)/i);
-      const location = locMatch ? locMatch[0] : '';
+      const location = swissCityFromLocationField(block);
       // Tailwind's ubiquitous "items-center"/"items-start" utility classes make
       // Pattern B's "item" keyword match almost any layout div (non-job hero
       // sections included); a real card always carries a location keyword, so
@@ -164,14 +167,14 @@ function extractLinkBasedJobs(html) {
     const headingMatch = before.match(/<(?:h[1-6])[^>]*>(.*?)<\/h[1-6]>/gi);
     const lastHeading = headingMatch ? stripHtml(headingMatch[headingMatch.length - 1]) : '';
 
-    // Look for location keywords
+    // Resolve the location through the shared Swiss municipality dataset.
     const contextBlock = before + match[0];
-    const locMatch = contextBlock.match(/(?:Lugano|Zurich|Zürich|Switzerland|Svizzera|Ticino|Tessin)/i);
+    const location = swissCityFromLocationField(contextBlock);
 
     if (lastHeading && lastHeading.length > 5) {
       items.push({
         title: lastHeading,
-        location: locMatch ? locMatch[0] : '',
+        location,
         region: '',
         country: 'CH',
         description: '',
@@ -218,9 +221,9 @@ export function parseArtificialyCareerPage(html = '') {
 }
 
 /**
- * Check if a job is in any target canton.
+ * Check if a job is in any Swiss target canton.
  */
-export function isArtificialyTicinoRelevant(job = {}) {
+export function isArtificialySwissRelevant(job = {}) {
   return isTargetSwissLocation(`${job.location || ''} ${job.title || ''}`);
 }
 
