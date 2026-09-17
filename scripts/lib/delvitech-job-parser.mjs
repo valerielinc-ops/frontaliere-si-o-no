@@ -150,13 +150,14 @@ export function parseDelvitechJobDetail(html = '', url = '') {
 }
 
 export function isDelvitechTicinoJob(detail = {}) {
-  const title = normalizeSpace(detail.title || '');
   const location = normalizeSpace(detail.location || '');
-  const description = normalizeSpace(detail.description || '');
-  const combined = `${title} ${location} ${description}`;
-  if (isLocationExplicitlyForeign(combined)) return false;
-  if (/germany/i.test(combined)) return false;
-  return isTargetSwissLocation(combined) || /switzerland/i.test(combined);
+  // The source location is authoritative. Description prose can mention
+  // foreign countries as customers, partners, or travel destinations without
+  // changing the vacancy's workplace; including it here turned a valid Swiss
+  // detail into a false source-zero candidate.
+  if (isLocationExplicitlyForeign(location)) return false;
+  if (/germany/i.test(location)) return false;
+  return isTargetSwissLocation(location) || /switzerland/i.test(location);
 }
 
 export function inferDelvitechCategory(title = '', description = '') {

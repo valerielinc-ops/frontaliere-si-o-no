@@ -10,6 +10,7 @@ import {
 } from './job-localization-pipeline.mjs';
 import { hardenJobsWithStructuredSalary } from './structured-salary.mjs';
 import { normalizeCantonCode, isTargetSwissLocation, isTargetCanton, inferAnyCanton, isKnownSwissMunicipality } from './target-swiss-locations.mjs';
+import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
 let _aiModels = null;
 try { _aiModels = await import('./ai-models.mjs'); } catch { /* ai-models not available */ }
 import {
@@ -6157,8 +6158,7 @@ export function isExplicitlyOutsideTarget(text) {
  */
 export function isLocationExplicitlyForeign(locationField) {
   const lower = String(locationField || '').toLowerCase();
-  if (!lower || lower.length < 3) return false;
-  if (/(\bch\b|swiss|svizzera|switzerland|schweiz|suisse)/i.test(lower)) return false;
+  if (!lower || lower.length < 2) return false;
   const foreignCountries = [
     'malaysia', 'italy', 'italia', 'france', 'germany', 'deutschland',
     'austria', 'österreich', 'spain', 'españa', 'portugal',
@@ -6172,9 +6172,23 @@ export function isLocationExplicitlyForeign(locationField) {
     'russia', 'ukraine', 'turkey', 'bermuda',
   ];
   const markerText = ` ${lower.replace(/[^\p{L}\p{N}]+/gu, ' ').replace(/\s+/g, ' ').trim()} `;
+  // Check explicit country markers before the Swiss allowlist/inference. ATS
+  // location fields also use ISO-3166 alpha-2 suffixes ("Lugano, IT"); a
+  // Swiss-city match must not override that authoritative foreign signal.
+  const foreignCountryCodes = [
+    'at', 'au', 'be', 'br', 'ca', 'cn', 'cz', 'de', 'dk', 'es', 'fi', 'fr',
+    'gb', 'gr', 'hk', 'hu', 'id', 'ie', 'in', 'it', 'jp', 'kr', 'mx', 'my',
+    'nl', 'no', 'pl', 'pt', 'qa', 'ro', 'ru', 'sa', 'se', 'sg', 'th', 'tr',
+    'tw', 'ua', 'us', 'vn', 'za',
+  ].filter((code) => !ALL_CANTON_CODES.includes(code.toUpperCase()));
+  const hasForeignCountryCode = new RegExp(
+    `(?:^|[^\\p{L}\\p{N}])(?:${foreignCountryCodes.join('|')})(?=$|[^\\p{L}\\p{N}])`,
+    'iu',
+  ).test(lower);
   // Check explicit country markers before canton inference so a mixed
   // string such as "Lugano, Italy" cannot be classified as Swiss.
-  if (foreignCountries.some((k) => markerText.includes(` ${k} `))) return true;
+  if (foreignCountries.some((k) => markerText.includes(` ${k} `)) || hasForeignCountryCode) return true;
+  if (/(\bch\b|swiss|svizzera|switzerland|schweiz|suisse)/i.test(lower)) return false;
   if (/\b(ticino|tessin|ti|graubunden|graubünden|grigioni|grisons|gr)\b/i.test(lower)) return false;
   // Word-boundary aware target-location check (NOT a substring scan, which let
   // "Pany" (GR) match inside "company" and wrongly clear a foreign location).

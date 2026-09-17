@@ -53,4 +53,17 @@ describe('Delvitech job parser', () => {
       description: 'Based at our headquarters in Mendrisio',
     })).toBe(true);
   });
+
+  it('uses only the source location for geographic filtering', () => {
+    expect(isDelvitechTicinoJob({
+      title: 'Application Engineer',
+      location: 'Mendrisio, Switzerland',
+      description: 'Collaborate with our Germany and Italy offices on shared projects.',
+    })).toBe(true);
+    expect(isDelvitechTicinoJob({
+      title: 'Application Engineer',
+      location: 'Germany',
+      description: 'Based at our headquarters in Mendrisio.',
+    })).toBe(false);
+  });
 });

@@ -23,6 +23,7 @@ describe('avaloq-job-parser', () => {
       avaloqSourceSnapshot: { value: 'authoritative-api-snapshot' },
       avaloqSourceReadComplete: { value: true },
       avaloqSourceTerminationProven: { value: true },
+      avaloqSourcePaginationIntegrityProven: { value: true },
       avaloqSourceTotalFound: { value: 2 },
       avaloqSourceRecordsSeen: { value: 2 },
       avaloqSourcePostingCount: { value: 2 },
@@ -48,6 +49,30 @@ describe('avaloq-job-parser', () => {
         content: listCalls === 1 ? [posting] : [],
         totalFound: 2,
       }), { status: 200 });
+    }));
+
+    const rows = await fetchAvaloqJobsFromApi(100, () => false);
+    expect(rows).toHaveLength(0);
+    expect(listCalls).toBe(2);
+    expect(() => assertCompleteAvaloqSnapshot(rows)).toThrow(/authoritative source snapshot/);
+  });
+
+  it('rejects a zero target when repeated source pages fake totalFound coverage', async () => {
+    const sourcePage = [
+      { id: '744000000000001', name: 'Zürich role', location: { city: 'Zürich', country: { code: 'CH' } } },
+      { id: '744000000000002', name: 'Basel role', location: { city: 'Basel', country: { code: 'CH' } } },
+    ];
+    let listCalls = 0;
+    vi.stubGlobal('fetch', vi.fn(async (input) => {
+      const url = new URL(String(input));
+      if (url.pathname.endsWith('/postings/744000000000001')) {
+        return new Response(JSON.stringify(sourcePage[0]), { status: 200 });
+      }
+      if (url.pathname.endsWith('/postings/744000000000002')) {
+        return new Response(JSON.stringify(sourcePage[1]), { status: 200 });
+      }
+      listCalls += 1;
+      return new Response(JSON.stringify({ content: sourcePage, totalFound: 4 }), { status: 200 });
     }));
 
     const rows = await fetchAvaloqJobsFromApi(100, () => false);

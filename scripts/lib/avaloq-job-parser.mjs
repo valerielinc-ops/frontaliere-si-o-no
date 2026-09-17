@@ -140,6 +140,7 @@ export async function fetchAvaloqJobsFromApi(timeoutMs = 20000, locationFilter =
     terminationProven: false,
     totalFound: null,
     recordsSeen: 0,
+    paginationIntegrityProven: false,
   };
   try {
     const iter = fetchSmartRecruitersJobs(SR_TENANT, {
@@ -187,10 +188,12 @@ export async function fetchAvaloqJobsFromApi(timeoutMs = 20000, locationFilter =
     avaloqSourceSnapshot: { value: 'authoritative-api-snapshot', enumerable: false },
     avaloqSourceReadComplete: {
       value: sourceRead.terminationProven === true
+        && sourceRead.paginationIntegrityProven === true
         && (!Number.isFinite(sourceRead.totalFound) || sourceRead.recordsSeen >= sourceRead.totalFound),
       enumerable: false,
     },
     avaloqSourceTerminationProven: { value: sourceRead.terminationProven === true, enumerable: false },
+    avaloqSourcePaginationIntegrityProven: { value: sourceRead.paginationIntegrityProven === true, enumerable: false },
     avaloqSourceTotalFound: { value: sourceRead.totalFound, enumerable: false },
     avaloqSourceRecordsSeen: { value: sourceRead.recordsSeen, enumerable: false },
     avaloqSourcePostingCount: { value: sourcePostingCount, enumerable: false },
@@ -221,11 +224,14 @@ export function assertCompleteAvaloqSnapshot(details) {
     : Number.NaN;
   const sourceReadComplete = Array.isArray(details)
     && Reflect.get(details, 'avaloqSourceReadComplete') === true;
+  const paginationIntegrityProven = Array.isArray(details)
+    && Reflect.get(details, 'avaloqSourcePaginationIntegrityProven') === true;
   const sourceSnapshot = Array.isArray(details)
     && Reflect.get(details, 'avaloqSourceSnapshot') === 'authoritative-api-snapshot';
   if (
     !sourceSnapshot
     || !sourceReadComplete
+    || !paginationIntegrityProven
     || Reflect.get(details, 'avaloqSourceTerminationProven') !== true
     || !Number.isInteger(sourcePostingCount)
     || sourcePostingCount !== classifiedPostingCount

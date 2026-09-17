@@ -441,7 +441,7 @@ function matchesLocationContains(posting, needles) {
  * @param {number} [options.minDelayMs]           Inter-page delay. Default 2000 ms.
  * @param {number} [options.timeoutMs]            Per-request. Default 20_000 ms.
  * @param {string} [options.userAgent]            Default polite UA.
- * @param {(info: { terminationProven: boolean, totalFound: number|null, recordsSeen: number }) => void} [options.onComplete]
+ * @param {(info: { terminationProven: boolean, totalFound: number|null, recordsSeen: number, rawRecordsSeen: number, paginationIntegrityProven: boolean }) => void} [options.onComplete]
  *                                                Called after a complete generator walk with the source-read proof.
  * @returns {AsyncIterable<NormalizedJob>}
  * @throws {SmartRecruitersApiError} on persistent failure.
@@ -477,11 +477,15 @@ export async function* fetchSmartRecruitersJobs(tenant, options = {}) {
   let offset = 0;
   let totalFound = null;
   let recordsSeen = 0;
+  let rawRecordsSeen = 0;
   let terminationProven = false;
+  let paginationIntegrityProven = true;
+  const seenPostingIds = new Set();
+  const seenPageKeys = new Set();
   const requireTerminationProof = typeof onComplete === 'function';
 
   for (let page = 0; page < Math.max(1, maxPages); page++) {
-    if (totalFound !== null && offset >= totalFound) {
+    if (totalFound !== null && paginationIntegrityProven && recordsSeen >= totalFound) {
       terminationProven = true;
       break;
     }
@@ -496,10 +500,33 @@ export async function* fetchSmartRecruitersJobs(tenant, options = {}) {
       totalFound = totalFound === null ? serverTotal : Math.max(totalFound, serverTotal);
     }
     if (content.length === 0) {
-      terminationProven = totalFound === null || recordsSeen >= totalFound;
+      terminationProven = paginationIntegrityProven
+        && (totalFound === null || recordsSeen >= totalFound);
       break;
     }
-    recordsSeen += content.length;
+
+    rawRecordsSeen += content.length;
+    if (requireTerminationProof) {
+      const pageIds = content.map((posting) => String(posting?.id || '').trim());
+      const pageHasCompleteIds = pageIds.length === content.length && pageIds.every(Boolean);
+      const pageHasDuplicateIds = new Set(pageIds).size !== pageIds.length;
+      const pageKey = pageHasCompleteIds ? JSON.stringify([...pageIds].sort()) : '';
+      const pageRepeats = Boolean(pageKey && seenPageKeys.has(pageKey));
+      const pageOverlaps = pageIds.some((id) => seenPostingIds.has(id));
+      // A strict source proof requires an independently identifiable row for
+      // every declared posting. A repeated page, an overlapping ID, or a row
+      // without an ID can otherwise make a truncated response look complete
+      // merely because raw row count reached `totalFound`.
+      if (!pageHasCompleteIds || pageHasDuplicateIds || pageRepeats || pageOverlaps) {
+        paginationIntegrityProven = false;
+        break;
+      }
+      seenPageKeys.add(pageKey);
+      for (const id of pageIds) seenPostingIds.add(id);
+      recordsSeen = seenPostingIds.size;
+    } else {
+      recordsSeen = rawRecordsSeen;
+    }
 
     // Apply filters BEFORE optional detail-fetch (avoids wasted detail calls).
     const kept = [];
@@ -551,6 +578,8 @@ export async function* fetchSmartRecruitersJobs(tenant, options = {}) {
       terminationProven,
       totalFound,
       recordsSeen,
+      rawRecordsSeen,
+      paginationIntegrityProven,
     });
   }
 }
