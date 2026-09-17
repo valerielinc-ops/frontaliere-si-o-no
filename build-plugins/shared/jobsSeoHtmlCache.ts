@@ -23,6 +23,19 @@ export function hasEmittedHtml(distDir: string, relativePath: string): boolean {
   return fs.existsSync(indexPath(distDir, relativePath));
 }
 
+/**
+ * Test ownership of an emitted page without trusting a stale file in dist/.
+ * The callback is backed by the collector that flushed this build.
+ */
+export function hasCollectorWrittenHtml(
+  distDir: string,
+  relativePath: string,
+  hasWritten: (filePath: string) => boolean,
+): boolean {
+  if (!relativePath.trim()) return false;
+  return hasWritten(indexPath(distDir, relativePath));
+}
+
 /** Prefer a one-off fallback entry, otherwise read the emitted page from disk. */
 export function readCachedOrEmittedHtml(
   cache: ReadonlyMap<string, string>,

@@ -36,7 +36,7 @@ import { sanitizeJobTitleForDisplay as stripLiteralMarkdownFromTitle } from './s
 import { minifyHtml } from './shared/htmlMinify';
 import {
  hasCachedOrEmittedHtml,
- hasEmittedHtml,
+ hasCollectorWrittenHtml,
  readCachedOrEmittedHtml,
  releaseDiskBackedHtmlCache,
 } from './shared/jobsSeoHtmlCache';
@@ -987,6 +987,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  _writtenPaths.add(filePath);
  collector.add(filePath, filePath.endsWith('.html') && !__SKIP_MINIFY ? minifyHtml(content) : content);
  }
+ const hasCollectorWrittenHtmlForPath = (relativePath: string): boolean =>
+  hasCollectorWrittenHtml(distDir, relativePath, (filePath) => collector.hasWritten(filePath));
 
  type JobsSeoLocaleSized = Record<(typeof JOB_SEO_LOCALES)[number], { size: number }>;
  type JobsSeoMemContext = {
@@ -4143,7 +4145,7 @@ ${staticAnalyticsHtml}
  await collector.flush();
  const activeHtmlDiskBackedKeys = new Set<string>();
  for (const [key, relativePath] of activeHtmlPaths) {
-  if (hasEmittedHtml(distDir, relativePath)) activeHtmlDiskBackedKeys.add(key);
+  if (hasCollectorWrittenHtmlForPath(relativePath)) activeHtmlDiskBackedKeys.add(key);
  }
  const releasedActiveHtmlEntries = releaseDiskBackedHtmlCache(jobHtmlCache, activeHtmlDiskBackedKeys);
  activeHtmlPaths.clear();
@@ -12702,7 +12704,7 @@ ${staticAnalyticsHtml}
   const confirmedDiskKeys = new Set<string>();
   for (const key of expiredHtmlCacheOnDisk) {
    const relativePath = expiredHtmlCachePaths.get(key);
-   if (relativePath && hasEmittedHtml(distDir, relativePath)) confirmedDiskKeys.add(key);
+   if (relativePath && hasCollectorWrittenHtmlForPath(relativePath)) confirmedDiskKeys.add(key);
    else expiredHtmlCacheOnDisk.delete(key);
   }
   expiredHtmlCacheReleasedEntries += releaseDiskBackedHtmlCache(expiredSoftLandingCache, confirmedDiskKeys);
@@ -14457,7 +14459,7 @@ ${staticAnalyticsHtml}
   // The canonical HTML is disk-backed after the active-pages flush. The
   // fallback entry, when a foreign writer left no readable file, is removed
   // only at the corpus-release safety net below.
-  if (jobHtmlCache.has(crossLocaleCacheKey) && hasEmittedHtml(distDir, baseCanonicalPath)) {
+  if (jobHtmlCache.has(crossLocaleCacheKey) && hasCollectorWrittenHtmlForPath(baseCanonicalPath)) {
    jobHtmlCache.delete(crossLocaleCacheKey);
   }
  } else {

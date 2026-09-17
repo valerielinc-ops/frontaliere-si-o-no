@@ -4,8 +4,10 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { buildBridgeThinHtml } from '../build-plugins/shared/bridgeThinShell';
+import { WriteCollector } from '../build-plugins/batchWrite';
 import { minifyHtml } from '../build-plugins/shared/htmlMinify';
 import {
+  hasCollectorWrittenHtml,
   readCachedOrEmittedHtml,
   releaseDiskBackedHtmlCache,
 } from '../build-plugins/shared/jobsSeoHtmlCache';
@@ -26,6 +28,8 @@ const ACTIVE_PAGE = `<!DOCTYPE html>
  </main>
 </body>
 </html>`;
+
+const STALE_ACTIVE_PAGE = ACTIVE_PAGE.replace('Contenuto attivo della fixture.', 'Contenuto stale della build precedente.');
 
 const SOFT_LANDING_PAGE = `<!DOCTYPE html>
 <html lang="it">
@@ -114,6 +118,56 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     expect(cache.has('it:fallback')).toBe(true);
     expect(diskBacked.size).toBe(0);
     expect(releaseDiskBackedHtmlCache(cache, diskBacked)).toBe(0);
+  });
+
+  it('keeps a stale dist file as a fallback until this collector writes the path', async () => {
+    const fixture = writeCanonicalPage(STALE_ACTIVE_PAGE);
+    tempDirs.push(fixture.distDir);
+    const indexFile = path.join(fixture.distDir, fixture.relativePath, 'index.html');
+    const cacheKey = 'it:canonical-job';
+    const cacheHtml = ACTIVE_PAGE;
+    const cache = new Map([[cacheKey, cacheHtml]]);
+    const collector = new WriteCollector({ pluginName: 'jobsSeoPagesPlugin' });
+    const collectorWrittenKeys = () => hasCollectorWrittenHtml(
+      fixture.distDir,
+      fixture.relativePath,
+      (filePath) => collector.hasWritten(filePath),
+    ) ? new Set([cacheKey]) : new Set<string>();
+
+    expect(hasCollectorWrittenHtml(
+      fixture.distDir,
+      fixture.relativePath,
+      (filePath) => collector.hasWritten(filePath),
+    )).toBe(false);
+    expect(releaseDiskBackedHtmlCache(cache, collectorWrittenKeys())).toBe(0);
+    const fallbackHtml = readCachedOrEmittedHtml(
+      cache,
+      cacheKey,
+      fixture.distDir,
+      fixture.relativePath,
+    );
+    expect(fallbackHtml).toBe(cacheHtml);
+    expect(fallbackHtml).not.toContain('Contenuto stale');
+
+    collector.add(indexFile, minifyHtml(cacheHtml));
+    await collector.flush();
+
+    expect(hasCollectorWrittenHtml(
+      fixture.distDir,
+      fixture.relativePath,
+      (filePath) => collector.hasWritten(filePath),
+    )).toBe(true);
+    expect(releaseDiskBackedHtmlCache(cache, collectorWrittenKeys())).toBe(1);
+    const diskHtml = readCachedOrEmittedHtml(
+      cache,
+      cacheKey,
+      fixture.distDir,
+      fixture.relativePath,
+    );
+    expect(diskHtml).toBe(minifyHtml(cacheHtml));
+    expect(
+      minifyHtml(fullBridgeHtml(diskHtml!, 'canonical-job')),
+    ).toBe(minifyHtml(fullBridgeHtml(cacheHtml, 'canonical-job')));
   });
 
   it('pins the retained-set markers and bounded expired cache cardinalities', () => {
