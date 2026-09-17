@@ -7,9 +7,12 @@ export const MANIFEST_VERSION = 2;
 export const MANIFEST_FORMAT = 'jsonl';
 export const SOURCE_VERSION = 'input@1';
 // The emitter fingerprint includes this value. Bumping it makes the first
-// build after a change to the canonical job digest algorithm miss old HTML
+// build after a change to the canonical job digest/input shape miss old HTML
 // reuse entries even when the page input happens to hash identically.
-export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@2';
+// job-digest@3: active pages hash the six rendered related jobs plus a compact
+// full-pool membership signature; full-content bridge pages reference the
+// canonical active input hash instead of re-hashing the source record/pool.
+export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@3';
 export const INCREMENTAL_MANIFEST_ENABLED = process.env.INCREMENTAL_MANIFEST === '1';
 
 export const PAGE_KINDS = Object.freeze([
@@ -198,16 +201,21 @@ function markCanonicalJson(value, canonicalJson) {
   return value;
 }
 
-function cheapTextLength(value) {
+function cheapTextSignature(value) {
   if (value === undefined || value === null) return -1;
-  return typeof value === 'string' ? value.length : String(value).length;
+  const text = typeof value === 'string' ? value : String(value);
+  const length = text.length;
+  if (length <= 64) return `${length}:${text}`;
+  const middleStart = Math.max(0, Math.floor((length - 16) / 2));
+  return `${length}:${text.slice(0, 16)}:${text.slice(middleStart, middleStart + 16)}:${text.slice(-16)}`;
 }
 
 /**
  * Validate ID-keyed cache entries without walking or serializing the record.
  * The fixed tuple is captured only when a digest is computed; cache hits compare
- * its scalar fields and text lengths directly, without allocating or serializing
- * the record on the hot path.
+ * scalar fields and bounded text probes directly. The probes inspect at most
+ * 64 code units for short text and 48 for long text, so this remains much
+ * cheaper than hashing the complete multi-locale description.
  */
 function cheapJobRecordSignature(job) {
   if (!job || typeof job !== 'object') return '';
@@ -238,17 +246,17 @@ function cheapJobRecordSignature(job) {
     slugByLocale?.en,
     slugByLocale?.de,
     slugByLocale?.fr,
-    cheapTextLength(job.description),
-    cheapTextLength(job.html),
-    cheapTextLength(job.descriptionHtml),
-    cheapTextLength(descriptionByLocale?.it),
-    cheapTextLength(descriptionByLocale?.en),
-    cheapTextLength(descriptionByLocale?.de),
-    cheapTextLength(descriptionByLocale?.fr),
-    cheapTextLength(htmlByLocale?.it),
-    cheapTextLength(htmlByLocale?.en),
-    cheapTextLength(htmlByLocale?.de),
-    cheapTextLength(htmlByLocale?.fr),
+    cheapTextSignature(job.description),
+    cheapTextSignature(job.html),
+    cheapTextSignature(job.descriptionHtml),
+    cheapTextSignature(descriptionByLocale?.it),
+    cheapTextSignature(descriptionByLocale?.en),
+    cheapTextSignature(descriptionByLocale?.de),
+    cheapTextSignature(descriptionByLocale?.fr),
+    cheapTextSignature(htmlByLocale?.it),
+    cheapTextSignature(htmlByLocale?.en),
+    cheapTextSignature(htmlByLocale?.de),
+    cheapTextSignature(htmlByLocale?.fr),
   ];
 }
 
@@ -280,17 +288,17 @@ function hasMatchingJobRecordSignature(job, signature) {
     && signature[19] === slugByLocale?.en
     && signature[20] === slugByLocale?.de
     && signature[21] === slugByLocale?.fr
-    && signature[22] === cheapTextLength(job.description)
-    && signature[23] === cheapTextLength(job.html)
-    && signature[24] === cheapTextLength(job.descriptionHtml)
-    && signature[25] === cheapTextLength(descriptionByLocale?.it)
-    && signature[26] === cheapTextLength(descriptionByLocale?.en)
-    && signature[27] === cheapTextLength(descriptionByLocale?.de)
-    && signature[28] === cheapTextLength(descriptionByLocale?.fr)
-    && signature[29] === cheapTextLength(htmlByLocale?.it)
-    && signature[30] === cheapTextLength(htmlByLocale?.en)
-    && signature[31] === cheapTextLength(htmlByLocale?.de)
-    && signature[32] === cheapTextLength(htmlByLocale?.fr);
+    && signature[22] === cheapTextSignature(job.description)
+    && signature[23] === cheapTextSignature(job.html)
+    && signature[24] === cheapTextSignature(job.descriptionHtml)
+    && signature[25] === cheapTextSignature(descriptionByLocale?.it)
+    && signature[26] === cheapTextSignature(descriptionByLocale?.en)
+    && signature[27] === cheapTextSignature(descriptionByLocale?.de)
+    && signature[28] === cheapTextSignature(descriptionByLocale?.fr)
+    && signature[29] === cheapTextSignature(htmlByLocale?.it)
+    && signature[30] === cheapTextSignature(htmlByLocale?.en)
+    && signature[31] === cheapTextSignature(htmlByLocale?.de)
+    && signature[32] === cheapTextSignature(htmlByLocale?.fr);
 }
 
 function hasMatchingSignature(entry, job) {
@@ -405,7 +413,11 @@ function projectRelatedJob(relatedJob, locale, inputCache = null) {
   }
   const cachedProjection = projectionsByLocale.get(locale);
   if (hasMatchingSignature(cachedProjection, relatedJob)) {
-    if (cacheKey) inputCache.relatedJobProjectionsByKey.set(cacheKey, cachedProjection);
+    if (cacheKey) {
+      setInputCacheEntry(inputCache, 'relatedJobProjectionsByKey', cacheKey, cachedProjection);
+      const digestEntry = jobRecordDigestCache.get(relatedJob);
+      if (digestEntry) setInputCacheEntry(inputCache, 'jobDigestsById', id, digestEntry);
+    }
     return cachedProjection.projection;
   }
   const projection = {
@@ -457,6 +469,22 @@ export function stableJobVersion(job) {
     ?? job?.firstSeenAt
     ?? '',
   );
+}
+
+/**
+ * Fingerprint the complete related-job candidate pool without retaining or
+ * serializing its records. The renderer chooses only six entries from this
+ * ordered pool; the compact signature keeps additions/removals/reordering and
+ * the slug used by the selection guard in the page dependency set.
+ */
+export function computeRelatedJobPoolSignature(relatedJobs = []) {
+  const jobs = Array.isArray(relatedJobs) ? relatedJobs : [];
+  const membership = jobs.map((relatedJob) => (
+    relatedJob && typeof relatedJob === 'object'
+      ? [stableJobId(relatedJob), String(relatedJob.slug ?? '')]
+      : [String(relatedJob ?? ''), '']
+  ));
+  return sha256(JSON.stringify(membership));
 }
 
 /**

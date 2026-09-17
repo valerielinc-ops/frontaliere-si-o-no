@@ -19,6 +19,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'BUILD_BENCH',
       'BUILD_PROFILE',
       'BUILD_STOP_AFTER',
+      'CPU_PROFILE',
       'FAST_BUILD',
       'INCREMENTAL_MANIFEST',
       'INCREMENTAL_MANIFEST_VERIFY',
@@ -38,6 +39,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(inputs.variants).toMatchObject({ type: 'string', default: 'base=' });
     expect(inputs.chain).toMatchObject({ type: 'string', default: '' });
     expect(inputs.stop_after_jobs_seo).toMatchObject({ type: 'boolean', default: false });
+    expect(inputs.cpu_profile).toMatchObject({ type: 'boolean', default: false });
     expect(inputs.compare_monolith).toMatchObject({ type: 'boolean', default: false });
   });
 
@@ -82,6 +84,13 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
         JOBS_SEO_SAMPLE: '0.1',
         BUILD_BENCH: '1',
       },
+    }]);
+  });
+
+  it('accepts CPU profiling as a variant-local flag', () => {
+    expect(parseVariants('profile=CPU_PROFILE=1')).toEqual([{
+      name: 'profile',
+      env: { CPU_PROFILE: '1' },
     }]);
   });
 
@@ -137,9 +146,13 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(WORKFLOW.jobs['build-locale'].env).toMatchObject({
       BUILD_BENCH: '1',
       BUILD_STOP_AFTER: "${{ inputs.stop_after_jobs_seo == true && 'jobsSeoPages' || '' }}",
+      CPU_PROFILE: "${{ inputs.cpu_profile == true && '1' || '' }}",
     });
     const build = steps.find((step) => String(step.name).startsWith('Build ('));
     expect(build?.run).toContain('./node_modules/.bin/vite build --minify esbuild');
+    expect(build?.run).toContain('--cpu-prof');
+    expect(build?.run).toContain('--cpu-prof-dir=/tmp/cpuprof');
+    expect(build?.run).toContain('NODE_OPTIONS');
     expect(build?.run).toContain('skip post-build SPA asset verification');
     expect(build?.run).toContain('stop_after=${BUILD_STOP_AFTER:-}');
     const prune = steps.find((step) => step.name === 'Prune to locale shard (filesystem-level, mirrors production push_shard)');
@@ -149,6 +162,15 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(upload?.with).toMatchObject({
       name: 'build-markers-${{ matrix.locale }}-${{ matrix.variant }}-${{ github.run_id }}',
       'retention-days': 14,
+    });
+    const cpuUpload = steps.find((step) => step.name === 'Upload CPU profile');
+    expect(cpuUpload?.if).toContain('inputs.cpu_profile == true');
+    expect(cpuUpload?.uses).toBe('actions/upload-artifact@v7');
+    expect(cpuUpload?.with).toMatchObject({
+      name: 'cpu-profile-${{ matrix.locale }}-${{ matrix.variant }}-${{ github.run_id }}',
+      path: '/tmp/cpuprof/*.cpuprofile',
+      'retention-days': 7,
+      'if-no-files-found': 'warn',
     });
   });
 

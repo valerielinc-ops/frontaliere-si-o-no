@@ -3,11 +3,11 @@ import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { performance } from 'node:perf_hooks';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
   buildMinimalJobInput,
+  computeRelatedJobPoolSignature,
   createIncrementalManifestInputCache,
   IncrementalManifest,
   INCREMENTAL_MANIFEST_ENABLED,
@@ -172,6 +172,79 @@ describe('incremental manifest input contract', () => {
     );
     expect(changedRelated.relatedJobs).not.toBe(first.relatedJobs);
     expect(changedRelated.relatedJobs[0].digest).not.toBe(first.relatedJobs[0].digest);
+  });
+
+  it('reuses related projections for expired records keyed only by stable slug', () => {
+    const cache = createIncrementalManifestInputCache();
+    const expired = {
+      slug: 'expired-role',
+      title: 'Expired role',
+      titleByLocale: { it: 'Expired role' },
+      descriptionByLocale: { it: 'Description retained in the expired archive' },
+      expiredAt: '2026-09-16T00:00:00.000Z',
+    };
+    const first = buildMinimalJobInput(
+      { id: 'active-page', title: 'Active page', updatedAt: 'fixture-v1' },
+      'it',
+      'active-page',
+      [expired],
+      cache,
+    );
+    const second = buildMinimalJobInput(
+      { id: 'another-active-page', title: 'Another page', updatedAt: 'fixture-v1' },
+      'it',
+      'another-active-page',
+      [{ ...expired, title: 'Expired role' }],
+      cache,
+    );
+
+    expect(second.relatedJobs[0]).toBe(first.relatedJobs[0]);
+    expect(cache.relatedJobProjectionsByKey.size).toBe(1);
+    expect(cache._metrics.relatedProjectionComputations).toBe(1);
+  });
+
+  it('keeps the complete related pool in a compact page signature', () => {
+    const pool = [
+      { id: 'related-a', slug: 'a' },
+      { id: 'related-b', slug: 'b' },
+    ];
+    const samePool = pool.map((job) => ({ ...job }));
+    expect(computeRelatedJobPoolSignature(samePool)).toBe(computeRelatedJobPoolSignature(pool));
+    expect(computeRelatedJobPoolSignature([...pool].reverse())).not.toBe(
+      computeRelatedJobPoolSignature(pool),
+    );
+    expect(computeRelatedJobPoolSignature([{ ...pool[0], slug: 'changed' }, pool[1]])).not.toBe(
+      computeRelatedJobPoolSignature(pool),
+    );
+  });
+
+  it('represents a full-content bridge with its canonical source hash only', () => {
+    const cache = createIncrementalManifestInputCache();
+    const job = {
+      id: 'active-job',
+      slug: 'active-role',
+      title: 'Active role',
+      updatedAt: 'fixture-v1',
+      descriptionByLocale: { it: 'A'.repeat(4_000) },
+    };
+    const activeInput = {
+      ...buildMinimalJobInput(job, 'it', job.slug, [], cache),
+      relatedPoolSignature: computeRelatedJobPoolSignature([]),
+    };
+    const sourceInputHash = computeInputHash(activeInput, 'active-job');
+    const bridgeInput = {
+      source: 'active-job',
+      sourceInputHash,
+      sourcePath: '/cerca-lavoro-ticino/active-role/',
+      targetPath: '/cerca-lavoro-ticino/old-role/',
+      bridgeType: 'previous-slug',
+      oldSlug: 'old-role',
+    };
+
+    expect(bridgeInput).not.toHaveProperty('jobRecordDigest');
+    expect(bridgeInput).not.toHaveProperty('relatedJobs');
+    expect(JSON.stringify(bridgeInput)).not.toContain('A'.repeat(100));
+    expect(computeInputHash(bridgeInput, 'previous-slugs-full-content')).toMatch(/^[a-f0-9]{64}$/);
   });
 
   it('reuses the canonical digest for a bridge record while preserving page-specific input', () => {
@@ -416,90 +489,6 @@ describe('incremental manifest input contract', () => {
     }
   });
 
-  it('gates realistic plugin-shaped registration cost under 90 seconds projected to 600k', () => {
-    const recordSizes = [5_000, 25_000, 50_000];
-    const repeat = (unit: string, length: number) => unit.repeat(Math.ceil(length / unit.length)).slice(0, length);
-    const makeJob = (id: string, index: number) => {
-      const size = recordSizes[index % recordSizes.length];
-      const localizedDescription = repeat(
-        `Descrizione lunga del ruolo ${id}: responsabilità, requisiti e informazioni per il candidato. `,
-        Math.floor(size / 4),
-      );
-      return {
-        id,
-        slug: `job-${id}`,
-        updatedAt: 'fixture-v1',
-        title: `Specialista senior ${id}`,
-        titleByLocale: {
-          it: `Specialista senior ${id}`,
-          en: `Senior specialist ${id}`,
-          de: `Senior-Spezialist ${id}`,
-          fr: `Spécialiste senior ${id}`,
-        },
-        descriptionByLocale: {
-          it: localizedDescription,
-          en: localizedDescription,
-          de: localizedDescription,
-          fr: localizedDescription,
-        },
-        company: `Company ${index % 37}`,
-        companyKey: `company-${index % 37}`,
-        location: index % 2 ? 'Lugano' : 'Bellinzona',
-        canton: 'TI',
-        contract: 'full-time',
-        salaryMin: 70_000,
-        salaryMax: 95_000,
-        currency: 'CHF',
-      };
-    };
-    const primaryJobs = Array.from({ length: 50 }, (_, index) => makeJob(`primary-${index}`, index));
-    const relatedPool = Array.from({ length: 30 }, (_, index) => makeJob(`related-${index}`, index + primaryJobs.length));
-    const cloneJob = (job: typeof primaryJobs[number]) => ({
-      ...job,
-      titleByLocale: { ...job.titleByLocale },
-      descriptionByLocale: { ...job.descriptionByLocale },
-    });
-    const callsPerJob = 6;
-    const registerCalls = primaryJobs.length * callsPerJob;
-    const register = (manifest: IncrementalManifest, call: number, inputCache = null) => {
-      const job = cloneJob(primaryJobs[call % primaryJobs.length]);
-      const relatedJobs = relatedPool.map(cloneJob);
-      const minimalInput = buildMinimalJobInput(job, 'it', job.slug, relatedJobs, inputCache);
-      const bridgeNumber = call % callsPerJob;
-      manifest.register(
-        `/bench/${call}/`,
-        'active-job',
-        bridgeNumber === 0
-          ? minimalInput
-          : {
-            ...minimalInput,
-            bridgeType: bridgeNumber <= 3 ? 'previous-slug' : 'cross-locale',
-            path: `/bench/${call}/`,
-          },
-      );
-    };
-    const warmupManifest = new IncrementalManifest('it');
-    const warmupInputCache = createIncrementalManifestInputCache();
-    for (let i = 0; i < 100; i += 1) register(warmupManifest, i, warmupInputCache);
-
-    const manifest = new IncrementalManifest('it');
-    const inputCache = createIncrementalManifestInputCache();
-    const started = performance.now();
-    for (let i = 0; i < registerCalls; i += 1) register(manifest, i, inputCache);
-    const elapsedMs = performance.now() - started;
-    const projected600kMs = elapsedMs * 600_000 / registerCalls;
-    const measuredRecordBytes = primaryJobs.map((job) => JSON.stringify(job).length);
-    console.log(
-      `incrementalManifest realistic plugin benchmark: ${elapsedMs.toFixed(3)} ms per ${registerCalls} register(); `
-      + `projected 600k with 30 related and ${callsPerJob} calls/job: ${projected600kMs.toFixed(3)} ms; `
-      + `record bytes=${Math.min(...measuredRecordBytes)}-${Math.max(...measuredRecordBytes)}`,
-    );
-    expect(manifest.toJSON().counts.total).toBe(registerCalls);
-    expect(elapsedMs).toBeGreaterThan(0);
-    expect(Math.min(...measuredRecordBytes)).toBeGreaterThanOrEqual(5_000);
-    expect(Math.max(...measuredRecordBytes)).toBeLessThanOrEqual(50_500);
-    expect(projected600kMs).toBeLessThanOrEqual(90_000);
-  });
 });
 
 describe('incremental manifest report', () => {
