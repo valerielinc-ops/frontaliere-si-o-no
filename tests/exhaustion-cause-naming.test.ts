@@ -259,6 +259,44 @@ describe('classifyExhaustionCause — le cause di skip finiscono nel secchio giu
     });
   }
 
+  it('non tratta 403 e 410 come transitori, né dopo uno skip né in un errore diretto', () => {
+    // Questo test esiste perché la forma di skip classifica persistente solo
+    // perché `persistentRe` nomina esplicitamente `non-retryable`. Il commento
+    // sopra quella regex avverte che una riscrittura del vocabolario ribalterebbe
+    // il verdetto in silenzio. Un 403/410 non deve mai diventare transitorio:
+    // aprirebbe un differimento silenzioso.
+    const cases = [
+      {
+        label: 'skip 403',
+        reason: 'openrouter/thinkingmachines/inkling:free: skipped — exhausted (non-retryable provider error (HTTP 403))',
+        skip: true,
+      },
+      {
+        label: 'skip 410',
+        reason: 'nvidia/meta/llama-3.1-8b-instruct: skipped — exhausted (non-retryable provider error (HTTP 410))',
+        skip: true,
+      },
+      {
+        label: 'fallimento diretto 403',
+        reason: 'openrouter/thinkingmachines/inkling:free: [OpenRouter/thinkingmachines/inkling:free] HTTP 403: {"error":{"message":"only available on agentic harnesses"}}',
+        skip: false,
+      },
+      {
+        label: 'fallimento diretto 410',
+        reason: 'nvidia/meta/llama-3.1-8b-instruct: [NVIDIA/meta/llama-3.1-8b-instruct] HTTP 410: {"title":"Gone","detail":"has reached its end of life"}',
+        skip: false,
+      },
+    ];
+
+    for (const { label, reason, skip } of cases) {
+      const { transient, persistent } = classifyExhaustionCause([reason]);
+      assert.equal(transient, 0, `${label}: 403/410 non deve differire`);
+      if (skip) {
+        assert.equal(persistent, 1, `${label}: la causa esplicita deve restare persistente`);
+      }
+    }
+  });
+
   it('la vecchia stringa fissa contava transitorio anche un 402 — regressione da non riaprire', () => {
     // Documenta il difetto: se qualcuno reintroduce la disgiunzione a tre, questo
     // test resta verde (e' un'asserzione sul PASSATO) ma i quattro sopra no.
