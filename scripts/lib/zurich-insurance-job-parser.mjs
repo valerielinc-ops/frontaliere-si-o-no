@@ -18,14 +18,15 @@ import {
   normalizeContract,
 } from './dedicated-crawler-common.mjs';
 import {
-  inferSwissTargetCanton,
+  inferAnyCanton,
   isKnownSwissCity,
 } from './target-swiss-locations.mjs';
 import { splitJobLocation } from './job-location-display.mjs';
 import { stripSuccessFactorsMoreLocations } from './successfactors-jobs2web-widget-guard.mjs';
 
 export const ZURICH_INSURANCE_KEY = 'zurich-insurance-sede-ticino';
-export const ZURICH_INSURANCE_COMPANY_NAME = 'Zurich Insurance (sede Ticino)';
+// Legacy key retained so existing Zurich Insurance records keep their identity.
+export const ZURICH_INSURANCE_COMPANY_NAME = 'Zurich Insurance';
 export const ZURICH_INSURANCE_COMPANY_DOMAIN = 'zurich.ch';
 
 const CAREERS_HOST = 'www.careers.zurich.com';
@@ -446,7 +447,7 @@ export async function prepareZurichInsuranceCrawler({
     for (const listing of listings) {
       const detailHtml = await fetchPage(listing.url);
       const detailDescription = extractDescription(detailHtml);
-      const canton = inferSwissTargetCanton(listing.location);
+      const canton = inferAnyCanton(listing.location);
       const location = splitJobLocation(listing.location, canton).city;
       if (!canton || !location || !isKnownSwissCity(location, canton)) {
         // Per-row reject, not a run abort: the failure granularity is the run
@@ -463,7 +464,7 @@ export async function prepareZurichInsuranceCrawler({
       const contract = normalizeContract('', listing.title, description);
       const generatedSlug = slugify(`${listing.title} ${ZURICH_INSURANCE_KEY} ${location}`);
       const existing = existingByReqId.get(listing.reqId);
-      // Correcting the old forged "Lugano" location must not retire the URLs
+      // Correcting an old forged location must not retire the URLs
       // of the genuinely active requisitions. Seed both master and source-
       // locale slugs from the existing record; the standard merge then keeps
       // every other locale and previous-slug journal as usual.

@@ -908,6 +908,73 @@ describe('review gate: citazioni e conferme', () => {
     expect(result).toMatchObject({ approved: true, reviewCommit: HEAD_SHA });
   });
 
+  it('ignora le citazioni adversarial deferred in uno storico Important ibrido', async () => {
+    const changedFiles = [
+      'scripts/ci/lib/automation-risk-policy.mjs',
+      'scripts/lib/classify-issue.mjs',
+      'scripts/ci/pr-autorebase.mjs',
+      'scripts/ci/lib/reopen-breaker.mjs',
+      'scripts/ci/review-test-policy.mjs',
+    ];
+    const historicalBody = [
+      CODEX_REVIEW_MARKER,
+      '',
+      '## Scope',
+      'Review of PR/issue automation policy changes affecting auto-merge, autorebase, and ledger fast-path (tier: high)',
+      '',
+      '## Findings (Important: 1, Nit: 0)',
+      'scripts/ci/lib/automation-risk-policy.mjs:L258: 🔴 Important: il controllo `needs-human` è stato rimosso prima della distinzione `surface`, quindi `classifyAutomationRisk()` non tratta più una issue già marcata come veto issue-only; `scripts/lib/classify-issue.mjs:L149` continua a propagare `risk.needsHumanVeto`, ma ora riceve `false`. Ripristinare il controllo nel ramo `surface === \'issue\'` e limitarne la rimozione alla superficie `pull-request`, così la label PR resta tracking senza riattivare issue parcheggiate.\\n\\n## Adversarial check\\n- ❓ q: Dopo la rimozione di `decideNeedsHumanPass()`, non è verificato che `decideReopen()`/`REOPEN_BUDGET_MARKER` impediscano una nuova passata costosa a ogni tick per una PR `needs-human` invariata (`scripts/ci/pr-autorebase.mjs:L1092`) — deferred, non funnel-critical.\\n- ❓ q: `BREAKER_LABEL` resta `needs-human` (`scripts/ci/lib/reopen-breaker.mjs:L82`); non è verificato che ogni applicazione del breaker sia ancora accompagnata da un gate sticky indipendente dalla label — deferred, non funnel-critical.\\n- ❓ q: Il fast path ledger ora ammette una label `needs-human` preesistente (`scripts/ci/review-test-policy.mjs:L417`); non è verificato che nessun produttore di escalation possa far postare `## LGTM` automaticamente a una PR ledger-only ancora segnalata — deferred, non funnel-critical.',
+    ].join('\n');
+    const currentBody = [
+      CODEX_REVIEW_MARKER,
+      '## Scope',
+      'Verifica della distinzione tra tracking `needs-human` sulle PR e veto/routing sulle issue, inclusi auto-merge, autorebase e fast path ledger (tier: high)',
+      '',
+      '## Findings (Important: 0, Nit: 0)',
+      'Fix di `scripts/ci/lib/automation-risk-policy.mjs:L258`: ok.',
+      'Fix di `scripts/lib/classify-issue.mjs:L149`: ok.',
+      '',
+      '## Adversarial check',
+      '- ❓ q: autorebase invariata (scripts/ci/pr-autorebase.mjs:L1092) — deferred, non funnel-critical.',
+      '- ❓ q: breaker sticky (scripts/ci/lib/reopen-breaker.mjs:L82) — deferred, non funnel-critical.',
+      '- ❓ q: fast path ledger (scripts/ci/review-test-policy.mjs:L417) — deferred, non funnel-critical.',
+      '',
+      '## LGTM',
+    ].join('\n');
+    const historicalReview = {
+      user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+      body: historicalBody,
+      commit_id: PRIOR_SHA,
+    };
+    const currentReview = {
+      user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+      body: currentBody,
+      commit_id: HEAD_SHA,
+    };
+
+    expect(importantFindings(historicalBody)[0]?.citations).toEqual([
+      { path: 'scripts/ci/lib/automation-risk-policy.mjs', line: 258 },
+      { path: 'scripts/lib/classify-issue.mjs', line: 149 },
+    ]);
+
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 9030,
+      headSha: HEAD_SHA,
+      reviews: [[historicalReview, currentReview]],
+      repositoryPaths: changedFiles,
+      classifyAndMintReviewFn: async (body) => classifyReview(body, {
+        files: changedFiles,
+        complete: true,
+        repositoryPaths: changedFiles,
+      }),
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(true);
+    expect(result.classification.findings).toHaveLength(0);
+  });
+
   it('keeps findingKey() and citationConfirmed() as direct moved-anchor contracts', () => {
     const citation = { path: 'scripts/ci/review-gate.mjs', line: 431 };
     const finding = { citations: [citation], text: 'moved review anchor' };

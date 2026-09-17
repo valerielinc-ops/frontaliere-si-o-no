@@ -10,7 +10,7 @@
  * This module exports:
  *   parseBpsSuisseListingPage(html)  — extract job URLs from listing page
  *   parseBpsSuisseDetailPage(html)   — extract job data from a detail page
- *   isTicinoBpsJob(job)              — filter for Ticino-relevant positions
+ *   isTicinoBpsJob(job)              — deprecated legacy compatibility helper
  */
 
 /** Minimum body length for a "full" BPS job description. */
@@ -119,7 +119,8 @@ export function parseBpsSuisseDetailPage(html = '') {
 }
 
 /**
- * Check if a job is in Ticino (BPS Suisse is headquartered in Lugano).
+ * Deprecated legacy compatibility predicate retained for existing callers and
+ * tests. The active BPS crawler does not use this Ticino-only helper.
  * @param {{ location?: string, canton?: string }} job
  * @returns {boolean}
  */
