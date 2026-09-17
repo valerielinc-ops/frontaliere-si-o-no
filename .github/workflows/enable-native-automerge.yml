@@ -8,7 +8,8 @@ name: Enable native auto-merge
 # to be anchored to the current HEAD, so an opening event cannot opt in an
 # unreviewed PR.
 on:
-  # This workflow only calls the GitHub API and never executes PR code.
+  # This workflow only calls the GitHub API and never executes PR code. Any
+  # local source is checked out explicitly from trusted main below.
   # pull_request_target keeps the write permission available for fork PRs too.
   pull_request_target:
     # These events are observation/retry points only: the helper is fail-closed
@@ -38,88 +39,40 @@ jobs:
       (github.event_name == 'pull_request_target' && github.event.pull_request.draft == false)
     runs-on: ubuntu-latest
     steps:
-      # This job needs only the Remote Config loader and its dependency-free
-      # JWT helper. A git checkout still has to fetch the repository's large
-      # tree before sparse checkout can select those files, so download the
-      # raw files directly instead of initializing a repository.
-      #
-      # Two-step rollout: the gate is trusted only when it is already present
-      # on main. If this workflow lands before the helper (or main is rolled
-      # back to a version without it), the job is a successful no-op and never
-      # enables native auto-merge.
-      - name: Download trusted workflow helpers
+      # Git is used instead of one Contents API request per helper. The ref is
+      # pinned to trusted main, and the sparse/partial checkout contains only
+      # the immutable source needed by the gate. No PR ref is ever checked out
+      # or executed. A missing helper fails this run closed; retry workflow
+      # ticks keep recovery automatic when the source is transiently absent.
+      - name: Checkout trusted native auto-merge source
+        uses: actions/checkout@v5
+        with:
+          repository: ${{ github.repository }}
+          ref: main
+          path: native-automerge-main
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            /scripts/ci/native-automerge-source.mjs
+            /scripts/load-rc-env.mjs
+            /scripts/lib/google-service-account-token.mjs
+            /scripts/ci/native-automerge-gate.mjs
+            /scripts/ci/review-test-policy.mjs
+            /scripts/ci/lib/automation-risk-policy.mjs
+            /scripts/ci/lib/fetchPrFiles.mjs
+            /scripts/ci/lib/vitestCheck.mjs
+            /scripts/ci/lib/constants.mjs
+            /scripts/lib/loop-fleet-contract.mjs
+            /data/loop-fleet/loop-registry.json
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
+
+      - name: Validate trusted native auto-merge source
         env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          helper_dir="${RUNNER_TEMP}/native-automerge-helpers"
-          mkdir -p "$helper_dir/lib" "$helper_dir/../lib"
-          gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/load-rc-env.mjs?ref=main" \
-            --header 'Accept: application/vnd.github.raw+json' \
-            > "$helper_dir/load-rc-env.mjs"
-          gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/lib/google-service-account-token.mjs?ref=main" \
-            --header 'Accept: application/vnd.github.raw+json' \
-            > "$helper_dir/lib/google-service-account-token.mjs"
-          # Keep the final extension while syntax-checking: Node otherwise
-          # parses an `.tmp` file as CommonJS and rejects the helper exports.
-          gate_tmp="$helper_dir/native-automerge-gate-check.mjs"
-          policy_tmp="$helper_dir/review-test-policy-check.mjs"
-          risk_tmp="$helper_dir/lib/automation-risk-policy-check.mjs"
-          files_tmp="$helper_dir/lib/fetchPrFiles-check.mjs"
-          vitest_tmp="$helper_dir/lib/vitestCheck-check.mjs"
-          contract_tmp="$helper_dir/../lib/loop-fleet-contract-check.mjs"
-          if gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/ci/native-automerge-gate.mjs?ref=main" \
-            --header 'Accept: application/vnd.github.raw+json' \
-            > "$gate_tmp" \
-            && gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/ci/review-test-policy.mjs?ref=main" \
-            --header 'Accept: application/vnd.github.raw+json' \
-            > "$policy_tmp" \
-            && gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/ci/lib/automation-risk-policy.mjs?ref=main" \
-            --header 'Accept: application/vnd.github.raw+json' \
-            > "$risk_tmp" \
-            && gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/ci/lib/fetchPrFiles.mjs?ref=main" \
-            --header 'Accept: application/vnd.github.raw+json' \
-            > "$files_tmp" \
-            && gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/ci/lib/vitestCheck.mjs?ref=main" \
-            --header 'Accept: application/vnd.github.raw+json' \
-            > "$vitest_tmp" \
-            && gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/lib/loop-fleet-contract.mjs?ref=main" \
-            --header 'Accept: application/vnd.github.raw+json' \
-            > "$contract_tmp" \
-            && [ -s "$gate_tmp" ] \
-            && [ -s "$policy_tmp" ] \
-            && [ -s "$risk_tmp" ] \
-            && [ -s "$files_tmp" ] \
-            && [ -s "$vitest_tmp" ] \
-            && node --check "$gate_tmp" \
-            && node --check "$policy_tmp" \
-            && node --check "$risk_tmp" \
-            && node --check "$files_tmp" \
-            && node --check "$vitest_tmp" \
-            && node --check "$contract_tmp"; then
-            mv "$gate_tmp" "$helper_dir/native-automerge-gate.mjs"
-            mv "$policy_tmp" "$helper_dir/review-test-policy.mjs"
-            mv "$risk_tmp" "$helper_dir/lib/automation-risk-policy.mjs"
-            mv "$files_tmp" "$helper_dir/lib/fetchPrFiles.mjs"
-            mv "$vitest_tmp" "$helper_dir/lib/vitestCheck.mjs"
-            mv "$contract_tmp" "$helper_dir/../lib/loop-fleet-contract.mjs"
-            gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/ci/lib/constants.mjs?ref=main" \
-              --header 'Accept: application/vnd.github.raw+json' \
-              > "$helper_dir/lib/constants.mjs"
-            echo "NATIVE_AUTOMERGE_BOOTSTRAP_READY=true" >> "$GITHUB_ENV"
-            echo 'Native auto-merge gate bootstrap is present on main.'
-          else
-            rm -f "$gate_tmp" "$policy_tmp" "$risk_tmp" "$files_tmp" "$vitest_tmp" "$contract_tmp" \
-              "$helper_dir/native-automerge-gate.mjs" "$helper_dir/review-test-policy.mjs" \
-              "$helper_dir/lib/automation-risk-policy.mjs" \
-              "$helper_dir/lib/fetchPrFiles.mjs"
-            echo "NATIVE_AUTOMERGE_BOOTSTRAP_READY=false" >> "$GITHUB_ENV"
-            echo 'Native auto-merge gate is not installed on main; fail-closed no-op.'
-          fi
-          echo "NATIVE_AUTOMERGE_HELPER_DIR=$helper_dir" >> "$GITHUB_ENV"
+          NATIVE_AUTOMERGE_SOURCE_ROOT: ${{ github.workspace }}/native-automerge-main
+        run: node "$NATIVE_AUTOMERGE_SOURCE_ROOT/scripts/ci/native-automerge-source.mjs"
 
       - name: Prepare Firebase credentials
-        if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -131,11 +84,9 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load PAT from Remote Config
-        if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'
-        run: node "$NATIVE_AUTOMERGE_HELPER_DIR/load-rc-env.mjs"
+        run: node "$NATIVE_AUTOMERGE_SOURCE_ROOT/scripts/load-rc-env.mjs"
 
       - name: Enable GitHub auto-merge after verified verdict
-        if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'
         env:
           PR_NUMBER: ${{ github.event.pull_request.number || '' }}
           WORKFLOW_HEAD_SHA: ${{ github.event.workflow_run.head_sha || '' }}
@@ -156,6 +107,7 @@ jobs:
             echo 'Native auto-merge guard: no open main PR found for this event; no merge.'
             exit 0
           fi
+          cd "$NATIVE_AUTOMERGE_SOURCE_ROOT"
           GH_TOKEN="$GITHUB_PAT" node "$NATIVE_AUTOMERGE_HELPER_DIR/native-automerge-gate.mjs" \
             "$REPOSITORY" "$pr_number"
       - name: Cleanup Firebase credentials
