@@ -36,12 +36,20 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
   it('declares variants as a multiline string input and keeps monolith comparison opt-in', () => {
     const inputs = WORKFLOW.on.workflow_dispatch.inputs;
     expect(inputs.variants).toMatchObject({ type: 'string', default: 'base=' });
+    expect(inputs.chain).toMatchObject({ type: 'string', default: '' });
     expect(inputs.stop_after_jobs_seo).toMatchObject({ type: 'boolean', default: false });
     expect(inputs.compare_monolith).toMatchObject({ type: 'boolean', default: false });
   });
 
-  it('does not save caches and uses an experiment-only concurrency group', () => {
-    expect(WORKFLOW_TEXT).not.toContain('actions/cache/save');
+  it('writes only namespaced chained caches and uses an experiment-only concurrency group', () => {
+    const saveSteps = (WORKFLOW.jobs['build-locale'].steps as Array<Record<string, any>>)
+      .filter((step) => step.uses === 'actions/cache/save@v5');
+    expect(saveSteps.length).toBe(2);
+    expect(saveSteps.every((step) => String(step.with?.key).startsWith('bench-'))).toBe(true);
+    expect(saveSteps.map((step) => step.with?.key)).toEqual(expect.arrayContaining([
+      'bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ github.run_id }}',
+      "bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}",
+    ]));
     expect(WORKFLOW_TEXT).not.toMatch(/uses:\s*actions\/cache@/u);
     expect(WORKFLOW.concurrency.group).toBe('deploy-matrix-experiment-${{ github.run_id }}');
     expect(String(WORKFLOW.concurrency.group)).not.toBe('pages-build-run');
@@ -76,24 +84,43 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     }]);
   });
 
-  it('restores both production cache inputs read-only and uploads per-variant markers', () => {
+  it('restores chained caches before production fallbacks and uploads per-variant markers', () => {
     const steps = WORKFLOW.jobs['build-locale'].steps as Array<Record<string, any>>;
+    const benchManifest = steps.find((step) => step.name === 'Restore chained incremental manifest');
     const manifest = steps.find((step) => step.name === 'Restore previous incremental manifest');
+    const benchHtml = steps.find((step) => step.name === 'Restore chained jobs SEO HTML cache');
     const html = steps.find((step) => step.name === 'Restore previous jobs SEO HTML cache');
     const extract = steps.find((step) => step.name === 'Extract build markers');
     const upload = steps.find((step) => step.name === 'Upload build markers');
     const stop = steps.find((step) => step.name === 'Enforce stop-after jobs SEO control');
 
+    expect(benchManifest?.uses).toBe('actions/cache/restore@v5');
+    expect(benchManifest?.with?.key).toBe(
+      'bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ github.run_id }}',
+    );
+    expect(String(benchManifest?.with?.['restore-keys']).trim()).toBe(
+      'bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-',
+    );
     expect(manifest?.uses).toBe('actions/cache/restore@v5');
     expect(manifest?.with?.key).toBe('incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}');
     expect(String(manifest?.with?.['restore-keys']).trim()).toBe('incremental-manifest-${{ matrix.locale }}-');
+    expect(steps.indexOf(benchManifest!)).toBeLessThan(steps.indexOf(manifest!));
+
+    expect(benchHtml?.uses).toBe('actions/cache/restore@v5');
+    expect(benchHtml?.with?.key).toBe(
+      "bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}",
+    );
     expect(html?.uses).toBe('actions/cache/restore@v5');
     expect(html?.with?.key).toBe(
       "jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}",
     );
+    expect(steps.indexOf(benchHtml!)).toBeLessThan(steps.indexOf(html!));
     expect(extract?.if).toBe('always()');
     expect(extract?.run).toContain('/tmp/build-${BUILD_LOCALE}.log');
     expect(extract?.run).toContain('[jobs-seo-profile');
+    expect(extract?.run).toContain('[jobs-seo-reuse');
+    expect(extract?.run).toContain('[post-walk');
+    expect(extract?.run).toContain('incremental-verify');
     expect(extract?.run).toContain('jobs-seo-sample');
     expect(extract?.run).toContain('build-stop-after');
     expect(extract?.run).toContain('wall-time-build-status');
