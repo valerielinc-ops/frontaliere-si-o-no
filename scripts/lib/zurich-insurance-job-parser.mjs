@@ -19,10 +19,11 @@ import {
 } from './dedicated-crawler-common.mjs';
 import {
   inferAnyCanton,
-  isKnownSwissCity,
+  isTargetSwissLocation,
 } from './target-swiss-locations.mjs';
 import { splitJobLocation } from './job-location-display.mjs';
 import { stripSuccessFactorsMoreLocations } from './successfactors-jobs2web-widget-guard.mjs';
+import { lookupSwissPostalCode } from './swiss-postal-code.mjs';
 
 export const ZURICH_INSURANCE_KEY = 'zurich-insurance-sede-ticino';
 // Legacy key retained so existing Zurich Insurance records keep their identity.
@@ -32,7 +33,6 @@ export const ZURICH_INSURANCE_COMPANY_DOMAIN = 'zurich.ch';
 const CAREERS_HOST = 'www.careers.zurich.com';
 const SEARCH_PATH = '/search/';
 const PAGE_SIZE = 25;
-const MAX_PAGES = 20;
 const SOURCE = 'Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)';
 
 /**
@@ -102,7 +102,8 @@ function normalizeKey(value = '') {
 }
 
 function isSwissListingLocation(location = '') {
-  return /(?:^|,\s*)CH(?:\s|$)/i.test(String(location || ''));
+  const value = String(location || '');
+  return /(?:^|,\s*)CH(?:\s|$)/i.test(value) || isTargetSwissLocation(value);
 }
 
 function wordCount(text = '') {
@@ -251,14 +252,17 @@ export function parseZurichInsuranceListingPage(html = '', pageUrl = searchUrlFo
 
 async function fetchZurichInsuranceListingSnapshot({
   fetchPage = fetchHtml,
-  maxPages = MAX_PAGES,
+  maxPages = null,
   cacheBuster = '',
 } = {}) {
   const byReqId = new Map();
   let expectedTotal = 0;
   let firstPageReqIds = [];
+  const pageLimit = maxPages === null || maxPages === undefined
+    ? Number.POSITIVE_INFINITY
+    : Math.max(1, Math.floor(Number(maxPages) || 1));
 
-  for (let page = 0; page < maxPages; page += 1) {
+  for (let page = 0; page < pageLimit; page += 1) {
     const startRow = page * PAGE_SIZE;
     const pageUrl = searchUrlFor(startRow, cacheBuster);
     const parsed = parseZurichInsuranceListingPage(await fetchPage(pageUrl), pageUrl);
@@ -283,6 +287,12 @@ async function fetchZurichInsuranceListingSnapshot({
     if (byReqId.size >= expectedTotal) break;
     if (parsed.rawRowCount === 0 || byReqId.size === before) {
       throw new Error(`Zurich listing pagination stopped at ${byReqId.size}/${expectedTotal} unique jobs`);
+    }
+    if (page + 1 >= pageLimit) {
+      throw new Error(
+        `Zurich listing page limit reached at ${byReqId.size}/${expectedTotal} unique jobs; `
+        + 'the explicit limit did not cover the source total',
+      );
     }
   }
 
@@ -326,7 +336,7 @@ async function fetchZurichInsuranceListingSnapshot({
  */
 export async function fetchZurichInsuranceListings({
   fetchPage = fetchHtml,
-  maxPages = MAX_PAGES,
+  maxPages = null,
   snapshotAttempts = 6,
   snapshotRetryDelayMs = 250,
   cacheBuster = () => `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
@@ -449,7 +459,7 @@ export async function prepareZurichInsuranceCrawler({
       const detailDescription = extractDescription(detailHtml);
       const canton = inferAnyCanton(listing.location);
       const location = splitJobLocation(listing.location, canton).city;
-      if (!canton || !location || !isKnownSwissCity(location, canton)) {
+      if (!canton || !location || !isTargetSwissLocation(listing.location)) {
         // Per-row reject, not a run abort: the failure granularity is the run
         // (aggregate gate below), so one undecodable office cannot zero the
         // entire Zurich slice.
@@ -497,6 +507,8 @@ export async function prepareZurichInsuranceCrawler({
         addressRegion: canton,
         addressCountry: 'CH',
         country: 'CH',
+        postalCode: lookupSwissPostalCode(location),
+        streetAddress: '',
         category: guessCategory(listing.title, description),
         contract,
         employmentType: employmentTypeFor(contract),
