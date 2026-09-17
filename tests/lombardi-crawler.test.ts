@@ -6,7 +6,13 @@
  */
 import { describe, it, expect } from 'vitest';
 
-import { parseLombardiDetailHtml, buildLombardiLocalizedContent, titleOverlap, extractLombardiJobsFromHtml } from '@/scripts/lib/lombardi-job-parser.mjs';
+import {
+  buildLombardiLocalizedContent,
+  extractLombardiJobsFromHtml,
+  isLombardiLocalJob,
+  parseLombardiDetailHtml,
+  titleOverlap,
+} from '@/scripts/lib/lombardi-job-parser.mjs';
 
 // ─── Fixture: Progettista / Tecnico RVCS (id=108934) ───
 const RVCS_HTML = `
@@ -414,5 +420,14 @@ describe('extractLombardiJobsFromHtml', () => {
   it('throws on empty / nullish input rather than returning a silent empty', () => {
     expect(() => extractLombardiJobsFromHtml('')).toThrow(/_jobs/);
     expect(() => extractLombardiJobsFromHtml(null as unknown as string)).toThrow(/_jobs/);
+  });
+});
+
+describe('isLombardiLocalJob', () => {
+  it('keeps only the Giubiasco office configured for this local crawler', () => {
+    expect(isLombardiLocalJob({ sedeId: 1 })).toBe(true);
+    expect(isLombardiLocalJob({ sedeId: '1' })).toBe(true);
+    expect(isLombardiLocalJob({ sedeId: 12 })).toBe(false);
+    expect(isLombardiLocalJob({ sedeId: 458683 })).toBe(false);
   });
 });

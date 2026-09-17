@@ -122,7 +122,7 @@ export function parseEngelvoelkersListingPage(html = '') {
     let location = '';
     const cardRoot = container;
     if (cardRoot) {
-      // Location is usually in a div that contains city text like "Lugano, Switzerland"
+      // Location is usually in a div that contains a city and country.
       const allDivs = [...cardRoot.querySelectorAll('div')];
       for (const div of allDivs) {
         const text = normalizeSpace(div.textContent || '');
