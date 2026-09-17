@@ -3652,7 +3652,8 @@ async function crawlWorkdayJobs(
   let skippedKnown = 0;
   const detailApiBase = String(source.endpoint || '').replace(/\/jobs\/?$/i, '');
   let offset = 0;
-  let total = 0;
+  let declaredTotal = null;
+  let scanned = 0;
   const limit = 20;
   let pageCount = 0;
   do {
@@ -3701,9 +3702,14 @@ async function crawlWorkdayJobs(
     // Trust the API `total` only as a positive upper bound. An unfiltered Workday
     // query (appliedFacets:{}) can echo total:0 with a full page; the old
     // `|| postings.length` fallback made total === page length, so the
-    // `offset < total` guard below stopped after page 1, silently dropping
-    // every posting on pages 2+. The short-page break is the genuine terminator.
-    total = Number(payload?.total) || 0;
+    // `offset < total` guard used to stop after page 1, silently dropping every
+    // posting on pages 2+. The short-page break is the genuine terminator, but
+    // it is only accepted early when the source has not declared more records.
+    const pageTotal = Number(payload?.total);
+    if (Number.isFinite(pageTotal) && pageTotal > 0 && (declaredTotal === null || declaredTotal === 0)) {
+      declaredTotal = pageTotal;
+    }
+    scanned += postings.length;
     for (const p of postings) {
       const title = normalizeSpace(p?.title || '');
       if (!title || title.length < 6 || isLikelyGenericCareerTitle(title)) continue;
@@ -3863,20 +3869,20 @@ async function crawlWorkdayJobs(
       });
     }
     offset += limit;
-    if (total > 0 && offset >= total) break;        // positive upper bound only
     if (postings.length < limit) {
-      if (total > 0 && offset < total) {
+      if (declaredTotal > 0 && scanned < declaredTotal) {
         const failure = new Error(
-          `Workday listing ended after ${offset} record(s), below declared total ${total} for ${company?.name || source?.endpoint || 'unknown company'}`,
+          `Workday listing ended after ${scanned} record(s), below declared total ${declaredTotal} for ${company?.name || source?.endpoint || 'unknown company'}`,
         );
         failure.workdayFeedIncomplete = true;
         throw failure;
       }
       break;                                        // no positive total: short page is the terminator
     }
+    if (declaredTotal > 0 && scanned >= declaredTotal) break; // positive upper bound only
     if (pageCount >= WORKDAY_MAX_PAGES) {
       const failure = new Error(
-        `Workday listing pagination safety cap reached at ${pageCount} pages for ${company?.name || source?.endpoint || 'unknown company'}`,
+        `Workday listing pagination safety cap reached at ${pageCount} pages for ${company?.name || source?.endpoint || 'unknown company'} (scanned ${scanned}; declared total ${declaredTotal || 'unknown'})`,
       );
       failure.workdayFeedIncomplete = true;
       throw failure;
