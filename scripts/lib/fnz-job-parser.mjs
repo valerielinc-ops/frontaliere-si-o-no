@@ -9,7 +9,7 @@ const SWISS_COUNTRY_ONLY_RE = /^\s*(?:switzerland|schweiz|suisse|svizzera|swiss)
  * location, so all candidates are inspected before accepting one.
  */
 export function resolveFnzSwissLocation(candidates = []) {
-  let countryOnly = null;
+  let countryOnlyRaw = '';
 
   for (const rawCandidate of candidates) {
     const raw = String(rawCandidate || '').trim();
@@ -22,10 +22,13 @@ export function resolveFnzSwissLocation(candidates = []) {
     // Preserve an authoritative country-only Workday value instead of
     // inventing a city. Prefer any more specific Swiss candidate later in the
     // list; keep this only as the safe source-level fallback.
-    if (!countryOnly && SWISS_COUNTRY_ONLY_RE.test(raw)) {
-      countryOnly = { raw, location: raw, canton: '' };
-    }
+    if (!countryOnlyRaw && SWISS_COUNTRY_ONLY_RE.test(raw)) countryOnlyRaw = raw;
   }
 
-  return countryOnly;
+  // A country-only Workday posting is still an authoritative Swiss result;
+  // return the source value explicitly instead of letting the caller drop it.
+  if (countryOnlyRaw) {
+    return { raw: countryOnlyRaw, location: countryOnlyRaw, canton: '' };
+  }
+  return null;
 }
