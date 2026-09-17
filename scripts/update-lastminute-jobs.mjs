@@ -76,6 +76,7 @@ const LASTMINUTE_SOURCE = {
 };
 
 const LASTMINUTE_LOCALES = ['it', 'en', 'de', 'fr'];
+const SWISS_COUNTRY_TOKENS = new Set(['ch', 'switzerland', 'svizzera', 'schweiz', 'suisse']);
 const LASTMINUTE_BAD_FOOTER_LOCATION_RE =
   /\b(?:rokin\s+92\s*-\s*96|1012\s*kz\s+amsterdam|amsterdam,\s*netherlands|amsterdam)\b/i;
 
@@ -223,7 +224,7 @@ function normalizeCountry(value = '') {
 function resolveSwissLastminuteLocation(detail = {}) {
   const location = String(detail.location || detail.city || '').trim();
   const country = normalizeCountry(detail.country);
-  if (country && !['ch', 'switzerland', 'svizzera', 'schweiz', 'suisse'].includes(country)) {
+  if (country && !SWISS_COUNTRY_TOKENS.has(country)) {
     return null;
   }
   if (
@@ -236,6 +237,22 @@ function resolveSwissLastminuteLocation(detail = {}) {
   const canton = inferAnyCanton(location);
   if (!canton) return null;
   return { location, canton };
+}
+
+function isUsableSmartRecruitersDetail(detail = {}) {
+  return Boolean(
+    String(detail.title || '').trim() &&
+    String(detail.location || detail.city || '').trim()
+  );
+}
+
+function isExplicitlyForeignSmartRecruitersDetail(detail = {}) {
+  const location = String(detail.location || detail.city || '').trim();
+  const country = normalizeCountry(detail.country);
+  return Boolean(
+    (country && !SWISS_COUNTRY_TOKENS.has(country)) ||
+    (location && isLocationExplicitlyForeign(location))
+  );
 }
 
 function parseJobLinksFromListingHtml(html = '') {
@@ -353,10 +370,20 @@ async function fetchLastminuteJobDetailUrls() {
       apiFailures += 1;
       continue;
     }
-    apiResolved += 1;
     const detail = parseSmartRecruitersDetail(apiData);
+    if (!isUsableSmartRecruitersDetail(detail)) {
+      apiFailures += 1;
+      console.warn(`  ⚠️ SmartRecruiters returned incomplete detail for ${postingId}`);
+      continue;
+    }
+    apiResolved += 1;
     const resolved = resolveSwissLastminuteLocation(detail);
     if (!resolved) {
+      if (!isExplicitlyForeignSmartRecruitersDetail(detail)) {
+        apiFailures += 1;
+        console.warn(`  ⚠️ SmartRecruiters returned an unresolved location for ${postingId}`);
+        continue;
+      }
       nonSwiss += 1;
       console.log(`  ⏭️  Discarded non-Swiss lastminute posting ${postingId}`);
       continue;
@@ -582,7 +609,7 @@ export function normalizeLastminuteRow(job) {
   if (
     !location ||
     !canton ||
-    (country && !['ch', 'switzerland', 'svizzera', 'schweiz', 'suisse'].includes(country)) ||
+    (country && !SWISS_COUNTRY_TOKENS.has(country)) ||
     isLocationExplicitlyForeign(location) ||
     !isTargetSwissLocation(location, { includeBorderProximity: false })
   ) {

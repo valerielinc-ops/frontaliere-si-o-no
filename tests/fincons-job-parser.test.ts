@@ -42,7 +42,7 @@ describe('fincons-job-parser', () => {
         "employmentType":"FULL_TIME",
         "experienceRequirements":"Experienced",
         "uniqueJobCode":"job_20260220112408_6XP4TQFMRVG7NLCL",
-        "jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Lugano","addressRegion":"Ticino","postalCode":"6900"}}
+        "jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Lugano","addressRegion":"Ticino","postalCode":"6900","streetAddress":"Via Cantonale 1"}}
       }
       </script>
       <div class="job_header">
@@ -62,6 +62,7 @@ describe('fincons-job-parser', () => {
     expect(detail.title).toBe('Angular / Java - Senior Full-Stack Developer');
     expect(detail.location).toBe('Lugano, Ticino, Switzerland');
     expect(detail.postalCode).toBe('6900');
+    expect(detail.streetAddress).toBe('Via Cantonale 1');
     expect(detail.description).toContain('## What you\'ll do');
     expect(detail.description).toContain('- Design and develop web applications');
 

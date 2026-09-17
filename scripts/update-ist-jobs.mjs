@@ -103,6 +103,12 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
+const IST_SHARED_PORTAL_COMPANIES = new Set([
+  'inspired education',
+  'inspired education group',
+]);
+const IST_DETAIL_TENANT_RE = /\b(?:international\s+school\s+of\s+ticino|scuola\s+internazionale\s+(?:di|del)\s+ticino|école\s+internationale\s+du\s+tessin|internationale\s+schule\s+des\s+tessins)\b/i;
+
 function slugify(text = '', suffix = '') {
   let s = text
     .toLowerCase()
@@ -160,12 +166,25 @@ function isLegacyIstJob(job) {
 }
 
 function isIstDetailJob(detail = {}) {
-  const tenantText = normalize([
-    detail.hiringOrganization,
+  const detailCompanies = [detail.hiringOrganization, detail.company]
+    .map((value) => normalize(value))
+    .filter(Boolean);
+  const sourceText = normalize([
     detail.title,
     detail.description,
+    detail.sourceUrl,
   ].filter(Boolean).join(' '));
-  return tenantText.includes(normalize(IST_COMPANY_NAME));
+  const hasIstTenantMarker = IST_DETAIL_TENANT_RE.test(sourceText);
+  const hasExactIstCompany = detailCompanies.includes(normalize(IST_COMPANY_NAME));
+  const hasOnlySharedPortalCompanies = detailCompanies.length === 0
+    || detailCompanies.every((company) => IST_SHARED_PORTAL_COMPANIES.has(company));
+
+  // The shared SuccessFactors page reports "Inspired Education" as the
+  // hiringOrganization even for a campus posting. In that case the source
+  // must independently name IST; a generic "international school" phrase or
+  // the shared host alone is not an identity signal. An explicit detail-level
+  // company match remains authoritative when the tenant exposes one.
+  return hasExactIstCompany || (hasOnlySharedPortalCompanies && hasIstTenantMarker);
 }
 
 function isTrustedDomain(rawUrl = '') {

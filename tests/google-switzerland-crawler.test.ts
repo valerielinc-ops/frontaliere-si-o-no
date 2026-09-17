@@ -9,6 +9,7 @@ import {
   parseGoogleListingHtml,
   parseGoogleDeclaredTotal,
   extractGoogleDetailDescription,
+  resolveAddress,
 } from '../scripts/lib/google-switzerland-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -212,6 +213,26 @@ describe('Google Switzerland crawler parser', () => {
     it('returns "" when no body section is present', () => {
       expect(extractGoogleDetailDescription('<html><body><div id="app"></div></body></html>')).toBe('');
       expect(extractGoogleDetailDescription('')).toBe('');
+    });
+  });
+
+  describe('resolveAddress', () => {
+    it('keeps required address fields for a non-Zurich Swiss canton', () => {
+      expect(resolveAddress('Bern', 'BE')).toEqual({
+        city: 'Bern',
+        postalCode: '3001',
+        streetAddress: 'Bern',
+        region: 'BE',
+      });
+    });
+
+    it('uses the documented Zurich HQ only for Zurich cards', () => {
+      expect(resolveAddress('Zürich', 'ZH')).toEqual({
+        city: 'Zürich',
+        postalCode: '8002',
+        streetAddress: 'Brandschenkestrasse 110',
+        region: 'Zürich',
+      });
     });
   });
 

@@ -33,6 +33,7 @@ import {
   buildFinconsLocalizedContent,
 } from './lib/fincons-job-parser.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
+import { resolveSwissStructuredAddress } from './lib/swiss-structured-address.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -85,15 +86,35 @@ function normalizeCountry(value = '') {
 }
 
 function isSwissFinconsLocation(location = '', country = '') {
+  return classifyFinconsLocation(location, country) === 'swiss';
+}
+
+function classifyFinconsLocation(location = '', country = '') {
+  const normalizedLocation = String(location || '').trim();
   const countryToken = normalizeCountry(country);
   if (countryToken && !['ch', 'switzerland', 'svizzera', 'schweiz', 'suisse'].includes(countryToken)) {
-    return false;
+    return 'foreign';
   }
-  return Boolean(
-    location &&
-    !isLocationExplicitlyForeign(location) &&
-    isTargetSwissLocation(location, { includeBorderProximity: false })
-  );
+  if (!normalizedLocation) return 'unresolved';
+  if (isLocationExplicitlyForeign(normalizedLocation)) return 'foreign';
+  if (!isTargetSwissLocation(normalizedLocation, { includeBorderProximity: false })) {
+    return 'unresolved';
+  }
+  if (!inferAnyCanton(normalizedLocation)) return 'unresolved';
+  return 'swiss';
+}
+
+function assertCompleteFinconsListing(html, rows) {
+  const source = String(html || '');
+  const hasJobsTable = /<table\b[^>]*\bid\s*=\s*["']jobs_table["'][^>]*>/i.test(source);
+  const sourceRowCount = [...source.matchAll(
+    /<tr\b[^>]*\bid\s*=\s*["']row_job_[^"']+["'][^>]*>/gi,
+  )].length;
+  if (!hasJobsTable || sourceRowCount !== rows.length) {
+    throw new Error(
+      `Fincons listing could not be read completely (table=${hasJobsTable}, source rows=${sourceRowCount}, parsed rows=${rows.length}); preserving the last known-good crawler data.`,
+    );
+  }
 }
 
 function resolveFinconsLocation(detail = {}, listing = {}) {
@@ -156,17 +177,33 @@ async function fetchListings() {
   const html = await fetchText(LISTING_URL);
   const rows = parseFinconsListingsPage(html);
   console.log(`📋 Global job rows found: ${rows.length}`);
-  // Floor of 4 (set when the listing had that many openings) false-positived
-  // repeatedly as real headcount dipped to 2-3 (#4868). 1 still catches total
-  // selector collapse (0 rows) without tripping on legitimate fluctuation.
-  if (rows.length < 1) {
-    throw new Error(`Expected at least 1 Fincons Lugano job, found ${rows.length}`);
+  assertCompleteFinconsListing(html, rows);
+
+  const classifiedRows = rows.map((row) => ({
+    row,
+    classification: classifyFinconsLocation(row.location),
+  }));
+  const unresolvedRows = classifiedRows.filter(({ classification }) => classification === 'unresolved');
+  if (unresolvedRows.length > 0) {
+    const examples = unresolvedRows
+      .slice(0, 3)
+      .map(({ row }) => row.location || 'missing')
+      .join(', ');
+    throw new Error(
+      `Fincons Swiss location recognition incomplete for ${unresolvedRows.length}/${rows.length} listing row(s) (${examples}); preserving the last known-good crawler data.`,
+    );
   }
-  const swissRows = rows.filter((row) => isSwissFinconsLocation(row.location));
+
+  const swissRows = classifiedRows
+    .filter(({ classification }) => classification === 'swiss')
+    .map(({ row }) => row);
   console.log(`🇨🇭 Swiss rows kept after location filter: ${swissRows.length}`);
-  console.log(`🌍 Non-Swiss rows discarded before detail fetch: ${rows.length - swissRows.length}`);
+  const nonSwissRows = classifiedRows.filter(({ classification }) => classification === 'foreign');
+  console.log(`🌍 Non-Swiss rows discarded before detail fetch: ${nonSwissRows.length}`);
   if (swissRows.length === 0) {
-    console.warn('⚠️ No Swiss Fincons rows found; preserving the last known-good crawler data.');
+    console.warn(
+      `⚠️ No Swiss Fincons rows found after a complete listing read (${nonSwissRows.length} foreign row(s)); preserving the last known-good crawler data.`,
+    );
     return null;
   }
   swissRows.forEach((row) => console.log(`  📄 ${row.title} (${row.location})`));
@@ -200,6 +237,12 @@ async function buildFinconsJob(listing) {
   const localized = buildFinconsLocalizedContent(detail);
   const description = localized.descriptionByLocale.en || detail.description || '';
   const sourceTitle = localized.titleByLocale.en || detail.title || listing.title;
+  const address = resolveSwissStructuredAddress({
+    city: resolved.location,
+    canton: resolved.canton,
+    postalCode: detail.postalCode,
+    streetAddress: detail.streetAddress,
+  });
   return {
     title: sourceTitle,
     slug: localized.slugByLocale.en,
@@ -208,12 +251,13 @@ async function buildFinconsJob(listing) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
-    location: resolved.location,
-    addressLocality: resolved.location,
-    addressRegion: resolved.canton,
+    location: address.city,
+    addressLocality: address.city,
+    addressRegion: address.canton,
     addressCountry: 'CH',
-    postalCode: detail.postalCode || '',
-    canton: resolved.canton,
+    postalCode: address.postalCode,
+    streetAddress: address.streetAddress,
+    canton: address.canton,
     country: 'CH',
     category: inferCategory(detail),
     sector: 'Tecnologia & IT',
@@ -331,6 +375,10 @@ async function main() {
   for (const listing of listings) {
     const job = await buildFinconsJob(listing);
     if (job) jobs.push(job);
+  }
+  if (jobs.length === 0) {
+    console.warn('⚠️ No Fincons jobs survived detail parsing; preserving the last known-good crawler data.');
+    return;
   }
 
   const { mergedTarget: merged, diff } = mergeJobs(jobs);

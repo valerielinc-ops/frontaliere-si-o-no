@@ -65,6 +65,7 @@ import {
 } from './target-swiss-locations.mjs';
 import { fetchViaJinaWithRetry, detectJinaErrorBody } from './jina-proxy.mjs';
 import { fetchHtml, htmlToText, decodeEntities } from './hospital-custom-html-helpers.mjs';
+import { resolveSwissStructuredAddress } from './swiss-structured-address.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -199,20 +200,19 @@ function detectEmploymentType(text = '') {
 }
 
 /**
- * Pick city / postal code / street from the resolved location text, falling
- * back to the documented HQ address (Brandschenkestrasse 110, 8002 Zürich)
- * ONLY when the resolved city text is actually Zurich — never on canton
- * equality alone. Mirrors scripts/lib/staubli-job-parser.mjs's
- * resolveAddress() (city-gated /z[üu]rich/i check, not addressRegion/canton).
+ * Pick city / postal code / street from the resolved location text. The
+ * documented Zurich HQ is used for Zurich cards; every other Swiss canton
+ * receives a coherent safe default from the shared canton address helper.
  */
-function resolveAddress(cityText = '') {
+export function resolveAddress(cityText = '', canton = '') {
   const city = normalizeSpace(cityText);
   const isZurichCity = /z[üu]rich/i.test(city);
+  const fallback = resolveSwissStructuredAddress({ city, canton });
   return {
-    city: city || HQ.city,
-    postalCode: isZurichCity || !city ? HQ.postalCode : '',
-    streetAddress: isZurichCity || !city ? HQ.streetAddress : '',
-    region: isZurichCity || !city ? HQ.region : '',
+    city: fallback.city,
+    postalCode: isZurichCity ? HQ.postalCode : fallback.postalCode,
+    streetAddress: isZurichCity ? HQ.streetAddress : fallback.streetAddress,
+    region: isZurichCity ? HQ.region : fallback.canton,
   };
 }
 
@@ -639,7 +639,7 @@ export async function fetchAllGoogleSwitzerlandJobs() {
 
     const location = swissLocation.city;
     const canton = swissLocation.canton;
-    const { city, postalCode, streetAddress, region } = resolveAddress(location);
+    const { city, postalCode, streetAddress, region } = resolveAddress(location, canton);
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} google-switzerland ${location}`);

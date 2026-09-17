@@ -144,6 +144,7 @@ export function parseFinconsJobDetail(html = '') {
   );
   const employmentType = String(jsonLd?.employmentType || locationParts[2] || '').trim();
   const postalCode = String(jsonLd?.jobLocation?.address?.postalCode || '').trim();
+  const streetAddress = normalizeSpace(jsonLd?.jobLocation?.address?.streetAddress || '');
   const region = normalizeSpace(jsonLd?.jobLocation?.address?.addressRegion || '');
   const datePosted = String(jsonLd?.datePosted || '').trim();
   const validThrough = String(jsonLd?.validThrough || '').trim();
@@ -159,6 +160,7 @@ export function parseFinconsJobDetail(html = '') {
     region,
     country,
     postalCode,
+    streetAddress,
     employmentType,
     datePosted,
     validThrough,
