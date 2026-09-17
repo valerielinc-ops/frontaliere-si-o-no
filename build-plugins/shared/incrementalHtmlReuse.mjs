@@ -386,8 +386,12 @@ export class JobsSeoHtmlReuse {
     const localeDir = path.join(this.cacheRoot, safeLocale(locale));
     if (!fs.existsSync(localeDir)) return;
     const currentCacheNames = new Set();
-    for (const entries of manifest?.entriesByKind?.values?.() || []) {
-      for (const pagePath of entries.keys()) currentCacheNames.add(cacheFileName(pagePath));
+    if (manifest?.entriesByPath?.keys) {
+      for (const pagePath of manifest.entriesByPath.keys()) currentCacheNames.add(cacheFileName(pagePath));
+    } else {
+      for (const entries of manifest?.entriesByKind?.values?.() || []) {
+        for (const pagePath of entries.keys()) currentCacheNames.add(cacheFileName(pagePath));
+      }
     }
     for (const fileName of fs.readdirSync(localeDir)) {
       if (currentCacheNames.has(fileName)) continue;

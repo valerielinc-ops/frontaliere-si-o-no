@@ -56,6 +56,7 @@ const RUNTIME_INPUT_KEYS = new Set([
 // marking their fresh arrays avoids recursively revalidating them per hash.
 const canonicalRelatedJobProjectionLists = new WeakSet();
 const canonicalMinimalJobInputs = new WeakSet();
+const CANONICAL_JSON = Symbol('incrementalManifestCanonicalJson');
 
 function normalizedKey(key) {
   return String(key).replace(/[^a-z0-9]/gi, '').toLowerCase();
@@ -117,6 +118,10 @@ function canonicalValue(value, inArray = false) {
   if (value === undefined) return inArray ? 'null' : undefined;
   if (value === null) return 'null';
 
+  if (typeof value === 'object' && value?.[CANONICAL_JSON] !== undefined) {
+    return value[CANONICAL_JSON];
+  }
+
   if (value instanceof Date) return JSON.stringify(value.toISOString());
 
   if (typeof value === 'object' && isCanonicalJsonReady(value, inArray)) {
@@ -157,9 +162,16 @@ function canonicalValue(value, inArray = false) {
   }
 }
 
+function canonicalMinimalJobInput(input) {
+  const entries = Object.entries(input)
+    .filter(([, value]) => value !== undefined)
+    .sort(([left], [right]) => compareStrings(left, right));
+  return `{${entries.map(([key, value]) => `${JSON.stringify(key)}:${canonicalValue(value)}`).join(',')}}`;
+}
+
 export function canonicalizeInput(input) {
   if (input && typeof input === 'object' && canonicalMinimalJobInputs.has(input)) {
-    return JSON.stringify(input);
+    return canonicalMinimalJobInput(input);
   }
   return canonicalValue(input) ?? 'null';
 }
@@ -168,13 +180,157 @@ function sha256(value) {
   return createHash('sha256').update(value, 'utf8').digest('hex');
 }
 
+function sha256Parts(parts) {
+  const hash = createHash('sha256');
+  for (const part of parts) hash.update(part, 'utf8');
+  return hash.digest('hex');
+}
+
+function markCanonicalJson(value, canonicalJson) {
+  Object.defineProperty(value, CANONICAL_JSON, {
+    value: canonicalJson,
+    enumerable: false,
+  });
+  return value;
+}
+
+function cheapTextLength(value) {
+  if (value === undefined || value === null) return -1;
+  return typeof value === 'string' ? value.length : String(value).length;
+}
+
+/**
+ * Validate ID-keyed cache entries without walking or serializing the record.
+ * The fixed tuple is captured only when a digest is computed; cache hits compare
+ * its scalar fields and text lengths directly, without allocating or serializing
+ * the record on the hot path.
+ */
+function cheapJobRecordSignature(job) {
+  if (!job || typeof job !== 'object') return '';
+  const titleByLocale = job.titleByLocale;
+  const slugByLocale = job.slugByLocale;
+  const descriptionByLocale = job.descriptionByLocale;
+  const htmlByLocale = job.htmlByLocale;
+  return [
+    job.sourceRecordHash,
+    job.sourceHash,
+    job.updatedAt,
+    job.lastUpdatedAt,
+    job.lastSeen,
+    job.lastSeenAt,
+    job.postedAt,
+    job.datePosted,
+    job.postedDate,
+    job.firstSeenAt,
+    job.crawledAt,
+    job.expiredAt,
+    job.title,
+    job.slug,
+    titleByLocale?.it,
+    titleByLocale?.en,
+    titleByLocale?.de,
+    titleByLocale?.fr,
+    slugByLocale?.it,
+    slugByLocale?.en,
+    slugByLocale?.de,
+    slugByLocale?.fr,
+    cheapTextLength(job.description),
+    cheapTextLength(job.html),
+    cheapTextLength(job.descriptionHtml),
+    cheapTextLength(descriptionByLocale?.it),
+    cheapTextLength(descriptionByLocale?.en),
+    cheapTextLength(descriptionByLocale?.de),
+    cheapTextLength(descriptionByLocale?.fr),
+    cheapTextLength(htmlByLocale?.it),
+    cheapTextLength(htmlByLocale?.en),
+    cheapTextLength(htmlByLocale?.de),
+    cheapTextLength(htmlByLocale?.fr),
+  ];
+}
+
+function hasMatchingJobRecordSignature(job, signature) {
+  if (!job || typeof job !== 'object' || !Array.isArray(signature)) return false;
+  const titleByLocale = job.titleByLocale;
+  const slugByLocale = job.slugByLocale;
+  const descriptionByLocale = job.descriptionByLocale;
+  const htmlByLocale = job.htmlByLocale;
+  return signature[0] === job.sourceRecordHash
+    && signature[1] === job.sourceHash
+    && signature[2] === job.updatedAt
+    && signature[3] === job.lastUpdatedAt
+    && signature[4] === job.lastSeen
+    && signature[5] === job.lastSeenAt
+    && signature[6] === job.postedAt
+    && signature[7] === job.datePosted
+    && signature[8] === job.postedDate
+    && signature[9] === job.firstSeenAt
+    && signature[10] === job.crawledAt
+    && signature[11] === job.expiredAt
+    && signature[12] === job.title
+    && signature[13] === job.slug
+    && signature[14] === titleByLocale?.it
+    && signature[15] === titleByLocale?.en
+    && signature[16] === titleByLocale?.de
+    && signature[17] === titleByLocale?.fr
+    && signature[18] === slugByLocale?.it
+    && signature[19] === slugByLocale?.en
+    && signature[20] === slugByLocale?.de
+    && signature[21] === slugByLocale?.fr
+    && signature[22] === cheapTextLength(job.description)
+    && signature[23] === cheapTextLength(job.html)
+    && signature[24] === cheapTextLength(job.descriptionHtml)
+    && signature[25] === cheapTextLength(descriptionByLocale?.it)
+    && signature[26] === cheapTextLength(descriptionByLocale?.en)
+    && signature[27] === cheapTextLength(descriptionByLocale?.de)
+    && signature[28] === cheapTextLength(descriptionByLocale?.fr)
+    && signature[29] === cheapTextLength(htmlByLocale?.it)
+    && signature[30] === cheapTextLength(htmlByLocale?.en)
+    && signature[31] === cheapTextLength(htmlByLocale?.de)
+    && signature[32] === cheapTextLength(htmlByLocale?.fr);
+}
+
+function hasMatchingSignature(entry, job) {
+  return entry && typeof entry === 'object' && hasMatchingJobRecordSignature(job, entry.signature);
+}
+
+function hasMatchingRelatedProjectionList(entry, relatedJobs) {
+  if (!entry || !Array.isArray(entry.signatures) || entry.signatures.length !== relatedJobs.length) {
+    return false;
+  }
+  for (let index = 0; index < relatedJobs.length; index += 1) {
+    const relatedJob = relatedJobs[index];
+    if (relatedJob && typeof relatedJob === 'object') {
+      if (!hasMatchingJobRecordSignature(relatedJob, entry.signatures[index])) return false;
+    } else if (entry.signatures[index] !== null) {
+      return false;
+    }
+  }
+  return true;
+}
+
+export function createIncrementalManifestInputCache() {
+  return {
+    jobDigestsById: new Map(),
+    relatedJobProjectionsByKey: new Map(),
+    relatedProjectionListsByKey: new Map(),
+  };
+}
+
 const jobRecordDigestCache = new WeakMap();
 const relatedJobProjectionCache = new WeakMap();
 
-function digestJobRecord(job) {
+function digestJobRecord(job, inputCache = null) {
   if (!job || typeof job !== 'object') return sha256('{}');
+  const stableId = stableJobId(job);
+  if (inputCache && stableId) {
+    const cachedById = inputCache.jobDigestsById.get(stableId);
+    if (hasMatchingSignature(cachedById, job)) return cachedById.digest;
+  }
   const cachedDigest = jobRecordDigestCache.get(job);
-  if (cachedDigest !== undefined) return cachedDigest;
+  if (hasMatchingSignature(cachedDigest, job)) {
+    if (inputCache && stableId) inputCache.jobDigestsById.set(stableId, cachedDigest);
+    return cachedDigest.digest;
+  }
 
   // The assembler preserves source JSON key order. A shallow filter keeps the
   // full record covered without recursively canonicalizing its large fields.
@@ -190,28 +346,44 @@ function digestJobRecord(job) {
   // and posting dates are retained because they are source/freshness inputs to
   // the rendered JobPosting. Only generated build metadata is excluded above.
   const digest = sha256(JSON.stringify(record));
-  jobRecordDigestCache.set(job, digest);
+  const cacheEntry = { signature: cheapJobRecordSignature(job), digest };
+  jobRecordDigestCache.set(job, cacheEntry);
+  if (inputCache && stableId) inputCache.jobDigestsById.set(stableId, cacheEntry);
   return digest;
 }
 
-function projectRelatedJob(relatedJob, locale) {
+function projectRelatedJob(relatedJob, locale, inputCache = null) {
   const isRecord = relatedJob && typeof relatedJob === 'object';
   const id = isRecord ? stableJobId(relatedJob) : String(relatedJob ?? '');
   if (!id) return null;
   if (!isRecord) return { id, slug: '', digest: null };
+  const cacheKey = inputCache ? `${String(locale)}\u0000${id}` : null;
+  if (cacheKey) {
+    const cachedById = inputCache.relatedJobProjectionsByKey.get(cacheKey);
+    if (hasMatchingSignature(cachedById, relatedJob)) return cachedById.projection;
+  }
   let projectionsByLocale = relatedJobProjectionCache.get(relatedJob);
   if (!projectionsByLocale) {
     projectionsByLocale = new Map();
     relatedJobProjectionCache.set(relatedJob, projectionsByLocale);
   }
   const cachedProjection = projectionsByLocale.get(locale);
-  if (cachedProjection) return cachedProjection;
+  if (hasMatchingSignature(cachedProjection, relatedJob)) {
+    if (cacheKey) inputCache.relatedJobProjectionsByKey.set(cacheKey, cachedProjection);
+    return cachedProjection.projection;
+  }
   const projection = {
     id,
     slug: String(relatedJob?.slugByLocale?.[locale] || relatedJob?.slug || ''),
-    digest: digestJobRecord(relatedJob),
+    digest: digestJobRecord(relatedJob, inputCache),
   };
-  projectionsByLocale.set(locale, projection);
+  const digestEntry = jobRecordDigestCache.get(relatedJob);
+  const cacheEntry = {
+    signature: digestEntry?.signature ?? cheapJobRecordSignature(relatedJob),
+    projection,
+  };
+  projectionsByLocale.set(locale, cacheEntry);
+  if (cacheKey) inputCache.relatedJobProjectionsByKey.set(cacheKey, cacheEntry);
   return projection;
 }
 
@@ -224,7 +396,7 @@ export function templateVersionForKind(kind) {
 export function computeInputHash(input, kind, templateVersion = templateVersionForKind(kind)) {
   if (!PAGE_KINDS.includes(kind)) throw new Error(`Unknown incremental manifest page kind: ${kind}`);
   const canonical = canonicalizeInput(input);
-  return sha256(`${kind}\n${templateVersion}\n${canonical}`);
+  return sha256Parts([kind, '\n', templateVersion, '\n', canonical]);
 }
 
 /**
@@ -255,16 +427,52 @@ export function stableJobVersion(job) {
  * by a cheap digest; only the small related-job projection enters the
  * canonicalizer.
  */
-export function buildMinimalJobInput(job, locale, slug, relatedJobs = []) {
+export function buildMinimalJobInput(job, locale, slug, relatedJobs = [], inputCache = null) {
   const relatedJobList = Array.isArray(relatedJobs) ? relatedJobs : [];
-  const relatedJobProjections = relatedJobList
-    .map((relatedJob) => projectRelatedJob(relatedJob, locale))
-    .filter(Boolean);
-  canonicalRelatedJobProjectionLists.add(relatedJobProjections);
+  const stableId = stableJobId(job);
+  let relatedIds = null;
+  if (inputCache && stableId) {
+    relatedIds = [];
+    for (const relatedJob of relatedJobList) {
+      if (relatedJob && typeof relatedJob === 'object') {
+        relatedIds.push(stableJobId(relatedJob));
+      } else {
+        relatedIds.push(String(relatedJob ?? ''));
+      }
+    }
+  }
+  const relatedCacheKey = relatedIds && relatedIds.every(Boolean)
+    ? `${stableId}\u0000${String(locale)}\u0000${relatedIds.join('\u0000')}`
+    : null;
+  const cachedRelatedProjections = relatedCacheKey
+    ? inputCache.relatedProjectionListsByKey.get(relatedCacheKey)
+    : undefined;
+  let relatedJobProjections = cachedRelatedProjections && hasMatchingRelatedProjectionList(
+    cachedRelatedProjections,
+    relatedJobList,
+  )
+    ? cachedRelatedProjections.projections
+    : undefined;
+  if (!relatedJobProjections) {
+    relatedJobProjections = relatedJobList
+      .map((relatedJob) => projectRelatedJob(relatedJob, locale, inputCache))
+      .filter(Boolean);
+    canonicalRelatedJobProjectionLists.add(relatedJobProjections);
+    markCanonicalJson(relatedJobProjections, JSON.stringify(relatedJobProjections));
+    if (relatedCacheKey) {
+      inputCache.relatedProjectionListsByKey.set(relatedCacheKey, {
+        signatures: relatedJobList.map((relatedJob) => {
+          if (!relatedJob || typeof relatedJob !== 'object') return null;
+          return jobRecordDigestCache.get(relatedJob)?.signature ?? cheapJobRecordSignature(relatedJob);
+        }),
+        projections: relatedJobProjections,
+      });
+    }
+  }
 
   const input = {
     jobId: stableJobId(job),
-    jobRecordDigest: digestJobRecord(job),
+    jobRecordDigest: digestJobRecord(job, inputCache),
     jobVersion: stableJobVersion(job),
     locale: String(locale),
     relatedJobs: relatedJobProjections,
@@ -372,7 +580,7 @@ function safeLocaleFileName(locale) {
 export class IncrementalManifest {
   constructor(locale) {
     this.locale = String(locale);
-    this.entriesByKind = new Map(PAGE_KINDS.map((kind) => [kind, new Map()]));
+    this.entriesByPath = new Map();
     this.kindMetadata = new Map();
     this.jobsSeoEmitterFingerprint = null;
   }
@@ -401,38 +609,29 @@ export class IncrementalManifest {
       this.kindMetadata.set(kind, { templateVersion, sourceVersion, state: 'live' });
     }
 
-    for (const [existingKind, entries] of this.entriesByKind) {
-      if (existingKind !== kind) entries.delete(normalizedPath);
-    }
-    this.entriesByKind.get(kind).set(normalizedPath, {
+    const postWalk = compactPostWalkMetadata(input);
+    this.entriesByPath.set(normalizedPath, {
+      kind,
       hash: computeInputHash(input, kind, templateVersion),
-      postWalk: compactPostWalkMetadata(input),
+      templateVersion,
+      ...(postWalk ? { postWalk } : {}),
     });
   }
 
   hasPath(pagePath) {
-    const normalizedPath = normalizeManifestPath(pagePath);
-    for (const entries of this.entriesByKind.values()) {
-      if (entries.has(normalizedPath)) return true;
-    }
-    return false;
+    return this.entriesByPath.has(normalizeManifestPath(pagePath));
   }
 
   getHash(pagePath, kind = null) {
     if (!pagePath) return null;
-    const normalizedPath = normalizeManifestPath(pagePath);
-    if (kind) return this.entriesByKind.get(kind)?.get(normalizedPath) ?? null;
-    for (const entries of this.entriesByKind.values()) {
-      const hash = entries.get(normalizedPath);
-      if (hash) return hash;
-    }
-    return null;
+    const entry = this.entriesByPath.get(normalizeManifestPath(pagePath));
+    if (!entry || (kind && entry.kind !== kind)) return null;
+    return entry.hash;
   }
 
   counts() {
-    const byKind = Object.fromEntries(
-      PAGE_KINDS.map((kind) => [kind, this.entriesByKind.get(kind).size]),
-    );
+    const byKind = Object.fromEntries(PAGE_KINDS.map((kind) => [kind, 0]));
+    for (const entry of this.entriesByPath.values()) byKind[entry.kind] += 1;
     return {
       total: Object.values(byKind).reduce((sum, count) => sum + count, 0),
       byKind,
@@ -473,13 +672,16 @@ export class IncrementalManifest {
         format: MANIFEST_FORMAT,
         locale: this.locale,
       });
+      const entriesForKind = new Map(PAGE_KINDS.map((kind) => [kind, []]));
+      for (const [pagePath, entry] of this.entriesByPath) {
+        entriesForKind.get(entry.kind).push([pagePath, entry]);
+      }
       for (const kind of PAGE_KINDS) {
-        const entries = this.entriesByKind.get(kind);
-        if (entries.size === 0) continue;
+        const entries = entriesForKind.get(kind);
+        if (entries.length === 0) continue;
         writeLine({ type: 'kind', kind, ...this.kindMetadata.get(kind) });
-        const sortedPaths = [...entries.keys()].sort(compareStrings);
-        for (const pagePath of sortedPaths) {
-          const entry = entries.get(pagePath);
+        entries.sort(([left], [right]) => compareStrings(left, right));
+        for (const [pagePath, entry] of entries) {
           writeLine({
             path: pagePath,
             hash: entry.hash,
@@ -507,6 +709,24 @@ export class IncrementalManifest {
 // Keep one manifest instance per build root/locale so their writes compose in
 // memory and the later writer cannot overwrite the other plugin's kinds.
 const manifestMapsByRoot = new Map();
+const manifestInputCachesByRoot = new Map();
+
+export function getIncrementalManifestInputCache(rootDir) {
+  if (!INCREMENTAL_MANIFEST_ENABLED) return null;
+  const rootKey = path.resolve(String(rootDir));
+  let inputCache = manifestInputCachesByRoot.get(rootKey);
+  if (!inputCache) {
+    inputCache = createIncrementalManifestInputCache();
+    manifestInputCachesByRoot.set(rootKey, inputCache);
+  }
+  return inputCache;
+}
+
+export function resetIncrementalManifestInputCache(rootDir) {
+  // Digest/projection entries are valid only for the build that populated them.
+  const rootKey = path.resolve(String(rootDir));
+  manifestInputCachesByRoot.delete(rootKey);
+}
 
 export function getIncrementalManifestMap(rootDir, locales, force = false) {
   if (!INCREMENTAL_MANIFEST_ENABLED && !force) return null;
