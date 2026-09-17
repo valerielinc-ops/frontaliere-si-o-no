@@ -1,6 +1,10 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
-import { inferAnyCanton } from './target-swiss-locations.mjs';
+import {
+  inferAnyCanton,
+  isSwissLocationText,
+  isTargetSwissLocation,
+} from './target-swiss-locations.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -86,12 +90,10 @@ export function parsePizzarottiPageCount(html = '') {
 
 /**
  * Check if a location text indicates a Swiss position (any canton).
- * Broader than isTargetSwissLocation which only matches Ticino/Grigioni.
  */
 export function isPizzarottiSwissLocation(raw = '') {
-  const lower = normalizeSpace(raw).toLowerCase()
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-  return /svizzera|suisse|schweiz|switzerland|swiss/.test(lower);
+  const location = normalizeSpace(raw);
+  return isTargetSwissLocation(location) || isSwissLocationText(location);
 }
 
 /**

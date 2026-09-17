@@ -126,7 +126,7 @@ function ensureSourceLang(companyKeys) {
 function logSwatchJobStats(companyKeys, beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
-    return { total: 0, ticino: 0, discarded: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
+    return { total: 0, byCanton: {}, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
   const swatchKeysSet = new Set(companyKeys.map((k) => normalizeKey(k)));
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
@@ -134,25 +134,18 @@ function logSwatchJobStats(companyKeys, beforeSnapshot = new Map()) {
 
   // All Swatch jobs (any location)
   const swatchJobs = allJobs.filter((job) => isSwatchJob(job, swatchKeysSet));
-  // Ticino-only jobs (canton === 'TI')
-  const ticinoJobs = swatchJobs.filter((job) => normalize(job?.canton) === 'ti');
-  const discarded = swatchJobs.length - ticinoJobs.length;
+  const byCanton = {};
+  for (const job of swatchJobs) {
+    const canton = String(job?.canton || '').trim().toUpperCase() || '??';
+    byCanton[canton] = (byCanton[canton] || 0) + 1;
+  }
+  const coveredCantons = Object.keys(byCanton).filter((canton) => canton !== '??').sort();
 
   console.log(`\n📊 === Swatch Group Job Stats ===`);
   console.log(`  🔍 Job totali trovati (Swatch Group): ${swatchJobs.length}`);
-  console.log(`  ✅ Job in Ticino (canton=TI): ${ticinoJobs.length}`);
-  console.log(`  ❌ Job scartati (location non Ticino): ${discarded}`);
-  if (discarded > 0) {
-    const discardedLocations = swatchJobs
-      .filter((job) => normalize(job?.canton) !== 'ti')
-      .map((job) => `${job?.title || '?'} → ${job?.location || job?.canton || '?'}`)
-      .slice(0, 10);
-    console.log(`  📍 Esempi scartati:`);
-    for (const loc of discardedLocations) console.log(`     - ${loc}`);
-    if (swatchJobs.length - ticinoJobs.length > 10) {
-      console.log(`     ... e altri ${swatchJobs.length - ticinoJobs.length - 10}`);
-    }
-  }
+  console.log(`  🗺️ Cantoni coperti: ${coveredCantons.length}/26${coveredCantons.length ? ` (${coveredCantons.join(', ')})` : ''}`);
+  if (byCanton['??']) console.log(`  ⚠️ Job senza cantone risolto: ${byCanton['??']}`);
+  console.log(`  📍 Ripartizione: ${Object.entries(byCanton).map(([canton, count]) => `${canton}=${count}`).join(', ') || 'nessuna'}`);
   console.log('');
 
   // Crawl change summary (new/updated/removed)
@@ -161,7 +154,7 @@ function logSwatchJobStats(companyKeys, beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'Swatch Group');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Swatch Group');
 
-  return { total: swatchJobs.length, ticino: ticinoJobs.length, discarded, crawlDiff };
+  return { total: swatchJobs.length, byCanton, crawlDiff };
 }
 
 function validateSwatchLocaleCoverage(companyKeys) {
@@ -200,7 +193,7 @@ async function main() {
   await runBaseCrawler(companyKeys);
   ensureSourceLang(companyKeys);
 
-  // Log stats: total jobs found, Ticino vs non-Ticino
+  // Log stats: total jobs found and canton coverage
   const stats = logSwatchJobStats(companyKeys, _beforeSnapshot);
   const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
