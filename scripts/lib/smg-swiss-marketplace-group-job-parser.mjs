@@ -27,9 +27,9 @@
  * - slugify() / stripHtml()                 — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+import { isSwissLocationText, inferAnyCanton } from './target-swiss-locations.mjs';
 import {
   fetchSmartRecruitersJobs,
   SmartRecruitersApiError,
@@ -115,7 +115,9 @@ function isSwissLocation(loc = {}) {
   const country = normalize(loc.country || '');
   if (country && country !== 'ch' && country !== 'switzerland' && country !== 'svizzera') return false;
   const signal = [loc.city, loc.region].map(normalizeSpace).filter(Boolean).join(', ');
-  return Boolean(signal) && isTargetSwissLocation(signal, { includeBorderProximity: false });
+  return Boolean(signal)
+    && !isLocationExplicitlyForeign(`${signal}, ${country}`)
+    && isSwissLocationText(signal);
 }
 
 /* ── Category Detection ────────────────────────────────────── */

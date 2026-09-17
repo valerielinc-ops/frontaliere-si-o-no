@@ -43,7 +43,8 @@
  * Uses the shared Prospective.ch factory.
  */
 import { createProspectiveChParser } from './prospective-ch-job-parser-common.mjs';
-import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { inferAnyCanton, isSwissLocationText } from './target-swiss-locations.mjs';
 
 export const RAIFFEISEN_KEY = 'raiffeisen';
 export const RAIFFEISEN_COMPANY_NAME = 'Raiffeisen';
@@ -104,7 +105,8 @@ export function isSwissRaiffeisenListing(listing = {}) {
   const countries = sourceCountryValues(listing);
   if (countries.some((country) => !SWISS_COUNTRY_RE.test(country))) return false;
   return sourceLocationValues(listing).some((value) => (
-    isTargetSwissLocation(value, { includeBorderProximity: false })
+    !isLocationExplicitlyForeign(value)
+    && isSwissLocationText(value)
     && inferAnyCanton(value)
   ));
 }

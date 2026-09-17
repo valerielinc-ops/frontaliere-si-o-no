@@ -14,7 +14,8 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  */
 
 import { JSDOM } from 'jsdom';
-import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { isSwissLocationText, inferAnyCanton } from './target-swiss-locations.mjs';
 import { getCantonDisplayName } from './crawler-location-config.mjs';
 
 const BASE_URL = 'https://www.engelvoelkers.com';
@@ -331,7 +332,7 @@ export function buildEngelvoelkersLocalizedContent(job = {}) {
 export function isEngelvoelkersSwissRelevant(location = '') {
   const loc = normalizeSpace(location);
   if (!loc) return false;
-  return isTargetSwissLocation(loc, { includeBorderProximity: false });
+  return !isLocationExplicitlyForeign(loc) && isSwissLocationText(loc);
 }
 
 /** Infer the Swiss canton from the posting's own location text. */

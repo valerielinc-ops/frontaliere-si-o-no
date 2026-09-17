@@ -12,10 +12,10 @@
  */
 import { createHash } from 'node:crypto';
 import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.ts';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, fetchJson } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { isTargetSwissLocation, isSwissLocationText, inferAnyCanton } from './target-swiss-locations.mjs';
+import { isSwissLocationText, inferAnyCanton } from './target-swiss-locations.mjs';
 import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -207,7 +207,7 @@ function parseNagraAdvertisementTable(html = '') {
  */
 function isSwissLocation(location = '') {
   const loc = normalizeSpace(location);
-  return Boolean(loc) && isTargetSwissLocation(loc, { includeBorderProximity: false });
+  return Boolean(loc) && !isLocationExplicitlyForeign(loc) && isSwissLocationText(loc);
 }
 
 function isSwissListingCandidate(location = '') {
@@ -215,8 +215,8 @@ function isSwissListingCandidate(location = '') {
   if (!loc) return false;
   // The listing table sometimes exposes only the country. Keep that source
   // candidate long enough to resolve its actual city from the detail page;
-  // the publish gate below still requires isTargetSwissLocation + a canton.
-  return isSwissLocation(loc) || (isSwissLocationText(loc) && !inferAnyCanton(loc));
+  // the publish gate below still requires inferAnyCanton().
+  return isSwissLocation(loc);
 }
 
 function extractDetailLocation(html = '') {
@@ -304,7 +304,7 @@ export async function fetchAllKudelskiNagraJobs() {
     // The NAGRA table currently gives some Swiss offers only as
     // "Switzerland". Resolve the city from the official detail page instead
     // of inventing a headquarters canton (the old code stamped these TI).
-    if (!isSwissLocation(location)) {
+    if (!inferAnyCanton(location)) {
       const detailUrl = listing.absolute_url || listing.url || listing.link || '';
       if (isTrustedDomain(detailUrl)) {
         try {
