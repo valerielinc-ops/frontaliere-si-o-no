@@ -10,6 +10,7 @@ import {
   parseGoogleDeclaredTotal,
   extractGoogleDetailDescription,
   resolveAddress,
+  resolveSwissGoogleLocation,
 } from '../scripts/lib/google-switzerland-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -233,6 +234,19 @@ describe('Google Switzerland crawler parser', () => {
         streetAddress: 'Brandschenkestrasse 110',
         region: 'Zürich',
       });
+    });
+  });
+
+  describe('resolveSwissGoogleLocation', () => {
+    it('keeps the Swiss entry from a mixed-location card', () => {
+      expect(resolveSwissGoogleLocation('Mountain View, CA, USA ; Zürich, Switzerland')).toEqual({
+        city: 'Zürich',
+        canton: 'ZH',
+      });
+    });
+
+    it('rejects a foreign-only card', () => {
+      expect(resolveSwissGoogleLocation('Mountain View, CA, USA ; Kirkland, WA, USA')).toBeNull();
     });
   });
 

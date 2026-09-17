@@ -110,20 +110,32 @@ function normalizeSpace(s = '') {
  * Multi-location cards are valid when at least one listed location is Swiss;
  * the city/canton stored on the job come from the Swiss municipality signal.
  */
-function resolveSwissGoogleLocation(rawLocation = '') {
+export function resolveSwissGoogleLocation(rawLocation = '') {
   const location = normalizeSpace(rawLocation);
-  if (
-    !location
-    || isLocationExplicitlyForeign(location)
-    || !isTargetSwissLocation(location, { includeBorderProximity: false })
-  ) {
-    return null;
+  if (!location) return null;
+
+  // Google joins multi-location cards with semicolons and appends opaque
+  // "+N more" entries. Evaluate each declared location independently so a
+  // Swiss + foreign card survives while a foreign-only card is rejected.
+  const entries = location
+    .split(/\s*;\s*/)
+    .map(normalizeSpace)
+    .filter((entry) => entry && !/^\+\d+\s+more$/i.test(entry));
+
+  for (const entry of entries) {
+    if (
+      isLocationExplicitlyForeign(entry)
+      || !isTargetSwissLocation(entry, { includeBorderProximity: false })
+    ) {
+      continue;
+    }
+
+    const city = swissCityFromLocationField(entry);
+    const canton = inferAnyCanton(entry);
+    if (city && canton) return { city, canton };
   }
 
-  const city = swissCityFromLocationField(location);
-  const canton = inferAnyCanton(location);
-  if (!city || !canton) return null;
-  return { city, canton };
+  return null;
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
