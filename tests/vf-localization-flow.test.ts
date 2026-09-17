@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
 import { localizeJob } from '../scripts/localize-vf-existing-jobs.mjs';
+import { resolveVfSwissLocation } from '../scripts/lib/vf-job-parser.mjs';
 
 describe('VF localization flow', () => {
   it('runs fallback locale translation after the shared crawler', () => {
@@ -33,5 +34,14 @@ describe('VF localization flow', () => {
       targetLang: 'it',
       minChars: 3,
     }));
+  });
+
+  it('resolves the city from hierarchical Workday labels across Swiss cantons', () => {
+    expect(resolveVfSwissLocation('EMEA · CHE · Stabio · VF Campus VF1'))
+      .toEqual({ locality: 'Stabio', canton: 'TI' });
+    expect(resolveVfSwissLocation('EMEA · CHE · Landquart · Outlet - NAP'))
+      .toEqual({ locality: 'Landquart', canton: 'GR' });
+    expect(resolveVfSwissLocation('EMEA · USA · New York')).toBeNull();
+    expect(resolveVfSwissLocation('CHE')).toBeNull();
   });
 });
