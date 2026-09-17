@@ -74,6 +74,7 @@ import {
   missingSlots,
   buildMopupRequest,
   classifyMopupWrite,
+  shouldApplyMopupWrite,
 } from '../local-mt-mopup.mjs';
 import { titleLooksUntranslated } from '../lib/job-locale-utils.mjs';
 import {
@@ -106,6 +107,24 @@ const PRODUCTION_ARGOS_SECONDS = 690;
 const PRODUCTION_ARGOS_REQUESTS = 4920;
 const MOPUP_DEADLINE_MS = 16_800_000;
 const MIN_OPUS_RECOVERY_RATE = 0.10;
+// The production mix measured on 2026-09-17. The stratified sample is a
+// company-balanced audit, not a production-proportional sample: use this only
+// for the explicitly labelled production-weighted estimate below.
+const PRODUCTION_BINNEN_I_SHARE = 0.45;
+const PRODUCTION_BINNEN_I_SLOTS = 1423;
+const BINNEN_VARIANT_ORDER = [
+  'colon-in',
+  'colon-innen',
+  'asterisk-in',
+  'asterisk-innen',
+  'underscore-in',
+  'underscore-innen',
+  'slash-in',
+  'slash-hyphen-in',
+  'colon-suffix',
+  'gender-r',
+  'unknown',
+];
 
 function opt(name, fallback) {
   const args = process.argv.slice(2);
@@ -182,8 +201,153 @@ export function sampleProportional(candidates, { maxFields, budgetOf }) {
   return { picked, companies: new Set(candidates.map((c) => companyKey(c.job))).size, fields };
 }
 
+/**
+ * Classify the evidence returned by the real detector without copying its
+ * predicate. `titleLooksUntranslated()` already selected the evidence; this
+ * helper only names the alternative/variant for the report.
+ */
+export function classifyBinnenVariant(evidence) {
+  const value = String(evidence || '').trim();
+  const slash = value.match(/\/-?in(?:nen)?\b/i);
+  if (slash) {
+    return {
+      alternative: 'slash-in',
+      variant: slash[0].startsWith('/-') ? 'slash-hyphen-in' : 'slash-in',
+    };
+  }
+
+  const separator = value.match(/([:*_])\s*(in(?:nen)?)\b/i);
+  if (separator) {
+    const names = { ':': 'colon', '*': 'asterisk', '_': 'underscore' };
+    const suffix = separator[2].toLowerCase();
+    return {
+      alternative: 'separator-in',
+      variant: `${names[separator[1]]}-${suffix}`,
+    };
+  }
+
+  if (/[ :*_]\s*r\b/i.test(value)) {
+    return { alternative: 'gender-r', variant: 'gender-r' };
+  }
+  if (value.includes(':')) {
+    return { alternative: 'colon-suffix', variant: 'colon-suffix' };
+  }
+  return { alternative: 'unknown', variant: 'unknown' };
+}
+
+/**
+ * Research-only source normalization. It deliberately covers only the two
+ * explicit `...in` detector families. The detector's third `word:word`
+ * alternative is a distinct class (often a translated suffix such as
+ * `:mann`) and is reported, not guessed away. GENDER_R_RE and GENDER_CODE_RE
+ * are also distinct and remain byte-identical here; trigraphs are still
+ * handled later by the shared `buildMopupRequest` masking.
+ */
+export function normalizeBinnenISource(text) {
+  return String(text ?? '')
+    .replace(/\b(\p{L}{3,})[:*_] ?in(?:nen)?\b/giu, '$1')
+    .replace(/\b(\p{L}{4,})\/-?in\b/giu, '$1');
+}
+
+/**
+ * The normalized arm must use the real write classifier and its final
+ * rollout guard. `langAwareOverwrite: true` is an audit-only eligibility check:
+ * production is not changed or enabled by this one-shot tool.
+ */
+export function classifyNormalizationArm({
+  job,
+  locale,
+  field,
+  rawText,
+  protectedTokens = [],
+}) {
+  const result = classifyMopupWrite({ job, locale, field, rawText, protectedTokens });
+  return {
+    ...result,
+    wouldApply: shouldApplyMopupWrite({
+      decision: result.decision,
+      languageDriven: result.languageDriven,
+      langAwareOverwrite: true,
+    }),
+  };
+}
+
+function jobWithSourceText(job, field, sourceText) {
+  const srcLang = job.sourceLang || 'it';
+  const bag = field === 'title' ? 'titleByLocale' : 'descriptionByLocale';
+  return {
+    ...job,
+    [field]: sourceText,
+    [bag]: { ...(job[bag] || {}), [srcLang]: sourceText },
+  };
+}
+
 function readJson(p) {
   try { return JSON.parse(fs.readFileSync(p, 'utf-8')); } catch { return null; }
+}
+
+/** Run the production Argos worker once, retaining only its JSONL responses. */
+function runArgosBatch(python, requests) {
+  const started = Date.now();
+  const proc = spawnSync(python, [PY_SCRIPT], {
+    input: requests.map((r) => JSON.stringify(r)).join('\n') + '\n',
+    encoding: 'utf-8',
+    maxBuffer: 256 * 1024 * 1024,
+    stdio: ['pipe', 'pipe', 'inherit'],
+  });
+  if (proc.error) throw new Error(`python worker: ${proc.error.message}`);
+
+  const raws = new Map();
+  let failed = 0;
+  for (const line of (proc.stdout || '').split('\n')) {
+    const value = line.trim();
+    if (!value) continue;
+    let result;
+    try { result = JSON.parse(value); } catch { continue; }
+    if (result?.id && typeof result.text === 'string' && result.text.trim()) raws.set(result.id, result.text);
+    else failed++;
+  }
+  return { raws, failed, elapsedMs: Date.now() - started };
+}
+
+function alternativeForVariant(variant) {
+  if (variant === 'colon-suffix') return 'colon-suffix';
+  if (variant === 'gender-r') return 'gender-r';
+  if (variant === 'unknown') return 'unknown';
+  if (variant.startsWith('slash-')) return 'slash-in';
+  return 'separator-in';
+}
+
+function normalizationRows(cases, productionCounts) {
+  const productionTotal = [...productionCounts.values()].reduce((sum, count) => sum + count, 0);
+  const rows = new Map(BINNEN_VARIANT_ORDER.map((variant) => [variant, {
+    variant,
+    alternative: alternativeForVariant(variant),
+    productionCount: productionCounts.get(variant) || 0,
+    total: 0,
+    changed: 0,
+    writes: 0,
+  }]));
+  for (const record of cases) {
+    const row = rows.get(record.normalizationVariant) || rows.get('unknown');
+    row.total++;
+    if (record.normalizationChanged) row.changed++;
+    if (record.normalizedDecision === 'write') row.writes++;
+  }
+  return [...rows.values()].map((row) => ({
+    ...row,
+    sampleRate: row.total > 0 ? row.writes / row.total : null,
+    productionShare: productionTotal > 0 ? row.productionCount / productionTotal : 0,
+  }));
+}
+
+function productionWeightedNormalizationRate(rows) {
+  const covered = rows.filter((row) => row.productionCount > 0 && row.total > 0);
+  const coveredSlots = covered.reduce((sum, row) => sum + row.productionCount, 0);
+  const totalSlots = rows.reduce((sum, row) => sum + row.productionCount, 0);
+  if (coveredSlots <= 0) return { rate: null, coveredSlots, totalSlots };
+  const weightedWrites = covered.reduce((sum, row) => sum + row.productionCount * row.sampleRate, 0);
+  return { rate: weightedWrites / coveredSlots, coveredSlots, totalSlots };
 }
 
 function rejectionCause(result) {
@@ -252,6 +416,7 @@ function renderMarkdown(report) {
   const recoveryRate = report.recoveryRate;
   const ci = report.recoveryCi95;
   const productionOpusMs = report.estimatedOpusMs;
+  const normalization = report.normalization;
   const productionArgosMs = (PRODUCTION_ARGOS_SECONDS * 1000 / PRODUCTION_ARGOS_REQUESTS)
     * PRODUCTION_SLOT_ESTIMATE;
   const argosDecisionRows = Object.entries(report.decisionMatrix).map(([argosDecision, columns]) => [
@@ -265,7 +430,7 @@ function renderMarkdown(report) {
   const sampleDate = report.generatedAt.slice(0, 10);
   const verdict = report.verdict;
 
-  return `# Argos vs OpusMT — misura ${sampleDate}
+  return `# Argos vs OpusMT + normalizzazione sorgente — misura ${sampleDate}
 
 ## 1. Campione
 
@@ -275,6 +440,8 @@ function renderMarkdown(report) {
 - Corpus: snapshot \`origin/main\` estratto con \`git archive\` in una directory temporanea; nessuna scrittura in \`data/\`.
 
 Il braccio OpusMT è stato eseguito solo sui **${rejectedCases.length}** slot in cui Argos ha prodotto un output ma la decisione del guard non era \`write\`. Il confronto usa la stessa richiesta già costruita da \`buildMopupRequest\`, gli stessi token protetti e la stessa \`classifyMopupWrite\`/finalizzazione.
+
+Il braccio di normalizzazione è stato eseguito solo sui **${normalization.calls}** rifiuti Argos con causa \`binnen-i\`; la causa è la decisione del detector sul candidato Argos, non una ricerca testuale parallela. Il sorgente è stato normalizzato prima di ricostruire la richiesta con \`buildMopupRequest\`; masking, finalizzazione e write guard restano quelli condivisi.
 
 ## 2. Matrice Argos × OpusMT
 
@@ -312,12 +479,37 @@ ${markdownTable(
   report.byDirection.map((row) => [row.value, String(row.total), String(row.opusWrites), `${(100 * row.recoveryRate).toFixed(1)}%`]),
 )}
 
+### Braccio normalizzazione del sorgente
+
+Il tasso grezzo sul campione è **${normalization.writes}/${normalization.ok} = ${normalization.rate === null ? 'n/a' : `${(100 * normalization.rate).toFixed(1)}%`}** (IC95% Wilson: **${normalization.ci95 ? `${(100 * normalization.ci95[0]).toFixed(1)}%–${(100 * normalization.ci95[1]).toFixed(1)}%` : 'n/a'}**). Nel bucket dei rifiuti Argos pesa **${(100 * normalization.sampleShare).toFixed(1)}%**; la composizione di produzione di riferimento è **${(100 * normalization.productionShare).toFixed(1)}%**, cioè ${normalization.sampleShare > 0 ? `${(normalization.productionShare / normalization.sampleShare).toFixed(1)}×` : 'n/a'} il campione. La scansione del corpus osservato conta ${normalization.corpusDetectorSlots} slot \`binnen-i\` (${normalization.corpusDetectorShare === null ? 'n/a' : `${(100 * normalization.corpusDetectorShare).toFixed(1)}%`} dei ${report.candidateSlots} slot candidati).
+
+Il tasso trasferibile è quello condizionale per variante, ripesato sulla distribuzione del corpus reale: **${normalization.variantWeightedRate === null ? 'n/a' : `${(100 * normalization.variantWeightedRate).toFixed(1)}%`}** su ${normalization.variantWeightedCovered}/${normalization.variantWeightedTotal} slot di composizione osservata. Tradotto nell'intero bucket di produzione, dove \`binnen-i\` pesa il ${(100 * normalization.productionShare).toFixed(1)}%, il contributo atteso è **${normalization.productionContributionRate === null ? 'n/a' : `${(100 * normalization.productionContributionRate).toFixed(1)}%`}**. Il grezzo è descrittivo del campione stratificato; il ripesato è quello trasferibile, con l'assunzione esplicita che il tasso per variante del campione valga sulla composizione reale.
+
+${markdownTable(
+  ['Variante detector', 'Alternativa', 'Corpus N', 'Corpus %', 'Campione N', 'Sorgente cambiato', 'write', 'Tasso'],
+  normalization.byVariant
+    .filter((row) => row.productionCount > 0 || row.total > 0)
+    .map((row) => [
+      row.variant,
+      row.alternative,
+      String(row.productionCount),
+      `${(100 * row.productionShare).toFixed(1)}%`,
+      String(row.total),
+      String(row.changed),
+      String(row.writes),
+      row.sampleRate === null ? 'n/a' : `${(100 * row.sampleRate).toFixed(1)}%`,
+    ]),
+)}
+
+La normalizzazione research-only tocca soltanto \`:in\`, \`*in\`, \`_in\`, \`/in\` e \`/-in\` (prima e seconda alternativa). La terza alternativa \`word:word\` — inclusi i casi \`:mann\` — non viene trasformata. \`GENDER_R_RE\` e \`GENDER_CODE_RE\` restano distinti e invariati; i gender code passano comunque dal masking condiviso.
+
 ## 5. Costo
 
 - Argos in questa misura: ${(report.argosElapsedMs / 1000).toFixed(1)} s / ${report.requests} richieste = ${(report.argosElapsedMs / 1000 / report.requests).toFixed(3)} s/slot.
 - Riferimento reale della fase Argos: ${PRODUCTION_ARGOS_SECONDS} s / ${PRODUCTION_ARGOS_REQUESTS} richieste = ${(PRODUCTION_ARGOS_SECONDS / PRODUCTION_ARGOS_REQUESTS).toFixed(3)} s/slot; estrapolazione a ${PRODUCTION_SLOT_ESTIMATE} slot: **${(productionArgosMs / 1000).toFixed(1)} s (${(productionArgosMs / 60000).toFixed(1)} min)**.
 - OpusMT: ${(report.opusElapsedMs / 1000).toFixed(1)} s / ${report.opusCalls} slot rifiutati = ${report.opusCalls > 0 ? (report.opusElapsedMs / 1000 / report.opusCalls).toFixed(3) : 'n/a'} s/slot; dtype \`${report.opusDtype}\`, inclusa la prima inizializzazione/caricamento dei modelli nel processo.
 - Estrapolazione lineare OpusMT a ${PRODUCTION_SLOT_ESTIMATE} slot: **${productionOpusMs === null ? 'n/a' : `${(productionOpusMs / 1000).toFixed(1)} s (${(productionOpusMs / 60000).toFixed(1)} min)`}** contro budget \`${MOPUP_DEADLINE_MS} ms\` = ${(MOPUP_DEADLINE_MS / 60000).toFixed(1)} min.
+- Normalizzazione + Argos: ${(normalization.elapsedMs / 1000).toFixed(1)} s / ${normalization.calls} slot tentati = ${normalization.calls > 0 ? (normalization.elapsedMs / 1000 / normalization.calls).toFixed(3) : 'n/a'} s/slot; ${normalization.failed} fallimenti di chiamata. Estrapolazione a ${normalization.productionSlots} slot \`binnen-i\` per run: **${normalization.estimatedMs === null ? 'n/a' : `${(normalization.estimatedMs / 1000).toFixed(1)} s (${(normalization.estimatedMs / 60000).toFixed(1)} min)`}**.
 
 ## 6. Verdetto
 
@@ -346,6 +538,8 @@ async function generate() {
 
   // 1. Candidates — the production predicate, imported, not restated.
   const candidates = [];
+  const productionBinnenVariantCounts = new Map();
+  let productionSlots = 0;
   let scanned = 0;
   for (const file of listSliceFileNames(slicesDir)) {
     const data = readJson(path.join(slicesDir, file));
@@ -356,6 +550,27 @@ async function generate() {
       let slots = missingSlots(job);
       if (fieldFilter !== 'both') slots = slots.filter((s) => s.field === fieldFilter);
       if (slots.length === 0) continue;
+      productionSlots += slots.length;
+      const srcLang = job.sourceLang || 'it';
+      const sourceTitle = (job.title || job.titleByLocale?.[srcLang] || '').trim();
+      for (const slot of slots) {
+        if (slot.field !== 'title') continue;
+        const existing = String(job.titleByLocale?.[slot.locale] || '').trim();
+        const detector = titleLooksUntranslated({
+          title: existing,
+          sourceTitle,
+          sourceLang: srcLang,
+          targetLocale: slot.locale,
+          company: job.company || '',
+          location: job.location || '',
+        });
+        if (detector.reason !== 'binnen-i') continue;
+        const variant = classifyBinnenVariant(detector.evidence).variant;
+        productionBinnenVariantCounts.set(
+          variant,
+          (productionBinnenVariantCounts.get(variant) || 0) + 1,
+        );
+      }
       candidates.push({ file, job, slots });
     }
   }
@@ -389,33 +604,21 @@ async function generate() {
   console.log(`🐍 ${requests.length} requests → ${python} ${path.relative(ROOT, PY_SCRIPT)}`);
 
   // 4. The real engine, same protocol as production.
-  const started = Date.now();
-  const proc = spawnSync(python, [PY_SCRIPT], {
-    input: requests.map((r) => JSON.stringify(r)).join('\n') + '\n',
-    encoding: 'utf-8',
-    maxBuffer: 256 * 1024 * 1024,
-    stdio: ['pipe', 'pipe', 'inherit'],
-  });
-  if (proc.error) {
-    console.error(`❌ python worker: ${proc.error.message}`);
+  let argosRun;
+  try {
+    argosRun = runArgosBatch(python, requests);
+  } catch (error) {
+    console.error(`❌ ${error.message}`);
     process.exit(1);
   }
-  const raws = new Map();
-  let argosFailed = 0;
-  for (const line of (proc.stdout || '').split('\n')) {
-    const t = line.trim();
-    if (!t) continue;
-    let res;
-    try { res = JSON.parse(t); } catch { continue; }
-    if (res?.id && typeof res.text === 'string' && res.text.trim()) raws.set(res.id, res.text);
-    else argosFailed++;
-  }
-  const argosElapsedMs = Date.now() - started;
+  const { raws, failed: argosFailed, elapsedMs: argosElapsedMs } = argosRun;
   console.log(`   ${raws.size} argos ok · ${argosFailed} argos failed · ${Math.round(argosElapsedMs / 1000)}s`);
 
   // 5. Replay the REAL rejection chain. The OpusMT arm is deliberately only
   // run for Argos refusals: a successful Argos write is not part of the question.
   const cases = [];
+  const normalizationRequests = [];
+  const normalizationTargets = new Map();
   const opusStarted = Date.now();
   let opusCalls = 0;
   let opusElapsedMs = 0;
@@ -430,16 +633,28 @@ async function generate() {
     // (titleLooksUntranslated, present-but-lexically-untranslated) from the
     // plain missing/copy case, because the two hit different exit guards.
     const srcLang = job.sourceLang || 'it';
-    const entry = field === 'title' && argos.existing
-      ? (titleLooksUntranslated({
+    const entryVerdict = field === 'title' && argos.existing
+      ? titleLooksUntranslated({
           title: argos.existing,
           sourceTitle: sourceText,
           sourceLang: srcLang,
           targetLocale: locale,
           company: job.company || '',
           location: job.location || '',
-        }).untranslated ? 'titleLooksUntranslated' : 'missing-or-copy')
-      : 'missing-or-copy';
+        })
+      : null;
+    const entry = entryVerdict?.untranslated ? 'titleLooksUntranslated' : 'missing-or-copy';
+    const candidateVerdict = field === 'title' && argos.incoming
+      ? titleLooksUntranslated({
+          title: argos.incoming,
+          sourceTitle: argos.normalizedSourceText,
+          sourceLang: srcLang,
+          targetLocale: locale,
+          company: job.company || '',
+          location: job.location || '',
+        })
+      : null;
+    const argosCause = rejectionCause(argos);
     const record = {
       id,
       company: companyKey(job),
@@ -449,6 +664,8 @@ async function generate() {
       direction: `${srcLang}->${locale}`,
       field,
       entryReason: entry,
+      entryDetectorReason: entryVerdict?.reason || null,
+      entryDetectorEvidence: entryVerdict?.evidence || null,
       sourceText,
       argosRaw: raw,
       finalized: argos.incoming,
@@ -456,13 +673,24 @@ async function generate() {
       decision: argos.decision,
       argosDecision: argos.decision,
       argosReason: rejectionCause(argos),
-      argosCause: rejectionCause(argos),
+      argosCause,
+      argosEvidence: candidateVerdict?.evidence || null,
       opusRaw: null,
       opusFinalized: null,
       opusDecision: null,
       opusReason: null,
       opusCause: null,
       opusElapsedMs: null,
+      normalizedSourceText: null,
+      normalizationVariant: null,
+      normalizationAlternative: null,
+      normalizationChanged: null,
+      normalizedRaw: null,
+      normalizedFinalized: null,
+      normalizedDecision: null,
+      normalizedReason: null,
+      normalizedCause: null,
+      normalizedWouldApply: null,
     };
     if (argos.decision !== 'write') {
       opusCalls++;
@@ -487,7 +715,64 @@ async function generate() {
         console.log(`   OpusMT ${opusCalls} rejected slots · ${Math.round((Date.now() - opusStarted) / 1000)}s`);
       }
     }
+    if (argosCause === 'binnen-i') {
+      const variant = classifyBinnenVariant(candidateVerdict?.evidence).variant;
+      const normalizedSourceText = normalizeBinnenISource(sourceText);
+      const normalizedId = `n${id}`;
+      const normalizedRequest = buildMopupRequest({
+        id: normalizedId,
+        text: normalizedSourceText,
+        from: srcLang,
+        to: locale,
+        field,
+      });
+      normalizationRequests.push(normalizedRequest.request);
+      normalizationTargets.set(normalizedId, {
+        record,
+        job: jobWithSourceText(job, field, normalizedSourceText),
+        locale,
+        field,
+        protectedTokens: normalizedRequest.protectedTokens,
+      });
+      record.normalizedSourceText = normalizedSourceText;
+      record.normalizationVariant = variant;
+      record.normalizationAlternative = classifyBinnenVariant(candidateVerdict?.evidence).alternative;
+      record.normalizationChanged = normalizedSourceText !== sourceText;
+    }
     cases.push(record);
+  }
+
+  // 6. The third arm uses the SAME Argos worker and the SAME request masking.
+  // `buildMopupRequest` owns maskProtectedTokens; classifyNormalizationArm
+  // delegates finalization to classifyMopupWrite (which owns
+  // finalizeMopupTranslation) and checks shouldApplyMopupWrite. Only the input
+  // source differs from the first arm.
+  let normalizationRun = { raws: new Map(), failed: 0, elapsedMs: 0 };
+  if (normalizationRequests.length > 0) {
+    try {
+      normalizationRun = runArgosBatch(python, normalizationRequests);
+    } catch (error) {
+      console.error(`❌ ${error.message}`);
+      process.exit(1);
+    }
+    for (const [id, target] of normalizationTargets) {
+      const raw = normalizationRun.raws.get(id);
+      if (raw === undefined) continue;
+      const normalized = classifyNormalizationArm({
+        job: target.job,
+        locale: target.locale,
+        field: target.field,
+        rawText: raw,
+        protectedTokens: target.protectedTokens,
+      });
+      target.record.normalizedRaw = raw;
+      target.record.normalizedFinalized = normalized.incoming;
+      target.record.normalizedDecision = normalized.decision;
+      target.record.normalizedReason = rejectionCause(normalized);
+      target.record.normalizedCause = rejectionCause(normalized);
+      target.record.normalizedWouldApply = normalized.wouldApply;
+    }
+    console.log(`   normalized Argos ${normalizationRun.raws.size} ok · ${normalizationRun.failed} failed · ${Math.round(normalizationRun.elapsedMs / 1000)}s`);
   }
 
   const summary = {};
@@ -501,6 +786,50 @@ async function generate() {
   }
 
   const rejectedCases = cases.filter((c) => c.argosDecision !== 'write');
+  const normalizedCases = cases.filter((c) => c.normalizedDecision !== null);
+  const normalizationWrites = normalizedCases.filter((c) => c.normalizedDecision === 'write').length;
+  const normalizationRate = normalizedCases.length > 0
+    ? normalizationWrites / normalizedCases.length
+    : null;
+  const normalizationCi95 = normalizedCases.length > 0
+    ? wilson95(normalizationWrites, normalizedCases.length)
+    : null;
+  const productionBinnenISlots = [...productionBinnenVariantCounts.values()]
+    .reduce((sum, count) => sum + count, 0);
+  const normalizationByVariant = normalizationRows(
+    normalizedCases,
+    productionBinnenVariantCounts,
+  );
+  const weightedNormalization = productionWeightedNormalizationRate(normalizationByVariant);
+  const normalizationProductionSlots = PRODUCTION_BINNEN_I_SLOTS;
+  const normalizationFailed = normalizationRequests.length - normalizationRun.raws.size;
+  const normalizationSampleShare = rejectedCases.length > 0
+    ? normalizedCases.length / rejectedCases.length
+    : 0;
+  const normalization = {
+    calls: normalizationRequests.length,
+    ok: normalizedCases.length,
+    failed: Math.max(0, normalizationFailed),
+    elapsedMs: normalizationRun.elapsedMs,
+    writes: normalizationWrites,
+    rate: normalizationRate,
+    ci95: normalizationCi95,
+    sampleShare: normalizationSampleShare,
+    productionShare: PRODUCTION_BINNEN_I_SHARE,
+    corpusDetectorSlots: productionBinnenISlots,
+    corpusDetectorShare: productionSlots > 0 ? productionBinnenISlots / productionSlots : null,
+    byVariant: normalizationByVariant,
+    variantWeightedRate: weightedNormalization.rate,
+    variantWeightedCovered: weightedNormalization.coveredSlots,
+    variantWeightedTotal: weightedNormalization.totalSlots,
+    productionContributionRate: weightedNormalization.rate === null
+      ? null
+      : weightedNormalization.rate * PRODUCTION_BINNEN_I_SHARE,
+    productionSlots: normalizationProductionSlots,
+    estimatedMs: normalizationRun.raws.size > 0
+      ? (normalizationRun.elapsedMs / normalizationRun.raws.size) * normalizationProductionSlots
+      : null,
+  };
   const opusSummary = summarizeDecisions(rejectedCases, 'opusDecision');
   const decisionMatrix = Object.fromEntries(
     DECISIONS.filter((decision) => decision !== 'write').map((decision) => [
@@ -541,6 +870,7 @@ async function generate() {
     sampleSeed: 'none: deterministic',
     scannedJobs: scanned,
     candidateJobs: candidates.length,
+    candidateSlots: productionSlots,
     candidateCompanies: companies,
     sampledJobs: picked.length,
     sampledCompanies: new Set(picked.map((p) => companyKey(p.job))).size,
@@ -559,6 +889,7 @@ async function generate() {
     recoveredOpusWrites,
     recoveryRate,
     recoveryCi95: ci,
+    normalization,
     byCause: breakdown(rejectedCases, 'argosCause'),
     byDirection: breakdown(rejectedCases, 'direction'),
     estimatedOpusMs,
