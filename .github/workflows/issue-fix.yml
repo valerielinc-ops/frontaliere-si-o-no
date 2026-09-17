@@ -183,23 +183,14 @@ jobs:
           const urlRe = /\bhttps?:\/\/[^\s<>()]+/giu;
           const githubWebHosts = new Set(['github.com', 'www.github.com']);
           const githubRawHosts = new Set(['raw.githubusercontent.com']);
-          const githubPathRootRe = /^(?:\.github|scripts|src|components|services|hooks|build-plugins|packages|tests?|docs|functions)(?:\/|$)/iu;
-          const githubRootFileRe = /^(?:REVIEW\.md|README(?:\.[A-Za-z0-9_.-]+)?|CHANGELOG(?:\.[A-Za-z0-9_.-]+)?|LICENSE(?:\.[A-Za-z0-9_.-]+)?|Makefile|Dockerfile|CODEOWNERS)$/iu;
-          const githubRootDotfileRe = /^\.[A-Za-z0-9][A-Za-z0-9_.-]*$/u;
-          const githubControlPlanePathRe = /^(?:\.github(?:\/|$)|scripts\/ci(?:\/|$)|scripts\/lib\/classify-issue\.mjs$|REVIEW\.md$)/iu;
+          const targetRepo = String(process.env.REPO || '').toLowerCase();
           const resolveGithubPath = (parts, refStart) => {
-            if (parts.length <= refStart + 1) return '';
-            const candidates = [];
-            for (let index = refStart + 1; index < parts.length; index += 1) {
-              const candidate = parts.slice(index).join('/');
-              if (githubPathRootRe.test(candidate)
-                  || githubRootFileRe.test(candidate)
-                  || (index === parts.length - 1 && githubRootDotfileRe.test(parts[index]))) {
-                candidates.push(candidate);
-              }
-            }
-            const controlPlaneCandidate = candidates.find((candidate) => githubControlPlanePathRe.test(candidate));
-            return controlPlaneCandidate || (candidates.length === 1 ? candidates[0] : '');
+            // GitHub's blob/tree URL has no delimiter between a slash-containing
+            // ref and its pathname. Only a root-level path has one syntactic
+            // boundary; every directory path could instead start after another
+            // ref segment, so leave it unverifiable and deny by policy.
+            if (parts.length !== refStart + 2) return '';
+            return normalizeReference(parts[refStart + 1]);
           };
           const codeReferenceRe = /`([^`\r\n]+)`/gu;
           const pathReferences = [];
@@ -210,7 +201,6 @@ jobs:
               || /\.[A-Za-z][A-Za-z0-9_-]*$/u.test(candidate)
               || /^(?:\.github|scripts|src|components|services|hooks|build-plugins|packages|tests?|docs|functions)(?:[\\/]|$)/iu.test(candidate);
           };
-          const targetRepo = String(process.env.REPO || '').toLowerCase();
           const issueText = [
             issue.title,
             issue.body ?? '',
@@ -497,14 +487,26 @@ jobs:
 
             query_limit=$((group_max_size + 1))
             if ! members=$(gh issue list --repo "$REPO" --state open --label "$group_label" \
-              --json number,title,body,labels,createdAt,updatedAt --limit "$query_limit"); then
+              --json number,state,title,body,labels,createdAt,updatedAt --limit "$query_limit"); then
               echo "::warning::impossibile leggere i membri di $group_label → flusso singolo"
               return 0
             fi
             if ! valid=$(printf '%s' "$members" | jq -r --arg label "$group_label" --arg leader "$ISSUE_NUMBER" --argjson max "$group_max_size" \
               'type == "array" and length >= 2 and length <= $max
                and ([.[].number | tostring] | index($leader) != null)
-               and all(.[]; any(.labels[]?; .name == $label))'); then
+               and all(.[];
+                 ((.number | type) == "number")
+                 and ((.number | floor) == .number)
+                 and (.number > 0)
+                 and (.state == "OPEN")
+                 and ((.title | type) == "string")
+                 and ((.body == null) or ((.body | type) == "string"))
+                 and ((.labels | type) == "array")
+                 and all(.labels[]; (type == "object") and ((.name | type) == "string") and (.name | length > 0))
+                 and ((.createdAt | type) == "string")
+                 and ((.updatedAt | type) == "string")
+                 and any(.labels[]; .name == $label)
+               )'); then
               echo "::warning::impossibile validare $group_label → flusso singolo"
               return 0
             fi
@@ -535,10 +537,13 @@ jobs:
             echo "group_numbers=$group_numbers_output"
           } >> "$GITHUB_OUTPUT"
 
-      - name: Validate issue group context file (zero-Claude)
+      - name: Validate issue group context and member risk (zero-Claude)
         id: group_context
         if: steps.group.outputs.is_group == 'true'
         env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
           CTX_DIR: ${{ runner.temp }}/issue-fix-ctx
         run: |
           set -euo pipefail
@@ -546,6 +551,48 @@ jobs:
             echo "::error::contesto del gruppo B19 illeggibile: il ramo group non può procedere"
             exit 1
           fi
+
+          # Reuse the exact zero-Claude classifier from risk_policy instead of
+          # maintaining a second F1/F7 parser for B19 members. This job has the
+          # full checkout; a changed/missing inline policy is itself a deny.
+          if ! risk_script=$(node --input-type=module - <<'NODE'
+          import fs from 'node:fs';
+          const source = fs.readFileSync('.github/workflows/issue-fix.yml', 'utf8');
+          const marker = source.indexOf("<<'NODE'\n", source.indexOf('Preflight F1/F7 path-risk policy'));
+          const classifierEnd = source.indexOf('\n          NODE\n', marker);
+          if (marker < 0 || classifierEnd < 0) process.exit(1);
+          process.stdout.write(source.slice(marker + "<<'NODE'\n".length, classifierEnd).replace(/^ {10}/gmu, ''));
+          NODE
+          ); then
+            echo "::error::classifier F1/F7 inline non verificabile per il gruppo B19"
+            exit 1
+          fi
+
+          while IFS= read -r member; do
+            member_number=$(jq -er '.number | tostring' <<< "$member")
+            member_file=$(mktemp "$RUNNER_TEMP/issue-fix-group-member.XXXXXX.json")
+            printf '%s\n' "$member" > "$member_file"
+            if ! group_member_decision=$(ISSUE_NUMBER="$member_number" REPO="$REPO" GH_TOKEN="$GH_TOKEN" SNAPSHOT_FINGERPRINT=group-member \
+              node --input-type=module - "$member_file" <<< "$risk_script"); then
+              rm -f "$member_file"
+              echo "::error::preflight F1/F7 non verificabile per il membro B19 #$member_number"
+              exit 1
+            fi
+            rm -f "$member_file"
+            if ! jq -e '
+              (.automationBlocked | type) == "boolean"
+              and (.riskDecision | type) == "string"
+              and (.humanApprovalRequired | type) == "boolean"
+              and (.unknownPaths | type) == "array"
+              and (.automationBlocked == false)
+              and (.riskDecision == "allow")
+              and (.humanApprovalRequired == false)
+              and (.riskDenyCode == null)
+            ' <<< "$group_member_decision" >/dev/null; then
+              echo "::error::preflight F1/F7 negato o non verificabile per il membro B19 #$member_number"
+              exit 1
+            fi
+          done < <(jq -c '.[]' "$CTX_DIR/group.json")
 
       # Conia il token della GitHub App PRIMA di ogni gate che ne dipende.
       #

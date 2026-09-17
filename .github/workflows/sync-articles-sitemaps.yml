@@ -80,8 +80,8 @@ jobs:
       # a signature. Query the public source-run/workflow metadata first. A
       # repository_dispatch can race run visibility, rate limits, or the source
       # run leaving queued; allow only a bounded retry for those transient reads.
-      # Mismatches and terminal/unknown states still go once to the verifier and
-      # remain fail-closed.
+      # Mismatches and terminal/unknown states go once to the verifier only after
+      # both metadata lookups have a complete, valid shape, and remain fail-closed.
       - name: Verify publisher provenance via read-only metadata API
         id: publisher_provenance
         if: github.event_name == 'repository_dispatch'
@@ -141,16 +141,14 @@ jobs:
               fi
 
               retry_reason=''
-              if [ "$run_lookup_ok" != 'true' ] || [ "$run_shape_ok" != 'true' ]; then
+              if [ "$workflow_lookup_ok" != 'true' ] || [ "$workflow_shape_ok" != 'true' ]; then
+                retry_reason='publisher workflow lookup/rate limit'
+              elif [ "$run_lookup_ok" != 'true' ] || [ "$run_shape_ok" != 'true' ]; then
                 retry_reason='source run lookup/visibility'
               elif [ "$run_status" = 'queued' ]; then
                 retry_reason='source run still queued'
               elif [ "$run_status" = 'in_progress' ]; then
-                if [ "$workflow_lookup_ok" != 'true' ] || [ "$workflow_shape_ok" != 'true' ]; then
-                  retry_reason='publisher workflow lookup/rate limit'
-                else
-                  retry_reason='source run still in_progress'
-                fi
+                retry_reason='source run still in_progress'
               else
                 break
               fi

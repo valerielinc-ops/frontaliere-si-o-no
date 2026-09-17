@@ -46,6 +46,7 @@ function runInlineRisk(body: string) {
         cwd: repositoryRoot,
         env: {
           ...process.env,
+          GH_TOKEN: '',
           ISSUE_NUMBER: '42',
           REPO: 'valerielinc-ops/frontaliere-si-o-no',
           SNAPSHOT_FINGERPRINT: '0'.repeat(64),
@@ -208,33 +209,34 @@ describe('issue-fix F1/F7 policy gate', () => {
     expect(runInlineRisk('https://github.com/valerielinc-ops/frontaliere-si-o-no/blob/main/REVIEW.md')).toMatchObject({
       automationBlocked: true,
       riskDenyCode: 'control-plane',
+      pathsComplete: true,
     });
   });
 
-  it('risolve gli alias GitHub e i ref con slash, ma nega URL ambigui o non gestibili', () => {
+  it('nega URL GitHub con confine ref/path non verificabile', () => {
     expect(runInlineRisk(
       'https://www.github.com/valerielinc-ops/frontaliere-si-o-no/blob/feature/docs/.github/workflows/issue-fix.yml',
     )).toMatchObject({
       automationBlocked: true,
-      riskDenyCode: 'control-plane',
-      pathsComplete: true,
+      riskDenyCode: 'paths-unverifiable',
+      pathsComplete: false,
     });
     expect(runInlineRisk(
       'https://raw.githubusercontent.com/valerielinc-ops/frontaliere-si-o-no/feature/docs/.github/workflows/issue-fix.yml',
     )).toMatchObject({
       automationBlocked: true,
-      riskDenyCode: 'control-plane',
-      pathsComplete: true,
+      riskDenyCode: 'paths-unverifiable',
+      pathsComplete: false,
     });
     expect(runInlineRisk(
-      'https://github.com/valerielinc-ops/frontaliere-si-o-no/blob/feature/branch/src/fix.ts',
+      'https://github.com/valerielinc-ops/frontaliere-si-o-no/blob/feature/scripts/foo.mjs',
     )).toMatchObject({
-      automationBlocked: false,
-      riskDecision: 'allow',
-      pathsComplete: true,
+      automationBlocked: true,
+      riskDenyCode: 'paths-unverifiable',
+      pathsComplete: false,
     });
     expect(runInlineRisk(
-      'https://www.github.com/valerielinc-ops/frontaliere-si-o-no/blob/feature/src/docs/agent-target.ts',
+      'https://www.github.com/valerielinc-ops/frontaliere-si-o-no/blob/feature/docs/foo.mjs',
     )).toMatchObject({
       automationBlocked: true,
       riskDenyCode: 'paths-unverifiable',
@@ -293,6 +295,22 @@ describe('issue-fix F1/F7 policy gate', () => {
       expect(liveRead).toBeGreaterThan(snapshotBranch);
       expect(source).toContain('proceeding without a live fallback');
     }
+  });
+
+  it('classifica ogni membro B19 prima di coniare capability', () => {
+    const group = workflow.indexOf(
+      '- name: Validate issue group context and member risk (zero-Claude)',
+    );
+    const appToken = workflow.indexOf('Mint GitHub App token');
+    const groupValidation = workflow.slice(group, appToken);
+
+    expect(group).toBeGreaterThan(-1);
+    expect(groupValidation).toContain('Preflight F1/F7 path-risk policy');
+    expect(groupValidation).toContain('group_member_decision');
+    expect(groupValidation).toContain('automationBlocked');
+    expect(groupValidation).toContain('riskDecision');
+    expect(groupValidation).toContain('exit 1');
+    expect(group).toBeLessThan(appToken);
   });
 
   it('usa actor type e login esatti, senza prefissi aggirabili', () => {

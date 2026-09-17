@@ -580,6 +580,10 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
     expect(verifier).toContain('lookup_delay=$((lookup_attempt * 15))');
     expect(verifier).toContain('sleep "$lookup_delay"');
     expect(verifier).toContain('verifier remains fail-closed');
+    expect(verifier).toContain("if [ \"$workflow_lookup_ok\" != 'true' ] || [ \"$workflow_shape_ok\" != 'true' ]; then");
+    expect(verifier.indexOf("if [ \"$workflow_lookup_ok\" != 'true' ] || [ \"$workflow_shape_ok\" != 'true' ]; then")).toBeLessThan(
+      verifier.indexOf('else\n                break'),
+    );
     expect(verifier.indexOf('node scripts/ci/verify-publisher-dispatch.mjs')).toBeGreaterThan(
       verifier.indexOf('while [ "$lookup_attempt" -le "$max_lookup_attempts" ]'),
     );
