@@ -208,8 +208,10 @@ describe('loop fleet workflow contract', () => {
   it('ritrova solo branch ledger bridge validi e limita il lookup alle PR con base main', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
     expect(source).toContain('--json number,headRefName,baseRefName,createdAt');
+    expect(source).toContain('--limit 1000');
     expect(source).toContain('.baseRefName == "main"');
     expect(source).toContain('test("^chore/loop-fleet-ledger-L([0-9]|1[01])-[0-9]+-[0-9]+$")');
+    expect(source).toContain('open_epoch_count=$(jq \'length\' <<<"$open_epoch_prs")');
     expect(source).not.toContain('startswith("chore/loop-fleet-ledger-")');
     expect(source).toContain('source_orphan_branch=$(bounded_remote git ls-remote --heads origin');
     expect(source).toContain('if [ -z "$open_pr" ] && [ "$frozen_epoch" != \'true\' ] && [ -z "$source_orphan_branch" ]; then');
@@ -228,8 +230,12 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('epoch_batch_count=$(git log "origin/$open_branch"');
     expect(source).toContain('--batch-count "$epoch_batch_count"');
     expect(source).toContain('--age-minutes "$epoch_age_minutes"');
+    expect(source).toContain('--open-epoch-count "$open_epoch_count"');
     expect(source).toContain('ledger epoch routed to a new batch PR because PR #$open_pr is bounded');
     expect(source).toContain('source run $SOURCE_RUN_ID is preserved');
+    expect(source).toContain("route\" = 'defer-source'");
+    expect(source).toContain('no new ledger PR is opened');
+    expect(source).toContain('source run $SOURCE_RUN_ID is preserved for the next bridge/reconcile run');
     expect(source).toContain('branch="${base_branch}-${SOURCE_LOOP}-${SOURCE_RUN_ID}-${GITHUB_RUN_ATTEMPT}"');
     expect(source).not.toContain('will be recovered after the PR terminal event');
   });
