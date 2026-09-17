@@ -1,32 +1,91 @@
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
-import { inferAnyCanton, isSwissLocationText } from './target-swiss-locations.mjs';
+import {
+  inferAnyCanton,
+  isSwissLocationText,
+  swissCityFromLocationField,
+} from './target-swiss-locations.mjs';
+
+function locationText(value) {
+  if (typeof value === 'string' || typeof value === 'number') return String(value).trim();
+  if (!value || typeof value !== 'object') return '';
+  if (Array.isArray(value)) return value.map((part) => locationText(part)).filter(Boolean).join(' ');
+
+  return [
+    value.descriptor,
+    value.name,
+    value.location,
+    value.addressLocality,
+    value.city,
+    value.locality,
+    value.address,
+    value.postalAddress,
+    value.streetAddress,
+    value.postalCode,
+    value.postCode,
+    value.addressRegion,
+    value.region,
+    value.country?.descriptor,
+    value.country?.alpha2Code,
+    value.countryCode,
+  ]
+    .map((part) => locationText(part))
+    .filter(Boolean)
+    .join(' ');
+}
 
 function normalizeCandidate(candidate) {
-  if (candidate && typeof candidate === 'object') {
-    return {
-      raw: String(candidate.descriptor || candidate.name || candidate.location || '').trim(),
-      city: String(candidate.addressLocality || '').trim(),
-    };
+  const signal = locationText(candidate);
+  if (!candidate || typeof candidate !== 'object') {
+    return { raw: signal, signal, city: '' };
   }
-  return { raw: String(candidate || '').trim(), city: '' };
+
+  return {
+    raw: locationText(candidate.descriptor)
+      || locationText(candidate.name)
+      || locationText(candidate.location)
+      || signal,
+    signal,
+    city: locationText(candidate.addressLocality) || locationText(candidate.city),
+  };
 }
 
 /**
  * Resolve a Workday posting to a concrete Swiss location. Workday may put a
  * country-only value before a more specific additional location, so all
  * candidates are inspected before accepting one. A country-only value is not
- * a city and therefore returns null; the FNZ updater applies its separately
- * confirmed Zürich fallback at the publication boundary.
+ * a city and therefore returns null unless a richer detail-field signal
+ * supplies a concrete municipality.
  */
 export function resolveFnzSwissLocation(candidates = []) {
   for (const candidate of Array.isArray(candidates) ? candidates : []) {
-    const { raw, city } = normalizeCandidate(candidate);
-    if (!raw || !isSwissLocationText(raw)) continue;
+    const { raw, signal, city } = normalizeCandidate(candidate);
+    if (!raw || !signal || !isSwissLocationText(signal)) continue;
 
-    const location = city || firstLocationSegment(raw) || raw;
-    const canton = inferAnyCanton(location) || inferAnyCanton(raw);
-    if (canton) return { raw, location, canton };
+    // Search the complete source signal before falling back to the ATS's first
+    // segment. This covers `location: Switzerland` plus a richer
+    // jobRequisitionLocation/address/postalCode object without inventing an HQ.
+    const location = swissCityFromLocationField(city)
+      || swissCityFromLocationField(signal)
+      || city
+      || firstLocationSegment(raw);
+    const signalCanton = inferAnyCanton(signal);
+    const locationCanton = inferAnyCanton(location);
+    // A city and a richer address signal must describe the same canton. If
+    // they disagree, reject the candidate rather than emit plausible-looking
+    // but internally inconsistent structured data.
+    if (
+      location
+      && locationCanton
+      && (!signalCanton || signalCanton === locationCanton)
+      && !/^\s*(?:switzerland|schweiz|suisse|svizzera|swiss)\s*$/i.test(location)
+    ) {
+      const canton = signalCanton || locationCanton;
+      return { raw, location, canton };
+    }
   }
 
+  // A country-only signal cannot produce a coherent city + postalCode +
+  // addressRegion triple. The caller must drop it instead of assigning FNZ's
+  // historical office or any other HQ.
   return null;
 }

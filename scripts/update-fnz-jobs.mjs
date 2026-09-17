@@ -47,11 +47,12 @@ import {
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { isSwissLocationText, inferAnyCanton, swissCityFromLocationField } from './lib/target-swiss-locations.mjs';
+import { isSwissLocationText, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { firstLocationSegment } from './lib/ats-clients/workday-client.mjs';
+import { resolveFnzSwissLocation } from './lib/fnz-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -69,7 +70,6 @@ const FNZ_COMPANY_NAME = 'FNZ (Switzerland) AG';
 const FNZ_COMPANY_HOST = 'fnz.wd3.myworkdayjobs.com';
 const FNZ_API_BASE = 'https://fnz.wd3.myworkdayjobs.com/wday/cxs/fnz/fnz_careers';
 const FNZ_PUBLIC_BASE = 'https://fnz.wd3.myworkdayjobs.com/en/fnz_careers';
-const FNZ_SAFE_DEFAULT_CITY = 'Zürich';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 // Switzerland detection — text-based via the authoritative shared helper
@@ -346,32 +346,11 @@ function buildDescriptionIt(title, location) {
   return `Posizione aperta presso FNZ${location ? ` a ${location}` : ' in Svizzera'}.\nRuolo: ${title}.\n\nFNZ è un provider globale di piattaforme fintech che collabora con istituzioni finanziarie, gestori patrimoniali e asset manager. L'azienda opera da più sedi in Svizzera.`.trim();
 }
 
-function isBareSwissCountry(value = '') {
-  return /^(?:ch|che|switzerland|schweiz|suisse|svizzera|swiss)$/i.test(normalizeSpace(value));
-}
-
-function extractFnzCity(value = '') {
-  const canonicalCity = swissCityFromLocationField(value);
-  if (canonicalCity) return canonicalCity;
-  if (isBareSwissCountry(value)) return '';
-
-  // Preserve a concrete Workday city even when the shared municipality
-  // registry has no canonical alias for that spelling (for example Geneva).
-  return parseWorkdayLocation(value)
-    .replace(/\s*,\s*(?:ch|che|switzerland|schweiz|suisse|svizzera|swiss)\s*$/i, '')
-    .trim();
-}
-
-/** Resolve a Workday location list with a confirmed Swiss-office fallback. */
+/** Resolve a Workday location list without an HQ fallback. */
 export function resolveFnzLocation(locationCandidates = []) {
-  const candidates = Array.isArray(locationCandidates)
-    ? locationCandidates.map((value) => normalizeSpace(value)).filter(Boolean)
-    : [];
-  const swissCandidates = candidates.filter((value) => isSwissLocationText(value));
-  const concrete = swissCandidates.find((value) => extractFnzCity(value) && !isBareSwissCountry(value));
-  const raw = concrete || swissCandidates.find((value) => !isBareSwissCountry(value)) || swissCandidates[0] || '';
-  const city = extractFnzCity(raw);
-  return { raw, city, canton: inferCanton(city || raw) };
+  const resolved = resolveFnzSwissLocation(locationCandidates);
+  if (!resolved) return null;
+  return { raw: resolved.raw, city: resolved.location, canton: resolved.canton };
 }
 
 function buildPublicUrl(externalPath) {
@@ -412,25 +391,26 @@ async function fetchFnzJobs() {
     // reveal their real sites here, so we must confirm Switzerland membership
     // from the detail page rather than assuming a Swiss fallback.
     const additionalLocations = Array.isArray(info.additionalLocations)
-      ? info.additionalLocations.map((l) => (typeof l === 'string' ? l : l?.descriptor || ''))
+      ? info.additionalLocations.filter(Boolean)
       : [];
     const locationCandidates = [
       info.location || '',
       ...additionalLocations,
+      // Workday can expose only `Switzerland` in `location` while the
+      // requisition object still carries the concrete office (`CH Zurich`,
+      // `CH Chiasso`, ...). Pass the full object so its address/CAP fields can
+      // participate in canton inference as well.
+      info.jobRequisitionLocation || '',
       listing.locationsText || '',
     ];
 
     const resolvedLocation = resolveFnzLocation(locationCandidates);
-    if (!resolvedLocation.raw) {
-      console.log(`  ⏭️  Skipped — not a Swiss location (${parseWorkdayLocation(info.location || listing.locationsText || '') || 'unknown'})`);
+    if (!resolvedLocation) {
+      console.log(`  ⏭️  Skipped — Swiss location unresolved; no concrete city/address/CAP signal (${parseWorkdayLocation(info.location || listing.locationsText || '') || 'unknown'})`);
       continue;
     }
 
-    const resolvedCity = resolvedLocation.city || FNZ_SAFE_DEFAULT_CITY;
-    const canton = resolvedLocation.canton || inferCanton(resolvedCity);
-    // FNZ has a Swiss office in Zürich; use that confirmed office as the
-    // structured-data fallback when Workday exposes only the country.
-    const location = resolvedCity;
+    const { city: location, canton } = resolvedLocation;
 
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
@@ -450,6 +430,9 @@ async function fetchFnzJobs() {
       company: FNZ_COMPANY_NAME,
       companyKey: FNZ_KEY,
       location,
+      addressLocality: location,
+      addressRegion: canton,
+      addressCountry: 'CH',
       canton,
       country: 'CH',
       description: descEn,

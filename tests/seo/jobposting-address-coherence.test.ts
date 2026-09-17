@@ -65,6 +65,24 @@ describe('buildJobPostingSchema — address coherence (#3513)', () => {
     expect(addr.addressLocality).toBe('Bellinzona');
   });
 
+  it('FNZ Zurich posting gets Zurich CAP/region instead of the Lugano HQ pair', () => {
+    const s = buildJobPostingSchema(
+      {
+        ...baseJob,
+        company: 'FNZ (Switzerland) AG',
+        companyKey: 'fnz',
+        addressLocality: 'Zürich',
+        addressRegion: 'ZH',
+      },
+      OPTS,
+    );
+    const addr = s.jobLocation.address;
+    expect(addr.addressLocality).toBe('Zürich');
+    expect(addr.postalCode).toBe('8001');
+    expect(addr.addressRegion).toBe('ZH');
+    expect(addr.streetAddress).not.toBe('Via Cantonale 19');
+  });
+
   it('region name shipped as locality ("Ticino") normalizes to a coherent capital locality', () => {
     const s = buildJobPostingSchema(
       { ...baseJob, company: 'UBS', companyKey: 'ubs', addressLocality: 'Ticino', addressRegion: 'TI', postalCode: '6500' },
