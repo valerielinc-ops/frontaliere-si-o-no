@@ -69,6 +69,7 @@ const FNZ_COMPANY_NAME = 'FNZ (Switzerland) AG';
 const FNZ_COMPANY_HOST = 'fnz.wd3.myworkdayjobs.com';
 const FNZ_API_BASE = 'https://fnz.wd3.myworkdayjobs.com/wday/cxs/fnz/fnz_careers';
 const FNZ_PUBLIC_BASE = 'https://fnz.wd3.myworkdayjobs.com/en/fnz_careers';
+const FNZ_SAFE_DEFAULT_CITY = 'Zürich';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 // Switzerland detection — text-based via the authoritative shared helper
@@ -317,15 +318,27 @@ function isBareSwissCountry(value = '') {
   return /^(?:ch|che|switzerland|schweiz|suisse|svizzera|swiss)$/i.test(normalizeSpace(value));
 }
 
-/** Resolve a Workday location list without inventing a primary-office city. */
+function extractFnzCity(value = '') {
+  const canonicalCity = swissCityFromLocationField(value);
+  if (canonicalCity) return canonicalCity;
+  if (isBareSwissCountry(value)) return '';
+
+  // Preserve a concrete Workday city even when the shared municipality
+  // registry has no canonical alias for that spelling (for example Geneva).
+  return parseWorkdayLocation(value)
+    .replace(/\s*,\s*(?:ch|che|switzerland|schweiz|suisse|svizzera|swiss)\s*$/i, '')
+    .trim();
+}
+
+/** Resolve a Workday location list with a confirmed Swiss-office fallback. */
 export function resolveFnzLocation(locationCandidates = []) {
   const candidates = Array.isArray(locationCandidates)
     ? locationCandidates.map((value) => normalizeSpace(value)).filter(Boolean)
     : [];
   const swissCandidates = candidates.filter((value) => isSwissLocationText(value));
-  const concrete = swissCandidates.find((value) => swissCityFromLocationField(value) && !isBareSwissCountry(value));
+  const concrete = swissCandidates.find((value) => extractFnzCity(value) && !isBareSwissCountry(value));
   const raw = concrete || swissCandidates.find((value) => !isBareSwissCountry(value)) || swissCandidates[0] || '';
-  const city = swissCityFromLocationField(raw);
+  const city = extractFnzCity(raw);
   return { raw, city, canton: inferCanton(city || raw) };
 }
 
@@ -381,10 +394,11 @@ async function fetchFnzJobs() {
       continue;
     }
 
-    const { city, canton } = resolvedLocation;
-    // Keep a country-level fallback for structured-data completeness, but do
-    // not turn an unresolved Swiss posting into a specific FNZ office.
-    const location = city || 'Switzerland';
+    const resolvedCity = resolvedLocation.city || FNZ_SAFE_DEFAULT_CITY;
+    const canton = resolvedLocation.canton || inferCanton(resolvedCity);
+    // FNZ has a Swiss office in Zürich; use that confirmed office as the
+    // structured-data fallback when Workday exposes only the country.
+    const location = resolvedCity;
 
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
