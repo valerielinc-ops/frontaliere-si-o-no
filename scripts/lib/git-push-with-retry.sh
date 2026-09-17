@@ -288,9 +288,16 @@ apply_stashed_wip_for_resolver() {
     STASHED_WIP_PATHS+=("$path")
     if [ -n "$untracked_tree" ] && path_is_listed "$path" "$untracked_paths"; then
       source_tree="$untracked_tree"
-    elif path_is_listed "$path" "$worktree_paths" \
-      && git cat-file -e "${stash_ref}:${path}" 2>/dev/null; then
-      source_tree="$stash_ref"
+    elif path_is_listed "$path" "$worktree_paths"; then
+      if git cat-file -e "${stash_ref}:${path}" 2>/dev/null; then
+        source_tree="$stash_ref"
+      else
+        # Worktree membership is authoritative: absence from its tree is an
+        # explicit WIP deletion, even when the stash index parent still has
+        # staged content for the same path.
+        rm -f -- "$path"
+        continue
+      fi
     elif path_is_listed "$path" "$index_paths" \
       && git cat-file -e "${stash_ref}^2:${path}" 2>/dev/null; then
       # A staged-only path can be absent from the stash's worktree tree. Its
