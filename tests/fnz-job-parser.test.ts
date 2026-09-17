@@ -48,6 +48,10 @@ describe('fnz-job-parser / resolveFnzSwissLocation', () => {
     expect(resolveFnzSwissLocation(['Switzerland'])).toBeNull();
   });
 
+  it('rejects every country-only alias without selecting a historical office', () => {
+    expect(resolveFnzSwissLocation(['Schweiz', 'Suisse', 'Svizzera', 'Swiss'])).toBeNull();
+  });
+
   it('rejects an unresolved Swiss remote label instead of inventing a city', () => {
     expect(resolveFnzSwissLocation(['Remote, Switzerland'])).toBeNull();
   });
