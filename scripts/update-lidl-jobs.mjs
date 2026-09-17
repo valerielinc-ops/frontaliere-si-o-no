@@ -951,7 +951,6 @@ function logLidlJobStats(beforeSnapshot = new Map()) {
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
   const lidlJobs = allJobs.filter(isLidlJob);
-  const ticinoJobs = lidlJobs.filter((job) => normalize(job?.canton) === 'ti');
   const byCanton = new Map();
   for (const job of lidlJobs) {
     const c = String(job?.canton || '').toUpperCase() || '??';
@@ -971,7 +970,7 @@ function logLidlJobStats(beforeSnapshot = new Map()) {
   const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
   printCrawlChangeSummary(crawlDiff, 'Lidl');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Lidl');
-  return { total: lidlJobs.length, ticino: ticinoJobs.length, crawlDiff };
+  return { total: lidlJobs.length, cantons: Object.fromEntries(byCanton), crawlDiff };
 
 }
 
