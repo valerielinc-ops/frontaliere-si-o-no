@@ -9808,7 +9808,7 @@
       "slugByLocale": {
         "it": "media-relations-manager-gruppo-comunicazioni-esterne-ubs-zurich",
         "en": "media-relations-manager-group-external-communications-ubs-zurich",
-        "de": "media-relations-manager-group-external-communications-ubs-zurich",
+        "de": "medien-relations-manager-gruppe-externe-kommunikation-ubs-zurich",
         "fr": "gestionnaire-des-relations-avec-les-medias-groupe-communications-externes-ubs-zurich"
       },
       "company": "UBS",
@@ -9867,6 +9867,9 @@
           "media-relations-manager-gruppo-comunicazioni-esterne-ubs-zurich"
         ],
         "fr": [
+          "media-relations-manager-group-external-communications-ubs-zurich"
+        ],
+        "de": [
           "media-relations-manager-group-external-communications-ubs-zurich"
         ]
       },
@@ -10753,15 +10756,7 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-16T23:40:26.058Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "relationship-manager-wm-ubs-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "relationship-manager-wm-ubs-zurich"
-      ]
+      "firstSeenAt": "2026-09-16T23:40:26.058Z"
     },
     {
       "id": "ubs-52ab53d0678c",
@@ -11622,9 +11617,9 @@
     },
     {
       "id": "ubs-2c19ec96a93d",
-      "slug": "ubs-card-center-senior-domain-architect-80-100-w-m-d-ubs-zurich",
+      "slug": "centro-di-carte-usa-architetto-di-dominio-senior-80-100-m-f-d-ubs-zurich",
       "slugByLocale": {
-        "it": "ubs-card-center-senior-domain-architect-80-100-w-m-d-ubs-zurich",
+        "it": "centro-di-carte-usa-architetto-di-dominio-senior-80-100-m-f-d-ubs-zurich",
         "en": "ubs-card-center-senior-domain-architect-80-100-w-m-d-ubs-zurich",
         "de": "ubs-card-center-senior-domain-architect-80-100-w-m-d-ubs-zurich",
         "fr": "usa-card-center-architecte-de-domaine-principal-80-100-h-f-d-ubs-zurich"
@@ -11691,7 +11686,15 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "ubs-card-center-senior-domain-architect-80-100-w-m-d-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "ubs-card-center-senior-domain-architect-80-100-w-m-d-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-4a84a1808721",

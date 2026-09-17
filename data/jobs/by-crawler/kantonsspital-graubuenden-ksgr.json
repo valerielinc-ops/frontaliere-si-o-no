@@ -2932,7 +2932,7 @@
       "slugByLocale": {
         "de": "stv-stationsleiter-in-akutgeriatrie-kantonsspital-graubunden-chur",
         "it": "stv-station-manager-in-akutgeriatrie-kantonsspital-graubunden-chur",
-        "en": "stv-stationsleiter-in-akutgeriatrie-kantonsspital-graubunden-chur",
+        "en": "station-manager-acutegeriatrie-kantonsspital-graubunden-chur",
         "fr": "directeur-de-station-stv-en-akutgeriatrie-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
@@ -2966,6 +2966,9 @@
           "stv-stationsleiter-in-akutgeriatrie-kantonsspital-graubunden-chur"
         ],
         "fr": [
+          "stv-stationsleiter-in-akutgeriatrie-kantonsspital-graubunden-chur"
+        ],
+        "en": [
           "stv-stationsleiter-in-akutgeriatrie-kantonsspital-graubunden-chur"
         ]
       },
@@ -3920,8 +3923,7 @@
         "apprentissage-professionnel-de-specialiste-en-hotellerie-menager-kantonsspital-graubunden-chur",
         "specialiste-de-l-apprentissage-professionnel-specialiste-de-l-hotellerie-et-du-menage-kantonsspital-graubunden-chur",
         "apprentissage-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
-        "apprentissage-en-tant-que-specialiste-dans-l-industrie-hoteliere-et-le-menage-kantonsspital-graubunden-chur",
-        "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur-12y522"
+        "apprentissage-en-tant-que-specialiste-dans-l-industrie-hoteliere-et-le-menage-kantonsspital-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3972,7 +3974,6 @@
           "apprentissage-en-tant-que-specialiste-dans-l-industrie-hoteliere-et-le-menage-kantonsspital-graubunden-chur"
         ],
         "de": [
-          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur-12y522",
           "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
         ]
       },
@@ -4041,15 +4042,7 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-05-17T10:33:43.517Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
-        ]
-      },
-      "previousSlugs": [
-        "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
-      ]
+      "firstSeenAt": "2026-05-17T10:33:43.517Z"
     },
     {
       "id": "10020180",

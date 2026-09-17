@@ -239,7 +239,7 @@
       "slugByLocale": {
         "it": "qualificazione-e-convalida-del-prodotto-msat-globale-piombo-80-100-m-f-d-lonza-ch",
         "en": "global-msat-drug-product-qualification-and-validation-lead-80-100-m-f-d-lonza-ch",
-        "de": "global-msat-drug-product-qualification-and-validation-lead-80-100-m-f-d-lonza-ch",
+        "de": "globale-msat-drogenproduktqualifizierung-und-validierungsblei-80-100-m-w-d-lonza-stein",
         "fr": "qualification-globale-des-produits-pharmaceutiques-msat-et-plomb-de-validation-80-100-m-f-d-lonza-ch"
       },
       "company": "Lonza",
@@ -288,6 +288,9 @@
           "global-msat-drug-product-qualification-and-validation-lead-80-100-m-f-d-lonza-ch"
         ],
         "fr": [
+          "global-msat-drug-product-qualification-and-validation-lead-80-100-m-f-d-lonza-ch"
+        ],
+        "de": [
           "global-msat-drug-product-qualification-and-validation-lead-80-100-m-f-d-lonza-ch"
         ]
       },
@@ -5927,7 +5930,7 @@
       "slug": "biotecnologo-m-f-d-lonza-ch",
       "slugByLocale": {
         "it": "biotecnologo-m-f-d-lonza-ch",
-        "en": "biotechnologist-m-f-d-lonza-visp",
+        "en": "biotechn-dlz-m-f-d-lonza-visp",
         "de": "biotechnologist-m-f-d-lonza-ch",
         "fr": "biotechnologue-m-f-d-lonza-ch"
       },
@@ -5975,7 +5978,8 @@
         "biotechnologue-m-f-d-lonza-ch-88e8b4",
         "biotecnologo-m-f-d-lonza-ch-88e8b4",
         "biotechnologist-m-w-d-lonza-ch",
-        "operator-biotechnologist-m-f-d-50-100-lonza-visp"
+        "operator-biotechnologist-m-f-d-50-100-lonza-visp",
+        "biotechnologist-m-f-d-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5988,7 +5992,8 @@
         ],
         "en": [
           "biotechnologist-m-f-d-lonza-ch-2",
-          "biotechnologist-m-f-d-lonza-ch"
+          "biotechnologist-m-f-d-lonza-ch",
+          "biotechnologist-m-f-d-lonza-visp"
         ],
         "fr": [
           "biotechnologue-m-f-d-lonza-ch-88e8b4"
@@ -8339,7 +8344,7 @@
       "slug": "scienziato-per-test-di-sterilita-qc-microbiology-m-f-d-lonza-ch",
       "slugByLocale": {
         "it": "scienziato-per-test-di-sterilita-qc-microbiology-m-f-d-lonza-ch",
-        "en": "scientist-for-sterility-testing-qc-microbiology-f-m-d-lonza-ch",
+        "en": "scientist-for-sterility105-qc-microbiology-m-f-d-lonza-visp",
         "de": "scientist-for-sterility-testing-qc-microbiology-f-m-d-lonza-ch",
         "fr": "scientifique-pour-le-test-de-sterilite-qc-microbiologie-h-f-d-lonza-ch"
       },
@@ -8396,6 +8401,9 @@
           "scientist-for-sterility-testing-qc-microbiology-lonza-ch"
         ],
         "fr": [
+          "scientist-for-sterility-testing-qc-microbiology-f-m-d-lonza-ch"
+        ],
+        "en": [
           "scientist-for-sterility-testing-qc-microbiology-f-m-d-lonza-ch"
         ]
       },
@@ -9027,7 +9035,7 @@
       "slugByLocale": {
         "it": "produzione-farmaceutica-esperta-in-forma-solida-80-100-m-f-d-lonza-visp",
         "en": "solid-form-expert-pharma-manufacturing-80-100-m-f-d-lonza-ch",
-        "de": "solid-form-expert-pharma-manufacturing-80-100-m-f-d-lonza-ch",
+        "de": "solide-form-experte-pharma-herstellung-80-100-m-w-d-lonza-visp",
         "fr": "forme-solide-expert-pharma-fabrication-80-100-h-f-d-lonza-ch"
       },
       "company": "Lonza",
@@ -9085,6 +9093,9 @@
       "addressRegion": "VS",
       "previousSlugsByLocale": {
         "it": [
+          "solid-form-expert-pharma-manufacturing-80-100-m-f-d-lonza-ch"
+        ],
+        "de": [
           "solid-form-expert-pharma-manufacturing-80-100-m-f-d-lonza-ch"
         ]
       },
@@ -10809,9 +10820,9 @@
     },
     {
       "id": "lonza-a2f4a496646f",
-      "slug": "msat-bioconjugates-process-expert-f-m-d-80-100-lonza-ch",
+      "slug": "msat-bioconjugates-esperto-di-processo-m-f-d-80-100-lonza-visp",
       "slugByLocale": {
-        "it": "msat-bioconjugates-process-expert-f-m-d-80-100-lonza-ch",
+        "it": "msat-bioconjugates-esperto-di-processo-m-f-d-80-100-lonza-visp",
         "en": "msat-bioconjugates-process-expert-f-m-d-80-100-lonza-ch",
         "de": "msat-biokonjugate-prozessexperte-m-w-d-80-100-lonza-ch",
         "fr": "msat-bioconjugates-expert-du-processus-h-f-d-80-100-lonza-visp"
@@ -10869,7 +10880,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "msat-bioconjugates-process-expert-f-m-d-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "msat-bioconjugates-process-expert-f-m-d-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-746ac8b50150",
@@ -13466,7 +13485,7 @@
       "slugByLocale": {
         "it": "responsabile-assicurazione-sterilita-qa-80-100-lonza-stein",
         "en": "qa-sterility-assurance-manager-80-100-lonza-ch",
-        "de": "qa-sterility-assurance-manager-80-100-lonza-ch",
+        "de": "qa-versorgungsmanager-fur-sterilitat-80-100-lonza-stein",
         "fr": "qa-gestionnaire-d-assurance-de-la-sterilite-80-100-lonza-ch"
       },
       "company": "Lonza",
@@ -13524,6 +13543,9 @@
       "addressRegion": "AG",
       "previousSlugsByLocale": {
         "it": [
+          "qa-sterility-assurance-manager-80-100-lonza-ch"
+        ],
+        "de": [
           "qa-sterility-assurance-manager-80-100-lonza-ch"
         ]
       },
@@ -13622,7 +13644,7 @@
       "slugByLocale": {
         "it": "responsabile-oe-lonza-visp",
         "en": "oe-manager-lonza-ch",
-        "de": "oe-manager-lonza-visp",
+        "de": "oe-verwaltung-lonza-visp",
         "fr": "directeur-de-l-oe-lonza-visp"
       },
       "company": "Lonza",
@@ -13665,7 +13687,8 @@
       "jobReqId": "R79194",
       "previousSlugs": [
         "directeur-de-l-oe-lonza-ch",
-        "oe-manager-lonza-ch"
+        "oe-manager-lonza-ch",
+        "oe-manager-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13674,6 +13697,9 @@
         ],
         "fr": [
           "directeur-de-l-oe-lonza-ch"
+        ],
+        "de": [
+          "oe-manager-lonza-visp"
         ]
       },
       "firstSeenAt": "2026-09-09T23:29:00.550Z",
@@ -14286,7 +14312,7 @@
       "slug": "gestione-delle-operazioni-lancio-di-produzione-di-piccole-molecola-80-100-m-f-d-lonza-visp",
       "slugByLocale": {
         "it": "gestione-delle-operazioni-lancio-di-produzione-di-piccole-molecola-80-100-m-f-d-lonza-visp",
-        "en": "operations-manager-launch-manufacturing-small-molecules-80-100-m-w-d-lonza-ch",
+        "en": "operations-managers-launching-of-small-molcules-80-100-m-f-d-lonza-visp",
         "de": "operations-manager-launch-manufacturing-small-molecules-80-100-m-w-d-lonza-ch",
         "fr": "le-gestionnaire-des-operations-lance-la-fabrication-de-petites-molecules-80-100-h-f-d-lonza-visp"
       },
@@ -14341,6 +14367,9 @@
         ],
         "fr": [
           "le-gestionnaire-des-operations-lance-la-fabrication-de-petites-molecules-80-100-h-f-d-lonza-ch",
+          "operations-manager-launch-manufacturing-small-molecules-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
           "operations-manager-launch-manufacturing-small-molecules-80-100-m-w-d-lonza-ch"
         ]
       },

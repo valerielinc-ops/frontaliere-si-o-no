@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "gestione-account-di-successo-del-cliente-microsoft-zurich",
         "en": "customer-success-account-manager-microsoft-zurich",
-        "de": "customer-success-account-manager-microsoft-zurich",
+        "de": "kundenerfolgskontomanager-microsoft-zurich",
         "fr": "gestionnaire-de-compte-de-reussite-client-microsoft-zurich"
       },
       "company": "Microsoft",
@@ -53,7 +53,6 @@
         "customer-success-account-manager-microsoft-zurich-7v3neu",
         "customer-success-account-manager-microsoft-zurich-2",
         "customer-success-account-manager-microsoft-zurich",
-        "gestione-account-di-successo-del-cliente-microsoft-zurich",
         "gestione-account-di-successo-del-cliente-microsoft-zurich-906d96",
         "gestionnaire-de-compte-de-reussite-client-microsoft-zurich-906d96"
       ],
@@ -62,13 +61,15 @@
           "customer-success-account-manager-microsoft-zurich-7v3neu",
           "customer-success-account-manager-microsoft-zurich-2",
           "customer-success-account-manager-microsoft-zurich",
-          "gestione-account-di-successo-del-cliente-microsoft-zurich",
           "gestione-account-di-successo-del-cliente-microsoft-zurich-906d96",
           "gestionnaire-de-compte-de-reussite-client-microsoft-zurich-906d96"
         ],
         "fr": [
           "customer-success-account-manager-microsoft-zurich",
           "gestionnaire-de-compte-de-reussite-client-microsoft-zurich-906d96"
+        ],
+        "de": [
+          "customer-success-account-manager-microsoft-zurich"
         ]
       },
       "firstSeenAt": "2026-09-03T13:31:49.140Z",
@@ -136,13 +137,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "solution-engineer-data-microsoft-zurich",
-        "solution-ingegnere-data-microsoft-zurich"
+        "solution-engineer-data-microsoft-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "solution-engineer-data-microsoft-zurich",
-          "solution-ingegnere-data-microsoft-zurich"
+          "solution-engineer-data-microsoft-zurich"
         ],
         "de": [
           "solution-engineer-data-microsoft-zurich"
@@ -282,13 +281,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "strategic-account-technology-strategist-s-ats-financial-services-insurance-microsoft",
-        "strategista-strategic-account-technology-s-ats-servizi-finanziari-assicurazione-microsoft-zurich"
+        "strategic-account-technology-strategist-s-ats-financial-services-insurance-microsoft"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "strategic-account-technology-strategist-s-ats-financial-services-insurance-microsoft",
-          "strategista-strategic-account-technology-s-ats-servizi-finanziari-assicurazione-microsoft-zurich"
+          "strategic-account-technology-strategist-s-ats-financial-services-insurance-microsoft"
         ],
         "fr": [
           "strategic-account-technology-strategist-s-ats-financial-services-insurance-microsoft"
@@ -425,17 +422,14 @@
       "firstSeenAt": "2026-08-10T10:28:35.165Z",
       "previousSlugsByLocale": {
         "it": [
-          "member-of-technical-staff-data-research-engineer-microsoft-zurich",
-          "member-of-technical-staff-software-engineer-microsoft-zurich"
+          "member-of-technical-staff-data-research-engineer-microsoft-zurich"
         ],
         "en": [
-          "member-of-technical-staff-data-research-engineer-microsoft-zurich",
-          "member-of-technical-staff-software-engineer-microsoft-zurich"
+          "member-of-technical-staff-data-research-engineer-microsoft-zurich"
         ]
       },
       "previousSlugs": [
-        "member-of-technical-staff-data-research-engineer-microsoft-zurich",
-        "member-of-technical-staff-software-engineer-microsoft-zurich"
+        "member-of-technical-staff-data-research-engineer-microsoft-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -519,9 +513,9 @@
     },
     {
       "id": "microsoft-200050315",
-      "slug": "manager-critical-infrastructure-healthcare-education-microsoft-zurich",
+      "slug": "gestore-infrastrutture-critiche-sanita-e-istruzione-microsoft-zurich",
       "slugByLocale": {
-        "it": "manager-critical-infrastructure-healthcare-education-microsoft-zurich",
+        "it": "gestore-infrastrutture-critiche-sanita-e-istruzione-microsoft-zurich",
         "en": "manager-critical-infrastructure-healthcare-education-microsoft-zurich",
         "de": "manager-kritische-infrastruktur-gesundheitswesen-bildung-microsoft-zurich",
         "fr": "gestionnaire-infrastructures-essentielles-sante-et-education-microsoft-zurich"
@@ -579,7 +573,15 @@
         }
       },
       "streetAddress": "The Circle 02",
-      "postalCode": "8058"
+      "postalCode": "8058",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-critical-infrastructure-healthcare-education-microsoft-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "manager-critical-infrastructure-healthcare-education-microsoft-zurich"
+      ]
     }
   ]
 }

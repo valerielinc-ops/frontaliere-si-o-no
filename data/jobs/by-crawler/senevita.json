@@ -11999,9 +11999,9 @@
       "slug": "apprendistato-koch-kochin-cfc-100-senevita-zh-herrliberg",
       "slugByLocale": {
         "it": "apprendistato-koch-kochin-cfc-100-senevita-zh-herrliberg",
-        "en": "lehrstelle-koch-kochin-efz-100-senevita-zh-herrliberg",
+        "en": "teacher-s-training-place-cooker-cooker-efz-100-senevita-zh-herrliberg",
         "de": "lehrstelle-koch-kochin-efz-100-senevita-zh-herrliberg",
-        "fr": "lehrstelle-koch-kochin-efz-100-senevita-zh-herrliberg"
+        "fr": "lieu-de-formation-de-l-enseignant-cuisinier-cuisinier-efz-100-senevita-zh-herrliberg"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -12050,6 +12050,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-koch-kochin-efz-100-senevita-zh-herrliberg"
+        ],
+        "en": [
+          "lehrstelle-koch-kochin-efz-100-senevita-zh-herrliberg"
+        ],
+        "fr": [
+          "lehrstelle-koch-kochin-efz-100-senevita-zh-herrliberg"
         ]
       },
       "firstSeenAt": "2026-08-31T17:28:05.078Z",
@@ -12072,9 +12078,9 @@
       "slug": "apprendistato-koch-kochin-cfc-limmatfeld-senevita-zh-dietikon",
       "slugByLocale": {
         "it": "apprendistato-koch-kochin-cfc-limmatfeld-senevita-zh-dietikon",
-        "en": "lehrstelle-koch-kochin-efz-limmatfeld-senevita-zh-dietikon",
+        "en": "teacher-s-training-centre-chef-cooker-efz-limmatfeld-senevita-zh-dietikon",
         "de": "lehrstelle-koch-kochin-efz-limmatfeld-senevita-zh-dietikon",
-        "fr": "lehrstelle-koch-kochin-efz-limmatfeld-senevita-zh-dietikon"
+        "fr": "centre-de-formation-des-enseignants-chef-cuisinier-efz-limmatfeld-senevita-zh-dietikon"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -12122,6 +12128,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-koch-kochin-efz-limmatfeld-senevita-zh-dietikon"
+        ],
+        "en": [
+          "lehrstelle-koch-kochin-efz-limmatfeld-senevita-zh-dietikon"
+        ],
+        "fr": [
           "lehrstelle-koch-kochin-efz-limmatfeld-senevita-zh-dietikon"
         ]
       },
@@ -16571,12 +16583,12 @@
     },
     {
       "id": "senevita-29d31d117fa2",
-      "slug": "stv-wohnbereichsleitung-demenzabteilung-80-100-senevita-be-zollikofen",
+      "slug": "gestione-residenziale-urbana-dipartimento-di-dementia-80-100-senevita-be-zollikofen",
       "slugByLocale": {
-        "it": "stv-wohnbereichsleitung-demenzabteilung-80-100-senevita-be-zollikofen",
-        "en": "stv-wohnbereichsleitung-demenzabteilung-80-100-senevita-be-zollikofen",
+        "it": "gestione-residenziale-urbana-dipartimento-di-dementia-80-100-senevita-be-zollikofen",
+        "en": "urban-residential-management-dementia-department-80-100-senevita-be-zollikofen",
         "de": "stv-wohnbereichsleitung-demenzabteilung-80-100-senevita-be-zollikofen",
-        "fr": "stv-wohnbereichsleitung-demenzabteilung-80-100-senevita-be-zollikofen"
+        "fr": "gestion-residentielle-urbaine-departement-demence-80-100-senevita-be-zollikofen"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -16631,7 +16643,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-wohnbereichsleitung-demenzabteilung-80-100-senevita-be-zollikofen"
+        ],
+        "en": [
+          "stv-wohnbereichsleitung-demenzabteilung-80-100-senevita-be-zollikofen"
+        ],
+        "fr": [
+          "stv-wohnbereichsleitung-demenzabteilung-80-100-senevita-be-zollikofen"
+        ]
+      },
+      "previousSlugs": [
+        "stv-wohnbereichsleitung-demenzabteilung-80-100-senevita-be-zollikofen"
+      ]
     },
     {
       "id": "senevita-1323cb3d3783",

@@ -1508,7 +1508,7 @@
       "slugByLocale": {
         "it": "gestore-di-ricerca-e-analisi-ip-novartis-basel-city",
         "en": "ip-search-analytics-manager-novartis-ch",
-        "de": "ip-search-analytics-manager-novartis-ch",
+        "de": "ip-suche-analyse-manager-novartis-basel-city",
         "fr": "gestionnaire-de-recherche-et-d-analyse-ip-novartis-basel-city"
       },
       "company": "Novartis",
@@ -1556,6 +1556,9 @@
           "ip-search-analytics-manager-novartis-ch"
         ],
         "fr": [
+          "ip-search-analytics-manager-novartis-ch"
+        ],
+        "de": [
           "ip-search-analytics-manager-novartis-ch"
         ]
       },
@@ -3217,7 +3220,7 @@
       "slugByLocale": {
         "it": "qc-analista-novartis-stein-aargau",
         "en": "qc-analyst-novartis-stein-aargau",
-        "de": "qc-analyst-novartis-ch",
+        "de": "qc-antrag-novartis-stein-aargau",
         "fr": "qc-analyste-novartis-stein-aargau"
       },
       "company": "Novartis",
@@ -3268,6 +3271,9 @@
           "qc-analyst-novartis-ch"
         ],
         "en": [
+          "qc-analyst-novartis-ch"
+        ],
+        "de": [
           "qc-analyst-novartis-ch"
         ]
       },
@@ -3823,8 +3829,8 @@
       "slugByLocale": {
         "it": "trd-qa-assicurazione-globale-della-sterilita-novartis-basel",
         "en": "trd-qa-global-sterility-assurance-novartis-ch",
-        "de": "trd-qa-global-sterility-assurance-novartis-ch",
-        "fr": "trd-qa-global-sterility-assurance-novartis-ch"
+        "de": "trd-qa-globale-sterilitatssicherung-novartis-basel",
+        "fr": "trd-qa-assurance-de-la-sterilite-globale-novartis-basel"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -3868,6 +3874,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "trd-qa-global-sterility-assurance-novartis-ch"
+        ],
+        "de": [
+          "trd-qa-global-sterility-assurance-novartis-ch"
+        ],
+        "fr": [
           "trd-qa-global-sterility-assurance-novartis-ch"
         ]
       },

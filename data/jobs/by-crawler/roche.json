@@ -2269,7 +2269,7 @@
       "slugByLocale": {
         "it": "account-manager-soluzioni-di-sequenziamento-roche-roche-tokyo",
         "en": "account-manager-roche-sequencing-solutions-roche-ch",
-        "de": "account-manager-roche-sequencing-solutions-roche-ch",
+        "de": "account-manager-roche-sequenzierungslosungen-roche-tokyo",
         "fr": "gestionnaire-de-comptes-roche-sequencing-solutions-roche-tokyo"
       },
       "company": "Roche",
@@ -2317,6 +2317,9 @@
           "account-manager-roche-sequencing-solutions-roche-ch"
         ],
         "fr": [
+          "account-manager-roche-sequencing-solutions-roche-ch"
+        ],
+        "de": [
           "account-manager-roche-sequencing-solutions-roche-ch"
         ]
       },
@@ -2725,7 +2728,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-chengdu",
         "en": "roche-ch",
-        "de": "roche-chengdu",
+        "de": "nein-roche-chengdu",
         "fr": "c-est-quoi-roche-chengdu"
       },
       "company": "Roche",
@@ -2787,6 +2790,9 @@
           "roche-ch-2"
         ],
         "fr": [
+          "roche-chengdu"
+        ],
+        "de": [
           "roche-chengdu"
         ]
       },
@@ -2890,7 +2896,7 @@
       "slugByLocale": {
         "it": "coach-per-la-costruzione-di-capacita-roche-taipei",
         "en": "capability-building-coach-roche-ch",
-        "de": "capability-building-coach-roche-ch",
+        "de": "fahigkeitsaufbau-coach-roche-taipei",
         "fr": "entraineur-de-renforcement-des-capacites-roche-taipei"
       },
       "company": "Roche",
@@ -2938,6 +2944,9 @@
           "capability-building-coach-roche-ch"
         ],
         "fr": [
+          "capability-building-coach-roche-ch"
+        ],
+        "de": [
           "capability-building-coach-roche-ch"
         ]
       },
@@ -3159,7 +3168,7 @@
       "slugByLocale": {
         "it": "piombo-di-qa-roche-shanghai",
         "en": "qa-lead-roche-ch",
-        "de": "qa-lead-roche-ch",
+        "de": "qa-spitze-roche-shanghai",
         "fr": "responsable-de-l-aq-roche-shanghai"
       },
       "company": "Roche",
@@ -3207,6 +3216,9 @@
           "qa-lead-roche-ch"
         ],
         "fr": [
+          "qa-lead-roche-ch"
+        ],
+        "de": [
           "qa-lead-roche-ch"
         ]
       },
@@ -3307,7 +3319,7 @@
       "slugByLocale": {
         "it": "sr-responsabile-medico-nazionale-gi-roche-shanghai",
         "en": "sr-country-medical-manager-gi-roche-ch",
-        "de": "sr-country-medical-manager-gi-roche-ch",
+        "de": "sr-medizinischer-leiter-des-landes-gi-roche-shanghai",
         "fr": "sr-directeur-medical-de-pays-gi-roche-shanghai"
       },
       "company": "Roche",
@@ -3355,6 +3367,9 @@
           "sr-country-medical-manager-gi-roche-ch"
         ],
         "fr": [
+          "sr-country-medical-manager-gi-roche-ch"
+        ],
+        "de": [
           "sr-country-medical-manager-gi-roche-ch"
         ]
       },
@@ -4506,7 +4521,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-xuzhou",
         "en": "roche-ch",
-        "de": "roche-xuzhou",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-xuzhou",
         "fr": "roche-xuzhou"
       },
       "company": "Roche",
@@ -4573,7 +4588,8 @@
         "roche-ch-6",
         "roche-ch",
         "roche-ch-7",
-        "roche-ch-4"
+        "roche-ch-4",
+        "roche-xuzhou"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4596,6 +4612,9 @@
           "roche-ch-28",
           "roche-ch-4",
           "roche-ch-14"
+        ],
+        "de": [
+          "roche-xuzhou"
         ]
       },
       "needsRetranslation": true,
@@ -5653,9 +5672,9 @@
     },
     {
       "id": "roche-87f84087017f",
-      "slug": "she-trainee-attach-train-program-roche-ch",
+      "slug": "trainee-she-allega-il-programma-e-il-treno-roche-central-singapore",
       "slugByLocale": {
-        "it": "she-trainee-attach-train-program-roche-ch",
+        "it": "trainee-she-allega-il-programma-e-il-treno-roche-central-singapore",
         "en": "she-trainee-attach-train-program-roche-ch",
         "de": "she-auszubildender-attach-train-program-roche-central-singapore",
         "fr": "she-apprenti-attach-train-program-roche-central-singapore"
@@ -5712,7 +5731,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "she-trainee-attach-train-program-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "she-trainee-attach-train-program-roche-ch"
+      ]
     },
     {
       "id": "roche-92a2c49686e7",
@@ -6264,9 +6291,9 @@
     },
     {
       "id": "roche-0d6d72fbd260",
-      "slug": "gpc-training-and-service-quality-lead-roche-ch",
+      "slug": "gpc-formazione-e-qualita-del-servizio-lead-roche-sant-cugat-del-valles",
       "slugByLocale": {
-        "it": "gpc-training-and-service-quality-lead-roche-ch",
+        "it": "gpc-formazione-e-qualita-del-servizio-lead-roche-sant-cugat-del-valles",
         "en": "gpc-training-and-service-quality-lead-roche-ch",
         "de": "gpc-training-and-service-qualitat-lead-roche-sant-cugat-del-valles",
         "fr": "gpc-training-and-service-qualite-lead-roche-sant-cugat-del-valles"
@@ -6323,7 +6350,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "gpc-training-and-service-quality-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "gpc-training-and-service-quality-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-e4b5e943247c",
@@ -6824,8 +6859,7 @@
         "directeur-medical-roche-basel",
         "medical-director-roche-basel",
         "medical-director-roche-ch-w87uue",
-        "medical-direttore-cvm-roche-basel-a4vrka",
-        "medical-director-cvm-roche-ch-27mycl"
+        "medical-direttore-cvm-roche-basel-a4vrka"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6840,7 +6874,6 @@
         ],
         "en": [
           "medical-director-roche-ch",
-          "medical-director-cvm-roche-ch-27mycl",
           "medical-director-cvm-roche-ch"
         ],
         "de": [
@@ -7564,7 +7597,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-nanjing",
         "en": "roche-ch",
-        "de": "roche-nanjing",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-nanjing",
         "fr": "roche-nanjing"
       },
       "company": "Roche",
@@ -7684,6 +7717,9 @@
           "roche-ch-29"
         ],
         "en": [
+          "roche-nanjing"
+        ],
+        "de": [
           "roche-nanjing"
         ]
       },
@@ -9367,8 +9403,7 @@
         "medical-director-cvm-roche-ch-3",
         "medical-direttore-cvm-roche-basel-hfwosr",
         "medical-director-cvm-roche-ch-2",
-        "directeur-medical-cvm-roche-basel-74757b",
-        "medical-director-cvm-roche-ch-iufbmm"
+        "directeur-medical-cvm-roche-basel-74757b"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9377,7 +9412,6 @@
           "medical-director-cvm-roche-ch-3"
         ],
         "en": [
-          "medical-director-cvm-roche-ch-iufbmm",
           "medical-director-cvm-roche-ch"
         ],
         "de": [
@@ -10040,7 +10074,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-chengdu-8ba662",
         "en": "roche-ch",
-        "de": "roche-chengdu",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-chengdu",
         "fr": "roche-chengdu"
       },
       "company": "Roche",
@@ -10131,7 +10165,8 @@
         "roche-ch-15",
         "roche-ch-13",
         "roche-ch-14",
-        "roche-ch-10"
+        "roche-ch-10",
+        "roche-chengdu"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10154,6 +10189,9 @@
           "roche-ch-36",
           "roche-ch-24",
           "roche-ch-35"
+        ],
+        "de": [
+          "roche-chengdu"
         ]
       },
       "needsRetranslation": true,
@@ -10561,7 +10599,7 @@
       "slugByLocale": {
         "it": "tirocinio-consulente-per-l-informazione-farmaceutica-roche-hangzhou",
         "en": "roche-ch",
-        "de": "roche-hangzhou",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-hangzhou",
         "fr": "roche-hangzhou"
       },
       "company": "Roche",
@@ -10652,7 +10690,8 @@
         "roche-ch-16",
         "roche-ch-14",
         "roche-ch-15",
-        "roche-ch-11"
+        "roche-ch-11",
+        "roche-hangzhou"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10675,6 +10714,9 @@
           "roche-ch-38",
           "roche-ch-11",
           "roche-ch-25"
+        ],
+        "de": [
+          "roche-hangzhou"
         ]
       },
       "needsRetranslation": true,
@@ -10763,7 +10805,7 @@
       "slugByLocale": {
         "it": "partner-legale-compliance-roche-tokyo",
         "en": "legal-compliance-partner-roche-ch",
-        "de": "legal-compliance-partner-roche-ch",
+        "de": "rechts-und-verhaltnisma-igkeits-partner-roche-tokyo",
         "fr": "partenaire-juridique-de-conformite-roche-tokyo"
       },
       "company": "Roche",
@@ -10814,6 +10856,9 @@
         "fr": [
           "legal-compliance-partner-roche-ch",
           "legal-compliance-partner-roche-tokyo"
+        ],
+        "de": [
+          "legal-compliance-partner-roche-ch"
         ]
       },
       "firstSeenAt": "2026-06-02T14:30:42.511Z",
@@ -11322,7 +11367,7 @@
       "slugByLocale": {
         "it": "sr-analyst-analytical-lab-biologics-roche-ch-3",
         "en": "sr-analyst-analytical-lab-biologics-roche-ch",
-        "de": "sr-analyst-analytical-lab-biologics-roche-ch-3",
+        "de": "sr-analyst-analytisches-labor-biologics-roche-shanghai",
         "fr": "sr-analyst-analytical-lab-biologics-roche-ch-3"
       },
       "company": "Roche",
@@ -11539,9 +11584,9 @@
     },
     {
       "id": "roche-b40f71a0ea15",
-      "slug": "senior-identity-and-access-management-ingegnere-cloud-environment-roche-madrid",
+      "slug": "ingegnere-di-gestione-dell-identita-e-dell-accesso-ambiente-cloud-roche-madrid",
       "slugByLocale": {
-        "it": "senior-identity-and-access-management-ingegnere-cloud-environment-roche-madrid",
+        "it": "ingegnere-di-gestione-dell-identita-e-dell-accesso-ambiente-cloud-roche-madrid",
         "en": "senior-identity-and-access-management-engineer-cloud-environment-roche-ch",
         "de": "senior-identity-and-access-management-ingenieur-cloud-environment-roche-madrid",
         "fr": "ingenieur-principal-en-gestion-de-l-identite-et-de-l-acces-cloud-environment-roche-madrid"
@@ -11585,11 +11630,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-identity-and-access-management-engineer-cloud-environment-roche-ch",
-        "senior-identity-and-access-management-ingenieur-cloud-environment-roche-madrid"
+        "senior-identity-and-access-management-ingenieur-cloud-environment-roche-madrid",
+        "senior-identity-and-access-management-ingegnere-cloud-environment-roche-madrid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-identity-and-access-management-engineer-cloud-environment-roche-ch"
+          "senior-identity-and-access-management-engineer-cloud-environment-roche-ch",
+          "senior-identity-and-access-management-ingegnere-cloud-environment-roche-madrid"
         ],
         "de": [
           "senior-identity-and-access-management-engineer-cloud-environment-roche-ch"
@@ -12534,7 +12581,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-shanghai-471821",
         "en": "roche-ch",
-        "de": "roche-shanghai",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-shanghai",
         "fr": "roche-shanghai"
       },
       "company": "Roche",
@@ -12616,6 +12663,9 @@
           "roche-ch-18",
           "roche-ch-16",
           "roche-ch-13"
+        ],
+        "de": [
+          "roche-shanghai"
         ]
       },
       "firstSeenAt": "2026-08-04T11:48:50.826Z",
@@ -12640,7 +12690,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-shenzhen",
         "en": "roche-ch",
-        "de": "roche-shenzhen",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-shenzhen",
         "fr": "roche-shenzhen"
       },
       "company": "Roche",
@@ -12734,7 +12784,8 @@
         "roche-ch-18",
         "roche-ch-19",
         "roche-ch-17",
-        "roche-ch-14"
+        "roche-ch-14",
+        "roche-shenzhen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12757,6 +12808,9 @@
           "roche-ch-148",
           "roche-ch-97",
           "roche-ch-135"
+        ],
+        "de": [
+          "roche-shenzhen"
         ]
       },
       "needsRetranslation": true,
@@ -12782,7 +12836,7 @@
       "slugByLocale": {
         "it": "tirocinio-consulente-per-l-informazione-farmaceutica-roche-fuzhou",
         "en": "roche-ch",
-        "de": "roche-fuzhou",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-fuzhou",
         "fr": "roche-fuzhou"
       },
       "company": "Roche",
@@ -12876,7 +12930,8 @@
         "roche-ch-19",
         "roche-ch-20",
         "roche-ch-18",
-        "roche-ch-15"
+        "roche-ch-15",
+        "roche-fuzhou"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12899,6 +12954,9 @@
           "roche-ch-30",
           "roche-ch-18",
           "roche-ch-41"
+        ],
+        "de": [
+          "roche-fuzhou"
         ]
       },
       "needsRetranslation": true,
@@ -13077,7 +13135,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-shanghai-21762b",
         "en": "roche-ch",
-        "de": "roche-shanghai",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-21762b",
         "fr": "c-est-pas-vrai-roche-shanghai"
       },
       "company": "Roche",
@@ -13161,6 +13219,9 @@
           "roche-ch-16"
         ],
         "fr": [
+          "roche-shanghai"
+        ],
+        "de": [
           "roche-shanghai"
         ]
       },
@@ -13926,7 +13987,7 @@
       "slugByLocale": {
         "it": "guida-alla-capacita-aziendale-source-to-pay-roche-sant-cugat-del-valles",
         "en": "business-capability-lead-source-to-pay-roche-ch",
-        "de": "business-capability-lead-source-to-pay-roche-ch",
+        "de": "unternehmensfuhrung-quelle-fur-zahlungen-roche-sant-cugat-del-valles",
         "fr": "responsable-de-la-capacite-operationnelle-source-a-paiement-roche-sant-cugat-del-valles"
       },
       "company": "Roche",
@@ -13974,6 +14035,9 @@
           "business-capability-lead-source-to-pay-roche-ch"
         ],
         "fr": [
+          "business-capability-lead-source-to-pay-roche-ch"
+        ],
+        "de": [
           "business-capability-lead-source-to-pay-roche-ch"
         ]
       },
@@ -14061,7 +14125,7 @@
       "slugByLocale": {
         "it": "registrati-alcuni-regionali-locali-roche-shaoyang",
         "en": "roche-ch",
-        "de": "roche-shaoyang",
+        "de": "auszug-roche-shaoyang",
         "fr": "roche-shaoyang"
       },
       "company": "Roche",
@@ -14171,6 +14235,9 @@
           "roche-ch-23",
           "roche-ch-37",
           "roche-shaoyang"
+        ],
+        "de": [
+          "roche-shaoyang"
         ]
       },
       "firstSeenAt": "2026-06-28T11:43:11.957Z",
@@ -14195,7 +14262,7 @@
       "slugByLocale": {
         "it": "piombo-sourcing-apac-roche-petaling-jaya",
         "en": "sourcing-lead-apac-roche-ch",
-        "de": "sourcing-lead-apac-roche-ch",
+        "de": "blei-saugen-apac-roche-petaling-jaya",
         "fr": "plomb-d-approvisionnement-apac-roche-petaling-jaya"
       },
       "company": "Roche",
@@ -14240,6 +14307,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "sourcing-lead-apac-roche-ch"
+        ],
+        "de": [
           "sourcing-lead-apac-roche-ch"
         ]
       },
@@ -14370,7 +14440,7 @@
       "slugByLocale": {
         "it": "categoria-manager-ecomponents-roche-petaling-jaya",
         "en": "category-manager-ecomponents-roche-ch",
-        "de": "category-manager-ecomponents-roche-ch",
+        "de": "kategoriemanager-ecomponents-roche-petaling-jaya",
         "fr": "gestionnaire-de-categorie-composants-electroniques-roche-petaling-jaya"
       },
       "company": "Roche",
@@ -14415,6 +14485,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "category-manager-ecomponents-roche-ch"
+        ],
+        "de": [
           "category-manager-ecomponents-roche-ch"
         ]
       },
@@ -14673,7 +14746,7 @@
       "slugByLocale": {
         "it": "leader-di-esperti-di-marketing-roche-taipei",
         "en": "marketing-expert-chapter-lead-roche-ch",
-        "de": "marketing-expert-chapter-lead-roche-ch",
+        "de": "marketing-experten-kapitel-fuhrung-roche-taipei",
         "fr": "expert-en-marketing-chapitre-plomb-roche-taipei"
       },
       "company": "Roche",
@@ -14721,6 +14794,9 @@
           "marketing-expert-chapter-lead-roche-ch"
         ],
         "fr": [
+          "marketing-expert-chapter-lead-roche-ch"
+        ],
+        "de": [
           "marketing-expert-chapter-lead-roche-ch"
         ]
       },
@@ -14985,7 +15061,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-wenzhou",
         "en": "roche-ch",
-        "de": "roche-wenzhou",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-wenzhou",
         "fr": "c-est-pas-vrai-roche-wenzhou"
       },
       "company": "Roche",
@@ -15095,6 +15171,9 @@
           "roche-ch-96"
         ],
         "fr": [
+          "roche-wenzhou"
+        ],
+        "de": [
           "roche-wenzhou"
         ]
       },
@@ -15573,7 +15652,7 @@
       "slugByLocale": {
         "it": "roche-urumqi",
         "en": "roche-ch",
-        "de": "roche-urumqi",
+        "de": "warenbezeichnung-roche-urumqi",
         "fr": "oui-roche-urumqi"
       },
       "company": "Roche",
@@ -16042,8 +16121,7 @@
         "solution-architetto-dia-commercial-operations-roche-basel",
         "solution-architect-dia-commercial-operations-roche-ch",
         "losungsarchitekt-dia-commercial-operations-roche-basel",
-        "solution-architecte-dia-commercial-operations-roche-basel",
-        "solution-architect-dia-r-d-roche-ch-3i9uyi"
+        "solution-architecte-dia-commercial-operations-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16060,7 +16138,6 @@
         "en": [
           "solution-architect-dia-rd-roche-ch",
           "solution-architect-dia-commercial-operations-roche-ch",
-          "solution-architect-dia-r-d-roche-ch-3i9uyi",
           "solution-architect-dia-r-d-roche-ch"
         ],
         "de": [
@@ -16332,7 +16409,7 @@
       "slugByLocale": {
         "it": "gasdotto-roche-shanghai",
         "en": "pipeline-roche-ch",
-        "de": "pipeline-roche-ch",
+        "de": "rohrleitung-roche-shanghai",
         "fr": "pipeline-roche-ch"
       },
       "company": "Roche",
@@ -16377,6 +16454,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pipeline-roche-ch"
+        ],
+        "de": [
           "pipeline-roche-ch"
         ]
       },
@@ -16476,7 +16556,7 @@
       "slugByLocale": {
         "it": "organizzazione-roche-xiamen",
         "en": "roche-ch",
-        "de": "roche-xiamen",
+        "de": "auszug-roche-xiamen",
         "fr": "en-milliers-de-dollars-des-etats-unis-roche-xiamen"
       },
       "company": "Roche",
@@ -16586,6 +16666,9 @@
           "roche-ch-91"
         ],
         "fr": [
+          "roche-xiamen"
+        ],
+        "de": [
           "roche-xiamen"
         ]
       },
@@ -16934,7 +17017,7 @@
       "slugByLocale": {
         "it": "responsabile-della-sicurezza-dei-dati-e-della-privacy-roche-madrid",
         "en": "data-security-privacy-lead-roche-ch",
-        "de": "data-security-privacy-lead-roche-ch",
+        "de": "datensicherheit-datenschutzhinweis-roche-madrid",
         "fr": "securite-des-donnees-et-confidentialite-responsable-roche-madrid"
       },
       "company": "Roche",
@@ -16982,6 +17065,9 @@
           "data-security-privacy-lead-roche-ch"
         ],
         "fr": [
+          "data-security-privacy-lead-roche-ch"
+        ],
+        "de": [
           "data-security-privacy-lead-roche-ch"
         ]
       },
@@ -17904,7 +17990,7 @@
       "slugByLocale": {
         "it": "roche-shanghai",
         "en": "roche-ch",
-        "de": "roche-shanghai",
+        "de": "die-sitzung-wird-um-13-00-uhr-eroffnet-roche-shanghai",
         "fr": "en-milliers-de-dollars-des-etats-unis-roche-shanghai-49b9b8"
       },
       "company": "Roche",
@@ -18394,9 +18480,9 @@
     },
     {
       "id": "roche-050966f381c0",
-      "slug": "project-change-manager-roche-ch",
+      "slug": "gestore-cambiamenti-progetto-roche-budapest",
       "slugByLocale": {
-        "it": "project-change-manager-roche-ch",
+        "it": "gestore-cambiamenti-progetto-roche-budapest",
         "en": "project-change-manager-roche-ch",
         "de": "projekt-change-manager-roche-budapest",
         "fr": "gestionnaire-de-changement-de-projet-roche-budapest"
@@ -18452,7 +18538,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-change-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-change-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-89ab1dd7e000",
@@ -19243,7 +19337,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-xian",
         "en": "roche-ch",
-        "de": "roche-xian",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-xian",
         "fr": "roche-xian"
       },
       "company": "Roche",
@@ -19322,7 +19416,8 @@
         "roche-ch-27",
         "roche-ch-28",
         "roche-ch-25",
-        "roche-ch-22"
+        "roche-ch-22",
+        "roche-xian"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -19345,6 +19440,9 @@
           "roche-ch-64",
           "roche-ch-22",
           "roche-ch-62"
+        ],
+        "de": [
+          "roche-xian"
         ]
       },
       "firstSeenAt": "2026-07-09T12:14:19.226Z",
@@ -19515,7 +19613,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-hangzhou-33a428",
         "en": "roche-ch",
-        "de": "roche-hangzhou",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-33a428",
         "fr": "roche-hangzhou"
       },
       "company": "Roche",
@@ -19609,6 +19707,9 @@
           "roche-ch-56",
           "roche-ch-54",
           "roche-ch-106"
+        ],
+        "de": [
+          "roche-hangzhou"
         ]
       },
       "firstSeenAt": "2026-07-20T22:09:17.456Z",
@@ -19848,7 +19949,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-changsha",
         "en": "roche-ch",
-        "de": "roche-changsha",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-changsha",
         "fr": "roche-changsha"
       },
       "company": "Roche",
@@ -19929,7 +20030,8 @@
         "roche-ch-31",
         "roche-ch-32",
         "roche-ch-29",
-        "roche-ch-26"
+        "roche-ch-26",
+        "roche-changsha"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -19952,6 +20054,9 @@
           "roche-ch-88",
           "roche-ch-59",
           "roche-ch-154"
+        ],
+        "de": [
+          "roche-changsha"
         ]
       },
       "firstSeenAt": "2026-07-06T15:33:45.292Z",
@@ -20577,7 +20682,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-guangzhou-8d2de5",
         "en": "roche-ch",
-        "de": "roche-guangzhou",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-guangzhou",
         "fr": "roche-guangzhou"
       },
       "company": "Roche",
@@ -20655,7 +20760,8 @@
         "roche-ch-34",
         "roche-ch-32",
         "roche-ch-30",
-        "roche-ch-27"
+        "roche-ch-27",
+        "roche-guangzhou"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -20678,6 +20784,9 @@
           "roche-ch-150",
           "roche-ch-27",
           "roche-ch-102"
+        ],
+        "de": [
+          "roche-guangzhou"
         ]
       },
       "firstSeenAt": "2026-07-15T11:01:32.496Z",
@@ -21101,7 +21210,7 @@
       "slugByLocale": {
         "it": "contenuti-e-servizi-digitali-roche-budapest",
         "en": "digital-content-services-lead-roche-ch",
-        "de": "digital-content-services-lead-roche-ch",
+        "de": "digitale-inhalte-dienstleistungen-fuhrend-roche-budapest",
         "fr": "contenu-et-services-numeriques-responsable-roche-budapest"
       },
       "company": "Roche",
@@ -21149,6 +21258,9 @@
           "digital-content-services-lead-roche-ch"
         ],
         "fr": [
+          "digital-content-services-lead-roche-ch"
+        ],
+        "de": [
           "digital-content-services-lead-roche-ch"
         ]
       },
@@ -21548,7 +21660,7 @@
       "slugByLocale": {
         "it": "partner-dell-esperienza-clienti-omnicanale-malattia-rara-ematologia-roche-subang-jaya",
         "en": "omnichannel-customer-experience-partner-rare-disease-hematology-roche-ch",
-        "de": "omnichannel-customer-experience-partner-rare-disease-hematology-roche-ch",
+        "de": "omnichannel-customer-experience-partner-seltene-krankheit-hematologie-roche-subang-jaya",
         "fr": "partenaire-d-experience-client-omnicanal-maladie-rare-hematologie-roche-subang-jaya"
       },
       "company": "Roche",
@@ -21596,6 +21708,9 @@
           "omnichannel-customer-experience-partner-rare-disease-hematology-roche-ch"
         ],
         "fr": [
+          "omnichannel-customer-experience-partner-rare-disease-hematology-roche-ch"
+        ],
+        "de": [
           "omnichannel-customer-experience-partner-rare-disease-hematology-roche-ch"
         ]
       },
@@ -22443,7 +22558,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-beijing-71b087",
         "en": "roche-ch",
-        "de": "roche-beijing",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-beijing",
         "fr": "roche-beijing"
       },
       "company": "Roche",
@@ -22515,6 +22630,9 @@
           "roche-ch-35",
           "roche-ch-33",
           "roche-ch-30"
+        ],
+        "de": [
+          "roche-beijing"
         ]
       },
       "firstSeenAt": "2026-08-18T09:55:17.433Z",
@@ -23550,7 +23668,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-nanchang",
         "en": "roche-ch",
-        "de": "roche-nanchang",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-nanchang",
         "fr": "c-est-pas-vrai-roche-nanchang-8b8bc9"
       },
       "company": "Roche",
@@ -23651,6 +23769,9 @@
           "roche-ch-134"
         ],
         "fr": [
+          "roche-nanchang"
+        ],
+        "de": [
           "roche-nanchang"
         ]
       },
@@ -23980,7 +24101,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-beijing-79ab85",
         "en": "roche-ch",
-        "de": "roche-beijing",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-79ab85",
         "fr": "roche-beijing"
       },
       "company": "Roche",
@@ -24050,6 +24171,9 @@
           "roche-ch-38",
           "roche-ch-36",
           "roche-ch-33"
+        ],
+        "de": [
+          "roche-beijing"
         ]
       },
       "firstSeenAt": "2026-08-19T09:58:01.086Z",
@@ -24154,7 +24278,7 @@
       "slugByLocale": {
         "it": "data-steward-per-la-gestione-dei-dati-e-analitica-roche-budapest",
         "en": "data-steward-for-data-analytic-governance-roche-ch",
-        "de": "data-steward-for-data-analytic-governance-roche-ch",
+        "de": "datenverwahrer-fur-daten-analytische-governance-roche-budapest",
         "fr": "data-steward-pour-la-gouvernance-des-donnees-et-des-analyses-roche-budapest"
       },
       "company": "Roche",
@@ -24202,6 +24326,9 @@
           "data-steward-for-data-analytic-governance-roche-ch"
         ],
         "fr": [
+          "data-steward-for-data-analytic-governance-roche-ch"
+        ],
+        "de": [
           "data-steward-for-data-analytic-governance-roche-ch"
         ]
       },
@@ -24451,7 +24578,7 @@
       "slugByLocale": {
         "it": "malattie-cardiometaboliche-madrid-clm-e-comunidad-valenciana-roche-spain",
         "en": "medical-engagement-partner-cardiometabolic-diseases-madrid-clm-y-comunidad-valenciana",
-        "de": "medical-engagement-partner-cardiometabolic-diseases-madrid-clm-y-comunidad-valenciana",
+        "de": "medizinischer-ansprechpartner-fur-herz-kreislauf-erkrankungen-madrid-clm-y-comunidad-valenciana-roche-spain",
         "fr": "medical-engagement-partner-cardiometabolic-diseases-madrid-clm-y-comunidad-valenciana"
       },
       "company": "Roche",
@@ -24496,6 +24623,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "medical-engagement-partner-cardiometabolic-diseases-madrid-clm-y-comunidad-valenciana"
+        ],
+        "de": [
           "medical-engagement-partner-cardiometabolic-diseases-madrid-clm-y-comunidad-valenciana"
         ]
       },
@@ -24597,7 +24727,7 @@
       "slugByLocale": {
         "it": "malattie-cardiometaboliche-andalucia-extremadura-murcia-y-canarias-roche-spain",
         "en": "medical-engagement-partner-cardiometabolic-diseases-andalucia-extremadura-murcia-y",
-        "de": "medical-engagement-partner-cardiometabolic-diseases-andalusien-extremadura-murcia-y-canarias-roche-spain",
+        "de": "medizinischer-ansprechpartner-fur-das-chirurgische-engagement-kardiometabole-erkrankungen-andalusien-extremadura-murcia",
         "fr": "partenaires-de-l-engagement-medical-maladies-cardio-metaboliques-andalucia-extremadura-murcia-y-canarias-roche-spain"
       },
       "company": "Roche",
@@ -24638,14 +24768,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medical-engagement-partner-cardiometabolic-diseases-andalucia-extremadura-murcia-y"
+        "medical-engagement-partner-cardiometabolic-diseases-andalucia-extremadura-murcia-y",
+        "medical-engagement-partner-cardiometabolic-diseases-andalusien-extremadura-murcia-y-canarias-roche-spain"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medical-engagement-partner-cardiometabolic-diseases-andalucia-extremadura-murcia-y"
         ],
         "de": [
-          "medical-engagement-partner-cardiometabolic-diseases-andalucia-extremadura-murcia-y"
+          "medical-engagement-partner-cardiometabolic-diseases-andalucia-extremadura-murcia-y",
+          "medical-engagement-partner-cardiometabolic-diseases-andalusien-extremadura-murcia-y-canarias-roche-spain"
         ],
         "fr": [
           "medical-engagement-partner-cardiometabolic-diseases-andalucia-extremadura-murcia-y"
@@ -25370,7 +25502,7 @@
       "slugByLocale": {
         "it": "partner-dei-sistemi-sanitari-roche-hod-hasharon",
         "en": "healthcare-systems-partner-roche-ch",
-        "de": "healthcare-systems-partner-roche-ch-2",
+        "de": "partner-von-gesundheitssystemen-roche-hod-hasharon",
         "fr": "partenaire-des-systemes-de-sante-roche-hod-hasharon"
       },
       "company": "Roche",
@@ -25421,6 +25553,9 @@
         ],
         "fr": [
           "healthcare-systems-partner-roche-ch-2"
+        ],
+        "de": [
+          "healthcare-systems-partner-roche-ch-2"
         ]
       },
       "firstSeenAt": "2026-07-23T22:07:34.578Z",
@@ -25445,7 +25580,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-shijiazhuang",
         "en": "roche-ch",
-        "de": "roche-shijiazhuang",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche",
         "fr": "roche-shijiazhuang"
       },
       "company": "Roche",
@@ -25530,6 +25665,9 @@
           "roche-ch-76",
           "roche-ch-35",
           "roche-ch-73"
+        ],
+        "de": [
+          "roche-shijiazhuang"
         ]
       },
       "firstSeenAt": "2026-08-07T10:18:15.872Z",
@@ -26266,9 +26404,9 @@
     },
     {
       "id": "roche-1adc4e2648dc",
-      "slug": "technical-lead-dia-r-d-portfolio-project-management-roche-ch",
+      "slug": "lead-tecnico-gestione-del-portafoglio-e-dei-progetti-di-r-s-dia-roche-warsaw",
       "slugByLocale": {
-        "it": "technical-lead-dia-r-d-portfolio-project-management-roche-ch",
+        "it": "lead-tecnico-gestione-del-portafoglio-e-dei-progetti-di-r-s-dia-roche-warsaw",
         "en": "technical-lead-dia-r-d-portfolio-project-management-roche-ch",
         "de": "technischer-leiter-dia-r-d-portfolio-projektmanagement-roche-warsaw",
         "fr": "responsable-technique-dia-r-d-portfolio-project-management-roche-warsaw"
@@ -26324,7 +26462,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-lead-dia-r-d-portfolio-project-management-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technical-lead-dia-r-d-portfolio-project-management-roche-ch"
+      ]
     },
     {
       "id": "roche-61991cf85278",
@@ -26686,7 +26832,7 @@
       "slugByLocale": {
         "it": "sviluppo-di-affari-piombo-roche-beijing",
         "en": "business-development-lead-roche-ch",
-        "de": "business-development-lead-roche-ch",
+        "de": "unternehmensentwicklungsleitfaden-roche-beijing",
         "fr": "chef-de-file-du-developpement-des-entreprises-roche-beijing"
       },
       "company": "Roche",
@@ -26734,6 +26880,9 @@
           "business-development-lead-roche-ch"
         ],
         "fr": [
+          "business-development-lead-roche-ch"
+        ],
+        "de": [
           "business-development-lead-roche-ch"
         ]
       },
@@ -27784,7 +27933,7 @@
       "slugByLocale": {
         "it": "roche-guangzhou",
         "en": "roche-ch",
-        "de": "roche-guangzhou",
+        "de": "auszug-roche-guangzhou",
         "fr": "roche-guangzhou"
       },
       "company": "Roche",
@@ -27902,7 +28051,7 @@
       "slugByLocale": {
         "it": "solution-architetto-roche-shanghai",
         "en": "solution-architect-roche-ch",
-        "de": "solution-architect-roche-ch",
+        "de": "losung-architekt-roche-shanghai",
         "fr": "solution-architecte-roche-shanghai"
       },
       "company": "Roche",
@@ -27951,6 +28100,9 @@
         ],
         "fr": [
           "solution-architect-roche-ch"
+        ],
+        "de": [
+          "solution-architect-roche-ch"
         ]
       },
       "firstSeenAt": "2026-07-30T11:16:43.566Z",
@@ -27975,7 +28127,7 @@
       "slugByLocale": {
         "it": "guida-allo-sviluppo-aziendale-ivd-roche-basel",
         "en": "business-development-lead-ivd-roche-ch",
-        "de": "business-development-lead-ivd-roche-ch",
+        "de": "die-zusammenstellung-der-zusammenstellungen-der-zusammenstellungen-der-zusammenstellungen-der-zusammenstellungen-der",
         "fr": "chef-de-file-du-developpement-des-entreprises-ivd-roche-basel"
       },
       "company": "Roche",
@@ -28024,6 +28176,9 @@
           "roche-ch"
         ],
         "fr": [
+          "business-development-lead-ivd-roche-ch"
+        ],
+        "de": [
           "business-development-lead-ivd-roche-ch"
         ]
       },
@@ -28437,9 +28592,9 @@
     },
     {
       "id": "roche-93a4e5d718df",
-      "slug": "digital-campaigns-subchapter-lead-roche-ch",
+      "slug": "campagne-digitali-sottocapitolo-lead-roche-budapest",
       "slugByLocale": {
-        "it": "digital-campaigns-subchapter-lead-roche-ch",
+        "it": "campagne-digitali-sottocapitolo-lead-roche-budapest",
         "en": "digital-campaigns-subchapter-lead-roche-ch",
         "de": "digitale-kampagnen-unterkapitel-lead-roche-budapest",
         "fr": "campagnes-numeriques-sous-chapitre-responsable-roche-budapest"
@@ -28495,7 +28650,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "digital-campaigns-subchapter-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "digital-campaigns-subchapter-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-52eb8757d8eb",
@@ -30412,7 +30575,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-yinchuan",
         "en": "roche-ch",
-        "de": "roche-yinchuan",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-yinchuan",
         "fr": "c-est-pas-vrai-roche-yinchuan"
       },
       "company": "Roche",
@@ -30511,6 +30674,9 @@
         ],
         "fr": [
           "roche-yinchuan"
+        ],
+        "de": [
+          "roche-yinchuan"
         ]
       },
       "firstSeenAt": "2026-07-31T22:09:33.420Z",
@@ -30535,7 +30701,7 @@
       "slugByLocale": {
         "it": "senior-scienziato-ingegneria-delle-proteine-roche-shanghai",
         "en": "senior-scientist-protein-engineering-roche-ch",
-        "de": "senior-scientist-protein-engineering-roche-ch",
+        "de": "senior-wissenschaftler-proteintechnik-roche-shanghai",
         "fr": "chef-scientifique-genie-des-proteines-roche-shanghai"
       },
       "company": "Roche",
@@ -30583,6 +30749,9 @@
           "senior-scientist-protein-engineering-roche-ch"
         ],
         "fr": [
+          "senior-scientist-protein-engineering-roche-ch"
+        ],
+        "de": [
           "senior-scientist-protein-engineering-roche-ch"
         ]
       },
@@ -31261,9 +31430,9 @@
     },
     {
       "id": "roche-be1232b7ad7a",
-      "slug": "it-project-manager-rdt-pharma-r-d-roche-ch",
+      "slug": "responsabile-del-progetto-it-std-pharma-r-d-roche-madrid",
       "slugByLocale": {
-        "it": "it-project-manager-rdt-pharma-r-d-roche-ch",
+        "it": "responsabile-del-progetto-it-std-pharma-r-d-roche-madrid",
         "en": "it-project-manager-rdt-pharma-r-d-roche-ch",
         "de": "it-projektmanager-rdt-pharma-r-d-roche-madrid",
         "fr": "gestionnaire-de-projet-ti-r-d-rdt-pharma-roche-madrid"
@@ -31319,7 +31488,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-project-manager-rdt-pharma-r-d-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-project-manager-rdt-pharma-r-d-roche-ch"
+      ]
     },
     {
       "id": "roche-0fe173e07f19",
@@ -31403,8 +31580,8 @@
       "slugByLocale": {
         "it": "legale-compliance-she-head-roche-quito",
         "en": "legal-compliance-she-head-roche-ch",
-        "de": "legal-compliance-she-head-roche-ch",
-        "fr": "legal-compliance-she-head-roche-ch"
+        "de": "rechts-compliance-und-she-leiter-roche-quito",
+        "fr": "droit-conformite-et-tete-de-la-she-roche-quito"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -31448,6 +31625,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "legal-compliance-she-head-roche-ch"
+        ],
+        "de": [
+          "legal-compliance-she-head-roche-ch"
+        ],
+        "fr": [
           "legal-compliance-she-head-roche-ch"
         ]
       },
@@ -31539,11 +31722,11 @@
     },
     {
       "id": "roche-e1edb899485b",
-      "slug": "senior-medical-science-manager-bc-roche-ch",
+      "slug": "senior-direttore-scientifico-medico-bc-roche-basel",
       "slugByLocale": {
-        "it": "senior-medical-science-manager-bc-roche-ch",
+        "it": "senior-direttore-scientifico-medico-bc-roche-basel",
         "en": "senior-medical-science-manager-bc-roche-ch",
-        "de": "senior-medical-science-manager-bc-roche-ch",
+        "de": "senior-medizinischer-leiter-bc-roche-basel",
         "fr": "aine-gestionnaire-des-sciences-medicales-bc-roche-basel"
       },
       "company": "Roche",
@@ -31597,7 +31780,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-medical-science-manager-bc-roche-ch"
+        ],
+        "de": [
+          "senior-medical-science-manager-bc-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-medical-science-manager-bc-roche-ch"
+      ]
     },
     {
       "id": "roche-594ec9634b03",
@@ -32333,7 +32527,7 @@
       "slugByLocale": {
         "it": "territory-manager-contributor-individuale-hyderabad-roche-hyderabad",
         "en": "territory-manager-individual-contributor-hyderabad-roche-ch",
-        "de": "territory-manager-individual-contributor-hyderabad-roche-ch",
+        "de": "gebietsleiter-einzelbeitrag-hyderabad-roche-hyderabad",
         "fr": "gestionnaire-de-territoire-cotisant-individuel-hyderabad-roche-hyderabad"
       },
       "company": "Roche",
@@ -32407,7 +32601,8 @@
           "territory-manager-individual-contributor-coimbatore-roche-ch"
         ],
         "de": [
-          "territory-manager-individual-contributor-madurai-roche-ch"
+          "territory-manager-individual-contributor-madurai-roche-ch",
+          "territory-manager-individual-contributor-hyderabad-roche-ch"
         ],
         "fr": [
           "territorial-manager-en-anglais-seulement-roche-basel"
@@ -32431,11 +32626,11 @@
     },
     {
       "id": "roche-eb55d725f227",
-      "slug": "delivery-service-manager-techops-cell-gene-therapy-roche-ch",
+      "slug": "gestore-del-servizio-di-consegna-techops-cell-gene-therapy-roche-madrid",
       "slugByLocale": {
-        "it": "delivery-service-manager-techops-cell-gene-therapy-roche-ch",
+        "it": "gestore-del-servizio-di-consegna-techops-cell-gene-therapy-roche-madrid",
         "en": "delivery-service-manager-techops-cell-gene-therapy-roche-ch",
-        "de": "delivery-service-manager-techops-cell-gene-therapy-roche-ch",
+        "de": "service-manager-techops-zell-und-gentherapie-roche-madrid",
         "fr": "gestionnaire-de-services-de-livraison-techops-cell-gene-therapy-roche-madrid"
       },
       "company": "Roche",
@@ -32489,7 +32684,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "delivery-service-manager-techops-cell-gene-therapy-roche-ch"
+        ],
+        "de": [
+          "delivery-service-manager-techops-cell-gene-therapy-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "delivery-service-manager-techops-cell-gene-therapy-roche-ch"
+      ]
     },
     {
       "id": "roche-358d25facda7",
@@ -32718,11 +32924,11 @@
     },
     {
       "id": "roche-b9cb0bd84f57",
-      "slug": "sourcing-excellence-partner-rdt-data-ai-roche-ch",
+      "slug": "sovraintendenza-rdt-data-a-roche-basel",
       "slugByLocale": {
-        "it": "sourcing-excellence-partner-rdt-data-ai-roche-ch",
+        "it": "sovraintendenza-rdt-data-a-roche-basel",
         "en": "sourcing-excellence-partner-rdt-data-ai-roche-ch",
-        "de": "sourcing-excellence-partner-rdt-data-ai-roche-ch",
+        "de": "exzellenzpartner-rdt-data-ai-roche-basel",
         "fr": "partenaire-d-excellence-en-approvisionnement-data-ai-roche-basel"
       },
       "company": "Roche",
@@ -32776,7 +32982,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "sourcing-excellence-partner-rdt-data-ai-roche-ch"
+        ],
+        "de": [
+          "sourcing-excellence-partner-rdt-data-ai-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sourcing-excellence-partner-rdt-data-ai-roche-ch"
+      ]
     },
     {
       "id": "roche-7f8c85300866",
@@ -32784,7 +33001,7 @@
       "slugByLocale": {
         "it": "account-esecutivo-roche-south-san-francisco",
         "en": "account-executive-roche-ch",
-        "de": "account-executive-roche-ch",
+        "de": "kontoleitung-roche-south-san-francisco",
         "fr": "executif-du-compte-roche-south-san-francisco"
       },
       "company": "Roche",
@@ -32832,6 +33049,9 @@
           "account-executive-roche-ch"
         ],
         "fr": [
+          "account-executive-roche-ch"
+        ],
+        "de": [
           "account-executive-roche-ch"
         ]
       },
@@ -33770,7 +33990,7 @@
       "slugByLocale": {
         "it": "marketing-manager-immu-roche-ch",
         "en": "marketing-manager-immu-roche-ch",
-        "de": "marketing-manager-immu-roche-ch",
+        "de": "marketingleiter-immu-roche-shanghai",
         "fr": "directeur-marketing-immu-roche-shanghai"
       },
       "company": "Roche",
@@ -33829,9 +34049,9 @@
     },
     {
       "id": "roche-8238ddc3696f",
-      "slug": "product-manager-immu-roche-ch",
+      "slug": "gestore-prodotti-immu-roche-shanghai",
       "slugByLocale": {
-        "it": "product-manager-immu-roche-ch",
+        "it": "gestore-prodotti-immu-roche-shanghai",
         "en": "product-manager-immu-roche-ch",
         "de": "produktmanager-immu-roche-shanghai",
         "fr": "gestionnaire-de-produits-immu-roche-shanghai"
@@ -33887,13 +34107,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-immu-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-immu-roche-ch"
+      ]
     },
     {
       "id": "roche-b76ee2eb8581",
-      "slug": "product-manager-immu-roche-ch-2",
+      "slug": "gestore-prodotti-immu-roche-shanghai-76f54c",
       "slugByLocale": {
-        "it": "product-manager-immu-roche-ch-2",
+        "it": "gestore-prodotti-immu-roche-shanghai-76f54c",
         "en": "product-manager-immu-roche-ch",
         "de": "produktmanager-immu-roche-shanghai-76f54c",
         "fr": "gestionnaire-de-produits-immu-roche-shanghai-76f54c"
@@ -33936,11 +34164,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-manager-immu-roche-ch"
+        "product-manager-immu-roche-ch",
+        "product-manager-immu-roche-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-manager-immu-roche-ch"
+          "product-manager-immu-roche-ch",
+          "product-manager-immu-roche-ch-2"
         ]
       },
       "firstSeenAt": "2026-08-07T10:10:45.410Z",
@@ -34037,9 +34267,9 @@
     },
     {
       "id": "roche-bd5799b09253",
-      "slug": "internship-erp-transformation-project-roche-ch",
+      "slug": "stage-progetto-di-trasformazione-erp-roche-shanghai",
       "slugByLocale": {
-        "it": "internship-erp-transformation-project-roche-ch",
+        "it": "stage-progetto-di-trasformazione-erp-roche-shanghai",
         "en": "internship-erp-transformation-project-roche-ch",
         "de": "praktikum-erp-transformation-projekt-roche-shanghai",
         "fr": "stage-projet-de-transformation-du-pgi-roche-shanghai"
@@ -34095,15 +34325,23 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-erp-transformation-project-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "internship-erp-transformation-project-roche-ch"
+      ]
     },
     {
       "id": "roche-639e465fcec7",
-      "slug": "area-lead-hcp-roche-ch",
+      "slug": "piombo-nell-area-hcp-roche-fuzhou",
       "slugByLocale": {
-        "it": "area-lead-hcp-roche-ch",
+        "it": "piombo-nell-area-hcp-roche-fuzhou",
         "en": "area-lead-hcp-roche-ch",
-        "de": "area-lead-hcp-roche-ch",
+        "de": "flachenblei-hcp-roche-fuzhou",
         "fr": "secteur-plomb-hcp-roche-fuzhou"
       },
       "company": "Roche",
@@ -34157,7 +34395,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "area-lead-hcp-roche-ch"
+        ],
+        "de": [
+          "area-lead-hcp-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "area-lead-hcp-roche-ch"
+      ]
     },
     {
       "id": "roche-e1019bc9dff0",
@@ -34529,11 +34778,11 @@
     },
     {
       "id": "roche-15a5e7a768dd",
-      "slug": "corporate-public-affairs-lead-roche-ch",
+      "slug": "lead-per-gli-affari-pubblici-aziendali-roche-welwyn",
       "slugByLocale": {
-        "it": "corporate-public-affairs-lead-roche-ch",
+        "it": "lead-per-gli-affari-pubblici-aziendali-roche-welwyn",
         "en": "corporate-public-affairs-lead-roche-ch",
-        "de": "corporate-public-affairs-lead-roche-ch",
+        "de": "fuhrung-der-offentlichen-unternehmen-roche-welwyn",
         "fr": "responsable-des-affaires-publiques-roche-welwyn"
       },
       "company": "Roche",
@@ -34574,11 +34823,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "corporate-public-affairs-lead-roche-welwyn"
+        "corporate-public-affairs-lead-roche-welwyn",
+        "corporate-public-affairs-lead-roche-ch"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "corporate-public-affairs-lead-roche-welwyn"
+        ],
+        "it": [
+          "corporate-public-affairs-lead-roche-ch"
+        ],
+        "de": [
+          "corporate-public-affairs-lead-roche-ch"
         ]
       },
       "firstSeenAt": "2026-08-07T21:44:15.477Z",
@@ -34970,8 +35226,8 @@
       "slug": "partner-del-viaggio-paziente-roche-arequipa",
       "slugByLocale": {
         "it": "partner-del-viaggio-paziente-roche-arequipa",
-        "en": "patient-journey-partner-roche-ch-8",
-        "de": "patient-journey-partner-roche-ch-8",
+        "en": "the-state-party-shall-in-accordance-with-article-3-1-of-this-regulation-provide-that-roche-arequipa",
+        "de": "der-vertragsstaat-legt-gema-artikel-3-absatz-1-dieser-verordnung-folgendes-fest-roche-arequipa",
         "fr": "patient-journey-partner-roche-ch"
       },
       "company": "Roche",
@@ -35031,6 +35287,12 @@
           "patient-journey-partner-roche-ch-4",
           "patient-journey-partner-roche-ch-3",
           "patient-journey-partner-roche-ch-2"
+        ],
+        "en": [
+          "patient-journey-partner-roche-ch-8"
+        ],
+        "de": [
+          "patient-journey-partner-roche-ch-8"
         ]
       },
       "firstSeenAt": "2026-08-07T21:43:54.977Z",
@@ -35516,7 +35778,7 @@
       "slugByLocale": {
         "it": "registrati-alcuni-regionali-locali-roche-changsha-ea52a9",
         "en": "roche-ch",
-        "de": "roche-changsha",
+        "de": "auszug-roche-changsha",
         "fr": "roche-changsha"
       },
       "company": "Roche",
@@ -35580,7 +35842,8 @@
         "roche-ch-52",
         "roche-ch-51",
         "roche-ch-49",
-        "roche-ch-46"
+        "roche-ch-46",
+        "roche-changsha"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -35603,6 +35866,9 @@
           "roche-ch-86",
           "roche-ch-46",
           "roche-ch-77"
+        ],
+        "de": [
+          "roche-changsha"
         ]
       },
       "firstSeenAt": "2026-08-10T10:27:42.807Z",
@@ -35880,7 +36146,7 @@
       "slugByLocale": {
         "it": "associate-manager-laboratorio-analitico-p-c-roche-shanghai",
         "en": "associate-manager-p-c-analytical-laboratory-roche-ch",
-        "de": "associate-manager-p-c-analytical-laboratory-roche-ch",
+        "de": "mitarbeiterleiter-p-c-analytisches-labor-roche-shanghai",
         "fr": "gestionnaire-associe-laboratoire-d-analyse-p-c-roche-shanghai"
       },
       "company": "Roche",
@@ -35928,6 +36194,9 @@
           "associate-manager-p-c-analytical-laboratory-roche-ch"
         ],
         "fr": [
+          "associate-manager-p-c-analytical-laboratory-roche-ch"
+        ],
+        "de": [
           "associate-manager-p-c-analytical-laboratory-roche-ch"
         ]
       },
@@ -36325,7 +36594,7 @@
       "slugByLocale": {
         "it": "roche-shaoxing",
         "en": "roche-ch",
-        "de": "roche-shaoxing",
+        "de": "auszug-roche-shaoxing",
         "fr": "c-est-pas-vrai-roche-shaoxing"
       },
       "company": "Roche",
@@ -36779,11 +37048,11 @@
     },
     {
       "id": "roche-9a2d262cec10",
-      "slug": "procurement-manager-it-services-roche-ch",
+      "slug": "responsabile-degli-appalti-servizi-it-roche-basel",
       "slugByLocale": {
-        "it": "procurement-manager-it-services-roche-ch",
+        "it": "responsabile-degli-appalti-servizi-it-roche-basel",
         "en": "procurement-manager-it-services-roche-ch",
-        "de": "procurement-manager-it-services-roche-ch",
+        "de": "beschaffungsmanager-it-services-roche-basel",
         "fr": "gestionnaire-des-achats-services-informatiques-roche-basel"
       },
       "company": "Roche",
@@ -36837,7 +37106,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "procurement-manager-it-services-roche-ch"
+        ],
+        "de": [
+          "procurement-manager-it-services-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "procurement-manager-it-services-roche-ch"
+      ]
     },
     {
       "id": "roche-7b9f5a350baa",
@@ -37304,7 +37584,7 @@
       "slugByLocale": {
         "it": "gestione-dei-dati-dell-intelligenza-di-mercato-roche-shanghai",
         "en": "market-intelligence-data-manager-roche-ch",
-        "de": "market-intelligence-data-manager-roche-ch",
+        "de": "marktintelligenzdatenmanager-roche-shanghai",
         "fr": "gestionnaire-de-donnees-sur-l-intelligence-du-marche-roche-shanghai"
       },
       "company": "Roche",
@@ -37352,6 +37632,9 @@
           "market-intelligence-data-manager-roche-ch"
         ],
         "fr": [
+          "market-intelligence-data-manager-roche-ch"
+        ],
+        "de": [
           "market-intelligence-data-manager-roche-ch"
         ]
       },
@@ -38272,7 +38555,7 @@
       "slugByLocale": {
         "it": "order-management-analista-roche-montevideo",
         "en": "order-management-analyst-roche-ch",
-        "de": "order-management-analyst-roche-ch",
+        "de": "auftragsverwaltung-roche-montevideo",
         "fr": "order-management-analyste-roche-montevideo"
       },
       "company": "Roche",
@@ -38321,6 +38604,9 @@
         ],
         "fr": [
           "order-management-analyst-roche-ch"
+        ],
+        "de": [
+          "order-management-analyst-roche-ch"
         ]
       },
       "firstSeenAt": "2026-08-12T21:50:17.301Z",
@@ -38345,7 +38631,7 @@
       "slugByLocale": {
         "it": "order-management-analyst-roche-ch-2",
         "en": "order-management-analyst-roche-ch",
-        "de": "order-management-analyst-roche-ch-2",
+        "de": "auftragsverwaltung-roche-asuncion",
         "fr": "order-management-analyst-roche-ch-2"
       },
       "company": "Roche",
@@ -38658,7 +38944,7 @@
       "slugByLocale": {
         "it": "roche-hefei",
         "en": "roche-ch",
-        "de": "roche-hefei",
+        "de": "auszug-roche-hefei",
         "fr": "en-milliers-de-dollars-des-etats-unis-roche-hefei"
       },
       "company": "Roche",
@@ -39507,7 +39793,7 @@
       "slugByLocale": {
         "it": "qc-roche-shanghai",
         "en": "qc-roche-ch",
-        "de": "qc-roche-shanghai",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-4d7ff3",
         "fr": "denomination-des-marchandises-roche-shanghai"
       },
       "company": "Roche",
@@ -39835,11 +40121,11 @@
     },
     {
       "id": "roche-e6e747a83c04",
-      "slug": "martech-solution-owner-fixed-term-roche-ch",
+      "slug": "proprietario-della-soluzione-martech-termine-fisso-roche-budapest",
       "slugByLocale": {
-        "it": "martech-solution-owner-fixed-term-roche-ch",
+        "it": "proprietario-della-soluzione-martech-termine-fisso-roche-budapest",
         "en": "martech-solution-owner-fixed-term-roche-ch",
-        "de": "martech-solution-owner-fixed-term-roche-ch",
+        "de": "martech-losungseigentumer-befristet-roche-budapest",
         "fr": "proprietaire-de-la-solution-martech-terme-fixe-roche-budapest"
       },
       "company": "Roche",
@@ -39893,7 +40179,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "martech-solution-owner-fixed-term-roche-ch"
+        ],
+        "de": [
+          "martech-solution-owner-fixed-term-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "martech-solution-owner-fixed-term-roche-ch"
+      ]
     },
     {
       "id": "roche-f26ec87f20f1",
@@ -40432,7 +40729,7 @@
       "slugByLocale": {
         "it": "direzione-vendite-roche-ho-chi-minh",
         "en": "sales-executive-roche-ch",
-        "de": "sales-executive-roche-ch-2",
+        "de": "vertriebsleiter-roche-ho-chi-minh",
         "fr": "directeur-des-ventes-roche-ho-chi-minh"
       },
       "company": "Roche",
@@ -40482,6 +40779,9 @@
           "sales-executive-roche-ch-2"
         ],
         "fr": [
+          "sales-executive-roche-ch-2"
+        ],
+        "de": [
           "sales-executive-roche-ch-2"
         ]
       },
@@ -41284,11 +41584,11 @@
     },
     {
       "id": "roche-9a72f37bae84",
-      "slug": "senior-medical-science-manager-bc-roche-ch-3",
+      "slug": "senior-direttore-scientifico-medico-bc-roche-guangzhou",
       "slugByLocale": {
-        "it": "senior-medical-science-manager-bc-roche-ch-3",
+        "it": "senior-direttore-scientifico-medico-bc-roche-guangzhou",
         "en": "senior-medical-science-manager-bc-roche-ch",
-        "de": "senior-medical-science-manager-bc-roche-ch-3",
+        "de": "senior-medizinischer-leiter-bc-roche-guangzhou",
         "fr": "aine-gestionnaire-des-sciences-medicales-bc-roche-guangzhou"
       },
       "company": "Roche",
@@ -41329,11 +41629,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-medical-science-manager-bc-roche-ch"
+        "senior-medical-science-manager-bc-roche-ch",
+        "senior-medical-science-manager-bc-roche-ch-3"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-medical-science-manager-bc-roche-ch"
+          "senior-medical-science-manager-bc-roche-ch",
+          "senior-medical-science-manager-bc-roche-ch-3"
+        ],
+        "de": [
+          "senior-medical-science-manager-bc-roche-ch-3"
         ]
       },
       "firstSeenAt": "2026-08-18T09:45:03.025Z",
@@ -41828,9 +42133,9 @@
     },
     {
       "id": "roche-4e4047b868ca",
-      "slug": "business-support-expert-marketing-planning-product-owner-monday-com-roche-ch",
+      "slug": "esperto-di-supporto-alle-imprese-marketing-product-planning-owner-monday-com-roche-budapest",
       "slugByLocale": {
-        "it": "business-support-expert-marketing-planning-product-owner-monday-com-roche-ch",
+        "it": "esperto-di-supporto-alle-imprese-marketing-product-planning-owner-monday-com-roche-budapest",
         "en": "business-support-expert-marketing-planning-product-owner-monday-com-roche-ch",
         "de": "business-support-experte-marketingplanung-product-owner-monday-com-roche-budapest",
         "fr": "expert-en-soutien-aux-entreprises-marketing-planning-product-owner-lunday-com-roche-budapest"
@@ -41873,11 +42178,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "expert-en-soutien-aux-entreprises-marketing-planning-product-owner-monday-com-roche-budapest"
+        "expert-en-soutien-aux-entreprises-marketing-planning-product-owner-monday-com-roche-budapest",
+        "business-support-expert-marketing-planning-product-owner-monday-com-roche-ch"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "expert-en-soutien-aux-entreprises-marketing-planning-product-owner-monday-com-roche-budapest"
+        ],
+        "it": [
+          "business-support-expert-marketing-planning-product-owner-monday-com-roche-ch"
         ]
       },
       "firstSeenAt": "2026-08-18T21:44:26.694Z",
@@ -42734,7 +43043,7 @@
       "slugByLocale": {
         "it": "rapporti-di-persone-partner-di-alcuni-roche-shanghai",
         "en": "people-relations-partner-roche-ch",
-        "de": "people-relations-partner-roche-ch",
+        "de": "personenbeziehungen-partner-roche-shanghai",
         "fr": "relations-humaines-partenaire-roche-shanghai"
       },
       "company": "Roche",
@@ -42782,6 +43091,9 @@
           "people-relations-partner-roche-ch"
         ],
         "fr": [
+          "people-relations-partner-roche-ch"
+        ],
+        "de": [
           "people-relations-partner-roche-ch"
         ]
       },
@@ -44028,7 +44340,7 @@
         "it": "sr-product-manager-immu-roche-ch",
         "en": "sr-product-manager-immu-roche-ch",
         "de": "sr-produktmanager-immu-roche-shanghai",
-        "fr": "sr-product-manager-immu-roche-ch"
+        "fr": "gestionnaire-de-produits-sr-immu-roche-shanghai"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -44090,7 +44402,7 @@
       "slugByLocale": {
         "it": "conto-premium-lead-roche-shanghai",
         "en": "premium-account-lead-roche-ch",
-        "de": "premium-account-lead-roche-ch",
+        "de": "premium-kontofuhrung-roche-shanghai",
         "fr": "compte-premium-responsable-roche-shanghai-415da5"
       },
       "company": "Roche",
@@ -44136,6 +44448,9 @@
       "previousSlugsByLocale": {
         "it": [
           "premium-account-lead-roche-ch"
+        ],
+        "de": [
+          "premium-account-lead-roche-ch"
         ]
       },
       "firstSeenAt": "2026-08-22T09:37:47.081Z",
@@ -44160,7 +44475,7 @@
       "slugByLocale": {
         "it": "leader-di-eccellenza-dei-consumatori-roche-shanghai-fa86b8",
         "en": "consumer-excellence-lead-roche-ch",
-        "de": "consumer-excellence-lead-roche-ch-2",
+        "de": "spitzenreiter-fur-verbraucher-roche-shanghai",
         "fr": "excellence-des-consommateurs-chef-de-file-roche-shanghai-fa86b8"
       },
       "company": "Roche",
@@ -44210,6 +44525,9 @@
           "consumer-excellence-lead-roche-ch-2"
         ],
         "fr": [
+          "consumer-excellence-lead-roche-ch-2"
+        ],
+        "de": [
           "consumer-excellence-lead-roche-ch-2"
         ]
       },
@@ -44646,11 +44964,11 @@
     },
     {
       "id": "roche-93dc894ee55a",
-      "slug": "senior-medical-science-manager-lc-roche-ch",
+      "slug": "senior-direttore-scientifico-medico-lc-roche-guangzhou",
       "slugByLocale": {
-        "it": "senior-medical-science-manager-lc-roche-ch",
+        "it": "senior-direttore-scientifico-medico-lc-roche-guangzhou",
         "en": "senior-medical-science-manager-lc-roche-ch",
-        "de": "senior-medical-science-manager-lc-roche-ch",
+        "de": "senior-medizinischer-leiter-lc-roche-guangzhou",
         "fr": "aine-gestionnaire-des-sciences-medicales-lc-roche-guangzhou"
       },
       "company": "Roche",
@@ -44704,7 +45022,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-medical-science-manager-lc-roche-ch"
+        ],
+        "de": [
+          "senior-medical-science-manager-lc-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-medical-science-manager-lc-roche-ch"
+      ]
     },
     {
       "id": "roche-ddf576de8846",
@@ -46623,7 +46952,7 @@
       "slugByLocale": {
         "it": "regiona-locali-alcuni-ug-treno-minuti-locali-roche-changsha",
         "en": "roche-ch",
-        "de": "roche-changsha",
+        "de": "auszug-roche-changsha-6abc20",
         "fr": "roche-changsha"
       },
       "company": "Roche",
@@ -46701,6 +47030,9 @@
           "roche-ch-66",
           "roche-ch-61",
           "roche-ch-58"
+        ],
+        "de": [
+          "roche-changsha"
         ]
       },
       "needsRetranslation": true,
@@ -46802,7 +47134,7 @@
       "slugByLocale": {
         "it": "leader-it-expert-rdt-erp-roche-basel",
         "en": "lead-it-expert-rdt-erp-roche-ch",
-        "de": "lead-it-expert-rdt-erp-roche-ch",
+        "de": "fuhrender-it-experte-rdt-erp-roche-basel",
         "fr": "expert-en-ti-principal-rdt-erp-roche-basel"
       },
       "company": "Roche",
@@ -46850,6 +47182,9 @@
           "lead-it-expert-rdt-erp-roche-ch"
         ],
         "fr": [
+          "lead-it-expert-rdt-erp-roche-ch"
+        ],
+        "de": [
           "lead-it-expert-rdt-erp-roche-ch"
         ]
       },
@@ -47305,7 +47640,7 @@
       "slugByLocale": {
         "it": "dmr-roche-fukuoka",
         "en": "dmr-roche-ch",
-        "de": "dmr-roche-fukuoka",
+        "de": "dmr-auszug-aus-der-dmr-roche-fukuoka",
         "fr": "dmr-roche-fukuoka"
       },
       "company": "Roche",
@@ -47452,7 +47787,7 @@
       "slugByLocale": {
         "it": "dmr-roche-osaka",
         "en": "dmr-roche-ch",
-        "de": "dmr-roche-osaka",
+        "de": "dmr-auszug-aus-der-dmr-roche-osaka",
         "fr": "dmr-roche-osaka"
       },
       "company": "Roche",
@@ -48205,9 +48540,9 @@
     },
     {
       "id": "roche-ba1ea1c348d2",
-      "slug": "sr-bidding-strategy-manager-roche-ch",
+      "slug": "sr-gestione-della-strategia-di-bidding-roche-shanghai",
       "slugByLocale": {
-        "it": "sr-bidding-strategy-manager-roche-ch",
+        "it": "sr-gestione-della-strategia-di-bidding-roche-shanghai",
         "en": "sr-bidding-strategy-manager-roche-ch",
         "de": "sr-bieterstrategie-manager-roche-shanghai",
         "fr": "sr-gestionnaire-de-la-strategie-d-adjudication-roche-shanghai"
@@ -48263,7 +48598,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "sr-bidding-strategy-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sr-bidding-strategy-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-c013af310fdd",
@@ -48484,9 +48827,9 @@
     },
     {
       "id": "roche-e143b0f15620",
-      "slug": "enterprise-center-of-excellence-ecoe-africa-spoc-roche-ch",
+      "slug": "centro-di-eccellenza-per-le-imprese-ecoe-africa-spoc-roche-basel",
       "slugByLocale": {
-        "it": "enterprise-center-of-excellence-ecoe-africa-spoc-roche-ch",
+        "it": "centro-di-eccellenza-per-le-imprese-ecoe-africa-spoc-roche-basel",
         "en": "enterprise-center-of-excellence-ecoe-africa-spoc-roche-ch",
         "de": "enterprise-center-of-excellence-ecoe-afrika-spoc-roche-basel",
         "fr": "centre-d-excellence-des-entreprises-ecoe-afrique-spoc-roche-basel"
@@ -48542,13 +48885,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "enterprise-center-of-excellence-ecoe-africa-spoc-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "enterprise-center-of-excellence-ecoe-africa-spoc-roche-ch"
+      ]
     },
     {
       "id": "roche-12c52a347096",
-      "slug": "medical-content-creation-subchapter-lead-roche-ch",
+      "slug": "medical-contenuto-creazione-sottocapitolo-piombo-roche-budapest",
       "slugByLocale": {
-        "it": "medical-content-creation-subchapter-lead-roche-ch",
+        "it": "medical-contenuto-creazione-sottocapitolo-piombo-roche-budapest",
         "en": "medical-content-creation-subchapter-lead-roche-ch",
         "de": "medical-content-creation-unterkapitel-lead-roche-budapest",
         "fr": "medecine-creation-de-contenu-sous-chapitre-chef-roche-budapest"
@@ -48604,7 +48955,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-content-creation-subchapter-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medical-content-creation-subchapter-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-11ff456c9f04",
@@ -48943,7 +49302,7 @@
       "slugByLocale": {
         "it": "soluzioni-di-supporto-per-le-persone-roche-budapest",
         "en": "people-support-solutions-lead-roche-ch",
-        "de": "people-support-solutions-lead-roche-ch",
+        "de": "menschen-unterstutzen-losungen-fuhren-roche-budapest",
         "fr": "solutions-de-soutien-aux-personnes-chef-de-file-roche-budapest"
       },
       "company": "Roche",
@@ -48991,6 +49350,9 @@
           "people-support-solutions-lead-roche-ch"
         ],
         "fr": [
+          "people-support-solutions-lead-roche-ch"
+        ],
+        "de": [
           "people-support-solutions-lead-roche-ch"
         ]
       },
@@ -50160,7 +50522,7 @@
         "it": "expert-digital-product-service-designer-rdt-workforce-enables-roche-basel",
         "en": "expert-digital-product-service-designer-rdt-workforce-enablement-roche-ch",
         "de": "experte-digital-product-service-designer-rdt-workforce-enable-roche-basel",
-        "fr": "expert-digital-product-service-designer-rdt-workforce-enablement-roche-ch"
+        "fr": "expert-en-conception-de-produits-et-services-numeriques-groupe-de-travail-de-l-institut-en-2015-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -50207,6 +50569,9 @@
           "expert-digital-product-service-designer-rdt-workforce-enablement-roche-ch"
         ],
         "de": [
+          "expert-digital-product-service-designer-rdt-workforce-enablement-roche-ch"
+        ],
+        "fr": [
           "expert-digital-product-service-designer-rdt-workforce-enablement-roche-ch"
         ]
       },
@@ -50944,7 +51309,7 @@
       "slugByLocale": {
         "it": "roche-jiaxing",
         "en": "roche-ch",
-        "de": "roche-jiaxing",
+        "de": "auszug-roche-jiaxing",
         "fr": "en-milliers-de-dollars-des-etats-unis-roche-jiaxing"
       },
       "company": "Roche",
@@ -51038,7 +51403,7 @@
       "slugByLocale": {
         "it": "roche-fuzhou",
         "en": "roche-ch",
-        "de": "roche-fuzhou",
+        "de": "auszug-roche-fuzhou",
         "fr": "en-milliers-de-dollars-des-etats-unis-roche-fuzhou"
       },
       "company": "Roche",
@@ -51130,7 +51495,7 @@
       "slugByLocale": {
         "it": "un-paio-di-roche-luzhou",
         "en": "roche-ch",
-        "de": "roche-luzhou",
+        "de": "die-folgenden-punkte-sind-zu-berucksichtigen-roche-luzhou",
         "fr": "roche-luzhou"
       },
       "company": "Roche",
@@ -51202,6 +51567,9 @@
           "roche-ch-73",
           "roche-ch-68",
           "roche-ch-65"
+        ],
+        "de": [
+          "roche-luzhou"
         ]
       },
       "firstSeenAt": "2026-08-28T05:17:31.786Z",
@@ -52051,9 +52419,9 @@
     },
     {
       "id": "roche-c2b2d4f15315",
-      "slug": "insights-performance-subchapter-lead-roche-ch",
+      "slug": "insights-performance-sottocapitolo-piombo-roche-riga",
       "slugByLocale": {
-        "it": "insights-performance-subchapter-lead-roche-ch",
+        "it": "insights-performance-sottocapitolo-piombo-roche-riga",
         "en": "insights-performance-subchapter-lead-roche-ch",
         "de": "insights-performance-unterkapitel-lead-roche-riga",
         "fr": "insights-performance-sous-chapitre-responsable-roche-riga"
@@ -52109,15 +52477,23 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "insights-performance-subchapter-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "insights-performance-subchapter-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-a1c5db0ca352",
-      "slug": "lms-technology-product-owner-roche-ch",
+      "slug": "proprietario-del-prodotto-della-tecnologia-lms-roche-madrid",
       "slugByLocale": {
-        "it": "lms-technology-product-owner-roche-ch",
+        "it": "proprietario-del-prodotto-della-tecnologia-lms-roche-madrid",
         "en": "lms-technology-product-owner-roche-ch",
-        "de": "lms-technology-product-owner-roche-ch",
+        "de": "lms-technologie-produktbesitzer-roche-madrid",
         "fr": "proprietaire-de-produit-de-la-technologie-lms-roche-madrid"
       },
       "company": "Roche",
@@ -52171,7 +52547,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "lms-technology-product-owner-roche-ch"
+        ],
+        "de": [
+          "lms-technology-product-owner-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lms-technology-product-owner-roche-ch"
+      ]
     },
     {
       "id": "roche-0d7ad1e3db79",
@@ -52932,7 +53319,7 @@
       "slugByLocale": {
         "en": "area-lead-roche-ch",
         "it": "roche-basel-b67b04",
-        "de": "area-lead-roche-ch",
+        "de": "blei-flache-roche-basel",
         "fr": "zone-de-plomb-roche-basel"
       },
       "company": "Roche",
@@ -53014,6 +53401,9 @@
           "area-lead-roche-ch"
         ],
         "fr": [
+          "area-lead-roche-ch"
+        ],
+        "de": [
           "area-lead-roche-ch"
         ]
       },
@@ -53176,9 +53566,9 @@
     },
     {
       "id": "roche-12d79bdc25e1",
-      "slug": "partnership-associate-funding-solutions-roche-ch",
+      "slug": "partnership-associate-soluzioni-di-finanziamento-roche-basel",
       "slugByLocale": {
-        "it": "partnership-associate-funding-solutions-roche-ch",
+        "it": "partnership-associate-soluzioni-di-finanziamento-roche-basel",
         "en": "partnership-associate-funding-solutions-roche-ch",
         "de": "partnership-associate-finanzierungslosungen-roche-basel",
         "fr": "associe-de-partenariat-solutions-de-financement-roche-basel"
@@ -53234,7 +53624,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "partnership-associate-funding-solutions-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "partnership-associate-funding-solutions-roche-ch"
+      ]
     },
     {
       "id": "roche-4f667ad868ca",
@@ -53940,7 +54338,7 @@
       "slugByLocale": {
         "it": "partner-di-affari-medici-roche-skopje",
         "en": "medical-affairs-partner-roche-ch",
-        "de": "medical-affairs-partner-roche-ch",
+        "de": "partner-fur-medizinische-angelegenheiten-roche-skopje",
         "fr": "partenaire-des-affaires-medicales-roche-skopje"
       },
       "company": "Roche",
@@ -53991,6 +54389,9 @@
         "fr": [
           "medical-affairs-partner-roche-ch",
           "medical-affairs-partner-roche-skopje"
+        ],
+        "de": [
+          "medical-affairs-partner-roche-ch"
         ]
       },
       "firstSeenAt": "2026-09-01T07:24:56.224Z",
@@ -54997,7 +55398,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-shenzhen-92591e",
         "en": "roche-ch",
-        "de": "roche-shenzhen",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-92591e",
         "fr": "roche-shenzhen"
       },
       "company": "Roche",
@@ -55073,6 +55474,9 @@
           "roche-ch-75",
           "roche-ch-70",
           "roche-ch-67"
+        ],
+        "de": [
+          "roche-shenzhen"
         ]
       },
       "firstSeenAt": "2026-08-26T09:54:57.269Z",
@@ -55567,7 +55971,7 @@
       "slugByLocale": {
         "it": "junior-patient-journey-partner-hcc-roche-ch",
         "en": "junior-patient-journey-partner-hcc-roche-ch",
-        "de": "junior-patient-journey-partner-hcc-roche-ch",
+        "de": "partner-fur-die-reise-von-patienten-mit-junior-patienten-roche-italy",
         "fr": "partenaire-de-voyage-junior-patient-hcc-roche-italy"
       },
       "company": "Roche",
@@ -55706,7 +56110,7 @@
       "slugByLocale": {
         "it": "gestione-account-roche-taiyuan",
         "en": "account-manager-roche-ch",
-        "de": "account-manager-roche-ch",
+        "de": "kontoverwaltung-roche-taiyuan",
         "fr": "gestionnaire-de-compte-roche-taiyuan"
       },
       "company": "Roche",
@@ -55754,6 +56158,9 @@
           "account-manager-roche-ch"
         ],
         "fr": [
+          "account-manager-roche-ch"
+        ],
+        "de": [
           "account-manager-roche-ch"
         ]
       },
@@ -56190,7 +56597,7 @@
       "slugByLocale": {
         "it": "portfolio-operazioni-governance-e-integrazione-lead-roche-basel",
         "en": "portfolio-operations-governance-and-integration-lead-roche-ch",
-        "de": "portfolio-operations-governance-and-integration-lead-roche-ch",
+        "de": "portfoliooperationen-governance-und-integrationsleitbild-roche-basel",
         "fr": "chef-des-operations-de-la-gouvernance-et-de-l-integration-du-portefeuille-roche-basel"
       },
       "company": "Roche",
@@ -56238,6 +56645,9 @@
           "portfolio-operations-governance-and-integration-lead-roche-ch"
         ],
         "fr": [
+          "portfolio-operations-governance-and-integration-lead-roche-ch"
+        ],
+        "de": [
           "portfolio-operations-governance-and-integration-lead-roche-ch"
         ]
       },
@@ -56484,11 +56894,11 @@
     },
     {
       "id": "roche-3f597bdfe023",
-      "slug": "senior-ai-ml-data-scientist-roche-ch",
+      "slug": "scienziatore-di-dati-per-ai-ml-roche-basel",
       "slugByLocale": {
-        "it": "senior-ai-ml-data-scientist-roche-ch",
+        "it": "scienziatore-di-dati-per-ai-ml-roche-basel",
         "en": "senior-ai-ml-data-scientist-roche-ch",
-        "de": "senior-ai-ml-data-scientist-roche-ch",
+        "de": "seniorer-ai-ml-datenwissenschaftler-roche-basel",
         "fr": "chercheur-principal-en-donnees-sur-l-ia-ml-roche-basel"
       },
       "company": "Roche",
@@ -56529,11 +56939,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-ai-ml-data-scientist-roche-basel"
+        "senior-ai-ml-data-scientist-roche-basel",
+        "senior-ai-ml-data-scientist-roche-ch"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "senior-ai-ml-data-scientist-roche-basel"
+        ],
+        "it": [
+          "senior-ai-ml-data-scientist-roche-ch"
+        ],
+        "de": [
+          "senior-ai-ml-data-scientist-roche-ch"
         ]
       },
       "firstSeenAt": "2026-09-01T07:23:59.009Z",
@@ -56636,7 +57053,7 @@
       "slugByLocale": {
         "it": "gestione-delle-operazioni-di-prova-roche-mississauga",
         "en": "evidence-operations-manager-roche-ch",
-        "de": "evidence-operations-manager-roche-ch",
+        "de": "evidenz-betriebsmanager-roche-mississauga",
         "fr": "gestionnaire-des-operations-relatives-aux-preuves-roche-mississauga"
       },
       "company": "Roche",
@@ -56684,6 +57101,9 @@
           "evidence-operations-manager-roche-ch"
         ],
         "fr": [
+          "evidence-operations-manager-roche-ch"
+        ],
+        "de": [
           "evidence-operations-manager-roche-ch"
         ]
       },
@@ -56929,9 +57349,9 @@
     },
     {
       "id": "roche-2061957b3665",
-      "slug": "global-industrial-hygiene-and-biosafety-expert-roche-ch",
+      "slug": "esperto-mondiale-di-igiene-e-biosicurezza-industriale-roche-indianapolis",
       "slugByLocale": {
-        "it": "global-industrial-hygiene-and-biosafety-expert-roche-ch",
+        "it": "esperto-mondiale-di-igiene-e-biosicurezza-industriale-roche-indianapolis",
         "en": "global-industrial-hygiene-and-biosafety-expert-roche-ch",
         "de": "globaler-experte-fur-industriehygiene-und-biosicherheit-roche-indianapolis",
         "fr": "expert-mondial-en-hygiene-industrielle-et-en-biosecurite-roche-indianapolis"
@@ -56987,7 +57407,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-industrial-hygiene-and-biosafety-expert-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-industrial-hygiene-and-biosafety-expert-roche-ch"
+      ]
     },
     {
       "id": "roche-c1e0c4d2f301",
@@ -57298,7 +57726,7 @@
       "slugByLocale": {
         "it": "piombo-di-reclutamento-cina-roche-shanghai",
         "en": "recruiting-lead-china-roche-ch",
-        "de": "recruiting-lead-china-roche-ch",
+        "de": "rekrutierungs-fuhrung-china-roche-shanghai",
         "fr": "recrutement-chef-chine-roche-shanghai"
       },
       "company": "Roche",
@@ -57346,6 +57774,9 @@
           "recruiting-lead-china-roche-ch"
         ],
         "fr": [
+          "recruiting-lead-china-roche-ch"
+        ],
+        "de": [
           "recruiting-lead-china-roche-ch"
         ]
       },
@@ -57597,7 +58028,7 @@
       "slugByLocale": {
         "it": "partner-per-la-salute-roche-welwyn",
         "en": "health-outcomes-partner-roche-ch",
-        "de": "health-outcomes-partner-roche-ch",
+        "de": "gesundheitsausloser-partner-roche-welwyn",
         "fr": "resultats-pour-la-sante-partenaire-roche-welwyn"
       },
       "company": "Roche",
@@ -57648,6 +58079,9 @@
         "fr": [
           "health-outcomes-partner-roche-ch",
           "health-outcomes-partner-roche-welwyn"
+        ],
+        "de": [
+          "health-outcomes-partner-roche-ch"
         ]
       },
       "firstSeenAt": "2026-09-01T10:40:05.175Z",
@@ -58538,7 +58972,7 @@
       "slugByLocale": {
         "it": "capo-dei-prezzi-affari-aziendali-roche-madrid",
         "en": "pricing-head-corporate-affairs-roche-ch",
-        "de": "pricing-head-corporate-affairs-roche-ch",
+        "de": "preis-leiter-unternehmen-roche-madrid",
         "fr": "responsable-de-la-tarification-affaires-generales-roche-madrid"
       },
       "company": "Roche",
@@ -58587,6 +59021,9 @@
         ],
         "fr": [
           "pricing-head-corporate-affairs-roche-ch"
+        ],
+        "de": [
+          "pricing-head-corporate-affairs-roche-ch"
         ]
       },
       "firstSeenAt": "2026-09-01T14:10:41.660Z",
@@ -58611,7 +59048,7 @@
       "slugByLocale": {
         "it": "engagement-lead-data-science-roche-ch",
         "en": "engagement-lead-data-science-roche-ch",
-        "de": "engagement-lead-data-science-roche-ch",
+        "de": "dialogleitung-datenwissenschaft-roche-basel",
         "fr": "engagement-responsable-donnees-scientifiques-roche-basel"
       },
       "company": "Roche",
@@ -58893,11 +59330,11 @@
     },
     {
       "id": "roche-e9465f4a87e1",
-      "slug": "medical-science-partner-cardio-metabolic-quebec-roche-ch",
+      "slug": "partner-scientifico-medico-cardio-metabol-quebec-roche-basel",
       "slugByLocale": {
-        "it": "medical-science-partner-cardio-metabolic-quebec-roche-ch",
+        "it": "partner-scientifico-medico-cardio-metabol-quebec-roche-basel",
         "en": "medical-science-partner-cardio-metabolic-quebec-roche-ch",
-        "de": "medical-science-partner-cardio-metabolic-quebec-roche-ch",
+        "de": "partner-fur-die-medizinwissenschaft-cardio-metabol-quebec-roche-basel",
         "fr": "medical-science-partner-cardio-metabolic-quebec-roche-ch"
       },
       "company": "Roche",
@@ -58951,7 +59388,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-science-partner-cardio-metabolic-quebec-roche-ch"
+        ],
+        "de": [
+          "medical-science-partner-cardio-metabolic-quebec-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medical-science-partner-cardio-metabolic-quebec-roche-ch"
+      ]
     },
     {
       "id": "roche-a188aee941c3",
@@ -59035,7 +59483,7 @@
       "slugByLocale": {
         "it": "practicante-de-finanzas-data-2027-1-roche-ch",
         "en": "practicante-de-finanzas-data-2027-1-roche-ch",
-        "de": "practicante-de-finanzas-data-2027-1-roche-ch",
+        "de": "praxis-de-finanzas-daten-2027-1-roche-bogota",
         "fr": "pratique-de-finanzas-donnees-2027-1-roche-bogota"
       },
       "company": "Roche",
@@ -60095,7 +60543,7 @@
       "slugByLocale": {
         "it": "partner-di-innovazione-e-consulenza-clienti-roche-petaling-jaya",
         "en": "customer-innovation-consulting-partner-roche-ch",
-        "de": "customer-innovation-consulting-partner-roche-ch",
+        "de": "partner-fur-kundeninnovation-beratung-roche-petaling-jaya",
         "fr": "partenaire-d-innovation-et-de-conseil-a-la-clientele-roche-petaling-jaya"
       },
       "company": "Roche",
@@ -60143,6 +60591,9 @@
           "customer-innovation-consulting-partner-roche-ch"
         ],
         "fr": [
+          "customer-innovation-consulting-partner-roche-ch"
+        ],
+        "de": [
           "customer-innovation-consulting-partner-roche-ch"
         ]
       },
@@ -60387,11 +60838,11 @@
     },
     {
       "id": "roche-f197f1549b08",
-      "slug": "technical-leader-digital-health-platform-secure-cloud-roche-ch",
+      "slug": "leader-tecnico-piattaforma-di-salute-digitale-cloud-sicuro-roche-basel",
       "slugByLocale": {
-        "it": "technical-leader-digital-health-platform-secure-cloud-roche-ch",
+        "it": "leader-tecnico-piattaforma-di-salute-digitale-cloud-sicuro-roche-basel",
         "en": "technical-leader-digital-health-platform-secure-cloud-roche-ch",
-        "de": "technical-leader-digital-health-platform-secure-cloud-roche-ch",
+        "de": "technischer-leiter-digitale-gesundheitsplattform-sichere-cloud-roche-basel",
         "fr": "leader-technique-plateforme-de-sante-numerique-cloud-securise-roche-basel"
       },
       "company": "Roche",
@@ -60445,7 +60896,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-leader-digital-health-platform-secure-cloud-roche-ch"
+        ],
+        "de": [
+          "technical-leader-digital-health-platform-secure-cloud-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technical-leader-digital-health-platform-secure-cloud-roche-ch"
+      ]
     },
     {
       "id": "roche-9f72810056d2",
@@ -60902,9 +61364,9 @@
     },
     {
       "id": "roche-60b35b334e67",
-      "slug": "delivery-management-professional-delivery-service-manager-rdt-pharma-r-d-roche-ch",
+      "slug": "professionista-di-gestione-delivery-responsabile-del-servizio-delivery-rdt-pharma-r-d-roche-madrid",
       "slugByLocale": {
-        "it": "delivery-management-professional-delivery-service-manager-rdt-pharma-r-d-roche-ch",
+        "it": "professionista-di-gestione-delivery-responsabile-del-servizio-delivery-rdt-pharma-r-d-roche-madrid",
         "en": "delivery-management-professional-delivery-service-manager-rdt-pharma-r-d-roche-ch",
         "de": "delivery-management-professional-delivery-service-manager-rdt-pharma-r-d-roche-ch",
         "fr": "professionnels-de-la-gestion-de-la-livraison-gestionnaire-des-services-de-livraison-r-d-rdt-pharma-roche-madrid"
@@ -60960,7 +61422,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "delivery-management-professional-delivery-service-manager-rdt-pharma-r-d-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "delivery-management-professional-delivery-service-manager-rdt-pharma-r-d-roche-ch"
+      ]
     },
     {
       "id": "roche-95ffd3b2a210",
@@ -62123,7 +62593,7 @@
       "slugByLocale": {
         "it": "piombo-di-conformita-dell-area-clienti-roche-basel",
         "en": "customer-area-compliance-lead-roche-ch",
-        "de": "customer-area-compliance-lead-roche-ch",
+        "de": "kundenbereich-compliance-lead-roche-basel",
         "fr": "responsable-de-la-conformite-du-secteur-client-roche-basel"
       },
       "company": "Roche",
@@ -62182,6 +62652,9 @@
         "fr": [
           "customer-lead-roche-ch",
           "customer-area-compliance-lead-roche-ch"
+        ],
+        "de": [
+          "customer-area-compliance-lead-roche-ch"
         ]
       },
       "firstSeenAt": "2026-09-01T07:23:51.578Z",
@@ -62206,7 +62679,7 @@
       "slugByLocale": {
         "it": "it-business-partner-lead-san-diego-roche-ch",
         "en": "it-business-partner-lead-san-diego-roche-ch",
-        "de": "it-business-partner-lead-san-diego-roche-ch",
+        "de": "it-geschaftspartner-fuhren-san-diego-roche-carlsbad",
         "fr": "responsable-des-partenaires-commerciaux-it-san-diego-roche-carlsbad"
       },
       "company": "Roche",
@@ -62400,11 +62873,11 @@
     },
     {
       "id": "roche-928819c3d65d",
-      "slug": "senior-medical-science-manager-gi-roche-ch",
+      "slug": "senior-direttore-scientifico-medico-gi-roche-xian",
       "slugByLocale": {
-        "it": "senior-medical-science-manager-gi-roche-ch",
+        "it": "senior-direttore-scientifico-medico-gi-roche-xian",
         "en": "senior-medical-science-manager-gi-roche-ch",
-        "de": "senior-medical-science-manager-gi-roche-ch",
+        "de": "senior-medizinischer-leiter-gi-roche-xian",
         "fr": "aine-gestionnaire-des-sciences-medicales-gi-roche-xian"
       },
       "company": "Roche",
@@ -62458,7 +62931,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-medical-science-manager-gi-roche-ch"
+        ],
+        "de": [
+          "senior-medical-science-manager-gi-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-medical-science-manager-gi-roche-ch"
+      ]
     },
     {
       "id": "roche-e0f60ffea93b",
@@ -62612,7 +63096,7 @@
       "slugByLocale": {
         "it": "partner-del-viaggio-paziente-hematologia-hemofilia-roche-poland",
         "en": "patient-journey-partner-hematologia-hemofilia-roche-ch",
-        "de": "patient-journey-partner-hematologia-hemofilia-roche-ch",
+        "de": "partner-fur-patientenreisen-hamatologia-hemofilia-roche-poland",
         "fr": "partenaire-de-voyage-patient-hematologia-hemophilie-roche-poland"
       },
       "company": "Roche",
@@ -62660,6 +63144,9 @@
           "patient-journey-partner-hematologia-hemofilia-roche-ch"
         ],
         "fr": [
+          "patient-journey-partner-hematologia-hemofilia-roche-ch"
+        ],
+        "de": [
           "patient-journey-partner-hematologia-hemofilia-roche-ch"
         ]
       },
@@ -63223,7 +63710,7 @@
       "slugByLocale": {
         "it": "partner-di-sviluppo-aziendale-roche-thailand",
         "en": "business-development-partner-roche-ch",
-        "de": "business-development-partner-roche-ch",
+        "de": "partner-fur-die-geschaftsentwicklung-roche-thailand",
         "fr": "partenaire-de-developpement-des-entreprises-roche-thailand"
       },
       "company": "Roche",
@@ -63274,6 +63761,9 @@
         "fr": [
           "business-development-partner-roche-ch",
           "business-development-partner-roche-thailand"
+        ],
+        "de": [
+          "business-development-partner-roche-ch"
         ]
       },
       "firstSeenAt": "2026-09-03T13:34:18.388Z",
@@ -63824,9 +64314,9 @@
     },
     {
       "id": "roche-38aa805c3568",
-      "slug": "alliance-management-principal-drug-safety-outsourcing-vendor-strategy-leader-roche-ch",
+      "slug": "alliance-management-principal-leader-strategico-per-la-sicurezza-dei-rifiuti-roche-welwyn",
       "slugByLocale": {
-        "it": "alliance-management-principal-drug-safety-outsourcing-vendor-strategy-leader-roche-ch",
+        "it": "alliance-management-principal-leader-strategico-per-la-sicurezza-dei-rifiuti-roche-welwyn",
         "en": "alliance-management-principal-drug-safety-outsourcing-vendor-strategy-leader-roche-ch",
         "de": "alliance-management-principal-drug-safety-outsourcing-vendor-strategy-leader-roche-ch",
         "fr": "chef-de-la-gestion-de-l-alliance-gestion-de-la-securite-des-medicaments-et-chef-de-la-strategie-des-fournisseurs-roche"
@@ -63882,7 +64372,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "alliance-management-principal-drug-safety-outsourcing-vendor-strategy-leader-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "alliance-management-principal-drug-safety-outsourcing-vendor-strategy-leader-roche-ch"
+      ]
     },
     {
       "id": "roche-6a1eabfa443d",
@@ -64437,7 +64935,7 @@
       "slugByLocale": {
         "it": "ingenieur-e-servizio-e-manutenzione-parigi-ile-de-france-d-f-m-roche-france",
         "en": "ingenieur-e-service-maintenance-paris-ile-de-france-d-f-m-roche-ch",
-        "de": "ingenieur-e-service-maintenance-paris-ile-de-france-d-f-m-roche-ch",
+        "de": "dienstleistungen-und-instandhaltung-paris-ile-de-france-d-w-m-roche-france",
         "fr": "ingenieur-e-service-maintenance-paris-ile-de-france-d-f-m-roche-ch"
       },
       "company": "Roche",
@@ -64482,6 +64980,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ingenieur-e-service-maintenance-paris-ile-de-france-d-f-m-roche-ch"
+        ],
+        "de": [
           "ingenieur-e-service-maintenance-paris-ile-de-france-d-f-m-roche-ch"
         ]
       },
@@ -65487,9 +65988,9 @@
     },
     {
       "id": "roche-187c9c13272a",
-      "slug": "global-project-manager-roche-ch",
+      "slug": "responsabile-globale-del-progetto-roche-tucson",
       "slugByLocale": {
-        "it": "global-project-manager-roche-ch",
+        "it": "responsabile-globale-del-progetto-roche-tucson",
         "en": "global-project-manager-roche-ch",
         "de": "globaler-projektmanager-roche-tucson",
         "fr": "gestionnaire-de-projet-mondial-roche-tucson"
@@ -65545,7 +66046,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-project-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-project-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-187b9e3c352c",
@@ -66614,11 +67123,11 @@
     },
     {
       "id": "roche-3232bc22e75a",
-      "slug": "software-sviluppatore-regulatory-affairs-and-china-clinical-development-pharma-r-d-roche-hyderabad",
+      "slug": "software-developer-questioni-di-regolamentazione-e-sviluppo-clinico-in-cina-pharma-r-d-roche-hyderabad",
       "slugByLocale": {
-        "it": "software-sviluppatore-regulatory-affairs-and-china-clinical-development-pharma-r-d-roche-hyderabad",
+        "it": "software-developer-questioni-di-regolamentazione-e-sviluppo-clinico-in-cina-pharma-r-d-roche-hyderabad",
         "en": "software-developer-regulatory-affairs-and-china-clinical-development-pharma-r-d-roche-ch",
-        "de": "software-entwickler-regulatory-affairs-and-china-clinical-development-pharma-r-d-roche-hyderabad",
+        "de": "softwareentwickler-regulatory-affairs-und-china-klinische-entwicklung-pharma-forschung-und-entwicklung-roche-hyderabad",
         "fr": "developpement-logiciel-affaires-reglementaires-et-developpement-clinique-en-chine-r-d-pharmaceutique-roche-hyderabad"
       },
       "company": "Roche",
@@ -66659,14 +67168,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "software-developer-regulatory-affairs-and-china-clinical-development-pharma-r-d-roche-ch"
+        "software-developer-regulatory-affairs-and-china-clinical-development-pharma-r-d-roche-ch",
+        "software-sviluppatore-regulatory-affairs-and-china-clinical-development-pharma-r-d-roche-hyderabad",
+        "software-entwickler-regulatory-affairs-and-china-clinical-development-pharma-r-d-roche-hyderabad"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-developer-regulatory-affairs-and-china-clinical-development-pharma-r-d-roche-ch"
+          "software-developer-regulatory-affairs-and-china-clinical-development-pharma-r-d-roche-ch",
+          "software-sviluppatore-regulatory-affairs-and-china-clinical-development-pharma-r-d-roche-hyderabad"
         ],
         "de": [
-          "software-developer-regulatory-affairs-and-china-clinical-development-pharma-r-d-roche-ch"
+          "software-developer-regulatory-affairs-and-china-clinical-development-pharma-r-d-roche-ch",
+          "software-entwickler-regulatory-affairs-and-china-clinical-development-pharma-r-d-roche-hyderabad"
         ]
       },
       "firstSeenAt": "2026-09-04T13:27:14.755Z",
@@ -67211,7 +67724,7 @@
       "slugByLocale": {
         "it": "terreno-della-pesca-roche-neijiang",
         "en": "roche-ch",
-        "de": "roche-neijiang",
+        "de": "die-kommission-hat-die-folgenden-ma-nahmen-ergriffen-roche-neijiang",
         "fr": "roche-neijiang"
       },
       "company": "Roche",
@@ -67273,6 +67786,9 @@
           "roche-ch-85",
           "roche-ch-80",
           "roche-ch-77"
+        ],
+        "de": [
+          "roche-neijiang"
         ]
       },
       "firstSeenAt": "2026-09-04T13:27:05.468Z",
@@ -67582,7 +68098,7 @@
       "slugByLocale": {
         "it": "esperto-di-affari-medici-piombo-neuroscienza-roche-shanghai",
         "en": "medical-affairs-expert-lead-neuroscience-roche-ch",
-        "de": "medical-affairs-expert-lead-neuroscience-roche-ch",
+        "de": "sachverstandiger-fur-medizinische-angelegenheiten-lead-neurowissenschaften-roche-shanghai",
         "fr": "expert-en-affaires-medicales-responsable-neuroscience-roche-shanghai"
       },
       "company": "Roche",
@@ -67630,6 +68146,9 @@
           "medical-affairs-expert-lead-neuroscience-roche-ch"
         ],
         "fr": [
+          "medical-affairs-expert-lead-neuroscience-roche-ch"
+        ],
+        "de": [
           "medical-affairs-expert-lead-neuroscience-roche-ch"
         ]
       },
@@ -68196,7 +68715,7 @@
       "slugByLocale": {
         "it": "cybersecurity-analista-monitoring-incident-response-roche-petaling-jaya",
         "en": "cybersecurity-analyst-monitoring-incident-response-roche-ch",
-        "de": "cybersecurity-analyst-monitoring-incident-response-roche-ch",
+        "de": "cybersecurity-analyst-uberwachung-und-ereignisreaktion-roche-petaling-jaya",
         "fr": "cybersecurity-analyste-monitoring-incident-response-roche-petaling-jaya"
       },
       "company": "Roche",
@@ -68244,6 +68763,9 @@
           "cybersecurity-analyst-monitoring-incident-response-roche-ch"
         ],
         "fr": [
+          "cybersecurity-analyst-monitoring-incident-response-roche-ch"
+        ],
+        "de": [
           "cybersecurity-analyst-monitoring-incident-response-roche-ch"
         ]
       },
@@ -68491,9 +69013,9 @@
     },
     {
       "id": "roche-6136cfbb3ecf",
-      "slug": "r-d-scientist-roche-ch",
+      "slug": "scienziato-della-r-s-roche-penzberg",
       "slugByLocale": {
-        "it": "r-d-scientist-roche-ch",
+        "it": "scienziato-della-r-s-roche-penzberg",
         "en": "r-d-scientist-roche-ch",
         "de": "f-e-wissenschaftler-roche-penzberg",
         "fr": "chercheur-en-r-d-roche-penzberg"
@@ -68549,7 +69071,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "r-d-scientist-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "r-d-scientist-roche-ch"
+      ]
     },
     {
       "id": "roche-f1341bc338a5",
@@ -68787,7 +69317,7 @@
       "slugByLocale": {
         "it": "responsabile-del-sito-clinico-per-la-cura-dei-pazienti-roche-indianapolis",
         "en": "clinical-site-manager-for-near-patient-care-roche-ch",
-        "de": "clinical-site-manager-for-near-patient-care-roche-ch",
+        "de": "klinischer-standortmanager-fur-die-patientennahe-roche-indianapolis",
         "fr": "gestionnaire-de-site-clinique-pour-les-soins-aux-patients-proches-roche-indianapolis"
       },
       "company": "Roche",
@@ -68835,6 +69365,9 @@
           "clinical-site-manager-for-near-patient-care-roche-ch"
         ],
         "fr": [
+          "clinical-site-manager-for-near-patient-care-roche-ch"
+        ],
+        "de": [
           "clinical-site-manager-for-near-patient-care-roche-ch"
         ]
       },
@@ -69324,11 +69857,11 @@
     },
     {
       "id": "roche-780f0b702e51",
-      "slug": "senior-project-change-manager-roche-ch",
+      "slug": "senior-responsabile-cambio-progetto-roche-budapest",
       "slugByLocale": {
-        "it": "senior-project-change-manager-roche-ch",
+        "it": "senior-responsabile-cambio-progetto-roche-budapest",
         "en": "senior-project-change-manager-roche-ch",
-        "de": "senior-project-change-manager-roche-ch",
+        "de": "senior-projektanderungsmanager-roche-budapest",
         "fr": "aine-gestionnaire-du-changement-de-projet-roche-budapest"
       },
       "company": "Roche",
@@ -69382,7 +69915,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-project-change-manager-roche-ch"
+        ],
+        "de": [
+          "senior-project-change-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-project-change-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-144782089336",
@@ -70408,7 +70952,7 @@
       "slugByLocale": {
         "it": "2027-programma-di-sviluppo-accelerato-associato-roche-indianapolis",
         "en": "2027-accelerated-development-program-associate-roche-ch",
-        "de": "2027-accelerated-development-program-associate-roche-ch",
+        "de": "2027-beschleunigtes-entwicklungsprogramm-associate-roche-indianapolis",
         "fr": "2027-programme-de-developpement-accelere-associe-roche-indianapolis"
       },
       "company": "Roche",
@@ -70456,6 +71000,9 @@
           "2027-accelerated-development-program-associate-roche-ch"
         ],
         "fr": [
+          "2027-accelerated-development-program-associate-roche-ch"
+        ],
+        "de": [
           "2027-accelerated-development-program-associate-roche-ch"
         ]
       },
@@ -71322,7 +71869,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-wuhan",
         "en": "roche-ch",
-        "de": "roche-wuhan",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-wuhan",
         "fr": "roche-wuhan"
       },
       "company": "Roche",
@@ -71380,6 +71927,9 @@
           "roche-ch-91",
           "roche-ch-85",
           "roche-ch-82"
+        ],
+        "de": [
+          "roche-wuhan"
         ]
       },
       "firstSeenAt": "2026-09-07T15:04:04.449Z",
@@ -71400,9 +71950,9 @@
     },
     {
       "id": "roche-bae526cedd86",
-      "slug": "internship-erp-transformation-project-roche-ch-2",
+      "slug": "stage-progetto-di-trasformazione-erp-roche-shanghai-143366",
       "slugByLocale": {
-        "it": "internship-erp-transformation-project-roche-ch-2",
+        "it": "stage-progetto-di-trasformazione-erp-roche-shanghai-143366",
         "en": "internship-erp-transformation-project-roche-ch",
         "de": "praktikum-erp-transformation-projekt-roche-shanghai-143366",
         "fr": "stage-projet-de-transformation-du-pgi-roche-shanghai-143366"
@@ -71445,11 +71995,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internship-erp-transformation-project-roche-ch"
+        "internship-erp-transformation-project-roche-ch",
+        "internship-erp-transformation-project-roche-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-erp-transformation-project-roche-ch"
+          "internship-erp-transformation-project-roche-ch",
+          "internship-erp-transformation-project-roche-ch-2"
         ]
       },
       "firstSeenAt": "2026-09-07T15:04:02.860Z",
@@ -71474,7 +72026,7 @@
       "slugByLocale": {
         "it": "senior-direttore-commerciale-roche-hong-kong",
         "en": "senior-sales-executive-roche-ch",
-        "de": "senior-sales-executive-roche-ch",
+        "de": "senior-vertriebsleiter-roche-hong-kong",
         "fr": "cadre-superieur-des-ventes-roche-hong-kong"
       },
       "company": "Roche",
@@ -71522,6 +72074,9 @@
           "senior-sales-executive-roche-ch"
         ],
         "fr": [
+          "senior-sales-executive-roche-ch"
+        ],
+        "de": [
           "senior-sales-executive-roche-ch"
         ]
       },
@@ -71693,7 +72248,7 @@
       "slugByLocale": {
         "it": "struzione-roche-hangzhou",
         "en": "roche-ch",
-        "de": "roche-hangzhou",
+        "de": "auszug-roche-hangzhou",
         "fr": "en-milliers-de-dollars-des-etats-unis-roche-hangzhou"
       },
       "company": "Roche",
@@ -71754,6 +72309,9 @@
         ],
         "fr": [
           "roche-hangzhou"
+        ],
+        "de": [
+          "roche-hangzhou"
         ]
       },
       "firstSeenAt": "2026-09-07T15:03:57.932Z",
@@ -71774,9 +72332,9 @@
     },
     {
       "id": "roche-9695fe27f455",
-      "slug": "ai-product-manager-roche-ch-2",
+      "slug": "gestione-prodotti-ai-roche-shanghai",
       "slugByLocale": {
-        "it": "ai-product-manager-roche-ch-2",
+        "it": "gestione-prodotti-ai-roche-shanghai",
         "en": "ai-product-manager-roche-ch",
         "de": "ai-produktmanager-roche-shanghai-0cb672",
         "fr": "gestionnaire-de-produits-ai-roche-shanghai-0cb672"
@@ -71819,11 +72377,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-product-manager-roche-ch"
+        "ai-product-manager-roche-ch",
+        "ai-product-manager-roche-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-product-manager-roche-ch"
+          "ai-product-manager-roche-ch",
+          "ai-product-manager-roche-ch-2"
         ]
       },
       "firstSeenAt": "2026-09-07T15:03:55.483Z",
@@ -71917,9 +72477,9 @@
     },
     {
       "id": "roche-073c5eefab53",
-      "slug": "it-project-manager-erp-roche-ch",
+      "slug": "responsabile-del-progetto-it-erp-roche-pune",
       "slugByLocale": {
-        "it": "it-project-manager-erp-roche-ch",
+        "it": "responsabile-del-progetto-it-erp-roche-pune",
         "en": "it-project-manager-erp-roche-ch",
         "de": "it-projektmanager-erp-roche-pune",
         "fr": "gestionnaire-de-projet-informatique-erp-roche-pune"
@@ -71975,7 +72535,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-project-manager-erp-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-project-manager-erp-roche-ch"
+      ]
     },
     {
       "id": "roche-928b42cd5f41",
@@ -72053,7 +72621,7 @@
       "slugByLocale": {
         "it": "key-account-manager-canali-digitali-e-al-dettaglio-roche-jakarta",
         "en": "key-account-manager-digital-retail-channels-roche-ch",
-        "de": "key-account-manager-canali-digitali-e-al-dettaglio-roche-jakarta",
+        "de": "key-account-manager-digitale-und-retail-kanale-roche-jakarta",
         "fr": "gestionnaire-de-comptes-cles-canaux-numeriques-et-de-detail-roche-jakarta"
       },
       "company": "Roche",
@@ -72203,7 +72771,7 @@
       "slugByLocale": {
         "it": "accounts-payable-analista-roche-riga",
         "en": "accounts-payable-analyst-roche-ch",
-        "de": "accounts-payable-analyst-roche-ch",
+        "de": "konten-zahlbare-kunden-roche-riga",
         "fr": "accounts-payable-analyste-roche-riga"
       },
       "company": "Roche",
@@ -72251,6 +72819,9 @@
           "accounts-payable-analyst-roche-ch"
         ],
         "fr": [
+          "accounts-payable-analyst-roche-ch"
+        ],
+        "de": [
           "accounts-payable-analyst-roche-ch"
         ]
       },
@@ -72521,7 +73092,7 @@
       "slugByLocale": {
         "it": "partner-di-affari-medici-roche-thailand",
         "en": "medical-affairs-partner-roche-ch",
-        "de": "medical-affairs-partner-roche-ch-2",
+        "de": "partner-fur-medizinische-angelegenheiten-roche-thailand",
         "fr": "partenaire-des-affaires-medicales-roche-thailand"
       },
       "company": "Roche",
@@ -72574,6 +73145,9 @@
         "fr": [
           "medical-affairs-partner-roche-ch-2",
           "medical-affairs-partner-roche-thailand"
+        ],
+        "de": [
+          "medical-affairs-partner-roche-ch-2"
         ]
       },
       "firstSeenAt": "2026-09-07T15:03:45.301Z",
@@ -74487,7 +75061,7 @@
       "slugByLocale": {
         "it": "solution-architetto-pharma-r-d-roche-hyderabad",
         "en": "solution-architect-pharma-r-d-roche-ch",
-        "de": "solution-architect-pharma-r-d-roche-ch",
+        "de": "losung-architekt-pharma-forschung-und-entwicklung-roche-hyderabad",
         "fr": "solution-architecte-pharma-r-d-roche-hyderabad"
       },
       "company": "Roche",
@@ -74535,6 +75109,9 @@
           "solution-architect-pharma-r-d-roche-ch"
         ],
         "fr": [
+          "solution-architect-pharma-r-d-roche-ch"
+        ],
+        "de": [
           "solution-architect-pharma-r-d-roche-ch"
         ]
       },
@@ -75064,7 +75641,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-jiamusi",
         "en": "roche-ch",
-        "de": "roche-jiamusi",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-jiamusi",
         "fr": "c-est-pas-vrai-roche-jiamusi"
       },
       "company": "Roche",
@@ -75122,6 +75699,9 @@
           "roche-ch-86"
         ],
         "fr": [
+          "roche-jiamusi"
+        ],
+        "de": [
           "roche-jiamusi"
         ]
       },
@@ -75383,7 +75963,7 @@
       "slugByLocale": {
         "it": "registrazione-locali-some-regiona-locali-roche-changsha",
         "en": "roche-ch",
-        "de": "roche-changsha",
+        "de": "auszug-aus-der-herstellung-von-waren-der-position-8701-roche-changsha",
         "fr": "en-anglais-seulement-roche-changsha"
       },
       "company": "Roche",
@@ -75441,6 +76021,9 @@
           "roche-ch-88"
         ],
         "fr": [
+          "roche-changsha"
+        ],
+        "de": [
           "roche-changsha"
         ]
       },
@@ -76524,9 +77107,9 @@
     },
     {
       "id": "roche-e90399d15847",
-      "slug": "central-operations-lead-roche-ch",
+      "slug": "capo-delle-operazioni-centrali-roche-basel",
       "slugByLocale": {
-        "it": "central-operations-lead-roche-ch",
+        "it": "capo-delle-operazioni-centrali-roche-basel",
         "en": "central-operations-lead-roche-ch",
         "de": "zentraler-operationsleiter-roche-basel",
         "fr": "responsable-des-operations-centrales-roche-basel"
@@ -76582,7 +77165,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "central-operations-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "central-operations-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-a6437dfc124b",
@@ -76895,7 +77486,7 @@
       "slugByLocale": {
         "it": "phd-clinical-science-fellow-neuroscience-roche-ch",
         "en": "phd-clinical-science-fellow-neuroscience-roche-ch",
-        "de": "phd-clinical-science-fellow-neuroscience-roche-ch",
+        "de": "phd-stipendiatin-fur-klinische-wissenschaft-neurowissenschaften-roche-welwyn",
         "fr": "doctorat-en-sciences-cliniques-neuroscience-roche-welwyn"
       },
       "company": "Roche",
@@ -77890,8 +78481,8 @@
       "slugByLocale": {
         "it": "partner-di-consulenza-per-la-crescita-roche-basel",
         "en": "people-organisational-growth-consulting-partner-roche-ch",
-        "de": "people-organisational-growth-consulting-partner-roche-ch",
-        "fr": "people-organisational-growth-consulting-partner-roche-ch"
+        "de": "mitarbeiter-organisationsberatung-partner-roche-basel",
+        "fr": "partenaire-de-conseil-en-croissance-pour-les-personnes-et-l-organisation-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -77935,6 +78526,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "people-organisational-growth-consulting-partner-roche-ch"
+        ],
+        "de": [
+          "people-organisational-growth-consulting-partner-roche-ch"
+        ],
+        "fr": [
           "people-organisational-growth-consulting-partner-roche-ch"
         ]
       },
@@ -78631,8 +79228,8 @@
       "slugByLocale": {
         "it": "partner-di-consulenza-per-la-crescita-roche-shanghai",
         "en": "people-organisational-growth-consulting-partner-roche-ch",
-        "de": "people-organisational-growth-consulting-partner-roche-ch-2",
-        "fr": "people-organisational-growth-consulting-partner-roche-ch-2"
+        "de": "mitarbeiter-organisationsberatung-partner-roche-shanghai",
+        "fr": "partenaire-de-conseil-en-croissance-pour-les-personnes-et-l-organisation-roche-shanghai"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -78678,6 +79275,12 @@
       "previousSlugsByLocale": {
         "it": [
           "people-organisational-growth-consulting-partner-roche-ch",
+          "people-organisational-growth-consulting-partner-roche-ch-2"
+        ],
+        "de": [
+          "people-organisational-growth-consulting-partner-roche-ch-2"
+        ],
+        "fr": [
           "people-organisational-growth-consulting-partner-roche-ch-2"
         ]
       },
@@ -79229,7 +79832,7 @@
       "slugByLocale": {
         "it": "squad-lead-unita-di-business-lead-roche-budapest",
         "en": "squad-lead-business-unit-lead-roche-ch",
-        "de": "squad-lead-business-unit-lead-roche-ch",
+        "de": "squad-lead-unternehmenseinheit-lead-roche-budapest",
         "fr": "chef-d-equipe-chef-d-unite-roche-budapest"
       },
       "company": "Roche",
@@ -79274,6 +79877,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "squad-lead-business-unit-lead-roche-ch"
+        ],
+        "de": [
           "squad-lead-business-unit-lead-roche-ch"
         ]
       },
@@ -79971,7 +80577,7 @@
       "slugByLocale": {
         "it": "associate-manager-magazzino-roche-shanghai",
         "en": "associate-manager-warehouse-roche-ch",
-        "de": "associate-manager-warehouse-roche-ch",
+        "de": "mitarbeiter-manager-warenhaus-roche-shanghai",
         "fr": "gestionnaire-associe-entrepot-roche-shanghai"
       },
       "company": "Roche",
@@ -80017,6 +80623,9 @@
       "previousSlugsByLocale": {
         "it": [
           "associate-manager-warehouse-roche-ch"
+        ],
+        "de": [
+          "associate-manager-warehouse-roche-ch"
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:24.721Z",
@@ -80041,7 +80650,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-tianjin",
         "en": "roche-ch",
-        "de": "roche-tianjin",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-tianjin",
         "fr": "roche-tianjin"
       },
       "company": "Roche",
@@ -80095,6 +80704,9 @@
           "roche-tianjin",
           "roche-ch-98",
           "roche-ch-93"
+        ],
+        "de": [
+          "roche-tianjin"
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:23.951Z",
@@ -80499,7 +81111,7 @@
       "slugByLocale": {
         "it": "registrati-alcuni-regionali-locali-roche-qingdao",
         "en": "roche-ch",
-        "de": "roche-qingdao",
+        "de": "auszug-roche-qingdao",
         "fr": "roche-qingdao"
       },
       "company": "Roche",
@@ -80553,6 +81165,9 @@
           "roche-qingdao",
           "roche-ch-101",
           "roche-ch-96"
+        ],
+        "de": [
+          "roche-qingdao"
         ]
       },
       "needsRetranslation": true,
@@ -81331,9 +81946,9 @@
     },
     {
       "id": "roche-7f14aef00116",
-      "slug": "gcs-technical-content-manager-roche-ch",
+      "slug": "gestore-di-contenuti-tecnici-gcs-roche-sant-cugat-del-valles",
       "slugByLocale": {
-        "it": "gcs-technical-content-manager-roche-ch",
+        "it": "gestore-di-contenuti-tecnici-gcs-roche-sant-cugat-del-valles",
         "en": "gcs-technical-content-manager-roche-ch",
         "de": "gcs-technical-content-manager-roche-ch",
         "fr": "gestionnaire-du-contenu-technique-du-sgc-roche-sant-cugat-del-valles"
@@ -81389,7 +82004,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "gcs-technical-content-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "gcs-technical-content-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-0f302b10915a",
@@ -81463,9 +82086,9 @@
     },
     {
       "id": "roche-ab83569f3467",
-      "slug": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
+      "slug": "consigliere-legale-senior-sviluppo-legale-delle-imprese-e-corporate-roche-basel",
       "slugByLocale": {
-        "it": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
+        "it": "consigliere-legale-senior-sviluppo-legale-delle-imprese-e-corporate-roche-basel",
         "en": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
         "de": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
         "fr": "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
@@ -81508,11 +82131,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-legal-counsel-legal-business-development-corporate-roche-basel"
+        "senior-legal-counsel-legal-business-development-corporate-roche-basel",
+        "senior-legal-counsel-legal-business-development-corporate-roche-ch"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "senior-legal-counsel-legal-business-development-corporate-roche-basel"
+        ],
+        "it": [
+          "senior-legal-counsel-legal-business-development-corporate-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -82556,7 +83183,7 @@
       "slugByLocale": {
         "it": "business-support-analista-roche-basel",
         "en": "business-support-analyst-roche-ch",
-        "de": "business-support-analyst-roche-ch",
+        "de": "unterstutzung-fur-unternehmen-roche-basel",
         "fr": "business-support-analyste-roche-basel"
       },
       "company": "Roche",
@@ -82605,6 +83232,9 @@
         ],
         "fr": [
           "business-support-analyst-roche-ch"
+        ],
+        "de": [
+          "business-support-analyst-roche-ch"
         ]
       },
       "firstSeenAt": "2026-09-09T23:03:41.591Z",
@@ -82625,9 +83255,9 @@
     },
     {
       "id": "roche-46ba279d679c",
-      "slug": "account-executive-centralized-solutions-atlantic-roche-ch",
+      "slug": "account-executive-soluzioni-centralizzate-atlantico-roche-basel",
       "slugByLocale": {
-        "it": "account-executive-centralized-solutions-atlantic-roche-ch",
+        "it": "account-executive-soluzioni-centralizzate-atlantico-roche-basel",
         "en": "account-executive-centralized-solutions-atlantic-roche-ch",
         "de": "account-executive-zentralisierte-losungen-atlantik-roche-basel",
         "fr": "responsable-de-compte-solutions-centralisees-atlantique-roche-basel"
@@ -82683,7 +83313,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "account-executive-centralized-solutions-atlantic-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "account-executive-centralized-solutions-atlantic-roche-ch"
+      ]
     },
     {
       "id": "roche-91029f5d4e8a",
@@ -82767,7 +83405,7 @@
       "slugByLocale": {
         "it": "partner-del-viaggio-paziente-roche-san-salvador",
         "en": "patient-journey-partner-roche-ch",
-        "de": "patient-journey-partner-roche-ch-4",
+        "de": "partner-fur-die-patientenreise-roche-san-salvador",
         "fr": "partenaire-voyage-patient-roche-san-salvador"
       },
       "company": "Roche",
@@ -82819,6 +83457,9 @@
           "patient-journey-partner-roche-ch-3"
         ],
         "fr": [
+          "patient-journey-partner-roche-ch-4"
+        ],
+        "de": [
           "patient-journey-partner-roche-ch-4"
         ]
       },
@@ -82990,11 +83631,11 @@
     },
     {
       "id": "roche-f9fc68ad3d15",
-      "slug": "senior-scienziato-computer-aided-drug-design-cadd-roche-shanghai",
+      "slug": "senio-scienziato-design-della-droga-computerizzato-cadd-roche-shanghai",
       "slugByLocale": {
-        "it": "senior-scienziato-computer-aided-drug-design-cadd-roche-shanghai",
+        "it": "senio-scienziato-design-della-droga-computerizzato-cadd-roche-shanghai",
         "en": "senior-scientist-computer-aided-drug-design-cadd-roche-ch",
-        "de": "senior-wissenschaftler-computer-aided-drug-design-cadd-roche-shanghai",
+        "de": "senior-wissenschaftler-computergestutzte-drogendesign-cadd-roche-shanghai",
         "fr": "aine-scientifique-conception-de-medicaments-assistes-par-ordinateur-cadd-roche-shanghai"
       },
       "company": "Roche",
@@ -83035,14 +83676,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-scientist-computer-aided-drug-design-cadd-roche-ch"
+        "senior-scientist-computer-aided-drug-design-cadd-roche-ch",
+        "senior-scienziato-computer-aided-drug-design-cadd-roche-shanghai",
+        "senior-wissenschaftler-computer-aided-drug-design-cadd-roche-shanghai"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-scientist-computer-aided-drug-design-cadd-roche-ch"
+          "senior-scientist-computer-aided-drug-design-cadd-roche-ch",
+          "senior-scienziato-computer-aided-drug-design-cadd-roche-shanghai"
         ],
         "de": [
-          "senior-scientist-computer-aided-drug-design-cadd-roche-ch"
+          "senior-scientist-computer-aided-drug-design-cadd-roche-ch",
+          "senior-wissenschaftler-computer-aided-drug-design-cadd-roche-shanghai"
         ]
       },
       "firstSeenAt": "2026-09-10T23:08:16.322Z",
@@ -83812,7 +84457,7 @@
       "slugByLocale": {
         "it": "direttore-zonale-laboratorio-di-patologia-roche-lucknow",
         "en": "zonal-manager-pathology-lab-roche-ch",
-        "de": "zonal-manager-pathology-lab-roche-ch",
+        "de": "zonal-manager-pathologielabor-roche-lucknow",
         "fr": "zonal-manager-laboratoire-de-pathologie-roche-lucknow"
       },
       "company": "Roche",
@@ -83861,6 +84506,9 @@
         ],
         "fr": [
           "zonal-manager-pathology-lab-roche-ch"
+        ],
+        "de": [
+          "zonal-manager-pathology-lab-roche-ch"
         ]
       },
       "firstSeenAt": "2026-09-10T23:08:05.349Z",
@@ -83881,9 +84529,9 @@
     },
     {
       "id": "roche-548f86aaf8dc",
-      "slug": "senior-computational-applied-ai-scientist-real-world-data-roche-ch",
+      "slug": "scienziato-superiore-computazionale-e-applicato-ai-dati-reali-mondiali-roche-basel",
       "slugByLocale": {
-        "it": "senior-computational-applied-ai-scientist-real-world-data-roche-ch",
+        "it": "scienziato-superiore-computazionale-e-applicato-ai-dati-reali-mondiali-roche-basel",
         "en": "senior-computational-applied-ai-scientist-real-world-data-roche-ch",
         "de": "senior-computational-applied-ai-scientist-real-world-data-roche-ch",
         "fr": "chercheur-principal-en-informatique-et-application-de-l-ia-donnees-du-monde-reel-roche-basel"
@@ -83940,7 +84588,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-computational-applied-ai-scientist-real-world-data-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-computational-applied-ai-scientist-real-world-data-roche-ch"
+      ]
     },
     {
       "id": "roche-561af670a247",
@@ -84155,7 +84811,7 @@
       "slugByLocale": {
         "it": "traduzione-roche-yinchuan-7be82a",
         "en": "roche-ch",
-        "de": "roche-yinchuan",
+        "de": "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-7be82a",
         "fr": "roche-yinchuan"
       },
       "company": "Roche",
@@ -84207,6 +84863,9 @@
           "roche-ch",
           "roche-yinchuan",
           "roche-ch-99"
+        ],
+        "de": [
+          "roche-yinchuan"
         ]
       },
       "firstSeenAt": "2026-09-10T23:07:59.475Z",
@@ -84231,7 +84890,7 @@
       "slugByLocale": {
         "it": "partner-del-viaggio-paziente-roche-turkmenistan",
         "en": "patient-journey-partner-roche-ch",
-        "de": "patient-journey-partner-roche-ch-5",
+        "de": "partner-fur-die-patientenreise-roche-turkmenistan",
         "fr": "partenaire-voyage-patient-roche-turkmenistan"
       },
       "company": "Roche",
@@ -84283,6 +84942,9 @@
           "patient-journey-partner-roche-ch-4"
         ],
         "fr": [
+          "patient-journey-partner-roche-ch-5"
+        ],
+        "de": [
           "patient-journey-partner-roche-ch-5"
         ]
       },
@@ -84766,11 +85428,11 @@
     },
     {
       "id": "roche-7f6798c508fd",
-      "slug": "data-scientist-enterprise-search-roche-ch",
+      "slug": "data-scienziato-ricerca-d-impresa-roche-madrid",
       "slugByLocale": {
-        "it": "data-scientist-enterprise-search-roche-ch",
+        "it": "data-scienziato-ricerca-d-impresa-roche-madrid",
         "en": "data-scientist-enterprise-search-roche-ch",
-        "de": "data-scientist-enterprise-search-roche-ch",
+        "de": "datenwissenschaftler-unternehmenssuche-roche-madrid",
         "fr": "data-scientist-recherche-entreprise-roche-madrid"
       },
       "company": "Roche",
@@ -84824,7 +85486,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-scientist-enterprise-search-roche-ch"
+        ],
+        "de": [
+          "data-scientist-enterprise-search-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "data-scientist-enterprise-search-roche-ch"
+      ]
     },
     {
       "id": "roche-c0856d5eb9e1",
@@ -84986,7 +85659,7 @@
       "slugByLocale": {
         "it": "registrazione-locali-alcuni-regionali-locali-roche-zhengzhou",
         "en": "roche-ch",
-        "de": "roche-zhengzhou",
+        "de": "auszug-roche-zhengzhou",
         "fr": "c-est-pas-vrai-roche-zhengzhou-91232c"
       },
       "company": "Roche",
@@ -85040,6 +85713,9 @@
           "roche-ch-100"
         ],
         "fr": [
+          "roche-zhengzhou"
+        ],
+        "de": [
           "roche-zhengzhou"
         ]
       },
@@ -85686,7 +86362,7 @@
       "slugByLocale": {
         "it": "marketing-lead-malattia-rara-roche-istanbul",
         "en": "marketing-lead-rare-disease-roche-ch",
-        "de": "marketing-lead-rare-disease-roche-ch",
+        "de": "marketing-lead-seltene-krankheit-roche-istanbul",
         "fr": "commercialisation-du-plomb-maladie-rare-roche-istanbul"
       },
       "company": "Roche",
@@ -85734,6 +86410,9 @@
           "marketing-lead-rare-disease-roche-ch"
         ],
         "fr": [
+          "marketing-lead-rare-disease-roche-ch"
+        ],
+        "de": [
           "marketing-lead-rare-disease-roche-ch"
         ]
       },
@@ -87158,7 +87837,7 @@
       "slugByLocale": {
         "it": "partner-evento-roche-tunis",
         "en": "event-partner-roche-ch",
-        "de": "event-partner-roche-ch",
+        "de": "veranstaltungspartner-roche-tunis",
         "fr": "partenaire-evenement-roche-tunis"
       },
       "company": "Roche",
@@ -87208,6 +87887,9 @@
         ],
         "fr": [
           "event-partner-roche-tunis"
+        ],
+        "de": [
+          "event-partner-roche-ch"
         ]
       },
       "firstSeenAt": "2026-09-10T23:07:25.097Z",
@@ -87458,7 +88140,7 @@
       "slugByLocale": {
         "it": "account-esecutivo-roche-connecticut",
         "en": "account-executive-roche-ch",
-        "de": "account-executive-roche-ch-2",
+        "de": "kontoleitung-roche-connecticut",
         "fr": "executif-du-compte-roche-connecticut"
       },
       "company": "Roche",
@@ -87509,6 +88191,9 @@
         ],
         "fr": [
           "account-executive-roche-ch-2"
+        ],
+        "de": [
+          "account-executive-roche-ch-2"
         ]
       },
       "firstSeenAt": "2026-09-10T23:07:21.824Z",
@@ -87533,7 +88218,7 @@
       "slugByLocale": {
         "it": "partner-di-consegna-della-campagna-digitale-roche-san-jose-costa-rica",
         "en": "digital-campaign-delivery-associate-roche-ch",
-        "de": "digital-campaign-delivery-associate-roche-ch",
+        "de": "teilnehmer-fur-die-digitale-kampagne-roche-san-jose-costa-rica",
         "fr": "associe-a-la-livraison-de-campagnes-numeriques-roche-san-jose-costa-rica"
       },
       "company": "Roche",
@@ -87581,6 +88266,9 @@
           "digital-campaign-delivery-associate-roche-ch"
         ],
         "fr": [
+          "digital-campaign-delivery-associate-roche-ch"
+        ],
+        "de": [
           "digital-campaign-delivery-associate-roche-ch"
         ]
       },
@@ -89170,9 +89858,9 @@
     },
     {
       "id": "roche-b00ae40c15e1",
-      "slug": "estagiario-de-qualidade-roche-ch",
+      "slug": "estagiario-de-qudade-roche-sao-paulo",
       "slugByLocale": {
-        "it": "estagiario-de-qualidade-roche-ch",
+        "it": "estagiario-de-qudade-roche-sao-paulo",
         "en": "estagiario-de-qualidade-roche-ch",
         "de": "estagiario-de-qualidade-roche-ch",
         "fr": "estagiario-de-qualidade-roche-sao-paulo"
@@ -89229,7 +89917,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "estagiario-de-qualidade-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "estagiario-de-qualidade-roche-ch"
+      ]
     },
     {
       "id": "roche-d3c7b0da94a4",
@@ -89702,9 +90398,9 @@
     },
     {
       "id": "roche-0445137320e0",
-      "slug": "estagiario-a-em-estrategias-e-solucoes-integradas-roche-ch",
+      "slug": "estagiar-a-em-e-roche-sao-paulo",
       "slugByLocale": {
-        "it": "estagiario-a-em-estrategias-e-solucoes-integradas-roche-ch",
+        "it": "estagiar-a-em-e-roche-sao-paulo",
         "en": "estagiario-a-em-estrategias-e-solucoes-integradas-roche-ch",
         "de": "estagiarioa-em-estrategias-e-solucoes-integradas-roche-sao-paulo",
         "fr": "estagiario-a-em-estrategias-e-solucoes-integradas-roche-ch"
@@ -89760,7 +90456,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "estagiario-a-em-estrategias-e-solucoes-integradas-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "estagiario-a-em-estrategias-e-solucoes-integradas-roche-ch"
+      ]
     },
     {
       "id": "roche-6027ab341249",
@@ -90508,7 +91212,7 @@
       "slugByLocale": {
         "it": "registrati-local-alcuni-locali-roche-tianshui",
         "en": "roche-ch",
-        "de": "roche-tianshui",
+        "de": "auszug-roche-tianshui",
         "fr": "c-est-pas-vrai-roche-tianshui"
       },
       "company": "Roche",
@@ -90560,6 +91264,9 @@
           "roche-tianshui"
         ],
         "fr": [
+          "roche-tianshui"
+        ],
+        "de": [
           "roche-tianshui"
         ]
       },
@@ -91083,10 +91790,10 @@
     },
     {
       "id": "roche-582c2009329a",
-      "slug": "estagiario-em-analise-de-dados-de-mundo-real-roche-ch",
+      "slug": "estagiario-em-analise-dedadalos-demudo-real-roche-sao-paulo",
       "slugByLocale": {
-        "it": "estagiario-em-analise-de-dados-de-mundo-real-roche-ch",
-        "en": "estagiario-em-analise-de-dados-de-mundo-real-roche-ch",
+        "it": "estagiario-em-analise-dedadalos-demudo-real-roche-sao-paulo",
+        "en": "estagiario-em-analise-dedadalos-demundo-real-roche-sao-paulo",
         "de": "estagiario-em-analise-de-dados-de-mundo-real-roche-ch",
         "fr": "estagiario-em-analise-de-dados-de-mundo-real-roche-ch"
       },
@@ -91141,7 +91848,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "estagiario-em-analise-de-dados-de-mundo-real-roche-ch"
+        ],
+        "en": [
+          "estagiario-em-analise-de-dados-de-mundo-real-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "estagiario-em-analise-de-dados-de-mundo-real-roche-ch"
+      ]
     },
     {
       "id": "roche-92bad2b52508",
@@ -91644,9 +92362,9 @@
     },
     {
       "id": "roche-c132b31433e4",
-      "slug": "end-2-end-digital-cx-designer-roche-ch",
+      "slug": "designer-cx-digitale-di-fine-2nd-roche-basel",
       "slugByLocale": {
-        "it": "end-2-end-digital-cx-designer-roche-ch",
+        "it": "designer-cx-digitale-di-fine-2nd-roche-basel",
         "en": "end-2-end-digital-cx-designer-roche-ch",
         "de": "end-2-end-digital-cx-designer-roche-ch",
         "fr": "designer-cx-numerique-fin-2-roche-basel"
@@ -91702,7 +92420,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "end-2-end-digital-cx-designer-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "end-2-end-digital-cx-designer-roche-ch"
+      ]
     },
     {
       "id": "roche-4acfac4ff6aa",
@@ -91782,7 +92508,7 @@
       "slugByLocale": {
         "it": "registrati-some-regiona-locale-roche-zhuzhou",
         "en": "roche-ch",
-        "de": "roche-zhuzhou",
+        "de": "auszug-roche-zhuzhou",
         "fr": "en-milliers-de-dollars-des-etats-unis-roche-zhuzhou"
       },
       "company": "Roche",
@@ -91834,6 +92560,9 @@
           "roche-zhuzhou"
         ],
         "fr": [
+          "roche-zhuzhou"
+        ],
+        "de": [
           "roche-zhuzhou"
         ]
       },
@@ -92219,7 +92948,7 @@
       "slugByLocale": {
         "it": "politica-e-strategia-di-accesso-lead-roche-basel",
         "en": "policy-and-access-strategy-lead-roche-ch",
-        "de": "policy-and-access-strategy-lead-roche-ch",
+        "de": "politische-und-zugangsstrategie-roche-basel",
         "fr": "politique-et-strategie-d-acces-responsable-roche-basel"
       },
       "company": "Roche",
@@ -92268,6 +92997,9 @@
         ],
         "fr": [
           "policy-and-access-strategy-lead-roche-ch"
+        ],
+        "de": [
+          "policy-and-access-strategy-lead-roche-ch"
         ]
       },
       "firstSeenAt": "2026-09-11T13:34:15.416Z",
@@ -92292,7 +93024,7 @@
       "slugByLocale": {
         "it": "operazioni-commerciali-associate-marketing-roche-petaling-jaya",
         "en": "business-operations-associate-marketing-roche-ch",
-        "de": "business-operations-associate-marketing-roche-ch",
+        "de": "geschaftspartner-marketing-roche-petaling-jaya",
         "fr": "associe-aux-operations-commerciales-marketing-roche-petaling-jaya"
       },
       "company": "Roche",
@@ -92337,6 +93069,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "business-operations-associate-marketing-roche-ch"
+        ],
+        "de": [
           "business-operations-associate-marketing-roche-ch"
         ]
       },
@@ -92963,9 +93698,9 @@
     },
     {
       "id": "roche-5ea476d8a902",
-      "slug": "central-market-access-health-lead-roche-ch",
+      "slug": "capo-della-sanita-dell-accesso-al-mercato-centrale-roche-beijing",
       "slugByLocale": {
-        "it": "central-market-access-health-lead-roche-ch",
+        "it": "capo-della-sanita-dell-accesso-al-mercato-centrale-roche-beijing",
         "en": "central-market-access-health-lead-roche-ch",
         "de": "zentralmarktzugangsleiter-gesundheit-roche-beijing",
         "fr": "acces-au-marche-central-responsable-de-la-sante-roche-beijing"
@@ -93021,7 +93756,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "central-market-access-health-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "central-market-access-health-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-55c3c2c2ad48",
@@ -93467,7 +94210,7 @@
       "slugByLocale": {
         "it": "partner-del-viaggio-paziente-roche-ludhiana",
         "en": "patient-journey-partner-roche-ch",
-        "de": "patient-journey-partner-roche-ch-6",
+        "de": "partner-fur-die-patientenreise-roche-ludhiana",
         "fr": "partenaire-de-voyage-patient-roche-ludhiana"
       },
       "company": "Roche",
@@ -93519,6 +94262,9 @@
           "patient-journey-partner-roche-ch-5"
         ],
         "fr": [
+          "patient-journey-partner-roche-ch-6"
+        ],
+        "de": [
           "patient-journey-partner-roche-ch-6"
         ]
       },
@@ -93689,7 +94435,7 @@
       "slugByLocale": {
         "it": "partner-per-gli-affari-regolamentari-roche-istanbul",
         "en": "regulatory-affairs-partner-roche-ch",
-        "de": "regulatory-affairs-partner-roche-ch",
+        "de": "partner-fur-regulierungsfragen-roche-istanbul",
         "fr": "partenaires-des-affaires-reglementaires-roche-istanbul"
       },
       "company": "Roche",
@@ -93737,6 +94483,9 @@
           "regulatory-affairs-partner-roche-ch"
         ],
         "fr": [
+          "regulatory-affairs-partner-roche-ch"
+        ],
+        "de": [
           "regulatory-affairs-partner-roche-ch"
         ]
       },
@@ -94280,7 +95029,7 @@
       "slugByLocale": {
         "it": "partner-regolamentare-lto-roche-welwyn",
         "en": "lto-regulatory-partner-roche-ch",
-        "de": "lto-regulatory-partner-roche-ch",
+        "de": "lto-regulierungspartner-roche-welwyn",
         "fr": "partenaire-reglementaire-de-l-ott-roche-welwyn"
       },
       "company": "Roche",
@@ -94325,6 +95074,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lto-regulatory-partner-roche-ch"
+        ],
+        "de": [
           "lto-regulatory-partner-roche-ch"
         ]
       },
@@ -95492,7 +96244,7 @@
       "slugByLocale": {
         "it": "gestione-dei-lead-processi-e-cambiamenti-roche-mississauga",
         "en": "lead-process-and-change-management-roche-ch",
-        "de": "lead-process-and-change-management-roche-ch",
+        "de": "fuhrungs-prozess-und-change-management-roche-mississauga",
         "fr": "responsable-processus-et-gestion-du-changement-roche-mississauga"
       },
       "company": "Roche",
@@ -95540,6 +96292,9 @@
           "lead-process-and-change-management-roche-ch"
         ],
         "fr": [
+          "lead-process-and-change-management-roche-ch"
+        ],
+        "de": [
           "lead-process-and-change-management-roche-ch"
         ]
       },
@@ -96242,7 +96997,7 @@
       "slugByLocale": {
         "it": "sicurezza-paziente-pharmacovigilance-partner-15-mesi-contratto-max-term-roche-sydney",
         "en": "patient-safety-pharmacovigilance-partner-15-months-max-term-contract-roche-ch",
-        "de": "patient-safety-pharmacovigilance-partner-15-monate-max-term-contract-roche-sydney",
+        "de": "patientensicherheit-pharmacovigilance-partner-15-monate-vertrag-mit-maximaler-laufzeit-roche-sydney",
         "fr": "securite-des-patients-pharmacovigilance-partenaire-15-mois-contrat-de-duree-maximale-roche-sydney"
       },
       "company": "Roche",
@@ -96283,14 +97038,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "patient-safety-pharmacovigilance-partner-15-months-max-term-contract-roche-ch"
+        "patient-safety-pharmacovigilance-partner-15-months-max-term-contract-roche-ch",
+        "patient-safety-pharmacovigilance-partner-15-monate-max-term-contract-roche-sydney"
       ],
       "previousSlugsByLocale": {
         "it": [
           "patient-safety-pharmacovigilance-partner-15-months-max-term-contract-roche-ch"
         ],
         "de": [
-          "patient-safety-pharmacovigilance-partner-15-months-max-term-contract-roche-ch"
+          "patient-safety-pharmacovigilance-partner-15-months-max-term-contract-roche-ch",
+          "patient-safety-pharmacovigilance-partner-15-monate-max-term-contract-roche-sydney"
         ],
         "fr": [
           "patient-safety-pharmacovigilance-partner-15-months-max-term-contract-roche-ch"
@@ -96549,7 +97306,7 @@
       "slugByLocale": {
         "it": "partner-del-viaggio-paziente-roche-jakarta",
         "en": "patient-journey-partner-roche-ch",
-        "de": "patient-journey-partner-roche-ch-3",
+        "de": "partner-fur-die-patientenreise-roche-jakarta",
         "fr": "partenaire-voyage-patient-roche-jakarta"
       },
       "company": "Roche",
@@ -96603,6 +97360,9 @@
           "patient-journey-partner-roche-ch-2"
         ],
         "fr": [
+          "patient-journey-partner-roche-ch-3"
+        ],
+        "de": [
           "patient-journey-partner-roche-ch-3"
         ]
       },

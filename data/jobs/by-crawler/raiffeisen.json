@@ -6206,10 +6206,10 @@
     },
     {
       "id": "raiffeisen-089c5fa46d4d",
-      "slug": "stv-compliance-beauftrager-w-m-d-raiffeisen-sankt-niklaus",
+      "slug": "responsabile-della-conformita-m-f-d-raiffeisen-sankt-niklaus",
       "slugByLocale": {
-        "it": "stv-compliance-beauftrager-w-m-d-raiffeisen-sankt-niklaus",
-        "en": "stv-compliance-beauftrager-w-m-d-raiffeisen-sankt-niklaus",
+        "it": "responsabile-della-conformita-m-f-d-raiffeisen-sankt-niklaus",
+        "en": "compliance-officer-m-f-d-raiffeisen-sankt-niklaus",
         "de": "stv-compliance-beauftragter-w-m-d-raiffeisen-sankt-niklaus",
         "fr": "agent-de-conformite-stv-h-f-d-raiffeisen-sankt-niklaus"
       },
@@ -6255,15 +6255,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-compliance-beauftragter-w-m-d-raiffeisen-sankt-niklaus",
-        "stv-agent-de-conformite-h-f-d-raiffeisen-sankt-niklaus"
+        "stv-agent-de-conformite-h-f-d-raiffeisen-sankt-niklaus",
+        "stv-compliance-beauftrager-w-m-d-raiffeisen-sankt-niklaus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-compliance-beauftragter-w-m-d-raiffeisen-sankt-niklaus"
+          "stv-compliance-beauftragter-w-m-d-raiffeisen-sankt-niklaus",
+          "stv-compliance-beauftrager-w-m-d-raiffeisen-sankt-niklaus"
         ],
         "fr": [
           "stv-agent-de-conformite-h-f-d-raiffeisen-sankt-niklaus",
           "stv-compliance-beauftragter-w-m-d-raiffeisen-sankt-niklaus"
+        ],
+        "en": [
+          "stv-compliance-beauftrager-w-m-d-raiffeisen-sankt-niklaus"
         ]
       },
       "firstSeenAt": "2026-08-28T05:23:24.606Z",
@@ -11811,13 +11816,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "individualkundenberater-in-raiffeisen-alle-standorte",
-        "conseillers-individuels-raiffeisen-alle-standorte",
-        "consulenti-individuali-dei-clienti-raiffeisen-alle-standorte"
+        "conseillers-individuels-raiffeisen-alle-standorte"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "individualkundenberater-in-raiffeisen-alle-standorte",
-          "consulenti-individuali-dei-clienti-raiffeisen-alle-standorte"
+          "individualkundenberater-in-raiffeisen-alle-standorte"
         ],
         "en": [
           "individualkundenberater-in-raiffeisen-alle-standorte"

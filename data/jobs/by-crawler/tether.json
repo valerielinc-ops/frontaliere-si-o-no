@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "responsabile-partner-soluzioni-100-remoto-tether-operations-madrid",
         "en": "solutions-partner-manager-100-remote-tether-ch",
-        "de": "responsabile-partner-soluzioni-100-remoto-tether-operations-madrid",
+        "de": "losungen-partner-manager-100-entfernt-tether-operations-madrid-comunidad-de-madrid",
         "fr": "responsable-partenariats-solutions-100-a-distance-tether-operations-madrid"
       },
       "company": "Tether Operations",
@@ -3402,9 +3402,9 @@
     },
     {
       "id": "tether-a9da09c6c8ba",
-      "slug": "expansion-manager-nigeria-tether-ch",
+      "slug": "direttore-dell-espansione-nigeria-tether-operations-lagos-lagos",
       "slugByLocale": {
-        "it": "expansion-manager-nigeria-tether-ch",
+        "it": "direttore-dell-espansione-nigeria-tether-operations-lagos-lagos",
         "en": "expansion-manager-nigeria-tether-ch",
         "de": "expansion-manager-nigeria-tether-ch",
         "fr": "gestionnaire-d-extension-nigeria-tether-operations-lagos-lagos"
@@ -3465,7 +3465,15 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "expansion-manager-nigeria-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "expansion-manager-nigeria-tether-ch"
+      ]
     },
     {
       "id": "tether-e20fa1c8da5a",
@@ -3632,7 +3640,7 @@
       "slugByLocale": {
         "it": "creatore-di-contenuti-tecnici-pear-bare-p2p-remote-europe-tether-operations-madrid-comunidad-de-madrid",
         "en": "technical-content-creator-pear-bare-p2p-remote-europe-tether-ch",
-        "de": "technical-content-creator-pear-bare-p2p-100-remote-worldwide-tether-ch",
+        "de": "technischer-inhaltsstifter-pear-bare-p2p-remote-europa-tether-operations-madrid-comunidad-de-madrid",
         "fr": "createur-de-contenu-technique-pear-bare-p2p-100-remote-worldwide-tether-operations-madrid"
       },
       "company": "Tether Operations",
@@ -3683,6 +3691,9 @@
           "technical-content-creator-pear-bare-p2p-100-remote-worldwide-tether-ch"
         ],
         "en": [
+          "technical-content-creator-pear-bare-p2p-100-remote-worldwide-tether-ch"
+        ],
+        "de": [
           "technical-content-creator-pear-bare-p2p-100-remote-worldwide-tether-ch"
         ]
       },
@@ -3873,7 +3884,7 @@
       "slugByLocale": {
         "en": "usat-institutional-associate-tether-ch",
         "it": "usat-istituto-statistico-tether-operations-salt-lake-city-utah",
-        "de": "usat-institutional-associate-tether-ch",
+        "de": "usat-institutioneller-mitarbeiter-tether-operations-salt-lake-city-utah",
         "fr": "associateur-institutionnel-usat-tether-operations-salt-lake-city-utah"
       },
       "company": "Tether Operations",
@@ -3939,6 +3950,9 @@
           "usat-institutional-associate-tether-ch"
         ],
         "fr": [
+          "usat-institutional-associate-tether-ch"
+        ],
+        "de": [
           "usat-institutional-associate-tether-ch"
         ]
       },
@@ -4020,7 +4034,7 @@
       "slugByLocale": {
         "it": "usat-istituto-statistico-tether-operations-south-carolina-south-carolina",
         "en": "usat-institutional-associate-tether-ch",
-        "de": "usat-institutional-associate-tether-ch",
+        "de": "usat-institutioneller-mitarbeiter-tether-operations-south-carolina-south-carolina",
         "fr": "associateur-institutionnel-usat-tether-operations-south-carolina-south-carolina"
       },
       "company": "Tether Operations",
@@ -4073,6 +4087,9 @@
           "usat-institutional-associate-tether-ch"
         ],
         "fr": [
+          "usat-institutional-associate-tether-ch"
+        ],
+        "de": [
           "usat-institutional-associate-tether-ch"
         ]
       },

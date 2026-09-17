@@ -1854,12 +1854,12 @@
     },
     {
       "id": "hilcona-4c1b2fa3efed",
-      "slug": "milchtechnologe-in-fuer-die-tofurei-hilcona-landquart",
+      "slug": "tecnologo-del-latte-per-il-tofurie-hilcona-ag-landquart",
       "slugByLocale": {
-        "it": "milchtechnologe-in-fuer-die-tofurei-hilcona-landquart",
-        "en": "milk-technologist-in-fuer-die-tofurei-hilcona-ag-landquart",
+        "it": "tecnologo-del-latte-per-il-tofurie-hilcona-ag-landquart",
+        "en": "milk-technologist-in-for-the-tofurie-hilcona-ag-landquart",
         "de": "milchtechnologe-in-fuer-die-tofurei-hilcona-landquart",
-        "fr": "technologue-du-lait-a-fuer-die-tofurei-hilcona-ag-landquart"
+        "fr": "technologue-en-lait-pour-la-tofurie-hilcona-ag-landquart"
       },
       "company": "Hilcona AG",
       "companyKey": "hilcona",
@@ -1909,7 +1909,23 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "milchtechnologe-in-fuer-die-tofurei-hilcona-landquart"
+        ],
+        "en": [
+          "milk-technologist-in-fuer-die-tofurei-hilcona-ag-landquart"
+        ],
+        "fr": [
+          "technologue-du-lait-a-fuer-die-tofurei-hilcona-ag-landquart"
+        ]
+      },
+      "previousSlugs": [
+        "milchtechnologe-in-fuer-die-tofurei-hilcona-landquart",
+        "milk-technologist-in-fuer-die-tofurei-hilcona-ag-landquart",
+        "technologue-du-lait-a-fuer-die-tofurei-hilcona-ag-landquart"
+      ]
     },
     {
       "id": "hilcona-385b0e7c7052",
@@ -4996,12 +5012,12 @@
     },
     {
       "id": "hilcona-77322890f328",
-      "slug": "collaboratore-trice-mitarbeiterin-warenlager-technik-bell-schweiz-ag-basel",
+      "slug": "tecnologia-del-magazzino-del-personale-bell-schweiz-ag-basel",
       "slugByLocale": {
-        "it": "collaboratore-trice-mitarbeiterin-warenlager-technik-bell-schweiz-ag-basel",
-        "en": "employee-warenlager-technik-bell-schweiz-ag-basel",
+        "it": "tecnologia-del-magazzino-del-personale-bell-schweiz-ag-basel",
+        "en": "staff-staff-warehouse-technology-bell-schweiz-ag-basel",
         "de": "mitarbeiter-mitarbeiterin-warenlager-technik-hilcona-basel",
-        "fr": "employe-warenlager-technik-bell-schweiz-ag-basel"
+        "fr": "technologie-des-entrepots-du-personnel-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -5039,17 +5055,23 @@
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiter-mitarbeiterin-warenlager-technik-hilcona-basel",
-        "mitarbeiter-mitarbeiterin-warenlager-technik-bell-schweiz-ag-basel"
+        "mitarbeiter-mitarbeiterin-warenlager-technik-bell-schweiz-ag-basel",
+        "collaboratore-trice-mitarbeiterin-warenlager-technik-bell-schweiz-ag-basel",
+        "employee-warenlager-technik-bell-schweiz-ag-basel",
+        "employe-warenlager-technik-bell-schweiz-ag-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-mitarbeiterin-warenlager-technik-hilcona-basel"
+          "mitarbeiter-mitarbeiterin-warenlager-technik-hilcona-basel",
+          "collaboratore-trice-mitarbeiterin-warenlager-technik-bell-schweiz-ag-basel"
         ],
         "en": [
-          "mitarbeiter-mitarbeiterin-warenlager-technik-bell-schweiz-ag-basel"
+          "mitarbeiter-mitarbeiterin-warenlager-technik-bell-schweiz-ag-basel",
+          "employee-warenlager-technik-bell-schweiz-ag-basel"
         ],
         "fr": [
-          "mitarbeiter-mitarbeiterin-warenlager-technik-bell-schweiz-ag-basel"
+          "mitarbeiter-mitarbeiterin-warenlager-technik-bell-schweiz-ag-basel",
+          "employe-warenlager-technik-bell-schweiz-ag-basel"
         ]
       },
       "firstSeenAt": "2026-09-03T13:41:09.062Z",

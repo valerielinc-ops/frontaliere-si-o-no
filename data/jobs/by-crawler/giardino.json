@@ -186,7 +186,7 @@
         "it": "capopartita-giardino-group-champfer",
         "en": "head-of-party-giardino-group-champfer",
         "de": "chef-de-partie-giardino-group-champfer",
-        "fr": "chef-de-partie-giardino-group-champfer"
+        "fr": "chef-de-jeu-giardino-group-champfer"
       },
       "company": "Giardino Group",
       "companyKey": "giardino",
@@ -253,6 +253,9 @@
           "chef-de-partie-giardino-group-champfer"
         ],
         "en": [
+          "chef-de-partie-giardino-group-champfer"
+        ],
+        "fr": [
           "chef-de-partie-giardino-group-champfer"
         ]
       },
@@ -371,7 +374,7 @@
       "slug": "commissione-di-rang-giardino-group-champfer",
       "slugByLocale": {
         "it": "commissione-di-rang-giardino-group-champfer",
-        "en": "commis-de-rang-giardino-group-champfer",
+        "en": "country-giardino-group-champfer",
         "de": "commis-de-rang-giardino-group-champfer",
         "fr": "commission-de-rang-giardino-group-champfer"
       },
@@ -442,6 +445,9 @@
           "commis-de-rang-giardino-group-champfer"
         ],
         "fr": [
+          "commis-de-rang-giardino-group-champfer"
+        ],
+        "en": [
           "commis-de-rang-giardino-group-champfer"
         ]
       },
@@ -661,7 +667,7 @@
       "slug": "bellista-giardino-group-champfer",
       "slugByLocale": {
         "it": "bellista-giardino-group-champfer",
-        "en": "bell-attendant-giardino-group-champfer",
+        "en": "bell-six-giardino-group-champfer",
         "de": "bell-attendant-giardino-group-champfer",
         "fr": "agent-de-bell-giardino-group-champfer"
       },
@@ -730,6 +736,9 @@
           "bell-attendant-giardino-group-champfer"
         ],
         "fr": [
+          "bell-attendant-giardino-group-champfer"
+        ],
+        "en": [
           "bell-attendant-giardino-group-champfer"
         ]
       },

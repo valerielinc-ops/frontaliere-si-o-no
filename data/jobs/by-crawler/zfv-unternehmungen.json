@@ -738,7 +738,7 @@
         "it": "capo-de-rang-zfv-unternehmungen-zurich",
         "en": "chief-de-rang-zfv-unternehmungen-zurich",
         "de": "chef-de-rang-zfv-unternehmungen-zurich",
-        "fr": "chef-de-rang-zfv-unternehmungen-zurich"
+        "fr": "chef-de-rank-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -788,6 +788,9 @@
           "chef-de-rang-zfv-unternehmungen-zurich"
         ],
         "en": [
+          "chef-de-rang-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
           "chef-de-rang-zfv-unternehmungen-zurich"
         ]
       },
@@ -977,7 +980,7 @@
       "slug": "capo-de-servizio-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "it": "capo-de-servizio-zfv-unternehmungen-zurich",
-        "en": "chef-de-service-zfv-unternehmungen-zurich",
+        "en": "chief-de-service-zfv-unternehmungen-zurich",
         "de": "chef-de-service-zfv-unternehmungen-zurich",
         "fr": "chef-de-service-zfv-unternehmungen-zurich"
       },
@@ -1032,7 +1035,8 @@
           "chef-di-sala-zfv-unternehmungen-zurich"
         ],
         "en": [
-          "head-of-service-zfv-unternehmungen-zurich"
+          "head-of-service-zfv-unternehmungen-zurich",
+          "chef-de-service-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-07-10T22:06:21.882Z",
@@ -6899,9 +6903,9 @@
       "slug": "stv-responsabile-catering-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "it": "stv-responsabile-catering-zfv-unternehmungen-zurich",
-        "en": "stv-leiter-in-catering-zfv-unternehmungen-zurich",
+        "en": "head-of-catering-zfv-unternehmungen-zurich",
         "de": "stv-leiter-in-catering-zfv-unternehmungen-zurich",
-        "fr": "stv-leiter-in-catering-zfv-unternehmungen-zurich"
+        "fr": "chef-de-la-restauration-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -6962,7 +6966,8 @@
           "tete-dans-la-restauration-zfv-unternehmungen-zurich"
         ],
         "en": [
-          "head-in-catering-zfv-unternehmungen-zurich"
+          "head-in-catering-zfv-unternehmungen-zurich",
+          "stv-leiter-in-catering-zfv-unternehmungen-zurich"
         ],
         "de": [
           "stv-leiter-in-catering-events-zfv-unternehmungen-winterthur",
@@ -6970,7 +6975,8 @@
         ],
         "fr": [
           "directeur-de-stv-dans-la-restauration-et-les-evenements-zfv-unternehmungen-winterthur",
-          "tete-dans-la-restauration-zfv-unternehmungen-zurich"
+          "tete-dans-la-restauration-zfv-unternehmungen-zurich",
+          "stv-leiter-in-catering-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-07-22T11:40:41.461Z",
