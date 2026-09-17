@@ -50,6 +50,11 @@ on:
         description: 'Investigation-only: release exactly one jobsSeo retention candidate and label its corpus-release gcFreed measurement'
         required: false
         default: ''
+      stop_after_jobs_seo:
+        description: 'Stop with exit code 0 after jobsSeoPages closeBundle completes'
+        type: boolean
+        required: false
+        default: false
       variants:
         description: 'One variant per line: name=KEY=VAL,KEY=VAL (empty value means no extra env)'
         type: string
@@ -65,7 +70,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: deploy-matrix-experiment
+  group: deploy-matrix-experiment-${{ github.run_id }}
   cancel-in-progress: false
 
 jobs:
@@ -202,6 +207,8 @@ jobs:
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
       RELATED_SEARCH_PREPASS_CONCURRENCY: '1'
       JOBS_SEO_RETENTION_PROBE: ${{ github.event.inputs.retention_probe }}
+      BUILD_BENCH: '1'
+      BUILD_STOP_AFTER: ${{ inputs.stop_after_jobs_seo == true && 'jobsSeoPages' || '' }}
     steps:
       # Copied minimally from deploy.yml's build-locale job, whose source of
       # truth is the production cleanup step in this same repository.
@@ -317,6 +324,10 @@ jobs:
           printf '%s' "$VARIANT_ENV_JSON" | jq -r 'to_entries[] | "\(.key)=\(.value)"' >> "$GITHUB_ENV"
           echo "Applied variant ${{ matrix.variant }} environment (${#VARIANT_ENV_JSON} bytes of JSON)"
 
+      - name: Enforce stop-after jobs SEO control
+        if: inputs.stop_after_jobs_seo == true
+        run: echo 'BUILD_STOP_AFTER=jobsSeoPages' >> "$GITHUB_ENV"
+
       # Read-only copies of deploy.yml's production carry-over caches. The
       # experiment deliberately has no cache-save step, so variants cannot
       # replace a production snapshot.
@@ -400,13 +411,19 @@ jobs:
 
           BUILD_LOCALE_FOR_LOG="${BUILD_LOCALE:-all}"
           BUILD_LOG="/tmp/build-${BUILD_LOCALE_FOR_LOG}.log"
-          npm run build:ci 2>&1 | tee "$BUILD_LOG"
+          if [ -n "${BUILD_STOP_AFTER:-}" ]; then
+            echo "[build-stop-after] requested=${BUILD_STOP_AFTER} (skip post-build SPA asset verification)"
+            NODE_OPTIONS='--max-old-space-size=14336 --expose-gc' ./node_modules/.bin/vite build --minify esbuild 2>&1 | tee "$BUILD_LOG"
+          else
+            npm run build:ci 2>&1 | tee "$BUILD_LOG"
+          fi
           build_exit="${PIPESTATUS[0]}"
           END=$(date +%s)
           echo "::endgroup::"
           ELAPSED=$((END - START))
           echo "BUILD_ELAPSED_SECONDS=$ELAPSED" >> "$GITHUB_ENV"
           echo "wall_seconds=$ELAPSED" >> "$GITHUB_OUTPUT"
+          echo "stop_after=${BUILD_STOP_AFTER:-}" >> "$GITHUB_OUTPUT"
           echo "⏱️  ${BUILD_VARIANT} build wall-time: ${ELAPSED}s ($((ELAPSED/60))m$((ELAPSED%60))s)"
           exit "$build_exit"
 
@@ -457,7 +474,12 @@ jobs:
             echo
             echo '| marker | detail |'
             echo '|---|---|'
+            if [ -n "${BUILD_STOP_AFTER:-}" ]; then
+              printf "| \`build-stop-after\` | stopped after %s |\n" "$BUILD_STOP_AFTER"
+            fi
             if [ -f "$BUILD_LOG" ]; then
+              # The $1/$0 references below belong to awk, not the shell.
+              # shellcheck disable=SC2016
               awk '
                 /^\[profile-detail\]/ || /^\[phase-timing/ {
                   marker = $1
@@ -537,12 +559,16 @@ jobs:
             dist_bytes="$(du -sb dist | awk '{print $1}')"
             dist_files="$(find dist -type f | wc -l | tr -d ' ')"
           fi
+          wall_time="${BUILD_ELAPSED_SECONDS:-?}s"
+          if [ -n "${BUILD_STOP_AFTER:-}" ]; then
+            wall_time="${wall_time} (stopped after ${BUILD_STOP_AFTER})"
+          fi
           {
             echo "### ${BUILD_VARIANT} build summary"
             echo
             echo '| metric | value |'
             echo '|---|---|'
-            echo "| wall-time | ${BUILD_ELAPSED_SECONDS:-?}s |"
+            echo "| wall-time | ${wall_time} |"
             echo "| dist bytes (du -sb) | ${dist_bytes} |"
             echo "| dist files | ${dist_files} |"
             echo "| peak_rss_mb | ${PEAK_RSS_MB:-?} |"
@@ -554,7 +580,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Prune to locale shard (filesystem-level, mirrors production push_shard)
-        if: matrix.all_locales != true
+        if: matrix.all_locales != true && steps.build_step.outputs.stop_after == ''
         # The in-build BUILD_LOCALE filter only gates WriteCollector writes;
         # direct-fs.writeFileSync emitters (redirect/bridge/weather/alias) still
         # write every locale. This removes the non-owned locale output the same
@@ -562,7 +588,7 @@ jobs:
         run: node scripts/ci/prune-locale-shard.mjs dist
 
       - name: Validate locale shard output
-        if: matrix.all_locales != true
+        if: matrix.all_locales != true && steps.build_step.outputs.stop_after == ''
         run: node scripts/ci/validate-locale-shard-build.mjs dist
 
       - name: Hash-manifest the dist (equivalence check)
@@ -594,9 +620,13 @@ jobs:
           {
             echo "build-log=${BUILD_LOG}"
             echo "wall-time-build=${BUILD_WALL_SECONDS:-?}s"
+            if [ -n "${BUILD_STOP_AFTER:-}" ]; then
+              echo "build-stop-after=${BUILD_STOP_AFTER}"
+              echo "wall-time-build-status=stopped after ${BUILD_STOP_AFTER}"
+            fi
             if [ -f "$BUILD_LOG" ]; then
               strip_ansi < "$BUILD_LOG" \
-                | grep -E '^\[(mem|jobs-seo-profile|incremental-manifest|post-walk|jobs-seo-reuse)' \
+                | grep -E '^\[(mem|jobs-seo-profile|jobs-seo-sample|build-stop-after|incremental-manifest|post-walk|jobs-seo-reuse)' \
                 || true
             else
               echo "[markers] build log missing: ${BUILD_LOG}"
@@ -653,7 +683,11 @@ jobs:
             echo
             echo '| metric | value |'
             echo '|---|---|'
-            echo "| wall-time build | ${BUILD_WALL_SECONDS:-?}s |"
+            wall_time="${BUILD_WALL_SECONDS:-?}s"
+            if [ -n "${BUILD_STOP_AFTER:-}" ]; then
+              wall_time="${wall_time} (stopped after ${BUILD_STOP_AFTER})"
+            fi
+            echo "| wall-time build | ${wall_time} |"
             echo "| after-active-pages heapUsed/rss | ${active_memory} |"
             echo "| after corpus-release rss | ${release_rss} |"
             echo "| previous-slug-bridge total | ${previous_bridge} |"
@@ -676,7 +710,9 @@ jobs:
   # the shards (both start right after prep) ⇒ no time-variance. NO BUILD_LOCALE.
   monolith:
     needs: [matrix-setup, prep]
-    if: inputs.compare_monolith == true && inputs.all_locales != true && needs.matrix-setup.outputs.variant_count == '1'
+    # A stop-after run has intentionally partial output, so it cannot provide
+    # a meaningful full-monolith equivalence reference.
+    if: inputs.compare_monolith == true && inputs.stop_after_jobs_seo != true && inputs.all_locales != true && needs.matrix-setup.outputs.variant_count == '1'
     name: monolith (${{ needs.matrix-setup.outputs.single_variant }})
     runs-on: ubuntu-latest
     env:
@@ -687,6 +723,7 @@ jobs:
       JOBS_SEO_PROFILE_PHASES: '1'
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
       JOBS_SEO_RETENTION_PROBE: ${{ github.event.inputs.retention_probe }}
+      BUILD_BENCH: '1'
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -766,7 +803,7 @@ jobs:
   # ── Equivalence gate: recomposed 4 shards === monolith (byte/sha256) ──
   compare:
     needs: [matrix-setup, build-locale, monolith]
-    if: inputs.compare_monolith == true && inputs.all_locales != true && needs.matrix-setup.outputs.variant_count == '1'
+    if: inputs.compare_monolith == true && inputs.stop_after_jobs_seo != true && inputs.all_locales != true && needs.matrix-setup.outputs.variant_count == '1'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout (compare script)

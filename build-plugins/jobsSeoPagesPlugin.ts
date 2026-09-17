@@ -165,6 +165,7 @@ import {
   jobsSeoRetentionReleasePlan,
   parseJobsSeoRetentionProbe,
 } from './shared/jobsSeoRetentionProbe';
+import { resolveJobsSeoSample, selectJobsSeoSample } from './shared/jobsSeoSample';
 import {
  CITY_HUB_KEYS,
  CITY_HUB_SLUG,
@@ -730,6 +731,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  apply: 'build',
  enforce: 'post',
  async closeBundle() {
+ const jobsSeoSample = resolveJobsSeoSample();
  resetIncrementalManifestInputCache(rootDir);
  // Fail the build loudly (follow-up #3608 item 2) instead of silently
  // emitting a literal "undefined" segment in a sector-hub canonical URL —
@@ -1701,7 +1703,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return 0;
  };
 
- const validJobs = jobs
+ let validJobs = jobs
  .filter((j: any) => !isFixtureJob(j))
  .filter((j: any) => j?.title && j?.company && j?.location && (j?.description || j?.descriptionByLocale))
  .map((j: any) => ({
@@ -1719,6 +1721,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  if (ta !== tb) return tb - ta;
  return String(a.id || a.slug || '').localeCompare(String(b.id || b.slug || ''));
  });
+ if (jobsSeoSample !== null) {
+  const totalValidJobs = validJobs.length;
+  validJobs = selectJobsSeoSample(validJobs, jobsSeoSample);
+  console.log(
+   `[jobs-seo-sample] fraction=${jobsSeoSample} selected=${validJobs.length} of ${totalValidJobs}`,
+  );
+ }
+ // Keep the sample at this boundary: every active job detail, hub, bridge and
+ // related/search derivation below reads this same `validJobs` array.
  // Release the raw dataset: validJobs is an independent spread-copy (new objects
  // per job), and `jobs` is never read past this point — free ~150-250 MB before
  // the heavy per-page emit + expired/bridge pre-scans. (Build OOM fix, #1290.)
