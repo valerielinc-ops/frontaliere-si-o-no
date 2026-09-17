@@ -238,6 +238,25 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
+  it('bounds lifecycle observer persistence operations too', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-lifecycle-observer.yml'), 'utf8');
+    expect(source).toContain('remote_timeout_seconds=90');
+    expect(source).toContain('timeout --signal=TERM --kill-after=10s');
+    expect(source).toContain('export GIT_TERMINAL_PROMPT=0');
+    expect(source).toContain('export GH_PAGER=cat');
+    for (const command of [
+      'bounded_remote git fetch origin main',
+      'bounded_remote gh pr list',
+      'bounded_remote git ls-remote --heads origin',
+      'bounded_remote git fetch origin "$base_branch"',
+      'bounded_remote git -c http.https://github.com/.extraheader= push',
+      'bounded_remote gh pr edit',
+      'bounded_remote gh pr create',
+    ]) {
+      expect(source, command).toContain(command);
+    }
+  });
+
   it('keeps the automatic ledger recovery probe bounded and unable to write repository content', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger-reconcile.yml'), 'utf8');
     expect(source).toContain("cron: '*/20 * * * *'");
