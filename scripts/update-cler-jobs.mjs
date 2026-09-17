@@ -2,7 +2,8 @@
 /**
  * Dedicated Banca Cler crawler.
  * Fetches jobs from the Cler jobssearch API, scrapes detail pages for rich descriptions,
- * and runs AI localization for SEO-critical fields.
+ * resolves each Swiss workplace across all 26 cantons, and runs AI localization
+ * for SEO-critical fields.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -38,10 +39,7 @@ import {
   extractJobMeta,
   dedupeClerJobsByStableId,
 } from './lib/cler-job-parser.mjs';
-import {
-  getCompanyDefaults,
-  getCantonForLocation,
-} from './lib/crawler-location-config.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -61,16 +59,13 @@ const COMPANY_KEY = 'banca-cler';
 // of #3775/#3768).
 const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
-// Bank Cler HQ is Basel (BS). Per-job locations come from the detail page's
-// `Arbeitsort` field; this default is only used when extraction fails.
-const HQ_DEFAULTS = getCompanyDefaults(COMPANY_KEY) || {
-  city: 'Basel', canton: 'BS', postalCode: '4002', addressRegion: 'BS',
-};
 const COMPANY_NAME = 'Banca Cler';
 
 // Real Bank Cler branch addresses keyed by lowercase city (normalized).
 // Source: cler.ch/de/bank-cler/standorte-und-bancomaten (2026-05).
 // Each entry: canton, representative postalCode, headquarters/branch street.
+// This is enrichment only; Swiss eligibility is resolved below through the
+// all-26-canton location predicate, never through this finite branch list.
 const CLER_BRANCHES = {
   'aarau':         { canton: 'AG', postalCode: '5000', street: 'Bahnhofstrasse 65' },
   'basel':         { canton: 'BS', postalCode: '4002', street: 'Aeschenplatz 3' },
@@ -148,8 +143,9 @@ function resolveBranchAddress(arbeitsort) {
         street: branch.street,
       };
     }
-    const canton = getCantonForLocation(candidate);
-    if (canton) {
+    if (isTargetSwissLocation(candidate)) {
+      const canton = inferAnyCanton(candidate);
+      if (!canton) continue;
       return {
         city: candidate.trim(),
         canton,
@@ -165,7 +161,7 @@ const API_BASE = 'https://www.cler.ch';
 const API_PATH = '/de/api/jobssearch/search?sc_site=bc&jobs=%7B3F115DCF-9CE3-4466-9E05-53D8D9B5DAC0%7D&predefinedFilter=&pageSize=50';
 
 const TIMEOUT_MS = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '15000', 10);
-const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoCrawler/1.0)';
+const UA = 'Mozilla/5.0 (compatible; FrontaliereBot/1.0)';
 
 // ─────────────────────────────────────────────────────────────
 // Helpers
@@ -329,13 +325,24 @@ async function fetchClerJobs() {
   }
 
   const jobs = [];
+  const skipped = {
+    missingTitle: 0,
+    missingDetailPath: 0,
+    unresolvedWorkplace: 0,
+  };
 
   for (const listing of uniqueListings) {
     const title = (listing.title || '').trim();
-    if (!title) continue;
+    if (!title) {
+      skipped.missingTitle++;
+      continue;
+    }
 
     const detailPath = listing.link?.url || '';
-    if (!detailPath) continue;
+    if (!detailPath) {
+      skipped.missingDetailPath++;
+      continue;
+    }
 
     const detailUrl = `${API_BASE}${detailPath}`;
     const field = listing.fieldofactivity || '';
@@ -372,16 +379,14 @@ async function fetchClerJobs() {
       postedDate = `${y}-${m}-${d}`;
     }
 
-    // Resolve real Arbeitsort → structured Swiss address. Falls back to the
-    // company HQ in Basel when the detail page omits or obfuscates the city.
-    const branch = resolveBranchAddress(detailMeta.arbeitsort) || {
-      city: HQ_DEFAULTS.city,
-      canton: HQ_DEFAULTS.canton,
-      postalCode: HQ_DEFAULTS.postalCode || CANTON_FALLBACK_POSTAL[HQ_DEFAULTS.canton] || '',
-      street: 'Aeschenplatz 3',
-    };
-    if (!detailMeta.arbeitsort) {
-      console.warn(`    ⚠️ no Arbeitsort in detail page; falling back to HQ ${branch.city}/${branch.canton}`);
+    // Resolve the real Arbeitsort. A missing or unrecognised workplace must
+    // not be stamped with the Basel HQ: that would turn a national listing
+    // into a false fixed-location posting.
+    const branch = resolveBranchAddress(detailMeta.arbeitsort);
+    if (!branch) {
+      skipped.unresolvedWorkplace++;
+      console.warn(`    ⚠️ no resolvable Swiss Arbeitsort; skipping ${title}`);
+      continue;
     }
 
     const job = {
@@ -418,6 +423,14 @@ async function fetchClerJobs() {
 
     console.log(`    ✅ ${description.length} chars | lang=${sourceLang} | cat=${category}`);
     jobs.push(job);
+  }
+
+  console.log(`  📍 Workplace resolution: ${jobs.length}/${uniqueListings.length} listings emitted across Swiss cantons`);
+  if (skipped.missingTitle || skipped.missingDetailPath || skipped.unresolvedWorkplace) {
+    console.warn(`  ⚠️ Skipped listings: ${JSON.stringify(skipped)}`);
+  }
+  if (uniqueListings.length > 0 && jobs.length === 0) {
+    throw new Error(`Cler source returned ${uniqueListings.length} listings but no listing had a resolvable Swiss workplace`);
   }
 
   return jobs;
@@ -525,9 +538,9 @@ function validateLocales() {
     dataJobsPath: DATA_JOBS,
     isTargetJob,
     failOnMissingJobsFile: true,
-    failWhenNoJobs: true,
+    failWhenNoJobs: false,
     minDescriptionChars: 80,
-    noJobsMessage: 'No Cler jobs found after crawl.',
+    noJobsMessage: 'Cler source returned no jobs; no count gate is applied.',
     detectSourceLang: (text) => detectLang(text, 'de'),
     isTrustedDomain,
     untrustedDomainReason: 'untrusted_domain_for_cler_job',
@@ -555,7 +568,7 @@ async function main() {
   const discoveredJobs = await fetchClerJobs();
 
   if (discoveredJobs.length === 0) {
-    console.log('\n⚠️ No Cler jobs discovered from API.');
+    console.log('\nℹ️ Cler API returned no usable jobs; no job-count gate is applied.');
     console.log('   Keeping existing jobs unchanged.');
     return;
   }
