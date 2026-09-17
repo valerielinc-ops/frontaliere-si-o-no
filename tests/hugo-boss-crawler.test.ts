@@ -233,12 +233,17 @@ describe('fetchJobs national pagination', () => {
     ]);
   });
 
-  it('rejects an empty page without a Phenom DDO/data envelope', async () => {
+  it('rejects a page without a Phenom DDO/data envelope as an unproven termination', async () => {
     const fetchHtml = vi.fn(async () => '<html><body>vendor error</body></html>');
 
-    await expect(fetchJobs({ fetchHtml })).rejects.toThrow(
-      /missing a valid Phenom DDO\/data envelope/,
-    );
+    await expect(fetchJobs({ fetchHtml })).rejects.toThrow(/without a proven terminal page/);
+    expect(fetchHtml).toHaveBeenCalledTimes(1);
+  });
+
+  it('accepts a valid empty Phenom DDO/data envelope as a proven termination', async () => {
+    const fetchHtml = vi.fn(async () => makeSearchPage(0, []));
+
+    await expect(fetchJobs({ fetchHtml })).resolves.toEqual([]);
     expect(fetchHtml).toHaveBeenCalledTimes(1);
   });
 });

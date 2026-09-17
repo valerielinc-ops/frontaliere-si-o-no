@@ -107,21 +107,24 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
       break;
     }
     const ddo = extractPhenomDdo(html);
-    const searchData = ddo?.eagerLoadRefineSearch?.data;
-    if (!searchData || !Array.isArray(searchData.jobs)) {
-      throw new Error(
-        `Hugo Boss page ${page + 1} is missing a valid Phenom DDO/data envelope `
-        + '(expected eagerLoadRefineSearch.data.jobs).',
-      );
-    }
     const reportedTotal = Number(
-      searchData.totalHits
-      ?? searchData.total
+      ddo?.eagerLoadRefineSearch?.data?.totalHits
+      ?? ddo?.eagerLoadRefineSearch?.data?.total
       ?? ddo?.eagerLoadRefineSearch?.totalHits
       ?? 0,
     );
     if (reportedTotal > 0) totalHits = reportedTotal;
-    const rawPageJobs = searchData.jobs;
+    const rawPageJobs = ddo?.eagerLoadRefineSearch?.data?.jobs;
+    if (!Array.isArray(rawPageJobs)) {
+      const coverage = totalHits === null
+        ? 'totalHits is unavailable to confirm national coverage'
+        : `declared totalHits=${totalHits} cannot confirm coverage after a missing DDO envelope`;
+      throw new Error(
+        `Hugo Boss page ${page + 1} is missing a valid Phenom DDO/data envelope `
+        + `(expected eagerLoadRefineSearch.data.jobs); ${coverage}. `
+        + 'Aborting without a proven terminal page.',
+      );
+    }
     const rawPageCount = rawPageJobs.length;
     const pageJobs = parseSearchPage(html);
     console.log(`  📄 Page ${page + 1}: ${pageJobs.length} parsed jobs from ${rawPageCount} DDO records (from=${from}${totalHits ? `, total=${totalHits}` : ''})`);
