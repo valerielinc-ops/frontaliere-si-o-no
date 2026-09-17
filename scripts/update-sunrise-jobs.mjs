@@ -41,6 +41,7 @@ import {
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { readCurrentRunJobs } from './lib/crawler-run-jobs.mjs';
+import { createListingPaginationIntegrity } from './lib/listing-pagination-integrity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -146,6 +147,9 @@ async function fetchSunriseListings() {
   let malformedRecordCount = 0;
   let payloadPresent = false;
   let terminationProven = false;
+  const paginationIntegrity = createListingPaginationIntegrity({
+    getRowKey: (row) => row?.reqId || row?.jobId,
+  });
   for (let page = 0; page < MAX_PAGES; page += 1) {
     const offset = page * PAGE_SIZE;
     const url = offset ? `${CAREERS_URL}?from=${offset}&s=1` : CAREERS_URL;
@@ -157,6 +161,10 @@ async function fetchSunriseListings() {
     payloadPresent = true;
     malformedRecordCount += Number(rows.sunriseSearchSkippedMalformedRecords || 0);
     const rawRecordCount = Number(rows.sunriseSearchRawRecordCount || 0);
+    if (!paginationIntegrity.observe(rows).accepted) {
+      console.warn(`⚠️ Sunrise pagination integrity failed at offset ${offset}; source snapshot is unproven.`);
+      break;
+    }
     if (rawRecordCount === 0) {
       terminationProven = true;
       break;
@@ -177,6 +185,7 @@ async function fetchSunriseListings() {
   const sourceReadComplete = Boolean(
     payloadPresent
     && terminationProven
+    && paginationIntegrity.proven
     && malformedRecordCount === 0,
   );
   console.log(`📋 Total search rows: ${discovered.length}`);
@@ -191,6 +200,7 @@ async function fetchSunriseListings() {
     sunriseSourceRows: { value: discovered, enumerable: false },
     sunriseSourceReadComplete: { value: sourceReadComplete, enumerable: false },
     sunriseSourceTerminationProven: { value: terminationProven, enumerable: false },
+    sunriseSourcePaginationIntegrityProven: { value: paginationIntegrity.proven, enumerable: false },
     sunriseSourceTargetCount: { value: target.length, enumerable: false },
     sunriseSourceUnrecognizedLocationCount: { value: unrecognizedLocations.length, enumerable: false },
   });
@@ -207,6 +217,7 @@ function copySunriseSourceEvidence(jobs, source) {
     sunriseSourceRows: { value: source.sunriseSourceRows, enumerable: false },
     sunriseSourceReadComplete: { value: source.sunriseSourceReadComplete === true, enumerable: false },
     sunriseSourceTerminationProven: { value: source.sunriseSourceTerminationProven === true, enumerable: false },
+    sunriseSourcePaginationIntegrityProven: { value: source.sunriseSourcePaginationIntegrityProven === true, enumerable: false },
     sunriseSourceTargetCount: { value: source.sunriseSourceTargetCount, enumerable: false },
     sunriseSourceUnrecognizedLocationCount: { value: source.sunriseSourceUnrecognizedLocationCount, enumerable: false },
   });
@@ -214,7 +225,12 @@ function copySunriseSourceEvidence(jobs, source) {
 }
 
 function assertCompleteSunriseSnapshot(jobs = []) {
-  if (!Array.isArray(jobs) || jobs.sunriseSourceReadComplete !== true || jobs.sunriseSourceTerminationProven !== true) {
+  if (
+    !Array.isArray(jobs)
+    || jobs.sunriseSourceReadComplete !== true
+    || jobs.sunriseSourceTerminationProven !== true
+    || jobs.sunriseSourcePaginationIntegrityProven !== true
+  ) {
     throw new Error('Sunrise: source search snapshot was not read to a proven terminal page');
   }
   const rows = jobs.sunriseSourceRows;

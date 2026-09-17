@@ -43,6 +43,7 @@ import { hasAuthoritativeListingPageEvidence } from './lib/job-listing-evidence.
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { createListingPaginationIntegrity } from './lib/listing-pagination-integrity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -152,6 +153,9 @@ async function fetchBoardListings() {
   let terminationProven = false;
   let pageUrl = CAREERS_URL;
   let page = 1;
+  const paginationIntegrity = createListingPaginationIntegrity({
+    getRowKey: (row) => row?.href && new URL(row.href, CAREERS_URL).href,
+  });
 
   while (pageUrl && page <= MAX_PAGES) {
     if (seenPageUrls.has(pageUrl)) break; // already visited → cyclic paginator, stop
@@ -161,6 +165,10 @@ async function fetchBoardListings() {
     const discovered = parseBoardListings(html);
     skippedMalformedRows += Number(discovered.boardListingSkippedMalformedRows || 0);
     console.log(`  → Found ${discovered.length} listings on page ${page}`);
+    if (!paginationIntegrity.observe(discovered).accepted) {
+      console.warn(`⚠️ Board pagination integrity failed on page ${page}; source snapshot is unproven.`);
+      break;
+    }
     allDiscovered.push(...discovered);
 
     // Check for next page
@@ -184,6 +192,7 @@ async function fetchBoardListings() {
   const sourceReadComplete = Boolean(
     terminationProven
     && skippedMalformedRows === 0
+    && paginationIntegrity.proven
     && terminalPageEvidenceProven,
   );
   console.log(`📋 Total listing rows (all pages): ${allDiscovered.length}`);
@@ -198,6 +207,7 @@ async function fetchBoardListings() {
     boardSourceRows: { value: allDiscovered, enumerable: false },
     boardSourceReadComplete: { value: sourceReadComplete, enumerable: false },
     boardSourceTerminationProven: { value: terminationProven, enumerable: false },
+    boardSourcePaginationIntegrityProven: { value: paginationIntegrity.proven, enumerable: false },
     boardSourceTargetCount: { value: target.length, enumerable: false },
     boardSourceUnrecognizedLocationCount: { value: unrecognizedLocations.length, enumerable: false },
   });
@@ -214,6 +224,7 @@ function copyBoardSourceEvidence(jobs, source) {
     boardSourceRows: { value: source.boardSourceRows, enumerable: false },
     boardSourceReadComplete: { value: source.boardSourceReadComplete === true, enumerable: false },
     boardSourceTerminationProven: { value: source.boardSourceTerminationProven === true, enumerable: false },
+    boardSourcePaginationIntegrityProven: { value: source.boardSourcePaginationIntegrityProven === true, enumerable: false },
     boardSourceTargetCount: { value: source.boardSourceTargetCount, enumerable: false },
     boardSourceUnrecognizedLocationCount: { value: source.boardSourceUnrecognizedLocationCount, enumerable: false },
   });
@@ -221,7 +232,12 @@ function copyBoardSourceEvidence(jobs, source) {
 }
 
 function assertCompleteBoardSnapshot(jobs = []) {
-  if (!Array.isArray(jobs) || jobs.boardSourceReadComplete !== true || jobs.boardSourceTerminationProven !== true) {
+  if (
+    !Array.isArray(jobs)
+    || jobs.boardSourceReadComplete !== true
+    || jobs.boardSourceTerminationProven !== true
+    || jobs.boardSourcePaginationIntegrityProven !== true
+  ) {
     throw new Error('Board: source listing snapshot was not read to a proven terminal page');
   }
   const rows = jobs.boardSourceRows;

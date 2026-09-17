@@ -6180,11 +6180,32 @@ export function isLocationExplicitlyForeign(locationField) {
     'gb', 'gr', 'hk', 'hu', 'id', 'ie', 'in', 'it', 'jp', 'kr', 'mx', 'my',
     'nl', 'no', 'pl', 'pt', 'qa', 'ro', 'ru', 'sa', 'se', 'sg', 'th', 'tr',
     'tw', 'ua', 'us', 'vn', 'za',
-  ].filter((code) => !ALL_CANTON_CODES.includes(code.toUpperCase()));
-  const hasForeignCountryCode = new RegExp(
-    `(?:^|[^\\p{L}\\p{N}])(?:${foreignCountryCodes.join('|')})(?=$|[^\\p{L}\\p{N}])`,
-    'iu',
-  ).test(lower);
+  ];
+  // ISO alpha-2 is authoritative only in a country/suffix position. Scanning
+  // every two-letter token in a mixed title/snippet misclassifies e.g. "IT
+  // Support in Lugano" as Italy. Collisions with canton codes are resolved
+  // from the location prefix: "Bern, BE" is Swiss, while "Paris, FR" is not.
+  const foreignCountryCodeSuffixRe = new RegExp(
+    `(?:^|[,;|/:(])\\s*(${foreignCountryCodes.join('|')})\\s*(?=$|[),;|/])`,
+    'giu',
+  );
+  let hasForeignCountryCode = false;
+  for (const match of lower.matchAll(foreignCountryCodeSuffixRe)) {
+    const code = String(match[1] || '').toUpperCase();
+    if (!ALL_CANTON_CODES.includes(code)) {
+      hasForeignCountryCode = true;
+      break;
+    }
+    const locationPrefix = lower
+      .slice(0, match.index)
+      .replace(/[,;|/:(\s]+$/g, '')
+      .trim();
+    const inferredSwissCanton = inferAnyCanton(locationPrefix);
+    if (!inferredSwissCanton || inferredSwissCanton.toUpperCase() !== code) {
+      hasForeignCountryCode = true;
+      break;
+    }
+  }
   // Check explicit country markers before canton inference so a mixed
   // string such as "Lugano, Italy" cannot be classified as Swiss.
   if (foreignCountries.some((k) => markerText.includes(` ${k} `)) || hasForeignCountryCode) return true;

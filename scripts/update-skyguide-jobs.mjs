@@ -43,6 +43,7 @@ import { hasAuthoritativeListingPageEvidence } from './lib/job-listing-evidence.
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { readCurrentRunJobs } from './lib/crawler-run-jobs.mjs';
+import { createListingPaginationIntegrity } from './lib/listing-pagination-integrity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -150,6 +151,9 @@ async function fetchListings() {
   let skippedMalformedRowsTotal = 0;
   let terminalPageEvidenceProven = false;
   let terminationProven = false;
+  const paginationIntegrity = createListingPaginationIntegrity({
+    getRowKey: (row) => row?.href && absoluteUrl(row.href),
+  });
 
   for (let page = 0; page < LISTING_MAX_PAGES; page += 1) {
     const startRow = page * LISTING_PAGE_SIZE;
@@ -177,6 +181,10 @@ async function fetchListings() {
         `Skyguide listing structure drift at startrow=${startRow}: ` +
           `${skippedMalformedRows}/${diagnostic.total} rows malformed`,
       );
+    }
+    if (!paginationIntegrity.observe(rows).accepted) {
+      console.warn(`⚠️ Skyguide pagination integrity failed at startrow=${startRow}; source snapshot is unproven.`);
+      break;
     }
     console.log(`📋 Page ${page + 1} (startrow ${startRow}): ${rows.length} rows`);
     if (rows.length === 0) {
@@ -216,6 +224,7 @@ async function fetchListings() {
   const sourceReadComplete = Boolean(
     terminationProven
     && skippedMalformedRowsTotal === 0
+    && paginationIntegrity.proven
     && terminalPageEvidenceProven,
   );
   if (target.length === 0) {
@@ -225,6 +234,7 @@ async function fetchListings() {
     skyguideSourceRows: { value: discovered, enumerable: false },
     skyguideSourceReadComplete: { value: sourceReadComplete, enumerable: false },
     skyguideSourceTerminationProven: { value: terminationProven, enumerable: false },
+    skyguideSourcePaginationIntegrityProven: { value: paginationIntegrity.proven, enumerable: false },
     skyguideSourceTargetCount: { value: target.length, enumerable: false },
     skyguideSourceUnrecognizedLocationCount: { value: unrecognizedLocations.length, enumerable: false },
   });
@@ -241,6 +251,7 @@ function copySkyguideSourceEvidence(jobs, source) {
     skyguideSourceRows: { value: source.skyguideSourceRows, enumerable: false },
     skyguideSourceReadComplete: { value: source.skyguideSourceReadComplete === true, enumerable: false },
     skyguideSourceTerminationProven: { value: source.skyguideSourceTerminationProven === true, enumerable: false },
+    skyguideSourcePaginationIntegrityProven: { value: source.skyguideSourcePaginationIntegrityProven === true, enumerable: false },
     skyguideSourceTargetCount: { value: source.skyguideSourceTargetCount, enumerable: false },
     skyguideSourceUnrecognizedLocationCount: { value: source.skyguideSourceUnrecognizedLocationCount, enumerable: false },
   });
@@ -248,7 +259,12 @@ function copySkyguideSourceEvidence(jobs, source) {
 }
 
 function assertCompleteSkyguideSnapshot(jobs = []) {
-  if (!Array.isArray(jobs) || jobs.skyguideSourceReadComplete !== true || jobs.skyguideSourceTerminationProven !== true) {
+  if (
+    !Array.isArray(jobs)
+    || jobs.skyguideSourceReadComplete !== true
+    || jobs.skyguideSourceTerminationProven !== true
+    || jobs.skyguideSourcePaginationIntegrityProven !== true
+  ) {
     throw new Error('Skyguide: source listing snapshot was not read to a proven terminal page');
   }
   const rows = jobs.skyguideSourceRows;

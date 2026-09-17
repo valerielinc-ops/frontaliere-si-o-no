@@ -43,6 +43,7 @@ import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './
 import { hasAuthoritativeListingPageEvidence } from './lib/job-listing-evidence.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { createListingPaginationIntegrity } from './lib/listing-pagination-integrity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -122,6 +123,9 @@ async function fetchDamianiListings() {
   let terminationProven = false;
   const PAGE_SIZE = 25;
   const MAX_PAGES = 1000;
+  const paginationIntegrity = createListingPaginationIntegrity({
+    getRowKey: (row) => row?.href && new URL(row.href, DETAIL_BASE).href,
+  });
   for (let page = 0; page < MAX_PAGES; page += 1) {
     const startrow = page * PAGE_SIZE;
     const url = startrow ? `${SEARCH_BASE}&startrow=${startrow}` : SEARCH_BASE;
@@ -146,6 +150,10 @@ async function fetchDamianiListings() {
         `Damiani search structure drift at startrow=${startrow}: ` +
           `${skippedMalformedRows}/${diagnostic.total} rows malformed`,
       );
+    }
+    if (!paginationIntegrity.observe(rows).accepted) {
+      console.warn(` Damiani pagination integrity failed at startrow=${startrow}; source snapshot is unproven.`);
+      break;
     }
     if (rows.length === 0) {
       terminationProven = true;
@@ -179,6 +187,7 @@ async function fetchDamianiListings() {
   const sourceReadComplete = Boolean(
     terminationProven
     && skippedMalformedRowsTotal === 0
+    && paginationIntegrity.proven
     && terminalPageEvidenceProven,
   );
   console.log(`📋 Total search rows: ${discovered.length}`);
@@ -193,6 +202,7 @@ async function fetchDamianiListings() {
     damianiSourceRows: { value: discovered, enumerable: false },
     damianiSourceReadComplete: { value: sourceReadComplete, enumerable: false },
     damianiSourceTerminationProven: { value: terminationProven, enumerable: false },
+    damianiSourcePaginationIntegrityProven: { value: paginationIntegrity.proven, enumerable: false },
     damianiSourceTargetCount: { value: relevant.length, enumerable: false },
     damianiSourceUnrecognizedLocationCount: { value: unrecognizedLocations.length, enumerable: false },
   });
@@ -209,6 +219,7 @@ function copyDamianiSourceEvidence(jobs, source) {
     damianiSourceRows: { value: source.damianiSourceRows, enumerable: false },
     damianiSourceReadComplete: { value: source.damianiSourceReadComplete === true, enumerable: false },
     damianiSourceTerminationProven: { value: source.damianiSourceTerminationProven === true, enumerable: false },
+    damianiSourcePaginationIntegrityProven: { value: source.damianiSourcePaginationIntegrityProven === true, enumerable: false },
     damianiSourceTargetCount: { value: source.damianiSourceTargetCount, enumerable: false },
     damianiSourceUnrecognizedLocationCount: { value: source.damianiSourceUnrecognizedLocationCount, enumerable: false },
   });
@@ -216,7 +227,12 @@ function copyDamianiSourceEvidence(jobs, source) {
 }
 
 function assertCompleteDamianiSnapshot(jobs = []) {
-  if (!Array.isArray(jobs) || jobs.damianiSourceReadComplete !== true || jobs.damianiSourceTerminationProven !== true) {
+  if (
+    !Array.isArray(jobs)
+    || jobs.damianiSourceReadComplete !== true
+    || jobs.damianiSourceTerminationProven !== true
+    || jobs.damianiSourcePaginationIntegrityProven !== true
+  ) {
     throw new Error('Damiani: source listing snapshot was not read to a proven terminal page');
   }
   const rows = jobs.damianiSourceRows;
