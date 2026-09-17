@@ -238,7 +238,7 @@ async function fetchAllListings() {
 }
 
 async function enrichWithDetails(listings) {
-  // Enrich every listing whose location resolves to a Swiss target canton.
+  // Enrich every listing whose location identifies Switzerland.
   const swissJobs = listings.filter((job) =>
     isHitachiEnergySwissRelevant(job.location) ||
     isHitachiEnergySwissRelevant(job.primaryLocation),

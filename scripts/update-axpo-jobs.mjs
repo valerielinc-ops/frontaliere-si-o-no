@@ -31,7 +31,7 @@ import {
   decodeEntities,
   validateAxpoDescription,
 } from './lib/axpo-job-parser.mjs';
-import { isTargetSwissLocation, inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { isSwissLocationText, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -96,7 +96,7 @@ function jobMatchKey(job) {
 }
 
 function isSwissLocation(city = '') {
-  return isTargetSwissLocation(city);
+  return isSwissLocationText(city);
 }
 
 function todayIso() {
@@ -210,7 +210,7 @@ async function fetchRss() {
 function filterSwissJobs(items) {
   const swissJobs = [];
   for (const item of items) {
-    // Check whether any listed workplace resolves to a Swiss target canton.
+    // Check whether any listed workplace identifies Switzerland.
     const swissLocations = item.locations.filter(
       (loc) => loc.country === 'Switzerland' && isSwissLocation(loc.city)
     );
@@ -375,7 +375,7 @@ async function main() {
   console.log('═══════════════════════════════════════');
   const allItems = await fetchRss();
 
-  // Phase 2 — Filter for Swiss target cantons
+  // Phase 2 — Filter for Swiss locations
   console.log('\n═══════════════════════════════════════');
   console.log('Phase 2: Filter Swiss jobs');
   console.log('═══════════════════════════════════════');

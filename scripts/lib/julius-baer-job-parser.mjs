@@ -14,7 +14,7 @@
  * NOTE: The Workday site name changed from "JuliusBaer" to "External" (discovered 2026-03-25).
  */
 
-import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isSwissLocationText } from './target-swiss-locations.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
@@ -71,10 +71,10 @@ export function slugify(value = '', suffix = '') {
 }
 
 /**
- * Check if a Workday location string refers to any target Swiss canton.
+ * Check if a Workday location string identifies Switzerland across all 26 cantons.
  */
 export function isSwissLocation(locationText = '') {
-  return isTargetSwissLocation(locationText);
+  return isSwissLocationText(locationText);
 }
 
 /** @deprecated Misleading legacy name; alias of isSwissLocation. Keep until callers are migrated. */
@@ -136,7 +136,7 @@ export function detectEmploymentType(timeType = '') {
 
 /**
  * Parse job listings from the Workday API JSON response.
- * Filters to positions whose location resolves to a Swiss target canton.
+ * Filters to positions whose location identifies Switzerland.
  *
  * @param {object} apiResponse - Parsed JSON from the Workday listing endpoint
  * @returns {Array<{title: string, externalPath: string, location: string, city: string, bulletFields: string[]}>}
@@ -156,7 +156,7 @@ export function parseWorkdayListings(apiResponse) {
     if (seen.has(externalPath)) continue;
     seen.add(externalPath);
 
-    // Filter for Swiss target cantons.
+    // Filter for Swiss locations; the detail path resolves the canton per job.
     if (!isSwissLocation(locationsText)) continue;
 
     results.push({

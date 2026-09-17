@@ -79,7 +79,7 @@ const SWISS_COUNTRY_FACET_ID = '187134fccb084a0ea9b4b95f23890dbe';
  *
  * Previously this used a hardcoded `Location_Region_State_Province` facet ID
  * and narrow regional text probes. By fetching the whole CH country facet
- * and relying on the shared `isSwissLocation` check (all 26 target cantons),
+ * and relying on the shared `isSwissLocation` check (all 26 Swiss cantons),
  * we capture every Swiss opening without relying on tenant-specific region
  * IDs that drift.
  */

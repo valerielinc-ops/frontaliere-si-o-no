@@ -11,7 +11,7 @@
  *
  * Discovery flow:
  *   1. Paginate all Swiss jobs from Workday API (max 20 per page)
- *   2. Keep jobs whose listing location resolves to a Swiss target canton
+ *   2. Keep jobs whose listing location identifies Switzerland
  *   3. Fetch full job detail for each Swiss-canton listing
  *   4. Build job objects with canonical Workday URLs
  *   5. Merge into data/jobs.json (add new, update existing, prune stale)
@@ -42,7 +42,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseSwisscomJobDescription } from './lib/swisscom-job-parser.mjs';
-import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isSwissLocationText } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -131,7 +131,7 @@ function isTrustedDomain(rawUrl = '') {
 }
 
 function isSwissLocation(locText = '') {
-  return isTargetSwissLocation(locText);
+  return isSwissLocationText(locText);
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -227,7 +227,7 @@ async function listSwissJobs() {
 
   console.log(`  📋 Fetched ${allPostings.length} job listings across all pages`);
 
-  // Keep jobs in any Swiss target canton.
+  // Keep jobs in any Swiss location.
   const relevantPostings = allPostings.filter(p =>
     isSwissLocation(p.locationsText || '')
   );
