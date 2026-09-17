@@ -51,6 +51,7 @@ import {
   isSwissLocationText,
 } from './lib/target-swiss-locations.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { resolveSwissStructuredAddress } from './lib/swiss-structured-address.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -462,10 +463,18 @@ async function fetchCapriHoldingsJobs() {
     const descIt = `Posizione aperta presso ${brand} (Capri Holdings) a ${resolvedCity}.\nRuolo: ${title}.\n\nCapri Holdings è un gruppo globale della moda di lusso con i marchi Michael Kors, Versace e Jimmy Choo. L'azienda ha un importante hub logistico a Mendrisio, Canton Ticino.`;
     const slug = slugify(title, 'capri-holdings');
     const locationText = `${locationRaw} ${getWorkdayListingLocationSignal(listing)}`;
-    const postalCode = getWorkdaySourceField(info, ['postalCode', 'postal_code', 'zipCode', 'zip'])
-      || locationText.match(/\b\d{4}\b/)?.[0] || '';
-    const streetAddress = getWorkdaySourceField(info, ['streetAddress', 'street_address', 'addressLine1', 'address_line_1'])
+    const sourcePostalCode = getWorkdaySourceField(info, ['postalCode', 'postal_code', 'zipCode', 'zip'])
+      || locationText.match(/\b\d{4}\b/)?.[0]
       || '';
+    const sourceStreetAddress = getWorkdaySourceField(info, [
+      'streetAddress', 'street_address', 'addressLine1', 'address_line_1',
+    ]);
+    const structuredAddress = resolveSwissStructuredAddress({
+      city: resolvedCity,
+      canton,
+      postalCode: sourcePostalCode,
+      streetAddress: sourceStreetAddress,
+    });
 
     jobs.push({
       url: publicUrl,
@@ -473,14 +482,14 @@ async function fetchCapriHoldingsJobs() {
       title,
       company: CAPRI_COMPANY_NAME,
       companyKey: CAPRI_KEY,
-      location: resolvedCity,
-      canton,
+      location: structuredAddress.city,
+      canton: structuredAddress.canton,
       country: 'CH',
-      addressLocality: resolvedCity,
-      addressRegion: canton,
+      addressLocality: structuredAddress.city,
+      addressRegion: structuredAddress.canton,
       addressCountry: 'CH',
-      postalCode,
-      streetAddress,
+      postalCode: structuredAddress.postalCode,
+      streetAddress: structuredAddress.streetAddress,
       description: descEn,
       descriptionByLocale: { en: descEn, it: descIt },
       titleByLocale: { en: title },
@@ -494,7 +503,7 @@ async function fetchCapriHoldingsJobs() {
       sourceLang: detectLang(descEn || title, 'en'),
       sector: 'Fashion / Luxury Retail',
       _brand: brand,
-      _targetScope: { canton, location: resolvedCity },
+      _targetScope: { canton: structuredAddress.canton, location: structuredAddress.city },
     });
   }
 

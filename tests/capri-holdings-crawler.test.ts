@@ -4,6 +4,9 @@
  * Tests parseCapriHoldingsDetailPage(), isCapriHoldingsSwissJob(),
  * isCapriHoldingsJob(), and CAPRI_WORKDAY_HOSTS constants.
  */
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, it, expect } from 'vitest';
 
 import {
@@ -12,6 +15,12 @@ import {
   isCapriHoldingsJob,
   CAPRI_WORKDAY_HOSTS,
 } from '@/scripts/lib/capri-holdings-job-parser.mjs';
+import { resolveSwissStructuredAddress } from '../scripts/lib/swiss-structured-address.mjs';
+
+const CAPRI_RUNNER_SOURCE = readFileSync(
+  path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../scripts/update-capri-holdings-jobs.mjs'),
+  'utf8',
+);
 import {
   isSwissWorkdayListing,
   resolveWorkdayLocation,
@@ -219,5 +228,30 @@ describe('CAPRI_WORKDAY_HOSTS', () => {
 
   it('includes capriholdings Workday host', () => {
     expect(CAPRI_WORKDAY_HOSTS).toContain('capriholdings.wd1.myworkdayjobs.com');
+  });
+});
+
+describe('Capri structured-data address fallback', () => {
+  it('resolves a known Swiss municipality to its own CAP', () => {
+    expect(resolveSwissStructuredAddress({ city: 'Winterthur', canton: 'ZH' })).toEqual({
+      city: 'Winterthur', canton: 'ZH', postalCode: '8400', streetAddress: 'Winterthur',
+    });
+  });
+
+  it('never pairs an unknown municipality with a canton-capital CAP', () => {
+    expect(resolveSwissStructuredAddress({ city: 'Küsnacht', canton: 'ZH' })).toEqual({
+      city: 'Zürich', canton: 'ZH', postalCode: '8001', streetAddress: 'Zürich',
+    });
+  });
+
+  it('rejects a known CAP from a different canton even when supplied by source', () => {
+    expect(resolveSwissStructuredAddress({ city: 'Winterthur', canton: 'ZH', postalCode: '6850' }).postalCode)
+      .toBe('8400');
+  });
+
+  it('wires the coherent resolver into the live Capri emitter', () => {
+    expect(CAPRI_RUNNER_SOURCE).toContain('resolveSwissStructuredAddress');
+    expect(CAPRI_RUNNER_SOURCE).toContain('postalCode: structuredAddress.postalCode');
+    expect(CAPRI_RUNNER_SOURCE).toContain('addressRegion: structuredAddress.canton');
   });
 });
