@@ -36,9 +36,10 @@ const MAX_LOOP_FLEET_LEDGER_RECORDS = 50_000;
 const LOOP_FLEET_REGISTRY_PATH = 'data/loop-fleet/loop-registry.json';
 
 // The bounded ledger tier shares the normal tests job, but it can publish its
-// automatic review before the long test/review chain. The body predicate stays
-// dependency-free; the ledger-only command additionally uses the canonical
-// contract and the native helper bootstrap downloads that one dependency.
+// automatic review before checkout and the long test/review chain. The body
+// predicate stays dependency-free; the ledger-only command additionally uses
+// the canonical contract and can read a trusted registry supplied outside the
+// checkout by the workflow's pre-checkout bootstrap.
 const PR_BODY_IMPL_RE = /^[ \t]{0,3}#{2,3}[ \t]+Implementato\b[^\n]*/imu;
 const PR_BODY_NON_IMPL_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato[^\n]*\(ancora\)[^\n]*/imu;
 const MULTI_CLOSE_RE = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\b\s*(?:[\w.-]+\/[\w.-]+)?#\d+(?:\s*(?:,|:|;|&|\band\b)?\s*(?:[\w.-]+\/[\w.-]+)?#\d+)/iu;
@@ -372,8 +373,9 @@ function readRawLedgerAtRef(ghFn, repo, filename, ref, { allowNotFound = false }
 }
 
 function readLocalLedgerRegistry() {
+  const registryPath = process.env.LOOP_FLEET_REGISTRY_PATH || LOOP_FLEET_REGISTRY_PATH;
   try {
-    return validateLoopRegistry(JSON.parse(readFileSync(resolve(LOOP_FLEET_REGISTRY_PATH), 'utf8')));
+    return validateLoopRegistry(JSON.parse(readFileSync(resolve(registryPath), 'utf8')));
   } catch (error) {
     throw new Error(`registry ledger non verificabile: ${error.message}`);
   }
