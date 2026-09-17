@@ -16,7 +16,7 @@
  * national set. The canton of each job is inferred per-job from the
  * city string alone via inferAnyCanton (CH-wide, all 26 cantons).
  * Jobs whose city does not resolve to a Swiss canton (foreign / unknown)
- * are dropped — there is no TI default.
+ * are dropped — no canton is invented.
  *
  * This crawler:
  *   1. Fetches all pages of the national career center (unfiltered).
@@ -154,7 +154,7 @@ async function fetchPage(url) {
  */
 function extractTotalCount(html) {
   const match = html.match(/<span\s+class="total">\s*(\d+)\s*<\/span>/i);
-  return match ? parseInt(match[1], 10) : 0;
+  return match ? parseInt(match[1], 10) : null;
 }
 
 /**
@@ -204,7 +204,7 @@ function parseJobListings(html) {
  * combined string to inferAnyCanton would let TARGET_CANTONS array order
  * pick the wrong canton, so we infer from the bare city only.
  * Returns a 2-letter Swiss canton code, or '' when the city is not a
- * Swiss location (foreign / unknown) — never defaults to TI.
+ * Swiss location (foreign / unknown) — never invents a canton.
  */
 function resolveJobCanton(city = '') {
   return inferAnyCanton(String(city || '').trim()) || '';
@@ -224,11 +224,18 @@ async function fetchAllJobs() {
   console.log(`  📥 Fetching national page 1: ${firstUrl}`);
   const firstHtml = await fetchPage(firstUrl);
   const totalCount = extractTotalCount(firstHtml);
+  if (totalCount === null) {
+    throw new Error('Volg source did not publish a total job count; refusing an unproven partial crawl');
+  }
   console.log(`     Total: ${totalCount} jobs (national, unfiltered)`);
 
   if (totalCount === 0) return [];
 
-  allJobs.push(...parseJobListings(firstHtml));
+  const firstBatch = parseJobListings(firstHtml);
+  if (firstBatch.length === 0) {
+    throw new Error(`Volg source declared ${totalCount} jobs but page 1 contained none`);
+  }
+  allJobs.push(...firstBatch);
 
   // Paginate through remaining pages
   offset += JOBS_PER_PAGE;
@@ -238,10 +245,19 @@ async function fetchAllJobs() {
     console.log(`  📥 Fetching national page ${pageNum}: ${url}`);
     const html = await fetchPage(url);
     const batch = parseJobListings(html);
-    if (batch.length === 0) break;
+    if (batch.length === 0) {
+      throw new Error(
+        `Volg source pagination ended early: fetched ${allJobs.length}/${totalCount} declared jobs`,
+      );
+    }
     allJobs.push(...batch);
     offset += JOBS_PER_PAGE;
   }
+
+  if (allJobs.length < totalCount) {
+    throw new Error(`Volg source pagination incomplete: fetched ${allJobs.length}/${totalCount} declared jobs`);
+  }
+  console.log(`     Fetched ${allJobs.length}/${totalCount} declared jobs`);
 
   return allJobs;
 }
