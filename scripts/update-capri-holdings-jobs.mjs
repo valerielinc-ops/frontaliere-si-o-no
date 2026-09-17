@@ -318,7 +318,10 @@ async function listSwissJobs(site, brand) {
       const body = JSON.stringify({ appliedFacets: {}, limit, offset, searchText });
       const data = await fetchJson(apiUrl, { method: 'POST', body });
       if (!data || !Array.isArray(data.jobPostings)) break;
-      queryPostingsFetched += data.jobPostings.length;
+      const pageLength = data.jobPostings.length;
+      const declaredTotal = data.total == null ? null : Number(data.total);
+      const totalKnown = Number.isFinite(declaredTotal);
+      queryPostingsFetched += pageLength;
 
       for (const posting of data.jobPostings) {
         // Check if already found
@@ -336,10 +339,20 @@ async function listSwissJobs(site, brand) {
         allPostings.push({ ...posting, brand });
       }
 
-      if (data.jobPostings.length < limit || (searchText === '' && offset > 200)) break;
+      if (totalKnown && queryPostingsFetched < declaredTotal && pageLength < limit) {
+        throw new Error(
+          `Workday ${brand} ${searchText || 'empty'} search returned `
+          + `${queryPostingsFetched}/${declaredTotal} rows before a short page`,
+        );
+      }
+      if (totalKnown && queryPostingsFetched >= declaredTotal) break;
+      if (pageLength < limit) break;
+      if (!totalKnown) {
+        throw new Error(
+          `Workday ${brand} ${searchText || 'empty'} search omitted its total; refusing partial pagination`,
+        );
+      }
       offset += limit;
-      // For non-empty search, the results are already filtered, paginate them all
-      if (searchText !== '' && queryPostingsFetched >= (data.total || 0)) break;
     }
   }
 

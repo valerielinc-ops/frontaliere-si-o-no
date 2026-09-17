@@ -1,6 +1,6 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
-import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isSwissLocationText } from './target-swiss-locations.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -165,7 +165,7 @@ export function parseRuagJobDetail(html = '', url = '') {
 }
 
 export function isRuagTargetLocation(raw = '') {
-  return isTargetSwissLocation(raw);
+  return isSwissLocationText(raw);
 }
 
 export function inferRuagCanton(raw = '') {

@@ -195,9 +195,15 @@ async function fetchAllListings() {
 
 async function enrichWithDetails(listings) {
   const enriched = [];
-  const toFetch = listings.slice(0, MAX_DETAIL_PAGES);
+  if (listings.length > MAX_DETAIL_PAGES) {
+    throw new Error(
+      `AMAG listing completeness guard: ${listings.length} Swiss listings exceed `
+      + `the detail cap ${MAX_DETAIL_PAGES}; refusing a partial crawl`,
+    );
+  }
+  const toFetch = listings;
 
-  console.log(`\n🔎 Fetching up to ${toFetch.length} detail pages...`);
+  console.log(`\n🔎 Fetching ${toFetch.length} detail pages...`);
 
   for (let i = 0; i < toFetch.length; i++) {
     const item = toFetch[i];
