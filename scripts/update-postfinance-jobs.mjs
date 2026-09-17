@@ -22,7 +22,7 @@
  *      (https://job.post.ch/PostFinance/job/{urlTitle}/{id}/)
  *   3. Resolve canton from the entry's `jobLocationShort` field, falling
  *      back to inferAnyCanton (all 26 cantons); drop jobs that don't
- *      resolve to a Swiss canton (non-CH). Never default to TI.
+ *      resolve to a Swiss canton (non-CH). Never invent a canton.
  *   4. Best-effort fetch the detail page for a fuller description; since
  *      job.post.ch hydrates the description client-side this is often thin,
  *      so a substantive fallback description is built from listing fields
@@ -533,7 +533,7 @@ function findV2Match(v2Map, title, city) {
  * "city + region" string makes inferAnyCanton return the wrong canton because
  * of TARGET_CANTONS array ordering. Returns '' when the location does not
  * resolve to a Swiss canton (non-CH / foreign), so the caller can drop it.
- * Never defaults to TI.
+ * Never invents a canton.
  */
 function detectCanton(city = '') {
   return inferAnyCanton(city);
@@ -576,7 +576,7 @@ const NON_PHYSICAL_LOCALITIES = new Set([
  * postings collapse to 3 fields — "Homeoffice|Schweiz|CHE" — with no
  * canton. Multi-site postings list several entries; walk them looking for
  * the first explicit canton code before falling back to inferAnyCanton on
- * any city-like token. Never defaults to TI.
+ * any city-like token. Never invents a canton.
  *
  * The canton-code token is read from the UNFILTERED split at its POSITIONAL
  * index (2) rather than from a `.filter(Boolean)`'d array — filtering first
@@ -820,7 +820,7 @@ async function fetchAndParseJobDetails(urls, v2Map = new Map()) {
 
     // CH-wide: resolve canton from the city string ALONE (all 26 cantons).
     // Drop jobs whose location does not resolve to a Swiss canton (non-CH /
-    // foreign, e.g. Budapest). Never default to TI.
+    // foreign, e.g. Budapest). Never invent a canton.
     const canton = detectCanton(city);
     if (!canton) {
       console.log(`     ↳ Skipping (non-CH / unresolved canton): ${detail.title} — ${city || '?'}`);
@@ -1028,7 +1028,7 @@ function postProcessPostFinanceJobs() {
     }
     if (!job.canton) {
       // CH-wide canton inference from the city signal; leave unset if unresolved
-      // (never default to TI).
+      // (never invent a canton).
       const inferred = detectCanton(job.location);
       if (inferred) {
         job.canton = inferred;
