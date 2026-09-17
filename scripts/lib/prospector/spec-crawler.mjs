@@ -31,7 +31,7 @@ import {
 import { PROSPECTOR_DIR } from './config.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import { WAF_IP_BLOCK_STATUS } from '../transient-fetch.mjs';
-import { fetchHtmlViaJinaWithRetry } from '../jina-proxy.mjs';
+import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from '../jina-proxy.mjs';
 import {
   extractUmantisListingEvidence,
   umantisVacancyIdentity,
@@ -136,7 +136,7 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
       fetchImpl: runtime.jinaFetchImpl,
       sleepImpl: runtime.jinaSleepImpl,
     });
-    if (proxiedBody != null) {
+    if (proxiedBody != null && !looksLikeAntiBotChallenge(proxiedBody)) {
       return {
         ...result,
         ok: true,
@@ -146,6 +146,10 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
         proxiedBy: 'jina',
       };
     }
+    // Jina's retry helper filters its known error envelope, but some WAF
+    // challenge variants are valid-looking 200 bodies. Keep the same
+    // anti-bot safe-fail semantics for those variants instead of parsing a
+    // challenge as an empty listing page.
     wafProxyExhausted = true;
   }
 

@@ -276,4 +276,37 @@ describe('prospector public-only polite transport', () => {
     expect(error).toMatchObject({ status: 403, antiBotExhausted: true });
     expect(jinaFetchImpl).toHaveBeenCalledTimes(1);
   });
+
+  it('does not treat an unrecognised 200 WAF challenge from Jina as an empty listing', async () => {
+    const seed = 'https://employer.example/jobs';
+    const fetchImpl = vi.fn(async (url: string) => response(
+      url,
+      url.endsWith('/robots.txt') ? 200 : 403,
+      null,
+      url.endsWith('/robots.txt') ? 'User-agent: *\nAllow: /' : 'Forbidden by edge policy',
+    ));
+    const challenge = '<html><body><script>var cf = "cf-browser-verification";</script>'
+      + ' challenge'.repeat(80) + '</body></html>';
+    const jinaFetchImpl = vi.fn(async (url: string) => response(url, 200, null, challenge));
+
+    let error: any;
+    try {
+      await runSpecInProduction({
+        companyKey: 'employer', companyName: 'Employer', companyHost: 'employer.example',
+        mode: 'template', seedUrls: [seed], detailTemplate: '/careers/detail/*',
+      } as any, {
+        fetchImpl,
+        jinaFetchImpl,
+        jinaRetries: 0,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => {},
+        jinaSleepImpl: async () => {},
+      });
+    } catch (caught) {
+      error = caught;
+    }
+
+    expect(error).toMatchObject({ status: 403, antiBotExhausted: true });
+    expect(jinaFetchImpl).toHaveBeenCalledTimes(1);
+  });
 });
