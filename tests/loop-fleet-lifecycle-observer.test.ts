@@ -44,6 +44,45 @@ function candidate() {
   };
 }
 
+function recorderEvent(
+  eventType: string,
+  candidateId: string,
+  occurredAt: string,
+  runId: number,
+  sourceRecordId = candidateId,
+) {
+  const policy = registry.loops.find((loop: { loopId: string }) => loop.loopId === 'L0');
+  return {
+    ...buildLifecycleEvent({
+      eventType,
+      loopId: 'L0',
+      candidateId,
+      owner: policy.owner,
+      sourceRecordId,
+      sourceRefs: policy.sourceRefs,
+      lifecycle: policy.lifecycle,
+      occurredAt,
+      recordedAt: occurredAt,
+    }),
+    recordId: `lf-recorder-${candidateId}-${eventType}-${runId}`,
+    execution: {
+      loopId: 'L0',
+      repository: 'example/frontaliere',
+      workflow: 'Loop L0 data truth',
+      runId: String(runId),
+      sha: SOURCE_SHA,
+    },
+  };
+}
+
+function recorderChain(candidateId: string) {
+  const occurredAt = '2026-09-10T10:00:00.000Z';
+  return [
+    recorderEvent('candidate', candidateId, occurredAt, 20_000),
+    recorderEvent('owner_assigned', candidateId, occurredAt, 20_001),
+  ];
+}
+
 function fleetPr(overrides: Record<string, unknown> = {}) {
   return {
     number: 999,
@@ -116,6 +155,41 @@ function terminalEvent(eventType: string, candidateId: string, occurredAt: strin
       sha: OBSERVER_SHA,
     },
   };
+}
+
+function lifecyclePrefix(candidateId: string, through: string) {
+  const eventTimes: Record<string, string> = {
+    pr_opened: '2026-09-10T11:00:00.000Z',
+    tests_passed: '2026-09-10T12:00:00.000Z',
+    review_approved: '2026-09-10T13:00:00.000Z',
+    merged: '2026-09-10T14:00:00.000Z',
+    post_merge_verified: '2026-09-10T15:00:00.000Z',
+    rollback_requested: '2026-09-10T16:00:00.000Z',
+    rolled_back: '2026-09-10T17:00:00.000Z',
+  };
+  const eventTypes = Object.keys(eventTimes);
+  const throughIndex = eventTypes.indexOf(through);
+  if (throughIndex < 0) throw new Error(`unknown lifecycle prefix ${through}`);
+  return [
+    ...recorderChain(candidateId),
+    ...eventTypes.slice(0, throughIndex + 1).map((eventType, index) =>
+      terminalEvent(eventType, candidateId, eventTimes[eventType], 21_000 + index)),
+  ];
+}
+
+function writeJsonl(file: string, events: unknown[]) {
+  fs.writeFileSync(file, events.length
+    ? `${events.map((event) => JSON.stringify(event)).join('\n')}\n`
+    : '');
+}
+
+function readJsonlForTest(file: string) {
+  return fs.readFileSync(file, 'utf8').trim().split('\n')
+    .map((line) => JSON.parse(line) as { eventType: string });
+}
+
+function seedLedger(ledgerDir: string, events: unknown[]) {
+  writeJsonl(path.join(ledgerDir, 'lifecycle-events.jsonl'), events);
 }
 
 describe('loop-fleet independent lifecycle observer', () => {
@@ -354,6 +428,16 @@ describe('loop-fleet independent lifecycle observer', () => {
     const eventsFile = path.join(root, 'events.jsonl');
     const ledgerDir = path.join(root, 'ledger');
     fs.mkdirSync(ledgerDir);
+    seedLedger(ledgerDir, [
+      candidate(),
+      recorderEvent(
+        'owner_assigned',
+        'lf-decision-observer-test',
+        '2026-09-10T10:00:00.000Z',
+        124,
+        'decision-observer-test',
+      ),
+    ]);
     const observed = observeLifecycle({
       registry,
       lifecycleEvents: [candidate()],
@@ -408,9 +492,163 @@ describe('loop-fleet independent lifecycle observer', () => {
       registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
     })).toThrow('conflicting duplicate');
 
-    const recorderEvent = { ...candidate(), eventType: 'candidate' };
-    fs.writeFileSync(eventsFile, `${JSON.stringify(recorderEvent)}\n`);
+    const recorderOwnedEvent = { ...candidate(), eventType: 'candidate' };
+    fs.writeFileSync(eventsFile, `${JSON.stringify(recorderOwnedEvent)}\n`);
     expect(() => appendLoopFleetLifecycle({ eventsFile, ledgerDir })).toThrow('must be a downstream event');
+  });
+
+  it('rejects a new downstream event when its predecessor chain is incomplete', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-missing-predecessors-'));
+    const eventsFile = path.join(root, 'events.jsonl');
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(ledgerDir);
+    const candidateId = 'lf-missing-predecessors';
+    seedLedger(ledgerDir, recorderChain(candidateId));
+    const before = fs.readFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'utf8');
+    writeJsonl(eventsFile, [terminalEvent(
+      'review_approved',
+      candidateId,
+      '2026-09-10T13:00:00.000Z',
+      22_000,
+    )]);
+
+    expect(() => appendLoopFleetLifecycle({
+      eventsFile,
+      ledgerDir,
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+    })).toThrow(/review_approved requires predecessor chain: pr_opened, tests_passed/u);
+    expect(fs.readFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'utf8')).toBe(before);
+  });
+
+  it('rejects a downstream batch when its predecessor appears later in the input', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-out-of-order-batch-'));
+    const eventsFile = path.join(root, 'events.jsonl');
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(ledgerDir);
+    const candidateId = 'lf-out-of-order-batch';
+    seedLedger(ledgerDir, recorderChain(candidateId));
+    const before = fs.readFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'utf8');
+    writeJsonl(eventsFile, [
+      terminalEvent('tests_passed', candidateId, '2026-09-10T12:00:00.000Z', 22_010),
+      terminalEvent('pr_opened', candidateId, '2026-09-10T11:00:00.000Z', 22_011),
+    ]);
+
+    expect(() => appendLoopFleetLifecycle({
+      eventsFile,
+      ledgerDir,
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+    })).toThrow(/tests_passed requires predecessor chain: pr_opened/u);
+    expect(fs.readFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'utf8')).toBe(before);
+  });
+
+  it('accepts a valid full downstream chain incrementally within one batch', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-full-chain-'));
+    const eventsFile = path.join(root, 'events.jsonl');
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(ledgerDir);
+    const candidateId = 'lf-valid-full-chain';
+    const chain = lifecyclePrefix(candidateId, 'post_merge_verified');
+    seedLedger(ledgerDir, chain.slice(0, 2));
+    writeJsonl(eventsFile, chain.slice(2));
+
+    expect(appendLoopFleetLifecycle({
+      eventsFile,
+      ledgerDir,
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+    })).toMatchObject({ inputRecords: 5, appended: 5, skipped: 0 });
+    expect(readJsonlForTest(path.join(ledgerDir, 'lifecycle-events.jsonl'))
+      .map((event) => event.eventType)).toEqual([
+      'candidate',
+      'owner_assigned',
+      'pr_opened',
+      'tests_passed',
+      'review_approved',
+      'merged',
+      'post_merge_verified',
+    ]);
+  });
+
+  it('rejects rollback_requested when it precedes post_merge_verified', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-rollback-order-'));
+    const eventsFile = path.join(root, 'events.jsonl');
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(ledgerDir);
+    const candidateId = 'lf-invalid-rollback-order';
+    seedLedger(ledgerDir, lifecyclePrefix(candidateId, 'post_merge_verified'));
+    const before = fs.readFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'utf8');
+    writeJsonl(eventsFile, [terminalEvent(
+      'rollback_requested',
+      candidateId,
+      '2026-09-10T14:30:00.000Z',
+      22_100,
+    )]);
+
+    expect(() => appendLoopFleetLifecycle({
+      eventsFile,
+      ledgerDir,
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+    })).toThrow(/rollback_requested occurs before post_merge_verified/u);
+    expect(fs.readFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'utf8')).toBe(before);
+  });
+
+  it('keeps inconclusive terminal semantics explicit at the inclusive TTL boundary', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-inconclusive-ttl-'));
+    const eventsFile = path.join(root, 'events.jsonl');
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(ledgerDir);
+    const candidateId = 'lf-inconclusive-ttl-boundary';
+    // This alternative terminal closes an owned candidate that never became
+    // a PR; only pr_opened is omitted from the recorder-owned prefix.
+    seedLedger(ledgerDir, recorderChain(candidateId));
+    writeJsonl(eventsFile, [terminalEvent(
+      'inconclusive',
+      candidateId,
+      '2026-09-10T11:59:59.999Z',
+      22_200,
+    )]);
+    const before = fs.readFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'utf8');
+
+    expect(() => appendLoopFleetLifecycle({
+      eventsFile,
+      ledgerDir,
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+    })).toThrow(/inconclusive occurs before candidate TTL deadline 2026-09-10T12:00:00.000Z/u);
+    expect(fs.readFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'utf8')).toBe(before);
+
+    writeJsonl(eventsFile, [terminalEvent(
+      'inconclusive',
+      candidateId,
+      '2026-09-10T12:00:00.000Z',
+      22_201,
+    )]);
+    expect(appendLoopFleetLifecycle({
+      eventsFile,
+      ledgerDir,
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+    })).toMatchObject({ inputRecords: 1, appended: 1, skipped: 0 });
+  });
+
+  it('replays an incomplete historical downstream record without applying the new transition rule', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-lifecycle-replay-'));
+    const eventsFile = path.join(root, 'events.jsonl');
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(ledgerDir);
+    const historical = terminalEvent(
+      'tests_passed',
+      'lf-historical-incomplete-chain',
+      '2026-09-10T12:00:00.000Z',
+      22_300,
+    );
+    seedLedger(ledgerDir, [historical]);
+    writeJsonl(eventsFile, [historical]);
+    const before = fs.readFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'utf8');
+
+    expect(appendLoopFleetLifecycle({
+      eventsFile,
+      ledgerDir,
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+    })).toMatchObject({ inputRecords: 1, appended: 0, skipped: 1 });
+    expect(fs.readFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'utf8')).toBe(before);
   });
 
   it('rejects an isolated rolled_back event before writing the ledger', () => {
@@ -430,7 +668,7 @@ describe('loop-fleet independent lifecycle observer', () => {
       eventsFile,
       ledgerDir,
       registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
-    })).toThrow(/rolled_back requires rollback_requested/u);
+    })).toThrow(/rolled_back requires predecessor chain/u);
     expect(fs.existsSync(path.join(ledgerDir, 'lifecycle-events.jsonl'))).toBe(false);
   });
 
@@ -461,6 +699,14 @@ describe('loop-fleet independent lifecycle observer', () => {
     const ledgerDir = path.join(root, 'ledger');
     fs.mkdirSync(ledgerDir);
     const candidateId = `lf-terminal-appender-inconclusive-${label}`;
+    const prefixByLabel: Record<string, string> = {
+      merged: 'review_approved',
+      post_merge_verified: 'merged',
+      rollback_requested: 'post_merge_verified',
+      rolled_back: 'post_merge_verified',
+    };
+    seedLedger(ledgerDir, lifecyclePrefix(candidateId, prefixByLabel[label]));
+    const before = fs.readFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'utf8');
     const events = eventTypes.map((eventType, index) => terminalEvent(
       eventType,
       candidateId,
@@ -474,7 +720,7 @@ describe('loop-fleet independent lifecycle observer', () => {
       ledgerDir,
       registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
     })).toThrow(new RegExp(expected, 'u'));
-    expect(fs.existsSync(path.join(ledgerDir, 'lifecycle-events.jsonl'))).toBe(false);
+    expect(fs.readFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'utf8')).toBe(before);
   });
 
   it('persists an isolated inconclusive and valid rollback chains idempotently', () => {
@@ -482,6 +728,11 @@ describe('loop-fleet independent lifecycle observer', () => {
     const eventsFile = path.join(root, 'events.jsonl');
     const ledgerDir = path.join(root, 'ledger');
     fs.mkdirSync(ledgerDir);
+    seedLedger(ledgerDir, [
+      ...lifecyclePrefix('lf-terminal-appender-valid-inconclusive', 'pr_opened'),
+      ...lifecyclePrefix('lf-terminal-appender-valid-pending', 'merged'),
+      ...lifecyclePrefix('lf-terminal-appender-valid-rolled-back', 'merged'),
+    ]);
     const events = [
       terminalEvent('inconclusive', 'lf-terminal-appender-valid-inconclusive', '2026-09-11T11:30:00.000Z', 10_200),
       terminalEvent('post_merge_verified', 'lf-terminal-appender-valid-pending', '2026-09-11T11:30:00.000Z', 10_201),
