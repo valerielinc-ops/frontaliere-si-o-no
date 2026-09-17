@@ -1,6 +1,0 @@
-{
-  "version": 1,
-  "note": "SHA-256 of the SCALAR half of SiteShellContract. Both repos assert this fingerprint: the main repo from build-plugins/articlesSiteShellBootstrap.ts and the corpus from host/siteShellBootstrap.ts. Re-recorded 2026-09-11 after the Offerwall registry switched from arbitrary firebase:authUser: namespace entries to the explicit frontaliere:auth-session marker written by authService.",
-  "scalarFields": 22,
-  "sha256": "22b3b2bf199de18eab45aa9cd081420b4ae60c29028cbd3a0a24f9a681dd0d89"
-}
