@@ -224,21 +224,33 @@ apply_stashed_wip_for_resolver() {
   local stash_ref="stash@{0}"
   local tracked_paths
   STASHED_WIP_PATHS=()
-  tracked_paths="$(git diff-tree --no-commit-id --name-only -r "${stash_ref}^1" "$stash_ref")"
+  if ! tracked_paths="$(git diff-tree --no-commit-id --name-only -r "${stash_ref}^1" "$stash_ref")"; then
+    echo "::error::Failed to list tracked paths from the stashed working tree"
+    return 1
+  fi
   while IFS= read -r path; do
     [ -n "$path" ] || continue
     STASHED_WIP_PATHS+=("$path")
-    git restore --source="$stash_ref" --worktree -- "$path"
+    if ! git restore --source="$stash_ref" --worktree -- "$path"; then
+      echo "::error::Failed to restore stashed tracked path before in-place conflict resolver: $path"
+      return 1
+    fi
   done <<< "$tracked_paths"
 
   local untracked_tree
   if untracked_tree="$(git rev-parse --verify "${stash_ref}^3" 2>/dev/null)"; then
     local untracked_paths
-    untracked_paths="$(git ls-tree -r --name-only "$untracked_tree")"
+    if ! untracked_paths="$(git ls-tree -r --name-only "$untracked_tree")"; then
+      echo "::error::Failed to list untracked paths from the stashed working tree"
+      return 1
+    fi
     while IFS= read -r path; do
       [ -n "$path" ] || continue
       STASHED_WIP_PATHS+=("$path")
-      git restore --source="$untracked_tree" --worktree -- "$path"
+      if ! git restore --source="$untracked_tree" --worktree -- "$path"; then
+        echo "::error::Failed to restore stashed untracked path before in-place conflict resolver: $path"
+        return 1
+      fi
     done <<< "$untracked_paths"
   fi
 }
@@ -308,16 +320,24 @@ until git push --no-verify origin "HEAD:${BRANCH}"; do
       if eval "$IN_PLACE_RESOLVER_CMD"; then
         # Rebase --continue expects no unstaged WIP. Save only the paths that
         # were restored above, leaving the resolver's staged conflict fixes in
-        # place; the original stash remains as a recovery copy until continue
-        # succeeds.
+        # place. `--keep-index` is important when a resolver stages a path that
+        # was also in the WIP: without it, the protective stash can remove that
+        # resolution before `git rebase --continue`. The original stash remains
+        # as a recovery copy until continue succeeds.
         if [ "$stashed" = "1" ]; then
-          if ! git stash push -u -m "git-push-with-retry-resolver-wip" -- "${STASHED_WIP_PATHS[@]}"; then
+          resolver_stash_before="$(git rev-parse --verify refs/stash 2>/dev/null || true)"
+          if ! git stash push --keep-index -u -m "git-push-with-retry-resolver-wip" -- "${STASHED_WIP_PATHS[@]}"; then
             echo "::error::Failed to protect stashed working tree before rebase continue"
             git rebase --abort 2>/dev/null || true
             restore_stashed_wip || exit 1
             exit 1
           fi
-          resolver_wip_stashed=1
+          resolver_stash_after="$(git rev-parse --verify refs/stash 2>/dev/null || true)"
+          if [ -n "$resolver_stash_after" ] && [ "$resolver_stash_after" != "$resolver_stash_before" ]; then
+            resolver_wip_stashed=1
+          else
+            resolver_wip_stashed=0
+          fi
         fi
 
         if GIT_EDITOR=: git rebase --continue; then

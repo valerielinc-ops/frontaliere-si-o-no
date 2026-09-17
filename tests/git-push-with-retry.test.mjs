@@ -30,7 +30,7 @@ function configureIdentity(cwd) {
   git(cwd, ['config', 'user.email', 'test@example.invalid']);
 }
 
-async function setupScenario() {
+async function setupScenario({ overlappingWip = false } = {}) {
   const root = await mkdtemp(join(tmpdir(), 'git-push-with-retry-'));
   const bare = join(root, 'remote.git');
   const seed = join(root, 'seed');
@@ -57,6 +57,9 @@ async function setupScenario() {
   git(local, ['add', 'conflict.txt']);
   git(local, ['commit', '-m', 'local change']);
   await writeFile(join(local, 'wip.txt'), 'dirty WIP\n');
+  if (overlappingWip) {
+    await writeFile(join(local, 'conflict.txt'), 'dirty WIP conflict\n');
+  }
 
   await writeFile(join(updater, 'conflict.txt'), 'remote change\n');
   git(updater, ['add', 'conflict.txt']);
@@ -155,6 +158,32 @@ test('in-place resolver can resolve the rebase while WIP is applied', async () =
       '#!/bin/sh\nset -eu\ntest "$(cat wip.txt)" = "dirty WIP"\nprintf \'resolved\\n\' > conflict.txt\ngit add conflict.txt\n',
     );
     await chmod(resolver, 0o755);
+
+    const result = invoke(scenario, ['--in-place-resolver-cmd', `bash '${resolver}'`]);
+
+    assert.equal(result.status, 0, result.output);
+    await assertWipRestored(scenario);
+    assert.equal(await readFile(scenario.file('conflict.txt'), 'utf8'), 'resolved\n');
+  } finally {
+    await rm(scenario.root, { recursive: true, force: true });
+  }
+});
+
+test('in-place resolver preserves staged fixes when WIP overlaps the conflict', async () => {
+  const scenario = await setupScenario({ overlappingWip: true });
+  const resolver = join(scenario.root, 'resolver.sh');
+  const preCommitHook = join(scenario.local, '.git', 'hooks', 'pre-commit');
+  try {
+    await writeFile(
+      resolver,
+      '#!/bin/sh\nset -eu\ntest "$(cat conflict.txt)" = "dirty WIP conflict"\nprintf \'resolved\\n\' > conflict.txt\ngit add conflict.txt\n',
+    );
+    await chmod(resolver, 0o755);
+    await writeFile(
+      preCommitHook,
+      '#!/bin/sh\nset -eu\ngit diff --cached --name-only | grep -Fx conflict.txt >/dev/null\n',
+    );
+    await chmod(preCommitHook, 0o755);
 
     const result = invoke(scenario, ['--in-place-resolver-cmd', `bash '${resolver}'`]);
 
