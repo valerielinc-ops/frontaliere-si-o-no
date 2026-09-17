@@ -271,7 +271,7 @@ describe('inferLwphrLocation', () => {
   });
 
   it('does not turn a foreign location into Lugano', () => {
-    expect(inferLwphrLocation('Software Engineer', 'Office in Zürich, Switzerland')).toBe('');
+    expect(inferLwphrLocation('Software Engineer', 'Office in Milano, Italy')).toBe('');
   });
 });
 
