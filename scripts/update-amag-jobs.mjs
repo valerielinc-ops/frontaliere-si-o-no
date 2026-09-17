@@ -49,7 +49,6 @@ import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
-import { assertDetailFetchComplete } from './lib/detail-fetch-cap.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -196,7 +195,13 @@ async function fetchAllListings() {
 
 async function enrichWithDetails(listings) {
   const enriched = [];
-  const toFetch = assertDetailFetchComplete(listings, MAX_DETAIL_PAGES, 'AMAG');
+  if (listings.length > MAX_DETAIL_PAGES) {
+    throw new Error(
+      `AMAG listing completeness guard: ${listings.length} Swiss listings exceed `
+      + `the detail cap ${MAX_DETAIL_PAGES}; refusing a partial crawl`,
+    );
+  }
+  const toFetch = listings;
 
   console.log(`\n🔎 Fetching ${toFetch.length} detail pages...`);
 
