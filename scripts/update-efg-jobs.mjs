@@ -514,7 +514,7 @@ function injectJobsFromApi(requisitions, descriptions, metadata = new Map()) {
     const url = buildDetailUrl(req.Id);
     const city = extractCity(req.PrimaryLocation || '');
     const canton = detectCanton(req.PrimaryLocation || '');
-    // Skip jobs outside target cantons (TI, GR, VS)
+    // Skip jobs outside the current all-canton Swiss target scope.
     if (canton && !isTargetCanton(canton)) continue;
     const rawDesc = descriptions.get(String(req.Id)) || req.ShortDescriptionStr || '';
     const parsedContent = parseEfgOracleDescription(rawDesc);
@@ -541,7 +541,8 @@ function injectJobsFromApi(requisitions, descriptions, metadata = new Map()) {
       slug,
       company: EFG_COMPANY_NAME,
       title,
-      // Keep location specific; avoid generic country-only fallback that breaks Ticino relevance filters.
+      // Keep the specific location; avoid a generic country-only fallback that
+      // would lose the per-job Swiss canton.
       location: city || '',
       canton: canton || '',
       category,
@@ -981,25 +982,20 @@ function postProcessEfgJobs(requisitions = [], descriptions = new Map(), metadat
 function logEfgJobStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
-    return { total: 0, ticino: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
+    return { total: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
   const efgJobs = allJobs.filter(isEfgJob);
-  const ticinoJobs = efgJobs.filter((job) => normalize(job?.canton) === 'ti');
-  const otherCantons = efgJobs.length - ticinoJobs.length;
+  const byCanton = new Map();
+  for (const job of efgJobs) {
+    const canton = normalize(job?.canton).toUpperCase() || '??';
+    byCanton.set(canton, (byCanton.get(canton) || 0) + 1);
+  }
 
   console.log(`\n📊 === EFG International AG Job Stats ===`);
   console.log(`  🏦 Job totali trovati (EFG): ${efgJobs.length}`);
-  console.log(`  ✅ Job in Ticino (canton=TI): ${ticinoJobs.length}`);
-  if (otherCantons > 0) {
-    console.log(`  📍 Job sedi extra-Ticino: ${otherCantons}`);
-    const examples = efgJobs
-      .filter((job) => normalize(job?.canton) !== 'ti')
-      .map((job) => `${job?.title || '?'} → ${job?.location || job?.canton || '?'}`)
-      .slice(0, 10);
-    for (const loc of examples) console.log(`     - ${loc}`);
-  }
+  console.log(`  🗺️ Distribuzione per cantone: ${[...byCanton.entries()].sort().map(([canton, count]) => `${canton}=${count}`).join(', ') || 'nessun cantone rilevato'}`);
   console.log('');
 
   // Crawl change summary (new/updated/removed)
@@ -1008,7 +1004,7 @@ function logEfgJobStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'EFG');
   writeCrawlChangeSummaryToGH(crawlDiff, 'EFG');
 
-  return { total: efgJobs.length, ticino: ticinoJobs.length, crawlDiff };
+  return { total: efgJobs.length, crawlDiff };
 
 }
 

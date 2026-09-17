@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Dedicated TRUMPF Schweiz AG (Grüsch, GR) crawler.
+ * Dedicated TRUMPF Schweiz AG Swiss-jobs crawler.
  *
  * Source: Workday ATS — trumpf.wd3.myworkdayjobs.com
  *   Portals: TRUMPF_Graduates_and_Professionals, TRUMPF_Apprenticeships
@@ -8,7 +8,7 @@
  * Strategy:
  *   1. POST to Workday JSON API to list all Swiss jobs across both portals.
  *   2. GET detail pages via Workday CXS API for full descriptions.
- *   3. Filter for Grüsch / GR-canton locations.
+ *   3. Filter for locations in any Swiss canton.
  *   4. Build standardized job objects + translate.
  *   5. Merge into data/jobs.json.
  */
@@ -41,7 +41,7 @@ import {
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import { isTargetSwissLocation, inferAnyCanton } from './lib/target-swiss-locations.mjs';
-import { isTargetCanton, getCompanyDefaults, getCantonDisplayName } from './lib/crawler-location-config.mjs';
+import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -62,8 +62,6 @@ const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const COMPANY_NAME = 'TRUMPF Schweiz AG';
 const COMPANY_DOMAIN = 'trumpf.com';
-const TRUMPF_HQ = getCompanyDefaults(COMPANY_KEY);
-const DEFAULT_CANTON = TRUMPF_HQ?.canton || 'GR';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '15000', 10);
@@ -245,7 +243,7 @@ function buildJobFromListing(listing) {
   const reqId = (listing.bulletFields || [])[0] || '';
   const slug = slugify(`${title}-trumpf-${reqId}`);
   const externalUrl = `${WORKDAY_BASE}/${listing.portal}${listing.externalPath}`;
-  const canton = inferAnyCanton(city) || DEFAULT_CANTON;
+  const canton = inferAnyCanton(city) || '';
 
   return {
     title,
@@ -395,9 +393,9 @@ async function main() {
   }
   console.log(`\n📋 Total listings across portals: ${allListings.length}`);
 
-  // Phase 2 — Filter for target Swiss cantons
+  // Phase 2 — Filter for Swiss locations
   console.log('\n═══════════════════════════════════════');
-  console.log('Phase 2: Filter target-canton jobs');
+  console.log('Phase 2: Filter Swiss-located jobs');
   console.log('═══════════════════════════════════════');
   const swissListings = allListings.filter((l) => isSwissLocation(l.locationsText || ''));
 
@@ -409,13 +407,13 @@ async function main() {
     return true;
   });
 
-  console.log(`📋 Target-canton jobs found: ${uniqueListings.length}`);
+  console.log(`📋 Swiss-located jobs found: ${uniqueListings.length}`);
   for (const listing of uniqueListings) {
     console.log(`  📄 ${listing.title} | ${listing.locationsText} | ${listing.portal}`);
   }
 
   if (uniqueListings.length === 0) {
-    console.log('ℹ️ No target-canton jobs found — nothing to update.');
+    console.log('ℹ️ No Swiss-located jobs found — nothing to update.');
     process.exit(0);
   }
 
@@ -443,7 +441,7 @@ async function main() {
   console.log('═══════════════════════════════════════');
   const stats = mergeJobs(jobs);
   const diff = stats.diff;
-  console.log(`\n📈 Result: ${stats.targetCount} TRUMPF GR jobs (${stats.added} new, ${stats.updated} updated)`);
+  console.log(`\n📈 Result: ${stats.targetCount} TRUMPF Swiss jobs (${stats.added} new, ${stats.updated} updated)`);
   console.log(`   Total jobs in file: ${stats.total}`);
 
   // Phase 5 — Translate + validate

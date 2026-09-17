@@ -10,7 +10,7 @@
   "seedUrls": [
     "https://jobs.axa.ch/?lang=it"
   ],
-  "notes": "Dedicated AXA Svizzera crawler. Prospective.ch Career Center (CC 2193). Filters by Region Tessin (68794) + Ostschweiz/GR (68792). Detail pages at /posizioni-aperte/{slug}/{uuid}. ATS: Umantis (recruitingapp-2735.umantis.com).",
+  "notes": "Dedicated AXA Svizzera crawler. Prospective.ch Career Center (CC 2193), fetched CH-wide across all 26 cantons with per-job canton inference. Detail pages at /posizioni-aperte/{slug}/{uuid}. ATS: Umantis (recruitingapp-2735.umantis.com).",
   "updatedAt": "2026-03-16T06:49:43.743Z",
   "seedMetaByUrl": {
     "https://jobs.axa.ch/posizioni-aperte/senior-underwriter-responsabilita-civile/302d9cad-2624-4c53-bb58-86970a8aec61": {

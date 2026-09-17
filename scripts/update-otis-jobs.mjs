@@ -133,15 +133,15 @@ async function main() {
     const description = detail.description;
     const publicUrl = buildPublicUrl(raw.externalPath);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-    // Prefer detail city (from full location text) over listing city. No Ticino
-    // default — Otis runs a national service network; leave blank when unresolved
-    // so the PLZ/locality hardening derives it instead of mislabeling on TI.
+    // Prefer detail city (from full location text) over listing city. Otis runs
+    // a national service network, so leave the field blank when unresolved and
+    // let the PLZ/locality hardening derive it.
     const city = detail.city || raw.city || '';
     // City-first: resolve the (detail-preferred) city alone before the raw
     // listing location, so the more authoritative city wins over the array-order
     // sensitivity of a combined string.
     const canton = inferAnyCanton(city) || inferAnyCanton(raw.location) || detail.canton || '';
-    const jobSlug = slugify(`${raw.title}-otis-${safeLocationToken(city, 'Ticino')}`);
+    const jobSlug = slugify(`${raw.title}-otis-${safeLocationToken(city, 'Switzerland')}`);
     parsedJobs.push({
       id: `otis-${urlHash}`,
       slug: jobSlug,

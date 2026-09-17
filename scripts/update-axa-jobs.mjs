@@ -280,7 +280,7 @@ async function enrichWithDetails(listings) {
  * Build a regenerated AXA slug with a stable per-vacancy disambiguator suffix.
  *
  * AXA publishes multiple legitimate openings for the same role at different
- * (or even the same) Ticino cities — e.g. several "Consulente Assicurativo"
+ * (or even the same) Swiss cities — e.g. several "Consulente Assicurativo"
  * positions across Lugano, Manno, Biasca. The previous formula `slugify(title)`
  * collapsed those distinct postings to a single slug, and the housekeeping
  * dedup pass silently removed the duplicates: the audit at
@@ -357,8 +357,8 @@ export function buildAxaJob(row) {
     if (isUsableCity(cityFromLast)) return cityFromLast;
     return last;
   })();
-  // CH-wide crawler: no TI default. Fall back to the canton display name when
-  // no city is parseable, never to 'Ticino'.
+  // CH-wide crawler: no fixed-canton default. Fall back to the canton display
+  // name when no city is parseable, never to a fixed locality.
   const resolvedLocation = addressLocality || canton || '';
   const slug = buildAxaRegeneratedSlug(
     { title: row.title, url: detailUrl },

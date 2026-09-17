@@ -10,7 +10,7 @@
  *   2. Writes discovered URLs as seed URLs in the adapter config.
  *   3. Runs the shared base crawler which fetches each detail page and
  *      parses JSON-LD JobPosting structured data.
- *   4. The shared infrastructure filters for Ticino/GR locations automatically.
+ *   4. The shared infrastructure filters for locations in any Swiss canton.
  *   5. Translates missing locales and validates coverage.
  *
  * JYSK has stores in Sant'Antonino (TI) and Samedan/St. Moritz (GR) area.
@@ -215,13 +215,15 @@ function logStats(beforeSnapshot = new Map()) {
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
   const jobs = allJobs.filter(isJyskJob);
-  const tiJobs = jobs.filter((j) => normalize(j?.canton) === 'ti');
-  const grJobs = jobs.filter((j) => normalize(j?.canton) === 'gr');
+  const byCanton = new Map();
+  for (const job of jobs) {
+    const canton = normalize(job?.canton).toUpperCase() || '??';
+    byCanton.set(canton, (byCanton.get(canton) || 0) + 1);
+  }
 
   console.log(`\n📊 === JYSK Job Stats ===`);
   console.log(`  🛋️ Total JYSK jobs: ${jobs.length}`);
-  console.log(`  ✅ Ticino: ${tiJobs.length}`);
-  console.log(`  ✅ Grigioni: ${grJobs.length}`);
+  console.log(`  🗺️ Swiss canton distribution: ${[...byCanton.entries()].sort().map(([canton, count]) => `${canton}=${count}`).join(', ') || 'none detected'}`);
   console.log('');
 
   const afterSnapshot = snapshotJobSlugs(jobs);

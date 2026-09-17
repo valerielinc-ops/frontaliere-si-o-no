@@ -21,7 +21,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isSwissLocationText } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -32,8 +32,6 @@ export const CLIMEWORKS_COMPANY_DOMAIN = 'climeworks.com';
 const CAREER_URL = 'https://climeworks.com/careers';
 const API_URL = 'https://climeworks.recruitee.com/api/offers/';
 const CAREERS_HOST = 'climeworks.recruitee.com';
-const DEFAULT_CITY = 'Opfikon';
-const DEFAULT_CANTON = 'ZH';
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
@@ -142,13 +140,13 @@ function mapContract(apiType = '') {
 /**
  * Check whether a Recruitee offer is located in Switzerland.
  * Climeworks posts a handful of roles in Calgary, Canada too — those must
- * be excluded from a Ticino/Switzerland-focused job board.
+ * be excluded from this Switzerland-only job feed.
  */
 function isSwissOffer(offer = {}) {
   if (normalize(offer.country) === 'switzerland') return true;
   if (String(offer.country_code || '').toUpperCase() === 'CH') return true;
   const combined = normalize([offer.city, offer.state_name, offer.country].filter(Boolean).join(' '));
-  return /switzerland|svizzera|schweiz|suisse|zurich|zürich|opfikon/.test(combined);
+  return isSwissLocationText(combined);
 }
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
@@ -197,7 +195,7 @@ function buildDescription(translation = {}) {
 
 /**
  * Fetch all Climeworks jobs (Swiss offers only — Calgary/Canada roles are
- * excluded since this board is Switzerland/Ticino-focused).
+ * excluded from the Swiss feed).
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
@@ -228,17 +226,17 @@ export async function fetchAllClimeworksJobs() {
     const lang = Object.keys(translations)[0] || 'en';
     const translation = translations[lang] || {};
 
-    const city = normalizeSpace(offer.city || '') || DEFAULT_CITY;
+    const city = normalizeSpace(offer.city || '');
     const stateName = normalizeSpace(offer.state_name || '');
-    const canton = inferAnyCanton(city) || inferAnyCanton(stateName) || DEFAULT_CANTON;
+    const canton = inferAnyCanton(city) || inferAnyCanton(stateName) || '';
     // Recruitee's `city` field sometimes already embeds the state (e.g.
     // "Opfikon, Zurich"), so only append `state_name` when it isn't already
     // present in `city` (accent/case-insensitive) to avoid "X, Zurich, Zürich".
     const cityFold = city.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const stateFold = stateName.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-    const location = stateName && stateFold && !cityFold.includes(stateFold)
+    const location = city && stateName && stateFold && !cityFold.includes(stateFold)
       ? `${city}, ${stateName}`
-      : city;
+      : city || stateName || 'Switzerland';
 
     const description = buildDescription(translation) || `${title} — Climeworks`;
     const requirements = parseRequirements(translation.requirements || '');
@@ -275,7 +273,7 @@ export async function fetchAllClimeworksJobs() {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: city,
+      addressLocality: city || stateName || 'Switzerland',
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title, offer.department || ''),

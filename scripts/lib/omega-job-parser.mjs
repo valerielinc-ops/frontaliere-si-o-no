@@ -564,15 +564,6 @@ export async function fetchAllOmegaJobs() {
  * Normalize canton code from region names.
  */
 function normalizeCantonCode(regionName = '') {
-  const lower = normalize(regionName);
-  if (!lower) return '';
-  if (['wallis', 'valais', 'vallese'].some((n) => lower.includes(n))) return 'VS';
-  if (['tessin', 'ticino'].some((n) => lower.includes(n))) return 'TI';
-  if (['graubünden', 'graubunden', 'grigioni', 'grisons'].some((n) => lower.includes(n))) return 'GR';
-  if (['bern', 'berne', 'berna'].some((n) => lower.includes(n))) return 'BE';
-  if (['zürich', 'zurich', 'zurigo'].some((n) => lower.includes(n))) return 'ZH';
-  if (['solothurn', 'soletta', 'soleure'].some((n) => lower.includes(n))) return 'SO';
-  if (['genève', 'geneve', 'geneva', 'ginevra', 'genf'].some((n) => lower.includes(n))) return 'GE';
   return inferAnyCanton(regionName) || '';
 }
 
