@@ -250,7 +250,10 @@ async function buildJobs(listings) {
       }
     }
 
-    if (jobs.length === 0) {
+    if (jobs.length === 0 && listings.length === 0) {
+      console.log('ℹ️  Nessun annuncio trovato per ALTEN Switzerland — non è un errore, il crawler prosegue.');
+    }
+    if (jobs.length === 0 && listings.length > 0) {
       throw new Error(`Failed to fetch any ALTEN job details (${skipped}/${listings.length} skipped)`);
     }
     if (skipped > 0) {
@@ -347,7 +350,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_alten_domain',
-    failWhenNoJobs: true,
+    failWhenNoJobs: false,
     noJobsMessage: 'No ALTEN jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'en'),
   });
