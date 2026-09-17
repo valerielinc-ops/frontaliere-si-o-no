@@ -175,6 +175,6 @@
     "https://jobs.sbb.ch/v2/offene-stellen/vorarbeiter-in-gleisbau/02a24c36-7d33-4c07-87c6-2e0f5c241bd5",
     "https://jobs.sbb.ch/v2/offene-stellen/werkmitarbeiter-in-im-kraft-und-frequenzumformerwerk-massaboden-bitsch/f8476c63-19dc-4191-9a55-ac2e8623908a"
   ],
-  "notes": "SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS; the secondary source uses a canton-specific facet).",
+  "notes": "SBB dedicated seeds from the national company.sbb.ch AEM JSON API plus the login.org apprenticeship listing for SBB CFF FFS; jobs are resolved per posting across all Swiss cantons.",
   "updatedAt": "2026-09-01T10:12:19.259Z"
 }

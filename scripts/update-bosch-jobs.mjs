@@ -134,10 +134,10 @@ async function fetchBoschListings() {
   });
   const target = discovered.filter(isBoschTargetListing);
   console.log(`📋 Total CH jobs discovered: ${discovered.length}`);
-  console.log(`📋 Swiss rows: ${target.length}`);
+  console.log(`📋 Swiss rows retained: ${target.length}`);
   for (const row of target) console.log(`  📄 ${row.title} (${row.location})`);
   // Fail only if the site is unreachable (0 CH jobs) — a genuine crawler error.
-  // 0 Swiss results is valid when Bosch has no current openings in Switzerland.
+  // Zero Swiss results is valid when Bosch has no current openings in Switzerland.
   if (discovered.length < 1) throw new Error(`Bosch career portal unreachable or returned 0 CH jobs — possible site change or network error`);
   if (target.length < 1) console.log('ℹ️  No Bosch jobs in Switzerland today — skipping (not an error)');
   return target;

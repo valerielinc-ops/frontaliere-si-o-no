@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
- * Convit Holding GmbH — Dedicated Crawler (Swiss locations)
+ * Convit Holding GmbH — Dedicated Swiss Crawler
  *
  * Crawls https://www.careers-page.com/convit-holding-gmbh (Manatal ATS)
  * 1. Fetches listing page → extracts job codes
  * 2. Fetches each detail page → extracts title, location, description, date from JSON-LD
- * 3. Filters Swiss-location jobs via the shared geographic filter
- * 4. Assigns the canton dynamically using inferConvitCanton()
+ * 3. Filters Swiss-relevant jobs via the shared all-canton geographic filter
+ * 4. Assigns canton dynamically using inferConvitCanton()
  * 5. Merges into data/jobs.json
  * 6. Updates adapter config
  */
@@ -46,7 +46,7 @@ import {
   isConvitSwissRelevant,
   inferConvitCanton,
 } from './lib/convit-job-parser.mjs';
-import { getCantonDisplayName, getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults, getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { splitJobLocation } from './lib/job-location-display.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
@@ -199,37 +199,37 @@ async function enrichWithDetails(listings) {
     if (i < toFetch.length - 1) await sleep(DETAIL_DELAY_MS);
   }
 
-  // Filter to Swiss locations and assign the canton.
+  // Filter to Swiss-relevant jobs and assign the resolved canton.
   const relevant = enriched.filter((job) => isConvitSwissRelevant(job.location));
   for (const job of relevant) {
     job.canton = inferConvitCanton(job.location);
     // The JSON-LD fallback in parseConvitDetailPage() joins
-    // [addressLocality, addressRegion, addressCountry], so the raw location
-    // already carries the canton and country. buildConvitLocalizedContent()
-    // then appends the region again, freezing the duplicate into the stored
-    // description — same
+    // [addressLocality, addressRegion, addressCountry] ("Bellinzona, Ticino, CH"),
+    // so the raw location already carries the canton and country.
+    // buildConvitLocalizedContent() then appends the region again ("...in
+    // Ticino"), freezing the duplicate into the stored description — same
     // defect scripts/lib/nestle-job-parser.mjs fixes at the point the crawler
     // assigns canton. Strip it once, here, so the stored field, the
     // description and the page all read the clean city.
     job.location = splitJobLocation(job.location, job.canton).city || job.location;
   }
   const cantonCounts = relevant.reduce((counts, job) => {
-    counts.set(job.canton, (counts.get(job.canton) || 0) + 1);
+    const canton = job.canton || '??';
+    counts[canton] = (counts[canton] || 0) + 1;
     return counts;
-  }, new Map());
-  const cantonSummary = [...cantonCounts.entries()]
+  }, {});
+  const cantonSummary = Object.entries(cantonCounts)
+    .sort(([a], [b]) => a.localeCompare(b))
     .map(([canton, count]) => `${canton}: ${count}`)
-    .join(', ') || 'nessun cantone risolto';
-  console.log(`\n📍 Swiss-location jobs: ${relevant.length} / ${enriched.length} (${cantonSummary})`);
+    .join(' | ');
+  console.log(`\n📍 Swiss-location jobs: ${relevant.length} / ${enriched.length}${cantonSummary ? ` (${cantonSummary})` : ''}`);
   return relevant;
 }
 
 function buildConvitJob(row) {
   const canton = row.canton || inferConvitCanton(row.location) || DEFAULT_CANTON;
   const localized = buildConvitLocalizedContent({ ...row, canton });
-  const defaultCity = canton === DEFAULT_CANTON
-    ? getCompanyDefaults(COMPANY_KEY)?.city || 'Massagno'
-    : getCantonDisplayName(canton, 'it') || 'Svizzera';
+  const defaultCity = getCantonDisplayName(canton, 'it') || canton || 'Svizzera';
   const urlHash = createHash('sha1').update(row.detailUrl || row.title || '').digest('hex').slice(0, 12);
   return {
     id: `convit-${urlHash}`,
@@ -323,7 +323,7 @@ function updateAdapterConfig(jobs) {
     priority: 18,
     crawlerModes: ['html'],
     seedUrls: [CAREERS_URL],
-    notes: 'Dedicated Convit Holding crawler reads the Manatal (careers-page.com) listing and detail pages, extracting JobPosting JSON-LD. Keeps vacancies whose location resolves to any Swiss canton.',
+    notes: 'Dedicated Convit Holding crawler reads the Manatal (careers-page.com) listing and detail pages, extracting JobPosting JSON-LD. Keeps postings whose locations resolve to any Swiss canton.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -388,10 +388,17 @@ async function main() {
   validateLocales();
 
   console.log('\n📊 === Convit Holding Job Stats ===');
-  const tiCount = jobs.filter((j) => j.canton === 'TI').length;
-  const grCount = jobs.filter((j) => j.canton === 'GR').length;
-  console.log(`  🏢 Total Convit Swiss jobs: ${total}`);
-  console.log(`  📍 Reporting — TI: ${tiCount} | GR: ${grCount}`);
+  const cantonCounts = jobs.reduce((counts, job) => {
+    const canton = job.canton || '??';
+    counts[canton] = (counts[canton] || 0) + 1;
+    return counts;
+  }, {});
+  const cantonSummary = Object.entries(cantonCounts)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([canton, count]) => `${canton}: ${count}`)
+    .join(' | ');
+  console.log(`  🏢 Total Convit jobs (Swiss): ${total}`);
+  console.log(`  📍 By canton: ${cantonSummary || 'none'}`);
   console.log(`  ➕ Added: ${added}`);
   console.log(`  🔄 Updated: ${updated}`);
 

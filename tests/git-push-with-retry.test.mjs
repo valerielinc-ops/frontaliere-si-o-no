@@ -33,6 +33,7 @@ function configureIdentity(cwd) {
 async function setupScenario({
   overlappingWip = false,
   deletedWip = false,
+  stagedAndDeletedWip = false,
   stagedOnlyWip = false,
   stagedOnlyAddedWip = false,
   untrackedWip = false,
@@ -69,6 +70,11 @@ async function setupScenario({
   git(local, ['commit', '-m', 'local change']);
   await writeFile(join(local, 'wip.txt'), 'dirty WIP\n');
   if (deletedWip) {
+    await rm(join(local, 'wip.txt'));
+  }
+  if (stagedAndDeletedWip) {
+    await writeFile(join(local, 'wip.txt'), 'staged WIP\n');
+    git(local, ['add', 'wip.txt']);
     await rm(join(local, 'wip.txt'));
   }
   if (overlappingWip) {
@@ -289,6 +295,27 @@ test('in-place resolver keeps broadly staged original WIP out of the rebased com
   }
 });
 
+test('in-place resolver restores original WIP after staging resolver output on that path', async () => {
+  const scenario = await setupScenario();
+  const resolver = join(scenario.root, 'resolver.sh');
+  try {
+    await writeFile(
+      resolver,
+      '#!/bin/sh\nset -eu\ntest "$(cat wip.txt)" = "dirty WIP"\nprintf \'resolver output\\n\' > wip.txt\nprintf \'resolved\\n\' > conflict.txt\ngit add -A\n',
+    );
+    await chmod(resolver, 0o755);
+
+    const result = invoke(scenario, ['--in-place-resolver-cmd', `bash '${resolver}'`]);
+
+    assert.equal(result.status, 0, result.output);
+    assert.equal(git(scenario.local, ['show', 'HEAD:wip.txt']), 'resolver output');
+    assert.equal(await readFile(scenario.file('wip.txt'), 'utf8'), 'dirty WIP\n');
+    assert.equal(git(scenario.local, ['stash', 'list']), '');
+  } finally {
+    await rm(scenario.root, { recursive: true, force: true });
+  }
+});
+
 test('in-place resolver keeps a broadly staged WIP deletion out of the rebased commit', async () => {
   const scenario = await setupScenario({ deletedWip: true });
   const resolver = join(scenario.root, 'resolver.sh');
@@ -305,6 +332,31 @@ test('in-place resolver keeps a broadly staged WIP deletion out of the rebased c
     assert.equal(git(scenario.local, ['show', 'HEAD:wip.txt']), 'base');
     assert.equal(await readFile(scenario.file('conflict.txt'), 'utf8'), 'resolved\n');
     assert.equal(command('test', ['-e', scenario.file('wip.txt')]).status, 1);
+    assert.equal(git(scenario.local, ['stash', 'list']), '');
+  } finally {
+    await rm(scenario.root, { recursive: true, force: true });
+  }
+});
+
+test('in-place resolver preserves a WIP deletion when the path is also staged', async () => {
+  const scenario = await setupScenario({ stagedAndDeletedWip: true });
+  const resolver = join(scenario.root, 'resolver.sh');
+  try {
+    await writeFile(
+      resolver,
+      "#!/bin/sh\nset -eu\ntest ! -e wip.txt\ntest -z \"$(git ls-tree -r --name-only 'stash@{0}' -- wip.txt)\"\ntest -n \"$(git diff-tree --no-commit-id --name-only -r 'stash@{0}^1' 'stash@{0}' -- wip.txt)\"\ntest -n \"$(git diff-tree --no-commit-id --name-only -r 'stash@{0}^1' 'stash@{0}^2' -- wip.txt)\"\nprintf 'resolved\\n' > conflict.txt\ngit add -A\n",
+    );
+    await chmod(resolver, 0o755);
+
+    const result = invoke(scenario, ['--in-place-resolver-cmd', `bash '${resolver}'`]);
+
+    assert.equal(result.status, 0, result.output);
+    assert.equal(git(scenario.local, ['show', 'HEAD:wip.txt']), 'base');
+    assert.equal(command('test', ['-e', scenario.file('wip.txt')]).status, 1);
+    assert.match(
+      git(scenario.local, ['status', '--porcelain', '--', 'wip.txt']),
+      /D wip\.txt/,
+    );
     assert.equal(git(scenario.local, ['stash', 'list']), '');
   } finally {
     await rm(scenario.root, { recursive: true, force: true });

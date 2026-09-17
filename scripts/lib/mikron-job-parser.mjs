@@ -66,7 +66,7 @@ export function slugify(value = '', suffix = '') {
 }
 
 /**
- * Check if a location string refers to a Swiss location.
+ * Check if a location string resolves to a Swiss site.
  */
 export function isSwissLocation(locationText = '') {
   return isTargetSwissLocation(locationText);
@@ -85,11 +85,12 @@ export function isSwissLocation(locationText = '') {
  *
  * @param {string} html - Raw HTML of the jobs page
  * @param {object} options - Options
- * @param {boolean} options.filterSwiss - If true, keep only Swiss-site jobs (default: false → all parsed sites)
+ * @param {boolean} options.filterSwiss - If true, keep jobs matching the
+ *   Swiss location helper (default: false → all Swiss sites)
  * @returns {Array<{title: string, url: string, division: string, jobFunction: string, location: string, idx: number}>}
  */
 export function parseMikronJobs(html = '', options = {}) {
-  const { filterSwiss = false } = options;
+  const filterSwiss = options.filterSwiss ?? false;
   if (!html || typeof html !== 'string') return [];
 
   const jobs = [];
@@ -100,7 +101,7 @@ export function parseMikronJobs(html = '', options = {}) {
   // job-attributes block that includes the real "Location" value
   // (e.g. "Switzerland, Boudry" for the Automation division in NE,
   // "Switzerland, Agno" for Machining in TI). Parse the full article so
-  // the location is never fabricated and other Swiss-site jobs survive.
+  // the location is never fabricated and non-Agno (NE/…) jobs survive.
   const teaserRe = /<article[^>]*class="[^"]*mi-job-teaser[^"]*"[^>]*>([\s\S]*?)<\/article>/gi;
   let teaserMatch;
   while ((teaserMatch = teaserRe.exec(html)) !== null) {

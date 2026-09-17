@@ -8,7 +8,7 @@
  * vacancy records from the JSON endpoint above. Detail pages expose the full
  * description inside `.annonce #position`.
  *
- * We filter for Swiss positions at the Croglio site only.
+ * This is a single-site Swiss crawler for the Croglio (TI) plant.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllFaulhaberJobs()  — Fetch and parse all jobs
@@ -54,7 +54,7 @@ export const FAULHABER_COMPANY_DOMAIN = 'faulhaber.com';
 
 export const MIN_DESC_LENGTH = 100;
 
-/** Only keep Swiss (Croglio-site) jobs. */
+/** Only keep Swiss jobs from the Croglio site */
 const SWISS_LOCATION_RE = /\bCH\b|croglio|schweiz|svizzera|switzerland/i;
 
 /* ── Helpers ───────────────────────────────────────────────── */
@@ -356,7 +356,7 @@ export async function fetchListingData(dependencies = {}) {
 
 /**
  * Fetch all Faulhaber jobs. Returns ParsedJob[] (source locale only).
- * Filters for Swiss positions at the Croglio site only.
+ * Filters for the Croglio (TI) site only.
  */
 /** @param {FaulhaberFetchDependencies} dependencies */
 export async function fetchAllFaulhaberJobs({

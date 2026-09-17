@@ -14,7 +14,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 import { JSDOM } from 'jsdom';
 import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
-import { getCantonDisplayName, getCompanyDefaults } from './crawler-location-config.mjs';
+import { getCompanyDefaults, getCantonDisplayName } from './crawler-location-config.mjs';
 
 const HQ = getCompanyDefaults('convit');
 
@@ -179,12 +179,10 @@ export function parseConvitDetailPage(html = '', fallbackTitle = '') {
 export function buildConvitLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const canton = job.canton || HQ.canton;
-  const regionLabel = getCantonDisplayName(canton, 'it') || 'Svizzera';
-  const regionLabelDe = getCantonDisplayName(canton, 'de') || 'Schweiz';
-  const regionLabelFr = getCantonDisplayName(canton, 'fr') || 'Suisse';
-  const defaultCity = canton === HQ.canton
-    ? HQ.city
-    : (getCantonDisplayName(canton, 'it') || 'Svizzera');
+  const regionLabel = getCantonDisplayName(canton, 'it') || canton || 'Svizzera';
+  const regionLabelDe = getCantonDisplayName(canton, 'de') || canton || 'Schweiz';
+  const regionLabelFr = getCantonDisplayName(canton, 'fr') || canton || 'Suisse';
+  const defaultCity = regionLabel;
   const location = String(job.location || '').trim() || defaultCity;
   const description = String(job.description || '').trim();
 
@@ -211,13 +209,13 @@ export function buildConvitLocalizedContent(job = {}) {
  */
 export function isConvitSwissRelevant(location = '') {
   const loc = normalizeSpace(location);
-  if (!loc) return true; // Convit is a known Swiss company — include if no location
+  if (!loc) return true; // Convit's registered Swiss HQ is the safe fallback.
   return isTargetSwissLocation(loc);
 }
 
 /**
- * Infer canton from location text. Falls back to the registered HQ canton when
- * the detail page omits a location.
+ * Infer the canton from location text across all 26 Swiss cantons. Falls back
+ * to the registered HQ canton only when the listing has no location signal.
  */
 export function inferConvitCanton(location = '') {
   return inferAnyCanton(location) || HQ.canton;
