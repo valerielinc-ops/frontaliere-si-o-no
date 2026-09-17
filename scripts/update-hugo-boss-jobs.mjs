@@ -116,14 +116,11 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
     if (reportedTotal > 0) totalHits = reportedTotal;
     const rawPageJobs = ddo?.eagerLoadRefineSearch?.data?.jobs;
     if (!Array.isArray(rawPageJobs)) {
-      const coverage = totalHits === null
-        ? 'totalHits is unavailable to confirm national coverage'
-        : `declared totalHits=${totalHits} cannot confirm coverage after a missing DDO envelope`;
-      throw new Error(
-        `Hugo Boss page ${page + 1} is missing a valid Phenom DDO/data envelope `
-        + `(expected eagerLoadRefineSearch.data.jobs); ${coverage}. `
-        + 'Aborting without a proven terminal page.',
-      );
+      console.error(`❌ Hugo Boss page ${page + 1} did not contain a DDO jobs array.`);
+      // Keep terminationProven=false: the completeness assertion below must
+      // reject an unproven read instead of treating it as an empty page.
+      terminationProven = false;
+      break;
     }
     const rawPageCount = rawPageJobs.length;
     const pageJobs = parseSearchPage(html);
