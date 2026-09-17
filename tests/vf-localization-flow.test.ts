@@ -44,4 +44,13 @@ describe('VF localization flow', () => {
     expect(resolveVfSwissLocation('EMEA · USA · New York')).toBeNull();
     expect(resolveVfSwissLocation('CHE')).toBeNull();
   });
+
+  it('keeps the shared Workday feed complete for national VF discovery', () => {
+    const file = path.resolve(process.cwd(), 'scripts', 'lib', 'shared-jobs-crawler.mjs');
+    const source = fs.readFileSync(file, 'utf-8');
+
+    expect(source).toContain('WORKDAY_MAX_PAGES');
+    expect(source).not.toContain('while (offset < 200)');
+    expect(source).toContain('requireConcreteLocation: true');
+  });
 });
