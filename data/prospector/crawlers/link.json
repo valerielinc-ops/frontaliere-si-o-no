@@ -1,0 +1,20 @@
+{
+  "companyKey": "link",
+  "companyName": "Wassermann&Company AG",
+  "companyHost": "link.ostendis.com",
+  "platform": "ostendis.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://link.ostendis.com/publication/initiativbewerbung/w2h4brghustu5murcl7d106x7y68xyuz08p5rys0zs32xc3o4oviqk4o7f3uhfbw"
+  ],
+  "detailTemplate": "/publication/initiativbewerbung/w2h4brghustu5murcl7d106x7y68xyuz08p5rys0zs32xc3o4oviqk4o7f3uhfbw",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Initiativbewerbung für eine Festanstellung"
+  ],
+  "canton": "BS",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-17T10:09:05.946Z"
+}
