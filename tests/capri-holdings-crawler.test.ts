@@ -16,6 +16,33 @@ import {
   isSwissWorkdayListing,
   resolveWorkdayLocation,
 } from '../scripts/update-capri-holdings-jobs.mjs';
+import { resolveSwissStructuredAddress } from '../scripts/lib/swiss-structured-address.mjs';
+
+describe('Capri structured address resolution', () => {
+  it('replaces a Mendrisio CAP with the verified CAP for the actual city', () => {
+    const address = resolveSwissStructuredAddress({
+      city: 'Winterthur',
+      canton: 'ZH',
+      postalCode: '6850',
+      streetAddress: 'Via Penate',
+    });
+
+    expect(address).toMatchObject({ city: 'Winterthur', canton: 'ZH', postalCode: '8400' });
+    expect(address.streetAddress).not.toBe('Via Penate');
+  });
+
+  it('rejects an arbitrary four-digit CAP instead of pairing it with the city', () => {
+    expect(resolveSwissStructuredAddress({ city: 'Winterthur', canton: 'ZH', postalCode: '0000' }))
+      .toMatchObject({ city: 'Winterthur', canton: 'ZH', postalCode: '8400' });
+  });
+
+  it('uses a complete same-canton fallback for an unverified municipality CAP', () => {
+    expect(resolveSwissStructuredAddress({ city: 'Küsnacht (ZH)', canton: 'ZH' }))
+      .toMatchObject({
+        city: 'Zürich', canton: 'ZH', postalCode: '8001', streetAddress: 'Bahnhofstrasse 1',
+      });
+  });
+});
 
 describe('Capri Workday location resolution', () => {
   it('accepts a Swiss location in a later bullet field', () => {

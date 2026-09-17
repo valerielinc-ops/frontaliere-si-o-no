@@ -56,6 +56,7 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { resolveSwissStructuredAddress } from './lib/swiss-structured-address.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -459,22 +460,31 @@ async function fetchCapriHoldingsJobs() {
       console.log(`     ⏭️  Skipped — no concrete Swiss canton resolved: ${locationRaw || countryDesc || 'n/a'}`);
       continue;
     }
+    if (!city) {
+      console.log(`     ⏭️  Skipped — no concrete Swiss city resolved: ${locationRaw || countryDesc || 'n/a'}`);
+      continue;
+    }
 
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = `${WORKDAY_PUBLIC_BASE}/${listing._site}${externalPath}`;
     const brand = listing.brand || 'Capri Holdings';
-    const resolvedCity = city || locationRaw;
+    const resolvedCity = city;
     const descEn = descriptionText || `${title} position at ${brand} in ${resolvedCity}.`;
     const descIt = `Posizione aperta presso ${brand} (Capri Holdings) a ${resolvedCity === 'Switzerland' ? 'Svizzera' : resolvedCity}.\nRuolo: ${title}.\n\nCapri Holdings è un gruppo globale della moda di lusso con i marchi Michael Kors, Versace e Jimmy Choo. L'azienda ha un importante hub logistico a Mendrisio, Canton Ticino.`;
     const slug = slugify(title, 'capri-holdings');
     const locationText = `${locationRaw} ${listingLocationSignal}`;
-    const postalCode = getWorkdaySourceField(info, ['postalCode', 'postal_code', 'zipCode', 'zip'])
+    const sourcePostalCode = getWorkdaySourceField(info, ['postalCode', 'postal_code', 'zipCode', 'zip'])
       || locationText.match(/\b\d{4}\b/)?.[0]
       || '';
-    const streetAddress = getWorkdaySourceField(info, ['streetAddress', 'street_address', 'addressLine1', 'address_line_1'])
-      || city
-      || '';
+    const structuredAddress = resolveSwissStructuredAddress({
+      city: resolvedCity,
+      canton,
+      postalCode: sourcePostalCode,
+      streetAddress: getWorkdaySourceField(info, ['streetAddress', 'street_address', 'addressLine1', 'address_line_1']),
+    });
+    const addressCity = structuredAddress.city;
+    const addressCanton = structuredAddress.canton;
 
     jobs.push({
       url: publicUrl,
@@ -482,14 +492,14 @@ async function fetchCapriHoldingsJobs() {
       title,
       company: CAPRI_COMPANY_NAME,
       companyKey: CAPRI_KEY,
-      location: resolvedCity,
-      canton: canton || '',
+      location: addressCity,
+      canton: addressCanton,
       country: 'CH',
-      addressLocality: resolvedCity,
-      addressRegion: canton,
+      addressLocality: addressCity,
+      addressRegion: addressCanton,
       addressCountry: 'CH',
-      postalCode,
-      streetAddress,
+      postalCode: structuredAddress.postalCode,
+      streetAddress: structuredAddress.streetAddress,
       description: descEn,
       descriptionByLocale: { en: descEn, it: descIt },
       titleByLocale: { en: title },
@@ -503,7 +513,7 @@ async function fetchCapriHoldingsJobs() {
       sourceLang: detectLang(descEn || title, 'en'),
       sector: 'Fashion / Luxury Retail',
       _brand: brand,
-      _targetScope: { canton: canton || '', location: resolvedCity },
+      _targetScope: { canton: addressCanton, location: addressCity },
     });
   }
 

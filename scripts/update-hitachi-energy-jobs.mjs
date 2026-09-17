@@ -52,6 +52,7 @@ import {
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
+import { assertDetailFetchComplete } from './lib/detail-fetch-cap.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -248,7 +249,7 @@ async function enrichWithDetails(listings) {
 
   if (swissJobs.length === 0) return [];
 
-  const toFetch = swissJobs.slice(0, MAX_DETAIL_PAGES);
+  const toFetch = assertDetailFetchComplete(swissJobs, MAX_DETAIL_PAGES, 'Hitachi Energy');
   console.log(`🔎 Fetching up to ${toFetch.length} detail pages...`);
 
   const enriched = [];
