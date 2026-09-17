@@ -4,7 +4,7 @@
  *
  * Crawls https://relewant.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Careers
  * 1. Fetches all jobs via Zoho Recruit public JSON API (no HTML parsing needed)
- * 2. Filters Ticino-relevant jobs
+ * 2. Filters jobs whose listed city is in a Swiss target canton
  * 3. Merges into data/jobs.json
  * 4. Updates adapter config
  */
@@ -42,9 +42,9 @@ import {
   parseRelewantJob,
   enrichRelewantJob,
   buildRelewantLocalizedContent,
-  isRelewantTicinoRelevant,
+  isRelewantSwissRelevant,
 } from './lib/relewant-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -63,7 +63,6 @@ const COMPANY_KEY = 'relewant';
 // scratch path so it can no longer race with siblings.
 const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
-const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'ReleWant';
 const COMPANY_HOST = 'relewant.zohorecruit.com';
 const COMPANY_DOMAIN = 'zohorecruit.com';
@@ -126,6 +125,7 @@ function inferCategory(title = '') {
 
 function buildRelewantJob(parsed) {
   const localized = buildRelewantLocalizedContent(parsed);
+  const canton = inferAnyCanton(parsed.city);
   return {
     title: localized.titleByLocale.it,
     slug: localized.slugByLocale.it,
@@ -134,11 +134,11 @@ function buildRelewantJob(parsed) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
-    location: parsed.city || 'Chiasso',
-    addressLocality: parsed.city || 'Chiasso',
-    addressRegion: 'TI',
+    location: parsed.city,
+    addressLocality: parsed.city,
+    addressRegion: canton,
     addressCountry: 'CH',
-    canton: DEFAULT_CANTON,
+    canton,
     country: 'CH',
     category: inferCategory(parsed.title),
     sector: 'Consulenza IT',
@@ -216,7 +216,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: DEFAULT_CANTON,
+      canton: job.canton || '',
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };
@@ -229,7 +229,7 @@ function updateAdapterConfig(jobs) {
     priority: 18,
     crawlerModes: ['json'],
     seedUrls: [CAREERS_URL],
-    notes: 'Dedicated ReleWant crawler reads the Zoho Recruit public JSON API. No HTML scraping needed. Keeps Ticino IT consulting vacancies.',
+    notes: 'Dedicated ReleWant crawler reads the Zoho Recruit public JSON API. No HTML scraping needed. Keeps IT consulting vacancies whose listed city is in a Swiss target canton.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -263,26 +263,26 @@ async function main() {
   console.log(`📋 API returned ${rawJobs.length} job openings`);
 
   const parsed = rawJobs.map(parseRelewantJob).filter((j) => j.title);
-  const ticinoJobs = parsed.filter((j) => isRelewantTicinoRelevant(j.city));
-  console.log(`📍 Ticino-relevant: ${ticinoJobs.length} / ${parsed.length}`);
+  const swissJobs = parsed.filter((j) => isRelewantSwissRelevant(j.city));
+  console.log(`📍 Swiss target locations: ${swissJobs.length} / ${parsed.length}`);
 
-  if (ticinoJobs.length === 0) {
-    console.log('⚠️ No Ticino-relevant jobs found — skipping.');
+  if (swissJobs.length === 0) {
+    console.log('⚠️ No Swiss-located jobs found — skipping.');
     return;
   }
 
   // Deduplicate by title + city
   const seenKeys = new Set();
   const deduplicated = [];
-  for (const job of ticinoJobs) {
+  for (const job of swissJobs) {
     const key = `${normalize(job.title)}|${normalize(job.city)}`;
     if (!seenKeys.has(key)) {
       seenKeys.add(key);
       deduplicated.push(job);
     }
   }
-  if (deduplicated.length < ticinoJobs.length) {
-    console.log(`🔄 Deduplicated: ${ticinoJobs.length} → ${deduplicated.length} unique`);
+  if (deduplicated.length < swissJobs.length) {
+    console.log(`🔄 Deduplicated: ${swissJobs.length} → ${deduplicated.length} unique`);
   }
 
   // Enrich each job with detail page data (description, metadata)

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Dedicated Migros crawler runner.
- * Runs only Migros Ticino jobs and enforces full locale coverage
+ * Runs Migros group jobs in Switzerland and enforces full locale coverage
  * for SEO-critical fields.
  *
  * The Migros careers portal at jobs.migros.ch is a Nuxt.js SPA.
@@ -435,27 +435,20 @@ function runBaseCrawler() {
 function logMigrosJobStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
-    return { total: 0, ticino: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
+    return { total: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
   const migrosJobs = allJobs.filter(isMigrosJob);
-  const ticinoJobs = migrosJobs.filter((job) => normalize(job?.canton) === 'ti');
-  const grJobs = migrosJobs.filter((job) => normalize(job?.canton) === 'gr');
-  const otherJobs = migrosJobs.length - ticinoJobs.length - grJobs.length;
-
-  console.log(`\n📊 === Migros Ticino Job Stats ===`);
-  console.log(`  🛒 Job totali trovati (Migros): ${migrosJobs.length}`);
-  console.log(`  ✅ Job in Ticino (canton=TI): ${ticinoJobs.length}`);
-  console.log(`  ✅ Job in Grigioni (canton=GR): ${grJobs.length}`);
-  if (otherJobs > 0) {
-    console.log(`  ℹ️ Job in altri cantoni: ${otherJobs}`);
-    const examples = migrosJobs
-      .filter((job) => !['ti', 'gr'].includes(normalize(job?.canton)))
-      .map((job) => `${job?.title || '?'} → ${job?.location || job?.canton || '?'}`)
-      .slice(0, 10);
-    for (const loc of examples) console.log(`     - ${loc}`);
+  const byCanton = new Map();
+  for (const job of migrosJobs) {
+    const canton = normalize(job?.canton).toUpperCase() || '??';
+    byCanton.set(canton, (byCanton.get(canton) || 0) + 1);
   }
+
+  console.log(`\n📊 === Migros Switzerland Job Stats ===`);
+  console.log(`  🛒 Job totali trovati (Migros): ${migrosJobs.length}`);
+  console.log(`  🗺️ Distribuzione per cantone: ${[...byCanton.entries()].sort().map(([canton, count]) => `${canton}=${count}`).join(', ') || 'nessun cantone rilevato'}`);
   console.log('');
 
   // Crawl change summary (new/updated/removed)
@@ -464,7 +457,7 @@ function logMigrosJobStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'Migros');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Migros');
 
-  return { total: migrosJobs.length, ticino: ticinoJobs.length, crawlDiff };
+  return { total: migrosJobs.length, crawlDiff };
 
 }
 
@@ -489,7 +482,7 @@ function validateMigrosLocaleCoverage() {
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(MIGROS_KEY, 'Migros');
-  console.log('🛒 Running dedicated Migros Ticino jobs crawler...');
+  console.log('🛒 Running dedicated Migros Switzerland jobs crawler...');
   console.log('   Platform: Nuxt.js SPA (jobs.migros.ch) via Playwright');
   console.log('   Scope: nationwide (no REGION filter — all Swiss cantons)');
   console.log('');

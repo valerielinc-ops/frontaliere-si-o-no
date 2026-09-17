@@ -333,34 +333,34 @@ export async function enrichRelewantJob(parsed, timeoutMs = 15000) {
  */
 export function buildRelewantLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
-  const city = String(job.city || '').trim() || 'Chiasso';
+  const city = String(job.city || '').trim() || 'Switzerland';
   const markdown = String(job.description || '').trim();
 
   let itDesc;
   if (markdown && markdown.length > 100) {
-    const introLine = `## ${title}\n\n**ReleWant** — ${city}, Ticino, Svizzera`;
+    const introLine = `## ${title}\n\n**ReleWant** — ${city}, Svizzera`;
     const footerLines = [];
     if (job.workExperience) footerLines.push(`**Esperienza richiesta:** ${job.workExperience}`);
     if (job.industry) footerLines.push(`**Settore:** ${job.industry}`);
-    footerLines.push(`**Sede:** ${city}, TI, Svizzera`);
+    footerLines.push(`**Sede:** ${city}, Svizzera`);
     footerLines.push(`**Tipo:** ${job.jobType || 'A tempo pieno'}`);
 
     itDesc = [introLine, '', markdown, '', '---', ...footerLines].join('\n');
   } else {
-    itDesc = `ReleWant, società di consulenza IT con sede a ${city}, cerca un profilo ${title}. ReleWant è specializzata in soluzioni informatiche innovative per il settore bancario e finanziario in Ticino. Candidati tramite il portale ufficiale.`;
+    itDesc = `ReleWant, società di consulenza IT con sede a ${city}, cerca un profilo ${title}. ReleWant è specializzata in soluzioni informatiche innovative per il settore bancario e finanziario in Svizzera. Candidati tramite il portale ufficiale.`;
   }
 
   // For enriched jobs, set the Italian description on all locales
   // (AI translation will fill the correct locale later)
   const enDesc = job.enriched
     ? itDesc
-    : `ReleWant, an IT consulting firm based in ${city}, is looking for a ${title}. ReleWant specialises in innovative IT solutions for the banking and financial sector in Ticino. Apply through the official portal.`;
+    : `ReleWant, an IT consulting firm based in ${city}, is looking for a ${title}. ReleWant specialises in innovative IT solutions for the banking and financial sector in Switzerland. Apply through the official portal.`;
   const deDesc = job.enriched
     ? itDesc
-    : `ReleWant, ein IT-Beratungsunternehmen mit Sitz in ${city}, sucht ein Profil als ${title}. ReleWant ist auf innovative IT-Lösungen für den Bank- und Finanzsektor im Tessin spezialisiert. Bewirb dich über das offizielle Portal.`;
+    : `ReleWant, ein IT-Beratungsunternehmen mit Sitz in ${city}, sucht ein Profil als ${title}. ReleWant ist auf innovative IT-Lösungen für den Bank- und Finanzsektor in der Schweiz spezialisiert. Bewirb dich über das offizielle Portal.`;
   const frDesc = job.enriched
     ? itDesc
-    : `ReleWant, société de conseil IT basée à ${city}, recherche un profil ${title}. ReleWant est spécialisée dans les solutions informatiques innovantes pour le secteur bancaire et financier au Tessin. Postulez via le portail officiel.`;
+    : `ReleWant, société de conseil IT basée à ${city}, recherche un profil ${title}. ReleWant est spécialisée dans les solutions informatiques innovantes pour le secteur bancaire et financier en Suisse. Postulez via le portail officiel.`;
 
   return {
     titleByLocale: { it: title, en: title, de: title, fr: title },
@@ -375,10 +375,9 @@ export function buildRelewantLocalizedContent(job = {}) {
 }
 
 /**
- * Check whether a job location is Ticino/Grigioni-relevant.
+ * Check whether a job city is in one of the 26 Swiss target cantons.
  */
-export function isRelewantTicinoRelevant(city = '') {
+export function isRelewantSwissRelevant(city = '') {
   const loc = normalizeSpace(city);
-  if (!loc) return true; // ReleWant is known TI company
-  return isTargetSwissLocation(loc);
+  return Boolean(loc && isTargetSwissLocation(loc));
 }
