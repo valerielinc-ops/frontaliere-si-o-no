@@ -156,7 +156,7 @@
       "slugByLocale": {
         "it": "agente-partner-agente-partner-sarganserland-valora-group-muttenz",
         "en": "agenturpartnerin-agenturpartner-sarganserland-valora-muttenz",
-        "de": "agenturpartnerin-agenturpartner-sarganserland-valora-muttenz",
+        "de": "agenturpartnerin-agenturpartner1977anserland-valora-group-muttenz",
         "fr": "agenturpartnerin-agenturpartner-sarganserland-valora-muttenz"
       },
       "company": "Valora Group",
@@ -205,6 +205,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "agenturpartnerin-agenturpartner-sarganserland-valora-muttenz"
+        ],
+        "de": [
           "agenturpartnerin-agenturpartner-sarganserland-valora-muttenz"
         ]
       },
@@ -2873,12 +2876,12 @@
     },
     {
       "id": "valora-efda2feac9b1",
-      "slug": "stv-amministratore-delegato-stv-managing-director-80-valora-group-bagnes",
+      "slug": "amministratore-delegato-80-valora-group-bagnes",
       "slugByLocale": {
-        "it": "stv-amministratore-delegato-stv-managing-director-80-valora-group-bagnes",
+        "it": "amministratore-delegato-80-valora-group-bagnes",
         "en": "stv-managing-director-stv-managing-director-80-valora-group-bagnes",
         "de": "stv-geschaftsfuhrerin-stv-geschaftsfuhrer-80-valora-bagnes",
-        "fr": "stv-administrateur-delegue-stv-administrateur-delegue-80-valora-group-bagnes"
+        "fr": "directeur-general-80-valora-group-bagnes"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -2922,17 +2925,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-geschaftsfuhrerin-stv-geschaftsfuhrer-80-valora-bagnes"
+        "stv-geschaftsfuhrerin-stv-geschaftsfuhrer-80-valora-bagnes",
+        "stv-amministratore-delegato-stv-managing-director-80-valora-group-bagnes",
+        "stv-administrateur-delegue-stv-administrateur-delegue-80-valora-group-bagnes"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-geschaftsfuhrerin-stv-geschaftsfuhrer-80-valora-bagnes"
+          "stv-geschaftsfuhrerin-stv-geschaftsfuhrer-80-valora-bagnes",
+          "stv-amministratore-delegato-stv-managing-director-80-valora-group-bagnes"
         ],
         "en": [
           "stv-geschaftsfuhrerin-stv-geschaftsfuhrer-80-valora-bagnes"
         ],
         "fr": [
-          "stv-geschaftsfuhrerin-stv-geschaftsfuhrer-80-valora-bagnes"
+          "stv-geschaftsfuhrerin-stv-geschaftsfuhrer-80-valora-bagnes",
+          "stv-administrateur-delegue-stv-administrateur-delegue-80-valora-group-bagnes"
         ]
       },
       "firstSeenAt": "2026-08-27T00:35:14.886Z",

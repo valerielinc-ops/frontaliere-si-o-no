@@ -506,9 +506,9 @@
       "slug": "kv-apprendistato-cfc-2027-agenzia-generale-aesch-die-mobiliar-generalagentur-aesch",
       "slugByLocale": {
         "it": "kv-apprendistato-cfc-2027-agenzia-generale-aesch-die-mobiliar-generalagentur-aesch",
-        "en": "kv-lehrstelle-efz-2027-generalagentur-aesch-mobiliar-ch",
+        "en": "kv-teaching-position-efz-2027-general-agency-aesch-die-mobiliar-generalagentur-aesch",
         "de": "kv-lehrstelle-efz-2027-generalagentur-aesch-mobiliar-ch",
-        "fr": "kv-lehrstelle-efz-2027-generalagentur-aesch-mobiliar-ch"
+        "fr": "kv-position-pedagogique-efz-2027-agence-generale-aesch-die-mobiliar-generalagentur-aesch"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -572,6 +572,12 @@
         "it": [
           "kv-lehrstelle-efz-2027-generalagentur-aesch-mobiliar-ch",
           "kv-apprendistato-cfc-2027-agenzia-generale-aesch-die-mobiliar-generalagentur-aesch"
+        ],
+        "en": [
+          "kv-lehrstelle-efz-2027-generalagentur-aesch-mobiliar-ch"
+        ],
+        "fr": [
+          "kv-lehrstelle-efz-2027-generalagentur-aesch-mobiliar-ch"
         ]
       },
       "firstSeenAt": "2026-08-05T22:32:34.910Z",
@@ -1232,9 +1238,9 @@
       "slug": "kv-apprendistato-cfc-2027-agenzia-generale-reinach-ag-m-w-d-die-mobiliar-reinach",
       "slugByLocale": {
         "it": "kv-apprendistato-cfc-2027-agenzia-generale-reinach-ag-m-w-d-die-mobiliar-reinach",
-        "en": "kv-lehrstelle-efz-2027-generalagentur-reinach-ag-w-m-d-mobiliar-ch",
+        "en": "kv-teaching-position-efz-2027-general-agency-reinach-ag-m-f-d-die-mobiliar-reinach",
         "de": "kv-lehrstelle-efz-2027-generalagentur-reinach-ag-w-m-d-mobiliar-ch",
-        "fr": "kv-lehrstelle-efz-2027-generalagentur-reinach-ag-w-m-d-mobiliar-ch"
+        "fr": "kv-position-pedagogique-efz-2027-agence-generale-reinach-ag-h-f-d-die-mobiliar-reinach"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -1293,6 +1299,12 @@
         "it": [
           "kv-lehrstelle-efz-2027-generalagentur-reinach-ag-w-m-d-mobiliar-ch",
           "kv-apprendistato-cfc-2027-agenzia-generale-reinach-ag-m-w-d-die-mobiliar-reinach"
+        ],
+        "en": [
+          "kv-lehrstelle-efz-2027-generalagentur-reinach-ag-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "kv-lehrstelle-efz-2027-generalagentur-reinach-ag-w-m-d-mobiliar-ch"
         ]
       },
       "firstSeenAt": "2026-07-06T14:20:42.675Z",
@@ -3195,7 +3207,6 @@
         ]
       },
       "firstSeenAt": "2026-09-02T23:08:19.452Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -3209,7 +3220,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "needsRetranslation": true
     },
     {
       "id": "mobiliar-a562062aab67",

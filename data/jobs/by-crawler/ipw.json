@@ -858,7 +858,6 @@
         "assistente-medico-curante-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "medico-assistente-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
         "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
         "assistenzarztin-assistenzarzt-ipw-glattbrugg",
@@ -872,7 +871,6 @@
           "assistente-medico-curante-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "medico-assistente-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
           "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
           "assistenzarztin-assistenzarzt-ipw-glattbrugg",
@@ -1421,9 +1419,9 @@
     },
     {
       "id": "ipw-45fc6b0778b9",
-      "slug": "stv-station-manager-station-manager-integrierte-psychiatrie-winterthur-ipw-winterthur",
+      "slug": "gestore-stazione-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "stv-station-manager-station-manager-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "it": "gestore-stazione-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "stv-station-manager-station-manager-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "stv-stationsleiterin-stationsleiter-ipw-winterthur",
         "fr": "stv-gestionnaire-de-station-gestionnaire-de-station-integrierte-psychiatrie-winterthur-ipw-winterthur"
@@ -1476,7 +1474,8 @@
         "stv-stationsleiterin-stationsleiter-hometreatment-ipw-winterthur",
         "stv-gestionnaire-de-station-gestionnaire-de-station-traitement-a-domicile-integrierte-psychiatrie-winterthur-ipw",
         "stv-stationsleiterin-stationsleiter-hometreatment-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "stv-stationsleiterin-stationsleiter-ipw-winterthur"
+        "stv-stationsleiterin-stationsleiter-ipw-winterthur",
+        "stv-station-manager-station-manager-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1484,7 +1483,8 @@
           "stv-stationsleiterin-stationsleiter-hometreatment-ipw-winterthur",
           "stv-gestionnaire-de-station-gestionnaire-de-station-traitement-a-domicile-integrierte-psychiatrie-winterthur-ipw",
           "stv-stationsleiterin-stationsleiter-hometreatment-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "stv-stationsleiterin-stationsleiter-ipw-winterthur"
+          "stv-stationsleiterin-stationsleiter-ipw-winterthur",
+          "stv-station-manager-station-manager-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "en": [
           "stv-station-manager-station-manager-hometreatment-integrierte-psychiatrie-winterthur-ipw-winterthur",
