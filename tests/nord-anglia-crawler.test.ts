@@ -59,6 +59,13 @@ describe('Nord Anglia Education Switzerland crawler parser', () => {
       expect(isNordAngliaJob({ url: 'https://www.nordangliaeducation.com/london/careers' })).toBe(false);
     });
 
+    it('rejects an explicit Nord Anglia identity on a foreign marketing path', () => {
+      expect(isNordAngliaJob({
+        companyKey: 'nord-anglia',
+        url: 'https://www.nordangliaeducation.com/london/careers',
+      })).toBe(false);
+    });
+
     it('matches by URL domain (jobs2web ATS host)', () => {
       expect(isNordAngliaJob({ url: 'https://careers.nordanglia.com/job/Geneva-Teacher-of-Biology/1399902133/' })).toBe(true);
     });

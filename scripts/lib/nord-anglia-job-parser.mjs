@@ -243,13 +243,32 @@ export function isNordAngliaJob(job) {
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
   const rawUrl = String(job?.url || '');
+  const explicitNordAngliaIdentity = (
+    key === NORD_ANGLIA_KEY
+    || key.startsWith('nord-anglia')
+    || company.includes('nord anglia')
+    || company.includes('la côte international school')
+    || company.includes('la cote international school')
+  );
+  let host = '';
+  try {
+    host = new URL(rawUrl).hostname.toLowerCase();
+  } catch {
+    host = '';
+  }
+  const locationText = [job?.location, job?.addressLocality, job?.title, rawUrl]
+    .filter(Boolean)
+    .join(' ');
+  const explicitLocationText = [job?.location, job?.addressLocality, rawUrl]
+    .filter(Boolean)
+    .join(' ');
 
-  if (
-    key === NORD_ANGLIA_KEY ||
-    key.startsWith('nord-anglia') ||
-    company.includes('la côte international school') ||
-    company.includes('la cote international school')
-  ) {
+  if (explicitNordAngliaIdentity) {
+    if (!rawUrl) return true;
+    if (ATS_HOSTS.has(host)) return Boolean(extractRouteLocation(rawUrl));
+    if (host === 'nordangliaeducation.com' || host.endsWith('.nordangliaeducation.com')) {
+      return isSwissNordAngliaLocation(explicitLocationText);
+    }
     return true;
   }
 
@@ -268,15 +287,8 @@ export function isNordAngliaJob(job) {
   // "nord anglia" plus a Swiss location identifies the national tenant while
   // avoiding claims for foreign sibling postings.
   const mentionsNordAnglia = company.includes('nord anglia');
-  const locationText = [job?.location, job?.addressLocality, job?.title, rawUrl].filter(Boolean).join(' ');
   if (mentionsNordAnglia && isSwissNordAngliaLocation(locationText)) return true;
 
-  let host = '';
-  try {
-    host = new URL(rawUrl).hostname.toLowerCase();
-  } catch {
-    host = '';
-  }
   if (!host) return false;
 
   if (ATS_HOSTS.has(host)) {
