@@ -106,12 +106,9 @@ describe('cascade cap (#5650) — il tetto non puo tornare giu in silenzio', () 
   });
 });
 
-describe('lane Codex (#5650) — la preferenza e il broker restano dichiarati', () => {
-  it('Phase 2b mette Codex Luna Max in testa alla catena', () => {
-    const m = workflowText.match(/AI_MODELS_PREFER:\s*(\S+)/);
-    expect(m, 'AI_MODELS_PREFER assente: la catena torna al puro ordine per score, '
-      + 'dove il lane Codex non viene mai raggiunto').not.toBeNull();
-    expect(m![1]).toContain('codex-cli/gpt-5.6-luna');
+describe('lane Codex (#5650) — la preferenza per-chiamata e il broker restano dichiarati', () => {
+  it('Phase 2b non eredita la preferenza globale della generazione del corpo', () => {
+    expect(workflowText).not.toMatch(/^\s+AI_MODELS_PREFER:/m);
   });
 
   it('il processo riceve il socket privato del broker Codex', () => {
