@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
 import { resolveFnzSwissLocation } from '../scripts/lib/fnz-job-parser.mjs';
+
+const fnzCrawlerSource = fs.readFileSync(
+  new URL('../scripts/update-fnz-jobs.mjs', import.meta.url),
+  'utf8',
+);
 
 describe('fnz-job-parser / resolveFnzSwissLocation', () => {
   it('prefers a later specific Swiss candidate over a country-only value', () => {
@@ -62,5 +68,14 @@ describe('fnz-job-parser / resolveFnzSwissLocation', () => {
 
   it('rejects foreign-only candidates', () => {
     expect(resolveFnzSwissLocation(['London, United Kingdom'])).toBeNull();
+  });
+
+  it('fails closed when pagination reaches its cap without a verified end', () => {
+    expect(fnzCrawlerSource).toMatch(
+      /if \(pages >= MAX_PAGES\) \{\s*throw new Error\(/u,
+    );
+    expect(fnzCrawlerSource).not.toMatch(
+      /if \(pages >= MAX_PAGES\) \{[\s\S]*?console\.warn[\s\S]*?break;/u,
+    );
   });
 });

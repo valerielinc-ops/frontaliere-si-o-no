@@ -195,7 +195,8 @@ async function fetchJson(url, options = {}) {
  * of results). The first page's `total` is used only as a positive upper bound:
  * an unfiltered Workday query can echo total:0 alongside a full page of postings,
  * so we never break on `offset >= total` when total is 0 (that would drop every
- * posting on pages 2+). A page cap bounds the loop if a tenant never shortens.
+ * posting on pages 2+). A page cap bounds the loop if a tenant never shortens,
+ * but reaching that cap without a verified end is an error, not a normal stop.
  */
 async function listSwissJobs() {
   const candidates = [];
@@ -271,11 +272,10 @@ async function listSwissJobs() {
     }
     if (total > 0 && received >= total) break;
     if (pages >= MAX_PAGES) {
-      if (total > 0 && received < total) {
-        throw new Error(`FNZ Workday pagination safety cap reached at ${received} of ${total} declared postings.`);
-      }
-      console.warn(`⚠️ Reached pagination safety cap (${MAX_PAGES} pages); stopping.`);
-      break;
+      throw new Error(
+        `FNZ Workday pagination safety cap reached at ${received}` +
+          `${total > 0 ? ` of ${total} declared` : ''} postings without a verified end.`,
+      );
     }
   }
 
