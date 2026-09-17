@@ -152,7 +152,11 @@ function writeSnapshot(manifest, entries, outputFile) {
     total: entries.size,
     byKind: Object.fromEntries(PAGE_KINDS.map((kind) => [kind, byKind[kind].length])),
   };
-  lines.push(JSON.stringify({ type: 'footer', counts }));
+  const footer = { type: 'footer', counts };
+  if (manifest.data.jobsSeoEmitterFingerprint) {
+    footer.jobsSeoEmitterFingerprint = manifest.data.jobsSeoEmitterFingerprint;
+  }
+  lines.push(JSON.stringify(footer));
   fs.writeFileSync(outputFile, `${lines.join('\n')}\n`);
 }
 

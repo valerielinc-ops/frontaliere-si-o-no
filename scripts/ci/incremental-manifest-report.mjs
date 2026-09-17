@@ -1,20 +1,12 @@
 #!/usr/bin/env node
 
-import fs from 'node:fs';
 import path from 'node:path';
-import * as readline from 'node:readline';
 import { fileURLToPath } from 'node:url';
 import {
-  MANIFEST_FORMAT,
-  MANIFEST_VERSION,
   PAGE_KINDS,
+  loadIncrementalManifest,
   verifyRuntimeInputExclusion,
 } from '../../build-plugins/shared/incrementalManifest.mjs';
-
-// Added after the first manifest format was deployed. Treat the missing field
-// as zero so the first report after this change can compare an old snapshot
-// with a new one; newly written manifests still always serialize the key.
-const LEGACY_OPTIONAL_KINDS = new Set(['related-search-sitemap']);
 
 function parseArgs(argv) {
   const positional = [];
@@ -38,131 +30,8 @@ function usage() {
   ].join('\n');
 }
 
-function parseJsonLine(file, lineNumber, line) {
-  try {
-    const record = JSON.parse(line);
-    if (!record || typeof record !== 'object' || Array.isArray(record)) {
-      throw new Error('record deve essere un oggetto');
-    }
-    return record;
-  } catch (error) {
-    throw new Error(`${file}:${lineNumber}: JSONL non valido (${error?.message || error})`);
-  }
-}
-
-function assertManifestCounts(file, counts, entries) {
-  if (!counts || !Number.isInteger(counts.total) || !counts.byKind || typeof counts.byKind !== 'object') {
-    throw new Error(`${file}: footer counts non valido`);
-  }
-  if (counts.total !== entries.size) {
-    throw new Error(`${file}: footer total=${counts.total}, osservate ${entries.size} entry`);
-  }
-  const byKind = Object.fromEntries(PAGE_KINDS.map((kind) => [kind, 0]));
-  for (const entry of entries.values()) byKind[entry.kind] += 1;
-  for (const kind of PAGE_KINDS) {
-    const declared = counts.byKind[kind];
-    if (declared === undefined && LEGACY_OPTIONAL_KINDS.has(kind)) continue;
-    if (declared !== byKind[kind]) {
-      throw new Error(`${file}: footer byKind.${kind}=${counts.byKind[kind]}, osservate ${byKind[kind]}`);
-    }
-  }
-}
-
-export async function loadManifest(file) {
-  const input = fs.createReadStream(file, { encoding: 'utf8' });
-  const reader = readline.createInterface({ input, crlfDelay: Infinity });
-  let header = null;
-  let footer = null;
-  let currentKind = null;
-  let sawFooter = false;
-  let lineNumber = 0;
-  const kinds = new Map();
-  const entries = new Map();
-
-  try {
-    for await (const rawLine of reader) {
-      lineNumber += 1;
-      const line = rawLine.trim();
-      if (!line) continue;
-      const record = parseJsonLine(file, lineNumber, line);
-      if (sawFooter) throw new Error(`${file}:${lineNumber}: record dopo il footer`);
-
-      if (record.type === 'header') {
-        if (header) throw new Error(`${file}:${lineNumber}: header duplicato`);
-        if (
-          record.manifestVersion !== MANIFEST_VERSION
-          || record.format !== MANIFEST_FORMAT
-          || typeof record.locale !== 'string'
-        ) {
-          throw new Error(`${file}:${lineNumber}: header manifest non valido`);
-        }
-        header = record;
-        continue;
-      }
-      if (!header) throw new Error(`${file}:${lineNumber}: header mancante`);
-
-      if (record.type === 'kind') {
-        if (!PAGE_KINDS.includes(record.kind)) {
-          throw new Error(`${file}:${lineNumber}: kind non valido`);
-        }
-        if (kinds.has(record.kind)) {
-          throw new Error(`${file}:${lineNumber}: kind duplicato ${record.kind}`);
-        }
-        for (const field of ['templateVersion', 'sourceVersion', 'state']) {
-          if (typeof record[field] !== 'string' || record[field].length === 0) {
-            throw new Error(`${file}:${lineNumber}: metadata ${field} non valida`);
-          }
-        }
-        kinds.set(record.kind, {
-          templateVersion: record.templateVersion,
-          sourceVersion: record.sourceVersion,
-          state: record.state,
-        });
-        currentKind = record.kind;
-        continue;
-      }
-
-      if (record.type === 'footer') {
-        assertManifestCounts(file, record.counts, entries);
-        footer = record;
-        sawFooter = true;
-        continue;
-      }
-
-      if (record.type !== undefined) {
-        throw new Error(`${file}:${lineNumber}: record type non valido`);
-      }
-      if (!currentKind) throw new Error(`${file}:${lineNumber}: entry senza kind`);
-      if (typeof record.path !== 'string' || record.path.length === 0 || typeof record.hash !== 'string') {
-        throw new Error(`${file}:${lineNumber}: entry non valida`);
-      }
-      if (entries.has(record.path)) throw new Error(`${file}:${lineNumber}: path duplicato ${record.path}`);
-      const entry = { path: record.path, inputHash: record.hash, kind: currentKind };
-      // POST_WALK_INCREMENTAL optionally adds a compact identity/reference
-      // index. Keep the report's public counters unchanged while allowing the
-      // post-walk planner to prove same-job and explicit path dependencies.
-      if (record.postWalk !== undefined) entry.postWalk = record.postWalk;
-      entries.set(record.path, entry);
-    }
-  } finally {
-    reader.close();
-  }
-
-  if (!header) throw new Error(`${file}: header mancante`);
-  if (!footer) throw new Error(`${file}: footer mancante`);
-  assertManifestCounts(file, footer.counts, entries);
-  return {
-    file,
-    data: {
-      manifestVersion: header.manifestVersion,
-      format: header.format,
-      locale: header.locale,
-      counts: footer.counts,
-      kinds: Object.fromEntries(kinds),
-    },
-    entries,
-  };
-}
+// Keep the historical report API stable for workflow scripts and tests.
+export const loadManifest = loadIncrementalManifest;
 
 function emptyStats() {
   return { hits: 0, misses: 0, added: 0, removed: 0 };
