@@ -108,6 +108,31 @@ describe('SmartRecruiters strict source pagination', () => {
     });
   });
 
+  it('does not prove an empty strict source when totalFound is negative', async () => {
+    let outcome: Record<string, unknown> | undefined;
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({
+      totalFound: -1,
+      content: [],
+    }), { status: 200 })));
+
+    const rows = [];
+    for await (const row of fetchSmartRecruitersJobs('Avaloq1', {
+      minDelayMs: 0,
+      onComplete: (info) => { outcome = info; },
+    })) {
+      rows.push(row);
+    }
+
+    expect(rows).toHaveLength(0);
+    expect(outcome).toMatchObject({
+      terminationProven: false,
+      recordsSeen: 0,
+      rawRecordsSeen: 0,
+      paginationIntegrityProven: true,
+      totalFound: null,
+    });
+  });
+
   it('does not prove a strict short page when totalFound is undeclared', async () => {
     let outcome: Record<string, unknown> | undefined;
     vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({

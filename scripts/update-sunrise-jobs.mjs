@@ -161,7 +161,6 @@ async function fetchSunriseListings() {
     }
     payloadPresent = true;
     malformedRecordCount += Number(rows.sunriseSearchSkippedMalformedRecords || 0);
-    const rawRecordCount = Number(rows.sunriseSearchRawRecordCount || 0);
     const pageIntegrity = paginationIntegrity.observe(rows);
     if (!pageIntegrity.accepted) {
       throw new Error(
@@ -179,7 +178,9 @@ async function fetchSunriseListings() {
       paginationIntegrityProven: paginationIntegrity.proven,
       listingMarkupSeen: payloadPresent,
       listingRowsSeen: pageRecordCount > 0,
-      emptyStateObserved: rawRecordCount === 0,
+      // A present `jobs: []` array is not an explicit provider empty marker:
+      // Phenom can return the same shape for a truncated or degraded page.
+      emptyStateObserved: false,
     });
     if (pageRecordCount === 0) {
       terminationProven = pageTerminationEvidence;

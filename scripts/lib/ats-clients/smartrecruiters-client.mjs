@@ -286,7 +286,7 @@ async function fetchListPage(url, { timeoutMs, userAgent }) {
       if (res.ok) {
         const json = await res.json();
         const content = assertJsonListShape(json, { key: 'content', source: 'smartrecruiters' });
-        const hasDeclaredTotal = Number.isFinite(json?.totalFound);
+        const hasDeclaredTotal = Number.isInteger(json?.totalFound) && json.totalFound >= 0;
         const totalFound = hasDeclaredTotal ? Number(json.totalFound) : content.length;
         return { content, totalFound, hasDeclaredTotal };
       }

@@ -60,6 +60,12 @@ describe('listing pagination integrity', () => {
     }
   });
 
+  it('does not treat a raw empty Sunrise payload as authoritative empty evidence', () => {
+    const source = fs.readFileSync(path.join(ROOT, 'scripts', 'update-sunrise-jobs.mjs'), 'utf8');
+    expect(source).not.toContain('emptyStateObserved: rawRecordCount === 0');
+    expect(source).toContain('emptyStateObserved: false');
+  });
+
   it('does not accept terminal listing evidence without pagination proof', async () => {
     const { hasAuthoritativeListingPageEvidence } = await import(
       '../scripts/lib/job-listing-evidence.mjs'
