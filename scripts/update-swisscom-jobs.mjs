@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Dedicated Swisscom crawler runner (CH-wide; legacy key 'swisscom-sede-ticino').
+ * Dedicated Swisscom crawler runner (CH-wide; legacy data key retained for identity).
  *
  * Swisscom is the leading Swiss telecom company with offices across Switzerland,
  * including several locations in Ticino (Bellinzona, Grancia, Balerna, S. Antonino).
@@ -11,8 +11,8 @@
  *
  * Discovery flow:
  *   1. Paginate all Swiss jobs from Workday API (max 20 per page)
- *   2. Filter for target-area jobs (listing-level location check)
- *   3. Fetch full job detail for each target-area listing
+ *   2. Keep jobs whose listing location resolves to a Swiss target canton
+ *   3. Fetch full job detail for each Swiss-canton listing
  *   4. Build job objects with canonical Workday URLs
  *   5. Merge into data/jobs.json (add new, update existing, prune stale)
  *   6. Run the base crawler for AI localization (4 locales)
@@ -42,7 +42,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseSwisscomJobDescription } from './lib/swisscom-job-parser.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -51,6 +51,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
+// Legacy key retained so existing Swisscom records keep their identity.
 const SWISSCOM_KEY = 'swisscom-sede-ticino';
 // Per-crawler-scoped scratch path — matches what runDedicatedBaseCrawler
 // defaults to internally for a single-key run, so this script's own
@@ -59,7 +60,7 @@ const SWISSCOM_KEY = 'swisscom-sede-ticino';
 // of #3775/#3768).
 const DATA_JOBS = crawlerScratchPathFor(SWISSCOM_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
-const SWISSCOM_COMPANY_NAME = 'Swisscom (sede Ticino)';
+const SWISSCOM_COMPANY_NAME = 'Swisscom';
 const SWISSCOM_COMPANY_HOST = 'swisscom.wd103.myworkdayjobs.com';
 const SWISSCOM_API_BASE = 'https://swisscom.wd103.myworkdayjobs.com/wday/cxs/swisscom/SwisscomExternalCareers';
 const SWISSCOM_PUBLIC_BASE = 'https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers';
@@ -176,7 +177,7 @@ async function fetchJson(url, options = {}) {
  * `length >= total` when total is 0 (that would drop every posting on pages 2+).
  * A page cap bounds the loop if a tenant never shortens.
  */
-async function listTicinoJobs() {
+async function listSwissJobs() {
   const allPostings = [];
   let offset = 0;
   const limit = 20;
@@ -226,7 +227,7 @@ async function listTicinoJobs() {
 
   console.log(`  📋 Fetched ${allPostings.length} job listings across all pages`);
 
-  // Filter TI/GR-based jobs
+  // Keep jobs in any Swiss target canton.
   const relevantPostings = allPostings.filter(p =>
     isSwissLocation(p.locationsText || '')
   );
@@ -260,14 +261,7 @@ function parseWorkdayLocation(locText = '') {
 function inferCanton(location = '') {
   const inferred = inferAnyCanton(location);
   if (inferred) return inferred;
-  const loc = normalize(location);
-  // Non-Ticino fallbacks
-  if (loc.includes('zurich') || loc.includes('zürich')) return 'ZH';
-  if (loc.includes('bern') || loc.includes('berne')) return 'BE';
-  if (loc.includes('genev') || loc.includes('genf')) return 'GE';
-  if (loc.includes('basel') || loc.includes('bâle')) return 'BS';
-  if (loc.includes('lausanne')) return 'VD';
-  return 'TI'; // Default to TI for unrecognized locations
+  return '';
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -326,7 +320,7 @@ function buildPublicUrl(externalPath) {
  * Build a regenerated Swisscom slug with a stable per-vacancy disambiguator
  * suffix.
  *
- * Swisscom publishes the same apprenticeship/role across multiple Ticino
+ * Swisscom publishes the same apprenticeship/role across multiple Swiss
  * cities (e.g. R-0002524 Bellinzona, R-0002525 Grancia, R-0002527 Balerna for
  * the same "Apprendistato Impiegato/a del commercio al dettaglio AFC"). The
  * previous formula `slugify(title, swisscom-{city})` did include the city,
@@ -336,7 +330,7 @@ function buildPublicUrl(externalPath) {
  * `[title, company, addressLocality]` collapsing every per-city slug to one.
  *
  * The audit at /tmp/housekeeping-audit-2026-04-07.md identified 4 silent
- * losses in swisscom-sede-ticino over 30 days from this exact pattern.
+ * losses in the legacy Swisscom slice over 30 days from this exact pattern.
  *
  * `stableSlugHash(job)` derives a 6-char hash from `fingerprintJob(job)`,
  * which on Swisscom Workday URLs returns
@@ -446,16 +440,16 @@ export function buildSwisscomJob(listing = {}, detail = {}) {
 }
 
 // ─────────────────────────────────────────────────────────────
-// Fetch and build all Swisscom Ticino jobs
+// Fetch and build all Swisscom Swiss-canton jobs
 // ─────────────────────────────────────────────────────────────
 
 async function fetchSwisscomJobs() {
   console.log(`🔍 Fetching Swisscom jobs from Workday API`);
   console.log(`   API: ${SWISSCOM_API_BASE}/jobs`);
 
-  const listings = await listTicinoJobs();
+  const listings = await listSwissJobs();
   if (!listings || listings.length === 0) {
-    console.warn('⚠️ No TI/GR job listings found.');
+    console.warn('⚠️ No Swiss-canton job listings found.');
     return [];
   }
 
@@ -478,7 +472,7 @@ async function fetchSwisscomJobs() {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total Swisscom TI/GR jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total Swisscom Swiss-canton jobs discovered: ${jobs.length}`);
   return jobs;
 }
 
@@ -548,7 +542,7 @@ function updateAdapterConfig() {
   adapter.priority = Math.max(adapter.priority || 0, 10);
   adapter.crawlerModes = ['api'];
   adapter.seedUrls = [`${SWISSCOM_PUBLIC_BASE}`];
-  adapter.notes = 'Workday REST API at swisscom.wd103.myworkdayjobs.com — all Swiss jobs paginated, then filtered for TI + GR cities.';
+  adapter.notes = 'Workday REST API at swisscom.wd103.myworkdayjobs.com — all Swiss jobs paginated, then kept when the location resolves to one of the 26 Swiss cantons; canton inferred per job.';
   adapter.updatedAt = new Date().toISOString();
 
   fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
@@ -601,10 +595,6 @@ function postProcessSwisscomJobs() {
       job.canton = inferCanton(job.location);
       if (job.canton) fixed++;
     }
-    if (!job.location) {
-      job.location = 'Bellinzona';
-      fixed++;
-    }
     // Mirror per-job city onto addressLocality so applyCompanyDefaults does
     // not overwrite it with the hardcoded HQ city — that overwrite is what
     // triggers hardenJobLocaleFields to collapse per-city slugs and silently
@@ -635,10 +625,10 @@ function logStats(beforeSnapshot = new Map()) {
   const allJobs = Array.isArray(raw) ? raw : [];
   const swisscomJobs = allJobs.filter(isSwisscomJob);
 
-  console.log(`\n📊 === Swisscom (sede Ticino) Job Stats ===`);
+  console.log(`\n📊 === Swisscom Job Stats (CH-wide) ===`);
   const tiJobs = swisscomJobs.filter(j => (j.canton || '').toUpperCase() === 'TI').length;
   const grJobs = swisscomJobs.filter(j => (j.canton || '').toUpperCase() === 'GR').length;
-  console.log(`  🏢 Total Swisscom TI+GR jobs: ${swisscomJobs.length} (TI: ${tiJobs}, GR: ${grJobs})`);
+  console.log(`  🏢 Total Swisscom Swiss-canton jobs: ${swisscomJobs.length} (TI: ${tiJobs}, GR: ${grJobs}, other cantons: ${swisscomJobs.length - tiJobs - grJobs})`);
 
   if (swisscomJobs.length > 0) {
     console.log(`  📋 Jobs:`);
@@ -649,8 +639,8 @@ function logStats(beforeSnapshot = new Map()) {
 
   const afterSnapshot = snapshotJobSlugs(swisscomJobs);
   const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
-  printCrawlChangeSummary(crawlDiff, 'Swisscom Ticino');
-  writeCrawlChangeSummaryToGH(crawlDiff, 'Swisscom Ticino');
+  printCrawlChangeSummary(crawlDiff, 'Swisscom');
+  writeCrawlChangeSummaryToGH(crawlDiff, 'Swisscom');
   return { total: swisscomJobs.length, crawlDiff };
 
 }
@@ -658,14 +648,14 @@ function logStats(beforeSnapshot = new Map()) {
 function validateLocales() {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_SWISSCOM_STRICT',
-    label: 'Swisscom Ticino',
+    label: 'Swisscom',
     dataJobsPath: DATA_JOBS,
     isTargetJob: isSwisscomJob,
     locales: LOCALES,
     isTrustedDomain: isTrustedDomain,
     untrustedDomainReason: 'url_not_swisscom_domain',
     failWhenNoJobs: false,
-    noJobsMessage: 'No Swisscom TI/GR jobs found — the company may not have active TI/GR openings.',
+    noJobsMessage: 'No Swisscom Swiss-canton jobs found — the company may not have active Swiss openings.',
     maxToleratedMissingDescriptions: 3,
   });
 }
@@ -676,22 +666,22 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(SWISSCOM_KEY, 'Swisscom Ticino');
+  registerCrawlerSummaryGuard(SWISSCOM_KEY, 'Swisscom');
   let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   console.log('═══════════════════════════════════════════════');
-  console.log('  Swisscom (sede Ticino) — Dedicated Crawler');
+  console.log('  Swisscom — Dedicated Crawler (CH-wide)');
   console.log('═══════════════════════════════════════════════');
   console.log(`  Workday API: ${SWISSCOM_API_BASE}\n`);
 
   // Snapshot before
   const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(SWISSCOM_KEY, DATA_JOBS).filter(isSwisscomJob))
 
-  // Phase 1: Fetch Ticino jobs from Workday API
+  // Phase 1: Fetch Swiss jobs from Workday API
   const discoveredJobs = await fetchSwisscomJobs();
 
   if (discoveredJobs.length === 0) {
-    console.log('\n⚠️ No Swisscom TI/GR jobs discovered.');
-    console.log('   The Workday API may be unreachable or have no TI/GR openings.');
+    console.log('\n⚠️ No Swisscom Swiss-canton jobs discovered.');
+    console.log('   The Workday API may be unreachable or have no Swiss openings.');
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
@@ -721,7 +711,7 @@ async function main() {
   // Phase 7: Validate locale coverage
   validateLocales();
 
-  console.log('\n✅ Swisscom (sede Ticino) crawler complete.');
+  console.log('\n✅ Swisscom crawler complete.');
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
@@ -730,7 +720,7 @@ async function main() {
   writeJobsCrawlerSlice(SWISSCOM_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({
     key: SWISSCOM_KEY,
-    label: 'Swisscom Ticino',
+    label: 'Swisscom',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
     newCount: crawlDiff.newJobs.length,

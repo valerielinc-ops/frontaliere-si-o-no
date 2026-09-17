@@ -2,7 +2,7 @@
  * Julius Baer — Workday API job parser
  *
  * Julius Baer is a Swiss private banking group headquartered in Zurich,
- * with a significant presence in Lugano, Canton Ticino.
+ * with offices across Switzerland.
  *
  * Workday API endpoints:
  *   Listing: POST https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/External/jobs
@@ -14,24 +14,13 @@
  * NOTE: The Workday site name changed from "JuliusBaer" to "External" (discovered 2026-03-25).
  */
 
-import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
-import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
-
-const HQ = getCompanyDefaults('julius-baer');
 
 export const WORKDAY_API_BASE = 'https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/External';
 export const WORKDAY_PUBLIC_BASE = 'https://juliusbaer.wd3.myworkdayjobs.com/en-US/External';
 export const COMPANY_HOST = 'juliusbaer.wd3.myworkdayjobs.com';
-
-/**
- * Known Lugano/Ticino location keywords for filtering.
- */
-export const TICINO_LOCATION_KEYWORDS = [
-  'lugano', 'ticino', 'manno', 'bellinzona', 'locarno',
-  'mendrisio', 'chiasso', 'sorengo', 'agno',
-];
 
 /**
  * Normalize whitespace.
@@ -147,7 +136,7 @@ export function detectEmploymentType(timeType = '') {
 
 /**
  * Parse job listings from the Workday API JSON response.
- * Filters to Ticino/Lugano positions only.
+ * Filters to positions whose location resolves to a Swiss target canton.
  *
  * @param {object} apiResponse - Parsed JSON from the Workday listing endpoint
  * @returns {Array<{title: string, externalPath: string, location: string, city: string, bulletFields: string[]}>}
@@ -167,7 +156,7 @@ export function parseWorkdayListings(apiResponse) {
     if (seen.has(externalPath)) continue;
     seen.add(externalPath);
 
-    // Filter for Ticino/Lugano
+    // Filter for Swiss target cantons.
     if (!isSwissLocation(locationsText)) continue;
 
     results.push({
@@ -198,6 +187,7 @@ export function parseWorkdayJobDetail(detail, externalPath = '') {
 
   const locationRaw = info.location || '';
   const city = parseWorkdayCity(locationRaw);
+  const canton = inferAnyCanton(locationRaw);
   const descriptionHtml = info.jobDescription || '';
   const descriptionText = stripHtml(descriptionHtml);
   const publicUrl = buildPublicUrl(externalPath);
@@ -209,8 +199,8 @@ export function parseWorkdayJobDetail(detail, externalPath = '') {
     title,
     description: descriptionText,
     url: publicUrl,
-    city: city || 'Lugano',
-    canton: HQ.canton,
+    city,
+    canton,
     employmentType: detectEmploymentType(timeType),
     category: detectCategory(title),
     experienceLevel: detectExperienceLevel(title),

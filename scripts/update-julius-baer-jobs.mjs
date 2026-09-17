@@ -3,7 +3,7 @@
  * Dedicated Julius Baer crawler runner.
  *
  * Julius Baer is a Swiss private banking group headquartered in Zurich,
- * with a significant presence in Lugano, Canton Ticino.
+ * with offices across Switzerland.
  *
  * Uses Workday ATS:
  *   Listing: POST https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/External/jobs
@@ -11,7 +11,7 @@
  *
  * NOTE: Site name changed from "JuliusBaer" to "External" (2026-03-25).
  *
- * Filters for Lugano/Ticino positions only.
+ * Filters for positions in any of the 26 Swiss cantons.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -24,8 +24,7 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserve
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { parseWorkdayListings, parseWorkdayJobDetail, slugify, normalizeSpace, stripHtml, WORKDAY_API_BASE, WORKDAY_PUBLIC_BASE, COMPANY_HOST, isSwissLocation, detectCategory, detectExperienceLevel, detectEmploymentType, buildPublicUrl, parseWorkdayCity } from './lib/julius-baer-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
-import { inferSwissTargetCanton } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -41,7 +40,6 @@ const COMPANY_KEY = 'julius-baer';
 // of #3775/#3768).
 const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
-const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Julius Baer';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
@@ -80,14 +78,10 @@ const SWISS_COUNTRY_FACET_ID = '187134fccb084a0ea9b4b95f23890dbe';
  * Paginate the Workday API for all Switzerland-based postings.
  *
  * Previously this used a hardcoded `Location_Region_State_Province` facet ID
- * for Lugano plus narrow `searchText` probes ("Lugano", "Ticino", "Manno",
- * "Bellinzona"). When Julius Baer has no Ticino openings the region facet
- * returns nothing AND none of the text probes match — so the crawler reported
- * "0 via facet / 0 total" even when there were ~190 jobs globally and ~90 in
- * Switzerland. By fetching the whole CH country facet and relying on the
- * shared `isSwissLocation` check (cathedral TARGET_CANTONS) we capture jobs
- * in any target canton (ZH / GE / SG today, TI when they reopen) without
- * relying on tenant-specific region IDs that drift.
+ * and narrow regional text probes. By fetching the whole CH country facet
+ * and relying on the shared `isSwissLocation` check (all 26 target cantons),
+ * we capture every Swiss opening without relying on tenant-specific region
+ * IDs that drift.
  */
 async function listAllJobs() {
   const seenPaths = new Set();
@@ -146,11 +140,13 @@ async function fetchJuliusBaerJobs() {
     if (!title || title.length < 3) continue;
 
     const locationRaw = info.location || listing.locationsText || '';
-    const city = parseWorkdayCity(locationRaw) || 'Lugano';
-    // Cathedral: derive canton from the actual city. Defaults to Ticino HQ
-    // (and the matching Lugano postal/street) only when inference fails.
-    const inferredCanton = inferSwissTargetCanton(`${city} ${locationRaw}`) || DEFAULT_CANTON;
-    const isLuganoHq = inferredCanton === 'TI';
+    const city = parseWorkdayCity(locationRaw);
+    const inferredCanton = inferAnyCanton(`${city} ${locationRaw}`);
+    if (!city || !inferredCanton) {
+      console.warn(`  ⚠️ Skipping Julius Baer listing with unresolved Swiss canton: ${title} (${locationRaw || '?'})`);
+      continue;
+    }
+    const isLuganoHq = inferredCanton === 'TI' && /\blugano\b/i.test(city);
     const postalCode = isLuganoHq ? '6900' : '';
     const streetAddress = isLuganoHq ? 'Via Pretorio 22' : '';
     const descriptionHtml = info.jobDescription || '';
@@ -167,7 +163,7 @@ async function fetchJuliusBaerJobs() {
     // back to synthetic boilerplate when no real description was scraped.
     const descIt = descriptionText
       ? descEn
-      : `Posizione aperta presso Julius Baer a ${city}.\nRuolo: ${title}.\n\nJulius Baer è uno dei principali gruppi bancari privati svizzeri con sede a Zurigo e uffici a Lugano, Ticino.`;
+      : `Posizione aperta presso Julius Baer a ${city}.\nRuolo: ${title}.\n\nJulius Baer è uno dei principali gruppi bancari privati svizzeri con sede a Zurigo e uffici in tutta la Svizzera.`;
     const slug = slugify(title, 'julius-baer');
 
     jobs.push({
@@ -220,7 +216,7 @@ async function mergeJobs(discoveredJobs) {
 function updateAdapterConfig() {
   const adapterPath = path.join(ADAPTERS_DIR, `${COMPANY_KEY}.json`);
   const adapter = fs.existsSync(adapterPath) ? JSON.parse(fs.readFileSync(adapterPath, 'utf-8')) : {};
-  Object.assign(adapter, { companyKey: COMPANY_KEY, companyName: COMPANY_NAME, companyHost: COMPANY_HOST, enabled: true, priority: Math.max(adapter.priority || 0, 10), crawlerModes: ['api'], seedUrls: [WORKDAY_PUBLIC_BASE], notes: 'Workday API at juliusbaer.wd3.myworkdayjobs.com — Swiss positions across cathedral target cantons.', updatedAt: new Date().toISOString() });
+  Object.assign(adapter, { companyKey: COMPANY_KEY, companyName: COMPANY_NAME, companyHost: COMPANY_HOST, enabled: true, priority: Math.max(adapter.priority || 0, 10), crawlerModes: ['api'], seedUrls: [WORKDAY_PUBLIC_BASE], notes: 'Workday API at juliusbaer.wd3.myworkdayjobs.com — Swiss positions across all 26 cantons; canton inferred per listing.', updatedAt: new Date().toISOString() });
   fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
   fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
 }
@@ -252,7 +248,16 @@ async function main() {
   if (fs.existsSync(DATA_JOBS)) {
     const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
     let fixed = 0;
-    for (const j of (Array.isArray(jobs) ? jobs : [])) { if (!isJuliusBaerJob(j)) continue; if (j.company !== COMPANY_NAME) { j.company = COMPANY_NAME; fixed++; } j.companyKey = COMPANY_KEY; j.country = 'CH'; if (!j.canton) { j.canton = DEFAULT_CANTON; fixed++; } if (!j.location) { j.location = 'Lugano'; fixed++; } }
+    for (const j of (Array.isArray(jobs) ? jobs : [])) {
+      if (!isJuliusBaerJob(j)) continue;
+      if (j.company !== COMPANY_NAME) { j.company = COMPANY_NAME; fixed++; }
+      j.companyKey = COMPANY_KEY;
+      j.country = 'CH';
+      if (!j.canton && j.location) {
+        const inferred = inferAnyCanton(j.location);
+        if (inferred) { j.canton = inferred; fixed++; }
+      }
+    }
     if (fixed > 0) { writeJsonAtomic(DATA_JOBS, jobs); writeJsonAtomic(PUBLIC_JOBS, jobs); }
   }
 

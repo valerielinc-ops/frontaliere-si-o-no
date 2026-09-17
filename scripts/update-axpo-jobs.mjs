@@ -95,7 +95,7 @@ function jobMatchKey(job) {
   return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
 }
 
-function isGrCity(city = '') {
+function isSwissLocation(city = '') {
   return isTargetSwissLocation(city);
 }
 
@@ -207,25 +207,30 @@ async function fetchRss() {
 // Filter and build
 // ──────────────────────────────────────────────────────────────
 
-function filterSwissGrJobs(items) {
-  const grJobs = [];
+function filterSwissJobs(items) {
+  const swissJobs = [];
   for (const item of items) {
-    // Check if any location is in GR canton
-    const grLocations = item.locations.filter(
-      (loc) => loc.country === 'Switzerland' && isGrCity(loc.city)
+    // Check whether any listed workplace resolves to a Swiss target canton.
+    const swissLocations = item.locations.filter(
+      (loc) => loc.country === 'Switzerland' && isSwissLocation(loc.city)
     );
-    if (grLocations.length > 0) {
-      grJobs.push({ ...item, grLocations });
+    if (swissLocations.length > 0) {
+      swissJobs.push({ ...item, swissLocations });
     }
   }
-  return grJobs;
+  return swissJobs;
 }
 
 function buildJob(item) {
   const title = item.title || '';
   const link = item.link || '';
-  const grLoc = item.grLocations[0] || {};
-  const city = grLoc.city || '';
+  const swissLoc = item.swissLocations[0] || {};
+  const city = swissLoc.city || '';
+  const canton = inferAnyCanton(city);
+  if (!canton) {
+    console.warn(`  ⚠️ Skipping Axpo job with unresolved Swiss canton: ${title} (${city || '?'})`);
+    return null;
+  }
   const slug = slugify(`${title}-${item.guid || ''}`);
 
   // Convert entity-encoded HTML from RSS to structured markdown
@@ -263,9 +268,9 @@ function buildJob(item) {
     companyDomain: COMPANY_DOMAIN,
     location: city,
     addressLocality: city,
-    addressRegion: inferAnyCanton(city) || 'GR',
+    addressRegion: canton,
     addressCountry: 'CH',
-    canton: inferAnyCanton(city) || 'GR',
+    canton,
     country: 'CH',
     category,
     sector: 'Energia & Utilities',
@@ -370,19 +375,19 @@ async function main() {
   console.log('═══════════════════════════════════════');
   const allItems = await fetchRss();
 
-  // Phase 2 — Filter for GR
+  // Phase 2 — Filter for Swiss target cantons
   console.log('\n═══════════════════════════════════════');
-  console.log('Phase 2: Filter Swiss GR jobs');
+  console.log('Phase 2: Filter Swiss jobs');
   console.log('═══════════════════════════════════════');
-  const grItems = filterSwissGrJobs(allItems);
-  console.log(`📋 GR jobs found: ${grItems.length}`);
-  for (const item of grItems) {
-    const cities = item.grLocations.map((l) => l.city).join(', ');
+  const swissItems = filterSwissJobs(allItems);
+  console.log(`📋 Swiss jobs found: ${swissItems.length}`);
+  for (const item of swissItems) {
+    const cities = item.swissLocations.map((l) => l.city).join(', ');
     console.log(`  📄 ${item.title} | ${cities} | ${item.department}`);
   }
 
-  if (grItems.length === 0) {
-    console.log('ℹ️ No GR jobs found — nothing to update.');
+  if (swissItems.length === 0) {
+    console.log('ℹ️ No Swiss jobs found — nothing to update.');
     process.exit(0);
   }
 
@@ -390,7 +395,7 @@ async function main() {
   console.log('\n═══════════════════════════════════════');
   console.log('Phase 3: Build job objects');
   console.log('═══════════════════════════════════════');
-  const jobs = grItems.map(buildJob);
+  const jobs = swissItems.map(buildJob).filter(Boolean);
   console.log(`📊 Built ${jobs.length} job objects`);
 
   // Phase 4 — Merge
@@ -399,7 +404,7 @@ async function main() {
   console.log('═══════════════════════════════════════');
   const stats = mergeJobs(jobs);
   const diff = stats.diff;
-  console.log(`\n📈 Result: ${stats.targetCount} Axpo GR jobs (${stats.added} new, ${stats.updated} updated)`);
+  console.log(`\n📈 Result: ${stats.targetCount} Axpo Swiss jobs (${stats.added} new, ${stats.updated} updated)`);
   console.log(`   Total jobs in file: ${stats.total}`);
 
   // Phase 5 — Translate + validate
@@ -417,7 +422,7 @@ async function main() {
     isTargetJob,
     locales: LOCALES,
     failWhenNoJobs: true,
-    noJobsMessage: 'No Axpo GR jobs found after dedicated crawl.',
+    noJobsMessage: 'No Axpo Swiss jobs found after dedicated crawl.',
   });
 
   // Phase 6 — Summary
