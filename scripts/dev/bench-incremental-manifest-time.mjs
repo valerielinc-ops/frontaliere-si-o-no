@@ -20,6 +20,7 @@ const CANONICAL_COUNT = PAGE_COUNT - BRIDGE_COUNT;
 const RELATED_COUNT = 30;
 const DIGEST_ENTRY_MARGIN = 100;
 const MAX_FIXED_MS = 15_000;
+const BENCHMARK_LOCALE = 'de';
 const jsonOutput = process.argv.includes('--json');
 const noAssert = process.argv.includes('--no-assert');
 
@@ -46,7 +47,7 @@ function makePageLocalBridgeRecord(canonicalJob, pageIndex, mode) {
     ...canonicalJob,
     id: mode === 'page-local-bridge-id' ? `bridge-page-${pageIndex}` : canonicalJob.id,
     slug: `previous-${pageIndex}`,
-    path: `/de/jobs/previous-${pageIndex}`,
+    path: `/${BENCHMARK_LOCALE}/jobs/previous-${pageIndex}`,
     bridgeType: 'previous-slug-bridge',
   };
 }
@@ -56,7 +57,7 @@ function registerScenarioPage(manifest, mode, pageIndex, pageInput) {
     ? 'previous-slugs-full-content'
     : 'active-job';
   manifest.register(
-    `/de/jobs/${mode}/${pageIndex}.html`,
+    `/${BENCHMARK_LOCALE}/jobs/${mode}/${pageIndex}.html`,
     kind,
     pageInput,
   );
@@ -64,8 +65,8 @@ function registerScenarioPage(manifest, mode, pageIndex, pageInput) {
 
 function runScenario(mode) {
   const rootDir = path.join(os.tmpdir(), `incremental-manifest-time-${mode}`);
-  const manifest = getIncrementalManifestMap(rootDir, ['de']).get('de');
-  const inputCache = getIncrementalManifestInputCache(rootDir, 'de');
+  const manifest = getIncrementalManifestMap(rootDir, [BENCHMARK_LOCALE]).get(BENCHMARK_LOCALE);
+  const inputCache = getIncrementalManifestInputCache(rootDir, BENCHMARK_LOCALE);
   const relatedJobs = Array.from({ length: RELATED_COUNT }, (_, index) => makeJob(index, 'related'));
   const canonicalJobs = Array.from({ length: CANONICAL_COUNT }, (_, index) => makeJob(index));
 
@@ -78,7 +79,7 @@ function runScenario(mode) {
       : canonicalJob;
     const pageInput = buildMinimalJobInput(
       pageJob,
-      'de',
+      BENCHMARK_LOCALE,
       canonicalJob.slug,
       relatedJobs,
       inputCache,
@@ -88,8 +89,8 @@ function runScenario(mode) {
     registerScenarioPage(manifest, mode, pageIndex, isBridge
       ? {
         ...pageInput,
-        path: `/de/jobs/previous-${pageIndex}.html`,
-        sourcePath: `/de/jobs/${canonicalJob.slug}.html`,
+        path: `/${BENCHMARK_LOCALE}/jobs/previous-${pageIndex}.html`,
+        sourcePath: `/${BENCHMARK_LOCALE}/jobs/${canonicalJob.slug}.html`,
         bridgeType: 'previous-slug-bridge',
       }
       : pageInput);
