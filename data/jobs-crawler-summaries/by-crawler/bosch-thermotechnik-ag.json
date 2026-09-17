@@ -1,18 +1,19 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-09-16T23:43:34.288Z",
+  "generatedAt": "2026-09-17T14:25:16.609Z",
   "total": 8,
-  "newCount": 3,
-  "updatedCount": 5,
-  "removedCount": 3,
-  "unchangedCount": 0,
-  "durationMs": 19482,
-  "avgDurationMs": 19482,
+  "newCount": 0,
+  "updatedCount": 7,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 18449,
+  "avgDurationMs": 18449,
   "durationHistory": [
-    19482
+    18449
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Lehrstelle Konstrukteur/in (w/m/div) 2027",
       "slug": "lehrstelle-konstrukteur-in-w-m-div-2027-bosch-buttikon",
@@ -35,42 +36,18 @@
       "sourceLang": "de",
       "postedDate": "2026-09-16",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "bosch-thermotechnik-ag-530668e6b526",
+      "salaryMin": 50000,
+      "salaryMax": 76000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-16T23:43:27.195Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
-      }
-    },
-    {
-      "title": "Internship – Design Sustainable Packaging REF296423S",
-      "slug": "internship-design-sustainable-packaging-ref296423s-bosch-solothurn-zuchwil",
-      "url": "https://jobs.bosch.com/en/job/REF296423S-internship-design-sustainable-packaging-ref296423s",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000149893909-internship-design-sustainable-packaging-ref296423s?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Solothurn/Zuchwil",
-      "addressLocality": "Solothurn/Zuchwil",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "canton": "SO",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-09-16",
-      "validThrough": "",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -95,16 +72,20 @@
       "sourceLang": "de",
       "postedDate": "2026-09-15",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "bosch-thermotechnik-ag-35ec498d20b1",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-16T23:43:27.195Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Technischer Instruktor / Support Wärmepumpen (w/m/div.) REF295358S",
       "slug": "technischer-instruktor-support-warmepumpen-w-m-div-ref295358s-bosch-pratteln",
@@ -286,107 +267,36 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "title": "Werkstudent Kundendienst Administration 40-50% (w/m/div.) REF295386F",
-      "slug": "amministrazione-del-servizio-clienti-degli-studenti-di-lavoro-40-50-f-m-div-ref-295386f-bosch-thermotechnik-ag",
-      "url": "https://jobs.bosch.com/en/job/REF295386F-werkstudent-kundendienst-administration-40-50-w-m-div-ref295386f",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000146732467-werkstudent-kundendienst-administration-40-50-w-m-div-ref295386f?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "title": "Internship – Design Sustainable Packaging REF296423S",
+      "slug": "internship-design-sustainable-packaging-ref296423s-bosch-solothurn-zuchwil",
+      "url": "https://jobs.bosch.com/en/job/REF296423S-internship-design-sustainable-packaging-ref296423s",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000149893909-internship-design-sustainable-packaging-ref296423s?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
       "companyKey": "bosch-thermotechnik-ag",
       "companyDomain": "bosch.ch",
-      "location": "Steinhausen",
-      "addressLocality": "Steinhausen",
-      "addressRegion": "ZG",
+      "location": "Solothurn/Zuchwil",
+      "addressLocality": "Solothurn/Zuchwil",
+      "addressRegion": "SO",
       "addressCountry": "CH",
-      "canton": "ZG",
-      "country": "CH",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "category": "sales",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-01",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-9b1e32a903fb",
-      "salaryMin": 39500,
-      "salaryMax": 60800,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-01T23:08:07.074Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Elektroinstallateur (w/m/div.) REF295384A",
-      "slug": "installatore-trice-elettrico-a-w-m-div-ref295384a-bosch-thermotechnik-ag-spreitenbach",
-      "url": "https://jobs.bosch.com/en/job/REF295384A-elektroinstallateur-w-m-div-ref295384a",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000146730839-elektroinstallateur-w-m-div-ref295384a?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Spreitenbach",
-      "addressLocality": "Spreitenbach",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "canton": "AG",
+      "canton": "SO",
       "country": "CH",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "category": "sales",
+      "category": "other",
       "sector": "Energia",
       "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-01",
+      "sourceLang": "en",
+      "postedDate": "2026-09-16",
       "validThrough": "",
-      "id": "bosch-thermotechnik-ag-7e20cbf50a82",
-      "salaryMin": 74000,
-      "salaryMax": 113500,
+      "id": "bosch-thermotechnik-ag-75df8d5a95ed",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "firstSeenAt": "2026-09-01T23:08:07.074Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "4- oder 5-Tage-Woche – Servicetechniker Öl / Gas Region Basel (w/m/div.) REF295356U",
-      "slug": "4-o-5-tage-woche-servicetechniker-ol-gas-region-basel-w-m-div-ref295356u-bosch-thermotechnik-ag-steinhausen",
-      "url": "https://jobs.bosch.com/en/job/REF295356U-4-oder-5-tage-woche-servicetechniker-oel-gas-region-basel-w-m-div-ref295356u",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000146648094-4-oder-5-tage-woche-servicetechniker-ol-gas-region-basel-w-m-div-ref295356u?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Steinhausen",
-      "addressLocality": "Steinhausen",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "canton": "ZG",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "sales",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-01",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-557855aee84a",
-      "salaryMin": 79000,
-      "salaryMax": 121500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-01T10:14:24.092Z",
+      "firstSeenAt": "2026-09-16T23:43:27.195Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -395,6 +305,5 @@
         "completeness": 19
       }
     }
-  ],
-  "unchangedJobs": []
+  ]
 }
