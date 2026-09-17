@@ -2,6 +2,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import { titleOverlap, MIN_TITLE_OVERLAP } from './title-utils.mjs';
 export { titleOverlap, MIN_TITLE_OVERLAP };
+import { inferAnyCanton, rescueSwissCityFromText } from './target-swiss-locations.mjs';
 
 function normalize(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -115,14 +116,68 @@ export function parseLwphrOpenJobs(html = '') {
   return deduped;
 }
 
-export function inferLwphrLocation(title = '', pdfText = '') {
-  const text = `${title} ${pdfText}`.toLowerCase();
-  if (/locarno/.test(text)) return 'Locarno';
-  if (/mendrisiotto|mendrisio/.test(text)) return 'Mendrisio';
-  if (/luganese|lugano/.test(text)) return 'Lugano';
-  if (/ticino/.test(text)) return 'Ticino';
-  if (/svizzera|switzerland/.test(text)) return 'Ticino';
-  return 'Lugano';
+/**
+ * Resolve the location named by an LWP publication.
+ *
+ * The optional legacy fallback is retained for direct parser callers; the
+ * crawler passes an empty fallback so an unresolved publication stays without
+ * a fabricated locality. For the crawler path, city rescue is limited to the
+ * title, explicit work-location labels, and canton-qualified parentheticals;
+ * ordinary PDF prose is never treated as an address.
+ */
+const LWPHR_LOCATION_LABEL_RE = /\b(?:luogo\s+di\s+lavoro|sede\s+di\s+lavoro|posto\s+di\s+lavoro|localit(?:a|à)\s+di\s+lavoro|arbeitsort|arbeitsplatz|standort|lieu\s+de\s+travail|work(?:ing)?\s+location|based\s+(?:in|at)|office\s+in)\b\s*[:\-–]?\s*(.*)$/iu;
+const LWPHR_PARENTHETICAL_RE = /\(([^()\n]{2,100})\)/gu;
+
+function extractLwphrLocationContext(title = '', pdfText = '') {
+  const contexts = [];
+  const titleText = String(title || '').trim();
+  if (titleText) contexts.push(titleText);
+
+  const lines = String(pdfText || '').split(/\r?\n/);
+  for (let index = 0; index < lines.length; index += 1) {
+    const match = lines[index].match(LWPHR_LOCATION_LABEL_RE);
+    if (!match) continue;
+    const value = match[1].trim();
+    if (value) contexts.push(value);
+    else if (lines[index + 1]?.trim()) contexts.push(lines[index + 1].trim());
+  }
+
+  // A few LWP PDFs put the work city in the heading as "City/CANTON". Only
+  // accept a parenthetical that resolves to both a Swiss city and a canton;
+  // a bare city mentioned in body prose is deliberately ignored.
+  for (const match of String(pdfText || '').matchAll(LWPHR_PARENTHETICAL_RE)) {
+    const value = match[1].trim();
+    if (rescueSwissCityFromText(value) && inferAnyCanton(value)) contexts.push(value);
+  }
+
+  return contexts.join('\n');
+}
+
+export function inferLwphrLocation(title = '', pdfText = '', { fallbackLocation = 'Lugano' } = {}) {
+  const locationContext = extractLwphrLocationContext(title, pdfText);
+  const explicitCity = rescueSwissCityFromText(locationContext);
+  if (explicitCity) return explicitCity;
+
+  // Keep the legacy direct-call behaviour for the old parser API. The crawler
+  // always passes an empty fallback, so these broad compatibility matches can
+  // never turn ordinary PDF prose into a published locality.
+  if (fallbackLocation) {
+    const text = `${title} ${pdfText}`.toLowerCase();
+    if (/locarno/.test(text)) return 'Locarno';
+    if (/mendrisiotto|mendrisio/.test(text)) return 'Mendrisio';
+    if (/luganese|lugano/.test(text)) return 'Lugano';
+    if (/ticino|tessin/.test(text)) return 'Ticino';
+    return fallbackLocation;
+  }
+
+  return '';
+}
+
+export function inferLwphrCanton(title = '', pdfText = '') {
+  const location = inferLwphrLocation(title, pdfText, { fallbackLocation: '' });
+  if (location) return inferAnyCanton(location);
+
+  return inferAnyCanton(extractLwphrLocationContext(title, pdfText));
 }
 
 export function inferLwphrCategory(title = '', pdfText = '') {
@@ -135,8 +190,14 @@ export function inferLwphrCategory(title = '', pdfText = '') {
   return 'other';
 }
 
-export function buildLwphrLocalizedPayload({ title = '', pdfText = '', location = 'Lugano', pdfUrl = '' } = {}) {
+export function buildLwphrLocalizedPayload({ title = '', pdfText = '', location = '', pdfUrl = '' } = {}) {
   const trimmed = normalize(pdfText);
+  const locationLabel = String(location || '').trim();
+  const locationForSlug = locationLabel || 'Switzerland';
+  const locationSentenceIt = locationLabel ? `Sede indicativa: ${locationLabel}.` : 'Sede indicativa non specificata nella pubblicazione.';
+  const locationSentenceEn = locationLabel ? `Indicative location: ${locationLabel}.` : 'The publication does not specify a location.';
+  const locationSentenceDe = locationLabel ? `Ungefaehrer Arbeitsort: ${locationLabel}.` : 'Die Ausschreibung nennt keinen Arbeitsort.';
+  const locationSentenceFr = locationLabel ? `Lieu indicatif: ${locationLabel}.` : 'La publication ne precise pas de lieu.';
   const titles = {
     en: title,
     it: title,
@@ -144,34 +205,34 @@ export function buildLwphrLocalizedPayload({ title = '', pdfText = '', location 
     fr: title,
   };
   const slugs = {
-    en: slugify(`${title} lwp ledermann wieting partners ${location}`),
-    it: slugify(`${title} lwp ledermann wieting partners ${location}`),
-    de: slugify(`${title} lwp ledermann wieting partners ${location}`),
-    fr: slugify(`${title} lwp ledermann wieting partners ${location}`),
+    en: slugify(`${title} lwp ledermann wieting partners ${locationForSlug}`),
+    it: slugify(`${title} lwp ledermann wieting partners ${locationForSlug}`),
+    de: slugify(`${title} lwp ledermann wieting partners ${locationForSlug}`),
+    fr: slugify(`${title} lwp ledermann wieting partners ${locationForSlug}`),
   };
 
   const descriptions = {
     it: [
-      `LWP Ledermann Wieting & Partners pubblica questa opportunita nel suo portale Ticino. La descrizione completa del ruolo e stata estratta dal PDF ufficiale del mandato.`,
-      `Sede indicativa: ${location}.`,
+      `LWP Ledermann Wieting & Partners pubblica questa opportunita sul proprio portale per il mercato svizzero. La descrizione completa del ruolo e stata estratta dal PDF ufficiale del mandato.`,
+      locationSentenceIt,
       trimmed,
       `PDF ufficiale: ${pdfUrl}`,
     ].join('\n\n'),
     en: [
-      `LWP Ledermann Wieting & Partners lists this role on its Ticino opportunities portal. The full role description below is extracted from the official PDF published by the recruiter.`,
-      `Indicative location: ${location}.`,
+      `LWP Ledermann Wieting & Partners lists this role on its Swiss opportunities portal. The full role description below is extracted from the official PDF published by the recruiter.`,
+      locationSentenceEn,
       trimmed,
       `Official PDF: ${pdfUrl}`,
     ].join('\n\n'),
     de: [
-      `LWP Ledermann Wieting & Partners veroeffentlicht diese Stelle im Tessiner Karriereportal. Die vollstaendige Beschreibung unten wurde aus dem offiziellen PDF der Ausschreibung extrahiert.`,
-      `Ungefaehrer Arbeitsort: ${location}.`,
+      `LWP Ledermann Wieting & Partners veroeffentlicht diese Stelle in seinem Schweizer Karriereportal. Die vollstaendige Beschreibung unten wurde aus dem offiziellen PDF der Ausschreibung extrahiert.`,
+      locationSentenceDe,
       trimmed,
       `Offizielles PDF: ${pdfUrl}`,
     ].join('\n\n'),
     fr: [
-      `LWP Ledermann Wieting & Partners publie cette opportunite sur son portail carrières au Tessin. La description complete ci-dessous provient du PDF officiel de l annonce.`,
-      `Lieu indicatif: ${location}.`,
+      `LWP Ledermann Wieting & Partners publie cette opportunite sur son portail suisse. La description complete ci-dessous provient du PDF officiel de l annonce.`,
+      locationSentenceFr,
       trimmed,
       `PDF officiel: ${pdfUrl}`,
     ].join('\n\n'),

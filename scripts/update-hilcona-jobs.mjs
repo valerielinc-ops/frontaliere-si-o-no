@@ -88,8 +88,7 @@ async function main() {
     const description = detail.description;
     // The Bell Food sitemap is international. A real Swiss municipality is
     // therefore required before this job can enter a canton slice; falling
-    // back to the Landquart HQ/GR silently relabelled Schaan, Radolfzell and
-    // other foreign workplaces as Graubünden.
+    // back to the Landquart HQ silently relabelled foreign workplaces as Swiss.
     const resolvedLocation = resolveHilconaSwissLocation(detail);
     if (!resolvedLocation) {
       console.log(`  ⚠️  Non-Swiss/unresolved location (${detail.location || 'empty'}) — skipping: ${raw.title}`);

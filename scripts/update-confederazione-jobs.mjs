@@ -216,7 +216,7 @@ function parseApiJob(j = {}) {
   // from the location text via inferAnyCanton (all 26 cantons). Most federal
   // region labels are composite (e.g. "Espace Mittelland (BE, FR, JU, NE, SO)"),
   // so we infer from the actual arbeitsort/city rather than trust the label.
-  // A single-canton region label like "Ticino (TI)" is used only as last resort.
+  // A single-canton region label is used only as a last resort.
   const cantonMatch = regionRaw.match(/\(([A-Z]{2})\)$/);
   const cantonFromRegion = normalizeCantonCode(cantonMatch ? cantonMatch[1] : '');
   const canton = normalizedLocation.canton
@@ -351,7 +351,7 @@ function buildLocalizedContent(job = {}, sourceLang = 'it') {
     descriptionByLocale: { [sourceLang]: sourceDesc || title },
     // Slug-only guard: `job.city` can be the literal "undefined"/"null" string
     // (truthy) → `-undefined` in an active slug (#952, class #900/#901). Fallback is
-    // `regionLabel` (Ticino/Grigioni), region-correct. addressLocality untouched.
+    // `regionLabel` as a canton-correct fallback. addressLocality remains untouched.
     slugByLocale: { [sourceLang]: slugify(`${title} confederazione ${safeLocationToken(city, regionLabel)}`) },
   };
 }
@@ -605,7 +605,7 @@ function validateLocales() {
     },
     untrustedDomainReason: 'url_not_admin_domain',
     failWhenNoJobs: false,
-    noJobsMessage: 'No Confederazione Ticino jobs found after dedicated crawl.',
+    noJobsMessage: 'No Swiss Confederazione jobs found after dedicated crawl.',
     detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
     maxToleratedMissingDescriptions: 20,
   });

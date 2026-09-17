@@ -3,7 +3,7 @@
  * Dedicated Alpiq crawler runner.
  *
  * Source: https://www.alpiq.com/career/open-jobs
- * Alpiq is a major Swiss energy company with hydroelectric plants in Ticino.
+ * Alpiq is a major Swiss energy company with hydropower operations in Switzerland.
  * This crawler fetches all pages of listings and filters for Swiss jobs only.
  */
 import fs from 'node:fs';
@@ -25,6 +25,7 @@ import {
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -38,13 +39,59 @@ const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
 const PUBLIC_DATA_JOBS = `${DATA_JOBS}.public.json`;
 const COMPANY_NAME = 'Alpiq';
 
-/** Alpiq location → postal code map (Swiss locations, Ticino focus) */
+/** Alpiq location → postal code map for known Swiss locations. */
 const ALPIQ_PLZ = {
   airolo: '6780', biasca: '6710', locarno: '6600', bellinzona: '6500',
   lugano: '6900', mendrisio: '6850', chiasso: '6830', rodi: '6772',
   ritom: '6772', piotta: '6772', lausanne: '1003', zurich: '8001',
   olten: '4600', bern: '3001', baden: '5400',
 };
+
+// When the source exposes only "Switzerland", use Alpiq Holding's registered
+// Lausanne office as the safe structured-data fallback. For a known canton
+// without a city-level PLZ, use that canton's seat PLZ rather than emitting an
+// incomplete JobPosting address.
+const ALPIQ_SAFE_DEFAULT_ADDRESS = {
+  location: 'Lausanne',
+  canton: 'VD',
+  postalCode: '1003',
+  streetAddress: 'Chemin de Mornex 10',
+};
+const CANTON_DEFAULT_PLZ = {
+  AG: '5000', AI: '9050', AR: '9100', BE: '3001', BL: '4410', BS: '4001',
+  FR: '1700', GE: '1201', GL: '8750', GR: '7000', JU: '2800', LU: '6003',
+  NE: '2000', NW: '6370', OW: '6060', SG: '9000', SH: '8200', SO: '4500',
+  SZ: '6430', TG: '8500', TI: '6500', UR: '6460', VD: '1003', VS: '1950',
+  ZG: '6300', ZH: '8001',
+};
+
+const SWISS_POSTAL_CODES_PATH = path.resolve(ROOT, 'data', 'swiss-postal-codes.json');
+const SWISS_POSTAL_CODES = fs.existsSync(SWISS_POSTAL_CODES_PATH)
+  ? JSON.parse(fs.readFileSync(SWISS_POSTAL_CODES_PATH, 'utf8'))
+  : {};
+
+function normalizePostalKey(value = '') {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+function resolveAlpiqPostalCode(location = '', canton = '') {
+  const key = normalizePostalKey(location);
+  if (ALPIQ_PLZ[key]) return ALPIQ_PLZ[key];
+
+  const sourceMatch = Object.entries(SWISS_POSTAL_CODES).find(
+    ([city]) => normalizePostalKey(city) === key,
+  );
+  if (sourceMatch?.[1]) return String(sourceMatch[1]);
+
+  return CANTON_DEFAULT_PLZ[String(canton || '').toUpperCase()]
+    || ALPIQ_SAFE_DEFAULT_ADDRESS.postalCode;
+}
 
 function isCompanyJob(job) {
   const key = String(job?.companyKey || job?.company || '').toLowerCase();
@@ -104,19 +151,23 @@ async function main() {
     // and would slip past `|| 'switzerland'` into an active slug (#952, class
     // #900/#901). addressLocality stays as-is (choke-point normalizer handles it).
     const jobSlug = slugify(`${raw.title}-alpiq-${safeLocationToken(raw.location, 'switzerland')}`);
-    const desc = raw.description || `Posizione aperta presso Alpiq (${raw.location || 'Svizzera'}). Alpiq \u00e8 uno dei principali produttori di energia in Svizzera con centrali idroelettriche in Ticino. Candidati tramite il portale SuccessFactors.`;
+    const desc = raw.description || `Posizione aperta presso Alpiq (${raw.location || 'Svizzera'}). Alpiq \u00e8 uno dei principali produttori di energia in Svizzera con attivita idroelettriche sul territorio nazionale. Candidati tramite il portale SuccessFactors.`;
     const sourceLang = detectLang(desc || raw.title, 'en');
+    const sourceLocation = String(raw.location || '').trim();
+    const hasConcreteLocation = Boolean(sourceLocation && !/^switzerland$/i.test(sourceLocation));
+    const location = hasConcreteLocation ? sourceLocation : ALPIQ_SAFE_DEFAULT_ADDRESS.location;
+    const canton = inferAnyCanton(sourceLocation) || ALPIQ_SAFE_DEFAULT_ADDRESS.canton;
     return {
       id: `alpiq-${urlHash}`, slug: jobSlug, slugByLocale: { it: jobSlug },
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'alpiq.com',
       title: raw.title, titleByLocale: { it: raw.title },
       description: desc, descriptionByLocale: { [sourceLang]: desc, it: desc }, requirements: [], requirementsByLocale: { it: [] },
-      location: raw.location || 'Switzerland',
-      canton: raw.location && /airolo|biasca|locarno|bellinzona|lugano|mendrisio|chiasso|rodi|ritom|piotta/i.test(raw.location) ? 'TI' : '',
-      postalCode: ALPIQ_PLZ[raw.location?.toLowerCase()] || '',
-      streetAddress: '',
-      addressLocality: raw.location || 'Switzerland',
-      addressRegion: raw.location && /airolo|biasca|locarno|bellinzona|lugano|mendrisio|chiasso|rodi|ritom|piotta/i.test(raw.location) ? 'TI' : '',
+      location,
+      canton,
+      postalCode: resolveAlpiqPostalCode(location, canton),
+      streetAddress: hasConcreteLocation ? '' : ALPIQ_SAFE_DEFAULT_ADDRESS.streetAddress,
+      addressLocality: location,
+      addressRegion: canton,
       addressCountry: 'CH',
       employmentType: inferEmploymentType(raw.title, raw.description || '', raw.percentage || ''),
       category: 'energy', contract: raw.contractType === 'Temporary' ? 'temporary' : 'full-time',

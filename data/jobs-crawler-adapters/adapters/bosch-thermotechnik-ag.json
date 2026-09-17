@@ -10,7 +10,7 @@
   "seedUrls": [
     "https://jobs.bosch.com/en/?country=ch"
   ],
-  "notes": "Dedicated Bosch career crawler for Swiss vacancies, filtered with shared Ticino/Grigioni location matching and parsed from the Bosch job portal HTML.",
+  "notes": "Dedicated Bosch career crawler for Swiss vacancies, filtered with shared all-canton Swiss location matching and parsed from the Bosch job portal HTML.",
   "updatedAt": "2026-09-01T10:14:23.675Z",
   "seedMetaByUrl": {
     "https://jobs.bosch.com/en/job/REF287029N-method-process-engineer-cad-and-digital-engineering-f-m-d-100-ref287029n": {
