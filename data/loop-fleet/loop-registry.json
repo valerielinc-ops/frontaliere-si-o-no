@@ -75,6 +75,10 @@
   "loops": [
     {
       "loopId": "L0",
+      "binding": {
+        "workflow": "loop-l0-data-truth.yml",
+        "producer": "scripts/ci/loop-l0-data-truth.mjs"
+      },
       "goal": "Data Truth & Freshness",
       "owner": "CDO / Chief Trust",
       "oracle": "independent corpus manifest and HTTP contract",
@@ -107,6 +111,10 @@
     },
     {
       "loopId": "L1",
+      "binding": {
+        "workflow": "loop-l1-reliability.yml",
+        "producer": "scripts/ci/loop-l1-reliability.mjs"
+      },
       "goal": "Reliability & UX",
       "owner": "CTO / Reliability",
       "oracle": "independent synthetic path and error telemetry",
@@ -135,6 +143,10 @@
     },
     {
       "loopId": "L2",
+      "binding": {
+        "workflow": "loop-l2-demand-utility.yml",
+        "producer": "scripts/ci/loop-l2-demand-utility.mjs"
+      },
       "goal": "Demand to Utility",
       "owner": "Chief Growth / SEO",
       "oracle": "GSC snapshot plus landing-path evidence",
@@ -164,6 +176,10 @@
     },
     {
       "loopId": "L3",
+      "binding": {
+        "workflow": "loop-l3-job-quality.yml",
+        "producer": "scripts/ci/loop-l3-job-quality.mjs"
+      },
       "goal": "Job Quality to Apply",
       "owner": "CPO / Customer Value",
       "oracle": "job contract and destination reachability checks",
@@ -193,6 +209,10 @@
     },
     {
       "loopId": "L4",
+      "binding": {
+        "workflow": "loop-l4-alert-return.yml",
+        "producer": "scripts/ci/loop-l4-alert-return.mjs"
+      },
       "goal": "Alert to Return",
       "owner": "Chief Retention / CRM",
       "oracle": "consent, delivery and return attribution ledger",
@@ -222,6 +242,10 @@
     },
     {
       "loopId": "L5",
+      "binding": {
+        "workflow": "loop-l5-decision-moments.yml",
+        "producer": "scripts/ci/loop-l5-decision-moments.mjs"
+      },
       "goal": "Decision Moments",
       "owner": "CPO / Customer Value",
       "oracle": "completed task and next-action event contract",
@@ -252,6 +276,10 @@
     },
     {
       "loopId": "L6",
+      "binding": {
+        "workflow": "loop-l6-content-factuality.yml",
+        "producer": "scripts/ci/loop-l6-content-factuality.mjs"
+      },
       "goal": "Content Learning & Factuality",
       "owner": "Chief Trust / Accuracy",
       "oracle": "source evidence independent of the generator",
@@ -281,6 +309,10 @@
     },
     {
       "loopId": "L7",
+      "binding": {
+        "workflow": "loop-l7-experiment-allocator.yml",
+        "producer": "scripts/ci/loop-l7-experiment-allocator.mjs"
+      },
       "goal": "Experiment Allocator",
       "owner": "CEO / Chief Mission",
       "oracle": "pre-registered assignment, outcome and guardrail ledger",
@@ -331,6 +363,10 @@
     },
     {
       "loopId": "L8",
+      "binding": {
+        "workflow": "loop-l8-revenue-attribution.yml",
+        "producer": "scripts/ci/loop-l8-revenue-attribution.mjs"
+      },
       "goal": "Revenue & Attribution Reconciliation",
       "owner": "CRO / Monetization + CFO",
       "oracle": "approved-source exports and independent join checks",
@@ -362,6 +398,10 @@
     },
     {
       "loopId": "L9",
+      "binding": {
+        "workflow": "loop-l9-employer-activation.yml",
+        "producer": "scripts/ci/loop-l9-employer-activation.mjs"
+      },
       "goal": "Employer Supply to Paid Activation",
       "owner": "CRO / Monetization",
       "oracle": "checkout and subscription state ledger",
@@ -392,6 +432,10 @@
     },
     {
       "loopId": "L10",
+      "binding": {
+        "workflow": "loop-l10-fleet-control.yml",
+        "producer": "scripts/ci/loop-l10-fleet-control.mjs"
+      },
       "goal": "Engineering Learning / Fleet Control",
       "owner": "COO / Fleet Controller",
       "oracle": "GitHub run, PR, issue and quota ledger",
@@ -423,6 +467,10 @@
     },
     {
       "loopId": "L11",
+      "binding": {
+        "workflow": "technical-operations-supervisor.yml",
+        "producer": "scripts/ci/record-loop-fleet-evidence.mjs"
+      },
       "goal": "Technical Operations Assurance",
       "owner": "Chief Operations Assurance",
       "oracle": "workflow syntax, reachability and output reconciliation",

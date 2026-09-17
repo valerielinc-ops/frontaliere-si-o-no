@@ -41,6 +41,78 @@ function finding(file, rule, message, line = 1, evidence = null) {
   };
 }
 
+function text(value) {
+  return typeof value === 'string' && value.trim() ? value.trim() : null;
+}
+
+function relativePath(value) {
+  const normalized = text(value);
+  if (!normalized || normalized.includes('\\') || path.posix.isAbsolute(normalized)) return null;
+  const parts = normalized.split('/');
+  if (parts.some((part) => !part || part === '.' || part === '..')) return null;
+  return normalized;
+}
+
+function actionPolicyReferences(source) {
+  const calls = [];
+  const callRe = /\bactionClassForPolicy\s*\(([^)]*)\)/gu;
+  for (const match of String(source).matchAll(callRe)) {
+    const args = match[1];
+    const comma = args.indexOf(',');
+    const keyExpression = comma >= 0 ? args.slice(comma + 1) : '';
+    // A producer commonly selects a policy key with a ternary. Ignore string
+    // literals in the condition (for example the quality value "observed")
+    // and inspect only the possible result branches.
+    const resultExpression = keyExpression.includes('?')
+      ? keyExpression.slice(keyExpression.indexOf('?') + 1)
+      : keyExpression;
+    const resultBranches = keyExpression.includes('?')
+      ? resultExpression.split(':').map((branch) => branch.trim()).filter(Boolean)
+      : [resultExpression.trim()];
+    const keys = [...resultExpression.matchAll(/(['"])([^'"\r\n]+)\1/gu)]
+      .map((keyMatch) => keyMatch[2].trim())
+      .filter(Boolean);
+    const literalBranchRe = /^(['"])([^'"\r\n]+)\1$/u;
+    calls.push({
+      line: lineAt(source, match.index),
+      keys: [...new Set(keys)],
+      dynamic: comma < 0
+        || keys.length === 0
+        || resultBranches.some((branch) => !literalBranchRe.test(branch))
+        || /[A-Za-z_$][\w$]*\s*\(/u.test(keyExpression),
+    });
+  }
+  return {
+    calls,
+    keys: [...new Set(calls.flatMap((call) => call.keys))].sort(),
+    dynamicCalls: calls.filter((call) => call.dynamic).length,
+  };
+}
+
+function allocationDenyReport(loop) {
+  const allocation = loop.allocationPolicy;
+  if (!allocation) return { applicable: false, complete: true };
+  const boundedCanary = allocation.boundedCanary || {};
+  const complete = boundedCanary.enabled === false
+    && boundedCanary.maxExposure === 0
+    && boundedCanary.requiresReviewedApproval === true
+    && allocation.trafficMutationAllowed === false
+    && allocation.priceMutationAllowed === false
+    && allocation.noAutomaticPriceChange === true;
+  return {
+    applicable: true,
+    boundedCanary: {
+      enabled: boundedCanary.enabled ?? null,
+      maxExposure: boundedCanary.maxExposure ?? null,
+      requiresReviewedApproval: boundedCanary.requiresReviewedApproval ?? null,
+    },
+    trafficMutationAllowed: allocation.trafficMutationAllowed ?? null,
+    priceMutationAllowed: allocation.priceMutationAllowed ?? null,
+    noAutomaticPriceChange: allocation.noAutomaticPriceChange ?? null,
+    complete,
+  };
+}
+
 function listFiles(root, directory, pattern) {
   const absolute = path.join(root, directory);
   if (!fs.existsSync(absolute)) return [];
@@ -153,6 +225,7 @@ export function auditLoopFleetBindings({
       registryPath,
       loopsScanned: 0,
       loopIds: [],
+      bindings: [],
       findings,
     };
   }
@@ -162,6 +235,7 @@ export function auditLoopFleetBindings({
   const loopIds = loops.map((loop) => loop.loopId);
   const knownLoopIds = new Set(loopIds);
   const actionClasses = declaredActionClasses(registry);
+  const bindings = [];
 
   for (const loop of loops) {
     if (!LOOP_ID_RE.test(loop.loopId)) {
@@ -180,12 +254,99 @@ export function auditLoopFleetBindings({
 
   for (const loop of loops) {
     const loopId = loop.loopId;
-    const workflowCandidates = loopId === 'L11'
-      ? [path.posix.join('.github', 'workflows', L11_WORKFLOW)].filter((file) => workflowFiles.includes(file))
+    const binding = loop.binding && typeof loop.binding === 'object' && !Array.isArray(loop.binding)
+      ? loop.binding
+      : {};
+    const declaredWorkflow = relativePath(binding.workflow);
+    const declaredProducer = relativePath(binding.producer);
+    const workflowFile = declaredWorkflow
+      && (declaredWorkflow.endsWith('.yml') || declaredWorkflow.endsWith('.yaml'))
+      ? path.posix.join('.github', 'workflows', declaredWorkflow)
+      : null;
+    const producerFile = declaredProducer?.startsWith('scripts/ci/') && declaredProducer.endsWith('.mjs')
+      ? declaredProducer
+      : null;
+    const denyByConstruction = allocationDenyReport(loop);
+    const declaredKeys = Object.keys(loop.actionPolicy || {}).sort();
+    const bindingReport = {
+      loopId,
+      workflow: text(binding.workflow),
+      producer: text(binding.producer),
+      actionPolicyBinding: {
+        declaredKeys,
+        referencedKeys: [],
+        missingKeys: declaredKeys,
+        undeclaredKeys: [],
+        dynamicCalls: 0,
+        callCount: 0,
+        complete: false,
+      },
+      denyByConstruction,
+    };
+    bindings.push(bindingReport);
+
+    if (!workflowFile) {
+      findings.push(finding(
+        registryPath,
+        'loop-registry.workflow-declaration',
+        `${loopId} binding.workflow must be a relative .yml/.yaml workflow filename`,
+      ));
+    }
+    if (!producerFile) {
+      findings.push(finding(
+        registryPath,
+        'loop-registry.producer-declaration',
+        `${loopId} binding.producer must be a relative scripts/ci/*.mjs path`,
+      ));
+    }
+    if (loopId === 'L11' && declaredWorkflow !== L11_WORKFLOW) {
+      findings.push(finding(
+        registryPath,
+        'loop-registry.binding-declaration',
+        `L11 binding.workflow must remain ${L11_WORKFLOW}`,
+      ));
+    }
+    if (loopId === 'L11' && declaredProducer !== L11_PRODUCER) {
+      findings.push(finding(
+        registryPath,
+        'loop-registry.binding-declaration',
+        `L11 binding.producer must remain ${L11_PRODUCER}`,
+      ));
+    }
+    if (denyByConstruction.applicable && !denyByConstruction.complete) {
+      findings.push(finding(
+        registryPath,
+        'loop-registry.deny-by-construction',
+        `${loopId} allocation policy must deny traffic and price mutation and keep bounded canary disabled`,
+        1,
+        JSON.stringify(denyByConstruction),
+      ));
+    }
+
+    const workflowCandidates = workflowFile && workflowFiles.includes(workflowFile) ? [workflowFile] : [];
+    const producerCandidates = producerFile && producerFiles.includes(producerFile) ? [producerFile] : [];
+    const conventionalWorkflowMatches = loopId === 'L11'
+      ? []
       : loopWorkflowFiles.filter((file) => normaliseLoopId(path.posix.basename(file).match(LOOP_WORKFLOW_RE)?.[1]) === loopId);
-    const producerCandidates = loopId === 'L11'
-      ? [L11_PRODUCER].filter((file) => producerFiles.includes(file))
+    const conventionalProducerMatches = loopId === 'L11'
+      ? []
       : loopProducerFiles.filter((file) => normaliseLoopId(path.posix.basename(file).match(LOOP_PRODUCER_RE)?.[1]) === loopId);
+    if (conventionalWorkflowMatches.length > 0
+      && (conventionalWorkflowMatches.length !== 1 || conventionalWorkflowMatches[0] !== workflowFile)) {
+      findings.push(finding(
+        loopId,
+        'loop-registry.workflow-binding',
+        `${loopId} has ${conventionalWorkflowMatches.length} conventional workflow files, but its declared binding is ${workflowFile || 'missing'}`,
+      ));
+    }
+    if (conventionalProducerMatches.length > 0
+      && (conventionalProducerMatches.length !== 1 || conventionalProducerMatches[0] !== producerFile)) {
+      findings.push(finding(
+        loopId,
+        'loop-registry.producer-binding',
+        `${loopId} has ${conventionalProducerMatches.length} conventional producer files, but its declared binding is ${producerFile || 'missing'}`,
+      ));
+    }
 
     if (workflowCandidates.length !== 1) {
       findings.push(finding(
@@ -203,14 +364,14 @@ export function auditLoopFleetBindings({
     }
     if (workflowCandidates.length !== 1 || producerCandidates.length !== 1) continue;
 
-    const workflowFile = workflowCandidates[0];
-    const producerFile = producerCandidates[0];
-    const workflowSource = fs.readFileSync(path.join(root, workflowFile), 'utf8');
-    const producerSource = fs.readFileSync(path.join(root, producerFile), 'utf8');
+    const boundWorkflowFile = workflowCandidates[0];
+    const boundProducerFile = producerCandidates[0];
+    const workflowSource = fs.readFileSync(path.join(root, boundWorkflowFile), 'utf8');
+    const producerSource = fs.readFileSync(path.join(root, boundProducerFile), 'utf8');
     const registryToken = '--registry data/loop-fleet/loop-registry.json';
     requireToken(
       findings,
-      workflowFile,
+      boundWorkflowFile,
       workflowSource,
       registryToken,
       'loop-registry.workflow-registry-binding',
@@ -218,7 +379,7 @@ export function auditLoopFleetBindings({
     );
     requireToken(
       findings,
-      workflowFile,
+      boundWorkflowFile,
       workflowSource,
       `record-loop-fleet-evidence.mjs --loop ${loopId}`,
       'loop-registry.evidence-binding',
@@ -227,7 +388,7 @@ export function auditLoopFleetBindings({
     if (loopId === 'L11') {
       requireToken(
         findings,
-        workflowFile,
+        boundWorkflowFile,
         workflowSource,
         'scripts/ci/technical-operations-audit.mjs',
         'loop-registry.audit-binding',
@@ -236,11 +397,11 @@ export function auditLoopFleetBindings({
     } else {
       requireToken(
         findings,
-        workflowFile,
+        boundWorkflowFile,
         workflowSource,
-        producerFile,
+        boundProducerFile,
         'loop-registry.runner-binding',
-        `${loopId} workflow does not execute its registry-bound producer ${producerFile}`,
+        `${loopId} workflow does not execute its registry-bound producer ${boundProducerFile}`,
       );
     }
 
@@ -250,14 +411,62 @@ export function auditLoopFleetBindings({
     for (const token of requiredProducerTokens) {
       requireToken(
         findings,
-        producerFile,
+        boundProducerFile,
         producerSource,
         token,
         'loop-registry.policy-runtime-binding',
         `${loopId} producer does not use ${token}; runtime policy would not be registry-driven`,
       );
     }
-    findings.push(...sourcePolicyFindings(producerFile, producerSource, actionClasses));
+    const references = actionPolicyReferences(producerSource);
+    const missingKeys = declaredKeys.filter((key) => !references.keys.includes(key));
+    const undeclaredKeys = references.keys.filter((key) => !declaredKeys.includes(key));
+    bindingReport.actionPolicyBinding = {
+      declaredKeys,
+      referencedKeys: references.keys,
+      missingKeys,
+      undeclaredKeys,
+      dynamicCalls: references.dynamicCalls,
+      callCount: references.calls.length,
+      complete: references.calls.length > 0
+        && references.dynamicCalls === 0
+        && missingKeys.length === 0
+        && undeclaredKeys.length === 0,
+    };
+    for (const key of missingKeys) {
+      findings.push(finding(
+        boundProducerFile,
+        'loop-registry.action-policy-unbound',
+        `${loopId} producer never resolves actionPolicy.${key}; declared policy branches are not executable`,
+        1,
+        key,
+      ));
+    }
+    for (const key of undeclaredKeys) {
+      findings.push(finding(
+        boundProducerFile,
+        'loop-registry.action-policy-undeclared',
+        `${loopId} producer resolves undeclared actionPolicy.${key}; add it to the canonical registry or remove the branch`,
+        1,
+        key,
+      ));
+    }
+    for (const call of references.calls.filter((candidate) => candidate.dynamic)) {
+      findings.push(finding(
+        boundProducerFile,
+        'loop-registry.action-policy-dynamic',
+        `${loopId} producer has an actionClassForPolicy call whose policy key cannot be verified statically`,
+        call.line,
+      ));
+    }
+    if (references.calls.length === 0) {
+      findings.push(finding(
+        boundProducerFile,
+        'loop-registry.action-policy-missing-call',
+        `${loopId} producer has no statically verifiable actionClassForPolicy call`,
+      ));
+    }
+    findings.push(...sourcePolicyFindings(boundProducerFile, producerSource, actionClasses));
   }
 
   return {
@@ -265,6 +474,7 @@ export function auditLoopFleetBindings({
     registryPath,
     loopsScanned: loops.length,
     loopIds,
+    bindings,
     findings,
   };
 }
