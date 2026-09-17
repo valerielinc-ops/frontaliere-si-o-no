@@ -487,9 +487,9 @@
     },
     {
       "id": "selecta-6fdf69383d9b",
-      "slug": "key-account-manager-new-business-hunter-selecta-westschweiz",
+      "slug": "key-account-manager-nuova-attivita-caccia-selecta-steinhausen",
       "slugByLocale": {
-        "it": "key-account-manager-new-business-hunter-selecta-westschweiz",
+        "it": "key-account-manager-nuova-attivita-caccia-selecta-steinhausen",
         "en": "key-account-manager-new-business-hunter-selecta-steinhausen",
         "de": "key-account-manager-new-business-hunter-selecta-westschweiz",
         "fr": "gestionnaire-de-comptes-cles-nouvelle-entreprise-hunter-selecta-steinhausen"
@@ -553,7 +553,15 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-new-business-hunter-selecta-westschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-manager-new-business-hunter-selecta-westschweiz"
+      ]
     },
     {
       "id": "selecta-6c58287f48a8",

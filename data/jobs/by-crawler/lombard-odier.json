@@ -1623,7 +1623,7 @@
         "it": "receptionniste-lombard-odier-geneva",
         "en": "receptionniste-lombard-odier-ch",
         "de": "rezeptionist-lombard-odier-geneva",
-        "fr": "receptionniste-lombard-odier-geneva"
+        "fr": "etat-lombard-odier-geneva"
       },
       "company": "Lombard Odier",
       "companyKey": "lombard-odier",
@@ -2630,7 +2630,7 @@
       "slugByLocale": {
         "it": "ufficiale-di-rischio-operativo-80-100-lombard-odier-geneva",
         "en": "operational-risk-officer-80-100-lombard-odier-ch",
-        "de": "operational-risk-officer-80-100-lombard-odier-ch",
+        "de": "operative-risikobetreuer-80-100-lombard-odier-geneva",
         "fr": "agent-des-risques-operationnels-80-100-lombard-odier-geneva"
       },
       "company": "Lombard Odier",
@@ -2678,6 +2678,9 @@
           "operational-risk-officer-80-100-lombard-odier-ch"
         ],
         "fr": [
+          "operational-risk-officer-80-100-lombard-odier-ch"
+        ],
+        "de": [
           "operational-risk-officer-80-100-lombard-odier-ch"
         ]
       },

@@ -6518,7 +6518,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten",
         "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
         "postgraduate-hf-intensive-care-nursing-m-f-d-solothurner-spitaler-ag-soh-olten",
         "formation-post-diplome-hf-soins-intensifs-h-f-solothurner-spitaler-ag-soh-olten",
@@ -12451,12 +12450,12 @@
     },
     {
       "id": "soh-solothurner-spitaeler-315721c2d9ac",
-      "slug": "stv-medico-senior-stv-capo-di-geriatrics-m-f-d-solothurner-spitaler-ag-soh-solothurn",
+      "slug": "dottore-responsabile-della-professione-medica-geriatry-m-f-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
-        "it": "stv-medico-senior-stv-capo-di-geriatrics-m-f-d-solothurner-spitaler-ag-soh-solothurn",
-        "en": "stv-senior-doctor-stv-chief-of-geriatrics-m-f-d-solothurner-spitaler-ag-soh-solothurn",
+        "it": "dottore-responsabile-della-professione-medica-geriatry-m-f-d-solothurner-spitaler-ag-soh-solothurn",
+        "en": "doctor-in-charge-of-the-medical-profession-geriatry-m-f-d-solothurner-spitaler-ag-soh-solothurn",
         "de": "stv-leitende-arztin-stv-leitender-arzt-geriatrie-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "fr": "stv-docteur-principal-stv-chef-de-geriatrie-h-f-d-solothurner-spitaler-ag-soh-solothurn"
+        "fr": "docteur-en-charge-de-la-profession-medicale-geriatry-h-f-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -12498,17 +12497,23 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-leitende-arztin-stv-leitender-arzt-geriatrie-w-m-d-soh-solothurner-spitaeler-solothurn"
+        "stv-leitende-arztin-stv-leitender-arzt-geriatrie-w-m-d-soh-solothurner-spitaeler-solothurn",
+        "stv-medico-senior-stv-capo-di-geriatrics-m-f-d-solothurner-spitaler-ag-soh-solothurn",
+        "stv-senior-doctor-stv-chief-of-geriatrics-m-f-d-solothurner-spitaler-ag-soh-solothurn",
+        "stv-docteur-principal-stv-chef-de-geriatrie-h-f-d-solothurner-spitaler-ag-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-leitende-arztin-stv-leitender-arzt-geriatrie-w-m-d-soh-solothurner-spitaeler-solothurn"
+          "stv-leitende-arztin-stv-leitender-arzt-geriatrie-w-m-d-soh-solothurner-spitaeler-solothurn",
+          "stv-medico-senior-stv-capo-di-geriatrics-m-f-d-solothurner-spitaler-ag-soh-solothurn"
         ],
         "en": [
-          "stv-leitende-arztin-stv-leitender-arzt-geriatrie-w-m-d-soh-solothurner-spitaeler-solothurn"
+          "stv-leitende-arztin-stv-leitender-arzt-geriatrie-w-m-d-soh-solothurner-spitaeler-solothurn",
+          "stv-senior-doctor-stv-chief-of-geriatrics-m-f-d-solothurner-spitaler-ag-soh-solothurn"
         ],
         "fr": [
-          "stv-leitende-arztin-stv-leitender-arzt-geriatrie-w-m-d-soh-solothurner-spitaeler-solothurn"
+          "stv-leitende-arztin-stv-leitender-arzt-geriatrie-w-m-d-soh-solothurner-spitaeler-solothurn",
+          "stv-docteur-principal-stv-chef-de-geriatrie-h-f-d-solothurner-spitaler-ag-soh-solothurn"
         ]
       },
       "firstSeenAt": "2026-09-04T13:27:21.573Z",

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "vereinaklosters-5b062bf2c45b",
-      "slug": "zimmermadchen-roomboy-m-w-vereina-klosters",
+      "slug": "housemaid-roomboy-m-f-vereina-klosters",
       "slugByLocale": {
         "de": "zimmermadchen-roomboy-m-w-klosters-vereinaklosters-ch",
-        "it": "zimmermadchen-roomboy-m-w-vereina-klosters",
+        "it": "housemaid-roomboy-m-f-vereina-klosters",
         "en": "zimmermadchen-roomboy-m-w-vereina-klosters",
-        "fr": "zimmermadchen-roomboy-m-w-vereina-klosters"
+        "fr": "maison-mere-roomboy-h-f-vereina-klosters"
       },
       "company": "Vereina",
       "companyKey": "vereinaklosters",
@@ -53,11 +53,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "zimmermadchen-roomboy-m-w-klosters-vereinaklosters-ch"
+          "zimmermadchen-roomboy-m-w-klosters-vereinaklosters-ch",
+          "zimmermadchen-roomboy-m-w-vereina-klosters"
+        ],
+        "fr": [
+          "zimmermadchen-roomboy-m-w-vereina-klosters"
         ]
       },
       "previousSlugs": [
-        "zimmermadchen-roomboy-m-w-klosters-vereinaklosters-ch"
+        "zimmermadchen-roomboy-m-w-klosters-vereinaklosters-ch",
+        "zimmermadchen-roomboy-m-w-vereina-klosters"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

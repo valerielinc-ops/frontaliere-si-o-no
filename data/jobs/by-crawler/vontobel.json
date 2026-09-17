@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "responsabile-relazioni-romandie-vontobel-geneve-rue-du-rhone-31",
         "en": "relationship-manager-romandie-vontobel-ch",
-        "de": "relationship-manager-romandie-vontobel-ch",
+        "de": "beziehungsleiter-romandie-vontobel-geneve-rue-du-rhone-31",
         "fr": "gestionnaire-de-relations-romandie-vontobel-geneve-rue-du-rhone-31"
       },
       "company": "Vontobel",
@@ -58,6 +58,9 @@
           "relationship-manager-romandie-vontobel-ch"
         ],
         "fr": [
+          "relationship-manager-romandie-vontobel-ch"
+        ],
+        "de": [
           "relationship-manager-romandie-vontobel-ch"
         ]
       },
@@ -415,7 +418,7 @@
       "slugByLocale": {
         "it": "account-manager-cee-vontobel-ch",
         "en": "account-manager-cee-vontobel-ch",
-        "de": "account-manager-cee-vontobel-ch",
+        "de": "kontomanager-cee-vontobel-zurich-gotthardstrasse-43",
         "fr": "gestionnaire-de-comptes-cee-vontobel-zurich-gotthardstrasse-43"
       },
       "company": "Vontobel",
@@ -1080,7 +1083,7 @@
       "slugByLocale": {
         "it": "piattaforma-di-integrazione-dei-dati-di-testa-80-100-vontobel-zurich-splugenstrasse-5",
         "en": "head-data-integration-platform-80-100-vontobel-ch",
-        "de": "head-data-integration-platform-80-100-vontobel-ch",
+        "de": "leiter-der-plattform-fur-datenintegration-80-100-vontobel-zurich-splugenstrasse-5",
         "fr": "plateforme-d-integration-des-donnees-de-tete-80-100-vontobel-zurich-splugenstrasse-5"
       },
       "company": "Vontobel",
@@ -1130,6 +1133,9 @@
           "head-data-integration-platform-80-100-vontobel-ch"
         ],
         "fr": [
+          "head-data-integration-platform-80-100-vontobel-ch"
+        ],
+        "de": [
           "head-data-integration-platform-80-100-vontobel-ch"
         ]
       },
@@ -1618,9 +1624,9 @@
     },
     {
       "id": "vontobel-ef086651e570",
-      "slug": "head-digital-marketing-content-100-vontobel-ch",
+      "slug": "responsabile-del-marketing-digitale-e-del-contenuto-100-vontobel-zurich-genferstrasse-27",
       "slugByLocale": {
-        "it": "head-digital-marketing-content-100-vontobel-ch",
+        "it": "responsabile-del-marketing-digitale-e-del-contenuto-100-vontobel-zurich-genferstrasse-27",
         "en": "head-digital-marketing-content-100-vontobel-ch",
         "de": "head-digital-marketing-content-100-vontobel-ch",
         "fr": "commercialisation-numerique-et-contenu-100-vontobel-zurich-genferstrasse-27"
@@ -1677,13 +1683,21 @@
           "maxValue": 203000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "head-digital-marketing-content-100-vontobel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-digital-marketing-content-100-vontobel-ch"
+      ]
     },
     {
       "id": "vontobel-b0a84330a774",
-      "slug": "junior-relationship-manager-vontobel-ch",
+      "slug": "direttore-relazioni-junior-vontobel-lugano-via-ferruccio-pelli-1",
       "slugByLocale": {
-        "it": "junior-relationship-manager-vontobel-ch",
+        "it": "direttore-relazioni-junior-vontobel-lugano-via-ferruccio-pelli-1",
         "en": "junior-relationship-manager-vontobel-ch",
         "de": "junior-relationship-manager-vontobel-ch",
         "fr": "gestionnaire-de-relations-juniors-vontobel-lugano-via-ferruccio-pelli-1"
@@ -1741,7 +1755,15 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-relationship-manager-vontobel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "junior-relationship-manager-vontobel-ch"
+      ]
     },
     {
       "id": "vontobel-ce0913e8260b",
