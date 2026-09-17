@@ -18,8 +18,8 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  *     - Brief description text
  *     - Location and employment type (e.g., "Lausanne - 100% Permanent")
  *
- * This parser extracts jobs from the listing page HTML, filtering for
- * Swiss/Ticino locations only.
+ * This parser extracts jobs from the listing page HTML, filtering for Swiss
+ * locations across all 26 cantons.
  */
 
 import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
@@ -116,13 +116,6 @@ export function slugify(value = '') {
 }
 
 /**
- * Check if a location string is in Ticino specifically.
- */
-export function isTicinoLocation(location = '') {
-  return isTargetSwissLocation(location);
-}
-
-/**
  * Check if a location string is in Switzerland.
  */
 export function isSwissLocation(location = '') {
@@ -131,6 +124,12 @@ export function isSwissLocation(location = '') {
   if (hasStandaloneSwissSignal(normalized)) return true;
   return inferAnyCanton(normalized.toLowerCase()) !== '';
 }
+
+/**
+ * Compatibility export for older parser consumers. The Alpiq crawler is
+ * national; new callers must use isSwissLocation().
+ */
+export const isTicinoLocation = isSwissLocation;
 
 /**
  * Parse a single job listing block from the Alpiq listing page.
@@ -186,7 +185,7 @@ export function parseAlpiqJobBlock(block) {
 
 /**
  * Parse the Alpiq listing page HTML to extract all jobs.
- * Can optionally filter for Swiss-only or Ticino-only jobs.
+ * Can optionally filter for Swiss-only jobs.
  */
 export function parseAlpiqListingHtml(html, { swissOnly = true } = {}) {
   if (!html || typeof html !== 'string') return [];
