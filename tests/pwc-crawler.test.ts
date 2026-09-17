@@ -14,6 +14,8 @@ import {
   buildPwcDescription,
   inferPwcLocation,
   inferPwcPostalCode,
+  inferPwcStreetAddress,
+  inferPwcCountry,
   stripHtml,
   buildPwcLocalizedContent,
 } from '@/scripts/lib/pwc-job-parser.mjs';
@@ -145,7 +147,7 @@ describe('parsePwcJobs', () => {
   it('handles empty/missing API response gracefully', () => {
     const { items, total } = parsePwcJobs({});
     expect(items).toHaveLength(0);
-    expect(total).toBe(0);
+    expect(total).toBeNull();
   });
 
   it('handles null input gracefully', () => {
@@ -305,17 +307,14 @@ describe('inferPwcLocation', () => {
     expect(inferPwcLocation({ 'sza_location.city': 'Zurich' })).toBe('Zurich');
   });
 
-  it('falls back to region when city is missing', () => {
-    expect(inferPwcLocation({ sza_location: { region: 'Ticino' } })).toBe('Ticino');
+  it('does not publish a region as a city when the source city is missing', () => {
+    expect(inferPwcLocation({ sza_location: { region: 'Ticino' } })).toBe('');
+    expect(inferPwcLocation({ 'sza_location.region': 'Bern' })).toBe('');
   });
 
-  it('falls back to flat sza_location.region key', () => {
-    expect(inferPwcLocation({ 'sza_location.region': 'Bern' })).toBe('Bern');
-  });
-
-  it('defaults to Switzerland when no location data', () => {
-    expect(inferPwcLocation({})).toBe('Switzerland');
-    expect(inferPwcLocation(null as any)).toBe('Switzerland');
+  it('returns an empty locality when the source has no location data', () => {
+    expect(inferPwcLocation({})).toBe('');
+    expect(inferPwcLocation(null as any)).toBe('');
   });
 });
 
@@ -332,6 +331,16 @@ describe('inferPwcPostalCode', () => {
 
   it('returns empty string when no zip', () => {
     expect(inferPwcPostalCode({})).toBe('');
+  });
+});
+
+describe('source address fields', () => {
+  it('extracts street and country without inventing an HQ', () => {
+    const szas = {
+      sza_location: { city: 'Lugano', street: 'Via della Posta 7', zip: '6900', country: 'Switzerland' },
+    };
+    expect(inferPwcStreetAddress(szas)).toBe('Via della Posta 7');
+    expect(inferPwcCountry(szas)).toBe('Switzerland');
   });
 });
 
