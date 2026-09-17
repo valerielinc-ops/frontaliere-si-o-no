@@ -60,6 +60,7 @@ import { balanceMarkdownMarkers } from './lib/free-translate.mjs';
 import { finalizeTranslatedText, maskProtectedTokens } from './lib/translation-glossary.mjs';
 import { buildTrafficPriority, formatPriorityReport, isFreshJob, TRAFFIC_SOURCE_PATH } from './lib/job-traffic-priority.mjs';
 import { MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
+import { translateWithLocalOpusMt } from './lib/local-opus-mt.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -69,6 +70,19 @@ const BY_CRAWLER_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
 const PY_SCRIPT = path.join(__dirname, 'local-mt-translate.py');
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const MIN_DESC_CHARS = 120;
+const WRITE_GUARD_DECISIONS = [
+  'write',
+  'skip:candidate-untranslated',
+  'skip:source-copy',
+  'skip:existing-good',
+  'skip:finalize-empty',
+  'skip:source-locale',
+  'skip:empty-raw',
+];
+const OPUS_MT_RESCUE_DECISIONS = new Set([
+  'skip:candidate-untranslated',
+  'skip:source-copy',
+]);
 
 /**
  * Rollout switch for the language arm of classifyMopupWrite() (workspace issue
@@ -85,6 +99,13 @@ export function languageAwareOverwriteEnabled(value) {
 }
 
 const LANG_AWARE_OVERWRITE = languageAwareOverwriteEnabled(process.env.LOCAL_MT_LANG_AWARE_OVERWRITE);
+
+/** Rollout switch for the Opus-MT rescue pass. Default OFF. */
+export function opusMtRescueEnabled(value) {
+  return String(value || '0') === '1';
+}
+
+const OPUS_MT_RESCUE = opusMtRescueEnabled(process.env.LOCAL_MT_OPUSMT_RESCUE);
 
 const PYTHON = process.env.LOCAL_MT_PYTHON || 'python3';
 // Per-step ceiling: a fresh budget measured from THIS process's start.
@@ -564,6 +585,97 @@ export function shouldApplyMopupWrite({
   return !languageDriven || langAwareOverwrite;
 }
 
+/**
+ * Re-run only the two rejection classes that Opus-MT can rescue. The caller
+ * supplies the already-masked request and the same job snapshot that reached
+ * the Argos guard, so the rescue uses the existing finalizer and classifier
+ * without a second write policy.
+ *
+ * `budgetOk` is checked before every local-model call. Once the elapsed-aware
+ * budget is exhausted, the unattempted eligible slots are returned as deferred
+ * so the next mop-up invocation can retry them.
+ */
+export async function rescueMopupRejects({
+  targets,
+  results,
+  enabled = OPUS_MT_RESCUE,
+  budgetOk = () => true,
+  translate = translateWithLocalOpusMt,
+  langAwareOverwrite = LANG_AWARE_OVERWRITE,
+}) {
+  const decisionTally = Object.fromEntries(WRITE_GUARD_DECISIONS.map((decision) => [decision, 0]));
+  const eligible = [];
+
+  for (const [id, rawText] of results) {
+    const target = targets.get(id);
+    if (!target) continue;
+    const argos = classifyMopupWrite({
+      job: target.job,
+      locale: target.locale,
+      field: target.field,
+      rawText,
+      protectedTokens: target.protectedTokens,
+    });
+    if (OPUS_MT_RESCUE_DECISIONS.has(argos.decision)) eligible.push({ id, target });
+  }
+
+  const writes = new Map();
+  if (!enabled) {
+    return { writes, decisionTally, attempted: 0, recovered: 0, deferred: 0 };
+  }
+
+  let attempted = 0;
+  let recovered = 0;
+  let deferred = 0;
+  for (let index = 0; index < eligible.length; index++) {
+    if (!budgetOk()) {
+      deferred = eligible.length - index;
+      break;
+    }
+
+    const { id, target } = eligible[index];
+    const { request } = target;
+    const rawText = await translate(request.text, request.from, request.to);
+    const opus = classifyMopupWrite({
+      job: target.job,
+      locale: target.locale,
+      field: target.field,
+      rawText,
+      protectedTokens: target.protectedTokens,
+    });
+    decisionTally[opus.decision] = (decisionTally[opus.decision] || 0) + 1;
+    attempted++;
+
+    // The rescue flag is the rollout switch for this arm. The classifier and
+    // the existing language-aware write policy remain the same; a rescue write
+    // is eligible only after both have accepted the candidate.
+    if (shouldApplyMopupWrite({
+      decision: opus.decision,
+      languageDriven: opus.languageDriven,
+      langAwareOverwrite: langAwareOverwrite || enabled,
+    })) {
+      writes.set(id, { rawText });
+      recovered++;
+    }
+  }
+
+  return { writes, decisionTally, attempted, recovered, deferred };
+}
+
+function logOpusMtRescueReport({ attempted, recovered, deferred, decisionTally }) {
+  const total = attempted;
+  console.log(`\n🚦 [local-mt] OpusMT rescue Write-guard decisions (${total} slots reached the chain):`);
+  for (const decision of WRITE_GUARD_DECISIONS) {
+    const n = decisionTally[decision] || 0;
+    const pct = total ? ((100 * n) / total).toFixed(1) : '0.0';
+    console.log(`   ${decision.padEnd(28)} ${String(n).padStart(6)}  ${pct}%`);
+  }
+  console.log(`   recovered slots${String(recovered).padStart(19)}  ${total ? ((100 * recovered) / total).toFixed(1) : '0.0'}%`);
+  if (deferred > 0) {
+    console.log(`   ⏰ ${deferred} eligible slots deferred to the next run because the elapsed-aware budget was exhausted.`);
+  }
+}
+
 function normalizeCompanyKey(value = '') {
   return String(value || '')
     .trim()
@@ -684,7 +796,7 @@ async function main() {
       // restored — in the target locale's display form — by the write loop.
       const { request, protectedTokens } = buildMopupRequest({ id, text, from: srcLang, to: locale, field });
       requests.push(request);
-      targets.set(id, { file, jobIdx, locale, field, protectedTokens });
+      targets.set(id, { file, jobIdx, job, locale, field, request, protectedTokens });
       queued++;
     }
     if (queued > 0) {
@@ -768,14 +880,25 @@ async function main() {
     return;
   }
 
-  // Group results by file → apply, with the same write guards relocalize uses.
   const budgetOk = () => (Date.now() - started) < TIME_BUDGET_MS;
+  const rescueBudgetOk = () => (Date.now() - started) < Math.max(0, TIME_BUDGET_MS - WRITE_RESERVE_MS);
+  const opusRescue = OPUS_MT_RESCUE
+    ? await rescueMopupRejects({
+        targets,
+        results,
+        budgetOk: rescueBudgetOk,
+        langAwareOverwrite: LANG_AWARE_OVERWRITE,
+      })
+    : null;
+  if (opusRescue) logOpusMtRescueReport(opusRescue);
+
+  // Group results by file → apply, with the same write guards relocalize uses.
   const byFile = new Map(); // file -> array of { jobIdx, locale, field, text }
   for (const [id, text] of results) {
     const tgt = targets.get(id);
     if (!tgt) continue;
     if (!byFile.has(tgt.file)) byFile.set(tgt.file, []);
-    byFile.get(tgt.file).push({ ...tgt, text });
+    byFile.get(tgt.file).push({ ...tgt, id, text });
   }
 
   let filesWritten = 0;
@@ -805,7 +928,7 @@ async function main() {
     let fileChanged = false;
     const touchedJobs = new Set();
 
-    for (const { jobIdx, locale, field, text, protectedTokens } of edits) {
+    for (const { id, jobIdx, locale, field, text, protectedTokens } of edits) {
       const job = data.jobs[jobIdx];
       if (!job) continue;
       const srcLang = job.sourceLang || 'it';
@@ -839,10 +962,22 @@ async function main() {
       // Shadow arm: with the switch off, a language-driven write is counted and
       // withheld. The corpus is untouched and the log still reports the volume.
       // Missing fields remain eligible regardless of the rollout switch.
+      const rescue = opusRescue?.writes.get(id);
+      const finalCandidate = rescue
+        ? classifyMopupWrite({
+            job,
+            locale,
+            field,
+            rawText: rescue.rawText,
+            protectedTokens,
+          })
+        : { decision, incoming, languageDriven };
       if (!shouldApplyMopupWrite({
-        decision,
-        languageDriven,
-        langAwareOverwrite: LANG_AWARE_OVERWRITE,
+        decision: finalCandidate.decision,
+        languageDriven: finalCandidate.languageDriven,
+        langAwareOverwrite: rescue
+          ? LANG_AWARE_OVERWRITE || OPUS_MT_RESCUE
+          : LANG_AWARE_OVERWRITE,
       })) {
         if (decision === 'write' && languageDriven) {
           shadowWithheld++;
@@ -850,7 +985,7 @@ async function main() {
         continue;
       }
 
-      job[bag][locale] = incoming;
+      job[bag][locale] = finalCandidate.incoming;
       fileChanged = true;
       fieldsFilled++;
       if (languageDriven) languageFieldsRewritten++;
