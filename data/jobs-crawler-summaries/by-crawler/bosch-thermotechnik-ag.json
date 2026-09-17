@@ -1,18 +1,109 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-09-13T13:52:23.553Z",
+  "generatedAt": "2026-09-16T23:43:34.288Z",
   "total": 8,
-  "newCount": 0,
-  "updatedCount": 8,
-  "removedCount": 0,
+  "newCount": 3,
+  "updatedCount": 5,
+  "removedCount": 3,
   "unchangedCount": 0,
-  "durationMs": 21638,
-  "avgDurationMs": 21638,
+  "durationMs": 19482,
+  "avgDurationMs": 19482,
   "durationHistory": [
-    21638
+    19482
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Lehrstelle Konstrukteur/in (w/m/div) 2027",
+      "slug": "lehrstelle-konstrukteur-in-w-m-div-2027-bosch-buttikon",
+      "url": "https://jobs.bosch.com/en/job/REF296426U-lehrstelle-konstrukteur-in-w-m-div-2027",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000149907049-lehrstelle-konstrukteur-in-w-m-div-2027?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Buttikon",
+      "addressLocality": "Buttikon",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "canton": "AG",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "engineering",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-16",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Internship – Design Sustainable Packaging REF296423S",
+      "slug": "internship-design-sustainable-packaging-ref296423s-bosch-solothurn-zuchwil",
+      "url": "https://jobs.bosch.com/en/job/REF296423S-internship-design-sustainable-packaging-ref296423s",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000149893909-internship-design-sustainable-packaging-ref296423s?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Solothurn/Zuchwil",
+      "addressLocality": "Solothurn/Zuchwil",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "canton": "SO",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-09-16",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Praktikum im Produktmanagement (w/m/d) REF296253F",
+      "slug": "praktikum-im-produktmanagement-w-m-d-ref296253f-bosch-frauenfeld",
+      "url": "https://jobs.bosch.com/en/job/REF296253F-praktikum-im-produktmanagement-w-m-d-ref296253f",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000149510369-praktikum-im-produktmanagement-w-m-d-ref296253f?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Frauenfeld",
+      "addressLocality": "Frauenfeld",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "canton": "TG",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-15",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Technischer Instruktor / Support Wärmepumpen (w/m/div.) REF295358S",
@@ -193,10 +284,12 @@
         "translation": 25,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Werkstudent Kundendienst Administration 40-50% (w/m/div.) REF295386F",
-      "slug": "werkstudent-kundendienst-administration-40-50-w-m-div-ref295386f-bosch-steinhausen",
+      "slug": "amministrazione-del-servizio-clienti-degli-studenti-di-lavoro-40-50-f-m-div-ref-295386f-bosch-thermotechnik-ag",
       "url": "https://jobs.bosch.com/en/job/REF295386F-werkstudent-kundendienst-administration-40-50-w-m-div-ref295386f",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000146732467-werkstudent-kundendienst-administration-40-50-w-m-div-ref295386f?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -232,7 +325,7 @@
     },
     {
       "title": "Elektroinstallateur (w/m/div.) REF295384A",
-      "slug": "elektroinstallateur-w-m-div-ref295384a-bosch-spreitenbach",
+      "slug": "installatore-trice-elettrico-a-w-m-div-ref295384a-bosch-thermotechnik-ag-spreitenbach",
       "url": "https://jobs.bosch.com/en/job/REF295384A-elektroinstallateur-w-m-div-ref295384a",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000146730839-elektroinstallateur-w-m-div-ref295384a?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -268,7 +361,7 @@
     },
     {
       "title": "4- oder 5-Tage-Woche – Servicetechniker Öl / Gas Region Basel (w/m/div.) REF295356U",
-      "slug": "4-oder-5-tage-woche-servicetechniker-ol-gas-region-basel-w-m-div-ref295356u-bosch-steinhausen",
+      "slug": "4-o-5-tage-woche-servicetechniker-ol-gas-region-basel-w-m-div-ref295356u-bosch-thermotechnik-ag-steinhausen",
       "url": "https://jobs.bosch.com/en/job/REF295356U-4-oder-5-tage-woche-servicetechniker-oel-gas-region-basel-w-m-div-ref295356u",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000146648094-4-oder-5-tage-woche-servicetechniker-ol-gas-region-basel-w-m-div-ref295356u?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -303,6 +396,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }

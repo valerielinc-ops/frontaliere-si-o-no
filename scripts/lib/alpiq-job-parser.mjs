@@ -23,7 +23,13 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  */
 
 import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
-import { normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
+import {
+  fetchHtml,
+  normalizeSpace,
+  normalizeDescriptionSpace,
+  stripScriptsAndStyles,
+} from './crawler-template.mjs';
+import { decodeHtmlEntities } from './dedicated-crawler-common.mjs';
 import { looksLikeAntiBotChallenge } from './jina-proxy.mjs';
 
 const CAREERS_URL = 'https://www.alpiq.com/career/open-jobs';
@@ -210,19 +216,49 @@ export function parseAlpiqListingHtml(html, { swissOnly = true } = {}) {
 /**
  * Parse an Alpiq detail page for full description.
  */
+function extractAlpiqRoleContentHtml(html) {
+  const cleanedHtml = stripScriptsAndStyles(String(html || ''));
+  const missionMatch = cleanedHtml.match(
+    /<(?:p|div)[^>]*>\s*<(?:strong|b)[^>]*>\s*Mission\s*<\/(?:strong|b)>/i,
+  );
+  const mainStart = cleanedHtml.search(/<main\b/i);
+  const start = missionMatch?.index ?? (mainStart >= 0 ? mainStart : 0);
+  const endCandidates = [
+    cleanedHtml.indexOf('data-content-element="facts_container"', start),
+    cleanedHtml.indexOf("data-content-element='facts_container'", start),
+    cleanedHtml.indexOf('<footer', start),
+    cleanedHtml.indexOf('</main>', start),
+  ].filter((position) => position > start);
+  const end = endCandidates.length ? Math.min(...endCandidates) : cleanedHtml.length;
+  let roleHtml = cleanedHtml.slice(start, end);
+
+  // The role block is followed by a legal disclaimer before the generic
+  // benefits/contact/company content. Keep the vacancy's responsibilities and
+  // profile, but do not publish the legal footer as job description content.
+  const disclaimerPosition = roleHtml.search(/\bDisclaimer\s*:/i);
+  if (disclaimerPosition > 0) roleHtml = roleHtml.slice(0, disclaimerPosition);
+  return roleHtml;
+}
+
 export function parseAlpiqDetailHtml(html) {
   if (!html || typeof html !== 'string') return null;
 
-  // Extract title from h2
-  const h2Match = stripScriptsAndStyles(html).match(/<h2[^>]*>([\s\S]*?)<\/h2>/i);
-  const title = h2Match ? normalizeSpace(stripHtml(h2Match[1])) : '';
+  const cleanedHtml = stripScriptsAndStyles(html);
+  const roleHtml = extractAlpiqRoleContentHtml(cleanedHtml);
+
+  // The current Sitecore detail page uses the hero h1; old fixtures and
+  // archived pages use an h2. Prefer the actual vacancy title in either case.
+  const h1Match = cleanedHtml.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const h2Match = cleanedHtml.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i);
+  const titleHtml = h1Match?.[1] || h2Match?.[1] || '';
+  const title = normalizeSpace(decodeHtmlEntities(stripHtml(titleHtml)));
 
   // Extract description from main content sections
   const sections = [];
-  const strongRe = /<strong[^>]*>([\s\S]*?)<\/strong>/gi;
+  const strongRe = /<(?:strong|b)[^>]*>([\s\S]*?)<\/(?:strong|b)>/gi;
   let m;
-  while ((m = strongRe.exec(html)) !== null) {
-    const heading = normalizeSpace(stripHtml(m[1]));
+  while ((m = strongRe.exec(roleHtml)) !== null) {
+    const heading = normalizeSpace(decodeHtmlEntities(stripHtml(m[1])));
     if (heading.length > 3 && heading.length < 100) {
       sections.push(heading);
     }
@@ -231,13 +267,13 @@ export function parseAlpiqDetailHtml(html) {
   // Extract bullet points
   const bullets = [];
   const liRe = /<li[^>]*>([\s\S]*?)<\/li>/gi;
-  while ((m = liRe.exec(html)) !== null) {
-    const text = normalizeDescriptionSpace(stripHtml(m[1]));
+  while ((m = liRe.exec(roleHtml)) !== null) {
+    const text = normalizeDescriptionSpace(decodeHtmlEntities(stripHtml(m[1])));
     if (text.length > 5) bullets.push(text);
   }
 
   // Build full description
-  const bodyText = stripHtml(html);
+  const bodyText = normalizeDescriptionSpace(decodeHtmlEntities(stripHtml(roleHtml)));
   const description = bodyText.slice(0, 3000);
 
   return {
@@ -246,6 +282,36 @@ export function parseAlpiqDetailHtml(html) {
     sections,
     bullets,
   };
+}
+
+/**
+ * Prefer a real detail-page description over a listing card snippet only when
+ * the detail contains enough role-specific content. A failed/partial detail
+ * fetch therefore degrades to the previous listing text instead of turning a
+ * transient page response into an empty job.
+ */
+export function preferAlpiqDetailDescription(listingDescription = '', detail = null) {
+  const candidate = normalizeDescriptionSpace(detail?.description || '');
+  const wordCount = candidate.split(/\s+/).filter(Boolean).length;
+  const hasStructuredContent = (detail?.bullets?.length || 0) >= 2 || (detail?.sections?.length || 0) >= 1;
+  if (candidate.length >= 180 && wordCount >= 30 && hasStructuredContent) return candidate;
+  return normalizeDescriptionSpace(listingDescription);
+}
+
+async function enrichAlpiqJobDescription(job, timeoutMs) {
+  try {
+    const detailHtml = await fetchHtml(job.url, {
+      timeoutMs,
+      headers: { Accept: 'text/html', 'User-Agent': UA },
+      label: `alpiq detail ${job.jobId}`,
+    });
+    const detail = parseAlpiqDetailHtml(detailHtml);
+    const description = preferAlpiqDetailDescription(job.description, detail);
+    if (description && description !== job.description) return { ...job, description };
+  } catch (err) {
+    console.warn(`   ⚠️ Alpiq detail ${job.jobId}: ${err?.message || err} — keeping listing description.`);
+  }
+  return job;
 }
 
 /**
@@ -285,7 +351,9 @@ export async function fetchAlpiqListingPages(maxPages = 10, timeoutMs = 15000) {
       if (fresh.length === 0) break;
       for (const j of fresh) {
         seen.add(j.jobId);
-        if (isSwissLocation(j.location)) allJobs.push(j);
+        if (isSwissLocation(j.location)) {
+          allJobs.push(await enrichAlpiqJobDescription(j, timeoutMs));
+        }
       }
     } catch (err) {
       console.warn(`\u26a0\ufe0f Failed to fetch Alpiq page ${page}: ${err.message}`);

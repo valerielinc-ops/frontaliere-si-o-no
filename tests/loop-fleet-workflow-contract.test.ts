@@ -210,13 +210,72 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('--json number,headRefName,baseRefName');
     expect(source).toContain('.baseRefName == "main"');
     expect(source).toContain('startswith("chore/loop-fleet-ledger-")');
-    expect(source).toContain('source_orphan_branch=$(git ls-remote --heads origin');
+    expect(source).toContain('source_orphan_branch=$(bounded_remote git ls-remote --heads origin');
+    expect(source).toContain('if [ -z "$open_pr" ]; then\n            source_orphan_branch=$(bounded_remote git ls-remote --heads origin');
+    expect(source).toContain('if [ -z "$source_orphan_branch" ]; then\n              base_branch_ref=$(bounded_remote git ls-remote --heads origin');
     expect(source).toContain('ledger_branch="$open_branch"');
     expect(source).toContain('orphan_recovery=\'true\'');
     expect(source).toContain('ledger_branch="$base_branch"');
     expect(source).toContain('&& [ "$orphan_recovery" != \'true\' ]; then');
     expect(source).toContain('Recovering an orphan ledger branch that already contains this validated batch.');
     expect(source).toContain('git checkout -b "$branch" "origin/$ledger_branch"');
+  });
+
+  it('bounds remote append/PR operations and disables interactive prompts', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
+    expect(source).toContain('remote_timeout_seconds=90');
+    expect(source).toContain('timeout --signal=TERM --kill-after=10s');
+    expect(source).toContain('persist-credentials: false');
+    expect(source).toContain('local operation="${1:-remote-command}"');
+    expect(source).toContain("remote operation '${operation}' failed or exceeded");
+    expect(source).not.toContain('): $*');
+    expect(source).not.toContain('push_url=');
+    expect(source).toContain("GIT_CONFIG_KEY_0='http.https://github.com/.extraheader'");
+    expect(source).toContain("basic_auth=$(printf 'x-access-token:%s' \"$GH_TOKEN\" | base64 | tr -d '\\n')");
+    expect(source).toContain('GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}"');
+    expect(source).toContain('unset basic_auth');
+    expect(source).toContain('bounded_remote git push --set-upstream origin "$branch"');
+    expect(source).toContain('export GIT_TERMINAL_PROMPT=0');
+    expect(source).toContain('export GH_PAGER=cat');
+    for (const command of [
+      'bounded_remote git fetch origin main',
+      'bounded_remote gh pr list',
+      'bounded_remote git ls-remote --heads origin',
+      'bounded_remote git fetch origin "$ledger_branch"',
+      'bounded_remote gh pr edit',
+      'bounded_remote gh pr create',
+    ]) {
+      expect(source, command).toContain(command);
+    }
+  });
+
+  it('bounds lifecycle observer persistence operations too', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-lifecycle-observer.yml'), 'utf8');
+    expect(source).toContain('remote_timeout_seconds=90');
+    expect(source).toContain('timeout --signal=TERM --kill-after=10s');
+    expect(source).toContain('persist-credentials: false');
+    expect(source).toContain('local operation="${1:-remote-command}"');
+    expect(source).toContain("remote operation '${operation}' failed or exceeded");
+    expect(source).not.toContain('): $*');
+    expect(source).not.toContain('push_url=');
+    expect(source).toContain("GIT_CONFIG_KEY_0='http.https://github.com/.extraheader'");
+    expect(source).toContain("basic_auth=$(printf 'x-access-token:%s' \"$GH_TOKEN\" | base64 | tr -d '\\n')");
+    expect(source).toContain('GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}"');
+    expect(source).toContain('unset basic_auth');
+    expect(source).toContain('bounded_remote git push --set-upstream origin "$branch"');
+    expect(source).toContain('export GIT_TERMINAL_PROMPT=0');
+    expect(source).toContain('export GH_PAGER=cat');
+    expect(source).toContain('if [ -z "$open_pr" ]; then\n            base_branch_ref=$(bounded_remote git ls-remote --heads origin');
+    for (const command of [
+      'bounded_remote git fetch origin main',
+      'bounded_remote gh pr list',
+      'bounded_remote git ls-remote --heads origin',
+      'bounded_remote git fetch origin "$base_branch"',
+      'bounded_remote gh pr edit',
+      'bounded_remote gh pr create',
+    ]) {
+      expect(source, command).toContain(command);
+    }
   });
 
   it('keeps the automatic ledger recovery probe bounded and unable to write repository content', () => {

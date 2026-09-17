@@ -299,7 +299,7 @@ function topLevelDecisionBullets(rawContent) {
   const bullets = [];
   let current = null;
   for (const line of clean.split('\n')) {
-    if (/^[ ]{0,1}[-*+][ \t]+\S/.test(line)) {
+    if (/^[ \t]*[-*+][ \t]+\S/.test(line)) {
       if (current) bullets.push(current);
       current = { index: bullets.length + 1, text: line.trim() };
     } else if (current && line.trim()) {

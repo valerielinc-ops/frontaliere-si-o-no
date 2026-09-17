@@ -50,6 +50,14 @@ permissions:
 #   review. The exact-head review gate and native auto-merge ignore old verdicts.
 #   Duplicate runs for the same PR/head remain serialized by this group and the
 #   review claim ledger.
+#
+#   The trusted loop-fleet bridge also uses this non-cancelling policy: its
+#   append-only pushes and pull_request.edited body churn must leave the bounded
+#   ledger review alive until it publishes on the exact HEAD. The ledger scope
+#   classifier and its metadata checks remain the authority for that fast path.
+#
+#   Direct pushes to main and merge queues retain their own SHA in the fallback
+#   portion of the key, so every emitted source-gate verdict remains observable.
 concurrency:
   group: tests-${{ github.workflow }}-${{ github.event.pull_request.number || inputs.pr_number || github.ref }}-${{ github.event.pull_request.head.sha || github.sha }}
   cancel-in-progress: false
@@ -142,7 +150,7 @@ jobs:
               const bullets = [];
               let current = null;
               for (const line of stripNonContent(raw).split('\n')) {
-                if (/^[ ]{0,1}[-*+][ \t]+\S/.test(line)) {
+                if (/^[ \t]*[-*+][ \t]+\S/.test(line)) {
                   if (current) bullets.push(current);
                   current = { index: bullets.length + 1, text: line.trim() };
                 } else if (current && line.trim()) {
@@ -705,6 +713,73 @@ jobs:
             /REVIEW.md
             /AGENTS.md
           sparse-checkout-cone-mode: false
+
+      # Classify and authorize the bounded ledger lane immediately after the
+      # trusted checkout, before npm/setup and the long Vitest chain. Mixed,
+      # unknown or renamed diffs are known non-matches and remain on the
+      # ordinary path; an unverifiable result is a hard job failure. This step
+      # never grants an LGTM to an unknown scope.
+      - name: Classify bounded loop-fleet ledger path
+        id: ledger_scope
+        if: ${{ steps.body_contract.outcome != 'failure' && github.event_name == 'pull_request' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set +e
+          result=$(node scripts/ci/review-test-policy.mjs ledger-check 2>&1)
+          status=$?
+          printf '%s\n' "$result"
+          case "$status" in
+            0)
+              echo 'ledger_only=true' >> "$GITHUB_OUTPUT"
+              echo 'ledger_status=eligible' >> "$GITHUB_OUTPUT"
+              ;;
+            10)
+              echo 'ledger_only=false' >> "$GITHUB_OUTPUT"
+              echo 'ledger_status=not-ledger-only' >> "$GITHUB_OUTPUT"
+              echo 'Ledger fast path non applicabile: il percorso ordinario resta attivo.'
+              ;;
+            *)
+              # An API race, incomplete file list, malformed JSONL or
+              # unverifiable metadata is an error, not an ordinary PR. Do not
+              # fall through to a data/minimal tier with an unknown scope.
+              echo "::error::ledger fast path non verificabile (exit $status): job fail-closed."
+              exit "$status"
+              ;;
+          esac
+
+      - name: Mint GitHub App token for bounded ledger review
+        if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() && steps.ledger_scope.outputs.ledger_only == 'true' }}
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      # This is a normal step in the required `tests` job, not a companion
+      # check. It runs only after the classifier has proven the exact scope;
+      # the helper rechecks HEAD, metadata, complete file-list and JSONL just
+      # before the review mutation, so pull_request.edited churn cannot turn an
+      # earlier snapshot into an approval for a different body.
+      - name: Publish bounded ledger-only automatic LGTM
+        id: ledger_review
+        if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() && steps.ledger_scope.outputs.ledger_only == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          if [ -z "${APP_TOKEN:-}" ]; then
+            echo "::error::bounded ledger review requires the allowlisted App token; no review was posted."
+            exit 1
+          fi
+          GH_TOKEN="$APP_TOKEN" node scripts/ci/review-test-policy.mjs ledger-post
 
       # UNA sola invocazione (erano tre). Niente `--ignore-scripts`: lo usava il
       # solo job `collision`, che non eseguiva codice del repo; qui la stessa
@@ -1771,7 +1846,7 @@ jobs:
 
       - name: Re-review guard (skip only an identical review input)
         id: guard
-        if: ${{ steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true') }}
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' && (steps.resolve.outputs.should_review == 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           EVENT_ACTION: ${{ github.event.action || '' }}
@@ -1800,12 +1875,13 @@ jobs:
 
       - name: Determine review tier
         id: tier
-        if: ${{ steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true') && (steps.ledger_scope.outputs.ledger_only == 'true' || steps.guard.outputs.skip != 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
           REPO: ${{ github.repository }}
+          LEDGER_ONLY: ${{ steps.ledger_scope.outputs.ledger_only }}
         # Tier high (gpt-5.6-luna, max-turns 60, adversarial pass): toccato CODE
         # funnel-critical — test gate, workflow CI, build-plugin SEO, o script
         # che mutano/emettono dati indicizzati (crawler/parser/adapter, backfill,
@@ -1850,6 +1926,10 @@ jobs:
             } >> "$GITHUB_OUTPUT"
             echo "Review tier: $1 ($2, max-turns $3)"
           }
+          if [ "${LEDGER_ONLY:-false}" = 'true' ]; then
+            set_tier ledger-only bounded 0
+            exit 0
+          fi
           # File cambiati dalla PR (per tier). Fallback GraphQL→REST/cap-100 +
           # `expected`/`files_complete` sono nel CLI condiviso
           # `scripts/ci/fetch-pr-files.mjs` (issue #6233: prima erano una
@@ -2001,7 +2081,7 @@ jobs:
         # ripiegare su `gh pr view --json files`. Il risparmio non era nelle tre
         # `gh` call (puro bash, zero Claude) ma nel `gh pr diff`, che su una PR
         # data-only puo' essere enorme: quello resta saltato, sotto.
-        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         # Fetch una volta sola, PRIMA che Claude parta, ciò che il prompt gli
         # farebbe rifare turno-per-turno (osservato in 3/3 transcript morti
         # error_max_turns analizzati 2026-07-17: `gh pr view`, `gh pr diff`, il
@@ -2133,7 +2213,7 @@ jobs:
           ls -la "$CTX_DIR"
 
       - name: Mint GitHub App token for Codex review
-        if: ${{ steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -2160,7 +2240,7 @@ jobs:
         # `continue-on-error` sotto, lo scadere non tinge il job di rosso.
         timeout-minutes: 45
         id: codex_review
-        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         # Don't let a hard action failure abort the job before the guard below
         # can classify it — the guard decides whether to fail loudly.
         continue-on-error: true
@@ -2246,7 +2326,7 @@ jobs:
         #    completed run. There is no shared quota lease or admission cap:
         #    independent PR+HEAD reviews remain concurrent.
         # `set -uo pipefail` (NOT -e): grep in conditionals must not abort.
-        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -2308,7 +2388,7 @@ jobs:
         # 429/action crash). Skipping here left the required check green with
         # zero bot reviews on HEAD (PR #7635): no LGTM, nothing red, auto-merge
         # parked forever. Fail this step when HEAD has no valid LGTM.
-        if: ${{ steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && (steps.ledger_scope.outputs.ledger_only == 'true' || steps.guard.outputs.skip != 'true')) }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -2330,7 +2410,7 @@ jobs:
       # percorso è stato saltato, trasformiamo l'assenza di verdetto in un
       # rosso reale. Il job non ha condizioni che possano saltarlo.
       - name: Fail when required review gate is skipped
-        if: ${{ steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.review_gate.outcome == 'skipped') }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && (steps.ledger_scope.outputs.ledger_only == 'true' || steps.guard.outputs.skip != 'true') && steps.review_gate.outcome == 'skipped') }}
         run: |
           echo "::error::Required review gate was skipped on a pull request; no approving review verdict was evaluated."
           exit 1

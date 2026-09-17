@@ -127,11 +127,12 @@ jobs:
             skip "PR #$PR e' draft → fuori scope (come ogni altro strato), skip (no-op)."
           fi
 
-          # Scope: solo PR autonome. `fix/*` e autore Bot restano compatibilità
-          # retroattive; `agent:autofix` rende esplicita la provenienza delle PR
+          # Scope: solo PR autonome. `fix/*`, il prefisso riservato
+          # `automerge-*` e autore Bot restano compatibilità/provenienza
+          # automatica; `agent:autofix` rende esplicita la provenienza delle PR
           # locali/aggregate che usano un altro branch.
           case "$head_ref" in
-            fix/*) autonomous=true ;;
+            fix/*|automerge-*) autonomous=true ;;
             *)
               if [ "$author_type" = "Bot" ] || [ "$has_autofix" = "true" ]; then
                 autonomous=true

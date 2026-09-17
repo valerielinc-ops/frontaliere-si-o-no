@@ -113,6 +113,7 @@ import {
 } from '../scripts/lib/related-search-cluster-path.mjs';
 import {
   buildMinimalJobInput,
+  getIncrementalManifestInputCache,
   getIncrementalManifestMap,
   INCREMENTAL_MANIFEST_ENABLED,
 } from './shared/incrementalManifest.mjs';
@@ -1028,8 +1029,9 @@ export interface RelatedClusterManifestInput {
  * Build the stable input for one related cluster landing. Membership is
  * sorted independently from render order: adding/removing a job changes the
  * former, while reordering the same id+digest pairs changes only the latter.
- * `buildMinimalJobInput()` reuses the shared WeakMap digest cache for jobs
- * that occur in several clusters.
+ * `buildMinimalJobInput()` reuses the shared build-scoped ID cache for jobs
+ * that occur in several clusters; tests and non-manifest callers retain the
+ * object-identity fallback.
  */
 export function buildRelatedClusterManifestInput(input: {
   slug: string;
@@ -1041,12 +1043,15 @@ export function buildRelatedClusterManifestInput(input: {
   emission?: RelatedClusterManifestInput['emission'];
   related?: ReadonlyArray<{ keyword: string; url: string }>;
   hreflang?: ReadonlyArray<{ locale: Locale; url: string }>;
+  inputCache?: unknown;
 }): RelatedClusterManifestInput {
   const order = input.matchingJobs.map((job) => {
     const projection = buildMinimalJobInput(
       job,
       input.locale,
       job.slugByLocale?.[input.locale] ?? job.slug ?? '',
+      [],
+      input.inputCache,
     ) as { jobId: string; jobRecordDigest: string };
     return { id: projection.jobId, digest: projection.jobRecordDigest };
   });
@@ -3904,6 +3909,9 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         rootDir,
         SUPPORTED_LOCALES.filter((locale) => shouldEmitLocale(locale)),
       );
+      const incrementalManifestInputCache = incrementalManifests
+        ? getIncrementalManifestInputCache(rootDir)
+        : null;
       const registerIncrementalCluster = (
         locale: Locale,
         pagePath: string,
@@ -4590,6 +4598,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
             },
             related,
             hreflang,
+            inputCache: incrementalManifestInputCache,
           });
           // The manifest tracks logical pages, like jobsSeoPagesPlugin: the
           // flat `.html` sibling is a serving bridge, while each canonical or

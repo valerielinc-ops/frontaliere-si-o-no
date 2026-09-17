@@ -1,10 +1,11 @@
 name: PR 🔴 fixer (bounded loop-closure on bot PRs)
 
-# Quando il reviewer Claude posta un `🔴` su una PR autonoma (bot-authored o
-# head `fix/*`), questo workflow auto-applica il fix sullo stesso branch — in
-# modo BOUNDED. Il push ri-triggera pr-review-loop (re-review) → se pulito,
-# auto-merge; se 🔴 di nuovo, questo workflow ri-parte fino al round cap.
-# NON agisce mai su PR scritte da umani.
+# Quando il reviewer Claude posta un `🔴` su una PR autonoma (bot-authored,
+# head `fix/*`, head riservata `automerge-*` o label `agent:autofix`), questo
+# workflow auto-applica il fix sullo stesso branch — in modo BOUNDED. Il push
+# ri-triggera pr-review-loop (re-review) → se pulito, auto-merge; se 🔴 di
+# nuovo, questo workflow ri-parte fino al round cap. Una PR umana non opt-in
+# resta esclusa.
 #
 # ANTI-LOOP: un marker nascosto `<!-- REDFLAG_FIX_ROUND: N -->` sulla PR conta i
 # round. A N>=2 → label `needs-human` + escalation, STOP senza Claude: il limite
@@ -48,7 +49,8 @@ jobs:
     # nega) lo fa il preflight sotto, con una regex tollerante al bold/spaziatura MA
     # che richiede un delimitatore dopo "Important" — impossibile in un'espressione
     # `if:` YAML.
-    # NB: lo scope-check "PR autonoma" (bot-authored o head `fix/*`) NON vive più
+    # NB: lo scope-check "PR autonoma" (bot-authored, head `fix/*`, head
+    # `automerge-*` o label `agent:autofix`) NON vive più
     # in questo `if:` — vedi lo step sotto. Un `if:` di job che fallisce lascia il
     # job intero SKIPPED senza eseguire una riga di script: per una PR umana con
     # un vero 🔴 Important quel salto era invisibile ovunque (issue #5534, PR
@@ -123,20 +125,30 @@ jobs:
             echo "Review contiene 🔴 ma nessun finding '🔴 Important' (decorativo) → skip 🔴-fix (no-op)."
             echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
           fi
-          # Scope: il 🔴-fixer agisce SOLO su PR autonome. `fix/*` e autore Bot
-          # restano compatibilità retroattive; `agent:autofix` è il segnale
-          # persistente per i fixer locali/aggregati che usano un altro branch.
-          # Una PR umana non marcata resta fuori scope: il label è consenso
-          # esplicito, non un'inferenza dal solo nome dell'account.
+          # Scope: il 🔴-fixer agisce SOLO su PR autonome. `fix/*`, il prefisso
+          # riservato `automerge-*` e autore Bot restano compatibilità/provenienza
+          # automatica; `agent:autofix` è il segnale persistente per i fixer
+          # locali/aggregati che usano un altro branch. Una PR umana non opt-in
+          # resta fuori scope: il prefisso/label è consenso esplicito, non
+          # un'inferenza dal solo nome dell'account.
           PR_AUTOFIX=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json labels \
             --jq 'if any(.labels[]?.name; . == "agent:autofix") then "true" else "false" end' \
             2>/dev/null || echo false)
-          if [ "$PR_AUTHOR_TYPE" != "Bot" ] && ! printf '%s' "$HEAD_REF" | grep -q '^fix/' && [ "$PR_AUTOFIX" != "true" ]; then
-            echo "PR autore umano, branch non 'fix/*' e senza label agent:autofix → fuori scope autonomo (per design) → skip 🔴-fix."
+          autonomous=false
+          case "$HEAD_REF" in
+            fix/*|automerge-*) autonomous=true ;;
+            *)
+              if [ "$PR_AUTHOR_TYPE" = "Bot" ] || [ "$PR_AUTOFIX" = "true" ]; then
+                autonomous=true
+              fi
+              ;;
+          esac
+          if [ "$autonomous" != "true" ]; then
+            echo "PR autore umano, branch non riservato e senza label agent:autofix → fuori scope autonomo (per design) → skip 🔴-fix."
             already=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
               --jq '[.[] | select(.body | contains("REDFLAG_OUT_OF_SCOPE"))] | length' 2>/dev/null || echo 0)
             if [ "${already:-0}" = "0" ]; then
-              gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- REDFLAG_OUT_OF_SCOPE -->\nℹ️ 🔴-fixer: la review più recente contiene un finding \x60🔴 Important\x60, ma questa PR è fuori dallo scope autonomo (autore umano, branch non \x60fix/*\x60, senza \x60agent:autofix\x60) — nessun fix automatico verrà tentato (per design). Se il finding resta aperto senza un commit nuovo, serve intervento manuale o il label esplicito.')" \
+              gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- REDFLAG_OUT_OF_SCOPE -->\nℹ️ 🔴-fixer: la review più recente contiene un finding \x60🔴 Important\x60, ma questa PR è fuori dallo scope autonomo (autore umano, branch non \x60fix/*\x60/\x60automerge-*\x60, senza \x60agent:autofix\x60) — nessun fix automatico verrà tentato (per design). Se il finding resta aperto senza un commit nuovo, serve intervento manuale o il label esplicito.')" \
                 2>/dev/null || true
             fi
             echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0

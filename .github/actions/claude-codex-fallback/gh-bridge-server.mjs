@@ -106,7 +106,7 @@ function bodyTopLevelBullets(value) {
   const bullets = [];
   let current = '';
   for (const line of stripBodyNonContent(value).split('\n')) {
-    if (/^[ ]{0,1}[-*+][ \t]+\S/.test(line)) {
+    if (/^[ \t]*[-*+][ \t]+\S/.test(line)) {
       if (current) bullets.push(current);
       current = line.trim();
     } else if (current && line.trim()) {

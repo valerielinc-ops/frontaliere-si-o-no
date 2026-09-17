@@ -59,6 +59,12 @@ describe('pr-redflag-fixer job-level reviewer filter matches tests.yml bot set',
     expect(yaml).not.toContain('select(.user.login|test("claude";"i"))');
   });
 
+  it('treats the reserved automerge-* branch as an autonomous opt-in', () => {
+    const yaml = readFileSync(FIXER, 'utf8');
+    expect(yaml).toContain('fix/*|automerge-*) autonomous=true ;;');
+    expect(yaml).toContain('head riservata `automerge-*`');
+  });
+
   it('pr-autorebase and followup-has-candidates use isReviewerBot, not claude-only', () => {
     const rebase = readFileSync(join(ROOT, 'scripts/ci/pr-autorebase.mjs'), 'utf8');
     expect(rebase).toContain('isReviewerBot');

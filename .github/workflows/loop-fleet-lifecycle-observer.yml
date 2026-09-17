@@ -28,6 +28,7 @@ jobs:
         uses: actions/checkout@v5
         with:
           fetch-depth: 1
+          persist-credentials: false
           sparse-checkout: |
             /data/loop-fleet/loop-registry.json
             /data/loop-fleet/ledger/
@@ -102,6 +103,20 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
+          remote_timeout_seconds=90
+          bounded_remote() {
+            local operation="${1:-remote-command}"
+            local status
+            if timeout --signal=TERM --kill-after=10s "${remote_timeout_seconds}s" "$@"; then
+              return 0
+            else
+              status=$?
+            fi
+            echo "::error::remote operation '${operation}' failed or exceeded ${remote_timeout_seconds}s (status ${status})" >&2
+            return "$status"
+          }
+          export GIT_TERMINAL_PROMPT=0
+          export GH_PAGER=cat
           if [ ! -s "$EVENT_FILE" ]; then
             echo 'No new independently observed lifecycle events; no PR update needed.'
             exit 0
@@ -116,22 +131,26 @@ jobs:
 
           git config user.name 'frontaliere-automation[bot]'
           git config user.email '41898282+frontaliere-automation[bot]@users.noreply.github.com'
-          git fetch origin main
+          bounded_remote git fetch origin main
           git checkout --detach origin/main
 
           base_branch='chore/loop-fleet-ledger'
-          open_pr=$(gh pr list --repo "$GITHUB_REPOSITORY" --state open --head "$base_branch" --json number --jq '.[0].number // ""')
+          open_pr=$(bounded_remote gh pr list --repo "$GITHUB_REPOSITORY" --state open --head "$base_branch" --json number --jq '.[0].number // ""')
           branch="$base_branch"
+          base_branch_ref=''
+          if [ -z "$open_pr" ]; then
+            base_branch_ref=$(bounded_remote git ls-remote --heads origin "refs/heads/$base_branch")
+          fi
           merged_dir="$RUNNER_TEMP/loop-fleet-lifecycle-merged"
           rm -rf "$merged_dir"
           mkdir -p "$merged_dir"
 
           if [ -n "$open_pr" ]; then
-            git fetch origin "$base_branch"
+            bounded_remote git fetch origin "$base_branch"
             if git cat-file -e "origin/$base_branch:data/loop-fleet/ledger/lifecycle-events.jsonl" 2>/dev/null; then
               git show "origin/$base_branch:data/loop-fleet/ledger/lifecycle-events.jsonl" > "$merged_dir/lifecycle-events.jsonl"
             fi
-          elif git ls-remote --exit-code origin "refs/heads/$base_branch" >/dev/null 2>&1; then
+          elif [ -n "$base_branch_ref" ]; then
             branch="${base_branch}-lifecycle-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
           fi
 
@@ -156,8 +175,12 @@ jobs:
 
           git add data/loop-fleet/ledger/lifecycle-events.jsonl
           git commit -m 'chore(loop-fleet): persist observed lifecycle evidence'
-          push_url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          git -c http.https://github.com/.extraheader= push --set-upstream "$push_url" "$branch"
+          basic_auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 | tr -d '\n')
+          GIT_CONFIG_COUNT=1 \
+          GIT_CONFIG_KEY_0='http.https://github.com/.extraheader' \
+          GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}" \
+            bounded_remote git push --set-upstream origin "$branch"
+          unset basic_auth
 
           body="$RUNNER_TEMP/loop-fleet-lifecycle-pr-body.md"
           cat > "$body" <<EOF
@@ -173,9 +196,9 @@ jobs:
           EOF
           node scripts/ci/pr-body-check-gate.mjs --body-file "$body"
           if [ -n "$open_pr" ]; then
-            gh pr edit "$open_pr" --repo "$GITHUB_REPOSITORY" --body-file "$body"
+            bounded_remote gh pr edit "$open_pr" --repo "$GITHUB_REPOSITORY" --body-file "$body"
           else
-            gh pr create \
+            bounded_remote gh pr create \
               --repo "$GITHUB_REPOSITORY" \
               --base main \
               --head "$branch" \

@@ -209,6 +209,14 @@ describe('decision deferrals', () => {
     expect(decisionDeferralsAreSpecific(body)).toBe(true);
   });
 
+  it('checks decision bullets with the same indentation accepted by sectionBullets', () => {
+    const body = makeBody({
+      nonImplContent: '  - Il residuo resta by construction.\n',
+    });
+    expect(decisionDeferralFindings(body)).toHaveLength(1);
+    expect(checkPrBodySections(body, { strictDecisionDeferrals: true }).ok).toBe(false);
+  });
+
   it('treats `falso positivo` as a decision, with negation-aware matching', () => {
     const vague = makeBody({ nonImplContent: '- Il finding è un falso positivo.' });
     expect(checkPrBodySections(vague, { strictDecisionDeferrals: true }).ok).toBe(false);
