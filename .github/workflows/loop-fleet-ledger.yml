@@ -56,6 +56,7 @@ jobs:
       - name: Checkout ledger contract
         uses: actions/checkout@v5
         with:
+          ref: main
           fetch-depth: 1
           persist-credentials: false
           sparse-checkout: |
@@ -75,6 +76,12 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: '22'
+
+      - name: Refresh workflow code from origin/main
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git checkout --detach origin/main
 
       - name: Resolve source loop and artifact
         id: source
@@ -166,7 +173,7 @@ jobs:
         run: |
           set -euo pipefail
           if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            echo "::warning::Firebase service account is unavailable; reviewed branch/PR writes will fail closed."
+            echo "::warning::Firebase service account is unavailable; durable branch writes will fail closed."
           else
             printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
@@ -224,11 +231,11 @@ jobs:
             ledger_start="origin/$ledger_branch"
           fi
           # Keep validators and the registry from the current main checkout;
-          # only the append-only ledger is opened in the durable worktree.
-          # When the branch is absent this seeds it from main's ledger history.
+          # the durable branch index and tip contain JSONL data only.
           git worktree add --no-checkout -B ledger-work "$ledger_worktree" "$ledger_start"
-          git -C "$ledger_worktree" checkout -- data/loop-fleet/ledger/
-          git -C "$ledger_worktree" ls-files --error-unmatch data/loop-fleet/ledger/ >/dev/null
+          git -C "$ledger_worktree" checkout HEAD -- data/loop-fleet/ledger/
+          git -C "$ledger_worktree" read-tree --empty
+          git -C "$ledger_worktree" add -- data/loop-fleet/ledger/
           ledger_dir="$ledger_worktree/data/loop-fleet/ledger"
 
           for attempt in 1 2 3 4 5; do
@@ -244,12 +251,18 @@ jobs:
               --registry data/loop-fleet/loop-registry.json
 
             if git -C "$ledger_worktree" diff --quiet -- data/loop-fleet/ledger \
-                && [ -z "$(git -C "$ledger_worktree" ls-files --others --exclude-standard data/loop-fleet/ledger)" ]; then
+                && [ -z "$(git -C "$ledger_worktree" ls-files --others --exclude-standard data/loop-fleet/ledger)" ] \
+                && git -C "$ledger_worktree" diff --cached --quiet; then
               echo 'Source run already present in the durable ledger; nothing to append.'
               exit 0
             fi
             git -C "$ledger_worktree" add data/loop-fleet/ledger
             git -C "$ledger_worktree" commit -m "chore(loop-fleet): persist ${SOURCE_LOOP} evidence from run ${SOURCE_RUN_ID}"
+            invalid_ledger_files=$(git -C "$ledger_worktree" ls-tree -r --name-only HEAD | grep -vE '^data/loop-fleet/ledger/[^/]+\.jsonl$' || true)
+            if [ -n "$invalid_ledger_files" ]; then
+              echo "::error::durable ledger branch contains non-JSONL files: $invalid_ledger_files"
+              exit 1
+            fi
             basic_auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 | tr -d '\n')
             if GIT_CONFIG_COUNT=1 \
               GIT_CONFIG_KEY_0='http.https://github.com/.extraheader' \
@@ -267,7 +280,9 @@ jobs:
               bounded_remote git fetch origin main
               git -C "$ledger_worktree" checkout -B ledger-work origin/main
             fi
-            git -C "$ledger_worktree" checkout -- data/loop-fleet/ledger/
+            git -C "$ledger_worktree" checkout HEAD -- data/loop-fleet/ledger/
+            git -C "$ledger_worktree" read-tree --empty
+            git -C "$ledger_worktree" add -- data/loop-fleet/ledger/
             sleep $((attempt * 3))
           done
           echo "::error::could not append the validated batch to $ledger_branch after 5 attempts"

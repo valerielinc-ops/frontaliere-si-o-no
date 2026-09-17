@@ -4,7 +4,7 @@
  * Append independently observed lifecycle events to the durable ledger.
  *
  * This helper has no GitHub credentials and no production side effects. The
- * caller must carry the result through the normal reviewed ledger branch/PR.
+ * caller must carry the result through the durable ledger branch.
  * Candidate/owner_assigned remain recorder-owned and are rejected here so a
  * downstream observer cannot overwrite the source of lifecycle authority.
  */
