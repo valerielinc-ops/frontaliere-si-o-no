@@ -24,8 +24,14 @@ describe('buersten-technik crawler parser', () => {
       expect(isBuerstenTechnikJob({ company: 'buersten-technik' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isBuerstenTechnikJob({ url: 'https://yousty.ch/jobs/123' })).toBe(true);
+    it('matches a validated employer profile path on Yousty', () => {
+      expect(isBuerstenTechnikJob({
+        url: 'https://www.yousty.ch/de-CH/lehrstellen/profile/12473242-produktionsmechaniker-in-efz-wattwil-sg-a-b-buersten-technik-ag',
+      })).toBe(true);
+    });
+
+    it('rejects unrelated Yousty listings', () => {
+      expect(isBuerstenTechnikJob({ url: 'https://yousty.ch/jobs/123' })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {
@@ -95,7 +101,7 @@ describe('buersten-technik crawler parser', () => {
       descriptionByLocale: { de: 'A test job description for validation.' },
       location: 'Lugano',
       canton: 'TI',
-      url: 'https://yousty.ch/jobs/test',
+      url: 'https://www.yousty.ch/de-CH/lehrstellen/profile/12473242-produktionsmechaniker-in-efz-wattwil-sg-a-b-buersten-technik-ag',
       source: 'buersten-technik Dedicated Parser',
       sourceLang: 'de',
       crawledAt: new Date().toISOString(),

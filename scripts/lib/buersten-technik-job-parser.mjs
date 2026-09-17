@@ -13,6 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { hardenJobsWithStructuredSalary } from './structured-salary.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
@@ -24,6 +25,7 @@ export const BUERSTEN_TECHNIK_COMPANY_NAME = 'buersten-technik';
 export const BUERSTEN_TECHNIK_COMPANY_DOMAIN = 'yousty.ch';
 
 const CAREER_URL = 'https://www.yousty.ch/de-CH/lehrstellen/profile/12473242-produktionsmechaniker-in-efz-wattwil-sg-a-b-buersten-technik-ag';
+const BUERSTEN_TECHNIK_PROFILE_PATH = /\/lehrstellen\/profile\/[^/]*buersten-technik(?:[-/]|$)/i;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -33,6 +35,15 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function isBuerstenTechnikProfileUrl(rawUrl = '') {
+  try {
+    const parsed = new URL(rawUrl);
+    return isTrustedDomain(parsed.href) && BUERSTEN_TECHNIK_PROFILE_PATH.test(parsed.pathname);
+  } catch {
+    return false;
+  }
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -48,13 +59,12 @@ export function isBuerstenTechnikJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
 
   return (
     key === BUERSTEN_TECHNIK_KEY ||
     key.startsWith('buersten-technik-') ||
     company.includes('buersten-technik') ||
-    url.includes('yousty.ch')
+    isBuerstenTechnikProfileUrl(job?.url || '')
   );
 }
 
@@ -183,8 +193,10 @@ export async function fetchAllBuerstenTechnikJobs() {
       addressRegion: normalizeSpace(listing.addressRegion || canton),
       addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
       country: normalizeSpace(listing.addressCountry || 'CH'),
-      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
-      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
+      // Keep mandatory address keys on every row; the job-page JSON-LD
+      // normalizer supplies safe fallbacks when the source omits them.
+      postalCode: normalizeSpace(listing.postalCode || ''),
+      streetAddress: normalizeSpace(listing.streetAddress || ''),
       category: detectCategory(title),
       contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
       employmentType,
@@ -202,5 +214,5 @@ export async function fetchAllBuerstenTechnikJobs() {
   }
 
   console.log(`\n📋 Total buersten-technik jobs discovered: ${jobs.length}`);
-  return jobs;
+  return hardenJobsWithStructuredSalary(jobs).jobs;
 }
