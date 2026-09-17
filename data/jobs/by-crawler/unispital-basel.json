@@ -1017,7 +1017,7 @@
       "slugByLocale": {
         "it": "med-assistente-pratico-assistente-pratico-mpa-centro-di-emergenza-universitatsspital-basel-basel",
         "en": "med-practical-assistant-practical-assistant-mpa-emergency-center-universitatsspital-basel-basel",
-        "de": "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel-i2436r",
+        "de": "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel",
         "fr": "med-assistant-pratique-assistant-pratique-mpa-centre-d-urgence-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
@@ -1062,7 +1062,8 @@
       "previousSlugsByLocale": {
         "de": [
           "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-unispital-basel-ch",
-          "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel"
+          "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel",
+          "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel-i2436r"
         ],
         "it": [
           "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel",
@@ -1077,7 +1078,8 @@
       },
       "previousSlugs": [
         "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel",
-        "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-unispital-basel-ch"
+        "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-unispital-basel-ch",
+        "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel-i2436r"
       ],
       "firstSeenAt": "2026-05-22T13:24:58.839Z",
       "salaryMin": 62000,
@@ -3078,11 +3080,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
-        "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel"
+        "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel",
+        "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch"
+          "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
+          "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel"
         ],
         "fr": [
           "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel"
@@ -4539,11 +4543,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch",
-        "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel"
+        "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel",
+        "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch"
+          "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch",
+          "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel"
         ],
         "fr": [
           "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel"
@@ -4551,9 +4557,8 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1466,
-      "retranslationAttempts": 18,
+      "retranslationAttempts": 19,
       "firstSeenAt": "2026-08-20T21:47:46.721Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
