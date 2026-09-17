@@ -149,7 +149,7 @@ function buildJobUrl(job) {
  */
 const SWISS_COUNTRY_VALUES = new Set(['CH', 'CHE', 'SWITZERLAND', 'SCHWEIZ', 'SUISSE', 'SVIZZERA']);
 
-function resolveGalenicaCanton(contact = {}) {
+export function resolveGalenicaCanton(contact = {}) {
   const city = String(contact.city || '').trim();
   const rawState = String(contact.state || '').trim();
   const stateCanton = inferAnyCanton(rawState);
@@ -157,7 +157,7 @@ function resolveGalenicaCanton(contact = {}) {
 
   if (!city || (rawState && !stateCanton) || (country && !SWISS_COUNTRY_VALUES.has(country))) return '';
 
-  const canton = inferAnyCanton(city) || stateCanton;
+  const canton = stateCanton || inferAnyCanton(city);
   const cantonNames = SWISS_CANTONS[canton]?.names || [];
   const locationSignal = [city, ...cantonNames].filter(Boolean).join(' ');
   return canton && isTargetSwissLocation(locationSignal) ? canton : '';

@@ -60,14 +60,17 @@
  * migrolino AG operates ~700 convenience-store shop locations across ALL of
  * Switzerland (a retail chain, not a single-site employer), so per-job
  * addresses come from the JSON-LD `jobLocation.address` of EACH posting.
- * There is deliberately no headquarters fallback: a missing source locality
- * is unresolved and is not turned into a Suhr/AG announcement.
+ * When the source omits a mandatory address field, `resolveAddress()` keeps
+ * the source city, uses the verified Suhr HQ only for a Suhr posting, and
+ * otherwise applies a same-canton postal fallback plus a city-centre label —
+ * never the Suhr street address for a different city in AG.
  */
 import { createHash } from 'node:crypto';
 import { fetchHtml, slugify, normalizeSpace } from './crawler-template.mjs';
 import { detectLang, guessCategory, normalizeContract } from './dedicated-crawler-common.mjs';
 import { extractMigrosStructuredData, cleanDescription } from './migros-job-parser.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { getCantonPostalFallback } from './canton-postal-fallback.mjs';
 import { launchChromium } from './ensure-chromium.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -101,18 +104,40 @@ function normalize(value = '') {
 }
 
 /**
- * Resolve only source-backed city / postal code / street address. Missing
- * fields stay empty so a multi-site posting cannot inherit a fixed employer
- * headquarters address.
+ * Resolve source-backed city / postal code / street address, with safe
+ * non-empty fallbacks for a known city. The verified HQ address is city-gated
+ * on Suhr; other cities keep their own locality and receive a canton-level
+ * postal fallback plus a synthetic city-centre label rather than a misleading
+ * employer HQ street.
  *
  * @param {{ city?: string, postalCode?: string, streetAddress?: string }} [raw]
+ * @param {string} [canton]
  * @returns {{ city: string, postalCode: string, streetAddress: string }}
  */
-export function resolveAddress(raw = {}) {
+const HQ = {
+  city: 'Suhr',
+  canton: 'AG',
+  postalCode: '5034',
+  streetAddress: 'Wynenfeldstrasse 3',
+};
+
+export function resolveAddress(raw = {}, canton = '') {
+  const city = normalizeSpace(raw.city || '');
+  const resolvedCanton = canton || inferAnyCanton(city);
+  const isSuhrHq = /\bsuhr\b/i.test(city);
+
   return {
-    city: normalizeSpace(raw.city || ''),
-    postalCode: normalizeSpace(raw.postalCode || ''),
-    streetAddress: normalizeSpace(raw.streetAddress || ''),
+    city,
+    postalCode: normalizeSpace(raw.postalCode || '') || (isSuhrHq
+      ? HQ.postalCode
+      : city
+        ? getCantonPostalFallback(resolvedCanton)
+        : ''),
+    streetAddress: normalizeSpace(raw.streetAddress || '') || (isSuhrHq
+      ? HQ.streetAddress
+      : city
+        ? `${city} city centre`
+        : ''),
   };
 }
 
@@ -216,11 +241,12 @@ export function parseMigrolinoDetail(html = '', url = '') {
       ? address.addressCountry.name || address.addressCountry.value || ''
       : address.addressCountry || '',
   );
+  const canton = inferAnyCanton(rawCity) || inferAnyCanton(sourceRegion) || '';
   const { city, postalCode, streetAddress } = resolveAddress({
     city: rawCity,
     postalCode: address.postalCode || '',
     streetAddress: address.streetAddress || '',
-  });
+  }, canton);
 
   const jsonLdDescription = normalizeSpace(cleanDescription(jsonLd?.description || ''));
   const richDescription = structured?.description ? cleanDescription(structured.description) : '';
@@ -237,7 +263,6 @@ export function parseMigrolinoDetail(html = '', url = '') {
   const employmentType = contract === 'part-time' ? 'PART_TIME' : 'FULL_TIME';
 
   const postedDate = normalizeSpace(jsonLd?.datePosted || '').slice(0, 10);
-  const canton = inferAnyCanton(city) || inferAnyCanton(sourceRegion) || '';
   const locationSignal = [city, sourceRegion].filter(Boolean).join(' ');
   const resolvedCanton = canton && isTargetSwissLocation(locationSignal) ? canton : '';
 

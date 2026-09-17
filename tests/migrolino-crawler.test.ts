@@ -129,28 +129,27 @@ describe('migrolino crawler parser', () => {
     });
   });
 
-  // ── resolveAddress (source-backed address fields) ──
+  // ── resolveAddress (source-backed fields + safe fallbacks) ──
   describe('resolveAddress', () => {
-    it('keeps a source city without inventing a headquarters address', () => {
+    it('fills the verified Suhr HQ address only for a Suhr posting', () => {
       const resolved = resolveAddress({ city: 'Suhr' });
       expect(resolved.city).toBe('Suhr');
-      expect(resolved.postalCode).toBe('');
-      expect(resolved.streetAddress).toBe('');
+      expect(resolved.postalCode).toBe('5034');
+      expect(resolved.streetAddress).toBe('Wynenfeldstrasse 3');
     });
 
-    it('does NOT invent a Suhr address for a different city (Baden AG)', () => {
-      // Baden is a different source locality; a city-level parser must not
-      // copy a corporate address merely because both resolve to AG.
+    it('uses a same-canton safe fallback without inventing the Suhr address for Baden AG', () => {
       const resolved = resolveAddress({ city: 'Baden' });
       expect(resolved.city).toBe('Baden');
-      expect(resolved.postalCode).toBe('');
-      expect(resolved.streetAddress).toBe('');
+      expect(resolved.postalCode).toBe('5000');
+      expect(resolved.streetAddress).toBe('Baden city centre');
     });
 
-    it('does NOT invent a Suhr address for another different city (Wohlen AG)', () => {
-      const resolved = resolveAddress({ city: 'Wohlen' });
-      expect(resolved.postalCode).toBe('');
-      expect(resolved.streetAddress).toBe('');
+    it('uses the source city for another same-canton fallback (Wohlen AG)', () => {
+      const resolved = resolveAddress({ city: 'Wohlen' }, 'AG');
+      expect(resolved.city).toBe('Wohlen');
+      expect(resolved.postalCode).toBe('5000');
+      expect(resolved.streetAddress).toBe('Wohlen city centre');
     });
 
     it('preserves a real per-store street address when the source already provides one', () => {
@@ -166,17 +165,18 @@ describe('migrolino crawler parser', () => {
       });
     });
 
-    it('keeps all address fields empty when the source supplies no address', () => {
+    it('keeps address fields empty when there is no locality to anchor a fallback', () => {
       const resolved = resolveAddress({});
       expect(resolved.city).toBe('');
       expect(resolved.postalCode).toBe('');
       expect(resolved.streetAddress).toBe('');
     });
 
-    it('normalizes source address whitespace without applying a city-specific rule', () => {
+    it('normalizes source address whitespace and applies the Suhr fallback', () => {
       const resolved = resolveAddress({ city: '  SUHR  ' });
       expect(resolved.city).toBe('SUHR');
-      expect(resolved.streetAddress).toBe('');
+      expect(resolved.postalCode).toBe('5034');
+      expect(resolved.streetAddress).toBe('Wynenfeldstrasse 3');
     });
 
     it('does not false-positive match a city merely containing "suhr" as a substring', () => {
@@ -184,7 +184,7 @@ describe('migrolino crawler parser', () => {
       // must not match \bsuhr\b.
       const resolved = resolveAddress({ city: 'Suhrau' });
       expect(resolved.postalCode).toBe('');
-      expect(resolved.streetAddress).toBe('');
+      expect(resolved.streetAddress).toBe('Suhrau city centre');
     });
   });
 
@@ -296,6 +296,25 @@ describe('migrolino crawler parser', () => {
       expect(parsed.city).toBe('');
       expect(parsed.canton).toBe('');
       expect(parsed.streetAddress).toBe('');
+    });
+
+    it('fills missing address fields from the source city without leaking the Suhr HQ', () => {
+      const html = `<script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org/',
+        '@type': 'JobPosting',
+        title: 'Verkäufer*in',
+        description: 'Eine Stelle im migrolino-Shop mit Aufgaben im Verkauf und direktem Kundenkontakt.',
+        jobLocation: {
+          '@type': 'Place',
+          address: { '@type': 'PostalAddress', addressLocality: 'Baden', addressCountry: 'CH' },
+        },
+      })}</script>`;
+      const parsed = parseMigrolinoDetail(html);
+      expect(parsed.city).toBe('Baden');
+      expect(parsed.canton).toBe('AG');
+      expect(parsed.postalCode).toBe('5000');
+      expect(parsed.streetAddress).toBe('Baden city centre');
+      expect(parsed.streetAddress).not.toBe('Wynenfeldstrasse 3');
     });
 
     it('returns an empty title (not a throw) for empty/invalid input', () => {
