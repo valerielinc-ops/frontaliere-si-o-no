@@ -1,9 +1,8 @@
 name: Retry code check after corrected PR body
 run-name: 'Body recovery · PR #${{ github.event.pull_request.number }}'
 
-# API-only recovery on trusted main. This does not publish a check on the PR
-# head, validate code, or execute any file/string from the pull request.
-# [skip ci] manual-dispatch probe marker; removed before the final fix.
+# API-only recovery on trusted main. It dispatches the trusted tests workflow
+# when the exact head has no run, without executing any file/string from the PR.
 on:
   pull_request_target:
     types: [edited]
@@ -33,7 +32,16 @@ jobs:
               ...repo, workflow_id: 'tests.yml', head_sha: pr.head.sha, per_page: 100,
             });
             const latest = runs.sort((a, b) => b.id - a.id)[0];
-            if (!latest) return;
+            if (!latest) {
+              await github.rest.actions.createWorkflowDispatch({
+                ...repo,
+                workflow_id: 'tests.yml',
+                ref: pr.head.ref,
+                inputs: { pr_number: String(number) },
+              });
+              core.info(`Dispatched tests.yml for PR #${number}: no run existed on ${pr.head.sha}.`);
+              return;
+            }
             // Inspect the latest attempt only, never an old failure underneath
             // a running retry. A passed preflight alone is not enough: the
             // reviewer can also reject the body, and that verdict otherwise
