@@ -2,9 +2,9 @@
  * Bounded F1/F7 policy for automation entry points.
  *
  * The policy is deliberately explicit: issue triage/fixer keeps its deny-by-
- * default F1/F7 and control-plane policy. The pull-request surface still
- * requires verifiable metadata and a complete file list, but F1/F7 domains,
- * control-plane paths, and unknown paths are evidence rather than human-
+ * default F1/F7, control-plane, and issue-routing policy. The pull-request
+ * surface still requires verifiable metadata and a complete file list, but
+ * F1/F7 domains, control-plane paths, and unknown paths are evidence rather than human-
  * approval vetoes there. `needs-human` is an operational tracking label only;
  * it never vetoes a pull request.
  *
@@ -219,7 +219,7 @@ function reviewTime(review) {
  * this complete, non-empty snapshot. It allows recognized and unknown paths,
  * including every F1/F7 domain; `needs-human` is not a PR-surface veto.
  * `surface` defaults to `issue`, which retains the original control-plane,
- * high-risk, and unknown issue/path deny-by-default behavior.
+ * high-risk, unknown issue/path, and `needs-human` issue-routing behavior.
  */
 export function classifyAutomationRisk({
   title = '',
@@ -255,9 +255,12 @@ export function classifyAutomationRisk({
   }
 
   const labelNames = labels.map(labelName).filter(Boolean);
-  const hasHumanVeto = !isPullRequestSurface
+  // The issue surface still uses `needs-human` as a terminal routing pin. Keep
+  // this explicitly separate from the PR surface: the same label is tracking
+  // only for PRs and must never veto their merge/autorebase/dispatch paths.
+  const hasIssueHumanVeto = surface === 'issue'
     && labelNames.some((label) => label.toLowerCase() === HUMAN_APPROVAL_LABEL);
-  if (hasHumanVeto) {
+  if (hasIssueHumanVeto) {
     return {
       policyVersion: AUTOMATION_RISK_POLICY_VERSION,
       verifiable: true,
