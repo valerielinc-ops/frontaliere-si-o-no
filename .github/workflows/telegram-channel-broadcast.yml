@@ -103,15 +103,15 @@ jobs:
         run: node scripts/assemble-jobs-dataset.mjs --stats
 
       - name: Broadcast jobs digest
-        if: env.MODE == 'jobs' && (steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true')
+        if: env.MODE == 'jobs' && (steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true')
         run: node scripts/post-to-telegram.mjs jobs
 
       - name: Broadcast dogane ranking
-        if: env.MODE == 'border' && (steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true')
+        if: env.MODE == 'border' && (steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true')
         run: npx --no-install tsx scripts/post-to-telegram.mjs border
 
       - name: Broadcast preferred-source announcement
-        if: env.MODE == 'preferred-source' && (steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true')
+        if: env.MODE == 'preferred-source' && (steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true')
         run: node scripts/post-to-telegram.mjs preferred-source
 
       - name: Commit posted ledgers
