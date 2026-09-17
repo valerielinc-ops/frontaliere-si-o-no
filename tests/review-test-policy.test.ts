@@ -449,9 +449,18 @@ describe('owner policy excluding test files from review', () => {
     { changedHead: true, label: 'HEAD' },
     { changedBody: true, label: 'body' },
     { body: '## Implementato\n- done\n\n## Non implementato\nNessuno', label: 'body contract' },
-    { labels: ['needs-human'], label: 'needs-human veto' },
   ])('does not publish when $label changes or is not verifiable', ({ label: _label, ...options }) => {
     const f = ledgerFixture(options);
+    expect(() => postLedgerOnlyReview({ repo: 'owner/repo', pr: 1, head: ledgerHead, ghFn: f.ghFn })).toThrow();
+    expect(f.posts).toEqual([]);
+  });
+  it('does not give automatic LGTM to a ledger PR with pre-existing needs-human', () => {
+    const f = ledgerFixture({ labels: ['needs-human'] });
+    expect(inspectLedgerOnlyHead(f.ghFn, 'owner/repo', 1, ledgerHead)).toMatchObject({
+      ok: false,
+      kind: 'not-ledger-only',
+      reason: 'veto needs-human presente',
+    });
     expect(() => postLedgerOnlyReview({ repo: 'owner/repo', pr: 1, head: ledgerHead, ghFn: f.ghFn })).toThrow();
     expect(f.posts).toEqual([]);
   });
