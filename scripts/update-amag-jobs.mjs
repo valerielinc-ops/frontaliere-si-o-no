@@ -100,6 +100,17 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+// The source repeats the same HTML ids in every row. Parsing the whole table
+// with an id selector makes JSDOM resolve only the first duplicate id, so
+// isolate each source row before delegating to the canonical parser.
+function parseAmagListingRows(html) {
+  const document = new JSDOM(String(html || '')).window.document;
+  const rows = [...document.querySelectorAll('#joboffers tbody tr')];
+  return rows.flatMap((row) => parseAmagListingPage(
+    `<table id="joboffers"><tbody>${row.outerHTML}</tbody></table>`,
+  ));
+}
+
 function assertAmagListingPage(html, items, locale) {
   const document = new JSDOM(String(html || '')).window.document;
   const listingTable = document.querySelector('#joboffers');
@@ -107,10 +118,11 @@ function assertAmagListingPage(html, items, locale) {
     throw new Error(`AMAG ${locale} listing has no #joboffers source container`);
   }
 
-  const jobRows = [...listingTable.querySelectorAll('tbody tr')]
-    .filter((row) => row.querySelector('#jobTitel'));
-  if (jobRows.length > 0 && items.length === 0) {
-    throw new Error(`AMAG ${locale} listing contains job rows but none were parseable`);
+  const sourceRows = listingTable.querySelectorAll('tbody tr').length;
+  if (items.length !== sourceRows) {
+    throw new Error(
+      `AMAG ${locale} listing parsed ${items.length} of ${sourceRows} source job rows`,
+    );
   }
 }
 
@@ -176,7 +188,7 @@ export async function fetchAllListings() {
   console.log(`  📄 Italian listing: ${CAREERS_URL_IT}`);
   try {
     const htmlIt = await fetchText(CAREERS_URL_IT);
-    const itemsIt = parseAmagListingPage(htmlIt);
+    const itemsIt = parseAmagListingRows(htmlIt);
     assertAmagListingPage(htmlIt, itemsIt, 'Italian');
     for (const item of itemsIt) {
       allItems.set(item.jobId, item);
@@ -193,7 +205,7 @@ export async function fetchAllListings() {
   console.log(`  📄 German listing: ${CAREERS_URL_DE}`);
   try {
     const htmlDe = await fetchText(CAREERS_URL_DE);
-    const itemsDe = parseAmagListingPage(htmlDe);
+    const itemsDe = parseAmagListingRows(htmlDe);
     assertAmagListingPage(htmlDe, itemsDe, 'German');
     let extraCount = 0;
     for (const item of itemsDe) {
