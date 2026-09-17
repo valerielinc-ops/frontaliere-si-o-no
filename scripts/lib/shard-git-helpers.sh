@@ -34,6 +34,9 @@
 shard_read_counter() {
   local dir="$1" path="$2" val
   val="$(git -C "$dir" show "HEAD:$path" 2>/dev/null || echo 0)"
+  # Older section pushes wrote the `wc -l` padding into this marker. Keep
+  # reading those trees while all new writes use the canonical decimal form.
+  val="${val//[[:space:]]/}"
   [[ "$val" =~ ^[0-9]+$ ]] || val=0
   printf '%s' "$val"
 }
@@ -140,7 +143,8 @@ shard_delta_add_file() {
   local stage="$1" source="$2" target="$3" old_oid new_oid blob_oid
   if [ "${source#/}" = "$source" ]; then source="$(pwd)/$source"; fi
   [ -f "$source" ] || return 1
-  old_oid="$(git -C "$stage" ls-files --stage -- "$target" 2>/dev/null | awk 'NR == 1 { print $2 }')"
+  old_oid="$(git -C "$stage" -c core.quotePath=false ls-files --stage -z -- "$target" 2>/dev/null \
+    | perl -0ne 'if (/^[^ ]+ ([0-9a-f]+) /) { print $1; exit }')"
   new_oid="$(git -C "$stage" hash-object --path="$target" "$source")" || return 1
   if [ "$old_oid" = "$new_oid" ]; then
     SHARD_DELTA_REUSED_FILES=$((SHARD_DELTA_REUSED_FILES + 1))
@@ -157,7 +161,8 @@ shard_delta_add_file() {
 shard_delta_add_text() {
   local stage="$1" target="$2" content="$3" count_change="${4:-1}"
   local old_oid new_oid blob_oid
-  old_oid="$(git -C "$stage" ls-files --stage -- "$target" 2>/dev/null | awk 'NR == 1 { print $2 }')"
+  old_oid="$(git -C "$stage" -c core.quotePath=false ls-files --stage -z -- "$target" 2>/dev/null \
+    | perl -0ne 'if (/^[^ ]+ ([0-9a-f]+) /) { print $1; exit }')"
   new_oid="$(printf '%s' "$content" | git -C "$stage" hash-object --stdin --path="$target")" || return 1
   if [ "$old_oid" = "$new_oid" ]; then return 0; fi
   blob_oid="$(printf '%s' "$content" | git -C "$stage" hash-object -w --stdin --path="$target")" || return 1
@@ -168,13 +173,32 @@ shard_delta_add_text() {
   return 0
 }
 
+# shard_count_files <directory>
+# Counts regular files without letting a filename's bytes affect the count or
+# the output format. The latter matters for `.shard-filecount`: full and delta
+# must commit the same canonical decimal marker, not two `wc` spellings.
+shard_count_files() {
+  local dir="$1"
+  find "$dir" -type f -print0 | tr -cd '\0' | wc -c | tr -d '[:space:]'
+}
+
+# shard_index_has_content_changes <stage>
+# A NUL-safe equivalent of the old quiet diff check. `--name-only -z` keeps the
+# path transport lossless even though the result is consumed only as a boolean.
+shard_index_has_content_changes() {
+  local stage="$1"
+  git -C "$stage" -c core.quotePath=false diff --cached --name-only -z -- \
+    . ':!.shard-deploys' ':!.shard-filecount' \
+    | perl -0ne '$found = 1; END { exit($found ? 0 : 1) }'
+}
+
 # shard_delta_remove_stale_payload_paths <stage> <scope_prefix>
 #   <payload_file_list> <removed_file> [require_tombstones]
 # The seeded index is the previous inventory. Remove every tracked payload
 # path under the scope that is absent from the current payload list, including
 # unmanifested files and children of a still-live manifest page. Root service
 # files are handled separately by the caller and are never part of this set.
-# One awk pass emits all deletion records and, by default, cross-checks every
+# One raw parser emits all deletion records and, by default, cross-checks every
 # manifest tombstone before one index-info update. The advisory verifier passes
 # 0 when no previous sidecar exists and derives deletions from the old index.
 shard_delta_remove_stale_payload_paths() {
@@ -189,66 +213,93 @@ shard_delta_remove_stale_payload_paths() {
   count_file="$work/count"
   missing_file="$work/missing-tombstones"
   if [ -n "$scope_prefix" ]; then
-    if ! git -C "$stage" ls-files --stage -- "$scope_prefix/" > "$index_dump"; then
+    if ! git -C "$stage" -c core.quotePath=false ls-files --stage -z -- "$scope_prefix/" > "$index_dump"; then
       rm -rf "$work"
       return 1
     fi
-  elif ! git -C "$stage" ls-files --stage > "$index_dump"; then
+  elif ! git -C "$stage" -c core.quotePath=false ls-files --stage -z > "$index_dump"; then
     rm -rf "$work"
     return 1
   fi
-  if ! awk -F '\t' \
-      -v scope_prefix="$scope_prefix" \
-      -v payload_file_list="$payload_file_list" \
-      -v removed_file="$removed_file" \
-      -v delete_info="$delete_info" \
-      -v count_file="$count_file" \
-      -v missing_file="$missing_file" '
-      function is_service_path(path) {
-        return (path == ".nojekyll" || path == "CNAME" || path == "404.html" || path == "index.html" || path == ".shard-deploys" || path == ".shard-filecount" || index(path, ".deploy-manifest/") == 1 || (scope_prefix != "" && path == scope_prefix ".html"))
+  if ! perl -e '
+      use strict;
+      use warnings;
+
+      my ($index_file, $payload_file, $removed_file, $scope_prefix,
+          $delete_info_file, $count_file, $missing_file) = @ARGV;
+      my (%live, %removed, %found);
+      my $nul = "\0";
+
+      sub read_nul_records {
+        my ($file, $callback) = @_;
+        open my $handle, "<:raw", $file or die "open $file: $!";
+        local $/ = $nul;
+        while (defined(my $record = <$handle>)) {
+          chop $record;
+          next if $record eq q{};
+          $callback->($record);
+        }
+        close $handle or die "close $file: $!";
       }
 
-      function mark_removed_candidates(path, candidate, slash) {
-        candidate = path
-        if (candidate in removed) found[candidate] = 1
-        if (length(candidate) > 11 && substr(candidate, length(candidate) - 10) == "/index.html") {
-          candidate = substr(candidate, 1, length(candidate) - 11)
-          if (candidate in removed) found[candidate] = 1
-        } else if (length(candidate) > 5 && substr(candidate, length(candidate) - 4) == ".html") {
-          candidate = substr(candidate, 1, length(candidate) - 5)
-          if (candidate in removed) found[candidate] = 1
-        }
-        while ((slash = match(candidate, /\/[^\/]*$/)) > 0) {
-          candidate = substr(candidate, 1, slash - 1)
-          if (candidate in removed) found[candidate] = 1
-        }
-      }
+      read_nul_records($payload_file, sub {
+        my ($relative) = @_;
+        my $target = $scope_prefix eq q{} ? $relative : "$scope_prefix/$relative";
+        $live{$target} = 1;
+      });
+      read_nul_records($removed_file, sub {
+        my ($path) = @_;
+        $path =~ s{/+\z}{};
+        $removed{$path} = 1 if $path ne q{};
+      });
 
-      BEGIN {
-        prefix = scope_prefix == "" ? "" : scope_prefix "/"
-        while ((getline line < payload_file_list) > 0) {
-          if (line != "") live[prefix line] = 1
+      open my $delete_handle, ">:raw", $delete_info_file or die "open $delete_info_file: $!";
+      open my $missing_handle, ">:raw", $missing_file or die "open $missing_file: $!";
+      my $matched = 0;
+
+      my $mark_removed_candidates = sub {
+        my ($path) = @_;
+        my $candidate = $path;
+        $found{$candidate} = 1 if exists $removed{$candidate};
+        if ($candidate =~ s{/index\.html\z}{}) {
+          $found{$candidate} = 1 if exists $removed{$candidate};
+        } elsif ($candidate =~ s{\.html\z}{}) {
+          $found{$candidate} = 1 if exists $removed{$candidate};
         }
-        close(payload_file_list)
-        while ((getline line < removed_file) > 0) {
-          sub(/[\/]+$/, "", line)
-          if (line != "") removed[line] = 1
+        while ($candidate =~ s{/[^/]*\z}{}) {
+          $found{$candidate} = 1 if exists $removed{$candidate};
         }
-        close(removed_file)
+      };
+
+      read_nul_records($index_file, sub {
+        my ($record) = @_;
+        my $tab = index($record, "\t");
+        die "index record without path separator" if $tab < 0;
+        my $target = substr($record, $tab + 1);
+        my $is_service = $target eq q{.nojekyll}
+          || $target eq q{CNAME}
+          || $target eq q{404.html}
+          || $target eq q{index.html}
+          || $target eq q{.shard-deploys}
+          || $target eq q{.shard-filecount}
+          || index($target, q{.deploy-manifest/}) == 0
+          || ($scope_prefix ne q{} && $target eq "$scope_prefix.html");
+        return if $is_service || exists $live{$target};
+        print {$delete_handle} "0 0000000000000000000000000000000000000000\t$target$nul";
+        $matched += 1;
+        $mark_removed_candidates->($target);
+      });
+      close $delete_handle or die "close $delete_info_file: $!";
+
+      for my $path (keys %removed) {
+        print {$missing_handle} "$path$nul" unless exists $found{$path};
       }
-      {
-        split($1, metadata, " ")
-        target = $2
-        if (is_service_path(target) || target in live) next
-        print "0 0000000000000000000000000000000000000000\t" target > delete_info
-        matched += 1
-        mark_removed_candidates(target)
-      }
-      END {
-        print matched + 0 > count_file
-        for (removed_path in removed) if (!(removed_path in found)) print removed_path > missing_file
-      }
-    ' "$index_dump"; then
+      close $missing_handle or die "close $missing_file: $!";
+      open my $count_handle, ">:raw", $count_file or die "open $count_file: $!";
+      print {$count_handle} "$matched\n";
+      close $count_handle or die "close $count_file: $!";
+    ' "$index_dump" "$payload_file_list" "$removed_file" "$scope_prefix" \
+      "$delete_info" "$count_file" "$missing_file"; then
     rm -rf "$work"
     return 1
   fi
@@ -258,7 +309,7 @@ shard_delta_remove_stale_payload_paths() {
     return 1
   fi
   removed_count="$(cat "$count_file")"
-  if [ "$removed_count" -gt 0 ] && ! git -C "$stage" update-index --index-info < "$delete_info"; then
+  if [ "$removed_count" -gt 0 ] && ! git -C "$stage" -c core.quotePath=false update-index -z --index-info < "$delete_info"; then
     rm -rf "$work"
     return 1
   fi
@@ -271,8 +322,9 @@ shard_delta_remove_stale_payload_paths() {
 # shard_delta_remove_file <stage> <target_path>
 shard_delta_remove_file() {
   local stage="$1" target="$2"
-  if [ -n "$(git -C "$stage" ls-files --stage -- "$target" 2>/dev/null)" ]; then
-    git -C "$stage" update-index --force-remove -- "$target" || return 1
+  if [ "$(git -C "$stage" -c core.quotePath=false ls-files --stage -z -- "$target" 2>/dev/null \
+      | wc -c | tr -d '[:space:]')" -gt 0 ]; then
+    git -C "$stage" -c core.quotePath=false update-index --force-remove -- "$target" || return 1
     SHARD_DELTA_REMOVED_FILES=$((SHARD_DELTA_REMOVED_FILES + 1))
     SHARD_DELTA_CONTENT_CHANGES=$((SHARD_DELTA_CONTENT_CHANGES + 1))
   fi
@@ -290,7 +342,7 @@ shard_delta_remove_file() {
 shard_delta_apply_source_tree() {
   local stage="$1" source_root="$2" target_prefix="$3"
   local changed_file_list="$4" unmanifested_file_list="$5" payload_file_list="$6"
-  local work candidate_list metadata index_dump hashes candidate_hashes
+  local work candidate_list metadata source_paths index_dump hashes
   local changed_sources index_info count_file source_count changed_count
   [ -d "$source_root" ] || return 1
   source_root="$(cd "$source_root" && pwd)" || return 1
@@ -303,74 +355,129 @@ shard_delta_apply_source_tree() {
   SHARD_DELTA_REMOVED_FILES=0
   SHARD_DELTA_CONTENT_CHANGES=0
   work="$(mktemp -d)" || return 1
-  candidate_list="$work/candidates.txt"
-  metadata="$work/metadata.tsv"
+  candidate_list="$work/candidates.list"
+  metadata="$work/metadata.list"
+  source_paths="$work/source-paths.list"
   index_dump="$work/index.dump"
   hashes="$work/hashes"
-  candidate_hashes="$work/candidate-hashes.tsv"
-  changed_sources="$work/changed-sources.txt"
-  index_info="$work/index.info"
+  changed_sources="$work/changed-sources.list"
+  index_info="$work/index.info.list"
   count_file="$work/counts"
 
-  if ! awk 'NF { print }' "$payload_file_list" > "$work/payload-nonempty.txt"; then
+  if ! cp "$changed_file_list" "$candidate_list" \
+    || ! cat "$unmanifested_file_list" >> "$candidate_list"; then
     rm -rf "$work"
     return 1
   fi
-  source_count="$(wc -l < "$work/payload-nonempty.txt" | tr -d ' ')"
+  source_count="$(tr -cd '\0' < "$payload_file_list" | wc -c | tr -d '[:space:]')"
   SHARD_DELTA_SOURCE_FILES="${source_count:-0}"
-  if ! sort -u "$changed_file_list" "$unmanifested_file_list" > "$candidate_list"; then
-    rm -rf "$work"
-    return 1
-  fi
 
   if [ -s "$candidate_list" ]; then
-    if ! awk -v root="$source_root" -v prefix="$target_prefix" 'NF {
-        target = prefix == "" ? $1 : prefix "/" $1
-        print $1 "\t" root "/" $1 "\t" target
-      }' "$candidate_list" > "$metadata"; then
-      rm -rf "$work"
-      return 1
-    fi
-    if ! git -C "$stage" ls-files --stage > "$index_dump"; then
-      rm -rf "$work"
-      return 1
-    fi
-    if ! awk -F '\t' '{ print $2 }' "$metadata" | git -C "$stage" hash-object --stdin-paths > "$hashes"; then
-      rm -rf "$work"
-      return 1
-    fi
-    if ! paste "$metadata" "$hashes" > "$candidate_hashes"; then
-      rm -rf "$work"
-      return 1
-    fi
-    if ! awk -F '\t' \
-        -v index_file="$index_dump" \
-        -v changed_sources="$changed_sources" \
-        -v index_info="$index_info" \
-        -v count_file="$count_file" '
-        BEGIN {
-          while ((getline line < index_file) > 0) {
-            split(line, fields, "\t")
-            split(fields[1], metadata, " ")
-            old_oid[fields[2]] = metadata[2]
-          }
-          close(index_file)
+    # Keep source and target paths as raw byte strings. The metadata stream is
+    # two NUL-terminated fields per candidate; unlike whitespace/tab parsing,
+    # this preserves Unicode, spaces, apostrophes, and embedded newlines.
+    if ! perl -e '
+        use strict;
+        use warnings;
+        my ($root, $prefix, $candidate_file, $metadata_file, $source_file) = @ARGV;
+        open my $input, "<:raw", $candidate_file or die "open $candidate_file: $!";
+        open my $metadata, ">:raw", $metadata_file or die "open $metadata_file: $!";
+        open my $sources, ">:raw", $source_file or die "open $source_file: $!";
+        local $/ = "\0";
+        while (defined(my $relative = <$input>)) {
+          chop $relative;
+          next if $relative eq q{};
+          my $source = "$root/$relative";
+          my $target = $prefix eq q{} ? $relative : "$prefix/$relative";
+          print {$metadata} "$source\0$target\0";
+          # `git hash-object --stdin-paths` has no NUL switch: it consumes one
+          # literal path per line. Keep this bridge unquoted and byte-for-byte;
+          # the NUL streams remain authoritative everywhere else.
+          print {$sources} "$source\n";
         }
+        close $input or die "close $candidate_file: $!";
+        close $metadata or die "close $metadata_file: $!";
+        close $sources or die "close $source_file: $!";
+      ' "$source_root" "$target_prefix" "$candidate_list" "$metadata" "$source_paths"; then
+      rm -rf "$work"
+      return 1
+    fi
+    if ! git -C "$stage" -c core.quotePath=false ls-files --stage -z > "$index_dump"; then
+      rm -rf "$work"
+      return 1
+    fi
+    if ! git -C "$stage" hash-object --stdin-paths < "$source_paths" > "$hashes"; then
+      rm -rf "$work"
+      return 1
+    fi
+    if ! perl -e '
+        use strict;
+        use warnings;
+        my ($index_file, $metadata_file, $hash_file, $changed_file,
+            $index_info_file, $count_file) = @ARGV;
+        my %old_oid;
+        my $nul = "\0";
+
+        open my $index, "<:raw", $index_file or die "open $index_file: $!";
         {
-          target = $3
-          new_oid = $4
-          if (old_oid[target] == new_oid) {
-            reused += 1
-          } else {
-            print $2 > changed_sources
-            print "100644 " new_oid "\t" target > index_info
-            changed += 1
+          local $/ = $nul;
+          while (defined(my $record = <$index>)) {
+            chop $record;
+            next if $record eq q{};
+            my $tab = index($record, "\t");
+            die "index record without path separator" if $tab < 0;
+            my $header = substr($record, 0, $tab);
+            my $path = substr($record, $tab + 1);
+            my (undef, $oid) = split / /, $header, 3;
+            $old_oid{$path} = $oid;
           }
         }
-        END {
-          print changed + 0, reused + 0 > count_file
+        close $index or die "close $index_file: $!";
+
+        open my $metadata, "<:raw", $metadata_file or die "open $metadata_file: $!";
+        my @fields;
+        {
+          local $/ = $nul;
+          while (defined(my $field = <$metadata>)) {
+            chop $field;
+            push @fields, $field;
+          }
         }
-      ' "$candidate_hashes"; then
+        close $metadata or die "close $metadata_file: $!";
+
+        open my $hashes, "<:raw", $hash_file or die "open $hash_file: $!";
+        my @oids;
+        {
+          local $/ = "\n";
+          @oids = <$hashes>;
+        }
+        close $hashes or die "close $hash_file: $!";
+        chomp @oids;
+        die "metadata/hash count mismatch" if @fields / 2 != @oids;
+
+        open my $changed, ">:raw", $changed_file or die "open $changed_file: $!";
+        open my $index_info, ">:raw", $index_info_file or die "open $index_info_file: $!";
+        my ($changed_count, $reused_count) = (0, 0);
+        for (my $i = 0; $i < @oids; $i++) {
+          my $source = $fields[$i * 2];
+          my $target = $fields[$i * 2 + 1];
+          my $oid = $oids[$i];
+          if (defined $old_oid{$target} && $old_oid{$target} eq $oid) {
+            $reused_count += 1;
+          } else {
+            # See the source-path bridge above: hash-object reads literal LF
+            # records, while the index-info stream below is NUL-delimited.
+            print {$changed} "$source\n";
+            print {$index_info} "100644 $oid\t$target$nul";
+            $changed_count += 1;
+          }
+        }
+        close $changed or die "close $changed_file: $!";
+        close $index_info or die "close $index_info_file: $!";
+        open my $counts, ">:raw", $count_file or die "open $count_file: $!";
+        print {$counts} "$changed_count $reused_count\n";
+        close $counts or die "close $count_file: $!";
+      ' "$index_dump" "$metadata" "$hashes" "$changed_sources" "$index_info" "$count_file"; then
       rm -rf "$work"
       return 1
     fi
@@ -380,7 +487,7 @@ shard_delta_apply_source_tree() {
         rm -rf "$work"
         return 1
       fi
-      if ! git -C "$stage" update-index --index-info < "$index_info"; then
+      if ! git -C "$stage" -c core.quotePath=false update-index -z --index-info < "$index_info"; then
         rm -rf "$work"
         return 1
       fi
@@ -399,10 +506,10 @@ shard_delta_apply_source_tree() {
 # one current snapshot (when a manifest is available).
 shard_delta_remove_manifest_sidecars() {
   local stage="$1" path
-  while IFS= read -r path; do
+  while IFS= read -r -d '' path; do
     [ -n "$path" ] || continue
-    git -C "$stage" update-index --force-remove -- "$path" || return 1
-  done < <(git -C "$stage" ls-files --name-only -- '.deploy-manifest/' 2>/dev/null)
+    git -C "$stage" -c core.quotePath=false update-index --force-remove -- "$path" || return 1
+  done < <(git -C "$stage" -c core.quotePath=false ls-files -z --name-only -- '.deploy-manifest/' 2>/dev/null)
   return 0
 }
 
@@ -451,7 +558,7 @@ shard_delta_verify_prepare() {
       SHARD_VERIFY_REASON='verification output directory unavailable'
       return 1
     fi
-    if ! ( cd "$payload_root" && find . -type f -print | sed 's#^\./##' | LC_ALL=C sort ) > "$out_dir/payload-files.txt"; then
+    if ! ( cd "$payload_root" && find . -type f -print0 | perl -0pe 's#^\./##' ) > "$out_dir/payload-files.txt"; then
       SHARD_VERIFY_REASON='verification payload listing failed'
       return 1
     fi
@@ -616,7 +723,8 @@ shard_delta_verify_report() {
 # shard_delta_count_files <stage> <path-prefix>
 shard_delta_count_files() {
   local stage="$1" prefix="$2"
-  git -C "$stage" ls-files -- "$prefix" 2>/dev/null | awk 'NF { count += 1 } END { print count + 0 }'
+  git -C "$stage" -c core.quotePath=false ls-files -z -- "$prefix" 2>/dev/null \
+    | tr -cd '\0' | wc -c | tr -d '[:space:]'
 }
 
 # True when the final indexed tree loses more than <pct> percent of its files.

@@ -107,7 +107,7 @@ push_shard() {
   # copy (n < source) or an upstream build regression that emits a much
   # smaller locale (n << last-good) is caught EXACTLY, not just the
   # near-empty case.
-  src_n="$(find "$dist_dir/$loc" -type f | wc -l)"
+  src_n="$(shard_count_files "$dist_dir/$loc")"
   # prev_n is read from the blobless clone itself further below (via
   # shard_read_counter, git-plumbing HEAD:.shard-filecount) instead of a
   # separate raw.githubusercontent.com fetch — see shard-git-helpers.sh
@@ -343,7 +343,7 @@ push_shard() {
       mkdir -p "$stage/$(dirname "$delta_sidecar")"
       cp "$delta_snapshot" "$stage/$delta_sidecar"
     fi
-    n="$(find "$stage/$loc" -type f | wc -l)"
+    n="$(shard_count_files "$stage/$loc")"
     # BUILT size = the shard as EMITTED by the build, before the "Strip section
     # subtrees" step removed already-verified-live section subtrees. Gate (b)
     # reasons on THIS (not the smaller served $n) so a populate-then-strip
@@ -418,7 +418,7 @@ push_shard() {
     # only care whether the SERVED CONTENT changed; if it didn't, there is
     # nothing to publish and bumping the history counter is pointless.
     if [ "$incremental" = 1 ] \
-       && git diff --cached --quiet -- . ':!.shard-deploys' ':!.shard-filecount'; then
+       && ! shard_index_has_content_changes "$stage"; then
       echo "$loc shard: no content changes vs remote — skipping push (already current)"
     else
       _sha="${GITHUB_SHA:-local}"; _sha="${_sha:0:8}"

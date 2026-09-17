@@ -147,7 +147,7 @@ push_section_shard() {
   ( cd "$stage_src" && CDN_BASE="$CDN_BASE_FIXED" node "$repo_root/scripts/offload-generated-images-cdn.mjs" ) \
     || echo "::warning::offload on $loc $section subtree returned non-zero (offload is fail-safe/exit-0; continuing)"
 
-  src_n="$(find "$stage_src/dist/$sub" -type f | wc -l)"
+  src_n="$(shard_count_files "$stage_src/dist/$sub")"
   printf '%s' "$src_n" > "$RUNNER_TEMP/shard-srcn-$section-$loc"
 
   stage="$RUNNER_TEMP/shard-$section-$loc"
@@ -186,9 +186,6 @@ push_section_shard() {
     if [ "$SHARD_PUSH_MODE" = full ] && [ "${SHARD_PUSH_VERIFY:-}" = 1 ]; then
       delta_sidecar="$(shard_delta_manifest_sidecar "$loc")"
       verify_started="$SECONDS"
-      # Full section mode persists the native `wc -l` spelling (including
-      # macOS padding) in .shard-filecount; mirror that exact legacy tree
-      # marker so the verifier does not turn formatting into a false red.
       if shard_delta_verify_prepare \
           "$verify_stage" "$SHARD_REPO" "$manifest_dir/$loc.jsonl" "$delta_sidecar" \
           "$sub" "$stage_src/dist" "$manifest_tool" "$verify_output" \
@@ -199,7 +196,7 @@ push_section_shard() {
             "<!doctype html><meta charset=utf-8><title>frontaliereticino.ch $section-$loc shard</title>" \
             '' '' "$([ "$loc" = it ] && printf '%s' "$stage_src/dist/404.html" || true)" \
             "$verify_snapshot" "$delta_sidecar" \
-        && verify_n="$(find "$stage_src/dist/$sub" -type f | wc -l)" \
+        && verify_n="$(shard_count_files "$stage_src/dist/$sub")" \
         && verify_dcount="$SHARD_VERIFY_DCOUNT" \
         && shard_delta_add_text "$verify_stage" .shard-filecount "$verify_n" 0 \
         && shard_delta_add_text "$verify_stage" .shard-deploys "$((verify_dcount + 1))" 0 \
@@ -327,7 +324,7 @@ push_section_shard() {
         cp "$delta_snapshot" "$stage/$delta_sidecar"
       fi
 
-      n="$(find "$stage/$sub" -type f | wc -l)"
+      n="$(shard_count_files "$stage/$sub")"
       test -s "$stage/$sub/index.html"
       [ "$n" -ge "$src_n" ]
       # Shrink guard (defect A, issue #4881): refuse a push whose tree lost
@@ -406,7 +403,7 @@ push_section_shard() {
       git config user.name "Valerie Linc"
       git add -A
       if [ "$incremental" = 1 ] \
-         && git diff --cached --quiet -- . ':!.shard-deploys' ':!.shard-filecount'; then
+         && ! shard_index_has_content_changes "$stage"; then
         echo "$section-$loc shard: no content changes vs remote — skipping push (already current)"
       else
       _sha="${GITHUB_SHA:-local}"; _sha="${_sha:0:8}"
