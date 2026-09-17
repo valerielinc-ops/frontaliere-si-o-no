@@ -143,13 +143,13 @@ async function fetchListings() {
   });
   if (authoritativeEmptySnapshot) {
     console.log('✅ Careers page rendered with no open position — publishing the proven empty snapshot.');
-    return { rows, authoritativeEmptySnapshot };
+    return { rows, authoritativeEmptySnapshot, authoritativeSnapshotVerified: true };
   }
 
   // A non-empty result is valid at any size, including one row, but only when
   // the parser accounted for every vacancy heading in the complete source DOM.
   // This preserves the data-integrity check without bringing back a count floor.
-  assertCompleteArtisaListingSnapshot(rows);
+  const authoritativeSnapshotVerified = assertCompleteArtisaListingSnapshot(rows) === true;
 
   // Fetch detail pages from Smartsheet forms (sequential to be polite)
   for (const row of rows) {
@@ -172,7 +172,7 @@ async function fetchListings() {
   if (rows.length === 0) {
     console.log('ℹ️  Nessun annuncio trovato per Artisa Group — non è un errore, il crawler prosegue.');
   }
-  return { rows, authoritativeEmptySnapshot };
+  return { rows, authoritativeEmptySnapshot, authoritativeSnapshotVerified };
 }
 
 async function buildArtisaJob(row) {
@@ -329,7 +329,11 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log(`  Careers page: ${CAREERS_URL}\n`);
 
-  const { rows: listings, authoritativeEmptySnapshot } = await fetchListings();
+  const {
+    rows: listings,
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
+  } = await fetchListings();
   const jobs = [];
   for (const listing of listings) {
     jobs.push(await buildArtisaJob(listing));
@@ -389,6 +393,7 @@ async function main() {
     // (#7324). This bespoke runner writes its own summary slice, so it has to
     // carry the field itself.
     authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,

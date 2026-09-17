@@ -36,6 +36,7 @@ import {
   inferTsmgCategory,
   buildTsmgLocalizedContent,
 } from './lib/tsmg-job-parser.mjs';
+import { isSwissLocationText } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -123,6 +124,9 @@ function assertCompleteTsmgSourceSnapshot(payload) {
       || typeof location !== 'string'
     ) {
       throw new Error(`TSMG Lever returned a degraded snapshot at posting ${index + 1}`);
+    }
+    if (job.country.trim().toUpperCase() === 'CH' && !isSwissLocationText(location)) {
+      throw new Error(`TSMG Lever returned an unrecognised Swiss location at posting ${index + 1}`);
     }
   }
   return payload;
@@ -298,6 +302,9 @@ async function main() {
   const rawJobs = assertCompleteTsmgSourceSnapshot(await fetchJson(API_URL));
   const swiss = rawJobs.filter((job) => String(job.country || '').trim().toUpperCase() === 'CH');
   const target = swiss.filter((job) => isTsmgTargetLocation(job?.categories?.location || ''));
+  if (swiss.length > 0 && target.length === 0) {
+    throw new Error(`TSMG Lever snapshot contains ${swiss.length} Swiss posting(s), but none matched the target location filter`);
+  }
   console.log(`📋 Total Lever jobs: ${rawJobs.length}`);
   console.log(`📋 Switzerland jobs: ${swiss.length}`);
   console.log(`📋 Ticino/Grigioni jobs: ${target.length}`);
