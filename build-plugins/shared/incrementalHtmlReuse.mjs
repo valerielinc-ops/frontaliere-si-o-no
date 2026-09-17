@@ -149,6 +149,10 @@ export function computeJobsSeoEmitterFingerprints(rootDir) {
   const renderFlags = {
     STRIP_ACTIVE_JOB_PROSE: process.env.STRIP_ACTIVE_JOB_PROSE ?? '1',
     STRIP_EXPIRED_JOB_PROSE: process.env.STRIP_EXPIRED_JOB_PROSE ?? '1',
+    JOBS_SEO_SKIP_MINIFY: process.env.JOBS_SEO_SKIP_MINIFY === '1',
+    INFEED_AD_EXPERIMENT_ACTIVE: process.env.KILL_JOBLIST_INFEED_EXPERIMENT?.trim().toLowerCase() !== 'true',
+    ASSET_CDN: (process.env.ASSET_CDN || '').trim().replace(/\/+$/, ''),
+    FAST_BUILD: Boolean(process.env.FAST_BUILD),
   };
   return Object.fromEntries(JOBS_SEO_EMITTER_KINDS.map((kind) => [
     kind,
