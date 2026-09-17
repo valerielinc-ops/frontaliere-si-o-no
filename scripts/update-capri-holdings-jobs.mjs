@@ -362,6 +362,7 @@ async function listSwissJobs(site, brand) {
     let offset = 0;
     const limit = 20;
     let queryPostingsFetched = 0;
+    let queryExpectedTotal;
     const queryPostingIdentities = new Set();
     while (true) {
       const body = JSON.stringify({ appliedFacets: {}, limit, offset, searchText });
@@ -370,7 +371,9 @@ async function listSwissJobs(site, brand) {
         brand,
         searchText,
         offset,
+        expectedTotal: queryExpectedTotal,
       });
+      if (queryExpectedTotal === undefined) queryExpectedTotal = declaredTotal;
       const pageLength = jobPostings.length;
       assertUniqueWorkdayPostings(jobPostings, {
         brand,
@@ -416,7 +419,12 @@ async function fetchJobDetail(site, externalPath) {
   return fetchJson(`${WORKDAY_API_BASE}/${site}${externalPath}`);
 }
 
-export function assertWorkdayPage(data, { brand = 'Capri Holdings', searchText = '', offset = 0 } = {}) {
+export function assertWorkdayPage(data, {
+  brand = 'Capri Holdings',
+  searchText = '',
+  offset = 0,
+  expectedTotal,
+} = {}) {
   if (!data || !Array.isArray(data.jobPostings)) {
     throw new Error(
       `Workday ${brand} ${searchText || 'empty'} search returned a malformed page at offset ${offset}`,
@@ -431,6 +439,12 @@ export function assertWorkdayPage(data, { brand = 'Capri Holdings', searchText =
     throw new Error(
       `Workday ${brand} ${searchText || 'empty'} search returned an invalid total `
       + `${rawTotal ?? '?'} at offset ${offset}`,
+    );
+  }
+  if (expectedTotal !== undefined && declaredTotal !== expectedTotal) {
+    throw new Error(
+      `Workday ${brand} ${searchText || 'empty'} search changed its total from `
+      + `${expectedTotal} to ${declaredTotal} at offset ${offset}`,
     );
   }
   return { jobPostings: data.jobPostings, declaredTotal };

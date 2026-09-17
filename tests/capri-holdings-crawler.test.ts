@@ -127,6 +127,12 @@ describe('Capri Workday location resolution', () => {
     }
   });
 
+  it('fails closed when Workday changes its total between pages', () => {
+    expect(() => assertWorkdayPage({ jobPostings: [], total: 4 }, {
+      brand: 'Michael Kors', searchText: 'Switzerland', offset: 20, expectedTotal: 3,
+    })).toThrow(/changed its total/);
+  });
+
   it('fails closed when a query repeats a posting identity across pages', () => {
     const seen = new Set();
     assertUniqueWorkdayPostings([{ externalPath: '/job/Zurich/role-1' }], {
