@@ -4494,6 +4494,25 @@ export function classifyNonRetryableError(status, bodyText = '', providerName = 
     return { nonRetryable: true, markExhausted: true };
   }
 
+  // HTTP 410 — provider Gone / modello arrivato a fine vita. Nella run
+  // 35095698299 NVIDIA ha restituito {"type":"about:blank","title":"Gone","status":410,"detail":"The model 'meta/llama-3.1-8b-instruct' has reached its end of life on 2026-08-26T09:00:00Z..."}.
+  // Un gateway puo' pero' usare 410 per un corpo transitorio: in quel caso
+  // deve cadere al controllo retryable successivo.
+  if (status === 410 && !isRetryableError(status, bodyText)) {
+    return { nonRetryable: true, markExhausted: true };
+  }
+
+  // HTTP 403 — OpenRouter ha restituito nella run 35095698299
+  // {"error":{"message":"thinkingmachines/inkling-small:free is only available on agentic harnesses. Try plugging it into a coding agent or productivity app..."}}.
+  // Un 403 puo' essere transitorio (challenge Cloudflare, blocco regionale), e
+  // GitHub Models deve cadere attraverso per consentire la rotazione delle PAT.
+  // exhausted vale solo per la run corrente: non viene mai persistito, perche'
+  // _persistScoresToFirestore scrive exhaustedUntil solo quando _exhaustReason
+  // e' 'quota'. Un endpoint che torna vivo viene ripreso nella run successiva.
+  if (status === 403 && !isGitHubModels && !isRetryableError(status, bodyText)) {
+    return { nonRetryable: true, markExhausted: true };
+  }
+
   if (status !== 400) return { nonRetryable: false, markExhausted: false };
 
   // Model doesn't exist — mark exhausted for entire run
