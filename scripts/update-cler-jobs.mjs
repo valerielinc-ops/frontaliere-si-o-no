@@ -38,10 +38,10 @@ import {
   validateClerDescription,
   extractJobMeta,
   dedupeClerJobsByStableId,
+  parseClerApiResponse,
 } from './lib/cler-job-parser.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -274,9 +274,9 @@ async function fetchJobListings() {
     throw new Error(`API returned ${res.status}`);
   }
   const data = await res.json();
-  const results = assertJsonListShape(data, { key: 'results', source: 'cler' });
-  console.log(`  📋 API returned ${results.length} listings`);
-  return results;
+  const { listings, declaredTotal } = parseClerApiResponse(data);
+  console.log(`  📋 API returned ${listings.length}/${declaredTotal} listings (source total verified)`);
+  return listings;
 }
 
 async function fetchDetailPage(relativeUrl) {
@@ -538,9 +538,12 @@ function validateLocales() {
     dataJobsPath: DATA_JOBS,
     isTargetJob,
     failOnMissingJobsFile: true,
-    failWhenNoJobs: true,
+    // A zero is accepted only after parseClerApiResponse has reconciled the
+    // API's explicit resultsTotalCount. This remains false deliberately:
+    // the crawler contract allows a valid zero and forbids a job-count gate.
+    failWhenNoJobs: false,
     minDescriptionChars: 80,
-    noJobsMessage: 'No Cler jobs found after crawl.',
+    noJobsMessage: 'Cler source returned no jobs; no count gate is applied.',
     detectSourceLang: (text) => detectLang(text, 'de'),
     isTrustedDomain,
     untrustedDomainReason: 'untrusted_domain_for_cler_job',

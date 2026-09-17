@@ -4,6 +4,51 @@
  */
 import { JSDOM } from 'jsdom';
 import { extractStableJobId } from './job-match-key.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
+
+/**
+ * Validate the Cler listing envelope and reconcile it with the source total.
+ *
+ * `results: []` is a legitimate empty board only when the API also reports
+ * `resultsTotalCount: 0`. A malformed envelope, a missing total, or a page
+ * shorter than the declared total is an unproven/partial read and must fail
+ * before the caller can treat it as a zero-job refresh.
+ *
+ * @param {unknown} data parsed Cler jobssearch response
+ * @returns {{ listings: object[], declaredTotal: number, sourceEmptyProven: boolean }}
+ */
+export function parseClerApiResponse(data) {
+  const listings = assertJsonListShape(data, { key: 'results', source: 'cler' });
+  const hasResultsArray = data !== null
+    && typeof data === 'object'
+    && !Array.isArray(data)
+    && Array.isArray(data.results);
+  if (!hasResultsArray) {
+    throw new Error('Cler source response did not expose a results array; refusing an unproven zero-job refresh.');
+  }
+
+  const rawTotal = data.resultsTotalCount;
+  const declaredTotal = typeof rawTotal === 'number'
+    ? rawTotal
+    : typeof rawTotal === 'string' && rawTotal.trim() !== ''
+      ? Number(rawTotal)
+      : Number.NaN;
+  if (!Number.isSafeInteger(declaredTotal) || declaredTotal < 0) {
+    throw new Error('Cler source response did not expose a valid resultsTotalCount; completeness is unverified.');
+  }
+  if (listings.length !== declaredTotal) {
+    throw new Error(
+      `Cler source listing is incomplete: API declares ${declaredTotal} listings but returned ${listings.length}; `
+      + 'refusing a truncated or unproven refresh.',
+    );
+  }
+
+  return {
+    listings,
+    declaredTotal,
+    sourceEmptyProven: declaredTotal === 0,
+  };
+}
 
 /**
  * Newest career-section year embedded in a Cler job URL, or 0 when the path

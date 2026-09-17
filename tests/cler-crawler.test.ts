@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+import { parseClerApiResponse } from '../scripts/lib/cler-job-parser.mjs';
 import { htmlToMarkdown, validateClerDescription, extractJobMeta, dedupeClerJobsByStableId, clerCareerSectionYear } from '../scripts/lib/cler-job-parser.mjs';
 import { extractStableJobId } from '../scripts/lib/job-match-key.mjs';
 
@@ -166,6 +167,31 @@ function buildClerListingFixture() {
 }
 
 const getListingUrl = (l: { link?: { url?: string } }) => (l?.link?.url ? `${API_BASE}${l.link.url}` : '');
+
+describe('parseClerApiResponse — source completeness proof', () => {
+  it('accepts a genuinely empty API result when the source declares zero', () => {
+    const parsed = parseClerApiResponse({ results: [], resultsTotalCount: 0 });
+    expect(parsed.listings).toEqual([]);
+    expect(parsed.declaredTotal).toBe(0);
+    expect(parsed.sourceEmptyProven).toBe(true);
+  });
+
+  it('accepts a non-empty response only when it matches the declared total', () => {
+    const parsed = parseClerApiResponse({ results: [{ title: 'A' }, { title: 'B' }], resultsTotalCount: '2' });
+    expect(parsed.listings).toHaveLength(2);
+    expect(parsed.sourceEmptyProven).toBe(false);
+  });
+
+  it('fails closed when the response envelope cannot prove a source result', () => {
+    expect(() => parseClerApiResponse({ error: 'rate limited' })).toThrow(/results array/);
+    expect(() => parseClerApiResponse({ results: [] })).toThrow(/resultsTotalCount/);
+  });
+
+  it('fails loudly instead of accepting a page shorter than the declared total', () => {
+    expect(() => parseClerApiResponse({ results: [{ title: 'A' }], resultsTotalCount: 2 }))
+      .toThrow(/declares 2 listings but returned 1/);
+  });
+});
 
 describe('dedupeClerJobsByStableId — #3836', () => {
   it('collapses 12 duplicate listings into 6 distinct jobs', () => {
