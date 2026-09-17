@@ -22,6 +22,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -346,11 +347,22 @@ function buildDescriptionIt(title, location) {
   return `Posizione aperta presso FNZ${location ? ` a ${location}` : ' in Svizzera'}.\nRuolo: ${title}.\n\nFNZ è un provider globale di piattaforme fintech che collabora con istituzioni finanziarie, gestori patrimoniali e asset manager. L'azienda opera da più sedi in Svizzera.`.trim();
 }
 
-/** Resolve a Workday location list without inventing an office fallback. */
+/** Resolve a Workday location list while preserving national fallback data. */
 export function resolveFnzLocation(locationCandidates = []) {
   const resolved = resolveFnzSwissLocation(locationCandidates);
   if (!resolved) return null;
-  return { raw: resolved.raw, city: resolved.location, canton: resolved.canton };
+  return {
+    raw: resolved.raw,
+    city: resolved.location,
+    canton: resolved.canton,
+    ...(resolved.nationalFallback ? {
+      nationalFallback: true,
+      addressLocality: resolved.addressLocality,
+      addressRegion: resolved.addressRegion,
+      postalCode: resolved.postalCode,
+      streetAddress: resolved.streetAddress,
+    } : {}),
+  };
 }
 
 function buildPublicUrl(externalPath) {
@@ -410,7 +422,21 @@ async function fetchFnzJobs() {
       continue;
     }
 
-    const { city: location, canton } = resolvedLocation;
+    const {
+      city: location,
+      canton,
+      nationalFallback,
+      addressLocality,
+      addressRegion,
+      postalCode,
+      streetAddress,
+    } = resolvedLocation;
+    if (nationalFallback) {
+      console.log(
+        `  ℹ️ Retained — Swiss country-only location with national address fallback `
+        + `(${addressLocality}, ${addressRegion} ${postalCode})`,
+      );
+    }
 
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
@@ -430,8 +456,8 @@ async function fetchFnzJobs() {
       company: FNZ_COMPANY_NAME,
       companyKey: FNZ_KEY,
       location,
-      addressLocality: location,
-      addressRegion: canton,
+      addressLocality: addressLocality || location,
+      addressRegion: addressRegion || canton,
       addressCountry: 'CH',
       canton,
       country: 'CH',
@@ -457,6 +483,12 @@ async function fetchFnzJobs() {
       sector: 'Fintech / Servizi finanziari',
       _targetScope: { canton, location },
     };
+
+    if (nationalFallback) {
+      job.nationalFallback = true;
+      job.postalCode = postalCode;
+      job.streetAddress = streetAddress;
+    }
 
     if (jobReqId) job.jobReqId = jobReqId;
 
@@ -718,4 +750,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'FNZ'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'FNZ'));
+}

@@ -221,3 +221,28 @@ describe('applyCompanyDefaults — crawler-side stamping (#3513)', () => {
     expect(sameLocalityAsHq('Winterthur', 'Manno')).toBe(false);
   });
 });
+
+describe('FNZ country-only national fallback', () => {
+  it('keeps the fallback city, postal code, and region aligned', () => {
+    const s = buildJobPostingSchema(
+      {
+        ...baseJob,
+        company: 'FNZ (Switzerland) AG',
+        companyKey: 'fnz',
+        location: 'Switzerland',
+        addressLocality: 'Bern',
+        addressRegion: 'BE',
+        postalCode: '3011',
+        streetAddress: 'Bundesplatz 3',
+      },
+      OPTS,
+    );
+    expect(s.jobLocation.address).toMatchObject({
+      addressLocality: 'Bern',
+      addressRegion: 'BE',
+      postalCode: '3011',
+      streetAddress: 'Bundesplatz 3',
+    });
+    expect(Object.values(s.jobLocation.address).every(Boolean)).toBe(true);
+  });
+});

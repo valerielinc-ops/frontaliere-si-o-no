@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import { resolveFnzSwissLocation } from '../scripts/lib/fnz-job-parser.mjs';
+import { resolveFnzLocation } from '../scripts/update-fnz-jobs.mjs';
 
 const fnzCrawlerSource = fs.readFileSync(
   new URL('../scripts/update-fnz-jobs.mjs', import.meta.url),
@@ -50,16 +51,45 @@ describe('fnz-job-parser / resolveFnzSwissLocation', () => {
     }])).toBeNull();
   });
 
-  it('rejects generic Switzerland instead of inventing Chiasso', () => {
-    expect(resolveFnzSwissLocation(['Switzerland'])).toBeNull();
+  it('keeps a country-only Swiss posting with an explicit national fallback', () => {
+    expect(resolveFnzSwissLocation(['Switzerland'])).toEqual({
+      raw: 'Switzerland',
+      location: 'Switzerland',
+      canton: '',
+      nationalFallback: true,
+      addressLocality: 'Bern',
+      addressRegion: 'BE',
+      postalCode: '3011',
+      streetAddress: 'Bundesplatz 3',
+    });
   });
 
-  it('rejects every country-only alias without selecting a historical office', () => {
-    expect(resolveFnzSwissLocation(['Schweiz', 'Suisse', 'Svizzera', 'Swiss'])).toBeNull();
+  it('keeps every country-only alias without selecting a historical office', () => {
+    expect(resolveFnzSwissLocation(['Schweiz', 'Suisse', 'Svizzera', 'Swiss'])).toMatchObject({
+      location: 'Switzerland',
+      canton: '',
+      nationalFallback: true,
+    });
   });
 
-  it('rejects an unresolved Swiss remote label instead of inventing a city', () => {
-    expect(resolveFnzSwissLocation(['Remote, Switzerland'])).toBeNull();
+  it('keeps an unresolved Swiss remote label without inventing a city', () => {
+    expect(resolveFnzSwissLocation(['Remote, Switzerland'])).toMatchObject({
+      location: 'Switzerland',
+      canton: '',
+      nationalFallback: true,
+    });
+  });
+
+  it('keeps a country-only posting in the runner payload with a national address', () => {
+    expect(resolveFnzLocation(['Switzerland'])).toMatchObject({
+      city: 'Switzerland',
+      canton: '',
+      nationalFallback: true,
+      addressLocality: 'Bern',
+      addressRegion: 'BE',
+      postalCode: '3011',
+      streetAddress: 'Bundesplatz 3',
+    });
   });
 
   it('does not map an explicit non-Zürich canton-only value to Zürich', () => {

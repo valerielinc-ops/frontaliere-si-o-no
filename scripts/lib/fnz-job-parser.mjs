@@ -6,6 +6,15 @@ import {
   swissCityFromLocationField,
 } from './target-swiss-locations.mjs';
 
+// Country-only Workday locations stay nationally scoped while structured data
+// receives one coherent safe address.
+const FNZ_NATIONAL_ADDRESS_FALLBACK = Object.freeze({
+  addressLocality: 'Bern',
+  addressRegion: 'BE',
+  postalCode: '3011',
+  streetAddress: 'Bundesplatz 3',
+});
+
 function locationText(value) {
   if (typeof value === 'string' || typeof value === 'number') return String(value).trim();
   if (!value || typeof value !== 'object') return '';
@@ -50,17 +59,32 @@ function normalizeCandidate(candidate) {
   };
 }
 
+function isCountryOnlySwissSignal(signal) {
+  const value = String(signal || '');
+  if (!/\b(?:remote|ch|che|swiss|switzerland|schweiz|suisse|svizzera)\b/i.test(value)) {
+    return false;
+  }
+
+  const residue = value
+    .replace(/\b(?:remote|ch|che|swiss|switzerland|schweiz|suisse|svizzera)\b/gi, '')
+    .replace(/[\s,;|/()_-]+/g, '');
+  return residue === '';
+}
+
 /**
  * Resolve a Workday posting to a concrete Swiss location. Workday may put a
  * country-only value before a more specific additional location, so all
  * candidates are inspected before accepting one. If no candidate supplies a
- * concrete municipality, reject the posting rather than inventing a city from
- * an unresolved label such as "Switzerland" or "Remote".
+ * concrete municipality, preserve a country-only Swiss posting with an
+ * unresolved public location and a coherent national address fallback.
  */
 export function resolveFnzSwissLocation(candidates = []) {
+  let countryOnlyFallback = null;
+
   for (const candidate of Array.isArray(candidates) ? candidates : []) {
     const { raw, signal, city } = normalizeCandidate(candidate);
-    if (!raw || !signal || !isSwissLocationText(signal)) continue;
+    const countryOnly = isCountryOnlySwissSignal(signal);
+    if (!raw || !signal || (!countryOnly && !isSwissLocationText(signal))) continue;
 
     // Search the complete source signal before falling back to the ATS's first
     // segment. This covers `location: Switzerland` plus a richer
@@ -87,7 +111,17 @@ export function resolveFnzSwissLocation(candidates = []) {
       return { raw, location, canton };
     }
 
+    if (countryOnly && !signalCanton && !countryOnlyFallback) {
+      countryOnlyFallback = {
+        raw,
+        location: 'Switzerland',
+        canton: '',
+        nationalFallback: true,
+        ...FNZ_NATIONAL_ADDRESS_FALLBACK,
+      };
+    }
+
   }
 
-  return null;
+  return countryOnlyFallback;
 }
