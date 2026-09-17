@@ -60,6 +60,11 @@ on:
         type: string
         required: false
         default: 'base='
+      chain:
+        description: 'Optional chained cache namespace (for example reuse-it); empty keeps production caches read-only'
+        type: string
+        required: false
+        default: ''
       compare_monolith:
         description: 'Run the all-locales monolith and compare gate (single variant only)'
         type: boolean
@@ -328,10 +333,22 @@ jobs:
         if: inputs.stop_after_jobs_seo == true
         run: echo 'BUILD_STOP_AFTER=jobsSeoPages' >> "$GITHUB_ENV"
 
-      # Read-only copies of deploy.yml's production carry-over caches. The
-      # experiment deliberately has no cache-save step, so variants cannot
-      # replace a production snapshot.
+      # A chained bench gets its own namespace and is always tried first. A
+      # production restore is allowed only when that namespace did not match;
+      # cache-matched-key also covers a restore-keys hit (where cache-hit is
+      # false). Empty chain keeps the experiment read-only.
+      - name: Restore chained incremental manifest
+        if: inputs.chain != ''
+        id: bench-incremental-manifest-cache
+        uses: actions/cache/restore@v5
+        with:
+          path: .cache/incremental-manifest
+          key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ github.run_id }}
+          restore-keys: |
+            bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-
+
       - name: Restore previous incremental manifest
+        if: inputs.chain == '' || steps.bench-incremental-manifest-cache.outputs.cache-matched-key == ''
         id: incremental-manifest-cache
         uses: actions/cache/restore@v5
         with:
@@ -340,13 +357,51 @@ jobs:
           restore-keys: |
             incremental-manifest-${{ matrix.locale }}-
 
+      - name: Restore chained jobs SEO HTML cache
+        if: env.JOBS_SEO_REUSE == '1' && inputs.chain != ''
+        id: bench-jobs-seo-html-cache
+        uses: actions/cache/restore@v5
+        with:
+          path: .cache/incremental-html
+          # Keep the production exact-hash contract: the restored manifest is
+          # the source of this hash, so another manifest cannot silently become
+          # the HTML input for this run.
+          key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
+
       - name: Restore previous jobs SEO HTML cache
-        if: env.JOBS_SEO_REUSE == '1'
+        if: env.JOBS_SEO_REUSE == '1' && (inputs.chain == '' || steps.bench-jobs-seo-html-cache.outputs.cache-matched-key == '')
         id: jobs-seo-html-cache
         uses: actions/cache/restore@v5
         with:
           path: .cache/incremental-html
           key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
+
+      - name: Document chained cache restores
+        if: always()
+        env:
+          CHAIN: ${{ inputs.chain }}
+          VARIANT: ${{ matrix.variant }}
+          LOCALE: ${{ matrix.locale }}
+          BENCH_MANIFEST_KEY: ${{ steps.bench-incremental-manifest-cache.outputs.cache-matched-key }}
+          PROD_MANIFEST_KEY: ${{ steps.incremental-manifest-cache.outputs.cache-matched-key }}
+          BENCH_HTML_KEY: ${{ steps.bench-jobs-seo-html-cache.outputs.cache-matched-key }}
+          PROD_HTML_KEY: ${{ steps.jobs-seo-html-cache.outputs.cache-matched-key }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          key_or_none() { [ -n "$1" ] && printf '%s' "$1" || printf '_none_'; }
+          {
+            echo "### Cache restores — ${LOCALE}/${VARIANT}"
+            echo
+            echo "chain=${CHAIN:-<empty>} (bench namespace is attempted before production)"
+            echo
+            echo '| cache | restored key |'
+            echo '|---|---|'
+            echo "| bench incremental manifest | \`$(key_or_none "$BENCH_MANIFEST_KEY")\` |"
+            echo "| production incremental manifest fallback | \`$(key_or_none "$PROD_MANIFEST_KEY")\` |"
+            echo "| bench jobs SEO HTML | \`$(key_or_none "$BENCH_HTML_KEY")\` |"
+            echo "| production jobs SEO HTML fallback | \`$(key_or_none "$PROD_HTML_KEY")\` |"
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Stash previous incremental manifest before build overwrites it
         shell: bash
@@ -633,6 +688,35 @@ jobs:
             fi
           } > "$MARKER_FILE"
 
+          {
+            echo "### Reuse and verify markers — ${MARKER_LOCALE}/${MARKER_VARIANT}"
+            echo
+            echo '| marker | counters/details |'
+            echo '|---|---|'
+            if [ -f "$BUILD_LOG" ]; then
+              # Keep [jobs-seo-reuse] rendered/reused/mismatches and
+              # [post-walk-coordinator][incremental-verify] sample/mismatch
+              # counters visible in the summary, alongside profile rows.
+              strip_ansi < "$BUILD_LOG" \
+                | { grep -E '^(\[(mem|jobs-seo-profile|incremental-manifest)\]|\[jobs-seo-reuse\]|\[post-walk[^]]*\])' || true; } \
+                | awk '
+                  {
+                    marker = $1;
+                    sub(/^\[/, "", marker);
+                    sub(/\]$/, "", marker);
+                    detail = $0;
+                    sub(/^\[[^]]+\][[:space:]]*/, "", detail);
+                    gsub(/\|/, "&#124;", detail);
+                    printf "| `%s` | %s |\n", marker, detail;
+                    found = 1;
+                  }
+                  END { if (!found) print "| _none_ | no reuse/verify markers emitted |" }
+                '
+            else
+              echo '| _none_ | build log missing |'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
           memory_fields() {
             awk -v needle="$1" '
               index($0, needle) {
@@ -704,6 +788,55 @@ jobs:
           path: /tmp/markers-${{ matrix.locale }}-${{ matrix.variant }}.txt
           retention-days: 14
           if-no-files-found: error
+
+      # Chained bench writes are opt-in and namespaced. These are the only
+      # carry-over states consumed by postWalkIncremental and
+      # incrementalHtmlReuse; production cache keys are never written here.
+      - name: Save chained jobs SEO HTML cache
+        if: success() && inputs.chain != '' && env.JOBS_SEO_REUSE == '1' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != '' && hashFiles('.cache/incremental-html/**') != ''
+        id: bench-jobs-seo-html-save
+        uses: actions/cache/save@v5
+        with:
+          path: .cache/incremental-html
+          key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
+
+      - name: Save chained incremental manifest
+        if: success() && inputs.chain != '' && hashFiles('.cache/incremental-manifest/*.jsonl') != ''
+        id: bench-incremental-manifest-save
+        uses: actions/cache/save@v5
+        with:
+          path: .cache/incremental-manifest
+          key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ github.run_id }}
+
+      - name: Document chained cache saves
+        if: always()
+        env:
+          CHAIN: ${{ inputs.chain }}
+          VARIANT: ${{ matrix.variant }}
+          LOCALE: ${{ matrix.locale }}
+          RUN_ID: ${{ github.run_id }}
+          JOBS_SEO_REUSE: ${{ env.JOBS_SEO_REUSE }}
+          HTML_HASH: ${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
+          HTML_SAVE_OUTCOME: ${{ steps.bench-jobs-seo-html-save.outcome }}
+          MANIFEST_SAVE_OUTCOME: ${{ steps.bench-incremental-manifest-save.outcome }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          {
+            echo "### Cache saves — ${LOCALE}/${VARIANT}"
+            echo
+            echo '| cache | outcome | saved key |'
+            echo '|---|---|---|'
+            if [ -z "$CHAIN" ]; then
+              echo '| bench jobs SEO HTML | not saved (chain input empty) | _none_ |'
+              echo '| bench incremental manifest | not saved (chain input empty) | _none_ |'
+            else
+              html_key="bench-${CHAIN}-${VARIANT}-${LOCALE}-${HTML_HASH}"
+              manifest_key="bench-${CHAIN}-${VARIANT}-${LOCALE}-${RUN_ID}"
+              echo "| bench jobs SEO HTML | ${HTML_SAVE_OUTCOME:-skipped} | \`${html_key}\` |"
+              echo "| bench incremental manifest | ${MANIFEST_SAVE_OUTCOME:-skipped} | \`${manifest_key}\` |"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
 
   # ── Classic monolith build (all 4 locales) from the SAME prep snapshot ──
   # Reference for the equivalence check. Same data + same wall-clock window as
