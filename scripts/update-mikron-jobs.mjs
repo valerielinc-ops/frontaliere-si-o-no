@@ -2,12 +2,12 @@
 /**
  * Dedicated Mikron Group crawler runner.
  *
- * Mikron Group is a Swiss industrial/precision manufacturing company
- * with the Machining division headquartered in Agno, Canton Ticino.
+ * Mikron Group is a Swiss industrial/precision manufacturing company with
+ * Swiss sites including Machining in Agno and Automation in Boudry.
  *
  * Career page: https://www.mikron.com/en/group/our-people/join-us/jobs
- * Agno filter: ?location=Switzerland%2C+Agno
- * The page uses Drupal Views with AJAX filtering.
+ * The page uses Drupal Views with AJAX filtering; the crawler reads the
+ * national listing and resolves each posting's Swiss canton.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -105,11 +105,13 @@ function detectEmploymentType(title = '') {
 /**
  * Build a rich fallback description (>50 words) when detail page yields nothing.
  */
-function buildFallbackDescription(title, division, locale = 'en') {
+function buildFallbackDescription(title, division, city = '', locale = 'en') {
+  const locationIt = city ? `a ${city}` : 'in Svizzera';
+  const locationEn = city ? `in ${city}` : 'in Switzerland';
   if (locale === 'it') {
-    return `Posizione aperta: ${title} presso Mikron Group ad Agno, Cantone Ticino, Svizzera.${division ? ` Divisione: ${division}.` : ''}\n\nMikron Group è un leader globale nella produzione di precisione e automazione, con sede a Bienne (Svizzera) e operazioni in tutto il mondo. La divisione Mikron Machining, con sede ad Agno (Ticino), è specializzata nella progettazione e produzione di sistemi di lavorazione ad alta precisione per l'industria automobilistica, medicale, elettronica e dell'orologeria. L'azienda offre un ambiente di lavoro dinamico, possibilità di crescita professionale, una cultura aziendale positiva con forte spirito di squadra, e una retribuzione competitiva con eccellenti prestazioni sociali.`;
+    return `Posizione aperta: ${title} presso Mikron Group ${locationIt}.${division ? ` Divisione: ${division}.` : ''}\n\nMikron Group è un leader globale nella produzione di precisione e automazione, con sede a Bienne (Svizzera) e diverse sedi operative nel Paese. Le attività svizzere includono Mikron Machining ad Agno (TI) e Mikron Automation a Boudry (NE), con sistemi di lavorazione ad alta precisione per l'industria automobilistica, medicale, elettronica e dell'orologeria. L'azienda offre un ambiente di lavoro dinamico, possibilità di crescita professionale, una cultura aziendale positiva con forte spirito di squadra, e una retribuzione competitiva con eccellenti prestazioni sociali.`;
   }
-  return `Open position: ${title} at Mikron Group in Agno, Canton Ticino, Switzerland.${division ? ` Division: ${division}.` : ''}\n\nMikron Group is a global leader in precision manufacturing and automation, headquartered in Biel/Bienne (Switzerland) with operations worldwide. The Mikron Machining division, based in Agno (Ticino), specializes in the design and production of high-precision machining systems for the automotive, medical, electronics, and watchmaking industries. The company offers a dynamic working environment, career growth opportunities, a positive corporate culture with strong team spirit, and competitive compensation with excellent social benefits.`;
+  return `Open position: ${title} at Mikron Group ${locationEn}.${division ? ` Division: ${division}.` : ''}\n\nMikron Group is a global leader in precision manufacturing and automation, headquartered in Biel/Bienne (Switzerland) with several operating sites in the country. Its Swiss activities include Mikron Machining in Agno (TI) and Mikron Automation in Boudry (NE), with high-precision machining systems for the automotive, medical, electronics, and watchmaking industries. The company offers a dynamic working environment, career growth opportunities, a positive corporate culture with strong team spirit, and competitive compensation with excellent social benefits.`;
 }
 
 // Known Swiss site addresses, keyed by city. Other cities fall back to the
@@ -186,10 +188,10 @@ async function fetchMikronJobs() {
 
     // Fallback: build a rich description (>50 words) if detail page failed
     if (!descEn || descEn.split(/\s+/).length < 50) {
-      descEn = buildFallbackDescription(title, p.division, 'en');
+      descEn = buildFallbackDescription(title, p.division, city, 'en');
     }
     if (!descIt) {
-      descIt = buildFallbackDescription(title, p.division, 'it');
+      descIt = buildFallbackDescription(title, p.division, city, 'it');
     }
 
     const employmentType = detectEmploymentType(title);
@@ -253,7 +255,7 @@ async function main() {
 
   const discoveredJobs = await fetchMikronJobs();
   if (discoveredJobs.length === 0) {
-    console.log('\n⚠️ No Mikron Agno jobs discovered. Keeping existing.');
+    console.log('\n⚠️ No Mikron Swiss jobs discovered. Keeping existing.');
     const afterSnapshot = fs.existsSync(DATA_JOBS) ? snapshotJobSlugs((JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) || []).filter(isMikronJob)) : new Map();
     printCrawlChangeSummary(computeCrawlDiff(beforeSnapshot, afterSnapshot), 'Mikron');
     writeCrawlChangeSummaryToGH(computeCrawlDiff(beforeSnapshot, afterSnapshot), 'Mikron');
@@ -284,11 +286,11 @@ async function main() {
 
   const finalJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const companyJobs = (Array.isArray(finalJobs) ? finalJobs : []).filter(isMikronJob);
-  console.log(`\n📊 Mikron Agno jobs: ${companyJobs.length}`);
+  console.log(`\n📊 Mikron Swiss jobs: ${companyJobs.length}`);
   const diff = computeCrawlDiff(beforeSnapshot, snapshotJobSlugs(companyJobs));
   printCrawlChangeSummary(diff, 'Mikron');
   writeCrawlChangeSummaryToGH(diff, 'Mikron');
-  validateDedicatedLocaleCoverage({ strictEnvVar: 'JOBS_MIKRON_STRICT', label: 'Mikron', dataJobsPath: DATA_JOBS, isTargetJob: isMikronJob, locales: LOCALES, isTrustedDomain, untrustedDomainReason: 'url_not_mikron_domain', failWhenNoJobs: false, noJobsMessage: 'No Mikron Agno jobs found.' });
+  validateDedicatedLocaleCoverage({ strictEnvVar: 'JOBS_MIKRON_STRICT', label: 'Mikron', dataJobsPath: DATA_JOBS, isTargetJob: isMikronJob, locales: LOCALES, isTrustedDomain, untrustedDomainReason: 'url_not_mikron_domain', failWhenNoJobs: false, noJobsMessage: 'No Mikron Swiss jobs found.' });
   console.log('\n✅ Mikron Group crawler complete.');
 
   const _durationMs = getCrawlerElapsedMs();

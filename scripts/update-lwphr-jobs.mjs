@@ -22,8 +22,7 @@ import {
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { translateMissingJobLocales, validateDedicatedLocaleCoverage, detectLang, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
-import { parseLwphrOpenJobs, inferLwphrLocation, inferLwphrCategory, buildLwphrLocalizedPayload, extractTitleFromPdfText, reconcilePdfTitle } from './lib/lwphr-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { parseLwphrOpenJobs, inferLwphrLocation, inferLwphrCanton, inferLwphrCategory, buildLwphrLocalizedPayload, extractTitleFromPdfText, reconcilePdfTitle } from './lib/lwphr-job-parser.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -41,7 +40,6 @@ const COMPANY_KEY = 'lwphr';
 // cross-process-racy write pattern behind #3769/#3770. Scope it per-company.
 const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
-const HQ = getCompanyDefaults('lwphr');
 const COMPANY_NAME = 'LWP Ledermann Wieting & Partners';
 const COMPANY_HOST = 'www.lwphr.ch';
 const COMPANY_DOMAIN = 'lwphr.ch';
@@ -101,7 +99,8 @@ function buildJob({ title, pdfUrl, pdfText }) {
   const pdfTitle = extractTitleFromPdfText(pdfText);
   const resolvedTitle = reconcilePdfTitle(title, pdfTitle);
   title = resolvedTitle;
-  const location = inferLwphrLocation(title, pdfText);
+  const location = inferLwphrLocation(title, pdfText, { fallbackLocation: '' });
+  const canton = inferLwphrCanton(title, pdfText);
   const localized = buildLwphrLocalizedPayload({ title, pdfText, location, pdfUrl });
   return {
     title: localized.titles.it,
@@ -113,9 +112,9 @@ function buildJob({ title, pdfUrl, pdfText }) {
     companyDomain: COMPANY_DOMAIN,
     location,
     addressLocality: location,
-    addressRegion: HQ.addressRegion,
+    addressRegion: canton,
     addressCountry: 'CH',
-    canton: HQ.canton,
+    canton,
     country: 'CH',
     category: inferLwphrCategory(title, pdfText),
     sector: 'Consulenza',
@@ -129,7 +128,7 @@ function buildJob({ title, pdfUrl, pdfText }) {
       introLines: [
         `${COMPANY_NAME} pubblica questa opportunita sul suo portale careers.`,
         `Titolo: ${title}.`,
-        `Sede indicativa: ${location}.`,
+        location ? `Sede indicativa: ${location}.` : 'Sede indicativa non specificata nella pubblicazione.',
       ],
       pdfText,
       footerLines: [
@@ -189,7 +188,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: HQ.canton,
+      canton: job.canton || '',
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

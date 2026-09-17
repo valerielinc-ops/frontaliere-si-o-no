@@ -2,15 +2,15 @@
 /**
  * Dedicated FNZ crawler runner.
  *
- * FNZ is a global fintech platform provider. Their Swiss operations are
- * based in Chiasso (Ticino) and Geneva.
+ * FNZ is a global fintech platform provider with Swiss operations across
+ * multiple locations.
  *
  * The FNZ careers site uses Workday (myworkdayjobs.com) with a REST API:
  *   - Listing: POST /wday/cxs/fnz/fnz_careers/jobs
  *   - Detail:  GET  /wday/cxs/fnz/fnz_careers/job/{externalPath}
  *
  * Discovery flow:
- *   1. Query Workday API for Swiss-location jobs (Chiasso + Geneva)
+ *   1. Query Workday API for Swiss-location jobs across all 26 cantons
  *   2. Fetch full job detail for each listing
  *   3. Build job objects with canonical Workday URLs
  *   4. Merge into data/jobs.json (add new, update existing, prune stale)
@@ -47,7 +47,7 @@ import {
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { isSwissLocationText, inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { isSwissLocationText, inferAnyCanton, swissCityFromLocationField } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -74,8 +74,8 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 // Switzerland detection — text-based via the authoritative shared helper
 // (isSwissLocationText: country tokens + all-26-canton BFS municipality data),
 // NOT brittle Workday location UUIDs. Workday recycles/renames location facet
-// IDs whenever FNZ restructures sites (the old Chiasso/Geneva UUIDs vanished
-// from the facet list → 0 jobs). We instead fetch all FNZ postings and keep the
+// IDs whenever FNZ restructures sites (previous office UUIDs can vanish from
+// the facet list → 0 jobs). We instead fetch all FNZ postings and keep the
 // ones whose location text resolves to Switzerland, so the crawler self-heals
 // when FNZ adds/renames CH locations.
 
@@ -263,8 +263,8 @@ function parseWorkdayLocation(locText = '') {
 }
 
 function inferCanton(location = '') {
-  // Crawler keeps any Swiss location text (not just Chiasso/Geneva — see
-  // isSwissLocationText usage above, "other CH" self-heal), so canton
+  // Crawler keeps any Swiss location text across all 26 cantons (see
+  // isSwissLocationText usage above), so canton
   // resolution must cover all 26 cantons via the BFS municipality registry
   // instead of a hand-rolled dict of just a handful of cities (would
   // silently return '' for any other real Swiss site).
@@ -305,12 +305,28 @@ function detectEmploymentType(timeType = '') {
 }
 
 function buildDescription(title, descriptionText, location) {
-  const base = descriptionText || `${title} position at FNZ in ${location}, Switzerland.`;
-  return `${base}\n\nFNZ is a global fintech platform provider that partners with financial institutions, wealth managers, and asset managers. The company has Swiss operations in Chiasso (Ticino) and Geneva.`.trim();
+  const base = descriptionText || `${title} position at FNZ${location ? ` in ${location}` : ' in Switzerland'}.`;
+  return `${base}\n\nFNZ is a global fintech platform provider that partners with financial institutions, wealth managers, and asset managers. The company operates from multiple locations in Switzerland.`.trim();
 }
 
 function buildDescriptionIt(title, location) {
-  return `Posizione aperta presso FNZ a ${location}.\nRuolo: ${title}.\n\nFNZ è un provider globale di piattaforme fintech che collabora con istituzioni finanziarie, gestori patrimoniali e asset manager. L'azienda ha sedi svizzere a Chiasso (Ticino) e Ginevra.`.trim();
+  return `Posizione aperta presso FNZ${location ? ` a ${location}` : ' in Svizzera'}.\nRuolo: ${title}.\n\nFNZ è un provider globale di piattaforme fintech che collabora con istituzioni finanziarie, gestori patrimoniali e asset manager. L'azienda opera da più sedi in Svizzera.`.trim();
+}
+
+function isBareSwissCountry(value = '') {
+  return /^(?:ch|che|switzerland|schweiz|suisse|svizzera|swiss)$/i.test(normalizeSpace(value));
+}
+
+/** Resolve a Workday location list without inventing a primary-office city. */
+export function resolveFnzLocation(locationCandidates = []) {
+  const candidates = Array.isArray(locationCandidates)
+    ? locationCandidates.map((value) => normalizeSpace(value)).filter(Boolean)
+    : [];
+  const swissCandidates = candidates.filter((value) => isSwissLocationText(value));
+  const concrete = swissCandidates.find((value) => swissCityFromLocationField(value) && !isBareSwissCountry(value));
+  const raw = concrete || swissCandidates.find((value) => !isBareSwissCountry(value)) || swissCandidates[0] || '';
+  const city = swissCityFromLocationField(raw);
+  return { raw, city, canton: inferCanton(city || raw) };
 }
 
 function buildPublicUrl(externalPath) {
@@ -322,7 +338,7 @@ function buildPublicUrl(externalPath) {
 async function fetchFnzJobs() {
   console.log(`🔍 Fetching FNZ jobs from Workday API`);
   console.log(`   API: ${FNZ_API_BASE}/jobs`);
-  console.log(`   Keeping Swiss locations (Chiasso TI / Geneva GE / other CH) by location text\n`);
+  console.log(`   Keeping Swiss locations across all 26 cantons by location text\n`);
 
   const listings = await listSwissJobs();
   if (!listings || listings.length === 0) {
@@ -359,24 +375,23 @@ async function fetchFnzJobs() {
       listing.locationsText || '',
     ];
 
-    const swissLoc = locationCandidates.find((l) => isSwissLocationText(l));
-    if (!swissLoc) {
+    const resolvedLocation = resolveFnzLocation(locationCandidates);
+    if (!resolvedLocation.raw) {
       console.log(`  ⏭️  Skipped — not a Swiss location (${parseWorkdayLocation(info.location || listing.locationsText || '') || 'unknown'})`);
       continue;
     }
 
-    let city = parseWorkdayLocation(swissLoc);
-    // Bare country descriptor ("Switzerland") or empty → default to primary office.
-    if (!city || /switzerland|schweiz|suisse|svizzera/i.test(city)) city = 'Chiasso';
-
-    const canton = inferCanton(city);
+    const { city, canton } = resolvedLocation;
+    // Keep a country-level fallback for structured-data completeness, but do
+    // not turn an unresolved Swiss posting into a specific FNZ office.
+    const location = city || 'Switzerland';
 
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = buildPublicUrl(externalPath);
 
-    const descEn = buildDescription(title, descriptionText, city);
-    const descIt = buildDescriptionIt(title, city);
+    const descEn = buildDescription(title, descriptionText, location);
+    const descIt = buildDescriptionIt(title, location);
 
     const slug = slugify(title, 'fnz');
     const employmentType = detectEmploymentType(info.timeType || '');
@@ -388,7 +403,7 @@ async function fetchFnzJobs() {
       title,
       company: FNZ_COMPANY_NAME,
       companyKey: FNZ_KEY,
-      location: city,
+      location,
       canton,
       country: 'CH',
       description: descEn,
@@ -411,7 +426,7 @@ async function fetchFnzJobs() {
       employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Fintech / Servizi finanziari',
-      _targetScope: { canton, location: city },
+      _targetScope: { canton, location },
     };
 
     if (jobReqId) job.jobReqId = jobReqId;
@@ -497,7 +512,7 @@ function updateAdapterConfig() {
   // No location facet UUIDs in the seed: those go stale when FNZ restructures
   // sites. The runner fetches all postings and keeps Swiss ones by location text.
   adapter.seedUrls = [FNZ_PUBLIC_BASE];
-  adapter.notes = 'Workday REST API at fnz.wd3.myworkdayjobs.com — all postings fetched, Swiss ones (Chiasso TI / Geneva GE / other CH) kept by location text (no brittle location UUIDs).';
+  adapter.notes = 'Workday REST API at fnz.wd3.myworkdayjobs.com — all postings fetched, Swiss ones across all 26 cantons kept by location text (no brittle location UUIDs).';
   adapter.updatedAt = new Date().toISOString();
 
   fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
@@ -545,10 +560,6 @@ function postProcessFnzJobs() {
     if (!job.canton && job.location) {
       job.canton = inferCanton(job.location);
       if (job.canton) fixed++;
-    }
-    if (!job.location) {
-      job.location = 'Chiasso';
-      fixed++;
     }
   }
 
