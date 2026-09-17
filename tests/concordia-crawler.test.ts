@@ -18,6 +18,7 @@ import {
   isConcordiaJob,
   isTrustedDomain,
   parseConcordiaListing,
+  parseConcordiaListingTotal,
   resolveCanton,
   detectCategory,
   detectExperienceLevel,
@@ -116,6 +117,12 @@ describe('Concordia crawler parser', () => {
       expect(parseConcordiaListing('')).toEqual([]);
       expect(parseConcordiaListing('<p>no jobs here</p>')).toEqual([]);
     });
+
+    it('reads the total declared by the listing board', () => {
+      expect(parseConcordiaListingTotal('<div class="total-jobs">51 Jobs</div>')).toBe(51);
+      expect(parseConcordiaListingTotal('<div class="total-jobs">1\'234 Jobs</div>')).toBe(1234);
+      expect(parseConcordiaListingTotal('<div class="jobs">no total</div>')).toBeNull();
+    });
   });
 
   // ── resolveCanton — addressRegion is the canton name, DE/FR/IT variants ──
@@ -136,8 +143,8 @@ describe('Concordia crawler parser', () => {
       expect(resolveCanton('', 'Lugano')).toBe('TI');
     });
 
-    it('falls back to HQ default (LU) when nothing resolves', () => {
-      expect(resolveCanton('', '')).toBe('LU');
+    it('does not invent a canton when the source gives no resolvable location', () => {
+      expect(resolveCanton('', '')).toBe('');
     });
   });
 

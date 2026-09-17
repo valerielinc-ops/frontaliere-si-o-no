@@ -37,8 +37,9 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { fetchHtml } from './hospital-custom-html-helpers.mjs';
-import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { extractJobPostingLd, jobPostingDescriptionText, jobPostingAddress } from './jsonld-jobposting.mjs';
+import { lookupSwissPostalCode } from './swiss-postal-code.mjs';
 
 export const CONCORDIA_KEY = 'concordia';
 export const CONCORDIA_COMPANY_NAME = 'Concordia';
@@ -49,11 +50,6 @@ const LISTING_URL = `https://${BOARD_HOST}/`;
 const CAREER_URL = 'https://www.concordia.ch/de/ueber-uns/jobs/offene-stellen.html';
 const PAGE_SIZE = 100;
 const POLITE_DELAY_MS = 200;
-
-// HQ fallback — Tribschenstrasse, Luzern (observed on multiple live listings).
-const DEFAULT_CANTON = 'LU';
-const DEFAULT_CITY = 'Luzern';
-const DEFAULT_POSTAL = '6005';
 
 // `addressRegion` on the detail page is the Swiss canton name, spelled in
 // whichever locale the individual job posting happens to be authored in
@@ -96,7 +92,7 @@ export function resolveCanton(addressRegion = '', addressLocality = '') {
   const region = normalizeSpace(addressRegion).toLowerCase();
   if (region && CANTON_NAME_TO_CODE[region]) return CANTON_NAME_TO_CODE[region];
   const fromCity = inferAnyCanton(addressLocality) || inferAnyCanton(addressRegion);
-  return fromCity || DEFAULT_CANTON;
+  return fromCity || '';
 }
 
 /** Insurance/national-employer-scoped role category detector. */
@@ -158,22 +154,33 @@ export function parseConcordiaListing(html) {
   return out;
 }
 
+/** Read the total declared by the source board, when its listing page exposes it. */
+export function parseConcordiaListingTotal(html = '') {
+  const match = String(html || '').match(
+    /class=["'][^"']*\btotal-jobs\b[^"']*["'][^>]*>\s*([\d\s.,']+)/i,
+  );
+  if (!match) return null;
+  const total = Number(match[1].replace(/[^\d]/g, ''));
+  return Number.isInteger(total) ? total : null;
+}
+
 /** Fetch every listing page (offset-paginated) and return the union of detail URLs. */
 async function fetchAllDetailUrls() {
   const seen = new Set();
   const out = [];
   let offset = 0;
-  // Defensive cap — current live total is ~59; 2000 covers large future growth
-  // without risking an infinite loop if the board ever stops honoring `offset`.
-  const HARD_CAP = 2000;
-  while (offset < HARD_CAP) {
+  let expectedTotal = null;
+  while (true) {
     const pageUrl = `${LISTING_URL}?offset=${offset}&limit=${PAGE_SIZE}&lang=de`;
-    let html;
-    try {
-      html = await fetchHtml(pageUrl);
-    } catch (err) {
-      console.warn(`  ⚠️  Concordia listing fetch failed at offset=${offset}: ${err?.message || err}.`);
-      break;
+    const html = await fetchHtml(pageUrl);
+    const declaredTotal = parseConcordiaListingTotal(html);
+    if (declaredTotal !== null) {
+      if (expectedTotal !== null && declaredTotal !== expectedTotal) {
+        throw new Error(
+          `Concordia listing total changed during pagination: ${expectedTotal} → ${declaredTotal} at offset=${offset}`,
+        );
+      }
+      expectedTotal = declaredTotal;
     }
     const urls = parseConcordiaListing(html);
     let added = 0;
@@ -183,10 +190,35 @@ async function fetchAllDetailUrls() {
       out.push(url);
       added += 1;
     }
-    if (urls.length === 0 || added === 0) break;
-    if (urls.length < PAGE_SIZE) break; // last page
+    if (expectedTotal !== null && out.length > expectedTotal) {
+      throw new Error(
+        `Concordia listing pagination exceeded declared total: source=${expectedTotal}, read=${out.length}`,
+      );
+    }
+    if (urls.length === 0 || added === 0) {
+      if (expectedTotal !== null && out.length < expectedTotal) {
+        throw new Error(
+          `Concordia listing pagination incomplete: source declares ${expectedTotal} jobs, read ${out.length}`,
+        );
+      }
+      break;
+    }
+    if (expectedTotal !== null && out.length >= expectedTotal) break;
+    if (urls.length < PAGE_SIZE) {
+      if (expectedTotal !== null && out.length < expectedTotal) {
+        throw new Error(
+          `Concordia listing pagination incomplete: source declares ${expectedTotal} jobs, read ${out.length}`,
+        );
+      }
+      break;
+    }
     offset += PAGE_SIZE;
     await new Promise((r) => setTimeout(r, POLITE_DELAY_MS));
+  }
+  if (expectedTotal !== null) {
+    console.log(`  ✓ board declares ${expectedTotal} jobs; read ${out.length} listing URLs`);
+  } else {
+    console.log(`  ✓ board has no declared total; read ${out.length} listing URLs until pagination end`);
   }
   return out;
 }
@@ -195,37 +227,46 @@ export async function fetchAllConcordiaJobs() {
   console.log(`🏢 Fetching ${CONCORDIA_COMPANY_NAME} jobs`);
   console.log(`   Source: ${LISTING_URL} (Prospective careercenter 1000725, HTML+JSON-LD)\n`);
 
-  let detailUrls;
-  try {
-    detailUrls = await fetchAllDetailUrls();
-  } catch (err) {
-    console.warn(`⚠️ Concordia listing fetch failed: ${err?.message || err}`);
-    return [];
-  }
+  const detailUrls = await fetchAllDetailUrls();
   console.log(`  ✓ ${detailUrls.length} jobs from board listing`);
   if (!detailUrls.length) return [];
 
   const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
+  let detailFetchFailures = 0;
+  let missingPostingData = 0;
+  let shortDescriptions = 0;
+  let unresolvedLocations = 0;
   for (const url of detailUrls) {
     let ld;
     try {
       const detailHtml = await fetchHtml(url);
       ld = extractJobPostingLd(detailHtml);
     } catch (err) {
+      detailFetchFailures += 1;
       console.warn(`  ⚠️ detail fetch failed: ${err?.message || err}`);
     }
     await new Promise((r) => setTimeout(r, POLITE_DELAY_MS));
-    if (!ld || !ld.title) continue;
+    if (!ld || !ld.title) {
+      missingPostingData += 1;
+      continue;
+    }
 
     const title = normalizeSpace(ld.title);
     const description = jobPostingDescriptionText(ld.description || '');
-    if (!description || description.split(/\s+/).length < 20) continue;
+    if (!description || description.split(/\s+/).length < 20) {
+      shortDescriptions += 1;
+      continue;
+    }
 
     const addr = jobPostingAddress(ld);
-    const location = addr.addressLocality || DEFAULT_CITY;
+    const location = normalizeSpace(addr.addressLocality || '');
     const canton = resolveCanton(addr.addressRegion, location);
-    const postalCode = addr.postalCode || DEFAULT_POSTAL;
+    if (!location || !isTargetSwissLocation(location) || !canton) {
+      unresolvedLocations += 1;
+      continue;
+    }
+    const postalCode = normalizeSpace(addr.postalCode || lookupSwissPostalCode(location));
     const employmentType = /PART_TIME/i.test(ld.employmentType) ? 'PART_TIME'
       : /FULL_TIME/i.test(ld.employmentType) ? 'FULL_TIME' : 'OTHER';
     const postedDate = /^\d{4}-\d{2}-\d{2}/.test(String(ld.datePosted || ''))
@@ -260,7 +301,7 @@ export async function fetchAllConcordiaJobs() {
       addressCountry: 'CH',
       country: 'CH',
       postalCode,
-      streetAddress: addr.streetAddress || '',
+      streetAddress: normalizeSpace(addr.streetAddress || ''),
       category: detectCategory(title),
       contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
       employmentType,
@@ -275,6 +316,13 @@ export async function fetchAllConcordiaJobs() {
     });
   }
 
+  console.log(`  ✓ detail pages: ${detailUrls.length}, fetched failures: ${detailFetchFailures}, missing JobPosting: ${missingPostingData}, short descriptions: ${shortDescriptions}, unresolved locations: ${unresolvedLocations}`);
+  if (detailUrls.length > 0 && jobs.length === 0) {
+    throw new Error(
+      `Concordia source returned ${detailUrls.length} listing URLs but 0 valid Swiss JobPosting records `
+      + `(fetch failures=${detailFetchFailures}, missing data=${missingPostingData}, short descriptions=${shortDescriptions}, unresolved locations=${unresolvedLocations})`,
+    );
+  }
   console.log(`\n📋 Total ${CONCORDIA_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }
