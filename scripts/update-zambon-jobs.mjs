@@ -61,6 +61,11 @@ async function fetchPage(url, timeoutMs = 20000) {
   finally { clearTimeout(timer); }
 }
 
+function isZambonSwissSiteLocation(rawLocation = '') {
+  const location = normalize(rawLocation);
+  return !location || /\bcadempino\b/.test(location);
+}
+
 /**
  * Build a rich description from API metadata since NcorePlat detail pages
  * are behind AWS WAF and can't be fetched server-side.
@@ -162,12 +167,18 @@ async function fetchJobs() {
   const listings = parseListingPage(html);
   console.log(`  📋 HTML fallback found: ${listings.length} jobs`);
 
-  return listings.map((raw) => {
+  const sourceBackedListings = listings.filter((raw) => {
+    if (isZambonSwissSiteLocation(raw.location)) return true;
+    console.warn(`  ⏭️ Dropping fallback row with non-Cadempino source location: ${raw.location}`);
+    return false;
+  });
+
+  return sourceBackedListings.map((raw) => {
     const slug = slugify(raw.title, 'zambon');
     return {
       url: raw.url, applyUrl: raw.url, title: raw.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,
-      location: raw.location || ZAMBON_SWISS_SITE.city, canton: ZAMBON_SWISS_SITE.canton, country: ZAMBON_SWISS_SITE.country,
+      location: ZAMBON_SWISS_SITE.city, canton: ZAMBON_SWISS_SITE.canton, country: ZAMBON_SWISS_SITE.country,
       addressLocality: ZAMBON_SWISS_SITE.city, addressRegion: ZAMBON_SWISS_SITE.canton, addressCountry: ZAMBON_SWISS_SITE.country,
       postalCode: ZAMBON_SWISS_SITE.postalCode, streetAddress: ZAMBON_SWISS_SITE.streetAddress,
       description: `${raw.title} — posizione presso ${COMPANY_NAME} a ${ZAMBON_SWISS_SITE.city} (${ZAMBON_SWISS_SITE.canton}).`,
