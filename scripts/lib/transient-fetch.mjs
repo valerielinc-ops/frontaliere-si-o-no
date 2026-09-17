@@ -140,7 +140,7 @@ export function parseRetryAfterMs(
  *
  * Recognised transient signals:
  *   - `err.retryable === true`            (caller-tagged, e.g. RETRYABLE_STATUS)
- *   - AbortError                          (our own timeout fired)
+ *   - AbortError / TimeoutError            (our own timeout fired)
  *   - cause/code ∈ ECONNRESET, ECONNREFUSED, ETIMEDOUT, EAI_AGAIN, EPIPE,
  *     ENETUNREACH, ENOTFOUND, UND_ERR_* (undici internal transient)
  *   - TypeError "fetch failed" / "network" / "socket hang up" (Node wraps
@@ -164,7 +164,7 @@ export function isTransientFetchError(err) {
     }
   }
   if (err.retryable === true) return true;
-  if (err.name === 'AbortError') return true; // request timed out
+  if (err.name === 'AbortError' || err.name === 'TimeoutError') return true; // request timed out
   // Caller may tag a status directly (HTTP path) instead of throwing a typed err.
   if (Number.isFinite(err.status) && RETRYABLE_STATUS.has(err.status)) return true;
   const code = err.cause?.code || err.code || '';
