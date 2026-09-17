@@ -262,6 +262,15 @@ describe('shared locality helpers (#3513)', () => {
     expect(addr.streetAddress.length).toBeGreaterThan(0);
     expect(addr.addressRegion).toBe('TI');
   });
+
+  it('uses a curated non-TI HQ when the city is absent', () => {
+    expect(resolveFallbackAddress('microsoft')).toMatchObject({
+      addressLocality: 'Zürich',
+      addressRegion: 'ZH',
+      postalCode: '8058',
+      streetAddress: 'The Circle 02',
+    });
+  });
 });
 
 describe('applyCompanyDefaults — crawler-side stamping (#3513)', () => {
