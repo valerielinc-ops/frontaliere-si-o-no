@@ -1611,11 +1611,11 @@
     "canton": "AG"
   },
   "AG::it::business-controller-in-ksa-ch": {
-    "winnerJobIdentifier": "ksa-b4257baebfa2",
-    "winnerCanonical": "controller-di-cura-kantonsspital-aarau-ksa-aarau",
+    "winnerJobIdentifier": "ksa-dfb6babcadae",
+    "winnerCanonical": "business-controller-in-kantonsspital-aarau-ksa-aarau",
     "decidedAt": "2026-09-17T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
-    "score": 0.2222,
+    "score": 0.5714,
     "candidatesCount": 2,
     "canton": "AG"
   },
@@ -1791,12 +1791,12 @@
     "canton": "AG"
   },
   "AG::it::controllore-in-affari-kantonsspital-aarau-ksa-aarau": {
-    "winnerJobIdentifier": "ksa-dfb6babcadae",
-    "winnerCanonical": "business-controller-in-kantonsspital-aarau-ksa-aarau",
+    "winnerJobIdentifier": "ksa-b4257baebfa2",
+    "winnerCanonical": "controller-di-cura-kantonsspital-aarau-ksa-aarau",
     "decidedAt": "2026-09-17T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "AG"
   },
   "AG::it::deine-aufgaben-hirslanden-search-141": {
@@ -2097,11 +2097,11 @@
     "canton": "AG"
   },
   "AG::it::fachfrau-fachmann-gesundheit-ksa-ch": {
-    "winnerJobIdentifier": "ksa-c3a4316e45e0",
-    "winnerCanonical": "salute-professionale-kantonsspital-aarau-ksa-aarau",
+    "winnerJobIdentifier": "ksa-917a360f4605",
+    "winnerCanonical": "fachfrau-fachmann-gesundheit-ksa-ch-3",
     "decidedAt": "2026-09-17T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
-    "score": 0.1111,
+    "score": 0.8333,
     "candidatesCount": 2,
     "canton": "AG"
   },
@@ -2493,9 +2493,9 @@
     "canton": "AG"
   },
   "AG::it::kauffrau-kaufmann-e-oder-m-profil-kanton-aargau-ch": {
-    "winnerJobIdentifier": "kanton-aargau-596f53462922",
+    "winnerJobIdentifier": "kanton-aargau-65c43eb836f6",
     "winnerCanonical": "kauffrau-kaufmann-e-o-m-profil-kanton-aargau-aarau",
-    "decidedAt": "2026-09-13T00:00:00.000Z",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.6364,
     "candidatesCount": 1,
@@ -4518,12 +4518,12 @@
     "canton": "BASILEA"
   },
   "BASILEA::de::assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch": {
-    "winnerJobIdentifier": "unispital-basel-a058cdd33fda",
+    "winnerJobIdentifier": "unispital-basel-e190ca0c5ac4",
     "winnerCanonical": "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-universitatsspital-basel-basel",
-    "decidedAt": "2026-05-18T00:00:00.000Z",
-    "lastSeenAt": "2026-09-15T00:00:00.000Z",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.75,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::de::assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel": {
@@ -4686,6 +4686,15 @@
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.2143,
     "candidatesCount": 1,
+    "canton": "BASILEA"
+  },
+  "BASILEA::de::dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp": {
+    "winnerJobIdentifier": "unispital-basel-84931d10697c",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.9091,
+    "candidatesCount": 2,
     "canton": "BASILEA"
   },
   "BASILEA::de::dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2": {
@@ -4866,6 +4875,15 @@
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0,
     "candidatesCount": 1,
+    "canton": "BASILEA"
+  },
+  "BASILEA::de::med-praxisassistentin-praxisassistent-mpa-anasthesiologie-unispital-basel-ch": {
+    "winnerJobIdentifier": "unispital-basel-4b27f6a9d3ec",
+    "winnerCanonical": "med-praxisassistentin-praxisassistent-mpa-hno-unispital-basel-ch",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.7778,
+    "candidatesCount": 2,
     "canton": "BASILEA"
   },
   "BASILEA::de::medecin-chef-brustklinik-universitatsspital-basel-basel": {
@@ -5291,6 +5309,15 @@
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
+  "BASILEA::en::assistant-health-and-social-services-nursing-assistant-oncological-surgical-station-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-47a1934c7230",
+    "winnerCanonical": "assistant-health-and-social-services-nursing-assistant-eye-clinic-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.6154,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::en::assistente-di-assistenza-pa-o-assistente-assistente-sanitario-e-sociale-ags-nel-salario-orario-universitatsspital-basel-": {
     "winnerJobIdentifier": "unispital-basel-503d1107174d",
     "winnerCanonical": "nursing-assistant-pa-or-assistant-health-and-social-care-ags-in-hourly-wages-universitatsspital-basel-basel",
@@ -5378,6 +5405,15 @@
     "decidedAt": "2026-07-01T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.1538,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::en::dipl-care-specialist-hf-fh-neurological-bedding-station-stroke-unit-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-84931d10697c",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.2941,
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
@@ -5558,6 +5594,15 @@
     "decidedAt": "2026-06-17T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::en::med-practice-assistant-practice-assistant-mpa-anesthesiology-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-4b27f6a9d3ec",
+    "winnerCanonical": "med-praxisassistentin-praxisassistent-mpa-hno-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.4,
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
@@ -5804,6 +5849,15 @@
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
+  "BASILEA::en::postgraduate-studies-nds-intensive-care-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-60646f8a9fdb",
+    "winnerCanonical": "postgraduate-studies-nds-anesthesia-care-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::en::real-estate-manager-kantonale-verwaltung-basel-landschaft-liestal": {
     "winnerJobIdentifier": "kanton-basel-landschaft-3e2ce588ff86",
     "winnerCanonical": "immobilienbewirtschafterin-immobilienbewirtschafter-kantonale-verwaltung-basel-landschaft-liestal",
@@ -6020,12 +6074,30 @@
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
+  "BASILEA::fr::assistant-de-pratique-assistant-de-pratique-mpa-anesthesiologie-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-4b27f6a9d3ec",
+    "winnerCanonical": "med-praxisassistentin-praxisassistent-mpa-hno-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.2727,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::fr::assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel": {
     "winnerJobIdentifier": "unispital-basel-a058cdd33fda",
     "winnerCanonical": "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch",
     "decidedAt": "2026-06-01T00:00:00.000Z",
     "lastSeenAt": "2026-09-15T00:00:00.000Z",
     "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::fr::assistant-en-sante-et-services-sociaux-assistant-en-soins-infirmiers-station-oncologique-chirurgicale-universitatsspital": {
+    "winnerJobIdentifier": "unispital-basel-47a1934c7230",
+    "winnerCanonical": "assistante-en-sante-et-services-sociaux-adjointe-en-soins-infirmiers-clinic-eye-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.4706,
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
@@ -6164,6 +6236,15 @@
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
+  "BASILEA::fr::dipl-expert-expert-soins-d-anesthesie-nds-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-60fc983f61f9",
+    "winnerCanonical": "dipl-experte-expertin-nds-anasthesiepflege-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.3636,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::fr::dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch": {
     "winnerJobIdentifier": "unispital-basel-7e895057a061",
     "winnerCanonical": "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
@@ -6261,6 +6342,15 @@
     "lastSeenAt": "2026-09-15T00:00:00.000Z",
     "score": 0.1875,
     "candidatesCount": 1,
+    "canton": "BASILEA"
+  },
+  "BASILEA::fr::etudes-superieures-dnd-soins-intensifs-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-60646f8a9fdb",
+    "winnerCanonical": "soins-d-anesthesie-des-etudes-superieures-end-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.4545,
+    "candidatesCount": 2,
     "canton": "BASILEA"
   },
   "BASILEA::fr::fachfrau-fachmann-gesundheit-m-w-d-80-100-pbl-liestal": {
@@ -6866,12 +6956,30 @@
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
+  "BASILEA::it::assistant-de-pratique-medicale-assistant-de-pratique-medicale-mpa-anesthesiologie-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-4b27f6a9d3ec",
+    "winnerCanonical": "med-praxisassistentin-praxisassistent-mpa-hno-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::it::assistant-en-sante-et-affaires-sociales-en-gerontopsychiatrie-adullam-stiftung-basel": {
     "winnerJobIdentifier": "adullam-c87d7de18805",
     "winnerCanonical": "dipl-professionista-hf-fh-adullam-stiftung-basel",
     "decidedAt": "2026-09-11T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.2143,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-e190ca0c5ac4",
+    "winnerCanonical": "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.25,
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
@@ -6917,6 +7025,15 @@
     "decidedAt": "2026-08-21T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.5455,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::assistent-in-gesundheit-und-soziales-pflegeassistent-in-onkologisch-chirurgische-station": {
+    "winnerJobIdentifier": "unispital-basel-d8d1d6d917ec",
+    "winnerCanonical": "assistent-in-gesundheit-e-soziales-pflegeassistent-in-onkologisch-chirurgische-station-universitatsspital-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.6667,
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
@@ -7325,6 +7442,24 @@
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
+  "BASILEA::it::dipl-expert-expert-nds-anaesthesia-care-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-67c8ca6fab0a",
+    "winnerCanonical": "dipl-expert-expert-nds-hf-ip-stazione-intensiva-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.4545,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::dipl-experte-expertin-nds-anasthesiepflege-unispital-basel-ch": {
+    "winnerJobIdentifier": "unispital-basel-60fc983f61f9",
+    "winnerCanonical": "dipl-experte-expertin-nds-anasthesiepflege-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.6667,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::it::dipl-infermieristica-ambulatorio-chirurgico-a-breve-termine-universitatsspital-basel-basel": {
     "winnerJobIdentifier": "unispital-basel-a360f647c767",
     "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
@@ -7455,7 +7590,7 @@
     "winnerJobIdentifier": "unispital-basel-a360f647c767",
     "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
     "decidedAt": "2026-06-23T00:00:00.000Z",
-    "lastSeenAt": "2026-09-15T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 1,
     "canton": "BASILEA"
@@ -7548,6 +7683,15 @@
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::dipl-specialista-di-cura-hf-fh-stazione-di-biancheria-da-letto-neurologica-stroke-unit-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-a360f647c767",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.2941,
+    "candidatesCount": 2,
     "canton": "BASILEA"
   },
   "BASILEA::it::dipl-specialista-di-cura-hf-fh-universitatsspital-basel-basel": {
@@ -7668,12 +7812,39 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel": {
-    "winnerJobIdentifier": "unispital-basel-afa5593080c7",
+    "winnerJobIdentifier": "unispital-basel-8c9ec3713984",
     "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
-    "decidedAt": "2026-08-31T00:00:00.000Z",
-    "lastSeenAt": "2026-09-15T00:00:00.000Z",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.125,
     "candidatesCount": 1,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::ergotherapeute-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-df4a5a377f6d",
+    "winnerCanonical": "medico-senior-dermatopatologia-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::ergotherapeutin-ergotherapeut-unispital-basel-ch": {
+    "winnerJobIdentifier": "unispital-basel-b0bb777c8744",
+    "winnerCanonical": "oberarztin-oberarzt-notfallmedizin-unispital-basel-ch",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.375,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::ergotherapeutin-ergotherapeut-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-df4a5a377f6d",
+    "winnerCanonical": "medico-senior-dermatopatologia-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 2,
     "canton": "BASILEA"
   },
   "BASILEA::it::fachfrau-fachmann-gesundheit-m-w-d-80-100-pbl-liestal": {
@@ -7908,6 +8079,15 @@
     "lastSeenAt": "2026-09-02T00:00:00.000Z",
     "score": 0.8333,
     "candidatesCount": 1,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-e190ca0c5ac4",
+    "winnerCanonical": "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.2667,
+    "candidatesCount": 2,
     "canton": "BASILEA"
   },
   "BASILEA::it::hr-beraterin-hr-berater-kanton-basel-landschaft-liestal": {
@@ -8225,6 +8405,15 @@
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
+  "BASILEA::it::med-assistente-di-pratica-assistente-di-pratica-mpa-anestesiologia-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-4b27f6a9d3ec",
+    "winnerCanonical": "med-praxisassistentin-praxisassistent-mpa-hno-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.3636,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::it::med-assistente-pratico-assistente-pratico-mpa-anestesiologia-universitatsspital-basel-basel": {
     "winnerJobIdentifier": "unispital-basel-5771d007e263",
     "winnerCanonical": "med-assistente-pratico-assistente-pratico-mpa-centro-di-emergenza-universitatsspital-basel-basel",
@@ -8324,6 +8513,24 @@
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
+  "BASILEA::it::medecine-du-travail-universitatsspital-basel": {
+    "winnerJobIdentifier": "unispital-basel-df4a5a377f6d",
+    "winnerCanonical": "medico-senior-dermatopatologia-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::medecine-du-travail-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-df4a5a377f6d",
+    "winnerCanonical": "medico-senior-dermatopatologia-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::it::medical-director-cvm-roche-ch": {
     "winnerJobIdentifier": "roche-f9ab1a13e6aa",
     "winnerCanonical": "medical-direttore-cvm-roche-basel",
@@ -8358,6 +8565,15 @@
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.8333,
     "candidatesCount": 1,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::medicina-del-lavoro-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-df4a5a377f6d",
+    "winnerCanonical": "medico-senior-dermatopatologia-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
     "canton": "BASILEA"
   },
   "BASILEA::it::medico-senior-ambulatorio-universitatsspital-basel-basel": {
@@ -8486,11 +8702,20 @@
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
+  "BASILEA::it::nachdiplomstudium-nds-intensivpflege-unispital-basel-ch": {
+    "winnerJobIdentifier": "unispital-basel-ea7b30f0bf81",
+    "winnerCanonical": "nachdiplomstudium-nds-intensivpflege-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.5714,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::it::nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel": {
-    "winnerJobIdentifier": "unispital-basel-afa5593080c7",
+    "winnerJobIdentifier": "unispital-basel-8c9ec3713984",
     "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
-    "decidedAt": "2026-08-31T00:00:00.000Z",
-    "lastSeenAt": "2026-09-15T00:00:00.000Z",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.1538,
     "candidatesCount": 1,
     "canton": "BASILEA"
@@ -8574,6 +8799,24 @@
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 1,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::occupational-medicine-universitatsspital-basel": {
+    "winnerJobIdentifier": "unispital-basel-df4a5a377f6d",
+    "winnerCanonical": "medico-senior-dermatopatologia-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::occupational-medicine-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-df4a5a377f6d",
+    "winnerCanonical": "medico-senior-dermatopatologia-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 2,
     "canton": "BASILEA"
   },
   "BASILEA::it::ottico-m-f-d-fielmann-group-basel": {
@@ -9206,6 +9449,15 @@
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
+  "BASILEA::it::studi-post-laurea-nds-cura-intensiva-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-60646f8a9fdb",
+    "winnerCanonical": "studi-post-laurea-nds-anesthesia-care-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.6,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::it::stv-filialleiter-in-denner": {
     "winnerJobIdentifier": "company-v42vb5",
     "winnerCanonical": "vice-direttore-di-filiale-denner-ag-basel-4958f7",
@@ -9285,6 +9537,15 @@
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.1,
     "candidatesCount": 1,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::terapeuta-del-lavoro-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-df4a5a377f6d",
+    "winnerCanonical": "medico-senior-dermatopatologia-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
     "canton": "BASILEA"
   },
   "BASILEA::it::unterassistentin-unterassistent-medizin-a-ksbl-liestal": {
@@ -13680,10 +13941,10 @@
     "canton": "BE"
   },
   "BE::it::bauingenieur-in-im-konstruktiven-tiefbau-ffs-officine-ferrovie-federali-bern": {
-    "winnerJobIdentifier": "sbb-9602863d2dd1",
+    "winnerJobIdentifier": "sbb-8cb93a57df87",
     "winnerCanonical": "ingegnere-civile-in-ingegneria-civile-strutturale-ffs-officine-ferrovie-federali-bern",
-    "decidedAt": "2026-09-02T00:00:00.000Z",
-    "lastSeenAt": "2026-09-11T00:00:00.000Z",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.4286,
     "candidatesCount": 1,
     "canton": "BE"
@@ -24708,7 +24969,7 @@
     "winnerJobIdentifier": "stellenpartner-cf396155b675",
     "winnerCanonical": "elektroinstallateur-in-mit-selbstandigem-arbeiten-und-servicefokus-stellenpartner-ag-hochdorf",
     "decidedAt": "2026-09-11T00:00:00.000Z",
-    "lastSeenAt": "2026-09-16T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.7273,
     "candidatesCount": 2,
     "canton": "LU"
@@ -27066,7 +27327,7 @@
     "winnerJobIdentifier": "stellenpartner-cf396155b675",
     "winnerCanonical": "installatore-elettrico-con-lavoro-indipendente-e-messa-a-fuoco-di-servizio-stellenpartner-ag-hochdorf-luzern",
     "decidedAt": "2026-09-13T00:00:00.000Z",
-    "lastSeenAt": "2026-09-16T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.0909,
     "candidatesCount": 1,
     "canton": "LU"
@@ -37304,6 +37565,15 @@
     "candidatesCount": 1,
     "canton": "SH"
   },
+  "SH::de::oberarztin-oberarzt-alterspsychiatrie-spitaeler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-30a471e00ffc",
+    "winnerCanonical": "oberarzt-oberarztin-padiatrie-spitaeler-schaffhausen-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.6667,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
   "SH::de::polymechaniker-in-8211-cnc-fertigung-mit-drahterodiermaschinen-schaffhausen-schaffhausen": {
     "winnerJobIdentifier": "sta-c740aff3bfb7",
     "winnerCanonical": "polymechaniker-in-cnc-fertigung-mit-drahterodiermaschinen-sta-personal-ag-schaffhausen",
@@ -37493,6 +37763,15 @@
     "candidatesCount": 2,
     "canton": "SH"
   },
+  "SH::en::health-professional-efz-adult-education-according-to-art-32-bbv-spitaler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-8b0ab9dc6665",
+    "winnerCanonical": "health-professional-efz-adult-education-art-32-geriatric-rehabilitation-and-transitional-care-spitaler-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.5294,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
   "SH::en::health-specialist-efz-experiencing-diversity-in-the-flex-pool-spitaler-schaffhausen-schaffhausen": {
     "winnerJobIdentifier": "spitaeler-schaffhausen-3eb3078ca736",
     "winnerCanonical": "professional-health-efz-spitaler-schaffhausen-schaffhausen",
@@ -37526,6 +37805,15 @@
     "decidedAt": "2026-09-11T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.0556,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
+  "SH::en::professional-health-efz-spitaler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-931d6d0a4386",
+    "winnerCanonical": "health-specialist-efz-experiencing-diversity-in-the-flex-pool-spitaler-schaffhausen-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.3333,
     "candidatesCount": 2,
     "canton": "SH"
   },
@@ -37637,6 +37925,15 @@
     "candidatesCount": 1,
     "canton": "SH"
   },
+  "SH::fr::efz-professionnel-de-la-sante-education-des-adultes-selon-l-art-32-bbv-spitaler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-8b0ab9dc6665",
+    "winnerCanonical": "efz-education-des-adultes-art-32-readaptation-geriatrique-et-soins-de-transition-spitaler-schaffhausen-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.45,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
   "SH::fr::elektroinstallateur-in-sps-steuerung-fur-produktionsanlagen-schaffhausen-schaffhausen": {
     "winnerJobIdentifier": "stellenpartner-a3bf4b89f8cf",
     "winnerCanonical": "installateur-trice-electricien-ne-sps-steuerung-fur-produktionsanlagen-stellenpartner-ag-schaffhausen",
@@ -37697,6 +37994,15 @@
     "decidedAt": "2026-09-11T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.0556,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
+  "SH::fr::sante-professionnelle-efz-spitaler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-931d6d0a4386",
+    "winnerCanonical": "specialiste-de-la-sante-efz-experience-de-la-diversite-dans-le-pool-flexible-spitaler-schaffhausen-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.2857,
     "candidatesCount": 2,
     "canton": "SH"
   },
@@ -37791,12 +38097,12 @@
     "canton": "SH"
   },
   "SH::it::dipl-infermieristica-professionale-hf-spitaler-schaffhausen-schaffhausen": {
-    "winnerJobIdentifier": "spitaeler-schaffhausen-09bbb14af693",
+    "winnerJobIdentifier": "spitaeler-schaffhausen-ef2a159ebba9",
     "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
-    "lastSeenAt": "2026-09-16T00:00:00.000Z",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "SH"
   },
   "SH::it::dipl-infirmiere-infirmiere-specialiste-hf-spitaler-schaffhausen-schaffhausen-acf1a6": {
@@ -37970,6 +38276,15 @@
     "candidatesCount": 1,
     "canton": "SH"
   },
+  "SH::it::esperto-a-in-salute-efz-spitaler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-56e43712bd4d",
+    "winnerCanonical": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.1818,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
   "SH::it::facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network": {
     "winnerJobIdentifier": "company-lumg9u",
     "winnerCanonical": "specialista-in-medicina-interna-generale-50-100-swiss-medical-network-schaffhausen",
@@ -37977,6 +38292,15 @@
     "lastSeenAt": "2026-08-24T00:00:00.000Z",
     "score": 0.2941,
     "candidatesCount": 1,
+    "canton": "SH"
+  },
+  "SH::it::fachfrau-fachmann-gesundheit-cfc-langzeitpsychiatrie-spitaler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-56e43712bd4d",
+    "winnerCanonical": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.625,
+    "candidatesCount": 2,
     "canton": "SH"
   },
   "SH::it::fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen": {
@@ -37997,6 +38321,33 @@
     "candidatesCount": 1,
     "canton": "SH"
   },
+  "SH::it::fachmann-frau-gesundheit-cfc-spitaler-schaffhausen-8ed915": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-56e43712bd4d",
+    "winnerCanonical": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.8571,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
+  "SH::it::fachmann-frau-gesundheit-cfc-spitaler-schaffhausen-j17dop": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-56e43712bd4d",
+    "winnerCanonical": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.8571,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
+  "SH::it::fachmann-frau-gesundheit-cfc-spitaler-schaffhausen-vn930t": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-56e43712bd4d",
+    "winnerCanonical": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.8571,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
   "SH::it::fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen": {
     "winnerJobIdentifier": "spitaeler-schaffhausen-8b0ab9dc6665",
     "winnerCanonical": "fachmann-frau-gesundheit-cfc-erwachsenenbildung-art-32-geriatrischen-rehabilitation-e-ubergangspflege-spitaler-schaffhausen",
@@ -38007,11 +38358,20 @@
     "canton": "SH"
   },
   "SH::it::fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen": {
-    "winnerJobIdentifier": "spitaeler-schaffhausen-3eb3078ca736",
+    "winnerJobIdentifier": "spitaeler-schaffhausen-56e43712bd4d",
     "winnerCanonical": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
-    "decidedAt": "2026-08-21T00:00:00.000Z",
-    "lastSeenAt": "2026-09-16T00:00:00.000Z",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.5,
+    "candidatesCount": 1,
+    "canton": "SH"
+  },
+  "SH::it::fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-2": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-56e43712bd4d",
+    "winnerCanonical": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.4444,
     "candidatesCount": 2,
     "canton": "SH"
   },
@@ -38087,6 +38447,33 @@
     "candidatesCount": 1,
     "canton": "SH"
   },
+  "SH::it::healthcare-specialist-adult-education-according-to-art-32-bbv-spitaler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-ef31a8a82373",
+    "winnerCanonical": "fachmann-frau-gesundheit-cfc-erwachsenenbildung-nach-art-32-bbv-spitaler-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.2941,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
+  "SH::it::healthcare-specialist-efz-in-long-term-psychiatry-spitaler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-56e43712bd4d",
+    "winnerCanonical": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.1538,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
+  "SH::it::healthcare-specialist-efz-spitaler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-56e43712bd4d",
+    "winnerCanonical": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.2222,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
   "SH::it::landmaschinenmechaniker-in-mit-kenntnissen-in-hydraulik-und-pneumatik-schaffhausen": {
     "winnerJobIdentifier": "fachkraft-fcf33ba14301",
     "winnerCanonical": "landmaschinenmechaniker-in-con-kenntnissen-in-hydraulik-e-pneumatik-fachkraft-ch-gmbh-lugano",
@@ -38111,6 +38498,15 @@
     "decidedAt": "2026-09-11T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
+  "SH::it::oberarztin-oberarzt-alterspsychiatrie-spitaeler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-9893184b8125",
+    "winnerCanonical": "oberarztin-oberarzt-alterspsychiatrie-spitaler-schaffhausen-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.6667,
     "candidatesCount": 2,
     "canton": "SH"
   },
@@ -38258,12 +38654,57 @@
     "candidatesCount": 1,
     "canton": "SH"
   },
+  "SH::it::professional-health-efz-adult-education-according-to-art-32-bbv-spitaler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-ef31a8a82373",
+    "winnerCanonical": "fachmann-frau-gesundheit-cfc-erwachsenenbildung-nach-art-32-bbv-spitaler-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.2778,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
+  "SH::it::professional-health-efz-long-term-psychiatry-spitaler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-56e43712bd4d",
+    "winnerCanonical": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
+  "SH::it::professional-wife-health-efz-spitaler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-56e43712bd4d",
+    "winnerCanonical": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
+  "SH::it::psychiatrie-a-long-terme-de-l-efz-spitaler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-56e43712bd4d",
+    "winnerCanonical": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.1538,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
   "SH::it::sanitarinstallateur-in-mit-vielseitigen-fachkenntnissen-schaffhausen-schaffhausen": {
     "winnerJobIdentifier": "stellenpartner-2ca414e79e77",
     "winnerCanonical": "installatore-sanitario-con-competenze-versatili-stellenpartner-ag-schaffhausen-schaffhausen",
     "decidedAt": "2026-09-11T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.0769,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
+  "SH::it::sante-professionnelle-efz-education-des-adultes-selon-l-art-32-bbv-spitaler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-ef31a8a82373",
+    "winnerCanonical": "fachmann-frau-gesundheit-cfc-erwachsenenbildung-nach-art-32-bbv-spitaler-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.2632,
     "candidatesCount": 2,
     "canton": "SH"
   },
@@ -38276,6 +38717,15 @@
     "candidatesCount": 2,
     "canton": "SH"
   },
+  "SH::it::specialista-della-salute-efz-spitaler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-56e43712bd4d",
+    "winnerCanonical": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
   "SH::it::specialista-in-salute-efz-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen": {
     "winnerJobIdentifier": "spitaeler-schaffhausen-931d6d0a4386",
     "winnerCanonical": "fachmann-frau-gesundheit-cfc-vielfalt-erleben-im-flex-pool-spitaler-schaffhausen",
@@ -38285,6 +38735,15 @@
     "candidatesCount": 1,
     "canton": "SH"
   },
+  "SH::it::specialista-in-salute-formazione-per-adulti-ai-sensi-dell-art-32-bbv-spitaler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-ef31a8a82373",
+    "winnerCanonical": "fachmann-frau-gesundheit-cfc-erwachsenenbildung-nach-art-32-bbv-spitaler-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
   "SH::it::specialiste-de-la-sante-efz-experience-de-la-diversite-dans-le-pool-flexible-spitaler-schaffhausen-schaffhausen": {
     "winnerJobIdentifier": "spitaeler-schaffhausen-931d6d0a4386",
     "winnerCanonical": "fachmann-frau-gesundheit-cfc-vielfalt-erleben-im-flex-pool-spitaler-schaffhausen",
@@ -38292,6 +38751,15 @@
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.1429,
     "candidatesCount": 1,
+    "canton": "SH"
+  },
+  "SH::it::specialiste-en-sante-formation-pour-adultes-conformement-a-l-art-32-bbv-spitaler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-ef31a8a82373",
+    "winnerCanonical": "fachmann-frau-gesundheit-cfc-erwachsenenbildung-nach-art-32-bbv-spitaler-schaffhausen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
     "canton": "SH"
   },
   "SH::it::urologia-subassista-100-spitaler-schaffhausen-schaffhausen": {
@@ -49454,6 +49922,15 @@
     "candidatesCount": 1,
     "canton": "VD"
   },
+  "VD::fr::personnes-partenaire-in-holcim-group-eclepens": {
+    "winnerJobIdentifier": "holcim-07473013ef87",
+    "winnerCanonical": "people-partner-in-50-holcim-group-eclepens",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.4444,
+    "candidatesCount": 2,
+    "canton": "VD"
+  },
   "VD::fr::technicien-data-center-ch-villars-ste-croix-presentiel-reboot-monkey-villars-ste-croix": {
     "winnerJobIdentifier": "reboot-monkey-b23f2b6b25c3",
     "winnerCanonical": "technicien-data-center-ch-villars-ste-croix-sur-site-reboot-monkey-villars-ste-croix",
@@ -52875,11 +53352,11 @@
     "canton": "ZH"
   },
   "ZH::de::gartner-in-8211-garten-und-landschaftsbau-fur-abwechslungsreiche-aufgaben-zurich-zurich": {
-    "winnerJobIdentifier": "fachkraft-a18fa1b270cb",
-    "winnerCanonical": "gartner-in-garten-und-landschaftsbau-fur-abwechslungsreiche-aufgaben-fachkraft-ch",
-    "decidedAt": "2026-09-16T00:00:00.000Z",
-    "lastSeenAt": "2026-09-16T00:00:00.000Z",
-    "score": 0.6667,
+    "winnerJobIdentifier": "sta-c0bb16f034d2",
+    "winnerCanonical": "gartner-in-8211-garten-und-landschaftsbau-mit-abwechslungsreichen-aufgaben-bulach-zurich",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.6154,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -72459,11 +72936,11 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-food-coop-genossenschaft-winterthur-zurich": {
-    "winnerJobIdentifier": "company-n1wbez",
-    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-winterthur",
-    "decidedAt": "2026-09-14T00:00:00.000Z",
-    "lastSeenAt": "2026-09-14T00:00:00.000Z",
-    "score": 0.8571,
+    "winnerJobIdentifier": "company-psjdqd",
+    "winnerCanonical": "verkaufer-in-food-genossenschaft-migros-ostschweiz-winterthur-psjdqd",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -72864,9 +73341,9 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich": {
-    "winnerJobIdentifier": "company-ly5dtk",
-    "winnerCanonical": "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-ly5dtk",
-    "decidedAt": "2026-09-02T00:00:00.000Z",
+    "winnerJobIdentifier": "company-vmkgcd",
+    "winnerCanonical": "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-vmkgcd",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.875,
     "candidatesCount": 1,
