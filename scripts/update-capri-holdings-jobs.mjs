@@ -279,10 +279,12 @@ async function listSwissJobs(site, brand) {
   for (const searchText of ['Switzerland', 'Mendrisio', 'Lugano', 'Ticino', '']) {
     let offset = 0;
     const limit = 20;
+    let queryPostingsFetched = 0;
     while (true) {
       const body = JSON.stringify({ appliedFacets: {}, limit, offset, searchText });
       const data = await fetchJson(apiUrl, { method: 'POST', body });
       if (!data || !Array.isArray(data.jobPostings)) break;
+      queryPostingsFetched += data.jobPostings.length;
 
       for (const posting of data.jobPostings) {
         // Check if already found
@@ -303,7 +305,7 @@ async function listSwissJobs(site, brand) {
       if (data.jobPostings.length < limit || (searchText === '' && offset > 200)) break;
       offset += limit;
       // For non-empty search, the results are already filtered, paginate them all
-      if (searchText !== '' && allPostings.length >= (data.total || 0)) break;
+      if (searchText !== '' && queryPostingsFetched >= (data.total || 0)) break;
     }
   }
 
@@ -348,7 +350,6 @@ async function fetchCapriHoldingsJobs() {
     if (!title || title.length < 3) continue;
 
     const listingLocationSignal = getWorkdayListingLocationSignal(listing);
-    const listingIsMultiLocation = isWorkdayMultiLocation(listingLocationSignal);
     const detailLocation = stringifyWorkdayLocationField(info.location);
     const locationRaw = detailLocation || stringifyWorkdayLocationField(listing.locationsText) || (listing.bulletFields || []).find((field) => (
       isSwissLocation(field) || isChCountry(field) || isWorkdayMultiLocation(field)
@@ -364,9 +365,10 @@ async function fetchCapriHoldingsJobs() {
       console.log(`     ⏭️  Skipped — not Swiss (country: ${countryDesc})`);
       continue;
     }
-    if (!countryDesc
-        && !isSwissLocation(`${locationRaw} ${listingLocationSignal}`)
-        && !listingIsMultiLocation) {
+    const resolvedSwissSignal = isSwissLocation(`${locationRaw} ${listingLocationSignal}`)
+      || hasWorkdaySwissCountry(info, detailLocation)
+      || hasWorkdaySwissCountry(listing, listingLocationSignal);
+    if (!countryDesc && !resolvedSwissSignal) {
       console.log(`     ⏭️  Skipped — location is not a known Swiss location: ${locationRaw || listingLocationSignal || 'n/a'}`);
       continue;
     }
