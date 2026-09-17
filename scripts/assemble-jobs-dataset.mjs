@@ -1380,23 +1380,26 @@ export function detectBoilerplateDescriptions(jobs, crawlerKey) {
   let eligibleCount = 0;
 
   for (const job of jobs) {
-    if (job.needsRetranslation) continue;
-    eligibleCount++;
-
     // Parser health is measured on the SOURCE text the parser produced.
-    // descriptionByLocale.it is only a proxy: a job crawled from a German/
-    // French source with SKIP_AI_TRANSLATION=1 has a real source description
-    // but an empty IT locale until translate-pending fills it — that is a
-    // translation backlog, not a parser failure. Falling back to the
-    // source-language description keeps the guard's purpose (catch parsers
-    // that silently emit nothing/boilerplate) without hard-failing whole
-    // CH-wide crawls on untranslated-yet jobs (Coop 95% false-positive,
-    // run 27381349097).
+    // A job crawled from a German/French source with SKIP_AI_TRANSLATION=1 can
+    // have a real source description but an empty or stale IT locale until
+    // translate-pending fills it — that is a translation backlog, not a
+    // parser failure. Prefer the declared source-locale slot, then the
+    // authoritative top-level parser field, before considering translated
+    // locale fallbacks. This keeps the guard's purpose (catch parsers that
+    // silently emit nothing/boilerplate) without hard-failing whole CH-wide
+    // crawls on untranslated-yet jobs (Coop 95% false-positive, run 27381349097).
+    const sourceLocale = String(job.sourceLang || '').trim();
     const desc =
+      String(job.descriptionByLocale?.[sourceLocale] || '').trim() ||
+      String(job.description || '').trim() ||
       String(job.descriptionByLocale?.it || '').trim() ||
-      String(job.descriptionByLocale?.[job.sourceLang || 'it'] || '').trim() ||
-      String(job.description || '').trim();
+      String(job.descriptionByLocale?.de || '').trim() ||
+      String(job.descriptionByLocale?.en || '').trim() ||
+      String(job.descriptionByLocale?.fr || '').trim();
     if (!desc) {
+      // A translation-backlog marker must never hide a missing source.
+      eligibleCount++;
       boilerplateJobs.push({
         slug: job.slug || job.title || 'unknown',
         title: job.title || '',
@@ -1419,6 +1422,9 @@ export function detectBoilerplateDescriptions(jobs, crawlerKey) {
     const hasContentHeadings = CONTENT_HEADINGS_RE.test(desc);
 
     if (markerCount >= 2 && !hasContentHeadings) {
+      // Evaluate source health before honoring needsRetranslation: the marker
+      // is a parser failure, not a translation-backlog condition.
+      eligibleCount++;
       boilerplateJobs.push({
         slug: job.slug || job.title || 'unknown',
         title: job.title || '',
@@ -1438,6 +1444,9 @@ export function detectBoilerplateDescriptions(jobs, crawlerKey) {
     const uniqueWords = cleaned.split(/\s+/).filter(w => w.length > 0).length;
 
     if (uniqueWords < MIN_UNIQUE_WORDS) {
+      // Same separation as above for a short/boilerplate source. A queued job
+      // is exempt only when its source text itself is healthy.
+      eligibleCount++;
       boilerplateJobs.push({
         slug: job.slug || job.title || 'unknown',
         title: job.title || '',
@@ -1445,7 +1454,11 @@ export function detectBoilerplateDescriptions(jobs, crawlerKey) {
         totalWords,
         uniqueWords,
       });
+      continue;
     }
+
+    if (job.needsRetranslation) continue;
+    eligibleCount++;
   }
 
   const ratio = eligibleCount > 0 ? boilerplateJobs.length / eligibleCount : 0;

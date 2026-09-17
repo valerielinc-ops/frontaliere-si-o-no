@@ -37,7 +37,10 @@ import path from 'node:path';
 // file `identical` che importasse un file site-only arriverebbe sul corpus
 // senza la sua dipendenza (ERR_MODULE_NOT_FOUND con la CI verde); così invece
 // è il file che NON viaggia a dipendere da quello che viaggia.
-import { bulletState } from '../lib/pr-body-sections-check.mjs';
+import {
+  bulletState,
+  decisionDeferralSpecificity,
+} from '../lib/pr-body-sections-check.mjs';
 import { isReviewerBot } from './lib/constants.mjs';
 
 const PR = process.env.PR_NUMBER;
@@ -104,8 +107,9 @@ export function extractNonImplementedItems(body) {
  *
  *   `in questa PR`      — è già dentro il diff che si sta mergiando;
  *   `PR concatenata #N` — ha già il suo tracciamento, la issue sarebbe un doppione;
- *   `per scelta` / `by construction`         — è un no motivato, non un rinvio;
- *   `blocked: decisione del proprietario`    — idem, deciso da chi decide.
+ *   `per scelta` / `by construction`         — è un no motivato, se porta
+ *                                               motivo e prossimo passo concreti;
+ *   `blocked: decisione del proprietario`    — stessa regola.
  *
  * Restano candidati `blocked: <causa tecnica>` (lavoro sospeso su una causa
  * esterna: va riaperto) e — deliberatamente — i bullet SENZA stato.
@@ -149,6 +153,7 @@ const CLOSING_STATES = new Set([
   'by-construction',
   'blocked-owner',
 ]);
+const DECISION_CLOSING_STATES = new Set(['by-choice', 'by-construction', 'blocked-owner']);
 
 /** True if a `## Non implementato` item is a real, non-excluded candidate. */
 export function isCandidateItem(item) {
@@ -157,8 +162,15 @@ export function isCandidateItem(item) {
   if (HARD_EXCLUDE_RES.some((re) => re.test(s))) return false;
   // Stato letterale che chiude la voce → niente follow-up. `null` (nessuno
   // stato) NON è in CLOSING_STATES: resta candidato, per progetto.
-  if (CLOSING_STATES.has(bulletState(s))) return false;
-  return true;
+  const state = bulletState(s);
+  if (!CLOSING_STATES.has(state)) return true;
+  // I body storici possono avere una decisione vaga. Non devono sparire dal
+  // grafo: il gate di scrittura blocca i nuovi body, mentre questo ramo
+  // riporta quelli vecchi al triage finché non hanno i due campi auditabili.
+  if (DECISION_CLOSING_STATES.has(state)) {
+    return !decisionDeferralSpecificity(s).specific;
+  }
+  return false;
 }
 
 /** Count reviewer markers (🟡 nit / ❓ question) in a review body. */

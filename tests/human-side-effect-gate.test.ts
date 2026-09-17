@@ -35,6 +35,17 @@ const APPROVED_INPUT = {
   scope: 'newsletter-send',
 };
 
+const APPROVED_SCHEDULE_INPUT = {
+  ...APPROVED_INPUT,
+  event: 'schedule',
+  actor: 'github-actions[bot]',
+  triggeringActor: 'github-actions[bot]',
+  actorType: 'Bot',
+  consent: '',
+  dryRun: '',
+  approvalTrustedSchedule: 'true',
+};
+
 const SOURCE_SHA = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 
 const VALID_PUBLISHER_EVENT = {
@@ -175,6 +186,62 @@ const ROOT = path.resolve(__dirname, '..');
 const workflow = (name: string) => fs.readFileSync(path.join(ROOT, '.github', 'workflows', name), 'utf8');
 const APPROVED_GATE_IF = "steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'";
 
+const SCHEDULE_ARMED_WORKFLOWS = [
+  'send-job-alerts.yml',
+  'send-company-alerts.yml',
+  'send-newsletter.yml',
+  'send-saved-jobs-digest.yml',
+  'send-onboarding-drip.yml',
+  'send-daily-brief.yml',
+  'newsletter-confirmation-followups.yml',
+  'newsletter-dormant-winback.yml',
+  'newsletter-sunset.yml',
+  'job-alert-sunset.yml',
+  'instagram-daily-broadcast.yml',
+  'suppression-hygiene.yml',
+  'telegram-channel-broadcast.yml',
+  'tiktok-daily-broadcast.yml',
+];
+
+const SCHEDULE_UNARMED_WORKFLOWS = [
+  'cleanup-mailjet-contacts.yml',
+  'fb-articles-daily-schedule.yml',
+  'fb-events-daily-schedule.yml',
+  'fb-jobs-daily-schedule.yml',
+  'linkedin-member-daily.yml',
+  'mailtrap-suppression-retry.yml',
+  'probe-mailgun-scheduled.yml',
+  'publisher-blast.yml',
+  'recover-prev-slugs.yml',
+  'reddit-jobs-daily-schedule.yml',
+];
+
+const SCHEDULE_SIDE_EFFECT_WORKFLOWS = [
+  ...SCHEDULE_ARMED_WORKFLOWS,
+  ...SCHEDULE_UNARMED_WORKFLOWS,
+];
+
+const DEFENSE_IN_DEPTH_GUARDS = [
+  ['instagram-daily-broadcast.yml', 'Post to Instagram', 'ARGS+=(--dry-run);'],
+  ['job-alert-sunset.yml', 'Run sunset', 'MODE=dry-run'],
+  ['linkedin-member-daily.yml', 'Post to LinkedIn (member)', 'ARGS+=(--dry-run);'],
+  ['mailtrap-suppression-retry.yml', 'Run suppression retry', 'MODE=dry-run'],
+  ['newsletter-dormant-winback.yml', 'Run dormant win-back', 'MODE=dry-run'],
+  ['newsletter-sunset.yml', 'Run sunset', 'MODE=dry-run'],
+  ['send-newsletter.yml', 'Run newsletter job', 'MODE=preview'],
+  ['send-onboarding-drip.yml', 'Run onboarding drip', 'MODE=dry-run'],
+  ['suppression-hygiene.yml', 'Decay proven-alive suppressions', 'MODE=dry-run'],
+  ['suppression-hygiene.yml', 'Re-probe never-probed suppressions (ramped)', 'MODE=dry-run'],
+  ['tiktok-daily-broadcast.yml', 'Post to TikTok', 'ARGS+=(--dry-run);'],
+] as const;
+
+const DEFENSE_IN_DEPTH_GUARD_CONDITION = 'if [ "$ALLOW_SIDE_EFFECT" != "true" ] || [ "$EFFECTIVE_DRY_RUN" = "true" ]; then';
+
+const RECOVER_PREV_SLUG_GUARDS = [
+  ['Reconcile duplicate stable-id job records', 'if [ "$DRY_RUN" = "true" ]; then APPLY_FLAG=""; fi'],
+  ['Backfill recoverable slugs', 'if [ "$DRY_RUN" = "true" ]; then DRY_RUN_FLAG="--dry-run"; fi'],
+] as const;
+
 /** Named writer/provider paths added by the Pasteur F5/F6/F9 inventory. */
 const GATED_SIDE_EFFECT_STEPS: Record<string, RegExp[]> = {
   'sync-articles-sitemaps.yml': [
@@ -294,11 +361,73 @@ function credentialHydrationSteps(source: string) {
 }
 
 describe('human-side-effect-gate policy', () => {
-  it('denies schedule/push/repository events and forces dry-run', () => {
-    const decision = evaluateHumanApproval({ ...APPROVED_INPUT, event: 'schedule' });
+  it('denies an unarmed schedule, push, and untrusted repository_dispatch and forces dry-run', () => {
+    for (const event of ['schedule', 'push', 'repository_dispatch']) {
+      const decision = evaluateHumanApproval({
+        ...APPROVED_INPUT,
+        event,
+        ...(event === 'schedule' ? { approvalTrustedSchedule: 'false' } : {}),
+      });
+      expect(decision.allow, event).toBe(false);
+      expect(decision.effectiveDryRun, event).toBe(true);
+    }
+  });
+
+  it('allows an explicitly trusted first-attempt schedule without human actor or input proofs', () => {
+    const decision = evaluateHumanApproval(APPROVED_SCHEDULE_INPUT);
+    expect(decision.allow).toBe(true);
+    expect(decision.effectiveDryRun).toBe(false);
+    expect(decision.reason).toBe('trusted-schedule-approved');
+    expect(decision.nonce).toMatch(/^[a-f0-9]{64}$/);
+    expect(decision.nonce).toBe(deriveApprovalNonce(APPROVED_SCHEDULE_INPUT));
+  });
+
+  it.each([
+    ['missing opt-in', { approvalTrustedSchedule: '' }, 'event-not-workflow-dispatch'],
+    ['rerun', { runAttempt: '2' }, 'run-is-a-rerun'],
+  ])('denies a trusted schedule with %s', (_name, override, reason) => {
+    const decision = evaluateHumanApproval({ ...APPROVED_SCHEDULE_INPUT, ...override });
     expect(decision.allow).toBe(false);
     expect(decision.effectiveDryRun).toBe(true);
-    expect(decision.reason).toBe('event-not-workflow-dispatch');
+    expect(decision.reasons).toContain(reason);
+  });
+
+  it('consumes a trusted schedule nonce only once, including through main()', () => {
+    const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'human-side-effect-gate-schedule-'));
+    const firstOutput = path.join(tempRoot, 'github-output-first');
+    const secondOutput = path.join(tempRoot, 'github-output-second');
+    const env = {
+      GITHUB_EVENT_NAME: 'schedule',
+      GITHUB_ACTOR: 'github-actions[bot]',
+      GITHUB_TRIGGERING_ACTOR: 'github-actions[bot]',
+      GITHUB_REPOSITORY: APPROVED_SCHEDULE_INPUT.repository,
+      GITHUB_WORKFLOW: APPROVED_SCHEDULE_INPUT.workflow,
+      GITHUB_RUN_ID: APPROVED_SCHEDULE_INPUT.runId,
+      GITHUB_RUN_ATTEMPT: APPROVED_SCHEDULE_INPUT.runAttempt,
+      APPROVAL_ACTOR_TYPE: 'Bot',
+      APPROVAL_CONSENT: '',
+      APPROVAL_DRY_RUN: '',
+      APPROVAL_TRUSTED_SCHEDULE: 'true',
+      APPROVAL_SCOPE: APPROVED_SCHEDULE_INPUT.scope,
+      RUNNER_TEMP: tempRoot,
+    };
+
+    const firstCode = main({
+      env: { ...env, GITHUB_OUTPUT: firstOutput },
+      logger: { log() {}, error() {} },
+    });
+    const secondCode = main({
+      env: { ...env, GITHUB_OUTPUT: secondOutput },
+      logger: { log() {}, error() {} },
+    });
+
+    expect(firstCode).toBe(0);
+    expect(fs.readFileSync(firstOutput, 'utf8')).toContain('allow_side_effect=true');
+    expect(fs.readFileSync(firstOutput, 'utf8')).toContain('effective_dry_run=false');
+    expect(secondCode).toBe(0);
+    expect(fs.readFileSync(secondOutput, 'utf8')).toContain('allow_side_effect=false');
+    expect(fs.readFileSync(secondOutput, 'utf8')).toContain('effective_dry_run=true');
+    expect(fs.readFileSync(secondOutput, 'utf8')).toContain('approval_reason=nonce-already-consumed');
   });
 
   it('requires an explicit human dispatch proof, not a text confirmation alone', () => {
@@ -415,7 +544,7 @@ describe('human-side-effect-gate policy', () => {
     expect(second).toEqual({ consumed: false, reason: 'nonce-already-consumed' });
   });
 
-  it('writes deny outputs for a scheduled run without contacting any external system', () => {
+  it('writes deny outputs for an unarmed scheduled run without contacting any external system', () => {
     const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'human-side-effect-gate-cli-'));
     const outputPath = path.join(tempRoot, 'github-output');
     const code = main({
@@ -567,6 +696,28 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
     expect(source).toContain('APPROVAL_EXPECTED_DISPATCH_WORKFLOW: Sync article sitemaps, feeds and ticker from the articles API');
   });
 
+  it('ritenta solo lookup transitori e run queued, mantenendo il deny sui terminali', () => {
+    const source = workflow('sync-articles-sitemaps.yml');
+    const start = source.indexOf('- name: Verify publisher provenance via read-only metadata API');
+    const end = source.indexOf('\n      - name:', start + 1);
+    const verifier = source.slice(start, end);
+
+    expect(verifier).toContain('max_lookup_attempts=3');
+    expect(verifier).toContain('while [ "$lookup_attempt" -le "$max_lookup_attempts" ]');
+    expect(verifier).toContain("[ \"$run_status\" = 'queued' ]");
+    expect(verifier).toContain("[ \"$run_status\" = 'in_progress' ]");
+    expect(verifier).toContain('lookup_delay=$((lookup_attempt * 15))');
+    expect(verifier).toContain('sleep "$lookup_delay"');
+    expect(verifier).toContain('verifier remains fail-closed');
+    expect(verifier).toContain("if [ \"$workflow_lookup_ok\" != 'true' ] || [ \"$workflow_shape_ok\" != 'true' ]; then");
+    expect(verifier.indexOf("if [ \"$workflow_lookup_ok\" != 'true' ] || [ \"$workflow_shape_ok\" != 'true' ]; then")).toBeLessThan(
+      verifier.indexOf('else\n                break'),
+    );
+    expect(verifier.indexOf('node scripts/ci/verify-publisher-dispatch.mjs')).toBeGreaterThan(
+      verifier.indexOf('while [ "$lookup_attempt" -le "$max_lookup_attempts" ]'),
+    );
+  });
+
   for (const name of SIDE_EFFECT_WORKFLOWS) {
     it(`${name} puts every live side-effect path behind the shared gate`, () => {
       const source = workflow(name);
@@ -605,14 +756,78 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
         expect(matches, `${name}: missing inventoried side-effect step ${pattern}`).not.toHaveLength(0);
         for (const step of matches) {
           const condition = String(step.if ?? '');
-          expect(condition, `${name}:${String(step.name)} must consume allow_side_effect`).toContain(
-            'steps.side_effect_gate.outputs.allow_side_effect',
-          );
-          expect(condition, `${name}:${String(step.name)} must consume effective_dry_run`).toContain(
-            'steps.side_effect_gate.outputs.effective_dry_run',
-          );
+          const gateCondition = condition.match(
+            /steps\.side_effect_gate\.outputs\.allow_side_effect == 'true'\s+(?:&&|\|\|)\s+steps\.side_effect_gate\.outputs\.effective_dry_run\s+(?:!=|==)\s+'true'/u,
+          )?.[0] ?? '';
+          expect(gateCondition, `${name}:${String(step.name)} must use the exact approved gate`).toBe(APPROVED_GATE_IF);
         }
       }
     });
   }
+
+  it('uses the exact approved gate expression on every scheduled side-effect path', () => {
+    for (const name of SCHEDULE_SIDE_EFFECT_WORKFLOWS) {
+      const document = YAML.parse(workflow(name)) as { jobs?: Record<string, { steps?: Array<Record<string, unknown>> }> };
+      const steps = Object.values(document.jobs ?? {}).flatMap((job) => job.steps ?? []);
+      const gatedSteps = steps.filter((step) => String(step.if ?? '').includes('steps.side_effect_gate.outputs.allow_side_effect'));
+      expect(gatedSteps, `${name}: no side-effect gate consumers found`).not.toHaveLength(0);
+      for (const step of gatedSteps) {
+        const condition = String(step.if ?? '');
+        const gateCondition = condition.match(
+          /steps\.side_effect_gate\.outputs\.allow_side_effect == 'true'\s+(?:&&|\|\|)\s+steps\.side_effect_gate\.outputs\.effective_dry_run\s+(?:!=|==)\s+'true'/u,
+        )?.[0] ?? '';
+        expect(gateCondition, `${name}:${String(step.name)} must use the exact approved gate`).toBe(APPROVED_GATE_IF);
+      }
+    }
+  });
+
+  it('retains the defense-in-depth dry-run downgrade in every guarded run step', () => {
+    for (const [name, stepName, downgrade] of DEFENSE_IN_DEPTH_GUARDS) {
+      const document = YAML.parse(workflow(name)) as { jobs?: Record<string, { steps?: Array<Record<string, unknown>> }> };
+      const matches = Object.values(document.jobs ?? {}).flatMap((job) => job.steps ?? [])
+        .filter((step) => String(step.name ?? '') === stepName);
+      expect(matches, `${name}: missing guarded step ${stepName}`).toHaveLength(1);
+      const run = String(matches[0].run ?? '');
+      expect(run, `${name}:${stepName} missing side-effect downgrade`).toContain(DEFENSE_IN_DEPTH_GUARD_CONDITION);
+      expect(run, `${name}:${stepName} missing ${downgrade}`).toContain(downgrade);
+    }
+
+    const recover = YAML.parse(workflow('recover-prev-slugs.yml')) as {
+      jobs?: Record<string, { steps?: Array<Record<string, unknown>> }>;
+    };
+    const recoverSteps = Object.values(recover.jobs ?? {}).flatMap((job) => job.steps ?? []);
+    for (const [stepName, downgrade] of RECOVER_PREV_SLUG_GUARDS) {
+      const step = recoverSteps.find((candidate) => String(candidate.name ?? '') === stepName);
+      expect(step, `recover-prev-slugs.yml: missing guarded step ${stepName}`).toBeDefined();
+      expect(step?.env, `recover-prev-slugs.yml:${stepName} missing DRY_RUN env`).toMatchObject({
+        DRY_RUN: '${{ steps.side_effect_gate.outputs.effective_dry_run }}',
+      });
+      expect(String(step?.run ?? ''), `recover-prev-slugs.yml:${stepName} missing ${downgrade}`).toContain(downgrade);
+    }
+  });
+
+  it('arms trusted schedules only on workflows whose schedules apply side effects', () => {
+    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(14);
+    expect(SCHEDULE_UNARMED_WORKFLOWS).toHaveLength(10);
+    expect(SCHEDULE_SIDE_EFFECT_WORKFLOWS).toHaveLength(24);
+
+    for (const name of SCHEDULE_SIDE_EFFECT_WORKFLOWS) {
+      const document = YAML.parse(workflow(name)) as { jobs?: Record<string, { steps?: Array<Record<string, unknown>> }> };
+      const gateSteps = Object.values(document.jobs ?? {}).flatMap((job) => job.steps ?? [])
+        .filter((step) => step.id === 'side_effect_gate');
+      expect(gateSteps, `${name}: missing side_effect_gate`).toHaveLength(1);
+      const trustedSchedule = (gateSteps[0].env as Record<string, unknown> | undefined)?.APPROVAL_TRUSTED_SCHEDULE;
+      if (SCHEDULE_ARMED_WORKFLOWS.includes(name)) {
+        expect(trustedSchedule, `${name}: schedule opt-in missing`).toBe('true');
+      } else {
+        expect(trustedSchedule, `${name}: schedule opt-in must stay absent`).toBeUndefined();
+      }
+    }
+
+    const workflowDir = path.join(ROOT, '.github', 'workflows');
+    const armedElsewhere = fs.readdirSync(workflowDir)
+      .filter((name) => /\.ya?ml$/u.test(name) && !SCHEDULE_SIDE_EFFECT_WORKFLOWS.includes(name))
+      .filter((name) => workflow(name).includes('APPROVAL_TRUSTED_SCHEDULE'));
+    expect(armedElsewhere).toEqual([]);
+  });
 });

@@ -225,6 +225,35 @@ describe('pr-body-check-gate hook (process behavior)', () => {
     expect(res.stderr).toMatch(/bullet-without-state/);
   });
 
+  it('blocks a vague decision deferral before the PR is created', () => {
+    const body =
+      '## Implementato\n\n- fatto in questa PR\n\n## Non implementato (ancora)\n\n- il residuo è per scelta\n';
+    const res = runGate(`gh pr create --title "x" --body '${body}'`);
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/decision-deferral-not-specific/);
+    expect(res.stderr).toMatch(/Motivo/);
+    expect(res.stderr).toMatch(/Prossimo passo/);
+  });
+
+  it('allows a decision deferral with concrete reason and next action', () => {
+    const body =
+      '## Implementato\n\n- fatto in questa PR\n\n## Non implementato (ancora)\n\n'
+      + '- il residuo è per scelta. **Motivo:** il provider upstream è instabile. '
+      + '**Prossimo passo:** riaprire dopo due run verdi consecutivi.\n';
+    const res = runGate(`gh pr create --title "x" --body '${body}'`);
+    expect(res.status).toBe(0);
+  });
+
+  it('blocks a Markdown-formatted placeholder in a decision deferral', () => {
+    const body =
+      '## Implementato\n\n- fatto in questa PR\n\n## Non implementato (ancora)\n\n'
+      + '- il residuo è per scelta. **Motivo:** **TBD**. '
+      + '**Prossimo passo:** riaprire dopo due run verdi consecutivi.\n';
+    const res = runGate(`gh pr create --title "x" --body '${body}'`);
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/decision-deferral-not-specific/);
+  });
+
   it('uses the same strict pure validator for the hook and the workflow CLI', () => {
     const body =
       '## Implementato\n\n- fatto in questa PR\n\n## Non implementato (ancora)\n\n- foo resta da fare più tardi\n';

@@ -475,6 +475,56 @@ describe('delta push degli shard', () => {
     }
   });
 
+  it('verifica in modo advisory il tree delta accanto al push full', () => {
+    const scenario = createScenario('full-verify');
+    try {
+      writePayload(scenario, {
+        'pages/a': '<html>A v1</html>',
+        'pages/b': '<html>B</html>',
+      });
+      writeManifest(scenario, ['pages/a', 'pages/b'], 'v1');
+      expect(runPush(scenario, 'full').status).toBe(0);
+
+      writePayload(scenario, {
+        'pages/a': '<html>A v2</html>',
+        'pages/c': '<html>C</html>',
+      });
+      writeManifest(scenario, ['pages/a', 'pages/c'], 'v2');
+      const result = runPush(scenario, 'full', { SHARD_PUSH_VERIFY: '1' });
+      expect(result.status).toBe(0);
+      expect(result.output).toMatch(/\[shard-push-verify\] shard=.* mode=full plan=delta .*adds=\d+ mods=\d+ dels=\d+ mismatches=0 wall_plan=\d+s/);
+      expect(treeFiles(scenario.remote)).toContain('.deploy-manifest/v1/en.jsonl');
+      expect(treeFiles(scenario.remote)).not.toContain('en/pages/b/index.html');
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
+  it('verifica anche il tree full di un section shard', () => {
+    const scenario = createScenario('section-full-verify');
+    const sectionTarget = {
+      script: PUSH_SECTION,
+      args: (current: Scenario) => ['ticino', 'en', current.dist],
+      deployKey: 'SHARD_TICINO_EN_DEPLOY_KEY',
+      label: 'section',
+    };
+    try {
+      writeSectionPayload(scenario, { 'pages/a': '<html>A v1</html>', 'pages/b': '<html>B</html>' });
+      writeManifest(scenario, ['pages/a', 'pages/b'], 'v1', 'en/find-jobs-ticino');
+      expect(runPush(scenario, 'full', {}, sectionTarget).status).toBe(0);
+
+      writeSectionPayload(scenario, { 'pages/a': '<html>A v2</html>', 'pages/c': '<html>C</html>' });
+      writeManifest(scenario, ['pages/a', 'pages/c'], 'v2', 'en/find-jobs-ticino');
+      const result = runPush(scenario, 'full', { SHARD_PUSH_VERIFY: '1' }, sectionTarget);
+      expect(result.status).toBe(0);
+      expect(result.output).toMatch(/\[shard-push-verify\] shard=.* mode=full plan=delta .*mismatches=0 wall_plan=\d+s/);
+      expect(treeFiles(scenario.remote)).toContain('.deploy-manifest/v1/en.jsonl');
+      expect(treeFiles(scenario.remote)).not.toContain('en/find-jobs-ticino/pages/b/index.html');
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
   it('usa liste e hashing batch anche con qualche migliaio di file non manifestati', () => {
     const scenario = createScenario('batch-thousands');
     const payloadFiles = 3000;

@@ -45,6 +45,19 @@ jobs:
             /scripts/lib/loop-fleet-contract.mjs
             /.github/workflows/loop-fleet-status.yml
           sparse-checkout-cone-mode: false
+      - name: Overlay durable ledger branch
+        env:
+          LEDGER_BRANCH: ledger/loop-fleet
+        run: |
+          set -euo pipefail
+          if ! git ls-remote --exit-code --heads origin "refs/heads/$LEDGER_BRANCH" >/dev/null 2>&1; then
+            echo "::notice::durable ledger branch $LEDGER_BRANCH does not exist yet; using the in-tree ledger."
+            exit 0
+          fi
+          git fetch --depth 1 origin "$LEDGER_BRANCH"
+          mkdir -p data/loop-fleet/ledger
+          git checkout FETCH_HEAD -- data/loop-fleet/ledger
+          echo "::notice::overlaid data/loop-fleet/ledger from $LEDGER_BRANCH"
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:

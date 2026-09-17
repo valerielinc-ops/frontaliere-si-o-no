@@ -78,7 +78,13 @@ jobs:
       # source_branch and source_event. All values except schema_version are
       # strings; source_branch=main and source_event=push. This payload is not
       # a signature. Query the public source-run/workflow metadata first, and
-      # fail closed on an API error or on any mismatch.
+      # fail closed on an API error or on any mismatch. A repository_dispatch can
+      # race run visibility, rate limits, or the source run leaving queued; allow
+      # only a bounded retry for those transient reads. Mismatches and
+      # terminal/unknown states go once to the verifier only after both metadata
+      # lookups have a complete, valid shape, and remain fail-closed.
+      # The live emitter is paired in nanakokyobashi-rgb/frontaliere-articles
+      # PR #1531 (.github/workflows/publish-api.yml); keep both contracts live.
       - name: Verify publisher provenance via read-only metadata API
         id: publisher_provenance
         if: github.event_name == 'repository_dispatch'
@@ -95,20 +101,70 @@ jobs:
           # The id is untrusted data. Validate it before placing it in a quoted
           # URL segment; malformed ids never reach the API.
           if [[ "$PUBLISHER_SOURCE_RUN_ID" =~ ^[1-9][0-9]{0,20}$ ]]; then
-            if ! gh api --method GET \
-              --header 'Accept: application/vnd.github+json' \
-              --header 'X-GitHub-Api-Version: 2022-11-28' \
-              "repos/nanakokyobashi-rgb/frontaliere-articles/actions/runs/$PUBLISHER_SOURCE_RUN_ID" \
-              > "$run_metadata"; then
+            max_lookup_attempts=3
+            lookup_attempt=1
+            while [ "$lookup_attempt" -le "$max_lookup_attempts" ]; do
               printf '{}' > "$run_metadata"
-            fi
-            if ! gh api --method GET \
-              --header 'Accept: application/vnd.github+json' \
-              --header 'X-GitHub-Api-Version: 2022-11-28' \
-              'repos/nanakokyobashi-rgb/frontaliere-articles/actions/workflows/publish-api.yml' \
-              > "$workflow_metadata"; then
               printf '{}' > "$workflow_metadata"
-            fi
+              run_lookup_ok=true
+              workflow_lookup_ok=true
+
+              if ! gh api --method GET \
+                --header 'Accept: application/vnd.github+json' \
+                --header 'X-GitHub-Api-Version: 2022-11-28' \
+                "repos/nanakokyobashi-rgb/frontaliere-articles/actions/runs/$PUBLISHER_SOURCE_RUN_ID" \
+                > "$run_metadata"; then
+                run_lookup_ok=false
+                printf '{}' > "$run_metadata"
+              fi
+              if ! gh api --method GET \
+                --header 'Accept: application/vnd.github+json' \
+                --header 'X-GitHub-Api-Version: 2022-11-28' \
+                'repos/nanakokyobashi-rgb/frontaliere-articles/actions/workflows/publish-api.yml' \
+                > "$workflow_metadata"; then
+                workflow_lookup_ok=false
+                printf '{}' > "$workflow_metadata"
+              fi
+
+              run_status=$(jq -r 'if type == "object" then (.status // "") else "" end' "$run_metadata" 2>/dev/null || true)
+              run_shape_ok=false
+              if jq -e 'type == "object"
+                and has("id") and has("workflow_id") and has("status") and has("conclusion")
+                and (.status | type == "string")
+                and ((.conclusion == null) or (.conclusion | type == "string"))' \
+                "$run_metadata" >/dev/null 2>&1; then
+                run_shape_ok=true
+              fi
+              workflow_shape_ok=false
+              if jq -e 'type == "object"
+                and has("id") and has("name") and has("path")
+                and (.name | type == "string") and (.path | type == "string")' \
+                "$workflow_metadata" >/dev/null 2>&1; then
+                workflow_shape_ok=true
+              fi
+
+              retry_reason=''
+              if [ "$workflow_lookup_ok" != 'true' ] || [ "$workflow_shape_ok" != 'true' ]; then
+                retry_reason='publisher workflow lookup/rate limit'
+              elif [ "$run_lookup_ok" != 'true' ] || [ "$run_shape_ok" != 'true' ]; then
+                retry_reason='source run lookup/visibility'
+              elif [ "$run_status" = 'queued' ]; then
+                retry_reason='source run still queued'
+              elif [ "$run_status" = 'in_progress' ]; then
+                retry_reason='source run still in_progress'
+              else
+                break
+              fi
+
+              if [ "$lookup_attempt" -eq "$max_lookup_attempts" ]; then
+                echo "::warning::publisher provenance $retry_reason persisted after ${max_lookup_attempts} attempts; verifier remains fail-closed."
+                break
+              fi
+              lookup_delay=$((lookup_attempt * 15))
+              echo "::warning::publisher provenance $retry_reason; retrying ${lookup_attempt}/${max_lookup_attempts} after ${lookup_delay}s."
+              sleep "$lookup_delay"
+              lookup_attempt=$((lookup_attempt + 1))
+            done
           fi
 
           node scripts/ci/verify-publisher-dispatch.mjs "$run_metadata" "$workflow_metadata"

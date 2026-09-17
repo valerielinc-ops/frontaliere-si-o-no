@@ -50,12 +50,32 @@ on:
         description: 'Investigation-only: release exactly one jobsSeo retention candidate and label its corpus-release gcFreed measurement'
         required: false
         default: ''
+      stop_after_jobs_seo:
+        description: 'Stop with exit code 0 after jobsSeoPages closeBundle completes'
+        type: boolean
+        required: false
+        default: false
+      variants:
+        description: 'One variant per line: name=KEY=VAL,KEY=VAL (empty value means no extra env)'
+        type: string
+        required: false
+        default: 'base='
+      chain:
+        description: 'Optional chained cache namespace (for example reuse-it); empty keeps production caches read-only'
+        type: string
+        required: false
+        default: ''
+      compare_monolith:
+        description: 'Run the all-locales monolith and compare gate (single variant only)'
+        type: boolean
+        required: false
+        default: false
 
 permissions:
   contents: read
 
 concurrency:
-  group: deploy-matrix-experiment
+  group: deploy-matrix-experiment-${{ github.run_id }}
   cancel-in-progress: false
 
 jobs:
@@ -63,28 +83,34 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.build.outputs.matrix }}
+      variant_count: ${{ steps.build.outputs.variant_count }}
+      single_variant: ${{ steps.build.outputs.single_variant }}
+      single_env_json: ${{ steps.build.outputs.single_env_json }}
     steps:
-      - name: Build locale matrix from input
+      - name: Checkout matrix parser
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: scripts/ci/matrix-experiment-variants.mjs
+          sparse-checkout-cone-mode: false
+      - name: Build locale × variant matrix from input
         id: build
         env:
           LOCALES_INPUT: ${{ github.event.inputs.locales }}
           ALL_LOCALES_INPUT: ${{ github.event.inputs.all_locales }}
+          VARIANTS_INPUT: ${{ inputs.variants }}
         run: |
-          set -eo pipefail
-          RAW="${LOCALES_INPUT:-it,en,de,fr}"
-          if [ "${ALL_LOCALES_INPUT:-false}" = 'true' ]; then
-            JSON='[{"locale":"all","all_locales":true}]'
-          else
-            # Keep only valid locales, in canonical order, de-duplicated.
-            JSON=$(RAW="$RAW" node -e '
-              const all = ["it","en","de","fr"];
-              const want = new Set(String(process.env.RAW||"").split(",").map(s=>s.trim().toLowerCase()).filter(Boolean));
-              const out = all.filter(l => want.has(l));
-              process.stdout.write(JSON.stringify((out.length ? out : all).map(locale => ({ locale, all_locales: false }))));
-            ')
-          fi
+          set -euo pipefail
+          JSON="$(node scripts/ci/matrix-experiment-variants.mjs)"
           echo "matrix=$JSON" >> "$GITHUB_OUTPUT"
-          echo "Locale matrix: $JSON"
+          node --input-type=module -e '
+            const rows = JSON.parse(process.argv[1]);
+            const variants = [...new Set(rows.map(({ variant }) => variant))];
+            const first = rows[0];
+            console.log("variant_count=" + variants.length);
+            console.log("single_variant=" + (variants.length === 1 ? first.variant : ""));
+            console.log("single_env_json=" + (variants.length === 1 ? first.env_json : "{}"));
+          ' "$JSON" >> "$GITHUB_OUTPUT"
+          echo "Matrix include: $JSON"
 
   # ── Shared prep (Fase 3): assemble the dataset ONCE → atomic snapshot artifact.
   # Removes the ×4 duplicated data-prep from the locale shards and guarantees
@@ -101,7 +127,7 @@ jobs:
           node-version: '22'
       - name: Cache node_modules
         id: node-modules-cache
-        uses: actions/cache@v5
+        uses: actions/cache/restore@v5
         with:
           path: node_modules
           key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
@@ -126,7 +152,7 @@ jobs:
             echo "⚠️ load-rc-env.mjs is absent in this checkout (non-fatal)"
           fi
       - name: Cache assemble-jobs output
-        uses: actions/cache@v5
+        uses: actions/cache/restore@v5
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-${{ runner.os }}-${{ hashFiles('scripts/assemble-jobs-dataset.mjs', 'scripts/lib/parse-job-slices-worker.mjs', 'data/jobs/by-crawler/**/*.json', 'data/jobs/expired/by-crawler/**/*.json', 'data/jobs-crawler-summaries/by-crawler/**/*.json') }}
@@ -169,6 +195,7 @@ jobs:
 
   build-locale:
     needs: [matrix-setup, prep]
+    name: build-locale (${{ matrix.locale }}, ${{ matrix.variant }})
     runs-on: ubuntu-latest
     timeout-minutes: 360
     strategy:
@@ -185,6 +212,8 @@ jobs:
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
       RELATED_SEARCH_PREPASS_CONCURRENCY: '1'
       JOBS_SEO_RETENTION_PROBE: ${{ github.event.inputs.retention_probe }}
+      BUILD_BENCH: '1'
+      BUILD_STOP_AFTER: ${{ inputs.stop_after_jobs_seo == true && 'jobsSeoPages' || '' }}
     steps:
       # Copied minimally from deploy.yml's build-locale job, whose source of
       # truth is the production cleanup step in this same repository.
@@ -221,7 +250,7 @@ jobs:
 
       - name: Cache node_modules
         id: node-modules-cache
-        uses: actions/cache@v5
+        uses: actions/cache/restore@v5
         with:
           path: node_modules
           key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
@@ -273,7 +302,7 @@ jobs:
           fi
 
       - name: Cache per-job OG images
-        uses: actions/cache@v5
+        uses: actions/cache/restore@v5
         with:
           path: .cache/og-jobs
           key: og-jobs-${{ runner.os }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}
@@ -290,6 +319,103 @@ jobs:
           else
             echo "BUILD_LOCALE=$LOCALE" >> "$GITHUB_ENV"
             echo "Per-locale experiment: BUILD_LOCALE=$LOCALE"
+          fi
+
+      - name: Apply variant environment
+        env:
+          VARIANT_ENV_JSON: ${{ matrix.env_json }}
+        run: |
+          set -euo pipefail
+          printf '%s' "$VARIANT_ENV_JSON" | jq -r 'to_entries[] | "\(.key)=\(.value)"' >> "$GITHUB_ENV"
+          echo "Applied variant ${{ matrix.variant }} environment (${#VARIANT_ENV_JSON} bytes of JSON)"
+
+      - name: Enforce stop-after jobs SEO control
+        if: inputs.stop_after_jobs_seo == true
+        run: echo 'BUILD_STOP_AFTER=jobsSeoPages' >> "$GITHUB_ENV"
+
+      # A chained bench gets its own namespace and is always tried first. A
+      # production restore is allowed only when that namespace did not match;
+      # cache-matched-key also covers a restore-keys hit (where cache-hit is
+      # false). Empty chain keeps the experiment read-only.
+      - name: Restore chained incremental manifest
+        if: inputs.chain != ''
+        id: bench-incremental-manifest-cache
+        uses: actions/cache/restore@v5
+        with:
+          path: .cache/incremental-manifest
+          key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ github.run_id }}
+          restore-keys: |
+            bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-
+
+      - name: Restore previous incremental manifest
+        if: inputs.chain == '' || steps.bench-incremental-manifest-cache.outputs.cache-matched-key == ''
+        id: incremental-manifest-cache
+        uses: actions/cache/restore@v5
+        with:
+          path: .cache/incremental-manifest
+          key: incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}
+          restore-keys: |
+            incremental-manifest-${{ matrix.locale }}-
+
+      - name: Restore chained jobs SEO HTML cache
+        if: env.JOBS_SEO_REUSE == '1' && inputs.chain != ''
+        id: bench-jobs-seo-html-cache
+        uses: actions/cache/restore@v5
+        with:
+          path: .cache/incremental-html
+          # Keep the production exact-hash contract: the restored manifest is
+          # the source of this hash, so another manifest cannot silently become
+          # the HTML input for this run.
+          key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
+
+      - name: Restore previous jobs SEO HTML cache
+        if: env.JOBS_SEO_REUSE == '1' && (inputs.chain == '' || steps.bench-jobs-seo-html-cache.outputs.cache-matched-key == '')
+        id: jobs-seo-html-cache
+        uses: actions/cache/restore@v5
+        with:
+          path: .cache/incremental-html
+          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
+
+      - name: Document chained cache restores
+        if: always()
+        env:
+          CHAIN: ${{ inputs.chain }}
+          VARIANT: ${{ matrix.variant }}
+          LOCALE: ${{ matrix.locale }}
+          BENCH_MANIFEST_KEY: ${{ steps.bench-incremental-manifest-cache.outputs.cache-matched-key }}
+          PROD_MANIFEST_KEY: ${{ steps.incremental-manifest-cache.outputs.cache-matched-key }}
+          BENCH_HTML_KEY: ${{ steps.bench-jobs-seo-html-cache.outputs.cache-matched-key }}
+          PROD_HTML_KEY: ${{ steps.jobs-seo-html-cache.outputs.cache-matched-key }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          key_or_none() { [ -n "$1" ] && printf '%s' "$1" || printf '_none_'; }
+          {
+            echo "### Cache restores — ${LOCALE}/${VARIANT}"
+            echo
+            echo "chain=${CHAIN:-<empty>} (bench namespace is attempted before production)"
+            echo
+            echo '| cache | restored key |'
+            echo '|---|---|'
+            echo "| bench incremental manifest | \`$(key_or_none "$BENCH_MANIFEST_KEY")\` |"
+            echo "| production incremental manifest fallback | \`$(key_or_none "$PROD_MANIFEST_KEY")\` |"
+            echo "| bench jobs SEO HTML | \`$(key_or_none "$BENCH_HTML_KEY")\` |"
+            echo "| production jobs SEO HTML fallback | \`$(key_or_none "$PROD_HTML_KEY")\` |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Stash previous incremental manifest before build overwrites it
+        shell: bash
+        env:
+          MANIFEST_LOCALE: ${{ matrix.locale }}
+        run: |
+          set -euo pipefail
+          previous=".cache/incremental-manifest/${MANIFEST_LOCALE}.jsonl"
+          mkdir -p .cache/incremental-manifest-prev
+          if [ -f "$previous" ]; then
+            mv "$previous" ".cache/incremental-manifest-prev/${MANIFEST_LOCALE}.jsonl"
+            echo "[incremental-manifest] previous ${MANIFEST_LOCALE} manifest stashed ($(wc -l < ".cache/incremental-manifest-prev/${MANIFEST_LOCALE}.jsonl") lines)"
+          else
+            echo "[incremental-manifest] no previous ${MANIFEST_LOCALE} manifest (first run or cache miss)"
           fi
 
       - name: Record disk/dist usage before build
@@ -338,13 +464,21 @@ jobs:
           sampler=$!
           trap 'kill "$sampler" 2>/dev/null || true' EXIT
 
-          npm run build:ci 2>&1 | tee /tmp/build.log
+          BUILD_LOCALE_FOR_LOG="${BUILD_LOCALE:-all}"
+          BUILD_LOG="/tmp/build-${BUILD_LOCALE_FOR_LOG}.log"
+          if [ -n "${BUILD_STOP_AFTER:-}" ]; then
+            echo "[build-stop-after] requested=${BUILD_STOP_AFTER} (skip post-build SPA asset verification)"
+            NODE_OPTIONS='--max-old-space-size=14336 --expose-gc' ./node_modules/.bin/vite build --minify esbuild 2>&1 | tee "$BUILD_LOG"
+          else
+            npm run build:ci 2>&1 | tee "$BUILD_LOG"
+          fi
           build_exit="${PIPESTATUS[0]}"
           END=$(date +%s)
           echo "::endgroup::"
           ELAPSED=$((END - START))
           echo "BUILD_ELAPSED_SECONDS=$ELAPSED" >> "$GITHUB_ENV"
           echo "wall_seconds=$ELAPSED" >> "$GITHUB_OUTPUT"
+          echo "stop_after=${BUILD_STOP_AFTER:-}" >> "$GITHUB_OUTPUT"
           echo "⏱️  ${BUILD_VARIANT} build wall-time: ${ELAPSED}s ($((ELAPSED/60))m$((ELAPSED%60))s)"
           exit "$build_exit"
 
@@ -389,12 +523,18 @@ jobs:
         if: always()
         shell: bash
         run: |
+          BUILD_LOG="/tmp/build-${BUILD_LOCALE:-all}.log"
           {
             echo '## Build profile markers'
             echo
             echo '| marker | detail |'
             echo '|---|---|'
-            if [ -f /tmp/build.log ]; then
+            if [ -n "${BUILD_STOP_AFTER:-}" ]; then
+              printf "| \`build-stop-after\` | stopped after %s |\n" "$BUILD_STOP_AFTER"
+            fi
+            if [ -f "$BUILD_LOG" ]; then
+              # The $1/$0 references below belong to awk, not the shell.
+              # shellcheck disable=SC2016
               awk '
                 /^\[profile-detail\]/ || /^\[phase-timing/ {
                   marker = $1
@@ -409,11 +549,33 @@ jobs:
                 END {
                   if (!found) print "| _none_ | no profile markers emitted |"
                 }
-              ' /tmp/build.log
+              ' "$BUILD_LOG"
             else
-              echo '| _none_ | /tmp/build.log was not produced |'
+              echo "| _none_ | ${BUILD_LOG} was not produced |"
             fi
           } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Incremental manifest shadow report
+        if: always()
+        continue-on-error: true
+        shell: bash
+        env:
+          MANIFEST_PREVIOUS: .cache/incremental-manifest-prev/${{ matrix.locale }}.jsonl
+          MANIFEST_CURRENT: .cache/incremental-manifest/${{ matrix.locale }}.jsonl
+        run: |
+          set -o pipefail
+          {
+            echo '## Incremental manifest shadow report'
+            echo
+            if [ -f "$MANIFEST_PREVIOUS" ] && [ -f "$MANIFEST_CURRENT" ]; then
+              node scripts/ci/incremental-manifest-report.mjs "$MANIFEST_PREVIOUS" "$MANIFEST_CURRENT"
+            elif [ -f "$MANIFEST_CURRENT" ]; then
+              echo "Previous: $MANIFEST_PREVIOUS (missing; first run or cache miss, no comparison)"
+              echo "Current: $MANIFEST_CURRENT ($(wc -l < "$MANIFEST_CURRENT") JSONL lines)"
+            else
+              echo "Current: $MANIFEST_CURRENT (missing; build did not write a manifest)"
+            fi
+          } | tee -a "$GITHUB_STEP_SUMMARY"
 
       # The [hostmem] sampler is started in the build step, matching
       # deploy.yml's build-locale implementation. Keep this explicit marker in
@@ -452,12 +614,16 @@ jobs:
             dist_bytes="$(du -sb dist | awk '{print $1}')"
             dist_files="$(find dist -type f | wc -l | tr -d ' ')"
           fi
+          wall_time="${BUILD_ELAPSED_SECONDS:-?}s"
+          if [ -n "${BUILD_STOP_AFTER:-}" ]; then
+            wall_time="${wall_time} (stopped after ${BUILD_STOP_AFTER})"
+          fi
           {
             echo "### ${BUILD_VARIANT} build summary"
             echo
             echo '| metric | value |'
             echo '|---|---|'
-            echo "| wall-time | ${BUILD_ELAPSED_SECONDS:-?}s |"
+            echo "| wall-time | ${wall_time} |"
             echo "| dist bytes (du -sb) | ${dist_bytes} |"
             echo "| dist files | ${dist_files} |"
             echo "| peak_rss_mb | ${PEAK_RSS_MB:-?} |"
@@ -469,7 +635,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Prune to locale shard (filesystem-level, mirrors production push_shard)
-        if: matrix.all_locales != true
+        if: matrix.all_locales != true && steps.build_step.outputs.stop_after == ''
         # The in-build BUILD_LOCALE filter only gates WriteCollector writes;
         # direct-fs.writeFileSync emitters (redirect/bridge/weather/alias) still
         # write every locale. This removes the non-owned locale output the same
@@ -477,7 +643,7 @@ jobs:
         run: node scripts/ci/prune-locale-shard.mjs dist
 
       - name: Validate locale shard output
-        if: matrix.all_locales != true
+        if: matrix.all_locales != true && steps.build_step.outputs.stop_after == ''
         run: node scripts/ci/validate-locale-shard-build.mjs dist
 
       - name: Hash-manifest the dist (equivalence check)
@@ -489,20 +655,217 @@ jobs:
           path: /tmp/manifest-${{ matrix.locale }}.txt
           retention-days: 1
 
+      - name: Extract build markers
+        if: always()
+        env:
+          MARKER_LOCALE: ${{ matrix.locale }}
+          MARKER_VARIANT: ${{ matrix.variant }}
+          BUILD_WALL_SECONDS: ${{ steps.build_step.outputs.wall_seconds }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          BUILD_LOCALE="${BUILD_LOCALE:-all}"
+          BUILD_LOG="/tmp/build-${BUILD_LOCALE}.log"
+          MARKER_FILE="/tmp/markers-${MARKER_LOCALE}-${MARKER_VARIANT}.txt"
+
+          strip_ansi() {
+            perl -pe 's/\e\[[0-?]*[ -\/]*[@-~]//g'
+          }
+
+          {
+            echo "build-log=${BUILD_LOG}"
+            echo "wall-time-build=${BUILD_WALL_SECONDS:-?}s"
+            if [ -n "${BUILD_STOP_AFTER:-}" ]; then
+              echo "build-stop-after=${BUILD_STOP_AFTER}"
+              echo "wall-time-build-status=stopped after ${BUILD_STOP_AFTER}"
+            fi
+            if [ -f "$BUILD_LOG" ]; then
+              strip_ansi < "$BUILD_LOG" \
+                | grep -E '^\[(mem|jobs-seo-profile|jobs-seo-sample|build-stop-after|incremental-manifest|post-walk|jobs-seo-reuse)' \
+                || true
+            else
+              echo "[markers] build log missing: ${BUILD_LOG}"
+            fi
+          } > "$MARKER_FILE"
+
+          {
+            echo "### Reuse and verify markers — ${MARKER_LOCALE}/${MARKER_VARIANT}"
+            echo
+            echo '| marker | counters/details |'
+            echo '|---|---|'
+            if [ -f "$BUILD_LOG" ]; then
+              # Keep [jobs-seo-reuse] rendered/reused/mismatches and
+              # [post-walk-coordinator][incremental-verify] sample/mismatch
+              # counters visible in the summary, alongside profile rows.
+              strip_ansi < "$BUILD_LOG" \
+                | { grep -E '^(\[(mem|jobs-seo-profile|incremental-manifest)\]|\[jobs-seo-reuse\]|\[post-walk[^]]*\])' || true; } \
+                | awk '
+                  {
+                    marker = $1;
+                    sub(/^\[/, "", marker);
+                    sub(/\]$/, "", marker);
+                    detail = $0;
+                    sub(/^\[[^]]+\][[:space:]]*/, "", detail);
+                    gsub(/\|/, "&#124;", detail);
+                    printf "| `%s` | %s |\n", marker, detail;
+                    found = 1;
+                  }
+                  END { if (!found) print "| _none_ | no reuse/verify markers emitted |" }
+                '
+            else
+              echo '| _none_ | build log missing |'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          memory_fields() {
+            awk -v needle="$1" '
+              index($0, needle) {
+                heap = "?";
+                rss = "?";
+                for (i = 1; i <= NF; i++) {
+                  if ($i ~ /^heapUsed=/) heap = $i;
+                  if ($i ~ /^rss=/) rss = $i;
+                }
+                printf "%s / %s", heap, rss;
+                found = 1;
+                exit;
+              }
+              END { if (!found) print "?" }
+            ' "$MARKER_FILE"
+          }
+
+          memory_rss() {
+            awk -v needle="$1" '
+              index($0, needle) {
+                for (i = 1; i <= NF; i++) if ($i ~ /^rss=/) { print $i; found = 1; exit }
+              }
+              END { if (!found) print "?" }
+            ' "$MARKER_FILE"
+          }
+
+          profile_seconds() {
+            awk -v category="$1" '
+              $1 == "[jobs-seo-profile]" && $2 == category {
+                printf "%.2fs", $4 / 1000;
+                found = 1;
+                exit;
+              }
+              END { if (!found) print "?" }
+            ' "$MARKER_FILE"
+          }
+
+          active_memory="$(memory_fields 'jobsSeoPages: after-active-pages')"
+          release_rss="$(memory_rss 'jobsSeoPages: after corpus-release')"
+          previous_bridge="$(profile_seconds 'previous-slug-bridge')"
+          previous_bridge_legacy="$(profile_seconds 'previous-slug-bridge-legacy-ti')"
+          cross_locale_bridge="$(profile_seconds 'cross-locale-active-bridge')"
+          manifest_cost="$(sed -nE 's/.*phases_ms=.*manifest:([^, ]+).*/\1ms/p' "$MARKER_FILE" | tail -1)"
+          manifest_cost="${manifest_cost:-?}"
+
+          {
+            echo "### Build markers — ${MARKER_LOCALE}/${MARKER_VARIANT}"
+            echo
+            echo '| metric | value |'
+            echo '|---|---|'
+            wall_time="${BUILD_WALL_SECONDS:-?}s"
+            if [ -n "${BUILD_STOP_AFTER:-}" ]; then
+              wall_time="${wall_time} (stopped after ${BUILD_STOP_AFTER})"
+            fi
+            echo "| wall-time build | ${wall_time} |"
+            echo "| after-active-pages heapUsed/rss | ${active_memory} |"
+            echo "| after corpus-release rss | ${release_rss} |"
+            echo "| previous-slug-bridge total | ${previous_bridge} |"
+            echo "| previous-slug-bridge-legacy-ti total | ${previous_bridge_legacy} |"
+            echo "| cross-locale-active-bridge total | ${cross_locale_bridge} |"
+            echo "| incremental manifest cost | ${manifest_cost} |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload build markers
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: build-markers-${{ matrix.locale }}-${{ matrix.variant }}-${{ github.run_id }}
+          path: /tmp/markers-${{ matrix.locale }}-${{ matrix.variant }}.txt
+          retention-days: 14
+          if-no-files-found: error
+
+      # Chained bench writes are opt-in and namespaced. These are the only
+      # carry-over states consumed by postWalkIncremental and
+      # incrementalHtmlReuse; production cache keys are never written here.
+      - name: Save chained jobs SEO HTML cache
+        if: success() && inputs.chain != '' && env.JOBS_SEO_REUSE == '1' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != '' && hashFiles('.cache/incremental-html/**') != ''
+        id: bench-jobs-seo-html-save
+        uses: actions/cache/save@v5
+        with:
+          path: .cache/incremental-html
+          key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
+
+      - name: Save chained incremental manifest
+        if: success() && inputs.chain != '' && hashFiles('.cache/incremental-manifest/*.jsonl') != ''
+        id: bench-incremental-manifest-save
+        uses: actions/cache/save@v5
+        with:
+          path: .cache/incremental-manifest
+          key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ github.run_id }}
+
+      - name: Document chained cache saves
+        if: always()
+        env:
+          CHAIN: ${{ inputs.chain }}
+          VARIANT: ${{ matrix.variant }}
+          LOCALE: ${{ matrix.locale }}
+          RUN_ID: ${{ github.run_id }}
+          JOBS_SEO_REUSE: ${{ env.JOBS_SEO_REUSE }}
+          HTML_HASH: ${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
+          HTML_SAVE_OUTCOME: ${{ steps.bench-jobs-seo-html-save.outcome }}
+          MANIFEST_SAVE_OUTCOME: ${{ steps.bench-incremental-manifest-save.outcome }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          {
+            echo "### Cache saves — ${LOCALE}/${VARIANT}"
+            echo
+            echo '| cache | outcome | saved key |'
+            echo '|---|---|---|'
+            if [ -z "$CHAIN" ]; then
+              echo '| bench jobs SEO HTML | not saved (chain input empty) | _none_ |'
+              echo '| bench incremental manifest | not saved (chain input empty) | _none_ |'
+            else
+              html_key="bench-${CHAIN}-${VARIANT}-${LOCALE}-${HTML_HASH}"
+              manifest_key="bench-${CHAIN}-${VARIANT}-${LOCALE}-${RUN_ID}"
+              echo "| bench jobs SEO HTML | ${HTML_SAVE_OUTCOME:-skipped} | \`${html_key}\` |"
+              echo "| bench incremental manifest | ${MANIFEST_SAVE_OUTCOME:-skipped} | \`${manifest_key}\` |"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
   # ── Classic monolith build (all 4 locales) from the SAME prep snapshot ──
   # Reference for the equivalence check. Same data + same wall-clock window as
   # the shards (both start right after prep) ⇒ no time-variance. NO BUILD_LOCALE.
   monolith:
     needs: [matrix-setup, prep]
-    if: inputs.all_locales != true
+    # A stop-after run has intentionally partial output, so it cannot provide
+    # a meaningful full-monolith equivalence reference.
+    if: inputs.compare_monolith == true && inputs.stop_after_jobs_seo != true && inputs.all_locales != true && needs.matrix-setup.outputs.variant_count == '1'
+    name: monolith (${{ needs.matrix-setup.outputs.single_variant }})
     runs-on: ubuntu-latest
     env:
       SEQUENTIAL_PROFILE: ${{ github.event.inputs.parallel_plugins == 'true' && '' || '1' }}
+      BUILD_PROFILE: '1'
+      FAST_BUILD: ${{ github.event.inputs.fast_build == 'true' && '1' || '' }}
+      POST_WALK_WORKERS: '2'
+      JOBS_SEO_PROFILE_PHASES: '1'
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
       JOBS_SEO_RETENTION_PROBE: ${{ github.event.inputs.retention_probe }}
+      BUILD_BENCH: '1'
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+      - name: Apply variant environment
+        env:
+          VARIANT_ENV_JSON: ${{ needs.matrix-setup.outputs.single_env_json }}
+        run: |
+          set -euo pipefail
+          printf '%s' "$VARIANT_ENV_JSON" | jq -r 'to_entries[] | "\(.key)=\(.value)"' >> "$GITHUB_ENV"
       # Lockstep con deploy.yml e col job build-locale qui sopra: il monolite
       # (4 locali in un processo) e' il profilo di memoria peggiore dei tre.
       # Script unico: scripts/ci/grow-build-swap.sh.
@@ -514,7 +877,7 @@ jobs:
           node-version: '22'
       - name: Cache node_modules
         id: node-modules-cache
-        uses: actions/cache@v5
+        uses: actions/cache/restore@v5
         with:
           path: node_modules
           key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
@@ -552,12 +915,13 @@ jobs:
             exit 1
           fi
       - name: Cache per-job OG images
-        uses: actions/cache@v5
+        uses: actions/cache/restore@v5
         with:
           path: .cache/og-jobs
           key: og-jobs-${{ runner.os }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}
           restore-keys: |
             og-jobs-${{ runner.os }}-
+
       - name: Build monolith (all 4 locales, no BUILD_LOCALE)
         run: npm run build:ci
       - name: Hash-manifest the full monolith dist
@@ -571,8 +935,8 @@ jobs:
 
   # ── Equivalence gate: recomposed 4 shards === monolith (byte/sha256) ──
   compare:
-    needs: [build-locale, monolith]
-    if: inputs.all_locales != true
+    needs: [matrix-setup, build-locale, monolith]
+    if: inputs.compare_monolith == true && inputs.stop_after_jobs_seo != true && inputs.all_locales != true && needs.matrix-setup.outputs.variant_count == '1'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout (compare script)

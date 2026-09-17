@@ -30,11 +30,12 @@ import {
   stripScriptsAndStyles,
 } from './crawler-template.mjs';
 import { decodeHtmlEntities } from './dedicated-crawler-common.mjs';
-import { looksLikeAntiBotChallenge } from './jina-proxy.mjs';
+import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
 
 const CAREERS_URL = 'https://www.alpiq.com/career/open-jobs';
 const CAREERS_BASE = 'https://www.alpiq.com';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+const MIN_RICH_DETAIL_WORDS = 30;
 
 /**
  * Build the listing URL for a given 1-based page number.
@@ -243,6 +244,13 @@ function extractAlpiqRoleContentHtml(html) {
 export function parseAlpiqDetailHtml(html) {
   if (!html || typeof html !== 'string') return null;
 
+  // Jina normally returns raw HTML, but its Reader fallback can return
+  // Markdown when the upstream WAF changes the response negotiation. Keep the
+  // detail rescue useful in that case instead of silently falling back to the
+  // 20-word listing card (which is exactly what tripped the boilerplate guard).
+  const markdownDetail = parseAlpiqMarkdownDetail(html);
+  if (markdownDetail) return markdownDetail;
+
   const cleanedHtml = stripScriptsAndStyles(html);
   const roleHtml = extractAlpiqRoleContentHtml(cleanedHtml);
 
@@ -285,6 +293,43 @@ export function parseAlpiqDetailHtml(html) {
 }
 
 /**
+ * Parse the role section of the Markdown envelope returned by Jina Reader.
+ * The function is deliberately narrow: it only accepts a non-HTML payload
+ * with an explicit Mission heading, so a generic WAF/error page cannot become
+ * a vacancy description by accident.
+ */
+function parseAlpiqMarkdownDetail(markdown = '') {
+  const source = String(markdown || '').replace(/\r\n?/g, '\n');
+  if (!source || /<\/?(?:html|body|main|div|p|li)\b/i.test(source)) return null;
+
+  const mission = source.match(
+    /(?:^|\n)\s*(?:#{1,6}\s*)?(?:\*\*)?Mission(?:\*\*)?\s*(?:\n|$)/i,
+  );
+  if (!mission || mission.index == null) return null;
+
+  let roleText = source.slice(mission.index + mission[0].length);
+  roleText = roleText.split(/\n\s*(?:Disclaimer:|(?:\*\*)?(?:Your benefits|How to apply|Apply now)(?:\*\*)?)/i)[0];
+  roleText = normalizeDescriptionSpace(roleText);
+  if (!roleText) return null;
+
+  const sections = [];
+  const sectionRe = /^\s*(?:#{1,6}\s+|\*\*)([^*\n#]+?)(?:\*\*)?\s*$/gm;
+  let sectionMatch;
+  while ((sectionMatch = sectionRe.exec(roleText)) !== null) {
+    const section = normalizeSpace(sectionMatch[1]);
+    if (section.length > 2 && section.length < 100) sections.push(section);
+  }
+
+  const bullets = roleText
+    .split('\n')
+    .map((line) => line.match(/^\s*(?:[*-]|\d+[.)])\s+(.*)$/)?.[1] || '')
+    .map((line) => normalizeSpace(line))
+    .filter((line) => line.length > 5);
+
+  return { title: '', description: roleText, sections, bullets };
+}
+
+/**
  * Prefer a real detail-page description over a listing card snippet only when
  * the detail contains enough role-specific content. A failed/partial detail
  * fetch therefore degrades to the previous listing text instead of turning a
@@ -298,20 +343,112 @@ export function preferAlpiqDetailDescription(listingDescription = '', detail = n
   return normalizeDescriptionSpace(listingDescription);
 }
 
+/**
+ * Replace stale, obviously truncated Alpiq locale copies with the freshly
+ * crawled source description while the translation queue is unavailable.
+ *
+ * `mergePreserveLocaleData()` deliberately keeps existing translations. That
+ * is normally correct, but old Alpiq records can contain 20-word snippets in
+ * `it`/`de`/`fr` next to a newly recovered detail-page description. Leaving
+ * those snippets in place makes the boilerplate guard judge the translation
+ * fossil instead of parser output. Copying the source is the same safe
+ * fallback used for empty locale slots elsewhere; `needsRetranslation` makes
+ * the next translate-pending run replace it with a real translation.
+ *
+ * Empty non-source slots are left alone: the shared locale hardener already
+ * fills those, and this repair is intentionally limited to stale truncations.
+ *
+ * @returns {number} Number of non-source locale slots repaired.
+ */
+export function repairThinAlpiqLocaleDescriptions(jobs, {
+  minSourceChars = 500,
+  maxLocaleRatio = 0.45,
+} = {}) {
+  const locales = ['it', 'en', 'de', 'fr'];
+  let repaired = 0;
+
+  for (const job of Array.isArray(jobs) ? jobs : []) {
+    const source = normalizeDescriptionSpace(job?.description || '');
+    if (source.length < minSourceChars) continue;
+
+    const sourceLang = String(job?.sourceLang || '').trim().toLowerCase() || 'en';
+    const map = job?.descriptionByLocale && typeof job.descriptionByLocale === 'object'
+      ? { ...job.descriptionByLocale }
+      : {};
+    let changed = false;
+
+    // Keep the source-locale slot authoritative even when an older snapshot
+    // omitted it or preserved a shorter pre-detail-page copy.
+    const sourceLocaleText = normalizeDescriptionSpace(map[sourceLang] || '');
+    if (sourceLocaleText.length < source.length * 0.85) {
+      map[sourceLang] = source;
+      changed = true;
+    }
+
+    for (const locale of locales) {
+      if (locale === sourceLang) continue;
+      const current = normalizeDescriptionSpace(map[locale] || '');
+      if (!current || current.length >= source.length * maxLocaleRatio) continue;
+
+      map[locale] = source;
+      job.needsRetranslation = true;
+      repaired += 1;
+      changed = true;
+    }
+
+    if (changed) job.descriptionByLocale = map;
+  }
+
+  return repaired;
+}
+
 async function enrichAlpiqJobDescription(job, timeoutMs) {
+  let bestDescription = normalizeDescriptionSpace(job.description);
+
+  const considerDetail = (html) => {
+    const detail = parseAlpiqDetailHtml(html);
+    const candidate = preferAlpiqDetailDescription(job.description, detail);
+    if (candidate.split(/\s+/).filter(Boolean).length
+      > bestDescription.split(/\s+/).filter(Boolean).length) {
+      bestDescription = candidate;
+    }
+  };
+
   try {
     const detailHtml = await fetchHtml(job.url, {
       timeoutMs,
       headers: { Accept: 'text/html', 'User-Agent': UA },
       label: `alpiq detail ${job.jobId}`,
     });
-    const detail = parseAlpiqDetailHtml(detailHtml);
-    const description = preferAlpiqDetailDescription(job.description, detail);
-    if (description && description !== job.description) return { ...job, description };
+    considerDetail(detailHtml);
   } catch (err) {
     console.warn(`   ⚠️ Alpiq detail ${job.jobId}: ${err?.message || err} — keeping listing description.`);
   }
-  return job;
+
+  // A direct 200 can still be a generic shell that carries no role content.
+  // Give the clean-IP reader one explicit quality-gated chance before the
+  // caller decides that the snapshot is incomplete.
+  if (bestDescription.split(/\s+/).filter(Boolean).length < MIN_RICH_DETAIL_WORDS) {
+    try {
+      const proxyHtml = await fetchHtmlViaJinaWithRetry(job.url, { timeoutMs });
+      if (proxyHtml) considerDetail(proxyHtml);
+    } catch (err) {
+      console.warn(`   ⚠️ Alpiq Jina detail ${job.jobId}: ${err?.message || err}`);
+    }
+  }
+
+  if (bestDescription.split(/\s+/).filter(Boolean).length >= MIN_RICH_DETAIL_WORDS) {
+    return {
+      ...job,
+      description: bestDescription,
+      _alpiqDetailIncomplete: false,
+    };
+  }
+
+  console.warn(
+    `   ⚠️ Alpiq detail ${job.jobId}: no rich role description after direct + Jina fetch; deferring this snapshot.`,
+  );
+  return { ...job, _alpiqDetailIncomplete: true };
 }
 
 /**

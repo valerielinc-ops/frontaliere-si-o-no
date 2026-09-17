@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import YAML from 'yaml';
 import {
   isReviewTestPath,
@@ -479,14 +481,30 @@ describe('owner policy excluding test files from review', () => {
     expect(findLedgerOnlyApproval([{ ...review, commit_id: 'e'.repeat(40) }], ledgerHead, { ghFn: f.ghFn, repo: 'owner/repo', pr: 1 })).toBeNull();
     expect(findLedgerOnlyApproval([{ ...review, user: { type: 'Bot', login: 'frontaliere-automation-evil[bot]' } }], ledgerHead, { ghFn: f.ghFn, repo: 'owner/repo', pr: 1 })).toBeNull();
   });
+  it('accepts a trusted registry supplied outside the checkout for the pre-checkout lane', () => {
+    const registryPath = join(mkdtempSync(join(tmpdir(), 'ledger-policy-')), 'loop-registry.json');
+    writeFileSync(registryPath, JSON.stringify(ledgerRegistry));
+    const previous = process.env.LOOP_FLEET_REGISTRY_PATH;
+    process.env.LOOP_FLEET_REGISTRY_PATH = registryPath;
+    try {
+      expect(inspectLedgerOnlyHead(ledgerFixture().ghFn, 'owner/repo', 1, ledgerHead)).toMatchObject({
+        ok: true,
+        kind: 'eligible',
+      });
+    } finally {
+      if (previous === undefined) delete process.env.LOOP_FLEET_REGISTRY_PATH;
+      else process.env.LOOP_FLEET_REGISTRY_PATH = previous;
+    }
+  });
   it('retains the real test job and skips every model step for tests-only PRs', () => {
     const workflow = YAML.parse(readFileSync('.github/workflows/tests.yml', 'utf8'));
     const steps = workflow.jobs.vitest.steps;
     expect(steps.find((s: any) => s.id === 'test_only_review').if).toContain('success()');
-    for (const id of ['prefetch', 'quota', 'codex_review']) expect(steps.find((s: any) => s.id === id).if).toContain("tier != 'tests-only'");
+    expect(steps.find((s: any) => s.id === 'quota')).toBeUndefined();
+    for (const id of ['prefetch', 'codex_review']) expect(steps.find((s: any) => s.id === id).if).toContain("tier != 'tests-only'");
     for (const step of steps.filter((s: any) => String(s.name).startsWith('vitest '))) expect(step.if ?? '').not.toContain('tests-only');
   });
-  it('mantiene un solo tests.yml/check e porta il ledger-only nello stesso job', () => {
+  it('mantiene un solo tests.yml/check e porta il ledger-only prima del checkout', () => {
     const workflow = YAML.parse(readFileSync('.github/workflows/tests.yml', 'utf8')) as any;
     const pullRequest = workflow.on?.pull_request ?? workflow.true?.pull_request;
     const source = readFileSync('.github/workflows/tests.yml', 'utf8');
@@ -498,22 +516,41 @@ describe('owner policy excluding test files from review', () => {
     expect(source).toContain('id: ledger_scope');
     expect(source).toContain('ledger-check');
     expect(source).toContain('ledger-post');
-    expect(source).toContain("set_tier ledger-only bounded 0");
-    expect(source).toContain("steps.tier.outputs.tier != 'ledger-only'");
+    expect(source).not.toContain("set_tier ledger-only bounded 0");
+    expect(source).toContain('Bootstrap trusted bounded-ledger policy (no checkout)');
+    expect(source).toContain('download_main package.json');
+    expect(source).toContain('POLICY_ROOT=');
+    expect(source).toContain('scripts/lib/loop-fleet-contract.mjs');
+    expect(source).toContain('data/loop-fleet/loop-registry.json');
+    expect(source).toContain('LOOP_FLEET_REGISTRY_PATH=');
     const ledgerScope = workflow.jobs.vitest.steps.find((step: any) => step.id === 'ledger_scope');
-    expect(ledgerScope.run).toContain('10)');
+    const ledgerPolicy = workflow.jobs.vitest.steps.find((step: any) => step.id === 'ledger_policy');
+    const checkoutIndex = workflow.jobs.vitest.steps.findIndex((step: any) => step.uses === 'actions/checkout@v5');
+    const setupIndex = workflow.jobs.vitest.steps.findIndex((step: any) => step.id === undefined && step.name === 'Setup Node.js + npm ci (una volta per tutte e quattro le famiglie)');
+    expect(workflow.jobs.vitest.steps.findIndex((step: any) => step.id === 'ledger_policy')).toBeLessThan(checkoutIndex);
+    expect(workflow.jobs.vitest.steps.findIndex((step: any) => step.id === 'ledger_scope')).toBeLessThan(checkoutIndex);
+    expect(workflow.jobs.vitest.steps.findIndex((step: any) => step.id === 'ledger_review')).toBeLessThan(checkoutIndex);
+    expect(ledgerPolicy.if).toContain("github.event.pull_request.user.login == 'frontaliere-automation[bot]'");
+    expect(ledgerPolicy.run).toContain('POLICY_REF');
+    expect(ledgerScope.if).toContain("steps.ledger_policy.outcome == 'success'");
+    expect(ledgerScope.run).toContain('LOOP_FLEET_REGISTRY_PATH=');
     const unknownExit = ledgerScope.run.slice(ledgerScope.run.indexOf('*)'));
     expect(unknownExit).toContain('exit "$status"');
     expect(unknownExit).not.toContain('ledger_only=false');
-    expect(source).toContain("github.event.pull_request.base.ref == 'main'");
-    expect(source).toContain("github.event.pull_request.user.type == 'Bot'");
-    expect(source).toContain("github.event.pull_request.user.login == 'frontaliere-automation[bot]'");
-    expect(source).toContain('github.event.pull_request.head.repo.full_name == github.repository');
-    for (const loop of ['L0', 'L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7', 'L8', 'L9', 'L10', 'L11']) {
-      expect(source).toContain(`startsWith(github.head_ref, 'chore/loop-fleet-ledger-${loop}-')`);
+    expect(workflow.jobs.vitest.steps.find((step: any) => step.uses === 'actions/checkout@v5').if).toContain("steps.ledger_scope.outputs.ledger_only != 'true'");
+    expect(workflow.jobs.vitest.steps[setupIndex].if).toContain("steps.ledger_scope.outputs.ledger_only != 'true'");
+    for (const id of ['source-guards', 'independent-gates', 'assemble', 'collect-independent-gates', 'resolve', 'review_gate']) {
+      expect(workflow.jobs.vitest.steps.find((step: any) => step.id === id).if, id).toContain("steps.ledger_scope.outputs.ledger_only != 'true'");
     }
-    expect(source).toContain("startsWith(github.head_ref, 'chore/loop-fleet-ledger-lifecycle-')");
-    expect(source).not.toContain("startsWith(github.head_ref, 'chore/loop-fleet-ledger-')");
+    for (const loop of ['L0', 'L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7', 'L8', 'L9', 'L10', 'L11']) {
+      expect(ledgerPolicy.if).toContain(`startsWith(github.head_ref, 'chore/loop-fleet-ledger-${loop}-')`);
+    }
+    expect(ledgerPolicy.if).toContain("startsWith(github.head_ref, 'chore/loop-fleet-ledger-lifecycle-')");
+    expect(ledgerPolicy.if).not.toContain("startsWith(github.head_ref, 'chore/loop-fleet-ledger-')");
+    expect(source).toContain('group: tests-${{ github.workflow }}-${{ github.event.pull_request.number || inputs.pr_number || github.ref }}-${{ github.event.pull_request.head.sha || github.sha }}');
+    expect(source).toContain('cancel-in-progress: false');
+    expect(source).toContain('trusted loop-fleet bridge');
+    expect(source).toContain('Classify bounded loop-fleet ledger path');
     const ledgerReview = workflow.jobs.vitest.steps.find((step: any) => step.id === 'ledger_review');
     expect(ledgerReview['continue-on-error']).toBeUndefined();
     expect(ledgerReview.run).toContain('APP_TOKEN');

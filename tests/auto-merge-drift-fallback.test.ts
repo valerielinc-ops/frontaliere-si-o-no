@@ -5,7 +5,8 @@
  * Rimuove l'unico merge MANUALE residuo. Vedi REVIEW_WORKFLOW_DRIFT_FILES.
  */
 import { describe, it, expect } from 'vitest';
-import { isReviewWorkflowDriftPR, isTrustedDriftAuthor, prBodyContractOk } from '../scripts/ci/auto-merge-eval.mjs';
+import { isReviewWorkflowDriftPR, isTrustedDriftAuthor, prBodyContractOk, reviewCommitMatchesHead } from '../scripts/ci/auto-merge-eval.mjs';
+import { decisionDeferralsAreSpecific } from '../scripts/lib/pr-body-sections-check.mjs';
 import { isReviewerBot } from '../scripts/ci/lib/constants.mjs';
 import { REVIEW_WORKFLOW_DRIFT_FILES } from '../scripts/ci/lib/constants.mjs';
 
@@ -50,6 +51,17 @@ describe('isReviewWorkflowDriftPR', () => {
   });
 });
 
+describe('reviewCommitMatchesHead', () => {
+  const head = 'a'.repeat(40);
+
+  it('richiede un commit id esplicito e identico alla HEAD', () => {
+    expect(reviewCommitMatchesHead(head, head)).toBe(true);
+    expect(reviewCommitMatchesHead('', head)).toBe(false);
+    expect(reviewCommitMatchesHead(null, head)).toBe(false);
+    expect(reviewCommitMatchesHead('b'.repeat(40), head)).toBe(false);
+  });
+});
+
 describe('isTrustedDriftAuthor', () => {
   it('true per owner/membro/collaboratore del repo', () => {
     expect(isTrustedDriftAuthor({ assoc: 'OWNER', login: 'valerielinc-ops', type: 'User' })).toBe(true);
@@ -58,15 +70,19 @@ describe('isTrustedDriftAuthor', () => {
   });
 
   it('true per i bot di automazione interni', () => {
-    expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'claude', type: 'Bot' })).toBe(true);
-    expect(isTrustedDriftAuthor({ assoc: 'CONTRIBUTOR', login: 'github-actions', type: 'Bot' })).toBe(true);
+    expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'claude[bot]', type: 'Bot' })).toBe(true);
+    expect(isTrustedDriftAuthor({ assoc: 'CONTRIBUTOR', login: 'github-actions[bot]', type: 'Bot' })).toBe(true);
     // The frontaliere-automation App (matched by EXACT slug, assoc is NONE for apps).
     expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'frontaliere-automation[bot]', type: 'Bot' })).toBe(true);
   });
 
-  it('false per contributor/none umani e bot non in allowlist', () => {
+  it('false per login nudi, prefissi simili e bot non in allowlist', () => {
     expect(isTrustedDriftAuthor({ assoc: 'CONTRIBUTOR', login: 'random', type: 'User' })).toBe(false);
     expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'random', type: 'User' })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'claude', type: 'Bot' })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'claude-evil[bot]', type: 'Bot' })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'github-actions', type: 'Bot' })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'github-actions-evil[bot]', type: 'Bot' })).toBe(false);
     // un bot esterno NON in allowlist non passa
     expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'dependabot', type: 'Bot' })).toBe(false);
     // exact-slug match: a look-alike app slug must NOT pass (no broad widening)
@@ -76,6 +92,27 @@ describe('isTrustedDriftAuthor', () => {
   it('false per meta mancante', () => {
     expect(isTrustedDriftAuthor(null)).toBe(false);
     expect(isTrustedDriftAuthor(undefined)).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'OWNER', login: 'owner' })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'OWNER', login: 'owner', type: null })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'OWNER', login: 'owner', type: 'Bot' })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'OWNER', login: 'owner', type: 'App' })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: '', login: 'owner', type: 'User' })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'OWNER', login: '', type: 'User' })).toBe(false);
+  });
+
+  it('richiede type User per le associazioni umane privilegiate', () => {
+    for (const type of [undefined, null, 'Bot', 'App', '']) {
+      expect(isTrustedDriftAuthor({
+        assoc: 'COLLABORATOR',
+        login: 'trusted-human',
+        type,
+      })).toBe(false);
+    }
+    expect(isTrustedDriftAuthor({
+      assoc: 'COLLABORATOR',
+      login: 'trusted-human',
+      type: 'User',
+    })).toBe(true);
   });
 });
 
@@ -107,5 +144,14 @@ describe('prBodyContractOk (valutato dal body, non dalla sticky)', () => {
 
   it('true con Closes singolo per riga (forma corretta)', () => {
     expect(prBodyContractOk(`${goodBody}\n\nCloses #12\nCloses #34`)).toBe(true);
+  });
+
+  it('rifiuta una deroga decisionale vaga e accetta motivo + prossimo passo concreti', () => {
+    const vague = `${goodBody.replace('- niente altro', '- il residuo è per scelta')}`;
+    const specific = `${goodBody.replace('- niente altro', '- il residuo è per scelta. **Motivo:** il provider upstream non è ancora stabile. **Prossimo passo:** riaprire il lavoro dopo due run verdi consecutivi.')}`;
+    expect(decisionDeferralsAreSpecific(vague)).toBe(false);
+    expect(prBodyContractOk(vague)).toBe(false);
+    expect(decisionDeferralsAreSpecific(specific)).toBe(true);
+    expect(prBodyContractOk(specific)).toBe(true);
   });
 });

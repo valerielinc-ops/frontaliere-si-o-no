@@ -1,0 +1,22 @@
+{
+  "companyKey": "workplacex",
+  "companyName": "workplaceX ag",
+  "companyHost": "workplacex.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://workplacex.ch/index.php/freiestellen/"
+  ],
+  "detailTemplate": "/index.php/freiestellen/page/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Seite 2",
+    "Seite 3",
+    "Seite 7"
+  ],
+  "canton": "BS",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-17T10:09:52.657Z"
+}
