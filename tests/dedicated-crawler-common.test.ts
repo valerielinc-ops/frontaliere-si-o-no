@@ -861,6 +861,12 @@ describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)'
     const usText = 'Company address The Swatch Group (U.S.) Inc. 800 Waterford Way Miami FL United States';
     expect(isExplicitlyOutsideTarget(usText)).toBe(true);
     expect(isLocationExplicitlyForeign('Garden City, company HQ, United States')).toBe(true);
+    expect(isLocationExplicitlyForeign('Zurich, Germany', {
+      preferExplicitForeignCountry: true,
+    })).toBe(true);
+    expect(isLocationExplicitlyForeign('Zurich, DE', {
+      preferExplicitForeignCountry: true,
+    })).toBe(true);
   });
 
   it('foreign-job gates do not treat a foreign border town as a Swiss location', async () => {

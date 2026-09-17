@@ -4,12 +4,20 @@ import {
   parseFinconsJobDetail,
   buildFinconsLocalizedContent,
 } from '../scripts/lib/fincons-job-parser.mjs';
-import { resolveFinconsLocation } from '../scripts/lib/fincons-location.mjs';
+import { classifyFinconsLocation, resolveFinconsLocation } from '../scripts/lib/fincons-location.mjs';
 
 describe('fincons-job-parser', () => {
   it('does not relabel an explicitly foreign detail with a Swiss listing fallback', () => {
     expect(resolveFinconsLocation(
       { location: 'Milan, Italy', country: 'Italy' },
+      { location: 'Lugano, Ticino, Switzerland' },
+    )).toBeNull();
+  });
+
+  it('rejects an explicit foreign country even when the location also names Zurich', () => {
+    expect(classifyFinconsLocation('Zurich, Germany')).toBe('foreign');
+    expect(resolveFinconsLocation(
+      { location: 'Zurich, Germany' },
       { location: 'Lugano, Ticino, Switzerland' },
     )).toBeNull();
   });

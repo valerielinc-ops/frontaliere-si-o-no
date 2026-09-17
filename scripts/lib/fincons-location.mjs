@@ -14,7 +14,13 @@ export function classifyFinconsLocation(location = '', country = '') {
     return 'foreign';
   }
   if (!normalizedLocation) return 'unresolved';
-  if (isLocationExplicitlyForeign(normalizedLocation)) return 'foreign';
+  // Fincons emits a single location field, so an explicit foreign country
+  // must win even when a stale/mixed card also contains a Swiss municipality
+  // (e.g. "Zurich, Germany"). Otherwise the generic helper's Swiss-name
+  // safeguard can make the address look Swiss and pair the wrong canton.
+  if (isLocationExplicitlyForeign(normalizedLocation, {
+    preferExplicitForeignCountry: true,
+  })) return 'foreign';
   if (!isTargetSwissLocation(normalizedLocation, { includeBorderProximity: false })) {
     return 'unresolved';
   }

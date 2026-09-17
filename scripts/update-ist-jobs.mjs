@@ -108,6 +108,11 @@ const IST_SHARED_PORTAL_COMPANIES = new Set([
   'inspired education group',
 ]);
 const IST_DETAIL_TENANT_RE = /\b(?:international\s+school\s+of\s+ticino|scuola\s+internazionale\s+(?:di|del)\s+ticino|école\s+internationale\s+du\s+tessin|internationale\s+schule\s+des\s+tessins)\b/i;
+const IST_ROLE_TENANT_SIGNAL_RE = /(?:\b(?:the\s+)?international\s+school\s+of\s+ticino\s+(?:\([^)]*\)\s+)?(?:is\s+(?:seeking|looking\s+for|recruiting|hiring))\b|\bscuola\s+internazionale\s+(?:di|del)\s+ticino\s+(?:cerca|sta\s+cercando)\b|\bécole\s+internationale\s+du\s+tessin\s+(?:recherche|cherche)\b|\binternationale\s+schule\s+des\s+tessins\s+sucht\b)/i;
+
+function hasVerifiedIstRoleTenantSignal(detail = {}) {
+  return IST_ROLE_TENANT_SIGNAL_RE.test(normalizeSpace(detail.description));
+}
 
 function slugify(text = '', suffix = '') {
   let s = text
@@ -166,22 +171,35 @@ function isLegacyIstJob(job) {
 }
 
 export function isIstDetailJob(detail = {}) {
+  const detailIdentityValues = [
+    detail.hiringOrganization,
+    detail.company,
+    detail.tenant,
+    detail.tenantName,
+    detail.employer,
+    detail.schoolName,
+    detail.organization,
+  ]
+    .map((value) => normalize(value))
+    .filter(Boolean);
   const detailCompanies = [detail.hiringOrganization, detail.company]
     .map((value) => normalize(value))
     .filter(Boolean);
   const normalizedSourceUrl = normalize(detail.sourceUrl).replace(/[-_/]+/g, ' ');
   const hasIstTenantMarker = IST_DETAIL_TENANT_RE.test(normalizedSourceUrl);
-  const hasExactIstCompany = detailCompanies.includes(normalize(IST_COMPANY_NAME));
+  const hasVerifiedIstTenant = detailIdentityValues.includes(normalize(IST_COMPANY_NAME));
   const hasOnlySharedPortalCompanies = detailCompanies.length === 0
     || detailCompanies.every((company) => IST_SHARED_PORTAL_COMPANIES.has(company));
 
   // The shared SuccessFactors page reports "Inspired Education" as the
-  // hiringOrganization even for a campus posting. In that case the source
-  // URL must carry the exact IST tenant slug; a generic "international
-  // school" phrase in a title/description or the shared host alone is not an
-  // identity signal. An explicit detail-level company match remains
-  // authoritative when the tenant exposes one.
-  return hasExactIstCompany || (hasOnlySharedPortalCompanies && hasIstTenantMarker);
+  // hiringOrganization even for a campus posting. Prefer an explicit,
+  // detail-level tenant/company field whenever the page exposes one; a
+  // generic "international school" phrase in a title/description or the
+  // shared host alone is not an identity signal. The exact tenant slug is
+  // retained as the portal's verified fallback for pages whose structured
+  // detail payload contains only the shared group organization.
+  return hasVerifiedIstTenant
+    || (hasOnlySharedPortalCompanies && (hasIstTenantMarker || hasVerifiedIstRoleTenantSignal(detail)));
 }
 
 function isTrustedDomain(rawUrl = '') {
@@ -282,6 +300,8 @@ function extractMicrodata(html) {
     location: get('streetAddress') || getPropertyId('location'),
     datePosted: get('datePosted'),
     hiringOrganization: get('hiringOrganization'),
+    company: get('company') || getPropertyId('company') || getPropertyId('employer'),
+    tenant: get('tenant') || getPropertyId('tenant') || getPropertyId('tenantName'),
     description: getPropertyId('description'),
   };
 }
@@ -303,6 +323,14 @@ async function fetchJobDetail(url) {
   if (descLoc) {
     const descBlock = extractBalancedTagBlock(descLoc.rest, descLoc.tagName);
     if (descBlock) data.description = stripHtml(descBlock);
+  }
+
+  // Historic generic `/job/<city>-<role>/<id>/` URLs can omit the tenant
+  // marker while the detail body still contains the official hiring sentence.
+  // Promote only that exact school-specific sentence to a tenant signal; a
+  // generic mention of an international school is deliberately insufficient.
+  if (!data.tenant && !data.tenantName && hasVerifiedIstRoleTenantSignal(data)) {
+    data.tenant = IST_COMPANY_NAME;
   }
 
   // Get canonical URL if available
@@ -418,7 +446,7 @@ async function fetchIstJobs() {
 
     if (
       !rawLocation ||
-      isLocationExplicitlyForeign(rawLocation) ||
+      isLocationExplicitlyForeign(rawLocation, { preferExplicitForeignCountry: true }) ||
       !isTargetSwissLocation(rawLocation, { includeBorderProximity: false })
     ) {
       console.log(`  ⏭️  Skipped — unresolved or non-Swiss location: ${rawLocation || 'missing'}`);
@@ -599,7 +627,7 @@ function postProcessIstJobs() {
     if (
       !location ||
       !canton ||
-      isLocationExplicitlyForeign(rawLocation) ||
+      isLocationExplicitlyForeign(rawLocation, { preferExplicitForeignCountry: true }) ||
       !isTargetSwissLocation(rawLocation, { includeBorderProximity: false })
     ) {
       dropped++;

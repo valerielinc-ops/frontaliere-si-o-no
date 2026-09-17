@@ -274,6 +274,11 @@ describe('Google Switzerland crawler parser', () => {
     it('rejects a foreign-only card', () => {
       expect(resolveSwissGoogleLocation('Mountain View, CA, USA ; Kirkland, WA, USA')).toBeNull();
     });
+
+    it('rejects a mixed-looking field with an explicit foreign country', () => {
+      expect(resolveSwissGoogleLocation('Zürich, Germany')).toBeNull();
+      expect(resolveSwissGoogleLocation('Zürich, DE')).toBeNull();
+    });
   });
 
   // ── slugify (imported from crawler-template) ──

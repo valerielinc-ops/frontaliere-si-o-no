@@ -222,7 +222,7 @@ function normalizeCountry(value = '') {
   return String(value || '').trim().toLowerCase();
 }
 
-function resolveSwissLastminuteLocation(detail = {}) {
+export function resolveSwissLastminuteLocation(detail = {}) {
   const location = String(detail.location || detail.city || '').trim();
   const country = normalizeCountry(detail.country);
   if (country && !SWISS_COUNTRY_TOKENS.has(country)) {
@@ -230,7 +230,7 @@ function resolveSwissLastminuteLocation(detail = {}) {
   }
   if (
     !location ||
-    isLocationExplicitlyForeign(location) ||
+    isLocationExplicitlyForeign(location, { preferExplicitForeignCountry: true }) ||
     !isTargetSwissLocation(location, { includeBorderProximity: false })
   ) {
     return null;
@@ -252,7 +252,7 @@ function isExplicitlyForeignSmartRecruitersDetail(detail = {}) {
   const country = normalizeCountry(detail.country);
   return Boolean(
     (country && !SWISS_COUNTRY_TOKENS.has(country)) ||
-    (location && isLocationExplicitlyForeign(location))
+    (location && isLocationExplicitlyForeign(location, { preferExplicitForeignCountry: true }))
   );
 }
 
@@ -373,6 +373,12 @@ export async function fetchLastminuteJobDetailUrls() {
     if (!hasLastminuteNextPageSignal(html, page + 1)) {
       console.log('    ℹ️ Source exposes no next-page signal, treating the listing as complete.');
       break;
+    }
+    if (page === maxPages) {
+      throw new Error(
+        `lastminute careers listing reached the maximum page limit ${maxPages} while the source advertised page ${page + 1}; `
+        + 'source completeness is unverified, preserving the previous adapter and data',
+      );
     }
   }
 
@@ -640,7 +646,7 @@ export function normalizeLastminuteRow(job) {
     !location ||
     !canton ||
     (country && !SWISS_COUNTRY_TOKENS.has(country)) ||
-    isLocationExplicitlyForeign(location) ||
+    isLocationExplicitlyForeign(location, { preferExplicitForeignCountry: true }) ||
     !isTargetSwissLocation(location, { includeBorderProximity: false })
   ) {
     return null;

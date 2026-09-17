@@ -6,6 +6,7 @@ import {
   hasLastminuteNextPageSignal,
   inferLastminuteLocation,
   normalizeLastminuteRow,
+  resolveSwissLastminuteLocation,
 } from '@/scripts/update-lastminute-jobs.mjs';
 
 describe('lastminute location normalization', () => {
@@ -53,6 +54,11 @@ describe('lastminute location normalization', () => {
       streetAddress: 'Chiasso',
       addressCountry: 'CH',
     });
+  });
+
+  it('rejects a Swiss municipality paired with an explicit foreign country', () => {
+    expect(resolveSwissLastminuteLocation({ location: 'Chiasso, Germany' })).toBeNull();
+    expect(resolveSwissLastminuteLocation({ location: 'Chiasso, DE' })).toBeNull();
   });
 
   it('fails closed when the listing parser returns zero detail URLs', async () => {
@@ -126,6 +132,27 @@ describe('lastminute location normalization', () => {
         'repeated only previously seen detail URLs',
       );
       expect(fetchSpy).toHaveBeenCalledTimes(2);
+    } finally {
+      fetchSpy.mockRestore();
+    }
+  });
+
+  it('fails closed when the source still advertises another page at the safety limit', async () => {
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      const page = Number(new URL(String(input)).searchParams.get('page'));
+      const nextPage = page + 1;
+      return new Response(
+        `<a href="/careers/jobs/job?id=${744000149000000 + page}&jobName=Software+Engineer">job</a>`
+          + `<a rel="next" href="/careers/jobs/?page=${nextPage}">next</a>`,
+        { status: 200 },
+      );
+    });
+
+    try {
+      await expect(fetchLastminuteJobDetailUrls()).rejects.toThrow(
+        'reached the maximum page limit 20',
+      );
+      expect(fetchSpy).toHaveBeenCalledTimes(20);
     } finally {
       fetchSpy.mockRestore();
     }

@@ -6155,9 +6155,38 @@ export function isExplicitlyOutsideTarget(text) {
 /**
  * Check if a job's LOCATION field explicitly indicates a non-Swiss location.
  */
-export function isLocationExplicitlyForeign(locationField) {
+const EXPLICIT_FOREIGN_COUNTRY_MARKERS = [
+  'malaysia', 'italy', 'italia', 'france', 'germany', 'deutschland',
+  'austria', 'österreich', 'spain', 'españa', 'portugal',
+  'united kingdom', 'uk', 'usa', 'united states', 'canada',
+  'china', 'japan', 'india', 'singapore', 'thailand', 'indonesia',
+  'vietnam', 'philippines', 'taiwan', 'south korea', 'hong kong',
+  'united arab emirates', 'uae', 'saudi arabia', 'qatar',
+  'australia', 'brazil', 'mexico', 'south africa',
+  'netherlands', 'belgium', 'sweden', 'norway', 'denmark', 'finland',
+  'poland', 'czech republic', 'hungary', 'romania', 'greece',
+  'russia', 'ukraine', 'turkey', 'bermuda',
+];
+const EXPLICIT_FOREIGN_COUNTRY_CODE_RE = /(?:^|[,;\s(])(?:AT|DE|IT|NL|ES|PT|GB|UK|US|CA|AU|CN|JP|IN|SG|TH|ID|VN|PH|TW|AE|SA|QA|IL|TR|BR|MX|ZA|SE|NO|DK|FI|PL|CZ|HU|RO|BG|HR|SI|SK|RS|UA|RU)(?=$|[,;\s)])/i;
+
+export function isLocationExplicitlyForeign(locationField, {
+  preferExplicitForeignCountry = false,
+} = {}) {
   const lower = String(locationField || '').toLowerCase();
   if (!lower || lower.length < 3) return false;
+  // Some source cards combine a Swiss municipality with an explicit foreign
+  // country (e.g. "Zurich, Germany"). Callers resolving a single employer's
+  // authoritative address may opt into the country signal before the generic
+  // Swiss-name safeguard below; otherwise this legacy helper keeps its broad
+  // mixed-text behaviour for prose fields used by shared crawlers.
+  if (
+    preferExplicitForeignCountry && (
+      EXPLICIT_FOREIGN_COUNTRY_MARKERS.some((k) => lower.includes(k))
+      || EXPLICIT_FOREIGN_COUNTRY_CODE_RE.test(lower)
+    )
+  ) {
+    return true;
+  }
   if (/(\bch\b|swiss|svizzera|switzerland|schweiz|suisse)/i.test(lower)) return false;
   if (/\b(ticino|tessin|ti|graubunden|graubünden|grigioni|grisons|gr)\b/i.test(lower)) return false;
   // Word-boundary aware target-location check (NOT a substring scan, which let
@@ -6170,18 +6199,6 @@ export function isLocationExplicitlyForeign(locationField) {
   // Uses the full BFS dataset (2,110 municipalities + aliases) instead of
   // a manual list, so every Swiss city is protected.
   if (isKnownSwissMunicipality(lower)) return false;
-  const foreignCountries = [
-    'malaysia', 'italy', 'italia', 'france', 'germany', 'deutschland',
-    'austria', 'österreich', 'spain', 'españa', 'portugal',
-    'united kingdom', 'uk', 'usa', 'united states', 'canada',
-    'china', 'japan', 'india', 'singapore', 'thailand', 'indonesia',
-    'vietnam', 'philippines', 'taiwan', 'south korea', 'hong kong',
-    'united arab emirates', 'uae', 'saudi arabia', 'qatar',
-    'australia', 'brazil', 'mexico', 'south africa',
-    'netherlands', 'belgium', 'sweden', 'norway', 'denmark', 'finland',
-    'poland', 'czech republic', 'hungary', 'romania', 'greece',
-    'russia', 'ukraine', 'turkey', 'bermuda',
-  ];
   const foreignCities = [
     // Italian cities
     'kuala lumpur', 'milano', 'milan', 'roma', 'rome', 'firenze', 'florence',
@@ -6213,7 +6230,8 @@ export function isLocationExplicitlyForeign(locationField) {
     'ruggell', 'barberà del vallès', 'barbera del valles',
     'montecarlo', 'monte carlo', 'monte-carlo', 'monaco-ville',
   ];
-  return foreignCountries.some((k) => lower.includes(k)) || foreignCities.some((k) => lower.includes(k));
+  return EXPLICIT_FOREIGN_COUNTRY_MARKERS.some((k) => lower.includes(k))
+    || foreignCities.some((k) => lower.includes(k));
 }
 
 // A SuccessFactors / SAP "career site" job page (used by Swatch Group, Omega,

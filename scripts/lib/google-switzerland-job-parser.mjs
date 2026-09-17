@@ -124,7 +124,7 @@ export function resolveSwissGoogleLocation(rawLocation = '') {
 
   for (const entry of entries) {
     if (
-      isLocationExplicitlyForeign(entry)
+      isLocationExplicitlyForeign(entry, { preferExplicitForeignCountry: true })
       || !isTargetSwissLocation(entry, { includeBorderProximity: false })
     ) {
       continue;
