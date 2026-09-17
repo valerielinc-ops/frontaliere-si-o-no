@@ -491,7 +491,7 @@ jobs:
             build_exit="${PIPESTATUS[0]}"
             set -e
             if [ "$build_exit" -eq 0 ]; then
-              if npx tsx scripts/verify-spa-entry-assets.mjs; then
+              if ./node_modules/.bin/tsx scripts/verify-spa-entry-assets.mjs; then
                 :
               else
                 build_exit="$?"
