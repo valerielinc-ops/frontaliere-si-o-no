@@ -789,11 +789,23 @@ jobs:
           retention-days: 14
           if-no-files-found: error
 
+      - name: Check chained jobs SEO HTML cache contents
+        if: success() && inputs.chain != '' && env.JOBS_SEO_REUSE == '1'
+        id: bench-jobs-seo-html-content
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -d .cache/incremental-html ] && test -n "$(find .cache/incremental-html -type f -print -quit 2>/dev/null)"; then
+            echo "has_files=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_files=false" >> "$GITHUB_OUTPUT"
+          fi
+
       # Chained bench writes are opt-in and namespaced. These are the only
       # carry-over states consumed by postWalkIncremental and
       # incrementalHtmlReuse; production cache keys are never written here.
       - name: Save chained jobs SEO HTML cache
-        if: success() && inputs.chain != '' && env.JOBS_SEO_REUSE == '1' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != '' && hashFiles('.cache/incremental-html/**') != ''
+        if: success() && inputs.chain != '' && env.JOBS_SEO_REUSE == '1' && steps.bench-jobs-seo-html-content.outputs.has_files == 'true' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
         id: bench-jobs-seo-html-save
         uses: actions/cache/save@v5
         with:
@@ -801,7 +813,7 @@ jobs:
           key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
 
       - name: Save chained incremental manifest
-        if: success() && inputs.chain != '' && hashFiles('.cache/incremental-manifest/*.jsonl') != ''
+        if: success() && inputs.chain != '' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
         id: bench-incremental-manifest-save
         uses: actions/cache/save@v5
         with:
