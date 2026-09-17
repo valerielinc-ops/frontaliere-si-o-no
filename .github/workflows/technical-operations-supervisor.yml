@@ -3,7 +3,8 @@ name: Technical operations supervisor
 # L11 della flotta: osserva OGNI workflow del repository, compresi quelli che
 # non hanno "loop" nel nome, e controlla riferimenti tecnici e contratti di
 # estrazione dati. Il report non riscrive codice o dati: con --issue consegna le
-# prove al normale ciclo issue → PR → review → merge.
+# prove al normale ciclo issue → PR → review → merge. La produzione dell'issue
+# resta esplicita (schedule o dispatch): un push su main è solo osservazione.
 
 on:
   schedule:
@@ -29,11 +30,14 @@ on:
 permissions:
   contents: read
   issues: write
-  actions: read
 
 concurrency:
-  group: technical-operations-supervisor-${{ github.ref }}
-  cancel-in-progress: false
+  # I push ravvicinati su main sono osservazioni sostituibili: mantenere una
+  # run per ogni commit alimenterebbe issue/PR concorrenti prima che la prova
+  # precedente abbia potuto essere rimediata. Schedule, dispatch e PR restano
+  # osservatori indipendenti e non si cancellano a vicenda.
+  group: technical-operations-supervisor-${{ github.event_name == 'push' && github.ref || github.run_id }}
+  cancel-in-progress: true
 
 jobs:
   audit:
@@ -60,7 +64,19 @@ jobs:
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/ci/loop-fleet-registry-audit.mjs
           sparse-checkout-cone-mode: false
-
+      - name: Overlay durable ledger branch
+        env:
+          LEDGER_BRANCH: ledger/loop-fleet
+        run: |
+          set -euo pipefail
+          if ! git ls-remote --exit-code --heads origin "refs/heads/$LEDGER_BRANCH" >/dev/null 2>&1; then
+            echo "::notice::durable ledger branch $LEDGER_BRANCH does not exist yet; using the in-tree ledger."
+            exit 0
+          fi
+          git fetch --depth 1 origin "$LEDGER_BRANCH"
+          mkdir -p data/loop-fleet/ledger
+          git checkout FETCH_HEAD -- data/loop-fleet/ledger
+          echo "::notice::overlaid data/loop-fleet/ledger from $LEDGER_BRANCH"
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
@@ -85,7 +101,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-          REPORT_ISSUE: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.report_issue == true }}
+          REPORT_ISSUE: ${{ github.event_name == 'schedule' || inputs.report_issue == true }}
         run: |
           set +e
           set -o pipefail

@@ -619,7 +619,6 @@
       "crawledAt": "2026-09-13T14:07:31.330Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "medizinisch-technischer-radiologieassistent-m-w-d-kardiale-mrt-hirslanden-klinik-geneve",
@@ -659,8 +658,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "hirslanden-aee4b25b45b1",
@@ -710,7 +708,6 @@
       "crawledAt": "2026-09-13T14:07:30.426Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "erwachsene-notfallkrankenschwester-hirslanden-klinik-geneve",
@@ -748,8 +745,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "hirslanden-8f3bb6812488",
@@ -2506,7 +2502,6 @@
       "crawledAt": "2026-09-13T14:06:31.629Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "tes-champs-d-actions-hirslanden-search-2",
@@ -2547,8 +2542,7 @@
           "maxValue": 95200,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "hirslanden-d19669388a82",
@@ -4608,7 +4602,6 @@
       "crawledAt": "2026-09-13T14:05:43.751Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "kardiotechnischer-e-krankenpfleger-in-im-katheterlabor-80-hirslanden-klinik-geneve",
@@ -4655,8 +4648,7 @@
           "maxValue": 86000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "hirslanden-e732e67b473b",
@@ -7064,7 +7056,6 @@
       "crawledAt": "2026-09-13T14:04:53.205Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-instrumentiste-ou-tso-a-80-hirslanden-geneve",
@@ -7100,8 +7091,7 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "hirslanden-96012a524aed",
@@ -9631,7 +9621,6 @@
       "crawledAt": "2026-09-13T14:03:35.483Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "taches-principales-hirslanden-search-26",
@@ -9676,8 +9665,7 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "hirslanden-2ca462e66b41",
@@ -9982,7 +9970,6 @@
       "crawledAt": "2026-09-13T14:03:31.811Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "taches-principales-hirslanden-search-24",
@@ -10017,8 +10004,7 @@
           "maxValue": 72300,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "hirslanden-600b822fa449",
@@ -10440,9 +10426,9 @@
     },
     {
       "id": "hirslanden-d9acb663ca36",
-      "slug": "senior-assistenzarztin-assistenzarzt-aim-mit-perspektive-stv-oberarztin-stv-oberarzt-a-80",
+      "slug": "assistente-senior-assistente-medico-aim-con-prospettiva-hirslanden-klinik-hirslanden-salem-spital",
       "slugByLocale": {
-        "it": "senior-assistenzarztin-assistenzarzt-aim-mit-perspektive-stv-oberarztin-stv-oberarzt-a-80",
+        "it": "assistente-senior-assistente-medico-aim-con-prospettiva-hirslanden-klinik-hirslanden-salem-spital",
         "en": "senior-assistant-physician-assistant-physician-aim-with-perspective-stv-senior-physician-a-80-100-hirslanden-klinik",
         "de": "senior-assistenzarztin-assistenzarzt-aim-mit-perspektive-stv-oberarztin-stv-oberarzt-a-80",
         "fr": "medecin-adjoint-principal-medecin-assistant-aim-avec-perspective-stv-medecin-chef-a-80-100-hirslanden-klinik-hirslanden"
@@ -10486,7 +10472,6 @@
       "crawledAt": "2026-09-13T14:03:26.250Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-25T09:51:29.690Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
@@ -10501,7 +10486,14 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-assistenzarztin-assistenzarzt-aim-mit-perspektive-stv-oberarztin-stv-oberarzt-a-80"
+        ]
+      },
+      "previousSlugs": [
+        "senior-assistenzarztin-assistenzarzt-aim-mit-perspektive-stv-oberarztin-stv-oberarzt-a-80"
+      ]
     },
     {
       "id": "hirslanden-4a1e20e87857",
@@ -11557,7 +11549,6 @@
         "deine-aufgaben-hirslanden-search",
         "chef-de-partie-a-80-100-hirslanden-klinik-zurich"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T12:17:54.242Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -11571,8 +11562,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "hirslanden-92930f413f39",

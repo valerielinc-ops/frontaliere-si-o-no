@@ -490,18 +490,18 @@ describe('native auto-merge gate (#8512)', () => {
     }).allow).toBe(false);
   });
 
-  it('carries a clean older LGTM forward when the complete current-head check is green', () => {
+  it('rejects a clean older LGTM even when the complete current-head check is green', () => {
     const result = evaluateNativeAutoMerge({
       pr: pr(),
       reviews: [review(CLEAN_BODY, OLD_HEAD)],
       checkRuns: [vitest()],
     });
 
-    expect(result).toMatchObject({ allow: true });
-    expect(result.reason).toMatch(/carry-forward/i);
+    expect(result).toMatchObject({ allow: false });
+    expect(result.reason).toMatch(/nessuna review bot verificabile/i);
   });
 
-  it('uses the latest bot review across commits and blocks a later stale finding', () => {
+  it('ignores a later review that is stale for the current HEAD', () => {
     const reviews = [
       review(CLEAN_BODY, HEAD, '2026-09-13T12:00:00Z'),
       review(
@@ -513,7 +513,7 @@ describe('native auto-merge gate (#8512)', () => {
 
     expect(latestBotReview(reviews)?.commit_id).toBe(OLD_HEAD);
     expect(evaluateNativeAutoMerge({ pr: pr(), reviews, checkRuns: [vitest()] })).toMatchObject({
-      allow: false,
+      allow: true,
     });
   });
 
@@ -594,7 +594,7 @@ describe('native auto-merge gate (#8512)', () => {
     });
 
     expect(result).toMatchObject({ allow: false, action: 'revoke' });
-    expect(result.reason).toMatch(/Important 0/i);
+    expect(result.reason).toMatch(/nessuna review bot verificabile/i);
   });
 
   it('retains a persisted native opt-in only after revalidating the current HEAD', () => {
@@ -607,15 +607,15 @@ describe('native auto-merge gate (#8512)', () => {
     expect(result).toMatchObject({ allow: true, action: 'retain' });
   });
 
-  it('retains a persisted native opt-in when the full current-head check validates LGTM carry-forward', () => {
+  it('revokes a persisted native opt-in when only an older HEAD has LGTM', () => {
     const result = revalidateNativeAutoMerge({
       pr: pr({ autoMergeRequest: { enabledAt: '2026-09-13T12:00:00Z' } }),
       reviews: [review(CLEAN_BODY, OLD_HEAD)],
       checkRuns: [vitest()],
     });
 
-    expect(result).toMatchObject({ allow: true, action: 'retain' });
-    expect(result.reason).toMatch(/carry-forward/i);
+    expect(result).toMatchObject({ allow: false, action: 'revoke' });
+    expect(result.reason).toMatch(/nessuna review bot verificabile/i);
   });
 
   it('revokes an inherited native opt-in through the GitHub API instead of trusting persistence', () => {
@@ -762,20 +762,19 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(workflow).toContain('types: [submitted, edited, dismissed]');
     expect(workflow).toContain('workflow_run:');
     expect(workflow).toContain('workflows: [tests]');
-    expect(workflow).toContain('NATIVE_AUTOMERGE_BOOTSTRAP_READY=false');
+    expect(workflow).not.toContain('NATIVE_AUTOMERGE_BOOTSTRAP_READY');
     expect(workflow).not.toContain('Static control-plane bootstrap guard');
     expect(workflow).not.toContain('control-plane path');
     expect(workflow).not.toContain('CONTROL_PLANE_GUARD_VERSION');
-    expect(workflow).toContain('gate_tmp="$helper_dir/native-automerge-gate-check.mjs"');
-    expect(workflow).toContain('scripts/ci/review-test-policy.mjs?ref=main');
-    expect(workflow).toContain('scripts/ci/lib/automation-risk-policy.mjs?ref=main');
-    expect(workflow).toContain('scripts/ci/lib/fetchPrFiles.mjs?ref=main');
-    expect(workflow).toContain('scripts/ci/lib/vitestCheck.mjs?ref=main');
-    expect(workflow).toContain('scripts/lib/loop-fleet-contract.mjs?ref=main');
-    expect(workflow).toContain('contract_tmp="$helper_dir/../lib/loop-fleet-contract-check.mjs"');
-    expect(workflow).toContain('node --check "$gate_tmp"');
+    expect(workflow).toContain('uses: actions/checkout@v5');
+    expect(workflow).toContain('ref: main');
+    expect(workflow).toContain('filter: blob:none');
+    expect(workflow).toContain('sparse-checkout-cone-mode: false');
+    expect(workflow).toContain('persist-credentials: false');
+    expect(workflow).toContain('native-automerge-source.mjs');
+    expect(workflow).not.toContain('contents/');
     expect(workflow).not.toContain('native-automerge-gate.mjs.tmp');
-    expect(workflow).toContain("if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'");
+    expect(workflow).not.toContain('if: env.NATIVE_AUTOMERGE_');
     expect(workflow).toContain('native-automerge-gate.mjs');
     expect(workflow).not.toContain('gh pr merge "$PR_NUMBER"');
   });
@@ -787,14 +786,13 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(retry).not.toContain('control-plane path');
     expect(retry).not.toContain('CONTROL_PLANE_GUARD_VERSION');
     expect(retry).toContain('sort_by(.createdAt) | reverse | .[].number');
-    expect(retry).toContain('gate_tmp="$helper_dir/native-automerge-gate-check.mjs"');
-    expect(retry).toContain('scripts/ci/review-test-policy.mjs?ref=main');
-    expect(retry).toContain('scripts/ci/lib/automation-risk-policy.mjs?ref=main');
-    expect(retry).toContain('scripts/ci/lib/fetchPrFiles.mjs?ref=main');
-    expect(retry).toContain('scripts/ci/lib/vitestCheck.mjs?ref=main');
-    expect(retry).toContain('scripts/lib/loop-fleet-contract.mjs?ref=main');
-    expect(retry).toContain('contract_tmp="$helper_dir/../lib/loop-fleet-contract-check.mjs"');
-    expect(retry).toContain('node --check "$gate_tmp"');
+    expect(retry).toContain('uses: actions/checkout@v5');
+    expect(retry).toContain('ref: main');
+    expect(retry).toContain('filter: blob:none');
+    expect(retry).toContain('sparse-checkout-cone-mode: false');
+    expect(retry).toContain('persist-credentials: false');
+    expect(retry).toContain('native-automerge-source.mjs');
+    expect(retry).not.toContain('contents/');
     expect(retry).not.toContain('native-automerge-gate.mjs.tmp');
     expect(retry).not.toContain('.[:$max][]');
     expect(retry).not.toContain("jq -e '.autoMergeRequest != null'");

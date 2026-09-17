@@ -1000,6 +1000,38 @@
       "findings": [
         "insufficient_sample"
       ]
+    },
+    {
+      "date": "2026-09-17",
+      "windowHours": 24,
+      "counts": {
+        "accepted": 20,
+        "lockout": 2,
+        "optout": 0,
+        "clock": 2,
+        "noise": 3,
+        "unknown": 0
+      },
+      "byReason": {
+        "invalid_auth_code": 3,
+        "auth_code_not_yet_valid": 2,
+        "auth_code_expired": 2
+      },
+      "graded": 22,
+      "lockoutRate": 0.09090909090909091,
+      "acceptedByScheme": {
+        "v1": 20
+      },
+      "ageDaysP50": 0,
+      "ageDaysP95": 5,
+      "observedPolicy": {
+        "mintScheme": "v1",
+        "ttlDays": 30,
+        "legacySunset": null
+      },
+      "findings": [
+        "insufficient_sample"
+      ]
     }
   ]
 }

@@ -15,6 +15,7 @@ import {
   extractLocationContractSegment,
   hasStandaloneSwissSignal,
   preferAlpiqDetailDescription,
+  repairThinAlpiqLocaleDescriptions,
   slugify,
   stripHtml,
 } from '@/scripts/lib/alpiq-job-parser.mjs';
@@ -99,6 +100,37 @@ const CURRENT_DETAIL_HTML_FIXTURE = `
   </div>
   <div data-content-element="facts_container"><h2>Your benefits</h2><p>Competitive salary package.</p></div>
 </main>
+`;
+
+const JINA_MARKDOWN_DETAIL_FIXTURE = `
+Title: JobPage | Alpiq
+
+URL Source: https://www.alpiq.com/career/open-jobs/your-application/21
+
+Markdown Content:
+About the Role
+
+Role type: Permanent | Location: Olten | Model: Hybrid
+
+**Mission**
+
+At Alpiq, we are looking for a Product Manager to join the New Product Implementation team. You will manage product life cycle activities and coordinate implementation across the business.
+
+**Your main responsibilities**
+
+*   Manage the full product life cycle and approval process
+
+*   Coordinate with Front Office and Risk stakeholders
+
+*   Lead product implementation projects and documentation
+
+**Your profile**
+
+*   At least 3 years of relevant energy industry experience
+
+*   Strong analytical and communication skills
+
+Disclaimer: applications from agencies are not considered.
 `;
 
 // ── Tests ────────────────────────────────────────────────────────
@@ -223,6 +255,15 @@ describe('Alpiq crawler — detail page parsing', () => {
     expect(result?.bullets).toHaveLength(5);
   });
 
+  it('extracts a rich role from the Markdown returned by a clean-IP rescue', () => {
+    const result = parseAlpiqDetailHtml(JINA_MARKDOWN_DETAIL_FIXTURE);
+    expect(result?.description).toContain('Product Manager to join the New Product Implementation team');
+    expect(result?.description).not.toContain('Disclaimer:');
+    expect(result?.bullets).toHaveLength(5);
+    expect(preferAlpiqDetailDescription('Product Manager | Olten - 100%', result))
+      .toContain('Coordinate with Front Office and Risk stakeholders');
+  });
+
   it('uses a rich detail description and keeps a thin listing fallback', () => {
     const detail = parseAlpiqDetailHtml(CURRENT_DETAIL_HTML_FIXTURE);
     expect(preferAlpiqDetailDescription('About the Role | Location: Olten', detail))
@@ -232,6 +273,35 @@ describe('Alpiq crawler — detail page parsing', () => {
       bullets: [],
       sections: [],
     })).toBe('About the Role | Location: Olten');
+  });
+});
+
+describe('Alpiq crawler — stale locale repair', () => {
+  const sourceDescription = Array.from({ length: 100 }, (_, i) => `sourceword${i}`).join(' ');
+
+  it('replaces thin locale copies and queues retranslation', () => {
+    const job = {
+      sourceLang: 'en',
+      description: sourceDescription,
+      descriptionByLocale: { en: sourceDescription, it: 'old listing snippet' },
+    };
+
+    expect(repairThinAlpiqLocaleDescriptions([job])).toBe(1);
+    expect(job.descriptionByLocale.it).toBe(sourceDescription);
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('preserves a locale copy that is not a thin stub', () => {
+    const adequateLocale = sourceDescription.slice(0, Math.floor(sourceDescription.length * 0.6));
+    const job = {
+      sourceLang: 'en',
+      description: sourceDescription,
+      descriptionByLocale: { en: sourceDescription, it: adequateLocale },
+    };
+
+    expect(repairThinAlpiqLocaleDescriptions([job])).toBe(0);
+    expect(job.descriptionByLocale.it).toBe(adequateLocale);
+    expect(job.needsRetranslation).toBeUndefined();
   });
 });
 

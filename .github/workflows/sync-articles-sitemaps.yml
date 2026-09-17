@@ -77,11 +77,14 @@ jobs:
       # source_workflow_path, source_run_id, source_run_attempt, source_sha,
       # source_branch and source_event. All values except schema_version are
       # strings; source_branch=main and source_event=push. This payload is not
-      # a signature. Query the public source-run/workflow metadata first. A
-      # repository_dispatch can race run visibility, rate limits, or the source
-      # run leaving queued; allow only a bounded retry for those transient reads.
-      # Mismatches and terminal/unknown states go once to the verifier only after
-      # both metadata lookups have a complete, valid shape, and remain fail-closed.
+      # a signature. Query the public source-run/workflow metadata first, and
+      # fail closed on an API error or on any mismatch. A repository_dispatch can
+      # race run visibility, rate limits, or the source run leaving queued; allow
+      # only a bounded retry for those transient reads. Mismatches and
+      # terminal/unknown states go once to the verifier only after both metadata
+      # lookups have a complete, valid shape, and remain fail-closed.
+      # The live emitter is paired in nanakokyobashi-rgb/frontaliere-articles
+      # PR #1531 (.github/workflows/publish-api.yml); keep both contracts live.
       - name: Verify publisher provenance via read-only metadata API
         id: publisher_provenance
         if: github.event_name == 'repository_dispatch'

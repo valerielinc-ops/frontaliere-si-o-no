@@ -42,8 +42,9 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(workflow.on.pull_request.types).toContain('synchronize');
     const guard = job.steps.find((step: { name?: string }) => step.name?.startsWith('Re-review guard')) as { env?: Record<string, string>; run?: string } | undefined;
     expect(guard?.env?.EVENT_ACTION).toContain('github.event.action');
-    expect(guard?.run).toContain('PR metadata edited dopo un verdetto bot con finding Important/Nit');
-    expect(guard?.run).toContain('jq -sr --arg commit');
+    expect(guard?.run).toContain('PR metadata modificata → review piena sulla revisione corrente del review input.');
+    expect(guard?.run).toContain('gh api "repos/$REPO/pulls/$PR_NUMBER/reviews"');
+    expect(guard?.run).toContain('nessun riuso del verdetto precedente');
     expect(guard?.run).toContain('skip=false');
   });
 

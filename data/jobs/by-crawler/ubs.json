@@ -7033,7 +7033,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:05:28.266Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -7047,8 +7046,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "retranslationAttempts": 1
+      "addressRegion": "ZH"
     },
     {
       "id": "ubs-8699e60dc387",
@@ -7274,7 +7272,6 @@
         ]
       },
       "firstSeenAt": "2026-08-12T21:49:49.857Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 156000,
       "salarySource": "estimated",
@@ -7288,8 +7285,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "retranslationAttempts": 1
+      "addressRegion": "VD"
     },
     {
       "id": "ubs-5f499d71fa76",
@@ -7805,8 +7801,8 @@
       "slugByLocale": {
         "it": "sap-s-4hana-controlling-group-reporting-specialist-ubs-zurich",
         "en": "sap-s-4hana-controlling-group-reporting-specialist-ubs-zurich",
-        "de": "sap-s-4hana-controlling-group-reporting-specialist-ubs-zurich",
-        "fr": "sap-s-4hana-controlling-group-reporting-specialist-ubs-zurich"
+        "de": "konsolidierung-sap-s-4hana-gruppe-berichterstattung-kmu-ubs-zurich",
+        "fr": "consolidation-sap-s-4hana-groupe-pme-declarantes-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -8022,7 +8018,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-08-25T21:31:54.093Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -8036,8 +8031,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "retranslationAttempts": 1
+      "addressRegion": "ZH"
     },
     {
       "id": "ubs-d20329aa92fc",
@@ -8706,7 +8700,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-09-01T10:13:52.823Z",
-      "needsRetranslation": true,
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
@@ -8720,8 +8713,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "retranslationAttempts": 1
+      "addressRegion": "ZH"
     },
     {
       "id": "ubs-9a8dd5061134",

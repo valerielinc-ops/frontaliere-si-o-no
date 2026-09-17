@@ -5,7 +5,8 @@
  * Rimuove l'unico merge MANUALE residuo. Vedi REVIEW_WORKFLOW_DRIFT_FILES.
  */
 import { describe, it, expect } from 'vitest';
-import { isReviewWorkflowDriftPR, isTrustedDriftAuthor, prBodyContractOk } from '../scripts/ci/auto-merge-eval.mjs';
+import { isReviewWorkflowDriftPR, isTrustedDriftAuthor, prBodyContractOk, reviewCommitMatchesHead } from '../scripts/ci/auto-merge-eval.mjs';
+import { decisionDeferralsAreSpecific } from '../scripts/lib/pr-body-sections-check.mjs';
 import { isReviewerBot } from '../scripts/ci/lib/constants.mjs';
 import { REVIEW_WORKFLOW_DRIFT_FILES } from '../scripts/ci/lib/constants.mjs';
 
@@ -47,6 +48,17 @@ describe('isReviewWorkflowDriftPR', () => {
 
   it('la lista drift è MINIMA (solo tests.yml) — superficie no-review contenuta', () => {
     expect(REVIEW_WORKFLOW_DRIFT_FILES).toEqual(['.github/workflows/tests.yml']);
+  });
+});
+
+describe('reviewCommitMatchesHead', () => {
+  const head = 'a'.repeat(40);
+
+  it('richiede un commit id esplicito e identico alla HEAD', () => {
+    expect(reviewCommitMatchesHead(head, head)).toBe(true);
+    expect(reviewCommitMatchesHead('', head)).toBe(false);
+    expect(reviewCommitMatchesHead(null, head)).toBe(false);
+    expect(reviewCommitMatchesHead('b'.repeat(40), head)).toBe(false);
   });
 });
 
@@ -132,5 +144,14 @@ describe('prBodyContractOk (valutato dal body, non dalla sticky)', () => {
 
   it('true con Closes singolo per riga (forma corretta)', () => {
     expect(prBodyContractOk(`${goodBody}\n\nCloses #12\nCloses #34`)).toBe(true);
+  });
+
+  it('rifiuta una deroga decisionale vaga e accetta motivo + prossimo passo concreti', () => {
+    const vague = `${goodBody.replace('- niente altro', '- il residuo è per scelta')}`;
+    const specific = `${goodBody.replace('- niente altro', '- il residuo è per scelta. **Motivo:** il provider upstream non è ancora stabile. **Prossimo passo:** riaprire il lavoro dopo due run verdi consecutivi.')}`;
+    expect(decisionDeferralsAreSpecific(vague)).toBe(false);
+    expect(prBodyContractOk(vague)).toBe(false);
+    expect(decisionDeferralsAreSpecific(specific)).toBe(true);
+    expect(prBodyContractOk(specific)).toBe(true);
   });
 });
