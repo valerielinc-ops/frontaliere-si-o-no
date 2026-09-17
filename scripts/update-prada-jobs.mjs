@@ -202,7 +202,7 @@ async function main() {
       location: loc,
       canton,
       addressRegion: canton,
-      addressLocality: loc,
+      addressLocality: fallbackAddress.addressLocality,
       streetAddress: fallbackAddress.streetAddress,
       postalCode: fallbackAddress.postalCode,
       addressCountry: 'CH',

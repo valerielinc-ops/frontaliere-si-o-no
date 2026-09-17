@@ -554,7 +554,7 @@ export async function fetchAllNordAngliaJobs() {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields (structured-data completeness, Non-Negotiable #3) ──
-      addressLocality: location,
+      addressLocality: fallbackAddress.addressLocality,
       addressRegion: canton,
       streetAddress: fallbackAddress.streetAddress,
       postalCode: fallbackAddress.postalCode,

@@ -138,6 +138,15 @@ export const CANTON_CAPITAL_ADDRESSES = {
   SH: { streetAddress: 'Vordergasse 17', postalCode: '8200', addressLocality: 'Schaffhausen', addressRegion: 'SH' },
   FR: { streetAddress: "Place de l'Hôtel-de-Ville 1", postalCode: '1700', addressLocality: 'Fribourg', addressRegion: 'FR' },
   NE: { streetAddress: "Rue de l'Hôtel-de-Ville 1", postalCode: '2000', addressLocality: 'Neuchâtel', addressRegion: 'NE' },
+  AI: { streetAddress: 'Hauptgasse 38', postalCode: '9050', addressLocality: 'Appenzell', addressRegion: 'AI' },
+  AR: { streetAddress: 'Poststrasse 2', postalCode: '9100', addressLocality: 'Herisau', addressRegion: 'AR' },
+  BL: { streetAddress: 'Rathausstrasse 36', postalCode: '4410', addressLocality: 'Liestal', addressRegion: 'BL' },
+  GL: { streetAddress: 'Rathausplatz 1', postalCode: '8750', addressLocality: 'Glarus', addressRegion: 'GL' },
+  JU: { streetAddress: 'Rue de la Préfecture 2', postalCode: '2800', addressLocality: 'Delémont', addressRegion: 'JU' },
+  NW: { streetAddress: 'Stansstaderstrasse 54', postalCode: '6370', addressLocality: 'Stans', addressRegion: 'NW' },
+  OW: { streetAddress: 'Brünigstrasse 160', postalCode: '6060', addressLocality: 'Sarnen', addressRegion: 'OW' },
+  SZ: { streetAddress: 'Hauptplatz 1', postalCode: '6430', addressLocality: 'Schwyz', addressRegion: 'SZ' },
+  UR: { streetAddress: 'Rathausplatz 2', postalCode: '6460', addressLocality: 'Altdorf', addressRegion: 'UR' },
 };
 
 /**
@@ -239,15 +248,15 @@ export function resolveFallbackAddress(
   }
   if (city) {
     const cityHq = CITY_FALLBACK_ADDRESSES[city.toLowerCase()];
-    if (cityHq) return cityHq;
+    if (cityHq && cityHq.addressRegion === cityCanton) return cityHq;
   }
-  // Canton-capital last resort: a coherent same-canton address (never empty),
-  // keeping the real locality when known.
+  // Canton-capital last resort: return the complete coherent tuple. Keeping an
+  // unknown real locality here would pair it with the capital's street/CAP.
   const capital = CANTON_CAPITAL_ADDRESSES[cityCanton] || CANTON_CAPITAL_ADDRESSES.TI;
   return {
     streetAddress: capital.streetAddress,
     postalCode: capital.postalCode,
-    addressLocality: city || capital.addressLocality,
-    addressRegion: cityCanton,
+    addressLocality: capital.addressLocality,
+    addressRegion: capital.addressRegion,
   };
 }

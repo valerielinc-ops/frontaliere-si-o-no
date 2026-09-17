@@ -25,7 +25,7 @@ import { createHash } from 'node:crypto';
 import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferAnyCanton, isSwissLocationText, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isKnownSwissCity, isSwissLocationText, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -175,6 +175,26 @@ async function fetchJson(url, options = {}) {
 }
 
 /**
+ * Refuse to publish a national result set unless pagination reached a
+ * provable terminal condition. A short page is not terminal while Workday
+ * still declares records that have not been read.
+ */
+export function assertSwissLifeNationalReadComplete({
+  terminationProven = false,
+  totalHits = null,
+  recordsSeen = 0,
+} = {}) {
+  if (terminationProven && (totalHits === null || recordsSeen >= totalHits)) return;
+  const coverage = totalHits === null
+    ? `${recordsSeen} records fetched without a proven terminal page`
+    : `${recordsSeen} of ${totalHits} declared records fetched`;
+  throw new Error(
+    `Swiss Life national Workday read is incomplete: ${coverage}. `
+    + 'Refusing to conclude anything about Swiss openings from a truncated set.',
+  );
+}
+
+/**
  * List candidate Swiss Life postings via Workday API.
  *
  * We do NOT filter by Workday location facet IDs (they go stale whenever Swiss
@@ -183,17 +203,17 @@ async function fetchJson(url, options = {}) {
  *   - single-location postings whose locationsText resolves to Switzerland;
  *   - multi-location postings (e.g. "N Locations") whose Swiss membership can
  *     only be confirmed from the detail page → handed downstream for resolution.
- * Pagination advances offset by the actual page length and stops on a
- * short/empty page (the genuine end of results). The first page's `total` is
- * used only as a positive upper bound: an unfiltered Workday query can echo
- * total:0 alongside a full page of postings, so we never break on
- * `offset >= total` when total is 0 (that would drop every posting on pages 2+).
- * A page cap bounds the loop if a tenant never shortens.
+ * Pagination advances offset by the actual page length. A short page is not
+ * treated as terminal: Workday can return one mid-set while still declaring a
+ * higher total. We stop only on an empty page or after reaching a positive
+ * declared total; an incomplete read fails closed.
  */
-async function fetchSwissListings() {
+export async function fetchSwissListings() {
   const seen = new Map();
   let offset = 0;
-  let total = null;
+  let totalHits = null;
+  let recordsSeen = 0;
+  let terminationProven = false;
   let pages = 0;
   const MAX_PAGES = 100;
 
@@ -214,7 +234,10 @@ async function fetchSwissListings() {
       break;
     }
 
-    if (total === null) total = data.total || 0;
+    const reportedTotal = Number(data.total);
+    if (totalHits === null && Number.isFinite(reportedTotal) && reportedTotal > 0) {
+      totalHits = reportedTotal;
+    }
     pages += 1;
 
     for (const posting of data.jobPostings) {
@@ -229,12 +252,17 @@ async function fetchSwissListings() {
       }
     }
 
-    offset += data.jobPostings.length;
-    // Stop on a short/empty page. Trust `total` as an upper bound ONLY when
-    // positive: an unfiltered query echoing total:0 with a full page must not
-    // break here, or every posting on pages 2+ is silently dropped.
-    if (data.jobPostings.length < PAGE_SIZE) break;
-    if (total > 0 && offset >= total) break;
+    const pageCount = data.jobPostings.length;
+    recordsSeen += pageCount;
+    offset += pageCount;
+    if (pageCount === 0) {
+      terminationProven = true;
+      break;
+    }
+    if (totalHits !== null && recordsSeen >= totalHits) {
+      terminationProven = true;
+      break;
+    }
     if (pages >= MAX_PAGES) {
       console.warn(`  ⚠️ Reached pagination safety cap (${MAX_PAGES} pages); stopping.`);
       break;
@@ -242,6 +270,7 @@ async function fetchSwissListings() {
     await new Promise((r) => setTimeout(r, 300));
   }
 
+  assertSwissLifeNationalReadComplete({ terminationProven, totalHits, recordsSeen });
   return [...seen.values()];
 }
 
@@ -282,7 +311,21 @@ export function resolveSwissLifeLocation(info = {}, listingLocText = '') {
     listingLocText || '',
   ];
 
-  const swissLoc = candidates.find((l) => isSwissLifeLocationText(l));
+  const rankedCandidates = candidates
+    .map((value, index) => {
+      const text = normalizeSpace(value);
+      if (!isSwissLifeLocationText(text)) return null;
+      const parsedCity = parseWorkdayLocation(text);
+      const specificity = isKnownSwissCity(parsedCity)
+        ? 3
+        : inferAnyCanton(text)
+          ? 2
+          : 1;
+      return { text, specificity, index };
+    })
+    .filter(Boolean)
+    .sort((a, b) => b.specificity - a.specificity || a.index - b.index);
+  const swissLoc = rankedCandidates[0]?.text || '';
   if (!swissLoc) return '';
 
   const city = parseWorkdayLocation(swissLoc);
@@ -352,6 +395,15 @@ export async function fetchAllSwissLifeJobs() {
       || info.address?.postalCode
       || info.address?.zipCode
       || '';
+    const normalizedSourceAddress = normalizeSpace(sourceAddress);
+    const normalizedSourcePostalCode = normalizeSpace(sourcePostalCode);
+    const resolvedAddress = normalizedSourceAddress && normalizedSourcePostalCode
+      ? {
+        addressLocality: city,
+        streetAddress: normalizedSourceAddress,
+        postalCode: normalizedSourcePostalCode,
+      }
+      : fallbackAddress;
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = `${WORKDAY_PUBLIC_BASE}${externalPath}`;
@@ -387,10 +439,10 @@ export async function fetchAllSwissLifeJobs() {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: city,
+      addressLocality: resolvedAddress.addressLocality,
       addressRegion: canton,
-      streetAddress: normalizeSpace(sourceAddress) || fallbackAddress.streetAddress,
-      postalCode: normalizeSpace(sourcePostalCode) || fallbackAddress.postalCode,
+      streetAddress: resolvedAddress.streetAddress,
+      postalCode: resolvedAddress.postalCode,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),

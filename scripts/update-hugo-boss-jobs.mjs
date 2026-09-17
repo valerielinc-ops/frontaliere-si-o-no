@@ -175,6 +175,13 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
     ].filter(Boolean).join(' '));
     if (!canton) return null;
     const fallbackAddress = resolveFallbackAddress(undefined, location, canton);
+    const resolvedAddress = raw.address && raw.postalCode
+      ? {
+        addressLocality: raw.city || location,
+        streetAddress: raw.address,
+        postalCode: raw.postalCode,
+      }
+      : fallbackAddress;
     const detailUrl = buildDetailUrl(raw);
     const locationToken = location || canton;
     const slug = slugify(`${raw.title} hugo-boss ${locationToken}`);
@@ -187,11 +194,11 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
       location,
       canton,
       country: 'CH',
-      addressLocality: raw.city || location,
+      addressLocality: resolvedAddress.addressLocality,
       addressRegion: canton,
       addressCountry: 'CH',
-      postalCode: raw.postalCode || fallbackAddress.postalCode,
-      streetAddress: raw.address || fallbackAddress.streetAddress,
+      postalCode: resolvedAddress.postalCode,
+      streetAddress: resolvedAddress.streetAddress,
       description: raw.description || `${raw.title} position at Hugo Boss in ${locationToken}, Switzerland.`,
       titleByLocale: { en: raw.title },
       descriptionByLocale: { en: raw.description || '' },
