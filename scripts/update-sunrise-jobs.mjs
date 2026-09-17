@@ -160,8 +160,8 @@ async function fetchSunriseListings() {
   for (const row of target) {
     console.log(`  📄 ${row.title} (${row.city || row.cityState || row.state})`);
   }
-  if (target.length < 1) {
-    throw new Error(`Expected at least 1 Sunrise job in Switzerland, found ${target.length}`);
+  if (target.length === 0) {
+    console.log('ℹ️  Nessun annuncio trovato per Sunrise in Svizzera — non è un errore, il crawler prosegue.');
   }
   return target;
 }

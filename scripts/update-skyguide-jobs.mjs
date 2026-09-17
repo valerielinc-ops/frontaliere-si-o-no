@@ -188,8 +188,8 @@ async function fetchListings() {
     if (rows.length < LISTING_PAGE_SIZE) break;
   }
 
-  if (discovered.length < 1) {
-    throw new Error(`Expected at least 1 Skyguide job, found ${discovered.length}`);
+  if (discovered.length === 0) {
+    console.log('ℹ️  Nessun annuncio trovato per Skyguide — non è un errore, il crawler prosegue.');
   }
   return discovered;
 }

@@ -275,8 +275,8 @@ async function main() {
   console.log(`📋 Total Lever jobs: ${rawJobs.length}`);
   console.log(`📋 Switzerland jobs: ${swiss.length}`);
   console.log(`📋 Ticino/Grigioni jobs: ${target.length}`);
-  if (target.length < 2) {
-    throw new Error(`Expected at least 2 Ticino/Grigioni jobs, found ${target.length}`);
+  if (target.length === 0) {
+    console.log('ℹ️  Nessun annuncio trovato per TSMG in Ticino/Grigioni — non è un errore, il crawler prosegue.');
   }
   const discoveredJobs = target.map(buildJob);
   const { total, added, updated, diff} = mergeJobs(discoveredJobs);

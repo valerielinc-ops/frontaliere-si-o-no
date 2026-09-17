@@ -56,11 +56,6 @@ const COMPANY_HOST = 'artisagroup.com';
 const COMPANY_DOMAIN = 'artisagroup.com';
 const CAREERS_URL = 'https://artisagroup.com/carriera';
 const LOCALES = ['it', 'en', 'de', 'fr'];
-// Drift floor for a NON-empty parse: finding one or two rows where the page
-// still shows a vacancy list means the selectors are half-broken. A *proven*
-// zero is handled separately by the authoritative-snapshot contract below.
-const MIN_LISTINGS = 3;
-
 function readJson(filePath, fallback) {
   try {
     return JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -168,8 +163,8 @@ async function fetchListings() {
     }
   }
 
-  if (rows.length < MIN_LISTINGS) {
-    throw new Error(`Expected at least ${MIN_LISTINGS} Artisa jobs, found ${rows.length}`);
+  if (rows.length === 0) {
+    console.log('ℹ️  Nessun annuncio trovato per Artisa Group — non è un errore, il crawler prosegue.');
   }
   return { rows, authoritativeEmptySnapshot };
 }

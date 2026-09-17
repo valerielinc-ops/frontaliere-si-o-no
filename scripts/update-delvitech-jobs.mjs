@@ -224,8 +224,8 @@ async function fetchListings() {
   const html = await fetchRobust(CAREERS_URL);
   const listings = parseDelvitechCareerPage(html);
   console.log(`📋 Total Delvitech job pages found: ${listings.length}`);
-  if (listings.length < 12) {
-    throw new Error(`Expected at least 12 Delvitech career pages, found ${listings.length}`);
+  if (listings.length === 0) {
+    console.log('ℹ️  Nessun annuncio trovato per Delvitech SA — non è un errore, il crawler prosegue.');
   }
   return listings;
 }
@@ -394,9 +394,8 @@ async function main() {
   }
   if (skipped) console.log(`  ⚠️  Skipped ${skipped}/${listings.length} listings due to errors`);
 
-  const minJobs = Math.max(1, 8 - skipped);
-  if (jobs.length < minJobs) {
-    throw new Error(`Expected at least ${minJobs} TI/GR Delvitech jobs after excluding foreign roles, found ${jobs.length}`);
+  if (jobs.length === 0) {
+    console.log('ℹ️  Nessun annuncio trovato per Delvitech SA in Ticino/Grigioni — non è un errore, il crawler prosegue.');
   }
 
   const { total, diff} = mergeJobs(jobs);

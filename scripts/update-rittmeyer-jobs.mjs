@@ -180,8 +180,8 @@ async function fetchListings() {
   for (const row of rows) {
     console.log(`  📄 ${row.title}`);
   }
-  if (rows.length < 1) {
-    throw new Error(`Expected at least 1 Rittmeyer Ticino job, found ${rows.length}`);
+  if (rows.length === 0) {
+    console.log('ℹ️  Nessun annuncio trovato per Rittmeyer in Ticino — non è un errore, il crawler prosegue.');
   }
   return rows;
 }

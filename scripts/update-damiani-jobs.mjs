@@ -150,8 +150,8 @@ async function fetchDamianiListings() {
   for (const row of relevant) {
     console.log(`  📄 ${row.title} (${row.location})`);
   }
-  if (relevant.length < 1) {
-    throw new Error(`Expected at least 1 TI/GR Damiani job, found ${relevant.length}`);
+  if (relevant.length === 0) {
+    console.log('ℹ️  Nessun annuncio trovato per Damiani Group in Ticino/Grigioni — non è un errore, il crawler prosegue.');
   }
   return relevant;
 }

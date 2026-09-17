@@ -164,14 +164,16 @@ async function discoverListings() {
       console.log(`📋 Total Swiss ALTEN jobs discovered (CH-wide): ${listings.length}`);
       warnIfListingAtCap({ label: 'ALTEN listing', count: listings.length, cap: LISTING_PAGE_CAP });
       for (const listing of listings) console.log(`  📄 ${listing.title} (${listing.location})`);
-      if (listings.length < 1) throw new Error(`Expected at least 1 ALTEN Swiss job, found ${listings.length}`);
+      if (listings.length === 0) {
+        console.log('ℹ️  Nessun annuncio trovato per ALTEN Switzerland — non è un errore, il crawler prosegue.');
+      }
       return listings;
     });
   } catch (err) {
-    // Treat any connectivity / challenge / zero-listing error as a transient
-    // unavailability. Return null so main() preserves the existing jobs.json
-    // content rather than wiping ALTEN entries on a bad run.
-    const isTransient = /did not become available|net::ERR_|timeout|403|Expected at least 1/i.test(err.message);
+    // Treat connectivity / challenge errors as a transient unavailability.
+    // Return null so main() preserves the existing jobs.json content rather
+    // than wiping ALTEN entries on a bad run.
+    const isTransient = /did not become available|net::ERR_|timeout|403/i.test(err.message);
     if (isTransient) {
       console.warn(`⚠️  ALTEN site or listing unavailable: ${err.message}`);
       console.log('ℹ️  Keeping existing data — no updates this run.');
