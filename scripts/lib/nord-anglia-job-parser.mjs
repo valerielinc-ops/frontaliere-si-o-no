@@ -46,7 +46,15 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { assertFeedBodyLooksLikeXml, assertFeedEndpointHost } from './feed-endpoint-guard.mjs';
 import { httpFetchWithRetry } from './transient-fetch.mjs';
-import { inferAnyCanton, isSwissLocationText, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import {
+  canonicalSwissCityName,
+  inferAnyCanton,
+  isCantonOnlyLabel,
+  isKnownSwissCity,
+  isSwissLocationText,
+  normalizeSwissTargetLocationText,
+  isTargetSwissLocation,
+} from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -91,6 +99,15 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function canonicalNordAngliaCity(value = '', canton = '') {
+  const candidate = normalizeSpace(value);
+  if (!candidate || !canton || isCantonOnlyLabel(candidate)) return '';
+  const canonical = isKnownSwissCity(candidate, canton)
+    ? canonicalSwissCityName(candidate)
+    : candidate;
+  return normalizeSwissTargetLocationText(canonical);
 }
 
 function toArray(val) {
@@ -266,7 +283,13 @@ export function isNordAngliaJob(job) {
     // Shared multi-school tenant — claim only Swiss routes.
     return Boolean(extractRouteLocation(rawUrl));
   }
-  return host === 'nordangliaeducation.com' || host.endsWith('.nordangliaeducation.com');
+  if (host === 'nordangliaeducation.com' || host.endsWith('.nordangliaeducation.com')) {
+    // The marketing domain is global; host membership alone is not evidence
+    // that a listing belongs to the Swiss crawler. Keep only Swiss school
+    // paths (for example /la-cote-aubonne/), and reject a bare /careers URL.
+    return isSwissNordAngliaLocation(locationText);
+  }
+  return false;
 }
 
 /**
@@ -493,6 +516,15 @@ export async function fetchAllNordAngliaJobs() {
         console.warn(
           `[nord-anglia-location-conflict-drop] Skipped "${title}" at `
           + `${jobUrlForDiagnostic(link)} because title and route cantons differ`,
+        );
+      }
+      const titleCity = canonicalNordAngliaCity(titleLocation, titleCanton);
+      const routeCity = canonicalNordAngliaCity(routeLocation, routeCanton);
+      if (!scopeDropped && titleCity && routeCity && titleCity !== routeCity) {
+        scopeDropped = true;
+        console.warn(
+          `[nord-anglia-location-conflict-drop] Skipped "${title}" at `
+          + `${jobUrlForDiagnostic(link)} because title and route localities differ`,
         );
       }
     }

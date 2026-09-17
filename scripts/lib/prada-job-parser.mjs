@@ -23,7 +23,15 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
-import { inferAnyCanton, isSwissLocationText, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import {
+  canonicalSwissCityName,
+  inferAnyCanton,
+  isCantonOnlyLabel,
+  isKnownSwissCity,
+  isSwissLocationText,
+  isTargetSwissLocation,
+  normalizeSwissTargetLocationText,
+} from './target-swiss-locations.mjs';
 import {
   isSuccessFactorsWidgetText,
   sanitizeSuccessFactorsField,
@@ -93,12 +101,17 @@ export function resolvePradaSwissLocation(job = {}) {
     const routeCanton = inferAnyCanton(routeLocation);
     if (sourceCanton && routeCanton && sourceCanton !== routeCanton) return null;
 
+    const sourceCity = canonicalPradaCity(sourceLocation, sourceCanton);
+    const routeCity = canonicalPradaCity(routeLocation, routeCanton);
+    if (sourceCity && routeCity && sourceCity !== routeCity) return null;
+
     // Prefer the source spelling (for example Zürich rather than the
-    // transliterated Zurich route token), then use the route only when the
-    // source is absent or country-level.
-    const resolved = sourceLocation && sourceCanton
+    // transliterated Zurich route token) only when it identifies the same
+    // concrete municipality. Canton-only/country-level source text is not a
+    // locality, so prefer the concrete route city instead.
+    const resolved = sourceCity
       ? sourceLocation
-      : routeLocation && routeCanton
+      : routeCity
         ? routeLocation
         : '';
     return resolved && inferAnyCanton(resolved) ? resolved : null;
@@ -151,6 +164,15 @@ function normalizePradaLocality(value = '') {
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+function canonicalPradaCity(value = '', canton = '') {
+  const candidate = normalizeSpace(value);
+  if (!candidate || !canton || isCantonOnlyLabel(candidate)) return '';
+  const canonical = isKnownSwissCity(candidate, canton)
+    ? canonicalSwissCityName(candidate)
+    : candidate;
+  return normalizeSwissTargetLocationText(canonical);
 }
 
 export function stripHtml(html = '') {

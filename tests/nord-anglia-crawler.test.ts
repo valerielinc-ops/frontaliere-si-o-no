@@ -54,6 +54,11 @@ describe('Nord Anglia Education Switzerland crawler parser', () => {
       expect(isNordAngliaJob({ url: 'https://www.nordangliaeducation.com/la-cote-aubonne/careers' })).toBe(true);
     });
 
+    it('rejects a global marketing careers URL without a Swiss location signal', () => {
+      expect(isNordAngliaJob({ url: 'https://www.nordangliaeducation.com/careers' })).toBe(false);
+      expect(isNordAngliaJob({ url: 'https://www.nordangliaeducation.com/london/careers' })).toBe(false);
+    });
+
     it('matches by URL domain (jobs2web ATS host)', () => {
       expect(isNordAngliaJob({ url: 'https://careers.nordanglia.com/job/Geneva-Teacher-of-Biology/1399902133/' })).toBe(true);
     });
@@ -297,6 +302,20 @@ describe('Nord Anglia Education Switzerland crawler parser', () => {
 
     await expect(fetchAllNordAngliaJobs()).rejects.toThrow(
       /no Swiss title or route signals found in 2 non-generic RSS items/,
+    );
+  });
+
+  it('rejects a same-canton title and route locality conflict', async () => {
+    const conflictingFeed = rssFeed(
+      rssItemXml({
+        title: '<title><![CDATA[Teacher of Biology (Zürich, CH)]]></title>',
+        link: '<link>https://careers.nordanglia.com/job/Winterthur-Teacher-of-Biology/1399902133/</link>',
+      }),
+    );
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(conflictingFeed, { status: 200 })));
+
+    await expect(fetchAllNordAngliaJobs()).rejects.toThrow(
+      /\[nord-anglia-drop-ratio\] Swiss location guard: dropped 1\/1 items/,
     );
   });
 

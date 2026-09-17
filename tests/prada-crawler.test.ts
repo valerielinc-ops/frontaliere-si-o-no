@@ -344,6 +344,17 @@ describe('Prada Group crawler — Swiss ownership', () => {
     })).toBeNull();
   });
 
+  it('rejects a same-canton city conflict and prefers a route city over a canton label', () => {
+    expect(resolvePradaSwissLocation({
+      location: 'Zürich, Switzerland',
+      url: 'https://jobs.pradagroup.com/job/Winterthur-Client-Advisor/1387030239/',
+    })).toBeNull();
+    expect(resolvePradaSwissLocation({
+      location: 'Ticino, Switzerland',
+      url: 'https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1387030240/',
+    })).toBe('Mendrisio');
+  });
+
   it('does not let a Swiss title override an authoritative foreign location', () => {
     expect(resolvePradaSwissLocation({
       location: 'Arezzo',
