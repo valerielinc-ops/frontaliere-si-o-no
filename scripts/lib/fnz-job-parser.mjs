@@ -54,21 +54,17 @@ function normalizeCandidate(candidate) {
  * Resolve a Workday posting to a concrete Swiss location. Workday may put a
  * country-only value before a more specific additional location, so all
  * candidates are inspected before accepting one. If no candidate supplies a
- * concrete municipality, retain the Swiss posting with FNZ's confirmed
- * Zürich office as a safe locality fallback instead of inventing a city from
- * an unresolved label such as "Remote".
+ * concrete municipality, return null so the caller drops the posting instead
+ * of inventing a city from an unresolved label such as "Remote".
  */
 export function resolveFnzSwissLocation(candidates = []) {
-  let countryOnlyFallback = null;
-
   for (const candidate of Array.isArray(candidates) ? candidates : []) {
     const { raw, signal, city } = normalizeCandidate(candidate);
     if (!raw || !signal || !isSwissLocationText(signal)) continue;
 
     // Search the complete source signal before falling back to the ATS's first
     // segment. This covers `location: Switzerland` plus a richer
-    // jobRequisitionLocation/address/postalCode object before using the safe
-    // fallback below.
+    // jobRequisitionLocation/address/postalCode object without inventing an HQ.
     const location = swissCityFromLocationField(city)
       || swissCityFromLocationField(signal)
       || city
@@ -89,18 +85,10 @@ export function resolveFnzSwissLocation(candidates = []) {
       const canton = signalCanton || locationCanton;
       return { raw, location, canton };
     }
-
-    const signalCity = swissCityFromLocationField(signal);
-    const hasConflictingCitySignals = Boolean(
-      signalCity
-      && locationCanton
-      && signalCanton
-      && signalCanton !== locationCanton,
-    );
-    if (!hasConflictingCitySignals && !countryOnlyFallback) {
-      countryOnlyFallback = { raw, location: 'Zürich', canton: 'ZH' };
-    }
   }
 
-  return countryOnlyFallback;
+  // A country-only signal cannot produce a coherent city + postalCode +
+  // addressRegion triple. The caller must drop it instead of assigning FNZ's
+  // historical office or any other HQ.
+  return null;
 }
