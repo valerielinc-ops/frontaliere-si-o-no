@@ -334,9 +334,8 @@ jobs:
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          # Prefer the subscribed Codex lane while preserving every existing
-          # provider as a fallback when the broker is unavailable.
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
+          # Translation and metadata calls deliberately keep the normal cascade;
+          # Codex preference is scoped to body generation inside create-article.
           # Cap the slow cascade's run-wide deadline so it does a SHORT top-up pass
           # instead of expanding to fill 250min (measured: Phase 2b grew to 229min /
           # ~269min total on run 28074729486 even though Phase 2a had already drained

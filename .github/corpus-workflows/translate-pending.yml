@@ -285,7 +285,6 @@ jobs:
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
           JOBS_CASCADE_DEADLINE_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '15000000' || '5400000' }}
           TRANSLATION_THINKING_AB: ${{ vars.TRANSLATION_THINKING_AB || '1' }}
           MT_LOCAL_OPUSMT: "1"

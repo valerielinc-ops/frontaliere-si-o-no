@@ -326,7 +326,8 @@ jobs:
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
+          # Translation and metadata calls deliberately keep the normal cascade;
+          # Codex preference is scoped to body generation inside create-article.
           JOBS_CASCADE_DEADLINE_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '15000000' || '5400000' }}
           # A/B sul thinking di Codex Luna Max. Ogni azienda va a un braccio
           # (sale = id della run, quindi l'assegnazione cambia a ogni giro), e
