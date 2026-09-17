@@ -147,6 +147,10 @@ function buildJob({ title, pdfUrl, pdfText }) {
   };
 }
 
+function hasPublishableLocation(job = {}) {
+  return Boolean(String(job.location || '').trim());
+}
+
 async function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
@@ -154,6 +158,10 @@ async function mergeJobs(discoveredJobs) {
   const existingByKey = new Map(existingTarget.map((job) => [jobMatchKey(job), job]));
 
   // Preserve existing AI translations and slugs
+  // Keep every fetched source row in the crawler slice so the shrink guard sees
+  // the complete PDF snapshot. Rows without an explicit work location remain
+  // location-less and are removed by assembleJobsDataset before any page or
+  // JobPosting schema is emitted; they must not inherit an HQ locality here.
   const mergedTarget = mergePreserveLocaleData(existingTarget, discoveredJobs);
 
   const beforeSnapshot = snapshotJobSlugs(existingTarget);
@@ -222,40 +230,42 @@ function validateLocales() {
   });
 }
 
-function restoreUnresolvedLocationFields(discoveredJobs) {
+function clearUnresolvedLocationFields(discoveredJobs) {
   if (!fs.existsSync(DATA_JOBS)) return;
   const jobs = readJson(DATA_JOBS, []);
   if (!Array.isArray(jobs)) return;
 
-  const discoveredByKey = new Map(
-    discoveredJobs.map((job) => [jobMatchKey(job), job]),
+  const unresolvedByKey = new Map(
+    discoveredJobs
+      .filter((job) => !hasPublishableLocation(job))
+      .map((job) => [jobMatchKey(job), job]),
   );
   let cleared = 0;
   for (const job of jobs) {
     if (!isTargetJob(job)) continue;
-    const discovered = discoveredByKey.get(jobMatchKey(job));
-    if (!discovered || discovered.location) continue;
+    const discovered = unresolvedByKey.get(jobMatchKey(job));
+    if (!discovered) continue;
 
-    const hadInferredLocality = Boolean(
-      job.location ||
-      job.addressLocality ||
-      (!discovered.canton && (job.canton || job.addressRegion)) ||
-      (discovered.canton && (job.canton !== discovered.canton || job.addressRegion !== discovered.canton)),
-    );
+    let changed = false;
+    if (job.location || job.addressLocality || job.postalCode || job.streetAddress) changed = true;
     delete job.location;
     delete job.addressLocality;
+    delete job.postalCode;
+    delete job.streetAddress;
     if (discovered.canton) {
+      if (job.canton !== discovered.canton || job.addressRegion !== discovered.canton) changed = true;
       job.canton = discovered.canton;
       job.addressRegion = discovered.canton;
     } else {
+      if (job.canton || job.addressRegion) changed = true;
       delete job.canton;
       delete job.addressRegion;
     }
-    if (hadInferredLocality) cleared += 1;
+    if (changed) cleared += 1;
   }
 
   if (cleared > 0) {
-    console.log(`  🧭 LWP location guard: removed inferred locality from ${cleared} unresolved posting(s)`);
+    console.log(`  🧭 LWP location guard: cleared inherited locality/address from ${cleared} unresolved posting(s); assembler will exclude them from published jobs.`);
     writeJson(DATA_JOBS, jobs);
   }
 }
@@ -286,6 +296,17 @@ async function main() {
     }));
   }
 
+  const publishableJobs = discoveredJobs.filter(hasPublishableLocation);
+  const unresolvedCount = discoveredJobs.length - publishableJobs.length;
+  if (unresolvedCount > 0) {
+    console.warn(`  ⚠️ LWP skipped ${unresolvedCount} posting(s) without an explicit Swiss work location; no locality was inferred.`);
+  }
+  if (publishableJobs.length === 0) {
+    throw new Error('LWPHR discovery returned no postings with an explicit work location.');
+  }
+
+  // Keep the adapter's source seeds complete; the publication guard below is
+  // applied by the dataset assembler, not by the source adapter inventory.
   updateAdapterConfig(discoveredJobs);
   const { diff } = await mergeJobs(discoveredJobs);
 
@@ -296,7 +317,7 @@ async function main() {
   });
 
   validateLocales();
-  restoreUnresolvedLocationFields(discoveredJobs);
+  clearUnresolvedLocationFields(discoveredJobs);
   console.log('\n✅ LWPHR crawler complete.');
 
   // Write per-crawler slice and reassemble global dataset

@@ -1225,7 +1225,7 @@ export function ensureAdapterSeedUrls(
 function logSbbJobStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
-    return { total: 0, cantonCounts: {}, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
+    return { total: 0, ticino: 0, grigioni: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
@@ -1251,7 +1251,9 @@ function logSbbJobStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'SBB');
   writeCrawlChangeSummaryToGH(crawlDiff, 'SBB');
 
-  return { total: sbbJobs.length, cantonCounts, crawlDiff };
+  // Keep the legacy summary keys for callers that consume this return value;
+  // the log above is the national, per-canton report.
+  return { total: sbbJobs.length, ticino: cantonCounts.TI || 0, grigioni: cantonCounts.GR || 0, crawlDiff };
 
 }
 

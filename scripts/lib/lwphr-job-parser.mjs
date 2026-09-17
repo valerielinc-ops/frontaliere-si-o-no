@@ -3,15 +3,9 @@ import { JSDOM } from 'jsdom';
 import { titleOverlap, MIN_TITLE_OVERLAP } from './title-utils.mjs';
 export { titleOverlap, MIN_TITLE_OVERLAP };
 import { inferAnyCanton, rescueSwissCityFromText } from './target-swiss-locations.mjs';
-import { SWISS_CANTONS, getCantonDisplayName } from './crawler-location-config.mjs';
 
 function normalize(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
-}
-
-function containsWholeWord(text = '', value = '') {
-  const escaped = String(value || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  return Boolean(escaped) && new RegExp(`\\b${escaped}\\b`, 'i').test(text);
 }
 
 /** Maximum character length for a line to be considered a job title (not a body paragraph). */
@@ -127,37 +121,63 @@ export function parseLwphrOpenJobs(html = '') {
  *
  * The optional legacy fallback is retained for direct parser callers; the
  * crawler passes an empty fallback so an unresolved publication stays without
- * a fabricated locality. The canton is inferred separately.
+ * a fabricated locality. For the crawler path, city rescue is limited to the
+ * title, explicit work-location labels, and canton-qualified parentheticals;
+ * ordinary PDF prose is never treated as an address.
  */
+const LWPHR_LOCATION_LABEL_RE = /\b(?:luogo\s+di\s+lavoro|sede\s+di\s+lavoro|posto\s+di\s+lavoro|localit(?:a|à)\s+di\s+lavoro|arbeitsort|arbeitsplatz|standort|lieu\s+de\s+travail|work(?:ing)?\s+location|based\s+(?:in|at)|office\s+in)\b\s*[:\-–]?\s*(.*)$/iu;
+const LWPHR_PARENTHETICAL_RE = /\(([^()\n]{2,100})\)/gu;
+
+function extractLwphrLocationContext(title = '', pdfText = '') {
+  const contexts = [];
+  const titleText = String(title || '').trim();
+  if (titleText) contexts.push(titleText);
+
+  const lines = String(pdfText || '').split(/\r?\n/);
+  for (let index = 0; index < lines.length; index += 1) {
+    const match = lines[index].match(LWPHR_LOCATION_LABEL_RE);
+    if (!match) continue;
+    const value = match[1].trim();
+    if (value) contexts.push(value);
+    else if (lines[index + 1]?.trim()) contexts.push(lines[index + 1].trim());
+  }
+
+  // A few LWP PDFs put the work city in the heading as "City/CANTON". Only
+  // accept a parenthetical that resolves to both a Swiss city and a canton;
+  // a bare city mentioned in body prose is deliberately ignored.
+  for (const match of String(pdfText || '').matchAll(LWPHR_PARENTHETICAL_RE)) {
+    const value = match[1].trim();
+    if (rescueSwissCityFromText(value) && inferAnyCanton(value)) contexts.push(value);
+  }
+
+  return contexts.join('\n');
+}
+
 export function inferLwphrLocation(title = '', pdfText = '', { fallbackLocation = 'Lugano' } = {}) {
-  const text = `${title} ${pdfText}`.toLowerCase();
-  if (/locarno/.test(text)) return 'Locarno';
-  if (/mendrisiotto|mendrisio/.test(text)) return 'Mendrisio';
-  if (/luganese|lugano/.test(text)) return 'Lugano';
-  // Keep the legacy direct-call result for the old parser API, but never
-  // expose a canton-only label as a city on the crawler path. The caller that
-  // passes an empty fallback gets the canton from inferLwphrCanton() instead.
-  if (/ticino|tessin/.test(text) && fallbackLocation) return 'Ticino';
-  return rescueSwissCityFromText(`${title} ${pdfText}`) || fallbackLocation;
+  const locationContext = extractLwphrLocationContext(title, pdfText);
+  const explicitCity = rescueSwissCityFromText(locationContext);
+  if (explicitCity) return explicitCity;
+
+  // Keep the legacy direct-call behaviour for the old parser API. The crawler
+  // always passes an empty fallback, so these broad compatibility matches can
+  // never turn ordinary PDF prose into a published locality.
+  if (fallbackLocation) {
+    const text = `${title} ${pdfText}`.toLowerCase();
+    if (/locarno/.test(text)) return 'Locarno';
+    if (/mendrisiotto|mendrisio/.test(text)) return 'Mendrisio';
+    if (/luganese|lugano/.test(text)) return 'Lugano';
+    if (/ticino|tessin/.test(text)) return 'Ticino';
+    return fallbackLocation;
+  }
+
+  return '';
 }
 
 export function inferLwphrCanton(title = '', pdfText = '') {
-  const text = `${title} ${pdfText}`;
   const location = inferLwphrLocation(title, pdfText, { fallbackLocation: '' });
   if (location) return inferAnyCanton(location);
 
-  // A free-text PDF can contain everyday words that are also municipality
-  // names (for example "alle" → Alle JU or "sales" → Sâles FR). Only use a
-  // full-document canton inference when the document contains a localized
-  // canton label, then let the shared resolver return the code.
-  for (const code of Object.keys(SWISS_CANTONS)) {
-    const labels = ['it', 'de', 'fr', 'en']
-      .map((locale) => getCantonDisplayName(code, locale))
-      .filter(Boolean);
-    const label = labels.find((candidate) => containsWholeWord(text, candidate));
-    if (label) return inferAnyCanton(label);
-  }
-  return '';
+  return inferAnyCanton(extractLwphrLocationContext(title, pdfText));
 }
 
 export function inferLwphrCategory(title = '', pdfText = '') {
