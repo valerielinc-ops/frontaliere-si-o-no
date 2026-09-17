@@ -64,11 +64,12 @@ describe('refund-fix-round', () => {
     expect(shouldRefundRateLimitedRound('HTTP 429 Too Many Requests')).toBe(false);
   });
 
-  it('i due fixer usano la corsia Codex senza cablare il rimborso Claude-specific', () => {
+  it('i due fixer usano la corsia Codex senza admission gate sulla quota', () => {
     for (const file of ['.github/workflows/pr-redcheck-fixer.yml', '.github/workflows/pr-redflag-fixer.yml']) {
       const yaml = fs.readFileSync(path.join(ROOT, file), 'utf8');
       expect(yaml).not.toContain('node scripts/ci/refund-fix-round.mjs');
-      expect(yaml).toContain('Pre-flight — Codex lane quota telemetry');
+      expect(yaml).not.toContain('Pre-flight — Codex lane quota telemetry');
+      expect(yaml).not.toContain('check-quota-backoff.mjs');
       expect(yaml).toContain('Run Codex Luna Max');
       expect(yaml).toContain('id: codex_fix');
     }

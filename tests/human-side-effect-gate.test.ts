@@ -197,6 +197,10 @@ const SCHEDULE_ARMED_WORKFLOWS = [
   'newsletter-dormant-winback.yml',
   'newsletter-sunset.yml',
   'job-alert-sunset.yml',
+  'instagram-daily-broadcast.yml',
+  'suppression-hygiene.yml',
+  'telegram-channel-broadcast.yml',
+  'tiktok-daily-broadcast.yml',
 ];
 
 const SCHEDULE_UNARMED_WORKFLOWS = [
@@ -204,16 +208,12 @@ const SCHEDULE_UNARMED_WORKFLOWS = [
   'fb-articles-daily-schedule.yml',
   'fb-events-daily-schedule.yml',
   'fb-jobs-daily-schedule.yml',
-  'instagram-daily-broadcast.yml',
   'linkedin-member-daily.yml',
   'mailtrap-suppression-retry.yml',
   'probe-mailgun-scheduled.yml',
   'publisher-blast.yml',
   'recover-prev-slugs.yml',
   'reddit-jobs-daily-schedule.yml',
-  'suppression-hygiene.yml',
-  'telegram-channel-broadcast.yml',
-  'tiktok-daily-broadcast.yml',
 ];
 
 const SCHEDULE_SIDE_EFFECT_WORKFLOWS = [
@@ -696,6 +696,28 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
     expect(source).toContain('APPROVAL_EXPECTED_DISPATCH_WORKFLOW: Sync article sitemaps, feeds and ticker from the articles API');
   });
 
+  it('ritenta solo lookup transitori e run queued, mantenendo il deny sui terminali', () => {
+    const source = workflow('sync-articles-sitemaps.yml');
+    const start = source.indexOf('- name: Verify publisher provenance via read-only metadata API');
+    const end = source.indexOf('\n      - name:', start + 1);
+    const verifier = source.slice(start, end);
+
+    expect(verifier).toContain('max_lookup_attempts=3');
+    expect(verifier).toContain('while [ "$lookup_attempt" -le "$max_lookup_attempts" ]');
+    expect(verifier).toContain("[ \"$run_status\" = 'queued' ]");
+    expect(verifier).toContain("[ \"$run_status\" = 'in_progress' ]");
+    expect(verifier).toContain('lookup_delay=$((lookup_attempt * 15))');
+    expect(verifier).toContain('sleep "$lookup_delay"');
+    expect(verifier).toContain('verifier remains fail-closed');
+    expect(verifier).toContain("if [ \"$workflow_lookup_ok\" != 'true' ] || [ \"$workflow_shape_ok\" != 'true' ]; then");
+    expect(verifier.indexOf("if [ \"$workflow_lookup_ok\" != 'true' ] || [ \"$workflow_shape_ok\" != 'true' ]; then")).toBeLessThan(
+      verifier.indexOf('else\n                break'),
+    );
+    expect(verifier.indexOf('node scripts/ci/verify-publisher-dispatch.mjs')).toBeGreaterThan(
+      verifier.indexOf('while [ "$lookup_attempt" -le "$max_lookup_attempts" ]'),
+    );
+  });
+
   for (const name of SIDE_EFFECT_WORKFLOWS) {
     it(`${name} puts every live side-effect path behind the shared gate`, () => {
       const source = workflow(name);
@@ -784,9 +806,9 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
     }
   });
 
-  it('arms trusted schedules only on the ten alert/newsletter workflows', () => {
-    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(10);
-    expect(SCHEDULE_UNARMED_WORKFLOWS).toHaveLength(14);
+  it('arms trusted schedules only on workflows whose schedules apply side effects', () => {
+    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(14);
+    expect(SCHEDULE_UNARMED_WORKFLOWS).toHaveLength(10);
     expect(SCHEDULE_SIDE_EFFECT_WORKFLOWS).toHaveLength(24);
 
     for (const name of SCHEDULE_SIDE_EFFECT_WORKFLOWS) {

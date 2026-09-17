@@ -1000,6 +1000,8 @@ jobs:
           SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY }}
           SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY }}
           SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
+          SHARD_PUSH_MODE: ${{ vars.SHARD_PUSH_MODE == 'delta' && 'delta' || 'full' }}
+          SHARD_PUSH_VERIFY: ${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_RUN_ID: ${{ github.run_id }}
           # Consumed by scripts/ci/report-shard-push-failure.mjs (gh CLI) when a
@@ -1838,6 +1840,8 @@ jobs:
           SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY }}
           SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY }}
           SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
+          SHARD_PUSH_MODE: ${{ vars.SHARD_PUSH_MODE == 'delta' && 'delta' || 'full' }}
+          SHARD_PUSH_VERIFY: ${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_RUN_ID: ${{ github.run_id }}
           # Consumed by scripts/ci/report-shard-push-failure.mjs (gh CLI) when a
@@ -2445,12 +2449,24 @@ jobs:
           SHARD_EN_DEPLOY_KEY: ${{ secrets.SHARD_EN_DEPLOY_KEY }}
           SHARD_DE_DEPLOY_KEY: ${{ secrets.SHARD_DE_DEPLOY_KEY }}
           SHARD_FR_DEPLOY_KEY: ${{ secrets.SHARD_FR_DEPLOY_KEY }}
+          SHARD_PUSH_MODE: ${{ vars.SHARD_PUSH_MODE == 'delta' && 'delta' || 'full' }}
+          SHARD_PUSH_VERIFY: ${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}
         run: |
           # Wall-time della fase (#7301) — vedi "Push section shards (IT ...)"
           # per il perche' del trap EXIT. Il trap non altera l'exit code dello
           # script, che resta quello dello step.
           trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
           bash scripts/lib/push-locale-shard.sh ${{ matrix.locale }} dist
+
+      - name: Upload advisory shard push verification report
+        if: always() && vars.SHARD_PUSH_VERIFY == '1'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-push-verify-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/shard-push-verify
+          if-no-files-found: ignore
+          retention-days: 1
 
       # ── Purge the ORIGIN key, because that is where the bytes just changed ─
       #
