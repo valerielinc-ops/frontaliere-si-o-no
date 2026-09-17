@@ -1,6 +1,6 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
-import { inferAnyCanton, isSwissLocationText } from './target-swiss-locations.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -165,7 +165,9 @@ export function parseRuagJobDetail(html = '', url = '') {
 }
 
 export function isRuagTargetLocation(raw = '') {
-  return isSwissLocationText(raw);
+  // Country-only labels prove Switzerland, not a concrete job locality.
+  // Require a resolvable city/canton before emitting a Swiss JobPosting.
+  return Boolean(inferAnyCanton(raw));
 }
 
 export function inferRuagCanton(raw = '') {
