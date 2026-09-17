@@ -26,8 +26,42 @@ describe('fincons-job-parser', () => {
     `;
     const rows = parseFinconsListingsPage(html);
     expect(rows).toHaveLength(2);
+    expect(rows.finconsListingReadComplete).toBe(true);
+    expect(rows.finconsListingSourceRowCount).toBe(2);
     expect(rows[0].title).toBe('Angular / Java - Senior Full-Stack Developer');
     expect(rows[0].location).toBe('Lugano, Ticino, Switzerland');
+  });
+
+  it('does not prove an empty snapshot when the row selector misses source markup', () => {
+    const html = `
+      <table id="jobs_table">
+        <tr id="row_job_1">
+          <td><a class="job-title-link" href="/apply/jobs/details/selector-drift">Role</a></td>
+          <td>Lugano, Ticino, Switzerland</td>
+        </tr>
+      </table>
+    `;
+
+    const rows = parseFinconsListingsPage(html);
+
+    expect(rows).toHaveLength(0);
+    expect(rows.finconsListingSourceRowCount).toBe(1);
+    expect(rows.finconsListingReadComplete).toBe(false);
+  });
+
+  it('proves a legitimate empty snapshot only with an explicit listing marker', () => {
+    const html = `
+      <table id="jobs_table">
+        <tbody><tr><td>No open positions are currently available.</td></tr></tbody>
+      </table>
+    `;
+
+    const rows = parseFinconsListingsPage(html);
+
+    expect(rows).toHaveLength(0);
+    expect(rows.finconsListingSourceRowCount).toBe(0);
+    expect(rows.finconsListingEmptyStateObserved).toBe(true);
+    expect(rows.finconsListingReadComplete).toBe(true);
   });
 
   it('parses detail page and JSON-LD fields', () => {

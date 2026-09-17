@@ -282,6 +282,7 @@ describe('standard crawler authoritative-empty policy', () => {
     'scripts/update-alten-jobs.mjs',
     'scripts/update-damiani-jobs.mjs',
     'scripts/update-delvitech-jobs.mjs',
+    'scripts/update-fincons-jobs.mjs',
     'scripts/update-rittmeyer-jobs.mjs',
     'scripts/update-skyguide-jobs.mjs',
     'scripts/update-sunrise-jobs.mjs',

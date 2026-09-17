@@ -13,7 +13,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -23,6 +23,7 @@ import {
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
   detectLang,
+  isLocationExplicitlyForeign,
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
@@ -33,7 +34,8 @@ import {
 } from './lib/fincons-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -243,7 +245,42 @@ function updateAdapterConfig(jobs) {
   });
 }
 
-function validateLocales() {
+function isRecognizedFinconsSourceLocation(raw = '') {
+  const value = String(raw || '').trim();
+  return Boolean(value && (isTargetSwissLocation(value) || isLocationExplicitlyForeign(value)));
+}
+
+function copyFinconsSourceEvidence(jobs, sourceRows, targetRows) {
+  const unrecognizedLocationCount = sourceRows.filter((row) => !isRecognizedFinconsSourceLocation(row.location)).length;
+  Object.defineProperties(jobs, {
+    finconsSourceRows: { value: sourceRows, enumerable: false },
+    finconsSourceReadComplete: { value: sourceRows.finconsListingReadComplete === true, enumerable: false },
+    finconsSourceTargetCount: { value: targetRows.length, enumerable: false },
+    finconsSourceUnrecognizedLocationCount: { value: unrecognizedLocationCount, enumerable: false },
+  });
+  return jobs;
+}
+
+function assertCompleteFinconsSnapshot(jobs = []) {
+  if (!Array.isArray(jobs) || jobs.finconsSourceReadComplete !== true) {
+    throw new Error('Fincons: source listing snapshot was not read completely');
+  }
+  const rows = jobs.finconsSourceRows;
+  if (!Array.isArray(rows)) {
+    throw new Error('Fincons: source listing evidence is missing');
+  }
+  const unrecognized = rows.filter((row) => !isRecognizedFinconsSourceLocation(row.location));
+  if (unrecognized.length > 0 || jobs.finconsSourceUnrecognizedLocationCount !== 0) {
+    throw new Error(`Fincons: ${unrecognized.length} source listing location(s) were not classifiable`);
+  }
+  const actualTargetCount = rows.filter((row) => isTargetSwissLocation(row.location)).length;
+  if (actualTargetCount !== jobs.finconsSourceTargetCount || jobs.finconsSourceTargetCount !== 0 || jobs.length !== 0) {
+    throw new Error('Fincons: empty authority requested for a non-empty filtered result');
+  }
+  return true;
+}
+
+function validateLocales(authoritativeEmptySnapshot = false) {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_FINCONS_STRICT',
     label: 'Fincons Group',
@@ -252,7 +289,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_fincons_domain',
-    failWhenNoJobs: false,
+    failWhenNoJobs: !authoritativeEmptySnapshot,
     noJobsMessage: 'No Fincons jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'en'),
   });
@@ -266,11 +303,23 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log(`  Careers page: ${CAREERS_URL}\n`);
 
-  const listings = await fetchListings();
+  const sourceListings = await fetchListings();
+  const listings = sourceListings.filter((row) => isTargetSwissLocation(row.location));
   const jobs = [];
   for (const listing of listings) {
     jobs.push(await buildFinconsJob(listing));
   }
+
+  copyFinconsSourceEvidence(jobs, sourceListings, listings);
+  const {
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
+  } = evaluateAuthoritativeSnapshot(jobs, {
+    validateAuthoritativeSnapshot: assertCompleteFinconsSnapshot,
+    allowAuthoritativeEmptySnapshot: true,
+    authoritativeSnapshotScope: 'empty-only',
+    companyLabel: COMPANY_NAME,
+  });
 
   const { mergedTarget: merged, diff } = mergeJobs(jobs);
   updateAdapterConfig(merged);
@@ -281,19 +330,24 @@ async function main() {
     isTargetJob,
   });
 
-  validateLocales();
+  validateLocales(authoritativeEmptySnapshot);
   console.log(`\n✅ Fincons crawler complete (${merged.length} jobs).`);
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified,
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'Fincons Group',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,

@@ -1,5 +1,6 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
+import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -52,7 +53,9 @@ function bulletLines(listNode) {
 export function parseFinconsListingsPage(html = '') {
   const dom = new JSDOM(html);
   const document = dom.window.document;
-  return [...document.querySelectorAll('#jobs_table tr[id^="row_job_"]')]
+  const sourceRows = [...document.querySelectorAll('#jobs_table tr[id^="row_job_"]')];
+  let skippedMalformedRows = 0;
+  const rows = sourceRows
     .map((row) => {
       const link = row.querySelector('a.job_title_link');
       const href = String(link?.getAttribute('href') || '').trim();
@@ -61,7 +64,25 @@ export function parseFinconsListingsPage(html = '') {
       const location = normalizeSpace(row.querySelector('td:last-child')?.textContent || '');
       return { href, title, department, location };
     })
-    .filter((row) => row.href && row.title);
+    .filter((row) => {
+      const valid = row.href && row.title;
+      if (!valid) skippedMalformedRows += 1;
+      return valid;
+    });
+  const sourceRowCount = sourceRows.length;
+  const emptyStateObserved = hasExplicitEmptyJobListing(document.body?.textContent || '');
+  const sourceReadComplete = Boolean(
+    document.querySelector('#jobs_table')
+    && (sourceRowCount > 0 ? rows.length === sourceRowCount : emptyStateObserved),
+  );
+  Object.defineProperties(rows, {
+    finconsListingMarkupSeen: { value: Boolean(document.querySelector('#jobs_table')), enumerable: false },
+    finconsListingSourceRowCount: { value: sourceRowCount, enumerable: false },
+    finconsListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
+    finconsListingEmptyStateObserved: { value: emptyStateObserved, enumerable: false },
+    finconsListingReadComplete: { value: sourceReadComplete, enumerable: false },
+  });
+  return rows;
 }
 
 function parseJsonLd(document) {
