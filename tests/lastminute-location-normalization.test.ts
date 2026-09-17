@@ -68,4 +68,46 @@ describe('lastminute location normalization', () => {
       fetchSpy.mockRestore();
     }
   });
+
+  it('fails closed when a later listing page returns zero detail URLs', async () => {
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      if (String(input).includes('page=1')) {
+        return new Response(
+          '<a href="/careers/jobs/job?id=744000149000001&jobName=Software+Engineer">job</a>',
+          { status: 200 },
+        );
+      }
+      return new Response('<html><body>challenge</body></html>', { status: 200 });
+    });
+
+    try {
+      await expect(fetchLastminuteJobDetailUrls()).rejects.toThrow(
+        'lastminute careers listing returned no detail URLs on page 2',
+      );
+      expect(fetchSpy).toHaveBeenCalledTimes(2);
+    } finally {
+      fetchSpy.mockRestore();
+    }
+  });
+
+  it('fails closed when a later listing page cannot be fetched', async () => {
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      if (String(input).includes('page=1')) {
+        return new Response(
+          '<a href="/careers/jobs/job?id=744000149000001&jobName=Software+Engineer">job</a>',
+          { status: 200 },
+        );
+      }
+      throw new Error('connection reset');
+    });
+
+    try {
+      await expect(fetchLastminuteJobDetailUrls()).rejects.toThrow(
+        'lastminute careers listing pagination failed on page 2',
+      );
+      expect(fetchSpy).toHaveBeenCalledTimes(2);
+    } finally {
+      fetchSpy.mockRestore();
+    }
+  });
 });

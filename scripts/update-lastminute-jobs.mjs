@@ -318,16 +318,22 @@ export async function fetchLastminuteJobDetailUrls() {
     } catch (err) {
       console.warn(`    ⚠️ Fetch failed on page ${page}: ${err?.message || err}`);
       if (page === 1) throw err;
-      break;
+      throw new Error(
+        `lastminute careers listing pagination failed on page ${page}; source completeness is unverified, preserving the previous adapter and data`,
+        { cause: err },
+      );
     }
 
     const links = parseJobLinksFromListingHtml(html);
     if (links.length === 0) {
-      // Fetch succeeded but parsed to zero links — could be genuine EOF or
-      // a challenge/error page rendered with a 200 status. Warn so a
-      // sustained pattern is visible, since we can't tell the two apart.
-      console.warn(`    ⚠️ No detail links found on page ${page} — treating as end of pagination.`);
-      break;
+      if (page === 1) {
+        throw new Error(
+          'lastminute careers listing returned no detail URLs on page 1; source completeness is unverified, preserving the previous adapter and data',
+        );
+      }
+      throw new Error(
+        `lastminute careers listing returned no detail URLs on page ${page}; source completeness is unverified, preserving the previous adapter and data`,
+      );
     }
 
     let pageNew = 0;
