@@ -14,6 +14,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { JSDOM } from 'jsdom';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -99,6 +100,20 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+function assertAmagListingPage(html, items, locale) {
+  const document = new JSDOM(String(html || '')).window.document;
+  const listingTable = document.querySelector('#joboffers');
+  if (!listingTable) {
+    throw new Error(`AMAG ${locale} listing has no #joboffers source container`);
+  }
+
+  const jobRows = [...listingTable.querySelectorAll('tbody tr')]
+    .filter((row) => row.querySelector('#jobTitel'));
+  if (jobRows.length > 0 && items.length === 0) {
+    throw new Error(`AMAG ${locale} listing contains job rows but none were parseable`);
+  }
+}
+
 async function fetchText(url, timeoutMs = TIMEOUT_MS) {
   return fetchHtml(url, {
     timeoutMs,
@@ -162,6 +177,7 @@ export async function fetchAllListings() {
   try {
     const htmlIt = await fetchText(CAREERS_URL_IT);
     const itemsIt = parseAmagListingPage(htmlIt);
+    assertAmagListingPage(htmlIt, itemsIt, 'Italian');
     for (const item of itemsIt) {
       allItems.set(item.jobId, item);
     }
@@ -178,6 +194,7 @@ export async function fetchAllListings() {
   try {
     const htmlDe = await fetchText(CAREERS_URL_DE);
     const itemsDe = parseAmagListingPage(htmlDe);
+    assertAmagListingPage(htmlDe, itemsDe, 'German');
     let extraCount = 0;
     for (const item of itemsDe) {
       if (allItems.has(item.jobId)) continue;

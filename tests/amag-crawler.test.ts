@@ -34,10 +34,27 @@ describe('detail fetch completeness guard', () => {
 });
 
 describe('AMAG listing completeness', () => {
+  it('fails closed when the Italian response has no listing source container', async () => {
+    fetchHtmlMock
+      .mockResolvedValueOnce('<html><body>temporary upstream error</body></html>');
+
+    await expect(fetchAllListings()).rejects.toThrow(/Italian listing fetch failed/i);
+  });
+
   it('fails closed when the German listing cannot be fetched', async () => {
     fetchHtmlMock
-      .mockResolvedValueOnce('<html><body></body></html>')
+      .mockResolvedValueOnce('<table id="joboffers"><tbody></tbody></table>')
       .mockRejectedValueOnce(new Error('German listing unavailable'));
+
+    await expect(fetchAllListings()).rejects.toThrow(/German listing fetch failed/i);
+  });
+
+  it('fails closed when the German response has job rows but none are parseable', async () => {
+    fetchHtmlMock
+      .mockResolvedValueOnce('<table id="joboffers"><tbody></tbody></table>')
+      .mockResolvedValueOnce(
+        '<table id="joboffers"><tbody><tr><td id="jobTitel">drift</td></tr></tbody></table>',
+      );
 
     await expect(fetchAllListings()).rejects.toThrow(/German listing fetch failed/i);
   });
