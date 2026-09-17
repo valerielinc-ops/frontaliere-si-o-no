@@ -61,16 +61,21 @@
  * Switzerland (a retail chain, not a single-site employer), so per-job
  * addresses come from the JSON-LD `jobLocation.address` of EACH posting.
  * When the source omits a mandatory address field, `resolveAddress()` keeps
- * the source city, uses the verified Suhr HQ only for a Suhr posting, and
- * otherwise applies a same-canton postal fallback plus a city-centre label —
- * never the Suhr street address for a different city in AG.
+ * a source city only when a matching postal fallback is available, uses the
+ * verified Suhr HQ only for a Suhr posting, and otherwise applies a coherent
+ * canton location tuple plus a city-centre label — never the Suhr street
+ * address for a different city in AG.
  */
 import { createHash } from 'node:crypto';
 import { fetchHtml, slugify, normalizeSpace } from './crawler-template.mjs';
 import { detectLang, guessCategory, normalizeContract } from './dedicated-crawler-common.mjs';
 import { extractMigrosStructuredData, cleanDescription } from './migros-job-parser.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
-import { getCantonPostalFallback } from './canton-postal-fallback.mjs';
+import {
+  getCantonLocationFallback,
+  getCityPostalFallback,
+  getDefaultCantonLocationFallback,
+} from './canton-postal-fallback.mjs';
 import { launchChromium } from './ensure-chromium.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -86,7 +91,6 @@ const CAREER_URL = 'https://www.migrolino-ag.ch/de/karriere';
 
 const SECTOR = 'Retail / Convenience Store';
 const SWISS_COUNTRY_VALUES = new Set(['CH', 'CHE', 'SWITZERLAND', 'SCHWEIZ', 'SUISSE', 'SVIZZERA']);
-const UNKNOWN_CANTON_POSTAL_FALLBACK = '0000';
 
 /**
  * Matches a migrolino job detail href in any of the four locale prefixes AND
@@ -106,15 +110,15 @@ function normalize(value = '') {
 
 /**
  * Resolve source-backed city / postal code / street address, with safe
- * non-empty fallbacks for a known city. The verified HQ address is city-gated
- * on Suhr; other cities keep their own locality and receive a canton-level
- * postal fallback plus a synthetic city-centre label rather than a misleading
- * employer HQ street. An unresolved canton receives a non-empty sentinel
- * postal code so the structured-data contract is never dropped.
+ * non-empty fallbacks. The verified HQ address is city-gated on Suhr. Other
+ * cities keep their own locality only when `data/swiss-postal-codes.json`
+ * supplies a matching postal code; otherwise the complete canton fallback is
+ * used so city, postalCode and addressRegion cannot describe different places.
+ * An unresolved city/canton uses the canonical national fallback location.
  *
  * @param {{ city?: string, postalCode?: string, streetAddress?: string }} [raw]
  * @param {string} [canton]
- * @returns {{ city: string, postalCode: string, streetAddress: string }}
+ * @returns {{ city: string, canton: string, postalCode: string, streetAddress: string }}
  */
 const HQ = {
   city: 'Suhr',
@@ -124,22 +128,76 @@ const HQ = {
 };
 
 export function resolveAddress(raw = {}, canton = '') {
-  const city = normalizeSpace(raw.city || '');
-  const resolvedCanton = canton || inferAnyCanton(city);
-  const isSuhrHq = /\bsuhr\b/i.test(city);
+  const sourceCity = normalizeSpace(raw.city || '');
+  const sourcePostalCode = normalizeSpace(raw.postalCode || '');
+  const sourceStreetAddress = normalizeSpace(raw.streetAddress || '');
+  const cantonHint = normalizeSpace(canton);
+  const resolvedCanton = (/^[a-z]{2}$/i.test(cantonHint)
+    ? cantonHint.toUpperCase()
+    : inferAnyCanton(cantonHint)) || inferAnyCanton(sourceCity);
+  const cityPostalFallback = getCityPostalFallback(sourceCity);
+  const cantonLocationFallback = getCantonLocationFallback(resolvedCanton)
+    || getDefaultCantonLocationFallback();
+  const isRegionLabel = /^(ticino|tessin|grigioni|graub[uü]nden|grisons|grischun)$/i.test(sourceCity);
+  const isSuhrHq = resolvedCanton === HQ.canton && /\bsuhr\b/i.test(sourceCity);
+
+  if (!sourceCity) {
+    if (!resolvedCanton) {
+      return {
+        city: '',
+        canton: '',
+        postalCode: sourcePostalCode,
+        streetAddress: sourceStreetAddress,
+      };
+    }
+
+    return {
+      city: cantonLocationFallback.city,
+      canton: cantonLocationFallback.addressRegion,
+      postalCode: cantonLocationFallback.postalCode,
+      streetAddress: `${cantonLocationFallback.city} city centre`,
+    };
+  }
+
+  if (isSuhrHq) {
+    return {
+      city: sourceCity,
+      canton: HQ.canton,
+      postalCode: sourcePostalCode || HQ.postalCode,
+      streetAddress: sourceStreetAddress || HQ.streetAddress,
+    };
+  }
+
+  // A source postal code is already tied to the source city; preserve it and
+  // only synthesize the missing street label. If the source canton is
+  // unresolved, fall through to the canonical tuple so addressRegion is not
+  // left empty beside a fabricated locality.
+  if (resolvedCanton && sourcePostalCode && !isRegionLabel) {
+    return {
+      city: sourceCity,
+      canton: resolvedCanton,
+      postalCode: sourcePostalCode,
+      streetAddress: sourceStreetAddress || `${sourceCity} city centre`,
+    };
+  }
+
+  // A known city can keep its own locality when the shared city map provides
+  // its postal code. This avoids pairing e.g. Baden or Wohlen with Aarau's
+  // canton-level postal code.
+  if (resolvedCanton && cityPostalFallback && !isRegionLabel) {
+    return {
+      city: sourceCity,
+      canton: resolvedCanton,
+      postalCode: cityPostalFallback,
+      streetAddress: sourceStreetAddress || `${sourceCity} city centre`,
+    };
+  }
 
   return {
-    city,
-    postalCode: normalizeSpace(raw.postalCode || '') || (isSuhrHq
-      ? HQ.postalCode
-      : city
-        ? getCantonPostalFallback(resolvedCanton) || UNKNOWN_CANTON_POSTAL_FALLBACK
-        : ''),
-    streetAddress: normalizeSpace(raw.streetAddress || '') || (isSuhrHq
-      ? HQ.streetAddress
-      : city
-        ? `${city} city centre`
-        : ''),
+    city: cantonLocationFallback.city,
+    canton: cantonLocationFallback.addressRegion,
+    postalCode: cantonLocationFallback.postalCode,
+    streetAddress: `${cantonLocationFallback.city} city centre`,
   };
 }
 
@@ -244,7 +302,12 @@ export function parseMigrolinoDetail(html = '', url = '') {
       : address.addressCountry || '',
   );
   const canton = inferAnyCanton(rawCity) || inferAnyCanton(sourceRegion) || '';
-  const { city, postalCode, streetAddress } = resolveAddress({
+  const {
+    city,
+    canton: addressCanton,
+    postalCode,
+    streetAddress,
+  } = resolveAddress({
     city: rawCity,
     postalCode: address.postalCode || '',
     streetAddress: address.streetAddress || '',
@@ -265,8 +328,8 @@ export function parseMigrolinoDetail(html = '', url = '') {
   const employmentType = contract === 'part-time' ? 'PART_TIME' : 'FULL_TIME';
 
   const postedDate = normalizeSpace(jsonLd?.datePosted || '').slice(0, 10);
-  const locationSignal = [city, sourceRegion].filter(Boolean).join(' ');
-  const resolvedCanton = canton && isTargetSwissLocation(locationSignal) ? canton : '';
+  const locationSignal = [city, sourceRegion, addressCanton].filter(Boolean).join(' ');
+  const resolvedCanton = addressCanton && isTargetSwissLocation(locationSignal) ? addressCanton : '';
 
   return {
     title,

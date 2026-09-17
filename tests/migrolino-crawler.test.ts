@@ -14,6 +14,7 @@ import {
   LISTING_URL,
   CAREER_URL,
 } from '../scripts/lib/migrolino-job-parser.mjs';
+import { CANTON_LOCATION_FALLBACK } from '../scripts/lib/canton-postal-fallback.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const FIXTURE_DIR = path.resolve(__dirname, 'fixtures');
@@ -141,15 +142,31 @@ describe('migrolino crawler parser', () => {
     it('uses a same-canton safe fallback without inventing the Suhr address for Baden AG', () => {
       const resolved = resolveAddress({ city: 'Baden' });
       expect(resolved.city).toBe('Baden');
-      expect(resolved.postalCode).toBe('5000');
+      expect(resolved.canton).toBe('AG');
+      expect(resolved.postalCode).toBe('5400');
       expect(resolved.streetAddress).toBe('Baden city centre');
     });
 
     it('uses the source city for another same-canton fallback (Wohlen AG)', () => {
       const resolved = resolveAddress({ city: 'Wohlen' }, 'AG');
       expect(resolved.city).toBe('Wohlen');
-      expect(resolved.postalCode).toBe('5000');
+      expect(resolved.postalCode).toBe('5610');
       expect(resolved.streetAddress).toBe('Wohlen city centre');
+    });
+
+    it('defines a coherent city/postal/canton tuple for all 26 cantons', () => {
+      const cantons = [
+        'AG', 'AI', 'AR', 'BE', 'BL', 'BS', 'FR', 'GE', 'GL', 'GR', 'JU', 'LU',
+        'NE', 'NW', 'OW', 'SG', 'SH', 'SO', 'SZ', 'TG', 'TI', 'UR', 'VD', 'VS',
+        'ZG', 'ZH',
+      ];
+      expect(Object.keys(CANTON_LOCATION_FALLBACK).sort()).toEqual([...cantons].sort());
+      for (const canton of cantons) {
+        const location = CANTON_LOCATION_FALLBACK[canton];
+        expect(location.addressRegion).toBe(canton);
+        expect(location.city).toBeTruthy();
+        expect(location.postalCode).toMatch(/^\d{4}$/);
+      }
     });
 
     it('preserves a real per-store street address when the source already provides one', () => {
@@ -160,6 +177,7 @@ describe('migrolino crawler parser', () => {
       });
       expect(resolved).toEqual({
         city: 'Bern',
+        canton: 'BE',
         postalCode: '3006',
         streetAddress: 'Egghölzlistrasse 1',
       });
@@ -179,12 +197,16 @@ describe('migrolino crawler parser', () => {
       expect(resolved.streetAddress).toBe('Wynenfeldstrasse 3');
     });
 
-    it('uses a non-empty safe postal fallback for an unresolved city', () => {
+    it('uses a canonical coherent fallback for an unresolved city', () => {
       // Word-boundary gate: a hypothetical city like "Wülflingen-Suhrau"
       // must not match \bsuhr\b.
       const resolved = resolveAddress({ city: 'Suhrau' });
-      expect(resolved.postalCode).toBe('0000');
-      expect(resolved.streetAddress).toBe('Suhrau city centre');
+      expect(resolved).toEqual({
+        city: 'Bern',
+        canton: 'BE',
+        postalCode: '3000',
+        streetAddress: 'Bern city centre',
+      });
     });
   });
 
@@ -312,9 +334,27 @@ describe('migrolino crawler parser', () => {
       const parsed = parseMigrolinoDetail(html);
       expect(parsed.city).toBe('Baden');
       expect(parsed.canton).toBe('AG');
-      expect(parsed.postalCode).toBe('5000');
+      expect(parsed.postalCode).toBe('5400');
       expect(parsed.streetAddress).toBe('Baden city centre');
       expect(parsed.streetAddress).not.toBe('Wynenfeldstrasse 3');
+    });
+
+    it('emits a coherent national fallback when the source city is unresolved', () => {
+      const html = `<script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org/',
+        '@type': 'JobPosting',
+        title: 'Verkäufer*in',
+        description: 'Eine Stelle im migrolino-Shop mit Aufgaben im Verkauf und direktem Kundenkontakt.',
+        jobLocation: {
+          '@type': 'Place',
+          address: { '@type': 'PostalAddress', addressLocality: 'Suhrau', addressCountry: 'CH' },
+        },
+      })}</script>`;
+      const parsed = parseMigrolinoDetail(html);
+      expect(parsed.city).toBe('Bern');
+      expect(parsed.canton).toBe('BE');
+      expect(parsed.postalCode).toBe('3000');
+      expect(parsed.streetAddress).toBe('Bern city centre');
     });
 
     it('returns an empty title (not a throw) for empty/invalid input', () => {
