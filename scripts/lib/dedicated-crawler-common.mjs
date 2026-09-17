@@ -46,6 +46,7 @@ import { intFromEnv } from './int-from-env.mjs';
 import { isSystemicRejection } from './source-record-quarantine.mjs';
 import { sourceChangedSinceSuppression } from './source-changed-since-suppression.mjs';
 import { normalizeCompanyKey, normalizeKey } from './company-key.mjs';
+import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -6179,6 +6180,7 @@ const FOREIGN_COUNTRY_CODES = [
   'MX', 'ZA', 'SE', 'NO', 'DK', 'FI', 'PL', 'CZ', 'HU', 'RO', 'BG', 'HR', 'SI',
   'SK', 'RS', 'UA', 'RU', 'FR',
 ];
+const SWISS_LOCATION_CODES = new Set(['CH', ...ALL_CANTON_CODES]);
 // ISO-like tokens are accepted only in a labelled country field or after a
 // non-empty location component. A final code is Swiss only when the locality
 // before it resolves to the same canton; this keeps SG/FR canton suffixes
@@ -6201,11 +6203,17 @@ function hasExplicitForeignCountryCode(lower) {
   for (const match of lower.matchAll(FINAL_FOREIGN_COUNTRY_CODE_RE)) {
     const location = String(match[1] || '').trim();
     const code = String(match[2] || '').toUpperCase();
-    // A final code is Swiss only when it agrees with a Swiss municipality in
-    // the same field; otherwise it remains an explicit negative country
-    // signal (e.g. "Zurich, FR"). This avoids treating SG/FR canton codes as
-    // foreign while still recognizing a mismatched country component.
+    // A final code is Swiss when it agrees with a Swiss municipality in the
+    // same field. An unrecognized locality keeps a canton code ambiguous;
+    // otherwise a known Swiss locality with a mismatched code remains an
+    // explicit negative country signal (e.g. "Zurich, FR").
     if (inferAnyCanton(location) === code) continue;
+    // The 26 canton codes and CH are ambiguous without an explicit
+    // country/name context. Do not turn a bare address suffix such as "Rue de
+    // la Gare, AG" into a foreign-country verdict.
+    if (SWISS_LOCATION_CODES.has(code) && !isTargetSwissLocation(location, { includeBorderProximity: false })) {
+      continue;
+    }
     return true;
   }
   return false;

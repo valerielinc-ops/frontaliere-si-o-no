@@ -871,6 +871,19 @@ describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)'
     expect(isLocationExplicitlyForeign('Zurich, FR')).toBe(true);
   });
 
+  it('does not reject Swiss address text that ends with any canton code', async () => {
+    const { isLocationExplicitlyForeign } = await import(
+      '../scripts/lib/dedicated-crawler-common.mjs'
+    );
+    const { ALL_CANTON_CODES } = await import('../scripts/lib/crawler-location-config.mjs');
+
+    for (const code of ALL_CANTON_CODES) {
+      expect(isLocationExplicitlyForeign(`Industriestrasse 10, ${code}`)).toBe(false);
+    }
+    expect(isLocationExplicitlyForeign('Sâles, FR')).toBe(false);
+    expect(isLocationExplicitlyForeign('CH-9000 St. Gallen, SG')).toBe(false);
+  });
+
   it('foreign-job gates do not treat a foreign border town as a Swiss location', async () => {
     const { isExplicitlyOutsideTarget, isLocationExplicitlyForeign } = await import(
       '../scripts/lib/dedicated-crawler-common.mjs'
