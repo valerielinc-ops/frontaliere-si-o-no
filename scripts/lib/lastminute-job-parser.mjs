@@ -7,9 +7,7 @@
  * markdown description.
  */
 
-import { getCompanyDefaults } from './crawler-location-config.mjs';
-
-const HQ = getCompanyDefaults('lastminute');
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '')
@@ -177,13 +175,14 @@ export function parseSmartRecruitersDetail(data = {}) {
 
   // Location
   const city = normalizeSpace(location.city || '');
-  const canton = normalizeSpace(location.region || '').toUpperCase() || HQ.canton;
-  const country = normalizeSpace(location.country || '').toUpperCase() || 'CH';
+  const region = normalizeSpace(location.region || '');
+  const canton = inferAnyCanton([city, region].filter(Boolean).join(', '));
+  const country = normalizeSpace(location.country || '').toUpperCase();
 
   return {
     title,
     description,
-    location: city || 'Chiasso',
+    location: city,
     city,
     canton,
     country,
@@ -249,7 +248,8 @@ export function extractSrIdFromUrl(rawUrl = '') {
  * @returns {string} Boilerplate description with English content appended
  */
 export function buildLastminuteLocaleFallback({ title, location, enDescription }, locale) {
-  const loc = location || 'Chiasso';
+  const loc = String(location || '').trim();
+  if (!loc) return '';
   const intros = {
     it: `lastminute.com cerca per la sede di ${loc} un/a ${title}. Scopri i dettagli della posizione e candidati online tramite il portale aziendale.`,
     de: `lastminute.com sucht am Standort ${loc} eine/n ${title}. Entdecken Sie die Details der Stelle und bewerben Sie sich online über das Unternehmensportal.`,

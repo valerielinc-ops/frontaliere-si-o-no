@@ -8,11 +8,11 @@
     "html"
   ],
   "seedUrls": [
-    "https://ita.finconsgroup.com/culture-and-careers/job-offers/sedi/lugano.kl",
-    "https://fincons.applytojob.com/apply/jobs/?city=lugano"
+    "https://ita.finconsgroup.com/culture-and-careers/job-offers/",
+    "https://fincons.applytojob.com/apply/jobs/"
   ],
-  "notes": "Dedicated Fincons crawler parses the Lugano landing page iframe source hosted on JazzHR and keeps the public Lugano positions in sync.",
-  "updatedAt": "2026-09-01T10:25:32.725Z",
+  "notes": "Dedicated Fincons crawler parses the Switzerland-wide listing hosted on applytojob.com, filters each row with the shared Swiss-location predicate, and infers the canton per announcement from the detail/listing location.",
+  "updatedAt": "2026-09-17T15:08:01.773Z",
   "seedMetaByUrl": {
     "https://fincons.applytojob.com/apply/MuAijinxCZ/Accounts-Payable-Accounting-Specialist": {
       "location": "Lugano",
@@ -20,11 +20,101 @@
       "company": "Fincons Group",
       "postedDate": "2026-07-29"
     },
-    "https://fincons.applytojob.com/apply/pMjNcxuBz7/Corporate-PMO-Business-Operations-Expert": {
-      "location": "Lugano",
-      "canton": "TI",
+    "https://fincons.applytojob.com/apply/PqHhrtFJld/ApplikationsManagerin-80-100": {
+      "location": "Bern",
+      "canton": "BE",
       "company": "Fincons Group",
-      "postedDate": "2026-06-17"
+      "postedDate": "2026-09-17"
+    },
+    "https://fincons.applytojob.com/apply/r3uj80VpGa/GRC-RCSA-Specialist-3months-Project": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "Fincons Group",
+      "postedDate": "2026-09-16"
+    },
+    "https://fincons.applytojob.com/apply/HBsrcm903z/ICTSystemIngenieurin-OpenShift-Kubernetes-80-100": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-06-30"
+    },
+    "https://fincons.applytojob.com/apply/WeGrJBaq9M/Java-Applikationsentwickler-80-100": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-09-17"
+    },
+    "https://fincons.applytojob.com/apply/nMIkIlDmkG/Java-Software-Engineer-Banking-80-100": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-07-07"
+    },
+    "https://fincons.applytojob.com/apply/ZXHIVRLFoF/Professional-ApplikationsEntwicklerin-80-100": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-06-29"
+    },
+    "https://fincons.applytojob.com/apply/kKlSxhrfjx/Professional-ApplikationsEntwicklerin-60-100": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-07-20"
+    },
+    "https://fincons.applytojob.com/apply/iNE6WOC7j2/Professional-ApplikationsEntwicklerin-80-100": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-07-08"
+    },
+    "https://fincons.applytojob.com/apply/mf1UJpJbdW/Professional-BusinessAnalystin-60-100": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-07-17"
+    },
+    "https://fincons.applytojob.com/apply/zQWuZYePqp/Professional-SoftwareIngenieurIn-80-100": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-08-21"
+    },
+    "https://fincons.applytojob.com/apply/eGmDoVqm0v/Professional-SoftwareIngenieurin-80-100": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-08-19"
+    },
+    "https://fincons.applytojob.com/apply/hEPeMkC7c1/Senior-ApplikationsEntwickler-In-80-100": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-06-24"
+    },
+    "https://fincons.applytojob.com/apply/VuPyov176B/Senior-ApplikationsEntwicklerin-80-100": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-09-17"
+    },
+    "https://fincons.applytojob.com/apply/bRRlAFaeHA/Senior-ApplikationsEntwicklerin-80-100": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-09-15"
+    },
+    "https://fincons.applytojob.com/apply/r6flkFxKKM/Senior-Applikationsentwicklerin": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-07-28"
+    },
+    "https://fincons.applytojob.com/apply/Ew6TVUHrdn/Senior-Applikationsentwicklerin-80-100": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-08-17"
     },
     "https://fincons.applytojob.com/apply/7OqPcl4U5Q/Senior-C-NET-Engineer": {
       "location": "Lugano",
@@ -38,17 +128,71 @@
       "company": "Fincons Group",
       "postedDate": "2026-09-01"
     },
+    "https://fincons.applytojob.com/apply/OS3YrYHPUj/Senior-ICTArchitectIn-40-60": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-08-21"
+    },
+    "https://fincons.applytojob.com/apply/m7OrFJsQEH/Senior-ICTSystemSpezialistin-80-100": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-07-29"
+    },
+    "https://fincons.applytojob.com/apply/LGLbmDdOuw/Senior-Java-Applikationsentwickler-80-100": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-09-17"
+    },
+    "https://fincons.applytojob.com/apply/qepOmkU4de/Senior-Java-Developer": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "Fincons Group",
+      "postedDate": "2026-09-11"
+    },
+    "https://fincons.applytojob.com/apply/46gvjW8sFX/Senior-SoftwareIngenieurin-100": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-08-10"
+    },
+    "https://fincons.applytojob.com/apply/AlZ3O2QgLC/Senior-SoftwareIngenieurin-JavaAngular-100": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-09-11"
+    },
     "https://fincons.applytojob.com/apply/p8SZrdkyWF/Senior-Test-Engineer": {
       "location": "Lugano",
       "canton": "TI",
       "company": "Fincons Group",
       "postedDate": "2026-07-27"
     },
-    "https://fincons.applytojob.com/apply/brINhtcJka/Test-Engineer-MicroFocus-QC": {
-      "location": "Lugano",
-      "canton": "TI",
+    "https://fincons.applytojob.com/apply/7Bmv2b4Yiq/SoftwareEntwicklerin-Backend-50": {
+      "location": "Bern",
+      "canton": "BE",
       "company": "Fincons Group",
-      "postedDate": "2026-08-17"
+      "postedDate": "2026-09-11"
+    },
+    "https://fincons.applytojob.com/apply/PdfnuRAsUb/System-DevOps-Engineer-80": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-09-01"
+    },
+    "https://fincons.applytojob.com/apply/fZN3zmqsJo/System-Engineer-DevOps-OpenShift-Kubernetes": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-07-01"
+    },
+    "https://fincons.applytojob.com/apply/YRiS6qkCAN/TestIngenieurin-80-100": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Fincons Group",
+      "postedDate": "2026-07-02"
     }
   }
 }
