@@ -46,7 +46,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
-import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isSwissLocationText } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -77,15 +77,6 @@ const WORKDAY_SITES = [
 
 const WORKDAY_API_BASE = 'https://capri.wd1.myworkdayjobs.com/wday/cxs/capri';
 const WORKDAY_PUBLIC_BASE = 'https://capri.wd1.myworkdayjobs.com/en-US';
-
-/** Swiss/Ticino location keywords for filtering */
-const SWISS_LOCATION_KEYWORDS = [
-  'mendrisio', 'lugano', 'chiasso', 'stabio', 'coldrerio',
-  'balerna', 'novazzano', 'ticino', 'tessin', 'switzerland',
-  'svizzera', 'schweiz', 'suisse', 'graubünden', 'graubunden',
-  'landquart', 'zurich', 'zürich', 'geneva', 'genève', 'bern',
-  'basel', 'lausanne', 'winterthur', 'st. gallen',
-];
 
 /* ── Helpers ──────────────────────────────────────────────── */
 
@@ -128,8 +119,7 @@ function slugify(text = '', suffix = '') {
 }
 
 function isSwissLocation(locationText = '') {
-  const loc = String(locationText || '').toLowerCase();
-  return SWISS_LOCATION_KEYWORDS.some((kw) => loc.includes(kw));
+  return isSwissLocationText(locationText);
 }
 
 function inferCanton(location = '') {
@@ -252,15 +242,11 @@ async function listSwissJobs(site, brand) {
         // Check if already found
         if (allPostings.some((p) => p.externalPath === posting.externalPath)) continue;
 
-        // For text searches, all results are relevant; for empty search, filter by location
-        if (searchText === '') {
-          const fields = [
-            posting.locationsText || '',
-            posting.title || '',
-            ...(posting.bulletFields || []),
-          ].join(' ');
-          if (!isSwissLocation(fields)) continue;
-        }
+        // Workday search matches arbitrary posting fields, so every result
+        // still needs a location-only Swiss check, including country searches.
+        const postingLocation = posting.locationsText || posting.bulletFields?.[0] || '';
+        const isMultiLocation = /^\d+\s+locations?$/i.test(String(postingLocation).trim());
+        if (!isSwissLocation(postingLocation) && !isMultiLocation) continue;
         allPostings.push({ ...posting, brand });
       }
 
@@ -269,8 +255,6 @@ async function listSwissJobs(site, brand) {
       // For non-empty search, the results are already filtered, paginate them all
       if (searchText !== '' && allPostings.length >= (data.total || 0)) break;
     }
-    // If we found jobs via text search, skip the empty search
-    if (searchText !== '' && allPostings.length > 0) continue;
   }
 
   return allPostings;
@@ -293,13 +277,13 @@ async function fetchCapriHoldingsJobs() {
   for (const { site, brand } of WORKDAY_SITES) {
     console.log(`  🏷️  Querying ${brand} (${site})...`);
     const listings = await listSwissJobs(site, brand);
-    console.log(`     Swiss listings found: ${listings.length}`);
+    console.log(`     Swiss-location candidates found: ${listings.length}`);
     // Tag with site for detail fetching
     for (const l of listings) l._site = site;
     allSwissListings.push(...listings);
   }
 
-  console.log(`\n  📋 Total Swiss listings across all brands: ${allSwissListings.length}`);
+  console.log(`\n  📋 Total Swiss-location candidates across all brands: ${allSwissListings.length}`);
   if (allSwissListings.length === 0) return [];
 
   const jobs = [];
@@ -318,13 +302,16 @@ async function fetchCapriHoldingsJobs() {
     const city = locationRaw.split(/\s*-\s*/).slice(-1)[0]?.trim().replace(/,\s*switzerland$/i, '') || locationRaw;
     const canton = inferCanton(city || locationRaw);
 
-    // Double-check this is actually a Swiss job
-    if (countryDesc && !countryDesc.toLowerCase().includes('switzerland') && !countryDesc.toLowerCase().includes('schweiz') && !countryDesc.toLowerCase().includes('suisse') && !countryDesc.toLowerCase().includes('svizzera')) {
-      const allText = [locationRaw, city, title, ...listing.bulletFields || []].join(' ');
-      if (!isSwissLocation(allText)) {
-        console.log(`     ⏭️  Skipped — not Swiss (country: ${countryDesc})`);
-        continue;
-      }
+    // Double-check this is actually a Swiss job using authoritative country
+    // data when present, otherwise the location-only all-canton matcher.
+    const countryIsSwiss = /\b(?:switzerland|schweiz|suisse|svizzera|CH)\b/i.test(countryDesc);
+    if (countryDesc && !countryIsSwiss) {
+      console.log(`     ⏭️  Skipped — not Swiss (country: ${countryDesc})`);
+      continue;
+    }
+    if (!countryDesc && !isSwissLocation(`${locationRaw} ${listing.locationsText || ''}`)) {
+      console.log(`     ⏭️  Skipped — location is not a known Swiss location: ${locationRaw || listing.locationsText || 'n/a'}`);
+      continue;
     }
 
     const descriptionHtml = info.jobDescription || '';

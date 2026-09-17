@@ -5,7 +5,7 @@
  * Crawls https://careers.mkspamp.com (Teamtailor ATS)
  * 1. Fetches RSS feed for all jobs with titles, links, dates, descriptions
  * 2. Fetches each detail page for location data (JSON-LD / embedded address)
- * 3. Filters Ticino-relevant jobs (Castel San Pietro, TI)
+ * 3. Filters Swiss-site jobs (Castel San Pietro, TI)
  * 4. Merges into data/jobs.json
  * 5. Updates adapter config
  */
@@ -40,7 +40,7 @@ import {
 import {
   fetchMksPampRss,
   fetchMksPampDetailLocation,
-  isMksPampTicinoRelevant,
+  isMksPampSwissRelevant,
   buildMksPampLocalizedContent,
 } from './lib/mkspamp-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
@@ -294,18 +294,18 @@ async function main() {
     const location = await fetchMksPampDetailLocation(item.link, TIMEOUT_MS);
     const city = location?.city || '?';
     const country = location?.country || '?';
-    const isTI = isMksPampTicinoRelevant(location || {});
-    console.log(`  ${isTI ? '✅' : '⏭️ '} ${item.title} → ${city} (${country})${isTI ? '' : ' [skipped]'}`);
-    if (isTI) {
+    const isSwiss = isMksPampSwissRelevant(location || {});
+    console.log(`  ${isSwiss ? '✅' : '⏭️ '} ${item.title} → ${city} (${country})${isSwiss ? '' : ' [skipped]'}`);
+    if (isSwiss) {
       enriched.push({ rssItem: item, location });
     }
     if (enriched.length < rssItems.length) await sleep(DETAIL_DELAY_MS);
   }
 
-  console.log(`\n📍 Ticino-relevant: ${enriched.length} / ${rssItems.length}`);
+  console.log(`\n📍 Swiss-site jobs: ${enriched.length} / ${rssItems.length}`);
 
   if (enriched.length === 0) {
-    console.log('⚠️ No Ticino-relevant jobs found — skipping.');
+    console.log('⚠️ No Swiss-site jobs found — skipping.');
     return;
   }
 

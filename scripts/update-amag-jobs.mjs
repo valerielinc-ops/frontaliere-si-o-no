@@ -3,10 +3,10 @@
  * AMAG Group — Dedicated Crawler
  *
  * Crawls https://jobs.amag-group.ch (rexx systems ATS)
- * 1. Fetches Italian listing (/it) — pre-filtered to Ticino
- * 2. Also scans German listing (/de) for TI/GR locations not in /it
+ * 1. Fetches Italian listing (/it) — source-specific feed pre-filtered to Ticino
+ * 2. Also scans the full German listing (/de) for remaining Swiss locations
  * 3. Fetches each detail page → extracts JSON-LD JobPosting
- * 4. Filters TI/GR-relevant jobs via shared inferSwissTargetCanton()
+ * 4. Resolves Swiss cantons via the shared all-26-canton location helper
  * 5. Merges into data/jobs.json
  * 6. Updates adapter config
  */
@@ -170,7 +170,7 @@ async function fetchAllListings() {
 
   await sleep(DETAIL_DELAY_MS);
 
-  // 2. Fetch German listing (full list) and filter for TI/GR locations
+  // 2. Fetch German listing (full list) and keep Swiss locations not in /it
   console.log(`  📄 German listing: ${CAREERS_URL_DE}`);
   try {
     const htmlDe = await fetchText(CAREERS_URL_DE);
@@ -183,13 +183,13 @@ async function fetchAllListings() {
         extraCount++;
       }
     }
-    console.log(`     Found ${itemsDe.length} total jobs, ${extraCount} extra TI/GR jobs not in Italian listing`);
+    console.log(`     Found ${itemsDe.length} total jobs, ${extraCount} extra Swiss jobs not in Italian listing`);
   } catch (err) {
     console.log(`  ⚠️ German listing fetch failed: ${err.message}`);
   }
 
   const listings = [...allItems.values()];
-  console.log(`📋 Total unique TI/GR listings: ${listings.length}`);
+  console.log(`📋 Total unique Swiss listings: ${listings.length}`);
   return listings;
 }
 
@@ -226,17 +226,19 @@ async function enrichWithDetails(listings) {
       const location = detail.location || item.location || '';
       const region = detail.region || '';
 
-      // Verify TI/GR relevance after detail enrichment
+      // Verify Swiss relevance after detail enrichment
       const canton = inferAmagCanton(location, region) || inferAmagCanton(item.location, '');
       if (!canton) {
-        console.log(`  ⏭️ [${i + 1}/${toFetch.length}] ${item.jobId}: Skipped (not TI/GR: ${location})`);
+        console.log(`  ⏭️ [${i + 1}/${toFetch.length}] ${item.jobId}: Skipped (not a resolvable Swiss location: ${location})`);
         continue;
       }
+
+      const displayLocation = location || region || canton;
 
       enriched.push({
         ...item,
         title: detail.title || item.title,
-        location: location || (canton === 'GR' ? 'Graubünden' : 'Ticino'),
+        location: displayLocation,
         region: region || canton,
         _canton: canton,
         postalCode: detail.postalCode || '',
@@ -267,16 +269,20 @@ async function enrichWithDetails(listings) {
     if (i < toFetch.length - 1) await sleep(DETAIL_DELAY_MS);
   }
 
-  const tiCount = enriched.filter((j) => j._canton === 'TI').length;
-  const grCount = enriched.filter((j) => j._canton === 'GR').length;
-  console.log(`\n📍 Target jobs after enrichment: ${enriched.length} (TI: ${tiCount}, GR: ${grCount})`);
+  const cantonCounts = new Map();
+  for (const job of enriched) cantonCounts.set(job._canton, (cantonCounts.get(job._canton) || 0) + 1);
+  const cantonSummary = [...cantonCounts.entries()]
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([canton, count]) => `${canton}: ${count}`)
+    .join(', ');
+  console.log(`\n📍 Swiss jobs after enrichment: ${enriched.length}${cantonSummary ? ` (${cantonSummary})` : ''}`);
   return enriched;
 }
 
 function buildAmagJob(row) {
   const localized = buildAmagLocalizedContent(row);
   const canton = row._canton || inferAmagCanton(row.location, row.region) || DEFAULT_CANTON;
-  const location = row.location || (canton === 'GR' ? 'Graubünden' : 'Ticino');
+  const location = row.location || row.region || canton;
   const empType = mapEmploymentType(row.employmentType);
 
   return {
@@ -379,7 +385,7 @@ function updateAdapterConfig(jobs) {
     priority: 18,
     crawlerModes: ['html', 'jsonld'],
     seedUrls: [CAREERS_URL_IT],
-    notes: 'Dedicated AMAG Group crawler fetches Italian listing (pre-filtered to Ticino) + German full listing for TI/GR jobs, enriches with JSON-LD JobPosting from detail pages.',
+    notes: 'Dedicated AMAG Group crawler fetches the Italian source-specific listing plus the full German listing, resolves all Swiss cantons, and enriches with JSON-LD JobPosting from detail pages.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -410,7 +416,7 @@ async function main() {
 
   const listings = await fetchAllListings();
   if (listings.length === 0) {
-    console.log('⚠️ No TI/GR listings found on AMAG — skipping.');
+    console.log('⚠️ No Swiss listings found on AMAG — skipping.');
     return;
   }
 

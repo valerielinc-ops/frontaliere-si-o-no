@@ -20,7 +20,7 @@
  * This crawler:
  *   1. Paginates through the Workday API (country filter = Switzerland).
  *   2. Fetches detail pages for each job to get description & dates.
- *   3. Builds standardised job objects (all Swiss jobs are in GR canton).
+ *   3. Builds standardised job objects with the canton inferred per listing.
  *   4. Merges into data/jobs.json.
  *   5. Translates missing locales.
  */
@@ -57,6 +57,7 @@ import {
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -87,12 +88,10 @@ const UA =
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
 const PAGE_SIZE = 20; // Workday API max
 
-// Location → canton mapping for Hamilton's Swiss sites
-const LOCATION_CANTON = {
-  bonaduz: 'GR',
-  'domat/ems': 'GR',
-  'home office switzerland': 'GR', // HQ region
-};
+// Hamilton is headquartered in Graubünden. Keep that as the safe default only
+// when the source does not expose a resolvable Swiss location; known cantons
+// are inferred from each listing instead of being forced to GR.
+const DEFAULT_CANTON = 'GR';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 function readJson(filePath, fallback = []) {
@@ -132,11 +131,7 @@ function sleep(ms) {
 }
 
 function detectCanton(locationText = '') {
-  const loc = locationText.toLowerCase().trim();
-  for (const [keyword, canton] of Object.entries(LOCATION_CANTON)) {
-    if (loc.includes(keyword)) return canton;
-  }
-  return 'GR'; // default for Hamilton (all Swiss offices in GR)
+  return inferAnyCanton(locationText) || DEFAULT_CANTON;
 }
 
 function parseWorkload(title = '') {
@@ -251,14 +246,14 @@ function buildJob(listing, detail) {
 
   const detailUrl = `${JOB_URL_BASE}${externalPath}`;
   const slug = slugify(`${title}-${jobId}`);
-  const canton = detectCanton(locationText);
-
   // Extract city from location text (handle "2 Locations", etc.)
   let city = locationText;
   if (/^\d+\s+Locations?$/i.test(locationText)) {
     // Multi-location: try detail page for primary location
     city = detail?.jobPostingInfo?.location || 'Bonaduz';
   }
+
+  const canton = detectCanton(city) || detectCanton(locationText);
 
   // Detail page data
   const info = detail?.jobPostingInfo || {};

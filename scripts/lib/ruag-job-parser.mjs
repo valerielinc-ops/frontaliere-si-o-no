@@ -165,12 +165,12 @@ export function parseRuagJobDetail(html = '', url = '') {
 }
 
 export function isRuagTargetLocation(raw = '') {
-  return isTargetSwissLocation(raw, { includeGrigioni: true });
+  return isTargetSwissLocation(raw);
 }
 
 export function inferRuagCanton(raw = '') {
-  // No Ticino default — RUAG is Bern-based and national (defence); leave blank
-  // when unresolved so the downstream hardening derives the canton.
+  // No fixed-canton default — RUAG is a national defence employer; leave blank
+  // when unresolved so downstream hardening can derive the canton.
   return inferAnyCanton(raw) || '';
 }
 
