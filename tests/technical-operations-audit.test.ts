@@ -7,15 +7,21 @@ import {
   auditWorkflowFiles,
   auditWorkflowText,
   auditIssueRouting,
+  buildL11IssueContract,
   buildL11OperationalMetadata,
   l11OperationalMetadataFinding,
   loadL11OperationalMetadata,
   cronError,
   normalizeTriggers,
+  renderL11IssueContract,
   renderMarkdown,
   summarize,
 } from '../scripts/ci/technical-operations-audit.mjs';
 import { buildCrawlerAggregateShellBody } from '../scripts/generate-crawler-group-workflows.mjs';
+
+function availableL11Metadata(generatedAt = '2026-09-16T12:00:00.000Z') {
+  return loadL11OperationalMetadata({ root: path.resolve('.'), generatedAt });
+}
 
 describe('technical operations audit', () => {
   it('normalizza le tre forme valide di on', () => {
@@ -32,13 +38,14 @@ describe('technical operations audit', () => {
   });
 
   it('instrada solo gli errori provati verso il fixer bounded', () => {
-    expect(auditIssueRouting({ error: 1, warning: 4 })).toEqual({
+    const metadata = availableL11Metadata();
+    expect(auditIssueRouting({ error: 1, warning: 4 }, metadata)).toEqual({
       labels: ['operations-audit', 'agent:fix-queued', 'agent:no-age-out'],
       add: 'agent:fix-queued',
       remove: 'operations-audit-review',
       route: 'bounded-fix-queue',
     });
-    expect(auditIssueRouting({ error: 0, warning: 26 })).toEqual({
+    expect(auditIssueRouting({ error: 0, warning: 26 }, metadata)).toEqual({
       labels: ['operations-audit', 'operations-audit-review', 'agent:no-age-out'],
       add: 'operations-audit-review',
       remove: 'agent:fix-queued',
@@ -97,7 +104,7 @@ describe('technical operations audit', () => {
       findings: [],
       operationalMetadata: {
         ...metadata,
-        routing: auditIssueRouting({ error: 0, warning: 1 }),
+        routing: auditIssueRouting({ error: 0, warning: 1 }, metadata),
       },
     });
     expect(markdown).toContain('### Metadata operativi L11');
@@ -140,7 +147,84 @@ describe('technical operations audit', () => {
       rule: 'loop-registry.l11-operational-metadata',
       severity: 'error',
     });
-    expect(auditIssueRouting({ error: 1, warning: 0 }).route).toBe('bounded-fix-queue');
+    expect(auditIssueRouting({ error: 1, warning: 0 }, metadata).route).toBe('review-only');
+  });
+
+  it('richiede la policy action del registry e rende il passaggio L11 verificabile', () => {
+    const generatedAt = '2026-09-16T12:00:00.000Z';
+    const metadata = availableL11Metadata(generatedAt);
+    const report = {
+      commit: 'abc123',
+      generatedAt,
+      findings: [{
+        file: '.github/workflows/example.yml',
+        line: 12,
+        rule: 'workflow.example',
+        severity: 'error',
+        message: 'finding',
+        evidence: 'evidence',
+      }],
+    };
+    const routing = auditIssueRouting({ error: 1, warning: 0 }, metadata);
+    const contract = buildL11IssueContract({
+      report,
+      metadata,
+      routing,
+      repository: 'owner/repo',
+      runId: '123',
+      runAttempt: '1',
+    });
+    const sameContract = buildL11IssueContract({
+      report,
+      metadata,
+      routing,
+      repository: 'owner/repo',
+      runId: '123',
+      runAttempt: '1',
+    });
+
+    expect(contract).toMatchObject({
+      schemaVersion: 1,
+      loopId: 'L11',
+      mode: 'observe-report-only',
+      sourceCommit: 'abc123',
+      candidateTtlHours: 72,
+      expiresAt: '2026-09-19T12:00:00.000Z',
+      actionClass: 'issue',
+      route: 'bounded-fix-queue',
+      remediationPrProofRequired: true,
+      remediationPr: null,
+      ttl: { hours: 72, expiresAt: '2026-09-19T12:00:00.000Z' },
+    });
+    expect(contract.candidateId).toMatch(/^lf-candidate-[0-9a-f]{24}$/);
+    expect(contract.sourceRecordId).toMatch(/^lf-source-[0-9a-f]{24}$/);
+    expect(sameContract).toEqual(contract);
+    const rendered = renderL11IssueContract(contract);
+    expect(rendered).toContain('<!-- L11_ISSUE_CONTRACT: {');
+    expect(rendered).toContain('"candidateId":"lf-candidate-');
+    const marker = /<!-- L11_ISSUE_CONTRACT:\s*(\{.*\})\s*-->/m.exec(rendered);
+    expect(marker).not.toBeNull();
+    expect(JSON.parse(marker![1])).toEqual(contract);
+  });
+
+  it('non accoda L11 se il registry non autorizza l’action issue', () => {
+    const metadata = {
+      ...availableL11Metadata(),
+      actionPolicy: { healthy: 'observe', needsReview: 'observe' },
+    };
+    expect(auditIssueRouting({ error: 1, warning: 0 }, metadata).route).toBe('review-only');
+    expect(auditIssueRouting({ error: 1, warning: 0 }).route).toBe('review-only');
+  });
+
+  it('coalesca solo i push L11 e conserva report-only fino a schedule/dispatch', () => {
+    const supervisor = fs.readFileSync(
+      path.resolve('.github/workflows/technical-operations-supervisor.yml'),
+      'utf8',
+    );
+    expect(supervisor).toContain("github.event_name == 'push' && github.ref || github.run_id");
+    expect(supervisor).toContain('cancel-in-progress: true');
+    expect(supervisor).toContain("github.event_name == 'schedule' || inputs.report_issue == true");
+    expect(supervisor).not.toContain('actions: read');
   });
 
   it('rifiuta chiavi step non supportate da GitHub Actions', () => {
