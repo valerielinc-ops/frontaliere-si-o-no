@@ -46,6 +46,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { isChCountry } from './lib/ch-country-guard.mjs';
 import { inferAnyCanton, isSwissLocationText } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -120,6 +121,51 @@ function slugify(text = '', suffix = '') {
 
 function isSwissLocation(locationText = '') {
   return isSwissLocationText(locationText);
+}
+
+function stringifyWorkdayLocationField(value) {
+  if (value == null) return '';
+  if (Array.isArray(value)) return value.map(stringifyWorkdayLocationField).filter(Boolean).join(' ');
+  if (typeof value === 'object') {
+    return [
+      value.descriptor,
+      value.name,
+      value.city,
+      value.location,
+      value.country,
+      value.countryCode,
+    ].map(stringifyWorkdayLocationField).filter(Boolean).join(' ');
+  }
+  return normalizeSpace(value);
+}
+
+function getWorkdayListingLocationSignal(posting = {}) {
+  return [
+    posting.locationsText,
+    posting.locationText,
+    posting.location,
+    posting.country,
+    posting.countryName,
+    posting.countryCode,
+    posting.locationCountry,
+    posting.locationCountryCode,
+    ...(Array.isArray(posting.bulletFields) ? posting.bulletFields : []),
+  ].map(stringifyWorkdayLocationField).filter(Boolean).join(' ');
+}
+
+function isWorkdayMultiLocation(signal = '') {
+  return /\b\d+\s+locations?\b/i.test(String(signal || ''));
+}
+
+function hasWorkdaySwissCountry(posting = {}, signal = '') {
+  return [
+    posting.country,
+    posting.countryName,
+    posting.countryCode,
+    posting.locationCountry,
+    posting.locationCountryCode,
+    signal,
+  ].some((value) => isChCountry(value));
 }
 
 function inferCanton(location = '') {
@@ -244,9 +290,13 @@ async function listSwissJobs(site, brand) {
 
         // Workday search matches arbitrary posting fields, so every result
         // still needs a location-only Swiss check, including country searches.
-        const postingLocation = posting.locationsText || posting.bulletFields?.[0] || '';
-        const isMultiLocation = /^\d+\s+locations?$/i.test(String(postingLocation).trim());
-        if (!isSwissLocation(postingLocation) && !isMultiLocation) continue;
+        // Location may be in locationsText, a later bullet field, or a country
+        // field; don't assume bulletFields[0] is the location.
+        const postingLocation = getWorkdayListingLocationSignal(posting);
+        const isMultiLocation = isWorkdayMultiLocation(postingLocation);
+        if (!isSwissLocation(postingLocation)
+            && !hasWorkdaySwissCountry(posting, postingLocation)
+            && !isMultiLocation) continue;
         allPostings.push({ ...posting, brand });
       }
 
@@ -297,20 +347,27 @@ async function fetchCapriHoldingsJobs() {
     const title = normalizeSpace(info.title || listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const locationRaw = info.location || listing.locationsText || (listing.bulletFields || [])[0] || '';
-    const countryDesc = info.country?.descriptor || '';
+    const listingLocationSignal = getWorkdayListingLocationSignal(listing);
+    const listingIsMultiLocation = isWorkdayMultiLocation(listingLocationSignal);
+    const detailLocation = stringifyWorkdayLocationField(info.location);
+    const locationRaw = detailLocation || stringifyWorkdayLocationField(listing.locationsText) || (listing.bulletFields || []).find((field) => (
+      isSwissLocation(field) || isChCountry(field) || isWorkdayMultiLocation(field)
+    )) || listingLocationSignal || '';
+    const countryDesc = stringifyWorkdayLocationField(info.country);
     const city = locationRaw.split(/\s*-\s*/).slice(-1)[0]?.trim().replace(/,\s*switzerland$/i, '') || locationRaw;
     const canton = inferCanton(city || locationRaw);
 
     // Double-check this is actually a Swiss job using authoritative country
     // data when present, otherwise the location-only all-canton matcher.
-    const countryIsSwiss = /\b(?:switzerland|schweiz|suisse|svizzera|CH)\b/i.test(countryDesc);
+    const countryIsSwiss = isChCountry(countryDesc);
     if (countryDesc && !countryIsSwiss) {
       console.log(`     ⏭️  Skipped — not Swiss (country: ${countryDesc})`);
       continue;
     }
-    if (!countryDesc && !isSwissLocation(`${locationRaw} ${listing.locationsText || ''}`)) {
-      console.log(`     ⏭️  Skipped — location is not a known Swiss location: ${locationRaw || listing.locationsText || 'n/a'}`);
+    if (!countryDesc
+        && !isSwissLocation(`${locationRaw} ${listingLocationSignal}`)
+        && !listingIsMultiLocation) {
+      console.log(`     ⏭️  Skipped — location is not a known Swiss location: ${locationRaw || listingLocationSignal || 'n/a'}`);
       continue;
     }
 

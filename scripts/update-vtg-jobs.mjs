@@ -181,67 +181,92 @@ export async function fetchVtgJobUrls(options = {}) {
   let droppedMalformed = 0;
 
   for (const [scopeKey, regionId] of scopeFilters) {
-    const params = new URLSearchParams({
-      lang: 'de',
-      offset: '0',
-      limit: String(API_LIMIT),
-    });
-    params.append('f', `verwaltungseinheit:${VTG_VERWALTUNGSEINHEIT}`);
-    if (regionId) params.append('f', `region:${regionId}`);
+    let offset = 0;
+    let total = null;
+    let scopeFetched = 0;
+    let addedCount = 0;
+    let page = 0;
 
-    const apiUrl = `${API_BASE}/jobs?${params}`;
     console.log(`🔍 Fetching VTG jobs for ${scope === 'ch-wide' ? 'all Swiss locations' : `scope ${scopeKey}`} from Prospective API…`);
 
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    try {
-      const res = await fetchImpl(apiUrl, {
-        signal: controller.signal,
-        headers: { Accept: 'application/json', 'User-Agent': UA },
+    while (total === null || offset < total) {
+      const params = new URLSearchParams({
+        lang: 'de',
+        offset: String(offset),
+        limit: String(API_LIMIT),
       });
+      params.append('f', `verwaltungseinheit:${VTG_VERWALTUNGSEINHEIT}`);
+      if (regionId) params.append('f', `region:${regionId}`);
 
-      if (!res.ok) {
-        throw new Error(`VTG discovery failed: API returned ${res.status} for scope ${scopeKey}.`);
-      }
+      const apiUrl = `${API_BASE}/jobs?${params}`;
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        const res = await fetchImpl(apiUrl, {
+          signal: controller.signal,
+          headers: { Accept: 'application/json', 'User-Agent': UA },
+        });
 
-      const data = await res.json();
-      const jobs = assertJsonListShape(data, { key: 'jobs', source: 'vtg', lang: scopeKey });
-      const total = Number(data?.total);
-      if (!Number.isInteger(total) || total < 0 || total > API_LIMIT || jobs.length !== total) {
-        throw new Error(`VTG discovery incomplete for ${scopeKey}: fetched ${jobs.length}/${data?.total ?? '?'} jobs (limit ${API_LIMIT}).`);
-      }
-      regionTotals[scopeKey] = total;
-      fetched += jobs.length;
-      console.log(`  📦 ${scopeKey}: ${jobs.length} VTG jobs in this scope`);
-
-      let addedCount = 0;
-      for (const job of jobs) {
-        const directLink = canonicalizeVtgDetailUrl(job?.links?.directlink || '');
-        if (!directLink) {
-          droppedMalformed += 1;
-          continue;
+        if (!res.ok) {
+          throw new Error(`VTG discovery failed: API returned ${res.status} for scope ${scopeKey} at offset ${offset}.`);
         }
-        const stableId = extractStableJobId(directLink);
-        const previousUrl = stableIdToUrl.get(stableId);
-        if (previousUrl) {
-          if (previousUrl !== directLink) {
-            throw new Error(`VTG discovery identity conflict: ${stableId} maps to both ${previousUrl} and ${directLink}.`);
+
+        const data = await res.json();
+        const jobs = assertJsonListShape(data, {
+          key: 'jobs',
+          source: 'vtg',
+          lang: `${scopeKey}:offset:${offset}`,
+        });
+        const pageTotal = Number(data?.total);
+        if (!Number.isInteger(pageTotal) || pageTotal < 0) {
+          throw new Error(`VTG discovery incomplete for ${scopeKey} at offset ${offset}: invalid total ${data?.total ?? '?'} (limit ${API_LIMIT}).`);
+        }
+        if (total === null) total = pageTotal;
+        if (pageTotal !== total) {
+          throw new Error(`VTG discovery incomplete for ${scopeKey}: total changed from ${total} to ${pageTotal} at offset ${offset}.`);
+        }
+        const expectedPageSize = Math.min(API_LIMIT, total - offset);
+        if (jobs.length !== expectedPageSize) {
+          throw new Error(`VTG discovery incomplete for ${scopeKey}: fetched ${scopeFetched + jobs.length}/${total} jobs at offset ${offset} (expected page size ${expectedPageSize}, limit ${API_LIMIT}).`);
+        }
+
+        scopeFetched += jobs.length;
+        fetched += jobs.length;
+        page++;
+        console.log(`  📦 ${scopeKey} page ${page} (offset ${offset}): ${jobs.length} VTG jobs`);
+
+        for (const job of jobs) {
+          const directLink = canonicalizeVtgDetailUrl(job?.links?.directlink || '');
+          if (!directLink) {
+            droppedMalformed += 1;
+            continue;
           }
-          duplicateIdentity += 1;
-          continue;
+          const stableId = extractStableJobId(directLink);
+          const previousUrl = stableIdToUrl.get(stableId);
+          if (previousUrl) {
+            if (previousUrl !== directLink) {
+              throw new Error(`VTG discovery identity conflict: ${stableId} maps to both ${previousUrl} and ${directLink}.`);
+            }
+            duplicateIdentity += 1;
+            continue;
+          }
+          stableIdToUrl.set(stableId, directLink);
+          allUrls.add(directLink);
+          seedMetaByUrl[directLink] = buildSeedMetaFromApiJob(job);
+          addedCount++;
         }
-        stableIdToUrl.set(stableId, directLink);
-        allUrls.add(directLink);
-        seedMetaByUrl[directLink] = buildSeedMetaFromApiJob(job);
-        addedCount++;
+
+        offset += jobs.length;
+      } catch (err) {
+        if (String(err?.message || '').startsWith('VTG discovery')) throw err;
+        throw new Error(`VTG discovery failed for ${scopeKey} at offset ${offset}: ${err.message}`, { cause: err });
+      } finally {
+        clearTimeout(timer);
       }
-      console.log(`  🎖️ ${scopeKey}: ${addedCount} new unique URLs added`);
-    } catch (err) {
-      if (String(err?.message || '').startsWith('VTG discovery')) throw err;
-      throw new Error(`VTG discovery failed for ${scopeKey}: ${err.message}`, { cause: err });
-    } finally {
-      clearTimeout(timer);
     }
+
+    regionTotals[scopeKey] = total;
+    console.log(`  🎖️ ${scopeKey}: ${addedCount} new unique URLs added (${scopeFetched}/${total} fetched)`);
   }
 
   const expectedScopes = scopeFilters.map(([scopeKey]) => scopeKey);
