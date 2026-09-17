@@ -132,8 +132,8 @@ export function parseLaderachNextDataJobs(jobs) {
       jobId,
       title: String(item.title).trim(),
       url,
-      location: String(item.location || 'Ennenda').trim(),
-      canton: inferAnyCanton(String(item.location || 'Ennenda')) || 'GL',
+      location: String(item.location || '').trim(),
+      canton: inferAnyCanton(String(item.location || '').trim()) || '',
       department: '',
     });
   }
@@ -166,7 +166,7 @@ function parseLaderachHtmlFallback(html) {
     // Location is in <small>Locations: <!-- -->City</small> after the <a>
     const ctx = html.slice(m.index, m.index + 500).replace(/<!--[\s\S]*?-->/g, '');
     const locMatch = ctx.match(/<small[^>]*>[^<]*Locations?:\s*([^<]+)/i);
-    const location = locMatch ? stripHtml(locMatch[1]).trim() : 'Ennenda';
+    const location = locMatch ? stripHtml(locMatch[1]).trim() : '';
 
     jobs.push({
       id: slugify(title),
@@ -174,7 +174,7 @@ function parseLaderachHtmlFallback(html) {
       title,
       url,
       location,
-      canton: inferAnyCanton(location) || 'GL',
+      canton: inferAnyCanton(location) || '',
       department: '',
     });
   }

@@ -10,7 +10,7 @@
   "seedUrls": [
     "https://relewant.zohorecruit.com/jobs/Careers"
   ],
-  "notes": "Dedicated ReleWant crawler reads the Zoho Recruit public JSON API. No HTML scraping needed. Keeps Ticino IT consulting vacancies.",
+  "notes": "Dedicated ReleWant crawler reads the Zoho Recruit public JSON API. No HTML scraping needed. Keeps IT consulting vacancies whose listed city is in a Swiss target canton.",
   "updatedAt": "2026-09-01T10:34:36.865Z",
   "seedMetaByUrl": {
     "https://relewant.zohorecruit.com/jobs/Careers/467189000020211001/Network-Security-Engineer": {
