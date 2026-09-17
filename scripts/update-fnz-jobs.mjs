@@ -257,20 +257,22 @@ async function listSwissJobs() {
       }
     }
 
-    offset += data.jobPostings.length;
+    const pageSize = data.jobPostings.length;
+    const received = offset + pageSize;
+    offset = received;
     // Stop on a short/empty page. Trust `total` as an upper bound ONLY when
     // positive: an unfiltered query echoing total:0 with a full page must not
     // break here, or every posting on pages 2+ is silently dropped.
-    if (data.jobPostings.length < limit) {
-      if (total > 0 && offset < total) {
-        throw new Error(`FNZ Workday pagination incomplete: received ${offset} of ${total} declared postings.`);
+    if (pageSize < limit) {
+      if (total > 0 && received < total) {
+        throw new Error(`FNZ Workday pagination incomplete: received ${received} of ${total} declared postings.`);
       }
       break;
     }
-    if (total > 0 && offset >= total) break;
+    if (total > 0 && received >= total) break;
     if (pages >= MAX_PAGES) {
-      if (total > 0 && offset < total) {
-        throw new Error(`FNZ Workday pagination safety cap reached at ${offset} of ${total} declared postings.`);
+      if (total > 0 && received < total) {
+        throw new Error(`FNZ Workday pagination safety cap reached at ${received} of ${total} declared postings.`);
       }
       console.warn(`⚠️ Reached pagination safety cap (${MAX_PAGES} pages); stopping.`);
       break;

@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { resolveFnzSwissLocation } from '../scripts/lib/fnz-job-parser.mjs';
 
 describe('fnz-job-parser / resolveFnzSwissLocation', () => {
-  it('skips a generic country candidate and resolves a later Zurich office', () => {
+  it('prefers a later specific Swiss candidate over a country-only value', () => {
     expect(resolveFnzSwissLocation(['Switzerland', 'Zurich'])).toEqual({
       raw: 'Zurich',
       location: 'Zurich',
@@ -10,8 +10,12 @@ describe('fnz-job-parser / resolveFnzSwissLocation', () => {
     });
   });
 
-  it('does not invent a city for a country-only candidate', () => {
-    expect(resolveFnzSwissLocation(['Switzerland'])).toBeNull();
+  it('preserves a country-only candidate without inventing a city', () => {
+    expect(resolveFnzSwissLocation(['Switzerland'])).toEqual({
+      raw: 'Switzerland',
+      location: 'Switzerland',
+      canton: '',
+    });
   });
 
   it('rejects foreign-only candidates', () => {
