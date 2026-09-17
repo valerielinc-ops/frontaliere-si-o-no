@@ -3,9 +3,15 @@ import { JSDOM } from 'jsdom';
 import { titleOverlap, MIN_TITLE_OVERLAP } from './title-utils.mjs';
 export { titleOverlap, MIN_TITLE_OVERLAP };
 import { inferAnyCanton, rescueSwissCityFromText } from './target-swiss-locations.mjs';
+import { SWISS_CANTONS, getCantonDisplayName } from './crawler-location-config.mjs';
 
 function normalize(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function containsWholeWord(text = '', value = '') {
+  const escaped = String(value || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return Boolean(escaped) && new RegExp(`\\b${escaped}\\b`, 'i').test(text);
 }
 
 /** Maximum character length for a line to be considered a job title (not a body paragraph). */
@@ -128,11 +134,27 @@ export function inferLwphrLocation(title = '', pdfText = '', { fallbackLocation 
   if (/locarno/.test(text)) return 'Locarno';
   if (/mendrisiotto|mendrisio/.test(text)) return 'Mendrisio';
   if (/luganese|lugano/.test(text)) return 'Lugano';
+  if (/ticino|tessin/.test(text)) return 'Ticino';
   return rescueSwissCityFromText(`${title} ${pdfText}`) || fallbackLocation;
 }
 
 export function inferLwphrCanton(title = '', pdfText = '') {
-  return inferAnyCanton(`${title} ${pdfText}`);
+  const text = `${title} ${pdfText}`;
+  const location = inferLwphrLocation(title, pdfText, { fallbackLocation: '' });
+  if (location) return inferAnyCanton(location);
+
+  // A free-text PDF can contain everyday words that are also municipality
+  // names (for example "alle" → Alle JU or "sales" → Sâles FR). Only use a
+  // full-document canton inference when the document contains a localized
+  // canton label, then let the shared resolver return the code.
+  for (const code of Object.keys(SWISS_CANTONS)) {
+    const labels = ['it', 'de', 'fr', 'en']
+      .map((locale) => getCantonDisplayName(code, locale))
+      .filter(Boolean);
+    const label = labels.find((candidate) => containsWholeWord(text, candidate));
+    if (label) return inferAnyCanton(label);
+  }
+  return '';
 }
 
 export function inferLwphrCategory(title = '', pdfText = '') {
