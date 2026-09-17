@@ -218,12 +218,34 @@ async function listSwissJobs() {
       body,
     });
 
-    if (!data || !Array.isArray(data.jobPostings)) {
-      if (offset === 0) console.warn('⚠️ Failed to fetch Workday listings.');
-      break;
+    const rawTotal = data?.total;
+    if (rawTotal !== undefined && rawTotal !== null && rawTotal !== '') {
+      const pageTotal = Number(rawTotal);
+      if (!Number.isFinite(pageTotal) || pageTotal < 0) {
+        throw new Error(`FNZ Workday pagination failed at offset ${offset}: invalid declared total.`);
+      }
+      // Workday can echo total=0 for an unfiltered query that still contains
+      // rows. Keep only positive totals so that response cannot truncate the
+      // scan; a later positive total must remain stable across pages.
+      if (pageTotal > 0) {
+        if (total !== null && total !== pageTotal) {
+          throw new Error(`FNZ Workday pagination failed: declared total changed from ${total} to ${pageTotal}.`);
+        }
+        total = pageTotal;
+      }
     }
 
-    if (total === null) total = data.total || 0;
+    if (!data || !Array.isArray(data.jobPostings)) {
+      if (offset === 0 && total === null) {
+        console.warn('⚠️ Failed to fetch Workday listings.');
+        break;
+      }
+      throw new Error(
+        `FNZ Workday pagination incomplete at offset ${offset}: ` +
+          `${offset} jobs received${total !== null ? ` of ${total} declared` : ''}.`,
+      );
+    }
+
     pages += 1;
 
     for (const posting of data.jobPostings) {
