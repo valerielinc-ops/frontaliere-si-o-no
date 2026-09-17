@@ -130,6 +130,7 @@ REGENERATE_CMD=""
 IN_PLACE_RESOLVER_CMD=""
 STASH_DIRTY=""
 SOFT_FAIL_EXHAUSTED=""
+STASHED_WIP_PATHS=()
 
 while [ $# -gt 0 ]; do
   case "$1" in
@@ -214,6 +215,46 @@ restore_stashed_wip() {
   echo "Stashed working tree restored after resolving generated-file conflicts"
 }
 
+# Apply the stashed worktree before an in-place resolver without asking Git to
+# rewrite the index. A rebase conflict already has unmerged index entries, so
+# `git stash apply` can fail even when the WIP is on a different path. Reading
+# the stash's worktree tree directly preserves those entries for the resolver
+# while still making every stashed path visible in the working tree.
+apply_stashed_wip_for_resolver() {
+  local stash_ref="stash@{0}"
+  local tracked_paths
+  STASHED_WIP_PATHS=()
+  if ! tracked_paths="$(git diff-tree --no-commit-id --name-only -r "${stash_ref}^1" "$stash_ref")"; then
+    echo "::error::Failed to list tracked paths from the stashed working tree"
+    return 1
+  fi
+  while IFS= read -r path; do
+    [ -n "$path" ] || continue
+    STASHED_WIP_PATHS+=("$path")
+    if ! git restore --source="$stash_ref" --worktree -- "$path"; then
+      echo "::error::Failed to restore stashed tracked path before in-place conflict resolver: $path"
+      return 1
+    fi
+  done <<< "$tracked_paths"
+
+  local untracked_tree
+  if untracked_tree="$(git rev-parse --verify "${stash_ref}^3" 2>/dev/null)"; then
+    local untracked_paths
+    if ! untracked_paths="$(git ls-tree -r --name-only "$untracked_tree")"; then
+      echo "::error::Failed to list untracked paths from the stashed working tree"
+      return 1
+    fi
+    while IFS= read -r path; do
+      [ -n "$path" ] || continue
+      STASHED_WIP_PATHS+=("$path")
+      if ! git restore --source="$untracked_tree" --worktree -- "$path"; then
+        echo "::error::Failed to restore stashed untracked path before in-place conflict resolver: $path"
+        return 1
+      fi
+    done <<< "$untracked_paths"
+  fi
+}
+
 # --no-verify: skip the .githooks/pre-push sibling-patterns gate. Every caller
 # of this helper is a data-refresh workflow pushing generated content to main —
 # not a pre-PR dev push, which is what the gate exists for (issue #3809).
@@ -240,8 +281,8 @@ until git push --no-verify origin "HEAD:${BRANCH}"; do
   if [ -n "$STASH_DIRTY" ]; then
     # Preserve leftover dirty/untracked state instead of discarding it — a
     # later step in this same job still needs it (see --stash-dirty doc
-    # above). Only meant for the no-conflict-resolver path; --regenerate-cmd/
-    # --in-place-resolver-cmd already have their own recovery story.
+    # above). Every conflict strategy below must preserve this stash until
+    # the last abort/reset that can discard the working tree has completed.
     if [ -n "$(git status --porcelain)" ]; then
       git stash push -u -m "git-push-with-retry-wip"
       stashed=1
@@ -258,23 +299,77 @@ until git push --no-verify origin "HEAD:${BRANCH}"; do
   if ! git rebase "origin/${BRANCH}"; then
     if [ -n "$IN_PLACE_RESOLVER_CMD" ]; then
       echo "Rebase conflict; resolving in place via: $IN_PLACE_RESOLVER_CMD"
+      # The in-place resolver intentionally sees the leftover WIP so it can
+      # resolve conflicts with the files produced by this run. Keep the stash
+      # on the stack while the rebase is still abortable: if the resolver
+      # fails, the abort can discard the applied WIP and restore_stashed_wip
+      # can recover it safely afterward.
+      if [ "$stashed" = "1" ] && ! apply_stashed_wip_for_resolver; then
+        echo "::error::Failed to apply stashed working tree before in-place conflict resolver"
+        git rebase --abort 2>/dev/null || true
+        restore_stashed_wip || exit 1
+        exit 1
+      fi
+      resolver_wip_stashed=0
       # GIT_EDITOR=: stops `git rebase --continue` from spawning an editor
       # for the conflict-resolution commit message — CI runs with EDITOR
       # unset on a dumb terminal and would otherwise fail with
       # "Terminal is dumb, but EDITOR unset" (run 25166528796).
       # `:` is the POSIX no-op shell builtin; rebase reuses the existing
       # commit message verbatim, which is exactly what we want.
-      if eval "$IN_PLACE_RESOLVER_CMD" && GIT_EDITOR=: git rebase --continue; then
-        # The rebase is complete now; only restore a stashed WIP after Git is
-        # out of its conflict state. --stash-dirty is normally used without a
-        # resolver, but keeping this ordering safe costs nothing if callers
-        # combine the options later.
+      if eval "$IN_PLACE_RESOLVER_CMD"; then
+        # Rebase --continue expects no unstaged WIP. Save only the paths that
+        # were restored above, leaving the resolver's staged conflict fixes in
+        # place. `--keep-index` is important when a resolver stages a path that
+        # was also in the WIP: without it, the protective stash can remove that
+        # resolution before `git rebase --continue`. The original stash remains
+        # as a recovery copy until continue succeeds.
         if [ "$stashed" = "1" ]; then
-          restore_stashed_wip || exit 1
+          resolver_stash_before="$(git rev-parse --verify refs/stash 2>/dev/null || true)"
+          if ! git stash push --keep-index -u -m "git-push-with-retry-resolver-wip" -- "${STASHED_WIP_PATHS[@]}"; then
+            echo "::error::Failed to protect stashed working tree before rebase continue"
+            git rebase --abort 2>/dev/null || true
+            restore_stashed_wip || exit 1
+            exit 1
+          fi
+          resolver_stash_after="$(git rev-parse --verify refs/stash 2>/dev/null || true)"
+          if [ -n "$resolver_stash_after" ] && [ "$resolver_stash_after" != "$resolver_stash_before" ]; then
+            resolver_wip_stashed=1
+          else
+            resolver_wip_stashed=0
+          fi
+        fi
+
+        if GIT_EDITOR=: git rebase --continue; then
+          # The rebase is complete now. Restore the WIP stash made above, then
+          # drop the original recovery copy; both are safe only after continue.
+          if [ "$resolver_wip_stashed" = "1" ]; then
+            restore_stashed_wip || exit 1
+            git stash drop
+          elif [ "$stashed" = "1" ]; then
+            git stash drop
+          fi
+        else
+          echo "::error::In-place conflict resolver failed"
+          # Any stash copy is still available. Abort first, then restore the
+          # top copy on the non-rebasing tree so abort cannot discard the WIP.
+          git rebase --abort 2>/dev/null || true
+          if [ "$resolver_wip_stashed" = "1" ]; then
+            restore_stashed_wip || exit 1
+            git stash drop
+          elif [ "$stashed" = "1" ]; then
+            restore_stashed_wip || exit 1
+          fi
+          exit 1
         fi
       else
         echo "::error::In-place conflict resolver failed"
+        # The stash was kept on the stack while the resolver ran. Abort first,
+        # then pop it on the non-rebasing tree so the abort cannot discard it.
         git rebase --abort 2>/dev/null || true
+        if [ "$stashed" = "1" ]; then
+          restore_stashed_wip || exit 1
+        fi
         exit 1
       fi
     elif [ -n "$REGENERATE_CMD" ]; then
@@ -283,6 +378,12 @@ until git push --no-verify origin "HEAD:${BRANCH}"; do
       # e.g. due to unstaged changes that the defensive reset above missed).
       git rebase --abort 2>/dev/null || true
       git reset --hard "origin/${BRANCH}"
+      # The abort/reset above is the last destructive operation in this path.
+      # Restore the WIP before regeneration so it remains available to both
+      # the command and the later steps of the same job.
+      if [ "$stashed" = "1" ]; then
+        restore_stashed_wip || exit 1
+      fi
       run_regenerate_with_retry
       # Commit only if the regen command produced staged changes; otherwise
       # there is nothing left to push (a no-op rebase outcome is fine).
