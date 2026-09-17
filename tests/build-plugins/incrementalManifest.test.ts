@@ -118,40 +118,60 @@ describe('incremental manifest input contract', () => {
     expect(computeInputHash(input, 'active-job')).toBe(legacyHash);
   });
 
-  it('reuses digest and related projections across stable-id clones within one build cache', () => {
+  it('reuses content-identical stable-id clones and invalidates changed records', () => {
     const cache = createIncrementalManifestInputCache();
+    const primary = {
+      id: 'cache-job-1',
+      slug: 'cache-job',
+      title: 'Role',
+      updatedAt: 'fixture-v1',
+    };
     const related = {
       id: 'related-cache-1',
       slugByLocale: { it: 'related-cache-1' },
       title: 'Related role',
     };
     const first = buildMinimalJobInput(
-      { id: 'cache-job-1', slug: 'cache-job', title: 'Role', updatedAt: 'fixture-v1' },
+      primary,
       'it',
       'cache-job',
       [related],
       cache,
     );
+    const cachedPrimaryDigest = cache.jobDigestsById.get('cache-job-1');
     const second = buildMinimalJobInput(
-      { id: 'cache-job-1', slug: 'cache-job', title: 'Role', updatedAt: 'fixture-v1' },
+      { ...primary },
       'it',
       'cache-job',
-      [{ ...related, title: 'Recreated related projection' }],
+      [{ ...related }],
       cache,
     );
     expect(second.relatedJobs).toBe(first.relatedJobs);
     expect(second.relatedJobs[0]).toBe(first.relatedJobs[0]);
+    expect(cache.jobDigestsById.get('cache-job-1')).toBe(cachedPrimaryDigest);
+    expect(second.jobRecordDigest).toBe(first.jobRecordDigest);
     expect(computeInputHash(second, 'active-job')).toBe(computeInputHash(first, 'active-job'));
 
-    const changedBuildCache = createIncrementalManifestInputCache();
     const changed = buildMinimalJobInput(
-      { id: 'cache-job-1', slug: 'cache-job', title: 'Changed role', updatedAt: 'fixture-v1' },
+      { ...primary, title: 'Changed role' },
       'it',
       'cache-job',
-      [{ ...related, title: 'Related role' }],
-      changedBuildCache,
+      [{ ...related }],
+      cache,
     );
+    expect(changed.jobRecordDigest).not.toBe(first.jobRecordDigest);
     expect(computeInputHash(changed, 'active-job')).not.toBe(computeInputHash(first, 'active-job'));
+    expect(cache.jobDigestsById.get('cache-job-1')).not.toBe(cachedPrimaryDigest);
+
+    const changedRelated = buildMinimalJobInput(
+      primary,
+      'it',
+      'cache-job',
+      [{ ...related, title: 'Changed related role' }],
+      cache,
+    );
+    expect(changedRelated.relatedJobs).not.toBe(first.relatedJobs);
+    expect(changedRelated.relatedJobs[0].digest).not.toBe(first.relatedJobs[0].digest);
   });
 
   it('keeps the shadow feature opt-in by default', () => {

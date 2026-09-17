@@ -172,6 +172,120 @@ function markCanonicalJson(value, canonicalJson) {
   return value;
 }
 
+function cheapTextLength(value) {
+  if (value === undefined || value === null) return -1;
+  return typeof value === 'string' ? value.length : String(value).length;
+}
+
+/**
+ * Validate ID-keyed cache entries without walking or serializing the record.
+ * The fixed tuple is captured only when a digest is computed; cache hits compare
+ * its scalar fields and text lengths directly, without allocating or serializing
+ * the record on the hot path.
+ */
+function cheapJobRecordSignature(job) {
+  if (!job || typeof job !== 'object') return '';
+  const titleByLocale = job.titleByLocale;
+  const slugByLocale = job.slugByLocale;
+  const descriptionByLocale = job.descriptionByLocale;
+  const htmlByLocale = job.htmlByLocale;
+  return [
+    job.sourceRecordHash,
+    job.sourceHash,
+    job.updatedAt,
+    job.lastUpdatedAt,
+    job.lastSeen,
+    job.lastSeenAt,
+    job.postedAt,
+    job.datePosted,
+    job.postedDate,
+    job.firstSeenAt,
+    job.crawledAt,
+    job.expiredAt,
+    job.title,
+    job.slug,
+    titleByLocale?.it,
+    titleByLocale?.en,
+    titleByLocale?.de,
+    titleByLocale?.fr,
+    slugByLocale?.it,
+    slugByLocale?.en,
+    slugByLocale?.de,
+    slugByLocale?.fr,
+    cheapTextLength(job.description),
+    cheapTextLength(job.html),
+    cheapTextLength(job.descriptionHtml),
+    cheapTextLength(descriptionByLocale?.it),
+    cheapTextLength(descriptionByLocale?.en),
+    cheapTextLength(descriptionByLocale?.de),
+    cheapTextLength(descriptionByLocale?.fr),
+    cheapTextLength(htmlByLocale?.it),
+    cheapTextLength(htmlByLocale?.en),
+    cheapTextLength(htmlByLocale?.de),
+    cheapTextLength(htmlByLocale?.fr),
+  ];
+}
+
+function hasMatchingJobRecordSignature(job, signature) {
+  if (!job || typeof job !== 'object' || !Array.isArray(signature)) return false;
+  const titleByLocale = job.titleByLocale;
+  const slugByLocale = job.slugByLocale;
+  const descriptionByLocale = job.descriptionByLocale;
+  const htmlByLocale = job.htmlByLocale;
+  return signature[0] === job.sourceRecordHash
+    && signature[1] === job.sourceHash
+    && signature[2] === job.updatedAt
+    && signature[3] === job.lastUpdatedAt
+    && signature[4] === job.lastSeen
+    && signature[5] === job.lastSeenAt
+    && signature[6] === job.postedAt
+    && signature[7] === job.datePosted
+    && signature[8] === job.postedDate
+    && signature[9] === job.firstSeenAt
+    && signature[10] === job.crawledAt
+    && signature[11] === job.expiredAt
+    && signature[12] === job.title
+    && signature[13] === job.slug
+    && signature[14] === titleByLocale?.it
+    && signature[15] === titleByLocale?.en
+    && signature[16] === titleByLocale?.de
+    && signature[17] === titleByLocale?.fr
+    && signature[18] === slugByLocale?.it
+    && signature[19] === slugByLocale?.en
+    && signature[20] === slugByLocale?.de
+    && signature[21] === slugByLocale?.fr
+    && signature[22] === cheapTextLength(job.description)
+    && signature[23] === cheapTextLength(job.html)
+    && signature[24] === cheapTextLength(job.descriptionHtml)
+    && signature[25] === cheapTextLength(descriptionByLocale?.it)
+    && signature[26] === cheapTextLength(descriptionByLocale?.en)
+    && signature[27] === cheapTextLength(descriptionByLocale?.de)
+    && signature[28] === cheapTextLength(descriptionByLocale?.fr)
+    && signature[29] === cheapTextLength(htmlByLocale?.it)
+    && signature[30] === cheapTextLength(htmlByLocale?.en)
+    && signature[31] === cheapTextLength(htmlByLocale?.de)
+    && signature[32] === cheapTextLength(htmlByLocale?.fr);
+}
+
+function hasMatchingSignature(entry, job) {
+  return entry && typeof entry === 'object' && hasMatchingJobRecordSignature(job, entry.signature);
+}
+
+function hasMatchingRelatedProjectionList(entry, relatedJobs) {
+  if (!entry || !Array.isArray(entry.signatures) || entry.signatures.length !== relatedJobs.length) {
+    return false;
+  }
+  for (let index = 0; index < relatedJobs.length; index += 1) {
+    const relatedJob = relatedJobs[index];
+    if (relatedJob && typeof relatedJob === 'object') {
+      if (!hasMatchingJobRecordSignature(relatedJob, entry.signatures[index])) return false;
+    } else if (entry.signatures[index] !== null) {
+      return false;
+    }
+  }
+  return true;
+}
+
 export function createIncrementalManifestInputCache() {
   return {
     jobDigestsById: new Map(),
@@ -188,10 +302,13 @@ function digestJobRecord(job, inputCache = null) {
   const stableId = stableJobId(job);
   if (inputCache && stableId) {
     const cachedById = inputCache.jobDigestsById.get(stableId);
-    if (cachedById !== undefined) return cachedById;
+    if (hasMatchingSignature(cachedById, job)) return cachedById.digest;
   }
   const cachedDigest = jobRecordDigestCache.get(job);
-  if (cachedDigest !== undefined) return cachedDigest;
+  if (hasMatchingSignature(cachedDigest, job)) {
+    if (inputCache && stableId) inputCache.jobDigestsById.set(stableId, cachedDigest);
+    return cachedDigest.digest;
+  }
 
   // The assembler preserves source JSON key order. A shallow filter keeps the
   // full record covered without recursively canonicalizing its large fields.
@@ -207,8 +324,9 @@ function digestJobRecord(job, inputCache = null) {
   // and posting dates are retained because they are source/freshness inputs to
   // the rendered JobPosting. Only generated build metadata is excluded above.
   const digest = sha256(JSON.stringify(record));
-  jobRecordDigestCache.set(job, digest);
-  if (inputCache && stableId) inputCache.jobDigestsById.set(stableId, digest);
+  const cacheEntry = { signature: cheapJobRecordSignature(job), digest };
+  jobRecordDigestCache.set(job, cacheEntry);
+  if (inputCache && stableId) inputCache.jobDigestsById.set(stableId, cacheEntry);
   return digest;
 }
 
@@ -220,7 +338,7 @@ function projectRelatedJob(relatedJob, locale, inputCache = null) {
   const cacheKey = inputCache ? `${String(locale)}\u0000${id}` : null;
   if (cacheKey) {
     const cachedById = inputCache.relatedJobProjectionsByKey.get(cacheKey);
-    if (cachedById) return cachedById;
+    if (hasMatchingSignature(cachedById, relatedJob)) return cachedById.projection;
   }
   let projectionsByLocale = relatedJobProjectionCache.get(relatedJob);
   if (!projectionsByLocale) {
@@ -228,17 +346,22 @@ function projectRelatedJob(relatedJob, locale, inputCache = null) {
     relatedJobProjectionCache.set(relatedJob, projectionsByLocale);
   }
   const cachedProjection = projectionsByLocale.get(locale);
-  if (cachedProjection) {
+  if (hasMatchingSignature(cachedProjection, relatedJob)) {
     if (cacheKey) inputCache.relatedJobProjectionsByKey.set(cacheKey, cachedProjection);
-    return cachedProjection;
+    return cachedProjection.projection;
   }
   const projection = {
     id,
     slug: String(relatedJob?.slugByLocale?.[locale] || relatedJob?.slug || ''),
     digest: digestJobRecord(relatedJob, inputCache),
   };
-  projectionsByLocale.set(locale, projection);
-  if (cacheKey) inputCache.relatedJobProjectionsByKey.set(cacheKey, projection);
+  const digestEntry = jobRecordDigestCache.get(relatedJob);
+  const cacheEntry = {
+    signature: digestEntry?.signature ?? cheapJobRecordSignature(relatedJob),
+    projection,
+  };
+  projectionsByLocale.set(locale, cacheEntry);
+  if (cacheKey) inputCache.relatedJobProjectionsByKey.set(cacheKey, cacheEntry);
   return projection;
 }
 
@@ -285,17 +408,28 @@ export function stableJobVersion(job) {
 export function buildMinimalJobInput(job, locale, slug, relatedJobs = [], inputCache = null) {
   const relatedJobList = Array.isArray(relatedJobs) ? relatedJobs : [];
   const stableId = stableJobId(job);
-  const relatedIds = inputCache && stableId
-    ? relatedJobList.map((relatedJob) => {
-      if (relatedJob && typeof relatedJob === 'object') return stableJobId(relatedJob);
-      return String(relatedJob ?? '');
-    })
-    : null;
+  let relatedIds = null;
+  if (inputCache && stableId) {
+    relatedIds = [];
+    for (const relatedJob of relatedJobList) {
+      if (relatedJob && typeof relatedJob === 'object') {
+        relatedIds.push(stableJobId(relatedJob));
+      } else {
+        relatedIds.push(String(relatedJob ?? ''));
+      }
+    }
+  }
   const relatedCacheKey = relatedIds && relatedIds.every(Boolean)
     ? `${stableId}\u0000${String(locale)}\u0000${relatedIds.join('\u0000')}`
     : null;
-  let relatedJobProjections = relatedCacheKey
+  const cachedRelatedProjections = relatedCacheKey
     ? inputCache.relatedProjectionListsByKey.get(relatedCacheKey)
+    : undefined;
+  let relatedJobProjections = cachedRelatedProjections && hasMatchingRelatedProjectionList(
+    cachedRelatedProjections,
+    relatedJobList,
+  )
+    ? cachedRelatedProjections.projections
     : undefined;
   if (!relatedJobProjections) {
     relatedJobProjections = relatedJobList
@@ -303,7 +437,15 @@ export function buildMinimalJobInput(job, locale, slug, relatedJobs = [], inputC
       .filter(Boolean);
     canonicalRelatedJobProjectionLists.add(relatedJobProjections);
     markCanonicalJson(relatedJobProjections, JSON.stringify(relatedJobProjections));
-    if (relatedCacheKey) inputCache.relatedProjectionListsByKey.set(relatedCacheKey, relatedJobProjections);
+    if (relatedCacheKey) {
+      inputCache.relatedProjectionListsByKey.set(relatedCacheKey, {
+        signatures: relatedJobList.map((relatedJob) => {
+          if (!relatedJob || typeof relatedJob !== 'object') return null;
+          return jobRecordDigestCache.get(relatedJob)?.signature ?? cheapJobRecordSignature(relatedJob);
+        }),
+        projections: relatedJobProjections,
+      });
+    }
   }
 
   const input = {
