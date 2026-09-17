@@ -28,7 +28,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { extractPhenomDdo, parseSearchPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/hugo-boss-job-parser.mjs';
+import { assertHugoBossNationalReadComplete, extractPhenomDdo, parseSearchPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/hugo-boss-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -94,6 +94,7 @@ async function fetchJobs() {
   let from = 0;
   let totalHits = null;
   let recordsSeen = 0;
+  let terminationProven = false;
   const MAX_PAGES = 20;
 
   for (let page = 0; page < MAX_PAGES; page += 1) {
@@ -124,11 +125,20 @@ async function fetchJobs() {
     // Stop only on a genuinely empty page (no forward progress possible) or
     // once the declared total has been reached; fall back to the short-page
     // heuristic only when the portal declares no total at all.
-    if (pageJobs.length === 0) break;
+    if (pageJobs.length === 0) {
+      terminationProven = true;
+      break;
+    }
     recordsSeen += pageJobs.length;
     from += pageJobs.length;
-    if (totalHits !== null && from >= totalHits) break;
-    if (totalHits === null && pageJobs.length < PAGE_SIZE) break;
+    if (totalHits !== null && from >= totalHits) {
+      terminationProven = true;
+      break;
+    }
+    if (totalHits === null && pageJobs.length < PAGE_SIZE) {
+      terminationProven = true;
+      break;
+    }
   }
 
   const allJobs = [...allJobsById.values()];
@@ -137,12 +147,7 @@ async function fetchJobs() {
   // A partial read cannot prove the absence of Swiss jobs — the missing
   // records may be exactly the ones we are looking for. Fail loudly rather
   // than publish "0 Swiss jobs" derived from a truncated result set.
-  if (totalHits !== null && recordsSeen < totalHits) {
-    throw new Error(
-      `Hugo Boss national DDO read is incomplete: ${recordsSeen} of ${totalHits} declared records fetched. `
-      + 'Refusing to conclude anything about Swiss openings from a truncated set.',
-    );
-  }
+  assertHugoBossNationalReadComplete({ terminationProven, totalHits, recordsSeen });
 
   const swissJobs = allJobs.filter(isHugoBossTargetLocation);
   console.log(`  🎯 Swiss jobs across all cantons: ${swissJobs.length}`);

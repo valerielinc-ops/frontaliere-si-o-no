@@ -131,6 +131,26 @@ export function parseSearchPage(html = '') {
 }
 
 /**
+ * Refuse to publish a national result set unless pagination reached a
+ * provable terminal condition. A failed later page is not equivalent to an
+ * empty page, especially when Phenom omits `totalHits`.
+ */
+export function assertHugoBossNationalReadComplete({
+  terminationProven = false,
+  totalHits = null,
+  recordsSeen = 0,
+} = {}) {
+  if (terminationProven && (totalHits === null || recordsSeen >= totalHits)) return;
+  const coverage = totalHits === null
+    ? `${recordsSeen} records fetched without a proven terminal page`
+    : `${recordsSeen} of ${totalHits} declared records fetched`;
+  throw new Error(
+    `Hugo Boss national DDO read is incomplete: ${coverage}. `
+    + 'Refusing to conclude anything about Swiss openings from a truncated set.',
+  );
+}
+
+/**
  * Build a canonical detail URL for a Hugo Boss job.
  */
 export function buildDetailUrl(job = {}) {

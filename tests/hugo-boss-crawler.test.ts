@@ -7,6 +7,7 @@
 import { describe, it, expect } from 'vitest';
 
 import {
+  assertHugoBossNationalReadComplete,
   extractPhenomDdo,
   parseSearchPage,
   parseDetailPage,
@@ -178,6 +179,32 @@ describe('parseSearchPage', () => {
 
   it('returns empty array for HTML without DDO', () => {
     expect(parseSearchPage('<html><body>No jobs</body></html>')).toHaveLength(0);
+  });
+});
+
+describe('assertHugoBossNationalReadComplete', () => {
+  it('rejects a later-page failure when the portal omitted totalHits', () => {
+    expect(() => assertHugoBossNationalReadComplete({
+      terminationProven: false,
+      totalHits: null,
+      recordsSeen: 100,
+    })).toThrow(/without a proven terminal page/);
+  });
+
+  it('rejects a truncated read against the declared national total', () => {
+    expect(() => assertHugoBossNationalReadComplete({
+      terminationProven: false,
+      totalHits: 782,
+      recordsSeen: 573,
+    })).toThrow(/573 of 782 declared records fetched/);
+  });
+
+  it('accepts a proven short-page termination without totalHits', () => {
+    expect(() => assertHugoBossNationalReadComplete({
+      terminationProven: true,
+      totalHits: null,
+      recordsSeen: 42,
+    })).not.toThrow();
   });
 });
 
