@@ -16,7 +16,7 @@ import {
   isTransientGithubReadError,
   withTransientGithubReadRetry,
 } from '../scripts/ci/native-automerge-gate.mjs';
-import { TEST_REVIEW_MARKER } from '../scripts/ci/review-test-policy.mjs';
+import { LOOP_FLEET_LEDGER_REVIEW_MARKER, TEST_REVIEW_MARKER } from '../scripts/ci/review-test-policy.mjs';
 import { CONTROL_PLANE_PATHS } from '../scripts/ci/lib/automation-risk-policy.mjs';
 
 const HEAD = 'a'.repeat(40);
@@ -159,6 +159,24 @@ describe('native auto-merge gate (#8512)', () => {
 
     expect(result.allow).toBe(true);
     expect(result.reason).toContain('success');
+  });
+
+  it('accepts the bounded ledger App review through the existing reviewer path', () => {
+    const ledgerReview = review(
+      `${LOOP_FLEET_LEDGER_REVIEW_MARKER}\n## Findings (Important: 0, Nit: 0)\n\n- Ledger JSONL structure verified.\n\n## LGTM`,
+      HEAD,
+      '2026-09-13T12:00:00Z',
+      { user: { type: 'Bot', login: 'frontaliere-automation[bot]' } },
+    );
+    const result = evaluateNativeAutoMerge({
+      pr: pr({ changedFiles: ['data/loop-fleet/ledger/loop-observations.jsonl'] }),
+      reviews: [ledgerReview],
+      checkRuns: [vitest()],
+    });
+
+    expect(reviewIsApproved(ledgerReview)).toBe(true);
+    expect(result).toMatchObject({ allow: true, reviewId: ledgerReview.id });
+    expect(result.reason).toMatch(/review exact-head/);
   });
 
   it.each([
@@ -753,6 +771,8 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(workflow).toContain('scripts/ci/lib/automation-risk-policy.mjs?ref=main');
     expect(workflow).toContain('scripts/ci/lib/fetchPrFiles.mjs?ref=main');
     expect(workflow).toContain('scripts/ci/lib/vitestCheck.mjs?ref=main');
+    expect(workflow).toContain('scripts/lib/loop-fleet-contract.mjs?ref=main');
+    expect(workflow).toContain('contract_tmp="$helper_dir/../lib/loop-fleet-contract-check.mjs"');
     expect(workflow).toContain('node --check "$gate_tmp"');
     expect(workflow).not.toContain('native-automerge-gate.mjs.tmp');
     expect(workflow).toContain("if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'");
@@ -772,6 +792,8 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(retry).toContain('scripts/ci/lib/automation-risk-policy.mjs?ref=main');
     expect(retry).toContain('scripts/ci/lib/fetchPrFiles.mjs?ref=main');
     expect(retry).toContain('scripts/ci/lib/vitestCheck.mjs?ref=main');
+    expect(retry).toContain('scripts/lib/loop-fleet-contract.mjs?ref=main');
+    expect(retry).toContain('contract_tmp="$helper_dir/../lib/loop-fleet-contract-check.mjs"');
     expect(retry).toContain('node --check "$gate_tmp"');
     expect(retry).not.toContain('native-automerge-gate.mjs.tmp');
     expect(retry).not.toContain('.[:$max][]');
