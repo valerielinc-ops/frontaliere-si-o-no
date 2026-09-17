@@ -61,6 +61,23 @@ describe('target swiss locations', () => {
     expect(new Set(TARGET_CANTONS)).toEqual(new Set(ALL_CANTON_CODES));
   });
 
+  it('accepts a representative municipality from every Swiss canton', () => {
+    const representativeByCanton = {
+      AG: 'Aarau', AI: 'Appenzell', AR: 'Herisau', BE: 'Bern',
+      BL: 'Liestal', BS: 'Basel', FR: 'Fribourg', GE: 'Genève',
+      GL: 'Glarus', GR: 'Chur', JU: 'Delémont', LU: 'Luzern',
+      NE: 'Neuchâtel', NW: 'Stans', OW: 'Sarnen', SG: 'St. Gallen',
+      SH: 'Schaffhausen', SO: 'Solothurn', SZ: 'Schwyz', TG: 'Frauenfeld',
+      TI: 'Lugano', UR: 'Altdorf', VD: 'Lausanne', VS: 'Sion',
+      ZG: 'Zug', ZH: 'Zürich',
+    };
+
+    expect(Object.keys(representativeByCanton)).toEqual(expect.arrayContaining(ALL_CANTON_CODES));
+    for (const city of Object.values(representativeByCanton)) {
+      expect(isTargetSwissLocation(`${city}, Switzerland`)).toBe(true);
+    }
+  });
+
   it('honors explicit parenthesized canton codes before same-name city aliases', () => {
     expect(inferSwissTargetCanton('Buchs (AG)')).toBe('AG');
     expect(inferSwissTargetCanton('Reinach (AG)')).toBe('AG');

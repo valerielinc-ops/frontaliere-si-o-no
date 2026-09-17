@@ -182,7 +182,16 @@ export async function fetchAllAnkerSwissJobs() {
       continue;
     }
 
-    const geography = resolveSourceBackedSwissGeography(listing);
+    // Structured address fields are authoritative when the prospector found
+    // them; otherwise validate the plain source location directly. The latter
+    // keeps the generated-parser contract explicit for unstructured rows.
+    const geography = listing.addressLocality
+      || listing.addressRegion
+      || listing.addressCountry
+      || listing.postalCode
+      || listing.streetAddress
+      ? resolveSourceBackedSwissGeography(listing)
+      : resolveSourceBackedSwissGeography(listing.location);
     // Required structured-data geography must come from the vacancy source.
     // Missing, foreign or non-specific values are not replaced with an HQ.
     if (!geography) {

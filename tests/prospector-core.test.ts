@@ -2209,6 +2209,7 @@ describe('production spec runtime', () => {
       // usare direttamente una guardia più forte, che copre anche il caso vuoto.
       expect(
         source.includes('if (!descriptionText) continue;')
+          || /if\s*\(\s*!descriptionText\s*\)\s*\{[^{}]*\bcontinue;\s*\}/.test(source)
           || source.includes('if (descriptionText.split(/\\s+/).filter(Boolean).length < MIN_DESCRIPTION_WORDS) continue;'),
         `${name}: description guard`,
       ).toBe(true);
