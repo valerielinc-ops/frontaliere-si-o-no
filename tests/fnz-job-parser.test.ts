@@ -44,11 +44,20 @@ describe('fnz-job-parser / resolveFnzSwissLocation', () => {
     }])).toBeNull();
   });
 
-  it('rejects an unresolved country-only candidate instead of inventing Chiasso', () => {
-    const resolved = resolveFnzSwissLocation(['Switzerland']);
+  it('retains an unresolved country-only candidate with the safe Zürich fallback', () => {
+    expect(resolveFnzSwissLocation(['Switzerland'])).toEqual({
+      raw: 'Switzerland',
+      location: 'Zürich',
+      canton: 'ZH',
+    });
+  });
 
-    expect(resolved).toBeNull();
-    expect(resolved?.location).not.toBe('Chiasso');
+  it('uses the safe Zürich fallback for an unresolved Swiss remote label', () => {
+    expect(resolveFnzSwissLocation(['Remote, Switzerland'])).toEqual({
+      raw: 'Remote, Switzerland',
+      location: 'Zürich',
+      canton: 'ZH',
+    });
   });
 
   it('rejects foreign-only candidates', () => {

@@ -1,6 +1,7 @@
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
 import {
   inferAnyCanton,
+  isCantonOnlyLabel,
   isSwissLocationText,
   swissCityFromLocationField,
 } from './target-swiss-locations.mjs';
@@ -52,18 +53,22 @@ function normalizeCandidate(candidate) {
 /**
  * Resolve a Workday posting to a concrete Swiss location. Workday may put a
  * country-only value before a more specific additional location, so all
- * candidates are inspected before accepting one. A country-only value is not
- * a city and therefore returns null unless a richer detail-field signal
- * supplies a concrete municipality.
+ * candidates are inspected before accepting one. If no candidate supplies a
+ * concrete municipality, retain the Swiss posting with FNZ's confirmed
+ * Zürich office as a safe locality fallback instead of inventing a city from
+ * an unresolved label such as "Remote".
  */
 export function resolveFnzSwissLocation(candidates = []) {
+  let countryOnlyFallback = null;
+
   for (const candidate of Array.isArray(candidates) ? candidates : []) {
     const { raw, signal, city } = normalizeCandidate(candidate);
     if (!raw || !signal || !isSwissLocationText(signal)) continue;
 
     // Search the complete source signal before falling back to the ATS's first
     // segment. This covers `location: Switzerland` plus a richer
-    // jobRequisitionLocation/address/postalCode object without inventing an HQ.
+    // jobRequisitionLocation/address/postalCode object before using the safe
+    // fallback below.
     const location = swissCityFromLocationField(city)
       || swissCityFromLocationField(signal)
       || city
@@ -73,19 +78,29 @@ export function resolveFnzSwissLocation(candidates = []) {
     // A city and a richer address signal must describe the same canton. If
     // they disagree, reject the candidate rather than emit plausible-looking
     // but internally inconsistent structured data.
+    const locationIsConcreteCity = Boolean(
+      location && locationCanton && !isCantonOnlyLabel(location),
+    );
     if (
-      location
-      && locationCanton
+      locationIsConcreteCity
       && (!signalCanton || signalCanton === locationCanton)
       && !/^\s*(?:switzerland|schweiz|suisse|svizzera|swiss)\s*$/i.test(location)
     ) {
       const canton = signalCanton || locationCanton;
       return { raw, location, canton };
     }
+
+    const signalCity = swissCityFromLocationField(signal);
+    const hasConflictingCitySignals = Boolean(
+      signalCity
+      && locationCanton
+      && signalCanton
+      && signalCanton !== locationCanton,
+    );
+    if (!hasConflictingCitySignals && !countryOnlyFallback) {
+      countryOnlyFallback = { raw, location: 'Zürich', canton: 'ZH' };
+    }
   }
 
-  // A country-only signal cannot produce a coherent city + postalCode +
-  // addressRegion triple. The caller must drop it instead of assigning FNZ's
-  // historical office or any other HQ.
-  return null;
+  return countryOnlyFallback;
 }

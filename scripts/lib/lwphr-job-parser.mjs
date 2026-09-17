@@ -157,10 +157,11 @@ export function inferLwphrLocation(title = '', pdfText = '') {
   const explicitCity = rescueSwissCityFromText(locationContext);
   if (explicitCity) return explicitCity;
 
-  // Preserve the known city aliases used in older LWP PDFs, but never turn a
-  // canton or country-only signal into a city. Each returned alias is checked
-  // through the shared all-canton registry before it becomes a locality.
-  const text = `${title} ${pdfText}`.toLowerCase();
+  // Preserve the known city aliases used in LWP location contexts, but never
+  // turn a city mentioned in ordinary PDF prose into a locality. Each
+  // returned alias is checked through the shared all-canton registry before
+  // it becomes a locality.
+  const text = locationContext.toLowerCase();
   const cityAliases = [
     ['Locarno', /locarno/],
     ['Mendrisio', /mendrisiotto|mendrisio/],

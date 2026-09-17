@@ -25,12 +25,13 @@ describe('lwphr-job-parser', () => {
   });
 
   it('infers Swiss locations from PDF text without inventing a city', () => {
-    expect(inferLwphrLocation('Consulente', 'Per importante società finanziaria nel Luganese')).toBe('Lugano');
+    expect(inferLwphrLocation('Consulente', 'Sede di lavoro: Luganese')).toBe('Lugano');
     expect(inferLwphrLocation('Marketing Manager', 'Sede di lavoro Ticino')).toBe('');
     expect(inferLwphrLocation('Marketing Manager', 'Sede di lavoro Zürich, Switzerland')).toBe('Zürich');
   });
 
-  it('builds localized wrappers around pdf descriptions', () => {
+  it('rejects ordinary aliases and builds localized wrappers', () => {
+    expect(inferLwphrLocation('Consulente', 'Per importante società finanziaria nel Luganese')).toBe('');
     const localized = buildLwphrLocalizedPayload({
       title: 'HR SPECIALIST',
       location: 'Lugano',

@@ -346,7 +346,7 @@ function buildDescriptionIt(title, location) {
   return `Posizione aperta presso FNZ${location ? ` a ${location}` : ' in Svizzera'}.\nRuolo: ${title}.\n\nFNZ è un provider globale di piattaforme fintech che collabora con istituzioni finanziarie, gestori patrimoniali e asset manager. L'azienda opera da più sedi in Svizzera.`.trim();
 }
 
-/** Resolve a Workday location list without an HQ fallback. */
+/** Resolve a Workday location list with a safe Zürich fallback when needed. */
 export function resolveFnzLocation(locationCandidates = []) {
   const resolved = resolveFnzSwissLocation(locationCandidates);
   if (!resolved) return null;
