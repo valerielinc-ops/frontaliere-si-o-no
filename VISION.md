@@ -28,9 +28,10 @@ Dal 2026-08-24 (istruzione diretta del proprietario) NON esiste più una lista d
 categorie riservate all'umano: la sezione «Sempre umano» che stava qui, e che
 per un mese ha coperto LPD, denaro, invii massivi, ritiro editoriale, scope
 prodotto e infrastruttura irreversibile, è stata rimossa in blocco — vedi la
-riga del 2026-08-24 nel registro sotto. `needs-human` resta per i soli blocchi
-di CAPACITÀ reale (credenziale mancante, scope insufficiente, causa non
-trovata): non più per categorie di decisione.
+riga del 2026-08-24 nel registro sotto. `needs-human` resta un segnale
+operativo per i blocchi di CAPACITÀ reale delle issue (credenziale mancante,
+scope insufficiente, causa non trovata), non una categoria di decisione. Sulla
+superficie PR è solo tracking: non blocca auto-merge, autorebase o dispatch.
 
 ## Missione e north-star
 
@@ -92,7 +93,8 @@ Crescono insieme o non crescono: contenuto scadente = traffico che non torna.
   decomposizione (ISSUES.md → «Stadio di decomposizione») è il percorso di
   default per tutto ciò che non sta in un run — comprese le decisioni di
   prodotto/business, dal 2026-08-24. `needs-human` è riservato ai soli blocchi
-  di capacità reale.
+  di capacità reale delle issue; su una PR resta tracking e non è un veto di
+  merge o di autorebase.
 
   **Un SECONDO livello di scorporo è escluso, e la ragione è misurata
   (2026-09-04).** Il drainer manda in `needs-human` le `from-decompose` che
