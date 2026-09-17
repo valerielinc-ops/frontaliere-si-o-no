@@ -4885,7 +4885,11 @@
         "arztsekretarin-arztsekretar-pdag-baden",
         "secretaire-medical-secretaire-medical-psychiatrische-dienste-aargau-pdag-baden",
         "medical-secretary-medical-secretary-psychiatrische-dienste-aargau-pdag-baden",
-        "arztsekretarin-arztsekretar-psychiatrische-dienste-aargau-pdag-aarau"
+        "arztsekretarin-arztsekretar-psychiatrische-dienste-aargau-pdag-aarau",
+        "assistente-medico-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau",
+        "assistant-physician-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau",
+        "assistenzarztin-assistenzarzt-ambulatorium-aarau-pdag-aarau",
+        "medecin-adjoint-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4894,19 +4898,26 @@
           "arztsekretarin-arztsekretar-psychiatrische-dienste-aargau-pdag-baden",
           "arztsekretarin-arztsekretar-pdag-baden",
           "secretaire-medical-secretaire-medical-psychiatrische-dienste-aargau-pdag-baden",
-          "medical-secretary-medical-secretary-psychiatrische-dienste-aargau-pdag-baden"
+          "medical-secretary-medical-secretary-psychiatrische-dienste-aargau-pdag-baden",
+          "assistente-medico-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau",
+          "assistant-physician-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau",
+          "assistenzarztin-assistenzarzt-ambulatorium-aarau-pdag-aarau",
+          "medecin-adjoint-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau"
         ],
         "en": [
           "arztsekretarin-arztsekretar-pdag-aarau",
           "arztsekretarin-arztsekretar-psychiatrische-dienste-aargau-pdag-baden",
-          "arztsekretarin-arztsekretar-psychiatrische-dienste-aargau-pdag-aarau"
+          "arztsekretarin-arztsekretar-psychiatrische-dienste-aargau-pdag-aarau",
+          "assistant-physician-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau"
         ],
         "de": [
-          "arztsekretarin-arztsekretar-pdag-baden"
+          "arztsekretarin-arztsekretar-pdag-baden",
+          "assistenzarztin-assistenzarzt-ambulatorium-aarau-pdag-aarau"
         ],
         "fr": [
           "arztsekretarin-arztsekretar-pdag-aarau",
-          "secretaire-medical-secretaire-medical-psychiatrische-dienste-aargau-pdag-baden"
+          "secretaire-medical-secretaire-medical-psychiatrische-dienste-aargau-pdag-baden",
+          "medecin-adjoint-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau"
         ]
       },
       "firstSeenAt": "2026-09-01T14:25:06.861Z",
