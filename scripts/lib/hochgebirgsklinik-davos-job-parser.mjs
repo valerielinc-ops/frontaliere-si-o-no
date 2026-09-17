@@ -24,7 +24,14 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
-import { slugify, stripHtml, warnIfListingAtCap } from './crawler-template.mjs';
+import {
+  fetchJson,
+  fetchWithRetry,
+  RETRYABLE_STATUS,
+  slugify,
+  stripHtml,
+  warnIfListingAtCap,
+} from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -34,6 +41,7 @@ export const HOCHGEBIRGSKLINIK_DAVOS_COMPANY_NAME = 'Hochgebirgsklinik Davos';
 export const HOCHGEBIRGSKLINIK_DAVOS_COMPANY_DOMAIN = 'hochgebirgsklinik.ch';
 
 const CAREER_URL = 'https://karriere.hochgebirgsklinik.ch/';
+const TYPESENSE_API_KEY_URL = 'https://api.my-job-shop.com/api/offer/v1/search/api-key';
 const TYPESENSE_PROXY_URL = 'https://api.my-job-shop.com/api/typesense/multi_search';
 const JOB_SHOP_ID = '9c3b04cb-7265-5acb-a208-199c8a9d547a';
 const TYPESENSE_PAGE_CAP = 250;
@@ -186,6 +194,108 @@ function parseDate(raw = '') {
 /* ── Typesense API Key Extraction ────────────────────────── */
 
 /**
+ * Nuxt serialises reactive values as a flat array of references. Newer
+ * job-shop pages sometimes wrap a value in more than one reference (or in a
+ * small tagged array), so a one-level `nuxtArr[index]` lookup is not enough.
+ * Resolve references without assuming that every object is a key container.
+ */
+function resolveNuxtReference(value, nuxtArr, stack = new Set()) {
+  if (typeof value === 'number' && Number.isInteger(value)) {
+    if (value < 0 || value >= nuxtArr.length || stack.has(value)) return null;
+    const nextStack = new Set(stack);
+    nextStack.add(value);
+    return resolveNuxtReference(nuxtArr[value], nuxtArr, nextStack);
+  }
+  if (Array.isArray(value)) {
+    return value.map((item) => resolveNuxtReference(item, nuxtArr, stack));
+  }
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, item]) => [key, resolveNuxtReference(item, nuxtArr, stack)]),
+    );
+  }
+  return value;
+}
+
+function findNuxtPropertyValue(nuxtArr, property) {
+  if (!Array.isArray(nuxtArr)) return null;
+  for (const entry of nuxtArr) {
+    if (!entry || typeof entry !== 'object' || Array.isArray(entry) || !(property in entry)) continue;
+    const value = resolveNuxtReference(entry[property], nuxtArr);
+    if (value !== null && value !== undefined) return value;
+  }
+  return null;
+}
+
+function findEncodedTypesenseKey(value, seen = new Set()) {
+  if (typeof value === 'string') {
+    if (value.length <= 100 || !/^[A-Za-z0-9+/=]+$/.test(value)) return null;
+    try {
+      const decoded = Buffer.from(value, 'base64').toString('utf8');
+      if (decoded.includes('filter_by') && decoded.includes(JOB_SHOP_ID.split('-')[0])) return value;
+    } catch {
+      // Not a base64 value; keep searching the rest of the payload.
+    }
+    return null;
+  }
+  if (!value || typeof value !== 'object' || seen.has(value)) return null;
+  seen.add(value);
+  if (Array.isArray(value)) {
+    for (const item of value) {
+      const candidate = findEncodedTypesenseKey(item, seen);
+      if (candidate) return candidate;
+    }
+    return null;
+  }
+  for (const item of Object.values(value)) {
+    const candidate = findEncodedTypesenseKey(item, seen);
+    if (candidate) return candidate;
+  }
+  return null;
+}
+
+/**
+ * Extract the scoped key from a Nuxt payload. Exported so the live payload
+ * shape can be regression-tested without making the unit suite call the ATS.
+ */
+export function extractTypesenseApiKeyFromNuxtData(nuxtArr) {
+  if (!Array.isArray(nuxtArr)) return null;
+  const keyProp = `typesenseApiKey-${JOB_SHOP_ID}`;
+
+  for (const entry of nuxtArr) {
+    if (!entry || typeof entry !== 'object' || Array.isArray(entry) || !(keyProp in entry)) continue;
+    const candidate = resolveNuxtReference(entry[keyProp], nuxtArr);
+    if (typeof candidate === 'string' && candidate.length >= 20) return candidate;
+  }
+
+  return findEncodedTypesenseKey(nuxtArr);
+}
+
+async function fetchTypesenseApiKeyFromSearchApi(nuxtArr) {
+  const jobShopData = findNuxtPropertyValue(nuxtArr, 'jobShopData');
+  const companyVanity = jobShopData?.jobShopCompanyVanity
+    || findNuxtPropertyValue(nuxtArr, 'jobShopVanity')
+    || findNuxtPropertyValue(nuxtArr, 'jobShopCompanyVanity');
+  const tenantId = findNuxtPropertyValue(nuxtArr, 'tenantId') || companyVanity;
+  if (!companyVanity || !tenantId) return null;
+
+  const url = new URL(TYPESENSE_API_KEY_URL);
+  url.searchParams.set('filter', `backoffice_vanity:${companyVanity}`);
+  const response = await fetchJson(url.href, {
+    headers: {
+      Accept: 'application/json',
+      'X-Tenant-Id': String(tenantId),
+    },
+    label: `${HOCHGEBIRGSKLINIK_DAVOS_KEY} Typesense key`,
+  });
+  const apiKey = response?.key;
+  if (!apiKey || typeof apiKey !== 'string') {
+    throw new Error('Hochgebirgsklinik Davos: search/api-key endpoint returned no Typesense API key');
+  }
+  return apiKey;
+}
+
+/**
  * Fetch the career page and extract the scoped Typesense API key
  * from the __NUXT_DATA__ JSON blob.
  *
@@ -195,7 +305,7 @@ function parseDate(raw = '') {
  *   [3] = { jobShopData: 4, "typesenseApiKey-{jobShopId}": <keyIndex>, ... }
  *   [keyIndex] = "<base64-encoded scoped Typesense key>"
  */
-async function fetchTypesenseApiKey() {
+export async function fetchTypesenseApiKey() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -218,42 +328,25 @@ async function fetchTypesenseApiKey() {
 
     const nuxtArr = JSON.parse(nuxtMatch[1]);
 
-    // Strategy 1: Search all objects in the NUXT_DATA array for the typesenseApiKey property
+    const apiKey = extractTypesenseApiKeyFromNuxtData(nuxtArr);
+
+    if (apiKey) {
+      console.log(`  🔑 Extracted Typesense API key (${apiKey.length} chars)`);
+      return apiKey;
+    }
+
+    // The current job-shop Nuxt client refreshes the key through this endpoint
+    // when the SSR payload contains a null ref. Follow the same public client
+    // contract instead of treating a valid-but-keyless page as a parser break.
+    console.warn('  ⚠️ Nuxt payload has no usable Typesense key; refreshing it through the public job-shop API');
+    const refreshedKey = await fetchTypesenseApiKeyFromSearchApi(nuxtArr);
+    if (refreshedKey) {
+      console.log(`  🔑 Refreshed Typesense API key (${refreshedKey.length} chars)`);
+      return refreshedKey;
+    }
+
     const keyProp = `typesenseApiKey-${JOB_SHOP_ID}`;
-    let apiKey = null;
-
-    for (const entry of nuxtArr) {
-      if (entry && typeof entry === 'object' && !Array.isArray(entry) && keyProp in entry) {
-        const keyIdx = entry[keyProp];
-        const candidate = typeof keyIdx === 'number' ? nuxtArr[keyIdx] : keyIdx;
-        if (candidate && typeof candidate === 'string' && candidate.length >= 20) {
-          apiKey = candidate;
-          break;
-        }
-      }
-    }
-
-    // Strategy 2: Search for any long base64-looking string that could be a scoped Typesense key
-    if (!apiKey) {
-      for (const entry of nuxtArr) {
-        if (typeof entry === 'string' && entry.length > 100 && /^[A-Za-z0-9+/=]+$/.test(entry)) {
-          try {
-            const decoded = Buffer.from(entry, 'base64').toString('utf8');
-            if (decoded.includes('filter_by') && decoded.includes(JOB_SHOP_ID.split('-')[0])) {
-              apiKey = entry;
-              break;
-            }
-          } catch { /* not valid base64 */ }
-        }
-      }
-    }
-
-    if (!apiKey) {
-      throw new Error(`NUXT_DATA: ${keyProp} not found in any object (array has ${nuxtArr.length} entries)`);
-    }
-
-    console.log(`  🔑 Extracted Typesense API key (${apiKey.length} chars)`);
-    return apiKey;
+    throw new Error(`NUXT_DATA: ${keyProp} not found and public key refresh metadata is unavailable (array has ${nuxtArr.length} entries)`);
   } finally {
     clearTimeout(timer);
   }
@@ -267,48 +360,50 @@ async function fetchTypesenseApiKey() {
  */
 async function fetchJobListings(apiKey) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  return fetchWithRetry(async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const url = `${TYPESENSE_PROXY_URL}?x-typesense-api-key=${encodeURIComponent(apiKey)}`;
+      const res = await fetch(url, {
+        method: 'POST',
+        signal: controller.signal,
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'User-Agent': USER_AGENT,
+          Referer: CAREER_URL,
+          Origin: 'https://karriere.hochgebirgsklinik.ch',
+        },
+        body: JSON.stringify({
+          searches: [{
+            collection: 'offers',
+            q: '*',
+            query_by: 'title',
+            per_page: TYPESENSE_PAGE_CAP,
+          }],
+        }),
+      });
 
-  try {
-    const url = `${TYPESENSE_PROXY_URL}?x-typesense-api-key=${encodeURIComponent(apiKey)}`;
-    const res = await fetch(url, {
-      method: 'POST',
-      signal: controller.signal,
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        'User-Agent': USER_AGENT,
-        Referer: CAREER_URL,
-        Origin: 'https://karriere.hochgebirgsklinik.ch',
-      },
-      body: JSON.stringify({
-        searches: [{
-          collection: 'offers',
-          q: '*',
-          query_by: 'title',
-          per_page: TYPESENSE_PAGE_CAP,
-        }],
-      }),
-    });
+      if (!res.ok) {
+        const err = new Error(`HTTP ${res.status} from Typesense API`);
+        err.status = res.status;
+        err.retryable = RETRYABLE_STATUS.has(res.status);
+        throw err;
+      }
 
-    if (!res.ok) {
-      const err = new Error(`HTTP ${res.status} from Typesense API`);
-      err.status = res.status;
-      throw err;
+      const data = await res.json();
+      const results = data?.results?.[0];
+      if (!results) throw new Error('No results in Typesense response');
+
+      const hits = assertJsonListShape(results, { key: 'hits', source: HOCHGEBIRGSKLINIK_DAVOS_KEY });
+      console.log(`  📊 Typesense found: ${results.found} jobs, returned: ${hits.length}`);
+      warnIfListingAtCap({ label: 'Hochgebirgsklinik Davos listing', count: hits.length, cap: TYPESENSE_PAGE_CAP, total: results.found });
+      return hits.map((h) => h.document);
+    } finally {
+      clearTimeout(timer);
     }
-
-    const data = await res.json();
-    const results = data?.results?.[0];
-    if (!results) throw new Error('No results in Typesense response');
-
-    const hits = assertJsonListShape(results, { key: 'hits', source: HOCHGEBIRGSKLINIK_DAVOS_KEY });
-    console.log(`  📊 Typesense found: ${results.found} jobs, returned: ${hits.length}`);
-    warnIfListingAtCap({ label: 'Hochgebirgsklinik Davos listing', count: hits.length, cap: TYPESENSE_PAGE_CAP, total: results.found });
-    return hits.map((h) => h.document);
-  } finally {
-    clearTimeout(timer);
-  }
+  }, { label: `${HOCHGEBIRGSKLINIK_DAVOS_KEY} Typesense search` });
 }
 
 /**

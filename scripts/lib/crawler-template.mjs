@@ -183,7 +183,18 @@ export { fetchFollowingValidatedRedirects } from './prospector/public-fetch-poli
 export { assertFeedEndpointHost };
 
 function isRetryBudgetExhaustedError(err) {
-  return err?.retryBudgetExhausted === true || err?.response?.retryBudgetExhausted === true;
+  // `fetchWithRetry()` marks the terminal thrown error with `retryExhausted`.
+  // The lower-level `httpFetchWithRetry()` adapter additionally copies that
+  // state to `retryBudgetExhausted` on the Response, and parsers commonly wrap
+  // either form in a domain error. Accept both markers at the crawler boundary
+  // so a transient source fence (not a parser regression) preserves the last
+  // good slice instead of opening a red workflow run.
+  return (
+    err?.retryBudgetExhausted === true ||
+    err?.retryExhausted === true ||
+    err?.response?.retryBudgetExhausted === true ||
+    err?.response?.retryExhausted === true
+  );
 }
 
 /* ── Shared Utilities (re-exported for parser convenience) ──────────── */
