@@ -37,6 +37,13 @@ describe('isTransientFetchError', () => {
     expect(isTransientFetchError(err)).toBe(true);
   });
 
+  it('classifies Node TimeoutError wording as transient', () => {
+    const err = Object.assign(new Error('The operation was aborted due to timeout'), {
+      name: 'TimeoutError',
+    });
+    expect(isTransientFetchError(err)).toBe(true);
+  });
+
   it.each([408, 425, 429, 500, 502, 503, 504])('classifies retryable status %i as transient', (status) => {
     expect(RETRYABLE_STATUS.has(status)).toBe(true);
     expect(isTransientFetchError({ status })).toBe(true);

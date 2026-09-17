@@ -34,6 +34,7 @@ jobs:
             /data/loop-fleet/ledger/
             /scripts/ci/observe-loop-fleet-lifecycle.mjs
             /scripts/ci/append-loop-fleet-lifecycle.mjs
+            /scripts/ci/loop-fleet-epoch-policy.mjs
             /scripts/ci/mint-app-token.mjs
             /scripts/ci/pr-body-check-gate.mjs
             /scripts/ci/lib/hook-exit-codes.mjs
@@ -135,7 +136,17 @@ jobs:
           git checkout --detach origin/main
 
           base_branch='chore/loop-fleet-ledger'
-          open_pr=$(bounded_remote gh pr list --repo "$GITHUB_REPOSITORY" --state open --head "$base_branch" --json number --jq '.[0].number // ""')
+          open_pr_record=$(bounded_remote gh pr list \
+            --repo "$GITHUB_REPOSITORY" \
+            --state open \
+            --json number,headRefName,baseRefName,createdAt \
+            --jq 'map(select(.baseRefName == "main" and .headRefName == "chore/loop-fleet-ledger")) | sort_by(.number) | if length == 0 then "" else .[-1] | [(.number | tostring), .headRefName, .createdAt] | @tsv end')
+          open_pr=''
+          open_branch=''
+          open_created_at=''
+          if [ -n "$open_pr_record" ]; then
+            IFS=$'\t' read -r open_pr open_branch open_created_at <<<"$open_pr_record"
+          fi
           branch="$base_branch"
           base_branch_ref=''
           if [ -z "$open_pr" ]; then
@@ -146,12 +157,36 @@ jobs:
           mkdir -p "$merged_dir"
 
           if [ -n "$open_pr" ]; then
-            bounded_remote git fetch origin "$base_branch"
-            if git cat-file -e "origin/$base_branch:data/loop-fleet/ledger/lifecycle-events.jsonl" 2>/dev/null; then
-              git show "origin/$base_branch:data/loop-fleet/ledger/lifecycle-events.jsonl" > "$merged_dir/lifecycle-events.jsonl"
+            bounded_remote git fetch origin "$open_branch"
+            if git cat-file -e "origin/$open_branch:data/loop-fleet/ledger/lifecycle-events.jsonl" 2>/dev/null; then
+              git show "origin/$open_branch:data/loop-fleet/ledger/lifecycle-events.jsonl" > "$merged_dir/lifecycle-events.jsonl"
             fi
           elif [ -n "$base_branch_ref" ]; then
             branch="${base_branch}-lifecycle-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          fi
+
+          # The lifecycle observer writes the same reviewed ledger surface as
+          # the durable bridge, so it also needs a bounded update epoch.
+          if [ -n "$open_pr" ]; then
+            epoch_batch_count=$(git log "origin/$open_branch" --format='%s' --not origin/main \
+              | awk '/^chore\(loop-fleet\): persist / { count += 1 } END { print count + 0 }')
+            epoch_age_minutes=''
+            if [ -n "$open_created_at" ]; then
+              created_epoch=$(date -d "$open_created_at" +%s 2>/dev/null || true)
+              now_epoch=$(date +%s)
+              if [ -n "$created_epoch" ] && [ "$now_epoch" -ge "$created_epoch" ]; then
+                epoch_age_minutes=$(( (now_epoch - created_epoch) / 60 ))
+              fi
+            fi
+            epoch_decision=$(node scripts/ci/loop-fleet-epoch-policy.mjs \
+              --open-pr true \
+              --batch-count "$epoch_batch_count" \
+              --age-minutes "$epoch_age_minutes")
+            if [ "$(jq -r '.allow' <<<"$epoch_decision")" != 'true' ]; then
+              reason=$(jq -r '.reason' <<<"$epoch_decision")
+              echo "::notice::lifecycle ledger epoch frozen for PR #$open_pr ($reason); events will be recovered after the PR terminal event."
+              exit 0
+            fi
           fi
 
           node scripts/ci/append-loop-fleet-lifecycle.mjs \
@@ -160,7 +195,7 @@ jobs:
             --registry data/loop-fleet/loop-registry.json
 
           if [ -n "$open_pr" ]; then
-            git checkout -b "$branch" "origin/$base_branch"
+            git checkout -b "$branch" "origin/$open_branch"
           else
             git checkout -b "$branch"
           fi
