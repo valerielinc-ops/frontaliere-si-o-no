@@ -315,20 +315,28 @@ async function main() {
   console.log(`  API: ${API_URL}\n`);
 
   // Lever's no-pagination endpoint is a complete postings snapshot. Accept a
-  // verified empty array as a real zero; reject malformed/degraded payloads
-  // before merge so the prior slice remains untouched without using a count
-  // floor.
+  // verified empty result only when no source posting is Swiss; reject a
+  // degraded country/location classification before merge so the prior slice
+  // remains untouched without using a count floor.
   const rawJobs = assertCompleteTsmgSourceSnapshot(await fetchJson(API_URL));
-  const swiss = rawJobs.filter((job) => String(job.country || '').trim().toUpperCase() === 'CH');
-  // A complete source snapshot may legitimately contain only Swiss postings
-  // outside the target cantons; that filtered zero must still be published.
-  // Missing or unrecognised CH locations were rejected before this filter.
+  const swiss = rawJobs.filter((job) => normalizeTsmgCountry(job.country) === 'CH');
+  // A complete source snapshot is publishable as zero only when it contains no
+  // Swiss postings. A Swiss posting that misses the target filter is a
+  // degraded filter result, not evidence that the TSMG slice is empty.
+  // Missing or unrecognised locations were rejected before this filter.
   const target = swiss.filter((job) => isTsmgTargetLocation(job?.categories?.location || ''));
+  const authoritativeEmptySnapshot = swiss.length === 0;
+  if (target.length === 0 && !authoritativeEmptySnapshot) {
+    throw new Error(
+      `TSMG Lever snapshot contains ${swiss.length} Swiss posting(s), but none matched the target location filter. `
+      + 'Refusing to conclude anything from a filtered result that would overwrite the prior slice.',
+    );
+  }
   console.log(`📋 Total Lever jobs: ${rawJobs.length}`);
   console.log(`📋 Switzerland jobs: ${swiss.length}`);
   console.log(`📋 Ticino/Grigioni jobs: ${target.length}`);
-  if (target.length === 0) {
-    console.log('ℹ️  Nessun annuncio trovato per TSMG — non è un errore, il crawler prosegue.');
+  if (authoritativeEmptySnapshot) {
+    console.log('✅ Lever complete snapshot contains no Swiss postings — publishing the verified empty result.');
   }
   const discoveredJobs = target.map(buildJob);
   const { total, added, updated, diff} = mergeJobs(discoveredJobs);
@@ -359,6 +367,8 @@ async function main() {
     label: 'TSMG',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified: true,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,
