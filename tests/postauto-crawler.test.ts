@@ -5,6 +5,7 @@ import {
   isPostAutoRecord,
   isPostAutoJob,
   isTrustedDomain,
+  resolveAddress,
 } from '../scripts/lib/postauto-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -80,6 +81,25 @@ describe('PostAuto crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  // ── resolveAddress (strict city-gated national scope) ──
+  describe('resolveAddress', () => {
+    it('derives the canton from the Swiss city, not the source region label', () => {
+      expect(resolveAddress('Winterthur', 'BE')).toMatchObject({
+        city: 'Winterthur',
+        canton: 'ZH',
+        region: 'ZH',
+      });
+    });
+
+    it('rejects a foreign city even when the source region says Switzerland', () => {
+      expect(resolveAddress('Milano', 'BE')).toBeNull();
+    });
+
+    it('does not fabricate the Bern HQ for a missing city', () => {
+      expect(resolveAddress('', 'BE')).toBeNull();
     });
   });
 
