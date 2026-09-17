@@ -3,7 +3,8 @@ name: Technical operations supervisor
 # L11 della flotta: osserva OGNI workflow del repository, compresi quelli che
 # non hanno "loop" nel nome, e controlla riferimenti tecnici e contratti di
 # estrazione dati. Il report non riscrive codice o dati: con --issue consegna le
-# prove al normale ciclo issue → PR → review → merge.
+# prove al normale ciclo issue → PR → review → merge. La produzione dell'issue
+# resta esplicita (schedule o dispatch): un push su main è solo osservazione.
 
 on:
   schedule:
@@ -29,11 +30,14 @@ on:
 permissions:
   contents: read
   issues: write
-  actions: read
 
 concurrency:
-  group: technical-operations-supervisor-${{ github.ref }}
-  cancel-in-progress: false
+  # I push ravvicinati su main sono osservazioni sostituibili: mantenere una
+  # run per ogni commit alimenterebbe issue/PR concorrenti prima che la prova
+  # precedente abbia potuto essere rimediata. Schedule, dispatch e PR restano
+  # osservatori indipendenti e non si cancellano a vicenda.
+  group: technical-operations-supervisor-${{ github.event_name == 'push' && github.ref || github.run_id }}
+  cancel-in-progress: true
 
 jobs:
   audit:
@@ -85,7 +89,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-          REPORT_ISSUE: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.report_issue == true }}
+          REPORT_ISSUE: ${{ github.event_name == 'schedule' || inputs.report_issue == true }}
         run: |
           set +e
           set -o pipefail
