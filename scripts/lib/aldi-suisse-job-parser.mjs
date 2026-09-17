@@ -9,14 +9,13 @@
  * each detail page (`/job/{id}`) is server-rendered HTML whose job-specific
  * body lives in `<div class="description">`.
  *
- * ALDI has stores across Ticino including locations in Lugano area,
- * Bellinzona, and other TI municipalities.
+ * ALDI has stores across Switzerland; each posting carries a source location
+ * that the crawler resolves to one of the 26 Swiss cantons.
  *
  * Exports:
  *   parseAldiSearchResults(json)   -- extract job rows from the REST API
  *   parseAldiListingPage(html)     -- (legacy) extract job links from SSR HTML
  *   parseAldiDetailPage(html)      -- extract job data from detail page
- *   isAldiTicinoJob(job)           -- filter for Ticino positions
  *   isAldiJob(job)                 -- match ALDI jobs in dataset
  *   ALDI_SEARCH_API                -- TYPO3 REST job-search endpoint
  *   ALDI_SUCCESSFACTORS_BASE       -- SuccessFactors base URL
@@ -39,15 +38,6 @@ export const ALDI_JOB_BASE = 'https://www.jobs.aldi.ch';
  * server-renders those anchors).
  */
 export const ALDI_SEARCH_API = 'https://www.jobs.aldi.ch/rest/jobs/search';
-
-/** Ticino locations where ALDI operates */
-const TICINO_LOCATIONS = [
-  'lugano', 'bellinzona', 'locarno', 'mendrisio', 'chiasso',
-  'giubiasco', 'biasca', 'agno', 'manno', 'rivera',
-  'camorino', 'tenero', 'losone', 'gordola',
-  'ticino', 'tessin',
-];
-
 
 /**
  * Extract the inner HTML of the first `<div>` whose class contains `classToken`,
@@ -293,21 +283,6 @@ export function parseAldiDetailPage(html = '') {
   if (!title && !body) return null;
 
   return { title, body, location, percentage, requirements };
-}
-
-/**
- * Check if an ALDI job is in Ticino.
- * @param {{ location?: string, canton?: string, city?: string }} job
- * @returns {boolean}
- */
-export function isAldiTicinoJob(job) {
-  if (!job) return false;
-  const loc = String(job.location || job.city || '').toLowerCase();
-  const canton = String(job.canton || '').toLowerCase();
-
-  if (canton === 'ti' || canton === 'ticino' || canton === 'tessin') return true;
-
-  return TICINO_LOCATIONS.some((kw) => loc.includes(kw));
 }
 
 /**
