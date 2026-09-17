@@ -197,6 +197,18 @@ jobs:
           INPUT_DIR: ${{ runner.temp }}/loop-fleet-ledger-input
         run: |
           set -euo pipefail
+          remote_timeout_seconds=90
+          bounded_remote() {
+            if timeout --signal=TERM --kill-after=10s "${remote_timeout_seconds}s" "$@"; then
+              return 0
+            else
+              status=$?
+            fi
+            echo "::error::remote command failed or exceeded ${remote_timeout_seconds}s (status ${status}): $*" >&2
+            return "$status"
+          }
+          export GIT_TERMINAL_PROMPT=0
+          export GH_PAGER=cat
           write_token="${APP_TOKEN:-${GITHUB_PAT:-}}"
           if [ -z "$write_token" ]; then
             echo "::error::No reviewed App/PAT token; refusing to push a ledger branch or open a PR."
@@ -206,11 +218,11 @@ jobs:
 
           git config user.name 'frontaliere-automation[bot]'
           git config user.email '41898282+frontaliere-automation[bot]@users.noreply.github.com'
-          git fetch origin main
+          bounded_remote git fetch origin main
           git checkout --detach origin/main
 
           base_branch='chore/loop-fleet-ledger'
-          open_pr_record=$(gh pr list \
+          open_pr_record=$(bounded_remote gh pr list \
             --repo "$GITHUB_REPOSITORY" \
             --state open \
             --json number,headRefName,baseRefName \
@@ -220,7 +232,8 @@ jobs:
           if [ -n "$open_pr_record" ]; then
             IFS=$'\t' read -r open_pr open_branch <<<"$open_pr_record"
           fi
-          source_orphan_branch=$(git ls-remote --heads origin "refs/heads/${base_branch}-${SOURCE_LOOP}-${SOURCE_RUN_ID}-*" | sed -n '1{s#.*refs/heads/##;p}')
+          source_orphan_branch=$(bounded_remote git ls-remote --heads origin "refs/heads/${base_branch}-${SOURCE_LOOP}-${SOURCE_RUN_ID}-*" | sed -n '1{s#.*refs/heads/##;p}')
+          base_branch_ref=$(bounded_remote git ls-remote --heads origin "refs/heads/$base_branch")
           branch="$base_branch"
           ledger_branch=''
           orphan_recovery='false'
@@ -231,13 +244,13 @@ jobs:
             ledger_branch="$source_orphan_branch"
             branch="$source_orphan_branch"
             orphan_recovery='true'
-          elif git ls-remote --exit-code origin "refs/heads/$base_branch" >/dev/null 2>&1; then
+          elif [ -n "$base_branch_ref" ]; then
             ledger_branch="$base_branch"
             branch="${base_branch}-${SOURCE_LOOP}-${SOURCE_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
             orphan_recovery='true'
           fi
           if [ -n "$ledger_branch" ]; then
-            git fetch origin "$ledger_branch"
+            bounded_remote git fetch origin "$ledger_branch"
             for ledger_file in loop-observations.jsonl loop-decisions.jsonl loop-health-history.jsonl lifecycle-events.jsonl; do
               if git cat-file -e "origin/$ledger_branch:data/loop-fleet/ledger/$ledger_file" 2>/dev/null; then
                 mkdir -p data/loop-fleet/ledger
@@ -280,7 +293,7 @@ jobs:
             echo 'Recovering an orphan ledger branch that already contains this validated batch.'
           fi
           push_url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          git -c http.https://github.com/.extraheader= push --set-upstream "$push_url" "$branch"
+          bounded_remote git -c http.https://github.com/.extraheader= push --set-upstream "$push_url" "$branch"
 
           body="$RUNNER_TEMP/loop-fleet-ledger-pr-body.md"
           cat > "$body" <<EOF
@@ -298,7 +311,7 @@ jobs:
           node scripts/ci/pr-body-check-gate.mjs --body-file "$body"
           if [ -n "$open_pr" ]; then
             for edit_attempt in 1 2 3; do
-              if gh pr edit "$open_pr" --repo "$GITHUB_REPOSITORY" --body-file "$body"; then
+              if bounded_remote gh pr edit "$open_pr" --repo "$GITHUB_REPOSITORY" --body-file "$body"; then
                 break
               fi
               if [ "$edit_attempt" -eq 3 ]; then
@@ -310,7 +323,7 @@ jobs:
               sleep "$retry_delay"
             done
           else
-            gh pr create \
+            bounded_remote gh pr create \
               --repo "$GITHUB_REPOSITORY" \
               --base main \
               --head "$branch" \
