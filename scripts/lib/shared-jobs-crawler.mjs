@@ -3641,6 +3641,15 @@ async function extractDetailPayload(html, detailUrl) {
 
 const WORKDAY_MAX_PAGES = 10000; // safety cap; reaching it means the feed is incomplete
 
+function isConcreteSwissWorkdayLocation(location = '') {
+  const normalized = normalizeSpace(location);
+  return Boolean(
+    normalized &&
+    isTargetSwissLocation(normalized, { includeBorderProximity: false }) &&
+    inferAnyCanton(normalized),
+  );
+}
+
 async function crawlWorkdayJobs(
   company,
   source,
@@ -3781,7 +3790,7 @@ async function crawlWorkdayJobs(
             const pageLoc = detailPayload.locationFromPage;
             const combinedLocSignal = `${title} ${pageLoc} ${detailPayload.description || ''}`;
             if (!isTargetSwissLocation(combinedLocSignal)) {
-              // Detail page disproves Ticino relevance -> discard.
+              // Detail page disproves Swiss relevance -> discard.
               continue;
             }
             location = pageLoc;
@@ -3837,15 +3846,17 @@ async function crawlWorkdayJobs(
       if (isLocationExplicitlyForeign(location)) continue;
       if (isExplicitlyOutsideTarget(geoSignal) || isExplicitlyOutsideTargetCantons(geoSignal)) continue;
       if (!location && !isTargetSwissLocation(`${title} ${descriptionSeed}`)) continue;
+      if (requireConcreteLocation && !isConcreteSwissWorkdayLocation(location)) {
+        console.warn(`  ⚠️ Skipping Workday job without a concrete Swiss locality: "${title}" (${location || 'unknown'})`);
+        continue;
+      }
       if (!location) {
-        if (requireConcreteLocation) {
-          console.warn(`  ⚠️ Skipping Workday job without a concrete location: "${title}"`);
-          continue;
-        }
         location = company.city || 'Ticino';
       }
       if (!isTargetSwissLocation(`${title} ${location} ${descriptionSeed}`)) continue;
-      const inferredCanton = inferAnyCanton(location) || inferAnyCanton(`${title} ${descriptionSeed}`) || '';
+      const inferredCanton = (requireConcreteLocation
+        ? inferAnyCanton(location)
+        : inferAnyCanton(location) || inferAnyCanton(`${title} ${descriptionSeed}`)) || '';
       if (!inferredCanton) { console.warn(`  ⚠️ Skipping job with unknown canton: "${title}" (location: ${location})`); continue; }
       collected.push({
         id: '',
@@ -6525,6 +6536,7 @@ export const __testables = {
   toJobFromJsonLd,
   toJobFromHtmlFallback,
   processCompany,
+  isConcreteSwissWorkdayLocation,
   extractHtmlMicrodataAddress,
   isJsonLdCountryExplicitlyForeign,
   setCrawlerConfigForTests(cfg) { crawlerConfigGlobal = cfg; },

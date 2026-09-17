@@ -3,6 +3,7 @@ import path from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
 import { localizeJob } from '../scripts/localize-vf-existing-jobs.mjs';
 import { resolveVfSwissLocation } from '../scripts/lib/vf-job-parser.mjs';
+import { __testables as sharedCrawlerTestables } from '../scripts/lib/shared-jobs-crawler.mjs';
 
 describe('VF localization flow', () => {
   it('runs fallback locale translation after the shared crawler', () => {
@@ -52,5 +53,10 @@ describe('VF localization flow', () => {
     expect(source).toContain('WORKDAY_MAX_PAGES');
     expect(source).not.toContain('while (offset < 200)');
     expect(source).toContain('requireConcreteLocation: true');
+  });
+
+  it('requires a concrete Swiss Workday locality before canton inference', () => {
+    expect(sharedCrawlerTestables.isConcreteSwissWorkdayLocation('Switzerland')).toBe(false);
+    expect(sharedCrawlerTestables.isConcreteSwissWorkdayLocation('Stabio')).toBe(true);
   });
 });

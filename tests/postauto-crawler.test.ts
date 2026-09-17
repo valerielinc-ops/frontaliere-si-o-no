@@ -7,6 +7,7 @@ import {
   isTrustedDomain,
   resolveAddress,
 } from '../scripts/lib/postauto-job-parser.mjs';
+import { __testables as postAutoTestables } from '../scripts/lib/postauto-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('PostAuto crawler parser', () => {
@@ -100,6 +101,42 @@ describe('PostAuto crawler parser', () => {
 
     it('does not fabricate the Bern HQ for a missing city', () => {
       expect(resolveAddress('', 'BE')).toBeNull();
+    });
+  });
+
+  describe('listing pagination', () => {
+    it('does not accept an empty page after a positive total was declared', async () => {
+      const pageRecords = Array.from({ length: 20 }, (_, index) => ({
+        response: {
+          id: `postauto-test-${index}`,
+          cust_brandCompanyJobSearch: ['PostAuto'],
+        },
+      }));
+      const fetchMock = vi.fn(async (_url: string, init?: RequestInit) => {
+        const body = JSON.parse(String(init?.body || '{}')) as { pageNumber?: number };
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({
+            totalJobs: body.pageNumber === 0 ? 40 : 0,
+            jobSearchResult: body.pageNumber === 0 ? pageRecords : [],
+          }),
+        };
+      });
+      vi.stubGlobal('fetch', fetchMock);
+
+      try {
+        const listings = await postAutoTestables.fetchPostAutoListings(1000);
+        expect(listings.fetchOutcome).toBe('feed_endpoint_unavailable');
+        expect(listings.listingStats[0]).toMatchObject({
+          locale: 'de_DE',
+          seen: 20,
+          totalJobs: 40,
+          fetchOutcome: 'feed_endpoint_unavailable',
+        });
+      } finally {
+        vi.unstubAllGlobals();
+      }
     });
   });
 

@@ -324,7 +324,10 @@ async function fetchPostAutoListings(timeoutMs) {
       }
 
       const { totalJobs: total, jobs } = page;
-      if (Number.isFinite(total)) totalJobs = total;
+      // Keep the first positive declaration as the authoritative upper bound.
+      // Later pages can report 0/unknown while the same feed is still being
+      // paginated; replacing a known total would accept a truncated snapshot.
+      if (totalJobs === null && Number.isFinite(total) && total > 0) totalJobs = total;
       if (jobs.length === 0) {
         if (Number.isFinite(totalJobs) && seen < totalJobs) {
           console.warn(`⚠️ PostAuto ${apiLocale}: empty page before declared total (${seen}/${totalJobs}).`);
@@ -522,6 +525,10 @@ export async function fetchAllPostAutoJobs() {
   });
   return jobs;
 }
+
+export const __testables = {
+  fetchPostAutoListings,
+};
 
 // Re-export shared helpers so callers don't need a second import line.
 export { slugify, stripHtml, extractPostJobIdFromUrl };
