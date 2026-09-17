@@ -237,9 +237,11 @@ jobs:
         env:
           ROLLOUT_REPOSITORY: ${{ github.repository }}
           ROLLOUT_SWITCH: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          OPUSMT_RESCUE_SWITCH: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
         run: |
           echo "Translation rollout repository=$ROLLOUT_REPOSITORY"
           echo "LOCAL_MT_LANG_AWARE_OVERWRITE=$ROLLOUT_SWITCH"
+          echo "LOCAL_MT_OPUSMT_RESCUE=$OPUSMT_RESCUE_SWITCH"
       - name: "Phase 2a: Local MT bulk translate (Argos)"
         if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
         continue-on-error: true
@@ -247,6 +249,9 @@ jobs:
           LOCAL_MT_TIME_BUDGET_MS: "9000000"
           LOCAL_MT_MOPUP_DEADLINE_MS: "16800000"
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
+          MT_LOCAL_OPUSMT: "1"
+          TRANSFORMERS_CACHE: .cache/transformers
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
       - name: Re-assemble dataset after Argos bulk
@@ -354,6 +359,9 @@ jobs:
           LOCAL_MT_TIME_BUDGET_MS: "9000000"
           LOCAL_MT_MOPUP_DEADLINE_MS: "16800000"
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
+          MT_LOCAL_OPUSMT: "1"
+          TRANSFORMERS_CACHE: .cache/transformers
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
       - name: Re-assemble dataset after Phase 2c mop-up
