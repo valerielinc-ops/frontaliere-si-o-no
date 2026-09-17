@@ -25,7 +25,6 @@ import {
 import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
 import {
   classifyAutomationRisk,
-  findSeparateHumanApproval,
 } from './lib/automation-risk-policy.mjs';
 import { REVIEW_GATE_STEP_NAME } from './lib/vitestCheck.mjs';
 
@@ -412,19 +411,6 @@ export function evaluateNativeAutoMerge({
       riskDomains: risk.domains,
       humanApprovalRequired: false,
       humanApprovalVerified: false,
-    };
-  }
-  if (risk.needsHumanVeto) {
-    const humanApproval = findSeparateHumanApproval(reviews, pr.headRefOid);
-    return {
-      allow: false,
-      reason: `\`needs-human\` è un veto persistente: solo un umano può rimuoverlo dopo approvazione sulla HEAD${humanApproval ? ' e review umana verificata sulla HEAD' : ''}`,
-      riskDomains: risk.domains,
-      humanApprovalRequired: true,
-      humanApprovalVerified: humanApproval !== null,
-      humanApprovalReviewId: humanApproval?.id || null,
-      needsHumanVeto: Boolean(risk.needsHumanVeto),
-      riskDenyCode: risk.denyCode,
     };
   }
   if (pr.autoMergeRequest !== null) {

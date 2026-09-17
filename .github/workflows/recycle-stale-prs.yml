@@ -258,15 +258,14 @@ jobs:
           fi
 
       # Visibilita' needs-human: quattro sorgenti convergono su questa label — il
-      # 🔴-fixer al round-cap, che etichetta e STOPPA (by-design), lo step qui
-      # sopra per le draft parcheggiate, il followup-drainer per le issue
-      # too-large (:1204), e l'escalation cronica di
-      # scripts/ci/close-recovered-failure-issues.mjs. In tutti i casi NESSUN
-      # processo rilancia o segnala quell'oggetto — resta fermo finche' l'owner
-      # non guarda a mano (osservato #1526: 102h di latenza).
+      # 🔴-fixer al round-cap, lo step qui sopra per le draft parcheggiate, il
+      # followup-drainer per le issue too-large (:1204), e l'escalation cronica
+      # di scripts/ci/close-recovered-failure-issues.mjs. Sulle PR la label e'
+      # solo tracking: round-cap e draft hanno i propri gate, ma la presenza di
+      # needs-human non blocca auto-merge, autorebase o dispatch.
       #
-      # PERCHE' ANCHE LE ISSUE, e perche' QUI. Su `needs-human` la label non e'
-      # un selettore ma un filtro di ESCLUSIONE: scripts/ci/followup-drainer.mjs
+      # PERCHE' ANCHE LE ISSUE, e perche' QUI. Sulle issue `needs-human` resta
+      # un filtro di ESCLUSIONE: scripts/ci/followup-drainer.mjs
       # la legge in isReparkableCandidate() (:794) per tenere una issue fuori dal
       # pool dei retry parcheggiati, e a :1345 per escluderla dal rescue
       # `agent:fix` dei crawler. Fino a questa PR nessun workflow dei due repo
@@ -310,7 +309,10 @@ jobs:
           [ -n "$ISSUES" ] || ISSUES='_(nessuna)_'
           # Markdown backticks in this literal description are intentional.
           # shellcheck disable=SC2016
-          DESC=$(printf 'Nessun processo automatico sblocchera questi oggetti, e su `needs-human` la label e un filtro di ESCLUSIONE dalle code del drainer, non una segnalazione. Servono occhi umani.\n\n**PR** (%s) — il fixer dei red-flag ha raggiunto il round-cap e si e fermato (anti-loop), oppure sono draft parcheggiate, che ogni strato del ciclo salta by-design:\n\n%s\n\n**Issue** (%s) — escalate dal followup-drainer (too-large) o dal gate cronico di close-recovered-failure-issues.mjs (un guasto che ricorre oltre soglia). Restano fuori dal pool dei retry parcheggiati e dal rescue agent:fix dei crawler finche portano la label:\n\n%s\n\n_Issue dedup giornaliera da recycle-stale-prs.yml (zero-Claude); si aggiorna con un commento di recurrence finche esiste qualcosa di needs-human. Chiudila quando entrambe le liste sono vuote._' "$PR_COUNT" "$PRS" "$ISSUE_COUNT" "$ISSUES")
+          DESC=$(printf 'La label `needs-human` e un segnale di tracking: sulla PR non e un veto di merge, mentre sulle issue resta un filtro di esclusione dalle code del drainer.\n\n**PR** (%s) — il fixer dei red-flag ha raggiunto il round-cap (anti-loop), oppure sono draft parcheggiate. Questi gate spiegano perche la PR non e pronta; la sola label non impedisce auto-merge, autorebase o dispatch quando i gate normali passano:\n\n%s\n\n**Issue** (%s) — escalate dal followup-drainer (too-large) o dal gate cronico di close-recovered-failure-issues.mjs (un guasto che ricorre oltre soglia). Restano fuori dal pool dei retry parcheggiati e dal rescue agent:fix dei crawler finche portano la label:\n\n%s\n\n_Issue dedup giornaliera da recycle-stale-prs.yml (zero-Claude); si aggiorna con un commento di recurrence finche esiste qualcosa di needs-human. Chiudila quando entrambe le liste sono vuote._' "$PR_COUNT" "$PRS" "$ISSUE_COUNT" "$ISSUES")
+          # Il titolo sottostante e' una chiave di dedup storica: resta invariato
+          # per non creare una seconda issue, mentre il body distingue il
+          # tracking PR dal routing terminale delle issue.
           node scripts/lib/github-issue-creator.mjs \
             --title "needs-human: PR bloccate in attesa di revisione umana" \
             --description "$DESC" \

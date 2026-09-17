@@ -47,12 +47,14 @@ skipped. Non esiste un override nel prompt.
 Per una PR il native gate valuta titolo/body/label e un elenco file completo:
 metadata o elenco incompleti sono un deny tecnico fail-closed senza
 `humanApprovalRequired`; F1/F7, control-plane e path sconosciuti non aggiungono
-un veto quando il loro snapshot è verificabile. `needs-human` è
-un veto persistente: anche una review umana APPROVED non lo rimuove via
-automazione; la rimozione richiede un umano e una review `APPROVED` di un utente
-non-bot sulla HEAD esatta. Il gate finale riacquisisce metadata e file-list e
-usa `--match-head-commit` sulla HEAD appena verificata. La stessa guardia copre
-l'evaluator legacy che conserva una mutazione `--auto` di compatibilità.
+un veto quando il loro snapshot è verificabile. `needs-human` è solo una label
+di tracking/escalation: la sua presenza non aggiunge un veto e non cambia il
+percorso automatico della PR. Per questa label non è necessaria una review
+umana APPROVED né una rimozione umana: non blocca il merge automatico,
+l'autorebase o i dispatch. Il gate finale riacquisisce metadata e
+file-list e usa `--match-head-commit` sulla HEAD appena verificata. La stessa
+guardia copre l'evaluator legacy che conserva una mutazione `--auto` di
+compatibilità.
 
 I bootstrap `enable-native-automerge.yml` e `retry-native-automerge.yml` non
 eseguono più una guardia statica sui path del control-plane né richiedono un
@@ -165,7 +167,7 @@ PR a tier `high` (vedi tabella "Tier review"): prima del summary, includi `## Ad
 
 **Un ❓ dell'adversarial check il cui soggetto è funnel-critical NON resta sepolto qui.** Se impatta monetizzazione/traffico (SEO/redirect/structured-data/AdSense/sitemap/indicizzabilità) → 🔴 Important in `## Findings` (vedi Verification → escalation); non parcheggiarlo qui (#829: redirect-bridge come ❓ → `## LGTM` + zero follow-up).
 
-Tassonomia macchina: `STATE_PATTERNS` in `scripts/lib/pr-body-sections-check.mjs`; `bulletState()` gestisce gli stati chiudenti, quindi niente `agent:fix`/`needs-human` nei PR body. `needs-human` resta invece uno stato operativo F1/F7 delle issue/PR, non un claim di completezza. Omissione di `width` resta bug di rendering.
+Tassonomia macchina: `STATE_PATTERNS` in `scripts/lib/pr-body-sections-check.mjs`; `bulletState()` gestisce gli stati chiudenti, quindi niente `agent:fix`/`needs-human` nei PR body. `needs-human` resta invece uno stato operativo F1/F7 delle issue e, sulle PR, un marker di tracking senza potere di veto; non è un claim di completezza. Omissione di `width` resta bug di rendering.
 
 ## Verification
 

@@ -79,11 +79,11 @@ import { VITEST_CHECK_NAME } from './constants.mjs';
 export const REOPEN_BUDGET_MARKER = '<!-- AUTOREBASE_REOPEN_BUDGET -->';
 
 /**
- * Label applicata quando il breaker scatta. NON è nuova: `needs-human` è già
- * il canale di escalation del round-cap del redflag-fixer, pr-autorebase la
- * rispetta già come "no reopen" (ramo `labels.includes('needs-human')`), e
- * recycle-stale-prs la rende visibile in UNA issue dedup giornaliera. Riusarla
- * evita di aggiungere un secondo canale di segnalazione per la stessa cosa.
+ * Label applicata quando il breaker scatta. NON è nuova: `needs-human` è il
+ * canale di escalation del round-cap del redflag-fixer e
+ * `recycle-stale-prs` la rende visibile in UNA issue dedup giornaliera. Qui è
+ * solo un marker osservabile: il breaker decide dal commento sticky e nessun
+ * call-site tratta la presenza della label come un veto.
  */
 export const BREAKER_LABEL = 'needs-human';
 
@@ -279,56 +279,6 @@ export function decideReopen({
 }
 
 /**
- * Una PR `needs-human` va rilavorata a questo tick?
- *
- * ── PERCHÉ SERVE ───────────────────────────────────────────────────────────
- * Fermare il close+reopen lascia in piedi la metà più cara. Il ramo
- * `needs-human` di pr-autorebase dice «no reopen (attende umano); solo
- * dispatch tests» — ma ci arriva DOPO `pushBranch`, quindi ogni tick del cron
- * (ogni 30 minuti) rebasa, pusha e lancia la suite:
- *   48 tick/giorno × ~18 min di vitest = ~14,4 h di CI al giorno
- * per UNA PR che, per definizione di `needs-human`, sta aspettando una
- * persona. Su una coda serializzata è la stessa fame di coda del loop
- * close+reopen, con un numero più piccolo per giro e molti più giri.
- *
- * ── PERCHÉ IL GATE VA QUI E NON SUL `dispatchTests` ────────────────────────
- * Togliere il solo `dispatchTests` NON toglie il costo: il push del rebase si
- * autentica via App/PAT e RI-TRIGGERA da sé i workflow `pull_request`
- * (accertato su #3038, vedi l'header di pr-autorebase.mjs), quindi `tests.yml`
- * parte comunque — e con lui `pr-review-loop`, cioè quota Claude spesa su una
- * PR che aspetta un umano. Il lavoro da non fare è la PASSATA INTERA.
- *
- * ── COSA SI PRESERVA ───────────────────────────────────────────────────────
- * Il `dispatchTests` non è codice morto: dopo il push l'head è NUOVA, e il
- * dispatch è ciò che garantisce che il check-run vitest atterri su di essa
- * (gate 3 di auto-merge-eval); senza, l'head resta orfana (classe #1595/#1526).
- * L'intento — «chi arriva a guardarla trova un risultato riferito allo stato
- * attuale» — si conserva per intero facendo UNA passata piena ogni volta che
- * lo stato cambia, invece di 48 passate identiche al giorno quando non cambia
- * niente. Stessa impronta del breaker, quindi nessun secondo concetto: se
- * l'impronta è la stessa, per definizione non c'è nulla di nuovo da misurare.
- *
- * @param {{fingerprint:string, prior:{count:number,fingerprint:string}|null}} s
- * @returns {{action:'skip-idle'|'pass', reason:string}}
- */
-export function decideNeedsHumanPass({ fingerprint, prior }) {
-  if (prior && prior.fingerprint === fingerprint) {
-    return {
-      action: 'skip-idle',
-      reason: `\`needs-human\` e stato invariato (impronta \`${fingerprint}\`): `
-        + `nessun rebase, nessuna run di CI. Rifare la stessa passata non produce `
-        + `informazione nuova, e la coda è serializzata.`,
-    };
-  }
-  return {
-    action: 'pass',
-    reason: `\`needs-human\` ma lo stato è cambiato (impronta \`${fingerprint}\`): `
-      + `UNA passata piena — rebase + test — così il risultato che l'umano troverà `
-      + `è riferito allo stato attuale.`,
-  };
-}
-
-/**
  * Body del commento sticky. UNO solo per PR, riscritto in place: N giri
  * producono UNA notifica, non N. È questo — non un contatore di issue — a
  * garantire che la segnalazione sia una sola.
@@ -342,17 +292,10 @@ export function renderReopenBudget({
     ? `⛔ **autorebase / breaker aperto** — smetto di riaprire questa PR.`
     : action === 'skip-failing-check'
       ? `⛔ **autorebase / riciclo saltato** — non riapro questa PR.`
-      : action === 'needs-human-pass'
-        ? `⏸️ **autorebase / passata unica** — questa PR aspetta una persona.`
-        : `♻️ **autorebase / re-trigger** — riapertura ${count} di ${max}.`;
+      : `♻️ **autorebase / re-trigger** — riapertura ${count} di ${max}.`;
   const tail = action === 'reopen'
     ? `Il contatore si azzera da solo appena lo stato cambia davvero: un commit nuovo, il vitest che diventa verde, o una review che arriva.`
-    : action === 'needs-human-pass'
-      ? `Finché lo stato non cambia non viene fatto altro lavoro: niente rebase, niente run di CI. `
-        + `Appena arriva un commit nuovo (o il vitest cambia verdetto, o arriva una review) `
-        + `parte automaticamente UNA passata piena — rebase su main e ri-esecuzione dei test — `
-        + `così chi arriva a guardarla trova un risultato riferito allo stato attuale.`
-      : action === 'skip-breaker'
+    : action === 'skip-breaker'
         // Il breaker scatta tipicamente su PR VERDI (le rosse le ferma la
         // precondizione, prima e senza consumare budget): dire «far passare i
         // test» qui indicherebbe all'umano un'azione già soddisfatta.

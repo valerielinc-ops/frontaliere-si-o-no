@@ -36,10 +36,10 @@
  * opposto e peggiore. Serve visibilità, non un'azione.
  *
  * `needs-human` non è una label nuova: `recycle-stale-prs.yml` ha già uno step
- * che ne fa un digest giornaliero deduplicato («nessun processo automatico le
- * sbloccherà. Servono occhi umani»). Riusarla significa che il segnale finisce
- * in un canale che esiste già ed è già letto, invece di aprirne un secondo che
- * nessuno guarda.
+ * che ne fa un digest giornaliero deduplicato. Riusarla significa che il
+ * segnale finisce in un canale che esiste già ed è già letto, invece di aprirne
+ * un secondo che nessuno guarda. Sulle PR è solo tracking: la draft resta fuori
+ * dal ciclo perché è draft, non per un veto aggiuntivo della label.
  *
  * Uso:  node scripts/ci/parked-pr-detector.mjs [--dry-run]
  * Env:  GH_TOKEN, GITHUB_REPOSITORY, PARKED_HOURS (default 48).
@@ -140,8 +140,8 @@ function main() {
       `🅿️ **PR parcheggiata**: è in draft e ferma da più di ${hours}h.\n\n` +
       'Una draft è fuori da **tutti** gli strati del ciclo insieme — review, auto-merge, ' +
       'sweep, autorebase, stale-rescuer — quindi da qui in poi non si muove da sola: ' +
-      'nessun processo la revisionerà, la mergerà o la chiuderà. Etichettata `needs-human` ' +
-      'perché compaia nel digest giornaliero di `recycle-stale-prs.yml` invece di restare ' +
+      'finché resta draft nessun processo la revisionerà, la mergerà o la chiuderà. Etichettata `needs-human` ' +
+      'solo perché compaia nel digest giornaliero di `recycle-stale-prs.yml` invece di restare ' +
       'invisibile.\n\n' +
       'Tre uscite, tutte migliori del lasciarla lì:\n\n' +
       '1. **È lavoro vivo** → togli il draft. Rientra nel ciclo e da lì si muove da sola.\n' +

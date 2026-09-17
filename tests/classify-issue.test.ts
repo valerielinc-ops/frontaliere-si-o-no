@@ -354,18 +354,39 @@ describe('policy automazione F1/F7', () => {
     })).toMatchObject({ blocked: true, decision: 'deny', denyCode: 'high-risk-domain' });
   });
 
-  it.each(['issue', 'pull-request'] as const)('keeps needs-human as a persistent hard veto on %s', (surface) => {
+  it('keeps needs-human as a hard veto on the issue surface', () => {
     expect(classifyAutomationRisk({
+      title: 'follow-up: safe maintenance',
+      body: 'A deterministic maintenance change with a complete safe path.',
       labels: ['needs-human'],
+      category: 'follow-up',
       paths: ['src/safe.ts'],
       pathsComplete: true,
-      surface,
+      surface: 'issue',
     })).toMatchObject({
       blocked: true,
       decision: 'deny',
       denyCode: 'needs-human-veto',
       needsHumanVeto: true,
       humanApprovalRequired: true,
+    });
+  });
+
+  it('treats needs-human as tracking only on the pull-request surface', () => {
+    expect(classifyAutomationRisk({
+      title: 'follow-up: safe maintenance',
+      body: 'A deterministic maintenance change with a complete safe path.',
+      labels: ['needs-human'],
+      category: 'follow-up',
+      paths: ['src/safe.ts'],
+      pathsComplete: true,
+      surface: 'pull-request',
+    })).toMatchObject({
+      blocked: false,
+      decision: 'allow',
+      denyCode: null,
+      needsHumanVeto: false,
+      humanApprovalRequired: false,
     });
   });
 

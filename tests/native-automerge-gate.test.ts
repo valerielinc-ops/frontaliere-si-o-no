@@ -230,25 +230,12 @@ describe('native auto-merge gate (#8512)', () => {
     expect(result).not.toHaveProperty('humanApprovalRequired');
   });
 
-  it('needs-human è un veto persistente: la review umana non autorizza la rimozione automatica', () => {
-    const human = {
-      id: 10,
-      user: { type: 'User', login: 'owner' },
-      state: 'APPROVED',
-      commit_id: HEAD,
-      submitted_at: '2026-09-13T12:02:00Z',
-    };
+  it('needs-human è solo tracking: non blocca il native auto-merge', () => {
     expect(evaluateNativeAutoMerge({
       pr: pr({ labels: [{ name: 'needs-human' }] }),
-      reviews: [human, review(CLEAN_BODY)],
+      reviews: [review(CLEAN_BODY)],
       checkRuns: [vitest()],
-    })).toMatchObject({
-      allow: false,
-      needsHumanVeto: true,
-      humanApprovalRequired: true,
-      humanApprovalVerified: true,
-      humanApprovalReviewId: 10,
-    });
+    })).toMatchObject({ allow: true });
   });
 
   it('nega se title/body/labels non sono metadata verificabili', () => {
@@ -752,7 +739,8 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(evaluator).toContain('samePrMetadata(pr, freshPr)');
     expect(evaluator).toContain("freshRisk = classifyAutomationRisk");
     expect(evaluator).toContain("surface: 'pull-request'");
-    expect(evaluator).toContain("labels.some((label) => String(label || '').toLowerCase() === 'needs-human')");
+    expect(evaluator).not.toContain("labels.some((label) => String(label || '').toLowerCase() === 'needs-human')");
+    expect(evaluator).not.toContain('needs-human-veto');
     expect(evaluator).toContain("'--match-head-commit', freshPr.headRefOid");
   });
 

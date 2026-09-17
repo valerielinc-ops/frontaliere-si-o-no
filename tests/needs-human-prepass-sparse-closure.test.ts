@@ -44,6 +44,7 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import { classifyAutomationRisk } from '../scripts/ci/lib/automation-risk-policy.mjs';
 
 const ROOT = path.resolve(__dirname, '..');
 const WORKFLOW = '.github/workflows/needs-human-sweep.yml';
@@ -52,6 +53,20 @@ const ENTRY = 'scripts/ci/needs-human-prepass.mjs';
 /** Import statici relativi: le espressioni dinamiche devono fallire chiuso. */
 const REL_IMPORT_RE = /(?:^|\n)\s*(?:import|export)[^'";]*from\s*['"](\.[^'"]+)['"]|\bimport\s*\(?\s*['"](\.[^'"]+)['"]/g;
 const UNRESOLVED_DYNAMIC_IMPORT_RE = /\bimport\s*\(\s*(?!['"][^'"]*['"]\s*\))([\s\S]*?)\)/g;
+
+describe('needs-human — la label non è un veto di auto-merge', () => {
+  it('resta consentita sulla superficie PR quando gli altri dati sono verificabili', () => {
+    expect(classifyAutomationRisk({
+      title: 'follow-up: safe maintenance',
+      body: 'A deterministic maintenance change with a complete safe path.',
+      labels: ['needs-human'],
+      category: 'follow-up',
+      paths: ['src/safe.ts'],
+      pathsComplete: true,
+      surface: 'pull-request',
+    })).toMatchObject({ blocked: false, decision: 'allow', denyCode: null });
+  });
+});
 
 function relativeImportSpecifiers(source: string, file: string): string[] {
   const unresolved = source.match(UNRESOLVED_DYNAMIC_IMPORT_RE);
