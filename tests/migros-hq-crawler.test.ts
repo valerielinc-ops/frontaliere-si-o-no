@@ -72,6 +72,14 @@ describe('Migros HQ Zürich crawler parser', () => {
       expect(resolveMigrosHqSourceGeography('', '')).toBeNull();
       expect(resolveMigrosHqSourceGeography('Berlin', '')).toBeNull();
     });
+
+    it('rejects a foreign locality paired with a Swiss region', () => {
+      expect(resolveMigrosHqSourceGeography('London', 'Zürich')).toBeNull();
+    });
+
+    it('rejects locality and region that resolve to different cantons', () => {
+      expect(resolveMigrosHqSourceGeography('Lugano', 'Zürich')).toBeNull();
+    });
   });
 
   it('fails closed when a sitemap detail page cannot be read', async () => {

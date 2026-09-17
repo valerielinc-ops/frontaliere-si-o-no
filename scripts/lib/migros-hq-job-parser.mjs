@@ -31,7 +31,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
-import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetSwissLocation, normalizeCantonCode } from './target-swiss-locations.mjs';
 import { extractMigrosStructuredData } from './migros-job-parser.mjs';
 import { lookupSwissPostalCode } from './swiss-postal-code.mjs';
 
@@ -244,9 +244,16 @@ async function fetchJobListings(jobUrls, {
 export function resolveMigrosHqSourceGeography(addressLocality = '', addressRegion = '') {
   const location = normalizeSpace(addressLocality);
   const sourceRegion = normalizeSpace(addressRegion);
-  const sourceText = [location, sourceRegion].filter(Boolean).join(', ');
-  const canton = inferAnyCanton(sourceText);
-  if (!location || !canton || !isTargetSwissLocation(sourceText, { includeBorderProximity: false })) return null;
+  const canton = inferAnyCanton(location);
+  const regionCanton = sourceRegion
+    ? inferAnyCanton(sourceRegion) || normalizeCantonCode(sourceRegion)
+    : '';
+  if (
+    !location
+    || !canton
+    || !isTargetSwissLocation(location, { includeBorderProximity: false })
+    || (sourceRegion && (!regionCanton || regionCanton !== canton))
+  ) return null;
   return {
     location,
     canton,
