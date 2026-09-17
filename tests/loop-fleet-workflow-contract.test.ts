@@ -171,6 +171,25 @@ describe('loop fleet workflow contract', () => {
     expect(stdoutPipe).toBeGreaterThan(directorySetup);
   });
 
+  it('overlays the durable ledger branch after each ledger consumer checkout', () => {
+    const workflows = [
+      'loop-l10-fleet-control.yml',
+      'technical-operations-supervisor.yml',
+      'loop-fleet-status.yml',
+      'loop-fleet-ledger-audit.yml',
+      'loop-fleet-ledger-reconcile.yml',
+    ];
+    for (const name of workflows) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      const checkoutIndex = source.indexOf('uses: actions/checkout@v5');
+      const overlayIndex = source.indexOf('- name: Overlay durable ledger branch');
+      expect(checkoutIndex, name).toBeGreaterThanOrEqual(0);
+      expect(source, name).toContain('LEDGER_BRANCH: ledger/loop-fleet');
+      expect(source, name).toContain('git checkout FETCH_HEAD -- data/loop-fleet/ledger');
+      expect(overlayIndex, name).toBeGreaterThan(checkoutIndex);
+    }
+  });
+
   it('keeps the detached typecheck PID alive until its status is published', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'tests.yml'), 'utf8');
     expect(source).toContain('setsid --wait bash "$script"');
