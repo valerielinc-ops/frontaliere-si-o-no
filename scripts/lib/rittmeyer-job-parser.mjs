@@ -64,7 +64,7 @@ export function parseRittmeyerListingsPage(html = '') {
     rittmeyerListingRecordCount: { value: rows.length, enumerable: false },
     rittmeyerListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
     rittmeyerListingEmptyStateObserved: {
-      value: hasExplicitEmptyJobListing(listingContainer?.textContent || '', {
+      value: hasExplicitEmptyJobListing(listingContainer, {
         scopedToListing: Boolean(listingContainer),
       }),
       enumerable: false,

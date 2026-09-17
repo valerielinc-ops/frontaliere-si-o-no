@@ -65,5 +65,10 @@ describe('Delvitech job parser', () => {
       location: 'Germany',
       description: 'Based at our headquarters in Mendrisio.',
     })).toBe(false);
+    expect(isDelvitechTicinoJob({
+      title: 'Germany Site Lead',
+      location: 'Mendrisio, Switzerland',
+      description: 'The role collaborates with teams in Milan and Munich.',
+    })).toBe(true);
   });
 });

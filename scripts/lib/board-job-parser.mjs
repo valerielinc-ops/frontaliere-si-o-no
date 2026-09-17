@@ -137,7 +137,7 @@ export function parseBoardListings(html = '') {
       },
       boardListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
       boardListingEmptyStateObserved: {
-        value: hasExplicitEmptyJobListing(listingContainer?.textContent || '', {
+        value: hasExplicitEmptyJobListing(listingContainer, {
           scopedToListing: Boolean(listingContainer),
         }),
         enumerable: false,
@@ -170,7 +170,7 @@ export function parseBoardListings(html = '') {
     },
     boardListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
     boardListingEmptyStateObserved: {
-      value: hasExplicitEmptyJobListing(listingContainer?.textContent || '', {
+      value: hasExplicitEmptyJobListing(listingContainer, {
         scopedToListing: Boolean(listingContainer),
       }),
       enumerable: false,

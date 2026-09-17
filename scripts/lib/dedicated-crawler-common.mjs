@@ -6158,9 +6158,8 @@ export function isExplicitlyOutsideTarget(text) {
  */
 export function isLocationExplicitlyForeign(locationField) {
   const lower = String(locationField || '').toLowerCase();
-  if (!lower || lower.length < 2) return false;
   const foreignCountries = [
-    'malaysia', 'italy', 'italia', 'france', 'germany', 'deutschland',
+    'malaysia', 'italy', 'italia', 'italien', 'italie', 'france', 'germany', 'deutschland',
     'austria', 'österreich', 'spain', 'españa', 'portugal',
     'united kingdom', 'uk', 'usa', 'united states', 'canada',
     'china', 'japan', 'india', 'singapore', 'thailand', 'indonesia',
@@ -6211,6 +6210,9 @@ export function isLocationExplicitlyForeign(locationField) {
   // Check explicit country markers before canton inference so a mixed
   // string such as "Lugano, Italy" cannot be classified as Swiss.
   if (foreignCountries.some((k) => markerText.includes(` ${k} `)) || hasForeignCountryCode) return true;
+  // Do not let a short/empty field bypass the explicit-country checks above.
+  // In particular, two-letter ISO country values are valid ATS locations.
+  if (!lower || lower.length < 2) return false;
   if (/(\bch\b|swiss|svizzera|switzerland|schweiz|suisse)/i.test(lower)) return false;
   if (/\b(ticino|tessin|ti|graubunden|graubünden|grigioni|grisons|gr)\b/i.test(lower)) return false;
   // Word-boundary aware target-location check (NOT a substring scan, which let

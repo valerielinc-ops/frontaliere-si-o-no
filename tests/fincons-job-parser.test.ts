@@ -64,6 +64,18 @@ describe('fincons-job-parser', () => {
     expect(rows.finconsListingReadComplete).toBe(true);
   });
 
+  it('does not prove an empty snapshot from hidden listing template copy', () => {
+    const rows = parseFinconsListingsPage(`
+      <table id="jobs_table">
+        <tbody><tr><td><template>No open positions are currently available.</template></td></tr></tbody>
+      </table>
+    `);
+
+    expect(rows).toHaveLength(0);
+    expect(rows.finconsListingEmptyStateObserved).toBe(false);
+    expect(rows.finconsListingReadComplete).toBe(false);
+  });
+
   it('does not prove an empty snapshot from unrelated body copy without the listing container', () => {
     const rows = parseFinconsListingsPage(`
       <main><p>No open positions are currently available.</p></main>

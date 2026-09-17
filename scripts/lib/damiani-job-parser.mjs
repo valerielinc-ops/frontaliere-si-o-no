@@ -118,7 +118,7 @@ export function parseDamianiSearchPage(html = '') {
     skippedMalformedRows,
     ignoredNonJobRows,
     searchTableRendered: Boolean(document.querySelector('#searchresults')),
-    emptyStateObserved: hasExplicitEmptyJobListing(listingContainer?.textContent || '', {
+    emptyStateObserved: hasExplicitEmptyJobListing(listingContainer, {
       scopedToListing: Boolean(listingContainer),
     }),
   };

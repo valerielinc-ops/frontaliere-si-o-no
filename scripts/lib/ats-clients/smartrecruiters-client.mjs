@@ -498,11 +498,28 @@ export async function* fetchSmartRecruitersJobs(tenant, options = {}) {
       hasDeclaredTotal,
     } = await fetchListPage(url, ctx);
     if (hasDeclaredTotal) {
-      totalFound = totalFound === null ? serverTotal : Math.max(totalFound, serverTotal);
+      if (totalFound === null) {
+        totalFound = serverTotal;
+      } else if (requireTerminationProof && serverTotal !== totalFound) {
+        // A strict source proof cannot use either total as a moving target:
+        // accepting a changed count could certify a truncated or shifting
+        // response merely because the current page reaches the newer value.
+        paginationIntegrityProven = false;
+        break;
+      } else {
+        // Preserve the legacy walk for consumers that do not request a proof;
+        // only strict callers make total stability part of the contract.
+        totalFound = Math.max(totalFound, serverTotal);
+      }
     }
     if (content.length === 0) {
+      // An undeclared empty page is not source-completeness evidence in strict
+      // mode: after an earlier page it may be a transient/truncated response.
+      // Only a declared total reached by unique IDs can authorize the strict
+      // zero path. Legacy callers retain the historical short/empty stop.
       terminationProven = paginationIntegrityProven
-        && (totalFound === null || recordsSeen >= totalFound);
+        && (totalFound !== null && recordsSeen >= totalFound
+          || (!requireTerminationProof && totalFound === null));
       break;
     }
 
@@ -565,7 +582,10 @@ export async function* fetchSmartRecruitersJobs(tenant, options = {}) {
       break;
     }
     if (totalFound === null && content.length < DEFAULT_PAGE_SIZE) {
-      terminationProven = true;
+      // Strict callers cannot infer complete coverage from a short page when
+      // SmartRecruiters omitted totalFound. Leave the source unproven and
+      // fail closed instead of publishing a filtered zero.
+      terminationProven = false;
       break;
     }
     offset += content.length;

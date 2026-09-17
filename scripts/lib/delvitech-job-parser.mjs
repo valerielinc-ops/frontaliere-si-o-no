@@ -81,7 +81,7 @@ export function parseDelvitechCareerPage(html = '') {
     delvitechListingRecordCount: { value: cards.length, enumerable: false },
     delvitechListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
     delvitechListingEmptyStateObserved: {
-      value: hasExplicitEmptyJobListing(listingContainer?.textContent || '', {
+      value: hasExplicitEmptyJobListing(listingContainer, {
         scopedToListing: Boolean(listingContainer),
       }),
       enumerable: false,

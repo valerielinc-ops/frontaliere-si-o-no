@@ -71,7 +71,7 @@ export function parseFinconsListingsPage(html = '') {
     });
   const sourceRowCount = sourceRows.length;
   const listingContainer = document.querySelector('#jobs_table');
-  const emptyStateObserved = hasExplicitEmptyJobListing(listingContainer?.textContent || '', {
+  const emptyStateObserved = hasExplicitEmptyJobListing(listingContainer, {
     scopedToListing: Boolean(listingContainer),
   });
   const sourceReadComplete = Boolean(

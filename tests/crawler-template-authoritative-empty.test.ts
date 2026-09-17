@@ -98,6 +98,7 @@ import {
   hasAuthoritativeListingPageEvidence,
   hasExplicitEmptyJobListing,
 } from '../scripts/lib/job-listing-evidence.mjs';
+import { JSDOM } from 'jsdom';
 
 const COMPANY_KEY = 'authoritative-empty-test';
 const SCRATCH_PATH = path.join(os.tmpdir(), `frontaliere-jobs-scratch-${COMPANY_KEY}.json`);
@@ -276,11 +277,30 @@ describe('standard crawler authoritative-empty policy', () => {
   });
 
   it('requires an explicit listing marker rather than an empty parser result', () => {
-    expect(hasExplicitEmptyJobListing('No open positions are currently available.', {
+    const visible = new JSDOM(
+      '<div id="listing"><p class="empty-state">No open positions are currently available.</p></div>',
+    ).window.document.querySelector('#listing');
+    expect(hasExplicitEmptyJobListing(visible, {
       scopedToListing: true,
     })).toBe(true);
     expect(hasExplicitEmptyJobListing('No open positions are currently available.')).toBe(false);
     expect(hasExplicitEmptyJobListing('')).toBe(false);
+  });
+
+  it('does not use hidden or template empty-state copy as source evidence', () => {
+    const hidden = new JSDOM(
+      '<div id="listing"><div class="empty-state" style="display:none">No open positions are currently available.</div></div>',
+    ).window.document.querySelector('#listing');
+    const template = new JSDOM(
+      '<div id="listing"><template><p>No open positions are currently available.</p></template></div>',
+    ).window.document.querySelector('#listing');
+    const hiddenChild = new JSDOM(
+      '<div id="listing"><div class="empty-state"><span hidden>No open positions are currently available.</span></div></div>',
+    ).window.document.querySelector('#listing');
+
+    expect(hasExplicitEmptyJobListing(hidden, { scopedToListing: true })).toBe(false);
+    expect(hasExplicitEmptyJobListing(template, { scopedToListing: true })).toBe(false);
+    expect(hasExplicitEmptyJobListing(hiddenChild, { scopedToListing: true })).toBe(false);
   });
 
   it('requires listing evidence on the page that proved termination', () => {

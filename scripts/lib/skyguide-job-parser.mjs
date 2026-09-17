@@ -100,7 +100,7 @@ export function parseSkyguideListings(html = '') {
     skippedMalformedRows,
     ignoredNonJobRows,
     listingMarkupSeen: Boolean(document.querySelector('#searchresults')),
-    emptyStateObserved: hasExplicitEmptyJobListing(listingContainer?.textContent || '', {
+    emptyStateObserved: hasExplicitEmptyJobListing(listingContainer, {
       scopedToListing: Boolean(listingContainer),
     }),
   };

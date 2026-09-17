@@ -80,7 +80,7 @@ export function parseAltenListingHtml(html = '') {
     altenListingRecordCount: { value: rawRows.length, enumerable: false },
     altenListingSkippedMalformedRows: { value: rawRows.length - rows.length, enumerable: false },
     altenListingEmptyStateObserved: {
-      value: hasExplicitEmptyJobListing(listingContainer?.textContent || '', {
+      value: hasExplicitEmptyJobListing(listingContainer, {
         scopedToListing: Boolean(listingContainer),
       }),
       enumerable: false,
