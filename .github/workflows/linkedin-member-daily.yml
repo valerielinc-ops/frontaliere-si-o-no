@@ -111,7 +111,7 @@ jobs:
       # Under `set -e` a trailing test that is FALSE makes the whole step exit
       # non-zero — so the "no flags needed" case would have failed the run.
       - name: Post to LinkedIn (member)
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true'
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
           ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}

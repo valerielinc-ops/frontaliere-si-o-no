@@ -29,6 +29,47 @@ const OBSERVED_EVENT_TYPES = new Set([
   'rolled_back',
   'inconclusive',
 ]);
+const RECORDER_OWNED_EVENT_TYPES = new Set(['candidate', 'owner_assigned']);
+const REQUIRED_PREDECESSOR_CHAIN = Object.freeze({
+  pr_opened: Object.freeze(['candidate', 'owner_assigned']),
+  tests_passed: Object.freeze(['candidate', 'owner_assigned', 'pr_opened']),
+  review_approved: Object.freeze(['candidate', 'owner_assigned', 'pr_opened', 'tests_passed']),
+  merged: Object.freeze(['candidate', 'owner_assigned', 'pr_opened', 'tests_passed', 'review_approved']),
+  post_merge_verified: Object.freeze([
+    'candidate',
+    'owner_assigned',
+    'pr_opened',
+    'tests_passed',
+    'review_approved',
+    'merged',
+  ]),
+  rollback_requested: Object.freeze([
+    'candidate',
+    'owner_assigned',
+    'pr_opened',
+    'tests_passed',
+    'review_approved',
+    'merged',
+    'post_merge_verified',
+  ]),
+  rolled_back: Object.freeze([
+    'candidate',
+    'owner_assigned',
+    'pr_opened',
+    'tests_passed',
+    'review_approved',
+    'merged',
+    'post_merge_verified',
+    'rollback_requested',
+  ]),
+  // Inconclusive is the explicit TTL terminal for an owned candidate that did
+  // not advance into a PR; it intentionally needs no pr_opened.
+  inconclusive: Object.freeze(['candidate', 'owner_assigned']),
+});
+const PREDECESSOR_ORDER_ERRORS = Object.freeze({
+  'rollback_requested:post_merge_verified': 'rollback_requested occurs before post_merge_verified',
+  'rolled_back:rollback_requested': 'rolled_back occurs before rollback_requested',
+});
 const SHA_RE = /^[0-9a-f]{40}$/iu;
 
 function text(value) {
@@ -94,6 +135,74 @@ function sameRecord(left, right) {
   return JSON.stringify(leftEvent) === JSON.stringify(rightEvent);
 }
 
+function occurredAtMs(event) {
+  const timestamp = Date.parse(event?.occurredAt || '');
+  return Number.isFinite(timestamp) ? timestamp : null;
+}
+
+function validateLifecycleTransition(candidateId, priorEvents, event) {
+  const eventType = event?.eventType;
+  if (RECORDER_OWNED_EVENT_TYPES.has(eventType)) {
+    throw new Error(`${candidateId}.lifecycle ${eventType} is recorder-owned`);
+  }
+  const predecessorTypes = REQUIRED_PREDECESSOR_CHAIN[eventType];
+  if (!predecessorTypes) {
+    throw new Error(`${candidateId}.lifecycle ${eventType} has no downstream transition rule`);
+  }
+
+  const eventTime = occurredAtMs(event);
+  if (eventTime === null) {
+    throw new Error(`${candidateId}.lifecycle ${eventType} has an invalid occurredAt`);
+  }
+  const missing = predecessorTypes.filter((predecessorType) =>
+    !priorEvents.some((priorEvent) => priorEvent.eventType === predecessorType));
+  if (missing.length) {
+    throw new Error(
+      `${candidateId}.lifecycle ${eventType} requires predecessor chain: ${missing.join(', ')}`,
+    );
+  }
+
+  let previousTime = Number.NEGATIVE_INFINITY;
+  let previousType = null;
+  for (const predecessorType of predecessorTypes) {
+    const predecessor = priorEvents
+      .map((priorEvent, index) => ({ priorEvent, index, time: occurredAtMs(priorEvent) }))
+      .filter(({ priorEvent, time }) => priorEvent.eventType === predecessorType
+        && time !== null
+        && time >= previousTime
+        && time <= eventTime)
+      .sort((left, right) => left.time - right.time || left.index - right.index)[0];
+    if (!predecessor) {
+      const orderError = PREDECESSOR_ORDER_ERRORS[`${eventType}:${predecessorType}`];
+      throw new Error(
+        `${candidateId}.lifecycle ${orderError || `${eventType} occurs before predecessor ${predecessorType}`}`
+          + (!orderError && previousType ? ` after ${previousType}` : ''),
+      );
+    }
+    previousTime = predecessor.time;
+    previousType = predecessorType;
+  }
+
+  // Candidate TTL gates this alternative terminal transition. ownerSlaHours
+  // and postMergeVerificationHours stay explicit reporting deadlines: late,
+  // independently observed evidence is not silently discarded by the writer.
+  if (eventType === 'inconclusive') {
+    const candidate = priorEvents
+      .filter((priorEvent) => priorEvent.eventType === 'candidate')
+      .map((priorEvent) => occurredAtMs(priorEvent))
+      .filter((time) => time !== null)
+      .sort((left, right) => left - right)[0];
+    const ttlHours = Number(event.lifecycle?.candidateTtlHours);
+    const ttlDeadline = candidate + ttlHours * 3_600_000;
+    if (eventTime < ttlDeadline) {
+      throw new Error(
+        `${candidateId}.lifecycle inconclusive occurs before candidate TTL deadline `
+          + `${new Date(ttlDeadline).toISOString()}`,
+      );
+    }
+  }
+}
+
 /** Append new observed events idempotently; conflicting record IDs fail closed. */
 export function appendLoopFleetLifecycle({
   eventsFile,
@@ -145,7 +254,9 @@ export function appendLoopFleetLifecycle({
         ...(existingByCandidate.get(event.candidateId) || []),
       ]);
     }
-    candidateEventsToValidate.get(event.candidateId).push(event);
+    const candidateEvents = candidateEventsToValidate.get(event.candidateId);
+    validateLifecycleTransition(event.candidateId, candidateEvents, event);
+    candidateEvents.push(event);
   }
   for (const [candidateId, candidateEvents] of candidateEventsToValidate.entries()) {
     validateLifecycleCandidateTerminalChain(candidateId, candidateEvents);
