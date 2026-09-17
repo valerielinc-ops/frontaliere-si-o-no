@@ -3828,7 +3828,7 @@ export function healTruncatedStLocalities(jobs) {
 /**
  * True when the job's city is empty (no signal — HQ is the best guess) or
  * names the HQ's own city (#3513). Local twin of `localityMatchesHq` in
- * build-plugins/shared/companyHqAddresses.ts (this module imports only from
+ * build-plugins/shared/companyHqAddresses.mjs (this module imports only from
  * scripts/lib per its contract). Case/diacritic-insensitive, tolerates
  * decorated localities ("Bellinzona (TI)", "Bellinzona, Ticino").
  */

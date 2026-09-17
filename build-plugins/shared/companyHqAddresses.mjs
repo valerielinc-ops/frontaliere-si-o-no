@@ -1,0 +1,253 @@
+/**
+ * Company HQ addresses registry — used as fallback for JobPosting structured data
+ * when source job data lacks a valid streetAddress / postalCode.
+ *
+ * Shared by:
+ *   - `jobsSeoPagesPlugin.ts` (per-job detail pages)
+ *   - `weeklyEmployersPlugin.ts` (per-company × per-city weekly hubs)
+ *
+ * Keys are canonicalised company slugs (normEmployerKey output: lowercase,
+ * diacritics stripped, non-alphanumerics collapsed to `-`). When a job has
+ * no explicit HQ entry, callers MUST fall back to a city-level default and
+ * ultimately to the canton-capital default — never emit empty fields (see
+ * CLAUDE.md rule #3).
+ */
+
+import { inferAnyCanton } from '../../scripts/lib/target-swiss-locations.mjs';
+
+/**
+ * Canonical company-slug → HQ address. Keep in sync with new employer
+ * onboarding (`services/employerBrands.ts`).
+ */
+export const COMPANY_HQ_ADDRESSES = {
+  'eoc-ente-ospedaliero-cantonale': { streetAddress: 'Viale Officina 3', postalCode: '6500', addressLocality: 'Bellinzona', addressRegion: 'TI' },
+  'ente-ospedaliero-cantonale-eoc': { streetAddress: 'Viale Officina 3', postalCode: '6500', addressLocality: 'Bellinzona', addressRegion: 'TI' },
+  'lis-lugano-istituti-sociali': { streetAddress: 'Via alla Bozzoreda 15', postalCode: '6963', addressLocality: 'Pregassona', addressRegion: 'TI' },
+  'amministrazione-cantonale-ti': { streetAddress: 'Piazza Governo', postalCode: '6501', addressLocality: 'Bellinzona', addressRegion: 'TI' },
+  'migros-ticino': { streetAddress: 'Via Serrai 1', postalCode: '6592', addressLocality: 'S. Antonino', addressRegion: 'TI' },
+  'coop-ticino': { streetAddress: 'Via Vedeggio 4', postalCode: '6805', addressLocality: 'Mezzovico', addressRegion: 'TI' },
+  'vf-international-the-north-face-timberland': { streetAddress: 'Via Laveggio 5', postalCode: '6855', addressLocality: 'Stabio', addressRegion: 'TI' },
+  'zurich-insurance-sede-ticino': { streetAddress: 'Via Pretorio 22', postalCode: '6900', addressLocality: 'Lugano', addressRegion: 'TI' },
+  'banca-cler': { streetAddress: 'Aeschenplatz 3', postalCode: '4002', addressLocality: 'Basel', addressRegion: 'BS' },
+  'ffs-officine-ferrovie-federali': { streetAddress: 'Via Ludovico Benteler 12', postalCode: '6500', addressLocality: 'Bellinzona', addressRegion: 'TI' },
+  'ubs': { streetAddress: 'Via G. Calgari 2', postalCode: '6900', addressLocality: 'Lugano', addressRegion: 'TI' },
+  'corner-banca': { streetAddress: 'Via Canova 16', postalCode: '6901', addressLocality: 'Lugano', addressRegion: 'TI' },
+  'helsinn': { streetAddress: 'Via Pian Scairolo 9', postalCode: '6912', addressLocality: 'Lugano', addressRegion: 'TI' },
+  'ibsa-institut-biochimique': { streetAddress: 'Via del Piano 29', postalCode: '6926', addressLocality: 'Montagnola', addressRegion: 'TI' },
+  'medacta-international': { streetAddress: 'Strada Regina', postalCode: '6874', addressLocality: 'Castel San Pietro', addressRegion: 'TI' },
+  microsoft: { streetAddress: 'The Circle 02', postalCode: '8058', addressLocality: 'Zürich', addressRegion: 'ZH' },
+  'rsi-radiotelevisione-svizzera': { streetAddress: 'Via Canevascini 7', postalCode: '6903', addressLocality: 'Lugano', addressRegion: 'TI' },
+  'usi-universita-della-svizzera-italiana': { streetAddress: 'Via G. Buffi 13', postalCode: '6904', addressLocality: 'Lugano', addressRegion: 'TI' },
+  'supsi-dti': { streetAddress: 'Via Cantonale 2c', postalCode: '6928', addressLocality: 'Manno', addressRegion: 'TI' },
+  // Graubünden companies
+  'kantonsspital-graubunden-ksgr': { streetAddress: 'Loëstrasse 170', postalCode: '7000', addressLocality: 'Chur', addressRegion: 'GR' },
+  'kantonsspital-graubunden': { streetAddress: 'Loëstrasse 170', postalCode: '7000', addressLocality: 'Chur', addressRegion: 'GR' },
+  'tsmg': { streetAddress: 'Masanserstrasse 2', postalCode: '7000', addressLocality: 'Chur', addressRegion: 'GR' },
+  // Ticino companies missing from original list
+  'board-international': { streetAddress: 'Corso San Gottardo 46', postalCode: '6830', addressLocality: 'Chiasso', addressRegion: 'TI' },
+  'alten-switzerland': { streetAddress: 'Via Industria 1', postalCode: '6855', addressLocality: 'Stabio', addressRegion: 'TI' },
+  'fincons-group': { streetAddress: 'Via Cantonale 2a', postalCode: '6928', addressLocality: 'Manno', addressRegion: 'TI' },
+  'fondazione-la-fonte': { streetAddress: 'Via Trevano 55', postalCode: '6900', addressLocality: 'Lugano', addressRegion: 'TI' },
+  'bracco-suisse-s-a': { streetAddress: 'Via del Piano 29', postalCode: '6926', addressLocality: 'Montagnola', addressRegion: 'TI' },
+  'bracco-suisse': { streetAddress: 'Via del Piano 29', postalCode: '6926', addressLocality: 'Montagnola', addressRegion: 'TI' },
+  'bracco': { streetAddress: 'Via del Piano 29', postalCode: '6926', addressLocality: 'Montagnola', addressRegion: 'TI' },
+  'schindler': { streetAddress: 'Via Cantonale 1', postalCode: '6532', addressLocality: 'Castione', addressRegion: 'TI' },
+  'abb-svizzera-sede-ticino': { streetAddress: 'Via Cantonale 32', postalCode: '6572', addressLocality: 'Quartino', addressRegion: 'TI' },
+  'abb': { streetAddress: 'Via Cantonale 32', postalCode: '6572', addressLocality: 'Quartino', addressRegion: 'TI' },
+  'ruag-ag': { streetAddress: 'Via Campagna 1', postalCode: '6517', addressLocality: 'Arbedo', addressRegion: 'TI' },
+  'post-ch-ag': { streetAddress: 'Piazza Stazione 1', postalCode: '6500', addressLocality: 'Bellinzona', addressRegion: 'TI' },
+  'postfinance-ag': { streetAddress: 'Piazza Stazione 1', postalCode: '6500', addressLocality: 'Bellinzona', addressRegion: 'TI' },
+  'ariston-group': { streetAddress: 'Via Cantonale 31', postalCode: '6930', addressLocality: 'Bedano', addressRegion: 'TI' },
+  'skyguide': { streetAddress: 'Via Aeroporto', postalCode: '6982', addressLocality: 'Agno', addressRegion: 'TI' },
+  'skyguide-sa': { streetAddress: 'Via Aeroporto', postalCode: '6982', addressLocality: 'Agno', addressRegion: 'TI' },
+  'sunrise-communications-ag': { streetAddress: 'Via Cantonale 2c', postalCode: '6928', addressLocality: 'Manno', addressRegion: 'TI' },
+  'zucchetti-switzerland-sa': { streetAddress: 'Via Dunant 7', postalCode: '6828', addressLocality: 'Balerna', addressRegion: 'TI' },
+  'goline-sa': { streetAddress: 'Via Industria 5', postalCode: '6855', addressLocality: 'Stabio', addressRegion: 'TI' },
+  'avaloq': { streetAddress: 'Via Cantonale 10', postalCode: '6900', addressLocality: 'Lugano', addressRegion: 'TI' },
+  'lidl-svizzera': { streetAddress: 'Via Industria 6', postalCode: '6593', addressLocality: 'Cadenazzo', addressRegion: 'TI' },
+  // Generic company keys used in expired job data (no region suffix)
+  'coop': { streetAddress: 'Via Vedeggio 4', postalCode: '6805', addressLocality: 'Mezzovico', addressRegion: 'TI' },
+  'galenica': { streetAddress: 'Untermattweg 8', postalCode: '3027', addressLocality: 'Bern', addressRegion: 'BE' },
+  'fnz': { streetAddress: 'Via Cantonale 19', postalCode: '6900', addressLocality: 'Lugano', addressRegion: 'TI' },
+  'fust': { streetAddress: 'Zürcherstrasse 22', postalCode: '9246', addressLocality: 'Niederbüren', addressRegion: 'SG' },
+  // Crawler backlog #3337 batch 2
+  'zkb': { streetAddress: 'Bahnhofstrasse 9', postalCode: '8001', addressLocality: 'Zürich', addressRegion: 'ZH' },
+  // Crawler backlog #3342 round 2
+  'pfister': { streetAddress: 'Bernstrasse Ost 49', postalCode: '5034', addressLocality: 'Suhr', addressRegion: 'AG' },
+};
+
+/**
+ * City-level fallback addresses per known Ticino/Grigioni locality.
+ * Used when a company has no HQ entry and the job lacks a valid
+ * streetAddress — guarantees `streetAddress` is always present.
+ */
+export const CITY_FALLBACK_ADDRESSES = {
+  'lugano': { streetAddress: 'Piazza Riforma 1', postalCode: '6900', addressLocality: 'Lugano', addressRegion: 'TI' },
+  'mendrisio': { streetAddress: 'Via Luigi Benteler 1', postalCode: '6850', addressLocality: 'Mendrisio', addressRegion: 'TI' },
+  'chiasso': { streetAddress: 'Corso San Gottardo 84', postalCode: '6830', addressLocality: 'Chiasso', addressRegion: 'TI' },
+  'stabio': { streetAddress: 'Via Industria 1', postalCode: '6855', addressLocality: 'Stabio', addressRegion: 'TI' },
+  'bellinzona': { streetAddress: 'Piazza Governo', postalCode: '6500', addressLocality: 'Bellinzona', addressRegion: 'TI' },
+  'locarno': { streetAddress: 'Piazza Grande 18', postalCode: '6600', addressLocality: 'Locarno', addressRegion: 'TI' },
+  'ticino': { streetAddress: 'Piazza Governo', postalCode: '6500', addressLocality: 'Bellinzona', addressRegion: 'TI' },
+  // Major non-Ticino cities — used when a job sits outside Ticino (e.g. a
+  // Swisscom posting in Zurich) so it never inherits a Ticino HQ address.
+  'zürich': { streetAddress: 'Bahnhofstrasse 1', postalCode: '8001', addressLocality: 'Zürich', addressRegion: 'ZH' },
+  'zurich': { streetAddress: 'Bahnhofstrasse 1', postalCode: '8001', addressLocality: 'Zürich', addressRegion: 'ZH' },
+  'zurigo': { streetAddress: 'Bahnhofstrasse 1', postalCode: '8001', addressLocality: 'Zürich', addressRegion: 'ZH' },
+  'winterthur': { streetAddress: 'Stadthausstrasse 4a', postalCode: '8400', addressLocality: 'Winterthur', addressRegion: 'ZH' },
+  'bern': { streetAddress: 'Bundesplatz 3', postalCode: '3011', addressLocality: 'Bern', addressRegion: 'BE' },
+  'berna': { streetAddress: 'Bundesplatz 3', postalCode: '3011', addressLocality: 'Bern', addressRegion: 'BE' },
+  'genève': { streetAddress: "Rue de l'Hôtel-de-Ville 2", postalCode: '1204', addressLocality: 'Genève', addressRegion: 'GE' },
+  'geneva': { streetAddress: "Rue de l'Hôtel-de-Ville 2", postalCode: '1204', addressLocality: 'Genève', addressRegion: 'GE' },
+  'genf': { streetAddress: "Rue de l'Hôtel-de-Ville 2", postalCode: '1204', addressLocality: 'Genève', addressRegion: 'GE' },
+  'ginevra': { streetAddress: "Rue de l'Hôtel-de-Ville 2", postalCode: '1204', addressLocality: 'Genève', addressRegion: 'GE' },
+  'lausanne': { streetAddress: 'Place de la Palud 2', postalCode: '1003', addressLocality: 'Lausanne', addressRegion: 'VD' },
+  'losanna': { streetAddress: 'Place de la Palud 2', postalCode: '1003', addressLocality: 'Lausanne', addressRegion: 'VD' },
+  'vevey': { streetAddress: 'Grande Place 5', postalCode: '1800', addressLocality: 'Vevey', addressRegion: 'VD' },
+  'basel': { streetAddress: 'Marktplatz 9', postalCode: '4001', addressLocality: 'Basel', addressRegion: 'BS' },
+  'basilea': { streetAddress: 'Marktplatz 9', postalCode: '4001', addressLocality: 'Basel', addressRegion: 'BS' },
+  'olten': { streetAddress: 'Hauptgasse 33', postalCode: '4600', addressLocality: 'Olten', addressRegion: 'SO' },
+  'monthey': { streetAddress: "Place de l'Hôtel-de-Ville 1", postalCode: '1870', addressLocality: 'Monthey', addressRegion: 'VS' },
+  'luzern': { streetAddress: 'Kornmarkt 3', postalCode: '6004', addressLocality: 'Luzern', addressRegion: 'LU' },
+  'lucerna': { streetAddress: 'Kornmarkt 3', postalCode: '6004', addressLocality: 'Luzern', addressRegion: 'LU' },
+  'zug': { streetAddress: 'Postplatz 1', postalCode: '6300', addressLocality: 'Zug', addressRegion: 'ZG' },
+  'st. gallen': { streetAddress: 'Gallusstrasse 14', postalCode: '9000', addressLocality: 'St. Gallen', addressRegion: 'SG' },
+  'san gallo': { streetAddress: 'Gallusstrasse 14', postalCode: '9000', addressLocality: 'St. Gallen', addressRegion: 'SG' },
+};
+
+/**
+ * Canton (ISO 3166-2:CH suffix) → a central civic address in that canton's
+ * capital. Last-resort fallback so a job in any canton resolves to a coherent
+ * same-canton address instead of always defaulting to Bellinzona (Ticino).
+ */
+export const CANTON_CAPITAL_ADDRESSES = {
+  TI: { streetAddress: 'Piazza Governo', postalCode: '6500', addressLocality: 'Bellinzona', addressRegion: 'TI' },
+  ZH: { streetAddress: 'Bahnhofstrasse 1', postalCode: '8001', addressLocality: 'Zürich', addressRegion: 'ZH' },
+  BE: { streetAddress: 'Bundesplatz 3', postalCode: '3011', addressLocality: 'Bern', addressRegion: 'BE' },
+  GE: { streetAddress: "Rue de l'Hôtel-de-Ville 2", postalCode: '1204', addressLocality: 'Genève', addressRegion: 'GE' },
+  VD: { streetAddress: 'Place de la Palud 2', postalCode: '1003', addressLocality: 'Lausanne', addressRegion: 'VD' },
+  BS: { streetAddress: 'Marktplatz 9', postalCode: '4001', addressLocality: 'Basel', addressRegion: 'BS' },
+  SO: { streetAddress: 'Hauptgasse 72', postalCode: '4500', addressLocality: 'Solothurn', addressRegion: 'SO' },
+  VS: { streetAddress: 'Rue du Grand-Pont 12', postalCode: '1950', addressLocality: 'Sion', addressRegion: 'VS' },
+  LU: { streetAddress: 'Kornmarkt 3', postalCode: '6004', addressLocality: 'Luzern', addressRegion: 'LU' },
+  SG: { streetAddress: 'Gallusstrasse 14', postalCode: '9000', addressLocality: 'St. Gallen', addressRegion: 'SG' },
+  ZG: { streetAddress: 'Postplatz 1', postalCode: '6300', addressLocality: 'Zug', addressRegion: 'ZG' },
+  GR: { streetAddress: 'Poststrasse 33', postalCode: '7000', addressLocality: 'Chur', addressRegion: 'GR' },
+  AG: { streetAddress: 'Rathausgasse 1', postalCode: '5000', addressLocality: 'Aarau', addressRegion: 'AG' },
+  TG: { streetAddress: 'Rathausplatz 1', postalCode: '8500', addressLocality: 'Frauenfeld', addressRegion: 'TG' },
+  SH: { streetAddress: 'Vordergasse 17', postalCode: '8200', addressLocality: 'Schaffhausen', addressRegion: 'SH' },
+  FR: { streetAddress: "Place de l'Hôtel-de-Ville 1", postalCode: '1700', addressLocality: 'Fribourg', addressRegion: 'FR' },
+  NE: { streetAddress: "Rue de l'Hôtel-de-Ville 1", postalCode: '2000', addressLocality: 'Neuchâtel', addressRegion: 'NE' },
+};
+
+/**
+ * Default Swiss canton when no other signal is available. Site is
+ * Ticino-focused, so falling back to TI keeps the structured-data legal.
+ */
+export const DEFAULT_CANTON_REGION = 'TI';
+
+/**
+ * Derive canton (addressRegion) from a city name via the shared BFS-backed
+ * `inferAnyCanton` (all 26 cantons, fuzzy-tolerant — same source of truth as
+ * `resolveCanton()` in jobPostingSchema.ts and `deriveJobCanton()` in
+ * jobsSeoPagesPlugin.ts). Returns `DEFAULT_CANTON_REGION` when the city is
+ * unknown — never returns empty. A hand-rolled ~50-city dict + manual
+ * parenthetical/segment splitter previously lived here (AGENTS.md #6 sibling
+ * class); `inferAnyCanton` already handles decorated localities like
+ * "Geneva (Genève)" or "Chur, Graubünden" natively.
+ */
+export function deriveCantonFromCity(city) {
+  if (!city) return DEFAULT_CANTON_REGION;
+  return inferAnyCanton(String(city)) || DEFAULT_CANTON_REGION;
+}
+
+/**
+ * True when the job's city is empty (no signal — HQ is the best guess) or
+ * names the HQ's own city (#3513). Case/diacritic-insensitive, tolerates
+ * decorated localities ("Bellinzona (TI)", "Bellinzona, Ticino").
+ */
+export function localityMatchesHq(
+  city,
+  hq,
+) {
+  const norm = (s) => s
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z ]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const cityNorm = norm(String(city || ''));
+  if (!cityNorm) return true;
+  const hqNorm = norm(String(hq.addressLocality || ''));
+  if (!hqNorm) return false;
+  return cityNorm === hqNorm
+    || cityNorm.startsWith(`${hqNorm} `)
+    || cityNorm.includes(` ${hqNorm}`);
+}
+
+/**
+ * Region names that crawlers sometimes ship as `addressLocality` (#3513 —
+ * e.g. UBS postings with addressLocality "Ticino"). A region is not a
+ * schema.org locality: map it to the canton so the emitter can substitute
+ * the canton-capital locality, keeping street/CAP/locality coherent.
+ */
+const REGION_NAME_TO_CANTON = {
+  'ticino': 'TI', 'tessin': 'TI',
+  'grigioni': 'GR', 'graubünden': 'GR', 'graubunden': 'GR', 'grisons': 'GR', 'grischun': 'GR',
+  'vallese': 'VS', 'valais': 'VS', 'wallis': 'VS',
+};
+
+/**
+ * When `city` is actually a REGION name, return the canton-capital address
+ * (fully coherent street+CAP+locality) to use instead; `null` when `city`
+ * is a real locality (or empty).
+ */
+export function regionLocalityCapital(city) {
+  const raw = String(city || '').trim().toLowerCase();
+  if (!raw) return null;
+  const canton = REGION_NAME_TO_CANTON[raw];
+  if (!canton) return null;
+  return CANTON_CAPITAL_ADDRESSES[canton] || null;
+}
+
+/**
+ * Lookup a fallback HQ address by company slug, then by city name, with a
+ * final canton-capital guarantee. Always returns a fully populated address —
+ * never returns empty strings (CLAUDE.md rule #3).
+ *
+ * `authoritativeRegion`, when passed, overrides the city-derived canton —
+ * callers that already resolved a trustworthy canton (e.g. from an explicit
+ * addressRegion field) should pass it so this fallback stays consistent with
+ * that canton instead of re-deriving one from `city` (which may be empty or
+ * have just been rejected as inconsistent by the caller).
+ */
+export function resolveFallbackAddress(
+  companySlug,
+  city,
+  authoritativeRegion,
+) {
+  const cityCanton = authoritativeRegion || deriveCantonFromCity(city);
+  if (companySlug) {
+    const hq = COMPANY_HQ_ADDRESSES[companySlug.toLowerCase()];
+    // Only trust the curated HQ when the job has no own city or sits in the
+    // HQ's own city (#3513). Canton-level matching is NOT enough: a Lugano
+    // posting for a Bellinzona-seat employer (same canton TI) must not pair
+    // the HQ street+CAP with the Lugano locality — fall through to the
+    // city/canton lookup, which anchors street/CAP on the job's own city.
+    if (hq && hq.addressRegion === cityCanton && localityMatchesHq(city, hq)) return hq;
+  }
+  if (city) {
+    const cityHq = CITY_FALLBACK_ADDRESSES[city.toLowerCase()];
+    if (cityHq) return cityHq;
+  }
+  // Canton-capital last resort: a coherent same-canton address (never empty),
+  // keeping the real locality when known.
+  const capital = CANTON_CAPITAL_ADDRESSES[cityCanton] || CANTON_CAPITAL_ADDRESSES.TI;
+  return {
+    streetAddress: capital.streetAddress,
+    postalCode: capital.postalCode,
+    addressLocality: city || capital.addressLocality,
+    addressRegion: cityCanton,
+  };
+}

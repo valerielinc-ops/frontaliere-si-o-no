@@ -282,15 +282,40 @@ describe('Nord Anglia Education Switzerland crawler parser', () => {
     warnSpy.mockRestore();
   });
 
-  it('fails closed when a non-generic feed has no Swiss location signal', async () => {
-    const driftedFeed = validRssItem({
-      title: '<title><![CDATA[Teacher of Biology]]></title>',
-      link: '<link>https://careers.nordanglia.com/job/Teacher-of-Biology/1399902133/</link>',
-    });
+  it('fails closed when a non-empty feed has zero Swiss location signals', async () => {
+    const driftedFeed = rssFeed(
+      rssItemXml({
+        title: '<title><![CDATA[Teacher of Biology]]></title>',
+        link: '<link>https://careers.nordanglia.com/job/Teacher-of-Biology/1399902133/</link>',
+      }),
+      rssItemXml({
+        title: '<title><![CDATA[Teacher of Mathematics]]></title>',
+        link: '<link>https://careers.nordanglia.com/job/Teacher-of-Mathematics/1399902134/</link>',
+      }),
+    );
     vi.stubGlobal('fetch', vi.fn(async () => new Response(driftedFeed, { status: 200 })));
 
     await expect(fetchAllNordAngliaJobs()).rejects.toThrow(
-      /no Swiss title or route signals found in 1 non-generic RSS items/,
+      /no Swiss title or route signals found in 2 non-generic RSS items/,
+    );
+  });
+
+  it('fails closed when unrecognized location drift exceeds the feed drop budget', async () => {
+    const driftedFeed = rssFeed(
+      rssItemXml(),
+      rssItemXml({
+        title: '<title><![CDATA[Teacher of Mathematics]]></title>',
+        link: '<link>https://careers.nordanglia.com/job/Teacher-of-Mathematics/1399902134/</link>',
+      }),
+      rssItemXml({
+        title: '<title><![CDATA[Teacher of Physics]]></title>',
+        link: '<link>https://careers.nordanglia.com/job/Teacher-of-Physics/1399902135/</link>',
+      }),
+    );
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(driftedFeed, { status: 200 })));
+
+    await expect(fetchAllNordAngliaJobs()).rejects.toThrow(
+      /\[nord-anglia-drop-ratio\] Swiss location guard: dropped 2\/3 items/,
     );
   });
 

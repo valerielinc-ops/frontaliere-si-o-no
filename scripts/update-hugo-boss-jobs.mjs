@@ -18,7 +18,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { resolveFallbackAddress } from '../build-plugins/shared/companyHqAddresses.ts';
+import { resolveFallbackAddress } from '../build-plugins/shared/companyHqAddresses.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
@@ -107,18 +107,21 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
       break;
     }
     const ddo = extractPhenomDdo(html);
+    const searchData = ddo?.eagerLoadRefineSearch?.data;
+    if (!searchData || !Array.isArray(searchData.jobs)) {
+      throw new Error(
+        `Hugo Boss page ${page + 1} is missing a valid Phenom DDO/data envelope `
+        + '(expected eagerLoadRefineSearch.data.jobs).',
+      );
+    }
     const reportedTotal = Number(
-      ddo?.eagerLoadRefineSearch?.data?.totalHits
-      ?? ddo?.eagerLoadRefineSearch?.data?.total
+      searchData.totalHits
+      ?? searchData.total
       ?? ddo?.eagerLoadRefineSearch?.totalHits
       ?? 0,
     );
     if (reportedTotal > 0) totalHits = reportedTotal;
-    const rawPageJobs = ddo?.eagerLoadRefineSearch?.data?.jobs;
-    if (!Array.isArray(rawPageJobs)) {
-      console.error('❌ Hugo Boss page did not contain a DDO jobs array.');
-      break;
-    }
+    const rawPageJobs = searchData.jobs;
     const rawPageCount = rawPageJobs.length;
     const pageJobs = parseSearchPage(html);
     console.log(`  📄 Page ${page + 1}: ${pageJobs.length} parsed jobs from ${rawPageCount} DDO records (from=${from}${totalHits ? `, total=${totalHits}` : ''})`);

@@ -22,7 +22,7 @@
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.ts';
+import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton, isSwissLocationText, isTargetSwissLocation } from './target-swiss-locations.mjs';

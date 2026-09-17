@@ -40,7 +40,7 @@
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.ts';
+import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.mjs';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -447,8 +447,8 @@ export async function fetchAllNordAngliaJobs() {
 
   const jobs = [];
   const seen = new Set();
-  let nonGenericFeedItems = 0;
   let swissScopeCandidates = 0;
+  let swissSignalCandidates = 0;
   let swissScopeDrops = 0;
   for (const item of listings) {
     const rawTitle = normalizeSpace(item.title || '');
@@ -458,7 +458,9 @@ export async function fetchAllNordAngliaJobs() {
     // Evergreen placeholders are intentionally outside the drop-ratio
     // denominator: they are valid vendor records, but not open positions.
     if (isGenericOffer(title)) continue;
-    nonGenericFeedItems++;
+    // Count before location recognition: a changed title/route format must
+    // contribute to the denominator instead of disappearing silently.
+    swissScopeCandidates++;
 
     const titleLocation = extractTitleLocation(rawTitle);
     const routeToken = extractJobRouteToken(link);
@@ -467,10 +469,13 @@ export async function fetchAllNordAngliaJobs() {
     const titleIsSwiss = Boolean(titleLocation && isSwissNordAngliaLocation(titleLocation));
     const routeIsSwiss = Boolean(routeLocation);
     // The national RSS query is full-text and may return unrelated records.
-    // Only Swiss title/route signals enter the drift denominator; a foreign
-    // result with no Swiss signal is ordinary vendor search noise.
-    if (!titleIsSwiss && !routeIsSwiss) continue;
-    swissScopeCandidates++;
+    // Keep those records in the denominator: if the vendor format drifts,
+    // they must be visible to the same fail-closed drop-ratio guard.
+    if (!titleIsSwiss && !routeIsSwiss) {
+      swissScopeDrops++;
+      continue;
+    }
+    swissSignalCandidates++;
 
     let scopeDropped = false;
     if (routeToken && !routeIsSwiss) {
@@ -572,12 +577,13 @@ export async function fetchAllNordAngliaJobs() {
     jobs.push(job);
   }
 
-  // One malformed candidate is logged and dropped, but combined title/URL
-  // drift over half of the relevant items remains a hard failure so the
-  // indexed slice is kept.
-  if (nonGenericFeedItems > 0 && swissScopeCandidates === 0) {
+  // A non-empty relevant feed with zero Swiss signals is an explicit hard
+  // failure, rather than an empty success. Once at least one signal is
+  // present, combined drops over half of all non-generic candidates remain a
+  // hard failure so the indexed slice is kept.
+  if (swissScopeCandidates > 0 && swissSignalCandidates === 0) {
     throw new Error(
-      `[nord-anglia-drop-ratio] Swiss location guard: no Swiss title or route signals found in ${nonGenericFeedItems} non-generic RSS items`,
+      `[nord-anglia-drop-ratio] Swiss location guard: no Swiss title or route signals found in ${swissScopeCandidates} non-generic RSS items`,
     );
   }
   assertDropRatioWithinLimit('Swiss location guard', swissScopeCandidates, swissScopeDrops);
