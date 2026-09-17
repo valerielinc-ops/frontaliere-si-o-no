@@ -444,6 +444,26 @@ describe('record-loop-fleet-evidence', () => {
       });
   });
 
+  it('fails closed when an independent outcome uses an observing decision', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-observing-decision-'));
+    writeL1Evidence(dir);
+    writeIndependentL1Outcome(dir);
+    const decision = JSON.parse(fs.readFileSync(path.join(dir, 'l1-decision.json'), 'utf8'));
+    decision.decision = 'observing';
+    writeJson(dir, 'l1-decision.json', decision);
+
+    const result = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+
+    expect(result.summary).toMatchObject({
+      policyCompliant: false,
+      outcomePolicyCompliant: false,
+      outcome: { status: 'partial', independent: false, numerator: null, denominator: null },
+    });
+    expect(result.summary.outcomeErrors).toContain('independent outcome decision must be candidate');
+    expect(result.health.ok).toBe(false);
+    expect(result.lifecycleEvents).toHaveLength(0);
+  });
+
   it('does not borrow counts or timestamps from the observation artifact', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-independent-artifact-'));
     writeL1Evidence(dir);
@@ -675,7 +695,7 @@ describe('record-loop-fleet-evidence', () => {
     expect(fs.readFileSync(path.join(dir, 'lifecycle-events.jsonl'), 'utf8').trim().split('\n')).toHaveLength(2);
   });
 
-  it('promotes L11 only when the workflow inventory and audit findings agree', () => {
+  it('fails closed when a measured L11 inventory uses an observing decision', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-l11-independent-'));
     const workflowFiles = [
       '.github/workflows/one.yml',
@@ -695,22 +715,24 @@ describe('record-loop-fleet-evidence', () => {
     expect(result.summary).toMatchObject({
       loopId: 'L11',
       evidenceComplete: true,
-      policyCompliant: true,
+      policyCompliant: false,
       quality: 'observed',
       outcome: {
-        status: 'observed',
-        independent: true,
-        numerator: workflowFiles.length,
-        denominator: workflowFiles.length,
+        status: 'partial',
+        independent: false,
+        numerator: null,
+        denominator: null,
         missingFields: [],
       },
     });
     expect(JSON.parse(fs.readFileSync(path.join(dir, 'loop-health-history.jsonl'), 'utf8')))
       .toMatchObject({
         loopId: 'L11',
-        ok: true,
-        outcome: { status: 'observed', independent: true, numerator: 3, denominator: 3 },
+        ok: false,
+        outcome: { status: 'partial', independent: false, numerator: null, denominator: null },
       });
+    expect(result.summary.outcomeErrors).toContain('independent outcome decision must be candidate');
+    expect(result.lifecycleEvents).toHaveLength(0);
   });
 
   it('non promuove un conteggio pulito quando l inventario non è completo', () => {

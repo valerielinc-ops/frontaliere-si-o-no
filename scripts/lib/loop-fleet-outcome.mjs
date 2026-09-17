@@ -124,6 +124,7 @@ export function validateLoopOutcomeProvenance({
     errors.push('independent outcome decision reference is missing');
   } else {
     if (!candidateId) errors.push('independent outcome candidate/source recordId is missing');
+    if (decision.decision !== 'candidate') errors.push('independent outcome decision must be candidate');
     if (!decisionSource) errors.push('independent outcome decision sourceSnapshot.source is missing');
     else if (outcomeSource && decisionSource !== outcomeSource) {
       errors.push('independent outcome source snapshots do not identify the same source');
@@ -206,13 +207,24 @@ export function buildValidatedLoopOutcome({
       now,
       assertedIndependent: independent,
     })
-    : { ok: true, errors: [] };
+    : {
+      ok: independent !== true,
+      errors: independent === true ? ['independent outcome evidence is missing'] : [],
+      measuredClaim: independent === true,
+      candidateId: null,
+      sourceRecordId: null,
+      source: null,
+      expiresAt: null,
+      observedAt: null,
+    };
   const provenanceErrors = [...(provenance.errors || [])];
   if (evidence && provenance.ok && provenance.measuredClaim) {
     const evidenceTimestamp = iso(evidenceCandidate?.observedAt)
       || iso(evidenceCandidate?.generatedAt);
+    const evidenceStatus = evidenceCandidate?.status;
     const evidenceNumerator = finite(evidenceCandidate?.numerator);
     const evidenceDenominator = finite(evidenceCandidate?.denominator);
+    if (evidenceStatus !== requestedStatus) provenanceErrors.push('independent outcome status is not linked to the requested quality');
     if (evidenceTimestamp !== timestamp) provenanceErrors.push('independent outcome timestamp is not linked to the measured values');
     if (evidenceNumerator !== candidateNumerator) provenanceErrors.push('independent outcome numerator is not linked to the candidate');
     if (evidenceDenominator !== candidateDenominator) provenanceErrors.push('independent outcome denominator is not linked to the candidate');

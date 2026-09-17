@@ -509,6 +509,7 @@ function outcomeFromEvidence({ policy, observation, result, decision, now }) {
     status = 'partial';
   }
   const independent = explicitIndependent === true
+    && provenance.ok
     && measuredStatus(status)
     && missingFields.length === 0;
   const measuredNumerator = independent ? numerator : null;
