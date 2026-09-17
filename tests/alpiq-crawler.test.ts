@@ -101,6 +101,37 @@ const CURRENT_DETAIL_HTML_FIXTURE = `
 </main>
 `;
 
+const JINA_MARKDOWN_DETAIL_FIXTURE = `
+Title: JobPage | Alpiq
+
+URL Source: https://www.alpiq.com/career/open-jobs/your-application/21
+
+Markdown Content:
+About the Role
+
+Role type: Permanent | Location: Olten | Model: Hybrid
+
+**Mission**
+
+At Alpiq, we are looking for a Product Manager to join the New Product Implementation team. You will manage product life cycle activities and coordinate implementation across the business.
+
+**Your main responsibilities**
+
+*   Manage the full product life cycle and approval process
+
+*   Coordinate with Front Office and Risk stakeholders
+
+*   Lead product implementation projects and documentation
+
+**Your profile**
+
+*   At least 3 years of relevant energy industry experience
+
+*   Strong analytical and communication skills
+
+Disclaimer: applications from agencies are not considered.
+`;
+
 // ── Tests ────────────────────────────────────────────────────────
 
 describe('Alpiq crawler — location filtering', () => {
@@ -221,6 +252,15 @@ describe('Alpiq crawler — detail page parsing', () => {
     expect(result?.description).not.toContain('Competitive salary package');
     expect(result?.description).not.toContain('Disclaimer:');
     expect(result?.bullets).toHaveLength(5);
+  });
+
+  it('extracts a rich role from the Markdown returned by a clean-IP rescue', () => {
+    const result = parseAlpiqDetailHtml(JINA_MARKDOWN_DETAIL_FIXTURE);
+    expect(result?.description).toContain('Product Manager to join the New Product Implementation team');
+    expect(result?.description).not.toContain('Disclaimer:');
+    expect(result?.bullets).toHaveLength(5);
+    expect(preferAlpiqDetailDescription('Product Manager | Olten - 100%', result))
+      .toContain('Coordinate with Front Office and Risk stakeholders');
   });
 
   it('uses a rich detail description and keeps a thin listing fallback', () => {
