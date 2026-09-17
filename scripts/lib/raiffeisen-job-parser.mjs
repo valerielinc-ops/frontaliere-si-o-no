@@ -42,6 +42,7 @@
  * Uses the shared Prospective.ch factory.
  */
 import { createProspectiveChParser } from './prospective-ch-job-parser-common.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 
 export const RAIFFEISEN_KEY = 'raiffeisen';
 export const RAIFFEISEN_COMPANY_NAME = 'Raiffeisen';
@@ -68,24 +69,76 @@ function isVedeggioCassarateListing(listing) {
   return haystack.includes('vedeggio') || haystack.includes('cassarate');
 }
 
+const SWISS_COUNTRY_RE = /^(?:ch|che|schweiz|suisse|svizzera|svizra|switzerland)$/i;
+
+function sourceLocationValues(listing = {}) {
+  const szas = listing?.szas || {};
+  const values = [];
+  for (const [key, value] of Object.entries(szas)) {
+    if (!/^sza_(?:location|workplace)(?:\.\d+)?(?:\.(?:city|region))?$/.test(key)) continue;
+    if (Array.isArray(value)) values.push(...value);
+    else if (value) values.push(value);
+  }
+  const arbeitsort = listing?.attributes?.arbeitsort;
+  if (Array.isArray(arbeitsort)) values.push(...arbeitsort);
+  else if (arbeitsort) values.push(arbeitsort);
+  return values.map((value) => String(value || '').trim()).filter(Boolean);
+}
+
+function sourceCountryValues(listing = {}) {
+  const szas = listing?.szas || {};
+  return Object.entries(szas)
+    .filter(([key]) => /^sza_(?:location|workplace)(?:\.\d+)?\.country$/.test(key))
+    .flatMap(([, value]) => Array.isArray(value) ? value : [value])
+    .map((value) => String(value || '').trim())
+    .filter(Boolean);
+}
+
+/**
+ * Keep only listings whose own Prospective location is Swiss and resolvable.
+ * The national medium can contain records without a usable location; those
+ * must not inherit the old St. Gallen HQ canton in the shared factory.
+ */
+export function isSwissRaiffeisenListing(listing = {}) {
+  const countries = sourceCountryValues(listing);
+  if (countries.some((country) => !SWISS_COUNTRY_RE.test(country))) return false;
+  return sourceLocationValues(listing).some((value) => (
+    isTargetSwissLocation(value, { includeBorderProximity: false })
+    && inferAnyCanton(value)
+  ));
+}
+
 const parser = createProspectiveChParser({
   companyKey: RAIFFEISEN_KEY,
   companyName: RAIFFEISEN_COMPANY_NAME,
   companyDomain: RAIFFEISEN_COMPANY_DOMAIN,
   mediumId: '1950',
   apiLang: 'de',
-  defaultCanton: 'SG',
-  defaultCity: 'St. Gallen',
-  defaultPostalCode: '9001',
+  // Accepted records have a source-backed canton; these sentinels are only
+  // required by the generic factory configuration and are unreachable after
+  // `isSwissRaiffeisenListing` has filtered the raw feed.
+  defaultCanton: 'CH',
+  defaultCity: 'Svizzera',
+  defaultPostalCode: '',
   publicCareerUrl: 'https://jobs.raiffeisen.ch/',
   defaultSourceLang: 'de',
   extraTrustedHosts: ['jobs.raiffeisen.ch', 'www.raiffeisen.ch'],
   // Partition: drop the regional bank already covered by the dedicated
   // raiffeisen-vc crawler (see header comment above).
-  filterListing: (listing) => !isVedeggioCassarateListing(listing),
+  filterListing: (listing) => (
+    !isVedeggioCassarateListing(listing) && isSwissRaiffeisenListing(listing)
+  ),
 });
 
-export const fetchAllRaiffeisenJobs = parser.fetchAllJobs;
+export async function fetchAllRaiffeisenJobs() {
+  const jobs = await parser.fetchAllJobs();
+  return jobs
+    .map((job) => {
+      const canton = inferAnyCanton(job?.location || job?.addressLocality || '');
+      return canton ? { ...job, canton, addressRegion: canton } : null;
+    })
+    .filter(Boolean);
+}
 export const isRaiffeisenJob = parser.isCompanyJob;
 export const isTrustedDomain = parser.isTrustedDomain;
 

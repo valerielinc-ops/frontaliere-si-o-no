@@ -30,8 +30,8 @@
  * country (`inferAnyCanton`), not just the border-canton `TARGET_CANTONS`
  * subset. `addressRegion` on the detail page is the canton name spelled in
  * whichever locale the individual posting is authored in (German most
- * common, French/Italian seen on some listings) — mapped via
- * `CANTON_NAME_TO_CODE` with a fuzzy `inferAnyCanton(city)` fallback.
+ * common, French/Italian seen on some listings); both the region and the
+ * locality are resolved with the shared all-canton inference helper.
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -50,53 +50,12 @@ const CAREER_URL = 'https://www.concordia.ch/de/ueber-uns/jobs/offene-stellen.ht
 const PAGE_SIZE = 100;
 const POLITE_DELAY_MS = 200;
 
-// HQ fallback — Tribschenstrasse, Luzern (observed on multiple live listings).
-const DEFAULT_CANTON = 'LU';
-const DEFAULT_CITY = 'Luzern';
-const DEFAULT_POSTAL = '6005';
-
-// `addressRegion` on the detail page is the Swiss canton name, spelled in
-// whichever locale the individual job posting happens to be authored in
-// (German/French/Italian all observed live). Direct name → code lookup is
-// more reliable than fuzzy city matching for this field.
-const CANTON_NAME_TO_CODE = {
-  aargau: 'AG', argovie: 'AG', argovia: 'AG',
-  'appenzell ausserrhoden': 'AR', 'appenzell rhodes-extérieures': 'AR',
-  'appenzell innerrhoden': 'AI', 'appenzell rhodes-intérieures': 'AI',
-  'basel-landschaft': 'BL', 'bâle-campagne': 'BL',
-  'basel-stadt': 'BS', 'bâle-ville': 'BS', basel: 'BS', bâle: 'BS',
-  bern: 'BE', berne: 'BE', berna: 'BE',
-  freiburg: 'FR', fribourg: 'FR',
-  genf: 'GE', genève: 'GE', geneva: 'GE', ginevra: 'GE',
-  glarus: 'GL', glaris: 'GL',
-  graubünden: 'GR', grigioni: 'GR', grisons: 'GR', grischun: 'GR',
-  jura: 'JU',
-  luzern: 'LU', lucerne: 'LU', lucerna: 'LU',
-  neuenburg: 'NE', neuchâtel: 'NE',
-  nidwalden: 'NW', nidwald: 'NW',
-  obwalden: 'OW', obwald: 'OW',
-  schaffhausen: 'SH', schaffhouse: 'SH',
-  schwyz: 'SZ',
-  solothurn: 'SO', soleure: 'SO',
-  'st. gallen': 'SG', 'st gallen': 'SG', 'saint-gall': 'SG', 'san gallo': 'SG',
-  tessin: 'TI', ticino: 'TI',
-  thurgau: 'TG', thurgovie: 'TG',
-  uri: 'UR',
-  waadt: 'VD', vaud: 'VD',
-  wallis: 'VS', valais: 'VS', vallese: 'VS',
-  zug: 'ZG', zoug: 'ZG',
-  zürich: 'ZH', zurich: 'ZH', zurigo: 'ZH',
-};
-
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
 export function resolveCanton(addressRegion = '', addressLocality = '') {
-  const region = normalizeSpace(addressRegion).toLowerCase();
-  if (region && CANTON_NAME_TO_CODE[region]) return CANTON_NAME_TO_CODE[region];
-  const fromCity = inferAnyCanton(addressLocality) || inferAnyCanton(addressRegion);
-  return fromCity || DEFAULT_CANTON;
+  return inferAnyCanton(addressRegion) || inferAnyCanton(addressLocality) || '';
 }
 
 /** Insurance/national-employer-scoped role category detector. */
@@ -223,9 +182,13 @@ export async function fetchAllConcordiaJobs() {
     if (!description || description.split(/\s+/).length < 20) continue;
 
     const addr = jobPostingAddress(ld);
-    const location = addr.addressLocality || DEFAULT_CITY;
+    const location = normalizeSpace(addr.addressLocality || '');
     const canton = resolveCanton(addr.addressRegion, location);
-    const postalCode = addr.postalCode || DEFAULT_POSTAL;
+    if (!location || !canton) {
+      console.warn(`  ⚠️ skipping job with unresolved Swiss location: ${title}`);
+      continue;
+    }
+    const postalCode = normalizeSpace(addr.postalCode || '');
     const employmentType = /PART_TIME/i.test(ld.employmentType) ? 'PART_TIME'
       : /FULL_TIME/i.test(ld.employmentType) ? 'FULL_TIME' : 'OTHER';
     const postedDate = /^\d{4}-\d{2}-\d{2}/.test(String(ld.datePosted || ''))

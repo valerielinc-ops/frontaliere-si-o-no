@@ -50,7 +50,6 @@ import {
   parseAldiDetailPage,
   ALDI_SEARCH_API,
 } from './lib/aldi-suisse-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -71,17 +70,7 @@ const ALDI_KEY = 'aldi-suisse';
 const DATA_JOBS = crawlerScratchPathFor(ALDI_KEY);
 const PUBLIC_DATA_JOBS = `${DATA_JOBS}.public.json`;
 const ALDI_COMPANY_NAME = 'ALDI SUISSE';
-const HQ = getCompanyDefaults(ALDI_KEY);
 const ALDI_HOST = 'www.jobs.aldi.ch';
-
-/** Known Swiss city → postal code map for ALDI store locations */
-const KNOWN_CITY_POSTAL_CODES = {
-  lugano: '6900', bellinzona: '6500', locarno: '6600', mendrisio: '6850',
-  chiasso: '6830', biasca: '6710', giubiasco: '6512', agno: '6982',
-  manno: '6928', rivera: '6802', camorino: '6528', tenero: '6598',
-  losone: '6616', gordola: '6596', stabio: '6855', cadempino: '6814',
-  vezia: '6943', lamone: '6814',
-};
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
@@ -226,7 +215,7 @@ async function fetchAndParseDetailPages(listings) {
       // structured data. Drop it instead, keeping the national gate strict.
       const canton = inferAnyCanton(location);
       if (!canton) { droppedNoCanton += 1; continue; }
-      const postalCode = listing.zip || KNOWN_CITY_POSTAL_CODES[location.toLowerCase()] || '';
+      const postalCode = listing.zip || '';
 
       jobs.push({
         id: `aldi-suisse-${urlHash}`,
@@ -244,10 +233,10 @@ async function fetchAndParseDetailPages(listings) {
         location,
         postalCode,
         canton,
-        addressLocality: location || HQ.city,
+        addressLocality: location,
         addressRegion: canton,
         addressCountry: 'CH',
-        streetAddress: listing.address || 'Centro Monda 8',
+        streetAddress: listing.address || '',
         employmentType: inferEmploymentType(rawTitle, description, workPct || ''),
         category: 'retail',
         contract: 'full-time',
