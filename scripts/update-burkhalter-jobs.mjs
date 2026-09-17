@@ -13,7 +13,7 @@
  *
  * This crawler:
  *   1. Fetches the vacancies page and extracts the inline JSON job list.
- *   2. Filters for Grisons (Graubünden) and Ticino jobs.
+ *   2. Filters for jobs in any Swiss canton.
  *   3. Scrapes each detail page for a description.
  *   4. Builds standardized job objects and merges into data/jobs.json.
  *   5. Translates missing locales.
@@ -46,7 +46,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
-import { isTargetCanton, getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { isTargetCanton } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
@@ -68,7 +68,6 @@ const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const COMPANY_NAME = 'Burkhalter Group';
 const COMPANY_DOMAIN = 'burkhalter.ch';
-const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'ZH';
 
 const VACANCIES_URL = 'https://www.burkhalter.ch/en/jobs-and-careers/vacancies';
 const BASE_URL = 'https://www.burkhalter.ch';
@@ -198,8 +197,8 @@ function buildJob(raw, description = '') {
   const title = String(raw.job || '').trim();
   const company = String(raw.company || COMPANY_NAME).trim();
   const city = String(raw.city || '').trim();
-  const canton = mapCanton(raw.canton, city) || DEFAULT_CANTON;
-  const slug = slugify(`${title}-${company}-${safeLocationToken(city)}`);
+  const canton = mapCanton(raw.canton, city);
+  const slug = slugify(`${title}-${company}-${safeLocationToken(city, 'Switzerland')}`);
   const detailUrl = raw.url
     ? (raw.url.startsWith('http') ? raw.url : `${BASE_URL}${raw.url}`)
     : `${BASE_URL}/en/jobs-and-careers/vacancies`;
@@ -239,7 +238,7 @@ function buildJob(raw, description = '') {
     company,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
-    location: city || 'Graubünden',
+    location: city || 'Switzerland',
     addressLocality: city,
     addressRegion: canton,
     addressCountry: 'CH',
@@ -315,15 +314,15 @@ function mergeJobs(discoveredJobs) {
 function logStats() {
   const allJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const jobs = allJobs.filter(isTargetJob);
-  const grJobs = jobs.filter((j) => normalize(j.canton) === 'gr');
-  const tiJobs = jobs.filter((j) => normalize(j.canton) === 'ti');
-  const vsJobs = jobs.filter((j) => normalize(j.canton) === 'vs');
+  const byCanton = new Map();
+  for (const job of jobs) {
+    const canton = normalize(job.canton).toUpperCase() || '??';
+    byCanton.set(canton, (byCanton.get(canton) || 0) + 1);
+  }
 
   console.log(`\n📊 === Burkhalter Group Job Stats ===`);
   console.log(`  🏗️  Total Burkhalter jobs: ${jobs.length}`);
-  console.log(`  ✅ Grigioni (GR): ${grJobs.length}`);
-  console.log(`  ✅ Ticino (TI): ${tiJobs.length}`);
-  console.log(`  ✅ Vallese (VS): ${vsJobs.length}`);
+  console.log(`  🗺️ Swiss canton distribution: ${[...byCanton.entries()].sort().map(([canton, count]) => `${canton}=${count}`).join(', ') || 'none detected'}`);
   console.log('');
 
   return { total: jobs.length };

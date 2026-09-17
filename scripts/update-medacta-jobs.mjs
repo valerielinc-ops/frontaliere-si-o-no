@@ -1213,7 +1213,15 @@ function logMedactaJobStats(beforeSnapshot = new Map()) {
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
   const medactaJobs = allJobs.filter(isMedactaJob);
-  const ticinoJobs = medactaJobs.filter((j) => normalize(j?.canton) === 'ti');
+  const byCanton = new Map();
+  for (const job of medactaJobs) {
+    const canton = String(job?.canton || '').toUpperCase() || '??';
+    byCanton.set(canton, (byCanton.get(canton) || 0) + 1);
+  }
+  const cantonBreakdown = [...byCanton.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([canton, count]) => `${canton}:${count}`)
+    .join(' ');
 
   // Department breakdown
   const departments = {};
@@ -1222,12 +1230,9 @@ function logMedactaJobStats(beforeSnapshot = new Map()) {
     departments[dept] = (departments[dept] || 0) + 1;
   }
 
-  console.log(`\n📊 === Medacta International SA Job Stats ===`);
+  console.log(`\n📊 === Medacta International SA Job Stats (CH-wide) ===`);
   console.log(`  🏥 Job totali trovati (Medacta): ${medactaJobs.length}`);
-  console.log(`  ✅ Job in Ticino (canton=TI): ${ticinoJobs.length}`);
-  if (medactaJobs.length > ticinoJobs.length) {
-    console.log(`  📍 Job sedi extra-Ticino: ${medactaJobs.length - ticinoJobs.length}`);
-  }
+  console.log(`  🇨🇭 Cantoni coperti (${byCanton.size}): ${cantonBreakdown}`);
 
   if (Object.keys(departments).length > 0) {
     console.log(`  📋 Per dipartimento:`);
@@ -1243,7 +1248,7 @@ function logMedactaJobStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'Medacta');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Medacta');
 
-  return { total: medactaJobs.length, ticino: ticinoJobs.length, crawlDiff };
+  return { total: medactaJobs.length, cantons: Object.fromEntries(byCanton), crawlDiff };
 }
 
 function validateMedactaLocaleCoverage() {
