@@ -29,7 +29,7 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserve
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { assertHugoBossNationalReadComplete, extractPhenomDdo, parseSearchPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/hugo-boss-job-parser.mjs';
-import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isKnownSwissCity } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -158,10 +158,9 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
       if (key && !allJobsById.has(key)) allJobsById.set(key, job);
     }
     // A short page is NOT proof that the result set ended: the Phenom DDO
-    // serves short pages mid-set while still declaring a higher totalHits.
-    // Stop only on a genuinely empty page (no forward progress possible) or
-    // once the declared total has been reached; fall back to the short-page
-    // heuristic only when the portal declares no total at all.
+    // serves short pages mid-set while still declaring a higher totalHits, and
+    // a missing total cannot prove that the page was the final one. Stop only
+    // on a genuinely empty page or once the declared total has been reached.
     if (pageRecordCount === 0) {
       terminationProven = true;
       break;
@@ -169,10 +168,6 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
     recordsSeen += newRecordKeys.length;
     from += newRecordKeys.length;
     if (totalHits !== null && recordsSeen >= totalHits) {
-      terminationProven = true;
-      break;
-    }
-    if (totalHits === null && pageRecordCount < PAGE_SIZE) {
       terminationProven = true;
       break;
     }
@@ -190,7 +185,6 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
   console.log(`  🎯 Swiss jobs across all cantons: ${swissJobs.length}`);
 
   return swissJobs.map((raw) => {
-    const location = raw.city || raw.cityState || raw.cityStateCountry || '';
     const canton = inferAnyCanton([
       raw.city,
       raw.state,
@@ -199,14 +193,20 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
       raw.address,
     ].filter(Boolean).join(' '));
     if (!canton) return null;
-    const fallbackAddress = resolveFallbackAddress(undefined, location, canton);
-    const resolvedAddress = raw.address && raw.postalCode
+
+    // Country-only/canton-only source values are not localities. Accept a
+    // source address only when raw.city resolves to a concrete Swiss city;
+    // otherwise use the coherent canton fallback as the locality too.
+    const sourceCity = isKnownSwissCity(raw.city, canton) ? raw.city : '';
+    const fallbackAddress = resolveFallbackAddress(undefined, sourceCity, canton);
+    const resolvedAddress = sourceCity && raw.address && raw.postalCode
       ? {
-        addressLocality: raw.city || location,
+        addressLocality: sourceCity,
         streetAddress: raw.address,
         postalCode: raw.postalCode,
       }
       : fallbackAddress;
+    const location = resolvedAddress.addressLocality;
     const detailUrl = buildDetailUrl(raw);
     const locationToken = location || canton;
     const slug = slugify(`${raw.title} hugo-boss ${locationToken}`);

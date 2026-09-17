@@ -236,9 +236,16 @@ export function resolveFallbackAddress(
   city,
   authoritativeRegion,
 ) {
+  const hq = companySlug
+    ? COMPANY_HQ_ADDRESSES[companySlug.toLowerCase()]
+    : null;
+  // An absent city carries no evidence for the site's default canton. When a
+  // curated HQ exists, it is the strongest available locality signal and must
+  // win before deriveCantonFromCity() falls back to TI (#9035).
+  if (hq && !city && !authoritativeRegion) return hq;
+
   const cityCanton = authoritativeRegion || deriveCantonFromCity(city);
-  if (companySlug) {
-    const hq = COMPANY_HQ_ADDRESSES[companySlug.toLowerCase()];
+  if (hq) {
     // Only trust the curated HQ when the job has no own city or sits in the
     // HQ's own city (#3513). Canton-level matching is NOT enough: a Lugano
     // posting for a Bellinzona-seat employer (same canton TI) must not pair

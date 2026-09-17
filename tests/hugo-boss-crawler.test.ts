@@ -139,9 +139,13 @@ phApp.ddo = {
 </html>
 `;
 
-function makeSearchPage(totalHits: number, jobs: Record<string, unknown>[]) {
+function makeSearchPage(totalHits: number | null, jobs: Record<string, unknown>[]) {
+  const data = {
+    ...(totalHits === null ? {} : { totalHits }),
+    jobs,
+  };
   return `<script>phApp.ddo = ${JSON.stringify({
-    eagerLoadRefineSearch: { data: { totalHits, jobs } },
+    eagerLoadRefineSearch: { data },
   })}; phApp.experimentData = {};</script>`;
 }
 
@@ -277,6 +281,44 @@ describe('fetchJobs national pagination', () => {
     await expect(fetchJobs({ fetchHtml })).rejects.toThrow(/stable record identity/);
     expect(fetchHtml).toHaveBeenCalledTimes(2);
   });
+
+  it('does not treat a short page without totalHits as terminal', async () => {
+    const pages = new Map([
+      ['0', makeSearchPage(null, [makeSwissJob('short-1')])],
+      ['1', makeSearchPage(null, [makeSwissJob('short-2')])],
+      ['2', makeSearchPage(null, [])],
+    ]);
+    const fetchHtml = vi.fn(async (url: string | URL) => {
+      const from = new URL(String(url)).searchParams.get('from') || '';
+      return pages.get(from) || makeSearchPage(null, []);
+    });
+
+    await expect(fetchJobs({ fetchHtml })).resolves.toHaveLength(2);
+    expect(fetchHtml).toHaveBeenCalledTimes(3);
+  });
+
+  it('uses a coherent canton fallback when raw.city is country-only', async () => {
+    const genericCityJob = {
+      ...makeSwissJob('generic-city'),
+      city: 'Switzerland',
+      state: 'Zürich',
+      cityState: 'Switzerland, Zürich',
+      cityStateCountry: 'Switzerland, Zürich, Switzerland',
+      address: 'The Circle 02',
+      postalCode: '8058',
+    };
+    const fetchHtml = vi.fn(async () => makeSearchPage(1, [genericCityJob]));
+
+    const [job] = await fetchJobs({ fetchHtml });
+
+    expect(job).toMatchObject({
+      location: 'Zürich',
+      addressLocality: 'Zürich',
+      addressRegion: 'ZH',
+      postalCode: '8001',
+    });
+    expect(job.location).not.toBe('Switzerland');
+  });
 });
 
 describe('assertHugoBossNationalReadComplete', () => {
@@ -296,7 +338,7 @@ describe('assertHugoBossNationalReadComplete', () => {
     })).toThrow(/573 of 782 declared records fetched/);
   });
 
-  it('accepts a proven short-page termination without totalHits', () => {
+  it('accepts a proven empty-page termination without totalHits', () => {
     expect(() => assertHugoBossNationalReadComplete({
       terminationProven: true,
       totalHits: null,
