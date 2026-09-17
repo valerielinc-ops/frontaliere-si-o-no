@@ -636,9 +636,9 @@
     },
     {
       "id": "weisse-arena-e2047832854f",
-      "slug": "co-lead-guest-experience-weisse-arena-ch",
+      "slug": "esperienza-ospite-di-co-lead-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "co-lead-guest-experience-weisse-arena-ch",
+        "it": "esperienza-ospite-di-co-lead-weisse-arena-gruppe-laax",
         "en": "co-lead-guest-experience-weisse-arena-ch",
         "de": "co-lead-guest-experience-weisse-arena-ch",
         "fr": "codiriger-l-experience-des-invites-weisse-arena-gruppe-laax"
@@ -701,13 +701,21 @@
         }
       },
       "addressRegion": "GR",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "co-lead-guest-experience-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "co-lead-guest-experience-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-c174a2027d10",
-      "slug": "guest-experience-host-weisse-arena-ch",
+      "slug": "ospite-dell-esperienza-ospite-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "guest-experience-host-weisse-arena-ch",
+        "it": "ospite-dell-esperienza-ospite-weisse-arena-gruppe-laax",
         "en": "guest-experience-host-weisse-arena-ch",
         "de": "guest-experience-host-weisse-arena-ch",
         "fr": "hote-d-experience-invite-weisse-arena-gruppe-laax"
@@ -755,11 +763,13 @@
       "pensum": "100%",
       "contractLabel": "Saisonanstellung",
       "previousSlugs": [
-        "hote-d-experience-invite-weisse-arena-gruppe-laax"
+        "hote-d-experience-invite-weisse-arena-gruppe-laax",
+        "guest-experience-host-weisse-arena-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hote-d-experience-invite-weisse-arena-gruppe-laax"
+          "hote-d-experience-invite-weisse-arena-gruppe-laax",
+          "guest-experience-host-weisse-arena-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1250,10 +1260,10 @@
     },
     {
       "id": "weisse-arena-3c8097f325ae",
-      "slug": "allrounder-in-galaaxy-weisse-arena-ch",
+      "slug": "galaaxy-tuttofare-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "allrounder-in-galaaxy-weisse-arena-ch",
-        "en": "allrounder-in-galaaxy-weisse-arena-ch",
+        "it": "galaaxy-tuttofare-weisse-arena-gruppe-laax",
+        "en": "all-rounder-galaaxy-weisse-arena-gruppe-laax",
         "de": "allrounder-in-galaaxy-weisse-arena-ch",
         "fr": "allrounder-in-galaaxy-weisse-arena-ch"
       },
@@ -1315,7 +1325,18 @@
         }
       },
       "addressRegion": "GR",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "allrounder-in-galaaxy-weisse-arena-ch"
+        ],
+        "en": [
+          "allrounder-in-galaaxy-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-in-galaaxy-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-b9c99a08dc28",
@@ -2522,9 +2543,9 @@
     },
     {
       "id": "weisse-arena-4be7a868b6c7",
-      "slug": "guest-experience-manager-weisse-arena-ch",
+      "slug": "gestore-di-esperienze-per-gli-ospiti-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "guest-experience-manager-weisse-arena-ch",
+        "it": "gestore-di-esperienze-per-gli-ospiti-weisse-arena-gruppe-laax",
         "en": "guest-experience-manager-weisse-arena-ch",
         "de": "guest-experience-manager-weisse-arena-ch",
         "fr": "gestionnaire-d-experience-invite-weisse-arena-gruppe-laax"
@@ -2576,7 +2597,8 @@
         "guest-experience-coordinator-shift-lead-weisse-arena-gruppe-laax",
         "guest-experience-coordinator-mit-schichtverantwortung-weisse-arena-ch",
         "guest-experience-coordinateur-mit-schichtverantwortung-weisse-arena-gruppe-laax",
-        "guest-experience-coordinator-shift-lead-weisse-arena-ch"
+        "guest-experience-coordinator-shift-lead-weisse-arena-ch",
+        "guest-experience-manager-weisse-arena-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2584,7 +2606,8 @@
           "guest-experience-coordinator-shift-lead-weisse-arena-gruppe-laax",
           "guest-experience-coordinator-mit-schichtverantwortung-weisse-arena-ch",
           "guest-experience-coordinateur-mit-schichtverantwortung-weisse-arena-gruppe-laax",
-          "guest-experience-coordinator-shift-lead-weisse-arena-ch"
+          "guest-experience-coordinator-shift-lead-weisse-arena-ch",
+          "guest-experience-manager-weisse-arena-ch"
         ],
         "en": [
           "guest-experience-coordinator-shift-lead-weisse-arena-gruppe-laax"

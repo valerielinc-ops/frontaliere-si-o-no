@@ -1817,7 +1817,7 @@
       "slugByLocale": {
         "fr": "specialiste-en-chef-de-secteur-fleisch-stv-en-boucherie-genossenschaft-migros-luzern-luzern",
         "it": "specialist-manager-in-fleisch-stv-area-manager-in-butchery-genossenschaft-migros-luzern-luzern",
-        "en": "fachleiter-in-fleisch-und-stv-bereichsleiter-in-metzgerei-genossenschaft-migros-luzern-24fruz",
+        "en": "head-of-the-meat-and-stv-head-of-the-unit-in-messgerei-genossenschaft-migros-luzern-luzern",
         "de": "fachleiter-in-fleisch-und-stv-bereichsleiter-in-metzgerei-genossenschaft-migros-luzern-24fruz"
       },
       "titleByLocale": {
@@ -1864,7 +1864,15 @@
       "employmentType": "FULL_TIME",
       "salaryMin": 69500,
       "salaryMax": 106000,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "en": [
+          "fachleiter-in-fleisch-und-stv-bereichsleiter-in-metzgerei-genossenschaft-migros-luzern-24fruz"
+        ]
+      },
+      "previousSlugs": [
+        "fachleiter-in-fleisch-und-stv-bereichsleiter-in-metzgerei-genossenschaft-migros-luzern-24fruz"
+      ]
     },
     {
       "id": "company-nmf8ui",
@@ -8977,7 +8985,7 @@
     },
     {
       "id": "company-rgjg2p",
-      "slug": "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein-rgjg2p",
+      "slug": "baker-conditor-in-hausback-erei-sede-della-societa-monaco-di-baviera-genossenschaft-migros-basel-munchenstein",
       "company": "Genossenschaft Migros Basel",
       "title": "Bäcker*in/Konditor*in Hausbäckerei Betriebszentrale Münchenstein",
       "location": "Münchenstein",
@@ -9031,10 +9039,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein-rgjg2p",
-        "en": "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein-rgjg2p",
+        "it": "baker-conditor-in-hausback-erei-sede-della-societa-monaco-di-baviera-genossenschaft-migros-basel-munchenstein",
+        "en": "baker-conditor-in-hausbackerei-company-headquarters-munichstein-genossenschaft-migros-basel-munchenstein",
         "de": "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein-rgjg2p",
-        "fr": "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein-rgjg2p"
+        "fr": "baker-conditor-inhausbackerei-siege-de-la-societe-munichstein-genossenschaft-migros-basel-munchenstein"
       },
       "requirementsByLocale": {
         "it": [],
@@ -9052,11 +9060,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein"
+          "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein",
+          "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein-rgjg2p"
+        ],
+        "en": [
+          "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein-rgjg2p"
+        ],
+        "fr": [
+          "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein-rgjg2p"
         ]
       },
       "previousSlugs": [
-        "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein"
+        "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein",
+        "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein-rgjg2p"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -86660,7 +86676,6 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-wil-o9v9bg",
           "fitness-instructor-w-m-d-activ-fitness-wil",
-          "istruttore-di-fitness-f-m-d-activ-fitness-wil",
           "istruttore-di-fitness-f-m-d-activ-fitness-rothenburg",
           "fitness-instructor-m-w-d-activ-fitness-rothenburg-1b8sq0",
           "instructeur-de-condition-physique-f-m-d-activ-fitness-rothenburg",
@@ -86678,7 +86693,6 @@
         "fitness-instructor-m-w-d-activ-fitness-wil-o9v9bg",
         "fitnesstrainer-m-w-d-activ-fitness-wil-o9v9bg",
         "fitness-instructor-w-m-d-activ-fitness-wil",
-        "istruttore-di-fitness-f-m-d-activ-fitness-wil",
         "istruttore-di-fitness-f-m-d-activ-fitness-rothenburg",
         "fitness-instructor-m-w-d-activ-fitness-rothenburg-1b8sq0",
         "instructeur-de-condition-physique-f-m-d-activ-fitness-rothenburg",
