@@ -6,7 +6,7 @@ import {
   isRaiffeisenJob,
   isTrustedDomain,
   isVedeggioCassarateListing,
-  resolveRaiffeisenLocation,
+  isSwissRaiffeisenListing,
 } from '../scripts/lib/raiffeisen-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -15,38 +15,6 @@ describe('Raiffeisen (national) crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(RAIFFEISEN_KEY).toBe('raiffeisen');
     expect(RAIFFEISEN_COMPANY_NAME).toBe('Raiffeisen');
-  });
-
-  describe('source-backed national location resolution', () => {
-    it('uses the source city and region across the 26-canton scope', () => {
-      expect(resolveRaiffeisenLocation({
-        szas: {
-          'sza_location.city': 'Zürich',
-          'sza_location.region': 'Zürich',
-          'sza_location.country': 'Schweiz',
-        },
-      })).toEqual({ location: 'Zürich', canton: 'ZH', valid: true });
-    });
-
-    it('recovers a missing dotted city from the source flat location', () => {
-      expect(resolveRaiffeisenLocation({
-        szas: {
-          sza_location: 'Rothenburg, Schweiz',
-          'sza_location.region': 'Luzern',
-          'sza_location.country': 'Schweiz',
-        },
-      })).toEqual({ location: 'Rothenburg', canton: 'LU', valid: true });
-    });
-
-    it('rejects a foreign source country even when the text contains a Swiss-looking token', () => {
-      expect(resolveRaiffeisenLocation({
-        szas: {
-          'sza_location.city': 'Baden',
-          'sza_location.region': 'Baden-Württemberg',
-          'sza_location.country': 'Deutschland',
-        },
-      }).valid).toBe(false);
-    });
   });
 
   // ── isCompanyJob ──
@@ -94,57 +62,6 @@ describe('Raiffeisen (national) crawler parser', () => {
     });
   });
 
-  describe('fetchAllRaiffeisenJobs — declared-total contract', () => {
-    const realFetch = globalThis.fetch;
-
-    afterEach(() => {
-      globalThis.fetch = realFetch;
-      delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
-    });
-
-    it('keeps the source location and uses a canton-level postal fallback', async () => {
-      process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
-      globalThis.fetch = vi.fn(async () => new Response(JSON.stringify({
-        total: 1,
-        jobs: [{
-          title: 'Kundenberater/in',
-          szas: {
-            sza_title: 'Kundenberater/in',
-            'sza_location.city': 'Zürich',
-            'sza_location.region': 'Zürich',
-            'sza_location.country': 'Schweiz',
-            sza_introduction: 'Beratung und Betreuung von Kundinnen und Kunden in einem regionalen Raiffeisen-Team.',
-          },
-          links: { directlink: 'https://jobs.raiffeisen.ch/careercenter/1950/job/test' },
-        }],
-      }), { status: 200 })) as any;
-
-      const jobs = await fetchAllRaiffeisenJobs();
-      expect(jobs).toHaveLength(1);
-      expect(jobs[0]).toMatchObject({
-        location: 'Zürich',
-        addressLocality: 'Zürich',
-        canton: 'ZH',
-        addressRegion: 'ZH',
-        postalCode: '8000',
-      });
-    });
-
-    it('fails loudly when the API total is not fully read', async () => {
-      process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
-      let calls = 0;
-      globalThis.fetch = vi.fn(async () => {
-        calls += 1;
-        const body = calls === 1
-          ? { total: 2, jobs: [{ title: 'Kundenberater/in', szas: { sza_title: 'Kundenberater/in', 'sza_location.city': 'Zürich', 'sza_location.region': 'Zürich', 'sza_location.country': 'Schweiz' } }] }
-          : { total: 2, jobs: [] };
-        return new Response(JSON.stringify(body), { status: 200 });
-      }) as any;
-
-      await expect(fetchAllRaiffeisenJobs()).rejects.toThrow(/pagination incomplete.*1\/2/);
-    });
-  });
-
   // ── Partition guarantee vs. the existing raiffeisen-vc dedicated crawler ──
   // `scripts/update-raiffeisen-vc-jobs.mjs` already owns all postings for
   // Banca Raiffeisen Vedeggio Cassarate. This crawler pulls the full
@@ -177,6 +94,92 @@ describe('Raiffeisen (national) crawler parser', () => {
       expect(isVedeggioCassarateListing(null)).toBe(false);
       expect(isVedeggioCassarateListing(undefined)).toBe(false);
       expect(isVedeggioCassarateListing({})).toBe(false);
+    });
+  });
+
+  describe('isSwissRaiffeisenListing (source geography gate)', () => {
+    it('accepts a Swiss city from the Prospective location fields', () => {
+      expect(isSwissRaiffeisenListing({
+        szas: {
+          'sza_location.city': 'Dornach',
+          'sza_location.country': 'Schweiz',
+        },
+      })).toBe(true);
+    });
+
+    it('accepts a Swiss city in an indexed multi-location field', () => {
+      expect(isSwissRaiffeisenListing({
+        szas: {
+          'sza_location.2.city': 'Küssnacht (SZ)',
+          'sza_location.2.country': 'Schweiz',
+        },
+      })).toBe(true);
+    });
+
+    it('rejects a foreign location even when a Swiss city name is embedded elsewhere', () => {
+      expect(isSwissRaiffeisenListing({
+        szas: {
+          'sza_location.city': 'Baden',
+          'sza_location.country': 'Österreich',
+          sza_introduction: 'Baden bei Wien',
+        },
+      })).toBe(false);
+    });
+
+    it('rejects a source row with no resolvable location', () => {
+      expect(isSwissRaiffeisenListing({
+        szas: { 'sza_location.country': 'Schweiz' },
+      })).toBe(false);
+    });
+  });
+
+  describe('fetchAllRaiffeisenJobs — declared-total and postal fallback contract', () => {
+    const realFetch = globalThis.fetch;
+
+    afterEach(() => {
+      globalThis.fetch = realFetch;
+      delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+    });
+
+    it('keeps the source location and uses a canton-level postal fallback', async () => {
+      process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
+      globalThis.fetch = vi.fn(async () => new Response(JSON.stringify({
+        total: 1,
+        jobs: [{
+          title: 'Kundenberater/in',
+          szas: {
+            sza_title: 'Kundenberater/in',
+            'sza_location.city': 'Zürich',
+            'sza_location.country': 'Schweiz',
+            sza_introduction: 'Beratung und Betreuung von Kundinnen und Kunden in einem regionalen Raiffeisen-Team.',
+          },
+          links: { directlink: 'https://jobs.raiffeisen.ch/careercenter/1950/job/test' },
+        }],
+      }), { status: 200 })) as any;
+
+      const jobs = await fetchAllRaiffeisenJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({
+        location: 'Zürich',
+        addressLocality: 'Zürich',
+        canton: 'ZH',
+        addressRegion: 'ZH',
+        postalCode: '8000',
+      });
+    });
+
+    it('fails loudly when the API total is not fully read', async () => {
+      process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
+      let calls = 0;
+      globalThis.fetch = vi.fn(async () => {
+        calls += 1;
+        const body = calls === 1
+          ? { total: 2, jobs: [{ title: 'Kundenberater/in', szas: { sza_title: 'Kundenberater/in', 'sza_location.city': 'Zürich', 'sza_location.country': 'Schweiz' } }] }
+          : { total: 2, jobs: [] };
+        return new Response(JSON.stringify(body), { status: 200 });
+      }) as any;
+
+      await expect(fetchAllRaiffeisenJobs()).rejects.toThrow(/pagination incomplete.*1\/2/);
     });
   });
 

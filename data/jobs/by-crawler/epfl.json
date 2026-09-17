@@ -1,6 +1,6 @@
 {
   "crawlerKey": "epfl",
-  "assembledAt": "2026-09-16T21:43:09.612Z",
+  "assembledAt": "2026-09-17T18:14:24.869Z",
   "jobs": [
     {
       "id": "epfl-dead15a21a44",
@@ -3640,85 +3640,6 @@
           "@type": "QuantitativeValue",
           "minValue": 60500,
           "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VD"
-    },
-    {
-      "id": "epfl-a6445e1a31bc",
-      "slug": "tecnico-di-laboratorio-epfl-lausanne-c344e1",
-      "slugByLocale": {
-        "it": "tecnico-di-laboratorio-epfl-lausanne-c344e1",
-        "en": "laboratory-technician-epfl-lausanne",
-        "de": "laboratory-techniker-epfl-lausanne-c344e1",
-        "fr": "laboratory-technicien-epfl-lausanne"
-      },
-      "company": "EPFL",
-      "companyKey": "epfl",
-      "companyDomain": "epfl.ch",
-      "title": "Laboratory Technician",
-      "titleByLocale": {
-        "it": "Tecnico di laboratorio",
-        "en": "Laboratory Technician",
-        "de": "Laboratory Techniker",
-        "fr": "Laboratory Technicien"
-      },
-      "description": "Laboratory Technician — EPFL (Lausanne).\nPosizione pubblicata sul portale carriere ufficiale EPFL (SAP SuccessFactors).\n\nDettagli della posizione:\n• Sede: Lausanne, Canton VD\n• Funzione: Technique\n• Tipo contratto: Technique\n• Datore di lavoro: EPFL — École polytechnique fédérale de Lausanne",
-      "descriptionByLocale": {
-        "it": "Tecnico di laboratorio — EPFL (Lausanne).\nPosizione pubblicata sul portale carriere ufficiale EPFL (SAP SuccessFactors).\n\nDettagli della posizione:\n• Sede: Losanna, Canton VD\n• Funzione: Tecnica\n• Tipo contratto: Tecnica\n• Datore di lavoro: EPFL — Scuola Politecnico federale di Losanna",
-        "en": "Laboratory Technician — EPFL (Lausanne).\nLocation published on the official carrier portal EPFL (SAP SuccessFactors).\n\nPosition details:\n• Location: Lausanne, Canton VD\n• Function: Technique\n• Type of contract: Technique\n• Employer: EPFL — École polytechnique fédérale de Lausanne",
-        "de": "Labortechniker — EPFL (Lausanne).\nVeröffentlicht auf dem offiziellen Carrier-Portal EPFL (SAP SuccessFactors).\n\nPositionsangaben:\n• Standort: Lausanne, Kanton VD\n• Funktion: Technik\n• Art des Vertrags: Technik\n• Arbeitgeber: EPFL — École polytechnique fédérale de Lausanne",
-        "fr": "Laboratory Technician — EPFL (Lausanne).\nPosizione pubblicata sul portale carriere ufficiale EPFL (SAP SuccessFactors).\n\nDettagli della posizione:\n• Sede: Lausanne, Canton VD\n• Funzione: Technique\n• Tipo contratto: Technique\n• Datore di lavoro: EPFL — École polytechnique fédérale de Lausanne"
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://careers.epfl.ch/job/Lausanne-Laboratory-Technician/1165253155/",
-      "source": "EPFL Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-13T14:01:09.385Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "education",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-10",
-      "applyUrl": "https://careers.epfl.ch/job/Lausanne-Laboratory-Technician/1165253155/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Technique",
-      "contractType": "Technique",
-      "externalId": "1165253155",
-      "previousSlugsByLocale": {
-        "fr": [
-          "laboratory-technician-epfl-lausanne"
-        ],
-        "it": [
-          "laboratory-technician-epfl-lausanne"
-        ],
-        "de": [
-          "laboratory-technician-epfl-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "laboratory-technician-epfl-lausanne"
-      ],
-      "firstSeenAt": "2026-08-10T10:49:48.273Z",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 107500,
           "unitText": "YEAR"
         }
       },

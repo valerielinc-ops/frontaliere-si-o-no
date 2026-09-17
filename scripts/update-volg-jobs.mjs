@@ -16,7 +16,7 @@
  * national set. The canton of each job is inferred per-job from the
  * city string alone via inferAnyCanton (CH-wide, all 26 cantons).
  * Jobs whose city does not resolve to a Swiss canton (foreign / unknown)
- * are dropped — no canton is invented.
+ * are dropped — no canton is invented for unresolved locations.
  *
  * This crawler:
  *   1. Fetches all pages of the national career center (unfiltered).
@@ -669,10 +669,6 @@ const CITY_POSTAL_CH = {
   'Giubiasco': '6512', Locarno: '6600', Lugano: '6900', Mendrisio: '6850',
 };
 
-// Canton-specific fallback postal codes (canton capital / representative PLZ)
-// when the city is not in the lookup table. CH-wide now (Volg is national), so
-// every canton needs a sane fallback — '0000' would emit a bogus postalCode in
-// the JobPosting structured data on hundreds of pages.
 function getPostalCode(city = '', canton = '') {
   return CITY_POSTAL_CH[city] || CANTON_POSTAL_FALLBACK[canton] || '0000';
 }
