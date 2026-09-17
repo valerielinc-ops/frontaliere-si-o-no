@@ -3,6 +3,7 @@ run-name: 'Body recovery · PR #${{ github.event.pull_request.number }}'
 
 # API-only recovery on trusted main. This does not publish a check on the PR
 # head, validate code, or execute any file/string from the pull request.
+# [skip ci] manual-dispatch probe marker; removed before the final fix.
 on:
   pull_request_target:
     types: [edited]
