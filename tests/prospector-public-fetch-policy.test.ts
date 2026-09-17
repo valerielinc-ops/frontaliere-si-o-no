@@ -208,4 +208,105 @@ describe('prospector public-only polite transport', () => {
     })]);
     expect(fetchImpl).toHaveBeenCalledWith(detail, expect.objectContaining({ redirect: 'manual' }));
   });
+
+  it('rescues a WAF 403 through Jina while keeping the prospector URL policy in front', async () => {
+    const seed = 'https://employer.example/jobs';
+    const detail = 'https://employer.example/careers/detail/1';
+    const listing = `<a href="/careers/detail/1">Platform Engineer</a>${' listing'.repeat(60)}`;
+    const detailHtml = '<h1>Platform Engineer</h1><div class="job-location">Zürich</div>'
+      + '<article class="vacancy-description">Build reliable systems for our engineering organisation, '
+      + 'coordinate production releases, improve observability, support colleagues across the platform team, '
+      + 'and document resilient operational practices for every service owner.</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 403, null, 'Forbidden by edge policy');
+      if (url === detail) return response(url, 200, null, detailHtml);
+      throw new Error(`unexpected direct URL ${url}`);
+    });
+    const jinaFetchImpl = vi.fn(async (url: string) => response(url, 200, null, listing));
+
+    const rows = await runSpecInProduction({
+      companyKey: 'employer', companyName: 'Employer', companyHost: 'employer.example',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/careers/detail/*',
+    } as any, {
+      fetchImpl,
+      jinaFetchImpl,
+      jinaRetries: 0,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      jinaSleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title: 'Platform Engineer', url: detail, location: 'Zürich', canton: 'ZH',
+    })]);
+    expect(jinaFetchImpl).toHaveBeenCalledWith(
+      expect.stringContaining('https://r.jina.ai/'),
+      expect.objectContaining({ headers: expect.objectContaining({ 'X-Return-Format': 'html' }) }),
+    );
+  });
+
+  it('marks an exhausted WAF rescue as anti-bot so the prior slice can be preserved', async () => {
+    const seed = 'https://employer.example/jobs';
+    const fetchImpl = vi.fn(async (url: string) => response(
+      url,
+      url.endsWith('/robots.txt') ? 200 : 403,
+      null,
+      url.endsWith('/robots.txt') ? 'User-agent: *\nAllow: /' : 'Forbidden by edge policy',
+    ));
+    const jinaFetchImpl = vi.fn(async (url: string) => response(url, 502));
+
+    let error: any;
+    try {
+      await runSpecInProduction({
+        companyKey: 'employer', companyName: 'Employer', companyHost: 'employer.example',
+        mode: 'template', seedUrls: [seed], detailTemplate: '/careers/detail/*',
+      } as any, {
+        fetchImpl,
+        jinaFetchImpl,
+        jinaRetries: 0,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => {},
+        jinaSleepImpl: async () => {},
+      });
+    } catch (caught) {
+      error = caught;
+    }
+
+    expect(error).toMatchObject({ status: 403, antiBotExhausted: true });
+    expect(jinaFetchImpl).toHaveBeenCalledTimes(1);
+  });
+
+  it('does not treat an unrecognised 200 WAF challenge from Jina as an empty listing', async () => {
+    const seed = 'https://employer.example/jobs';
+    const fetchImpl = vi.fn(async (url: string) => response(
+      url,
+      url.endsWith('/robots.txt') ? 200 : 403,
+      null,
+      url.endsWith('/robots.txt') ? 'User-agent: *\nAllow: /' : 'Forbidden by edge policy',
+    ));
+    const challenge = '<html><body><script>var cf = "cf-browser-verification";</script>'
+      + ' challenge'.repeat(80) + '</body></html>';
+    const jinaFetchImpl = vi.fn(async (url: string) => response(url, 200, null, challenge));
+
+    let error: any;
+    try {
+      await runSpecInProduction({
+        companyKey: 'employer', companyName: 'Employer', companyHost: 'employer.example',
+        mode: 'template', seedUrls: [seed], detailTemplate: '/careers/detail/*',
+      } as any, {
+        fetchImpl,
+        jinaFetchImpl,
+        jinaRetries: 0,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => {},
+        jinaSleepImpl: async () => {},
+      });
+    } catch (caught) {
+      error = caught;
+    }
+
+    expect(error).toMatchObject({ status: 403, antiBotExhausted: true });
+    expect(jinaFetchImpl).toHaveBeenCalledTimes(1);
+  });
 });
