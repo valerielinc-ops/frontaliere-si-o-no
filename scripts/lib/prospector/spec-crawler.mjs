@@ -30,6 +30,8 @@ import {
 } from './location-evidence.mjs';
 import { PROSPECTOR_DIR } from './config.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
+import { WAF_IP_BLOCK_STATUS } from '../transient-fetch.mjs';
+import { fetchHtmlViaJinaWithRetry } from '../jina-proxy.mjs';
 import {
   extractUmantisListingEvidence,
   umantisVacancyIdentity,
@@ -113,6 +115,40 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
     headers: runtime.headers,
   });
   if (result.ok) return result;
+
+  let wafProxyExhausted = false;
+
+  // A public career page can answer 403/406/415/451 only to the GitHub
+  // Actions egress IP while serving the same URL to a clean residential IP.
+  // The ordinary crawler transport already has this rescue; the prospector
+  // used to be the one HTML path that failed closed before trying it. Keep the
+  // target URL policy in front of the request, then reuse the same retried
+  // Jina HTML rescue. If the rescue is exhausted, mark the error as an
+  // anti-bot outage so the standard pipeline preserves the previous slice and
+  // the next scheduled run can retry it without opening a false crawler red.
+  if (!result.policyBlocked && !result.blockedByRobots
+    && WAF_IP_BLOCK_STATUS.has(Number(result.status))
+    && runtime.disableWafProxy !== true) {
+    const proxiedBody = await fetchHtmlViaJinaWithRetry(url, {
+      timeoutMs: runtime.timeoutMs,
+      retries: runtime.jinaRetries,
+      retryBaseMs: runtime.jinaRetryBaseMs,
+      fetchImpl: runtime.jinaFetchImpl,
+      sleepImpl: runtime.jinaSleepImpl,
+    });
+    if (proxiedBody != null) {
+      return {
+        ...result,
+        ok: true,
+        status: 200,
+        url: result.url || url,
+        body: proxiedBody,
+        proxiedBy: 'jina',
+      };
+    }
+    wafProxyExhausted = true;
+  }
+
   // `HTTP 0` names the layer, not the cause. `politeFetch` now carries the
   // transport kind, so a failure that never reached a status says dns/tls/
   // timeout/reset instead of a zero nobody can act on (#7351).
@@ -125,6 +161,7 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
     {
       status: result.status,
       retryable: !result.blockedByRobots && !result.policyBlocked && (!result.status || result.status >= 500),
+      ...(wafProxyExhausted ? { antiBotExhausted: true } : {}),
     },
   );
   throw error;
