@@ -1,13 +1,13 @@
 /**
  * Vir Biotechnology (Humabs BioMed) — Greenhouse API job parser
  *
- * Vir Biotechnology acquired Humabs BioMed SA, which has R&D operations
- * in Bellinzona, Canton Ticino. Vir uses Greenhouse as their ATS.
+ * Vir Biotechnology acquired Humabs BioMed SA, which has Swiss R&D operations
+ * including Bellinzona, Canton Ticino. Vir uses Greenhouse as their ATS.
  *
  * Greenhouse API endpoint:
  *   https://boards-api.greenhouse.io/v1/boards/virbiotechnologyinc/jobs?content=true
  *
- * The API returns all jobs globally. We filter for Switzerland/Bellinzona positions.
+ * The API returns all jobs globally. We filter for positions in Switzerland.
  */
 
 import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
@@ -72,7 +72,7 @@ export function slugify(value = '', suffix = '') {
 }
 
 /**
- * Check if a Greenhouse job location matches Switzerland/Ticino.
+ * Check if a Greenhouse job location matches Switzerland.
  */
 export function isSwissLocation(locationName = '') {
   return isTargetSwissLocation(locationName);
