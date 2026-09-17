@@ -305,6 +305,62 @@ export function normalizeManifestPath(pagePath) {
   return normalized;
 }
 
+/**
+ * The regular shadow manifest intentionally stores only hashes. The opt-in
+ * post-walk planner additionally needs a small reverse-edge index for removals
+ * and same-job aliases; keep that index compact and out of the default shadow
+ * output so POST_WALK_INCREMENTAL=0 remains byte-for-byte unchanged.
+ */
+function compactPostWalkMetadata(input) {
+  if (process.env.POST_WALK_INCREMENTAL !== '1') return undefined;
+
+  const jobIds = new Set();
+  const slugs = new Set();
+  const references = new Set();
+  const seen = new WeakSet();
+  const visit = (value, key = '') => {
+    if (typeof value === 'string') {
+      const normalizedKey = String(key).replace(/[^a-z0-9]/gi, '').toLowerCase();
+      if (normalizedKey === 'jobid' || normalizedKey === 'winnerid') jobIds.add(value);
+      if (normalizedKey.includes('slug')) slugs.add(value);
+      if (
+        normalizedKey.includes('path')
+        || normalizedKey.includes('url')
+        || normalizedKey.includes('href')
+        || normalizedKey.includes('file')
+        || normalizedKey.includes('candidate')
+        || normalizedKey.includes('tracking')
+        || normalizedKey.includes('prose')
+        || normalizedKey.includes('reference')
+        || normalizedKey === 'sourcepath'
+        || normalizedKey === 'targetpath'
+      ) {
+        references.add(value);
+      }
+      return;
+    }
+    if (!value || typeof value !== 'object') return;
+    if (seen.has(value)) return;
+    seen.add(value);
+    if (Array.isArray(value)) {
+      for (const item of value) visit(item, key);
+      return;
+    }
+    for (const [childKey, childValue] of Object.entries(value)) visit(childValue, childKey);
+  };
+  visit(input);
+
+  const sorted = (values) => [...values].filter(Boolean).sort(compareStrings);
+  const metadata = {};
+  const sortedJobIds = sorted(jobIds);
+  const sortedSlugs = sorted(slugs);
+  const sortedReferences = sorted(references);
+  if (sortedJobIds.length > 0) metadata.jobIds = sortedJobIds;
+  if (sortedSlugs.length > 0) metadata.slugs = sortedSlugs;
+  if (sortedReferences.length > 0) metadata.references = sortedReferences;
+  return Object.keys(metadata).length > 0 ? metadata : undefined;
+}
+
 function safeLocaleFileName(locale) {
   const name = String(locale || '').trim();
   if (!name || !/^[a-z0-9_-]+$/i.test(name)) {
@@ -348,10 +404,10 @@ export class IncrementalManifest {
     for (const [existingKind, entries] of this.entriesByKind) {
       if (existingKind !== kind) entries.delete(normalizedPath);
     }
-    this.entriesByKind.get(kind).set(
-      normalizedPath,
-      computeInputHash(input, kind, templateVersion),
-    );
+    this.entriesByKind.get(kind).set(normalizedPath, {
+      hash: computeInputHash(input, kind, templateVersion),
+      postWalk: compactPostWalkMetadata(input),
+    });
   }
 
   hasPath(pagePath) {
@@ -423,7 +479,12 @@ export class IncrementalManifest {
         writeLine({ type: 'kind', kind, ...this.kindMetadata.get(kind) });
         const sortedPaths = [...entries.keys()].sort(compareStrings);
         for (const pagePath of sortedPaths) {
-          writeLine({ path: pagePath, hash: entries.get(pagePath) });
+          const entry = entries.get(pagePath);
+          writeLine({
+            path: pagePath,
+            hash: entry.hash,
+            ...(entry.postWalk ? { postWalk: entry.postWalk } : {}),
+          });
         }
       }
       const footer = { type: 'footer', counts: summary.counts };
@@ -577,7 +638,12 @@ export async function loadIncrementalManifest(file) {
         throw new Error(`${file}:${lineNumber}: entry non valida`);
       }
       if (entries.has(record.path)) throw new Error(`${file}:${lineNumber}: path duplicato ${record.path}`);
-      entries.set(record.path, { path: record.path, inputHash: record.hash, kind: currentKind });
+      const entry = { path: record.path, inputHash: record.hash, kind: currentKind };
+      // POST_WALK_INCREMENTAL (#8942) adds a compact identity/reference index
+      // per entry; the planner proves same-job and explicit path dependencies
+      // from it, so the shared loader must carry it through.
+      if (record.postWalk !== undefined) entry.postWalk = record.postWalk;
+      entries.set(record.path, entry);
     }
   } finally {
     reader.close();
