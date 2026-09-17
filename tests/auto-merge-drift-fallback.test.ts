@@ -5,7 +5,7 @@
  * Rimuove l'unico merge MANUALE residuo. Vedi REVIEW_WORKFLOW_DRIFT_FILES.
  */
 import { describe, it, expect } from 'vitest';
-import { isReviewWorkflowDriftPR, isTrustedDriftAuthor, prBodyContractOk } from '../scripts/ci/auto-merge-eval.mjs';
+import { isReviewWorkflowDriftPR, isTrustedDriftAuthor, prBodyContractOk, reviewCommitMatchesHead } from '../scripts/ci/auto-merge-eval.mjs';
 import { decisionDeferralsAreSpecific } from '../scripts/lib/pr-body-sections-check.mjs';
 import { isReviewerBot } from '../scripts/ci/lib/constants.mjs';
 import { REVIEW_WORKFLOW_DRIFT_FILES } from '../scripts/ci/lib/constants.mjs';
@@ -48,6 +48,17 @@ describe('isReviewWorkflowDriftPR', () => {
 
   it('la lista drift è MINIMA (solo tests.yml) — superficie no-review contenuta', () => {
     expect(REVIEW_WORKFLOW_DRIFT_FILES).toEqual(['.github/workflows/tests.yml']);
+  });
+});
+
+describe('reviewCommitMatchesHead', () => {
+  const head = 'a'.repeat(40);
+
+  it('richiede un commit id esplicito e identico alla HEAD', () => {
+    expect(reviewCommitMatchesHead(head, head)).toBe(true);
+    expect(reviewCommitMatchesHead('', head)).toBe(false);
+    expect(reviewCommitMatchesHead(null, head)).toBe(false);
+    expect(reviewCommitMatchesHead('b'.repeat(40), head)).toBe(false);
   });
 });
 

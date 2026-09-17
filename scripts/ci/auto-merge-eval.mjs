@@ -284,6 +284,11 @@ export function isReviewWorkflowDriftPR(filenames) {
   return filenames.some((f) => REVIEW_WORKFLOW_DRIFT_FILES.includes(f));
 }
 
+/** A review is usable only when its explicit commit id equals the current HEAD. */
+export function reviewCommitMatchesHead(reviewCommit, head) {
+  return Boolean(reviewCommit && head && reviewCommit === head);
+}
+
 /**
  * True se l'autore della PR è fidato per il drift-fallback (merge senza review
  * Claude): l'owner/membro/collaboratore del repo, oppure uno dei bot di
@@ -523,8 +528,8 @@ function main() {
     // Percorso normale: `## LGTM` presente sulla HEAD corrente. Un verdict su
     // un commit precedente è sempre stale: anche un rebase di solo main può
     // cambiare la risoluzione, i file testati o il contesto del finding.
-    if (lastBot.commit_id && lastBot.commit_id !== head) {
-      return fail(`Ultima review claude-bot riferita a ${lastBot.commit_id} ≠ HEAD ${head} — review stantia; serve una review nuova sulla HEAD corrente.`);
+    if (!reviewCommitMatchesHead(lastBot.commit_id, head)) {
+      return fail(`Ultima review claude-bot riferita a ${lastBot.commit_id || '<commit_id assente>'} ≠ HEAD ${head} — review stantia o non verificabile; serve una review nuova sulla HEAD corrente.`);
     } else {
       console.log('Gate review: ## LGTM presente, nessun 🔴 Important ✔');
     }
