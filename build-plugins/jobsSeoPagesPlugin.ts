@@ -42,10 +42,12 @@ import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import {
-  buildMinimalJobInput,
-  getIncrementalManifestMap,
-  INCREMENTAL_MANIFEST_ENABLED,
-  stableJobId,
+ buildMinimalJobInput,
+ getIncrementalManifestInputCache,
+ getIncrementalManifestMap,
+ INCREMENTAL_MANIFEST_ENABLED,
+ resetIncrementalManifestInputCache,
+ stableJobId,
 } from './shared/incrementalManifest.mjs';
 import {
   computeJobsSeoEmitterFingerprints,
@@ -721,6 +723,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  apply: 'build',
  enforce: 'post',
  async closeBundle() {
+ resetIncrementalManifestInputCache(rootDir);
  // Fail the build loudly (follow-up #3608 item 2) instead of silently
  // emitting a literal "undefined" segment in a sector-hub canonical URL —
  // see assertSectorHubTablesComplete() doc comment in ./jobSectorLanding.
@@ -746,6 +749,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   JOB_SEO_LOCALES.filter((locale) => shouldEmitLocale(locale)),
   jobsSeoReuse !== null,
  );
+ const incrementalManifestInputCache = incrementalManifests
+  ? getIncrementalManifestInputCache(rootDir)
+  : null;
  if (incrementalManifests && jobsSeoEmitterFingerprints) {
   for (const manifest of incrementalManifests.values()) {
    manifest.setJobsSeoEmitterFingerprint(jobsSeoEmitterFingerprints);
@@ -2562,10 +2568,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }
  }
  recordEmit('active-related-index-build', __tRelatedIndexBuild);
- const relatedPoolByJob = new WeakMap<object, any[]>();
+ const relatedPoolByJob = new Map<string, any[]>();
  const getRelatedPool = (job: any): any[] => {
  const __tRelatedIndexed = startTimer();
- const cached = relatedPoolByJob.get(job as object);
+ const stableId = stableJobId(job);
+ const cached = stableId ? relatedPoolByJob.get(stableId) : undefined;
  let relatedPool = cached;
  if (!relatedPool) {
  const seen = new Set<any>();
@@ -2584,7 +2591,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  relatedPool.sort((a, b) =>
  (relatedJobSourceIndex.get(a as object) ?? 0) - (relatedJobSourceIndex.get(b as object) ?? 0),
  );
- relatedPoolByJob.set(job as object, relatedPool);
+ if (stableId) relatedPoolByJob.set(stableId, relatedPool);
  }
  recordEmit('active-related-pool-indexed', __tRelatedIndexed);
  if (PROFILE_RELATED_COMPARE) {
@@ -3054,7 +3061,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const effectiveCanonicalUrl = resolveCanonicalUrl(perLocaleSlug[locale], canonicalUrl);
  const activeJobManifestInput = incrementalManifests
   ? {
-   ...buildMinimalJobInput(job, locale, perLocaleSlug[locale], perJob_relatedJobs || []),
+   ...buildMinimalJobInput(job, locale, perLocaleSlug[locale], perJob_relatedJobs || [], incrementalManifestInputCache),
    canton: jobCanton,
    canonicalUrl: effectiveCanonicalUrl,
   }
@@ -13019,6 +13026,7 @@ ${staticAnalyticsHtml}
     (sameCompanyActiveJobs.length > 0 ? sameCompanyActiveJobs : selectRecentJobs(slug, slug))
      .map((relatedJob: any) => stableJobId(relatedJob))
      .filter(Boolean),
+    incrementalManifestInputCache,
    ),
    path: relPath,
    trackingPaths: paths,
@@ -13678,7 +13686,7 @@ ${staticAnalyticsHtml}
  const __tCrossLocaleExpired = startTimer();
  const crossLocaleExpiredReuseInput = incrementalManifests
   ? {
-   ...buildMinimalJobInput(ej, baseLocale, baseSlug),
+   ...buildMinimalJobInput(ej, baseLocale, baseSlug, [], incrementalManifestInputCache),
    source: 'expired-soft-landing',
    sourceInputHash: baseInputHash,
    path: relPath,
@@ -14080,7 +14088,7 @@ ${staticAnalyticsHtml}
  if (__brAction === 'thin') bridgeThinCount++; else bridgeFullCount++;
  const previousSlugReuseInput = incrementalManifests
   ? {
-   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job)),
+   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job), incrementalManifestInputCache),
    path: oldPath,
    sourceInputHash: canonicalInputHash,
    canton: jobCantonForBridge,
@@ -14162,7 +14170,7 @@ ${staticAnalyticsHtml}
  const legacyTIOutDir = np.join(distDir, legacyTIRelPath);
  const legacyTIReuseInput = incrementalManifests
   ? {
-   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job)),
+   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job), incrementalManifestInputCache),
    path: legacyTIRelPath,
    sourceInputHash: canonicalInputHash,
    canton: jobCantonForBridge,
@@ -14391,7 +14399,7 @@ ${staticAnalyticsHtml}
  const __tCrossLocaleActive = startTimer();
  const crossLocaleActiveReuseInput = incrementalManifests
   ? {
-   ...buildMinimalJobInput(job, baseLocale, baseSlug, getRelatedPool(job)),
+   ...buildMinimalJobInput(job, baseLocale, baseSlug, getRelatedPool(job), incrementalManifestInputCache),
    source: 'active-job',
    sourceInputHash: baseInputHash,
    path: relPath,
@@ -14471,6 +14479,7 @@ ${staticAnalyticsHtml}
  sitemapEligibleJobs.length = 0;
  relatedJobsByCategory.clear();
  relatedJobsByLocation.clear();
+ relatedPoolByJob.clear();
  companyMap.clear();
  // Review di #6154 (finding 3): anche questi puntano agli stessi oggetti
  // job, e uno basta a tenere vivo il grafo. Ultimi lettori verificati:
