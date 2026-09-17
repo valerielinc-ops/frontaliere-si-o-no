@@ -135,21 +135,27 @@ async function fetchListings() {
   // the floor below, re-filing the same issue. A zero is publishable only when
   // the page proves it rendered in full (both landmark headings, no vacancy
   // between them); an unproven zero still throws.
-  const { authoritativeEmptySnapshot } = evaluateAuthoritativeSnapshot(rows, {
-    validateAuthoritativeSnapshot: assertCompleteArtisaSnapshot,
+  // Artisa does not publish a declared total or pagination metadata. The
+  // parser's source-DOM proof is therefore the authority for both branches:
+  // the two landmark headings plus every vacancy heading accounted for. Run
+  // that proof through the shared contract before fetching details or merging.
+  const {
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
+  } = evaluateAuthoritativeSnapshot(rows, {
+    validateAuthoritativeSnapshot: (snapshot) => (
+      Array.isArray(snapshot) && snapshot.length === 0
+        ? assertCompleteArtisaSnapshot(snapshot)
+        : assertCompleteArtisaListingSnapshot(snapshot)
+    ),
     allowAuthoritativeEmptySnapshot: true,
-    authoritativeSnapshotScope: 'empty-only',
+    authoritativeSnapshotScope: 'all',
     companyLabel: 'Artisa Group',
   });
   if (authoritativeEmptySnapshot) {
     console.log('✅ Careers page rendered with no open position — publishing the proven empty snapshot.');
     return { rows, authoritativeEmptySnapshot, authoritativeSnapshotVerified: true };
   }
-
-  // A non-empty result is valid at any size, including one row, but only when
-  // the parser accounted for every vacancy heading in the complete source DOM.
-  // This preserves the data-integrity check without bringing back a count floor.
-  const authoritativeSnapshotVerified = assertCompleteArtisaListingSnapshot(rows) === true;
 
   // Fetch detail pages from Smartsheet forms (sequential to be polite)
   for (const row of rows) {

@@ -60,6 +60,7 @@ const COMPANY_DOMAIN = 'tsmg.co';
 const CAREERS_URL = 'https://jobs.lever.co/tsmg';
 const API_URL = 'https://api.lever.co/v0/postings/tsmg?mode=json';
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const SWISS_COUNTRY_VALUES = new Set(['CH', 'CHE', 'SWITZERLAND', 'SCHWEIZ', 'SUISSE', 'SVIZZERA']);
 
 function readJson(filePath, fallback) {
   try {
@@ -127,11 +128,27 @@ function assertCompleteTsmgSourceSnapshot(payload) {
     ) {
       throw new Error(`TSMG Lever returned a degraded snapshot at posting ${index + 1}`);
     }
-    if (country.toUpperCase() === 'CH' && !isSwissLocationText(location)) {
-      throw new Error(`TSMG Lever returned an unrecognised Swiss location at posting ${index + 1}`);
+    const normalizedCountry = normalizeTsmgCountry(country);
+    const normalizedLocation = location.trim();
+    if (normalizedCountry === 'CH' && !isSwissLocationText(normalizedLocation)) {
+      throw new Error(
+        `TSMG Lever returned a degraded snapshot at posting ${index + 1}: `
+        + `categories.location "${normalizedLocation}" is not a recognised Swiss location`,
+      );
+    }
+    if (normalizedCountry !== 'CH' && isSwissLocationText(normalizedLocation)) {
+      throw new Error(
+        `TSMG Lever returned a degraded snapshot at posting ${index + 1}: `
+        + `country ${normalizedCountry} conflicts with Swiss categories.location "${normalizedLocation}"`,
+      );
     }
   }
   return payload;
+}
+
+function normalizeTsmgCountry(value = '') {
+  const country = String(value || '').trim().toUpperCase();
+  return SWISS_COUNTRY_VALUES.has(country) ? 'CH' : country;
 }
 
 function isTargetJob(job = {}) {
@@ -303,6 +320,9 @@ async function main() {
   // floor.
   const rawJobs = assertCompleteTsmgSourceSnapshot(await fetchJson(API_URL));
   const swiss = rawJobs.filter((job) => String(job.country || '').trim().toUpperCase() === 'CH');
+  // A complete source snapshot may legitimately contain only Swiss postings
+  // outside the target cantons; that filtered zero must still be published.
+  // Missing or unrecognised CH locations were rejected before this filter.
   const target = swiss.filter((job) => isTsmgTargetLocation(job?.categories?.location || ''));
   console.log(`📋 Total Lever jobs: ${rawJobs.length}`);
   console.log(`📋 Switzerland jobs: ${swiss.length}`);

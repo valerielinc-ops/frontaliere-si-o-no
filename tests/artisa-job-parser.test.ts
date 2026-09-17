@@ -165,6 +165,21 @@ describe('assertCompleteArtisaSnapshot', () => {
     expect(() => assertCompleteArtisaListingSnapshot(rows)).toThrow(/complete non-empty state/);
   });
 
+  it('rejects a partial one-of-two vacancy snapshot', () => {
+    const rows = parseArtisaCareerPage(`
+      <div>
+        <h2>Carriera</h2>
+        <h2>Architetto qualificato</h2>
+        <h4>Lugano</h4>
+        <a href="https://app.smartsheet.com/b/form/019c46ebd5137236a9d1b0d500840bf4">Scopri di piu</a>
+        <h2>Project Manager</h2>
+        <h2>Le nostre sedi</h2>
+      </div>
+    `);
+    expect(rows).toHaveLength(1);
+    expect(() => assertCompleteArtisaListingSnapshot(rows)).toThrow(/complete non-empty state/);
+  });
+
   // Both drifts below render the page in full (landmarks present) and yield zero
   // rows. Qualifying the zero post-filter would call them authoritative and
   // delist every live Artisa job; the proof is pre-filter precisely so they throw.

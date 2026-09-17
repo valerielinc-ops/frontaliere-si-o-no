@@ -104,12 +104,17 @@ export function parseArtisaCareerPage(html = '') {
   // from a real zero: if Squarespace moves the location out of `h4`, or changes
   // its wording so `isTargetSwissLocation()` stops matching, vacancies could be
   // silently discarded while both landmarks still render.
-  const completeCandidateSnapshot = landmarksComplete && candidateVacancies === jobs.length;
-  Object.defineProperty(targetJobs, 'artisaSnapshotState', {
-    value: completeCandidateSnapshot
-      ? candidateVacancies === 0 ? 'authoritative-site-zero' : 'authoritative-site-snapshot'
-      : 'unverified',
-    enumerable: false,
+  const parsedVacancies = jobs.length;
+  const completeCandidateSnapshot = landmarksComplete && candidateVacancies === parsedVacancies;
+  Object.defineProperties(targetJobs, {
+    artisaSnapshotState: {
+      value: completeCandidateSnapshot
+        ? candidateVacancies === 0 ? 'authoritative-site-zero' : 'authoritative-site-snapshot'
+        : 'unverified',
+      enumerable: false,
+    },
+    artisaCandidateVacancies: { value: candidateVacancies, enumerable: false },
+    artisaParsedVacancies: { value: parsedVacancies, enumerable: false },
   });
   // Why the state is `unverified`, in the words of what the page actually
   // rendered (issue #7425 item 3). Without it the crawler's only signal reads
@@ -154,17 +159,27 @@ export function assertCompleteArtisaSnapshot(jobs) {
 
 /**
  * Verify that a non-empty snapshot contains every vacancy heading the source
- * rendered. This is a structural completeness check, not a minimum-count
- * gate: one fully parsed vacancy is as valid as any larger complete snapshot.
+ * rendered. The parser records the source-DOM heading total and the parsed-row
+ * total, so this is a structural completeness check, not a minimum-count gate:
+ * one fully parsed vacancy is as valid as any larger complete snapshot.
  *
  * @param {object[]|undefined|null} jobs
  * @returns {true}
  */
 export function assertCompleteArtisaListingSnapshot(jobs) {
+  const candidateVacancies = Array.isArray(jobs)
+    ? Number(Reflect.get(jobs, 'artisaCandidateVacancies'))
+    : Number.NaN;
+  const parsedVacancies = Array.isArray(jobs)
+    ? Number(Reflect.get(jobs, 'artisaParsedVacancies'))
+    : Number.NaN;
   if (
     !Array.isArray(jobs)
     || jobs.length === 0
     || Reflect.get(jobs, 'artisaSnapshotState') !== 'authoritative-site-snapshot'
+    || !Number.isInteger(candidateVacancies)
+    || candidateVacancies === 0
+    || candidateVacancies !== parsedVacancies
   ) {
     const reason = Array.isArray(jobs)
       ? Reflect.get(jobs, 'artisaSnapshotReason') || `${jobs.length} row(s) parsed`
