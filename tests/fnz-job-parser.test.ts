@@ -10,12 +10,26 @@ describe('fnz-job-parser / resolveFnzSwissLocation', () => {
     });
   });
 
-  it('preserves a country-only candidate without inventing a city', () => {
-    expect(resolveFnzSwissLocation(['Switzerland'])).toEqual({
-      raw: 'Switzerland',
-      location: 'Switzerland',
-      canton: '',
+  it('uses the richer requisition location when the listing says only Switzerland', () => {
+    expect(resolveFnzSwissLocation([
+      'Switzerland',
+      {
+        descriptor: 'CH Zurich',
+        addressLocality: 'Zürich',
+        postalCode: '8001',
+      },
+    ])).toEqual({
+      raw: 'CH Zurich',
+      location: 'Zürich',
+      canton: 'ZH',
     });
+  });
+
+  it('rejects an unresolved country-only candidate instead of inventing Chiasso', () => {
+    const resolved = resolveFnzSwissLocation(['Switzerland']);
+
+    expect(resolved).toBeNull();
+    expect(resolved?.location).not.toBe('Chiasso');
   });
 
   it('rejects foreign-only candidates', () => {
