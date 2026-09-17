@@ -9,7 +9,7 @@
  * PostAuto AG (PostBus Ltd) is Swiss Post's public-transport subsidiary — the
  * largest manufacturer-independent bus fleet operator in Switzerland (~2400
  * vehicles, 942 lines, 189 million passengers/year), running regional bus
- * routes across nearly every canton. Its legal registered office is
+ * routes throughout Switzerland. Its legal registered office is
  * Wankdorfallee 4, 3030 Bern BE (confirmed via the company's own legal notice
  * at https://www.postauto.ch/en/pages/footer/publication-details, UID
  * CHE-112.242.941 — NOT Chur/Graubünden: "Gürtelstrasse 14, 7001/7003 Chur"
@@ -61,7 +61,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferAnyCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { parsePostJobDetail, extractPostJobIdFromUrl } from './postch-job-parser.mjs';
 import { dedicatedPostOwner } from './crawler-company-ownership.mjs';
 
@@ -81,10 +81,10 @@ const JOBS_API_URL = 'https://job.post.ch/services/recruiting/v1/jobs';
 // requested locale, so it/fr/en-only PostAuto postings would be silently
 // missed if we only scanned de_DE.
 const JOBS_API_LISTING_LOCALES = ['de_DE', 'it_IT', 'fr_FR', 'en_US'];
-const JOBS_API_MAX_PAGES = 100000; // uncapped — loop breaks on empty page / seen>=totalJobs
+const JOBS_API_MAX_PAGES = 100000; // safety cap; reaching it means the feed is incomplete
 const JOBS_DETAIL_LOCALES = ['it_IT', 'de_DE', 'fr_FR', 'en_US']; // priority for description language
 
-/* ── HQ fallback (Wankdorfallee 4, 3030 Bern, BE) ─────────────── */
+/* ── HQ address (Wankdorfallee 4, 3030 Bern, BE) ─────────────── */
 /* Confirmed via https://www.postauto.ch/en/pages/footer/publication-details */
 /* (own legal notice, UID CHE-112.242.941) — the registered legal HQ is in  */
 /* Bern, NOT Chur/Graubünden (which only hosts a regional operating branch). */
@@ -188,38 +188,28 @@ function detectEmploymentType(text = '') {
 }
 
 /* ── Address / canton resolution ──────────────────────────────
- * PostAuto runs regional bus networks across nearly every Swiss canton —
+ * PostAuto runs regional bus networks throughout Switzerland —
  * unlike a single-site employer, a job's location must be resolved to its
  * OWN canton (CH-wide via inferAnyCanton, mirroring the BLS AG dedicated
  * crawler), never defaulted to the Bern HQ just because the office is
- * unresolved. postalCode/streetAddress stay canton-gated to the HQ fallback
- * exactly like postalCode already was (yapeal-job-parser.mjs's resolveAddress
- * is the canonical reference for this pattern; do not regress to an
- * unconditional `|| HQ.streetAddress` — see fix commit for PR #3376 review).
+ * unresolved. postalCode/streetAddress are retained only for the Bern HQ;
+ * other Swiss locations keep the required fields present but empty until
+ * downstream safe-default handling.
  */
-function resolveAddress(cityRaw = '', regionRaw = '') {
+export function resolveAddress(cityRaw = '', _regionRaw = '') {
   const city = normalizeSpace(cityRaw);
-  const regionCode = normalizeCantonCode(regionRaw || '');
-  const canton = regionCode || (city ? inferAnyCanton(city) : '') || '';
+  if (!city || !isTargetSwissLocation(city, { includeBorderProximity: false })) return null;
 
-  if (city && canton) {
-    const isHqCity = /bern/i.test(city);
-    return {
-      city,
-      canton,
-      postalCode: isHqCity ? HQ.postalCode : '',
-      streetAddress: isHqCity ? HQ.streetAddress : '',
-      region: canton,
-    };
-  }
+  const canton = inferAnyCanton(city);
+  if (!canton) return null;
 
-  // Unmapped/empty location → safe HQ fallback, never dropped.
+  const isHqCity = /^bern(?:\s|,|$)/i.test(city);
   return {
-    city: HQ.city,
-    canton: HQ.canton,
-    postalCode: HQ.postalCode,
-    streetAddress: HQ.streetAddress,
-    region: HQ.region,
+    city,
+    canton,
+    postalCode: isHqCity ? HQ.postalCode : '',
+    streetAddress: isHqCity ? HQ.streetAddress : '',
+    region: canton,
   };
 }
 
@@ -227,7 +217,7 @@ function resolveAddress(cityRaw = '', regionRaw = '') {
 
 /**
  * POST one page against the shared Post Group jobs search endpoint.
- * @returns {Promise<{totalJobs:number, jobs:object[]}>}
+ * @returns {Promise<{totalJobs:number|null, jobs:object[], fetchOutcome:string}>}
  */
 async function fetchJobsApiPage(locale, pageNumber, timeoutMs) {
   const controller = new AbortController();
@@ -249,16 +239,27 @@ async function fetchJobsApiPage(locale, pageNumber, timeoutMs) {
     });
     if (!res.ok) {
       console.warn(`⚠️ HTTP ${res.status} for jobs API (${locale} page ${pageNumber})`);
-      return { totalJobs: 0, jobs: [] };
+      return {
+        totalJobs: null,
+        jobs: [],
+        fetchOutcome: res.status === 403 || res.status === 429 ? 'anti_bot_block' : 'feed_endpoint_unavailable',
+      };
     }
     const data = await res.json();
-    const jobs = Array.isArray(data?.jobSearchResult)
-      ? data.jobSearchResult.map((r) => r?.response).filter(Boolean)
-      : [];
-    return { totalJobs: Number(data?.totalJobs ?? 0), jobs };
+    if (!Array.isArray(data?.jobSearchResult)) {
+      console.warn(`⚠️ Jobs API response changed for ${locale} page ${pageNumber} (missing jobSearchResult)`);
+      return { totalJobs: null, jobs: [], fetchOutcome: 'selector_miss' };
+    }
+    const jobs = data.jobSearchResult.map((r) => r?.response).filter(Boolean);
+    const totalJobs = Number(data?.totalJobs);
+    return {
+      totalJobs: Number.isFinite(totalJobs) && totalJobs >= 0 ? totalJobs : null,
+      jobs,
+      fetchOutcome: 'ok',
+    };
   } catch (err) {
     console.warn(`⚠️ Jobs API fetch failed (${locale} page ${pageNumber}): ${err.message}`);
-    return { totalJobs: 0, jobs: [] };
+    return { totalJobs: null, jobs: [], fetchOutcome: 'connection_error' };
   } finally {
     clearTimeout(timer);
   }
@@ -302,32 +303,89 @@ export function isPostAutoRecord(record) {
 async function fetchPostAutoListings(timeoutMs) {
   const delay = (ms) => new Promise((r) => setTimeout(r, ms));
   const byId = new Map();
+  const localeStats = [];
 
   for (const apiLocale of JOBS_API_LISTING_LOCALES) {
     let pageNumber = 0;
-    let totalJobs = Infinity;
+    let totalJobs = null;
     let seen = 0;
-    while (seen < totalJobs && pageNumber < JOBS_API_MAX_PAGES) {
-      const { totalJobs: total, jobs } = await fetchJobsApiPage(apiLocale, pageNumber, timeoutMs);
-      if (jobs.length === 0) break;
+    let complete = false;
+    while (pageNumber < JOBS_API_MAX_PAGES) {
+      const page = await fetchJobsApiPage(apiLocale, pageNumber, timeoutMs);
+      if (page.fetchOutcome !== 'ok') {
+        localeStats.push({ locale: apiLocale, seen, totalJobs, fetchOutcome: page.fetchOutcome });
+        const failed = [];
+        Object.defineProperties(failed, {
+          discoveredCount: { value: byId.size, enumerable: false },
+          fetchOutcome: { value: page.fetchOutcome, enumerable: false },
+          listingStats: { value: localeStats, enumerable: false },
+        });
+        return failed;
+      }
+
+      const { totalJobs: total, jobs } = page;
+      // Keep the first positive declaration as the authoritative upper bound.
+      // Later pages can report 0/unknown while the same feed is still being
+      // paginated; replacing a known total would accept a truncated snapshot.
+      if (totalJobs === null && Number.isFinite(total) && total > 0) totalJobs = total;
+      if (jobs.length === 0) {
+        if (Number.isFinite(totalJobs) && seen < totalJobs) {
+          console.warn(`⚠️ PostAuto ${apiLocale}: empty page before declared total (${seen}/${totalJobs}).`);
+          localeStats.push({ locale: apiLocale, seen, totalJobs, fetchOutcome: 'feed_endpoint_unavailable' });
+          const incomplete = [];
+          Object.defineProperties(incomplete, {
+            discoveredCount: { value: byId.size, enumerable: false },
+            fetchOutcome: { value: 'feed_endpoint_unavailable', enumerable: false },
+            listingStats: { value: localeStats, enumerable: false },
+          });
+          return incomplete;
+        }
+        complete = true;
+        break;
+      }
       for (const record of jobs) {
         const id = String(record?.id || '').trim();
         if (!id || byId.has(id)) continue;
         if (isPostAutoRecord(record)) byId.set(id, record);
       }
       seen += jobs.length;
-      totalJobs = total;
       pageNumber += 1;
+      // Some SuccessFactors responses report totalJobs=0 even while returning
+      // a full page. Treat that as "unknown", not as proof that the first
+      // page is complete; the following empty page is the terminator.
+      if (Number.isFinite(totalJobs) && totalJobs > 0 && seen >= totalJobs) {
+        complete = true;
+        break;
+      }
       await delay(250);
     }
+
+    if (!complete) {
+      console.warn(`⚠️ PostAuto ${apiLocale}: pagination safety cap reached after ${seen} record(s).`);
+      const incomplete = [];
+      Object.defineProperties(incomplete, {
+        discoveredCount: { value: byId.size, enumerable: false },
+        fetchOutcome: { value: 'feed_endpoint_unavailable', enumerable: false },
+        listingStats: { value: localeStats, enumerable: false },
+      });
+      return incomplete;
+    }
+    localeStats.push({ locale: apiLocale, seen, totalJobs, fetchOutcome: 'ok' });
     console.log(`     ${apiLocale}: scanned ${seen} record(s) (claimed total: ${Number.isFinite(totalJobs) ? totalJobs : 'unknown'})`);
   }
 
-  return [...byId.values()];
+  const listings = [...byId.values()];
+  Object.defineProperties(listings, {
+    discoveredCount: { value: listings.length, enumerable: false },
+    fetchOutcome: { value: listings.length > 0 ? 'ok' : 'filtered_empty', enumerable: false },
+    listingStats: { value: localeStats, enumerable: false },
+  });
+  return listings;
 }
 
 /**
- * Fetch all PostAuto jobs (CH-wide, all cantons its regional network covers).
+ * Fetch all PostAuto jobs (CH-wide, every Swiss canton represented by the
+ * national regional network).
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
@@ -343,8 +401,8 @@ export async function fetchAllPostAutoJobs() {
   console.log(`  📋 PostAuto-branded records found: ${records.length}`);
 
   if (records.length === 0) {
-    console.warn('⚠️ No PostAuto job listings returned.');
-    return [];
+    console.warn(`⚠️ No PostAuto job listings returned (${records.fetchOutcome || 'unverified_empty'}).`);
+    return records;
   }
 
   const delay = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -397,8 +455,13 @@ export async function fetchAllPostAutoJobs() {
     const title = normalizeSpace(detail.title);
     if (!title || title.length < 3) continue;
 
-    const { city, canton, postalCode, streetAddress, region } = resolveAddress(detail.city, detail.region);
-    const location = normalizeSpace(city || HQ.city);
+    const address = resolveAddress(detail.city, detail.region);
+    if (!address) {
+      console.warn(`  ⚠️ Skipping job ${record.id}: unresolved Swiss city (${detail.city || 'empty'}).`);
+      continue;
+    }
+    const { city, canton, postalCode, streetAddress, region } = address;
+    const location = city;
 
     const descriptionText = detail.description || '';
     const description = descriptionText || `${title} bei ${POSTAUTO_COMPANY_NAME} in ${location}.`;
@@ -428,8 +491,8 @@ export async function fetchAllPostAutoJobs() {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields (structured-data completeness, Non-Negotiable #3) ──
-      addressLocality: city || location,
-      addressRegion: region || canton,
+      addressLocality: city,
+      addressRegion: region,
       streetAddress,
       postalCode,
       addressCountry: 'CH',
@@ -455,8 +518,17 @@ export async function fetchAllPostAutoJobs() {
   }
 
   console.log(`\n📋 Total ${POSTAUTO_COMPANY_NAME} jobs discovered: ${jobs.length}`);
+  Object.defineProperties(jobs, {
+    discoveredCount: { value: records.discoveredCount ?? records.length, enumerable: false },
+    parsedCount: { value: jobs.length, enumerable: false },
+    fetchOutcome: { value: records.fetchOutcome || (jobs.length > 0 ? 'ok' : 'filtered_empty'), enumerable: false },
+  });
   return jobs;
 }
+
+export const __testables = {
+  fetchPostAutoListings,
+};
 
 // Re-export shared helpers so callers don't need a second import line.
 export { slugify, stripHtml, extractPostJobIdFromUrl };

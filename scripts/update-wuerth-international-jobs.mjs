@@ -3,7 +3,8 @@
  * Dedicated Würth International AG crawler runner.
  *
  * Würth International is part of the Würth Group, the world's largest
- * trading company for assembly and fastening materials. HQ in Chur (GR).
+ * trading company for assembly and fastening materials. This crawler is
+ * intentionally single-site: all postings belong to Chur (GR).
  *
  * Uses the standard crawler template with the Würth International parser.
  * All fetch/parse logic lives in ./lib/wuerth-international-job-parser.mjs.

@@ -15,7 +15,8 @@
  *   - atribute-container: location, employment type (Vollzeit/Teilzeit), date posted
  *   - accordion sections: tasks, requirements, benefits, contact
  *
- * HQ: Chur, Canton GR, 7000
+ * Scope: single-site employer in Chur (GR), 7000. The Chur defaults below
+ * are intentional and must not be expanded to a national office search.
  *
  * Source: https://www.wurth-international.com/wurth-international-group/Karriere/Job-Portal/Jobs.php
  */
@@ -249,10 +250,11 @@ export function parseDetailPage(html) {
   };
 }
 
-/* ── Fallback description ─────────────────────────────────── */
+/* ── Single-site fallback description ─────────────────────── */
 
 /**
- * Build a rich fallback description (>50 words) when detail page yields nothing.
+ * Build a rich single-site fallback description (>50 words) when the detail
+ * page yields nothing.
  */
 export function buildFallbackDescription(title, location, entryLevel = '') {
   const levelInfo = entryLevel ? ` Einstiegslevel: ${entryLevel}.` : '';
@@ -294,7 +296,7 @@ export function isTrustedDomain(rawUrl = '') {
 /* ── Main fetch function ──────────────────────────────────── */
 
 /**
- * Fetch all Wuerth International jobs.
+ * Fetch all Wuerth International jobs from its single Chur (GR) site.
  * 1. Fetch listing page, parse table rows
  * 2. For each job, fetch detail page for full description
  * Returns ParsedJob[] with source-locale fields only.
@@ -304,7 +306,7 @@ export async function fetchAllWuerthInternationalJobs() {
   const userAgent = process.env.JOBS_CRAWLER_USER_AGENT ||
     'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
-  console.log(`🔧 Fetching Würth International jobs`);
+  console.log(`🔧 Fetching Würth International jobs (single site: Chur, GR)`);
   console.log(`   Listing: ${LISTING_URL}\n`);
 
   // Step 1: Fetch listing page

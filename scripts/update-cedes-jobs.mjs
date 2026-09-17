@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 /**
- * Dedicated CEDES AG crawler runner.
+ * Dedicated CEDES AG single-site crawler runner.
  * Source: https://www.cedes.com/en/career/jobs/
+ * CEDES currently publishes openings for its Landquart (GR) site only;
+ * Landquart/7302 are intentional mono-site fallbacks, not a regional filter.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -62,7 +64,12 @@ async function main() {
   console.log('📡 Running dedicated CEDES AG crawler...');
   const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob));
   const rawJobs = await fetchCedesJobUrls();
-  if (rawJobs.length === 0) { console.log('⚠️ No jobs found. Keeping existing.'); return; }
+  if (rawJobs.length === 0) {
+    const outcome = rawJobs.fetchOutcome || 'unverified_empty';
+    const detail = rawJobs.fetchDetail ? ` (${rawJobs.fetchDetail})` : '';
+    console.log(`⚠️ No verified CEDES job links returned [${outcome}]${detail}. Keeping existing.`);
+    return;
+  }
   console.log(`🧩 Found ${rawJobs.length} job links. Fetching details...`);
 
   const parsedJobs = [];
@@ -79,8 +86,9 @@ async function main() {
       title: raw.title, titleByLocale: { en: raw.title },
       description, descriptionByLocale: { en: description },
       requirements: [], requirementsByLocale: { en: [] },
-      location: raw.location || 'Landquart', canton: HQ.canton,
-      addressLocality: raw.location || 'Landquart', addressCountry: 'CH',
+      location: HQ.city, canton: HQ.canton,
+      addressLocality: HQ.city, addressRegion: HQ.addressRegion,
+      postalCode: HQ.postalCode, addressCountry: 'CH',
       category: 'technology', contract: 'full-time',
       employmentType: inferEmploymentType(raw.title, description),
       currency: 'CHF', featured: false, postedDate: new Date().toISOString().slice(0, 10),
