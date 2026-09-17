@@ -1601,12 +1601,21 @@
     "candidatesCount": 2,
     "canton": "AG"
   },
-  "AG::it::business-controller-in-ksa-ch": {
-    "winnerJobIdentifier": "ksa-dfb6babcadae",
-    "winnerCanonical": "business-controller-in-kantonsspital-aarau-ksa-aarau",
+  "AG::it::business-controller-in-kantonsspital-aarau-ksa-aarau": {
+    "winnerJobIdentifier": "ksa-b4257baebfa2",
+    "winnerCanonical": "controller-di-cura-kantonsspital-aarau-ksa-aarau",
     "decidedAt": "2026-09-17T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
-    "score": 0.5714,
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
+  "AG::it::business-controller-in-ksa-ch": {
+    "winnerJobIdentifier": "ksa-b4257baebfa2",
+    "winnerCanonical": "controller-di-cura-kantonsspital-aarau-ksa-aarau",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.2222,
     "candidatesCount": 2,
     "canton": "AG"
   },
@@ -2088,11 +2097,11 @@
     "canton": "AG"
   },
   "AG::it::fachfrau-fachmann-gesundheit-ksa-ch": {
-    "winnerJobIdentifier": "ksa-917a360f4605",
-    "winnerCanonical": "fachfrau-fachmann-gesundheit-ksa-ch-3",
+    "winnerJobIdentifier": "ksa-c3a4316e45e0",
+    "winnerCanonical": "salute-professionale-kantonsspital-aarau-ksa-aarau",
     "decidedAt": "2026-09-17T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
-    "score": 0.8333,
+    "score": 0.1111,
     "candidatesCount": 2,
     "canton": "AG"
   },
@@ -5958,9 +5967,9 @@
     "canton": "BASILEA"
   },
   "BASILEA::en::verkaufer-in-denner-ag-basel": {
-    "winnerJobIdentifier": "company-j9jhrv",
-    "winnerCanonical": "seller-denner-ag-basel-66c0e2",
-    "decidedAt": "2026-09-02T00:00:00.000Z",
+    "winnerJobIdentifier": "denner-929c86552da9",
+    "winnerCanonical": "seller-denner-ag-basel-25bcd4",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.4286,
     "candidatesCount": 1,
@@ -6777,9 +6786,9 @@
     "canton": "BASILEA"
   },
   "BASILEA::fr::verkaufer-in-denner-ag-basel": {
-    "winnerJobIdentifier": "company-j9jhrv",
-    "winnerCanonical": "vendeur-denner-ag-basel-66c0e2",
-    "decidedAt": "2026-09-02T00:00:00.000Z",
+    "winnerJobIdentifier": "denner-929c86552da9",
+    "winnerCanonical": "vendeur-denner-ag-basel-25bcd4",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.4286,
     "candidatesCount": 1,
@@ -9432,9 +9441,9 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::verkaufer-in-denner-ag-basel": {
-    "winnerJobIdentifier": "company-j9jhrv",
-    "winnerCanonical": "venditore-denner-ag-basel-66c0e2",
-    "decidedAt": "2026-09-02T00:00:00.000Z",
+    "winnerJobIdentifier": "denner-929c86552da9",
+    "winnerCanonical": "venditore-denner-ag-basel-25bcd4",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.4286,
     "candidatesCount": 1,
@@ -10425,7 +10434,7 @@
     "winnerJobIdentifier": "company-d9pi57",
     "winnerCanonical": "verkaufer-in-denner-ag-langenthal",
     "decidedAt": "2026-09-13T00:00:00.000Z",
-    "lastSeenAt": "2026-09-13T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 1,
     "canton": "BE"
@@ -11820,7 +11829,7 @@
     "winnerJobIdentifier": "company-d9pi57",
     "winnerCanonical": "seller-denner-ag-langenthal-34cb20",
     "decidedAt": "2026-09-13T00:00:00.000Z",
-    "lastSeenAt": "2026-09-13T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 1,
     "canton": "BE"
@@ -13125,7 +13134,7 @@
     "winnerJobIdentifier": "company-d9pi57",
     "winnerCanonical": "vendeur-denner-ag-langenthal-34cb20",
     "decidedAt": "2026-09-13T00:00:00.000Z",
-    "lastSeenAt": "2026-09-13T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 1,
     "canton": "BE"
@@ -24699,7 +24708,7 @@
     "winnerJobIdentifier": "stellenpartner-cf396155b675",
     "winnerCanonical": "elektroinstallateur-in-mit-selbstandigem-arbeiten-und-servicefokus-stellenpartner-ag-hochdorf",
     "decidedAt": "2026-09-11T00:00:00.000Z",
-    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-16T00:00:00.000Z",
     "score": 0.7273,
     "candidatesCount": 2,
     "canton": "LU"
@@ -27057,7 +27066,7 @@
     "winnerJobIdentifier": "stellenpartner-cf396155b675",
     "winnerCanonical": "installatore-elettrico-con-lavoro-indipendente-e-messa-a-fuoco-di-servizio-stellenpartner-ag-hochdorf-luzern",
     "decidedAt": "2026-09-13T00:00:00.000Z",
-    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-16T00:00:00.000Z",
     "score": 0.0909,
     "candidatesCount": 1,
     "canton": "LU"
@@ -28265,6 +28274,15 @@
     "decidedAt": "2026-06-17T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.7778,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::teamleiter-in-disposition-medizinische-onkologie-und-hamatologie-100-luks-luzern": {
+    "winnerJobIdentifier": "luks-de16ee5b58b4",
+    "winnerCanonical": "teamleiter-in-disposition-medizinische-onkologie-e-hamatologie-100-luzerner-kantonsspital-luks-luzern",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.6923,
     "candidatesCount": 2,
     "canton": "LU"
   },
@@ -44172,10 +44190,10 @@
     "canton": "TG"
   },
   "TG::it::arztsekretar-in-pathologie-stgag-munsterlingen": {
-    "winnerJobIdentifier": "stgag-69cbefe9802d",
-    "winnerCanonical": "arztsekretar-in-orthopadie-stgag-munsterlingen",
-    "decidedAt": "2026-08-31T00:00:00.000Z",
-    "lastSeenAt": "2026-08-31T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-e0f3423d113e",
+    "winnerCanonical": "arztsekretar-in-pathologie-stgag-ch",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 1,
     "canton": "TG"
@@ -44748,11 +44766,11 @@
     "canton": "TG"
   },
   "TG::it::education-senior-caregiver-hf-4-anni-legato-al-lavoro-bfgs-dal-gennaio-2027-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
-    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-gennaio-2026-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-06-12T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-473ebd112ba1",
+    "winnerCanonical": "specialista-per-l-educazione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-febbraio-2027-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
-    "score": 0.4783,
+    "score": 0.4583,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -52782,6 +52800,15 @@
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.6364,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::de::fachangestellte-n-gesundheit-im-tagdienst-m-w-d-50-80-clienia-ag-zurich": {
+    "winnerJobIdentifier": "clienia-ag-7a394d95a207",
+    "winnerCanonical": "fachangestellte-n-gesundheit-im-tagdienst-m-w-d-50-80-clienia-ag-pfaffikon",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.8571,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::de::fachmann-frau-betriebsunterhalt-hilfsarbeiter-in-mit-fuhrerschein-kategorie-b-uster-zurich": {
@@ -61848,11 +61875,11 @@
     "canton": "ZH"
   },
   "ZH::it::assistent-in-filialleitung-denner": {
-    "winnerJobIdentifier": "company-dmwt2p",
-    "winnerCanonical": "vice-direttore-di-filiale-denner-ag-wadenswil-23a774",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
+    "winnerJobIdentifier": "company-5l66t",
+    "winnerCanonical": "assistente-nella-gestione-delle-branche-denner-embrach",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
-    "score": 0.0909,
+    "score": 0.1,
     "candidatesCount": 4,
     "canton": "ZH"
   },
@@ -64733,6 +64760,15 @@
     "decidedAt": "2026-08-08T00:00:00.000Z",
     "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.6667,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::fachangestellte-n-gesundheit-im-tagdienst-m-w-d-50-80-clienia-ag-zurich": {
+    "winnerJobIdentifier": "clienia-ag-7a394d95a207",
+    "winnerCanonical": "fachangestellte-n-gesundheit-im-tagdienst-m-w-d-50-80-clienia-ag-pfaffikon",
+    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.8571,
     "candidatesCount": 2,
     "canton": "ZH"
   },
