@@ -246,6 +246,17 @@ describe('fetchJobs national pagination', () => {
     await expect(fetchJobs({ fetchHtml })).resolves.toEqual([]);
     expect(fetchHtml).toHaveBeenCalledTimes(1);
   });
+
+  it('fails closed when Phenom repeats a page and makes no raw-record progress', async () => {
+    const repeatedPage = makeSearchPage(4, [
+      makeSwissJob('repeated-1'),
+      makeSwissJob('repeated-2'),
+    ]);
+    const fetchHtml = vi.fn(async () => repeatedPage);
+
+    await expect(fetchJobs({ fetchHtml })).rejects.toThrow(/repeated page or no new raw records/);
+    expect(fetchHtml).toHaveBeenCalledTimes(2);
+  });
 });
 
 describe('assertHugoBossNationalReadComplete', () => {

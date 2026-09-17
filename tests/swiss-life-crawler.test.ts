@@ -206,6 +206,13 @@ describe('Swiss Life crawler parser', () => {
 
       await expect(fetchSwissListings()).rejects.toThrow(/1 of 2 declared records fetched/);
     });
+
+    it('fails closed when Workday repeats a page without new source records', async () => {
+      const repeatedPage = { total: 3, jobPostings: [makeListing('repeated')] };
+      vi.stubGlobal('fetch', vi.fn(async () => jsonResponse(repeatedPage)));
+
+      await expect(fetchSwissListings()).rejects.toThrow(/repeated page or no new records/);
+    });
   });
 
   describe('national read completeness', () => {

@@ -61,6 +61,11 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
+function swissLifePostingKey(posting = {}) {
+  const id = (posting.bulletFields || [])[0] || posting.externalPath;
+  return id ? `id:${String(id)}` : `raw:${JSON.stringify(posting)}`;
+}
+
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
@@ -210,6 +215,7 @@ export function assertSwissLifeNationalReadComplete({
  */
 export async function fetchSwissListings() {
   const seen = new Map();
+  const seenSourceRecordKeys = new Set();
   let offset = 0;
   let totalHits = null;
   let recordsSeen = 0;
@@ -240,6 +246,16 @@ export async function fetchSwissListings() {
     }
     pages += 1;
 
+    const pageRecordKeys = [...new Set(data.jobPostings.map(swissLifePostingKey))];
+    const newRecordKeys = pageRecordKeys.filter((key) => !seenSourceRecordKeys.has(key));
+    if (data.jobPostings.length > 0 && newRecordKeys.length === 0) {
+      throw new Error(
+        `Swiss Life national Workday page ${pages} made no progress: repeated page or no new records. `
+        + 'Refusing to conclude national coverage from a duplicated response.',
+      );
+    }
+    for (const key of newRecordKeys) seenSourceRecordKeys.add(key);
+
     for (const posting of data.jobPostings) {
       const locText = posting.locationsText || '';
       // Multi-location postings ("N Locations") hide individual sites — keep as
@@ -253,7 +269,7 @@ export async function fetchSwissListings() {
     }
 
     const pageCount = data.jobPostings.length;
-    recordsSeen += pageCount;
+    recordsSeen += newRecordKeys.length;
     offset += pageCount;
     if (pageCount === 0) {
       terminationProven = true;

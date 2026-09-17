@@ -89,9 +89,15 @@ function slugify(value = '') {
   return truncateSlugAtWordBoundary(slug, 200);
 }
 
+function rawHugoRecordKey(job = {}) {
+  const id = job.jobId || job.reqId || job.jobSeqNo || job.jobSeqNum || job.externalPath || job.url;
+  return id ? `id:${String(id)}` : `raw:${JSON.stringify(job)}`;
+}
+
 export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
   console.log(`🔍 Fetching Hugo Boss jobs from ${CAREERS_URL}`);
   const allJobsById = new Map();
+  const seenRawRecordKeys = new Set();
   let from = 0;
   let totalHits = null;
   let recordsSeen = 0;
@@ -126,6 +132,15 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
       );
     }
     const rawPageCount = rawPageJobs.length;
+    const pageRecordKeys = [...new Set(rawPageJobs.map(rawHugoRecordKey))];
+    const newRecordKeys = pageRecordKeys.filter((key) => !seenRawRecordKeys.has(key));
+    if (rawPageCount > 0 && newRecordKeys.length === 0) {
+      throw new Error(
+        `Hugo Boss national DDO page ${page + 1} made no progress: repeated page or no new raw records. `
+        + 'Refusing to conclude national coverage from a duplicated response.',
+      );
+    }
+    for (const key of newRecordKeys) seenRawRecordKeys.add(key);
     const pageJobs = parseSearchPage(html);
     console.log(`  📄 Page ${page + 1}: ${pageJobs.length} parsed jobs from ${rawPageCount} DDO records (from=${from}${totalHits ? `, total=${totalHits}` : ''})`);
     for (const job of pageJobs) {
@@ -141,7 +156,7 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
       terminationProven = true;
       break;
     }
-    recordsSeen += rawPageCount;
+    recordsSeen += newRecordKeys.length;
     from += rawPageCount;
     if (totalHits !== null && recordsSeen >= totalHits) {
       terminationProven = true;
