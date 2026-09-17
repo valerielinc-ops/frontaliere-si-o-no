@@ -47,15 +47,16 @@ const FIX_CONFIRMATION_RE = /^\s*(?:[-*]\s*)?Fix di\s+`([^`\n]+)`\s*:\s*ok\b/iu;
 
 /**
  * Some review clients serialize the Markdown body as one JSON-like string and
- * send literal `\\n` separators to GitHub. Treat that shape as Markdown only
- * when it is unmistakably a complete review; arbitrary prose containing the
- * two characters `\\n` must remain untouched. Without this normalization the
+ * send literal `\\n` separators to GitHub. Treat that shape, including a body
+ * that mixes real and serialized newlines, as Markdown only when it is
+ * unmistakably a complete review; arbitrary prose containing the two
+ * characters `\\n` must remain untouched. Without this normalization the
  * gate cannot see section boundaries or the explicit `Fix di ...: ok.`
  * confirmations, so it resurrects already-fixed historical findings.
  */
 export function normalizeReviewBody(body) {
   const text = String(body || '');
-  if (/\r?\n/u.test(text) || !text.includes('\\n')) return text;
+  if (!text.includes('\\n')) return text;
   if (!text.includes('## Findings') && !text.includes('## LGTM')) return text;
   return text.replace(/\\r\\n/gu, '\n').replace(/\\n/gu, '\n');
 }
