@@ -10,6 +10,7 @@ import {
 } from './job-localization-pipeline.mjs';
 import { hardenJobsWithStructuredSalary } from './structured-salary.mjs';
 import { normalizeCantonCode, isTargetSwissLocation, isTargetCanton, inferAnyCanton, isKnownSwissMunicipality } from './target-swiss-locations.mjs';
+import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
 let _aiModels = null;
 try { _aiModels = await import('./ai-models.mjs'); } catch { /* ai-models not available */ }
 import {
@@ -6173,7 +6174,32 @@ const EXPLICIT_FOREIGN_COUNTRY_RE = new RegExp(
     .join('|')})(?=$|[^\\p{L}])`,
   'iu',
 );
-const EXPLICIT_FOREIGN_COUNTRY_CODE_RE = /(?:^|[,;\s(])(?:AT|DE|IT|NL|ES|PT|GB|UK|US|CA|AU|CN|JP|IN|SG|TH|ID|VN|PH|TW|AE|SA|QA|IL|TR|BR|MX|ZA|SE|NO|DK|FI|PL|CZ|HU|RO|BG|HR|SI|SK|RS|UA|RU)(?=$|[,;\s)])/i;
+const FOREIGN_COUNTRY_CODES = [
+  'AT', 'DE', 'IT', 'NL', 'ES', 'PT', 'GB', 'UK', 'US', 'CA', 'AU', 'CN', 'JP',
+  'IN', 'SG', 'TH', 'ID', 'VN', 'PH', 'TW', 'AE', 'SA', 'QA', 'IL', 'TR', 'BR',
+  'MX', 'ZA', 'SE', 'NO', 'DK', 'FI', 'PL', 'CZ', 'HU', 'RO', 'BG', 'HR', 'SI',
+  'SK', 'RS', 'UA', 'RU', 'FR',
+];
+const SWISS_CANTON_CODES = new Set(ALL_CANTON_CODES);
+// ISO-like tokens are accepted only as a labelled country component or as the
+// final comma/semicolon/parenthesized component. A bare token is too ambiguous:
+// "de" is ordinary prose in "Rue de la Gare", while SG/FR/BE are Swiss cantons.
+const EXPLICIT_FOREIGN_COUNTRY_CODE_RE = new RegExp(
+  `(?:\\b(?:country(?:\\s+code)?|iso(?:\\s+country)?|land|pays|paese)\\s*[:=-]?\\s*|[,;]\\s*|\\(\\s*)(${FOREIGN_COUNTRY_CODES.join('|')})(?=\\s*(?:[,;)]|$))`,
+  'giu',
+);
+
+function hasExplicitForeignCountryCode(lower) {
+  for (const match of lower.matchAll(EXPLICIT_FOREIGN_COUNTRY_CODE_RE)) {
+    const code = String(match[1] || '').toUpperCase();
+    // Canton codes are Swiss only when they agree with the Swiss municipality
+    // in the same field; otherwise a mismatched code remains an explicit
+    // negative country signal (e.g. "Zurich, FR").
+    if (SWISS_CANTON_CODES.has(code) && inferAnyCanton(lower) === code) continue;
+    return true;
+  }
+  return false;
+}
 
 export function isLocationExplicitlyForeign(locationField) {
   const lower = String(locationField || '').toLowerCase();
@@ -6184,7 +6210,7 @@ export function isLocationExplicitlyForeign(locationField) {
   // this shared helper.
   const hasExplicitForeignCountry =
     EXPLICIT_FOREIGN_COUNTRY_RE.test(lower)
-    || EXPLICIT_FOREIGN_COUNTRY_CODE_RE.test(lower);
+    || hasExplicitForeignCountryCode(lower);
   if (hasExplicitForeignCountry) {
     return true;
   }

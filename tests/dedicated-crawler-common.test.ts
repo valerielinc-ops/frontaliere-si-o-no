@@ -863,6 +863,10 @@ describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)'
     expect(isLocationExplicitlyForeign('Garden City, company HQ, United States')).toBe(true);
     expect(isLocationExplicitlyForeign('Zurich, Germany')).toBe(true);
     expect(isLocationExplicitlyForeign('Zurich, DE')).toBe(true);
+    expect(isLocationExplicitlyForeign('Rue de la Gare, Lausanne')).toBe(false);
+    expect(isLocationExplicitlyForeign('St. Gallen, SG')).toBe(false);
+    expect(isLocationExplicitlyForeign('Lausanne, VD')).toBe(false);
+    expect(isLocationExplicitlyForeign('Zurich, FR')).toBe(true);
   });
 
   it('foreign-job gates do not treat a foreign border town as a Swiss location', async () => {
