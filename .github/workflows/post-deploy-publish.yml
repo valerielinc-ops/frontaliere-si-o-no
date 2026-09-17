@@ -369,10 +369,30 @@ jobs:
       # gates is "good enough" to roll back to even if FB/LI API hiccups.
       - name: Mark this deploy as last_known_good
         if: success()
+        env:
+          # Register the BUILD run and its SHA (the artefacts that were
+          # published), not the orchestrating deploy-publish run: a rollback
+          # must point at the run that owns the artefact set (review #8947).
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          INPUT_DEPLOY_REF: ${{ inputs.deploy_ref }}
         run: |
+          set -euo pipefail
+          run_id="${INPUT_DEPLOY_RUN_ID:-${GITHUB_RUN_ID}}"
+          ref="$(printf '%s' "${INPUT_DEPLOY_REF:-}" | tr -d '[:space:]')"
+          if [ -z "$ref" ]; then
+            # A manual dispatch on a historical build run leaves deploy_ref
+            # empty: derive the SHA of the build that produced the downloaded
+            # artefacts instead of the manual workflow's own GITHUB_SHA.
+            ref="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq .head_sha)"
+          fi
+          if [ -z "$ref" ]; then
+            echo "::error::set-good: cannot resolve the build SHA for run ${run_id}"
+            exit 1
+          fi
           node scripts/deploy-registry.mjs set-good \
-            --run-id="${{ github.run_id }}" \
-            --sha="${{ github.sha }}"
+            --run-id="$run_id" \
+            --sha="$ref"
 
       - name: Report failure to GitHub Issues
         if: failure()

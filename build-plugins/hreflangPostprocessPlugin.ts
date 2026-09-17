@@ -79,6 +79,29 @@ interface HreflangPostprocessOptions {
 const HREFLANG_LINK_RX =
   /<link\s+rel="alternate"\s+hreflang="([^"]+)"\s+href="([^"]+)"\s*\/?>(?:\s*\n?)?/g;
 
+export type ExtractedHreflangAlternate = {
+  readonly locale: string;
+  readonly url: string;
+};
+
+/** Return hreflang locale/href pairs without opening any target files. */
+export function extractHreflangAlternates(html: string): readonly ExtractedHreflangAlternate[] {
+  HREFLANG_LINK_RX.lastIndex = 0;
+  const alternates: ExtractedHreflangAlternate[] = [];
+  let match = HREFLANG_LINK_RX.exec(html);
+  while (match !== null) {
+    alternates.push({ locale: match[1], url: match[2] });
+    match = HREFLANG_LINK_RX.exec(html);
+  }
+  HREFLANG_LINK_RX.lastIndex = 0;
+  return alternates;
+}
+
+/** Return hrefs from a page without opening any of their target files. */
+export function extractHreflangUrls(html: string): readonly string[] {
+  return extractHreflangAlternates(html).map(({ url }) => url);
+}
+
 /**
  * Stable iteration of every `.html` file under `dist/`, skipping the
  * static-asset directories (no HTML inside).

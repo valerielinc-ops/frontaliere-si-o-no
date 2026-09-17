@@ -34,12 +34,12 @@ const AUDIT_REPORTS_UPLOAD_WORKFLOWS = [
   '.github/workflows/post-deploy-validate-live.yml',
 ] as const;
 // Section rehydrate loop (rehydrate_section) lives here, extracted out of
-// post-deploy-validate-dist.yml's 3 inline copies + the 4 seed-baseline
+// post-deploy-validate-dist.yml's inline copy + the 4 seed-baseline
 // workflows' copies into one shared script (AGENTS.md #6 dedupe).
 const REHYDRATE_SECTION_SCRIPT = readFileSync(resolve(ROOT, 'scripts/lib/rehydrate-section-shards.sh'), 'utf-8');
 // Locale rehydrate loop (rehydrate_locale) — same dedupe, extracted out of
-// post-deploy-validate-dist.yml's 3 byte-identical inline copies (issue
-// #4828) into one shared script.
+// post-deploy-validate-dist.yml's inline copy (issue #4828) into one shared
+// script.
 const REHYDRATE_LOCALE_SCRIPT = readFileSync(resolve(ROOT, 'scripts/lib/rehydrate-locale-shards.sh'), 'utf-8');
 const PACKAGE_JSON = JSON.parse(readFileSync(resolve(ROOT, 'package.json'), 'utf-8'));
 const BATCH_WRITE = readFileSync(resolve(ROOT, 'build-plugins/batchWrite.ts'), 'utf-8');
@@ -111,11 +111,16 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
     ).toContain('spawn_capped()');
   });
 
-  it('all dist validation jobs have explicit timeout ceilings', () => {
+  it('dist validation rehydrates once behind one timeout ceiling', () => {
     const workflow = YAML.parse(VALIDATION_YML) as any;
-    expect(workflow.jobs['validate-dist-source']?.['timeout-minutes']).toBe(90);
     expect(workflow.jobs['validate-dist-postbuild']?.['timeout-minutes']).toBe(300);
-    expect(workflow.jobs['validate-dist-postbuild-bfs']?.['timeout-minutes']).toBe(120);
+    expect(workflow.jobs['validate-dist-source']).toBeUndefined();
+    expect(workflow.jobs['validate-dist-postbuild-bfs']).toBeUndefined();
+    expect(VALIDATION_YML.match(/- name: Rehydrate locale then section shards into dist\//g)).toHaveLength(1);
+    expect(VALIDATION_YML).toContain('collect_failed source /tmp/source-val-results.txt');
+    expect(VALIDATION_YML).toContain('collect_failed bfs /tmp/bfs-timings.txt');
+    expect(VALIDATION_YML).toContain('gate-offenders');
+    expect(VALIDATION_YML).toContain('Fail when a dist validator failed');
   });
 
   it('any new audit:* script added to package.json must be reachable in post-deploy-validate-dist.yml (direct or via audit:all)', () => {
@@ -424,7 +429,7 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
     }
   });
 
-  it('entrambi i produttori di righe passano dallo stesso script di append+push', () => {
+  it('tutti i produttori di righe passano dallo stesso script di append+push', () => {
     // Il retry-con-rebase (5 tentativi, backoff 5/10/15/25/40s) ha un solo
     // posto in cui cambiare: 4 leg concorrenti + gli altri produttori su main
     // out-race regolarmente una finestra piu' corta, e due copie divergenti
@@ -434,8 +439,12 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
     );
     expect(
       producers.map((s) => s.name),
-      'attesi due produttori di righe di build-history (memoria + fasi post-build)',
-    ).toEqual(['Append build memory history row', 'Append post-build phase timings row']);
+      'attesi tre produttori di righe di build-history (memoria + fasi post-build + manifest)',
+    ).toEqual([
+      'Append build memory history row',
+      'Append post-build phase timings row',
+      'Append incremental manifest history row',
+    ]);
     for (const s of producers) {
       expect(s.run, `"${s.name}": commit message non passato allo script condiviso`).toContain(
         'HISTORY_COMMIT_MSG=',
@@ -476,13 +485,85 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
   });
 });
 
-describe('deploy.yml — scheduling del build senza serializzazione globale', () => {
-  it('mantiene paralleli gli hook indipendenti in produzione', () => {
+describe('deploy.yml — incremental manifest shadow observation (PR 1b)', () => {
+  const workflow = YAML.parse(DEPLOY_YML) as any;
+  const steps: Array<Record<string, any>> = workflow.jobs['build-locale'].steps;
+  const stepByName = (name: string) => {
+    const step = steps.find((candidate) => candidate.name === name);
+    expect(step, `deploy.yml: manca lo step "${name}" nel job build-locale`).toBeDefined();
+    return step!;
+  };
+
+  it('gates the manifest env on the Build step behind a repository variable', () => {
+    const build = stepByName('Build (BUILD_LOCALE=${{ matrix.locale }})');
+    // Run 35146607926: always-on registration cost +44 min on the IT leg.
+    // Unset variable → empty string → INCREMENTAL_MANIFEST_ENABLED false.
+    expect(build.env?.INCREMENTAL_MANIFEST).toBe("${{ vars.INCREMENTAL_MANIFEST == '1' && '1' || '' }}");
+  });
+
+  it('restores and saves one manifest cache per locale around the build', () => {
+    const restore = stepByName('Restore previous incremental manifest');
+    const stash = stepByName('Stash previous incremental manifest before build overwrites it');
+    const buildIndex = steps.indexOf(stepByName('Build (BUILD_LOCALE=${{ matrix.locale }})'));
+    const restoreIndex = steps.indexOf(restore);
+    const stashIndex = steps.indexOf(stash);
+    expect(restore.uses).toBe('actions/cache/restore@v5');
+    expect(restore.with).toMatchObject({
+      path: '.cache/incremental-manifest',
+      key: 'incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}',
+    });
+    expect(String(restore.with['restore-keys']).trim()).toBe('incremental-manifest-${{ matrix.locale }}-');
+    expect(stash.run).toContain('.cache/incremental-manifest-prev');
+    expect(stash.run).toContain('mv "$previous"');
+    expect(restoreIndex).toBeLessThan(stashIndex);
+    expect(stashIndex).toBeLessThan(buildIndex);
+
+    const save = stepByName('Save incremental manifest cache');
+    expect(save.uses).toBe('actions/cache/save@v5');
+    expect(save.if).toContain('always()');
+    expect(save.with).toMatchObject({
+      path: '.cache/incremental-manifest',
+      key: 'incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}',
+    });
+    expect(steps.indexOf(save)).toBe(steps.length - 1);
+  });
+
+  it('reports the real previous/current CLI and remains non-blocking', () => {
+    const report = stepByName('Incremental manifest shadow report');
+    expect(report.if).toBe('always()');
+    expect(report['continue-on-error']).toBe(true);
+    expect(report.run).toContain('node scripts/ci/incremental-manifest-report.mjs "$MANIFEST_PREVIOUS" "$MANIFEST_CURRENT"');
+    expect(report.run).toContain('$GITHUB_STEP_SUMMARY');
+    expect(report.env).toMatchObject({
+      MANIFEST_PREVIOUS: '.cache/incremental-manifest-prev/${{ matrix.locale }}.jsonl',
+      MANIFEST_CURRENT: '.cache/incremental-manifest/${{ matrix.locale }}.jsonl',
+    });
+  });
+
+  it('appends a manifest telemetry row with first-run and per-kind fields', () => {
+    const history = stepByName('Append incremental manifest history row');
+    expect(history.if).toBe('always()');
+    expect(history['continue-on-error']).toBe(true);
+    expect(history.run).toContain('kind: "incremental-manifest"');
+    expect(history.run).toContain('previous: previous ?');
+    expect(history.run).toContain('file_size_bytes');
+    expect(history.run).toContain('by_kind');
+    expect(history.run).toContain('scripts/lib/append-build-history-row.sh');
+    expect(history.run).toContain('HISTORY_LABEL=build-history-manifest');
+    expect(history.run).toContain('HISTORY_COMMIT_MSG=');
+  });
+});
+
+describe('deploy.yml — closeBundle serializzati in produzione (OOM run 35100583972)', () => {
+  // #8818 aveva reso paralleli gli hook in produzione: heap a 11 GB gia' prima di
+  // jobs-seo-pages (6,8 GB in sequenziale) e OOM su tutti e quattro i leg. Il
+  // parallelo resta solo opt-in esplicito da workflow_dispatch.
+  it('vale 1 su push e diventa vuoto solo con parallel_plugins esplicito', () => {
     const sequentialProfile = String(BUILD_LOCALE_ENV.SEQUENTIAL_PROFILE ?? '');
+    expect(sequentialProfile).toContain('fromJSON(\'["1",""]\')');
     expect(sequentialProfile).toContain("github.event_name == 'workflow_dispatch'");
-    expect(sequentialProfile).toContain("github.event.inputs.profile_sequential == 'true'");
-    expect(sequentialProfile).toContain("github.event.inputs.parallel_plugins != 'true'");
-    expect(sequentialProfile).not.toBe('1');
+    expect(sequentialProfile).toContain("github.event.inputs.parallel_plugins == 'true'");
+    expect(sequentialProfile).not.toContain('profile_sequential');
   });
 });
 

@@ -18,6 +18,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
+import { canonicalJson as canonicalRecordContent } from '../lib/canonical-json-digest.mjs';
 
 export const SOURCE_LOOPS = Object.freeze([
   ['L0', 'loop-l0-data-truth.yml', 'loop-l0-data-truth'],
@@ -113,18 +114,34 @@ function jsonlRecords(file) {
     .map((line) => JSON.parse(line));
 }
 
-function recordIds(ledgerDir, fileName) {
+function recordsById(ledgerDir, fileName) {
   const file = path.join(path.resolve(ledgerDir), fileName);
-  return new Set(jsonlRecords(file).map((record) => String(record?.recordId || '')).filter(Boolean));
+  const records = new Map();
+  for (const record of jsonlRecords(file)) {
+    const recordId = String(record?.recordId || '');
+    if (!recordId) continue;
+    const previous = records.get(recordId);
+    if (previous && canonicalRecordContent(previous) !== canonicalRecordContent(record)) {
+      throw new Error(`canonical ${fileName} contains conflicting duplicate ${recordId}`);
+    }
+    records.set(recordId, record);
+  }
+  return records;
+}
+
+function durableRecords(ledgerDir) {
+  return {
+    observation: recordsById(ledgerDir, 'loop-observations.jsonl'),
+    decision: recordsById(ledgerDir, 'loop-decisions.jsonl'),
+    health: recordsById(ledgerDir, 'loop-health-history.jsonl'),
+    lifecycle: recordsById(ledgerDir, 'lifecycle-events.jsonl'),
+  };
 }
 
 export function durableRecordIds(ledgerDir) {
-  return {
-    observation: recordIds(ledgerDir, 'loop-observations.jsonl'),
-    decision: recordIds(ledgerDir, 'loop-decisions.jsonl'),
-    health: recordIds(ledgerDir, 'loop-health-history.jsonl'),
-    lifecycle: recordIds(ledgerDir, 'lifecycle-events.jsonl'),
-  };
+  return Object.fromEntries(
+    Object.entries(durableRecords(ledgerDir)).map(([type, records]) => [type, new Set(records.keys())]),
+  );
 }
 
 /**
@@ -141,7 +158,12 @@ export function missingEvidenceRecordIds(inputDir, ledgerDir, { loopId, runId, s
     return { ok: false, reason: 'evidence summary provenance does not match the source run', missing: [] };
   }
 
-  const durable = durableRecordIds(ledgerDir);
+  let durable;
+  try {
+    durable = durableRecords(ledgerDir);
+  } catch (error) {
+    return { ok: false, reason: error.message, missing: [] };
+  }
   const records = {};
   for (const [type, fileName] of Object.entries({
     observation: 'loop-observations.jsonl',
@@ -166,15 +188,43 @@ export function missingEvidenceRecordIds(inputDir, ledgerDir, { loopId, runId, s
     }
   }
 
-  const missing = [];
+  const sourceRecordMaps = {};
   for (const [type, values] of Object.entries(records)) {
+    const source = new Map();
     for (const record of values) {
       if (!record?.recordId || record.loopId !== loopId || record.execution?.loopId !== loopId
           || String(record.execution?.runId || '') !== String(runId)
           || String(record.execution?.sha || '').toLowerCase() !== String(sha || '').toLowerCase()) {
         return { ok: false, reason: `${type} evidence has invalid execution identity`, missing: [] };
       }
-      if (!durable[type].has(record.recordId)) missing.push({ type, recordId: record.recordId });
+      const recordId = String(record.recordId || '');
+      const previous = source.get(recordId);
+      if (previous && canonicalRecordContent(previous) !== canonicalRecordContent(record)) {
+        return {
+          ok: false,
+          reason: `${type} evidence contains conflicting duplicate ${recordId} in the source artifact`,
+          missing: [],
+        };
+      }
+      source.set(recordId, record);
+    }
+    sourceRecordMaps[type] = source;
+  }
+
+  const missing = [];
+  for (const [type, source] of Object.entries(sourceRecordMaps)) {
+    for (const record of source.values()) {
+      const recordId = String(record.recordId || '');
+      const previous = durable[type].get(recordId);
+      if (!previous) {
+        missing.push({ type, recordId: record.recordId });
+      } else if (canonicalRecordContent(previous) !== canonicalRecordContent(record)) {
+        return {
+          ok: false,
+          reason: `${type} evidence contains conflicting duplicate ${recordId} in the durable ledger`,
+          missing: [],
+        };
+      }
     }
   }
   return { ok: true, reason: missing.length ? 'durable ledger is missing one or more source records' : 'source run is already durable', missing };

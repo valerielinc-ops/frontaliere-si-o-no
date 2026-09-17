@@ -52,6 +52,7 @@ import {
   buildGitNetworkArgs,
   canonicalGitRemote,
   isMutatingGitArgs,
+  resolveCurrentWorkBranchRef,
   validateGitArgs,
 } from '../.github/actions/claude-codex-fallback/git-bridge-server.mjs';
 import {
@@ -424,26 +425,122 @@ describe('validator dei bridge host-side', () => {
     }
   });
 
-  it('richiede il vero primo comando git e blocca alias/config/path/URL bypass', () => {
+  it('richiede il vero primo comando git e applica la policy fail-closed dei push', () => {
     expect(validateGitArgs(['-c', 'alias.x=!cat /tmp/secret', 'push'])).toMatch(/config\/exec\/path/);
     expect(validateGitArgs(['--git-dir=/tmp/other', 'push'])).toMatch(/config\/exec\/path/);
     expect(validateGitArgs(['push', '--upload-pack=cat', 'origin'])).toMatch(/config\/exec\/path/);
     expect(validateGitArgs(['push', 'https://example.invalid/repo.git'])).toMatch(/paths and URLs/);
     expect(validateGitArgs(['push', 'upstream', 'main'])).toMatch(/remote is not permitted/);
-    expect(validateGitArgs(['push', '--force-with-lease', 'origin', 'HEAD:refs/heads/main'])).toBe('');
+    const workBranch = 'codex/fallback-bridge-test';
+    const workBranchRef = `refs/heads/${workBranch}`;
+    for (const flag of [
+      '--all',
+      '--force',
+      '--force=refs/heads/other',
+      '-f',
+      '--force-with-lease',
+      '--force-with-lease=refs/heads/other',
+      '--delete',
+      '--delete=refs/heads/other',
+      '-d',
+      '--mirror',
+      '--mirror=refs/heads/other',
+    ]) {
+      expect(validateGitArgs(['push', flag, 'origin', `HEAD:refs/heads/${workBranch}`])).toMatch(/Git push option is not permitted/);
+    }
+    for (const refspec of [
+      'HEAD:refs/heads/other',
+      'HEAD:other',
+      `${workBranch}:refs/heads/other`,
+      `${workBranchRef}:refs/heads/other`,
+      `other:${workBranchRef}`,
+      `refs/heads/other:${workBranchRef}`,
+      workBranch,
+      `${workBranch}:${workBranchRef}`,
+      'a'.repeat(40),
+      `${'a'.repeat(40)}:${workBranchRef}`,
+      'v1.2.3',
+      `v1.2.3:${workBranchRef}`,
+      `refs/tags/v1.2.3:${workBranchRef}`,
+      `refs/remotes/origin/${workBranch}:${workBranchRef}`,
+      'refs/tags/v1.2.3',
+      'HEAD:refs/heads/main',
+      'HEAD:refs/tags/release',
+      'HEAD:refs/remotes/origin/work',
+      ':refs/heads/work',
+      'HEAD:refs/heads/work:',
+      '+HEAD:refs/heads/work',
+      'HEAD:refs/heads/work*',
+    ]) {
+      expect(validateGitArgs(['push', 'origin', refspec], { allowedWorkBranch: workBranchRef })).toMatch(/Git push (?:refspec|source|destination)|work branch/);
+    }
+    expect(validateGitArgs(['push'], { allowedWorkBranch: workBranchRef })).toMatch(/exactly one explicit work-branch refspec/);
+    expect(validateGitArgs(['push', 'origin'], { allowedWorkBranch: workBranchRef })).toMatch(/exactly one explicit work-branch refspec/);
+    expect(validateGitArgs(['push', 'origin', 'HEAD', 'other'], { allowedWorkBranch: workBranchRef })).toMatch(/exactly one explicit work-branch refspec/);
+    for (const refspec of [
+      'HEAD',
+      `HEAD:${workBranchRef}`,
+      workBranchRef,
+      `${workBranchRef}:${workBranchRef}`,
+    ]) {
+      expect(validateGitArgs(['push', 'origin', refspec], { allowedWorkBranch: workBranchRef })).toBe('');
+    }
+    expect(validateGitArgs(['push', '--set-upstream', 'origin', workBranchRef], { allowedWorkBranch: workBranchRef })).toBe('');
+    expect(validateGitArgs(['push', 'origin', `HEAD:${workBranchRef}`], { allowedWorkBranch: '' })).toMatch(/current work branch/);
+    expect(validateGitArgs(['push', 'origin', `HEAD:${workBranchRef}`], { allowedWorkBranch: 'refs/heads/main' })).toMatch(/current work branch/);
     expect(validateGitArgs(['fetch', 'origin', 'main'])).toBe('');
     expect(validateGitArgs(['ls-remote', 'origin', 'refs/heads/main'])).toBe('');
     const expectedRemote = 'https://github.com/owner/repo.git';
     expect(canonicalGitRemote({ host: 'https://github.com', repository: 'owner/repo' })).toBe(expectedRemote);
-    expect(buildGitNetworkArgs(['push', 'origin', 'HEAD:refs/heads/main'], expectedRemote)).toEqual([
-      'push', expectedRemote, 'HEAD:refs/heads/main',
+    expect(buildGitNetworkArgs(['push', 'origin', `HEAD:${workBranchRef}`], expectedRemote)).toEqual([
+      'push', expectedRemote, `HEAD:${workBranchRef}`,
+    ]);
+    expect(buildGitNetworkArgs(['push', 'origin', 'HEAD'], expectedRemote, { allowedWorkBranch: workBranchRef })).toEqual([
+      'push', expectedRemote, `HEAD:${workBranchRef}`,
     ]);
     expect(buildGitNetworkArgs(['fetch', '--prune'], expectedRemote)).toEqual([
       'fetch', '--prune', expectedRemote,
     ]);
-    expect(buildGitNetworkArgs(['push', '--', 'origin', 'main'], expectedRemote)).toEqual([
-      'push', '--', expectedRemote, 'main',
+    expect(buildGitNetworkArgs(['push', '--', 'origin', workBranchRef], expectedRemote)).toEqual([
+      'push', '--', expectedRemote, workBranchRef,
     ]);
+  });
+
+  it('risolve nel runtime Git solo HEAD sotto refs/heads e rifiuta tag, remote, detached e main', () => {
+    const root = mkdtempSync(join(tmpdir(), 'codex-git-namespace-'));
+    const repo = join(root, 'repo');
+    mkdirSync(repo, { recursive: true });
+    const gitEnv = {
+      ...process.env,
+      GIT_CONFIG_NOSYSTEM: '1',
+      GIT_CONFIG_GLOBAL: '/dev/null',
+      GIT_CONFIG_SYSTEM: '/dev/null',
+    };
+    delete gitEnv.GIT_DIR;
+    delete gitEnv.GIT_COMMON_DIR;
+    delete gitEnv.GIT_WORK_TREE;
+    const resolveHead = () => resolveCurrentWorkBranchRef({ realGit: 'git', cwd: repo, env: gitEnv });
+    const setHead = (ref) => execFileSync('git', ['-C', repo, 'symbolic-ref', 'HEAD', ref], { env: gitEnv });
+    try {
+      execFileSync('git', ['init', '-q', repo], { env: gitEnv });
+      execFileSync('git', ['-C', repo, '-c', 'user.name=codex-fixture', '-c', 'user.email=codex-fixture@example.invalid', 'commit', '--allow-empty', '-qm', 'fixture'], { env: gitEnv });
+      execFileSync('git', ['-C', repo, 'checkout', '-qb', 'codex/fallback-bridge-runtime'], { env: gitEnv });
+      setHead('refs/tags/fallback-tag');
+      expect(resolveHead()).toBe('');
+      expect(validateGitArgs(['push', 'origin', 'HEAD'], { allowedWorkBranch: resolveHead() })).toMatch(/current work branch/);
+      setHead('refs/remotes/origin/fallback-remote');
+      expect(resolveHead()).toBe('');
+      expect(validateGitArgs(['push', 'origin', 'HEAD'], { allowedWorkBranch: resolveHead() })).toMatch(/current work branch/);
+      setHead('refs/heads/codex/fallback-bridge-runtime');
+      expect(resolveHead()).toBe('refs/heads/codex/fallback-bridge-runtime');
+      expect(validateGitArgs(['push', 'origin', 'HEAD'], { allowedWorkBranch: resolveHead() })).toBe('');
+      execFileSync('git', ['-C', repo, 'checkout', '--detach', 'HEAD'], { env: gitEnv, stdio: 'ignore' });
+      expect(resolveHead()).toBe('');
+      setHead('refs/heads/main');
+      expect(resolveHead()).toBe('');
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('mantiene limiti espliciti del protocollo e output dei due broker', () => {
@@ -632,7 +729,7 @@ describe('copertura workflow diretti', () => {
     expect(issueFix).not.toMatch(/\n\s+github_token: \$\{\{ env\.APP_TOKEN \|\| secrets\.GITHUB_TOKEN \}\}/);
   });
 
-  it('mantiene il contratto di invocazione Codex e cleanup effimero', () => {
+  it('mantiene il contratto di invocazione Codex Luna Max e cleanup effimero', () => {
     const action = readFileSync(resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'action.yml'), 'utf8');
     const actionDir = resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback');
     const ghBridge = readFileSync(resolve(actionDir, 'gh-bridge-server.mjs'), 'utf8');
@@ -642,8 +739,8 @@ describe('copertura workflow diretti', () => {
     const gitClient = readFileSync(resolve(actionDir, 'git-bridge-client.mjs'), 'utf8');
     const gitSanitizer = readFileSync(resolve(actionDir, 'sanitize-git-config.mjs'), 'utf8');
     const postMerge = readFileSync(resolve(repoRoot, '.github', 'workflows', 'post-merge-followup.yml'), 'utf8');
-    expect(action).toContain('anthropics/claude-code-action@9c5ddab2e6d17b83ea679153b31f1d5f023cf636');
-    expect(action).not.toContain('anthropics/claude-code-action@v1');
+    expect(action).not.toContain('anthropics/claude-code-action');
+    expect(action).toContain('name: "Codex Luna Max primary"');
     expect(action).toContain('@openai/codex@0.153.4');
     expect(action).toContain('--ephemeral');
     expect(action).toContain('--model gpt-5.6-luna');
@@ -693,16 +790,14 @@ describe('copertura workflow diretti', () => {
     const sandboxStart = action.indexOf('- name: Prepare Linux sandbox prerequisites for Codex primary');
     const authStart = action.indexOf('- name: Prepare ephemeral Codex subscription auth for Codex primary');
     const codexStart = action.indexOf('- name: Run Codex primary (one subscription attempt)');
-    const claudeStart = action.indexOf('- name: Run Claude fallback');
     const finalizeStart = action.indexOf('- name: Record structured Codex primary evidence');
     expect(installStart).toBeGreaterThan(-1);
     expect(installStart).toBeLessThan(sandboxStart);
     expect(sandboxStart).toBeLessThan(authStart);
     expect(authStart).toBeLessThan(codexStart);
-    expect(codexStart).toBeLessThan(claudeStart);
-    expect(claudeStart).toBeLessThan(finalizeStart);
-    expect(action).toContain("steps.codex.outcome == 'failure'");
-    expect(action).toContain("steps.codex.outputs.side_effect_detected == 'false'");
+    expect(codexStart).toBeLessThan(finalizeStart);
+    expect(action).toContain('CODEX_OUTCOME: ${{ steps.codex.outcome }}');
+    expect(action).toContain('CODEX_SIDE_EFFECT_DETECTED: ${{ steps.codex.outputs.side_effect_detected }}');
     expect(action).toContain('restore_sanitized_git_config');
     const stopGhStart = action.indexOf('        stop_gh_bridge() {');
     const stopGhEnd = action.indexOf('        trap stop_gh_bridge EXIT', stopGhStart);
@@ -712,7 +807,7 @@ describe('copertura workflow diretti', () => {
     expect(action).not.toContain('steps.preflight');
     expect(action).not.toContain('steps.runtime.outputs');
     const installBlock = action.slice(installStart, authStart);
-    const codexBlock = action.slice(codexStart, claudeStart);
+    const codexBlock = action.slice(codexStart, finalizeStart);
     expect(installBlock).toContain('env -i');
     expect(installBlock).toContain('NPM_CONFIG_USERCONFIG=/dev/null');
     expect(installBlock).toContain('TRUSTED_NPM: ${{ steps.trusted_node.outputs.npm_realpath }}');
@@ -846,7 +941,7 @@ describe('copertura workflow diretti', () => {
     expect(ghClient).toContain('client.setTimeout(RESPONSE_TIMEOUT_MS');
     expect(gitClient).toContain('client.setTimeout(RESPONSE_TIMEOUT_MS');
     expect(gitBridge).not.toContain('currentOrigin(');
-    expect(gitBridge).toContain('buildGitNetworkArgs(args, expectedRemote)');
+    expect(gitBridge).toContain('buildGitNetworkArgs(args, expectedRemote, { allowedWorkBranch })');
     expect(gitBridge).toContain('GIT_COMMON_DIR: shadowCommonDir');
     expect(gitBridge).toContain('net.createServer({ allowHalfOpen: true }');
     expect(gitBridge).toContain("terminateChild('client-disconnected')");
@@ -985,7 +1080,7 @@ describe('copertura workflow diretti', () => {
     expect(run('invalid', '0')).not.toBe(0);
   });
 
-  it('accetta Codex riuscito o Claude fallback e propaga gli esiti inattesi', () => {
+  it('accetta il successo Codex e propaga gli esiti inattesi', () => {
     const action = readFileSync(resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'action.yml'), 'utf8');
     expect(action).toContain('finalize_outcome="${{ steps.finalize.outcome }}"');
     expect(action).toContain('action_success="${{ steps.finalize.outputs.action_success }}"');

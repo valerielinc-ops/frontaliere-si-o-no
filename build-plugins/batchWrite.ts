@@ -103,6 +103,11 @@ export function getGlobalIntraPluginOverwrites(): number {
   return globalIntraPluginOverwrites;
 }
 
+/** Read-only diagnostic count for the process-wide directory cache. */
+export function getEnsuredDirsSize(): number {
+  return ensuredDirs.size;
+}
+
 /** Called by writeRegistryResetPlugin's buildStart to clear stale state. */
 export function _resetGlobalIntraPluginOverwriteCounter(): void {
   globalIntraPluginOverwrites = 0;
@@ -172,6 +177,7 @@ export class WriteCollector {
  // accumulating closures of resolved promises.
  private _pendingFlushes: Set<Promise<number>> = new Set();
  private _firstError: Error | null = null;
+ private _writtenPaths = new Set<string>();
  private readonly _concurrency: number;
  private readonly _autoFlushThreshold: number;
 
@@ -246,7 +252,10 @@ export class WriteCollector {
  this.writes = new Map();
  let flushPromise: Promise<number>;
  // eslint-disable-next-line prefer-const
- flushPromise = flushWrites(batch, this._concurrency).catch((err: unknown) => {
+ flushPromise = flushWrites(batch, this._concurrency).then((written) => {
+  this.markWritten(batch);
+  return written;
+ }).catch((err: unknown) => {
   if (!this._firstError) {
   this._firstError = err instanceof Error ? err : new Error(String(err));
   }
@@ -309,6 +318,15 @@ export class WriteCollector {
   * last-add-wins resolutions. */
  get overwrittenInPlugin() { return this._overwrittenInPlugin; }
 
+ /** True only for paths successfully written by this collector in this build. */
+ hasWritten(filePath: string): boolean {
+  return this._writtenPaths.has(filePath);
+ }
+
+ private markWritten(writes: PendingWrite[]): void {
+  for (const write of writes) this._writtenPaths.add(write.filePath);
+ }
+
  /**
   * Flush all queued writes in parallel batches (see {@link flushWrites}).
   * Awaits any background flushes spawned by auto-flush, drains remaining
@@ -321,7 +339,10 @@ export class WriteCollector {
  if (remaining.length > 0) {
  let drainPromise: Promise<number>;
  // eslint-disable-next-line prefer-const
- drainPromise = flushWrites(remaining, concurrency).finally(() => {
+ drainPromise = flushWrites(remaining, concurrency).then((written) => {
+  this.markWritten(remaining);
+  return written;
+ }).finally(() => {
  this._pendingFlushes.delete(drainPromise);
  });
  this._pendingFlushes.add(drainPromise);

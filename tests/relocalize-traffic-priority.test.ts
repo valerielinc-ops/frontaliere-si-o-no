@@ -76,9 +76,6 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
  */
 const CASCADE_CAP_FLOOR = 900;
 
-/** Il cap di chiamate Haiku dichiarato nel workflow. Vedi il commento li'. */
-const HAIKU_CALL_CAP_FLOOR = 300;
-
 const workflowText = fs.readFileSync(
   path.join(ROOT, '.github/workflows/translate-pending.yml'), 'utf-8');
 
@@ -109,19 +106,16 @@ describe('cascade cap (#5650) — il tetto non puo tornare giu in silenzio', () 
   });
 });
 
-describe('piu Haiku (#5650) — la preferenza e il suo cap restano dichiarati', () => {
-  it('Phase 2b mette claude-cli/haiku in testa alla catena', () => {
+describe('lane Codex (#5650) — la preferenza e il broker restano dichiarati', () => {
+  it('Phase 2b mette Codex Luna Max in testa alla catena', () => {
     const m = workflowText.match(/AI_MODELS_PREFER:\s*(\S+)/);
     expect(m, 'AI_MODELS_PREFER assente: la catena torna al puro ordine per score, '
-      + 'dove il tier a pagamento non viene MAI raggiunto (run 31690534255)').not.toBeNull();
-    expect(m![1]).toContain('claude-cli/haiku');
+      + 'dove il lane Codex non viene mai raggiunto').not.toBeNull();
+    expect(m![1]).toContain('codex-cli/gpt-5.6-luna');
   });
 
-  it('il cap di chiamate Haiku e >= quello dimensionato sul tetto nuovo', () => {
-    const m = workflowText.match(/CLAUDE_CLI_MAX_CALLS_PER_RUN:\s*'(\d+)'/);
-    expect(m, 'CLAUDE_CLI_MAX_CALLS_PER_RUN assente: torna al default 25/run, '
-      + 'che copre ~13% delle chiamate a tetto 900').not.toBeNull();
-    expect(Number(m![1])).toBeGreaterThanOrEqual(HAIKU_CALL_CAP_FLOOR);
+  it('il processo riceve il socket privato del broker Codex', () => {
+    expect(workflowText).toMatch(/CODEX_AUTH_BROKER_SOCKET:\s*\$\{\{/);
   });
 });
 

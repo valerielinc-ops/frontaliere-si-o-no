@@ -112,6 +112,12 @@ import {
   relatedSearchClusterKeyFromAnyPath,
 } from '../scripts/lib/related-search-cluster-path.mjs';
 import {
+  buildMinimalJobInput,
+  getIncrementalManifestInputCache,
+  getIncrementalManifestMap,
+  INCREMENTAL_MANIFEST_ENABLED,
+} from './shared/incrementalManifest.mjs';
+import {
   registerKeywordLandingPaths,
   registerRetiredKeywordLandingPaths,
   keywordLandingPlanSize,
@@ -990,6 +996,111 @@ interface ClusterContext {
    * over time while indexed legacy URLs stay 200 OK in the interim.
    */
   legacyCantonGroup: string;
+}
+
+interface RelatedJobFingerprint {
+  id: string;
+  digest: string;
+}
+
+export interface RelatedClusterManifestInput {
+  cluster: {
+    slug: string;
+    title: string;
+    locale: Locale;
+    canton: string;
+  };
+  jobs: {
+    membership: RelatedJobFingerprint[];
+    order: RelatedJobFingerprint[];
+  };
+  enriched: EnrichedEntry | null;
+  emission: {
+    action: 'full' | 'thin';
+    belowFloor: boolean;
+    noindex: boolean;
+    sitemapEligible: boolean;
+  } | null;
+  related: Array<{ keyword: string; url: string }>;
+  hreflang: Array<{ locale: Locale; url: string }>;
+}
+
+/**
+ * Build the stable input for one related cluster landing. Membership is
+ * sorted independently from render order: adding/removing a job changes the
+ * former, while reordering the same id+digest pairs changes only the latter.
+ * `buildMinimalJobInput()` reuses the shared build-scoped ID cache for jobs
+ * that occur in several clusters; tests and non-manifest callers retain the
+ * object-identity fallback.
+ */
+export function buildRelatedClusterManifestInput(input: {
+  slug: string;
+  title: string;
+  locale: Locale;
+  canton: string;
+  matchingJobs: ReadonlyArray<RawJob>;
+  enriched?: EnrichedEntry;
+  emission?: RelatedClusterManifestInput['emission'];
+  related?: ReadonlyArray<{ keyword: string; url: string }>;
+  hreflang?: ReadonlyArray<{ locale: Locale; url: string }>;
+  inputCache?: unknown;
+}): RelatedClusterManifestInput {
+  const order = input.matchingJobs.map((job) => {
+    const projection = buildMinimalJobInput(
+      job,
+      input.locale,
+      job.slugByLocale?.[input.locale] ?? job.slug ?? '',
+      [],
+      input.inputCache,
+    ) as { jobId: string; jobRecordDigest: string };
+    return { id: projection.jobId, digest: projection.jobRecordDigest };
+  });
+  const membership = [...order].sort((left, right) => {
+    if (left.id !== right.id) return left.id < right.id ? -1 : 1;
+    if (left.digest !== right.digest) return left.digest < right.digest ? -1 : 1;
+    return 0;
+  });
+
+  return {
+    cluster: {
+      slug: String(input.slug),
+      title: String(input.title),
+      locale: input.locale,
+      canton: String(input.canton),
+    },
+    jobs: { membership, order },
+    enriched: input.enriched ?? null,
+    emission: input.emission
+      ? {
+          action: input.emission.action,
+          belowFloor: input.emission.belowFloor,
+          noindex: input.emission.noindex,
+          sitemapEligible: input.emission.sitemapEligible,
+        }
+      : null,
+    related: (input.related ?? []).map(({ keyword, url }) => ({ keyword: String(keyword), url: String(url) })),
+    hreflang: (input.hreflang ?? []).map(({ locale, url }) => ({ locale, url: String(url) })),
+  };
+}
+
+/** Build a date-independent input for one related sitemap shard. */
+export function buildRelatedSitemapManifestInput(input: {
+  locale: Locale;
+  shardFile: string;
+  locs: ReadonlyArray<string>;
+}): {
+  locale: Locale;
+  shardFile: string;
+  membership: string[];
+  order: string[];
+} {
+  const order = input.locs.map(String);
+  return {
+    locale: input.locale,
+    shardFile: String(input.shardFile),
+    membership: [...order].sort(),
+    order,
+  };
 }
 
 // ── Inverted index for token → posting list of jobIdx ────────────────────
@@ -3672,6 +3783,7 @@ async function writeSitemap(
   distDir: string,
   allLocs: ReadonlyArray<string>,
   dateStamp: string,
+  onShardWritten?: (file: string, locs: ReadonlyArray<string>) => void,
 ): Promise<string[]> {
   // Wait for jobsSeoPagesPlugin to flush its buffered writes (notably the
   // previousSlugs bridge HTML) before scanning dist/ HTML for canonical
@@ -3713,6 +3825,7 @@ async function writeSitemap(
       fs.writeFileSync(path.join(distDir, file), xml, 'utf-8');
       profileRecord('sw:write-shard', __tWriteShard);
       written.push(file);
+      onShardWritten?.(file, slice);
     }
   } catch (err) {
     console.warn('\x1b[33m[related-search-clusters]\x1b[0m sitemap write failed:', err);
@@ -3791,6 +3904,47 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       const distDir = path.resolve(rootDir, 'dist');
       const startedAt = Date.now();
       const dateStamp = new Date().toISOString().slice(0, 10);
+      const jobsInputAvailable = fs.existsSync(path.join(rootDir, 'data', 'jobs.json'));
+      const incrementalManifests = getIncrementalManifestMap(
+        rootDir,
+        SUPPORTED_LOCALES.filter((locale) => shouldEmitLocale(locale)),
+      );
+      const incrementalManifestInputCache = incrementalManifests
+        ? getIncrementalManifestInputCache(rootDir)
+        : null;
+      const registerIncrementalCluster = (
+        locale: Locale,
+        pagePath: string,
+        input: RelatedClusterManifestInput,
+      ) => {
+        incrementalManifests?.get(locale)?.register(pagePath, 'related-search-cluster', input);
+      };
+      const registerIncrementalSitemapShard = (file: string, locs: ReadonlyArray<string>) => {
+        // The root sitemap index and related shards are owned by the IT/main
+        // build leg. Other locale shards still render cluster pages, but must
+        // not claim a shared root artifact in their own manifest.
+        const manifest = incrementalManifests?.get('it');
+        manifest?.register(
+          file,
+          'related-search-sitemap',
+          buildRelatedSitemapManifestInput({ locale: 'it', shardFile: file, locs }),
+        );
+      };
+      const writeIncrementalManifests = async () => {
+        // Keep the same incomplete-input guard as jobsSeoPagesPlugin: an
+        // empty related snapshot must not overwrite the last complete
+        // manifest when the shared jobs corpus is absent from a shard.
+        if (!incrementalManifests || !jobsInputAvailable) return;
+        await jobsSeoPagesFlushed;
+        for (const manifest of incrementalManifests.values()) {
+          const manifestPath = manifest.write(rootDir);
+          const manifestData = manifest.toJSON();
+          console.log(
+            `\x1b[36m[related-search-clusters]\x1b[0m incremental manifest ${path.relative(rootDir, manifestPath)} ` +
+            `entries=${manifestData.counts.total} kinds=${JSON.stringify(manifestData.counts.byKind)}`,
+          );
+        }
+      };
 
       // Tiered emission for cluster pages (urlClass: 'gsc-keyword-landing').
       // 2026-05-28 dist: 517 k pages = 5.17 GB = 57 % of jobs-seo bucket;
@@ -3840,7 +3994,11 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // by every BUILD_LOCALE-sharded workflow — see the CACHE_VERSION
       // comment above (issue #4383 item 2) for why that makes cross-shard
       // cache-version staleness impossible in production.
-      const cacheEnabled = process.env.RELATED_SEARCH_CLUSTERS_NO_CACHE !== '1';
+      // The legacy all-or-nothing cache has no per-cluster input hashes. When
+      // shadow manifests are enabled, run the normal context/render path so
+      // every cluster can be registered without changing the emitted bytes.
+      const cacheEnabled = !INCREMENTAL_MANIFEST_ENABLED
+        && process.env.RELATED_SEARCH_CLUSTERS_NO_CACHE !== '1';
       const __tCacheKey = profileStart();
       const cacheKey = cacheEnabled ? computeCacheKey(rootDir) : '';
       profileRecord('cache-key', __tCacheKey);
@@ -3903,6 +4061,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
 
       if (candidates.length === 0) {
         console.log('\x1b[36m[related-search-clusters]\x1b[0m 0 candidates after filtering — nothing to emit');
+        await writeIncrementalManifests();
         printRelatedSearchProfile();
         return;
       }
@@ -4071,6 +4230,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       forceGc();
 
       if (contexts.length === 0) {
+        await writeIncrementalManifests();
         printRelatedSearchProfile();
         return;
       }
@@ -4417,6 +4577,38 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         if (__clAction === 'thin') clusterThinCount++; else clusterFullCount++;
         if (__clNoindex) clusterNoindexCount++;
 
+        if (incrementalManifests) {
+          const clusterManifestInput = buildRelatedClusterManifestInput({
+            slug: ctx.candidate.slug,
+            title: buildTitleWithBrand(
+              capForTitle(buildHeadline(ctx.keyword, ctx.city, locale), TITLE_MAX_CHARS),
+              undefined,
+              TITLE_MAX_CHARS,
+              (s) => escapeForBudget(s).length,
+            ),
+            locale,
+            canton: ctx.cantonGroup,
+            matchingJobs: ctx.matchingJobs,
+            enriched: enriched[enrichedKey],
+            emission: {
+              action: __clAction,
+              belowFloor: __clEmission.belowFloor,
+              noindex: __clEmission.noindex,
+              sitemapEligible: __clEmission.sitemapEligible,
+            },
+            related,
+            hreflang,
+            inputCache: incrementalManifestInputCache,
+          });
+          // The manifest tracks logical pages, like jobsSeoPagesPlugin: the
+          // flat `.html` sibling is a serving bridge, while each canonical or
+          // legacy mirror has its own URL/path and is registered separately.
+          registerIncrementalCluster(locale, out.urlPath, clusterManifestInput);
+          for (const mirrorPath of __clMirrorPaths) {
+            registerIncrementalCluster(locale, mirrorPath, clusterManifestInput);
+          }
+        }
+
         const indexPath = path.join(distDir, out.urlPath, 'index.html');
         const flatPath = path.join(distDir, out.urlPath.replace(/\/+$/, '') + '.html');
         collector.add(indexPath, __clHtml);
@@ -4561,7 +4753,12 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       }
       profileRecord('inject-hub-link', __tHubInject);
       const __tSitemap = profileStart();
-      const sitemapShards = await writeSitemap(distDir, sitemapLocs, dateStamp);
+      const sitemapShards = await writeSitemap(
+        distDir,
+        sitemapLocs,
+        dateStamp,
+        registerIncrementalSitemapShard,
+      );
       profileRecord('sitemap-write', __tSitemap);
       for (const shard of sitemapShards) emittedFiles.push(shard);
 
@@ -4570,6 +4767,12 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       const __tDropJobsMirrors = profileStart();
       await reconcileSitemapJobsWithDist(distDir, crossSectionMirrorLocs);
       profileRecord('drop-jobs-mirrors', __tDropJobsMirrors);
+
+      // Jobs and related pages share the per-locale manifest instance. The
+      // jobs plugin resolves this barrier only after its own writer has
+      // finished, so this final write contains both kinds without changing
+      // any emitted dist artifact.
+      await writeIncrementalManifests();
 
       // Capture stats before releasing the maps that hold them.
       const ctxCount = contexts.length;

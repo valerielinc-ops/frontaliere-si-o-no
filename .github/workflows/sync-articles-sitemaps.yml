@@ -11,9 +11,11 @@ name: Sync article sitemaps, feeds and ticker from the articles API
 # publisher's repository_dispatch keys on the event type, not on this name.
 #
 # repository_dispatch is the primary trigger, and it is the right shape: the
-# publisher knows when it has published, so the push is the event. The schedule
-# is only a safety net for a dispatch that never arrives (token rotated, API
-# outage) — it is not the mechanism.
+# publisher knows when it has published, so the push is the event. Its
+# client_payload is an attestation-shaped claim only; the receiver verifies the
+# source run and workflow with read-only GitHub metadata API before allowing any
+# write. The schedule is only a safety net for a dispatch that never arrives
+# (token rotated, API outage) — it is not the mechanism.
 #
 # scripts/pull-articles-api.mjs refuses rather than degrades: it validates the
 # manifest, both sitemaps (gating on hreflang alternate counts as well as url
@@ -37,6 +39,17 @@ on:
     # Twice a day, offset off the hour to stay clear of the deploy cron.
     - cron: '23 5,17 * * *'
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Keep the run preview-only unless explicitly disabled with human approval.'
+        required: false
+        default: true
+        type: boolean
+      human_approval:
+        description: 'Explicit human approval for the sitemap publication path.'
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: sync-articles-sitemaps
@@ -59,7 +72,81 @@ jobs:
         with:
           node-version: '22'
 
+      # The corpus worker must send this exact contract in client_payload:
+      # schema_version=1; source_repository, source_workflow,
+      # source_workflow_path, source_run_id, source_run_attempt, source_sha,
+      # source_branch and source_event. All values except schema_version are
+      # strings; source_branch=main and source_event=push. This payload is not
+      # a signature. Query the public source-run/workflow metadata first, and
+      # fail closed on an API error or on any mismatch.
+      - name: Verify publisher provenance via read-only metadata API
+        id: publisher_provenance
+        if: github.event_name == 'repository_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PUBLISHER_SOURCE_RUN_ID: ${{ github.event.client_payload.source_run_id || '' }}
+        run: |
+          set -euo pipefail
+          run_metadata="$RUNNER_TEMP/frontaliere-publisher-run.json"
+          workflow_metadata="$RUNNER_TEMP/frontaliere-publisher-workflow.json"
+          printf '{}' > "$run_metadata"
+          printf '{}' > "$workflow_metadata"
+
+          # The id is untrusted data. Validate it before placing it in a quoted
+          # URL segment; malformed ids never reach the API.
+          if [[ "$PUBLISHER_SOURCE_RUN_ID" =~ ^[1-9][0-9]{0,20}$ ]]; then
+            if ! gh api --method GET \
+              --header 'Accept: application/vnd.github+json' \
+              --header 'X-GitHub-Api-Version: 2022-11-28' \
+              "repos/nanakokyobashi-rgb/frontaliere-articles/actions/runs/$PUBLISHER_SOURCE_RUN_ID" \
+              > "$run_metadata"; then
+              printf '{}' > "$run_metadata"
+            fi
+            if ! gh api --method GET \
+              --header 'Accept: application/vnd.github+json' \
+              --header 'X-GitHub-Api-Version: 2022-11-28' \
+              'repos/nanakokyobashi-rgb/frontaliere-articles/actions/workflows/publish-api.yml' \
+              > "$workflow_metadata"; then
+              printf '{}' > "$workflow_metadata"
+            fi
+          fi
+
+          node scripts/ci/verify-publisher-dispatch.mjs "$run_metadata" "$workflow_metadata"
+
+      - name: Require human approval for publication side effects
+        id: side_effect_gate
+        env:
+          # Pin the target principal and event shape. The source fields below
+          # are copied as data from client_payload; the preceding verifier must
+          # have matched them against GitHub metadata before this gate can pass.
+          APPROVAL_EVENT: ${{ github.event_name }}
+          APPROVAL_ACTOR: ${{ github.actor }}
+          APPROVAL_TRIGGERING_ACTOR: ${{ github.triggering_actor }}
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: article-sitemap-publication
+          APPROVAL_DISPATCH_ACTOR: ${{ github.event.sender.login || '' }}
+          APPROVAL_DISPATCH_ACTION: ${{ github.event.action || '' }}
+          APPROVAL_DISPATCH_PAYLOAD_PRESENT: ${{ github.event.client_payload != null }}
+          APPROVAL_PUBLISHER_SOURCE_VERIFIED: ${{ steps.publisher_provenance.outputs.verified || 'false' }}
+          APPROVAL_DISPATCH_SOURCE_SCHEMA_VERSION: ${{ github.event.client_payload.schema_version || '' }}
+          APPROVAL_DISPATCH_SOURCE_REPOSITORY: ${{ github.event.client_payload.source_repository || '' }}
+          APPROVAL_DISPATCH_SOURCE_WORKFLOW: ${{ github.event.client_payload.source_workflow || '' }}
+          APPROVAL_DISPATCH_SOURCE_WORKFLOW_PATH: ${{ github.event.client_payload.source_workflow_path || '' }}
+          APPROVAL_DISPATCH_SOURCE_RUN_ID: ${{ github.event.client_payload.source_run_id || '' }}
+          APPROVAL_DISPATCH_SOURCE_RUN_ATTEMPT: ${{ github.event.client_payload.source_run_attempt || '' }}
+          APPROVAL_DISPATCH_SOURCE_SHA: ${{ github.event.client_payload.source_sha || '' }}
+          APPROVAL_DISPATCH_SOURCE_BRANCH: ${{ github.event.client_payload.source_branch || '' }}
+          APPROVAL_DISPATCH_SOURCE_EVENT: ${{ github.event.client_payload.source_event || '' }}
+          APPROVAL_EXPECTED_DISPATCH_ACTOR: valerielinc-ops
+          APPROVAL_EXPECTED_DISPATCH_REPOSITORY: valerielinc-ops/frontaliere-si-o-no
+          APPROVAL_EXPECTED_DISPATCH_SCOPE: article-sitemap-publication
+          APPROVAL_EXPECTED_DISPATCH_WORKFLOW: Sync article sitemaps, feeds and ticker from the articles API
+        run: node scripts/ci/human-side-effect-gate.mjs
+
       - name: Prepare Firebase credentials for push auth
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -71,6 +158,7 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load push credentials from Remote Config
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: |
           test -f scripts/load-rc-env.mjs
           node scripts/load-rc-env.mjs
@@ -273,7 +361,7 @@ jobs:
 
       - name: Commit if changed
         id: commit
-        if: steps.gate.outputs.skipped != 'true'
+        if: steps.gate.outputs.skipped != 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: |
           set -euo pipefail
           # Recorded BEFORE the commit, because after it `git diff` is clean.
@@ -448,7 +536,7 @@ jobs:
       # Gated on the file having actually changed so a quiet run does not spend
       # a Cloudflare purge on a byte-identical re-PUT.
       - name: Prepare Firebase credentials
-        if: steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true' || steps.commit.outputs.feeds-changed == 'true'
+        if: (steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true' || steps.commit.outputs.feeds-changed == 'true') && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -458,7 +546,7 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
-        if: steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true' || steps.commit.outputs.feeds-changed == 'true'
+        if: (steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true' || steps.commit.outputs.feeds-changed == 'true') && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: |
           if test -f scripts/load-rc-env.mjs; then
             node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
@@ -467,7 +555,7 @@ jobs:
           fi
 
       - name: Publish the news sitemap to the edge
-        if: steps.commit.outputs.news-sitemap-changed == 'true'
+        if: steps.commit.outputs.news-sitemap-changed == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         continue-on-error: true
         run: node scripts/publish-edge-files.mjs --only=/sitemap-news.xml
 
@@ -478,7 +566,7 @@ jobs:
       # be invisible to the guard — the same way a backslash continuation hides
       # --files= from the purge guard.
       - name: Publish the RSS feeds to the edge
-        if: steps.commit.outputs.feeds-changed == 'true'
+        if: steps.commit.outputs.feeds-changed == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         continue-on-error: true
         run: node scripts/publish-edge-files.mjs --only=/rss.xml,/rss-it.xml,/rss-en.xml,/rss-de.xml,/rss-fr.xml,/rss-svizzera.xml,/rss-svizzera-it.xml,/rss-svizzera-en.xml,/rss-svizzera-de.xml,/rss-svizzera-fr.xml
 
@@ -514,7 +602,7 @@ jobs:
       # publish-article-chunks.mjs (TICKER_CDN_KEY / TICKER_CACHE_CONTROL) so
       # the two writers cannot disagree about the freshness contract.
       - name: Publish the news-ticker payload to the edge
-        if: steps.commit.outputs.ticker-changed == 'true'
+        if: steps.commit.outputs.ticker-changed == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         continue-on-error: true
         run: |
           set -euo pipefail

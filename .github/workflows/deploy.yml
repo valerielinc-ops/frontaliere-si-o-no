@@ -324,10 +324,15 @@ jobs:
       matrix:
         locale: ${{ fromJSON(needs.matrix-setup.outputs.matrix) }}
     env:
-      # Mirrors the monolith Build step env. Production leaves independent
-      # closeBundle hooks parallel; only hooks that explicitly declare an
-      # ordering barrier stay sequential. Full serialization is opt-in for a
-      # workflow_dispatch profile run so diagnostics never slow normal deploys.
+      # Production closeBundle hooks MUST stay serialized. PR 8818 (merged
+      # 2026-09-16) changed this default to parallel; deploy run 35100583972
+      # then OOMed all four build-locale legs (DE hit Mark-Compact at 14,334 MB
+      # against the 14,336 MB heap cap). Sequential run 34956104680 kept
+      # employerProfilePages at 6.8 GB heap (6,783-6,788 MB) versus 11.0 GB
+      # (11,053 MB) in the parallel leg. Parallel closeBundle in production is
+      # forbidden until the per-leg memory peak is below about 10 GB. The empty
+      # value is therefore an explicit workflow_dispatch + parallel_plugins=true
+      # opt-in; every other event/input resolves to '1'.
       BUILD_PROFILE: '1'
       ASSET_CDN: 'https://cdn.frontaliereticino.ch'
       # Restored to 2 (#4959 §4): the post-walk worker no longer imports the
@@ -336,7 +341,7 @@ jobs:
       # verified directly: the leaf loads, the old plugin path still fails with
       # ERR_MODULE_NOT_FOUND on siteShell.
       POST_WALK_WORKERS: '2'
-      SEQUENTIAL_PROFILE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.profile_sequential == 'true' && github.event.inputs.parallel_plugins != 'true' && '1' || '' }}
+      SEQUENTIAL_PROFILE: ${{ fromJSON('["1",""]')[github.event_name == 'workflow_dispatch' && github.event.inputs.parallel_plugins == 'true' && 1 || 0] }}
       JOBS_SEO_PROFILE_PHASES: '1'
       WEEKLY_EMPLOYERS_PROFILE: ''
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
@@ -371,6 +376,11 @@ jobs:
       # flip one true without the other in the SAME deploy.
       ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
       ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+      # Jobs SEO HTML reuse is deliberately repository-variable opt-in. An
+      # unset variable keeps the old build path byte-for-byte: no HTML cache
+      # restore, no reuse reads, and no extra current-cache writes.
+      JOBS_SEO_REUSE: ${{ vars.JOBS_SEO_REUSE == '1' && '1' || '' }}
+      JOBS_SEO_REUSE_VERIFY: ${{ vars.JOBS_SEO_REUSE_VERIFY == '1' && '1' || '' }}
     steps:
       # #7106 — anchors the CDN gate's job-deadline safety margin (see "WHY A
       # THIRD CLOCK" in scripts/lib/wait-cdn-build-id.sh) to this leg's REAL
@@ -471,12 +481,69 @@ jobs:
           fi
 
       - name: Cache per-job OG images
+        if: matrix.locale == 'it'
         uses: actions/cache@v5
         with:
           path: .cache/og-jobs
-          key: og-jobs-${{ runner.os }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}
+          # Run 34956104680 rendered 16726 cards with 10434/27160 hits (38%),
+          # spending 1256.5s wall (~21 min; ~82 CPU-min) on the IT leg. The
+          # Cache entries are immutable, and all four build-locale matrix legs
+          # share the same github.run_id. Without this IT-only guard, the first
+          # leg to save the run-specific key would win and the other legs could
+          # not add their files. jobOgImagesPlugin skips cache reads/writes on
+          # non-IT legs, so only IT needs to restore and save this cache. The
+          # run-specific suffix makes each IT run save an updated snapshot; the
+          # prefix restore still picks the newest prior snapshot across
+          # code/content hash changes.
+          # jobOgImagesPlugin stores <slug>.<OG_RENDER_VERSION>.webp, so title /
+          # company / city changes produce a different per-job key, and its
+          # `pruned-stale` pass removes old render versions after restore.
+          key: og-jobs-${{ runner.os }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}-${{ github.run_id }}
           restore-keys: |
             og-jobs-${{ runner.os }}-
+
+      # Incremental manifest carry (#8878 1b): each locale owns one JSONL
+      # snapshot, restored from the newest previous run and saved under a
+      # unique run key after all build steps have finished. It remains
+      # diagnostic-only by default; the separate jobs SEO HTML cache below is
+      # also opt-in through the repository variable JOBS_SEO_REUSE=1.
+      - name: Restore previous incremental manifest
+        id: incremental-manifest-cache
+        uses: actions/cache/restore@v5
+        with:
+          path: .cache/incremental-manifest
+          key: incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}
+          restore-keys: |
+            incremental-manifest-${{ matrix.locale }}-
+
+      # Opt-in only. The key is derived from the restored previous manifest,
+      # so a matching input-hash snapshot brings back the corresponding raw
+      # HTML blobs without cloning a previous dist/shard.
+      - name: Restore previous jobs SEO HTML cache
+        if: env.JOBS_SEO_REUSE == '1'
+        id: jobs-seo-html-cache
+        uses: actions/cache/restore@v5
+        with:
+          path: .cache/incremental-html
+          # Exact key only (review #8940): a prefix fallback could restore
+          # the HTML snapshot of a different run than the previous manifest
+          # restored above, and lookup() only checks the per-entry hash.
+          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
+
+      - name: Stash previous incremental manifest before build overwrites it
+        shell: bash
+        env:
+          MANIFEST_LOCALE: ${{ matrix.locale }}
+        run: |
+          set -euo pipefail
+          previous=".cache/incremental-manifest/${MANIFEST_LOCALE}.jsonl"
+          mkdir -p .cache/incremental-manifest-prev
+          if [ -f "$previous" ]; then
+            mv "$previous" ".cache/incremental-manifest-prev/${MANIFEST_LOCALE}.jsonl"
+            echo "[incremental-manifest] previous ${MANIFEST_LOCALE} manifest stashed ($(wc -l < ".cache/incremental-manifest-prev/${MANIFEST_LOCALE}.jsonl") lines)"
+          else
+            echo "[incremental-manifest] no previous ${MANIFEST_LOCALE} manifest (first run or cache miss)"
+          fi
 
       # IT-only: restore + stash the previous deploy content manifest so the
       # IT shard's deploy-file-delta can diff in-place HTML changes (the IT
@@ -511,6 +578,13 @@ jobs:
           # run that died, which is precisely the revert trigger the job-level
           # comment documents. See that comment for where to look instead.
           MALLOC_ARENA_MAX: '2'
+          # Incremental manifest (#8878/#8914): repository-variable opt-in.
+          # Run 35146607926 (first with it always on) added +44 min to the IT
+          # jobs-seo phase (bridges 99 s → 758 s, legacy-ti 54 s → 705 s):
+          # registration cost is being fixed separately. Unset variable keeps
+          # the build byte-identical and writes no manifest; set
+          # INCREMENTAL_MANIFEST=1 in repository variables for a canary.
+          INCREMENTAL_MANIFEST: ${{ vars.INCREMENTAL_MANIFEST == '1' && '1' || '' }}
         run: |
           set -o pipefail
 
@@ -637,6 +711,28 @@ jobs:
             fi
           } >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Incremental manifest shadow report
+        if: always()
+        continue-on-error: true
+        shell: bash
+        env:
+          MANIFEST_PREVIOUS: .cache/incremental-manifest-prev/${{ matrix.locale }}.jsonl
+          MANIFEST_CURRENT: .cache/incremental-manifest/${{ matrix.locale }}.jsonl
+        run: |
+          set -o pipefail
+          {
+            echo '## Incremental manifest shadow report'
+            echo
+            if [ -f "$MANIFEST_PREVIOUS" ] && [ -f "$MANIFEST_CURRENT" ]; then
+              node scripts/ci/incremental-manifest-report.mjs "$MANIFEST_PREVIOUS" "$MANIFEST_CURRENT"
+            elif [ -f "$MANIFEST_CURRENT" ]; then
+              echo "Previous: $MANIFEST_PREVIOUS (missing; first run or cache miss, no comparison)"
+              echo "Current: $MANIFEST_CURRENT ($(wc -l < "$MANIFEST_CURRENT") JSONL lines)"
+            else
+              echo "Current: $MANIFEST_CURRENT (missing; build did not write a manifest)"
+            fi
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+
       - name: Verify critical dist pages before upload
         if: matrix.locale == 'it'
         run: node scripts/validate-critical-dist-pages.mjs
@@ -751,8 +847,8 @@ jobs:
           fi
           # Append + commit + push-con-rebase stanno in uno script condiviso
           # da quando "Append post-build phase timings row" (in fondo al job,
-          # #7301) e' il secondo produttore di righe: il retry ha un solo
-          # posto in cui cambiare.
+          # #7301) e' diventato il secondo produttore di righe; il manifest
+          # shadow e' il terzo. Il retry ha un solo posto in cui cambiare.
           node -e '
             const num = (v) => (v === undefined || v === "" ? null : Number(v));
             const row = {
@@ -2697,8 +2793,11 @@ jobs:
             --workflow "${{ github.workflow }}" \
             --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
-      # Wall-time delle fasi POST-build del leg (#7301). Non possono essere
-      # chiavi della riga di "Append build memory history row": quello step sta
+      # Marker del profilo + wall-time delle fasi POST-build del leg (#7301).
+      # I marker finiscono nella stessa riga bounded del JSONL per permettere
+      # confronti tra run con jq, invece di lasciare il dato solo nel log.
+      # Queste metriche non possono essere chiavi della riga di
+      # "Append build memory history row": quello step sta
       # a meta' job, e push shard + pack tar finiscono molto dopo — sul run
       # 33833300860 valgono 23 min + 5 min dei 130 min totali del leg IT. Senza
       # questa riga l'unica fonte su quelle fasi e' l'API Actions run-per-run,
@@ -2713,7 +2812,8 @@ jobs:
       # Riga SEPARATA nello stesso JSONL, non uno schema unico: le due righe
       # hanno produttori e momenti diversi, e le 294 righe gia' committate non
       # avranno mai queste chiavi. Chi legge il file discrimina sulla presenza
-      # della chiave.
+      # della chiave. `profile` e `phases` sono limitati a 25 elementi ciascuno
+      # dal parser; i campi post-build restano per compatibilita' con jq.
       - name: Append post-build phase timings row
         if: always()
         continue-on-error: true
@@ -2739,31 +2839,146 @@ jobs:
           ROW_PACK_LOCALE_TAR: ${{ steps.pack-locale-shard.outputs.wall_seconds }}
         run: |
           set -o pipefail
-          node -e '
+          marker_json='{"profile":[],"phases":[]}'
+          if [ -f /tmp/build.log ]; then
+            marker_json="$(node scripts/ci/parse-build-profile-markers.mjs /tmp/build.log)"
+          fi
+          ROW_MARKERS="$marker_json" node -e '
             const pick = (...names) => {
               const v = names.map((n) => process.env[n]).find((x) => x);
               return v === undefined ? null : Number(v);
             };
-            const phases = {
+            const postBuild = {
               push_shards_seconds: pick("ROW_PUSH_SHARDS_IT", "ROW_PUSH_SHARDS_NONIT"),
               pack_tar_seconds: pick("ROW_PACK_TAR_IT", "ROW_PACK_TAR_NONIT"),
               push_locale_shard_seconds: pick("ROW_PUSH_LOCALE_SHARD"),
               pack_locale_tar_seconds: pick("ROW_PACK_LOCALE_TAR"),
             };
+            const markers = JSON.parse(process.env.ROW_MARKERS || "{}");
+            const profile = Array.isArray(markers.profile) ? markers.profile : [];
+            const phases = Array.isArray(markers.phases) ? markers.phases : [];
             // Tutte assenti = nessuna fase post-build ha girato su questo leg
-            // (shard non provisionati, o job morto prima). Riga vuota = rumore
-            // nella storia: meglio niente.
-            if (Object.values(phases).every((v) => v === null)) process.exit(0);
+            // e nessun marker nel log (shard non provisionati, o job morto
+            // prima). Riga vuota = rumore nella storia: meglio niente.
+            if (Object.values(postBuild).every((v) => v === null)
+                && profile.length === 0 && phases.length === 0) process.exit(0);
             process.stdout.write(JSON.stringify({
               ts: new Date().toISOString(),
               locale: process.env.ROW_LOCALE,
               run_id: process.env.ROW_RUN_ID,
               sha: process.env.ROW_SHA,
-              ...phases,
+              kind: "build-profile",
+              profile,
+              phases,
+              ...postBuild,
             }));
-          ' | HISTORY_LABEL=build-history-phases \
-              HISTORY_COMMIT_MSG="chore(build-history): append ${ROW_LOCALE} post-build phase timings run ${ROW_RUN_ID}" \
+          ' | HISTORY_LABEL=build-history-profile \
+              HISTORY_COMMIT_MSG="chore(build-history): append ${ROW_LOCALE} build profile run ${ROW_RUN_ID}" \
               bash scripts/lib/append-build-history-row.sh
+
+      - name: Append incremental manifest history row
+        if: always()
+        continue-on-error: true
+        shell: bash
+        env:
+          ROW_LOCALE: ${{ matrix.locale }}
+          ROW_RUN_ID: ${{ github.run_id }}
+          ROW_SHA: ${{ github.sha }}
+          MANIFEST_PREVIOUS: .cache/incremental-manifest-prev/${{ matrix.locale }}.jsonl
+          MANIFEST_CURRENT: .cache/incremental-manifest/${{ matrix.locale }}.jsonl
+        run: |
+          set -o pipefail
+          if [ ! -f "$MANIFEST_CURRENT" ]; then
+            echo "[build-history-manifest] current manifest missing; niente da appendere"
+            exit 0
+          fi
+          ROW_PREVIOUS="$MANIFEST_PREVIOUS" ROW_CURRENT="$MANIFEST_CURRENT" node --input-type=module -e '
+            import fs from "node:fs";
+            import { PAGE_KINDS } from "./build-plugins/shared/incrementalManifest.mjs";
+            import { loadManifest } from "./scripts/ci/incremental-manifest-report.mjs";
+
+            const previousPath = process.env.ROW_PREVIOUS;
+            const currentPath = process.env.ROW_CURRENT;
+            const current = await loadManifest(currentPath);
+            const previous = fs.existsSync(previousPath) ? await loadManifest(previousPath) : null;
+            const byKind = Object.fromEntries(PAGE_KINDS.map((kind) => [kind, {
+              current: current.data.counts.byKind[kind] ?? 0,
+              hits: previous ? 0 : null,
+              misses: previous ? 0 : null,
+              added: previous ? 0 : null,
+              removed: previous ? 0 : null,
+            }]));
+            const totals = {
+              current: current.data.counts.total,
+              previous: previous ? previous.data.counts.total : null,
+              hits: previous ? 0 : null,
+              misses: previous ? 0 : null,
+              added: previous ? 0 : null,
+              removed: previous ? 0 : null,
+            };
+
+            if (previous) {
+              for (const [pagePath, currentEntry] of current.entries) {
+                const stats = byKind[currentEntry.kind];
+                const previousEntry = previous.entries.get(pagePath);
+                if (!previousEntry) {
+                  stats.added += 1;
+                  totals.added += 1;
+                } else if (previousEntry.inputHash === currentEntry.inputHash) {
+                  stats.hits += 1;
+                  totals.hits += 1;
+                } else {
+                  stats.misses += 1;
+                  totals.misses += 1;
+                }
+              }
+              for (const [pagePath, previousEntry] of previous.entries) {
+                if (current.entries.has(pagePath)) continue;
+                byKind[previousEntry.kind].removed += 1;
+                totals.removed += 1;
+              }
+            }
+
+            process.stdout.write(JSON.stringify({
+              ts: new Date().toISOString(),
+              kind: "incremental-manifest",
+              locale: process.env.ROW_LOCALE,
+              run_id: process.env.ROW_RUN_ID,
+              sha: process.env.ROW_SHA,
+              previous: previous ? {
+                total: previous.data.counts.total,
+                by_kind: previous.data.counts.byKind,
+              } : null,
+              current: {
+                total: current.data.counts.total,
+                by_kind: current.data.counts.byKind,
+              },
+              totals,
+              by_kind: byKind,
+              file_size_bytes: fs.statSync(currentPath).size,
+            }));
+          ' | HISTORY_LABEL=build-history-manifest \
+              HISTORY_COMMIT_MSG="chore(build-history): append ${ROW_LOCALE} incremental manifest run ${ROW_RUN_ID}" \
+              bash scripts/lib/append-build-history-row.sh
+
+      # Keep the blobs alongside the manifest snapshot for the next opt-in
+      # run. A failed/incomplete build must never become the reusable source.
+      - name: Save jobs SEO HTML cache
+        if: success() && env.JOBS_SEO_REUSE == '1' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != '' && hashFiles('.cache/incremental-html/**') != ''
+        uses: actions/cache/save@v5
+        with:
+          path: .cache/incremental-html
+          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
+
+      # Save the current shadow snapshot only after the report and history row:
+      # the run-specific key is unique, while restore-keys above picks the
+      # newest prior snapshot on the next run for this locale.
+      - name: Save incremental manifest cache
+        if: always() && hashFiles('.cache/incremental-manifest/*.jsonl') != ''
+        uses: actions/cache/save@v5
+        with:
+          path: .cache/incremental-manifest
+          key: incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}
 
   # ───────────────────────────────────────────────────────────────────────
   # rearm: make "every HEAD eventually gets a successful build" an invariant

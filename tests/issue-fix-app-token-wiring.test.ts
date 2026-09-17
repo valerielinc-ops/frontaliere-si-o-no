@@ -36,9 +36,9 @@ describe('issue-fix.yml — App token wiring', () => {
     expect(String(guard!.run)).toContain('exit 1');
     expect(String(guard!.run)).toContain('nessuna PR verrà creata');
     const guardIdx = steps.indexOf(guard!);
-    const claudeIdx = steps.indexOf(steps.find((s) => /Run Claude fix/.test(String(s.name || '')))!);
+    const codexIdx = steps.indexOf(steps.find((s) => /Run Codex Luna Max fix/.test(String(s.name || '')))!);
     expect(guardIdx).toBeGreaterThanOrEqual(0);
-    expect(guardIdx).toBeLessThan(claudeIdx);
+    expect(guardIdx).toBeLessThan(codexIdx);
   });
 
   it('mints the App token before every gate that depends on it', () => {
@@ -108,7 +108,7 @@ describe('issue-fix.yml — App token wiring', () => {
   });
 
   // 2026-08-30: the capability-guard and secrets-note text used to sit inline
-  // in the "Run Claude fix" prompt as a `${{ cond && 'A' || 'B' }}` GitHub
+  // in the "Run Codex Luna Max fix" prompt as a `${{ cond && 'A' || 'B' }}` GitHub
   // Actions ternary. That pushed the `prompt:` scalar's total size (it also
   // holds ~9 other expressions across ~300 lines) past a real, undocumented
   // GitHub Actions limit — somewhere between 21,253 and 21,514 characters,
@@ -136,8 +136,8 @@ describe('issue-fix.yml — App token wiring', () => {
     expect(tierScript).not.toContain('APP_TOKEN:-} != ');
 
     // The prompt itself must actually read what the tier step computed.
-    const claude = steps.find((s) => /Run Claude fix/.test(String(s.name || '')))!;
-    const prompt = JSON.stringify(claude);
+    const codex = steps.find((s) => /Run Codex Luna Max fix/.test(String(s.name || '')))!;
+    const prompt = JSON.stringify(codex);
     expect(prompt).toContain('${{ steps.tier.outputs.capability_guard }}');
   });
 
@@ -159,11 +159,11 @@ describe('issue-fix.yml — App token wiring', () => {
 
     const saIdx = steps.indexOf(saStep!);
     const rcIdx = steps.indexOf(rcStep!);
-    const claudeIdx = steps.indexOf(steps.find((s) => /Run Claude fix/.test(String(s.name || '')))!);
+    const codexIdx = steps.indexOf(steps.find((s) => /Run Codex Luna Max fix/.test(String(s.name || '')))!);
     // Order matters here too: loading secrets after the agent has already run would leave
     // `process.env` empty for the whole implementation window.
-    expect(saIdx).toBeLessThan(claudeIdx);
-    expect(rcIdx).toBeLessThan(claudeIdx);
+    expect(saIdx).toBeLessThan(codexIdx);
+    expect(rcIdx).toBeLessThan(codexIdx);
 
     expect(tierScript).toContain('I SEGRETI CI SONO');
     expect(tierScript).toContain('CF_API_TOKEN');
@@ -171,7 +171,7 @@ describe('issue-fix.yml — App token wiring', () => {
     // presence today would mean the prompt lies about a capability the run actually has.
     expect(tierScript).not.toContain('NON hai PAT/Firebase SA');
 
-    const prompt = JSON.stringify(steps.find((s) => /Run Claude fix/.test(String(s.name || '')))!);
+    const prompt = JSON.stringify(steps.find((s) => /Run Codex Luna Max fix/.test(String(s.name || '')))!);
     expect(prompt).toContain('${{ steps.tier.outputs.secrets_note }}');
   });
 
@@ -206,8 +206,8 @@ describe('il token della App deve SOPRAVVIVERE fino al `git push` (#5595)', () =
   const wfDir = resolve(__dirname, '../.github/workflows');
 
   it('issue-fix passa l\'App token alla action, non solo al remote', () => {
-    const claude = steps.find((s) => /Run Claude fix/.test(String(s.name || '')))!;
-    const withBlock = (claude.with || {}) as Record<string, string>;
+    const codex = steps.find((s) => /Run Codex Luna Max fix/.test(String(s.name || '')))!;
+    const withBlock = (codex.with || {}) as Record<string, string>;
     expect(String(withBlock.github_token)).toBe('${{ env.APP_TOKEN }}');
   });
 
@@ -271,7 +271,7 @@ describe('i sibling che assumevano l\'assenza dello scope (review round 1)', () 
     // sarebbe passato: la stessa capability sbloccata in un posto e ancora rifiutata nel gemello.
     //
     // #5288, il verso opposto e più costoso: sulla sola PRESENZA il guard lasciava
-    // PROCEDERE un fix che il push avrebbe poi rifiutato — un turno Claude intero speso e
+    // PROCEDERE un fix che il push avrebbe poi rifiutato — un turno Codex intero speso e
     // buttato, cioè esattamente ciò che il guard esiste per evitare.
     expect(redflag).toMatch(/HAS_PAT: \$\{\{ env\.APP_TOKEN_WORKFLOWS == 'true' \|\| env\.GITHUB_PAT != '' \}\}/);
   });

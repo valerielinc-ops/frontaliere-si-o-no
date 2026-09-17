@@ -15,6 +15,56 @@ Finding important SE impatta:
 
 Non passa nessuno → drop. Non importante per questo progetto.
 
+## Policy automazione bounded F1/F7
+
+La policy deterministica in `scripts/ci/lib/automation-risk-policy.mjs` è un
+contratto esplicito condiviso da classifier, issue-fix e auto-merge. Sulla
+superficie issue blocca sempre questi cinque domini:
+`deploy-workflow-functions`, `secrets-roles-permissions`,
+`billing-revenue-partner`, `published-content-seo-auto-ads` e
+`outreach-communications`. Sulla superficie PR li conserva come evidenza, non
+come veto umano.
+
+Il dominio tecnico `control-plane` resta deny-by-default per la classificazione
+delle issue: `.github/workflows/**`, `.github/actions/**`, `scripts/ci/**`,
+classifier, policy, native gate, evaluator e `REVIEW.md` non entrano nel ciclo
+issue-fix/triage automatico. Nel percorso PR→auto-merge questi path non sono
+invece un veto umano aggiuntivo: il native gate valuta comunque metadata e
+file-list completa, review `## LGTM`, check verdi e la HEAD esatta. Un path non
+riconosciuto sulla superficie issue e un issue text senza categoria/signal noto
+ricevono anch'essi `decision='deny'`; sulla superficie PR un path sconosciuto è
+consentito solo quando metadata e file-list sono tecnicamente verificabili.
+
+Le sole eccezioni esplicite al deny per un'issue `other` sono le label metriche
+read-only `job-description-locale` e `job-title-locale`; non trasformano testo
+generico in un segnale noto e non prevalgono mai su dominio, path sconosciuto o
+control-plane. Per un'issue ad alto rischio il classifier restituisce `route='none'` e
+`autofix=false`; `issue-triage` rimuove le label di routing e applica
+`needs-human`, mentre il job `risk_policy` dell'issue-fix si chiude prima di
+token App, quota, claim e agent. Un errore di lettura o parsing lascia il fixer
+skipped. Non esiste un override nel prompt.
+
+Per una PR il native gate valuta titolo/body/label e un elenco file completo:
+metadata o elenco incompleti sono un deny tecnico fail-closed senza
+`humanApprovalRequired`; F1/F7, control-plane e path sconosciuti non aggiungono
+un veto quando il loro snapshot è verificabile. `needs-human` è
+un veto persistente: anche una review umana APPROVED non lo rimuove via
+automazione; la rimozione richiede un umano e una review `APPROVED` di un utente
+non-bot sulla HEAD esatta. Il gate finale riacquisisce metadata e file-list e
+usa `--match-head-commit` sulla HEAD appena verificata. La stessa guardia copre
+l'evaluator legacy che conserva una mutazione `--auto` di compatibilità.
+
+I bootstrap `enable-native-automerge.yml` e `retry-native-automerge.yml` non
+eseguono più una guardia statica sui path del control-plane né richiedono un
+sentinel dedicato: scaricano e verificano la sintassi degli helper trusted da
+`main`, quindi il gate PR applica la policy `surface='pull-request'` insieme ai
+requisiti già esistenti. Non c'è un vincolo di approvazione umana solo perché la
+PR modifica un workflow, un'azione, `scripts/ci/**`, il classifier o `REVIEW.md`.
+
+Branch protection, ruoli e impostazioni amministrative non sono modificati né
+assunti verificabili da questa policy: se GitHub non consente la verifica, il
+gate resta fail-closed.
+
 ## Severity
 
 | Marker | Quando |
@@ -53,8 +103,8 @@ Determina tier dai file toccati. Il workflow (`pr-review-loop.yml`) lo calcola e
 | **high** | `tests/**`, `.github/workflows/**`, `build-plugins/**`, e gli script **funnel-critical**: crawler/parser/adapter, `backfill-*`, `migrate-*`, `assemble-*`, sitemap/canonical/slug/redirect/structured-data — tutto `scripts/**` ECCETTO i non-funnel sotto | Bug nel test/CI/build/emitter = falso senso sicurezza che si propaga su ogni merge. Probe regex/assertion/exit-code/idempotency. Lista 3 cose NON verificate prima dell'output (`## Adversarial check`). |
 | **high-mega** | Stesso trigger di `high`, ma con ≥25 code file nel diff (PR batch di grande taglia: crawler multipli, migrazioni cross-file) | Stesso rigore/probing di `high` (`## Adversarial check` incluso) — solo più budget di turni (90 vs 60), non più severity: la taglia della PR non abbassa lo standard. |
 | **normal** | tutto il resto, inclusi gli script NON-funnel: `scripts/{ci,dev,evals}/` (helper CI/dev) e gli audit/report read-only (`audit-*`, `analytics*`, `*-report` — verificano, non mutano l'indice) | Single-pass standard. No adversarial step obbligatorio. |
-| **minimal** | PR data/docs-only (ZERO code reviewable) | Percorso corto ≤6 turni (sonnet): solo completeness-contract del body, niente REVIEW.md/cross-file/adversarial. Posta `## LGTM`. |
-| **incremental** / **incremental-high** | Re-review (esiste già una review Claude su un commit precedente) con delta-code non-funnel (→ `incremental`) o funnel-critical (→ `incremental-high`). Modello UNIFICATO claude-opus-5 a `--effort medium` su entrambi (owner 2026-09-03, supersede claude-sonnet-5 del 2026-07-17: mai claude-sonnet-4-6 — cambia solo il probing, non il modello). | **Token-lever**: i commit fino a `INCREMENTAL_BASE` erano già reviewati → review SOLO il delta dei file PR (`compare $INCREMENTAL_BASE...$HEAD`), non l'intero contributo. Read/grep dei file pieni consentito per il contesto. `incremental-high` mantiene il probing rigoroso + `## Adversarial check` sul delta; `incremental` è single-pass. Prima review / delta vuoto / contributo invariato → NON incrementale (rispettivamente high|normal full, oppure skip via fingerprint-guard). |
+| **minimal** | PR data/docs-only (ZERO code reviewable) | Percorso corto ≤6 turni di Codex Luna Max: solo completeness-contract del body, niente REVIEW.md/cross-file/adversarial. Posta `## LGTM`. |
+| **incremental** / **incremental-high** | Re-review con delta-code non-funnel (→ `incremental`) o funnel-critical (→ `incremental-high`). Codex Luna Max (`gpt-5.6-luna`, effort `max`) su entrambi: cambia solo il probing, non il modello. | **Token-lever**: i commit fino a `INCREMENTAL_BASE` erano già reviewati → review SOLO il delta dei file PR (`compare $INCREMENTAL_BASE...$HEAD`), non l'intero contributo. Read/grep dei file pieni consentito per il contesto. `incremental-high` mantiene il probing rigoroso + `## Adversarial check` sul delta; `incremental` è single-pass. Prima review / delta vuoto / contributo invariato → NON incrementale (rispettivamente high|normal full, oppure skip via fingerprint-guard). |
 
 ### CODE vs DATA nel diff
 
@@ -115,7 +165,7 @@ PR a tier `high` (vedi tabella "Tier review"): prima del summary, includi `## Ad
 
 **Un ❓ dell'adversarial check il cui soggetto è funnel-critical NON resta sepolto qui.** Se impatta monetizzazione/traffico (SEO/redirect/structured-data/AdSense/sitemap/indicizzabilità) → 🔴 Important in `## Findings` (vedi Verification → escalation); non parcheggiarlo qui (#829: redirect-bridge come ❓ → `## LGTM` + zero follow-up).
 
-Tassonomia macchina: `STATE_PATTERNS` in `scripts/lib/pr-body-sections-check.mjs`; `bulletState()` gestisce gli stati chiudenti, quindi niente `agent:fix`/`needs-human`. Omissione di `width` resta bug di rendering.
+Tassonomia macchina: `STATE_PATTERNS` in `scripts/lib/pr-body-sections-check.mjs`; `bulletState()` gestisce gli stati chiudenti, quindi niente `agent:fix`/`needs-human` nei PR body. `needs-human` resta invece uno stato operativo F1/F7 delle issue/PR, non un claim di completezza. Omissione di `width` resta bug di rendering.
 
 ## Verification
 

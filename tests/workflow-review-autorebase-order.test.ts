@@ -52,7 +52,7 @@ describe('review → autorebase ordering', () => {
     const autorebaseBlock = workflow.slice(autorebase, workflow.indexOf('\n      - name:', autorebase + 1));
     const mint = workflow.indexOf('name: Mint autorebase App token');
     const mintBlock = workflow.slice(mint, workflow.indexOf('\n      - name:', mint + 1));
-    const expectedIf = "(success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.claude_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure')";
+    const expectedIf = "(success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.codex_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure')";
     for (const block of [mintBlock, autorebaseBlock]) {
       const ifLine = block.split('\n').find((line) => /^\s+if:/.test(line));
       expect(ifLine).toBeTruthy();
@@ -100,7 +100,7 @@ describe('review → autorebase ordering', () => {
     expect(nativeAutoMerge).not.toContain('auto-merge-eval.mjs');
   });
 
-  it('review_gate still runs when claude_review has outcome == failure (no outcome != failure skip)', () => {
+  it('review_gate still runs when codex_review has outcome == failure (no outcome != failure skip)', () => {
     const start = workflow.indexOf('id: review_gate');
     expect(start).toBeGreaterThanOrEqual(0);
     const gateBlock = workflow.slice(start, start + 1200);
@@ -108,7 +108,7 @@ describe('review → autorebase ordering', () => {
     expect(ifLine, 'review_gate must have a job-step if:').toBeTruthy();
     expect(ifLine).toContain('always()');
     expect(ifLine).toContain("steps.resolve.outputs.should_review == 'true'");
-    expect(ifLine).not.toMatch(/steps\.claude_review\.outcome\s*!=\s*'failure'/);
+    expect(ifLine).not.toMatch(/steps\.codex_review\.outcome\s*!=\s*'failure'/);
   });
 
   it('lets the red-flag fixer act only when scope is blocking or unverifiable', () => {

@@ -13,6 +13,7 @@ import {
   resolveHornbachPostedDate,
   resolveHornbachEmploymentType,
   parseHornbachOffer,
+  fetchHornbachSearchApiKey,
   fetchOfferDocumentsWithKeyRetry,
 } from '../scripts/lib/hornbach-job-parser.mjs';
 
@@ -443,11 +444,14 @@ describe('Hornbach crawler parser', () => {
   describe('fetchOfferDocumentsWithKeyRetry', () => {
     const orig = global.fetch;
     const origRetries = process.env.JOBS_CRAWLER_RETRIES;
+    const origRetryBase = process.env.JOBS_CRAWLER_RETRY_BASE_MS;
 
     afterEach(() => {
       global.fetch = orig;
       if (origRetries === undefined) delete process.env.JOBS_CRAWLER_RETRIES;
       else process.env.JOBS_CRAWLER_RETRIES = origRetries;
+      if (origRetryBase === undefined) delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+      else process.env.JOBS_CRAWLER_RETRY_BASE_MS = origRetryBase;
     });
 
     it('retries once with a freshly re-fetched key after an HTTP 401 from multi_search', async () => {
@@ -492,6 +496,20 @@ describe('Hornbach crawler parser', () => {
 
       await expect(fetchOfferDocumentsWithKeyRetry('any-key')).rejects.toThrow(/500/);
       expect(calls).toBe(1); // one multi_search attempt only — never re-fetches the key for a 500
+    });
+
+    it('self-heals a transient HTTP 500 while fetching the scoped API key', async () => {
+      process.env.JOBS_CRAWLER_RETRIES = '1';
+      process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
+      let calls = 0;
+      global.fetch = vi.fn(async () => {
+        calls += 1;
+        if (calls === 1) return { ok: false, status: 500, text: async () => '' };
+        return { ok: true, status: 200, text: async () => JSON.stringify({ key: 'fresh-key' }) };
+      }) as unknown as typeof fetch;
+
+      await expect(fetchHornbachSearchApiKey()).resolves.toBe('fresh-key');
+      expect(calls).toBe(2);
     });
   });
 });

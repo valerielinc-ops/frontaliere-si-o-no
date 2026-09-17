@@ -995,7 +995,7 @@ function postBlockedComment(repo, pr, headSha, runUrl, reason) {
   ], { json: false, allowFail: true }) || '';
   if (String(existing).includes(marker)) return;
   const body = `${marker}
-⚠️ **Review gate bloccato** — la review Claude sulla HEAD ${headSha} non contiene un LGTM valido senza un finding Important bloccante. Il merge resta bloccato.
+⚠️ **Review gate bloccato** — la review Codex sulla HEAD ${headSha} non contiene un LGTM valido senza un finding Important bloccante. Il merge resta bloccato.
 
 Motivo: ${reason}
 
@@ -1166,7 +1166,7 @@ export async function runReviewGate({
     return { approved: false, reason: 'evidenza Codex valida ma nessuna review Codex marcata sulla HEAD' };
   }
   const latest = codexReview || latestReviewer(reviewHistory);
-  if (!latest) return { approved: false, reason: 'nessuna review Claude leggibile' };
+  if (!latest) return { approved: false, reason: 'nessuna review Codex leggibile' };
   const body = normalizeReviewBody(latest.body || '');
   const staleCarry = staleFallbackCarryForward({
     reviews: reviewHistory,

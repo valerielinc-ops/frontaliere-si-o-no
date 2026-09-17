@@ -60,7 +60,6 @@ describe('loop fleet workflow contract', () => {
 
   it('gates repaired loops on a runner-local fail-closed outcome export', () => {
     const contracts = [
-      ['loop-l3-job-quality.yml', 'l3-outcome.json', 'handoffIsNotApplication', 'validate_l3_outcome'],
       ['loop-l5-decision-moments.yml', 'l5-outcome.json', 'publishedDataUntouched', 'validate_l5_outcome'],
       ['loop-l8-revenue-attribution.yml', 'l8-outcome.json', 'externalCommercialStateUntouched', 'validate_l8_outcome'],
       ['loop-l10-fleet-control.yml', 'l10-outcome.json', 'ledgerWriteMode', 'validate_l10_outcome'],
@@ -72,6 +71,27 @@ describe('loop fleet workflow contract', () => {
       expect(source, name).toContain('if: always()');
       expect(source, name).toContain(`id: ${validatorId}`);
       expect(source, name).toContain(`steps.${validatorId}.outcome == 'success'`);
+    }
+  });
+
+  it('records L2 and L3 evidence even when their local outcome validator fails', () => {
+    const contracts = [
+      ['loop-l2-demand-utility.yml', 'L2', 'l2-outcome.json', ['.safeToAct == false', '.publishedDataUntouched == true', '.noThinPages == true', '.noKeywordStuffing == true', '.sourceRequired == true'], 'validate_l2_outcome'],
+      ['loop-l3-job-quality.yml', 'L3', 'l3-outcome.json', ['.safeToAct == false', '.handoffIsNotApplication == true', '.runnerLocalQuarantine == true', '.publishedDataUntouched == true'], 'validate_l3_outcome'],
+    ];
+    for (const [name, loopId, outcomeFile, markers, validatorId] of contracts) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      expect(source, name).toContain(`test -s \"$REPORT_DIR/${outcomeFile}\"`);
+
+      const validatorBlock = source.match(new RegExp(`- name: Validate runner-local ${loopId} outcome export\\n([\\s\\S]*?)(?=\\n      - name: Record canonical|$)`, 'u'))?.[0] || '';
+      expect(validatorBlock, name).toContain('if: always()');
+      for (const marker of markers) expect(validatorBlock, name).toContain(marker);
+      expect(validatorBlock, name).toContain(`id: ${validatorId}`);
+
+      const recorderBlock = source.match(new RegExp(`- name: Record canonical ${loopId} evidence\\n([\\s\\S]*?)(?=\\n      - name:|$)`, 'u'))?.[0] || '';
+      expect(recorderBlock, name).toContain('if: always()');
+      expect(recorderBlock, name).toContain(`LOOP_FLEET_VALIDATOR_OUTCOME: \${{ steps.${validatorId}.outcome }}`);
+      expect(recorderBlock, name).not.toContain(`steps.${validatorId}.outcome == 'success'`);
     }
   });
 
@@ -190,13 +210,72 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('--json number,headRefName,baseRefName');
     expect(source).toContain('.baseRefName == "main"');
     expect(source).toContain('startswith("chore/loop-fleet-ledger-")');
-    expect(source).toContain('source_orphan_branch=$(git ls-remote --heads origin');
+    expect(source).toContain('source_orphan_branch=$(bounded_remote git ls-remote --heads origin');
+    expect(source).toContain('if [ -z "$open_pr" ]; then\n            source_orphan_branch=$(bounded_remote git ls-remote --heads origin');
+    expect(source).toContain('if [ -z "$source_orphan_branch" ]; then\n              base_branch_ref=$(bounded_remote git ls-remote --heads origin');
     expect(source).toContain('ledger_branch="$open_branch"');
     expect(source).toContain('orphan_recovery=\'true\'');
     expect(source).toContain('ledger_branch="$base_branch"');
     expect(source).toContain('&& [ "$orphan_recovery" != \'true\' ]; then');
     expect(source).toContain('Recovering an orphan ledger branch that already contains this validated batch.');
     expect(source).toContain('git checkout -b "$branch" "origin/$ledger_branch"');
+  });
+
+  it('bounds remote append/PR operations and disables interactive prompts', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
+    expect(source).toContain('remote_timeout_seconds=90');
+    expect(source).toContain('timeout --signal=TERM --kill-after=10s');
+    expect(source).toContain('persist-credentials: false');
+    expect(source).toContain('local operation="${1:-remote-command}"');
+    expect(source).toContain("remote operation '${operation}' failed or exceeded");
+    expect(source).not.toContain('): $*');
+    expect(source).not.toContain('push_url=');
+    expect(source).toContain("GIT_CONFIG_KEY_0='http.https://github.com/.extraheader'");
+    expect(source).toContain("basic_auth=$(printf 'x-access-token:%s' \"$GH_TOKEN\" | base64 | tr -d '\\n')");
+    expect(source).toContain('GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}"');
+    expect(source).toContain('unset basic_auth');
+    expect(source).toContain('bounded_remote git push --set-upstream origin "$branch"');
+    expect(source).toContain('export GIT_TERMINAL_PROMPT=0');
+    expect(source).toContain('export GH_PAGER=cat');
+    for (const command of [
+      'bounded_remote git fetch origin main',
+      'bounded_remote gh pr list',
+      'bounded_remote git ls-remote --heads origin',
+      'bounded_remote git fetch origin "$ledger_branch"',
+      'bounded_remote gh pr edit',
+      'bounded_remote gh pr create',
+    ]) {
+      expect(source, command).toContain(command);
+    }
+  });
+
+  it('bounds lifecycle observer persistence operations too', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-lifecycle-observer.yml'), 'utf8');
+    expect(source).toContain('remote_timeout_seconds=90');
+    expect(source).toContain('timeout --signal=TERM --kill-after=10s');
+    expect(source).toContain('persist-credentials: false');
+    expect(source).toContain('local operation="${1:-remote-command}"');
+    expect(source).toContain("remote operation '${operation}' failed or exceeded");
+    expect(source).not.toContain('): $*');
+    expect(source).not.toContain('push_url=');
+    expect(source).toContain("GIT_CONFIG_KEY_0='http.https://github.com/.extraheader'");
+    expect(source).toContain("basic_auth=$(printf 'x-access-token:%s' \"$GH_TOKEN\" | base64 | tr -d '\\n')");
+    expect(source).toContain('GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}"');
+    expect(source).toContain('unset basic_auth');
+    expect(source).toContain('bounded_remote git push --set-upstream origin "$branch"');
+    expect(source).toContain('export GIT_TERMINAL_PROMPT=0');
+    expect(source).toContain('export GH_PAGER=cat');
+    expect(source).toContain('if [ -z "$open_pr" ]; then\n            base_branch_ref=$(bounded_remote git ls-remote --heads origin');
+    for (const command of [
+      'bounded_remote git fetch origin main',
+      'bounded_remote gh pr list',
+      'bounded_remote git ls-remote --heads origin',
+      'bounded_remote git fetch origin "$base_branch"',
+      'bounded_remote gh pr edit',
+      'bounded_remote gh pr create',
+    ]) {
+      expect(source, command).toContain(command);
+    }
   });
 
   it('keeps the automatic ledger recovery probe bounded and unable to write repository content', () => {
@@ -210,5 +289,12 @@ describe('loop fleet workflow contract', () => {
     expect(source).not.toMatch(/pull-requests:\s*write/u);
     expect(source).toContain('LOOP_FLEET_RECONCILE_MAX_DISPATCHES: \'3\'');
     expect(source).toContain('loop-fleet-ledger-reconcile.mjs');
+  });
+
+  it('materializes the canonical JSON dependency in both ledger sparse checkouts', () => {
+    for (const name of ['loop-fleet-ledger-reconcile.yml', 'loop-fleet-ledger-audit.yml']) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      expect(source, name).toContain('/scripts/lib/canonical-json-digest.mjs');
+    }
   });
 });

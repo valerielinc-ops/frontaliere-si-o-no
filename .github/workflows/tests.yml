@@ -40,21 +40,31 @@ permissions:
   actions: read
 
 # Two different questions share this workflow, and they do NOT want the same
-# cancellation semantics.
+# cancellation semantics. The loop-fleet bridge edits the same PR body while
+# appending ledger rows; keep those runs alive long enough for the bounded
+# review to publish on the exact HEAD.
 #
-#   PR runs ask "is THIS head mergeable?". A newer push to the same PR makes the
-#   older head irrelevant, so cancelling it is free — the answer for the head
-#   that matters is still produced. `cancel-in-progress: true` is correct.
+#   Ordinary PR runs ask "is THIS head mergeable?". A newer push to the same PR
+#   makes the older head irrelevant, so cancelling it is free — the answer for
+#   the head that matters is still produced. `cancel-in-progress: true` is
+#   correct.
+#
+#   The bridge PR is the exception: its append-only pushes and pull_request.edited
+#   body churn can cancel the only run before `ledger-post` executes. The
+#   exception is enabled only for a pull_request targeting main whose API
+#   metadata identifies the trusted Bot, same-repository head and an explicit
+#   ledger/lifecycle branch shape. The classifier remains the stricter regex
+#   authority; this expression has no regex support, so it enumerates L0..L11.
 #
 #   Direct pushes to main and merge queues ask the same question as a PR:
 #   does the tree pass the source gate before it becomes the next main head?
 concurrency:
   group: tests-${{ github.workflow }}-${{ github.ref }}
-  # PR and workflow_dispatch runs use newest-wins inside their lane. Direct
-  # pushes to main and merge queues must not cancel one another: each emitted
-  # head needs a completed source-gate verdict before it can become the next
-  # health signal.
-  cancel-in-progress: ${{ github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch' }}
+  # PR and workflow_dispatch runs use newest-wins inside their lane, except for
+  # the bounded loop-fleet bridge lane above. Direct pushes to main and merge
+  # queues must not cancel one another: each emitted head needs a completed
+  # source-gate verdict before it can become the next health signal.
+  cancel-in-progress: ${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && !(github.event.pull_request.base.ref == 'main' && github.event.pull_request.user.type == 'Bot' && github.event.pull_request.user.login == 'frontaliere-automation[bot]' && github.event.pull_request.head.repo.full_name == github.repository && (github.head_ref == 'chore/loop-fleet-ledger' || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L0-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L1-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L2-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L3-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L4-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L5-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L6-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L7-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L8-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L9-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L10-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L11-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-lifecycle-')))) }}
 
 jobs:
   # Unconditional job: admitted code events must always produce a real verdict.
@@ -647,6 +657,73 @@ jobs:
             /AGENTS.md
           sparse-checkout-cone-mode: false
 
+      # Classify and authorize the bounded ledger lane immediately after the
+      # trusted checkout, before npm/setup and the long Vitest chain. Mixed,
+      # unknown or renamed diffs are known non-matches and remain on the
+      # ordinary path; an unverifiable result is a hard job failure. This step
+      # never grants an LGTM to an unknown scope.
+      - name: Classify bounded loop-fleet ledger path
+        id: ledger_scope
+        if: ${{ steps.body_contract.outcome != 'failure' && github.event_name == 'pull_request' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set +e
+          result=$(node scripts/ci/review-test-policy.mjs ledger-check 2>&1)
+          status=$?
+          printf '%s\n' "$result"
+          case "$status" in
+            0)
+              echo 'ledger_only=true' >> "$GITHUB_OUTPUT"
+              echo 'ledger_status=eligible' >> "$GITHUB_OUTPUT"
+              ;;
+            10)
+              echo 'ledger_only=false' >> "$GITHUB_OUTPUT"
+              echo 'ledger_status=not-ledger-only' >> "$GITHUB_OUTPUT"
+              echo 'Ledger fast path non applicabile: il percorso ordinario resta attivo.'
+              ;;
+            *)
+              # An API race, incomplete file list, malformed JSONL or
+              # unverifiable metadata is an error, not an ordinary PR. Do not
+              # fall through to a data/minimal tier with an unknown scope.
+              echo "::error::ledger fast path non verificabile (exit $status): job fail-closed."
+              exit "$status"
+              ;;
+          esac
+
+      - name: Mint GitHub App token for bounded ledger review
+        if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() && steps.ledger_scope.outputs.ledger_only == 'true' }}
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      # This is a normal step in the required `tests` job, not a companion
+      # check. It runs only after the classifier has proven the exact scope;
+      # the helper rechecks HEAD, metadata, complete file-list and JSONL just
+      # before the review mutation, so pull_request.edited churn cannot turn an
+      # earlier snapshot into an approval for a different body.
+      - name: Publish bounded ledger-only automatic LGTM
+        id: ledger_review
+        if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() && steps.ledger_scope.outputs.ledger_only == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          if [ -z "${APP_TOKEN:-}" ]; then
+            echo "::error::bounded ledger review requires the allowlisted App token; no review was posted."
+            exit 1
+          fi
+          GH_TOKEN="$APP_TOKEN" node scripts/ci/review-test-policy.mjs ledger-post
+
       # UNA sola invocazione (erano tre). Niente `--ignore-scripts`: lo usava il
       # solo job `collision`, che non eseguiva codice del repo; qui la stessa
       # install serve a `tsc` e a vitest, che le dipendenze complete le vogliono.
@@ -694,7 +771,7 @@ jobs:
       # l'albero scandito è il risultato MERGIATO invece dell'head crudo.
       # `!cancelled()` così girano anche dopo un `setFailed` del body-contract
       # (sono cancelli indipendenti).
-      # Sibling-class surfacer (zero-Claude, ADVISORY — never fails). Il finding
+      # Sibling-class surfacer (zero-agent, ADVISORY — never fails). Il finding
       # reviewer più ricorrente dopo il body-contract è il 🔴 "stesso antipattern
       # nel file gemello" (sibling-class-fix). check-sibling-patterns.mjs calcola
       # i candidati in modo deterministico; lo step posta una sticky comment così
@@ -809,7 +886,7 @@ jobs:
               await github.rest.issues.createComment({ owner, repo, issue_number, body });
             }
 
-      # Below-floor-bridge surfacer (zero-Claude, ADVISORY — never fails; issue
+      # Below-floor-bridge surfacer (zero-agent, ADVISORY — never fails; issue
       # #3659, escalated bucket reviewer-finding/canonical-sitemap). The ONE
       # sub-pattern of that bucket with a proven, prose-didn't-prevent-it
       # recurrence (#3594's own reviewer found 5 more untouched sibling loops
@@ -1710,9 +1787,9 @@ jobs:
           } >> "$GITHUB_OUTPUT"
           echo "Risolto PR #$PRN (draft=$is_draft) sulla head $HEAD_SHA."
 
-      - name: Re-review guard (skip Claude when no code changed since last LGTM)
+      - name: Re-review guard (skip Codex when no code changed since last LGTM)
         id: guard
-        if: ${{ steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true') }}
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' && (steps.resolve.outputs.should_review == 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           EVENT_ACTION: ${{ github.event.action || '' }}
@@ -1774,21 +1851,22 @@ jobs:
 
       - name: Determine review tier
         id: tier
-        if: ${{ steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true') && (steps.ledger_scope.outputs.ledger_only == 'true' || steps.guard.outputs.skip != 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
           REPO: ${{ github.repository }}
-        # Tier high (claude-opus-5, max-turns 60, adversarial pass): toccato CODE
+          LEDGER_ONLY: ${{ steps.ledger_scope.outputs.ledger_only }}
+        # Tier high (gpt-5.6-luna, max-turns 60, adversarial pass): toccato CODE
         # funnel-critical — test gate, workflow CI, build-plugin SEO, o script
         # che mutano/emettono dati indicizzati (crawler/parser/adapter, backfill,
         # migrate, assemble dataset, sitemap/canonical/slug/structured-data).
         # Bug in questi path = falso senso di sicurezza che si propaga su ogni
         # merge, quindi probing rigoroso paga. Tier normal 15->25 (misurato: 13
-        # run/7gg morti `error_max_turns` a num_turns=16 senza postare review,
+        # run/7gg morti al cap senza postare review,
         # es. run 27345572135/27340191180 - review intera bruciata + PR ferma
-        # fino al rescuer). Tier normal (sonnet, max-turns 35) per
+        # fino al rescuer). Tier normal (Codex Luna Max, cap 35) per
         # tutto il resto, inclusi gli script NON-funnel: `scripts/{ci,dev,evals}/`
         # (helper CI/dev) e gli audit/report read-only (`audit-*`, `analytics*`,
         # `*-report` — non mutano l'indice, verificano soltanto). Vedi REVIEW.md
@@ -1796,7 +1874,7 @@ jobs:
         #
         # CODE vs DATA: il tier si decide SOLO sui file code. I file dati/static
         # rigenerati (NONCODE_RE) NON sono reviewabili come code → non escalano il
-        # tier e una PR data/docs-only resta normal (sonnet posta comunque
+        # tier e una PR data/docs-only resta normal (Codex posta comunque
         # `## LGTM` → auto-merge). Questo evita che 50 `data/jobs/*.json`
         # rigenerati da un crawler trascinino sul tier high o gonfino il diff.
         #
@@ -1824,6 +1902,10 @@ jobs:
             } >> "$GITHUB_OUTPUT"
             echo "Review tier: $1 ($2, max-turns $3)"
           }
+          if [ "${LEDGER_ONLY:-false}" = 'true' ]; then
+            set_tier ledger-only bounded 0
+            exit 0
+          fi
           # File cambiati dalla PR (per tier). Fallback GraphQL→REST/cap-100 +
           # `expected`/`files_complete` sono nel CLI condiviso
           # `scripts/ci/fetch-pr-files.mjs` (issue #6233: prima erano una
@@ -1846,7 +1928,7 @@ jobs:
           # `normal`, scavalcando il guard di incompletezza dieci righe sotto.
           if [ -z "$files" ] && [ "$files_complete" = "1" ]; then
             echo "Empty file list (rebase-only or empty PR)."
-            set_tier normal claude-opus-5 35
+            set_tier normal gpt-5.6-luna 35
             exit 0
           fi
           # Elenco incompleto: il tier NON si decide su un campione. Senza questo
@@ -1862,7 +1944,7 @@ jobs:
             else
               echo "Elenco file INCOMPLETO ($count/$expected, causa: $reason) → tier high forzato: niente minimal, niente decisione funnel su un campione."
             fi
-            set_tier high claude-opus-5 60
+            set_tier high gpt-5.6-luna 60
             exit 0
           fi
           # Strip DATA/static: il tier si decide solo sul CODE.
@@ -1871,7 +1953,7 @@ jobs:
               set_tier tests-only none 0
             else
               # Includes a rename from application code or an uncertain snapshot.
-              set_tier high claude-opus-5 60
+              set_tier high gpt-5.6-luna 60
             fi
             exit 0
           fi
@@ -1879,7 +1961,7 @@ jobs:
           if [ -z "$code_files" ]; then
             # Token-lever: una PR data/docs-only (zero code) non ha contributo
             # code-reviewable — l'unica cosa da verificare è il completeness
-            # contract del body. Tier `minimal`: sonnet + max-turns 12 (8→12
+            # contract del body. Tier `minimal`: Codex Luna Max + cap 12 (8→12
             # nel bump fleet-wide 2026-07-17, il revert-trigger pre-dichiarato) +
             # prompt corto che SALTA la lettura di REVIEW.md, il cross-file
             # probing e l'adversarial check (tutti no-op senza code). Posta
@@ -1888,7 +1970,7 @@ jobs:
             # contract, posta review (~4-6 turni osservati). REVERT-TRIGGER: se
             # compaiono `error_max_turns` sul tier minimal → bump 12→16.
             echo "Data/docs-only PR (no reviewable code touched) → tier minimal."
-            set_tier minimal claude-opus-5 12
+            set_tier minimal gpt-5.6-luna 12
             exit 0
           fi
           # funnel_crit <file-list> → exit 0 se la lista contiene CODE funnel-critical
@@ -1903,8 +1985,8 @@ jobs:
           }
 
           # (Rimossa 2026-07-17 la variante crawler_parser_only del 2026-06-30:
-          # discriminava SOLO il modello — claude-sonnet-4-6 sui diff
-          # crawler/parser-only — e il modello è ora UNIFICATO claude-opus-5
+          # discriminava SOLO il modello sui diff crawler/parser-only — e il
+          # modello è ora UNIFICATO gpt-5.6-luna
           # su ogni tier per decisione owner. Stesso scope e stessi turni.)
 
           # ── Incremental re-review (token-lever): se esiste GIÀ una review Claude su
@@ -1912,8 +1994,8 @@ jobs:
           # commit reviewato, non l'intera PR. Il grosso del contributo era già stato
           # reviewato; ri-leggerlo per intero a ogni fix-push brucia token (osservato
           # su #3038: review Opus full ripetute sullo stesso codice). Modello per
-          # criticità del DELTA: funnel-critical → tier high/claude-opus-5 (rigore,
-          # scope ridotto); altrimenti tier incremental (modello sempre claude-opus-5). Prima review /
+          # criticità del DELTA: funnel-critical → tier high/gpt-5.6-luna (rigore,
+          # scope ridotto); altrimenti tier incremental (modello sempre gpt-5.6-luna). Prima review /
           # nessun commit precedente / delta vuoto
           # → review piena (sotto). Il fingerprint-skip a monte (guard step) copre già
           # il caso "contributo invariato"; qui il contributo È cambiato, ma in modo
@@ -1930,12 +2012,12 @@ jobs:
               if funnel_crit "$delta_code"; then
                 # Keep the historical 35-turn safety margin until a live run
                 # proves that the stricter delta-scoped prompt is safe below it.
-                set_tier incremental-high claude-opus-5 35
+                set_tier incremental-high gpt-5.6-luna 35
               else
                 # Mantieni il cap storico di 35: il bundle riduce il contesto e
                 # i turni medi, ma non deve trasformare un delta complesso in un
                 # max_turns senza ancora avere una misura live sufficiente.
-                set_tier incremental claude-opus-5 35
+                set_tier incremental gpt-5.6-luna 35
               fi
               exit 0
             fi
@@ -1943,8 +2025,8 @@ jobs:
           fi
 
           # CODE funnel-critical → high (full scope, 60 turni), altrimenti normal
-          # (35 turni). Modello UNIFICATO claude-opus-5 su OGNI tier (owner
-          # 2026-07-17: mai claude-sonnet-4-6).
+          # (35 turni). Modello UNIFICATO gpt-5.6-luna su OGNI tier (owner
+          # effort max).
           #
           # high-mega (2026-07-17, analisi Fable-5): la coda di PR sovradimensionate
           # (crawler-batch multi-file: #3428 x6 morti, #3355 x5, #3450 x4) muore
@@ -1956,17 +2038,13 @@ jobs:
           code_file_count=$(echo "$code_files" | grep -c . || true)
           if funnel_crit "$code_files"; then
             if [ "$code_file_count" -ge 25 ]; then
-              set_tier high-mega claude-opus-5 90
+              set_tier high-mega gpt-5.6-luna 90
             else
-              set_tier high claude-opus-5 60
+              set_tier high gpt-5.6-luna 60
             fi
           else
-            set_tier normal claude-opus-5 35
+            set_tier normal gpt-5.6-luna 35
           fi
-
-      - name: Setup Headroom compression proxy
-        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
-        uses: ./.github/actions/setup-headroom
 
       - name: Prefetch review context (zero-Claude, saves turns)
         id: prefetch
@@ -1979,7 +2057,7 @@ jobs:
         # ripiegare su `gh pr view --json files`. Il risparmio non era nelle tre
         # `gh` call (puro bash, zero Claude) ma nel `gh pr diff`, che su una PR
         # data-only puo' essere enorme: quello resta saltato, sotto.
-        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         # Fetch una volta sola, PRIMA che Claude parta, ciò che il prompt gli
         # farebbe rifare turno-per-turno (osservato in 3/3 transcript morti
         # error_max_turns analizzati 2026-07-17: `gh pr view`, `gh pr diff`, il
@@ -2110,8 +2188,8 @@ jobs:
           echo "Prefetched review context in $CTX_DIR:"
           ls -la "$CTX_DIR"
 
-      - name: Mint GitHub App token for Claude review
-        if: ${{ steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+      - name: Mint GitHub App token for Codex review
+        if: ${{ steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -2119,9 +2197,9 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
 
-      - name: Pre-flight — Claude quota telemetry (Codex primary)
+      - name: Pre-flight — Codex lane quota telemetry
         id: quota
-        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -2139,7 +2217,7 @@ jobs:
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
         run: node scripts/ci/review-test-policy.mjs post
 
-      - name: Run Claude review
+      - name: Run Codex Luna Max review
         # Tetto sullo step (classe #7310: nessun tetto sotto il cap del job →
         # morte `cancelled` che nessun `if: failure()` vede). Qui il cap del job
         # è 360min ed è CONDIVISO con la suite vitest: un reviewer appeso se la
@@ -2147,8 +2225,8 @@ jobs:
         # run (91-263s), quindi non tocca nessuna review reale; con il
         # `continue-on-error` sotto, lo scadere non tinge il job di rosso.
         timeout-minutes: 45
-        id: claude_review
-        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        id: codex_review
+        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         # Don't let a hard action failure abort the job before the guard below
         # can classify it — the guard decides whether to fail loudly.
         continue-on-error: true
@@ -2169,9 +2247,8 @@ jobs:
           codex_github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           review_marker: '<!-- CODEX_FALLBACK_REVIEW -->'
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          # Le PR fix-issue sono aperte da `claude[bot]`: senza whitelist
-          # claude-code-action aborta ("non-human actor"). Whitelist esplicita
+          # Le PR fix-issue possono essere aperte da `claude[bot]`: senza whitelist
+          # il lane Codex abortisce ("non-human actor"). Whitelist esplicita
           # (hardening #898): mai `*`. `claude[bot]` copre le PR fix-issue;
           # `github-actions[bot]` copre eventuali PR aperte da automation interna
           # (run 26621967484 era exit 1 col precedente vincolo non-human-actor).
@@ -2179,8 +2256,6 @@ jobs:
           # review = l'actor del run di `tests` → su una PR la cui ultima push
           # viene dall'App (redflag-fixer / issue-fix) `github.actor`
           # è l'App-bot; senza whitelist la review abortirebbe "non-human actor".
-          allowed_bots: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
-          show_full_output: true
           # Owner-approved 2026-07-01: `--dangerously-skip-permissions` sostituisce
           # l'`--allowedTools` scoped precedente. Il reviewer restava bloccato su
           # probing esplorativo legittimo (es. testare `${!key_var}` indirect
@@ -2191,7 +2266,6 @@ jobs:
           # Rischio noto e accettato: reviewer gira su OGNI PR (incluse quelle
           # aperte da bot/automation) con GITHUB_TOKEN pull-requests:write +
           # issues:write, senza restrizione su Bash/Write/Edit.
-          claude_args: "--effort medium --max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --dangerously-skip-permissions"
           prompt: |
             Test files are excluded from review by owner policy: do not read, probe or raise findings on tests, including during cross-file analysis.
             Report the exact workflow tier `${{ steps.tier.outputs.tier }}` in Scope; this classifies review scope, not model reasoning effort.
@@ -2201,7 +2275,7 @@ jobs:
 
             The deterministic review bundle is already prepared in `${{ runner.temp }}/review-ctx/`: `review-bundle.md` is the primary input and includes PR metadata, historical open Important findings with their path+line anchors, the review-scoped code-file list, code-only diff, incremental delta (when present), and sibling signal. Generated data/static paths are intentionally omitted from the bundle. Read it before using GitHub or repository tools. Do not repeat `gh pr view`, `gh pr diff`, or `gh api compare` unless the bundle explicitly reports that a section is incomplete.
 
-            If `INCREMENTAL_BASE` is set, review only the delta and its interactions, but do not treat the prior Claude review as permission to erase an open Important finding. The bundle's historical section is authoritative: if a cited anchor is unchanged or the delta is only a base alignment, carry that finding into this review with the same path and line and do not append `## LGTM`; if the cited code was actually fixed, write `Fix di \`path:L<line>\`: ok.` for every cited anchor before allowing `Important: 0` and `## LGTM`. For an Important without a file citation, carry it unless it is explicitly resolved with `Fix di \`<normalized finding text>\`: ok.` (omit inner backticks). A merge-only delta can never resolve a prior Important by silence. If the bundle says the code contribution is unchanged, post a short review only when the historical section has no open Important findings.
+            If `INCREMENTAL_BASE` is set, review only the delta and its interactions, but do not treat the prior Codex review as permission to erase an open Important finding. The bundle's historical section is authoritative: if a cited anchor is unchanged or the delta is only a base alignment, carry that finding into this review with the same path and line and do not append `## LGTM`; if the cited code was actually fixed, write `Fix di \`path:L<line>\`: ok.` for every cited anchor before allowing `Important: 0` and `## LGTM`. For an Important without a file citation, carry it unless it is explicitly resolved with `Fix di \`<normalized finding text>\`: ok.` (omit inner backticks). A merge-only delta can never resolve a prior Important by silence. If the bundle says the code contribution is unchanged, post a short review only when the historical section has no open Important findings.
 
             If the bundle identifies a historical Important on the PR body with an anchor `PR body:L<n>`, its resolution MUST be written exactly as `Fix di \`PR body:L<n>\`: ok.` (one line per anchor), before `Important: 0` and `## LGTM`; never replace that metadata anchor with a prose paraphrase. For an Important without a file or PR-body anchor, use the normalized finding text required above, inside the confirmation backticks.
 
@@ -2210,32 +2284,10 @@ jobs:
             **Closing states in `## Non implementato (ancora)`.** The five states of `CLOSING_STATES` (`scripts/ci/followup-has-candidates.mjs`) close a bullet, e su quello **non si emette 🔴**: `in questa PR` and `PR concatenata #N` (tracked work, not residual scope), then `per scelta` — «falso positivo» is an accepted synonym of the same `by-choice` state, unless negated — `by construction`, and `blocked: decisione del proprietario`. Those last three are a motivated no, so they close only when the motive is written **after** the state; a bare `per scelta`/`by construction` with no motive stays 🔴. `PR concatenata` without `#N` is not a closing state and is always an open violation. What does NOT close is `blocked: <causa tecnica>`, i.e. every other `blocked: <causa>`: `bulletState()` maps it to `blocked-technical`, which `CLOSING_STATES` deliberately omits — read the CAUSE, not the prefix. Getting either side wrong deadlocks the loop: re-raise the 🔴 on a closed bullet and the fixer declines with a reason, the round cap trips, and `needs-human` lands with the wrong diagnosis on a PR that has nothing to fix. Tier `minimal` carries the same rule: check that both sections exist and that **nessun placeholder vuoto** (`TBD`, `N/A`, empty bullet) fills them — but a bullet closed with a motive **non è un finding**.
 
             Post exactly one review with `gh pr review ${PR_NUMBER} --comment --body ...`. End with `## LGTM` only when there is no open `🔴 Important`, no unresolved funnel-critical question, and the bundle/body contract is valid. If uncertain, emit `❓ q:`; never use `## LGTM` beside an unresolved Important finding. Work read-only: do not edit files, commit, push, run npm, or run tests. Batch independent reads/searches in one tool call and stop immediately after posting the review.
-      - name: Verify Claude CLI supports the requested effort
-        id: claude_effort
-        # claude-code-action installs/resolves the CLI at runtime and adds its
-        # bin directory to GITHUB_PATH. Invoke that exact binary in the next
-        # step so an unsupported flag cannot silently downgrade the review.
-        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.claude_review.outcome == 'success' && steps.claude_review.outputs.claude_used == 'true' && steps.claude_review.outputs.claude_outcome == 'success') }}
-        shell: bash
-        run: |
-          set -o pipefail
-          if output="$(claude --effort medium --version 2>&1)"; then
-            :
-          else
-            status=$?
-            printf '%s\n' "$output"
-            echo "::error::Claude CLI does not accept --effort medium"
-            exit "$status"
-          fi
-          printf '%s\n' "$output"
-          if printf '%s\n' "$output" | grep -qiE 'unknown.{0,20}--effort|--effort.{0,20}unknown|unknown option.{0,20}effort'; then
-            echo "::error::Claude CLI reported that --effort medium is unknown"
-            exit 1
-          fi
       - name: Fail on transient API error (no review posted)
         id: review_abort
-        # claude-code-action can exit 0 even when the model run ABORTED on a
-        # transient Anthropic API error WITHOUT posting a review. The job then
+        # The Codex lane can exit 0 even when the model run ABORTED on a
+        # transient provider error WITHOUT posting a review. The job then
         # looks green but no `## LGTM`/finding was written → the PR silently
         # stalls (observed PR #2340, API 500 mid-run). Classify from the exec log:
         #  - max_turns (terminal_reason) → FAIL LOUDLY + PR comment: MUST be
@@ -2261,20 +2313,20 @@ jobs:
         #    has no `## LGTM` so it won't auto-merge, and it gets re-reviewed on
         #    the next push / by the rescuer once quota recovers. No false-green.
         # `set -uo pipefail` (NOT -e): grep in conditionals must not abort.
-        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
-          REVIEW_OUTCOME: ${{ steps.claude_review.outcome }}
-          EXEC_FILE: ${{ steps.claude_review.outputs.execution_file }}
-          CODEX_PRIMARY_SUCCESS: ${{ steps.claude_review.outputs.primary_success }}
+          REVIEW_OUTCOME: ${{ steps.codex_review.outcome }}
+          EXEC_FILE: ${{ steps.codex_review.outputs.execution_file }}
+          CODEX_PRIMARY_SUCCESS: ${{ steps.codex_review.outputs.primary_success }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           REVIEW_TIER: ${{ steps.tier.outputs.tier }}
           REVIEW_MAX_TURNS: ${{ steps.tier.outputs.max_turns }}
         run: |
           set -uo pipefail
           if [ "${CODEX_PRIMARY_SUCCESS:-false}" = 'true' ]; then
-            echo "Codex primary riuscito: il controllo dell'execution file Claude non si applica perché il fallback non è stato eseguito."
+            echo "Codex primary riuscito: il controllo dell'execution file di fallback non si applica perché non è stato eseguito."
             exit 0
           fi
           # max_turns FIRST — see rationale above. Must win over the 429 regex.
@@ -2294,42 +2346,42 @@ jobs:
             # shellcheck disable=SC2016,SC1112
             BODY=$(printf '⚠️ **Review automatica fallita** (`terminal_reason=max_turns`, tier `%s`, cap %s turni, turni usati %s): Claude ha esaurito il budget di turni prima di poter postare un verdetto (`## LGTM` / 🔴). Nessuna review è stata pubblicata su questa PR — auto-merge non può scattare finché non ce n’è una.\n\nLog del run: %s\n\nPer sbloccare:\n- rilancia il job (rerun del run `tests` più recente di questa PR fa ripartire anche `pr-review-loop`), oppure\n- esegui la review in locale: checkout del branch, poi lancia la review con lo stesso contratto di `REVIEW.md` sul diff verso `main` (es. skill `/code-review` a effort alto) prima di mergiare a mano.\n\nSe questa PR ha già avuto una morte `max_turns` in precedenza, un retry raramente basta — dato osservato: le morti ripetute sono quasi tutte su PR con molti file indipendenti in un unico batch; valuta di splittarla in PR più piccole.' "${REVIEW_TIER:-?}" "${REVIEW_MAX_TURNS:-?}" "${NUM_TURNS:-?}" "$RUN_URL")
             gh pr comment "$PR_NUMBER" --body "$BODY" || echo "::warning::gh pr comment fallito (non bloccante)."
-            echo "::error::Claude review hit max-turns (tier=${REVIEW_TIER:-?}, cap=${REVIEW_MAX_TURNS:-?}, turns=${NUM_TURNS:-?}) without posting a review — re-run this job, or split the PR if this recurs."
+            echo "::error::Codex review hit its turn cap (tier=${REVIEW_TIER:-?}, cap=${REVIEW_MAX_TURNS:-?}, turns=${NUM_TURNS:-?}) without posting a review — re-run this job, or split the PR if this recurs."
             exit 1
           fi
           # 429 / rate-limit: use the central detector; even if outcome=failure, a 429 must NOT fail the
           # job (Tier-2 lever: avoids re-run amplification of the shared Max quota).
           DECISION=$(GITHUB_OUTPUT=/dev/null EXEC_FILE="${EXEC_FILE:-}" PREFLIGHT_BLOCKED=false FALLBACK_ATTEMPTED=false node scripts/ci/claude-codex-fallback.mjs 2>/dev/null || true)
           if printf '%s\n' "$DECISION" | grep -q '^rate_limited=true$'; then
-            echo "::warning::Claude review aborted on a 429 (quota/rate-limit). NOT failing — avoids re-run amplification of the shared Max quota. PR has no ## LGTM (won't auto-merge); it will be re-reviewed on the next push or by the stale-PR rescuer once quota recovers."
+            echo "::warning::Codex review aborted on a 429 (quota/rate-limit). NOT failing — avoids re-run amplification of the shared lane quota. PR has no ## LGTM (won't auto-merge); it will be re-reviewed on the next push or by the stale-PR rescuer once quota recovers."
             exit 0
           fi
           if [ "${REVIEW_OUTCOME}" = "failure" ]; then
-            echo "::error::Claude review action failed (outcome=failure) — re-run this job."
+            echo "::error::Codex review action failed (outcome=failure) — re-run this job."
             exit 1
           fi
           if [ -n "${EXEC_FILE:-}" ] && [ -f "${EXEC_FILE}" ]; then
             if grep -qE '"is_error"[[:space:]]*:[[:space:]]*true' "${EXEC_FILE}" \
                && grep -qiE '"api_error_status"[[:space:]]*:[[:space:]]*5[0-9][0-9]|overloaded|server_error|internal server error|api error: 5' "${EXEC_FILE}"; then
-              echo "::error::Claude review aborted on a transient 5xx API error without posting a review — re-run this job."
+              echo "::error::Codex review aborted on a transient 5xx API error without posting a review — re-run this job."
               exit 1
             fi
           fi
           echo "Review step completed without an unrecovered transient API error."
-      - name: Require approving Claude review
+      - name: Require approving Codex review
         id: review_gate
-        # Must still run when claude_review has outcome=failure (continue-on-error
+        # Must still run when codex_review has outcome=failure (continue-on-error
         # 429/action crash). Skipping here left the required check green with
         # zero bot reviews on HEAD (PR #7635): no LGTM, nothing red, auto-merge
         # parked forever. Fail this step when HEAD has no valid LGTM.
-        if: ${{ steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && (steps.ledger_scope.outputs.ledger_only == 'true' || steps.guard.outputs.skip != 'true')) }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
           REPO: ${{ github.repository }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          CODEX_FALLBACK_EVIDENCE_FILE: ${{ steps.claude_review.outputs.fallback_evidence_file }}
+          CODEX_FALLBACK_EVIDENCE_FILE: ${{ steps.codex_review.outputs.fallback_evidence_file }}
         run: |
           set -euo pipefail
           # Il gate autorevole resta questo step required; la decisione è
@@ -2343,7 +2395,7 @@ jobs:
       # percorso è stato saltato, trasformiamo l'assenza di verdetto in un
       # rosso reale. Il job non ha condizioni che possano saltarlo.
       - name: Fail when required review gate is skipped
-        if: ${{ steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.review_gate.outcome == 'skipped') }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && (steps.ledger_scope.outputs.ledger_only == 'true' || steps.guard.outputs.skip != 'true') && steps.review_gate.outcome == 'skipped') }}
         run: |
           echo "::error::Required review gate was skipped on a pull request; no approving review verdict was evaluated."
           exit 1
@@ -2356,7 +2408,7 @@ jobs:
       # Il token App è l’identità primaria; il fallback GITHUB_TOKEN mantiene il
       # job fail-soft, ma non riattiva i workflow downstream per l’anti-recursion.
       - name: Mint autorebase App token
-        if: ${{ steps.body_contract.outcome != 'failure' && ((success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.claude_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure')) }}
+        if: ${{ steps.body_contract.outcome != 'failure' && ((success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.codex_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure')) }}
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -2365,7 +2417,7 @@ jobs:
         run: node scripts/ci/mint-app-token.mjs
 
       - name: Rebase near-merge PRs after review or stale rescue
-        if: ${{ steps.body_contract.outcome != 'failure' && ((success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.claude_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure')) }}
+        if: ${{ steps.body_contract.outcome != 'failure' && ((success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.codex_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure')) }}
         env:
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
@@ -2400,15 +2452,6 @@ jobs:
           } >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           echo "::notice::tests run classified as $classification; no failure report or remediation was attempted"
 
-      - name: Claude usage metrics
-        # Solo se il fallback Claude è effettivamente girato: quando Codex
-        # conclude il lavoro non c'è execution_file Claude da riassumere.
-        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.claude_review.outputs.claude_used == 'true') }}
-        # Exact token/cost for this run (replaces estimates). Writes a table to
-        # the run Step Summary + a grep-able CLAUDE_USAGE line to the log.
-        # Best-effort: never fails the job.
-        run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_review.outputs.execution_file }}" "pr-review-loop"
-
       # ULTIMO step del job, e deve restarlo: legge l'esito di tutti quelli
       # sopra. `always()` non è decorativo — un `if:` che nomina uno step senza
       # `always()` non parte MAI dopo un fallimento, ed è esattamente dopo un
@@ -2423,7 +2466,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Il verdetto del JOB, non degli step. Sette step qui dentro sono
           # `continue-on-error: true` (i due commenti advisory, i due `Mint …
-          # token`, `Run Claude review`, le metriche e questo stesso step): il
+          # token`, `Run Codex Luna Max review`, le metriche e questo stesso step): il
           # loro rosso NON tinge il job, e senza questa variabile il summary
           # scriverebbe un ❌ in cima alla pagina di una run verde. `job.status`
           # è leggibile mentre il job gira e vale `success` proprio quando a

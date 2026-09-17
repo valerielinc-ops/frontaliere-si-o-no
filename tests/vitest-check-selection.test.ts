@@ -38,7 +38,7 @@ const vitest = (conclusion: string | null, completed_at: string | null, status =
 
 describe('identità del job condivisa con il corpus', () => {
   const checkRun = { conclusion: 'failure', head_sha: 'head', details_url: 'https://github.com/owner/repo/actions/runs/10/job/20' };
-  const steps = [{ name: 'Require approving Claude review', conclusion: 'failure' }];
+  const steps = [{ name: 'Require approving Codex review', conclusion: 'failure' }];
   const job = { id: 20, status: 'completed', conclusion: 'failure', head_sha: 'head', steps };
 
   it('legge gli step soltanto dal job del tentativo corrente', () => {

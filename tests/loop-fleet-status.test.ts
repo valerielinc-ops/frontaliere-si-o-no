@@ -335,7 +335,8 @@ describe('loop fleet status', () => {
       }, error: null } },
     );
     expect(rows).toHaveLength(12);
-    expect(rows.find((row: any) => row.loopId === 'L0')).toMatchObject({
+    const l0 = rows.find((row: any) => row.loopId === 'L0');
+    expect(l0).toMatchObject({
       quality: 'observed',
       decision: 'observing',
       requiredAutonomy: 'A0',
@@ -345,8 +346,9 @@ describe('loop fleet status', () => {
       lifecycleCompliant: true,
       issue: 'operational telemetry incomplete: durationSeconds, retryCount, quotaUnits, collisions, gateBypass',
       missingOutcome: null,
-      nextHumanAction: 'restore complete operational telemetry and rerun the loop',
+      nextAutomaticAction: 'defer the decision, restore complete operational telemetry and rerun the loop',
     });
+    expect(l0).not.toHaveProperty('nextHumanAction');
     expect(rows.find((row: any) => row.loopId === 'L1')).toMatchObject({
       quality: 'unmeasurable',
       evidenceComplete: false,
@@ -420,7 +422,7 @@ describe('loop fleet status', () => {
     expect(rows.find((row: any) => row.loopId === 'L0')).toMatchObject({
       policyCompliant: false,
       missingOutcome: 'independent outcome not recorded',
-      nextHumanAction: 'validate or attach the independent outcome before changing exposure',
+      nextAutomaticAction: 'defer exposure and record the missing independent outcome',
     });
   });
 
@@ -530,7 +532,7 @@ describe('loop fleet status', () => {
         durationSeconds: null,
         missing: ['durationSeconds', 'retryCount', 'quotaUnits', 'collisions', 'gateBypass'],
       },
-      nextHumanAction: 'validate or attach the independent outcome before changing exposure',
+      nextAutomaticAction: 'defer exposure and record the missing independent outcome',
     });
   });
 

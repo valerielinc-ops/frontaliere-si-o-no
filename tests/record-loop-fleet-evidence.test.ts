@@ -371,6 +371,22 @@ describe('record-loop-fleet-evidence', () => {
     expect(result.health.ok).toBe(false);
   });
 
+  it('does not persist healthy evidence when the runner-local validator fails', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-validator-failed-'));
+    writeL1Evidence(dir);
+    const previous = process.env.LOOP_FLEET_VALIDATOR_OUTCOME;
+    process.env.LOOP_FLEET_VALIDATOR_OUTCOME = 'failure';
+    try {
+      const result = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+      expect(result.summary).toMatchObject({ quality: 'unmeasurable', outcome: { status: 'unmeasurable', independent: false } });
+      expect(result.health).toMatchObject({ quality: 'unmeasurable', ok: false, outcome: { status: 'unmeasurable', independent: false } });
+      expect(result.health.outcomeErrors).toContain('runner-local outcome validator returned failure');
+    } finally {
+      if (previous === undefined) delete process.env.LOOP_FLEET_VALIDATOR_OUTCOME;
+      else process.env.LOOP_FLEET_VALIDATOR_OUTCOME = previous;
+    }
+  });
+
   it('uses a durable ledger only when the caller explicitly opts in', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-durable-'));
     const durableDir = path.join(dir, 'durable');
