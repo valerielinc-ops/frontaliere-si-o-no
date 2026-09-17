@@ -3972,14 +3972,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "procurement-category-manager-richemont-plan-les-ouates-2",
-        "procurement-category-manager-richemont-plan-les-ouates",
-        "procurement-category-manager-piaget-plan-les-ouates"
+        "procurement-category-manager-richemont-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "procurement-category-manager-richemont-plan-les-ouates-2",
-          "procurement-category-manager-richemont-plan-les-ouates",
-          "procurement-category-manager-piaget-plan-les-ouates"
+          "procurement-category-manager-richemont-plan-les-ouates"
         ],
         "de": [
           "procurement-category-manager-richemont-plan-les-ouates-2"
@@ -8046,7 +8044,7 @@
       "slugByLocale": {
         "it": "master-data-administrator-finance-richemont-bellevue",
         "en": "master-data-administrator-finance-richemont-bellevue",
-        "de": "master-data-administrator-finance-richemont-bellevue",
+        "de": "stammdaten-administrator-finanzen-richemont-bellevue",
         "fr": "administrateur-principal-des-donnees-finances-richemont-bellevue"
       },
       "company": "Richemont",
@@ -9505,13 +9503,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sales-associate-richemont-zurich",
-        "sales-associate-richemont-zurich-t0sdvd",
-        "sales-associate-van-cleef-arpels-zurich"
+        "sales-associate-richemont-zurich-t0sdvd"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-associate-richemont-zurich",
-          "sales-associate-van-cleef-arpels-zurich"
+          "sales-associate-richemont-zurich"
         ],
         "de": [
           "sales-associate-richemont-zurich"
@@ -10508,15 +10504,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ]
-      },
-      "previousSlugs": [
-        "specialiste-analyses-materiaux-richemont-glovelier"
-      ]
+      }
     },
     {
       "id": "richemont-beb532d93689",

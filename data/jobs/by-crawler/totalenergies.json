@@ -54,13 +54,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cdd-tgi-comptable-polyvalent-totalenergies-geneve",
-        "cdd-tgi-contabile-polivalente-totalenergies-geneve"
+        "cdd-tgi-comptable-polyvalent-totalenergies-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cdd-tgi-comptable-polyvalent-totalenergies-geneve",
-          "cdd-tgi-contabile-polivalente-totalenergies-geneve"
+          "cdd-tgi-comptable-polyvalent-totalenergies-geneve"
         ],
         "en": [
           "cdd-tgi-comptable-polyvalent-totalenergies-geneve"
@@ -90,7 +88,7 @@
       "slugByLocale": {
         "it": "tech-lead-analisi-avanzata-totalenergies-geneve",
         "en": "tech-lead-advanced-analytics-totalenergies-geneve",
-        "de": "tech-lead-advanced-analytics-totalenergies-geneve",
+        "de": "technischer-leiter-advanced-analytics-totalenergies-geneve",
         "fr": "responsable-technique-advanced-analytics-totalenergies-geneve"
       },
       "company": "TotalEnergies",
@@ -136,15 +134,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "tech-lead-advanced-analytics-totalenergies-geneve",
-        "tech-lead-analisi-avanzata-totalenergies-geneve"
+        "tech-lead-advanced-analytics-totalenergies-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tech-lead-advanced-analytics-totalenergies-geneve",
-          "tech-lead-analisi-avanzata-totalenergies-geneve"
+          "tech-lead-advanced-analytics-totalenergies-geneve"
         ],
         "fr": [
+          "tech-lead-advanced-analytics-totalenergies-geneve"
+        ],
+        "de": [
           "tech-lead-advanced-analytics-totalenergies-geneve"
         ]
       },
@@ -215,13 +214,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-analyst-finance-shared-services-totalenergies-geneve",
-        "business-analista-finanza-shared-services-totalenergies-geneve"
+        "business-analyst-finance-shared-services-totalenergies-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-finance-shared-services-totalenergies-geneve",
-          "business-analista-finanza-shared-services-totalenergies-geneve"
+          "business-analyst-finance-shared-services-totalenergies-geneve"
         ]
       },
       "firstSeenAt": "2026-07-04T12:38:28.341Z",
@@ -291,13 +288,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-trading-accountant-totalenergies-geneve",
-        "senior-trading-contabile-totalenergies-geneve"
+        "senior-trading-accountant-totalenergies-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-trading-accountant-totalenergies-geneve",
-          "senior-trading-contabile-totalenergies-geneve"
+          "senior-trading-accountant-totalenergies-geneve"
         ],
         "de": [
           "senior-trading-accountant-totalenergies-geneve"
@@ -323,12 +318,12 @@
     },
     {
       "id": "totalenergies-5a549d004cea",
-      "slug": "european-power-market-analyst-intern-totalenergies-geneve",
+      "slug": "european-power-market-analista-tirocinante-totalenergies-geneve",
       "slugByLocale": {
         "en": "european-power-market-analyst-intern-totalenergies-geneve",
-        "it": "european-power-market-analyst-intern-totalenergies-geneve",
+        "it": "european-power-market-analista-tirocinante-totalenergies-geneve",
         "de": "european-power-market-analyst-intern-totalenergies-geneve",
-        "fr": "european-power-market-analyst-intern-totalenergies-geneve"
+        "fr": "european-power-market-analyste-stagiaire-totalenergies-geneve"
       },
       "company": "TotalEnergies",
       "companyKey": "totalenergies",
@@ -387,7 +382,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-16T23:43:28.486Z"
+      "firstSeenAt": "2026-09-16T23:43:28.486Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "european-power-market-analyst-intern-totalenergies-geneve"
+        ],
+        "fr": [
+          "european-power-market-analyst-intern-totalenergies-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "european-power-market-analyst-intern-totalenergies-geneve"
+      ]
     },
     {
       "id": "totalenergies-1ef2251589d7",
@@ -441,13 +447,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "structured-origination-finance-junior-analyst-intern-totalenergies-geneve",
-        "structured-origination-finanza-junior-analista-tirocinante-totalenergies-geneve"
+        "structured-origination-finance-junior-analyst-intern-totalenergies-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "structured-origination-finance-junior-analyst-intern-totalenergies-geneve",
-          "structured-origination-finanza-junior-analista-tirocinante-totalenergies-geneve"
+          "structured-origination-finance-junior-analyst-intern-totalenergies-geneve"
         ],
         "de": [
           "structured-origination-finance-junior-analyst-intern-totalenergies-geneve"
