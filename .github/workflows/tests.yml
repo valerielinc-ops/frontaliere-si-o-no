@@ -545,7 +545,7 @@ jobs:
       # other non-zero result is unverifiable and fails closed.
       - name: Classify bounded loop-fleet ledger path
         id: ledger_scope
-        if: ${{ steps.ledger_policy.outcome == 'success' && !cancelled() }}
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_policy.outcome == 'success' && !cancelled() }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -574,7 +574,7 @@ jobs:
           esac
 
       - name: Mint GitHub App token for bounded ledger review
-        if: ${{ steps.ledger_scope.outputs.ledger_only == 'true' && !cancelled() }}
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only == 'true' && !cancelled() }}
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -587,7 +587,7 @@ jobs:
       # immediately before the review mutation.
       - name: Publish bounded ledger-only automatic LGTM
         id: ledger_review
-        if: ${{ steps.ledger_scope.outputs.ledger_only == 'true' && !cancelled() }}
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only == 'true' && !cancelled() }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -609,7 +609,7 @@ jobs:
       # globale, quindi basta impostarla PRIMA del passo. Rischio zero: non
       # cambia cosa viene scaricato o scritto, solo quanti thread lo scrivono.
       - run: git config --global checkout.workers 0
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
 
       # CHECKOUT UNICO per tutte e quattro le famiglie del percorso ordinario;
       # il ledger-only verificato sopra lo salta deliberatamente. Il perché di questo
@@ -626,7 +626,7 @@ jobs:
       # esplicito con il refspec di destinazione (issue #6058). Quel fetch ora è
       # quasi gratis: i commit ci sono già, manca solo il NOME.
       - uses: actions/checkout@v5
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         with:
           fetch-depth: 0
           filter: blob:none
@@ -761,12 +761,12 @@ jobs:
       # solo job `collision`, che non eseguiva codice del repo; qui la stessa
       # install serve a `tsc` e a vitest, che le dipendenze complete le vogliono.
       - name: Setup Node.js + npm ci (una volta per tutte e quattro le famiglie)
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         uses: ./.github/actions/ci-npm-setup
 
       - name: Cache Vitest/Vite transform cache
         id: vitest-cache
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         uses: actions/cache/restore@v5
         with:
           path: |
@@ -784,7 +784,7 @@ jobs:
         # compilatore verifica hash/opzioni prima del riuso; la cache è quindi
         # una misura di performance, non una scorciatoia del gate.
         id: tsc-cache
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         uses: actions/cache/restore@v5
         with:
           path: .cache/tsc
@@ -1299,7 +1299,7 @@ jobs:
       # step resta in primo piano per costruzione, non per prudenza.
       # ══════════════════════════════════════════════════════════════════════
       - name: Fetch base ref for the factuality diff
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         # Explicit destination refspec (issue #6058): a bare `git fetch origin
         # <branch>` only updates FETCH_HEAD, it does NOT create the
         # remote-tracking ref `refs/remotes/origin/<branch>`, and
@@ -1333,7 +1333,7 @@ jobs:
         #
         # Each failure prints the required correction. Fix the content — never
         # loosen a threshold or delete the passage to get the gate green.
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         run: node scripts/audit-article-factuality.mjs --changed origin/${{ github.base_ref || 'main' }}
 
       - name: Collect changed paths (corpus gates delegated to frontaliere-articles)
@@ -1513,7 +1513,7 @@ jobs:
 
       - name: Decide whether dataset assembly is required
         id: assemble
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         # The selector reuses run-related-tests.mjs's real related graph and
         # scripts/ci/dataset-dependent-tests.mjs's existing partition. Its
         # output is only a scheduling decision; the blocking Vitest invocation
@@ -1613,7 +1613,7 @@ jobs:
           node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
       - name: vitest related (PR diff)
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         # FOREGROUND, dopo "Assemble + migrate": i test scelti dal grafo
         # possono leggere i dataset generati. Questo è l'unico invocatore di
         # Vitest del job PR; `run-related-tests.mjs` usa il related graph e un
