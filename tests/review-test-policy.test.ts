@@ -483,7 +483,8 @@ describe('owner policy excluding test files from review', () => {
     const workflow = YAML.parse(readFileSync('.github/workflows/tests.yml', 'utf8'));
     const steps = workflow.jobs.vitest.steps;
     expect(steps.find((s: any) => s.id === 'test_only_review').if).toContain('success()');
-    for (const id of ['prefetch', 'quota', 'codex_review']) expect(steps.find((s: any) => s.id === id).if).toContain("tier != 'tests-only'");
+    expect(steps.find((s: any) => s.id === 'quota')).toBeUndefined();
+    for (const id of ['prefetch', 'codex_review']) expect(steps.find((s: any) => s.id === id).if).toContain("tier != 'tests-only'");
     for (const step of steps.filter((s: any) => String(s.name).startsWith('vitest '))) expect(step.if ?? '').not.toContain('tests-only');
   });
   it('mantiene un solo tests.yml/check e porta il ledger-only nello stesso job', () => {
@@ -505,15 +506,10 @@ describe('owner policy excluding test files from review', () => {
     const unknownExit = ledgerScope.run.slice(ledgerScope.run.indexOf('*)'));
     expect(unknownExit).toContain('exit "$status"');
     expect(unknownExit).not.toContain('ledger_only=false');
-    expect(source).toContain("github.event.pull_request.base.ref == 'main'");
-    expect(source).toContain("github.event.pull_request.user.type == 'Bot'");
-    expect(source).toContain("github.event.pull_request.user.login == 'frontaliere-automation[bot]'");
-    expect(source).toContain('github.event.pull_request.head.repo.full_name == github.repository');
-    for (const loop of ['L0', 'L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7', 'L8', 'L9', 'L10', 'L11']) {
-      expect(source).toContain(`startsWith(github.head_ref, 'chore/loop-fleet-ledger-${loop}-')`);
-    }
-    expect(source).toContain("startsWith(github.head_ref, 'chore/loop-fleet-ledger-lifecycle-')");
-    expect(source).not.toContain("startsWith(github.head_ref, 'chore/loop-fleet-ledger-')");
+    expect(source).toContain('group: tests-${{ github.workflow }}-${{ github.event.pull_request.number || inputs.pr_number || github.ref }}-${{ github.event.pull_request.head.sha || github.sha }}');
+    expect(source).toContain('cancel-in-progress: false');
+    expect(source).toContain('trusted loop-fleet bridge');
+    expect(source).toContain('Classify bounded loop-fleet ledger path');
     const ledgerReview = workflow.jobs.vitest.steps.find((step: any) => step.id === 'ledger_review');
     expect(ledgerReview['continue-on-error']).toBeUndefined();
     expect(ledgerReview.run).toContain('APP_TOKEN');

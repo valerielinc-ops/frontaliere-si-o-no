@@ -162,7 +162,7 @@ cat > "$body" <<'BODY'
 
 ## Non implementato (ancora)
 
-- in questa PR, per scelta: nessun dato del corpus, engine o host viene copiato; il trasporto resta limitato ai file elencati dal diff e validati dall'allowlist.
+- in questa PR, per scelta: nessun dato del corpus, engine o host viene copiato; il trasporto resta limitato ai file elencati dal diff e validati dall'allowlist. **Motivo:** questo job trasferisce solo gli artifact di workflow autorizzati e non deve alterare il runtime del corpus. **Prossimo passo:** mantenere l'allowlist aggiornata quando cambia il contratto di trasporto.
 - blocked: il ciclo autonomo del corpus deve completare la review della HEAD e apporre `## LGTM`; fino ad allora non è autorizzato alcun merge diretto o manuale.
 BODY
 
