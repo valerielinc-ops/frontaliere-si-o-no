@@ -97,7 +97,17 @@ export function resolveFnzSwissLocation(candidates = []) {
       && signalCanton
       && signalCanton !== locationCanton,
     );
-    if (!hasConflictingCitySignals && !countryOnlyFallback) {
+    // The safe fallback is FNZ's Zürich office. Do not use it when the source
+    // explicitly names another canton without a concrete municipality: that
+    // would publish a locality/canton pair that contradicts the source.
+    const hasIncompatibleExplicitCanton = Boolean(
+      signalCanton && signalCanton !== 'ZH',
+    );
+    if (
+      !hasConflictingCitySignals
+      && !hasIncompatibleExplicitCanton
+      && !countryOnlyFallback
+    ) {
       countryOnlyFallback = { raw, location: 'Zürich', canton: 'ZH' };
     }
   }

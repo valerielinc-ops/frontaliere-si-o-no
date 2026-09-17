@@ -60,6 +60,10 @@ describe('fnz-job-parser / resolveFnzSwissLocation', () => {
     });
   });
 
+  it('does not map an explicit non-Zürich canton-only value to Zürich', () => {
+    expect(resolveFnzSwissLocation(['Ticino'])).toBeNull();
+  });
+
   it('rejects foreign-only candidates', () => {
     expect(resolveFnzSwissLocation(['London, United Kingdom'])).toBeNull();
   });
