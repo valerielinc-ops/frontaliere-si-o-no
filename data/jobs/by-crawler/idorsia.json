@@ -328,7 +328,7 @@
       "slugByLocale": {
         "it": "responsabile-del-cpcts-idorsia-pharmaceuticals-allschwil",
         "en": "cpcts-manager-idorsia-allschwil",
-        "de": "cpcts-manager-idorsia-allschwil",
+        "de": "cpcts-verwaltung-idorsia-pharmaceuticals-allschwil",
         "fr": "gestionnaire-des-scpc-idorsia-pharmaceuticals-allschwil"
       },
       "company": "Idorsia Pharmaceuticals",
@@ -386,6 +386,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "cpcts-manager-idorsia-allschwil"
+        ],
+        "de": [
           "cpcts-manager-idorsia-allschwil"
         ]
       },

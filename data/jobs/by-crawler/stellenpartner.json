@@ -3446,12 +3446,12 @@
     },
     {
       "id": "stellenpartner-5aa759761d59",
-      "slug": "zimmermann-zimmerin-per-elementbau-stellenpartner-ag-weinfelden",
+      "slug": "carpenteria-per-la-costruzione-di-elementi-stellenpartner-ag-weinfelden-thurgau",
       "slugByLocale": {
-        "it": "zimmermann-zimmerin-per-elementbau-stellenpartner-ag-weinfelden",
-        "en": "zimmermann-zimmerin-fur-elementbau-weinfelden-thurgau-stellenpartner-ch",
+        "it": "carpenteria-per-la-costruzione-di-elementi-stellenpartner-ag-weinfelden-thurgau",
+        "en": "carpentry-for-element-construction-stellenpartner-ag-weinfelden-thurgau",
         "de": "zimmermann-zimmerin-fur-elementbau-weinfelden-thurgau-stellenpartner-ch",
-        "fr": "zimmermann-zimmerin-fur-elementbau-weinfelden-thurgau-stellenpartner-ch"
+        "fr": "carpentry-pour-la-construction-d-elements-stellenpartner-ag-weinfelden-thurgau"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -3492,10 +3492,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-elementbau-weinfelden-thurgau-stellenpartner-ch"
+        "zimmermann-zimmerin-fur-elementbau-weinfelden-thurgau-stellenpartner-ch",
+        "zimmermann-zimmerin-per-elementbau-stellenpartner-ag-weinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "zimmermann-zimmerin-fur-elementbau-weinfelden-thurgau-stellenpartner-ch",
+          "zimmermann-zimmerin-per-elementbau-stellenpartner-ag-weinfelden"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-elementbau-weinfelden-thurgau-stellenpartner-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-elementbau-weinfelden-thurgau-stellenpartner-ch"
         ]
       },
@@ -15255,12 +15263,12 @@
     },
     {
       "id": "stellenpartner-fb920abccd7c",
-      "slug": "polymechaniker-in-mit-pikettdienst-hochdorf-luzern-stellenpartner-ch",
+      "slug": "polimeccanico-con-servizio-piket-stellenpartner-ag-hochdorf-luzern",
       "slugByLocale": {
-        "it": "polymechaniker-in-mit-pikettdienst-hochdorf-luzern-stellenpartner-ch",
-        "en": "polymechaniker-in-mit-pikettdienst-hochdorf-luzern-stellenpartner-ch",
+        "it": "polimeccanico-con-servizio-piket-stellenpartner-ag-hochdorf-luzern",
+        "en": "polymechanic-with-piket-service-stellenpartner-ag-hochdorf-luzern",
         "de": "polymechaniker-in-mit-pikettdienst-hochdorf-luzern-stellenpartner-ch",
-        "fr": "polymechaniker-in-mit-pikettdienst-hochdorf-luzern-stellenpartner-ch"
+        "fr": "polymecanique-avec-service-de-piquet-stellenpartner-ag-hochdorf-luzern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -15314,7 +15322,21 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-in-mit-pikettdienst-hochdorf-luzern-stellenpartner-ch"
+        ],
+        "en": [
+          "polymechaniker-in-mit-pikettdienst-hochdorf-luzern-stellenpartner-ch"
+        ],
+        "fr": [
+          "polymechaniker-in-mit-pikettdienst-hochdorf-luzern-stellenpartner-ch"
+        ]
+      },
+      "previousSlugs": [
+        "polymechaniker-in-mit-pikettdienst-hochdorf-luzern-stellenpartner-ch"
+      ]
     },
     {
       "id": "stellenpartner-d10b6e7efca1",
@@ -47896,9 +47918,9 @@
     },
     {
       "id": "stellenpartner-cd2fdbfbe013",
-      "slug": "installatore-trice-elettrico-a-inf-ur-bahnverkehr-con-zusatzfunktion-come-lokfuhrer-stellenpartner-ag-schwyz",
+      "slug": "installatore-infrastruttura-elettrica-per-il-trasporto-ferroviario-con-funzione-aggiuntiva-di-conducente-stellenpartner",
       "slugByLocale": {
-        "it": "installatore-trice-elettrico-a-inf-ur-bahnverkehr-con-zusatzfunktion-come-lokfuhrer-stellenpartner-ag-schwyz",
+        "it": "installatore-infrastruttura-elettrica-per-il-trasporto-ferroviario-con-funzione-aggiuntiva-di-conducente-stellenpartner",
         "en": "electrical-installer-inf-ur-rail-transport-with-additional-function-as-train-driver-stellenpartner-ag-schwyz-schwyz",
         "de": "elektroinstallateur-inf-ur-bahnverkehr-mit-zusatzfunktion-als-lokfuhrer-schwyz-schwyz",
         "fr": "installateur-electrique-transport-ferroviaire-inf-ur-avec-fonction-supplementaire-de-conducteur-de-train-stellenpartner"
@@ -47942,11 +47964,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "elektroinstallateur-inf-ur-bahnverkehr-mit-zusatzfunktion-als-lokfuhrer-schwyz-schwyz"
+        "elektroinstallateur-inf-ur-bahnverkehr-mit-zusatzfunktion-als-lokfuhrer-schwyz-schwyz",
+        "installatore-trice-elettrico-a-inf-ur-bahnverkehr-con-zusatzfunktion-come-lokfuhrer-stellenpartner-ag-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-inf-ur-bahnverkehr-mit-zusatzfunktion-als-lokfuhrer-schwyz-schwyz"
+          "elektroinstallateur-inf-ur-bahnverkehr-mit-zusatzfunktion-als-lokfuhrer-schwyz-schwyz",
+          "installatore-trice-elettrico-a-inf-ur-bahnverkehr-con-zusatzfunktion-come-lokfuhrer-stellenpartner-ag-schwyz"
         ],
         "en": [
           "elektroinstallateur-inf-ur-bahnverkehr-mit-zusatzfunktion-als-lokfuhrer-schwyz-schwyz"

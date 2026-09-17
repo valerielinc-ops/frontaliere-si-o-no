@@ -50,6 +50,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ github.run_id }}',
       "bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}",
     ]));
+    expect(WORKFLOW_TEXT).not.toMatch(/hashFiles\([^)]*(?:incremental-html|dist)\/\*\*/u);
     expect(WORKFLOW_TEXT).not.toMatch(/uses:\s*actions\/cache@/u);
     expect(WORKFLOW.concurrency.group).toBe('deploy-matrix-experiment-${{ github.run_id }}');
     expect(String(WORKFLOW.concurrency.group)).not.toBe('pages-build-run');
@@ -90,6 +91,8 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     const manifest = steps.find((step) => step.name === 'Restore previous incremental manifest');
     const benchHtml = steps.find((step) => step.name === 'Restore chained jobs SEO HTML cache');
     const html = steps.find((step) => step.name === 'Restore previous jobs SEO HTML cache');
+    const benchHtmlSave = steps.find((step) => step.name === 'Save chained jobs SEO HTML cache');
+    const benchManifestSave = steps.find((step) => step.name === 'Save chained incremental manifest');
     const extract = steps.find((step) => step.name === 'Extract build markers');
     const upload = steps.find((step) => step.name === 'Upload build markers');
     const stop = steps.find((step) => step.name === 'Enforce stop-after jobs SEO control');
@@ -107,8 +110,13 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(steps.indexOf(benchManifest!)).toBeLessThan(steps.indexOf(manifest!));
 
     expect(benchHtml?.uses).toBe('actions/cache/restore@v5');
-    expect(benchHtml?.with?.key).toBe(
-      "bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}",
+    const benchHtmlKey =
+      "bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}";
+    expect(benchHtml?.with?.key).toBe(benchHtmlKey);
+    expect(benchHtmlSave?.with?.key).toBe(benchHtmlKey);
+    expect(benchHtmlSave?.if).toContain("steps.bench-jobs-seo-html-content.outputs.has_files == 'true'");
+    expect(benchManifestSave?.if).toContain(
+      "hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''",
     );
     expect(html?.uses).toBe('actions/cache/restore@v5');
     expect(html?.with?.key).toBe(
