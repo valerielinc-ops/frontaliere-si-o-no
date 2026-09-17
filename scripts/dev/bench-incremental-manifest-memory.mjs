@@ -3,18 +3,15 @@
 import os from 'node:os';
 import path from 'node:path';
 
-const RECORD_COUNT = readPositiveInteger('MANIFEST_BENCH_RECORDS', 100_000);
-const RELATED_PER_RECORD = readPositiveInteger('MANIFEST_BENCH_RELATED', 30);
+import { intFromEnv, positiveIntFromEnv } from '../lib/int-from-env.mjs';
+
+const RECORD_COUNT = positiveIntFromEnv('MANIFEST_BENCH_RECORDS', 100_000);
+const RELATED_PER_RECORD = positiveIntFromEnv('MANIFEST_BENCH_RELATED', 30);
 const DE_RECORD_COUNT = 811_433;
-const RETAINED_HEAP_BUDGET_MB = Number(process.env.MANIFEST_BENCH_MAX_RETAINED_MB || 120);
+const RETAINED_HEAP_BUDGET_MB = intFromEnv('MANIFEST_BENCH_MAX_RETAINED_MB', 120);
 const jsonOutput = process.argv.includes('--json');
 const assertBudget = !process.argv.includes('--no-assert');
 const legacyListCache = process.env.MANIFEST_BENCH_LEGACY_LIST_CACHE === '1';
-
-function readPositiveInteger(name, fallback) {
-  const value = Number.parseInt(process.env[name] || '', 10);
-  return Number.isInteger(value) && value > 0 ? value : fallback;
-}
 
 if (typeof global.gc !== 'function') {
   throw new Error('Questo benchmark richiede node --expose-gc');
