@@ -52,7 +52,10 @@ import { isSwissLocationText, inferAnyCanton } from './lib/target-swiss-location
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
-import { resolveFnzSwissLocation } from './lib/fnz-job-parser.mjs';
+import {
+  resolveFnzSwissCountryLocation,
+  resolveFnzSwissLocation,
+} from './lib/fnz-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -391,7 +394,11 @@ async function fetchFnzJobs() {
       listing.locationsText || '',
     ];
 
-    const resolvedLocation = resolveFnzSwissLocation(locationCandidates);
+    // Keep a source-level country-only posting even if the primary resolver
+    // cannot classify it; never turn it into an invented city or drop it.
+    const resolvedLocation =
+      resolveFnzSwissLocation(locationCandidates) ||
+      resolveFnzSwissCountryLocation(locationCandidates);
     if (!resolvedLocation) {
       console.log(`  ⏭️  Skipped — not a Swiss location (${parseWorkdayLocation(info.location || listing.locationsText || '') || 'unknown'})`);
       continue;
