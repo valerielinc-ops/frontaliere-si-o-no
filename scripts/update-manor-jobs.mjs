@@ -332,6 +332,31 @@ export function parseJobPage(html, url) {
 }
 
 /* ── Fetch & parse ─────────────────────────────────────────── */
+/**
+ * Resolve the one locality/canton pair emitted into Manor JobPosting data.
+ * Detail metadata wins when present, but it must remain in the canton selected
+ * by the URL and must not contradict an explicit detail-page region.
+ */
+export function resolveManorLocation(pageData = {}, urlCity = '') {
+  const detailLocality = String(pageData?.addressLocality || '').trim();
+  const location = detailLocality || String(urlCity || '').trim();
+  const canton = inferAnyCanton(location);
+  const urlCanton = inferAnyCanton(urlCity);
+  const detailCanton = inferAnyCanton(pageData?.addressRegion || '')
+    || normalizeCantonCode(pageData?.addressRegion || '');
+
+  if (
+    !location
+    || !canton
+    || (urlCanton && urlCanton !== canton)
+    || (detailCanton && detailCanton !== canton)
+  ) {
+    return null;
+  }
+
+  return { location, canton };
+}
+
 async function fetchManorJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
   const delayMs = Number(process.env.MANOR_CRAWL_DELAY_MS) || 1500;
@@ -404,36 +429,37 @@ async function fetchManorJobs() {
 
     const category = detectCategory(title);
 
-    // Per-job canton is inferred CH-wide from the store city. There is no
-    // national HQ fallback: an unresolved source location is skipped instead
-    // of being published under a fixed canton.
-    const canton = inferAnyCanton(city) || inferAnyCanton(pageData.addressLocality || pageData.location || '');
-    if (!canton) {
+    // Keep location, addressLocality and addressRegion on the same source
+    // signal. A detail page that names another canton is rejected instead of
+    // publishing a structurally incoherent JobPosting.
+    const resolvedLocation = resolveManorLocation(pageData, city);
+    if (!resolvedLocation) {
       skipped.unresolvedCanton++;
-      console.warn(`  ⚠️  Skipping job ${jobId}: store city has no Swiss canton (${city})`);
+      console.warn(`  ⚠️  Skipping job ${jobId}: detail locality/canton disagrees with store city (${city})`);
       continue;
     }
 
-    const addressLocality = pageData.addressLocality || city;
+    const { location: resolvedCity, canton } = resolvedLocation;
+    const addressLocality = resolvedCity;
     const addressRegion = canton;
 
     // Use page description if substantial, otherwise template
     const pageDesc = (pageData.description || '').trim();
     const descIt = pageDesc.length >= 100
       ? pageDesc
-      : buildDescriptionIt(title, city, canton);
-    const descEn = buildDescriptionEn(title, city, canton);
-    const descDe = buildDescriptionDe(title, city, canton);
-    const descFr = buildDescriptionFr(title, city, canton);
+      : buildDescriptionIt(title, resolvedCity, canton);
+    const descEn = buildDescriptionEn(title, resolvedCity, canton);
+    const descDe = buildDescriptionDe(title, resolvedCity, canton);
+    const descFr = buildDescriptionFr(title, resolvedCity, canton);
 
-    const baseSlug = normalizeKey(`manor ${title} ${city}`);
+    const baseSlug = normalizeKey(`manor ${title} ${resolvedCity}`);
 
     const job = {
       title,
       company: MANOR_COMPANY_NAME,
       companyKey: MANOR_KEY,
       url,
-      location: city,
+      location: resolvedCity,
       addressLocality,
       streetAddress: pageData.streetAddress || '',
       postalCode: pageData.postalCode || '',

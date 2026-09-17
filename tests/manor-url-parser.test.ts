@@ -3,6 +3,7 @@ import {
   extractCityFromUrl,
   extractTitleFromUrl,
   parseJobPage,
+  resolveManorLocation,
   stripSiteTitleSuffix,
 } from '../scripts/update-manor-jobs.mjs';
 import { normalizeKey } from '../scripts/lib/dedicated-crawler-common.mjs';
@@ -60,6 +61,18 @@ describe('Manor jobs2web URL and title parsing', () => {
       postalCode: '',
       addressRegion: '',
     });
+  });
+
+  it('keeps emitted locality and canton aligned with the detail page source', () => {
+    expect(resolveManorLocation({ addressLocality: 'Zürich', addressRegion: 'ZH' }, 'Zürich')).toEqual({
+      location: 'Zürich',
+      canton: 'ZH',
+    });
+  });
+
+  it('rejects a detail locality from another canton instead of mixing address fields', () => {
+    expect(resolveManorLocation({ addressLocality: 'Zürich', addressRegion: 'ZH' }, 'Lugano')).toBeNull();
+    expect(resolveManorLocation({ addressLocality: 'Lugano', addressRegion: 'ZH' }, 'Lugano')).toBeNull();
   });
 
   it('removes the site suffix while preserving the role title', () => {
