@@ -19,7 +19,7 @@ import path from 'path';
 import os from 'node:os';
 import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
-import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, ROBOTS_INDEX_ENHANCED, ROBOTS_NOINDEX_FOLLOW, robotsMetaEnhancedForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, PARTNERIZE_TAG_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT } from './constants';
+import { BASE_URL, BUILD_ID, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, ROBOTS_INDEX_ENHANCED, ROBOTS_NOINDEX_FOLLOW, robotsMetaEnhancedForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, PARTNERIZE_TAG_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT } from './constants';
 import { buildSimplePage, asyncCssHeadBlock, rootShell, esc as escHtml } from './htmlTemplate';
 import { railGutters } from './shared/railGutters';
 import { buildSeoPageHtml } from './shared/seoPageShell';
@@ -44,8 +44,14 @@ import { shouldEmitLocale } from './shared/localeEmitFilter';
 import {
   buildMinimalJobInput,
   getIncrementalManifestMap,
+  INCREMENTAL_MANIFEST_ENABLED,
   stableJobId,
 } from './shared/incrementalManifest.mjs';
+import {
+  computeJobsSeoEmitterFingerprints,
+  createJobsSeoHtmlReuse,
+  htmlHasIndexableRobots,
+} from './shared/incrementalHtmlReuse.mjs';
 import {
   normalizeSearchTerm as normalizeSearchTermShared,
   collectSearchLandingMatches,
@@ -722,13 +728,29 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const retentionProbeCandidate = parseJobsSeoRetentionProbe(process.env[JOBS_SEO_RETENTION_PROBE_ENV]);
  const distDir = np.resolve(rootDir, 'dist');
  const jobsPath = np.resolve(rootDir, 'data/jobs.json');
- // Shadow-only and opt-in: normal production builds allocate no manifest maps
- // and perform no shadow hashing. When enabled for a shard, allocate only the
- // locales that the same build leg owns and emits.
+ const jobsSeoEmitterFingerprints = (
+  process.env.JOBS_SEO_REUSE === '1' || INCREMENTAL_MANIFEST_ENABLED
+ )
+  ? computeJobsSeoEmitterFingerprints(rootDir)
+  : null;
+ // Shadow-only and opt-in: normal production builds allocate no new reuse
+ // state and perform no HTML-cache reads. When enabled for a shard, allocate
+ // only the locales that the same build leg owns and emits.
+ const jobsSeoReuse = await createJobsSeoHtmlReuse(
+  rootDir,
+  JOB_SEO_LOCALES.filter((locale) => shouldEmitLocale(locale)),
+  jobsSeoEmitterFingerprints,
+ );
  const incrementalManifests = getIncrementalManifestMap(
   rootDir,
   JOB_SEO_LOCALES.filter((locale) => shouldEmitLocale(locale)),
+  jobsSeoReuse !== null,
  );
+ if (incrementalManifests && jobsSeoEmitterFingerprints) {
+  for (const manifest of incrementalManifests.values()) {
+   manifest.setJobsSeoEmitterFingerprint(jobsSeoEmitterFingerprints);
+  }
+ }
  const registerIncrementalPage = (locale: (typeof JOB_SEO_LOCALES)[number], pagePath: string, kind: string, input: unknown) => {
   incrementalManifests?.get(locale)?.register(pagePath, kind, input);
  };
@@ -3036,7 +3058,17 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    canton: jobCanton,
    canonicalUrl: effectiveCanonicalUrl,
   }
-  : null;
+ : null;
+ const outDir = np.join(distDir, canonicalPath.slice(1));
+ const activeReuse = jobsSeoReuse?.lookup(
+  locale,
+  canonicalPath,
+  'active-job',
+  activeJobManifestInput,
+  'active',
+ );
+ let html: string;
+ if (!activeReuse?.hit || jobsSeoReuse?.verify) {
  const localizedTitle = stripLiteralMarkdownFromTitle(String(job?.titleByLocale?.[locale] || job.title || ''));
  const jobLocation = perJob_jobLocation;
  const dc = getCantonDisplayLabel(perJob_cantonCode, locale);
@@ -3541,9 +3573,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const jobFaqHtml = `<section class="section"><h4>${esc(jobFaqHeadingByLocale[locale])}</h4>${jobFaqPairs.map((f) => `<details class="s-TdgkK3"><summary class="s-HBR0NM">${esc(f.q)}</summary><p class="s-bOIp6r">${esc(f.a)}</p></details>`).join('')}</section>`;
  recordPhase('jsonld', __tPh_jsonld);
 
- const outDir = np.join(distDir, canonicalPath.slice(1));
- activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
- _md(outDir);
  const __tPh_template = phaseTimer();
  // Seed the slim job record into the page so the SPA resolves `selectedJob`
  // from the first paint without downloading the ~1.2 MB (gzip) slim index —
@@ -3563,7 +3592,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // FAQ content, same pattern as jobRecencyPagesPlugin.ts's recencyRobotsTag.
  const jobBodyHtml = `${summaryHtml}${timelineHtml || (hasCanonical ? sectionHtml(localeCopy[locale].descriptionLabel, bodyParagraphs, []) : '')}${jobFaqHtml}`;
  const jobRobotsTag = robotsMetaEnhancedForContent(jobBodyHtml);
- const html = `<!doctype html>
+ html = `<!doctype html>
 <html lang="${locale}">
  <head>
  <meta charset="utf-8">
@@ -3938,6 +3967,12 @@ ${staticAnalyticsHtml}
  </body>
 </html>`;
  recordPhase('template-render', __tPh_template);
+ } else {
+  html = jobsSeoReuse.reusedHtml(activeReuse, BUILD_ID) || activeReuse.html;
+ }
+ jobsSeoReuse?.finish(activeReuse, html);
+ activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
+ _md(outDir);
  const __tPh_write = phaseTimer();
  _qw(np.join(outDir, 'index.html'), html);
  if (incrementalManifests) {
@@ -3987,19 +4022,35 @@ ${staticAnalyticsHtml}
  const __tLegacyBridge = startTimer();
  const legacyRel = `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/${job.slug}`.replace(/\/+/g, '/').replace(/^\//, '');
  if (!activeJobDirs.has(legacyRel.replace(/\/+$/, ''))) {
- const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(perLocaleSlug[locale])};</script>`;
- const legacyIndexHtml = html.replace('</head>', ` ${bridgeScript}\n </head>`);
- const legacyDir = np.join(distDir, legacyRel);
- _md(legacyDir);
- _qw(np.join(legacyDir, 'index.html'), legacyIndexHtml);
- if (incrementalManifests) {
-  registerIncrementalPage(locale, legacyRel, 'legacy-slug-bridge', {
+ const legacyReuseInput = incrementalManifests
+  ? {
    bridgeType: 'locale-slug',
    source: activeJobManifestInput,
    sourcePath: canonicalPath,
    targetPath: legacyRel,
    legacySlug: job.slug,
-  });
+  }
+  : null;
+ const legacyReuse = jobsSeoReuse?.lookup(
+  locale,
+  legacyRel,
+  'legacy-slug-bridge',
+  legacyReuseInput,
+  'previous-slug-legacy',
+ );
+ let legacyIndexHtml: string;
+ if (legacyReuse?.hit && !jobsSeoReuse?.verify) {
+  legacyIndexHtml = jobsSeoReuse.reusedHtml(legacyReuse, BUILD_ID) || legacyReuse.html;
+ } else {
+  const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(perLocaleSlug[locale])};</script>`;
+  legacyIndexHtml = html.replace('</head>', ` ${bridgeScript}\n </head>`);
+ }
+ jobsSeoReuse?.finish(legacyReuse, legacyIndexHtml);
+ const legacyDir = np.join(distDir, legacyRel);
+ _md(legacyDir);
+ _qw(np.join(legacyDir, 'index.html'), legacyIndexHtml);
+ if (incrementalManifests) {
+  registerIncrementalPage(locale, legacyRel, 'legacy-slug-bridge', legacyReuseInput);
  }
  const legacyFlat = np.join(distDir, legacyRel + '.html');
  _qwFlatFull(legacyFlat, legacyIndexHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
@@ -4027,19 +4078,35 @@ ${staticAnalyticsHtml}
  const legacyTIRel = `${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}/${job.slug}`.replace(/\/+/g, '/').replace(/^\//, '');
  const legacyTIKey = legacyTIRel.replace(/\/+$/, '');
  if (!activeJobDirs.has(legacyTIKey)) {
- const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(perLocaleSlug[locale])};</script>`;
- const legacyTIIndexHtml = html.replace('</head>', ` ${bridgeScript}\n </head>`);
- const legacyTIDir = np.join(distDir, legacyTIRel);
- _md(legacyTIDir);
- _qw(np.join(legacyTIDir, 'index.html'), legacyTIIndexHtml);
- if (incrementalManifests) {
-  registerIncrementalPage(locale, legacyTIRel, 'legacy-slug-bridge', {
+ const legacyTIReuseInput = incrementalManifests
+  ? {
    bridgeType: 'legacy-ti',
    source: activeJobManifestInput,
    sourcePath: canonicalPath,
    targetPath: legacyTIRel,
    legacySlug: job.slug,
-  });
+  }
+  : null;
+ const legacyTIReuse = jobsSeoReuse?.lookup(
+  locale,
+  legacyTIRel,
+  'legacy-slug-bridge',
+  legacyTIReuseInput,
+  'previous-slug-legacy',
+ );
+ let legacyTIIndexHtml: string;
+ if (legacyTIReuse?.hit && !jobsSeoReuse?.verify) {
+  legacyTIIndexHtml = jobsSeoReuse.reusedHtml(legacyTIReuse, BUILD_ID) || legacyTIReuse.html;
+ } else {
+  const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(perLocaleSlug[locale])};</script>`;
+  legacyTIIndexHtml = html.replace('</head>', ` ${bridgeScript}\n </head>`);
+ }
+ jobsSeoReuse?.finish(legacyTIReuse, legacyTIIndexHtml);
+ const legacyTIDir = np.join(distDir, legacyTIRel);
+ _md(legacyTIDir);
+ _qw(np.join(legacyTIDir, 'index.html'), legacyTIIndexHtml);
+ if (incrementalManifests) {
+  registerIncrementalPage(locale, legacyTIRel, 'legacy-slug-bridge', legacyTIReuseInput);
  }
  const legacyTIFlat = np.join(distDir, legacyTIRel + '.html');
  _qwFlatFull(legacyTIFlat, legacyTIIndexHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
@@ -12938,6 +13005,47 @@ ${staticAnalyticsHtml}
  ? __slCandidatePaths
  : [...__slCandidatePaths, __slItLegacyMirror];
  const __slKeepProse = trafficFilter.decideMulti(__slProsePaths, 'soft-landing-expired').reason === 'has-traffic';
+ const __tEjpDecide = phaseTimer();
+ const __slDecision = trafficFilter.decideMulti(__slCandidatePaths, 'soft-landing-expired');
+ const __slAction: 'full' | 'thin' =
+ __slDecision.action === 'thin' ? 'thin' : 'full';
+ recordPhase('ejp:decide', __tEjpDecide);
+ const softLandingManifestInput = incrementalManifests
+  ? {
+   ...buildMinimalJobInput(
+    ejData || { slug },
+    locale,
+    slug,
+    (sameCompanyActiveJobs.length > 0 ? sameCompanyActiveJobs : selectRecentJobs(slug, slug))
+     .map((relatedJob: any) => stableJobId(relatedJob))
+     .filter(Boolean),
+   ),
+   path: relPath,
+   trackingPaths: paths,
+   company: jobCompany,
+   location: jobLocation,
+   canton: jobCanton,
+   sector: jobSector,
+   contract: jobContract,
+   datePosted: jobDatePosted,
+   expiredAt: jobExpiredAt,
+   gscQueries: Array.isArray(gscInfo?.queries) ? gscInfo.queries.slice(0, 6) : [],
+   currentYear,
+   candidatePaths: __slCandidatePaths,
+   prosePaths: __slProsePaths,
+   keepProse: __slKeepProse,
+   action: __slAction,
+  }
+  : null;
+ const softLandingReuse = jobsSeoReuse?.lookup(
+  locale,
+  relPath,
+  'expired-soft-landing',
+  softLandingManifestInput,
+  'expired-soft-landing',
+ );
+ let softLandingHtml: string;
+ if (!softLandingReuse?.hit || jobsSeoReuse?.verify) {
  const __tEjpBody = phaseTimer();
  // FRO-320: Generate static body content so Google sees real text, not an empty SPA shell.
  // Enriched template ensures >100 words per page for every expired job.
@@ -13295,12 +13403,6 @@ ${staticAnalyticsHtml}
  //      pages out of six. Having the decision before the build is the
  //      precondition for skipping that work, which is the next step once these
  //      timers say what it is worth.
- const __tEjpDecide = phaseTimer();
- const __slDecision = trafficFilter.decideMulti(__slCandidatePaths, 'soft-landing-expired');
- const __slAction: 'full' | 'thin' =
- __slDecision.action === 'thin' ? 'thin' : 'full';
- recordPhase('ejp:decide', __tEjpDecide);
-
  const __tEjpShell = phaseTimer();
  // Bot-gated Auto Ads loader (meta + adsense-loader) ONLY on real-traffic
  // expired pages (__slKeepProse): immediate Auto Ads (anchor/vignette/in-page)
@@ -13333,7 +13435,7 @@ ${staticAnalyticsHtml}
  // JSON-LD parse + a lazy `[\s\S]*?` article replace — on 149k pages, and
  // none of that was attributable before.
  const __tEjpThin = phaseTimer();
- const softLandingHtml =
+ softLandingHtml =
  __slAction === 'thin'
  ? buildSoftLandingThinHtml(__slFullHtml, locale)
  : __slFullHtml;
@@ -13344,6 +13446,15 @@ ${staticAnalyticsHtml}
  } else {
  softLandingFullCount++;
  }
+ } else {
+  softLandingHtml = jobsSeoReuse.reusedHtml(softLandingReuse, BUILD_ID) || softLandingReuse.html;
+  if (locale === 'it') {
+   itBodyWordCount = htmlHasIndexableRobots(softLandingHtml) ? MIN_INDEXABLE_WORDS : 0;
+  }
+  if (__slAction === 'thin') softLandingThinCount++;
+  else softLandingFullCount++;
+ }
+ jobsSeoReuse?.finish(softLandingReuse, softLandingHtml);
 
  // Dedup membership: __slPathKey is computed and checked at the top of
  // this locale iteration (hoisted to avoid running the full ph:ejp:*
@@ -13353,32 +13464,6 @@ ${staticAnalyticsHtml}
  emittedSoftLandingPaths.add(__slPathKey);
 
  const __tEjpWrite = phaseTimer();
- const softLandingManifestInput = incrementalManifests
-  ? {
-   ...buildMinimalJobInput(
-    ejData || { slug },
-    locale,
-    slug,
-    (sameCompanyActiveJobs.length > 0 ? sameCompanyActiveJobs : selectRecentJobs(slug, slug))
-     .map((relatedJob: any) => stableJobId(relatedJob))
-     .filter(Boolean),
-   ),
-   path: relPath,
-   trackingPaths: paths,
-   company: jobCompany,
-   location: jobLocation,
-   canton: jobCanton,
-   sector: jobSector,
-   contract: jobContract,
-   datePosted: jobDatePosted,
-   expiredAt: jobExpiredAt,
-   gscQueries: Array.isArray(gscInfo?.queries) ? gscInfo.queries.slice(0, 6) : [],
-   candidatePaths: __slCandidatePaths,
-   prosePaths: __slProsePaths,
-   keepProse: __slKeepProse,
-   action: __slAction,
-  }
-  : null;
  const wroteSoftLanding = writeSoftLandingPage(relPath.slice(1), softLandingHtml);
  if (wroteSoftLanding) {
   if (incrementalManifests) {
@@ -13397,16 +13482,30 @@ ${staticAnalyticsHtml}
  const trackedRel = relPath.replace(/^\//, '');
  if (legacyRel !== trackedRel && !emittedSoftLandingPaths.has(legacyRel.replace(/\/+$/, ''))) {
  emittedSoftLandingPaths.add(legacyRel.replace(/\/+$/, ''));
- const wroteLegacySoftLanding = writeSoftLandingPage(legacyRel, softLandingHtml);
+ const legacySoftLandingReuseInput = incrementalManifests
+  ? {
+   bridgeType: 'expired-soft-landing-legacy-locale',
+   source: softLandingManifestInput,
+   sourcePath: relPath,
+   targetPath: legacyRel,
+   legacySlug: slug,
+  }
+  : null;
+ const legacySoftLandingReuse = jobsSeoReuse?.lookup(
+  locale,
+  legacyRel,
+  'legacy-slug-bridge',
+  legacySoftLandingReuseInput,
+  'previous-slug-legacy',
+ );
+ const legacySoftLandingHtml = legacySoftLandingReuse?.hit && !jobsSeoReuse?.verify
+  ? jobsSeoReuse.reusedHtml(legacySoftLandingReuse, BUILD_ID) || legacySoftLandingReuse.html
+  : softLandingHtml;
+ jobsSeoReuse?.finish(legacySoftLandingReuse, legacySoftLandingHtml);
+ const wroteLegacySoftLanding = writeSoftLandingPage(legacyRel, legacySoftLandingHtml);
  if (wroteLegacySoftLanding) {
   if (incrementalManifests) {
-   registerIncrementalPage(locale, legacyRel, 'legacy-slug-bridge', {
-    bridgeType: 'expired-soft-landing-legacy-locale',
-    source: softLandingManifestInput,
-    sourcePath: relPath,
-    targetPath: legacyRel,
-    legacySlug: slug,
-   });
+   registerIncrementalPage(locale, legacyRel, 'legacy-slug-bridge', legacySoftLandingReuseInput);
   }
  }
  legacyCount++;
@@ -13551,6 +13650,10 @@ ${staticAnalyticsHtml}
  if (!shouldEmitLocale(baseLocale)) continue;
  const baseHtml = expiredSoftLandingCache.get(`${baseLocale}:${baseSlug}`);
  if (!baseHtml) continue;
+ const baseInputHash = incrementalManifests?.get(baseLocale)?.getHash(
+  tracking[baseSlug]?.[baseLocale],
+  'expired-soft-landing',
+ ) ?? null;
  const foreignSlugs = new Set<string>();
  for (const otherLocale of localeList) {
  if (otherLocale === baseLocale) continue;
@@ -13558,8 +13661,6 @@ ${staticAnalyticsHtml}
  if (fs2 && fs2 !== baseSlug) foreignSlugs.add(fs2);
  }
  if (foreignSlugs.size === 0) continue;
- const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(baseSlug)};</script>`;
- const bridgeHtml = baseHtml.replace('</head>', ` ${bridgeScript}\n </head>`);
  for (const foreignSlug of foreignSlugs) {
  // Sector/city hubs win over cross-locale reconciliation — same
  // rationale as the active-jobs block (jobSectorPagesPlugin owns
@@ -13575,19 +13676,37 @@ ${staticAnalyticsHtml}
  // Skip if any earlier phase (active, bridge, soft-landing) already wrote here.
  if (_writtenPaths.has(indexFile)) continue;
  const __tCrossLocaleExpired = startTimer();
- _md(outDir);
- _qw(indexFile, bridgeHtml);
- _writtenPaths.add(indexFile);
- if (incrementalManifests) {
-  registerIncrementalPage(baseLocale, relPath, 'cross-locale-reconciliation', {
+ const crossLocaleExpiredReuseInput = incrementalManifests
+  ? {
    ...buildMinimalJobInput(ej, baseLocale, baseSlug),
    source: 'expired-soft-landing',
+   sourceInputHash: baseInputHash,
    path: relPath,
    baseLocale,
    foreignSlug,
    canton: ejCantonForCrossLocale,
    slugByLocale,
-  });
+  }
+  : null;
+ const crossLocaleExpiredReuse = jobsSeoReuse?.lookup(
+  baseLocale,
+  relPath,
+  'cross-locale-reconciliation',
+  crossLocaleExpiredReuseInput,
+  'cross-locale-reconciliation',
+ );
+ const bridgeHtml = crossLocaleExpiredReuse?.hit && !jobsSeoReuse?.verify
+  ? jobsSeoReuse.reusedHtml(crossLocaleExpiredReuse, BUILD_ID) || crossLocaleExpiredReuse.html
+  : baseHtml.replace(
+   '</head>',
+   ` <script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(baseSlug)};</script>\n </head>`,
+  );
+ jobsSeoReuse?.finish(crossLocaleExpiredReuse, bridgeHtml);
+ _md(outDir);
+ _qw(indexFile, bridgeHtml);
+ _writtenPaths.add(indexFile);
+ if (incrementalManifests) {
+  registerIncrementalPage(baseLocale, relPath, 'cross-locale-reconciliation', crossLocaleExpiredReuseInput);
  }
  crossLocaleExpiredCount++;
  recordEmit('cross-locale-expired-bridge', __tCrossLocaleExpired);
@@ -13800,6 +13919,7 @@ ${staticAnalyticsHtml}
  : [];
  // Check if there's anything to do
  if (localeAwareAll.size === 0 && legacyOnly.length === 0) continue;
+ const jobCantonForBridge = sharedResolveJobCanton(job as { canton?: string; location?: string });
 
  for (const locale of localeList) {
  const currentSlug = localizedSlug(job, locale);
@@ -13812,6 +13932,15 @@ ${staticAnalyticsHtml}
  // stability is unaffected; this guard only skips the per-locale HTML write,
  // whose output a shard build would prune anyway. No-op in the all-locale build.
  if (!shouldEmitLocale(locale)) continue;
+
+ const canonicalPathForReuse = withSlash(
+  `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCantonForBridge)}/${currentSlug}`
+   .replace(/\/+/g, '/'),
+ );
+ const canonicalInputHash = incrementalManifests?.get(locale)?.getHash(
+  canonicalPathForReuse,
+  'active-job',
+ ) ?? null;
 
  // Locale-specific previous slugs + legacy (unknown locale → all locales)
  const prevSlugsForLocale = [
@@ -13851,7 +13980,6 @@ ${staticAnalyticsHtml}
  // Canton resolution is per-job (not per-oldSlug) — the same job emits all
  // its bridges under the same section regardless of locale-aware vs legacy
  // previousSlugs entries.
- const jobCantonForBridge = sharedResolveJobCanton(job as { canton?: string; location?: string });
  const bridgeSection = buildCantonAwareSection(locale, jobCantonForBridge);
  for (const oldSlug of prevSlugsForLocale) {
  if (oldSlug === currentSlug) continue;
@@ -13950,7 +14078,33 @@ ${staticAnalyticsHtml}
  const __brAction: 'full' | 'thin' =
  __brDecision.action === 'thin' ? 'thin' : 'full';
  if (__brAction === 'thin') bridgeThinCount++; else bridgeFullCount++;
- const { indexHtml, flatHtml } = ensureBridgeHtml(__brAction);
+ const previousSlugReuseInput = incrementalManifests
+  ? {
+   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job)),
+   path: oldPath,
+   sourceInputHash: canonicalInputHash,
+   canton: jobCantonForBridge,
+   oldSlug,
+   currentSlug,
+   winnerId,
+   previousSlugsByLocale: pslByLocale,
+   action: __brAction,
+  }
+  : null;
+ const previousSlugReuse = jobsSeoReuse?.lookup(
+  locale,
+  oldPath,
+  'previous-slugs-full-content',
+  previousSlugReuseInput,
+  'previous-slug-legacy',
+ );
+ let indexHtml: string;
+ if (previousSlugReuse?.hit && !jobsSeoReuse?.verify) {
+  indexHtml = jobsSeoReuse.reusedHtml(previousSlugReuse, BUILD_ID) || previousSlugReuse.html;
+ } else {
+  indexHtml = ensureBridgeHtml(__brAction).indexHtml;
+ }
+ jobsSeoReuse?.finish(previousSlugReuse, indexHtml);
  // Real bytes saved per file emit (counter above tracks decisions
  // only, not byte deltas — see PR #729 lesson).
  const __brDelta = __brAction === 'thin'
@@ -13960,15 +14114,7 @@ ${staticAnalyticsHtml}
  _md(outDir);
  _qw(np.join(outDir, 'index.html'), indexHtml);
  if (incrementalManifests) {
-  registerIncrementalPage(locale, oldPath, 'previous-slugs-full-content', {
-   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job)),
-   path: oldPath,
-   canton: jobCantonForBridge,
-   oldSlug,
-   currentSlug,
-   winnerId,
-   previousSlugsByLocale: pslByLocale,
-  });
+  registerIncrementalPage(locale, oldPath, 'previous-slugs-full-content', previousSlugReuseInput);
  }
 
  const flatFile = np.join(distDir, oldPath.replace(/^\//, '') + '.html');
@@ -14014,23 +14160,39 @@ ${staticAnalyticsHtml}
  legacyTiBridgeDirs.add(legacyTIKey);
  const __tPrevSlugLegacyTIBridge = startTimer();
  const legacyTIOutDir = np.join(distDir, legacyTIRelPath);
- _md(legacyTIOutDir);
- _qw(np.join(legacyTIOutDir, 'index.html'), indexHtml);
- if (incrementalManifests) {
-  registerIncrementalPage(locale, legacyTIRelPath, 'previous-slugs-full-content', {
+ const legacyTIReuseInput = incrementalManifests
+  ? {
    ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job)),
    path: legacyTIRelPath,
+   sourceInputHash: canonicalInputHash,
    canton: jobCantonForBridge,
    oldSlug,
    currentSlug,
    winnerId,
    previousSlugsByLocale: pslByLocale,
    bridgeType: 'legacy-ti',
-  });
+   action: __brAction,
+  }
+  : null;
+ const legacyTIReuse = jobsSeoReuse?.lookup(
+  locale,
+  legacyTIRelPath,
+  'previous-slugs-full-content',
+  legacyTIReuseInput,
+  'previous-slug-legacy',
+ );
+ const legacyTIHtml = legacyTIReuse?.hit && !jobsSeoReuse?.verify
+  ? jobsSeoReuse.reusedHtml(legacyTIReuse, BUILD_ID) || legacyTIReuse.html
+  : indexHtml;
+ jobsSeoReuse?.finish(legacyTIReuse, legacyTIHtml);
+ _md(legacyTIOutDir);
+ _qw(np.join(legacyTIOutDir, 'index.html'), legacyTIHtml);
+ if (incrementalManifests) {
+  registerIncrementalPage(locale, legacyTIRelPath, 'previous-slugs-full-content', legacyTIReuseInput);
  }
  const legacyTIFlatFile = np.join(distDir, legacyTIRelPath + '.html');
  _md(np.dirname(legacyTIFlatFile));
- _qwFlat(legacyTIFlatFile, indexHtml);
+ _qwFlat(legacyTIFlatFile, legacyTIHtml);
  bridgeBytesSaved += __brDelta * 2;
  bridgeCount++;
  recordEmit('previous-slug-bridge-legacy-ti', __tPrevSlugLegacyTIBridge);
@@ -14151,6 +14313,14 @@ ${staticAnalyticsHtml}
  // still built for ALL locales above so foreignSlugs detection is unaffected.
  // No-op in the all-locale build.
  if (!shouldEmitLocale(baseLocale)) continue;
+ const baseCanonicalPath = withSlash(
+  `${localePrefix[baseLocale]}/${buildCantonAwareSection(baseLocale, jobCantonForCrossLocale)}/${baseSlug}`
+   .replace(/\/+/g, '/'),
+ );
+ const baseInputHash = incrementalManifests?.get(baseLocale)?.getHash(
+  baseCanonicalPath,
+  'active-job',
+ ) ?? null;
  const crossLocaleCacheKey = `${baseLocale}:${baseSlug}`;
  const cachedHtml = jobHtmlCache.get(crossLocaleCacheKey);
  // Eviction all'ultimo lettore (vedi il refcount pre-pass sopra): la cache
@@ -14186,8 +14356,14 @@ ${staticAnalyticsHtml}
  }
  if (foreignSlugs.size === 0) continue;
  // Compute once per (job, baseLocale) — same HTML is written at every foreign slug path.
- const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(baseSlug)};</script>`;
- const bridgeHtml = cachedHtml.replace('</head>', ` ${bridgeScript}\n </head>`);
+ let bridgeHtml: string | null = null;
+ const getBridgeHtml = (): string => {
+  if (bridgeHtml === null) {
+   const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(baseSlug)};</script>`;
+   bridgeHtml = cachedHtml.replace('</head>', ` ${bridgeScript}\n </head>`);
+  }
+  return bridgeHtml!;
+ };
  for (const foreignSlug of foreignSlugs) {
  // Skip cross-locale reconciliation when the foreign slug is a
  // reserved sector/city hub (same rationale as the previousSlugs
@@ -14213,20 +14389,35 @@ ${staticAnalyticsHtml}
  // this job (same content would be written again).
  if (_writtenPaths.has(indexFile)) continue;
  const __tCrossLocaleActive = startTimer();
- _md(outDir);
- _qw(indexFile, bridgeHtml);
- _writtenPaths.add(indexFile);
- if (incrementalManifests) {
-  registerIncrementalPage(baseLocale, relPath, 'cross-locale-reconciliation', {
+ const crossLocaleActiveReuseInput = incrementalManifests
+  ? {
    ...buildMinimalJobInput(job, baseLocale, baseSlug, getRelatedPool(job)),
    source: 'active-job',
+   sourceInputHash: baseInputHash,
    path: relPath,
    baseLocale,
    foreignSlug,
    canton: jobCantonForCrossLocale,
    slugPerLocale,
    previousSlugsByLocale: prevSlugsByLocale,
-  });
+  }
+  : null;
+ const crossLocaleActiveReuse = jobsSeoReuse?.lookup(
+  baseLocale,
+  relPath,
+  'cross-locale-reconciliation',
+  crossLocaleActiveReuseInput,
+  'cross-locale-reconciliation',
+ );
+ const crossLocaleActiveHtml = crossLocaleActiveReuse?.hit && !jobsSeoReuse?.verify
+  ? jobsSeoReuse.reusedHtml(crossLocaleActiveReuse, BUILD_ID) || crossLocaleActiveReuse.html
+  : getBridgeHtml();
+ jobsSeoReuse?.finish(crossLocaleActiveReuse, crossLocaleActiveHtml);
+ _md(outDir);
+ _qw(indexFile, crossLocaleActiveHtml);
+ _writtenPaths.add(indexFile);
+ if (incrementalManifests) {
+  registerIncrementalPage(baseLocale, relPath, 'cross-locale-reconciliation', crossLocaleActiveReuseInput);
  }
  // Note: skip the flat `.html` variant — GH Pages serves
  // /dir/index.html for direct URL hits and the flat variant
@@ -14541,8 +14732,10 @@ ${staticAnalyticsHtml}
  );
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m ${trafficFilter.summary()}`);
  try {
-  if (incrementalManifests) {
+ if (incrementalManifests) {
    for (const manifest of incrementalManifests.values()) {
+    const locale = manifest.locale;
+    jobsSeoReuse?.prune(locale, manifest);
     const manifestPath = manifest.write(rootDir);
     const manifestData = manifest.toJSON();
     console.log(
@@ -14551,6 +14744,7 @@ ${staticAnalyticsHtml}
     );
    }
   }
+  jobsSeoReuse?.logSummary();
  } finally {
   // Resolve after the shared manifest write. The related plugin awaits this
   // barrier before writing its own entries into the same per-locale map.
