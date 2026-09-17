@@ -209,6 +209,22 @@ describe('detectBoilerplateDescriptions — edge cases', () => {
     expect(report.boilerplateCount).toBe(0);
   });
 
+  it('uses the rich source description instead of a stale thin IT translation', () => {
+    const job = {
+      slug: 'stale-it-job',
+      title: 'Product Manager',
+      sourceLang: 'en',
+      descriptionByLocale: {
+        it: wordsDesc(24),
+        en: RICH_DESCRIPTION,
+      },
+      description: RICH_DESCRIPTION,
+    };
+    const report = detectBoilerplateDescriptions([job], 'alpiq');
+    expect(report.boilerplateCount).toBe(0);
+    expect(report.ratio).toBe(0);
+  });
+
   it('still flags empty_description when IT locale, source locale and description are all empty', () => {
     const job = {
       slug: 'all-empty-job',
