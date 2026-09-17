@@ -217,6 +217,23 @@ describe('decision deferrals', () => {
     expect(checkPrBodySections(body, { strictDecisionDeferrals: true }).ok).toBe(false);
   });
 
+  it('rejects placeholder tokens used as a prefix or suffix of an audit field', () => {
+    const prefixed = makeBody({
+      nonImplContent:
+        '- Il residuo resta by construction. **Motivo:** N/A — il dettaglio manca. '
+        + '**Prossimo passo:** riprovare dopo il prossimo rilascio verificato.\n',
+    });
+    const suffixed = makeBody({
+      nonImplContent:
+        '- Il residuo resta by construction. **Motivo:** il contratto upstream è instabile. '
+        + '**Prossimo passo:** TBD — definire il test dopo il prossimo rilascio verificato.\n',
+    });
+    expect(decisionDeferralFindings(prefixed)).toHaveLength(1);
+    expect(decisionDeferralFindings(suffixed)).toHaveLength(1);
+    expect(checkPrBodySections(prefixed, { strictDecisionDeferrals: true }).ok).toBe(false);
+    expect(checkPrBodySections(suffixed, { strictDecisionDeferrals: true }).ok).toBe(false);
+  });
+
   it('treats `falso positivo` as a decision, with negation-aware matching', () => {
     const vague = makeBody({ nonImplContent: '- Il finding è un falso positivo.' });
     expect(checkPrBodySections(vague, { strictDecisionDeferrals: true }).ok).toBe(false);

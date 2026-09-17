@@ -259,7 +259,7 @@ export function sectionBullets(rawContent) {
 const DECISION_RE = /\bby construction\b|\bper (?:scelta|costruzione|design)\b|(?:è|e')\s+una\s+decisione\b|\bdi proposito\b|\bdeliberat\w*|\bblocked\s*:\s*(?:decisione del proprietario|owner decision)\b/i;
 const DECISION_REASON_RE = /\b(?:motivo|ragione|reason)\s*:\s*(.+?)(?=\s+\b(?:prossimo\s+passo|next\s+step|azione\s+successiva)\s*:|$)/iu;
 const DECISION_NEXT_STEP_RE = /\b(?:prossimo\s+passo|next\s+step|azione\s+successiva)\s*:\s*(.+)$/iu;
-const DECISION_PLACEHOLDER_RE = /^(?:<[^>]+>|\.\.\.|tbd|n\/a|da\s+(?:definire|decidere|valutare)|da\s+fare)\s*[.!]?$/iu;
+const DECISION_PLACEHOLDER_RE = /(?:^|[\s:;,.!?()\[\]{}—–-])(?:<[^>]+>|\.\.\.|tbd|n\/a|da\s+(?:definire|decidere|valutare|fare))(?=$|[\s:;,.!?()\[\]{}—–-])/iu;
 const DECISION_STATES = new Set(['by-choice', 'by-construction', 'blocked-owner']);
 const NON_IMPL_ANY_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato\b[^\n]*/im;
 

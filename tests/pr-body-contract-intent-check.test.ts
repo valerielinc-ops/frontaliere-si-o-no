@@ -179,4 +179,17 @@ describe('tests.yml contract job — ineffective closing keyword (issue #5784)',
     ));
     expect(setFailed.join(' ')).toMatch(/deroga.*falso positivo/i);
   });
+
+  it('rejects placeholder-prefixed and placeholder-suffixed fields in the real inline gate', async () => {
+    const prefixed = await runContractCheck(wrapNonImplemented(
+      '- Il finding è un falso positivo. **Motivo:** N/A — manca il dettaglio. '
+      + '**Prossimo passo:** chiudere dopo la verifica del fixture condiviso.',
+    ));
+    const suffixed = await runContractCheck(wrapNonImplemented(
+      '- Il finding è un falso positivo. **Motivo:** il parser ha un contratto diverso. '
+      + '**Prossimo passo:** TBD — definire il test dopo la verifica del fixture condiviso.',
+    ));
+    expect(prefixed.setFailed.join(' ')).toMatch(/deroga.*falso positivo/i);
+    expect(suffixed.setFailed.join(' ')).toMatch(/deroga.*falso positivo/i);
+  });
 });

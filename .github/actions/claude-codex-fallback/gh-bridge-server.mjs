@@ -90,7 +90,7 @@ const BODY_STATE_RE = /\bin\s+questa\s+PR\b|\bPR\s+concatenat[ao]\s*#\s*\d+\b|\b
 const DECISION_RE = /\bby\s+construction\b|\bper\s+(?:scelta|costruzione|design)\b|(?:è|e')\s+una\s+decisione\b|\bdi\s+proposito\b|\bdeliberat\w*|\bblocked\s*:\s*(?:decisione\s+del\s+proprietario|owner\s+decision)\b|(?<!\bnon\s+(?:è|sono|erano)\s+(?:un\s+|una\s+)?)\bfalso\s+positivo\b|(?<!\bnot\s+(?:a\s+)?)\bfalse\s+positive\b/iu;
 const DECISION_REASON_RE = /\b(?:motivo|ragione|reason)\s*:\s*(.+?)(?=\s+\b(?:prossimo\s+passo|next\s+step|azione\s+successiva)\s*:|$)/iu;
 const DECISION_NEXT_STEP_RE = /\b(?:prossimo\s+passo|next\s+step|azione\s+successiva)\s*:\s*(.+)$/iu;
-const DECISION_PLACEHOLDER_RE = /^(?:<[^>]+>|\.\.\.|tbd|n\/a|da\s+(?:definire|decidere|valutare)|da\s+fare)\s*[.!]?$/iu;
+const DECISION_PLACEHOLDER_RE = /(?:^|[\s:;,.!?()\[\]{}—–-])(?:<[^>]+>|\.\.\.|tbd|n\/a|da\s+(?:definire|decidere|valutare|fare))(?=$|[\s:;,.!?()\[\]{}—–-])/iu;
 function stripDecisionFormatting(value) {
   return String(value ?? '').replace(/[*_~`]/gu, '');
 }
