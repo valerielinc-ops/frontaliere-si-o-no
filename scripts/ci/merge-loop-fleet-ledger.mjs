@@ -4,9 +4,9 @@
  * Merge one immutable loop-run artifact into the durable fleet ledger.
  *
  * This helper only appends validated records. It has no GitHub or production
- * credentials; the caller owns the reviewed branch/PR that carries the four
- * JSONL files. A rerun is idempotent by recordId and a conflicting duplicate
- * fails closed instead of silently rewriting history.
+ * credentials; the caller owns the durable branch that carries the four JSONL
+ * files. A rerun is idempotent by recordId and a conflicting duplicate fails
+ * closed instead of silently rewriting history.
  */
 import fs from 'node:fs';
 import path from 'node:path';

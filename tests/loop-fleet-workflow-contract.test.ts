@@ -206,14 +206,62 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('--registry data/loop-fleet/loop-registry.json');
     expect(source).toContain("ledger_branch='ledger/loop-fleet'");
     expect(source).toContain('ledger_worktree="${RUNNER_TEMP}/loop-fleet-ledger-worktree"');
+    expect(source).toContain("ledger_start='origin/main'");
     expect(source).toContain('git worktree add --no-checkout -B ledger-work "$ledger_worktree" "$ledger_start"');
-    expect(source).toContain('git -C "$ledger_worktree" ls-files --error-unmatch data/loop-fleet/ledger/');
+    expect(source).toContain('git -C "$ledger_worktree" checkout HEAD -- data/loop-fleet/ledger/');
+    expect(source).toContain('git -C "$ledger_worktree" read-tree --empty');
+    expect(source).toContain('git -C "$ledger_worktree" add -- data/loop-fleet/ledger/');
+    expect(source).toContain('git -C "$ledger_worktree" ls-tree -r --name-only HEAD');
     expect(source).toContain('--ledger-dir "$ledger_dir"');
     expect(source).toContain('Validate source run provenance');
     expect(source).toContain('source_branch');
     expect(source).toContain("!= 'main'");
     expect(source).not.toMatch(/contents:\s*write/u);
     expect(source).not.toContain('pull-requests: read');
+  });
+
+  it('keeps code and registry on main while retrying the data-only branch', () => {
+    const writers = [
+      ['loop-fleet-ledger.yml', 'merge-loop-fleet-ledger.mjs'],
+      ['loop-fleet-lifecycle-observer.yml', 'append-loop-fleet-lifecycle.mjs'],
+    ];
+    for (const [name, validator] of writers) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      const mainCheckout = source.indexOf('git checkout --detach origin/main');
+      const validatorCall = source.indexOf(`node scripts/ci/${validator}`);
+      const retryBlockStart = source.indexOf('for attempt in 1 2 3 4 5');
+      const retryBlockEnd = source.indexOf('\n          done', retryBlockStart);
+      const retryBlock = source.slice(retryBlockStart, retryBlockEnd);
+      const codeCalls = [...source.matchAll(/^\s+(?:run:\s*)?node(?:\s|$)[^\n]*/gmu)]
+        .map(({ index }) => index ?? -1);
+      expect(mainCheckout, name).toBeGreaterThanOrEqual(0);
+      expect(validatorCall, name).toBeGreaterThan(mainCheckout);
+      expect(codeCalls.length, name).toBeGreaterThan(0);
+      for (const codeCall of codeCalls) expect(codeCall, name).toBeGreaterThan(mainCheckout);
+      expect(retryBlock, name).toContain(`node scripts/ci/${validator}`);
+      expect(retryBlock, name).toContain('bounded_remote git fetch origin "$ledger_branch"');
+      expect(retryBlock, name).toContain('git -C "$ledger_worktree" checkout -B ledger-work "origin/$ledger_branch"');
+      expect(retryBlock, name).toContain('git -C "$ledger_worktree" read-tree --empty');
+      expect(source, name).toContain('idempotent by recordId');
+      expect(source, name).not.toMatch(/node[^\n]*\$ledger_worktree/u);
+      expect(source, name).not.toMatch(/(?:--registry|--ledger-dir)[^\n]*\$ledger_worktree/u);
+    }
+
+    const observer = fs.readFileSync(path.join(workflowDir, 'loop-fleet-lifecycle-observer.yml'), 'utf8');
+    const overlay = observer.indexOf('git checkout FETCH_HEAD -- data/loop-fleet/ledger/');
+    const observeCall = observer.indexOf('node scripts/ci/observe-loop-fleet-lifecycle.mjs');
+    expect(overlay).toBeGreaterThanOrEqual(0);
+    expect(observeCall).toBeGreaterThan(overlay);
+    expect(observer).toContain('git checkout origin/main -- data/loop-fleet/ledger/');
+  });
+
+  it('shares one repository-wide concurrency group across bridge and observer triggers', () => {
+    const writers = ['loop-fleet-ledger.yml', 'loop-fleet-lifecycle-observer.yml'];
+    for (const name of writers) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      expect(source, name).toMatch(/^  group: loop-fleet-durable-ledger$/mu);
+      expect(source, name).toContain('cancel-in-progress: false');
+    }
   });
 
   it('routes both writers to one serialized branch with bounded push retries', () => {
@@ -230,7 +278,7 @@ describe('loop fleet workflow contract', () => {
       expect(source, name).toContain('for attempt in 1 2 3 4 5');
       expect(source, name).toContain('bounded_remote git -C "$ledger_worktree" push origin "HEAD:refs/heads/$ledger_branch"');
       expect(source, name).toContain('git -C "$ledger_worktree" checkout -B ledger-work "origin/$ledger_branch"');
-      expect(source, name).toContain('git -C "$ledger_worktree" checkout -- data/loop-fleet/ledger/');
+      expect(source, name).toContain('git -C "$ledger_worktree" checkout HEAD -- data/loop-fleet/ledger/');
       expect(source, name).toContain('ledger_dir="$ledger_worktree/data/loop-fleet/ledger"');
       expect(source, name).not.toContain('git reset --hard');
       expect(source, name).toContain('sleep $((attempt * 3))');
