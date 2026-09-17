@@ -10,7 +10,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  * No detail page fetching needed — all data in one API response.
  */
 
-import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -108,20 +108,33 @@ export function buildKnowledgeLabLocalizedContent(job = {}) {
 }
 
 /**
+ * Whether a Freshteam record belongs to the Swiss, CH-wide scope. The branch
+ * city must itself resolve through the all-26-canton matcher; a Swiss-looking
+ * state field cannot relabel a foreign city as Swiss.
+ */
+export function isKnowledgeLabSwissRelevant(job = {}) {
+  const city = normalizeSpace(job.location);
+  return Boolean(
+    city &&
+    isTargetSwissLocation(city, { includeBorderProximity: false }) &&
+    inferAnyCanton(city),
+  );
+}
+
+/**
  * Infer canton code (2-letter) from a job's branch city via the BFS
  * municipality dataset, CH-wide across all 26 cantons.
  *
  * Resolves on the CLEANEST single signal — the city string ALONE. A
  * combined "city + state" string can make inferAnyCanton return the wrong
- * canton because TARGET_CANTONS are checked first (array order). Falls back
- * to the state label only when the city alone does not resolve.
+ * canton because TARGET_CANTONS are checked first (array order). An
+ * unresolvable city is rejected instead of falling back to a state that could
+ * describe a different locality.
  *
  * Returns '' for non-CH / unresolved locations (caller drops these).
  */
 export function inferKnowledgeLabCanton(job = {}) {
   const city = normalizeSpace(job.location);
-  const fromCity = city ? inferAnyCanton(city) : '';
-  if (fromCity) return fromCity;
-  const state = normalizeSpace(job.state);
-  return state ? inferAnyCanton(state) : '';
+  if (!isKnowledgeLabSwissRelevant({ ...job, location: city })) return '';
+  return inferAnyCanton(city);
 }

@@ -3,14 +3,16 @@
  * Dedicated Bracco Suisse S.A. crawler runner.
  *
  * Bracco Group is an Italian multinational in healthcare/diagnostic imaging.
- * Bracco Suisse S.A. has offices in Cadempino (Ticino) and Plan-les-Ouates (Geneva).
+ * Bracco Suisse S.A. publishes Swiss openings across the nationwide target
+ * scope; Cadempino (Ticino) and Plan-les-Ouates (Geneva) are known offices,
+ * not a geographic allowlist.
  *
  * The Bracco careers site uses Workday (myworkdayjobs.com) with a REST API:
  *   - Listing: POST /wday/cxs/bracco/BraccoCareers/jobs
  *   - Detail:  GET  /wday/cxs/bracco/BraccoCareers/job/{externalPath}
  *
  * Discovery flow:
- *   1. Query Workday API for Swiss-location jobs (Cadempino + Plan-les-Ouates)
+ *   1. Query Workday API for all postings and keep concrete Swiss locations
  *   2. Fetch full job detail for each listing
  *   3. Build job objects with canonical Workday URLs
  *   4. Merge into data/jobs.json (add new, update existing, prune stale)
@@ -34,7 +36,11 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, m
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
-import { isSwissLocationText, inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import {
+  isSwissLocationText,
+  isTargetSwissLocation,
+  inferAnyCanton,
+} from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -57,8 +63,8 @@ const BRACCO_API_BASE = 'https://bracco.wd103.myworkdayjobs.com/wday/cxs/bracco/
 const BRACCO_PUBLIC_BASE = 'https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
-// Switzerland detection — text-based via the authoritative shared helper
-// (isSwissLocationText: country tokens + all-26-canton BFS municipality data),
+// Switzerland discovery — text-based via the authoritative shared helpers
+// (all-26-canton BFS municipality data),
 // NOT brittle Workday location UUIDs. Workday recycles/renames location facet
 // IDs whenever Bracco restructures sites (the old Cadempino/Plan-les-Ouates
 // UUIDs would vanish from the facet list → 0 jobs). We instead fetch all Bracco
@@ -162,13 +168,14 @@ async function fetchJson(url, options = {}) {
       },
     });
     if (!res.ok) {
-      console.warn(`⚠️ HTTP ${res.status} for ${url}`);
-      return null;
+      const error = new Error(`HTTP ${res.status} for ${url}`);
+      error.status = res.status;
+      throw error;
     }
     return await res.json();
   } catch (err) {
     console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`);
-    return null;
+    throw err;
   } finally {
     clearTimeout(timer);
   }
@@ -186,15 +193,17 @@ async function fetchJson(url, options = {}) {
  * of results). The first page's `total` is used only as a positive upper bound:
  * an unfiltered Workday query can echo total:0 alongside a full page of postings,
  * so we never break on `offset >= total` when total is 0 (that would drop every
- * posting on pages 2+). A page cap bounds the loop if a tenant never shortens.
+ * posting on pages 2+). A very high safety cap bounds a broken tenant; reaching
+ * it throws instead of publishing an unverified partial result.
  */
 async function listSwissJobs() {
   const candidates = [];
   let offset = 0;
   let total = null;
   let pages = 0;
+  let scanned = 0;
   const limit = 20;
-  const MAX_PAGES = 100;
+  const MAX_PAGES_WITHOUT_TERMINATOR = 10000;
 
   while (true) {
     const body = JSON.stringify({
@@ -210,12 +219,15 @@ async function listSwissJobs() {
     });
 
     if (!data || !Array.isArray(data.jobPostings)) {
-      if (offset === 0) console.warn('⚠️ Failed to fetch Workday listings.');
-      break;
+      throw new Error('Bracco Workday listing response has no jobPostings array');
     }
 
-    if (total === null) total = data.total || 0;
+    if (total === null) {
+      const declaredTotal = Number(data.total);
+      total = Number.isFinite(declaredTotal) && declaredTotal > 0 ? declaredTotal : 0;
+    }
     pages += 1;
+    scanned += data.jobPostings.length;
 
     for (const posting of data.jobPostings) {
       const locText = posting.locationsText || '';
@@ -230,14 +242,19 @@ async function listSwissJobs() {
     // Stop on a short/empty page. Trust `total` as an upper bound ONLY when
     // positive: an unfiltered query echoing total:0 with a full page must not
     // break here, or every posting on pages 2+ is silently dropped.
-    if (data.jobPostings.length < limit) break;
-    if (total > 0 && offset >= total) break;
-    if (pages >= MAX_PAGES) {
-      console.warn(`⚠️ Reached pagination safety cap (${MAX_PAGES} pages); stopping.`);
+    if (data.jobPostings.length < limit) {
+      if (total > 0 && scanned < total) {
+        throw new Error(`Bracco Workday listing truncated: scanned ${scanned} of declared ${total} postings`);
+      }
       break;
+    }
+    if (total > 0 && offset >= total) break;
+    if (pages >= MAX_PAGES_WITHOUT_TERMINATOR) {
+      throw new Error(`Bracco Workday listing did not terminate after ${MAX_PAGES_WITHOUT_TERMINATOR} pages (scanned ${scanned}; declared total ${total || 'unknown'})`);
     }
   }
 
+  console.log(`  📚 Scanned ${scanned} Workday listing record(s) across ${pages} page(s) (declared total: ${total || 'not provided'}).`);
   return candidates;
 }
 
@@ -245,7 +262,12 @@ async function listSwissJobs() {
  * Fetch full detail for a single job via Workday API.
  */
 async function fetchJobDetail(externalPath) {
-  return fetchJson(`${BRACCO_API_BASE}${externalPath}`);
+  try {
+    return await fetchJson(`${BRACCO_API_BASE}${externalPath}`);
+  } catch (err) {
+    console.warn(`⚠️ Bracco detail unavailable for ${externalPath}: ${err.message}`);
+    return null;
+  }
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -302,11 +324,11 @@ function detectEmploymentType(timeType = '') {
 
 function buildDescription(title, descriptionText, location) {
   const base = descriptionText || `${title} position at Bracco Suisse S.A. in ${location}, Switzerland.`;
-  return `${base}\n\nBracco Suisse S.A. is part of the Bracco Group, an international leader in diagnostic imaging and healthcare. The company operates in Switzerland with offices in Cadempino (Ticino) and Plan-les-Ouates (Geneva).`.trim();
+  return `${base}\n\nBracco Suisse S.A. is part of the Bracco Group, an international leader in diagnostic imaging and healthcare. Its Swiss vacancies are published from the complete Swiss source feed; Cadempino (Ticino) and Plan-les-Ouates (Geneva) are among its known offices, while the location on each vacancy is authoritative.`.trim();
 }
 
 function buildDescriptionIt(title, location) {
-  return `Posizione aperta presso Bracco Suisse S.A. a ${location}.\nRuolo: ${title}.\n\nBracco Suisse S.A. fa parte del Gruppo Bracco, leader internazionale nell'imaging diagnostico e nella sanità. L'azienda opera in Svizzera con sedi a Cadempino (Ticino) e Plan-les-Ouates (Ginevra).`.trim();
+  return `Posizione aperta presso Bracco Suisse S.A. a ${location}.\nRuolo: ${title}.\n\nBracco Suisse S.A. fa parte del Gruppo Bracco, leader internazionale nell'imaging diagnostico e nella sanità. Le offerte svizzere provengono dall'intero feed nazionale; Cadempino (Ticino) e Plan-les-Ouates (Ginevra) sono tra le sedi note, mentre la località indicata nell'annuncio resta il riferimento autorevole.`.trim();
 }
 
 /**
@@ -325,7 +347,7 @@ function buildPublicUrl(externalPath) {
 async function fetchBraccoJobs() {
   console.log(`🔍 Fetching Bracco Suisse S.A. jobs from Workday API`);
   console.log(`   API: ${BRACCO_API_BASE}/jobs`);
-  console.log(`   Keeping Swiss locations (Cadempino TI / Plan-les-Ouates GE / other CH) by location text\n`);
+  console.log(`   Keeping concrete Swiss locations across all 26 cantons by location text\n`);
 
   const listings = await listSwissJobs();
   if (!listings || listings.length === 0) {
@@ -368,10 +390,19 @@ async function fetchBraccoJobs() {
       continue;
     }
 
-    let city = parseWorkdayLocation(swissLoc);
-    // Bare country descriptor ("Switzerland") or empty → default to primary office.
-    if (!city || /switzerland|schweiz|suisse|svizzera/i.test(city)) city = 'Cadempino';
+    const city = parseWorkdayLocation(swissLoc);
+    // A country-only descriptor proves Switzerland but does not identify the
+    // vacancy's locality. Never turn that incomplete source data into a fixed
+    // Cadempino address.
+    if (!city || !isTargetSwissLocation(city, { includeBorderProximity: false })) {
+      console.log(`  ⏭️  Skipped — no concrete Swiss locality (${city || 'unknown'})`);
+      continue;
+    }
     const canton = inferCanton(city);
+    if (!canton) {
+      console.log(`  ⏭️  Skipped — Swiss locality has no inferable canton (${city})`);
+      continue;
+    }
     const country = 'CH';
 
     const descriptionHtml = info.jobDescription || '';
@@ -506,7 +537,7 @@ function updateAdapterConfig() {
   // No location facet UUIDs in the seed: those go stale when Bracco restructures
   // sites. The runner fetches all postings and keeps Swiss ones by location text.
   adapter.seedUrls = [BRACCO_PUBLIC_BASE];
-  adapter.notes = 'Workday REST API at bracco.wd103.myworkdayjobs.com — all postings fetched, Swiss ones (Cadempino TI / Plan-les-Ouates GE / other CH) kept by location text (no brittle location UUIDs).';
+  adapter.notes = 'Workday REST API at bracco.wd103.myworkdayjobs.com — the complete feed is paged, then each vacancy with a concrete Swiss locality is retained across all 26 cantons; the canton is inferred from the source location text, without brittle location UUIDs or fixed office defaults.';
   adapter.updatedAt = new Date().toISOString();
 
   fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
@@ -542,6 +573,7 @@ function postProcessBraccoJobs() {
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const jobs = Array.isArray(raw) ? raw : [];
   let fixed = 0;
+  let unresolved = 0;
 
   for (const job of jobs) {
     if (!isBraccoJob(job)) continue;
@@ -560,16 +592,17 @@ function postProcessBraccoJobs() {
       if (job.canton) fixed++;
     }
     if (!job.location) {
-      job.location = 'Cadempino';
-      fixed++;
+      unresolved++;
+      console.warn(`⚠️ Bracco job has no concrete Swiss locality; leaving it unresolved: ${job.title || 'untitled'}`);
     }
   }
 
   if (fixed > 0) {
     writeJsonAtomic(DATA_JOBS, jobs);
     writeJsonAtomic(PUBLIC_JOBS, jobs);
-    console.log(`🔧 Post-processed ${fixed} Bracco jobs (fixed company/location/canton).`);
+    console.log(`🔧 Post-processed ${fixed} Bracco jobs (fixed company/canton).`);
   }
+  if (unresolved > 0) console.warn(`⚠️ ${unresolved} Bracco job(s) remain without a concrete Swiss locality.`);
 }
 
 // ─────────────────────────────────────────────────────────────

@@ -1,7 +1,9 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
- * CEDES AG job parser — corporate career page.
+ * CEDES AG job parser — single-site corporate career page.
  * Source: https://www.cedes.com/en/career/jobs/
+ * Current employer scope is intentionally limited to the Landquart (GR)
+ * site; the HQ fallback is source-safe metadata, not a nationwide expansion.
  */
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
@@ -90,7 +92,9 @@ export function parseCedesListingHtml(html) {
     const slugMatch = rawUrl.match(/\/career\/jobs\/([^/?#]+)/);
     const jobId = slugMatch ? slugMatch[1] : '';
 
-    // Try to extract location from nearby context
+    // Try to extract location from nearby context. CEDES is a single-site
+    // employer in this crawler, so the HQ city remains the safe locality when
+    // the card has no usable city text.
     const ctx = html.slice(m.index, m.index + 800);
     const locMatch = ctx.match(/(?:location|ort|standort|arbeitsort)[^>]*>([^<]+)/i)
       || ctx.match(/(Landquart|Graubünden)/i);
@@ -147,6 +151,13 @@ export function parseCedesDetailHtml(html) {
 // ── fetch helpers ─────────────────────────────────────────────────────
 
 export async function fetchCedesJobUrls() {
+  const annotate = (jobs, outcome, detail = '') => {
+    Object.defineProperties(jobs, {
+      fetchOutcome: { value: outcome, enumerable: false },
+      fetchDetail: { value: detail, enumerable: false },
+    });
+    return jobs;
+  };
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 30_000);
   try {
@@ -154,11 +165,21 @@ export async function fetchCedesJobUrls() {
       headers: { 'User-Agent': UA },
       signal: controller.signal,
     });
-    if (!res.ok) return [];
+    if (!res.ok) {
+      const detail = `HTTP ${res.status}`;
+      console.warn(`⚠️ CEDES listing request failed (${detail}); existing jobs will be preserved.`);
+      return annotate([], 'http_error', detail);
+    }
     const html = await res.text();
-    return parseCedesListingHtml(html);
-  } catch {
-    return [];
+    const jobs = parseCedesListingHtml(html);
+    if (jobs.length === 0) {
+      console.warn('⚠️ CEDES listing was fetched but yielded no parseable job links; treating zero as unverified.');
+      return annotate(jobs, 'selector_miss', `html_length=${html.length}`);
+    }
+    return annotate(jobs, 'ok', `html_length=${html.length}`);
+  } catch (err) {
+    console.warn(`⚠️ CEDES listing fetch failed (${err.message}); existing jobs will be preserved.`);
+    return annotate([], 'connection_error', err.message);
   } finally {
     clearTimeout(timeout);
   }

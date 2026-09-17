@@ -153,23 +153,46 @@ async function fetchAllListings() {
   const allItems = [];
   let offset = 0;
   const limit = 100;
-  let portalTotal = 0;
+  const maxPagesWithoutTerminator = 10000;
+  let portalTotal = null;
+  let scanned = 0;
+  let pages = 0;
 
   // No server-side org-unit filter (see module + parser docblocks) — paginate
   // through the ENTIRE federal portal, then parseAgroscopeApiResponse filters
   // each page down to Agroscope records client-side.
-  do {
+  while (true) {
     const url = `${API_BASE}?lang=it&offset=${offset}&limit=${limit}`;
     console.log(`  API: ${url}`);
 
     const data = await fetchJson(url);
+    if (!data || !Array.isArray(data.jobs)) {
+      throw new Error('Agroscope Prospective response has no jobs array');
+    }
+    const pageCount = data.jobs.length;
     const { items } = parseAgroscopeApiResponse(data);
-    portalTotal = data.total || 0;
+    if (portalTotal === null) {
+      const declaredTotal = Number(data.total);
+      portalTotal = Number.isFinite(declaredTotal) && declaredTotal > 0 ? declaredTotal : 0;
+    }
     allItems.push(...items);
-    offset += limit;
-  } while (offset < portalTotal);
+    scanned += pageCount;
+    pages += 1;
+    offset += pageCount;
 
-  console.log(`Scanned ${portalTotal} federal jobs.admin.ch listings, matched ${allItems.length} Agroscope jobs`);
+    if (pageCount < limit) {
+      if (portalTotal > 0 && scanned < portalTotal) {
+        throw new Error(`Agroscope Prospective listing truncated: scanned ${scanned} of declared ${portalTotal} jobs`);
+      }
+      break;
+    }
+    if (portalTotal > 0 && scanned >= portalTotal) break;
+    if (pages >= maxPagesWithoutTerminator) {
+      throw new Error(`Agroscope Prospective listing did not terminate after ${maxPagesWithoutTerminator} pages (scanned ${scanned}; declared total ${portalTotal || 'unknown'})`);
+    }
+  }
+
+  console.log(`Scanned ${scanned} federal jobs.admin.ch listings across ${pages} page(s) (declared total: ${portalTotal || 'not provided'}), matched ${allItems.length} Agroscope jobs`);
 
   // Keep every job that resolves to a Swiss canton (CH-wide, all 26); drop
   // foreign "Estero" postings. The fetch is already national — no canton facet.
@@ -196,8 +219,9 @@ function buildAgroscopeJob(row) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
-    location: row.location || row.city || 'Svizzera',
-    addressLocality: row.city || row.location || 'Svizzera',
+    location: row.city || row.location || '',
+    addressLocality: row.city || row.location || '',
+    postalCode: row.postalCode || '',
     addressRegion: canton,
     addressCountry: 'CH',
     canton,

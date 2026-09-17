@@ -10,6 +10,6 @@
   "seedUrls": [
     "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers"
   ],
-  "notes": "Workday REST API at bracco.wd103.myworkdayjobs.com — all postings fetched, Swiss ones (Cadempino TI / Plan-les-Ouates GE / other CH) kept by location text (no brittle location UUIDs).",
+  "notes": "Workday REST API at bracco.wd103.myworkdayjobs.com — the complete feed is paged, then each vacancy with a concrete Swiss locality is retained across all 26 cantons; the canton is inferred from the source location text, without brittle location UUIDs or fixed office defaults.",
   "updatedAt": "2026-08-28T05:17:28.482Z"
 }

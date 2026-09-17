@@ -17,6 +17,6 @@
     "https://www.vfc.com/offene-stellen",
     "https://www.vfc.com/lavora-con-noi"
   ],
-  "notes": "",
+  "notes": "Dedicated VF runner uses the Workday source discovered from the VFC careers configuration. Workday's hierarchical EMEA · CHE · city · campus labels are normalized per vacancy: the concrete city must pass isTargetSwissLocation across all 26 cantons and its canton is derived with inferAnyCanton; foreign or country-only labels are rejected, with no Stabio/Ticino default.",
   "updatedAt": "2026-02-27T17:06:07.000Z"
 }

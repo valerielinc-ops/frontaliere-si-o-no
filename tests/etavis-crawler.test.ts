@@ -125,6 +125,26 @@ describe('ETAVIS crawler parser', () => {
     });
   });
 
+  // ── resolveAddress (strict city-gated national scope) ──
+  describe('resolveAddress', () => {
+    it('derives the canton and postal code from the vacancy city', () => {
+      expect(__testables.resolveAddress({ addressLocality: 'Winterthur', addressRegion: 'Ticino' })).toMatchObject({
+        city: 'Winterthur',
+        canton: 'ZH',
+        region: 'ZH',
+        postalCode: '8400',
+      });
+    });
+
+    it('rejects a foreign detail locality even when the region label is Swiss', () => {
+      expect(__testables.resolveAddress({ addressLocality: 'Milano', addressRegion: 'ZH' })).toBeNull();
+    });
+
+    it('does not fabricate Zürich for a missing city', () => {
+      expect(__testables.resolveAddress({}, '')).toBeNull();
+    });
+  });
+
   // ── parseListingHtml (real Softgarden Wicket markup) ──
   describe('parseListingHtml', () => {
     const sampleHtml = `

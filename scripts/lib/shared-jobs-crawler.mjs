@@ -130,6 +130,7 @@ import {
 import {
   BORDER_PROXIMITY_KEYWORDS,
   TICINO_CITIES,
+  inferAnyCanton,
   inferSwissTargetCanton,
   isTargetSwissLocation,
   isTicinoRelevant,
@@ -3638,13 +3639,32 @@ async function extractDetailPayload(html, detailUrl) {
   };
 }
 
-async function crawlWorkdayJobs(company, source, crawlerConfig, knownJobUrls = new Set()) {
+const WORKDAY_MAX_PAGES = 10000; // safety cap; reaching it means the feed is incomplete
+
+function isConcreteSwissWorkdayLocation(location = '') {
+  const normalized = normalizeSpace(location);
+  return Boolean(
+    normalized &&
+    isTargetSwissLocation(normalized, { includeBorderProximity: false }) &&
+    inferAnyCanton(normalized),
+  );
+}
+
+async function crawlWorkdayJobs(
+  company,
+  source,
+  crawlerConfig,
+  knownJobUrls = new Set(),
+  { requireConcreteLocation = false } = {},
+) {
   const collected = [];
   let skippedKnown = 0;
   const detailApiBase = String(source.endpoint || '').replace(/\/jobs\/?$/i, '');
   let offset = 0;
-  let total = 0;
+  let declaredTotal = null;
+  let scanned = 0;
   const limit = 20;
+  let pageCount = 0;
   do {
     let res;
     try {
@@ -3661,23 +3681,44 @@ async function crawlWorkdayJobs(company, source, crawlerConfig, knownJobUrls = n
           searchText: '',
         }),
       });
-    } catch {
-      break;
+    } catch (err) {
+      const failure = new Error(
+        `Workday listing fetch failed for ${company?.name || source?.endpoint || 'unknown company'}: ${err?.message || err}`,
+      );
+      failure.workdayFetchFailure = true;
+      throw failure;
     }
-    if (!res.ok) break;
+    if (!res.ok) {
+      const failure = new Error(
+        `Workday listing returned HTTP ${res.status} for ${company?.name || source?.endpoint || 'unknown company'}`,
+      );
+      failure.workdayFeedUnavailable = true;
+      failure.status = res.status;
+      throw failure;
+    }
     let payload = null;
     try {
       payload = await res.json();
-    } catch {
-      break;
+    } catch (err) {
+      const failure = new Error(
+        `Workday listing returned invalid JSON for ${company?.name || source?.endpoint || 'unknown company'}: ${err?.message || err}`,
+      );
+      failure.workdayFeedUnavailable = true;
+      throw failure;
     }
     const postings = assertJsonListShape(payload, { key: 'jobPostings', source: `workday:${company?.name || source?.endpoint || ''}` });
+    pageCount += 1;
     // Trust the API `total` only as a positive upper bound. An unfiltered Workday
     // query (appliedFacets:{}) can echo total:0 with a full page; the old
     // `|| postings.length` fallback made total === page length, so the
-    // `offset < total` guard below stopped after page 1, silently dropping
-    // every posting on pages 2+. The short-page break is the genuine terminator.
-    total = Number(payload?.total) || 0;
+    // `offset < total` guard used to stop after page 1, silently dropping every
+    // posting on pages 2+. The short-page break is the genuine terminator, but
+    // it is only accepted early when the source has not declared more records.
+    const pageTotal = Number(payload?.total);
+    if (Number.isFinite(pageTotal) && pageTotal > 0 && (declaredTotal === null || declaredTotal === 0)) {
+      declaredTotal = pageTotal;
+    }
+    scanned += postings.length;
     for (const p of postings) {
       const title = normalizeSpace(p?.title || '');
       if (!title || title.length < 6 || isLikelyGenericCareerTitle(title)) continue;
@@ -3749,7 +3790,7 @@ async function crawlWorkdayJobs(company, source, crawlerConfig, knownJobUrls = n
             const pageLoc = detailPayload.locationFromPage;
             const combinedLocSignal = `${title} ${pageLoc} ${detailPayload.description || ''}`;
             if (!isTargetSwissLocation(combinedLocSignal)) {
-              // Detail page disproves Ticino relevance -> discard.
+              // Detail page disproves Swiss relevance -> discard.
               continue;
             }
             location = pageLoc;
@@ -3805,9 +3846,17 @@ async function crawlWorkdayJobs(company, source, crawlerConfig, knownJobUrls = n
       if (isLocationExplicitlyForeign(location)) continue;
       if (isExplicitlyOutsideTarget(geoSignal) || isExplicitlyOutsideTargetCantons(geoSignal)) continue;
       if (!location && !isTargetSwissLocation(`${title} ${descriptionSeed}`)) continue;
-      if (!location) location = company.city || 'Ticino';
+      if (requireConcreteLocation && !isConcreteSwissWorkdayLocation(location)) {
+        console.warn(`  ⚠️ Skipping Workday job without a concrete Swiss locality: "${title}" (${location || 'unknown'})`);
+        continue;
+      }
+      if (!location) {
+        location = company.city || 'Ticino';
+      }
       if (!isTargetSwissLocation(`${title} ${location} ${descriptionSeed}`)) continue;
-      const inferredCanton = inferSwissTargetCanton(location) || inferSwissTargetCanton(`${title} ${descriptionSeed}`) || '';
+      const inferredCanton = (requireConcreteLocation
+        ? inferAnyCanton(location)
+        : inferAnyCanton(location) || inferAnyCanton(`${title} ${descriptionSeed}`)) || '';
       if (!inferredCanton) { console.warn(`  ⚠️ Skipping job with unknown canton: "${title}" (location: ${location})`); continue; }
       collected.push({
         id: '',
@@ -3831,9 +3880,25 @@ async function crawlWorkdayJobs(company, source, crawlerConfig, knownJobUrls = n
       });
     }
     offset += limit;
-    if (postings.length < limit) break;            // genuine end of results
-    if (total > 0 && offset >= total) break;        // positive upper bound only
-  } while (offset < 200);                            // page-cap (existing safety bound)
+    if (postings.length < limit) {
+      if (declaredTotal > 0 && scanned < declaredTotal) {
+        const failure = new Error(
+          `Workday listing ended after ${scanned} record(s), below declared total ${declaredTotal} for ${company?.name || source?.endpoint || 'unknown company'}`,
+        );
+        failure.workdayFeedIncomplete = true;
+        throw failure;
+      }
+      break;                                        // no positive total: short page is the terminator
+    }
+    if (declaredTotal > 0 && scanned >= declaredTotal) break; // positive upper bound only
+    if (pageCount >= WORKDAY_MAX_PAGES) {
+      const failure = new Error(
+        `Workday listing pagination safety cap reached at ${pageCount} pages for ${company?.name || source?.endpoint || 'unknown company'} (scanned ${scanned}; declared total ${declaredTotal || 'unknown'})`,
+      );
+      failure.workdayFeedIncomplete = true;
+      throw failure;
+    }
+  } while (true);
 
   collected.skippedKnown = skippedKnown;
   return collected;
@@ -4900,8 +4965,11 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
       let wdJobs = [];
       try {
         // eslint-disable-next-line no-await-in-loop
-        wdJobs = await crawlWorkdayJobs(company, source, crawlerConfig, knownJobUrls);
-      } catch {
+        wdJobs = await crawlWorkdayJobs(company, source, crawlerConfig, knownJobUrls, { requireConcreteLocation: true });
+      } catch (err) {
+        const outcome = err?.workdayFetchFailure ? 'connection_error' : 'feed_endpoint_unavailable';
+        result.fetchOutcome = outcome;
+        console.warn(`⚠️ VF Workday feed ${outcome}: ${err?.message || err}`);
         wdJobs = [];
       }
       for (const j of wdJobs) maybeAcceptCandidate(j, 'workday_vf');
@@ -5104,7 +5172,10 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
       try {
         // eslint-disable-next-line no-await-in-loop
         wdJobs = await crawlWorkdayJobs(company, source, crawlerConfig, knownJobUrls);
-      } catch {
+      } catch (err) {
+        const outcome = err?.workdayFetchFailure ? 'connection_error' : 'feed_endpoint_unavailable';
+        result.fetchOutcome = outcome;
+        console.warn(`⚠️ Workday feed ${outcome} for ${company.name}: ${err?.message || err}`);
         wdJobs = [];
       }
       for (const j of wdJobs) {
@@ -6465,6 +6536,7 @@ export const __testables = {
   toJobFromJsonLd,
   toJobFromHtmlFallback,
   processCompany,
+  isConcreteSwissWorkdayLocation,
   extractHtmlMicrodataAddress,
   isJsonLdCountryExplicitlyForeign,
   setCrawlerConfigForTests(cfg) { crawlerConfigGlobal = cfg; },
