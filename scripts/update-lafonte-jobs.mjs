@@ -2,9 +2,10 @@
 /**
  * Dedicated Fondazione La Fonte crawler runner.
  *
- * Fondazione La Fonte is a social services foundation in Lugano, Ticino,
- * that supports people with disabilities through housing, workshops,
- * and professional training programs.
+ * Fondazione La Fonte is a social services foundation based in Lugano (TI),
+ * supporting people with disabilities through its own housing, workshops,
+ * and professional training facilities. This is a site-scoped crawler, not a
+ * Switzerland-wide employer search.
  *
  * Jobs are listed on the HubSpot-powered careers page at:
  *   https://www.lafonte.ch/inizia-con-noi
@@ -513,7 +514,7 @@ function updateAdapterConfig() {
   adapter.crawlerModes = ['html'];
   adapter.seedUrls = [CAREERS_URL];
   adapter.notes =
-    'HubSpot CMS — single careers page with inline job cards (pwr-simple-list-item blocks).';
+    'HubSpot CMS — single, site-scoped careers page with inline job cards (pwr-simple-list-item blocks) for Fondazione La Fonte in Lugano (TI); not a national employer search.';
   adapter.updatedAt = new Date().toISOString();
 
   fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
