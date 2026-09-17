@@ -10,10 +10,20 @@ function normalize(value = '') {
     .trim();
 }
 
-const POSTAL_CODES_BY_LOCALITY = new Map(
-  Object.entries(POSTAL_CODES).map(([locality, postalCode]) => [normalize(locality), String(postalCode)]),
+// Keep every catalogue value for a normalized locality. If a future refresh
+// adds homonymous localities with different CAPs, a locality-only lookup must
+// become unknown instead of silently choosing whichever entry was last loaded.
+const POSTAL_CODES_BY_LOCALITY = new Map();
+for (const [locality, postalCode] of Object.entries(POSTAL_CODES)) {
+  const key = normalize(locality);
+  if (!key) continue;
+  const values = POSTAL_CODES_BY_LOCALITY.get(key) || new Set();
+  values.add(String(postalCode));
+  POSTAL_CODES_BY_LOCALITY.set(key, values);
+}
+const POSTAL_CODES_SET = new Set(
+  [...POSTAL_CODES_BY_LOCALITY.values()].flatMap((values) => [...values]),
 );
-const POSTAL_CODES_SET = new Set(POSTAL_CODES_BY_LOCALITY.values());
 
 /**
  * Resolve a Swiss postal code only when the source locality is present in the
@@ -35,8 +45,8 @@ export function lookupSwissPostalCode(value = '') {
     ...raw.split(/[,;|]/).map((part) => part.trim()),
   ];
   for (const candidate of candidates) {
-    const postalCode = POSTAL_CODES_BY_LOCALITY.get(normalize(candidate));
-    if (postalCode) return postalCode;
+    const postalCodes = POSTAL_CODES_BY_LOCALITY.get(normalize(candidate));
+    if (postalCodes?.size === 1) return postalCodes.values().next().value;
   }
   return '';
 }

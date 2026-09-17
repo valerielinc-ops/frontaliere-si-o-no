@@ -35,7 +35,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { fetchHtml } from './hospital-custom-html-helpers.mjs';
-import { inferAnyCanton, isSwissLocationText } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { extractJobPostingLd, jobPostingDescriptionText, jobPostingAddress } from './jsonld-jobposting.mjs';
 import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.ts';
 
@@ -47,6 +47,10 @@ const BOARD_HOST = 'jobs.concordia.ch';
 const LISTING_URL = `https://${BOARD_HOST}/`;
 const CAREER_URL = 'https://www.concordia.ch/de/ueber-uns/jobs/offene-stellen.html';
 const PAGE_SIZE = 100;
+// The declared source total is the normal stop condition. This finite ceiling
+// is only a runaway guard when the board omits or misreports its total; it is
+// deliberately far above the current national board size and fails loudly.
+const MAX_PAGES = 1000;
 const POLITE_DELAY_MS = 200;
 
 function normalizeSpace(s = '') {
@@ -129,8 +133,10 @@ export function parseConcordiaListing(html) {
 
 /** Read the total declared by the source board, when its listing page exposes it. */
 export function parseConcordiaListingTotal(html = '') {
-  const match = String(html || '').match(
-    /class=["'][^"']*\btotal-jobs\b[^"']*["'][^>]*>\s*([\d\s.,']+)/i,
+  const normalizedHtml = String(html || '')
+    .replace(/&(nbsp|#160|#xA0|thinsp|#8239|#x202F);/gi, ' ');
+  const match = normalizedHtml.match(
+    /class=["'][^"']*\btotal-jobs\b[^"']*["'][^>]*>\s*([\d\s.,'’\u00a0]+)/i,
   );
   if (!match) return null;
   const total = Number(match[1].replace(/[^\d]/g, ''));
@@ -138,20 +144,20 @@ export function parseConcordiaListingTotal(html = '') {
 }
 
 /** Fetch every listing page (offset-paginated) and return the union of detail URLs. */
-async function fetchAllDetailUrls() {
+export async function fetchConcordiaListingUrls({
+  fetchPage = fetchHtml,
+  maxPages = MAX_PAGES,
+  delayMs = POLITE_DELAY_MS,
+} = {}) {
   const seen = new Set();
   const out = [];
   let offset = 0;
   let expectedTotal = null;
   let pagesRead = 0;
+  const pageLimit = Number.isInteger(maxPages) && maxPages > 0 ? maxPages : MAX_PAGES;
   while (true) {
-    if (pagesRead >= MAX_PAGES) {
-      throw new Error(
-        `Concordia listing pagination exhausted safety bound (${MAX_PAGES} pages) without reaching the source total/end marker`,
-      );
-    }
     const pageUrl = `${LISTING_URL}?offset=${offset}&limit=${PAGE_SIZE}&lang=de`;
-    const html = await fetchHtml(pageUrl);
+    const html = await fetchPage(pageUrl);
     pagesRead += 1;
     const declaredTotal = parseConcordiaListingTotal(html);
     if (declaredTotal !== null) {
@@ -175,13 +181,18 @@ async function fetchAllDetailUrls() {
         `Concordia listing pagination exceeded declared total: source=${expectedTotal}, read=${out.length}`,
       );
     }
-    if (urls.length === 0 || added === 0) {
+    if (urls.length === 0) {
       if (expectedTotal !== null && out.length < expectedTotal) {
         throw new Error(
           `Concordia listing pagination incomplete: source declares ${expectedTotal} jobs, read ${out.length}`,
         );
       }
       break;
+    }
+    if (added === 0) {
+      throw new Error(
+        `Concordia listing pagination did not advance at offset=${offset}; source repeated a page and read ${out.length} unique URLs`,
+      );
     }
     if (expectedTotal !== null && out.length >= expectedTotal) break;
     if (urls.length < PAGE_SIZE) {
@@ -192,8 +203,13 @@ async function fetchAllDetailUrls() {
       }
       break;
     }
+    if (pagesRead >= pageLimit) {
+      throw new Error(
+        `Concordia listing pagination exhausted safety bound (${pageLimit} pages) without reaching the source total/end marker`,
+      );
+    }
     offset += PAGE_SIZE;
-    await new Promise((r) => setTimeout(r, POLITE_DELAY_MS));
+    await new Promise((r) => setTimeout(r, delayMs));
   }
   if (expectedTotal !== null) {
     console.log(`  ✓ board declares ${expectedTotal} jobs; read ${out.length} listing URLs`);
@@ -203,11 +219,15 @@ async function fetchAllDetailUrls() {
   return out;
 }
 
-export async function fetchAllConcordiaJobs() {
+export async function fetchAllConcordiaJobs({
+  fetchPage = fetchHtml,
+  maxPages = MAX_PAGES,
+  delayMs = POLITE_DELAY_MS,
+} = {}) {
   console.log(`🏢 Fetching ${CONCORDIA_COMPANY_NAME} jobs`);
   console.log(`   Source: ${LISTING_URL} (Prospective careercenter 1000725, HTML+JSON-LD)\n`);
 
-  const detailUrls = await fetchAllDetailUrls();
+  const detailUrls = await fetchConcordiaListingUrls({ fetchPage, maxPages, delayMs });
   console.log(`  ✓ ${detailUrls.length} jobs from board listing`);
   if (!detailUrls.length) return [];
 
@@ -220,13 +240,13 @@ export async function fetchAllConcordiaJobs() {
   for (const url of detailUrls) {
     let ld;
     try {
-      const detailHtml = await fetchHtml(url);
+      const detailHtml = await fetchPage(url);
       ld = extractJobPostingLd(detailHtml);
     } catch (err) {
       detailFetchFailures += 1;
       console.warn(`  ⚠️ detail fetch failed: ${err?.message || err}`);
     }
-    await new Promise((r) => setTimeout(r, POLITE_DELAY_MS));
+    await new Promise((r) => setTimeout(r, delayMs));
     if (!ld || !ld.title) {
       missingPostingData += 1;
       continue;
@@ -242,7 +262,7 @@ export async function fetchAllConcordiaJobs() {
     const addr = jobPostingAddress(ld);
     const location = normalizeSpace(addr.addressLocality || '');
     const canton = resolveCanton(addr.addressRegion, location);
-    if (!location || !isSwissLocationText(location) || !canton) {
+    if (!location || !isTargetSwissLocation(location, { includeBorderProximity: false }) || !canton) {
       unresolvedLocations += 1;
       continue;
     }
@@ -297,6 +317,11 @@ export async function fetchAllConcordiaJobs() {
   }
 
   console.log(`  ✓ detail pages: ${detailUrls.length}, fetched failures: ${detailFetchFailures}, missing JobPosting: ${missingPostingData}, short descriptions: ${shortDescriptions}, unresolved locations: ${unresolvedLocations}`);
+  if (detailFetchFailures > 0) {
+    throw new Error(
+      `Concordia detail extraction incomplete: ${detailFetchFailures}/${detailUrls.length} detail page(s) failed; refusing to publish a partial dataset`,
+    );
+  }
   if (detailUrls.length > 0 && jobs.length === 0) {
     throw new Error(
       `Concordia source returned ${detailUrls.length} listing URLs but 0 valid Swiss JobPosting records `

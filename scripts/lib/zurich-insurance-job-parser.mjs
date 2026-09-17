@@ -19,7 +19,7 @@ import {
 } from './dedicated-crawler-common.mjs';
 import {
   inferAnyCanton,
-  isSwissLocationText,
+  isTargetSwissLocation,
 } from './target-swiss-locations.mjs';
 import { splitJobLocation } from './job-location-display.mjs';
 import { stripSuccessFactorsMoreLocations } from './successfactors-jobs2web-widget-guard.mjs';
@@ -33,6 +33,10 @@ export const ZURICH_INSURANCE_COMPANY_DOMAIN = 'zurich.ch';
 const CAREERS_HOST = 'www.careers.zurich.com';
 const SEARCH_PATH = '/search/';
 const PAGE_SIZE = 25;
+// The source total remains the normal stop condition. This finite ceiling is
+// only a runaway guard when the board omits or misreports its total; reaching
+// it fails loudly instead of truncating or looping forever.
+const MAX_PAGES = 1000;
 const SOURCE = 'Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)';
 
 /**
@@ -103,7 +107,8 @@ function normalizeKey(value = '') {
 
 function isSwissListingLocation(location = '') {
   const value = String(location || '');
-  return /(?:^|,\s*)CH(?:\s|$)/i.test(value) || isSwissLocationText(value);
+  return /(?:^|,\s*)CH(?:\s|$)/i.test(value)
+    || isTargetSwissLocation(value, { includeBorderProximity: false });
 }
 
 function wordCount(text = '') {
@@ -252,15 +257,16 @@ export function parseZurichInsuranceListingPage(html = '', pageUrl = searchUrlFo
 
 async function fetchZurichInsuranceListingSnapshot({
   fetchPage = fetchHtml,
-  maxPages = null,
+  maxPages = MAX_PAGES,
   cacheBuster = '',
 } = {}) {
   const byReqId = new Map();
   let expectedTotal = 0;
   let firstPageReqIds = [];
-  const pageLimit = maxPages === null || maxPages === undefined
-    ? Number.POSITIVE_INFINITY
-    : Math.max(1, Math.floor(Number(maxPages) || 1));
+  const requestedMaxPages = Number(maxPages);
+  const pageLimit = maxPages === null || maxPages === undefined || !Number.isFinite(requestedMaxPages)
+    ? MAX_PAGES
+    : Math.max(1, Math.floor(requestedMaxPages) || 1);
 
   for (let page = 0; page < pageLimit; page += 1) {
     const startRow = page * PAGE_SIZE;
@@ -459,7 +465,7 @@ export async function prepareZurichInsuranceCrawler({
       const detailDescription = extractDescription(detailHtml);
       const canton = inferAnyCanton(listing.location);
       const location = splitJobLocation(listing.location, canton).city;
-      if (!canton || !location || !isSwissLocationText(listing.location)) {
+      if (!canton || !location || !isTargetSwissLocation(listing.location, { includeBorderProximity: false })) {
         // Per-row reject, not a run abort: the failure granularity is the run
         // (aggregate gate below), so one undecodable office cannot zero the
         // entire Zurich slice.
