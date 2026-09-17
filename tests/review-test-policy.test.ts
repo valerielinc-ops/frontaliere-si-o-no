@@ -452,11 +452,15 @@ describe('owner policy excluding test files from review', () => {
     expect(() => postLedgerOnlyReview({ repo: 'owner/repo', pr: 1, head: ledgerHead, ghFn: f.ghFn })).toThrow();
     expect(f.posts).toEqual([]);
   });
-  it('allows the needs-human tracking label on the bounded ledger fast path', () => {
+  it('does not give automatic LGTM to a ledger PR with pre-existing needs-human', () => {
     const f = ledgerFixture({ labels: ['needs-human'] });
-    postLedgerOnlyReview({ repo: 'owner/repo', pr: 1, head: ledgerHead, ghFn: f.ghFn });
-    expect(f.posts).toHaveLength(1);
-    expect(f.posts[0].body).toContain('`needs-human` è solo tracking');
+    expect(inspectLedgerOnlyHead(f.ghFn, 'owner/repo', 1, ledgerHead)).toMatchObject({
+      ok: false,
+      kind: 'not-ledger-only',
+      reason: 'veto needs-human presente',
+    });
+    expect(() => postLedgerOnlyReview({ repo: 'owner/repo', pr: 1, head: ledgerHead, ghFn: f.ghFn })).toThrow();
+    expect(f.posts).toEqual([]);
   });
   it.each(['body', 'head'])('fails the current run when %s changes immediately after POST', (postRace) => {
     const f = ledgerFixture({ postRace });

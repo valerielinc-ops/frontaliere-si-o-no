@@ -394,9 +394,10 @@ function isRawLedgerAppendOnly(baseContent, headContent) {
 /**
  * Read and independently verify the exact ledger-only authorization target.
  *
- * `not-ledger-only` is a known, complete non-match (mixed/unknown/rename): the
- * ordinary full tests path owns it. `needs-human` is only a tracking label and
- * does not change this fast-path eligibility.
+ * `not-ledger-only` is a known, complete non-match (mixed/unknown/rename or a
+ * pre-existing `needs-human` label): the ordinary full tests path owns it. The
+ * label remains tracking for normal PR auto-merge, but vetoes this early LGTM
+ * fast path.
  * `unverifiable` means a race, incomplete list or malformed metadata and must
  * fail the fast check rather than silently authorizing anything.
  */
@@ -413,6 +414,9 @@ export function inspectLedgerOnlyHead(ghFn, repo, pr, head) {
     return inspectionFailure('unverifiable', 'lettura metadata PR fallita');
   }
   const beforeMetadata = ledgerMetadata(before);
+  if (beforeMetadata?.labels?.includes('needs-human')) {
+    return inspectionFailure('not-ledger-only', 'veto needs-human presente');
+  }
   // Classify the file scope before inspecting the body. A mixed/unknown PR
   // with a malformed description belongs to the ordinary body/tests path; it
   // must not produce a red fast-lane check that competes with that path.

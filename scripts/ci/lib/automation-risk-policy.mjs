@@ -13,6 +13,7 @@
  */
 
 export const AUTOMATION_RISK_POLICY_VERSION = 'f1-f7-v2';
+export const HUMAN_APPROVAL_LABEL = 'needs-human';
 export const CONTROL_PLANE_DOMAIN = 'control-plane';
 
 /**
@@ -254,6 +255,23 @@ export function classifyAutomationRisk({
   }
 
   const labelNames = labels.map(labelName).filter(Boolean);
+  const hasHumanVeto = !isPullRequestSurface
+    && labelNames.some((label) => label.toLowerCase() === HUMAN_APPROVAL_LABEL);
+  if (hasHumanVeto) {
+    return {
+      policyVersion: AUTOMATION_RISK_POLICY_VERSION,
+      verifiable: true,
+      blocked: true,
+      decision: 'deny',
+      denyCode: 'needs-human-veto',
+      controlPlane: false,
+      needsHumanVeto: true,
+      domains: [],
+      unknownPaths: [],
+      humanApprovalRequired: true,
+      reason: '`needs-human` è un veto persistente; serve una rimozione umana associata alla HEAD',
+    };
+  }
 
   const issueText = [title, body, ...labelNames].join('\n');
   const hasPathSnapshot = paths !== undefined || pathsComplete !== undefined;
