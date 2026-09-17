@@ -294,6 +294,21 @@ async function fetchListingPage(url, timeoutMs, userAgent) {
   }
 }
 
+export function hasLastminuteNextPageSignal(html = '', nextPage = 2) {
+  const source = String(html || '');
+  const page = String(nextPage);
+  if (!/^\d+$/.test(page)) return false;
+
+  const hasNextPageHref = new RegExp(
+    `[?&](?:amp;)?page=${page}(?:[&#"'\\s]|$)`,
+    'i',
+  ).test(source);
+  const hasRelNext = /<[^>]+\brel\s*=\s*["'][^"']*\bnext\b[^"']*["'][^>]*>/i.test(source);
+  const hasNextLabel = /<[^>]+\b(?:aria-label|title)\s*=\s*["'][^"']*\bnext\b[^"']*["'][^>]*>/i.test(source);
+
+  return hasNextPageHref || hasRelNext || hasNextLabel;
+}
+
 export async function fetchLastminuteJobDetailUrls() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   const userAgent =
@@ -303,7 +318,6 @@ export async function fetchLastminuteJobDetailUrls() {
   const detailByKey = new Map();
   const seedMetaByUrl = {};
   const maxPages = 20;
-  let consecutiveNoNewPages = 0;
 
   console.log('🔍 Fetching lastminute.com jobs from careers listing...');
 
@@ -349,11 +363,15 @@ export async function fetchLastminuteJobDetailUrls() {
 
     console.log(`    📦 ${links.length} link(s), ${pageNew} new`);
 
-    if (pageNew === 0) consecutiveNoNewPages += 1;
-    else consecutiveNoNewPages = 0;
+    if (pageNew === 0) {
+      throw new Error(
+        `lastminute careers listing page ${page} repeated only previously seen detail URLs; `
+        + 'source completeness is unverified, preserving the previous adapter and data',
+      );
+    }
 
-    if (consecutiveNoNewPages >= 1) {
-      console.log('    ℹ️ Page produced no new jobs, stopping pagination.');
+    if (!hasLastminuteNextPageSignal(html, page + 1)) {
+      console.log('    ℹ️ Source exposes no next-page signal, treating the listing as complete.');
       break;
     }
   }

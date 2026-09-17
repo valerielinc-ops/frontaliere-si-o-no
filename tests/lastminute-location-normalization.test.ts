@@ -3,6 +3,7 @@ import {
   buildLastminuteSlug,
   extractLastminuteLocationFromContent,
   fetchLastminuteJobDetailUrls,
+  hasLastminuteNextPageSignal,
   inferLastminuteLocation,
   normalizeLastminuteRow,
 } from '@/scripts/update-lastminute-jobs.mjs';
@@ -73,7 +74,8 @@ describe('lastminute location normalization', () => {
     const fetchSpy = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
       if (String(input).includes('page=1')) {
         return new Response(
-          '<a href="/careers/jobs/job?id=744000149000001&jobName=Software+Engineer">job</a>',
+          '<a href="/careers/jobs/job?id=744000149000001&jobName=Software+Engineer">job</a>'
+            + '<a rel="next" href="/careers/jobs/?page=2">next</a>',
           { status: 200 },
         );
       }
@@ -94,7 +96,8 @@ describe('lastminute location normalization', () => {
     const fetchSpy = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
       if (String(input).includes('page=1')) {
         return new Response(
-          '<a href="/careers/jobs/job?id=744000149000001&jobName=Software+Engineer">job</a>',
+          '<a href="/careers/jobs/job?id=744000149000001&jobName=Software+Engineer">job</a>'
+            + '<a rel="next" href="/careers/jobs/?page=2">next</a>',
           { status: 200 },
         );
       }
@@ -109,5 +112,27 @@ describe('lastminute location normalization', () => {
     } finally {
       fetchSpy.mockRestore();
     }
+  });
+
+  it('fails closed when a paginated page repeats only previously seen links', async () => {
+    const page = '<a href="/careers/jobs/job?id=744000149000001&jobName=Software+Engineer">job</a>'
+      + '<a rel="next" href="/careers/jobs/?page=2">next</a>';
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockImplementation(
+      async () => new Response(page, { status: 200 }),
+    );
+
+    try {
+      await expect(fetchLastminuteJobDetailUrls()).rejects.toThrow(
+        'repeated only previously seen detail URLs',
+      );
+      expect(fetchSpy).toHaveBeenCalledTimes(2);
+    } finally {
+      fetchSpy.mockRestore();
+    }
+  });
+
+  it('recognizes an explicit next-page signal without requiring a job-count threshold', () => {
+    expect(hasLastminuteNextPageSignal('<a href="/careers/jobs/?page=2">next</a>', 2)).toBe(true);
+    expect(hasLastminuteNextPageSignal('<a href="/careers/jobs/job?id=744000149000001">job</a>', 2)).toBe(false);
   });
 });
