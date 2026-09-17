@@ -34,10 +34,11 @@
  * explicitly-partitioned crawler achieves full CH-wide coverage with zero
  * risk to that existing production pipeline.
  *
- * Canton is inferred per-posting from the listing's own city (via the
- * shared factory's `inferSwissTargetCanton`), covering all 26 cantons.
- * `defaultCanton`/`defaultCity`/`defaultPostalCode` below are only the HQ
- * fallback for the rare posting whose location can't be resolved.
+ * Canton is inferred per-posting from the listing's own Swiss location via
+ * the shared all-canton helpers, covering all 26 cantons. The sentinel
+ * defaults below are required by the generic factory but are unreachable for
+ * accepted records: the source geography gate rejects rows without a
+ * resolvable Swiss location.
  *
  * Uses the shared Prospective.ch factory.
  */
