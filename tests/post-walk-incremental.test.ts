@@ -10,9 +10,11 @@ import { IncrementalManifest } from '../build-plugins/shared/incrementalManifest
 import {
   buildPostWalkIncrementalPlan,
   comparePostWalkVerification,
+  loadPostWalkManifestState,
   loadPostWalkManifestPair,
   postWalkIncrementalEnabled,
   replacePostWalkPathList,
+  selectPostWalkVerificationPaths,
 } from '../build-plugins/shared/postWalkIncremental';
 
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -133,16 +135,25 @@ describe('post-walk incremental planning', () => {
     expect(htmlPaths).toHaveLength(7);
   });
 
-  it('falls back when a removed logical page has no resolvable kind/job identity', async () => {
+  it('keeps an unresolved removal as a per-entry fallback', async () => {
     const root = fixtureRoot();
     const distDir = path.join(root, 'dist');
     const htmlPaths = collectFixtureHtml(root);
+    writeHtml(
+      root,
+      'jobs/unchanged/index.html',
+      `<a href="${BASE_URL}/jobs/removed/">removed</a>`,
+    );
     writeManifest(root, 'incremental-manifest-prev', [
       { path: 'jobs/changed/', kind: 'active-job', input: { title: 'old' } },
+      { path: 'en/jobs/changed/', kind: 'active-job', input: { title: 'same' } },
+      { path: 'jobs/unchanged/', kind: 'active-job', input: { title: 'same' } },
       { path: 'jobs/removed/', kind: 'active-job', input: { title: 'removed' } },
     ]);
     writeManifest(root, 'incremental-manifest', [
       { path: 'jobs/changed/', kind: 'active-job', input: { title: 'old' } },
+      { path: 'en/jobs/changed/', kind: 'active-job', input: { title: 'same' } },
+      { path: 'jobs/unchanged/', kind: 'active-job', input: { title: 'same' } },
     ]);
 
     const loaded = await loadPostWalkManifestPair(root, ['it']);
@@ -156,10 +167,12 @@ describe('post-walk incremental planning', () => {
       manifests: loaded.pair,
     });
 
-    expect(plan.mode).toBe('full');
+    expect(plan.mode).toBe('incremental');
     expect(plan.removed).toBe(1);
+    expect(plan.fallbackMode).toBe('entry');
     expect(plan.fallbackReason).toContain('rimozione senza kind/jobId risolvibile');
-    expect(plan.processHtmlPaths).toEqual(htmlPaths);
+    expect(plan.processHtmlPaths).toEqual([htmlPaths[4], htmlPaths[5], htmlPaths[6]]);
+    expect(plan.processHtmlPaths).not.toEqual(htmlPaths);
   });
 
   it('keeps add/remove incremental and selects same-job/explicit dependants among untouched pages', async () => {
@@ -297,5 +310,73 @@ describe('post-walk incremental planning', () => {
     expect(postWalkIncrementalEnabled()).toBe(false);
     if (previous === undefined) delete process.env.POST_WALK_INCREMENTAL;
     else process.env.POST_WALK_INCREMENTAL = previous;
+  });
+
+  it('streams the current projection and previous delta without returning a previous map', async () => {
+    const root = fixtureRoot();
+    writeManifest(root, 'incremental-manifest-prev', [
+      { path: 'jobs/stable/', kind: 'active-job', input: { jobId: 'stable-1' } },
+    ], true);
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/stable/', kind: 'active-job', input: { jobId: 'stable-1' } },
+    ], true);
+
+    const phases: string[] = [];
+    const loaded = await loadPostWalkManifestState(
+      root,
+      ['it'],
+      BASE_URL,
+      (progress) => phases.push(progress.phase),
+    );
+    expect(loaded.ok).toBe(true);
+    if ('reason' in loaded) throw new Error(loaded.reason);
+    expect(loaded.state.current.entries.size).toBe(1);
+    expect(loaded.state.previousEntryCount).toBe(1);
+    expect(phases).toEqual(['current-loaded', 'previous-loaded']);
+    expect('previous' in loaded.state).toBe(false);
+  });
+
+  it('does a second bounded previous stream for references to an added page', async () => {
+    const root = fixtureRoot();
+    writeManifest(root, 'incremental-manifest-prev', [
+      {
+        path: 'jobs/referrer/',
+        kind: 'active-job',
+        input: { jobId: 'referrer-1', targetPath: '/jobs/added/' },
+      },
+    ], true);
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/referrer/', kind: 'active-job', input: { jobId: 'referrer-1' } },
+      { path: 'jobs/added/', kind: 'active-job', input: { jobId: 'added-1' } },
+    ], true);
+
+    const phases: string[] = [];
+    const loaded = await loadPostWalkManifestState(
+      root,
+      ['it'],
+      BASE_URL,
+      (progress) => phases.push(progress.phase),
+    );
+    expect(loaded.ok).toBe(true);
+    if ('reason' in loaded) throw new Error(loaded.reason);
+    expect(loaded.state.added).toEqual(new Set(['jobs/added']));
+    expect(loaded.state.affected).toEqual(new Set(['jobs/referrer', 'jobs/added']));
+    expect(phases).toEqual([
+      'current-loaded',
+      'previous-references-loading',
+      'previous-references-loaded',
+      'previous-loaded',
+    ]);
+  });
+
+  it('selects a deterministic 2% sample and always includes forced affected paths', () => {
+    const paths = Array.from({ length: 100 }, (_, index) => `/dist/jobs/${index}/index.html`);
+    const forced = [paths[99]];
+    const selected = selectPostWalkVerificationPaths(paths, null, forced);
+    const reordered = selectPostWalkVerificationPaths([...paths].reverse(), null, forced);
+
+    expect(selected).toHaveLength(3);
+    expect(selected).toContain(paths[99]);
+    expect(new Set(reordered)).toEqual(new Set(selected));
   });
 });
