@@ -668,6 +668,12 @@ async function runDedicatedLastminuteCrawler() {
     companyKeys: [LASTMINUTE_KEY],
     disableWorkdayForce: true,
     forceLocalizationWhenAiEnabledOnly: true,
+    // Discovery and source enrichment are handled above by the complete
+    // careers listing plus SmartRecruiters. The corporate detail HTML carries
+    // lastminute.com's foreign headquarters address, so routing it through the
+    // generic HTML discovery would reject valid Swiss postings before the API
+    // data can be persisted.
+    localizeExistingOnly: true,
   });
 }
 
@@ -677,8 +683,9 @@ async function runDedicatedLastminuteCrawler() {
  * from the SR API, which the corporate website only loads via JS.
  */
 async function enrichFromSmartRecruitersApi(seedUrls, detailsByUrl = new Map()) {
-  if (!fs.existsSync(DATA_JOBS)) return;
-  const allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const allJobs = fs.existsSync(DATA_JOBS)
+    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
+    : readExistingCrawlerJobs(LASTMINUTE_KEY, DATA_JOBS);
   if (!Array.isArray(allJobs)) return;
 
   // Build a map of SR ID → seed URL for discovered jobs
@@ -887,6 +894,13 @@ async function main() {
 
   // Phase 2: Run base crawler for AI localization (EN→IT/DE/FR translations)
   await runDedicatedLastminuteCrawler();
+
+  // The shared localize-only pass can preserve a stale slice entry when the
+  // corporate page is not a usable job-detail source. Re-apply the
+  // SmartRecruiters payload after that pass so the API remains authoritative
+  // for title, description, location and canton before normalization.
+  await enrichFromSmartRecruitersApi(seedUrls, detailsByUrl);
+
   const post = postProcessLastminuteJobs();
   console.log(
     `🧹 Post-process lastminute: ${post.lastminute} active, ${post.deduped} duplicate(s) removed.`
