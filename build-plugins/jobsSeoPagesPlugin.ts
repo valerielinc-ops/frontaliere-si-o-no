@@ -43,6 +43,7 @@ import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import {
   buildMinimalJobInput,
+  getIncrementalManifestInputCache,
   getIncrementalManifestMap,
   stableJobId,
 } from './shared/incrementalManifest.mjs';
@@ -729,6 +730,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   rootDir,
   JOB_SEO_LOCALES.filter((locale) => shouldEmitLocale(locale)),
  );
+ const incrementalManifestInputCache = incrementalManifests
+  ? getIncrementalManifestInputCache(rootDir)
+  : null;
  const registerIncrementalPage = (locale: (typeof JOB_SEO_LOCALES)[number], pagePath: string, kind: string, input: unknown) => {
   incrementalManifests?.get(locale)?.register(pagePath, kind, input);
  };
@@ -2540,10 +2544,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }
  }
  recordEmit('active-related-index-build', __tRelatedIndexBuild);
- const relatedPoolByJob = new WeakMap<object, any[]>();
+ const relatedPoolByJob = new Map<string, any[]>();
  const getRelatedPool = (job: any): any[] => {
  const __tRelatedIndexed = startTimer();
- const cached = relatedPoolByJob.get(job as object);
+ const stableId = stableJobId(job);
+ const cached = stableId ? relatedPoolByJob.get(stableId) : undefined;
  let relatedPool = cached;
  if (!relatedPool) {
  const seen = new Set<any>();
@@ -2562,7 +2567,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  relatedPool.sort((a, b) =>
  (relatedJobSourceIndex.get(a as object) ?? 0) - (relatedJobSourceIndex.get(b as object) ?? 0),
  );
- relatedPoolByJob.set(job as object, relatedPool);
+ if (stableId) relatedPoolByJob.set(stableId, relatedPool);
  }
  recordEmit('active-related-pool-indexed', __tRelatedIndexed);
  if (PROFILE_RELATED_COMPARE) {
@@ -3032,7 +3037,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const effectiveCanonicalUrl = resolveCanonicalUrl(perLocaleSlug[locale], canonicalUrl);
  const activeJobManifestInput = incrementalManifests
   ? {
-   ...buildMinimalJobInput(job, locale, perLocaleSlug[locale], perJob_relatedJobs || []),
+   ...buildMinimalJobInput(job, locale, perLocaleSlug[locale], perJob_relatedJobs || [], incrementalManifestInputCache),
    canton: jobCanton,
    canonicalUrl: effectiveCanonicalUrl,
   }
@@ -13362,6 +13367,7 @@ ${staticAnalyticsHtml}
     (sameCompanyActiveJobs.length > 0 ? sameCompanyActiveJobs : selectRecentJobs(slug, slug))
      .map((relatedJob: any) => stableJobId(relatedJob))
      .filter(Boolean),
+    incrementalManifestInputCache,
    ),
    path: relPath,
    trackingPaths: paths,
@@ -13580,7 +13586,7 @@ ${staticAnalyticsHtml}
  _writtenPaths.add(indexFile);
  if (incrementalManifests) {
   registerIncrementalPage(baseLocale, relPath, 'cross-locale-reconciliation', {
-   ...buildMinimalJobInput(ej, baseLocale, baseSlug),
+   ...buildMinimalJobInput(ej, baseLocale, baseSlug, [], incrementalManifestInputCache),
    source: 'expired-soft-landing',
    path: relPath,
    baseLocale,
@@ -13961,7 +13967,7 @@ ${staticAnalyticsHtml}
  _qw(np.join(outDir, 'index.html'), indexHtml);
  if (incrementalManifests) {
   registerIncrementalPage(locale, oldPath, 'previous-slugs-full-content', {
-   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job)),
+   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job), incrementalManifestInputCache),
    path: oldPath,
    canton: jobCantonForBridge,
    oldSlug,
@@ -14018,7 +14024,7 @@ ${staticAnalyticsHtml}
  _qw(np.join(legacyTIOutDir, 'index.html'), indexHtml);
  if (incrementalManifests) {
   registerIncrementalPage(locale, legacyTIRelPath, 'previous-slugs-full-content', {
-   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job)),
+   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job), incrementalManifestInputCache),
    path: legacyTIRelPath,
    canton: jobCantonForBridge,
    oldSlug,
@@ -14218,7 +14224,7 @@ ${staticAnalyticsHtml}
  _writtenPaths.add(indexFile);
  if (incrementalManifests) {
   registerIncrementalPage(baseLocale, relPath, 'cross-locale-reconciliation', {
-   ...buildMinimalJobInput(job, baseLocale, baseSlug, getRelatedPool(job)),
+   ...buildMinimalJobInput(job, baseLocale, baseSlug, getRelatedPool(job), incrementalManifestInputCache),
    source: 'active-job',
    path: relPath,
    baseLocale,
@@ -14280,6 +14286,7 @@ ${staticAnalyticsHtml}
  sitemapEligibleJobs.length = 0;
  relatedJobsByCategory.clear();
  relatedJobsByLocation.clear();
+ relatedPoolByJob.clear();
  companyMap.clear();
  // Review di #6154 (finding 3): anche questi puntano agli stessi oggetti
  // job, e uno basta a tenere vivo il grafo. Ultimi lettori verificati:

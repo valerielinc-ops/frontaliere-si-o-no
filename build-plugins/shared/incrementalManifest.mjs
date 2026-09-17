@@ -50,6 +50,7 @@ const RUNTIME_INPUT_KEYS = new Set([
 // marking their fresh arrays avoids recursively revalidating them per hash.
 const canonicalRelatedJobProjectionLists = new WeakSet();
 const canonicalMinimalJobInputs = new WeakSet();
+const CANONICAL_JSON = Symbol('incrementalManifestCanonicalJson');
 
 function normalizedKey(key) {
   return String(key).replace(/[^a-z0-9]/gi, '').toLowerCase();
@@ -95,6 +96,10 @@ function canonicalValue(value, inArray = false) {
   if (value === undefined) return inArray ? 'null' : undefined;
   if (value === null) return 'null';
 
+  if (typeof value === 'object' && value?.[CANONICAL_JSON] !== undefined) {
+    return value[CANONICAL_JSON];
+  }
+
   if (value instanceof Date) return JSON.stringify(value.toISOString());
 
   if (typeof value === 'object' && isCanonicalJsonReady(value, inArray)) {
@@ -135,9 +140,16 @@ function canonicalValue(value, inArray = false) {
   }
 }
 
+function canonicalMinimalJobInput(input) {
+  const entries = Object.entries(input)
+    .filter(([, value]) => value !== undefined)
+    .sort(([left], [right]) => compareStrings(left, right));
+  return `{${entries.map(([key, value]) => `${JSON.stringify(key)}:${canonicalValue(value)}`).join(',')}}`;
+}
+
 export function canonicalizeInput(input) {
   if (input && typeof input === 'object' && canonicalMinimalJobInputs.has(input)) {
-    return JSON.stringify(input);
+    return canonicalMinimalJobInput(input);
   }
   return canonicalValue(input) ?? 'null';
 }
@@ -146,11 +158,38 @@ function sha256(value) {
   return createHash('sha256').update(value, 'utf8').digest('hex');
 }
 
+function sha256Parts(parts) {
+  const hash = createHash('sha256');
+  for (const part of parts) hash.update(part, 'utf8');
+  return hash.digest('hex');
+}
+
+function markCanonicalJson(value, canonicalJson) {
+  Object.defineProperty(value, CANONICAL_JSON, {
+    value: canonicalJson,
+    enumerable: false,
+  });
+  return value;
+}
+
+export function createIncrementalManifestInputCache() {
+  return {
+    jobDigestsById: new Map(),
+    relatedJobProjectionsByKey: new Map(),
+    relatedProjectionListsByKey: new Map(),
+  };
+}
+
 const jobRecordDigestCache = new WeakMap();
 const relatedJobProjectionCache = new WeakMap();
 
-function digestJobRecord(job) {
+function digestJobRecord(job, inputCache = null) {
   if (!job || typeof job !== 'object') return sha256('{}');
+  const stableId = stableJobId(job);
+  if (inputCache && stableId) {
+    const cachedById = inputCache.jobDigestsById.get(stableId);
+    if (cachedById !== undefined) return cachedById;
+  }
   const cachedDigest = jobRecordDigestCache.get(job);
   if (cachedDigest !== undefined) return cachedDigest;
 
@@ -169,27 +208,37 @@ function digestJobRecord(job) {
   // the rendered JobPosting. Only generated build metadata is excluded above.
   const digest = sha256(JSON.stringify(record));
   jobRecordDigestCache.set(job, digest);
+  if (inputCache && stableId) inputCache.jobDigestsById.set(stableId, digest);
   return digest;
 }
 
-function projectRelatedJob(relatedJob, locale) {
+function projectRelatedJob(relatedJob, locale, inputCache = null) {
   const isRecord = relatedJob && typeof relatedJob === 'object';
   const id = isRecord ? stableJobId(relatedJob) : String(relatedJob ?? '');
   if (!id) return null;
   if (!isRecord) return { id, slug: '', digest: null };
+  const cacheKey = inputCache ? `${String(locale)}\u0000${id}` : null;
+  if (cacheKey) {
+    const cachedById = inputCache.relatedJobProjectionsByKey.get(cacheKey);
+    if (cachedById) return cachedById;
+  }
   let projectionsByLocale = relatedJobProjectionCache.get(relatedJob);
   if (!projectionsByLocale) {
     projectionsByLocale = new Map();
     relatedJobProjectionCache.set(relatedJob, projectionsByLocale);
   }
   const cachedProjection = projectionsByLocale.get(locale);
-  if (cachedProjection) return cachedProjection;
+  if (cachedProjection) {
+    if (cacheKey) inputCache.relatedJobProjectionsByKey.set(cacheKey, cachedProjection);
+    return cachedProjection;
+  }
   const projection = {
     id,
     slug: String(relatedJob?.slugByLocale?.[locale] || relatedJob?.slug || ''),
-    digest: digestJobRecord(relatedJob),
+    digest: digestJobRecord(relatedJob, inputCache),
   };
   projectionsByLocale.set(locale, projection);
+  if (cacheKey) inputCache.relatedJobProjectionsByKey.set(cacheKey, projection);
   return projection;
 }
 
@@ -202,7 +251,7 @@ export function templateVersionForKind(kind) {
 export function computeInputHash(input, kind, templateVersion = templateVersionForKind(kind)) {
   if (!PAGE_KINDS.includes(kind)) throw new Error(`Unknown incremental manifest page kind: ${kind}`);
   const canonical = canonicalizeInput(input);
-  return sha256(`${kind}\n${templateVersion}\n${canonical}`);
+  return sha256Parts([kind, '\n', templateVersion, '\n', canonical]);
 }
 
 /**
@@ -233,16 +282,33 @@ export function stableJobVersion(job) {
  * by a cheap digest; only the small related-job projection enters the
  * canonicalizer.
  */
-export function buildMinimalJobInput(job, locale, slug, relatedJobs = []) {
+export function buildMinimalJobInput(job, locale, slug, relatedJobs = [], inputCache = null) {
   const relatedJobList = Array.isArray(relatedJobs) ? relatedJobs : [];
-  const relatedJobProjections = relatedJobList
-    .map((relatedJob) => projectRelatedJob(relatedJob, locale))
-    .filter(Boolean);
-  canonicalRelatedJobProjectionLists.add(relatedJobProjections);
+  const stableId = stableJobId(job);
+  const relatedIds = inputCache && stableId
+    ? relatedJobList.map((relatedJob) => {
+      if (relatedJob && typeof relatedJob === 'object') return stableJobId(relatedJob);
+      return String(relatedJob ?? '');
+    })
+    : null;
+  const relatedCacheKey = relatedIds && relatedIds.every(Boolean)
+    ? `${stableId}\u0000${String(locale)}\u0000${relatedIds.join('\u0000')}`
+    : null;
+  let relatedJobProjections = relatedCacheKey
+    ? inputCache.relatedProjectionListsByKey.get(relatedCacheKey)
+    : undefined;
+  if (!relatedJobProjections) {
+    relatedJobProjections = relatedJobList
+      .map((relatedJob) => projectRelatedJob(relatedJob, locale, inputCache))
+      .filter(Boolean);
+    canonicalRelatedJobProjectionLists.add(relatedJobProjections);
+    markCanonicalJson(relatedJobProjections, JSON.stringify(relatedJobProjections));
+    if (relatedCacheKey) inputCache.relatedProjectionListsByKey.set(relatedCacheKey, relatedJobProjections);
+  }
 
   const input = {
     jobId: stableJobId(job),
-    jobRecordDigest: digestJobRecord(job),
+    jobRecordDigest: digestJobRecord(job, inputCache),
     jobVersion: stableJobVersion(job),
     locale: String(locale),
     relatedJobs: relatedJobProjections,
@@ -350,7 +416,7 @@ function safeLocaleFileName(locale) {
 export class IncrementalManifest {
   constructor(locale) {
     this.locale = String(locale);
-    this.entriesByKind = new Map(PAGE_KINDS.map((kind) => [kind, new Map()]));
+    this.entriesByPath = new Map();
     this.kindMetadata = new Map();
   }
 
@@ -369,19 +435,29 @@ export class IncrementalManifest {
       this.kindMetadata.set(kind, { templateVersion, sourceVersion, state: 'live' });
     }
 
-    for (const [existingKind, entries] of this.entriesByKind) {
-      if (existingKind !== kind) entries.delete(normalizedPath);
-    }
-    this.entriesByKind.get(kind).set(normalizedPath, {
+    const postWalk = compactPostWalkMetadata(input);
+    this.entriesByPath.set(normalizedPath, {
+      kind,
       hash: computeInputHash(input, kind, templateVersion),
-      postWalk: compactPostWalkMetadata(input),
+      templateVersion,
+      ...(postWalk ? { postWalk } : {}),
     });
   }
 
+  hasPath(pagePath) {
+    return this.entriesByPath.has(normalizeManifestPath(pagePath));
+  }
+
+  getHash(pagePath, kind = null) {
+    if (!pagePath) return null;
+    const entry = this.entriesByPath.get(normalizeManifestPath(pagePath));
+    if (!entry || (kind && entry.kind !== kind)) return null;
+    return entry.hash;
+  }
+
   counts() {
-    const byKind = Object.fromEntries(
-      PAGE_KINDS.map((kind) => [kind, this.entriesByKind.get(kind).size]),
-    );
+    const byKind = Object.fromEntries(PAGE_KINDS.map((kind) => [kind, 0]));
+    for (const entry of this.entriesByPath.values()) byKind[entry.kind] += 1;
     return {
       total: Object.values(byKind).reduce((sum, count) => sum + count, 0),
       byKind,
@@ -418,13 +494,16 @@ export class IncrementalManifest {
         format: MANIFEST_FORMAT,
         locale: this.locale,
       });
+      const entriesForKind = new Map(PAGE_KINDS.map((kind) => [kind, []]));
+      for (const [pagePath, entry] of this.entriesByPath) {
+        entriesForKind.get(entry.kind).push([pagePath, entry]);
+      }
       for (const kind of PAGE_KINDS) {
-        const entries = this.entriesByKind.get(kind);
-        if (entries.size === 0) continue;
+        const entries = entriesForKind.get(kind);
+        if (entries.length === 0) continue;
         writeLine({ type: 'kind', kind, ...this.kindMetadata.get(kind) });
-        const sortedPaths = [...entries.keys()].sort(compareStrings);
-        for (const pagePath of sortedPaths) {
-          const entry = entries.get(pagePath);
+        entries.sort(([left], [right]) => compareStrings(left, right));
+        for (const [pagePath, entry] of entries) {
           writeLine({
             path: pagePath,
             hash: entry.hash,
@@ -448,6 +527,18 @@ export class IncrementalManifest {
 // Keep one manifest instance per build root/locale so their writes compose in
 // memory and the later writer cannot overwrite the other plugin's kinds.
 const manifestMapsByRoot = new Map();
+const manifestInputCachesByRoot = new Map();
+
+export function getIncrementalManifestInputCache(rootDir) {
+  if (!INCREMENTAL_MANIFEST_ENABLED) return null;
+  const rootKey = path.resolve(String(rootDir));
+  let inputCache = manifestInputCachesByRoot.get(rootKey);
+  if (!inputCache) {
+    inputCache = createIncrementalManifestInputCache();
+    manifestInputCachesByRoot.set(rootKey, inputCache);
+  }
+  return inputCache;
+}
 
 export function getIncrementalManifestMap(rootDir, locales) {
   if (!INCREMENTAL_MANIFEST_ENABLED) return null;
