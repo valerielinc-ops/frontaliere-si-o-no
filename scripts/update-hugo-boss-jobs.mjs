@@ -92,6 +92,7 @@ async function fetchJobs() {
   const allJobsById = new Map();
   let from = 0;
   let totalHits = null;
+  let recordsSeen = 0;
   const MAX_PAGES = 20;
 
   for (let page = 0; page < MAX_PAGES; page += 1) {
@@ -117,12 +118,30 @@ async function fetchJobs() {
       const key = job.jobId || job.reqId;
       if (key && !allJobsById.has(key)) allJobsById.set(key, job);
     }
-    if (pageJobs.length < PAGE_SIZE || (totalHits !== null && from + pageJobs.length >= totalHits)) break;
+    // A short page is NOT proof that the result set ended: the Phenom DDO
+    // serves short pages mid-set while still declaring a higher totalHits.
+    // Stop only on a genuinely empty page (no forward progress possible) or
+    // once the declared total has been reached; fall back to the short-page
+    // heuristic only when the portal declares no total at all.
+    if (pageJobs.length === 0) break;
+    recordsSeen += pageJobs.length;
     from += pageJobs.length;
+    if (totalHits !== null && from >= totalHits) break;
+    if (totalHits === null && pageJobs.length < PAGE_SIZE) break;
   }
 
   const allJobs = [...allJobsById.values()];
   console.log(`  📋 Total jobs in national DDO: ${allJobs.length}`);
+
+  // A partial read cannot prove the absence of Swiss jobs — the missing
+  // records may be exactly the ones we are looking for. Fail loudly rather
+  // than publish "0 Swiss jobs" derived from a truncated result set.
+  if (totalHits !== null && recordsSeen < totalHits) {
+    throw new Error(
+      `Hugo Boss national DDO read is incomplete: ${recordsSeen} of ${totalHits} declared records fetched. `
+      + 'Refusing to conclude anything about Swiss openings from a truncated set.',
+    );
+  }
 
   const swissJobs = allJobs.filter(isHugoBossTargetLocation);
   console.log(`  🎯 Swiss jobs across all cantons: ${swissJobs.length}`);
