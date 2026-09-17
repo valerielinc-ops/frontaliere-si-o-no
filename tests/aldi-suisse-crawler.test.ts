@@ -2,7 +2,7 @@
  * ALDI Suisse crawler parser tests
  *
  * Tests parseAldiSearchResults(), parseAldiListingPage(),
- * parseAldiDetailPage(), isAldiTicinoJob(), isAldiJob(), and constants.
+ * parseAldiDetailPage(), isAldiJob(), and constants.
  */
 import { describe, it, expect } from 'vitest';
 
@@ -10,7 +10,6 @@ import {
   parseAldiSearchResults,
   parseAldiListingPage,
   parseAldiDetailPage,
-  isAldiTicinoJob,
   isAldiJob,
   ALDI_SEARCH_API,
   ALDI_SUCCESSFACTORS_BASE,
@@ -334,31 +333,6 @@ describe('parseAldiDetailPage', () => {
 });
 
 // ===================================================================
-// isAldiTicinoJob
-// ===================================================================
-
-describe('isAldiTicinoJob', () => {
-  it('returns true for Bellinzona', () => {
-    expect(isAldiTicinoJob({ location: 'Bellinzona' })).toBe(true);
-  });
-
-  it('returns true for canton TI', () => {
-    expect(isAldiTicinoJob({ canton: 'TI' })).toBe(true);
-  });
-
-  it('returns false for Zurich', () => {
-    expect(isAldiTicinoJob({ location: 'Zurich' })).toBe(false);
-  });
-
-  it('returns false for null', () => {
-    expect(isAldiTicinoJob(null)).toBe(false);
-  });
-
-  it('returns true for Giubiasco', () => {
-    expect(isAldiTicinoJob({ location: 'Giubiasco' })).toBe(true);
-  });
-});
-
 // ===================================================================
 // isAldiJob
 // ===================================================================
