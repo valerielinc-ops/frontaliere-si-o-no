@@ -1,9 +1,9 @@
 name: Loop fleet durable ledger
 
 # Each loop writes only a runner-local artifact. This workflow is the narrow
-# persistence bridge: it validates one completed artifact, appends it to a
-# dedicated ledger branch and opens/updates a normal PR. It never pushes main,
-# publishes data, changes exposure, or calls a commercial/communication API.
+# persistence bridge: it validates one completed artifact and appends it to the
+# durable ledger branch. It never pushes main, publishes data, changes exposure,
+# or calls a commercial/communication API.
 on:
   workflow_run:
     workflows:
@@ -37,12 +37,11 @@ on:
         type: string
 
 # The GITHUB_TOKEN is read-only. A reviewed App/PAT token is required only for
-# the explicit branch push and PR API call below, so missing write authority
-# fails closed before any remote write.
+# the explicit durable-branch push below, so missing write authority fails
+# closed before any remote write.
 permissions:
   contents: read
   actions: read
-  pull-requests: read
 
 concurrency:
   group: loop-fleet-durable-ledger
@@ -63,20 +62,13 @@ jobs:
             /data/loop-fleet/loop-registry.json
             /data/loop-fleet/ledger/
             /scripts/ci/merge-loop-fleet-ledger.mjs
-            /scripts/ci/loop-fleet-epoch-policy.mjs
             /scripts/lib/canonical-json-digest.mjs
             /scripts/ci/mint-app-token.mjs
-            /scripts/ci/pr-body-check-gate.mjs
-            /scripts/ci/lib/hook-exit-codes.mjs
-            /scripts/ci/lib/hook-target-cwd.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/githubApiHeaders.mjs
             /scripts/lib/google-service-account-token.mjs
-            /scripts/lib/pr-body-sections-check.mjs
-            /scripts/ci/lib/false-positive-declaration.mjs
             /functions/src/githubApiHeaders.js
             /scripts/load-rc-env.mjs
-            /.github/workflows/loop-fleet-ledger.yml
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
@@ -183,7 +175,7 @@ jobs:
       - name: Load reviewed write credentials from Remote Config
         run: node scripts/load-rc-env.mjs
 
-      - name: Mint App token for the reviewed PR path
+      - name: Mint App token for the durable ledger branch
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -191,7 +183,7 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
 
-      - name: Append ledger and open or update PR
+      - name: Append ledger to durable branch
         env:
           SOURCE_LOOP: ${{ steps.source.outputs.loop }}
           SOURCE_RUN_ID: ${{ steps.source.outputs.run_id }}
@@ -212,10 +204,9 @@ jobs:
             return "$status"
           }
           export GIT_TERMINAL_PROMPT=0
-          export GH_PAGER=cat
           write_token="${APP_TOKEN:-${GITHUB_PAT:-}}"
           if [ -z "$write_token" ]; then
-            echo "::error::No reviewed App/PAT token; refusing to push a ledger branch or open a PR."
+            echo "::error::No reviewed App/PAT token; refusing to push the durable ledger branch."
             exit 1
           fi
           export GH_TOKEN="$write_token"
@@ -225,171 +216,62 @@ jobs:
           bounded_remote git fetch origin main
           git checkout --detach origin/main
 
-          base_branch='chore/loop-fleet-ledger'
-          open_epoch_prs=$(bounded_remote gh pr list \
-            --repo "$GITHUB_REPOSITORY" \
-            --state open \
-            --limit 1000 \
-            --json number,headRefName,baseRefName,createdAt \
-            --jq 'map(select(.baseRefName == "main" and (.headRefName == "chore/loop-fleet-ledger" or (.headRefName | test("^chore/loop-fleet-ledger-L([0-9]|1[01])-[0-9]+-[0-9]+$")))))')
-          open_epoch_count=$(jq 'length' <<<"$open_epoch_prs")
-          open_pr_record=$(jq -r 'sort_by(.number) | if length == 0 then "" else .[-1] | [(.number | tostring), .headRefName, .createdAt] | @tsv end' <<<"$open_epoch_prs")
-          open_pr=''
-          open_branch=''
-          open_created_at=''
-          if [ -n "$open_pr_record" ]; then
-            IFS=$'\t' read -r open_pr open_branch open_created_at <<<"$open_pr_record"
-          fi
-          branch="$base_branch"
-          ledger_branch=''
-          orphan_recovery='false'
-          frozen_epoch='false'
-
-          # An epoch cap is a routing decision, not a discard decision. Keep
-          # the source batch durable by opening a bridge-only suffixed PR from
-          # origin/main; never append it to a frozen PR and never share the
-          # lifecycle observer's branch namespace.
-          if [ -n "$open_pr" ]; then
-            bounded_remote git fetch origin "$open_branch"
-            epoch_batch_count=$(git log "origin/$open_branch" --format='%s' --not origin/main \
-              | awk '/^chore\(loop-fleet\): persist / { count += 1 } END { print count + 0 }')
-            epoch_age_minutes=''
-            if [ -n "$open_created_at" ]; then
-              created_epoch=$(date -d "$open_created_at" +%s 2>/dev/null || true)
-              now_epoch=$(date +%s)
-              if [ -n "$created_epoch" ] && [ "$now_epoch" -ge "$created_epoch" ]; then
-                epoch_age_minutes=$(( (now_epoch - created_epoch) / 60 ))
-              fi
-            fi
-            epoch_decision=$(node scripts/ci/loop-fleet-epoch-policy.mjs \
-              --open-pr true \
-              --batch-count "$epoch_batch_count" \
-              --age-minutes "$epoch_age_minutes" \
-              --open-epoch-count "$open_epoch_count")
-            if [ "$(jq -r '.allow' <<<"$epoch_decision")" != 'true' ]; then
-              reason=$(jq -r '.reason' <<<"$epoch_decision")
-              route=$(jq -r '.route' <<<"$epoch_decision")
-              preserve_source=$(jq -r '.preserveSource' <<<"$epoch_decision")
-              if [ "$route" = 'defer-source' ] && [ "$preserve_source" = 'true' ]; then
-                echo "::notice::ledger epoch deferred because ${open_epoch_count} open bridge epochs reached the cap ($reason); source run $SOURCE_RUN_ID is preserved for the next bridge/reconcile run and no new ledger PR is opened."
-                exit 0
-              fi
-              echo "::notice::ledger epoch routed to a new batch PR because PR #$open_pr is bounded ($reason); source run $SOURCE_RUN_ID is preserved."
-              open_pr=''
-              open_branch=''
-              open_created_at=''
-              branch="${base_branch}-${SOURCE_LOOP}-${SOURCE_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-              frozen_epoch='true'
-            else
-              branch="$open_branch"
-              ledger_branch="$open_branch"
-            fi
-          fi
-
-          source_orphan_branch=''
-          base_branch_ref=''
-          source_orphan_branch=$(bounded_remote git ls-remote --heads origin "refs/heads/${base_branch}-${SOURCE_LOOP}-${SOURCE_RUN_ID}-*" | sed -n '1{s#.*refs/heads/##;p}')
-          if [ -z "$open_pr" ] && [ "$frozen_epoch" != 'true' ] && [ -z "$source_orphan_branch" ]; then
-            base_branch_ref=$(bounded_remote git ls-remote --heads origin "refs/heads/$base_branch")
-          fi
-          if [ "$frozen_epoch" = 'true' ] && [ -n "$source_orphan_branch" ]; then
-            ledger_branch="$source_orphan_branch"
-            branch="$source_orphan_branch"
-            orphan_recovery='true'
-          elif [ -z "$open_pr" ] && [ "$frozen_epoch" != 'true' ] && [ -n "$source_orphan_branch" ]; then
-            ledger_branch="$source_orphan_branch"
-            branch="$source_orphan_branch"
-            orphan_recovery='true'
-          elif [ -z "$open_pr" ] && [ "$frozen_epoch" != 'true' ] && [ -n "$base_branch_ref" ]; then
-            ledger_branch="$base_branch"
-            branch="${base_branch}-${SOURCE_LOOP}-${SOURCE_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-            orphan_recovery='true'
-          fi
-          if [ -n "$ledger_branch" ]; then
+          ledger_branch='ledger/loop-fleet'
+          ledger_worktree="${RUNNER_TEMP}/loop-fleet-ledger-worktree"
+          ledger_start='origin/main'
+          if bounded_remote git ls-remote --exit-code --heads origin "refs/heads/$ledger_branch" >/dev/null 2>&1; then
             bounded_remote git fetch origin "$ledger_branch"
-            for ledger_file in loop-observations.jsonl loop-decisions.jsonl loop-health-history.jsonl lifecycle-events.jsonl; do
-              if git cat-file -e "origin/$ledger_branch:data/loop-fleet/ledger/$ledger_file" 2>/dev/null; then
-                mkdir -p data/loop-fleet/ledger
-                git show "origin/$ledger_branch:data/loop-fleet/ledger/$ledger_file" > "data/loop-fleet/ledger/$ledger_file"
-              fi
-            done
+            ledger_start="origin/$ledger_branch"
           fi
+          # Keep validators and the registry from the current main checkout;
+          # only the append-only ledger is opened in the durable worktree.
+          # When the branch is absent this seeds it from main's ledger history.
+          git worktree add --no-checkout -B ledger-work "$ledger_worktree" "$ledger_start"
+          git -C "$ledger_worktree" checkout -- data/loop-fleet/ledger/
+          git -C "$ledger_worktree" ls-files --error-unmatch data/loop-fleet/ledger/ >/dev/null
+          ledger_dir="$ledger_worktree/data/loop-fleet/ledger"
 
-          node scripts/ci/merge-loop-fleet-ledger.mjs \
-            --loop "$SOURCE_LOOP" \
-            --run-id "$SOURCE_RUN_ID" \
-            --sha "$SOURCE_SHA" \
-            --input-dir "$INPUT_DIR" \
-            --ledger-dir data/loop-fleet/ledger \
-            --registry data/loop-fleet/loop-registry.json
+          for attempt in 1 2 3 4 5; do
+            # Re-apply the validated batch against the current tip every
+            # attempt. The merge helper is idempotent by recordId and fails
+            # closed on conflicting duplicates.
+            node scripts/ci/merge-loop-fleet-ledger.mjs \
+              --loop "$SOURCE_LOOP" \
+              --run-id "$SOURCE_RUN_ID" \
+              --sha "$SOURCE_SHA" \
+              --input-dir "$INPUT_DIR" \
+              --ledger-dir "$ledger_dir" \
+              --registry data/loop-fleet/loop-registry.json
 
-          merged_dir="$RUNNER_TEMP/loop-fleet-ledger-merged"
-          rm -rf "$merged_dir"
-          mv data/loop-fleet/ledger "$merged_dir"
-          if [ -n "$ledger_branch" ]; then
-            git checkout -b "$branch" "origin/$ledger_branch"
-          else
-            git checkout -b "$branch"
-          fi
-          mkdir -p data/loop-fleet/ledger
-          cp -R "$merged_dir"/. data/loop-fleet/ledger/
-
-          if git diff --quiet -- data/loop-fleet/ledger \
-              && [ -z "$(git ls-files --others --exclude-standard data/loop-fleet/ledger)" ] \
-              && [ "$orphan_recovery" != 'true' ]; then
-            echo 'Source run already exists in the durable ledger; no PR update needed.'
-            exit 0
-          fi
-
-          if ! git diff --quiet -- data/loop-fleet/ledger \
-              || [ -n "$(git ls-files --others --exclude-standard data/loop-fleet/ledger)" ]; then
-            git add data/loop-fleet/ledger
-            git commit -m "chore(loop-fleet): persist ${SOURCE_LOOP} evidence from run ${SOURCE_RUN_ID}"
-          else
-            echo 'Recovering an orphan ledger branch that already contains this validated batch.'
-          fi
-          basic_auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 | tr -d '\n')
-          GIT_CONFIG_COUNT=1 \
-          GIT_CONFIG_KEY_0='http.https://github.com/.extraheader' \
-          GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}" \
-            bounded_remote git push --set-upstream origin "$branch"
-          unset basic_auth
-
-          body="$RUNNER_TEMP/loop-fleet-ledger-pr-body.md"
-          cat > "$body" <<EOF
-          Auto-generated ledger PR. Latest immutable batch: [${SOURCE_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}) for ${SOURCE_LOOP}.
-          This PR contains one bounded source batch; bridge-only suffixed PRs are used when an older epoch reaches its liveness cap.
-
-          ## Implementato
-          - Appended the validated observation, decision, health and lifecycle records for the latest ${SOURCE_LOOP} batch to the durable JSONL ledger; duplicate record IDs are idempotent and conflicting duplicates fail closed.
-          - Preserved the independent-outcome status, registry autonomy ceiling, source references and lifecycle evidence from the source artifact.
-
-          ## Non implementato (ancora)
-          - Domain-specific independent exports remain unmeasurable until their authorized owners provide a fresh joined source — blocked: the source export/consent is external to this repository.
-          - Direct writes to main, published surfaces, prices, commissions, partners, subscriptions, advertising layout, outreach and revenue systems remain disabled — per scelta: the fleet control plane is limited to reviewed ledger PRs and bounded evidence.
-          EOF
-          node scripts/ci/pr-body-check-gate.mjs --body-file "$body"
-          if [ -n "$open_pr" ]; then
-            for edit_attempt in 1 2 3; do
-              if bounded_remote gh pr edit "$open_pr" --repo "$GITHUB_REPOSITORY" --body-file "$body"; then
-                break
-              fi
-              if [ "$edit_attempt" -eq 3 ]; then
-                echo "::error::GitHub PR API did not accept the ledger PR update after 3 attempts."
-                exit 1
-              fi
-              retry_delay=$((edit_attempt * 2))
-              echo "::warning::GitHub PR API update failed on attempt $edit_attempt; retrying in ${retry_delay}s."
-              sleep "$retry_delay"
-            done
-          else
-            bounded_remote gh pr create \
-              --repo "$GITHUB_REPOSITORY" \
-              --base main \
-              --head "$branch" \
-              --title "chore(loop-fleet): persist durable evidence batches" \
-              --body-file "$body"
-          fi
+            if git -C "$ledger_worktree" diff --quiet -- data/loop-fleet/ledger \
+                && [ -z "$(git -C "$ledger_worktree" ls-files --others --exclude-standard data/loop-fleet/ledger)" ]; then
+              echo 'Source run already present in the durable ledger; nothing to append.'
+              exit 0
+            fi
+            git -C "$ledger_worktree" add data/loop-fleet/ledger
+            git -C "$ledger_worktree" commit -m "chore(loop-fleet): persist ${SOURCE_LOOP} evidence from run ${SOURCE_RUN_ID}"
+            basic_auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 | tr -d '\n')
+            if GIT_CONFIG_COUNT=1 \
+              GIT_CONFIG_KEY_0='http.https://github.com/.extraheader' \
+              GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}" \
+              bounded_remote git -C "$ledger_worktree" push origin "HEAD:refs/heads/$ledger_branch"; then
+              unset basic_auth
+              exit 0
+            fi
+            unset basic_auth
+            if bounded_remote git fetch origin "$ledger_branch"; then
+              # Rebase only the isolated ledger worktree onto the fetched tip;
+              # the main worktree keeps the current validator and registry.
+              git -C "$ledger_worktree" checkout -B ledger-work "origin/$ledger_branch"
+            else
+              bounded_remote git fetch origin main
+              git -C "$ledger_worktree" checkout -B ledger-work origin/main
+            fi
+            git -C "$ledger_worktree" checkout -- data/loop-fleet/ledger/
+            sleep $((attempt * 3))
+          done
+          echo "::error::could not append the validated batch to $ledger_branch after 5 attempts"
+          exit 1
 
       - name: Cleanup Firebase credentials
         if: always()
