@@ -1,12 +1,21 @@
 import { readFileSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
 import {
+  buildMopupRequest,
   classifyMopupWrite,
+  finalizeMopupTranslation,
   languageAwareOverwriteEnabled,
   missingSlots,
   shouldApplyMopupWrite,
 } from '../scripts/local-mt-mopup.mjs';
-import { stratifyByCompany, companyKey } from '../scripts/research/argos-reject-audit.mjs';
+import { maskProtectedTokens } from '../scripts/lib/translation-glossary.mjs';
+import {
+  classifyBinnenVariant,
+  classifyNormalizationArm,
+  normalizeBinnenISource,
+  stratifyByCompany,
+  companyKey,
+} from '../scripts/research/argos-reject-audit.mjs';
 
 describe('classifyMopupWrite() — the mop-up rejection chain, made observable', () => {
   it('writes a genuinely missing title', () => {
@@ -237,5 +246,70 @@ describe('stratifyByCompany()', () => {
     // Proportionally fachkraft.ch is 98% of the pool; round-robin caps it at ~1/3.
     expect(fromFachkraft).toBeLessThanOrEqual(Math.ceil(picked.length / 2));
     expect(new Set(picked.map((p) => companyKey(p.job))).size).toBe(3);
+  });
+});
+
+describe('braccio research binnen-i', () => {
+  it('normalizza le quattro forme richieste e lascia intatte le classi vicine', () => {
+    const source = 'Mitarbeiter:in Mitarbeiter*innen Mitarbeiter_in Koch/-in Fachfrau:mann Mitarbeiter:r (m/w/d)';
+    expect(normalizeBinnenISource(source))
+      .toBe('Mitarbeiter Mitarbeiter Mitarbeiter Koch Fachfrau:mann Mitarbeiter:r (m/w/d)');
+  });
+
+  it('riporta alternativa e variante senza confondere :mann o :r con binnen-i', () => {
+    expect(classifyBinnenVariant('Mitarbeiter:in')).toEqual({
+      alternative: 'separator-in', variant: 'colon-in',
+    });
+    expect(classifyBinnenVariant('Mitarbeiter*innen')).toEqual({
+      alternative: 'separator-in', variant: 'asterisk-innen',
+    });
+    expect(classifyBinnenVariant('Mitarbeiter_in')).toEqual({
+      alternative: 'separator-in', variant: 'underscore-in',
+    });
+    expect(classifyBinnenVariant('Koch/-in')).toEqual({
+      alternative: 'slash-in', variant: 'slash-hyphen-in',
+    });
+    expect(classifyBinnenVariant('Fachfrau:mann')).toEqual({
+      alternative: 'colon-suffix', variant: 'colon-suffix',
+    });
+    expect(classifyBinnenVariant('Mitarbeiter:r')).toEqual({
+      alternative: 'gender-r', variant: 'gender-r',
+    });
+  });
+
+  it('usa la stessa richiesta mascherata prima del classifier reale', () => {
+    const source = normalizeBinnenISource('Mitarbeiter:in (m/w/d)');
+    const { request, protectedTokens } = buildMopupRequest({
+      id: 'n1', text: source, from: 'de', to: 'it', field: 'title',
+    });
+    const masked = maskProtectedTokens(source);
+    expect(request.text).toBe(masked.text);
+    expect(protectedTokens).toEqual(masked.tokens);
+    expect(request.text).not.toContain('(m/w/d)');
+    expect(protectedTokens).toHaveLength(1);
+  });
+
+  it('misura la decisione write e la write guard senza modificare il job', () => {
+    const source = 'Mitarbeiter:in';
+    const job = {
+      sourceLang: 'de',
+      title: source,
+      titleByLocale: { de: source, it: source },
+    };
+    const out = classifyNormalizationArm({
+      job, locale: 'it', field: 'title', rawText: 'Macellaio',
+    });
+    expect(out.decision).toBe('write');
+    expect(out.wouldApply).toBe(true);
+    expect(out.normalizedSourceText).toBe('Mitarbeiter');
+    expect(out.incoming).toBe(finalizeMopupTranslation({
+      sourceText: out.normalizedSourceText,
+      rawText: 'Macellaio',
+      targetLang: 'it',
+      fieldType: 'title',
+      protectedTokens: [],
+    }));
+    expect(job.title).toBe(source);
+    expect(job.titleByLocale.it).toBe(source);
   });
 });
