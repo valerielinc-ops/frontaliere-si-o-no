@@ -47,6 +47,21 @@ describe('Manor jobs2web URL and title parsing', () => {
     );
   });
 
+  it('keeps the portal city out of streetAddress when SuccessFactors combines it with CH', () => {
+    const page = `
+      <meta property="og:title" content="Collaborateur/trice service 50%" />
+      <meta itemprop="streetAddress" content="Chavannes-de-Bogis, CH" />
+      <meta itemprop="datePosted" content="Mon Aug 24 00:00:00 UTC 2026" />
+    `;
+
+    expect(parseJobPage(page, BIEL_URL)).toMatchObject({
+      location: 'Chavannes-de-Bogis',
+      streetAddress: '',
+      postalCode: '',
+      addressRegion: '',
+    });
+  });
+
   it('removes the site suffix while preserving the role title', () => {
     expect(stripSiteTitleSuffix('Verkäufer*in 60% | Manor')).toBe('Verkäufer*in 60%');
     expect(stripSiteTitleSuffix('Verkäufer*in 60% - Manor AG')).toBe('Verkäufer*in 60%');
