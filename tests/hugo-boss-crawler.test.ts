@@ -4,7 +4,9 @@
  * Tests parseSearchPage(), parseDetailPage(), buildDetailUrl(),
  * detectCategory(), detectExperienceLevel(), and isHugoBossTargetLocation().
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+
+import { fetchJobs } from '../scripts/update-hugo-boss-jobs.mjs';
 
 import {
   assertHugoBossNationalReadComplete,
@@ -137,6 +139,25 @@ phApp.ddo = {
 </html>
 `;
 
+function makeSearchPage(totalHits: number, jobs: Record<string, unknown>[]) {
+  return `<script>phApp.ddo = ${JSON.stringify({
+    eagerLoadRefineSearch: { data: { totalHits, jobs } },
+  })}; phApp.experimentData = {};</script>`;
+}
+
+function makeSwissJob(id: string, title = `Swiss job ${id}`) {
+  return {
+    jobId: id,
+    reqId: id,
+    title,
+    city: 'Zürich',
+    state: 'Zürich',
+    cityStateCountry: 'Zürich, Zürich, Switzerland',
+    country: 'Switzerland',
+    jobSeqNo: `HUBOGLOBAL${id}EXTERNALENGLOBAL`,
+  };
+}
+
 // ─── Tests ──────────────────────────────────────────────────────────────────
 
 describe('extractPhenomDdo', () => {
@@ -179,6 +200,37 @@ describe('parseSearchPage', () => {
 
   it('returns empty array for HTML without DDO', () => {
     expect(parseSearchPage('<html><body>No jobs</body></html>')).toHaveLength(0);
+  });
+});
+
+describe('fetchJobs national pagination', () => {
+  it('advances by raw DDO records when a page item is filtered out', async () => {
+    const pages = new Map([
+      ['0', makeSearchPage(4, [
+        makeSwissJob('valid-1'),
+        { jobId: 'dropped-1', reqId: 'dropped-1' },
+      ])],
+      ['2', makeSearchPage(4, [
+        makeSwissJob('valid-2'),
+        makeSwissJob('valid-3'),
+      ])],
+    ]);
+    const requestedFroms: string[] = [];
+    const fetchHtml = vi.fn(async (url: string | URL) => {
+      const from = new URL(String(url)).searchParams.get('from') || '';
+      requestedFroms.push(from);
+      return pages.get(from) || makeSearchPage(4, []);
+    });
+
+    const jobs = await fetchJobs({ fetchHtml });
+
+    expect(requestedFroms).toEqual(['0', '2']);
+    expect(fetchHtml).toHaveBeenCalledTimes(2);
+    expect(jobs.map((job) => job.title)).toEqual([
+      'Swiss job valid-1',
+      'Swiss job valid-2',
+      'Swiss job valid-3',
+    ]);
   });
 });
 

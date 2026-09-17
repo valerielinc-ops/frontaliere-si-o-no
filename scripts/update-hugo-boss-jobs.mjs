@@ -50,6 +50,7 @@ const COMPANY_NAME = 'Hugo Boss';
 const COMPANY_HOST = 'careers.hugoboss.com';
 const CAREERS_URL = 'https://careers.hugoboss.com/global/en/search-results?keywords=';
 const PAGE_SIZE = 100;
+const MAX_PAGES = 20;
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 function normalize(value = '') { return String(value || '').trim().toLowerCase(); }
@@ -88,20 +89,19 @@ function slugify(value = '') {
   return truncateSlugAtWordBoundary(slug, 200);
 }
 
-async function fetchJobs() {
+export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
   console.log(`🔍 Fetching Hugo Boss jobs from ${CAREERS_URL}`);
   const allJobsById = new Map();
   let from = 0;
   let totalHits = null;
   let recordsSeen = 0;
   let terminationProven = false;
-  const MAX_PAGES = 20;
 
   for (let page = 0; page < MAX_PAGES; page += 1) {
     const pageUrl = new URL(CAREERS_URL);
     pageUrl.searchParams.set('from', String(from));
     pageUrl.searchParams.set('pageSize', String(PAGE_SIZE));
-    const html = await fetchPage(pageUrl.href, 25000);
+    const html = await fetchHtml(pageUrl.href, 25000);
     if (!html) {
       if (page === 0) console.error('❌ Failed to fetch Hugo Boss careers page.');
       break;
@@ -114,8 +114,10 @@ async function fetchJobs() {
       ?? 0,
     );
     if (reportedTotal > 0) totalHits = reportedTotal;
+    const rawPageJobs = ddo?.eagerLoadRefineSearch?.data?.jobs;
+    const rawPageCount = Array.isArray(rawPageJobs) ? rawPageJobs.length : 0;
     const pageJobs = parseSearchPage(html);
-    console.log(`  📄 Page ${page + 1}: ${pageJobs.length} jobs (from=${from}${totalHits ? `, total=${totalHits}` : ''})`);
+    console.log(`  📄 Page ${page + 1}: ${pageJobs.length} parsed jobs from ${rawPageCount} DDO records (from=${from}${totalHits ? `, total=${totalHits}` : ''})`);
     for (const job of pageJobs) {
       const key = job.jobId || job.reqId;
       if (key && !allJobsById.has(key)) allJobsById.set(key, job);
@@ -125,17 +127,17 @@ async function fetchJobs() {
     // Stop only on a genuinely empty page (no forward progress possible) or
     // once the declared total has been reached; fall back to the short-page
     // heuristic only when the portal declares no total at all.
-    if (pageJobs.length === 0) {
+    if (rawPageCount === 0) {
       terminationProven = true;
       break;
     }
-    recordsSeen += pageJobs.length;
-    from += pageJobs.length;
-    if (totalHits !== null && from >= totalHits) {
+    recordsSeen += rawPageCount;
+    from += rawPageCount;
+    if (totalHits !== null && recordsSeen >= totalHits) {
       terminationProven = true;
       break;
     }
-    if (totalHits === null && pageJobs.length < PAGE_SIZE) {
+    if (totalHits === null && rawPageCount < PAGE_SIZE) {
       terminationProven = true;
       break;
     }
@@ -265,4 +267,7 @@ async function main() {
   console.log('\n✅ Hugo Boss crawler complete.');
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Hugo Boss'));
+const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isDirectRun) {
+  main().catch((err) => exitCrawlerOnError(err, 'Hugo Boss'));
+}
