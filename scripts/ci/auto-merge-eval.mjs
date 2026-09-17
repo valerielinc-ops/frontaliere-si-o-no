@@ -472,10 +472,6 @@ function main() {
       || pr.baseRefName !== 'main') {
     return fail(`Metadata PR #${PR} non verificabile (title/body/labels/base) — deny fail-closed senza approvazione umana, skip.`);
   }
-  if (labels.some((label) => String(label || '').toLowerCase() === 'needs-human')) {
-    return fail(`PR #${PR} marcata needs-human: veto persistente, rimozione solo da umano con approvazione sulla HEAD — skip.`);
-  }
-
   // Legacy/debug evaluator still has a native `--auto` mutation below. Keep
   // it behind the same PR-surface verification as the native gate; an
   // incomplete file list is not evidence that the snapshot is trustworthy.
@@ -499,10 +495,6 @@ function main() {
   if (!risk.verifiable) {
     return fail(`Policy PR non verificabile per l'auto-merge legacy PR #${PR}: ${risk.reason} — deny fail-closed senza approvazione umana, skip.`);
   }
-  if (risk.needsHumanVeto) {
-    return fail(`PR #${PR} marcata needs-human: veto persistente, rimozione solo da umano con approvazione sulla HEAD — skip.`);
-  }
-
   // 2. Ultima review del bot reviewer sulla HEAD corrente: `## LGTM` e NO 🔴 Important.
   let reviews;
   try {
@@ -707,9 +699,8 @@ function main() {
     return fail(`Metadata o HEAD PR #${PR} cambiati durante la valutazione — skip; nessuna mutation su snapshot stantio.`);
   }
   if (!Array.isArray(freshPr.labels) || freshPr.state !== 'OPEN'
-      || freshPr.isDraft !== false || freshPr.baseRefName !== 'main'
-      || freshPr.labels.some((label) => String(label?.name || '').toLowerCase() === 'needs-human')) {
-    return fail(`PR #${PR} non più eleggibile o needs-human aggiunta nella rilettura finale — skip.`);
+      || freshPr.isDraft !== false || freshPr.baseRefName !== 'main') {
+    return fail(`PR #${PR} non più eleggibile nella rilettura finale — skip.`);
   }
   if (!freshFileSnapshot.complete) {
     return fail(`File-list finale PR #${PR} incompleto (${freshFileSnapshot.reason}) — deny fail-closed senza approvazione umana, skip.`);
@@ -725,10 +716,6 @@ function main() {
   if (!freshRisk.verifiable) {
     return fail(`Policy PR finale non verificabile per #${PR}: ${freshRisk.reason} — deny fail-closed senza approvazione umana, skip.`);
   }
-  if (freshRisk.needsHumanVeto) {
-    return fail(`PR #${PR} marcata needs-human nella rilettura finale: veto persistente, rimozione solo da umano — skip.`);
-  }
-
   // Tutti i gate passano → abilita il merge automatico nativo di GitHub. Il
   // Ruleset/branch protection decide quando il merge può realmente avvenire;
   // questo evaluator verifica ancora i gate custom per compatibilità durante

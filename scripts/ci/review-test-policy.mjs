@@ -394,8 +394,9 @@ function isRawLedgerAppendOnly(baseContent, headContent) {
 /**
  * Read and independently verify the exact ledger-only authorization target.
  *
- * `not-ledger-only` is a known, complete non-match (mixed/unknown/rename or
- * the persistent needs-human veto): the ordinary full tests path owns it.
+ * `not-ledger-only` is a known, complete non-match (mixed/unknown/rename): the
+ * ordinary full tests path owns it. `needs-human` is only a tracking label and
+ * does not change this fast-path eligibility.
  * `unverifiable` means a race, incomplete list or malformed metadata and must
  * fail the fast check rather than silently authorizing anything.
  */
@@ -416,9 +417,6 @@ export function inspectLedgerOnlyHead(ghFn, repo, pr, head) {
   // with a malformed description belongs to the ordinary body/tests path; it
   // must not produce a red fast-lane check that competes with that path.
   const metadataReason = invalidLedgerMetadataReason(beforeMetadata, head, repo, { includeBody: false });
-  if (beforeMetadata?.labels?.includes('needs-human')) {
-    return inspectionFailure('not-ledger-only', 'veto needs-human presente');
-  }
   if (metadataReason) {
     return inspectionFailure(
       isKnownLedgerMetadataMismatch(beforeMetadata, repo) ? 'not-ledger-only' : 'unverifiable',
@@ -518,9 +516,6 @@ export function inspectLedgerOnlyHead(ghFn, repo, pr, head) {
     return inspectionFailure('unverifiable', 'seconda lettura metadata PR fallita');
   }
   const afterMetadata = ledgerMetadata(after);
-  if (afterMetadata?.labels?.includes('needs-human')) {
-    return inspectionFailure('not-ledger-only', 'veto needs-human aggiunto durante la verifica');
-  }
   const afterReason = invalidLedgerMetadataReason(afterMetadata, head, repo);
   if (afterReason || !sameLedgerMetadata(beforeMetadata, afterMetadata)) {
     return inspectionFailure('unverifiable', afterReason || 'HEAD, body, titolo, base o label cambiati durante la verifica');
@@ -571,7 +566,7 @@ export function postLedgerOnlyReview({ repo, pr, head, ghFn = gh }) {
 ## Scope
 - HEAD esatta verificata: \`${head}\`.
 - File-list completa verificata: esclusivamente i quattro JSONL canonici del ledger; nessun path mixed, unknown o rename.
-- PR body, titolo, base e label stabili durante la verifica; veto \`needs-human\` assente.
+- PR body, titolo, base e label stabili durante la verifica; \`needs-human\` è solo tracking.
 - Producer trusted verificato: \`frontaliere-automation[bot]\` nel repository della PR, su branch ledger allowlistato.
 
 ## Findings (Important: 0, Nit: 0)

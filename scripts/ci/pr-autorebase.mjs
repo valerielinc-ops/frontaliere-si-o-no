@@ -92,7 +92,6 @@ import {
   reopenFingerprint,
   parseReopenBudget,
   decideReopen,
-  decideNeedsHumanPass,
   renderReopenBudget,
 } from './lib/reopen-breaker.mjs';
 import { intFromEnv, positiveIntFromEnv } from '../lib/int-from-env.mjs';
@@ -1048,7 +1047,7 @@ async function processPR(pr) {
   const head = pr.headRefOid;
   const labels = (pr.labels || []).map((l) => l.name);
 
-  // `behind` serve allo stuck-red, al gate `needs-human` e al flusso normale:
+  // `behind` serve allo stuck-red e al flusso normale:
   // memoizzato per non pagare tre volte la compare API.
   let _behind = null;
   const behindOf = () => (_behind ??= behindMain(head));
@@ -1058,21 +1057,18 @@ async function processPR(pr) {
   // Un vitest rosso EREDITATO da main non è un verdetto sulla PR, e il solo
   // rimedio è `merge origin/main` + ri-test (AGENTS.md → «main rosso blocca a
   // cascata: ogni branch lo eredita finché non fa merge origin/main»). Questa
-  // valutazione stava DUE gate più in basso, dietro `!nearMerge`, e dopo il
-  // `return` di `skip-idle` del ramo `needs-human`. Entrambi la rendevano
-  // irraggiungibile proprio per le PR che ne avevano bisogno:
+  // valutazione stava DUE gate più in basso, dietro `!nearMerge`, e un vecchio
+  // gate specifico della label la rendeva irraggiungibile proprio per alcune
+  // PR che ne avevano bisogno:
   //
   //  - dietro `!nearMerge`: `stale-pr-rescuer` etichetta `stale-review` una PR
   //    ferma >2h e le PROMETTE nel commento che «pr-autorebase ora la considera
   //    near-merge e la rebasa». Quella label la rendeva near-merge, e near-merge
   //    escludeva lo stuck-red. Il segnale di stallo disattivava il rimedio allo
   //    stallo, e i due meccanismi si contraddicevano nero su bianco.
-  //  - dietro il `return` di `needs-human`: l'impronta che decide «lo stato è
-  //    cambiato?» (additions/deletions/changedFiles/vitest/review) è fatta di
-  //    soli fatti INTERNI alla PR. Quando il rosso viene dalla base, nessuno dei
-  //    cinque si muove — e il vitest non può tornare verde da sé, perché il
-  //    check è pinnato all'ultimo run sull'head. Stato assorbente: la PR non
-  //    rientra MAI.
+  //  - dietro il vecchio gate `needs-human`: la label non deve togliere una PR
+  //    dal normale percorso di autorebase e ri-test quando gli altri segnali
+  //    del ciclo la rendono eleggibile.
   //
   // Misurato il 2026-08-22 su #6253/#6254/#6255: tre PR con diff disgiunti,
   // tutte rosse sullo stesso test estraneo (`pre-flight-headline-check`, che
@@ -1081,9 +1077,9 @@ async function processPR(pr) {
   // a mano le ha portate verdi tutte e tre e il ciclo le ha mergiate da solo in
   // ~2 minuti: il lavoro era già fatto, mancava solo chi rimettesse in coda.
   //
-  // La frugalità che il gate `needs-human` protegge resta intatta: il rescue è
-  // ONE-SHOT per PR via `STUCK_RED_MARKER`, quindi costa al massimo UNA vitest,
-  // non una per tick. Se dopo il rebase è ancora rossa, il rosso è suo.
+  // Il rescue è ONE-SHOT per PR via `STUCK_RED_MARKER`, quindi costa al massimo
+  // UNA vitest, non una per tick. Se dopo il rebase è ancora rossa, il rosso è
+  // suo.
   let stuckRedReason = '';
   if (behindOf() > 0) {
     stuckRedReason = stuckRedRescueReason(head);
@@ -1093,50 +1089,9 @@ async function processPR(pr) {
     }
   }
 
-  // GATE `needs-human`: una passata SOLO se lo stato è cambiato.
-  //
-  // Deve stare QUI — subito dopo il solo stuck-red, e prima di tutto il resto —
-  // e non sul `dispatchTests` del ramo needs-human più sotto. Quel ramo viene
-  // DOPO `pushBranch`; con il dispatch parametrizzato potrebbe riavviare anche
-  // la review, quindi resta deliberatamente senza re-trigger automatico.
-  //
-  // Costo evitato: cron `*/30` = 48 tick/giorno × ~18 min di vitest ≈ 14,4 h di
-  // CI al giorno per UNA PR ferma. La coda è serializzata: le pagano le altre.
-  //
-  // Le tre chiamate API dell'impronta costano ~1s e sostituiscono ~18 min di CI.
-  if (labels.includes('needs-human')) {
-    const vc = normalizedVitestConclusion(head);
-    const fp = reopenStateFingerprint(num, vc);
-    const body = readReopenBudgetBody(num);
-    const prior = parseReopenBudget(body);
-    const d = decideNeedsHumanPass({ fingerprint: fp, prior });
-    // Lo stuck-red BATTE `skip-idle`, e deve: l'impronta è cieca alla base
-    // (vedi il blocco sopra), quindi qui «stato invariato» significa solo
-    // «nulla è cambiato DENTRO la PR» — che è vero e irrilevante quando il
-    // rosso viene da fuori. Senza questa riga il rescue resta irraggiungibile
-    // per ogni PR `needs-human`, cioè per tutte quelle che il breaker ha già
-    // escalato. Resta one-shot: al giro dopo il marker lo spegne.
-    if (d.action === 'skip-idle' && !stuckRedReason) {
-      console.log(`PR #${num}: ${d.reason}`);
-      return;
-    }
-    // Stato cambiato → si prosegue con UNA passata piena (rebase + dispatch dal
-    // ramo needs-human più sotto). L'impronta si registra ORA: se la passata
-    // muore a metà non si ripete comunque a raffica, e l'umano che arriva vede
-    // perché. `count: 0` è coerente — il breaker riparte da zero su uno stato
-    // nuovo, esattamente come nel reset normale.
-    const next = renderReopenBudget({
-      count: 0, max: MAX_REOPENS, fingerprint: fp, action: 'needs-human-pass', reason: d.reason,
-      // Il one-shot del review gate NON si azzera qui: è appaiato alla PR, non
-      // all'impronta (vedi parseReopenBudget). Riscriverlo a false lo
-      // renderebbe rinnovabile a ogni cambio di stato, cioè non più one-shot.
-      reviewGateUsed: Boolean(prior && prior.reviewGateUsed),
-    });
-    if (body !== next) {
-      upsertStickyComment(gh, REPO, num, REOPEN_BUDGET_MARKER, next, { dry: DRY });
-    }
-    console.log(`PR #${num}: ${d.reason}`);
-  }
+  // `needs-human` è un marker di tracking/escalation. Non è un gate di questo
+  // flusso: se la PR è eleggibile per autorebase, rebase e dispatch seguono i
+  // normali segnali `## LGTM`, `collision-risk`, `stale-review` e stuck-red.
 
   // GATE frugalità: solo near-merge.
   const lgtm = hasLgtmReview(num);
@@ -1163,8 +1118,8 @@ async function processPR(pr) {
   // check rosso (`detect` e `contract` verdi su tutte, mergeable=MERGEABLE: non
   // erano conflitti né il body-contract).
   // Il verdetto è calcolato IN CIMA alla funzione (vedi il blocco STUCK-RED):
-  // deve precedere sia questo gate sia il `return` di `needs-human`, che
-  // altrimenti lo rendono irraggiungibile. Qui resta solo l'effetto: un rescue
+  // deve precedere il gate near-merge, che altrimenti lo rende irraggiungibile.
+  // Qui resta solo l'effetto: un rescue
   // valido rende la PR near-merge anche senza LGTM né label.
   if (stuckRedReason) nearMerge = true;
 
@@ -1422,13 +1377,10 @@ async function processPR(pr) {
   // mancava del tutto o la review aveva finding aperti. Il dispatch esplicito
   // ora risolve la PR dal numero e lancia direttamente test + review sulla HEAD
   // nuova: close+reopen aggiungerebbe una race di stato senza alcun segnale
-  // necessario. ECCEZIONE needs-human: il round-cap è già un arresto esplicito;
-  // non riaprire né riavviare la review finché non interviene un proprietario.
+  // necessario. La label `needs-human` non introduce un'eccezione: il round-cap
+  // resta tracciato dalla sua causa e dal marker sticky, non dalla presenza della
+  // label.
   if (!lgtm) {
-    if (labels.includes('needs-human')) {
-      console.log(`PR #${num}: rebasata ma needs-human (round-cap) → nessun re-trigger automatico; attende umano.`);
-      return;
-    }
     const why = hasAnyClaudeReview(num) ? '🔴/❓ non chiuso + drift sanato' : 'classe-A senza review';
     if (dispatchTests(num, branch)) {
       clearStaleReviewLabel(num);

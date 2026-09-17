@@ -5,14 +5,14 @@
  * default F1/F7 and control-plane policy. The pull-request surface still
  * requires verifiable metadata and a complete file list, but F1/F7 domains,
  * control-plane paths, and unknown paths are evidence rather than human-
- * approval vetoes there. `needs-human` remains the only policy veto on PRs.
+ * approval vetoes there. `needs-human` is an operational tracking label only;
+ * it never vetoes a pull request.
  *
  * This module has no GitHub side effects. Callers decide how to escalate a
  * blocked item, and must fail closed when a PR file list is not verifiable.
  */
 
 export const AUTOMATION_RISK_POLICY_VERSION = 'f1-f7-v2';
-export const HUMAN_APPROVAL_LABEL = 'needs-human';
 export const CONTROL_PLANE_DOMAIN = 'control-plane';
 
 /**
@@ -216,7 +216,7 @@ function reviewTime(review) {
  * must be true; otherwise the caller cannot prove which paths are in scope and
  * the result is explicitly non-verifiable. The pull-request surface requires
  * this complete, non-empty snapshot. It allows recognized and unknown paths,
- * including every F1/F7 domain; `needs-human` remains a separate hard veto.
+ * including every F1/F7 domain; `needs-human` is not a PR-surface veto.
  * `surface` defaults to `issue`, which retains the original control-plane,
  * high-risk, and unknown issue/path deny-by-default behavior.
  */
@@ -254,22 +254,6 @@ export function classifyAutomationRisk({
   }
 
   const labelNames = labels.map(labelName).filter(Boolean);
-  const hasHumanVeto = labelNames.some((label) => label.toLowerCase() === HUMAN_APPROVAL_LABEL);
-  if (hasHumanVeto) {
-    return {
-      policyVersion: AUTOMATION_RISK_POLICY_VERSION,
-      verifiable: true,
-      blocked: true,
-      decision: 'deny',
-      denyCode: 'needs-human-veto',
-      controlPlane: false,
-      needsHumanVeto: true,
-      domains: [],
-      unknownPaths: [],
-      humanApprovalRequired: true,
-      reason: '`needs-human` è un veto persistente; serve una rimozione umana associata alla HEAD',
-    };
-  }
 
   const issueText = [title, body, ...labelNames].join('\n');
   const hasPathSnapshot = paths !== undefined || pathsComplete !== undefined;

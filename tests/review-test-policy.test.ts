@@ -447,11 +447,16 @@ describe('owner policy excluding test files from review', () => {
     { changedHead: true, label: 'HEAD' },
     { changedBody: true, label: 'body' },
     { body: '## Implementato\n- done\n\n## Non implementato\nNessuno', label: 'body contract' },
-    { labels: ['needs-human'], label: 'needs-human veto' },
   ])('does not publish when $label changes or is not verifiable', ({ label: _label, ...options }) => {
     const f = ledgerFixture(options);
     expect(() => postLedgerOnlyReview({ repo: 'owner/repo', pr: 1, head: ledgerHead, ghFn: f.ghFn })).toThrow();
     expect(f.posts).toEqual([]);
+  });
+  it('allows the needs-human tracking label on the bounded ledger fast path', () => {
+    const f = ledgerFixture({ labels: ['needs-human'] });
+    postLedgerOnlyReview({ repo: 'owner/repo', pr: 1, head: ledgerHead, ghFn: f.ghFn });
+    expect(f.posts).toHaveLength(1);
+    expect(f.posts[0].body).toContain('`needs-human` è solo tracking');
   });
   it.each(['body', 'head'])('fails the current run when %s changes immediately after POST', (postRace) => {
     const f = ledgerFixture({ postRace });
