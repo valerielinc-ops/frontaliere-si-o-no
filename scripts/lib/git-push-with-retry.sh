@@ -247,12 +247,14 @@ stashed_index_matches_wip() {
   return 1
 }
 
-# Apply the stashed worktree before an in-place resolver without asking Git to
-# rewrite the index. A rebase conflict already has unmerged index entries, so
-# `git stash apply` can fail even when the WIP is on a different path. The stash
-# commit records the worktree in its own tree and staged-only changes in its
-# second parent; merge both path sets and restore each path from its source.
+# Apply the stashed worktree before an in-place resolver, or restore it after
+# the rebase, without asking Git to rewrite the index. A rebase conflict already
+# has unmerged index entries, so `git stash apply` can fail even when the WIP is
+# on a different path. The stash commit records the worktree in its own tree
+# and staged-only changes in its second parent; merge both path sets and restore
+# each path from its source.
 apply_stashed_wip_for_resolver() {
+  local excluded_paths="${1:-}"
   local stash_ref="stash@{0}"
   local worktree_paths
   local index_paths
@@ -280,6 +282,9 @@ apply_stashed_wip_for_resolver() {
   all_paths="$(printf '%s\n%s\n%s\n' "$worktree_paths" "$index_paths" "$untracked_paths" | sort -u)"
   while IFS= read -r path; do
     [ -n "$path" ] || continue
+    if [ -n "$excluded_paths" ] && path_is_listed "$path" "$excluded_paths"; then
+      continue
+    fi
     STASHED_WIP_PATHS+=("$path")
     if [ -n "$untracked_tree" ] && path_is_listed "$path" "$untracked_paths"; then
       source_tree="$untracked_tree"
@@ -287,16 +292,21 @@ apply_stashed_wip_for_resolver() {
       if git cat-file -e "${stash_ref}:${path}" 2>/dev/null; then
         source_tree="$stash_ref"
       else
+        # Worktree membership is authoritative: absence from its tree is an
+        # explicit WIP deletion, even when the stash index parent still has
+        # staged content for the same path.
         rm -f -- "$path"
         continue
       fi
-    elif path_is_listed "$path" "$index_paths"; then
-      if git cat-file -e "${stash_ref}^2:${path}" 2>/dev/null; then
-        source_tree="${stash_ref}^2"
-      else
-        rm -f -- "$path"
-        continue
-      fi
+    elif path_is_listed "$path" "$index_paths" \
+      && git cat-file -e "${stash_ref}^2:${path}" 2>/dev/null; then
+      # A staged-only path can be absent from the stash's worktree tree. Its
+      # content lives in the stash index parent and must still be restored.
+      source_tree="${stash_ref}^2"
+    elif path_is_listed "$path" "$worktree_paths" \
+      || path_is_listed "$path" "$index_paths"; then
+      rm -f -- "$path"
+      continue
     else
       continue
     fi
@@ -414,24 +424,30 @@ until git push --no-verify origin "HEAD:${BRANCH}"; do
         fi
 
         if GIT_EDITOR=: git rebase --continue; then
-          # The rebase is complete now. Restore the WIP stash made above, then
-          # drop the original recovery copy; both are safe only after continue.
+          # The rebase is complete now. The resolver stash is only a temporary
+          # copy used to keep its index clean; drop it, restore every remaining
+          # WIP path from the original recovery stash, and drop that original
+          # only after the path-aware restoration succeeds.
           if [ "$resolver_wip_stashed" = "1" ]; then
-            restore_stashed_wip || exit 1
             git stash drop
-          elif [ "$stashed" = "1" ]; then
+          fi
+          if [ "$stashed" = "1" ]; then
+            apply_stashed_wip_for_resolver "$resolver_conflict_paths" || exit 1
             git stash drop
           fi
         else
           echo "::error::In-place conflict resolver failed"
           # Any stash copy is still available. Abort first, then restore the
-          # top copy on the non-rebasing tree so abort cannot discard the WIP.
+          # original copy on the non-rebasing tree so abort cannot discard the
+          # WIP. The temporary resolver copy is discarded only after abort;
+          # the original is dropped only after path-aware restoration.
           git rebase --abort 2>/dev/null || true
           if [ "$resolver_wip_stashed" = "1" ]; then
-            restore_stashed_wip || exit 1
             git stash drop
-          elif [ "$stashed" = "1" ]; then
-            restore_stashed_wip || exit 1
+          fi
+          if [ "$stashed" = "1" ]; then
+            apply_stashed_wip_for_resolver "$resolver_conflict_paths" || exit 1
+            git stash drop
           fi
           exit 1
         fi
