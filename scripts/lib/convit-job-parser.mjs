@@ -211,7 +211,7 @@ export function buildConvitLocalizedContent(job = {}) {
  */
 export function isConvitSwissRelevant(location = '') {
   const loc = normalizeSpace(location);
-  if (!loc) return true; // Convit is known TI company — include if no location
+  if (!loc) return true; // Convit is a known Swiss company — include if no location
   return isTargetSwissLocation(loc);
 }
 

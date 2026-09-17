@@ -216,7 +216,7 @@ function parseApiJob(j = {}) {
   // from the location text via inferAnyCanton (all 26 cantons). Most federal
   // region labels are composite (e.g. "Espace Mittelland (BE, FR, JU, NE, SO)"),
   // so we infer from the actual arbeitsort/city rather than trust the label.
-  // A single-canton region label like "Ticino (TI)" is used only as last resort.
+  // A single-canton region label is used only as a last resort.
   const cantonMatch = regionRaw.match(/\(([A-Z]{2})\)$/);
   const cantonFromRegion = normalizeCantonCode(cantonMatch ? cantonMatch[1] : '');
   const canton = normalizedLocation.canton

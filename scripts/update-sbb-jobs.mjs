@@ -612,7 +612,7 @@ export async function fetchSbbJobDetailUrls(options = {}) {
 
   // CH-wide: the company.sbb.ch AEM feed is national. Accept every job whose
   // region (attributes['110']) resolves to a target Swiss canton — all 26 are
-  // targets now (Cathedral CH-wide). No Ticino/Grigioni city restriction: SBB
+  // targets now (Cathedral CH-wide). No regional city restriction: SBB
   // is a national railway and posts across every canton (HQ Bern). Per-job
   // canton is inferred downstream via inferAnyCanton.
   const targetJobs = allJobs.filter((job) => {
@@ -993,13 +993,14 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
   ).trim();
   // Canton: prefer the concrete city, else the region label's PRIMARY canton
   // (cantonFromSbbRegion avoids the parens-code mis-match), else the default.
-  // location is '' for city-less postings so it can't force a TI default.
+  // location is '' for city-less postings so it can't force a hard-coded
+  // regional default.
   const canton =
     (location ? inferAnyCanton(location) : '') ||
     cantonFromSbbRegion(apiMeta?.region || '') ||
     DEFAULT_CANTON;
   // City-less posting → use the (localized) canton display name as the locality
-  // instead of leaving it empty or emitting a misleading 'Ticino' literal.
+  // instead of leaving it empty or emitting a misleading hard-coded label.
   if (!location) location = getCantonDisplayName(canton, 'it');
   // Slug-only guard: `location` is `String(...).trim()`, so all-undefined sources
   // collapse to the literal "undefined"/"null" string → `-undefined` in an active

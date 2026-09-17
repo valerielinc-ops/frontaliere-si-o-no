@@ -10,7 +10,7 @@
   "seedUrls": [
     "https://www.careers-page.com/convit-holding-gmbh"
   ],
-  "notes": "Dedicated Convit Holding crawler reads the Manatal (careers-page.com) listing and detail pages, extracting JobPosting JSON-LD. Keeps TI + GR vacancies.",
+  "notes": "Dedicated Convit Holding crawler reads the Manatal (careers-page.com) listing and detail pages, extracting JobPosting JSON-LD. Keeps vacancies whose location resolves to any Swiss canton.",
   "updatedAt": "2026-09-01T12:19:19.908Z",
   "seedMetaByUrl": {
     "https://www.careers-page.com/convit-holding-gmbh/job/8X758883": {

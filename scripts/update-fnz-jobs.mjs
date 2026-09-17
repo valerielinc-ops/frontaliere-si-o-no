@@ -75,8 +75,8 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 // Switzerland detection — text-based via the authoritative shared helper
 // (isSwissLocationText: country tokens + all-26-canton BFS municipality data),
 // NOT brittle Workday location UUIDs. Workday recycles/renames location facet
-// IDs whenever FNZ restructures sites (the old Chiasso/Geneva UUIDs vanished
-// from the facet list → 0 jobs). We instead fetch all FNZ postings and keep the
+// IDs whenever FNZ restructures sites (old site UUIDs can vanish from the
+// facet list → 0 jobs). We instead fetch all FNZ postings and keep the
 // ones whose location text resolves to Switzerland, so the crawler self-heals
 // when FNZ adds/renames CH locations.
 

@@ -323,8 +323,8 @@ function logStats(beforeSnapshot = new Map()) {
 
   console.log(`\n📊 === Raiffeisen Vedeggio Cassarate Job Stats ===`);
   console.log(`  🏦 Total jobs: ${jobs.length}`);
-  console.log(`  ✅ Ticino: ${tiJobs.length}`);
-  console.log(`  ✅ Grigioni: ${grJobs.length}`);
+  console.log(`  ✅ Reporting — Ticino: ${tiJobs.length}`);
+  console.log(`  ✅ Reporting — Grigioni: ${grJobs.length}`);
   console.log('');
 
   const afterSnapshot = snapshotJobSlugs(jobs);

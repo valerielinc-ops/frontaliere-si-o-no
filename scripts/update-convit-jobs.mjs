@@ -46,7 +46,7 @@ import {
   isConvitSwissRelevant,
   inferConvitCanton,
 } from './lib/convit-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { getCantonDisplayName, getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { splitJobLocation } from './lib/job-location-display.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
@@ -204,10 +204,10 @@ async function enrichWithDetails(listings) {
   for (const job of relevant) {
     job.canton = inferConvitCanton(job.location);
     // The JSON-LD fallback in parseConvitDetailPage() joins
-    // [addressLocality, addressRegion, addressCountry] ("Bellinzona, Ticino, CH"),
-    // so the raw location already carries the canton and country.
-    // buildConvitLocalizedContent() then appends the region again ("...in
-    // Ticino"), freezing the duplicate into the stored description — same
+    // [addressLocality, addressRegion, addressCountry], so the raw location
+    // already carries the canton and country. buildConvitLocalizedContent()
+    // then appends the region again, freezing the duplicate into the stored
+    // description — same
     // defect scripts/lib/nestle-job-parser.mjs fixes at the point the crawler
     // assigns canton. Strip it once, here, so the stored field, the
     // description and the page all read the clean city.
@@ -227,7 +227,9 @@ async function enrichWithDetails(listings) {
 function buildConvitJob(row) {
   const canton = row.canton || inferConvitCanton(row.location) || DEFAULT_CANTON;
   const localized = buildConvitLocalizedContent({ ...row, canton });
-  const defaultCity = canton === 'GR' ? 'Graubünden' : 'Massagno';
+  const defaultCity = canton === DEFAULT_CANTON
+    ? getCompanyDefaults(COMPANY_KEY)?.city || 'Massagno'
+    : getCantonDisplayName(canton, 'it') || 'Svizzera';
   const urlHash = createHash('sha1').update(row.detailUrl || row.title || '').digest('hex').slice(0, 12);
   return {
     id: `convit-${urlHash}`,
@@ -388,8 +390,8 @@ async function main() {
   console.log('\n📊 === Convit Holding Job Stats ===');
   const tiCount = jobs.filter((j) => j.canton === 'TI').length;
   const grCount = jobs.filter((j) => j.canton === 'GR').length;
-  console.log(`  🏢 Total Convit jobs (TI+GR): ${total}`);
-  console.log(`  📍 TI: ${tiCount} | GR: ${grCount}`);
+  console.log(`  🏢 Total Convit Swiss jobs: ${total}`);
+  console.log(`  📍 Reporting — TI: ${tiCount} | GR: ${grCount}`);
   console.log(`  ➕ Added: ${added}`);
   console.log(`  🔄 Updated: ${updated}`);
 
