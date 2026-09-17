@@ -217,16 +217,19 @@ jobs:
           git checkout --detach origin/main
 
           ledger_branch='ledger/loop-fleet'
+          ledger_worktree="${RUNNER_TEMP}/loop-fleet-ledger-worktree"
+          ledger_start='origin/main'
           if bounded_remote git ls-remote --exit-code --heads origin "refs/heads/$ledger_branch" >/dev/null 2>&1; then
             bounded_remote git fetch origin "$ledger_branch"
-            git checkout -B ledger-work "origin/$ledger_branch"
-          else
-            # Seed the durable branch from main's current ledger history.
-            git checkout -B ledger-work origin/main
+            ledger_start="origin/$ledger_branch"
           fi
-          git sparse-checkout add --skip-checks '/data/loop-fleet/ledger/'
-          git checkout -- data/loop-fleet/ledger/
-          git ls-files --error-unmatch data/loop-fleet/ledger/ >/dev/null
+          # Keep validators and the registry from the current main checkout;
+          # only the append-only ledger is opened in the durable worktree.
+          # When the branch is absent this seeds it from main's ledger history.
+          git worktree add --no-checkout -B ledger-work "$ledger_worktree" "$ledger_start"
+          git -C "$ledger_worktree" checkout -- data/loop-fleet/ledger/
+          git -C "$ledger_worktree" ls-files --error-unmatch data/loop-fleet/ledger/ >/dev/null
+          ledger_dir="$ledger_worktree/data/loop-fleet/ledger"
 
           for attempt in 1 2 3 4 5; do
             # Re-apply the validated batch against the current tip every
@@ -237,35 +240,34 @@ jobs:
               --run-id "$SOURCE_RUN_ID" \
               --sha "$SOURCE_SHA" \
               --input-dir "$INPUT_DIR" \
-              --ledger-dir data/loop-fleet/ledger \
+              --ledger-dir "$ledger_dir" \
               --registry data/loop-fleet/loop-registry.json
 
-            if git diff --quiet -- data/loop-fleet/ledger \
-                && [ -z "$(git ls-files --others --exclude-standard data/loop-fleet/ledger)" ]; then
+            if git -C "$ledger_worktree" diff --quiet -- data/loop-fleet/ledger \
+                && [ -z "$(git -C "$ledger_worktree" ls-files --others --exclude-standard data/loop-fleet/ledger)" ]; then
               echo 'Source run already present in the durable ledger; nothing to append.'
               exit 0
             fi
-            git add data/loop-fleet/ledger
-            git commit -m "chore(loop-fleet): persist ${SOURCE_LOOP} evidence from run ${SOURCE_RUN_ID}"
+            git -C "$ledger_worktree" add data/loop-fleet/ledger
+            git -C "$ledger_worktree" commit -m "chore(loop-fleet): persist ${SOURCE_LOOP} evidence from run ${SOURCE_RUN_ID}"
             basic_auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 | tr -d '\n')
             if GIT_CONFIG_COUNT=1 \
               GIT_CONFIG_KEY_0='http.https://github.com/.extraheader' \
               GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}" \
-              bounded_remote git push origin "HEAD:refs/heads/$ledger_branch"; then
+              bounded_remote git -C "$ledger_worktree" push origin "HEAD:refs/heads/$ledger_branch"; then
               unset basic_auth
               exit 0
             fi
             unset basic_auth
             if bounded_remote git fetch origin "$ledger_branch"; then
-              # The fleet safety gate forbids reset --hard in workflows. Moving
-              # the isolated branch and checking out the fetched tip has the
-              # same clean-worktree effect without force-pushing anything.
-              git checkout -B ledger-work "origin/$ledger_branch"
+              # Rebase only the isolated ledger worktree onto the fetched tip;
+              # the main worktree keeps the current validator and registry.
+              git -C "$ledger_worktree" checkout -B ledger-work "origin/$ledger_branch"
             else
               bounded_remote git fetch origin main
-              git checkout -B ledger-work origin/main
+              git -C "$ledger_worktree" checkout -B ledger-work origin/main
             fi
-            git checkout -- data/loop-fleet/ledger/
+            git -C "$ledger_worktree" checkout -- data/loop-fleet/ledger/
             sleep $((attempt * 3))
           done
           echo "::error::could not append the validated batch to $ledger_branch after 5 attempts"
