@@ -235,6 +235,15 @@ describe('Google Switzerland crawler parser', () => {
         region: 'Zürich',
       });
     });
+
+    it('keeps a non-capital municipality aligned with the canton fallback address', () => {
+      expect(resolveAddress('Winterthur', 'ZH')).toEqual({
+        city: 'Winterthur',
+        postalCode: '8400',
+        streetAddress: 'Winterthur',
+        region: 'ZH',
+      });
+    });
   });
 
   describe('resolveSwissGoogleLocation', () => {

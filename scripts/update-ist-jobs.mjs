@@ -174,7 +174,9 @@ function isIstDetailJob(detail = {}) {
     detail.description,
     detail.sourceUrl,
   ].filter(Boolean).join(' '));
-  const hasIstTenantMarker = IST_DETAIL_TENANT_RE.test(sourceText);
+  const tenantNormalizedSourceText = sourceText.replace(/[-_/]+/g, ' ');
+  const hasIstTenantMarker = IST_DETAIL_TENANT_RE.test(sourceText)
+    || IST_DETAIL_TENANT_RE.test(tenantNormalizedSourceText);
   const hasExactIstCompany = detailCompanies.includes(normalize(IST_COMPANY_NAME));
   const hasOnlySharedPortalCompanies = detailCompanies.length === 0
     || detailCompanies.every((company) => IST_SHARED_PORTAL_COMPANIES.has(company));

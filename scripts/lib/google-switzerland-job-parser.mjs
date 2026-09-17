@@ -646,12 +646,16 @@ export async function fetchAllGoogleSwitzerlandJobs() {
       ? `Minimum qualifications:\n${listing.minQuals.map((q) => `• ${q}`).join('\n')}`
       : '';
     const descriptionRaw = detailBody || minQualsText;
+    const sourceLocation = swissLocation.city;
     const descriptionText = stripHtml(descriptionRaw)
-      || `${title} — ${GOOGLE_SWITZERLAND_COMPANY_NAME}, ${swissLocation.city}.`;
+      || `${title} — ${GOOGLE_SWITZERLAND_COMPANY_NAME}, ${sourceLocation}.`;
 
-    const location = swissLocation.city;
     const canton = swissLocation.canton;
-    const { city, postalCode, streetAddress, region } = resolveAddress(location, canton);
+    const { city, postalCode, streetAddress, region } = resolveAddress(sourceLocation, canton);
+    // If the source omits a postcode, resolveAddress() deliberately returns a
+    // complete canton-capital fallback. Keep the displayed location aligned
+    // with that structured address rather than mixing two municipalities.
+    const location = city;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} google-switzerland ${location}`);

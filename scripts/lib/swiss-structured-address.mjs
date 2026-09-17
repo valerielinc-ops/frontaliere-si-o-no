@@ -7,6 +7,9 @@
  * coherent, non-fabricated token until the source exposes a real street.
  */
 
+import MUNICIPALITY_DATA from '../../data/canton-municipalities.json' with { type: 'json' };
+import SWISS_POSTAL_CODES from '../../data/swiss-postal-codes.json' with { type: 'json' };
+
 const CANTON_CAPITALS = {
   AG: { city: 'Aarau', postalCode: '5000' },
   AI: { city: 'Appenzell', postalCode: '9050' },
@@ -44,6 +47,37 @@ function isSwissPostalCode(value = '') {
   return /^\d{4}$/.test(normalizeSpace(value));
 }
 
+function normalizeLocationKey(value = '') {
+  return normalizeSpace(value).toLowerCase();
+}
+
+function firstLocalitySegment(value = '') {
+  return normalizeSpace(value).split(/[,·]/, 1)[0];
+}
+
+const MUNICIPALITY_KEYS_BY_CANTON = new Map(
+  Object.entries(MUNICIPALITY_DATA?.cantons || {}).map(([canton, entry]) => [
+    canton.toUpperCase(),
+    new Set((entry?.municipalities || []).map(normalizeLocationKey)),
+  ]),
+);
+
+const POSTAL_CODES_BY_LOCALITY = new Map(
+  Object.entries(SWISS_POSTAL_CODES || {}).map(([locality, postalCode]) => [
+    normalizeLocationKey(locality),
+    normalizeSpace(postalCode),
+  ]),
+);
+
+function resolveMunicipalityPostalCode(city = '', canton = '') {
+  const locality = firstLocalitySegment(city);
+  const localityKey = normalizeLocationKey(locality);
+  const municipalityKeys = MUNICIPALITY_KEYS_BY_CANTON.get(canton);
+  if (!localityKey || !municipalityKeys?.has(localityKey)) return '';
+  const postalCode = POSTAL_CODES_BY_LOCALITY.get(localityKey) || '';
+  return isSwissPostalCode(postalCode) ? postalCode : '';
+}
+
 /**
  * Keep a resolved city/canton and fill only missing address components.
  * `streetAddress: city` is the same safe fallback used by other crawlers in
@@ -58,10 +92,21 @@ export function resolveSwissStructuredAddress({
 } = {}) {
   const normalizedCanton = normalizeSpace(canton).toUpperCase();
   const capital = CANTON_CAPITALS[normalizedCanton] || {};
-  const resolvedCity = normalizeSpace(city) || capital.city || 'Switzerland';
+  const sourceCity = normalizeSpace(city);
+  const resolvedCity = sourceCity || capital.city || 'Switzerland';
+
+  const municipalityPostalCode = resolveMunicipalityPostalCode(sourceCity, normalizedCanton);
+  if (!isSwissPostalCode(postalCode) && municipalityPostalCode) {
+    return {
+      city: resolvedCity,
+      canton: normalizedCanton || 'CH',
+      postalCode: municipalityPostalCode,
+      streetAddress: normalizeSpace(streetAddress) || resolvedCity,
+    };
+  }
 
   // A canton-capital postcode cannot safely be paired with a different
-  // municipality. When the source omits the postcode, use the complete
+  // municipality and the municipality lookup has no CAP, use the complete
   // capital fallback so the structured address remains internally coherent.
   if (!isSwissPostalCode(postalCode) && capital.city && capital.postalCode) {
     return {

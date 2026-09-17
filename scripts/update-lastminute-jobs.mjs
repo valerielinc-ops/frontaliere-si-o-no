@@ -353,6 +353,11 @@ async function fetchLastminuteJobDetailUrls() {
   }
 
   const candidateUrls = [...detailByKey.values()];
+  if (candidateUrls.length === 0) {
+    throw new Error(
+      'lastminute careers listing returned no detail URLs; source completeness is unverified, preserving the previous adapter and data',
+    );
+  }
   const seedUrls = [];
   const detailsByUrl = new Map();
   let apiResolved = 0;
