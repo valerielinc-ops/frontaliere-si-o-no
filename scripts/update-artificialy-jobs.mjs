@@ -5,7 +5,7 @@
  * Crawls https://www.artificialy.com/it/career
  * 1. Fetches career page HTML (site behind Cloudflare — may fail with 403)
  * 2. Parses job listings via JSON-LD, HTML cards, or link extraction
- * 3. Filters Ticino/Grigioni relevant jobs (Lugano office)
+ * 3. Keeps jobs whose location matches a Swiss target canton
  * 4. Merges into data/jobs.json
  *
  * Artificialy: Swiss AI company, offices in Lugano (TI) and Zurich.
@@ -43,7 +43,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseArtificialyCareerPage,
-  isArtificialyTicinoRelevant,
+  isArtificialySwissRelevant,
   inferArtificialyCanton,
   inferArtificialyCategory,
   buildArtificialyLocalizedContent,
@@ -177,11 +177,11 @@ async function fetchAllListings() {
   const items = await fetchCareerPage();
   console.log(`Total jobs found: ${items.length}`);
 
-  // Filter for Ticino/Grigioni relevance
-  const ticinoJobs = items.filter(isArtificialyTicinoRelevant);
-  console.log(`Ticino/Grigioni relevant: ${ticinoJobs.length}`);
+  // Keep only jobs with a location in one of the 26 target cantons.
+  const swissJobs = items.filter(isArtificialySwissRelevant);
+  console.log(`Swiss target locations: ${swissJobs.length}`);
 
-  return ticinoJobs;
+  return swissJobs;
 }
 
 function buildArtificialyJob(row) {
@@ -196,8 +196,8 @@ function buildArtificialyJob(row) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
-    location: row.location || 'Lugano',
-    addressLocality: row.location || 'Lugano',
+    location: row.location || 'Switzerland',
+    addressLocality: row.location || 'Switzerland',
     addressRegion: canton,
     addressCountry: 'CH',
     canton,
@@ -279,7 +279,7 @@ function updateAdapterConfig(jobs) {
     priority: 18,
     crawlerModes: ['html'],
     seedUrls: CAREER_URLS,
-    notes: 'Dedicated Artificialy crawler. Swiss AI company with offices in Lugano (TI) and Zurich. Specializes in AI solutions for finance, healthcare, manufacturing. Site behind Cloudflare managed challenge — may intermittently block automated requests.',
+    notes: 'Dedicated Artificialy crawler keeps Swiss-located openings across the target cantons. Swiss AI company with offices in Lugano (TI) and Zurich. Specializes in AI solutions for finance, healthcare, manufacturing. Site behind Cloudflare managed challenge — may intermittently block automated requests.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -295,7 +295,7 @@ function validateLocales() {
     isTrustedDomain,
     untrustedDomainReason: 'url_not_artificialy_domain',
     failWhenNoJobs: false,
-    noJobsMessage: 'No Artificialy Ticino/GR jobs found after dedicated crawl (site may be Cloudflare-blocked).',
+    noJobsMessage: 'No Artificialy Swiss-located jobs found after dedicated crawl (site may be Cloudflare-blocked).',
     detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
   });
 }
@@ -310,7 +310,7 @@ async function main() {
 
   const listings = await fetchAllListings();
   if (listings.length === 0) {
-    console.log('No Ticino/GR Artificialy jobs found — skipping merge.');
+    console.log('No Artificialy Swiss-located jobs found — skipping merge.');
     console.log('(Site may be blocked by Cloudflare managed challenge)');
     printCrawlChangeSummary({ newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 }, 'Artificialy');
     return;
@@ -330,7 +330,7 @@ async function main() {
   validateLocales();
 
   console.log('\n=== Artificialy Job Stats ===');
-  console.log(`  Total Artificialy Ticino/GR jobs: ${total}`);
+  console.log(`  Total Artificialy Swiss jobs: ${total}`);
   console.log(`  Added: ${added}`);
   console.log(`  Updated: ${updated}`);
 

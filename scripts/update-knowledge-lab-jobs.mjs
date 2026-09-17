@@ -46,6 +46,7 @@ import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import {
   parseKnowledgeLabListingJson,
   buildKnowledgeLabLocalizedContent,
+  isKnowledgeLabSwissRelevant,
   inferKnowledgeLabCanton,
 } from './lib/knowledge-lab-job-parser.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -174,8 +175,9 @@ function buildKnowledgeLabJob(row) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
-    location: row.location || 'Switzerland',
-    addressLocality: row.location || 'Switzerland',
+    location: row.location,
+    addressLocality: row.location,
+    postalCode: row.postalCode || '',
     addressRegion: canton,
     addressCountry: 'CH',
     canton,
@@ -257,7 +259,7 @@ function updateAdapterConfig(jobs) {
     priority: 18,
     crawlerModes: ['api'],
     seedUrls: [CAREERS_URL],
-    notes: 'Dedicated Knowledge Lab crawler uses Freshteam API (klab.freshteam.com/api/job_postings). Single API call returns all published jobs with descriptions. Offices in Zurich (HQ), Mendrisio (TI), Madrid, Belgrade.',
+    notes: 'Dedicated Knowledge Lab crawler uses the complete Freshteam API response (klab.freshteam.com/api/job_postings) for all published jobs with descriptions. Each vacancy is retained only when its branch city passes isTargetSwissLocation across all 26 cantons; the canton is inferred from that same city and foreign branches (including Madrid and Belgrade) are rejected. Zurich and Mendrisio are current Swiss sites, not the geographic scope.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -293,10 +295,10 @@ async function main() {
     return;
   }
 
-  // Filter to Swiss jobs (CH-wide): keep only jobs whose branch city resolves
-  // to one of the 26 Swiss cantons. Drops non-CH / unresolved (foreign) jobs.
-  // Never defaults unresolved jobs to a canton.
-  const swissJobs = listings.filter((j) => inferKnowledgeLabCanton(j) !== '');
+  // Filter to Swiss jobs (CH-wide): the branch city itself must resolve to one
+  // of the 26 Swiss cantons. Drops non-CH / unresolved (foreign) jobs and
+  // never lets a state field or fixed city default relabel the vacancy.
+  const swissJobs = listings.filter(isKnowledgeLabSwissRelevant);
   console.log(`🇨🇭 Swiss-canton jobs: ${swissJobs.length} / ${listings.length}`);
 
   if (swissJobs.length === 0) {

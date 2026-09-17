@@ -829,10 +829,10 @@
       "companyDomain": "hopitalvs.ch",
       "title": "Oberärztin/-arzt oder Stv. Oberärztin/-arzt (Notfall)",
       "titleByLocale": {
-        "it": "Oberärztin/-arzt o Stv. Oberärztin/-arzt (Notfall)",
-        "en": "Senior physician or Stv. Senior physician (emergency)",
+        "it": "Medico o medico (emergenza)",
+        "en": "Doctor or doctor (emergency)",
         "de": "Oberärztin/-arzt oder Stv. Oberärztin/-arzt (Notfall)",
-        "fr": "Médecin principal ou Stv. Médecin principal (urgence)"
+        "fr": "Docteur ou médecin (urgence)"
       },
       "description": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Klinik Notfallmedizin eine/n:\n\nStv. Oberärztin/-arzt oder Oberärztin/-arzt 50% oder nach Absprache\n\nDie Klinik für Notfallmedizin ist anerkannt als Weiterbildungsstätte der Kategorie IV für Allgemeine Innere Medizin (AIM) sowie als Kategorie 2 für den interdisziplinären Schwerpunkt Klinische Notfallmedizin (ISP).\n\nMission:\n• Eigenständige und interdisziplinäre Versorgung akut erkrankter oder verletzter Patienten, bei Bedarf unter Einbezug der hausinternen Spezialisten\n\n• Supervision und Weiterbildung von Assistenzärzten der Klinik und auf Rotation\n\n• Aktive Mitgestaltung bei der Entwicklung der Klinik\n\nProfil:\n• Abgeschlossene Facharztausbildung bevorzugt AIM (oder äquivalent) oder kurz vor Abschluss (Stv. OA)\n\n• ISP Klinische Notfallmedizin SGNOR oder Erfahrung in klinischer Notfallmedizin und die Bereitschaft, diesen zu erwerben\n\n• Motivierte, teamfähige und humorvolle Persönlichkeit\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nOffre:\n• Interessantes und abwechslungsreiches Aufgabengebiet mit Möglichkeit des Einsatzes in der Notfallstation und/oder im Fast Track (ambulante Grundversorgung)\n\n• Attraktive Anstellungsbedingungen\n\n• Unterstützung durch ein motiviertes und engagiertes Team\n\n• Region mit Lebensqualität und hohem Freizeitwert",
       "descriptionByLocale": {
@@ -876,7 +876,6 @@
           "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-30T11:18:37.490Z",
       "salaryMin": 58300,
       "salaryMax": 81300,
@@ -977,9 +976,9 @@
     },
     {
       "id": "hopital-du-valais-2520ca52dabc",
-      "slug": "koch-kochin-efz-hopital-du-valais-brig",
+      "slug": "cook-cooker-efz-hopital-du-valais-brig",
       "slugByLocale": {
-        "it": "koch-kochin-efz-hopital-du-valais-brig",
+        "it": "cook-cooker-efz-hopital-du-valais-brig",
         "en": "chef-efz-hopital-du-valais-brig",
         "de": "koch-kochin-efz-hopital-du-valais-brig",
         "fr": "chef-efz-hopital-du-valais-brig"
@@ -989,7 +988,7 @@
       "companyDomain": "hopitalvs.ch",
       "title": "Koch/Köchin EFZ",
       "titleByLocale": {
-        "it": "Koch/Köchin CFC",
+        "it": "Cook/cooker EFZ",
         "en": "Chef EFZ",
         "de": "Koch/Köchin EFZ",
         "fr": "Chef EFZ"
@@ -1025,7 +1024,6 @@
         "famille": "Formation",
         "site": "BRIG"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-31T11:43:34.706Z",
       "salaryMin": 51000,
       "salaryMax": 94500,
@@ -1041,7 +1039,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-efz-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-efz-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-8e5094a93b02",
@@ -4282,12 +4288,12 @@
     },
     {
       "id": "hopital-du-valais-c4475def2427",
-      "slug": "apprenti-e-s-logistica-ne-s-hopital-du-valais-sion",
+      "slug": "learn-e-s-cauien-ne-s-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "apprenti-e-s-logisticien-ne-s-hopital-du-valais-sion",
-        "it": "apprenti-e-s-logistica-ne-s-hopital-du-valais-sion",
+        "it": "learn-e-s-cauien-ne-s-hopital-du-valais-sion",
         "en": "apprenti-e-s-logisticien-ne-s-hopital-du-valais-sion",
-        "de": "apprenti-e-s-logisticien-ne-s-hopital-du-valais-sion"
+        "de": "lernen-e-s-cauien-ne-s-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4295,9 +4301,9 @@
       "title": "Apprenti-e-s logisticien-ne-s",
       "titleByLocale": {
         "fr": "Apprenti-e-s logisticien-ne-s",
-        "it": "Apprenti-e-s logistica-ne-s",
-        "en": "Apprenti-e-s logisticien-ne-s",
-        "de": "Apprenti-e-s logisticien-ne-s"
+        "it": "Learn-e-s Çauien-ne-s",
+        "en": "Learn-e-s Çauien-ne-s",
+        "de": "Lernen-e-s Çauien-ne-s"
       },
       "description": "L’Hôpital du Valais cherche pour l'Institut Central des Hôpitaux des\n\nApprenti-e-s logisticien-ne-s\n\nMission:\nPréparer des commandes, gérer la réception de marchandise, la mise en stock et la distribution des articles. L’apprenti-e sera amené-e à gérer ces tâches accompagné-e-s par un formateur.\n\nProfil:\nVous disposez d’une attestation de fin de scolarité obligatoire. Organisé-e, vous faites preuve d’un esprit méthodique et d’un sens de la collaboration. Vous disposez d’une habileté manuelle et d’une résistance physique.",
       "descriptionByLocale": {
@@ -4330,7 +4336,6 @@
         "famille": "Formation",
         "site": "SION"
       },
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 94500,
       "currency": "CHF",
@@ -4349,11 +4354,16 @@
       "firstSeenAt": "2026-09-17T03:48:36.470Z",
       "previousSlugsByLocale": {
         "it": [
+          "apprenti-e-s-logisticien-ne-s-hopital-du-valais-sion",
+          "apprenti-e-s-logistica-ne-s-hopital-du-valais-sion"
+        ],
+        "de": [
           "apprenti-e-s-logisticien-ne-s-hopital-du-valais-sion"
         ]
       },
       "previousSlugs": [
-        "apprenti-e-s-logisticien-ne-s-hopital-du-valais-sion"
+        "apprenti-e-s-logisticien-ne-s-hopital-du-valais-sion",
+        "apprenti-e-s-logistica-ne-s-hopital-du-valais-sion"
       ]
     },
     {
@@ -4444,7 +4454,7 @@
         "fr": "apprenti-e-laborantin-e-option-chimie-hopital-du-valais-sion",
         "it": "apprenti-e-laborantin-e-opzione-chimica-hopital-du-valais-sion",
         "en": "apprenti-e-laborantin-e-option-chimie-hopital-du-valais-sion",
-        "de": "apprenti-e-laborantin-e-chemieoption-hopital-du-valais-sion"
+        "de": "anwendende-laborantin-e-chemie-option-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4454,7 +4464,7 @@
         "fr": "Apprenti-e laborantin-e (option chimie)",
         "it": "Apprenti-e laborantin-e (opzione chimica)",
         "en": "Apprenti-e laborantin-e (chemistry option)",
-        "de": "Apprenti-e laborantin-e (Chemieoption)"
+        "de": "Anwendende laborantin-e (Chemie-Option)"
       },
       "description": "L’Hôpital du Valais cherche pour l'Institut Central des Hôpitaux un-e\n\nApprenti-e laborantin-e (option chimie)\n\npour le laboratoire de contrôle qualité (secteur production) du service de pharmacie\n\nMission:\nAnalyser les matières premières ainsi que les médicaments fabriqués pour vérifier qu’ils soient de bonne qualité (par chromatographie, spectrométrie,…).\n\nProfil:\n• Vous disposez d’une attestation de fin de scolarité obligatoire.\n• Précis-e et minutieux-se, vous faites preuve d’un esprit méthodique, logique et rigoureux. Vous avez un attrait pour les sciences et êtes à l’aise en mathématiques",
       "descriptionByLocale": {
@@ -4509,11 +4519,13 @@
           "apprenti-e-laborantin-e-option-chimie-hopital-du-valais-sion"
         ],
         "de": [
-          "apprenti-e-laborantin-e-option-chimie-hopital-du-valais-sion"
+          "apprenti-e-laborantin-e-option-chimie-hopital-du-valais-sion",
+          "apprenti-e-laborantin-e-chemieoption-hopital-du-valais-sion"
         ]
       },
       "previousSlugs": [
-        "apprenti-e-laborantin-e-option-chimie-hopital-du-valais-sion"
+        "apprenti-e-laborantin-e-option-chimie-hopital-du-valais-sion",
+        "apprenti-e-laborantin-e-chemieoption-hopital-du-valais-sion"
       ]
     },
     {

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksbl",
-  "assembledAt": "2026-09-16T22:03:42.915Z",
+  "assembledAt": "2026-09-17T18:34:11.964Z",
   "jobs": [
     {
       "id": "ksbl-3113381bd505",
@@ -386,13 +386,15 @@
         "it": [
           "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
           "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-s9bict",
-          "unterassistentin-unterassistent-medizin-a-ksbl-liestal-s9bict"
+          "unterassistentin-unterassistent-medizin-a-ksbl-liestal-s9bict",
+          "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
       "previousSlugs": [
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
         "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-s9bict",
-        "unterassistentin-unterassistent-medizin-a-ksbl-liestal-s9bict"
+        "unterassistentin-unterassistent-medizin-a-ksbl-liestal-s9bict",
+        "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -1795,11 +1797,28 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-hf-in-ausbildung-fruhling-2027-a-ksbl-liestal"
+        "fachfrau-fachmann-operationstechnik-hf-in-ausbildung-fruhling-2027-a-ksbl-liestal",
+        "specialista-esperto-operazioni-ingegneria-hf-kantonsspital-baselland-ksbl-liestal",
+        "specialist-expert-operations-engineering-hf-kantonsspital-baselland-ksbl-liestal",
+        "fachfrau-fachmann-operationstechnik-hf-ksbl-liestal",
+        "specialiste-expert-genie-des-operations-hf-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-operationstechnik-hf-in-ausbildung-fruhling-2027-a-ksbl-liestal"
+          "fachfrau-fachmann-operationstechnik-hf-in-ausbildung-fruhling-2027-a-ksbl-liestal",
+          "specialista-esperto-operazioni-ingegneria-hf-kantonsspital-baselland-ksbl-liestal",
+          "specialist-expert-operations-engineering-hf-kantonsspital-baselland-ksbl-liestal",
+          "fachfrau-fachmann-operationstechnik-hf-ksbl-liestal",
+          "specialiste-expert-genie-des-operations-hf-kantonsspital-baselland-ksbl-liestal"
+        ],
+        "en": [
+          "specialist-expert-operations-engineering-hf-kantonsspital-baselland-ksbl-liestal"
+        ],
+        "de": [
+          "fachfrau-fachmann-operationstechnik-hf-ksbl-liestal"
+        ],
+        "fr": [
+          "specialiste-expert-genie-des-operations-hf-kantonsspital-baselland-ksbl-liestal"
         ]
       },
       "firstSeenAt": "2026-05-19T10:23:43.124Z",
@@ -1962,11 +1981,28 @@
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-pneumologie-a-ksbl-liestal"
+        "oberarztin-oberarzt-pneumologie-a-ksbl-liestal",
+        "anestesia-medico-senior-kantonsspital-baselland-ksbl-liestal",
+        "senior-physician-anesthesia-kantonsspital-baselland-ksbl-liestal",
+        "oberarztin-oberarzt-anasthesie-ksbl-liestal",
+        "anesthesie-chez-le-medecin-principal-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-pneumologie-a-ksbl-liestal"
+          "oberarztin-oberarzt-pneumologie-a-ksbl-liestal",
+          "anestesia-medico-senior-kantonsspital-baselland-ksbl-liestal",
+          "senior-physician-anesthesia-kantonsspital-baselland-ksbl-liestal",
+          "oberarztin-oberarzt-anasthesie-ksbl-liestal",
+          "anesthesie-chez-le-medecin-principal-kantonsspital-baselland-ksbl-liestal"
+        ],
+        "en": [
+          "senior-physician-anesthesia-kantonsspital-baselland-ksbl-liestal"
+        ],
+        "de": [
+          "oberarztin-oberarzt-anasthesie-ksbl-liestal"
+        ],
+        "fr": [
+          "anesthesie-chez-le-medecin-principal-kantonsspital-baselland-ksbl-liestal"
         ]
       },
       "firstSeenAt": "2026-05-19T10:23:38.304Z",
@@ -3129,7 +3165,7 @@
       "slug": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-f0acea",
       "slugByLocale": {
         "it": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-f0acea",
-        "en": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
+        "en": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal",
         "de": "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
         "fr": "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal-f0acea"
       },
@@ -3178,8 +3214,7 @@
         "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
         "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal",
         "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal",
-        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
-        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
+        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3189,8 +3224,7 @@
         "en": [
           "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
           "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
-          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
-          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
+          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
         ],
         "fr": [
           "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal",
@@ -3677,7 +3711,11 @@
         "dipl-care-specialist-imc-a-kantonsspital-baselland-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-imc-a-ksbl-liestal",
         "dipl-specialiste-des-soins-imc-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-endoskopie-a-ksbl-liestal-wo2xsh"
+        "dipl-pflegefachfrau-pflegefachmann-endoskopie-a-ksbl-liestal-wo2xsh",
+        "dipl-infermieristica-professionale-walk-in-permanence-kantonsspital-baselland-ksbl-liestal",
+        "dipl-nursing-professional-walk-in-permanence-kantonsspital-baselland-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-walk-in-permanence-ksbl-liestal",
+        "c-est-quoi-la-permanence-des-professionnels-de-la-sante-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3685,17 +3723,24 @@
           "dipl-infermieristica-professionale-imc-a-kantonsspital-baselland-ksbl-liestal",
           "dipl-care-specialist-imc-a-kantonsspital-baselland-ksbl-liestal",
           "dipl-pflegefachfrau-pflegefachmann-imc-a-ksbl-liestal",
-          "dipl-specialiste-des-soins-imc-a-kantonsspital-baselland-ksbl-liestal"
+          "dipl-specialiste-des-soins-imc-a-kantonsspital-baselland-ksbl-liestal",
+          "dipl-infermieristica-professionale-walk-in-permanence-kantonsspital-baselland-ksbl-liestal",
+          "dipl-nursing-professional-walk-in-permanence-kantonsspital-baselland-ksbl-liestal",
+          "dipl-pflegefachfrau-pflegefachmann-walk-in-permanence-ksbl-liestal",
+          "c-est-quoi-la-permanence-des-professionnels-de-la-sante-kantonsspital-baselland-ksbl-liestal"
         ],
         "en": [
-          "dipl-care-specialist-imc-a-kantonsspital-baselland-ksbl-liestal"
+          "dipl-care-specialist-imc-a-kantonsspital-baselland-ksbl-liestal",
+          "dipl-nursing-professional-walk-in-permanence-kantonsspital-baselland-ksbl-liestal"
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-imc-a-ksbl-liestal",
-          "dipl-pflegefachfrau-pflegefachmann-endoskopie-a-ksbl-liestal-wo2xsh"
+          "dipl-pflegefachfrau-pflegefachmann-endoskopie-a-ksbl-liestal-wo2xsh",
+          "dipl-pflegefachfrau-pflegefachmann-walk-in-permanence-ksbl-liestal"
         ],
         "fr": [
-          "dipl-specialiste-des-soins-imc-a-kantonsspital-baselland-ksbl-liestal"
+          "dipl-specialiste-des-soins-imc-a-kantonsspital-baselland-ksbl-liestal",
+          "c-est-quoi-la-permanence-des-professionnels-de-la-sante-kantonsspital-baselland-ksbl-liestal"
         ]
       },
       "firstSeenAt": "2026-06-24T22:28:36.685Z",
@@ -4206,10 +4251,10 @@
       "companyDomain": "ksbl.ch",
       "title": "Oberärztin/Oberarzt Gesundheitszentrum Laufen (a)",
       "titleByLocale": {
-        "it": "Oberarzttin/Oberarzt Gesundheitszentrum Laufen (a)",
-        "en": "Oberarzttin/Oberarzt Gesundheitszentrum Laufen (a)",
+        "it": "Medico senior Centro sanitario Laufen (a)",
+        "en": "Senior physician Health Centre Laufen (a)",
         "de": "Oberärztin/Oberarzt Gesundheitszentrum Laufen (a)",
-        "fr": "Oberarzttin/Oberarzt Gesundheitszentrum Laufen (a)"
+        "fr": "Médecin principal Centre de santé Laufen (a)"
       },
       "description": "Eintritt nach Vereinbarung · Laufen, Gesundheitszentrum Laufen · Stellenreferenz 13083 · Festanstellung\n\nAufgaben:\nOberärztin/Oberarzt mit Begeisterung für Hausarzt- und Notfallmedizin gesucht\nGemeinsam bauen wir den Walk-in-Notfall im Gesundheitszentrum Laufen auf.\nDu möchtest Hausarztmedizin und Notfallmedizin verbinden? Du schätzt selbstständiges Arbeiten, kurze Entscheidungswege und interdisziplinäre Zusammenarbeit? Dann freuen wir uns, dich kennenzulernen.\n• Medizinische Betreuung von Patientinnen und Patienten im Walk-in-Notfall sowie in der hausärztlichen Akutversorgung\n• Selbstständige Beurteilung und Behandlung eines breiten internistischen und notfallmedizinischen Spektrums\n• Enge Zusammenarbeit mit Pflege, Hausärztinnen und Hausärzten sowie den Spezialdisziplinen sowie mit den Spezialistinnen und Spezialisten des Kantonsspitals Baselland\n• Aktive Mitgestaltung und Weiterentwicklung unseres neuen Walk-in-Konzepts\n• Beteiligung an Fallbesprechungen, Teaching und kontinuierlicher Qualitätsentwicklung\n• Mitwirkung beim Aufbau einer modernen, patientenzentrierten Akutversorgung\n• Möglichkeit, eigene Ideen einzubringen und Prozesse aktiv mitzugestalten\n• Wir leben im KSBL die Du- Kultur, respektieren den individuellen Wunsch nach der Sie-Form\n\nAnforderungen:\n• Du bist Facharzt (m/w/d) für Allgemeine Innere Medizin\n• Hohe fachliche und soziale Kompetenz und Freude an Teamarbeit\n• Offenheit gegenüber neuen Ideen und innovativen Versorgungsmodellen\n• Freude an der Akut- und Hausarztmedizin Das bieten wir\n• Mitarbeit beim Aufbau eines innovativen Walk-in-Notfalls\n• Abwechslungsreiche Tätigkeit zwischen Hausarzt- und Notfallmedizin\n• Regelmässige interne Teachings und interdisziplinäre Fallbesprechungen\n• Flache Hierarchien und kurze Entscheidungswege\n• Ein motiviertes, engagiertes und herzliches Team\n• Viel Gestaltungsspielraum und die Möglichkeit, eigene Ideen einzubringen\n• Attraktive Arbeitszeiten und moderne Infrastruktur Unser Ziel\nWir möchten eine Walk-in-Praxis schaffen, die medizinisch auf höchstem Niveau arbeitet und gleichzeitig Menschlichkeit, Teamgeist und Freude an der Medizin lebt. Dafür suchen wir Kolleginnen und Kollegen, die nicht nur mitarbeiten, sondern gemeinsam etwas Neues aufbauen möchten.\n\nBenefits:\nAuf und davon: mind. 5 Wochen Ferien, Treueferien, 11 bezahlte Feier- und Brückentage\n\nBereich: Gesundheitszentrum Laufen\n\nBeschäftigungsgrad: 50-100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
       "descriptionByLocale": {
@@ -4218,7 +4263,6 @@
         "de": "Eintritt nach Vereinbarung · Laufen, Gesundheitszentrum Laufen · Stellenreferenz 13083 · Festanstellung\n\nAufgaben:\nOberärztin/Oberarzt mit Begeisterung für Hausarzt- und Notfallmedizin gesucht\nGemeinsam bauen wir den Walk-in-Notfall im Gesundheitszentrum Laufen auf.\nDu möchtest Hausarztmedizin und Notfallmedizin verbinden? Du schätzt selbstständiges Arbeiten, kurze Entscheidungswege und interdisziplinäre Zusammenarbeit? Dann freuen wir uns, dich kennenzulernen.\n• Medizinische Betreuung von Patientinnen und Patienten im Walk-in-Notfall sowie in der hausärztlichen Akutversorgung\n• Selbstständige Beurteilung und Behandlung eines breiten internistischen und notfallmedizinischen Spektrums\n• Enge Zusammenarbeit mit Pflege, Hausärztinnen und Hausärzten sowie den Spezialdisziplinen sowie mit den Spezialistinnen und Spezialisten des Kantonsspitals Baselland\n• Aktive Mitgestaltung und Weiterentwicklung unseres neuen Walk-in-Konzepts\n• Beteiligung an Fallbesprechungen, Teaching und kontinuierlicher Qualitätsentwicklung\n• Mitwirkung beim Aufbau einer modernen, patientenzentrierten Akutversorgung\n• Möglichkeit, eigene Ideen einzubringen und Prozesse aktiv mitzugestalten\n• Wir leben im KSBL die Du- Kultur, respektieren den individuellen Wunsch nach der Sie-Form\n\nAnforderungen:\n• Du bist Facharzt (m/w/d) für Allgemeine Innere Medizin\n• Hohe fachliche und soziale Kompetenz und Freude an Teamarbeit\n• Offenheit gegenüber neuen Ideen und innovativen Versorgungsmodellen\n• Freude an der Akut- und Hausarztmedizin Das bieten wir\n• Mitarbeit beim Aufbau eines innovativen Walk-in-Notfalls\n• Abwechslungsreiche Tätigkeit zwischen Hausarzt- und Notfallmedizin\n• Regelmässige interne Teachings und interdisziplinäre Fallbesprechungen\n• Flache Hierarchien und kurze Entscheidungswege\n• Ein motiviertes, engagiertes und herzliches Team\n• Viel Gestaltungsspielraum und die Möglichkeit, eigene Ideen einzubringen\n• Attraktive Arbeitszeiten und moderne Infrastruktur Unser Ziel\nWir möchten eine Walk-in-Praxis schaffen, die medizinisch auf höchstem Niveau arbeitet und gleichzeitig Menschlichkeit, Teamgeist und Freude an der Medizin lebt. Dafür suchen wir Kolleginnen und Kollegen, die nicht nur mitarbeiten, sondern gemeinsam etwas Neues aufbauen möchten.\n\nBenefits:\nAuf und davon: mind. 5 Wochen Ferien, Treueferien, 11 bezahlte Feier- und Brückentage\n\nBereich: Gesundheitszentrum Laufen\n\nBeschäftigungsgrad: 50-100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
         "fr": "Entrée par arrangement · Running, Health Center Running · Référence de l'emploi 13083 · Emploi permanent\n\nTâches :\nMédecin âgé avec enthousiasme recherché pour la médecine familiale et d'urgence\nEnsemble, nous construisons l'urgence au centre de santé de Laufen.\nVoulez-vous combiner la médecine familiale et la médecine d'urgence? Appréciez-vous le travail indépendant, les courts processus décisionnels et la coopération interdisciplinaire? Nous sommes impatients de vous rencontrer.\n• Soins médicaux pour les patients en situation d'urgence et de crise familiale\n• Évaluation et traitement indépendants d'un large éventail de médicaments internistes et d'urgence\n• Coopération étroite avec les infirmières, les généralistes et les disciplines spéciales ainsi qu'avec les spécialistes de l'Hôpital cantonal de Bâleland\n• Co-création active et développement de notre nouveau concept d'intégration\n• Participation aux discussions, à l'enseignement et au développement continu de la qualité\n• Participation au développement de soins actifs modernes axés sur le patient\n• Possibilité de contribuer à vos propres idées et de façonner activement les processus\n• Chez KSBL nous vivons la du-culture, en respectant le désir individuel de la forme-vous\n\nExigences\n• Vous êtes spécialiste (m/f/d) en médecine interne générale\n• Haute compétence professionnelle et sociale et la jouissance du travail d'équipe\n• Ouverture aux nouvelles idées et aux modèles d'approvisionnement innovants\n• Joy de médecine aiguë et familiale Nous offrons\n• Participation au développement d'une situation d'urgence innovante\n• Activité variée entre le médecin de famille et la médecine d'urgence\n• Enseignements internes réguliers et discussions de cas interdisciplinaires\n• Hiérarchies plates et chemins de décision courts\n• Une équipe motivée, engagée et chaleureuse\n• Beaucoup de liberté créative et l'occasion de contribuer à vos propres idées\n• Des horaires de travail attrayants et des infrastructures modernes Notre objectif\nNous voulons créer une pratique de promenade qui fonctionne médicalement au plus haut niveau et en même temps vit l'humanité, l'esprit d'équipe et la joie de la médecine. Pour cela, nous cherchons des collègues qui veulent non seulement coopérer, mais aussi construire quelque chose de nouveau ensemble.\n\nAvantages:\nÇa va, ça va. 5 semaines de vacances, fidélisation, 11 vacances payées et jours de pont\n\nDomaine: Centre de santé\n\nNiveau d'emploi: 50-100 %\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 employés dans 3 sites de la région de Bâle."
       },
-      "needsRetranslation": true,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/oberaerztin-oberarzt-gesundheitszentrum-laufen-a/5346423f-693b-48e2-be1c-e92720c9980a",
@@ -4856,17 +4900,30 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "diatkochin-diatkoch-fa-in-ausbildung-2027-a-ksbl-liestal"
+        "diatkochin-diatkoch-fa-in-ausbildung-2027-a-ksbl-liestal",
+        "cucina-dietetica-cucina-dietetica-chef-a-kantonsspital-baselland-ksbl-liestal",
+        "dietetic-cook-diet-cook-chef-a-kantonsspital-baselland-ksbl-liestal",
+        "diatkochin-diatkoch-kochin-koch-a-ksbl-liestal",
+        "cuisiniere-dietetique-cuisiniere-cuisiniere-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diatkochin-diatkoch-fa-in-ausbildung-2027-a-ksbl-liestal"
+          "diatkochin-diatkoch-fa-in-ausbildung-2027-a-ksbl-liestal",
+          "cucina-dietetica-cucina-dietetica-chef-a-kantonsspital-baselland-ksbl-liestal",
+          "dietetic-cook-diet-cook-chef-a-kantonsspital-baselland-ksbl-liestal",
+          "diatkochin-diatkoch-kochin-koch-a-ksbl-liestal",
+          "cuisiniere-dietetique-cuisiniere-cuisiniere-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "en": [
-          "diatkochin-diatkoch-fa-in-ausbildung-2027-a-ksbl-liestal"
+          "diatkochin-diatkoch-fa-in-ausbildung-2027-a-ksbl-liestal",
+          "dietetic-cook-diet-cook-chef-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "fr": [
-          "diatkochin-diatkoch-fa-in-ausbildung-2027-a-ksbl-liestal"
+          "diatkochin-diatkoch-fa-in-ausbildung-2027-a-ksbl-liestal",
+          "cuisiniere-dietetique-cuisiniere-cuisiniere-a-kantonsspital-baselland-ksbl-liestal"
+        ],
+        "de": [
+          "diatkochin-diatkoch-kochin-koch-a-ksbl-liestal"
         ]
       },
       "firstSeenAt": "2026-08-01T11:14:33.992Z",
@@ -5046,10 +5103,10 @@
       "companyDomain": "ksbl.ch",
       "title": "Kauffrau/Kaufmann EFZ in Ausbildung 2027 (a)",
       "titleByLocale": {
-        "it": "Kauffrau/Kaufmann CFC in Ausbildung 2027 (a)",
-        "en": "Kauffrau/Kaufmann EFZ in training 2027 (a)",
+        "it": "Commerciale/Caufmann EFZ nella formazione 2027 (a)",
+        "en": "Commercial/Caufmann EFZ in training 2027 (a)",
         "de": "Kauffrau/Kaufmann EFZ in Ausbildung 2027 (a)",
-        "fr": "Kauffrau/Kaufmann EFZ en formation 2027 (a)"
+        "fr": "Commerce/Caufmann EFZ en formation 2027 (a)"
       },
       "description": "Eintritt per 1. August 2027 · Bruderholz, Liestal, Administration · Stellenreferenz 12825 · Lernende\n\nAufgaben:\nIn der Ausbildung Kauffrau/Kaufmann EFZ (Brache Gesundheit) erwartet dich ein vielfältiger Arbeitsalltag. Du erhältst Einblick in das Gesundheitswesen der Schweiz und die verschiedenen Bereiche eines dynamischen Gesundheitsbetriebs. Durch die regelmäßigen Abteilungswechsel, lernst du die folgenden\nadministrativen Fachbereiche und ihre Arbeitsumgebungen kennen: 1. Lehrjahr: Patientenadministration : Du bearbeitest administrative Informationen rund um Behandlungen und Therapien – sorgfältig, diskret und stets gut organisiert. Patientenaufnahme : Patientinnen und Patienten werden von dir empfangen und sorgst dafür, dass ihre administrative Betreuung reibungslos abläuft. 2. Lehrjahr: Einkauf & Logistik : Du unterstützt bei der Bestellung von medizinischem Material / Bürobedarf und hilfst mit, dass alles zur richtigen Zeit am richtigen Ort ist. Finanzbuchhaltung : Du erhältst Einblick in die Fibu und unterstützt bei der Prüfung der Rechnungen. 3. Lehrjahr: HR : Du hilfst mit beim Erstellen und Verwalten von Arbeitsverträgen, pflegst Personaldaten und lernst die administrativen Prozesse rund ums Personalwesen kennen. Finanzen : In der Betriebsbuchhaltung erhältst du Einblick in die Abrechnung der Kosten / Leistungen eines Spitals nach den geltenden Tarifen.\n\nAnforderungen:\n• Du zeigst im Sekundarschulniveau E oder P sehr gute Leistungen in den Kernfächern\n• Du bist ein kontaktfreudiger Teamplayer und magst ein lebhaftes Arbeitsumfeld\n• Deine Arbeitshaltung ist zuverlässig, selbstverantwortlich und sorgfältig\n• 6 Wochen Ferien pro Jahr – weil du dir auch Zeit zum Auftanken und Geniessen verdient hast\nInteressiert? Dann klicke oben auf den gelben Button Jetzt bewerben und sende uns:\n• Deine Bewerbungsunterlagen mit Motivationsschreiben, Lebenslauf und Zeugnissen\n• Erhöhe deine Chancen auf diese Lehrstelle, indem du zudem deinen S2-, S3- oder Multicheck einreichst.\n\nBenefits:\nMan lernt nie aus: Vielfältige Aus- und Weiterbildungsmöglichkeiten\n\nBereich: Administration\n\nBeschäftigungsgrad: 100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
       "descriptionByLocale": {
@@ -5058,7 +5115,6 @@
         "de": "Eintritt per 1. August 2027 · Bruderholz, Liestal, Administration · Stellenreferenz 12825 · Lernende\n\nAufgaben:\nIn der Ausbildung Kauffrau/Kaufmann EFZ (Brache Gesundheit) erwartet dich ein vielfältiger Arbeitsalltag. Du erhältst Einblick in das Gesundheitswesen der Schweiz und die verschiedenen Bereiche eines dynamischen Gesundheitsbetriebs. Durch die regelmäßigen Abteilungswechsel, lernst du die folgenden\nadministrativen Fachbereiche und ihre Arbeitsumgebungen kennen: 1. Lehrjahr: Patientenadministration : Du bearbeitest administrative Informationen rund um Behandlungen und Therapien – sorgfältig, diskret und stets gut organisiert. Patientenaufnahme : Patientinnen und Patienten werden von dir empfangen und sorgst dafür, dass ihre administrative Betreuung reibungslos abläuft. 2. Lehrjahr: Einkauf & Logistik : Du unterstützt bei der Bestellung von medizinischem Material / Bürobedarf und hilfst mit, dass alles zur richtigen Zeit am richtigen Ort ist. Finanzbuchhaltung : Du erhältst Einblick in die Fibu und unterstützt bei der Prüfung der Rechnungen. 3. Lehrjahr: HR : Du hilfst mit beim Erstellen und Verwalten von Arbeitsverträgen, pflegst Personaldaten und lernst die administrativen Prozesse rund ums Personalwesen kennen. Finanzen : In der Betriebsbuchhaltung erhältst du Einblick in die Abrechnung der Kosten / Leistungen eines Spitals nach den geltenden Tarifen.\n\nAnforderungen:\n• Du zeigst im Sekundarschulniveau E oder P sehr gute Leistungen in den Kernfächern\n• Du bist ein kontaktfreudiger Teamplayer und magst ein lebhaftes Arbeitsumfeld\n• Deine Arbeitshaltung ist zuverlässig, selbstverantwortlich und sorgfältig\n• 6 Wochen Ferien pro Jahr – weil du dir auch Zeit zum Auftanken und Geniessen verdient hast\nInteressiert? Dann klicke oben auf den gelben Button Jetzt bewerben und sende uns:\n• Deine Bewerbungsunterlagen mit Motivationsschreiben, Lebenslauf und Zeugnissen\n• Erhöhe deine Chancen auf diese Lehrstelle, indem du zudem deinen S2-, S3- oder Multicheck einreichst.\n\nBenefits:\nMan lernt nie aus: Vielfältige Aus- und Weiterbildungsmöglichkeiten\n\nBereich: Administration\n\nBeschäftigungsgrad: 100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
         "fr": "Entrée par 1. Août 2027 · Bruderholz, Liestal, Administration · Job reference 12825 · Apprentis\n\nTâches :\nDans l'apprentissage Kauffrau/Kaufmann EFZ (Brache Gesundheit), vous pouvez vous attendre à une journée de travail variée. Vous aurez un aperçu du système de santé suisse et des différents domaines d'une opération de santé dynamique. Par les changements réguliers de département, vous apprenez ce qui suit\nConnaître les services administratifs et leur environnement de travail : 1ère année de formation : Administration du patient : Vous traitez des informations administratives sur les traitements et les thérapies – soigneusement, discrètement et toujours bien organisées. Admission des patients : Les patients sont reçus par vous et s'assurent que leur soutien administratif fonctionne bien. 2ème année d'apprentissage : Achat & Logistique : Vous aidez à commander des fournitures médicales / fournitures de bureau et vous aidez à vous assurer que tout est au bon endroit au bon moment. Comptabilité financière : Vous obtenez un aperçu de la Fibu et un soutien dans l'audit des factures. 3ème année de formation : RH : Vous aidez à créer et gérer des contrats d'emploi, à tenir à jour des données sur le personnel et à connaître les processus administratifs entourant les ressources humaines. Finance : Dans la comptabilité de l'entreprise, vous obtenez un aperçu de la facturation des coûts / services d'un hôpital selon les tarifs applicables.\n\nExigences\n• Vous montrez de très bonnes performances dans les matières de base au niveau E ou P du secondaire\n• Vous êtes un joueur d'équipe sociable et comme un environnement de travail animé\n• Votre posture de travail est fiable, auto-responsable et prudente\n• 6 semaines de vacances par an – parce que vous avez également gagné du temps pour ravitailler et profiter\nIntéressé ? Cliquez ensuite sur le bouton jaune Appliquer maintenant et envoyez-nous:\n• Vos documents de candidature avec lettre de motivation, CV et certificats\n• Augmentez vos chances pour cet apprentissage en soumettant également votre S2, S3 ou Multicheck.\n\nAvantages:\nVous n'apprendrez jamais de: Diverses possibilités de formation et de perfectionnement\n\nDomaine: Administration\n\nNiveau d'emploi: 100%\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 employés dans 3 sites de la région de Bâle."
       },
-      "needsRetranslation": true,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/kauffrau-kaufmann-efz-in-ausbildung-2027-a/48ab870d-816e-4573-bf74-ee211166e885",
@@ -5602,10 +5658,10 @@
       "companyDomain": "ksbl.ch",
       "title": "Stv. Stationsleiterin/Stv. Stationsleiter (a)",
       "titleByLocale": {
-        "it": "Stv. Station Manager (a)",
-        "en": "Stv. Station Manager (a)",
+        "it": "Gestore della stazione (a)",
+        "en": "Station manager (a)",
         "de": "Stv. Stationsleiterin/Stv. Stationsleiter (a)",
-        "fr": "Directeur de station Stv. a)"
+        "fr": "Gestionnaire de station a)"
       },
       "description": "Eintritt per 1. November 2026 oder nach Vereinbarung · Liestal, Pflege · Stellenreferenz 13142 · Festanstellung\n\nAufgaben:\nSie sind bereit, den nächsten Schritt zu gehen und mit Ihrem Engagement, Ihrer Fachkompetenz und Ihrer Persönlichkeit etwas zu bewegen? Werden Sie Teil unseres Teams und übernehmen Sie eine vielseitige Führungsaufgabe.\n• Unterstützung der Stationsleitung in Planungs-,Organisations- und Führungsaufgaben sowie der Mitarbeitenden in ihrer Entwicklung\n• Mitverantwortung für die Umsetzung der Leistungsziele auf der Station mit 24 Betten\n• Aktive Mitgestaltung der Pflegequalität sowie nachhaltige Umsetzung und Weiterentwicklung von LeanHospital\n• Mitglied des Stationsleitungsgremiums im Sinne von Shared Governance\n• Mitarbeit in der direkten Pflege in einem engagierten und motivierten Team\n• Führen einer Zone mit der zugeteilten Patientengruppe und sich dabei auf die Umsetzung der ganzheitlichen und patientenzentrierten Pflege fokussieren\n\nAnforderungen:\n• Basis: Diplom als Pflegefachfrau/ Pflegefachmann (HF, FH oder äquivalent)\n• Gerne: Erfahrung in einem Akutbetrieb\n• Sehr gerne: Lust, Führungsaufgaben zu übernehmen und mit positiver Grundeinstellung voranzuschreiten\n• Und auch: Empathie sowie das Interesse zu organisieren, zu kommunizieren und zu bewirken\n• Unbedingt: Freude an einemabwechslungsreichen und lebhaften Spitalalltag\nAnpackend - versiert - herzlich - verlässlich? Dann passt Du zu uns!\n\nBenefits:\nFit sein & bleiben: Attraktive Angebote rund um Sport, Entspannung & Ernährung\n\nBereich: Pflege\n\nBeschäftigungsgrad: 80-100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
       "descriptionByLocale": {
@@ -5614,7 +5670,6 @@
         "de": "Eintritt per 1. November 2026 oder nach Vereinbarung · Liestal, Pflege · Stellenreferenz 13142 · Festanstellung\n\nAufgaben:\nSie sind bereit, den nächsten Schritt zu gehen und mit Ihrem Engagement, Ihrer Fachkompetenz und Ihrer Persönlichkeit etwas zu bewegen? Werden Sie Teil unseres Teams und übernehmen Sie eine vielseitige Führungsaufgabe.\n• Unterstützung der Stationsleitung in Planungs-,Organisations- und Führungsaufgaben sowie der Mitarbeitenden in ihrer Entwicklung\n• Mitverantwortung für die Umsetzung der Leistungsziele auf der Station mit 24 Betten\n• Aktive Mitgestaltung der Pflegequalität sowie nachhaltige Umsetzung und Weiterentwicklung von LeanHospital\n• Mitglied des Stationsleitungsgremiums im Sinne von Shared Governance\n• Mitarbeit in der direkten Pflege in einem engagierten und motivierten Team\n• Führen einer Zone mit der zugeteilten Patientengruppe und sich dabei auf die Umsetzung der ganzheitlichen und patientenzentrierten Pflege fokussieren\n\nAnforderungen:\n• Basis: Diplom als Pflegefachfrau/ Pflegefachmann (HF, FH oder äquivalent)\n• Gerne: Erfahrung in einem Akutbetrieb\n• Sehr gerne: Lust, Führungsaufgaben zu übernehmen und mit positiver Grundeinstellung voranzuschreiten\n• Und auch: Empathie sowie das Interesse zu organisieren, zu kommunizieren und zu bewirken\n• Unbedingt: Freude an einemabwechslungsreichen und lebhaften Spitalalltag\nAnpackend - versiert - herzlich - verlässlich? Dann passt Du zu uns!\n\nBenefits:\nFit sein & bleiben: Attraktive Angebote rund um Sport, Entspannung & Ernährung\n\nBereich: Pflege\n\nBeschäftigungsgrad: 80-100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
         "fr": "Entrée par 1. Novembre 2026 ou sur rendez-vous · Liestal, Care · Référence de l'emploi 13142 · Emploi permanent\n\nTâches :\nÊtes-vous prêt à faire la prochaine étape et à faire une différence avec votre engagement, votre expertise et votre personnalité? Faites partie de notre équipe et assumez une tâche de gestion polyvalente.\n• Soutien de la direction de la station dans les tâches de planification, d'organisation et de gestion ainsi que des employés dans leur développement\n• Coresponsabilité pour la réalisation des objectifs de performance de la station avec 24 lits\n• Participation active à la qualité des soins ainsi qu'à la mise en œuvre durable et au développement de LeanHospital\n• Membre du conseil d'administration de la station au sens de la gouvernance partagée\n• Travailler en soins directs dans une équipe engagée et motivée\n• Diriger une zone avec le groupe de patients assigné et se concentrer sur la mise en place de soins holistiques et centrés sur le patient\n\nExigences\n• Base : Diplôme de spécialiste des soins infirmiers (HF, FH ou équivalent)\n• L'expérience d'une opération aiguë\n• Très heureux: Désir d'assumer des tâches de gestion et d'aller de l'avant avec une attitude positive\n• Et aussi : empathie et intérêt à organiser, communiquer et faire\n• Absolument: Joy d'un hôpital varié et animé vie quotidienne\nS'attaquer à la question de la fiabilité? Alors, tu seras avec nous !\n\nAvantages:\nÊtre en forme & rester en forme: des offres attrayantes autour du sport, de la relaxation et de la nutrition\n\nDomaine: Soins\n\nNiveau d'emploi: 80-100 %\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 employés dans 3 sites de la région de Bâle."
       },
-      "needsRetranslation": true,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/stv-stationsleiterin-stv-stationsleiter-a/5d258ee6-5416-4f85-827e-eef215150384",
@@ -5947,83 +6002,6 @@
       }
     },
     {
-      "id": "ksbl-cdc5c88c6611",
-      "slug": "cucina-dietetica-cucina-dietetica-chef-a-kantonsspital-baselland-ksbl-liestal",
-      "slugByLocale": {
-        "it": "cucina-dietetica-cucina-dietetica-chef-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "dietetic-cook-diet-cook-chef-a-kantonsspital-baselland-ksbl-liestal",
-        "de": "diatkochin-diatkoch-kochin-koch-a-ksbl-liestal",
-        "fr": "cuisiniere-dietetique-cuisiniere-cuisiniere-a-kantonsspital-baselland-ksbl-liestal"
-      },
-      "company": "Kantonsspital Baselland (KSBL)",
-      "companyKey": "ksbl",
-      "companyDomain": "ksbl.ch",
-      "title": "Diätköchin/Diätkoch / Köchin/Koch (a)",
-      "titleByLocale": {
-        "it": "Cucina dietetica/cucina dietetica/chef (a)",
-        "en": "Dietetic cook/diet cook/chef (a)",
-        "de": "Diätköchin/Diätkoch / Köchin/Koch (a)",
-        "fr": "Cuisinière diététique/cuisinière/cuisinière (a)"
-      },
-      "description": "Eintritt per 1. September 2026, befristet bis zum 31. August 2027 · Bruderholz, Gastronomie · Stellenreferenz 13171 · Befristet\n\nAufgaben:\nWir suchen zwei engagierte Persönlichkeiten, die das bestehende Team in unserer topmodernen Zentralküche auf dem Bruderholz bereichern und unterstützen, dies mit der Option zur Weiterbeschäftigung nach einem Jahr oder mit der Möglichkeit im Anschluss die Weiterbildung als Diätkoch/Diätköchin mit eidg. FA zu absolvieren.\n• Fachgerechte Produktion und Fertigung aller Mahlzeiten für Patienten und Mitarbeiter mit der Produktionsmethode Cook and Chill\n• Zubereitung der individuellen Ernährungstherapien, Umsetzung von Kostformen bei Allergien, Intoleranzen sowie Mangelernährung\n• Qualitätskontrolle beim Bandservice\n• Mitarbeit bei Spezialanlässen wie Bankette, Caterings & Apéros\n• Einhalten der Hygiene- und Qualitätsstandards nach HACCP\n• Geregelte Arbeitszeiten (Früh-/Spätdienst) ohne Zimmerstunde sowie planbare Freitage (6.45h-16h, 9.30h-18.45h)\n\nAnforderungen:\n• Sie verfügen über eine Kochlehre EFZ, wünschenswert mit einer Zusatzausbildung zum/zur Diätkoch/-köchin EFZ/FA\n• Sie verfügen bereits über einige Jahre Berufserfahrung in der Gastronomie/Hotellerie und fundierte Fachkenntnisse der kalten und warmen Küche\n• Gute EDV-Anwenderkenntnisse\n• Sie schätzen ein gutes Team und die interdisziplinäre Zusammenarbeit\n\nBenefits:\nLust auf Schnäppchen? Attraktive Rabatte für Reisen, Mode, Sport, Technik, Fahrzeuge ...\n\nBereich: Gastronomie\n\nBeschäftigungsgrad: 100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
-      "descriptionByLocale": {
-        "it": "Entrata in vigore il 1o settembre 2026, limitata nel tempo a 31. agosto 2027 · Bruderholz, gastronomia · Job reference 13171 · Temporary\n\nCompiti:\nSiamo alla ricerca di due personalità dedicate che arricchiranno e supporteranno il team esistente nella nostra cucina centrale all'avanguardia su Bruderholz, con la possibilità di continuare a lavorare dopo un anno o con la possibilità di completare ulteriormente la formazione come cuoco dietetico / chef dieta con agenzia federale.\n• Produzione professionale e produzione di tutti i pasti per pazienti e dipendenti con il metodo di produzione Cook e Chill\n• Preparazione di terapie nutrizionali individuali, implementazione di diete per allergie, intolleranze e malnutrizione\n• Controllo qualità nel servizio a banda\n• Collaborazione a eventi speciali come banchetti, catering e apero\n• Rispetto degli standard di igiene e qualità secondo HACCP\n• Ore lavorative regolamentate (servizio anticipato/lato) senza ore di camera e venerdì programmato (6.45h-16h, 9.30h-18.45h)\n\nRequisiti\n• Hai un manometro EFZ, desiderabile con addestramento aggiuntivo al cuoco di dieta EFZ/ FA\n• Hai già diversi anni di esperienza professionale nel settore della gastronomia/hotel e conoscenza approfondita della cucina fredda e calda\n• Buona conoscenza dell'utente del computer\n• Valgono un buon team e una cooperazione interdisciplinare\n\nVantaggi:\nVuoi fare un patto? Sconti interessanti per viaggi, moda, sport, tecnologia, veicoli ...\n\nArea: Gastronomia\n\nLivello di occupazione: 100%\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 dipendenti in 3 sedi nella regione di Basilea.",
-        "en": "Entry into force on 1 September 2026, limited in time to 31. August 2027 · Bruderholz, gastronomy · Job reference 13171 · Temporary\n\nTasks:\nWe are looking for two dedicated personalities who will enrich and support the existing team in our state-of-the-art Central Kitchen on Bruderholz, with the option to continue working after one year or with the possibility to complete further training as a diet cook / diet chef with federal agency.\n• Professional production and production of all meals for patients and employees with the Cook and Chill production method\n• Preparation of individual nutritional therapies, implementation of diets for allergies, intolerances and malnutrition\n• Quality control in band service\n• Collaboration at special events such as banquets, caterings & aperos\n• Compliance with hygiene and quality standards according to HACCP\n• Regulated working hours (early/late service) without room hours and scheduled Fridays (6.45h-16h, 9.30h-18.45h)\n\nRequirements\n• You have a culinary gauge EFZ, desirable with additional training to the diet cook EFZ/FA\n• You already have several years of professional experience in the gastronomy/hotel industry and in-depth knowledge of cold and warm cuisine\n• Good computer user knowledge\n• They value a good team and interdisciplinary cooperation\n\nBenefits:\nWant to get a bargain? Attractive discounts for travel, fashion, sports, technology, vehicles ...\n\nArea: Gastronomy\n\nLevel of employment: 100%\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 employees at 3 locations in the Basel region.",
-        "de": "Eintritt per 1. September 2026, befristet bis zum 31. August 2027 · Bruderholz, Gastronomie · Stellenreferenz 13171 · Befristet\n\nAufgaben:\nWir suchen zwei engagierte Persönlichkeiten, die das bestehende Team in unserer topmodernen Zentralküche auf dem Bruderholz bereichern und unterstützen, dies mit der Option zur Weiterbeschäftigung nach einem Jahr oder mit der Möglichkeit im Anschluss die Weiterbildung als Diätkoch/Diätköchin mit eidg. FA zu absolvieren.\n• Fachgerechte Produktion und Fertigung aller Mahlzeiten für Patienten und Mitarbeiter mit der Produktionsmethode Cook and Chill\n• Zubereitung der individuellen Ernährungstherapien, Umsetzung von Kostformen bei Allergien, Intoleranzen sowie Mangelernährung\n• Qualitätskontrolle beim Bandservice\n• Mitarbeit bei Spezialanlässen wie Bankette, Caterings & Apéros\n• Einhalten der Hygiene- und Qualitätsstandards nach HACCP\n• Geregelte Arbeitszeiten (Früh-/Spätdienst) ohne Zimmerstunde sowie planbare Freitage (6.45h-16h, 9.30h-18.45h)\n\nAnforderungen:\n• Sie verfügen über eine Kochlehre EFZ, wünschenswert mit einer Zusatzausbildung zum/zur Diätkoch/-köchin EFZ/FA\n• Sie verfügen bereits über einige Jahre Berufserfahrung in der Gastronomie/Hotellerie und fundierte Fachkenntnisse der kalten und warmen Küche\n• Gute EDV-Anwenderkenntnisse\n• Sie schätzen ein gutes Team und die interdisziplinäre Zusammenarbeit\n\nBenefits:\nLust auf Schnäppchen? Attraktive Rabatte für Reisen, Mode, Sport, Technik, Fahrzeuge ...\n\nBereich: Gastronomie\n\nBeschäftigungsgrad: 100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
-        "fr": "Entrée en vigueur le 1er septembre 2026, limitée à 31. Août 2027 · Bruderholz, gastronomie · Référence emploi 13171 · Temporaire\n\nTâches :\nNous sommes à la recherche de deux personnalités dévouées qui enrichiront et soutiendront l'équipe existante dans notre cuisine centrale à la pointe de la technologie sur Bruderholz, avec la possibilité de continuer à travailler après un an ou avec la possibilité de compléter la formation comme cuisinier de régime / chef de régime avec l'agence fédérale.\n• Production et production professionnelles de tous les repas pour les patients et les employés avec la méthode de production Cook and Chill\n• Préparation de thérapies nutritionnelles individuelles, mise en place de régimes pour les allergies, les intolérances et la malnutrition\n• Contrôle de la qualité dans le service de bande\n• Collaboration à des événements spéciaux tels que banquets, restaurations et aperos\n• Conformité aux normes d'hygiène et de qualité selon HACCP\n• Heures de travail réglementées (début/fin de service) sans heures de chambre et les vendredis prévus (6h45-16h, 9h30-18h45)\n\nExigences\n• Vous avez une jauge culinaire EFZ, souhaitable avec une formation supplémentaire pour le cuisinier de régime EFZ/ FE\n• Vous avez déjà plusieurs années d'expérience professionnelle dans l'industrie gastronomique / hôtelière et une connaissance approfondie de la cuisine froide et chaude\n• Bonne connaissance de l'utilisateur d'ordinateur\n• Ils valorisent une bonne équipe et une coopération interdisciplinaire\n\nAvantages:\nTu veux un marché ? Réductions attrayantes pour les voyages, la mode, le sport, la technologie, les véhicules ...\n\nDomaine : Gastronomie\n\nNiveau d'emploi: 100%\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 employés dans 3 sites de la région de Bâle."
-      },
-      "location": "Liestal",
-      "canton": "BL",
-      "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/diaetkoechin-diaetkoch-koechin-koch-a/c71f276b-4def-4545-baca-e4926a9e32de",
-      "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:14:31.723Z",
-      "addressLocality": "Liestal",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4410",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-12",
-      "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/diaetkoechin-diaetkoch-koechin-koch-a/c71f276b-4def-4545-baca-e4926a9e32de",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "diatkochin-diatkoch-kochin-koch-a-ksbl-liestal"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "diatkochin-diatkoch-kochin-koch-a-ksbl-liestal"
-        ],
-        "en": [
-          "diatkochin-diatkoch-kochin-koch-a-ksbl-liestal"
-        ],
-        "fr": [
-          "diatkochin-diatkoch-kochin-koch-a-ksbl-liestal"
-        ]
-      },
-      "firstSeenAt": "2026-08-12T10:37:23.886Z",
-      "salaryMin": 67500,
-      "salaryMax": 84500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 67500,
-          "maxValue": 84500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "ksbl-d7251bdb93bb",
       "slug": "mpa-o-fage-an-der-notfallporte-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
@@ -6293,83 +6271,6 @@
       }
     },
     {
-      "id": "ksbl-eb0c7ed70ac0",
-      "slug": "anestesia-medico-senior-kantonsspital-baselland-ksbl-liestal",
-      "slugByLocale": {
-        "it": "anestesia-medico-senior-kantonsspital-baselland-ksbl-liestal",
-        "en": "senior-physician-anesthesia-kantonsspital-baselland-ksbl-liestal",
-        "de": "oberarztin-oberarzt-anasthesie-ksbl-liestal",
-        "fr": "anesthesie-chez-le-medecin-principal-kantonsspital-baselland-ksbl-liestal"
-      },
-      "company": "Kantonsspital Baselland (KSBL)",
-      "companyKey": "ksbl",
-      "companyDomain": "ksbl.ch",
-      "title": "Oberärztin/Oberarzt Anästhesie",
-      "titleByLocale": {
-        "it": "Anestesia medico senior",
-        "en": "Senior physician anesthesia",
-        "de": "Oberärztin/Oberarzt Anästhesie",
-        "fr": "Anesthésie chez le médecin principal"
-      },
-      "description": "Eintritt nach Vereinbarung · Bruderholz, Liestal, Anästhesie · Stellenreferenz 12901 · Festanstellung\n\nAufgaben:\n• Durchführung und Supervision von Allgemein- und Regionalanästhesien in einem breiten operativen Portfolio (Viszeralchirurgie, Gefässchirurgie, Thoraxchirurgie, Urologie, HNO, Gynäkologie & Geburtshilfe sowie universitärer Orthopädie)\n• Aktive Mitwirkung bei der Weiterbildung der Assistenzärztinnen und –ärzte\n• Interdisziplinäre Zusammenarbeit mit den chirurgischen und medizinischen Fachbereichen\n• Bereitschaft zur standortübergreifenden Tätigkeit innerhalb der Bereiche der Anästhesie\n• Interesse und Freude an der Mitwirkung in unserem Simulationszentrum\n\nAnforderungen:\n• FMH-Titel Anästhesiologie (od. äquivalente Qualifikation)\n• Selbstverständnis für interdisziplinäre Zusammenarbeit\n• Teamfähige, belastbare und kommunikative Persönlichkeit\n• Begeisterungsfähigkeit für Innovation und Wandel\n• Unternehmerisches Denken und Handeln\n\nBenefits:\nRundum versorgt: vergünstigte Kita vor Ort, volle Erziehungszulagen, bezahlte Kurzabsenzen bei Notfall-Betreuung\n\nBereich: Anästhesie\n\nBeschäftigungsgrad: 80-100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
-      "descriptionByLocale": {
-        "it": "Eintritt nach Vereinbarung · Bruderholz, Liestal, Anästhesie · Anästhesie · Stellenreferenz 12901 · Festanstellung\n\nAufgaben:\n• Durchführung und Supervision von Allgemein- und Regionalanästhesien in einem breiten operativen Portfolio (Viszeralchirurgie, Gefässchirurgie, Thoraxchirurgie, Urologie, HNO, Gynäkologie & Geburtshilfe sowie universitärer Orthopädie)\n• Aktive Mitwirkung bei der Weiterbildung der Assistenzärztinnen und –ärzte\n• Interdisziplinäre Zusammenarbeit mit den chirurgischen und medizinischen Fachbereichen\n• Bereitschaft zur standortübergreifenden Tätigkeit innerhalb der Bereiche der Anästhesie\n• Interesse und Freude an der Mitwirkung in unserem Simulationszentrum\n\nAnforderungen:\n• FMH-Titel Anästhesiologie (od. äquivalente Qualifikation)\n• Selbstverständnis für interdisziplinäre Zusammenarbeit\n• Teamfähige, belastbare und kommunikative Persönlichkeit\n• Begeisterungsfähigkeit für Innovation und Wandel\n• Unternehmerisches Denken und Handeln\n\nBenefits:\nRundum versorgt: vergünstigte Kita vor Ort, volle Erziehungszulagen, bezahlte Kurzabsenzen bei Notfall-Betreuung\n\nBereich: AnästhesieAnästhesie\n\nBeschäftigungsgrad: 80-100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
-        "en": "Eintritt nach Vereinbarung · Bruderholz, Liestal, Anästhesie · Anästhesie · Stellenreferenz 12901 · Festanstellung\n\nAufgaben:\n• Durchführung und Supervision von Allgemein- und Regionalanästhesien in einem breiten operativen Portfolio (Viszeralchirurgie, Gefässchirurgie, Thoraxchirurgie, Urologie, HNO, Gynäkologie & Geburtshilfe sowie universitärer Orthopädie)\n• Aktive Mitwirkung bei der Weiterbildung der Assistenzärztinnen und –ärzte\n• Interdisziplinäre Zusammenarbeit mit den chirurgischen und medizinischen Fachbereichen\n• Bereitschaft zur standortübergreifenden Tätigkeit innerhalb der Bereiche der Anästhesie\n• Interesse und Freude an der Mitwirkung in unserem Simulationszentrum\n\nAnforderungen:\n• FMH-Titel Anästhesiologie (od. äquivalente Qualifikation)\n• Selbstverständnis für interdisziplinäre Zusammenarbeit\n• Teamfähige, belastbare und kommunikative Persönlichkeit\n• Begeisterungsfähigkeit für Innovation und Wandel\n• Unternehmerisches Denken und Handeln\n\nBenefits:\nRundum versorgt: vergünstigte Kita vor Ort, volle Erziehungszulagen, bezahlte Kurzabsenzen bei Notfall-Betreuung\n\nBereich: AnästhesieAnästhesie\n\nBeschäftigungsgrad: 80-100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
-        "de": "Eintritt nach Vereinbarung · Bruderholz, Liestal, Anästhesie · Stellenreferenz 12901 · Festanstellung\n\nAufgaben:\n• Durchführung und Supervision von Allgemein- und Regionalanästhesien in einem breiten operativen Portfolio (Viszeralchirurgie, Gefässchirurgie, Thoraxchirurgie, Urologie, HNO, Gynäkologie & Geburtshilfe sowie universitärer Orthopädie)\n• Aktive Mitwirkung bei der Weiterbildung der Assistenzärztinnen und –ärzte\n• Interdisziplinäre Zusammenarbeit mit den chirurgischen und medizinischen Fachbereichen\n• Bereitschaft zur standortübergreifenden Tätigkeit innerhalb der Bereiche der Anästhesie\n• Interesse und Freude an der Mitwirkung in unserem Simulationszentrum\n\nAnforderungen:\n• FMH-Titel Anästhesiologie (od. äquivalente Qualifikation)\n• Selbstverständnis für interdisziplinäre Zusammenarbeit\n• Teamfähige, belastbare und kommunikative Persönlichkeit\n• Begeisterungsfähigkeit für Innovation und Wandel\n• Unternehmerisches Denken und Handeln\n\nBenefits:\nRundum versorgt: vergünstigte Kita vor Ort, volle Erziehungszulagen, bezahlte Kurzabsenzen bei Notfall-Betreuung\n\nBereich: Anästhesie\n\nBeschäftigungsgrad: 80-100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
-        "fr": "Eintritt nach Vereinbarung · Bruderholz, Liestal, Anästhesie · Anästhesie · Stellenreferenz 12901 · Festanstellung\n\nAufgaben:\n• Durchführung und Supervision von Allgemein- und Regionalanästhesien in einem breiten operativen Portfolio (Viszeralchirurgie, Gefässchirurgie, Thoraxchirurgie, Urologie, HNO, Gynäkologie & Geburtshilfe sowie universitärer Orthopädie)\n• Aktive Mitwirkung bei der Weiterbildung der Assistenzärztinnen und –ärzte\n• Interdisziplinäre Zusammenarbeit mit den chirurgischen und medizinischen Fachbereichen\n• Bereitschaft zur standortübergreifenden Tätigkeit innerhalb der Bereiche der Anästhesie\n• Interesse und Freude an der Mitwirkung in unserem Simulationszentrum\n\nAnforderungen:\n• FMH-Titel Anästhesiologie (od. äquivalente Qualifikation)\n• Selbstverständnis für interdisziplinäre Zusammenarbeit\n• Teamfähige, belastbare und kommunikative Persönlichkeit\n• Begeisterungsfähigkeit für Innovation und Wandel\n• Unternehmerisches Denken und Handeln\n\nBenefits:\nRundum versorgt: vergünstigte Kita vor Ort, volle Erziehungszulagen, bezahlte Kurzabsenzen bei Notfall-Betreuung\n\nBereich: AnästhesieAnästhesie\n\nBeschäftigungsgrad: 80-100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel."
-      },
-      "location": "Liestal",
-      "canton": "BL",
-      "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/oberaerztin-oberarzt-anaesthesie/e91d3209-f577-4e02-95dd-5e65a9d5cc57",
-      "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:14:28.965Z",
-      "addressLocality": "Liestal",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4410",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-26",
-      "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/oberaerztin-oberarzt-anaesthesie/e91d3209-f577-4e02-95dd-5e65a9d5cc57",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "oberarztin-oberarzt-anasthesie-ksbl-liestal"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "oberarztin-oberarzt-anasthesie-ksbl-liestal"
-        ],
-        "en": [
-          "oberarztin-oberarzt-anasthesie-ksbl-liestal"
-        ],
-        "fr": [
-          "oberarztin-oberarzt-anasthesie-ksbl-liestal"
-        ]
-      },
-      "firstSeenAt": "2026-08-26T10:12:55.822Z",
-      "salaryMin": 119000,
-      "salaryMax": 166000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 119000,
-          "maxValue": 166000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "ksbl-44af772333e2",
       "slug": "assistente-di-stazione-assistente-medico-interno-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
@@ -6592,92 +6493,33 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-onkologie-a-ksbl-liestal"
+        "dipl-pflegefachfrau-pflegefachmann-onkologie-a-ksbl-liestal",
+        "dipl-specialista-oncology-haematology-kantonsspital-baselland-ksbl-liestal",
+        "dipl-nursing-specialist-oncology-haematology-kantonsspital-baselland-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-onkologie-hamatologie-ksbl-liestal",
+        "dipl-specialiste-en-oncologie-et-hematologie-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-onkologie-a-ksbl-liestal"
+          "dipl-pflegefachfrau-pflegefachmann-onkologie-a-ksbl-liestal",
+          "dipl-specialista-oncology-haematology-kantonsspital-baselland-ksbl-liestal",
+          "dipl-nursing-specialist-oncology-haematology-kantonsspital-baselland-ksbl-liestal",
+          "dipl-pflegefachfrau-pflegefachmann-onkologie-hamatologie-ksbl-liestal",
+          "dipl-specialiste-en-oncologie-et-hematologie-kantonsspital-baselland-ksbl-liestal"
         ],
         "en": [
-          "dipl-pflegefachfrau-pflegefachmann-onkologie-a-ksbl-liestal"
+          "dipl-pflegefachfrau-pflegefachmann-onkologie-a-ksbl-liestal",
+          "dipl-nursing-specialist-oncology-haematology-kantonsspital-baselland-ksbl-liestal"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-onkologie-a-ksbl-liestal"
+          "dipl-pflegefachfrau-pflegefachmann-onkologie-a-ksbl-liestal",
+          "dipl-specialiste-en-oncologie-et-hematologie-kantonsspital-baselland-ksbl-liestal"
+        ],
+        "de": [
+          "dipl-pflegefachfrau-pflegefachmann-onkologie-hamatologie-ksbl-liestal"
         ]
       },
       "firstSeenAt": "2026-09-01T08:50:06.742Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ksbl-8b3c36f10372",
-      "slug": "fage-a-ksbl-liestal",
-      "slugByLocale": {
-        "it": "fage-a-ksbl-liestal",
-        "en": "fage-a-ksbl-liestal",
-        "de": "fage-zentrum-bauch-ksbl-liestal",
-        "fr": "fage-a-ksbl-liestal"
-      },
-      "company": "Kantonsspital Baselland (KSBL)",
-      "companyKey": "ksbl",
-      "companyDomain": "ksbl.ch",
-      "title": "FaGe Zentrum Bauch",
-      "titleByLocale": {
-        "it": "FaGe (a)",
-        "en": "FaGe (a)",
-        "de": "FaGe Zentrum Bauch",
-        "fr": "FaGe (a)"
-      },
-      "description": "Liestal, Pflege · Stellenreferenz 13250 · Festanstellung\n\nAufgaben:\n• Pflegen von Patientinnen und Patienten im Zonenmodell auf der spezialisierten chirurgischen Station mit rund 24 Betten – ein abwechslungsreicher Alltag mit\nvielfältigen Herausforderungen wartet auf Sie\n• Ausführen medizinisch-technischer Verrichtungen\n• Enge Zusammenarbeit mit der für die Zone verantwortlichen Pflegefachperson\n• Arbeiten nach den Prinzipien von Lean Hospital in einem humorvollen, engagierten und stabilen Team von rund 25 Mitarbeitenden\n• Die Stelle lässt sich sowohl als Vollzeitstelle wie auch mit zwei Personen im Teilzeitpensum besetzen\n\nAnforderungen:\n• Basis: Berufsausbildung als Fachfrau/Fachmann Gesundheit (EFZ)\n• Gerne: Erfahrung in einem Akutbetrieb\n• Sehr gerne: Hohe Patientenorientierung\n• Und auch: Tolle Teamplayer-Qualitäten\n• Unbedingt: Freude an einemabwechslungsreichen und lebhaften Spitalalltag\n\nBenefits:\nFit sein & bleiben: Attraktive Angebote rund um Sport, Entspannung & Ernährung\n\nBereich: Pflege\n\nBeschäftigungsgrad: 40-100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
-      "descriptionByLocale": {
-        "it": "Liestal, Care · Job reference 13250 · Lavoro permanente\n\nCompiti:\n• Cura per i pazienti nel modello zona sulla stazione chirurgica specializzata con circa 24 posti letto – una variegata vita quotidiana con\nVarie sfide vi aspettano\n• Esecuzione di operazioni mediche-tecniche\n• Una stretta collaborazione con l'infermiera responsabile della zona\n• Lavorare secondo i principi del Lean Hospital in un team umoristico, impegnato e stabile di circa 25 dipendenti\n• Il lavoro può essere riempito sia come lavoro a tempo pieno che con due persone su base part-time\n\nRequisiti\n• Basi: Formazione professionale come specialista in salute (EFZ)\n• Glad: Esperienza in un'operazione acuta\n• Molto felice: Alto orientamento paziente\n• E anche: Grandi qualità di giocatore di squadra\n• Assolutamente: La gioia di un ospedale vario e vivace vita quotidiana\n\nVantaggi:\nEssere in forma e stare in forma: Offerte interessanti intorno sport, relax e nutrizione\n\nArea: Cura\n\nLivello di occupazione: 40-100 %\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 dipendenti in 3 sedi nella regione di Basilea.",
-        "en": "Liestal, Care · Job reference 13250 · Permanent employment\n\nTasks:\n• Caring for patients in the zone model on the specialized surgical station with around 24 beds – a varied everyday life with\nVarious challenges await you\n• Performing medical-technical operations\n• Close cooperation with the nurse responsible for the zone\n• Working according to the principles of Lean Hospital in a humorous, committed and stable team of around 25 employees\n• The job can be filled both as a full-time job and with two people on a part-time basis\n\nRequirements\n• Basis: Vocational training as a specialist in health (EFZ)\n• Glad: Experience in an acute operation\n• Very happy: High patient orientation\n• And also: Great teamplayer qualities\n• Absolutely: Joy of a varied and lively hospital everyday life\n\nBenefits:\nBeing fit & staying fit: Attractive offers around sports, relaxation & nutrition\n\nArea: Care\n\nEmployment level: 40-100 %\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 employees at 3 locations in the Basel region.",
-        "de": "Liestal, Pflege · Stellenreferenz 13250 · Festanstellung\n\nAufgaben:\n• Pflegen von Patientinnen und Patienten im Zonenmodell auf der spezialisierten chirurgischen Station mit rund 24 Betten – ein abwechslungsreicher Alltag mit\nvielfältigen Herausforderungen wartet auf Sie\n• Ausführen medizinisch-technischer Verrichtungen\n• Enge Zusammenarbeit mit der für die Zone verantwortlichen Pflegefachperson\n• Arbeiten nach den Prinzipien von Lean Hospital in einem humorvollen, engagierten und stabilen Team von rund 25 Mitarbeitenden\n• Die Stelle lässt sich sowohl als Vollzeitstelle wie auch mit zwei Personen im Teilzeitpensum besetzen\n\nAnforderungen:\n• Basis: Berufsausbildung als Fachfrau/Fachmann Gesundheit (EFZ)\n• Gerne: Erfahrung in einem Akutbetrieb\n• Sehr gerne: Hohe Patientenorientierung\n• Und auch: Tolle Teamplayer-Qualitäten\n• Unbedingt: Freude an einemabwechslungsreichen und lebhaften Spitalalltag\n\nBenefits:\nFit sein & bleiben: Attraktive Angebote rund um Sport, Entspannung & Ernährung\n\nBereich: Pflege\n\nBeschäftigungsgrad: 40-100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
-        "fr": "Liestal, Care · Référence de l'emploi 13250 · Emploi permanent\n\nTâches :\n• Prendre soin des patients dans le modèle de zone sur la station chirurgicale spécialisée avec environ 24 lits – une vie quotidienne variée avec\nDivers défis vous attendent\n• Effectuer des opérations médico-techniques\n• Coopération étroite avec l'infirmière responsable de la zone\n• Travailler selon les principes de l'hôpital Lean dans une équipe humoristique, engagée et stable d'environ 25 employés\n• L'emploi peut être rempli à temps plein et avec deux personnes à temps partiel\n\nExigences\n• Base: Formation professionnelle en tant que spécialiste de la santé (EFZ)\n• L'expérience d'une opération aiguë\n• Très heureux: haute orientation du patient\n• Et aussi: Grandes qualités de joueur d'équipe\n• Absolument: Joy d'un hôpital varié et animé vie quotidienne\n\nAvantages:\nÊtre en forme & rester en forme: des offres attrayantes autour du sport, de la relaxation et de la nutrition\n\nDomaine: Soins\n\nNiveau d'emploi: 40-100 %\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 employés dans 3 sites de la région de Bâle."
-      },
-      "needsRetranslation": false,
-      "location": "Liestal",
-      "canton": "BL",
-      "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/fage-zentrum-bauch/6d5f5c01-d3ca-4bf7-88ca-8fb19d346af8",
-      "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:14:26.871Z",
-      "addressLocality": "Liestal",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4410",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-01",
-      "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/fage-zentrum-bauch/6d5f5c01-d3ca-4bf7-88ca-8fb19d346af8",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fage-zentrum-bauch-ksbl-liestal"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fage-zentrum-bauch-ksbl-liestal"
-        ]
-      },
-      "firstSeenAt": "2026-09-01T23:26:55.050Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6834,83 +6676,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T23:36:13.416Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ksbl-1e11d019fbda",
-      "slug": "dipl-infermieristica-professionale-walk-in-permanence-kantonsspital-baselland-ksbl-liestal",
-      "slugByLocale": {
-        "it": "dipl-infermieristica-professionale-walk-in-permanence-kantonsspital-baselland-ksbl-liestal",
-        "en": "dipl-nursing-professional-walk-in-permanence-kantonsspital-baselland-ksbl-liestal",
-        "de": "dipl-pflegefachfrau-pflegefachmann-walk-in-permanence-ksbl-liestal",
-        "fr": "c-est-quoi-la-permanence-des-professionnels-de-la-sante-kantonsspital-baselland-ksbl-liestal"
-      },
-      "company": "Kantonsspital Baselland (KSBL)",
-      "companyKey": "ksbl",
-      "companyDomain": "ksbl.ch",
-      "title": "dipl. Pflegefachfrau/Pflegefachmann Walk-in Permanence",
-      "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale Walk-in Permanence",
-        "en": "dipl. Nursing professional Walk-in Permanence",
-        "de": "dipl. Pflegefachfrau/Pflegefachmann Walk-in Permanence",
-        "fr": "C'est quoi ? La permanence des professionnels de la santé"
-      },
-      "description": "Eintritt nach Vereinbarung · Laufen, Pflege · Stellenreferenz 13289 · Befristet\n\nAufgaben:\nPflegefachperson mit Begeisterung für Notfallmedizin gesucht.\nGemeinsam bauen wir den Walk-in-Notfall im Gesundheitszentrum Laufen weiter auf.\nDu schätzt selbstständiges Arbeiten, kurze Entscheidungswege und interdisziplinäre Zusammenarbeit?\nDann freuen wir uns, dich kennenzulernen.\n• Spannende, verantwortungsvolle Arbeit in einem kleinen Behandlungsteam im 24 Stunden-Betrieb\n• Fachgerechte Durchführung der verordneten, präventiven und therapeutischen Massnahmen für und mit unseren Notfallpatientinnen/Notfallpatienten\n• Triagieren nach ESI in erster Instanz\n• Zusammenarbeit mit diversen Abteilungen, Fachpersonen und Ärztinnen/Ärzten\n• Arbeiten nach den Prinzipien von Lean-Hospital in einem gut eingespielten Team\n• Das Gesundheitszentrum befindet sich im Birscenter direkt am Bahnhof von Laufen\n\nAnforderungen:\n• Diplom als Pflegefachfrau/Pflegefachmann (HF, FH oder äquivalent) mit Akuterfahrung\n• Erfahrung im Bereich IMC oder/und Notfall von Vorteil\n• First-Look-Nurse Erfahrung oder Bereitschaft, sich in diesen Bereich einzuarbeiten\n• Idealerweise Erfahrung im POCT-Labor, alternativ Bereitschaft, sich die erforderlichen Kenntnisse anzueignen\n• Hohe Patientenorientierung und ausgeprägtes Organisationsvermögen\n• Selbständiger, strukturierter Arbeitsstil und schnelle Auffassungsgabe Das bieten wir\n• Mitarbeit beim Aufbau eines innovativen Walk-in-Notfalls\n• Regelmässige interne Teachings\n• Flache Hierarchien und kurze Entscheidungswege\n• Ein motiviertes, engagiertes und herzliches Team\n• Viel Gestaltungsspielraum und die Möglichkeit, eigene Ideen einzubringen\n• Attraktive Arbeitszeiten und moderne Infrastruktur Unser Ziel\nWir möchten eine Walk-in-Praxis schaffen, die medizinisch auf höchstem Niveau\narbeitet und gleichzeitig Menschlichkeit, Teamgeist und Freude an der Medizin\nlebt. Dafür suchen wir Kolleginnen und Kollegen, die nicht nur mitarbeiten, sondern\ngemeinsam etwas Neues aufbauen möchten\n\nBenefits:\nLust auf Schnäppchen? Attraktive Rabatte für Reisen, Mode, Sport, Technik, Fahrzeuge ...\n\nBereich: Pflege\n\nBeschäftigungsgrad: 60-90%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
-      "descriptionByLocale": {
-        "it": "Entrata per accordo · Correre, Cura · Lavoro di riferimento 13289 · Temporaneo\n\nCompiti:\nInfermieristica professionista con entusiasmo per la medicina di emergenza ricercato.\nInsieme continuiamo a costruire il walk-in emergenza presso il centro sanitario Laufen.\nValori il lavoro indipendente, brevi percorsi decisionali e la cooperazione interdisciplinare?\nNon vediamo l'ora di incontrarti.\n• Lavoro emozionante e responsabile in un piccolo team di trattamento in operazione 24 ore\n• Applicazione professionale di misure prescritte, preventive e terapeutiche per e con i nostri pazienti di emergenza\n• Triagulazione secondo ESI in prima istanza\n• Cooperazione con vari dipartimenti, specialisti e medici\n• Lavorare secondo i principi del Lean Hospital in un team consolidato\n• Il centro benessere si trova nel Birscenter direttamente alla stazione ferroviaria di Laufen\n\nRequisiti\n• Diploma come infermiera (HF, FH o equivalente) con esperienza acuta\n• Esperienza in IMC e/o Emergenza\n• Esperienza di primo livello o disponibilità a familiarizzare con questa zona\n• Esperienza ideale nel laboratorio POCT, alternativamente disponibilità ad acquisire le conoscenze necessarie\n• Alto orientamento dei pazienti e forte capacità organizzativa\n• Stile di lavoro indipendente e strutturato e rapida comprensione Offriamo questo\n• Partecipazione allo sviluppo di un'innovativa emergenza walk-in\n• Insegnamenti interni regolari\n• Gerarchie piatte e brevi percorsi decisionali\n• Un team motivato, impegnato e caldo\n• Un sacco di libertà creativa e l'opportunità di contribuire le proprie idee\n• Ore lavorative attraenti e infrastrutture moderne Il nostro obiettivo\nVogliamo creare una pratica walk-in che è medicalmente al livello più alto\nopere e allo stesso tempo umanità, spirito di squadra e gioia della medicina\nvive. Per questo cerchiamo colleghi che non solo collaborino, ma\nvuole costruire qualcosa di nuovo insieme\n\nVantaggi:\nVuoi fare un patto? Sconti interessanti per viaggi, moda, sport, tecnologia, veicoli ...\n\nArea: Cura\n\nLivello di occupazione: 60-90 %\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 dipendenti in 3 sedi nella regione di Basilea.",
-        "en": "Entry by arrangement · Run, Care · Job reference 13289 · Temporary\n\nTasks:\nNursing professional with enthusiasm for emergency medicine sought.\nTogether we continue to build the walk-in emergency at the Laufen health centre.\nDo you value independent work, short decision-making paths and interdisciplinary cooperation?\nWe look forward to meeting you.\n• Exciting, responsible work in a small treatment team in 24-hour operation\n• Professional implementation of prescribed, preventive and therapeutic measures for and with our emergency patients\n• Triagulation according to ESI in first instance\n• Cooperation with various departments, specialists and doctors\n• Working according to the principles of Lean Hospital in a well-established team\n• The health centre is located in the Birscenter directly at Laufen train station\n\nRequirements\n• Diploma as nurse (HF, FH or equivalent) with acute experience\n• Experience in IMC and/or Emergency\n• First-look-nurse experience or willingness to familiarize yourself with this area\n• Ideally experience in the POCT laboratory, alternatively willingness to acquire the necessary knowledge\n• High patient orientation and strong organisational capacity\n• Independent, structured working style and quick comprehension We offer this\n• Participation in the development of an innovative walk-in emergency\n• Regular internal teachings\n• Flat hierarchies and short decision paths\n• A motivated, committed and warm team\n• Lots of creative freedom and the opportunity to contribute your own ideas\n• Attractive working hours and modern infrastructure Our goal\nWe want to create a walk-in practice that is medically at the highest level\nworks and at the same time humanity, team spirit and joy of medicine\nlives. For this we are looking for colleagues who not only cooperate, but\nwant to build something new together\n\nBenefits:\nWant to get a bargain? Attractive discounts for travel, fashion, sports, technology, vehicles ...\n\nArea: Care\n\nEmployment level: 60-90 %\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 employees at 3 locations in the Basel region.",
-        "de": "Eintritt nach Vereinbarung · Laufen, Pflege · Stellenreferenz 13289 · Befristet\n\nAufgaben:\nPflegefachperson mit Begeisterung für Notfallmedizin gesucht.\nGemeinsam bauen wir den Walk-in-Notfall im Gesundheitszentrum Laufen weiter auf.\nDu schätzt selbstständiges Arbeiten, kurze Entscheidungswege und interdisziplinäre Zusammenarbeit?\nDann freuen wir uns, dich kennenzulernen.\n• Spannende, verantwortungsvolle Arbeit in einem kleinen Behandlungsteam im 24 Stunden-Betrieb\n• Fachgerechte Durchführung der verordneten, präventiven und therapeutischen Massnahmen für und mit unseren Notfallpatientinnen/Notfallpatienten\n• Triagieren nach ESI in erster Instanz\n• Zusammenarbeit mit diversen Abteilungen, Fachpersonen und Ärztinnen/Ärzten\n• Arbeiten nach den Prinzipien von Lean-Hospital in einem gut eingespielten Team\n• Das Gesundheitszentrum befindet sich im Birscenter direkt am Bahnhof von Laufen\n\nAnforderungen:\n• Diplom als Pflegefachfrau/Pflegefachmann (HF, FH oder äquivalent) mit Akuterfahrung\n• Erfahrung im Bereich IMC oder/und Notfall von Vorteil\n• First-Look-Nurse Erfahrung oder Bereitschaft, sich in diesen Bereich einzuarbeiten\n• Idealerweise Erfahrung im POCT-Labor, alternativ Bereitschaft, sich die erforderlichen Kenntnisse anzueignen\n• Hohe Patientenorientierung und ausgeprägtes Organisationsvermögen\n• Selbständiger, strukturierter Arbeitsstil und schnelle Auffassungsgabe Das bieten wir\n• Mitarbeit beim Aufbau eines innovativen Walk-in-Notfalls\n• Regelmässige interne Teachings\n• Flache Hierarchien und kurze Entscheidungswege\n• Ein motiviertes, engagiertes und herzliches Team\n• Viel Gestaltungsspielraum und die Möglichkeit, eigene Ideen einzubringen\n• Attraktive Arbeitszeiten und moderne Infrastruktur Unser Ziel\nWir möchten eine Walk-in-Praxis schaffen, die medizinisch auf höchstem Niveau\narbeitet und gleichzeitig Menschlichkeit, Teamgeist und Freude an der Medizin\nlebt. Dafür suchen wir Kolleginnen und Kollegen, die nicht nur mitarbeiten, sondern\ngemeinsam etwas Neues aufbauen möchten\n\nBenefits:\nLust auf Schnäppchen? Attraktive Rabatte für Reisen, Mode, Sport, Technik, Fahrzeuge ...\n\nBereich: Pflege\n\nBeschäftigungsgrad: 60-90%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
-        "fr": "Entrée par arrangement · Run, Care · Référence d'emploi 13289 · Temporaire\n\nTâches :\nLe professionnel des soins infirmiers avec enthousiasme pour la médecine d'urgence recherché.\nEnsemble, nous continuons de construire l'urgence au centre de santé de Laufen.\nAppréciez-vous le travail indépendant, les courts processus décisionnels et la coopération interdisciplinaire?\nNous sommes impatients de vous rencontrer.\n• Travail passionnant et responsable dans une petite équipe de traitement en 24 heures\n• Mise en œuvre professionnelle de mesures prescrites, préventives et thérapeutiques pour et avec nos patients d'urgence\n• Triagulation selon ESI en première instance\n• Coopération avec divers départements, spécialistes et médecins\n• Travailler selon les principes de l'hôpital Lean dans une équipe bien établie\n• Le centre de santé est situé dans le Birscenter directement à la gare de Laufen\n\nExigences\n• Diplôme d'infirmière (HF, FH ou équivalent) ayant une expérience aiguë\n• Expérience en CIM et/ou en urgence\n• Expérience ou volonté de se familiariser avec ce domaine\n• Idéalement expérience dans le laboratoire POCT, alternativement volonté d'acquérir les connaissances nécessaires\n• Orientation élevée des patients et forte capacité organisationnelle\n• Style de travail indépendant, structuré et compréhension rapide Nous offrons ceci\n• Participation au développement d'une situation d'urgence innovante\n• Enseignements internes réguliers\n• Hiérarchies plates et chemins de décision courts\n• Une équipe motivée, engagée et chaleureuse\n• Beaucoup de liberté créative et l'occasion de contribuer à vos propres idées\n• Des horaires de travail attrayants et des infrastructures modernes Notre objectif\nNous voulons créer une pratique de marche qui est médicalement au plus haut niveau\ntravail et en même temps humanité, esprit d'équipe et joie de la médecine\nDes vies. Pour cela, nous recherchons des collègues qui non seulement coopèrent, mais aussi\nveulent construire quelque chose de nouveau ensemble\n\nAvantages:\nTu veux un marché ? Réductions attrayantes pour les voyages, la mode, le sport, la technologie, les véhicules ...\n\nDomaine: Soins\n\nNiveau d'emploi: 60-90 %\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 employés dans 3 sites de la région de Bâle."
-      },
-      "location": "Liestal",
-      "canton": "BL",
-      "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-walk-in-permanence/5df8da51-893d-4505-9ac1-cddf589befeb",
-      "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:14:25.281Z",
-      "addressLocality": "Liestal",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4410",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-07",
-      "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-walk-in-permanence/5df8da51-893d-4505-9ac1-cddf589befeb",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-walk-in-permanence-ksbl-liestal"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-pflegefachmann-walk-in-permanence-ksbl-liestal"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-pflegefachmann-walk-in-permanence-ksbl-liestal"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-walk-in-permanence-ksbl-liestal"
-        ]
-      },
-      "firstSeenAt": "2026-09-07T23:42:20.030Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -7127,8 +6892,8 @@
       "companyDomain": "ksbl.ch",
       "title": "Stv. Stationsleiterin/Stationsleiter Frauenklinik/Urologie (a)",
       "titleByLocale": {
-        "it": "Stv. station manager/station manager Frauenklinik/Urologie (a)",
-        "en": "Stv. station manager/station manager Frauenklinik/Urologie (a)",
+        "it": "Direttore della stazione/capostazione",
+        "en": "Station manager/station manager Women's Clinic/Urology (a)",
         "de": "Stv. Stationsleiterin/Stationsleiter Frauenklinik/Urologie (a)",
         "fr": "Directeur de station/gestionnaire de station Frauenklinik/Urologie (a)"
       },
@@ -7139,7 +6904,6 @@
         "de": "Eintritt nach Vereinbarung · Liestal, Urologie/Frauenklinik · Stellenreferenz 13281 · Festanstellung\n\nAufgaben:\n• Unterstützung der Stationsleitung bei Planungs-,Organisations- und Führungsaufgaben auf der Station\n• Sicherstellung einer professionellen, patientenzentrierten und hochqualitativen Pflege auf der Station mit einer Kapazität von 24 Betten\n• Empathische und bedürfnisorientierte Begleitung der Patientinnen und Patienten und ihrer Angehörigen im Rahmen des Zonen- und Tandemmodells\n• Mitverantwortung im Führungsgremium der Station im Sinne von Shared Governance\n• Aktive Beteiligung an der strategischen und operativen Leitung der Station\n• Mitwirkung bei bereichsbezogenen Projekten und Mitgestaltung von Teamentwicklungsprozessen\n• Tätigkeit auf einer interdisziplinären Station für Frauen und Männer unter Anwendung der Prinzipien von Lean Hospital\n• Optimierung von Prozessen, Qualität und Patientenorientierung\n\nAnforderungen:\n• Diplom als Pflegefachfrau/-mann oder Hebamme (HF, FH oder äquivalent)\n• Erfahrung in einem Akutbetrieb, idealerweise mindestens 2 Jahre im Fachbereich Wochenbett\n• Berufserfahrung in einer Führungsposition oder die Bereitschaft eine Führungsausbildung zu absolvieren\n• Lust, Führungsaufgaben zu übernehmen und mit positiver Grundeinstellung voranzuschreiten\n• Ausgeprägte Sozialkompetenz, Selbstreflexion, hohe Motivation, Teamfähigkeit, Flexibilität und Belastbarkeit\n• Herzliches und patientenorientiertes Auftreten\n• Empathie und Menschenkenntnisse sowie Freude an einemabwechslungsreichen und lebhaften Spitalalltag\nAnpackend - versiert - herzlich - verlässlich? Dann passt du zu uns!\n\nBenefits:\nLust auf Schnäppchen? Attraktive Rabatte für Reisen, Mode, Sport, Technik, Fahrzeuge ...\n\nBereich: Urologie/Frauenklinik\n\nBeschäftigungsgrad: 80-100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
         "fr": "Admission sur rendez-vous · Liestal, Urology/Women's Clinic · Référence de l'emploi 13281 · Emploi permanent\n\nTâches :\n• Appui à la gestion de la station dans les tâches de planification, d'organisation et de gestion de la station\n• Assurer des soins professionnels, axés sur le patient et de haute qualité dans le quartier d'une capacité de 24 lits\n• Soutien empathique et axé sur les besoins des patients et de leurs proches dans le cadre du modèle de zone et de tandem\n• Coresponsabilité au sein du comité de gestion de la station au sens de la gouvernance partagée\n• Participation active à la gestion stratégique et opérationnelle de la station\n• Participation à des projets sur le terrain et au développement d ' équipes\n• Travail sur une station interdisciplinaire pour femmes et hommes utilisant les principes de l'hôpital Lean\n• Optimisation des processus, qualité et orientation du patient\n\nExigences\n• Diplôme d'infirmière ou de sage-femme (HF, FH ou équivalent)\n• Expérience dans une opération aiguë, idéalement au moins 2 ans dans le postpartum\n• Expérience professionnelle dans un poste de gestion ou volonté d'entreprendre une formation en leadership\n• Désir d'assumer des tâches de leadership et d'aller de l'avant avec une attitude positive\n• Compétences sociales fortes, auto-réflexion, motivation élevée, travail d'équipe, flexibilité et résilience\n• Apparence chaleureuse et axée sur le patient\n• L'empathie et la connaissance des gens ainsi que le plaisir d'un hôpital varié et animé vie quotidienne\nS'attaquer à la question de la fiabilité? Alors, tu nous iras bien !\n\nAvantages:\nTu veux un marché ? Réductions attractives pour les voyages, la mode, le sport, la technologie, les véhicules ...\n\nZone: Clinique Urologie/Femmes\n\nNiveau d'emploi: 80-100 %\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 employés dans 3 sites de la région de Bâle."
       },
-      "needsRetranslation": true,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/stv-stationsleiterin-stationsleiter-frauenklinik-urologie-a/c930825b-fc1f-4cd7-b0e9-ee6c284af8ca",
@@ -7187,162 +6951,6 @@
           "@type": "QuantitativeValue",
           "minValue": 119000,
           "maxValue": 166000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ksbl-c4e3bc468d16",
-      "slug": "specialista-esperto-operazioni-ingegneria-hf-kantonsspital-baselland-ksbl-liestal",
-      "slugByLocale": {
-        "it": "specialista-esperto-operazioni-ingegneria-hf-kantonsspital-baselland-ksbl-liestal",
-        "en": "specialist-expert-operations-engineering-hf-kantonsspital-baselland-ksbl-liestal",
-        "de": "fachfrau-fachmann-operationstechnik-hf-ksbl-liestal",
-        "fr": "specialiste-expert-genie-des-operations-hf-kantonsspital-baselland-ksbl-liestal"
-      },
-      "company": "Kantonsspital Baselland (KSBL)",
-      "companyKey": "ksbl",
-      "companyDomain": "ksbl.ch",
-      "title": "Fachfrau/Fachmann Operationstechnik HF",
-      "titleByLocale": {
-        "it": "Specialista/Esperto Operazioni Ingegneria HF",
-        "en": "Specialist/Expert Operations Engineering HF",
-        "de": "Fachfrau/Fachmann Operationstechnik HF",
-        "fr": "Spécialiste/Expert Génie des opérations HF"
-      },
-      "description": "Eintritt nach Vereinbarung · Liestal, OP Management · Stellenreferenz 13296 · Festanstellung\n\nAufgaben:\n• Instrumentieren & Zudienen, situationsgerecht und selbstständig bei spannenden chirurgischen Eingriffen\n• Qualität sichern & dokumentieren, damit alles reibungslos läuft\n• Fachbereich Chirurgie mit Schwerpunkt Gefäss, Thorax, Viszeralchirurgie und Da VINCI\n• Teamarbeit in einem jungen, motivierten Umfeld, das Zusammenarbeit und Kollegialität lebt\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/-mann Operationstechnik HF oder OTA oder Dipl. Pflegefachperson mit OP-Fachweiterbildung\n• Verantwortungsbewusst, teamfähig und kommunikativ, mit Sinn für exaktes Arbeiten und Leidenschaft für den Beruf\n• Selbstständigkeit & Engagement, du übernimmst Verantwortung und bleibst auch in hektischen Situationen ruhig\n• Du entwickelst dich gerne weiter, gemeinsam mit einem starken Team.\n\nBenefits:\nLust auf Schnäppchen? Attraktive Rabatte für Reisen, Mode, Sport, Technik, Fahrzeuge ...\n\nBereich: OP Management\n\nBeschäftigungsgrad: 80-100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
-      "descriptionByLocale": {
-        "it": "Entrata su appuntamento · Liestal, OP Management · Job reference 13296 · Lavoro permanente\n\nCompiti:\n• Strumentazione e servizio, situazione e indipendente durante emozionanti procedure chirurgiche\n• Assicurare la qualità e il documento in modo che tutto funzioni senza problemi\n• Dipartimento di Chirurgia con focus su nave, torace, chirurgia viscerale e Da VINCI\n• Lavoro di squadra in un ambiente giovane e motivato che vive collaborazione e collegialità\n\nRequisiti\n• Allenamento completato come tecnica chirurgica specialistica HF o OTA o Dipl. Infermiera con addestramento chirurgico\n• Responsabile, team capace e comunicativo, con un senso di lavoro esatto e passione per la professione\n• Autooccupazione e impegno, si assume responsabilità e si calma anche in situazioni frenetiche\n• Ti piace sviluppare ulteriormente, insieme a una squadra forte.\n\nVantaggi:\nVuoi fare un patto? Sconti interessanti per viaggi, moda, sport, tecnologia, veicoli ...\n\nArea: OP Management\n\nLivello di occupazione: 80-100 %\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 dipendenti in 3 sedi nella regione di Basilea.",
-        "en": "Entry by appointment · Liestal, OP Management · Job reference 13296 · Permanent employment\n\nTasks:\n• Instrumentation & service, situational and independent during exciting surgical procedures\n• Ensure quality & document so that everything runs smoothly\n• Department of Surgery with focus on vessel, thorax, visceral surgery and Da VINCI\n• Teamwork in a young, motivated environment that lives collaboration and collegiality\n\nRequirements\n• Completed training as a specialist surgical technique HF or OTA or Dipl. Nurse with surgical training\n• Responsible, team capable and communicative, with a sense of exact work and passion for the profession\n• Self-employment & commitment, you take on responsibility and stay calm even in hectic situations\n• You like to develop further, together with a strong team.\n\nBenefits:\nWant to get a bargain? Attractive discounts for travel, fashion, sports, technology, vehicles ...\n\nArea: OP Management\n\nLevel of employment: 80-100 %\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 employees at 3 locations in the Basel region.",
-        "de": "Eintritt nach Vereinbarung · Liestal, OP Management · Stellenreferenz 13296 · Festanstellung\n\nAufgaben:\n• Instrumentieren & Zudienen, situationsgerecht und selbstständig bei spannenden chirurgischen Eingriffen\n• Qualität sichern & dokumentieren, damit alles reibungslos läuft\n• Fachbereich Chirurgie mit Schwerpunkt Gefäss, Thorax, Viszeralchirurgie und Da VINCI\n• Teamarbeit in einem jungen, motivierten Umfeld, das Zusammenarbeit und Kollegialität lebt\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/-mann Operationstechnik HF oder OTA oder Dipl. Pflegefachperson mit OP-Fachweiterbildung\n• Verantwortungsbewusst, teamfähig und kommunikativ, mit Sinn für exaktes Arbeiten und Leidenschaft für den Beruf\n• Selbstständigkeit & Engagement, du übernimmst Verantwortung und bleibst auch in hektischen Situationen ruhig\n• Du entwickelst dich gerne weiter, gemeinsam mit einem starken Team.\n\nBenefits:\nLust auf Schnäppchen? Attraktive Rabatte für Reisen, Mode, Sport, Technik, Fahrzeuge ...\n\nBereich: OP Management\n\nBeschäftigungsgrad: 80-100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
-        "fr": "Entrée par nomination · Liestal, OP Management · Référence de l'emploi 13296 · Emploi permanent\n\nTâches :\n• Instrumentation & service, situationnel et indépendant pendant les interventions chirurgicales passionnantes\n• Assurer la qualité & document pour que tout fonctionne en douceur\n• Département de Chirurgie avec accent sur le vaisseau, le thorax, la chirurgie viscérale et Da VINCI\n• Travail d'équipe dans un environnement jeune et motivé qui vit la collaboration et la collégialité\n\nExigences\n• Achevé la formation comme technique chirurgicale spécialisée HF ou OTA ou Dipl. Infirmière ayant une formation chirurgicale\n• Responsable, capable d'équipe et communicatif, avec un sens du travail et de la passion pour la profession\n• Travail indépendant & engagement, vous assumez la responsabilité et restez calme même dans des situations agitées\n• Vous aimez développer davantage, avec une équipe forte.\n\nAvantages:\nTu veux un marché ? Réductions attractives pour les voyages, la mode, le sport, la technologie, les véhicules ...\n\nDomaine : Gestion des OP\n\nNiveau d'emploi: 80-100 %\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 employés dans 3 sites de la région de Bâle."
-      },
-      "needsRetranslation": false,
-      "location": "Liestal",
-      "canton": "BL",
-      "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/fachfrau-fachmann-operationstechnik-hf/ebc48735-21de-4fde-989d-4961bd905f75",
-      "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:14:22.490Z",
-      "addressLocality": "Liestal",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4410",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-11",
-      "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/fachfrau-fachmann-operationstechnik-hf/ebc48735-21de-4fde-989d-4961bd905f75",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-hf-ksbl-liestal"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-fachmann-operationstechnik-hf-ksbl-liestal"
-        ],
-        "en": [
-          "fachfrau-fachmann-operationstechnik-hf-ksbl-liestal"
-        ],
-        "fr": [
-          "fachfrau-fachmann-operationstechnik-hf-ksbl-liestal"
-        ]
-      },
-      "firstSeenAt": "2026-09-11T13:50:51.942Z",
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 110500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ksbl-8f2e1ee059c0",
-      "slug": "dipl-specialista-oncology-haematology-kantonsspital-baselland-ksbl-liestal",
-      "slugByLocale": {
-        "it": "dipl-specialista-oncology-haematology-kantonsspital-baselland-ksbl-liestal",
-        "en": "dipl-nursing-specialist-oncology-haematology-kantonsspital-baselland-ksbl-liestal",
-        "de": "dipl-pflegefachfrau-pflegefachmann-onkologie-hamatologie-ksbl-liestal",
-        "fr": "dipl-specialiste-en-oncologie-et-hematologie-kantonsspital-baselland-ksbl-liestal"
-      },
-      "company": "Kantonsspital Baselland (KSBL)",
-      "companyKey": "ksbl",
-      "companyDomain": "ksbl.ch",
-      "title": "Dipl. Pflegefachfrau/Pflegefachmann Onkologie & Hämatologie",
-      "titleByLocale": {
-        "it": "Dipl. Specialista Oncology & Haematology",
-        "en": "Dipl. Nursing specialist Oncology & Haematology",
-        "de": "Dipl. Pflegefachfrau/Pflegefachmann Onkologie & Hämatologie",
-        "fr": "Dipl. Spécialiste en oncologie et hématologie"
-      },
-      "description": "Eintritt per 1. Januar 2027 oder nach Vereinbarung · Liestal, Pflege · Stellenreferenz 13275 · Festanstellung\n\nAufgaben:\nIm Ambulatorium des Zentrums Onkologie & Hämatologie begleiten wir Patientinnen\nund Patienten durch anspruchsvolle Therapiephasen – professionell, empathisch\nund auf Augenhöhe.\n• Fachkompetente Betreuung und Beratung von onkologischen und hämatologischen Patientinnen und Patienten\n• Verabreichung von Chemo-, Antikörper- und Immuntherapien\n• Ganzheitliche Begleitung der Patientinnen und Patienten sowie ihrer Angehörigen während der gesamten Behandlung\n• Enge interdisziplinäre Zusammenarbeit mit Ärztinnen und Ärzten sowie weiteren Fachpersonen\n• Aktive Mitgestaltung und Weiterentwicklung der Pflegequalität nach aktuellen Standards\n• Mitarbeit in einem eingespielten, wertschätzenden Team mit hoher Professionalität\n\nAnforderungen:\nZur Verstärkung unseres engagierten Teams suchen wir eine Pflegefachperson, die\nFachwissen, Menschlichkeit und Teamgeist verbindet.\n• Basis: Diplom als Pflegefachfrau/Pflegefachmann HF oder FH\n• Gerne: mehrjährige Berufserfahrung im Fachgebiet Onkologie & Hämatologie Oder Weiterbildung in Onkologiepflege (CAS/HöFa/NDS/HFP)\n• Sehr gerne: hohe Sozialkompetenz, Empathie und Freude am Umgang mit Menschen\n• Und auch: ausgeprägte Teamfähigkeit und Freude an der Zusammenarbeit in Einem gut eingespielten Team mit offener Kommunikationskultur\n• Unbedingt: Begeisterung für einen abwechslungsreichen, lebendigen Ambulatoriumsalltag\n\nBenefits:\nLust auf Schnäppchen? Attraktive Rabatte für Reisen, Mode, Sport, Technik, Fahrzeuge ...\n\nBereich: Pflege\n\nBeschäftigungsgrad: 80-100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
-      "descriptionByLocale": {
-        "it": "Entrata di 1. Gennaio 2027 o su appuntamento · Liestal, Care · Job reference 13275 · Lavoro permanente\n\nCompiti:\nNell'ambulatorio del Centro oncologia e ematologia accompagniamo i pazienti\ne pazienti attraverso fasi di terapia esigenti – professionale, empatico\ne a livello degli occhi.\n• Assistenza e consulenza competenti per i pazienti oncologici ed ematologici\n• Amministrazione di chemio, anticorpo e immunoterapie\n• Supporto completo dei pazienti e dei loro parenti durante l'intero trattamento\n• Chiudere la cooperazione interdisciplinare con medici e altri specialisti\n• Partecipazione attiva e ulteriore sviluppo della qualità della cura secondo gli standard attuali\n• Lavorare in un team esperto e apprezzato con alta professionalità\n\nRequisiti\nPer rafforzare il nostro team dedicato, siamo alla ricerca di un professionista di cura che\nCompetenza, umanità e spirito di squadra combinati.\n• Basi: Diploma come specialista in allattamento HF o FH\n• Glad: diversi anni di esperienza professionale in Oncology & Haematology o ulteriore formazione in Oncology Care (CAS/HöFa/NDS/HFP)\n• Molto felice: alte capacità sociali, empatia e piacere nel trattare con le persone\n• E anche: lavoro di squadra pronunciato e il piacere di lavorare insieme in un team consolidato con una cultura di comunicazione aperta\n• Assolutamente: l'entusiasmo per una vita quotidiana variegata e vivace\n\nVantaggi:\nVuoi fare un patto? Sconti interessanti per viaggi, moda, sport, tecnologia, veicoli ...\n\nArea: Cura\n\nLivello di occupazione: 80-100 %\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 dipendenti in 3 sedi nella regione di Basilea.",
-        "en": "Entrance by 1. January 2027 or by appointment · Liestal, Care · Job reference 13275 · Permanent employment\n\nTasks:\nIn the ambulatory of the Center oncology & hematology we accompany patients\nand patients through demanding therapy phases – professional, empathetic\nand at eye level.\n• Competent care and advice for oncological and hematological patients\n• Administration of chemo, antibody and immunotherapies\n• Comprehensive support of patients and their relatives during the entire treatment\n• Close interdisciplinary cooperation with doctors and other specialists\n• Active participation and further development of care quality according to current standards\n• Working in an experienced, appreciative team with high professionalism\n\nRequirements\nTo strengthen our dedicated team, we are looking for a care professional who\nExpertise, humanity and team spirit combined.\n• Basis: Diploma as nursing specialist HF or FH\n• Glad: several years of professional experience in Oncology & Haematology or further training in Oncology Care (CAS/HöFa/NDS/HFP)\n• Very happy: high social skills, empathy and pleasure in dealing with people\n• And also: pronounced teamwork and enjoyment of working together in a well-established team with an open communication culture\n• Absolutely: enthusiasm for a varied, lively ambulatory everyday life\n\nBenefits:\nWant to get a bargain? Attractive discounts for travel, fashion, sports, technology, vehicles ...\n\nArea: Care\n\nLevel of employment: 80-100 %\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 employees at 3 locations in the Basel region.",
-        "de": "Eintritt per 1. Januar 2027 oder nach Vereinbarung · Liestal, Pflege · Stellenreferenz 13275 · Festanstellung\n\nAufgaben:\nIm Ambulatorium des Zentrums Onkologie & Hämatologie begleiten wir Patientinnen\nund Patienten durch anspruchsvolle Therapiephasen – professionell, empathisch\nund auf Augenhöhe.\n• Fachkompetente Betreuung und Beratung von onkologischen und hämatologischen Patientinnen und Patienten\n• Verabreichung von Chemo-, Antikörper- und Immuntherapien\n• Ganzheitliche Begleitung der Patientinnen und Patienten sowie ihrer Angehörigen während der gesamten Behandlung\n• Enge interdisziplinäre Zusammenarbeit mit Ärztinnen und Ärzten sowie weiteren Fachpersonen\n• Aktive Mitgestaltung und Weiterentwicklung der Pflegequalität nach aktuellen Standards\n• Mitarbeit in einem eingespielten, wertschätzenden Team mit hoher Professionalität\n\nAnforderungen:\nZur Verstärkung unseres engagierten Teams suchen wir eine Pflegefachperson, die\nFachwissen, Menschlichkeit und Teamgeist verbindet.\n• Basis: Diplom als Pflegefachfrau/Pflegefachmann HF oder FH\n• Gerne: mehrjährige Berufserfahrung im Fachgebiet Onkologie & Hämatologie Oder Weiterbildung in Onkologiepflege (CAS/HöFa/NDS/HFP)\n• Sehr gerne: hohe Sozialkompetenz, Empathie und Freude am Umgang mit Menschen\n• Und auch: ausgeprägte Teamfähigkeit und Freude an der Zusammenarbeit in Einem gut eingespielten Team mit offener Kommunikationskultur\n• Unbedingt: Begeisterung für einen abwechslungsreichen, lebendigen Ambulatoriumsalltag\n\nBenefits:\nLust auf Schnäppchen? Attraktive Rabatte für Reisen, Mode, Sport, Technik, Fahrzeuge ...\n\nBereich: Pflege\n\nBeschäftigungsgrad: 80-100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
-        "fr": "Entrée par 1. Janvier 2027 ou par nomination · Liestal, Care · Référence de l'emploi 13275 · Emploi permanent\n\nTâches :\nDans l'ambulatoire du Centre oncologie & hématologie nous accompagnons les patients\net aux patients par des phases thérapeutiques exigeantes – professionnelles, empathiques\net au niveau des yeux.\n• Soins et conseils appropriés pour les patients oncologiques et hématologiques\n• Administration de chimio, anticorps et immunothérapies\n• Soutien complet des patients et de leurs proches pendant tout le traitement\n• Coopération interdisciplinaire étroite avec les médecins et autres spécialistes\n• Participation active et développement de la qualité des soins selon les normes actuelles\n• Travailler dans une équipe expérimentée et reconnaissante avec un grand professionnalisme\n\nExigences\nPour renforcer notre équipe dédiée, nous recherchons un professionnel de soins qui\nExpertise, humanité et esprit d'équipe réunis.\n• Base : Diplôme de spécialiste en soins infirmiers HF ou FH\n• Heureux : plusieurs années d'expérience professionnelle en oncologie et hématologie ou formation continue en oncologie (CAS/HöFa/NDS/HFP)\n• Très heureux: compétences sociales élevées, empathie et plaisir à traiter avec les gens\n• Et aussi: travail d'équipe et plaisir prononcé de travailler ensemble dans une équipe bien établie avec une culture de communication ouverte\n• Absolument : enthousiasme pour une vie quotidienne ambulatoire variée et animée\n\nAvantages:\nTu veux un marché ? Réductions attractives pour les voyages, la mode, le sport, la technologie, les véhicules ...\n\nDomaine: soins\n\nNiveau d'emploi: 80-100 %\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 employés dans 3 sites de la région de Bâle."
-      },
-      "needsRetranslation": false,
-      "location": "Liestal",
-      "canton": "BL",
-      "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-onkologie-haematologie/6cb59668-398c-43bf-a706-a766141ce22c",
-      "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:14:21.927Z",
-      "addressLocality": "Liestal",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4410",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-11",
-      "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-onkologie-haematologie/6cb59668-398c-43bf-a706-a766141ce22c",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-onkologie-hamatologie-ksbl-liestal"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-pflegefachmann-onkologie-hamatologie-ksbl-liestal"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-pflegefachmann-onkologie-hamatologie-ksbl-liestal"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-onkologie-hamatologie-ksbl-liestal"
-        ]
-      },
-      "firstSeenAt": "2026-09-11T13:50:51.396Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }

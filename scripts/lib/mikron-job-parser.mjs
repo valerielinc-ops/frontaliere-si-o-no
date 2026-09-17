@@ -18,8 +18,6 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 export const MIKRON_CAREERS_URL = 'https://www.mikron.com/en/group/our-people/join-us/jobs';
 export const MIKRON_HOST = 'www.mikron.com';
 
-export const AGNO_LOCATION_KEYWORDS = ['agno', 'ticino', 'lugano'];
-
 /**
  * Normalize whitespace.
  */
@@ -68,11 +66,14 @@ export function slugify(value = '', suffix = '') {
 }
 
 /**
- * Check if a location string refers to Agno/Ticino.
+ * Check if a location string resolves to a Swiss site.
  */
-export function isAgnoLocation(locationText = '') {
+export function isSwissLocation(locationText = '') {
   return isTargetSwissLocation(locationText);
 }
+
+/** @deprecated Use isSwissLocation(); retained for existing parser consumers. */
+export const isAgnoLocation = isSwissLocation;
 
 /**
  * Parse job listings from Mikron's Drupal HTML career page.
@@ -87,11 +88,13 @@ export function isAgnoLocation(locationText = '') {
  *
  * @param {string} html - Raw HTML of the jobs page
  * @param {object} options - Options
- * @param {boolean} options.filterAgno - If true, keep only Agno/TI jobs (default: false → all Swiss sites)
+ * @param {boolean} options.filterSwiss - If true, keep jobs matching the
+ *   Swiss location helper (default: false → all Swiss sites)
+ * @param {boolean} options.filterAgno - Deprecated alias for filterSwiss.
  * @returns {Array<{title: string, url: string, division: string, jobFunction: string, location: string, idx: number}>}
  */
 export function parseMikronJobs(html = '', options = {}) {
-  const { filterAgno = false } = options;
+  const filterSwiss = options.filterSwiss ?? options.filterAgno ?? false;
   if (!html || typeof html !== 'string') return [];
 
   const jobs = [];
@@ -130,7 +133,7 @@ export function parseMikronJobs(html = '', options = {}) {
     });
   }
   if (jobs.length > 0) {
-    const filtered = filterAgno ? jobs.filter((j) => !j.location || isAgnoLocation(j.location)) : jobs;
+    const filtered = filterSwiss ? jobs.filter((j) => !j.location || isSwissLocation(j.location)) : jobs;
     return dedupeByUrl(filtered);
   }
 
@@ -157,7 +160,7 @@ export function parseMikronJobs(html = '', options = {}) {
     const jobFunction = functionMatch ? normalizeSpace(functionMatch[1]) : '';
     const location = locationMatch ? normalizeSpace(locationMatch[1]) : '';
 
-    if (filterAgno && location && !isAgnoLocation(location)) continue;
+    if (filterSwiss && location && !isSwissLocation(location)) continue;
 
     idx++;
     jobs.push({

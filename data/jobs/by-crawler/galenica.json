@@ -218,7 +218,7 @@
       },
       "titleByLocale": {
         "it": "Pharmacien adjoint / Pharmacienne adjointe (f/m/d)",
-        "en": "Pharmacien adjoint / Pharmacienne adjointe (m/f/d)",
+        "en": "Pharmacien adjoint / Pharmacienne 216te (m/f/d)",
         "de": "Pharmacien adjacent / Pharmacienne adjacent (m/w/d)",
         "fr": "Pharmacien adjoint / Pharmacien adjoint (h/f/d)"
       },
@@ -234,7 +234,6 @@
           "galenica-galenica-pharmacien-adjoint-pharmacienne-adjointe-h-f-d-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -280,7 +279,7 @@
       "slug": "apotheker-apothekerin-m-w-d-galenica-ag-galenica-bern",
       "slugByLocale": {
         "it": "apotheker-apothekerin-m-w-d-galenica-ag-galenica-bern",
-        "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9",
+        "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
         "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9",
         "fr": "apotekeriste-apotetheker-h-f-d-galenica-ag-galenica-bern"
       },
@@ -297,8 +296,7 @@
           "apoteker-apotekerin-m-f-d-galenica-ag-galenica-bern"
         ],
         "en": [
-          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9",
-          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9"
         ],
         "de": [
           "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
@@ -621,11 +619,13 @@
       },
       "id": "galenica-af80e62ec451",
       "previousSlugs": [
-        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern"
+        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
+        "pharma-assistent-pharma-assistentin-im-kundenservicecenter-m-w-d-galenica-ag-galenica-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern"
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
+          "pharma-assistent-pharma-assistentin-im-kundenservicecenter-m-w-d-galenica-ag-galenica-bern"
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
@@ -804,7 +804,7 @@
       "slug": "apotheker-apothekerin-m-w-d-galenica-bern",
       "slugByLocale": {
         "it": "apotheker-apothekerin-m-w-d-galenica-bern",
-        "en": "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx5i4p",
+        "en": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
         "de": "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx5i4p",
         "fr": "pharmacien-pharmacienne-h-f-d-galenica-galenica-bern"
       },
@@ -833,8 +833,7 @@
         ],
         "en": [
           "galenica-galenica-ag-apotheker-apothekerin-w-m-d-mit-fachtechnischer-verantwortung-bern",
-          "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx5i4p",
-          "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
+          "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx5i4p"
         ],
         "de": [
           "apotheker-apothekerin-w-m-d-galenica-galenica-bern",
@@ -1450,8 +1449,8 @@
       },
       "titleByLocale": {
         "it": "Automaticien / Électricien de maintenance industrielle (f/m/d)",
-        "en": "Automaticien / Électricien de maintenance industrielle (m/f/d)",
-        "de": "Automaticien / Électricien de maintenance industrielle (m/w/d)",
+        "en": "Automaticen v Électricien de flippain industrielle (m/f/d)",
+        "de": "Automatisieren gegen Électricien de flippain industrielle (m/w/d)",
         "fr": "Automatique / Electricien de maintenance industrielle (h/f/d)"
       },
       "id": "galenica-7c391226484a",
@@ -1468,7 +1467,6 @@
           "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,

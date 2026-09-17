@@ -2,6 +2,8 @@
 /**
  * Dedicated PostAuto AG crawler runner.
  *
+ * PostAuto is a national, multi-canton network; the parser derives each
+ * vacancy's Swiss canton from its own city across all 26 cantons.
  * Uses the standard crawler template with the PostAuto parser.
  * All fetch/parse logic lives in ./lib/postauto-job-parser.mjs.
  */

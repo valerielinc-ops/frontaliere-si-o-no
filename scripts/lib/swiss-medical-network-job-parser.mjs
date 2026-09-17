@@ -7,7 +7,8 @@
  *   - Centro Medico Blenio (Acquarossa, TI)
  *
  * Career page: https://www.swissmedical.net/en/career/job-offers
- * The page filters by region; Ticino region UUID: 7845726f-4952-4b7c-88da-8ff4f85e6afb
+ * The live crawler uses the unfiltered SmartRecruiters API below; the HTML
+ * parser retained later is only a compatibility path for older fixtures.
  *
  * Job application links go to jobs.smartrecruiters.com/SwissMedicalNetwork1/...
  */
@@ -17,13 +18,11 @@ import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { normalizeAnyCantonCode } from './crawler-location-config.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
-export const TICINO_REGION_UUID = '7845726f-4952-4b7c-88da-8ff4f85e6afb';
-
 // ─── SmartRecruiters public API (CH-wide source of truth) ──────────────────
-// The swissmedical.net careers page is React-rendered and region-filtered; the
+// The swissmedical.net careers page is React-rendered; the
 // SmartRecruiters posting API exposes ALL Swiss Medical Network jobs across the
 // 26 cantons with per-job location (city/region/postalCode) — no clinic registry
-// or Ticino default needed. Company id is taken from the apply-URL path
+// or fixed-canton default needed. Company id is taken from the apply-URL path
 // (jobs.smartrecruiters.com/SwissMedicalNetwork1/...).
 export const SMN_SR_COMPANY_ID = 'SwissMedicalNetwork1';
 export const SMN_POSTINGS_API = `https://api.smartrecruiters.com/v1/companies/${SMN_SR_COMPANY_ID}/postings`;
@@ -47,7 +46,7 @@ export function extractSmnPostingId(url = '') {
 /**
  * Normalize a SmartRecruiters postings-list entry to {id, title, city, region,
  * canton, postalCode, country}. The canton is inferred from the API region
- * (often a 2-letter code) or the city — no Ticino fallback.
+ * (often a 2-letter code) or the city — no fixed-canton fallback.
  */
 export function normalizeSmnApiPosting(posting = {}) {
   const loc = posting.location || {};
@@ -82,6 +81,8 @@ export function extractSmnApiDescription(detail = {}) {
   return parts.join('\n\n').trim();
 }
 
+// Legacy HTML-parser fixtures. The active API path above is CH-wide and does
+// not use this clinic list or any regional allowlist.
 export const TICINO_CLINICS = [
   { code: 'CSA', name: 'Clinica Sant\'Anna', city: 'Sorengo' },
   { code: 'CAM', name: 'Clinica Ars Medica', city: 'Gravesano' },
@@ -144,19 +145,25 @@ export function slugify(value = '', suffix = '') {
 }
 
 /**
- * Check if a location/clinic is in Ticino.
+ * Check whether a legacy fixture location is Swiss.
+ *
+ * The historical export name is kept for fixture compatibility; production
+ * discovery uses normalizeSmnApiPosting() and never calls this HTML path.
  */
-export function isTicinoLocation(text = '') {
+export function isSwissMedicalLocation(text = '') {
   if (isTargetSwissLocation(text)) return true;
-  // Also check clinic names specific to Ticino
+  // Also recognise the legacy clinic names used by old HTML fixtures.
   const lower = String(text || '').toLowerCase();
   return TICINO_LOCATION_KEYWORDS.some((kw) => lower.includes(kw.toLowerCase()));
 }
 
+// Backward-compatible fixture export; do not use for the live API crawler.
+export const isTicinoLocation = isSwissMedicalLocation;
+
 /**
  * Infer city from clinic name or location string.
  */
-export function inferCity(text = '') {
+export function inferSwissMedicalCity(text = '') {
   const lower = String(text || '').toLowerCase();
   for (const clinic of TICINO_CLINICS) {
     if (lower.includes(clinic.name.toLowerCase()) || lower.includes(clinic.code.toLowerCase())) {
@@ -170,8 +177,11 @@ export function inferCity(text = '') {
   if (lower.includes('bellinzona')) return 'Bellinzona';
   if (lower.includes('mendrisio')) return 'Mendrisio';
   if (lower.includes('acquarossa')) return 'Acquarossa';
-  return 'Lugano'; // Default Ticino city
+  return 'Lugano'; // Legacy fixture default; the live API supplies city per job.
 }
+
+// Backward-compatible fixture export; the live API supplies city per job.
+export const inferCity = inferSwissMedicalCity;
 
 /**
  * Parse job listings from the Swiss Medical Network HTML career page.
@@ -184,7 +194,7 @@ export function inferCity(text = '') {
  *   - Start date
  *   - Link to SmartRecruiters application
  *
- * @param {string} html - Raw HTML of the job offers page (filtered for Ticino)
+ * @param {string} html - Raw HTML from the legacy job-offers page
  * @returns {Array<{title: string, clinic: string, city: string, employmentRate: string, startDate: string, applyUrl: string, idx: number}>}
  */
 export function parseSwissMedicalJobs(html = '') {
@@ -224,10 +234,10 @@ export function parseSwissMedicalJobs(html = '') {
       }
     }
 
-    // Check if this is a Ticino position
-    if (!isTicinoLocation(clinicText) && !isTicinoLocation(title)) continue;
+    // Legacy HTML compatibility path: keep only Swiss locations.
+    if (!isSwissMedicalLocation(clinicText) && !isSwissMedicalLocation(title)) continue;
 
-    const city = inferCity(clinicText || title);
+    const city = inferSwissMedicalCity(clinicText || title);
 
     // Extract employment rate (e.g., "100%", "80-100%")
     const rateMatch = clinicText.match(/(\d{1,3}(?:\s*-\s*\d{1,3})?\s*%)/);
@@ -300,7 +310,7 @@ export function getClinicAddress(clinicName = '', city = '') {
   for (const data of Object.values(CLINIC_ADDRESSES)) {
     if (city && data.city.toLowerCase() === city.toLowerCase()) return data;
   }
-  // Default to Lugano HQ
+  // Legacy fixture fallback; live API postings carry their own location.
   return { postalCode: '6900', streetAddress: 'Via Moncucco 2, 6900 Lugano', city: 'Lugano' };
 }
 

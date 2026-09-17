@@ -94,7 +94,7 @@
       "title": "TEILZEIT MODEBERATERIN 60%",
       "titleByLocale": {
         "it": "MODELLO DI PARTE TERMINE 60 %",
-        "en": "PART-TIME MODEBERATERIN 60 %",
+        "en": "PART-TIME MODEBERATETERIN 60%",
         "de": "TEILZEIT MODEBERATERIN 60%",
         "fr": "MODÈLE À TEMPS PARTIEL 60 %"
       },
@@ -139,7 +139,6 @@
           "teilzeit-modeberaterin-60-tally-weijl-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:35:29.167Z",
       "salaryMin": 41100,
       "salaryMax": 62400,
@@ -171,7 +170,7 @@
       "title": "TEILZEIT MODEBERATERIN 50% - 80% (m/w/d)",
       "titleByLocale": {
         "it": "MODELLO DEL TEMPO PARTIALE 50% - 80% (m/f/d)",
-        "en": "PARTIAL TIME MODEBERATERIN 50% - 80% (m/f/d)",
+        "en": "PART-TIME MATEBERATETERIN 50% - 80% (m/f/d)",
         "de": "TEILZEIT MODEBERATERIN 50% - 80% (m/w/d)",
         "fr": "MODEBÉRATÉRINE PARTIEL 50 % - 80 % (m/f/j)"
       },
@@ -250,7 +249,7 @@
         "it": "MODELLO DEL TEMPO PARTIALE 40% (m/f/d)",
         "en": "PART-TIME MODEBERATERIN 40% (m/w/d)",
         "de": "TEILZEIT MODEBERATERIN 40% (m/w/d)",
-        "fr": "MODEBÉRATÉRIEN À TEMPS PARTIEL 40% (m/p/j)"
+        "fr": "PARTIE TIME MODEBÉRATREIN 40% (h/f/d)"
       },
       "description": "We're here to make you feel sexy, empowered & UNSTOPPABLE.\n\nFounded in 1984, Tally Weijl has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. Today we’re present in 35 markets with over 700+ stores, online presence, and 3m+ fans across social channels. Show us how #UNSTOPPABLE you are!\n\nTEILZEIT MODEBERATERIN 40% (m/w/d)\n\nDEIN BEITRAG FÜR UNSEREN GEMEINSAMEN ERFOLG\n\n· Als Verkäufer/in berätst du unsere (Young & Golden) Kundin mit viel Motivation und Spass umfassend\n\n· Du gewinnst neue Kunden und pflegst bestehende Kundenbeziehungen mit Deiner positiven Ausstrahlung\n\n· Die Präsentation des Warensortiments und des Shop Aufbaus verwirklichst du entsprechend internen Guidelines\n\n· Du kennst unsere Kollektionen und Trends und lässt Dein Wissen in die Beratung der Kundin einfliessen\n\n· An der Kasse rundest Du mit deiner freundlichen und offenen Art das Einkaufserlebnis der Kundin ab\n\nDAS ZEICHNET DICH AUS\n\n· Eine erfolgreich abgeschlossen kaufmännische Grundausbildung im Detailhandel\n\n· Du bist 100% verkaufs – sowie kundenorientiert\n\n· Du konntest bereits Erfahrung in einer ähnlichen Stelle sammeln\n\n· Die trendige Fashionwelt ist Deine Leidenschaft\n\n· Die Kommunikation und Arbeit im Team gehören zu Deinen Stärken\n\n· Du bist stolz auf dein gepflegtes Erscheinungsbild\n\n· Du sprichst fliessen Deutsch und jede weitere Sprache ist ein Vorteil\n\nDEINE VORTEILE BEI UNS\n\n· Wir fördern berufliche Weiterentwicklung und bieten vielseitige Karrieremöglichkeiten\n\n· Abwechslungsreiche Tätigkeit in einer dynamischen, offenen und teamorientierten Unternehmenskultur\n\n· Attraktive Mitarbeiterrabatte ( 50%)\n\n· Ein Arbeitsumfeld, in dem Mode und Spass an der Arbeit im Vordergrund stehen\n\n· Internationale Arbeitserfahrung\n\n· Minimum 25 Urlaubstage ( + 3 Tage Anwesenheitsprämie )\n\n· Grundgehalt und Bonus/ Gratifikationen möglichkeiten\n\nMöchtest du ein Teil unserer Fashion Story und ein begeistertes Mitglied unserer TALLY Family werden. Dann teile dein individuelles Talent mit uns und bewerbe dich jetzt bei HR",
       "descriptionByLocale": {
@@ -634,9 +633,9 @@
     },
     {
       "id": "tally-weijl-8adfd90046bb",
-      "slug": "store-manager-100-m-w-d-tally-weijl-bern",
+      "slug": "direttore-100-m-w-d-tally-weijl-bern",
       "slugByLocale": {
-        "it": "store-manager-100-m-w-d-tally-weijl-bern",
+        "it": "direttore-100-m-w-d-tally-weijl-bern",
         "en": "store-manager-100-m-w-d-tally-weijl-bern",
         "de": "store-manager-100-m-w-d-tally-weijl-bern",
         "fr": "gestionnaire-a-100-m-w-d-tally-weijl-bern"
@@ -646,8 +645,8 @@
       "companyDomain": "tally-weijl.com",
       "title": "STORE MANAGER 100% ( m,w,d)",
       "titleByLocale": {
-        "it": "STORE MANAGER 100% (m,w,d)",
-        "en": "STORE MANAGER 100% (m,w,d)",
+        "it": "Direttore 100% (m,w,d)",
+        "en": "Mr Manager 100% (m,w,d)",
         "de": "STORE MANAGER 100% ( m,w,d)",
         "fr": "GESTIONNAIRE À 100 % (m,w,d)"
       },
@@ -678,7 +677,6 @@
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zdzo/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:35:25.243Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -693,7 +691,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "store-manager-100-m-w-d-tally-weijl-bern"
+        ]
+      },
+      "previousSlugs": [
+        "store-manager-100-m-w-d-tally-weijl-bern"
+      ]
     },
     {
       "id": "tally-weijl-4f4e9000aa51",
@@ -2261,7 +2267,8 @@
       },
       "previousSlugs": [
         "fitting-modelle-tally-weijl-basel",
-        "modeles-d-ajustement-tally-weijl-basel"
+        "modeles-d-ajustement-tally-weijl-basel",
+        "fitting-models-tally-weijl-basel"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -2269,6 +2276,9 @@
         ],
         "fr": [
           "modeles-d-ajustement-tally-weijl-basel"
+        ],
+        "it": [
+          "fitting-models-tally-weijl-basel"
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:39.249Z",

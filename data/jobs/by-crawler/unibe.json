@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unibe",
-  "assembledAt": "2026-09-16T22:29:43.225Z",
+  "assembledAt": "2026-09-17T19:01:19.640Z",
   "jobs": [
     {
       "id": "unibe-8a556a727251",
@@ -378,84 +378,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:34:58.589Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "unibe-4db3310d9d25",
-      "slug": "phd-position-in-nccr-genesis-modello-di-chimica-metabolismo-computazionale-per-venere-ed-enceladus-universitat-bern-bern",
-      "slugByLocale": {
-        "it": "phd-position-in-nccr-genesis-modello-di-chimica-metabolismo-computazionale-per-venere-ed-enceladus-universitat-bern-bern",
-        "en": "phd-position-in-nccr-genesis-computational-chemistry-metabolism-model-for-venus-and",
-        "de": "phd-position-in-nfs-genesis-computational-chemistry-metabolism-modell-fur-venus-und-enceladus-universitat-bern-bern",
-        "fr": "position-du-doctorat-dans-le-nccr-genesis-modele-de-chimie-computationnelle-metabolisme-pour-venus-et-encelade"
-      },
-      "company": "Universität Bern",
-      "companyKey": "unibe",
-      "companyDomain": "unibe.ch",
-      "title": "PhD Position in NCCR Genesis: Computational chemistry–metabolism model for Venus and Enceladus",
-      "titleByLocale": {
-        "it": "Posizione di Dottorato in NCCR Genesis: Modello computazionale di chimica-metabolismo per Venere ed Encelado",
-        "en": "PhD Position in NCCR Genesis: Computational chemistry–metabolism model for Venus and Enceladus",
-        "de": "PhD-Position in NCCR Genesis: Computerchemie-Stoffwechselmodell für Venus und Enceladus",
-        "fr": "Position de Doctorat dans NCCR Genesis: Modèle informatique de chimie-métabolisme pour Vénus et Encelade"
-      },
-      "description": "<b>UniBE is prestigious.</b><br/>With us, you benefit from the excellent reputation of a long-standing institution all around the world.\n\nAufgaben:\nYou hold (or are close to completing) a Master's degree in physics, astronomy, planetary science, Earth science, computational science, chemistry or a related discipline. You have strong quantitative skills and experience in scientific programming (preferably Python). Experience in planetary science, atmospheric chemistry, geochemistry, microbiology or astrobiology is an advantage but not required. We are looking for a curious, motivated and team-oriented researcher who enjoys working across disciplines.\n\nAnforderungen:\nThe position offers an international and interdisciplinary research environment at the forefront of planetary science and astrobiology, with close collaboration with researchers across the NCCR Genesis network. The successful candidate will be employed as a PhD researcher at the University of Bern and work closely with the research groups of Dr Sean Jordan at ETH Zurich and Prof. Audrey Vorburger at the University of Bern, drawing on expertise in computational modelling, atmospheric chemistry, astrobiology and planetary exploration. The project provides opportunities to publish in leading scientific journals, present at international conferences, and collaborate with researchers across a broad range of disciplines.\n\nWir bieten:\nCollaborative environment and ambitious team",
-      "descriptionByLocale": {
-        "it": "UniBE è prestigiosa.\nCon noi, beneficerai dell'eccellente reputazione di un'istituzione di lunga data in tutto il mondo.\n\nAufgaben:\nPossiedi (o stai per completare) un Master in fisica, astronomia, scienze planetarie, scienze della Terra, scienze computazionali, chimica o una disciplina correlata. Hai forti capacità quantitative ed esperienza nella programmazione scientifica (preferibilmente Python). L'esperienza in scienze planetarie, chimica atmosferica, geochimica, microbiologia o astrobiologia è un vantaggio ma non è richiesta. Siamo alla ricerca di un ricercatore curioso, motivato e orientato al team che si diverta a lavorare in tutte le discipline.\n\nAnforderungen:\nLa posizione offre un ambiente di ricerca internazionale e interdisciplinare in prima linea nella scienza planetaria e nell'astrobiologia, con una stretta collaborazione con i ricercatori della rete NCCR Genesis. Il candidato prescelto sarà impiegato come ricercatore di dottorato presso l'Università di Berna e lavorerà a stretto contatto con i gruppi di ricerca del Dr. Sean Jordan presso l'ETH di Zurigo e del Prof. Audrey Vorburger presso l'Università di Berna, attingendo alle competenze in modellazione computazionale, chimica atmosferica, astrobiologia ed esplorazione planetaria. Il progetto offre l'opportunità di pubblicare su importanti riviste scientifiche, presenti a conferenze internazionali e collaborare con ricercatori in una vasta gamma di discipline.\n\nWir bieten:\nAmbiente collaborativo e team ambizioso",
-        "en": "UniBE is prestigious.\nWith us, you benefit from the excellent reputation of a long-standing institution all around the world.\n\nAufgaben:\nYou hold (or are close to completing) a Master's degree in physics, astronomy, planetary science, Earth science, computational science, chemistry or a related discipline. You have strong quantitative skills and experience in scientific programming (preferably Python). Experience in planetary science, atmospheric chemistry, geochemistry, microbiology or astrobiology is an advantage but not required. We are looking for a curious, motivated and team-oriented researcher who enjoys working across disciplines.\n\nAnforderungen:\nThe position offers an international and interdisciplinary research environment at the forefront of planetary science and astrobiology, with close collaboration with researchers across the NCCR Genesis network. The successful candidate will be employed as a PhD researcher at the University of Bern and work closely with the research groups of Dr Sean Jordan at ETH Zurich and Prof. Audrey Vorburger at the University of Bern, drawing on expertise in computational modelling, atmospheric chemistry, astrobiology and planetary exploration. The project provides opportunities to publish in leading scientific journals, present at international conferences, and collaborate with researchers across a broad range of disciplines.\n\nWir bieten:\nCollaborative environment and ambitious team",
-        "de": "UniBE ist prestigeträchtig. Bei uns profitieren Sie vom hervorragenden Ruf einer langjährigen Institution auf der ganzen Welt.\n\nSie haben einen Master in Physik, Astronomie, Planetenwissenschaft, Erdwissenschaft, Informatik, Chemie oder verwandter Disziplin. Sie haben eine starke quantitative Kompetenz und Erfahrung in der wissenschaftlichen Programmierung (vorzugsweise Python). Erfahrungen in der Planetenwissenschaft, Atmosphärenchemie, Geochemie, Mikrobiologie oder Astrobiologie sind ein Vorteil, aber nicht erforderlich. Wir suchen einen neugierigen, motivierten und teamorientierten Forscher, der sich gerne über die Disziplinen hinweg beschäftigt.\n\nDie Position bietet ein internationales und interdisziplinäres Forschungsumfeld an der Spitze der Planetenwissenschaft und Astrobiologie, in enger Zusammenarbeit mit Forschern im NFS Genesis-Netzwerk. Der erfolgreiche Kandidat wird als Doktorand an der Universität Bern tätig sein und eng mit den Forschungsgruppen von Dr. Sean Jordan an der ETH Zürich und Prof. Audrey Vorburger an der Universität Bern zusammenarbeiten, wobei er auf Expertise in den Bereichen Computermodellierung, Atmosphärenchemie, Astrobiologie und Planetenforschung zurückgreift.\n\nDas Projekt bietet Möglichkeiten, in führenden wissenschaftlichen Fachzeitschriften zu veröffentlichen, auf internationalen Konferenzen zu präsentieren und mit Forschern in einem breiten Spektrum von Disziplinen zusammenzuarbeiten.\n\nWirđ: Kollaboratives Umfeld und ambitioniertes Team",
-        "fr": "UniBE est prestigieux. Avec nous, vous bénéficiez de l'excellente réputation d'une institution de longue date dans le monde entier.\n\nAufgaben : Vous possédez (ou êtes sur le point de terminer) une maîtrise en physique, astronomie, science planétaire, science de la Terre, science informatique, chimie ou discipline connexe. Vous avez de fortes compétences quantitatives et une expérience en programmation scientifique (de préférence Python). L'expérience en science planétaire, chimie atmosphérique, géochimie, microbiologie ou astrobiologie est un avantage mais non requis.\n\nAnforderungen : Le poste offre un environnement de recherche international et interdisciplinaire à l'avant-garde de la science et de l'astrobiologie planétaires, avec une collaboration étroite avec des chercheurs dans tout le réseau de la NCCR Genesis. Le candidat retenu sera employé comme chercheur au doctorat à l'Université de Berne et travaillera en étroite collaboration avec les groupes de recherche du Dr Sean Jordan à l'ETH Zurich et le Prof. Audrey Vorburger à l'Université de Berne, en s'appuyant sur l'expertise en modélisation informatique, chimie atmosphérique, astrobiologie et exploration planétaire.\n\nLe projet offre la possibilité de publier dans des revues scientifiques de premier plan, de participer à des conférences internationales et de collaborer avec des chercheurs dans un large éventail de disciplines.\n\nWir bieten: Environnement collaboratif et équipe ambitieuse"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.unibe.ch/job-vacancies/phd-position-in-nccr-genesis-computational-chemistrymetabolism-model-for-venus-and-enceladus/e9b6329b-e3eb-41a1-b4f0-4e185fb01a7c",
-      "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-13T14:15:11.867Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3012",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-21",
-      "applyUrl": "https://jobs.unibe.ch/job-vacancies/phd-position-in-nccr-genesis-computational-chemistrymetabolism-model-for-venus-and-enceladus/e9b6329b-e3eb-41a1-b4f0-4e185fb01a7c",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-in-nccr-genesis-computational-chemistry-metabolism-model-for-venus-and"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-nccr-genesis-computational-chemistry-metabolism-model-for-venus-and"
-        ],
-        "de": [
-          "phd-position-in-nccr-genesis-computational-chemistry-metabolism-model-for-venus-and"
-        ],
-        "fr": [
-          "phd-position-in-nccr-genesis-computational-chemistry-metabolism-model-for-venus-and"
-        ]
-      },
-      "firstSeenAt": "2026-07-21T22:56:55.941Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1012,86 +934,6 @@
           "@type": "QuantitativeValue",
           "minValue": 85000,
           "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "unibe-b84c388eaa43",
-      "slug": "linux-systemadministrator-in-universitat-bern-bern",
-      "slugByLocale": {
-        "it": "linux-systemadministrator-in-universitat-bern-bern",
-        "en": "linux-systemadministrator-in-universitat-bern-bern",
-        "de": "linux-systemadministrator-in-unibe-bern",
-        "fr": "linux-systemadministrator-in-universitat-bern-bern"
-      },
-      "company": "Universität Bern",
-      "companyKey": "unibe",
-      "companyDomain": "unibe.ch",
-      "title": "Linux Systemadministrator*in",
-      "titleByLocale": {
-        "it": "Linux System Administrator",
-        "en": "Linux System Administrator*",
-        "de": "Linux Systemadministrator*in",
-        "fr": "Administrateur système Linux*"
-      },
-      "description": "<b>Die UniBE ist vielseitig.</b><br/>Bei uns erwartet Sie eine grosse Themenvielfalt und viel Gestaltungsfreiraum.\n\nAufgaben:\n• Verantwortung Betrieb Mailhub-Service\n\n• Stellvertretung, später Hauptverantwortung Mailinglist-Service\n\n• Stellvertretende Unterstützung bei der Virtualisierungsplattform\n\n• Stellvertretung Hitachi-Storagelösung\n\n• Stellvertretung, später Hauptverantwortung TSM Tivoli Tape Lösung\n\n• Mitgestaltung und Aufbau neuer Services für interne Kunden der Universität Bern\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Informatiker*in EFZ oder eine vergleichbare Qualifikation.\n\n• Begeisterung für Virtualisierungslösungen und Storagesysteme\n\n• Erfahrung im Umgang mit Ansible, Git, GitHub-Workflows und weiteren Tools von Vorteil\n\n• Ein starkes Bewusstsein für IT-Sicherheit und deren Bedeutung\n\n• Hohe Motivation, Selbstständigkeit, Eigeninitiative und die Bereitschaft, Neues zu lernen\n\nWir bieten:\nTeamorientiertes Arbeiten",
-      "descriptionByLocale": {
-        "it": "<b> L'UniBE è versatile. </b> Con noi ci si può aspettare una vasta gamma di argomenti e un sacco di libertà di progettazione.\n\nCompiti:\n• Funzionamento di responsabilità Mailhub Servizio\n\n• Vice, in seguito responsabilità principale servizio Mailinglist\n\n• Supporto rappresentativo per la piattaforma di virtualizzazione\n\n• Soluzione di stoccaggio Hitachi\n\n• Deputato, in seguito principale responsabilità TSM Tivoli Tape soluzione\n\n• Co-design e sviluppo di nuovi servizi per i clienti interni dell'Università di Berna\n\nRequisiti\n• Completato la formazione come scienziato informatico EFZ o una qualifica paragonabile.\n\n• Enthusiasm per soluzioni di virtualizzazione e sistemi di storage\n\n• Esperienza nel trattare con Ansible, Git, GitHub workflow e altri strumenti\n\n• Una forte consapevolezza della sicurezza informatica e della sua importanza\n\n• Alta motivazione, indipendenza, iniziativa e la volontà di imparare cose nuove\n\nOffriamo:\nLavoro orientato al team",
-        "en": "<b>The UniBE is versatile. </b><br/>With us you can expect a wide variety of topics and a lot of design freedom.\n\nTasks:\n• Responsibility Operation Mailhub Service\n\n• Deputy, later main responsibility Mailinglist service\n\n• Representative support for the virtualization platform\n\n• Deputy Hitachi storage solution\n\n• Deputy, later main responsibility TSM Tivoli Tape solution\n\n• Co-design and development of new services for internal customers of the University of Bern\n\nRequirements\n• Completed training as a computer scientist EFZ or a comparable qualification.\n\n• Enthusiasm for virtualization solutions and storage systems\n\n• Experience in dealing with Ansible, Git, GitHub workflows and other tools\n\n• A strong awareness of IT security and its importance\n\n• High motivation, independence, initiative and the willingness to learn new things\n\nWe offer:\nTeam-oriented work",
-        "de": "<b>Die UniBE ist vielseitig.</b><br/>Bei uns erwartet Sie eine grosse Themenvielfalt und viel Gestaltungsfreiraum.\n\nAufgaben:\n• Verantwortung Betrieb Mailhub-Service\n\n• Stellvertretung, später Hauptverantwortung Mailinglist-Service\n\n• Stellvertretende Unterstützung bei der Virtualisierungsplattform\n\n• Stellvertretung Hitachi-Storagelösung\n\n• Stellvertretung, später Hauptverantwortung TSM Tivoli Tape Lösung\n\n• Mitgestaltung und Aufbau neuer Services für interne Kunden der Universität Bern\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Informatiker*in EFZ oder eine vergleichbare Qualifikation.\n\n• Begeisterung für Virtualisierungslösungen und Storagesysteme\n\n• Erfahrung im Umgang mit Ansible, Git, GitHub-Workflows und weiteren Tools von Vorteil\n\n• Ein starkes Bewusstsein für IT-Sicherheit und deren Bedeutung\n\n• Hohe Motivation, Selbstständigkeit, Eigeninitiative und die Bereitschaft, Neues zu lernen\n\nWir bieten:\nTeamorientiertes Arbeiten",
-        "fr": "L'UniBE est polyvalent. Avec nous, vous pouvez vous attendre à une grande variété de sujets et beaucoup de liberté de conception.\n\nTâches :\n• Responsabilité Opération Mailhub Service\n\n• Adjoint, responsabilité principale ultérieure Service de liste de diffusion\n\n• Appui représentatif à la plateforme de virtualisation\n\n• Solution de stockage adjoint Hitachi\n\n• Adjoint, responsabilité principale ultérieure TSM Tivoli Tape solution\n\n• Co-conception et développement de nouveaux services pour les clients internes de l'Université de Berne\n\nExigences\n• Formation complétée en tant que informaticien EFZ ou qualification comparable.\n\n• Enthousiasme pour les solutions de virtualisation et les systèmes de stockage\n\n• Expérience dans le traitement des flux de travail Ansible, Git, GitHub et d'autres outils\n\n• Une forte sensibilisation à la sécurité des TI et à son importance\n\n• Haute motivation, indépendance, initiative et volonté d'apprendre de nouvelles choses\n\nNous offrons:\nTravaux axés sur l ' équipe"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.unibe.ch/offene-stellen/linux-systemadministrator-in/26154ded-3c58-4af8-85f8-64219e1e0421",
-      "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:15:11.862Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3012",
-      "streetAddress": "",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-19",
-      "applyUrl": "https://jobs.unibe.ch/offene-stellen/linux-systemadministrator-in/26154ded-3c58-4af8-85f8-64219e1e0421",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "linux-systemadministrator-in-unibe-bern",
-        "linux-system-administrator-universitat-bern-bern",
-        "administrateur-systeme-linux-universitat-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "linux-systemadministrator-in-unibe-bern"
-        ],
-        "en": [
-          "linux-system-administrator-universitat-bern-bern"
-        ],
-        "fr": [
-          "administrateur-systeme-linux-universitat-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-08-20T10:16:03.098Z",
-      "salaryMin": 73000,
-      "salaryMax": 124500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73000,
-          "maxValue": 124500,
           "unitText": "YEAR"
         }
       }
@@ -1712,22 +1554,66 @@
       "previousSlugs": [
         "hilfsassistent-in-unibe-bern",
         "hilfsassistent-in-20-25-unibe-bern",
-        "hilfsassistent-in-20-25-universitat-bern-bern"
+        "hilfsassistent-in-20-25-universitat-bern-bern",
+        "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern-2",
+        "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern",
+        "dermatologo-veterinario-universitat-bern-bern",
+        "veterinary-dermatologist-unibe-bern",
+        "veterinardermatologe-universitat-bern-bern",
+        "dermatologue-veterinaire-universitat-bern-bern",
+        "veterinary-dermatologist-universitat-bern-bern",
+        "veterinary-dermatologist-universitat-bern",
+        "assistente-veterinario-veterinario-assistito-universitat-bern-bern",
+        "assistant-veterinarian-assistant-veterinarian-universitat-bern-bern",
+        "assistenztierarztin-assistenztierarzt-unibe-bern",
+        "veterinaire-adjoint-veterinaire-assistant-universitat-bern-bern",
+        "assistenztierarztin-assistenztierarzt-universitat-bern-bern",
+        "assistente-veterinario-80-100-universitat-bern-bern-64c14c",
+        "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern-lcqpzw",
+        "veterinary-assistant-80-100-universitat-bern-bern-64c14c",
+        "assistant-veterinaire-80-100-universitat-bern-bern-64c14c",
+        "assistente-veterinario-80-100-universitat-bern-bern",
+        "veterinary-assistant-80-100-universitat-bern-bern",
+        "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern",
+        "assistant-veterinaire-80-100-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hilfsassistent-in-unibe-bern",
-          "hilfsassistent-in-20-25-unibe-bern"
+          "hilfsassistent-in-20-25-unibe-bern",
+          "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern-2",
+          "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern",
+          "dermatologo-veterinario-universitat-bern-bern",
+          "veterinary-dermatologist-unibe-bern",
+          "veterinardermatologe-universitat-bern-bern",
+          "dermatologue-veterinaire-universitat-bern-bern",
+          "veterinary-dermatologist-universitat-bern-bern",
+          "veterinary-dermatologist-universitat-bern",
+          "assistente-veterinario-veterinario-assistito-universitat-bern-bern",
+          "assistant-veterinarian-assistant-veterinarian-universitat-bern-bern",
+          "assistenztierarztin-assistenztierarzt-unibe-bern",
+          "veterinaire-adjoint-veterinaire-assistant-universitat-bern-bern",
+          "assistenztierarztin-assistenztierarzt-universitat-bern-bern",
+          "assistente-veterinario-80-100-universitat-bern-bern-64c14c",
+          "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern-lcqpzw",
+          "veterinary-assistant-80-100-universitat-bern-bern-64c14c",
+          "assistant-veterinaire-80-100-universitat-bern-bern-64c14c",
+          "assistente-veterinario-80-100-universitat-bern-bern"
         ],
         "en": [
-          "hilfsassistent-in-20-25-unibe-bern"
+          "hilfsassistent-in-20-25-unibe-bern",
+          "veterinary-assistant-80-100-universitat-bern-bern",
+          "assistant-veterinarian-assistant-veterinarian-universitat-bern-bern"
         ],
         "de": [
-          "hilfsassistent-in-20-25-universitat-bern-bern"
+          "hilfsassistent-in-20-25-universitat-bern-bern",
+          "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern"
         ],
         "fr": [
           "hilfsassistent-in-unibe-bern",
-          "hilfsassistent-in-20-25-unibe-bern"
+          "hilfsassistent-in-20-25-unibe-bern",
+          "assistant-veterinaire-80-100-universitat-bern-bern",
+          "veterinaire-adjoint-veterinaire-assistant-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-08-31T17:28:29.168Z",
@@ -2348,7 +2234,7 @@
       "slugByLocale": {
         "it": "assegnista-di-ricerca-universitat-bern-bern",
         "en": "post-doc-unibe-bern",
-        "de": "postdoc-universitat-bern-bern-a5xwgv",
+        "de": "postdoc-universitat-bern-bern",
         "fr": "apres-doc-universitat-bern-bern"
       },
       "company": "Universität Bern",
@@ -2394,16 +2280,14 @@
       "previousSlugs": [
         "post-doc-universitat-bern-bern",
         "postdoc-universitat-bern-bern-a5xwgv",
-        "post-doc-unibe-bern",
-        "postdoc-universitat-bern-bern"
+        "post-doc-unibe-bern"
       ],
       "previousSlugsByLocale": {
         "en": [
           "post-doc-universitat-bern-bern"
         ],
         "de": [
-          "postdoc-universitat-bern-bern-a5xwgv",
-          "postdoc-universitat-bern-bern"
+          "postdoc-universitat-bern-bern-a5xwgv"
         ],
         "it": [
           "post-doc-unibe-bern"
@@ -2504,118 +2388,6 @@
           "@type": "QuantitativeValue",
           "minValue": 115000,
           "maxValue": 160000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "unibe-b10cc6a3e01b",
-      "slug": "assistente-veterinario-80-100-universitat-bern-bern",
-      "slugByLocale": {
-        "it": "assistente-veterinario-80-100-universitat-bern-bern",
-        "en": "veterinary-assistant-80-100-universitat-bern-bern",
-        "de": "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern",
-        "fr": "assistant-veterinaire-80-100-universitat-bern-bern"
-      },
-      "company": "Universität Bern",
-      "companyKey": "unibe",
-      "companyDomain": "unibe.ch",
-      "title": "Tiermedizinische*r Praxisassistent*in 80% - 100%",
-      "titleByLocale": {
-        "it": "Assistente veterinario 80% - 100%",
-        "en": "Veterinary assistant 80% - 100%",
-        "de": "Tiermedizinische*r Praxisassistent*in 80% - 100%",
-        "fr": "Assistant vétérinaire 80% - 100%"
-      },
-      "description": "<b>Die UniBE ist produktiv.</b><br/>Bei uns profitieren Sie von einer konstruktiven Zusammenarbeit und einer modernen Infrastruktur.\n\nAufgaben:\n• Assistenz bei tierärztlichen Untersuchungen und Behandlungen\n\n• Mitarbeit im Operationssaal inkl. Pikettdiensten nachts und am Wochenende\n\n• Vorbereitung und Verabreichung von Medikamenten\n\n• Erfassung von Leistungen, Medikamenten und Verbrauchsmaterialien in der Kliniksoftware\n\n• Berufsbildner/in für aktuell zwei Lernende TPA's\n\n• Unterstützung bei der Verwaltung der Klinikapotheke und Materialbeschaffung\n\n• Organisation der Klinikwäsche in Zusammenarbeit mit der externen Wäscherei\n\nAnforderungen:\n• Abgeschlossene Ausbildung als TPA (EFZ)\n\n• Sicherer Umgang mit Pferden\n\n• Hohe Zuverlässigkeit\n\n• Teamfähigkeit, Flexibilität und selbstständige Arbeitsweise\n\n• Berufsbildner/in oder Bereitschaft diesen Kurs zu absolvieren\n\nWir bieten:\nGehalt nach SNF-Ansätzen und des Kantons Bern",
-      "descriptionByLocale": {
-        "it": "<b> UniBE è produttivo. Con noi beneficiate della cooperazione costruttiva e di un'infrastruttura moderna.\n\nCompiti:\n• Assistenza in esami e trattamenti veterinari\n\n• Collaborazione nella sala operatoria incl. Servizi Pictet di notte e nei fine settimana\n\n• Preparazione e somministrazione di medicinali\n\n• Registrazione di servizi, medicinali e materiali di consumo nel software clinico\n\n• Formazione professionale per attualmente due apprendisti TPA\n\n• Supporto nell'amministrazione della farmacia clinica e degli appalti materiali\n\n• Organizzazione di biancheria ospedaliera in collaborazione con lavanderia esterna\n\nRequisiti\n• Formazione completa come TPA (EFZ)\n\n• Gestione sicura dei cavalli\n\n• Alta affidabilità\n\n• Lavoro di squadra, flessibilità e metodi di lavoro indipendenti\n\n• Formazione professionale o volontà di completare questo corso\n\nOffriamo:\nSalario secondo gli approcci SNSF e il Cantone di Berna",
-        "en": "<b>UniBE is productive.</b><br/>With us you benefit from constructive cooperation and a modern infrastructure.\n\nTasks:\n• Assistance in veterinary examinations and treatments\n\n• Collaboration in the operating room incl. Pictet services at night and at weekends\n\n• Preparation and administration of medicines\n\n• Recording of services, medicines and consumables in clinical software\n\n• Vocational trainer for currently two apprentice TPA's\n\n• Support in the administration of the clinic pharmacy and material procurement\n\n• Organisation of hospital linen in cooperation with external laundry\n\nRequirements\n• Completed training as TPA (EFZ)\n\n• Safe handling of horses\n\n• High reliability\n\n• Teamwork, flexibility and independent working methods\n\n• Vocational trainer or willingness to complete this course\n\nWe offer:\nSalary according to SNSF approaches and the Canton of Bern",
-        "de": "<b>Die UniBE ist produktiv.</b><br/>Bei uns profitieren Sie von einer konstruktiven Zusammenarbeit und einer modernen Infrastruktur.\n\nAufgaben:\n• Assistenz bei tierärztlichen Untersuchungen und Behandlungen\n\n• Mitarbeit im Operationssaal inkl. Pikettdiensten nachts und am Wochenende\n\n• Vorbereitung und Verabreichung von Medikamenten\n\n• Erfassung von Leistungen, Medikamenten und Verbrauchsmaterialien in der Kliniksoftware\n\n• Berufsbildner/in für aktuell zwei Lernende TPA's\n\n• Unterstützung bei der Verwaltung der Klinikapotheke und Materialbeschaffung\n\n• Organisation der Klinikwäsche in Zusammenarbeit mit der externen Wäscherei\n\nAnforderungen:\n• Abgeschlossene Ausbildung als TPA (EFZ)\n\n• Sicherer Umgang mit Pferden\n\n• Hohe Zuverlässigkeit\n\n• Teamfähigkeit, Flexibilität und selbstständige Arbeitsweise\n\n• Berufsbildner/in oder Bereitschaft diesen Kurs zu absolvieren\n\nWir bieten:\nGehalt nach SNF-Ansätzen und des Kantons Bern",
-        "fr": "<b>UniBE est productif.</b><br/> Avec nous, vous bénéficiez d'une coopération constructive et d'une infrastructure moderne.\n\nTâches :\n• Assistance aux examens et traitements vétérinaires\n\n• Collaboration dans la salle d'opération incl. Services Pictet la nuit et le week-end\n\n• Préparation et administration de médicaments\n\n• Enregistrement des services, médicaments et consommables dans les logiciels cliniques\n\n• Formateur professionnel pour deux apprentis TPA\n\n• Appui à l'administration de la pharmacie de la clinique et achats de matériel\n\n• Organisation du linge d'hôpital en coopération avec la buanderie externe\n\nExigences\n• Formation terminée en tant que TPA (EFZ)\n\n• Manipulation sécuritaire des chevaux\n\n• Haute fiabilité\n\n• Travail d'équipe, flexibilité et méthodes de travail indépendantes\n\n• Formateur professionnel ou volonté de suivre ce cours\n\nNous offrons:\nSalaire selon les approches SNSF et le canton de Berne"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.unibe.ch/offene-stellen/tiermedizinische-r-praxisassistent-in/8babb4a8-81a4-40f4-9165-bbc1c3e3f082",
-      "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:15:11.851Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3012",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-01",
-      "applyUrl": "https://jobs.unibe.ch/offene-stellen/tiermedizinische-r-praxisassistent-in/8babb4a8-81a4-40f4-9165-bbc1c3e3f082",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern",
-        "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern-2",
-        "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern",
-        "dermatologo-veterinario-universitat-bern-bern",
-        "veterinary-dermatologist-unibe-bern",
-        "veterinardermatologe-universitat-bern-bern",
-        "dermatologue-veterinaire-universitat-bern-bern",
-        "veterinary-dermatologist-universitat-bern-bern",
-        "veterinary-dermatologist-universitat-bern",
-        "assistente-veterinario-veterinario-assistito-universitat-bern-bern",
-        "assistant-veterinarian-assistant-veterinarian-universitat-bern-bern",
-        "assistenztierarztin-assistenztierarzt-unibe-bern",
-        "veterinaire-adjoint-veterinaire-assistant-universitat-bern-bern",
-        "assistenztierarztin-assistenztierarzt-universitat-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern",
-          "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern-2",
-          "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern",
-          "dermatologo-veterinario-universitat-bern-bern",
-          "veterinary-dermatologist-unibe-bern",
-          "veterinardermatologe-universitat-bern-bern",
-          "dermatologue-veterinaire-universitat-bern-bern",
-          "veterinary-dermatologist-universitat-bern-bern",
-          "veterinary-dermatologist-universitat-bern",
-          "assistente-veterinario-veterinario-assistito-universitat-bern-bern",
-          "assistant-veterinarian-assistant-veterinarian-universitat-bern-bern",
-          "assistenztierarztin-assistenztierarzt-unibe-bern",
-          "veterinaire-adjoint-veterinaire-assistant-universitat-bern-bern",
-          "assistenztierarztin-assistenztierarzt-universitat-bern-bern"
-        ],
-        "en": [
-          "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern",
-          "veterinary-dermatologist-unibe-bern",
-          "assistant-veterinarian-assistant-veterinarian-universitat-bern-bern"
-        ],
-        "de": [
-          "veterinardermatologe-universitat-bern-bern",
-          "assistenztierarztin-assistenztierarzt-unibe-bern"
-        ],
-        "fr": [
-          "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern",
-          "dermatologue-veterinaire-universitat-bern-bern",
-          "veterinaire-adjoint-veterinaire-assistant-universitat-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-09-01T14:26:55.171Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -3008,90 +2780,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:51:50.334Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "unibe-625b114eac8b",
-      "slug": "assistente-veterinario-80-100-universitat-bern-bern-64c14c",
-      "slugByLocale": {
-        "it": "assistente-veterinario-80-100-universitat-bern-bern-64c14c",
-        "en": "veterinary-assistant-80-100-universitat-bern-bern-64c14c",
-        "de": "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern",
-        "fr": "assistant-veterinaire-80-100-universitat-bern-bern-64c14c"
-      },
-      "company": "Universität Bern",
-      "companyKey": "unibe",
-      "companyDomain": "unibe.ch",
-      "title": "Tiermedizinische*r Praxisassistent*in 80% - 100%",
-      "titleByLocale": {
-        "it": "Assistente veterinario 80% - 100%",
-        "en": "Veterinary assistant 80% - 100%",
-        "de": "Tiermedizinische*r Praxisassistent*in 80% - 100%",
-        "fr": "Assistant vétérinaire 80% - 100%"
-      },
-      "description": "<b>Die UniBE ist produktiv.</b><br/>Bei uns profitieren Sie von einer konstruktiven Zusammenarbeit und einer modernen Infrastruktur.\n\nAufgaben:\n• Assistenz bei tierärztlichen Untersuchungen und Behandlungen\n\n• Mitarbeit im Operationssaal inkl. Pikettdiensten nachts und am Wochenende\n\n• Vorbereitung und Verabreichung von Medikamenten\n\n• Erfassung von Leistungen, Medikamenten und Verbrauchsmaterialien in der Kliniksoftware\n\n• Berufsbildner/in für aktuell zwei Lernende TPA's\n\n• Unterstützung bei der Verwaltung der Klinikapotheke und Materialbeschaffung\n\n• Organisation der Klinikwäsche in Zusammenarbeit mit der externen Wäscherei\n\nAnforderungen:\n• Abgeschlossene Ausbildung als TPA (EFZ)\n\n• Sicherer Umgang mit Pferden\n\n• Hohe Zuverlässigkeit\n\n• Teamfähigkeit, Flexibilität und selbstständige Arbeitsweise\n\n• Berufsbildner/in oder Bereitschaft diesen Kurs zu absolvieren\n\nWir bieten:\nGehalt nach SNF-Ansätzen und des Kantons Bern",
-      "descriptionByLocale": {
-        "it": "<b> UniBE è produttivo. Con noi beneficiate della cooperazione costruttiva e di un'infrastruttura moderna.\n\nCompiti:\n• Assistenza in esami e trattamenti veterinari\n\n• Collaborazione nella sala operatoria incl. Servizi Pictet di notte e nei fine settimana\n\n• Preparazione e somministrazione di medicinali\n\n• Registrazione di servizi, medicinali e materiali di consumo nel software clinico\n\n• Formazione professionale per attualmente due apprendisti TPA\n\n• Supporto nell'amministrazione della farmacia clinica e degli appalti materiali\n\n• Organizzazione di biancheria ospedaliera in collaborazione con lavanderia esterna\n\nRequisiti\n• Formazione completa come TPA (EFZ)\n\n• Gestione sicura dei cavalli\n\n• Alta affidabilità\n\n• Lavoro di squadra, flessibilità e metodi di lavoro indipendenti\n\n• Formazione professionale o volontà di completare questo corso\n\nOffriamo:\nSalario secondo gli approcci SNSF e il Cantone di Berna",
-        "en": "<b>UniBE is productive.</b><br/>With us you benefit from constructive cooperation and a modern infrastructure.\n\nTasks:\n• Assistance in veterinary examinations and treatments\n\n• Collaboration in the operating room incl. Pictet services at night and at weekends\n\n• Preparation and administration of medicines\n\n• Recording of services, medicines and consumables in clinical software\n\n• Vocational trainer for currently two apprentice TPA's\n\n• Support in the administration of the clinic pharmacy and material procurement\n\n• Organisation of hospital linen in cooperation with external laundry\n\nRequirements\n• Completed training as TPA (EFZ)\n\n• Safe handling of horses\n\n• High reliability\n\n• Teamwork, flexibility and independent working methods\n\n• Vocational trainer or willingness to complete this course\n\nWe offer:\nSalary according to SNSF approaches and the Canton of Bern",
-        "de": "<b>Die UniBE ist produktiv.</b><br/>Bei uns profitieren Sie von einer konstruktiven Zusammenarbeit und einer modernen Infrastruktur.\n\nAufgaben:\n• Assistenz bei tierärztlichen Untersuchungen und Behandlungen\n\n• Mitarbeit im Operationssaal inkl. Pikettdiensten nachts und am Wochenende\n\n• Vorbereitung und Verabreichung von Medikamenten\n\n• Erfassung von Leistungen, Medikamenten und Verbrauchsmaterialien in der Kliniksoftware\n\n• Berufsbildner/in für aktuell zwei Lernende TPA's\n\n• Unterstützung bei der Verwaltung der Klinikapotheke und Materialbeschaffung\n\n• Organisation der Klinikwäsche in Zusammenarbeit mit der externen Wäscherei\n\nAnforderungen:\n• Abgeschlossene Ausbildung als TPA (EFZ)\n\n• Sicherer Umgang mit Pferden\n\n• Hohe Zuverlässigkeit\n\n• Teamfähigkeit, Flexibilität und selbstständige Arbeitsweise\n\n• Berufsbildner/in oder Bereitschaft diesen Kurs zu absolvieren\n\nWir bieten:\nGehalt nach SNF-Ansätzen und des Kantons Bern",
-        "fr": "<b>UniBE est productif.</b><br/> Avec nous, vous bénéficiez d'une coopération constructive et d'une infrastructure moderne.\n\nTâches :\n• Assistance aux examens et traitements vétérinaires\n\n• Collaboration dans la salle d'opération incl. Services Pictet la nuit et le week-end\n\n• Préparation et administration de médicaments\n\n• Enregistrement des services, médicaments et consommables dans les logiciels cliniques\n\n• Formateur professionnel pour deux apprentis TPA\n\n• Appui à l'administration de la pharmacie de la clinique et achats de matériel\n\n• Organisation du linge d'hôpital en coopération avec la buanderie externe\n\nExigences\n• Formation terminée en tant que TPA (EFZ)\n\n• Manipulation sécuritaire des chevaux\n\n• Haute fiabilité\n\n• Travail d'équipe, flexibilité et méthodes de travail indépendantes\n\n• Formateur professionnel ou volonté de suivre ce cours\n\nNous offrons:\nSalaire selon les approches SNSF et le canton de Berne"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.unibe.ch/offene-stellen/tiermedizinische-r-praxisassistent-in/07ff7993-c2c0-4256-9a29-d2c6b8b13ec5",
-      "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:15:11.843Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3012",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-03",
-      "applyUrl": "https://jobs.unibe.ch/offene-stellen/tiermedizinische-r-praxisassistent-in/07ff7993-c2c0-4256-9a29-d2c6b8b13ec5",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern-2",
-        "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern",
-        "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern",
-        "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern-lcqpzw"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern-2",
-          "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern",
-          "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern",
-          "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern-lcqpzw"
-        ],
-        "en": [
-          "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern"
-        ],
-        "fr": [
-          "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-09-06T23:06:47.712Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -3980,85 +3668,6 @@
           "@type": "QuantitativeValue",
           "minValue": 94500,
           "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "unibe-41da5aa34f93",
-      "slug": "comunicazione-professionale-universitat-bern-bern",
-      "slugByLocale": {
-        "it": "comunicazione-professionale-universitat-bern-bern",
-        "en": "professional-communication-universitat-bern-bern",
-        "de": "fachperson-kommunikation-unibe-bern",
-        "fr": "communication-professionnelle-universitat-bern-bern"
-      },
-      "company": "Universität Bern",
-      "companyKey": "unibe",
-      "companyDomain": "unibe.ch",
-      "title": "Fachperson Kommunikation",
-      "titleByLocale": {
-        "it": "Comunicazione professionale",
-        "en": "Professional Communication",
-        "de": "Fachperson Kommunikation",
-        "fr": "Communication professionnelle"
-      },
-      "description": "<b>Die UniBE ist vielseitig.</b><br/>Bei uns erwartet Sie eine grosse Themenvielfalt und viel Gestaltungsfreiraum.\n\nAufgaben:\nHochschulabschluss (mind. Bachelor), vorzugsweise im Bereich Kommunikation, Medien, Geistes- oder Sozialwissenschaften, oder eine vergleichbare Qualifikation mit einschlägiger Erfahrung in Kommunikation und Öffentlichkeitsarbeit.\nVertrautheit mit und Interesse an Theologie oder einem verwandten geisteswissenschaftlichen Fach.\n\nAnforderungen:\nPlanung, Vorbereitung und Durchführung des Festanlasses \"500 Jahre Hohe Schule Bern\" am 28.02.2028 in Zusammenarbeit mit der Dekanin.\nUnterstützung bei der internen und externen Kommunikation zur Einführung des neuen Curriculums Theologie ab Herbstsemester 2027, in Zusammenarbeit mit dem Vizedekan Studium und Lehre und der Kommission für Öffentlichkeitsarbeit Köff.\nUnterstützung bei der Umsetzung der \"Strategischen Kommunikation\" auf Fakultätsebene ab Januar 2027.\n\nWir bieten:\nTeamorientiertes Arbeiten",
-      "descriptionByLocale": {
-        "it": "<b> L'UniBE è versatile. </b> Con noi ci si può aspettare una vasta gamma di argomenti e un sacco di libertà di progettazione.\n\nCompiti:\nLaurea universitaria (min. bachelor), preferibilmente nel campo della comunicazione, dei media, delle scienze umane o sociali, o una qualifica paragonabile con esperienza rilevante nella comunicazione e nelle relazioni pubbliche.\nFamiliarità con e interesse per la teologia o un soggetto umano correlato.\n\nRequisiti\nPianificazione, preparazione e attuazione dell'evento festivo \"500 anni High School Bern\" il 28.02.2028 in collaborazione con il Decano.\nSostegno alla comunicazione interna ed esterna per l'introduzione del nuovo curriculum Teologia a partire dal semestre autunnale 2027, in collaborazione con il Vice Studio e Insegnamento e la Commissione per le Relazioni Pubbliche Köff.\nSupporto per l'attuazione della \"Comunicazione strategica\" a livello di facoltà dal gennaio 2027.\n\nOffriamo:\nLavoro orientato al team",
-        "en": "<b>The UniBE is versatile. </b><br/>With us you can expect a wide variety of topics and a lot of design freedom.\n\nTasks:\nUniversity degree (min. bachelor), preferably in the field of communication, media, humanities or social sciences, or a comparable qualification with relevant experience in communication and public relations.\nFamiliarity with and interest in theology or a related humanities subject.\n\nRequirements\nPlanning, preparation and implementation of the festive event \"500 Years High School Bern\" on 28.02.2028 in cooperation with the Dean.\nSupport in internal and external communication for the introduction of the new curriculum Theology from autumn semester 2027, in cooperation with the Deputy Study and Teaching and the Commission for Public Relations Köff.\nSupport for the implementation of \"Strategic Communication\" at faculty level from January 2027.\n\nWe offer:\nTeam-oriented work",
-        "de": "<b>Die UniBE ist vielseitig.</b><br/>Bei uns erwartet Sie eine grosse Themenvielfalt und viel Gestaltungsfreiraum.\n\nAufgaben:\nHochschulabschluss (mind. Bachelor), vorzugsweise im Bereich Kommunikation, Medien, Geistes- oder Sozialwissenschaften, oder eine vergleichbare Qualifikation mit einschlägiger Erfahrung in Kommunikation und Öffentlichkeitsarbeit.\nVertrautheit mit und Interesse an Theologie oder einem verwandten geisteswissenschaftlichen Fach.\n\nAnforderungen:\nPlanung, Vorbereitung und Durchführung des Festanlasses \"500 Jahre Hohe Schule Bern\" am 28.02.2028 in Zusammenarbeit mit der Dekanin.\nUnterstützung bei der internen und externen Kommunikation zur Einführung des neuen Curriculums Theologie ab Herbstsemester 2027, in Zusammenarbeit mit dem Vizedekan Studium und Lehre und der Kommission für Öffentlichkeitsarbeit Köff.\nUnterstützung bei der Umsetzung der \"Strategischen Kommunikation\" auf Fakultätsebene ab Januar 2027.\n\nWir bieten:\nTeamorientiertes Arbeiten",
-        "fr": "L'UniBE est polyvalent. Avec nous, vous pouvez vous attendre à une grande variété de sujets et beaucoup de liberté de conception.\n\nTâches :\nDiplôme universitaire (min. de baccalauréat), de préférence dans le domaine de la communication, des médias, des sciences humaines ou des sciences sociales, ou une qualification comparable avec une expérience pertinente dans la communication et les relations publiques.\nConnaissance et intérêt pour la théologie ou un sujet lié aux humanités.\n\nExigences\nPlanification, préparation et mise en œuvre de l'événement festif \"500 Ans High School Bern\" le 28.02.2028 en collaboration avec le doyen.\nSoutien à la communication interne et externe pour l'introduction du nouveau programme Théologie à partir du semestre d'automne 2027, en coopération avec l'étude et l'enseignement adjoint et la Commission des relations publiques Köff.\nSoutien à la mise en œuvre de la « communication stratégique » au niveau des professeurs à partir de janvier 2027.\n\nNous offrons:\nTravaux axés sur l ' équipe"
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.unibe.ch/offene-stellen/fachperson-kommunikation/94242b0a-7e43-4ce9-947a-08ad92769e01",
-      "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:15:11.830Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3012",
-      "streetAddress": "",
-      "category": "Marketing",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-08",
-      "applyUrl": "https://jobs.unibe.ch/offene-stellen/fachperson-kommunikation/94242b0a-7e43-4ce9-947a-08ad92769e01",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachperson-kommunikation-unibe-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-kommunikation-unibe-bern"
-        ],
-        "en": [
-          "fachperson-kommunikation-unibe-bern"
-        ],
-        "fr": [
-          "fachperson-kommunikation-unibe-bern"
-        ]
-      },
-      "firstSeenAt": "2026-09-08T13:57:44.217Z",
-      "salaryMin": 71500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71500,
-          "maxValue": 126500,
           "unitText": "YEAR"
         }
       }

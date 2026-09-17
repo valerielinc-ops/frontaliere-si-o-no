@@ -11,21 +11,17 @@
 //      considera near-merge e la rebasa». Quella label la rendeva near-merge, e
 //      near-merge escludeva lo stuck-red: il segnale di stallo disattivava il
 //      rimedio allo stallo.
-//   2. il `return` di `skip-idle` del ramo `needs-human`, che viene PRIMA:
-//      l'impronta che decide «lo stato è cambiato?» è fatta di soli fatti
-//      interni alla PR (additions/deletions/changedFiles/vitest/review), quindi
-//      è cieca alla base. Quando il rosso viene da main, nessuno dei cinque si
-//      muove, e il vitest non torna verde da sé perché il check è pinnato
-//      all'ultimo run sull'head. Stato assorbente.
+//   2. il vecchio gate specifico della label `needs-human`, che introduceva un
+//      return prima del normale percorso di autorebase e rendeva il rescue
+//      dipendente da un'etichetta operativa.
 //
 // Misurato: #6253/#6254/#6255, tre PR con diff disgiunti rosse sullo stesso test
 // estraneo, tutte `needs-human`, ferme ~12h con main già riparato da 12h. Un
 // `update-branch` a mano le ha portate verdi e il ciclo le ha mergiate da solo
 // in ~2 minuti.
 //
-// Questi test pinnano l'ORDINE, non l'esito: è l'ordine che era sbagliato, e un
-// refactor che rimetta il calcolo dopo un gate riporta il difetto con la CI
-// verde.
+// Questi test pinnano l'ORDINE, non l'esito: il calcolo deve precedere il solo
+// gate near-merge e nessuna label operativa deve introdurre un veto separato.
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -41,16 +37,11 @@ const body = (() => {
 const at = (needle: string) => body.indexOf(needle);
 
 describe('pr-autorebase: lo stuck-red rescue è raggiungibile', () => {
-  it('calcola stuckRedReason PRIMA del gate needs-human', () => {
+  it('calcola stuckRedReason senza un gate needs-human davanti', () => {
     const calc = at('stuckRedReason = stuckRedRescueReason(head)');
-    const gate = at("labels.includes('needs-human')");
     expect(calc, 'il calcolo dello stuck-red è sparito').toBeGreaterThan(-1);
-    expect(gate, 'il gate needs-human è sparito').toBeGreaterThan(-1);
-    expect(
-      calc,
-      'stuckRedReason è calcolato DOPO il gate needs-human: quel ramo fa `return` '
-      + 'su skip-idle, quindi il rescue non viene mai valutato per una PR needs-human',
-    ).toBeLessThan(gate);
+    expect(body).not.toContain("labels.includes('needs-human')");
+    expect(body).not.toContain('decideNeedsHumanPass');
   });
 
   it('non condiziona il calcolo a !nearMerge', () => {
@@ -59,14 +50,13 @@ describe('pr-autorebase: lo stuck-red rescue è raggiungibile', () => {
     expect(body).not.toMatch(/if\s*\([^)]*behind[^)]*&&\s*!nearMerge\s*\)/);
   });
 
-  it('lo stuck-red batte lo skip-idle del ramo needs-human', () => {
-    // Senza `&& !stuckRedReason` il `return` vince e il rescue resta morto.
-    expect(body).toMatch(/action === 'skip-idle'\s*&&\s*!stuckRedReason/);
+  it('lo stuck-red può rendere near-merge senza un gate di label', () => {
+    expect(body).toMatch(/if \(stuckRedReason\) nearMerge = true/);
   });
 
   it('resta ONE-SHOT: il marker spegne il rescue al giro dopo', () => {
-    // È questo a preservare la frugalità che il gate needs-human protegge —
-    // al massimo UNA vitest per PR, non una per tick del cron */30.
+    // È questo a preservare la frugalità del rescue — al massimo UNA vitest per
+    // PR, non una per tick del cron */30.
     const calc = at('stuckRedReason = stuckRedRescueReason(head)');
     const guard = body.indexOf('hasCommentMarker(num, STUCK_RED_MARKER)', calc);
     expect(guard, 'il guard one-shot non segue più il calcolo').toBeGreaterThan(calc);

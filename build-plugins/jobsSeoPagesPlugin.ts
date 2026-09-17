@@ -3083,7 +3083,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const effectiveCanonicalUrl = resolveCanonicalUrl(perLocaleSlug[locale], canonicalUrl);
  const activeJobManifestInput = incrementalManifests
   ? {
-   ...buildMinimalJobInput(job, locale, perLocaleSlug[locale], perJob_relatedJobs || [], incrementalManifestInputCache),
+   ...buildMinimalJobInput(job, locale, perLocaleSlug[locale], perJob_relatedJobs || [], incrementalManifestInputCache, job),
    canton: jobCanton,
    canonicalUrl: effectiveCanonicalUrl,
   }
@@ -12542,7 +12542,7 @@ ${staticAnalyticsHtml}
  // Avoids re-building the same ~2KB of boilerplate for each page.
  const currentYear = new Date().getFullYear();
  // Was inline (~200 B per soft-landing page). Now references
- // /assets/early-boot-{hash}.js via EARLY_BOOT_SCRIPT — emitted by
+ // /assets/early-boot.js via EARLY_BOOT_SCRIPT — emitted by
  // staticScriptsPlugin at build, browser-cached globally. The merged
  // early-boot bundle concatenates dark-mode-init + spa-action-redirect
  // so a SINGLE <script src> tag covers both responsibilities (theme +
@@ -12599,7 +12599,7 @@ ${staticAnalyticsHtml}
  const __tShellTpl = phaseTimer();
  const shell = localeShells[locale];
  // Single early-boot tag covers BOTH dark-mode and spa-action-redirect
- // (merged into /assets/early-boot-{hash}.js via EARLY_BOOT_SCRIPT). The
+ // (merged into stable /assets/early-boot.js via EARLY_BOOT_SCRIPT). The
  // previous template emitted two separate <script src> tags here; combining
  // them saves ~80 B/page across ~470k soft-landing+bridge pages (~36 MB).
  //
@@ -14199,7 +14199,7 @@ ${staticAnalyticsHtml}
  if (__brAction === 'thin') bridgeThinCount++; else bridgeFullCount++;
  const previousSlugReuseInput = incrementalManifests
   ? {
-   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job), incrementalManifestInputCache),
+   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job), incrementalManifestInputCache, job),
    path: oldPath,
    sourceInputHash: canonicalInputHash,
    canton: jobCantonForBridge,
@@ -14281,7 +14281,7 @@ ${staticAnalyticsHtml}
  const legacyTIOutDir = np.join(distDir, legacyTIRelPath);
  const legacyTIReuseInput = incrementalManifests
   ? {
-   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job), incrementalManifestInputCache),
+   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job), incrementalManifestInputCache, job),
    path: legacyTIRelPath,
    sourceInputHash: canonicalInputHash,
    canton: jobCantonForBridge,
@@ -14527,7 +14527,7 @@ ${staticAnalyticsHtml}
  const __tCrossLocaleActive = startTimer();
  const crossLocaleActiveReuseInput = incrementalManifests
   ? {
-   ...buildMinimalJobInput(job, baseLocale, baseSlug, getRelatedPool(job), incrementalManifestInputCache),
+   ...buildMinimalJobInput(job, baseLocale, baseSlug, getRelatedPool(job), incrementalManifestInputCache, job),
    source: 'active-job',
    sourceInputHash: baseInputHash,
    path: relPath,

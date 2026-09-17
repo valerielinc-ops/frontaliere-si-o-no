@@ -10,7 +10,7 @@
   "seedUrls": [
     "https://knowledge-lab.ch/en/who-we-are/careers"
   ],
-  "notes": "Dedicated Knowledge Lab crawler uses Freshteam API (klab.freshteam.com/api/job_postings). Single API call returns all published jobs with descriptions. Offices in Zurich (HQ), Mendrisio (TI), Madrid, Belgrade.",
+  "notes": "Dedicated Knowledge Lab crawler uses the complete Freshteam API response (klab.freshteam.com/api/job_postings) for all published jobs with descriptions. Each vacancy is retained only when its branch city passes isTargetSwissLocation across all 26 cantons; the canton is inferred from that same city and foreign branches (including Madrid and Belgrade) are rejected. Zurich and Mendrisio are current Swiss sites, not the geographic scope.",
   "updatedAt": "2026-09-01T10:12:17.276Z",
   "seedMetaByUrl": {
     "https://klab.freshteam.com/jobs/i3GLY8sDKKC5/initiative-application": {

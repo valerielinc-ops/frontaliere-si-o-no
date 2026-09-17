@@ -1,6 +1,6 @@
 {
   "crawlerKey": "epfl",
-  "assembledAt": "2026-09-16T21:43:09.612Z",
+  "assembledAt": "2026-09-17T18:14:24.869Z",
   "jobs": [
     {
       "id": "epfl-dead15a21a44",
@@ -464,14 +464,16 @@
         "postdoktorand-in-bauwissenschaften-epfl-fribourg",
         "postdoktorand-im-bereich-bautechnik-epfl-fribourg",
         "postdoktorand-in-gebaudetechnik-epfl-fribourg",
-        "rechercheur-post-doctoral-en-technologie-de-construction-epfl-fribourg"
+        "rechercheur-post-doctoral-en-technologie-de-construction-epfl-fribourg",
+        "postdoctoral-researcher-in-building-technology-epfl-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-post-dottorato-in-building-technology-epfl-fribourg",
           "ricercatore-post-dottorato-in-tecnologia-edile-epfl-fribourg",
           "ricercatore-post-dottorato-in-tecnologia-dell-edilizia-epfl-fribourg",
-          "ricercatore-post-dottorato-in-tecnologia-edilizia-epfl-fribourg"
+          "ricercatore-post-dottorato-in-tecnologia-edilizia-epfl-fribourg",
+          "postdoctoral-researcher-in-building-technology-epfl-fribourg"
         ],
         "de": [
           "postdoktorandin-fur-bautechnik-epfl-fribourg",
@@ -1621,7 +1623,7 @@
       "slug": "posizione-da-postdoc-in-finanza-quantitativa-presso-l-epfl-epfl-lausanne",
       "slugByLocale": {
         "it": "posizione-da-postdoc-in-finanza-quantitativa-presso-l-epfl-epfl-lausanne",
-        "en": "postdoc-epfl-lausanne-9layc2",
+        "en": "postdoc-epfl-lausanne",
         "de": "postdoktorandenstelle-in-quantitativer-finanz-bei-epfl-epfl-lausanne",
         "fr": "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne"
       },
@@ -1701,8 +1703,7 @@
         ],
         "en": [
           "postdoc-in-experimental-biophysics-epfl-lausanne",
-          "postdoc-epfl-lausanne-9layc2",
-          "postdoc-epfl-lausanne"
+          "postdoc-epfl-lausanne-9layc2"
         ],
         "de": [
           "postdoc-in-experimenteller-biophysik-epfl-lausanne",
@@ -2023,11 +2024,13 @@
         "recherche-post-doctorale-epfl-lausanne",
         "chercheur-post-doctoral-epfl-lausanne",
         "postdoctoral-researcher-in-photoelectrochemistry-epfl-lausanne",
-        "postdoktorandischer-forscher-epfl-lausanne"
+        "postdoktorandischer-forscher-epfl-lausanne",
+        "postdoctoral-researcher-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ricercatore-post-doc-epfl-lausanne"
+          "ricercatore-post-doc-epfl-lausanne",
+          "postdoctoral-researcher-epfl-lausanne"
         ],
         "de": [
           "post-doktorand-epfl-lausanne",
@@ -3647,85 +3650,6 @@
       "addressRegion": "VD"
     },
     {
-      "id": "epfl-a6445e1a31bc",
-      "slug": "tecnico-di-laboratorio-epfl-lausanne-c344e1",
-      "slugByLocale": {
-        "it": "tecnico-di-laboratorio-epfl-lausanne-c344e1",
-        "en": "laboratory-technician-epfl-lausanne",
-        "de": "laboratory-techniker-epfl-lausanne-c344e1",
-        "fr": "laboratory-technicien-epfl-lausanne"
-      },
-      "company": "EPFL",
-      "companyKey": "epfl",
-      "companyDomain": "epfl.ch",
-      "title": "Laboratory Technician",
-      "titleByLocale": {
-        "it": "Tecnico di laboratorio",
-        "en": "Laboratory Technician",
-        "de": "Laboratory Techniker",
-        "fr": "Laboratory Technicien"
-      },
-      "description": "Laboratory Technician — EPFL (Lausanne).\nPosizione pubblicata sul portale carriere ufficiale EPFL (SAP SuccessFactors).\n\nDettagli della posizione:\n• Sede: Lausanne, Canton VD\n• Funzione: Technique\n• Tipo contratto: Technique\n• Datore di lavoro: EPFL — École polytechnique fédérale de Lausanne",
-      "descriptionByLocale": {
-        "it": "Tecnico di laboratorio — EPFL (Lausanne).\nPosizione pubblicata sul portale carriere ufficiale EPFL (SAP SuccessFactors).\n\nDettagli della posizione:\n• Sede: Losanna, Canton VD\n• Funzione: Tecnica\n• Tipo contratto: Tecnica\n• Datore di lavoro: EPFL — Scuola Politecnico federale di Losanna",
-        "en": "Laboratory Technician — EPFL (Lausanne).\nLocation published on the official carrier portal EPFL (SAP SuccessFactors).\n\nPosition details:\n• Location: Lausanne, Canton VD\n• Function: Technique\n• Type of contract: Technique\n• Employer: EPFL — École polytechnique fédérale de Lausanne",
-        "de": "Labortechniker — EPFL (Lausanne).\nVeröffentlicht auf dem offiziellen Carrier-Portal EPFL (SAP SuccessFactors).\n\nPositionsangaben:\n• Standort: Lausanne, Kanton VD\n• Funktion: Technik\n• Art des Vertrags: Technik\n• Arbeitgeber: EPFL — École polytechnique fédérale de Lausanne",
-        "fr": "Laboratory Technician — EPFL (Lausanne).\nPosizione pubblicata sul portale carriere ufficiale EPFL (SAP SuccessFactors).\n\nDettagli della posizione:\n• Sede: Lausanne, Canton VD\n• Funzione: Technique\n• Tipo contratto: Technique\n• Datore di lavoro: EPFL — École polytechnique fédérale de Lausanne"
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://careers.epfl.ch/job/Lausanne-Laboratory-Technician/1165253155/",
-      "source": "EPFL Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-13T14:01:09.385Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "education",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-10",
-      "applyUrl": "https://careers.epfl.ch/job/Lausanne-Laboratory-Technician/1165253155/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Technique",
-      "contractType": "Technique",
-      "externalId": "1165253155",
-      "previousSlugsByLocale": {
-        "fr": [
-          "laboratory-technician-epfl-lausanne"
-        ],
-        "it": [
-          "laboratory-technician-epfl-lausanne"
-        ],
-        "de": [
-          "laboratory-technician-epfl-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "laboratory-technician-epfl-lausanne"
-      ],
-      "firstSeenAt": "2026-08-10T10:49:48.273Z",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VD"
-    },
-    {
       "id": "epfl-67e9c8ea05e2",
       "slug": "elettricita-operativa-epfl-lausanne",
       "slugByLocale": {
@@ -4083,7 +4007,7 @@
       "slug": "posizione-post-dottorale-screening-di-farmaci-basati-su-immagini-contro-gli-agenti-patogeni-batterici-epfl-lausanne",
       "slugByLocale": {
         "it": "posizione-post-dottorale-screening-di-farmaci-basati-su-immagini-contro-gli-agenti-patogeni-batterici-epfl-lausanne",
-        "en": "postdoctoral-position-image-based-drug-screening-against-bacterial-pathogens-epfl-lausanne",
+        "en": "postdoctoral-position-image-1917-drug-screening-to-bacterialpath-ggens-epfl-lausanne",
         "de": "postdoctoral-position-image-based-drug-screening-against-bacterial-pathogens-epfl-lausanne",
         "fr": "postdoctoral-position-image-based-drug-screening-against-bacterial-pathogens-epfl-lausanne"
       },
@@ -4093,7 +4017,7 @@
       "title": "PostDoctoral Position : Image-Based Drug Screening Against Bacterial Pathogens",
       "titleByLocale": {
         "it": "Posizione post-dottorale: Screening di farmaci basati su immagini contro gli agenti patogeni batterici",
-        "en": "PostDoctoral Position: Image-Based Drug Screening Against Bacterial Pathogens",
+        "en": "PostDoctoral Position : Image- 1917 Drug Screening To Bacterialpath Ggens",
         "de": "PostDoctoral Position: Image-Based Drug Screening gegen bakterielle Pathogene",
         "fr": "PostDoctoral Position : Image-Based Drug Screening Against Bacterial Pathogens"
       },
@@ -4133,9 +4057,11 @@
       "previousSlugsByLocale": {
         "it": [
           "postdoctoral-position-image-based-drug-screening-against-bacterial-pathogens-epfl-lausanne"
+        ],
+        "en": [
+          "postdoctoral-position-image-based-drug-screening-against-bacterial-pathogens-epfl-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T13:36:47.098Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -4443,7 +4369,7 @@
       "title": "PhD in hydrogel acoustic metamaterials",
       "titleByLocale": {
         "it": "PhD in metamateriali acustici idrogel",
-        "en": "PhD in hydrogel acoustic metamaterials",
+        "en": "Ph in hydrogel acoustic metamaterials",
         "de": "PhD in hydrogel acoustic metamaterials",
         "fr": "Doctorat en métamatériaux acoustiques hydrogel"
       },
@@ -4491,7 +4417,6 @@
       "previousSlugs": [
         "phd-in-hydrogel-acoustic-metamaterials-epfl-lausanne"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-16T22:12:02.530Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -4636,7 +4561,10 @@
         "research-manager-epfl-lausanne",
         "forschung-manager-epfl-lausanne",
         "recherche-manager-epfl-lausanne",
-        "laboratory-technician-epfl-lausanne-lg0k0n"
+        "laboratory-technician-epfl-lausanne-lg0k0n",
+        "tecnico-di-laboratorio-epfl-lausanne-c344e1",
+        "laboratory-techniker-epfl-lausanne-c344e1",
+        "laboratory-technicien-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4651,7 +4579,10 @@
           "ricerca-manager-epfl-lausanne",
           "research-manager-epfl-lausanne",
           "forschung-manager-epfl-lausanne",
-          "recherche-manager-epfl-lausanne"
+          "recherche-manager-epfl-lausanne",
+          "tecnico-di-laboratorio-epfl-lausanne-c344e1",
+          "laboratory-techniker-epfl-lausanne-c344e1",
+          "laboratory-technicien-epfl-lausanne"
         ],
         "en": [
           "laboratory-manager-epfl-lausanne",
@@ -4659,13 +4590,15 @@
         ],
         "de": [
           "laboratory-technician-epfl-lausanne",
-          "laborleiter-epfl-lausanne"
+          "laborleiter-epfl-lausanne",
+          "laboratory-techniker-epfl-lausanne-c344e1"
         ],
         "fr": [
           "directeur-de-laboratoire-epfl-lausanne",
           "responsable-de-laboratoire-epfl-lausanne",
           "recherche-manager-epfl-lausanne",
-          "laboratory-technician-epfl-lausanne-lg0k0n"
+          "laboratory-technician-epfl-lausanne-lg0k0n",
+          "laboratory-technicien-epfl-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-16T22:12:03.089Z",

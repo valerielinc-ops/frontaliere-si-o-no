@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "smg-swiss-marketplace-group-710b2ef8130a",
-      "slug": "corporate-communication-manager-f-m-d-100-hybrid-working-model-zurich-smg-swiss",
+      "slug": "gestore-di-comunicazione-aziendale-f-m-d-100-modello-di-lavoro-ibrido-zurigo-smg-swiss-marketplace-group-zurich",
       "slugByLocale": {
-        "it": "corporate-communication-manager-f-m-d-100-hybrid-working-model-zurich-smg-swiss",
+        "it": "gestore-di-comunicazione-aziendale-f-m-d-100-modello-di-lavoro-ibrido-zurigo-smg-swiss-marketplace-group-zurich",
         "en": "corporate-communication-manager-f-m-d-100-hybrid-working-model-zurich-smg-swiss",
         "de": "corporate-communication-manager-f-m-d-100-hybrides-arbeitsmodell-zurich-smg-swiss-marketplace-group-zurich",
         "fr": "responsable-de-la-communication-d-entreprise-f-m-d-smg-swiss-marketplace-group-zurich"
@@ -16,7 +16,7 @@
       "companyDomain": "swissmarketplace.group",
       "title": "Corporate Communication Manager (f|m|d) | 100% | Hybrid Working Model | Zurich",
       "titleByLocale": {
-        "it": "Corporate Communication Manager (f|m|d) | 100% | Hybrid Working Model | Zurich",
+        "it": "Gestore di comunicazione aziendale (f|m|d) | 100% | Modello di lavoro ibrido | Zurigo",
         "en": "Corporate Communication Manager (f|m|d) | 100% | Hybrid Working Model | Zurich",
         "de": "Corporate Communication Manager (f|m|d) | 100% | Hybrides Arbeitsmodell | Zürich",
         "fr": "Responsable de la communication d'entreprise (f.m.d.)"
@@ -64,7 +64,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "corporate-communication-manager-f-m-d-100-hybrid-working-model-zurich-smg-swiss"
+        ]
+      },
+      "previousSlugs": [
+        "corporate-communication-manager-f-m-d-100-hybrid-working-model-zurich-smg-swiss"
+      ]
     },
     {
       "id": "smg-swiss-marketplace-group-6bc7904567ed",
@@ -116,14 +124,12 @@
       "previousSlugs": [
         "staff-frontend-engineer-f-m-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace",
         "staff-frontend-ingegnere-f-m-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace-group-zurich",
-        "staff-frontend-ingenieur-f-m-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace-group-zurich",
-        "staff-frontend-engineer-f-m-d-80-100-modello-di-lavoro-ibrido-zurich-smg-swiss-marketplace-group-zurich"
+        "staff-frontend-ingenieur-f-m-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "staff-frontend-engineer-f-m-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace",
-          "staff-frontend-ingegnere-f-m-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace-group-zurich",
-          "staff-frontend-engineer-f-m-d-80-100-modello-di-lavoro-ibrido-zurich-smg-swiss-marketplace-group-zurich"
+          "staff-frontend-ingegnere-f-m-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace-group-zurich"
         ],
         "de": [
           "staff-frontend-engineer-f-m-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace"
@@ -164,7 +170,7 @@
       "title": "Werkstudent/-in Real Estate Valuation (f/m/d) | 40% | Hybrid Working Model | Zürich",
       "titleByLocale": {
         "it": "Studente di lavoro Valuation Immobiliare (m/f/d) | 40% | Modello di lavoro ibrido | Zurich",
-        "en": "Working student/-in Real Estate Valuation (m/f/d) | 40% | Hybrid Working Model | Zurich",
+        "en": "Working student Real Estate Valuation (m/f/d), 40%, Hybridworking Model, Zurich",
         "de": "Werkstudent/-in Real Estate Valuation (f/m/d) | 40% | Hybrid Working Model | Zürich",
         "fr": "Étudiant en cours d'emploi Évaluation immobilière (h/f/d)-40 % de la valeur du modèle de travail hybride Zurich"
       },
@@ -199,13 +205,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "werkstudent-in-real-estate-valuation-f-m-d-40-hybrid-working-model-zurich-smg-swiss",
-        "apprentissage-etudiant-in-evaluation-immobiliere-h-f-d-smg-swiss-marketplace-group-zurich",
-        "studente-in-valutazione-immobiliare-m-f-d-40-modello-di-lavoro-ibrido-zurigo-smg-swiss-marketplace-group-zurich"
+        "apprentissage-etudiant-in-evaluation-immobiliere-h-f-d-smg-swiss-marketplace-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "werkstudent-in-real-estate-valuation-f-m-d-40-hybrid-working-model-zurich-smg-swiss",
-          "studente-in-valutazione-immobiliare-m-f-d-40-modello-di-lavoro-ibrido-zurigo-smg-swiss-marketplace-group-zurich"
+          "werkstudent-in-real-estate-valuation-f-m-d-40-hybrid-working-model-zurich-smg-swiss"
         ],
         "fr": [
           "werkstudent-in-real-estate-valuation-f-m-d-40-hybrid-working-model-zurich-smg-swiss",
@@ -276,13 +280,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "key-account-manager-banken-finanzinstitute-f-m-d-80-100-hybrid-working-model-zurich-smg",
-        "key-account-manager-banks-financial-institutions-m-f-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace-group"
+        "key-account-manager-banken-finanzinstitute-f-m-d-80-100-hybrid-working-model-zurich-smg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "key-account-manager-banken-finanzinstitute-f-m-d-80-100-hybrid-working-model-zurich-smg",
-          "key-account-manager-banks-financial-institutions-m-f-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace-group"
+          "key-account-manager-banken-finanzinstitute-f-m-d-80-100-hybrid-working-model-zurich-smg"
         ]
       },
       "firstSeenAt": "2026-08-27T19:53:53.311Z",
@@ -352,14 +354,12 @@
       "previousSlugs": [
         "head-of-sales-real-estate-f-m-d-100-hybrid-working-model-zurich-switzerland-smg-swiss",
         "responsabile-sales-real-estate-f-m-d-100-hybrid-working-model-zurich-switzerland-smg-swiss-marketplace-group-zurich",
-        "responsable-sales-real-estate-f-m-d-100-hybrid-working-model-zurich-switzerland-smg-swiss-marketplace-group-zurich",
-        "responsabile-vendite-immobiliare-m-f-d-100-modello-di-lavoro-ibrido-zurich-svizzera-smg-swiss-marketplace-group-zurich"
+        "responsable-sales-real-estate-f-m-d-100-hybrid-working-model-zurich-switzerland-smg-swiss-marketplace-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "head-of-sales-real-estate-f-m-d-100-hybrid-working-model-zurich-switzerland-smg-swiss",
-          "responsabile-sales-real-estate-f-m-d-100-hybrid-working-model-zurich-switzerland-smg-swiss-marketplace-group-zurich",
-          "responsabile-vendite-immobiliare-m-f-d-100-modello-di-lavoro-ibrido-zurich-svizzera-smg-swiss-marketplace-group-zurich"
+          "responsabile-sales-real-estate-f-m-d-100-hybrid-working-model-zurich-switzerland-smg-swiss-marketplace-group-zurich"
         ],
         "fr": [
           "head-of-sales-real-estate-f-m-d-100-hybrid-working-model-zurich-switzerland-smg-swiss",
