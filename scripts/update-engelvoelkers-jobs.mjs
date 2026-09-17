@@ -5,13 +5,13 @@
  * Crawls https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro
  * 1. Fetches listing page → extracts job cards (title, location, company, UUID)
  * 2. Fetches each detail page → extracts rich description
- * 3. Filters Ticino-relevant jobs (Lugano, Ascona, Bellinzona, etc.)
+ * 3. Keeps Swiss jobs across all 26 cantons and derives each canton
  * 4. Merges into data/jobs.json
  * 5. Updates adapter config
  *
  * Note: The site is a Next.js SSR app. Pagination is client-side only,
  * so we parse whatever is server-rendered on the first page load.
- * Ticino jobs are typically from "Ticino Premium Properties SA".
+ * Listings may belong to any Engel & Völkers Swiss licensee.
  */
 
 import fs from 'node:fs';
@@ -45,10 +45,9 @@ import {
   parseEngelvoelkersListingPage,
   parseEngelvoelkersDetailPage,
   buildEngelvoelkersLocalizedContent,
-  isEngelvoelkersTicinoRelevant,
+  isEngelvoelkersSwissRelevant,
   inferEngelvoelkersCanton,
 } from './lib/engelvoelkers-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -68,7 +67,6 @@ const COMPANY_KEY = 'engel-voelkers';
 // cross-process-racy write pattern behind #3769/#3770. Scope it per-company.
 const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
-const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Engel & Völkers';
 const COMPANY_HOST = 'www.engelvoelkers.com';
 const COMPANY_DOMAIN = 'engelvoelkers.com';
@@ -216,16 +214,29 @@ async function enrichWithDetails(listings) {
     if (i < toFetch.length - 1) await sleep(DETAIL_DELAY_MS);
   }
 
-  // Filter to TI/GR-relevant and assign canton
-  const relevant = enriched.filter((job) =>
-    isEngelvoelkersTicinoRelevant(job.location, job.company),
-  );
-  for (const job of relevant) {
-    job.canton = inferEngelvoelkersCanton(job.location, job.company);
-  }
-  const tiCount = relevant.filter((j) => j.canton === 'TI').length;
-  const grCount = relevant.filter((j) => j.canton === 'GR').length;
-  console.log(`\n📍 TI/GR-relevant jobs: ${relevant.length} / ${enriched.length} (TI: ${tiCount}, GR: ${grCount})`);
+  // Keep only Swiss locations whose canton can also be resolved from the
+  // posting. The two predicates intentionally have separate jobs: the
+  // admission gate decides whether the location is Swiss, while this guard
+  // prevents an accepted-but-unresolved row from reaching the dataset.
+  const relevant = enriched.filter((job) => {
+    if (!isEngelvoelkersSwissRelevant(job.location)) return false;
+    const canton = inferEngelvoelkersCanton(job.location);
+    if (!canton) {
+      console.warn(
+        `  ⚠️ Engel & Völkers: skipping Swiss location without resolvable canton "${job.location || '(empty)'}" (${job.title || '(untitled)'})`,
+      );
+      return false;
+    }
+    job.canton = canton;
+    return true;
+  });
+  const byCanton = relevant.reduce((counts, job) => {
+    const canton = job.canton || '??';
+    counts[canton] = (counts[canton] || 0) + 1;
+    return counts;
+  }, {});
+  const cantonSummary = Object.entries(byCanton).map(([canton, count]) => `${canton}: ${count}`).join(', ');
+  console.log(`\n📍 Swiss jobs: ${relevant.length} / ${enriched.length} (${cantonSummary || 'no cantons resolved'})`);
   for (const job of relevant) {
     console.log(`  ✓ ${job.title} — ${job.location} — ${job.company} [${job.canton}]`);
   }
@@ -233,10 +244,9 @@ async function enrichWithDetails(listings) {
 }
 
 function buildJob(row) {
-  const canton = row.canton || inferEngelvoelkersCanton(row.location, row.company);
-  const localized = buildEngelvoelkersLocalizedContent({ ...row, canton });
-  const defaultCity = canton === 'GR' ? 'Graubünden' : 'Lugano';
-  const locationClean = String(row.location || '').replace(/,?\s*Switzerland$/i, '').trim() || defaultCity;
+  const canton = row.canton || inferEngelvoelkersCanton(row.location);
+  const locationClean = String(row.location || '').replace(/,?\s*Switzerland$/i, '').trim();
+  const localized = buildEngelvoelkersLocalizedContent({ ...row, canton, location: locationClean });
 
   return {
     title: localized.titleByLocale.it,
@@ -316,7 +326,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: job.canton || DEFAULT_CANTON,
+      canton: job.canton,
       company: job.company || COMPANY_NAME,
       postedDate: job.postedDate,
     };
@@ -329,7 +339,7 @@ function updateAdapterConfig(jobs) {
     priority: 12,
     crawlerModes: ['html'],
     seedUrls: [CAREERS_URL],
-    notes: 'Dedicated Engel & Völkers Switzerland crawler. Parses the Next.js SSR careers page HTML. Keeps TI + GR jobs from Ticino Premium Properties SA and other regional offices.',
+    notes: 'Dedicated Engel & Völkers Switzerland crawler. Parses the Next.js SSR careers page HTML, keeps postings from all Swiss licensees, and derives each canton from the posting location.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -345,7 +355,7 @@ function validateLocales() {
     isTrustedDomain,
     untrustedDomainReason: 'url_not_engelvoelkers_domain',
     failWhenNoJobs: false,
-    noJobsMessage: 'No Engel & Völkers TI/GR jobs found after dedicated crawl.',
+    noJobsMessage: 'No Engel & Völkers Swiss jobs found after dedicated crawl.',
   });
 }
 
@@ -366,7 +376,7 @@ async function main() {
   const enrichedListings = await enrichWithDetails(listings);
 
   if (enrichedListings.length === 0) {
-    console.log('ℹ️ No TI/GR-relevant jobs found at Engel & Völkers — nothing to merge.');
+    console.log('ℹ️ No Swiss jobs found at Engel & Völkers — nothing to merge.');
     return;
   }
 
@@ -398,9 +408,13 @@ async function main() {
   validateLocales();
 
   console.log('\n📊 === Engel & Völkers Job Stats ===');
-  const tiJobs = jobs.filter((j) => j.canton === 'TI').length;
-  const grJobs = jobs.filter((j) => j.canton === 'GR').length;
-  console.log(`  🏢 Total EV TI+GR jobs: ${total} (TI: ${tiJobs}, GR: ${grJobs})`);
+  const byCanton = jobs.reduce((counts, job) => {
+    const canton = job.canton || '??';
+    counts[canton] = (counts[canton] || 0) + 1;
+    return counts;
+  }, {});
+  const cantonSummary = Object.entries(byCanton).map(([canton, count]) => `${canton}: ${count}`).join(', ');
+  console.log(`  🏢 Total EV Swiss jobs: ${total} (${cantonSummary || 'no cantons resolved'})`);
   console.log(`  ➕ Added: ${added}`);
   console.log(`  🔄 Updated: ${updated}`);
 

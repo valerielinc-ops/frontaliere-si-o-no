@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /**
- * Convit Holding GmbH — Dedicated Crawler (TI + GR)
+ * Convit Holding GmbH — Dedicated Swiss Crawler
  *
  * Crawls https://www.careers-page.com/convit-holding-gmbh (Manatal ATS)
  * 1. Fetches listing page → extracts job codes
  * 2. Fetches each detail page → extracts title, location, description, date from JSON-LD
- * 3. Filters TI/GR-relevant jobs via shared geographic filter
+ * 3. Filters Swiss-relevant jobs via the shared all-canton geographic filter
  * 4. Assigns canton dynamically using inferConvitCanton()
  * 5. Merges into data/jobs.json
  * 6. Updates adapter config
@@ -43,10 +43,10 @@ import {
   parseConvitListingPage,
   parseConvitDetailPage,
   buildConvitLocalizedContent,
-  isConvitTicinoRelevant,
+  isConvitSwissRelevant,
   inferConvitCanton,
 } from './lib/convit-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults, getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { splitJobLocation } from './lib/job-location-display.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
@@ -200,8 +200,8 @@ async function enrichWithDetails(listings) {
     if (i < toFetch.length - 1) await sleep(DETAIL_DELAY_MS);
   }
 
-  // Filter to TI/GR-relevant only and assign canton
-  const relevant = enriched.filter((job) => isConvitTicinoRelevant(job.location));
+  // Filter to Swiss-relevant jobs and assign the resolved canton.
+  const relevant = enriched.filter((job) => isConvitSwissRelevant(job.location));
   for (const job of relevant) {
     job.canton = inferConvitCanton(job.location);
     // The JSON-LD fallback in parseConvitDetailPage() joins
@@ -214,16 +214,23 @@ async function enrichWithDetails(listings) {
     // description and the page all read the clean city.
     job.location = splitJobLocation(job.location, job.canton).city || job.location;
   }
-  const tiCount = relevant.filter((j) => j.canton === 'TI').length;
-  const grCount = relevant.filter((j) => j.canton === 'GR').length;
-  console.log(`\n📍 TI/GR-relevant jobs: ${relevant.length} / ${enriched.length} (TI: ${tiCount}, GR: ${grCount})`);
+  const cantonCounts = relevant.reduce((counts, job) => {
+    const canton = job.canton || '??';
+    counts[canton] = (counts[canton] || 0) + 1;
+    return counts;
+  }, {});
+  const cantonSummary = Object.entries(cantonCounts)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([canton, count]) => `${canton}: ${count}`)
+    .join(' | ');
+  console.log(`\n📍 Swiss-location jobs: ${relevant.length} / ${enriched.length}${cantonSummary ? ` (${cantonSummary})` : ''}`);
   return relevant;
 }
 
 function buildConvitJob(row) {
   const canton = row.canton || inferConvitCanton(row.location) || DEFAULT_CANTON;
   const localized = buildConvitLocalizedContent({ ...row, canton });
-  const defaultCity = canton === 'GR' ? 'Graubünden' : 'Massagno';
+  const defaultCity = getCantonDisplayName(canton, 'it') || canton || 'Svizzera';
   const urlHash = createHash('sha1').update(row.detailUrl || row.title || '').digest('hex').slice(0, 12);
   return {
     id: `convit-${urlHash}`,
@@ -317,7 +324,7 @@ function updateAdapterConfig(jobs) {
     priority: 18,
     crawlerModes: ['html'],
     seedUrls: [CAREERS_URL],
-    notes: 'Dedicated Convit Holding crawler reads the Manatal (careers-page.com) listing and detail pages, extracting JobPosting JSON-LD. Keeps TI + GR vacancies.',
+    notes: 'Dedicated Convit Holding crawler reads the Manatal (careers-page.com) listing and detail pages, extracting JobPosting JSON-LD. Keeps postings whose locations resolve to any Swiss canton.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -382,10 +389,17 @@ async function main() {
   validateLocales();
 
   console.log('\n📊 === Convit Holding Job Stats ===');
-  const tiCount = jobs.filter((j) => j.canton === 'TI').length;
-  const grCount = jobs.filter((j) => j.canton === 'GR').length;
-  console.log(`  🏢 Total Convit jobs (TI+GR): ${total}`);
-  console.log(`  📍 TI: ${tiCount} | GR: ${grCount}`);
+  const cantonCounts = jobs.reduce((counts, job) => {
+    const canton = job.canton || '??';
+    counts[canton] = (counts[canton] || 0) + 1;
+    return counts;
+  }, {});
+  const cantonSummary = Object.entries(cantonCounts)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([canton, count]) => `${canton}: ${count}`)
+    .join(' | ');
+  console.log(`  🏢 Total Convit jobs (Swiss): ${total}`);
+  console.log(`  📍 By canton: ${cantonSummary || 'none'}`);
   console.log(`  ➕ Added: ${added}`);
   console.log(`  🔄 Updated: ${updated}`);
 

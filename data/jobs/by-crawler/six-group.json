@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "six-group-ff0a7a901716",
-      "slug": "business-continuity-manager-six-group-madrid",
+      "slug": "gestore-della-continuita-aziendale-six-group-madrid",
       "slugByLocale": {
-        "it": "business-continuity-manager-six-group-madrid",
+        "it": "gestore-della-continuita-aziendale-six-group-madrid",
         "en": "business-continuity-manager-six-group-madrid",
-        "de": "business-continuity-manager-six-group-madrid",
+        "de": "geschaftsfuhrender-direktor-six-group-madrid",
         "fr": "gestionnaire-de-la-continuite-des-activites-six-group-madrid"
       },
       "company": "SIX Group",
@@ -63,7 +63,18 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "business-continuity-manager-six-group-madrid"
+        ],
+        "de": [
+          "business-continuity-manager-six-group-madrid"
+        ]
+      },
+      "previousSlugs": [
+        "business-continuity-manager-six-group-madrid"
+      ]
     },
     {
       "id": "six-group-bd613763671b",
@@ -1256,7 +1267,7 @@
       "slugByLocale": {
         "it": "business-analista-six-group-madrid",
         "en": "business-analyst-six-group-madrid",
-        "de": "business-analyst-six-group-madrid",
+        "de": "unternehmen-six-group-madrid",
         "fr": "business-analyste-six-group-madrid"
       },
       "company": "SIX Group",
@@ -1307,6 +1318,9 @@
         ],
         "fr": [
           "business-analyst-six-group-madrid"
+        ],
+        "de": [
+          "business-analyst-six-group-madrid"
         ]
       },
       "firstSeenAt": "2026-06-23T12:40:22.906Z",
@@ -1326,11 +1340,11 @@
     },
     {
       "id": "six-group-e9299b2151a4",
-      "slug": "business-information-security-officer-six-group-madrid",
+      "slug": "responsabile-della-sicurezza-informatica-aziendale-six-group-madrid",
       "slugByLocale": {
-        "it": "business-information-security-officer-six-group-madrid",
+        "it": "responsabile-della-sicurezza-informatica-aziendale-six-group-madrid",
         "en": "business-information-security-officer-six-group-madrid",
-        "de": "business-information-security-officer-six-group-madrid",
+        "de": "sicherheitsbeauftragter-fur-geschaftsinformationen-six-group-madrid",
         "fr": "agent-de-la-securite-de-l-information-commerciale-six-group-madrid"
       },
       "company": "SIX Group",
@@ -1385,7 +1399,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "business-information-security-officer-six-group-madrid"
+        ],
+        "de": [
+          "business-information-security-officer-six-group-madrid"
+        ]
+      },
+      "previousSlugs": [
+        "business-information-security-officer-six-group-madrid"
+      ]
     },
     {
       "id": "six-group-856d1af21c8d",
@@ -2433,9 +2458,9 @@
     },
     {
       "id": "six-group-61ce10f539ae",
-      "slug": "service-delivery-manager-regis-tr-six-group-madrid",
+      "slug": "gestore-del-servizio-consegna-regis-tr-six-group-madrid",
       "slugByLocale": {
-        "it": "service-delivery-manager-regis-tr-six-group-madrid",
+        "it": "gestore-del-servizio-consegna-regis-tr-six-group-madrid",
         "en": "service-delivery-manager-regis-tr-six-group-madrid",
         "de": "service-delivery-manager-regis-tr-six-group-madrid",
         "fr": "gestionnaire-de-la-prestation-des-services-regis-tr-six-group-madrid"
@@ -2493,7 +2518,15 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "service-delivery-manager-regis-tr-six-group-madrid"
+        ]
+      },
+      "previousSlugs": [
+        "service-delivery-manager-regis-tr-six-group-madrid"
+      ]
     },
     {
       "id": "six-group-5d03cc091bd4",
@@ -2578,7 +2611,7 @@
       "slugByLocale": {
         "it": "esperto-fiscale-senior-six-group-madrid",
         "en": "senior-tax-expert-six-group-madrid",
-        "de": "senior-tax-expert-six-group-madrid",
+        "de": "sachverstandiger-fur-hohe-steuern-six-group-madrid",
         "fr": "expert-fiscal-principal-six-group-madrid"
       },
       "company": "SIX Group",
@@ -2629,6 +2662,9 @@
         ],
         "fr": [
           "senior-tax-expert-six-group-madrid"
+        ],
+        "de": [
+          "senior-tax-expert-six-group-madrid"
         ]
       },
       "firstSeenAt": "2026-06-23T12:40:07.040Z",
@@ -2652,7 +2688,7 @@
       "slugByLocale": {
         "it": "business-analista-six-group-warsaw",
         "en": "business-analyst-six-group-warsaw",
-        "de": "business-analyst-six-group-warsaw-2",
+        "de": "unternehmen-six-group-warsaw",
         "fr": "business-analyste-six-group-warsaw"
       },
       "company": "SIX Group",
@@ -2705,6 +2741,9 @@
           "business-analyst-six-group-warsaw-2"
         ],
         "fr": [
+          "business-analyst-six-group-warsaw-2"
+        ],
+        "de": [
           "business-analyst-six-group-warsaw-2"
         ]
       },
@@ -3396,7 +3435,7 @@
       "slugByLocale": {
         "it": "servicenow-business-analyst-six-group-warsaw",
         "en": "servicenow-business-analyst-six-group-warsaw",
-        "de": "servicenow-business-analyst-six-group-warsaw",
+        "de": "servicejetzt-business-ansager-six-group-warsaw",
         "fr": "servicenow-business-analyst-six-group-warsaw"
       },
       "company": "SIX Group",
@@ -3802,7 +3841,7 @@
       "slugByLocale": {
         "it": "gestione-account-six-group-zurich",
         "en": "account-manager-six-group-zurich",
-        "de": "account-manager-six-group-zurich",
+        "de": "kontoverwaltung-six-group-zurich",
         "fr": "gestionnaire-de-comptes-six-group-zurich"
       },
       "company": "SIX Group",
@@ -3850,7 +3889,20 @@
         "account-manager-six-group-zurich",
         "gestione-dell-integrazione-six-group-zurich",
         "integration-manager-six-group-zurich",
-        "gestionnaire-d-integration-six-group-zurich"
+        "gestionnaire-d-integration-six-group-zurich",
+        "index-analista-six-group-zurich",
+        "index-analyst-six-group-zurich",
+        "indexanalyst-six-group-zurich",
+        "index-analyste-six-group-zurich",
+        "responsabile-del-tesoro-80-100-six-group-zurich",
+        "treasury-manager-80-100-six-group-zurich",
+        "schatzmeister-80-100-six-group-zurich",
+        "gestionnaire-de-tresorerie-80-100-six-group-zurich",
+        "responsabile-della-strategia-six-group-zurich",
+        "strategy-manager-six-group-zurich",
+        "strategiemanager-six-group-zurich",
+        "gestionnaire-de-strategie-six-group-zurich",
+        "marketing-manager-80-100-six-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3859,18 +3911,35 @@
           "account-manager-six-group-zurich",
           "gestione-dell-integrazione-six-group-zurich",
           "integration-manager-six-group-zurich",
-          "gestionnaire-d-integration-six-group-zurich"
+          "gestionnaire-d-integration-six-group-zurich",
+          "index-analista-six-group-zurich",
+          "index-analyst-six-group-zurich",
+          "indexanalyst-six-group-zurich",
+          "index-analyste-six-group-zurich",
+          "responsabile-del-tesoro-80-100-six-group-zurich",
+          "treasury-manager-80-100-six-group-zurich",
+          "schatzmeister-80-100-six-group-zurich",
+          "gestionnaire-de-tresorerie-80-100-six-group-zurich",
+          "responsabile-della-strategia-six-group-zurich",
+          "strategy-manager-six-group-zurich",
+          "strategiemanager-six-group-zurich",
+          "gestionnaire-de-strategie-six-group-zurich",
+          "marketing-manager-80-100-six-group-zurich"
         ],
         "en": [
-          "senior-account-manager-80-100-six-group-zurich"
+          "senior-account-manager-80-100-six-group-zurich",
+          "index-analyst-six-group-zurich"
         ],
         "de": [
-          "integration-manager-six-group-zurich"
+          "integration-manager-six-group-zurich",
+          "account-manager-six-group-zurich",
+          "indexanalyst-six-group-zurich"
         ],
         "fr": [
           "gestionnaire-principal-de-comptes-80-100-six-group-zurich",
           "account-manager-six-group-zurich",
-          "gestionnaire-d-integration-six-group-zurich"
+          "gestionnaire-d-integration-six-group-zurich",
+          "index-analyste-six-group-zurich"
         ]
       },
       "firstSeenAt": "2026-07-22T11:19:25.856Z",
@@ -4215,9 +4284,9 @@
     },
     {
       "id": "six-group-f3ca52865d68",
-      "slug": "it-product-manager-six-group-warsaw",
+      "slug": "responsabile-prodotti-it-six-group-warsaw",
       "slugByLocale": {
-        "it": "it-product-manager-six-group-warsaw",
+        "it": "responsabile-prodotti-it-six-group-warsaw",
         "en": "it-product-manager-six-group-warsaw",
         "de": "it-produktmanager-six-group-warsaw",
         "fr": "gestionnaire-de-produits-informatiques-six-group-warsaw"
@@ -4265,12 +4334,14 @@
         "it-commercial-coordinator-six-group-warsaw",
         "it-commercial-coordinatore-six-group-warsaw",
         "it-commercial-koordinator-six-group-warsaw",
-        "it-commercial-coordinateur-six-group-warsaw"
+        "it-commercial-coordinateur-six-group-warsaw",
+        "it-product-manager-six-group-warsaw"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-commercial-coordinator-six-group-warsaw",
-          "it-commercial-coordinatore-six-group-warsaw"
+          "it-commercial-coordinatore-six-group-warsaw",
+          "it-product-manager-six-group-warsaw"
         ],
         "en": [
           "it-commercial-coordinator-six-group-warsaw"
@@ -4459,7 +4530,7 @@
       "slugByLocale": {
         "it": "gestione-delle-relazioni-principali-regno-unito-ue-six-group-london",
         "en": "head-relationship-management-uk-eu-six-group-london",
-        "de": "head-relationship-management-uk-eu-six-group-london",
+        "de": "leiter-beziehungsmanagement-uk-eu-six-group-london",
         "fr": "gestion-des-relations-avec-les-dirigeants-royaume-uni-ue-six-group-london"
       },
       "company": "SIX Group",
@@ -4509,6 +4580,9 @@
           "head-relationship-management-uk-eu-six-group-london"
         ],
         "fr": [
+          "head-relationship-management-uk-eu-six-group-london"
+        ],
+        "de": [
           "head-relationship-management-uk-eu-six-group-london"
         ]
       },
@@ -4748,7 +4822,7 @@
       "slugByLocale": {
         "it": "supporto-it-six-group-warsaw",
         "en": "it-supporter-six-group-warsaw",
-        "de": "it-supporter-six-group-warsaw",
+        "de": "it-befurworter-six-group-warsaw",
         "fr": "support-informatique-six-group-warsaw"
       },
       "company": "SIX Group",
@@ -4798,6 +4872,9 @@
           "it-supporter-six-group-warsaw"
         ],
         "fr": [
+          "it-supporter-six-group-warsaw"
+        ],
+        "de": [
           "it-supporter-six-group-warsaw"
         ]
       },
@@ -6154,7 +6231,7 @@
       "slugByLocale": {
         "it": "soc-analista-six-group-madrid",
         "en": "soc-analyst-six-group-madrid",
-        "de": "soc-analyst-six-group-madrid",
+        "de": "soc-ansager-six-group-madrid",
         "fr": "soc-analyste-six-group-madrid"
       },
       "company": "SIX Group",
@@ -6214,7 +6291,8 @@
           "incident-responder-six-group-madrid"
         ],
         "de": [
-          "incident-responder-six-group-madrid"
+          "incident-responder-six-group-madrid",
+          "soc-analyst-six-group-madrid"
         ],
         "fr": [
           "incident-responder-six-group-madrid",
@@ -6370,7 +6448,7 @@
       "slugByLocale": {
         "it": "consigliere-legale-senior-six-group-madrid-b11bad",
         "en": "senior-legal-counsel-six-group-madrid",
-        "de": "senior-legal-counsel-six-group-madrid-2",
+        "de": "senior-jurist-six-group-madrid",
         "fr": "conseiller-juridique-principal-six-group-madrid-b11bad"
       },
       "company": "SIX Group",
@@ -6422,6 +6500,9 @@
           "senior-legal-counsel-six-group-madrid-2"
         ],
         "fr": [
+          "senior-legal-counsel-six-group-madrid-2"
+        ],
+        "de": [
           "senior-legal-counsel-six-group-madrid-2"
         ]
       },

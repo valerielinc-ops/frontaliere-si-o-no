@@ -241,7 +241,7 @@ async function enrichJobsWithDetailBody(urls) {
 
 /* ── Adapter ───────────────────────────────────────────────── */
 function buildRaiffeisenSeedMeta(seedUrls) {
-  // Build seedMetaByUrl so the base crawler knows these are TI jobs
+  // Build seedMetaByUrl so the base crawler knows the local bank's Swiss site
   // (avoids false-positive rejection from Italian-language descriptions
   // containing substrings that match foreign location markers).
   const seedMetaByUrl = {};
@@ -282,7 +282,7 @@ export function ensureAdapterSeedUrls(
       enabled: true,
       priority: 10,
       crawlerModes: ['jsonld', 'html', 'generic_ats'],
-      notes: 'Banca Raiffeisen Vedeggio Cassarate — local cooperative bank in TI. Jobs on Prospective career center (jobs.raiffeisen.ch). Seed URLs auto-discovered from careers page.',
+      notes: 'Banca Raiffeisen Vedeggio Cassarate — local cooperative bank with postings at Gravesano (TI). Jobs on Prospective career center (jobs.raiffeisen.ch). Seed URLs auto-discovered from careers page.',
     };
   const adapter = buildRaiffeisenAdapterConfig(baseAdapter, seedUrls, updatedAt);
   writeJsonAtomic(adapterPath, adapter);
@@ -318,13 +318,15 @@ function logStats(beforeSnapshot = new Map()) {
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
   const jobs = allJobs.filter(isRaiffeisenVCJob);
-  const tiJobs = jobs.filter((j) => normalize(j?.canton) === 'ti');
-  const grJobs = jobs.filter((j) => normalize(j?.canton) === 'gr');
+  const cantonCounts = jobs.reduce((counts, job) => {
+    const canton = normalize(job?.canton).toUpperCase() || '??';
+    counts[canton] = (counts[canton] || 0) + 1;
+    return counts;
+  }, {});
 
   console.log(`\n📊 === Raiffeisen Vedeggio Cassarate Job Stats ===`);
   console.log(`  🏦 Total jobs: ${jobs.length}`);
-  console.log(`  ✅ Ticino: ${tiJobs.length}`);
-  console.log(`  ✅ Grigioni: ${grJobs.length}`);
+  console.log(`  📍 By canton: ${Object.entries(cantonCounts).sort(([a], [b]) => a.localeCompare(b)).map(([canton, count]) => `${canton}=${count}`).join(' | ') || 'none'}`);
   console.log('');
 
   const afterSnapshot = snapshotJobSlugs(jobs);

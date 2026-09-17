@@ -1,6 +1,6 @@
 {
   "crawlerKey": "triaplus",
-  "assembledAt": "2026-09-16T09:22:43.373Z",
+  "assembledAt": "2026-09-17T19:00:18.381Z",
   "jobs": [
     {
       "id": "triaplus-7447ca6f14b3",
@@ -836,11 +836,30 @@
         ]
       },
       "previousSlugs": [
-        "oberpsychologin-w-m-d-kinder-und-jugendpsychiatrie-ambulant-triaplus-oberpsychologin-w-m-d"
+        "oberpsychologin-w-m-d-kinder-und-jugendpsychiatrie-ambulant-triaplus-oberpsychologin-w-m-d",
+        "psychologe-m-w-d-kinder-e-jugendpsychiatrie-triaplus-ag-oberwil",
+        "psychologist-m-f-d-child-and-adolescent-psychiatry-triaplus-ag-oberwil",
+        "psychologe-m-w-d-kinder-und-jugendpsychiatrie-triaplus-psychologe-m-w-d-kinder-und",
+        "psychologue-m-f-d-psychiatrie-des-enfants-et-des-adolescents-triaplus-ag-oberwil",
+        "psychologe-m-w-d-kinder-e-jugendpsychiatrie-triaplus-ag-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberpsychologin-w-m-d-kinder-und-jugendpsychiatrie-ambulant-triaplus-oberpsychologin-w-m-d"
+          "oberpsychologin-w-m-d-kinder-und-jugendpsychiatrie-ambulant-triaplus-oberpsychologin-w-m-d",
+          "psychologe-m-w-d-kinder-e-jugendpsychiatrie-triaplus-ag-oberwil",
+          "psychologist-m-f-d-child-and-adolescent-psychiatry-triaplus-ag-oberwil",
+          "psychologe-m-w-d-kinder-und-jugendpsychiatrie-triaplus-psychologe-m-w-d-kinder-und",
+          "psychologue-m-f-d-psychiatrie-des-enfants-et-des-adolescents-triaplus-ag-oberwil",
+          "psychologe-m-w-d-kinder-e-jugendpsychiatrie-triaplus-ag-baar"
+        ],
+        "en": [
+          "psychologist-m-f-d-child-and-adolescent-psychiatry-triaplus-ag-oberwil"
+        ],
+        "de": [
+          "psychologe-m-w-d-kinder-und-jugendpsychiatrie-triaplus-psychologe-m-w-d-kinder-und"
+        ],
+        "fr": [
+          "psychologue-m-f-d-psychiatrie-des-enfants-et-des-adolescents-triaplus-ag-oberwil"
         ]
       },
       "firstSeenAt": "2026-05-19T21:17:15.771Z",
@@ -1166,12 +1185,14 @@
       "previousSlugs": [
         "oberarztin-w-m-d-fur-kinder-und-jugendpsychiatrie-ambulant-triaplus-oberaerztin-w-m-d-fuer-2",
         "oberarztin-w-m-d-fur-kinder-und-jugendpsychiatrie-ambulant-triaplus-oberaerztin-w-m-d-fuer",
-        "oberarztin-w-m-d-fur-kinder-und-jugendpsychiatrie-ambulant-triaplus-ag-altdorf"
+        "oberarztin-w-m-d-fur-kinder-und-jugendpsychiatrie-ambulant-triaplus-ag-altdorf",
+        "psychologe-m-w-d-kinder-e-jugendpsychiatrie-ambulant-triaplus-ag-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-w-m-d-fur-kinder-und-jugendpsychiatrie-ambulant-triaplus-oberaerztin-w-m-d-fuer-2",
-          "oberarztin-w-m-d-fur-kinder-und-jugendpsychiatrie-ambulant-triaplus-oberaerztin-w-m-d-fuer"
+          "oberarztin-w-m-d-fur-kinder-und-jugendpsychiatrie-ambulant-triaplus-oberaerztin-w-m-d-fuer",
+          "psychologe-m-w-d-kinder-e-jugendpsychiatrie-ambulant-triaplus-ag-altdorf"
         ],
         "en": [
           "oberarztin-w-m-d-fur-kinder-und-jugendpsychiatrie-ambulant-triaplus-ag-altdorf"
@@ -1191,105 +1212,6 @@
           "@type": "QuantitativeValue",
           "minValue": 117000,
           "maxValue": 163000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "triaplus-68a0c9dcd287",
-      "slug": "dipl-professionista-della-salute-hf-fh-o-professionista-della-salute-assistenziale-triaplus-ag-oberwil",
-      "slugByLocale": {
-        "it": "dipl-professionista-della-salute-hf-fh-o-professionista-della-salute-assistenziale-triaplus-ag-oberwil",
-        "en": "dipl-nursing-specialist-hf-fh-or-health-professional-in-inpatient-acute-and-general-psychiatry-triaplus-ag-oberwil",
-        "de": "dipl-pflegefachperson-hf-fh-oder-fachperson-gesundheit-stationar-pflegepool-akut-und",
-        "fr": "infirmier-diplome-hf-fh-ou-professionnel-de-la-sante-en-soins-stationnaires-en-psychiatrie-aigue-et-generale-triaplus-ag"
-      },
-      "company": "Triaplus AG",
-      "companyKey": "triaplus",
-      "companyDomain": "triaplus.ch",
-      "title": "Dipl. Pflegefachperson HF/FH oder Fachperson Gesundheit stationär Pflegepool Akut- und Allgemeinpsychiatrie",
-      "titleByLocale": {
-        "it": "Dipl. Professionista della salute HF/FH o Professionista della salute assistenziale",
-        "en": "Dipl. Nursing Specialist HF/FH or Health Professional in Inpatient Acute and General Psychiatry",
-        "de": "Dipl. Pflegefachperson HF/FH oder Fachperson Gesundheit stationär Pflegepool Akut- und Allgemeinpsychiatrie",
-        "fr": "Infirmier diplômé HF/FH ou professionnel de la santé en soins stationnaires en psychiatrie aiguë et générale"
-      },
-      "description": "Ihre Aufgaben beinhalten\n• Ausführung in Delegation eines vollumfängliche Pflegeprozesses\n• Mitverantwortung bei präventiven, diagnostischen und therapeutischen Massnahmen\n• Begleitung in Krisensituationen\n• Führung von komplexen Gesprächen mit Angehörigen\n• Verantwortung und Mitgestaltung einer interprofessionellen Zusammenarbeit\n• Selbständiges erledigen administrativer Arbeiten\n\nSie bringen dafür mit\n• Abschluss als dipl. Pflegefachperson HF / FH oder als Fachperson Gesundheit EFZ\n• Erfahrung in der Pflege von psychisch erkrankten Patientinnen und Patienten\n• sehr gute Deutschkenntnisse in Wort und Schrift\n• Ausgesprochen hohe Flexibilität\n• hohe Eigenverantwortung und ausgewiesene Sozialkompetenz\n• Abgeschlossener Basiskurs Aggressionsmanagement oder die Bereitschaft, diesen zu absolvieren\n• gutes vernetztes Denken\n\nWir bieten Ihnen\n• Wir sind klein genug, um «familiär» zu sein, für kurze Wege und schnelle Entscheidungen – und so gross, dass Sie hier alle Settings vorfinden und Sie sich spezialisieren/fachlich weiterentwickeln können\n• Die Dienstplanung finden in Absprache statt und richtet sich nach Ihren Verfügbarkeiten\n• Ganz viel Lebensqualität mit mindestens 5 Wochen Ferien, ab 55. Altersjahr 6 Wochen\n• Wir beteiligen uns an Ihren ÖV-Kosten\n• In der Triaplus haben Sie die Möglichkeit zur internen Rotation\n\nViele Gründe sprechen für uns – das sind die Bestseller.\nZu den Bestsellern\n\nTriaplus AG — Psychiatrische Klinik, Oberwil (ZG), Schweiz.\n\nBewerbung über das Karriereportal: https://karriere.triaplus.ch/jobs/dipl-pflegefachperson-hf-fh-oder-fachperson-gesundheit-stationaer-fuer-unseren-pflegepool-im-stundenlohn-in-der-akut-und-allgemeinpsychiatrie/",
-      "descriptionByLocale": {
-        "it": "Descrizione del lavoro\n• I tuoi compiti comprendono: - Esecuzione di un processo assistenziale completo tramite delega - Corresponsabilità per misure preventive, diagnostiche e terapeutiche - Accompagnamento in situazioni di crisi - Conduzione di conversazioni complesse con i parenti - Responsabilità e partecipazione alla collaborazione interprofessionale - Completamento indipendente del lavoro amministrativo\n• Requisiti - Qualifica di qualificato. Specialista infermieristico HF / FH o come specialista sanitario EFZ - Esperienza nella cura di pazienti con malattie mentali - Ottima conoscenza del tedesco parlato e scritto - Estremamente flessibile - Elevato livello di responsabilità personale e comprovate abilità sociali - Corso di base sulla gestione della rabbia completato o disponibilità a completarlo - Buon pensiero in rete\n• Cosa offriamo - Siamo abbastanza piccoli per essere \"come una famiglia\", per brevi distanze e decisioni rapide - e così grandi che puoi trovare tutte le impostazioni qui Puoi specializzarti/sviluppare professionalmente - Il rostering richiede posto in consultazione e dipende dalla tua disponibilità - Ottima qualità di vita con almeno 5 settimane di ferie, a partire dai 55 anni 6 settimane - Contribuiamo alle spese di trasporto pubblico - In Triaplus hai la possibilità di rotazione interna Bestseller Molte ragioni parlano per noi: questi sono i bestseller. Triaplus AG — Clinica psichiatrica (Clinica Zugersee), Oberwil (ZG), Svizzera. Candidatura Contatto tramite il portale carriera: https://karriere.triaplus.ch/jobs/dipl-pflegefachperson-hf-fh-oder-fachperson-gesundheit-stationaer-fuer-unseren-pflegepool-im-stundenlohn-in-der-akut-und-generalpsychiatrie/",
-        "en": "Descrizione del lavoro\n• Your tasks include - Execution of a comprehensive care process by delegation - Co-responsibility for preventive, diagnostic and therapeutic measures - Accompaniment in crisis situations - Conducting complex conversations with relatives - Responsibility and participation in interprofessional collaboration - Independent completion of administrative work\n• Requirements - Qualification as a qualified. Nursing specialist HF / FH or as a health specialist EFZ - Experience in caring for mentally ill patients - Very good knowledge of spoken and written German - Extremely flexible - High level of personal responsibility and proven social skills - Completed basic anger management course or willingness to complete it - Good networked thinking\n• Cosa offriamo - We are small enough to be “family-like”, for short distances and quick decisions - and so big that you can find all the settings here You can specialize/develop professionally - The rostering takes place in consultation and depends on your availability - Great quality of life with at least 5 weeks of vacation, from the age of 55 6 weeks - We contribute to your public transport costs - In Triaplus you have the opportunity for internal rotation Bestsellers Many reasons speak for us - these are the bestsellers. Triaplus AG — Psychiatric Clinic (Zugersee Clinic), Oberwil (ZG), Switzerland. Contatto application via the career portal: https://karriere.triaplus.ch/jobs/dipl-pflegefachperson-hf-fh-oder-fachperson-gesundheit-stationaer-fuer-unseren-pflegepool-im-stundenlohn-in-der-akut-und-generalpsychiatrie/",
-        "de": "Ihre Aufgaben beinhalten\n• Ausführung in Delegation eines vollumfängliche Pflegeprozesses\n• Mitverantwortung bei präventiven, diagnostischen und therapeutischen Massnahmen\n• Begleitung in Krisensituationen\n• Führung von komplexen Gesprächen mit Angehörigen\n• Verantwortung und Mitgestaltung einer interprofessionellen Zusammenarbeit\n• Selbständiges erledigen administrativer Arbeiten\n\nSie bringen dafür mit\n• Abschluss als dipl. Pflegefachperson HF / FH oder als Fachperson Gesundheit EFZ\n• Erfahrung in der Pflege von psychisch erkrankten Patientinnen und Patienten\n• sehr gute Deutschkenntnisse in Wort und Schrift\n• Ausgesprochen hohe Flexibilität\n• hohe Eigenverantwortung und ausgewiesene Sozialkompetenz\n• Abgeschlossener Basiskurs Aggressionsmanagement oder die Bereitschaft, diesen zu absolvieren\n• gutes vernetztes Denken\n\nWir bieten Ihnen\n• Wir sind klein genug, um «familiär» zu sein, für kurze Wege und schnelle Entscheidungen – und so gross, dass Sie hier alle Settings vorfinden und Sie sich spezialisieren/fachlich weiterentwickeln können\n• Die Dienstplanung finden in Absprache statt und richtet sich nach Ihren Verfügbarkeiten\n• Ganz viel Lebensqualität mit mindestens 5 Wochen Ferien, ab 55. Altersjahr 6 Wochen\n• Wir beteiligen uns an Ihren ÖV-Kosten\n• In der Triaplus haben Sie die Möglichkeit zur internen Rotation\n\nViele Gründe sprechen für uns – das sind die Bestseller.\nZu den Bestsellern\n\nTriaplus AG — Psychiatrische Klinik, Oberwil (ZG), Schweiz.\n\nBewerbung über das Karriereportal: https://karriere.triaplus.ch/jobs/dipl-pflegefachperson-hf-fh-oder-fachperson-gesundheit-stationaer-fuer-unseren-pflegepool-im-stundenlohn-in-der-akut-und-allgemeinpsychiatrie/",
-        "fr": "Descrizione del lavoro\n• Vos tâches comprennent - Exécution d'un processus de soins complet par délégation - Co-responsabilité des mesures préventives, diagnostiques et thérapeutiques - Accompagnement en situation de crise - Conduite d'entretiens complexes avec les proches - Responsabilité et participation à la collaboration interprofessionnelle - Réalisation indépendante du travail administratif\n• Exigences - Qualification en tant que qualifié. Infirmier spécialiste HF / FH ou spécialiste de la santé EFZ - Expérience dans la prise en charge de patients atteints de maladies mentales - Très bonne connaissance de l'allemand parlé et écrit - Extrêmement flexible - Haut niveau de responsabilité personnelle et compétences sociales avérées - Cours de base de gestion de la colère suivi ou volonté de le suivre - Bonne pensée en réseau\n• Cosa offriamo - Nous sommes suffisamment petits pour être « comme une famille », pour de courtes distances et des décisions rapides - et si grands que vous pouvez trouver tous les paramètres ici Vous pouvez vous spécialiser/évoluer professionnellement - Le rostering prend lieu en consultation et dépend de vos disponibilités - Grande qualité de vie avec au moins 5 semaines de vacances, à partir de 55 ans 6 semaines - Nous contribuons à vos frais de transports publics - Chez Triaplus, vous avez la possibilité d'une rotation interne Best-sellers De nombreuses raisons parlent pour nous - ce sont les best-sellers. Triaplus AG — Clinique psychiatrique (Clinique du Zugersee), Oberwil (ZG), Suisse. Candidature via le portail carrière : https://karriere.triaplus.ch/jobs/dipl-pflegefachperson-hf-fh-oder-fachperson-gesundheit-stationaer-fuer-unseren-pflegepool-im-stundenlohn-in-der-akut-und-generalpsychiatrie/"
-      },
-      "location": "Oberwil",
-      "canton": "ZG",
-      "url": "https://karriere.triaplus.ch/jobs/dipl-pflegefachperson-hf-fh-oder-fachperson-gesundheit-stationaer-fuer-unseren-pflegepool-im-stundenlohn-in-der-akut-und-allgemeinpsychiatrie/",
-      "source": "Triaplus AG Dedicated Parser (WordPress career site)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-16T09:21:33.398Z",
-      "addressLocality": "Oberwil",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6317",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://karriere.triaplus.ch/jobs/dipl-pflegefachperson-hf-fh-oder-fachperson-gesundheit-stationaer-fuer-unseren-pflegepool-im-stundenlohn-in-der-akut-und-allgemeinpsychiatrie/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Diploma come professionista della salute HF / FH o come professionista della salute EFZ",
-          "Esperienza nella cura di pazienti con disturbi psichici",
-          "Ottima conoscenza del tedesco parlato e scritto",
-          "Flessibilità spiccata",
-          "Alta responsabilità personale e comprovata competenza sociale",
-          "Corso base di gestione dell'aggressività completato o disponibilità a completarlo",
-          "Buona capacità di pensiero interconnesso"
-        ],
-        "en": [
-          "Degree as a dipl. nursing specialist HF / FH or as a health professional EFZ",
-          "Experience in the care of mentally ill patients",
-          "Very good German language skills, both spoken and written",
-          "Pronounced flexibility",
-          "High personal responsibility and proven social competence",
-          "Completed basic course in aggression management or willingness to complete it",
-          "Good interconnected thinking"
-        ],
-        "fr": [
-          "Diplôme en tant qu'infirmier diplômé HF / FH ou en tant que professionnel de la santé EFZ",
-          "Expérience dans les soins aux patients souffrant de troubles mentaux",
-          "Très bonne maîtrise de l'allemand à l'oral et à l'écrit",
-          "Flexibilité prononcée",
-          "Haute responsabilité personnelle et compétences sociales avérées",
-          "Cours de base en gestion de l'agressivité complété ou volonté de le suivre",
-          "Bonne capacité de pensée interconnectée"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-oder-fachperson-gesundheit-stationar-pflegepool-akut-und"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-fh-oder-fachperson-gesundheit-stationar-pflegepool-akut-und"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T21:17:08.452Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -1392,239 +1314,6 @@
           "@type": "QuantitativeValue",
           "minValue": 74500,
           "maxValue": 127000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "triaplus-a4be802addeb",
-      "slug": "assistente-medico-o-specialista-w-m-d-ambulatoriale-triaplus-ag-oberwil",
-      "slugByLocale": {
-        "it": "assistente-medico-o-specialista-w-m-d-ambulatoriale-triaplus-ag-oberwil",
-        "en": "assistant-doctor-or-specialist-w-m-d-outpatient-triaplus-ag-oberwil",
-        "de": "assistenzarztin-oder-facharztin-w-m-d-ambulant-triaplus-assistenzaerztin-oder-fachaerztin",
-        "fr": "medecin-assistant-ou-specialiste-w-m-d-ambulatoire-triaplus-ag-oberwil"
-      },
-      "company": "Triaplus AG",
-      "companyKey": "triaplus",
-      "companyDomain": "triaplus.ch",
-      "title": "Assistenzärztin oder Fachärztin (w/m/d) ambulant",
-      "titleByLocale": {
-        "it": "Medico Assistente o Specialista (f/m/d) ambulatoriale",
-        "en": "Resident or Specialist Physician (f/m/d) Outpatient",
-        "de": "Assistenzärztin oder Fachärztin (w/m/d) ambulant",
-        "fr": "Médecin Assistant ou Spécialiste (f/m/d) ambulatoire"
-      },
-      "description": "Ihre Aufgaben beinhalten\n• Fallführende ambulante psychiatrisch-psychotherapeutische Behandlung Erwachsener mit Störungsbildern aus dem gesamten psychiatrischen Diagnosespektrum\n• Abklärung und Diagnostik im gesamten psychiatrischen Diagnosespektrum\n• Angehörigengespräche, Koordination der an der Behandlung beteiligten Personen und Kollegen\n• Abwechslungsreiche Tätigkeiten in den Bereichen Beratung und Frühintervention\n• Zusammenarbeit im interdisziplinären Team\n• Mitarbeit im psychiatrischen Konsiliardienst\n• Möglichkeit zur Mitarbeit bei psychiatrischen Gutachten\n\nSie bringen dafür mit\n• Abgeschlossenes Medizinstudium (CH-Staatsexamen oder MEBEKO Anerkennung)\n• Fortgeschrittene bzw. abgeschlossene Weiterbildung zur Fachärztin / zum Facharzt für Psychiatrie und Psychotherapie\n• Freude an der interdisziplinären Zusammenarbeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Hohe Eigenverantwortung und ausgewiesene Sozialkompetenz\n• Freude an der Teamarbeit\n• Gutes vernetztes Denken\n\nWir bieten Ihnen\n• Wir sind klein genug, um «familiär» zu sein, für kurze Wege und schnelle Entscheidungen – und so gross, dass Sie hier alle Settings vorfinden und Sie sich spezialisieren/fachlich weiterentwickeln können\n• Keine Nacht- oder Wochenendienste im ambulanten Bereich\n• Ganz viel Lebensqualität mit mindestens 5 Wochen Ferien, ab 55. Altersjahr 6 Wochen\n• Wir beteiligen uns an Ihren ÖV-Kosten\n• In der Triaplus haben Sie die Möglichkeit zur internen Rotation\n\nViele Gründe sprechen für uns – das sind die Bestseller.\nZu den Bestsellern\n\nTriaplus AG — Psychiatrische Klinik, Pfäffikon (SZ), Schweiz.\n\nBewerbung über das Karriereportal: https://karriere.triaplus.ch/jobs/assistenzaerztin-oder-fachaerztin-w-m-d-ambulant/",
-      "descriptionByLocale": {
-        "it": "Compiti - Psicoterapia siatriana-psicoterapeutica di pazienti adulti con disturbi dell'intero spettro della diagnosi siatriana - Esame e diagnosi in tutto lo spettro siatriano psicopatico - Interviste familiari, coordinamento delle persone e dei colleghi coinvolti nel trattamento - Attività variegate nei settori della consulenza e dell'intervento precoce - Cooperazione nel team interdisciplinare - Cooperazione in psichiatria consiliare - Possibilita di collaborazione con esperti siatriana psichiatra\n\nRequisiti - Studi medici completati (CH-Staatsexamen o MEBEKO Accreditamento) - Formazione avanzata o completata allo specialista specialista in psicoterapia e psicoterapia - Gioia in cooperazione interdisciplinare - Ottima conoscenza tedesca in termini di parole e scrittura - Alta responsabilità personale e competenza sociale comprovata - Gioia nel lavoro di squadra - Buona riflessione in rete\n\nOffriamo - siamo abbastanza piccoli per essere \"famiglia\" per brevi distanze e decisioni rapide. e così grande che si possono trovare tutti i cieli qui e si può specializzare / avanzato in modo professionale - Nessun servizio notturno o settimana in zona ambulatoriale - Un sacco di qualità di vita con almeno 5 settimane di vacanza, a partire dal 55 ° anno 6 settimane - Partecipiamo ai costi di trasporto pubblico - Nel Triaplus si ha la possibilità di rotazione interna\n\nMolti motivi parlano per noi. questi sono i più venduti.\n\nTriaplus AG. Psichiatria: Clinica, Pfäffikon (SZ), Svizzera.\n\nData di nascita: 19.12.1956",
-        "en": "Tasks - Case-leading outpatient psy Siatrian-psychotherapeutic treatment of adults with disorders from the entire spectrum of psy Siatrian diagnosis - Examination and diagnosis throughout the psy Siatrian spectrum - Family interviews, coordination of the persons and colleagues involved in the treatment - Varied activities in the areas of counselling and early intervention - Cooperation in the interdisciplinary team - Cooperation in psy Siatrian Consiliardienst - Possibility of cooperation with psy Siatrian expert reports\n\nRequirements - Completed medical studies (CH-Staatsexamen or MEBEKO Accreditation) - Advanced or completed further education to the specialist specialist for psychiatry and psychotherapy - Joy in interdisciplinary cooperation - Very good German knowledge in word and writing - High personal responsibility and proven social competence - Joy in team work - Good networked thinking\n\nWe offer - we are small enough to be \"family\" for short distances and quick decisions – and so big that you can find all the skies here and you can specialize/advanced in a professional way - No night or week services in the outpatient area - A lot of quality of life with at least 5 weeks holidays, from 55th year 6 weeks - We participate in your public transport costs - In the Triaplus you have the possibility for internal rotation\n\nMany reasons speak for us – these are the best sellers.\n\nTriaplus AG — Psychiatric Clinic, Pfäffikon (SZ), Switzerland.\n\nContact Application via the career portal: https://krieberse.triaplus.ch/jobs/assist: enzaerztin-or-fachaerztin-w-m-d-ambulant/",
-        "de": "Ihre Aufgaben beinhalten\n• Fallführende ambulante psychiatrisch-psychotherapeutische Behandlung Erwachsener mit Störungsbildern aus dem gesamten psychiatrischen Diagnosespektrum\n• Abklärung und Diagnostik im gesamten psychiatrischen Diagnosespektrum\n• Angehörigengespräche, Koordination der an der Behandlung beteiligten Personen und Kollegen\n• Abwechslungsreiche Tätigkeiten in den Bereichen Beratung und Frühintervention\n• Zusammenarbeit im interdisziplinären Team\n• Mitarbeit im psychiatrischen Konsiliardienst\n• Möglichkeit zur Mitarbeit bei psychiatrischen Gutachten\n\nSie bringen dafür mit\n• Abgeschlossenes Medizinstudium (CH-Staatsexamen oder MEBEKO Anerkennung)\n• Fortgeschrittene bzw. abgeschlossene Weiterbildung zur Fachärztin / zum Facharzt für Psychiatrie und Psychotherapie\n• Freude an der interdisziplinären Zusammenarbeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Hohe Eigenverantwortung und ausgewiesene Sozialkompetenz\n• Freude an der Teamarbeit\n• Gutes vernetztes Denken\n\nWir bieten Ihnen\n• Wir sind klein genug, um «familiär» zu sein, für kurze Wege und schnelle Entscheidungen – und so gross, dass Sie hier alle Settings vorfinden und Sie sich spezialisieren/fachlich weiterentwickeln können\n• Keine Nacht- oder Wochenendienste im ambulanten Bereich\n• Ganz viel Lebensqualität mit mindestens 5 Wochen Ferien, ab 55. Altersjahr 6 Wochen\n• Wir beteiligen uns an Ihren ÖV-Kosten\n• In der Triaplus haben Sie die Möglichkeit zur internen Rotation\n\nViele Gründe sprechen für uns – das sind die Bestseller.\nZu den Bestsellern\n\nTriaplus AG — Psychiatrische Klinik, Pfäffikon (SZ), Schweiz.\n\nBewerbung über das Karriereportal: https://karriere.triaplus.ch/jobs/assistenzaerztin-oder-fachaerztin-w-m-d-ambulant/",
-        "fr": "Tâches - Cas-leaders de la psy en consultation externe Traitement siatrien-psychothérapeute des adultes souffrant de troubles de tout le spectre du diagnostic siatrien - Examen et diagnostic dans tout le spectre siatrien - Entretiens familiaux, coordination des personnes et des collègues impliqués dans le traitement - activités variées dans les domaines du conseil et de l'intervention précoce - Coopération au sein de l'équipe interdisciplinaire - Coopération en psy en siatrie Consiliardienst - Possibilité de coopération avec les rapports d'experts siatrien\n\nExigences - Études médicales terminées (CH-StaatsVie ou MEBEKO Accréditation) - Formation avancée ou complétée au spécialiste spécialisé en psychiatrie et psychothérapie - Joy en coopération interdisciplinaire - Très bonne connaissance allemande en paroles et en écriture - Haute responsabilité personnelle et compétence sociale prouvée - Joy en travail d'équipe - Bonne pensée en réseau\n\nNous offrons - nous sommes assez petits pour être \"famille\" pour de courtes distances et des décisions rapides - et si grand que vous pouvez trouver tous les cieux ici et vous pouvez spécialiser / avancé d'une manière professionnelle - Pas de services de nuit ou de semaine dans la zone ambulatoire - Beaucoup de qualité de vie avec au moins 5 semaines de vacances, à partir de 55e année 6 semaines - Nous participons à vos frais de transport en commun - Dans le Triaplus vous avez la possibilité de rotation interne\n\nBeaucoup de raisons nous parlent – ce sont les meilleurs vendeurs.\n\nTriaplus AG — Clinique psychiatrique, Pfäffikon (SZ), Suisse.\n\nContactez le portail de la candidature par l'intermédiaire du portail de carrière : https://krieberse.triaplus.ch/jobs/assist : enzaerztin-or-fachaerztin-w-m-d-ambulant/"
-      },
-      "needsRetranslation": false,
-      "location": "Pfäffikon",
-      "canton": "SZ",
-      "url": "https://karriere.triaplus.ch/jobs/assistenzaerztin-oder-fachaerztin-w-m-d-ambulant/",
-      "source": "Triaplus AG Dedicated Parser (WordPress career site)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-16T09:21:31.733Z",
-      "addressLocality": "Pfäffikon",
-      "addressRegion": "SZ",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8808",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://karriere.triaplus.ch/jobs/assistenzaerztin-oder-fachaerztin-w-m-d-ambulant/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistenzarztin-oder-facharztin-w-m-d-ambulant-triaplus-assistenzaerztin-oder-fachaerztin",
-        "assistenzarztin-oder-facharztin-w-m-d-ambulant-triaplus-ag-oberwil",
-        "assistente-medico-o-specialista-w-m-d-ambulatoriale-triaplus-ag-pfaffikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistenzarztin-oder-facharztin-w-m-d-ambulant-triaplus-assistenzaerztin-oder-fachaerztin",
-          "assistente-medico-o-specialista-w-m-d-ambulatoriale-triaplus-ag-pfaffikon"
-        ],
-        "de": [
-          "assistenzarztin-oder-facharztin-w-m-d-ambulant-triaplus-ag-oberwil"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T21:17:06.493Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "triaplus-cf0dc097c78f",
-      "slug": "fachperson-gesundheit-m-w-d-con-moglichkeit-auf-berufsbildung-auf-der-station-akut-e-allgemeinpsychiatrie-per-neurokognitive-erkrankungen-triaplus-ag-oberwil",
-      "slugByLocale": {
-        "it": "fachperson-gesundheit-m-w-d-con-moglichkeit-auf-berufsbildung-auf-der-station-akut-e-allgemeinpsychiatrie-per-neurokognitive-erkrankungen-triaplus-ag-oberwil",
-        "en": "fachperson-gesundheit-m-w-d-mit-moglichkeit-auf-berufsbildung-auf-der-station-akut-und",
-        "de": "fachperson-gesundheit-m-w-d-mit-moglichkeit-auf-berufsbildung-auf-der-station-fur-neurokognitive-erkrankungen-triaplus",
-        "fr": "fachperson-gesundheit-m-w-d-mit-moglichkeit-auf-berufsbildung-auf-der-station-akut-und"
-      },
-      "company": "Triaplus AG",
-      "companyKey": "triaplus",
-      "companyDomain": "triaplus.ch",
-      "title": "Fachfrau/-mann Gesundheit (m/w/d) mit Möglichkeit auf Berufsbildung auf der Station für Neurokognitive Erkrankungen",
-      "titleByLocale": {
-        "it": "Salute specialistica (m/f/d) con possibilità di formazione professionale nel reparto per le malattie neurocognitive",
-        "en": "Specialist health (m/f/d) with possibility of vocational training in the ward for neurocognitive diseases",
-        "de": "Fachfrau/-mann Gesundheit (m/w/d) mit Möglichkeit auf Berufsbildung auf der Station für Neurokognitive Erkrankungen",
-        "fr": "Santé spécialisée (h/f/d) avec possibilité de formation professionnelle dans le service des maladies neurocognitives"
-      },
-      "description": "Ihre Aufgaben beinhalten\n• Ausüben von Massnahmen in Pflege, Therapie, Rehabilitation und im medizintechnischen Bereich und deren Dokumentation\n• Beraten, Begleiten und Unterstützen von Patientinnen/Patienten bei alltäglichen Verrichtungen und in der Grundpflege\n• Führen von Gesprächen mit Angehörigen\n• Selbständiges erledigen administrativer Arbeiten\n• Begleiten von Patientinnen/Patienten in Krisensituationen gemäss Delegation durch dipl. Pflegefachpersonen\n\nSie bringen dafür mit\n• Abschluss als Fachperson Gesundheit EFZ\n• Ausgewiesene Erfahrung als BerufsbildnerIn\n• Erfahrung in der Pflege von psychisch erkrankten Patientinnen und Patienten von Vorteil\n• sehr gute Deutschkenntnisse in Wort und Schrift\n• hohe Eigenverantwortung und ausgewiesene Sozialkompetenz\n• Freude an der Teamarbeit sowie gutes vernetztes Denken\n\nWir bieten Ihnen\n• Wir sind klein genug, um «familiär» zu sein, für kurze Wege und schnelle Entscheidungen – und so gross, dass Sie hier alle Settings vorfinden und Sie sich spezialisieren/fachlich weiterentwickeln können\n• Ganz viel Lebensqualität mit mindestens 5 Wochen Ferien, ab 55. Altersjahr 6 Wochen\n• Wir beteiligen uns an Ihren ÖV-Kosten\n• In der Triaplus haben Sie die Möglichkeit zur internen Rotation\n\nViele Gründe sprechen für uns – das sind die Bestseller.\nZu den Bestsellern\n\nTriaplus AG — Psychiatrische Klinik, Oberwil (ZG), Schweiz.\n\nBewerbung über das Karriereportal: https://karriere.triaplus.ch/jobs/fachperson-gesundheit-m-w-d-mit-moeglichkeit-auf-berufsbildung-auf-der-station-akut-und-allgemeinpsychiatrie-fuer-neurokognitive-erkrankungen/",
-      "descriptionByLocale": {
-        "it": "I loro compiti comprendono:\n• Esercizio di cure, terapia, riabilitazione e tecnologie mediche e la loro documentazione\n• Consulenza, accompagnamento e sostegno dei pazienti nelle attività quotidiane e nella cura primaria\n• Conversazione con i parenti\n• Autooccupazione dei lavori amministrativi\n• Accompagnamento dei pazienti in situazioni di crisi secondo la delegazione per dipl. Professionisti della cura\n\nLo portano con loro.\n• Salute EFZ grado\n• Esperienza comprovata come formatrice professionale\n• L'esperienza nella cura dei pazienti malati mentali è benefica\n• conoscenza molto buona del tedesco in parola e scrittura\n• alta responsabilità personale e comprovata competenza sociale\n• Divertimento del lavoro di squadra e buon pensiero in rete\n\nNoi li offriamo\n• Siamo abbastanza piccoli da essere “famiglia”, per brevi distanze e decisioni veloci – e così grande che si può trovare tutte le impostazioni qui e si può specializzare / sviluppare professionalmente\n• Un sacco di qualità di vita con almeno 5 settimane di vacanze, da 55. Età 6 settimane\n• Contribuiamo ai vostri costi di trasporto pubblico\n• Nel Triaplus si ha la possibilità di rotazione interna\n\nMolte ragioni parlano per noi – questi sono i bestseller.\nAi bestseller\n\nTriaplus AG — Clinica Psichiatrica, Oberwil (ZG), Svizzera.\n\nApplicazione tramite il portale di carriera: https://karriere.triaplus.ch/jobs/expert-health-m-f-d-possibility-on-vocal training-on-station-acute-and-general psychiatry-for neurocognitive Diseases/",
-        "en": "Their tasks shall include:\n• Exercise of care, therapy, rehabilitation and medical technology measures and their documentation\n• Advising, accompanying and supporting patients in everyday activities and in primary care\n• Conversation with relatives\n• Self-employment of administrative work\n• Accompanying patients in crisis situations according to delegation by dipl. Care professionals\n\nThey bring it with them.\n• Health EFZ degree\n• Proven experience as a vocational trainer\n• Experience in the care of mentally ill patients is beneficial\n• very good knowledge of German in word and writing\n• high personal responsibility and proven social competence\n• Enjoyment of teamwork and good networked thinking\n\nWe offer them\n• We are small enough to be “family”, for short distances and fast decisions – and so big that you can find all settings here and you can specialize / develop professionally\n• A lot of quality of life with at least 5 weeks of holidays, from 55. Age 6 weeks\n• We contribute to your public transport costs\n• In the Triaplus you have the possibility of internal rotation\n\nMany reasons speak for us – these are the bestsellers.\nTo the bestsellers\n\nTriaplus AG — Psychiatric Clinic, Oberwil (ZG), Switzerland.\n\nApplication via the career portal: https://karriere.triaplus.ch/jobs/expert-health-m-f-d-with-possibility-on-vocational training-on-station-acute-and-general psychiatry-for neurocognitive diseases/",
-        "de": "Ihre Aufgaben beinhalten\n• Ausüben von Massnahmen in Pflege, Therapie, Rehabilitation und im medizintechnischen Bereich und deren Dokumentation\n• Beraten, Begleiten und Unterstützen von Patientinnen/Patienten bei alltäglichen Verrichtungen und in der Grundpflege\n• Führen von Gesprächen mit Angehörigen\n• Selbständiges erledigen administrativer Arbeiten\n• Begleiten von Patientinnen/Patienten in Krisensituationen gemäss Delegation durch dipl. Pflegefachpersonen\n\nSie bringen dafür mit\n• Abschluss als Fachperson Gesundheit EFZ\n• Ausgewiesene Erfahrung als BerufsbildnerIn\n• Erfahrung in der Pflege von psychisch erkrankten Patientinnen und Patienten von Vorteil\n• sehr gute Deutschkenntnisse in Wort und Schrift\n• hohe Eigenverantwortung und ausgewiesene Sozialkompetenz\n• Freude an der Teamarbeit sowie gutes vernetztes Denken\n\nWir bieten Ihnen\n• Wir sind klein genug, um «familiär» zu sein, für kurze Wege und schnelle Entscheidungen – und so gross, dass Sie hier alle Settings vorfinden und Sie sich spezialisieren/fachlich weiterentwickeln können\n• Ganz viel Lebensqualität mit mindestens 5 Wochen Ferien, ab 55. Altersjahr 6 Wochen\n• Wir beteiligen uns an Ihren ÖV-Kosten\n• In der Triaplus haben Sie die Möglichkeit zur internen Rotation\n\nViele Gründe sprechen für uns – das sind die Bestseller.\nZu den Bestsellern\n\nTriaplus AG — Psychiatrische Klinik, Oberwil (ZG), Schweiz.\n\nBewerbung über das Karriereportal: https://karriere.triaplus.ch/jobs/fachperson-gesundheit-m-w-d-mit-moeglichkeit-auf-berufsbildung-auf-der-station-akut-und-allgemeinpsychiatrie-fuer-neurokognitive-erkrankungen/",
-        "fr": "Leurs tâches comprennent:\n• Mesures de soins, de thérapie, de réadaptation et de technologie médicale et leur documentation\n• Conseiller, accompagner et soutenir les patients dans les activités quotidiennes et les soins primaires\n• Entretien avec des parents\n• Travail indépendant de l'administration\n• Accompagner les patients en situation de crise selon la délégation de dipl. Professionnels de la santé\n\nIls l'apportent avec eux.\n• Diplôme EFZ Santé\n• Expérience éprouvée en tant que formateur professionnel\n• L'expérience des soins aux malades mentaux est bénéfique\n• très bonne connaissance de l'allemand en paroles et en écriture\n• haute responsabilité personnelle et compétence sociale avérée\n• Appréciation du travail d'équipe et bonne pensée en réseau\n\nNous leur offrons\n• Nous sommes assez petits pour être famille, pour de courtes distances et des décisions rapides – et si grandes que vous pouvez trouver tous les paramètres ici et vous pouvez se spécialiser / développer professionnellement\n• Beaucoup de qualité de vie avec au moins 5 semaines de vacances, à partir de 55. Âge 6 semaines\n• Nous contribuons à vos frais de transport public\n• Dans le Triaplus vous avez la possibilité de rotation interne\n\nBeaucoup de raisons nous parlent – ce sont les best-sellers.\nAux best-sellers\n\nTriaplus AG — Clinique psychiatrique, Oberwil (ZG), Suisse.\n\nApplication via le portail de carrière: https://karriere.triaplus.ch/jobs/expert-health-m-f-d-with-possibility-on-Professional Training-on-station-aigu-et-psychiatrie générale-pour les maladies neurocognitives/"
-      },
-      "needsRetranslation": false,
-      "location": "Oberwil",
-      "canton": "ZG",
-      "url": "https://karriere.triaplus.ch/jobs/fachperson-gesundheit-m-w-d-mit-moeglichkeit-auf-berufsbildung-auf-der-station-akut-und-allgemeinpsychiatrie-fuer-neurokognitive-erkrankungen/",
-      "source": "Triaplus AG Dedicated Parser (WordPress career site)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-16T09:21:30.873Z",
-      "addressLocality": "Oberwil",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6317",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-20",
-      "applyUrl": "https://karriere.triaplus.ch/jobs/fachperson-gesundheit-m-w-d-mit-moeglichkeit-auf-berufsbildung-auf-der-station-akut-und-allgemeinpsychiatrie-fuer-neurokognitive-erkrankungen/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "fachfrau-mann-gesundheit-m-w-d-mit-moglichkeit-auf-berufsbildung-auf-der-station-fur"
-        ],
-        "it": [
-          "fachfrau-mann-gesundheit-m-w-d-mit-moglichkeit-auf-berufsbildung-auf-der-station-fur"
-        ]
-      },
-      "previousSlugs": [
-        "fachfrau-mann-gesundheit-m-w-d-mit-moglichkeit-auf-berufsbildung-auf-der-station-fur"
-      ],
-      "firstSeenAt": "2026-08-20T10:08:35.199Z",
-      "salaryMin": 74500,
-      "salaryMax": 127000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 74500,
-          "maxValue": 127000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "triaplus-55c2b8bf45c2",
-      "slug": "psychologe-m-w-d-kinder-e-jugendpsychiatrie-ambulant-triaplus-ag-oberwil",
-      "slugByLocale": {
-        "it": "psychologe-m-w-d-kinder-e-jugendpsychiatrie-ambulant-triaplus-ag-oberwil",
-        "en": "psychologist-m-f-d-child-and-adolescent-psychiatry-ambulant-triaplus-ag-oberwil",
-        "de": "psychologe-m-w-d-kinder-und-jugendpsychiatrie-ambulant-triaplus-psychologe-m-w-d-kinder",
-        "fr": "psychologue-m-f-d-ambulant-psychiatrique-pour-enfants-et-adolescents-triaplus-ag-oberwil"
-      },
-      "company": "Triaplus AG",
-      "companyKey": "triaplus",
-      "companyDomain": "triaplus.ch",
-      "title": "Psychologe (m/w/d) Kinder- und Jugendpsychiatrie ambulant",
-      "titleByLocale": {
-        "it": "Psicologo (m/f/d) Psichiatria infantile e adolescenziale ambulatoriale",
-        "en": "Psychologist (m/f/d) Child and Adolescent Psychiatry Outpatient",
-        "de": "Psychologe (m/w/d) Kinder- und Jugendpsychiatrie ambulant",
-        "fr": "Psychologue (h/f/d) Psychiatrie de l'enfant et de l'adolescent ambulatoire"
-      },
-      "description": "Ihre Aufgaben beinhalten\n• Begleiten, Beraten und Übernahme der psychotherapeutischen Behandlung von Kindern und Jugendlichen unter Einbezug der Familienangehörigen\n• Abklärungen und Therapien von Patienten mit verschiedenen Störungsbildern\n• Vernetzungsarbeit mit anderen Fachstellen (Schulpsychologischer Dienst, Kinderärztinnen, Kinder- und Jugendpsychiatern, Therapeuten, Schulsozialarbeit, Behörden)\n• Erstellen von Behandlungsdokumentationen, Schreiben der Fachberichte und Erledigung von administrativen Arbeiten\n• Möglichkeit der Durchführung von Gruppentherapien\n\nSie bringen dafür mit\n• Hochschulabschluss in Psychologie sowie abgeschlossene oder fortgeschrittene Weiterbildung in Psychotherapie\n• Berufserfahrung im kinder- und jugendpsychiatrischen Umfeld sowie in der therapeutischen Arbeit mit Familien\n• Hohe Affinität und Interesse an sozialpsychiatrischen und psychotherapeutischen Fragestellungen\n• Empathischer Umgang mit Patientinnen und Patienten und Engagement für individuelle Bedürfnisse\n• Hohe Selbständigkeit, Eigenverantwortung und ausgewiesene Sozialkompetenz\n\nWir bieten Ihnen\n• Wir sind klein genug, um «familiär» zu sein, für kurze Wege und schnelle Entscheidungen – und so gross, dass Sie hier alle Settings vorfinden und Sie sich spezialisieren/fachlich weiterentwickeln können\n• Ganz viel Lebensqualität mit mindestens 5 Wochen Ferien, ab 55. Altersjahr 6 Wochen\n• Wir beteiligen uns an Ihren ÖV-Kosten\n• In der Triaplus haben Sie die Möglichkeit zur internen Rotation\n\nViele Gründe sprechen für uns – das sind die Bestseller.\nZu den Bestsellern\n\nTriaplus AG — Psychiatrische Klinik, Altdorf (UR), Schweiz.\n\nBewerbung über das Karriereportal: https://karriere.triaplus.ch/jobs/psychologe-m-w-d-kinder-und-jugendpsychiatrie-ambulant/",
-      "descriptionByLocale": {
-        "it": "Compiti - Accompagnamento, consulenza e assunzione di trattamenti psicoterapeutici per bambini e adolescenti, compresi i familiari - chiarificazione e terapie di pazienti con diversi tipi di disturbi - collegamento in rete con altri centri specializzati (servizio di psicologia scolastica, pediatria, bambini e giovani, psicoterapia, lavoro sociale scolastico, autorità) - Creazione di documentazione terapeutica, redazione di relazioni specializzate e conduzione di attività amministrative - 66° della conduzione di terapie di gruppo\n\nRequisiti - Laurea in psicologia e formazione continua in psicoterapia - esperienza professionale negli ambienti dei bambini e dei bambini e nel lavoro terapeutico con le famiglie - Alta Abilità e interesse per i problemi sociali dei bambini e psicoterapeutici - Gestione empatica dei pazienti e impegno verso le esigenze individuali - Alta indipendenza, responsabilità personale e competenza sociale comprovata\n\nOffriamo - Siamo abbastanza piccoli per essere \"famiglia\" per brevi distanze e decisioni rapide. e così grande che si possono trovare tutti i cieli qui e si può specializzare / avanzato - Un sacco di qualità della vita con almeno 5 settimane di vacanze, a partire dal 55 ° anno di età 6 settimane - Partecipiamo ai costi di trasporto pubblico - Nel Triaplus si ha la possibilità di rotazione interna\n\nMolti motivi parlano per noi. questi sono i più venduti.\n\nTriaplus AG. Psichiatria: Clinica, Altdorf (UR), Svizzera.\n\nData di nascita: 19.12.1954",
-        "en": "Tasks - Accompanying, consulting and taking over psychotherapeutic treatment of children and adolescents, including family members - clarification and therapies of patients with different types of disorders - networking with other specialist centres (school psychology service, paediatricians, children's and youth, psychotherapy, school social work, authorities) - Creating treatment documentation, writing of specialist reports and conducting administrative work - Possibility of conducting group therapies\n\nRequirements - University degree in psychology and completed or advanced further education in psychotherapy - professional experience in the children's and jibends' environments and in therapeutic work with families - High Aness and interest in social jibends' and psychotherapeutic issues - Empathic handling of patients and commitment to individual needs - High independence, personal responsibility and proven social competence\n\nWe offer - We are small enough to be \"family\" for short distances and quick decisions – and so big that you can find all the skies here and you can specialize/advanced - A lot of quality of life with at least 5 weeks of holidays, from 55th year of age 6 weeks - We participate in your public transport costs - In the Triaplus you have the possibility to internal rotation\n\nMany reasons speak for us – these are the best sellers.\n\nTriaplus AG — Psychiatric Clinic, Altdorf (UR), Switzerland.\n\nContact Application via the career portal: https://krieberrieber.triaplus.ch/jobs/psychologe-m-w-d-kinder-und-jugendpsychiatrie-ambulant/",
-        "de": "Ihre Aufgaben beinhalten\n• Begleiten, Beraten und Übernahme der psychotherapeutischen Behandlung von Kindern und Jugendlichen unter Einbezug der Familienangehörigen\n• Abklärungen und Therapien von Patienten mit verschiedenen Störungsbildern\n• Vernetzungsarbeit mit anderen Fachstellen (Schulpsychologischer Dienst, Kinderärztinnen, Kinder- und Jugendpsychiatern, Therapeuten, Schulsozialarbeit, Behörden)\n• Erstellen von Behandlungsdokumentationen, Schreiben der Fachberichte und Erledigung von administrativen Arbeiten\n• Möglichkeit der Durchführung von Gruppentherapien\n\nSie bringen dafür mit\n• Hochschulabschluss in Psychologie sowie abgeschlossene oder fortgeschrittene Weiterbildung in Psychotherapie\n• Berufserfahrung im kinder- und jugendpsychiatrischen Umfeld sowie in der therapeutischen Arbeit mit Familien\n• Hohe Affinität und Interesse an sozialpsychiatrischen und psychotherapeutischen Fragestellungen\n• Empathischer Umgang mit Patientinnen und Patienten und Engagement für individuelle Bedürfnisse\n• Hohe Selbständigkeit, Eigenverantwortung und ausgewiesene Sozialkompetenz\n\nWir bieten Ihnen\n• Wir sind klein genug, um «familiär» zu sein, für kurze Wege und schnelle Entscheidungen – und so gross, dass Sie hier alle Settings vorfinden und Sie sich spezialisieren/fachlich weiterentwickeln können\n• Ganz viel Lebensqualität mit mindestens 5 Wochen Ferien, ab 55. Altersjahr 6 Wochen\n• Wir beteiligen uns an Ihren ÖV-Kosten\n• In der Triaplus haben Sie die Möglichkeit zur internen Rotation\n\nViele Gründe sprechen für uns – das sind die Bestseller.\nZu den Bestsellern\n\nTriaplus AG — Psychiatrische Klinik, Altdorf (UR), Schweiz.\n\nBewerbung über das Karriereportal: https://karriere.triaplus.ch/jobs/psychologe-m-w-d-kinder-und-jugendpsychiatrie-ambulant/",
-        "fr": "Tâches - Accompagner, consulter et prendre en charge le traitement psychothérapeutique des enfants et des adolescents, y compris les membres de la famille - Clarification et thérapies des patients présentant différents types de troubles - Mise en réseau avec d'autres centres spécialisés (services de psychologie scolaire, pédiatres, enfants et jeunes, psychothérapie, travail social scolaire, autorités) - Création de documents de traitement, rédaction de rapports spécialisés et réalisation de travaux administratifs - Possibilité de mener des thérapies de groupe\n\nExigences - Diplôme universitaire en psychologie et formation complémentaire complète ou avancée en psychothérapie - expérience professionnelle dans les environnements des enfants et des jibends et dans le travail thérapeutique avec les familles - Haute habileté et intérêt pour les questions sociales et psychothérapeutiques - Traitement empathique des patients et engagement pour les besoins individuels - Haute indépendance, responsabilité personnelle et compétence sociale prouvée\n\nNous offrons - Nous sommes assez petits pour être \"famille\" pour de courtes distances et des décisions rapides – et si grand que vous pouvez trouver tous les cieux ici et vous pouvez spécialiser / avancé - Beaucoup de qualité de vie avec au moins 5 semaines de vacances, à partir de 55e année de 6 semaines - Nous participons à vos frais de transport en commun - Dans le Triaplus vous avez la possibilité de rotation interne\n\nBeaucoup de raisons nous parlent – ce sont les meilleurs vendeurs.\n\nTriaplus AG — Clinique psychiatrique, Altdorf (UR), Suisse.\n\nContactez le portail de la candidature par l'intermédiaire du portail de carrière : https://krieberrieber.triaplus.ch/jobs/psychologe-m-w-d-kinder-und-jugendpsychiatrie-ambulant/"
-      },
-      "needsRetranslation": false,
-      "location": "Altdorf",
-      "canton": "UR",
-      "url": "https://karriere.triaplus.ch/jobs/psychologe-m-w-d-kinder-und-jugendpsychiatrie-ambulant/",
-      "source": "Triaplus AG Dedicated Parser (WordPress career site)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-16T09:21:30.003Z",
-      "addressLocality": "Altdorf",
-      "addressRegion": "UR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6460",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-04",
-      "applyUrl": "https://karriere.triaplus.ch/jobs/psychologe-m-w-d-kinder-und-jugendpsychiatrie-ambulant/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "psychologe-m-w-d-kinder-und-jugendpsychiatrie-ambulant-triaplus-psychologe-m-w-d-kinder",
-        "psychologe-m-w-d-kinder-e-jugendpsychiatrie-ambulant-triaplus-ag-altdorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "psychologe-m-w-d-kinder-und-jugendpsychiatrie-ambulant-triaplus-psychologe-m-w-d-kinder",
-          "psychologe-m-w-d-kinder-e-jugendpsychiatrie-ambulant-triaplus-ag-altdorf"
-        ],
-        "en": [
-          "psychologe-m-w-d-kinder-und-jugendpsychiatrie-ambulant-triaplus-psychologe-m-w-d-kinder"
-        ],
-        "fr": [
-          "psychologe-m-w-d-kinder-und-jugendpsychiatrie-ambulant-triaplus-psychologe-m-w-d-kinder"
-        ]
-      },
-      "firstSeenAt": "2026-06-04T15:57:51.923Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -1781,162 +1470,6 @@
           "@type": "QuantitativeValue",
           "minValue": 86500,
           "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "triaplus-f83ddfef553e",
-      "slug": "stationsleitung-o-stv-stationsleitung-m-w-d-auf-der-gerontostation-2-lebenshalfte-triaplus-ag-oberwil",
-      "slugByLocale": {
-        "it": "stationsleitung-o-stv-stationsleitung-m-w-d-auf-der-gerontostation-2-lebenshalfte-triaplus-ag-oberwil",
-        "en": "station-line-or-station-line-m-f-d-on-the-geronto-station-2nd-half-of-life-triaplus-ag-oberwil",
-        "de": "stationsleitung-oder-stv-stationsleitung-m-w-d-auf-der-gerontostation-2-lebenshalfte",
-        "fr": "ligne-de-station-ou-ligne-de-station-m-f-d-sur-la-station-de-geronto-2eme-moitie-de-vie-triaplus-ag-oberwil"
-      },
-      "company": "Triaplus AG",
-      "companyKey": "triaplus",
-      "companyDomain": "triaplus.ch",
-      "title": "Stationsleitung oder stv. Stationsleitung (m/w/d) auf der Gerontostation 2. Lebenshälfte",
-      "titleByLocale": {
-        "it": "Gestione stazione o gestione stazione (m/f/d) sulla Gerontostation 2a metà della vita",
-        "en": "Station line or station line (m/f/d) on the geronto station 2nd half of life",
-        "de": "Stationsleitung oder stv. Stationsleitung (m/w/d) auf der Gerontostation 2. Lebenshälfte",
-        "fr": "Ligne de station ou ligne de station (m/f/d) sur la station de géronto 2ème moitié de vie"
-      },
-      "description": "Ihre Aufgaben beinhalten\n• Verantwortung für eine wirksame, ergebnis- und patientenorientierte Pflege im eigenen Führungsbereich\n• Fachliche, organisatorische und personelle Führung sowie gezielte Förderung der Mitarbeitenden\n• Planung, Organisation und Koordination der Arbeitsabläufe nach den Qualitätsstandards\n• Umsetzung der übergeordneten Ziele im eigenen Führungsbereich\n• Enge interdisziplinäre und interprofessionelle Zusammenarbeit sowie Mitarbeit auf der Station sind für Sie eine Selbstverständlichkeit\n• Aktive Mitarbeit in der Weiterentwicklung der Pflege sowie in zukunftsorientierten Organisations-, Qualitäts- und Pflegeprojekten\n\nSie bringen dafür mit\n• Bereitschaft, Morgens um 07:00 Uhr mit dem Team zu starten und aktiv mit den Patientinnen und Patienten arbeiten zu wollen\n• Abschluss als Dipl. Pflegefachfrau/-mann HF / FH\n• Erfahrung in der Pflege psychisch erkrankter Patienten und Patientinnen\n• Führungserfahrung mit entsprechender Weiterbildung (CAS) oder die Bereitschaft eine entsprechende Weiterbildung zu besuchen\n• Sehr gute Kenntnisse in der EDV Anwendung (KISIM von Vorteil)\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWir bieten Ihnen\n• Wir sind klein genug, um «familiär» zu sein, für kurze Wege und schnelle Entscheidungen – und so gross, dass Sie hier alle Settings vorfinden und Sie sich spezialisieren/fachlich weiterentwickeln können\n• Ganz viel Lebensqualität mit mindestens 5 Wochen Ferien, ab 55. Altersjahr 6 Wochen\n• Wir beteiligen uns an Ihren ÖV-Kosten\n• In der Triaplus haben Sie die Möglichkeit zur internen Rotation\n\nViele Gründe sprechen für uns – das sind die Bestseller.\nZu den Bestsellern\n\nTriaplus AG — Psychiatrische Klinik, Oberwil (ZG), Schweiz.\n\nBewerbung über das Karriereportal: https://karriere.triaplus.ch/jobs/stationsleitung-oder-stv-stationsleitung-m-w-d-auf-der-gerontostation-2-lebenshaelfte/",
-      "descriptionByLocale": {
-        "it": "I loro compiti comprendono:\n• Responsabilità per una cura efficace, orientata ai risultati e ai pazienti nella propria area di gestione\n• Gestione professionale, organizzativa e del personale nonché supporto mirato dei dipendenti\n• Pianificazione, organizzazione e coordinamento dei flussi di lavoro secondo gli standard di qualità\n• Attuazione degli obiettivi generali nella vostra area di gestione\n• Chiudere la cooperazione interdisciplinare e interprofessionale, così come la cooperazione sulla stazione sono una questione naturalmente per voi\n• Partecipazione attiva all'ulteriore sviluppo dell'assistenza e ai progetti organizzativi, di qualità e di cura orientati al futuro\n\nLo portano con loro.\n• Volontà di iniziare con la squadra alle 07:00 del mattino e vogliono lavorare attivamente con i pazienti\n• Laurea come Dipl. Infermieristica professionale HF / FH\n• Esperienza nella cura dei malati mentali\n• Esperienza di leadership con formazione adeguata (CAS) o la volontà di partecipare a una formazione adeguata\n• Ottima conoscenza dell'applicazione del computer (KISIM di vantaggio)\n• Molto buona conoscenza del tedesco in parola e scrittura\n\nNoi li offriamo\n• Siamo abbastanza piccoli da essere “famiglia”, per brevi distanze e decisioni rapide – e così grande che si può trovare tutte le impostazioni qui e si può specializzare / sviluppare professionalmente\n• Un sacco di qualità di vita con almeno 5 settimane vacanze, da 55. Età 6 settimane\n• Contribuiamo ai vostri costi di trasporto pubblico\n• Nel Triaplus si ha la possibilità di rotazione interna\n\nMolte ragioni parlano per noi – questi sono i bestseller.\nTra i bestseller\n\nTriaplus AG — Clinica Psichiatrica, Oberwil (ZG), Svizzera.\n\nApplicazione tramite il portale di carriera: https://karriere.triaplus.ch/jobs/stationsleitung-or-stv-stationsleitung-m-f-d-auf-der-gerontostation-2-lebenshaelfte/",
-        "en": "Their tasks shall include:\n• Responsibility for effective, results- and patient-oriented care in one’s own management area\n• Professional, organizational and personnel management as well as targeted support of employees\n• Planning, organisation and coordination of workflows according to quality standards\n• Implementation of the overarching goals in your own management area\n• Close interdisciplinary and interprofessional cooperation as well as cooperation on the station are a matter of course for you\n• Active participation in the further development of care as well as in future-oriented organizational, quality and care projects\n\nThey bring it with them.\n• Willingness to start with the team at 07:00 in the morning and want to work actively with the patients\n• Degree as a Dipl. Nursing professional HF / FH\n• Experience in the care of mentally ill patients\n• Leadership experience with appropriate training (CAS) or willingness to attend appropriate training\n• Very good knowledge of the computer application (KISIM of advantage)\n• Very good knowledge of German in word and writing\n\nWe offer them\n• We are small enough to be “family”, for short distances and quick decisions – and so big that you can find all the settings here and you can specialize / develop professionally\n• A lot of quality of life with at least 5 weeks holidays, from 55. Age 6 weeks\n• We contribute to your public transport costs\n• In the Triaplus you have the possibility of internal rotation\n\nMany reasons speak for us – these are the bestsellers.\nAmong the bestsellers\n\nTriaplus AG — Psychiatric Clinic, Oberwil (ZG), Switzerland.\n\nApplication via the career portal: https://karriere.triaplus.ch/jobs/stationsleitung-or-stv-stationsleitung-m-f-d-auf-der-gerontostation-2-lebenshaelfte/",
-        "de": "Ihre Aufgaben beinhalten\n• Verantwortung für eine wirksame, ergebnis- und patientenorientierte Pflege im eigenen Führungsbereich\n• Fachliche, organisatorische und personelle Führung sowie gezielte Förderung der Mitarbeitenden\n• Planung, Organisation und Koordination der Arbeitsabläufe nach den Qualitätsstandards\n• Umsetzung der übergeordneten Ziele im eigenen Führungsbereich\n• Enge interdisziplinäre und interprofessionelle Zusammenarbeit sowie Mitarbeit auf der Station sind für Sie eine Selbstverständlichkeit\n• Aktive Mitarbeit in der Weiterentwicklung der Pflege sowie in zukunftsorientierten Organisations-, Qualitäts- und Pflegeprojekten\n\nSie bringen dafür mit\n• Bereitschaft, Morgens um 07:00 Uhr mit dem Team zu starten und aktiv mit den Patientinnen und Patienten arbeiten zu wollen\n• Abschluss als Dipl. Pflegefachfrau/-mann HF / FH\n• Erfahrung in der Pflege psychisch erkrankter Patienten und Patientinnen\n• Führungserfahrung mit entsprechender Weiterbildung (CAS) oder die Bereitschaft eine entsprechende Weiterbildung zu besuchen\n• Sehr gute Kenntnisse in der EDV Anwendung (KISIM von Vorteil)\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWir bieten Ihnen\n• Wir sind klein genug, um «familiär» zu sein, für kurze Wege und schnelle Entscheidungen – und so gross, dass Sie hier alle Settings vorfinden und Sie sich spezialisieren/fachlich weiterentwickeln können\n• Ganz viel Lebensqualität mit mindestens 5 Wochen Ferien, ab 55. Altersjahr 6 Wochen\n• Wir beteiligen uns an Ihren ÖV-Kosten\n• In der Triaplus haben Sie die Möglichkeit zur internen Rotation\n\nViele Gründe sprechen für uns – das sind die Bestseller.\nZu den Bestsellern\n\nTriaplus AG — Psychiatrische Klinik, Oberwil (ZG), Schweiz.\n\nBewerbung über das Karriereportal: https://karriere.triaplus.ch/jobs/stationsleitung-oder-stv-stationsleitung-m-w-d-auf-der-gerontostation-2-lebenshaelfte/",
-        "fr": "Leurs tâches comprennent:\n• Responsabilité pour des soins efficaces, axés sur les résultats et le patient dans un domaine de gestion propre\n• Gestion professionnelle, organisationnelle et du personnel et soutien ciblé des employés\n• Planification, organisation et coordination des flux de travail selon les normes de qualité\n• Mise en œuvre des objectifs globaux dans votre propre domaine de gestion\n• Une coopération interdisciplinaire et interprofessionnelle étroite ainsi qu'une coopération sur la station sont une question bien sûr pour vous\n• Participation active à la poursuite du développement des soins ainsi qu ' à des projets d ' organisation, de qualité et de soins orientés vers l ' avenir\n\nIls l'apportent avec eux.\n• Volonté de commencer avec l'équipe à 07:00 le matin et veulent travailler activement avec les patients\n• Diplôme de diplômé. Soins infirmiers professionnels HF / FH\n• Expérience des soins aux malades mentaux\n• Expérience de leadership avec formation appropriée (CAS) ou volonté de suivre une formation appropriée\n• Très bonne connaissance de l'application informatique (KISIM d'avantage)\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\nNous leur offrons\n• Nous sommes assez petits pour être famille, pour de courtes distances et des décisions rapides – et si grandes que vous pouvez trouver tous les paramètres ici et vous pouvez spécialiser / développer professionnellement\n• Beaucoup de qualité de vie avec au moins 5 semaines de vacances, à partir de 55. Âge 6 semaines\n• Nous contribuons à vos frais de transport public\n• Dans le Triaplus vous avez la possibilité de rotation interne\n\nBeaucoup de raisons nous parlent – ce sont les best-sellers.\nParmi les bestsellers\n\nTriaplus AG — Clinique psychiatrique, Oberwil (ZG), Suisse.\n\nApplication via le portail de carrière: https://karriere.triaplus.ch/jobs/stationsleitung-or-stv-stationsleitung-m-f-d-auf-der-gerontostation-2-lebenshaelfte/"
-      },
-      "needsRetranslation": false,
-      "location": "Oberwil",
-      "canton": "ZG",
-      "url": "https://karriere.triaplus.ch/jobs/stationsleitung-oder-stv-stationsleitung-m-w-d-auf-der-gerontostation-2-lebenshaelfte/",
-      "source": "Triaplus AG Dedicated Parser (WordPress career site)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-16T09:21:27.441Z",
-      "addressLocality": "Oberwil",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6317",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-20",
-      "applyUrl": "https://karriere.triaplus.ch/jobs/stationsleitung-oder-stv-stationsleitung-m-w-d-auf-der-gerontostation-2-lebenshaelfte/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "stationsleitung-oder-stv-stationsleitung-m-w-d-auf-der-gerontostation-2-lebenshalfte"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stationsleitung-oder-stv-stationsleitung-m-w-d-auf-der-gerontostation-2-lebenshalfte"
-        ],
-        "en": [
-          "stationsleitung-oder-stv-stationsleitung-m-w-d-auf-der-gerontostation-2-lebenshalfte"
-        ],
-        "fr": [
-          "stationsleitung-oder-stv-stationsleitung-m-w-d-auf-der-gerontostation-2-lebenshalfte"
-        ]
-      },
-      "firstSeenAt": "2026-07-20T22:03:46.113Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "triaplus-fd81b9be9b83",
-      "slug": "oberarzt-m-w-d-station-per-akut-e-allgemeinpsychiatrie-triaplus-ag-oberwil",
-      "slugByLocale": {
-        "it": "oberarzt-m-w-d-station-per-akut-e-allgemeinpsychiatrie-triaplus-ag-oberwil",
-        "en": "senior-physician-m-f-d-unit-for-acute-and-general-psychiatry-triaplus-ag-oberwil",
-        "de": "oberarzt-m-w-d-station-fur-akut-und-allgemeinpsychiatrie-triaplus-oberarzt-m-w-d-station",
-        "fr": "medecin-principal-m-f-j-unite-de-psychiatrie-aigue-et-generale-triaplus-ag-oberwil"
-      },
-      "company": "Triaplus AG",
-      "companyKey": "triaplus",
-      "companyDomain": "triaplus.ch",
-      "title": "Oberarzt (m/w/d) Station für Akut- und Allgemeinpsychiatrie",
-      "titleByLocale": {
-        "it": "Centro medico senior (m/f/d) per psichiatria acuta e generale",
-        "en": "Senior physician (m/f/d) Unit for acute and general psychiatry",
-        "de": "Oberarzt (m/w/d) Station für Akut- und Allgemeinpsychiatrie",
-        "fr": "Médecin principal (m/f/j) Unité de psychiatrie aiguë et générale"
-      },
-      "description": "Ihre Aufgaben beinhalten\n• Psychiatrisch-psychotherapeutische Behandlung unserer Patienten/-innen\n• Führung eines interdisziplinären Teams zusammen mit der pflegerischen Stationsleitung\n• Koordination der an der Behandlung beteiligten Fachpersonen\n• Anleitung und Supervision von Assistenzärzten/-innen und Psycholog/-innen\n• Engagement in der Aus- und Weiterbildung\n• Aktive Umsetzung und Weiterentwicklung des Therapieangebots\n• Beteiligung am oberärztlichen Hintergrunddienst\n\nSie bringen dafür mit\n• Facharzttitel Psychiatrie und Psychotherapie FMH oder CH-anerkanntes Äquivalent, bei ausländischen Diplomen ist eine Anerkennung durch das Bundesamt für Gesundheit (BAG/MEBEKO) Voraussetzung oder stehen kurz vor Abschluss der Weiterbildung\n• Hohe Sozialkompetenz und Freude am Engagement für individuelle Patientenbedürfnisse\n• Bereitschaft für konzeptionelles Gestalten und kontinuierliche Weiterentwicklung des therapeutischen Angebotes\n• Evidenzbasierte Arbeitsweise, vernetztes Denken und Freude an der interprofessionellen Zusammenarbeit\n• Eigenverantwortlicher und integrativer Arbeits- und Führungsstil\n\nWir bieten Ihnen\n• Wir sind klein genug, um «familiär» zu sein, für kurze Wege und schnelle Entscheidungen – und so gross, dass Sie hier alle Settings vorfinden und Sie sich spezialisieren/fachlich weiterentwickeln können\n• Eine spannende, vielfältige Tätigkeit in einem motivierten und kompetenten Team\n• Bei Interesse die Möglichkeit, sich an der universitären Lehre und ärztlichen Weiterbildung zu beteiligen\n• Ganz viel Lebensqualität mit mindestens 5 Wochen Ferien, ab 55. Altersjahr 6 Wochen\n• Wir beteiligen uns an Ihren ÖV-Kosten\n• In der Triaplus haben Sie die Möglichkeit zur internen Rotation\n\nViele Gründe sprechen für uns – das sind die Bestseller.\nZu den Bestsellern\n\nTriaplus AG — Psychiatrische Klinik, Oberwil (ZG), Schweiz.\n\nBewerbung über das Karriereportal: https://karriere.triaplus.ch/jobs/oberarzt-m-w-d-station-fuer-akut-und-allgemeinpsychiatrie/",
-      "descriptionByLocale": {
-        "it": "I loro compiti comprendono:\n• Trattamento psichiatrico-psicoterapeutico dei nostri pazienti\n• Leadership di un team interdisciplinare insieme alla gestione della stazione di cura\n• Coordinamento dei professionisti coinvolti nel trattamento\n• Guida e supervisione di medici e psicologi assistenti\n• Impegno all'istruzione e alla formazione\n• Attivo implementazione e ulteriore sviluppo dell'offerta terapeutica\n• Partecipazione al servizio medico di base\n\nLo portano con loro.\n• Titolo specialistico Psichiatria e Psicoterapia FMH o CH-approvato equivalente, per il riconoscimento dei diplomi stranieri da parte dell'Ufficio federale della salute (BAG/MEBEKO) è un prerequisito o sono poco prima del completamento di un'ulteriore formazione\n• Alta competenza sociale e piacere nell'impegno per le esigenze individuali dei pazienti\n• Prontezza per il design concettuale e lo sviluppo continuo dell'offerta terapeutica\n• Metodi di lavoro basati sulle prove, pensiero in rete e godimento della cooperazione interprofessionale\n• Autoresponsabile e inclusivo stile di lavoro e leadership\n\nNoi li offriamo\n• Siamo abbastanza piccoli da essere “famiglia”, per brevi distanze e decisioni rapide – e così grande che si può trovare tutte le impostazioni qui e si può specializzare / sviluppare professionalmente\n• Un'attività emozionante e diversificata in un team motivato e competente\n• Se interessati, l'opportunità di partecipare all'insegnamento universitario e alla formazione medica\n• Un sacco di qualità di vita con almeno 5 settimane vacanze, da 55. Età 6 settimane\n• Contribuiamo ai vostri costi di trasporto pubblico\n• Nel Triaplus si ha la possibilità di rotazione interna\n\nMolte ragioni parlano per noi – questi sono i bestseller.\nTra i bestseller\n\nTriaplus AG — Clinica Psichiatrica, Oberwil (ZG), Svizzera.\n\nApplicazione tramite il portale di carriera: https://karriere.triaplus.ch/jobs/oberarzt-m-f-d-station-fuer-akut-und allgemeinenpsychiatrie/",
-        "en": "Their tasks shall include:\n• Psychiatric-psychotherapeutic treatment of our patients\n• Leadership of an interdisciplinary team together with the nursing station management\n• Coordination of professionals involved in treatment\n• Guidance and supervision of assistant doctors and psychologists\n• Commitment to education and training\n• Active implementation and further development of the therapy offer\n• Participation in the medical background service\n\nThey bring it with them.\n• Specialist title Psychiatry and Psychotherapy FMH or CH-approved equivalent, for foreign diplomas recognition by the Federal Office of Health (BAG/MEBEKO) is a prerequisite or are shortly before completion of further education\n• High social competence and pleasure in commitment to individual patient needs\n• Readiness for conceptual design and continuous development of the therapeutic offer\n• Evidence-based working methods, networked thinking and enjoyment of interprofessional cooperation\n• Self-responsible and inclusive working and leadership style\n\nWe offer them\n• We are small enough to be “family”, for short distances and quick decisions – and so big that you can find all the settings here and you can specialize / develop professionally\n• An exciting, diverse activity in a motivated and competent team\n• If interested, the opportunity to participate in university teaching and medical training\n• A lot of quality of life with at least 5 weeks holidays, from 55. Age 6 weeks\n• We contribute to your public transport costs\n• In the Triaplus you have the possibility of internal rotation\n\nMany reasons speak for us – these are the bestsellers.\nAmong the bestsellers\n\nTriaplus AG — Psychiatric Clinic, Oberwil (ZG), Switzerland.\n\nApplication via the career portal: https://karriere.triaplus.ch/jobs/oberarzt-m-f-d-station-fuer-akut-und allgemeinenpsychiatrie/",
-        "de": "Ihre Aufgaben beinhalten\n• Psychiatrisch-psychotherapeutische Behandlung unserer Patienten/-innen\n• Führung eines interdisziplinären Teams zusammen mit der pflegerischen Stationsleitung\n• Koordination der an der Behandlung beteiligten Fachpersonen\n• Anleitung und Supervision von Assistenzärzten/-innen und Psycholog/-innen\n• Engagement in der Aus- und Weiterbildung\n• Aktive Umsetzung und Weiterentwicklung des Therapieangebots\n• Beteiligung am oberärztlichen Hintergrunddienst\n\nSie bringen dafür mit\n• Facharzttitel Psychiatrie und Psychotherapie FMH oder CH-anerkanntes Äquivalent, bei ausländischen Diplomen ist eine Anerkennung durch das Bundesamt für Gesundheit (BAG/MEBEKO) Voraussetzung oder stehen kurz vor Abschluss der Weiterbildung\n• Hohe Sozialkompetenz und Freude am Engagement für individuelle Patientenbedürfnisse\n• Bereitschaft für konzeptionelles Gestalten und kontinuierliche Weiterentwicklung des therapeutischen Angebotes\n• Evidenzbasierte Arbeitsweise, vernetztes Denken und Freude an der interprofessionellen Zusammenarbeit\n• Eigenverantwortlicher und integrativer Arbeits- und Führungsstil\n\nWir bieten Ihnen\n• Wir sind klein genug, um «familiär» zu sein, für kurze Wege und schnelle Entscheidungen – und so gross, dass Sie hier alle Settings vorfinden und Sie sich spezialisieren/fachlich weiterentwickeln können\n• Eine spannende, vielfältige Tätigkeit in einem motivierten und kompetenten Team\n• Bei Interesse die Möglichkeit, sich an der universitären Lehre und ärztlichen Weiterbildung zu beteiligen\n• Ganz viel Lebensqualität mit mindestens 5 Wochen Ferien, ab 55. Altersjahr 6 Wochen\n• Wir beteiligen uns an Ihren ÖV-Kosten\n• In der Triaplus haben Sie die Möglichkeit zur internen Rotation\n\nViele Gründe sprechen für uns – das sind die Bestseller.\nZu den Bestsellern\n\nTriaplus AG — Psychiatrische Klinik, Oberwil (ZG), Schweiz.\n\nBewerbung über das Karriereportal: https://karriere.triaplus.ch/jobs/oberarzt-m-w-d-station-fuer-akut-und-allgemeinpsychiatrie/",
-        "fr": "Leurs tâches comprennent:\n• Traitement psychiatrique-psychothérapeute de nos patients\n• Leadership d'une équipe interdisciplinaire avec la direction du poste de soins infirmiers\n• Coordination des professionnels impliqués dans le traitement\n• Orientation et supervision des médecins adjoints et des psychologues\n• Engagement en matière d'éducation et de formation\n• Mise en œuvre active et développement de l'offre thérapeutique\n• Participation au service d ' études médicales\n\nIls l'apportent avec eux.\n• Titre du spécialiste Psychiatrie et psychothérapie La FMH ou l'équivalent approuvé par le CH pour les diplômes étrangers reconnus par l'Office fédéral de la santé (BAG/MEBEKO) est une condition préalable ou peu de temps avant l'achèvement de l'enseignement supérieur\n• Haute compétence sociale et plaisir dans l'engagement aux besoins individuels des patients\n• Préparation à la conception conceptuelle et au développement continu de l'offre thérapeutique\n• Méthodes de travail fondées sur des données probantes, pensée en réseau et jouissance de la coopération interprofessionnelle\n• Style de travail et de leadership autonome et inclusif\n\nNous leur offrons\n• Nous sommes assez petits pour être famille, pour de courtes distances et des décisions rapides – et si grandes que vous pouvez trouver tous les paramètres ici et vous pouvez spécialiser / développer professionnellement\n• Une activité passionnante et diversifiée dans une équipe motivée et compétente\n• Si elle est intéressée, la possibilité de participer à l'enseignement universitaire et à la formation médicale\n• Beaucoup de qualité de vie avec au moins 5 semaines de vacances, à partir de 55. Âge 6 semaines\n• Nous contribuons à vos frais de transport public\n• Dans le Triaplus vous avez la possibilité de rotation interne\n\nBeaucoup de raisons nous parlent – ce sont les best-sellers.\nParmi les bestsellers\n\nTriaplus AG — Clinique psychiatrique, Oberwil (ZG), Suisse.\n\nApplication via le portail de carrière: https://karriere.triaplus.ch/jobs/oberarzt-m-f-d-station-fuer-akut-und allgemeinenpsychiatrie/"
-      },
-      "needsRetranslation": false,
-      "location": "Oberwil",
-      "canton": "ZG",
-      "url": "https://karriere.triaplus.ch/jobs/oberarzt-m-w-d-station-fuer-akut-und-allgemeinpsychiatrie/",
-      "source": "Triaplus AG Dedicated Parser (WordPress career site)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-16T09:21:26.583Z",
-      "addressLocality": "Oberwil",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6317",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-05",
-      "applyUrl": "https://karriere.triaplus.ch/jobs/oberarzt-m-w-d-station-fuer-akut-und-allgemeinpsychiatrie/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "oberarzt-m-w-d-station-fur-akut-und-allgemeinpsychiatrie-triaplus-oberarzt-m-w-d-station"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "oberarzt-m-w-d-station-fur-akut-und-allgemeinpsychiatrie-triaplus-oberarzt-m-w-d-station"
-        ],
-        "en": [
-          "oberarzt-m-w-d-station-fur-akut-und-allgemeinpsychiatrie-triaplus-oberarzt-m-w-d-station"
-        ],
-        "fr": [
-          "oberarzt-m-w-d-station-fur-akut-und-allgemeinpsychiatrie-triaplus-oberarzt-m-w-d-station"
-        ]
-      },
-      "firstSeenAt": "2026-08-05T11:31:29.154Z",
-      "salaryMin": 117000,
-      "salaryMax": 163000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 117000,
-          "maxValue": 163000,
           "unitText": "YEAR"
         }
       }
@@ -2332,87 +1865,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "triaplus-13a9b13223b6",
-      "slug": "psychologe-m-w-d-kinder-e-jugendpsychiatrie-triaplus-ag-oberwil",
-      "slugByLocale": {
-        "it": "psychologe-m-w-d-kinder-e-jugendpsychiatrie-triaplus-ag-oberwil",
-        "en": "psychologist-m-f-d-child-and-adolescent-psychiatry-triaplus-ag-oberwil",
-        "de": "psychologe-m-w-d-kinder-und-jugendpsychiatrie-triaplus-psychologe-m-w-d-kinder-und",
-        "fr": "psychologue-m-f-d-psychiatrie-des-enfants-et-des-adolescents-triaplus-ag-oberwil"
-      },
-      "company": "Triaplus AG",
-      "companyKey": "triaplus",
-      "companyDomain": "triaplus.ch",
-      "title": "Psychologe (m/w/d) Kinder- und Jugendpsychiatrie",
-      "titleByLocale": {
-        "it": "Psychologe (m/w/d) Kinder- e Jugendpsychiatrie",
-        "en": "Psychologist (m/f/d) Child and Adolescent Psychiatry",
-        "de": "Psychologe (m/w/d) Kinder- und Jugendpsychiatrie",
-        "fr": "Psychologue (h/f/d) Psychiatrie de l'enfant et de l'adolescent"
-      },
-      "description": "Ihre Aufgaben beinhalten\n• Begleiten, Beraten und Übernahme der psychotherapeutischen Behandlung von Kindern und Jugendlichen unter Einbezug der Familienangehörigen\n• Abklärungen und Therapien von Patientinnen und Patienten mit verschiedenen Störungsbildern, Familientherapien, Elternberatungen\n• Vernetzungsarbeit mit anderen Fachstellen (Schulpsychologischer Dienst, Kinderärzten, Kinder- und Jugendpsychiatern, Therapeuten)\n• Erstellen von Behandlungsdokumentationen, Schreiben der Fachberichte und Erledigung von administrativen Arbeiten\n• Möglichkeit zur fachlichen Spezialisierung\n• Möglichkeit der Durchführung von Gruppentherapien\n\nSie bringen dafür mit\n• Hochschulabschluss in Psychologie sowie abgeschlossene oder weit fortgeschrittene Weiterbildung in Psychotherapie\n• Berufserfahrung im kinder- und jugendpsychiatrischen Umfeld sowie in der therapeutischen Arbeit mit Familien\n• Hohe Affinität und Interesse an sozialpsychiatrischen und psychotherapeutischen Fragestellungen\n• Empathischer Umgang mit Patientinnen und Patienten und Engagement für individuelle Bedürfnisse\n• Hohe Selbständigkeit, Eigenverantwortung und ausgewiesene Sozialkompetenz\n• Gute Englischkenntnisse (wegen Arbeit mit Expats)\n\nWir bieten Ihnen\n• Wir sind klein genug, um «familiär» zu sein, für kurze Wege und schnelle Entscheidungen – und so gross, dass Sie hier alle Settings vorfinden und Sie sich spezialisieren/fachlich weiterentwickeln können\n• Langfristige ambulante Psychotherapien sind ein wichtiger Teil unseres Leistungsspektrums\n• Ganz viel Lebensqualität mit mindestens 5 Wochen Ferien, ab 55. Altersjahr 6 Wochen\n• Wir beteiligen uns an Ihren ÖV-Kosten\n• In der Triaplus haben Sie die Möglichkeit zur internen Rotation\n\nViele Gründe sprechen für uns – das sind die Bestseller.\nZu den Bestsellern\n\nTriaplus AG — Psychiatrische Klinik, Baar (ZG), Schweiz.\n\nBewerbung über das Karriereportal: https://karriere.triaplus.ch/jobs/psychologe-m-w-d-kinder-und-jugendpsychiatrie/",
-      "descriptionByLocale": {
-        "it": "I tuoi compiti\n\n- Accompagnamento, consulenza e assunzione di trattamenti psicoterapeutici per bambini e adolescenti, compresi i familiari - chiarificazione e terapie di pazienti con diversi tipi di disturbi, terapie familiari, consulenza parentale - lavoro in rete con altri centri specializzati (servizio di psicologia scolastica, 383ans, bambini e giovani, psicochiatri, terapisti) - Creazione di documentazione terapeutica, redazione di relazioni specializzate e svolgimento di attività amministrative - possibilità di formazione professionale specializzata - possibilità di svolgere attività di formazione\n\nTerapia di gruppo\n\nPortano con loro\n\n- Laurea in psicologia e perfezionamento professionale in psicoterapia - esperienza professionale nell'ambiente dei bambini e della jihadd psichiatria e nel lavoro terapeutico con le famiglie - Alta A-Sinness e interesse per le questioni psico-psichiatriche e psicoterapeutiche - Maneggio empatico dei pazienti e impegno verso le esigenze individuali - Alta indipendenza, responsabilità personale e competenza sociale comprovata - Buone competenze inglesi (perché lavorano con gli espatriati)\n\nVi offriamo\n\n- Siamo abbastanza piccoli per essere \"famiglia\" per brevi distanze e decisioni rapide. e così grande che si possono trovare tutti i pozzetti qui e si può specializzare / avanzato - psicoterapia ambulatoriale di lungo termine è una parte importante della nostra gamma di servizi - Un sacco di qualità di vita con almeno 5 settimane di vacanze, a partire da 55 ° anno 6 settimane - Partecipiamo ai costi di trasporto pubblico - Nel Triaplus si ha la possibilità di rotazione interna\n\nMolti motivi parlano per noi. questi sono i più venduti.\n\nContatto\n\nTriaplus AG. Psichiatria 1974, Baar (ZG), Svizzera.\n\nData di nascita: 19.12.1956",
-        "en": "Your tasks\n\n- Accompanying, consulting and taking over psychotherapeutic treatment of children and adolescents, including family members - clarification and therapies of patients with different types of disorders, family therapies, parental counselling - networking work with other specialist centres (school psychology service, pediatricians, children's and youths, psychochiaters, therapists) - Creating treatment documentation, writing of specialist reports and conducting administrative work - possibility of specialised professional training - possibility of carrying out\n\nGroup therapies\n\nThey bring with them\n\n- University degree in psychology and completed or advanced further education in psychotherapy - professional experience in the children's and the jihadd psy chiatrian environment as well as in therapeutic work with families - High A-Sinness and interest in social-psychiatric and psychotherapeutic issues - Empathic handling of patients and commitment to individual needs - High independence, personal responsibility and proven social competence - Good English skills (because of working with expats)\n\nWe offer you\n\n- We are small enough to be \"family\" for short distances and quick decisions – and so big that you can find all the cockpits here and you can specialize/advanced - Long-term outpatient psychotherapy is an important part of our range of services - A lot of quality of life with at least 5 weeks of holidays, from 55th year 6 weeks - We participate in your public transport costs - In the Triaplus you have the possibility to internal rotation\n\nMany reasons speak for us – these are the best sellers.\n\nContact\n\nTriaplus AG — Psychiatric Clinic, Baar (ZG), Switzerland.\n\nApplication via the career portal: https://krieberse.triaplus.ch/jobs/psychologe-m-w-d-kinder-und-jugendpsychiatrie/",
-        "de": "Ihre Aufgaben beinhalten\n• Begleiten, Beraten und Übernahme der psychotherapeutischen Behandlung von Kindern und Jugendlichen unter Einbezug der Familienangehörigen\n• Abklärungen und Therapien von Patientinnen und Patienten mit verschiedenen Störungsbildern, Familientherapien, Elternberatungen\n• Vernetzungsarbeit mit anderen Fachstellen (Schulpsychologischer Dienst, Kinderärzten, Kinder- und Jugendpsychiatern, Therapeuten)\n• Erstellen von Behandlungsdokumentationen, Schreiben der Fachberichte und Erledigung von administrativen Arbeiten\n• Möglichkeit zur fachlichen Spezialisierung\n• Möglichkeit der Durchführung von Gruppentherapien\n\nSie bringen dafür mit\n• Hochschulabschluss in Psychologie sowie abgeschlossene oder weit fortgeschrittene Weiterbildung in Psychotherapie\n• Berufserfahrung im kinder- und jugendpsychiatrischen Umfeld sowie in der therapeutischen Arbeit mit Familien\n• Hohe Affinität und Interesse an sozialpsychiatrischen und psychotherapeutischen Fragestellungen\n• Empathischer Umgang mit Patientinnen und Patienten und Engagement für individuelle Bedürfnisse\n• Hohe Selbständigkeit, Eigenverantwortung und ausgewiesene Sozialkompetenz\n• Gute Englischkenntnisse (wegen Arbeit mit Expats)\n\nWir bieten Ihnen\n• Wir sind klein genug, um «familiär» zu sein, für kurze Wege und schnelle Entscheidungen – und so gross, dass Sie hier alle Settings vorfinden und Sie sich spezialisieren/fachlich weiterentwickeln können\n• Langfristige ambulante Psychotherapien sind ein wichtiger Teil unseres Leistungsspektrums\n• Ganz viel Lebensqualität mit mindestens 5 Wochen Ferien, ab 55. Altersjahr 6 Wochen\n• Wir beteiligen uns an Ihren ÖV-Kosten\n• In der Triaplus haben Sie die Möglichkeit zur internen Rotation\n\nViele Gründe sprechen für uns – das sind die Bestseller.\nZu den Bestsellern\n\nTriaplus AG — Psychiatrische Klinik, Baar (ZG), Schweiz.\n\nBewerbung über das Karriereportal: https://karriere.triaplus.ch/jobs/psychologe-m-w-d-kinder-und-jugendpsychiatrie/",
-        "fr": "Vos tâches\n\n- Accompagner, consulter et prendre en charge le traitement psychothérapeutique des enfants et des adolescents, y compris les membres de la famille - clarification et thérapies des patients présentant différents types de troubles, thérapies familiales, conseils parentaux - travail en réseau avec d'autres centres spécialisés (psychologie scolaire, pédiatres, enfants et jeunes, psychochiatres, thérapeutes) - Création de documents de traitement, rédaction de rapports spécialisés et réalisation de travaux administratifs - possibilité de formation professionnelle spécialisée - possibilité de mener à bien des activités de traitement\n\nThérapies de groupe\n\nIls amènent avec eux\n\n- Diplôme universitaire en psychologie et diplôme ou diplôme de perfectionnement en psychothérapie - expérience professionnelle dans l'environnement chiatrien des enfants et des jihadd ainsi que dans le travail thérapeutique avec les familles - Très grand niveau de connaissance et intérêt pour les questions sociopsychiatriques et psychothérapeutiques - Traitement empathique des patients et engagement envers les besoins individuels - Haute indépendance, responsabilité personnelle et compétence sociale prouvée - Bonnes compétences en anglais (en raison de l'expérience)\n\nNous vous offrons\n\n- Nous sommes assez petits pour être \"famille\" pour de courtes distances et des décisions rapides – et si grandes que vous pouvez trouver tous les cockpits ici et vous pouvez se spécialiser/avancé - La psychothérapie ambulatoire de longue durée est une partie importante de notre gamme de services - Beaucoup de qualité de vie avec au moins 5 semaines de vacances, à partir de 55e année 6 semaines - Nous participons à vos frais de transport en commun - Dans le Triaplus vous avez la possibilité de rotation interne\n\nBeaucoup de raisons nous parlent – ce sont les meilleurs vendeurs.\n\nPersonne à contacter\n\nTriaplus AG — Clinique psychiatrique, Baar (ZG), Suisse.\n\nApplication via le portail de carrière: https://krieberse.triaplus.ch/jobs/psychologe-m-w-d-kinder-und-jugendpsychiatrie/"
-      },
-      "needsRetranslation": false,
-      "location": "Baar",
-      "canton": "ZG",
-      "url": "https://karriere.triaplus.ch/jobs/psychologe-m-w-d-kinder-und-jugendpsychiatrie/",
-      "source": "Triaplus AG Dedicated Parser (WordPress career site)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-14T16:02:00.332Z",
-      "addressLocality": "Baar",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6340",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://karriere.triaplus.ch/jobs/psychologe-m-w-d-kinder-und-jugendpsychiatrie/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "psychologe-m-w-d-kinder-und-jugendpsychiatrie-triaplus-psychologe-m-w-d-kinder-und",
-        "psychologe-m-w-d-kinder-e-jugendpsychiatrie-triaplus-ag-baar"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "psychologe-m-w-d-kinder-und-jugendpsychiatrie-triaplus-psychologe-m-w-d-kinder-und",
-          "psychologe-m-w-d-kinder-e-jugendpsychiatrie-triaplus-ag-baar"
-        ],
-        "en": [
-          "psychologe-m-w-d-kinder-und-jugendpsychiatrie-triaplus-psychologe-m-w-d-kinder-und"
-        ],
-        "fr": [
-          "psychologe-m-w-d-kinder-und-jugendpsychiatrie-triaplus-psychologe-m-w-d-kinder-und"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T23:43:10.977Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
     }
   ]
 }

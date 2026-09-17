@@ -633,9 +633,9 @@
     },
     {
       "id": "tally-weijl-8adfd90046bb",
-      "slug": "store-manager-100-m-w-d-tally-weijl-bern",
+      "slug": "direttore-100-m-w-d-tally-weijl-bern",
       "slugByLocale": {
-        "it": "store-manager-100-m-w-d-tally-weijl-bern",
+        "it": "direttore-100-m-w-d-tally-weijl-bern",
         "en": "store-manager-100-m-w-d-tally-weijl-bern",
         "de": "store-manager-100-m-w-d-tally-weijl-bern",
         "fr": "gestionnaire-a-100-m-w-d-tally-weijl-bern"
@@ -691,7 +691,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "store-manager-100-m-w-d-tally-weijl-bern"
+        ]
+      },
+      "previousSlugs": [
+        "store-manager-100-m-w-d-tally-weijl-bern"
+      ]
     },
     {
       "id": "tally-weijl-4f4e9000aa51",
@@ -2259,7 +2267,8 @@
       },
       "previousSlugs": [
         "fitting-modelle-tally-weijl-basel",
-        "modeles-d-ajustement-tally-weijl-basel"
+        "modeles-d-ajustement-tally-weijl-basel",
+        "fitting-models-tally-weijl-basel"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -2267,6 +2276,9 @@
         ],
         "fr": [
           "modeles-d-ajustement-tally-weijl-basel"
+        ],
+        "it": [
+          "fitting-models-tally-weijl-basel"
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:39.249Z",

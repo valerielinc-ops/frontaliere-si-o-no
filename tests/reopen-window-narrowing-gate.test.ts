@@ -91,8 +91,10 @@ const DEFAULT_WINDOW_H = readDefaultWindowHours();
 
 /**
  * Finestre più strette del default, ammesse UNA PER UNA con il motivo.
- * Chiave: `<path>:<linea>:<ore>`. Aggiungerne una senza motivo è il punto: si scrive
- * il motivo o si toglie la finestra.
+ * Chiave: `<path>:<linea>:<ore>` per i call site testuali, oppure
+ * `<path>:<simbolo>:reopenWithinHours:<ore>` per un call site JS ancorato.
+ * Aggiungerne una senza motivo è il punto: si scrive il motivo o si toglie la
+ * finestra.
  */
 const NARROWING_ALLOWLIST: Record<string, string> = {
   '.github/workflows/post-deploy-validate-dist.yml:1750:6':
@@ -115,11 +117,11 @@ const NARROWING_ALLOWLIST: Record<string, string> = {
     'audit quindicinale: 336h = il suo periodo.',
   'scripts/ci/report-validate-dist-failure.mjs:572:6':
     'ramo `reportValidateDist` (post-deploy, con buildSha): è il caso benedetto dei 6h. Il ramo `reportBuild` dello stesso file NON nomina più la finestra ed eredita il default.',
-  'scripts/ci/review-gate.mjs:1018:0':
+  'scripts/ci/review-gate.mjs:mintFollowup:reopenWithinHours:0':
     'follow-up di scope già drenata: una issue completata non deve riaprirsi e reinserire finding già risolti nel ciclo successivo.',
 };
 
-type Site = { file: string; line: number; hours: number | null; raw: string };
+type Site = { file: string; line: number; hours: number | null; raw: string; symbol: string | null };
 
 function walk(dir: string, out: string[] = []): string[] {
   for (const name of readdirSync(dir)) {
@@ -183,10 +185,10 @@ function scan(): { creates: Site[]; windows: Site[] } {
       if (/(?:node|tsx)\s+\S*github-issue-creator\.mjs/.test(lines[i])) {
         const block = cliBlockAt(lines, i);
         if (/--resolve\b/.test(block)) continue;
-        creates.push({ file, line: i + 1, hours: null, raw: lines[i].trim() });
+        creates.push({ file, line: i + 1, hours: null, raw: lines[i].trim(), symbol: null });
         const m = block.match(/--reopen-within-hours\s+"?([^\s"\\]+)"?/);
-        if (m) windows.push({ file, line: i + 1, hours: numOrNull(m[1]), raw: m[0] });
-        else if (/--no-reopen\b/.test(block)) windows.push({ file, line: i + 1, hours: 0, raw: '--no-reopen' });
+        if (m) windows.push({ file, line: i + 1, hours: numOrNull(m[1]), raw: m[0], symbol: null });
+        else if (/--no-reopen\b/.test(block)) windows.push({ file, line: i + 1, hours: 0, raw: '--no-reopen', symbol: null });
         continue;
       }
       // Le righe di COMMENTO non sono call site. Senza questo salto il gate
@@ -197,11 +199,17 @@ function scan(): { creates: Site[]; windows: Site[] } {
       // (b) opzione passata come proprietà dai chiamanti JS
       if (/\breopenWithinHours\s*:/.test(lines[i])) {
         const js = jsWindowAt(lines, i);
-        if (js) windows.push({ file, line: i + 1, hours: js.hours, raw: js.raw });
+        if (js) windows.push({
+          file,
+          line: i + 1,
+          hours: js.hours,
+          raw: js.raw,
+          symbol: enclosingFunctionName(lines, i),
+        });
       }
       // (c) input della composite action, e chi lo passa da un workflow
       const yml = lines[i].match(/^\s*reopen-within-hours:\s*'?([^'\s#]+)'?/);
-      if (yml) windows.push({ file, line: i + 1, hours: numOrNull(yml[1]), raw: lines[i].trim() });
+      if (yml) windows.push({ file, line: i + 1, hours: numOrNull(yml[1]), raw: lines[i].trim(), symbol: null });
     }
   }
   return { creates, windows };
@@ -211,6 +219,23 @@ function numOrNull(raw: string): number | null {
   const t = raw.trim().replace(/^['"]|['"]$/g, '');
   const n = Number(t);
   return t !== '' && Number.isFinite(n) ? n : null;
+}
+
+// `review-gate.mjs` contiene una proprietà JS: il simbolo resta stabile anche
+// quando inserimenti sopra il call site spostano le righe del file.
+function enclosingFunctionName(lines: string[], i: number): string | null {
+  for (let j = i; j >= 0; j--) {
+    const match = lines[j].match(/^\s*(?:export\s+)?(?:async\s+)?function\s+([A-Za-z_$][\w$]*)\s*\(/);
+    if (match) return match[1];
+  }
+  return null;
+}
+
+function siteKey(site: Site): string {
+  if (site.file === 'scripts/ci/review-gate.mjs') {
+    return `${site.file}:${site.symbol ?? 'unknown'}:reopenWithinHours:${site.hours}`;
+  }
+  return `${site.file}:${site.line}:${site.hours}`;
 }
 
 const { creates, windows } = scan();
@@ -327,7 +352,7 @@ describe('ogni restringimento della finestra è dichiarato e motivato', () => {
 
   it('nessuna finestra più stretta del default fuori dall allowlist', () => {
     const undeclared = narrowings
-      .map((w) => ({ key: `${w.file}:${w.line}:${w.hours}`, at: `${w.file}:${w.line}` }))
+      .map((w) => ({ key: siteKey(w), at: `${w.file}:${w.line}` }))
       .filter((w) => !(w.key in NARROWING_ALLOWLIST));
     expect(undeclared).toEqual([]);
   });
@@ -340,9 +365,14 @@ describe('ogni restringimento della finestra è dichiarato e motivato', () => {
   });
 
   it('nessuna voce orfana: l allowlist descrive call site vivi', () => {
-    const live = new Set(narrowings.map((w) => `${w.file}:${w.line}:${w.hours}`));
+    const live = new Set(narrowings.map(siteKey));
     const orphans = Object.keys(NARROWING_ALLOWLIST).filter((k) => !live.has(k));
     expect(orphans).toEqual([]);
+  });
+
+  it('un anchor stabile non accorpa due call site distinti', () => {
+    const keys = narrowings.map(siteKey);
+    expect(new Set(keys).size).toBe(keys.length);
   });
 
   it('i due reporter riparati NON nominano più una finestra', () => {

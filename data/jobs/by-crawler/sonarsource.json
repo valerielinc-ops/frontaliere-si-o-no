@@ -53,8 +53,7 @@
         "responsabile-del-prodotto-tecnico-qualita-del-codice-f-m-d-sonarsource-sonar-geneva",
         "technical-product-manager-code-quality-f-m-d-sonarsource-ch",
         "technical-product-manager-code-qualitat-f-m-d-sonarsource-sonar-geneva",
-        "technical-product-manager-code-qualite-f-m-d-sonarsource-sonar-geneva",
-        "responsabile-del-prodotto-tecnico-codice-qualita-sonarsource-sonar-geneva"
+        "technical-product-manager-code-qualite-f-m-d-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -62,8 +61,7 @@
           "responsabile-del-prodotto-tecnico-qualita-del-codice-f-m-d-sonarsource-sonar-geneva",
           "technical-product-manager-code-quality-f-m-d-sonarsource-ch",
           "technical-product-manager-code-qualitat-f-m-d-sonarsource-sonar-geneva",
-          "technical-product-manager-code-qualite-f-m-d-sonarsource-sonar-geneva",
-          "responsabile-del-prodotto-tecnico-codice-qualita-sonarsource-sonar-geneva"
+          "technical-product-manager-code-qualite-f-m-d-sonarsource-sonar-geneva"
         ],
         "en": [
           "technical-product-manager-code-quality-f-m-d-sonarsource-ch"
@@ -95,9 +93,9 @@
     },
     {
       "id": "sonarsource-610c905855c1",
-      "slug": "technical-account-manager-technical-advisory-sonarsource-ch",
+      "slug": "responsabile-tecnico-dell-account-consulenza-tecnica-sonarsource-sonar-geneva",
       "slugByLocale": {
-        "it": "technical-account-manager-technical-advisory-sonarsource-ch",
+        "it": "responsabile-tecnico-dell-account-consulenza-tecnica-sonarsource-sonar-geneva",
         "en": "technical-account-manager-technical-advisory-sonarsource-ch",
         "de": "technischer-account-manager-technische-beratung-sonarsource-sonar-geneva",
         "fr": "gestionnaire-de-comptes-techniques-conseil-technique-sonarsource-sonar-geneva"
@@ -153,7 +151,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-account-manager-technical-advisory-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technical-account-manager-technical-advisory-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-148febf69c9c",
@@ -202,13 +208,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "tax-intern-sonarsource-ch",
-        "tax-tirocinante-sonarsource-sonar-geneva"
+        "tax-intern-sonarsource-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tax-intern-sonarsource-ch",
-          "tax-tirocinante-sonarsource-sonar-geneva"
+          "tax-intern-sonarsource-ch"
         ],
         "de": [
           "tax-intern-sonarsource-ch"
@@ -281,13 +285,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "support-engineer-sonarsource-ch",
-        "support-engineer-sonarsource-sonar-geneva",
-        "support-ingegnere-sonarsource-sonar-geneva"
+        "support-engineer-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "support-engineer-sonarsource-ch",
-          "support-ingegnere-sonarsource-sonar-geneva"
+          "support-engineer-sonarsource-ch"
         ],
         "en": [
           "support-engineer-sonarsource-sonar-geneva"
@@ -374,8 +376,7 @@
         "graduate-software-ingenieur-sonarsource-sonar-geneva",
         "senior-software-ingegnere-java-remediation-agent-sonarsource-sonar-geneva",
         "senior-software-engineer-java-remediation-agent-sonarsource-ch",
-        "senior-software-ingenieur-java-remediation-agent-sonarsource-sonar-geneva",
-        "staff-software-ingegnere-java-sonarsource-sonar-geneva"
+        "senior-software-ingenieur-java-remediation-agent-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -391,8 +392,7 @@
           "graduate-software-ingenieur-sonarsource-sonar-geneva",
           "senior-software-ingegnere-java-remediation-agent-sonarsource-sonar-geneva",
           "senior-software-engineer-java-remediation-agent-sonarsource-ch",
-          "senior-software-ingenieur-java-remediation-agent-sonarsource-sonar-geneva",
-          "staff-software-ingegnere-java-sonarsource-sonar-geneva"
+          "senior-software-ingenieur-java-remediation-agent-sonarsource-sonar-geneva"
         ],
         "en": [
           "staff-full-stack-engineer-java-react-sonarsource-ch",
@@ -472,13 +472,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "staff-data-engineer-sonarsource-ch",
-        "staff-data-ingegnere-sonarsource-sonar-geneva"
+        "staff-data-engineer-sonarsource-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "staff-data-engineer-sonarsource-ch",
-          "staff-data-ingegnere-sonarsource-sonar-geneva"
+          "staff-data-engineer-sonarsource-ch"
         ],
         "de": [
           "staff-data-engineer-sonarsource-ch"
@@ -511,7 +509,7 @@
         "it": "sr-staff-customer-trust-manager-sonarsource-ch",
         "en": "sr-staff-customer-trust-manager-sonarsource-ch",
         "de": "senior-customer-trust-manager-sonarsource-sonar-geneva",
-        "fr": "sr-staff-customer-trust-manager-sonarsource-ch"
+        "fr": "chef-de-service-client-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
@@ -573,7 +571,7 @@
       "slugByLocale": {
         "it": "scrittore-tecnico-di-software-sonarsource-sonar-geneva",
         "en": "software-technical-writer-sonarsource-ch",
-        "de": "software-technical-writer-sonarsource-ch",
+        "de": "technischer-software-autor-sonarsource-sonar-geneva",
         "fr": "redacteur-technique-logiciel-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
@@ -614,15 +612,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "software-technical-writer-sonarsource-ch",
-        "scrittore-tecnico-di-software-sonarsource-sonar-geneva"
+        "software-technical-writer-sonarsource-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-technical-writer-sonarsource-ch",
-          "scrittore-tecnico-di-software-sonarsource-sonar-geneva"
+          "software-technical-writer-sonarsource-ch"
         ],
         "fr": [
+          "software-technical-writer-sonarsource-ch"
+        ],
+        "de": [
           "software-technical-writer-sonarsource-ch"
         ]
       },
@@ -689,13 +688,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-software-engineer-java-remediation-agent-sonarsource-ch",
-        "senior-software-ingegnere-java-remediation-agent-sonarsource-sonar-geneva"
+        "senior-software-engineer-java-remediation-agent-sonarsource-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-java-remediation-agent-sonarsource-ch",
-          "senior-software-ingegnere-java-remediation-agent-sonarsource-sonar-geneva"
+          "senior-software-engineer-java-remediation-agent-sonarsource-ch"
         ],
         "de": [
           "senior-software-engineer-java-remediation-agent-sonarsource-ch"
@@ -767,13 +764,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-solutions-engineer-emea-sonarsource-ch",
-        "sales-solutions-ingegnere-emea-sonarsource-sonar-geneva"
+        "sales-solutions-engineer-emea-sonarsource-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-solutions-engineer-emea-sonarsource-ch",
-          "sales-solutions-ingegnere-emea-sonarsource-sonar-geneva"
+          "sales-solutions-engineer-emea-sonarsource-ch"
         ],
         "de": [
           "sales-solutions-engineer-emea-sonarsource-ch"
@@ -804,7 +799,7 @@
       "slugByLocale": {
         "it": "responsabile-vendite-emea-west-sonarsource-sonar-geneva",
         "en": "sales-manager-emea-west-sonarsource-ch",
-        "de": "sales-manager-emea-west-sonarsource-ch",
+        "de": "vertriebsleiter-emea-west-sonarsource-sonar-geneva",
         "fr": "directeur-des-ventes-emea-west-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
@@ -845,15 +840,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-manager-emea-west-sonarsource-ch",
-        "responsabile-vendite-emea-west-sonarsource-sonar-geneva"
+        "sales-manager-emea-west-sonarsource-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-manager-emea-west-sonarsource-ch",
-          "responsabile-vendite-emea-west-sonarsource-sonar-geneva"
+          "sales-manager-emea-west-sonarsource-ch"
         ],
         "fr": [
+          "sales-manager-emea-west-sonarsource-ch"
+        ],
+        "de": [
           "sales-manager-emea-west-sonarsource-ch"
         ]
       },
@@ -924,8 +920,7 @@
         "data-product-analista-sonarsource-sonar-geneva",
         "data-product-analyst-sonarsource-ch",
         "datenproduktanalytiker-sonarsource-sonar-geneva",
-        "data-product-analyste-sonarsource-sonar-geneva",
-        "rappresentante-per-lo-sviluppo-delle-vendite-sonarsource-sonar-geneva"
+        "data-product-analyste-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -933,8 +928,7 @@
           "data-product-analista-sonarsource-sonar-geneva",
           "data-product-analyst-sonarsource-ch",
           "datenproduktanalytiker-sonarsource-sonar-geneva",
-          "data-product-analyste-sonarsource-sonar-geneva",
-          "rappresentante-per-lo-sviluppo-delle-vendite-sonarsource-sonar-geneva"
+          "data-product-analyste-sonarsource-sonar-geneva"
         ],
         "en": [
           "data-product-analyst-sonarsource-ch"
@@ -1011,13 +1005,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "platform-product-manager-sonarsource-ch",
-        "gestione-dei-prodotti-della-piattaforma-sonarsource-sonar-geneva"
+        "platform-product-manager-sonarsource-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "platform-product-manager-sonarsource-ch",
-          "gestione-dei-prodotti-della-piattaforma-sonarsource-sonar-geneva"
+          "platform-product-manager-sonarsource-ch"
         ],
         "de": [
           "platform-product-manager-sonarsource-ch"
@@ -1093,8 +1085,7 @@
         "partner-business-manager-europa-orientale-f-m-d-sonarsource-sonar-geneva",
         "partner-business-manager-eastern-europe-f-m-d-sonarsource-ch",
         "partner-business-manager-osteuropa-w-m-d-sonarsource-sonar-geneva",
-        "directeur-d-entreprise-partenaire-europe-orientale-f-m-d-sonarsource-sonar-geneva",
-        "partner-business-manager-europa-meridionale-sonarsource-sonar-geneva"
+        "directeur-d-entreprise-partenaire-europe-orientale-f-m-d-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1102,8 +1093,7 @@
           "partner-business-manager-europa-orientale-f-m-d-sonarsource-sonar-geneva",
           "partner-business-manager-eastern-europe-f-m-d-sonarsource-ch",
           "partner-business-manager-osteuropa-w-m-d-sonarsource-sonar-geneva",
-          "directeur-d-entreprise-partenaire-europe-orientale-f-m-d-sonarsource-sonar-geneva",
-          "partner-business-manager-europa-meridionale-sonarsource-sonar-geneva"
+          "directeur-d-entreprise-partenaire-europe-orientale-f-m-d-sonarsource-sonar-geneva"
         ],
         "en": [
           "partner-business-manager-eastern-europe-f-m-d-sonarsource-ch"
@@ -1181,14 +1171,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "netsuite-administrator-sonarsource-ch",
-        "netsuite-administrator-sonarsource-sonar-geneva",
-        "amministratore-netsuite-sonarsource-sonar-geneva"
+        "netsuite-administrator-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "netsuite-administrator-sonarsource-ch",
-          "netsuite-administrator-sonarsource-sonar-geneva",
-          "amministratore-netsuite-sonarsource-sonar-geneva"
+          "netsuite-administrator-sonarsource-sonar-geneva"
         ],
         "fr": [
           "netsuite-administrator-sonarsource-ch"
@@ -1323,7 +1311,6 @@
       "previousSlugs": [
         "marketing-ai-engineer-sonarsource-ch",
         "marketing-ai-engineer-sonarsource-sonar-geneva",
-        "marketing-ai-ingegnere-sonarsource-sonar-geneva",
         "ai-ricerca-scientist-ingegnere-sonarsource-sonar-geneva",
         "ai-research-scientist-engineer-sonarsource-ch",
         "ai-forschung-scientist-ingenieur-sonarsource-sonar-geneva",
@@ -1333,7 +1320,6 @@
       "previousSlugsByLocale": {
         "it": [
           "marketing-ai-engineer-sonarsource-ch",
-          "marketing-ai-ingegnere-sonarsource-sonar-geneva",
           "ai-ricerca-scientist-ingegnere-sonarsource-sonar-geneva",
           "ai-research-scientist-engineer-sonarsource-ch",
           "ai-forschung-scientist-ingenieur-sonarsource-sonar-geneva",
@@ -1416,13 +1402,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "major-incident-manager-sonarsource-ch",
-        "direttore-principale-dell-incidente-sonarsource-sonar-geneva"
+        "major-incident-manager-sonarsource-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "major-incident-manager-sonarsource-ch",
-          "direttore-principale-dell-incidente-sonarsource-sonar-geneva"
+          "major-incident-manager-sonarsource-ch"
         ],
         "fr": [
           "major-incident-manager-sonarsource-ch"
@@ -1446,9 +1430,9 @@
     },
     {
       "id": "sonarsource-22b5b2bdc483",
-      "slug": "engineering-manager-cloud-platform-operations-sonarsource-ch",
+      "slug": "gestore-di-ingegneria-piattaforma-e-operazioni-cloud-sonarsource-sonar-geneva",
       "slugByLocale": {
-        "it": "engineering-manager-cloud-platform-operations-sonarsource-ch",
+        "it": "gestore-di-ingegneria-piattaforma-e-operazioni-cloud-sonarsource-sonar-geneva",
         "en": "engineering-manager-cloud-platform-operations-sonarsource-ch",
         "de": "engineering-manager-cloud-platform-operations-sonarsource-ch",
         "fr": "gestionnaire-d-ingenierie-plateforme-cloud-operations-sonarsource-sonar-geneva"
@@ -1505,7 +1489,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "previousSlugsByLocale": {
+        "it": [
+          "engineering-manager-cloud-platform-operations-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "engineering-manager-cloud-platform-operations-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-e8e6d77e825d",
@@ -1554,13 +1546,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "data-scientist-product-analytics-sonarsource-ch",
-        "data-scientist-analisi-dei-prodotti-sonarsource-sonar-geneva"
+        "data-scientist-product-analytics-sonarsource-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "data-scientist-product-analytics-sonarsource-ch",
-          "data-scientist-analisi-dei-prodotti-sonarsource-sonar-geneva"
+          "data-scientist-product-analytics-sonarsource-ch"
         ],
         "de": [
           "data-scientist-product-analytics-sonarsource-ch"
@@ -1633,14 +1623,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "data-scienziato-analisi-di-marketing-sonarsource-sonar-geneva",
-        "data-scientist-marketing-analytics-sonarsource-ch",
-        "scienziato-dei-dati-analisi-di-marketing-sonarsource-sonar-geneva"
+        "data-scientist-marketing-analytics-sonarsource-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-scienziato-analisi-di-marketing-sonarsource-sonar-geneva",
-          "data-scientist-marketing-analytics-sonarsource-ch",
-          "scienziato-dei-dati-analisi-di-marketing-sonarsource-sonar-geneva"
+          "data-scientist-marketing-analytics-sonarsource-ch"
         ],
         "de": [
           "data-scientist-marketing-analytics-sonarsource-ch"
@@ -1712,13 +1700,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "application-security-engineer-sonarsource-ch",
-        "application-security-ingegnere-sonarsource-sonar-geneva"
+        "application-security-engineer-sonarsource-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "application-security-engineer-sonarsource-ch",
-          "application-security-ingegnere-sonarsource-sonar-geneva"
+          "application-security-engineer-sonarsource-ch"
         ],
         "de": [
           "application-security-engineer-sonarsource-ch"
@@ -1791,13 +1777,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-researcher-post-training-sonarsource-ch",
-        "ricercatore-ai-post-training-sonarsource-sonar-geneva"
+        "ai-researcher-post-training-sonarsource-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-researcher-post-training-sonarsource-ch",
-          "ricercatore-ai-post-training-sonarsource-sonar-geneva"
+          "ai-researcher-post-training-sonarsource-ch"
         ],
         "de": [
           "ai-researcher-post-training-sonarsource-ch"
@@ -1821,9 +1805,9 @@
     },
     {
       "id": "sonarsource-fa61009f7838",
-      "slug": "account-based-marketing-abm-manager-sonarsource-ch",
+      "slug": "gestore-di-marketing-basato-su-account-abm-sonarsource-sonar-geneva",
       "slugByLocale": {
-        "it": "account-based-marketing-abm-manager-sonarsource-ch",
+        "it": "gestore-di-marketing-basato-su-account-abm-sonarsource-sonar-geneva",
         "en": "account-based-marketing-abm-manager-sonarsource-ch",
         "de": "account-based-marketing-abm-manager-sonarsource-ch",
         "fr": "gestionnaire-du-marketing-axe-sur-les-comptes-bma-sonarsource-sonar-geneva"
@@ -1880,7 +1864,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "previousSlugsByLocale": {
+        "it": [
+          "account-based-marketing-abm-manager-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "account-based-marketing-abm-manager-sonarsource-ch"
+      ]
     }
   ]
 }
