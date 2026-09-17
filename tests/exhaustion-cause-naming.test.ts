@@ -63,6 +63,9 @@ const GOOGLE_RETIRED_BODY = JSON.stringify({
   },
 });
 
+const NVIDIA_GONE_BODY = `{"type":"about:blank","title":"Gone","status":410,"detail":"The model 'meta/llama-3.1-8b-instruct' has reached its end of life on 2026-08-26T09:00:00Z..."}`;
+const OPENROUTER_AGENTIC_HARNESS_BODY = `{"error":{"message":"thinkingmachines/inkling-small:free is only available on agentic harnesses. Try plugging it into a coding agent or productivity app..."}}`;
+
 describe('classifyNonRetryableError — la ruggine va marcata esaurita', () => {
   it('riconosce la formula di Google per un modello ritirato', () => {
     const r = classifyNonRetryableError(404, GOOGLE_RETIRED_BODY);
@@ -194,6 +197,31 @@ describe('classifyNonRetryableError — la ruggine va marcata esaurita', () => {
     assert.deepEqual(
       classifyNonRetryableError(401, 'invalid api key'),
       { nonRetryable: true, markExhausted: true },
+    );
+  });
+
+  it('marca esaurito il 410 Gone reale di NVIDIA', () => {
+    assert.deepEqual(
+      classifyNonRetryableError(410, NVIDIA_GONE_BODY, 'NVIDIA'),
+      { nonRetryable: true, markExhausted: true },
+    );
+  });
+
+  it('marca esaurito il 403 agentic-harnesses reale di OpenRouter', () => {
+    assert.deepEqual(
+      classifyNonRetryableError(403, OPENROUTER_AGENTIC_HARNESS_BODY, 'OpenRouter'),
+      { nonRetryable: true, markExhausted: true },
+    );
+  });
+
+  it('mantiene la causa specifica del brownout 410 di GitHub Models', () => {
+    assert.deepEqual(
+      classifyNonRetryableError(410, '{"error":{"code":"github_models_retirement_brownout"}}', 'GitHub'),
+      {
+        nonRetryable: true,
+        markExhausted: true,
+        reason: 'github_models_retirement_brownout',
+      },
     );
   });
 });
