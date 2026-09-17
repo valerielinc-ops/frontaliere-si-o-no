@@ -61,7 +61,11 @@ function normalizeCandidate(candidate) {
 
 function isCountryOnlySwissSignal(signal) {
   const value = String(signal || '');
-  if (!/\b(?:remote|ch|che|swiss|switzerland|schweiz|suisse|svizzera)\b/i.test(value)) {
+  const hasSwissCountrySignal = /\b(?:ch|che|swiss|switzerland|schweiz|suisse|svizzera)\b/i.test(value);
+  // "Remote" is not a country signal: an unqualified remote posting may be
+  // outside Switzerland. Keep it only when Workday corroborates Switzerland
+  // in the same candidate or in another candidate in the list.
+  if (!hasSwissCountrySignal) {
     return false;
   }
 

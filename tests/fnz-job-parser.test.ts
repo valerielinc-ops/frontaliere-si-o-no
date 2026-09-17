@@ -80,6 +80,10 @@ describe('fnz-job-parser / resolveFnzSwissLocation', () => {
     });
   });
 
+  it('does not treat a bare remote label as Swiss without corroboration', () => {
+    expect(resolveFnzSwissLocation(['Remote'])).toBeNull();
+  });
+
   it('keeps a country-only posting in the runner payload with a national address', () => {
     expect(resolveFnzLocation(['Switzerland'])).toMatchObject({
       city: 'Switzerland',
