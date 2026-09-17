@@ -231,6 +231,12 @@ stashed_index_matches_wip() {
   local stash_ref="$1"
   local untracked_tree="$2"
   local path="$3"
+  # An untouched untracked WIP path is absent from the index and every
+  # tracked stash tree. `git diff --cached --quiet` treats that double absence
+  # as equal, but there is no index entry to unstage before protecting it.
+  if [ -z "$(git ls-files --stage -- "$path")" ]; then
+    return 1
+  fi
   if git diff --quiet --cached "$stash_ref" -- "$path"; then return 0; fi
   if git diff --quiet --cached "${stash_ref}^2" -- "$path"; then return 0; fi
   if [ -n "$untracked_tree" ] && git diff --quiet --cached "$untracked_tree" -- "$path"; then return 0; fi

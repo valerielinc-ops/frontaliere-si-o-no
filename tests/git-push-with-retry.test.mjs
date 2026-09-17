@@ -30,7 +30,7 @@ function configureIdentity(cwd) {
   git(cwd, ['config', 'user.email', 'test@example.invalid']);
 }
 
-async function setupScenario({ overlappingWip = false, stagedOnlyWip = false } = {}) {
+async function setupScenario({ overlappingWip = false, stagedOnlyWip = false, untrackedWip = false } = {}) {
   const root = await mkdtemp(join(tmpdir(), 'git-push-with-retry-'));
   const bare = join(root, 'remote.git');
   const seed = join(root, 'seed');
@@ -71,6 +71,9 @@ async function setupScenario({ overlappingWip = false, stagedOnlyWip = false } =
     git(local, ['add', 'staged-only.txt']);
     await rm(join(local, 'staged-only.txt'));
     await writeFile(join(local, 'staged-only.txt'), 'base\n');
+  }
+  if (untrackedWip) {
+    await writeFile(join(local, 'untracked-wip.txt'), 'untracked WIP\n');
   }
 
   await writeFile(join(updater, 'conflict.txt'), 'remote change\n');
@@ -196,6 +199,26 @@ test('in-place resolver preserves WIP staged only in the original stash index', 
     assert.equal(result.status, 0, result.output);
     await assertWipRestored(scenario);
     assert.equal(await readlink(scenario.file('staged-only.txt')), 'staged-only-target');
+  } finally {
+    await rm(scenario.root, { recursive: true, force: true });
+  }
+});
+
+test('in-place resolver leaves an unstaged untracked WIP path available', async () => {
+  const scenario = await setupScenario({ untrackedWip: true });
+  const resolver = join(scenario.root, 'resolver.sh');
+  try {
+    await writeFile(
+      resolver,
+      "#!/bin/sh\nset -eu\ntest \"$(cat untracked-wip.txt)\" = \"untracked WIP\"\nprintf 'resolved\\n' > conflict.txt\ngit add conflict.txt\n",
+    );
+    await chmod(resolver, 0o755);
+
+    const result = invoke(scenario, ['--in-place-resolver-cmd', `bash '${resolver}'`]);
+
+    assert.equal(result.status, 0, result.output);
+    await assertWipRestored(scenario);
+    assert.equal(await readFile(scenario.file('untracked-wip.txt'), 'utf8'), 'untracked WIP\n');
   } finally {
     await rm(scenario.root, { recursive: true, force: true });
   }
