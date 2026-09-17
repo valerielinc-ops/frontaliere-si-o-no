@@ -331,11 +331,7 @@ async function listSwissJobs(site, brand) {
         // still needs a location-only Swiss check, including country searches.
         // Location may be in locationsText, a later bullet field, or a country
         // field; don't assume bulletFields[0] is the location.
-        const postingLocation = getWorkdayListingLocationSignal(posting);
-        const isMultiLocation = isWorkdayMultiLocation(postingLocation);
-        if (!isSwissLocation(postingLocation)
-            && !hasWorkdaySwissCountry(posting, postingLocation)
-            && !isMultiLocation) continue;
+        if (!isSwissWorkdayListing(posting)) continue;
         allPostings.push({ ...posting, brand });
       }
 
@@ -396,37 +392,25 @@ async function fetchCapriHoldingsJobs() {
     const title = normalizeSpace(info.title || listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const listingLocationSignal = getWorkdayListingLocationSignal(listing);
-    const detailLocation = stringifyWorkdayLocationField(info.location);
-    const locationRaw = detailLocation || stringifyWorkdayLocationField(listing.locationsText) || (listing.bulletFields || []).find((field) => (
-      isSwissLocation(field) || isChCountry(field) || isWorkdayMultiLocation(field)
-    )) || listingLocationSignal || '';
-    const countryDesc = stringifyWorkdayLocationField(info.country);
-    const city = [
-      detailLocation,
-      stringifyWorkdayLocationField(info.addressLocality),
-      stringifyWorkdayLocationField(info.city),
-      stringifyWorkdayLocationField(listing.locationsText),
-      ...(Array.isArray(listing.bulletFields) ? listing.bulletFields : []),
-      listingLocationSignal,
-    ].map(swissCityFromLocationField).find(Boolean)
-      || (isCantonOnlyLabel(locationRaw)
-        ? ''
-        : locationRaw.split(/\s*-\s*/).slice(-1)[0]?.trim().replace(/,\s*switzerland$/i, '') || locationRaw);
-    const canton = inferCanton(city || locationRaw);
+    const resolved = resolveWorkdayLocation(listing, info);
+    const {
+      countryDesc,
+      countryIsSwiss,
+      locationRaw,
+      canton,
+      resolvedSwissSignal,
+    } = resolved;
+    const city = locationRaw.split(/\s*-\s*/).slice(-1)[0]
+      ?.trim().replace(/,\s*switzerland$/i, '') || locationRaw;
 
     // Double-check this is actually a Swiss job using authoritative country
     // data when present, otherwise the location-only all-canton matcher.
-    const countryIsSwiss = isChCountry(countryDesc);
     if (countryDesc && !countryIsSwiss) {
       console.log(`     ⏭️  Skipped — not Swiss (country: ${countryDesc})`);
       continue;
     }
-    const resolvedSwissSignal = isSwissLocation(`${locationRaw} ${listingLocationSignal}`)
-      || hasWorkdaySwissCountry(info, detailLocation)
-      || hasWorkdaySwissCountry(listing, listingLocationSignal);
-    if (!countryDesc && !resolvedSwissSignal) {
-      console.log(`     ⏭️  Skipped — location is not a known Swiss location: ${locationRaw || listingLocationSignal || 'n/a'}`);
+    if (!resolvedSwissSignal || !canton) {
+      console.log(`     ⏭️  Skipped — no concrete Swiss canton resolved: ${locationRaw || countryDesc || 'n/a'}`);
       continue;
     }
 
@@ -434,24 +418,15 @@ async function fetchCapriHoldingsJobs() {
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = `${WORKDAY_PUBLIC_BASE}/${listing._site}${externalPath}`;
     const brand = listing.brand || 'Capri Holdings';
-    const normalizedCity = city.toLowerCase();
-    const locationDefaults = CAPRI_LOCATION_DEFAULTS[normalizedCity] || {};
-    const cantonDefaults = CAPRI_CANTON_DEFAULTS[canton] || {};
-    const resolvedCity = city || cantonDefaults.city || 'Switzerland';
+    const resolvedCity = city || locationRaw;
     const descEn = descriptionText || `${title} position at ${brand} in ${resolvedCity}.`;
-    const descIt = `Posizione aperta presso ${brand} (Capri Holdings) a ${resolvedCity === 'Switzerland' ? 'Svizzera' : resolvedCity}.\nRuolo: ${title}.\n\nCapri Holdings è un gruppo globale della moda di lusso con i marchi Michael Kors, Versace e Jimmy Choo. L'azienda ha un importante hub logistico a Mendrisio, Canton Ticino.`;
+    const descIt = `Posizione aperta presso ${brand} (Capri Holdings) a ${resolvedCity}.\nRuolo: ${title}.\n\nCapri Holdings è un gruppo globale della moda di lusso con i marchi Michael Kors, Versace e Jimmy Choo. L'azienda ha un importante hub logistico a Mendrisio, Canton Ticino.`;
     const slug = slugify(title, 'capri-holdings');
-    const locationText = `${locationRaw} ${listingLocationSignal}`;
+    const locationText = `${locationRaw} ${getWorkdayListingLocationSignal(listing)}`;
     const postalCode = getWorkdaySourceField(info, ['postalCode', 'postal_code', 'zipCode', 'zip'])
-      || locationText.match(/\b\d{4}\b/)?.[0]
-      || locationDefaults.postalCode
-      || cantonDefaults.postalCode
-      || '8000';
+      || locationText.match(/\b\d{4}\b/)?.[0] || '';
     const streetAddress = getWorkdaySourceField(info, ['streetAddress', 'street_address', 'addressLine1', 'address_line_1'])
-      || locationDefaults.streetAddress
-      || cantonDefaults.streetAddress
-      || city
-      || 'Switzerland';
+      || '';
 
     jobs.push({
       url: publicUrl,
@@ -460,10 +435,10 @@ async function fetchCapriHoldingsJobs() {
       company: CAPRI_COMPANY_NAME,
       companyKey: CAPRI_KEY,
       location: resolvedCity,
-      canton: canton || '',
+      canton,
       country: 'CH',
       addressLocality: resolvedCity,
-      addressRegion: canton || DEFAULT_CANTON,
+      addressRegion: canton,
       addressCountry: 'CH',
       postalCode,
       streetAddress,
@@ -480,7 +455,7 @@ async function fetchCapriHoldingsJobs() {
       sourceLang: detectLang(descEn || title, 'en'),
       sector: 'Fashion / Luxury Retail',
       _brand: brand,
-      _targetScope: { canton: canton || '', location: resolvedCity },
+      _targetScope: { canton, location: resolvedCity },
     });
   }
 
@@ -576,7 +551,6 @@ function postProcessCapriJobs() {
       j.canton = inferCanton(j.location);
       if (j.canton) fixed++;
     }
-    if (!j.location) { j.location = 'Mendrisio'; fixed++; }
   }
   if (fixed > 0) {
     writeJsonAtomic(DATA_JOBS, jobs);
