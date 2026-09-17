@@ -39,32 +39,28 @@ permissions:
   # required e contiene tutti gli step da diagnosticare.
   actions: read
 
-# Two different questions share this workflow, and they do NOT want the same
-# cancellation semantics. The loop-fleet bridge edits the same PR body while
-# appending ledger rows; keep those runs alive long enough for the bounded
-# review to publish on the exact HEAD.
+# Questo workflow serve sia le PR sia i segnali di salute di main/merge queue.
+# Le chiavi separano le PR per numero+HEAD e nessuna run viene cancellata: un
+# verdetto in volo resta osservabile, mentre i gate exact-head ignorano quello
+# eventualmente stantio.
 #
-#   Ordinary PR runs ask "is THIS head mergeable?". A newer push to the same PR
-#   makes the older head irrelevant, so cancelling it is free — the answer for
-#   the head that matters is still produced. `cancel-in-progress: true` is
-#   correct.
+#   Each PR/head has its own lane. Reviews for different PRs, and reviews for
+#   different heads of the same PR during an autorebase, can proceed together;
+#   an older run is never cancelled while it may still be reading or posting a
+#   review. The exact-head review gate and native auto-merge ignore old verdicts.
+#   Duplicate runs for the same PR/head remain serialized by this group and the
+#   review claim ledger.
 #
-#   The bridge PR is the exception: its append-only pushes and pull_request.edited
-#   body churn can cancel the only run before `ledger-post` executes. The
-#   exception is enabled only for a pull_request targeting main whose API
-#   metadata identifies the trusted Bot, same-repository head and an explicit
-#   ledger/lifecycle branch shape. The classifier remains the stricter regex
-#   authority; this expression has no regex support, so it enumerates L0..L11.
+#   The trusted loop-fleet bridge also uses this non-cancelling policy: its
+#   append-only pushes and pull_request.edited body churn must leave the bounded
+#   ledger review alive until it publishes on the exact HEAD. The ledger scope
+#   classifier and its metadata checks remain the authority for that fast path.
 #
-#   Direct pushes to main and merge queues ask the same question as a PR:
-#   does the tree pass the source gate before it becomes the next main head?
+#   Direct pushes to main and merge queues retain their own SHA in the fallback
+#   portion of the key, so every emitted source-gate verdict remains observable.
 concurrency:
-  group: tests-${{ github.workflow }}-${{ github.ref }}
-  # PR and workflow_dispatch runs use newest-wins inside their lane, except for
-  # the bounded loop-fleet bridge lane above. Direct pushes to main and merge
-  # queues must not cancel one another: each emitted head needs a completed
-  # source-gate verdict before it can become the next health signal.
-  cancel-in-progress: ${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && !(github.event.pull_request.base.ref == 'main' && github.event.pull_request.user.type == 'Bot' && github.event.pull_request.user.login == 'frontaliere-automation[bot]' && github.event.pull_request.head.repo.full_name == github.repository && (github.head_ref == 'chore/loop-fleet-ledger' || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L0-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L1-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L2-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L3-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L4-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L5-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L6-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L7-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L8-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L9-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L10-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L11-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-lifecycle-')))) }}
+  group: tests-${{ github.workflow }}-${{ github.event.pull_request.number || inputs.pr_number || github.ref }}-${{ github.event.pull_request.head.sha || github.sha }}
+  cancel-in-progress: false
 
 jobs:
   # Unconditional job: admitted code events must always produce a real verdict.
@@ -150,22 +146,72 @@ jobs:
               });
             };
             const hasNessuno = (raw) => /\bnessun[oa]?\b/i.test(stripNonContent(raw));
+            const topLevelBullets = (raw) => {
+              const bullets = [];
+              let current = null;
+              for (const line of stripNonContent(raw).split('\n')) {
+                if (/^[ \t]*[-*+][ \t]+\S/.test(line)) {
+                  if (current) bullets.push(current);
+                  current = { index: bullets.length + 1, text: line.trim() };
+                } else if (current && line.trim()) {
+                  current.text += ` ${line.trim()}`;
+                }
+              }
+              if (current) bullets.push(current);
+              return bullets;
+            };
+
+            // A decision is a valid terminal deferral only when the body makes
+            // it auditable by a later maintainer. Keep this check in the
+            // no-checkout body gate as well as in the corpus validator:
+            // `per scelta`/`by construction` without a concrete reason and a
+            // concrete next step used to look closed while silently dropping
+            // the work from follow-up.
+            const DECISION_RE = /\bby construction\b|\bper (?:scelta|costruzione|design)\b|(?:è|e')\s+una\s+decisione\b|\bdi proposito\b|\bdeliberat\w*|\bblocked\s*:\s*(?:decisione del proprietario|owner decision)\b|(?<!\bnon\s+(?:è|sono|erano)\s+(?:un\s+|una\s+)?)\bfalso\s+positivo\b|(?<!\bnot\s+(?:a\s+)?)\bfalse\s+positive\b/iu;
+            const DECISION_REASON_RE = /\b(?:motivo|ragione|reason)\s*:\s*(.+?)(?=\s+\b(?:prossimo\s+passo|next\s+step|azione\s+successiva)\s*:|$)/iu;
+            const DECISION_NEXT_STEP_RE = /\b(?:prossimo\s+passo|next\s+step|azione\s+successiva)\s*:\s*(.+)$/iu;
+            const DECISION_PLACEHOLDER_RE = /(?:^|[\s:;,.!?()\[\]{}—–-])(?:<[^>]+>|\.\.\.|tbd|n\/a|da\s+(?:definire|decidere|valutare|fare))(?=$|[\s:;,.!?()\[\]{}—–-])/iu;
+            const stripDecisionFormatting = (value) => String(value ?? '').replace(/[*_~`]/gu, '');
+            const concreteDecisionValue = (value) => {
+              const clean = stripDecisionFormatting(value).replace(/\s+/gu, ' ').trim();
+              return clean.length >= 8
+                && !DECISION_PLACEHOLDER_RE.test(clean)
+                && /[\p{L}\p{N}]/u.test(clean);
+            };
+            const decisionDeferralViolation = (raw) => {
+              const clean = stripDecisionFormatting(stripNonContent(raw));
+              if (!DECISION_RE.test(clean)) return null;
+              const reason = clean.match(DECISION_REASON_RE)?.[1]?.trim() || '';
+              const nextStep = clean.match(DECISION_NEXT_STEP_RE)?.[1]?.trim() || '';
+              if (concreteDecisionValue(reason) && concreteDecisionValue(nextStep)) return null;
+              return 'una deroga `per scelta`/`by construction`/`falso positivo` deve contenere `**Motivo:** <causa concreta>. **Prossimo passo:** <azione concreta>`.';
+            };
 
             const sectionViolations = [];
+            const decisionViolations = [];
             if (hasImpl) {
-              const c = extractSection(body, /^\s{0,3}#{2,3}\s+Implementato[^\n]*/im) ?? '';
-              if (!hasMeaningfulContent(c)) {
-                sectionViolations.push(hasOnlyBareBullets(c)
+              const implementedSection = extractSection(body, /^\s{0,3}#{2,3}\s+Implementato[^\n]*/im) ?? '';
+              if (!hasMeaningfulContent(implementedSection)) {
+                sectionViolations.push(hasOnlyBareBullets(implementedSection)
                   ? '`## Implementato` contiene solo bullet placeholder vuoti (`- `) non compilati.'
                   : '`## Implementato` è vuota.');
               }
             }
             if (hasNon) {
-              const c = extractSection(body, /^\s{0,3}#{2,3}\s+Non implementato[^\n]*/im) ?? '';
-              if (!hasNessuno(c) && !hasMeaningfulContent(c)) {
-                sectionViolations.push(hasOnlyBareBullets(c)
+              const nonImplementedSection = extractSection(body, /^\s{0,3}#{2,3}\s+Non implementato[^\n]*/im) ?? '';
+              if (!hasNessuno(nonImplementedSection) && !hasMeaningfulContent(nonImplementedSection)) {
+                sectionViolations.push(hasOnlyBareBullets(nonImplementedSection)
                   ? '`## Non implementato (ancora)` contiene solo bullet placeholder vuoti (`- `) non compilati.'
                   : '`## Non implementato (ancora)` è vuota.');
+              }
+              // Decision deferrals belong to the work-owed section. Keep the
+              // source variable explicit: using the same short name as the
+              // Implementato block made this gate easy to misread and review.
+              for (const bullet of topLevelBullets(nonImplementedSection)) {
+                const decisionViolation = decisionDeferralViolation(bullet.text);
+                if (decisionViolation) {
+                  decisionViolations.push(`Voce ${bullet.index}: ${decisionViolation}`);
+                }
               }
             }
 
@@ -421,7 +467,7 @@ jobs:
             };
 
             // --- All-clear (violations) — advisories can still be present -----------
-            if (missing.length === 0 && sectionViolations.length === 0 && closesViolations.length === 0 && intentViolations.length === 0 && aggregateCloseViolations.length === 0) {
+            if (missing.length === 0 && sectionViolations.length === 0 && decisionViolations.length === 0 && closesViolations.length === 0 && intentViolations.length === 0 && aggregateCloseViolations.length === 0) {
               const okBody = `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti e compilate, nessun \`Closes\` multi-issue su una riga, nessuna keyword di chiusura inefficace, nessun \`Closes\` su follow-up aggregata.`
                 + (advisoryParts.length ? `\n\n${advisoryParts.join('\n\n')}` : '');
               // Solo un prior da aggiornare, oppure un advisory reale da segnalare per
@@ -455,6 +501,17 @@ jobs:
                 `"Nessuno" (task completo, AGENTS.md #8) oppure elenca gli item residui con stato/next-step.`,
               );
               fails.push(`empty section(s): ${sectionViolations.length}`);
+            }
+            if (decisionViolations.length) {
+              parts.push(
+                `🔴 **Deroga decisionale non specifica** — una voce in ` +
+                `\`## Non implementato (ancora)\` usa uno stato terminale senza ` +
+                `una causa e un'azione verificabili nello stesso bullet:\n\n` +
+                decisionViolations.map((m) => `- ${m}`).join('\n') + '\n\n' +
+                `Completa la voce con \`**Motivo:** <causa concreta>. **Prossimo passo:** ` +
+                `<azione concreta>\`.`,
+              );
+              fails.push(`decision deferral(s): ${decisionViolations.join('; ')}`);
             }
             if (closesViolations.length) {
               const lines = closesViolations
@@ -1827,7 +1884,7 @@ jobs:
           } >> "$GITHUB_OUTPUT"
           echo "Risolto PR #$PRN (draft=$is_draft) sulla head $HEAD_SHA."
 
-      - name: Re-review guard (skip Codex when no code changed since last LGTM)
+      - name: Re-review guard (skip only an identical review input)
         id: guard
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true') }}
         env:
@@ -1843,51 +1900,18 @@ jobs:
           if [ -z "$last" ]; then
             echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Nessuna review LGTM precedente → review piena."; exit 0
           fi
-          # A data-only HEAD normally carries a clean LGTM forward. Do not do
-          # that after a PR metadata edit when the latest bot verdict still
-          # contains a non-zero Important/Nit: the edit may be the fix for the
-          # finding, and without a fresh review the old nit would strand the PR
-          # forever behind the native auto-merge gate.
           if [ "${EVENT_ACTION:-}" = "edited" ]; then
-            if last_body=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate 2>/dev/null \
-              | jq -sr --arg commit "$last" 'add | [ .[] | select((.commit_id == $commit) and ((.user.login // "" | test("^(claude\\[bot\\]|frontaliere-automation\\[bot\\])$";"i"))) and (.body|contains("## LGTM")))] | last | .body // empty'); then
-              if printf '%s\n' "$last_body" | grep -qiE 'Important[[:space:]]*:[[:space:]]*[1-9][0-9]*|Nit[[:space:]]*:[[:space:]]*[1-9][0-9]*|🔴|🟡'; then
-                echo "skip=false" >> "$GITHUB_OUTPUT"
-                echo "PR metadata edited dopo un verdetto bot con finding Important/Nit → review piena (niente carry-forward)."
-                exit 0
-              fi
-            else
-              echo "skip=false" >> "$GITHUB_OUTPUT"
-              echo "Review bot non verificabile dopo PR metadata edit → review piena (fail-closed)."
-              exit 0
-            fi
-          fi
-          changed=$(gh api "repos/$REPO/compare/$last...$HEAD_SHA" --jq '.files[] | .filename, (.previous_filename // empty)' 2>/dev/null || true)
-          if [ -z "$changed" ]; then
-            echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Compare vuoto/errore → review piena (conservativo)."; exit 0
-          fi
-          code=$(echo "$changed" | node scripts/ci/review-test-policy.mjs filter | grep -vE "$NONCODE_RE" || true)
-          if [ -z "$code" ]; then
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-            echo "Delta dall'ultima LGTM = SOLO data/docs/test (nessun code) → skip Claude; LGTM carry-forward (fingerprint code-only), vitest già verde."
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "PR metadata modificata → review piena sulla revisione corrente del review input."
             exit 0
           fi
-          # Il compare 2-dot last...HEAD vede ANCHE il code che main ha portato in
-          # un rebase di solo main-merge — ma quel code NON è il contributo della
-          # PR, che resta invariato. Confronta allora il FINGERPRINT del contributo
-          # (3-dot vs merge-base con main, code-only) a HEAD vs all'ultima LGTM: se
-          # uguale, la PR non ha cambiato il proprio code (es. un aggiornamento
-          # mergiato main) → skip Claude. Stessa funzione che auto-merge-eval usa
-          # per il carry-forward dell'LGTM → niente drift. NULL/incerto → review
-          # piena (conservativo). vitest gira comunque sull'head (safety net).
-          fpHead=$(node scripts/ci/pr-contribution-fingerprint.mjs "$HEAD_SHA" 2>/dev/null || echo NULL)
-          fpLast=$(node scripts/ci/pr-contribution-fingerprint.mjs "$last" 2>/dev/null || echo NULL)
-          if [ -n "$fpHead" ] && [ "$fpHead" != "NULL" ] && [ "$fpHead" = "$fpLast" ]; then
+          if [ "$last" = "$HEAD_SHA" ]; then
             echo "skip=true" >> "$GITHUB_OUTPUT"
-            echo "Contributo CODE invariato dall'ultima LGTM (fingerprint $fpHead) — solo main-merge nel delta → skip Claude; LGTM carry-forward, vitest gira comunque."
-          else
-            echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Code del contributo cambiato dall'ultima LGTM (fpHead=$fpHead fpLast=$fpLast) → review piena."
+            echo "Esiste già una review terminale sulla HEAD $HEAD_SHA → nessuna seconda review per lo stesso input."
+            exit 0
           fi
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+          echo "Review terminale sulla HEAD precedente ($last) → review piena obbligatoria sulla nuova HEAD $HEAD_SHA; nessun riuso del verdetto precedente."
 
       - name: Determine review tier
         id: tier
@@ -2032,8 +2056,8 @@ jobs:
           # criticità del DELTA: funnel-critical → tier high/gpt-5.6-luna (rigore,
           # scope ridotto); altrimenti tier incremental (modello sempre gpt-5.6-luna). Prima review /
           # nessun commit precedente / delta vuoto
-          # → review piena (sotto). Il fingerprint-skip a monte (guard step) copre già
-          # il caso "contributo invariato"; qui il contributo È cambiato, ma in modo
+          # → review piena (sotto). La guardia a monte copre già il caso
+          # "stesso input di review"; qui il contributo È cambiato, ma in modo
           # incrementale. Il prompt resta autorizzato a Read/grep i file pieni per il
           # contesto → le interazioni col code non-toccato restano coglibili.
           lastRev=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
@@ -2232,16 +2256,6 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
 
-      - name: Pre-flight — Codex lane quota telemetry
-        id: quota
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-          CODEX_FALLBACK_MODE: '1'
-        run: node scripts/ci/check-quota-backoff.mjs
-
       - name: Publish automatic LGTM for a tests-only PR
         id: test_only_review
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && success() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.tier.outputs.tier == 'tests-only' }}
@@ -2316,7 +2330,7 @@ jobs:
 
             Review in one pass with a hard repository-tool budget: read the two contract files and the bundle, then use at most one batched read/search call for direct delta interactions. Never scan the whole repository, enumerate all siblings, or re-fetch the PR through GitHub. Validate the body contract, inspect only concrete interactions, verify declared performance claims against supplied evidence, and stop probing once the verdict is determined. Do not invent missing-test findings. Use sibling candidates as leads, not verdicts. For high tiers, include exactly three concise unresolved items in `## Adversarial check`; they must be real unverified risks, not generic missing coverage. Every non-funnel `❓ q:` in that section MUST end with the exact disposition `— deferred, non funnel-critical.`. The words `report-only`, `deferred`, or `non-funnel-critical` inside the question do not dispose it; a funnel-critical question must be promoted to `🔴 Important` instead.
 
-            **Closing states in `## Non implementato (ancora)`.** The five states of `CLOSING_STATES` (`scripts/ci/followup-has-candidates.mjs`) close a bullet, e su quello **non si emette 🔴**: `in questa PR` and `PR concatenata #N` (tracked work, not residual scope), then `per scelta` — «falso positivo» is an accepted synonym of the same `by-choice` state, unless negated — `by construction`, and `blocked: decisione del proprietario`. Those last three are a motivated no, so they close only when the motive is written **after** the state; a bare `per scelta`/`by construction` with no motive stays 🔴. `PR concatenata` without `#N` is not a closing state and is always an open violation. What does NOT close is `blocked: <causa tecnica>`, i.e. every other `blocked: <causa>`: `bulletState()` maps it to `blocked-technical`, which `CLOSING_STATES` deliberately omits — read the CAUSE, not the prefix. Getting either side wrong deadlocks the loop: re-raise the 🔴 on a closed bullet and the fixer declines with a reason, the round cap trips, and `needs-human` lands with the wrong diagnosis on a PR that has nothing to fix. Tier `minimal` carries the same rule: check that both sections exist and that **nessun placeholder vuoto** (`TBD`, `N/A`, empty bullet) fills them — but a bullet closed with a motive **non è un finding**.
+            **Closing states in `## Non implementato (ancora)`.** The five states of `CLOSING_STATES` (`scripts/ci/followup-has-candidates.mjs`) close a bullet, e su quello **non si emette 🔴**: `in questa PR` and `PR concatenata #N` (tracked work, not residual scope), then `per scelta` — «falso positivo» is an accepted synonym of the same `by-choice` state, unless negated — `by construction`, and `blocked: decisione del proprietario`. Those last three are a motivated no, so they close only when the bullet contains both explicit fields **`Motivo: <causa concreta>`** and **`Prossimo passo: <azione concreta>`**; a bare `per scelta`/`by construction`, a placeholder, or a generic “motive” stays 🔴. `PR concatenata` without `#N` is not a closing state and is always an open violation. What does NOT close is `blocked: <causa tecnica>`, i.e. every other `blocked: <causa>`: `bulletState()` maps it to `blocked-technical`, which `CLOSING_STATES` deliberately omits — read the CAUSE, not the prefix. Getting either side wrong deadlocks the loop: re-raise the 🔴 on a closed bullet and the fixer declines with a reason, the round cap trips, and `needs-human` lands with the wrong diagnosis on a PR that has nothing to fix. Tier `minimal` carries the same rule: check that both sections exist and that **nessun placeholder vuoto** (`TBD`, `N/A`, empty bullet) fills them — but a bullet closed with specific fields **non è un finding**.
 
             Post exactly one review with `gh pr review ${PR_NUMBER} --comment --body ...`. End with `## LGTM` only when there is no open `🔴 Important`, no unresolved funnel-critical question, and the bundle/body contract is valid. If uncertain, emit `❓ q:`; never use `## LGTM` beside an unresolved Important finding. Work read-only: do not edit files, commit, push, run npm, or run tests. Batch independent reads/searches in one tool call and stop immediately after posting the review.
       - name: Fail on transient API error (no review posted)
@@ -2341,12 +2355,11 @@ jobs:
         #    someone only watching the PR (not the Actions log).
         #  - 5xx / overloaded / server_error → FAIL LOUDLY (red + re-runnable):
         #    the server recovers fast, an immediate re-run is useful.
-        #  - 429 (quota / rate_limit) → do NOT fail (Tier-2 token-lever): a red
-        #    429 triggers a re-run (push / stale-PR rescuer) that re-hits the
-        #    ALREADY-exhausted shared Max quota → self-amplifying storm during a
-        #    burst (custode-measured ~10% of runs). Exit 0 with a warning; the PR
-        #    has no `## LGTM` so it won't auto-merge, and it gets re-reviewed on
-        #    the next push / by the rescuer once quota recovers. No false-green.
+        #  - 429 (quota / rate_limit) → FAIL LOUDLY. The review gate would be
+        #    red anyway because no `## LGTM` exists; this step makes the cause
+        #    queryable in the Jobs API so `stale-pr-rescuer` can re-run the
+        #    completed run. There is no shared quota lease or admission cap:
+        #    independent PR+HEAD reviews remain concurrent.
         # `set -uo pipefail` (NOT -e): grep in conditionals must not abort.
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         env:
@@ -2384,12 +2397,13 @@ jobs:
             echo "::error::Codex review hit its turn cap (tier=${REVIEW_TIER:-?}, cap=${REVIEW_MAX_TURNS:-?}, turns=${NUM_TURNS:-?}) without posting a review — re-run this job, or split the PR if this recurs."
             exit 1
           fi
-          # 429 / rate-limit: use the central detector; even if outcome=failure, a 429 must NOT fail the
-          # job (Tier-2 lever: avoids re-run amplification of the shared Max quota).
+          # 429 / rate-limit: use the central detector and fail explicitly. The
+          # completed failed run is the durable signal for stale-pr-rescuer;
+          # there is no shared quota lease or concurrency veto.
           DECISION=$(GITHUB_OUTPUT=/dev/null EXEC_FILE="${EXEC_FILE:-}" PREFLIGHT_BLOCKED=false FALLBACK_ATTEMPTED=false node scripts/ci/claude-codex-fallback.mjs 2>/dev/null || true)
           if printf '%s\n' "$DECISION" | grep -q '^rate_limited=true$'; then
-            echo "::warning::Codex review aborted on a 429 (quota/rate-limit). NOT failing — avoids re-run amplification of the shared lane quota. PR has no ## LGTM (won't auto-merge); it will be re-reviewed on the next push or by the stale-PR rescuer once quota recovers."
-            exit 0
+            echo "::error::Claude review aborted on a 429 (quota/rate-limit) without posting a review — failing so stale-pr-rescuer can re-run the completed run. No shared quota lease blocked this review."
+            exit 1
           fi
           if [ "${REVIEW_OUTCOME}" = "failure" ]; then
             echo "::error::Codex review action failed (outcome=failure) — re-run this job."
@@ -2420,13 +2434,14 @@ jobs:
         run: |
           set -euo pipefail
           # Il gate autorevole resta questo step required; la decisione è
-          # estratta in un modulo testabile che conserva commit/fingerprint,
-          # classificazione fail-closed e conio della follow-up aggregata.
+          # estratta in un modulo testabile che verifica la coppia review/check
+          # sulla HEAD corrente, la classificazione fail-closed e il conio della
+          # follow-up aggregata.
           node scripts/ci/review-gate.mjs
 
       # GitHub può pubblicare `skipped` per uno step controllato da `if:` e
       # trattarlo come verde nel ruleset. Il gate sopra deve aver valutato la
-      # review quando la guardia non ha attivato il carry-forward; se quel
+      # review quando la guardia non ha saltato per uno stesso input già visto; se quel
       # percorso è stato saltato, trasformiamo l'assenza di verdetto in un
       # rosso reale. Il job non ha condizioni che possano saltarlo.
       - name: Fail when required review gate is skipped

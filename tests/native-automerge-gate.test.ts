@@ -490,18 +490,18 @@ describe('native auto-merge gate (#8512)', () => {
     }).allow).toBe(false);
   });
 
-  it('carries a clean older LGTM forward when the complete current-head check is green', () => {
+  it('rejects a clean older LGTM even when the complete current-head check is green', () => {
     const result = evaluateNativeAutoMerge({
       pr: pr(),
       reviews: [review(CLEAN_BODY, OLD_HEAD)],
       checkRuns: [vitest()],
     });
 
-    expect(result).toMatchObject({ allow: true });
-    expect(result.reason).toMatch(/carry-forward/i);
+    expect(result).toMatchObject({ allow: false });
+    expect(result.reason).toMatch(/nessuna review bot verificabile/i);
   });
 
-  it('uses the latest bot review across commits and blocks a later stale finding', () => {
+  it('ignores a later review that is stale for the current HEAD', () => {
     const reviews = [
       review(CLEAN_BODY, HEAD, '2026-09-13T12:00:00Z'),
       review(
@@ -513,7 +513,7 @@ describe('native auto-merge gate (#8512)', () => {
 
     expect(latestBotReview(reviews)?.commit_id).toBe(OLD_HEAD);
     expect(evaluateNativeAutoMerge({ pr: pr(), reviews, checkRuns: [vitest()] })).toMatchObject({
-      allow: false,
+      allow: true,
     });
   });
 
@@ -594,7 +594,7 @@ describe('native auto-merge gate (#8512)', () => {
     });
 
     expect(result).toMatchObject({ allow: false, action: 'revoke' });
-    expect(result.reason).toMatch(/Important 0/i);
+    expect(result.reason).toMatch(/nessuna review bot verificabile/i);
   });
 
   it('retains a persisted native opt-in only after revalidating the current HEAD', () => {
@@ -607,15 +607,15 @@ describe('native auto-merge gate (#8512)', () => {
     expect(result).toMatchObject({ allow: true, action: 'retain' });
   });
 
-  it('retains a persisted native opt-in when the full current-head check validates LGTM carry-forward', () => {
+  it('revokes a persisted native opt-in when only an older HEAD has LGTM', () => {
     const result = revalidateNativeAutoMerge({
       pr: pr({ autoMergeRequest: { enabledAt: '2026-09-13T12:00:00Z' } }),
       reviews: [review(CLEAN_BODY, OLD_HEAD)],
       checkRuns: [vitest()],
     });
 
-    expect(result).toMatchObject({ allow: true, action: 'retain' });
-    expect(result.reason).toMatch(/carry-forward/i);
+    expect(result).toMatchObject({ allow: false, action: 'revoke' });
+    expect(result.reason).toMatch(/nessuna review bot verificabile/i);
   });
 
   it('revokes an inherited native opt-in through the GitHub API instead of trusting persistence', () => {

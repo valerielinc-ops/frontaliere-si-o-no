@@ -79,6 +79,8 @@ jobs:
       # strings; source_branch=main and source_event=push. This payload is not
       # a signature. Query the public source-run/workflow metadata first, and
       # fail closed on an API error or on any mismatch.
+      # The live emitter is paired in nanakokyobashi-rgb/frontaliere-articles
+      # PR #1531 (.github/workflows/publish-api.yml); keep both contracts live.
       - name: Verify publisher provenance via read-only metadata API
         id: publisher_provenance
         if: github.event_name == 'repository_dispatch'
