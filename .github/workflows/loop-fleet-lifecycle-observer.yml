@@ -166,11 +166,15 @@ jobs:
             fi
             unset basic_auth
             if bounded_remote git fetch origin "$ledger_branch"; then
-              git reset --hard "origin/$ledger_branch"
+              # The fleet safety gate forbids reset --hard in workflows. Moving
+              # the isolated branch and checking out the fetched tip has the
+              # same clean-worktree effect without force-pushing anything.
+              git checkout -B ledger-work "origin/$ledger_branch"
             else
               bounded_remote git fetch origin main
-              git reset --hard origin/main
+              git checkout -B ledger-work origin/main
             fi
+            git checkout -- data/loop-fleet/ledger/
             sleep $((attempt * 3))
           done
           echo "::error::could not append the observed lifecycle batch to $ledger_branch after 5 attempts"

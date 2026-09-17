@@ -209,7 +209,9 @@ describe('loop fleet workflow contract', () => {
       expect(source, name).toContain('--registry data/loop-fleet/loop-registry.json');
       expect(source, name).toContain('for attempt in 1 2 3 4 5');
       expect(source, name).toContain('bounded_remote git push origin "HEAD:refs/heads/$ledger_branch"');
-      expect(source, name).toContain('git reset --hard "origin/$ledger_branch"');
+      expect(source, name).toContain('git checkout -B ledger-work "origin/$ledger_branch"');
+      expect(source, name).toContain('git checkout -- data/loop-fleet/ledger/');
+      expect(source, name).not.toContain('git reset --hard');
       expect(source, name).toContain('sleep $((attempt * 3))');
       expect(source, name).toContain('after 5 attempts');
       expect(source, name).not.toMatch(/git push[^\n]*--force(?:-with-lease)?/u);
