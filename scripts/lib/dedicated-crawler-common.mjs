@@ -6181,16 +6181,26 @@ const FOREIGN_COUNTRY_CODES = [
   'SK', 'RS', 'UA', 'RU', 'FR',
 ];
 const SWISS_CANTON_CODES = new Set(ALL_CANTON_CODES);
-// ISO-like tokens are accepted only as a labelled country component or as the
-// final comma/semicolon/parenthesized component. A bare token is too ambiguous:
-// "de" is ordinary prose in "Rue de la Gare", while SG/FR/BE are Swiss cantons.
-const EXPLICIT_FOREIGN_COUNTRY_CODE_RE = new RegExp(
-  `(?:\\b(?:country(?:\\s+code)?|iso(?:\\s+country)?|land|pays|paese)\\s*[:=-]?\\s*|[,;]\\s*|\\(\\s*)(${FOREIGN_COUNTRY_CODES.join('|')})(?=\\s*(?:[,;)]|$))`,
+// ISO-like tokens are accepted only in a labelled country field or as the
+// final component of a comma/semicolon-separated location. A bare token is
+// too ambiguous: "de" is ordinary prose in "Rue de la Gare", while SG/FR
+// can be Swiss canton codes.
+const FOREIGN_COUNTRY_CODE_PATTERN = `(${FOREIGN_COUNTRY_CODES.join('|')})`;
+const EXPLICIT_FOREIGN_COUNTRY_FIELD_CODE_RE = new RegExp(
+  `\\b(?:addresscountry|country(?:[_\\s-]+(?:code|iso))?|countrycode|isocountry(?:[_\\s-]+code)?|land|pays|paese|codice[_\\s-]+paese)\\b\\s*[:=_-]\\s*["']?${FOREIGN_COUNTRY_CODE_PATTERN}["']?(?=\\s*(?:[,;)]|$))`,
+  'giu',
+);
+const FINAL_FOREIGN_COUNTRY_CODE_RE = new RegExp(
+  `(?:^|[,;])\\s*${FOREIGN_COUNTRY_CODE_PATTERN}(?=\\s*(?:\\)|$))`,
   'giu',
 );
 
 function hasExplicitForeignCountryCode(lower) {
-  for (const match of lower.matchAll(EXPLICIT_FOREIGN_COUNTRY_CODE_RE)) {
+  const matches = [
+    ...lower.matchAll(EXPLICIT_FOREIGN_COUNTRY_FIELD_CODE_RE),
+    ...lower.matchAll(FINAL_FOREIGN_COUNTRY_CODE_RE),
+  ];
+  for (const match of matches) {
     const code = String(match[1] || '').toUpperCase();
     // Canton codes are Swiss only when they agree with the Swiss municipality
     // in the same field; otherwise a mismatched code remains an explicit
