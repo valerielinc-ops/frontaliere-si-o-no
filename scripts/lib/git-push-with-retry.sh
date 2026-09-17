@@ -231,10 +231,13 @@ stashed_index_matches_wip() {
   local stash_ref="$1"
   local untracked_tree="$2"
   local path="$3"
-  # An untouched untracked WIP path is absent from the index and every
-  # tracked stash tree. `git diff --cached --quiet` treats that double absence
-  # as equal, but there is no index entry to unstage before protecting it.
-  if [ -z "$(git ls-files --stage -- "$path")" ]; then
+  # Compare the resolver's index with every stash tree. Absence is meaningful:
+  # a WIP deletion has no index entry after `git add -A`, but it still must be
+  # kept out of the rebased commit and restored after the rebase.
+  if [ -z "$(git ls-files --stage -- "$path")" ] \
+    && ! git cat-file -e "${stash_ref}^1:${path}" 2>/dev/null; then
+    # A new untracked path that the resolver did not stage is already safe in
+    # the working tree; `git restore --staged` cannot address it by pathspec.
     return 1
   fi
   if git diff --quiet --cached "$stash_ref" -- "$path"; then return 0; fi
@@ -370,10 +373,11 @@ until git push --no-verify origin "HEAD:${BRANCH}"; do
       if eval "$IN_PLACE_RESOLVER_CMD"; then
         # Protect the original WIP separately from the resolver's index. A
         # resolver may use `git add -A`, which stages WIP paths together with
-        # its conflict fixes. Only unstage paths whose index still matches the
-        # original stash (excluding paths that were rebase conflicts), then
-        # stash those paths without preserving the existing index; all resolver
-        # staging stays in the index for `git rebase --continue`.
+        # its conflict fixes. Only unstage paths whose index state still
+        # matches the original stash (including tracked deletions, excluding
+        # paths that were rebase conflicts), then stash those paths without
+        # preserving the existing index; all resolver staging stays in the
+        # index for `git rebase --continue`.
         if [ "$stashed" = "1" ]; then
           resolver_wip_stashed=0
           resolver_wip_paths=()
