@@ -222,6 +222,44 @@ function validateLocales() {
   });
 }
 
+function restoreUnresolvedLocationFields(discoveredJobs) {
+  if (!fs.existsSync(DATA_JOBS)) return;
+  const jobs = readJson(DATA_JOBS, []);
+  if (!Array.isArray(jobs)) return;
+
+  const discoveredByKey = new Map(
+    discoveredJobs.map((job) => [jobMatchKey(job), job]),
+  );
+  let cleared = 0;
+  for (const job of jobs) {
+    if (!isTargetJob(job)) continue;
+    const discovered = discoveredByKey.get(jobMatchKey(job));
+    if (!discovered || discovered.location) continue;
+
+    const hadInferredLocality = Boolean(
+      job.location ||
+      job.addressLocality ||
+      (!discovered.canton && (job.canton || job.addressRegion)) ||
+      (discovered.canton && (job.canton !== discovered.canton || job.addressRegion !== discovered.canton)),
+    );
+    delete job.location;
+    delete job.addressLocality;
+    if (discovered.canton) {
+      job.canton = discovered.canton;
+      job.addressRegion = discovered.canton;
+    } else {
+      delete job.canton;
+      delete job.addressRegion;
+    }
+    if (hadInferredLocality) cleared += 1;
+  }
+
+  if (cleared > 0) {
+    console.log(`  🧭 LWP location guard: removed inferred locality from ${cleared} unresolved posting(s)`);
+    writeJson(DATA_JOBS, jobs);
+  }
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, 'LWP Ledermann Wieting & Partners');
@@ -258,6 +296,7 @@ async function main() {
   });
 
   validateLocales();
+  restoreUnresolvedLocationFields(discoveredJobs);
   console.log('\n✅ LWPHR crawler complete.');
 
   // Write per-crawler slice and reassemble global dataset
