@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bms-building",
-  "assembledAt": "2026-09-16T23:45:39.231Z",
+  "assembledAt": "2026-09-16T21:14:07.706Z",
   "jobs": [
     {
       "id": "bms-building-13196ee6ee0a",
@@ -3218,18 +3218,19 @@
         "interner-verkaufsberater-wood-100-f-h-d-bms-building-materials-bulle",
         "coordinator-internal-sales-advisor-wood-f-h-d-100-bms-building-materials-kerzers",
         "conseiller-de-vente-interne-bois-100-f-h-d-bms-building-ch",
-        "consulente-vendite-interno-legno-100-m-f-d-bms-building-materials-bulle"
+        "consulente-vendite-interno-legno-100-m-f-d-bms-building-materials-bulle",
+        "conseiller-de-vente-interne-cuisines-a-100-f-m-d-bms-building-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "interner-verkaufsberater-wood-100-f-h-d-bms-building-materials-bulle",
           "coordinator-internal-sales-advisor-wood-f-h-d-100-bms-building-materials-kerzers",
           "conseiller-de-vente-interne-bois-100-f-h-d-bms-building-ch",
-          "consulente-vendite-interno-legno-100-m-f-d-bms-building-materials-bulle"
+          "consulente-vendite-interno-legno-100-m-f-d-bms-building-materials-bulle",
+          "conseiller-de-vente-interne-cuisines-a-100-f-m-d-bms-building-ch"
         ]
       },
       "firstSeenAt": "2026-07-10T12:58:05.307Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -3243,7 +3244,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "bms-building-84ee1277b5c1",
