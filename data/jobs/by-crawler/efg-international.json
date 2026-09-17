@@ -1498,7 +1498,7 @@
     },
     {
       "id": "efg-6436",
-      "slug": "it-analyst-and-software-engineer-efg-lugano",
+      "slug": "it-analista-and-software-ingegnere-efg-international-ag-lugano",
       "company": "EFG International AG",
       "title": "IT Analyst and Software Engineer",
       "location": "Lugano",
@@ -1665,10 +1665,10 @@
       },
       "crawledAt": "2026-09-16T23:39:01.514Z",
       "slugByLocale": {
-        "it": "it-analyst-and-software-engineer-efg-lugano",
+        "it": "it-analista-and-software-ingegnere-efg-international-ag-lugano",
         "en": "it-analyst-and-software-engineer-efg-lugano",
         "de": "it-analyst-and-software-engineer-efg-lugano",
-        "fr": "it-analyst-and-software-engineer-efg-lugano"
+        "fr": "it-analyste-and-software-ingenieur-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
       "addressCountry": "CH",
@@ -1690,7 +1690,18 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-09-16T23:39:01.514Z"
+      "firstSeenAt": "2026-09-16T23:39:01.514Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-analyst-and-software-engineer-efg-lugano"
+        ],
+        "fr": [
+          "it-analyst-and-software-engineer-efg-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "it-analyst-and-software-engineer-efg-lugano"
+      ]
     },
     {
       "id": "efg-6384",
@@ -2124,14 +2135,12 @@
         ],
         "de": [
           "general-services-employee-efg-geneve",
-          "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
           "general-services-employee-efg-international-ag-geneve"
         ]
       },
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
-        "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "general-services-employee-efg-international-ag-geneve"
       ],
       "salarySource": "reported"
@@ -2970,7 +2979,7 @@
       "slugByLocale": {
         "it": "operatore-di-commutazione-efg-international-ag-lugano",
         "en": "switchboard-operator-efg-lugano",
-        "de": "schaltstelle-operator-efg-international-ag-lugano",
+        "de": "schaltnetzbetreiber-efg-international-ag-lugano",
         "fr": "switchboard-operateur-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -2996,21 +3005,15 @@
       "firstSeenAt": "2026-07-10T10:26:15.024Z",
       "previousSlugsByLocale": {
         "it": [
-          "switchboard-operator-efg-lugano",
-          "operatore-di-commutazione-efg-international-ag-lugano",
-          "switchboard-operator-efg-international-ag-lugano"
+          "switchboard-operator-efg-lugano"
         ],
         "de": [
           "switchboard-operator-efg-lugano",
-          "schaltnetzbetreiber-efg-international-ag-lugano",
           "schaltstelle-operator-efg-international-ag-lugano"
         ]
       },
       "previousSlugs": [
         "switchboard-operator-efg-lugano",
-        "operatore-di-commutazione-efg-international-ag-lugano",
-        "schaltnetzbetreiber-efg-international-ag-lugano",
-        "switchboard-operator-efg-international-ag-lugano",
         "schaltstelle-operator-efg-international-ag-lugano"
       ],
       "salarySource": "estimated"
