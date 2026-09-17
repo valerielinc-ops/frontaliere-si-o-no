@@ -200,7 +200,9 @@ async function discoverRuagGraph() {
     byUrl.set(key, detail);
   }
   const all = [...byUrl.values()];
-  const target = all.filter((detail) => isRuagTargetLocation(`${detail.location || ''} ${detail.description || ''}`));
+  // Only the authoritative location field decides Swiss inclusion. Free-text
+  // descriptions may mention Switzerland while describing an unrelated site.
+  const target = all.filter((detail) => isRuagTargetLocation(detail.location || ''));
 
   console.log(`📋 RUAG detail pages discovered: ${all.length}`);
   console.log(`📋 RUAG Swiss jobs: ${target.length}`);

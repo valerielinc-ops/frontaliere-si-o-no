@@ -45,11 +45,9 @@ import {
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { isChCountry } from './lib/ch-country-guard.mjs';
 import {
   inferAnyCanton,
-  isCantonOnlyLabel,
   isSwissLocationText,
   swissCityFromLocationField,
 } from './lib/target-swiss-locations.mjs';
@@ -70,7 +68,6 @@ const CAPRI_KEY = 'capri-holdings';
 const DATA_JOBS = crawlerScratchPathFor(CAPRI_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
-const DEFAULT_CANTON = getCompanyDefaults(CAPRI_KEY)?.canton || 'TI';
 const CAPRI_COMPANY_NAME = 'Capri Holdings (Michael Kors / Versace)';
 const CAPRI_HOST = 'capri.wd1.myworkdayjobs.com';
 const LOCALES = ['it', 'en', 'de', 'fr'];
@@ -409,10 +406,7 @@ async function fetchCapriHoldingsJobs() {
       stringifyWorkdayLocationField(listing.locationsText),
       ...(Array.isArray(listing.bulletFields) ? listing.bulletFields : []),
       listingLocationSignal,
-    ].map(swissCityFromLocationField).find(Boolean)
-      || (isCantonOnlyLabel(locationRaw)
-        ? ''
-        : locationRaw.split(/\s*-\s*/).slice(-1)[0]?.trim().replace(/,\s*switzerland$/i, '') || locationRaw);
+    ].map(swissCityFromLocationField).find(Boolean) || '';
     const canton = inferCanton(city || locationRaw);
 
     // Double-check this is actually a Swiss job using authoritative country
@@ -429,6 +423,10 @@ async function fetchCapriHoldingsJobs() {
       console.log(`     ⏭️  Skipped — location is not a known Swiss location: ${locationRaw || listingLocationSignal || 'n/a'}`);
       continue;
     }
+    if (!city) {
+      console.log(`     ⏭️  Skipped — no concrete Swiss city resolved: ${locationRaw || countryDesc || 'n/a'}`);
+      continue;
+    }
 
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
@@ -437,7 +435,7 @@ async function fetchCapriHoldingsJobs() {
     const normalizedCity = city.toLowerCase();
     const locationDefaults = CAPRI_LOCATION_DEFAULTS[normalizedCity] || {};
     const cantonDefaults = CAPRI_CANTON_DEFAULTS[canton] || {};
-    const resolvedCity = city || cantonDefaults.city || 'Switzerland';
+    const resolvedCity = city;
     const descEn = descriptionText || `${title} position at ${brand} in ${resolvedCity}.`;
     const descIt = `Posizione aperta presso ${brand} (Capri Holdings) a ${resolvedCity === 'Switzerland' ? 'Svizzera' : resolvedCity}.\nRuolo: ${title}.\n\nCapri Holdings è un gruppo globale della moda di lusso con i marchi Michael Kors, Versace e Jimmy Choo. L'azienda ha un importante hub logistico a Mendrisio, Canton Ticino.`;
     const slug = slugify(title, 'capri-holdings');
@@ -463,7 +461,7 @@ async function fetchCapriHoldingsJobs() {
       canton: canton || '',
       country: 'CH',
       addressLocality: resolvedCity,
-      addressRegion: canton || DEFAULT_CANTON,
+      addressRegion: canton,
       addressCountry: 'CH',
       postalCode,
       streetAddress,
