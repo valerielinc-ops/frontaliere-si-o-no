@@ -136,9 +136,9 @@ describe('Concordia crawler parser', () => {
       expect(resolveCanton('', 'Lugano')).toBe('TI');
     });
 
-    it('falls back to HQ default (LU) when nothing resolves', () => {
-      expect(resolveCanton('', '')).toBe('LU');
-    });
+  it('leaves an unresolvable source location without inventing an HQ canton', () => {
+    expect(resolveCanton('', '')).toBe('');
+  });
   });
 
   // ── detectCategory ──

@@ -74,8 +74,8 @@ const ALDI_COMPANY_NAME = 'ALDI SUISSE';
 const HQ = getCompanyDefaults(ALDI_KEY);
 const ALDI_HOST = 'www.jobs.aldi.ch';
 
-/** Ticino city → postal code map for ALDI store locations */
-const TICINO_PLZ = {
+/** Known Swiss city → postal code map for ALDI store locations */
+const KNOWN_CITY_POSTAL_CODES = {
   lugano: '6900', bellinzona: '6500', locarno: '6600', mendrisio: '6850',
   chiasso: '6830', biasca: '6710', giubiasco: '6512', agno: '6982',
   manno: '6928', rivera: '6802', camorino: '6528', tenero: '6598',
@@ -219,15 +219,14 @@ async function fetchAndParseDetailPages(listings) {
       const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
       const jobSlug = slugify(`${rawTitle}-aldi-suisse`);
       // CH-only canton gate: ALDI Suisse hires across all 26 cantons, so an
-      // unresolved location must NOT default to the HQ canton (TI/Lugano). A
-      // row with an empty city (the REST `address` carries only the street, not
-      // the locality) and a non-TI zip would otherwise be mislabeled Ticino —
-      // landing on the wrong canton SEO page with inconsistent structured data
-      // (addressRegion=TI paired with a non-TI postalCode). Drop it instead,
-      // the same CH-only gate the Fust crawler uses (never defaulted to TI).
+      // unresolved location must not default to a single-canton HQ. A row
+      // with an empty city (the REST `address` carries only the street, not
+      // the locality) and a postal code from another canton would otherwise
+      // be mislabeled and land on the wrong canton SEO page with inconsistent
+      // structured data. Drop it instead, keeping the national gate strict.
       const canton = inferAnyCanton(location);
       if (!canton) { droppedNoCanton += 1; continue; }
-      const postalCode = listing.zip || TICINO_PLZ[location.toLowerCase()] || '';
+      const postalCode = listing.zip || KNOWN_CITY_POSTAL_CODES[location.toLowerCase()] || '';
 
       jobs.push({
         id: `aldi-suisse-${urlHash}`,
@@ -265,7 +264,7 @@ async function fetchAndParseDetailPages(listings) {
   }
 
   if (droppedNoCanton > 0) {
-    console.log(`   ↪︎ Dropped ${droppedNoCanton} job(s) with an unresolvable canton (no TI default)`);
+    console.log(`   ↪︎ Dropped ${droppedNoCanton} job(s) with an unresolvable canton (no fixed-canton default)`);
   }
 
   return jobs;

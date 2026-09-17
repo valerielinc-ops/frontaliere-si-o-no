@@ -17,7 +17,7 @@
  * - Canton inference + ParsedJob assembly.
  *
  * NOTE: Distinct from the pre-existing `tsmg` crawler (scripts/update-tsmg-jobs.mjs),
- * an unrelated company (Lever ATS, Ticino/Grigioni filter). "SMG" here is
+ * an unrelated company using a separate Lever-based crawler. "SMG" here is
  * SMG Swiss Marketplace Group (swissmarketplace.group) — no relation.
  *
  * Exports the 4 required functions for the crawler template:
@@ -29,7 +29,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
 import {
   fetchSmartRecruitersJobs,
   SmartRecruitersApiError,
@@ -111,13 +111,11 @@ export function isTrustedDomain(rawUrl = '') {
  *
  * Used as the `options.filter` predicate passed to the shared SR client.
  */
-function isHqLocation(loc = {}) {
+function isSwissLocation(loc = {}) {
   const country = normalize(loc.country || '');
   if (country && country !== 'ch' && country !== 'switzerland' && country !== 'svizzera') return false;
-  const city = normalize(loc.city || '');
-  const region = normalize(loc.region || '');
-  if (!city && !region) return false;
-  return true;
+  const signal = [loc.city, loc.region].map(normalizeSpace).filter(Boolean).join(', ');
+  return Boolean(signal) && isTargetSwissLocation(signal, { includeBorderProximity: false });
 }
 
 /* ── Category Detection ────────────────────────────────────── */
@@ -228,12 +226,12 @@ export async function fetchAllSmgSwissMarketplaceGroupJobs() {
   try {
     // Filter at the SR-client level: built-in `locationCountryCodes` is too
     // coarse when we also want to keep the Fribourg (BlueFactory) office
-    // alongside the Zürich HQ; `isHqLocation` is the custom predicate
+    // alongside the Zürich HQ; `isSwissLocation` is the custom predicate
     // applied per-posting BEFORE the optional detail-fetch — so we save
     // detail calls on out-of-scope (foreign-office) postings.
     const iter = fetchSmartRecruitersJobs(SR_TENANT, {
       company: SMG_SWISS_MARKETPLACE_GROUP_COMPANY_NAME,
-      filter: (posting) => isHqLocation(posting?.location || {}),
+      filter: (posting) => isSwissLocation(posting?.location || {}),
       fetchDetail: true,
       detailConcurrency: SR_DETAIL_CONCURRENCY,
       minDelayMs: 0,
@@ -261,9 +259,16 @@ export async function fetchAllSmgSwissMarketplaceGroupJobs() {
         console.warn(`  ⚠️ SMG: skipping unresolvable location "${realLocationText || realRegionText}" (${title})`);
         continue;
       }
-      // Default to Zürich (SMG HQ) only when SR returned no location text at all.
-      const location = realLocationText || 'Zürich';
-      const canton = inferredCanton || 'ZH';
+      if (!realLocationText && !realRegionText) {
+        console.warn(`  ⚠️ SMG: skipping posting without a Swiss location (${title})`);
+        continue;
+      }
+      if (!inferredCanton) {
+        console.warn(`  ⚠️ SMG: skipping posting without a resolvable canton (${title})`);
+        continue;
+      }
+      const location = realLocationText || realRegionText;
+      const canton = inferredCanton;
       const descriptionText = stripHtml(listing.description || '');
       const publicUrl = listing.url || CAREER_URL;
 

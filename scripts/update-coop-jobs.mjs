@@ -990,13 +990,11 @@ async function postProcessCoopJobs() {
 function logCoopJobStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
-    return { total: 0, ticino: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
+    return { total: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
   const coopJobs = allJobs.filter(isCoopJob);
-  const ticinoJobs = coopJobs.filter((job) => normalize(job?.canton) === 'ti');
-
   const unrecognizedDivisions = findUnrecognizedCoopDivisions(allJobs);
   if (unrecognizedDivisions.length > 0) {
     console.warn(
@@ -1024,7 +1022,7 @@ function logCoopJobStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'Coop');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Coop');
 
-  return { total: coopJobs.length, ticino: ticinoJobs.length, coopJobs, crawlDiff };
+  return { total: coopJobs.length, coopJobs, crawlDiff };
 }
 
 function validateCoopLocaleCoverage() {

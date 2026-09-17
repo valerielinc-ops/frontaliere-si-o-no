@@ -13,8 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, fetchJson } from './crawler-template.mjs';
-import { getCompanyDefaults } from './crawler-location-config.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
 import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -28,7 +27,6 @@ const BASE_URL = 'https://careers.nagra.com';
 // The listing page lives under the `?page=advertisement` route of the
 // in-house ATS — the bare CAREER_URL root has no job table (issue #3797).
 const ADVERTISEMENT_URL = 'https://careers.nagra.com/?page=advertisement';
-const HQ = getCompanyDefaults('kudelski-nagra');
 
 /**
  * Kudelski/NAGRA uses Greenhouse for recruitment. Greenhouse provides
@@ -202,11 +200,11 @@ function parseNagraAdvertisementTable(html = '') {
 }
 
 /**
- * Check if a location is relevant (Lugano/Ticino or broader Swiss).
+ * Check whether a posting belongs to any Swiss canton.
  */
-function isRelevantLocation(location = '') {
-  const loc = location.toLowerCase();
-  return /lugano|ticino|tessin|cheseaux|lausanne|switzerland|schweiz|suisse|svizzera|vaud/i.test(loc) || !loc;
+function isSwissLocation(location = '') {
+  const loc = normalizeSpace(location);
+  return Boolean(loc) && isTargetSwissLocation(loc, { includeBorderProximity: false });
 }
 
 /** Title of a raw listing, whatever shape the source used for it. */
@@ -221,8 +219,7 @@ function listingTitle(listing) {
  * Strategy:
  *  1. Try Greenhouse Boards API with multiple board slugs
  *  2. Fall back to HTML scraping of careers.nagra.com
- *  3. Filter for Swiss locations (Kudelski is headquartered in Cheseaux-sur-Lausanne
- *     with a significant office in Lugano)
+ *  3. Filter for Swiss locations across all 26 cantons
  */
 export async function fetchAllKudelskiNagraJobs() {
   console.log(`🔍 Fetching Kudelski NAGRA jobs`);
@@ -256,10 +253,10 @@ export async function fetchAllKudelskiNagraJobs() {
     return [];
   }
 
-  // Filter for Swiss locations
+  // Filter for Swiss locations across the full canton set.
   const swissListings = listings.filter((l) => {
     const loc = l.location?.name || l.location || l.city || '';
-    return isRelevantLocation(typeof loc === 'string' ? loc : loc?.name || '');
+    return isSwissLocation(typeof loc === 'string' ? loc : loc?.name || '');
   });
 
   console.log(`  📋 Total listings: ${listings.length}, Swiss-filtered: ${swissListings.length}`);
@@ -276,8 +273,12 @@ export async function fetchAllKudelskiNagraJobs() {
 
     // Greenhouse returns location as { name: "..." } or a string
     const rawLoc = listing.location?.name || listing.location || listing.city || '';
-    const location = normalizeSpace(typeof rawLoc === 'string' ? rawLoc : rawLoc?.name || '') || HQ?.city || 'Lugano';
-    const canton = inferAnyCanton(location) || HQ?.canton || '';
+    const location = normalizeSpace(typeof rawLoc === 'string' ? rawLoc : rawLoc?.name || '');
+    const canton = inferAnyCanton(location);
+    if (!location || !canton) {
+      console.warn(`  ⚠️ Kudelski NAGRA: skipping unresolvable Swiss location "${location || '(empty)'}" (${title})`);
+      continue;
+    }
 
     // Greenhouse provides job content as HTML
     const descriptionHtml = listing.content || listing.description || '';
@@ -314,10 +315,10 @@ export async function fetchAllKudelskiNagraJobs() {
       sourceLang,
       crawledAt: new Date().toISOString(),
       addressLocality: location,
-      addressRegion: HQ?.addressRegion || 'TI',
+      addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',
-      postalCode: HQ?.postalCode || '6900',
+      postalCode: '',
       category: detectCategory(title),
       contract: detectEmploymentType(listing.timeType || title) === 'PART_TIME' ? 'part-time' : 'full-time',
       employmentType: detectEmploymentType(listing.timeType || title),
