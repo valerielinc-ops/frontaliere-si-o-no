@@ -70,15 +70,19 @@ describe('isTrustedDriftAuthor', () => {
   });
 
   it('true per i bot di automazione interni', () => {
-    expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'claude', type: 'Bot' })).toBe(true);
-    expect(isTrustedDriftAuthor({ assoc: 'CONTRIBUTOR', login: 'github-actions', type: 'Bot' })).toBe(true);
+    expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'claude[bot]', type: 'Bot' })).toBe(true);
+    expect(isTrustedDriftAuthor({ assoc: 'CONTRIBUTOR', login: 'github-actions[bot]', type: 'Bot' })).toBe(true);
     // The frontaliere-automation App (matched by EXACT slug, assoc is NONE for apps).
     expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'frontaliere-automation[bot]', type: 'Bot' })).toBe(true);
   });
 
-  it('false per contributor/none umani e bot non in allowlist', () => {
+  it('false per login nudi, prefissi simili e bot non in allowlist', () => {
     expect(isTrustedDriftAuthor({ assoc: 'CONTRIBUTOR', login: 'random', type: 'User' })).toBe(false);
     expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'random', type: 'User' })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'claude', type: 'Bot' })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'claude-evil[bot]', type: 'Bot' })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'github-actions', type: 'Bot' })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'github-actions-evil[bot]', type: 'Bot' })).toBe(false);
     // un bot esterno NON in allowlist non passa
     expect(isTrustedDriftAuthor({ assoc: 'NONE', login: 'dependabot', type: 'Bot' })).toBe(false);
     // exact-slug match: a look-alike app slug must NOT pass (no broad widening)
@@ -88,6 +92,27 @@ describe('isTrustedDriftAuthor', () => {
   it('false per meta mancante', () => {
     expect(isTrustedDriftAuthor(null)).toBe(false);
     expect(isTrustedDriftAuthor(undefined)).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'OWNER', login: 'owner' })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'OWNER', login: 'owner', type: null })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'OWNER', login: 'owner', type: 'Bot' })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'OWNER', login: 'owner', type: 'App' })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: '', login: 'owner', type: 'User' })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'OWNER', login: '', type: 'User' })).toBe(false);
+  });
+
+  it('richiede type User per le associazioni umane privilegiate', () => {
+    for (const type of [undefined, null, 'Bot', 'App', '']) {
+      expect(isTrustedDriftAuthor({
+        assoc: 'COLLABORATOR',
+        login: 'trusted-human',
+        type,
+      })).toBe(false);
+    }
+    expect(isTrustedDriftAuthor({
+      assoc: 'COLLABORATOR',
+      login: 'trusted-human',
+      type: 'User',
+    })).toBe(true);
   });
 });
 

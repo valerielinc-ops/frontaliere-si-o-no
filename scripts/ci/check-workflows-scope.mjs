@@ -165,6 +165,9 @@
  *   GH_TOKEN       required for gh reads/writes
  *   GH_REPO        optional `owner/repo`
  *   ISSUE_NUMBER   required
+ *   ISSUE_FIX_SNAPSHOT_FILE  optional canonical issue snapshot. When set, this
+ *                             file is the only issue payload source; a missing
+ *                             or invalid file proceeds without a live fallback.
  *   DRY_RUN        "1" → detect + print, no side effects, still emits output
  *   GITHUB_OUTPUT  optional Actions step output file
  */
@@ -182,6 +185,7 @@ import {
 
 const DRY_RUN = process.env.DRY_RUN === '1';
 const ISSUE = process.env.ISSUE_NUMBER;
+const ISSUE_FIX_SNAPSHOT_FILE = process.env.ISSUE_FIX_SNAPSHOT_FILE;
 const OUTCOME_MARKER = '<!-- FIX_OUTCOME: blocked-workflows-scope -->';
 const OUTCOME_MARKER_RE = /<!--\s*FIX_OUTCOME:\s*blocked-workflows-scope\s*-->/i;
 // Mode 2 has its OWN outcome code (issue #5288). See `hasPriorDiagnosisMarker` below for
@@ -214,6 +218,36 @@ function gh(args, { allowFail = false } = {}) {
 }
 
 const repoArgs = process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : [];
+
+/**
+ * Read the canonical snapshot produced by issue-fix.yml. This gate historically
+ * consumed the `gh issue view` shape, so normalize canonical string labels at
+ * the boundary. A configured snapshot path is authoritative and never falls
+ * back to a live issue read when it is absent or malformed.
+ */
+function readFrozenIssue() {
+  if (!ISSUE_FIX_SNAPSHOT_FILE) return null;
+  try {
+    const issue = JSON.parse(fs.readFileSync(ISSUE_FIX_SNAPSHOT_FILE, 'utf8'));
+    const expectedIssue = Number(ISSUE);
+    const expectedRepo = process.env.GH_REPO;
+    if (!issue || typeof issue !== 'object'
+        || !Number.isSafeInteger(expectedIssue) || expectedIssue <= 0
+        || issue.target?.issue !== expectedIssue
+        || (expectedRepo && issue.target?.repo !== expectedRepo)
+        || issue.state !== 'OPEN'
+        || typeof issue.title !== 'string'
+        || typeof issue.body !== 'string'
+        || !Array.isArray(issue.labels)) return null;
+    const labels = issue.labels.map((label) =>
+      typeof label === 'string' ? { name: label } : label);
+    if (labels.some((label) => !label || typeof label !== 'object'
+        || typeof label.name !== 'string' || label.name.length === 0)) return null;
+    return { ...issue, number: expectedIssue, labels };
+  } catch {
+    return null;
+  }
+}
 
 function setOutput(blocked) {
   console.log(`workflows_blocked=${blocked}`);
@@ -444,23 +478,31 @@ function main() {
     return;
   }
 
-  const raw = gh(
-    ['issue', 'view', ISSUE, ...repoArgs, '--json', 'number,title,body,labels,state'],
-    { allowFail: true },
-  );
-  if (!raw) {
-    console.log('Issue fetch failed — proceeding.');
-    setOutput(false);
-    return;
-  }
-
   let iss;
-  try {
-    iss = JSON.parse(raw);
-  } catch {
-    console.log('Issue parse failed — proceeding.');
-    setOutput(false);
-    return;
+  if (ISSUE_FIX_SNAPSHOT_FILE) {
+    iss = readFrozenIssue();
+    if (!iss) {
+      console.log('Issue snapshot missing or invalid — proceeding without a live fallback.');
+      setOutput(false);
+      return;
+    }
+  } else {
+    const raw = gh(
+      ['issue', 'view', ISSUE, ...repoArgs, '--json', 'number,title,body,labels,state'],
+      { allowFail: true },
+    );
+    if (!raw) {
+      console.log('Issue fetch failed — proceeding.');
+      setOutput(false);
+      return;
+    }
+    try {
+      iss = JSON.parse(raw);
+    } catch {
+      console.log('Issue parse failed — proceeding.');
+      setOutput(false);
+      return;
+    }
   }
 
   // Closed issues: issue-fix.yml already guards on OPEN state; this is belt-and-suspenders.
