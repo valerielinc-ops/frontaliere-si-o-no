@@ -62,8 +62,13 @@ function normalizeSpace(s = '') {
 }
 
 function swissLifePostingKey(posting = {}) {
-  const id = (posting.bulletFields || [])[0] || posting.externalPath;
-  return id ? `id:${String(id)}` : `raw:${JSON.stringify(posting)}`;
+  const id = [
+    (posting.bulletFields || [])[0],
+    posting.externalPath,
+  ]
+    .map((value) => String(value ?? '').trim())
+    .find(Boolean);
+  return id ? `id:${id}` : '';
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -246,9 +251,16 @@ export async function fetchSwissListings() {
     }
     pages += 1;
 
-    const pageRecordKeys = [...new Set(data.jobPostings.map(swissLifePostingKey))];
-    const newRecordKeys = pageRecordKeys.filter((key) => !seenSourceRecordKeys.has(key));
-    if (data.jobPostings.length > 0 && newRecordKeys.length === 0) {
+    const pageRecordKeys = data.jobPostings.map(swissLifePostingKey);
+    if (pageRecordKeys.some((key) => !key)) {
+      throw new Error(
+        `Swiss Life national Workday page ${pages} contains a record without a stable record identity (requisition ID/path). `
+        + 'Refusing to count a source row that the final deduplication map cannot retain.',
+      );
+    }
+    const uniquePageRecordKeys = [...new Set(pageRecordKeys)];
+    const newRecordKeys = uniquePageRecordKeys.filter((key) => !seenSourceRecordKeys.has(key));
+    if (uniquePageRecordKeys.length !== pageRecordKeys.length || newRecordKeys.length !== uniquePageRecordKeys.length) {
       throw new Error(
         `Swiss Life national Workday page ${pages} made no progress: repeated page or no new records. `
         + 'Refusing to conclude national coverage from a duplicated response.',
@@ -261,14 +273,14 @@ export async function fetchSwissListings() {
       // Multi-location postings ("N Locations") hide individual sites — keep as
       // candidate and let fetchAllSwissLifeJobs() confirm via the detail page.
       if (/^\s*\d+\s+location/i.test(locText) || isSwissLifeLocationText(locText)) {
-        const reqId = (posting.bulletFields || [])[0] || posting.externalPath;
-        if (reqId && !seen.has(reqId)) {
-          seen.set(reqId, posting);
+        const key = swissLifePostingKey(posting);
+        if (!seen.has(key)) {
+          seen.set(key, posting);
         }
       }
     }
 
-    const pageCount = data.jobPostings.length;
+    const pageCount = uniquePageRecordKeys.length;
     recordsSeen += newRecordKeys.length;
     offset += pageCount;
     if (pageCount === 0) {

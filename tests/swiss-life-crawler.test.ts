@@ -213,6 +213,35 @@ describe('Swiss Life crawler parser', () => {
 
       await expect(fetchSwissListings()).rejects.toThrow(/repeated page or no new records/);
     });
+
+    it('fails closed when raw pages have no identity used by the final deduplication map', async () => {
+      const pages = new Map([
+        [0, {
+          total: 2,
+          jobPostings: [{
+            externalPath: '',
+            title: 'Unidentified Swiss Life job, first representation',
+            locationsText: 'Zürich, Switzerland',
+            bulletFields: [],
+          }],
+        }],
+        [1, {
+          total: 2,
+          jobPostings: [{
+            externalPath: '',
+            title: 'Unidentified Swiss Life job, second representation',
+            locationsText: 'Zürich, Switzerland',
+            bulletFields: [],
+          }],
+        }],
+      ]);
+      vi.stubGlobal('fetch', vi.fn(async (_url: string, options: RequestInit) => {
+        const body = JSON.parse(String(options.body));
+        return jsonResponse(pages.get(body.offset) || { total: 2, jobPostings: [] });
+      }));
+
+      await expect(fetchSwissListings()).rejects.toThrow(/stable record identity/);
+    });
   });
 
   describe('national read completeness', () => {

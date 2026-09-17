@@ -90,8 +90,10 @@ function slugify(value = '') {
 }
 
 function rawHugoRecordKey(job = {}) {
-  const id = job.jobId || job.reqId || job.jobSeqNo || job.jobSeqNum || job.externalPath || job.url;
-  return id ? `id:${String(id)}` : `raw:${JSON.stringify(job)}`;
+  const id = [job.jobId, job.reqId]
+    .map((value) => String(value ?? '').trim())
+    .find(Boolean);
+  return id ? `id:${id}` : '';
 }
 
 export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
@@ -132,19 +134,27 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
       );
     }
     const rawPageCount = rawPageJobs.length;
-    const pageRecordKeys = [...new Set(rawPageJobs.map(rawHugoRecordKey))];
-    const newRecordKeys = pageRecordKeys.filter((key) => !seenRawRecordKeys.has(key));
-    if (rawPageCount > 0 && newRecordKeys.length === 0) {
+    const pageRecordKeys = rawPageJobs.map(rawHugoRecordKey);
+    if (pageRecordKeys.some((key) => !key)) {
+      throw new Error(
+        `Hugo Boss national DDO page ${page + 1} contains a record without a stable record identity (jobId/reqId). `
+        + 'Refusing to count a source row that the final deduplication map cannot retain.',
+      );
+    }
+    const uniquePageRecordKeys = [...new Set(pageRecordKeys)];
+    const newRecordKeys = uniquePageRecordKeys.filter((key) => !seenRawRecordKeys.has(key));
+    if (uniquePageRecordKeys.length !== pageRecordKeys.length || newRecordKeys.length !== uniquePageRecordKeys.length) {
       throw new Error(
         `Hugo Boss national DDO page ${page + 1} made no progress: repeated page or no new raw records. `
         + 'Refusing to conclude national coverage from a duplicated response.',
       );
     }
     for (const key of newRecordKeys) seenRawRecordKeys.add(key);
+    const pageRecordCount = uniquePageRecordKeys.length;
     const pageJobs = parseSearchPage(html);
     console.log(`  📄 Page ${page + 1}: ${pageJobs.length} parsed jobs from ${rawPageCount} DDO records (from=${from}${totalHits ? `, total=${totalHits}` : ''})`);
     for (const job of pageJobs) {
-      const key = job.jobId || job.reqId;
+      const key = rawHugoRecordKey(job);
       if (key && !allJobsById.has(key)) allJobsById.set(key, job);
     }
     // A short page is NOT proof that the result set ended: the Phenom DDO
@@ -152,17 +162,17 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
     // Stop only on a genuinely empty page (no forward progress possible) or
     // once the declared total has been reached; fall back to the short-page
     // heuristic only when the portal declares no total at all.
-    if (rawPageCount === 0) {
+    if (pageRecordCount === 0) {
       terminationProven = true;
       break;
     }
     recordsSeen += newRecordKeys.length;
-    from += rawPageCount;
+    from += newRecordKeys.length;
     if (totalHits !== null && recordsSeen >= totalHits) {
       terminationProven = true;
       break;
     }
-    if (totalHits === null && rawPageCount < PAGE_SIZE) {
+    if (totalHits === null && pageRecordCount < PAGE_SIZE) {
       terminationProven = true;
       break;
     }

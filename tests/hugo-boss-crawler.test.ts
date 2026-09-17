@@ -204,7 +204,7 @@ describe('parseSearchPage', () => {
 });
 
 describe('fetchJobs national pagination', () => {
-  it('advances by raw DDO records when a page item is filtered out', async () => {
+  it('advances by unique DDO identities when a page item is filtered out', async () => {
     const pages = new Map([
       ['0', makeSearchPage(4, [
         makeSwissJob('valid-1'),
@@ -255,6 +255,26 @@ describe('fetchJobs national pagination', () => {
     const fetchHtml = vi.fn(async () => repeatedPage);
 
     await expect(fetchJobs({ fetchHtml })).rejects.toThrow(/repeated page or no new raw records/);
+    expect(fetchHtml).toHaveBeenCalledTimes(2);
+  });
+
+  it('fails closed when a page has no identity used by the final deduplication map', async () => {
+    const pages = new Map([
+      ['0', makeSearchPage(2, [{
+        ...makeSwissJob('stable-id'),
+        jobSeqNo: 'HUBOGLOBAL-FIRST-SEQ',
+      }])],
+      ['1', makeSearchPage(2, [{
+        ...makeSwissJob('', 'Same listing without a requisition ID'),
+        jobSeqNo: 'HUBOGLOBAL-SECOND-SEQ',
+      }])],
+    ]);
+    const fetchHtml = vi.fn(async (url: string | URL) => {
+      const from = new URL(String(url)).searchParams.get('from') || '';
+      return pages.get(from) || makeSearchPage(2, []);
+    });
+
+    await expect(fetchJobs({ fetchHtml })).rejects.toThrow(/stable record identity/);
     expect(fetchHtml).toHaveBeenCalledTimes(2);
   });
 });
