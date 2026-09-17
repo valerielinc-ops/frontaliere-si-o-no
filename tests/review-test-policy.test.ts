@@ -517,6 +517,7 @@ describe('owner policy excluding test files from review', () => {
     expect(source).toContain('ledger-post');
     expect(source).not.toContain("set_tier ledger-only bounded 0");
     expect(source).toContain('Bootstrap trusted bounded-ledger policy (no checkout)');
+    expect(source).toContain('download_main package.json');
     expect(source).toContain('POLICY_ROOT=');
     expect(source).toContain('scripts/lib/loop-fleet-contract.mjs');
     expect(source).toContain('data/loop-fleet/loop-registry.json');
