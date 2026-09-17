@@ -234,11 +234,23 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-13T14:08:25.022Z",
       "previousSlugs": [
-        "product-architect-m-w-d-ffs-officine-ferrovie-federali-bern"
+        "product-architect-m-w-d-ffs-officine-ferrovie-federali-bern",
+        "responsabile-prodotto-cloud-foundation-m-f-d-ffs-officine-ferrovie-federali-bern",
+        "product-manager-cloud-foundation-m-w-d-ffs-officine-ferrovie-federali-bern",
+        "chef-de-produit-cloud-foundation-h-f-d-ffs-officine-ferrovie-federali-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-architect-m-w-d-ffs-officine-ferrovie-federali-bern"
+          "product-architect-m-w-d-ffs-officine-ferrovie-federali-bern",
+          "responsabile-prodotto-cloud-foundation-m-f-d-ffs-officine-ferrovie-federali-bern",
+          "product-manager-cloud-foundation-m-w-d-ffs-officine-ferrovie-federali-bern",
+          "chef-de-produit-cloud-foundation-h-f-d-ffs-officine-ferrovie-federali-bern"
+        ],
+        "de": [
+          "product-manager-cloud-foundation-m-w-d-ffs-officine-ferrovie-federali-bern"
+        ],
+        "fr": [
+          "chef-de-produit-cloud-foundation-h-f-d-ffs-officine-ferrovie-federali-bern"
         ]
       },
       "firstSeenAt": "2026-09-10T23:20:44.469Z",
@@ -1141,11 +1153,28 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-12T13:08:41.609Z",
       "previousSlugs": [
-        "logistiker-in-ffs-officine-ferrovie-federali-ostermundigen"
+        "logistiker-in-ffs-officine-ferrovie-federali-ostermundigen",
+        "responsabile-operativo-delle-strutture-di-allerta-ffs-officine-ferrovie-federali-ostermundigen",
+        "operational-manager-of-alert-facilities-ffs-officine-ferrovie-federali-ostermundigen",
+        "betriebsleiter-der-meldeanlagen-ffs-officine-ferrovie-federali-ostermundigen",
+        "gestionnaire-operationnel-des-installations-d-alerte-ffs-officine-ferrovie-federali-ostermundigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-ffs-officine-ferrovie-federali-ostermundigen"
+          "logistiker-in-ffs-officine-ferrovie-federali-ostermundigen",
+          "responsabile-operativo-delle-strutture-di-allerta-ffs-officine-ferrovie-federali-ostermundigen",
+          "operational-manager-of-alert-facilities-ffs-officine-ferrovie-federali-ostermundigen",
+          "betriebsleiter-der-meldeanlagen-ffs-officine-ferrovie-federali-ostermundigen",
+          "gestionnaire-operationnel-des-installations-d-alerte-ffs-officine-ferrovie-federali-ostermundigen"
+        ],
+        "en": [
+          "operational-manager-of-alert-facilities-ffs-officine-ferrovie-federali-ostermundigen"
+        ],
+        "de": [
+          "betriebsleiter-der-meldeanlagen-ffs-officine-ferrovie-federali-ostermundigen"
+        ],
+        "fr": [
+          "gestionnaire-operationnel-des-installations-d-alerte-ffs-officine-ferrovie-federali-ostermundigen"
         ]
       },
       "firstSeenAt": "2026-09-08T13:50:04.192Z",
@@ -11239,11 +11268,47 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-13T14:10:21.855Z",
       "previousSlugs": [
-        "quereinstieg-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-ostermundigen"
+        "quereinstieg-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-ostermundigen",
+        "specialista-di-accesso-trasversale-nel-soccorso-ferroviario-ffs-officine-ferrovie-federali-brig-glis",
+        "lateral-entry-specialistin-railway-rescue-ffs-officine-ferrovie-federali-brig-glis",
+        "quereinstieg-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-brig-glis",
+        "specialiste-de-l-entree-laterale-dans-le-sauvetage-ferroviaire-ffs-officine-ferrovie-federali-brig-glis",
+        "soccorso-ferroviario-specializzato-cross-entry-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "transverse-entry-firefighter-or-firefighter-and-engine-driver-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "quereinstieg-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "entree-laterale-en-tant-que-pompier-et-conducteur-de-train-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "quereinstieg-feuerwehrmann-oder-feuerwehrfrau-und-lokfuhrer-in-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "accesso-incrociato-pompiere-o-vigile-del-fuoco-e-macchinista-in-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "cambio-carriera-feuerwehrmann-o-feuerwehrfrau-e-lokfuhrer-in-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "cambio-carriera-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-rapperswil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quereinstieg-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-ostermundigen"
+          "quereinstieg-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-ostermundigen",
+          "specialista-di-accesso-trasversale-nel-soccorso-ferroviario-ffs-officine-ferrovie-federali-brig-glis",
+          "lateral-entry-specialistin-railway-rescue-ffs-officine-ferrovie-federali-brig-glis",
+          "quereinstieg-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-brig-glis",
+          "specialiste-de-l-entree-laterale-dans-le-sauvetage-ferroviaire-ffs-officine-ferrovie-federali-brig-glis",
+          "soccorso-ferroviario-specializzato-cross-entry-ffs-officine-ferrovie-federali-rapperswil-sg",
+          "transverse-entry-firefighter-or-firefighter-and-engine-driver-ffs-officine-ferrovie-federali-rapperswil-sg",
+          "quereinstieg-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-rapperswil-sg",
+          "entree-laterale-en-tant-que-pompier-et-conducteur-de-train-ffs-officine-ferrovie-federali-rapperswil-sg",
+          "quereinstieg-feuerwehrmann-oder-feuerwehrfrau-und-lokfuhrer-in-ffs-officine-ferrovie-federali-rapperswil-sg",
+          "accesso-incrociato-pompiere-o-vigile-del-fuoco-e-macchinista-in-ffs-officine-ferrovie-federali-rapperswil-sg",
+          "cambio-carriera-feuerwehrmann-o-feuerwehrfrau-e-lokfuhrer-in-ffs-officine-ferrovie-federali-rapperswil-sg",
+          "cambio-carriera-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-rapperswil-sg"
+        ],
+        "en": [
+          "lateral-entry-specialistin-railway-rescue-ffs-officine-ferrovie-federali-brig-glis",
+          "transverse-entry-firefighter-or-firefighter-and-engine-driver-ffs-officine-ferrovie-federali-rapperswil-sg"
+        ],
+        "de": [
+          "quereinstieg-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-brig-glis",
+          "quereinstieg-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-rapperswil-sg"
+        ],
+        "fr": [
+          "specialiste-de-l-entree-laterale-dans-le-sauvetage-ferroviaire-ffs-officine-ferrovie-federali-brig-glis",
+          "entree-laterale-en-tant-que-pompier-et-conducteur-de-train-ffs-officine-ferrovie-federali-rapperswil-sg"
         ]
       },
       "firstSeenAt": "2026-06-10T23:32:49.179Z",

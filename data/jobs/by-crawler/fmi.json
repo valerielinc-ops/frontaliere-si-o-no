@@ -1817,11 +1817,15 @@
         "personale-in-contabilita-40-60-spitaler-fmi-ag-unterseen",
         "personnel-in-accounting-40-60-spitaler-fmi-ag-unterseen",
         "sachbearbeiter-in-rechnungswesen-40-60-fmi-unterseen",
-        "personnel-en-comptabilite-40-60-spitaler-fmi-ag-unterseen"
+        "personnel-en-comptabilite-40-60-spitaler-fmi-ag-unterseen",
+        "ergotherapeut-in-60-80-fmi-unterseen",
+        "ergoterapista-60-80-spitaler-fmi-ag-unterseen",
+        "occupational-therapist-60-80-spitaler-fmi-ag-unterseen",
+        "ergotherapeut-in-60-80-spitaler-fmi-ag-unterseen",
+        "therapeute-en-ergotherapie-60-80-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nutritionniste-dans-60-80-spitaler-fmi-ag-unterseen",
           "ernahrungsberater-in-60-80-spitaler-fmi-ag-unterseen",
           "farmacista-80-100-spitaler-fmi-ag-unterseen",
           "pharmacist-80-100-spitaler-fmi-ag-unterseen",
@@ -1839,22 +1843,27 @@
           "personale-in-contabilita-40-60-spitaler-fmi-ag-unterseen",
           "pflegepersonal-fmi-unterseen",
           "nutrizionista-in-60-80-spitaler-fmi-ag-unterseen",
-          "nutritionist-in-60-80-spitaler-fmi-ag-unterseen"
+          "nutritionist-in-60-80-spitaler-fmi-ag-unterseen",
+          "ergotherapeut-in-60-80-fmi-unterseen",
+          "ergoterapista-60-80-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "nutritionist-in-60-80-spitaler-fmi-ag-unterseen",
-          "personnel-in-accounting-40-60-spitaler-fmi-ag-unterseen"
+          "personnel-in-accounting-40-60-spitaler-fmi-ag-unterseen",
+          "occupational-therapist-60-80-spitaler-fmi-ag-unterseen"
         ],
         "de": [
           "ernahrungsberater-in-60-80-fmi-unterseen",
           "sachbearbeiter-in-rechnungswesen-40-60-fmi-unterseen",
           "sachbearbeiter-in-patientenadministration-80-100-fmi-unterseen",
           "sachbearbeiter-in-payroll-amp-hr-administration-50-70-fmi-unterseen",
-          "sachbearbeiter-in-der-lohn-und-personalverwaltung-50-70-spitaler-fmi-ag-unterseen"
+          "sachbearbeiter-in-der-lohn-und-personalverwaltung-50-70-spitaler-fmi-ag-unterseen",
+          "ergotherapeut-in-60-80-spitaler-fmi-ag-unterseen"
         ],
         "fr": [
           "nutritionniste-dans-60-80-spitaler-fmi-ag-unterseen",
-          "personnel-en-comptabilite-40-60-spitaler-fmi-ag-unterseen"
+          "personnel-en-comptabilite-40-60-spitaler-fmi-ag-unterseen",
+          "therapeute-en-ergotherapie-60-80-spitaler-fmi-ag-unterseen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:35.676Z",

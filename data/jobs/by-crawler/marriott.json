@@ -1474,7 +1474,7 @@
           "kochlehrer-marriott-international-geneva"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:23:18.809Z",
       "salaryMin": 52500,
       "salaryMax": 66000,
@@ -1489,7 +1489,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "retranslationAttempts": 0
     },
     {
       "id": "marriott-13fb2539a225",
