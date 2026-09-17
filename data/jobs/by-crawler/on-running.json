@@ -1329,9 +1329,9 @@
     },
     {
       "id": "on-running-56e4c883de79",
-      "slug": "senior-lead-people-analytics-on-running-ch",
+      "slug": "lead-senior-analisi-delle-persone-on-running-zurich",
       "slugByLocale": {
-        "it": "senior-lead-people-analytics-on-running-ch",
+        "it": "lead-senior-analisi-delle-persone-on-running-zurich",
         "en": "senior-lead-people-analytics-on-running-ch",
         "de": "senior-lead-people-analytics-on-running-ch",
         "fr": "chef-de-file-analyse-des-personnes-on-running-zurich"
@@ -1395,7 +1395,15 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-lead-people-analytics-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-lead-people-analytics-on-running-ch"
+      ]
     },
     {
       "id": "on-running-9a3629387b0c",
@@ -1477,9 +1485,9 @@
     },
     {
       "id": "on-running-6691abfcf8aa",
-      "slug": "senior-lead-global-portfolio-pricing-on-running-ch",
+      "slug": "lead-senior-portfolio-globale-e-prezzi-on-running-zurich",
       "slugByLocale": {
-        "it": "senior-lead-global-portfolio-pricing-on-running-ch",
+        "it": "lead-senior-portfolio-globale-e-prezzi-on-running-zurich",
         "en": "senior-lead-global-portfolio-pricing-on-running-ch",
         "de": "senior-lead-globales-portfolio-pricing-on-running-zurich",
         "fr": "responsable-principal-portefeuille-mondial-et-tarification-on-running-zurich"
@@ -1542,7 +1550,15 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-lead-global-portfolio-pricing-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-lead-global-portfolio-pricing-on-running-ch"
+      ]
     },
     {
       "id": "on-running-750e7c9d8dd5",
@@ -2182,9 +2198,9 @@
     },
     {
       "id": "on-running-6cc59d88673b",
-      "slug": "senior-lead-copywriter-apparel-on-running-ch",
+      "slug": "copywriter-di-piombo-superiore-electrical-on-running-zurich",
       "slugByLocale": {
-        "it": "senior-lead-copywriter-apparel-on-running-ch",
+        "it": "copywriter-di-piombo-superiore-electrical-on-running-zurich",
         "en": "senior-lead-copywriter-apparel-on-running-ch",
         "de": "senior-lead-copywriter-bekleidung-on-running-zurich",
         "fr": "redacteur-principal-appareil-on-running-zurich"
@@ -2247,7 +2263,15 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-lead-copywriter-apparel-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-lead-copywriter-apparel-on-running-ch"
+      ]
     },
     {
       "id": "on-running-1dff1a8d5b69",
@@ -3167,11 +3191,11 @@
     },
     {
       "id": "on-running-3b40800b8e4a",
-      "slug": "lead-responsive-nos-flows-on-running-ch",
+      "slug": "piombo-flussi-di-risposta-e-nos-on-running-zurich",
       "slugByLocale": {
-        "it": "lead-responsive-nos-flows-on-running-ch",
+        "it": "piombo-flussi-di-risposta-e-nos-on-running-zurich",
         "en": "lead-responsive-nos-flows-on-running-ch",
-        "de": "lead-responsive-nos-flows-on-running-ch",
+        "de": "blei-responsive-nos-strome-on-running-zurich",
         "fr": "plomb-debits-reactifs-et-nos-on-running-zurich"
       },
       "company": "On Running",
@@ -3232,7 +3256,18 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-responsive-nos-flows-on-running-ch"
+        ],
+        "de": [
+          "lead-responsive-nos-flows-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lead-responsive-nos-flows-on-running-ch"
+      ]
     },
     {
       "id": "on-running-883ac5a45a29",
@@ -3732,7 +3767,7 @@
       "slugByLocale": {
         "it": "piombo-copiatore-digitale-on-running-zurich",
         "en": "lead-digital-copywriter-on-running-ch",
-        "de": "lead-digital-copywriter-on-running-ch",
+        "de": "blei-digitaler-texter-on-running-zurich",
         "fr": "lead-copieur-numerique-on-running-zurich"
       },
       "company": "On Running",
@@ -3788,6 +3823,9 @@
           "lead-digital-copywriter-on-running-ch"
         ],
         "fr": [
+          "lead-digital-copywriter-on-running-ch"
+        ],
+        "de": [
           "lead-digital-copywriter-on-running-ch"
         ]
       },

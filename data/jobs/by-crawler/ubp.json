@@ -1009,7 +1009,7 @@
       "slugByLocale": {
         "it": "gestione-delle-operazioni-union-bancaire-privee-geneva-switzerland",
         "en": "operations-transformation-manager-ubp-ch",
-        "de": "operations-transformation-manager-ubp-ch",
+        "de": "betriebsumwandlungsmanager-union-bancaire-privee-geneva-switzerland",
         "fr": "gestionnaire-de-la-transformation-des-operations-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
@@ -1063,6 +1063,9 @@
           "operations-transformation-manager-union-bancaire-privee-geneva-switzerland"
         ],
         "fr": [
+          "operations-transformation-manager-ubp-ch"
+        ],
+        "de": [
           "operations-transformation-manager-ubp-ch"
         ]
       },
@@ -3155,9 +3158,9 @@
     },
     {
       "id": "ubp-a447bf4ae4bf",
-      "slug": "senior-change-lead-wm-first-line-of-defense-ubp-ch",
+      "slug": "lead-senior-change-wm-prima-linea-di-difesa-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "it": "senior-change-lead-wm-first-line-of-defense-ubp-ch",
+        "it": "lead-senior-change-wm-prima-linea-di-difesa-union-bancaire-privee-geneva-switzerland",
         "en": "senior-change-lead-wm-first-line-of-defense-ubp-ch",
         "de": "senior-change-lead-wm-erste-verteidigungslinie-union-bancaire-privee-geneva-switzerland",
         "fr": "leader-principal-du-changement-premiere-ligne-de-defense-wm-union-bancaire-privee-geneva-switzerland"
@@ -3214,7 +3217,15 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-change-lead-wm-first-line-of-defense-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-change-lead-wm-first-line-of-defense-ubp-ch"
+      ]
     },
     {
       "id": "ubp-9a652946dc90",
@@ -3927,7 +3938,6 @@
       "previousSlugs": [
         "banklehre-zurich-2027-ubp-ch",
         "banklehre-zurich-2027-union-bancaire-privee-zurich-switzerland",
-        "zurigo-banking-2027-union-bancaire-privee-zurich-switzerland",
         "senior-wealth-planner-zurigo-union-bancaire-privee-zurich-switzerland",
         "senior-wealth-planner-zurich-ubp-ch",
         "senior-wealth-planner-zurich-union-bancaire-privee-zurich-switzerland",
@@ -3936,7 +3946,6 @@
       "previousSlugsByLocale": {
         "it": [
           "banklehre-zurich-2027-ubp-ch",
-          "zurigo-banking-2027-union-bancaire-privee-zurich-switzerland",
           "senior-wealth-planner-zurigo-union-bancaire-privee-zurich-switzerland",
           "senior-wealth-planner-zurich-ubp-ch",
           "senior-wealth-planner-zurich-union-bancaire-privee-zurich-switzerland",
@@ -4136,7 +4145,7 @@
       "slugByLocale": {
         "it": "business-analista-enterprise-data-management-edm-instrument-data-focus-union-bancaire-privee-geneva-switzerland",
         "en": "business-analyst-enterprise-data-management-edm-instrument-data-focus-ubp-ch",
-        "de": "business-analyst-enterprise-data-management-edm-instrument-data-focus-ubp-ch",
+        "de": "business-ansass-enterprise-data-management-edm-fokus-auf-instrumentdaten-union-bancaire-privee-geneva-switzerland",
         "fr": "business-analyste-enterprise-data-management-edm-instrument-data-focus-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
@@ -4186,6 +4195,9 @@
           "business-analyst-enterprise-data-management-edm-instrument-data-focus-ubp-ch"
         ],
         "fr": [
+          "business-analyst-enterprise-data-management-edm-instrument-data-focus-ubp-ch"
+        ],
+        "de": [
           "business-analyst-enterprise-data-management-edm-instrument-data-focus-ubp-ch"
         ]
       },

@@ -177,9 +177,9 @@
       "slug": "apprendistato-kauffrau-kaufmann-cfc-stadt-bern",
       "slugByLocale": {
         "it": "apprendistato-kauffrau-kaufmann-cfc-stadt-bern",
-        "en": "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern",
+        "en": "teaching-position-merchant-efz-stadt-bern-bern",
         "de": "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern",
-        "fr": "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern"
+        "fr": "position-d-enseignement-merchant-efz-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -226,6 +226,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern"
+        ],
+        "en": [
+          "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern"
+        ],
+        "fr": [
           "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern"
         ]
       },

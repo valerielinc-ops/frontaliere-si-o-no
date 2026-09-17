@@ -210,7 +210,8 @@ export async function fetchSwissReJobDetail(url) {
  * For 'html-career' listing index you typically need Playwright
  * (re-scaffold with --playwright if so).
  */
-const SF_LOCATION_FILTERS = []; // TODO: e.g. ['Ticino', 'Lugano', 'Zurich']
+// No canton facet: Swiss Re's SuccessFactors listing is national.
+const SF_LOCATION_FILTERS = [];
 
 async function fetchJobListings() {
   const kind = detectSuccessFactorsKind(CAREER_URL);
