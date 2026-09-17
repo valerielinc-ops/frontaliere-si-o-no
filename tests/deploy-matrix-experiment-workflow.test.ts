@@ -16,13 +16,16 @@ const WORKFLOW = YAML.parse(WORKFLOW_TEXT) as any;
 describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
   it('keeps the explicit build-flag allowlist', () => {
     expect([...ALLOWED_ENV_KEYS].sort()).toEqual([
+      'BUILD_BENCH',
       'BUILD_PROFILE',
+      'BUILD_STOP_AFTER',
       'FAST_BUILD',
       'INCREMENTAL_MANIFEST',
       'INCREMENTAL_MANIFEST_VERIFY',
       'JOBS_SEO_MEM_GC',
       'JOBS_SEO_REUSE',
       'JOBS_SEO_REUSE_VERIFY',
+      'JOBS_SEO_SAMPLE',
       'POST_WALK_INCREMENTAL',
       'POST_WALK_INCREMENTAL_VERIFY',
       'RELATED_SEARCH_CLUSTERS_NO_CACHE',
@@ -34,6 +37,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     const inputs = WORKFLOW.on.workflow_dispatch.inputs;
     expect(inputs.variants).toMatchObject({ type: 'string', default: 'base=' });
     expect(inputs.chain).toMatchObject({ type: 'string', default: '' });
+    expect(inputs.stop_after_jobs_seo).toMatchObject({ type: 'boolean', default: false });
     expect(inputs.compare_monolith).toMatchObject({ type: 'boolean', default: false });
   });
 
@@ -47,6 +51,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       "bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}",
     ]));
     expect(WORKFLOW_TEXT).not.toMatch(/uses:\s*actions\/cache@/u);
+    expect(WORKFLOW.concurrency.group).toBe('deploy-matrix-experiment-${{ github.run_id }}');
     expect(String(WORKFLOW.concurrency.group)).not.toBe('pages-build-run');
   });
 
@@ -66,6 +71,19 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(() => parseVariants('bad=NOT_A_BUILD_FLAG=1')).toThrow(/disallowed env key/);
   });
 
+  it('accepts the benchmark-only stop and sample flags in a variant', () => {
+    expect(parseVariants(
+      'canary=BUILD_STOP_AFTER=jobsSeoPages,JOBS_SEO_SAMPLE=0.1,BUILD_BENCH=1',
+    )).toEqual([{
+      name: 'canary',
+      env: {
+        BUILD_STOP_AFTER: 'jobsSeoPages',
+        JOBS_SEO_SAMPLE: '0.1',
+        BUILD_BENCH: '1',
+      },
+    }]);
+  });
+
   it('restores chained caches before production fallbacks and uploads per-variant markers', () => {
     const steps = WORKFLOW.jobs['build-locale'].steps as Array<Record<string, any>>;
     const benchManifest = steps.find((step) => step.name === 'Restore chained incremental manifest');
@@ -74,6 +92,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     const html = steps.find((step) => step.name === 'Restore previous jobs SEO HTML cache');
     const extract = steps.find((step) => step.name === 'Extract build markers');
     const upload = steps.find((step) => step.name === 'Upload build markers');
+    const stop = steps.find((step) => step.name === 'Enforce stop-after jobs SEO control');
 
     expect(benchManifest?.uses).toBe('actions/cache/restore@v5');
     expect(benchManifest?.with?.key).toBe(
@@ -102,6 +121,23 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(extract?.run).toContain('[jobs-seo-reuse');
     expect(extract?.run).toContain('[post-walk');
     expect(extract?.run).toContain('incremental-verify');
+    expect(extract?.run).toContain('jobs-seo-sample');
+    expect(extract?.run).toContain('build-stop-after');
+    expect(extract?.run).toContain('wall-time-build-status');
+    expect(extract?.run).toContain('post-walk');
+    expect(stop?.if).toBe('inputs.stop_after_jobs_seo == true');
+    expect(WORKFLOW.jobs['build-locale'].env).toMatchObject({
+      BUILD_BENCH: '1',
+      BUILD_STOP_AFTER: "${{ inputs.stop_after_jobs_seo == true && 'jobsSeoPages' || '' }}",
+    });
+    const build = steps.find((step) => String(step.name).startsWith('Build ('));
+    expect(build?.run).toContain('./node_modules/.bin/vite build --minify esbuild');
+    expect(build?.run).toContain('skip post-build SPA asset verification');
+    expect(build?.run).toContain('stop_after=${BUILD_STOP_AFTER:-}');
+    const prune = steps.find((step) => step.name === 'Prune to locale shard (filesystem-level, mirrors production push_shard)');
+    const validate = steps.find((step) => step.name === 'Validate locale shard output');
+    expect(prune?.if).toContain("steps.build_step.outputs.stop_after == ''");
+    expect(validate?.if).toContain("steps.build_step.outputs.stop_after == ''");
     expect(upload?.with).toMatchObject({
       name: 'build-markers-${{ matrix.locale }}-${{ matrix.variant }}-${{ github.run_id }}',
       'retention-days': 14,
@@ -111,8 +147,11 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
   it('only enables monolith/compare for an explicit single-variant comparison', () => {
     expect(WORKFLOW.jobs['build-locale'].name).toBe('build-locale (${{ matrix.locale }}, ${{ matrix.variant }})');
     expect(WORKFLOW.jobs.monolith.if).toContain('inputs.compare_monolith == true');
+    expect(WORKFLOW.jobs.monolith.if).toContain('inputs.stop_after_jobs_seo != true');
     expect(WORKFLOW.jobs.monolith.if).toContain("needs.matrix-setup.outputs.variant_count == '1'");
     expect(WORKFLOW.jobs.compare.if).toContain('inputs.compare_monolith == true');
+    expect(WORKFLOW.jobs.compare.if).toContain('inputs.stop_after_jobs_seo != true');
     expect(WORKFLOW.jobs.compare.if).toContain("needs.matrix-setup.outputs.variant_count == '1'");
+    expect(WORKFLOW.jobs.monolith.env.BUILD_BENCH).toBe('1');
   });
 });

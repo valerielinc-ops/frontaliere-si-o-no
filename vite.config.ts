@@ -18,6 +18,7 @@ import { prepareOutDirPlugin } from './build-plugins/prepareOutDirPlugin';
 import { preloadLocalePlugin } from './build-plugins/preloadLocalePlugin';
 import { ogPagesPlugin } from './build-plugins/ogPagesPlugin';
 import { jobsSeoPagesPlugin } from './build-plugins/jobsSeoPagesPlugin';
+import { withBuildStopAfter } from './build-plugins/buildStopAfterPlugin';
 import jobOgImagesPlugin from './build-plugins/jobOgImagesPlugin';
 import { jobRecencyPagesPlugin } from './build-plugins/jobRecencyPagesPlugin';
 import { jobSectorPagesPlugin } from './build-plugins/jobSectorPagesPlugin';
@@ -637,7 +638,7 @@ export default defineConfig(({ mode }) => {
  // `withProfile` adds around closeBundle. It also reaches the hooks
  // `withProfile` never saw (transform/load/resolveId/renderChunk), which is
  // where the Rollup half of the ~80-min IT leg was hiding.
- ...allPlugins.map((p) => withProfile(withPhaseTiming(p))),
+ ...allPlugins.map((p) => withBuildStopAfter(withProfile(withPhaseTiming(p)))),
  // #5001 punto 2 — genera le hero card richieste dalle famiglie SEO statiche.
  // DEVE stare dopo `allPlugins`: legge il registry che `renderSeoHeroImage`
  // riempie mentre gli emettitori scrivono il markup, quindi se girasse prima
