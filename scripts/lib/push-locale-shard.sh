@@ -27,6 +27,7 @@
 #   GITHUB_SHA         — short SHA embedded in the commit message (best-effort).
 #   GITHUB_RUN_ID      — run id embedded in the commit message (best-effort).
 #   SHARD_PUSH_MODE    — `full` (default, current byte-identical path) or `delta`.
+#   SHARD_PUSH_VERIFY  — `1` enables an advisory full-vs-delta tree comparison.
 #   SHARD_INCREMENTAL_MANIFEST_DIR — current build manifest directory; defaults
 #                                    to .cache/incremental-manifest.
 #
@@ -55,6 +56,7 @@ case "$SHARD_PUSH_MODE" in
 esac
 manifest_dir="${SHARD_INCREMENTAL_MANIFEST_DIR:-$repo_root/.cache/incremental-manifest}"
 manifest_tool="$repo_root/scripts/ci/shard-manifest-delta.mjs"
+verify_tool="$repo_root/scripts/ci/shard-push-verify.mjs"
 
 loc="${1:-}"
 dist_dir="${2:-}"
@@ -165,6 +167,44 @@ push_shard() {
     delta_snapshot=''
     delta_fallback_reason=''
     delta_output="$RUNNER_TEMP/shard-delta-$loc"
+    verify_ready=0
+    verify_snapshot=''
+    verify_base_tree=''
+    verify_plan_tree=''
+    verify_plan_seconds=0
+    verify_stage="$RUNNER_TEMP/shard-push-verify-stage-$loc"
+    verify_output="$RUNNER_TEMP/shard-push-verify-plan-$loc"
+
+    # Full mode keeps the historical push as the source of truth. When the
+    # canary is enabled, build the delta index beside it without pushing; the
+    # comparison runs only after the full commit has landed.
+    if [ "$SHARD_PUSH_MODE" = full ] && [ "${SHARD_PUSH_VERIFY:-}" = 1 ]; then
+      delta_sidecar="$(shard_delta_manifest_sidecar "$loc")"
+      verify_started="$SECONDS"
+      if shard_delta_verify_prepare \
+          "$verify_stage" "$SHARD_REPO" "$manifest_dir/$loc.jsonl" "$delta_sidecar" \
+          "$loc" "$dist_dir" "$manifest_tool" "$verify_output" \
+          "$SHARD_HISTORY_CAP" "$loc shard" \
+        && verify_snapshot="$SHARD_VERIFY_SNAPSHOT" \
+        && shard_delta_verify_add_service_tree \
+            "$verify_stage" "origin-$loc.frontaliereticino.ch" \
+            "<!doctype html><meta charset=utf-8><title>frontaliereticino.ch $loc shard</title>" \
+            "$dist_dir/$loc.html" "$loc.html" "$dist_dir/404.html" \
+            "$verify_snapshot" "$delta_sidecar" \
+        && verify_n="$(shard_delta_count_files "$verify_stage" "$loc")" \
+        && verify_built_n="$((verify_n + stripped_n))" \
+        && verify_dcount="$SHARD_VERIFY_DCOUNT" \
+        && shard_delta_add_text "$verify_stage" .shard-filecount "$verify_built_n" 0 \
+        && shard_delta_add_text "$verify_stage" .shard-deploys "$((verify_dcount + 1))" 0 \
+        && verify_base_tree="$SHARD_VERIFY_BASE_TREE" \
+        && verify_plan_tree="$(git -C "$verify_stage" write-tree --missing-ok)"; then
+        verify_plan_seconds="$((SECONDS - verify_started))"
+        verify_ready=1
+        delta_snapshot="$verify_snapshot"
+      else
+        echo "::warning::[shard-push-verify] $loc shard plan unavailable: ${SHARD_VERIFY_REASON:-advisory preparation failure}"
+      fi
+    fi
 
     if [ "$SHARD_PUSH_MODE" = delta ]; then
       delta_sidecar="$(shard_delta_manifest_sidecar "$loc")"
@@ -298,7 +338,8 @@ push_shard() {
     # 404.html already lives at dist's root, which IS the shard root there.
     if [ -f "$dist_dir/404.html" ]; then cp "$dist_dir/404.html" "$stage/404.html"; fi
     printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch %s shard</title>' "$loc" > "$stage/index.html"
-    if [ "$SHARD_PUSH_MODE" = delta ] && [ -n "$delta_snapshot" ] && [ -s "$delta_snapshot" ]; then
+    if { [ "$SHARD_PUSH_MODE" = delta ] || [ "$verify_ready" = 1 ]; } \
+       && [ -n "$delta_snapshot" ] && [ -s "$delta_snapshot" ]; then
       mkdir -p "$stage/$(dirname "$delta_sidecar")"
       cp "$delta_snapshot" "$stage/$delta_sidecar"
     fi
@@ -403,8 +444,18 @@ push_shard() {
         fi
       fi
       [ "$_push_ok" = 1 ] || { echo "::error::$loc shard push failed after 3 attempts (+ flatten self-heal retry)"; exit 1; }
+      if [ "$verify_ready" = 1 ]; then
+        if actual_tree="$(git -C "$stage" rev-parse 'HEAD^{tree}' 2>/dev/null)"; then
+          shard_delta_verify_report \
+            "$verify_stage" "$verify_base_tree" "$verify_plan_tree" \
+            "$stage" "$actual_tree" "$verify_tool" "$SHARD_REPO" "$verify_plan_seconds"
+        else
+          echo "::warning::[shard-push-verify] $loc shard actual pushed tree unavailable (advisory)"
+        fi
+      fi
     fi
     fi
+    rm -rf "$verify_stage" "$verify_output"
   )
   rc=$?
   rm -f "$keyfile"

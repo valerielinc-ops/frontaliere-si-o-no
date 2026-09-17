@@ -41,7 +41,9 @@ shard_read_counter() {
 # shard_delta_manifest_sidecar <locale>
 # The build manifest lives outside dist/. Delta mode carries a filtered,
 # per-shard snapshot in the published tree so the next push has an atomic
-# previous-manifest/base-tree pair. Full mode never creates this sidecar.
+# previous-manifest/base-tree pair. Full mode carries it only when the
+# advisory verifier is enabled, so the canary compares the complete tree that
+# delta would publish and primes the next delta run without changing payloads.
 shard_delta_manifest_sidecar() {
   local locale="$1"
   printf '.deploy-manifest/v1/%s.jsonl' "$locale"
@@ -167,15 +169,17 @@ shard_delta_add_text() {
 }
 
 # shard_delta_remove_stale_payload_paths <stage> <scope_prefix>
-#   <payload_file_list> <removed_file>
+#   <payload_file_list> <removed_file> [require_tombstones]
 # The seeded index is the previous inventory. Remove every tracked payload
 # path under the scope that is absent from the current payload list, including
 # unmanifested files and children of a still-live manifest page. Root service
 # files are handled separately by the caller and are never part of this set.
-# One awk pass emits all deletion records and cross-checks every manifest
-# tombstone before one index-info update.
+# One awk pass emits all deletion records and, by default, cross-checks every
+# manifest tombstone before one index-info update. The advisory verifier passes
+# 0 when no previous sidecar exists and derives deletions from the old index.
 shard_delta_remove_stale_payload_paths() {
   local stage="$1" scope_prefix="$2" payload_file_list="$3" removed_file="$4"
+  local require_tombstones="${5:-1}"
   local work index_dump delete_info count_file missing_file removed_count
   [ -f "$payload_file_list" ] || return 1
   [ -f "$removed_file" ] || return 1
@@ -248,7 +252,7 @@ shard_delta_remove_stale_payload_paths() {
     rm -rf "$work"
     return 1
   fi
-  if [ -s "$missing_file" ]; then
+  if [ "$require_tombstones" = 1 ] && [ -s "$missing_file" ]; then
     SHARD_DELTA_REASON='manifest tombstone cross-check failed'
     rm -rf "$work"
     return 1
@@ -385,6 +389,226 @@ shard_delta_apply_source_tree() {
     SHARD_DELTA_CONTENT_CHANGES="$changed_count"
   fi
   SHARD_DELTA_REUSED_FILES=$((SHARD_DELTA_SOURCE_FILES - SHARD_DELTA_CHANGED_FILES))
+  rm -rf "$work"
+  return 0
+}
+
+# shard_delta_remove_manifest_sidecars <stage>
+# The full overlay starts from an empty working tree, so it removes stale
+# sidecars. A verification plan must model that same result before adding the
+# one current snapshot (when a manifest is available).
+shard_delta_remove_manifest_sidecars() {
+  local stage="$1" path
+  while IFS= read -r path; do
+    [ -n "$path" ] || continue
+    git -C "$stage" update-index --force-remove -- "$path" || return 1
+  done < <(git -C "$stage" ls-files --name-only -- '.deploy-manifest/' 2>/dev/null)
+  return 0
+}
+
+# shard_delta_verify_prepare <stage> <repo> <current_manifest> <sidecar>
+#   <scope> <source_root> <tool> <out_dir> <history_cap> <label>
+# Build a delta index without ever pushing it. This is advisory-only plumbing
+# for SHARD_PUSH_VERIFY=1 in full mode. If the remote has no sidecar yet (the
+# normal first canary after the flag was introduced), the verifier falls back
+# to hashing the complete payload in one batch and lets the tombstone pass
+# derive removals from the previous index. That still proves the tree contract
+# without changing delta mode's stricter sidecar precondition.
+shard_delta_verify_prepare() {
+  local stage="$1" repo="$2" current="$3" sidecar="$4" scope="$5"
+  local source_root="$6" tool="$7" out_dir="$8" history_cap="$9" label="${10:-shard}"
+  local clone_err previous_manifest payload_root manifest_ready=0 require_tombstones=0
+  local current_ok=0
+  SHARD_VERIFY_REASON=''
+  SHARD_VERIFY_SNAPSHOT=''
+  SHARD_VERIFY_BASE_TREE=''
+  SHARD_VERIFY_DCOUNT=0
+  SHARD_VERIFY_PREV_N=0
+
+  rm -rf "$stage" "$out_dir"
+  if ! mkdir -p "$stage" "$out_dir"; then
+    SHARD_VERIFY_REASON='verification staging directory unavailable'
+    return 1
+  fi
+
+  # A valid current manifest gives us the same filtered payload lists as delta
+  # mode and a sidecar snapshot to compare/publish. Missing/invalid manifests
+  # remain advisory: the source payload is still sufficient to verify tree
+  # equivalence, even though delta mode itself will fall back to full.
+  if [ -s "$current" ] && shard_manifest_snapshot "$current" "$scope" "$source_root" "$tool" "$out_dir"; then
+    manifest_ready=1
+    current_ok=1
+    SHARD_VERIFY_SNAPSHOT="$out_dir/snapshot.jsonl"
+  fi
+  payload_root="$source_root/$scope"
+  if [ ! -d "$payload_root" ]; then
+    SHARD_VERIFY_REASON='verification payload root missing'
+    return 1
+  fi
+  if [ "$manifest_ready" != 1 ]; then
+    rm -rf "$out_dir"
+    if ! mkdir -p "$out_dir"; then
+      SHARD_VERIFY_REASON='verification output directory unavailable'
+      return 1
+    fi
+    if ! ( cd "$payload_root" && find . -type f -print | sed 's#^\./##' | LC_ALL=C sort ) > "$out_dir/payload-files.txt"; then
+      SHARD_VERIFY_REASON='verification payload listing failed'
+      return 1
+    fi
+    cp "$out_dir/payload-files.txt" "$out_dir/changed-files.txt"
+    : > "$out_dir/unmanifested-files.txt"
+    : > "$out_dir/removed.txt"
+  fi
+
+  clone_err="$(mktemp)"
+  if ! git clone -q --depth 1 --filter=blob:none --no-checkout "$repo" "$stage" 2>"$clone_err"; then
+    echo "::warning::$label verification clone failure: $(cat "$clone_err")" >&2
+    rm -f "$clone_err"
+    SHARD_VERIFY_REASON='verification clone failure'
+    return 1
+  fi
+  rm -f "$clone_err"
+
+  if git -C "$stage" rev-parse -q --verify HEAD >/dev/null 2>&1; then
+    if ! SHARD_VERIFY_BASE_TREE="$(git -C "$stage" rev-parse 'HEAD^{tree}')"; then
+      SHARD_VERIFY_REASON='verification base tree unavailable'
+      return 1
+    fi
+    SHARD_VERIFY_DCOUNT="$(shard_read_counter "$stage" .shard-deploys)"
+    SHARD_VERIFY_PREV_N="$(shard_read_counter "$stage" .shard-filecount)"
+    # A full push flattens at the cap. Model its reset counters in the plan so
+    # the comparison is about the published tree, not history bookkeeping.
+    if [ "$SHARD_VERIFY_DCOUNT" -ge "$history_cap" ]; then SHARD_VERIFY_DCOUNT=0; fi
+    if ! git -C "$stage" read-tree HEAD; then
+      SHARD_VERIFY_REASON='verification index initialization failed'
+      return 1
+    fi
+    previous_manifest="$out_dir/previous.jsonl"
+    if [ "$current_ok" = 1 ] && git -C "$stage" show "HEAD:$sidecar" > "$previous_manifest" 2>/dev/null \
+      && node "$tool" \
+        --current="$current" \
+        --previous="$previous_manifest" \
+        --scope="$scope" \
+        --source-root="$source_root" \
+        --out="$out_dir"; then
+      require_tombstones=1
+    else
+      # No previous sidecar is expected while full mode is still the default.
+      # The payload list is the conservative baseline: every source file is
+      # hashed and stale payload paths are treated as tombstones.
+      cp "$out_dir/payload-files.txt" "$out_dir/changed-files.txt"
+      : > "$out_dir/unmanifested-files.txt"
+      : > "$out_dir/removed.txt"
+      require_tombstones=0
+    fi
+  else
+    # Empty bare remotes are a valid first-push case. Keep an empty index and
+    # compare the full push against an all-add delta plan.
+    if ! git -C "$stage" read-tree --empty; then
+      SHARD_VERIFY_REASON='verification empty index initialization failed'
+      return 1
+    fi
+    if ! SHARD_VERIFY_BASE_TREE="$(git -C "$stage" mktree < /dev/null)"; then
+      SHARD_VERIFY_REASON='verification empty base tree unavailable'
+      return 1
+    fi
+    cp "$out_dir/payload-files.txt" "$out_dir/changed-files.txt"
+    : > "$out_dir/unmanifested-files.txt"
+    : > "$out_dir/removed.txt"
+    require_tombstones=0
+  fi
+
+  if ! shard_delta_apply_source_tree \
+      "$stage" "$payload_root" "$scope" \
+      "$out_dir/changed-files.txt" \
+      "$out_dir/unmanifested-files.txt" \
+      "$out_dir/payload-files.txt"; then
+    SHARD_VERIFY_REASON='verification source hashing failed'
+    return 1
+  fi
+  if ! shard_delta_remove_stale_payload_paths \
+      "$stage" "$scope" "$out_dir/payload-files.txt" "$out_dir/removed.txt" "$require_tombstones"; then
+    SHARD_VERIFY_REASON="${SHARD_DELTA_REASON:-verification tombstone application failed}"
+    return 1
+  fi
+  return 0
+}
+
+# shard_delta_verify_add_service_tree <stage> <origin_host> <index_content>
+#   <home_source> <home_target> <notfound_source> <snapshot> <sidecar>
+# Add the non-payload paths that both the full and delta pushers publish.
+shard_delta_verify_add_service_tree() {
+  local stage="$1" origin_host="$2" index_content="$3" home_source="$4"
+  local home_target="$5" notfound_source="$6" snapshot="$7" sidecar="$8"
+  shard_delta_remove_manifest_sidecars "$stage" || return 1
+  shard_delta_add_text "$stage" .nojekyll '' || return 1
+  shard_delta_add_text "$stage" CNAME "$origin_host" || return 1
+  if [ -n "$home_target" ]; then
+    if [ -n "$home_source" ] && [ -f "$home_source" ]; then
+      shard_delta_add_file "$stage" "$home_source" "$home_target" || return 1
+    else
+      shard_delta_remove_file "$stage" "$home_target" || return 1
+    fi
+  fi
+  if [ -n "$notfound_source" ] && [ -f "$notfound_source" ]; then
+    shard_delta_add_file "$stage" "$notfound_source" 404.html || return 1
+  else
+    shard_delta_remove_file "$stage" 404.html || return 1
+  fi
+  shard_delta_add_text "$stage" index.html "$index_content" || return 1
+  if [ -n "$snapshot" ] && [ -s "$snapshot" ]; then
+    mkdir -p "$stage/$(dirname "$sidecar")" || return 1
+    shard_delta_add_file "$stage" "$snapshot" "$sidecar" || return 1
+  fi
+  return 0
+}
+
+# shard_delta_verify_report <plan_stage> <base_tree> <plan_tree>
+#   <actual_stage> <actual_tree> <tool> <shard_repo> <wall_plan>
+# Compare after the real push. Every failure is advisory: the function emits a
+# diagnostic and returns 0 so continue-on-error remains a last-resort safety
+# net, not the verifier's control flow.
+shard_delta_verify_report() {
+  local plan_stage="$1" base_tree="$2" plan_tree="$3" actual_stage="$4"
+  local actual_tree="$5" tool="$6" shard_repo="$7" wall_plan="$8"
+  local work report safe_shard shard_display files adds mods dels mismatches
+  shard_display="$shard_repo"
+  case "$shard_display" in
+    git@github.com:*) shard_display="${shard_display#git@github.com:}" ;;
+    https://github.com/*) shard_display="${shard_display#https://github.com/}" ;;
+  esac
+  shard_display="${shard_display%.git}"
+  work="$(mktemp -d)" || return 0
+  report="$work/report.json"
+  if ! git -C "$plan_stage" ls-tree -r -z --full-tree "$base_tree" > "$work/base.tree" \
+    || ! git -C "$plan_stage" ls-tree -r -z --full-tree "$plan_tree" > "$work/plan.tree" \
+    || ! git -C "$actual_stage" ls-tree -r -z --full-tree "$actual_tree" > "$work/actual.tree"; then
+    echo "::warning::[shard-push-verify] could not list one of the trees for $shard_display"
+    rm -rf "$work"
+    return 0
+  fi
+  if ! node "$tool" \
+      --base="$work/base.tree" \
+      --plan="$work/plan.tree" \
+      --actual="$work/actual.tree" \
+      --out="$report" >/dev/null; then
+    echo "::warning::[shard-push-verify] comparator failed for $shard_display (advisory)"
+    rm -rf "$work"
+    return 0
+  fi
+  files="$(jq -r '.files // 0' "$report" 2>/dev/null || echo 0)"
+  adds="$(jq -r '.adds // 0' "$report" 2>/dev/null || echo 0)"
+  mods="$(jq -r '.mods // 0' "$report" 2>/dev/null || echo 0)"
+  dels="$(jq -r '.dels // 0' "$report" 2>/dev/null || echo 0)"
+  mismatches="$(jq -r '.mismatchCount // 0' "$report" 2>/dev/null || echo 0)"
+  echo "[shard-push-verify] shard=$shard_display mode=full plan=delta files=$files adds=$adds mods=$mods dels=$dels mismatches=$mismatches wall_plan=${wall_plan}s"
+  if [[ "$mismatches" =~ ^[1-9][0-9]*$ ]]; then
+    safe_shard="$(printf '%s' "$shard_display" | tr -c 'A-Za-z0-9._-' '_')"
+    mkdir -p "$RUNNER_TEMP/shard-push-verify"
+    cp "$report" "$RUNNER_TEMP/shard-push-verify/${safe_shard}.json" || true
+    echo "::warning::[shard-push-verify] $shard_display has $mismatches tree mismatch(es); first 50:"
+    jq -r '.mismatches[]? | "  \(.kind) path=\(.path) expected=\(.expected // "-") actual=\(.actual // "-")"' "$report" | head -n 50 || true
+  fi
   rm -rf "$work"
   return 0
 }
