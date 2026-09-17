@@ -102,6 +102,7 @@ function buildJob({ title, pdfUrl, pdfText }) {
   const location = inferLwphrLocation(title, pdfText, { fallbackLocation: '' });
   const canton = inferLwphrCanton(title, pdfText);
   const localized = buildLwphrLocalizedPayload({ title, pdfText, location, pdfUrl });
+  const locationFields = location ? { location, addressLocality: location } : {};
   return {
     title: localized.titles.it,
     slug: localized.slugs.it,
@@ -110,8 +111,7 @@ function buildJob({ title, pdfUrl, pdfText }) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
-    location,
-    addressLocality: location,
+    ...locationFields,
     addressRegion: canton,
     addressCountry: 'CH',
     canton,
