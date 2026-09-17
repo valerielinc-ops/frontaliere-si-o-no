@@ -176,9 +176,14 @@ export function isIstDetailJob(detail = {}) {
     detail.company,
     detail.tenant,
     detail.tenantName,
+    detail.facility,
+    detail.facilityName,
+    detail.school,
     detail.employer,
     detail.schoolName,
     detail.organization,
+    detail.site,
+    detail.siteName,
   ]
     .map((value) => normalize(value))
     .filter(Boolean);
@@ -187,7 +192,7 @@ export function isIstDetailJob(detail = {}) {
     .filter(Boolean);
   const normalizedSourceUrl = normalize(detail.sourceUrl).replace(/[-_/]+/g, ' ');
   const hasIstTenantMarker = IST_DETAIL_TENANT_RE.test(normalizedSourceUrl);
-  const hasVerifiedIstTenant = detailIdentityValues.includes(normalize(IST_COMPANY_NAME));
+  const hasVerifiedIstTenant = detailIdentityValues.some((value) => IST_DETAIL_TENANT_RE.test(value));
   const hasOnlySharedPortalCompanies = detailCompanies.length === 0
     || detailCompanies.every((company) => IST_SHARED_PORTAL_COMPANIES.has(company));
 
@@ -302,6 +307,7 @@ function extractMicrodata(html) {
     hiringOrganization: get('hiringOrganization'),
     company: get('company') || getPropertyId('company') || getPropertyId('employer'),
     tenant: get('tenant') || getPropertyId('tenant') || getPropertyId('tenantName'),
+    facility: get('facility') || get('schoolName') || getPropertyId('facility'),
     description: getPropertyId('description'),
   };
 }
@@ -446,7 +452,7 @@ async function fetchIstJobs() {
 
     if (
       !rawLocation ||
-      isLocationExplicitlyForeign(rawLocation, { preferExplicitForeignCountry: true }) ||
+      isLocationExplicitlyForeign(rawLocation) ||
       !isTargetSwissLocation(rawLocation, { includeBorderProximity: false })
     ) {
       console.log(`  ⏭️  Skipped — unresolved or non-Swiss location: ${rawLocation || 'missing'}`);
@@ -627,7 +633,7 @@ function postProcessIstJobs() {
     if (
       !location ||
       !canton ||
-      isLocationExplicitlyForeign(rawLocation, { preferExplicitForeignCountry: true }) ||
+      isLocationExplicitlyForeign(rawLocation) ||
       !isTargetSwissLocation(rawLocation, { includeBorderProximity: false })
     ) {
       dropped++;

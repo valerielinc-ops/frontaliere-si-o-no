@@ -18,6 +18,24 @@ describe('IST detail tenant identity', () => {
     })).toBe(true);
   });
 
+  it('accepts a generic city URL when the detail payload carries a verified facility field', () => {
+    expect(isIstDetailJob({
+      hiringOrganization: 'Inspired Education',
+      facility: 'International School of Ticino — Lugano campus',
+      sourceUrl: 'https://jobs.inspirededu.com/job/Lugano-Teacher/12345/',
+      location: 'Lugano, CH',
+    })).toBe(true);
+  });
+
+  it('rejects a generic city URL when the facility belongs to another Inspired school', () => {
+    expect(isIstDetailJob({
+      hiringOrganization: 'Inspired Education',
+      facility: 'Sevenoaks School',
+      sourceUrl: 'https://jobs.inspirededu.com/job/Zurich-Teacher/12345/',
+      location: 'Zürich, CH',
+    })).toBe(false);
+  });
+
   it('accepts a generic city URL when the detail payload carries an exact tenant field', () => {
     expect(isIstDetailJob({
       hiringOrganization: 'Inspired Education',

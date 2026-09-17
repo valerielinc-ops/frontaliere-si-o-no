@@ -6167,24 +6167,25 @@ const EXPLICIT_FOREIGN_COUNTRY_MARKERS = [
   'poland', 'czech republic', 'hungary', 'romania', 'greece',
   'russia', 'ukraine', 'turkey', 'bermuda',
 ];
+const EXPLICIT_FOREIGN_COUNTRY_RE = new RegExp(
+  `(?:^|[^\\p{L}])(?:${EXPLICIT_FOREIGN_COUNTRY_MARKERS
+    .map((marker) => marker.replace(/\s+/g, '\\s+'))
+    .join('|')})(?=$|[^\\p{L}])`,
+  'iu',
+);
 const EXPLICIT_FOREIGN_COUNTRY_CODE_RE = /(?:^|[,;\s(])(?:AT|DE|IT|NL|ES|PT|GB|UK|US|CA|AU|CN|JP|IN|SG|TH|ID|VN|PH|TW|AE|SA|QA|IL|TR|BR|MX|ZA|SE|NO|DK|FI|PL|CZ|HU|RO|BG|HR|SI|SK|RS|UA|RU)(?=$|[,;\s)])/i;
 
-export function isLocationExplicitlyForeign(locationField, {
-  preferExplicitForeignCountry = false,
-} = {}) {
+export function isLocationExplicitlyForeign(locationField) {
   const lower = String(locationField || '').toLowerCase();
   if (!lower || lower.length < 3) return false;
   // Some source cards combine a Swiss municipality with an explicit foreign
-  // country (e.g. "Zurich, Germany"). Callers resolving a single employer's
-  // authoritative address may opt into the country signal before the generic
-  // Swiss-name safeguard below; otherwise this legacy helper keeps its broad
-  // mixed-text behaviour for prose fields used by shared crawlers.
-  if (
-    preferExplicitForeignCountry && (
-      EXPLICIT_FOREIGN_COUNTRY_MARKERS.some((k) => lower.includes(k))
-      || EXPLICIT_FOREIGN_COUNTRY_CODE_RE.test(lower)
-    )
-  ) {
+  // country (e.g. "Zurich, Germany"). The explicit negative country signal
+  // must win over the generic Swiss-name safeguard below for every caller of
+  // this shared helper.
+  const hasExplicitForeignCountry =
+    EXPLICIT_FOREIGN_COUNTRY_RE.test(lower)
+    || EXPLICIT_FOREIGN_COUNTRY_CODE_RE.test(lower);
+  if (hasExplicitForeignCountry) {
     return true;
   }
   if (/(\bch\b|swiss|svizzera|switzerland|schweiz|suisse)/i.test(lower)) return false;
@@ -6230,8 +6231,7 @@ export function isLocationExplicitlyForeign(locationField, {
     'ruggell', 'barberà del vallès', 'barbera del valles',
     'montecarlo', 'monte carlo', 'monte-carlo', 'monaco-ville',
   ];
-  return EXPLICIT_FOREIGN_COUNTRY_MARKERS.some((k) => lower.includes(k))
-    || foreignCities.some((k) => lower.includes(k));
+  return foreignCities.some((k) => lower.includes(k));
 }
 
 // A SuccessFactors / SAP "career site" job page (used by Swatch Group, Omega,

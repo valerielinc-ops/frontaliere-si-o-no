@@ -230,7 +230,7 @@ export function resolveSwissLastminuteLocation(detail = {}) {
   }
   if (
     !location ||
-    isLocationExplicitlyForeign(location, { preferExplicitForeignCountry: true }) ||
+    isLocationExplicitlyForeign(location) ||
     !isTargetSwissLocation(location, { includeBorderProximity: false })
   ) {
     return null;
@@ -252,7 +252,7 @@ function isExplicitlyForeignSmartRecruitersDetail(detail = {}) {
   const country = normalizeCountry(detail.country);
   return Boolean(
     (country && !SWISS_COUNTRY_TOKENS.has(country)) ||
-    (location && isLocationExplicitlyForeign(location, { preferExplicitForeignCountry: true }))
+    (location && isLocationExplicitlyForeign(location))
   );
 }
 
@@ -646,7 +646,7 @@ export function normalizeLastminuteRow(job) {
     !location ||
     !canton ||
     (country && !SWISS_COUNTRY_TOKENS.has(country)) ||
-    isLocationExplicitlyForeign(location, { preferExplicitForeignCountry: true }) ||
+    isLocationExplicitlyForeign(location) ||
     !isTargetSwissLocation(location, { includeBorderProximity: false })
   ) {
     return null;
