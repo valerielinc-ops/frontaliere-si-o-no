@@ -1,12 +1,15 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it, vi } from 'vitest';
 import { assertDetailFetchComplete } from '../scripts/lib/detail-fetch-cap.mjs';
+import { parseAmagListingPage } from '../scripts/lib/amag-job-parser.mjs';
 
 const { fetchHtmlMock } = vi.hoisted(() => ({ fetchHtmlMock: vi.fn() }));
 
 vi.mock('../scripts/lib/crawler-template.mjs', () => ({
   exitCrawlerOnError: vi.fn(),
   fetchHtml: fetchHtmlMock,
+  normalizeSpace: (value: string = '') => String(value || '').replace(/\s+/g, ' ').trim(),
+  normalizeDescriptionSpace: (value: string = '') => String(value || '').replace(/\s+/g, ' ').trim(),
 }));
 
 import { fetchAllListings } from '../scripts/update-amag-jobs.mjs';
@@ -55,6 +58,20 @@ describe('AMAG listing completeness', () => {
       .mockResolvedValueOnce(
         '<table id="joboffers"><tbody><tr><td id="jobTitel">drift</td></tr></tbody></table>',
       );
+
+    await expect(fetchAllListings()).rejects.toThrow(/German listing fetch failed/i);
+  });
+
+  it('fails closed when any German source row is not parseable', async () => {
+    const germanHtml = '<table id="joboffers"><tbody>'
+      + '<tr><td><div id="jobTitel"><a href="/role-de-j123.html">Role</a></div></td></tr>'
+      + '<tr><td><div id="jobTitel">unparseable</div></td></tr>'
+      + '</tbody></table>';
+    expect(parseAmagListingPage(germanHtml)).toHaveLength(1);
+
+    fetchHtmlMock
+      .mockResolvedValueOnce('<table id="joboffers"><tbody></tbody></table>')
+      .mockResolvedValueOnce(germanHtml);
 
     await expect(fetchAllListings()).rejects.toThrow(/German listing fetch failed/i);
   });
