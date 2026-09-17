@@ -6191,9 +6191,15 @@ const EXPLICIT_FOREIGN_COUNTRY_FIELD_CODE_RE = new RegExp(
   'iu',
 );
 const FINAL_FOREIGN_COUNTRY_CODE_RE = new RegExp(
-  `([^,;]+)[,;]\\s*${FOREIGN_COUNTRY_CODE_PATTERN}(?=\\s*(?:\\)|$))`,
+  `([^;]+?)[,;]\\s*${FOREIGN_COUNTRY_CODE_PATTERN}(?=\\s*(?:\\)|$))`,
   'giu',
 );
+
+// A bare `BE` suffix is ambiguous with Bern's canton code. Keep an
+// unresolved Swiss street address such as `Industriestrasse 10, BE` in the
+// ambiguous bucket, but do not let a comma-separated foreign city/postcode
+// such as `Hasselt, 3500, BE` pass merely because it contains digits.
+const BE_SWISS_STREET_ADDRESS_RE = /^\s*(?:ch[-\s]?\d{4}\s+)?[^,;]+\s+\d+[a-z]?\s*$/iu;
 
 function hasExplicitForeignCountryCode(lower) {
   // A labelled field is authoritative even when its two-letter value also
@@ -6210,13 +6216,13 @@ function hasExplicitForeignCountryCode(lower) {
     // explicit negative country signal (e.g. "Zurich, FR").
     if (inferAnyCanton(location) === code) continue;
     // BE is both Belgium's country code and Bern's canton code. Keep it
-    // ambiguous for a Swiss address-shaped prefix, but treat an unresolved
-    // locality without an address number as an explicit country context
-    // (for example, Hasselt, BE). The other canton-shaped suffixes remain
-    // ambiguous here because their source fields historically use the code
-    // as an address suffix without a resolvable locality.
+    // ambiguous only for an unresolved street-plus-house-number address;
+    // treat a city/postcode pair such as Hasselt, 3500 as an explicit country
+    // context. The other canton-shaped suffixes remain ambiguous here because
+    // their source fields historically use the code as an address suffix
+    // without a resolvable locality.
     if (SWISS_LOCATION_CODES.has(code) && !isTargetSwissLocation(location, { includeBorderProximity: false })) {
-      if (code === 'BE' && !isKnownSwissMunicipality(location) && !/\d/u.test(location)) return true;
+      if (code === 'BE' && !isKnownSwissMunicipality(location) && !BE_SWISS_STREET_ADDRESS_RE.test(location)) return true;
       continue;
     }
     return true;
