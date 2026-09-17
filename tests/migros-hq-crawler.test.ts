@@ -4,6 +4,7 @@ import {
   MIGROS_HQ_COMPANY_NAME,
   isMigrosHqJob,
   isTrustedDomain,
+  resolveMigrosHqSourceGeography,
 } from '../scripts/lib/migros-hq-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -25,7 +26,7 @@ describe('Migros HQ Zürich crawler parser', () => {
     });
 
     it('matches by URL domain', () => {
-      expect(isMigrosHqJob({ url: 'https://migros.ch/jobs/123' })).toBe(true);
+      expect(isMigrosHqJob({ url: 'https://migros.ch/jobs/123' })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {
@@ -34,14 +35,41 @@ describe('Migros HQ Zürich crawler parser', () => {
 
     it('matches jobs.migros.ch URLs (live source since #3797)', () => {
       expect(
-        isMigrosHqJob({ url: 'https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/x/uuid' }),
+        isMigrosHqJob({ url: 'https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/x/5ebe9a24-db13-4fee-a3b1-b041531b7f2b' }),
       ).toBe(true);
+    });
+
+    it('rejects a different Migros group-company path', () => {
+      expect(isMigrosHqJob({
+        url: 'https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/x/5ebe9a24-db13-4fee-a3b1-b041531b7f2b',
+      })).toBe(false);
+    });
+
+    it('rejects a lookalike URL on a different host', () => {
+      expect(isMigrosHqJob({
+        url: 'https://evil.example/?next=https://jobs.migros.ch/unsere-unternehmen/job/migros-genossenschafts-bund/x/5ebe9a24-db13-4fee-a3b1-b041531b7f2b',
+      })).toBe(false);
     });
 
     it('handles null/undefined gracefully', () => {
       expect(isMigrosHqJob(null)).toBe(false);
       expect(isMigrosHqJob(undefined)).toBe(false);
       expect(isMigrosHqJob({})).toBe(false);
+    });
+  });
+
+  describe('source-backed geography', () => {
+    it('derives canton and postal code from the posting locality', () => {
+      expect(resolveMigrosHqSourceGeography('Lugano', '')).toEqual({
+        location: 'Lugano',
+        canton: 'TI',
+        postalCode: '6900',
+      });
+    });
+
+    it('does not invent the Zürich HQ address when locality is absent or foreign', () => {
+      expect(resolveMigrosHqSourceGeography('', '')).toBeNull();
+      expect(resolveMigrosHqSourceGeography('Berlin', '')).toBeNull();
     });
   });
 
@@ -115,7 +143,7 @@ describe('Migros HQ Zürich crawler parser', () => {
       location: 'Lugano',
       canton: 'TI',
       url: 'https://migros.ch/jobs/test',
-      source: 'Migros HQ Zürich Dedicated Parser',
+      source: 'Migros-Genossenschafts-Bund National Dedicated Parser',
       sourceLang: 'de',
       crawledAt: new Date().toISOString(),
     };

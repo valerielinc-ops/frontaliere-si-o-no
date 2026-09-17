@@ -4,11 +4,11 @@
  *
  * Source: https://jobs.migros.ch/de/sitemap.xml
  *
- * Migros-Genossenschafts-Bund (the HQ / national holding entity, Limmatstrasse
- * 152, 8005 Zürich) publishes its openings on the same Nuxt SSR portal as every
- * other Migros group company, under the `/unsere-unternehmen/job/
- * migros-genossenschafts-bund/<title-slug>/<uuid>` path. We scope to that one
- * company slug so this crawler stays HQ-only (#3797).
+ * Migros-Genossenschafts-Bund (the HQ / national holding entity) publishes its
+ * openings on the same Nuxt SSR portal as every other Migros group company,
+ * under the `/unsere-unternehmen/job/migros-genossenschafts-bund/<title-slug>/<uuid>`
+ * path. We scope to that legal entity slug only; it is a national employer and
+ * its job location must always come from each posting's source data (#3797).
  *
  * NOTE (2026-07): the previous SmartRecruiters tenant
  * (api.smartrecruiters.com/v1/companies/Migros) is dead — `totalFound: 0` on
@@ -31,8 +31,9 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
-import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { extractMigrosStructuredData } from './migros-job-parser.mjs';
+import { lookupSwissPostalCode } from './swiss-postal-code.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -41,24 +42,16 @@ export const MIGROS_HQ_COMPANY_NAME = 'Migros HQ Zürich';
 export const MIGROS_HQ_COMPANY_DOMAIN = 'migros.ch';
 
 const SITEMAP_URL = 'https://jobs.migros.ch/de/sitemap.xml';
-// Company slug segment that scopes this crawler to Migros-Genossenschafts-Bund
-// (HQ) only — every other slug in the sitemap (genossenschaft-migros-zurich,
-// denner-ag, galaxus, …) belongs to a different group company/co-op and is
-// out of scope here (some are covered by the sibling `migros-ticino` crawler,
-// see scripts/update-migros-jobs.mjs).
+// Company slug segment that scopes this crawler to the national
+// Migros-Genossenschafts-Bund legal entity only — every other slug in the
+// sitemap (genossenschaft-migros-zurich, denner-ag, galaxus, …) belongs to a
+// different group company/co-op and is out of scope here (some are covered by
+// the sibling `migros-ticino` crawler, see scripts/update-migros-jobs.mjs).
 const COMPANY_PATH_SEGMENT = '/job/migros-genossenschafts-bund/';
 // A trailing UUID-shaped segment is the reliable signal of an actual job
 // posting — non-job company/brand pages (e.g. "arbeiten-bei-uns") don't have
 // one.
 const JOB_URL_RE = /\/unsere-unternehmen\/job\/migros-genossenschafts-bund\/[^/]+\/[0-9a-f-]{20,}\/?$/i;
-
-// HQ fallback (Impressum: Limmatstrasse 152, CH-8005 Zürich, canton ZH).
-const HQ = {
-  city: 'Zürich',
-  canton: 'ZH',
-  postalCode: '8005',
-  addressRegion: 'Zürich',
-};
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -68,6 +61,16 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function isMigrosHqSourceUrl(rawUrl = '') {
+  try {
+    const url = new URL(rawUrl);
+    return url.hostname.toLowerCase() === 'jobs.migros.ch'
+      && JOB_URL_RE.test(url.pathname);
+  } catch {
+    return false;
+  }
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -83,14 +86,11 @@ export function isMigrosHqJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
 
   return (
     key === MIGROS_HQ_KEY ||
-    key.startsWith('migros-hq') ||
-    company.includes('migros hq') ||
-    url.includes('migros.ch') ||
-    url.includes('migros.com')
+    company === normalize(MIGROS_HQ_COMPANY_NAME) ||
+    isMigrosHqSourceUrl(job?.url)
   );
 }
 
@@ -187,18 +187,22 @@ function extractJobPosting(html = '') {
 
 async function fetchJobListings(jobUrls) {
   const listings = [];
+  let fetchFailures = 0;
+  let missingJobPosting = 0;
 
   for (const url of jobUrls) {
     let html = '';
     try {
       html = await fetchHtml(url);
     } catch (err) {
+      fetchFailures += 1;
       console.warn(`  ⚠️ Failed to fetch ${url}: ${err.message}`);
       continue;
     }
 
     const posting = extractJobPosting(html);
     if (!posting?.title) {
+      missingJobPosting += 1;
       console.warn(`  ⚠️ No JobPosting JSON-LD found: ${url}`);
       continue;
     }
@@ -220,12 +224,31 @@ async function fetchJobListings(jobUrls) {
       streetAddress: address.streetAddress ? normalizeSpace(address.streetAddress) : '',
       postalCode: address.postalCode || '',
       addressLocality: address.addressLocality || '',
+      addressRegion: address.addressRegion || '',
     });
 
     await new Promise((r) => setTimeout(r, 300)); // polite rate limit
   }
 
-  return listings;
+  return { listings, fetchFailures, missingJobPosting };
+}
+
+/**
+ * Resolve the Swiss geography stated by one national-entity posting.
+ * No HQ address is a fallback: an absent or foreign source location is
+ * rejected so city, canton and postal code cannot describe different places.
+ */
+export function resolveMigrosHqSourceGeography(addressLocality = '', addressRegion = '') {
+  const location = normalizeSpace(addressLocality);
+  const sourceRegion = normalizeSpace(addressRegion);
+  const sourceText = [location, sourceRegion].filter(Boolean).join(', ');
+  const canton = inferAnyCanton(sourceText);
+  if (!location || !canton || !isTargetSwissLocation(sourceText)) return null;
+  return {
+    location,
+    canton,
+    postalCode: lookupSwissPostalCode(location),
+  };
 }
 
 /**
@@ -245,24 +268,36 @@ export async function fetchAllMigrosHqJobs() {
     return [];
   }
 
-  const listings = await fetchJobListings(jobUrls);
+  const listingResult = await fetchJobListings(jobUrls);
+  const { listings, fetchFailures, missingJobPosting } = listingResult;
   if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings parsed.');
-    return [];
+    throw new Error(
+      `Migros HQ source exposed ${jobUrls.length} job URLs but 0 listings were parsed `
+      + `(fetch failures=${fetchFailures}, missing JobPosting=${missingJobPosting})`,
+    );
   }
 
-  console.log(`  📋 Listings found: ${listings.length}`);
+  console.log(`  📋 Listings found: ${listings.length} (fetch failures=${fetchFailures}, missing JobPosting=${missingJobPosting})`);
 
   const jobs = [];
+  let skippedTitles = 0;
+  let unresolvedLocations = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
-    if (!title || title.length < 3) continue;
+    if (!title || title.length < 3) {
+      skippedTitles += 1;
+      continue;
+    }
 
-    const locality = normalizeSpace(listing.addressLocality || '');
-    // All migros-genossenschafts-bund postings are HQ Zürich; prefer resolving
-    // canton from the JSON-LD locality, falling back to the HQ default.
-    const canton = (locality && inferAnyCanton(locality)) || HQ.canton;
-    const location = locality || HQ.city;
+    const geography = resolveMigrosHqSourceGeography(
+      listing.addressLocality,
+      listing.addressRegion,
+    );
+    if (!geography) {
+      unresolvedLocations += 1;
+      continue;
+    }
+    const { canton, location, postalCode } = geography;
     const descriptionText = stripHtml(listing.description || '');
     const publicUrl = listing.url;
 
@@ -292,15 +327,15 @@ export async function fetchAllMigrosHqJobs() {
       location,
       canton,
       url: publicUrl,
-      source: 'Migros HQ Zürich Dedicated Parser',
+      source: 'Migros-Genossenschafts-Bund National Dedicated Parser',
       sourceLang,
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
       addressLocality: location,
-      streetAddress: listing.streetAddress || '',
-      postalCode: listing.postalCode || HQ.postalCode,
-      addressRegion: HQ.addressRegion,
+      streetAddress: normalizeSpace(listing.streetAddress || ''),
+      postalCode: normalizeSpace(listing.postalCode || postalCode),
+      addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
@@ -322,6 +357,13 @@ export async function fetchAllMigrosHqJobs() {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total Migros HQ Zürich jobs discovered: ${jobs.length}`);
+  console.log(`  🧭 Source-backed geography: ${jobs.length}/${listings.length}; unresolved locations: ${unresolvedLocations}; invalid titles: ${skippedTitles}`);
+  if (listings.length > 0 && jobs.length === 0) {
+    throw new Error(
+      `Migros HQ source returned ${listings.length} listings but 0 valid Swiss records `
+      + `(unresolved locations=${unresolvedLocations}, invalid titles=${skippedTitles})`,
+    );
+  }
+  console.log(`\n📋 Total Migros-Genossenschafts-Bund national jobs discovered: ${jobs.length}`);
   return jobs;
 }
