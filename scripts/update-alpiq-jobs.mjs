@@ -16,7 +16,12 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
-import { fetchAlpiqListingPages, slugify, inferEmploymentType } from './lib/alpiq-job-parser.mjs';
+import {
+  fetchAlpiqListingPages,
+  slugify,
+  inferEmploymentType,
+  repairThinAlpiqLocaleDescriptions,
+} from './lib/alpiq-job-parser.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -62,6 +67,13 @@ function mergeCompanyJobs(parsedJobs) {
   const deduped = [...byUrl.values()];
   const merged = mergePreserveLocaleData(companyExisting, deduped);
   const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
+  const repairedLocaleDescriptions = repairThinAlpiqLocaleDescriptions(clean);
+  if (repairedLocaleDescriptions > 0) {
+    console.log(
+      `🧹 Alpiq locale repair: replaced ${repairedLocaleDescriptions} thin locale copy/copies `
+      + 'with the source and marked them for translate-pending.',
+    );
+  }
   writeJobsFiles([...others, ...clean]);
   return clean;
 }
@@ -76,19 +88,29 @@ async function main() {
   const rawJobs = await fetchAlpiqListingPages(10);
   if (rawJobs.length === 0) { console.log('\u26a0\ufe0f No Swiss Alpiq jobs found. Keeping existing.'); return; }
 
+  const incompleteDetails = rawJobs.filter((job) => job?._alpiqDetailIncomplete);
+  if (incompleteDetails.length > 0) {
+    console.warn(
+      `\u26a0\ufe0f Alpiq detail enrichment incomplete for ${incompleteDetails.length}/${rawJobs.length} jobs; `
+      + 'keeping the previous snapshot and retrying on the next scheduled run.',
+    );
+    return;
+  }
+
   console.log(`\ud83e\udde9 Found ${rawJobs.length} Swiss Alpiq jobs.`);
-  const parsedJobs = rawJobs.map((raw) => {
+  const parsedJobs = rawJobs.map(({ _alpiqDetailIncomplete: _ignored, ...raw }) => {
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
     // Slug-only guard: a literal "undefined"/"null" location string is truthy
     // and would slip past `|| 'switzerland'` into an active slug (#952, class
     // #900/#901). addressLocality stays as-is (choke-point normalizer handles it).
     const jobSlug = slugify(`${raw.title}-alpiq-${safeLocationToken(raw.location, 'switzerland')}`);
     const desc = raw.description || `Posizione aperta presso Alpiq (${raw.location || 'Svizzera'}). Alpiq \u00e8 uno dei principali produttori di energia in Svizzera con centrali idroelettriche in Ticino. Candidati tramite il portale SuccessFactors.`;
+    const sourceLang = detectLang(desc || raw.title, 'en');
     return {
       id: `alpiq-${urlHash}`, slug: jobSlug, slugByLocale: { it: jobSlug },
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'alpiq.com',
       title: raw.title, titleByLocale: { it: raw.title },
-      description: desc, descriptionByLocale: { it: desc }, requirements: [], requirementsByLocale: { it: [] },
+      description: desc, descriptionByLocale: { [sourceLang]: desc, it: desc }, requirements: [], requirementsByLocale: { it: [] },
       location: raw.location || 'Switzerland',
       canton: raw.location && /airolo|biasca|locarno|bellinzona|lugano|mendrisio|chiasso|rodi|ritom|piotta/i.test(raw.location) ? 'TI' : '',
       postalCode: ALPIQ_PLZ[raw.location?.toLowerCase()] || '',
@@ -99,7 +121,7 @@ async function main() {
       employmentType: inferEmploymentType(raw.title, raw.description || '', raw.percentage || ''),
       category: 'energy', contract: raw.contractType === 'Temporary' ? 'temporary' : 'full-time',
       currency: 'CHF', featured: false, postedDate: new Date().toISOString().slice(0, 10),
-      url: raw.url, applyUrl: raw.applyUrl, source: 'Alpiq Dedicated Parser', sourceLang: detectLang(desc || raw.title, 'en'), crawledAt: new Date().toISOString(),
+      url: raw.url, applyUrl: raw.applyUrl, source: 'Alpiq Dedicated Parser', sourceLang, crawledAt: new Date().toISOString(),
     };
   });
 

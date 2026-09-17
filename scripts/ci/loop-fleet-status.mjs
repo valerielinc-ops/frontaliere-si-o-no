@@ -13,6 +13,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
+  LIFECYCLE_EVENT_TYPES,
   summarizeLifecycleEvents as summarizeLifecycleEventsContract,
   validateActionClassAgainstPolicy,
   validateLifecycleEvent,
@@ -51,6 +52,94 @@ function nonNegativeNumber(value) {
 
 function nonNegativeInteger(value) {
   return Number.isInteger(value) && value >= 0;
+}
+
+function isoTimestamp(value) {
+  if (typeof value !== 'string' || !value.trim()) return null;
+  const time = Date.parse(value);
+  return Number.isFinite(time) ? new Date(time).toISOString() : null;
+}
+
+function lifecycleSummary(events, now) {
+  const records = Array.isArray(events) ? events : [];
+  const summary = summarizeLifecycleEventsContract(records, { now });
+  const eventCounts = Object.fromEntries(LIFECYCLE_EVENT_TYPES.map((eventType) => [
+    eventType,
+    records.filter((event) => event?.eventType === eventType).length,
+  ]));
+  const candidateIds = [...new Set(records
+    .map((event) => text(event?.candidateId))
+    .filter(Boolean))].sort();
+  const ordered = records
+    .map((event, index) => ({ event, index, time: Date.parse(event?.occurredAt || '') }))
+    .sort((left, right) => (Number.isFinite(left.time) ? left.time : Number.POSITIVE_INFINITY)
+      - (Number.isFinite(right.time) ? right.time : Number.POSITIVE_INFINITY)
+      || left.index - right.index);
+  const lastEvent = ordered.at(-1)?.event || null;
+  const candidates = Array.isArray(summary.candidates) ? summary.candidates : [];
+  const completeCount = candidates.filter((candidate) => candidate.complete === true).length;
+  const terminalCount = candidates.filter((candidate) => candidate.terminalEventTypes?.some((eventType) =>
+    ['rolled_back', 'inconclusive'].includes(eventType))).length;
+  return {
+    ...summary,
+    lastEvent: lastEvent ? {
+      eventType: lastEvent.eventType,
+      occurredAt: lastEvent.occurredAt,
+      recordId: text(lastEvent.recordId),
+    } : null,
+    eventCounts,
+    candidateIds,
+    lifecycleCounts: {
+      eventCount: records.length,
+      candidateCount: candidates.length,
+      completeCount,
+      incompleteCount: Math.max(0, candidates.length - completeCount),
+      pendingCount: Math.max(0, candidates.length - completeCount - terminalCount),
+      rollbackRequestedCount: eventCounts.rollback_requested,
+      rolledBackCount: eventCounts.rolled_back,
+      inconclusiveCount: eventCounts.inconclusive,
+      byEvent: eventCounts,
+    },
+    ids: {
+      candidateIds,
+      recordIds: [...new Set(records.map((event) => text(event?.recordId)).filter(Boolean))].sort(),
+      sourceRecordIds: [...new Set(records.map((event) => text(event?.sourceRecordId)).filter(Boolean))].sort(),
+      artifactOrPrRefs: [...new Set(records.map((event) => text(event?.artifactOrPr)).filter(Boolean))].sort(),
+      lastEventRecordId: text(lastEvent?.recordId),
+    },
+  };
+}
+
+function buildFreshness({ now, lastRun, evidence, durableHealth, lifecycleEvents }) {
+  const timestamps = {
+    runUpdatedAt: lastRun?.updatedAt || lastRun?.createdAt || null,
+    evidenceRecordedAt: evidence?.recordedAt || evidence?.generatedAt || evidence?.run?.recordedAt || null,
+    healthRecordedAt: durableHealth?.recordedAt || durableHealth?.execution?.recordedAt || null,
+    lifecycleLastEventAt: lifecycleEvents?.lastEvent?.occurredAt || null,
+  };
+  const sources = Object.entries(timestamps)
+    .map(([source, value]) => ({ source, value, time: Date.parse(value || '') }))
+    .filter(({ time }) => Number.isFinite(time))
+    .sort((left, right) => right.time - left.time);
+  const invalidSources = Object.entries(timestamps)
+    .filter(([, value]) => value !== null && !Number.isFinite(Date.parse(value)))
+    .map(([source]) => source);
+  const newest = sources[0] || null;
+  const nowMs = now instanceof Date ? now.getTime() : Date.parse(now || '');
+  const ageSeconds = newest && Number.isFinite(nowMs) && nowMs >= newest.time
+    ? Math.floor((nowMs - newest.time) / 1000)
+    : null;
+  const future = newest && Number.isFinite(nowMs) && newest.time > nowMs;
+  return {
+    status: invalidSources.length > 0 || future ? 'unmeasurable' : (newest ? 'available' : 'unavailable'),
+    asOf: newest ? new Date(newest.time).toISOString() : null,
+    source: newest?.source || null,
+    ageSeconds,
+    ageHours: ageSeconds === null ? null : Number((ageSeconds / 3600).toFixed(2)),
+    timestamps: Object.fromEntries(Object.entries(timestamps).map(([key, value]) => [key, isoTimestamp(value)])),
+    invalidSources,
+    computedAt: Number.isFinite(nowMs) ? new Date(nowMs).toISOString() : null,
+  };
 }
 
 function readOperationalMetrics(health) {
@@ -129,9 +218,15 @@ function latestRun(workflow) {
   return { run: runs[0] || null, error: runs.length ? null : 'no completed run found' };
 }
 
-function artifactName(loopId, runId) {
+function workflowForPolicy(policy) {
+  return policy?.binding?.workflow || LOOP_WORKFLOWS[policy?.loopId] || null;
+}
+
+function artifactName(loopId, runId, registry) {
   if (loopId === 'L11') return `technical-operations-audit-${runId}`;
-  return `${LOOP_WORKFLOWS[loopId].replace(/\.yml$/u, '')}-${runId}`;
+  const policy = registry?.loops?.find((candidate) => candidate.loopId === loopId);
+  const workflow = workflowForPolicy(policy);
+  return workflow ? `${workflow.replace(/\.ya?ml$/u, '')}-${runId}` : null;
 }
 
 function findFile(root, name) {
@@ -193,6 +288,7 @@ function readDurableHealth(ledgerDir, registry) {
 }
 
 export const summarizeLifecycleEvents = summarizeLifecycleEventsContract;
+export const summarizeLifecycleDetails = lifecycleSummary;
 
 function readDurableLifecycle(ledgerDir, registry, now = new Date()) {
   const file = path.resolve(ledgerDir, 'lifecycle-events.jsonl');
@@ -222,7 +318,7 @@ function readDurableLifecycle(ledgerDir, registry, now = new Date()) {
       byLoop[event.loopId].push(event);
     }
     return {
-      byLoop: Object.fromEntries(Object.entries(byLoop).map(([loopId, events]) => [loopId, summarizeLifecycleEvents(events, { now })])),
+      byLoop: Object.fromEntries(Object.entries(byLoop).map(([loopId, events]) => [loopId, lifecycleSummary(events, now)])),
       error: null,
       available: true,
     };
@@ -253,7 +349,9 @@ function downloadEvidence(loopId, run, tempRoot, registry, now = new Date()) {
   const runId = typeof run === 'object' ? run.databaseId : run;
   const target = path.join(tempRoot, loopId.toLowerCase());
   fs.mkdirSync(target, { recursive: true });
-  const downloaded = ghRaw(['run', 'download', String(runId), '--name', artifactName(loopId, runId), '--dir', target], { allowFailure: true });
+  const artifact = artifactName(loopId, runId, registry);
+  if (!artifact) return { evidence: null, error: `no workflow binding is available for ${loopId}` };
+  const downloaded = ghRaw(['run', 'download', String(runId), '--name', artifact, '--dir', target], { allowFailure: true });
   void downloaded;
   const file = findFile(target, 'loop-fleet-evidence.json');
   if (!file) return { evidence: null, error: 'canonical loop-fleet-evidence.json is missing from the latest artifact' };
@@ -293,7 +391,7 @@ function downloadEvidence(loopId, run, tempRoot, registry, now = new Date()) {
       : null;
     return {
       evidence: { ...evidence, health },
-      lifecycleEvents: lifecycleEvents ? summarizeLifecycleEvents(lifecycleEvents, { now }) : null,
+      lifecycleEvents: lifecycleEvents ? lifecycleSummary(lifecycleEvents, now) : null,
       error: null,
     };
   } catch (error) {
@@ -301,7 +399,7 @@ function downloadEvidence(loopId, run, tempRoot, registry, now = new Date()) {
   }
 }
 
-export function buildStatusRows(registry, runResults, evidenceResults) {
+export function buildStatusRows(registry, runResults = {}, evidenceResults = {}, { now = new Date() } = {}) {
   const validated = validateLoopRegistry(registry);
   return validated.loops.map((policy) => {
     const runResult = runResults[policy.loopId] || { run: null, error: 'run not inspected' };
@@ -346,6 +444,7 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
       ? 'independent outcome not recorded'
       : (outcomeMeasured ? null : `${outcome.status || 'unmeasurable'}: ${outcome.reason || 'independent outcome unavailable or incomplete'}`);
     const actualAutonomy = text(evidence?.requiredAutonomy) || text(health.requiredAutonomy);
+    const lifecycleSla = lifecycleEvents?.sla || null;
     const lifecycleSlaOverdue = lifecycleEvents?.sla?.status === 'overdue'
       || lifecycleEvents?.candidates?.some((candidate) => candidate.sla?.status === 'overdue');
     const nextAutomaticAction = missingOutcome
@@ -359,6 +458,53 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
           : (lifecycleIncomplete
             ? 'advance the candidate through PR, tests, automatic review, auto-merge and post-merge verification'
             : 'record the outcome and close the observation window automatically')));
+    const lastRun = runResult.run ? {
+      id: runResult.run.databaseId || null,
+      conclusion: runResult.run.conclusion || runResult.run.status || 'unknown',
+      createdAt: runResult.run.createdAt || null,
+      updatedAt: runResult.run.updatedAt || null,
+      headSha: runResult.run.headSha || null,
+      url: runResult.run.url || null,
+    } : null;
+    const ledgerLastRun = durableHealth ? {
+      id: durableHealth.execution?.runId || null,
+      recordedAt: durableHealth.recordedAt || durableHealth.execution?.recordedAt || null,
+      headSha: durableHealth.execution?.sha || null,
+    } : null;
+    const freshness = buildFreshness({
+      now,
+      lastRun,
+      evidence,
+      durableHealth,
+      lifecycleEvents,
+    });
+    const tableMissing = [];
+    if (!lastRun) tableMissing.push('run');
+    if (!evidence) tableMissing.push('evidence');
+    if (!lifecycleEvents) tableMissing.push('lifecycle');
+    if (freshness.status !== 'available' || freshness.ageSeconds === null) tableMissing.push('freshness');
+    const lifecycleCounts = lifecycleEvents?.lifecycleCounts || null;
+    const lifecycleIds = lifecycleEvents?.ids || {
+      candidateIds: [],
+      recordIds: [],
+      sourceRecordIds: [],
+      artifactOrPrRefs: [],
+      lastEventRecordId: null,
+    };
+    const ids = {
+      runId: lastRun?.id || null,
+      runHeadSha: lastRun?.headSha || null,
+      ledgerRunId: ledgerLastRun?.id || null,
+      ledgerHeadSha: ledgerLastRun?.headSha || null,
+      evidenceRunId: evidenceRunId ? String(evidenceRunId) : null,
+      evidenceSha: evidence?.run?.sha || evidence?.health?.execution?.sha || null,
+      healthRecordId: durableHealth?.recordId || null,
+      candidateIds: lifecycleIds.candidateIds || [],
+      lifecycleRecordIds: lifecycleIds.recordIds || [],
+      sourceRecordIds: lifecycleIds.sourceRecordIds || [],
+      artifactOrPrRefs: lifecycleIds.artifactOrPrRefs || [],
+      lastLifecycleEventId: lifecycleIds.lastEventRecordId || null,
+    };
     return {
       loopId: policy.loopId,
       goal: policy.goal,
@@ -372,14 +518,9 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
       candidateTtlHours: policy.lifecycle.candidateTtlHours,
       ownerSlaHours: policy.lifecycle.ownerSlaHours,
       postMergeVerificationHours: policy.lifecycle.postMergeVerificationHours,
-      lastRun: runResult.run ? {
-        id: runResult.run.databaseId || null,
-        conclusion: runResult.run.conclusion || runResult.run.status || 'unknown',
-        createdAt: runResult.run.createdAt || null,
-        updatedAt: runResult.run.updatedAt || null,
-        headSha: runResult.run.headSha || null,
-        url: runResult.run.url || null,
-      } : null,
+      rollbackOwner: policy.lifecycle.rollbackOwner,
+      deadlineAt: lifecycleSla?.nextDeadlineAt || null,
+      lastRun,
       quality,
       decision: text(evidence?.decision) || 'unmeasurable',
       actionClass: text(evidence?.actionClass) || null,
@@ -403,44 +544,117 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
       lifecycleSla: lifecycleEvents?.sla || null,
       lifecycleEventCount: lifecycleEvents?.eventCount ?? null,
       lifecycleComplete: lifecycleEvents?.complete ?? null,
+      lifecycleCounts,
+      lifecycleIds,
+      ids,
+      freshness,
+      tableComplete: tableMissing.length === 0,
+      tableCompleteness: {
+        complete: tableMissing.length === 0,
+        missing: tableMissing,
+      },
       historyAvailable: Boolean(durableHealth),
-      ledgerLastRun: durableHealth ? {
-        id: durableHealth.execution?.runId || null,
-        recordedAt: durableHealth.recordedAt || durableHealth.execution?.recordedAt || null,
-        headSha: durableHealth.execution?.sha || null,
-      } : null,
+      ledgerLastRun,
     };
   });
 }
 
-function renderMarkdown(rows) {
+function markdownCell(value) {
+  return String(value ?? 'n/d').replaceAll('|', '\\|').replace(/\r?\n/gu, '<br>');
+}
+
+function shortSha(value) {
+  const normalized = text(value);
+  return normalized ? normalized.slice(0, 12) : 'n/d';
+}
+
+function renderLifecycleCounts(row) {
+  const counts = row.lifecycleCounts;
+  if (!counts) return 'unavailable';
+  const byEvent = Object.entries(counts.byEvent || {})
+    .filter(([, count]) => count > 0)
+    .map(([eventType, count]) => `${eventType}:${count}`)
+    .join(', ');
+  return `state=${row.lifecycleState || 'unavailable'}; candidates ${counts.candidateCount}, complete ${counts.completeCount}, pending ${counts.pendingCount}, events ${counts.eventCount}; ${byEvent || 'no events'}`;
+}
+
+function renderIds(row) {
+  const ids = row.ids || {};
+  const candidates = Array.isArray(ids.candidateIds) ? ids.candidateIds : [];
+  const records = Array.isArray(ids.lifecycleRecordIds) ? ids.lifecycleRecordIds : [];
+  const sources = Array.isArray(ids.sourceRecordIds) ? ids.sourceRecordIds : [];
+  const refs = Array.isArray(ids.artifactOrPrRefs) ? ids.artifactOrPrRefs : [];
+  const candidateRange = candidates.length
+    ? `${candidates[0]}${candidates.length > 1 ? `…${candidates.at(-1)}` : ''}`
+    : 'n/d';
+  const recordRange = records.length
+    ? `${records[0]}${records.length > 1 ? `…${records.at(-1)}` : ''}`
+    : 'n/d';
+  return `run=${ids.runId || 'n/d'}; evidence=${ids.evidenceRunId || 'n/d'}; ledger=${ids.ledgerRunId || 'n/d'}; health=${ids.healthRecordId || 'n/d'}; candidates=${candidates.length} (${candidateRange}); records=${records.length} (${recordRange}); sources=${sources.length}; refs=${refs.length}; last=${ids.lastLifecycleEventId || 'n/d'}`;
+}
+
+function renderDeadline(row) {
+  const sla = row.lifecycleSla;
+  if (!sla) return 'unavailable';
+  return `${sla.status}; next=${sla.nextDeadlineAt || 'n/d'}; TTL=${row.candidateTtlHours}h owner=${row.ownerSlaHours}h verify=${row.postMergeVerificationHours}h`;
+}
+
+function renderCompleteness(row) {
+  if (row.tableComplete) return 'complete';
+  const missing = row.tableCompleteness?.missing || ['row'];
+  return `incomplete: ${missing.join(', ')}`;
+}
+
+export function renderMarkdown(rows) {
   const lines = [
     '## Loop fleet status',
     '',
-    '| Loop | Owner | Ultimo run | Ledger durable | Qualità | Issue | Missing outcome | Decisione | Autonomia effettiva / max | Telemetria operativa | TTL / SLA / verify | Lifecycle | SLA lifecycle | Fonti dichiarate | Prossima azione automatica | Policy |',
-    '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |',
+    '| Loop | Owner | Ultimo run (ID/SHA) | Freshness | Ledger durable (ID/SHA) | Qualità | Issue | Missing outcome | Decisione | Autonomia effettiva / max | Telemetria operativa | TTL / SLA / verify | Rollback owner | Lifecycle counts | Lifecycle IDs | Deadline / SLA | Fonti dichiarate | Prossima azione automatica | Policy | Live table |',
+    '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |',
   ];
   for (const row of rows) {
-    const run = row.lastRun ? `[${row.lastRun.conclusion}](${row.lastRun.url || '#'})` : 'n/d';
+    const run = row.lastRun
+      ? `${row.lastRun.url ? `[${row.lastRun.conclusion}](${row.lastRun.url})` : row.lastRun.conclusion} #${row.lastRun.id || 'n/d'} @ ${row.lastRun.updatedAt || row.lastRun.createdAt || 'n/d'} sha ${shortSha(row.lastRun.headSha)}`
+      : 'unavailable';
+    const freshness = row.freshness
+      ? `${row.freshness.status} @ ${row.freshness.asOf || 'n/d'} (${row.freshness.ageHours === null ? 'n/d' : `${row.freshness.ageHours}h`}; ${row.freshness.source || 'n/d'})`
+      : 'unavailable';
     const ledger = row.ledgerLastRun
-      ? `${row.ledgerLastRun.id || 'n/d'} @ ${row.ledgerLastRun.recordedAt || 'n/d'}`
-      : 'n/d';
+      ? `${row.ledgerLastRun.id || 'n/d'} @ ${row.ledgerLastRun.recordedAt || 'n/d'} sha ${shortSha(row.ledgerLastRun.headSha)}`
+      : 'unavailable';
     const autonomy = `${row.actualAutonomy || 'n/d'} / ${row.maxAutonomy}`;
     const lifecycle = `${row.candidateTtlHours}h / ${row.ownerSlaHours}h / ${row.postMergeVerificationHours}h`;
     const telemetry = row.operationalMetrics
       ? `${row.operationalMetrics.complete ? 'complete' : 'partial'} (${row.operationalMetrics.durationSeconds ?? 'n/d'}s, retry ${row.operationalMetrics.retryCount ?? 'n/d'}, quota ${row.operationalMetrics.quotaUnits ?? 'n/d'}, collision ${row.operationalMetrics.collisions ?? 'n/d'}, bypass ${row.operationalMetrics.gateBypass ?? 'n/d'})`
       : 'unavailable';
-    const lifecycleState = row.lifecycleEvents
-      ? `${row.lifecycleState} (${row.lifecycleEventCount ?? 'n/d'})`
-      : 'unavailable';
-    const lifecycleSla = row.lifecycleSla?.status || 'unavailable';
     const sources = row.sourceRefs.join(', ');
     const issue = row.issue || '—';
     const missingOutcome = row.missingOutcome || '—';
     const policy = row.evidenceComplete && row.policyCompliant ? 'ok' : 'incomplete';
-    lines.push(`| ${row.loopId} | ${row.owner} | ${run} | ${ledger} | ${row.quality} | ${issue} | ${missingOutcome} | ${row.decision} | ${autonomy} | ${telemetry} | ${lifecycle} | ${lifecycleState} | ${lifecycleSla} | ${sources} | ${row.nextAutomaticAction} | ${policy} |`);
+    lines.push(`| ${[
+      row.loopId,
+      row.owner,
+      run,
+      freshness,
+      ledger,
+      row.quality,
+      issue,
+      missingOutcome,
+      row.decision,
+      autonomy,
+      telemetry,
+      lifecycle,
+      row.rollbackOwner,
+      renderLifecycleCounts(row),
+      renderIds(row),
+      renderDeadline(row),
+      sources,
+      row.nextAutomaticAction,
+      policy,
+      renderCompleteness(row),
+    ].map(markdownCell).join(' | ')} |`);
   }
-  lines.push('', 'Qualità o evidenza assente = `unmeasurable`; il report non sintetizza zeri.');
+  lines.push('', 'Qualità o evidenza assente = `unmeasurable`; il report non sintetizza zeri. `tableComplete=false` indica una sorgente live mancante o non verificabile.');
   return `${lines.join('\n')}\n`;
 }
 
@@ -458,7 +672,7 @@ export function collectStatus({
   const runResults = {};
   const evidenceResults = {};
   for (const policy of registry.loops) {
-    const workflow = LOOP_WORKFLOWS[policy.loopId];
+    const workflow = workflowForPolicy(policy);
     const runResult = ghRun(workflow);
     runResults[policy.loopId] = runResult;
     const artifactResult = runResult.run
@@ -468,12 +682,27 @@ export function collectStatus({
       ...artifactResult,
       canonicalHealth: durable.byLoop[policy.loopId] || null,
       canonicalLifecycle: durableLifecycle.available
-        ? (durableLifecycle.byLoop[policy.loopId] || summarizeLifecycleEvents([], { now }))
+        ? (durableLifecycle.byLoop[policy.loopId] || lifecycleSummary([], now))
         : null,
       canonicalError: durable.error || durableLifecycle.error,
     };
   }
-  return buildStatusRows(registry, runResults, evidenceResults);
+  return buildStatusRows(registry, runResults, evidenceResults, { now });
+}
+
+export function summarizeStatusTable(rows = [], expectedRowCount = rows.length) {
+  const missingRows = rows
+    .filter((row) => row?.tableComplete !== true)
+    .map((row) => ({
+      loopId: row?.loopId || null,
+      missing: row?.tableCompleteness?.missing || ['row'],
+    }));
+  return {
+    expectedRowCount,
+    rowCount: rows.length,
+    complete: expectedRowCount > 0 && rows.length === expectedRowCount && missingRows.length === 0,
+    missingRows,
+  };
 }
 
 function valueAfter(argv, flag, fallback = null) {
@@ -484,15 +713,25 @@ function valueAfter(argv, flag, fallback = null) {
 export function main({ argv = process.argv.slice(2), logger = console } = {}) {
   const outDir = path.resolve(valueAfter(argv, '--out-dir', process.env.REPORT_DIR || process.env.RUNNER_TEMP || os.tmpdir()));
   fs.mkdirSync(outDir, { recursive: true });
+  const now = new Date();
+  const registryPath = valueAfter(argv, '--registry', DEFAULT_REGISTRY_PATH);
+  const registry = validateLoopRegistry(readJson(registryPath));
   const rows = collectStatus({
-    registryPath: valueAfter(argv, '--registry', DEFAULT_REGISTRY_PATH),
+    registryPath,
     ledgerDir: valueAfter(argv, '--ledger-dir', DEFAULT_LEDGER_DIR),
+    now,
   });
-  const report = { schemaVersion: 1, generatedAt: new Date().toISOString(), rows };
+  const report = {
+    schemaVersion: 1,
+    generatedAt: now.toISOString(),
+    table: summarizeStatusTable(rows, registry.loops.length),
+    rows,
+  };
   fs.writeFileSync(path.join(outDir, 'loop-fleet-status.json'), `${JSON.stringify(report, null, 2)}\n`);
   fs.writeFileSync(path.join(outDir, 'loop-fleet-status.md'), renderMarkdown(rows));
   logger.log(renderMarkdown(rows));
   if (argv.includes('--strict') && rows.some((row) => !row.lastRun || !row.evidenceComplete || !row.policyCompliant)) process.exitCode = 2;
+  if (argv.includes('--strict-live') && !report.table.complete) process.exitCode = 2;
   return report;
 }
 

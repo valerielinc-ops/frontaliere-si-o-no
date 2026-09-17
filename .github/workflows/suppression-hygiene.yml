@@ -172,7 +172,7 @@ jobs:
 
       # ── 1. Self-heal ────────────────────────────────────────────────────────
       - name: Decay proven-alive suppressions
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true'
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           # Scheduled runs apply; manual runs use the chosen mode (default
           # dry-run — safe to inspect before acting). Same convention as
@@ -193,7 +193,7 @@ jobs:
 
       # ── 2. Ramped re-probe ──────────────────────────────────────────────────
       - name: Re-probe never-probed suppressions (ramped)
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true'
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         continue-on-error: true
         env:
           MODE: ${{ github.event_name == 'schedule' && 'apply' || inputs.mode || 'dry-run' }}

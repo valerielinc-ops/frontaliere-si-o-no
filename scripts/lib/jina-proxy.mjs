@@ -311,7 +311,7 @@ const jinaSleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  */
 export async function fetchHtmlViaJinaWithRetry(
   targetUrl,
-  { timeoutMs = 30000, retries, retryBaseMs } = {},
+  { timeoutMs = 30000, retries, retryBaseMs, fetchImpl = fetch, sleepImpl = jinaSleep } = {},
 ) {
   // Broad egress outage already detected this run → fast-fail (null) with no
   // attempt, so the caller's safe-fail (re-throw / skip, prior data preserved)
@@ -333,7 +333,7 @@ export async function fetchHtmlViaJinaWithRetry(
   let lastReason = 'unknown';
   for (let attempt = 0; attempt <= maxRetries; attempt += 1) {
     try {
-      const res = await fetchViaJina(targetUrl, { timeoutMs });
+      const res = await fetchViaJina(targetUrl, { timeoutMs, fetchImpl });
       if (res.ok) {
         const html = await res.text();
         const reason = detectJinaErrorBody(html);
@@ -358,7 +358,7 @@ export async function fetchHtmlViaJinaWithRetry(
       console.warn(
         `⚠️ Jina egress attempt ${attempt + 1}/${maxRetries + 1} for ${targetUrl} not usable (${lastReason}); retrying in ${delay}ms…`,
       );
-      await jinaSleep(delay);
+      await sleepImpl(delay);
     }
   }
   console.warn(`⚠️ Jina egress exhausted ${maxRetries + 1} attempt(s) for ${targetUrl} (last: ${lastReason}).`);

@@ -171,6 +171,25 @@ describe('loop fleet workflow contract', () => {
     expect(stdoutPipe).toBeGreaterThan(directorySetup);
   });
 
+  it('overlays the durable ledger branch after each ledger consumer checkout', () => {
+    const workflows = [
+      'loop-l10-fleet-control.yml',
+      'technical-operations-supervisor.yml',
+      'loop-fleet-status.yml',
+      'loop-fleet-ledger-audit.yml',
+      'loop-fleet-ledger-reconcile.yml',
+    ];
+    for (const name of workflows) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      const checkoutIndex = source.indexOf('uses: actions/checkout@v5');
+      const overlayIndex = source.indexOf('- name: Overlay durable ledger branch');
+      expect(checkoutIndex, name).toBeGreaterThanOrEqual(0);
+      expect(source, name).toContain('LEDGER_BRANCH: ledger/loop-fleet');
+      expect(source, name).toContain('git checkout FETCH_HEAD -- data/loop-fleet/ledger');
+      expect(overlayIndex, name).toBeGreaterThan(checkoutIndex);
+    }
+  });
+
   it('keeps the detached typecheck PID alive until its status is published', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'tests.yml'), 'utf8');
     expect(source).toContain('setsid --wait bash "$script"');
@@ -180,117 +199,79 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain("printf '%s\\n' \"\$!\" > \"\$state_dir/\$label.pid\"");
   });
 
-  it('persists only through a reviewed branch and PR', () => {
+  it('persists validated batches without a PR or review gate', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
     expect(source).toContain('workflow_run:');
     expect(source).toContain('merge-loop-fleet-ledger.mjs');
-    expect(source).toContain('--ledger-dir data/loop-fleet/ledger');
-    expect(source).toContain('git checkout -b "$branch"');
-    expect(source).toContain('gh pr create');
+    expect(source).toContain('--registry data/loop-fleet/loop-registry.json');
+    expect(source).toContain("ledger_branch='ledger/loop-fleet'");
+    expect(source).toContain('ledger_worktree="${RUNNER_TEMP}/loop-fleet-ledger-worktree"');
+    expect(source).toContain('git worktree add --no-checkout -B ledger-work "$ledger_worktree" "$ledger_start"');
+    expect(source).toContain('git -C "$ledger_worktree" ls-files --error-unmatch data/loop-fleet/ledger/');
+    expect(source).toContain('--ledger-dir "$ledger_dir"');
     expect(source).toContain('Validate source run provenance');
     expect(source).toContain('source_branch');
     expect(source).toContain("!= 'main'");
     expect(source).not.toMatch(/contents:\s*write/u);
-    expect(source).toContain('Direct writes to main');
-    expect(source).toContain('lifecycle-events.jsonl');
-    expect(source).toContain('for edit_attempt in 1 2 3');
-    expect(source).toContain('GitHub PR API did not accept the ledger PR update after 3 attempts');
+    expect(source).not.toContain('pull-requests: read');
   });
 
-  it('descrive le PR ledger cumulative senza attribuirle a un solo loop', () => {
-    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
-    expect(source).toContain('Latest immutable batch:');
-    expect(source).toContain('This PR can accumulate multiple validated batches while it is open');
-    expect(source).toContain('for the latest ${SOURCE_LOOP} batch');
-    expect(source).toContain('--title "chore(loop-fleet): persist durable evidence batches"');
-  });
-
-  it('ritrova branch ledger suffissati e limita il lookup alle PR con base main', () => {
-    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
-    expect(source).toContain('--json number,headRefName,baseRefName,createdAt');
-    expect(source).toContain('.baseRefName == "main"');
-    expect(source).toContain('startswith("chore/loop-fleet-ledger-")');
-    expect(source).toContain('source_orphan_branch=$(bounded_remote git ls-remote --heads origin');
-    expect(source).toContain('if [ -z "$open_pr" ]; then\n            source_orphan_branch=$(bounded_remote git ls-remote --heads origin');
-    expect(source).toContain('if [ -z "$source_orphan_branch" ]; then\n              base_branch_ref=$(bounded_remote git ls-remote --heads origin');
-    expect(source).toContain('ledger_branch="$open_branch"');
-    expect(source).toContain('orphan_recovery=\'true\'');
-    expect(source).toContain('ledger_branch="$base_branch"');
-    expect(source).toContain('&& [ "$orphan_recovery" != \'true\' ]; then');
-    expect(source).toContain('Recovering an orphan ledger branch that already contains this validated batch.');
-    expect(source).toContain('git checkout -b "$branch" "origin/$ledger_branch"');
-  });
-
-  it('freezes an open ledger epoch before repeated workflow_run heads can starve it', () => {
-    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
-    expect(source).toContain('/scripts/ci/loop-fleet-epoch-policy.mjs');
-    expect(source).toContain('epoch_batch_count=$(git log "origin/$open_branch"');
-    expect(source).toContain('--batch-count "$epoch_batch_count"');
-    expect(source).toContain('--age-minutes "$epoch_age_minutes"');
-    expect(source).toContain('ledger epoch frozen for PR #$open_pr');
-    expect(source).toContain('source run $SOURCE_RUN_ID will be recovered after the PR terminal event');
-  });
-
-  it('bounds remote append/PR operations and disables interactive prompts', () => {
-    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
-    expect(source).toContain('remote_timeout_seconds=90');
-    expect(source).toContain('timeout --signal=TERM --kill-after=10s');
-    expect(source).toContain('persist-credentials: false');
-    expect(source).toContain('local operation="${1:-remote-command}"');
-    expect(source).toContain("remote operation '${operation}' failed or exceeded");
-    expect(source).not.toContain('): $*');
-    expect(source).not.toContain('push_url=');
-    expect(source).toContain("GIT_CONFIG_KEY_0='http.https://github.com/.extraheader'");
-    expect(source).toContain("basic_auth=$(printf 'x-access-token:%s' \"$GH_TOKEN\" | base64 | tr -d '\\n')");
-    expect(source).toContain('GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}"');
-    expect(source).toContain('unset basic_auth');
-    expect(source).toContain('bounded_remote git push --set-upstream origin "$branch"');
-    expect(source).toContain('export GIT_TERMINAL_PROMPT=0');
-    expect(source).toContain('export GH_PAGER=cat');
-    for (const command of [
-      'bounded_remote git fetch origin main',
-      'bounded_remote gh pr list',
-      'bounded_remote git ls-remote --heads origin',
-      'bounded_remote git fetch origin "$ledger_branch"',
-      'bounded_remote gh pr edit',
-      'bounded_remote gh pr create',
-    ]) {
-      expect(source, command).toContain(command);
+  it('routes both writers to one serialized branch with bounded push retries', () => {
+    const writers = [
+      ['loop-fleet-ledger.yml', 'merge-loop-fleet-ledger.mjs'],
+      ['loop-fleet-lifecycle-observer.yml', 'append-loop-fleet-lifecycle.mjs'],
+    ];
+    for (const [name, validator] of writers) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      expect(source, name).toContain("ledger_branch='ledger/loop-fleet'");
+      expect(source, name).toContain('HEAD:refs/heads/$ledger_branch');
+      expect(source, name).toContain(validator);
+      expect(source, name).toContain('--registry data/loop-fleet/loop-registry.json');
+      expect(source, name).toContain('for attempt in 1 2 3 4 5');
+      expect(source, name).toContain('bounded_remote git -C "$ledger_worktree" push origin "HEAD:refs/heads/$ledger_branch"');
+      expect(source, name).toContain('git -C "$ledger_worktree" checkout -B ledger-work "origin/$ledger_branch"');
+      expect(source, name).toContain('git -C "$ledger_worktree" checkout -- data/loop-fleet/ledger/');
+      expect(source, name).toContain('ledger_dir="$ledger_worktree/data/loop-fleet/ledger"');
+      expect(source, name).not.toContain('git reset --hard');
+      expect(source, name).toContain('sleep $((attempt * 3))');
+      expect(source, name).toContain('after 5 attempts');
+      expect(source, name).not.toMatch(/git push[^\n]*--force(?:-with-lease)?/u);
+      if (name === 'loop-fleet-lifecycle-observer.yml') {
+        expect(source, name).not.toContain('observer is read-only');
+      }
+      for (const forbidden of ['gh pr create', 'gh pr edit', 'pr-body-check-gate.mjs']) {
+        expect(source, `${name}: ${forbidden}`).not.toContain(forbidden);
+      }
     }
   });
 
-  it('bounds lifecycle observer persistence operations too', () => {
-    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-lifecycle-observer.yml'), 'utf8');
-    expect(source).toContain('remote_timeout_seconds=90');
-    expect(source).toContain('timeout --signal=TERM --kill-after=10s');
-    expect(source).toContain('persist-credentials: false');
-    expect(source).toContain('local operation="${1:-remote-command}"');
-    expect(source).toContain("remote operation '${operation}' failed or exceeded");
-    expect(source).not.toContain('): $*');
-    expect(source).not.toContain('push_url=');
-    expect(source).toContain("GIT_CONFIG_KEY_0='http.https://github.com/.extraheader'");
-    expect(source).toContain("basic_auth=$(printf 'x-access-token:%s' \"$GH_TOKEN\" | base64 | tr -d '\\n')");
-    expect(source).toContain('GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}"');
-    expect(source).toContain('unset basic_auth');
-    expect(source).toContain('bounded_remote git push --set-upstream origin "$branch"');
-    expect(source).toContain('export GIT_TERMINAL_PROMPT=0');
-    expect(source).toContain('export GH_PAGER=cat');
-    expect(source).toContain('if [ -z "$open_pr" ]; then\n            base_branch_ref=$(bounded_remote git ls-remote --heads origin');
-    expect(source).toContain('/scripts/ci/loop-fleet-epoch-policy.mjs');
-    expect(source).toContain('--json number,headRefName,baseRefName,createdAt');
-    expect(source).toContain('epoch_batch_count=$(git log "origin/$open_branch"');
-    expect(source).toContain('--batch-count "$epoch_batch_count"');
-    expect(source).toContain('--age-minutes "$epoch_age_minutes"');
-    expect(source).toContain('lifecycle ledger epoch frozen for PR #$open_pr');
-    for (const command of [
-      'bounded_remote git fetch origin main',
-      'bounded_remote gh pr list',
-      'bounded_remote git ls-remote --heads origin',
-      'bounded_remote git fetch origin "$open_branch"',
-      'bounded_remote gh pr edit',
-      'bounded_remote gh pr create',
-    ]) {
-      expect(source, command).toContain(command);
+  it('removes the obsolete epoch policy and all workflow references to it', () => {
+    const policyName = ['loop-fleet', 'epoch-policy'].join('-');
+    expect(fs.existsSync(path.resolve('scripts/ci', `${policyName}.mjs`))).toBe(false);
+    for (const name of ['loop-fleet-ledger.yml', 'loop-fleet-lifecycle-observer.yml']) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      expect(source, name).not.toContain(policyName);
+    }
+  });
+
+  it('bounds both writers remote operations and disables interactive prompts', () => {
+    for (const name of ['loop-fleet-ledger.yml', 'loop-fleet-lifecycle-observer.yml']) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      expect(source, name).toContain('remote_timeout_seconds=90');
+      expect(source, name).toContain('timeout --signal=TERM --kill-after=10s');
+      expect(source, name).toContain('persist-credentials: false');
+      expect(source, name).toContain('local operation="${1:-remote-command}"');
+      expect(source, name).toContain("remote operation '${operation}' failed or exceeded");
+      expect(source, name).not.toContain('): $*');
+      expect(source, name).not.toContain('push_url=');
+      expect(source, name).toContain("GIT_CONFIG_KEY_0='http.https://github.com/.extraheader'");
+      expect(source, name).toContain("basic_auth=$(printf 'x-access-token:%s' \"$GH_TOKEN\" | base64 | tr -d '\\n')");
+      expect(source, name).toContain('GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}"');
+      expect(source, name).toContain('unset basic_auth');
+      expect(source, name).toContain('bounded_remote git fetch origin main');
+      expect(source, name).toContain('bounded_remote git ls-remote --exit-code --heads origin');
+      expect(source, name).toContain('bounded_remote git fetch origin "$ledger_branch"');
+      expect(source, name).toContain('export GIT_TERMINAL_PROMPT=0');
     }
   });
 

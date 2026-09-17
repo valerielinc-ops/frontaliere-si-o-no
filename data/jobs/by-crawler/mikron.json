@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mikron",
-  "assembledAt": "2026-09-13T14:05:32.195Z",
+  "assembledAt": "2026-09-17T10:25:46.524Z",
   "jobs": [
     {
       "url": "https://www.mikron.com/en/polymecanic-team-leader",
@@ -268,6 +268,7 @@
         "canton": "NE",
         "location": "Boudry"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-07T15:18:18.602Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
@@ -284,9 +285,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      }
     },
     {
       "url": "https://www.mikron.com/en/marketing-generalist-mwd-mit-deutscher-muttersprache",
@@ -417,7 +416,8 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 2
     }
   ]
 }

@@ -6,9 +6,10 @@
  * A workflow run is allowed to send, publish, post, or mutate recipient state
  * only when all of these facts come from GitHub's event context:
  *
- *   - the event is an explicit workflow_dispatch, or a repository_dispatch
+ *   - the event is an explicit workflow_dispatch, a repository_dispatch
  *     carrying the exact publisher action and a workflow-pinned principal
- *     attestation;
+ *     attestation, or an explicitly opted-in schedule
+ *     (APPROVAL_TRUSTED_SCHEDULE=true);
  *   - the dispatch was initiated by the same actor that triggered the run;
  *   - GitHub identifies that actor as a User (not an App/bot);
  *   - a manual dispatch explicitly supplied human_approval=true and
@@ -23,8 +24,17 @@
  *
  * The helper never calls a provider, GitHub API, Firebase, R2, or git. It only
  * writes the four outputs needed by the calling workflow and one runner-local
- * nonce marker. A denied decision exits successfully so scheduled runs can
- * finish their read-only/preview path; the output remains the authoritative
+ * nonce marker. GitHub executes a schedule only from the workflow definition
+ * on the repository's default branch, and disables scheduled workflows on
+ * forks, so there is no separate repository claim to bind here. The
+ * schedule's three protections are the explicit per-workflow opt-in
+ * (APPROVAL_TRUSTED_SCHEDULE=true), run_attempt == 1, and a one-use nonce; it
+ * deliberately has no human actor or input proof to check.
+ *
+ * A denied decision exits successfully so the workflow can finish quietly;
+ * credential hydration and mutating steps are skipped. The gate does not
+ * promise a read-only/preview path, because preview execution without those
+ * credentials is not available. The output remains the authoritative
  * fail-closed value for every mutating step.
  */
 
@@ -157,6 +167,8 @@ export function evaluateHumanApproval({
   dispatchSourceSha,
   dispatchSourceBranch,
   dispatchSourceEvent,
+  approvalTrustedSchedule,
+  trustedSchedule,
   expectedDispatchActor,
   expectedDispatchRepository,
   expectedDispatchScope,
@@ -165,6 +177,9 @@ export function evaluateHumanApproval({
   const eventName = stringValue(event);
   const isManualApprovalEvent = eventName === HUMAN_APPROVAL_EVENT;
   const isPublisherDispatchEvent = eventName === PUBLISHER_DISPATCH_EVENT;
+  const isTrustedScheduleEvent = eventName === 'schedule'
+    && normalizeBooleanInput(approvalTrustedSchedule ?? trustedSchedule) === 'true';
+  const isDispatchEvent = isManualApprovalEvent || isPublisherDispatchEvent;
   const humanActor = stringValue(actor);
   const initiator = stringValue(triggeringActor);
   const senderType = stringValue(actorType).toLowerCase();
@@ -196,14 +211,16 @@ export function evaluateHumanApproval({
   const configuredWorkflow = stringValue(expectedDispatchWorkflow);
   const reasons = [];
 
-  if (!isManualApprovalEvent && !isPublisherDispatchEvent) reasons.push('event-not-workflow-dispatch');
-  if (!isPublisherDispatchEvent && approval !== 'true') reasons.push('human-approval-not-explicit');
-  if (!isPublisherDispatchEvent && requestedDryRun !== 'false') reasons.push('dry-run-not-explicitly-disabled');
-  if (senderType !== REQUIRED_ACTOR_TYPE) reasons.push('actor-is-not-a-github-user');
-  if (!humanActor || !isSafeActor(humanActor) || isBotActor(humanActor)) reasons.push('actor-invalid-or-bot');
-  if (!initiator || !isSafeActor(initiator) || isBotActor(initiator)) reasons.push('triggering-actor-invalid-or-bot');
-  if (!humanActor || !initiator || humanActor.toLowerCase() !== initiator.toLowerCase()) {
-    reasons.push('actor-and-triggering-actor-differ');
+  if (!isDispatchEvent && !isTrustedScheduleEvent) reasons.push('event-not-workflow-dispatch');
+  if (isManualApprovalEvent && approval !== 'true') reasons.push('human-approval-not-explicit');
+  if (isManualApprovalEvent && requestedDryRun !== 'false') reasons.push('dry-run-not-explicitly-disabled');
+  if (isDispatchEvent) {
+    if (senderType !== REQUIRED_ACTOR_TYPE) reasons.push('actor-is-not-a-github-user');
+    if (!humanActor || !isSafeActor(humanActor) || isBotActor(humanActor)) reasons.push('actor-invalid-or-bot');
+    if (!initiator || !isSafeActor(initiator) || isBotActor(initiator)) reasons.push('triggering-actor-invalid-or-bot');
+    if (!humanActor || !initiator || humanActor.toLowerCase() !== initiator.toLowerCase()) {
+      reasons.push('actor-and-triggering-actor-differ');
+    }
   }
   if (!isSafeRepository(repo)) reasons.push('repository-invalid');
   if (!isSafeWorkflow(workflowName)) reasons.push('workflow-invalid');
@@ -271,7 +288,9 @@ export function evaluateHumanApproval({
     nonce,
     reason: reasons[0] || (isPublisherDispatchEvent
       ? 'trusted-publisher-dispatch-approved'
-      : 'human-workflow-dispatch-approved'),
+      : isTrustedScheduleEvent
+        ? 'trusted-schedule-approved'
+        : 'human-workflow-dispatch-approved'),
     reasons,
   };
 }
@@ -333,6 +352,7 @@ function githubEnvironment(env = process.env) {
     dispatchSourceSha: env.APPROVAL_DISPATCH_SOURCE_SHA,
     dispatchSourceBranch: env.APPROVAL_DISPATCH_SOURCE_BRANCH,
     dispatchSourceEvent: env.APPROVAL_DISPATCH_SOURCE_EVENT,
+    approvalTrustedSchedule: env.APPROVAL_TRUSTED_SCHEDULE,
     expectedDispatchActor: env.APPROVAL_EXPECTED_DISPATCH_ACTOR,
     expectedDispatchRepository: env.APPROVAL_EXPECTED_DISPATCH_REPOSITORY,
     expectedDispatchScope: env.APPROVAL_EXPECTED_DISPATCH_SCOPE,
