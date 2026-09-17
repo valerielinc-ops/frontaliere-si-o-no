@@ -165,6 +165,10 @@ async function fetchListings() {
   const swissRows = rows.filter((row) => isSwissFinconsLocation(row.location));
   console.log(`🇨🇭 Swiss rows kept after location filter: ${swissRows.length}`);
   console.log(`🌍 Non-Swiss rows discarded before detail fetch: ${rows.length - swissRows.length}`);
+  if (swissRows.length === 0) {
+    console.warn('⚠️ No Swiss Fincons rows found; preserving the last known-good crawler data.');
+    return null;
+  }
   swissRows.forEach((row) => console.log(`  📄 ${row.title} (${row.location})`));
   return swissRows;
 }
@@ -319,6 +323,10 @@ async function main() {
   console.log(`  Careers page: ${CAREERS_URL}\n`);
 
   const listings = await fetchListings();
+  if (!listings) {
+    console.log('ℹ️ Fincons source was reachable but returned no Swiss rows; no files or adapter metadata changed.');
+    return;
+  }
   const jobs = [];
   for (const listing of listings) {
     const job = await buildFinconsJob(listing);

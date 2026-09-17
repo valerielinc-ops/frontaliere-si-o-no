@@ -343,7 +343,11 @@ async function fetchLastminuteJobDetailUrls() {
 
   for (const detailUrl of candidateUrls) {
     const postingId = extractSrIdFromUrl(detailUrl);
-    if (!postingId) continue;
+    if (!postingId) {
+      apiFailures += 1;
+      console.warn(`  ⚠️ Could not extract a SmartRecruiters posting ID from ${detailUrl}`);
+      continue;
+    }
     const apiData = await fetchSmartRecruitersDetail(postingId, timeoutMs);
     if (!apiData) {
       apiFailures += 1;
@@ -377,6 +381,12 @@ async function fetchLastminuteJobDetailUrls() {
 
   if (candidateUrls.length > 0 && apiResolved === 0) {
     throw new Error(`SmartRecruiters location discovery failed for all ${candidateUrls.length} lastminute postings`);
+  }
+  if (apiFailures > 0) {
+    throw new Error(
+      `SmartRecruiters location discovery incomplete: ${apiFailures} of ${candidateUrls.length} `
+      + 'postings failed; preserving the previous lastminute adapter and data',
+    );
   }
 
   console.log(`✅ Found ${seedUrls.length} Swiss lastminute.com detail URL(s).`);

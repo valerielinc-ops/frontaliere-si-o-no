@@ -144,14 +144,28 @@ function isIstJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = String(job?.url || '').toLowerCase();
 
   return (
     key === IST_KEY ||
     key.startsWith('international-school-of-ticino') ||
-    company.includes('international school') ||
-    url.includes('inspirededu.com')
+    company === normalize(IST_COMPANY_NAME)
   );
+}
+
+// The shared Inspired portal also publishes other schools and central-group
+// roles. Keep the broad host match only for retiring legacy rows during merge;
+// newly fetched details must pass isIstDetailJob() before they can be emitted.
+function isLegacyIstJob(job) {
+  return isIstJob(job) || String(job?.url || '').toLowerCase().includes(IST_COMPANY_HOST);
+}
+
+function isIstDetailJob(detail = {}) {
+  const tenantText = normalize([
+    detail.hiringOrganization,
+    detail.title,
+    detail.description,
+  ].filter(Boolean).join(' '));
+  return tenantText.includes(normalize(IST_COMPANY_NAME));
 }
 
 function isTrustedDomain(rawUrl = '') {
@@ -368,6 +382,11 @@ async function fetchIstJobs() {
       continue;
     }
 
+    if (!isIstDetailJob(detail)) {
+      console.log(`  ⏭️  Skipped — detail belongs to another Inspired tenant: ${detail.title}`);
+      continue;
+    }
+
     const title = normalizeSpace(detail.title);
     const rawLocation = normalizeSpace(detail.location);
     const city = parseLocation(rawLocation);
@@ -460,8 +479,8 @@ async function mergeIstJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(IST_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
-  const nonIstJobs = allJobs.filter((j) => !isIstJob(j));
-  const existingIstJobs = allJobs.filter(isIstJob);
+  const nonIstJobs = allJobs.filter((j) => !isLegacyIstJob(j));
+  const existingIstJobs = allJobs.filter(isLegacyIstJob);
 
   const existingKeys = new Set(
     existingIstJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
