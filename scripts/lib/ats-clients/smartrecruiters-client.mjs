@@ -5,7 +5,8 @@
  *
  *   tenant → buildSmartRecruitersApiUrl → GET /v1/companies/{tenant}/postings
  *                                                 ↓
- *                  paginated walk (limit=100, offset+=100, until offset>=totalFound)
+ *                  paginated walk (limit=100, offset advances by returned rows,
+ *                  until declared unique-ID coverage reaches totalFound)
  *                                                 ↓
  *                  optional: location filters (locationContains substring,
  *                            locationCountryCodes ISO match, custom predicate)
