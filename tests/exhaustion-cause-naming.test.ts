@@ -214,6 +214,30 @@ describe('classifyNonRetryableError — la ruggine va marcata esaurita', () => {
     );
   });
 
+  it('lascia passare un 403 di GitHub Models per preservare la rotazione delle PAT', () => {
+    // Finding 2: la ragione `nonretryable` disattiva la rotazione PAT in
+    // `_shouldSkipExhausted`; un 403 di credenziale/account GitHub non deve
+    // quindi diventare un modello esaurito.
+    expect(
+      classifyNonRetryableError(403, '{"error":{"message":"invalid token"}}', 'GitHub'),
+    ).toEqual({ nonRetryable: false, markExhausted: false });
+  });
+
+  it('lascia passare un 403 con corpo transitorio', () => {
+    // Finding 1: nel loop di `callLLM` la classificazione non-retryable precede
+    // `isRetryableError`; il controllo sul corpo evita di consumare un modello
+    // quando il gateway risponde "temporarily unavailable".
+    expect(
+      classifyNonRetryableError(403, '{"error":{"message":"temporarily unavailable"}}', 'OpenRouter'),
+    ).toEqual({ nonRetryable: false, markExhausted: false });
+  });
+
+  it('lascia passare un 410 con corpo transitorio', () => {
+    expect(
+      classifyNonRetryableError(410, '{"error":{"message":"temporarily unavailable"}}', 'NVIDIA'),
+    ).toEqual({ nonRetryable: false, markExhausted: false });
+  });
+
   it('mantiene la causa specifica del brownout 410 di GitHub Models', () => {
     assert.deepEqual(
       classifyNonRetryableError(410, '{"error":{"code":"github_models_retirement_brownout"}}', 'GitHub'),
