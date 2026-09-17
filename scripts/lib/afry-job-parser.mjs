@@ -8,7 +8,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  *
  * AFRY is a national engineering/consulting firm: we keep ALL Swiss jobs
  * (country=CH) across every canton, resolving the canton per job from the
- * cleanest single city signal. No Ticino/Grigioni pre-filter.
+ * cleanest single city signal. No regional pre-filter.
  *
  * Detail pages: https://afry.com{DetailUrl}
  *   Description in HTML, apply link via SmartRecruiters

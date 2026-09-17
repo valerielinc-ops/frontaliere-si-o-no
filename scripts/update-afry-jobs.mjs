@@ -10,7 +10,7 @@
  * 5. Merges into data/jobs.json
  *
  * AFRY is a national engineering/consulting firm, so jobs are collected
- * across every Swiss canton (no Ticino/Grigioni restriction).
+ * across every Swiss canton (no regional restriction).
  */
 
 import fs from 'node:fs';

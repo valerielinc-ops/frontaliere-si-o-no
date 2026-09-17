@@ -11,7 +11,7 @@
  *      explicit detail seeds in the adapter config.
  *   3. Runs the shared base crawler which fetches each detail page and
  *      parses JSON-LD JobPosting structured data.
- *   4. The shared infrastructure filters for Ticino/GR locations automatically.
+ *   4. The shared infrastructure keeps locations resolving to any of the 26 Swiss cantons.
  *   5. Translates missing locales and validates coverage.
  */
 import fs from 'node:fs';
@@ -567,7 +567,7 @@ function ensureAdapterSeedUrls(seedUrls) {
       enabled: true,
       priority: 10,
       crawlerModes: ['jsonld', 'html', 'generic_ats'],
-      notes: 'CSC Costruzioni SA — Lugano-based construction company (Drupal CMS). Seed URLs auto-discovered from /lavoro-carriera-edilizia.',
+      notes: 'CSC Costruzioni SA — Lugano-headquartered construction company (Drupal CMS). Swiss locations are kept across all 26 cantons; seed URLs auto-discovered from /lavoro-carriera-edilizia.',
     };
   const adapter = buildCscAdapterConfig(existingAdapter, seedUrls);
   writeJsonAtomic(adapterPath, adapter);
@@ -600,13 +600,20 @@ function logStats(beforeSnapshot = new Map()) {
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
   const jobs = allJobs.filter(isCscJob);
-  const tiJobs = jobs.filter((j) => normalize(j?.canton) === 'ti');
-  const grJobs = jobs.filter((j) => normalize(j?.canton) === 'gr');
+  const byCanton = new Map();
+  for (const job of jobs) {
+    const canton = String(job?.canton || '').trim().toUpperCase() || '??';
+    byCanton.set(canton, (byCanton.get(canton) || 0) + 1);
+  }
+  const cantonBreakdown = [...byCanton.entries()]
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([canton, count]) => `${canton}=${count}`)
+    .join(', ');
 
   console.log(`\n📊 === CSC Costruzioni Job Stats ===`);
   console.log(`  🏗️ Total CSC jobs: ${jobs.length}`);
-  console.log(`  ✅ Ticino: ${tiJobs.length}`);
-  console.log(`  ✅ Grigioni: ${grJobs.length}`);
+  console.log(`  🗺️ Cantoni coperti: ${byCanton.has('??') ? byCanton.size - 1 : byCanton.size}/26`);
+  console.log(`  📍 Ripartizione: ${cantonBreakdown || 'nessuna'}`);
   console.log('');
 
   const afterSnapshot = snapshotJobSlugs(jobs);

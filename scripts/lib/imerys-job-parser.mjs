@@ -15,7 +15,7 @@ import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, fetchJson } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isSwissLocationText, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -236,12 +236,43 @@ function parseImerysCareerPage(html = '') {
   return jobs;
 }
 
+function stringifyLocation(value = '') {
+  if (!value) return '';
+  if (Array.isArray(value)) return normalizeSpace(value.map(stringifyLocation).filter(Boolean).join(', '));
+  if (typeof value === 'object') {
+    return normalizeSpace([
+      value.city,
+      value.name,
+      value.region,
+      value.country,
+      value.countryCode,
+      value.postalCode,
+      value.addressLocality,
+    ].filter(Boolean).join(', '));
+  }
+  return normalizeSpace(value);
+}
+
+function extractListingLocation(listing = {}) {
+  const raw = listing?.location ?? listing?.city ?? '';
+  const text = normalizeSpace([
+    stringifyLocation(raw),
+    stringifyLocation(listing?.relocation?.country),
+  ].filter(Boolean).join(', '));
+  const display = typeof raw === 'object'
+    ? normalizeSpace(raw?.city || raw?.name || raw?.addressLocality || '')
+    : normalizeSpace(raw);
+  return { display, text };
+}
+
 /**
- * Check if a location is in Switzerland (Bodio area or broader).
+ * Check if a listing location is in one of the 26 Swiss cantons.
+ * Country-only records remain eligible for the filter, but are rejected at
+ * build time if no per-job canton can be inferred.
  */
 function isSwissLocation(location = '') {
-  const loc = location.toLowerCase();
-  return /bodio|switzerland|schweiz|suisse|svizzera|ticino|tessin|zurich|zürich/i.test(loc) || !loc;
+  const loc = normalizeSpace(location);
+  return Boolean(loc) && (isTargetSwissLocation(loc) || isSwissLocationText(loc));
 }
 
 /**
@@ -252,7 +283,7 @@ function isSwissLocation(location = '') {
  *  1. Try SmartRecruiters API for Swiss jobs
  *  2. Try SmartRecruiters HTML page
  *  3. Fall back to Imerys corporate careers page
- *  4. Filter for Swiss/Bodio locations
+ *  4. Filter for Swiss locations across all 26 cantons
  */
 export async function fetchAllImerysJobs() {
   console.log(`🔍 Fetching Imerys jobs`);
@@ -312,11 +343,9 @@ export async function fetchAllImerysJobs() {
     return [];
   }
 
-  // Filter for Swiss locations
-  const swissListings = listings.filter((l) => {
-    const loc = l.location || l.city || l.relocation?.country || '';
-    return isSwissLocation(loc);
-  });
+  // Filter for locations that resolve to Switzerland; the per-job canton is
+  // derived below from the same source text instead of using the former HQ.
+  const swissListings = listings.filter((l) => isSwissLocation(extractListingLocation(l).text));
 
   console.log(`  📋 Total listings: ${listings.length}, Swiss-filtered: ${swissListings.length}`);
 
@@ -325,9 +354,12 @@ export async function fetchAllImerysJobs() {
     const title = normalizeSpace(listing.title || listing.name || listing.label || '');
     if (!title || title.length < 3) continue;
 
-    const rawLocation = listing.location || listing.city || '';
-    const location = (typeof rawLocation === 'object' ? rawLocation.city || rawLocation.name : normalizeSpace(rawLocation)) || HQ?.city || 'Bodio';
-    const canton = inferAnyCanton(location) || HQ?.canton || '';
+    const { display: location, text: locationText } = extractListingLocation(listing);
+    const canton = inferAnyCanton(locationText);
+    if (!location || !canton) {
+      console.warn(`   ⚠️ Skipping Imerys listing with unresolved Swiss canton: ${title} (${locationText || '?'})`);
+      continue;
+    }
     const descriptionHtml = listing.description || listing.jobAd?.sections?.jobDescription?.text || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || listing.ref || listing.applyUrl || CAREER_URL;
@@ -336,7 +368,7 @@ export async function fetchAllImerysJobs() {
     const jobSlug = slugify(`${title} imerys ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-    const desc = descriptionText || `${title} — Position at Imerys in ${location}, Switzerland. Imerys is a world leader in mineral-based specialty solutions, with a production facility in Bodio (Ticino) specializing in graphite and carbon products.`;
+    const desc = descriptionText || `${title} — Position at Imerys in ${location}, Switzerland. Imerys is a world leader in mineral-based specialty solutions, with Swiss operations including its production facility in Bodio (Ticino).`;
 
     const job = {
       id: `imerys-${urlHash}`,
@@ -356,10 +388,10 @@ export async function fetchAllImerysJobs() {
       sourceLang,
       crawledAt: new Date().toISOString(),
       addressLocality: location,
-      addressRegion: HQ?.addressRegion || 'TI',
+      addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',
-      postalCode: HQ?.postalCode || '6743',
+      postalCode: listing.postalCode || (location === HQ?.city ? HQ?.postalCode : ''),
       category: detectCategory(title),
       contract: detectEmploymentType(listing.timeType || title) === 'PART_TIME' ? 'part-time' : 'full-time',
       employmentType: detectEmploymentType(listing.typeOfEmployment || listing.timeType || title),

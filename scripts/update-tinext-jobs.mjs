@@ -270,8 +270,8 @@ async function buildJobs(positions) {
 
   for (const position of positions) {
     const rawTitle = (position.jobTitle || '').trim();
-    // Filter out titles that are clearly not Swiss/Ticino roles
-    // (e.g., "[UNPLEX]" prefix signals a platform company role; still keep it)
+    // Filter out titles that are clearly platform-company roles
+    // (e.g., "[UNPLEX]" prefix; still keep the underlying vacancy)
     const title = rawTitle.replace(/^\[UNPLEX\]\s*/i, '').trim() || rawTitle;
     const office = (position.officeName || 'Lugano').trim();
     const customUrl = (position.customUrl || '').trim();

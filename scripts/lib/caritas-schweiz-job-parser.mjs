@@ -26,7 +26,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { extractReflineDetailTitle } from './refline-common.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -148,7 +148,7 @@ function pickLocationHints(workplace = '') {
 
   // Strip "Kanton" prefix
   const cleaned = wp.replace(/^Kanton\s+/i, '').trim();
-  const inferred = inferSwissTargetCanton(cleaned);
+  const inferred = inferAnyCanton(cleaned);
   if (inferred) {
     return { city: cleaned, canton: inferred, postal: '' };
   }

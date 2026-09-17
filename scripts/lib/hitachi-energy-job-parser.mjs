@@ -14,7 +14,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  * ATS: Workday (apply URLs → hitachi.wd1.myworkdayjobs.com)
  */
 
-import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { isSwissLocationText, inferAnyCanton } from './target-swiss-locations.mjs';
 import { normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
@@ -211,13 +211,16 @@ export function buildHitachiEnergyLocalizedContent(job = {}) {
 }
 
 /**
- * Check whether a job location is relevant to Ticino/Grigioni frontalieri.
+ * Check whether a job location identifies Switzerland across all 26 cantons.
  */
-export function isHitachiEnergyTicinoRelevant(location = '') {
+export function isHitachiEnergySwissRelevant(location = '') {
   const loc = normalizeSpace(location).toLowerCase();
   if (!loc) return false;
-  return isTargetSwissLocation(loc);
+  return isSwissLocationText(loc);
 }
+
+/** @deprecated Legacy name retained for existing callers; use isHitachiEnergySwissRelevant. */
+export const isHitachiEnergyTicinoRelevant = isHitachiEnergySwissRelevant;
 
 /**
  * Infer canton from location text.

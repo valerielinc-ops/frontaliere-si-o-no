@@ -11,7 +11,7 @@
  *   - Medium ID 1000103 = Coop Group career center (shared with Coop, Interdiscount, etc.)
  *   - Company filter: f=70:1343965  (attribute 70 = "Jumbo")
  *   - CH-wide fetch: no canton facet (`f=30:{cantonId}`). The per-job canton is
- *     inferred from attribute 30 downstream, mirroring the canonical coop-ticino
+ *     inferred from attribute 30 downstream, mirroring the shared Coop crawler
  *     crawler. A hard Wallis filter previously starved this crawler to ~3 jobs
  *     whenever Valais had no openings (sibling of issue #3065); CH-wide ~103.
  *
@@ -28,7 +28,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -349,7 +349,7 @@ export async function fetchAllJumboJobs() {
     const location = city || region || 'Schweiz';
     const canton = normalizeCantonCode(region);
     // CH-only gate: drop foreign postings (e.g. Liechtenstein) whose region
-    // doesn't resolve to a Swiss canton — mirrors the coop-ticino crawler.
+    // doesn't resolve to a Swiss canton — mirrors the shared Coop crawler.
     if (!canton) continue;
 
     // Description

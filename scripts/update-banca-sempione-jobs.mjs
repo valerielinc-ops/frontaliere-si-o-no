@@ -17,7 +17,7 @@
  *   8. Validates locale coverage.
  *
  * Swiss offices: Lugano (HQ), Bellinzona, Locarno, Chiasso (all TI), Zurich (ZH).
- * Only Ticino jobs are kept in the board dataset.
+ * Swiss jobs in any of the 26 target cantons are kept in the board dataset.
  */
 import { getCompanyDefaults, isTargetCanton } from './lib/crawler-location-config.mjs';
 import { isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
@@ -273,7 +273,7 @@ async function fetchBancaSempioneJobs() {
     const lang = detectLang(contentText);
 
     if (!shouldKeepBancaSempioneJob({ location, canton, country })) {
-      console.log(`  ⏭️  Skipping non-Ticino role: ${title} (${location}, ${canton || country || '?'})`);
+      console.log(`  ⏭️  Skipping non-Swiss-target role: ${title} (${location}, ${canton || country || '?'})`);
       continue;
     }
 
@@ -391,7 +391,7 @@ function updateAdapterConfig(seedUrls) {
     seedUrls,
     seedMetaByUrl,
     notes:
-      'WordPress REST API crawler — /wp-json/wp/v2/job. Swiss private bank HQ in Lugano (TI) with offices in Bellinzona, Locarno, Chiasso, and Zurich.',
+      'WordPress REST API crawler — /wp-json/wp/v2/job. Keeps Swiss jobs across all 26 cantons; Banca del Sempione is headquartered in Lugano (TI) with offices in Bellinzona, Locarno, Chiasso, and Zurich.',
     updatedAt: new Date().toISOString(),
   };
 
