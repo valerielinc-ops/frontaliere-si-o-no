@@ -108,7 +108,13 @@ export function sourcePostalMatchesCity(city, postalCode) {
 }
 
 function cantonFallback(canton) {
-  return { ...(CANTON_CAPITAL_ADDRESSES[canton] || CANTON_CAPITAL_ADDRESSES.TI) };
+  const fallback = CANTON_CAPITAL_ADDRESSES[canton] || CANTON_CAPITAL_ADDRESSES.TI;
+  return {
+    city: fallback.addressLocality,
+    canton: fallback.addressRegion,
+    postalCode: fallback.postalCode,
+    streetAddress: fallback.streetAddress,
+  };
 }
 
 function cityFallback(city, canton, postalCode) {
@@ -129,6 +135,7 @@ export function resolveSwissStructuredAddress({ city = '', canton = '', postalCo
     const postalIsCoherent = !sourcePostal || sourcePostalMatchesCity(municipality, sourcePostal);
     const localFallback = cityFallback(municipality, cantonCode, knownPostal);
     if (!postalIsCoherent) return localFallback || cantonFallback(cantonCode);
+    if (!sourceStreet && !localFallback) return cantonFallback(cantonCode);
     return {
       city: municipality,
       canton: cantonCode,
@@ -137,11 +144,5 @@ export function resolveSwissStructuredAddress({ city = '', canton = '', postalCo
     };
   }
 
-  const fallback = cantonFallback(cantonCode);
-  return {
-    city: fallback.addressLocality,
-    canton: fallback.addressRegion,
-    postalCode: fallback.postalCode,
-    streetAddress: fallback.streetAddress,
-  };
+  return cantonFallback(cantonCode);
 }

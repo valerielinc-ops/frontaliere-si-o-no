@@ -53,6 +53,12 @@ describe('Capri structured address resolution', () => {
       city: 'Zürich', canton: 'ZH', postalCode: '8001', streetAddress: 'Bahnhofstrasse 1',
     });
   });
+
+  it('switches the whole tuple when a known city has no verified street', () => {
+    expect(resolveSwissStructuredAddress({ city: 'Manno', canton: 'TI' })).toMatchObject({
+      city: 'Bellinzona', canton: 'TI', postalCode: '6500', streetAddress: 'Piazza Governo',
+    });
+  });
 });
 
 describe('Capri Workday location resolution', () => {
