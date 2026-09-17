@@ -18,6 +18,22 @@ const envBefore = {
   JOBS_SEO_REUSE_VERIFY: process.env.JOBS_SEO_REUSE_VERIFY,
 };
 
+const TEST_EMITTER_FINGERPRINT_KINDS = [
+  'active-job',
+  'expired-soft-landing',
+  'legacy-slug-bridge',
+  'previous-slugs-full-content',
+  'cross-locale-reconciliation',
+] as const;
+
+function testEmitterFingerprints(version: string) {
+  return Object.fromEntries(
+    TEST_EMITTER_FINGERPRINT_KINDS.map((kind) => [kind, `${kind}:${version}`]),
+  );
+}
+
+const TEST_EMITTER_FINGERPRINTS = testEmitterFingerprints('v1');
+
 afterEach(() => {
   for (const [key, value] of Object.entries(envBefore)) {
     if (value === undefined) delete process.env[key];
@@ -29,9 +45,16 @@ function fixtureRoot() {
   return fs.mkdtempSync(path.join(os.tmpdir(), 'jobs-seo-reuse-test-'));
 }
 
-function writePreviousManifest(rootDir: string, pagePath: string, kind: string, input: unknown) {
+function writePreviousManifest(
+  rootDir: string,
+  pagePath: string,
+  kind: string,
+  input: unknown,
+  emitterFingerprints = TEST_EMITTER_FINGERPRINTS,
+) {
   const manifest = new IncrementalManifest('it');
   manifest.register(pagePath, kind, input);
+  manifest.setJobsSeoEmitterFingerprint(emitterFingerprints);
   manifest.write(rootDir, path.join(rootDir, '.cache', 'incremental-manifest-prev'));
 }
 
@@ -41,11 +64,15 @@ function writeCachedHtml(rootDir: string, pagePath: string, html: string) {
   fs.writeFileSync(file, html, 'utf8');
 }
 
-async function createReuse(rootDir: string, verify = false) {
+async function createReuse(
+  rootDir: string,
+  verify = false,
+  emitterFingerprints = TEST_EMITTER_FINGERPRINTS,
+) {
   process.env.JOBS_SEO_REUSE = '1';
   if (verify) process.env.JOBS_SEO_REUSE_VERIFY = '1';
   else delete process.env.JOBS_SEO_REUSE_VERIFY;
-  return (await createJobsSeoHtmlReuse(rootDir, ['it']))!;
+  return (await createJobsSeoHtmlReuse(rootDir, ['it'], emitterFingerprints))!;
 }
 
 describe('jobs SEO disk HTML reuse', () => {
@@ -60,7 +87,7 @@ describe('jobs SEO disk HTML reuse', () => {
     }
   });
 
-  it('reuses a previous page when kind, input hash, and HTML all match', async () => {
+  it('reuses a previous page when kind, input hash, emitter fingerprint, and HTML all match', async () => {
     const rootDir = fixtureRoot();
     const pagePath = '/cerca-lavoro-ticino/fixture/';
     const input = { jobId: 'job-1', locale: 'it', slug: 'fixture' };
@@ -74,6 +101,27 @@ describe('jobs SEO disk HTML reuse', () => {
       expect(refreshHtmlBuildId('<meta name="ft-build-id" content="old">', '123')).toContain('content="123"');
       reuse.finish(candidate, html);
       expect(reuse.summary().active).toMatchObject({ rendered: 0, reused: 1, mismatches: 0 });
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('renders when the emitter fingerprint changes even with the same input hash', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/fingerprint-change/';
+    const input = { jobId: 'job-1', locale: 'it', slug: 'fingerprint-change' };
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', input, testEmitterFingerprints('old'));
+      writeCachedHtml(rootDir, pagePath, '<html>old-emitter</html>');
+      const reuse = await createReuse(rootDir, false, testEmitterFingerprints('new'));
+      const candidate = reuse.lookup('it', pagePath, 'active-job', input, 'active');
+      expect(candidate).toMatchObject({ hit: false, html: null });
+      reuse.finish(candidate, '<html>new-emitter</html>');
+      expect(reuse.summary().active).toMatchObject({
+        rendered: 1,
+        reused: 0,
+        missReasons: { 'emitter-fingerprint-changed': 1 },
+      });
     } finally {
       fs.rmSync(rootDir, { recursive: true, force: true });
     }

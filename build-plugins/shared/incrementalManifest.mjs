@@ -65,6 +65,22 @@ function compareStrings(left, right) {
   return left < right ? -1 : left > right ? 1 : 0;
 }
 
+function normalizeJobsSeoEmitterFingerprint(value) {
+  if (value === undefined || value === null) return null;
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    throw new Error('Jobs SEO emitter fingerprint must be an object');
+  }
+  const entries = Object.entries(value);
+  if (entries.some(([kind, fingerprint]) => (
+    !kind
+    || typeof fingerprint !== 'string'
+    || fingerprint.length === 0
+  ))) {
+    throw new Error('Jobs SEO emitter fingerprint entries are invalid');
+  }
+  return Object.fromEntries(entries.sort(([left], [right]) => compareStrings(left, right)));
+}
+
 function isRuntimeInputKey(key) {
   return RUNTIME_INPUT_KEYS.has(normalizedKey(key));
 }
@@ -302,6 +318,16 @@ export class IncrementalManifest {
     this.locale = String(locale);
     this.entriesByKind = new Map(PAGE_KINDS.map((kind) => [kind, new Map()]));
     this.kindMetadata = new Map();
+    this.jobsSeoEmitterFingerprint = null;
+  }
+
+  setJobsSeoEmitterFingerprint(fingerprint) {
+    const normalized = normalizeJobsSeoEmitterFingerprint(fingerprint);
+    if (this.jobsSeoEmitterFingerprint && JSON.stringify(this.jobsSeoEmitterFingerprint) !== JSON.stringify(normalized)) {
+      throw new Error(`Jobs SEO emitter fingerprint changed within locale: ${this.locale}`);
+    }
+    this.jobsSeoEmitterFingerprint = normalized;
+    return this;
   }
 
   register(pagePath, kind, input, templateVersion = templateVersionForKind(kind), sourceVersion = SOURCE_VERSION) {
@@ -358,7 +384,7 @@ export class IncrementalManifest {
   }
 
   toJSON() {
-    return {
+    const summary = {
       manifestVersion: MANIFEST_VERSION,
       format: MANIFEST_FORMAT,
       locale: this.locale,
@@ -369,6 +395,10 @@ export class IncrementalManifest {
           .map((kind) => [kind, this.kindMetadata.get(kind)]),
       ),
     };
+    if (this.jobsSeoEmitterFingerprint) {
+      summary.jobsSeoEmitterFingerprint = this.jobsSeoEmitterFingerprint;
+    }
+    return summary;
   }
 
   write(rootDir, manifestDir = path.join(rootDir, '.cache', 'incremental-manifest')) {
@@ -396,7 +426,11 @@ export class IncrementalManifest {
           writeLine({ path: pagePath, hash: entries.get(pagePath) });
         }
       }
-      writeLine({ type: 'footer', counts: summary.counts });
+      const footer = { type: 'footer', counts: summary.counts };
+      if (this.jobsSeoEmitterFingerprint) {
+        footer.jobsSeoEmitterFingerprint = this.jobsSeoEmitterFingerprint;
+      }
+      writeLine(footer);
       fs.closeSync(fd);
       fd = null;
       fs.renameSync(temp, target);
@@ -477,6 +511,7 @@ export async function loadIncrementalManifest(file) {
   let footer = null;
   let currentKind = null;
   let sawFooter = false;
+  let jobsSeoEmitterFingerprint = null;
   let lineNumber = 0;
   const kinds = new Map();
   const entries = new Map();
@@ -526,6 +561,9 @@ export async function loadIncrementalManifest(file) {
 
       if (record.type === 'footer') {
         assertManifestCounts(file, record.counts, entries);
+        if (record.jobsSeoEmitterFingerprint !== undefined) {
+          jobsSeoEmitterFingerprint = normalizeJobsSeoEmitterFingerprint(record.jobsSeoEmitterFingerprint);
+        }
         footer = record;
         sawFooter = true;
         continue;
@@ -548,15 +586,17 @@ export async function loadIncrementalManifest(file) {
   if (!header) throw new Error(`${file}: header mancante`);
   if (!footer) throw new Error(`${file}: footer mancante`);
   assertManifestCounts(file, footer.counts, entries);
+  const data = {
+    manifestVersion: header.manifestVersion,
+    format: header.format,
+    locale: header.locale,
+    counts: footer.counts,
+    kinds: Object.fromEntries(kinds),
+  };
+  if (jobsSeoEmitterFingerprint) data.jobsSeoEmitterFingerprint = jobsSeoEmitterFingerprint;
   return {
     file,
-    data: {
-      manifestVersion: header.manifestVersion,
-      format: header.format,
-      locale: header.locale,
-      counts: footer.counts,
-      kinds: Object.fromEntries(kinds),
-    },
+    data,
     entries,
   };
 }

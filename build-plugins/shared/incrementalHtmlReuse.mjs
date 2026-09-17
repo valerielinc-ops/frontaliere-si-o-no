@@ -5,6 +5,7 @@ import {
   computeInputHash,
   loadIncrementalManifest,
   normalizeManifestPath,
+  templateVersionForKind,
 } from './incrementalManifest.mjs';
 
 export const JOBS_SEO_REUSE_ENV = 'JOBS_SEO_REUSE';
@@ -18,9 +19,147 @@ export const JOBS_SEO_REUSE_BLOCKS = Object.freeze([
 
 const MAX_INLINE_CACHE_FILE_NAME = 220;
 const MAX_MISMATCH_LOGS = 20;
+export const JOBS_SEO_EMITTER_KINDS = Object.freeze([
+  'active-job',
+  'expired-soft-landing',
+  'legacy-slug-bridge',
+  'previous-slugs-full-content',
+  'cross-locale-reconciliation',
+]);
+
+const JOBS_SEO_RENDER_ENTRY = 'build-plugins/jobsSeoPagesPlugin.ts';
+const JOBS_SEO_ASSET_MANIFEST_FILES = Object.freeze([
+  'build-plugins/shared/seoPageShell.ts',
+  'build-plugins/shared/spaEntryFilenames.ts',
+  'index.tsx',
+  'index.css',
+  'vite.config.ts',
+  'public/assets/seo-static.css',
+  'public/assets/bridge.css',
+  'public/assets/logo.svg',
+  'public/favicon.ico',
+]);
+const SOURCE_MODULE_EXTENSIONS = Object.freeze(['.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs']);
+const STATIC_IMPORT_RE = /\b(?:import|export)\s+(?:(?:type\s+)?[\s\S]*?\sfrom\s+)?['"](\.[^'"]+)['"]/g;
+const DYNAMIC_IMPORT_RE = /\bimport\s*\(\s*['"](\.[^'"]+)['"]\s*\)/g;
+const STATIC_ALIAS_IMPORT_RE = /\b(?:import|export)\s+(?:(?:type\s+)?[\s\S]*?\sfrom\s+)?['"](@\/[^'"]+)['"]/g;
+const DYNAMIC_ALIAS_IMPORT_RE = /\bimport\s*\(\s*['"](@\/[^'"]+)['"]\s*\)/g;
 
 function sha256(value) {
   return createHash('sha256').update(value, 'utf8').digest('hex');
+}
+
+function sha256File(file) {
+  return createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+}
+
+function sourceModuleCandidates(file) {
+  const extension = path.extname(file);
+  if (extension) return [file];
+  return [
+    file,
+    ...SOURCE_MODULE_EXTENSIONS.map((candidateExtension) => `${file}${candidateExtension}`),
+    ...SOURCE_MODULE_EXTENSIONS.map((candidateExtension) => path.join(file, `index${candidateExtension}`)),
+  ];
+}
+
+function resolveSourceModule(fromFile, specifier) {
+  if (!specifier.startsWith('.')) return null;
+  const resolved = path.resolve(path.dirname(fromFile), specifier);
+  for (const candidate of sourceModuleCandidates(resolved)) {
+    if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) {
+      return path.resolve(candidate);
+    }
+  }
+  return null;
+}
+
+function importedSourceModules(source, fromFile, rootDir) {
+  const specifiers = new Set();
+  for (const pattern of [STATIC_IMPORT_RE, DYNAMIC_IMPORT_RE]) {
+    pattern.lastIndex = 0;
+    for (const match of source.matchAll(pattern)) specifiers.add(match[1]);
+  }
+  // Vite's application entry uses the repository-root `@/` alias. The jobs
+  // emitter itself is relative-import based, but including this alias keeps
+  // the asset-side source graph honest if the entry wiring changes.
+  const aliasSpecifiers = [];
+  for (const pattern of [STATIC_ALIAS_IMPORT_RE, DYNAMIC_ALIAS_IMPORT_RE]) {
+    pattern.lastIndex = 0;
+    for (const match of source.matchAll(pattern)) aliasSpecifiers.push(match[1]);
+  }
+  return [
+    ...[...specifiers]
+      .map((specifier) => resolveSourceModule(fromFile, specifier))
+      .filter(Boolean),
+    ...aliasSpecifiers
+      .map((specifier) => resolveSourceModule(path.join(rootDir, 'index.tsx'), `./${specifier.slice(2)}`))
+      .filter(Boolean),
+  ];
+}
+
+function collectSourceModuleFiles(rootDir, entryFiles) {
+  const queue = entryFiles.map((file) => path.resolve(rootDir, file));
+  const files = new Set();
+  for (let index = 0; index < queue.length; index += 1) {
+    const file = queue[index];
+    if (!file || files.has(file) || !fs.existsSync(file)) continue;
+    files.add(file);
+    const source = fs.readFileSync(file, 'utf8');
+    for (const imported of importedSourceModules(source, file, rootDir)) {
+      if (!files.has(imported)) queue.push(imported);
+    }
+  }
+  return [...files].sort((left, right) => left < right ? -1 : left > right ? 1 : 0);
+}
+
+function hashSourceModuleFiles(rootDir, entryFiles) {
+  const files = collectSourceModuleFiles(rootDir, entryFiles);
+  const records = files.map((file) => ({
+    path: path.relative(rootDir, file).replaceAll(path.sep, '/'),
+    hash: sha256File(file),
+  }));
+  return sha256(JSON.stringify(records));
+}
+
+function hashStaticShellAssetManifest(rootDir) {
+  // Vite deliberately pins the job-page entry names and does not emit a
+  // manifest.json. closeBundle can also run before dist/assets is durable, so
+  // hash the source-of-truth asset manifest and shell inputs instead of racing
+  // the output directory. This covers both the referenced names and the bytes
+  // that determine the JS/CSS shell they load.
+  const records = JOBS_SEO_ASSET_MANIFEST_FILES.map((relativeFile) => {
+    const file = path.resolve(rootDir, relativeFile);
+    if (!fs.existsSync(file)) throw new Error(`Jobs SEO asset fingerprint file missing: ${relativeFile}`);
+    return { path: relativeFile, hash: sha256File(file) };
+  });
+  records.push(
+    { path: 'assets/index-entry.js:source-graph', hash: hashSourceModuleFiles(rootDir, ['index.tsx']) },
+    {
+      path: 'assets/static-shell:source-graph',
+      hash: hashSourceModuleFiles(rootDir, ['build-plugins/staticScriptsPlugin.ts']),
+    },
+  );
+  return sha256(JSON.stringify(records));
+}
+
+export function computeJobsSeoEmitterFingerprints(rootDir) {
+  const codeHash = hashSourceModuleFiles(rootDir, [JOBS_SEO_RENDER_ENTRY]);
+  const assetManifestHash = hashStaticShellAssetManifest(rootDir);
+  const renderFlags = {
+    STRIP_ACTIVE_JOB_PROSE: process.env.STRIP_ACTIVE_JOB_PROSE ?? '1',
+    STRIP_EXPIRED_JOB_PROSE: process.env.STRIP_EXPIRED_JOB_PROSE ?? '1',
+  };
+  return Object.fromEntries(JOBS_SEO_EMITTER_KINDS.map((kind) => [
+    kind,
+    sha256(JSON.stringify({
+      kind,
+      templateVersion: templateVersionForKind(kind),
+      codeHash,
+      assetManifestHash,
+      renderFlags,
+    })),
+  ]));
 }
 
 function safeLocale(locale) {
@@ -123,10 +262,11 @@ function elapsedMs(startedAt) {
 }
 
 export class JobsSeoHtmlReuse {
-  constructor({ cacheRoot, previousByLocale, verify }) {
+  constructor({ cacheRoot, previousByLocale, verify, emitterFingerprints = {} }) {
     this.cacheRoot = cacheRoot;
     this.previousByLocale = previousByLocale;
     this.verify = verify;
+    this.emitterFingerprints = emitterFingerprints;
     this.stats = new Map(JOBS_SEO_REUSE_BLOCKS.map((block) => [block, newBlockStats()]));
     this.mismatchLogCount = 0;
     this.writeCounter = 0;
@@ -151,6 +291,12 @@ export class JobsSeoHtmlReuse {
         missReason = 'kind-changed';
       } else if (previous.data.kinds[entry.kind]?.state !== 'live') {
         missReason = 'kind-not-live';
+      } else if (
+        !this.emitterFingerprints[entry.kind]
+        || previous.data.jobsSeoEmitterFingerprint?.[entry.kind] !== this.emitterFingerprints[entry.kind]
+        || previous.data.kinds[entry.kind]?.templateVersion !== templateVersionForKind(kind)
+      ) {
+        missReason = 'emitter-fingerprint-changed';
       } else if (entry.inputHash !== computeInputHash(input, kind)) {
         missReason = 'input-hash-changed';
       } else {
@@ -285,8 +431,13 @@ export class JobsSeoHtmlReuse {
  * Enable only when explicitly requested. Previous manifests are metadata-only
  * maps; HTML stays on disk and is read one page at a time.
  */
-export async function createJobsSeoHtmlReuse(rootDir, locales) {
+export async function createJobsSeoHtmlReuse(rootDir, locales, emitterFingerprints = null) {
   if (process.env[JOBS_SEO_REUSE_ENV] !== '1') return null;
+
+  const currentEmitterFingerprints = emitterFingerprints
+    || (fs.existsSync(path.join(rootDir, JOBS_SEO_RENDER_ENTRY))
+      ? computeJobsSeoEmitterFingerprints(rootDir)
+      : {});
 
   const cacheRoot = configuredPath(
     rootDir,
@@ -317,5 +468,6 @@ export async function createJobsSeoHtmlReuse(rootDir, locales) {
     cacheRoot,
     previousByLocale,
     verify: process.env[JOBS_SEO_REUSE_VERIFY_ENV] === '1',
+    emitterFingerprints: currentEmitterFingerprints,
   });
 }

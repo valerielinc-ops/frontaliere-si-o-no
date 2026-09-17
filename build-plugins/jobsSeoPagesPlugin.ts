@@ -44,9 +44,14 @@ import { shouldEmitLocale } from './shared/localeEmitFilter';
 import {
   buildMinimalJobInput,
   getIncrementalManifestMap,
+  INCREMENTAL_MANIFEST_ENABLED,
   stableJobId,
 } from './shared/incrementalManifest.mjs';
-import { createJobsSeoHtmlReuse, htmlHasIndexableRobots } from './shared/incrementalHtmlReuse.mjs';
+import {
+  computeJobsSeoEmitterFingerprints,
+  createJobsSeoHtmlReuse,
+  htmlHasIndexableRobots,
+} from './shared/incrementalHtmlReuse.mjs';
 import {
   normalizeSearchTerm as normalizeSearchTermShared,
   collectSearchLandingMatches,
@@ -723,18 +728,29 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const retentionProbeCandidate = parseJobsSeoRetentionProbe(process.env[JOBS_SEO_RETENTION_PROBE_ENV]);
  const distDir = np.resolve(rootDir, 'dist');
  const jobsPath = np.resolve(rootDir, 'data/jobs.json');
+ const jobsSeoEmitterFingerprints = (
+  process.env.JOBS_SEO_REUSE === '1' || INCREMENTAL_MANIFEST_ENABLED
+ )
+  ? computeJobsSeoEmitterFingerprints(rootDir)
+  : null;
  // Shadow-only and opt-in: normal production builds allocate no new reuse
  // state and perform no HTML-cache reads. When enabled for a shard, allocate
  // only the locales that the same build leg owns and emits.
  const jobsSeoReuse = await createJobsSeoHtmlReuse(
   rootDir,
   JOB_SEO_LOCALES.filter((locale) => shouldEmitLocale(locale)),
+  jobsSeoEmitterFingerprints,
  );
  const incrementalManifests = getIncrementalManifestMap(
   rootDir,
   JOB_SEO_LOCALES.filter((locale) => shouldEmitLocale(locale)),
   jobsSeoReuse !== null,
  );
+ if (incrementalManifests && jobsSeoEmitterFingerprints) {
+  for (const manifest of incrementalManifests.values()) {
+   manifest.setJobsSeoEmitterFingerprint(jobsSeoEmitterFingerprints);
+  }
+ }
  const registerIncrementalPage = (locale: (typeof JOB_SEO_LOCALES)[number], pagePath: string, kind: string, input: unknown) => {
   incrementalManifests?.get(locale)?.register(pagePath, kind, input);
  };
