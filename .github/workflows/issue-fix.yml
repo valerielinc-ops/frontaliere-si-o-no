@@ -567,18 +567,22 @@ jobs:
             echo "::error::classifier F1/F7 inline non verificabile per il gruppo B19"
             exit 1
           fi
+          risk_script_file=$(mktemp "$RUNNER_TEMP/issue-fix-group-risk.XXXXXX.mjs")
+          printf '%s\n' "$risk_script" > "$risk_script_file"
+          members_file=$(mktemp "$RUNNER_TEMP/issue-fix-group-members.XXXXXX.jsonl")
+          if ! jq -ce '.[]' "$CTX_DIR/group.json" > "$members_file"; then
+            echo "::error::membri B19 non serializzabili"
+            exit 1
+          fi
+          trap 'rm -f "$risk_script_file" "$members_file"' EXIT
 
-          while IFS= read -r member; do
+          while IFS= read -r -u 9 member; do
             member_number=$(jq -er '.number | tostring' <<< "$member")
-            member_file=$(mktemp "$RUNNER_TEMP/issue-fix-group-member.XXXXXX.json")
-            printf '%s\n' "$member" > "$member_file"
-            if ! group_member_decision=$(ISSUE_NUMBER="$member_number" REPO="$REPO" GH_TOKEN="$GH_TOKEN" SNAPSHOT_FINGERPRINT=group-member \
-              node --input-type=module - "$member_file" <<< "$risk_script"); then
-              rm -f "$member_file"
+            if ! group_member_decision=$(printf '%s\n' "$member" | ISSUE_NUMBER="$member_number" REPO="$REPO" GH_TOKEN="$GH_TOKEN" SNAPSHOT_FINGERPRINT=group-member \
+              node "$risk_script_file" /dev/stdin); then
               echo "::error::preflight F1/F7 non verificabile per il membro B19 #$member_number"
               exit 1
             fi
-            rm -f "$member_file"
             if ! jq -e '
               (.automationBlocked | type) == "boolean"
               and (.riskDecision | type) == "string"
@@ -592,7 +596,7 @@ jobs:
               echo "::error::preflight F1/F7 negato o non verificabile per il membro B19 #$member_number"
               exit 1
             fi
-          done < <(jq -c '.[]' "$CTX_DIR/group.json")
+          done 9< "$members_file"
 
       # Conia il token della GitHub App PRIMA di ogni gate che ne dipende.
       #
