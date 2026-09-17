@@ -4,8 +4,9 @@ name: Stale PR rescuer (self-healing signal)
 # queryable entro ~1h, invece di lasciarli fermi giorni (osservato 2026-06-02:
 # #1073 e #1075 ferme 23h). Tre classi di stallo, tutte documentate in
 # AGENTS.md ma finora SOLO manuali:
-#   A) workflow-validation drift: pr-review-loop fallisce con review body vuoto
-#      (branch indietro sui file workflow → app-token 401). Fix: merge origin/main.
+#   A) workflow-validation drift: la PR modifica il workflow di review → pr-review-loop
+#      fallisce con review body vuoto (storicamente: app-token 401). Oggi il caso è
+#      coperto dal drift-fallback deterministico di auto-merge-eval.mjs, non da merge origin/main.
 #   B) 🔴 Important non ripreso: il reviewer ha postato 🔴 sull'head corrente,
 #      auto-merge skipped, nessun commit nuovo. Fix: commit sullo stesso branch.
 #   C) vitest non-`success` sull'head e nessun run in volo: la PR non ha NESSUN
@@ -201,7 +202,7 @@ jobs:
               # l'ha mai coperto (workflow-validation drift o coda congestionata —
               # non distinguibili via API, stesso fix per entrambe).
               REASON="tests verdi sull'head corrente da >2h ma nessuna review pr-review-loop l'ha coperto"
-              RESCUE="\`git fetch origin main && git merge origin/main\` nel branch \`$BRANCH\` poi push (allinea i workflow file, sana un eventuale app-token 401). Se il merge non serve, attendi ancora — può essere coda congestionata. Vedi AGENTS.md → \"Workflow-validation drift\"."
+              RESCUE="tests verdi ma nessuna review: NON mergiare \`main\` (invalida il giro CI e non sana nulla — vedi AGENTS.md). Attendi il prossimo tick di \`pr-autorebase.yml\`, che fa close+reopen sullo stesso head; se dopo due tick la review non compare, apri una issue."
             elif [ "$IMPORTANT_MARKER_STATUS" -eq 0 ] && [ "$LAST_CID" = "$HEAD" ]; then
               CLASS="B"
               # Classe B: 🔴 Important sull'head corrente, non ripreso. Regex

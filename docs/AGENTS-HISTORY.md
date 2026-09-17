@@ -83,7 +83,7 @@ Limite noto, dichiarato invece che nascosto: lo `Stop` hook non si puo' innescar
 
 ## workflow-validation-drift
 
-Sintomo osservato: `App token exchange failed: 401 Unauthorized — Workflow validation failed. The workflow file must have identical content to the version on the default branch`, body review vuoto, nessun `## LGTM`. Diagnosi errata comune: sembra un problema di auth (l'`anthropic_api_key: ""` vuoto nei log è un falso indizio — l'auth reale è via `secrets.CLAUDE_CODE_OAUTH_TOKEN`, ottenuta correttamente) o un problema che un re-run risolve (non lo risolve, il branch resta disallineato finché non fai merge).
+Questo è un incidente storico chiuso. La condizione reale era che la PR modificasse il workflow di review, mai che il branch fosse dietro `main`: in quel caso la validazione della GitHub App poteva produrre `401 Unauthorized — Workflow validation failed` e un body di review vuoto. La causa era l'OIDC di `anthropics/claude-code-action`, uscita dal percorso PR del sito con la PR #8200 (`59f75941e9c`) il 2026-09-10. Il rimedio odierno è il drift-fallback deterministico di `scripts/ci/auto-merge-eval.mjs` (`evaluateDriftFallback` / `isReviewWorkflowDriftPR`), non un merge di `main`.
 
 ## worktree-branch-leak
 
