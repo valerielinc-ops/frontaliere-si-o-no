@@ -1,83 +1,5 @@
 [
   {
-    "timestamp": "2026-09-01T03:16:58.935Z",
-    "label": "after",
-    "total": 29323,
-    "needsRetranslation": 14967,
-    "suppressed": 75,
-    "incomplete": 15965,
-    "complete": 13358,
-    "slotsPresent": 13358,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 13358,
-    "sourceCopyExcused": 637,
-    "languageVerified": null,
-    "missingByLocale": {
-      "it": 2814,
-      "en": 2253,
-      "de": 863,
-      "fr": 2495
-    },
-    "queueAge": {
-      "count": 14967,
-      "withTimestamp": 14967,
-      "oldestAgeDays": 140.7,
-      "p50AgeDays": 11.7,
-      "p90AgeDays": 61.2,
-      "buckets": {
-        "0-7d": 6695,
-        "7-30d": 3512,
-        "30-90d": 4121,
-        "90-180d": 639,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 3658
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1214
-      },
-      {
-        "company": "Roche",
-        "pending": 738
-      },
-      {
-        "company": "Migros Bank",
-        "pending": 352
-      },
-      {
-        "company": "LANDI Pilatus AG",
-        "pending": 338
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 298
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 265
-      },
-      {
-        "company": "BKW",
-        "pending": 223
-      },
-      {
-        "company": "Sulzer",
-        "pending": 208
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 195
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-01T07:21:59.612Z",
     "label": "before",
     "total": 29388,
@@ -17831,6 +17753,118 @@
       "processed": 0,
       "residual": 0,
       "residualRate": null
+    },
+    "topPending": [
+      {
+        "company": "STA Personal AG",
+        "pending": 1017
+      },
+      {
+        "company": "Roche",
+        "pending": 446
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 379
+      },
+      {
+        "company": "Sulzer",
+        "pending": 162
+      },
+      {
+        "company": "PEMSA",
+        "pending": 129
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 112
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 104
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 72
+      },
+      {
+        "company": "JUMBO",
+        "pending": 59
+      },
+      {
+        "company": "Stellentreff AG",
+        "pending": 58
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-17T02:55:02.543Z",
+    "label": "after",
+    "total": 31966,
+    "needsRetranslation": 4296,
+    "suppressed": 181,
+    "incomplete": 4770,
+    "complete": 27196,
+    "slotsPresent": 27196,
+    "flaggedAmongSlotsPresent": 5,
+    "verifiedTranslated": 27191,
+    "sourceCopyExcused": 460,
+    "slotsPresentByLength": 31849,
+    "languageVerified": 28000,
+    "missingByLocale": {
+      "it": 66,
+      "en": 55,
+      "de": 64,
+      "fr": 70
+    },
+    "queueAge": {
+      "count": 4296,
+      "withTimestamp": 4296,
+      "oldestAgeDays": 156.7,
+      "p50AgeDays": 16.4,
+      "p90AgeDays": 78.2,
+      "buckets": {
+        "0-1d": 20,
+        "1-2d": 0,
+        "2-7d": 204,
+        "0-7d": 224,
+        "7-30d": 2458,
+        "30-90d": 1245,
+        "90-180d": 369,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 14,
+      "withTimestamp": 14,
+      "oldestAgeDays": 98.8,
+      "p50AgeDays": 14.2,
+      "p90AgeDays": 78.1,
+      "buckets": {
+        "0-1d": 1,
+        "1-2d": 0,
+        "2-7d": 0,
+        "0-7d": 1,
+        "7-30d": 10,
+        "30-90d": 2,
+        "90-180d": 1,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "genderFormRepair": {
+      "measured": false,
+      "status": "partial",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 1726,
+      "sampled": 120,
+      "processed": 2,
+      "residual": 0,
+      "residualRate": 0
     },
     "topPending": [
       {
