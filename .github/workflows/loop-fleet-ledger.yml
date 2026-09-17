@@ -232,8 +232,14 @@ jobs:
           if [ -n "$open_pr_record" ]; then
             IFS=$'\t' read -r open_pr open_branch <<<"$open_pr_record"
           fi
-          source_orphan_branch=$(bounded_remote git ls-remote --heads origin "refs/heads/${base_branch}-${SOURCE_LOOP}-${SOURCE_RUN_ID}-*" | sed -n '1{s#.*refs/heads/##;p}')
-          base_branch_ref=$(bounded_remote git ls-remote --heads origin "refs/heads/$base_branch")
+          source_orphan_branch=''
+          base_branch_ref=''
+          if [ -z "$open_pr" ]; then
+            source_orphan_branch=$(bounded_remote git ls-remote --heads origin "refs/heads/${base_branch}-${SOURCE_LOOP}-${SOURCE_RUN_ID}-*" | sed -n '1{s#.*refs/heads/##;p}')
+            if [ -z "$source_orphan_branch" ]; then
+              base_branch_ref=$(bounded_remote git ls-remote --heads origin "refs/heads/$base_branch")
+            fi
+          fi
           branch="$base_branch"
           ledger_branch=''
           orphan_recovery='false'

@@ -211,6 +211,8 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('.baseRefName == "main"');
     expect(source).toContain('startswith("chore/loop-fleet-ledger-")');
     expect(source).toContain('source_orphan_branch=$(bounded_remote git ls-remote --heads origin');
+    expect(source).toContain('if [ -z "$open_pr" ]; then\n            source_orphan_branch=$(bounded_remote git ls-remote --heads origin');
+    expect(source).toContain('if [ -z "$source_orphan_branch" ]; then\n              base_branch_ref=$(bounded_remote git ls-remote --heads origin');
     expect(source).toContain('ledger_branch="$open_branch"');
     expect(source).toContain('orphan_recovery=\'true\'');
     expect(source).toContain('ledger_branch="$base_branch"');
@@ -244,6 +246,7 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('timeout --signal=TERM --kill-after=10s');
     expect(source).toContain('export GIT_TERMINAL_PROMPT=0');
     expect(source).toContain('export GH_PAGER=cat');
+    expect(source).toContain('if [ -z "$open_pr" ]; then\n            base_branch_ref=$(bounded_remote git ls-remote --heads origin');
     for (const command of [
       'bounded_remote git fetch origin main',
       'bounded_remote gh pr list',

@@ -134,7 +134,10 @@ jobs:
           base_branch='chore/loop-fleet-ledger'
           open_pr=$(bounded_remote gh pr list --repo "$GITHUB_REPOSITORY" --state open --head "$base_branch" --json number --jq '.[0].number // ""')
           branch="$base_branch"
-          base_branch_ref=$(bounded_remote git ls-remote --heads origin "refs/heads/$base_branch")
+          base_branch_ref=''
+          if [ -z "$open_pr" ]; then
+            base_branch_ref=$(bounded_remote git ls-remote --heads origin "refs/heads/$base_branch")
+          fi
           merged_dir="$RUNNER_TEMP/loop-fleet-lifecycle-merged"
           rm -rf "$merged_dir"
           mkdir -p "$merged_dir"
