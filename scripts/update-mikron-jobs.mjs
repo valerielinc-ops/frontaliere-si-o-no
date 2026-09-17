@@ -176,7 +176,7 @@ async function fetchMikronJobs() {
       await new Promise((r) => setTimeout(r, 500));
     }
 
-    // Derive the real site/canton per-job (Agno TI vs Boudry NE vs …).
+    // Derive the real site/canton per job (Agno TI vs Boudry NE vs …).
     // A blank canton = non-Swiss (USA/Germany) or unresolved → drop the job
     // instead of mislabeling it as the Agno HQ.
     const { city, canton, postalCode, streetAddress } = resolveMikronLocation(rawLocation, p.division);
