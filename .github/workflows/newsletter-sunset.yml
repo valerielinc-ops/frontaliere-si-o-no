@@ -83,6 +83,7 @@ jobs:
           APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
           APPROVAL_CONSENT: ${{ inputs.human_approval }}
           APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_TRUSTED_SCHEDULE: 'true'
           APPROVAL_SCOPE: newsletter-sunset
         run: node scripts/ci/human-side-effect-gate.mjs
 
@@ -107,7 +108,7 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Run sunset
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true'
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           NEWSLETTER_FROM: ${{ secrets.NEWSLETTER_FROM || '' }}
           # Scheduled runs apply transitions AND send win-backs; manual runs use

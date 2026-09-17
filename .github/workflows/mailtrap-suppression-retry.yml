@@ -117,7 +117,7 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Run suppression retry
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true'
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           # Scheduled runs apply; manual runs use the chosen mode (default
           # dry-run — safe to inspect before acting).

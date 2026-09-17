@@ -76,7 +76,7 @@ jobs:
         run: node scripts/assemble-jobs-dataset.mjs --stats
 
       - name: Schedule Reddit jobs
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true'
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           REDDIT_JOB_VOLUME: ${{ github.event.inputs.volume || '2' }}
           DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}

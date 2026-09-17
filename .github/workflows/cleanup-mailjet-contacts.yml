@@ -108,7 +108,7 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Cleanup Mailjet contacts
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true'
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
           KEEP: ${{ inputs.keep || '500' }}

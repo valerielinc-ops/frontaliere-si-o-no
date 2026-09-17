@@ -97,7 +97,7 @@ jobs:
         continue-on-error: true
 
       - name: Post to TikTok
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true'
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
           ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}

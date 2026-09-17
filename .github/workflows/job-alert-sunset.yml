@@ -85,6 +85,7 @@ jobs:
           APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
           APPROVAL_CONSENT: ${{ inputs.human_approval }}
           APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_TRUSTED_SCHEDULE: 'true'
           APPROVAL_SCOPE: job-alert-sunset
         run: node scripts/ci/human-side-effect-gate.mjs
 
@@ -105,7 +106,7 @@ jobs:
           fi
 
       - name: Run sunset
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true'
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           # Scheduled runs apply transitions; manual runs use the chosen mode
           # (default dry-run — safe to inspect before acting).

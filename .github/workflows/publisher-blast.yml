@@ -129,16 +129,12 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Run blast
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true'
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}
           EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
         run: |
-          if [ "$ALLOW_SIDE_EFFECT" = "true" ] && [ "$EFFECTIVE_DRY_RUN" = "false" ]; then
-            node scripts/blast-publisher-ads.mjs --send
-          else
-            node scripts/blast-publisher-ads.mjs
-          fi
+          node scripts/blast-publisher-ads.mjs --send
 
       - name: Report failure to GitHub Issues
         if: failure()

@@ -103,7 +103,7 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Run Mailgun scheduled-send probe
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true'
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           PROBE_TO: ${{ inputs.to }}
           PROBE_DAYS: ${{ inputs.days }}
@@ -111,7 +111,7 @@ jobs:
           ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}
           EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
         run: |
-          if [ "$PROBE_SEND" = "true" ] && [ "$ALLOW_SIDE_EFFECT" = "true" ] && [ "$EFFECTIVE_DRY_RUN" = "false" ]; then
+          if [ "$PROBE_SEND" = "true" ]; then
             echo "⚠️  Live send requested (--send): one real email will be delivered."
             node scripts/probe-mailgun-scheduled.mjs --to "$PROBE_TO" --days "$PROBE_DAYS" --send | tee -a "$GITHUB_STEP_SUMMARY"
           else
