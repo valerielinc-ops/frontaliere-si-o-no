@@ -1,6 +1,7 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
+import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -93,7 +94,8 @@ export function parseBoardListings(html = '') {
   // Primary: ApplyToJob ATS listing structure (li.list-group-item)
   const atsItems = [...document.querySelectorAll('li.list-group-item')];
   if (atsItems.length) {
-    return atsItems
+    let skippedMalformedRows = 0;
+    const rows = atsItems
       .map((li) => {
         const anchor = li.querySelector('h3.list-group-item-heading a');
         if (!anchor) return null;
@@ -103,17 +105,45 @@ export function parseBoardListings(html = '') {
         const location = normalizeSpace(locationLi?.textContent || '');
         return { title, location, href };
       })
-      .filter((row) => row && row.title && row.location && row.href);
+      .filter((row) => {
+        const valid = row && row.title && row.location && row.href;
+        if (!valid) skippedMalformedRows += 1;
+        return valid;
+      });
+    Object.defineProperties(rows, {
+      boardListingMarkupSeen: { value: true, enumerable: false },
+      boardListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
+      boardListingEmptyStateObserved: {
+        value: hasExplicitEmptyJobListing(document.body?.textContent || ''),
+        enumerable: false,
+      },
+    });
+    return rows;
   }
 
   // Fallback: board.com card layout (legacy)
-  return [...document.querySelectorAll('article.card--career')]
+  const cards = [...document.querySelectorAll('article.card--career')];
+  let skippedMalformedRows = 0;
+  const rows = cards
     .map((article) => ({
       title: normalizeSpace(article.querySelector('.card-title')?.textContent || ''),
       location: normalizeSpace(article.querySelector('.location-with-pin strong')?.textContent || ''),
       href: String(article.querySelector('a.btn-link--primary')?.getAttribute('href') || '').trim(),
     }))
-    .filter((row) => row.title && row.location && row.href);
+    .filter((row) => {
+      const valid = row.title && row.location && row.href;
+      if (!valid) skippedMalformedRows += 1;
+      return valid;
+    });
+  Object.defineProperties(rows, {
+    boardListingMarkupSeen: { value: cards.length > 0, enumerable: false },
+    boardListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
+    boardListingEmptyStateObserved: {
+      value: hasExplicitEmptyJobListing(document.body?.textContent || ''),
+      enumerable: false,
+    },
+  });
+  return rows;
 }
 
 export function isBoardTargetLocation(raw = '') {

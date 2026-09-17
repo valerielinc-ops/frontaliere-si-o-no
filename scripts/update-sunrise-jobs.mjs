@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -15,7 +15,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -25,6 +25,7 @@ import {
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
   detectLang,
+  isLocationExplicitlyForeign,
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
@@ -58,7 +59,8 @@ const COMPANY_HOST = 'careers.sunrise.ch';
 const COMPANY_DOMAIN = 'sunrise.ch';
 const CAREERS_URL = 'https://careers.sunrise.ch/it/it/search-results';
 const LOCALES = ['it', 'en', 'de', 'fr'];
-const PAGE_OFFSETS = [0, 10, 20, 30, 40, 50];
+const PAGE_SIZE = 10;
+const MAX_PAGES = 1000;
 
 function readJson(filePath, fallback) {
   try {
@@ -141,20 +143,42 @@ async function fetchSunriseListings() {
   console.log('🔍 Fetching Sunrise jobs from Phenom search...');
   const discovered = [];
   const seen = new Set();
-  for (const offset of PAGE_OFFSETS) {
+  let malformedRecordCount = 0;
+  let payloadPresent = false;
+  let terminationProven = false;
+  for (let page = 0; page < MAX_PAGES; page += 1) {
+    const offset = page * PAGE_SIZE;
     const url = offset ? `${CAREERS_URL}?from=${offset}&s=1` : CAREERS_URL;
     const html = await fetchText(url);
     const rows = parseSunriseSearchPage(html);
-    if (rows.length === 0) break;
+    if (rows.sunriseSearchPayloadPresent !== true) {
+      throw new Error(`Sunrise search payload missing at offset ${offset}`);
+    }
+    payloadPresent = true;
+    malformedRecordCount += Number(rows.sunriseSearchSkippedMalformedRecords || 0);
+    const rawRecordCount = Number(rows.sunriseSearchRawRecordCount || 0);
+    if (rawRecordCount === 0) {
+      terminationProven = true;
+      break;
+    }
     for (const row of rows) {
       const key = row.reqId || row.jobId;
       if (!key || seen.has(key)) continue;
       seen.add(key);
       discovered.push(row);
     }
-    if (rows.length < 10) break;
+    if (rawRecordCount < PAGE_SIZE) {
+      terminationProven = true;
+      break;
+    }
   }
   const target = discovered.filter(isSunriseTargetLocation);
+  const unrecognizedLocations = discovered.filter((row) => !isRecognizedSunriseSourceLocation(row));
+  const sourceReadComplete = Boolean(
+    payloadPresent
+    && terminationProven
+    && malformedRecordCount === 0,
+  );
   console.log(`📋 Total search rows: ${discovered.length}`);
   console.log(`📋 Swiss (CH-wide) rows: ${target.length}`);
   for (const row of target) {
@@ -163,7 +187,48 @@ async function fetchSunriseListings() {
   if (target.length === 0) {
     console.log('ℹ️  Nessun annuncio trovato per Sunrise in Svizzera — non è un errore, il crawler prosegue.');
   }
+  Object.defineProperties(target, {
+    sunriseSourceRows: { value: discovered, enumerable: false },
+    sunriseSourceReadComplete: { value: sourceReadComplete, enumerable: false },
+    sunriseSourceTerminationProven: { value: terminationProven, enumerable: false },
+    sunriseSourceTargetCount: { value: target.length, enumerable: false },
+    sunriseSourceUnrecognizedLocationCount: { value: unrecognizedLocations.length, enumerable: false },
+  });
   return target;
+}
+
+function isRecognizedSunriseSourceLocation(job = {}) {
+  const value = [job.city, job.cityState, job.cityStateCountry, job.state].filter(Boolean).join(' ');
+  return Boolean(value && (inferSunriseCanton(job) || isLocationExplicitlyForeign(value)));
+}
+
+function copySunriseSourceEvidence(jobs, source) {
+  Object.defineProperties(jobs, {
+    sunriseSourceRows: { value: source.sunriseSourceRows, enumerable: false },
+    sunriseSourceReadComplete: { value: source.sunriseSourceReadComplete === true, enumerable: false },
+    sunriseSourceTerminationProven: { value: source.sunriseSourceTerminationProven === true, enumerable: false },
+    sunriseSourceTargetCount: { value: source.sunriseSourceTargetCount, enumerable: false },
+    sunriseSourceUnrecognizedLocationCount: { value: source.sunriseSourceUnrecognizedLocationCount, enumerable: false },
+  });
+  return jobs;
+}
+
+function assertCompleteSunriseSnapshot(jobs = []) {
+  if (!Array.isArray(jobs) || jobs.sunriseSourceReadComplete !== true || jobs.sunriseSourceTerminationProven !== true) {
+    throw new Error('Sunrise: source search snapshot was not read to a proven terminal page');
+  }
+  const rows = jobs.sunriseSourceRows;
+  if (!Array.isArray(rows) || rows.filter(isSunriseTargetLocation).length !== jobs.sunriseSourceTargetCount) {
+    throw new Error('Sunrise: source search snapshot evidence is inconsistent');
+  }
+  const unrecognized = rows.filter((row) => !isRecognizedSunriseSourceLocation(row));
+  if (unrecognized.length > 0) {
+    throw new Error(`Sunrise: ${unrecognized.length} source listing location(s) were not classifiable`);
+  }
+  if (jobs.sunriseSourceTargetCount !== 0 || jobs.length !== 0) {
+    throw new Error('Sunrise: empty authority requested for a non-empty filtered result');
+  }
+  return true;
 }
 
 async function buildSunriseJob(listing) {
@@ -313,7 +378,7 @@ function alignItalianDescriptions() {
   }
 }
 
-function validateLocales() {
+function validateLocales(authoritativeEmptySnapshot = false) {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_SUNRISE_STRICT',
     label: 'Sunrise Communications AG',
@@ -322,7 +387,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_sunrise_domain',
-    failWhenNoJobs: false,
+    failWhenNoJobs: !authoritativeEmptySnapshot,
     noJobsMessage: 'No Sunrise jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'en'),
   });
@@ -336,28 +401,22 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log(`  Careers page: ${CAREERS_URL}\n`);
 
-  let listings;
-  try {
-    listings = await fetchSunriseListings();
-  } catch (fetchErr) {
-    // Sunrise is a national telecom (HQ Zürich) with a CH-wide careers feed.
-    // Treat both "0 matches in source" and "fetch failed" as a no-op: keep
-    // any existing slice intact and exit cleanly, instead of failing the
-    // workflow on every run where the source is empty.
-    const allJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
-    const existing = allJobs.filter(isTargetJob);
-    console.log(`⚠️  Sunrise listing fetch returned no Swiss matches (${fetchErr.message}).`);
-    if (existing.length > 0) {
-      console.log(`   Keeping ${existing.length} existing Sunrise job(s) — no changes made.`);
-    } else {
-      console.log(`   No existing Sunrise jobs to preserve — exiting cleanly (legitimate empty state).`);
-    }
-    return;
-  }
+  const listings = await fetchSunriseListings();
   const jobs = [];
   for (const listing of listings) {
     jobs.push(await buildSunriseJob(listing));
   }
+
+  copySunriseSourceEvidence(jobs, listings);
+  const {
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
+  } = evaluateAuthoritativeSnapshot(jobs, {
+    validateAuthoritativeSnapshot: assertCompleteSunriseSnapshot,
+    allowAuthoritativeEmptySnapshot: true,
+    authoritativeSnapshotScope: 'empty-only',
+    companyLabel: COMPANY_NAME,
+  });
 
   const result = mergeJobs(jobs);
   const diff = result.diff;
@@ -370,19 +429,24 @@ async function main() {
   });
   alignItalianDescriptions();
 
-  validateLocales();
+  validateLocales(authoritativeEmptySnapshot);
   console.log(`\n✅ Sunrise crawler complete (${result.total} jobs).`);
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified,
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'Sunrise Communications AG',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,

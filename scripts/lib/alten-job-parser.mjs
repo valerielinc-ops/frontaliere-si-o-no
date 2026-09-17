@@ -3,6 +3,7 @@ import { JSDOM } from 'jsdom';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { getCantonDisplayName } from './crawler-location-config.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './swiss-locality-sentence-split.mjs';
+import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 
 function compact(text = '') {
   return String(text || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -60,7 +61,8 @@ export function inferAltenCategory(title = '', description = '') {
 export function parseAltenListingHtml(html = '') {
   const dom = new JSDOM(html);
   const document = dom.window.document;
-  return Array.from(document.querySelectorAll('.wp-block-webfactory-card .card-inner.offer-item'))
+  const cards = Array.from(document.querySelectorAll('.wp-block-webfactory-card .card-inner.offer-item'));
+  const rawRows = cards
     .map((card) => {
       const anchor = card.querySelector('a.card-title[href*="/jobs/"]');
       const title = compact(anchor?.textContent || '');
@@ -68,8 +70,18 @@ export function parseAltenListingHtml(html = '') {
       const location = compact(card.querySelector('.card-location .location-list')?.textContent || '');
       const postedDate = compact(card.querySelector('.card-date .mx-2')?.textContent || '');
       return { title, href, location, postedDate };
-    })
-    .filter((item) => item.title && item.href && isAltenSwissLocation(item.location));
+    });
+  const rows = rawRows.filter((item) => item.title && item.href);
+  Object.defineProperties(rows, {
+    altenListingMarkupSeen: { value: cards.length > 0, enumerable: false },
+    altenListingRecordCount: { value: rawRows.length, enumerable: false },
+    altenListingSkippedMalformedRows: { value: rawRows.length - rows.length, enumerable: false },
+    altenListingEmptyStateObserved: {
+      value: hasExplicitEmptyJobListing(document.body?.textContent || ''),
+      enumerable: false,
+    },
+  });
+  return rows;
 }
 
 export function parseAltenDetailHtml(html = '', pageUrl = '') {

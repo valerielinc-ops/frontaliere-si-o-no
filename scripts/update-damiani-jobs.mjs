@@ -13,7 +13,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -23,6 +23,7 @@ import {
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
   detectLang,
+  isLocationExplicitlyForeign,
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
@@ -35,9 +36,10 @@ import {
   inferDamianiCategory,
 } from './lib/damiani-job-parser.mjs';
 import { classifyMalformedRowDrift } from './lib/malformed-row-observability.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -114,14 +116,26 @@ async function fetchDamianiListings() {
   console.log('🔍 Fetching Damiani jobs from SuccessFactors search...');
   const discovered = [];
   const seen = new Set();
-  for (const startrow of [0, 25, 50]) {
+  let skippedMalformedRowsTotal = 0;
+  let sourceMarkupSeen = false;
+  let emptyStateObserved = false;
+  let terminationProven = false;
+  const PAGE_SIZE = 25;
+  const MAX_PAGES = 1000;
+  for (let page = 0; page < MAX_PAGES; page += 1) {
+    const startrow = page * PAGE_SIZE;
     const url = startrow ? `${SEARCH_BASE}&startrow=${startrow}` : SEARCH_BASE;
     const html = await fetchText(url);
     const {
       rows,
       skippedMalformedRows,
       ignoredNonJobRows,
+      searchTableRendered,
+      emptyStateObserved: pageEmptyStateObserved,
     } = parseDamianiSearchPage(html);
+    sourceMarkupSeen ||= searchTableRendered === true;
+    emptyStateObserved ||= pageEmptyStateObserved === true;
+    skippedMalformedRowsTotal += skippedMalformedRows;
     const diagnostic = classifyMalformedRowDrift(rows.length, skippedMalformedRows);
     if (skippedMalformedRows > 0) {
       console.warn(
@@ -135,16 +149,28 @@ async function fetchDamianiListings() {
           `${skippedMalformedRows}/${diagnostic.total} rows malformed`,
       );
     }
-    if (rows.length === 0) break;
+    if (rows.length === 0) {
+      terminationProven = true;
+      break;
+    }
     for (const row of rows) {
       const key = row.href;
       if (seen.has(key)) continue;
       seen.add(key);
       discovered.push(row);
     }
-    if (rows.length < 25) break;
+    if (rows.length < PAGE_SIZE) {
+      terminationProven = true;
+      break;
+    }
   }
   const relevant = discovered.filter((row) => isDamianiTicinoLocation(row.location));
+  const unrecognizedLocations = discovered.filter((row) => !isRecognizedDamianiSourceLocation(row.location));
+  const sourceReadComplete = Boolean(
+    terminationProven
+    && skippedMalformedRowsTotal === 0
+    && (discovered.length > 0 ? sourceMarkupSeen : emptyStateObserved),
+  );
   console.log(`📋 Total search rows: ${discovered.length}`);
   console.log(`📋 TI/GR-relevant rows: ${relevant.length}`);
   for (const row of relevant) {
@@ -153,7 +179,48 @@ async function fetchDamianiListings() {
   if (relevant.length === 0) {
     console.log('ℹ️  Nessun annuncio trovato per Damiani Group — non è un errore, il crawler prosegue.');
   }
+  Object.defineProperties(relevant, {
+    damianiSourceRows: { value: discovered, enumerable: false },
+    damianiSourceReadComplete: { value: sourceReadComplete, enumerable: false },
+    damianiSourceTerminationProven: { value: terminationProven, enumerable: false },
+    damianiSourceTargetCount: { value: relevant.length, enumerable: false },
+    damianiSourceUnrecognizedLocationCount: { value: unrecognizedLocations.length, enumerable: false },
+  });
   return relevant;
+}
+
+function isRecognizedDamianiSourceLocation(raw = '') {
+  const value = String(raw || '').trim();
+  return Boolean(value && (isLocationExplicitlyForeign(value) || inferAnyCanton(value)));
+}
+
+function copyDamianiSourceEvidence(jobs, source) {
+  Object.defineProperties(jobs, {
+    damianiSourceRows: { value: source.damianiSourceRows, enumerable: false },
+    damianiSourceReadComplete: { value: source.damianiSourceReadComplete === true, enumerable: false },
+    damianiSourceTerminationProven: { value: source.damianiSourceTerminationProven === true, enumerable: false },
+    damianiSourceTargetCount: { value: source.damianiSourceTargetCount, enumerable: false },
+    damianiSourceUnrecognizedLocationCount: { value: source.damianiSourceUnrecognizedLocationCount, enumerable: false },
+  });
+  return jobs;
+}
+
+function assertCompleteDamianiSnapshot(jobs = []) {
+  if (!Array.isArray(jobs) || jobs.damianiSourceReadComplete !== true || jobs.damianiSourceTerminationProven !== true) {
+    throw new Error('Damiani: source listing snapshot was not read to a proven terminal page');
+  }
+  const rows = jobs.damianiSourceRows;
+  if (!Array.isArray(rows) || rows.filter((row) => isDamianiTicinoLocation(row.location)).length !== jobs.damianiSourceTargetCount) {
+    throw new Error('Damiani: source listing snapshot evidence is inconsistent');
+  }
+  const unrecognized = rows.filter((row) => !isRecognizedDamianiSourceLocation(row.location));
+  if (unrecognized.length > 0) {
+    throw new Error(`Damiani: ${unrecognized.length} source listing location(s) were not classifiable`);
+  }
+  if (jobs.damianiSourceTargetCount !== 0 || jobs.length !== 0) {
+    throw new Error('Damiani: empty authority requested for a non-empty filtered result');
+  }
+  return true;
 }
 
 function absoluteUrl(raw = '') {
@@ -270,7 +337,7 @@ function updateAdapterConfig(jobs) {
   });
 }
 
-function validateLocales() {
+function validateLocales(authoritativeEmptySnapshot = false) {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_DAMIANI_STRICT',
     label: 'Damiani Group',
@@ -279,7 +346,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_damiani_domain',
-    failWhenNoJobs: false,
+    failWhenNoJobs: !authoritativeEmptySnapshot,
     noJobsMessage: 'No Damiani jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'it'),
   });
@@ -299,6 +366,16 @@ async function main() {
     console.log(`  📄 Processing: ${listing.title} (${listing.location})`);
     jobs.push(await buildDamianiJob(listing));
   }
+  copyDamianiSourceEvidence(jobs, listings);
+  const {
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
+  } = evaluateAuthoritativeSnapshot(jobs, {
+    validateAuthoritativeSnapshot: assertCompleteDamianiSnapshot,
+    allowAuthoritativeEmptySnapshot: true,
+    authoritativeSnapshotScope: 'empty-only',
+    companyLabel: COMPANY_NAME,
+  });
   const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
@@ -308,7 +385,7 @@ async function main() {
     isTargetJob,
   });
 
-  validateLocales();
+  validateLocales(authoritativeEmptySnapshot);
   const tiCount = jobs.filter((j) => j.canton === 'TI').length;
   const grCount = jobs.filter((j) => j.canton === 'GR').length;
   console.log(`\n✅ Damiani crawler complete (${total} jobs TI:${tiCount} GR:${grCount}, added=${added}, updated=${updated}).`);
@@ -317,12 +394,17 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified,
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'Damiani Group',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,

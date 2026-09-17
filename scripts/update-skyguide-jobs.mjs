@@ -15,7 +15,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -25,6 +25,7 @@ import {
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
   detectLang,
+  isLocationExplicitlyForeign,
   mergeLocaleTextMap,
   slugify,
   captureLostSlugs,
@@ -37,7 +38,7 @@ import {
   buildSkyguideLocalizedContent,
 } from './lib/skyguide-job-parser.mjs';
 import { classifyMalformedRowDrift } from './lib/malformed-row-observability.mjs';
-import { fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { evaluateAuthoritativeSnapshot, fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { readCurrentRunJobs } from './lib/crawler-run-jobs.mjs';
@@ -145,6 +146,10 @@ async function fetchListings() {
   console.log('🔍 Fetching Skyguide jobs (national, all cantons)...');
   const discovered = [];
   const seen = new Set();
+  let skippedMalformedRowsTotal = 0;
+  let sourceMarkupSeen = false;
+  let emptyStateObserved = false;
+  let terminationProven = false;
 
   for (let page = 0; page < LISTING_MAX_PAGES; page += 1) {
     const startRow = page * LISTING_PAGE_SIZE;
@@ -155,7 +160,12 @@ async function fetchListings() {
       rows,
       skippedMalformedRows,
       ignoredNonJobRows,
+      listingMarkupSeen,
+      emptyStateObserved: pageEmptyStateObserved,
     } = parseSkyguideListings(html);
+    sourceMarkupSeen ||= listingMarkupSeen === true;
+    emptyStateObserved ||= pageEmptyStateObserved === true;
+    skippedMalformedRowsTotal += skippedMalformedRows;
     const diagnostic = classifyMalformedRowDrift(rows.length, skippedMalformedRows);
     if (skippedMalformedRows > 0) {
       console.warn(
@@ -171,27 +181,78 @@ async function fetchListings() {
       );
     }
     console.log(`📋 Page ${page + 1} (startrow ${startRow}): ${rows.length} rows`);
-    if (rows.length === 0) break;
+    if (rows.length === 0) {
+      terminationProven = true;
+      break;
+    }
     for (const row of rows) {
-      // Keep only Swiss locations (all 26 cantons); Skyguide is CH-only but the
-      // guard stays as a safety net.
-      if (row.location && !isSkyguideTargetLocation(row.location)) continue;
       const key = absoluteUrl(row.href);
       if (seen.has(key)) continue;
       seen.add(key);
       discovered.push(row);
-      console.log(`  📄 ${row.title} (${row.location})`);
+      if (isSkyguideTargetLocation(row.location)) console.log(`  📄 ${row.title} (${row.location})`);
     }
     // Last page reached when the page wasn't full (no further rows to fetch).
     // (Bounded by LISTING_MAX_PAGES; we don't early-break on all-duplicate pages
     // because SuccessFactors paginates sequentially by startrow.)
-    if (rows.length < LISTING_PAGE_SIZE) break;
+    if (rows.length < LISTING_PAGE_SIZE) {
+      terminationProven = true;
+      break;
+    }
   }
 
-  if (discovered.length === 0) {
+  const target = discovered.filter((row) => isSkyguideTargetLocation(row.location));
+  const unrecognizedLocations = discovered.filter((row) => !isRecognizedSkyguideSourceLocation(row.location));
+  const sourceReadComplete = Boolean(
+    terminationProven
+    && skippedMalformedRowsTotal === 0
+    && (discovered.length > 0 ? sourceMarkupSeen : emptyStateObserved),
+  );
+  if (target.length === 0) {
     console.log('ℹ️  Nessun annuncio trovato per Skyguide — non è un errore, il crawler prosegue.');
   }
-  return discovered;
+  Object.defineProperties(target, {
+    skyguideSourceRows: { value: discovered, enumerable: false },
+    skyguideSourceReadComplete: { value: sourceReadComplete, enumerable: false },
+    skyguideSourceTerminationProven: { value: terminationProven, enumerable: false },
+    skyguideSourceTargetCount: { value: target.length, enumerable: false },
+    skyguideSourceUnrecognizedLocationCount: { value: unrecognizedLocations.length, enumerable: false },
+  });
+  return target;
+}
+
+function isRecognizedSkyguideSourceLocation(raw = '') {
+  const value = String(raw || '').trim();
+  return Boolean(value && (isLocationExplicitlyForeign(value) || inferSkyguideCanton(value)));
+}
+
+function copySkyguideSourceEvidence(jobs, source) {
+  Object.defineProperties(jobs, {
+    skyguideSourceRows: { value: source.skyguideSourceRows, enumerable: false },
+    skyguideSourceReadComplete: { value: source.skyguideSourceReadComplete === true, enumerable: false },
+    skyguideSourceTerminationProven: { value: source.skyguideSourceTerminationProven === true, enumerable: false },
+    skyguideSourceTargetCount: { value: source.skyguideSourceTargetCount, enumerable: false },
+    skyguideSourceUnrecognizedLocationCount: { value: source.skyguideSourceUnrecognizedLocationCount, enumerable: false },
+  });
+  return jobs;
+}
+
+function assertCompleteSkyguideSnapshot(jobs = []) {
+  if (!Array.isArray(jobs) || jobs.skyguideSourceReadComplete !== true || jobs.skyguideSourceTerminationProven !== true) {
+    throw new Error('Skyguide: source listing snapshot was not read to a proven terminal page');
+  }
+  const rows = jobs.skyguideSourceRows;
+  if (!Array.isArray(rows) || rows.filter((row) => isSkyguideTargetLocation(row.location)).length !== jobs.skyguideSourceTargetCount) {
+    throw new Error('Skyguide: source listing snapshot evidence is inconsistent');
+  }
+  const unrecognized = rows.filter((row) => !isRecognizedSkyguideSourceLocation(row.location));
+  if (unrecognized.length > 0) {
+    throw new Error(`Skyguide: ${unrecognized.length} source listing location(s) were not classifiable`);
+  }
+  if (jobs.skyguideSourceTargetCount !== 0 || jobs.length !== 0) {
+    throw new Error('Skyguide: empty authority requested for a non-empty filtered result');
+  }
+  return true;
 }
 
 function inferCategory(detail = {}) {
@@ -346,7 +407,7 @@ function updateAdapterConfig(jobs) {
   });
 }
 
-function validateLocales() {
+function validateLocales(authoritativeEmptySnapshot = false) {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_SKYGUIDE_STRICT',
     label: 'Skyguide',
@@ -355,7 +416,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_skyguide_domain',
-    failWhenNoJobs: false,
+    failWhenNoJobs: !authoritativeEmptySnapshot,
     noJobsMessage: 'No Skyguide jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'it'),
   });
@@ -374,6 +435,16 @@ async function main() {
   for (const listing of listings) {
     jobs.push(await buildSkyguideJob(listing));
   }
+  copySkyguideSourceEvidence(jobs, listings);
+  const {
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
+  } = evaluateAuthoritativeSnapshot(jobs, {
+    validateAuthoritativeSnapshot: assertCompleteSkyguideSnapshot,
+    allowAuthoritativeEmptySnapshot: true,
+    authoritativeSnapshotScope: 'empty-only',
+    companyLabel: COMPANY_NAME,
+  });
   const { total , diff } = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
@@ -385,7 +456,10 @@ async function main() {
   // for that purpose; kept because dropping a slice write also moves WHICH
   // write faces the shrink guard, and that is a behaviour change this runner
   // has no test to cover.
-  writeJobsCrawlerSlice(COMPANY_KEY, (JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) || []).filter(isTargetJob));
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, (JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) || []).filter(isTargetJob), {
+    isTargetJob,
+    skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified,
+  });
 
   console.log('\n🌐 Running locale fill for Skyguide jobs...');
   await translateMissingJobLocales({
@@ -394,19 +468,24 @@ async function main() {
   });
   refreshLocalizedSlugs();
 
-  validateLocales();
+  validateLocales(authoritativeEmptySnapshot);
   console.log(`\n✅ Skyguide crawler complete (${total} jobs).`);
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified,
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'Skyguide',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,

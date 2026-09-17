@@ -1,7 +1,11 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const readRepoFile = (relativePath: string) => fs.readFileSync(path.join(REPO_ROOT, relativePath), 'utf8');
 
 const mocks = vi.hoisted(() => ({
   archiveRemovedJobsToSlice: vi.fn(() => 1),
@@ -90,6 +94,7 @@ import {
   exitCrawlerOnError,
   runStandardCrawlerPipeline,
 } from '../scripts/lib/crawler-template.mjs';
+import { hasExplicitEmptyJobListing } from '../scripts/lib/job-listing-evidence.mjs';
 
 const COMPANY_KEY = 'authoritative-empty-test';
 const SCRATCH_PATH = path.join(os.tmpdir(), `frontaliere-jobs-scratch-${COMPANY_KEY}.json`);
@@ -245,6 +250,47 @@ describe('standard crawler authoritative-empty policy', () => {
       authoritativeEmptySnapshot: true,
     });
     expect(validator).toHaveBeenCalledOnce();
+  });
+
+  it('refuses a filtered zero when the source read or location classification is unproven', () => {
+    const unproven = Object.assign([], {
+      sourceReadComplete: false,
+      terminationProven: false,
+      unrecognizedLocationCount: 1,
+    });
+    const predicate = (batch: typeof unproven) => (
+      batch.sourceReadComplete === true
+      && batch.terminationProven === true
+      && batch.unrecognizedLocationCount === 0
+    );
+
+    expect(() => evaluateAuthoritativeSnapshot(unproven, {
+      validateAuthoritativeSnapshot: predicate,
+      allowAuthoritativeEmptySnapshot: true,
+      authoritativeSnapshotScope: 'empty-only',
+      companyLabel: 'Unproven Empty Test',
+    })).toThrow(/Unproven Empty Test: authoritative snapshot validator did not return true/);
+  });
+
+  it('requires an explicit listing marker rather than an empty parser result', () => {
+    expect(hasExplicitEmptyJobListing('No open positions are currently available.')).toBe(true);
+    expect(hasExplicitEmptyJobListing('')).toBe(false);
+  });
+
+  it.each([
+    'scripts/update-board-jobs.mjs',
+    'scripts/update-alten-jobs.mjs',
+    'scripts/update-damiani-jobs.mjs',
+    'scripts/update-delvitech-jobs.mjs',
+    'scripts/update-rittmeyer-jobs.mjs',
+    'scripts/update-skyguide-jobs.mjs',
+    'scripts/update-sunrise-jobs.mjs',
+  ])('%s wires the source-proof predicate into zero publication', (runner) => {
+    const source = readRepoFile(runner);
+    expect(source).toContain('evaluateAuthoritativeSnapshot');
+    expect(source).toContain('writeJobsCrawlerSliceVerified');
+    expect(source).toContain('failWhenNoJobs: !authoritativeEmptySnapshot');
+    expect(source).toContain('skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified');
   });
 
   it('publishes a verified zero, archives prior identities, and skips localization', async () => {

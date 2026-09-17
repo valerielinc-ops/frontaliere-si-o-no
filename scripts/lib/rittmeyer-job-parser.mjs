@@ -1,6 +1,7 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -35,11 +36,15 @@ function listFromSection(document, headingText) {
 export function parseRittmeyerListingsPage(html = '') {
   const document = new JSDOM(html).window.document;
   const byHref = new Map();
+  let skippedMalformedRows = 0;
   for (const anchor of document.querySelectorAll('a[href^="/offene-stellen/"]')) {
     const href = String(anchor.getAttribute('href') || '').trim();
     if (!href || href === '/offene-stellen/') continue;
     const text = normalizeSpace(anchor.textContent || '');
-    if (!text) continue;
+    if (!text) {
+      skippedMalformedRows += 1;
+      continue;
+    }
     const prev = byHref.get(href);
     if (!prev || text.length > prev.snippet.length) {
       byHref.set(href, {
@@ -49,7 +54,17 @@ export function parseRittmeyerListingsPage(html = '') {
       });
     }
   }
-  return [...byHref.values()];
+  const rows = [...byHref.values()];
+  Object.defineProperties(rows, {
+    rittmeyerListingMarkupSeen: { value: rows.length > 0, enumerable: false },
+    rittmeyerListingRecordCount: { value: rows.length, enumerable: false },
+    rittmeyerListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
+    rittmeyerListingEmptyStateObserved: {
+      value: hasExplicitEmptyJobListing(document.body?.textContent || ''),
+      enumerable: false,
+    },
+  });
+  return rows;
 }
 
 export function isRittmeyerTicinoListing(listing = {}) {

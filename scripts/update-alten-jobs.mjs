@@ -14,7 +14,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -24,18 +24,20 @@ import {
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
   detectLang,
+  isLocationExplicitlyForeign,
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseAltenListingHtml,
+  isAltenSwissLocation,
   parseAltenDetailHtml,
   inferAltenCategory,
 } from './lib/alten-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { exitCrawlerOnError, warnIfListingAtCap } from './lib/crawler-template.mjs';
+import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, warnIfListingAtCap } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -152,6 +154,43 @@ async function withBrowser(fn) {
   }
 }
 
+function isRecognizedAltenSourceLocation(raw = '') {
+  const value = String(raw || '').trim();
+  return Boolean(value && (inferAnyCanton(value) || isLocationExplicitlyForeign(value)));
+}
+
+function copyAltenSourceEvidence(jobs, source) {
+  Object.defineProperties(jobs, {
+    altenSourceRows: { value: source.altenSourceRows, enumerable: false },
+    altenSourceReadComplete: { value: source.altenSourceReadComplete === true, enumerable: false },
+    altenSourceTerminationProven: { value: source.altenSourceTerminationProven === true, enumerable: false },
+    altenSourceTargetCount: { value: source.altenSourceTargetCount, enumerable: false },
+    altenSourceUnrecognizedLocationCount: { value: source.altenSourceUnrecognizedLocationCount, enumerable: false },
+  });
+  return jobs;
+}
+
+function assertCompleteAltenSnapshot(jobs = []) {
+  if (!Array.isArray(jobs) || jobs.altenSourceReadComplete !== true || jobs.altenSourceTerminationProven !== true) {
+    throw new Error('ALTEN: source listing snapshot was not read to a proven terminal page');
+  }
+  const rows = jobs.altenSourceRows;
+  const actualTargetCount = Array.isArray(rows)
+    ? rows.filter((row) => isAltenSwissLocation(row.location)).length
+    : -1;
+  if (!Array.isArray(rows) || actualTargetCount !== jobs.altenSourceTargetCount) {
+    throw new Error('ALTEN: source listing snapshot evidence is inconsistent');
+  }
+  const unrecognized = rows.filter((row) => !isRecognizedAltenSourceLocation(row.location));
+  if (unrecognized.length > 0) {
+    throw new Error(`ALTEN: ${unrecognized.length} source listing location(s) were not classifiable`);
+  }
+  if (jobs.altenSourceTargetCount !== 0 || jobs.length !== 0) {
+    throw new Error('ALTEN: empty authority requested for a non-empty filtered result');
+  }
+  return true;
+}
+
 async function discoverListings() {
   console.log('🔍 Fetching ALTEN jobs with browser session...');
   try {
@@ -160,13 +199,29 @@ async function discoverListings() {
       const ok = await waitForListing(page);
       if (!ok) throw new Error('ALTEN listing did not become available in browser session');
       const html = await page.content();
-      const listings = parseAltenListingHtml(html);
-      console.log(`📋 Total Swiss ALTEN jobs discovered (CH-wide): ${listings.length}`);
-      warnIfListingAtCap({ label: 'ALTEN listing', count: listings.length, cap: LISTING_PAGE_CAP });
+      const sourceRows = parseAltenListingHtml(html);
+      const listings = sourceRows.filter((row) => isAltenSwissLocation(row.location));
+      const terminationProven = sourceRows.length < LISTING_PAGE_CAP;
+      const sourceReadComplete = Boolean(
+        terminationProven
+        && sourceRows.altenListingSkippedMalformedRows === 0
+        && (sourceRows.length > 0 ? sourceRows.altenListingMarkupSeen : sourceRows.altenListingEmptyStateObserved),
+      );
+      const unrecognizedLocations = sourceRows.filter((row) => !isRecognizedAltenSourceLocation(row.location));
+      console.log(`📋 Total ALTEN listing rows (CH + foreign): ${sourceRows.length}`);
+      console.log(`📋 Swiss ALTEN jobs discovered (CH-wide): ${listings.length}`);
+      warnIfListingAtCap({ label: 'ALTEN listing', count: sourceRows.length, cap: LISTING_PAGE_CAP });
       for (const listing of listings) console.log(`  📄 ${listing.title} (${listing.location})`);
       if (listings.length === 0) {
         console.log('ℹ️  Nessun annuncio trovato per ALTEN Switzerland — non è un errore, il crawler prosegue.');
       }
+      Object.defineProperties(listings, {
+        altenSourceRows: { value: sourceRows, enumerable: false },
+        altenSourceReadComplete: { value: sourceReadComplete, enumerable: false },
+        altenSourceTerminationProven: { value: terminationProven, enumerable: false },
+        altenSourceTargetCount: { value: listings.length, enumerable: false },
+        altenSourceUnrecognizedLocationCount: { value: unrecognizedLocations.length, enumerable: false },
+      });
       return listings;
     });
   } catch (err) {
@@ -341,7 +396,7 @@ function updateAdapterConfig(jobs) {
   });
 }
 
-function validateLocales() {
+function validateLocales(authoritativeEmptySnapshot = false) {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_ALTEN_STRICT',
     label: 'ALTEN Switzerland',
@@ -350,7 +405,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_alten_domain',
-    failWhenNoJobs: false,
+    failWhenNoJobs: !authoritativeEmptySnapshot,
     noJobsMessage: 'No ALTEN jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'en'),
   });
@@ -374,6 +429,16 @@ async function main() {
     printCrawlChangeSummary({ newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 }, 'ALTEN Switzerland');
     return;
   }
+  copyAltenSourceEvidence(jobs, listings);
+  const {
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
+  } = evaluateAuthoritativeSnapshot(jobs, {
+    validateAuthoritativeSnapshot: assertCompleteAltenSnapshot,
+    allowAuthoritativeEmptySnapshot: true,
+    authoritativeSnapshotScope: 'empty-only',
+    companyLabel: COMPANY_NAME,
+  });
   const result = mergeJobs(jobs);
   const diff = result.diff;
   updateAdapterConfig(jobs);
@@ -384,19 +449,24 @@ async function main() {
   const refreshed = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob);
   writeJobsSummary(refreshed, 'ALTEN Switzerland');
   printPublishedJobUrls(refreshed, 'ALTEN Switzerland');
-  validateLocales();
+  validateLocales(authoritativeEmptySnapshot);
   console.log(`🏢 Total ALTEN jobs: ${result.total}`);
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified,
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'ALTEN Switzerland',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,

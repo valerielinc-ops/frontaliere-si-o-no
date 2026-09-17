@@ -7,6 +7,7 @@ import {
   sanitizeSuccessFactorsField,
   stripSuccessFactorsMoreLocations,
 } from './successfactors-jobs2web-widget-guard.mjs';
+import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 
 const HQ = getCompanyDefaults('damiani');
 
@@ -110,7 +111,13 @@ export function parseDamianiSearchPage(html = '') {
     }
     parsedRows.push({ title, href, location, postedDate });
   }
-  return { rows: parsedRows, skippedMalformedRows, ignoredNonJobRows };
+  return {
+    rows: parsedRows,
+    skippedMalformedRows,
+    ignoredNonJobRows,
+    searchTableRendered: Boolean(document.querySelector('#searchresults')),
+    emptyStateObserved: hasExplicitEmptyJobListing(document.body?.textContent || ''),
+  };
 }
 
 function bulletize(section) {

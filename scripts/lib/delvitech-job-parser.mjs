@@ -2,6 +2,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 
 const HQ = getCompanyDefaults('delvitech');
 
@@ -56,6 +57,7 @@ export function parseDelvitechCareerPage(html = '') {
   const cards = [...document.querySelectorAll('.post-content a.fusion-column-anchor[href*="legacy.delvi.tech/"]')];
   const seen = new Set();
   const jobs = [];
+  let skippedMalformedRows = 0;
 
   for (const anchor of cards) {
     const href = String(anchor.getAttribute('href') || '').trim();
@@ -65,10 +67,22 @@ export function parseDelvitechCareerPage(html = '') {
 
     const card = anchor.closest('.fusion-layout-column') || anchor.parentElement?.nextElementSibling || anchor.nextElementSibling;
     const title = normalizeSpace(card?.querySelector('h5')?.textContent || '');
-    if (!title) continue;
+    if (!title) {
+      skippedMalformedRows += 1;
+      continue;
+    }
     jobs.push({ href, title });
   }
 
+  Object.defineProperties(jobs, {
+    delvitechListingMarkupSeen: { value: Boolean(document.querySelector('.post-content')), enumerable: false },
+    delvitechListingRecordCount: { value: cards.length, enumerable: false },
+    delvitechListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
+    delvitechListingEmptyStateObserved: {
+      value: hasExplicitEmptyJobListing(document.body?.textContent || ''),
+      enumerable: false,
+    },
+  });
   return jobs;
 }
 

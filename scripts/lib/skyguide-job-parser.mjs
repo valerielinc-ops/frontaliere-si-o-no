@@ -6,6 +6,7 @@ import {
   sanitizeSuccessFactorsField,
   stripSuccessFactorsMoreLocations,
 } from './successfactors-jobs2web-widget-guard.mjs';
+import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -92,7 +93,13 @@ export function parseSkyguideListings(html = '') {
     }
     rows.push(parsed);
   }
-  return { rows, skippedMalformedRows, ignoredNonJobRows };
+  return {
+    rows,
+    skippedMalformedRows,
+    ignoredNonJobRows,
+    listingMarkupSeen: Boolean(document.querySelector('#searchresults')),
+    emptyStateObserved: hasExplicitEmptyJobListing(document.body?.textContent || ''),
+  };
 }
 
 export function isSkyguideTargetLocation(raw = '') {
