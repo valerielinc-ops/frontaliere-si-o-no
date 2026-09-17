@@ -129,25 +129,25 @@ describe('migrolino crawler parser', () => {
     });
   });
 
-  // ── resolveAddress (city-gated HQ fallback — task-critical) ──
+  // ── resolveAddress (source-backed address fields) ──
   describe('resolveAddress', () => {
-    it('fills in the Suhr HQ street address only when the resolved city is Suhr', () => {
+    it('keeps a source city without inventing a headquarters address', () => {
       const resolved = resolveAddress({ city: 'Suhr' });
       expect(resolved.city).toBe('Suhr');
-      expect(resolved.postalCode).toBe('5034');
-      expect(resolved.streetAddress).toBe('Wynenfeldstrasse 3');
+      expect(resolved.postalCode).toBe('');
+      expect(resolved.streetAddress).toBe('');
     });
 
-    it('does NOT leak the Suhr HQ street address for a same-canton non-HQ city (Baden AG)', () => {
-      // Baden is canton AG, same canton as the Suhr HQ — this is exactly the
-      // case a canton-only gate would get wrong.
+    it('does NOT invent a Suhr address for a different city (Baden AG)', () => {
+      // Baden is a different source locality; a city-level parser must not
+      // copy a corporate address merely because both resolve to AG.
       const resolved = resolveAddress({ city: 'Baden' });
       expect(resolved.city).toBe('Baden');
       expect(resolved.postalCode).toBe('');
       expect(resolved.streetAddress).toBe('');
     });
 
-    it('does NOT leak the Suhr HQ street address for another same-canton non-HQ city (Wohlen AG)', () => {
+    it('does NOT invent a Suhr address for another different city (Wohlen AG)', () => {
       const resolved = resolveAddress({ city: 'Wohlen' });
       expect(resolved.postalCode).toBe('');
       expect(resolved.streetAddress).toBe('');
@@ -166,16 +166,17 @@ describe('migrolino crawler parser', () => {
       });
     });
 
-    it('falls back to the Suhr HQ entirely when no city is supplied at all', () => {
+    it('keeps all address fields empty when the source supplies no address', () => {
       const resolved = resolveAddress({});
-      expect(resolved.city).toBe('Suhr');
-      expect(resolved.postalCode).toBe('5034');
-      expect(resolved.streetAddress).toBe('Wynenfeldstrasse 3');
+      expect(resolved.city).toBe('');
+      expect(resolved.postalCode).toBe('');
+      expect(resolved.streetAddress).toBe('');
     });
 
-    it('matches Suhr case-insensitively and ignores surrounding whitespace', () => {
+    it('normalizes source address whitespace without applying a city-specific rule', () => {
       const resolved = resolveAddress({ city: '  SUHR  ' });
-      expect(resolved.streetAddress).toBe('Wynenfeldstrasse 3');
+      expect(resolved.city).toBe('SUHR');
+      expect(resolved.streetAddress).toBe('');
     });
 
     it('does not false-positive match a city merely containing "suhr" as a substring', () => {
@@ -208,7 +209,7 @@ describe('migrolino crawler parser', () => {
       expect(jsonLd?.jobLocation?.address?.streetAddress).toContain('Egghölzlistrasse 1');
     });
 
-    it('parses a real regional-role JobPosting JSON-LD block (Ostschweiz, HQ-fallback address)', () => {
+    it('parses a real regional-role JobPosting JSON-LD block with its source address', () => {
       const html = loadFixture('migrolino-detail-regional.html');
       const jsonLd = parseMigrolinoJsonLd(html);
       expect(jsonLd?.title).toContain('Field Merchandiser');
@@ -234,7 +235,7 @@ describe('migrolino crawler parser', () => {
 
   // ── Detail page assembly (combines JSON-LD + rich HTML sections) ──
   describe('parseMigrolinoDetail', () => {
-    it('assembles the HQ-role job with the Suhr HQ address and a rich description', () => {
+    it('assembles the source-backed Suhr role with its address and a rich description', () => {
       const html = loadFixture('migrolino-detail-hq.html');
       const parsed = parseMigrolinoDetail(html, 'https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsstellenplanerin-cad/xxx');
       expect(parsed.city).toBe('Suhr');
@@ -246,7 +247,7 @@ describe('migrolino crawler parser', () => {
       expect(parsed.hiringOrganizationName).toBe('migrolino');
     });
 
-    it('assembles the Bern shop job with the real per-store street address, not the Suhr HQ', () => {
+    it('assembles the Bern shop job with its real per-store street address', () => {
       const html = loadFixture('migrolino-detail-shop-bern.html');
       const parsed = parseMigrolinoDetail(html, 'https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/yyy');
       expect(parsed.city).toBe('Bern');
@@ -257,7 +258,7 @@ describe('migrolino crawler parser', () => {
       expect(parsed.description.length).toBeGreaterThan(50);
     });
 
-    it('assembles the regional role, falling back to the Suhr HQ address', () => {
+    it('assembles the regional role from its source address', () => {
       const html = loadFixture('migrolino-detail-regional.html');
       const parsed = parseMigrolinoDetail(html, 'https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/field-merchandiserin-region-ostschweiz/zzz');
       expect(parsed.city).toBe('Suhr');
@@ -287,13 +288,14 @@ describe('migrolino crawler parser', () => {
       expect(parsed.postedDate).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     });
 
-    it('falls back to a non-empty synthesized description when everything else is missing', () => {
+    it('keeps a non-empty synthesized description without inventing a location', () => {
       const html = `<script type="application/ld+json">{"@context":"https://schema.org/","@type":"JobPosting","title":"Verkäufer*in","jobLocation":{"@type":"Place","address":{"@type":"PostalAddress"}}}</script>`;
       const parsed = parseMigrolinoDetail(html, 'https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkauferin/qqq');
       expect(parsed.title).toBe('Verkäufer*in');
       expect(parsed.description.length).toBeGreaterThan(0);
-      expect(parsed.city).toBe('Suhr');
-      expect(parsed.streetAddress).toBe('Wynenfeldstrasse 3');
+      expect(parsed.city).toBe('');
+      expect(parsed.canton).toBe('');
+      expect(parsed.streetAddress).toBe('');
     });
 
     it('returns an empty title (not a throw) for empty/invalid input', () => {
