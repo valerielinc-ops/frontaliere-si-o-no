@@ -6,6 +6,7 @@ import {
   IncrementalManifest,
 } from '../../build-plugins/shared/incrementalManifest.mjs';
 import {
+  computeJobsSeoEmitterFingerprints,
   createJobsSeoHtmlReuse,
   htmlHasIndexableRobots,
   htmlReuseCachePath,
@@ -13,10 +14,30 @@ import {
   refreshHtmlBuildId,
 } from '../../build-plugins/shared/incrementalHtmlReuse.mjs';
 
-const envBefore = {
-  JOBS_SEO_REUSE: process.env.JOBS_SEO_REUSE,
-  JOBS_SEO_REUSE_VERIFY: process.env.JOBS_SEO_REUSE_VERIFY,
-};
+const FINGERPRINT_ENV_KEYS = [
+  'STRIP_ACTIVE_JOB_PROSE',
+  'STRIP_EXPIRED_JOB_PROSE',
+  'JOBS_SEO_SKIP_MINIFY',
+  'KILL_JOBLIST_INFEED_EXPERIMENT',
+  'ASSET_CDN',
+  'FAST_BUILD',
+];
+const envBefore = Object.fromEntries([
+  'JOBS_SEO_REUSE',
+  'JOBS_SEO_REUSE_VERIFY',
+  ...FINGERPRINT_ENV_KEYS,
+].map((key) => [key, process.env[key]]));
+
+const FINGERPRINT_ASSET_FILES = [
+  'build-plugins/shared/spaEntryFilenames.ts',
+  'index.css',
+  'vite.config.ts',
+  'public/assets/seo-static.css',
+  'public/assets/bridge.css',
+  'public/assets/logo.svg',
+  'public/favicon.ico',
+  'public/favicon.svg',
+];
 
 const TEST_EMITTER_FINGERPRINT_KINDS = [
   'active-job',
@@ -43,6 +64,27 @@ afterEach(() => {
 
 function fixtureRoot() {
   return fs.mkdtempSync(path.join(os.tmpdir(), 'jobs-seo-reuse-test-'));
+}
+
+function writeFixtureFile(rootDir: string, relativeFile: string, contents: string) {
+  const file = path.join(rootDir, relativeFile);
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, contents, 'utf8');
+}
+
+function fingerprintFixtureRoot() {
+  const rootDir = fixtureRoot();
+  writeFixtureFile(rootDir, 'build-plugins/jobsSeoPagesPlugin.ts', 'export const renderVersion = "v1";\n');
+  writeFixtureFile(rootDir, 'index.tsx', 'import "./src/unrelated-spa-module.ts";\n');
+  writeFixtureFile(rootDir, 'src/unrelated-spa-module.ts', 'export const spaVersion = "v1";\n');
+  for (const relativeFile of FINGERPRINT_ASSET_FILES) {
+    writeFixtureFile(rootDir, relativeFile, `fixture:${relativeFile}:v1\n`);
+  }
+  return rootDir;
+}
+
+function clearFingerprintEnv() {
+  for (const key of FINGERPRINT_ENV_KEYS) delete process.env[key];
 }
 
 function writePreviousManifest(
@@ -185,10 +227,95 @@ describe('jobs SEO disk HTML reuse', () => {
         rendered: 1,
         reused: 0,
         mismatches: 1,
+        mismatchReasons: { 'html-content-changed': 1 },
       });
       expect(normalizeHtmlForReuse(previousHtml)).not.toBe(normalizeHtmlForReuse(currentHtml));
       expect(htmlHasIndexableRobots('<meta name="robots" content="index,follow">')).toBe(true);
       expect(htmlHasIndexableRobots('<meta name="robots" content="noindex,follow">')).toBe(false);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('scopes the emitter fingerprint to the job render graph, not the SPA source graph', () => {
+    const rootDir = fingerprintFixtureRoot();
+    try {
+      clearFingerprintEnv();
+      const before = computeJobsSeoEmitterFingerprints(rootDir)['active-job'];
+      writeFixtureFile(rootDir, 'src/unrelated-spa-module.ts', 'export const spaVersion = "v2";\n');
+      expect(computeJobsSeoEmitterFingerprints(rootDir)['active-job']).toBe(before);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('changes the emitter fingerprint when the render entry changes', () => {
+    const rootDir = fingerprintFixtureRoot();
+    try {
+      clearFingerprintEnv();
+      const before = computeJobsSeoEmitterFingerprints(rootDir)['active-job'];
+      writeFixtureFile(rootDir, 'build-plugins/jobsSeoPagesPlugin.ts', 'export const renderVersion = "v2";\n');
+      expect(computeJobsSeoEmitterFingerprints(rootDir)['active-job']).not.toBe(before);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('changes the emitter fingerprint when a render flag changes', () => {
+    const rootDir = fingerprintFixtureRoot();
+    try {
+      clearFingerprintEnv();
+      const before = computeJobsSeoEmitterFingerprints(rootDir)['active-job'];
+      process.env.STRIP_ACTIVE_JOB_PROSE = '0';
+      expect(computeJobsSeoEmitterFingerprints(rootDir)['active-job']).not.toBe(before);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('changes the emitter fingerprint when a referenced asset changes', () => {
+    const rootDir = fingerprintFixtureRoot();
+    try {
+      clearFingerprintEnv();
+      const before = computeJobsSeoEmitterFingerprints(rootDir)['active-job'];
+      writeFixtureFile(rootDir, 'public/assets/seo-static.css', 'fixture:seo-static.css:v2\n');
+      expect(computeJobsSeoEmitterFingerprints(rootDir)['active-job']).not.toBe(before);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('verify mode classifies asset-reference mismatches separately', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/verify-asset/';
+    const input = { value: 'same' };
+    const previousHtml = '<link rel="stylesheet" href="/assets/seo-static.css"><p>same</p>';
+    const currentHtml = '<link rel="stylesheet" href="/assets/seo-static-v2.css"><p>same</p>';
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', input);
+      writeCachedHtml(rootDir, pagePath, previousHtml);
+      const reuse = await createReuse(rootDir, true);
+      const candidate = reuse.lookup('it', pagePath, 'active-job', input, 'active');
+      reuse.finish(candidate, currentHtml);
+      expect(reuse.summary().active.mismatchReasons).toEqual({ 'asset-reference-changed': 1 });
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('verify mode classifies inline mismatches separately', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/verify-inline/';
+    const input = { value: 'same' };
+    const previousHtml = '<script>window.__JOB_SEED__={"version":1};</script><p>same</p>';
+    const currentHtml = '<script>window.__JOB_SEED__={"version":2};</script><p>same</p>';
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', input);
+      writeCachedHtml(rootDir, pagePath, previousHtml);
+      const reuse = await createReuse(rootDir, true);
+      const candidate = reuse.lookup('it', pagePath, 'active-job', input, 'active');
+      reuse.finish(candidate, currentHtml);
+      expect(reuse.summary().active.mismatchReasons).toEqual({ 'inline-content-changed': 1 });
     } finally {
       fs.rmSync(rootDir, { recursive: true, force: true });
     }

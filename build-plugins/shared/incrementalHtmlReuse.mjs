@@ -30,15 +30,18 @@ export const JOBS_SEO_EMITTER_KINDS = Object.freeze([
 
 const JOBS_SEO_RENDER_ENTRY = 'build-plugins/jobsSeoPagesPlugin.ts';
 const JOBS_SEO_ASSET_MANIFEST_FILES = Object.freeze([
-  'build-plugins/shared/seoPageShell.ts',
+  // These files are the stable-name contract or external assets referenced by
+  // one of the reusable job-page HTML variants. The renderer source graph
+  // covers the HTML builders and inline fragments below; this list is only
+  // the asset-side dependency surface visible from the emitted HTML.
   'build-plugins/shared/spaEntryFilenames.ts',
-  'index.tsx',
   'index.css',
   'vite.config.ts',
   'public/assets/seo-static.css',
   'public/assets/bridge.css',
   'public/assets/logo.svg',
   'public/favicon.ico',
+  'public/favicon.svg',
 ]);
 const SOURCE_MODULE_EXTENSIONS = Object.freeze(['.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs']);
 const STATIC_IMPORT_RE = /\b(?:import|export)\s+(?:(?:type\s+)?[\s\S]*?\sfrom\s+)?['"](\.[^'"]+)['"]/g;
@@ -126,21 +129,20 @@ function hashSourceModuleFiles(rootDir, entryFiles) {
 function hashStaticShellAssetManifest(rootDir) {
   // Vite deliberately pins the job-page entry names and does not emit a
   // manifest.json. closeBundle can also run before dist/assets is durable, so
-  // hash the source-of-truth asset manifest and shell inputs instead of racing
-  // the output directory. This covers both the referenced names and the bytes
-  // that determine the JS/CSS shell they load.
+  // hash the source-of-truth asset manifest instead of racing the output
+  // directory. The SPA source graph and staticScriptsPlugin source graph are
+  // intentionally absent: both produce external files with stable URLs, and
+  // neither graph is serialized into the job HTML. HTML builders and inline
+  // fragments remain covered by codeHash below. Vite keeps the HTML-facing
+  // `/assets/index-entry.js`, `/assets/index.css`, and static-script names
+  // stable; its content-hashed non-CSS assets are not serialized in job HTML.
+  // staticScriptsPlugin emits no inline payload, so there is no SPA-derived
+  // inline fragment to hash separately and no asset-reference rewrite needed.
   const records = JOBS_SEO_ASSET_MANIFEST_FILES.map((relativeFile) => {
     const file = path.resolve(rootDir, relativeFile);
     if (!fs.existsSync(file)) throw new Error(`Jobs SEO asset fingerprint file missing: ${relativeFile}`);
     return { path: relativeFile, hash: sha256File(file) };
   });
-  records.push(
-    { path: 'assets/index-entry.js:source-graph', hash: hashSourceModuleFiles(rootDir, ['index.tsx']) },
-    {
-      path: 'assets/static-shell:source-graph',
-      hash: hashSourceModuleFiles(rootDir, ['build-plugins/staticScriptsPlugin.ts']),
-    },
-  );
   return sha256(JSON.stringify(records));
 }
 
@@ -252,12 +254,60 @@ export function htmlHasIndexableRobots(html) {
   return !!tag && !/\bnoindex\b/i.test(tag);
 }
 
+function htmlAssetReferences(html) {
+  const references = [];
+  const assetReferencePattern = /<(script|link|img|source)\b[^>]*?\b(src|href)\s*=\s*["']([^"']+)["'][^>]*>/gi;
+  for (const match of String(html).matchAll(assetReferencePattern)) {
+    const tag = match[1].toLowerCase();
+    const url = match[3];
+    const element = match[0];
+    const rel = element.match(/\brel\s*=\s*["']([^"']+)["']/i)?.[1] || '';
+    if (
+      tag === 'script'
+      || tag === 'img'
+      || tag === 'source'
+      || /\b(?:stylesheet|preload|icon|preconnect|dns-prefetch)\b/i.test(rel)
+      || /(?:^|\/)assets\//i.test(url)
+      || /(?:^|\/)favicon\.(?:ico|svg)(?:[?#]|$)/i.test(url)
+    ) {
+      references.push(`${tag}:${match[2].toLowerCase()}:${url}`);
+    }
+  }
+  return JSON.stringify(references.sort());
+}
+
+function htmlInlineBlocks(html) {
+  const blocks = [];
+  const blockPattern = /<(script|style)\b([^>]*)>([\s\S]*?)<\/\1\s*>/gi;
+  for (const match of String(html).matchAll(blockPattern)) {
+    if (/\bsrc\s*=/i.test(match[2])) continue;
+    blocks.push(`${match[1].toLowerCase()}:${match[3]}`);
+  }
+  const styleAttributePattern = /\bstyle\s*=\s*["']([^"']*)["']/gi;
+  for (const match of String(html).matchAll(styleAttributePattern)) {
+    blocks.push(`style-attribute:${match[1]}`);
+  }
+  return JSON.stringify(blocks.sort());
+}
+
+function classifyHtmlReuseMismatch(previousHtml, renderedHtml) {
+  const previous = normalizeHtmlForReuse(previousHtml);
+  const rendered = normalizeHtmlForReuse(renderedHtml);
+  const assetsChanged = htmlAssetReferences(previous) !== htmlAssetReferences(rendered);
+  const inlineChanged = htmlInlineBlocks(previous) !== htmlInlineBlocks(rendered);
+  if (assetsChanged && inlineChanged) return 'asset-and-inline-changed';
+  if (assetsChanged) return 'asset-reference-changed';
+  if (inlineChanged) return 'inline-content-changed';
+  return 'html-content-changed';
+}
+
 function newBlockStats() {
   return {
     rendered: 0,
     reused: 0,
     wallMs: 0,
     mismatches: 0,
+    mismatchReasons: new Map(),
     missReasons: new Map(),
     loggedMissReasons: new Set(),
   };
@@ -348,10 +398,16 @@ export class JobsSeoHtmlReuse {
     stats.rendered += 1;
     if (candidate.hit && normalizeHtmlForReuse(candidate.html) !== normalizeHtmlForReuse(renderedHtml)) {
       stats.mismatches += 1;
+      const mismatchReason = classifyHtmlReuseMismatch(candidate.html, renderedHtml);
+      stats.mismatchReasons.set(
+        mismatchReason,
+        (stats.mismatchReasons.get(mismatchReason) || 0) + 1,
+      );
       if (this.mismatchLogCount < MAX_MISMATCH_LOGS) {
         this.mismatchLogCount += 1;
         console.warn(
-          `[jobs-seo-reuse] verify=mismatch block=${candidate.block} locale=${candidate.locale} path=${candidate.path}`,
+          `[jobs-seo-reuse] verify=mismatch block=${candidate.block} locale=${candidate.locale}`
+          + ` path=${candidate.path} reason=${mismatchReason}`,
         );
       }
     }
@@ -417,6 +473,7 @@ export class JobsSeoHtmlReuse {
         reused: stats.reused,
         wallMs: stats.wallMs,
         mismatches: stats.mismatches,
+        mismatchReasons: Object.fromEntries(stats.mismatchReasons),
         missReasons: Object.fromEntries(stats.missReasons),
       }];
     }));
@@ -429,9 +486,14 @@ export class JobsSeoHtmlReuse {
         .sort(([left], [right]) => left.localeCompare(right))
         .map(([reason, count]) => `${reason}:${count}`)
         .join(',') || 'none';
+      const mismatchReasons = [...stats.mismatchReasons.entries()]
+        .sort(([left], [right]) => left.localeCompare(right))
+        .map(([reason, count]) => `${reason}:${count}`)
+        .join(',') || 'none';
       console.log(
         `[jobs-seo-reuse] block=${block} rendered=${stats.rendered} reused=${stats.reused}`
-        + ` miss-reason=${missReasons} wall_ms=${stats.wallMs.toFixed(1)} mismatches=${stats.mismatches}`,
+        + ` miss-reason=${missReasons} wall_ms=${stats.wallMs.toFixed(1)}`
+        + ` mismatches=${stats.mismatches} mismatch-reason=${mismatchReasons}`,
       );
     }
   }
