@@ -76,8 +76,17 @@ async function main() {
   const rawJobs = await fetchAlpiqListingPages(10);
   if (rawJobs.length === 0) { console.log('\u26a0\ufe0f No Swiss Alpiq jobs found. Keeping existing.'); return; }
 
+  const incompleteDetails = rawJobs.filter((job) => job?._alpiqDetailIncomplete);
+  if (incompleteDetails.length > 0) {
+    console.warn(
+      `\u26a0\ufe0f Alpiq detail enrichment incomplete for ${incompleteDetails.length}/${rawJobs.length} jobs; `
+      + 'keeping the previous snapshot and retrying on the next scheduled run.',
+    );
+    return;
+  }
+
   console.log(`\ud83e\udde9 Found ${rawJobs.length} Swiss Alpiq jobs.`);
-  const parsedJobs = rawJobs.map((raw) => {
+  const parsedJobs = rawJobs.map(({ _alpiqDetailIncomplete: _ignored, ...raw }) => {
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
     // Slug-only guard: a literal "undefined"/"null" location string is truthy
     // and would slip past `|| 'switzerland'` into an active slug (#952, class

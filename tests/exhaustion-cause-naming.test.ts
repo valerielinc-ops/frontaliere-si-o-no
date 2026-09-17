@@ -63,6 +63,9 @@ const GOOGLE_RETIRED_BODY = JSON.stringify({
   },
 });
 
+const NVIDIA_GONE_BODY = `{"type":"about:blank","title":"Gone","status":410,"detail":"The model 'meta/llama-3.1-8b-instruct' has reached its end of life on 2026-08-26T09:00:00Z..."}`;
+const OPENROUTER_AGENTIC_HARNESS_BODY = `{"error":{"message":"thinkingmachines/inkling-small:free is only available on agentic harnesses. Try plugging it into a coding agent or productivity app..."}}`;
+
 describe('classifyNonRetryableError — la ruggine va marcata esaurita', () => {
   it('riconosce la formula di Google per un modello ritirato', () => {
     const r = classifyNonRetryableError(404, GOOGLE_RETIRED_BODY);
@@ -196,6 +199,55 @@ describe('classifyNonRetryableError — la ruggine va marcata esaurita', () => {
       { nonRetryable: true, markExhausted: true },
     );
   });
+
+  it('marca esaurito il 410 Gone reale di NVIDIA', () => {
+    assert.deepEqual(
+      classifyNonRetryableError(410, NVIDIA_GONE_BODY, 'NVIDIA'),
+      { nonRetryable: true, markExhausted: true },
+    );
+  });
+
+  it('marca esaurito il 403 agentic-harnesses reale di OpenRouter', () => {
+    assert.deepEqual(
+      classifyNonRetryableError(403, OPENROUTER_AGENTIC_HARNESS_BODY, 'OpenRouter'),
+      { nonRetryable: true, markExhausted: true },
+    );
+  });
+
+  it('lascia passare un 403 di GitHub Models per preservare la rotazione delle PAT', () => {
+    // Finding 2: la ragione `nonretryable` disattiva la rotazione PAT in
+    // `_shouldSkipExhausted`; un 403 di credenziale/account GitHub non deve
+    // quindi diventare un modello esaurito.
+    expect(
+      classifyNonRetryableError(403, '{"error":{"message":"invalid token"}}', 'GitHub'),
+    ).toEqual({ nonRetryable: false, markExhausted: false });
+  });
+
+  it('lascia passare un 403 con corpo transitorio', () => {
+    // Finding 1: nel loop di `callLLM` la classificazione non-retryable precede
+    // `isRetryableError`; il controllo sul corpo evita di consumare un modello
+    // quando il gateway risponde "temporarily unavailable".
+    expect(
+      classifyNonRetryableError(403, '{"error":{"message":"temporarily unavailable"}}', 'OpenRouter'),
+    ).toEqual({ nonRetryable: false, markExhausted: false });
+  });
+
+  it('lascia passare un 410 con corpo transitorio', () => {
+    expect(
+      classifyNonRetryableError(410, '{"error":{"message":"temporarily unavailable"}}', 'NVIDIA'),
+    ).toEqual({ nonRetryable: false, markExhausted: false });
+  });
+
+  it('mantiene la causa specifica del brownout 410 di GitHub Models', () => {
+    assert.deepEqual(
+      classifyNonRetryableError(410, '{"error":{"code":"github_models_retirement_brownout"}}', 'GitHub'),
+      {
+        nonRetryable: true,
+        markExhausted: true,
+        reason: 'github_models_retirement_brownout',
+      },
+    );
+  });
 });
 
 describe('classifyExhaustionCause — le cause di skip finiscono nel secchio giusto', () => {
@@ -230,6 +282,44 @@ describe('classifyExhaustionCause — le cause di skip finiscono nel secchio giu
       assert.equal(persistent, 0);
     });
   }
+
+  it('non tratta 403 e 410 come transitori, né dopo uno skip né in un errore diretto', () => {
+    // Questo test esiste perché la forma di skip classifica persistente solo
+    // perché `persistentRe` nomina esplicitamente `non-retryable`. Il commento
+    // sopra quella regex avverte che una riscrittura del vocabolario ribalterebbe
+    // il verdetto in silenzio. Un 403/410 non deve mai diventare transitorio:
+    // aprirebbe un differimento silenzioso.
+    const cases = [
+      {
+        label: 'skip 403',
+        reason: 'openrouter/thinkingmachines/inkling:free: skipped — exhausted (non-retryable provider error (HTTP 403))',
+        skip: true,
+      },
+      {
+        label: 'skip 410',
+        reason: 'nvidia/meta/llama-3.1-8b-instruct: skipped — exhausted (non-retryable provider error (HTTP 410))',
+        skip: true,
+      },
+      {
+        label: 'fallimento diretto 403',
+        reason: 'openrouter/thinkingmachines/inkling:free: [OpenRouter/thinkingmachines/inkling:free] HTTP 403: {"error":{"message":"only available on agentic harnesses"}}',
+        skip: false,
+      },
+      {
+        label: 'fallimento diretto 410',
+        reason: 'nvidia/meta/llama-3.1-8b-instruct: [NVIDIA/meta/llama-3.1-8b-instruct] HTTP 410: {"title":"Gone","detail":"has reached its end of life"}',
+        skip: false,
+      },
+    ];
+
+    for (const { label, reason, skip } of cases) {
+      const { transient, persistent } = classifyExhaustionCause([reason]);
+      assert.equal(transient, 0, `${label}: 403/410 non deve differire`);
+      if (skip) {
+        assert.equal(persistent, 1, `${label}: la causa esplicita deve restare persistente`);
+      }
+    }
+  });
 
   it('la vecchia stringa fissa contava transitorio anche un 402 — regressione da non riaprire', () => {
     // Documenta il difetto: se qualcuno reintroduce la disgiunzione a tre, questo

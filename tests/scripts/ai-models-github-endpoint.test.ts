@@ -106,8 +106,8 @@ it('classifica il brownout 410 solo per GitHub Models', () => {
     reason: 'github_models_retirement_brownout',
   });
   expect(classifyNonRetryableError(410, body, 'Gemini')).toEqual({
-    nonRetryable: false,
-    markExhausted: false,
+    nonRetryable: true,
+    markExhausted: true,
   });
 });
 
