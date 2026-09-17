@@ -309,6 +309,17 @@ export function hasLastminuteNextPageSignal(html = '', nextPage = 2) {
   return hasNextPageHref || hasRelNext || hasNextLabel;
 }
 
+export function parseLastminuteDeclaredTotal(html = '') {
+  const source = String(html || '');
+  const totals = [
+    ...source.matchAll(/\b(\d+)\s+(?:open\s+positions|positions\s+found)\b/giu),
+  ]
+    .map((match) => Number(match[1]))
+    .filter((value) => Number.isInteger(value));
+  const distinctTotals = [...new Set(totals)];
+  return distinctTotals.length === 1 ? distinctTotals[0] : null;
+}
+
 export async function fetchLastminuteJobDetailUrls() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   const userAgent =
@@ -318,6 +329,7 @@ export async function fetchLastminuteJobDetailUrls() {
   const detailByKey = new Map();
   const seedMetaByUrl = {};
   const maxPages = 20;
+  let declaredTotal = null;
 
   console.log('🔍 Fetching lastminute.com jobs from careers listing...');
 
@@ -350,6 +362,17 @@ export async function fetchLastminuteJobDetailUrls() {
       );
     }
 
+    const pageDeclaredTotal = parseLastminuteDeclaredTotal(html);
+    if (pageDeclaredTotal !== null) {
+      if (declaredTotal !== null && pageDeclaredTotal !== declaredTotal) {
+        throw new Error(
+          `lastminute careers listing declared inconsistent totals (${declaredTotal} then ${pageDeclaredTotal}); `
+          + 'source completeness is unverified, preserving the previous adapter and data',
+        );
+      }
+      declaredTotal = pageDeclaredTotal;
+    }
+
     let pageNew = 0;
     for (const link of links) {
       const canonical = canonicalizeLastminuteUrl(link);
@@ -370,9 +393,23 @@ export async function fetchLastminuteJobDetailUrls() {
       );
     }
 
-    if (!hasLastminuteNextPageSignal(html, page + 1)) {
-      console.log('    ℹ️ Source exposes no next-page signal, treating the listing as complete.');
+    if (declaredTotal !== null && detailByKey.size > declaredTotal) {
+      throw new Error(
+        `lastminute careers listing discovered ${detailByKey.size} detail URLs but declared only ${declaredTotal}; `
+        + 'source completeness is unverified, preserving the previous adapter and data',
+      );
+    }
+
+    if (declaredTotal !== null && detailByKey.size === declaredTotal) {
+      console.log(`    ✅ Source declares ${declaredTotal} position(s); listing is complete.`);
       break;
+    }
+
+    if (!hasLastminuteNextPageSignal(html, page + 1)) {
+      throw new Error(
+        `lastminute careers listing page ${page} exposed no terminal total or next-page signal; `
+        + 'source completeness is unverified, preserving the previous adapter and data',
+      );
     }
     if (page === maxPages) {
       throw new Error(
@@ -840,6 +877,30 @@ async function enrichFromSmartRecruitersApi(seedUrls, detailsByUrl = new Map()) 
       // reproducing the bug this guard exists to fix.
       const sourceContentChanged = normalizeSpace(priorDescription) !== normalizeSpace(detail.description);
       // Only replace if SR API content is richer, or the source text itself drifted
+      let existingChanged = false;
+      const locationChanged =
+        existing.location !== detail.location
+        || existing.addressLocality !== detail.location
+        || existing.addressRegion !== detail.canton
+        || existing.canton !== detail.canton
+        || existing.country !== 'CH'
+        || existing.addressCountry !== 'CH';
+      if (locationChanged) {
+        existing.location = detail.location;
+        existing.addressLocality = detail.location;
+        existing.addressRegion = detail.canton;
+        // The detail API exposes the locality/canton but not a reliable street
+        // or postcode. Clear stale source values so post-processing derives a
+        // coherent Swiss structured address from the new locality.
+        existing.postalCode = '';
+        existing.streetAddress = detail.location;
+        existing.canton = detail.canton;
+        existing.country = 'CH';
+        existing.addressCountry = 'CH';
+        existingChanged = true;
+        console.log(`  📍 Updated location for "${detail.title}" (${detail.location}, ${detail.canton})`);
+      }
+
       if (sourceContentChanged || detail.description.length > priorDescription.length * 0.8) {
         // hasCorrectLocaleCoverage (not hasFullLocaleCoverage) is deliberate
         // (issue #4788 sibling): presence-only coverage would call a job
@@ -863,12 +924,10 @@ async function enrichFromSmartRecruitersApi(seedUrls, detailsByUrl = new Map()) 
         }
         existing.title = detail.title || existing.title;
         if (detail.applyUrl) existing.applyUrl = detail.applyUrl;
-        existing.location = detail.location;
-        existing.canton = detail.canton;
-        existing.country = 'CH';
-        enriched++;
+        existingChanged = true;
         console.log(`  ✅ Enriched "${detail.title}" (${detail.description.length} chars, ${detail.sectionCount} sections)`);
       }
+      if (existingChanged) enriched++;
     } else {
       // New job from SR API — build and add with locale boilerplate
       const location = detail.location;

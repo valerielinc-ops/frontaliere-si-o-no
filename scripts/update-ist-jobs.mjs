@@ -369,11 +369,15 @@ function parseLocation(locText = '') {
  * The detail page's country code is an additional guard for border or
  * ambiguous city names that the shared location table can recognize.
  */
-function parseCountryCode(locText = '') {
+export function parseCountryCode(locText = '') {
   const parts = String(locText || '').split(',');
   if (parts.length < 2) return '';
   const tail = parts[parts.length - 1].trim().toUpperCase();
-  return /^[A-Z]{2}$/.test(tail) ? tail : '';
+  if (!/^[A-Z]{2}$/.test(tail)) return '';
+  // Inspired's location field also uses the final component for Swiss
+  // canton codes (for example, "St. Gallen, SG" and "Fribourg, FR"). A
+  // matching canton is Swiss evidence, not a foreign-country code.
+  return inferAnyCanton(locText) === tail ? 'CH' : tail;
 }
 
 /* ── Job building ──────────────────────────────────────────── */

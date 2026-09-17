@@ -1,5 +1,16 @@
 import { describe, expect, it } from 'vitest';
-import { isIstDetailJob } from '@/scripts/update-ist-jobs.mjs';
+import { isIstDetailJob, parseCountryCode } from '@/scripts/update-ist-jobs.mjs';
+
+describe('IST country-code parsing', () => {
+  it('keeps Swiss canton codes Swiss when they are the final location component', () => {
+    expect(parseCountryCode('St. Gallen, SG')).toBe('CH');
+    expect(parseCountryCode('Fribourg, FR')).toBe('CH');
+  });
+
+  it('retains a genuinely foreign final country code', () => {
+    expect(parseCountryCode('Como, IT')).toBe('IT');
+  });
+});
 
 describe('IST detail tenant identity', () => {
   it('accepts the exact hyphenated IST tenant slug without a city allowlist', () => {

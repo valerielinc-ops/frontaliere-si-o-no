@@ -6,6 +6,7 @@ import {
   hasLastminuteNextPageSignal,
   inferLastminuteLocation,
   normalizeLastminuteRow,
+  parseLastminuteDeclaredTotal,
   resolveSwissLastminuteLocation,
 } from '@/scripts/update-lastminute-jobs.mjs';
 
@@ -69,6 +70,50 @@ describe('lastminute location normalization', () => {
     try {
       await expect(fetchLastminuteJobDetailUrls()).rejects.toThrow(
         'lastminute careers listing returned no detail URLs',
+      );
+      expect(fetchSpy).toHaveBeenCalledTimes(1);
+    } finally {
+      fetchSpy.mockRestore();
+    }
+  });
+
+  it('uses the source-declared total as a completeness proof', async () => {
+    const listing = `
+      <div>We currently have 1 open positions</div>
+      <div>1 positions found</div>
+      <a href="/careers/jobs/job?id=744000149000001&jobName=Software+Engineer">job</a>
+    `;
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      if (String(input).includes('api.smartrecruiters.com')) {
+        return new Response(JSON.stringify({
+          name: 'Software Engineer',
+          location: { city: 'Chiasso', country: 'Switzerland' },
+        }), { status: 200, headers: { 'content-type': 'application/json' } });
+      }
+      return new Response(listing, { status: 200 });
+    });
+
+    try {
+      const result = await fetchLastminuteJobDetailUrls();
+      expect(result.seedUrls).toHaveLength(1);
+      expect(result.seedUrls[0]).toContain('id=744000149000001');
+      expect(fetchSpy).toHaveBeenCalledTimes(2);
+    } finally {
+      fetchSpy.mockRestore();
+    }
+  });
+
+  it('fails closed when links have no terminal total or next-page signal', async () => {
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockResolvedValue(
+      new Response(
+        '<a href="/careers/jobs/job?id=744000149000001&jobName=Software+Engineer">job</a>',
+        { status: 200 },
+      ),
+    );
+
+    try {
+      await expect(fetchLastminuteJobDetailUrls()).rejects.toThrow(
+        'source completeness is unverified',
       );
       expect(fetchSpy).toHaveBeenCalledTimes(1);
     } finally {
@@ -161,5 +206,11 @@ describe('lastminute location normalization', () => {
   it('recognizes an explicit next-page signal without requiring a job-count threshold', () => {
     expect(hasLastminuteNextPageSignal('<a href="/careers/jobs/?page=2">next</a>', 2)).toBe(true);
     expect(hasLastminuteNextPageSignal('<a href="/careers/jobs/job?id=744000149000001">job</a>', 2)).toBe(false);
+  });
+
+  it('parses the listing total from the source count labels', () => {
+    expect(parseLastminuteDeclaredTotal('We currently have 7 open positions. 7 positions found')).toBe(7);
+    expect(parseLastminuteDeclaredTotal('7 open positions; 6 positions found')).toBeNull();
+    expect(parseLastminuteDeclaredTotal('<div>No count available</div>')).toBeNull();
   });
 });
