@@ -145,7 +145,7 @@ async function fetchMikronJobs() {
   const html = await fetchPage(MIKRON_CAREERS_URL);
   if (!html) return [];
 
-  const parsed = parseMikronJobs(html, { filterAgno: false });
+  const parsed = parseMikronJobs(html, { filterSwiss: false });
   console.log(`  📋 jobs parsed from page: ${parsed.length}`);
 
   const jobs = [];
