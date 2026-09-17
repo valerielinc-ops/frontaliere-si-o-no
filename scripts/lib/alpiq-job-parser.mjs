@@ -343,6 +343,65 @@ export function preferAlpiqDetailDescription(listingDescription = '', detail = n
   return normalizeDescriptionSpace(listingDescription);
 }
 
+/**
+ * Replace stale, obviously truncated Alpiq locale copies with the freshly
+ * crawled source description while the translation queue is unavailable.
+ *
+ * `mergePreserveLocaleData()` deliberately keeps existing translations. That
+ * is normally correct, but old Alpiq records can contain 20-word snippets in
+ * `it`/`de`/`fr` next to a newly recovered detail-page description. Leaving
+ * those snippets in place makes the boilerplate guard judge the translation
+ * fossil instead of parser output. Copying the source is the same safe
+ * fallback used for empty locale slots elsewhere; `needsRetranslation` makes
+ * the next translate-pending run replace it with a real translation.
+ *
+ * Empty non-source slots are left alone: the shared locale hardener already
+ * fills those, and this repair is intentionally limited to stale truncations.
+ *
+ * @returns {number} Number of non-source locale slots repaired.
+ */
+export function repairThinAlpiqLocaleDescriptions(jobs, {
+  minSourceChars = 500,
+  maxLocaleRatio = 0.45,
+} = {}) {
+  const locales = ['it', 'en', 'de', 'fr'];
+  let repaired = 0;
+
+  for (const job of Array.isArray(jobs) ? jobs : []) {
+    const source = normalizeDescriptionSpace(job?.description || '');
+    if (source.length < minSourceChars) continue;
+
+    const sourceLang = String(job?.sourceLang || '').trim().toLowerCase() || 'en';
+    const map = job?.descriptionByLocale && typeof job.descriptionByLocale === 'object'
+      ? { ...job.descriptionByLocale }
+      : {};
+    let changed = false;
+
+    // Keep the source-locale slot authoritative even when an older snapshot
+    // omitted it or preserved a shorter pre-detail-page copy.
+    const sourceLocaleText = normalizeDescriptionSpace(map[sourceLang] || '');
+    if (sourceLocaleText.length < source.length * 0.85) {
+      map[sourceLang] = source;
+      changed = true;
+    }
+
+    for (const locale of locales) {
+      if (locale === sourceLang) continue;
+      const current = normalizeDescriptionSpace(map[locale] || '');
+      if (!current || current.length >= source.length * maxLocaleRatio) continue;
+
+      map[locale] = source;
+      job.needsRetranslation = true;
+      repaired += 1;
+      changed = true;
+    }
+
+    if (changed) job.descriptionByLocale = map;
+  }
+
+  return repaired;
+}
+
 async function enrichAlpiqJobDescription(job, timeoutMs) {
   let bestDescription = normalizeDescriptionSpace(job.description);
 

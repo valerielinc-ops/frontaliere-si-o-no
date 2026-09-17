@@ -84,17 +84,19 @@ async function run() {
     // Mirror the assemble-jobs-dataset boilerplate-guard fallback chain
     // (detectBoilerplateDescriptions) so this deploy gate and the assembler
     // judge the SAME effective text. A job crawled from a German/French source
-    // with SKIP_AI_TRANSLATION=1 has a real source description but an empty IT
-    // locale until translate-pending fills it; if its text lives only in
-    // descriptionByLocale[sourceLang] (no top-level .description), the old
-    // `.it || .description` chain saw it as empty and hard-failed
-    // `empty_description` here — the exact set of jobs the assembler guard had
-    // just unblocked. Falling back to the source-locale keeps the gate's
-    // purpose (catch empty/thin output) without re-introducing the deadlock.
+    // with SKIP_AI_TRANSLATION=1 can have a real source description but an
+    // empty or stale IT locale until translate-pending fills it. Prefer the
+    // declared source locale, then the top-level parser description, before
+    // translated locale fallbacks; otherwise the deploy gate can report a
+    // parser failure for a translation backlog.
+    const sourceLocale = String(job.sourceLang || '').trim();
     const itDesc =
+      String(job.descriptionByLocale?.[sourceLocale] || '').trim() ||
+      String(job.description || '').trim() ||
       String(job.descriptionByLocale?.it || '').trim() ||
-      String(job.descriptionByLocale?.[job.sourceLang || 'it'] || '').trim() ||
-      String(job.description || '').trim();
+      String(job.descriptionByLocale?.de || '').trim() ||
+      String(job.descriptionByLocale?.en || '').trim() ||
+      String(job.descriptionByLocale?.fr || '').trim();
     const itSlug = String(job.slugByLocale?.it || job.slug || '');
     const id = job.slug || job.id || 'unknown';
 

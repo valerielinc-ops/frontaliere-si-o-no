@@ -209,6 +209,22 @@ describe('detectBoilerplateDescriptions — edge cases', () => {
     expect(report.boilerplateCount).toBe(0);
   });
 
+  it('uses the rich source description instead of a stale thin IT translation', () => {
+    const job = {
+      slug: 'stale-it-job',
+      title: 'Product Manager',
+      sourceLang: 'en',
+      descriptionByLocale: {
+        it: wordsDesc(24),
+        en: RICH_DESCRIPTION,
+      },
+      description: RICH_DESCRIPTION,
+    };
+    const report = detectBoilerplateDescriptions([job], 'alpiq');
+    expect(report.boilerplateCount).toBe(0);
+    expect(report.ratio).toBe(0);
+  });
+
   it('still flags empty_description when IT locale, source locale and description are all empty', () => {
     const job = {
       slug: 'all-empty-job',
@@ -234,15 +250,37 @@ describe('detectBoilerplateDescriptions — edge cases', () => {
     expect(report.boilerplateJobs[0].reason).toBe('low_unique_words');
   });
 
-  it('excludes needsRetranslation jobs from count', () => {
+  it('excludes healthy needsRetranslation jobs from the eligible count', () => {
     const jobs = [
-      makeJob('retrans-job', BOILERPLATE_2_MARKERS, { needsRetranslation: true }),
+      makeJob('retrans-job', RICH_DESCRIPTION, { needsRetranslation: true }),
       makeJob('good-job', RICH_DESCRIPTION),
     ];
     const report = detectBoilerplateDescriptions(jobs, 'test-co');
     expect(report.totalJobs).toBe(1); // only the good job is eligible
     expect(report.boilerplateCount).toBe(0);
     expect(report.ratio).toBe(0);
+  });
+
+  it('does not let needsRetranslation hide a thin source description', () => {
+    const jobs = [
+      makeJob('retrans-thin-job', wordsDesc(20), { needsRetranslation: true }),
+      makeJob('good-job', RICH_DESCRIPTION),
+    ];
+    const report = detectBoilerplateDescriptions(jobs, 'test-co');
+    expect(report.totalJobs).toBe(2);
+    expect(report.boilerplateCount).toBe(1);
+    expect(report.boilerplateJobs[0].slug).toBe('retrans-thin-job');
+  });
+
+  it('does not let needsRetranslation hide marker boilerplate in the source', () => {
+    const jobs = [
+      makeJob('retrans-marker-job', BOILERPLATE_2_MARKERS, { needsRetranslation: true }),
+      makeJob('good-job', RICH_DESCRIPTION),
+    ];
+    const report = detectBoilerplateDescriptions(jobs, 'test-co');
+    expect(report.totalJobs).toBe(2);
+    expect(report.boilerplateCount).toBe(1);
+    expect(report.boilerplateJobs[0].reason).toBe('marker_phrases');
   });
 });
 
@@ -337,10 +375,11 @@ describe('isSystemicBoilerplateFailure — sample-size floor', () => {
     const jobs = [
       makeJob('eligible-good', RICH_DESCRIPTION),
       makeJob('eligible-thin', wordsDesc(29)),
-      // 4 freshly-discovered jobs excluded from the eligible sample, mirroring
-      // the real run (needsRetranslation=true until AI localization clears it).
+      // 4 freshly-discovered jobs with a healthy source excluded from the
+      // eligible sample, mirroring the real run (needsRetranslation=true until
+      // AI localization clears it).
       ...Array.from({ length: 4 }, (_, i) =>
-        makeJob(`fresh-${i}`, wordsDesc(5), { needsRetranslation: true }),
+        makeJob(`fresh-${i}`, RICH_DESCRIPTION, { needsRetranslation: true }),
       ),
     ];
     const report = detectBoilerplateDescriptions(jobs, 'diakoniewerk-neumuenster');
@@ -373,7 +412,7 @@ describe('quarantineBoilerplateJobs — below-floor quarantine', () => {
       makeJob('eligible-good', RICH_DESCRIPTION),
       makeJob('eligible-boilerplate', BOILERPLATE_2_MARKERS),
       ...Array.from({ length: 4 }, (_, i) =>
-        makeJob(`fresh-${i}`, wordsDesc(5), { needsRetranslation: true }),
+        makeJob(`fresh-${i}`, RICH_DESCRIPTION, { needsRetranslation: true }),
       ),
     ];
     const report = detectBoilerplateDescriptions(jobs, 'diakoniewerk-neumuenster');
