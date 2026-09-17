@@ -217,11 +217,13 @@ function detectEmploymentType(text = '') {
  * receives a coherent safe default from the shared canton address helper.
  */
 export function resolveAddress(cityText = '', canton = '') {
-  const city = normalizeSpace(cityText);
-  const isZurichCity = /z[üu]rich/i.test(city);
-  const fallback = resolveSwissStructuredAddress({ city, canton });
+  const sourceCity = normalizeSpace(cityText);
+  const isZurichCity = /z[üu]rich/i.test(sourceCity);
+  const fallback = resolveSwissStructuredAddress({ city: sourceCity, canton });
   return {
     city: fallback.city,
+    sourceCity,
+    usedFallback: fallback.city !== sourceCity,
     postalCode: isZurichCity ? HQ.postalCode : fallback.postalCode,
     streetAddress: isZurichCity ? HQ.streetAddress : fallback.streetAddress,
     region: isZurichCity ? HQ.region : fallback.canton,
@@ -641,21 +643,20 @@ export async function fetchAllGoogleSwitzerlandJobs() {
     // inter-page delay used by scripts/lib/apple-retail-switzerland-job-parser.mjs).
     if (detailIndex > 1) await new Promise((r) => setTimeout(r, 300));
 
+    const canton = swissLocation.canton;
+    const address = resolveAddress(swissLocation.city, canton);
+    const location = address.city;
+    const descriptionLocation = address.usedFallback ? address.city : address.sourceCity;
+
     const detailBody = await fetchJobDescription(publicUrl);
     const minQualsText = listing.minQuals.length
       ? `Minimum qualifications:\n${listing.minQuals.map((q) => `• ${q}`).join('\n')}`
       : '';
     const descriptionRaw = detailBody || minQualsText;
-    const sourceLocation = swissLocation.city;
     const descriptionText = stripHtml(descriptionRaw)
-      || `${title} — ${GOOGLE_SWITZERLAND_COMPANY_NAME}, ${sourceLocation}.`;
+      || `${title} — ${GOOGLE_SWITZERLAND_COMPANY_NAME}, ${descriptionLocation}.`;
 
-    const canton = swissLocation.canton;
-    const { city, postalCode, streetAddress, region } = resolveAddress(sourceLocation, canton);
-    // If the source omits a postcode, resolveAddress() deliberately returns a
-    // complete canton-capital fallback. Keep the displayed location aligned
-    // with that structured address rather than mixing two municipalities.
-    const location = city;
+    const { city, postalCode, streetAddress, region } = address;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} google-switzerland ${location}`);

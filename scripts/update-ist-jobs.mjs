@@ -165,27 +165,22 @@ function isLegacyIstJob(job) {
   return isIstJob(job) || String(job?.url || '').toLowerCase().includes(IST_COMPANY_HOST);
 }
 
-function isIstDetailJob(detail = {}) {
+export function isIstDetailJob(detail = {}) {
   const detailCompanies = [detail.hiringOrganization, detail.company]
     .map((value) => normalize(value))
     .filter(Boolean);
-  const sourceText = normalize([
-    detail.title,
-    detail.description,
-    detail.sourceUrl,
-  ].filter(Boolean).join(' '));
-  const tenantNormalizedSourceText = sourceText.replace(/[-_/]+/g, ' ');
-  const hasIstTenantMarker = IST_DETAIL_TENANT_RE.test(sourceText)
-    || IST_DETAIL_TENANT_RE.test(tenantNormalizedSourceText);
+  const normalizedSourceUrl = normalize(detail.sourceUrl).replace(/[-_/]+/g, ' ');
+  const hasIstTenantMarker = IST_DETAIL_TENANT_RE.test(normalizedSourceUrl);
   const hasExactIstCompany = detailCompanies.includes(normalize(IST_COMPANY_NAME));
   const hasOnlySharedPortalCompanies = detailCompanies.length === 0
     || detailCompanies.every((company) => IST_SHARED_PORTAL_COMPANIES.has(company));
 
   // The shared SuccessFactors page reports "Inspired Education" as the
   // hiringOrganization even for a campus posting. In that case the source
-  // must independently name IST; a generic "international school" phrase or
-  // the shared host alone is not an identity signal. An explicit detail-level
-  // company match remains authoritative when the tenant exposes one.
+  // URL must carry the exact IST tenant slug; a generic "international
+  // school" phrase in a title/description or the shared host alone is not an
+  // identity signal. An explicit detail-level company match remains
+  // authoritative when the tenant exposes one.
   return hasExactIstCompany || (hasOnlySharedPortalCompanies && hasIstTenantMarker);
 }
 
@@ -770,4 +765,8 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'International School of Ticino'));
+const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (isDirectRun) {
+  main().catch((err) => exitCrawlerOnError(err, 'International School of Ticino'));
+}

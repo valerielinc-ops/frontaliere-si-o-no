@@ -294,7 +294,7 @@ async function fetchListingPage(url, timeoutMs, userAgent) {
   }
 }
 
-async function fetchLastminuteJobDetailUrls() {
+export async function fetchLastminuteJobDetailUrls() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   const userAgent =
     process.env.JOBS_CRAWLER_USER_AGENT ||

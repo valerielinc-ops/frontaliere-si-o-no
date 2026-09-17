@@ -221,6 +221,8 @@ describe('Google Switzerland crawler parser', () => {
     it('keeps required address fields for a non-Zurich Swiss canton', () => {
       expect(resolveAddress('Bern', 'BE')).toEqual({
         city: 'Bern',
+        sourceCity: 'Bern',
+        usedFallback: false,
         postalCode: '3001',
         streetAddress: 'Bern',
         region: 'BE',
@@ -230,6 +232,8 @@ describe('Google Switzerland crawler parser', () => {
     it('uses the documented Zurich HQ only for Zurich cards', () => {
       expect(resolveAddress('Zürich', 'ZH')).toEqual({
         city: 'Zürich',
+        sourceCity: 'Zürich',
+        usedFallback: false,
         postalCode: '8002',
         streetAddress: 'Brandschenkestrasse 110',
         region: 'Zürich',
@@ -239,8 +243,21 @@ describe('Google Switzerland crawler parser', () => {
     it('keeps a non-capital municipality aligned with the canton fallback address', () => {
       expect(resolveAddress('Winterthur', 'ZH')).toEqual({
         city: 'Winterthur',
+        sourceCity: 'Winterthur',
+        usedFallback: false,
         postalCode: '8400',
         streetAddress: 'Winterthur',
+        region: 'ZH',
+      });
+    });
+
+    it('marks a capital fallback while keeping the source municipality visible', () => {
+      expect(resolveAddress('Küsnacht', 'ZH')).toEqual({
+        city: 'Zürich',
+        sourceCity: 'Küsnacht',
+        usedFallback: true,
+        postalCode: '8001',
+        streetAddress: 'Zürich',
         region: 'ZH',
       });
     });

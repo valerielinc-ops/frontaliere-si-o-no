@@ -1,7 +1,8 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   buildLastminuteSlug,
   extractLastminuteLocationFromContent,
+  fetchLastminuteJobDetailUrls,
   inferLastminuteLocation,
   normalizeLastminuteRow,
 } from '@/scripts/update-lastminute-jobs.mjs';
@@ -51,5 +52,20 @@ describe('lastminute location normalization', () => {
       streetAddress: 'Chiasso',
       addressCountry: 'CH',
     });
+  });
+
+  it('fails closed when the listing parser returns zero detail URLs', async () => {
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockResolvedValue(
+      new Response('<html><body>challenge</body></html>', { status: 200 }),
+    );
+
+    try {
+      await expect(fetchLastminuteJobDetailUrls()).rejects.toThrow(
+        'lastminute careers listing returned no detail URLs',
+      );
+      expect(fetchSpy).toHaveBeenCalledTimes(1);
+    } finally {
+      fetchSpy.mockRestore();
+    }
   });
 });
