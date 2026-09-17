@@ -114,6 +114,19 @@ describe('VTG authoritative regional discovery', () => {
     await expect(fetchVtgJobUrls({ fetchImpl, scope: 'ch-wide', timeoutMs: 1000 }))
       .rejects.toThrow(/fetched 500\/501/);
   });
+
+  it('fails closed when a Swiss-wide page repeats the prior page', async () => {
+    const page = Array.from({ length: 500 }, (_, index) => job(
+      `20000000-0000-4000-8000-${String(index).padStart(12, '0')}`,
+    ));
+    const fetchImpl = async () => new Response(JSON.stringify({
+      total: 1000,
+      jobs: page,
+    }), { status: 200 });
+
+    await expect(fetchVtgJobUrls({ fetchImpl, scope: 'ch-wide', timeoutMs: 1000 }))
+      .rejects.toThrow(/repeated job identity/);
+  });
 });
 
 describe('VTG adapter persistence', () => {

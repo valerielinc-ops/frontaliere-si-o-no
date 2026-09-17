@@ -186,6 +186,7 @@ export async function fetchVtgJobUrls(options = {}) {
     let scopeFetched = 0;
     let addedCount = 0;
     let page = 0;
+    const scopeStableIds = new Set();
 
     console.log(`🔍 Fetching VTG jobs for ${scope === 'ch-wide' ? 'all Swiss locations' : `scope ${scopeKey}`} from Prospective API…`);
 
@@ -242,6 +243,10 @@ export async function fetchVtgJobUrls(options = {}) {
             continue;
           }
           const stableId = extractStableJobId(directLink);
+          if (scope === 'ch-wide' && scopeStableIds.has(stableId)) {
+            throw new Error(`VTG discovery incomplete for ${scopeKey}: repeated job identity ${stableId} at offset ${offset}.`);
+          }
+          scopeStableIds.add(stableId);
           const previousUrl = stableIdToUrl.get(stableId);
           if (previousUrl) {
             if (previousUrl !== directLink) {

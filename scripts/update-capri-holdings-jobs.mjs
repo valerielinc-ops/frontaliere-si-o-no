@@ -226,6 +226,13 @@ export function resolveWorkdayLocation(listing = {}, detail = {}) {
   };
 }
 
+export function resolveWorkdayCity(listing = {}, detail = {}) {
+  return [
+    ...getWorkdayLocationCandidates(detail),
+    ...getWorkdayLocationCandidates(listing),
+  ].map(swissCityFromLocationField).find(Boolean) || '';
+}
+
 function getWorkdaySourceField(info = {}, fields = []) {
   const sources = [
     info,
@@ -358,13 +365,21 @@ async function listSwissJobs(site, brand) {
     while (true) {
       const body = JSON.stringify({ appliedFacets: {}, limit, offset, searchText });
       const data = await fetchJson(apiUrl, { method: 'POST', body });
-      if (!data || !Array.isArray(data.jobPostings)) break;
-      const pageLength = data.jobPostings.length;
-      const declaredTotal = data.total == null ? null : Number(data.total);
-      const totalKnown = Number.isFinite(declaredTotal);
+      const { jobPostings, declaredTotal } = assertWorkdayPage(data, {
+        brand,
+        searchText,
+        offset,
+      });
+      const pageLength = jobPostings.length;
       queryPostingsFetched += pageLength;
+      if (queryPostingsFetched > declaredTotal) {
+        throw new Error(
+          `Workday ${brand} ${searchText || 'empty'} search fetched `
+          + `${queryPostingsFetched}/${declaredTotal} rows at offset ${offset}`,
+        );
+      }
 
-      for (const posting of data.jobPostings) {
+      for (const posting of jobPostings) {
         // Check if already found
         if (allPostings.some((p) => p.externalPath === posting.externalPath)) continue;
 
@@ -376,19 +391,13 @@ async function listSwissJobs(site, brand) {
         allPostings.push({ ...posting, brand });
       }
 
-      if (totalKnown && queryPostingsFetched < declaredTotal && pageLength < limit) {
+      if (queryPostingsFetched < declaredTotal && pageLength < limit) {
         throw new Error(
           `Workday ${brand} ${searchText || 'empty'} search returned `
           + `${queryPostingsFetched}/${declaredTotal} rows before a short page`,
         );
       }
-      if (totalKnown && queryPostingsFetched >= declaredTotal) break;
-      if (pageLength < limit) break;
-      if (!totalKnown) {
-        throw new Error(
-          `Workday ${brand} ${searchText || 'empty'} search omitted its total; refusing partial pagination`,
-        );
-      }
+      if (queryPostingsFetched === declaredTotal) break;
       offset += limit;
     }
   }
@@ -398,6 +407,22 @@ async function listSwissJobs(site, brand) {
 
 async function fetchJobDetail(site, externalPath) {
   return fetchJson(`${WORKDAY_API_BASE}/${site}${externalPath}`);
+}
+
+export function assertWorkdayPage(data, { brand = 'Capri Holdings', searchText = '', offset = 0 } = {}) {
+  if (!data || !Array.isArray(data.jobPostings)) {
+    throw new Error(
+      `Workday ${brand} ${searchText || 'empty'} search returned a malformed page at offset ${offset}`,
+    );
+  }
+  const declaredTotal = Number(data.total);
+  if (!Number.isInteger(declaredTotal) || declaredTotal < 0) {
+    throw new Error(
+      `Workday ${brand} ${searchText || 'empty'} search returned an invalid total `
+      + `${data.total ?? '?'} at offset ${offset}`,
+    );
+  }
+  return { jobPostings: data.jobPostings, declaredTotal };
 }
 
 /**
@@ -442,13 +467,7 @@ async function fetchCapriHoldingsJobs() {
       canton,
       resolvedSwissSignal,
     } = resolved;
-    const city = [
-      ...getWorkdayLocationCandidates(info),
-      ...getWorkdayLocationCandidates(listing),
-    ].map(swissCityFromLocationField).find(Boolean)
-      || locationRaw.split(/\s*-\s*/).slice(-1)[0]
-        ?.trim().replace(/,\s*switzerland$/i, '')
-      || locationRaw;
+    const city = resolveWorkdayCity(listing, info);
 
     // Double-check this is actually a Swiss job using authoritative country
     // data when present, otherwise the location-only all-canton matcher.

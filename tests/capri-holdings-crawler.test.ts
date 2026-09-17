@@ -13,7 +13,9 @@ import {
   CAPRI_WORKDAY_HOSTS,
 } from '@/scripts/lib/capri-holdings-job-parser.mjs';
 import {
+  assertWorkdayPage,
   isSwissWorkdayListing,
+  resolveWorkdayCity,
   resolveWorkdayLocation,
 } from '../scripts/update-capri-holdings-jobs.mjs';
 import { resolveSwissStructuredAddress } from '../scripts/lib/swiss-structured-address.mjs';
@@ -95,6 +97,25 @@ describe('Capri Workday location resolution', () => {
       locationRaw: 'Manno',
       canton: 'TI',
     });
+  });
+
+  it('does not turn a canton-only detail into a concrete city', () => {
+    expect(resolveWorkdayCity(
+      { country: 'Switzerland', bulletFields: ['5 locations'] },
+      { location: 'Ticino', country: 'Switzerland' },
+    )).toBe('');
+  });
+
+  it('fails closed on a malformed Workday page', () => {
+    expect(() => assertWorkdayPage({ total: 3, jobPostings: null }, {
+      brand: 'Michael Kors', searchText: 'Switzerland', offset: 20,
+    })).toThrow(/malformed page/);
+  });
+
+  it('fails closed when Workday omits its declared total', () => {
+    expect(() => assertWorkdayPage({ jobPostings: [] }, {
+      brand: 'Versace', searchText: 'Switzerland', offset: 0,
+    })).toThrow(/invalid total/);
   });
 });
 
