@@ -19,6 +19,7 @@
 import fs from 'node:fs';
 import { createSign } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
+import { isTransientFetchError } from './transient-fetch.mjs';
 
 export const GLOBAL_DATA_PIPELINE_LEASE_DOC = 'ci_leases/jobs-data-pipeline';
 export const GLOBAL_DATA_PIPELINE_LEASE_TTL_MS = 60 * 60 * 1000;
@@ -190,6 +191,35 @@ function nonNegativeEnvInteger(name, fallback) {
   return value;
 }
 
+/**
+ * Firestore is a coordination aid, not the data source. A transient REST or
+ * network failure while acquiring the lease must therefore consume the same
+ * bounded wait as an active owner, rather than turning a successful crawl
+ * into an unrecoverable exit 1. Permanent credential/configuration failures
+ * remain fatal and are deliberately not included here.
+ */
+export function isRetryableLeaseError(error) {
+  if (!error || typeof error !== 'object') return false;
+  if (isTransientFetchError(error)) return true;
+
+  const status = Number(
+    error.status
+      ?? error.statusCode
+      ?? error.response?.status
+      ?? error.body?.error?.code,
+  );
+  // 409 is a Firestore transaction conflict. It is deliberately lease-local:
+  // a generic HTTP 409 is not necessarily safe to retry as a fetch.
+  if (status === 409) return true;
+
+  const apiStatus = String(error.body?.error?.status || '').toUpperCase();
+  if (apiStatus === 'ABORTED' || apiStatus === 'DEADLINE_EXCEEDED' || apiStatus === 'UNAVAILABLE') {
+    return true;
+  }
+
+  return false;
+}
+
 async function exchangeAssertionForToken(assertion) {
   const response = await fetch(GOOGLE_TOKEN_URL, {
     method: 'POST',
@@ -356,7 +386,29 @@ export async function acquireLease(options = {}) {
   };
   const deadline = Date.now() + waitMs;
   while (true) {
-    const result = await transact(transactionOptions);
+    let result;
+    try {
+      result = await transact(transactionOptions);
+    } catch (error) {
+      if (!isRetryableLeaseError(error)) throw error;
+      const remaining = deadline - Date.now();
+      if (remaining <= 0) {
+        return {
+          acquired: false,
+          released: false,
+          busy: true,
+          transientError: true,
+          expiresAt: null,
+        };
+      }
+      const delay = Math.min(pollMs, remaining);
+      console.warn(
+        'global data pipeline lease encountered a transient Firestore error; '
+          + `retrying in ${delay}ms: ${error?.message || String(error)}`,
+      );
+      await sleep(delay);
+      continue;
+    }
     if (!result.busy) return result;
     const remaining = deadline - Date.now();
     if (remaining <= 0) return result;
