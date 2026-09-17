@@ -1,1 +1,0 @@
-../packages/articles/articleSections.ts
