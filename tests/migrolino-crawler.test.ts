@@ -183,11 +183,14 @@ describe('migrolino crawler parser', () => {
       });
     });
 
-    it('keeps address fields empty when there is no locality to anchor a fallback', () => {
+    it('uses the national fallback when there is no locality to anchor an address', () => {
       const resolved = resolveAddress({});
-      expect(resolved.city).toBe('');
-      expect(resolved.postalCode).toBe('');
-      expect(resolved.streetAddress).toBe('');
+      expect(resolved).toEqual({
+        city: 'Bern',
+        canton: 'BE',
+        postalCode: '3000',
+        streetAddress: 'Bern city centre',
+      });
     });
 
     it('normalizes source address whitespace and applies the Suhr fallback', () => {
@@ -310,14 +313,15 @@ describe('migrolino crawler parser', () => {
       expect(parsed.postedDate).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     });
 
-    it('keeps a non-empty synthesized description without inventing a location', () => {
+    it('keeps a non-empty synthesized description with the canonical fallback location', () => {
       const html = `<script type="application/ld+json">{"@context":"https://schema.org/","@type":"JobPosting","title":"Verkäufer*in","jobLocation":{"@type":"Place","address":{"@type":"PostalAddress"}}}</script>`;
       const parsed = parseMigrolinoDetail(html, 'https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkauferin/qqq');
       expect(parsed.title).toBe('Verkäufer*in');
       expect(parsed.description.length).toBeGreaterThan(0);
-      expect(parsed.city).toBe('');
-      expect(parsed.canton).toBe('');
-      expect(parsed.streetAddress).toBe('');
+      expect(parsed.city).toBe('Bern');
+      expect(parsed.canton).toBe('BE');
+      expect(parsed.postalCode).toBe('3000');
+      expect(parsed.streetAddress).toBe('Bern city centre');
     });
 
     it('fills missing address fields from the source city without leaking the Suhr HQ', () => {

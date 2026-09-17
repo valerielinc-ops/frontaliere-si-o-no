@@ -142,15 +142,6 @@ export function resolveAddress(raw = {}, canton = '') {
   const isSuhrHq = resolvedCanton === HQ.canton && /\bsuhr\b/i.test(sourceCity);
 
   if (!sourceCity) {
-    if (!resolvedCanton) {
-      return {
-        city: '',
-        canton: '',
-        postalCode: sourcePostalCode,
-        streetAddress: sourceStreetAddress,
-      };
-    }
-
     return {
       city: cantonLocationFallback.city,
       canton: cantonLocationFallback.addressRegion,
