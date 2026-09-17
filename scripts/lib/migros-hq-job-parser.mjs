@@ -31,7 +31,12 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
-import { inferAnyCanton, isTargetSwissLocation, normalizeCantonCode } from './target-swiss-locations.mjs';
+import {
+  inferAnyCanton,
+  isKnownSwissCity,
+  isTargetSwissLocation,
+  normalizeCantonCode,
+} from './target-swiss-locations.mjs';
 import { extractMigrosStructuredData } from './migros-job-parser.mjs';
 import { lookupSwissPostalCode } from './swiss-postal-code.mjs';
 
@@ -251,6 +256,7 @@ export function resolveMigrosHqSourceGeography(addressLocality = '', addressRegi
   if (
     !location
     || !canton
+    || !isKnownSwissCity(location, canton)
     || !isTargetSwissLocation(location, { includeBorderProximity: false })
     || (sourceRegion && (!regionCanton || regionCanton !== canton))
   ) return null;

@@ -77,6 +77,10 @@ describe('Migros HQ Zürich crawler parser', () => {
       expect(resolveMigrosHqSourceGeography('London', 'Zürich')).toBeNull();
     });
 
+    it('rejects a locality field that embeds a foreign place alongside a Swiss city', () => {
+      expect(resolveMigrosHqSourceGeography('London, Zürich', 'Zürich')).toBeNull();
+    });
+
     it('rejects locality and region that resolve to different cantons', () => {
       expect(resolveMigrosHqSourceGeography('Lugano', 'Zürich')).toBeNull();
     });
