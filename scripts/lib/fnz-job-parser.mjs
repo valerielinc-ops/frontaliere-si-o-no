@@ -54,13 +54,10 @@ function normalizeCandidate(candidate) {
  * Resolve a Workday posting to a concrete Swiss location. Workday may put a
  * country-only value before a more specific additional location, so all
  * candidates are inspected before accepting one. If no candidate supplies a
- * concrete municipality, preserve a country-level Swiss posting with FNZ's
- * confirmed Zürich office as a safe default; never invent a city for an
- * explicit non-Zürich canton-only label or an unresolved foreign value.
+ * concrete municipality, reject the posting rather than inventing a city from
+ * an unresolved label such as "Switzerland" or "Remote".
  */
 export function resolveFnzSwissLocation(candidates = []) {
-  let countryOnlyFallback = null;
-
   for (const candidate of Array.isArray(candidates) ? candidates : []) {
     const { raw, signal, city } = normalizeCandidate(candidate);
     if (!raw || !signal || !isSwissLocationText(signal)) continue;
@@ -75,7 +72,6 @@ export function resolveFnzSwissLocation(candidates = []) {
       || firstLocationSegment(raw);
     const signalCanton = inferAnyCanton(signal);
     const locationCanton = inferAnyCanton(location);
-    const signalCity = swissCityFromLocationField(signal);
     // A city and a richer address signal must describe the same canton. If
     // they disagree, reject the candidate rather than emit plausible-looking
     // but internally inconsistent structured data.
@@ -91,27 +87,7 @@ export function resolveFnzSwissLocation(candidates = []) {
       return { raw, location, canton };
     }
 
-    // The safe fallback is FNZ's Zürich office. Do not use it when the source
-    // explicitly names another canton without a concrete municipality: that
-    // would publish a locality/canton pair that contradicts the source.
-    const hasConflictingCitySignals = Boolean(
-      signalCity
-      && locationCanton
-      && signalCanton
-      && signalCanton !== locationCanton,
-    );
-    const hasIncompatibleExplicitCanton = Boolean(
-      signalCanton && signalCanton !== 'ZH',
-    );
-    if (
-      !hasConflictingCitySignals
-      && !hasIncompatibleExplicitCanton
-      && !countryOnlyFallback
-    ) {
-      countryOnlyFallback = { raw, location: 'Zürich', canton: 'ZH' };
-    }
-
   }
 
-  return countryOnlyFallback;
+  return null;
 }
