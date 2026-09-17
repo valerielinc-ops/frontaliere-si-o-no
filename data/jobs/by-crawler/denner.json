@@ -285,7 +285,8 @@
         "verkaufer-in-im-stundenlohn-denner-hunzenschwil",
         "verkaufer-in-im-stundenlohn-denner-schaffhausen",
         "verkaufer-in-im-stundenlohn-denner-sissach",
-        "verkaufer-in-im-stundenlohn-denner-therwil"
+        "verkaufer-in-im-stundenlohn-denner-therwil",
+        "verkaufer-in-im-stundenlohn-denner-c24dro"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -299,7 +300,8 @@
           "verkaufer-in-im-stundenlohn-denner-hunzenschwil",
           "verkaufer-in-im-stundenlohn-denner-schaffhausen",
           "verkaufer-in-im-stundenlohn-denner-sissach",
-          "verkaufer-in-im-stundenlohn-denner-therwil"
+          "verkaufer-in-im-stundenlohn-denner-therwil",
+          "verkaufer-in-im-stundenlohn-denner-c24dro"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-unterentfelden"
@@ -7639,7 +7641,6 @@
           "directeur-de-succursale-stv-in-denner-ag-zurich-d310b2"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:06:18.647Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
@@ -7653,8 +7654,7 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "denner-c04351a446ce",
@@ -10244,7 +10244,6 @@
           "stv-filialleiter-in-denner-ag-abtwil-sg-j51i63"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-13T22:36:24.077Z",
       "salaryMin": 96000,
       "salaryMax": 147500,
@@ -10258,8 +10257,7 @@
           "maxValue": 147500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "company-228b88",
@@ -10350,7 +10348,6 @@
           "stv-filialleiter-in-denner-ag-rothenburg-228b88"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-13T22:36:24.077Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
@@ -10364,8 +10361,7 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "company-14od2o",
@@ -12332,7 +12328,6 @@
           "gestionnaire-de-magasin-denner-ag-sursee"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T09:55:05.476Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
@@ -12346,8 +12341,7 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "denner-5810a92eb7c1",
@@ -13845,17 +13839,39 @@
       "crawledAt": "2026-09-13T13:55:37.098Z",
       "previousSlugs": [
         "vendeur-vendeuse-denner",
-        "vendeur-vendeuse-denner-lausanne"
+        "vendeur-vendeuse-denner-lausanne",
+        "venditore-venditore-denner-lausanne",
+        "seller-seller-denner-lausanne",
+        "verkaufer-verkaufer-denner-lausanne",
+        "vendeur-vendeuse-denner-4",
+        "venditore-venditore-denner-payerne",
+        "vendeur-vendeuse-denner-3",
+        "venditore-venditrice-denner-payerne",
+        "seller-seller-denner-payerne",
+        "verkaufer-verkaufer-denner-payerne",
+        "vendeur-vendeuse-denner-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-vendeuse-denner"
+          "vendeur-vendeuse-denner",
+          "venditore-venditore-denner-lausanne",
+          "seller-seller-denner-lausanne",
+          "verkaufer-verkaufer-denner-lausanne",
+          "vendeur-vendeuse-denner-4",
+          "venditore-venditore-denner-payerne",
+          "vendeur-vendeuse-denner-3",
+          "venditore-venditrice-denner-payerne",
+          "seller-seller-denner-payerne",
+          "verkaufer-verkaufer-denner-payerne",
+          "vendeur-vendeuse-denner-payerne"
         ],
         "en": [
-          "vendeur-vendeuse-denner-lausanne"
+          "vendeur-vendeuse-denner-lausanne",
+          "seller-seller-denner-lausanne"
         ],
         "de": [
-          "vendeur-vendeuse-denner-lausanne"
+          "vendeur-vendeuse-denner-lausanne",
+          "verkaufer-verkaufer-denner-lausanne"
         ]
       },
       "firstSeenAt": "2026-09-04T22:59:13.261Z",
