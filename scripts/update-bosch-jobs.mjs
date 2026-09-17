@@ -134,12 +134,12 @@ async function fetchBoschListings() {
   });
   const target = discovered.filter(isBoschTargetListing);
   console.log(`📋 Total CH jobs discovered: ${discovered.length}`);
-  console.log(`📋 Ticino/Grigioni rows: ${target.length}`);
+  console.log(`📋 Swiss rows: ${target.length}`);
   for (const row of target) console.log(`  📄 ${row.title} (${row.location})`);
   // Fail only if the site is unreachable (0 CH jobs) — a genuine crawler error.
-  // 0 Ticino/Grigioni results is valid when Bosch has no current openings in the region.
+  // 0 Swiss results is valid when Bosch has no current openings in Switzerland.
   if (discovered.length < 1) throw new Error(`Bosch career portal unreachable or returned 0 CH jobs — possible site change or network error`);
-  if (target.length < 1) console.log('ℹ️  No Bosch jobs in Ticino/Grigioni today — skipping (not an error)');
+  if (target.length < 1) console.log('ℹ️  No Bosch jobs in Switzerland today — skipping (not an error)');
   return target;
 }
 
@@ -248,7 +248,7 @@ function updateAdapterConfig(jobs) {
     priority: 15,
     crawlerModes: ['html'],
     seedUrls: [CAREERS_URL],
-    notes: 'Dedicated Bosch career crawler for Swiss vacancies, filtered with shared Ticino/Grigioni location matching and parsed from the Bosch job portal HTML.',
+    notes: 'Dedicated Bosch career crawler for Swiss vacancies, filtered with shared all-canton Swiss location matching and parsed from the Bosch job portal HTML.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });

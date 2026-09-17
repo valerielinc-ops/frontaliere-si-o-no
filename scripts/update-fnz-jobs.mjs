@@ -47,6 +47,7 @@ import {
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
+import { firstLocationSegment } from './lib/ats-clients/workday-client.mjs';
 import { isSwissLocationText, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';

@@ -7,10 +7,11 @@
  * cannot be crawled directly. Instead, this script:
  *
  *   1. Fetches the company.sbb.ch JSON API (PRIMARY source) to discover SBB/FFS
- *      roles in Ticino/Grigioni.
+ *      roles across Switzerland.
  *   2. Fetches login.org apprenticeship pages (SECONDARY/optional source,
- *      partner=SBB CFF FFS, canton=Ticino) to include apprenticeship positions
- *      not exposed by the company.sbb.ch API. login.org has been observed
+ *      partner=SBB CFF FFS, with a canton-specific facet) to include
+ *      apprenticeship positions not exposed by the company.sbb.ch API.
+ *      login.org has been observed
  *      returning HTTP 451 persistently from CI runners (#6961) — that outage
  *      degrades this step (zero new seeds, existing apprenticeship jobs kept
  *      via merge grace period) instead of failing the whole crawl.
@@ -92,7 +93,7 @@ const SBB_API_URL =
   'https://company.sbb.ch/content/internet/corporate/it/jobs-karriere/jobs/job-suche/jcr:content/parmain/jobfilter.results.json';
 
 /**
- * We use the API region and city attributes together to keep only TI/GR jobs.
+ * We use the API region and city attributes together to keep only Swiss jobs.
  */
 const LOGIN_SBB_LISTING_URL =
   'https://www.login.org/it/panoramica-dei-posti-di-tirocinio-disponibili-nel?f%5B0%5D=canton%3A296&f%5B1%5D=facet_apprentice_partner%3ASBB%20CFF%20FFS';
@@ -576,11 +577,11 @@ async function fetchLoginLocalizedVariants(detailUrl, timeoutMs = 15000) {
 }
 
 /**
- * Fetch ALL SBB Ticino job detail URLs from the JSON API.
+ * Fetch ALL Swiss SBB job detail URLs from the JSON API.
  *
  * The API returns a flat array of all open positions (no filtering server-side).
  * We filter client-side for jobs whose region attribute (code 110) includes
- * "Ticino (TI)".
+ * a Swiss canton label such as "Ticino (TI)".
  *
  * Returns urls + API metadata indexed by URL.
  */
@@ -679,7 +680,7 @@ export async function fetchSbbJobDetailUrls(options = {}) {
       || apiMetaByUrl.size !== detailUrls.length) {
     throw new Error(`SBB AEM discovery invariant failed: target=${targetJobs.length}, canonical=${detailUrls.length}, duplicates=${duplicateIdentity}, metadata=${apiMetaByUrl.size}.`);
   }
-  console.log(`✅ SBB API Ticino detail URLs discovered: ${detailUrls.length}`);
+  console.log(`✅ SBB API detail URLs discovered: ${detailUrls.length}`);
   return {
     urls: detailUrls.sort((a, b) => a.localeCompare(b)),
     apiMetaByUrl,
@@ -861,9 +862,10 @@ function extractLocationFromJobPosting(jobPosting, html, apiMeta) {
     const candidate = h1.split(',').pop()?.trim();
     if (candidate && candidate.length <= 60) return candidate;
   }
-  // No concrete city: return '' so the literal 'Ticino' never pollutes the
-  // canton inference (inferAnyCanton scans TARGET_CANTONS in order and 'ticino'
-  // would win over the real region for a city-less non-TI posting). The caller
+  // No concrete city: return '' so a hard-coded canton name never pollutes the
+  // canton inference (inferAnyCanton scans TARGET_CANTONS in order and a
+  // country/region label could win over the real region for a city-less
+  // posting). The caller
   // derives the canton from apiMeta.region and uses the canton display name as
   // the locality when no city is available.
   return '';
@@ -973,7 +975,8 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
   }
 
   // For non-login.org pages, detect the actual source language from content
-  // (SBB posts GR/non-Ticino jobs in German, not Italian)
+  // (SBB posts jobs in several Swiss languages; the source language is not
+  // always Italian.)
   const resolvedSourceLocale = sourceLocale || detectLang(`${title} ${description}`);
 
   const requirements = sourceLoginData.requirements?.length
@@ -1177,7 +1180,7 @@ export function buildSbbAdapterConfig(baseAdapter, seedUrls, updatedAt = new Dat
     seedUrls,
     priority: Math.max(baseAdapter?.priority || 0, 10),
     crawlerModes: Array.from(new Set([...(baseAdapter?.crawlerModes || []), 'jsonld', 'generic_ats'])),
-    notes: 'SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS, canton Ticino).',
+    notes: 'SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS; the secondary source uses a canton-specific facet).',
     updatedAt,
   };
 }
@@ -1203,7 +1206,7 @@ export function ensureAdapterSeedUrls(
       enabled: true,
       priority: 10,
       crawlerModes: ['generic_ats', 'html', 'jsonld'],
-      notes: 'SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS, canton Ticino).',
+      notes: 'SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS; the secondary source uses a canton-specific facet).',
     };
   const adapter = buildSbbAdapterConfig(baseAdapter, seedUrls, updatedAt);
   writeJsonAtomic(adapterPath, adapter);
@@ -1235,8 +1238,8 @@ function logSbbJobStats(beforeSnapshot = new Map()) {
 
   console.log(`\n📊 === SBB / FFS Job Stats ===`);
   console.log(`  🚂 Job totali trovati (SBB): ${sbbJobs.length}`);
-  console.log(`  ✅ Job in Ticino (canton=TI): ${ticinoJobs.length}`);
-  console.log(`  ✅ Job in Grigioni (canton=GR): ${grigioniJobs.length}`);
+  console.log(`  ✅ Reporting — jobs in Ticino (canton=TI): ${ticinoJobs.length}`);
+  console.log(`  ✅ Reporting — jobs in Grigioni (canton=GR): ${grigioniJobs.length}`);
   if (otherJobs > 0) {
     console.log(`  ℹ️ Job in altri cantoni: ${otherJobs}`);
     const examples = sbbJobs
@@ -1281,7 +1284,7 @@ async function main() {
   registerCrawlerSummaryGuard(SBB_KEY, 'SBB');
   console.log('🚂 Running dedicated SBB / FFS jobs crawler...');
   console.log('   Platform: SAP SuccessFactors via AEM JSON API');
-  console.log('   Region filter: Ticino + Grigioni');
+  console.log('   Region filter: Switzerland (all 26 cantons)');
   console.log('');
 
   // Step 1: Fetch target-area job detail URLs from the AEM JSON API

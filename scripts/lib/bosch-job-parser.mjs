@@ -135,7 +135,7 @@ export function parseBoschJobDetail(html = '') {
     // Location-first: the location field is authoritative; resolve it before the
     // job title so a canton/city name in the title can't override the real
     // location via inferAnyCanton's TARGET_CANTONS array-order sensitivity.
-    // No Ticino default — Bosch's CH crawl is national (?country=ch); leave
+    // No Swiss-canton default — Bosch's CH crawl is national (?country=ch); leave
     // blank when unresolved so the PLZ/locality hardening derives the canton.
     canton: inferAnyCanton(location) || inferAnyCanton(title) || '',
   };
