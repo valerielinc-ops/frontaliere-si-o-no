@@ -10,7 +10,6 @@ import {
 } from './job-localization-pipeline.mjs';
 import { hardenJobsWithStructuredSalary } from './structured-salary.mjs';
 import { normalizeCantonCode, isTargetSwissLocation, isTargetCanton, inferAnyCanton, isKnownSwissMunicipality } from './target-swiss-locations.mjs';
-import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
 let _aiModels = null;
 try { _aiModels = await import('./ai-models.mjs'); } catch { /* ai-models not available */ }
 import {
@@ -6180,7 +6179,6 @@ const FOREIGN_COUNTRY_CODES = [
   'MX', 'ZA', 'SE', 'NO', 'DK', 'FI', 'PL', 'CZ', 'HU', 'RO', 'BG', 'HR', 'SI',
   'SK', 'RS', 'UA', 'RU', 'FR',
 ];
-const SWISS_CANTON_CODES = new Set(ALL_CANTON_CODES);
 // ISO-like tokens are accepted only in a labelled country field or as the
 // final component of a comma/semicolon-separated location. A bare token is
 // too ambiguous: "de" is ordinary prose in "Rue de la Gare", while SG/FR
@@ -6188,7 +6186,7 @@ const SWISS_CANTON_CODES = new Set(ALL_CANTON_CODES);
 const FOREIGN_COUNTRY_CODE_PATTERN = `(${FOREIGN_COUNTRY_CODES.join('|')})`;
 const EXPLICIT_FOREIGN_COUNTRY_FIELD_CODE_RE = new RegExp(
   `\\b(?:addresscountry|country(?:[_\\s-]+(?:code|iso))?|countrycode|isocountry(?:[_\\s-]+code)?|land|pays|paese|codice[_\\s-]+paese)\\b\\s*[:=_-]\\s*["']?${FOREIGN_COUNTRY_CODE_PATTERN}["']?(?=\\s*(?:[,;)]|$))`,
-  'giu',
+  'iu',
 );
 const FINAL_FOREIGN_COUNTRY_CODE_RE = new RegExp(
   `(?:^|[,;])\\s*${FOREIGN_COUNTRY_CODE_PATTERN}(?=\\s*(?:\\)|$))`,
@@ -6196,16 +6194,17 @@ const FINAL_FOREIGN_COUNTRY_CODE_RE = new RegExp(
 );
 
 function hasExplicitForeignCountryCode(lower) {
-  const matches = [
-    ...lower.matchAll(EXPLICIT_FOREIGN_COUNTRY_FIELD_CODE_RE),
-    ...lower.matchAll(FINAL_FOREIGN_COUNTRY_CODE_RE),
-  ];
-  for (const match of matches) {
+  // A labelled field is authoritative even when its two-letter value also
+  // names a Swiss canton (for example, country: FR).
+  if (EXPLICIT_FOREIGN_COUNTRY_FIELD_CODE_RE.test(lower)) return true;
+
+  for (const match of lower.matchAll(FINAL_FOREIGN_COUNTRY_CODE_RE)) {
     const code = String(match[1] || '').toUpperCase();
-    // Canton codes are Swiss only when they agree with the Swiss municipality
-    // in the same field; otherwise a mismatched code remains an explicit
-    // negative country signal (e.g. "Zurich, FR").
-    if (SWISS_CANTON_CODES.has(code) && inferAnyCanton(lower) === code) continue;
+    // A final code is Swiss only when it agrees with a Swiss municipality in
+    // the same field; otherwise it remains an explicit negative country
+    // signal (e.g. "Zurich, FR"). This avoids treating SG/FR canton codes as
+    // foreign while still recognizing a mismatched country component.
+    if (inferAnyCanton(lower) === code) continue;
     return true;
   }
   return false;
