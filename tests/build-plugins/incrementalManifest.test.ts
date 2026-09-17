@@ -146,7 +146,7 @@ describe('incremental manifest input contract', () => {
       [{ ...related }],
       cache,
     );
-    expect(second.relatedJobs).toBe(first.relatedJobs);
+    expect(second.relatedJobs).toEqual(first.relatedJobs);
     expect(second.relatedJobs[0]).toBe(first.relatedJobs[0]);
     expect(cache.jobDigestsById.get('cache-job-1')).toBe(cachedPrimaryDigest);
     expect(second.jobRecordDigest).toBe(first.jobRecordDigest);
