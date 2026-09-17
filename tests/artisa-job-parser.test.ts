@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { parseArtisaCareerPage, parseSmartsheetFormPage, buildArtisaLocalizedContent, assertCompleteArtisaSnapshot } from '../scripts/lib/artisa-job-parser.mjs';
+import {
+  parseArtisaCareerPage,
+  parseSmartsheetFormPage,
+  buildArtisaLocalizedContent,
+  assertCompleteArtisaSnapshot,
+  assertCompleteArtisaListingSnapshot,
+} from '../scripts/lib/artisa-job-parser.mjs';
 
 const SAMPLE_HTML = `
   <div>
@@ -130,6 +136,33 @@ describe('assertCompleteArtisaSnapshot', () => {
     const rows = parseArtisaCareerPage(SAMPLE_HTML);
     expect(rows.length).toBeGreaterThan(0);
     expect(() => assertCompleteArtisaSnapshot(rows)).toThrow(/not a proven authoritative empty state/);
+  });
+
+  it('accepts one vacancy when the complete source DOM accounts for it', () => {
+    const rows = parseArtisaCareerPage(`
+      <div>
+        <h2>Carriera</h2>
+        <h2>Architetto qualificato</h2>
+        <h4>Lugano</h4>
+        <a href="https://app.smartsheet.com/b/form/019c46ebd5137236a9d1b0d500840bf4">Scopri di piu</a>
+        <h2>Le nostre sedi</h2>
+      </div>
+    `);
+    expect(rows).toHaveLength(1);
+    expect(assertCompleteArtisaListingSnapshot(rows)).toBe(true);
+  });
+
+  it('rejects a non-empty snapshot when a vacancy heading was not parsed', () => {
+    const rows = parseArtisaCareerPage(`
+      <div>
+        <h2>Carriera</h2>
+        <h2>Architetto qualificato</h2>
+        <a href="https://app.smartsheet.com/b/form/019c46ebd5137236a9d1b0d500840bf4">Scopri di piu</a>
+        <h2>Le nostre sedi</h2>
+      </div>
+    `);
+    expect(rows).toHaveLength(0);
+    expect(() => assertCompleteArtisaListingSnapshot(rows)).toThrow(/complete non-empty state/);
   });
 
   // Both drifts below render the page in full (landmarks present) and yield zero

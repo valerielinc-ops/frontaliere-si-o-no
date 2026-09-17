@@ -394,6 +394,9 @@ async function main() {
   }
   if (skipped) console.log(`  ⚠️  Skipped ${skipped}/${listings.length} listings due to errors`);
 
+  if (jobs.length === 0 && skipped > 0) {
+    throw new Error(`Failed to fetch any Delvitech job details (${skipped}/${listings.length} skipped)`);
+  }
   if (jobs.length === 0) {
     console.log('ℹ️  Nessun annuncio trovato per Delvitech SA — non è un errore, il crawler prosegue.');
   }

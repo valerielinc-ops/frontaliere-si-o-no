@@ -24,10 +24,9 @@ const NON_JOB_TITLES = new Set(['carriera', 'le nostre sedi']);
 
 // The two non-job `h2` landmarks Squarespace renders around the vacancy list.
 // Both present proves the careers page rendered in full (not a WAF/truncated
-// fetch). Necessary but NOT sufficient to call a zero authoritative: the page
-// can render in full and still yield zero *rows* because the location selector
-// drifted. The zero must also be proven pre-filter, by the absence of candidate
-// vacancy headings — see `candidateVacancies` in parseArtisaCareerPage.
+// fetch). For a zero, the page must also have no candidate vacancy headings;
+// for a non-empty result, every candidate heading must produce a parsed row.
+// These checks allow a single real vacancy without using a numeric floor.
 const LANDMARK_TITLES = ['carriera', 'le nostre sedi'];
 
 function isCandidateTitle(value = '') {
@@ -99,29 +98,30 @@ export function parseArtisaCareerPage(html = '') {
   const targetJobs = jobs.filter((job) => isTargetSwissLocation(job.location));
   const landmarksComplete = LANDMARK_TITLES.every((title) => landmarks.has(title));
   // A zero is authoritative only when the page rendered in full AND listed no
-  // vacancy at all. Qualifying on `targetJobs.length === 0` instead would make a
-  // drift indistinguishable from a real zero: if Squarespace moves the location
-  // out of `h4`, or changes its wording so `isTargetSwissLocation()` stops
-  // matching, every vacancy is parsed and then discarded while both landmarks
-  // still render — a false zero that archives live jobs and bypasses the shrink
-  // guard. Counting candidates pre-filter keeps that case `unverified`, so the
-  // crawler fails loudly instead of delisting.
+  // vacancy at all. A non-empty snapshot is authoritative only when every
+  // candidate vacancy heading became a parsed row. Qualifying on
+  // `targetJobs.length === 0` alone would make selector drift indistinguishable
+  // from a real zero: if Squarespace moves the location out of `h4`, or changes
+  // its wording so `isTargetSwissLocation()` stops matching, vacancies could be
+  // silently discarded while both landmarks still render.
+  const completeCandidateSnapshot = landmarksComplete && candidateVacancies === jobs.length;
   Object.defineProperty(targetJobs, 'artisaSnapshotState', {
-    value: landmarksComplete && candidateVacancies === 0 ? 'authoritative-site-zero' : 'unverified',
+    value: completeCandidateSnapshot
+      ? candidateVacancies === 0 ? 'authoritative-site-zero' : 'authoritative-site-snapshot'
+      : 'unverified',
     enumerable: false,
   });
   // Why the state is `unverified`, in the words of what the page actually
-  // rendered (issue #7425 item 3). Without it the crawler's only signal is the
-  // floor error, which reads "landmarks missing" even when both landmarks are
-  // there and the page simply listed an opening — so a Squarespace re-wording
-  // of `carriera` / `le nostre sedi` and a real vacancy produce the SAME red,
-  // and the first is permanent while the second clears itself. Naming the
-  // cause costs a string; guessing it costs a fixer run per occurrence.
+  // rendered (issue #7425 item 3). Without it the crawler's only signal reads
+  // "landmarks missing" even when both landmarks are there and the page simply
+  // listed an opening — so a Squarespace re-wording of `carriera` / `le nostre
+  // sedi` and a partial vacancy parse produce the SAME red. Naming the cause
+  // costs a string; guessing it costs a fixer run per occurrence.
   const missingLandmarks = LANDMARK_TITLES.filter((title) => !landmarks.has(title));
   Object.defineProperty(targetJobs, 'artisaSnapshotReason', {
     value: missingLandmarks.length > 0
       ? `landmark h2 not found: ${missingLandmarks.join(', ')} — h2 rendered: ${headingsSeen.join(' | ') || '(none)'}`
-      : `${candidateVacancies} candidate vacancy h2 present — h2 rendered: ${headingsSeen.join(' | ')}`,
+      : `${candidateVacancies} candidate vacancy h2 present, ${jobs.length} row(s) parsed — h2 rendered: ${headingsSeen.join(' | ')}`,
     enumerable: false,
   });
   return targetJobs;
@@ -148,6 +148,28 @@ export function assertCompleteArtisaSnapshot(jobs) {
       ? Reflect.get(jobs, 'artisaSnapshotReason') || `${jobs.length} row(s) parsed`
       : 'parser returned no array';
     throw new Error(`Artisa Group snapshot is not a proven authoritative empty state: ${reason}`);
+  }
+  return true;
+}
+
+/**
+ * Verify that a non-empty snapshot contains every vacancy heading the source
+ * rendered. This is a structural completeness check, not a minimum-count
+ * gate: one fully parsed vacancy is as valid as any larger complete snapshot.
+ *
+ * @param {object[]|undefined|null} jobs
+ * @returns {true}
+ */
+export function assertCompleteArtisaListingSnapshot(jobs) {
+  if (
+    !Array.isArray(jobs)
+    || jobs.length === 0
+    || Reflect.get(jobs, 'artisaSnapshotState') !== 'authoritative-site-snapshot'
+  ) {
+    const reason = Array.isArray(jobs)
+      ? Reflect.get(jobs, 'artisaSnapshotReason') || `${jobs.length} row(s) parsed`
+      : 'parser returned no array';
+    throw new Error(`Artisa Group snapshot is not a complete non-empty state: ${reason}`);
   }
   return true;
 }

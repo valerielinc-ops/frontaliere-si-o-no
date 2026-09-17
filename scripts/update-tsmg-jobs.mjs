@@ -106,6 +106,27 @@ async function fetchJson(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
   }
 }
 
+function assertTsmgSourceSnapshot(payload) {
+  if (!Array.isArray(payload)) {
+    throw new Error('TSMG Lever returned an invalid snapshot: expected an array of postings');
+  }
+  for (const [index, job] of payload.entries()) {
+    const location = job?.categories?.location;
+    if (
+      !job
+      || typeof job !== 'object'
+      || !String(job.id || '').trim()
+      || !String(job.hostedUrl || '').trim()
+      || !job.categories
+      || typeof job.categories !== 'object'
+      || typeof location !== 'string'
+    ) {
+      throw new Error(`TSMG Lever returned a degraded snapshot at posting ${index + 1}`);
+    }
+  }
+  return payload;
+}
+
 function isTargetJob(job = {}) {
   const key = normalizeKey(job.companyKey || job.company || '');
   const company = normalize(job.company || '');
@@ -269,7 +290,10 @@ async function main() {
   console.log(`  Careers page: ${CAREERS_URL}`);
   console.log(`  API: ${API_URL}\n`);
 
-  const rawJobs = await fetchJson(API_URL);
+  // Lever's endpoint is a complete postings snapshot. Accept a verified empty
+  // array as a real zero; reject malformed/degraded payloads before merge so
+  // the prior slice remains untouched without using a count floor.
+  const rawJobs = assertTsmgSourceSnapshot(await fetchJson(API_URL));
   const swiss = rawJobs.filter((job) => String(job.country || '').trim().toUpperCase() === 'CH');
   const target = swiss.filter((job) => isTsmgTargetLocation(job?.categories?.location || ''));
   console.log(`📋 Total Lever jobs: ${rawJobs.length}`);

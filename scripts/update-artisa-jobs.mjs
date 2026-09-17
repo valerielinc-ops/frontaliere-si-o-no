@@ -34,6 +34,7 @@ import {
   parseSmartsheetFormPage,
   buildArtisaLocalizedContent,
   assertCompleteArtisaSnapshot,
+  assertCompleteArtisaListingSnapshot,
 } from './lib/artisa-job-parser.mjs';
 import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
@@ -144,6 +145,11 @@ async function fetchListings() {
     console.log('✅ Careers page rendered with no open position — publishing the proven empty snapshot.');
     return { rows, authoritativeEmptySnapshot };
   }
+
+  // A non-empty result is valid at any size, including one row, but only when
+  // the parser accounted for every vacancy heading in the complete source DOM.
+  // This preserves the data-integrity check without bringing back a count floor.
+  assertCompleteArtisaListingSnapshot(rows);
 
   // Fetch detail pages from Smartsheet forms (sequential to be polite)
   for (const row of rows) {
