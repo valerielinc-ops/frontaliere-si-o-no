@@ -463,6 +463,7 @@ const maxWorkers = selectMaxWorkers({
   usedFullFallback,
   maxWorkers: process.env.VITEST_MAX_WORKERS,
   maxWorkersFallback: process.env.VITEST_MAX_WORKERS_FALLBACK,
+  relatedTestCount: tests.length,
 });
 if (maxWorkers) args.push(`--maxWorkers=${maxWorkers}`);
 if (process.env.VITEST_POOL) args.push(`--pool=${process.env.VITEST_POOL}`);
