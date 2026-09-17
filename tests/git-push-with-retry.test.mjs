@@ -289,6 +289,27 @@ test('in-place resolver keeps broadly staged original WIP out of the rebased com
   }
 });
 
+test('in-place resolver restores original WIP after staging resolver output on that path', async () => {
+  const scenario = await setupScenario();
+  const resolver = join(scenario.root, 'resolver.sh');
+  try {
+    await writeFile(
+      resolver,
+      '#!/bin/sh\nset -eu\ntest "$(cat wip.txt)" = "dirty WIP"\nprintf \'resolver output\\n\' > wip.txt\nprintf \'resolved\\n\' > conflict.txt\ngit add -A\n',
+    );
+    await chmod(resolver, 0o755);
+
+    const result = invoke(scenario, ['--in-place-resolver-cmd', `bash '${resolver}'`]);
+
+    assert.equal(result.status, 0, result.output);
+    assert.equal(git(scenario.local, ['show', 'HEAD:wip.txt']), 'resolver output');
+    assert.equal(await readFile(scenario.file('wip.txt'), 'utf8'), 'dirty WIP\n');
+    assert.equal(git(scenario.local, ['stash', 'list']), '');
+  } finally {
+    await rm(scenario.root, { recursive: true, force: true });
+  }
+});
+
 test('in-place resolver keeps a broadly staged WIP deletion out of the rebased commit', async () => {
   const scenario = await setupScenario({ deletedWip: true });
   const resolver = join(scenario.root, 'resolver.sh');
