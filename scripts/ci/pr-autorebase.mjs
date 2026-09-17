@@ -65,6 +65,7 @@ import {
   VITEST_CHECK_NAME,
   VITEST_EXECUTION_JOB_NAME,
   isReviewerBot,
+  REVIEW_WORKFLOW_DRIFT_FILES,
 } from './lib/constants.mjs';
 import {
   latestCompletedVitestConclusion,
@@ -149,6 +150,14 @@ const CONFLICT_MARKER = '<!-- AUTOREBASE_CONFLICT -->';
 // riparazione resta near-merge-only.
 const MAIN_CONFLICT_MARKER = '<!-- MAIN_CONFLICT -->';
 const MAIN_CONFLICT_LABEL = 'has-conflicts';
+// `tests.yml` contiene oggi il gate di review del sito. Conserviamo anche il
+// nome storico perché una PR può essere stata aperta quando il gate viveva in
+// `pr-review-loop.yml`; in entrambi i casi il file deve essere byte-identico a
+// main prima che un run di review possa essere considerato valido.
+const REVIEW_VALIDATION_WORKFLOW_PATHS = [
+  ...REVIEW_WORKFLOW_DRIFT_FILES,
+  '.github/workflows/pr-review-loop.yml',
+];
 // One-shot per PR: `vitestFailureIsNotAttributableToPr` è pura e ri-risponderebbe
 // `true` a ogni tick finché l'head resta rosso. Il marker rende il rescue
 // irripetibile: una PR ri-testata contro main verde che torna ROSSA è rotta per
@@ -300,6 +309,75 @@ function git(args, { allowFail = false } = {}) {
   }
 }
 
+/**
+ * Restituisce l'entry dell'albero per un path senza materializzare il file.
+ * `null` significa che Git non ha potuto leggere il ref; `exists:false` è
+ * invece un'assenza legittima (per esempio il vecchio `pr-review-loop.yml`
+ * non esiste più né su head né su main).
+ */
+function gitTreeEntry(ref, path) {
+  const raw = git(['ls-tree', '-r', ref, '--', path], { allowFail: true });
+  if (raw === null) return null;
+  const line = raw.trim();
+  if (!line) return { exists: false, oid: null };
+  const [, , oid] = line.split(/\s+/);
+  return oid ? { exists: true, oid } : null;
+}
+
+/**
+ * Confronto puro delle entry del workflow di review. Le mappe devono
+ * contenere entrambe le chiavi, anche quando il file è assente (`exists:false`)
+ * o il ref è illeggibile (`null`).
+ */
+export function reviewWorkflowHasDrift(mainEntries, headEntries) {
+  for (const path of REVIEW_VALIDATION_WORKFLOW_PATHS) {
+    const mainEntry = mainEntries?.[path] ?? null;
+    const headEntry = headEntries?.[path] ?? null;
+    if (mainEntry === null || headEntry === null) return true;
+    if (mainEntry.exists !== headEntry.exists) return true;
+    if (mainEntry.exists && mainEntry.oid !== headEntry.oid) return true;
+  }
+  return false;
+}
+
+/**
+ * Verifica il motivo concreto per cui il workflow di review deve essere
+ * riallineato a main. È fail-closed: se un ref/path non è leggibile, il
+ * chiamante mantiene il merge di main invece di ri-triggerare una review che
+ * potrebbe fallire con la validazione 401.
+ */
+function hasReviewWorkflowValidationDrift(headSha) {
+  const mainEntries = Object.fromEntries(
+    REVIEW_VALIDATION_WORKFLOW_PATHS.map((path) => [path, gitTreeEntry('origin/main', path)]),
+  );
+  const headEntries = Object.fromEntries(
+    REVIEW_VALIDATION_WORKFLOW_PATHS.map((path) => [path, gitTreeEntry(headSha, path)]),
+  );
+  return reviewWorkflowHasDrift(mainEntries, headEntries);
+}
+
+/**
+ * Decide cosa fare con `stale-review` quando la PR è behind ma non c'è un
+ * conflitto GitHub reale. La label da sola non prova il workflow-validation
+ * drift: `stale-pr-rescuer` la usa anche per coda congestionata e test rossi.
+ *
+ * `rebase` conserva il percorso che deve creare un nuovo head (drift o
+ * stuck-red); `retrigger` riapre la stessa head per rifare review+test senza
+ * un push; `wait` lascia agire il fixer/human su una review già esistente.
+ */
+export function staleReviewAction({
+  staleReview,
+  lgtm,
+  workflowValidationDrift,
+  hasCurrentClaudeReview,
+  stuckRed,
+  collisionRisk,
+}) {
+  if (!staleReview || lgtm || collisionRisk) return 'continue';
+  if (stuckRed || workflowValidationDrift) return 'rebase';
+  return hasCurrentClaudeReview ? 'wait' : 'retrigger';
+}
+
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 function authedUrl() {
@@ -343,6 +421,20 @@ function hasAnyClaudeReview(num) {
   const reviews = gh(['api', `repos/${REPO}/pulls/${num}/reviews`, '--paginate'], { allowFail: true });
   if (!Array.isArray(reviews)) return true; // fail-safe: su errore API assumi review esistente (no reopen)
   return reviews.some((r) => isReviewerBot(r.user));
+}
+
+/** Esiste una review Claude sulla HEAD corrente? Una review su un commit
+ * precedente non sblocca il gate exact-head e non deve impedire il re-trigger
+ * della stessa HEAD quando `stale-review` segnala che la review non è arrivata.
+ * L'errore API resta fail-closed: attendere è sicuro, riaprire alla cieca no. */
+export function reviewerReviewOnHead(reviews, head) {
+  if (!Array.isArray(reviews)) return true;
+  return reviews.some((r) => isReviewerBot(r.user) && r.commit_id === head);
+}
+
+function hasClaudeReviewOnHead(num, head) {
+  const reviews = gh(['api', `repos/${REPO}/pulls/${num}/reviews`, '--paginate'], { allowFail: true });
+  return reviewerReviewOnHead(reviews, head);
 }
 
 /** Re-trigger DETERMINISTICO di review+tests per una PR classe-A: il push PAT
@@ -1232,7 +1324,7 @@ async function processPR(pr) {
   // blocca il merge solo su quell'hazard preciso — il disallineamento faceva
   // ri-rebasare a ogni movimento di main una PR che il gate di merge avrebbe
   // già lasciato passare, e il push del rebase cancellava la review in corso)
-  // e stale-review (drift/conflitto). Una LGTM'd+verde senza collisione REALE →
+  // e stale-review con drift/conflitto. Una LGTM'd+verde senza collisione REALE →
   // lasciala ad auto-merge.
   // NB: vitest deve essere non-`failure`. Su failure va rebasata per ereditare
   // eventuali fix lato main (una PR behind+LGTM con vitest=failure NON è
@@ -1329,6 +1421,41 @@ async function processPR(pr) {
   if (m !== 'MERGEABLE') {
     console.log(`PR #${num} mergeable=${m} (non MERGEABLE/CONFLICTING) — skip.`);
     return;
+  }
+
+  // `stale-review` non è sinonimo di workflow-validation drift. Il rescuer la
+  // applica anche quando una review non è mai partita, quando la coda è
+  // congestionata o quando i test sono rossi. Fare in tutti questi casi
+  // `merge origin/main` crea un nuovo head e invalida il giro CI corrente.
+  //
+  // Il merge resta obbligatorio quando il confronto byte-level dimostra che il
+  // workflow di review è cambiato rispetto a main: senza quel merge il run
+  // può fallire con "401 Unauthorized — Workflow validation failed". Se non
+  // c'è drift, una PR senza review viene riaperta sulla stessa head, mentre una
+  // review già esistente resta al redflag-fixer/umano: nessuna review stale
+  // viene considerata risolta da un push di main.
+  if (labels.includes('stale-review') && !lgtm && !collisionRisk) {
+    const workflowValidationDrift = hasReviewWorkflowValidationDrift(head);
+    const staleAction = staleReviewAction({
+      staleReview: true,
+      lgtm,
+      workflowValidationDrift,
+      // Un errore API deve restare fail-closed: hasClaudeReviewOnHead() torna
+      // true e quindi non apriamo/retriggeriamo alla cieca.
+      hasCurrentClaudeReview: workflowValidationDrift ? true : hasClaudeReviewOnHead(num, head),
+      stuckRed: Boolean(stuckRedReason),
+      collisionRisk,
+    });
+    if (staleAction === 'wait') {
+      console.log(`PR #${num}: stale-review senza drift del workflow e review già presente — nessun merge di main; attendo redflag-fixer/umano.`);
+      return;
+    }
+    if (staleAction === 'retrigger') {
+      console.log(`PR #${num}: stale-review senza drift del workflow e senza review — close+reopen sulla stessa head, nessun merge di main.`);
+      if (guardedReopen(num, head)) clearStaleReviewLabel(num);
+      return;
+    }
+    console.log(`PR #${num}: stale-review con workflow-validation drift — il merge di main resta necessario.`);
   }
 
   // MERGEABLE → tenta il merge di origin/main nel branch.

@@ -284,6 +284,12 @@ export function isReviewWorkflowDriftPR(filenames) {
   return filenames.some((f) => REVIEW_WORKFLOW_DRIFT_FILES.includes(f));
 }
 
+const TRUSTED_DRIFT_BOT_LOGINS = new Set([
+  'claude[bot]',
+  'github-actions[bot]',
+  'frontaliere-automation[bot]',
+]);
+
 /** A review is usable only when its explicit commit id equals the current HEAD. */
 export function reviewCommitMatchesHead(reviewCommit, head) {
   return Boolean(reviewCommit && head && reviewCommit === head);
@@ -297,12 +303,16 @@ export function reviewCommitMatchesHead(reviewCommit, head) {
  * `meta` = { assoc: author_association, login: user.login, type: user.type }.
  */
 export function isTrustedDriftAuthor(meta) {
-  if (!meta) return false;
-  if (['OWNER', 'MEMBER', 'COLLABORATOR'].includes(meta.assoc)) return true;
-  // Internal automation bots: reviewer (claude*) / github-actions, plus the
-  // frontaliere-automation App by EXACT slug (don't widen to all Bot authors).
+  if (!meta || typeof meta !== 'object'
+      || typeof meta.assoc !== 'string' || meta.assoc.length === 0
+      || typeof meta.login !== 'string' || meta.login.length === 0
+      || typeof meta.type !== 'string' || meta.type.length === 0) return false;
+  if (meta.type === 'User'
+      && ['OWNER', 'MEMBER', 'COLLABORATOR'].includes(meta.assoc)) return true;
+  // Bot identity is an exact, case-insensitive login allowlist. Prefixes and
+  // naked human logins must never inherit the drift-fallback trust.
   return meta.type === 'Bot' &&
-    (/^(claude|github-actions)/i.test(meta.login || '') || meta.login === 'frontaliere-automation[bot]');
+    TRUSTED_DRIFT_BOT_LOGINS.has(String(meta.login || '').toLowerCase());
 }
 
 // Required-headers regex — MIRROR di `.github/workflows/pr-body-contract.yml`
@@ -757,8 +767,8 @@ function main() {
   // run 27739578956). Auto-recovery: aggiorna il branch col PAT (merge di main
   // nella head). Il push del PAT ri-triggera `tests`; al suo completamento il
   // trigger workflow_run di auto-merge ri-valuta gli stessi gate e mergia — la
-  // catena si chiude da sola, zero azioni manuali. La LGTM esistente fa
-  // La review sulla HEAD precedente viene rifiutata dal gate exact-head; il
+  // catena si chiude da sola, zero azioni manuali. La review sulla HEAD
+  // precedente viene rifiutata dal gate exact-head; il
   // trigger successivo deve produrre una nuova review sulla HEAD aggiornata.
   // Esce 0: non è un fallimento, è un retry deferito al prossimo trigger.
   const isStaleHeadRace = (err) => /out of date|not up to date|base branch was modified/i.test(String(err));
