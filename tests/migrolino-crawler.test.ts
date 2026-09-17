@@ -179,11 +179,11 @@ describe('migrolino crawler parser', () => {
       expect(resolved.streetAddress).toBe('Wynenfeldstrasse 3');
     });
 
-    it('does not false-positive match a city merely containing "suhr" as a substring', () => {
+    it('uses a non-empty safe postal fallback for an unresolved city', () => {
       // Word-boundary gate: a hypothetical city like "Wülflingen-Suhrau"
       // must not match \bsuhr\b.
       const resolved = resolveAddress({ city: 'Suhrau' });
-      expect(resolved.postalCode).toBe('');
+      expect(resolved.postalCode).toBe('0000');
       expect(resolved.streetAddress).toBe('Suhrau city centre');
     });
   });

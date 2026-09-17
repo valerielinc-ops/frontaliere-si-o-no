@@ -86,6 +86,7 @@ const CAREER_URL = 'https://www.migrolino-ag.ch/de/karriere';
 
 const SECTOR = 'Retail / Convenience Store';
 const SWISS_COUNTRY_VALUES = new Set(['CH', 'CHE', 'SWITZERLAND', 'SCHWEIZ', 'SUISSE', 'SVIZZERA']);
+const UNKNOWN_CANTON_POSTAL_FALLBACK = '0000';
 
 /**
  * Matches a migrolino job detail href in any of the four locale prefixes AND
@@ -108,7 +109,8 @@ function normalize(value = '') {
  * non-empty fallbacks for a known city. The verified HQ address is city-gated
  * on Suhr; other cities keep their own locality and receive a canton-level
  * postal fallback plus a synthetic city-centre label rather than a misleading
- * employer HQ street.
+ * employer HQ street. An unresolved canton receives a non-empty sentinel
+ * postal code so the structured-data contract is never dropped.
  *
  * @param {{ city?: string, postalCode?: string, streetAddress?: string }} [raw]
  * @param {string} [canton]
@@ -131,7 +133,7 @@ export function resolveAddress(raw = {}, canton = '') {
     postalCode: normalizeSpace(raw.postalCode || '') || (isSuhrHq
       ? HQ.postalCode
       : city
-        ? getCantonPostalFallback(resolvedCanton)
+        ? getCantonPostalFallback(resolvedCanton) || UNKNOWN_CANTON_POSTAL_FALLBACK
         : ''),
     streetAddress: normalizeSpace(raw.streetAddress || '') || (isSuhrHq
       ? HQ.streetAddress
