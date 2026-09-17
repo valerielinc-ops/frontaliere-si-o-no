@@ -369,10 +369,16 @@ jobs:
       # gates is "good enough" to roll back to even if FB/LI API hiccups.
       - name: Mark this deploy as last_known_good
         if: success()
+        env:
+          # Register the BUILD run and its SHA (the artefacts that were
+          # published), not the orchestrating deploy-publish run: a rollback
+          # must point at the run that owns the artefact set (review #8947).
+          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          INPUT_DEPLOY_REF: ${{ inputs.deploy_ref }}
         run: |
           node scripts/deploy-registry.mjs set-good \
-            --run-id="${{ github.run_id }}" \
-            --sha="${{ github.sha }}"
+            --run-id="${INPUT_DEPLOY_RUN_ID:-${GITHUB_RUN_ID}}" \
+            --sha="${INPUT_DEPLOY_REF:-${GITHUB_SHA}}"
 
       - name: Report failure to GitHub Issues
         if: failure()
