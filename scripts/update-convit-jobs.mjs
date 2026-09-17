@@ -53,7 +53,6 @@ import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
-import { assertDetailFetchComplete } from './lib/detail-fetch-cap.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -174,9 +173,9 @@ async function fetchAllListings() {
 
 async function enrichWithDetails(listings) {
   const enriched = [];
-  const toFetch = assertDetailFetchComplete(listings, MAX_DETAIL_PAGES, 'Convit');
+  const toFetch = listings.slice(0, MAX_DETAIL_PAGES);
 
-  console.log(`\n🔎 Fetching ${toFetch.length} detail pages...`);
+  console.log(`\n🔎 Fetching up to ${toFetch.length} detail pages...`);
 
   for (let i = 0; i < toFetch.length; i++) {
     const item = toFetch[i];

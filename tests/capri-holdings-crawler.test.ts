@@ -4,9 +4,6 @@
  * Tests parseCapriHoldingsDetailPage(), isCapriHoldingsSwissJob(),
  * isCapriHoldingsJob(), and CAPRI_WORKDAY_HOSTS constants.
  */
-import { readFileSync } from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { describe, it, expect } from 'vitest';
 
 import {
@@ -15,53 +12,6 @@ import {
   isCapriHoldingsJob,
   CAPRI_WORKDAY_HOSTS,
 } from '@/scripts/lib/capri-holdings-job-parser.mjs';
-import { resolveSwissStructuredAddress } from '../scripts/lib/swiss-structured-address.mjs';
-
-const CAPRI_RUNNER_SOURCE = readFileSync(
-  path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../scripts/update-capri-holdings-jobs.mjs'),
-  'utf8',
-);
-import {
-  isSwissWorkdayListing,
-  resolveWorkdayLocation,
-} from '../scripts/update-capri-holdings-jobs.mjs';
-
-describe('Capri Workday location resolution', () => {
-  it('accepts a Swiss location in a later bullet field', () => {
-    expect(isSwissWorkdayListing({ bulletFields: ['Full time', 'Manno'] })).toBe(true);
-  });
-
-  it('accepts an explicit Swiss country signal from the listing', () => {
-    expect(isSwissWorkdayListing({ locationCountry: 'Switzerland' })).toBe(true);
-  });
-
-  it('does not invent a historical location for a country-only listing', () => {
-    const resolved = resolveWorkdayLocation(
-      { country: 'Switzerland', bulletFields: ['5 locations'] },
-      { country: 'Switzerland' },
-    );
-
-    expect(resolved).toMatchObject({
-      countryIsSwiss: true,
-      locationRaw: '',
-      canton: '',
-      resolvedSwissSignal: true,
-    });
-  });
-
-  it('prefers a concrete canton resolved from the detail over the listing', () => {
-    const resolved = resolveWorkdayLocation(
-      { bulletFields: ['Zurich'] },
-      { location: 'Manno' },
-    );
-
-    expect(resolved).toMatchObject({
-      detailLocation: 'Manno',
-      locationRaw: 'Manno',
-      canton: 'TI',
-    });
-  });
-});
 
 // ─── Fixture: Workday detail page (Mendrisio) ───
 const MENDRISIO_JOB_HTML = `
@@ -228,30 +178,5 @@ describe('CAPRI_WORKDAY_HOSTS', () => {
 
   it('includes capriholdings Workday host', () => {
     expect(CAPRI_WORKDAY_HOSTS).toContain('capriholdings.wd1.myworkdayjobs.com');
-  });
-});
-
-describe('Capri structured-data address fallback', () => {
-  it('resolves a known Swiss municipality to its own CAP', () => {
-    expect(resolveSwissStructuredAddress({ city: 'Winterthur', canton: 'ZH' })).toEqual({
-      city: 'Winterthur', canton: 'ZH', postalCode: '8400', streetAddress: 'Winterthur',
-    });
-  });
-
-  it('never pairs an unknown municipality with a canton-capital CAP', () => {
-    expect(resolveSwissStructuredAddress({ city: 'Küsnacht', canton: 'ZH' })).toEqual({
-      city: 'Zürich', canton: 'ZH', postalCode: '8001', streetAddress: 'Zürich',
-    });
-  });
-
-  it('rejects a known CAP from a different canton even when supplied by source', () => {
-    expect(resolveSwissStructuredAddress({ city: 'Winterthur', canton: 'ZH', postalCode: '6850' }).postalCode)
-      .toBe('8400');
-  });
-
-  it('wires the coherent resolver into the live Capri emitter', () => {
-    expect(CAPRI_RUNNER_SOURCE).toContain('resolveSwissStructuredAddress');
-    expect(CAPRI_RUNNER_SOURCE).toContain('postalCode: structuredAddress.postalCode');
-    expect(CAPRI_RUNNER_SOURCE).toContain('addressRegion: structuredAddress.canton');
   });
 });

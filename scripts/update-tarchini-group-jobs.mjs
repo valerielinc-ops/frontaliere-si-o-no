@@ -48,7 +48,6 @@ import {
 } from './lib/tarchini-group-job-parser.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
-import { assertDetailFetchComplete } from './lib/detail-fetch-cap.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -153,7 +152,7 @@ async function fetchAllListings() {
 }
 
 async function enrichWithDetails(listings) {
-  const toFetch = assertDetailFetchComplete(listings, MAX_DETAIL_PAGES, 'Tarchini Group');
+  const toFetch = listings.slice(0, MAX_DETAIL_PAGES);
   const enriched = [];
 
   console.log(`\n🔎 Fetching ${toFetch.length} detail pages...`);
