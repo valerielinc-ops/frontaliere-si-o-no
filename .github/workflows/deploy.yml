@@ -2977,10 +2977,22 @@ jobs:
               HISTORY_COMMIT_MSG="chore(build-history): append ${ROW_LOCALE} incremental manifest run ${ROW_RUN_ID}" \
               bash scripts/lib/append-build-history-row.sh
 
+      - name: Check jobs SEO HTML cache contents
+        if: success() && env.JOBS_SEO_REUSE == '1'
+        id: jobs-seo-html-content
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -d .cache/incremental-html ] && test -n "$(find .cache/incremental-html -type f -print -quit 2>/dev/null)"; then
+            echo "has_files=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_files=false" >> "$GITHUB_OUTPUT"
+          fi
+
       # Keep the blobs alongside the manifest snapshot for the next opt-in
       # run. A failed/incomplete build must never become the reusable source.
       - name: Save jobs SEO HTML cache
-        if: success() && env.JOBS_SEO_REUSE == '1' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != '' && hashFiles('.cache/incremental-html/**') != ''
+        if: success() && env.JOBS_SEO_REUSE == '1' && steps.jobs-seo-html-content.outputs.has_files == 'true' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
         uses: actions/cache/save@v5
         with:
           path: .cache/incremental-html
@@ -2990,7 +3002,7 @@ jobs:
       # the run-specific key is unique, while restore-keys above picks the
       # newest prior snapshot on the next run for this locale.
       - name: Save incremental manifest cache
-        if: always() && hashFiles('.cache/incremental-manifest/*.jsonl') != ''
+        if: always() && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
         uses: actions/cache/save@v5
         with:
           path: .cache/incremental-manifest
