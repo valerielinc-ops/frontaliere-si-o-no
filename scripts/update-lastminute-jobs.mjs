@@ -803,6 +803,34 @@ async function runDedicatedLastminuteCrawler() {
  * This fetches the complete job description (all sections) directly
  * from the SR API, which the corporate website only loads via JS.
  */
+export function syncLastminuteExistingLocation(existing, detail) {
+  const location = String(detail?.location || '').trim();
+  const canton = String(detail?.canton || '').trim().toUpperCase();
+  if (!existing || !location || !canton) return false;
+
+  const changed =
+    existing.location !== location
+    || existing.addressLocality !== location
+    || existing.addressRegion !== canton
+    || existing.canton !== canton
+    || existing.country !== 'CH'
+    || existing.addressCountry !== 'CH';
+  if (!changed) return false;
+
+  existing.location = location;
+  existing.addressLocality = location;
+  existing.addressRegion = canton;
+  // The detail API exposes the locality/canton but not a reliable street or
+  // postcode. Clear stale source values so post-processing derives a
+  // coherent Swiss structured address from the new locality.
+  existing.postalCode = '';
+  existing.streetAddress = location;
+  existing.canton = canton;
+  existing.country = 'CH';
+  existing.addressCountry = 'CH';
+  return true;
+}
+
 async function enrichFromSmartRecruitersApi(seedUrls, detailsByUrl = new Map()) {
   const allJobs = fs.existsSync(DATA_JOBS)
     ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
@@ -878,25 +906,8 @@ async function enrichFromSmartRecruitersApi(seedUrls, detailsByUrl = new Map()) 
       const sourceContentChanged = normalizeSpace(priorDescription) !== normalizeSpace(detail.description);
       // Only replace if SR API content is richer, or the source text itself drifted
       let existingChanged = false;
-      const locationChanged =
-        existing.location !== detail.location
-        || existing.addressLocality !== detail.location
-        || existing.addressRegion !== detail.canton
-        || existing.canton !== detail.canton
-        || existing.country !== 'CH'
-        || existing.addressCountry !== 'CH';
+      const locationChanged = syncLastminuteExistingLocation(existing, detail);
       if (locationChanged) {
-        existing.location = detail.location;
-        existing.addressLocality = detail.location;
-        existing.addressRegion = detail.canton;
-        // The detail API exposes the locality/canton but not a reliable street
-        // or postcode. Clear stale source values so post-processing derives a
-        // coherent Swiss structured address from the new locality.
-        existing.postalCode = '';
-        existing.streetAddress = detail.location;
-        existing.canton = detail.canton;
-        existing.country = 'CH';
-        existing.addressCountry = 'CH';
         existingChanged = true;
         console.log(`  📍 Updated location for "${detail.title}" (${detail.location}, ${detail.canton})`);
       }

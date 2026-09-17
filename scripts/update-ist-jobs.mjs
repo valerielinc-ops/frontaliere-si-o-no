@@ -376,8 +376,11 @@ export function parseCountryCode(locText = '') {
   if (!/^[A-Z]{2}$/.test(tail)) return '';
   // Inspired's location field also uses the final component for Swiss
   // canton codes (for example, "St. Gallen, SG" and "Fribourg, FR"). A
-  // matching canton is Swiss evidence, not a foreign-country code.
-  return inferAnyCanton(locText) === tail ? 'CH' : tail;
+  // matching canton is Swiss evidence, not a foreign-country code. Resolve
+  // only the locality before the suffix so a mismatched code remains foreign
+  // (for example, "Zurich, FR").
+  const locality = parts.slice(0, -1).join(',').trim();
+  return inferAnyCanton(locality) === tail ? 'CH' : tail;
 }
 
 /* ── Job building ──────────────────────────────────────────── */

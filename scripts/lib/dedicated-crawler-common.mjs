@@ -6179,17 +6179,17 @@ const FOREIGN_COUNTRY_CODES = [
   'MX', 'ZA', 'SE', 'NO', 'DK', 'FI', 'PL', 'CZ', 'HU', 'RO', 'BG', 'HR', 'SI',
   'SK', 'RS', 'UA', 'RU', 'FR',
 ];
-// ISO-like tokens are accepted only in a labelled country field or as the
-// final component of a comma/semicolon-separated location. A bare token is
-// too ambiguous: "de" is ordinary prose in "Rue de la Gare", while SG/FR
-// can be Swiss canton codes.
+// ISO-like tokens are accepted only in a labelled country field or after a
+// non-empty location component. A final code is Swiss only when the locality
+// before it resolves to the same canton; this keeps SG/FR canton suffixes
+// valid without allowing a mismatched country signal such as "Zurich, FR".
 const FOREIGN_COUNTRY_CODE_PATTERN = `(${FOREIGN_COUNTRY_CODES.join('|')})`;
 const EXPLICIT_FOREIGN_COUNTRY_FIELD_CODE_RE = new RegExp(
   `\\b(?:addresscountry|country(?:[_\\s-]+(?:code|iso))?|countrycode|isocountry(?:[_\\s-]+code)?|land|pays|paese|codice[_\\s-]+paese)\\b\\s*[:=_-]\\s*["']?${FOREIGN_COUNTRY_CODE_PATTERN}["']?(?=\\s*(?:[,;)]|$))`,
   'iu',
 );
 const FINAL_FOREIGN_COUNTRY_CODE_RE = new RegExp(
-  `(?:^|[,;])\\s*${FOREIGN_COUNTRY_CODE_PATTERN}(?=\\s*(?:\\)|$))`,
+  `([^,;]+)[,;]\\s*${FOREIGN_COUNTRY_CODE_PATTERN}(?=\\s*(?:\\)|$))`,
   'giu',
 );
 
@@ -6199,12 +6199,13 @@ function hasExplicitForeignCountryCode(lower) {
   if (EXPLICIT_FOREIGN_COUNTRY_FIELD_CODE_RE.test(lower)) return true;
 
   for (const match of lower.matchAll(FINAL_FOREIGN_COUNTRY_CODE_RE)) {
-    const code = String(match[1] || '').toUpperCase();
+    const location = String(match[1] || '').trim();
+    const code = String(match[2] || '').toUpperCase();
     // A final code is Swiss only when it agrees with a Swiss municipality in
     // the same field; otherwise it remains an explicit negative country
     // signal (e.g. "Zurich, FR"). This avoids treating SG/FR canton codes as
     // foreign while still recognizing a mismatched country component.
-    if (inferAnyCanton(lower) === code) continue;
+    if (inferAnyCanton(location) === code) continue;
     return true;
   }
   return false;

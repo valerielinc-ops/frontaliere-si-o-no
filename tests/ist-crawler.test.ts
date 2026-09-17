@@ -9,6 +9,7 @@ describe('IST country-code parsing', () => {
 
   it('retains a genuinely foreign final country code', () => {
     expect(parseCountryCode('Como, IT')).toBe('IT');
+    expect(parseCountryCode('Zurich, FR')).toBe('FR');
   });
 });
 

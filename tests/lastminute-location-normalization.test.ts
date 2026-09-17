@@ -8,6 +8,7 @@ import {
   normalizeLastminuteRow,
   parseLastminuteDeclaredTotal,
   resolveSwissLastminuteLocation,
+  syncLastminuteExistingLocation,
 } from '@/scripts/update-lastminute-jobs.mjs';
 
 describe('lastminute location normalization', () => {
@@ -60,6 +61,31 @@ describe('lastminute location normalization', () => {
   it('rejects a Swiss municipality paired with an explicit foreign country', () => {
     expect(resolveSwissLastminuteLocation({ location: 'Chiasso, Germany' })).toBeNull();
     expect(resolveSwissLastminuteLocation({ location: 'Chiasso, DE' })).toBeNull();
+  });
+
+  it('syncs a moved job location even when its description is unchanged', () => {
+    const existing = {
+      location: 'Zürich',
+      addressLocality: 'Zürich',
+      addressRegion: 'ZH',
+      postalCode: '8001',
+      streetAddress: 'Bahnhofstrasse 1',
+      canton: 'ZH',
+      country: 'CH',
+      addressCountry: 'CH',
+    };
+
+    expect(syncLastminuteExistingLocation(existing, { location: 'Chiasso', canton: 'TI' })).toBe(true);
+    expect(existing).toMatchObject({
+      location: 'Chiasso',
+      addressLocality: 'Chiasso',
+      addressRegion: 'TI',
+      postalCode: '',
+      streetAddress: 'Chiasso',
+      canton: 'TI',
+      country: 'CH',
+      addressCountry: 'CH',
+    });
   });
 
   it('fails closed when the listing parser returns zero detail URLs', async () => {
