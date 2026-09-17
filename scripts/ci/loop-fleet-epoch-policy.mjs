@@ -15,6 +15,27 @@ export const LEDGER_EPOCH_LIMITS = Object.freeze({
   maxAgeMinutes: 20,
 });
 
+export const LEDGER_BATCH_BRANCH_RE = /^chore\/loop-fleet-ledger-L(?:[0-9]|1[01])-[0-9]+-[0-9]+$/u;
+export const LIFECYCLE_LEDGER_BRANCH_RE = /^chore\/loop-fleet-ledger-lifecycle-[0-9]+-[0-9]+$/u;
+
+export function isBridgeLedgerBranch(branch) {
+  return branch === 'chore/loop-fleet-ledger' || LEDGER_BATCH_BRANCH_RE.test(String(branch || ''));
+}
+
+export function isLifecycleLedgerBranch(branch) {
+  return LIFECYCLE_LEDGER_BRANCH_RE.test(String(branch || ''));
+}
+
+export function buildLedgerBatchBranch({ loopId, runId, attempt } = {}) {
+  if (!/^L(?:[0-9]|1[01])$/u.test(String(loopId || ''))) {
+    throw new TypeError('loopId must be L0-L11');
+  }
+  for (const [value, name] of [[runId, 'runId'], [attempt, 'attempt']]) {
+    if (!/^\d+$/u.test(String(value || ''))) throw new TypeError(`${name} must be numeric`);
+  }
+  return `chore/loop-fleet-ledger-${loopId}-${runId}-${attempt}`;
+}
+
 function nonNegativeInteger(value, name) {
   if (!Number.isSafeInteger(value) || value < 0) {
     throw new TypeError(`${name} must be a non-negative safe integer`);
@@ -44,11 +65,20 @@ export function ledgerEpochDecision({
   if (ageMinutes !== null) nonNegativeInteger(ageMinutes, 'ageMinutes');
 
   if (!openPr) {
-    return { allow: true, reason: 'no-open-epoch', batchCount: batches, ageMinutes };
+    return {
+      allow: true,
+      route: 'canonical-branch',
+      preserveSource: true,
+      reason: 'no-open-epoch',
+      batchCount: batches,
+      ageMinutes,
+    };
   }
   if (batches >= limits.maxBatches) {
     return {
       allow: false,
+      route: 'new-batch-branch',
+      preserveSource: true,
       reason: 'batch-cap-reached',
       batchCount: batches,
       ageMinutes,
@@ -59,6 +89,8 @@ export function ledgerEpochDecision({
   if (ageMinutes === null) {
     return {
       allow: false,
+      route: 'new-batch-branch',
+      preserveSource: true,
       reason: 'epoch-age-unavailable',
       batchCount: batches,
       ageMinutes,
@@ -69,6 +101,8 @@ export function ledgerEpochDecision({
   if (ageMinutes >= limits.maxAgeMinutes) {
     return {
       allow: false,
+      route: 'new-batch-branch',
+      preserveSource: true,
       reason: 'age-cap-reached',
       batchCount: batches,
       ageMinutes,
@@ -78,6 +112,8 @@ export function ledgerEpochDecision({
   }
   return {
     allow: true,
+    route: 'open-epoch',
+    preserveSource: true,
     reason: 'within-bounds',
     batchCount: batches,
     ageMinutes,
