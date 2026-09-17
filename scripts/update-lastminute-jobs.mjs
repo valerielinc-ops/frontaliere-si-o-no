@@ -666,6 +666,7 @@ async function runDedicatedLastminuteCrawler() {
   return runDedicatedBaseCrawler({
     root: ROOT,
     companyKeys: [LASTMINUTE_KEY],
+    dataJobsPath: DATA_JOBS,
     disableWorkdayForce: true,
     forceLocalizationWhenAiEnabledOnly: true,
     // Discovery and source enrichment are handled above by the complete

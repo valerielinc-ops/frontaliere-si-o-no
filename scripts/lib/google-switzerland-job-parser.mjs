@@ -74,7 +74,7 @@ export const GOOGLE_SWITZERLAND_COMPANY_DOMAIN = 'google.com';
 
 const CAREER_URL = 'https://www.google.com/about/careers/applications/jobs/results/?location=Switzerland';
 const SEARCH_LOCATION_QS = 'location=Switzerland';
-const MAX_LISTING_PAGES = 8; // safety cap — 61 jobs / ~20 per page observed live ≈ 4 pages
+const MAX_LISTING_PAGES = 8; // safety cap — country-level results paginate at ~20/page
 
 /* ── HQ fallback (Brandschenkestrasse 110, 8002 Zürich, ZH) ──────────
  * Registered seat of "Google Switzerland GmbH" (Swiss commercial register
