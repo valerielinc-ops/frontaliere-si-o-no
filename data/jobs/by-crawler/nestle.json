@@ -3667,7 +3667,7 @@
       "slugByLocale": {
         "it": "paralegal-ip-nestle-vevey",
         "en": "ip-paralegal-nestle-ch",
-        "de": "ip-paralegal-nestle-ch",
+        "de": "ip-rechtswidrigkeit-nestle-vevey",
         "fr": "ip-paralegal-nestle-vevey"
       },
       "company": "Nestlé",
@@ -3712,6 +3712,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ip-paralegal-nestle-ch"
+        ],
+        "de": [
           "ip-paralegal-nestle-ch"
         ]
       },
