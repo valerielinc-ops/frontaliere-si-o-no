@@ -13,7 +13,11 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { fetchLaderachJobUrls, fetchLaderachDetailPage, slugify, inferEmploymentType } from './lib/laderach-job-parser.mjs';
-import { inferAnyCanton, isKnownSwissMunicipality } from './lib/target-swiss-locations.mjs';
+import {
+  inferAnyCanton,
+  isTargetSwissLocation,
+  swissCityFromLocationField,
+} from './lib/target-swiss-locations.mjs';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -70,17 +74,23 @@ async function main() {
     if (!detail?.description || detail.description.length < 120) { console.log(`  ⚠️  ${raw.title}: too short — skipping`); continue; }
     const description = detail.description;
     // Validate that this is a Swiss location.
-    // Use isKnownSwissMunicipality (BFS-authoritative) as the gate to avoid
-    // permissive substring matches like "Freiburg im Breisgau" → FR canton.
+    // Use the shared all-canton Swiss-location gate; the canton is derived
+    // from the same source for each posting.
     const rawLocation = String(raw.location || '');
     const inferredCanton = inferAnyCanton(rawLocation);
-    const isSwiss = isKnownSwissMunicipality(rawLocation);
+    // A foreign locality can share a name with a Swiss canton (for example
+    // Freiburg im Breisgau vs. canton FR). Require a recognized Swiss
+    // municipality or an explicit country marker after the shared gate.
+    const hasSwissCity = Boolean(swissCityFromLocationField(rawLocation));
+    const hasSwissCountry = /\b(?:ch|switzerland|schweiz|suisse|svizzera)\b/i.test(rawLocation);
+    const isSwiss = isTargetSwissLocation(rawLocation, { includeBorderProximity: false })
+      && (hasSwissCity || hasSwissCountry);
     if (!isSwiss) {
       console.log(`  ⚠️  Non-Swiss location (${raw.location}) — skipping: ${raw.title}`);
       continue;
     }
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
-    const jobSlug = slugify(`${raw.title}-laderach-${safeLocationToken(raw.location)}`);
+    const jobSlug = slugify(`${raw.title}-laderach-${safeLocationToken(raw.location, 'Switzerland')}`);
     parsedJobs.push({
       id: `laderach-${urlHash}`, slug: jobSlug,
       slugByLocale: { de: jobSlug },
@@ -89,8 +99,8 @@ async function main() {
       description, descriptionByLocale: { de: description },
       sourceLang: detectLang(description || raw.title, 'de'),
       requirements: [], requirementsByLocale: { de: [] },
-      location: raw.location || 'Ennenda', canton: inferredCanton || 'GL',
-      addressLocality: raw.location || 'Ennenda', addressCountry: 'CH',
+      location: rawLocation, canton: inferredCanton,
+      addressLocality: rawLocation, addressCountry: 'CH',
       category: 'manufacturing', contract: 'full-time',
       employmentType: inferEmploymentType(raw.title, description),
       currency: 'CHF', featured: false, postedDate: new Date().toISOString().slice(0, 10),

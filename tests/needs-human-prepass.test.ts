@@ -20,6 +20,26 @@ import {
   MONITOR_TITLE_PATTERNS,
   STALE_BLOCK_VERDICTS,
 } from '../scripts/ci/needs-human-prepass.mjs';
+import { classifyAutomationRisk } from '../scripts/ci/lib/automation-risk-policy.mjs';
+
+describe('needs-human — tracking, non veto della PR', () => {
+  it('una issue monitor con la label resta instradabile dal pre-pass', () => {
+    expect(prepassDecision({ title: 'CI Failure: tests', labels: ['needs-human'] }).action)
+      .toBe('requeue');
+  });
+
+  it('la stessa label non blocca la policy sulla superficie pull-request', () => {
+    expect(classifyAutomationRisk({
+      title: 'follow-up: safe maintenance',
+      body: 'A deterministic maintenance change with a complete safe path.',
+      labels: ['needs-human'],
+      category: 'follow-up',
+      paths: ['src/safe.ts'],
+      pathsComplete: true,
+      surface: 'pull-request',
+    })).toMatchObject({ blocked: false, decision: 'allow', denyCode: null });
+  });
+});
 
 describe('prepassDecision — famiglie di monitor riconosciute positivamente', () => {
   it.each([
