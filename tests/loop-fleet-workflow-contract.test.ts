@@ -276,11 +276,17 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('export GIT_TERMINAL_PROMPT=0');
     expect(source).toContain('export GH_PAGER=cat');
     expect(source).toContain('if [ -z "$open_pr" ]; then\n            base_branch_ref=$(bounded_remote git ls-remote --heads origin');
+    expect(source).toContain('/scripts/ci/loop-fleet-epoch-policy.mjs');
+    expect(source).toContain('--json number,headRefName,baseRefName,createdAt');
+    expect(source).toContain('epoch_batch_count=$(git log "origin/$open_branch"');
+    expect(source).toContain('--batch-count "$epoch_batch_count"');
+    expect(source).toContain('--age-minutes "$epoch_age_minutes"');
+    expect(source).toContain('lifecycle ledger epoch frozen for PR #$open_pr');
     for (const command of [
       'bounded_remote git fetch origin main',
       'bounded_remote gh pr list',
       'bounded_remote git ls-remote --heads origin',
-      'bounded_remote git fetch origin "$base_branch"',
+      'bounded_remote git fetch origin "$open_branch"',
       'bounded_remote gh pr edit',
       'bounded_remote gh pr create',
     ]) {
