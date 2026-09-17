@@ -188,6 +188,7 @@ export async function fetchAllElpromJobs() {
       // normalizer supplies safe fallbacks when the source omits them.
       postalCode: normalizeSpace(listing.postalCode || ''),
       streetAddress: normalizeSpace(listing.streetAddress || ''),
+      baseSalary: null,
       category: detectCategory(title),
       contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
       employmentType,
