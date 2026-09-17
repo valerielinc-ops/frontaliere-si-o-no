@@ -6178,7 +6178,7 @@ const FOREIGN_COUNTRY_CODES = [
   'AT', 'DE', 'IT', 'NL', 'ES', 'PT', 'GB', 'UK', 'US', 'CA', 'AU', 'CN', 'JP',
   'IN', 'SG', 'TH', 'ID', 'VN', 'PH', 'TW', 'AE', 'SA', 'QA', 'IL', 'TR', 'BR',
   'MX', 'ZA', 'SE', 'NO', 'DK', 'FI', 'PL', 'CZ', 'HU', 'RO', 'BG', 'HR', 'SI',
-  'SK', 'RS', 'UA', 'RU', 'FR',
+  'SK', 'RS', 'UA', 'RU', 'FR', 'BE',
 ];
 const SWISS_LOCATION_CODES = new Set(['CH', ...ALL_CANTON_CODES]);
 // ISO-like tokens are accepted only in a labelled country field or after a
@@ -6209,10 +6209,14 @@ function hasExplicitForeignCountryCode(lower) {
     // otherwise a known Swiss locality with a mismatched code remains an
     // explicit negative country signal (e.g. "Zurich, FR").
     if (inferAnyCanton(location) === code) continue;
-    // The 26 canton codes and CH are ambiguous without an explicit
-    // country/name context. Do not turn a bare address suffix such as "Rue de
-    // la Gare, AG" into a foreign-country verdict.
+    // BE is both Belgium's country code and Bern's canton code. Keep it
+    // ambiguous for a Swiss address-shaped prefix, but treat an unresolved
+    // locality without an address number as an explicit country context
+    // (for example, Hasselt, BE). The other canton-shaped suffixes remain
+    // ambiguous here because their source fields historically use the code
+    // as an address suffix without a resolvable locality.
     if (SWISS_LOCATION_CODES.has(code) && !isTargetSwissLocation(location, { includeBorderProximity: false })) {
+      if (code === 'BE' && !isKnownSwissMunicipality(location) && !/\d/u.test(location)) return true;
       continue;
     }
     return true;

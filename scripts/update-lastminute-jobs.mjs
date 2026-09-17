@@ -312,7 +312,7 @@ export function hasLastminuteNextPageSignal(html = '', nextPage = 2) {
 export function parseLastminuteDeclaredTotal(html = '') {
   const source = String(html || '');
   const totals = [
-    ...source.matchAll(/\b(\d+)\s+(?:open\s+positions|positions\s+found)\b/giu),
+    ...source.matchAll(/\b(\d+)\s+(?:open\s+positions?|positions?\s+found)\b/giu),
   ]
     .map((match) => Number(match[1]))
     .filter((value) => Number.isInteger(value));

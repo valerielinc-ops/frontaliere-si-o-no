@@ -236,6 +236,8 @@ describe('lastminute location normalization', () => {
 
   it('parses the listing total from the source count labels', () => {
     expect(parseLastminuteDeclaredTotal('We currently have 7 open positions. 7 positions found')).toBe(7);
+    expect(parseLastminuteDeclaredTotal('We currently have 1 open position')).toBe(1);
+    expect(parseLastminuteDeclaredTotal('1 position found')).toBe(1);
     expect(parseLastminuteDeclaredTotal('7 open positions; 6 positions found')).toBeNull();
     expect(parseLastminuteDeclaredTotal('<div>No count available</div>')).toBeNull();
   });
