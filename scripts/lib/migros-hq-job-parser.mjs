@@ -155,9 +155,9 @@ function detectEmploymentType(text = '') {
  * URLs ending in a UUID-shaped id, which excludes non-job company/brand pages
  * (e.g. "arbeiten-bei-uns", "karrieremoeglichkeiten").
  */
-async function fetchHqJobUrls() {
+async function fetchHqJobUrls({ fetchPage = fetchHtml } = {}) {
   console.log(`  📄 Fetching sitemap: ${SITEMAP_URL}`);
-  const xml = await fetchHtml(SITEMAP_URL, { headers: { Accept: 'application/xml,text/xml,*/*' } });
+  const xml = await fetchPage(SITEMAP_URL, { headers: { Accept: 'application/xml,text/xml,*/*' } });
 
   const allUrls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)].map((m) => m[1].trim());
   const jobUrls = [...new Set(allUrls.filter((url) => url.includes(COMPANY_PATH_SEGMENT) && JOB_URL_RE.test(url)))];
@@ -185,7 +185,10 @@ function extractJobPosting(html = '') {
   return null;
 }
 
-async function fetchJobListings(jobUrls) {
+async function fetchJobListings(jobUrls, {
+  fetchPage = fetchHtml,
+  delayMs = 300,
+} = {}) {
   const listings = [];
   let fetchFailures = 0;
   let missingJobPosting = 0;
@@ -193,7 +196,7 @@ async function fetchJobListings(jobUrls) {
   for (const url of jobUrls) {
     let html = '';
     try {
-      html = await fetchHtml(url);
+      html = await fetchPage(url);
     } catch (err) {
       fetchFailures += 1;
       console.warn(`  ⚠️ Failed to fetch ${url}: ${err.message}`);
@@ -227,7 +230,7 @@ async function fetchJobListings(jobUrls) {
       addressRegion: address.addressRegion || '',
     });
 
-    await new Promise((r) => setTimeout(r, 300)); // polite rate limit
+    await new Promise((r) => setTimeout(r, delayMs)); // polite rate limit
   }
 
   return { listings, fetchFailures, missingJobPosting };
@@ -258,18 +261,27 @@ export function resolveMigrosHqSourceGeography(addressLocality = '', addressRegi
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllMigrosHqJobs() {
+export async function fetchAllMigrosHqJobs({
+  fetchPage = fetchHtml,
+  delayMs = 300,
+} = {}) {
   console.log(`🔍 Fetching Migros HQ Zürich jobs`);
   console.log(`   Source: ${SITEMAP_URL}\n`);
 
-  const jobUrls = await fetchHqJobUrls();
+  const jobUrls = await fetchHqJobUrls({ fetchPage });
   if (!jobUrls || jobUrls.length === 0) {
     console.warn('⚠️ No Migros HQ job URLs found in sitemap.');
     return [];
   }
 
-  const listingResult = await fetchJobListings(jobUrls);
+  const listingResult = await fetchJobListings(jobUrls, { fetchPage, delayMs });
   const { listings, fetchFailures, missingJobPosting } = listingResult;
+  if (fetchFailures > 0 || missingJobPosting > 0) {
+    throw new Error(
+      `Migros HQ detail extraction incomplete: ${fetchFailures + missingJobPosting}/${jobUrls.length} source detail page(s) failed or lacked JobPosting `
+      + `(fetch failures=${fetchFailures}, missing JobPosting=${missingJobPosting}); refusing to publish a partial dataset`,
+    );
+  }
   if (!listings || listings.length === 0) {
     throw new Error(
       `Migros HQ source exposed ${jobUrls.length} job URLs but 0 listings were parsed `

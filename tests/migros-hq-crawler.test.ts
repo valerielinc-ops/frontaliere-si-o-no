@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   MIGROS_HQ_KEY,
   MIGROS_HQ_COMPANY_NAME,
+  fetchAllMigrosHqJobs,
   isMigrosHqJob,
   isTrustedDomain,
   resolveMigrosHqSourceGeography,
@@ -71,6 +72,17 @@ describe('Migros HQ Zürich crawler parser', () => {
       expect(resolveMigrosHqSourceGeography('', '')).toBeNull();
       expect(resolveMigrosHqSourceGeography('Berlin', '')).toBeNull();
     });
+  });
+
+  it('fails closed when a sitemap detail page cannot be read', async () => {
+    const detailUrl = 'https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/test-role/5ebe9a24-db13-4fee-a3b1-b041531b7f2b';
+    await expect(fetchAllMigrosHqJobs({
+      fetchPage: async (url: string) => {
+        if (url === 'https://jobs.migros.ch/de/sitemap.xml') return `<url><loc>${detailUrl}</loc></url>`;
+        throw new Error('synthetic detail outage');
+      },
+      delayMs: 0,
+    })).rejects.toThrow(/refusing to publish a partial dataset/);
   });
 
   // ── isTrustedDomain ──
