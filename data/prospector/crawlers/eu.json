@@ -1,23 +1,24 @@
 {
   "companyKey": "eu",
-  "companyName": "Posizioni aperte presso Proton",
+  "companyName": "BakerHicks",
   "companyHost": "job-boards.eu.greenhouse.io",
   "platform": "greenhouse.io",
   "mode": "template",
   "seedUrls": [
-    "https://job-boards.eu.greenhouse.io/proton"
+    "https://job-boards.eu.greenhouse.io/bakerhicks"
   ],
-  "detailTemplate": "/proton/jobs/*",
+  "detailTemplate": "/bakerhicks/jobs/*",
   "detailEnrichment": true,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 50,
   "sampleTitles": [
-    "Senior Backend Engineer (Account) Paris; Geneva",
-    "Frontend Engineer (B2B Products) Taipei; Geneva; Skopje",
-    "Customer Support Advisor Skopje",
-    "Senior Android Software Engineer - Geneva Geneva",
-    "Senior Android Software Engineer - London London"
+    "2027 Graduate - Architectural Technician Warwick",
+    "2027 Graduate Architecture – Part II Warwick",
+    "2027 Graduate Architecture – Part II Manchester",
+    "Architect - Aviation (Contract) London",
+    "Senior Architectural Technologist (Contract) Nuovo London; Manchester; Warwick"
   ],
+  "canton": "BS",
   "sourceLang": "it",
-  "learnedAt": "2026-09-15T19:36:29.717Z"
+  "learnedAt": "2026-09-17T10:09:02.050Z"
 }
