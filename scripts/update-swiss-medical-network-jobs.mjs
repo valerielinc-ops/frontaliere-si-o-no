@@ -190,9 +190,9 @@ function buildFallbackDescription(title, city, locale = 'en') {
 function buildJobFromApi(posting, detailDescription = '', applyUrl = '', postingUrl = '') {
   const slug = slugify(posting.title, 'swiss-medical-network');
   const city = posting.city || '';
-  // Real canton from the API location. No Ticino default: leave blank when
+  // Real canton from the API location. No fixed-canton default: leave blank when
   // unresolved (the downstream PLZ/locality hardening fills it) rather than
-  // mislabeling a non-TI clinic as Ticino.
+  // mislabeling a clinic.
   const canton = posting.canton || inferAnyCanton(city) || '';
 
   let descEn = detailDescription;
