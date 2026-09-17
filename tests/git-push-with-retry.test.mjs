@@ -30,7 +30,13 @@ function configureIdentity(cwd) {
   git(cwd, ['config', 'user.email', 'test@example.invalid']);
 }
 
-async function setupScenario({ overlappingWip = false, stagedOnlyWip = false, untrackedWip = false } = {}) {
+async function setupScenario({
+  overlappingWip = false,
+  deletedWip = false,
+  stagedOnlyWip = false,
+  stagedOnlyAddedWip = false,
+  untrackedWip = false,
+} = {}) {
   const root = await mkdtemp(join(tmpdir(), 'git-push-with-retry-'));
   const bare = join(root, 'remote.git');
   const seed = join(root, 'seed');
@@ -62,6 +68,9 @@ async function setupScenario({ overlappingWip = false, stagedOnlyWip = false, un
   git(local, ['add', 'conflict.txt']);
   git(local, ['commit', '-m', 'local change']);
   await writeFile(join(local, 'wip.txt'), 'dirty WIP\n');
+  if (deletedWip) {
+    await rm(join(local, 'wip.txt'));
+  }
   if (overlappingWip) {
     await writeFile(join(local, 'conflict.txt'), 'dirty WIP conflict\n');
   }
@@ -71,6 +80,11 @@ async function setupScenario({ overlappingWip = false, stagedOnlyWip = false, un
     git(local, ['add', 'staged-only.txt']);
     await rm(join(local, 'staged-only.txt'));
     await writeFile(join(local, 'staged-only.txt'), 'base\n');
+  }
+  if (stagedOnlyAddedWip) {
+    await writeFile(join(local, 'staged-only-added.txt'), 'staged-only WIP\n');
+    git(local, ['add', 'staged-only-added.txt']);
+    await rm(join(local, 'staged-only-added.txt'));
   }
   if (untrackedWip) {
     await writeFile(join(local, 'untracked-wip.txt'), 'untracked WIP\n');
@@ -204,6 +218,36 @@ test('in-place resolver preserves WIP staged only in the original stash index', 
   }
 });
 
+test('in-place resolver restores a never-committed staged-only WIP path', async () => {
+  const scenario = await setupScenario({ stagedOnlyAddedWip: true });
+  const resolver = join(scenario.root, 'resolver.sh');
+  try {
+    await writeFile(
+      resolver,
+      "#!/bin/sh\nset -eu\ntest \"$(cat staged-only-added.txt)\" = \"staged-only WIP\"\ntest -z \"$(git ls-tree -r --name-only 'stash@{0}^1' -- staged-only-added.txt)\"\ntest -n \"$(git ls-tree -r --name-only 'stash@{0}^2' -- staged-only-added.txt)\"\nprintf 'resolved\\n' > conflict.txt\ngit add -A\n",
+    );
+    await chmod(resolver, 0o755);
+
+    const result = invoke(scenario, ['--in-place-resolver-cmd', `bash '${resolver}'`]);
+
+    assert.equal(result.status, 0, result.output);
+    await assertWipRestored(scenario);
+    assert.equal(await readFile(scenario.file('staged-only-added.txt'), 'utf8'), 'staged-only WIP\n');
+    const committedWip = command(
+      'git',
+      ['cat-file', '-e', 'HEAD:staged-only-added.txt'],
+      scenario.local,
+    );
+    assert.notEqual(committedWip.status, 0, committedWip.output);
+    assert.match(
+      command('git', ['status', '--porcelain', '--', 'staged-only-added.txt'], scenario.local).output,
+      /\?\? staged-only-added\.txt/,
+    );
+  } finally {
+    await rm(scenario.root, { recursive: true, force: true });
+  }
+});
+
 test('in-place resolver leaves an unstaged untracked WIP path available', async () => {
   const scenario = await setupScenario({ untrackedWip: true });
   const resolver = join(scenario.root, 'resolver.sh');
@@ -240,6 +284,28 @@ test('in-place resolver keeps broadly staged original WIP out of the rebased com
     await assertWipRestored(scenario);
     assert.equal(git(scenario.local, ['show', 'HEAD:wip.txt']), 'base');
     assert.equal(await readFile(scenario.file('conflict.txt'), 'utf8'), 'resolved\n');
+  } finally {
+    await rm(scenario.root, { recursive: true, force: true });
+  }
+});
+
+test('in-place resolver keeps a broadly staged WIP deletion out of the rebased commit', async () => {
+  const scenario = await setupScenario({ deletedWip: true });
+  const resolver = join(scenario.root, 'resolver.sh');
+  try {
+    await writeFile(
+      resolver,
+      "#!/bin/sh\nset -eu\ntest ! -e wip.txt\nprintf 'resolved\\n' > conflict.txt\ngit add -A\n",
+    );
+    await chmod(resolver, 0o755);
+
+    const result = invoke(scenario, ['--in-place-resolver-cmd', `bash '${resolver}'`]);
+
+    assert.equal(result.status, 0, result.output);
+    assert.equal(git(scenario.local, ['show', 'HEAD:wip.txt']), 'base');
+    assert.equal(await readFile(scenario.file('conflict.txt'), 'utf8'), 'resolved\n');
+    assert.equal(command('test', ['-e', scenario.file('wip.txt')]).status, 1);
+    assert.equal(git(scenario.local, ['stash', 'list']), '');
   } finally {
     await rm(scenario.root, { recursive: true, force: true });
   }
