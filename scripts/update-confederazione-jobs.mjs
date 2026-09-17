@@ -351,7 +351,7 @@ function buildLocalizedContent(job = {}, sourceLang = 'it') {
     descriptionByLocale: { [sourceLang]: sourceDesc || title },
     // Slug-only guard: `job.city` can be the literal "undefined"/"null" string
     // (truthy) → `-undefined` in an active slug (#952, class #900/#901). Fallback is
-    // `regionLabel` (Ticino/Grigioni), region-correct. addressLocality untouched.
+    // the localized region label, region-correct. addressLocality untouched.
     slugByLocale: { [sourceLang]: slugify(`${title} confederazione ${safeLocationToken(city, regionLabel)}`) },
   };
 }
@@ -605,7 +605,7 @@ function validateLocales() {
     },
     untrustedDomainReason: 'url_not_admin_domain',
     failWhenNoJobs: false,
-    noJobsMessage: 'No Confederazione Ticino jobs found after dedicated crawl.',
+    noJobsMessage: 'No Confederazione Swiss jobs found after dedicated crawl.',
     detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
     maxToleratedMissingDescriptions: 20,
   });

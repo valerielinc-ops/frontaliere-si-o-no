@@ -25,6 +25,7 @@ import {
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -38,7 +39,7 @@ const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
 const PUBLIC_DATA_JOBS = `${DATA_JOBS}.public.json`;
 const COMPANY_NAME = 'Alpiq';
 
-/** Alpiq location → postal code map (Swiss locations, Ticino focus) */
+/** Alpiq location → postal code map for known Swiss locations. */
 const ALPIQ_PLZ = {
   airolo: '6780', biasca: '6710', locarno: '6600', bellinzona: '6500',
   lugano: '6900', mendrisio: '6850', chiasso: '6830', rodi: '6772',
@@ -106,17 +107,18 @@ async function main() {
     const jobSlug = slugify(`${raw.title}-alpiq-${safeLocationToken(raw.location, 'switzerland')}`);
     const desc = raw.description || `Posizione aperta presso Alpiq (${raw.location || 'Svizzera'}). Alpiq \u00e8 uno dei principali produttori di energia in Svizzera con centrali idroelettriche in Ticino. Candidati tramite il portale SuccessFactors.`;
     const sourceLang = detectLang(desc || raw.title, 'en');
+    const canton = inferAnyCanton(raw.location || '');
     return {
       id: `alpiq-${urlHash}`, slug: jobSlug, slugByLocale: { it: jobSlug },
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'alpiq.com',
       title: raw.title, titleByLocale: { it: raw.title },
       description: desc, descriptionByLocale: { [sourceLang]: desc, it: desc }, requirements: [], requirementsByLocale: { it: [] },
       location: raw.location || 'Switzerland',
-      canton: raw.location && /airolo|biasca|locarno|bellinzona|lugano|mendrisio|chiasso|rodi|ritom|piotta/i.test(raw.location) ? 'TI' : '',
+      canton,
       postalCode: ALPIQ_PLZ[raw.location?.toLowerCase()] || '',
       streetAddress: '',
       addressLocality: raw.location || 'Switzerland',
-      addressRegion: raw.location && /airolo|biasca|locarno|bellinzona|lugano|mendrisio|chiasso|rodi|ritom|piotta/i.test(raw.location) ? 'TI' : '',
+      addressRegion: canton,
       addressCountry: 'CH',
       employmentType: inferEmploymentType(raw.title, raw.description || '', raw.percentage || ''),
       category: 'energy', contract: raw.contractType === 'Temporary' ? 'temporary' : 'full-time',

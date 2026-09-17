@@ -3,11 +3,10 @@
  * Dedicated Mikron Group crawler runner.
  *
  * Mikron Group is a Swiss industrial/precision manufacturing company
- * with the Machining division headquartered in Agno, Canton Ticino.
+ * with Swiss sites serving its Machining and Automation divisions.
  *
  * Career page: https://www.mikron.com/en/group/our-people/join-us/jobs
- * Agno filter: ?location=Switzerland%2C+Agno
- * The page uses Drupal Views with AJAX filtering.
+ * The page uses a national Drupal Views listing with location metadata.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -105,11 +104,12 @@ function detectEmploymentType(title = '') {
 /**
  * Build a rich fallback description (>50 words) when detail page yields nothing.
  */
-function buildFallbackDescription(title, division, locale = 'en') {
+function buildFallbackDescription(title, division, locale = 'en', city = '') {
+  const site = String(city || (locale === 'it' ? 'una sede svizzera' : 'a Swiss site')).trim();
   if (locale === 'it') {
-    return `Posizione aperta: ${title} presso Mikron Group ad Agno, Cantone Ticino, Svizzera.${division ? ` Divisione: ${division}.` : ''}\n\nMikron Group è un leader globale nella produzione di precisione e automazione, con sede a Bienne (Svizzera) e operazioni in tutto il mondo. La divisione Mikron Machining, con sede ad Agno (Ticino), è specializzata nella progettazione e produzione di sistemi di lavorazione ad alta precisione per l'industria automobilistica, medicale, elettronica e dell'orologeria. L'azienda offre un ambiente di lavoro dinamico, possibilità di crescita professionale, una cultura aziendale positiva con forte spirito di squadra, e una retribuzione competitiva con eccellenti prestazioni sociali.`;
+    return `Posizione aperta: ${title} presso Mikron Group a ${site}, Svizzera.${division ? ` Divisione: ${division}.` : ''}\n\nMikron Group è un leader globale nella produzione di precisione e automazione, con sede a Bienne (Svizzera) e operazioni in tutto il mondo. La divisione Mikron Machining, con sede ad Agno (Ticino), è specializzata nella progettazione e produzione di sistemi di lavorazione ad alta precisione per l'industria automobilistica, medicale, elettronica e dell'orologeria. L'azienda offre un ambiente di lavoro dinamico, possibilità di crescita professionale, una cultura aziendale positiva con forte spirito di squadra, e una retribuzione competitiva con eccellenti prestazioni sociali.`;
   }
-  return `Open position: ${title} at Mikron Group in Agno, Canton Ticino, Switzerland.${division ? ` Division: ${division}.` : ''}\n\nMikron Group is a global leader in precision manufacturing and automation, headquartered in Biel/Bienne (Switzerland) with operations worldwide. The Mikron Machining division, based in Agno (Ticino), specializes in the design and production of high-precision machining systems for the automotive, medical, electronics, and watchmaking industries. The company offers a dynamic working environment, career growth opportunities, a positive corporate culture with strong team spirit, and competitive compensation with excellent social benefits.`;
+  return `Open position: ${title} at Mikron Group in ${site}, Switzerland.${division ? ` Division: ${division}.` : ''}\n\nMikron Group is a global leader in precision manufacturing and automation, headquartered in Biel/Bienne (Switzerland) with operations worldwide. The Mikron Machining division, based in Agno (Ticino), specializes in the design and production of high-precision machining systems for the automotive, medical, electronics, and watchmaking industries. The company offers a dynamic working environment, career growth opportunities, a positive corporate culture with strong team spirit, and competitive compensation with excellent social benefits.`;
 }
 
 // Known Swiss site addresses, keyed by city. Other cities fall back to the
@@ -143,7 +143,7 @@ async function fetchMikronJobs() {
   const html = await fetchPage(MIKRON_CAREERS_URL);
   if (!html) return [];
 
-  const parsed = parseMikronJobs(html, { filterAgno: false });
+  const parsed = parseMikronJobs(html, { filterSwiss: false });
   console.log(`  📋 jobs parsed from page: ${parsed.length}`);
 
   const jobs = [];
@@ -174,7 +174,7 @@ async function fetchMikronJobs() {
       await new Promise((r) => setTimeout(r, 500));
     }
 
-    // Derive the real site/canton per-job (Agno TI vs Boudry NE vs …).
+    // Derive the real site/canton per-job (for example Agno TI or Boudry NE).
     // A blank canton = non-Swiss (USA/Germany) or unresolved → drop the job
     // instead of mislabeling it as the Agno HQ.
     const { city, canton, postalCode, streetAddress } = resolveMikronLocation(rawLocation, p.division);
@@ -186,10 +186,10 @@ async function fetchMikronJobs() {
 
     // Fallback: build a rich description (>50 words) if detail page failed
     if (!descEn || descEn.split(/\s+/).length < 50) {
-      descEn = buildFallbackDescription(title, p.division, 'en');
+      descEn = buildFallbackDescription(title, p.division, 'en', city0);
     }
     if (!descIt) {
-      descIt = buildFallbackDescription(title, p.division, 'it');
+      descIt = buildFallbackDescription(title, p.division, 'it', city0);
     }
 
     const employmentType = detectEmploymentType(title);
@@ -253,7 +253,7 @@ async function main() {
 
   const discoveredJobs = await fetchMikronJobs();
   if (discoveredJobs.length === 0) {
-    console.log('\n⚠️ No Mikron Agno jobs discovered. Keeping existing.');
+    console.log('\n⚠️ No Mikron Swiss jobs discovered. Keeping existing.');
     const afterSnapshot = fs.existsSync(DATA_JOBS) ? snapshotJobSlugs((JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) || []).filter(isMikronJob)) : new Map();
     printCrawlChangeSummary(computeCrawlDiff(beforeSnapshot, afterSnapshot), 'Mikron');
     writeCrawlChangeSummaryToGH(computeCrawlDiff(beforeSnapshot, afterSnapshot), 'Mikron');
@@ -263,7 +263,7 @@ async function main() {
   // Adapter
   const adapterPath = path.join(ADAPTERS_DIR, `${COMPANY_KEY}.json`);
   const adapter = fs.existsSync(adapterPath) ? JSON.parse(fs.readFileSync(adapterPath, 'utf-8')) : {};
-  Object.assign(adapter, { companyKey: COMPANY_KEY, companyName: COMPANY_NAME, companyHost: MIKRON_HOST, enabled: true, priority: Math.max(adapter.priority || 0, 10), crawlerModes: ['html'], seedUrls: [MIKRON_CAREERS_URL], notes: 'Drupal Views page — national listing (all Swiss sites); canton derived per-job (Agno TI / Boudry NE).', updatedAt: new Date().toISOString() });
+  Object.assign(adapter, { companyKey: COMPANY_KEY, companyName: COMPANY_NAME, companyHost: MIKRON_HOST, enabled: true, priority: Math.max(adapter.priority || 0, 10), crawlerModes: ['html'], seedUrls: [MIKRON_CAREERS_URL], notes: 'Drupal Views page — Swiss-site listing; canton derived per-job from the source location.', updatedAt: new Date().toISOString() });
   fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
   fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
 
@@ -284,11 +284,11 @@ async function main() {
 
   const finalJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const companyJobs = (Array.isArray(finalJobs) ? finalJobs : []).filter(isMikronJob);
-  console.log(`\n📊 Mikron Agno jobs: ${companyJobs.length}`);
+  console.log(`\n📊 Mikron Swiss jobs: ${companyJobs.length}`);
   const diff = computeCrawlDiff(beforeSnapshot, snapshotJobSlugs(companyJobs));
   printCrawlChangeSummary(diff, 'Mikron');
   writeCrawlChangeSummaryToGH(diff, 'Mikron');
-  validateDedicatedLocaleCoverage({ strictEnvVar: 'JOBS_MIKRON_STRICT', label: 'Mikron', dataJobsPath: DATA_JOBS, isTargetJob: isMikronJob, locales: LOCALES, isTrustedDomain, untrustedDomainReason: 'url_not_mikron_domain', failWhenNoJobs: false, noJobsMessage: 'No Mikron Agno jobs found.' });
+  validateDedicatedLocaleCoverage({ strictEnvVar: 'JOBS_MIKRON_STRICT', label: 'Mikron', dataJobsPath: DATA_JOBS, isTargetJob: isMikronJob, locales: LOCALES, isTrustedDomain, untrustedDomainReason: 'url_not_mikron_domain', failWhenNoJobs: false, noJobsMessage: 'No Mikron Swiss jobs found.' });
   console.log('\n✅ Mikron Group crawler complete.');
 
   const _durationMs = getCrawlerElapsedMs();

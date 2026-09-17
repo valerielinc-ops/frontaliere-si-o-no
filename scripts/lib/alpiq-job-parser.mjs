@@ -19,7 +19,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  *     - Location and employment type (e.g., "Lausanne - 100% Permanent")
  *
  * This parser extracts jobs from the listing page HTML, filtering for
- * Swiss/Ticino locations only.
+ * Swiss locations only.
  */
 
 import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
@@ -116,13 +116,6 @@ export function slugify(value = '') {
 }
 
 /**
- * Check if a location string is in Ticino specifically.
- */
-export function isTicinoLocation(location = '') {
-  return isTargetSwissLocation(location);
-}
-
-/**
  * Check if a location string is in Switzerland.
  */
 export function isSwissLocation(location = '') {
@@ -186,7 +179,7 @@ export function parseAlpiqJobBlock(block) {
 
 /**
  * Parse the Alpiq listing page HTML to extract all jobs.
- * Can optionally filter for Swiss-only or Ticino-only jobs.
+ * Can optionally filter for Swiss-only jobs.
  */
 export function parseAlpiqListingHtml(html, { swissOnly = true } = {}) {
   if (!html || typeof html !== 'string') return [];
