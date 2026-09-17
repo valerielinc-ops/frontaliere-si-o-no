@@ -332,6 +332,28 @@ describe('standard crawler authoritative-empty policy', () => {
     );
   });
 
+  it('does not publish an unproven empty snapshot', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'unproven-empty-root-'));
+    try {
+      await expect(runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Unproven Empty Test',
+        root,
+        fetchJobs: async () => [],
+        isCompanyJob: () => true,
+        validateAuthoritativeSnapshot: () => false,
+        allowAuthoritativeEmptySnapshot: true,
+        authoritativeSnapshotScope: 'empty-only',
+      })).rejects.toThrow(/Unproven Empty Test: authoritative snapshot validator did not return true/);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    expect(mocks.writeJobsCrawlerSliceVerified).not.toHaveBeenCalled();
+    expect(mocks.writeSummaryCrawlerSlice).not.toHaveBeenCalled();
+    expect(mocks.assembleJobsDataset).not.toHaveBeenCalled();
+  });
+
   it('reports the post-parser count so a pipeline-level emptying is not read as filtered-empty (#7707)', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'post-parser-count-root-'));
     // The parser hands 2 jobs to the pipeline; a post-parser stage drops them
