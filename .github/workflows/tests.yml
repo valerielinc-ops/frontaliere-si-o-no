@@ -563,6 +563,102 @@ jobs:
             await upsert(parts.join('\n\n'));
             core.setFailed(`PR body contract: ${fails.join('; ')}`);
 
+      # The bounded ledger candidate is classified before checkout. Its policy
+      # and every dependency it needs are downloaded from `main`, never read
+      # from the untrusted PR tree. A trusted, exact ledger-only result posts
+      # the required check and skips the checkout/npm/test path below; mixed or
+      # known non-matches stay on the ordinary path, while unverifiable input
+      # fails closed.
+      - name: Bootstrap trusted bounded-ledger policy (no checkout)
+        id: ledger_policy
+        if: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main' && github.event.pull_request.user.type == 'Bot' && github.event.pull_request.user.login == 'frontaliere-automation[bot]' && github.event.pull_request.head.repo.full_name == github.repository && (github.head_ref == 'chore/loop-fleet-ledger' || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L0-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L1-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L2-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L3-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L4-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L5-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L6-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L7-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L8-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L9-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L10-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L11-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-lifecycle-')) && steps.body_contract.outcome != 'failure' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POLICY_REF: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          policy_root="${RUNNER_TEMP}/ledger-fast-policy"
+          mkdir -p "$policy_root/scripts/ci/lib" "$policy_root/scripts/lib" "$policy_root/functions/src" "$policy_root/data/loop-fleet"
+          download_main() {
+            local path="$1"
+            local destination="$2"
+            gh api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' \
+              > "$destination"
+          }
+          download_main package.json "$policy_root/package.json"
+          download_main scripts/ci/review-test-policy.mjs "$policy_root/scripts/ci/review-test-policy.mjs"
+          download_main scripts/ci/lib/fetchPrFiles.mjs "$policy_root/scripts/ci/lib/fetchPrFiles.mjs"
+          download_main scripts/lib/loop-fleet-contract.mjs "$policy_root/scripts/lib/loop-fleet-contract.mjs"
+          download_main scripts/ci/mint-app-token.mjs "$policy_root/scripts/ci/mint-app-token.mjs"
+          download_main scripts/lib/githubApiHeaders.mjs "$policy_root/scripts/lib/githubApiHeaders.mjs"
+          download_main functions/src/githubApiHeaders.js "$policy_root/functions/src/githubApiHeaders.js"
+          download_main data/loop-fleet/loop-registry.json "$policy_root/data/loop-fleet/loop-registry.json"
+          echo "POLICY_ROOT=$policy_root" >> "$GITHUB_ENV"
+          node --check "$policy_root/scripts/ci/review-test-policy.mjs"
+
+      # This step runs before checkout/npm ci. Exit 10 is a complete known
+      # non-match and deliberately falls through to the ordinary path; every
+      # other non-zero result is unverifiable and fails closed.
+      - name: Classify bounded loop-fleet ledger path
+        id: ledger_scope
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_policy.outcome == 'success' && !cancelled() }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set +e
+          result=$(LOOP_FLEET_REGISTRY_PATH="$POLICY_ROOT/data/loop-fleet/loop-registry.json" node "$POLICY_ROOT/scripts/ci/review-test-policy.mjs" ledger-check 2>&1)
+          status=$?
+          set -e
+          printf '%s\n' "$result"
+          case "$status" in
+            0)
+              echo 'ledger_only=true' >> "$GITHUB_OUTPUT"
+              echo 'ledger_status=eligible' >> "$GITHUB_OUTPUT"
+              ;;
+            10)
+              echo 'ledger_only=false' >> "$GITHUB_OUTPUT"
+              echo 'ledger_status=not-ledger-only' >> "$GITHUB_OUTPUT"
+              echo 'Ledger fast path non applicabile: il percorso ordinario resta attivo.'
+              ;;
+            *)
+              echo "::error::ledger fast path non verificabile (exit $status): job fail-closed."
+              exit "$status"
+              ;;
+          esac
+
+      - name: Mint GitHub App token for bounded ledger review
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only == 'true' && !cancelled() }}
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node "$POLICY_ROOT/scripts/ci/mint-app-token.mjs"
+
+      # This is the required tests job itself, not a companion check. The
+      # policy helper rechecks HEAD, metadata, complete file-list and JSONL
+      # immediately before the review mutation.
+      - name: Publish bounded ledger-only automatic LGTM
+        id: ledger_review
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only == 'true' && !cancelled() }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          if [ -z "${APP_TOKEN:-}" ]; then
+            echo "::error::bounded ledger review requires the allowlisted App token; no review was posted"
+            exit 1
+          fi
+          LOOP_FLEET_REGISTRY_PATH="$POLICY_ROOT/data/loop-fleet/loop-registry.json" \
+            GH_TOKEN="$APP_TOKEN" node "$POLICY_ROOT/scripts/ci/review-test-policy.mjs" ledger-post
+
       # `git checkout` scrive l'albero con un thread solo per default (issue
       # #6152). Misurato in locale sull'albero pieno di questo repo: 51,0s ->
       # 37,4s (-27%) impostando `checkout.workers 0` (= usa tutti i core).
@@ -570,8 +666,10 @@ jobs:
       # globale, quindi basta impostarla PRIMA del passo. Rischio zero: non
       # cambia cosa viene scaricato o scritto, solo quanti thread lo scrivono.
       - run: git config --global checkout.workers 0
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
 
-      # CHECKOUT UNICO per tutte e quattro le famiglie. Il perché di questo
+      # CHECKOUT UNICO per tutte e quattro le famiglie del percorso ordinario;
+      # il ledger-only verificato sopra lo salta deliberatamente. Il perché di questo
       # profilo esatto — albero pieno + storia profonda + `blob:none` — sta in
       # «Il checkout: uno solo» nella testata. In breve: i source guard del
       # contract diffano a tre punti e senza storia non hanno un merge-base
@@ -585,6 +683,7 @@ jobs:
       # esplicito con il refspec di destinazione (issue #6058). Quel fetch ora è
       # quasi gratis: i commit ci sono già, manca solo il NOME.
       - uses: actions/checkout@v5
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         with:
           fetch-depth: 0
           filter: blob:none
@@ -714,81 +813,17 @@ jobs:
             /AGENTS.md
           sparse-checkout-cone-mode: false
 
-      # Classify and authorize the bounded ledger lane immediately after the
-      # trusted checkout, before npm/setup and the long Vitest chain. Mixed,
-      # unknown or renamed diffs are known non-matches and remain on the
-      # ordinary path; an unverifiable result is a hard job failure. This step
-      # never grants an LGTM to an unknown scope.
-      - name: Classify bounded loop-fleet ledger path
-        id: ledger_scope
-        if: ${{ steps.body_contract.outcome != 'failure' && github.event_name == 'pull_request' }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO: ${{ github.repository }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-        run: |
-          set +e
-          result=$(node scripts/ci/review-test-policy.mjs ledger-check 2>&1)
-          status=$?
-          printf '%s\n' "$result"
-          case "$status" in
-            0)
-              echo 'ledger_only=true' >> "$GITHUB_OUTPUT"
-              echo 'ledger_status=eligible' >> "$GITHUB_OUTPUT"
-              ;;
-            10)
-              echo 'ledger_only=false' >> "$GITHUB_OUTPUT"
-              echo 'ledger_status=not-ledger-only' >> "$GITHUB_OUTPUT"
-              echo 'Ledger fast path non applicabile: il percorso ordinario resta attivo.'
-              ;;
-            *)
-              # An API race, incomplete file list, malformed JSONL or
-              # unverifiable metadata is an error, not an ordinary PR. Do not
-              # fall through to a data/minimal tier with an unknown scope.
-              echo "::error::ledger fast path non verificabile (exit $status): job fail-closed."
-              exit "$status"
-              ;;
-          esac
-
-      - name: Mint GitHub App token for bounded ledger review
-        if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() && steps.ledger_scope.outputs.ledger_only == 'true' }}
-        continue-on-error: true
-        env:
-          APP_ID: ${{ secrets.APP_ID }}
-          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: node scripts/ci/mint-app-token.mjs
-
-      # This is a normal step in the required `tests` job, not a companion
-      # check. It runs only after the classifier has proven the exact scope;
-      # the helper rechecks HEAD, metadata, complete file-list and JSONL just
-      # before the review mutation, so pull_request.edited churn cannot turn an
-      # earlier snapshot into an approval for a different body.
-      - name: Publish bounded ledger-only automatic LGTM
-        id: ledger_review
-        if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() && steps.ledger_scope.outputs.ledger_only == 'true' }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO: ${{ github.repository }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-        run: |
-          set -euo pipefail
-          if [ -z "${APP_TOKEN:-}" ]; then
-            echo "::error::bounded ledger review requires the allowlisted App token; no review was posted."
-            exit 1
-          fi
-          GH_TOKEN="$APP_TOKEN" node scripts/ci/review-test-policy.mjs ledger-post
-
-      # UNA sola invocazione (erano tre). Niente `--ignore-scripts`: lo usava il
+      # UNA sola invocazione (erano tre) nel percorso ordinario; il ledger-only
+      # verificato sopra salta anche questa installazione. Niente `--ignore-scripts`: lo usava il
       # solo job `collision`, che non eseguiva codice del repo; qui la stessa
       # install serve a `tsc` e a vitest, che le dipendenze complete le vogliono.
       - name: Setup Node.js + npm ci (una volta per tutte e quattro le famiglie)
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         uses: ./.github/actions/ci-npm-setup
 
       - name: Cache Vitest/Vite transform cache
         id: vitest-cache
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         uses: actions/cache/restore@v5
         with:
           path: |
@@ -806,6 +841,7 @@ jobs:
         # compilatore verifica hash/opzioni prima del riuso; la cache è quindi
         # una misura di performance, non una scorciatoia del gate.
         id: tsc-cache
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         uses: actions/cache/restore@v5
         with:
           path: .cache/tsc
@@ -835,7 +871,7 @@ jobs:
       # (a) l'autore la vede PRIMA della review, (b) il reviewer non rifà la grep.
       - name: Surface sibling candidates
         id: sib
-        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         env:
           BASE_REF: ${{ github.base_ref }}
         run: |
@@ -855,7 +891,7 @@ jobs:
             console.log('candidates=' + r.candidates.length);
           " >> "$GITHUB_OUTPUT"
       - name: Post sibling-check comment (advisory)
-        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         # ADVISORY: posta un commento sticky, non decide nulla. Senza le due
         # righe qui sotto una 500 TRANSITORIA dell'API GitHub sulla
         # `listComments` faceva fallire lo step e con lui l'INTERO job
@@ -957,7 +993,7 @@ jobs:
       # touching searchConsoleCompat.ts).
       - name: Surface below-floor-bridge candidates
         id: bfb
-        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         env:
           BASE_REF: ${{ github.base_ref }}
         run: |
@@ -977,7 +1013,7 @@ jobs:
             console.log('gapFiles=' + r.gapsByFile.length);
           " >> "$GITHUB_OUTPUT"
       - name: Post below-floor-bridge comment (advisory)
-        if: ${{ steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         # Stessa classe dello step sibling-check qui sopra, stessa fix: e'
         # advisory, quindi non deve poter far cadere il gate `contract`.
         # Tenerne uno solo protetto lascerebbe la meta' del difetto in piedi.
@@ -1051,7 +1087,7 @@ jobs:
       - name: Run source guards in parallel
         id: source-guards
         continue-on-error: true
-        if: ${{ !cancelled() && steps.body_contract.outcome != 'failure' }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && !cancelled() && steps.body_contract.outcome != 'failure' }}
         env:
           RUN_BROWSER_GRAPH: ${{ steps.body_contract.outcome != 'failure' }}
           RUN_WEBHOOK_BOUNDARY: ${{ steps.body_contract.outcome != 'failure' }}
@@ -1193,7 +1229,7 @@ jobs:
       # ══════════════════════════════════════════════════════════════════════
       - name: Start independent source gates
         id: independent-gates
-        if: ${{ !cancelled() && steps.body_contract.outcome != 'failure' }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && !cancelled() && steps.body_contract.outcome != 'failure' }}
         env:
           RUN_TSC: ${{ steps.body_contract.outcome != 'failure' }}
           RUN_AUDIT_MARKERS: ${{ steps.body_contract.outcome != 'failure' }}
@@ -1320,6 +1356,7 @@ jobs:
       # step resta in primo piano per costruzione, non per prudenza.
       # ══════════════════════════════════════════════════════════════════════
       - name: Fetch base ref for the factuality diff
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         # Explicit destination refspec (issue #6058): a bare `git fetch origin
         # <branch>` only updates FETCH_HEAD, it does NOT create the
         # remote-tracking ref `refs/remotes/origin/<branch>`, and
@@ -1353,6 +1390,7 @@ jobs:
         #
         # Each failure prints the required correction. Fix the content — never
         # loosen a threshold or delete the passage to get the gate green.
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         run: node scripts/audit-article-factuality.mjs --changed origin/${{ github.base_ref || 'main' }}
 
       - name: Collect changed paths (corpus gates delegated to frontaliere-articles)
@@ -1404,7 +1442,7 @@ jobs:
         # Deve restare attivo perché `run-related-tests.mjs` consuma sempre
         # `changed-paths.txt`, anche quando tutti i gate corpus-wide sono
         # delegati.
-        if: ${{ steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'merge_group' || github.event_name == 'workflow_dispatch') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'merge_group' || github.event_name == 'workflow_dispatch') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
@@ -1532,6 +1570,7 @@ jobs:
 
       - name: Decide whether dataset assembly is required
         id: assemble
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         # The selector reuses run-related-tests.mjs's real related graph and
         # scripts/ci/dataset-dependent-tests.mjs's existing partition. Its
         # output is only a scheduling decision; the blocking Vitest invocation
@@ -1550,7 +1589,7 @@ jobs:
           fi
 
       - name: Cache assemble-jobs output
-        if: ${{ steps.body_contract.outcome != 'failure' && (steps.assemble.outputs.required == 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (steps.assemble.outputs.required == 'true') }}
         # Mirrors deploy.yml's identical step. assemble-jobs-dataset.mjs has a
         # content-addressable cache under .cache/assemble-jobs (keyed on a
         # sha256 of every slice file + an internal output-version) that restores
@@ -1567,7 +1606,7 @@ jobs:
             assemble-jobs-${{ runner.os }}-
 
       - name: Assemble + migrate
-        if: ${{ steps.body_contract.outcome != 'failure' && (steps.assemble.outputs.required == 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (steps.assemble.outputs.required == 'true') }}
         # Condizionale, con esecuzione FOREGROUND quando serve. La misura
         # storica (~326s, run 32959864544) che giustificava la posizione
         # foreground presupponeva che "Obsolete pre-assemble test slot" fosse
@@ -1631,6 +1670,7 @@ jobs:
           node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
       - name: vitest related (PR diff)
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         # FOREGROUND, dopo "Assemble + migrate": i test scelti dal grafo
         # possono leggere i dataset generati. Questo è l'unico invocatore di
         # Vitest del job PR; `run-related-tests.mjs` usa il related graph e un
@@ -1683,7 +1723,7 @@ jobs:
       # a failure, and a non-zero status remains blocking.
       - name: Collect independent source gates
         id: collect-independent-gates
-        if: ${{ always() }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && always() }}
         run: |
           set +e
           state_dir="${RUNNER_TEMP}/tests-independent-gates"
@@ -1769,14 +1809,14 @@ jobs:
       # sua cache resterebbe vuota. Salviamo subito dopo il join, anche se il
       # verdetto complessivo del job è già destinato al rosso.
       - name: Save TypeScript incremental state
-        if: ${{ steps.body_contract.outcome != 'failure' && (always() && steps.tsc-cache.outputs.cache-hit != 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && steps.tsc-cache.outputs.cache-hit != 'true') }}
         uses: actions/cache/save@v5
         with:
           path: .cache/tsc
           key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
 
       - name: Save Vitest related graph
-        if: ${{ steps.body_contract.outcome != 'failure' && (always() && steps.vitest-cache.outputs.cache-hit != 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && steps.vitest-cache.outputs.cache-hit != 'true') }}
         uses: actions/cache/save@v5
         with:
           path: |
@@ -1789,7 +1829,7 @@ jobs:
       - name: Upload related test timing
         # always() so we still collect timings when the run is red (a slow test
         # that times out is exactly the data point we want for re-balancing).
-        if: ${{ steps.body_contract.outcome != 'failure' && (always()) }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always()) }}
         uses: actions/upload-artifact@v7
         with:
           name: shard-timing-related
@@ -1800,7 +1840,7 @@ jobs:
       - name: Report Vitest failures on PR
         # The two Vitest steps can fail independently; this step must still
         # run after either group fails and must never mask the original gate.
-        if: ${{ steps.body_contract.outcome != 'failure' && (always() && !cancelled() && github.event_name == 'pull_request') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && github.event_name == 'pull_request') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
@@ -1812,7 +1852,7 @@ jobs:
 
       - name: Resolve PR from pull request
         id: resolve
-        if: ${{ steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.pr_number != '')) }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.pr_number != '')) }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PRN: ${{ github.event.pull_request.number || inputs.pr_number }}
@@ -1846,7 +1886,7 @@ jobs:
 
       - name: Re-review guard (skip only an identical review input)
         id: guard
-        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' && (steps.resolve.outputs.should_review == 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           EVENT_ACTION: ${{ github.event.action || '' }}
@@ -1875,13 +1915,12 @@ jobs:
 
       - name: Determine review tier
         id: tier
-        if: ${{ steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true') && (steps.ledger_scope.outputs.ledger_only == 'true' || steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
           REPO: ${{ github.repository }}
-          LEDGER_ONLY: ${{ steps.ledger_scope.outputs.ledger_only }}
         # Tier high (gpt-5.6-luna, max-turns 60, adversarial pass): toccato CODE
         # funnel-critical — test gate, workflow CI, build-plugin SEO, o script
         # che mutano/emettono dati indicizzati (crawler/parser/adapter, backfill,
@@ -1926,10 +1965,6 @@ jobs:
             } >> "$GITHUB_OUTPUT"
             echo "Review tier: $1 ($2, max-turns $3)"
           }
-          if [ "${LEDGER_ONLY:-false}" = 'true' ]; then
-            set_tier ledger-only bounded 0
-            exit 0
-          fi
           # File cambiati dalla PR (per tier). Fallback GraphQL→REST/cap-100 +
           # `expected`/`files_complete` sono nel CLI condiviso
           # `scripts/ci/fetch-pr-files.mjs` (issue #6233: prima erano una
@@ -2081,7 +2116,7 @@ jobs:
         # ripiegare su `gh pr view --json files`. Il risparmio non era nelle tre
         # `gh` call (puro bash, zero Claude) ma nel `gh pr diff`, che su una PR
         # data-only puo' essere enorme: quello resta saltato, sotto.
-        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         # Fetch una volta sola, PRIMA che Claude parta, ciò che il prompt gli
         # farebbe rifare turno-per-turno (osservato in 3/3 transcript morti
         # error_max_turns analizzati 2026-07-17: `gh pr view`, `gh pr diff`, il
@@ -2213,7 +2248,7 @@ jobs:
           ls -la "$CTX_DIR"
 
       - name: Mint GitHub App token for Codex review
-        if: ${{ steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -2223,7 +2258,7 @@ jobs:
 
       - name: Publish automatic LGTM for a tests-only PR
         id: test_only_review
-        if: ${{ steps.body_contract.outcome != 'failure' && success() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.tier.outputs.tier == 'tests-only' }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && success() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.tier.outputs.tier == 'tests-only' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -2240,7 +2275,7 @@ jobs:
         # `continue-on-error` sotto, lo scadere non tinge il job di rosso.
         timeout-minutes: 45
         id: codex_review
-        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         # Don't let a hard action failure abort the job before the guard below
         # can classify it — the guard decides whether to fail loudly.
         continue-on-error: true
@@ -2326,7 +2361,7 @@ jobs:
         #    completed run. There is no shared quota lease or admission cap:
         #    independent PR+HEAD reviews remain concurrent.
         # `set -uo pipefail` (NOT -e): grep in conditionals must not abort.
-        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -2388,7 +2423,7 @@ jobs:
         # 429/action crash). Skipping here left the required check green with
         # zero bot reviews on HEAD (PR #7635): no LGTM, nothing red, auto-merge
         # parked forever. Fail this step when HEAD has no valid LGTM.
-        if: ${{ steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && (steps.ledger_scope.outputs.ledger_only == 'true' || steps.guard.outputs.skip != 'true')) }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -2410,7 +2445,7 @@ jobs:
       # percorso è stato saltato, trasformiamo l'assenza di verdetto in un
       # rosso reale. Il job non ha condizioni che possano saltarlo.
       - name: Fail when required review gate is skipped
-        if: ${{ steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && (steps.ledger_scope.outputs.ledger_only == 'true' || steps.guard.outputs.skip != 'true') && steps.review_gate.outcome == 'skipped') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.review_gate.outcome == 'skipped') }}
         run: |
           echo "::error::Required review gate was skipped on a pull request; no approving review verdict was evaluated."
           exit 1
@@ -2423,7 +2458,7 @@ jobs:
       # Il token App è l’identità primaria; il fallback GITHUB_TOKEN mantiene il
       # job fail-soft, ma non riattiva i workflow downstream per l’anti-recursion.
       - name: Mint autorebase App token
-        if: ${{ steps.body_contract.outcome != 'failure' && ((success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.codex_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure')) }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && ((success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.codex_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure')) }}
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -2432,7 +2467,7 @@ jobs:
         run: node scripts/ci/mint-app-token.mjs
 
       - name: Rebase near-merge PRs after review or stale rescue
-        if: ${{ steps.body_contract.outcome != 'failure' && ((success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.codex_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure')) }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && ((success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.codex_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure')) }}
         env:
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
@@ -2440,7 +2475,7 @@ jobs:
         run: node scripts/ci/pr-autorebase.mjs
 
       - name: Cleanup autorebase credentials
-        if: ${{ steps.body_contract.outcome != 'failure' && (always()) }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always()) }}
         run: rm -f /tmp/firebase-sa.json
 
       - name: Classify cancelled run
@@ -2475,7 +2510,7 @@ jobs:
       # `continue-on-error: true` è il fail-soft: il segnalatore non può
       # aggiungere un rosso al job che sta descrivendo, nemmeno crashando.
       - name: Explain the job verdict in the run summary
-        if: ${{ steps.body_contract.outcome != 'failure' && (always() && !cancelled()) }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled()) }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
