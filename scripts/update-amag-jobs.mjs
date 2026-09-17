@@ -46,6 +46,7 @@ import {
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
@@ -151,7 +152,7 @@ function mapEmploymentType(rawType = '') {
   return 'full-time';
 }
 
-async function fetchAllListings() {
+export async function fetchAllListings() {
   console.log('🔍 Fetching AMAG Group listing pages...');
 
   const allItems = new Map(); // keyed by jobId
@@ -167,6 +168,7 @@ async function fetchAllListings() {
     console.log(`     Found ${itemsIt.length} jobs from Italian listing`);
   } catch (err) {
     console.log(`  ⚠️ Italian listing fetch failed: ${err.message}`);
+    throw new Error(`AMAG Italian listing fetch failed: ${err?.message || err}`, { cause: err });
   }
 
   await sleep(DETAIL_DELAY_MS);
@@ -187,6 +189,7 @@ async function fetchAllListings() {
     console.log(`     Found ${itemsDe.length} total jobs, ${extraCount} extra Swiss jobs not in Italian listing`);
   } catch (err) {
     console.log(`  ⚠️ German listing fetch failed: ${err.message}`);
+    throw new Error(`AMAG German listing fetch failed: ${err?.message || err}`, { cause: err });
   }
 
   const listings = [...allItems.values()];
@@ -480,4 +483,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => exitCrawlerOnError(error, 'AMAG Group'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((error) => exitCrawlerOnError(error, 'AMAG Group'));
+}

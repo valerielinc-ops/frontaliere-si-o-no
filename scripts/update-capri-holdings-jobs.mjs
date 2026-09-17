@@ -353,7 +353,7 @@ async function fetchJson(url, options = {}) {
  * List all jobs from a Workday site, filtering for Swiss locations.
  * Uses text search + client-side location filtering since location facet IDs are not stable.
  */
-async function listSwissJobs(site, brand) {
+export async function listSwissJobs(site, brand) {
   const apiUrl = `${WORKDAY_API_BASE}/${site}/jobs`;
   const allPostings = [];
 

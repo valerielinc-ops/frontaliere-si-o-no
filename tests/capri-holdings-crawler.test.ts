@@ -4,7 +4,7 @@
  * Tests parseCapriHoldingsDetailPage(), isCapriHoldingsSwissJob(),
  * isCapriHoldingsJob(), and CAPRI_WORKDAY_HOSTS constants.
  */
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 
 import {
   parseCapriHoldingsDetailPage,
@@ -15,11 +15,16 @@ import {
 import {
   assertWorkdayPage,
   assertUniqueWorkdayPostings,
+  listSwissJobs,
   isSwissWorkdayListing,
   resolveWorkdayCity,
   resolveWorkdayLocation,
 } from '../scripts/update-capri-holdings-jobs.mjs';
 import { resolveSwissStructuredAddress } from '../scripts/lib/swiss-structured-address.mjs';
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
 
 describe('Capri structured address resolution', () => {
   it('replaces a Mendrisio CAP with the verified CAP for the actual city', () => {
@@ -125,6 +130,9 @@ describe('Capri Workday location resolution', () => {
         brand: 'Versace', searchText: 'Switzerland', offset: 0,
       })).toThrow(/invalid total/);
     }
+    expect(assertWorkdayPage({ jobPostings: [], total: 0 }, {
+      brand: 'Versace', searchText: 'Switzerland', offset: 0,
+    })).toEqual({ jobPostings: [], declaredTotal: 0 });
   });
 
   it('fails closed when Workday changes its total between pages', () => {
@@ -142,6 +150,54 @@ describe('Capri Workday location resolution', () => {
     expect(() => assertUniqueWorkdayPostings([{ externalPath: '/job/Zurich/role-1' }], {
       brand: 'Michael Kors', searchText: 'Switzerland', offset: 20, seen,
     })).toThrow(/repeated posting identity/);
+  });
+
+  it('fails closed when Workday repeats a full page instead of advancing', async () => {
+    const page = {
+      total: 40,
+      jobPostings: Array.from({ length: 20 }, (_, index) => ({
+        externalPath: `/job/Mendrisio/role-${index + 1}`,
+        title: `Role ${index + 1}`,
+        locationsText: 'Mendrisio, Switzerland',
+      })),
+    };
+    const fetchMock = vi.fn(async () => new Response(JSON.stringify(page), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(listSwissJobs('Michael_Kors', 'Michael Kors'))
+      .rejects.toThrow(/repeated posting identity/);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('fails closed when Workday changes the total between pages', async () => {
+    const pages = [
+      {
+        total: 40,
+        jobPostings: Array.from({ length: 20 }, (_, index) => ({
+          externalPath: `/job/Mendrisio/first-${index + 1}`,
+          title: `First role ${index + 1}`,
+          locationsText: 'Mendrisio, Switzerland',
+        })),
+      },
+      {
+        total: 41,
+        jobPostings: Array.from({ length: 20 }, (_, index) => ({
+          externalPath: `/job/Mendrisio/second-${index + 1}`,
+          title: `Second role ${index + 1}`,
+          locationsText: 'Mendrisio, Switzerland',
+        })),
+      },
+    ];
+    let pageIndex = 0;
+    const fetchMock = vi.fn(async () => {
+      const page = pages[Math.min(pageIndex++, pages.length - 1)];
+      return new Response(JSON.stringify(page), { status: 200 });
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(listSwissJobs('Michael_Kors', 'Michael Kors'))
+      .rejects.toThrow(/changed its total/);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 });
 

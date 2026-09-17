@@ -1,6 +1,15 @@
 import { readFileSync } from 'node:fs';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { assertDetailFetchComplete } from '../scripts/lib/detail-fetch-cap.mjs';
+
+const { fetchHtmlMock } = vi.hoisted(() => ({ fetchHtmlMock: vi.fn() }));
+
+vi.mock('../scripts/lib/crawler-template.mjs', () => ({
+  exitCrawlerOnError: vi.fn(),
+  fetchHtml: fetchHtmlMock,
+}));
+
+import { fetchAllListings } from '../scripts/update-amag-jobs.mjs';
 
 const DETAIL_CRAWLERS = [
   'amag', 'afry', 'axa', 'convit', 'engelvoelkers',
@@ -21,5 +30,15 @@ describe('detail fetch completeness guard', () => {
       expect(source, crawler).not.toMatch(/(?:listings|swissJobs)\.slice\(0, MAX_DETAIL_PAGES\)/);
       expect(source, crawler).toContain('assertDetailFetchComplete');
     }
+  });
+});
+
+describe('AMAG listing completeness', () => {
+  it('fails closed when the German listing cannot be fetched', async () => {
+    fetchHtmlMock
+      .mockResolvedValueOnce('<html><body></body></html>')
+      .mockRejectedValueOnce(new Error('German listing unavailable'));
+
+    await expect(fetchAllListings()).rejects.toThrow(/German listing fetch failed/i);
   });
 });
