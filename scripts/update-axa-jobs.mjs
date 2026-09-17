@@ -61,6 +61,7 @@ import { jobUrlHost } from './lib/job-url-host.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
+import { assertDetailFetchComplete } from './lib/detail-fetch-cap.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -185,10 +186,10 @@ async function fetchAllListings() {
  * Fetch detail pages and enrich job data.
  */
 async function enrichWithDetails(listings) {
-  const toFetch = listings.slice(0, MAX_DETAIL_PAGES);
+  const toFetch = assertDetailFetchComplete(listings, MAX_DETAIL_PAGES, 'AXA');
   const enriched = new Array(toFetch.length);
 
-  console.log(`\n🔎 Fetching up to ${toFetch.length} detail pages (concurrency: ${DETAIL_CONCURRENCY})...`);
+  console.log(`\n🔎 Fetching ${toFetch.length} detail pages (concurrency: ${DETAIL_CONCURRENCY})...`);
 
   // Process in batches of DETAIL_CONCURRENCY
   for (let start = 0; start < toFetch.length; start += DETAIL_CONCURRENCY) {
