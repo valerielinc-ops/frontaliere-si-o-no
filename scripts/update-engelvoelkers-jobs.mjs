@@ -213,11 +213,22 @@ async function enrichWithDetails(listings) {
     if (i < toFetch.length - 1) await sleep(DETAIL_DELAY_MS);
   }
 
-  // Keep all Swiss locations and derive the canton from each posting itself.
-  const relevant = enriched.filter((job) => isEngelvoelkersSwissRelevant(job.location));
-  for (const job of relevant) {
-    job.canton = inferEngelvoelkersCanton(job.location);
-  }
+  // Keep only Swiss locations whose canton can also be resolved from the
+  // posting. The two predicates intentionally have separate jobs: the
+  // admission gate decides whether the location is Swiss, while this guard
+  // prevents an accepted-but-unresolved row from reaching the dataset.
+  const relevant = enriched.filter((job) => {
+    if (!isEngelvoelkersSwissRelevant(job.location)) return false;
+    const canton = inferEngelvoelkersCanton(job.location);
+    if (!canton) {
+      console.warn(
+        `  ⚠️ Engel & Völkers: skipping Swiss location without resolvable canton "${job.location || '(empty)'}" (${job.title || '(untitled)'})`,
+      );
+      return false;
+    }
+    job.canton = canton;
+    return true;
+  });
   const byCanton = relevant.reduce((counts, job) => {
     const canton = job.canton || '??';
     counts[canton] = (counts[canton] || 0) + 1;
