@@ -12,6 +12,7 @@ describe('tsmg-job-parser', () => {
     expect(isTsmgTargetLocation('Lugano')).toBe(true);
     expect(isTsmgTargetLocation('Chur')).toBe(true);
     expect(isTsmgTargetLocation('Landquart')).toBe(true);
+    expect(isTsmgTargetLocation('Lugano, Italy')).toBe(false);
     // Cathedral 2026-05-10: Zurich (ZH) is now a target canton — assertion updated to true.
     expect(isTsmgTargetLocation('Zurich')).toBe(true);
   });
