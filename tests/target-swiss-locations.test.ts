@@ -11,6 +11,7 @@ import {
   isTicinoRelevant,
   TICINO_MUNICIPALITIES,
 } from '../scripts/lib/target-swiss-locations.mjs';
+import { ALL_CANTON_CODES, TARGET_CANTONS } from '../scripts/lib/crawler-location-config.mjs';
 
 describe('target swiss locations', () => {
   it('recognizes extended Ticino municipalities like Bedano', () => {
@@ -53,6 +54,11 @@ describe('target swiss locations', () => {
     // Zurich (ZH) and Geneva (GE) are now targets. Assert non-CH locations instead.
     expect(isTargetSwissLocation('Milan, IT')).toBe(false);
     expect(inferSwissTargetCanton('Tokyo, JP')).toBe('');
+  });
+
+  it('keeps the target scope aligned with all 26 Swiss cantons', () => {
+    expect(TARGET_CANTONS).toHaveLength(ALL_CANTON_CODES.length);
+    expect(new Set(TARGET_CANTONS)).toEqual(new Set(ALL_CANTON_CODES));
   });
 
   it('honors explicit parenthesized canton codes before same-name city aliases', () => {
