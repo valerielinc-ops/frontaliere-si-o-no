@@ -134,7 +134,10 @@ export function inferLwphrLocation(title = '', pdfText = '', { fallbackLocation 
   if (/locarno/.test(text)) return 'Locarno';
   if (/mendrisiotto|mendrisio/.test(text)) return 'Mendrisio';
   if (/luganese|lugano/.test(text)) return 'Lugano';
-  if (/ticino|tessin/.test(text)) return 'Ticino';
+  // Keep the legacy direct-call result for the old parser API, but never
+  // expose a canton-only label as a city on the crawler path. The caller that
+  // passes an empty fallback gets the canton from inferLwphrCanton() instead.
+  if (/ticino|tessin/.test(text) && fallbackLocation) return 'Ticino';
   return rescueSwissCityFromText(`${title} ${pdfText}`) || fallbackLocation;
 }
 
