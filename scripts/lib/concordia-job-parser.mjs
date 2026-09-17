@@ -245,6 +245,8 @@ export async function fetchAllConcordiaJobs({
     } catch (err) {
       detailFetchFailures += 1;
       console.warn(`  ⚠️ detail fetch failed: ${err?.message || err}`);
+      await new Promise((r) => setTimeout(r, delayMs));
+      continue;
     }
     await new Promise((r) => setTimeout(r, delayMs));
     if (!ld || !ld.title) {
@@ -317,9 +319,10 @@ export async function fetchAllConcordiaJobs({
   }
 
   console.log(`  ✓ detail pages: ${detailUrls.length}, fetched failures: ${detailFetchFailures}, missing JobPosting: ${missingPostingData}, short descriptions: ${shortDescriptions}, unresolved locations: ${unresolvedLocations}`);
-  if (detailFetchFailures > 0) {
+  if (detailFetchFailures > 0 || missingPostingData > 0) {
     throw new Error(
-      `Concordia detail extraction incomplete: ${detailFetchFailures}/${detailUrls.length} detail page(s) failed; refusing to publish a partial dataset`,
+      `Concordia detail extraction incomplete: ${detailFetchFailures + missingPostingData}/${detailUrls.length} detail page(s) failed or lacked JobPosting `
+      + `(fetch failures=${detailFetchFailures}, missing JobPosting=${missingPostingData}); refusing to publish a partial dataset`,
     );
   }
   if (detailUrls.length > 0 && jobs.length === 0) {

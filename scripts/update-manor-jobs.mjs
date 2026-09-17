@@ -353,7 +353,7 @@ async function fetchManorJobs() {
   const targetUrls = [];
   for (const url of allUrls) {
     const { city } = extractCityFromUrl(url);
-    if (city && isTargetSwissLocation(city)) {
+    if (city && isTargetSwissLocation(city, { includeBorderProximity: false })) {
       targetUrls.push({ url, city });
     }
   }

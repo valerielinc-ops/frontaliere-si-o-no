@@ -140,6 +140,17 @@ describe('Concordia crawler parser', () => {
       })).rejects.toThrow(/refusing to publish a partial dataset/);
     });
 
+    it('fails closed when a detail page lacks JobPosting data', async () => {
+      const detailUrl = 'https://jobs.concordia.ch/offene-stellen/job/00000000-0000-4000-8000-000000000001';
+      await expect(fetchAllConcordiaJobs({
+        fetchPage: async (url: string) => {
+          if (url === detailUrl) return '<html><body>missing structured data</body></html>';
+          return `<div class="total-jobs">1 Jobs</div><a href="${detailUrl}">Job</a>`;
+        },
+        delayMs: 0,
+      })).rejects.toThrow(/failed or lacked JobPosting/);
+    });
+
     it('fails closed when the board repeats a full page without advancing the offset', async () => {
       const page = Array.from({ length: 100 }, (_, index) => (
         `<a href="/offene-stellen/job-${index}/00000000-0000-4000-8000-${String(index).padStart(12, '0')}">Job</a>`
