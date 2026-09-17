@@ -394,11 +394,14 @@ async function main() {
   }
   if (skipped) console.log(`  ⚠️  Skipped ${skipped}/${listings.length} listings due to errors`);
 
-  if (jobs.length === 0 && skipped > 0) {
+  const allDetailsFailed = listings.length > 0 && skipped === listings.length;
+  if (allDetailsFailed) {
     throw new Error(`Failed to fetch any Delvitech job details (${skipped}/${listings.length} skipped)`);
   }
-  if (jobs.length === 0) {
+  if (jobs.length === 0 && listings.length === 0) {
     console.log('ℹ️  Nessun annuncio trovato per Delvitech SA — non è un errore, il crawler prosegue.');
+  } else if (jobs.length === 0) {
+    console.log('ℹ️  Nessun annuncio trovato per Delvitech SA dopo aver elaborato tutte le pagine — non è un errore, il crawler prosegue.');
   }
 
   const { total, diff} = mergeJobs(jobs);
