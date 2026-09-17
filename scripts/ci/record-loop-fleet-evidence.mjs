@@ -15,6 +15,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { validateLoopOutcomeProvenance } from '../lib/loop-fleet-outcome.mjs';
 import {
   actionAutonomy,
   actionClassForPolicy,
@@ -101,8 +102,16 @@ function lifecycleRecordId(eventType, loopId, candidateId, context, occurredAt) 
   return `lf-lifecycle-${crypto.createHash('sha256').update(basis).digest('hex').slice(0, 24)}`;
 }
 
-function buildCandidateLifecycleEvents({ policy, decision, context, now }) {
+function buildCandidateLifecycleEvents({
+  policy,
+  decision,
+  context,
+  now,
+  lifecycleCheck,
+  candidateReferences,
+}) {
   if (!decision || decision.decision !== 'candidate') return [];
+  if (!lifecycleCheck?.ok || (candidateReferences?.required && !candidateReferences.ok)) return [];
   const candidateId = decision.recordId;
   return ['candidate', 'owner_assigned'].map((eventType) => {
     const event = buildLifecycleEvent({
@@ -144,12 +153,32 @@ function policyCheck(registry, loopId, record) {
   }
 }
 
-function lifecycleCheck(registry, loopId, record) {
+function lifecycleCheck(registry, loopId, record, now) {
   try {
-    return { ok: true, value: validateDecisionLifecycle(registry, loopId, record) };
+    const value = validateDecisionLifecycle(registry, loopId, record);
+    if (Date.parse(value.expiresAt) <= now.getTime()) {
+      throw new Error(loopId + '.decision.expiresAt is expired');
+    }
+    return { ok: true, value };
   } catch (error) {
     return { ok: false, error: error.message };
   }
+}
+
+function candidateReferenceCheck(decision, required = false) {
+  if (!required || !decision || decision.decision !== 'candidate') {
+    return { ok: true, error: null, required: false };
+  }
+  const errors = [];
+  if (!text(decision.recordId)) errors.push('candidate/source recordId is missing');
+  if (!object(decision.sourceSnapshot) || !text(decision.sourceSnapshot.source)) {
+    errors.push('candidate decision sourceSnapshot.source is missing');
+  }
+  return {
+    ok: errors.length === 0,
+    error: errors.length ? 'candidate reference rejected: ' + errors.join('; ') : null,
+    required: true,
+  };
 }
 
 function buildTechnicalAuditRecords({ report, reportPath, policy, now }) {
@@ -261,7 +290,7 @@ function buildTechnicalAuditRecords({ report, reportPath, policy, now }) {
     actionClass,
     rollbackPlan: 'discard the runner-local audit artifact; do not mutate workflows or data from the recorder',
     startedAt: start,
-    expiresAt: new Date(now.getTime() + 24 * 3_600_000).toISOString(),
+    expiresAt: new Date(now.getTime() + policy.lifecycle.candidateTtlHours * 3_600_000).toISOString(),
     decidedAt: now.toISOString(),
   });
   return {
@@ -333,6 +362,10 @@ function validIso(...values) {
     if (typeof value === 'string' && Number.isFinite(Date.parse(value))) return new Date(value).toISOString();
   }
   return null;
+}
+
+function measuredStatus(value) {
+  return value === 'observed' || value === 'zero';
 }
 
 function hasValue(value) {
@@ -435,83 +468,92 @@ function buildOperationalMetrics({ result, observation, decision, outcome, conte
   };
 }
 
-function findSourceTimestamp(value, depth = 0, seen = new Set()) {
-  if (!object(value) || depth > 4 || seen.has(value)) return null;
-  seen.add(value);
-  const direct = validIso(value.generatedAt, value.latestAt);
-  if (direct) return direct;
-  for (const child of Object.values(value)) {
-    const nested = findSourceTimestamp(child, depth + 1, seen);
-    if (nested) return nested;
-  }
-  return null;
-}
-
-function fieldIsPresent(field, { candidate, payload, sourceSnapshot, numerator, denominator }) {
+function fieldIsPresent(field, { candidate, numerator, denominator }) {
   if (field === 'generatedAt') {
-    return Boolean(findSourceTimestamp(candidate) || findSourceTimestamp(payload) || findSourceTimestamp(sourceSnapshot));
+    return Boolean(validIso(candidate?.observedAt, candidate?.generatedAt));
   }
   if (field === 'numerator') return numerator !== null;
   if (field === 'denominator') return denominator !== null;
-  return [candidate, payload, sourceSnapshot].some((value) => object(value) && hasValue(value[field]));
+  return object(candidate) && hasValue(candidate[field]);
 }
 
-function outcomeFromEvidence({ policy, observation, result, now }) {
+function outcomeFromEvidence({ policy, observation, result, decision, now }) {
   const sourceSnapshot = object(observation?.sourceSnapshot) ? observation.sourceSnapshot : null;
   const candidate = object(observation?.outcome)
     ? observation.outcome
     : (object(result?.outcome) ? result.outcome : null);
-  const payload = candidate
-    || (object(sourceSnapshot?.outcome)
-      ? sourceSnapshot.outcome
-      : (object(sourceSnapshot?.outcomes) ? sourceSnapshot.outcomes : sourceSnapshot));
   const quality = [result?.quality, observation?.quality].find((value) => typeof value === 'string') || 'unmeasurable';
-  let status = policy.outcome && typeof candidate?.status === 'string' && OUTCOME_STATES.includes(candidate.status)
-    ? candidate.status
+  const explicitIndependent = typeof candidate?.independent === 'boolean' ? candidate.independent : null;
+  let status = candidate
+    ? (typeof candidate.status === 'string' && OUTCOME_STATES.includes(candidate.status)
+      ? candidate.status
+      : 'unmeasurable')
     : (OUTCOME_STATES.includes(quality) ? quality : 'unmeasurable');
-  const numerator = finiteNumber(candidate?.numerator, candidate?.metrics?.numerator, observation?.numerator);
-  const denominator = finiteNumber(candidate?.denominator, candidate?.metrics?.denominator, observation?.denominator);
+  const numerator = finiteNumber(candidate?.numerator);
+  const denominator = finiteNumber(candidate?.denominator);
+  const provenance = validateLoopOutcomeProvenance({
+    policy,
+    candidate,
+    sourceSnapshot,
+    decision,
+    now,
+    assertedIndependent: explicitIndependent === true,
+  });
   const requiredFieldsPresent = policy.outcome.requiredFields.filter((field) => fieldIsPresent(field, {
     candidate,
-    payload,
-    sourceSnapshot,
     numerator,
     denominator,
   }));
   const missingFields = policy.outcome.requiredFields.filter((field) => !requiredFieldsPresent.includes(field));
-  const explicitIndependent = typeof candidate?.independent === 'boolean' ? candidate.independent : null;
-  if ((status === 'observed' || status === 'zero') && (missingFields.length || explicitIndependent !== true)) {
+  if (measuredStatus(status) && (missingFields.length || explicitIndependent !== true || !provenance.ok)) {
     status = 'partial';
   }
   const independent = explicitIndependent === true
-    && (status === 'observed' || status === 'zero')
+    && provenance.ok
+    && measuredStatus(status)
     && missingFields.length === 0;
-  const measuredNumerator = status === 'observed' || status === 'zero' ? numerator : null;
-  const measuredDenominator = status === 'observed' || status === 'zero' ? denominator : null;
-  const generatedAt = validIso(candidate?.observedAt) || findSourceTimestamp(candidate)
-    || findSourceTimestamp(payload) || findSourceTimestamp(sourceSnapshot);
-  const reason = text(candidate?.reason)
-    || (status === 'observed' || status === 'zero'
-      ? 'independent outcome is present and satisfies the declared field contract'
-      : `independent outcome is ${status}${missingFields.length ? `; missing ${missingFields.join(', ')}` : ''}`);
-  return buildOutcome({
-    outcomeId: policy.outcome.outcomeId,
-    status,
-    independent,
-    sourceRefs: policy.outcome.sourceRefs,
-    primaryMetric: policy.primaryMetric,
-    numerator: measuredNumerator,
-    denominator: measuredDenominator,
-    requiredFieldsPresent,
-    missingFields,
-    reason,
-    observedAt: generatedAt,
-    allowNumeratorExceedDenominator: policy.outcome.allowNumeratorExceedDenominator,
-    recordedAt: now.toISOString(),
-  });
+  const measuredNumerator = independent ? numerator : null;
+  const measuredDenominator = independent ? denominator : null;
+  const generatedAt = validIso(candidate?.observedAt, candidate?.generatedAt);
+  const provenanceFailure = provenance.errors.length
+    ? 'independent outcome evidence rejected: ' + provenance.errors.join('; ')
+    : null;
+  const reason = [
+    text(candidate?.reason),
+    provenanceFailure,
+  ].filter(Boolean).join('; ') || (measuredStatus(status)
+    ? 'independent outcome is present and satisfies the declared field contract'
+    : 'independent outcome is ' + status + (missingFields.length ? '; missing ' + missingFields.join(', ') : ''));
+  return {
+    outcome: buildOutcome({
+      outcomeId: policy.outcome.outcomeId,
+      status,
+      independent,
+      sourceRefs: policy.outcome.sourceRefs,
+      primaryMetric: policy.primaryMetric,
+      numerator: measuredNumerator,
+      denominator: measuredDenominator,
+      requiredFieldsPresent,
+      missingFields,
+      reason,
+      observedAt: generatedAt,
+      allowNumeratorExceedDenominator: policy.outcome.allowNumeratorExceedDenominator,
+      recordedAt: now.toISOString(),
+    }),
+    errors: provenance.errors,
+    provenance,
+  };
 }
 
-function buildCanonicalOutcome({ registry, policy, observation, result, now, validatorOutcome = null }) {
+function buildCanonicalOutcome({
+  registry,
+  policy,
+  observation,
+  result,
+  decision,
+  now,
+  validatorOutcome = null,
+}) {
   if (validatorOutcome && validatorOutcome !== 'success') {
     const reason = `runner-local outcome validator returned ${validatorOutcome}`;
     return {
@@ -531,12 +573,13 @@ function buildCanonicalOutcome({ registry, policy, observation, result, now, val
         recordedAt: now.toISOString(),
       }),
       errors: [reason],
+      provenance: null,
     };
   }
   try {
-    const outcome = outcomeFromEvidence({ policy, observation, result, now });
-    const checked = validateOutcomeAgainstPolicy(registry, policy.loopId, outcome);
-    return { outcome: checked.outcome, errors: [] };
+    const evidence = outcomeFromEvidence({ policy, observation, result, decision, now });
+    const checked = validateOutcomeAgainstPolicy(registry, policy.loopId, evidence.outcome);
+    return { outcome: checked.outcome, errors: evidence.errors, provenance: evidence.provenance };
   } catch (error) {
     const fallback = buildOutcome({
       outcomeId: policy.outcome.outcomeId,
@@ -548,12 +591,12 @@ function buildCanonicalOutcome({ registry, policy, observation, result, now, val
       denominator: null,
       requiredFieldsPresent: [],
       missingFields: [...policy.outcome.requiredFields],
-      reason: `outcome contract rejected: ${error.message}`,
+      reason: 'outcome contract rejected: ' + error.message,
       observedAt: null,
       allowNumeratorExceedDenominator: policy.outcome.allowNumeratorExceedDenominator,
       recordedAt: now.toISOString(),
     });
-    return { outcome: fallback, errors: [error.message] };
+    return { outcome: fallback, errors: [error.message], provenance: null };
   }
 }
 
@@ -609,30 +652,40 @@ export function recordLoopEvidence({
 
   const rawObserved = evidenceComplete && !evidenceError ? observation : null;
   const rawDecided = evidenceComplete && !evidenceError ? decision : null;
-  const { outcome, errors: outcomeErrors } = buildCanonicalOutcome({
+  const observedBase = rawObserved ? withExecution(rawObserved, 'observation', loopId, context) : null;
+  const decidedBase = rawDecided ? withExecution(rawDecided, 'decision', loopId, context) : null;
+  const {
+    outcome,
+    errors: outcomeErrors,
+    provenance: outcomeProvenance,
+  } = buildCanonicalOutcome({
     registry,
     policy,
     observation: rawObserved,
     result,
+    decision: decidedBase,
     now,
     validatorOutcome,
   });
-  const observed = rawObserved ? {
-    ...withExecution(rawObserved, 'observation', loopId, context),
+  const observed = observedBase ? {
+    ...observedBase,
     ...(validatorFailed ? { quality: 'unmeasurable' } : {}),
     outcome,
   } : null;
-  const decided = rawDecided ? {
-    ...withExecution(rawDecided, 'decision', loopId, context),
+  const decided = decidedBase ? {
+    ...decidedBase,
     ...(validatorFailed ? { quality: 'unmeasurable' } : {}),
     outcome,
   } : null;
   const observationPolicy = observed ? policyCheck(registry, loopId, observed) : { ok: false, error: evidenceError };
   const decisionPolicy = decided ? policyCheck(registry, loopId, decided) : { ok: false, error: evidenceError };
-  const decisionLifecycle = decided ? lifecycleCheck(registry, loopId, decided) : { ok: false, error: evidenceError };
-  const policyErrors = [observationPolicy, decisionPolicy, decisionLifecycle]
+  const decisionLifecycle = decided ? lifecycleCheck(registry, loopId, decided, now) : { ok: false, error: evidenceError };
+  const candidateReferences = candidateReferenceCheck(decided, outcomeProvenance?.measuredClaim === true);
+  const lifecycleCompliant = decisionLifecycle.ok && candidateReferences.ok;
+  const policyErrors = [observationPolicy, decisionPolicy, decisionLifecycle, candidateReferences]
     .filter((check) => !check.ok)
     .map((check) => check.error);
+  policyErrors.push(...outcomeErrors.map((error) => 'outcome: ' + error));
   const policyCompliant = policyErrors.length === 0;
   const quality = validatorFailed ? 'unmeasurable' : (result?.quality || observed?.quality || 'unmeasurable');
   const actionClass = decided?.actionClass || observed?.actionClass
@@ -643,7 +696,14 @@ export function recordLoopEvidence({
   const outcomeMeasured = (outcome.status === 'observed' || outcome.status === 'zero')
     && outcome.independent
     && outcome.missingFields.length === 0;
-  const lifecycleEvents = buildCandidateLifecycleEvents({ policy, decision: decided, context, now });
+  const lifecycleEvents = buildCandidateLifecycleEvents({
+    policy,
+    decision: decided,
+    context,
+    now,
+    lifecycleCheck: decisionLifecycle,
+    candidateReferences,
+  });
   const operationalMetrics = buildOperationalMetrics({
     result,
     observation: rawObserved,
@@ -663,7 +723,7 @@ export function recordLoopEvidence({
     ok: Boolean(result?.ok ?? (quality === 'observed')) && evidenceComplete && policyCompliant && outcomeMeasured,
     evidenceComplete,
     policyCompliant,
-    lifecycleCompliant: decisionLifecycle.ok,
+    lifecycleCompliant,
     lifecycle: policy.lifecycle,
     lifecycleEventTypes: lifecycleEvents.map((event) => event.eventType),
     sourceRefs: policy.sourceRefs,
@@ -671,6 +731,7 @@ export function recordLoopEvidence({
     outcome,
     outcomePolicyCompliant: outcomeErrors.length === 0,
     outcomeErrors,
+    outcomeProvenance,
     decision: decided?.decision || null,
     actionClass,
     requiredAutonomy: autonomy,
@@ -696,6 +757,7 @@ export function recordLoopEvidence({
     ...outcome,
     loopId,
     execution: context,
+    outcomeProvenance,
   }, null, 2)}\n`);
 
   // Scheduled workflows intentionally leave this unset: their ledgers live in
@@ -723,18 +785,28 @@ export function recordLoopEvidence({
     maxAutonomy: policy.maxAutonomy,
     lifecycle: policy.lifecycle,
     lifecycleEventTypes: lifecycleEvents.map((event) => event.eventType),
-    lifecycleCompliant: decisionLifecycle.ok,
+    lifecycleCompliant,
     sourceRefs: policy.sourceRefs,
     outcome,
     outcomePolicyCompliant: outcomeErrors.length === 0,
     outcomeErrors,
+    outcomeProvenance,
     outcomeArtifact: 'loop-fleet-outcome.json',
     ledgerScope: configuredLedgerDir ? 'configured-durable-ledger' : 'run-artifact',
     ledgerFiles: ['loop-observations.jsonl', 'loop-decisions.jsonl', 'loop-health-history.jsonl', 'lifecycle-events.jsonl'],
     written,
   };
   fs.writeFileSync(path.join(dir, 'loop-fleet-evidence.json'), `${JSON.stringify(summary, null, 2)}\n`);
-  return { summary, observation: observed, decision: decided, health, lifecycleEvents, evidenceError, policyErrors };
+  return {
+    summary,
+    observation: observed,
+    decision: decided,
+    health,
+    lifecycleEvents,
+    evidenceError,
+    policyErrors,
+    outcomeProvenance,
+  };
 }
 
 function valueAfter(argv, flag, fallback = null) {

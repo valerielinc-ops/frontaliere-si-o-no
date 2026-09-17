@@ -174,6 +174,64 @@ describe('incremental manifest input contract', () => {
     expect(changedRelated.relatedJobs[0].digest).not.toBe(first.relatedJobs[0].digest);
   });
 
+  it('reuses the canonical digest for a bridge record while preserving page-specific input', () => {
+    const cache = createIncrementalManifestInputCache();
+    const canonicalJob = {
+      id: 'canonical-job-1',
+      slug: 'canonical-job',
+      title: 'Role',
+      updatedAt: 'fixture-v1',
+    };
+    const bridgeRecord = {
+      ...canonicalJob,
+      id: 'bridge-page-1',
+      slug: 'previous-job-slug',
+      path: '/de/jobs/previous-job-slug/',
+      bridgeType: 'previous-slug-bridge',
+    };
+    const related = {
+      id: 'related-canonical-1',
+      slugByLocale: { de: 'related-job' },
+      titleByLocale: { de: 'Related role' },
+      updatedAt: 'fixture-v1',
+    };
+    const activeInput = buildMinimalJobInput(
+      canonicalJob,
+      'de',
+      canonicalJob.slug,
+      [related],
+      cache,
+      canonicalJob,
+    );
+    const bridgeInput = buildMinimalJobInput(
+      bridgeRecord,
+      'de',
+      canonicalJob.slug,
+      [{ ...related }],
+      cache,
+      canonicalJob,
+    );
+
+    expect(bridgeInput.jobId).toBe(canonicalJob.id);
+    expect(bridgeInput.jobRecordDigest).toBe(activeInput.jobRecordDigest);
+    expect(bridgeInput.jobVersion).toBe(activeInput.jobVersion);
+    expect(bridgeInput.relatedJobs[0]).toBe(activeInput.relatedJobs[0]);
+    expect(cache.jobDigestsById.size).toBe(2);
+    expect(cache.relatedJobProjectionsByKey.size).toBe(1);
+
+    const activePageHash = computeInputHash({
+      ...activeInput,
+      path: '/de/jobs/canonical-job/',
+      bridgeType: 'active-job',
+    }, 'previous-slugs-full-content');
+    const bridgePageHash = computeInputHash({
+      ...bridgeInput,
+      path: '/de/jobs/previous-job-slug/',
+      bridgeType: 'previous-slug-bridge',
+    }, 'previous-slugs-full-content');
+    expect(bridgePageHash).not.toBe(activePageHash);
+  });
+
   it('keeps the shadow feature opt-in by default', () => {
     expect(INCREMENTAL_MANIFEST_ENABLED).toBe(false);
   });
