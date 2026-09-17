@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "crr-suva-sion-a1375f10b321",
-      "slug": "maitre-socioprofessionnel-le-crr-suva-sion-sion",
+      "slug": "socioprofessional-master-the-clinique-romande-de-readaptation-crr-suva-sion",
       "slugByLocale": {
         "fr": "maitre-socioprofessionnel-le-crr-suva-sion-sion",
-        "it": "maitre-socioprofessionnel-le-crr-suva-sion-sion",
+        "it": "socioprofessional-master-the-clinique-romande-de-readaptation-crr-suva-sion",
         "en": "maitre-socioprofessionnel-le-crr-suva-sion-sion",
-        "de": "maitre-socioprofessionnel-le-crr-suva-sion-sion"
+        "de": "sozioprofessioneller-kapitan-der-clinique-romande-de-readaptation-crr-suva-sion"
       },
       "company": "Clinique romande de réadaptation (CRR Suva)",
       "companyKey": "crr-suva-sion",
@@ -65,7 +65,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-17T03:47:43.613Z"
+      "firstSeenAt": "2026-09-17T03:47:43.613Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "maitre-socioprofessionnel-le-crr-suva-sion-sion"
+        ],
+        "de": [
+          "maitre-socioprofessionnel-le-crr-suva-sion-sion"
+        ]
+      },
+      "previousSlugs": [
+        "maitre-socioprofessionnel-le-crr-suva-sion-sion"
+      ]
     },
     {
       "id": "crr-suva-sion-1ef627a9dcec",
@@ -117,13 +128,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-qualite-et-processus-crr-suva-sion-sion",
-        "assistente-di-qualita-e-processo-clinique-romande-de-readaptation-crr-suva-sion"
+        "assistant-e-qualite-et-processus-crr-suva-sion-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-qualite-et-processus-crr-suva-sion-sion",
-          "assistente-di-qualita-e-processo-clinique-romande-de-readaptation-crr-suva-sion"
+          "assistant-e-qualite-et-processus-crr-suva-sion-sion"
         ],
         "en": [
           "assistant-e-qualite-et-processus-crr-suva-sion-sion"
@@ -197,13 +206,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-e-ict-senior-microsoft-cloud-plateformes-hybrides-crr-suva-sion-sion",
-        "senior-ict-engineer-microsoft-cloud-hybrid-platforms-clinique-romande-de-readaptation-crr-suva-sion"
+        "ingenieur-e-ict-senior-microsoft-cloud-plateformes-hybrides-crr-suva-sion-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-e-ict-senior-microsoft-cloud-plateformes-hybrides-crr-suva-sion-sion",
-          "senior-ict-engineer-microsoft-cloud-hybrid-platforms-clinique-romande-de-readaptation-crr-suva-sion"
+          "ingenieur-e-ict-senior-microsoft-cloud-plateformes-hybrides-crr-suva-sion-sion"
         ],
         "en": [
           "ingenieur-e-ict-senior-microsoft-cloud-plateformes-hybrides-crr-suva-sion-sion"

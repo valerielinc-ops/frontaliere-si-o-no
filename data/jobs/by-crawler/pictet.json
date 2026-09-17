@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "client-relationship-officer-pictet-luxembourg",
-        "responsabile-relazioni-cliente-pictet-group-luxembourg"
+        "client-relationship-officer-pictet-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "client-relationship-officer-pictet-luxembourg",
-          "responsabile-relazioni-cliente-pictet-group-luxembourg"
+          "client-relationship-officer-pictet-luxembourg"
         ],
         "fr": [
           "client-relationship-officer-pictet-luxembourg"
@@ -209,12 +207,12 @@
     },
     {
       "id": "pictet-c607a86e8bcc",
-      "slug": "client-register-specialist-12-months-fixed-term-contract-pictet-geneva",
+      "slug": "specialista-registro-cliente-12-mesi-contratto-a-termine-fisso-pictet-group-geneva",
       "slugByLocale": {
         "fr": "client-register-specialist-12-months-fixed-term-contract-pictet-geneva",
-        "it": "client-register-specialist-12-months-fixed-term-contract-pictet-geneva",
+        "it": "specialista-registro-cliente-12-mesi-contratto-a-termine-fisso-pictet-group-geneva",
         "en": "client-register-specialist-12-months-fixed-term-contract-pictet-geneva",
-        "de": "client-register-specialist-12-months-fixed-term-contract-pictet-geneva"
+        "de": "kundenregisterspezialist-12-monate-befristeter-vertrag-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -271,16 +269,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-17T03:46:38.927Z"
+      "firstSeenAt": "2026-09-17T03:46:38.927Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-register-specialist-12-months-fixed-term-contract-pictet-geneva"
+        ],
+        "de": [
+          "client-register-specialist-12-months-fixed-term-contract-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "client-register-specialist-12-months-fixed-term-contract-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-f220e69637cc",
-      "slug": "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg",
+      "slug": "operativo-fiscale-imposte-cliente-regolazione-reporting-pictet-group-luxembourg",
       "slugByLocale": {
         "en": "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg",
-        "it": "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg",
+        "it": "operativo-fiscale-imposte-cliente-regolazione-reporting-pictet-group-luxembourg",
         "de": "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg",
-        "fr": "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg"
+        "fr": "agent-d-impot-operationnel-declarations-fiscales-a-la-clientele-et-reglementaires-pictet-group-luxembourg"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -336,7 +345,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-17T03:46:38.373Z"
+      "firstSeenAt": "2026-09-17T03:46:38.373Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg"
+        ],
+        "fr": [
+          "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg"
+        ]
+      },
+      "previousSlugs": [
+        "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg"
+      ]
     },
     {
       "id": "pictet-2804d82f32a8",
@@ -345,7 +365,7 @@
         "en": "investment-trading-compliance-officer-pictet-geneva",
         "it": "investment-trading-compliance-officer-pictet-geneva",
         "de": "investment-trading-compliance-officer-pictet-geneva",
-        "fr": "investment-trading-compliance-officer-pictet-geneva"
+        "fr": "agent-de-conformite-des-investissements-et-des-transactions-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -536,12 +556,12 @@
     },
     {
       "id": "pictet-6535f5760df8",
-      "slug": "trade-processing-specialist-12-months-fixed-term-contract-pictet-geneva",
+      "slug": "trade-processing-specialist-12-mesi-contratto-a-termine-fisso-pictet-group-geneva",
       "slugByLocale": {
         "fr": "trade-processing-specialist-12-months-fixed-term-contract-pictet-geneva",
-        "it": "trade-processing-specialist-12-months-fixed-term-contract-pictet-geneva",
+        "it": "trade-processing-specialist-12-mesi-contratto-a-termine-fisso-pictet-group-geneva",
         "en": "trade-processing-specialist-12-months-fixed-term-contract-pictet-geneva",
-        "de": "trade-processing-specialist-12-months-fixed-term-contract-pictet-geneva"
+        "de": "trade-processing-specialist-12-monate-befristeter-vertrag-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -598,16 +618,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-17T03:46:36.317Z"
+      "firstSeenAt": "2026-09-17T03:46:36.317Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "trade-processing-specialist-12-months-fixed-term-contract-pictet-geneva"
+        ],
+        "de": [
+          "trade-processing-specialist-12-months-fixed-term-contract-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "trade-processing-specialist-12-months-fixed-term-contract-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-a466db2c58d0",
-      "slug": "team-manager-data-operations-pictet-london",
+      "slug": "team-manager-operazioni-dati-pictet-group-london",
       "slugByLocale": {
         "en": "team-manager-data-operations-pictet-london",
-        "it": "team-manager-data-operations-pictet-london",
-        "de": "team-manager-data-operations-pictet-london",
-        "fr": "team-manager-data-operations-pictet-london"
+        "it": "team-manager-operazioni-dati-pictet-group-london",
+        "de": "team-manager-datenoperationen-pictet-group-london",
+        "fr": "gestionnaire-d-equipe-operations-de-donnees-pictet-group-london"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -663,7 +694,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-17T03:46:35.410Z"
+      "firstSeenAt": "2026-09-17T03:46:35.410Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "team-manager-data-operations-pictet-london"
+        ],
+        "de": [
+          "team-manager-data-operations-pictet-london"
+        ],
+        "fr": [
+          "team-manager-data-operations-pictet-london"
+        ]
+      },
+      "previousSlugs": [
+        "team-manager-data-operations-pictet-london"
+      ]
     },
     {
       "id": "pictet-933b9054b608",
@@ -672,7 +717,7 @@
         "it": "ufficiale-del-paralegal-pictet-group-luxembourg",
         "en": "paralegal-officer-pictet-luxembourg",
         "de": "paralegaler-offizier-pictet-group-luxembourg",
-        "fr": "paralegal-officer-pictet-group-luxembourg"
+        "fr": "parajuriste-pictet-group-luxembourg"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -715,7 +760,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "paralegal-officer-pictet-luxembourg",
-        "parajuriste-pictet-group-luxembourg",
         "paralegal-officer-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
@@ -727,7 +771,6 @@
         ],
         "fr": [
           "paralegal-officer-pictet-luxembourg",
-          "parajuriste-pictet-group-luxembourg",
           "paralegal-officer-pictet-group-luxembourg"
         ]
       },
@@ -961,7 +1004,7 @@
         "it": "apprendista-data-management-pictet-group-luxembourg",
         "en": "trainee-data-management-pictet-luxembourg",
         "de": "auszubildender-data-management-pictet-group-luxembourg",
-        "fr": "trainee-data-management-pictet-group-luxembourg"
+        "fr": "stagiaire-gestion-des-donnees-pictet-group-luxembourg"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -1004,7 +1047,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "trainee-data-management-pictet-luxembourg",
-        "stagiaire-gestion-des-donnees-pictet-group-luxembourg",
         "trainee-data-management-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
@@ -1015,7 +1057,6 @@
           "trainee-data-management-pictet-luxembourg"
         ],
         "fr": [
-          "stagiaire-gestion-des-donnees-pictet-group-luxembourg",
           "trainee-data-management-pictet-group-luxembourg"
         ]
       },

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "planzer-fa620e0d52e5",
-      "slug": "hr-sachbearbeiter-m-w-d-planzer-villmergen",
+      "slug": "responsabile-del-caso-hr-m-f-d-planzer-villmergen",
       "slugByLocale": {
         "de": "hr-sachbearbeiter-m-w-d-planzer-villmergen",
-        "it": "hr-sachbearbeiter-m-w-d-planzer-villmergen",
-        "en": "hr-sachbearbeiter-m-w-d-planzer-villmergen",
-        "fr": "hr-sachbearbeiter-m-w-d-planzer-villmergen"
+        "it": "responsabile-del-caso-hr-m-f-d-planzer-villmergen",
+        "en": "hr-case-officer-m-f-d-planzer-villmergen",
+        "fr": "agent-de-cas-des-rh-h-f-d-planzer-villmergen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -67,16 +67,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-17T03:46:33.509Z"
+      "firstSeenAt": "2026-09-17T03:46:33.509Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-sachbearbeiter-m-w-d-planzer-villmergen"
+        ],
+        "en": [
+          "hr-sachbearbeiter-m-w-d-planzer-villmergen"
+        ],
+        "fr": [
+          "hr-sachbearbeiter-m-w-d-planzer-villmergen"
+        ]
+      },
+      "previousSlugs": [
+        "hr-sachbearbeiter-m-w-d-planzer-villmergen"
+      ]
     },
     {
       "id": "planzer-b185c2e243e8",
-      "slug": "chauffeur-colis-cat-b-sur-appel-m-f-d-planzer-grand-lancy",
+      "slug": "cat-b-driver-pacchetto-su-chiamata-m-f-d-planzer-grand-lancy",
       "slugByLocale": {
         "fr": "chauffeur-colis-cat-b-sur-appel-m-f-d-planzer-grand-lancy",
-        "it": "chauffeur-colis-cat-b-sur-appel-m-f-d-planzer-grand-lancy",
-        "en": "chauffeur-colis-cat-b-sur-appel-m-f-d-planzer-grand-lancy",
-        "de": "chauffeur-colis-cat-b-sur-appel-m-f-d-planzer-grand-lancy"
+        "it": "cat-b-driver-pacchetto-su-chiamata-m-f-d-planzer-grand-lancy",
+        "en": "cat-b-package-driver-on-call-m-f-d-planzer-grand-lancy",
+        "de": "katze-b-pakettreiber-auf-anruf-m-w-d-planzer-grand-lancy"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -134,16 +148,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-17T03:46:32.822Z"
+      "firstSeenAt": "2026-09-17T03:46:32.822Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-colis-cat-b-sur-appel-m-f-d-planzer-grand-lancy"
+        ],
+        "en": [
+          "chauffeur-colis-cat-b-sur-appel-m-f-d-planzer-grand-lancy"
+        ],
+        "de": [
+          "chauffeur-colis-cat-b-sur-appel-m-f-d-planzer-grand-lancy"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-colis-cat-b-sur-appel-m-f-d-planzer-grand-lancy"
+      ]
     },
     {
       "id": "planzer-ef90fe4f6646",
-      "slug": "chauffeur-kat-be-m-w-d-planzer-schaffhausen",
+      "slug": "chauffeur-cat-be-m-f-d-planzer-schaffhausen",
       "slugByLocale": {
         "de": "chauffeur-kat-be-m-w-d-planzer-schaffhausen",
-        "it": "chauffeur-kat-be-m-w-d-planzer-schaffhausen",
+        "it": "chauffeur-cat-be-m-f-d-planzer-schaffhausen",
         "en": "chauffeur-kat-be-m-w-d-planzer-schaffhausen",
-        "fr": "chauffeur-kat-be-m-w-d-planzer-schaffhausen"
+        "fr": "chauffeur-cat-be-h-f-d-planzer-schaffhausen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -201,16 +229,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-17T03:46:32.158Z"
+      "firstSeenAt": "2026-09-17T03:46:32.158Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-be-m-w-d-planzer-schaffhausen"
+        ],
+        "fr": [
+          "chauffeur-kat-be-m-w-d-planzer-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-be-m-w-d-planzer-schaffhausen"
+      ]
     },
     {
       "id": "planzer-2d6e4f41e345",
-      "slug": "rampenfahrer-ce-collaboratore-trice-umschlag-m-w-d-planzer-dietikon",
+      "slug": "driver-ram-ce-busta-personale-m-f-d-planzer-dietikon",
       "slugByLocale": {
         "de": "rampenfahrer-ce-mitarbeiter-umschlag-m-w-d-planzer-dietikon",
-        "it": "rampenfahrer-ce-collaboratore-trice-umschlag-m-w-d-planzer-dietikon",
-        "en": "rampenfahrer-ce-mitarbeiter-umschlag-m-w-d-planzer-dietikon",
-        "fr": "rampenfahrer-ce-mitarbeiter-umschlag-m-w-d-planzer-dietikon"
+        "it": "driver-ram-ce-busta-personale-m-f-d-planzer-dietikon",
+        "en": "ram-driver-ce-staff-envelope-m-f-d-planzer-dietikon",
+        "fr": "chauffeur-ram-ce-enveloppe-du-personnel-h-f-d-planzer-dietikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -257,11 +296,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "rampenfahrer-ce-mitarbeiter-umschlag-m-w-d-planzer-dietikon",
+          "rampenfahrer-ce-collaboratore-trice-umschlag-m-w-d-planzer-dietikon"
+        ],
+        "en": [
+          "rampenfahrer-ce-mitarbeiter-umschlag-m-w-d-planzer-dietikon"
+        ],
+        "fr": [
           "rampenfahrer-ce-mitarbeiter-umschlag-m-w-d-planzer-dietikon"
         ]
       },
       "previousSlugs": [
-        "rampenfahrer-ce-mitarbeiter-umschlag-m-w-d-planzer-dietikon"
+        "rampenfahrer-ce-mitarbeiter-umschlag-m-w-d-planzer-dietikon",
+        "rampenfahrer-ce-collaboratore-trice-umschlag-m-w-d-planzer-dietikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -280,12 +327,12 @@
     },
     {
       "id": "planzer-6cb26d6cee09",
-      "slug": "projektleiter-transportsystem-bahn-tms-m-w-d-planzer-dietikon",
+      "slug": "project-manager-transport-system-rail-tms-m-f-d-planzer-dietikon",
       "slugByLocale": {
         "de": "projektleiter-transportsystem-bahn-tms-m-w-d-planzer-dietikon",
-        "it": "projektleiter-transportsystem-bahn-tms-m-w-d-planzer-dietikon",
+        "it": "project-manager-transport-system-rail-tms-m-f-d-planzer-dietikon",
         "en": "projektleiter-transportsystem-bahn-tms-m-w-d-planzer-dietikon",
-        "fr": "projektleiter-transportsystem-bahn-tms-m-w-d-planzer-dietikon"
+        "fr": "gestionnaire-de-projet-systeme-de-transport-rail-tms-h-f-d-planzer-dietikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -343,16 +390,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-17T03:46:30.778Z"
+      "firstSeenAt": "2026-09-17T03:46:30.778Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-transportsystem-bahn-tms-m-w-d-planzer-dietikon"
+        ],
+        "fr": [
+          "projektleiter-transportsystem-bahn-tms-m-w-d-planzer-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "projektleiter-transportsystem-bahn-tms-m-w-d-planzer-dietikon"
+      ]
     },
     {
       "id": "planzer-4bf1edfc32a0",
-      "slug": "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen",
+      "slug": "selezione-dei-dipendenti-m-f-d-planzer-villmergen",
       "slugByLocale": {
         "de": "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
-        "it": "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen",
-        "en": "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
-        "fr": "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen"
+        "it": "selezione-dei-dipendenti-m-f-d-planzer-villmergen",
+        "en": "employee-picking-m-f-d-planzer-villmergen",
+        "fr": "selection-des-employes-h-f-d-planzer-villmergen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -399,11 +457,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
+          "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen"
+        ],
+        "en": [
+          "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen"
+        ],
+        "fr": [
           "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen"
+        "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
+        "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -422,12 +488,12 @@
     },
     {
       "id": "planzer-402feeb9a478",
-      "slug": "gesamtprojektleiter-bahnstrategie-netzwerkplanung-m-w-d-planzer-dietikon",
+      "slug": "general-project-manager-strategia-ferroviaria-network-planning-m-f-d-planzer-dietikon",
       "slugByLocale": {
         "de": "gesamtprojektleiter-bahnstrategie-netzwerkplanung-m-w-d-planzer-dietikon",
-        "it": "gesamtprojektleiter-bahnstrategie-netzwerkplanung-m-w-d-planzer-dietikon",
-        "en": "gesamtprojektleiter-bahnstrategie-netzwerkplanung-m-w-d-planzer-dietikon",
-        "fr": "gesamtprojektleiter-bahnstrategie-netzwerkplanung-m-w-d-planzer-dietikon"
+        "it": "general-project-manager-strategia-ferroviaria-network-planning-m-f-d-planzer-dietikon",
+        "en": "general-project-manager-railway-strategy-network-planning-m-f-d-planzer-dietikon",
+        "fr": "directeur-general-de-projet-strategie-ferroviaire-et-planification-du-reseau-h-f-d-planzer-dietikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -485,16 +551,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-17T03:46:29.511Z"
+      "firstSeenAt": "2026-09-17T03:46:29.511Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gesamtprojektleiter-bahnstrategie-netzwerkplanung-m-w-d-planzer-dietikon"
+        ],
+        "en": [
+          "gesamtprojektleiter-bahnstrategie-netzwerkplanung-m-w-d-planzer-dietikon"
+        ],
+        "fr": [
+          "gesamtprojektleiter-bahnstrategie-netzwerkplanung-m-w-d-planzer-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "gesamtprojektleiter-bahnstrategie-netzwerkplanung-m-w-d-planzer-dietikon"
+      ]
     },
     {
       "id": "planzer-9da0fa79bb85",
-      "slug": "employe-de-bureau-m-f-d-planzer-chavornay",
+      "slug": "lavoratore-di-ufficio-m-f-d-planzer-chavornay",
       "slugByLocale": {
         "fr": "employe-de-bureau-m-f-d-planzer-chavornay",
-        "it": "employe-de-bureau-m-f-d-planzer-chavornay",
-        "en": "employe-de-bureau-m-f-d-planzer-chavornay",
-        "de": "employe-de-bureau-m-f-d-planzer-chavornay"
+        "it": "lavoratore-di-ufficio-m-f-d-planzer-chavornay",
+        "en": "office-worker-m-f-d-planzer-chavornay",
+        "de": "buroangestellter-m-w-d-planzer-chavornay"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -552,16 +632,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-17T03:46:28.905Z"
+      "firstSeenAt": "2026-09-17T03:46:28.905Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-de-bureau-m-f-d-planzer-chavornay"
+        ],
+        "en": [
+          "employe-de-bureau-m-f-d-planzer-chavornay"
+        ],
+        "de": [
+          "employe-de-bureau-m-f-d-planzer-chavornay"
+        ]
+      },
+      "previousSlugs": [
+        "employe-de-bureau-m-f-d-planzer-chavornay"
+      ]
     },
     {
       "id": "planzer-6683afe196b2",
-      "slug": "disponent-stuckgut-m-w-d-planzer-harkingen",
+      "slug": "carico-generale-m-f-d-planzer-harkingen",
       "slugByLocale": {
         "de": "disponent-stuckgut-m-w-d-planzer-harkingen",
-        "it": "disponent-stuckgut-m-w-d-planzer-harkingen",
-        "en": "disponent-stuckgut-m-w-d-planzer-harkingen",
-        "fr": "disponent-stuckgut-m-w-d-planzer-harkingen"
+        "it": "carico-generale-m-f-d-planzer-harkingen",
+        "en": "disponent-general-cargo-m-f-d-planzer-harkingen",
+        "fr": "depannage-de-la-cargaison-generale-h-f-d-planzer-harkingen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -619,16 +713,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-17T03:46:28.228Z"
+      "firstSeenAt": "2026-09-17T03:46:28.228Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-stuckgut-m-w-d-planzer-harkingen"
+        ],
+        "en": [
+          "disponent-stuckgut-m-w-d-planzer-harkingen"
+        ],
+        "fr": [
+          "disponent-stuckgut-m-w-d-planzer-harkingen"
+        ]
+      },
+      "previousSlugs": [
+        "disponent-stuckgut-m-w-d-planzer-harkingen"
+      ]
     },
     {
       "id": "planzer-d21ee1eab3a4",
-      "slug": "chauffeur-kat-ce-m-w-d-planzer-marstetten",
+      "slug": "chauffeur-cat-ce-m-f-d-z-planzer-marstetten",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-m-w-d-planzer-marstetten",
-        "it": "chauffeur-kat-ce-m-w-d-planzer-marstetten",
+        "it": "chauffeur-cat-ce-m-f-d-z-planzer-marstetten",
         "en": "chauffeur-kat-ce-m-w-d-planzer-marstetten",
-        "fr": "chauffeur-kat-ce-m-w-d-planzer-marstetten"
+        "fr": "chauffeur-cat-ce-h-f-d-z-planzer-marstetten"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -686,7 +794,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-17T03:46:27.480Z"
+      "firstSeenAt": "2026-09-17T03:46:27.480Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-m-w-d-planzer-marstetten"
+        ],
+        "fr": [
+          "chauffeur-kat-ce-m-w-d-planzer-marstetten"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-m-w-d-planzer-marstetten"
+      ]
     },
     {
       "id": "planzer-f1953f08d031",
@@ -1423,7 +1542,7 @@
       "slugByLocale": {
         "de": "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon",
         "it": "lavoro-meccanico-a-tutto-tondo-m-f-d-planzer-dallikon",
-        "en": "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon",
+        "en": "all-rounder-mechanical-work-m-f-d-planzer-dallikon",
         "fr": "ouvrage-mecanique-complet-h-f-d-planzer-dallikon"
       },
       "company": "Planzer",
@@ -1488,7 +1607,6 @@
           "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon"
         ],
         "en": [
-          "all-rounder-mechanical-work-m-f-d-planzer-dallikon",
           "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon"
         ],
         "fr": [
@@ -1496,8 +1614,7 @@
         ]
       },
       "previousSlugs": [
-        "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon",
-        "all-rounder-mechanical-work-m-f-d-planzer-dallikon"
+        "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon"
       ],
       "crawlerMissStreak": 1
     },
@@ -1508,7 +1625,7 @@
         "it": "logistica-di-raccolta-m-f-d-planzer-lyss",
         "en": "logistics-picking-m-f-d-planzer-lyss",
         "de": "logistiker-kommissionierung-m-w-d-planzer-lyss",
-        "fr": "logistiker-kommissionierung-m-w-d-planzer-lyss"
+        "fr": "recherche-logistique-h-f-d-planzer-lyss"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -1552,8 +1669,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistiker-kommissionierung-m-w-d-planzer-lyss",
-        "recherche-logistique-h-f-d-planzer-lyss"
+        "logistiker-kommissionierung-m-w-d-planzer-lyss"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1563,7 +1679,6 @@
           "logistiker-kommissionierung-m-w-d-planzer-lyss"
         ],
         "fr": [
-          "recherche-logistique-h-f-d-planzer-lyss",
           "logistiker-kommissionierung-m-w-d-planzer-lyss"
         ]
       },
