@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import * as readline from 'node:readline';
 
 export const MANIFEST_VERSION = 2;
 export const MANIFEST_FORMAT = 'jsonl';
@@ -26,6 +27,11 @@ export const TEMPLATE_VERSIONS = Object.freeze({
   'related-search-cluster': 'related-search-cluster@1',
   'related-search-sitemap': 'related-search-sitemap@1',
 });
+
+// Added after the first manifest format was deployed. Treat the missing field
+// as zero so readers can compare an old snapshot with a new one; newly written
+// manifests still always serialize the key.
+export const LEGACY_OPTIONAL_KINDS = new Set(['related-search-sitemap']);
 
 const RUNTIME_INPUT_KEYS = new Set([
   'ftbuildid',
@@ -57,6 +63,22 @@ function normalizedKey(key) {
 
 function compareStrings(left, right) {
   return left < right ? -1 : left > right ? 1 : 0;
+}
+
+function normalizeJobsSeoEmitterFingerprint(value) {
+  if (value === undefined || value === null) return null;
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    throw new Error('Jobs SEO emitter fingerprint must be an object');
+  }
+  const entries = Object.entries(value);
+  if (entries.some(([kind, fingerprint]) => (
+    !kind
+    || typeof fingerprint !== 'string'
+    || fingerprint.length === 0
+  ))) {
+    throw new Error('Jobs SEO emitter fingerprint entries are invalid');
+  }
+  return Object.fromEntries(entries.sort(([left], [right]) => compareStrings(left, right)));
 }
 
 function isRuntimeInputKey(key) {
@@ -277,7 +299,7 @@ export function verifyRuntimeInputExclusion() {
   return true;
 }
 
-function normalizeManifestPath(pagePath) {
+export function normalizeManifestPath(pagePath) {
   const normalized = String(pagePath || '').replaceAll('\\', '/').replace(/^\/+/, '');
   if (!normalized) throw new Error('Incremental manifest path cannot be empty');
   return normalized;
@@ -352,6 +374,16 @@ export class IncrementalManifest {
     this.locale = String(locale);
     this.entriesByKind = new Map(PAGE_KINDS.map((kind) => [kind, new Map()]));
     this.kindMetadata = new Map();
+    this.jobsSeoEmitterFingerprint = null;
+  }
+
+  setJobsSeoEmitterFingerprint(fingerprint) {
+    const normalized = normalizeJobsSeoEmitterFingerprint(fingerprint);
+    if (this.jobsSeoEmitterFingerprint && JSON.stringify(this.jobsSeoEmitterFingerprint) !== JSON.stringify(normalized)) {
+      throw new Error(`Jobs SEO emitter fingerprint changed within locale: ${this.locale}`);
+    }
+    this.jobsSeoEmitterFingerprint = normalized;
+    return this;
   }
 
   register(pagePath, kind, input, templateVersion = templateVersionForKind(kind), sourceVersion = SOURCE_VERSION) {
@@ -378,6 +410,25 @@ export class IncrementalManifest {
     });
   }
 
+  hasPath(pagePath) {
+    const normalizedPath = normalizeManifestPath(pagePath);
+    for (const entries of this.entriesByKind.values()) {
+      if (entries.has(normalizedPath)) return true;
+    }
+    return false;
+  }
+
+  getHash(pagePath, kind = null) {
+    if (!pagePath) return null;
+    const normalizedPath = normalizeManifestPath(pagePath);
+    if (kind) return this.entriesByKind.get(kind)?.get(normalizedPath) ?? null;
+    for (const entries of this.entriesByKind.values()) {
+      const hash = entries.get(normalizedPath);
+      if (hash) return hash;
+    }
+    return null;
+  }
+
   counts() {
     const byKind = Object.fromEntries(
       PAGE_KINDS.map((kind) => [kind, this.entriesByKind.get(kind).size]),
@@ -389,7 +440,7 @@ export class IncrementalManifest {
   }
 
   toJSON() {
-    return {
+    const summary = {
       manifestVersion: MANIFEST_VERSION,
       format: MANIFEST_FORMAT,
       locale: this.locale,
@@ -400,6 +451,10 @@ export class IncrementalManifest {
           .map((kind) => [kind, this.kindMetadata.get(kind)]),
       ),
     };
+    if (this.jobsSeoEmitterFingerprint) {
+      summary.jobsSeoEmitterFingerprint = this.jobsSeoEmitterFingerprint;
+    }
+    return summary;
   }
 
   write(rootDir, manifestDir = path.join(rootDir, '.cache', 'incremental-manifest')) {
@@ -432,7 +487,11 @@ export class IncrementalManifest {
           });
         }
       }
-      writeLine({ type: 'footer', counts: summary.counts });
+      const footer = { type: 'footer', counts: summary.counts };
+      if (this.jobsSeoEmitterFingerprint) {
+        footer.jobsSeoEmitterFingerprint = this.jobsSeoEmitterFingerprint;
+      }
+      writeLine(footer);
       fs.closeSync(fd);
       fd = null;
       fs.renameSync(temp, target);
@@ -449,8 +508,8 @@ export class IncrementalManifest {
 // memory and the later writer cannot overwrite the other plugin's kinds.
 const manifestMapsByRoot = new Map();
 
-export function getIncrementalManifestMap(rootDir, locales) {
-  if (!INCREMENTAL_MANIFEST_ENABLED) return null;
+export function getIncrementalManifestMap(rootDir, locales, force = false) {
+  if (!INCREMENTAL_MANIFEST_ENABLED && !force) return null;
   const rootKey = path.resolve(String(rootDir));
   let manifests = manifestMapsByRoot.get(rootKey);
   if (!manifests) {
@@ -469,4 +528,141 @@ export function getIncrementalManifestMap(rootDir, locales) {
     selected.set(key, manifest);
   }
   return selected;
+}
+
+function parseManifestJsonLine(file, lineNumber, line) {
+  try {
+    const record = JSON.parse(line);
+    if (!record || typeof record !== 'object' || Array.isArray(record)) {
+      throw new Error('record deve essere un oggetto');
+    }
+    return record;
+  } catch (error) {
+    throw new Error(`${file}:${lineNumber}: JSONL non valido (${error?.message || error})`);
+  }
+}
+
+function assertManifestCounts(file, counts, entries) {
+  if (!counts || !Number.isInteger(counts.total) || !counts.byKind || typeof counts.byKind !== 'object') {
+    throw new Error(`${file}: footer counts non valido`);
+  }
+  if (counts.total !== entries.size) {
+    throw new Error(`${file}: footer total=${counts.total}, osservate ${entries.size} entry`);
+  }
+  const byKind = Object.fromEntries(PAGE_KINDS.map((kind) => [kind, 0]));
+  for (const entry of entries.values()) byKind[entry.kind] += 1;
+  for (const kind of PAGE_KINDS) {
+    const declared = counts.byKind[kind];
+    if (declared === undefined && LEGACY_OPTIONAL_KINDS.has(kind)) continue;
+    if (declared !== byKind[kind]) {
+      throw new Error(`${file}: footer byKind.${kind}=${counts.byKind[kind]}, osservate ${byKind[kind]}`);
+    }
+  }
+}
+
+/**
+ * Read one manifest without materialising any HTML. The same strict reader is
+ * shared by CI reporting and the optional jobs-SEO disk cache so both paths
+ * agree on what constitutes a usable previous snapshot.
+ */
+export async function loadIncrementalManifest(file) {
+  const input = fs.createReadStream(file, { encoding: 'utf8' });
+  const reader = readline.createInterface({ input, crlfDelay: Infinity });
+  let header = null;
+  let footer = null;
+  let currentKind = null;
+  let sawFooter = false;
+  let jobsSeoEmitterFingerprint = null;
+  let lineNumber = 0;
+  const kinds = new Map();
+  const entries = new Map();
+
+  try {
+    for await (const rawLine of reader) {
+      lineNumber += 1;
+      const line = rawLine.trim();
+      if (!line) continue;
+      const record = parseManifestJsonLine(file, lineNumber, line);
+      if (sawFooter) throw new Error(`${file}:${lineNumber}: record dopo il footer`);
+
+      if (record.type === 'header') {
+        if (header) throw new Error(`${file}:${lineNumber}: header duplicato`);
+        if (
+          record.manifestVersion !== MANIFEST_VERSION
+          || record.format !== MANIFEST_FORMAT
+          || typeof record.locale !== 'string'
+        ) {
+          throw new Error(`${file}:${lineNumber}: header manifest non valido`);
+        }
+        header = record;
+        continue;
+      }
+      if (!header) throw new Error(`${file}:${lineNumber}: header mancante`);
+
+      if (record.type === 'kind') {
+        if (!PAGE_KINDS.includes(record.kind)) {
+          throw new Error(`${file}:${lineNumber}: kind non valido`);
+        }
+        if (kinds.has(record.kind)) {
+          throw new Error(`${file}:${lineNumber}: kind duplicato ${record.kind}`);
+        }
+        for (const field of ['templateVersion', 'sourceVersion', 'state']) {
+          if (typeof record[field] !== 'string' || record[field].length === 0) {
+            throw new Error(`${file}:${lineNumber}: metadata ${field} non valida`);
+          }
+        }
+        kinds.set(record.kind, {
+          templateVersion: record.templateVersion,
+          sourceVersion: record.sourceVersion,
+          state: record.state,
+        });
+        currentKind = record.kind;
+        continue;
+      }
+
+      if (record.type === 'footer') {
+        assertManifestCounts(file, record.counts, entries);
+        if (record.jobsSeoEmitterFingerprint !== undefined) {
+          jobsSeoEmitterFingerprint = normalizeJobsSeoEmitterFingerprint(record.jobsSeoEmitterFingerprint);
+        }
+        footer = record;
+        sawFooter = true;
+        continue;
+      }
+
+      if (record.type !== undefined) {
+        throw new Error(`${file}:${lineNumber}: record type non valido`);
+      }
+      if (!currentKind) throw new Error(`${file}:${lineNumber}: entry senza kind`);
+      if (typeof record.path !== 'string' || record.path.length === 0 || typeof record.hash !== 'string') {
+        throw new Error(`${file}:${lineNumber}: entry non valida`);
+      }
+      if (entries.has(record.path)) throw new Error(`${file}:${lineNumber}: path duplicato ${record.path}`);
+      const entry = { path: record.path, inputHash: record.hash, kind: currentKind };
+      // POST_WALK_INCREMENTAL (#8942) adds a compact identity/reference index
+      // per entry; the planner proves same-job and explicit path dependencies
+      // from it, so the shared loader must carry it through.
+      if (record.postWalk !== undefined) entry.postWalk = record.postWalk;
+      entries.set(record.path, entry);
+    }
+  } finally {
+    reader.close();
+  }
+
+  if (!header) throw new Error(`${file}: header mancante`);
+  if (!footer) throw new Error(`${file}: footer mancante`);
+  assertManifestCounts(file, footer.counts, entries);
+  const data = {
+    manifestVersion: header.manifestVersion,
+    format: header.format,
+    locale: header.locale,
+    counts: footer.counts,
+    kinds: Object.fromEntries(kinds),
+  };
+  if (jobsSeoEmitterFingerprint) data.jobsSeoEmitterFingerprint = jobsSeoEmitterFingerprint;
+  return {
+    file,
+    data,
+    entries,
+  };
 }
