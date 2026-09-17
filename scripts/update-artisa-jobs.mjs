@@ -33,8 +33,8 @@ import {
   parseArtisaCareerPage,
   parseSmartsheetFormPage,
   buildArtisaLocalizedContent,
-  assertCompleteArtisaSnapshot,
   assertCompleteArtisaListingSnapshot,
+  assertCompleteArtisaTargetSnapshot,
 } from './lib/artisa-job-parser.mjs';
 import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
@@ -145,7 +145,7 @@ async function fetchListings() {
   } = evaluateAuthoritativeSnapshot(rows, {
     validateAuthoritativeSnapshot: (snapshot) => (
       Array.isArray(snapshot) && snapshot.length === 0
-        ? assertCompleteArtisaSnapshot(snapshot)
+        ? assertCompleteArtisaTargetSnapshot(snapshot)
         : assertCompleteArtisaListingSnapshot(snapshot)
     ),
     allowAuthoritativeEmptySnapshot: true,
@@ -154,7 +154,7 @@ async function fetchListings() {
   });
   if (authoritativeEmptySnapshot) {
     console.log('✅ Careers page rendered with no open position — publishing the proven empty snapshot.');
-    return { rows, authoritativeEmptySnapshot, authoritativeSnapshotVerified: true };
+    return { rows, authoritativeEmptySnapshot, authoritativeSnapshotVerified };
   }
 
   // Fetch detail pages from Smartsheet forms (sequential to be polite)
@@ -384,7 +384,10 @@ async function main() {
     if (archived > 0) {
       console.log(`📦 Archived ${archived} expired Artisa job(s) → data/jobs/expired/by-crawler/${COMPANY_KEY}.json`);
     }
-    writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs, { skipShrinkGuard: true, preserveExistingSlugs: true });
+    writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs, {
+      skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified,
+      preserveExistingSlugs: true,
+    });
   } else {
     writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
   }

@@ -14,7 +14,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -36,7 +36,7 @@ import {
   inferTsmgCategory,
   buildTsmgLocalizedContent,
 } from './lib/tsmg-job-parser.mjs';
-import { isSwissLocationText } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isSwissLocationText } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -130,7 +130,7 @@ function assertCompleteTsmgSourceSnapshot(payload) {
     }
     const normalizedCountry = normalizeTsmgCountry(country);
     const normalizedLocation = location.trim();
-    if (normalizedCountry === 'CH' && !isSwissLocationText(normalizedLocation)) {
+    if (normalizedCountry === 'CH' && !inferAnyCanton(normalizedLocation)) {
       throw new Error(
         `TSMG Lever returned a degraded snapshot at posting ${index + 1}: `
         + `categories.location "${normalizedLocation}" is not a recognised Swiss location`,
@@ -290,7 +290,7 @@ function updateAdapterConfig(jobs) {
   });
 }
 
-function validateLocales() {
+function validateLocales(authoritativeEmptySnapshot = false) {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_TSMG_STRICT',
     label: 'TSMG',
@@ -299,7 +299,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_tsmg_lever',
-    failWhenNoJobs: false,
+    failWhenNoJobs: !authoritativeEmptySnapshot,
     noJobsMessage: 'No TSMG jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'en'),
   });
@@ -314,29 +314,24 @@ async function main() {
   console.log(`  Careers page: ${CAREERS_URL}`);
   console.log(`  API: ${API_URL}\n`);
 
-  // Lever's no-pagination endpoint is a complete postings snapshot. Accept a
-  // verified empty result only when no source posting is Swiss; reject a
+  // Lever's no-pagination endpoint is a complete postings snapshot. Reject a
   // degraded country/location classification before merge so the prior slice
-  // remains untouched without using a count floor.
+  // remains untouched without using a count floor. A complete source may also
+  // contain Swiss postings outside the target cantons, so the filtered target
+  // is allowed to be empty.
   const rawJobs = assertCompleteTsmgSourceSnapshot(await fetchJson(API_URL));
+  const authoritativeSnapshotVerified = true;
   const swiss = rawJobs.filter((job) => normalizeTsmgCountry(job.country) === 'CH');
-  // A complete source snapshot is publishable as zero only when it contains no
-  // Swiss postings. A Swiss posting that misses the target filter is a
-  // degraded filter result, not evidence that the TSMG slice is empty.
-  // Missing or unrecognised locations were rejected before this filter.
   const target = swiss.filter((job) => isTsmgTargetLocation(job?.categories?.location || ''));
-  const authoritativeEmptySnapshot = swiss.length === 0;
-  if (target.length === 0 && !authoritativeEmptySnapshot) {
-    throw new Error(
-      `TSMG Lever snapshot contains ${swiss.length} Swiss posting(s), but none matched the target location filter. `
-      + 'Refusing to conclude anything from a filtered result that would overwrite the prior slice.',
-    );
+  const authoritativeEmptySnapshot = target.length === 0;
+  if (target.length === 0) {
+    console.log('ℹ️  Nessun annuncio trovato per TSMG — non è un errore, il crawler prosegue.');
   }
   console.log(`📋 Total Lever jobs: ${rawJobs.length}`);
   console.log(`📋 Switzerland jobs: ${swiss.length}`);
   console.log(`📋 Ticino/Grigioni jobs: ${target.length}`);
   if (authoritativeEmptySnapshot) {
-    console.log('✅ Lever complete snapshot contains no Swiss postings — publishing the verified empty result.');
+    console.log('✅ Lever complete snapshot contains no target-canton postings — publishing the verified empty result.');
   }
   const discoveredJobs = target.map(buildJob);
   const { total, added, updated, diff} = mergeJobs(discoveredJobs);
@@ -354,21 +349,24 @@ async function main() {
     isTargetJob,
   });
 
-  validateLocales();
+  validateLocales(authoritativeEmptySnapshot);
   console.log(`\n✅ TSMG crawler complete (${total} jobs, added=${added}, updated=${updated}).`);
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified,
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'TSMG',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
     authoritativeEmptySnapshot,
-    authoritativeSnapshotVerified: true,
+    authoritativeSnapshotVerified,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,

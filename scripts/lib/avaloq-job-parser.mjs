@@ -1,6 +1,11 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
-import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
+import {
+  inferSwissTargetCanton,
+  inferAnyCanton,
+  isTargetSwissLocation,
+} from './target-swiss-locations.mjs';
+import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import {
   fetchSmartRecruitersJobs,
   SmartRecruitersApiError,
@@ -71,17 +76,43 @@ export function parseAvaloqListingLinks(html = '') {
 
 const SR_TENANT = 'Avaloq1';
 
+function normalizeCountry(value) {
+  if (value && typeof value === 'object') {
+    return normalizeSpace(value.code || value.iso || value.name || value.label || '');
+  }
+  return normalizeSpace(value);
+}
+
+function hasRecognizedSourceLocation(posting = {}) {
+  const location = posting.location || {};
+  const city = normalizeSpace(location.city || '');
+  const fullLocation = normalizeSpace(location.fullLocation || '');
+  const region = normalizeSpace(location.region || '');
+  const country = normalizeCountry(location.country);
+  const locationText = [fullLocation, city, region, country].filter(Boolean).join(' ');
+  if (!city && !fullLocation) return false;
+  // An explicit non-Swiss country code/name is a complete classification even
+  // when the vendor does not provide a municipality in our Swiss inventory.
+  if (country && !/^(?:ch|che|switzerland|schweiz|suisse|svizzera)$/i.test(country)) return true;
+  // Prefer the repository's existing foreign-location classifier so a Swiss
+  // city name paired with a foreign country is not misclassified as Swiss.
+  if (isLocationExplicitlyForeign(locationText)) return true;
+  // A Swiss city/canton is classified only when the location resolver can
+  // identify the canton. A bare "Switzerland" or an unknown city is not enough
+  // to prove that a target-canton vacancy was not hidden by the filter.
+  return Boolean(inferAnyCanton(locationText));
+}
+
 /**
  * Fetch all Avaloq job postings from the SmartRecruiters public API via the
  * shared `fetchSmartRecruitersJobs` client.
  *
  * Pipeline (mirrors the legacy in-tree implementation byte-for-byte):
  *   1. Paginated walk of `/v1/companies/Avaloq1/postings` (listing only).
- *   2. Filter postings whose `location.city` passes the supplied
- *      `locationFilter` (kept as a city-only predicate to match legacy
- *      semantics — the shared client's `locationContains` matches against
- *      `fullLocation + city`, which is broader than what we want).
- *   3. For each kept posting, fetch the full posting via `/v1/postings/{id}`
+ *   2. Classify every source posting's location before applying the supplied
+ *      `locationFilter`; a filtered zero is publishable only after this whole
+ *      source walk is proven complete.
+ *   3. For each source posting, fetch the full posting via `/v1/postings/{id}`
  *      so `jobAd.sections` is populated (`fetchDetail: true`).
  *   4. Build the local Avaloq detail shape via `buildDetailFromPosting`,
  *      which owns Avaloq's description policy (markdown sections with
@@ -103,15 +134,19 @@ const SR_TENANT = 'Avaloq1';
  */
 export async function fetchAvaloqJobsFromApi(timeoutMs = 20000, locationFilter = () => true) {
   const details = [];
+  let sourcePostingCount = 0;
+  let classifiedPostingCount = 0;
+  let sourceRead = {
+    terminationProven: false,
+    totalFound: null,
+    recordsSeen: 0,
+  };
   try {
     const iter = fetchSmartRecruitersJobs(SR_TENANT, {
-      // Avaloq's filter is city-only (legacy semantic). Apply via custom
-      // predicate so postings with no city slip through the same way they
-      // did before extraction.
-      filter: (posting) => {
-        const city = normalizeSpace((posting?.location || {}).city || '');
-        return locationFilter(city);
-      },
+      // Read the complete source before filtering. Applying the city predicate
+      // in the shared client would make a zero indistinguishable from a source
+      // read that returned no matching rows.
+      filter: () => true,
       // Detail fetch is required: the listing endpoint omits `jobAd.sections`.
       fetchDetail: true,
       detailConcurrency: 5,
@@ -120,11 +155,21 @@ export async function fetchAvaloqJobsFromApi(timeoutMs = 20000, locationFilter =
       minDelayMs: 0,
       detailDelayMs: 0,
       timeoutMs,
+      onComplete: (outcome) => {
+        sourceRead = outcome;
+      },
     });
 
     for await (const normalized of iter) {
       const posting = normalized.rawPosting;
-      if (!posting || typeof posting !== 'object') continue;
+      sourcePostingCount += 1;
+      if (!posting || typeof posting !== 'object' || !String(posting.id || '').trim()) {
+        throw new Error(`SmartRecruiters returned a degraded Avaloq posting at source row ${sourcePostingCount}`);
+      }
+      if (!hasRecognizedSourceLocation(posting)) {
+        throw new Error(`SmartRecruiters returned an unrecognised Avaloq location at source row ${sourcePostingCount}`);
+      }
+      classifiedPostingCount += 1;
       details.push(buildDetailFromPosting(posting));
     }
   } catch (err) {
@@ -135,7 +180,62 @@ export async function fetchAvaloqJobsFromApi(timeoutMs = 20000, locationFilter =
     }
     throw err;
   }
-  return details;
+  const targetDetails = details.filter((detail) => locationFilter(detail.location));
+  Object.defineProperties(targetDetails, {
+    avaloqSourceSnapshot: { value: 'authoritative-api-snapshot', enumerable: false },
+    avaloqSourceReadComplete: {
+      value: sourceRead.terminationProven === true
+        && (!Number.isFinite(sourceRead.totalFound) || sourceRead.recordsSeen >= sourceRead.totalFound),
+      enumerable: false,
+    },
+    avaloqSourceTerminationProven: { value: sourceRead.terminationProven === true, enumerable: false },
+    avaloqSourceTotalFound: { value: sourceRead.totalFound, enumerable: false },
+    avaloqSourceRecordsSeen: { value: sourceRead.recordsSeen, enumerable: false },
+    avaloqSourcePostingCount: { value: sourcePostingCount, enumerable: false },
+    avaloqClassifiedPostingCount: { value: classifiedPostingCount, enumerable: false },
+  });
+  return targetDetails;
+}
+
+/**
+ * Verify the single source-evidence predicate used before publishing an
+ * Avaloq filtered result, including a legitimate zero target result.
+ *
+ * @param {object[]|undefined|null} details
+ * @returns {true}
+ */
+export function assertCompleteAvaloqSnapshot(details) {
+  const sourcePostingCount = Array.isArray(details)
+    ? Number(Reflect.get(details, 'avaloqSourcePostingCount'))
+    : Number.NaN;
+  const classifiedPostingCount = Array.isArray(details)
+    ? Number(Reflect.get(details, 'avaloqClassifiedPostingCount'))
+    : Number.NaN;
+  const totalFound = Array.isArray(details)
+    ? Reflect.get(details, 'avaloqSourceTotalFound')
+    : null;
+  const sourceRecordsSeen = Array.isArray(details)
+    ? Number(Reflect.get(details, 'avaloqSourceRecordsSeen'))
+    : Number.NaN;
+  const sourceReadComplete = Array.isArray(details)
+    && Reflect.get(details, 'avaloqSourceReadComplete') === true;
+  const sourceSnapshot = Array.isArray(details)
+    && Reflect.get(details, 'avaloqSourceSnapshot') === 'authoritative-api-snapshot';
+  if (
+    !sourceSnapshot
+    || !sourceReadComplete
+    || Reflect.get(details, 'avaloqSourceTerminationProven') !== true
+    || !Number.isInteger(sourcePostingCount)
+    || sourcePostingCount !== classifiedPostingCount
+    || sourcePostingCount !== sourceRecordsSeen
+    || (Number.isFinite(totalFound) && sourcePostingCount < totalFound)
+  ) {
+    throw new Error(
+      'Avaloq result is not an authoritative source snapshot: '
+      + 'the complete source read and location classification are not proven',
+    );
+  }
+  return true;
 }
 
 function buildDetailFromPosting(posting) {

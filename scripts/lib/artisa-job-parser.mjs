@@ -1,6 +1,7 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
-import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -32,6 +33,14 @@ const LANDMARK_TITLES = ['carriera', 'le nostre sedi'];
 function isCandidateTitle(value = '') {
   const text = normalizeText(value);
   return Boolean(text) && !NON_JOB_TITLES.has(text);
+}
+
+function classifyArtisaLocation(value = '') {
+  const location = normalizeSpace(value);
+  if (!location) return 'unrecognised';
+  if (inferAnyCanton(location)) return 'swiss';
+  if (isLocationExplicitlyForeign(location)) return 'foreign';
+  return 'unrecognised';
 }
 
 export function parseArtisaCareerPage(html = '') {
@@ -97,6 +106,9 @@ export function parseArtisaCareerPage(html = '') {
   flush();
   const targetJobs = jobs.filter((job) => isTargetSwissLocation(job.location));
   const landmarksComplete = LANDMARK_TITLES.every((title) => landmarks.has(title));
+  const locationClassifications = jobs.map((job) => classifyArtisaLocation(job.location));
+  const unrecognisedLocations = locationClassifications
+    .filter((classification) => classification === 'unrecognised').length;
   // A zero is authoritative only when the page rendered in full AND listed no
   // vacancy at all. A non-empty snapshot is authoritative only when every
   // candidate vacancy heading became a parsed row. Qualifying on
@@ -105,7 +117,12 @@ export function parseArtisaCareerPage(html = '') {
   // its wording so `isTargetSwissLocation()` stops matching, vacancies could be
   // silently discarded while both landmarks still render.
   const parsedVacancies = jobs.length;
-  const completeCandidateSnapshot = landmarksComplete && candidateVacancies === parsedVacancies;
+  const completeLocationClassification = unrecognisedLocations === 0;
+  const completeCandidateSnapshot = (
+    landmarksComplete
+    && candidateVacancies === parsedVacancies
+    && completeLocationClassification
+  );
   Object.defineProperties(targetJobs, {
     artisaSnapshotState: {
       value: completeCandidateSnapshot
@@ -115,6 +132,11 @@ export function parseArtisaCareerPage(html = '') {
     },
     artisaCandidateVacancies: { value: candidateVacancies, enumerable: false },
     artisaParsedVacancies: { value: parsedVacancies, enumerable: false },
+    artisaLocationClassificationComplete: {
+      value: completeLocationClassification,
+      enumerable: false,
+    },
+    artisaUnrecognisedLocationCount: { value: unrecognisedLocations, enumerable: false },
   });
   // Why the state is `unverified`, in the words of what the page actually
   // rendered (issue #7425 item 3). Without it the crawler's only signal reads
@@ -126,7 +148,8 @@ export function parseArtisaCareerPage(html = '') {
   Object.defineProperty(targetJobs, 'artisaSnapshotReason', {
     value: missingLandmarks.length > 0
       ? `landmark h2 not found: ${missingLandmarks.join(', ')} — h2 rendered: ${headingsSeen.join(' | ') || '(none)'}`
-      : `${candidateVacancies} candidate vacancy h2 present, ${jobs.length} row(s) parsed — h2 rendered: ${headingsSeen.join(' | ')}`,
+      : `${candidateVacancies} candidate vacancy h2 present, ${jobs.length} row(s) parsed, `
+        + `${unrecognisedLocations} location(s) unrecognised — h2 rendered: ${headingsSeen.join(' | ')}`,
     enumerable: false,
   });
   return targetJobs;
@@ -173,6 +196,8 @@ export function assertCompleteArtisaListingSnapshot(jobs) {
   const parsedVacancies = Array.isArray(jobs)
     ? Number(Reflect.get(jobs, 'artisaParsedVacancies'))
     : Number.NaN;
+  const locationClassificationComplete = Array.isArray(jobs)
+    && Reflect.get(jobs, 'artisaLocationClassificationComplete') === true;
   if (
     !Array.isArray(jobs)
     || jobs.length === 0
@@ -180,6 +205,7 @@ export function assertCompleteArtisaListingSnapshot(jobs) {
     || !Number.isInteger(candidateVacancies)
     || candidateVacancies === 0
     || candidateVacancies !== parsedVacancies
+    || !locationClassificationComplete
   ) {
     const reason = Array.isArray(jobs)
       ? Reflect.get(jobs, 'artisaSnapshotReason') || `${jobs.length} row(s) parsed`
@@ -187,6 +213,43 @@ export function assertCompleteArtisaListingSnapshot(jobs) {
     throw new Error(`Artisa Group snapshot is not a complete non-empty state: ${reason}`);
   }
   return true;
+}
+
+/**
+ * Verify a complete source snapshot whose target-location filter produced no
+ * rows. A full DOM and a candidate/row count are not enough: every candidate
+ * location must also be classified as Swiss or explicitly foreign, otherwise
+ * an unrecognised location could hide a Swiss vacancy behind the empty target.
+ *
+ * @param {object[]|undefined|null} jobs
+ * @returns {true}
+ */
+export function assertCompleteArtisaTargetSnapshot(jobs) {
+  const candidateVacancies = Array.isArray(jobs)
+    ? Number(Reflect.get(jobs, 'artisaCandidateVacancies'))
+    : Number.NaN;
+  const parsedVacancies = Array.isArray(jobs)
+    ? Number(Reflect.get(jobs, 'artisaParsedVacancies'))
+    : Number.NaN;
+  const isCompleteFilteredSnapshot = (
+    Array.isArray(jobs)
+    && jobs.length === 0
+    && Reflect.get(jobs, 'artisaSnapshotState') === 'authoritative-site-snapshot'
+    && Number.isInteger(candidateVacancies)
+    && candidateVacancies > 0
+    && candidateVacancies === parsedVacancies
+    && Reflect.get(jobs, 'artisaLocationClassificationComplete') === true
+  );
+  if (isCompleteFilteredSnapshot) return true;
+  if (
+    Array.isArray(jobs)
+    && Reflect.get(jobs, 'artisaUnrecognisedLocationCount') > 0
+  ) {
+    throw new Error(
+      `Artisa Group snapshot contains ${Reflect.get(jobs, 'artisaUnrecognisedLocationCount')} unrecognised location(s)`,
+    );
+  }
+  return assertCompleteArtisaSnapshot(jobs);
 }
 
 /**

@@ -1,12 +1,61 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   parseAvaloqListingLinks,
   parseAvaloqJobDetail,
   isAvaloqTargetLocation,
   inferAvaloqCanton,
+  fetchAvaloqJobsFromApi,
+  assertCompleteAvaloqSnapshot,
 } from '../scripts/lib/avaloq-job-parser.mjs';
 
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
+
 describe('avaloq-job-parser', () => {
+  it('rejects an empty target without a complete source proof', () => {
+    expect(() => assertCompleteAvaloqSnapshot([])).toThrow(/authoritative source snapshot/);
+  });
+
+  it('accepts an empty target only when the complete source was classified', () => {
+    const rows = [];
+    Object.defineProperties(rows, {
+      avaloqSourceSnapshot: { value: 'authoritative-api-snapshot' },
+      avaloqSourceReadComplete: { value: true },
+      avaloqSourceTerminationProven: { value: true },
+      avaloqSourceTotalFound: { value: 2 },
+      avaloqSourceRecordsSeen: { value: 2 },
+      avaloqSourcePostingCount: { value: 2 },
+      avaloqClassifiedPostingCount: { value: 2 },
+    });
+    expect(assertCompleteAvaloqSnapshot(rows)).toBe(true);
+  });
+
+  it('rejects a zero target when the API total proves that the read was truncated', async () => {
+    const posting = {
+      id: '744000000000001',
+      name: 'Zürich role',
+      location: { city: 'Zürich', country: { code: 'CH' } },
+    };
+    let listCalls = 0;
+    vi.stubGlobal('fetch', vi.fn(async (input) => {
+      const url = String(input);
+      if (url.endsWith('/postings/744000000000001')) {
+        return new Response(JSON.stringify(posting), { status: 200 });
+      }
+      listCalls += 1;
+      return new Response(JSON.stringify({
+        content: listCalls === 1 ? [posting] : [],
+        totalFound: 2,
+      }), { status: 200 });
+    }));
+
+    const rows = await fetchAvaloqJobsFromApi(100, () => false);
+    expect(rows).toHaveLength(0);
+    expect(listCalls).toBe(2);
+    expect(() => assertCompleteAvaloqSnapshot(rows)).toThrow(/authoritative source snapshot/);
+  });
+
   it('extracts public job detail links from listing page html', () => {
     const html = `
       <div style="display:none">

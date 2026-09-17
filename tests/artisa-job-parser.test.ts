@@ -5,6 +5,7 @@ import {
   buildArtisaLocalizedContent,
   assertCompleteArtisaSnapshot,
   assertCompleteArtisaListingSnapshot,
+  assertCompleteArtisaTargetSnapshot,
 } from '../scripts/lib/artisa-job-parser.mjs';
 
 const SAMPLE_HTML = `
@@ -209,6 +210,34 @@ describe('assertCompleteArtisaSnapshot', () => {
     `);
     expect(rows).toHaveLength(0);
     expect(() => assertCompleteArtisaSnapshot(rows)).toThrow(/not a proven authoritative empty state/);
+  });
+
+  it('rejects an empty target when a source vacancy has an unrecognised location', () => {
+    const rows = parseArtisaCareerPage(`
+      <div>
+        <h2>Carriera</h2>
+        <h2>Architect role</h2>
+        <h4>Remote</h4>
+        <a href="https://app.smartsheet.com/b/form/019c46ebd5137236a9d1b0d500840bf4">Scopri di piu</a>
+        <h2>Le nostre sedi</h2>
+      </div>
+    `);
+    expect(rows).toHaveLength(0);
+    expect(() => assertCompleteArtisaTargetSnapshot(rows)).toThrow(/unrecognised location/);
+  });
+
+  it('accepts a complete non-target snapshot when every location is explicitly foreign', () => {
+    const rows = parseArtisaCareerPage(`
+      <div>
+        <h2>Carriera</h2>
+        <h2>Architect role</h2>
+        <h4>Milano, Italy</h4>
+        <a href="https://app.smartsheet.com/b/form/019c46ebd5137236a9d1b0d500840bf4">Scopri di piu</a>
+        <h2>Le nostre sedi</h2>
+      </div>
+    `);
+    expect(rows).toHaveLength(0);
+    expect(assertCompleteArtisaTargetSnapshot(rows)).toBe(true);
   });
 
   // Issue #7425 item 3. The two failures below are indistinguishable from the
