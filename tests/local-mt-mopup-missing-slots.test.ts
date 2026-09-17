@@ -114,6 +114,7 @@ describe('local-mt-mopup OpusMT rescue', () => {
       targets: new Map([[id, target]]),
       results: new Map([[id, argosRaw]]),
       enabled: true,
+      langAwareOverwrite: true,
       translate: async (...args) => {
         calls.push(args);
         return opusRaw;
@@ -179,6 +180,41 @@ describe('local-mt-mopup OpusMT rescue', () => {
     });
 
     expect(rescue.decisionTally['skip:candidate-untranslated']).toBe(1);
+    expect(rescue.recovered).toBe(0);
+    expect(rescue.writes.size).toBe(0);
+  });
+
+  it('keeps language-driven rescue writes gated by the independent language switch', async () => {
+    const id = 'language-driven-rescue';
+    const target = auditTitleTarget({
+      id,
+      sourceLang: 'de',
+      locale: 'it',
+      company: '',
+      sourceText: 'Metzger 60-100%',
+      existing: 'Aiuto Metzger 60-100%',
+    });
+    const argosRaw = 'Metzger Aushilfe 60-100%';
+    const opusRaw = 'Macellaio 60-100%';
+
+    expect(classifyMopupWrite({ ...target, rawText: argosRaw })).toMatchObject({
+      decision: 'skip:candidate-untranslated',
+      languageDriven: true,
+    });
+    expect(classifyMopupWrite({ ...target, rawText: opusRaw })).toMatchObject({
+      decision: 'write',
+      languageDriven: true,
+    });
+
+    const rescue = await rescueMopupRejects({
+      targets: new Map([[id, target]]),
+      results: new Map([[id, argosRaw]]),
+      enabled: true,
+      langAwareOverwrite: false,
+      translate: async () => opusRaw,
+    });
+
+    expect(rescue.decisionTally.write).toBe(1);
     expect(rescue.recovered).toBe(0);
     expect(rescue.writes.size).toBe(0);
   });

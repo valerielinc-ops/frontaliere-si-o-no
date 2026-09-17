@@ -646,13 +646,14 @@ export async function rescueMopupRejects({
     decisionTally[opus.decision] = (decisionTally[opus.decision] || 0) + 1;
     attempted++;
 
-    // The rescue flag is the rollout switch for this arm. The classifier and
-    // the existing language-aware write policy remain the same; a rescue write
-    // is eligible only after both have accepted the candidate.
+    // The rescue flag controls only this second model pass. The language-aware
+    // write policy remains independently controlled by
+    // LOCAL_MT_LANG_AWARE_OVERWRITE; a language-driven rescue write is eligible
+    // only when that switch is on and both classifiers accept the candidate.
     if (shouldApplyMopupWrite({
       decision: opus.decision,
       languageDriven: opus.languageDriven,
-      langAwareOverwrite: langAwareOverwrite || enabled,
+      langAwareOverwrite,
     })) {
       writes.set(id, { rawText });
       recovered++;
@@ -975,9 +976,7 @@ async function main() {
       if (!shouldApplyMopupWrite({
         decision: finalCandidate.decision,
         languageDriven: finalCandidate.languageDriven,
-        langAwareOverwrite: rescue
-          ? LANG_AWARE_OVERWRITE || OPUS_MT_RESCUE
-          : LANG_AWARE_OVERWRITE,
+        langAwareOverwrite: LANG_AWARE_OVERWRITE,
       })) {
         if (decision === 'write' && languageDriven) {
           shadowWithheld++;
