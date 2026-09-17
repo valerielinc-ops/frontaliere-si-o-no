@@ -175,10 +175,12 @@ jobs:
 
           git add data/loop-fleet/ledger/lifecycle-events.jsonl
           git commit -m 'chore(loop-fleet): persist observed lifecycle evidence'
+          basic_auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 | tr -d '\n')
           GIT_CONFIG_COUNT=1 \
           GIT_CONFIG_KEY_0='http.https://github.com/.extraheader' \
-          GIT_CONFIG_VALUE_0="AUTHORIZATION: bearer ${GH_TOKEN}" \
+          GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}" \
             bounded_remote git push --set-upstream origin "$branch"
+          unset basic_auth
 
           body="$RUNNER_TEMP/loop-fleet-lifecycle-pr-body.md"
           cat > "$body" <<EOF

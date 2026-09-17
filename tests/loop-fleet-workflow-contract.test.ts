@@ -231,7 +231,9 @@ describe('loop fleet workflow contract', () => {
     expect(source).not.toContain('): $*');
     expect(source).not.toContain('push_url=');
     expect(source).toContain("GIT_CONFIG_KEY_0='http.https://github.com/.extraheader'");
-    expect(source).toContain('GIT_CONFIG_VALUE_0="AUTHORIZATION: bearer ${GH_TOKEN}"');
+    expect(source).toContain("basic_auth=$(printf 'x-access-token:%s' \"$GH_TOKEN\" | base64 | tr -d '\\n')");
+    expect(source).toContain('GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}"');
+    expect(source).toContain('unset basic_auth');
     expect(source).toContain('bounded_remote git push --set-upstream origin "$branch"');
     expect(source).toContain('export GIT_TERMINAL_PROMPT=0');
     expect(source).toContain('export GH_PAGER=cat');
@@ -257,7 +259,9 @@ describe('loop fleet workflow contract', () => {
     expect(source).not.toContain('): $*');
     expect(source).not.toContain('push_url=');
     expect(source).toContain("GIT_CONFIG_KEY_0='http.https://github.com/.extraheader'");
-    expect(source).toContain('GIT_CONFIG_VALUE_0="AUTHORIZATION: bearer ${GH_TOKEN}"');
+    expect(source).toContain("basic_auth=$(printf 'x-access-token:%s' \"$GH_TOKEN\" | base64 | tr -d '\\n')");
+    expect(source).toContain('GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}"');
+    expect(source).toContain('unset basic_auth');
     expect(source).toContain('bounded_remote git push --set-upstream origin "$branch"');
     expect(source).toContain('export GIT_TERMINAL_PROMPT=0');
     expect(source).toContain('export GH_PAGER=cat');
