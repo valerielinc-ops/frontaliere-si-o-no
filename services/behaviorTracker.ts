@@ -113,6 +113,11 @@ function pruneSize(data: BehaviorData): BehaviorData {
  };
 }
 
+function parseLastVisitTimestamp(data: BehaviorData): number | null {
+ const timestamp = data.lastVisit ? new Date(data.lastVisit).getTime() : NaN;
+ return Number.isFinite(timestamp) ? timestamp : null;
+}
+
 // ─── Public API ─────────────────────────────────────────────────
 
 let _available: boolean | null = null;
@@ -126,6 +131,25 @@ function available(): boolean {
 export function getBehaviorData(): BehaviorData {
  if (!available()) return emptyBehavior();
  return pruneExpired(readRaw());
+}
+
+/**
+ * Read the behavior snapshot for this visit, then record the new visit.
+ *
+ * The previous timestamp is returned separately because callers must compare
+ * against it after the write. Keeping that boundary here also means a blocked
+ * or corrupt localStorage behaves like a first visit without throwing.
+ */
+export function readBehaviorAndMarkVisit(): {
+ data: BehaviorData;
+ previousLastVisit: number | null;
+} {
+ if (!available()) return { data: emptyBehavior(), previousLastVisit: null };
+ const data = pruneExpired(readRaw());
+ const previousLastVisit = parseLastVisitTimestamp(data);
+ data.lastVisit = new Date().toISOString();
+ writeRaw(data);
+ return { data, previousLastVisit };
 }
 
 /** Track a job view. */
@@ -172,7 +196,7 @@ export function trackFilterUsage(filterType: 'category' | 'location' | 'contract
 export function getLastVisitTimestamp(): number | null {
  if (!available()) return null;
  const data = readRaw();
- return data.lastVisit ? new Date(data.lastVisit).getTime() : null;
+ return parseLastVisitTimestamp(data);
 }
 
 /** Update last visit to now. */

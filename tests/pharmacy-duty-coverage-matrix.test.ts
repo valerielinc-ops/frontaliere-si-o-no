@@ -15,7 +15,10 @@ import type {
 const duties = dutiesJson as unknown as PharmacyDutiesDataset;
 const catalogue = catalogueJson as unknown as PharmacyCatalogueDataset;
 const registry = registryJson as unknown as PharmacySourcesRegistry;
-const now = new Date('2026-09-15T12:00:00.000Z');
+// Keep the clock just after the checked-in duty snapshot. The fixture is
+// refreshed independently of the test source, so a historical fixed date
+// would make a valid fresh release look like it came from the future.
+const now = new Date(new Date(duties._fetchedAt).getTime() + 60 * 60 * 1000);
 
 describe('duty coverage matrix', () => {
   it('keeps the five Ticino duty regions separate from 25 source-only cantons', () => {
