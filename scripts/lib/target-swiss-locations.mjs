@@ -1,5 +1,5 @@
 import MUNICIPALITY_DATA from '../../data/canton-municipalities.json' with { type: 'json' };
-import { ALL_CANTON_CODES, TARGET_CANTONS, SWISS_CANTONS, isTargetCanton } from './crawler-location-config.mjs';
+import { TARGET_CANTONS, SWISS_CANTONS, isTargetCanton } from './crawler-location-config.mjs';
 
 // ─── Text normalization ────────────────────────────────────────────────────
 
@@ -495,10 +495,7 @@ export function normalizeCantonCode(raw = '') {
 // ─── Target location check ────────────────────────────────────────────────
 
 export function isTargetSwissLocation(text = '', { includeGrigioni = true, includeBorderProximity = true } = {}) {
-  // This predicate is the Swiss-location gate used by CH-wide crawlers. Keep
-  // it independent of a narrower legacy target list: all 26 cantons are in
-  // scope, while foreign locations are still rejected by isCantonRelevant.
-  for (const code of ALL_CANTON_CODES) {
+  for (const code of TARGET_CANTONS) {
     if (code === 'GR' && !includeGrigioni) continue;
     if (isCantonRelevant(text, code, { includeBorderProximity })) return true;
   }
