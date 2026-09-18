@@ -378,7 +378,7 @@ function detectSector(detail) {
 // Main discovery flow
 // ──────────────────────────────────────────────────────────────
 
-async function fetchPostJobs() {
+export async function fetchPostJobs() {
   console.log('📮 Fetching Swiss Post (La Posta Svizzera) job listings...');
   console.log(`  🌐 Listing API: ${JOBS_API_URL} (locales=${JOBS_API_LISTING_LOCALES.join(',')})`);
 
@@ -392,6 +392,7 @@ async function fetchPostJobs() {
     let pageNumber = 0;
     let totalJobs = null;
     let seen = 0;
+    const seenIds = new Set();
     while (pageNumber < JOBS_API_MAX_PAGES) {
       const { totalJobs: total, jobs, error } = await fetchJobsApiPage(apiLocale, pageNumber);
       if (error) {
@@ -415,20 +416,45 @@ async function fetchPostJobs() {
         }
         break;
       }
+      const pageIds = new Set();
       for (const j of jobs) {
         const id = String(j?.id || '').trim();
-        if (!id) continue;
+        if (!id) {
+          throw new Error(
+            `Post.ch ${apiLocale} pagination failed at page ${pageNumber}: `
+            + 'source record has no stable id.',
+          );
+        }
+        if (pageIds.has(id) || seenIds.has(id)) {
+          throw new Error(
+            `Post.ch ${apiLocale} pagination failed at page ${pageNumber}: `
+            + `repeated source identity "${id}"; no unique progress proven.`,
+          );
+        }
+        pageIds.add(id);
+        seenIds.add(id);
         if (!byId.has(id)) byId.set(id, j);
       }
-      seen += jobs.length;
+      const pageUniqueCount = pageIds.size;
+      if (pageUniqueCount === 0) {
+        throw new Error(
+          `Post.ch ${apiLocale} pagination failed at page ${pageNumber}: no unique progress proven.`,
+        );
+      }
+      seen += pageUniqueCount;
       pageNumber += 1;
-      if (totalJobs !== null && seen >= totalJobs) break;
+      if (totalJobs !== null && seen > totalJobs) {
+        throw new Error(
+          `Post.ch ${apiLocale} pagination read ${seen} unique records for declared total ${totalJobs}.`,
+        );
+      }
+      if (totalJobs !== null && seen === totalJobs) break;
       await delay(250);
     }
     if (pageNumber >= JOBS_API_MAX_PAGES && (totalJobs === null || seen < totalJobs)) {
       throw new Error(
         `Post.ch ${apiLocale} pagination incomplete after ${pageNumber} pages: ` +
-          `${seen} records received${totalJobs !== null ? ` of ${totalJobs} declared` : ''}.`,
+          `${seen} unique records received${totalJobs !== null ? ` of ${totalJobs} declared` : ''}.`,
       );
     }
     console.log(`     ${apiLocale}: ${seen} record(s) (claimed total: ${totalJobs ?? 'unknown'})`);
