@@ -48,9 +48,7 @@ type SupportedLocale = CantonLocale;
 // Editorial-canton landing kinds confirmed (via emitEditorialBelowFloorBridge
 // call sites in jobsSeoPagesPlugin.ts) to ALWAYS have a live page at their
 // canonical slug for EVERY canton — either the full listing or a noindex
-// below-floor bridge, never a silent skip. The demand-qualified intent family
-// is the exception: it is emitted only for the TI section, so it is added
-// separately below with an explicit canton guard. Other descriptor kinds
+// below-floor bridge, never a silent skip. Other descriptor kinds
 // (official-gazette/location/location-type/location-sector/sector-region/
 // recency) do NOT have that universal per-canton guarantee, so they are
 // deliberately excluded — self-mapping them would risk telling the compat
@@ -74,15 +72,20 @@ const SELF_MAPPABLE_EDITORIAL_SLUGS: ReadonlySet<string> = (() => {
  for (const key of CARE_CLUSTER_KEYS) {
  s.add(careClusterSlug(key, canton, locale));
  }
- if (canton === 'TI') {
- for (const intentKey of JOB_INTENT_KEYS) {
- s.add(getJobIntentLandingSlug(locale, intentKey));
- }
- }
  }
  }
  return s;
 })();
+
+// Demand-qualified intent pages are currently emitted only for the legacy TI
+// section. Keep their slug set separate from the all-canton editorial set so
+// a stale intent URL under (for example) the Zurich section is not claimed
+// live when no such bridge was emitted there.
+const SELF_MAPPABLE_TI_INTENT_SLUGS: ReadonlySet<string> = new Set(
+ ['it', 'en', 'de', 'fr'].flatMap((locale) =>
+  JOB_INTENT_KEYS.map((intentKey) => getJobIntentLandingSlug(locale as SupportedLocale, intentKey)),
+ ),
+);
 
 // Per-canton sector-hub slugs (jobsSeoPagesPlugin.ts Phase 3.2 for the 23
 // non-TI canton sections, jobSectorPagesPlugin.ts for the TI legacy section)
@@ -877,6 +880,7 @@ export function resolveSearchConsoleCompatTarget(
  slug === SNAPSHOT_SEGMENT ||
  (Object.values(HUB_SLUG_BY_LOCALE[locale]) as string[]).includes(slug) ||
  SELF_MAPPABLE_EDITORIAL_SLUGS.has(slug) ||
+ (SELF_MAPPABLE_TI_INTENT_SLUGS.has(slug) && urlSection === SECTION_LEGACY_TI[locale]) ||
  (SELF_MAPPABLE_SECTOR_HUB_SLUGS[locale].has(slug) && !AGGREGATE_SECTIONS.has(urlSection))
  ) {
  return {

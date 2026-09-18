@@ -36,6 +36,11 @@ describe('job intent landings', () => {
       kind: 'legacy',
       locale: 'it',
     });
+    expect(resolveSearchConsoleCompatTarget('/cerca-lavoro-san-gallo/lavoro-tedesco-ticino/')).toEqual({
+      canonicalPath: '/cerca-lavoro-san-gallo/',
+      kind: 'expired-job',
+      locale: 'it',
+    });
   });
 
   it('matches real language and entry-level signals without emitting empty intent pages', () => {
