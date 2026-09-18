@@ -20,6 +20,12 @@ export const ENTRYPOINTS = [
   'scripts/ci/mint-app-token.mjs',
   'scripts/ci/alert-pat-down.mjs',
   'scripts/ci/probe-workflow-scope.mjs',
+  // pharmacy-data-health-monitor.yml runs this observer WITHOUT `npm ci`
+  // (read-only, no network, checked-in datasets only). Until #8653 its closure
+  // reached scripts/lib/crawler-template.mjs for a single `slugify` helper and
+  // therefore `undici`, so the monitor died at module load before writing
+  // data/pharmacy-data-health-report.json — a blind observer, not a red one.
+  'scripts/check-pharmacy-data-health.mjs',
 ];
 
 const BUILTINS = new Set(builtinModules);

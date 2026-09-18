@@ -260,7 +260,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:05:53.306Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -332,7 +331,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-17T21:59:53.752Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -430,8 +428,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "ubs-365f14adc421",
@@ -515,8 +512,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "ubs-312a37a06ddc",
@@ -590,7 +586,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T22:53:59.398Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -672,7 +667,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T22:53:59.419Z",
-      "needsRetranslation": true,
       "salaryMin": 65500,
       "salaryMax": 100500,
       "salarySource": "estimated",
@@ -767,8 +761,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "ubs-0c927e3a68f5",
@@ -839,7 +832,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T22:53:59.419Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -911,7 +903,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-09-08T13:32:50.397Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 138500,
       "salarySource": "estimated",
@@ -1227,7 +1218,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-09-16T23:40:27.295Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1299,7 +1289,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-09-16T23:40:27.295Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1381,7 +1370,6 @@
         ]
       },
       "firstSeenAt": "2026-09-16T23:40:27.295Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1621,7 +1609,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-09-16T23:40:27.277Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -2134,7 +2121,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-09-16T23:40:27.267Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -3248,7 +3234,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.783Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 129000,
       "salarySource": "estimated",
@@ -3336,7 +3321,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.787Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -3424,7 +3408,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.791Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -3609,24 +3592,51 @@
       "locationDerivedFrom": "vacancy-text",
       "previousSlugsByLocale": {
         "de": [
-          "2027-banklehre-kaufmannische-grundbildung-kv-gstaad-ubs-mittelland"
+          "2027-banklehre-kaufmannische-grundbildung-kv-gstaad-ubs-mittelland",
+          "2027-banklehre-kaufmannische-grundbildung-kv-zurich-ubs-zurich"
         ],
         "it": [
           "2027-banklehre-kaufmannische-grundbildung-kv-gstaad-ubs-mittelland",
           "2027-banklehre-kaufmannische-grundbildung-kv-gstaad-ubs-gstaad",
-          "2027-apprendistato-in-banca-formazione-commerciale-di-base-kv-gstaad-ubs-mittelland"
+          "2027-apprendistato-in-banca-formazione-commerciale-di-base-kv-gstaad-ubs-mittelland",
+          "2027-apprendistato-bancario-formazione-commerciale-di-base-kv-zurigo-ubs-zurich",
+          "2027-banking-commercial-basic-education-kv-zurich-ubs-zurich",
+          "2027-banklehre-kaufmannische-grundbildung-kv-zurich-ubs-zurich",
+          "2027-banque-education-de-base-commerciale-kv-zurich-ubs-zurich",
+          "2027-apprendistato-bancario-formazione-commerciale-di-base-kv-schaffhausen-ubs-zurich",
+          "2027-banking-commercial-basic-education-kv-schaffhausen-ubs-zurich",
+          "2027-banklehre-kaufmannische-grundbildung-kv-schaffhausen-ubs-zurich",
+          "2027-banque-education-de-base-commerciale-kv-schaffhausen-ubs-zurich",
+          "2027-apprendistato-bancario-formazione-commerciale-di-base-kv-svizzera-centrale-ubs-zentralschweiz",
+          "2027-banking-commercial-basic-education-kv-central-switzerland-ubs-zentralschweiz",
+          "2027-banklehre-kaufmannische-grundbildung-kv-zentralschweiz-ubs-zentralschweiz",
+          "2027-banque-education-de-base-commerciale-kv-suisse-centrale-ubs-zentralschweiz"
         ],
         "en": [
-          "2027-banklehre-kaufmannische-grundbildung-kv-gstaad-ubs-mittelland"
+          "2027-banklehre-kaufmannische-grundbildung-kv-gstaad-ubs-mittelland",
+          "2027-banking-commercial-basic-education-kv-zurich-ubs-zurich"
         ],
         "fr": [
-          "2027-banklehre-kaufmannische-grundbildung-kv-gstaad-ubs-mittelland"
+          "2027-banklehre-kaufmannische-grundbildung-kv-gstaad-ubs-mittelland",
+          "2027-banque-education-de-base-commerciale-kv-zurich-ubs-zurich"
         ]
       },
       "previousSlugs": [
         "2027-banklehre-kaufmannische-grundbildung-kv-gstaad-ubs-mittelland",
         "2027-banklehre-kaufmannische-grundbildung-kv-gstaad-ubs-gstaad",
-        "2027-apprendistato-in-banca-formazione-commerciale-di-base-kv-gstaad-ubs-mittelland"
+        "2027-apprendistato-in-banca-formazione-commerciale-di-base-kv-gstaad-ubs-mittelland",
+        "2027-apprendistato-bancario-formazione-commerciale-di-base-kv-zurigo-ubs-zurich",
+        "2027-banking-commercial-basic-education-kv-zurich-ubs-zurich",
+        "2027-banklehre-kaufmannische-grundbildung-kv-zurich-ubs-zurich",
+        "2027-banque-education-de-base-commerciale-kv-zurich-ubs-zurich",
+        "2027-apprendistato-bancario-formazione-commerciale-di-base-kv-schaffhausen-ubs-zurich",
+        "2027-banking-commercial-basic-education-kv-schaffhausen-ubs-zurich",
+        "2027-banklehre-kaufmannische-grundbildung-kv-schaffhausen-ubs-zurich",
+        "2027-banque-education-de-base-commerciale-kv-schaffhausen-ubs-zurich",
+        "2027-apprendistato-bancario-formazione-commerciale-di-base-kv-svizzera-centrale-ubs-zentralschweiz",
+        "2027-banking-commercial-basic-education-kv-central-switzerland-ubs-zentralschweiz",
+        "2027-banklehre-kaufmannische-grundbildung-kv-zentralschweiz-ubs-zentralschweiz",
+        "2027-banque-education-de-base-commerciale-kv-suisse-centrale-ubs-zentralschweiz"
       ],
       "firstSeenAt": "2026-07-03T12:37:47.799Z",
       "salaryMin": 73500,
@@ -3787,7 +3797,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-03T12:37:47.777Z",
-      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -3875,7 +3884,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.793Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -3963,7 +3971,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.785Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -4051,7 +4058,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.785Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -4139,7 +4145,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.795Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -4314,7 +4319,6 @@
         ]
       },
       "firstSeenAt": "2026-08-01T10:47:00.184Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -4402,7 +4406,6 @@
         ]
       },
       "firstSeenAt": "2026-08-01T10:47:00.188Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -4435,7 +4438,7 @@
         "it": "2027 BEM – Ingresso in banca dopo la maturità – Ticino – Settembre",
         "en": "2027 BEM – Bank entry after maturity – Ticino – September",
         "de": "2027 BEM – Bankeintritt nach Fälligkeit – Tessin – September",
-        "fr": "2027 BEM – Ingresso in banca dopo la maturità – Ticino – Settembre"
+        "fr": "2027 BEM – Entrée bancaire après échéance – Tessin – Septembre"
       },
       "description": "Il tuo ruolo\nVuoi entrare direttamente nel mondo del lavoro dopo la maturità, assumerti responsabilità e scoprire da vicino il settore bancario?\n\nIn qualità di Junior Talent, inizi il tuo percorso professionale in UBS.\nFin dall’inizio sei coinvolto/a nell’operatività quotidiana, supporti le attività legate a clienti e prodotti, analizzi casi e prepari colloqui. Grazie ai diversi inserimenti acquisisci rapidamente una visione completa del nostro business.\n\nCosa ti aspetta da noi:\n• una formazione di 18 mesi con interessanti approfondimenti nei nostri diversi settori e in differenti sedi\n• tre inserimenti di sei mesi in ambiti che si occupano principalmente di consulenza alla clientela e sui prodotti (in presenza e digitale) dove approfondirai temi come investimenti, crediti, ipoteche e pagamenti\n• in ogni rotazione il supporto di un/una Practical Advisor che ti accompagna e sostiene nel tuo sviluppo\n• un ottimo punto di partenza nel settore bancario, con prospettive concrete per il tuo futuro professionale\n\nLa tua formazione\nLa tua formazione è pratica, varia e orientata al tuo sviluppo personale. Parallelamente al lavoro in team, frequenterai i corsi presso il CYP (cyp.ch), insieme a diplomate e diplomati di altre banche, dove acquisirai le basi teoriche del settore bancario.\nQueste conoscenze vengono approfondite attraverso formazioni specialistiche interne. In questo modo conoscerai nel dettaglio i nostri prodotti e servizi e potrai applicare fin da subito quanto appreso nella tua attività quotidiana – preparandoti in modo ottimale all’esame finale.\n\nAl termine della formazione conseguirai il certificato «Ingresso in banca dopo la maturità (BEM)», rilasciato dall’Associazione Svizzera dei Banchieri (ASB). Molti dei nostri diplomati e delle nostre diplomate BEM continuano successivamente in UBS con un impiego fisso oppure proseguono il loro sviluppo nel nostro programma di perfezionamento biennale (JUNA).\n\nSe desideri saperne di più sul programma BEM e sui documenti necessari per la tua candidatura, fai clic qui.\n\nIl tuo team\nEntrando a far parte della community UBS BEM, diventerai parte di una rete dinamica. Vi incontrerete regolarmente durante formazioni interne ed esterne, eventi di più giorni e attività comuni. Spesso nascono amicizie e relazioni professionali che vanno oltre il periodo di formazione.\nUBS si affida a tecnologie moderne come l'intelligenza artificiale (AI) al fine di migliorare costantemente i propri servizi, anche all'interno del nostro team. In questo modo, rendiamo i processi più efficienti, utilizziamo i dati in modo più intelligente e semplifichiamo il lavoro quotidiano, sia per i dipendenti che per i clienti.\n\nLe tue conoscenze ed esperienze\nCerchiamo giovani persone curiose e autonome, che abbiano voglia di imparare, di assumersi responsabilità e di confrontarsi con gli altri – sia all’interno del team che nel contatto con la clientela.\nÈ importante che tu disponga di uno dei seguenti titoli di studio:\n• Attestato di maturità (preferibilmente in ambito economico)\n• AFC come impiegato/a di commercio con maturità professionale tramite apprendistato in un settore diverso dalla banca\n• AFC come impiegato/a di commercio con maturità professionale tramite stage di 52 settimane - scuola media di commercio (SMC) o in un settore diverso dalla banca\n• Attestato di maturità specializzata (solo nella Svizzera tedesca)\n\nTi riconosci in questo profilo? Allora sei nel posto giusto!\n\nInoltre, ti distingui per:\n\n• piacere nel contatto con le persone e forte spirito di squadra\n• motivazione e atteggiamento positivo\n• grande voglia di imparare e apertura alle novità\n• interesse per il mondo della finanza, per l’utilizzo dell’intelligenza artificiale (AI) e dei moderni strumenti digitali\n\nForse stai già frequentando un percorso di studi e senti la mancanza di esperienza pratica? Oppure hai maturato le prime esperienze nella vendita o in attività a contatto con la clientela? Rifletti su come le tue esperienze e i tuoi successi possano essere in linea con le competenze che cerchiamo.\n\nLa data di assunzione per il nostro programma BEM in Ticino è il 1° settembre (nelle altre regioni sono previste due date: 1° marzo e 1° settembre). Ti ricordiamo che puoi candidarti solo per una data e una regione all’anno.",
       "descriptionByLocale": {
@@ -4474,7 +4477,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-08-01T10:47:00.190Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "salarySource": "estimated",
@@ -4562,7 +4564,6 @@
         ]
       },
       "firstSeenAt": "2026-08-01T10:47:00.162Z",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -4913,7 +4914,6 @@
         ]
       },
       "firstSeenAt": "2026-08-01T10:47:00.178Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -5001,7 +5001,6 @@
         ]
       },
       "firstSeenAt": "2026-08-01T10:47:00.180Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -5089,7 +5088,6 @@
         ]
       },
       "firstSeenAt": "2026-08-01T10:47:00.184Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -5177,7 +5175,6 @@
         ]
       },
       "firstSeenAt": "2026-08-01T10:47:00.182Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -5354,7 +5351,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.694Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -5708,7 +5704,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.694Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -5780,7 +5775,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-02T15:04:48.694Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -5944,7 +5938,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T11:04:55.873Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -5975,7 +5968,7 @@
       "title": "BANK-now - Head Software Development",
       "titleByLocale": {
         "it": "BANK-now - Capo Sviluppo Software",
-        "en": "BANK-now - Head Software Development",
+        "en": "BANK-now - Head of Software Development",
         "de": "BANK-now - Head Software Development",
         "fr": "BANK-now - Responsable du développement logiciel"
       },
@@ -6060,7 +6053,7 @@
       "title": "Mandate Specialist WM Romandie (80-100%)",
       "titleByLocale": {
         "it": "Mandate Specialista WM Romandie (80-100%)",
-        "en": "Mandate Specialist WM Romandie (80-100%)",
+        "en": "WM Romandie (80-100%)",
         "de": "Mandate Spezialist WM Romandie (80-100%)",
         "fr": "Mandate Spécialiste WM Romandie (80-100%)"
       },
@@ -6101,7 +6094,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-08-05T11:33:43.924Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -6132,7 +6124,7 @@
       "title": "Cash Manager Private Clients - Lausanne (80-100%)",
       "titleByLocale": {
         "it": "Responsabile Cassa Clienti Privati - Losanna (80-100%)",
-        "en": "Cash Manager Private Clients - Lausanne (80-100%)",
+        "en": "Cash Manager Private Customers - Lausanne (80-100%)",
         "de": "Kassenmanager Privatkundschaft - Lausanne (80-100%)",
         "fr": "Cash Manager Private Clients - Lausanne (80-100%)"
       },
@@ -6186,7 +6178,6 @@
         ]
       },
       "firstSeenAt": "2026-08-12T21:49:49.857Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 156000,
       "salarySource": "estimated",
@@ -6375,7 +6366,7 @@
       "title": "UBS Card Center AG - Sales Coordination & Implementation Specialist",
       "titleByLocale": {
         "it": "UBS Card Center AG - Sales Coordination & Implementation Specialista",
-        "en": "UBS Card Center AG - Sales Coordination & Implementation Specialist",
+        "en": "UBS Card Center AG - Sales Coordination & 177expert",
         "de": "UBS Card Center AG - Sales Coordination & Implementation Spezialist",
         "fr": "UBS Card Center AG - Sales Coordination & Implementation Spécialiste"
       },
@@ -6416,7 +6407,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-08-19T09:45:01.238Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -6534,7 +6524,7 @@
         "it": "Esperto Senior Consolidamento / SAP S/4HANA Group Reporting SME",
         "en": "Senior consolidation / SAP S/4HANA Group Reporting SME",
         "de": "Senior Konsolidierungs- / SAP S/4HANA Group Reporting SME",
-        "fr": "Senior consolidation / SAP S/4HANA Group Reporting SME"
+        "fr": "Consolidation senior / SAP S/4HANA Groupe PME déclarantes"
       },
       "description": "We are seeking an experienced Senior consolidation SAP S/4HANA Group Reporting Subject Matter Expert to join our Group Finance Technology organisation. You will become part of an experienced team responsible for the design, implementation, optimisation, and support of enterprise-wide financial consolidation and reporting capabilities within SAP S/4HANA Group Reporting.\nWe are seeking an industry expert who combines deep expertise in consolidation processes, financial accounting, regulatory reporting and SAP technology with strong stakeholder management and delivery skills. Your role operates at the intersection of international finance teams, external consultants, and internal IT teams to deliver scalable, compliant, and efficient consolidation solutions.\nYou will be working within an Agile and AI-enabled delivery environment at the forefront of the latest SAP consolidation and reporting technologies. You will play a key role in shaping the future finance technology landscape at UBS by implementing consolidation and regulatory reporting processes, driving standardisation, automation, data quality improvements, and continuous innovation across group consolidation and reporting processes.\n\nConsolidation and Financial Reporting\n• Act as a key subject matter expert for SAP S/4HANA Group Reporting and group consolidation processes.\n• Design, implement and optimise end-to-end consolidation solutions in accordance with IFRS and Swiss GAAP, including balance sheet and P&L consolidation, capital consolidation, intercompany eliminations, ownership hierarchies, and internal and external reporting requirements.\n• Ensure timely, accurate, and compliant execution of consolidation and financial reporting processes in accordance with applicable accounting standards and regulatory requirements.\n• Support month-end, quarter-end, and year-end close processes from both business and systems perspectives.\n• Collaborate with Group Finance and business stakeholders to translate consolidation and reporting requirements into scalable SAP solutions.\n\nSAP Solution Design and Delivery\n• Lead functional and technical design activities within SAP S/4HANA Group Reporting.\n• Translate business requirements into functional specifications, technical designs, enhancements, and system configurations.\n• Define and maintain consolidation data models, reporting structures, mappings, business rules, and consolidation logic.\n• Design, configure, and support SAP Group Reporting processes, including data collection, validations, consolidation monitors, reporting units, and consolidation units.\n• Design and implement interfaces between Group Reporting, General Ledger, FPSL, GRDC and data lake instances\n• Be familiar with the SAP Group Reporting roadmap and experience in working with the SAP product management team\n• Design and code ABAP developments, enhancements, user exits, interfaces, APIs, and integration solutions supporting consolidation and reporting processes.\n• Support automation initiatives aimed at reducing manual effort, improving controls, and accelerating financial close processes.\n• Ensure high-quality integration, reconciliation, monitoring, exception handling, and operational support processes.\n• Support root-cause analysis, issue resolution, and continuous improvement activities across finance technology platforms.",
       "descriptionByLocale": {
@@ -6592,7 +6582,6 @@
         "sap-s-4hana-general-ledger-consolidation-specialist-ubs-zurich"
       ],
       "firstSeenAt": "2026-08-24T09:59:16.024Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -6623,7 +6612,7 @@
       "title": "UBS Card Center - Senior Sales Client Advisor Cards 100% (w/m/d)",
       "titleByLocale": {
         "it": "UBS Card Center - Senior Sales Client Consulente Cards 100% (w/m/d)",
-        "en": "UBS Card Center - Senior Sales Client Advisor Cards 100% (w/m/d)",
+        "en": "UBS Card Center - Senior Sales Client Advisor Cards 100% (m/f/d)",
         "de": "UBS Card Center - Senior Sales Client Berater Cards 100% (w/m/d)",
         "fr": "UBS Card Center - Cartes de conseillers clients de ventes seniors 100% (h/f/d)"
       },
@@ -6695,7 +6684,7 @@
       "title": "UBS Card Center - Risk Specialist Operational & IT Risk 80-100%",
       "titleByLocale": {
         "it": "UBS Card Center - Risk Specialista Operational & IT Risk 80-100%",
-        "en": "UBS Card Center - Risk Specialist Operational & IT Risk 80-100%",
+        "en": "UBS Card Center - Risk Specialist Operational & IT Risk 80-100 %",
         "de": "UBS Card Center - Risk Spezialist Operational & IT Risk 80-100%",
         "fr": "UBS Card Center - Risk Spécialiste Operational & IT Risk 80-100%"
       },
@@ -6736,7 +6725,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-08-27T19:48:47.852Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -7088,7 +7076,7 @@
       "title": "Client Advisor Retail, Brig 80-100%",
       "titleByLocale": {
         "it": "Client Consulente Retail, Brig 80-100%",
-        "en": "Client Advisor Retail, Brig 80-100%",
+        "en": "Client Advisor Retail, Brig 80-100 %",
         "de": "Client Berater Retail, Brig 80-100%",
         "fr": "Client Conseiller Retail, Brig 80-100%"
       },
@@ -7129,7 +7117,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-08-31T17:04:37.065Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -7231,7 +7218,7 @@
       "title": "UBS Card Center AG - Chapter Lead Scrum Master 80-100% (w/m/d)",
       "titleByLocale": {
         "it": "UBS Card Center AG - Capitolo Lead Scrum Master 80-100% (m/f/d)",
-        "en": "UBS Card Center AG - Chapter Lead Scrum Master 80-100% (w/m/d)",
+        "en": "UBS Card Center AG - Chapter Lead Scrum Master 80-100% (m/f/d)",
         "de": "UBS Card Center AG - Chapter Lead Scrum Master 80-100% (w/m/d)",
         "fr": "UBS Card Center AG - Chapitre Lead Scrum Master 80-100% (h/f/d)"
       },
@@ -7304,7 +7291,7 @@
       "titleByLocale": {
         "it": "Law Investment Bank Global Market Legal",
         "en": "Rechtsanwalt / Rechtsanwältin Investment Bank Global Markets Legal",
-        "de": "Rechtsanwalt / Rechtsanwältin Investment Bank Global Markets Legal",
+        "de": "Investitionsbank Global Markets Legal / Rechtsanwältin",
         "fr": "Avocat à la Law Investment Bank Global Market Legal"
       },
       "description": "Are you interested in gaining comprehensive insight into UBS’s market activities?\nFor our IB Global Markets Legal Team in Zurich / Opfikon, we are offering a motivated attorney an exciting opportunity with the following responsibilities:\n\n• advising the trading department on day-to-day legal matters across foreign exchange, interest rate transactions and precious metals businesses\n• supporting management and the business in developing projects and launching new products, including in electronic trading/e-commerce/DLT/blockchain\n• handling financial market regulatory matters\n• negotiating agreements with clients and market participants\n• instructing and managing external counsel in Switzerland and abroad",
@@ -7354,7 +7341,6 @@
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:04.448Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -7385,7 +7371,7 @@
       "title": "Remote Advisor Mortgage – Remote Sales & Advice Zürich, 80-100%",
       "titleByLocale": {
         "it": "Remote Consulente Mortgage – Remote Sales & Advice Zürich, 80-100%",
-        "en": "Remote Advisor Mortgage – Remote Sales & Advice Zürich, 80-100%",
+        "en": "Remote Advisor Mortgage – Remote Sales & Advice Zurich, 80-100 %",
         "de": "Remote Berater Mortgage – Remote Sales & Advice Zürich, 80-100%",
         "fr": "Remote Conseiller Mortgage – Remote Sales & Advice Zürich, 80-100%"
       },
@@ -7428,17 +7414,30 @@
       "previousSlugs": [
         "remote-berater-mortgage-remote-sales-advice-basel-80-100-ubs-ticino",
         "remote-conseiller-mortgage-remote-sales-advice-basel-80-100-ubs-ticino",
-        "remote-consulente-mortgage-remote-sales-advice-basel-80-100-ubs-ticino"
+        "remote-consulente-mortgage-remote-sales-advice-basel-80-100-ubs-ticino",
+        "consulente-ipotechario-remoto-vendite-e-consulenza-a-distanza-ubs-nordschweiz",
+        "remote-advisor-mortgage-remote-sales-advice-basel-80-100-ubs",
+        "conseiller-hypothecaire-a-distance-ventes-et-conseils-a-distance-ubs-nordschweiz",
+        "remote-advisor-mortgage-remote-sales-advice-basel-80-100-ubs-nordschweiz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "remote-berater-mortgage-remote-sales-advice-basel-80-100-ubs-ticino",
           "remote-conseiller-mortgage-remote-sales-advice-basel-80-100-ubs-ticino",
-          "remote-consulente-mortgage-remote-sales-advice-basel-80-100-ubs-ticino"
+          "remote-consulente-mortgage-remote-sales-advice-basel-80-100-ubs-ticino",
+          "consulente-ipotechario-remoto-vendite-e-consulenza-a-distanza-ubs-nordschweiz",
+          "remote-advisor-mortgage-remote-sales-advice-basel-80-100-ubs",
+          "conseiller-hypothecaire-a-distance-ventes-et-conseils-a-distance-ubs-nordschweiz",
+          "remote-advisor-mortgage-remote-sales-advice-basel-80-100-ubs-nordschweiz"
+        ],
+        "de": [
+          "remote-advisor-mortgage-remote-sales-advice-basel-80-100-ubs"
+        ],
+        "fr": [
+          "conseiller-hypothecaire-a-distance-ventes-et-conseils-a-distance-ubs-nordschweiz"
         ]
       },
       "firstSeenAt": "2026-09-03T13:30:50.042Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -7469,7 +7468,7 @@
       "title": "Client Advisor Affluent Cité",
       "titleByLocale": {
         "it": "Client Consulente Affluent Cité",
-        "en": "Client Advisor Affluent Cité",
+        "en": "Client Advisor Affluent City",
         "de": "Client Berater Affluent Cité",
         "fr": "Client Conseiller Affluent Cité"
       },
@@ -7510,7 +7509,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-09-03T23:15:10.535Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -7829,7 +7827,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:42:11.464Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 156000,
       "salarySource": "estimated",
@@ -8001,7 +7998,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:04:00.028Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -8089,7 +8085,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:04:00.020Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -8629,7 +8624,7 @@
       "title": "UBS Card Center - Senior Sales Client Advisor Cards 100% (w/m/d)",
       "titleByLocale": {
         "it": "UBS Card Center - Senior Sales Client Consulente Cards 100% (w/m/d)",
-        "en": "UBS Card Center - Senior Sales Client Advisor Cards 100% (w/m/d)",
+        "en": "UBS Card Center - Senior Sales Client Advisor Cards 100% (m/f/d)",
         "de": "UBS Card Center - Senior Sales Client Berater Cards 100% (w/m/d)",
         "fr": "Centre de cartes UBS - Cartes de conseillers clients de ventes seniors 100% (h/f/d)"
       },
@@ -9093,7 +9088,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:30:50.051Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -9323,16 +9317,16 @@
       "title": "Regional Sales Manager Personal Banking Région Valais (80-100%)",
       "titleByLocale": {
         "fr": "Regional Sales Manager Personal Banking Région Valais (80-100%)",
-        "en": "Regional Sales Manager Personal Banking Région Valais (80-100%)",
-        "it": "Regional Sales Manager Personal Banking Région Valais (80-100%)",
-        "de": "Regional Sales Manager Personal Banking Région Valais (80-100%)"
+        "en": "Regional Sales Manager Personal Banking Region Valais (80-100%)",
+        "it": "Responsabile regionale delle vendite Regione Bancaria Personale (80-1010)",
+        "de": "Regionale Vertriebsleiterin Personal Banking Region (80-1010)"
       },
       "description": "Tu as une passion pour la vente ? Tu comprends les besoins de notre clientèle Affluent et Retail et tu souhaites aider notre team à développer et à mettre en œuvre des opportunités de vente optimales ? Tu veux contribuer à ce que nos clients vivent une expérience de vente exceptionnelle ?\n\nAlors tu es la personne que nous recherchons pour le poste de Regional Sales Manager PB pour la région Valais. Tes tâches:\n\n• lancer les campagnes de vente : tu mets en œuvre nos campagnes PB centralisées dans ta région et tu t’assures qu’elles soient un succès\n• saisir les opportunités : tu identifies des opportunités de vente régionales, développes des mesures intelligentes pour les réaliser et accompagnes leur succès\n• soutenir et coacher : tu assures un rôle de sparring-partner auprès de nos conseillers à la clientèle et de l’équipe de conduite régionale, tu leur donnes un précieux feedback et tu les aides à donner le meilleur d’eux-mêmes\n• travailler avec des chiffres : tu analyses les succès dans ta région et mets en œuvre des améliorations ciblées",
       "descriptionByLocale": {
         "fr": "Tu as une passion pour la vente ? Tu comprends les besoins de notre clientèle Affluent et Retail et tu souhaites aider notre team à développer et à mettre en œuvre des opportunités de vente optimales ? Tu veux contribuer à ce que nos clients vivent une expérience de vente exceptionnelle ?\n\nAlors tu es la personne que nous recherchons pour le poste de Regional Sales Manager PB pour la région Valais. Tes tâches:\n\n• lancer les campagnes de vente : tu mets en œuvre nos campagnes PB centralisées dans ta région et tu t’assures qu’elles soient un succès\n• saisir les opportunités : tu identifies des opportunités de vente régionales, développes des mesures intelligentes pour les réaliser et accompagnes leur succès\n• soutenir et coacher : tu assures un rôle de sparring-partner auprès de nos conseillers à la clientèle et de l’équipe de conduite régionale, tu leur donnes un précieux feedback et tu les aides à donner le meilleur d’eux-mêmes\n• travailler avec des chiffres : tu analyses les succès dans ta région et mets en œuvre des améliorations ciblées",
-        "it": "Tu as une passion pour la vente ? Tu comprends les besoins de notre clientèle Affluent et Retail et tu souhaites aider notre team à développer et à mettre en œuvre des opportunités de vente optimales ? Tu veux contribuer à ce que nos clients vivent une expérience de vente exceptionnelle ?\n\nAlors tu es la personne que nous recherchons pour le poste de Regional Sales Manager PB pour la région Valais. Tes tâches:\n\n• lancer les campagnes de vente : tu mets en œuvre nos campagnes PB centralisées dans ta région et tu t’assures qu’elles soient un succès\n• saisir les opportunités : tu identifies des opportunités de vente régionales, développes des mesures intelligentes pour les réaliser et accompagnes leur succès\n• soutenir et coacher : tu assures un rôle de sparring-partner auprès de nos conseillers à la clientèle et de l’équipe de conduite régionale, tu leur donnes un précieux feedback et tu les aides à donner le meilleur d’eux-mêmes\n• travailler avec des chiffres : tu analyses les succès dans ta région et mets en œuvre des améliorations ciblées",
-        "en": "Tu as une passion pour la vente ? Tu comprends les besoins de notre clientèle Affluent et Retail et tu souhaites aider notre team à développer et à mettre en œuvre des opportunités de vente optimales ? Tu veux contribuer à ce que nos clients vivent une expérience de vente exceptionnelle ?\n\nAlors tu es la personne que nous recherchons pour le poste de Regional Sales Manager PB pour la région Valais. Tes tâches:\n\n• lancer les campagnes de vente : tu mets en œuvre nos campagnes PB centralisées dans ta région et tu t’assures qu’elles soient un succès\n• saisir les opportunités : tu identifies des opportunités de vente régionales, développes des mesures intelligentes pour les réaliser et accompagnes leur succès\n• soutenir et coacher : tu assures un rôle de sparring-partner auprès de nos conseillers à la clientèle et de l’équipe de conduite régionale, tu leur donnes un précieux feedback et tu les aides à donner le meilleur d’eux-mêmes\n• travailler avec des chiffres : tu analyses les succès dans ta région et mets en œuvre des améliorations ciblées",
-        "de": "Tu as une passion pour la vente ? Tu comprends les besoins de notre clientèle Affluent et Retail et tu souhaites aider notre team à développer et à mettre en œuvre des opportunités de vente optimales ? Tu veux contribuer à ce que nos clients vivent une expérience de vente exceptionnelle ?\n\nAlors tu es la personne que nous recherchons pour le poste de Regional Sales Manager PB pour la région Valais. Tes tâches:\n\n• lancer les campagnes de vente : tu mets en œuvre nos campagnes PB centralisées dans ta région et tu t’assures qu’elles soient un succès\n• saisir les opportunités : tu identifies des opportunités de vente régionales, développes des mesures intelligentes pour les réaliser et accompagnes leur succès\n• soutenir et coacher : tu assures un rôle de sparring-partner auprès de nos conseillers à la clientèle et de l’équipe de conduite régionale, tu leur donnes un précieux feedback et tu les aides à donner le meilleur d’eux-mêmes\n• travailler avec des chiffres : tu analyses les succès dans ta région et mets en œuvre des améliorations ciblées"
+        "it": "Hai una passione per la vendita? Capisci le esigenze dei nostri clienti Affluent e Retail e vuoi aiutare il nostro team a sviluppare e implementare opportunità di vendita ottimali? Vuoi aiutare i nostri clienti a vivere un'esperienza di vendita eccezionale?\n\nQuindi sei la persona che stiamo cercando per Regional Sales Manager PB per la regione Vallese. I vostri compiti:\n\n• lanciare campagne di vendita: implementate le nostre campagne PB centralizzate nella vostra regione e assicuratevi che siano un successo\n• cogliere le opportunità: identificare le opportunità di vendita regionali, sviluppare misure intelligenti per raggiungerle e accompagnare il loro successo\n• supporto e allenatore: si assume un ruolo di sparring-partner con i nostri consulenti clienti e il team di guida regionale, dare loro preziosi feedback e aiutarli a dare il meglio di se stessi\n• lavorare con i numeri: analizza i successi nella tua regione e implementa miglioramenti mirati",
+        "en": "Do you have a passion for selling? Do you understand the needs of our Affluent and Retail customers and want to help our team develop and implement optimal sales opportunities? You want to help our customers experience an exceptional sales experience?\n\nSo you're the person we're looking for for Regional Sales Manager PB for the Valais region. Your tasks:\n\n• launch sales campaigns: you implement our centralized PB campaigns in your region and make sure they are a success\n• seize opportunities: you identify regional sales opportunities, develop smart measures to achieve them and accompany their success\n• support and coach: you take on a role of sparring-partner with our customer advisors and the regional driving team, give them valuable feedback and help them give the best of themselves\n• working with numbers: you analyze successes in your region and implement targeted improvements",
+        "de": "Haben Sie eine Leidenschaft für den Verkauf? Verstehen Sie die Bedürfnisse unserer Affluent- und Retail-Kunden und möchten Sie unserem Team helfen, optimale Verkaufschancen zu entwickeln und umzusetzen? Sie möchten unseren Kunden helfen, ein außergewöhnliches Verkaufserlebnis zu erleben?\n\nSie sind also die Person, die wir für Regional Sales Manager PB für die Walliser Region suchen. Ihre Aufgaben:\n\n• Verkaufskampagnen starten: Sie implementieren unsere zentralisierten PB-Kampagnen in Ihrer Region und stellen sicher, dass sie ein Erfolg werden\n• Chancen ergreifen: Sie identifizieren regionale Absatzchancen, entwickeln intelligente Maßnahmen zu deren Erreichung und begleiten deren Erfolg\n• Support und Coach: Du übernimmst die Rolle des Sparring-Partners mit unseren Kundenberatern und dem regionalen Fahrteam, gibst ihnen wertvolles Feedback und hilfst ihnen dabei, das Beste aus sich herauszuholen.\n• Arbeiten mit Zahlen: Sie analysieren Erfolge in Ihrer Region und setzen gezielte Verbesserungen um"
       },
       "location": "Valais",
       "canton": "VS",
@@ -9397,16 +9391,16 @@
       "title": "Cash Manager Retail Florissant",
       "titleByLocale": {
         "fr": "Cash Manager Retail Florissant",
-        "en": "Cash Manager Retail Florissant",
-        "it": "Cash Manager Retail Florissant",
-        "de": "Cash Manager Retail Florissant"
+        "en": "Cash Manager Retail Flowering",
+        "it": "Cash Manager Retail Flowering",
+        "de": "Cash Manager Retail Flowering"
       },
       "description": "Afin de renforcer notre équipe de Florissant, nous recherchons un-e Cash Manager qui sera amené-e à :\n\n• exécuter de façon autonome des opérations de guichet\n• assumer une présence à l'accueil comme une véritable carte de visite pour la banque\n• apprécier et déterminer de manière cohérente le potentiel actuel et futur d'un client\n• orienter nos clients vers nos conseillers clientèle",
       "descriptionByLocale": {
         "fr": "Afin de renforcer notre équipe de Florissant, nous recherchons un-e Cash Manager qui sera amené-e à :\n\n• exécuter de façon autonome des opérations de guichet\n• assumer une présence à l'accueil comme une véritable carte de visite pour la banque\n• apprécier et déterminer de manière cohérente le potentiel actuel et futur d'un client\n• orienter nos clients vers nos conseillers clientèle",
-        "it": "Afin de renforcer notre équipe de Florissant, nous recherchons un-e Cash Manager qui sera amené-e à :\n\n• exécuter de façon autonome des opérations de guichet\n• assumer une présence à l'accueil comme une véritable carte de visite pour la banque\n• apprécier et déterminer de manière cohérente le potentiel actuel et futur d'un client\n• orienter nos clients vers nos conseillers clientèle",
-        "en": "Afin de renforcer notre équipe de Florissant, nous recherchons un-e Cash Manager qui sera amené-e à :\n\n• exécuter de façon autonome des opérations de guichet\n• assumer une présence à l'accueil comme une véritable carte de visite pour la banque\n• apprécier et déterminer de manière cohérente le potentiel actuel et futur d'un client\n• orienter nos clients vers nos conseillers clientèle",
-        "de": "Afin de renforcer notre équipe de Florissant, nous recherchons un-e Cash Manager qui sera amené-e à :\n\n• exécuter de façon autonome des opérations de guichet\n• assumer une présence à l'accueil comme une véritable carte de visite pour la banque\n• apprécier et déterminer de manière cohérente le potentiel actuel et futur d'un client\n• orienter nos clients vers nos conseillers clientèle"
+        "it": "Per rafforzare il nostro team di Florissant, stiamo cercando un Cash Manager che sarà portato a:\n\n• operazioni di finestra autoesecuzione\n• assumere una presenza alla reception come un vero biglietto da visita per la banca\n• valutare e determinare costantemente il potenziale attuale e futuro di un cliente\n• orientare i nostri clienti ai nostri consulenti clienti",
+        "en": "In order to strengthen our team of Florissant, we are looking for a Cash Manager who will be led to:\n\n• self-executing window operations\n• assume a presence at reception as a real business card for the bank\n• assessing and determining consistently the current and future potential of a client\n• orient our customers to our customer advisors",
+        "de": "Um unser Team von Florissant zu stärken, suchen wir einen Cash Manager, der geführt wird zu:\n\n• selbstausführende Fensteroperationen\n• eine Anwesenheit an der Rezeption als echte Visitenkarte für die Bank annehmen\n• Bewerten und Bestimmen des aktuellen und zukünftigen Potenzials eines Kunden\n• Orientierung unserer Kunden an unseren Kundenberatern"
       },
       "location": "Suisse romande",
       "canton": "VD",
@@ -9439,7 +9433,6 @@
         "categoryRaw": "Conseil clientèle / Relationship management",
         "jobType": ""
       },
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 156000,
       "salarySource": "estimated",
@@ -9471,16 +9464,16 @@
       "title": "Client Advisor Retail, Zermatt 80-100%",
       "titleByLocale": {
         "de": "Client Berater Retail, Zermatt 80-100%",
-        "en": "Client Advisor Retail, Zermatt 80-100%",
+        "en": "Client Advisor Retail, Zermatt 80-100 %",
         "it": "Client Consulente Retail, Zermatt 80-100%",
         "fr": "Client Conseiller Retail, Zermatt 80-100%"
       },
       "description": "Du schätzt den persönlichen Kontakt? Du kennst die Grundlagen des Bankgeschäftes und möchtest Dich in der Beratung oder in andere Bereiche der Bank weiterentwickeln? Du fühlst Dich in der digitalen Welt wohl? Dann melde Dich bei uns!\n\nDas sind Deine Kernaufgaben:\n• In der Geschäftsstelle repräsentierst Du UBS, begrüsst die Kundinnen und Kunden warmherzig und übernimmst die Gastgeberrolle.\n• Du berätst Kundinnen und Kunden zu den Themen Vorsorgen sowie Anlegen und entwickelst dein Fachwissen in diesen Bereichen weiter.\n• Und schliesslich begeisterst Du die Kundinnen und Kunden für die digitale Welt und hilfst ihnen im Umgang mit E-Banking, Mobile Banking oder TWINT.",
       "descriptionByLocale": {
         "de": "Du schätzt den persönlichen Kontakt? Du kennst die Grundlagen des Bankgeschäftes und möchtest Dich in der Beratung oder in andere Bereiche der Bank weiterentwickeln? Du fühlst Dich in der digitalen Welt wohl? Dann melde Dich bei uns!\n\nDas sind Deine Kernaufgaben:\n• In der Geschäftsstelle repräsentierst Du UBS, begrüsst die Kundinnen und Kunden warmherzig und übernimmst die Gastgeberrolle.\n• Du berätst Kundinnen und Kunden zu den Themen Vorsorgen sowie Anlegen und entwickelst dein Fachwissen in diesen Bereichen weiter.\n• Und schliesslich begeisterst Du die Kundinnen und Kunden für die digitale Welt und hilfst ihnen im Umgang mit E-Banking, Mobile Banking oder TWINT.",
-        "it": "Du schätzt den persönlichen Kontakt? Du kennst die Grundlagen des Bankgeschäftes und möchtest Dich in der Beratung oder in andere Bereiche der Bank weiterentwickeln? Du fühlst Dich in der digitalen Welt wohl? Dann melde Dich bei uns!\n\nDas sind Deine Kernaufgaben:\n• In der Geschäftsstelle repräsentierst Du UBS, begrüsst die Kundinnen und Kunden warmherzig und übernimmst die Gastgeberrolle.\n• Du berätst Kundinnen und Kunden zu den Themen Vorsorgen sowie Anlegen und entwickelst dein Fachwissen in diesen Bereichen weiter.\n• Und schliesslich begeisterst Du die Kundinnen und Kunden für die digitale Welt und hilfst ihnen im Umgang mit E-Banking, Mobile Banking oder TWINT.",
-        "en": "Du schätzt den persönlichen Kontakt? Du kennst die Grundlagen des Bankgeschäftes und möchtest Dich in der Beratung oder in andere Bereiche der Bank weiterentwickeln? Du fühlst Dich in der digitalen Welt wohl? Dann melde Dich bei uns!\n\nDas sind Deine Kernaufgaben:\n• In der Geschäftsstelle repräsentierst Du UBS, begrüsst die Kundinnen und Kunden warmherzig und übernimmst die Gastgeberrolle.\n• Du berätst Kundinnen und Kunden zu den Themen Vorsorgen sowie Anlegen und entwickelst dein Fachwissen in diesen Bereichen weiter.\n• Und schliesslich begeisterst Du die Kundinnen und Kunden für die digitale Welt und hilfst ihnen im Umgang mit E-Banking, Mobile Banking oder TWINT.",
-        "fr": "Du schätzt den persönlichen Kontakt? Du kennst die Grundlagen des Bankgeschäftes und möchtest Dich in der Beratung oder in andere Bereiche der Bank weiterentwickeln? Du fühlst Dich in der digitalen Welt wohl? Dann melde Dich bei uns!\n\nDas sind Deine Kernaufgaben:\n• In der Geschäftsstelle repräsentierst Du UBS, begrüsst die Kundinnen und Kunden warmherzig und übernimmst die Gastgeberrolle.\n• Du berätst Kundinnen und Kunden zu den Themen Vorsorgen sowie Anlegen und entwickelst dein Fachwissen in diesen Bereichen weiter.\n• Und schliesslich begeisterst Du die Kundinnen und Kunden für die digitale Welt und hilfst ihnen im Umgang mit E-Banking, Mobile Banking oder TWINT."
+        "it": "Apprezzi il contatto personale? Conoscete le basi bancarie e desiderate svilupparsi ulteriormente in consulenza o in altre aree della banca? Ti senti a tuo agio nel mondo digitale? Allora contattaci.\n\nQuesti sono i vostri compiti principali:\n• In ufficio, Lei rappresenta UBS, accoglie calorosamente i clienti e assume il ruolo di ospite.\n• Si consiglia ai clienti sui temi delle precauzioni e investire e sviluppare ulteriormente la vostra esperienza in queste aree.\n• E infine, entusiasta Sei il cliente per il mondo digitale e aiutarli a trattare con e-banking, mobile banking o TWINT.",
+        "en": "Do you appreciate personal contact? You know the basics of banking and would like to develop further in consulting or in other areas of the bank? Do you feel comfortable in the digital world? Then contact us.\n\nThese are your core tasks:\n• In the office, you represent UBS, warmly welcome customers and take on the role of host.\n• You advise customers on the topics of precautions and investing and develop your expertise in these areas further.\n• And finally, thrilled You are the customer for the digital world and help them in dealing with e-banking, mobile banking or TWINT.",
+        "fr": "Vous appréciez les contacts personnels ? Vous connaissez les bases de la banque et souhaitez développer davantage dans le conseil ou dans d'autres domaines de la banque? Vous sentez-vous à l'aise dans le monde numérique? Alors contactez-nous.\n\nVoici vos tâches principales :\n• Au bureau, vous représentez UBS, accueillez chaleureusement les clients et prenez le rôle d'hôte.\n• Vous conseillez vos clients sur les sujets des précautions et des investissements et développez votre expertise dans ces domaines.\n• Et enfin, ravi Vous êtes le client du monde numérique et aidez-les à gérer les transactions bancaires électroniques, les services bancaires mobiles ou TWINT."
       },
       "location": "Valais",
       "canton": "VS",
@@ -9513,7 +9506,6 @@
         "categoryRaw": "Kundenberatung / Relationship Management",
         "jobType": ""
       },
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -9780,8 +9772,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "ubs-3bf9d462cdc0",
@@ -11006,8 +10997,7 @@
         }
       },
       "addressRegion": "UR",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "ubs-28e4d7bafe32",
@@ -11349,7 +11339,7 @@
         "it": "Partecipante all'evento (a pagamento orario)",
         "en": "Event Attendant (hourly paid)",
         "de": "Event Attendant (Stundenlohn)",
-        "fr": "Event Attendant (hourly paid)"
+        "fr": "Participant à l'événement (payé en heures)"
       },
       "description": "Do you always put clients at the center of everything you do? Are you passionate about creating a welcoming and positive atmosphere?\nAs additional support for our team in Geneva, we are looking for a new colleague (female or male) to join us as an Event Attendant on an hourly, on-call basis (on average, approximately 65 hours per year).\nIn this role, you will be responsible for welcoming guests and providing excellent client service at a variety of events, including client gatherings, press conferences, and third-party events involving UBS. You will support the event manager and play a key role in ensuring each event runs smoothly and safely.",
       "descriptionByLocale": {
@@ -11417,8 +11407,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "ubs-f728b221c5e7",
@@ -11579,7 +11568,7 @@
       "title": "Client Advisor Affluent Basel Aeschenvorstadt, 80 - 100%",
       "titleByLocale": {
         "de": "Client Berater Affluent Basel Aeschenvorstadt, 80 - 100%",
-        "en": "Client Advisor Affluent Basel Aeschenvorstadt, 80 - 100%",
+        "en": "Client Advisor Afflent Basel Aeschenvorstadt, 80 - 100%",
         "it": "Client Consulente Affluent Basel Aeschenvorstadt, 80 - 100%",
         "fr": "Client Conseiller Affluent Basel Aeschenvorstadt, 80 - 100%"
       },
@@ -11655,7 +11644,7 @@
         "it": "Pianificatore di successione/gestione della ricchezza",
         "en": "Succession WhatsApp Wealth Management",
         "de": "Succession Planner/in Wealth Management",
-        "fr": "Succession Planner/in Wealth Management"
+        "fr": "Planificateur de relève Gestion de patrimoine"
       },
       "description": "Bringen Sie fundierte Expertise im Güter- und Erbrecht mit?\nDenken Sie unternehmerisch und erkennen komplexe Kundenbedürfnisse frühzeitig?\nArbeiten Sie gerne interdisziplinär und überzeugen durch klare Kommunikation?\n\nWir suchen Sie für die:\n• Ganzheitliche Beratung von vermögenden Privatkunden sowie Entrepreneurs und Executives in Nachlass- und Vermögensfragen\n• Erstellung von Testamenten, Ehe- und Erbverträgen sowie Vorsorgeaufträgen\n• Strukturierung von lebzeitigen Vermögensübertragungen und Begleitung von Unternehmensnachfolgen\n• Proaktive Erkennung von Kundenbedürfnissen und Entwicklung massgeschneiderter Lösungen\n• Enge Zusammenarbeit mit Kundenberatern und internen/externalen Spezialisten\n• Repräsentation der Fachkompetenz in Präsentationen, Events und im Wissenstransfer",
       "descriptionByLocale": {
@@ -11722,8 +11711,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "ubs-b2e946c9bf66",
@@ -11895,7 +11883,7 @@
       "companyDomain": "ubs.com",
       "title": "UBS Card Center - Senior Domain Architect 80-100% (w/m/d)",
       "titleByLocale": {
-        "it": "UBS Card Center - Senior Domain Architect 80-100% (w/m/d)",
+        "it": "Centro di Carte USA - Architetto di dominio senior 80- 100% (m/f/d)",
         "en": "UBS Card Center-Senior Domain Architect 80-100% ZQX (m/f/d)",
         "de": "UBS Card Center - Senior Domain Architect 80-100% (w/m/d)",
         "fr": "USA Card Center - Architecte de domaine principal 80- 100% (h/f/d)"
