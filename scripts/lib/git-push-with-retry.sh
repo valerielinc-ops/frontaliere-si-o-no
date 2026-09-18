@@ -425,14 +425,15 @@ until git push --no-verify origin "HEAD:${BRANCH}"; do
 
         if GIT_EDITOR=: git rebase --continue; then
           # The rebase is complete now. The resolver stash is only a temporary
-          # copy used to keep its index clean; drop it, restore every remaining
-          # WIP path from the original recovery stash, and drop that original
-          # only after the path-aware restoration succeeds.
+          # copy used to keep its index clean; drop it, restore every WIP path
+          # from the original recovery stash (including paths that were also
+          # rebase conflicts), and drop that original only after the path-aware
+          # restoration succeeds.
           if [ "$resolver_wip_stashed" = "1" ]; then
             git stash drop
           fi
           if [ "$stashed" = "1" ]; then
-            apply_stashed_wip_for_resolver "$resolver_conflict_paths" || exit 1
+            apply_stashed_wip_for_resolver || exit 1
             git stash drop
           fi
         else
@@ -440,13 +441,14 @@ until git push --no-verify origin "HEAD:${BRANCH}"; do
           # Any stash copy is still available. Abort first, then restore the
           # original copy on the non-rebasing tree so abort cannot discard the
           # WIP. The temporary resolver copy is discarded only after abort;
-          # the original is dropped only after path-aware restoration.
+          # the original is dropped only after path-aware restoration,
+          # including paths that overlapped the conflict set.
           git rebase --abort 2>/dev/null || true
           if [ "$resolver_wip_stashed" = "1" ]; then
             git stash drop
           fi
           if [ "$stashed" = "1" ]; then
-            apply_stashed_wip_for_resolver "$resolver_conflict_paths" || exit 1
+            apply_stashed_wip_for_resolver || exit 1
             git stash drop
           fi
           exit 1
