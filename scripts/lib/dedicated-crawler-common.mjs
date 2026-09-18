@@ -6202,11 +6202,12 @@ const FINAL_FOREIGN_COUNTRY_CODE_RE = new RegExp(
   'giu',
 );
 
-// A bare `BE` suffix is ambiguous with Bern's canton code. Keep an
-// unresolved Swiss street address such as `Industriestrasse 10, BE` in the
-// ambiguous bucket, but do not let a comma-separated foreign city/postcode
-// such as `Hasselt, 3500, BE` pass merely because it contains digits.
-const BE_SWISS_STREET_ADDRESS_RE = /^\s*(?:ch[-\s]?\d{4}\s+)?[^,;]+\s+\d+[a-z]?\s*$/iu;
+// A canton-shaped suffix is ambiguous with the ISO country code. Keep an
+// unresolved Swiss street address such as `Industriestrasse 10, SG` in the
+// ambiguous bucket, but do not let a known foreign city or a
+// comma-separated foreign city/postcode such as `Hasselt, 3500, BE` pass
+// merely because it contains digits.
+const SWISS_STREET_ADDRESS_RE = /^\s*(?:ch[-\s]?\d{4}\s+)?[^,;]+\s+\d+[a-z]?\s*$/iu;
 
 function hasExplicitForeignCountryCode(lower) {
   // A labelled field is authoritative even when its two-letter value also
@@ -6228,7 +6229,8 @@ function hasExplicitForeignCountryCode(lower) {
     // context, as is a known foreign city such as "Athens, GR".
     if (SWISS_LOCATION_CODES.has(code) && !isTargetSwissLocation(location, { includeBorderProximity: false })) {
       if (isKnownSwissMunicipalityInCanton(location, code)) continue;
-      if (BE_SWISS_STREET_ADDRESS_RE.test(location)) continue;
+      if (isExplicitlyOutsideTarget(location)) return true;
+      if (SWISS_STREET_ADDRESS_RE.test(location)) continue;
       return true;
     }
     return true;

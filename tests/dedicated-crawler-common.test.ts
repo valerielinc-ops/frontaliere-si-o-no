@@ -903,6 +903,8 @@ describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)'
     for (const code of ALL_CANTON_CODES) {
       expect(isLocationExplicitlyForeign(`Industriestrasse 10, ${code}`)).toBe(false);
     }
+    expect(isLocationExplicitlyForeign('Athens 10, GR')).toBe(true);
+    expect(isLocationExplicitlyForeign('Industriestrasse 10, SG')).toBe(false);
     expect(isLocationExplicitlyForeign('Sâles, FR')).toBe(false);
     expect(isLocationExplicitlyForeign('CH-9000 St. Gallen, SG')).toBe(false);
   });
