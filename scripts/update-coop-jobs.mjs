@@ -405,6 +405,7 @@ export async function fetchCoopJobDetailUrls(options = {}) {
 
     if (jobs.length === 0) break;
     fetched += jobs.length;
+    let pageNew = 0;
 
     for (const job of jobs) {
       const directLink = String(job?.links?.directlink || '').trim();
@@ -446,6 +447,14 @@ export async function fetchCoopJobDetailUrls(options = {}) {
       allFingerprints.add(fingerprint);
       seedMetaByUrl[directLink] = meta;
       cantonCounts[meta.canton] = (cantonCounts[meta.canton] || 0) + 1;
+      pageNew += 1;
+    }
+
+    if (pageNew === 0) {
+      throw new Error(
+        `Coop discovery incomplete: page ${page + 1} added no unique source records; `
+        + 'refusing to infer completeness from a repeated page.',
+      );
     }
 
     console.log(`  📦 page ${page + 1}: ${jobs.length} jobs (cumulative ${fetched}${apiTotal !== null ? `/${apiTotal}` : ''})`);
