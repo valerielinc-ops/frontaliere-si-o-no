@@ -2,16 +2,26 @@ name: tests
 run-name: "Code checks and review · ${{ github.event.pull_request.number && format('PR #{0}', github.event.pull_request.number) || github.ref_name }} · ${{ github.event.action || github.event_name }}"
 
 # One required check owns checkout, source guards, typecheck, Vitest and review.
-# The PR body contract is a step of this code run. Title/body edits start one
-# fresh validation run on the current SHA; a second model review is admitted
-# only for a new HEAD, so metadata churn cannot manufacture contradictory
-# reviews on one commit. Labels remain non-triggering.
+# The PR body contract is a step of this code run. A second model review is
+# admitted only for a new HEAD, so metadata churn cannot manufacture
+# contradictory reviews on one commit. Labels remain non-triggering.
 # Keep the job name aligned with the ruleset and scripts/ci/lib/constants.mjs.
-
+#
+# `edited` NON e' fra i tipi: un cambio di titolo o descrizione lascia l'HEAD
+# identico, quindi rieseguire l'intera run rimisura codice che non e' cambiato.
+# Misurato il 2026-09-18 sulle ultime 200 run: 38 delle 116 run su PR (33%)
+# nascono da un `edited`, 14 minuti di mediana l'una, 8 ore di CI in quella
+# sola finestra. La review non veniva comunque rifatta — il `Re-review guard`
+# salta quando esiste gia' una review terminale sulla HEAD — quindi quelle run
+# rimisuravano soltanto i test.
+#
+# Il caso che `edited` copriva resta coperto: se la run fallisce sul contratto
+# del body o sul gate della review, `retry-code-check-after-body-edit.yml`
+# riesegue QUELLA run quando la descrizione viene corretta, e solo allora.
 on:
   pull_request:
     branches: [main]
-    types: [opened, edited, synchronize, reopened, ready_for_review]
+    types: [opened, synchronize, reopened, ready_for_review]
   push:
     branches: [main]
   # Required checks are evaluated on the merge queue ref, not on the PR event.
@@ -1672,6 +1682,7 @@ jobs:
           node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
       - name: vitest related (PR diff)
+        id: vitest_related
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         # FOREGROUND, dopo "Assemble + migrate": i test scelti dal grafo
         # possono leggere i dataset generati. Questo è l'unico invocatore di
@@ -1704,15 +1715,16 @@ jobs:
           VITEST_CACHE_DIR: node_modules/.vite-related
           CHANGED_PATHS_STATUS_FILE: changed-paths-status.txt
           VITEST_SKIP_CORPUS_WIDE: 'true'
+          VITEST_REPORT_FILE: shard-timing-related.json
         run: |
           set -euo pipefail
           case "$ASSEMBLE_REQUIRED" in
             true)
-              node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile=shard-timing-related.json
+              node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile="$VITEST_REPORT_FILE"
               ;;
             false)
               VITEST_DATASET_GROUP=independent \
-                node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile=shard-timing-related.json
+                node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile="$VITEST_REPORT_FILE"
               ;;
             *)
               echo "::error::unexpected Assemble + migrate decision: $ASSEMBLE_REQUIRED"
@@ -1840,16 +1852,18 @@ jobs:
           if-no-files-found: ignore
 
       - name: Report Vitest failures on PR
-        # The two Vitest steps can fail independently; this step must still
-        # run after either group fails and must never mask the original gate.
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && github.event_name == 'pull_request') }}
+        # The Vitest step can fail before the review chain; this reporter must
+        # still run and must never mask the original gate.
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && (github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.pr_number != '')) && steps.vitest_related.outcome == 'failure') }}
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_NUMBER: ${{ github.event.pull_request.number || inputs.pr_number }}
           RUN_ID: ${{ github.run_id }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          VITEST_REPORT_FILES: shard-timing-related.json
         run: node scripts/ci/report-vitest-failure.mjs
 
       - name: Resolve PR from pull request

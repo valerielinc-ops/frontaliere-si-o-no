@@ -196,6 +196,12 @@ export interface SwissStationLeaf {
   readonly name: string;
   readonly brand: string;
   readonly address: string;
+  /** Coordinates used by the client-side price map on the Swiss index. */
+  readonly lat?: number | null;
+  readonly lng?: number | null;
+  /** Daily per-litre prices, kept together so the map can switch fuel without a new build. */
+  readonly benzinaPriceChf?: number | null;
+  readonly dieselPriceChf?: number | null;
 }
 
 /** One Italian station leaf. */
@@ -697,6 +703,20 @@ export interface GroupedAnchors {
     readonly logoUrl?: string | null;
     /** Alt text for the logo `<img>` (typically the brand or station name). */
     readonly logoAlt?: string;
+    /** Optional station payload for the interactive Swiss price map. */
+    readonly mapStation?: {
+      readonly id: string;
+      readonly zone: FuelZone;
+      readonly slug: string;
+      readonly name: string;
+      readonly brand: string;
+      readonly address: string;
+      readonly href: string;
+      readonly lat: number;
+      readonly lng: number;
+      readonly benzinaPriceChf: number | null;
+      readonly dieselPriceChf: number | null;
+    };
   }>;
   /** Stable id for the zone-chip jump nav and the H3 anchor target. */
   readonly slug: string;
@@ -923,6 +943,83 @@ function pageSuffix(locale: FuelDailyLocale, page: number): string {
   return `page ${page}`;
 }
 
+interface FuelMapCopy {
+  readonly title: string;
+  readonly description: string;
+  readonly noScript: string;
+  readonly updatedLabel: string;
+  readonly stationNoun: (count: number) => string;
+}
+
+const FUEL_MAP_COPY: Record<FuelDailyLocale, FuelMapCopy> = {
+  it: {
+    title: 'Mappa prezzi carburante in Ticino',
+    description: 'Tutte le stazioni svizzere sulla mappa. I prezzi al litro sono quelli del giorno e diventano interattivi dopo il caricamento.',
+    noScript: 'La mappa interattiva richiede JavaScript. L’elenco completo delle stazioni e dei relativi link resta disponibile qui sotto.',
+    updatedLabel: 'Prezzi del giorno',
+    stationNoun: (count) => (count === 1 ? 'stazione mappata' : 'stazioni mappate'),
+  },
+  en: {
+    title: 'Ticino fuel-price map',
+    description: 'Every Swiss station on one map. Per-litre prices are today’s readings and become interactive after loading.',
+    noScript: 'The interactive map requires JavaScript. The complete station list and its detail links remain available below.',
+    updatedLabel: 'Today’s prices',
+    stationNoun: (count) => (count === 1 ? 'station mapped' : 'stations mapped'),
+  },
+  de: {
+    title: 'Karte der Treibstoffpreise im Tessin',
+    description: 'Alle Schweizer Tankstellen auf einer Karte. Die Literpreise stammen vom heutigen Stand und werden nach dem Laden interaktiv.',
+    noScript: 'Die interaktive Karte benötigt JavaScript. Die vollständige Tankstellenliste und ihre Detailseiten bleiben unten verfügbar.',
+    updatedLabel: 'Preise des Tages',
+    stationNoun: (count) => (count === 1 ? 'Tankstelle auf der Karte' : 'Tankstellen auf der Karte'),
+  },
+  fr: {
+    title: 'Carte des prix du carburant au Tessin',
+    description: 'Toutes les stations suisses sur une carte. Les prix au litre correspondent au jour affiché et deviennent interactifs après le chargement.',
+    noScript: 'La carte interactive nécessite JavaScript. La liste complète des stations et leurs pages de détail restent disponibles ci-dessous.',
+    updatedLabel: 'Prix du jour',
+    stationNoun: (count) => (count === 1 ? 'station cartographiée' : 'stations cartographiées'),
+  },
+};
+
+/**
+ * Static mount point for the client map. The heading and no-JS note are real
+ * HTML so crawlers and users with JavaScript disabled still get a useful
+ * section; App.tsx portals the interactive map into the empty mount point.
+ */
+function renderFuelMapSection(
+  locale: FuelDailyLocale,
+  fuel: FuelType,
+  dateStamp: string,
+  stations: ReadonlyArray<NonNullable<GroupedAnchors['anchors'][number]['mapStation']>>,
+): string {
+  const mappedStations = stations.filter((station) => {
+    const price = fuel === 'benzina' ? station.benzinaPriceChf : station.dieselPriceChf;
+    return typeof price === 'number' && Number.isFinite(price);
+  });
+  if (mappedStations.length === 0) return '';
+  const copy = FUEL_MAP_COPY[locale];
+  const payload = inlineScriptJson({
+    locale,
+    fuel,
+    updatedAt: dateStamp,
+    stations: mappedStations,
+  });
+  const stationCount = `${mappedStations.length} ${copy.stationNoun(mappedStations.length)}`;
+  return `<section class="fuel-map-section" aria-labelledby="fuel-map-title" data-fuel-map-section>
+    <div class="fuel-map-ssr-header">
+      <div>
+        <h2 id="fuel-map-title">${esc(copy.title)}</h2>
+        <p>${esc(copy.description)}</p>
+      </div>
+      <div class="fuel-map-ssr-meta"><strong>${esc(stationCount)}</strong><span>${esc(copy.updatedLabel)} · ${esc(dateStamp)}</span></div>
+    </div>
+    <div id="fuel-station-map-root" class="fuel-map-mount" data-fuel-map-root></div>
+    <script id="fuel-station-map-data" type="application/json">${payload}</script>
+    <noscript><p class="fuel-map-noscript">${esc(copy.noScript)}</p></noscript>
+   </section>`;
+}
+
 // ── Page assembly ─────────────────────────────────────────────────
 
 interface RenderIndexOpts {
@@ -971,6 +1068,10 @@ function renderIndexPage(opts: RenderIndexOpts): string {
 
   const totalAnchors = groups.reduce((acc, g) => acc + g.anchors.length, 0);
   const totalGroups = groups.filter((g) => g.anchors.length > 0).length;
+
+  const mapStations = kind === 'swissStations'
+    ? groups.flatMap((group) => group.anchors.flatMap((anchor) => anchor.mapStation ? [anchor.mapStation] : []))
+    : [];
 
   // Card icon per index kind — fuel-pump for station indexes, map-pin for the
   // city index (so the visual signal matches the dominant entity).
@@ -1077,6 +1178,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   const ctaRow = renderCtaRow(ctaHref, copy.ctaDailyHub(fuelLabel));
   const zoneNav = totalAnchors > 0 ? renderZoneNav(groups, copy) : '';
   const pagination = renderIndexPagination(locale, page, totalPages, pagePathFor);
+  const fuelMap = renderFuelMapSection(locale, fuel, dateStamp, mapStations);
 
   const proseBlock = `<section style="${PROSE_BLOCK_STYLE}" aria-label="${esc(copy.methodologyHeading)}">
     <h2 style="${PROSE_HEADING_STYLE}">${esc(copy.methodologyHeading)}</h2>
@@ -1102,6 +1204,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   ${advice}
   ${ctaRow}
   ${pagination}
+  ${fuelMap}
   ${zoneNav}
   <section aria-labelledby="browseAll">
     <h2 id="browseAll" style="${H2_STYLE};margin-top:8px">${esc(copy.browseHeading)}</h2>
@@ -1252,11 +1355,40 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
             }))
             .filter((a) => isEmitted(a.href));
           if (anchors.length === 0) continue;
+          const mapStationByHref = new Map(
+            list
+            .map((s) => {
+              const href = buildFuelStationPath(locale, fuel, zone, s.slug);
+              if (typeof s.lat !== 'number' || !Number.isFinite(s.lat) || typeof s.lng !== 'number' || !Number.isFinite(s.lng)) return null;
+              return {
+                href,
+                mapStation: {
+                  id: `${zone}-${s.slug}`,
+                  zone,
+                  slug: s.slug,
+                  name: s.name,
+                  brand: s.brand,
+                  address: s.address,
+                  href,
+                  lat: s.lat,
+                  lng: s.lng,
+                  benzinaPriceChf: typeof s.benzinaPriceChf === 'number' && Number.isFinite(s.benzinaPriceChf) ? s.benzinaPriceChf : null,
+                  dieselPriceChf: typeof s.dieselPriceChf === 'number' && Number.isFinite(s.dieselPriceChf) ? s.dieselPriceChf : null,
+                },
+              };
+            })
+            .filter((entry): entry is NonNullable<typeof entry> => entry !== null)
+            .map((entry) => [entry.href, entry.mapStation] as const),
+          );
+          const anchorsWithMap = anchors.map((anchor) => {
+            const mapStation = mapStationByHref.get(anchor.href);
+            return mapStation ? { ...anchor, mapStation } : anchor;
+          });
           groups.push({
             heading: copy.groupHeadingByZone(FUEL_ZONE_DISPLAY[zone]),
             slug: zone,
             zoneKey: zone,
-            anchors,
+            anchors: anchorsWithMap,
           });
         }
         const canonicalPath = buildFuelIndexPath(locale, fuel, 'swissStations');

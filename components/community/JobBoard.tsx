@@ -5,14 +5,15 @@
  * - Detail: dedicated SEO-friendly page per job (slug route), with sidebar widgets and related jobs.
  */
 
-import React, { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, Suspense } from 'react';
+import React, { startTransition, useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, Suspense } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
 import { resilientImport } from '@/services/resilientImport';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
 import { baseCompanySlug, rawCompanySlug } from '@/build-plugins/shared/companyProfileSlug.mjs';
-import { firstParsableDateStr } from '@/build-plugins/shared/firstParsableDate';
+import { firstParsableDateStr, firstParsableMs } from '@/build-plugins/shared/firstParsableDate';
+import { parseJsonResponse } from '@/services/jsonResponseParser';
 const JobAlertForm = lazyRetry(() => import('@/components/community/JobAlertForm'));
 const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobAlertStickyBanner'));
 const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertEndCard'));
@@ -71,11 +72,10 @@ import {
 import {
  type BehaviorData,
  getBehaviorData,
+ readBehaviorAndMarkVisit,
  trackJobViewBehavior,
  trackSearch as trackSearchBehavior,
  trackFilterUsage,
- getLastVisitTimestamp,
- updateLastVisit,
 } from '@/services/behaviorTracker';
 import {
  computePersonalScore,
@@ -792,6 +792,29 @@ export function normalizeIncomingJob(raw: any): JobListing {
  applyUrl: rawApplyUrl || undefined,
  sector: String(raw?.sector || '').trim() || undefined,
  };
+}
+
+/** Yield large pool normalization so a search box remains responsive. */
+function yieldToMainThread(): Promise<void> {
+ return new Promise((resolve) => {
+  if (typeof requestAnimationFrame === 'function') {
+   requestAnimationFrame(() => resolve());
+   return;
+  }
+  setTimeout(resolve, 0);
+ });
+}
+
+async function normalizeJobPool(rawJobs: readonly unknown[]): Promise<JobListing[]> {
+ const normalized: JobListing[] = [];
+ const BATCH_SIZE = 512;
+ for (let i = 0; i < rawJobs.length; i += 1) {
+  normalized.push(normalizeIncomingJob(rawJobs[i]));
+  if ((i + 1) % BATCH_SIZE === 0 && i + 1 < rawJobs.length) {
+   await yieldToMainThread();
+  }
+ }
+ return dedupeJobsForListing(normalized);
 }
 
 /**
@@ -2030,19 +2053,41 @@ const DATE_RANGE_MS: Record<DateRange, number> = {
 
 type JobDateFields = Pick<JobListing, 'postedDate' | 'firstSeenAt'>;
 
+type CachedJobDates = {
+ postedAt: number;
+ firstSeenAt: number;
+};
+
+// Date facets are evaluated once for every loaded job by each active result
+// tier. Keep the parsed timestamps beside the stable JobListing object so a
+// date-range change does not repeat Date parsing across the 13k-job fallback.
+const jobDateCache = new WeakMap<object, CachedJobDates>();
+
+function cachedJobDates(job: JobDateFields): CachedJobDates {
+ const objectJob = job as object;
+ const cached = jobDateCache.get(objectJob);
+ if (cached) return cached;
+ const parsed: CachedJobDates = {
+  postedAt: firstParsableMs(job.postedDate, job.firstSeenAt),
+  firstSeenAt: firstParsableMs(job.firstSeenAt, job.postedDate),
+ };
+ jobDateCache.set(objectJob, parsed);
+ return parsed;
+}
+
 /** Apply the publication-date meaning shared by every JobBoard result tier. */
 export function isJobWithinDateRange(job: JobDateFields, cutoff: number): boolean {
-  if (cutoff <= 0) return true;
-  const jobDate = new Date(firstParsableDateStr(job.postedDate, job.firstSeenAt)).getTime();
-  return Number.isFinite(jobDate) && jobDate >= cutoff;
+ if (cutoff <= 0) return true;
+ const jobDate = cachedJobDates(job).postedAt;
+ return Number.isFinite(jobDate) && jobDate >= cutoff;
 }
 
 const NEW_JOB_MS = 72 * 60 * 60 * 1000;
 
 /** Newness follows first discovery, so a later recrawl cannot renew a listing. */
 export function isJobNewAt(job: JobDateFields, now: number): boolean {
-  const firstSeen = new Date(firstParsableDateStr(job.firstSeenAt, job.postedDate)).getTime();
-  return Number.isFinite(firstSeen) && now - firstSeen < NEW_JOB_MS;
+ const firstSeen = cachedJobDates(job).firstSeenAt;
+ return Number.isFinite(firstSeen) && now - firstSeen < NEW_JOB_MS;
 }
 
 // --- Memoized JobCard to avoid re-renders on filter/sort ---
@@ -2087,7 +2132,7 @@ const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, lo
  <a
  href={jobHref}
  onClick={(e) => { e.preventDefault(); onSelect(job); }}
- className="block cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"
+ className="block min-h-[44px] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"
  >
  <div className="flex items-start gap-3">
  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0">
@@ -2420,7 +2465,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  clearTimeout(searchDebounceTimerRef.current);
  searchDebounceTimerRef.current = null;
  }
- setSearchQuery(value);
+ startTransition(() => setSearchQuery(value));
  }, []);
  useEffect(() => {
  return () => {
@@ -2490,6 +2535,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  // ── Personalization: behavior data + derived state ──
  const [behaviorData, setBehaviorData] = useState<BehaviorData | null>(null);
+ const [lastVisitTimestamp, setLastVisitTimestamp] = useState<number | null>(null);
+ const visitCapturedRef = useRef(false);
  const [newJobsDismissed, setNewJobsDismissed] = useState(false);
  const [jobMatchProfile, setJobMatchProfile] = useState<JobMatchProfileData | null>(null);
  // INP: behaviorData/jobMatchProfile land via a post-mount effect (localStorage
@@ -2546,12 +2593,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return () => { cancelled = true; clearTimeout(timer); };
  }, [enablePersonalization]);
 
- // Load behavior data on mount and update last visit
+ // Capture the previous visit before writing the current one. The timestamp
+ // stays in React state for this board session, so later SPA updates to
+ // behaviorData cannot make the counter compare against "now".
  useEffect(() => {
- if (!enablePersonalization) return;
- const data = getBehaviorData();
+ if (!enablePersonalization || visitCapturedRef.current) return;
+ visitCapturedRef.current = true;
+ const { data, previousLastVisit } = readBehaviorAndMarkVisit();
  setBehaviorData(data);
- updateLastVisit();
+ setLastVisitTimestamp(previousLastVisit);
  }, [enablePersonalization]);
 
  // Load survey-derived job-match profile (sector/canton/experience level).
@@ -2705,9 +2755,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // above).
  const newJobsInfo = useMemo(() => {
  if (!enablePersonalization || !deferredBehaviorData) return { total: 0, matching: 0 };
- const lastVisit = getLastVisitTimestamp();
- return computeNewJobsCount(jobs, lastVisit, deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile);
- }, [enablePersonalization, deferredBehaviorData, jobs, deferredUserProfile, deferredJobMatchProfile]);
+ return computeNewJobsCount(jobs, lastVisitTimestamp, deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile);
+ }, [enablePersonalization, deferredBehaviorData, jobs, lastVisitTimestamp, deferredUserProfile, deferredJobMatchProfile]);
 
  // Trending jobs for user's location
  const userLocation = userProfile?.municipality ?? null;
@@ -2994,7 +3043,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  try {
  const res = await fetch(cdnDataUrl(`/data/${firstPageIndexFileName(locale)}`));
  if (!res.ok) return null;
- const data = (await res.json()) as unknown;
+ const data = await parseJsonResponse(res);
  if (!Array.isArray(data) || data.length === 0) return null;
  return data as JobListing[];
  } catch {
@@ -3009,7 +3058,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const slimIndexUrl = `/data/jobs-${locale}-index.json`;
  try {
  const res = await fetch(cdnDataUrl(slimIndexUrl));
- if (res.ok) return (await res.json()) as JobListing[];
+ if (res.ok) {
+ const data = await parseJsonResponse(res);
+ return Array.isArray(data) ? data as JobListing[] : [];
+ }
  throw new Error(`slim index ${res.status}`);
  } catch {
  // One discrete retry of the slim index (fetchAllJobs hits the same file)
@@ -3023,10 +3075,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  };
 
- const finalize = (raw: ReadonlyArray<JobListing>, unscopedRaw?: ReadonlyArray<JobListing>): void => {
+ const finalize = async (raw: ReadonlyArray<JobListing>, unscopedRaw?: ReadonlyArray<JobListing>): Promise<void> => {
  if (cancelled) return;
- const normalized = raw.map((job) => normalizeIncomingJob(job));
- const deduped = dedupeJobsForListing(normalized);
+ const deduped = await normalizeJobPool(raw);
+ if (cancelled) return;
  // Re-apply any per-job detail already fetched (e.g. enriched onto the seeded
  // record before this full-index load landed) so replacing `jobs` doesn't drop it.
  const reEnriched = resolvedJobDetail.size === 0
@@ -3049,8 +3101,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // searches return zero. Same normalize+dedupe so cross-canton matches share
  // the JobListing shape downstream consumers expect.
  if (unscopedRaw && unscopedRaw.length > 0) {
- const normalizedFull = unscopedRaw.map((job) => normalizeIncomingJob(job));
- setUnscopedJobs(dedupeJobsForListing(normalizedFull));
+ const normalizedFull = await normalizeJobPool(unscopedRaw);
+ if (cancelled) return;
+ setUnscopedJobs(normalizedFull);
  }
  setJobsLoading(false);
  };
@@ -3094,7 +3147,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (firstPaintEligible) {
  const firstPage = await loadFirstPageSlim();
  if (firstPage && !cancelled) {
- finalize(scopeJobsToCanton(firstPage, targetCanton));
+ await finalize(scopeJobsToCanton(firstPage, targetCanton));
  }
  }
 
@@ -3118,14 +3171,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // tier). Only meaningful when targetCanton isn't the aggregator —
  // for the aggregator the scope IS already everywhere.
  const isAggregate = targetCanton === AGGREGATE_CANTON_CODE;
- finalize(
+ await finalize(
  scopeJobsToCanton(legacyArr, targetCanton),
  isAggregate ? undefined : legacyArr,
  );
  return;
  }
 
- finalize(shardJobs as unknown as JobListing[]);
+ await finalize(shardJobs as unknown as JobListing[]);
  } catch (err: unknown) {
  // Service-level failure → try legacy path before giving up.
  console.warn('Failed to load jobs from shards:', err);
@@ -3134,7 +3187,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const legacy = await loadLegacyLocaleJobs();
  const legacyArr = Array.isArray(legacy) ? legacy : [];
  const isAggregate = targetCanton === AGGREGATE_CANTON_CODE;
- finalize(
+ await finalize(
  scopeJobsToCanton(legacyArr, targetCanton),
  isAggregate ? undefined : legacyArr,
  );
@@ -3376,7 +3429,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  try {
  const res = await fetch(cdnDataUrl(`/data/jobs-${locale}-index.json`));
  if (res.ok) {
- const all = await res.json();
+ const all = await parseJsonResponse(res);
  if (Array.isArray(all)) {
  const targetId = meta.id;
  const match = all.find((j: { id?: string }) => j?.id === targetId);
@@ -3676,12 +3729,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return canton && canton !== AGGREGATE_CANTON_CODE ? canton : null;
  }, [initialFilterCanton]);
 
+ const boardFilterAlertSectorLabel = useMemo(() => {
+ if (selectedSector === 'all') return '';
+ return uniqueSectors.find((sector) => sector.toLowerCase() === selectedSector) || selectedSector;
+ }, [selectedSector, uniqueSectors]);
+
+ const boardFilterAlertContext = selectedCategory !== 'all'
+ ? 'category'
+ : selectedSector !== 'all'
+ ? 'sector'
+ : 'search';
+
  const boardFilterAlertKeywordLabel = useMemo(() => {
  const categoryLabel = selectedCategory !== 'all' ? t(`jobBoard.filter.${selectedCategory}`) : '';
  // Prefer the category label — validated taxonomy, same source the
- // job-detail one-tap prompt already uses. Free-text search is a fallback.
- return categoryLabel || searchQuery.trim();
- }, [selectedCategory, searchQuery, t]);
+ // job-detail one-tap prompt already uses. The sector label is the next
+ // strongest signal; free-text search remains the fallback.
+ return categoryLabel || boardFilterAlertSectorLabel || searchQuery.trim();
+ }, [boardFilterAlertSectorLabel, searchQuery, selectedCategory, t]);
 
  // null = still checking (existing alerts / quota), false = hide, true = show.
  const [boardFilterAlertEligible, setBoardFilterAlertEligible] = useState<boolean | null>(null);
@@ -3728,7 +3793,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [enableJobAlerts, boardFilterAlertKeywordLabel, userId, userEmail, isJobDetailView]);
 
  const boardFilterAlertVisible = Boolean(
- enableJobAlerts && boardFilterAlertKeywordLabel && userId && userEmail && !isJobDetailView && boardFilterAlertEligible,
+ enableJobAlerts && boardFilterAlertKeywordLabel && !isJobDetailView && (
+ (userId && userEmail && boardFilterAlertEligible) || (!userId || !userEmail)
+ ),
  );
 
  // Same as the job-match pill above: the impression comes from
@@ -4144,10 +4211,83 @@ const JobBoard: React.FC<JobBoardProps> = ({
  };
  }, [sortedJobs, locale]);
 
+ // The locale-wide fallback can contain thousands of jobs. Build its haystack
+ // index with the same frame budget as the canton index so the first broaden
+ // search never performs 13k string normalizations inside one filter render.
+ // Keep both fallback pools in one identity-keyed index: cross-locale results
+ // use the same matcher, and object references remain stable after setState.
+ const fallbackIndexJobs = useMemo<ReadonlyArray<JobListing>>(() => {
+ const merged: JobListing[] = [];
+ const seen = new Set<JobListing>();
+ for (const job of [...unscopedJobs, ...crossLocaleJobs]) {
+ if (seen.has(job)) continue;
+ seen.add(job);
+ merged.push(job);
+ }
+ return merged;
+ }, [unscopedJobs, crossLocaleJobs]);
+
+ const [fallbackSearchIndex, setFallbackSearchIndex] = useState<{
+ readonly map: Map<JobListing, string>;
+ readonly jobs: ReadonlyArray<JobListing> | null;
+ readonly locale: Locale | null;
+ readonly locationTokens: ReadonlySet<string>;
+ }>(() => ({ map: new Map(), jobs: null, locale: null, locationTokens: new Set() }));
+
+ useEffect(() => {
+ const fallbackMap = new Map<JobListing, string>();
+ const fallbackLocationTokens = new Set<string>();
+ let i = 0;
+ let raf = 0;
+ let cancelled = false;
+ const FRAME_BUDGET_MS = 8;
+ const CLOCK_CHECK_MASK = 15;
+
+ function processFallbackChunk() {
+ const deadline = performance.now() + FRAME_BUDGET_MS;
+ while (i < fallbackIndexJobs.length) {
+ const job = fallbackIndexJobs[i];
+ fallbackMap.set(job, getBroadenHaystack(job, locale));
+ const location = `${job.addressLocality || ''} ${job.location || ''}`;
+ for (const token of normalizeSearchText(location).split(' ')) {
+  if (!token) continue;
+  const stem = stemSearchToken(token);
+  if (stem.length <= 3 || RELATED_SEARCH_STOPWORDS.has(stem)) continue;
+  fallbackLocationTokens.add(stem);
+ }
+ i++;
+ if ((i & CLOCK_CHECK_MASK) === 0 && performance.now() >= deadline) break;
+ }
+ if (cancelled) return;
+ if (i < fallbackIndexJobs.length) {
+ raf = requestAnimationFrame(processFallbackChunk);
+ } else {
+ setFallbackSearchIndex({ map: fallbackMap, jobs: fallbackIndexJobs, locale, locationTokens: fallbackLocationTokens });
+ }
+ }
+
+ raf = requestAnimationFrame(processFallbackChunk);
+ return () => {
+ cancelled = true;
+ if (raf) cancelAnimationFrame(raf);
+ };
+ }, [fallbackIndexJobs, locale]);
+
+ const fallbackSearchIndexPending = Boolean(deferredSearchQuery.trim())
+ && fallbackIndexJobs.length > 0
+ && (fallbackSearchIndex.jobs !== fallbackIndexJobs || fallbackSearchIndex.locale !== locale);
+
  // Fast query match using pre-built index — avoids re-normalising haystacks.
+ // The matcher runs once per job, so cache the normalized/stemmed query tokens
+ // by query string instead of rebuilding the same array for every job.
+ const indexedQueryTokenCache = useMemo(() => new Map<string, string[]>(), [searchIndex]);
  const indexedQueryMatch = useCallback(
  (job: JobListing, query: string): boolean => {
- const queryTokens = normalizeSearchText(query).split(' ').filter(Boolean).map(stemSearchToken);
+ let queryTokens = indexedQueryTokenCache.get(query);
+ if (!queryTokens) {
+  queryTokens = normalizeSearchText(query).split(' ').filter(Boolean).map(stemSearchToken);
+  indexedQueryTokenCache.set(query, queryTokens);
+ }
  if (queryTokens.length === 0) return true;
  const haystack = searchIndex.map.get(job) ?? '';
  // Stemmed query tokens prefix-match haystack words.
@@ -4157,7 +4297,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // stem is treated as a prefix, not a closed token.
  return queryTokens.every((token) => haystack.includes(` ${token}`));
  },
- [searchIndex],
+ [indexedQueryTokenCache, searchIndex],
  );
 
  /**
@@ -4267,10 +4407,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // token and silently lowering the floor. Removing a token from the discount
  // set can only RAISE the floor (stricter) — it never surfaces more off-topic
  // jobs — so the guard is monotone-safe.
- const searchLocationTokens = useMemo<Set<string>>(() => {
+ const scopedSearchLocationTokens = useMemo<Set<string>>(() => {
  const set = new Set<string>();
- const addFrom = (arr: readonly JobListing[]) => {
- for (const j of arr) {
+ for (const j of sortedJobs) {
  const loc = `${j.addressLocality || ''} ${j.location || ''}`;
  for (const tok of normalizeSearchText(loc).split(' ')) {
  if (!tok) continue;
@@ -4280,11 +4419,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  set.add(stem);
  }
  }
- };
- addFrom(sortedJobs);
- addFrom(unscopedJobs);
  return set;
- }, [sortedJobs, unscopedJobs]);
+ }, [sortedJobs]);
+
+ const searchLocationTokens = useMemo<Set<string>>(() => {
+ const set = new Set(scopedSearchLocationTokens);
+ for (const token of fallbackSearchIndex.locationTokens) set.add(token);
+ return set;
+ }, [scopedSearchLocationTokens, fallbackSearchIndex]);
 
  // OR-fallback relevance floor, ported from the static cluster plugin
  // (build-plugins/relatedSearchClustersPlugin.ts: `minOrScore`). A query with
@@ -4375,10 +4517,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // pages like `/cerca-lavoro-basilea/ricerca-genitori-liestal/` always
  // surface SOMETHING. Excludes IDs already in the canton-scoped pool so we
  // never double-render a job that the in-canton tiers already discarded by
- // date-range or non-search filter. Builds the haystack inline (no memoised
- // index) because this path runs only when both prior tiers are empty —
- // rare enough that an O(n) scan over ~13k jobs per relevant keystroke is
- // acceptable, and skipping the index keeps memory flat in the common case.
+ // date-range or non-search filter. The locale-wide haystacks are prepared in
+ // a frame-budgeted fallback index above, so a date/filter change only scans
+ // the already-indexed records and never rebuilds 26k strings in the render.
  const crossCantonFallbackJobs = useMemo<JobListing[]>(() => {
  const query = deferredSearchQuery.trim();
  if (!query) return [];
@@ -4393,6 +4534,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const inCantonCount = strictFilteredJobs.length + orFallbackInCantonJobs.length;
  if (inCantonCount >= BROADEN_BELOW) return [];
  if (unscopedJobs.length === 0) return [];
+ if (fallbackSearchIndexPending) return [];
 
  // Score the boilerplate-stripped query (see `orFallbackQuery`) so the
  // tokens match the floor's content-token count.
@@ -4416,7 +4558,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (scopedIds.has(job.id)) continue;
  if (isForeignLocation(job.addressLocality || job.location || '')) continue;
  if (!passingNonSearchFilters(job, now, cutoff)) continue;
- const haystack = getBroadenHaystack(job, locale);
+ const haystack = fallbackSearchIndex.map.get(job) ?? '';
  let score = 0;
  for (const t of queryTokens) {
  if (haystack.includes(` ${t}`)) score++;
@@ -4433,7 +4575,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  scored.sort((a, b) => b.score - a.score);
  return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
- }, [strictFilteredJobs.length, orFallbackInCantonJobs.length, sortedJobs, deferredSearchQuery, orFallbackQuery, deferredSelectedDateRange, passingNonSearchFilters, unscopedJobs, locale, orFallbackMinScore, searchLocationTokens]);
+ }, [strictFilteredJobs.length, orFallbackInCantonJobs.length, sortedJobs, deferredSearchQuery, orFallbackQuery, deferredSelectedDateRange, passingNonSearchFilters, unscopedJobs, locale, orFallbackMinScore, searchLocationTokens, fallbackSearchIndex, fallbackSearchIndexPending]);
 
  // Tier 4 trigger: lazy-load DE/FR/EN slim indexes when all in-locale tiers
  // returned zero for a non-empty query. Same job ID across locale shards so
@@ -4447,6 +4589,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (jobsLoading) return;
  // The zero below is only an answer once the index covers the corpus.
  if (searchIndexPending) return;
+ if (fallbackSearchIndexPending) return;
  const q = deferredSearchQuery.trim();
  if (!q) return;
  if (strictFilteredJobs.length > 0) return;
@@ -4463,7 +4606,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  otherLocales.map(async (l) => {
  const res = await fetch(cdnDataUrl(`/data/jobs-${l}-index.json`));
  if (!res.ok) return [] as unknown[];
- const data = await res.json();
+ const data = await parseJsonResponse(res);
  return Array.isArray(data) ? (data as unknown[]) : [];
  }),
  );
@@ -4471,18 +4614,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const seen = new Set<string>();
  for (const j of unscopedJobs) seen.add(String(j.id || ''));
  for (const j of sortedJobs) seen.add(String(j.id || ''));
- const collected: JobListing[] = [];
+ const collected: unknown[] = [];
  for (const r of responses) {
  if (r.status !== 'fulfilled') continue;
  for (const raw of r.value) {
  const id = String((raw as { id?: unknown })?.id ?? '');
  if (!id || seen.has(id)) continue;
  seen.add(id);
- collected.push(normalizeIncomingJob(raw));
+ collected.push(raw);
  }
  }
  if (cancelled) return;
- setCrossLocaleJobs(dedupeJobsForListing(collected));
+ const normalized = await normalizeJobPool(collected);
+ if (cancelled) return;
+ setCrossLocaleJobs(normalized);
  } catch (err: unknown) {
  reportCaughtError(err, 'jobBoard.loadJobs.crossLocale');
  } finally {
@@ -4500,7 +4645,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Load-bearing: on a search that is genuinely empty, the tier counts above
  // never change when the index completes, so without this dep the effect
  // would not re-run and the fallback would never fire at all.
- searchIndexPending,
+ searchIndexPending, fallbackSearchIndexPending,
  ]);
 
  // Shared locale-wide pool loader (slim index). Used by BOTH the company-hub
@@ -4513,11 +4658,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  let pool: unknown[] = [];
  const slimRes = await fetch(cdnDataUrl(`/data/jobs-${locale}-index.json`));
  if (slimRes.ok) {
- pool = await slimRes.json();
+ const data = await parseJsonResponse(slimRes);
+ pool = Array.isArray(data) ? data : [];
  }
  const arr = Array.isArray(pool) ? pool : [];
  if (arr.length === 0) return null;
- return dedupeJobsForListing(arr.map((job) => normalizeIncomingJob(job)));
+ return normalizeJobPool(arr);
  }, [locale]);
 
  // Company-hub broadening trigger: when a company filter is active and the
@@ -4604,6 +4750,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (orFallbackInCantonJobs.length > 0) return [];
  if (crossCantonFallbackJobs.length > 0) return [];
  if (crossLocaleJobs.length === 0) return [];
+ if (fallbackSearchIndexPending) return [];
 
  // Score the boilerplate-stripped query (see `orFallbackQuery`) so the
  // tokens match the floor's content-token count.
@@ -4617,7 +4764,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  for (const job of crossLocaleJobs) {
  if (isForeignLocation(job.addressLocality || job.location || '')) continue;
  if (!passingNonSearchFilters(job, now, cutoff)) continue;
- const haystack = getBroadenHaystack(job, locale);
+ const haystack = fallbackSearchIndex.map.get(job) ?? '';
  let score = 0;
  for (const t of queryTokens) {
  if (haystack.includes(` ${t}`)) score++;
@@ -4629,6 +4776,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [
  strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length,
  crossLocaleJobs, deferredSearchQuery, orFallbackQuery, deferredSelectedDateRange, passingNonSearchFilters, locale, orFallbackMinScore,
+ fallbackSearchIndex, fallbackSearchIndexPending,
  ]);
 
  // Tier 3.5 — company-hub broadening. Fires when a company filter is active
@@ -4886,6 +5034,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // then; a still-0 result after that is a genuine empty-state. Same flag now
  // gates the lazy corpus-fetch tiers — see searchIndexPending.
  || searchIndexPending
+ // The locale-wide haystack is also committed only after its rAF build. Do not
+ // let its provisional empty result trigger the other-locale fetch tier.
+ || fallbackSearchIndexPending
  ))
  );
 
@@ -9674,6 +9825,45 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  }
 
+ // This surface stays next to the filters so a category/sector intent is
+ // actionable before the first result on mobile. Anonymous visitors are
+ // handed to the already-mounted JobAlertForm; authenticated visitors keep
+ // the one-tap create path below.
+ const boardFilterAlertCtaJsx = boardFilterAlertVisible ? (
+ <Suspense fallback={null}>
+ <JobBoardFilterAlertCta
+ userId={userId}
+ email={userEmail}
+ locale={locale}
+ context={boardFilterAlertContext}
+ onImpression={() => trackJobAlertCtaShownOnce('job_board_filters', boardFilterAlertKeywordLabel)}
+ keywordLabel={boardFilterAlertKeywordLabel}
+ cantonCode={boardFilterAlertCantonCode}
+ onAnonymousOpen={() => {
+ Analytics.trackJobAlertCtaClick('job_board_filters', 'open', boardFilterAlertKeywordLabel);
+ }}
+ onSubscribed={() => {
+ Analytics.trackJobAlertCtaClick('job_board_filters', 'success', boardFilterAlertKeywordLabel);
+ Analytics.trackJobAlertCreated({
+ keywords: boardFilterAlertKeywordLabel,
+ location: boardFilterAlertCantonCode || '',
+ frequency: 'weekly',
+ surface: 'job_board_filters',
+ });
+ invalidateUserAlertsCache();
+ if (boardFilterAlertHideTimerRef.current !== null) window.clearTimeout(boardFilterAlertHideTimerRef.current);
+ boardFilterAlertHideTimerRef.current = window.setTimeout(() => {
+ boardFilterAlertHideTimerRef.current = null;
+ setBoardFilterAlertEligible(false);
+ }, 2500);
+ }}
+ onErrored={() => {
+ Analytics.trackJobAlertCtaClick('job_board_filters', 'error', boardFilterAlertKeywordLabel);
+ }}
+ />
+ </Suspense>
+ ) : null;
+
  const postFirstResultsUtilities = (
  <div className="space-y-3" data-testid="jobboard-post-first-results-utilities">
  {/* Role/category shortcuts are useful after users have seen real inventory,
@@ -9703,38 +9893,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </button>
  ))}
  </div>
-
- {/* Issue #4298: one-tap alert CTA driven by the board's own active filters */}
- {boardFilterAlertVisible && userId && userEmail && (
- <Suspense fallback={null}>
- <JobBoardFilterAlertCta
- userId={userId}
- email={userEmail}
- locale={locale}
- onImpression={() => trackJobAlertCtaShownOnce('job_board_filters', boardFilterAlertKeywordLabel)}
- keywordLabel={boardFilterAlertKeywordLabel}
- cantonCode={boardFilterAlertCantonCode}
- onSubscribed={() => {
- Analytics.trackJobAlertCtaClick('job_board_filters', 'success', boardFilterAlertKeywordLabel);
- Analytics.trackJobAlertCreated({
- keywords: boardFilterAlertKeywordLabel,
- location: boardFilterAlertCantonCode || '',
- frequency: 'weekly',
- surface: 'job_board_filters',
- });
- invalidateUserAlertsCache();
- if (boardFilterAlertHideTimerRef.current !== null) window.clearTimeout(boardFilterAlertHideTimerRef.current);
- boardFilterAlertHideTimerRef.current = window.setTimeout(() => {
- boardFilterAlertHideTimerRef.current = null;
- setBoardFilterAlertEligible(false);
- }, 2500);
- }}
- onErrored={() => {
- Analytics.trackJobAlertCtaClick('job_board_filters', 'error', boardFilterAlertKeywordLabel);
- }}
- />
- </Suspense>
- )}
 
  {/* Single search-utility mount remains the 0-results alert scroll target. */}
  <div id="jobboard-search-utilities">
@@ -9859,7 +10017,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onChange={(e) => {
  const next = e.target.value;
  if (searchDebounceTimerRef.current) clearTimeout(searchDebounceTimerRef.current);
- searchDebounceTimerRef.current = setTimeout(() => setSearchQuery(next), 200);
+ searchDebounceTimerRef.current = setTimeout(() => applySearchQuery(next), 200);
  }}
  onKeyDown={(e) => {
  if (e.key === 'Enter') {
@@ -9899,7 +10057,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  key={s}
  type="button"
  onClick={() => commitSearchQuery(s)}
- className="px-2.5 py-1 rounded-full text-xs bg-accent-subtle text-accent border border-accent-border hover:bg-accent-subtle transition-colors"
+ className="inline-flex items-center px-2.5 py-1 min-h-[44px] rounded-full text-xs bg-accent-subtle text-accent border border-accent-border hover:bg-accent-subtle transition-colors"
  >
  {s}
  </button>
@@ -10191,6 +10349,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  </div>
  </div>
+
+ {boardFilterAlertCtaJsx}
 
  {/* ── Personalization: NewJobsCounter + Personalizzato pill + TrendingSection ── */}
  {enablePersonalization && (

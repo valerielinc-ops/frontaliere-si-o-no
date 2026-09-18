@@ -15,6 +15,9 @@ import {
   MANIFEST_VERSION,
   canonicalizeInput,
   computeInputHash,
+  getIncrementalManifestMap,
+  getIncrementalManifestMemoryStats,
+  releaseIncrementalManifestState,
   verifyRuntimeInputExclusion,
 } from '../../build-plugins/shared/incrementalManifest.mjs';
 
@@ -357,6 +360,24 @@ describe('incremental manifest input contract', () => {
       env: { ...process.env, INCREMENTAL_MANIFEST: '1' },
     });
     expect(output.trim()).toBe('shared');
+  });
+
+  it('releases the build-scoped manifest map at the coordinator boundary', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'incremental-manifest-release-'));
+    try {
+      const manifests = getIncrementalManifestMap(root, ['it'], true);
+      manifests?.get('it')?.register('jobs/release/', 'active-job', { jobId: 'release-1' });
+      expect(getIncrementalManifestMemoryStats(root).records.entries).toBe(1);
+
+      releaseIncrementalManifestState(root);
+
+      const after = getIncrementalManifestMemoryStats(root);
+      expect(after.manifests.locales).toBe(0);
+      expect(after.records.entries).toBe(0);
+      expect(after.estimatedBytes.knownTotal).toBe(0);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('does not share stale digest entries across builds in one process', () => {

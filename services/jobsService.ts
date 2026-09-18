@@ -53,6 +53,7 @@ import { cdnDataUrl } from './cdnDataBase';
 import { jobCantonShardPath, resolveCantonShardKey } from './jobCantonShards';
 import { openIndexedDbWithSchema } from './indexedDbSchema';
 import type { Locale } from './i18n';
+import { parseJsonResponse } from './jsonResponseParser';
 
 /**
  * Permissive Job shape. The full Job interface lives in component-level types,
@@ -202,7 +203,7 @@ async function fetchShardDirect(cantonCode: string, locale: string): Promise<{
   throw new Error(`[jobsService] fetch ${url} failed: HTTP ${res.status}`);
  }
  const etag = res.headers.get('etag');
- const data = (await res.json()) as unknown;
+ const data = await parseJsonResponse(res);
  if (!Array.isArray(data)) {
   throw new Error(`[jobsService] shard payload for "${cantonCode}" is not an array`);
  }
@@ -233,7 +234,7 @@ async function revalidateWithEtag(
   throw new Error(`[jobsService] revalidate ${url} failed: HTTP ${res.status}`);
  }
  const newEtag = res.headers.get('etag');
- const data = (await res.json()) as unknown;
+ const data = await parseJsonResponse(res);
  if (!Array.isArray(data)) {
   throw new Error(`[jobsService] revalidate payload for "${cantonCode}" is not an array`);
  }
@@ -451,7 +452,7 @@ export async function fetchAllJobs(locale: Locale): Promise<Job[]> {
  if (!res.ok) {
   throw new Error(`[jobsService] fetchAllJobs(${locale}): HTTP ${res.status}`);
  }
- const data = (await res.json()) as unknown;
+ const data = await parseJsonResponse(res);
  if (!Array.isArray(data)) {
   throw new Error(`[jobsService] fetchAllJobs(${locale}): payload is not an array`);
  }

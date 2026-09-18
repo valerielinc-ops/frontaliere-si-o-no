@@ -521,7 +521,10 @@ describe('owner policy excluding test files from review', () => {
     expect(workflow.jobs.vitest.name).toBe('vitest (unit + integration)');
     expect(pullRequest.paths).toBeUndefined();
     expect(pullRequest['paths-ignore']).toBeUndefined();
-    expect(pullRequest.types).toContain('edited');
+    // `edited` rimosso: l'HEAD non cambia, quindi la run rimisurava codice
+    // identico (33% delle run su PR, 14 min l'una). La correzione di un body
+    // rifiutato resta coperta da retry-code-check-after-body-edit.yml.
+    expect(pullRequest.types).not.toContain('edited');
     expect(source).toContain('id: ledger_scope');
     expect(source).toContain('ledger-check');
     expect(source).toContain('ledger-post');
