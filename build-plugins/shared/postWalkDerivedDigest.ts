@@ -86,15 +86,21 @@ function readSidecar(file: string): LoadedSidecar {
       || parsedHeader.version !== POST_WALK_DERIVED_SIDECAR_VERSION
       || parsedHeader.format !== 'jsonl'
     ) return new Map();
+    let footerCount: number | null = null;
     for (const line of lines) {
       if (!line.trim()) continue;
       const parsed = JSON.parse(line) as Record<string, unknown>;
-      if (parsed.type === 'footer') continue;
+      if (parsed.type === 'footer') {
+        if (footerCount !== null || !Number.isInteger(parsed.count)) return new Map();
+        footerCount = parsed.count as number;
+        continue;
+      }
       if (parsed.type !== 'derived') return new Map();
       const record = normalizeRecord(parsed);
       if (!record || records.has(record.path)) return new Map();
       records.set(record.path, record);
     }
+    if (footerCount !== records.size) return new Map();
     return records;
   } catch {
     // A stale/partial cache is a safe miss: the normal verifier/full path

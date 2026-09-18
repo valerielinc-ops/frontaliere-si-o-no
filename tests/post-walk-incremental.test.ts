@@ -24,6 +24,7 @@ import {
 } from '../build-plugins/shared/postWalkIncremental';
 import {
   clearPostWalkDerivedDigestCacheForTest,
+  loadPostWalkDerivedDigestSidecar,
   loadPostWalkUnmanifestedTopLevels,
   preservePostWalkDerivedOutput,
   writePostWalkDerivedDigestSidecar,
@@ -362,6 +363,30 @@ describe('post-walk incremental planning', () => {
     claim(filePath, 'fixture', '<!DOCTYPE html>source');
 
     expect(preservePostWalkDerivedOutput(distDir, filePath, '<!DOCTYPE html>source')).toBe(false);
+  });
+
+  it('fails closed on an incomplete derived sidecar footer', () => {
+    const root = fixtureRoot();
+    writePostWalkDerivedDigestSidecar(root, new Map([
+      ['jobs/bridge.html', {
+        path: 'jobs/bridge.html',
+        kind: 'bridge',
+        inputHash: null,
+        sourcePath: 'jobs/bridge/index.html',
+        sourceHash: null,
+        templateHash: 'flat-bridge@1',
+      }],
+    ]));
+    const sidecarPath = path.join(
+      root,
+      '.cache/incremental-manifest/post-walk-derived-v2.jsonl',
+    );
+    const lines = fs.readFileSync(sidecarPath, 'utf8').trimEnd().split('\n');
+    lines.pop();
+    fs.writeFileSync(sidecarPath, `${lines.join('\n')}\n`, 'utf8');
+    clearPostWalkDerivedDigestCacheForTest();
+
+    expect(loadPostWalkDerivedDigestSidecar(root)).toEqual(new Map());
   });
 
   it('rebuilds the HTML inventory from claimed paths plus unmanifested roots', () => {
