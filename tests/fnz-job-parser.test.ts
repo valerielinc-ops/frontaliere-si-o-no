@@ -88,6 +88,10 @@ describe('fnz-job-parser / resolveFnzSwissLocation', () => {
     expect(isCantonOnlyLabel('Ticino')).toBe(true);
   });
 
+  it('does not accept a canton-only municipality label without address evidence', () => {
+    expect(resolveFnzSwissLocation(['Altdorf'])).toBeNull();
+  });
+
   it('rejects a city and richer address signal that point to different cantons', () => {
     expect(resolveFnzSwissLocation([{
       descriptor: 'CH Zurich',

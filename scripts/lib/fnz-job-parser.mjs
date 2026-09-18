@@ -107,21 +107,25 @@ export function resolveFnzSwissLocation(candidates = []) {
     // segment. This covers `location: Switzerland` plus a richer
     // jobRequisitionLocation/address/postalCode object without losing the
     // source location provenance.
-    const resolvedLocation = swissCityFromLocationField(city)
-      || swissCityFromLocationField(signal)
+    const explicitCity = swissCityFromLocationField(city);
+    const signalCity = swissCityFromLocationField(signal);
+    const resolvedLocation = explicitCity || signalCity;
     const location = resolvedLocation || city || firstLocationSegment(raw);
     const signalCanton = inferAnyCanton(signal);
     const locationCanton = inferAnyCanton(location);
     // A city and a richer address signal must describe the same canton. If
     // they disagree, reject the candidate rather than emit plausible-looking
-    // but internally inconsistent structured data. `isCantonOnlyLabel` is
-    // only a guard for an unstructured label: an explicit locality with a
-    // postal/street signal is a concrete municipality even when the shared
-    // canton inventory classifies its spelling as canton-only.
+    // but internally inconsistent structured data. A city field or structured
+    // address is authoritative; a city inferred from the aggregate signal
+    // must still be non-canton-only before it can bypass that guard.
     const locationIsConcreteCity = Boolean(
       location
       && locationCanton
-      && (resolvedLocation || hasStructuredAddress || !isCantonOnlyLabel(location)),
+      && (
+        explicitCity
+        || hasStructuredAddress
+        || (signalCity && !isCantonOnlyLabel(signalCity))
+      ),
     );
     if (
       locationIsConcreteCity
