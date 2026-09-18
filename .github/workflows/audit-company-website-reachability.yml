@@ -11,6 +11,11 @@ on:
 
 permissions:
   contents: read
+  # The failure reporter below files an issue with GITHUB_TOKEN. Without this
+  # the call 403s, and because that step is continue-on-error the job would
+  # still go red-but-unreported — a reporting path that fails open is worse
+  # than none, because it looks like coverage.
+  issues: write
 
 concurrency:
   group: audit-company-website-reachability
