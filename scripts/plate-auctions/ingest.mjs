@@ -17,7 +17,6 @@ import { fetchSzPlateAuctions } from './connectors/sz.mjs';
 import { fetchTgPlateAuctions } from './connectors/tg.mjs';
 import { fetchVsPlateAuctions } from './connectors/vs.mjs';
 import { fetchZhPlateAuctions } from './connectors/zh.mjs';
-import { fetchTiPlateAuctions } from './connectors/ti.mjs';
 import { fetchExpandedCard, fetchExpandedEcari } from './connectors/expanded.mjs';
 import {
   fetchAiFixedPrice,
@@ -40,7 +39,10 @@ export const FETCHERS = {
   be: () => fetchExpandedCard('be'),
   bl: () => fetchExpandedEcari('bl'),
   bs: fetchBsFixedPrice,
-  fr: () => fetchExpandedEcari('fr'),
+  // fr and ti have no fetcher on purpose: their registry status is `blocked`
+  // because the canton endpoints are unreachable, and check-health.mjs treats a
+  // fetcher without an active source as an error. The parser configs stay in
+  // connectors/ so re-activating them is a registry change plus one line here.
   gl: fetchGlFixedPrice,
   gr: fetchGrPlateAuctions,
   lu: fetchLuFixedPrice,
@@ -51,7 +53,6 @@ export const FETCHERS = {
   so: () => fetchExpandedEcari('so'),
   sz: fetchSzPlateAuctions,
   tg: fetchTgPlateAuctions,
-  ti: fetchTiPlateAuctions,
   ur: fetchUrFixedPrice,
   vd: () => fetchExpandedCard('vd'),
   vs: fetchVsPlateAuctions,
