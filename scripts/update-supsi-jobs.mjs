@@ -444,7 +444,12 @@ async function fetchSupsiJobDetailUrls() {
           pageNew += 1;
         }
       }
-      if (pageNew === 0) break;
+      if (pageNew === 0) {
+        throw new Error(
+          `SUPSI listing page ${page} repeated only previously seen source identities; `
+          + 'refusing to publish an incomplete snapshot.',
+        );
+      }
     }
   }
 
