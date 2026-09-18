@@ -11,6 +11,7 @@ import {
   fetchAllNordAngliaJobs,
   isNordAngliaJob,
   isTrustedDomain,
+  parseNordAngliaSearchResults,
   parseNordAngliaRss,
 } from '../scripts/lib/nord-anglia-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
@@ -137,6 +138,114 @@ describe('Nord Anglia Education Switzerland crawler parser', () => {
       'https://careers.nordanglia.com/job/Geneva-Teacher-of-Biology/1399902133/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS',
     )).toBe('https://careers.nordanglia.com/job/Geneva-Teacher-of-Biology/1399902133/');
     expect(canonicalizeNordAngliaJobUrl('https://example.com/job/Geneva-Teacher/1/?utm_source=rss')).toBe('');
+  });
+
+  it('parses and deduplicates the live Aubonne SuccessFactors search results', () => {
+    const html = `
+      <a class="job-link" href="/job/Aubonne-PE-teacher/1428165033/">
+        <span>PE teacher</span>
+      </a>
+      <a class="job-link mobile" href="https://careers.nordanglia.com/job/Aubonne-PE-teacher/1428165033/?source=mobile">
+        PE teacher
+      </a>
+      <a class="job-link" href="/job/Paris-Teacher/1428165034/">Paris teacher</a>
+    `;
+
+    expect(parseNordAngliaSearchResults(html)).toEqual([{
+      title: 'PE teacher',
+      link: 'https://careers.nordanglia.com/job/Aubonne-PE-teacher/1428165033/',
+      jobReqId: '1428165033',
+      sourceFormat: 'html',
+    }]);
+  });
+
+  it('falls back from a retired RSS endpoint to real SuccessFactors detail content', async () => {
+    const description = Array.from({ length: 60 }, (_, index) => `detail-word-${index}`).join(' ');
+    const searchHtml = '<a href="/job/Aubonne-PE-teacher/1428165033/">PE teacher</a>';
+    const detailHtml = `
+      <html lang="en">
+        <span data-careersite-propertyid="title">PE teacher</span>
+        <div data-careersite-propertyid="description"><p>${description}</p></div>
+        <meta itemprop="datePosted" content="2026-09-18">
+        <a href="/talentcommunity/apply/1428165033/?locale=en_GB">Apply</a>
+      </html>
+    `;
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response('RSS unavailable', { status: 403 }))
+      .mockResolvedValueOnce(new Response(searchHtml, { status: 200 }))
+      .mockResolvedValueOnce(new Response(detailHtml, { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const [job] = await fetchAllNordAngliaJobs();
+    expect(job).toMatchObject({
+      title: 'PE teacher',
+      canton: 'VD',
+      jobReqId: '1428165033',
+      postedDate: '2026-09-18',
+      source: 'Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)',
+      applyUrl: 'https://careers.nordanglia.com/talentcommunity/apply/1428165033/?locale=en_GB',
+    });
+    expect(job.url).toBe('https://careers.nordanglia.com/job/Aubonne-PE-teacher/1428165033/');
+    expect(job.description.split(/\s+/)).toHaveLength(60);
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+  });
+
+  it('tries the HTML fallback after a connection-level RSS failure', async () => {
+    const previousRetries = process.env.JOBS_CRAWLER_RETRIES;
+    const previousBaseMs = process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+    process.env.JOBS_CRAWLER_RETRIES = '0';
+    process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
+    const description = Array.from({ length: 60 }, (_, index) => `detail-word-${index}`).join(' ');
+    const detailHtml = `
+      <html lang="en">
+        <span data-careersite-propertyid="title">PE teacher</span>
+        <div data-careersite-propertyid="description"><p>${description}</p></div>
+      </html>
+    `;
+    const fetchMock = vi.fn()
+      .mockRejectedValueOnce(new TypeError('fetch failed'))
+      .mockResolvedValueOnce(new Response('<a href="/job/Aubonne-PE-teacher/1428165033/">PE teacher</a>', { status: 200 }))
+      .mockResolvedValueOnce(new Response(detailHtml, { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    try {
+      const [job] = await fetchAllNordAngliaJobs();
+      expect(job.jobReqId).toBe('1428165033');
+      expect(fetchMock).toHaveBeenCalledTimes(3);
+    } finally {
+      if (previousRetries === undefined) delete process.env.JOBS_CRAWLER_RETRIES;
+      else process.env.JOBS_CRAWLER_RETRIES = previousRetries;
+      if (previousBaseMs === undefined) delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+      else process.env.JOBS_CRAWLER_RETRY_BASE_MS = previousBaseMs;
+    }
+  });
+
+  it('keeps the crawler soft when both vendor endpoints are unavailable', async () => {
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response('RSS unavailable', { status: 403 }))
+      .mockResolvedValueOnce(new Response('Search unavailable', { status: 403 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const error = await fetchAllNordAngliaJobs().catch((caught) => caught);
+    expect(error).toBeInstanceOf(FeedEndpointUnavailableError);
+    expect(error).toMatchObject({ status: 403, feedEndpointUnavailable: true });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('fails closed when the HTML fallback detail page has no substantive description', async () => {
+    const searchHtml = '<a href="/job/Aubonne-PE-teacher/1428165033/">PE teacher</a>';
+    const detailHtml = `
+      <span data-careersite-propertyid="title">PE teacher</span>
+      <div data-careersite-propertyid="description"><p>Short</p></div>
+    `;
+    vi.stubGlobal('fetch', vi.fn()
+      .mockResolvedValueOnce(new Response('RSS unavailable', { status: 403 }))
+      .mockResolvedValueOnce(new Response(searchHtml, { status: 200 }))
+      .mockResolvedValueOnce(new Response(detailHtml, { status: 200 })));
+
+    await expect(fetchAllNordAngliaJobs()).rejects.toThrow(
+      /\[nord-anglia-drop-ratio\] Swiss location guard: dropped 1\/1 items/,
+    );
   });
 
   it('reports a retired ATS host as an unavailable endpoint, not as malformed XML (#7853)', async () => {
