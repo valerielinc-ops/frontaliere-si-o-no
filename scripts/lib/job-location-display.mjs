@@ -147,6 +147,17 @@ function fold(s) {
 }
 
 /**
+ * Official locality names observed with the bare `AG` suffix in generated
+ * locations. Keep this allowlist narrow: `AG` is also the company suffix
+ * Aktiengesellschaft, so an arbitrary head such as `XpertCenter AG` is not
+ * evidence that the location is in Aargau.
+ */
+const VERIFIED_BARE_AG_LOCALITIES = new Set([
+  'Buchs', 'Brugg', 'Bremgarten', 'Dättwil', 'Lengnau', 'Muri',
+  'Reinach', 'Staufen', 'Stein', 'Veltheim', 'Wohlen',
+].map(fold));
+
+/**
  * What kind of redundant marker the location carried.
  *   · `paren-code`  — `Lengnau (BE)`, a parenthesised canton code
  *   · `bare-code`   — `Stein AG`, a bare trailing canton code
@@ -356,7 +367,9 @@ function cantonLocationEvidence(location) {
       // This helper has no source/company evidence, so a bare `XpertCenter AG`
       // must not be allowed to overwrite a crawler canton. Explicit markers
       // such as `(AG)` remain trustworthy for display and reconciliation.
-      if ((kindHint ?? classified.kind) === 'bare-code' && classified.code === 'AG') {
+      const isBareAg = (kindHint ?? classified.kind) === 'bare-code' && classified.code === 'AG';
+      const isVerifiedBareAg = isBareAg && VERIFIED_BARE_AG_LOCALITIES.has(fold(head));
+      if (isBareAg && !isVerifiedBareAg) {
         ambiguousBareAg = true;
       } else {
         namedCantons.add(classified.code);

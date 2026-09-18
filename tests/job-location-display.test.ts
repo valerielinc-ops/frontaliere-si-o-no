@@ -234,4 +234,9 @@ describe('preferLocationEncodedCanton', () => {
     expect(cantonNamedByLocation('XpertCenter AG')).toBeNull();
     expect(preferLocationEncodedCanton('XpertCenter AG', 'BL')).toBe('');
   });
+
+  it('accepts a verified Aargau locality with the bare AG suffix', () => {
+    expect(cantonNamedByLocation('Stein AG')).toBe('AG');
+    expect(preferLocationEncodedCanton('Stein AG', 'BL')).toBe('AG');
+  });
 });
