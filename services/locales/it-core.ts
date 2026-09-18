@@ -1,5 +1,8 @@
 // Italian translations — core page chunk
 const translations: Record<string, string> = {
+ 'whatsNew.v3966.title': 'Una ricerca di lavoro più utile',
+ 'whatsNew.v3966.jobSearchLoop.title': 'Nuove offerte, categorie e alert',
+ 'whatsNew.v3966.jobSearchLoop.desc': 'Riprendi la ricerca dalle ultime visite, segui una categoria e passa tra categorie collegate, aziende e nuove pagine per il tedesco o la prima esperienza.',
  'app.title': 'Frontaliere Ticino',
  'app.subtitle': 'Calcola e confronta il tuo stipendio netto come lavoratore frontaliero',
  'app.fullscreen': 'Schermo intero',
@@ -979,6 +982,8 @@ const translations: Record<string, string> = {
  'savedJobsNudge.successBody': 'Ti scriviamo appena escono nuove offerte nei tuoi criteri.',
  'savedJobsNudge.errorBody': "Non sono riuscito a creare l'alert. Riprova.",
  'savedJobsNudge.retryCta': 'Riprova',
+ 'jobAlert.boardFilterCta.category': 'Segui questa categoria',
+ 'jobAlert.boardFilterCta.sector': 'Segui questo settore',
  'jobAlert.boardFilterCta.cta': 'Avvisami per questa ricerca',
  'jobAlert.boardFilterCta.success': 'Alert attivato ✓',
  'jobAlert.boardFilterCta.error': "Non sono riuscito a creare l'alert. Riprova.",

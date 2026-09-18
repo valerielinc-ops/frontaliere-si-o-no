@@ -75,7 +75,8 @@ export type CantonSeoSlot =
   | 'editorial-today'
   | 'editorial-nursing'
   | 'editorial-clinics'
-  | 'editorial-part-time';
+  | 'editorial-part-time'
+  | 'editorial-intent';
 
 export interface CantonSeoProseOpts {
   /** Output locale. */
@@ -294,6 +295,7 @@ function buildSlotCopy(opts: CantonSeoProseOpts): SlotCopy {
       'editorial-nursing': `Le offerte per infermieri e personale sanitario nel Canton ${canton} sono raccolte qui da EOC, cliniche private, case anziani e altri datori di lavoro. ${countText ? `${countText} nel settore sanità in ${canton}: ` : ''}sotto la lista trovi normativa di riconoscimento titoli, salari mediani e FAQ Permesso G specifiche per il personale sanitario.`,
       'editorial-clinics': `Le offerte di cliniche e ospedali nel Canton ${canton} sono raccolte qui — strutture pubbliche (EOC, ospedali cantonali), cliniche private e centri specialistici. ${countText ? `${countText}: ` : ''}sotto la lista trovi metodologia, contesto frontaliere sanità e FAQ riconoscimento titoli SBFI/SEFRI.`,
       'editorial-part-time': `Le offerte part-time nel Canton ${canton} (gradi 40-80 %) sono raccolte qui per chi cerca un equilibrio tra orario svizzero e tempo di pendolarismo. ${countText ? `${countText}: ` : ''}sotto la lista trovi contesto Permesso G, calcolo netto su gradi parziali e FAQ telelavoro fino al 25 %.`,
+      'editorial-intent': `Questa pagina raccoglie gli annunci del Canton ${canton} che corrispondono a un'intenzione di ricerca concreta. ${countText ? `${countText}: ` : ''}usa i requisiti della singola offerta per verificare lingua, esperienza, sede e modalità di candidatura.`,
     };
     return {
       blockHeading: slotIntro[slot] ? `Come leggere questa pagina · ${canton}` : 'Contesto frontaliere',
@@ -334,6 +336,7 @@ function buildSlotCopy(opts: CantonSeoProseOpts): SlotCopy {
       'editorial-nursing': `Nursing and healthcare openings in Canton ${canton} are collected here from cantonal hospitals, private clinics, care homes and other employers. ${countText ? `${countText} in ${canton} healthcare: ` : ''}below the list you'll find diploma-recognition rules, median salaries and G-permit FAQs specific to healthcare.`,
       'editorial-clinics': `Clinic and hospital openings in Canton ${canton} are aggregated here — public structures, private clinics and specialist centres. ${countText ? `${countText}: ` : ''}below the list you'll find methodology, cross-border healthcare context and SBFI/SEFRI title-recognition FAQs.`,
       'editorial-part-time': `Part-time openings in Canton ${canton} (40-80 % grade) are grouped here for applicants seeking work-life balance with cross-border commute. ${countText ? `${countText}: ` : ''}below the list you'll find G-permit context, partial-grade net pay calculation and telework-up-to-25% FAQs.`,
+      'editorial-intent': `This page groups active Canton ${canton} listings around a concrete search intent. ${countText ? `${countText}: ` : ''}use each listing's requirements to verify language, experience, location and application route.`,
     };
     return {
       blockHeading: `How to read this ${canton} page`,
@@ -374,6 +377,7 @@ function buildSlotCopy(opts: CantonSeoProseOpts): SlotCopy {
       'editorial-nursing': `Pflege- und Gesundheitsstellen im Kanton ${canton} werden hier von kantonalen Spitälern, Privatkliniken, Altersheimen und anderen Arbeitgebern gesammelt. ${countText ? `${countText} im Gesundheitswesen ${canton}: ` : ''}unter der Liste finden Sie Diplom-Anerkennungsregeln, Medianlöhne und Grenzgänger-FAQ speziell für das Gesundheitswesen.`,
       'editorial-clinics': `Kliniken- und Spitäler-Stellen im Kanton ${canton} sind hier aggregiert — öffentliche Strukturen, Privatkliniken und Fachzentren. ${countText ? `${countText}: ` : ''}unter der Liste finden Sie Methodik, Grenzgänger-Gesundheitskontext und SBFI/SEFRI-Titelanerkennungs-FAQ.`,
       'editorial-part-time': `Teilzeitstellen im Kanton ${canton} (40-80 %) sind hier für Bewerber gruppiert, die Work-Life-Balance mit Pendlerwegen suchen. ${countText ? `${countText}: ` : ''}unter der Liste finden Sie G-Bewilligung-Kontext, Teil-Pensum-Nettoberechnung und Homeoffice-bis-25%-FAQ.`,
+      'editorial-intent': `Diese Seite bündelt aktive Stellen im Kanton ${canton} nach einer konkreten Suchabsicht. ${countText ? `${countText}: ` : ''}prüfen Sie in jedem Inserat Sprache, Erfahrung, Arbeitsort und Bewerbungskanal.`,
     };
     return {
       blockHeading: `Wie diese ${canton}-Seite zu lesen ist`,
@@ -414,6 +418,7 @@ function buildSlotCopy(opts: CantonSeoProseOpts): SlotCopy {
     'editorial-nursing': `Les offres infirmières et de personnel soignant dans le canton ${canton} sont collectées ici depuis les hôpitaux cantonaux, cliniques privées, EMS et autres employeurs. ${countText ? `${countText} dans la santé ${canton} : ` : ''}sous la liste vous trouverez les règles de reconnaissance des diplômes, les salaires médians et les FAQ permis G spécifiques au secteur santé.`,
     'editorial-clinics': `Les offres de cliniques et hôpitaux dans le canton ${canton} sont agrégées ici — structures publiques, cliniques privées et centres spécialisés. ${countText ? `${countText} : ` : ''}sous la liste vous trouverez la méthodologie, le contexte frontalier santé et les FAQ reconnaissance SBFI/SEFRI.`,
     'editorial-part-time': `Les offres à temps partiel dans le canton ${canton} (40-80 %) sont regroupées ici pour les candidats cherchant l'équilibre vie-pro-vie-perso avec un trajet frontalier. ${countText ? `${countText} : ` : ''}sous la liste vous trouverez le contexte permis G, le calcul du net sur degré partiel et les FAQ télétravail jusqu'à 25 %.`,
+    'editorial-intent': `Cette page regroupe les offres actives du canton ${canton} autour d'une intention de recherche concrète. ${countText ? `${countText} : ` : ''}vérifiez dans chaque annonce la langue, l'expérience, le lieu et le canal de candidature.`,
   };
   return {
     blockHeading: `Comment lire cette page ${canton}`,

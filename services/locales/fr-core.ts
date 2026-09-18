@@ -1,4 +1,7 @@
 const frCore: Record<string, string> = {
+ 'whatsNew.v3966.title': 'Une recherche d’emploi plus utile',
+ 'whatsNew.v3966.jobSearchLoop.title': 'Nouvelles offres, catégories et alertes',
+ 'whatsNew.v3966.jobSearchLoop.desc': 'Reprenez votre recherche là où vous l’aviez laissée, suivez une catégorie et passez entre catégories liées, employeurs et nouvelles pages pour l’allemand ou les débutants.',
  'app.title': 'Frontaliere Ticino',
  'app.subtitle': 'Calculez et comparez votre salaire net en tant que travailleur frontalier',
  'app.fullscreen': 'Plein écran',
@@ -942,6 +945,8 @@ const frCore: Record<string, string> = {
  'savedJobsNudge.successBody': 'Nous vous écrivons dès que de nouvelles offres correspondent à vos critères.',
  'savedJobsNudge.errorBody': "Impossible de créer l'alerte. Réessayez.",
  'savedJobsNudge.retryCta': 'Réessayer',
+ 'jobAlert.boardFilterCta.category': 'Suivre cette catégorie',
+ 'jobAlert.boardFilterCta.sector': 'Suivre ce secteur',
  'jobAlert.boardFilterCta.cta': "M'alerter pour cette recherche",
  'jobAlert.boardFilterCta.success': 'Alerte activée ✓',
  'jobAlert.boardFilterCta.error': "Impossible de créer l'alerte. Réessayez.",

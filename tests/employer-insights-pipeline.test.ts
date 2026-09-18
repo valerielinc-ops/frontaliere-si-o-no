@@ -363,20 +363,58 @@ describe('employer insights event coverage', () => {
   });
 
   it('counts a select_content/job_apply pair once when they share an emission id', () => {
-    const [doc] = build([
-      event({ event: 'job_apply', eventKey: 'job-event', emissionId: 'action-1' }),
-      event({ event: 'select_content', eventKey: 'select-event', emissionId: 'action-1', contentType: 'job_board_apply' }),
-    ]);
-
-    expect(doc.totals.applyClicks).toBe(1);
-    expect(doc.ads[0].applyClicks).toBe(1);
-    expect(doc.coverage).toMatchObject({
-      rawObserved: 2,
-      observed: 1,
-      technicalDuplicatesRemoved: 1,
-      dedupUnavailable: 0,
-      deduplication: { key: 'emission_id', status: 'available', unavailableCount: 0 },
+    const identifying = event({
+      event: 'job_apply',
+      eventKey: 'job-event',
+      emissionId: 'action-1',
+      jobSlug: 'role-it',
+      employerKey: 'acme',
     });
+    const anonymous = event({
+      event: 'select_content',
+      eventKey: 'select-event',
+      emissionId: 'action-1',
+      contentType: 'job_board_apply',
+      jobSlug: '',
+      employerKey: '',
+      jobId: '',
+    });
+    const orders = [
+      [identifying, anonymous],
+      [anonymous, identifying],
+    ];
+    for (let index = orders.length - 1; index > 0; index -= 1) {
+      const swap = Math.floor(Math.random() * (index + 1));
+      [orders[index], orders[swap]] = [orders[swap], orders[index]];
+    }
+
+    for (const rows of orders) {
+      const collapsed = collapseTechnicalDuplicates(rows);
+      expect(collapsed.rows).toHaveLength(1);
+      expect(collapsed.rows[0]).toMatchObject({
+        event: 'job_apply',
+        jobSlug: 'role-it',
+        employerKey: 'acme',
+      });
+      expect(collapsed).toMatchObject({
+        rawObserved: 2,
+        observed: 1,
+        removed: 1,
+        dedupUnavailable: 0,
+      });
+
+      const [doc] = build(rows);
+      expect(doc.totals.applyClicks).toBe(1);
+      expect(doc.ads[0].applyClicks).toBe(1);
+      expect(doc.ads[0]).toMatchObject({ jobId: 'job-1' });
+      expect(doc.coverage).toMatchObject({
+        rawObserved: 2,
+        observed: 1,
+        technicalDuplicatesRemoved: 1,
+        dedupUnavailable: 0,
+        deduplication: { key: 'emission_id', status: 'available', unavailableCount: 0 },
+      });
+    }
   });
 
   it('counts two actions with different emission ids as two events', () => {
