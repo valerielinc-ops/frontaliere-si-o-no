@@ -247,15 +247,21 @@ export function recognizeCatalogueSales({ previousCount, fetchedCount, vanishedC
  */
 export function observeCatalogueDisappearance(row, now) {
   const askingPriceChf = typeof row.currentBidChf === 'number' ? row.currentBidChf : row.startingPriceChf;
-  return {
+  const observation = {
     ...row,
     auctionStatus: 'closed',
     closedAt: row.closedAt || row.lastSeenAt || row.sourceFetchedAt || now.toISOString(),
     disappearedFromCatalogue: true,
     ...(typeof askingPriceChf === 'number' ? { lastAskingPriceChf: askingPriceChf } : {}),
-    // Never a witnessed final: keep it out of the finals ranking by construction.
-    finalPriceChf: undefined,
-    finalPriceVerifiedAt: undefined,
     dataConfidence: 'partial',
   };
+  // Never a witnessed final: keep it out of the finals ranking by construction.
+  // DELETED, not set to `undefined`: this record goes straight into a Firestore
+  // batch write, and Firestore rejects explicitly-undefined fields unless
+  // `ignoreUndefinedProperties` is configured — the write would throw, be
+  // caught as `fetch_failed`, and the recognized sale would be lost. Deleting
+  // also strips a value inherited from `row` via the spread.
+  delete observation.finalPriceChf;
+  delete observation.finalPriceVerifiedAt;
+  return observation;
 }

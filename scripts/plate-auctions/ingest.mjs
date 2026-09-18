@@ -212,8 +212,14 @@ export async function collectPlateAuctions({
         && !Number.isFinite(Date.parse(row.endsAt || ''));
       const saleCandidates = stillLive.filter(isSaleCandidate);
       const protectedRows = stillLive.filter((row) => !isSaleCandidate(row));
+      // Same denominator rule as the Firestore pipeline: archived rows carried
+      // by `expiredCarry` end up in the next run's `previous.auctions`, so
+      // counting them here would inflate the denominator over time and
+      // eventually starve the band exactly as it would there.
+      const previousLiveCount = previousForSource
+        .filter((row) => ['active', 'upcoming'].includes(row?.auctionStatus)).length;
       const saleDecision = recognizeCatalogueSales({
-        previousCount: previousForSource.length,
+        previousCount: previousLiveCount,
         fetchedCount: rows.length,
         vanishedCount: saleCandidates.length,
       });
@@ -221,7 +227,7 @@ export async function collectPlateAuctions({
       // four numbers the first week of real data is not verifiable and the
       // retuning would be done by eye.
       console.log(
-        `[collectPlateAuctions:${key}] sale-recognition previous=${previousForSource.length} `
+        `[collectPlateAuctions:${key}] sale-recognition previous=${previousLiveCount} `
         + `fetched=${rows.length} vanished=${saleCandidates.length} cap=${saleDecision.cap} `
         + `protected=${protectedRows.length} `
         + (saleDecision.recognized ? `decision=sales sold=${saleCandidates.length}` : `decision=preserve-as-live blocked-by=${saleDecision.blockedBy.join('+')}`),

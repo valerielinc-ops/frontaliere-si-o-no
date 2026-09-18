@@ -186,6 +186,81 @@ describe('plate-auction ingest resilience', () => {
     expect(snapshot.history.map((auction) => auction.id)).not.toContain('gr-stale-0');
   });
 
+  it('omits the final-price keys entirely instead of setting them to undefined', async () => {
+    // The same record is handed to a Firestore batch write by the Cloud
+    // Functions pipeline, and Firestore rejects explicitly-undefined fields
+    // unless ignoreUndefinedProperties is configured: the write would throw,
+    // be swallowed as fetch_failed, and the recognized sale would be lost.
+    const fp = (index: number) => ({
+      ...previousRow,
+      id: `ur-${index}`,
+      sourceKey: 'UR',
+      platePrefix: 'UR',
+      plateNumber: String(index),
+      normalizedPlate: `UR${index}`,
+      listingType: 'fixed-price',
+      startingPriceChf: 4200,
+      currentBidChf: undefined,
+      endsAt: undefined,
+      dataConfidence: 'verified',
+      // A stale inherited value must be stripped, not carried through.
+      finalPriceChf: 999,
+      finalPriceVerifiedAt: '2026-01-01T00:00:00.000Z',
+    });
+    const previousCatalogue = Array.from({ length: 60 }, (_unused, index) => fp(index));
+    const snapshot = await collectPlateAuctions({
+      selectedCantons: ['ur'],
+      fetchers: { ur: async () => previousCatalogue.slice(1) },
+      previous: { generatedAt: '2026-09-12T12:00:00.000Z', auctions: previousCatalogue },
+      now: NOW,
+    });
+    const sold = snapshot.history.find((auction) => auction.id === 'ur-0');
+    expect(sold).toBeDefined();
+    // `not.toHaveProperty` is the point: present-and-undefined would pass a
+    // `=== undefined` check while still breaking the Firestore write.
+    expect(sold).not.toHaveProperty('finalPriceChf');
+    expect(sold).not.toHaveProperty('finalPriceVerifiedAt');
+    expect(Object.keys(sold)).not.toContain('finalPriceChf');
+  });
+
+  it('does not let accumulated closed rows starve the recognition band', async () => {
+    // Closed observations are carried into the next run's `previous`, so
+    // counting them in the denominator would tighten the 95% band every run
+    // until a healthy feed was classified preserve-as-live and sales stopped
+    // being recorded at all.
+    const fp = (index: number) => ({
+      ...previousRow,
+      id: `ur-${index}`,
+      sourceKey: 'UR',
+      platePrefix: 'UR',
+      plateNumber: String(index),
+      normalizedPlate: `UR${index}`,
+      listingType: 'fixed-price',
+      startingPriceChf: 4200,
+      currentBidChf: undefined,
+      endsAt: undefined,
+      dataConfidence: 'verified',
+    });
+    const live = Array.from({ length: 40 }, (_unused, index) => fp(index));
+    // 200 previously-closed rows dwarf the 40 live ones.
+    const closed = Array.from({ length: 200 }, (_unused, index) => ({
+      ...fp(1000 + index),
+      auctionStatus: 'closed',
+      closedAt: '2026-09-10T12:00:00.000Z',
+      dataConfidence: 'partial',
+    }));
+    const snapshot = await collectPlateAuctions({
+      selectedCantons: ['ur'],
+      fetchers: { ur: async () => live.slice(1) },
+      previous: { generatedAt: '2026-09-12T12:00:00.000Z', auctions: [...live, ...closed] },
+      now: NOW,
+    });
+    // 39 fetched vs 40 live passes the band; 39 vs 240 would not.
+    const sold = snapshot.history.find((auction) => auction.id === 'ur-0');
+    expect(sold, 'the sale must still be recognized despite the closed backlog').toBeDefined();
+    expect(sold).toMatchObject({ auctionStatus: 'closed', disappearedFromCatalogue: true });
+  });
+
   it('refuses to call a truncated catalogue a batch of sales', async () => {
     // Same source, same shape of row, but the PDF came back short. Reading
     // this as sales would stamp a fabricated sale date and price on half the

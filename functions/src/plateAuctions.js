@@ -649,13 +649,21 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
       const saleCandidates = vanished.filter(([, old]) => isSaleCandidate(old));
       const protectedVanished = vanished.filter(([, old]) => !isSaleCandidate(old)
         && ['active', 'upcoming'].includes(old.auctionStatus));
+      // Only LIVE observations may enter the denominator. This same path
+      // writes closed records back into PLATE_AUCTION_COLLECTION below, so
+      // `previousById.size` grows with every accumulated sale while
+      // `rows.length` only ever counts the live feed: the 95% band would
+      // tighten run after run until a healthy feed was classified
+      // preserve-as-live and sales stopped being recorded altogether.
+      const previousLiveCount = [...previousById.values()]
+        .filter((row) => ['active', 'upcoming'].includes(row?.auctionStatus)).length;
       const saleDecision = recognizeCatalogueSales({
-        previousCount: previousById.size,
+        previousCount: previousLiveCount,
         fetchedCount: rows.length,
         vanishedCount: saleCandidates.length,
       });
       console.log(
-        `[refreshPlateAuctions:${key}] sale-recognition previous=${previousById.size} `
+        `[refreshPlateAuctions:${key}] sale-recognition previous=${previousLiveCount} `
         + `fetched=${rows.length} vanished=${saleCandidates.length} protected=${protectedVanished.length} cap=${saleDecision.cap} `
         + (saleDecision.recognized ? `decision=sales sold=${saleCandidates.length}` : `decision=preserve-as-live blocked-by=${saleDecision.blockedBy.join('+')}`),
       );
