@@ -108,7 +108,7 @@ describe('SmartRecruiters strict source pagination', () => {
     });
   });
 
-  it.each([-1, 1.5, 'not-a-number'])('fails when totalFound is present but malformed (%s)', async (malformedTotal) => {
+  it.each([-1, 1.5, 'not-a-number', null, ''])('fails when totalFound is present but malformed (%s)', async (malformedTotal) => {
     const fetchMock = vi.fn(async () => new Response(JSON.stringify({
       totalFound: malformedTotal,
       content: [],
