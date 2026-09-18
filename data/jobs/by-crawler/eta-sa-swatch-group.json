@@ -1,6 +1,6 @@
 {
   "crawlerKey": "eta-sa-swatch-group",
-  "assembledAt": "2026-09-17T03:52:16.014Z",
+  "assembledAt": "2026-09-18T23:18:06.319Z",
   "jobs": [
     {
       "id": "company-6oyzne",
@@ -100,7 +100,8 @@
       },
       "employmentType": "FULL_TIME",
       "addressLocality": "2540 Grenchen Phone",
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "needsRetranslation": true
     },
     {
       "id": "company-6oyznd",
@@ -367,7 +368,8 @@
           "messs-specialist-metrologe-flexibilite-eta-sa-swatch-group-2540-grenchen-phone"
         ]
       },
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "id": "company-6oyzng",
