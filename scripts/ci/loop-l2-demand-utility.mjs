@@ -75,6 +75,23 @@ function outcomeFields(payload) {
 }
 
 /**
+ * A declared L2 result always carries numeric session/action counts.
+ * 0 is a measured number; omitting the fields is not. GSC impressions and
+ * clicks are never copied into these counts, and a conflicting pair is not
+ * selected — both cases declare 0.
+ */
+export function declaredOutcomeCounts({
+  eligibleLandingSessions,
+  usefulActions,
+  usable = false,
+} = {}) {
+  if (usable && integer(eligibleLandingSessions) && integer(usefulActions)) {
+    return { eligibleLandingSessions, usefulActions };
+  }
+  return { eligibleLandingSessions: 0, usefulActions: 0 };
+}
+
+/**
  * Demand evidence is useful for generating candidates, but it is not an
  * outcome. The source must carry an explicit session/action join before L2 can
  * publish its primary metric.
@@ -187,9 +204,11 @@ export function validateDemandSnapshot(payload, {
         : outcomeShapeValid
           ? 'joined'
           : 'missing',
-    outcomes: outcomeUsable
-      ? { eligibleLandingSessions, usefulActions }
-      : null,
+    outcomes: declaredOutcomeCounts({
+      eligibleLandingSessions,
+      usefulActions,
+      usable: outcomeUsable,
+    }),
   };
 
   let quality = 'observed';
@@ -246,7 +265,7 @@ function writeReports(reportDir, verdict, observation, decision) {
   return files.map(([name]) => path.join(dir, name));
 }
 
-function writeResult(reportDir, { verdict, issued, candidatesWritten }) {
+function writeResult(reportDir, { verdict, issued, candidatesWritten, outcomes }) {
   if (!reportDir) return null;
   const file = path.join(path.resolve(reportDir), 'l2-result.json');
   fs.writeFileSync(file, `${JSON.stringify({
@@ -255,6 +274,7 @@ function writeResult(reportDir, { verdict, issued, candidatesWritten }) {
     quality: verdict.quality,
     issued,
     candidatesWritten,
+    outcomes,
   }, null, 2)}\n`);
   return file;
 }
@@ -367,15 +387,21 @@ export async function runL2({
       : `useful-action outcome is ${verdict.quality}; no landing change is authorized`,
     now,
   });
+  const outcomes = declaredOutcomeCounts({
+    eligibleLandingSessions: verdict.snapshot?.outcomes?.eligibleLandingSessions,
+    usefulActions: verdict.snapshot?.outcomes?.usefulActions,
+    usable: integer(verdict.snapshot?.outcomes?.eligibleLandingSessions)
+      && integer(verdict.snapshot?.outcomes?.usefulActions),
+  });
   observation.outcome = {
     ...validatedOutcome,
     loopId: LOOP_ID,
     generatedAt: generatedAt?.toISOString() || null,
-    eligibleLandingSessions: verdict.snapshot?.outcomes?.eligibleLandingSessions ?? null,
-    usefulActions: verdict.snapshot?.outcomes?.usefulActions ?? null,
+    eligibleLandingSessions: outcomes.eligibleLandingSessions,
+    usefulActions: outcomes.usefulActions,
     metrics: {
-      eligibleLandingSessions: verdict.snapshot?.outcomes?.eligibleLandingSessions ?? null,
-      usefulActions: verdict.snapshot?.outcomes?.usefulActions ?? null,
+      eligibleLandingSessions: outcomes.eligibleLandingSessions,
+      usefulActions: outcomes.usefulActions,
     },
     evidence: {
       source: verdict.snapshot?.outcomeJoin === 'joined'
@@ -433,12 +459,13 @@ export async function runL2({
     });
     issued = true;
   }
-  const resultFile = writeResult(reportDir, { verdict, issued, candidatesWritten });
+  const resultFile = writeResult(reportDir, { verdict, issued, candidatesWritten, outcomes });
   logger.log(`[L2] ${verdict.ok ? 'OK' : 'ACTION REQUIRED'} — ${verdict.reason}`);
   return {
     verdict,
     observation,
     decision,
+    outcomes,
     files: resultFile ? [...files, resultFile] : files,
     issued,
     candidatesWritten,
@@ -483,6 +510,7 @@ export async function main({ argv = process.argv.slice(2), logger = console } = 
     decision: result.decision,
     issued: result.issued,
     candidatesWritten: result.candidatesWritten,
+    outcomes: result.outcomes,
   }, null, 2));
   if (options.strict && !result.verdict.ok) process.exitCode = 2;
   return result;

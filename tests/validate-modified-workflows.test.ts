@@ -7,6 +7,7 @@ import {
   promptBlocks,
   validateLoopFleetWorkflowText,
   validateWorkflowText,
+  withBlocks,
 } from '../scripts/ci/validate-modified-workflows.mjs';
 
 describe('validate-modified-workflows', () => {
@@ -60,6 +61,30 @@ describe('validate-modified-workflows', () => {
     expect(body.length).toBeLessThan(PROMPT_SCALAR_LIMIT);
     expect(indented.length).toBeGreaterThan(PROMPT_SCALAR_LIMIT);
     expect(validateWorkflowText('.github/workflows/issue-fix.yml', workflow)).toEqual([]);
+  });
+
+  it('rejects a with: mapping over the limit even when the prompt scalar is under', () => {
+    const prompt = 'p'.repeat(PROMPT_SCALAR_LIMIT - 50);
+    const otherInput = 'x'.repeat(100);
+    const workflow = [
+      'jobs:',
+      '  review:',
+      '    steps:',
+      '      - uses: acme/claude-codex-fallback@main',
+      '        with:',
+      '          prompt: |',
+      `            ${prompt}`,
+      `          model: ${otherInput}`,
+    ].join('\n');
+
+    const [promptScalar] = promptBlocks(workflow);
+    expect(promptScalar.length).toBeLessThanOrEqual(PROMPT_SCALAR_LIMIT);
+    expect(withBlocks(workflow).some((block) => block.length > PROMPT_SCALAR_LIMIT)).toBe(true);
+
+    const offenders = validateWorkflowText('.github/workflows/issue-fix.yml', workflow);
+    expect(offenders.length).toBeGreaterThan(0);
+    expect(offenders.every((row) => row.length > PROMPT_SCALAR_LIMIT)).toBe(true);
+    expect(offenders.some((row) => row.length === promptScalar.length)).toBe(false);
   });
 
   it('allows the bounded ledger branch and PR path', () => {
