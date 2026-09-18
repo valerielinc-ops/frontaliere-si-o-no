@@ -19,7 +19,7 @@ import { pathToFileURL } from 'node:url';
 
 export const NATIVE_AUTOMERGE_SOURCE_CHECKOUT_DIR = 'native-automerge-main';
 
-// Keep the seven gate helpers together as a named contract. The two Remote
+// Keep the eight gate helpers together as a named contract. The two Remote
 // Config files, this validator, and the ledger registry are runtime support
 // for that same gate and are included in the complete source list below.
 export const NATIVE_AUTOMERGE_HELPER_FILES = Object.freeze([
@@ -29,6 +29,7 @@ export const NATIVE_AUTOMERGE_HELPER_FILES = Object.freeze([
   'scripts/ci/lib/fetchPrFiles.mjs',
   'scripts/ci/lib/vitestCheck.mjs',
   'scripts/ci/lib/constants.mjs',
+  'scripts/ci/lib/pr-review-admission.mjs',
   'scripts/lib/loop-fleet-contract.mjs',
 ]);
 
