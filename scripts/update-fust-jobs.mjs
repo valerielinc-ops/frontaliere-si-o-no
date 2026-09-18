@@ -113,9 +113,8 @@ const FUST_SLUG_MAX_LENGTH = 90;
  *
  *   https://ohws.prospective.ch/public/v1/medium/1000103/jobs?lang=it&offset=0&limit=500&f=70:1114045
  *
- * Per-job canton comes from attribute 30 (a localized canton label such as
- * "Zurigo", "Vallese", "San Gallo", "Ticino"), resolved CH-wide by
- * inferAnyCanton.
+ * Per-job canton comes from attribute 30, a localized source canton label
+ * resolved across all 26 cantons by isTargetSwissLocation/inferAnyCanton.
  */
 const API_BASE = 'https://ohws.prospective.ch/public/v1/medium/1000103';
 const API_LIMIT = 500; // max jobs per request
@@ -125,7 +124,7 @@ const FUST_COMPANY_FILTER_ID = '1114045';
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
-  'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+  'Mozilla/5.0 (compatible; FrontaliereSwissBot/1.0; +https://frontaliereticino.ch/)';
 
 const FUST_DETAIL_HOST = 'jobs.fust.ch';
 const FUST_DETAIL_CONCURRENCY = 8;
@@ -221,9 +220,9 @@ export function isFustJob(job) {
 }
 
 /**
- * Resolve a Prospective.ch attribute-30 canton label (e.g. "Zurigo",
- * "Vallese", "San Gallo", "Ticino") to a 2-letter Swiss canton code, CH-wide.
- * Returns '' (never a TI default) when the label doesn't resolve to a Swiss
+ * Resolve a Prospective.ch attribute-30 canton label to a 2-letter Swiss
+ * canton code across all 26 cantons.
+ * Returns '' (never a fixed canton default) when the label doesn't resolve to a Swiss
  * canton — the caller uses that to drop foreign/unresolved postings.
  */
 function normalizeCantonCode(raw = '', fallback = '') {
@@ -735,7 +734,7 @@ function retagFustJobs() {
     if (fs.existsSync(publicPath)) {
       writeJsonAtomic(publicPath, raw);
     }
-    console.log(`🔄 Re-tagged ${retagged} existing Fust jobs from coop-ticino → ${FUST_KEY}`);
+    console.log(`🔄 Re-tagged ${retagged} existing Fust jobs from the legacy company key → ${FUST_KEY}`);
   }
   return retagged;
 }
@@ -1290,7 +1289,7 @@ async function main() {
   console.log('   Scope: CH-wide (all 26 cantons, unfiltered national query; Fust subsidiary only)');
   console.log('');
 
-  // Step 0: Re-tag existing Fust jobs that may have coop-ticino key
+  // Step 0: Re-tag existing Fust jobs that may carry a legacy company key.
   retagFustJobs();
 
   // Step 1: Discover Fust job URLs from the Prospective.ch API

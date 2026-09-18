@@ -44,7 +44,7 @@ const MCDO_BASE = 'https://jobs.mcdonalds.ch';
 const MCDO_LISTING_PATH = '/fr/emplois-restauration';
 
 const DEFAULT_UA = process.env.JOBS_CRAWLER_USER_AGENT
-  || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+  || 'Mozilla/5.0 (compatible; FrontaliereSwissBot/1.0; +https://frontaliereticino.ch/)';
 
 /* ── Text helpers ─────────────────────────────────────────────── */
 
