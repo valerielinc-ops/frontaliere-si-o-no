@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Anker Swiss Ticino AG job parser — Fetcher and job builder.
+ * Anker Swiss Ticino AG job parser — national source-backed vacancy fetcher
+ * and job builder.
  *
  * Source: https://anker-swiss.ch/stellen/
  *
@@ -14,9 +15,9 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { stripHtml } from './crawler-template.mjs';
 import { buildSlug as buildCanonicalSlug } from './regenerate-slugs-helpers.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import { lookupSwissPostalCode } from './swiss-postal-code.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -168,23 +169,48 @@ export async function fetchAllAnkerSwissJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  const skipped = {
+    missingTitle: 0,
+    missingGeography: 0,
+    missingDescription: 0,
+    missingUrl: 0,
+  };
   for (const listing of listings) {
-    // TODO: Extract fields from each listing.
-    // Adapt these field names to match the actual API response.
     const title = normalizeSpace(listing.title || '');
-    if (!title || title.length < 3) continue;
+    if (!title || title.length < 3) {
+      skipped.missingTitle++;
+      continue;
+    }
 
-    const geography = resolveSourceBackedSwissGeography(listing.location);
+    // Structured address fields are authoritative when the prospector found
+    // them; otherwise validate the plain source location directly. The latter
+    // keeps the generated-parser contract explicit for unstructured rows.
+    const geography = listing.addressLocality
+      || listing.addressRegion
+      || listing.addressCountry
+      || listing.postalCode
+      || listing.streetAddress
+      ? resolveSourceBackedSwissGeography(listing)
+      : resolveSourceBackedSwissGeography(listing.location);
     // Required structured-data geography must come from the vacancy source.
     // Missing, foreign or non-specific values are not replaced with an HQ.
-    if (!geography) continue;
+    if (!geography) {
+      skipped.missingGeography++;
+      continue;
+    }
     const { location, canton } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
-    if (!descriptionText) continue;
+    if (!descriptionText) {
+      skipped.missingDescription++;
+      continue;
+    }
     // The detail URL is the vacancy identity: falling back to the listing page
     // would give every posting the same `url`, `applyUrl` and `id` hash.
-    if (!listing.url) continue;
+    if (!listing.url) {
+      skipped.missingUrl++;
+      continue;
+    }
     const publicUrl = listing.url;
     const employmentType = detectEmploymentType(listing.timeType || title);
 
@@ -192,6 +218,9 @@ export async function fetchAllAnkerSwissJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const disambiguator = buildSlugDisambiguator(publicUrl);
     const jobSlug = buildAnkerSwissJobSlug(title, location, publicUrl);
+    const addressLocality = normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]);
+    const postalCode = normalizeSpace(listing.postalCode || lookupSwissPostalCode(addressLocality || location));
+    const streetAddress = normalizeSpace(listing.streetAddress || '');
 
     const job = {
       // ── Required fields ──
@@ -216,12 +245,12 @@ export async function fetchAllAnkerSwissJobs() {
       // ── Recommended fields ──
       // Prospected runtime rows retain the selected structured candidate;
       // other ATS tiers use the same fields when their client exposes them.
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
+      addressLocality,
       addressRegion: normalizeSpace(listing.addressRegion || canton),
       addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
       country: normalizeSpace(listing.addressCountry || 'CH'),
-      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
-      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
+      postalCode,
+      streetAddress,
       category: detectCategory(title),
       contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
       employmentType,
@@ -238,6 +267,13 @@ export async function fetchAllAnkerSwissJobs() {
     jobs.push(job);
   }
 
+  console.log(`  📍 Source-backed workplace rows: ${jobs.length}/${listings.length}`);
+  if (Object.values(skipped).some(Boolean)) {
+    console.warn(`  ⚠️ Skipped Anker listings: ${JSON.stringify(skipped)}`);
+  }
+  if (listings.length > 0 && jobs.length === 0) {
+    throw new Error(`Anker Swiss source returned ${listings.length} listings but no source-backed Swiss job was publishable`);
+  }
   console.log(`\n📋 Total Anker Swiss Ticino AG jobs discovered: ${jobs.length}`);
   return jobs;
 }

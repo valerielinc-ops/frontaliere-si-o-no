@@ -1,6 +1,14 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+import fs from 'node:fs';
+import { fetchJobListings } from '../scripts/update-cler-jobs.mjs';
+import { parseClerApiResponse } from '../scripts/lib/cler-job-parser.mjs';
 import { htmlToMarkdown, validateClerDescription, extractJobMeta, dedupeClerJobsByStableId, clerCareerSectionYear } from '../scripts/lib/cler-job-parser.mjs';
 import { extractStableJobId } from '../scripts/lib/job-match-key.mjs';
+
+const clerCrawlerSource = fs.readFileSync(
+  new URL('../scripts/update-cler-jobs.mjs', import.meta.url),
+  'utf8',
+);
 
 // ──────────────────────────────────────────────────────────────
 // Real HTML fixture: Geschäftsstellenleiterin Schaffhausen
@@ -166,6 +174,79 @@ function buildClerListingFixture() {
 }
 
 const getListingUrl = (l: { link?: { url?: string } }) => (l?.link?.url ? `${API_BASE}${l.link.url}` : '');
+
+describe('Cler source pagination', () => {
+  it('consumes raw declared rows before deduping legacy and canonical URLs', async () => {
+    const duplicateRows = buildClerListingFixture().slice(0, 2);
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockResolvedValue(
+      new Response(JSON.stringify({ results: duplicateRows, resultsTotalCount: 2 }), {
+        status: 200,
+        headers: { 'content-type': 'application/json' },
+      }),
+    );
+
+    try {
+      const listings = await fetchJobListings();
+      expect(listings).toHaveLength(2);
+      expect(fetchMock).toHaveBeenCalledTimes(1);
+      expect(new Set(listings.map((listing) => listing.link.url)).size).toBe(2);
+    } finally {
+      fetchMock.mockRestore();
+    }
+  });
+});
+
+describe('parseClerApiResponse — source completeness proof', () => {
+  it('accepts a genuinely empty API result when the source declares zero', () => {
+    const parsed = parseClerApiResponse({ results: [], resultsTotalCount: 0 });
+    expect(parsed.listings).toEqual([]);
+    expect(parsed.declaredTotal).toBe(0);
+    expect(parsed.sourceEmptyProven).toBe(true);
+  });
+
+  it('accepts a non-empty response only when it matches the declared total', () => {
+    const parsed = parseClerApiResponse({ results: [{ title: 'A' }, { title: 'B' }], resultsTotalCount: '2' });
+    expect(parsed.listings).toHaveLength(2);
+    expect(parsed.sourceEmptyProven).toBe(false);
+  });
+
+  it('accepts a page shorter than the declared total only in pagination mode', () => {
+    const parsed = parseClerApiResponse(
+      { results: [{ title: 'A' }], resultsTotalCount: 51 },
+      { allowPartial: true },
+    );
+    expect(parsed.listings).toHaveLength(1);
+    expect(() => parseClerApiResponse({ results: [{ title: 'A' }], resultsTotalCount: 51 }))
+      .toThrow(/shorter than the declared total/);
+  });
+
+  it('lets the paginator opt into partial pages while keeping direct parsing strict', () => {
+    expect(clerCrawlerSource).toMatch(
+      /parseClerApiResponse\(data, \{ allowPartial: true \}\)/u,
+    );
+    expect(parseClerApiResponse(
+      { results: [{ title: 'A' }], resultsTotalCount: 2 },
+      { allowPartial: true },
+    ).declaredTotal).toBe(2);
+  });
+
+  it('rejects a page that exceeds the declared total even in pagination mode', () => {
+    expect(() => parseClerApiResponse(
+      { results: [{ title: 'A' }, { title: 'B' }], resultsTotalCount: 1 },
+      { allowPartial: true },
+    )).toThrow(/larger than the declared total/);
+  });
+
+  it('fails closed when the response envelope cannot prove a source result', () => {
+    expect(() => parseClerApiResponse({ error: 'rate limited' })).toThrow(/results array/);
+    expect(() => parseClerApiResponse({ results: [] })).toThrow(/resultsTotalCount/);
+  });
+
+  it('fails loudly instead of accepting a page shorter than the declared total', () => {
+    expect(() => parseClerApiResponse({ results: [{ title: 'A' }], resultsTotalCount: 2 }))
+      .toThrow(/declares 2 listings but returned 1/);
+  });
+});
 
 describe('dedupeClerJobsByStableId — #3836', () => {
   it('collapses 12 duplicate listings into 6 distinct jobs', () => {

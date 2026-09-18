@@ -2,7 +2,8 @@
 /**
  * Dedicated Banca Cler crawler.
  * Fetches jobs from the Cler jobssearch API, scrapes detail pages for rich descriptions,
- * and runs AI localization for SEO-critical fields.
+ * resolves each Swiss workplace across all 26 cantons, and runs AI localization
+ * for SEO-critical fields.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -37,14 +38,12 @@ import {
   validateClerDescription,
   extractJobMeta,
   dedupeClerJobsByStableId,
+  parseClerApiResponse,
 } from './lib/cler-job-parser.mjs';
-import {
-  getCompanyDefaults,
-  getCantonForLocation,
-} from './lib/crawler-location-config.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -61,16 +60,13 @@ const COMPANY_KEY = 'banca-cler';
 // of #3775/#3768).
 const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
-// Bank Cler HQ is Basel (BS). Per-job locations come from the detail page's
-// `Arbeitsort` field; this default is only used when extraction fails.
-const HQ_DEFAULTS = getCompanyDefaults(COMPANY_KEY) || {
-  city: 'Basel', canton: 'BS', postalCode: '4002', addressRegion: 'BS',
-};
 const COMPANY_NAME = 'Banca Cler';
 
 // Real Bank Cler branch addresses keyed by lowercase city (normalized).
 // Source: cler.ch/de/bank-cler/standorte-und-bancomaten (2026-05).
 // Each entry: canton, representative postalCode, headquarters/branch street.
+// This is enrichment only; Swiss eligibility is resolved below through the
+// all-26-canton location predicate, never through this finite branch list.
 const CLER_BRANCHES = {
   'aarau':         { canton: 'AG', postalCode: '5000', street: 'Bahnhofstrasse 65' },
   'basel':         { canton: 'BS', postalCode: '4002', street: 'Aeschenplatz 3' },
@@ -148,8 +144,9 @@ function resolveBranchAddress(arbeitsort) {
         street: branch.street,
       };
     }
-    const canton = getCantonForLocation(candidate);
-    if (canton) {
+    if (isTargetSwissLocation(candidate, { includeBorderProximity: false })) {
+      const canton = inferAnyCanton(candidate);
+      if (!canton) continue;
       return {
         city: candidate.trim(),
         canton,
@@ -162,10 +159,13 @@ function resolveBranchAddress(arbeitsort) {
 }
 const API_BASE = 'https://www.cler.ch';
 // German API returns results; Italian returns 0 (locale mismatch on server side)
-const API_PATH = '/de/api/jobssearch/search?sc_site=bc&jobs=%7B3F115DCF-9CE3-4466-9E05-53D8D9B5DAC0%7D&predefinedFilter=&pageSize=50';
+const PAGE_SIZE = 50;
+const MAX_LISTING_PAGES = 1000;
+// locale-segment-ok: cler.ch exposes the complete API only under this fixed German portal route; it is not a site-locale URL.
+const API_PATH = `/de/api/jobssearch/search?sc_site=bc&jobs=%7B3F115DCF-9CE3-4466-9E05-53D8D9B5DAC0%7D&predefinedFilter=&pageSize=${PAGE_SIZE}`;
 
 const TIMEOUT_MS = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '15000', 10);
-const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoCrawler/1.0)';
+const UA = 'Mozilla/5.0 (compatible; FrontaliereBot/1.0)';
 
 // ─────────────────────────────────────────────────────────────
 // Helpers
@@ -268,19 +268,83 @@ async function fetchWithTimeout(url, options = {}) {
   }
 }
 
-async function fetchJobListings() {
-  const url = `${API_BASE}${API_PATH}`;
-  console.log(`  📡 Fetching API: ${url}`);
-  const res = await fetchWithTimeout(url, {
-    headers: { Accept: 'application/json' },
-  });
-  if (!res.ok) {
-    throw new Error(`API returned ${res.status}`);
+export async function fetchJobListings() {
+  const allListings = [];
+  const seenPageSignatures = new Set();
+  let declaredTotal = null;
+
+  // pageSize=50 is only the per-response size: keep requesting pages until
+  // the raw source aggregate reaches resultsTotalCount. The API returns the
+  // same requisition under legacy and 2026 URLs; dedupe only after the raw
+  // source total has been consumed so those duplicate rows do not make a
+  // complete source look truncated.
+  for (let page = 0; page < MAX_LISTING_PAGES; page++) {
+    const url = `${API_BASE}${API_PATH}&page=${page}`;
+    console.log(`  📡 Fetching API page ${page + 1}: ${url}`);
+    const res = await fetchWithTimeout(url, {
+      headers: { Accept: 'application/json' },
+    });
+    if (!res.ok) {
+      throw new Error(`API returned ${res.status}`);
+    }
+    const data = await res.json();
+    const {
+      listings: pageListings,
+      declaredTotal: pageTotal,
+    } = parseClerApiResponse(data, { allowPartial: true });
+    if (declaredTotal === null) {
+      declaredTotal = pageTotal;
+    } else if (pageTotal !== declaredTotal) {
+      throw new Error(
+        `Cler source total changed during pagination: ${declaredTotal} → ${pageTotal} at page=${page}`,
+      );
+    }
+
+    const pageIdentities = [];
+    for (const listing of pageListings) {
+      const relativeUrl = listing?.link?.url || '';
+      const absoluteUrl = relativeUrl.startsWith('http')
+        ? relativeUrl
+        : `${API_BASE}${relativeUrl.startsWith('/') ? relativeUrl : `/${relativeUrl}`}`;
+      const key = extractStableJobId(absoluteUrl)
+        || String(listing?.slug || '').trim().toLowerCase();
+      if (!key) {
+        throw new Error('Cler source listing has no stable identity; pagination completeness is unverified.');
+      }
+      pageIdentities.push(relativeUrl || String(listing?.slug || '').trim() || JSON.stringify(listing));
+    }
+    const pageSignature = pageIdentities.slice().sort().join('\u001f');
+    if (seenPageSignatures.has(pageSignature)) {
+      throw new Error(`Cler source pagination repeated page=${page}; raw source completeness is unverified.`);
+    }
+    seenPageSignatures.add(pageSignature);
+    allListings.push(...pageListings);
+
+    if (allListings.length > declaredTotal) {
+      throw new Error(
+        `Cler source pagination exceeded declared total: source=${declaredTotal}, read=${allListings.length}`,
+      );
+    }
+    if (allListings.length >= declaredTotal) break;
+    if (pageListings.length === 0) {
+      throw new Error(
+        `Cler source pagination ended before declared coverage: source=${declaredTotal}, read=${allListings.length}`,
+      );
+    }
+    if (pageListings.length < PAGE_SIZE) {
+      throw new Error(
+        `Cler source pagination returned a short page before declared coverage: source=${declaredTotal}, read=${allListings.length}`,
+      );
+    }
   }
-  const data = await res.json();
-  const results = assertJsonListShape(data, { key: 'results', source: 'cler' });
-  console.log(`  📋 API returned ${results.length} listings`);
-  return results;
+
+  if (declaredTotal === null || allListings.length < declaredTotal) {
+    throw new Error(
+      `Cler source pagination exhausted its safety bound: source=${declaredTotal ?? 'unknown'}, read=${allListings.length}`,
+    );
+  }
+  console.log(`  📋 API returned ${allListings.length}/${declaredTotal} source listings (source total verified; dedupe follows)`);
+  return allListings;
 }
 
 async function fetchDetailPage(relativeUrl) {
@@ -329,13 +393,24 @@ async function fetchClerJobs() {
   }
 
   const jobs = [];
+  const skipped = {
+    missingTitle: 0,
+    missingDetailPath: 0,
+    unresolvedWorkplace: 0,
+  };
 
   for (const listing of uniqueListings) {
     const title = (listing.title || '').trim();
-    if (!title) continue;
+    if (!title) {
+      skipped.missingTitle++;
+      continue;
+    }
 
     const detailPath = listing.link?.url || '';
-    if (!detailPath) continue;
+    if (!detailPath) {
+      skipped.missingDetailPath++;
+      continue;
+    }
 
     const detailUrl = `${API_BASE}${detailPath}`;
     const field = listing.fieldofactivity || '';
@@ -372,16 +447,14 @@ async function fetchClerJobs() {
       postedDate = `${y}-${m}-${d}`;
     }
 
-    // Resolve real Arbeitsort → structured Swiss address. Falls back to the
-    // company HQ in Basel when the detail page omits or obfuscates the city.
-    const branch = resolveBranchAddress(detailMeta.arbeitsort) || {
-      city: HQ_DEFAULTS.city,
-      canton: HQ_DEFAULTS.canton,
-      postalCode: HQ_DEFAULTS.postalCode || CANTON_FALLBACK_POSTAL[HQ_DEFAULTS.canton] || '',
-      street: 'Aeschenplatz 3',
-    };
-    if (!detailMeta.arbeitsort) {
-      console.warn(`    ⚠️ no Arbeitsort in detail page; falling back to HQ ${branch.city}/${branch.canton}`);
+    // Resolve the real Arbeitsort. A missing or unrecognised workplace must
+    // not be stamped with the Basel HQ: that would turn a national listing
+    // into a false fixed-location posting.
+    const branch = resolveBranchAddress(detailMeta.arbeitsort);
+    if (!branch) {
+      skipped.unresolvedWorkplace++;
+      console.warn(`    ⚠️ no resolvable Swiss Arbeitsort; skipping ${title}`);
+      continue;
     }
 
     const job = {
@@ -418,6 +491,14 @@ async function fetchClerJobs() {
 
     console.log(`    ✅ ${description.length} chars | lang=${sourceLang} | cat=${category}`);
     jobs.push(job);
+  }
+
+  console.log(`  📍 Workplace resolution: ${jobs.length}/${uniqueListings.length} listings emitted across Swiss cantons`);
+  if (skipped.missingTitle || skipped.missingDetailPath || skipped.unresolvedWorkplace) {
+    console.warn(`  ⚠️ Skipped listings: ${JSON.stringify(skipped)}`);
+  }
+  if (uniqueListings.length > 0 && jobs.length === 0) {
+    throw new Error(`Cler source returned ${uniqueListings.length} listings but no listing had a resolvable Swiss workplace`);
   }
 
   return jobs;
@@ -525,9 +606,12 @@ function validateLocales() {
     dataJobsPath: DATA_JOBS,
     isTargetJob,
     failOnMissingJobsFile: true,
-    failWhenNoJobs: true,
+    // A zero is accepted only after parseClerApiResponse has reconciled the
+    // API's explicit resultsTotalCount. This remains false deliberately:
+    // the crawler contract allows a valid zero and forbids a job-count gate.
+    failWhenNoJobs: false,
     minDescriptionChars: 80,
-    noJobsMessage: 'No Cler jobs found after crawl.',
+    noJobsMessage: 'Cler source returned no jobs; no count gate is applied.',
     detectSourceLang: (text) => detectLang(text, 'de'),
     isTrustedDomain,
     untrustedDomainReason: 'untrusted_domain_for_cler_job',
@@ -555,7 +639,7 @@ async function main() {
   const discoveredJobs = await fetchClerJobs();
 
   if (discoveredJobs.length === 0) {
-    console.log('\n⚠️ No Cler jobs discovered from API.');
+    console.log('\nℹ️ Cler API returned no usable jobs; no job-count gate is applied.');
     console.log('   Keeping existing jobs unchanged.');
     return;
   }
@@ -615,4 +699,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Cler'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Cler'));
+}
