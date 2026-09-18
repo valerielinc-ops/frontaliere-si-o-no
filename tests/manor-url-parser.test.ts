@@ -79,6 +79,10 @@ describe('Manor jobs2web URL and title parsing', () => {
     expect(resolveManorLocation({ addressLocality: 'Lugano', addressRegion: 'Ontario' }, 'Lugano')).toBeNull();
   });
 
+  it('rejects a foreign border locality in an explicit detail region', () => {
+    expect(resolveManorLocation({ addressLocality: 'Como', addressRegion: 'Como' }, 'Como')).toBeNull();
+  });
+
   it('removes the site suffix while preserving the role title', () => {
     expect(stripSiteTitleSuffix('Verkäufer*in 60% | Manor')).toBe('Verkäufer*in 60%');
     expect(stripSiteTitleSuffix('Verkäufer*in 60% - Manor AG')).toBe('Verkäufer*in 60%');

@@ -18,7 +18,7 @@
  * Manor AG is a national department-store chain (HQ Basel) with stores in
  * every canton, so the crawler collects CH-wide. Per-job canton is inferred
  * from the store city encoded in the URL via inferAnyCanton; the region gate
- * is isTargetSwissLocation (spans all 26 TARGET_CANTONS).
+ * is isTargetSwissLocation across all 26 Swiss cantons.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -343,9 +343,11 @@ export function resolveManorLocation(pageData = {}, urlCity = '') {
   const canton = inferAnyCanton(location);
   const urlCanton = inferAnyCanton(urlCity);
   const detailRegion = String(pageData?.addressRegion || '').trim();
-  const detailCanton = detailRegion
-    ? (inferAnyCanton(detailRegion) || normalizeCantonCode(detailRegion))
-    : '';
+  const normalizedDetailCanton = normalizeCantonCode(detailRegion);
+  const detailCanton = normalizedDetailCanton
+    || (detailRegion && isTargetSwissLocation(detailRegion, { includeBorderProximity: false })
+      ? inferAnyCanton(detailRegion)
+      : '');
 
   if (
     !location
