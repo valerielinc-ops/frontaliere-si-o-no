@@ -1,5 +1,6 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import fs from 'node:fs';
+import { fetchJobListings } from '../scripts/update-cler-jobs.mjs';
 import { parseClerApiResponse } from '../scripts/lib/cler-job-parser.mjs';
 import { htmlToMarkdown, validateClerDescription, extractJobMeta, dedupeClerJobsByStableId, clerCareerSectionYear } from '../scripts/lib/cler-job-parser.mjs';
 import { extractStableJobId } from '../scripts/lib/job-match-key.mjs';
@@ -173,6 +174,27 @@ function buildClerListingFixture() {
 }
 
 const getListingUrl = (l: { link?: { url?: string } }) => (l?.link?.url ? `${API_BASE}${l.link.url}` : '');
+
+describe('Cler source pagination', () => {
+  it('consumes raw declared rows before deduping legacy and canonical URLs', async () => {
+    const duplicateRows = buildClerListingFixture().slice(0, 2);
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockResolvedValue(
+      new Response(JSON.stringify({ results: duplicateRows, resultsTotalCount: 2 }), {
+        status: 200,
+        headers: { 'content-type': 'application/json' },
+      }),
+    );
+
+    try {
+      const listings = await fetchJobListings();
+      expect(listings).toHaveLength(2);
+      expect(fetchMock).toHaveBeenCalledTimes(1);
+      expect(new Set(listings.map((listing) => listing.link.url)).size).toBe(2);
+    } finally {
+      fetchMock.mockRestore();
+    }
+  });
+});
 
 describe('parseClerApiResponse — source completeness proof', () => {
   it('accepts a genuinely empty API result when the source declares zero', () => {

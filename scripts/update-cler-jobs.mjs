@@ -43,6 +43,7 @@ import {
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -267,13 +268,16 @@ async function fetchWithTimeout(url, options = {}) {
   }
 }
 
-async function fetchJobListings() {
-  const listingsByKey = new Map();
+export async function fetchJobListings() {
+  const allListings = [];
+  const seenPageSignatures = new Set();
   let declaredTotal = null;
 
   // pageSize=50 is only the per-response size: keep requesting pages until
-  // the unique aggregate reaches resultsTotalCount. Partial pages are accepted
-  // only as intermediate responses; the returned aggregate is always complete.
+  // the raw source aggregate reaches resultsTotalCount. The API returns the
+  // same requisition under legacy and 2026 URLs; dedupe only after the raw
+  // source total has been consumed so those duplicate rows do not make a
+  // complete source look truncated.
   for (let page = 0; page < MAX_LISTING_PAGES; page++) {
     const url = `${API_BASE}${API_PATH}&page=${page}`;
     console.log(`  📡 Fetching API page ${page + 1}: ${url}`);
@@ -296,7 +300,7 @@ async function fetchJobListings() {
       );
     }
 
-    const before = listingsByKey.size;
+    const pageIdentities = [];
     for (const listing of pageListings) {
       const relativeUrl = listing?.link?.url || '';
       const absoluteUrl = relativeUrl.startsWith('http')
@@ -307,41 +311,40 @@ async function fetchJobListings() {
       if (!key) {
         throw new Error('Cler source listing has no stable identity; pagination completeness is unverified.');
       }
-      if (!listingsByKey.has(key)) listingsByKey.set(key, listing);
+      pageIdentities.push(relativeUrl || String(listing?.slug || '').trim() || JSON.stringify(listing));
     }
-    const added = listingsByKey.size - before;
+    const pageSignature = pageIdentities.slice().sort().join('\u001f');
+    if (seenPageSignatures.has(pageSignature)) {
+      throw new Error(`Cler source pagination repeated page=${page}; raw source completeness is unverified.`);
+    }
+    seenPageSignatures.add(pageSignature);
+    allListings.push(...pageListings);
 
-    if (listingsByKey.size > declaredTotal) {
+    if (allListings.length > declaredTotal) {
       throw new Error(
-        `Cler source pagination exceeded declared total: source=${declaredTotal}, read=${listingsByKey.size}`,
+        `Cler source pagination exceeded declared total: source=${declaredTotal}, read=${allListings.length}`,
       );
     }
-    if (listingsByKey.size >= declaredTotal) break;
+    if (allListings.length >= declaredTotal) break;
     if (pageListings.length === 0) {
       throw new Error(
-        `Cler source pagination ended before declared coverage: source=${declaredTotal}, read=${listingsByKey.size}`,
-      );
-    }
-    if (added === 0) {
-      throw new Error(
-        `Cler source pagination did not advance at page=${page}; repeated page has ${listingsByKey.size} unique listings`,
+        `Cler source pagination ended before declared coverage: source=${declaredTotal}, read=${allListings.length}`,
       );
     }
     if (pageListings.length < PAGE_SIZE) {
       throw new Error(
-        `Cler source pagination returned a short page before declared coverage: source=${declaredTotal}, read=${listingsByKey.size}`,
+        `Cler source pagination returned a short page before declared coverage: source=${declaredTotal}, read=${allListings.length}`,
       );
     }
   }
 
-  if (declaredTotal === null || listingsByKey.size < declaredTotal) {
+  if (declaredTotal === null || allListings.length < declaredTotal) {
     throw new Error(
-      `Cler source pagination exhausted its safety bound: source=${declaredTotal ?? 'unknown'}, read=${listingsByKey.size}`,
+      `Cler source pagination exhausted its safety bound: source=${declaredTotal ?? 'unknown'}, read=${allListings.length}`,
     );
   }
-  const listings = [...listingsByKey.values()];
-  console.log(`  📋 API returned ${listings.length}/${declaredTotal} unique listings (source total verified)`);
-  return listings;
+  console.log(`  📋 API returned ${allListings.length}/${declaredTotal} source listings (source total verified; dedupe follows)`);
+  return allListings;
 }
 
 async function fetchDetailPage(relativeUrl) {
@@ -696,4 +699,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Cler'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Cler'));
+}
