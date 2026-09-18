@@ -1332,7 +1332,7 @@
       "slugByLocale": {
         "it": "lead-senior-analisi-delle-persone-on-running-zurich",
         "en": "senior-lead-people-analytics-on-running-ch",
-        "de": "senior-lead-people-analytics-on-running-ch",
+        "de": "leitender-leiter-people-analytics-on-running-zurich",
         "fr": "chef-de-file-analyse-des-personnes-on-running-zurich"
       },
       "company": "On Running",
@@ -1396,6 +1396,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "senior-lead-people-analytics-on-running-ch"
+        ],
+        "de": [
           "senior-lead-people-analytics-on-running-ch"
         ]
       },
@@ -2795,9 +2798,9 @@
     },
     {
       "id": "on-running-49ef8f989a22",
-      "slug": "program-manager-global-distributor-led-store-business-on-running-ch",
+      "slug": "responsabile-del-programma-attivita-di-negozio-gestita-da-distributori-globali-on-running-zurich",
       "slugByLocale": {
-        "it": "program-manager-global-distributor-led-store-business-on-running-ch",
+        "it": "responsabile-del-programma-attivita-di-negozio-gestita-da-distributori-globali-on-running-zurich",
         "en": "program-manager-global-distributor-led-store-business-on-running-ch",
         "de": "programmmanager-global-distributor-led-store-business-on-running-zurich",
         "fr": "gestionnaire-de-programme-global-distributor-piloted-store-business-on-running-zurich"
@@ -2860,7 +2863,15 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "program-manager-global-distributor-led-store-business-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "program-manager-global-distributor-led-store-business-on-running-ch"
+      ]
     },
     {
       "id": "on-running-8c2ebe86bbd6",

@@ -321,8 +321,7 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9zu4ig",
-        "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -334,15 +333,13 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
         ],
         "en": [
           "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-21T21:48:21.989Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -355,7 +352,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-e64a36808add",
@@ -2366,12 +2364,10 @@
         ],
         "fr": [
           "med-praxissing-in-notfall-kantonsspital-aarau-ksa-aarau",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2384,7 +2380,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-90f3d5c7ff5b",
