@@ -22,16 +22,29 @@ beforeEach(() => {
   delete process.env.ENABLE_FAILURE_REPORT;
 });
 
+function mockOpenCanonical(opts: { closeOk?: boolean; viewState?: string | null } = {}) {
+  const { closeOk = true, viewState = 'CLOSED' } = opts;
+  execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+    if (args[0] === 'issue' && args[1] === 'list') {
+      return JSON.stringify([
+        { number: 1247, title: 'Validation Failure (dist): post-deploy', url: 'u', state: 'OPEN' },
+      ]);
+    }
+    if (args[0] === 'issue' && args[1] === 'close') {
+      if (!closeOk) throw new Error('HTTP 403: Resource not accessible by integration');
+      return 'https://github.com/o/r/issues/1247';
+    }
+    if (args[0] === 'issue' && args[1] === 'view') {
+      if (viewState == null) throw new Error('HTTP 502');
+      return JSON.stringify({ state: viewState });
+    }
+    return '';
+  });
+}
+
 describe('resolveGithubIssue — close canonical issue on green', () => {
   it('closes the OPEN canonical issue (comment + close --reason completed)', () => {
-    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
-      if (args[0] === 'issue' && args[1] === 'list') {
-        return JSON.stringify([
-          { number: 1247, title: 'Validation Failure (dist): post-deploy', url: 'u', state: 'OPEN' },
-        ]);
-      }
-      return ''; // comment + close succeed
-    });
+    mockOpenCanonical();
 
     const res = resolveGithubIssue('Validation Failure (dist): post-deploy', {
       workflow: 'Post-deploy Validate Dist',
@@ -39,6 +52,7 @@ describe('resolveGithubIssue — close canonical issue on green', () => {
     });
 
     expect(res?.number).toBe(1247);
+    expect(res?.persisted).toBe(true);
     const calls = ghCalls();
     const close = calls.find((a) => a[0] === 'issue' && a[1] === 'close');
     expect(close).toBeTruthy();
@@ -47,6 +61,39 @@ describe('resolveGithubIssue — close canonical issue on green', () => {
     expect(close).toContain('completed');
     const comment = calls.find((a) => a[0] === 'issue' && a[1] === 'comment');
     expect(comment?.[2]).toBe('1247');
+    const view = calls.find((a) => a[0] === 'issue' && a[1] === 'view');
+    expect(view).toContain('1247');
+    expect(view).toContain('--json');
+    expect(view).toContain('state');
+  });
+
+  it('does not report success when gh issue close is refused', () => {
+    mockOpenCanonical({ closeOk: false, viewState: 'OPEN' });
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    let caught: unknown;
+    try {
+      resolveGithubIssue('Validation Failure (dist): post-deploy', {});
+    } catch (err) {
+      caught = err;
+    }
+    expect(caught).toBeInstanceOf(Error);
+    expect((caught as Error).message).toMatch(/could not close #1247 \(close rejected\)/);
+    expect((caught as { persisted?: boolean }).persisted).toBe(false);
+    expect((caught as { number?: number }).number).toBe(1247);
+
+    errorSpy.mockRestore();
+  });
+
+  it('does not report success when close stdout is non-null but the issue stays OPEN', () => {
+    mockOpenCanonical({ closeOk: true, viewState: 'OPEN' });
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    expect(() => resolveGithubIssue('Validation Failure (dist): post-deploy', {})).toThrow(
+      /could not close #1247 \(post-condition not closed\)/,
+    );
+
+    errorSpy.mockRestore();
   });
 
   it('is a no-op when no matching OPEN issue exists', () => {
