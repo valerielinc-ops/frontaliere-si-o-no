@@ -45,6 +45,14 @@ describe('fnz-job-parser / resolveFnzSwissLocation', () => {
   });
 
   it('retains concrete capital municipalities whose names also identify cantons', () => {
+    expect(resolveFnzSwissLocation(['Bern'])).toMatchObject({
+      location: 'Bern',
+      canton: 'BE',
+    });
+    expect(resolveFnzSwissLocation(['Zürich'])).toMatchObject({
+      location: 'Zürich',
+      canton: 'ZH',
+    });
     expect(resolveFnzSwissLocation([{
       descriptor: 'Bern',
       addressLocality: 'Bern',
