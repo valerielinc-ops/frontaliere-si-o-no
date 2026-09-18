@@ -226,18 +226,6 @@ function jobRecordForDigest(job) {
   return record;
 }
 
-/**
- * The WeakMap identity fast path is sound only for immutable snapshots. Freeze
- * the source record (including nested rendered fields) before retaining its
- * digest so an in-place mutation cannot make the cached digest stale.
- */
-function freezeJobRecord(value, seen = new WeakSet()) {
-  if (!value || typeof value !== 'object' || seen.has(value)) return value;
-  seen.add(value);
-  for (const nested of Object.values(value)) freezeJobRecord(nested, seen);
-  return Object.freeze(value);
-}
-
 export function createIncrementalManifestInputCache() {
   const cache = {
     jobDigestsById: new Map(),
@@ -309,7 +297,10 @@ function digestJobRecord(job, inputCache = null) {
   const record = jobRecordForDigest(job);
   if (inputCache?._metrics) inputCache._metrics.jobDigestComputations += 1;
   const digest = sha256(JSON.stringify(record));
-  freezeJobRecord(job);
+  // The WeakMap identity fast path trusts object identity: assembled job
+  // records are not mutated in place after their digest is taken. Do NOT
+  // freeze them here: downstream plugins push into their arrays and a frozen
+  // record fails the whole build (deploy 35397312111, `object is not extensible`).
   const cachedById = inputCache && stableId
     ? inputCache.jobDigestsById.get(stableId)
     : null;

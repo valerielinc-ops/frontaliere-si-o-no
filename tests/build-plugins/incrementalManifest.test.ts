@@ -116,7 +116,7 @@ describe('incremental manifest input contract', () => {
     expect(secondHash).not.toBe(firstHash);
   });
 
-  it('freezes records before reusing their identity digest', () => {
+  it('leaves records mutable after taking their identity digest', () => {
     const cache = createIncrementalManifestInputCache();
     const job = {
       id: 'immutable-job-1',
@@ -124,16 +124,18 @@ describe('incremental manifest input contract', () => {
       title: 'Immutable role',
       datePosted: '2026-08-19T14:02:37.348Z',
       descriptionByLocale: { it: 'Original description' },
+      locations: ['Lugano'],
     };
 
     buildMinimalJobInput(job, 'it', job.slug, [], cache, job);
 
-    expect(Object.isFrozen(job)).toBe(true);
-    expect(Object.isFrozen(job.descriptionByLocale)).toBe(true);
-    expect(Reflect.set(job, 'datePosted', '2026-08-19T16:17:13.045Z')).toBe(false);
-    expect(Reflect.set(job.descriptionByLocale, 'it', 'Changed description')).toBe(false);
-    expect(job.datePosted).toBe('2026-08-19T14:02:37.348Z');
-    expect(job.descriptionByLocale.it).toBe('Original description');
+    // Downstream plugins push into job arrays after the digest is taken:
+    // a frozen record broke every production leg (deploy 35397312111).
+    expect(Object.isFrozen(job)).toBe(false);
+    expect(Object.isFrozen(job.descriptionByLocale)).toBe(false);
+    expect(Object.isFrozen(job.locations)).toBe(false);
+    expect(() => job.locations.push('Chiasso')).not.toThrow();
+    expect(job.locations).toEqual(['Lugano', 'Chiasso']);
   });
 
   it('changes the page hash when only related company and salary change', () => {
