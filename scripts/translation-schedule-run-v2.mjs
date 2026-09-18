@@ -23,6 +23,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { promisify } from 'node:util';
 
 import { needsWork, missingSlots } from './local-mt-mopup.mjs';
+import { isSliceFile } from './lib/crawler-slice-files.mjs';
 import {
   MAX_TRANSLATION_SCHEDULER_INPUT_JOBS_V2,
   MAX_TRANSLATION_SCHEDULER_INPUT_UNITS_V2,
@@ -182,8 +183,15 @@ export async function collectTranslationSchedulerInput({
   const boundedUnits = boundedInteger(maxInputUnits, 'translation scheduler max input units', {
     max: MAX_TRANSLATION_SCHEDULER_INPUT_UNITS_V2,
   });
+  // `isSliceFile` (scripts/lib/crawler-slice-files.mjs), not a local
+  // `.endsWith('.json')`: `data/jobs/by-crawler/` also holds crawler scratch
+  // companions that are NOT slices — a `<key>-locale-cache.json` and, after a
+  // housekeeping run killed mid-write, a `<key>.json.cleanup-tmp.json`. The
+  // shared predicate exists precisely because three hand-rolled copies of this
+  // filter had drifted; this scanner was a fourth. `coop-ticino-locale-cache.json`
+  // is a bare `[]`, so reading it as a slice hard-failed every shadow run.
   const entries = (await readdir(dataDir, { withFileTypes: true }))
-    .filter((entry) => entry.isFile() && entry.name.endsWith('.json'))
+    .filter((entry) => entry.isFile() && isSliceFile(entry.name))
     .sort((left, right) => left.name.localeCompare(right.name));
   const digest = createHash('sha256');
   const schedulerJobs = [];

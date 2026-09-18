@@ -284,6 +284,7 @@ export async function fetchAllCsdEngineersJobs() {
   }
 
   const jobs = [];
+  const skippedNoDescription = [];
   for (const item of swissItems) {
     const title = item.title;
     if (!title || title.length < 3) continue;
@@ -303,7 +304,27 @@ export async function fetchAllCsdEngineersJobs() {
     // Use RSS city/location data, fall back to detail page
     const city = item.city || detail?.city || '';
     const canton = inferAnyCanton(city) || '';
-    const descriptionText = detail?.description || `${title} — CSD ENGINEERS, ${city}`;
+    // No synthesized description, ever. This used to read
+    //   detail?.description || `${title} — CSD ENGINEERS, ${city}`
+    // which MANUFACTURED a description out of the title whenever extraction
+    // produced nothing — 6-11 unique words of text that looks like data.
+    // Nothing downstream could tell it from a real short ad: it reached the
+    // slice, and the boilerplate guard in assemble-jobs-dataset.mjs only
+    // caught it afterwards by failing the whole crawler (10/12 jobs, 83%,
+    // group 05 run 35350952957), taking the other 25 healthy crawlers of the
+    // group's commit with it.
+    //
+    // The extraction bug behind those 10 was JSON-LD carrying raw control
+    // characters, fixed in jsonLdBlocks (PR #9161). This guard is what stops
+    // the NEXT extraction failure from being masked the same way: a job with
+    // no real description is dropped and counted, so the loss stays visible
+    // as a smaller slice (and, if it is widespread, as the anti-shrink guard
+    // firing) instead of arriving as plausible-looking content.
+    const descriptionText = detail?.description || '';
+    if (!descriptionText) {
+      skippedNoDescription.push(title);
+      continue;
+    }
     const publicUrl = item.link || CAREER_URL;
 
     const sourceLang = detectLang(descriptionText || title, 'fr');
@@ -361,6 +382,15 @@ export async function fetchAllCsdEngineersJobs() {
     jobs.push(job);
   }
 
+  if (skippedNoDescription.length > 0) {
+    // Loud, not silent: this is the number that used to be invisible because
+    // the titles were dressed up as descriptions.
+    console.warn(
+      `  ⚠️ Dropped ${skippedNoDescription.length} job(s) with no extractable description `
+      + `(no title-synthesized placeholder is emitted): ${skippedNoDescription.slice(0, 5).join(' | ')}`
+      + `${skippedNoDescription.length > 5 ? ` … +${skippedNoDescription.length - 5} more` : ''}`,
+    );
+  }
   console.log(`\n📋 Total CSD ENGINEERS Swiss jobs discovered: ${jobs.length}`);
   return jobs;
 }

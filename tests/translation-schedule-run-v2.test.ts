@@ -137,4 +137,77 @@ describe('translation scheduler v2 runtime wiring', () => {
       state: { reserved: false, settled: false },
     });
   });
+
+  // A CI runner has no `user.email` in git config, and the state store wrote its
+  // commits through `commit-tree`, which takes the author from config when the
+  // environment carries none — so the first real run that got past the slice
+  // scan died with `git commit-tree failed: Author identity unknown`. No local
+  // test could catch it, because `createRepositories()` runs `git config
+  // user.email` on its clone: the fixture handed the library the very ambient
+  // identity that production does not have. This case removes it, and also
+  // points GIT_CONFIG_GLOBAL/SYSTEM at /dev/null so the developer's own
+  // ~/.gitconfig cannot silently stand in for the runner's empty one.
+  it('commits on the state ref without any ambient git identity', async () => {
+    const { one, providerModule, remote } = createRepositories();
+    git(one, 'config', '--unset', 'user.name');
+    git(one, 'config', '--unset', 'user.email');
+    const previous = {
+      global: process.env.GIT_CONFIG_GLOBAL,
+      system: process.env.GIT_CONFIG_SYSTEM,
+    };
+    process.env.GIT_CONFIG_GLOBAL = '/dev/null';
+    process.env.GIT_CONFIG_SYSTEM = '/dev/null';
+    try {
+      const report = await runTranslationScheduleV2({
+        repository: one,
+        providerModule,
+        maxJobs: 10,
+        maxUnits: 1,
+        providerTimeoutMs: 10_000,
+        logger: { log() {} },
+      });
+
+      expect(report.status).toBe('settled');
+      expect(report.scheduler.selectedUnits).toBe(1);
+      // The commit really exists on the ref, not just "no throw".
+      expect(git(one, 'ls-remote', '--refs', remote, report.stateRef)).toContain(report.state.after);
+    } finally {
+      if (previous.global === undefined) delete process.env.GIT_CONFIG_GLOBAL;
+      else process.env.GIT_CONFIG_GLOBAL = previous.global;
+      if (previous.system === undefined) delete process.env.GIT_CONFIG_SYSTEM;
+      else process.env.GIT_CONFIG_SYSTEM = previous.system;
+    }
+  });
+
+  // `data/jobs/by-crawler/` is not a directory of slices only: a crawler writes a
+  // `<key>-locale-cache.json` scratch companion next to its slice, and a housekeeping
+  // run killed mid-write leaves a `<key>.json.cleanup-tmp.json` behind. Both are
+  // real files on main — `coop-ticino-locale-cache.json` is a bare `[]` — and this
+  // scanner read them as slices, so every shadow run since the workflow was created
+  // died on `… must be an object` and never produced its report. The shared
+  // `isSliceFile` predicate exists for exactly this; the scanner has to use it.
+  it('skips crawler scratch companions instead of reading them as slices', async () => {
+    const { one, providerModule, remote } = createRepositories();
+    const dataDirectory = join(one, 'data/jobs/by-crawler');
+    // Verbatim shape of the file that failed in production: a bare empty array.
+    writeFileSync(join(dataDirectory, 'coop-ticino-locale-cache.json'), '[]\n');
+    writeFileSync(join(dataDirectory, 'example-crawler.json.cleanup-tmp.json'), '[]\n');
+
+    const report = await runTranslationScheduleV2({
+      repository: one,
+      providerModule,
+      maxJobs: 10,
+      maxUnits: 1,
+      providerTimeoutMs: 10_000,
+      logger: { log() {} },
+    });
+
+    // The run completes and still does its real work; the decoys are not counted.
+    expect(report.status).toBe('settled');
+    expect(report.scan.filesScanned).toBe(1);
+    expect(report.scheduler.selectedUnits).toBe(1);
+    // The scratch files stay untouched on disk — skipped, not repaired or deleted.
+    expect(readFileSync(join(dataDirectory, 'coop-ticino-locale-cache.json'), 'utf8')).toBe('[]\n');
+    expect(git(one, 'ls-remote', '--refs', remote, report.stateRef)).toContain(report.state.after);
+  });
 });
