@@ -57,6 +57,7 @@ scripts/generate-journalist-image-catalog.mjs
 # scoring inputs, evergreen refresh, event/border-wait content shaping. No
 # site-rendering dependency (docs §2).
 scripts/lib/ai-models.mjs
+scripts/lib/gh-models-endpoint.mjs
 scripts/lib/ai-search-template.mjs
 scripts/lib/article-body-repetition.mjs
 scripts/lib/article-defect-memory.mjs
@@ -92,6 +93,10 @@ scripts/lib/mymemory-translate.mjs
 scripts/lib/profession-taxonomy.mjs
 scripts/lib/slug-truncate.mjs
 scripts/lib/translation-glossary.mjs
+# Added 2026-09-18: these generator entry points import the shared content
+# usability predicate at top level; transport it so corpus execution does not
+# fail before main().
+scripts/lib/usable-content-text.mjs
 # Added 2026-08-14 (see the `!rewired` block below for why this line is not
 # optional). Single-pass decoder for TS string-literal source text, extracted by
 # #5632/#5781 out of the `.replace()` chains that used to live inline. FOUR files
