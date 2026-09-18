@@ -16,9 +16,11 @@ import admin from 'firebase-admin';
 import { slugifyCrossingName, BORDER_CROSSINGS } from './borderCrossingsData.js';
 import {
   TRAFFIC_PROVIDER_SPECS,
+  TRANSIENT_RESERVATION_REASONS,
   buildTrafficProviderChain,
   classifyProviderError,
   getTrafficSegmentTravelTimes,
+  isTransientProviderRefusal,
   providerBudgetExhaustedError,
   reserveTrafficProviderRequest,
 } from './trafficProviderMesh.js';
@@ -329,8 +331,12 @@ async function reserveRequestIfNeeded(options, providerId, operation = 'route') 
  if (typeof reserveRequest !== 'function') return;
  const result = await reserveRequest(providerId, operation);
  if (result === false || result?.allowed === false) {
- const error = providerBudgetExhaustedError(providerId, result?.budget, result?.period);
- error.reason = result?.reason ?? 'quota';
+ const error = providerBudgetExhaustedError(
+  providerId,
+  result?.budget,
+  result?.period,
+  result?.reason ?? 'quota',
+ );
  error.retryAfterMs = result?.retryAfterMs;
  throw error;
  }
@@ -384,13 +390,26 @@ async function getSegmentWithProviderFallback(originLat, originLng, destLat, des
    const kind = classifyProviderError(error);
    // A quota/auth failure is account-wide for this run. Transient/data errors
    // still rotate for this segment, but the provider may serve the next one.
-   if (kind === 'quota' || kind === 'auth' || error?.code === 'TRAFFIC_PROVIDER_BUDGET_EXHAUSTED') {
+   // A budget error whose reason is transient (contention on the reservation
+   // counter, per-provider minimum interval) is in the second group, not the
+   // first: the allowance is untouched and the next segment may reserve fine.
+   const transient = isTransientProviderRefusal(error);
+   if (!transient && (kind === 'quota' || kind === 'auth' || error?.code === 'TRAFFIC_PROVIDER_BUDGET_EXHAUSTED')) {
     options.providerRuntime?.disabled?.add(providerId);
    }
-   console.warn(`⚠️ ${providerId} failed for one traffic segment (${kind}) — rotating fallback`);
+   console.warn(
+    `⚠️ ${providerId} failed for one traffic segment (${transient ? `${kind}/transient` : kind}) — rotating fallback`,
+   );
   }
  }
- throw lastError ?? new Error('No live traffic provider available');
+ // Reaching here with no lastError means every provider was SKIPPED, not tried:
+ // the run-wide disabled set already covered the whole chain. Name it, or the
+ // log says only that nothing was available and hides which provider died.
+ if (!lastError) {
+  const banned = [...(options.providerRuntime?.disabled ?? [])].join(', ') || 'none';
+  throw new Error(`No live traffic provider available (all providers disabled for this run: ${banned})`);
+ }
+ throw lastError;
 }
 
 /**
@@ -637,17 +656,22 @@ function createProviderMeshRuntime(providerChain) {
   try {
    const reservation = await reserveTrafficProviderRequest(providerId, operation);
    if (!reservation?.allowed) {
-    disabled.add(providerId);
+    const reason = reservation.reason ?? 'quota';
+    // A spent allowance is account-wide; a minimum-interval refusal is not.
+    if (!TRANSIENT_RESERVATION_REASONS.includes(reason)) disabled.add(providerId);
     console.warn(
-     `🛑 ${providerId}/${operation} quota guard blocked the request (${reservation.reason ?? 'quota'}) — rotating provider`,
+     `🛑 ${providerId}/${operation} quota guard blocked the request (${reason}) — rotating provider`,
     );
    }
    return reservation;
   } catch (error) {
-   // A failed quota transaction cannot prove that a paid request is safe.
-   // Fail closed and let the chain try another provider or webcam.
-   disabled.add(providerId);
-   console.warn(`🛑 ${providerId}/${operation} quota check failed — rotating provider: ${error.message}`);
+   // A failed quota transaction cannot prove that a paid request is safe, so
+   // THIS request still fails closed. But the transaction failing is a
+   // Firestore condition (contention on the single per-provider counter), not
+   // evidence that the provider is out of allowance: banning it for the whole
+   // run is what collapsed the mesh on 2026-09-18. Keep it eligible for the
+   // next segment.
+   console.warn(`🛑 ${providerId}/${operation} quota check failed — retrying next segment: ${error.message}`);
    return { allowed: false, reason: 'quota-check-failed' };
   }
  };
@@ -682,7 +706,9 @@ async function runTrafficCollectionWithProviderMesh(options, providerChain) {
    selectedProvider = providerId;
    break;
   } catch (error) {
-   runtime.disabled.add(providerId);
+   // Same rule as the per-segment rotation: a transient reservation refusal
+   // must not cost the provider the whole run before it has served anything.
+   if (!isTransientProviderRefusal(error)) runtime.disabled.add(providerId);
    console.warn(`🛑 ${providerId} preflight failed (${classifyProviderError(error)}) — rotating provider`);
   }
  }
@@ -731,7 +757,10 @@ async function runTrafficCollectionWithProviderMesh(options, providerChain) {
  }
 
  if (results.length > 0) await saveTrafficToFirestore(results);
- console.log(`✅ Provider-mesh collection done – ${results.length} OK, ${errors} errors`);
+ console.log(
+  `✅ Provider-mesh collection done – ${results.length}/${BORDER_CROSSINGS.length} crossings OK, `
+  + `${errors} crossings with no usable data`,
+ );
  return { collected: results.length, errors };
 }
 

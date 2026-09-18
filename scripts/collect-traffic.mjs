@@ -76,10 +76,16 @@ if (collected === 0 && errors > 0) {
 if (errors > 0) {
   const failRate = errors / (collected + errors);
   if (failRate > 0.5) {
-    console.error(`⚠️ High failure rate: ${collected} collected, ${errors} errors (${Math.round(failRate * 100)}% failure)`);
+    // `errors` counts CROSSINGS, one per rejected fetchCrossingTraffic() — not
+    // the two per-segment warnings that precede each of them. The rate is a
+    // share of the crossings polled, so the denominator is the crossing list.
+    console.error(
+      `⚠️ High failure rate: ${collected} crossings collected, ${errors} crossings failed `
+      + `of ${collected + errors} polled (${Math.round(failRate * 100)}% of crossings)`,
+    );
     process.exit(1);
   }
-  console.warn(`⚠️ Partial success: ${collected} collected, ${errors} errors`);
+  console.warn(`⚠️ Partial success: ${collected} crossings collected, ${errors} crossings failed`);
 } else {
   console.log(`✅ Done — ${collected} collected, ${errors} errors`);
 }
