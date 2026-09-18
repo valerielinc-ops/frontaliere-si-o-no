@@ -16,6 +16,7 @@ import {
   comparePostWalkVerification,
   loadPostWalkManifestState,
   postWalkIncrementalEnabled,
+  releasePostWalkManifestState,
   replacePostWalkPathList,
   selectPostWalkVerificationPaths,
 } from '../build-plugins/shared/postWalkIncremental';
@@ -130,15 +131,23 @@ describe('post-walk incremental planning', () => {
     );
 
     writeManifest(root, 'incremental-manifest-prev', [
-      { path: 'jobs/changed/', kind: 'active-job', input: { title: 'old' } },
+      {
+        path: 'jobs/changed/',
+        kind: 'active-job',
+        input: { title: 'old', href: `${BASE_URL}/en/jobs/changed/` },
+      },
       { path: 'en/jobs/changed/', kind: 'active-job', input: { title: 'stable' } },
       { path: 'jobs/unchanged/', kind: 'active-job', input: { title: 'same' } },
-    ]);
+    ], true);
     writeManifest(root, 'incremental-manifest', [
-      { path: 'jobs/changed/', kind: 'active-job', input: { title: 'new' } },
+      {
+        path: 'jobs/changed/',
+        kind: 'active-job',
+        input: { title: 'new', href: `${BASE_URL}/en/jobs/changed/` },
+      },
       { path: 'en/jobs/changed/', kind: 'active-job', input: { title: 'stable' } },
       { path: 'jobs/unchanged/', kind: 'active-job', input: { title: 'same' } },
-    ]);
+    ], true);
 
     const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
     expect(loaded.ok).toBe(true);
@@ -154,7 +163,7 @@ describe('post-walk incremental planning', () => {
 
     expect(plan.mode).toBe('incremental');
     expect(plan.changed).toBe(1);
-    expect(plan.eligibleByManifest).toBe(6);
+    expect(plan.eligibleByManifest).toBe(3);
     expect(plan.skippedUnchanged).toBe(2);
     expect(plan.affected).toBe(2);
     expect(plan.processHtmlPaths).toEqual([
@@ -345,7 +354,7 @@ describe('post-walk incremental planning', () => {
     ]));
   });
 
-  it('falls back when a changed page has an owned hreflang target outside existingHtmlSet', async () => {
+  it('processes a changed page even when its owned hreflang target is absent', async () => {
     const root = fixtureRoot();
     const distDir = path.join(root, 'dist');
     const changedPath = writeHtml(
@@ -368,8 +377,8 @@ describe('post-walk incremental planning', () => {
       state: loaded.state,
     });
 
-    expect(plan.mode).toBe('full');
-    expect(plan.fallbackReason).toContain('target hreflang');
+    expect(plan.mode).toBe('incremental');
+    expect(plan.fallbackReason).toBeUndefined();
     expect(plan.processHtmlPaths).toEqual([changedPath]);
   });
 
@@ -452,6 +461,28 @@ describe('post-walk incremental planning', () => {
       .toBeUndefined();
     expect(phases).toEqual(['current-loaded', 'previous-loaded']);
     expect('previous' in loaded.state).toBe(false);
+  });
+
+  it('releases the manifest projection after the bounded plan is copied', async () => {
+    const root = fixtureRoot();
+    writeManifest(root, 'incremental-manifest-prev', [
+      { path: 'jobs/stable/', kind: 'active-job', input: { jobId: 'stable-1' } },
+    ], true);
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/stable/', kind: 'active-job', input: { jobId: 'stable-1' } },
+    ], true);
+
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+    expect(loaded.ok).toBe(true);
+    if ('reason' in loaded) throw new Error(loaded.reason);
+
+    releasePostWalkManifestState(loaded.state);
+
+    expect(loaded.state.current.entries.size).toBe(0);
+    expect(loaded.state.current.kinds.size).toBe(0);
+    expect(loaded.state.previousKinds.size).toBe(0);
+    expect(loaded.state.changed.size).toBe(0);
+    expect(loaded.state.affected.size).toBe(0);
   });
 
   it('fails closed on a duplicate path in a streamed manifest', async () => {

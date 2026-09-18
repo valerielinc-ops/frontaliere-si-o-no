@@ -95,10 +95,12 @@ import {
   buildPostWalkIncrementalPlanFromState,
   comparePostWalkVerification,
   loadPostWalkManifestState,
+  postWalkManifestCoversHtmlPath,
   POST_WALK_INCREMENTAL_DEPENDENCY_RULE,
   postWalkIncrementalEnabled,
   postWalkIncrementalVerifyEnabled,
   postWalkIncrementalVerifySampleSize,
+  releasePostWalkManifestState,
   selectPostWalkVerificationPaths,
   type PostWalkManifestProgress,
   type PostWalkManifestStateLoadResult,
@@ -445,6 +447,8 @@ export function postWalkCoordinatorPlugin(
         let incrementalVerifyPhaseMs = 0;
         const incrementalEnabled = postWalkIncrementalEnabled();
         let manifests: PostWalkManifestStateLoadResult | null = null;
+        let manifestHtmlEntryCount = 0;
+        let changedByKind = 'none';
 
         if (incrementalEnabled) {
           // jobsSeoPagesPlugin and relatedSearchClustersPlugin have completed
@@ -505,6 +509,7 @@ export function postWalkCoordinatorPlugin(
               `[post-walk-coordinator][incremental] fallback=full reason=${manifests.reason}`,
             );
           } else {
+            manifestHtmlEntryCount = manifests.state.currentHtmlEntryCount;
             // This is the first line containing both cardinalities, and is
             // intentionally before dist enumeration and worker dispatch.
             // eslint-disable-next-line no-console
@@ -531,6 +536,11 @@ export function postWalkCoordinatorPlugin(
         const allHtmlPaths: string[] = collectHtml(distDir, []);
         const filesScanned = allHtmlPaths.length;
         const existingHtmlSet = new Set<string>(allHtmlPaths);
+        const manifestState = manifests !== null && !('reason' in manifests)
+          ? manifests.state
+          : null;
+        let coveredHtmlPathCount = 0;
+        const unmanifestedByTopLevel = new Map<string, number>();
         let processableCount = 0;
         let preEmittedFlatBridgesSkipped = 0;
         let nonOwnedLocaleSkipped = 0;
@@ -563,6 +573,23 @@ export function postWalkCoordinatorPlugin(
             preEmittedFlatBridgesSkipped++;
             excludedHtmlPaths?.add(file);
           } else {
+            if (manifestState) {
+              const covered = postWalkManifestCoversHtmlPath(
+                distDir,
+                file,
+                manifestState.current.entries,
+              );
+              if (covered) {
+                coveredHtmlPathCount++;
+              } else {
+                const relative = path.relative(distDir, file);
+                const topLevel = relative.split(path.sep, 1)[0] || '<root>';
+                unmanifestedByTopLevel.set(
+                  topLevel,
+                  (unmanifestedByTopLevel.get(topLevel) ?? 0) + 1,
+                );
+              }
+            }
             allHtmlPaths[processableCount] = file;
             processableCount++;
           }
@@ -609,6 +636,7 @@ export function postWalkCoordinatorPlugin(
               baseUrl,
               existingHtmlSet,
               excludedHtmlPaths: excludedHtmlPaths ?? undefined,
+              coveredHtmlPathCount,
               // Once the deterministic sample verifier is on, unmanifested
               // producers are included in that sample and omitted from the
               // main dispatch. Without verification we keep the conservative
@@ -627,6 +655,16 @@ export function postWalkCoordinatorPlugin(
                   + `reason=${incrementalPlan.fallbackReason}`,
               );
             }
+            const changedKindCounts = new Map<string, number>();
+            for (const logical of manifests.state.changed) {
+              const kind = manifests.state.current.entries.get(logical)?.kind ?? '<missing>';
+              changedKindCounts.set(kind, (changedKindCounts.get(kind) ?? 0) + 1);
+            }
+            changedByKind = [...changedKindCounts.entries()]
+              .sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0]))
+              .slice(0, 12)
+              .map(([kind, count]) => `${kind}:${count}`)
+              .join(',') || 'none';
             logBuildMem(
               'postWalkCoordinator: after-plan',
               undefined,
@@ -645,6 +683,9 @@ export function postWalkCoordinatorPlugin(
           incrementalPlanPhaseMs = Date.now() - planStartedAt;
           // Explicitly drop the one current-entry map and delta sets before
           // blog maps, verification, or workers are allocated.
+          if (manifests && !('reason' in manifests)) {
+            releasePostWalkManifestState(manifests.state);
+          }
           manifests = null;
           excludedHtmlPaths?.clear();
           if (incrementalPlan) {
@@ -710,7 +751,7 @@ export function postWalkCoordinatorPlugin(
           // eslint-disable-next-line no-console
           console.log(
             `[post-walk-coordinator][incremental-verify] sampled=${sampledPaths.length} `
-              + `sample-only=${sampledPaths.length} affected=${processHtmlPaths.length} `
+              + `sample-only=${sampledPaths.length} forced=${processHtmlPaths.length} `
               + `would-write-but-skipped=${comparison.wouldWriteButSkipped.length} `
               + `processed-without-write=${comparison.processedButWouldNotWrite.length}`,
           );
@@ -737,7 +778,7 @@ export function postWalkCoordinatorPlugin(
             {
               sampled: sampledPaths.length,
               sampleOnly: sampledPaths.length,
-              affected: processHtmlPaths.length,
+              forced: processHtmlPaths.length,
               processed: processHtmlPaths.length,
               mismatch: comparison.wouldWriteButSkipped.length,
             },
@@ -821,16 +862,24 @@ export function postWalkCoordinatorPlugin(
         );
 
         if (incrementalEnabled && incrementalPlan) {
+          const unmanifestedTopLevel = [...unmanifestedByTopLevel.entries()]
+            .sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0]))
+            .slice(0, 12)
+            .map(([topLevel, count]) => `${topLevel}:${count}`)
+            .join(',');
           // eslint-disable-next-line no-console
           console.log(
             `[post-walk-coordinator][incremental] scanned=${filesScanned} `
               + `eligible-by-manifest=${incrementalPlan.eligibleByManifest} `
+              + `manifest-html-entries=${manifestHtmlEntryCount} `
               + `mode=${incrementalPlan.mode} `
               + `changed-entries=${incrementalPlan.changed} added-entries=${incrementalPlan.added} removed-entries=${incrementalPlan.removed} `
+              + `changed-by-kind=${changedByKind} `
               + `processed=${processHtmlPaths.length} `
               + `skipped-unchanged=${incrementalPlan.skippedUnchanged} `
               + `unmanifested=${incrementalPlan.unmanifested ?? 'n/a'} `
               + `unmanifested-skipped=${incrementalPlan.unmanifestedSkipped ?? 'n/a'} `
+              + `unmanifested-top-level=${unmanifestedTopLevel || 'none'} `
               + `affected=${incrementalPlan.affected} `
               + `writes=${merged.totalWrites} `
               + `fallback=${incrementalPlan.fallbackMode
