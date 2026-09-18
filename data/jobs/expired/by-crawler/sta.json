@@ -1,5 +1,734 @@
 [
   {
+    "slug": "carpentiere-con-esperienza-di-montaggio-per-porte-e-finestre-sta-personal-ag-baden-aargau",
+    "title": "Schreiner/in mit Montageerfahrung für Türen und Fenster",
+    "titleByLocale": {
+      "it": "Falegname con esperienza nel montaggio di porte e finestre",
+      "en": "Carpenter with installation experience for doors and windows",
+      "de": "Schreiner/in mit Montageerfahrung für Türen und Fenster",
+      "fr": "Charpentier avec expérience d'installation pour portes et fenêtres"
+    },
+    "company": "STA Personal AG",
+    "companyKey": "sta",
+    "location": "Baden, Aargau",
+    "addressLocality": "Baden",
+    "descriptionByLocale": {
+      "it": "Attività Installazione professionale di porte su cantieri Installazione di finestre secondo specifiche Esegue una vasta gamma di lavori di carpenteria in loco\n• Requisiti Formazione di carpenteria completata o pratica di assemblaggio comparabile Scheda di guida esistente di categoria B Prova di diversi anni di esperienza nel montaggio di carpenteria Offerta di una vasta gamma di applicazioni emozionanti su diversi cantieri Ambiente di lavoro caratterizzato da spirito di squadra e alta professionalità Condizioni di lavoro attraenti con prospettive di ulteriore sviluppo",
+      "en": "Activities Professional installation of doors on construction sites Precise installation of windows according to specifications Execute a wide range of carpentry work on site\n• Requirements Completed carpentry training or comparable assembly practice Existing driver's card of category B Evidence of several years of experience in carpentry assembly Offering A wide range of exciting applications on different construction sites Working environment characterized by team spirit and high professionalism Attractive employment conditions with prospects for further development",
+      "de": "Tätigkeiten Fachgerechtes Montieren von Türen auf Baustellen Präziser Einbau von Fenstern gemäß Vorgaben Ausführen vielfältiger Schreinerarbeiten vor Ort\n• Anforderungen Abgeschlossene Schreiner-Ausbildung oder vergleichbare Montagepraxis Vorhandener Führerausweis der Kategorie B Nachweislich mehrjährige Erfahrung in der Schreiner-Montage Angebot Vielfältige und spannende Einsätze auf unterschiedlichen Baustellen Arbeitsklima geprägt von Teamgeist und hoher Professionalität Attraktive Anstellungsbedingungen mit Perspektiven zur Weiterentwicklung",
+      "fr": "Activités Installation professionnelle des portes sur les chantiers Installation précise des fenêtres selon les spécifications Exécuter une large gamme de travaux de carpentry sur le chantier\n• Exigences Formation complète de carpentry ou pratique de montage comparable Carte de conducteur existante de catégorie B Preuve de plusieurs années d'expérience dans le montage de carpentry Offre Une large gamme d'applications passionnantes sur différents chantiers de construction Environnement de travail caractérisé par l'esprit d'équipe et un grand professionnalisme Conditions d'emploi attrayantes avec des perspectives de développement"
+    },
+    "slugByLocale": {
+      "it": "carpentiere-con-esperienza-di-montaggio-per-porte-e-finestre-sta-personal-ag-baden-aargau",
+      "en": "carpenters-with-assembly-experience-for-doors-and-windows-sta-personal-ag-baden-aargau",
+      "de": "schreiner-in-mit-montageerfahrung-fur-turen-und-fenster-baden-aargau-sta-ch",
+      "fr": "charpentiers-avec-experience-de-montage-pour-portes-et-fenetres-sta-personal-ag-baden-aargau"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-09-18T21:37:57.623Z",
+    "previousSlugs": [
+      "schreiner-in-mit-montageerfahrung-fur-turen-und-fenster-baden-aargau-sta-ch",
+      "schreiner-in-con-montageerfahrung-per-turen-e-fenster-sta-personal-ag-baden",
+      "schreiner-in-mit-montageerfahrung-fur-turen-und-fenster-sta-personal-ag-baden",
+      "carpentieri-con-esperienza-nel-montaggio-in-vetro-sta-personal-ag-baden-aargau",
+      "carpenters-with-experience-in-glass-assembly-sta-personal-ag-baden-aargau",
+      "schreiner-in-mit-erfahrung-in-glasmontage-baden-aargau-sta-ch",
+      "charpentiers-avec-experience-dans-l-assemblage-de-verre-sta-personal-ag-baden-aargau",
+      "schreiner-in-con-erfahrung-in-glasmontage-sta-personal-ag-baden"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "schreiner-in-mit-montageerfahrung-fur-turen-und-fenster-baden-aargau-sta-ch",
+        "schreiner-in-con-montageerfahrung-per-turen-e-fenster-sta-personal-ag-baden",
+        "carpentieri-con-esperienza-nel-montaggio-in-vetro-sta-personal-ag-baden-aargau",
+        "carpenters-with-experience-in-glass-assembly-sta-personal-ag-baden-aargau",
+        "schreiner-in-mit-erfahrung-in-glasmontage-baden-aargau-sta-ch",
+        "charpentiers-avec-experience-dans-l-assemblage-de-verre-sta-personal-ag-baden-aargau",
+        "schreiner-in-con-erfahrung-in-glasmontage-sta-personal-ag-baden"
+      ],
+      "en": [
+        "schreiner-in-mit-montageerfahrung-fur-turen-und-fenster-sta-personal-ag-baden",
+        "carpenters-with-experience-in-glass-assembly-sta-personal-ag-baden-aargau"
+      ],
+      "de": [
+        "schreiner-in-mit-erfahrung-in-glasmontage-baden-aargau-sta-ch"
+      ],
+      "fr": [
+        "schreiner-in-mit-montageerfahrung-fur-turen-und-fenster-sta-personal-ag-baden",
+        "charpentiers-avec-experience-dans-l-assemblage-de-verre-sta-personal-ag-baden-aargau"
+      ]
+    },
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "carpentieri-con-comprensione-tecnica-sta-personal-ag-frauenfeld-thurgau",
+    "title": "Schreiner/in mit technischem Verständnis",
+    "titleByLocale": {
+      "it": "Falegname con conoscenze tecniche",
+      "en": "Carpenter with technical understanding",
+      "de": "Schreiner/in mit technischem Verständnis",
+      "fr": "Charpentier avec compréhension technique"
+    },
+    "company": "STA Personal AG",
+    "companyKey": "sta",
+    "location": "Frauenfeld, Thurgau",
+    "addressLocality": "Frauenfeld",
+    "descriptionByLocale": {
+      "it": "Attività Esecuzione autonoma di ordini di lavorazione e taglio con un moderno centro di lavorazione Gestione dell'impianto di taglio e della bordatrice Verifica e garanzia del rispetto delle norme di sicurezza Monitoraggio della qualità e della produttività durante la produzione Eliminazione di guasti ed esecuzione di piccole riparazioni e lavori di manutenzione\n• Requisiti Formazione completata come falegname*in AFC Esperienze nell'uso di sistemi di taglio e bordatrici Elevata comprensione tecnica e buona immaginazione Metodo di lavoro accurato e preciso Flessibilità, orientamento al team e ottima conoscenza del tedesco Oralmente e per iscritto Offerta Spazio di manovra con integrazione delle proprie idee invece di processi rigidi Un ambiente di squadra favorevole e cordiale Prospettive di sviluppo e interessanti prestazioni sociali, comprese 5 settimane di vacanza e una retribuzione equa",
+      "en": "Activities Self-employed execution of machining and cutting jobs with a modern machining centre Operation of the cutting system and edge gluer Checking and ensuring compliance with safety regulations Monitoring of quality and productivity during production Repair of faults and execution of minor repairs and maintenance work\n• Requirements Completed training as a carpenter*in EFZ Experience in handling cutting systems and edge gluers High technical understanding and good imagination\n\nCareful and precise working methods Flexibility, team orientation and very good German knowledge oral and written offer Design scope with integration of own ideas instead of rigid processes A supportive and cordial team environment Development perspectives as well as attractive social benefits including 5 weeks holidays and fair remuneration",
+      "de": "Tätigkeiten Selbstständige Durchführung von Bearbeitungs- und Zuschnittaufträgen mit einem modernen Bearbeitungscenter Bedienen der Zuschnittanlage und der Kantenleimmaschine Überprüfung und Sicherstellung der Einhaltung von Sicherheitsvorschriften Überwachung von Qualität und Produktivität während der Fertigung Beheben von Störungen sowie Ausführen von kleineren Reparaturen und Wartungsarbeiten\n• Anforderungen Abgeschlossene Ausbildung als Schreiner*in EFZ Erfahrungen im Umgang mit Zuschnittanlagen und Kantenleimmaschinen Hohes technisches Verständnis und gutes Vorstellungsvermögen Sorgfältige und präzise Arbeitsweise Flexibilität, Teamorientierung und sehr gute Deutschkenntnisse mündlich und schriftlich Angebot Gestaltungsspielraum mit Einbindung eigener Ideen statt starre Abläufe Ein unterstützendes und herzliches Teamumfeld Entwicklungsperspektiven sowie attraktive Sozialleistungen inklusive 5 Wochen Ferien und fairer Entlöhnung",
+      "fr": "Activités Travail indépendant dans l'usinage et la découpe avec un centre d'usinage moderne Fonctionnement du système de coupe et de la colle à bord Contrôle et respect des règles de sécurité Surveillance de la qualité et de la productivité pendant la production Réparation et exécution de travaux de réparation et d'entretien mineurs\n• Exigences Formation complète en tant que menuisier* dans EFZ Expérience dans la manutention des systèmes de coupe et des colles à bord Haute compréhension technique et bonne imagination\n\nMéthodes de travail précises et prudentes Flexibilité, orientation de l'équipe et très bonne connaissance allemande offre orale et écrite Portée de conception avec intégration de ses propres idées au lieu de processus rigides Un environnement d'équipe favorable et cordial Perspectives de développement ainsi que des avantages sociaux attrayants dont 5 semaines de vacances et une rémunération équitable"
+    },
+    "slugByLocale": {
+      "it": "carpentieri-con-comprensione-tecnica-sta-personal-ag-frauenfeld-thurgau",
+      "en": "carpenters-with-technical-understanding-sta-personal-ag-frauenfeld-thurgau",
+      "de": "schreiner-in-mit-technischem-verstandnis-frauenfeld-thurgau-sta-ch",
+      "fr": "charpentiers-avec-comprehension-technique-sta-personal-ag-frauenfeld-thurgau"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-09-18T21:37:57.623Z",
+    "previousSlugs": [
+      "schreiner-in-mit-technischem-verstandnis-frauenfeld-thurgau-sta-ch",
+      "schreiner-in-con-technischem-verstandnis-sta-personal-ag-frauenfeld"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "schreiner-in-mit-technischem-verstandnis-frauenfeld-thurgau-sta-ch",
+        "schreiner-in-con-technischem-verstandnis-sta-personal-ag-frauenfeld"
+      ],
+      "en": [
+        "schreiner-in-mit-technischem-verstandnis-frauenfeld-thurgau-sta-ch"
+      ],
+      "fr": [
+        "schreiner-in-mit-technischem-verstandnis-frauenfeld-thurgau-sta-ch"
+      ]
+    },
+    "salaryMin": 67000,
+    "salaryMax": 102000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "carpentieri-con-esperienza-di-montaggio-e-opportunita-di-carriera-sta-personal-ag-zurich-zurich",
+    "title": "Schreiner/in mit Montageerfahrung und Karrierechancen",
+    "titleByLocale": {
+      "it": "Falegname con esperienza di montaggio e opportunità di carriera",
+      "en": "Carpenter with assembly experience and career opportunities",
+      "de": "Schreiner/in mit Montageerfahrung und Karrierechancen",
+      "fr": "Charpentier avec expérience de montage et opportunités de carrière"
+    },
+    "company": "STA Personal AG",
+    "companyKey": "sta",
+    "location": "Zürich, Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "it": "Attività Lavori di installazione in interni, comprese cucine, porte, finestre e facciate Lavoro professionale con strumento professionale fornito Cooperazione in un ambiente semplice\n• Requisiti Formazione completa come falegname o comparabile Alta affidabilità, motivazione e impegno nel lavoro quotidiano mostrano mobilità e flessibilità per diverse località con competenze di lingua tedesca e scrittura Prova di patente di guida valida nella categoria B possiedono offerta Attraente sopra la media con pagamenti di base e Generose spese di adeguamento Opportunità di carriera con opportunità di carriera",
+      "en": "Activities Installation work in interior design, including kitchens, doors, windows and facades Professional work with provided professional tool Cooperation in an uncomplicated\n• Requirements Completed training as a carpenter or comparable High reliability, motivation and commitment in everyday work show mobility and flexibility for different locations with German language and writing skills Proof of valid driving licence in category B possess offer Attractive above average pay with punctual payments and\n\nGenerous expense adjustment Career opportunities with career opportunities",
+      "de": "Tätigkeiten Montagearbeiten im Innenausbau, inklusive Küchen, Türen, Fenster und Fassaden durchführen Professionelles Arbeiten mit bereitgestelltem Profi-Werkzeug Zusammenarbeit in einem unkomplizierten\n• Anforderungen Abgeschlossene Ausbildung als Schreinerin oder vergleichbar Hohe Zuverlässigkeit, Motivation und Engagement im Arbeitsalltag zeigen Mobilität und Flexibilität für verschiedene Einsatzorte mitbringen Deutschkenntnisse in Wort und Schrift nachweisen Gültigen Führerschein der Kategorie B besitzen Angebot Attraktiver überdurchschnittlicher Lohn mit pünktlichen Zahlungen und grosszügiger Spesenregelung Karrierechancen mit Aufstiegsmöglichkeiten",
+      "fr": "Activités Travaux d'installation en aménagement intérieur, y compris cuisines, portes, fenêtres et façades Travail professionnel avec outil professionnel fourni Coopération dans un cadre non compliqué\n• Exigences Formation complète en tant que charpentier ou comparable Haute fiabilité, motivation et engagement dans le travail quotidien montrer la mobilité et la flexibilité pour différents endroits avec la langue allemande et les compétences d'écriture Preuve de permis de conduire valide dans la catégorie B posséder offre Attractive au-dessus de la moyenne salaire avec des paiements ponctuels et généreux ajustement des dépenses Opportunités de carrière avec des opportunités de carrière"
+    },
+    "slugByLocale": {
+      "it": "carpentieri-con-esperienza-di-montaggio-e-opportunita-di-carriera-sta-personal-ag-zurich-zurich",
+      "en": "carpenters-with-assembly-experience-and-career-opportunities-sta-personal-ag-zurich-zurich",
+      "de": "schreiner-in-mit-montageerfahrung-und-karrierechancen-zurich-zurich-sta-ch",
+      "fr": "charpentiers-avec-une-experience-de-montage-et-des-opportunites-de-carriere-sta-personal-ag-zurich-zurich"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-09-18T21:37:57.623Z",
+    "previousSlugs": [
+      "schreiner-in-mit-montageerfahrung-und-karrierechancen-zurich-zurich-sta-ch",
+      "schreiner-in-con-montageerfahrung-e-karrierechancen-sta-personal-ag-zurich"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "schreiner-in-mit-montageerfahrung-und-karrierechancen-zurich-zurich-sta-ch",
+        "schreiner-in-con-montageerfahrung-e-karrierechancen-sta-personal-ag-zurich"
+      ],
+      "en": [
+        "schreiner-in-mit-montageerfahrung-und-karrierechancen-zurich-zurich-sta-ch"
+      ],
+      "fr": [
+        "schreiner-in-mit-montageerfahrung-und-karrierechancen-zurich-zurich-sta-ch"
+      ]
+    },
+    "salaryMin": 73500,
+    "salaryMax": 111500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "efz-per-il-montaggio-di-cucine-e-mobili-sta-personal-ag-muri-ag-aargau",
+    "title": "Schreiner/in EFZ für Montage von Küchen und Möbeln",
+    "titleByLocale": {
+      "it": "EFZ per il montaggio di cucine e mobili",
+      "en": "EFZ for assembly of kitchens and furniture",
+      "de": "Schreiner/in EFZ für Montage von Küchen und Möbeln",
+      "fr": "EFZ pour le montage de cuisines et de meubles"
+    },
+    "company": "STA Personal AG",
+    "companyKey": "sta",
+    "location": "Muri AG, Aargau",
+    "addressLocality": "Muri AG",
+    "descriptionByLocale": {
+      "it": "Assemblaggio di cucine, mobili e accessori interni Installazione di porte, armadi e realizzazione di lavori di carpenteria Servizio e riparazione direttamente al cliente Lavoro indipendente sui cantieri ed ai clienti in loco Assicurare un montaggio pulito e di alta qualità\n• Formazione professionale completa come falegname EFZ o qualifica equivalente Esperienza ideale nell'assemblaggio di mobili e cucine Metodi di lavoro affidabili e indipendenti Movimentazione amichevole e professionale della categoria di patente B dei clienti è vantaggiosa offerta diversificata e auto-responsabile Strumenti moderni e infrastrutture ottimali Ambiente di lavoro piacevole in un team dedicato",
+      "en": "Assembling of kitchens, furniture and interior fittings Installation of doors, cabinets and carrying out carpentry work Service and repair work directly at the customer Independent work on construction sites and at customers on site Ensure a clean and high-quality assembly\n• Requirements Completed vocational training as carpenter EFZ or equivalent qualification Ideally experience in the assembly of furniture and kitchens Reliable and independent working methods Friendly and professional handling of customers driver's license category B is advantageous offer diverse and self-responsible activity Modern tools as well as optimal infrastructure Pleasant working environment in a dedicated team",
+      "de": "Tätigkeiten Montieren von Küchen, Möbeln und Innenausbauten Einbauen von Türen, Schränken und Durchführung von Schreinerarbeiten Ausführen von Service- und Reparaturarbeiten direkt beim Kunden Selbständiges Arbeiten auf Baustellen und bei Kunden vor Ort Sicherstellen einer sauberen und qualitativ hochwertigen Montage\n• Anforderungen Abgeschlossene Berufsausbildung als Schreiner EFZ oder gleichwertige Qualifikation Idealerweise Erfahrung in der Montage von Möbeln und Küchen Zuverlässige und eigenständige Arbeitsweise Freundlicher und professioneller Umgang mit Kunden Führerausweis der Kategorie B ist von Vorteil Angebot Vielfältige und eigenverantwortliche Tätigkeit Moderne Werkzeuge sowie optimale Infrastruktur Angenehmes Arbeitsumfeld in einem engagierten Team",
+      "fr": "Montage de cuisines, de meubles et d'aménagements intérieurs Installation de portes, d'armoires et d'ouvrages de menuiserie Service et réparation directement au client Travaux indépendants sur les chantiers et auprès des clients sur place Assurer un montage propre et de haute qualité\n• Exigences Formation professionnelle terminée en tant que charpentier EFZ ou qualification équivalente Expérience idéale dans l'assemblage de meubles et de cuisines Méthodes de travail fiables et indépendantes Manipulation amicale et professionnelle des clients de la catégorie de permis de conduire B est avantageux offre diverse et auto-responsable activité Outils modernes ainsi qu'une infrastructure optimale Environnement de travail agréable dans une équipe dédiée"
+    },
+    "slugByLocale": {
+      "it": "efz-per-il-montaggio-di-cucine-e-mobili-sta-personal-ag-muri-ag-aargau",
+      "en": "efz-for-assembly-of-kitchens-and-furniture-sta-personal-ag-muri-ag-aargau",
+      "de": "schreiner-in-efz-fur-montage-von-kuchen-und-mobeln-muri-ag-aargau-sta-ch",
+      "fr": "efz-pour-le-montage-de-cuisines-et-de-meubles-sta-personal-ag-muri-ag-aargau"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-09-18T21:37:57.623Z",
+    "previousSlugs": [
+      "schreiner-in-efz-fur-montage-von-kuchen-und-mobeln-muri-ag-aargau-sta-ch",
+      "schreiner-in-cfc-per-montage-von-kuchen-e-mobeln-sta-personal-ag-muri-ag"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "schreiner-in-efz-fur-montage-von-kuchen-und-mobeln-muri-ag-aargau-sta-ch",
+        "schreiner-in-cfc-per-montage-von-kuchen-e-mobeln-sta-personal-ag-muri-ag"
+      ],
+      "en": [
+        "schreiner-in-efz-fur-montage-von-kuchen-und-mobeln-muri-ag-aargau-sta-ch"
+      ],
+      "fr": [
+        "schreiner-in-efz-fur-montage-von-kuchen-und-mobeln-muri-ag-aargau-sta-ch"
+      ]
+    },
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "forest-warden-efz-per-la-logistica-di-trucioli-di-legno-sta-personal-ag-sursee-luzern",
+    "title": "Forstwart/in EFZ für Holzschnitzellogistik",
+    "titleByLocale": {
+      "it": "Forest warden EFZ per la logistica di trucioli di legno",
+      "en": "Forest warden EFZ for wood chip logistics",
+      "de": "Forstwart/in EFZ für Holzschnitzellogistik",
+      "fr": "Forest Warden EFZ pour la logistique des copeaux de bois"
+    },
+    "company": "STA Personal AG",
+    "companyKey": "sta",
+    "location": "Sursee, Luzern",
+    "addressLocality": "Sursee",
+    "descriptionByLocale": {
+      "it": "Organizzazione e gestione del legno truciolato implementazione di diversi lavori forestali Supporto per lavori speciali di logging e lavorazione Assegnazioni di lavoro nel workshop Cooperazione parziale nelle attività agricole\n• Formazione completa come responsabile forestale EFZ Possessione di una categoria di patente di guida B Buona resilienza fisica Prova di corsi Holzer completa Offrendo lavoro in un team collegiale e familiare Opportunità di remunerazione contemporanea ed equa per la formazione a pagamento",
+      "en": "Activities Organisation and management of wood chip logistics implementation of diverse forestry work Support for special logging and processing work Work assignments in the workshop Partial cooperation in agricultural activities\n• Requirements Completed training as forestry manager EFZ Possession of a driving licence category B Good physical resilience Proof of completed Holzer courses Offering work in a collegial and family team Contemporary and fair remuneration opportunities for paid further training",
+      "de": "Tätigkeiten Organisation und Abwicklung der Holzschnitzellogistik Ausführung vielfältiger Forstarbeiten Unterstützung bei besonderen Holzfäll- und Aufbereitungsarbeiten Arbeitseinsätze in der Werkstatt Teilweise Mitarbeit bei landwirtschaftlichen Tätigkeiten\n• Anforderungen Abgeschlossene Ausbildung als Forstwart EFZ Besitz eines Führerscheins Kategorie B Gute körperliche Belastbarkeit Nachweis über absolvierte Holzer-Kurse Angebot Arbeiten in einem kollegialen und familiären Team Zeitgemässe und faire Vergütung Möglichkeiten zu bezahlten Weiterbildungen",
+      "fr": "Activités Organisation et gestion de la logistique des copeaux de bois mise en œuvre de divers travaux forestiers Appui aux travaux spéciaux d'exploitation forestière et de transformation\n• Exigences Formation terminée en tant que gestionnaire forestier EFZ Possession d'un permis de conduire catégorie B Bonne résilience physique Preuve des cours terminés Holzer Offre de travail dans une équipe collégiale et familiale Possibilités de rémunération moderne et équitable pour une formation continue rémunérée"
+    },
+    "slugByLocale": {
+      "it": "forest-warden-efz-per-la-logistica-di-trucioli-di-legno-sta-personal-ag-sursee-luzern",
+      "en": "forest-warden-efz-for-wood-chip-logistics-sta-personal-ag-sursee-luzern",
+      "de": "forstwart-in-efz-fur-holzschnitzellogistik-sursee-luzern-sta-ch",
+      "fr": "forest-warden-efz-pour-la-logistique-des-copeaux-de-bois-sta-personal-ag-sursee-luzern"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-09-18T21:37:57.623Z",
+    "previousSlugs": [
+      "forstwart-in-efz-fur-holzschnitzellogistik-sursee-luzern-sta-ch",
+      "forstwart-in-cfc-per-holzschnitzellogistik-sta-personal-ag-sursee",
+      "forstwart-in-efz-fur-holzschnitzellogistik-sta-personal-ag-sursee"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "forstwart-in-efz-fur-holzschnitzellogistik-sursee-luzern-sta-ch",
+        "forstwart-in-cfc-per-holzschnitzellogistik-sta-personal-ag-sursee"
+      ],
+      "en": [
+        "forstwart-in-efz-fur-holzschnitzellogistik-sta-personal-ag-sursee"
+      ],
+      "fr": [
+        "forstwart-in-efz-fur-holzschnitzellogistik-sta-personal-ag-sursee"
+      ]
+    },
+    "salaryMin": 69500,
+    "salaryMax": 106000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "gleisbauer-dipendente-gleisjochmontage-sta-personal-ag-olten-solothurn",
+    "title": "Gleisbauer/in – Mitarbeiter Gleisjochmontage",
+    "titleByLocale": {
+      "it": "Gleisbauer – dipendente Gleisjochmontage",
+      "en": "Gleisbauer – employee Gleisjochmontage",
+      "de": "Gleisbauer/in – Mitarbeiter Gleisjochmontage",
+      "fr": "Gleisbauer – employé Gleisjochmontage"
+    },
+    "company": "STA Personal AG",
+    "companyKey": "sta",
+    "location": "Olten, Solothurn",
+    "addressLocality": "Olten",
+    "descriptionByLocale": {
+      "it": "Produzione e montaggio di componenti di ingegneria ferroviaria in base a disegni tecnici e specifiche di lavoro Lettura e comprensione di disegni di commutazione, disegni di giogo di pista, piani di posa e piani di tipo Lavorare secondo istruzioni di montaggio per azionamenti di interruttori Distribuzione e posizionamento preciso di dormienti utilizzando una gru Marcatura della divisione ferroviaria secondo specifiche tecniche Fornitura e assemblaggio di vari materiali di fissaggio Tecnicamente appropriato di fissaggio con una macchina di coppia\n• Buona comprensione dei disegni tecnici e dei piani di assemblaggio Artigianato e comprensione tecnica Movimentazione praticata e sicura degli strumenti manuali Esperienza nella gestione di gru di vantaggio Responsabilità fisica e piacere nel lavoro pratico Metodo di lavoro efficiente, affidabile e responsabile Offrendo un'attività diversificata e responsabile nella produzione di componenti di ingegneria ferroviaria. Si lavora secondo chiare specifiche tecniche e dare un contributo importante alla qualità e sicurezza nel trasporto ferroviario con il vostro lavoro attento.",
+      "en": "Activities Production and assembly of railway engineering components according to technical drawings and work specifications Reading and understanding of switch drawings, track yoke drawings, laying plans and type plans Work according to assembly instructions for drives of switches Distributing and precise positioning of sleepers using a crane Marking the rail division according to technical specifications Providing and assembly of various fastening materials Technically appropriate tightening of the fastenings with a torque machine Ensuring the required quality and number of pieces\n• Good understanding of technical drawings and assembly plans Craftsmanship and technical understanding Practised and safe handling of hand tools Experience in handling cranes of advantage Physical resilience and pleasure in practical work Efficient, reliable and responsible working method Offering a varied and responsible activity in the production of railway engineering components. You work according to clear technical specifications and make an important contribution to quality and safety in rail transport with your careful work.",
+      "de": "Tätigkeiten Herstellen und Montieren von Bahntechnikkomponenten nach technischen Zeichnungen und Arbeitsvorgaben Lesen und Verstehen von Weichenzeichnungen, Gleisjochzeichnungen, Verlegeplänen und Typenplänen Arbeiten nach Montageanleitungen für Antriebe von Bahnweichen Verteilen und präzises Positionieren der Schwellen mithilfe eines Krans Anzeichnen der Schieneneinteilung gemäss technischen Vorgaben Bereitstellen und Montieren verschiedener Befestigungsmaterialien Fachgerechtes Anziehen der Befestigungen mit einer Drehmomentmaschine Sicherstellen der geforderten Qualität und Stückzahl\n• Anforderungen Erfahrung in der Montage, Metallverarbeitung oder im Gleisbau von Vorteil Gutes Verständnis für technische Zeichnungen und Montagepläne Handwerkliches Geschick und technisches Verständnis Geübter und sicherer Umgang mit Handwerkzeugen Erfahrung im Umgang mit Kränen von Vorteil Körperliche Belastbarkeit und Freude an praktischer Arbeit Effiziente, zuverlässige und verantwortungsbewusste Arbeitsweise Angebot Eine abwechslungsreiche und verantwortungsvolle Tätigkeit in der Herstellung von Bahntechnikkomponenten. Dabei arbeitest du nach klaren technischen Vorgaben und leistest mit deiner sorgfältigen Arbeit einen wichtigen Beitrag zur Qualität und Sicherheit im Bahnverkehr.",
+      "fr": "Activités Production et montage de composants d'ingénierie ferroviaire selon les plans techniques et les spécifications de travail Lecture et compréhension des plans d'aiguillage, des plans de pose et des plans de type Travail selon les instructions d'assemblage pour les entraînements d'aiguillage Distribution et positionnement précis des traverses à l'aide d'une grue Marquage de la division ferroviaire selon les spécifications techniques Fourniture et montage de divers matériaux de fixation Renforcement technique approprié des fixations avec une machine à couple Assurer la qualité et le nombre de pièces requis\n• Bonne compréhension des plans techniques et des plans d'assemblage Artisanat et compréhension technique Manipulation pratique et sûre des outils à main Expérience dans la manipulation des grues d'avantage Résistance physique et plaisir dans le travail pratique Méthode de travail efficace, fiable et responsable Offrant une activité variée et responsable dans la production de composants d'ingénierie ferroviaire. Vous travaillez selon des spécifications techniques claires et apportez une contribution importante à la qualité et la sécurité dans le transport ferroviaire avec votre travail minutieux."
+    },
+    "slugByLocale": {
+      "it": "gleisbauer-dipendente-gleisjochmontage-sta-personal-ag-olten-solothurn",
+      "en": "gleisbauer-in-mitarbeiter-gleisjochmontage-sta-personal-ag-olten",
+      "de": "gleisbauer-in-8211-mitarbeiter-gleisjochmontage-olten-solothurn-sta-ch",
+      "fr": "gleisbauer-in-mitarbeiter-gleisjochmontage-sta-personal-ag-olten"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-09-18T21:37:57.623Z",
+    "previousSlugs": [
+      "gleisbauer-in-8211-mitarbeiter-gleisjochmontage-olten-solothurn-sta-ch",
+      "gleisbauer-in-collaboratore-trice-gleisjochmontage-sta-personal-ag-olten"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "gleisbauer-in-8211-mitarbeiter-gleisjochmontage-olten-solothurn-sta-ch",
+        "gleisbauer-in-collaboratore-trice-gleisjochmontage-sta-personal-ag-olten"
+      ]
+    },
+    "salaryMin": 68500,
+    "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "installatore-elettrico-con-focus-sulla-tecnologia-di-costruzione-sta-personal-ag-luzern-luzern",
+    "title": "Elektroinstallateur/in mit Schwerpunkt Gebäudetechnik",
+    "titleByLocale": {
+      "it": "Installatore elettrico con focus sulla tecnologia di costruzione",
+      "en": "Electrical installer with focus on building technology",
+      "de": "Elektroinstallateur/in mit Schwerpunkt Gebäudetechnik",
+      "fr": "Installation électrique axée sur la technologie du bâtiment"
+    },
+    "company": "STA Personal AG",
+    "companyKey": "sta",
+    "location": "Luzern, Luzern",
+    "addressLocality": "Luzern",
+    "descriptionByLocale": {
+      "it": "Attività Impianti elettrici in progetti nuovi e di conversione effettuano impianti elettrici di installazione, cablaggio e collegamento sistemi di automazione degli edifici messi in servizio, riparazione e manutenzione svolgono una cooperazione indipendente su vari progetti dei clienti\n• Requisiti Allenamento completato come installatore elettrico EFZ Metodo di lavoro affidabile e preciso Interessi nella moderna tecnologia di costruzione L'atteggiamento orientato al team e rispettoso del cliente patente Cat. B è un'offerta più Diversi e futuri progetti elettrici Team di famiglia con un'atmosfera di lavoro collaborativa Sviluppo a lungo termine e ulteriori opportunità di istruzione",
+      "en": "Activities Electrical installations in new and conversion projects carry out Electrical installation, wiring and connecting building automation systems put into operation service, repair and maintenance work carry out independent cooperation on various customer projects\n• Requirements Completed training as an electrical installer EFZ Reliable and precise working method Interest in modern building technology Team-oriented and customer-friendly attitude driver's license Cat. B is a plus offer Various and future-oriented electrical projects Family team with a collaborative working atmosphere Long-term development and further education opportunities",
+      "de": "Tätigkeiten Elektroinstallationen in Neu- und Umbauprojekten ausführen Elektrische Anlagen installieren, verdrahten und anschliessen Gebäudeautomationssysteme in Betrieb nehmen Service-, Reparatur- und Unterhaltsarbeiten durchführen Selbstständige Mitarbeit auf diversen Kundenprojekten sicherstellen\n• Anforderungen Abgeschlossene Ausbildung als Elektroinstallateur EFZ Zuverlässige und präzise Arbeitsweise Interesse an moderner Gebäudetechnik Teamorientierte und kundenfreundliche Haltung Führerausweis Kat. B ist ein Plus Angebot Vielfältige und zukunftsorientierte Elektroprojekte Familiäres Team mit kollegialem Arbeitsklima Langfristige Entwicklungs- und Weiterbildungsmöglichkeiten",
+      "fr": "Activités Installations électriques dans les nouveaux projets et projets de conversion réalisation Installation électrique, câblage et connexion systèmes d'automatisation des bâtiments mis en service, travaux de réparation et d'entretien réalisation de coopération indépendante sur divers projets clients\n• Exigences Formation complète en tant qu'installateur électrique EFZ Méthode de travail fiable et précise Intérêt pour la technologie moderne du bâtiment Permis de conduire d'attitude axé sur l'équipe et convivial pour la clientèle Cat. B est une offre plus Divers projets électriques orientés vers l'avenir Équipe familiale avec une atmosphère de travail collaborative Développement à long terme et possibilités de formation continue"
+    },
+    "slugByLocale": {
+      "it": "installatore-elettrico-con-focus-sulla-tecnologia-di-costruzione-sta-personal-ag-luzern-luzern",
+      "en": "electrical-installer-with-focus-on-building-technology-sta-personal-ag-luzern-luzern",
+      "de": "elektroinstallateur-in-mit-schwerpunkt-gebaudetechnik-luzern-luzern-sta-ch",
+      "fr": "installation-electrique-axee-sur-la-technologie-du-batiment-sta-personal-ag-luzern-luzern"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-09-18T21:37:57.623Z",
+    "previousSlugs": [
+      "elektroinstallateur-in-mit-schwerpunkt-gebaudetechnik-luzern-luzern-sta-ch",
+      "installatore-trice-elettrico-a-in-con-schwerpunkt-gebaudetechnik-sta-personal-ag-luzern",
+      "electrical-installer-mit-schwerpunkt-gebaudetechnik-sta-personal-ag-luzern",
+      "installateur-trice-electricien-ne-mit-schwerpunkt-gebaudetechnik-sta-personal-ag-luzern",
+      "electrical-installer-mit-schwerpunkt-gebaudetechnik-sta-personal-ag-luzern-luzern",
+      "installateur-trice-electricien-ne-mit-schwerpunkt-gebaudetechnik-sta-personal-ag-luzern-luzern",
+      "installatore-elettrico-con-focus-industria-nave-e-costruzione-di-impianti-sta-personal-ag-luzern-luzern",
+      "electrical-installer-with-industry-focus-ship-and-plant-construction-sta-personal-ag-luzern-luzern",
+      "elektroinstallateur-in-mit-branchenfokus-schiff-und-anlagenbau-luzern-luzern-sta-ch",
+      "installation-electrique-avec-construction-de-navires-et-d-usines-sta-personal-ag-luzern-luzern",
+      "installatore-trice-elettrico-a-in-con-branchenfokus-schiff-e-anlagenbau-sta-personal-ag-luzern",
+      "electrical-installer-mit-branchenfokus-schiff-und-anlagenbau-sta-personal-ag-luzern",
+      "installateur-trice-electricien-ne-mit-branchenfokus-schiff-und-anlagenbau-sta-personal-ag-luzern"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "elektroinstallateur-in-mit-schwerpunkt-gebaudetechnik-luzern-luzern-sta-ch",
+        "installatore-trice-elettrico-a-in-con-schwerpunkt-gebaudetechnik-sta-personal-ag-luzern",
+        "installatore-elettrico-con-focus-industria-nave-e-costruzione-di-impianti-sta-personal-ag-luzern-luzern",
+        "electrical-installer-with-industry-focus-ship-and-plant-construction-sta-personal-ag-luzern-luzern",
+        "elektroinstallateur-in-mit-branchenfokus-schiff-und-anlagenbau-luzern-luzern-sta-ch",
+        "installation-electrique-avec-construction-de-navires-et-d-usines-sta-personal-ag-luzern-luzern",
+        "installatore-trice-elettrico-a-in-con-branchenfokus-schiff-e-anlagenbau-sta-personal-ag-luzern",
+        "electrical-installer-mit-branchenfokus-schiff-und-anlagenbau-sta-personal-ag-luzern",
+        "installateur-trice-electricien-ne-mit-branchenfokus-schiff-und-anlagenbau-sta-personal-ag-luzern"
+      ],
+      "en": [
+        "elektroinstallateur-in-mit-schwerpunkt-gebaudetechnik-luzern-luzern-sta-ch",
+        "electrical-installer-mit-schwerpunkt-gebaudetechnik-sta-personal-ag-luzern",
+        "electrical-installer-mit-schwerpunkt-gebaudetechnik-sta-personal-ag-luzern-luzern",
+        "electrical-installer-with-industry-focus-ship-and-plant-construction-sta-personal-ag-luzern-luzern"
+      ],
+      "de": [
+        "elektroinstallateur-in-mit-branchenfokus-schiff-und-anlagenbau-luzern-luzern-sta-ch"
+      ],
+      "fr": [
+        "elektroinstallateur-in-mit-schwerpunkt-gebaudetechnik-luzern-luzern-sta-ch",
+        "installateur-trice-electricien-ne-mit-schwerpunkt-gebaudetechnik-sta-personal-ag-luzern",
+        "installateur-trice-electricien-ne-mit-schwerpunkt-gebaudetechnik-sta-personal-ag-luzern-luzern",
+        "installation-electrique-avec-construction-de-navires-et-d-usines-sta-personal-ag-luzern-luzern"
+      ]
+    },
+    "salaryMin": 78500,
+    "salaryMax": 119000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "lavoratori-per-montaggio-e-riparazione-sta-personal-ag-aarau-aargau",
+    "title": "Metallbauer/in für Montage und Reparaturen",
+    "titleByLocale": {
+      "it": "Lavoratori per montaggio e riparazione",
+      "en": "Metalworkers for assembly and repairs",
+      "de": "Metallbauer/in für Montage und Reparaturen",
+      "fr": "Métaux pour assemblage et réparation"
+    },
+    "company": "STA Personal AG",
+    "companyKey": "sta",
+    "location": "Aarau, Aargau",
+    "addressLocality": "Aarau",
+    "descriptionByLocale": {
+      "it": "Attività I lavori di assemblaggio in costruzione metallica effettuano riparazioni a strutture metalliche intraprendono revisioni e fanno lavori di fabbro generale\n• Requisiti Grado di formazione come metalworker o metalworker EFZ Estremamente accurato e affidabile metodo di lavoro patente di guida categoria B sarebbe auspicabile offrire lavoro in un piccolo spazio di squadra dedicato per portare nella propria versatilità",
+      "en": "Activities Assembly work in metal construction carry out repairs to metal structures undertake revisions and do general locksmith work\n• Requirements Training degree as a metalworker or metalworker EFZ Extremely accurate and reliable working method driving licence category B would be desirable offer work in a small dedicated team space to bring in its own versatility Attractive hourly wage",
+      "de": "Tätigkeiten Montagearbeiten im Metallbau ausführen Reparaturen an Metallkonstruktionen übernehmen Revisionen und allgemeine Schlosserarbeiten erledigen\n• Anforderungen Lehrabschluss als Metallbauerin oder Metallbauer EFZ Äusserst genaue und verlässliche Arbeitsweise Führerausweis Kategorie B wäre wünschenswert Angebot Arbeit in einem kleinen engagierten Team Raum, um die eigene Vielseitigkeit einzubringen Attraktiver Stundenlohn",
+      "fr": "Activités Travaux d'assemblage dans la construction de métaux effectuer des réparations de structures métalliques entreprendre des révisions et effectuer des travaux généraux de serrurier\n• Exigences Diplôme de formation en tant que métallurgiste ou métallurgiste EFZ Extrêmement précis et fiable méthode de travail de la catégorie de permis de conduire B serait souhaitable offrir du travail dans un petit espace d'équipe dédié à apporter dans sa propre polyvalence"
+    },
+    "slugByLocale": {
+      "it": "lavoratori-per-montaggio-e-riparazione-sta-personal-ag-aarau-aargau",
+      "en": "metalworkers-for-assembly-and-repairs-sta-personal-ag-aarau-aargau",
+      "de": "metallbauer-in-fur-montage-und-reparaturen-aarau-aargau-sta-ch",
+      "fr": "metaux-pour-assemblage-et-reparation-sta-personal-ag-aarau-aargau"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-09-18T21:37:57.623Z",
+    "previousSlugs": [
+      "metallbauer-in-fur-montage-und-reparaturen-aarau-aargau-sta-ch",
+      "metallbauer-in-per-montage-e-reparaturen-sta-personal-ag-aarau"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "metallbauer-in-fur-montage-und-reparaturen-aarau-aargau-sta-ch",
+        "metallbauer-in-per-montage-e-reparaturen-sta-personal-ag-aarau"
+      ],
+      "en": [
+        "metallbauer-in-fur-montage-und-reparaturen-aarau-aargau-sta-ch"
+      ],
+      "fr": [
+        "metallbauer-in-fur-montage-und-reparaturen-aarau-aargau-sta-ch"
+      ]
+    },
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "pittore-industriale-in-2-turni-sta-personal-ag-olten-solothurn",
+    "title": "Industrielackierer/in im 2-Schichtbetrieb",
+    "titleByLocale": {
+      "it": "Pittore industriale in 2 turni",
+      "en": "Industrial painter in 2-shift operation",
+      "de": "Industrielackierer/in im 2-Schichtbetrieb",
+      "fr": "Peintre industriel en 2 équipes"
+    },
+    "company": "STA Personal AG",
+    "companyKey": "sta",
+    "location": "Olten, Solothurn",
+    "addressLocality": "Olten",
+    "descriptionByLocale": {
+      "it": "Attività Riparazione e verniciatura di locomotive, locomotive, autovetture e vari componenti di macinazione, sabbiatura, sbavatura, priming e verniciatura del materiale rotabile Riparazione e lavorazione delle parti GRP Lavorare con vari sistemi di verniciatura 2K basati su acqua e solvente Applicando AirMix e processi di verniciatura convenzionali Collaborazione attiva in un team dedicato e consolidato\n• Requisiti Completato l'apprendistato professionale di 3 o 4 anni con EFZ come pittore automobilistico o industriale Esperienza nell'ambiente industriale e nella pittura di grandi veicoli di vantaggio Prontezza di lavorare in due turni resilienza fisica e un metodo di lavoro affidabile Piacere nella cooperazione e raggiungimento congiunta di obiettivi Buona conoscenza del tedesco in parola e scrittura Gestione sicura di programmi IT e strumenti digitali Offerta Attendere un compito versatile e responsabile in un ambiente industriale emozionante. Insieme a un team motivato, si assicura che i veicoli del nostro cliente FFS sono professionalmente riparati e tornare alle rotaie in un nuovo splendore.",
+      "en": "Activities Repairing and painting of locomotives, locomotives, passenger cars and various components grinding, blasting, troweling, priming and painting of rolling stock Repair and machining of GRP parts Work with various 2K paint systems based on water and solvent Applying AirMix as well as conventional paint processes Active cooperation in a dedicated and well-established team\n• Requirements Completed 3- or 4-year vocational apprenticeship with EFZ as an automotive or industrial painter Experience in the industrial environment and in the painting of large vehicles of advantage Readiness to work in two-shift operation Physical resilience and a reliable working method Pleasure in the cooperation and joint achievement of goals Good knowledge of German in word and writing Secure handling of IT programs and digital tools Offer Look forward to a versatile and responsible task in an exciting industrial environment. Together with a motivated team, you ensure that the vehicles of our customer SBB are professionally repaired and return to the rails in a new splendor.",
+      "de": "Tätigkeiten Instandsetzen und Lackieren von Lokomotiven, Triebfahrzeugen, Personenwagen und verschiedenen Komponenten Schleifen, Strahlen, Spachteln, Grundieren und Lackieren des Rollmaterials Reparieren und Bearbeiten von GFK-Teilen Arbeiten mit verschiedenen 2K-Lacksystemen auf Wasser- und Lösemittelbasis Anwenden von AirMix sowie konventionellen Lackierverfahren Aktive Zusammenarbeit in einem engagierten und eingespielten Team\n• Anforderungen Abgeschlossene 3- oder 4-jährige Berufslehre mit EFZ als Auto- oder Industrielackierer Erfahrung im industriellen Umfeld und im Lackieren grosser Fahrzeuge von Vorteil Bereitschaft zur Arbeit im Zweischichtbetrieb Körperliche Belastbarkeit und eine zuverlässige Arbeitsweise Freude an der Zusammenarbeit und am gemeinsamen Erreichen von Zielen Gute Deutschkenntnisse in Wort und Schrift Sicherer Umgang mit IT-Programmen und digitalen Hilfsmitteln Angebot Freue dich auf eine vielseitige und verantwortungsvolle Aufgabe in einem spannenden industriellen Umfeld. Gemeinsam mit einem motivierten Team sorgst du dafür, dass die Fahrzeuge unserer Kundin SBB fachgerecht instand gesetzt werden und wieder in neuem Glanz auf die Schienen zurückkehren.",
+      "fr": "Activités Réparation et peinture de locomotives, de locomotives, de voitures particulières et de divers composants pour le broyage, le dynamitage, le troweling, l'amorçage et la peinture de matériel roulant Réparation et usinage de pièces GRP Travail avec divers systèmes de peinture 2K à base d'eau et de solvant Application d'AirMix ainsi que des procédés de peinture conventionnels Coopération active dans une équipe dédiée et bien établie\n• Exigences Achevé Apprentissage professionnel de 3 ou 4 ans avec EFZ en tant que peintre automobile ou industriel Expérience dans l'environnement industriel et dans la peinture de grands véhicules d'avantage Capacité de travailler en deux équipes Résistance physique et une méthode de travail fiable Plaisir dans la coopération et la réalisation conjointe des objectifs Bonne connaissance de l'allemand en paroles et en écriture Gestion sécurisée des programmes informatiques et des outils numériques Offrez-vous à une tâche polyvalente et responsable dans un environnement industriel passionnant. Avec une équipe motivée, vous veillez à ce que les véhicules de notre client CFF soient réparés professionnellement et retournés aux rails dans une nouvelle splendeur."
+    },
+    "slugByLocale": {
+      "it": "pittore-industriale-in-2-turni-sta-personal-ag-olten-solothurn",
+      "en": "industrial-painter-in-2-shift-operation-sta-personal-ag-olten-solothurn",
+      "de": "industrielackierer-in-im-2-schichtbetrieb-olten-solothurn-sta-ch",
+      "fr": "peintre-industriel-en-2-equipes-sta-personal-ag-olten-solothurn"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-09-18T21:37:57.623Z",
+    "previousSlugs": [
+      "industrielackierer-in-im-2-schichtbetrieb-olten-solothurn-sta-ch",
+      "industrielackierer-in-im-2-schichtbetrieb-sta-personal-ag-olten"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "industrielackierer-in-im-2-schichtbetrieb-olten-solothurn-sta-ch",
+        "industrielackierer-in-im-2-schichtbetrieb-sta-personal-ag-olten"
+      ],
+      "en": [
+        "industrielackierer-in-im-2-schichtbetrieb-sta-personal-ag-olten"
+      ],
+      "fr": [
+        "industrielackierer-in-im-2-schichtbetrieb-sta-personal-ag-olten"
+      ]
+    },
+    "salaryMin": 68500,
+    "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "pittore-per-lavori-interni-ed-esterni-di-alta-qualita-sta-personal-ag-olten-solothurn",
+    "title": "Maler/in für hochwertige Innen- und Aussenarbeiten",
+    "titleByLocale": {
+      "it": "Pittore per lavori interni ed esterni di alta qualità",
+      "en": "Painter for high-quality interior and exterior work",
+      "de": "Maler/in für hochwertige Innen- und Aussenarbeiten",
+      "fr": "Peintre pour travaux intérieurs et extérieurs de haute qualité"
+    },
+    "company": "STA Personal AG",
+    "companyKey": "sta",
+    "location": "Olten, Solothurn",
+    "addressLocality": "Olten",
+    "descriptionByLocale": {
+      "it": "Esecuzione di lavori di verniciatura all'interno e all'esterno di nuovi e progetti di conversione Progettazione e finitura di superfici di alta qualità per clienti privati e commerciali Assicurare un lavoro preciso, tempestivo ed efficiente nel rispetto delle rispettive specifiche di costruzione e cliente\n• Requisiti Apprendistato completo come pittore / in EFZ Esperienza pratica approfondita nel settore della pittura Metodi di lavoro accurati ed efficienti Aspetto amichevole e comportamento orientato al servizio verso i clienti La categoria di patente di guida vantaggiosa B Offrire il compito responsabile in un team impegnato e professionale Aree di applicazione Diverse con elevate esigenze di qualità Paga attraente con un salario orario molto buono",
+      "en": "Activities Execution of painting works in the interior and exterior of new and conversion projects Designing and finishing high-quality surfaces for private and commercial customers Ensure a precise, timely and efficient work execution work in compliance with the respective construction and customer specifications\n• Requirements Completed apprenticeship as a painter / in EFZ In-depth practical experience in the painting trade Careful and efficient working methods Friendly appearance and service-oriented behavior towards customers Advantageous driver's license category B Offer Responsible task in a committed and professional team Diverse areas of application with high demands on quality Attractive pay with a very good hourly wage",
+      "de": "Tätigkeiten Ausführen von Malerarbeiten im Innen- und Aussenbereich bei Neu- und Umbauprojekten Gestalten und Veredeln von hochwertigen Oberflächen für private und gewerbliche Kunden Gewährleisten einer präzisen, termingerechten und effizienten Arbeitsausführung Arbeiten unter Einhaltung der jeweiligen Bau- und Kundenvorgaben\n• Anforderungen Abgeschlossene Lehre als Maler/in EFZ Fundierte praktische Erfahrung im Malerhandwerk Sorgfältige und effiziente Arbeitsweise Freundliches Auftreten und serviceorientiertes Verhalten gegenüber Kunden Von Vorteil Führerausweis Kategorie B Angebot Verantwortungsvolle Aufgabe in einem engagierten und professionellen Team Vielfältige Einsatzbereiche mit hohen Ansprüchen an die Qualität Attraktive Bezahlung mit einem sehr guten Stundenlohn",
+      "fr": "Activités Réalisation d'œuvres de peinture à l'intérieur et à l'extérieur de projets nouveaux et de conversion Conception et finition de surfaces de haute qualité pour les clients privés et commerciaux Assurer un travail d'exécution précis, opportun et efficace conformément aux spécifications de construction et de client\n• Exigences Apprentissage terminé en tant que peintre / en EFZ Expérience pratique approfondie dans le secteur de la peinture Méthodes de travail prudentes et efficaces Aspect amical et comportement axé sur le service envers les clients Catégorie de permis de conduire avantageux B Offre Tâche responsable dans une équipe engagée et professionnelle Différents domaines d'application avec des exigences élevées sur la qualité Une rémunération attrayante avec un très bon salaire horaire"
+    },
+    "slugByLocale": {
+      "it": "pittore-per-lavori-interni-ed-esterni-di-alta-qualita-sta-personal-ag-olten-solothurn",
+      "en": "painter-for-high-quality-interior-and-exterior-work-sta-personal-ag-olten-solothurn",
+      "de": "maler-in-fur-hochwertige-innen-und-aussenarbeiten-olten-solothurn-sta-ch",
+      "fr": "peintre-pour-travaux-interieurs-et-exterieurs-de-haute-qualite-sta-personal-ag-olten-solothurn"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-09-18T21:37:57.623Z",
+    "previousSlugs": [
+      "maler-in-fur-hochwertige-innen-und-aussenarbeiten-olten-solothurn-sta-ch",
+      "maler-in-per-hochwertige-innen-e-aussenarbeiten-sta-personal-ag-olten"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "maler-in-fur-hochwertige-innen-und-aussenarbeiten-olten-solothurn-sta-ch",
+        "maler-in-per-hochwertige-innen-e-aussenarbeiten-sta-personal-ag-olten"
+      ],
+      "en": [
+        "maler-in-fur-hochwertige-innen-und-aussenarbeiten-olten-solothurn-sta-ch"
+      ],
+      "fr": [
+        "maler-in-fur-hochwertige-innen-und-aussenarbeiten-olten-solothurn-sta-ch"
+      ]
+    },
+    "salaryMin": 68500,
+    "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "pittore-per-progetti-di-costruzione-e-ristrutturazione-versatili-sta-personal-ag-zofingen-aargau",
+    "title": "Maler/in für vielseitige Neubau- und Renovationsprojekte",
+    "titleByLocale": {
+      "it": "Pittore per progetti di costruzione e ristrutturazione versatili",
+      "en": "Painter for versatile new construction and renovation projects",
+      "de": "Maler/in für vielseitige Neubau- und Renovationsprojekte",
+      "fr": "Peintre pour nouveaux projets de construction et de rénovation polyvalents"
+    },
+    "company": "STA Personal AG",
+    "companyKey": "sta",
+    "location": "Zofingen, Aargau",
+    "addressLocality": "Zofingen",
+    "descriptionByLocale": {
+      "it": "Attività Si effettuano lavori di verniciatura versatili ed esigenti all'interno ed all'esterno di nuovi oggetti di costruzione e ristrutturazione per clienti privati e commerciali. Clienti privati\n• Requisiti Formazione come pittore EFZ Pratica professionale variata e di lunga durata Metodo di lavoro efficiente e indipendente Certificato di guida Cat. B Offerta\n• Vi offriamo un compito interessante e vario in un'operazione dinamica. Ciò include alti livelli di lavoro autonomo, responsabilità personale e condizioni di lavoro attraenti.",
+      "en": "Activities You carry out versatile and demanding painting works in the interior and exterior of new construction and renovation objects for private and commercial customers. Private clients\n• Requirements Training as a painter EFZ Varied and long-standing professional practice Efficient and independent working method Personality Driving Certificate Cat. B Offer\n• We offer you an interesting, varied task in a dynamic operation. This includes high levels of self-employment, personal responsibility and attractive employment conditions.",
+      "de": "Tätigkeiten Sie führen vielseitige und anspruchsvolle Malerarbeiten im Innen- und Aussenbereich an Neubau- und Renovationsobjekten bei Privat- und Gewerbekunden aus. Privatkundschaft\n• Anforderungen Ausbildung als Maler EFZ Vielseitige und langjährige Berufspraxis Effiziente und selbständige Arbeitsweise Aufgestellte Persönlichkeit Führerausweis Kat. B Angebot\n• Wir bieten Ihnen eine interessante, abwechslungsreiche Aufgabe in einem dynamischen Betrieb. Hohe Selbständigkeit, Eigenverantwortung und attraktive Anstellungsbedingungen gehören dazu.",
+      "fr": "Activités Vous réalisez des travaux de peinture polyvalents et exigeants dans l'intérieur et l'extérieur de nouveaux objets de construction et de rénovation pour les clients privés et commerciaux. Clients privés\n• Exigences Formation en tant que peintre EFZ Pratique professionnelle variée et de longue date Méthode de travail efficace et indépendante Personnalité Certificat de conduite Cat. B Offre\n• Nous vous proposons une tâche intéressante et variée dans une opération dynamique. Cela comprend des niveaux élevés de travail indépendant, de responsabilité personnelle et de conditions d'emploi attrayantes."
+    },
+    "slugByLocale": {
+      "it": "pittore-per-progetti-di-costruzione-e-ristrutturazione-versatili-sta-personal-ag-zofingen-aargau",
+      "en": "painter-for-versatile-new-construction-and-renovation-projects-sta-personal-ag-zofingen-aargau",
+      "de": "maler-in-fur-vielseitige-neubau-und-renovationsprojekte-zofingen-aargau-sta-ch",
+      "fr": "peintre-pour-nouveaux-projets-de-construction-et-de-renovation-polyvalents-sta-personal-ag-zofingen-aargau"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-09-18T21:37:57.623Z",
+    "previousSlugs": [
+      "maler-in-fur-vielseitige-neubau-und-renovationsprojekte-zofingen-aargau-sta-ch",
+      "maler-in-per-vielseitige-neubau-e-renovationsprojekte-sta-personal-ag-zofingen",
+      "maler-in-fur-vielseitige-neubau-und-renovationsprojekte-sta-personal-ag-zofingen",
+      "pittore-per-nuovi-progetti-di-costruzione-e-ristrutturazione-sta-personal-ag-aarau-aargau",
+      "painter-for-new-construction-and-renovation-projects-sta-personal-ag-aarau-aargau",
+      "maler-in-fur-neubau-und-renovationsprojekte-aarau-aargau-sta-ch",
+      "peintre-pour-nouveaux-projets-de-construction-et-de-renovation-sta-personal-ag-aarau-aargau",
+      "maler-in-per-neubau-e-renovationsprojekte-sta-personal-ag-aarau",
+      "maler-in-fur-neubau-und-renovationsprojekte-sta-personal-ag-aarau"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "maler-in-fur-vielseitige-neubau-und-renovationsprojekte-zofingen-aargau-sta-ch",
+        "maler-in-per-vielseitige-neubau-e-renovationsprojekte-sta-personal-ag-zofingen",
+        "pittore-per-nuovi-progetti-di-costruzione-e-ristrutturazione-sta-personal-ag-aarau-aargau",
+        "painter-for-new-construction-and-renovation-projects-sta-personal-ag-aarau-aargau",
+        "maler-in-fur-neubau-und-renovationsprojekte-aarau-aargau-sta-ch",
+        "peintre-pour-nouveaux-projets-de-construction-et-de-renovation-sta-personal-ag-aarau-aargau",
+        "maler-in-per-neubau-e-renovationsprojekte-sta-personal-ag-aarau",
+        "maler-in-fur-neubau-und-renovationsprojekte-sta-personal-ag-aarau"
+      ],
+      "en": [
+        "maler-in-fur-vielseitige-neubau-und-renovationsprojekte-sta-personal-ag-zofingen",
+        "painter-for-new-construction-and-renovation-projects-sta-personal-ag-aarau-aargau"
+      ],
+      "de": [
+        "maler-in-fur-neubau-und-renovationsprojekte-aarau-aargau-sta-ch"
+      ],
+      "fr": [
+        "maler-in-fur-vielseitige-neubau-und-renovationsprojekte-sta-personal-ag-zofingen",
+        "peintre-pour-nouveaux-projets-de-construction-et-de-renovation-sta-personal-ag-aarau-aargau"
+      ]
+    },
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "pittore-per-vernice-2k-e-spruzzatore-airless-sta-personal-ag-olten-solothurn",
+    "title": "Maler/in für 2K-Lacke und Airless-Spritzgerät",
+    "titleByLocale": {
+      "it": "Pittore per vernice 2K e spruzzatore airless",
+      "en": "Painter for 2K paint and airless sprayer",
+      "de": "Maler/in für 2K-Lacke und Airless-Spritzgerät",
+      "fr": "Peintre pour peinture 2K et pulvérisateur airless"
+    },
+    "company": "STA Personal AG",
+    "companyKey": "sta",
+    "location": "Olten, Solothurn",
+    "addressLocality": "Olten",
+    "descriptionByLocale": {
+      "it": "Preparazione indipendente dei rispettivi requisiti per vernici/varianti, utensili, aiuti e materiali di consumo Impostazione e preparazione del cantiere Preparazione corretta delle aree da verniciare: lavori di rivestimento, rettifica, pulizia, sgrassamento delle superfici Fornitura delle vernici 2K così come degli strumenti secondo il metodo di applicazione previsto: spazzola/rullo/rullo senza aria spruzzatore/tazza pistola ecc.\n• Requisiti Completato l'apprendistato professionale come un pittore / in EFZ patente Cat. B (BE di vantaggio) Buone competenze tedesche Metodi di lavoro puliti ed esatti standard di alta qualità sul proprio lavoro Affidabilità e offerta di lavoro Qui troverete un'attività versatile e interessante in cui siete necessari. Se adatto, c'è una possibilità di occupazione permanente.",
+      "en": "Activities Independent preparation of the respective requirements for paints/varnishes, tools, aids and consumables Setting up and preparation of the construction site Correct preparation of the areas to be painted: covering work, grinding, cleaning, degreasing of the surfaces Provision of the 2K paints as well as of the tools according to the planned application method: brush/roll/airless sprayer/cup gun etc.\n• Requirements Completed vocational apprenticeship as a painter/in EFZ driver’s license Cat. B (BE of advantage) Good German skills Clean and exact working methods High quality standards on your own work Reliability and teamwork offer Here you will find a versatile and interesting activity in which you are required. If suitable, there is a chance of permanent employment.",
+      "de": "Tätigkeiten Selbständige Vorbereitung des jeweiligen Bedarfs an Farben / Lacken, Werkzeugen, Hilfsmittel und Verbrauchsmaterialien Einrichtung und Vorbereitung der Baustelle Korrekte Vorbereitung der zu lackierenden Stellen: Abdeckarbeiten, anschleifen, reinigen, entfetten der Oberflächen Bereitstellung der 2K-Lacke sowie der Werkzeuge gemäss geplanter Applikationsmethode: Pinsel / Rolle / Airless-Spritzgerät / Becherpistole etc.\n• Anforderungen Abgeschlossene Berufslehre als Maler/in EFZ Führerausweis Kat. B (BE von Vorteil) Gute Deutschkenntnisse Saubere und exakte Arbeitsweise Hoher Qualitätsanspruch an die eigene Arbeit Zuverlässigkeit und Teamfähigkeit Angebot Hier finden Sie eine vielseitige und interessante Tätigkeit in welcher Sie gefordert werden. Bei Eignung besteht die Chance auf eine Festanstellung.",
+      "fr": "Activités Préparation indépendante des exigences respectives en matière de peinture/vernis, d'outils, d'aides et de consommables Mise en place et préparation du chantier Préparation correcte des zones à peindre: travaux de revêtement, de broyage, de nettoyage, de dégraissage des surfaces Fourniture des peintures 2K ainsi que des outils selon la méthode d'application prévue: brosse/rouleau/vaporisateur sans air/pistolet à pompe, etc.\n• Exigences Apprentissage professionnel terminé en tant que peintre / en EFZ permis de conduire Cat. B (BE d'avantage) Bonnes compétences allemandes Méthodes de travail propres et exactes Des normes de qualité élevées sur votre propre travail Offre de fiabilité et de travail d'équipe Vous trouverez ici une activité polyvalente et intéressante dans laquelle vous êtes requis. Le cas échéant, il y a une possibilité d'emploi permanent."
+    },
+    "slugByLocale": {
+      "it": "pittore-per-vernice-2k-e-spruzzatore-airless-sta-personal-ag-olten-solothurn",
+      "en": "painter-for-2k-paint-and-airless-sprayer-sta-personal-ag-olten-solothurn",
+      "de": "maler-in-fur-2k-lacke-und-airless-spritzgerat-olten-solothurn-sta-ch",
+      "fr": "peintre-pour-peinture-2k-et-pulverisateur-airless-sta-personal-ag-olten-solothurn"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-09-18T21:37:57.623Z",
+    "previousSlugs": [
+      "maler-in-fur-2k-lacke-und-airless-spritzgerat-olten-solothurn-sta-ch",
+      "maler-in-per-2k-lacke-e-airless-spritzgerat-sta-personal-ag-olten"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "maler-in-fur-2k-lacke-und-airless-spritzgerat-olten-solothurn-sta-ch",
+        "maler-in-per-2k-lacke-e-airless-spritzgerat-sta-personal-ag-olten"
+      ],
+      "en": [
+        "maler-in-fur-2k-lacke-und-airless-spritzgerat-olten-solothurn-sta-ch"
+      ],
+      "fr": [
+        "maler-in-fur-2k-lacke-und-airless-spritzgerat-olten-solothurn-sta-ch"
+      ]
+    },
+    "salaryMin": 68500,
+    "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "specialista-per-la-manutenzione-tecnica-di-edifici-sta-personal-ag-olten-solothurn",
+    "title": "Fachmann/-frau Betriebsunterhalt für technische Gebäudebetreuung",
+    "titleByLocale": {
+      "it": "Specialista per la manutenzione tecnica di edifici",
+      "en": "Specialist for technical maintenance of buildings",
+      "de": "Fachmann/-frau Betriebsunterhalt für technische Gebäudebetreuung",
+      "fr": "Spécialiste de l ' entretien technique des bâtiments"
+    },
+    "company": "STA Personal AG",
+    "companyKey": "sta",
+    "location": "Olten, Solothurn",
+    "addressLocality": "Olten",
+    "descriptionByLocale": {
+      "it": "Regolarmente controllare le condizioni di costruzione e garantire piccole riparazioni e riparazioni impianti tecnici auto-performanti monitorano continuamente le operazioni di manutenzione esterna organizzano e accompagnano aree verdi, percorsi e mantengono parcheggi\n• Requisiti Formazione completa come specialista Manutenzione Operativa Esperienza di lavoro nella manutenzione di edifici tecnici Metodi di lavoro indipendenti e strutturati nella vita di tutti i giorni Amichevole trattare con inquilini e visitatori Offrire versatili\n• Compiti relativi agli edifici e alle aree Area di lavoro auto-responsabile nella manutenzione aziendale",
+      "en": "Activities Regularly check building condition and ensure minor repairs and repairs self-performing technical installations continuously monitor external maintenance operations organize and accompany green areas, paths and maintain parking spaces\n• Requirements Completed training as a specialist Operating maintenance Work experience in technical building maintenance Independent and structured working methods in everyday life Friendly dealing with tenants and visitors Offer versatile\n• Tasks relating to buildings and areas Self-responsible working area in company maintenance",
+      "de": "Tätigkeiten Gebäudezustand regelmässig prüfen und sicherstellen Kleinere Reparaturen und Instandsetzungen selbst ausführen Haustechnische Anlagen laufend überwachen Externe Wartungseinsätze organisieren und begleiten Grünflächen, Wege und Parkplätze unterhalten\n• Anforderungen Abgeschlossene Ausbildung zum Fachmann Betriebsunterhalt Berufserfahrung im technischen Gebäudeunterhalt Selbständige und strukturierte Arbeitsweise im Alltag Freundlicher Umgang mit Mietern und Besuchenden Angebot Vielseitige\n• Aufgaben rund um Gebäude und Areal Eigenverantwortlicher Arbeitsbereich im Betriebsunterhalt",
+      "fr": "Activités Vérifier régulièrement l'état du bâtiment et veiller à ce que les petites réparations et réparations des installations techniques autoperformantes surveillent en permanence les opérations d'entretien externe organisent et accompagnent les espaces verts, les sentiers et les aires de stationnement\n• Exigences Formation complète en tant que spécialiste Entretien opérationnel Expérience de travail dans l'entretien technique des bâtiments Méthodes de travail indépendantes et structurées dans la vie quotidienne\n• Tâches relatives aux bâtiments et aux zones Espace de travail autonome dans l'entretien de l'entreprise"
+    },
+    "slugByLocale": {
+      "it": "specialista-per-la-manutenzione-tecnica-di-edifici-sta-personal-ag-olten-solothurn",
+      "en": "specialist-for-technical-maintenance-of-buildings-sta-personal-ag-olten-solothurn",
+      "de": "fachmann-frau-betriebsunterhalt-fur-technische-gebaudebetreuung-olten-solothurn-sta-ch",
+      "fr": "specialiste-de-l-entretien-technique-des-batiments-sta-personal-ag-olten-solothurn"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-09-18T21:37:57.623Z",
+    "previousSlugs": [
+      "fachmann-frau-betriebsunterhalt-fur-technische-gebaudebetreuung-olten-solothurn-sta-ch",
+      "fachmann-frau-betriebsunterhalt-per-technische-gebaudebetreuung-sta-personal-ag-olten",
+      "fachmann-frau-betriebsunterhalt-fur-technische-gebaudebetreuung-sta-personal-ag-olten"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "fachmann-frau-betriebsunterhalt-fur-technische-gebaudebetreuung-olten-solothurn-sta-ch",
+        "fachmann-frau-betriebsunterhalt-per-technische-gebaudebetreuung-sta-personal-ag-olten"
+      ],
+      "en": [
+        "fachmann-frau-betriebsunterhalt-fur-technische-gebaudebetreuung-sta-personal-ag-olten"
+      ],
+      "fr": [
+        "fachmann-frau-betriebsunterhalt-fur-technische-gebaudebetreuung-sta-personal-ag-olten"
+      ]
+    },
+    "salaryMin": 77000,
+    "salaryMax": 116500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "trattamento-termico-con-qualifica-tecnica-sta-personal-ag-winterthur-zurich",
+    "title": "Anlagenführer/in Wärmebehandlung mit technischer Qualifikation",
+    "titleByLocale": {
+      "it": "Trattamento termico con qualifica tecnica",
+      "en": "Plant manager heat treatment with technical qualification",
+      "de": "Anlagenführer/in Wärmebehandlung mit technischer Qualifikation",
+      "fr": "Traitement thermique du gestionnaire d'usine avec qualification technique"
+    },
+    "company": "STA Personal AG",
+    "companyKey": "sta",
+    "location": "Winterthur, Zürich",
+    "addressLocality": "Winterthur",
+    "descriptionByLocale": {
+      "it": "Le attività assemblano lotti di forno per il trattamento termico in conformità alle specifiche di qualità avviano cicli di trattamento termico presso gli impianti, monitor e, se necessario, intervengono manualmente per preparare i lotti di saldatura e collegare le articolazioni con un adeguato saldatore eseguire test intermedi e confermare le approvazioni finali mediante ispezioni visive dei componenti Operazione quotidiana e controllo degli impianti di trattamento termico all'avanguardia nell'ambiente industriale\n• Requisiti Formazione tecnica con conoscenze nell'ingegneria dei materiali e nel trattamento termico o elevata disponibilità ad apprendere in queste aree Esperienza lavorativa come operatore di impianti o qualificazione comparabile vantaggiosa Gestione sicura degli impianti di trattamento termico e comprensione tecnica Buone competenze linguistiche tedesche e buone capacità di utilizzo del PC Resistente, personalità comunicativa con metodi di lavoro attenti e calmi Offrire un impiego permanente in un'azienda innovativa con condizioni di lavoro attraenti Lavorare in un team dinamico con opportunità di sviluppo in un ambiente di lavoro orientato alla tecnologia e versatile",
+      "en": "Activities assemble kiln batches for heat treatment in compliance with quality specifications start heat treatment cycles at the plants, monitor and, if necessary, manually intervene to prepare soldering batches and connect the joints with suitable solder perform intermediate tests and confirm final approvals by means of visual inspections of the components Daily operation and control of state-of-the-art heat treatment plants in the industrial environment\n• Requirements Technical training with knowledge in materials engineering and heat treatment or high willingness to learn in these areas Work experience as a plant operator or comparable qualification advantageous Safe handling of heat treatment plants and technical understanding Good German language skills and good PC user skills Resistable, communicative personality with careful and calm working methods Offer permanent employment in an innovative company with attractive working conditions Working in a dynamic team with opportunities to shape development prospects in a technology-oriented and versatile working environment",
+      "de": "Tätigkeiten Ofenchargen für die Wärmebehandlung unter Einhaltung der Qualitätsvorgaben zusammenstellen Wärmebehandlungszyklen an den Anlagen starten, überwachen und bei Bedarf manuell eingreifen Lötchargen vorbereiten und die Fügestellen mit geeignetem Lot verbinden Zwischenprüfungen durchführen und Endabnahmen mittels Sichtprüfungen der Bauteile bestätigen Tägliche Bedienung und Steuerung hochmoderner Wärmebehandlungsanlagen im industriellen Umfeld\n• Anforderungen Technische Ausbildung mit Kenntnissen in Werkstofftechnik und Wärmebehandlung oder hohe Lernbereitschaft in diesen Bereichen Berufserfahrung als Anlagenführer oder vergleichbare Qualifikation von Vorteil Sicherer Umgang mit Wärmebehandlungsanlagen und technischem Verständnis Gute Deutschkenntnisse und gute PC-Anwenderfähigkeiten Belastbare, kommunikative Persönlichkeit mit sorgfältiger und ruhiger Arbeitsweise Angebot Festanstellung in einem innovativen Unternehmen mit attraktiven Arbeitsbedingungen Mitarbeit in einem dynamischen Team mit Möglichkeiten zur Mitgestaltung Entwicklungsperspektiven in einem technologieorientierten und vielseitigen Arbeitsumfeld",
+      "fr": "Les activités d'assemblage des lots de fours pour le traitement thermique conformément aux spécifications de qualité commencent les cycles de traitement thermique dans les usines, surveillent et, si nécessaire, interviennent manuellement pour préparer les lots de soudure et raccordent les joints à des soudures appropriées effectuer des essais intermédiaires et confirmer les approbations finales au moyen d'inspections visuelles des composants Fonctionnement quotidien et contrôle des installations de traitement thermique de pointe dans l'environnement industriel\n• Exigences Formation technique avec des connaissances en ingénierie des matériaux et en traitement thermique ou une grande volonté d'apprendre dans ces domaines Expérience de travail en tant qu'opérateur d'usine ou qualification comparable avantageux Manipulation sécuritaire des installations de traitement thermique et compréhension technique Bonnes compétences linguistiques allemandes et bonnes compétences utilisateur PC Résistible, personnalité communicative avec des méthodes de travail prudentes et calmes Offrir un emploi permanent dans une entreprise innovante aux conditions de travail attrayantes Travailler dans une équipe dynamique avec des possibilités de façonner les perspectives de développement dans un environnement de travail axé sur la technologie et polyvalent"
+    },
+    "slugByLocale": {
+      "it": "trattamento-termico-con-qualifica-tecnica-sta-personal-ag-winterthur-zurich",
+      "en": "plant-manager-heat-treatment-with-technical-qualification-sta-personal-ag-winterthur-zurich",
+      "de": "anlagenfuhrer-in-warmebehandlung-mit-technischer-qualifikation-winterthur-zurich-sta-ch",
+      "fr": "traitement-thermique-du-gestionnaire-d-usine-avec-qualification-technique-sta-personal-ag-winterthur-zurich"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-09-18T21:37:57.623Z",
+    "previousSlugs": [
+      "anlagenfuhrer-in-warmebehandlung-mit-technischer-qualifikation-winterthur-zurich-sta-ch",
+      "anlagenfuhrer-in-warmebehandlung-mit-technischer-qualifikation-sta-personal-ag-winterthur"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "anlagenfuhrer-in-warmebehandlung-mit-technischer-qualifikation-winterthur-zurich-sta-ch",
+        "anlagenfuhrer-in-warmebehandlung-mit-technischer-qualifikation-sta-personal-ag-winterthur"
+      ],
+      "en": [
+        "anlagenfuhrer-in-warmebehandlung-mit-technischer-qualifikation-sta-personal-ag-winterthur"
+      ],
+      "fr": [
+        "anlagenfuhrer-in-warmebehandlung-mit-technischer-qualifikation-sta-personal-ag-winterthur"
+      ]
+    },
+    "salaryMin": 113500,
+    "salaryMax": 172000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "carpentieri-di-assemblaggio-per-cucine-e-mobili-sta-personal-ag-zofingen-aargau",
     "title": "Schreiner/in für Montage von Küchen und Möbeln",
     "titleByLocale": {
