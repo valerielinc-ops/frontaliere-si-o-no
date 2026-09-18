@@ -425,6 +425,32 @@ function listingPathForLocale(locale: SupportedLocale): string {
  return `${prefix}/${section}/`.replace(/\/+/g, '/');
 }
 
+// German canton sections used the broad `jobs-im-` prefix before the URL
+// vocabulary was corrected to the current `jobs-in-*` / `jobs-in-der-*`
+// forms. The Search Console 404 accumulator still contains those historical
+// paths (for example `/de/jobs-im-appenzell/<slug>`). Keep the aliases in the
+// compat resolver so they canonicalize to the live current section instead of
+// falling through as an unresolved path. Derive both sides from the same
+// canton data used by the emitters; TI remains unchanged at `jobs-im-tessin`.
+const LEGACY_GERMAN_SECTION_ALIASES: ReadonlyMap<string, string> = (() => {
+ const aliases = new Map<string, string>();
+ const cantons = (cantonSlugFile as {
+   cantons: Record<string, { de?: string }>;
+ }).cantons || {};
+ for (const cantonCode of Object.keys(cantons)) {
+   const legacySlug = cantons[cantonCode]?.de;
+   if (!legacySlug) continue;
+   const legacySection = `jobs-im-${legacySlug}`;
+   const canonicalSection = resolveCantonSection('de', cantonCode);
+   if (legacySection !== canonicalSection) aliases.set(legacySection, canonicalSection);
+ }
+ return aliases;
+})();
+
+function canonicalJobBoardSection(section: string): string {
+ return LEGACY_GERMAN_SECTION_ALIASES.get(section) || section;
+}
+
 // Build regex segment that matches ANY known job-board section (TI legacy
 // + every per-canton section across all 4 locales). Pre-computed once.
 const JOB_BOARD_SECTION_PATTERN_SEGMENT: string = (() => {
@@ -441,6 +467,9 @@ const JOB_BOARD_SECTION_PATTERN_SEGMENT: string = (() => {
   for (const loc of locales) sections.add(resolveCantonSection(loc, code));
  }
  for (const loc of locales) sections.add(resolveCantonSection(loc, '_AGGREGATE_'));
+ // Historical German `jobs-im-*` aliases must be recognized by the same
+ // section-shaped patterns so their trailing job slug can be recovered.
+ for (const alias of LEGACY_GERMAN_SECTION_ALIASES.keys()) sections.add(alias);
  // Sort by length desc so longer matches win in alternation.
  const sorted = Array.from(sections).sort((a, b) => b.length - a.length);
  return sorted.map((s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
@@ -781,7 +810,7 @@ export function resolveSearchConsoleCompatTarget(
  // recognized section.
  const sectionMatch = path.match(JOB_BOARD_SECTION_COMPAT_PATTERN);
  const canonicalPath = sectionMatch
- ? `${JOB_BOARD_PREFIX_BY_LOCALE[locale]}/${sectionMatch[2]}/`.replace(/\/+/g, '/')
+ ? `${JOB_BOARD_PREFIX_BY_LOCALE[locale]}/${canonicalJobBoardSection(sectionMatch[2])}/`.replace(/\/+/g, '/')
  : listingPathForLocale(locale);
  return {
  canonicalPath,
@@ -824,7 +853,7 @@ export function resolveSearchConsoleCompatTarget(
 
  const jobSectionMatch = path.match(JOB_BOARD_SECTION_COMPAT_PATTERN);
  if (jobSectionMatch) {
- const urlSection = jobSectionMatch[2];
+ const urlSection = canonicalJobBoardSection(jobSectionMatch[2]);
  const slug = jobSectionMatch[3];
  const prefix = JOB_BOARD_PREFIX_BY_LOCALE[locale];
  // Bare `page-N` (legacy English pagination word, pre-dating the localized
@@ -903,7 +932,7 @@ export function resolveSearchConsoleCompatTarget(
 
  const paginationMatch = path.match(JOB_BOARD_PAGINATION_PATTERN);
  if (paginationMatch) {
- const urlSection = paginationMatch[2];
+ const urlSection = canonicalJobBoardSection(paginationMatch[2]);
  const prefix = JOB_BOARD_PREFIX_BY_LOCALE[locale];
  return {
  canonicalPath: `${prefix}/${urlSection}/`.replace(/\/+/g, '/'),
@@ -914,7 +943,7 @@ export function resolveSearchConsoleCompatTarget(
 
  const trailingIdMatch = path.match(JOB_BOARD_TRAILING_ID_PATTERN);
  if (trailingIdMatch) {
- const urlSection = trailingIdMatch[2];
+ const urlSection = canonicalJobBoardSection(trailingIdMatch[2]);
  const prefix = JOB_BOARD_PREFIX_BY_LOCALE[locale];
  return {
  canonicalPath: `${prefix}/${urlSection}/`.replace(/\/+/g, '/'),
