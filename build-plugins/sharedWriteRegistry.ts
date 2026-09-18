@@ -125,6 +125,7 @@ export interface SharedPathDeclaration {
  */
 const pathHistory = new Map<string, ClaimVersion[]>();
 const sharedPathDeclarations: SharedPathDeclaration[] = [];
+let buildGeneration = 0;
 
 /**
  * Set of content hashes already dumped to disk. Each unique hash is written
@@ -154,7 +155,7 @@ function currentMode(): CollisionMode {
   return env === 'throw' ? 'throw' : 'report';
 }
 
-function hashContent(content: string): string {
+export function hashContent(content: string): string {
   return createHash('sha1').update(content).digest('hex');
 }
 
@@ -367,6 +368,12 @@ export function reset(): void {
   dumpedHashes.clear();
   dumpDirMkdirDone = false;
   buildStartMs = Date.now();
+  buildGeneration += 1;
+}
+
+/** Monotonic build token for consumers that retain derived per-build state. */
+export function getBuildGeneration(): number {
+  return buildGeneration;
 }
 
 /**

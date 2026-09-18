@@ -988,7 +988,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }
 
  /* ── Buffered write system via shared WriteCollector ── */
- const collector = new WriteCollector({ distDir, pluginName: 'jobsSeoPagesPlugin' });
+ const collector = new WriteCollector({
+  distDir,
+  pluginName: 'jobsSeoPagesPlugin',
+  postWalkDerivedKind: 'bridge',
+ });
  logBuildMem('jobsSeoPages: collector created', collector);
  const _ensuredDirs = new Set<string>();
  function _md(dir: string) {

@@ -222,7 +222,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  } = shell;
 
  const distDir = opts.distDir;
- const collector = new WriteCollector({ distDir, pluginName: 'ogPagesPlugin' });
+ const collector = new WriteCollector({
+  distDir,
+  pluginName: 'ogPagesPlugin',
+  postWalkDerivedKind: 'blog',
+ });
  const DEFAULT_IMG = '/og-image.png';
  const blogImageById: Record<string, string> = {};
  // Single-article and batch narrowing collapse to the same Set<string> so

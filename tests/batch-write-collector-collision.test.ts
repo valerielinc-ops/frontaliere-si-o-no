@@ -20,7 +20,13 @@ import { describe, expect, it, beforeEach, afterEach } from 'vitest';
 import { WriteCollector } from '@/build-plugins/batchWrite';
 import { initManifest, saveManifest } from '@/build-plugins/contentHash';
 import {
+  clearPostWalkDerivedDigestCacheForTest,
+  writePostWalkDerivedDigestSidecar,
+} from '@/build-plugins/shared/postWalkDerivedDigest';
+import {
+  hashContent,
   reset,
+  claim,
   clearDeclarationsForTest,
   setModeForTest,
   getCollisions,
@@ -35,6 +41,8 @@ describe('WriteCollector collision visibility', () => {
 
   afterEach(() => {
     setModeForTest(null);
+    delete process.env.POST_WALK_INCREMENTAL;
+    clearPostWalkDerivedDigestCacheForTest();
   });
 
   it('cross-plugin collision on the same path is recorded, not silently overwritten (report mode)', () => {
@@ -122,6 +130,49 @@ describe('WriteCollector collision visibility', () => {
       expect(collisions).toHaveLength(1);
       expect(collisions[0].first.plugin).toBe('fiscalMunicipalityPagesPlugin');
       expect(collisions[0].attempted.plugin).toBe('someFuturePlugin');
+    } finally {
+      saveManifest();
+      fs.rmSync(tmpRoot, { recursive: true, force: true });
+    }
+  });
+
+  it('preserving a derived output still records its upstream hash in the manifest', async () => {
+    const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'wc-derived-'));
+    try {
+      const distDir = path.join(tmpRoot, 'dist');
+      const flatPath = path.join(distDir, 'jobs/bridge.html');
+      const sourcePath = path.join(distDir, 'jobs/bridge/index.html');
+      const sourceContent = '<html>source</html>';
+      fs.mkdirSync(path.dirname(sourcePath), { recursive: true });
+      fs.writeFileSync(sourcePath, sourceContent, 'utf-8');
+      fs.writeFileSync(flatPath, '<html>bridge</html>', 'utf-8');
+      writePostWalkDerivedDigestSidecar(tmpRoot, new Map([
+        ['jobs/bridge.html', {
+          path: 'jobs/bridge.html',
+          kind: 'bridge',
+          inputHash: hashContent(sourceContent),
+          sourcePath: 'jobs/bridge/index.html',
+          sourceHash: hashContent(sourceContent),
+          templateHash: 'flat-bridge@1',
+        }],
+      ]));
+      clearPostWalkDerivedDigestCacheForTest();
+      process.env.POST_WALK_INCREMENTAL = '1';
+      initManifest(tmpRoot);
+      claim(sourcePath, 'fixture', sourceContent);
+      const collector = new WriteCollector({ distDir, pluginName: 'fixture' });
+      collector.add(flatPath, sourceContent);
+      await collector.flush();
+      saveManifest();
+
+      const manifest = JSON.parse(
+        fs.readFileSync(path.join(tmpRoot, '.build-cache', 'build-manifest.json'), 'utf-8'),
+      ) as { files: Record<string, string> };
+      expect(manifest.files['jobs/bridge.html']).toBe(
+        createHash('sha256').update(sourceContent, 'utf-8').digest('hex'),
+      );
+      expect(fs.readFileSync(flatPath, 'utf-8')).toBe('<html>bridge</html>');
+      expect(collector.count).toBe(0);
     } finally {
       saveManifest();
       fs.rmSync(tmpRoot, { recursive: true, force: true });
