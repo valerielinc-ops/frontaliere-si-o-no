@@ -356,8 +356,13 @@ describe('post-walk incremental planning', () => {
     );
 
     expect(result.claimed).toBe(1);
-    expect(result.targeted).toBe(2);
-    expect(result.paths).toEqual([claimed, targeted, targetedFlat]);
+    expect(result.targeted).toBe(3);
+    expect(result.paths).toEqual([
+      claimed,
+      targeted,
+      targetedFlat,
+      path.join(distDir, 'new-direct/index.html'),
+    ]);
   });
 
   it('round-trips the targeted-walk inventory and fails closed when absent', () => {

@@ -82,16 +82,35 @@ export function collectHtmlFromClaimedPaths(
 ): IncrementalHtmlWalkResult {
   const paths: string[] = [];
   const seen = new Set<string>();
+  const claimedTopLevels = new Set<string>();
   let claimed = 0;
   for (const filePath of claimedPaths) {
     if (!isWalkableHtmlPath(distDir, filePath) || seen.has(filePath)) continue;
     seen.add(filePath);
     paths.push(filePath);
+    const relative = path.relative(distDir, filePath);
+    claimedTopLevels.add(relative.split(path.sep, 1)[0] || '<root>');
     claimed++;
   }
 
+  const rootsToWalk = new Set(targetedTopLevels);
+  // A new direct emitter can introduce a top-level that was not present in
+  // the previous inventory. The single shallow readdir is cheap and catches
+  // that case without reopening any already-claimed tree.
+  for (const entry of fs.readdirSync(distDir, { withFileTypes: true })) {
+    if (entry.isDirectory() && (entry.name === 'assets' || entry.name === 'data' || entry.name === 'images')) {
+      continue;
+    }
+    const topLevel = entry.isDirectory()
+      ? entry.name
+      : entry.isFile() && entry.name.endsWith('.html')
+        ? '<root>'
+        : null;
+    if (topLevel !== null && !claimedTopLevels.has(topLevel)) rootsToWalk.add(topLevel);
+  }
+
   const targetedPaths: string[] = [];
-  for (const topLevel of targetedTopLevels) {
+  for (const topLevel of [...rootsToWalk].sort()) {
     const root = topLevel === '<root>' ? distDir : path.join(distDir, topLevel);
     if (!fs.existsSync(root)) continue;
     collectHtml(root, targetedPaths);
