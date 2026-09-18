@@ -289,8 +289,16 @@ async function fetchIbsaJobDetailUrls() {
       console.log(`     ${requestUrl}`);
     }
 
+    if (pageNew === 0) {
+      if (listings.length > 0) {
+        throw new Error(
+          `IBSA listing page ${page} repeated only previously seen source identities; `
+          + 'refusing to publish an incomplete snapshot.',
+        );
+      }
+      break;
+    }
     if (returned !== null && returned <= 0) break;
-    if (pageNew === 0) break;
     if (returned !== null && returned < perPage) break;
 
     startrow += perPage;
