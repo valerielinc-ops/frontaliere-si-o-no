@@ -155,6 +155,20 @@ function responseResult(response, targetUrl, method) {
     result.reachable = true;
     result.verified = false;
     result.reason = 'rate-limited';
+  } else if (status === 403 && method !== 'HEAD') {
+    // A 403 is the origin answering and refusing us — a WAF or bot filter
+    // turning away an automated probe.  The audit asks whether the published
+    // website still answers, so this belongs with robots-blocked and
+    // rate-limited: reachable, not verifiable.  Counting it as a dead host
+    // charges the ceiling for sites that are perfectly alive for a visitor.
+    //
+    // Only once GET has also been refused: 403 is in HEAD_FALLBACK_STATUSES,
+    // so a server that rejects the method but serves the page must still reach
+    // the GET retry and be recorded as verified.  Setting a reason on the HEAD
+    // result would make shouldTryGetAfterHead() false and lose that retry.
+    result.reachable = true;
+    result.verified = false;
+    result.reason = 'access-denied';
   } else if (response?.error) {
     result.error = String(response.error);
   } else if (response?.transportError) {
@@ -176,15 +190,29 @@ function shouldTryGetAfterHead(result) {
     && (result.status === 0 || HEAD_FALLBACK_STATUSES.has(result.status));
 }
 
-function createWebsiteFetch(targetUrl) {
-  const parsed = new URL(targetUrl);
-  const aliases = [targetUrl];
+/**
+ * The apex<->www counterpart of a published origin.
+ *
+ * Swapping the hostname on a parsed URL, not a string replace on the href: the
+ * hostname can also occur in the path or query of a published link.
+ * @returns {string|null} the alias href, or null when there is no counterpart
+ */
+export function websiteAliasHref(targetUrl) {
+  let parsed;
+  try { parsed = new URL(targetUrl); } catch { return null; }
   const aliasHost = parsed.hostname.startsWith('www.')
     ? parsed.hostname.slice(4)
     : `www.${parsed.hostname}`;
-  if (aliasHost && aliasHost !== parsed.hostname) {
-    aliases.push(new URL(targetUrl).toString().replace(parsed.hostname, aliasHost));
-  }
+  if (!aliasHost || aliasHost === parsed.hostname) return null;
+  const alias = new URL(parsed.href);
+  alias.hostname = aliasHost;
+  return alias.href;
+}
+
+function createWebsiteFetch(targetUrl) {
+  const aliases = [targetUrl];
+  const aliasHref = websiteAliasHref(targetUrl);
+  if (aliasHref) aliases.push(aliasHref);
   const policy = createSpecUrlPolicy({ seedUrls: aliases });
   const request = (url, options) => politeFetch(url, {
     ...options,
@@ -225,24 +253,52 @@ export async function probePublishedWebsite(
     retries: 0,
     accept: 'text/html,application/xhtml+xml,*/*',
   };
-  try {
+  const probeOrigin = async (href) => {
     let head;
     try {
-      head = responseResult(await request(parsed.url.href, { ...options, method: 'HEAD' }), parsed.url.href, 'HEAD');
+      head = responseResult(await request(href, { ...options, method: 'HEAD' }), href, 'HEAD');
     } catch (error) {
-      head = { reachable: false, status: 0, method: 'HEAD', url: parsed.url.href, error: String(error?.message || error) };
+      head = { reachable: false, status: 0, method: 'HEAD', url: href, error: String(error?.message || error) };
     }
     if (head.reachable || head.reason === 'robots-blocked') return head;
     if (!shouldTryGetAfterHead(head)) return { ...head, reason: failureReason(head) };
 
     let get;
     try {
-      get = responseResult(await request(parsed.url.href, { ...options, method: 'GET' }), parsed.url.href, 'GET');
+      get = responseResult(await request(href, { ...options, method: 'GET' }), href, 'GET');
     } catch (error) {
-      get = { reachable: false, status: 0, method: 'GET', url: parsed.url.href, error: String(error?.message || error) };
+      get = { reachable: false, status: 0, method: 'GET', url: href, error: String(error?.message || error) };
     }
     if (get.reachable || get.reason === 'robots-blocked') return get;
     return { ...get, reason: failureReason(get), headStatus: head.status };
+  };
+
+  const answered = (result) => result.reachable || result.reason === 'robots-blocked';
+
+  try {
+    const published = await probeOrigin(parsed.url.href);
+    if (answered(published)) return published;
+
+    // The published origin did not answer. Before recording a dead website,
+    // probe its apex<->www counterpart: the registry publishes the bare apex
+    // whenever the resolver has no single verified winner, and an apex with no
+    // A record, a certificate valid only for www, or a bare 404 is extremely
+    // common on hosts that serve perfectly well on the other name. That alias
+    // was already trusted enough to sit in the fetch policy's seed list so a
+    // redirect to it would be followed — it was simply never requested, so a
+    // host that only answers there was counted as unreachable.
+    const aliasHref = websiteAliasHref(parsed.url.href);
+    if (!aliasHref) return published;
+    const alias = await probeOrigin(aliasHref);
+    // The published URL stays authoritative when the alias is dead too: the
+    // company record is what the gate is about, so its own failure is reported.
+    if (!answered(alias)) return published;
+    return {
+      ...alias,
+      viaAlias: aliasHref,
+      publishedStatus: published.status,
+      publishedReason: published.reason,
+    };
   } finally {
     await policy?.dispatcher?.close?.();
   }
