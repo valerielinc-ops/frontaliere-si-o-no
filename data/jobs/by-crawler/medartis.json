@@ -838,9 +838,9 @@
     },
     {
       "id": "medartis-809b783d9114",
-      "slug": "capa-and-nc-manager-medartis-basel",
+      "slug": "responsabile-capa-e-nc-medartis-basel",
       "slugByLocale": {
-        "it": "capa-and-nc-manager-medartis-basel",
+        "it": "responsabile-capa-e-nc-medartis-basel",
         "en": "capa-and-nc-manager-medartis-basel",
         "de": "capa-and-nc-manager-medartis-basel",
         "fr": "capa-et-nc-gestionnaire-medartis-basel"
@@ -899,7 +899,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "capa-and-nc-manager-medartis-basel"
+        ]
+      },
+      "previousSlugs": [
+        "capa-and-nc-manager-medartis-basel"
+      ]
     },
     {
       "id": "medartis-62427cab689e",
