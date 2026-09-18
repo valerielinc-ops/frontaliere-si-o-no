@@ -188,7 +188,12 @@ async function fetchJson(url, timeoutMs = 20000) {
           'Mozilla/5.0 (compatible; FrontaliereSwissBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    if (!res.ok) {
+      const error = new Error(`HTTP ${res.status}`);
+      error.status = res.status;
+      error.url = url;
+      throw error;
+    }
     return await res.json();
   } finally {
     clearTimeout(timer);
@@ -216,7 +221,18 @@ async function fetchDebiopharmListings() {
 }
 
 async function fetchDebiopharmDetail(shortcode) {
-  return fetchJson(`${DEBIOPHARM_WORKABLE_DETAIL_API_BASE}/${encodeURIComponent(shortcode)}`, Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000);
+  const url = `${DEBIOPHARM_WORKABLE_DETAIL_API_BASE}/${encodeURIComponent(shortcode)}`;
+  return fetchJson(url, Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000);
+}
+
+export function isVerifiedStaleDebiopharmDetailFailure(error = {}, listing = {}) {
+  const shortcode = String(listing?.shortcode || '').trim();
+  const expectedUrl = shortcode
+    ? `${DEBIOPHARM_WORKABLE_DETAIL_API_BASE}/${encodeURIComponent(shortcode)}`
+    : '';
+  return Number(error?.status) === 404
+    && Boolean(expectedUrl)
+    && error?.url === expectedUrl;
 }
 
 export function buildDebiopharmJob(listing, detail) {
@@ -499,12 +515,18 @@ async function main() {
   const discoveredJobs = [];
   let detailFetchFailures = 0;
   let unresolvedSourceDetails = 0;
+  let staleSourceDetails = 0;
   for (const listing of listings) {
     console.log(`  📄 Processing: ${listing.title} [${listing.shortcode}]`);
     let detail;
     try {
       detail = await fetchDebiopharmDetail(listing.shortcode);
     } catch (err) {
+      if (isVerifiedStaleDebiopharmDetailFailure(err, listing)) {
+        staleSourceDetails += 1;
+        console.warn(`     ⚠️  Stale SSR listing ${listing.shortcode}: verified Workable detail endpoint returned HTTP 404; excluding it from the authoritative snapshot.`);
+        continue;
+      }
       detailFetchFailures += 1;
       console.warn(`     ⚠️  Detail fetch failed for ${listing.shortcode}: ${err?.message || err}`);
       continue;
@@ -521,11 +543,14 @@ async function main() {
     discoveredJobs.push(job);
   }
 
-  if (discoveredJobs.length === 0 && (detailFetchFailures > 0 || unresolvedSourceDetails > 0)) {
+  if (detailFetchFailures > 0 || unresolvedSourceDetails > 0) {
     throw new Error(
-      `Debiopharm detail enrichment could not prove an empty Swiss result `
-      + `(detail failures: ${detailFetchFailures}, unresolved source locations: ${unresolvedSourceDetails}); refusing empty publication.`
+      `Debiopharm detail enrichment could not prove a complete source snapshot `
+      + `(detail failures: ${detailFetchFailures}, unresolved source locations: ${unresolvedSourceDetails}); refusing partial publication.`
     );
+  }
+  if (staleSourceDetails > 0) {
+    console.warn(`⚠️ Excluded ${staleSourceDetails} verified stale Workable detail link(s) from the SSR source.`);
   }
   if (discoveredJobs.length === 0) {
     console.warn('⚠️ Debiopharm detail enrichment produced a verified empty Swiss result after reading all source details.');

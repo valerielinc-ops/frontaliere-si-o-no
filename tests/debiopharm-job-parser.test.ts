@@ -4,7 +4,11 @@ import {
   isVerifiedEmptyDebiopharmCareersSource,
   parseDebiopharmJobDetailPayload,
 } from '../scripts/lib/debiopharm-job-parser.mjs';
-import { buildDebiopharmJob, resolveDebiopharmBackfillCanton } from '../scripts/update-debiopharm-jobs.mjs';
+import {
+  buildDebiopharmJob,
+  isVerifiedStaleDebiopharmDetailFailure,
+  resolveDebiopharmBackfillCanton,
+} from '../scripts/update-debiopharm-jobs.mjs';
 
 describe('debiopharm-job-parser', () => {
   describe('careers source completeness', () => {
@@ -16,6 +20,22 @@ describe('debiopharm-job-parser', () => {
         '<div class="u-section-open-position-list__list-no-result">There are currently no positions matching your criteria.</div><a href="https://apply.workable.com/debiopharm/j/ABC123">Scientist</a>',
       )).toBe(false);
       expect(isVerifiedEmptyDebiopharmCareersSource('<main>Careers</main>')).toBe(false);
+    });
+
+    it('classifies only the exact Workable detail 404 for a verified listing as stale', () => {
+      const listing = { shortcode: 'ABC123' };
+      expect(isVerifiedStaleDebiopharmDetailFailure(
+        { status: 404, url: 'https://apply.workable.com/api/v2/accounts/debiopharm/jobs/ABC123' },
+        listing,
+      )).toBe(true);
+      expect(isVerifiedStaleDebiopharmDetailFailure(
+        { status: 503, url: 'https://apply.workable.com/api/v2/accounts/debiopharm/jobs/ABC123' },
+        listing,
+      )).toBe(false);
+      expect(isVerifiedStaleDebiopharmDetailFailure(
+        { status: 404, url: 'https://apply.workable.com/api/v2/accounts/debiopharm/jobs/OTHER' },
+        listing,
+      )).toBe(false);
     });
   });
 
