@@ -4161,7 +4161,6 @@ Rules:
   'journalistDashboard.editor.deleting': 'Deleting...',
   'journalistDashboard.editor.deleteError': 'Deletion failed. Please try again.',
   'journalistDashboard.editor.cancel': 'Cancel',
-  'whatsNew.v3966.title': 'Direct application after a video',
   'whatsNew.v3966.rewardedApply.title': 'One video unlocks direct redirects for 12 hours',
   'whatsNew.v3966.rewardedApply.desc': 'For some external job clicks, you can watch a short video once and open the company website directly for the next 12 hours, without seeing the Offerwall again.',
 };

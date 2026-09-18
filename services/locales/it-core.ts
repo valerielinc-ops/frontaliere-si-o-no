@@ -4251,7 +4251,6 @@ Regole:
   'journalistDashboard.editor.deleting': 'Eliminazione in corso...',
   'journalistDashboard.editor.deleteError': 'Eliminazione non riuscita. Riprova.',
  'journalistDashboard.editor.cancel': 'Annulla',
- 'whatsNew.v3966.title': 'Candidatura diretta dopo un video',
  'whatsNew.v3966.rewardedApply.title': 'Un video sblocca il redirect diretto per 12 ore',
  'whatsNew.v3966.rewardedApply.desc': 'Per una parte dei click sulle offerte esterne puoi guardare una sola volta un breve video e aprire direttamente il sito dell’azienda per le 12 ore successive, senza rivedere l’Offerwall.',
 };

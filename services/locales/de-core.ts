@@ -4164,7 +4164,6 @@ Regeln:
   'journalistDashboard.editor.deleting': 'Wird gelöscht...',
   'journalistDashboard.editor.deleteError': 'Löschen fehlgeschlagen. Bitte versuche es erneut.',
  'journalistDashboard.editor.cancel': 'Abbrechen',
- 'whatsNew.v3966.title': 'Direkt bewerben nach einem Video',
  'whatsNew.v3966.rewardedApply.title': 'Ein Video schaltet 12 Stunden direkte Weiterleitungen frei',
  'whatsNew.v3966.rewardedApply.desc': 'Bei einigen Klicks auf externe Stellen kannst du einmal ein kurzes Video ansehen und die Unternehmenswebsite danach 12 Stunden lang direkt öffnen, ohne die Offerwall erneut zu sehen.',
 };
