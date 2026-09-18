@@ -52,13 +52,16 @@
  * profiling or when running on a constrained runner where worker spawn cost
  * outweighs parallel gains).
  *
- * Opt-in incremental mode: POST_WALK_INCREMENTAL=1 keeps the complete HTML
- * existence walk/set but sends only manifest-changed and proven-affected files
- * through the transforms. With POST_WALK_INCREMENTAL_VERIFY=1, unmanifested
- * files are sample-only and the deterministic sample is checked before worker
- * dispatch; POST_WALK_INCREMENTAL_VERIFY_SAMPLE overrides the sample count. A
- * full-write mismatch or emitter-fingerprint change falls back to the full
- * write path. The default is the unchanged full path.
+ * Opt-in incremental mode: POST_WALK_INCREMENTAL=1 reconstructs the HTML
+ * existence set from current write claims plus the previously recorded
+ * unmanifested roots, avoiding a second full filesystem walk on identical
+ * builds. It sends only manifest-changed, proven-affected, and digest-invalid
+ * derived files through the transforms. With POST_WALK_INCREMENTAL_VERIFY=1,
+ * unmanifested files are sample-only and the deterministic sample is checked
+ * before worker dispatch; POST_WALK_INCREMENTAL_VERIFY_SAMPLE overrides the
+ * sample count. A full-write mismatch, missing walk inventory, or
+ * emitter-fingerprint change falls back to the full write path. The default is
+ * the unchanged full path.
  */
 
 import path from 'node:path';
