@@ -6,10 +6,10 @@ import { ASSISTED_APPLICATION_PRICE_EUR_CENTS as SHARED_ASSISTED_APPLICATION_PRI
 export const ASSISTED_APPLICATION_PRICE_EUR_CENTS = SHARED_ASSISTED_APPLICATION_PRICE_EUR_CENTS;
 
 /** Stable identifiers shared by the SPA funnel and its analytics queries. */
-export const ASSISTED_APPLICATION_EXPERIMENT_ID = 'assisted-application-v1';
+export const ASSISTED_APPLICATION_EXPERIMENT_ID = 'assisted-application-v2';
 export const ASSISTED_APPLICATION_FLAG_KEY = ASSISTED_APPLICATION_EXPERIMENT_ID;
 export const ASSISTED_APPLICATION_CONSENT_VERSION = 'assisted-application-v1';
-export const ASSISTED_APPLICATION_VARIANTS = ['control', 'assisted_application'] as const;
+export const ASSISTED_APPLICATION_VARIANTS = ['control', 'assisted_application', 'rewarded_ad'] as const;
 export type AssistedApplicationVariant = (typeof ASSISTED_APPLICATION_VARIANTS)[number];
 
 export const ASSISTED_APPLICATION_EVENT_NAMES = [
@@ -18,6 +18,12 @@ export const ASSISTED_APPLICATION_EVENT_NAMES = [
   'assisted_application_offer_viewed',
   'assisted_application_choose_external',
   'assisted_application_choose_paid',
+  'rewarded_application_offer_viewed',
+  'rewarded_ad_opt_in',
+  'rewarded_ad_granted',
+  'rewarded_ad_unavailable',
+  'rewarded_application_access_granted',
+  'rewarded_application_access_used',
   'external_apply_redirected',
   'checkout_started',
   'checkout_completed',
@@ -45,18 +51,22 @@ function hashDistinctId(value: string): number {
 }
 
 /**
- * Resolve the fallback assignment. The treatment owns 40% of buckets; the
- * control owns the remaining 60%. PostHog's explicit flag wins when present,
- * while this path keeps the experiment usable during SDK/ad-blocker failure.
+ * Resolve the fallback assignment. The paid treatment owns 40% of buckets,
+ * the rewarded treatment owns 40%, and the control owns the remaining 20%.
+ * PostHog's explicit flag wins when present, while this path keeps the
+ * experiment usable during SDK/ad-blocker failure.
  */
 export function resolveAssistedApplicationVariant(distinctId: string): AssistedApplicationVariant {
   const normalized = String(distinctId || '').trim();
   if (!normalized) return 'control';
-  return hashDistinctId(normalized) % 100 < 40 ? 'assisted_application' : 'control';
+  const bucket = hashDistinctId(normalized) % 100;
+  if (bucket < 20) return 'control';
+  if (bucket < 60) return 'assisted_application';
+  return 'rewarded_ad';
 }
 
 export function normalizeAssistedApplicationVariant(value: unknown): AssistedApplicationVariant | null {
-  return value === 'control' || value === 'assisted_application' ? value : null;
+  return value === 'control' || value === 'assisted_application' || value === 'rewarded_ad' ? value : null;
 }
 
 function createAnonymousDistinctId(): string {

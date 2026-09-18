@@ -188,7 +188,12 @@ import {
  ASSISTED_APPLICATION_PRICE_EUR_CENTS,
  trackAssistedApplicationEvent,
  useAssistedApplicationVariant,
+ type AssistedApplicationVariant,
 } from '@/services/assistedApplicationExperiment';
+import {
+ getRewardedApplicationAccessExpiresAt,
+ grantRewardedApplicationAccess,
+} from '@/services/rewardedApplicationAccess';
 import {
  createAssistedApplicationCheckout,
  ensureAssistedApplicationAuth,
@@ -2198,7 +2203,7 @@ function isExternalApplicationJob(job: JobListing): boolean {
  return mode !== 'in_house' && mode !== 'forward_email';
 }
 
-function assistedApplicationJobContext(job: JobListing, variant: 'control' | 'assisted_application') {
+function assistedApplicationJobContext(job: JobListing, variant: AssistedApplicationVariant) {
  return {
   variant,
   jobId: String(job.id),
@@ -6508,7 +6513,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return eventId;
  };
 
- const redirectExternalApplication = (job: JobListing, surface: string, trackHandoff: boolean) => {
+ const redirectExternalApplication = (job: JobListing, surface: string, trackHandoff: boolean, sameTab = false) => {
   const applyDestination = buildReferralUrl(job);
   if (!applyDestination) return;
   if (trackHandoff) {
@@ -6521,7 +6526,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
    'external_apply_redirected',
    { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface },
   );
-  window.open(applyDestination, '_blank', 'noopener,noreferrer');
+  if (sameTab) {
+   window.location.assign(applyDestination);
+  } else {
+   window.open(applyDestination, '_blank', 'noopener,noreferrer');
+  }
   // Mutate the page in the same tick as the hand-off — the confirmation is the
   // user-visible receipt AND the DOM change that makes this click non-dead.
   setAppliedJobId(job.id);
@@ -6536,12 +6545,31 @@ const JobBoard: React.FC<JobBoardProps> = ({
   );
   setAssistedApplicationJob(null);
   setAssistedCheckoutError(null);
-  redirectExternalApplication(job, 'assisted_application_offer', true);
+  redirectExternalApplication(
+   job,
+   assistedApplicationVariant === 'rewarded_ad' ? 'rewarded_application_fallback' : 'assisted_application_offer',
+   true,
+  );
+ };
+
+ const handleRewardedApplicationGranted = () => {
+  const job = assistedApplicationJob;
+  if (!job || assistedApplicationVariant !== 'rewarded_ad') return;
+  const expiresAt = grantRewardedApplicationAccess();
+  trackAssistedApplicationEvent(
+   'rewarded_application_access_granted',
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), access_expires_at: expiresAt, access_ttl_hours: 12 },
+  );
+  setAssistedApplicationJob(null);
+  setAssistedCheckoutError(null);
+  // The callback is asynchronous (after the video), so same-tab navigation
+  // avoids the popup blocker that can reject a late window.open().
+  redirectExternalApplication(job, 'rewarded_application_reward', true, true);
  };
 
  const handleAssistedPaid = async () => {
   const job = assistedApplicationJob;
-  if (!job || assistedCheckoutBusy) return;
+  if (!job || assistedApplicationVariant !== 'assisted_application' || assistedCheckoutBusy) return;
   setAssistedCheckoutBusy(true);
   setAssistedCheckoutError(null);
   trackAssistedApplicationEvent(
@@ -6593,10 +6621,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const handleApply = (job: JobListing, surface = 'job_board_apply') => {
   const isExternal = isExternalApplicationJob(job);
+  const rewardedAccessExpiresAt = isExternal && assistedApplicationVariant === 'rewarded_ad'
+   ? getRewardedApplicationAccessExpiresAt()
+   : null;
+  const rewardedNeedsOffer = assistedApplicationVariant === 'rewarded_ad'
+   && !killSwitches.rewardedApplicationAd
+   && rewardedAccessExpiresAt === null;
   const eventId = trackPublisherApplySignals(
    job,
    surface,
-   isExternal && assistedApplicationVariant === 'assisted_application'
+   isExternal && (assistedApplicationVariant === 'assisted_application' || rewardedNeedsOffer)
     ? { deferExternalHandoff: true }
     : undefined,
   );
@@ -6614,6 +6648,30 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // External publisher ads: count the apply click too (session-debounced, so it
  // never double-counts with the header logo/title links). No-op for crawled jobs.
  trackPublisherApplyClick(job as { publisherJobId?: string | null }, { eventId: eventId });
+ if (assistedApplicationVariant === 'rewarded_ad') {
+  trackAssistedApplicationEvent(
+   'job_apply_click',
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface },
+  );
+  if (killSwitches.rewardedApplicationAd || rewardedAccessExpiresAt !== null) {
+   if (rewardedAccessExpiresAt !== null) {
+    trackAssistedApplicationEvent(
+     'rewarded_application_access_used',
+     { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, access_expires_at: rewardedAccessExpiresAt, access_ttl_hours: 12 },
+    );
+   }
+   redirectExternalApplication(
+    job,
+    killSwitches.rewardedApplicationAd ? 'rewarded_application_killswitch' : 'rewarded_application_entitlement',
+    false,
+   );
+   return;
+  }
+  setAssistedCheckoutError(null);
+  setAssistedApplicationJob(job);
+  if (!isJobDetailView) openDetail(job);
+  return;
+ }
  if (assistedApplicationVariant === 'assisted_application') {
   trackAssistedApplicationEvent(
    'job_apply_click',
@@ -6959,12 +7017,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
     variant={assistedApplicationVariant}
     onChooseExternal={handleAssistedExternal}
     onChoosePaid={handleAssistedPaid}
+    onRewardedGranted={handleRewardedApplicationGranted}
     onClose={() => {
      setAssistedApplicationJob(null);
      setAssistedCheckoutBusy(false);
      setAssistedCheckoutError(null);
     }}
     paidLoading={assistedCheckoutBusy}
+    rewardedAdEnabled={!killSwitches.rewardedApplicationAd}
     error={assistedCheckoutError}
    />
   </Suspense>

@@ -763,6 +763,13 @@ const deCore: Record<string, string> = {
  'jobBoard.assisted.paidLoading': 'Zahlung wird geöffnet…',
  'jobBoard.assisted.priceNote': 'Einmalige Zahlung · kein Abonnement',
  'jobBoard.assisted.disclaimer': 'Der konkrete Auftrag und der Datenschutzhinweis werden vor dem Upload angezeigt; die Einwilligung ist nicht vorausgewählt.',
+ 'jobBoard.assisted.rewardedTitle': 'Nach einem kurzen Video direkt bewerben',
+ 'jobBoard.assisted.rewardedBody': 'Sieh dir eine kurze Anzeige an: Danach kannst du die Website des Unternehmens 12 Stunden lang direkt auf diesem Gerät öffnen.',
+ 'jobBoard.assisted.rewardedCta': 'Video ansehen und fortfahren',
+ 'jobBoard.assisted.rewardedLoading': 'Video wird vorbereitet…',
+ 'jobBoard.assisted.rewardedUnavailable': 'Das Video ist momentan nicht verfügbar.',
+ 'jobBoard.assisted.rewardedExpiry': 'Nach dem Video bleiben direkte Weiterleitungen 12 Stunden auf diesem Gerät aktiv.',
+ 'jobBoard.assisted.rewardedExternalCta': 'Trotzdem zur Stelle',
  'jobBoard.assisted.pageEyebrow': 'Unterstützte Bewerbung',
  'jobBoard.assisted.pageTitle': 'Bewerbung vervollständigen',
  'jobBoard.assisted.loading': 'Zahlungsstatus wird geprüft…',
@@ -4151,7 +4158,10 @@ Regeln:
   'journalistDashboard.editor.deleteConfirmYes': 'Ja, löschen',
   'journalistDashboard.editor.deleting': 'Wird gelöscht...',
   'journalistDashboard.editor.deleteError': 'Löschen fehlgeschlagen. Bitte versuche es erneut.',
-  'journalistDashboard.editor.cancel': 'Abbrechen',
+ 'journalistDashboard.editor.cancel': 'Abbrechen',
+ 'whatsNew.v3966.title': 'Direkt bewerben nach einem Video',
+ 'whatsNew.v3966.rewardedApply.title': 'Ein Video schaltet 12 Stunden direkte Weiterleitungen frei',
+ 'whatsNew.v3966.rewardedApply.desc': 'Bei einigen Klicks auf externe Stellen kannst du einmal ein kurzes Video ansehen und die Unternehmenswebsite danach 12 Stunden lang direkt öffnen, ohne die Offerwall erneut zu sehen.',
 };
 
 export default deCore;

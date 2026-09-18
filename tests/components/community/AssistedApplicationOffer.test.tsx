@@ -22,8 +22,23 @@ vi.mock('@/services/i18n', () => ({
       'jobBoard.assisted.paidLoading': 'Apro il pagamento…',
       'jobBoard.assisted.priceNote': 'Pagamento unico · nessun abbonamento',
       'jobBoard.assisted.disclaimer': 'Privacy prima dell’upload.',
+      'jobBoard.assisted.rewardedTitle': 'Candidati direttamente dopo un breve video',
+      'jobBoard.assisted.rewardedBody': 'Guarda un breve annuncio.',
+      'jobBoard.assisted.rewardedCta': 'Guarda il video e continua',
+      'jobBoard.assisted.rewardedLoading': 'Preparo il video…',
+      'jobBoard.assisted.rewardedUnavailable': 'Video non disponibile.',
+      'jobBoard.assisted.rewardedExpiry': 'Accesso diretto per 12 ore.',
+      'jobBoard.assisted.rewardedExternalCta': 'Vai comunque all’annuncio',
     }[key] || key),
   }),
+}));
+
+vi.mock('@/components/shared/GptRewardedAd', () => ({
+  default: ({ label, onOptIn, onGranted }: { label: string; onOptIn?: () => void; onGranted: () => void }) => (
+    <button type="button" data-testid="assisted-application-offer-rewarded" onClick={() => { onOptIn?.(); onGranted(); }}>
+      {label}
+    </button>
+  ),
 }));
 
 vi.mock('@/services/assistedApplicationExperiment', () => ({
@@ -83,5 +98,22 @@ describe('AssistedApplicationOffer', () => {
     renderOffer({ error: 'Non siamo riusciti ad avviare il pagamento.' });
 
     expect(screen.getByRole('alert')).toHaveTextContent('Non siamo riusciti ad avviare il pagamento.');
+  });
+
+  it('offers the rewarded arm and forwards the granted reward', () => {
+    const props = renderOffer({ variant: 'rewarded_ad', onRewardedGranted: vi.fn() });
+
+    expect(screen.getByTestId('assisted-application-offer-rewarded')).toHaveTextContent('Guarda il video e continua');
+    fireEvent.click(screen.getByTestId('assisted-application-offer-rewarded'));
+
+    expect(props.onRewardedGranted).toHaveBeenCalledTimes(1);
+    expect(mocks.trackAssistedApplicationEvent).toHaveBeenCalledWith(
+      'rewarded_application_offer_viewed',
+      expect.objectContaining({ access_ttl_hours: 12, variant: 'rewarded_ad' }),
+    );
+    expect(mocks.trackAssistedApplicationEvent).toHaveBeenCalledWith(
+      'rewarded_ad_granted',
+      expect.objectContaining({ access_ttl_hours: 12, variant: 'rewarded_ad' }),
+    );
   });
 });

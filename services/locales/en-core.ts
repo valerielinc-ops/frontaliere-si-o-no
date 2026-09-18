@@ -760,7 +760,14 @@ const enCore: Record<string, string> = {
  'jobBoard.assisted.paidLoading': 'Opening payment…',
  'jobBoard.assisted.priceNote': 'One-time payment · no subscription',
  'jobBoard.assisted.disclaimer': 'The specific mandate and privacy notice are shown before upload; consent is not preselected.',
- 'jobBoard.assisted.pageEyebrow': 'Assisted application',
+  'jobBoard.assisted.rewardedTitle': 'Apply directly after a short video',
+  'jobBoard.assisted.rewardedBody': 'Watch a short ad: after the reward, you can open the company website directly for 12 hours on this device.',
+  'jobBoard.assisted.rewardedCta': 'Watch the video and continue',
+  'jobBoard.assisted.rewardedLoading': 'Preparing the video…',
+  'jobBoard.assisted.rewardedUnavailable': 'The video is not available right now.',
+  'jobBoard.assisted.rewardedExpiry': 'After watching the video, direct redirects stay active for 12 hours on this device.',
+  'jobBoard.assisted.rewardedExternalCta': 'Go to the listing anyway',
+  'jobBoard.assisted.pageEyebrow': 'Assisted application',
  'jobBoard.assisted.pageTitle': 'Complete your application',
  'jobBoard.assisted.loading': 'Checking payment status…',
  'jobBoard.assisted.authRequired': 'Sign in first to protect your order and CV.',
@@ -4149,6 +4156,9 @@ Rules:
   'journalistDashboard.editor.deleting': 'Deleting...',
   'journalistDashboard.editor.deleteError': 'Deletion failed. Please try again.',
   'journalistDashboard.editor.cancel': 'Cancel',
+  'whatsNew.v3966.title': 'Direct application after a video',
+  'whatsNew.v3966.rewardedApply.title': 'One video unlocks direct redirects for 12 hours',
+  'whatsNew.v3966.rewardedApply.desc': 'For some external job clicks, you can watch a short video once and open the company website directly for the next 12 hours, without seeing the Offerwall again.',
 };
 
 export default enCore;

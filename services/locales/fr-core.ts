@@ -4153,6 +4153,16 @@ Règles :
   'journalistDashboard.editor.deleting': 'Suppression en cours...',
   'journalistDashboard.editor.deleteError': 'Échec de la suppression. Veuillez réessayer.',
   'journalistDashboard.editor.cancel': 'Annuler',
+  'jobBoard.assisted.rewardedTitle': 'Postulez directement après une courte vidéo',
+  'jobBoard.assisted.rewardedBody': 'Regardez une courte publicité : après la récompense, vous pourrez ouvrir directement le site de l’entreprise pendant 12 heures sur cet appareil.',
+  'jobBoard.assisted.rewardedCta': 'Regarder la vidéo et continuer',
+  'jobBoard.assisted.rewardedLoading': 'Préparation de la vidéo…',
+  'jobBoard.assisted.rewardedUnavailable': 'La vidéo n’est pas disponible pour le moment.',
+  'jobBoard.assisted.rewardedExpiry': 'Après la vidéo, les redirections directes restent actives pendant 12 heures sur cet appareil.',
+  'jobBoard.assisted.rewardedExternalCta': 'Accéder quand même à l’offre',
+  'whatsNew.v3966.title': 'Postuler directement après une vidéo',
+  'whatsNew.v3966.rewardedApply.title': 'Une vidéo débloque les redirections directes pendant 12 heures',
+  'whatsNew.v3966.rewardedApply.desc': 'Pour certains clics vers des offres externes, vous pouvez regarder une courte vidéo une seule fois, puis ouvrir directement le site de l’entreprise pendant les 12 heures suivantes, sans revoir l’Offerwall.',
 };
 
 export default frCore;
