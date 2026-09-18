@@ -6,6 +6,17 @@ function indexPath(distDir: string, relativePath: string): string {
   return path.join(distDir, normalized, 'index.html');
 }
 
+/**
+ * Key an in-build Jobs SEO HTML entry by the canonical path, not just by its
+ * localized slug. The same slug is allowed in different canton sections;
+ * using `${locale}:${slug}` made a later job overwrite an earlier job's HTML
+ * and let a previous-slug/cross-locale bridge read the wrong page.
+ */
+export function jobsSeoHtmlCacheKey(locale: string, relativePath: string): string {
+  const normalized = `/${String(relativePath).replace(/^\/+/, '').replace(/\/+$/, '')}/`;
+  return `${String(locale)}:${normalized}`;
+}
+
 /** Read an already-emitted page without retaining its HTML in the build heap. */
 export function readEmittedHtml(distDir: string, relativePath: string): string | undefined {
   if (!relativePath.trim()) return undefined;

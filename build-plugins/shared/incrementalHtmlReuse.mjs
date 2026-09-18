@@ -11,6 +11,7 @@ import {
 
 export const JOBS_SEO_REUSE_ENV = 'JOBS_SEO_REUSE';
 export const JOBS_SEO_REUSE_VERIFY_ENV = 'JOBS_SEO_REUSE_VERIFY';
+export const JOBS_SEO_REUSE_VERIFY_SAMPLE_ENV = 'JOBS_SEO_REUSE_VERIFY_SAMPLE';
 export const JOBS_SEO_REUSE_BLOCKS = Object.freeze([
   'active',
   'expired-soft-landing',
@@ -20,6 +21,8 @@ export const JOBS_SEO_REUSE_BLOCKS = Object.freeze([
 
 const MAX_INLINE_CACHE_FILE_NAME = 220;
 const MAX_MISMATCH_LOGS = 20;
+const MAX_VERIFY_DIAGNOSTICS = 20;
+const MISMATCH_CONTEXT_RADIUS = 60;
 export const JOBS_SEO_EMITTER_KINDS = Object.freeze([
   'active-job',
   'expired-soft-landing',
@@ -178,6 +181,24 @@ function safeLocale(locale) {
   return value;
 }
 
+function parseVerifySample(rawValue) {
+  if (rawValue === undefined || String(rawValue).trim() === '') return 1;
+  const value = Number(rawValue);
+  if (!Number.isFinite(value) || value < 0 || value > 1) {
+    throw new Error(`${JOBS_SEO_REUSE_VERIFY_SAMPLE_ENV} must be a number between 0 and 1`);
+  }
+  return value;
+}
+
+function verifySampleIncludes(locale, block, pagePath, sample) {
+  if (sample >= 1) return true;
+  if (sample <= 0) return false;
+  const digest = createHash('sha256')
+    .update(`${locale}\0${block}\0${pagePath}`, 'utf8')
+    .digest();
+  return digest.readUInt32BE(0) / 0x100000000 < sample;
+}
+
 function configuredPath(rootDir, value, fallback) {
   if (!value) return fallback;
   return path.isAbsolute(value) ? value : path.resolve(rootDir, value);
@@ -254,7 +275,7 @@ export function htmlHasIndexableRobots(html) {
   return !!tag && !/\bnoindex\b/i.test(tag);
 }
 
-function htmlAssetReferences(html) {
+function htmlAssetReferenceList(html) {
   const references = [];
   const assetReferencePattern = /<(script|link|img|source)\b[^>]*?\s(src|href)\s*=\s*["']([^"']+)["'][^>]*>/gi;
   for (const match of String(html).matchAll(assetReferencePattern)) {
@@ -273,7 +294,11 @@ function htmlAssetReferences(html) {
       references.push(`${tag}:${match[2].toLowerCase()}:${url}`);
     }
   }
-  return JSON.stringify(references.sort());
+  return references.sort();
+}
+
+function htmlAssetReferences(html) {
+  return JSON.stringify(htmlAssetReferenceList(html));
 }
 
 function htmlInlineBlocks(html) {
@@ -301,10 +326,73 @@ function classifyHtmlReuseMismatch(previousHtml, renderedHtml) {
   return 'html-content-changed';
 }
 
+function stringIndexAtByteOffset(value, byteOffset) {
+  let byteCount = 0;
+  let index = 0;
+  while (index < value.length && byteCount < byteOffset) {
+    const codePoint = value.codePointAt(index);
+    const character = String.fromCodePoint(codePoint);
+    byteCount += Buffer.byteLength(character, 'utf8');
+    index += character.length;
+  }
+  return index;
+}
+
+function firstByteDifference(expected, actual) {
+  const expectedBytes = Buffer.from(expected, 'utf8');
+  const actualBytes = Buffer.from(actual, 'utf8');
+  const limit = Math.max(expectedBytes.length, actualBytes.length);
+  for (let offset = 0; offset < limit; offset += 1) {
+    if (expectedBytes[offset] !== actualBytes[offset]) return offset;
+  }
+  return -1;
+}
+
+function contextAround(value, byteOffset) {
+  const index = stringIndexAtByteOffset(value, byteOffset);
+  const start = Math.max(0, index - MISMATCH_CONTEXT_RADIUS);
+  return value.slice(start, start + MISMATCH_CONTEXT_RADIUS * 2);
+}
+
+function firstAssetDifference(previousHtml, renderedHtml) {
+  const previous = htmlAssetReferenceList(previousHtml);
+  const rendered = htmlAssetReferenceList(renderedHtml);
+  const previousOnly = previous.filter((reference) => !rendered.includes(reference));
+  const renderedOnly = rendered.filter((reference) => !previous.includes(reference));
+  if (previousOnly.length === 0 && renderedOnly.length === 0) return null;
+  return {
+    expected: previousOnly[0] || null,
+    actual: renderedOnly[0] || null,
+  };
+}
+
+/**
+ * Return bounded, machine-readable evidence for a normalized HTML mismatch.
+ * `offset` is a UTF-8 byte offset; contexts are intentionally short so the
+ * same evidence is safe in both the log line and the per-locale artifact.
+ */
+export function diagnoseHtmlReuseMismatch(previousHtml, renderedHtml, reason) {
+  const expected = normalizeHtmlForReuse(previousHtml);
+  const actual = normalizeHtmlForReuse(renderedHtml);
+  const offset = firstByteDifference(expected, actual);
+  const diagnostic = {
+    offset,
+    expectedContext: offset < 0 ? '' : contextAround(expected, offset),
+    actualContext: offset < 0 ? '' : contextAround(actual, offset),
+  };
+  if (String(reason).startsWith('asset-')) {
+    diagnostic.asset = firstAssetDifference(expected, actual);
+  }
+  return diagnostic;
+}
+
 function newBlockStats() {
   return {
     rendered: 0,
     reused: 0,
+    reusable: 0,
+    verified: 0,
+    wouldSaveMs: 0,
     wallMs: 0,
     mismatches: 0,
     mismatchReasons: new Map(),
@@ -318,14 +406,21 @@ function elapsedMs(startedAt) {
 }
 
 export class JobsSeoHtmlReuse {
-  constructor({ cacheRoot, previousByLocale, verify, emitterFingerprints = {} }) {
+  constructor({ cacheRoot, previousByLocale, verify, verifySample = 1, emitterFingerprints = {} }) {
     this.cacheRoot = cacheRoot;
     this.previousByLocale = previousByLocale;
     this.verify = verify;
+    this.verifySample = verifySample;
+    this.mode = verify ? (verifySample < 1 ? 'verify-sample' : 'verify-render') : 'reuse';
     this.emitterFingerprints = emitterFingerprints;
     this.stats = new Map(JOBS_SEO_REUSE_BLOCKS.map((block) => [block, newBlockStats()]));
     this.mismatchLogCount = 0;
+    this.diagnosticsByLocale = new Map();
     this.writeCounter = 0;
+  }
+
+  shouldRender(candidate) {
+    return Boolean(candidate?.verify);
   }
 
   lookup(locale, pagePath, kind, input, block) {
@@ -375,6 +470,10 @@ export class JobsSeoHtmlReuse {
       }
     }
 
+    const verify = html !== null
+      && this.verify
+      && verifySampleIncludes(String(locale), block, normalizedPath, this.verifySample);
+
     return {
       block,
       locale: String(locale),
@@ -382,6 +481,7 @@ export class JobsSeoHtmlReuse {
       cachePath,
       html,
       hit: html !== null,
+      verify,
       startedAt: process.hrtime.bigint(),
     };
   }
@@ -389,25 +489,47 @@ export class JobsSeoHtmlReuse {
   finish(candidate, renderedHtml) {
     if (!candidate) return;
     const stats = this.stats.get(candidate.block);
-    stats.wallMs += elapsedMs(candidate.startedAt);
-    if (candidate.hit && !this.verify) {
-      stats.reused += 1;
-      return;
+    const elapsed = elapsedMs(candidate.startedAt);
+    stats.wallMs += elapsed;
+    if (candidate.hit) {
+      stats.reusable += 1;
+      if (!candidate.verify) {
+        stats.reused += 1;
+        return;
+      }
+      stats.verified += 1;
+      stats.wouldSaveMs += elapsed;
     }
 
     stats.rendered += 1;
     if (candidate.hit && normalizeHtmlForReuse(candidate.html) !== normalizeHtmlForReuse(renderedHtml)) {
       stats.mismatches += 1;
       const mismatchReason = classifyHtmlReuseMismatch(candidate.html, renderedHtml);
+      const diagnostic = diagnoseHtmlReuseMismatch(candidate.html, renderedHtml, mismatchReason);
       stats.mismatchReasons.set(
         mismatchReason,
         (stats.mismatchReasons.get(mismatchReason) || 0) + 1,
       );
+      const localeDiagnostics = this.diagnosticsByLocale.get(candidate.locale) || [];
+      if (localeDiagnostics.length < MAX_VERIFY_DIAGNOSTICS) {
+        localeDiagnostics.push({
+          block: candidate.block,
+          locale: candidate.locale,
+          path: candidate.path,
+          reason: mismatchReason,
+          ...diagnostic,
+        });
+        this.diagnosticsByLocale.set(candidate.locale, localeDiagnostics);
+      }
       if (this.mismatchLogCount < MAX_MISMATCH_LOGS) {
         this.mismatchLogCount += 1;
         console.warn(
           `[jobs-seo-reuse] verify=mismatch block=${candidate.block} locale=${candidate.locale}`
-          + ` path=${candidate.path} reason=${mismatchReason}`,
+          + ` path=${candidate.path} reason=${mismatchReason}`
+          + ` offset=${diagnostic.offset}`
+          + ` expected=${JSON.stringify(diagnostic.expectedContext)}`
+          + ` actual=${JSON.stringify(diagnostic.actualContext)}`
+          + (diagnostic.asset ? ` asset=${JSON.stringify(diagnostic.asset)}` : ''),
         );
       }
     }
@@ -415,7 +537,7 @@ export class JobsSeoHtmlReuse {
   }
 
   reusedHtml(candidate, buildId) {
-    if (!candidate?.hit || this.verify) return null;
+    if (!candidate?.hit || candidate.verify) return null;
     return refreshHtmlBuildId(candidate.html, buildId);
   }
 
@@ -471,6 +593,9 @@ export class JobsSeoHtmlReuse {
       return [block, {
         rendered: stats.rendered,
         reused: stats.reused,
+        reusable: stats.reusable,
+        verified: stats.verified,
+        wouldSaveMs: stats.wouldSaveMs,
         wallMs: stats.wallMs,
         mismatches: stats.mismatches,
         mismatchReasons: Object.fromEntries(stats.mismatchReasons),
@@ -480,6 +605,7 @@ export class JobsSeoHtmlReuse {
   }
 
   logSummary() {
+    if (this.verify) this.writeVerifyDiagnostics();
     for (const block of JOBS_SEO_REUSE_BLOCKS) {
       const stats = this.stats.get(block);
       const missReasons = [...stats.missReasons.entries()]
@@ -491,10 +617,37 @@ export class JobsSeoHtmlReuse {
         .map(([reason, count]) => `${reason}:${count}`)
         .join(',') || 'none';
       console.log(
-        `[jobs-seo-reuse] block=${block} rendered=${stats.rendered} reused=${stats.reused}`
+        `[jobs-seo-reuse] block=${block} mode=${this.mode}`
+        + ` rendered=${stats.rendered} reused=${stats.reused} reusable=${stats.reusable}`
+        + ` verified=${stats.verified} would-save_ms=${stats.wouldSaveMs.toFixed(1)}`
         + ` miss-reason=${missReasons} wall_ms=${stats.wallMs.toFixed(1)}`
         + ` mismatches=${stats.mismatches} mismatch-reason=${mismatchReasons}`,
       );
+    }
+  }
+
+  writeVerifyDiagnostics() {
+    const locales = new Set([
+      ...this.previousByLocale.keys(),
+      ...this.diagnosticsByLocale.keys(),
+    ]);
+    for (const locale of locales) {
+      const safe = safeLocale(locale);
+      const outputPath = path.join(this.cacheRoot, `verify-${safe}.json`);
+      const mismatches = this.diagnosticsByLocale.get(locale) || [];
+      try {
+        fs.mkdirSync(this.cacheRoot, { recursive: true });
+        fs.writeFileSync(
+          outputPath,
+          `${JSON.stringify({ version: 1, locale: safe, mismatches }, null, 2)}\n`,
+          'utf8',
+        );
+      } catch (error) {
+        console.warn(
+          `[jobs-seo-reuse] verify-artifact-write-failed locale=${safe} path=${outputPath}`
+          + ` reason=${error?.message || error}`,
+        );
+      }
     }
   }
 }
@@ -540,6 +693,7 @@ export async function createJobsSeoHtmlReuse(rootDir, locales, emitterFingerprin
     cacheRoot,
     previousByLocale,
     verify: process.env[JOBS_SEO_REUSE_VERIFY_ENV] === '1',
+    verifySample: parseVerifySample(process.env[JOBS_SEO_REUSE_VERIFY_SAMPLE_ENV]),
     emitterFingerprints: currentEmitterFingerprints,
   });
 }
