@@ -130,6 +130,31 @@ describe('SmartRecruiters strict source pagination', () => {
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
+  it('does not prove a strict source when totalFound is smaller than unique rows', async () => {
+    let outcome: Record<string, unknown> | undefined;
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({
+      totalFound: 0,
+      content: [{ id: 'posting-a', name: 'Role A', location: { city: 'Lugano', country: { code: 'CH' } } }],
+    }), { status: 200 })));
+
+    const rows = [];
+    for await (const row of fetchSmartRecruitersJobs('Avaloq1', {
+      minDelayMs: 0,
+      onComplete: (info) => { outcome = info; },
+    })) {
+      rows.push(row);
+    }
+
+    expect(rows).toHaveLength(0);
+    expect(outcome).toMatchObject({
+      terminationProven: false,
+      recordsSeen: 1,
+      rawRecordsSeen: 1,
+      paginationIntegrityProven: false,
+      totalFound: 0,
+    });
+  });
+
   it('fails when a later page corrupts an earlier valid total', async () => {
     const pages = [
       {

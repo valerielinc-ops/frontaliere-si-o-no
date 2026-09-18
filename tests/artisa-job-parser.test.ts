@@ -127,6 +127,21 @@ describe('assertCompleteArtisaSnapshot', () => {
     expect(assertCompleteArtisaSnapshot(rows)).toBe(true);
   });
 
+  it('does not prove zero when a Smartsheet form anchor has no vacancy heading', () => {
+    const rows = parseArtisaCareerPage(`
+      <div>
+        <h2>Carriera</h2>
+        <a href="https://app.smartsheet.com/b/form/drift">Apply</a>
+        <h2>Le nostre sedi</h2>
+      </div>
+    `);
+    expect(rows).toHaveLength(0);
+    expect(rows.artisaCandidateVacancies).toBe(1);
+    expect(rows.artisaParsedVacancies).toBe(0);
+    expect(rows.artisaSnapshotState).toBe('unverified');
+    expect(() => assertCompleteArtisaSnapshot(rows)).toThrow(/1 candidate vacancy h2 present/);
+  });
+
   it('rejects a zero produced by a page that never rendered the landmarks', () => {
     const rows = parseArtisaCareerPage('<html><body><h2>Access denied</h2></body></html>');
     expect(rows).toHaveLength(0);

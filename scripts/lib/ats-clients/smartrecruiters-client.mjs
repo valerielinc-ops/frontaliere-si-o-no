@@ -566,6 +566,13 @@ export async function* fetchSmartRecruitersJobs(tenant, options = {}) {
       seenPageKeys.add(pageKey);
       for (const id of pageIds) seenPostingIds.add(id);
       recordsSeen = seenPostingIds.size;
+      if (totalFound !== null && recordsSeen > totalFound) {
+        // The source declaration cannot describe fewer postings than the
+        // unique rows it has already returned. Keep the rows unproven rather
+        // than allowing the contradictory total to certify termination.
+        paginationIntegrityProven = false;
+        break;
+      }
     } else {
       recordsSeen = rawRecordsSeen;
     }

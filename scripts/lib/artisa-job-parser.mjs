@@ -53,8 +53,9 @@ export function parseArtisaCareerPage(html = '') {
   // fact that separates "Squarespace re-worded a landmark" from "the page
   // really lists an opening" — see `artisaSnapshotReason`.
   const headingsSeen = [];
-  // Vacancy `h2` headings seen before any downstream gate: neither the
-  // `title && location` flush gate nor the Swiss-location filter can shrink it.
+  // Vacancy `h2` headings and orphan Smartsheet form anchors seen before any
+  // downstream gate: neither the `title && location` flush gate nor the
+  // Swiss-location filter can shrink the source-side candidate count.
   // This is what makes a zero provable rather than merely observed.
   let candidateVacancies = 0;
   let current = null;
@@ -96,7 +97,14 @@ export function parseArtisaCareerPage(html = '') {
       }
       continue;
     }
-    if (!current) continue;
+    if (!current) {
+      // A form anchor without a current vacancy heading is still source
+      // evidence that the vacancy parser missed something. Do not let the two
+      // surrounding landmarks turn that selector drift into an authoritative
+      // zero.
+      if (tag === 'a') candidateVacancies += 1;
+      continue;
+    }
     if (tag === 'a' && !current.applyUrl) {
       current.applyUrl = String(node.getAttribute('href') || '').trim();
       flush();
