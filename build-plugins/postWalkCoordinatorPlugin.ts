@@ -44,8 +44,9 @@
  * the sequential profile measured 121s wall vs 65s CPU — the 56s gap is pure
  * single-thread I/O wait that a second core can absorb. Each worker reads,
  * transforms, and writes its assigned slice independently; the inputs
- * (existingHtmlSet, blogIndexHtmlByPath) are read-only and identical across
- * workers, so output is byte-equivalent to the single-threaded path.
+ * (HTML existence on disk, blogIndexHtmlByPath) are identical across workers,
+ * so output is byte-equivalent to the single-threaded path without cloning a
+ * full HTML path Set into every worker.
  *
  * Set POST_WALK_WORKERS=1 to force single-threaded execution (useful when
  * profiling or when running on a constrained runner where worker spawn cost
@@ -80,6 +81,7 @@ import { transformHreflang } from './hreflangPostprocessPlugin';
 import { allowExternallyServedTargets } from '../scripts/lib/externally-served-paths.mjs';
 import { shouldEmitPath } from './shared/localeEmitFilter';
 import { collectHtml } from './shared/distHtmlWalk';
+import { buildSharedHtmlPathIndex } from './shared/htmlPathIndex.mjs';
 import {
   startTimer as profileStart,
   recordEmit as profileRecord,
@@ -98,6 +100,7 @@ import {
   postWalkIncrementalVerifySampleSize,
   selectPostWalkVerificationPaths,
   type PostWalkManifestProgress,
+  type PostWalkManifestStateLoadResult,
   type PostWalkIncrementalPlan,
 } from './shared/postWalkIncremental';
 
@@ -355,10 +358,10 @@ async function runInWorker(
     distDir: string;
     baseUrl: string;
     trimmedBase: string;
-    existingHtmlPaths: readonly string[];
     blogIndexEntries: ReadonlyArray<readonly [string, BlogLinkLocale]>;
     contextualLinkDefaults: ContextualLinkDefaults;
     assignedFiles: readonly string[];
+    htmlPathIndex: ReturnType<typeof buildSharedHtmlPathIndex>;
   },
 ): Promise<WorkerResult> {
   return new Promise((resolve, reject) => {
@@ -434,15 +437,98 @@ export function postWalkCoordinatorPlugin(
 
         const startTotal = Date.now();
 
+        let processHtmlPaths: readonly string[] = [];
+        let incrementalPlan: PostWalkIncrementalPlan | null = null;
+        let incrementalManifestPhaseMs = 0;
+        let incrementalPlanPhaseMs = 0;
+        let incrementalVerifyPhaseMs = 0;
+        const incrementalEnabled = postWalkIncrementalEnabled();
+        let manifests: PostWalkManifestStateLoadResult | null = null;
+
+        if (incrementalEnabled) {
+          const manifestStartedAt = Date.now();
+          // Load and report the two manifest cardinalities before the expensive
+          // dist walk. If a later phase dies, the last [mem] marker identifies
+          // whether the retained state belonged to JSONL, planning, or workers.
+          // eslint-disable-next-line no-console
+          console.log(
+            '[post-walk-coordinator][incremental] previous=loading current=loading phase=manifest-load-start',
+          );
+          logBuildMem(
+            'postWalkCoordinator: before-manifest',
+            undefined,
+            { phase: 'manifest-load' },
+            { forceGc: false },
+          );
+
+          const manifestProgress = (progress: PostWalkManifestProgress): void => {
+            const previous = progress.previousEntries === null
+              ? 'loading'
+              : String(progress.previousEntries);
+            // eslint-disable-next-line no-console
+            console.log(
+              `[post-walk-coordinator][incremental] previous=${previous} `
+                + `current=${progress.currentEntries} phase=${progress.phase}`,
+            );
+            logBuildMem(
+              `postWalkCoordinator: ${progress.phase}`,
+              undefined,
+              {
+                previousEntries: progress.previousEntries === null ? 'loading' : progress.previousEntries,
+                currentEntries: progress.currentEntries,
+              },
+              { forceGc: false },
+            );
+          };
+
+          manifests = fs.existsSync(path.join(rootDir, 'data', 'jobs.json'))
+            ? await loadPostWalkManifestState(
+                rootDir,
+                resolvePostWalkManifestLocales(),
+                baseUrl,
+                manifestProgress,
+              )
+            : {
+                ok: false as const,
+                reason: 'data/jobs.json missing: current manifest is incomplete',
+              };
+          if ('reason' in manifests) {
+            // eslint-disable-next-line no-console
+            console.warn(
+              `[post-walk-coordinator][incremental] fallback=full reason=${manifests.reason}`,
+            );
+          } else {
+            // This is the first line containing both cardinalities, and is
+            // intentionally before dist enumeration and worker dispatch.
+            // eslint-disable-next-line no-console
+            console.log(
+              `[post-walk-coordinator][incremental] previous=${manifests.state.previousEntryCount} `
+                + `current=${manifests.state.currentEntryCount} phase=manifest-loaded`,
+            );
+            logBuildMem(
+              'postWalkCoordinator: after-manifest',
+              undefined,
+              {
+                previousEntries: manifests.state.previousEntryCount,
+                currentEntries: manifests.state.currentEntryCount,
+              },
+              { forceGc: false },
+            );
+          }
+          incrementalManifestPhaseMs = Date.now() - manifestStartedAt;
+        }
+
         // ── Phase A: enumerate every emitted HTML file once ──────────
         const walkStartedAt = Date.now();
         const __tWalk = profileStart();
         const allHtmlPaths: string[] = collectHtml(distDir, []);
-        const fullProcessHtmlPaths: string[] = [];
+        const filesScanned = allHtmlPaths.length;
         const existingHtmlSet = new Set<string>(allHtmlPaths);
+        let processableCount = 0;
         let preEmittedFlatBridgesSkipped = 0;
         let nonOwnedLocaleSkipped = 0;
-        for (const file of allHtmlPaths) {
+        for (let index = 0; index < allHtmlPaths.length; index += 1) {
+          const file = allHtmlPaths[index];
           // Per-locale matrix shard (BUILD_LOCALE): a file in a NON-owned
           // locale subtree is deleted, unread, by scripts/ci/prune-locale-shard.mjs
           // in the very next workflow step — it can never ship from this shard,
@@ -467,77 +553,30 @@ export function postWalkCoordinatorPlugin(
           } else if (isPreEmittedJobFlatBridgePath(distDir, file)) {
             preEmittedFlatBridgesSkipped++;
           } else {
-            fullProcessHtmlPaths.push(file);
+            allHtmlPaths[processableCount] = file;
+            processableCount++;
           }
         }
+        allHtmlPaths.length = processableCount;
+        const fullProcessHtmlPaths: readonly string[] = allHtmlPaths;
+        processHtmlPaths = fullProcessHtmlPaths;
         profileRecord('walk-dist', __tWalk);
         const walkPhaseMs = Date.now() - walkStartedAt;
-        let processHtmlPaths: readonly string[] = fullProcessHtmlPaths;
-        let incrementalPlan: PostWalkIncrementalPlan | null = null;
-        let incrementalManifestPhaseMs = 0;
-        let incrementalVerifyPhaseMs = 0;
-        const incrementalEnabled = postWalkIncrementalEnabled();
         if (incrementalEnabled) {
           logBuildMem(
             'postWalkCoordinator: after-walk',
             undefined,
-            { scanned: allHtmlPaths.length, processable: fullProcessHtmlPaths.length },
+            { scanned: filesScanned, processable: fullProcessHtmlPaths.length },
             { forceGc: false },
           );
         }
+
         if (incrementalEnabled) {
-          const manifestStartedAt = Date.now();
-          // Emit a breadcrumb before either JSONL stream is opened. If the
-          // process dies while loading the previous snapshot, the log still
-          // says which expensive phase owned the last live allocation.
-          // eslint-disable-next-line no-console
-          console.log(
-            '[post-walk-coordinator][incremental] previous=loading current=loading phase=manifest-load-start',
-          );
-          logBuildMem(
-            'postWalkCoordinator: before-manifest',
-            undefined,
-            { scanned: allHtmlPaths.length, processable: fullProcessHtmlPaths.length },
-            { forceGc: false },
-          );
-
-          const manifestProgress = (progress: PostWalkManifestProgress): void => {
-            const previous = progress.previousEntries === null
-              ? 'loading'
-              : String(progress.previousEntries);
-            // eslint-disable-next-line no-console
-            console.log(
-              `[post-walk-coordinator][incremental] previous=${previous} `
-                + `current=${progress.currentEntries} phase=${progress.phase}`,
-            );
-            logBuildMem(
-              `postWalkCoordinator: ${progress.phase}`,
-              undefined,
-              {
-                previousEntries: progress.previousEntries === null ? 'loading' : progress.previousEntries,
-                currentEntries: progress.currentEntries,
-              },
-              { forceGc: false },
-            );
-          };
-
-          const manifests = fs.existsSync(path.join(rootDir, 'data', 'jobs.json'))
-            ? await loadPostWalkManifestState(
-                rootDir,
-                resolvePostWalkManifestLocales(),
-                baseUrl,
-                manifestProgress,
-              )
-            : {
-                ok: false as const,
-                reason: 'data/jobs.json missing: current manifest is incomplete',
-              };
-          if ('reason' in manifests) {
-            const fallbackReason = manifests.reason;
-            // eslint-disable-next-line no-console
-            console.warn(
-              `[post-walk-coordinator][incremental] fallback=full reason=${fallbackReason}`,
-            );
+          const planStartedAt = Date.now();
+          if (manifests === null || 'reason' in manifests) {
+            const fallbackReason = manifests !== null && 'reason' in manifests
+              ? manifests.reason
+              : 'manifest loader returned no result';
             incrementalPlan = {
               mode: 'full',
               processHtmlPaths: fullProcessHtmlPaths,
@@ -553,25 +592,9 @@ export function postWalkCoordinatorPlugin(
               reasonsByPath: new Map(),
             };
           } else {
-            // This is the first line containing both cardinalities, and is
-            // intentionally before identity/hreflang scans and dispatch.
-            // eslint-disable-next-line no-console
-            console.log(
-              `[post-walk-coordinator][incremental] previous=${manifests.state.previousEntryCount} `
-                + `current=${manifests.state.currentEntryCount} phase=manifest-loaded`,
-            );
-            logBuildMem(
-              'postWalkCoordinator: after-manifest',
-              undefined,
-              {
-                previousEntries: manifests.state.previousEntryCount,
-                currentEntries: manifests.state.currentEntryCount,
-              },
-              { forceGc: false },
-            );
             incrementalPlan = buildPostWalkIncrementalPlanFromState({
               distDir,
-              allHtmlPaths,
+              allHtmlPaths: fullProcessHtmlPaths,
               processableHtmlPaths: fullProcessHtmlPaths,
               baseUrl,
               existingHtmlSet,
@@ -603,21 +626,19 @@ export function postWalkCoordinatorPlugin(
               { forceGc: false },
             );
           }
-          incrementalManifestPhaseMs = Date.now() - manifestStartedAt;
+          incrementalPlanPhaseMs = Date.now() - planStartedAt;
+          // Explicitly drop the one current-entry map and delta sets before
+          // blog maps, verification, or workers are allocated.
+          manifests = null;
+          if (incrementalPlan) {
+            logBuildMem(
+              'postWalkCoordinator: after-manifest-state-release',
+              undefined,
+              { mode: incrementalPlan.mode, processed: processHtmlPaths.length },
+              { forceGc: false },
+            );
+          }
         }
-        if (incrementalEnabled && incrementalPlan) {
-          // The streaming loader's current map and delta sets are scoped to
-          // the branch above. This marker is intentionally after that scope,
-          // so it measures the retained dispatch plan rather than the loader
-          // state plus the plan at the same time.
-          logBuildMem(
-            'postWalkCoordinator: after-manifest-state-release',
-            undefined,
-            { mode: incrementalPlan.mode, processed: processHtmlPaths.length },
-            { forceGc: false },
-          );
-        }
-        const filesScanned = allHtmlPaths.length;
         if (filesScanned === 0) {
           // eslint-disable-next-line no-console
           console.warn('[post-walk-coordinator] no HTML files in dist/ — skipping');
@@ -647,13 +668,14 @@ export function postWalkCoordinatorPlugin(
           && postWalkIncrementalVerifyEnabled()
         ) {
           const verifyStartedAt = Date.now();
-          const verificationPaths = selectPostWalkVerificationPaths(
+          const sampledPaths = selectPostWalkVerificationPaths(
             fullProcessHtmlPaths,
             postWalkIncrementalVerifySampleSize(),
             incrementalPlan.processHtmlPaths,
+            false,
           );
-          const fullDryRun = runSingleThreaded(
-            verificationPaths,
+          const fullSampleDryRun = runSingleThreaded(
+            sampledPaths,
             existingHtmlSet,
             blogIndexHtmlByPath,
             distDir,
@@ -662,15 +684,32 @@ export function postWalkCoordinatorPlugin(
             false,
             true,
           );
+          // The affected/changed list is already the incremental dispatch
+          // array. Verify it in-place, without constructing a combined
+          // `affected + sample` path list or a second full-walk index.
+          const affectedFullDryRun = runSingleThreaded(
+            processHtmlPaths,
+            existingHtmlSet,
+            blogIndexHtmlByPath,
+            distDir,
+            baseUrl,
+            trimmedBase,
+            false,
+            true,
+          );
+          const verificationPathCount = sampledPaths.length + processHtmlPaths.length;
           const comparison = comparePostWalkVerification({
-            fullWouldWritePaths: fullDryRun.wouldWritePaths ?? [],
+            fullWouldWritePaths: fullSampleDryRun.wouldWritePaths ?? [],
             incrementalProcessPaths: processHtmlPaths,
-            sampledPaths: verificationPaths,
+            sampledPaths,
+            affectedWouldWritePaths: affectedFullDryRun.wouldWritePaths ?? [],
+            affectedPaths: processHtmlPaths,
           });
           incrementalVerifyPhaseMs = Date.now() - verifyStartedAt;
           // eslint-disable-next-line no-console
           console.log(
-            `[post-walk-coordinator][incremental-verify] sampled=${verificationPaths.length} `
+            `[post-walk-coordinator][incremental-verify] sampled=${verificationPathCount} `
+              + `sample-only=${sampledPaths.length} affected=${processHtmlPaths.length} `
               + `would-write-but-skipped=${comparison.wouldWriteButSkipped.length} `
               + `processed-without-write=${comparison.processedButWouldNotWrite.length}`,
           );
@@ -695,7 +734,9 @@ export function postWalkCoordinatorPlugin(
             'postWalkCoordinator: after-verify',
             undefined,
             {
-              sampled: verificationPaths.length,
+              sampled: verificationPathCount,
+              sampleOnly: sampledPaths.length,
+              affected: processHtmlPaths.length,
               processed: processHtmlPaths.length,
               mismatch: comparison.wouldWriteButSkipped.length,
             },
@@ -722,6 +763,9 @@ export function postWalkCoordinatorPlugin(
                 profileRecord('chunk-roundrobin', __tChunk);
                 const workerUrl = new URL('./postWalkWorker.mjs', import.meta.url);
                 const blogIndexEntries = Array.from(blogIndexHtmlByPath.entries());
+                const __tHtmlIndex = profileStart();
+                const htmlPathIndex = buildSharedHtmlPathIndex(existingHtmlSet);
+                profileRecord('shared-html-path-index', __tHtmlIndex);
                 const __tDispatch = profileStart();
                 const finalMerged = emptyWorkerResult();
                 await Promise.all(
@@ -730,10 +774,10 @@ export function postWalkCoordinatorPlugin(
                       distDir,
                       baseUrl,
                       trimmedBase,
-                      existingHtmlPaths: allHtmlPaths,
                       blogIndexEntries,
                       contextualLinkDefaults: contextualLinkDefaults(),
                       assignedFiles,
+                      htmlPathIndex,
                     });
                     if (r.profilerBuckets && r.profilerBuckets.length > 0) {
                       profileIngestBuckets(r.profilerBuckets);
@@ -790,6 +834,7 @@ export function postWalkCoordinatorPlugin(
                 ? `${incrementalPlan.fallbackMode}:${incrementalPlan.fallbackReason ?? 'unspecified'}`
                 : 'none'} `
               + `phases_ms=walk:${walkPhaseMs},manifest:${incrementalManifestPhaseMs},`
+              + `plan:${incrementalPlanPhaseMs},`
               + `blog:${blogPhaseMs},process:${processPhaseMs},verify:${incrementalVerifyPhaseMs} `
               + `dependency-rule="${POST_WALK_INCREMENTAL_DEPENDENCY_RULE}"`,
           );
