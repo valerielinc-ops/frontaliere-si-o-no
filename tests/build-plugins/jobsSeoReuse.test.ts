@@ -204,6 +204,47 @@ describe('jobs SEO disk HTML reuse', () => {
     }
   });
 
+  it.each([
+    ['sourceInputHash', null],
+    ['sourceInputHash', ''],
+    ['canonicalInputHash', null],
+    ['canonicalInputHash', ''],
+  ])(
+    'does not reuse a bridge when %s=%s is unavailable',
+    async (sourceHashKey, sourceHashValue) => {
+      const rootDir = fixtureRoot();
+      const pagePath = '/cerca-lavoro-ticino/unresolved-source/';
+      const input = {
+        source: 'active-job',
+        [sourceHashKey]: sourceHashValue,
+        jobId: 'job-1',
+        path: pagePath,
+      };
+      try {
+        writePreviousManifest(rootDir, pagePath, 'cross-locale-reconciliation', input);
+        writeCachedHtml(rootDir, pagePath, 'cross-locale-reconciliation', input, '<html>stale-source</html>');
+        const reuse = await createReuse(rootDir);
+        const candidate = reuse.lookup(
+          'it',
+          pagePath,
+          'cross-locale-reconciliation',
+          input,
+          'cross-locale-reconciliation',
+        );
+        expect(candidate).toMatchObject({ hit: false, html: null, cacheable: false });
+        reuse.finish(candidate, '<html>fresh-source</html>');
+        expect(reuse.summary()['cross-locale-reconciliation']).toMatchObject({
+          rendered: 1,
+          reused: 0,
+          missReasons: { 'input-unavailable': 1 },
+        });
+        expect(fs.existsSync(candidate.cachePath)).toBe(false);
+      } finally {
+        fs.rmSync(rootDir, { recursive: true, force: true });
+      }
+    },
+  );
+
   it('keeps same-path HTML variants separate by kind and input hash', async () => {
     const rootDir = fixtureRoot();
     const pagePath = '/cerca-lavoro-ticino/shared-variant/';
