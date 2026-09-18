@@ -32,6 +32,14 @@ const REGISTRY_BLOCK = (() => {
   return indexHtml.slice(start, end);
 })();
 
+const CONTROLLED_MESSAGING_BLOCK = (() => {
+  const start = indexHtml.indexOf('controlledMessagingFunction');
+  expect(start, 'Offerwall controlled messaging block must exist in index.html').toBeGreaterThan(-1);
+  const end = indexHtml.indexOf('</script>', start);
+  expect(end, 'closing </script> after controlled messaging block must exist').toBeGreaterThan(start);
+  return indexHtml.slice(start, end);
+})();
+
 describe('Offerwall custom-choice registry — index.html', () => {
   it('registers the registry on window.googlefc.offerwall.customchoice.registry', () => {
     expect(REGISTRY_BLOCK).toMatch(/offerwall\s*=\s*g\.offerwall\s*\|\|\s*\{\}/);
@@ -77,5 +85,13 @@ describe('Offerwall custom-choice registry — index.html', () => {
     expect(registryIdx).toBeGreaterThan(-1);
     expect(fcLoaderIdx).toBeGreaterThan(-1);
     expect(registryIdx).toBeLessThan(fcLoaderIdx);
+  });
+
+  it('gates only the native Offerwall to the rewarded experiment arm', () => {
+    expect(CONTROLLED_MESSAGING_BLOCK).toContain('controlledMessagingFunction');
+    expect(CONTROLLED_MESSAGING_BLOCK).toContain('frontaliere_assisted_application_distinct_id');
+    expect(CONTROLLED_MESSAGING_BLOCK).toContain('MessageTypeEnum');
+    expect(CONTROLLED_MESSAGING_BLOCK).toContain('message.proceed(false, [E.OFFERWALL])');
+    expect(CONTROLLED_MESSAGING_BLOCK).toContain('bucket(distinctId()) >= 60');
   });
 });
