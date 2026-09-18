@@ -154,6 +154,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(build?.run).toContain('--cpu-prof-dir=/tmp/cpuprof');
     expect(build?.run).toContain('NODE_OPTIONS');
     expect(build?.run).toContain('skip post-build SPA asset verification');
+    expect(build?.run).toContain('build_exit="${PIPESTATUS[0]}"');
     expect(build?.run).toContain('stop_after=${BUILD_STOP_AFTER:-}');
     const prune = steps.find((step) => step.name === 'Prune to locale shard (filesystem-level, mirrors production push_shard)');
     const validate = steps.find((step) => step.name === 'Validate locale shard output');

@@ -124,11 +124,13 @@ describe('incremental manifest input contract', () => {
       id: 'cache-job-1',
       slug: 'cache-job',
       title: 'Role',
+      sourceRecordHash: 'cache-v1',
       updatedAt: 'fixture-v1',
     };
     const related = {
       id: 'related-cache-1',
       slugByLocale: { it: 'related-cache-1' },
+      sourceRecordHash: 'related-v1',
       title: 'Related role',
     };
     const first = buildMinimalJobInput(
@@ -167,7 +169,7 @@ describe('incremental manifest input contract', () => {
       primary,
       'it',
       'cache-job',
-      [{ ...related, title: 'Changed related role' }],
+      [{ ...related, sourceRecordHash: 'related-v2', title: 'Changed related role' }],
       cache,
     );
     expect(changedRelated.relatedJobs).not.toBe(first.relatedJobs);
@@ -182,6 +184,7 @@ describe('incremental manifest input contract', () => {
       titleByLocale: { it: 'Expired role' },
       descriptionByLocale: { it: 'Description retained in the expired archive' },
       expiredAt: '2026-09-16T00:00:00.000Z',
+      sourceRecordHash: 'expired-v1',
     };
     const first = buildMinimalJobInput(
       { id: 'active-page', title: 'Active page', updatedAt: 'fixture-v1' },
@@ -201,6 +204,36 @@ describe('incremental manifest input contract', () => {
     expect(second.relatedJobs[0]).toBe(first.relatedJobs[0]);
     expect(cache.relatedJobProjectionsByKey.size).toBe(1);
     expect(cache._metrics.relatedProjectionComputations).toBe(1);
+  });
+
+  it('does not reuse an unversioned clone whose long content changes', () => {
+    const cache = createIncrementalManifestInputCache();
+    const expired = {
+      slug: 'unversioned-expired-role',
+      title: 'Expired role',
+      descriptionByLocale: { it: `prefix-${'A'.repeat(400)}-suffix` },
+    };
+    const first = buildMinimalJobInput(
+      { id: 'active-page', title: 'Active page', updatedAt: 'fixture-v1' },
+      'it',
+      'active-page',
+      [expired],
+      cache,
+    );
+    const changed = buildMinimalJobInput(
+      { id: 'another-active-page', title: 'Another page', updatedAt: 'fixture-v1' },
+      'it',
+      'another-active-page',
+      [{
+        ...expired,
+        descriptionByLocale: { it: `prefix-${'A'.repeat(199)}B${'A'.repeat(200)}-suffix` },
+      }],
+      cache,
+    );
+
+    expect(changed.relatedJobs[0]).not.toBe(first.relatedJobs[0]);
+    expect(changed.relatedJobs[0].digest).not.toBe(first.relatedJobs[0].digest);
+    expect(cache._metrics.relatedProjectionComputations).toBe(2);
   });
 
   it('keeps the complete related pool in a compact page signature', () => {
@@ -266,6 +299,7 @@ describe('incremental manifest input contract', () => {
       id: 'related-canonical-1',
       slugByLocale: { de: 'related-job' },
       titleByLocale: { de: 'Related role' },
+      sourceRecordHash: 'related-canonical-v1',
       updatedAt: 'fixture-v1',
     };
     const activeInput = buildMinimalJobInput(

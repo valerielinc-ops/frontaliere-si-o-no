@@ -483,6 +483,7 @@ jobs:
             echo "[build-stop-after] requested=${BUILD_STOP_AFTER} (skip post-build SPA asset verification)"
             export NODE_OPTIONS="$BUILD_NODE_OPTIONS"
             ./node_modules/.bin/vite build --minify esbuild 2>&1 | tee "$BUILD_LOG"
+            build_exit="${PIPESTATUS[0]}"
           elif [ "${CPU_PROFILE:-}" = '1' ]; then
             echo '[cpu-profile] using direct Vite invocation so NODE_OPTIONS is not overwritten by build:ci'
             export NODE_OPTIONS="$BUILD_NODE_OPTIONS"
