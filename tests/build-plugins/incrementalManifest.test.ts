@@ -138,6 +138,31 @@ describe('incremental manifest input contract', () => {
     expect(job.locations).toEqual(['Lugano', 'Chiasso']);
   });
 
+  it('recomputes the digest after an in-place mutation of a cached record', () => {
+    const cache = createIncrementalManifestInputCache();
+    const job = {
+      id: 'mutated-job-1',
+      slug: 'mutated-role',
+      title: 'Mutated role',
+      datePosted: '2026-08-19T14:02:37.348Z',
+      locations: ['Lugano'],
+    };
+    const before = buildMinimalJobInput(job, 'it', job.slug, [], cache, job).jobRecordDigest;
+    const cached = buildMinimalJobInput(job, 'it', job.slug, [], cache, job).jobRecordDigest;
+    expect(cached).toBe(before);
+    expect(cache._metrics.jobDigestComputations).toBe(1);
+
+    job.locations.push('Chiasso');
+    const afterPush = buildMinimalJobInput(job, 'it', job.slug, [], cache, job).jobRecordDigest;
+    expect(afterPush).not.toBe(before);
+    expect(cache._metrics.jobDigestComputations).toBe(2);
+
+    job.datePosted = '2026-08-19T16:17:13.045Z';
+    const afterReassign = buildMinimalJobInput(job, 'it', job.slug, [], cache, job).jobRecordDigest;
+    expect(afterReassign).not.toBe(afterPush);
+    expect(cache._metrics.jobDigestComputations).toBe(3);
+  });
+
   it('changes the page hash when only related company and salary change', () => {
     const pageJob = { id: 'page-1', updatedAt: 'v1', title: 'Page' };
     const relatedJob = {
