@@ -3695,7 +3695,7 @@ ${staticAnalyticsHtml}
  <article class="proposal">
  <section class="hero">
  <h1 class="hero-title">${esc(composeJobPageH1(localizedTitle, String(job.company || '')))}</h1>
- ${renderHeroBadges({ job, locale, salaryMin, salaryText, esc })}
+ ${renderHeroBadges({ job, locale, salaryMin, salaryText, esc, now: jobsSeoReuseBuildNow })}
  <div class="hero-sub">${esc(job.company)} · ${esc(formatJobLocation(job.location, job.canton || DEFAULT_CANTON))}</div>
  <div class="hero-meta">
  <span>${esc(`Categoria: ${String(job.category || 'other')}`)}</span>
@@ -3703,7 +3703,7 @@ ${staticAnalyticsHtml}
  <span>${esc(`Salario: ${salaryText}`)}</span>
  </div>
  </section>
- ${renderMobileActionBlock({ job, locale, canonicalUrl, addressLocality, salaryMin, salaryText, localeLabels: { applyNow: localeCopy[locale].applyNow, quickDetails: localeCopy[locale].quickDetails, location: localeCopy[locale].location, contract: localeCopy[locale].contract }, referralUrl, esc })}
+ ${renderMobileActionBlock({ job, locale, canonicalUrl, addressLocality, salaryMin, salaryText, localeLabels: { applyNow: localeCopy[locale].applyNow, quickDetails: localeCopy[locale].quickDetails, location: localeCopy[locale].location, contract: localeCopy[locale].contract }, referralUrl, esc, now: jobsSeoReuseBuildNow })}
  <section class="section">
  <h4>${esc(localeCopy[locale].summaryLabel)}</h4>
  ${summaryHtml}

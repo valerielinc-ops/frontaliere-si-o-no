@@ -19,7 +19,6 @@ export const JOBS_SEO_REUSE_BLOCKS = Object.freeze([
   'cross-locale-reconciliation',
 ]);
 
-const MAX_INLINE_CACHE_FILE_NAME = 220;
 const MAX_MISMATCH_LOGS = 20;
 const MAX_VERIFY_DIAGNOSTICS = 20;
 const MISMATCH_CONTEXT_RADIUS = 60;
@@ -210,28 +209,25 @@ function previousManifestPath(rootDir, locale) {
   return path.join(rootDir, '.cache', 'incremental-manifest-prev', `${locale}.jsonl`);
 }
 
-function cacheFileName(pagePath) {
+function cacheFileName(pagePath, kind = 'legacy', inputHash = 'legacy') {
   const normalized = normalizeManifestPath(pagePath);
-  const encoded = Buffer.from(normalized, 'utf8').toString('base64url');
-  return encoded.length <= MAX_INLINE_CACHE_FILE_NAME
-    ? `p-${encoded}.html`
-    : `h-${sha256(normalized)}.html`;
+  // The manifest is path-keyed, but one build can transiently render multiple
+  // variants for that path (for example an expired bridge before an active
+  // bridge wins). Key the disk entry by the complete render contract so a
+  // later writer cannot make verify compare the wrong HTML.
+  return `v2-${sha256(JSON.stringify([normalized, String(kind), String(inputHash)]))}.html`;
 }
 
-export function htmlReuseCachePath(rootDir, locale, pagePath, cacheRoot = null) {
+export function htmlReuseCachePath(
+  rootDir,
+  locale,
+  pagePath,
+  cacheRoot = null,
+  kind = 'legacy',
+  inputHash = 'legacy',
+) {
   const root = cacheRoot || path.join(rootDir, '.cache', 'incremental-html');
-  return path.join(root, safeLocale(locale), cacheFileName(pagePath));
-}
-
-function decodeCachePageName(fileName) {
-  if (!fileName.startsWith('p-') || !fileName.endsWith('.html')) return null;
-  try {
-    const encoded = fileName.slice(2, -'.html'.length);
-    const pagePath = Buffer.from(encoded, 'base64url').toString('utf8');
-    return pagePath ? normalizeManifestPath(pagePath) : null;
-  } catch {
-    return null;
-  }
+  return path.join(root, safeLocale(locale), cacheFileName(pagePath, kind, inputHash));
 }
 
 /**
@@ -428,7 +424,15 @@ export class JobsSeoHtmlReuse {
     if (!stats) throw new Error(`Unknown jobs SEO reuse block: ${block}`);
     const normalizedPath = normalizeManifestPath(pagePath);
     const previous = this.previousByLocale.get(String(locale));
-    const cachePath = htmlReuseCachePath(this.cacheRoot, locale, normalizedPath, this.cacheRoot);
+    const inputHash = computeInputHash(input, kind);
+    const cachePath = htmlReuseCachePath(
+      this.cacheRoot,
+      locale,
+      normalizedPath,
+      this.cacheRoot,
+      kind,
+      inputHash,
+    );
     let missReason = null;
     let html = null;
 
@@ -448,11 +452,19 @@ export class JobsSeoHtmlReuse {
         || previous.data.kinds[entry.kind]?.templateVersion !== templateVersionForKind(kind)
       ) {
         missReason = 'emitter-fingerprint-changed';
-      } else if (entry.inputHash !== computeInputHash(input, kind)) {
+      } else if (entry.inputHash !== inputHash) {
         missReason = 'input-hash-changed';
       } else {
         try {
-          html = fs.readFileSync(cachePath, 'utf8');
+          const previousCachePath = htmlReuseCachePath(
+            this.cacheRoot,
+            locale,
+            normalizedPath,
+            this.cacheRoot,
+            entry.kind,
+            entry.inputHash,
+          );
+          html = fs.readFileSync(previousCachePath, 'utf8');
           if (!html) missReason = 'html-unavailable';
         } catch {
           missReason = 'html-unavailable';
@@ -566,22 +578,28 @@ export class JobsSeoHtmlReuse {
     const localeDir = path.join(this.cacheRoot, safeLocale(locale));
     if (!fs.existsSync(localeDir)) return;
     const currentCacheNames = new Set();
-    if (manifest?.entriesByPath?.keys) {
-      for (const pagePath of manifest.entriesByPath.keys()) currentCacheNames.add(cacheFileName(pagePath));
+    if (manifest?.entriesByPath?.entries) {
+      for (const [pagePath, entry] of manifest.entriesByPath.entries()) {
+        currentCacheNames.add(cacheFileName(pagePath, entry.kind, entry.hash));
+      }
+    } else if (manifest?.entries?.entries) {
+      for (const [pagePath, entry] of manifest.entries.entries()) {
+        currentCacheNames.add(cacheFileName(pagePath, entry.kind, entry.inputHash));
+      }
     } else {
       for (const entries of manifest?.entriesByKind?.values?.() || []) {
-        for (const pagePath of entries.keys()) currentCacheNames.add(cacheFileName(pagePath));
+        for (const [pagePath, entry] of entries.entries()) {
+          currentCacheNames.add(cacheFileName(pagePath, entry.kind, entry.inputHash || entry.hash));
+        }
       }
     }
     for (const fileName of fs.readdirSync(localeDir)) {
       if (currentCacheNames.has(fileName)) continue;
-      const pagePath = decodeCachePageName(fileName);
-      if (pagePath && manifest.hasPath(pagePath)) continue;
       try {
         fs.unlinkSync(path.join(localeDir, fileName));
       } catch (error) {
         console.warn(
-          `[jobs-seo-reuse] cache-prune-failed locale=${locale} path=${pagePath || fileName} reason=${error?.message || error}`,
+          `[jobs-seo-reuse] cache-prune-failed locale=${locale} path=${fileName} reason=${error?.message || error}`,
         );
       }
     }

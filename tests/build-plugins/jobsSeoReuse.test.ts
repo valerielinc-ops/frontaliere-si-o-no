@@ -104,8 +104,9 @@ function writePreviousManifest(
   manifest.write(rootDir, path.join(rootDir, '.cache', 'incremental-manifest-prev'));
 }
 
-function writeCachedHtml(rootDir: string, pagePath: string, html: string) {
-  const file = htmlReuseCachePath(rootDir, 'it', pagePath);
+function writeCachedHtml(rootDir: string, pagePath: string, kind: string, input: unknown, html: string) {
+  const inputHash = computeInputHash(input, kind);
+  const file = htmlReuseCachePath(rootDir, 'it', pagePath, null, kind, inputHash);
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, html, 'utf8');
 }
@@ -140,7 +141,7 @@ describe('jobs SEO disk HTML reuse', () => {
     const html = '<html><head><meta name="robots" content="index,follow"></head><body>fixture</body></html>';
     try {
       writePreviousManifest(rootDir, pagePath, 'active-job', input);
-      writeCachedHtml(rootDir, pagePath, html);
+      writeCachedHtml(rootDir, pagePath, 'active-job', input, html);
       const reuse = await createReuse(rootDir);
       const candidate = reuse.lookup('it', pagePath, 'active-job', input, 'active');
       expect(candidate).toMatchObject({ hit: true, html });
@@ -164,7 +165,7 @@ describe('jobs SEO disk HTML reuse', () => {
     const input = { jobId: 'job-1', locale: 'it', slug: 'fingerprint-change' };
     try {
       writePreviousManifest(rootDir, pagePath, 'active-job', input, testEmitterFingerprints('old'));
-      writeCachedHtml(rootDir, pagePath, '<html>old-emitter</html>');
+      writeCachedHtml(rootDir, pagePath, 'active-job', input, '<html>old-emitter</html>');
       const reuse = await createReuse(rootDir, false, testEmitterFingerprints('new'));
       const candidate = reuse.lookup('it', pagePath, 'active-job', input, 'active');
       expect(candidate).toMatchObject({ hit: false, html: null });
@@ -184,7 +185,7 @@ describe('jobs SEO disk HTML reuse', () => {
     const pagePath = '/cerca-lavoro-ticino/fixture/';
     try {
       writePreviousManifest(rootDir, pagePath, 'active-job', { value: 'old' });
-      writeCachedHtml(rootDir, pagePath, '<html>old</html>');
+      writeCachedHtml(rootDir, pagePath, 'active-job', { value: 'old' }, '<html>old</html>');
       const reuse = await createReuse(rootDir);
       const candidate = reuse.lookup('it', pagePath, 'active-job', { value: 'new' }, 'active');
       expect(candidate).toMatchObject({ hit: false, html: null });
@@ -194,7 +195,52 @@ describe('jobs SEO disk HTML reuse', () => {
         reused: 0,
         missReasons: { 'input-hash-changed': 1 },
       });
-      expect(fs.readFileSync(htmlReuseCachePath(rootDir, 'it', pagePath), 'utf8')).toBe('<html>new</html>');
+      expect(fs.readFileSync(
+        htmlReuseCachePath(rootDir, 'it', pagePath, null, 'active-job', computeInputHash({ value: 'new' }, 'active-job')),
+        'utf8',
+      )).toBe('<html>new</html>');
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps same-path HTML variants separate by kind and input hash', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/shared-variant/';
+    const oldInput = { value: 'old' };
+    const newInput = { value: 'new' };
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', oldInput);
+      writeCachedHtml(rootDir, pagePath, 'active-job', oldInput, '<html>old</html>');
+      const oldCachePath = htmlReuseCachePath(
+        rootDir,
+        'it',
+        pagePath,
+        null,
+        'active-job',
+        computeInputHash(oldInput, 'active-job'),
+      );
+      const newCachePath = htmlReuseCachePath(
+        rootDir,
+        'it',
+        pagePath,
+        null,
+        'active-job',
+        computeInputHash(newInput, 'active-job'),
+      );
+      expect(oldCachePath).not.toBe(newCachePath);
+
+      const reuse = await createReuse(rootDir);
+      const oldCandidate = reuse.lookup('it', pagePath, 'active-job', oldInput, 'active');
+      expect(oldCandidate.hit).toBe(true);
+      reuse.finish(oldCandidate, '<html>old</html>');
+
+      const newCandidate = reuse.lookup('it', pagePath, 'active-job', newInput, 'active');
+      expect(newCandidate.hit).toBe(false);
+      reuse.finish(newCandidate, '<html>new</html>');
+
+      expect(fs.readFileSync(oldCachePath, 'utf8')).toBe('<html>old</html>');
+      expect(fs.readFileSync(newCachePath, 'utf8')).toBe('<html>new</html>');
     } finally {
       fs.rmSync(rootDir, { recursive: true, force: true });
     }
@@ -227,7 +273,7 @@ describe('jobs SEO disk HTML reuse', () => {
     const html = '<html><body>expired</body></html>';
     try {
       writePreviousManifest(rootDir, pagePath, 'expired-soft-landing', input);
-      writeCachedHtml(rootDir, pagePath, html);
+      writeCachedHtml(rootDir, pagePath, 'expired-soft-landing', input, html);
       const reuse = await createReuse(rootDir);
       const candidate = reuse.lookup('it', pagePath, 'expired-soft-landing', input, 'expired-soft-landing');
       expect(reuse.reusedHtml(candidate, '123')).toContain('expired');
@@ -252,7 +298,7 @@ describe('jobs SEO disk HTML reuse', () => {
     const currentHtml = '<meta name="ft-build-id" content="new"><lastmod>2026-09-17</lastmod><p>new content</p>';
     try {
       writePreviousManifest(rootDir, pagePath, 'cross-locale-reconciliation', input);
-      writeCachedHtml(rootDir, pagePath, previousHtml);
+      writeCachedHtml(rootDir, pagePath, 'cross-locale-reconciliation', input, previousHtml);
       const reuse = await createReuse(rootDir, true);
       const candidate = reuse.lookup('it', pagePath, 'cross-locale-reconciliation', input, 'cross-locale-reconciliation');
       expect(candidate.hit).toBe(true);
@@ -355,7 +401,7 @@ describe('jobs SEO disk HTML reuse', () => {
     const currentHtml = '<link rel="stylesheet" href="/assets/seo-static-v2.css"><p>same</p>';
     try {
       writePreviousManifest(rootDir, pagePath, 'active-job', input);
-      writeCachedHtml(rootDir, pagePath, previousHtml);
+      writeCachedHtml(rootDir, pagePath, 'active-job', input, previousHtml);
       const reuse = await createReuse(rootDir, true);
       const candidate = reuse.lookup('it', pagePath, 'active-job', input, 'active');
       reuse.finish(candidate, currentHtml);
@@ -382,7 +428,7 @@ describe('jobs SEO disk HTML reuse', () => {
     const currentHtml = '<img data-src="/assets/new.svg"><p>same</p>';
     try {
       writePreviousManifest(rootDir, pagePath, 'active-job', input);
-      writeCachedHtml(rootDir, pagePath, previousHtml);
+      writeCachedHtml(rootDir, pagePath, 'active-job', input, previousHtml);
       const reuse = await createReuse(rootDir, true);
       const candidate = reuse.lookup('it', pagePath, 'active-job', input, 'active');
       reuse.finish(candidate, currentHtml);
@@ -400,7 +446,7 @@ describe('jobs SEO disk HTML reuse', () => {
     const currentHtml = '<script>window.__JOB_SEED__={"version":2};</script><p>same</p>';
     try {
       writePreviousManifest(rootDir, pagePath, 'active-job', input);
-      writeCachedHtml(rootDir, pagePath, previousHtml);
+      writeCachedHtml(rootDir, pagePath, 'active-job', input, previousHtml);
       const reuse = await createReuse(rootDir, true);
       const candidate = reuse.lookup('it', pagePath, 'active-job', input, 'active');
       reuse.finish(candidate, currentHtml);
@@ -417,7 +463,7 @@ describe('jobs SEO disk HTML reuse', () => {
     const html = '<html><body>same</body></html>';
     try {
       writePreviousManifest(rootDir, pagePath, 'active-job', input);
-      writeCachedHtml(rootDir, pagePath, html);
+      writeCachedHtml(rootDir, pagePath, 'active-job', input, html);
       process.env[JOBS_SEO_REUSE_VERIFY_SAMPLE_ENV] = '0';
       const skipped = await createReuse(rootDir, true);
       const skippedCandidate = skipped.lookup('it', pagePath, 'active-job', input, 'active');

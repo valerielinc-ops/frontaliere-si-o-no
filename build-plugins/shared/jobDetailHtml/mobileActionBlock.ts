@@ -48,7 +48,12 @@ export type MobileActionBlockContext = Pick<
   | 'esc'
 >;
 
-export function renderMobileActionBlock(ctx: MobileActionBlockContext): string {
+/** Optional build clock used by the deterministic Jobs SEO reuse renderer. */
+export type MobileActionBlockRenderContext = MobileActionBlockContext & {
+  readonly now?: Date;
+};
+
+export function renderMobileActionBlock(ctx: MobileActionBlockRenderContext): string {
   const {
     job,
     locale,
@@ -59,13 +64,14 @@ export function renderMobileActionBlock(ctx: MobileActionBlockContext): string {
     localeLabels,
     referralUrl,
     esc,
+    now,
   } = ctx;
   const daysAgo = (() => {
     const dateStr = String(job.postedDate ?? job.crawledAt ?? '');
     if (!dateStr) return '—';
     const t = new Date(dateStr).getTime();
     if (!Number.isFinite(t)) return '—';
-    const days = Math.max(0, Math.round((Date.now() - t) / 86400000));
+    const days = Math.max(0, Math.round(((now || new Date()).getTime() - t) / 86400000));
     return DAYS_AGO_FORMATTER[locale](days);
   })();
   const contractText = String(job.contract || 'other');

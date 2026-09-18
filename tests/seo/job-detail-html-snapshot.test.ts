@@ -109,6 +109,20 @@ describe('jobDetailHtml emitters — output regression', () => {
       expect(html).toContain('CHF 90,000 - 120,000');
     });
 
+    it('uses the explicit render clock for the new-job badge', () => {
+      const fixedCtx = buildCtx({
+        ...ctx,
+        job: {
+          ...ctx.job,
+          featured: false,
+          postedDate: '2026-09-12T12:00:00.000Z',
+        },
+      });
+      const fixedClock = new Date('2026-09-18T12:00:00.000Z');
+      expect(renderHeroBadges({ ...fixedCtx, now: fixedClock })).toContain('badge-new');
+      expect(renderHeroBadges({ ...fixedCtx, now: new Date('2026-09-20T12:00:00.000Z') })).not.toContain('badge-new');
+    });
+
     it('mobile action block emits CTA, location/contract/published tiles and salary line', () => {
       const html = renderMobileActionBlock(ctx);
       expect(html).toContain('class="mobile-action-block"');
@@ -119,6 +133,21 @@ describe('jobDetailHtml emitters — output regression', () => {
       expect(html).toContain('mab-salary');
       // 1-day-ago fixture → "Ieri" in Italian
       expect(html).toContain('Ieri');
+    });
+
+    it('uses the explicit render clock for the published-age label', () => {
+      const fixedClock = new Date('2026-09-18T12:00:00.000Z');
+      const fixedCtx = buildCtx({
+        ...ctx,
+        job: {
+          ...ctx.job,
+          postedDate: '2026-09-16T12:00:00.000Z',
+        },
+      });
+      const first = renderMobileActionBlock({ ...fixedCtx, now: fixedClock });
+      const second = renderMobileActionBlock({ ...fixedCtx, now: fixedClock });
+      expect(first).toBe(second);
+      expect(first).toContain('2 giorni fa');
     });
 
     it('highlights prefers canonicalLocale.highlights over canonicalKeywords', () => {

@@ -19,7 +19,9 @@ export const SOURCE_VERSION = 'input@1';
 // The reusable job-page input now carries the UTC build-day bucket used by
 // deterministic JobPosting fallbacks. Bump the digest contract explicitly so
 // manifests produced before that field cannot be mistaken for current input.
-export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@4';
+// job-digest@5: HTML cache files are keyed by page + emitter kind + input hash,
+// so transient writers for one URL cannot read or overwrite another variant.
+export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@5';
 export const INCREMENTAL_MANIFEST_ENABLED = process.env.INCREMENTAL_MANIFEST === '1';
 
 export const PAGE_KINDS = Object.freeze([
