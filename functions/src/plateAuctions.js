@@ -680,6 +680,29 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
     const patch = source.status === 'active'
       ? { status: 'degraded', errorCode: 'missing_connector' }
       : { status: source.status, errorCode: null };
+    if (source.status !== 'active') {
+      // Zeroing the source document is not enough: the rows stay in the
+      // current collection. getPublicPlateAuctionSnapshot already refuses to
+      // serve a row whose source is not active, so nothing leaks today, but a
+      // later re-activation would publish those days-old bids before the first
+      // successful fetch — the same staleness the SZ relay guard rejects.
+      // Retire them here, with the same chunked batching as the active path.
+      // ponytail: one indexed query per non-active source per run (6 today);
+      // read the rowCount off the source document first if that ever matters.
+      const staleRows = await readSourceRows(db, canonicalPlateCode(source.plateCode));
+      const retirements = staleRows.map((doc) => ({
+        ref: db.collection(PLATE_AUCTION_COLLECTION).doc(doc.id),
+        delete: true,
+      }));
+      for (const chunk of chunkPlateAuctionWrites(retirements)) {
+        const batch = db.batch();
+        for (const write of chunk) batch.delete(write.ref);
+        await batch.commit();
+      }
+      if (retirements.length > 0) {
+        console.warn(`[refreshPlateAuctions:${key}] retired ${retirements.length} row(s) of a ${source.status} source`);
+      }
+    }
     await db.collection(PLATE_AUCTION_SOURCE_COLLECTION).doc(key).set({
       ...source,
       rowCount: 0,

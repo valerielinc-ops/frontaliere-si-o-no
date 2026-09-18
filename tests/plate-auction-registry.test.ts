@@ -68,7 +68,20 @@ describe('plate-auction sources registry schema', () => {
     expect(Object.entries(registry.sources)
       .filter(([, entry]) => entry.status === 'active')
       .map(([key]) => key)
-      .sort()).toEqual(['ag', 'ai', 'ar', 'be', 'bl', 'bs', 'fr', 'gl', 'gr', 'lu', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ti', 'ur', 'vd', 'vs', 'zh']);
+      .sort()).toEqual(['ag', 'ai', 'ar', 'be', 'bl', 'bs', 'gl', 'gr', 'lu', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ur', 'vd', 'vs', 'zh']);
+  });
+
+  it('never activates a source that has no fetcher, and never leaves a fetcher unbacked', async () => {
+    // `active` is a claim that a run can fetch the source; check-health.mjs fails
+    // closed on both halves of the mismatch, and the workflow only reaches it
+    // after paying for a checkout and npm ci. Keeping the assertion here makes
+    // the pairing fail in the cheap unit suite too.
+    const { FETCHERS } = await import('../scripts/plate-auctions/ingest.mjs');
+    const activeKeys = Object.entries(registry.sources)
+      .filter(([, entry]) => entry.status === 'active')
+      .map(([key]) => key)
+      .sort();
+    expect(Object.keys(FETCHERS).sort()).toEqual(activeKeys);
   });
 
   it('keeps live public catalogues active and Ricardo catalogues blocked', () => {
@@ -76,8 +89,14 @@ describe('plate-auction sources registry schema', () => {
     expect(registry.sources.vs.accessMethod).toBe('html-scrape');
     expect(registry.sources.gr.status).toBe('active');
     expect(registry.sources.zh.status).toBe('active');
-    expect(registry.sources.ti.status).toBe('active');
+    // TI and FR are blocked, not retired: the cantons still advertise these exact
+    // URLs, but on 2026-09-18 carieauktion.ti.ch answered every path with the
+    // cantonal "Pagina non disponibile" page and appls.ocn.ch answered on neither
+    // 443 nor 80. Pinning the advertised URL keeps the re-activation check cheap.
+    expect(registry.sources.ti.status).toBe('blocked');
     expect(registry.sources.ti.officialUrl).toBe('https://www.carieauktion.ti.ch/ecari-auktion/');
+    expect(registry.sources.fr.status).toBe('blocked');
+    expect(registry.sources.fr.officialUrl).toBe('https://appls.ocn.ch/ecari-auction/ui/app/init?locale=fr_ch');
     expect(registry.sources.ne.status).toBe('blocked');
     expect(registry.sources.ge.status).toBe('blocked');
     expect(registry.sources.ju.status).toBe('blocked');

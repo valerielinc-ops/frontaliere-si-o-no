@@ -215,6 +215,39 @@ describe('expanded plate-auction connectors', () => {
     }
   });
 
+  it('refuses a relay payload whose envelope is fresh but whose SZ source is stale', async () => {
+    // The relay envelope is NOT a freshness signal: getPublicPlateAuctionSnapshot
+    // stamps `generatedAt: new Date().toISOString()` at SERVE time, so a relay
+    // whose Firestore collector froze days ago still answers with a timestamp of
+    // "now". Measured on 2026-09-18: the live relay returned
+    // generatedAt=2026-09-18T20:02Z with sources.sz.lastSuccessAt=2026-09-15T05:42Z
+    // (86h). Only the per-source lastSuccessAt can reject that, and rejecting it
+    // is the point — widening the window would publish 86h-old bids as current.
+    const previousRelay = process.env.PLATE_AUCTION_ENABLE_API_RELAY;
+    process.env.PLATE_AUCTION_ENABLE_API_RELAY = '1';
+    const fetcher = vi.fn(async () => {
+      throw new TypeError('fetch failed');
+    });
+    const apiResponse = JSON.stringify({
+      generatedAt: '2026-09-18T20:02:53.923Z',
+      sources: { sz: { status: 'active', rowCount: 13, lastSuccessAt: '2026-09-15T05:42:05.789Z' } },
+      auctions: [{ id: 'sz-42', sourceKey: 'SZ', normalizedPlate: 'SZ42' }],
+    });
+    const originalFetch = globalThis.fetch;
+    globalThis.fetch = vi.fn(async () => new Response(apiResponse, { status: 200 })) as typeof fetch;
+
+    try {
+      await expect(fetchSzPlateAuctions({
+        fetcher,
+        now: new Date('2026-09-18T20:03:00.000Z'),
+      })).rejects.toThrow(/API relay source is too old/);
+    } finally {
+      globalThis.fetch = originalFetch;
+      if (previousRelay === undefined) delete process.env.PLATE_AUCTION_ENABLE_API_RELAY;
+      else process.env.PLATE_AUCTION_ENABLE_API_RELAY = previousRelay;
+    }
+  });
+
   it('parses the configurable card platforms for Sciaffusa and Turgovia', () => {
     const shRows = parseShAuctionRows(CARD_SAMPLE.replaceAll('TG', 'SH'), { fetchedAt: '2026-09-14T08:00:00.000Z' });
     const tgRows = parseTgAuctionRows(CARD_SAMPLE, { fetchedAt: '2026-09-14T08:00:00.000Z' });

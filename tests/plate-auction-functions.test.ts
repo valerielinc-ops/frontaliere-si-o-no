@@ -67,6 +67,39 @@ describe('plate-auction Firestore batching', () => {
     expect(() => chunkPlateAuctionWrites([], 0)).toThrow(RangeError);
   });
 
+  it('retires the rows of a source the registry no longer marks active', async () => {
+    // Zeroing the source document while leaving its rows behind is the trap:
+    // getPublicPlateAuctionSnapshot filters them out today, so nothing leaks,
+    // but a re-activation would then serve days-old bids before the first
+    // successful fetch. The delete must happen, and only for the blocked source.
+    const firestore = fakeFirestore([
+      {
+        id: 'ti-stale', sourceKey: 'TI', canton: 'Ticino', platePrefix: 'TI',
+        normalizedPlate: 'TI1', auctionStatus: 'active', currentBidChf: 400,
+        endsAt: '2026-09-20T18:00:00.000Z', sourceFetchedAt: '2026-09-15T06:00:00.000Z',
+        lastVerifiedAt: '2026-09-15T06:00:00.000Z', dataConfidence: 'partial',
+        firstSeenAt: '2026-09-15T06:00:00.000Z',
+      },
+      {
+        id: 'gr-live', sourceKey: 'GR', canton: 'Grigioni', platePrefix: 'GR',
+        normalizedPlate: 'GR1', auctionStatus: 'active', currentBidChf: 500,
+        endsAt: '2026-09-20T18:00:00.000Z', sourceFetchedAt: '2026-09-15T06:00:00.000Z',
+        lastVerifiedAt: '2026-09-15T06:00:00.000Z', dataConfidence: 'partial',
+        firstSeenAt: '2026-09-15T06:00:00.000Z',
+      },
+    ]);
+
+    const result = await refreshPlateAuctions({
+      db: firestore.db as never,
+      fetcher: async () => '',
+      now: new Date('2026-09-18T12:00:00.000Z'),
+    });
+
+    expect(firestore.deletes).toContain('ti-stale');
+    expect(firestore.deletes).not.toContain('gr-live');
+    expect(result.summaries.ti).toMatchObject({ status: 'blocked', rowCount: 0 });
+  });
+
   it('keeps a live row when the Cloud Function sees a partial non-empty feed', async () => {
     const firestore = fakeFirestore([{
       id: 'gr-old', sourceKey: 'GR', canton: 'Grigioni', platePrefix: 'GR', normalizedPlate: 'GR1',
@@ -83,11 +116,14 @@ describe('plate-auction Firestore batching', () => {
     expect(firestore.sourceSets.find((entry) => entry.id === 'gr')).toMatchObject({
       value: { status: 'degraded', errorCode: 'source_disappeared' },
     });
+    // TI is no longer fetched at all: its registry status is `blocked`, so the
+    // collector skips the connector and publishes the registry state instead of
+    // a `zero_rows` degradation it never measured.
     expect(firestore.sourceSets.find((entry) => entry.id === 'ti')).toMatchObject({
-      value: { status: 'degraded', rowCount: 0, errorCode: 'zero_rows' },
+      value: { status: 'blocked', rowCount: 0, errorCode: null },
     });
     expect(result.summaries.gr).toMatchObject({ status: 'degraded', errorCode: 'source_disappeared' });
-    expect(result.summaries.ti).toMatchObject({ status: 'degraded', rowCount: 0 });
+    expect(result.summaries.ti).toMatchObject({ status: 'blocked', rowCount: 0 });
     const agMetadata = firestore.sourceSets.find((entry) => entry.id === 'ag')?.value;
     expect(agMetadata).toMatchObject({
       officialUrl: 'https://www.auktion-ag.ch',
