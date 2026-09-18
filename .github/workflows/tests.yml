@@ -1672,6 +1672,7 @@ jobs:
           node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
       - name: vitest related (PR diff)
+        id: vitest_related
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         # FOREGROUND, dopo "Assemble + migrate": i test scelti dal grafo
         # possono leggere i dataset generati. Questo è l'unico invocatore di
@@ -1704,15 +1705,16 @@ jobs:
           VITEST_CACHE_DIR: node_modules/.vite-related
           CHANGED_PATHS_STATUS_FILE: changed-paths-status.txt
           VITEST_SKIP_CORPUS_WIDE: 'true'
+          VITEST_REPORT_FILE: shard-timing-related.json
         run: |
           set -euo pipefail
           case "$ASSEMBLE_REQUIRED" in
             true)
-              node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile=shard-timing-related.json
+              node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile="$VITEST_REPORT_FILE"
               ;;
             false)
               VITEST_DATASET_GROUP=independent \
-                node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile=shard-timing-related.json
+                node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile="$VITEST_REPORT_FILE"
               ;;
             *)
               echo "::error::unexpected Assemble + migrate decision: $ASSEMBLE_REQUIRED"
@@ -1840,16 +1842,18 @@ jobs:
           if-no-files-found: ignore
 
       - name: Report Vitest failures on PR
-        # The two Vitest steps can fail independently; this step must still
-        # run after either group fails and must never mask the original gate.
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && github.event_name == 'pull_request') }}
+        # The Vitest step can fail before the review chain; this reporter must
+        # still run and must never mask the original gate.
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && (github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.pr_number != '')) && steps.vitest_related.outcome == 'failure') }}
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_NUMBER: ${{ github.event.pull_request.number || inputs.pr_number }}
           RUN_ID: ${{ github.run_id }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          VITEST_REPORT_FILES: shard-timing-related.json
         run: node scripts/ci/report-vitest-failure.mjs
 
       - name: Resolve PR from pull request
