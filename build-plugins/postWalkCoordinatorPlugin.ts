@@ -96,6 +96,7 @@ import { logBuildMem } from './shared/buildMemLog';
 import { releaseIncrementalManifestState } from './shared/incrementalManifest.mjs';
 import { getPathHistory } from './sharedWriteRegistry';
 import {
+  filterPostWalkDerivedDigestRecords,
   latestClaimHash,
   loadPostWalkDerivedDigestSidecar,
   loadPostWalkUnmanifestedTopLevels,
@@ -546,7 +547,9 @@ export function postWalkCoordinatorPlugin(
         let derivedSidecarRecords = 0;
         let derivedSidecarSkipped = 0;
         let derivedSidecarProcessed = 0;
+        let derivedSidecarReady = false;
         let derivedRecordsForWrite: ReadonlyMap<string, PostWalkDerivedDigestRecord> = new Map();
+        let canPersistUnmanifestedInventory = false;
         const previousDerivedSidecar = incrementalEnabled
           ? loadPostWalkDerivedDigestSidecar(rootDir)
           : new Map<string, PostWalkDerivedDigestRecord>();
@@ -614,6 +617,7 @@ export function postWalkCoordinatorPlugin(
               `[post-walk-coordinator][incremental] fallback=full reason=${manifests.reason}`,
             );
           } else {
+            canPersistUnmanifestedInventory = true;
             manifestHtmlEntryCount = manifests.state.currentHtmlEntryCount;
             // This is the first line containing both cardinalities, and is
             // intentionally before dist enumeration and worker dispatch.
@@ -883,6 +887,7 @@ export function postWalkCoordinatorPlugin(
             ? derivedScope.processPaths.length
             : derivedScope.records.size;
           derivedRecordsForWrite = derivedScope.records;
+          derivedSidecarReady = true;
           if (incrementalPlan.mode === 'incremental') {
             const selected = new Set(processHtmlPaths);
             for (const filePath of derivedScope.skippedPaths) selected.delete(filePath);
@@ -1027,10 +1032,15 @@ export function postWalkCoordinatorPlugin(
           );
         }
 
-        if (incrementalEnabled && derivedRecordsForWrite.size > 0) {
-          writePostWalkDerivedDigestSidecar(rootDir, derivedRecordsForWrite);
+        if (incrementalEnabled && derivedSidecarReady) {
+          const recordsWithoutFailures = filterPostWalkDerivedDigestRecords(
+            derivedRecordsForWrite,
+            distDir,
+            merged.writeFailures,
+          );
+          writePostWalkDerivedDigestSidecar(rootDir, recordsWithoutFailures);
         }
-        if (incrementalEnabled && incrementalPlan) {
+        if (incrementalEnabled && incrementalPlan && canPersistUnmanifestedInventory) {
           writePostWalkUnmanifestedTopLevels(rootDir, unmanifestedByTopLevel.keys());
         }
 

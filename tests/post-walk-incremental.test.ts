@@ -24,6 +24,7 @@ import {
 } from '../build-plugins/shared/postWalkIncremental';
 import {
   clearPostWalkDerivedDigestCacheForTest,
+  filterPostWalkDerivedDigestRecords,
   loadPostWalkDerivedDigestSidecar,
   loadPostWalkUnmanifestedTopLevels,
   preservePostWalkDerivedOutput,
@@ -365,6 +366,59 @@ describe('post-walk incremental planning', () => {
     expect(preservePostWalkDerivedOutput(distDir, filePath, '<!DOCTYPE html>source')).toBe(false);
   });
 
+  it('requires the current derived kind before preserving a sidecar record', () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const filePath = writeHtml(root, 'blog/article/index.html', '<!DOCTYPE html>article');
+    process.env.POST_WALK_INCREMENTAL = '1';
+    writePostWalkDerivedDigestSidecar(root, new Map([
+      ['blog/article/index.html', {
+        path: 'blog/article/index.html',
+        kind: 'blog',
+        inputHash: hashContent('<!DOCTYPE html>article'),
+        sourcePath: 'blog/article/index.html',
+        sourceHash: hashContent('<!DOCTYPE html>article'),
+        templateHash: 'contextual-blog-links@1',
+      }],
+    ]));
+    clearPostWalkDerivedDigestCacheForTest();
+    claim(filePath, 'fixture', '<!DOCTYPE html>article');
+
+    expect(preservePostWalkDerivedOutput(distDir, filePath, '<!DOCTYPE html>article', 'bridge')).toBe(false);
+    expect(preservePostWalkDerivedOutput(distDir, filePath, '<!DOCTYPE html>article', 'blog')).toBe(true);
+  });
+
+  it('drops failed derived outputs before writing the next sidecar', () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const records = new Map([
+      ['jobs/failed.html', {
+        path: 'jobs/failed.html',
+        kind: 'bridge' as const,
+        inputHash: 'input-failed',
+        sourcePath: 'jobs/failed/index.html',
+        sourceHash: 'source-failed',
+        templateHash: 'flat-bridge@1',
+      }],
+      ['jobs/ok.html', {
+        path: 'jobs/ok.html',
+        kind: 'bridge' as const,
+        inputHash: 'input-ok',
+        sourcePath: 'jobs/ok/index.html',
+        sourceHash: 'source-ok',
+        templateHash: 'flat-bridge@1',
+      }],
+    ]);
+
+    const filtered = filterPostWalkDerivedDigestRecords(
+      records,
+      distDir,
+      [{ filePath: path.join(distDir, 'jobs/failed.html') }],
+    );
+
+    expect([...filtered.keys()]).toEqual(['jobs/ok.html']);
+  });
+
   it('fails closed on an incomplete derived sidecar footer', () => {
     const root = fixtureRoot();
     writePostWalkDerivedDigestSidecar(root, new Map([
@@ -411,6 +465,19 @@ describe('post-walk incremental planning', () => {
       targetedFlat,
       path.join(distDir, 'new-direct/index.html'),
     ]);
+  });
+
+  it('finds a new direct HTML subtree below an already-claimed top-level root', () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const claimed = writeHtml(root, 'it/jobs/claimed/index.html', 'claimed');
+    const direct = writeHtml(root, 'it/direct-new/index.html', 'direct');
+
+    const result = collectHtmlFromClaimedPaths(distDir, [claimed], []);
+
+    expect(result.claimed).toBe(1);
+    expect(result.targeted).toBe(1);
+    expect(result.paths).toEqual([claimed, direct]);
   });
 
   it('round-trips the targeted-walk inventory and fails closed when absent', () => {

@@ -68,6 +68,7 @@ export interface ArticleSpaBundleInfo {
 export interface ArticleWriteCollectorOptions {
   distDir?: string;
   pluginName?: string;
+  postWalkDerivedKind?: 'bridge' | 'blog' | null;
 }
 
 export interface ArticleWriteCollector {

@@ -129,6 +129,15 @@ export function latestClaimHash(filePath: string): string | null {
     : null;
 }
 
+function inferCurrentDerivedKind(distDir: string, filePath: string): PostWalkDerivedKind | null {
+  const baseName = path.basename(filePath);
+  if (baseName === 'index.html' || baseName.startsWith('.') || !baseName.endsWith('.html')) {
+    return null;
+  }
+  const siblingIndex = path.join(filePath.slice(0, -'.html'.length), 'index.html');
+  return fs.existsSync(siblingIndex) ? 'bridge' : null;
+}
+
 /**
  * Called from WriteCollector before it queues an upstream file. When the
  * exact upstream bytes match the previous post-walk input and the transformed
@@ -139,6 +148,7 @@ export function preservePostWalkDerivedOutput(
   distDir: string,
   filePath: string,
   content: string,
+  currentKind?: PostWalkDerivedKind | null,
 ): boolean {
   if (process.env.POST_WALK_INCREMENTAL !== '1' || !distDir) return false;
   const buildGeneration = getBuildGeneration();
@@ -148,8 +158,13 @@ export function preservePostWalkDerivedOutput(
   }
   const rootDir = path.resolve(distDir, '..');
   const record = loadPostWalkDerivedDigestSidecar(rootDir).get(relativePath(distDir, filePath));
+  const effectiveKind = currentKind === undefined
+    ? inferCurrentDerivedKind(distDir, filePath)
+    : currentKind;
   if (
     !record
+    || effectiveKind === null
+    || record.kind !== effectiveKind
     || record.inputHash === null
     || record.sourceHash === null
     || !fs.existsSync(filePath)
@@ -164,6 +179,16 @@ export function preservePostWalkDerivedOutput(
   }
   preserved.add(filePath);
   return true;
+}
+
+export function filterPostWalkDerivedDigestRecords(
+  records: ReadonlyMap<string, PostWalkDerivedDigestRecord>,
+  distDir: string,
+  failures: ReadonlyArray<{ readonly filePath: string }>,
+): ReadonlyMap<string, PostWalkDerivedDigestRecord> {
+  if (failures.length === 0) return records;
+  const failed = new Set(failures.map(({ filePath }) => relativePath(distDir, filePath)));
+  return new Map([...records].filter(([relative]) => !failed.has(relative)));
 }
 
 export function wasPostWalkDerivedOutputPreserved(rootDir: string, filePath: string): boolean {

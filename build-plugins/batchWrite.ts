@@ -23,7 +23,10 @@ import path from 'node:path';
 import { getManifest } from './contentHash';
 import { claim, type ClaimOutcome } from './sharedWriteRegistry';
 import { shouldEmitPath, EMIT_ALL_LOCALES } from './shared/localeEmitFilter';
-import { preservePostWalkDerivedOutput } from './shared/postWalkDerivedDigest';
+import {
+ preservePostWalkDerivedOutput,
+ type PostWalkDerivedKind,
+} from './shared/postWalkDerivedDigest';
 
 export interface PendingWrite {
  filePath: string;
@@ -132,8 +135,10 @@ export interface WriteCollectorOptions {
   * shared write registry. Defaults to `'unknown'` for backward compatibility,
   * but every caller SHOULD pass its own plugin name so collision messages
   * can name both writers. See `sharedWriteRegistry.ts` for the invariant.
-  */
+ */
  pluginName?: string;
+ /** Current derived-output scope, when this collector emits one. */
+ postWalkDerivedKind?: PostWalkDerivedKind | null;
 }
 
 /**
@@ -173,6 +178,7 @@ export class WriteCollector {
  private _overwrittenInPlugin = 0;
  private _distDir: string;
  private _pluginName: string;
+ private _postWalkDerivedKind: PostWalkDerivedKind | null | undefined;
  // Set so completed flushes can self-remove via the `.finally` callback —
  // keeps the bookkeeping bounded by ACTUAL in-flight count instead of
  // accumulating closures of resolved promises.
@@ -188,6 +194,7 @@ export class WriteCollector {
  this._concurrency = opts?.concurrency ?? 500;
  this._autoFlushThreshold = opts?.autoFlushThreshold ?? DEFAULT_AUTO_FLUSH_THRESHOLD;
  this._pluginName = opts?.pluginName ?? 'unknown';
+ this._postWalkDerivedKind = opts?.postWalkDerivedKind;
  }
 
  /** Queue a file write. Skips files unchanged since last build (via content hash manifest). */
@@ -214,7 +221,12 @@ export class WriteCollector {
  // WriteCollisionError in `throw` mode and returns 'skip-write' for
  // idempotent re-claims (identical content) or declared-shared losers.
  const outcome: ClaimOutcome = claim(filePath, this._pluginName, content);
- if (preservePostWalkDerivedOutput(this._distDir, filePath, content)) {
+ if (preservePostWalkDerivedOutput(
+  this._distDir,
+  filePath,
+  content,
+  this._postWalkDerivedKind,
+ )) {
  // The derived file on disk is the post-walk representation, while the
  // content-hash manifest tracks the upstream bytes passed to add(). Keep its
  // current projection populated even though no upstream write is queued.

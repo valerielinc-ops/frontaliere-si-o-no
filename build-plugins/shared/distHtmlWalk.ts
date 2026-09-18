@@ -83,13 +83,24 @@ export function collectHtmlFromClaimedPaths(
   const paths: string[] = [];
   const seen = new Set<string>();
   const claimedTopLevels = new Set<string>();
+  const claimedChildrenByTopLevel = new Map<string, Set<string>>();
   let claimed = 0;
   for (const filePath of claimedPaths) {
     if (!isWalkableHtmlPath(distDir, filePath) || seen.has(filePath)) continue;
     seen.add(filePath);
     paths.push(filePath);
     const relative = path.relative(distDir, filePath);
-    claimedTopLevels.add(relative.split(path.sep, 1)[0] || '<root>');
+    const segments = relative.split(path.sep);
+    const topLevel = segments[0] || '<root>';
+    claimedTopLevels.add(topLevel);
+    if (segments.length > 1) {
+      let children = claimedChildrenByTopLevel.get(topLevel);
+      if (!children) {
+        children = new Set<string>();
+        claimedChildrenByTopLevel.set(topLevel, children);
+      }
+      children.add(segments[1]);
+    }
     claimed++;
   }
 
@@ -114,6 +125,26 @@ export function collectHtmlFromClaimedPaths(
     const root = topLevel === '<root>' ? distDir : path.join(distDir, topLevel);
     if (!fs.existsSync(root)) continue;
     collectHtml(root, targetedPaths);
+  }
+  // A direct fs emitter can add a new subtree below a top-level that already
+  // has WriteCollector claims (most notably a locale root). Probe that one
+  // directory level: existing claimed children remain covered by the registry,
+  // while a new child is walked in full. This catches newly emitted HTML
+  // without reopening the millions of already-claimed slug directories.
+  for (const topLevel of [...claimedTopLevels].sort()) {
+    const root = topLevel === '<root>' ? distDir : path.join(distDir, topLevel);
+    if (!fs.existsSync(root) || !fs.statSync(root).isDirectory()) continue;
+    const claimedChildren = claimedChildrenByTopLevel.get(topLevel) ?? new Set<string>();
+    for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
+      if (entry.name === 'assets' || entry.name === 'data' || entry.name === 'images') continue;
+      if (entry.isFile()) {
+        if (entry.name.endsWith('.html')) targetedPaths.push(root + path.sep + entry.name);
+        continue;
+      }
+      if (entry.isDirectory() && !claimedChildren.has(entry.name)) {
+        collectHtml(root + path.sep + entry.name, targetedPaths);
+      }
+    }
   }
   let targeted = 0;
   for (const filePath of targetedPaths) {
