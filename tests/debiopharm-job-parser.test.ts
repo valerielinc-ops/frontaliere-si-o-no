@@ -99,13 +99,27 @@ describe('debiopharm-job-parser', () => {
       expect(isDebiopharmSwissJob(
         { location: { countryCode: 'CH' } },
         '',
-        { requireConcreteLocation: true },
       )).toBe(false);
       expect(isDebiopharmSwissJob(
         { location: { countryCode: 'CH' } },
         'Lausanne, Vaud',
-        { requireConcreteLocation: true },
       )).toBe(true);
+    });
+
+    it('does not turn a source municipality into a street address', () => {
+      const job = buildDebiopharmJob(
+        { shortcode: 'ABC123', locationLabel: 'Lausanne, Vaud' },
+        {
+          title: 'Scientist',
+          location: { city: 'Lausanne', region: 'Vaud', countryCode: 'CH' },
+        },
+      );
+      expect(job).toMatchObject({
+        addressLocality: 'Lausanne',
+        addressRegion: 'VD',
+        streetAddress: '',
+      });
+      expect(job.streetAddress).not.toBe(job.addressLocality);
     });
 
     it('does NOT fabricate VD for the negative-control case (Bern, not VD)', () => {
