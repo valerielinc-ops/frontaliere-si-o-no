@@ -123,6 +123,86 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
     });
   });
 
+  describe('manifest tombstone cross-check', () => {
+    function stageWithFiles(name: string, files: Record<string, string>): string {
+      const stage = join(root, name);
+      sh(`mkdir -p "${stage}"`);
+      sh('git init -q -b main', stage);
+      gitIdentity(stage);
+      for (const [relativePath, content] of Object.entries(files)) {
+        const target = join(stage, relativePath);
+        sh(`mkdir -p "${join(target, '..')}"`);
+        writeFileSync(target, content);
+      }
+      sh('git add -A', stage);
+      sh('git commit -qm seed', stage);
+      return stage;
+    }
+
+    function removeStale(
+      stage: string,
+      payload: string,
+      removed: string,
+      manifestPayload = payload,
+    ): string {
+      return runHelperScript(
+        `SHARD_DELTA_REMOVED_FILES=0; SHARD_DELTA_CONTENT_CHANGES=0; `
+          + `SHARD_DELTA_REASON=''; shard_delta_remove_stale_payload_paths "${stage}" en "${payload}" "${removed}" 1 "${manifestPayload}" 2>&1; `
+          + 'rc=$?; echo "RC=$rc REASON=$SHARD_DELTA_REASON"',
+      );
+    }
+
+    it('tratta come no-op un tombstone ancora rappresentato dal payload corrente', () => {
+      const stage = stageWithFiles('tombstone-live-stage', {
+        'en/jobs/job/index.html': '<html>replacement route</html>',
+      });
+      const payload = join(root, 'tombstone-live-payload');
+      const removed = join(root, 'tombstone-live-removed');
+      const manifestPayload = join(root, 'tombstone-live-manifest-payload');
+      writeFileSync(payload, 'jobs/job/index.html\0');
+      writeFileSync(removed, 'en/jobs/job/\0');
+      writeFileSync(manifestPayload, 'jobs/job/index.html\0');
+
+      const output = removeStale(stage, payload, removed, manifestPayload);
+      expect(output).toContain('manifest tombstone no-op');
+      expect(output).toContain('target already absent or retained by current payload');
+      expect(output).toContain('RC=0 REASON=');
+      expect(output).not.toContain('cross-check failed');
+    });
+
+    it('tratta come no-op un tombstone il cui target non è nell’indice precedente', () => {
+      const stage = stageWithFiles('tombstone-absent-stage', {
+        'en/jobs/other/index.html': '<html>other</html>',
+      });
+      const payload = join(root, 'tombstone-absent-payload');
+      const removed = join(root, 'tombstone-absent-removed');
+      const manifestPayload = join(root, 'tombstone-absent-manifest-payload');
+      writeFileSync(payload, 'jobs/other/index.html\0');
+      writeFileSync(removed, 'en/jobs/gone/\0');
+      writeFileSync(manifestPayload, '');
+
+      const output = removeStale(stage, payload, removed, manifestPayload);
+      expect(output).toContain('manifest tombstone no-op');
+      expect(output).toContain('en/jobs/gone');
+      expect(output).toContain('RC=0 REASON=');
+    });
+
+    it('mantiene il fallback se il payload live non è coperto dal manifest corrente', () => {
+      const stage = stageWithFiles('tombstone-unmanifested-stage', {
+        'en/jobs/job/index.html': '<html>orphan route</html>',
+      });
+      const payload = join(root, 'tombstone-unmanifested-payload');
+      const removed = join(root, 'tombstone-unmanifested-removed');
+      const manifestPayload = join(root, 'tombstone-unmanifested-manifest-payload');
+      writeFileSync(payload, 'jobs/job/index.html\0');
+      writeFileSync(removed, 'en/jobs/job/\0');
+      writeFileSync(manifestPayload, '');
+
+      const output = removeStale(stage, payload, removed, manifestPayload);
+      expect(output).toContain('RC=1 REASON=manifest tombstone cross-check failed');
+    });
+  });
+
   describe('shard_orphan_flatten_and_push', () => {
     let bare: string;
 
