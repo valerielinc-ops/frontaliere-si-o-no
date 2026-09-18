@@ -116,7 +116,7 @@ describe('post-walk incremental planning', () => {
     const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
 
     expect(loaded.ok).toBe(false);
-    if (loaded.ok) throw new Error('expected duplicate current path to fail closed');
+    if (!('reason' in loaded)) throw new Error('expected duplicate current path to fail closed');
     expect(loaded.reason).toMatch(/path (?:manifest )?duplicato/);
   });
 
@@ -139,7 +139,7 @@ describe('post-walk incremental planning', () => {
     const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
 
     expect(loaded.ok).toBe(false);
-    if (loaded.ok) throw new Error('expected duplicate previous path to fail closed');
+    if (!('reason' in loaded)) throw new Error('expected duplicate previous path to fail closed');
     expect(loaded.reason).toMatch(/precedente manifest path duplicato/);
   });
 
@@ -225,7 +225,9 @@ describe('post-walk incremental planning', () => {
     const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
 
     expect(loaded.ok).toBe(false);
-    if (loaded.ok) throw new Error('expected producer fingerprint mismatch to fall back before loading entries');
+    if (!('reason' in loaded)) {
+      throw new Error('expected producer fingerprint mismatch to fall back before loading entries');
+    }
     expect(loaded.reason).toContain('emitter fingerprint cambiato');
   });
 
