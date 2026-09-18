@@ -58,35 +58,29 @@ jobs:
           # mantenuto a mano, che si rompe in silenzio a ogni import aggiunto
           # da una PR che non sa di questo workflow.
           #
-          # Gli esclusi sono i bucket pesanti di scripts/ci/checkout-buckets.json
-          # (unica sorgente di verità, generata da
-          # scripts/ci/generate-checkout-buckets.mjs), esattamente come
-          # post-deploy-validate-dist.yml e guard-data-integrity.yml: 6,8 GB di
-          # albero → ~200 MB di sorgente. Ogni import futuro è già nel checkout,
-          # e `scripts/dev/fast-worktree.sh` riproduce in locale lo stesso
-          # profilo, quindi un rosso di questo tipo è riproducibile fuori dalla CI.
+          # La forma e' un allowlist per DIRECTORY, come `tests.yml:vitest`, non
+          # una exclude-list `/*` + `!/...`: il sorgente di questo repo e' ~200 MB
+          # su 6,8 GB di albero, quindi prendere le directory di codice per intero
+          # costa quanto escludere i bucket pesanti, ma resta corretto quando il
+          # grafo cresce. Una exclude-list qui sarebbe anche sbagliata di
+          # sostanza: `scripts/ci/verify-checkout-profiles.mjs` verifica che un
+          # profilo non escluda cio' che il job usa, e con l'intero albero di
+          # `tests/` presente il job «usa» anche `data/jobs/`,
+          # `packages/articles/content/` e gli altri bucket, che quindi non
+          # possono piu' essere esclusi. `apply-checkout-profiles.mjs` tiene
+          # questo job fra i profili scritti a mano e non lo rigenera, quindi la
+          # correttezza e' a carico di questo blocco.
           sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/jobs/
-            !/data/seo-404-compat/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/data/all-known-job-slugs/
-            !/data/orphan-enriched-data/
-            !/docs/
-            !/public/data/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/evidence-index.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
+            /.github/workflows/
+            /build-plugins/
+            /scripts/
+            /services/
+            /tests/
+            /index.html
+            /vitest.config.ts
+            /tsconfig.json
+            /package.json
+            /package-lock.json
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
