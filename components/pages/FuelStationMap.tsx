@@ -207,17 +207,20 @@ function normaliseLiveStations(
       if (!zone || price == null || !Number.isFinite(station.lat) || !Number.isFinite(station.lng)) continue;
       const key = stationKey(station);
       if (seen.has(key)) continue;
-      seen.add(key);
       const fallback = fallbackByKey.get(key);
-      const slug = fallback?.slug ?? buildSwissStationSlug({ brand: station.brand, name: station.name, address: station.address });
+      // Runtime data may contain a newly added or renamed station before the
+      // static SEO build emits its detail page. Keep the map's CTA closed over
+      // the emitted payload instead of manufacturing a link that can 404.
+      if (!fallback || fallback.zone !== zone) continue;
+      seen.add(key);
       result.push({
-        id: fallback?.id ?? `${zone}-${station.id || slug}`,
-        zone,
-        slug,
-        name: station.name,
-        brand: station.brand,
-        address: station.address,
-        href: fallback?.href ?? buildFuelStationPath(payload.locale, payload.fuel, zone, slug),
+        id: fallback.id,
+        zone: fallback.zone,
+        slug: fallback.slug,
+        name: fallback.name,
+        brand: fallback.brand,
+        address: fallback.address,
+        href: fallback.href,
         lat: station.lat,
         lng: station.lng,
         benzinaPriceChf: payload.fuel === 'benzina' ? price : (fallback?.benzinaPriceChf ?? null),
@@ -276,7 +279,20 @@ export default function FuelStationMap({ payload }: { payload: FuelStationMapPay
       .then((dataset) => {
         if (cancelled) return;
         const liveStations = normaliseLiveStations(dataset, payload);
-        if (liveStations.length > 0) setStations(liveStations);
+        if (liveStations.length > 0) {
+          const liveByKey = new Map(liveStations.map((station) => [stationKey(station), station]));
+          setStations((current) => current.map((snapshot) => {
+            const live = liveByKey.get(stationKey(snapshot));
+            if (!live) return snapshot;
+            return {
+              ...snapshot,
+              lat: live.lat,
+              lng: live.lng,
+              benzinaPriceChf: live.benzinaPriceChf ?? snapshot.benzinaPriceChf,
+              dieselPriceChf: live.dieselPriceChf ?? snapshot.dieselPriceChf,
+            };
+          }));
+        }
         if (dataset.generatedAt) setUpdatedAt(dataset.generatedAt.slice(0, 10));
       })
       .catch(() => {

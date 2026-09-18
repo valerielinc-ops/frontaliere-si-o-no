@@ -3,12 +3,12 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
 vi.mock('@/services/fuelPricesService', () => ({
-  buildSwissStationSlug: vi.fn(({ brand, name }: { brand: string; name: string }) => `${brand}-${name}`.toLowerCase().replace(/\s+/g, '-')),
   fetchFuelPrices: vi.fn().mockRejectedValue(new Error('offline in component test')),
   zoneFromAddress: vi.fn(() => 'chiasso'),
 }));
 
 import FuelStationMap, { type FuelStationMapPayload } from '@/components/pages/FuelStationMap';
+import { fetchFuelPrices } from '@/services/fuelPricesService';
 
 const PAYLOAD: FuelStationMapPayload = {
   locale: 'de',
@@ -76,5 +76,42 @@ describe('FuelStationMap', () => {
     expect(screen.getAllByTestId('circle-marker')).toHaveLength(1);
     expect(screen.getByText('Tamoil')).toBeInTheDocument();
     expect(screen.queryByText('Eni')).not.toBeInTheDocument();
+  });
+
+  it('merges live prices only into stations with an emitted SEO link', async () => {
+    vi.mocked(fetchFuelPrices).mockResolvedValueOnce({
+      generatedAt: '2026-09-08T08:00:00.000Z',
+      municipalities: [{
+        swiss: {
+          nearbyStations: [
+            {
+              id: 'eni-live',
+              name: 'Eni Chiasso',
+              brand: 'Eni',
+              address: 'Via Foo 1, 6830 Chiasso',
+              lat: 45.841,
+              lng: 9.021,
+              sp95PriceChf: 1.85,
+            },
+            {
+              id: 'new-station',
+              name: 'Nuova stazione',
+              brand: 'Nuovo',
+              address: 'Via Nuova 1, 6830 Chiasso',
+              lat: 45.842,
+              lng: 9.022,
+              sp95PriceChf: 1.7,
+            },
+          ],
+        },
+      }],
+    } as never);
+
+    render(<FuelStationMap payload={PAYLOAD} />);
+
+    await waitFor(() => expect(screen.getByText(/2 Tankstellen/)).toBeInTheDocument());
+    expect(screen.getAllByText(/1[,.]85 CHF\/L/)).not.toHaveLength(0);
+    expect(screen.queryByText('Nuova')).not.toBeInTheDocument();
+    expect(screen.getAllByTestId('circle-marker')).toHaveLength(2);
   });
 });
