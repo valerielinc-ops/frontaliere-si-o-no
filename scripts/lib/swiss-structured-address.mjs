@@ -48,7 +48,6 @@ const CITY_FALLBACK_STREETS = Object.freeze({
   lugano: 'Piazza Riforma 1',
   manno: 'Via Cantonale 2c',
   mendrisio: 'Via Luigi Benteler 1',
-  winterthur: 'Stadthausstrasse 4a',
   landquart: 'Bahnhofstrasse 2',
 });
 
@@ -108,13 +107,13 @@ export function sourcePostalMatchesCity(city, postalCode) {
   return /^\d{4}$/.test(postal) && verifiedPostalForCity(city) === postal;
 }
 
-function cantonFallback(canton) {
+function cantonFallback(canton, { representativeStreet = false } = {}) {
   const fallback = CANTON_CAPITAL_ADDRESSES[canton] || CANTON_CAPITAL_ADDRESSES.TI;
   return {
     city: fallback.addressLocality,
     canton: fallback.addressRegion,
     postalCode: fallback.postalCode,
-    streetAddress: fallback.streetAddress,
+    streetAddress: representativeStreet ? fallback.streetAddress : fallback.addressLocality,
   };
 }
 
@@ -127,6 +126,8 @@ function cityFallback(city, canton, postalCode) {
 /** Resolve a complete address without pairing a city with another locality's CAP. */
 export function resolveSwissStructuredAddress({ city = '', canton = '', postalCode = '', streetAddress = '' } = {}) {
   const cantonCode = resolveCanton(canton, city) || 'TI';
+  const sourceCity = String(city || '').trim();
+  const prefersRepresentativeStreet = /\([A-Z]{2}\)\s*$/i.test(sourceCity);
   const municipality = resolveMunicipality(city, cantonCode);
   const knownPostal = municipality ? verifiedPostalForCity(municipality) : '';
 
@@ -135,15 +136,22 @@ export function resolveSwissStructuredAddress({ city = '', canton = '', postalCo
     const sourceStreet = String(streetAddress || '').trim();
     const postalIsCoherent = !sourcePostal || sourcePostalMatchesCity(municipality, sourcePostal);
     const localFallback = cityFallback(municipality, cantonCode, knownPostal);
-    if (!postalIsCoherent) return localFallback || cantonFallback(cantonCode);
-    if (!sourceStreet && !localFallback) return cantonFallback(cantonCode);
+    if (!postalIsCoherent) {
+      return localFallback || {
+        city: municipality,
+        canton: cantonCode,
+        postalCode: knownPostal,
+        streetAddress: municipality,
+      };
+    }
+    if (!sourceStreet && localFallback) return localFallback;
     return {
       city: municipality,
       canton: cantonCode,
       postalCode: knownPostal,
-      streetAddress: sourceStreet || localFallback?.streetAddress || cantonFallback(cantonCode).streetAddress,
+      streetAddress: sourceStreet || municipality,
     };
   }
 
-  return cantonFallback(cantonCode);
+  return cantonFallback(cantonCode, { representativeStreet: prefersRepresentativeStreet });
 }
