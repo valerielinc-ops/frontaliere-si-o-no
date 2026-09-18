@@ -127,7 +127,7 @@ function isCoveredByManifest(relativePath, manifestBases) {
 }
 
 function writePathList(outputFile, paths) {
-  fs.writeFileSync(outputFile, paths.length ? `${paths.join('\n')}\n` : '');
+  fs.writeFileSync(outputFile, paths.length ? `${paths.join('\0')}\0` : '');
 }
 
 function writeSnapshot(manifest, entries, outputFile) {
