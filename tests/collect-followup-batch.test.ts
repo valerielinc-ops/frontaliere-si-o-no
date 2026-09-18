@@ -9,9 +9,8 @@
  */
 import { describe, it, expect } from 'vitest';
 import {
-  computeWatermarkISO,
-  parseScheduleRunList,
-  parseSuccessfulRunList,
+  collectionWindowStartISO,
+  positiveHours,
   parseMergedPRPages,
   parseMergedPRs,
   hasTriageComment,
@@ -23,6 +22,7 @@ import {
   maxTurnsFor,
   selectFollowupSessionBatch,
   deferredCount,
+  orderCandidatesFifo,
   shouldTriageAfterCandidateGate,
   shouldTriageAfterFixGate,
 } from '../scripts/ci/collect-followup-batch.mjs';
@@ -43,60 +43,49 @@ describe('canonicalLogin', () => {
   });
 });
 
-describe('computeWatermarkISO', () => {
-  const NOW = Date.parse('2026-06-30T12:00:00Z');
-
-  // Replay del guasto misurato il 2026-09-18 (run 35349264019): watermark fermo
-  // al 2026-09-10T13:13:51Z e finestra di 8 giorni. Senza tetto la finestra
-  // cresce per sempre e il verde è irraggiungibile; col tetto resta 48h.
-  it('non guarda indietro oltre il tetto della finestra, anche con un successo antico', () => {
-    const stuck = Date.parse('2026-09-18T13:16:33Z');
-    const json = JSON.stringify([
-      { event: 'schedule', startedAt: '2026-09-10T13:13:51Z', status: 'completed', conclusion: 'success' },
-    ]);
-    expect(computeWatermarkISO(json, stuck)).toBe(new Date(stuck - 48 * 3600_000).toISOString());
-    // Il tetto è un limite, non un'imposizione: un successo recente vince.
-    const recent = JSON.stringify([
-      { event: 'schedule', startedAt: '2026-09-18T10:00:00Z', status: 'completed', conclusion: 'success' },
-    ]);
-    expect(computeWatermarkISO(recent, stuck)).toBe('2026-09-18T10:00:00.000Z');
+describe('collectionWindowStartISO (lookback fisso)', () => {
+  // Il difetto che questa forma elimina e' DOPPIO, e un tetto sul vecchio
+  // watermark ne chiudeva solo metà:
+  //  - run troncata VERDE  -> il watermark avanzava e il residuo oltre il cap
+  //    non rientrava piu' in nessuna finestra (perdita silenziosa);
+  //  - run troncata ROSSA  -> la finestra cresceva senza limite (35 run rosse,
+  //    161,6 h misurate il 2026-09-18).
+  // Un lookback fisso non dipende dall'esito delle run, quindi nessuna delle
+  // due derive e' rappresentabile: la finestra e' sempre la stessa ampiezza.
+  it('non dipende dallo storico delle run: la finestra e sempre di MAX_WINDOW_HOURS', () => {
+    const now = Date.parse('2026-09-18T13:16:33Z');
+    expect(collectionWindowStartISO(now)).toBe(new Date(now - 48 * 3600_000).toISOString());
+    // Lo stesso istante dopo una settimana di run rosse da' lo STESSO confine.
+    expect(collectionWindowStartISO(now)).toBe(collectionWindowStartISO(now));
   });
 
-  it('uses startedAt of the last successful run', () => {
-    const json = JSON.stringify([{ createdAt: '2026-06-30T09:00:00Z', startedAt: '2026-06-30T09:01:00Z' }]);
-    expect(computeWatermarkISO(json, NOW)).toBe('2026-06-30T09:01:00.000Z');
+  it('rispetta un lookback esplicito', () => {
+    const now = Date.parse('2026-09-18T13:16:33Z');
+    expect(collectionWindowStartISO(now, 3)).toBe(new Date(now - 3 * 3600_000).toISOString());
   });
 
-  it('falls back to createdAt when startedAt is missing', () => {
-    const json = JSON.stringify([{ createdAt: '2026-06-30T08:00:00Z' }]);
-    expect(computeWatermarkISO(json, NOW)).toBe('2026-06-30T08:00:00.000Z');
+  // Finding del reviewer su L166: `Number(x) || 48` accettava negativi e
+  // Infinity. Un negativo sposta il confine nel FUTURO (zero candidati, cioe'
+  // follow-up persi senza che nulla diventi rosso); Infinity rompe la
+  // serializzazione della data.
+  it('un override malformato non sposta la finestra nel futuro', () => {
+    const now = Date.parse('2026-09-18T13:16:33Z');
+    const fallback = new Date(now - 48 * 3600_000).toISOString();
+    for (const bad of [-5, 0, Number.NaN, Number.POSITIVE_INFINITY, 'abc' as unknown as number]) {
+      const got = collectionWindowStartISO(now, bad as number);
+      expect(got).toBe(fallback);
+      expect(Date.parse(got)).toBeLessThan(now);
+    }
   });
 
-  it('falls back to now-6h when no successful run exists (empty array)', () => {
-    expect(computeWatermarkISO('[]', NOW)).toBe(new Date(NOW - 6 * 3600_000).toISOString());
-  });
-
-  it('falls back to now-6h on invalid JSON (proceed-safe, never misses a window)', () => {
-    expect(computeWatermarkISO('not json', NOW)).toBe(new Date(NOW - 6 * 3600_000).toISOString());
-  });
-
-  it('respects a custom fallback window', () => {
-    expect(computeWatermarkISO('[]', NOW, 3)).toBe(new Date(NOW - 3 * 3600_000).toISOString());
-  });
-
-  it('keeps the oldest schedule boundary durable until one schedule succeeds', () => {
-    const failedRuns = JSON.stringify([
-      { event: 'schedule', startedAt: '2026-06-30T11:00:00Z', status: 'completed', conclusion: 'failure' },
-      { event: 'schedule', startedAt: '2026-06-30T08:00:00Z', status: 'completed', conclusion: 'failure' },
-    ]);
-    expect(computeWatermarkISO(failedRuns, NOW)).toBe('2026-06-30T08:00:00.000Z');
-    const withSuccess = JSON.stringify([
-      { event: 'schedule', startedAt: '2026-06-30T12:00:00Z', status: 'completed', conclusion: 'success' },
-      ...JSON.parse(failedRuns),
-    ]);
-    expect(computeWatermarkISO(withSuccess, NOW)).toBe('2026-06-30T12:00:00.000Z');
+  it('positiveHours accetta solo numeri finiti positivi', () => {
+    expect(positiveHours('12', 48)).toBe(12);
+    expect(positiveHours('-1', 48)).toBe(48);
+    expect(positiveHours('Infinity', 48)).toBe(48);
+    expect(positiveHours(undefined, 48)).toBe(48);
   });
 });
+
 
 describe('collector fail-closed parsing', () => {
   it('accepts all complete paginated search pages and preserves eligible authors', () => {
@@ -147,39 +136,6 @@ describe('collector fail-closed parsing', () => {
       items: [{ ...complete.items[0], pull_request: { merged_at: 'not-a-date' } }],
       total_count: 1,
     }]))).toBeNull();
-  });
-
-  it('does not use the fallback watermark for a malformed successful-run response', () => {
-    expect(parseSuccessfulRunList('[]')).toEqual([]);
-    expect(parseSuccessfulRunList(JSON.stringify([{ event: 'schedule', startedAt: '2026-09-09T08:00:00Z' }]))).toHaveLength(1);
-    expect(parseSuccessfulRunList(JSON.stringify([{}]))).toBeNull();
-    expect(parseSuccessfulRunList('not-json')).toBeNull();
-  });
-
-  it('retains failed schedule rows while excluding manual runs', () => {
-    const runs = parseScheduleRunList(JSON.stringify([
-      { event: 'workflow_dispatch', startedAt: '2026-09-09T12:00:00Z' },
-      { event: 'schedule', startedAt: '2026-09-09T09:00:00Z', status: 'completed', conclusion: 'failure' },
-    ]));
-    expect(runs).toHaveLength(1);
-    expect(runs?.[0].conclusion).toBe('failure');
-  });
-
-  it('usa solo l\'ultima run success schedulata: un dispatch non avanza il watermark', () => {
-    const runs = parseSuccessfulRunList(JSON.stringify([
-      { event: 'workflow_dispatch', startedAt: '2026-09-09T12:00:00Z' },
-      { event: 'schedule', startedAt: '2026-09-09T09:00:00Z' },
-    ]));
-    expect(runs).toHaveLength(1);
-    expect(runs?.[0].event).toBe('schedule');
-    // `nowMs` pinnato: questo test giudica il filtro per evento, non il tetto
-    // della finestra. Col clock reale il tetto `MAX_WINDOW_HOURS` dominerebbe e
-    // il test fallirebbe per una ragione che non è la sua.
-    expect(computeWatermarkISO(JSON.stringify(runs), Date.parse('2026-09-09T12:00:00Z')))
-      .toBe('2026-09-09T09:00:00.000Z');
-    expect(parseSuccessfulRunList(JSON.stringify([
-      { event: 'workflow_dispatch', startedAt: '2026-09-09T12:00:00Z' },
-    ]))).toEqual([]);
   });
 });
 
@@ -302,6 +258,40 @@ describe('maxTurnsFor', () => {
   });
   it('caps at 80', () => {
     expect(maxTurnsFor(20)).toBe(80);
+  });
+});
+
+describe('ordine FIFO dei candidati', () => {
+  // Il finding 🔴 della review sulla prima stesura: con `collection_ok=true` su
+  // una sessione troncata il residuo deve restare RAGGIUNGIBILE. Metà della
+  // garanzia e' la finestra a lookback fisso, l'altra metà e' l'ordine: il cap
+  // taglia la coda, quindi servendo prima le PR recenti la coda vecchia non
+  // veniva mai lavorata. Questo test fallisce se si torna all'ordine naturale
+  // della Search API.
+  const searchApiOrder = [
+    { number: 9132, mergedAt: '2026-09-18T12:00:00Z' },
+    { number: 9099, mergedAt: '2026-09-18T06:00:00Z' },
+    { number: 9050, mergedAt: '2026-09-17T23:00:00Z' },
+    { number: 9010, mergedAt: '2026-09-17T08:00:00Z' },
+    { number: 8990, mergedAt: '2026-09-17T01:00:00Z' },
+  ];
+
+  it('serve prima le PR piu vecchie, cosi il cap rinvia le piu recenti', () => {
+    const ordered = orderCandidatesFifo(searchApiOrder);
+    expect(ordered.map((p) => p.number)).toEqual([8990, 9010, 9050, 9099, 9132]);
+    const session = selectFollowupSessionBatch(ordered.map((p) => p.number));
+    // Le 4 piu VECCHIE entrano in sessione; la piu recente e' quella rinviata,
+    // ed e' anche quella che la finestra successiva ritrovera' comunque.
+    expect(session).toEqual([8990, 9010, 9050, 9099]);
+    expect(deferredCount(ordered, session)).toBe(1);
+  });
+
+  it('non muta l input e tollera una data illeggibile', () => {
+    const input = [...searchApiOrder, { number: 1, mergedAt: 'not-a-date' }];
+    const snapshot = input.map((p) => p.number);
+    expect(() => orderCandidatesFifo(input)).not.toThrow();
+    expect(input.map((p) => p.number)).toEqual(snapshot);
+    expect(orderCandidatesFifo(null as unknown as typeof input)).toEqual([]);
   });
 });
 

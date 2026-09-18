@@ -12,21 +12,26 @@
  * finestra precedente.
  *
  * SICUREZZA > VELOCITÀ — mai perdere un follow-up:
- *  - **Watermark = ultima run di SUCCESSO** di questo workflow (non l'ultima run).
- *    Una run fallita NON avanza il watermark → la finestra viene ri-coperta dalla
- *    run schedulata successiva = nessuna perdita (at-least-once by-construction).
- *    Se non esiste ancora una schedule riuscita, il limite durevole è la più antica
- *    schedule osservata; solo una storia completamente vuota usa now − 6h.
- *    **La finestra ha però un tetto duro (`MAX_WINDOW_HOURS`, default 48h).**
- *    Senza tetto il watermark «ultima run di SUCCESSO» è un ratchet: se le run
- *    restano rosse la finestra cresce in modo monotono, supera per sempre il
- *    budget di una sessione e quindi non può più tornare verde — cioè la
- *    condizione che dovrebbe far avanzare il watermark diventa irraggiungibile
- *    proprio perché il watermark non avanza. Misurato il 2026-09-18 sul sito:
- *    watermark fermo al 2026-09-10T13:13:51Z, finestra di 8,0 giorni, 737 PR
- *    candidate, 35 run rosse consecutive (161,6 h). Il tetto rende quel loop
- *    impossibile per costruzione, al prezzo dichiarato di non ri-coprire le PR
- *    mergiate da più di 48h (vedi `deferred_count` e il body della PR).
+ *  - **Il cursore durevole è il marker per-PR, non il watermark.** Ogni PR
+ *    processata riceve il commento `## Post-merge follow-up triage`, e
+ *    l'idempotenza scarta cio' che è già fatto. La finestra di raccolta serve
+ *    quindi solo a limitare il costo della query, ed è un **lookback fisso**
+ *    (`MAX_WINDOW_HOURS`, default 48h) indipendente dall'esito delle run.
+ *    Il vecchio «watermark = ultima run di SUCCESSO» non si correggeva con un
+ *    semplice tetto, perché sbaglia in ENTRAMBI i versi: se una run troncata
+ *    dal cap esce VERDE il watermark avanza e le PR oltre il prefisso non
+ *    rientrano più in nessuna finestra (perdita silenziosa); se resta ROSSA la
+ *    finestra cresce senza limite e il verde è irraggiungibile (misurato il
+ *    2026-09-18 sul sito: watermark fermo al 2026-09-10T13:13:51Z, finestra
+ *    8,0 giorni, 737 candidate, 35 run rosse, 161,6 h). Con un lookback fisso
+ *    nessuna delle due derive è possibile.
+ *  - **Ordine FIFO.** Il cap taglia la coda, quindi l'ordine decide CHI viene
+ *    rinviato: i candidati sono ordinati dal più VECCHIO, così ogni run drena
+ *    dalla testa e il residuo avanza. Dal più recente (l'ordine naturale della
+ *    Search API) la coda vecchia resterebbe indietro a ogni giro.
+ *  - **Il limite dichiarato** è di capacità, non di cursore: una PR non
+ *    triagiata entro `MAX_WINDOW_HOURS` esce dalla finestra. Si legge in
+ *    `deferred_count`, che va guardato insieme al throughput.
  *  - **Idempotenza:** scarta le PR che hanno GIÀ un commento
  *    `## Post-merge follow-up triage` (il marker che Claude posta su OGNI PR
  *    processata) → niente doppio-triage sulla finestra di overlap.
@@ -67,7 +72,19 @@ const FALLBACK_HOURS = Number(process.env.FALLBACK_HOURS) || 6;
 // irreversibile (vedi l'intestazione). 48h = due giorni di triage, cioè il
 // doppio dell'unità di processo dichiarata (il bucket giornaliero), quindi una
 // giornata intera di run rosse viene ancora ri-coperta per intero.
-const MAX_WINDOW_HOURS = Number(process.env.MAX_WINDOW_HOURS) || 48;
+const MAX_WINDOW_HOURS = positiveHours(process.env.MAX_WINDOW_HOURS, 48);
+
+/**
+ * Un override malformato non deve poter spostare la finestra nel futuro.
+ * `Number(x) || d` accettava negativi e Infinity: il primo produce un confine
+ * futuro (zero candidati, follow-up persi in silenzio), il secondo rompe la
+ * serializzazione della data. Qui tutto cio' che non e' un numero finito e
+ * positivo torna al default.
+ */
+export function positiveHours(raw, fallback) {
+  const n = Number(raw);
+  return Number.isFinite(n) && n > 0 ? n : fallback;
+}
 const SEARCH_PAGE_SIZE = 100;
 // Capacity evidence: run 34602892494 reached the provider's 32-minute ceiling
 // while processing a 36-PR window. Four is therefore a conservative operational
@@ -115,111 +132,36 @@ export function canonicalLogin(login) {
 }
 
 /**
- * Watermark = start of the LAST SUCCESSFUL run of this workflow. A failed run does
- * NOT advance it → the window is re-covered next time (no follow-up lost). When no
- * scheduled run has succeeded yet, the OLDEST scheduled run is the durable boundary:
- * retries cannot slide a now-minus-six-hours window forward and lose deferred PRs.
- * Prefers `startedAt`, falls back to `createdAt`, then to now − FALLBACK_HOURS only
- * when the workflow has no scheduled-run history at all.
- * Il confine non può però essere più antico di `maxWindowHours`: oltre quel
- * limite la finestra non è più ri-copribile in una sessione e il watermark
- * resterebbe bloccato per sempre.
+ * Inizio della finestra di raccolta: un lookback FISSO, non un cursore.
  *
- * @param {string} runListJson output of `gh run list ... --json createdAt,startedAt,event,status,conclusion`
+ * Prima era l'inizio dell'ultima run di SUCCESSO. Quella definizione porta un
+ * difetto che non si chiude con un tetto: se una run troncata dal cap esce
+ * VERDE, il watermark avanza al suo inizio e le PR oltre il prefisso di
+ * `FOLLOWUP_SESSION_BATCH_LIMIT` non rientrano piu' in nessuna finestra — si
+ * perdono in silenzio, e `deferred_count` sarebbe solo telemetria di un
+ * ammanco. Se invece resta rossa, il watermark non avanza ma la finestra
+ * cresce senza limite e il verde diventa irraggiungibile (35 run rosse, 161,6 h
+ * misurate il 2026-09-18).
+ *
+ * Il cursore durevole per-PR esiste gia' ed e' il commento marker
+ * `## Post-merge follow-up triage`: l'idempotenza scarta cio' che e' fatto. Al
+ * watermark non serve quindi garantire la ri-copertura, solo LIMITARE il costo
+ * della query. Un lookback fisso fa esattamente quello e non dipende
+ * dall'esito delle run, quindi nessuna delle due derive e' piu' possibile: ogni
+ * run ri-copre le stesse `MAX_WINDOW_HOURS`, salta le PR gia' commentate e
+ * lavora le piu' vecchie rimaste.
+ *
+ * Il limite dichiarato: una PR non triagiata entro `MAX_WINDOW_HOURS` esce
+ * dalla finestra. E' un vincolo di CAPACITA' (ingresso > throughput), non un
+ * difetto del cursore, e va letto insieme a `deferred_count`.
+ *
  * @param {number} [nowMs]
- * @param {number} [fallbackHours]
- * @param {number} [maxWindowHours] tetto duro della finestra (default 48h)
+ * @param {number} [maxWindowHours]
  * @returns {string} ISO8601
  */
-export function computeWatermarkISO(
-  runListJson,
-  nowMs = Date.now(),
-  fallbackHours = FALLBACK_HOURS,
-  maxWindowHours = MAX_WINDOW_HOURS,
-) {
-  let runs = [];
-  try {
-    runs = JSON.parse(runListJson || '[]');
-  } catch {
-    runs = [];
-  }
-  const validRuns = Array.isArray(runs)
-    ? runs.filter((run) => {
-      if (!run || typeof run !== 'object' || Array.isArray(run)) return false;
-      if (run.event !== undefined && run.event !== 'schedule') return false;
-      const ts = run.startedAt || run.createdAt;
-      return typeof ts === 'string' && !Number.isNaN(Date.parse(ts));
-    })
-    : [];
-  const successfulRuns = validRuns.filter((run) => (
-    // Legacy callers pass the already-filtered successful response without
-    // status/conclusion fields; treat those rows as successful.
-    (run.status === undefined && run.conclusion === undefined)
-    || run.conclusion === 'success'
-  ));
-  const candidates = successfulRuns.length ? successfulRuns : validRuns;
-  // Il tetto si applica DOPO la scelta del confine, non al posto suo: la
-  // semantica «ultima run di successo» resta, ma non può più guardare
-  // indietro oltre `maxWindowHours`. Senza questo `Math.max` una sequenza di
-  // run rosse rende la finestra monotonicamente crescente e il verde
-  // irraggiungibile.
-  const floorMs = nowMs - maxWindowHours * 3600_000;
-  if (candidates.length) {
-    const timestamps = candidates.map((run) => Date.parse(run.startedAt || run.createdAt));
-    const timestamp = successfulRuns.length ? Math.max(...timestamps) : Math.min(...timestamps);
-    return new Date(Math.max(timestamp, floorMs)).toISOString();
-  }
-  return new Date(Math.max(nowMs - fallbackHours * 3600_000, floorMs)).toISOString();
-}
-
-/**
- * Validate a complete schedule-run response. Unlike the old success-only query,
- * failed/in-progress schedule rows are retained so computeWatermarkISO can keep
- * the first observed boundary stable until a scheduled run succeeds.
- *
- * @param {string} runListJson
- * @returns {Array<{createdAt?:string,startedAt?:string,event:string,status?:string,conclusion?:string|null}>|null}
- */
-export function parseScheduleRunList(runListJson) {
-  let runs;
-  try {
-    runs = JSON.parse(runListJson || '');
-  } catch {
-    return null;
-  }
-  if (!Array.isArray(runs)) return null;
-  const scheduled = [];
-  for (const run of runs) {
-    if (!run || typeof run !== 'object' || Array.isArray(run)) return null;
-    if (typeof run.event !== 'string' || !run.event.trim()) return null;
-    // `workflow_dispatch` is not part of the automatic collection window.
-    if (run.event !== 'schedule') continue;
-    const timestamp = run.startedAt || run.createdAt;
-    if (typeof timestamp !== 'string' || Number.isNaN(Date.parse(timestamp))) return null;
-    if (run.status !== undefined && typeof run.status !== 'string') return null;
-    if (run.conclusion !== undefined && run.conclusion !== null
-        && typeof run.conclusion !== 'string') return null;
-    scheduled.push(run);
-  }
-  return scheduled;
-}
-
-/**
- * Validate the successful-run response before it is allowed to define a
- * watermark. An empty list is a valid first run; a non-empty list with an
- * unreadable first timestamp is an incomplete API response and must block the
- * collector instead of silently falling back to now-minus-six-hours.
- *
- * @param {string} runListJson
- * @returns {Array<{createdAt?:string,startedAt?:string,event:string}>|null}
- */
-export function parseSuccessfulRunList(runListJson) {
-  const scheduled = parseScheduleRunList(runListJson);
-  if (!scheduled) return null;
-  return scheduled.filter((run) => (
-    (run.status === undefined && run.conclusion === undefined)
-    || run.conclusion === 'success'
-  ));
+export function collectionWindowStartISO(nowMs = Date.now(), maxWindowHours = MAX_WINDOW_HOURS) {
+  const hours = positiveHours(maxWindowHours, 48);
+  return new Date(nowMs - hours * 3600_000).toISOString();
 }
 
 /**
@@ -385,6 +327,26 @@ export function maxTurnsFor(batchCount) {
   return Math.min(26 + 8 * Math.max(0, Number(batchCount) || 0), 80);
 }
 
+/**
+ * Ordina i candidati dal più VECCHIO. È la metà che rende vero il "rinvio":
+ * il cap taglia la CODA della lista, quindi con l'ordine naturale della Search
+ * API (dal più recente) le PR vecchie sarebbero sempre quelle tagliate, a ogni
+ * giro, e non verrebbero mai lavorate finché non escono dalla finestra. Dal più
+ * vecchio, ogni run drena dalla testa e il residuo scala davvero.
+ */
+export function orderCandidatesFifo(candidates) {
+  if (!Array.isArray(candidates)) return [];
+  return candidates
+    .slice()
+    .sort((a, b) => {
+      const ta = Date.parse(a?.mergedAt ?? '');
+      const tb = Date.parse(b?.mergedAt ?? '');
+      // Una data illeggibile non deve riordinare il resto: resta dov'è.
+      if (Number.isNaN(ta) || Number.isNaN(tb)) return 0;
+      return ta - tb;
+    });
+}
+
 /** Select one bounded provider session; il residuo è rinviato, non perso. */
 export function selectFollowupSessionBatch(batch) {
   return Array.isArray(batch) ? batch.slice(0, FOLLOWUP_SESSION_BATCH_LIMIT) : [];
@@ -491,20 +453,12 @@ export function main() {
   const dailyKey = triageDailyKey();
   if (!REPO) throw new Error('GH_REPO/GITHUB_REPOSITORY mancante: raccolta non verificabile');
   console.log(`Daily key (successful triage day, Europe/Zurich): ${dailyKey}`);
-  // 1. Watermark = start of the last SUCCESSFUL run. If no schedule has succeeded
-  // yet, computeWatermarkISO uses the oldest observed schedule boundary so repeated
-  // failed/incomplete runs cannot move the window forward and lose PRs.
-  const runListRaw = gh([
-    'run', 'list', `--workflow=${WORKFLOW}`, '--event', 'schedule',
-    '--json', 'createdAt,startedAt,event,status,conclusion', '--limit', '1000', ...repoArgs,
-  ]);
-  if (runListRaw === null) throw new Error('gh run list non riuscita: watermark non verificabile');
-  const scheduleRuns = parseScheduleRunList(runListRaw);
-  if (!scheduleRuns) throw new Error('risposta gh run list non parsabile/incompleta: watermark non verificabile');
-  const watermark = computeWatermarkISO(JSON.stringify(scheduleRuns));
-  console.log(`Watermark (last successful schedule start, durable first-run boundary, fallback only without history): ${watermark}`);
+  // 1. Finestra di raccolta = lookback FISSO di `MAX_WINDOW_HOURS`, non piu' il
+  // confine della storia delle run.
+  const watermark = collectionWindowStartISO();
+  console.log(`Collection window start (lookback fisso di ${MAX_WINDOW_HOURS}h, indipendente dall'esito delle run): ${watermark}`);
 
-  // 2. Merged PRs since the watermark, eligible authors only.
+  // 2. Merged PRs nella finestra, solo autori eleggibili.
   // Search API pagination has an explicit total_count, unlike `gh pr list --limit`
   // which silently truncated the batch at 100 results and advanced the watermark.
   const query = `repo:${REPO} is:pr is:merged merged:>=${watermark}`;
@@ -515,8 +469,13 @@ export function main() {
   if (prListRaw === null) throw new Error('gh api search PR non riuscita: elenco incompleto');
   const mergedPages = parseMergedPRPages(prListRaw);
   if (!mergedPages) throw new Error('risposta paginata PR incompleta/non verificabile');
-  const candidates = parseMergedPRs(JSON.stringify(mergedPages));
-  console.log(`Merged PRs since watermark (eligible authors): ${candidates.length}`);
+  // FIFO: i piu' VECCHI per primi. Il cap di sessione taglia la coda, quindi
+  // l'ordine decide CHI viene rinviato. Prendendo i piu' recenti (l'ordine in
+  // cui la Search API li restituisce) la coda vecchia veniva servita per
+  // ultima a ogni giro e restava indietro per sempre; dal piu' vecchio, ogni
+  // run drena dalla testa della coda e il residuo avanza davvero.
+  const candidates = orderCandidatesFifo(parseMergedPRs(JSON.stringify(mergedPages)));
+  console.log(`Merged PRs nella finestra (autori eleggibili, dal piu' vecchio): ${candidates.length}`);
 
   const batch = [];
   for (const pr of candidates) {
