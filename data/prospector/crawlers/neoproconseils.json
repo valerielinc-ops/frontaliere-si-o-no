@@ -1,0 +1,21 @@
+{
+  "companyKey": "neoproconseils",
+  "companyName": "NEO Pro conseils SA",
+  "companyHost": "neoproconseils.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://neoproconseils.ch/emplois/"
+  ],
+  "detailTemplate": "/emplois/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Installateur électricien (H/F)",
+    "Maçon génie civil (H/F)"
+  ],
+  "canton": "GE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-09-18T09:58:33.985Z"
+}
