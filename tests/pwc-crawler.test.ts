@@ -5,7 +5,8 @@
  * buildPwcDescription(), inferPwcLocation(), and buildPwcLocalizedContent()
  * using mock API response fixtures.
  */
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
+import { fetchAllListings } from '../scripts/update-pwc-jobs.mjs';
 
 import {
   parsePwcJobs,
@@ -19,6 +20,10 @@ import {
   stripHtml,
   buildPwcLocalizedContent,
 } from '@/scripts/lib/pwc-job-parser.mjs';
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
 
 // ─── Fixtures: Mock API response ──────────────────────────────────────────
 
@@ -153,6 +158,27 @@ describe('parsePwcJobs', () => {
   it('handles null input gracefully', () => {
     const { items } = parsePwcJobs(null as any);
     expect(items).toHaveLength(0);
+  });
+});
+
+describe('PwC source pagination', () => {
+  it('fails when a repeated page adds no unique stable records', async () => {
+    const listing = {
+      id: 101,
+      viewkey: 'abc-123-def',
+      title: 'Senior Tax Consultant',
+      attributes: { '20': ['Lugano'] },
+      szas: { sza_location: { city: 'Lugano', country: 'CH' } },
+      links: { directlink: 'https://www.pwc.ch/careers/senior-tax-consultant/abc-123-def' },
+    };
+    const fetchMock = vi.fn(async () => new Response(JSON.stringify({
+      total: 2,
+      jobs: [listing],
+    }), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(fetchAllListings()).rejects.toThrow(/did not advance/);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 });
 

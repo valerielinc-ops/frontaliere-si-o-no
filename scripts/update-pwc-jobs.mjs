@@ -17,6 +17,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -137,7 +138,7 @@ function isTrustedDomain(rawUrl = '') {
   }
 }
 
-async function fetchAllListings() {
+export async function fetchAllListings() {
   console.log('Fetching PwC Switzerland job listings via Prospective API...');
   console.log(`  API: ${API_URL}`);
 
@@ -153,9 +154,31 @@ async function fetchAllListings() {
     throw new Error('PwC source did not publish a declared total job count; refusing an unproven partial crawl');
   }
 
-  const items = [...firstPage.items];
-  let offset = items.length;
-  while (items.length < firstPage.total) {
+  const uniqueItems = new Map();
+  const addUniqueItems = (items) => {
+    let added = 0;
+    for (const item of items) {
+      const id = String(item?.id || '').trim();
+      const viewkey = String(item?.viewkey || '').trim();
+      const urlKey = extractStableJobId(item?.directLink);
+      const key = id ? `id:${id}` : viewkey ? `viewkey:${viewkey}` : urlKey;
+      if (!key) {
+        throw new Error('PwC source listing has no stable identity; pagination completeness is unverified');
+      }
+      if (!uniqueItems.has(key)) {
+        uniqueItems.set(key, item);
+        added += 1;
+      }
+    }
+    return added;
+  };
+
+  addUniqueItems(firstPage.items);
+  if (uniqueItems.size > firstPage.total) {
+    throw new Error(`PwC pagination exceeded declared total: fetched ${uniqueItems.size}/${firstPage.total} unique jobs`);
+  }
+  let offset = firstPage.items.length;
+  while (uniqueItems.size < firstPage.total) {
     const page = await fetchPage(offset);
     if (page.total !== firstPage.total) {
       throw new Error(`PwC source total changed during pagination (${firstPage.total} → ${page.total})`);
@@ -163,16 +186,24 @@ async function fetchAllListings() {
     if (page.items.length === 0) {
       throw new Error(`PwC source returned an empty page at offset ${offset} before declared total ${firstPage.total}`);
     }
-    items.push(...page.items);
+    const added = addUniqueItems(page.items);
+    if (uniqueItems.size > firstPage.total) {
+      throw new Error(`PwC pagination exceeded declared total: fetched ${uniqueItems.size}/${firstPage.total} unique jobs`);
+    }
+    if (added === 0) {
+      throw new Error(
+        `PwC source pagination did not advance at offset ${offset}: page added no unique jobs`,
+      );
+    }
     offset += page.items.length;
   }
 
-  if (items.length !== firstPage.total) {
-    throw new Error(`PwC pagination incomplete: fetched ${items.length}/${firstPage.total} declared jobs`);
+  if (uniqueItems.size !== firstPage.total) {
+    throw new Error(`PwC pagination incomplete: fetched ${uniqueItems.size}/${firstPage.total} unique jobs`);
   }
 
-  console.log(`API declared ${firstPage.total} PwC jobs; fetched ${items.length}/${firstPage.total}`);
-  return items;
+  console.log(`API declared ${firstPage.total} PwC jobs; fetched ${uniqueItems.size}/${firstPage.total} unique jobs`);
+  return [...uniqueItems.values()];
 }
 
 function buildPwcJob(row) {
@@ -453,4 +484,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => exitCrawlerOnError(error, 'PwC'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((error) => exitCrawlerOnError(error, 'PwC'));
+}

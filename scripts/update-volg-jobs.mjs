@@ -30,6 +30,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
 import {
@@ -216,8 +217,8 @@ function resolveJobCanton(city = '') {
  * via the `offset` query parameter. Canton is inferred per job later
  * from the city; non-CH / unresolved jobs are dropped.
  */
-async function fetchAllJobs() {
-  const allJobs = [];
+export async function fetchAllJobs() {
+  const uniqueJobs = new Map();
   let offset = 0;
 
   // First page to get total count
@@ -236,11 +237,29 @@ async function fetchAllJobs() {
   if (firstBatch.length === 0) {
     throw new Error(`Volg source declared ${totalCount} jobs but page 1 contained none`);
   }
-  allJobs.push(...firstBatch);
+  const addUniqueJobs = (batch) => {
+    let added = 0;
+    for (const job of batch) {
+      const key = jobMatchKey(job);
+      if (!key) {
+        throw new Error('Volg source listing has no stable identity; pagination completeness is unverified');
+      }
+      if (!uniqueJobs.has(key)) {
+        uniqueJobs.set(key, job);
+        added += 1;
+      }
+    }
+    return added;
+  };
+
+  addUniqueJobs(firstBatch);
+  if (uniqueJobs.size > totalCount) {
+    throw new Error(`Volg pagination exceeded declared total: fetched ${uniqueJobs.size}/${totalCount} unique jobs`);
+  }
 
   // Paginate through remaining pages
-  offset += JOBS_PER_PAGE;
-  while (offset < totalCount) {
+  offset += firstBatch.length;
+  while (uniqueJobs.size < totalCount) {
     const pageNum = Math.floor(offset / JOBS_PER_PAGE) + 1;
     const url = `${CC_BASE}?lang=de&offset=${offset}`;
     console.log(`  📥 Fetching national page ${pageNum}: ${url}`);
@@ -248,19 +267,27 @@ async function fetchAllJobs() {
     const batch = parseJobListings(html);
     if (batch.length === 0) {
       throw new Error(
-        `Volg source pagination ended early: fetched ${allJobs.length}/${totalCount} declared jobs`,
+        `Volg source pagination ended early: fetched ${uniqueJobs.size}/${totalCount} unique jobs`,
       );
     }
-    allJobs.push(...batch);
-    offset += JOBS_PER_PAGE;
+    const added = addUniqueJobs(batch);
+    if (uniqueJobs.size > totalCount) {
+      throw new Error(`Volg pagination exceeded declared total: fetched ${uniqueJobs.size}/${totalCount} unique jobs`);
+    }
+    if (added === 0) {
+      throw new Error(
+        `Volg source pagination did not advance at offset ${offset}: page added no unique jobs`,
+      );
+    }
+    offset += batch.length;
   }
 
-  if (allJobs.length < totalCount) {
-    throw new Error(`Volg source pagination incomplete: fetched ${allJobs.length}/${totalCount} declared jobs`);
+  if (uniqueJobs.size !== totalCount) {
+    throw new Error(`Volg source pagination incomplete: fetched ${uniqueJobs.size}/${totalCount} unique jobs`);
   }
-  console.log(`     Fetched ${allJobs.length}/${totalCount} declared jobs`);
+  console.log(`     Fetched ${uniqueJobs.size}/${totalCount} unique jobs`);
 
-  return allJobs;
+  return [...uniqueJobs.values()];
 }
 
 /* ── Fetch & Parse Detail Page ──────────────────────────────── */
@@ -867,10 +894,11 @@ async function main() {
     return;
   }
 
-  // Deduplicate by URL (same job might appear across pages)
+  // Keep the same identity used by pagination (same job might appear across pages).
   const seen = new Set();
   const uniqueJobs = allRawJobs.filter((j) => {
-    const key = j.url.toLowerCase();
+    const key = jobMatchKey(j);
+    if (!key) throw new Error('Volg listing has no stable identity after pagination');
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -955,4 +983,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Volg / fenaco'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Volg / fenaco'));
+}
