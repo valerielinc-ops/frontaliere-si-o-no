@@ -21,9 +21,10 @@
  *   7. Post-process: fix company name, location, canton, clean descriptions
  *   8. Validate locale coverage across IT/EN/DE/FR
  *
- * Ermenegildo Zegna Group is an Italian luxury fashion house headquartered
- * in Trivero (Italy) with a major logistics and corporate hub in Stabio,
- * Canton Ticino, Switzerland.
+ * Ermenegildo Zegna Group is an Italian luxury fashion house with multiple
+ * Swiss operations. The crawler keeps the location and canton published by
+ * each detail page; it does not substitute the historical Swiss HQ when a
+ * posting has no source location.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -40,7 +41,6 @@ import {
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { isTargetSwissLocation, inferAnyCanton } from './lib/target-swiss-locations.mjs';
-import { isTargetCanton, getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { readAttr } from './lib/html-attr.mjs';
@@ -57,9 +57,6 @@ const ZEGNA_KEY = 'ermenegildo-zegna-logistica';
 // of #3775/#3768, confirmed cause of #3769/#3770).
 const DATA_JOBS = crawlerScratchPathFor(ZEGNA_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
-const ZEGNA_HQ = getCompanyDefaults(ZEGNA_KEY);
-const DEFAULT_CANTON = ZEGNA_HQ?.canton || 'TI';
-const DEFAULT_CITY = ZEGNA_HQ?.city || 'Stabio';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 /**
@@ -278,16 +275,20 @@ function parseJobDetail(html = '', url = '') {
 
 /**
  * Detect city from the location string.
- * Returns the parsed location verbatim when present, else the Zegna HQ city.
+ * Returns the parsed location verbatim; an absent source location stays empty
+ * so the caller can fail closed instead of inventing a Swiss HQ.
  */
 function detectCity(location = '') {
   const loc = String(location || '').trim();
-  if (!loc) return DEFAULT_CITY;
   return loc;
 }
 
-function detectCanton(city = '') {
-  return inferAnyCanton(city) || DEFAULT_CANTON;
+function detectCanton(...signals) {
+  for (const signal of signals) {
+    const canton = inferAnyCanton(signal);
+    if (canton) return canton;
+  }
+  return '';
 }
 
 function isZegnaSwissLocation(detail) {
@@ -352,9 +353,10 @@ async function fetchZegnaJobs() {
     const detail = parseJobDetail(detailHtml, link.url);
     const title = detail.title || link.rawText || '';
     const city = detail.city || detectCity(detail.location);
-    const canton = detectCanton(city);
-    if (!isZegnaSwissLocation(detail) || !isTargetCanton(canton)) {
-      console.log(`     ↳ Skipping (not target region): ${title} — ${detail.location || city || 'unknown location'}`);
+    const sourceSignal = [detail.city, detail.location, detail.region].filter(Boolean).join(' ');
+    const canton = detectCanton(city, detail.region, detail.location);
+    if (!city || !canton || !isZegnaSwissLocation(detail)) {
+      console.log(`     ↳ Skipping (missing or non-Swiss source location): ${title} — ${detail.location || city || 'unknown location'}`);
       continue;
     }
     const slug = slugify(title, 'zegna');
@@ -372,6 +374,9 @@ async function fetchZegnaJobs() {
       location: city,
       canton,
       country: 'CH',
+      addressLocality: city,
+      addressRegion: canton,
+      addressCountry: 'CH',
       description: descriptionIt,
       descriptionByLocale: {
         en: detail.description || '',
@@ -551,7 +556,7 @@ function updateAdapterConfig(seedUrls = []) {
   adapter.priority = Math.max(adapter.priority || 0, 10);
   adapter.crawlerModes = ['html'];
   adapter.seedUrls = [LISTING_URL, ...seedUrls];
-  adapter.notes = 'Zegna Group careers portal — job listings extracted from careers.zegnagroup.com with Switzerland location filter.';
+  adapter.notes = 'Zegna Group careers portal — national Switzerland listing filter, followed by a source-backed per-detail Swiss location and canton check. No historical HQ location is substituted when a detail page omits its workplace.';
   adapter.updatedAt = new Date().toISOString();
 
   fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
@@ -595,7 +600,10 @@ function postProcessZegnaJobs() {
       continue;
     }
 
-    if (!isTargetCanton(String(job.canton || '').toUpperCase())) {
+    const sourceLocation = String(job._targetScope?.location || job.location || '').trim();
+    const sourceSignal = [sourceLocation, job._targetScope?.canton, job.addressRegion].filter(Boolean).join(' ');
+    const resolvedCanton = detectCanton(sourceLocation, job._targetScope?.canton, job.addressRegion);
+    if (!sourceLocation || !resolvedCanton || !isTargetSwissLocation(sourceSignal)) {
       removed++;
       continue;
     }
@@ -609,12 +617,24 @@ function postProcessZegnaJobs() {
       fixed++;
     }
     job.country = 'CH';
-    if (!job.location) {
-      job.location = DEFAULT_CITY;
+    if (job.location !== sourceLocation) {
+      job.location = sourceLocation;
       fixed++;
     }
-    if (!job.canton) {
-      job.canton = detectCanton(job.location);
+    if (job.canton !== resolvedCanton) {
+      job.canton = resolvedCanton;
+      fixed++;
+    }
+    if (job.addressLocality !== sourceLocation) {
+      job.addressLocality = sourceLocation;
+      fixed++;
+    }
+    if (job.addressRegion !== resolvedCanton) {
+      job.addressRegion = resolvedCanton;
+      fixed++;
+    }
+    if (job.addressCountry !== 'CH') {
+      job.addressCountry = 'CH';
       fixed++;
     }
     keptJobs.push(job);
@@ -623,7 +643,7 @@ function postProcessZegnaJobs() {
   if (fixed > 0 || removed > 0) {
     writeJsonAtomic(DATA_JOBS, keptJobs);
     writeJsonAtomic(PUBLIC_JOBS, keptJobs);
-    console.log(`🔧 Post-processed ${fixed} Zegna jobs (fixed company/location/canton, removed=${removed}).`);
+    console.log(`🔧 Post-processed ${fixed} Zegna jobs (source-backed location/canton, removed=${removed}).`);
   }
 }
 

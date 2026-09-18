@@ -33,6 +33,15 @@ const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
 
 const PAGE_SIZE = 100;
 
+function prospectiveSourceListingKey(listing = {}) {
+  for (const value of [listing.id, listing.hk_id, listing.viewkey]) {
+    const normalized = String(value ?? '').trim();
+    if (normalized) return `id:${normalized}`;
+  }
+  const directLink = normalizeSpace(listing?.links?.directlink || '');
+  return directLink ? `url:${directLink}` : '';
+}
+
 function normalize(s = '') {
   return String(s || '').trim().toLowerCase();
 }
@@ -239,6 +248,13 @@ function detectExperienceLevel(title = '') {
  * @param {string} [config.apiLang='de']     Listing language
  * @param {string} [config.publicCareerUrl]
  * @param {string} [config.defaultSourceLang='de']
+ * @param {boolean} [config.strictPagination=false]  Fail on partial or
+ *   undeclared source totals instead of returning a partial result.
+ * @param {(listing: object) => {location: string, canton: string, valid?: boolean}} [config.locationResolver]
+ *   Resolve and validate a source-backed location for multi-site employers.
+ *   When supplied, no default city or canton is used.
+ * @param {(canton: string, location: string, listing: object) => string} [config.postalCodeFallback]
+ *   Return a safe canton-level postal fallback when the source omits a ZIP.
  * @param {string[]} [config.extraTrustedHosts]  Additional hosts to mark as trusted
  * @param {string[]} [config.acceptDirectlinkHosts]  Only ingest listings whose
  *   `links.directlink` hostname matches one of these. Use for shared Prospective
@@ -274,6 +290,9 @@ export function createProspectiveChParser(config) {
     defaultStreetAddress = '',
     publicCareerUrl,
     defaultSourceLang = 'de',
+    strictPagination = false,
+    locationResolver,
+    postalCodeFallback,
     extraTrustedHosts = [],
     acceptDirectlinkHosts = [],
     sharedMedium = false,
@@ -286,7 +305,7 @@ export function createProspectiveChParser(config) {
     categoryFn = detectCategory,
   } = config;
 
-  if (!companyKey || !companyName || !mediumId || !defaultCanton) {
+  if (!companyKey || !companyName || !mediumId || (!defaultCanton && typeof locationResolver !== 'function')) {
     throw new Error('createProspectiveChParser: missing required config');
   }
 
@@ -341,31 +360,81 @@ export function createProspectiveChParser(config) {
     console.log();
 
     const all = [];
+    const seenSourceKeys = new Set();
     let offset = 0;
     let total = Infinity;
+    let declaredTotal = null;
     while (offset < total) {
       const url = `${API_BASE}?lang=${apiLang}&offset=${offset}&limit=${PAGE_SIZE}`;
       console.log(`  📄 offset=${offset}…`);
-      // Graceful degradation: any fetch error (HTTP 404, ENOTFOUND, abort,
-      // malformed JSON) terminates pagination instead of throwing. Returns
-      // whatever was collected so far (empty list on first-iter failure).
-      // Matches the contract every dedicated crawler test asserts via
-      // "graceful degradation" suites — when the upstream JobAbo is offline,
-      // the crawler must return [] (no throw), not crash the cron workflow.
       let data;
       try {
         data = await fetchPage(url);
       } catch (err) {
+        if (strictPagination) {
+          throw new Error(`Prospective ${companyName} pagination failed at offset=${offset}: ${err && err.message || err}`);
+        }
+        // Graceful degradation for the historical single-site consumers:
+        // when their upstream is offline, preserve the established []/partial
+        // result contract rather than crashing the cron workflow.
         console.warn(`  ⚠️  Prospective fetch failed at offset=${offset}: ${err && err.message || err}. Returning ${all.length} jobs collected so far.`);
         break;
       }
       const items = assertJsonListShape(data, { key: 'jobs', source: companyName, lang: apiLang });
-      if (Number.isFinite(Number(data?.total))) total = Number(data.total);
-      if (items.length === 0) break;
-      all.push(...items);
+      const pageTotal = Number(data?.total);
+      const hasValidTotal = Number.isSafeInteger(pageTotal) && pageTotal >= 0;
+      if (hasValidTotal) {
+        if (declaredTotal !== null && pageTotal !== declaredTotal && strictPagination) {
+          throw new Error(`Prospective ${companyName} source total changed during pagination: ${declaredTotal} → ${pageTotal}`);
+        }
+        declaredTotal = pageTotal;
+        total = pageTotal;
+      } else if (strictPagination) {
+        throw new Error(`Prospective ${companyName} source did not declare a finite total at offset=${offset}`);
+      }
+      if (items.length === 0) {
+        if (strictPagination && seenSourceKeys.size !== total) {
+          throw new Error(`Prospective ${companyName} pagination incomplete: fetched ${seenSourceKeys.size}/${total} unique listings`);
+        }
+        break;
+      }
+      const pageNewItems = [];
+      for (const [index, item] of items.entries()) {
+        const key = prospectiveSourceListingKey(item);
+        if (!key) {
+          if (strictPagination) {
+            throw new Error(
+              `Prospective ${companyName} listing at offset=${offset}, row=${index} has no stable identity; pagination completeness is unverified`,
+            );
+          }
+          pageNewItems.push(item);
+          continue;
+        }
+        if (seenSourceKeys.has(key)) continue;
+        seenSourceKeys.add(key);
+        pageNewItems.push(item);
+      }
+      const added = pageNewItems.length;
+      if (strictPagination && added === 0) {
+        throw new Error(
+          `Prospective ${companyName} pagination did not advance at offset=${offset}; repeated page has ${seenSourceKeys.size} unique listings`,
+        );
+      }
+      all.push(...(strictPagination ? pageNewItems : items));
       offset += items.length;
-      if (items.length < PAGE_SIZE) break;
+      if (strictPagination && seenSourceKeys.size > total) {
+        throw new Error(`Prospective ${companyName} pagination exceeded declared total: fetched ${seenSourceKeys.size}/${total} unique listings`);
+      }
+      if (items.length < PAGE_SIZE) {
+        if (strictPagination && seenSourceKeys.size !== total) {
+          throw new Error(`Prospective ${companyName} pagination incomplete: fetched ${seenSourceKeys.size}/${total} unique listings`);
+        }
+        break;
+      }
       await new Promise((r) => setTimeout(r, 250));
+    }
+    if (strictPagination && (declaredTotal === null || seenSourceKeys.size !== declaredTotal)) {
+      throw new Error(`Prospective ${companyName} pagination incomplete: fetched ${seenSourceKeys.size}/${declaredTotal ?? 'unknown'} unique listings`);
     }
     console.log(`  ✓ ${all.length} Prospective jobs (API total=${total})\n`);
     if (!all.length) return [];
@@ -373,6 +442,7 @@ export function createProspectiveChParser(config) {
     const jobs = [];
     let directlinkSkipped = 0;
     let attributeSkipped = 0;
+    let locationSkipped = 0;
     for (const listing of all) {
       const szas = listing?.szas || {};
       const title = normalizeSpace(szas.sza_title || listing.title || '');
@@ -419,8 +489,21 @@ export function createProspectiveChParser(config) {
       const applyLink = /^https?:\/\//i.test(rawApplyLink) ? rawApplyLink : '';
       const publicUrl = directLink || applyLink || publicCareerUrl || API_BASE;
 
-      const location = pickLocation(listing, defaultCity);
-      const canton = inferSwissTargetCanton(location) || defaultCanton;
+      let location;
+      let canton;
+      if (typeof locationResolver === 'function') {
+        let resolution;
+        try { resolution = locationResolver(listing); } catch { resolution = null; }
+        if (!resolution || resolution.valid === false || !resolution.location || !resolution.canton) {
+          locationSkipped += 1;
+          continue;
+        }
+        location = normalizeSpace(resolution.location);
+        canton = String(resolution.canton || '').trim().toUpperCase();
+      } else {
+        location = pickLocation(listing, defaultCity);
+        canton = inferSwissTargetCanton(location) || defaultCanton;
+      }
       const descriptionText = buildDescription(listing);
       const sourceLang = detectLang(descriptionText || title, defaultSourceLang);
       const jobSlug = slugify(`${title} ${companyKey} ${location}`);
@@ -466,7 +549,8 @@ export function createProspectiveChParser(config) {
         addressRegion: canton,
         addressCountry: 'CH',
         country: 'CH',
-        postalCode: pickPostalCode(listing, defaultPostalCode, location, defaultCity),
+        postalCode: pickPostalCode(listing, defaultPostalCode, location, defaultCity)
+          || (typeof postalCodeFallback === 'function' ? postalCodeFallback(canton, location, listing) : ''),
         streetAddress: pickStreetAddress(listing, defaultStreetAddress, location, defaultCity),
         category: categoryFn(title, department),
         contract: 'full-time',
@@ -487,6 +571,9 @@ export function createProspectiveChParser(config) {
     }
     if (attributeSkipped > 0) {
       console.log(`  ⏭️  Filtered out ${attributeSkipped} listings (filterListing predicate)`);
+    }
+    if (locationSkipped > 0) {
+      console.log(`  ⏭️  Filtered out ${locationSkipped} listings (unresolved/non-Swiss source location)`);
     }
     console.log(`📋 Total ${companyName} jobs discovered: ${jobs.length}`);
     return jobs;
