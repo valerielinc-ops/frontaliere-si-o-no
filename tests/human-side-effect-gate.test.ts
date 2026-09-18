@@ -209,6 +209,13 @@ const SCHEDULE_ARMED_WORKFLOWS = [
   // credentials the gate refused to hydrate.
   'cold-email-outreach.yml',
   'seo-health-loop.yml',
+  // The 6-hourly refresh is the only writer of public/data/plate-auctions.json.
+  // Unarmed, the gate denied every scheduled run: the producer was skipped, the
+  // drift check still passed because it re-validates the committed file, and
+  // the job reported success while the snapshot sat frozen at
+  // 2026-09-15T06:58:44.350Z. Arming it makes the underlying failure visible
+  // again — it does not repair it.
+  'refresh-plate-auctions.yml',
 ];
 
 const SCHEDULE_UNARMED_WORKFLOWS = [
@@ -814,10 +821,39 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
     }
   });
 
+  it('fails a scheduled plate-auction refresh whose producer was skipped', () => {
+    // Measured on run 35368321723 (2026-09-18 16:24Z), reported SUCCESS:
+    // `Refresh every active public catalogue` skipped, yet `Fail closed on
+    // source health or snapshot drift` passed because it re-validates the
+    // COMMITTED snapshot instead of a fresh fetch. Run conclusions cannot
+    // distinguish that from a real refresh; only a step-level assertion can.
+    const document = YAML.parse(workflow('refresh-plate-auctions.yml')) as {
+      jobs?: Record<string, { steps?: Array<Record<string, unknown>> }>;
+    };
+    const steps = Object.values(document.jobs ?? {}).flatMap((job) => job.steps ?? []);
+
+    const producer = steps.find((step) => String(step.name ?? '') === 'Refresh every active public catalogue');
+    expect(producer, 'producer step missing').toBeDefined();
+    expect(producer?.id, 'producer needs an id so its outcome is addressable').toBe('refresh');
+
+    const guard = steps.find((step) => String(step.name ?? '').startsWith('Fail a scheduled run whose refresh'));
+    expect(guard, 'missing step-level liveness check').toBeDefined();
+    const condition = String(guard?.if ?? '');
+    expect(condition).toContain("steps.refresh.outcome == 'skipped'");
+    expect(condition).toContain("github.event_name == 'schedule'");
+    expect(condition).toContain('always()');
+
+    // Documents WHY the liveness check has to exist: the drift check is
+    // unconditional, so it cannot be the thing that catches a dead refresh.
+    const drift = steps.find((step) => String(step.name ?? '') === 'Fail closed on source health or snapshot drift');
+    expect(drift, 'drift check missing').toBeDefined();
+    expect(drift?.if, 'drift check runs unconditionally; it validates the committed file').toBeUndefined();
+  });
+
   it('arms trusted schedules only on workflows whose schedules apply side effects', () => {
-    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(16);
+    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(17);
     expect(SCHEDULE_UNARMED_WORKFLOWS).toHaveLength(10);
-    expect(SCHEDULE_SIDE_EFFECT_WORKFLOWS).toHaveLength(26);
+    expect(SCHEDULE_SIDE_EFFECT_WORKFLOWS).toHaveLength(27);
 
     for (const name of SCHEDULE_SIDE_EFFECT_WORKFLOWS) {
       const document = YAML.parse(workflow(name)) as { jobs?: Record<string, { steps?: Array<Record<string, unknown>> }> };
