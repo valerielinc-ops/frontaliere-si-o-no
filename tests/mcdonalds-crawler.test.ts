@@ -187,7 +187,14 @@ describe("McDonald's Switzerland crawler parser", () => {
         title: 'Crew Member',
         reference: 'BE-1',
         originalURL: 'fr-ch/crew-member/job/BE-1',
-        locations: [{ city: 'KOENIZ', state: 'Bern', stateAbbr: 'BE', countryAbbr: 'CH' }],
+        locations: [{
+          city: 'KOENIZ',
+          state: 'Bern',
+          stateAbbr: 'BE',
+          countryAbbr: 'CH',
+          zipCode: '3084',
+          streetAddress: 'Hauptstrasse 1',
+        }],
       });
       expect(parsed).toMatchObject({ canton: 'BE', sourceLocation: 'KOENIZ, Bern, BE' });
       expect(buildMcdoJob(parsed)).toMatchObject({ location: 'KOENIZ', canton: 'BE' });
