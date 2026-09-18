@@ -13,6 +13,7 @@ import {
   inferCanton,
   inferEmploymentType,
   listingPageUrl,
+  discoverMcdoJobUrls,
 } from '../scripts/lib/mcdonalds-job-parser.mjs';
 
 const FIXTURES = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures');
@@ -22,6 +23,10 @@ const FIXTURES = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtur
 //   https://jobs.mcdonalds.ch/fr-ch/agent-e-de-maintenance/job/P8-317484-1 → mcdonalds-job-p8-317484-1.html
 const listingHtml = readFileSync(path.join(FIXTURES, 'mcdonalds-emplois-restauration.html'), 'utf8');
 const detailHtml = readFileSync(path.join(FIXTURES, 'mcdonalds-job-p8-317484-1.html'), 'utf8');
+
+function listingPageHtml(jobs: object[], totalJob: number) {
+  return `<script>window.__PRELOAD_STATE__ = ${JSON.stringify({ jobSearch: { jobs, totalJob } })};</script>`;
+}
 
 describe("McDonald's Switzerland crawler parser", () => {
   it('exports valid company key and name', () => {
@@ -85,6 +90,42 @@ describe("McDonald's Switzerland crawler parser", () => {
       const [, script] = listingHtml.split('<script>');
       expect(script).not.toContain('mcdo_jobs_mapEntries');
     });
+
+    it('walks until the declared number of unique source records, including a short final page', async () => {
+      const sourceEntries = Array.from({ length: 5 }, (_, index) => ({
+        title: `Crew ${index + 1}`,
+        reference: `REF-${index + 1}`,
+        originalURL: `fr-ch/crew-${index + 1}/job/REF-${index + 1}`,
+        locations: [{ city: 'Lugano', stateAbbr: 'TI', countryAbbr: 'CH' }],
+      }));
+      const pages = new Map([
+        [listingPageUrl(1), listingPageHtml(sourceEntries.slice(0, 2), 5)],
+        [listingPageUrl(2), listingPageHtml(sourceEntries.slice(2, 4), 5)],
+        [listingPageUrl(3), listingPageHtml(sourceEntries.slice(4), 5)],
+      ]);
+
+      const result = await discoverMcdoJobUrls({ fetchPage: (url) => pages.get(url) });
+
+      expect(result.sourceTotal).toBe(5);
+      expect(result.sitemapCount).toBe(3);
+      expect(result.jobUrls).toHaveLength(5);
+    });
+
+    it('fails when a later page repeats a source identity instead of proving progress', async () => {
+      const sourceEntries = Array.from({ length: 2 }, (_, index) => ({
+        title: `Crew ${index + 1}`,
+        reference: `REF-${index + 1}`,
+        originalURL: `fr-ch/crew-${index + 1}/job/REF-${index + 1}`,
+        locations: [{ city: 'Lugano', stateAbbr: 'TI', countryAbbr: 'CH' }],
+      }));
+      const pages = new Map([
+        [listingPageUrl(1), listingPageHtml(sourceEntries, 3)],
+        [listingPageUrl(2), listingPageHtml([sourceEntries[0]], 3)],
+      ]);
+
+      await expect(discoverMcdoJobUrls({ fetchPage: (url) => pages.get(url) }))
+        .rejects.toThrow(/repeated source identity/);
+    });
   });
 
   describe('listingEntryToParsed', () => {
@@ -118,6 +159,26 @@ describe("McDonald's Switzerland crawler parser", () => {
       expect(listingEntryToParsed(null)).toBeNull();
       expect(listingEntryToParsed({ title: 'x' })).toBeNull();
       expect(listingEntryToParsed({ originalURL: 'fr-ch/x/job/1' })).toBeNull();
+    });
+
+    it('uses the source canton name when a branch label is not a BFS municipality spelling', () => {
+      const parsed = listingEntryToParsed({
+        title: 'Crew Member',
+        reference: 'BE-1',
+        originalURL: 'fr-ch/crew-member/job/BE-1',
+        locations: [{ city: 'KOENIZ', state: 'Bern', stateAbbr: 'BE', countryAbbr: 'CH' }],
+      });
+      expect(parsed).toMatchObject({ canton: 'BE', sourceLocation: 'KOENIZ, Bern, BE' });
+      expect(buildMcdoJob(parsed)).toMatchObject({ location: 'KOENIZ', canton: 'BE' });
+    });
+
+    it('rejects a foreign source location even when the city resembles a Swiss canton token', () => {
+      expect(listingEntryToParsed({
+        title: 'Crew Member',
+        reference: 'IT-1',
+        originalURL: 'it/crew/job/IT-1',
+        locations: [{ city: 'Como', stateAbbr: 'TI', country: 'Italy', countryAbbr: 'IT' }],
+      })).toBeNull();
     });
   });
 

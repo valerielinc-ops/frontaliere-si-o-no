@@ -16,8 +16,9 @@ import { TLS_ERROR_CODES } from './transient-fetch.mjs';
  * Detail pages moved from `/details-offre/{id}` back to
  * `/{lang}/{slug}/job/{reference}` (e.g.
  * `/fr-ch/agent-e-de-maintenance/job/P8-317484-1`), still carrying a
- * schema.org JobPosting JSON-LD block — `parseMcdoDetailPage()` needed no
- * changes at all, only the URLs feeding it. That block currently omits
+ * schema.org JobPosting JSON-LD block. The parser retains the source-backed
+ * address fields and rejects a detail page whose country is not Switzerland;
+ * the block currently omits
  * `employmentType` and `validThrough` outright (present pre-2026-08-10,
  * absent again now); both already have safe fallbacks downstream.
  *
@@ -267,7 +268,12 @@ export function listingEntryToParsed(entry) {
   const city = String(location?.city || '').trim();
   const sourceCountry = location?.countryAbbr || location?.country || '';
   if (sourceCountry && !isChCountry(sourceCountry)) return null;
-  const canton = inferCanton(location?.stateAbbr || location?.state || '', city);
+  const sourceRegion = [location?.state, location?.stateAbbr]
+    .map((value) => String(value || '').trim())
+    .filter(Boolean)
+    .join(', ');
+  const sourceLocation = [city, sourceRegion].filter(Boolean).join(', ').trim();
+  const canton = inferCanton(sourceRegion, city);
   if (!canton) return null;
 
   return {
@@ -276,6 +282,7 @@ export function listingEntryToParsed(entry) {
     jobReqId: String(entry.reference || '').trim(),
     city,
     canton,
+    sourceLocation,
     postalCode: String(location?.zipCode || '').trim(),
     streetAddress: String(location?.streetAddress || '').trim(),
     description: '',
@@ -293,6 +300,15 @@ export function listingEntryToParsed(entry) {
  */
 export function listingPageUrl(pageNum) {
   return pageNum <= 1 ? `${MCDO_BASE}${MCDO_LISTING_PATH}` : `${MCDO_BASE}${MCDO_LISTING_PATH}/page/${pageNum}`;
+}
+
+function listingSourceIdentity(entry) {
+  if (!entry || typeof entry !== 'object') return '';
+  for (const candidate of [entry.reference, entry.id, entry.originalURL, entry.applyURL]) {
+    const identity = String(candidate || '').trim();
+    if (identity) return identity;
+  }
+  return '';
 }
 
 async function fetchListingPage(pageNum, { userAgent, timeoutMs, fetchPage }) {
@@ -320,9 +336,9 @@ async function fetchListingPage(pageNum, { userAgent, timeoutMs, fetchPage }) {
 /**
  * Walk every listing page (10 jobs/page) and return the raw entries.
  *
- * Page 1's `totalJob` drives how many further pages to fetch — there is
- * no separate "page count" field, only the running total and the observed
- * page size.
+ * Page 1's `totalJob` is authoritative. The loop stops only when that many
+ * unique source records have been read; repeated identities, empty pages, and
+ * short pages before the declared total fail closed.
  */
 async function discoverAllListingEntries({ userAgent = DEFAULT_UA, timeoutMs = 15000, fetchPage } = {}) {
   const first = await fetchListingPage(1, { userAgent, timeoutMs, fetchPage });
@@ -331,30 +347,44 @@ async function discoverAllListingEntries({ userAgent = DEFAULT_UA, timeoutMs = 1
 
   const uniqueEntries = new Map();
   const perPage = first.jobs.length;
-  // totalJob arriva dal JSON del portale e va creduto solo fino a un punto:
-  // un valore assurdo (bug loro, semantica cambiata, tarpit) non deve
-  // trasformarsi in una tempesta di fetch. 100 pagine = ~1000 job, oltre 6x
-  // il massimo storico osservato (165 job il 2026-08-15).
-  const MAX_LISTING_PAGES = 100;
-  const totalPages = Math.max(1, Math.min(MAX_LISTING_PAGES, Math.ceil((first.totalJob || perPage) / perPage)));
-  const all = [...first.jobs];
+  let pageNum = 1;
+  let page = first;
 
-  if (totalPages > 1) {
-    const pageNums = Array.from({ length: totalPages - 1 }, (_, i) => i + 2);
-    const rest = await runWithConcurrency(
-      pageNums,
-      (pageNum) => fetchListingPage(pageNum, { userAgent, timeoutMs }),
-      4
-    );
-    for (const page of rest) all.push(...page.jobs);
+  while (uniqueEntries.size < declaredTotal) {
+    if (page.totalJob !== declaredTotal) {
+      throw new Error(`[mcdonalds] listing page ${pageNum} changed totalJob from ${declaredTotal} to ${page.totalJob}.`);
+    }
+    if (page.jobs.length === 0) {
+      throw new Error(`[mcdonalds] listing pagination incomplete: read ${uniqueEntries.size}/${declaredTotal} unique records before an empty page.`);
+    }
+
+    let pageNew = 0;
+    for (const entry of page.jobs) {
+      const identity = listingSourceIdentity(entry);
+      if (!identity) {
+        throw new Error(`[mcdonalds] listing page ${pageNum} contains a row without a stable source identity.`);
+      }
+      if (uniqueEntries.has(identity)) {
+        throw new Error(`[mcdonalds] listing pagination repeated source identity "${identity}"; unique progress stopped at ${uniqueEntries.size}/${declaredTotal}.`);
+      }
+      uniqueEntries.set(identity, entry);
+      pageNew += 1;
+    }
+    if (pageNew === 0) {
+      throw new Error(`[mcdonalds] listing pagination page ${pageNum} added no unique source records.`);
+    }
+    if (uniqueEntries.size > declaredTotal) {
+      throw new Error(`[mcdonalds] listing pagination read ${uniqueEntries.size} unique records for totalJob=${declaredTotal}.`);
+    }
+    if (uniqueEntries.size === declaredTotal) break;
+    if (page.jobs.length < perPage) {
+      throw new Error(`[mcdonalds] listing pagination incomplete: read ${uniqueEntries.size}/${declaredTotal} unique records from a short page.`);
+    }
+
+    pageNum += 1;
+    page = await fetchListingPage(pageNum, { userAgent, timeoutMs, fetchPage });
   }
-  // Un raccolto parziale (pagina intermedia fallita, o totale mendace) non e'
-  // uno zero: il monitor non lo vede, e nel merge dell'updater i job mancanti
-  // uscirebbero come "removed". Almeno il log deve dirlo.
-  if (all.length < (first.totalJob || 0)) {
-    console.warn(`[mcdonalds] raccolto parziale: ${all.length}/${first.totalJob} job — pagina fallita o totalJob mendace`);
-  }
-  return { entries: all, pageCount: totalPages };
+  return { entries: [...uniqueEntries.values()], pageCount: pageNum, sourceTotal: declaredTotal };
 }
 
 /**
@@ -368,10 +398,10 @@ async function discoverAllListingEntries({ userAgent = DEFAULT_UA, timeoutMs = 1
  * debugging, and `sitemapCount` now really is the listing-page count it
  * always claimed to be (it returned a bare 1/0 before).
  */
-export async function discoverMcdoJobUrls({ userAgent = DEFAULT_UA, timeoutMs = 15000 } = {}) {
-  const { entries, pageCount } = await discoverAllListingEntries({ userAgent, timeoutMs });
+export async function discoverMcdoJobUrls({ userAgent = DEFAULT_UA, timeoutMs = 15000, fetchPage } = {}) {
+  const { entries, pageCount, sourceTotal } = await discoverAllListingEntries({ userAgent, timeoutMs, fetchPage });
   const jobUrls = [...new Set(entries.map((e) => listingEntryToParsed(e)?.url).filter(Boolean))];
-  return { jobUrls, sitemapCount: pageCount };
+  return { jobUrls, sitemapCount: pageCount, sourceTotal };
 }
 
 /* ── Detail page parsing ──────────────────────────────────────── */
@@ -403,7 +433,12 @@ export function parseMcdoDetailPage(html, pageUrl = '') {
   const place = Array.isArray(ld.jobLocation) ? ld.jobLocation[0] : ld.jobLocation;
   const address = place?.address || {};
   const city = address.addressLocality || place?.name || '';
-  const canton = inferCanton(address.addressRegion, city);
+  const sourceCountry = address.addressCountry || place?.addressCountry || '';
+  const sourceRegion = String(address.addressRegion || '').trim();
+  const sourceLocation = [city, sourceRegion].filter(Boolean).join(', ').trim();
+  const canton = sourceCountry && !isChCountry(sourceCountry)
+    ? ''
+    : inferCanton(sourceRegion, city);
 
   const description = stripHtml(ld.description || '');
   const datePosted = ld.datePosted ? String(ld.datePosted).slice(0, 10) : '';
@@ -415,6 +450,7 @@ export function parseMcdoDetailPage(html, pageUrl = '') {
     jobReqId: ld.identifier?.value || '',
     city,
     canton,
+    sourceLocation,
     postalCode: address.postalCode || '',
     streetAddress: address.streetAddress || '',
     description,
@@ -434,7 +470,15 @@ export async function fetchMcdoDetailPage(url, { userAgent = DEFAULT_UA, timeout
 
 export function buildMcdoJob(parsed) {
   if (!parsed || !parsed.title) return null;
-  const location = parsed.city || 'Svizzera';
+  const location = String(parsed.city || '').trim();
+  const canton = String(parsed.canton || '').trim();
+  const sourceLocation = String(parsed.sourceLocation || `${location}, ${canton}`).trim();
+  if (
+    !location
+    || !canton
+    || !isTargetSwissLocation(sourceLocation, { includeBorderProximity: false })
+    || inferAnyCanton(sourceLocation) !== canton
+  ) return null;
   const slug = slugify(`${parsed.title}-mcdonalds-switzerland-${location}-${parsed.jobReqId || ''}`);
   if (!slug || slug.length < 3) return null;
 
@@ -449,10 +493,13 @@ export function buildMcdoJob(parsed) {
     url: parsed.url,
     slug,
     location,
-    canton: parsed.canton || '',
+    addressLocality: location,
+    addressRegion: canton,
+    addressCountry: 'CH',
+    canton,
     country: 'CH',
     postalCode: parsed.postalCode || '',
-    streetAddress: parsed.streetAddress || '',
+    streetAddress: parsed.streetAddress || location,
     description,
     // Canonical pipeline field is `postedDate` (schema.org JSON-LD calls it
     // `datePosted`, but every downstream consumer — JobBoard, sitemap,
@@ -479,17 +526,24 @@ export async function fetchMcdoJobs({
   timeoutMs = 15000,
   detailConcurrency = 8,
 } = {}) {
-  const { entries, pageCount } = await discoverAllListingEntries({ userAgent, timeoutMs });
-  console.log(`  🗺️  Listing entries (jobSearch): ${entries.length} across ${pageCount} page(s)`);
+  const { entries, pageCount, sourceTotal } = await discoverAllListingEntries({ userAgent, timeoutMs });
+  console.log(`  🗺️  Listing entries (jobSearch): ${entries.length}/${sourceTotal} unique records across ${pageCount} page(s)`);
   if (entries.length === 0) return [];
 
   const parsedList = entries.map((e) => listingEntryToParsed(e)).filter(Boolean);
+  if (parsedList.length !== entries.length) {
+    console.warn(`  ⚠️  Listing records rejected by the Swiss location/company contract: ${entries.length - parsedList.length}`);
+  }
 
+  let detailFallbacks = 0;
   const enriched = await runWithConcurrency(
     parsedList,
     async (parsed) => {
       const detail = await fetchMcdoDetailPage(parsed.url, { userAgent, timeoutMs });
-      if (!detail) return parsed;
+      if (!detail) {
+        detailFallbacks += 1;
+        return parsed;
+      }
       return {
         ...parsed,
         description: detail.description || parsed.description,
@@ -507,6 +561,9 @@ export async function fetchMcdoJobs({
   for (const parsed of enriched) {
     const job = buildMcdoJob(parsed);
     if (job) jobs.push(job);
+  }
+  if (detailFallbacks > 0) {
+    console.warn(`  ⚠️  Detail pages unavailable or without JobPosting JSON-LD: ${detailFallbacks}; listing location data retained.`);
   }
   return jobs;
 }
