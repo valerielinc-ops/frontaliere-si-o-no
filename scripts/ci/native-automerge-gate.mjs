@@ -28,6 +28,7 @@ import {
 } from './lib/automation-risk-policy.mjs';
 import { REVIEW_GATE_STEP_NAME } from './lib/vitestCheck.mjs';
 import {
+  CODEX_FALLBACK_REVIEW_MARKER,
   firstTerminalBotReviewOnHead,
   reviewBodyIsApproving,
   reviewHasLgtm,
@@ -44,7 +45,6 @@ const TESTS_WORKFLOW_PATH = '.github/workflows/tests.yml';
 const TESTS_WORKFLOW_EVENT = 'pull_request';
 const TEST_ONLY_REVIEW_BOT_RE = /^(?:github-actions|frontaliere-automation)\[bot\]$/i;
 const CODEX_FALLBACK_REVIEWER_RE = /^github-actions\[bot\]$/i;
-const CODEX_FALLBACK_REVIEW_MARKER = '<!-- CODEX_FALLBACK_REVIEW -->';
 const MAX_TRANSIENT_GH_READ_ATTEMPTS = 3;
 const TRANSIENT_GH_READ_RETRY_DELAYS_MS = Object.freeze([250, 750]);
 const TRANSIENT_GH_READ_ERROR_RE = /(?:\bHTTP\s+5\d{2}\b|\b5\d{2}\s+(?:bad gateway|service unavailable|gateway timeout)\b|service unavailable|bad gateway|gateway timeout|timed?\s*out|ECONNRESET|ETIMEDOUT|EAI_AGAIN)/iu;
