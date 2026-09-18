@@ -10,6 +10,7 @@ import {
 } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { MANIFEST_VERSION } from '../build-plugins/shared/incrementalManifest.mjs';
 
 const ROOT = process.cwd();
 const PUSH_LOCALE = join(ROOT, 'scripts/lib/push-locale-shard.sh');
@@ -65,7 +66,7 @@ function writeManifest(scenario: Scenario, pages: string[], version: string, pre
   const counts = Object.fromEntries(KINDS.map((kind) => [kind, 0]));
   counts['active-job'] = pages.length;
   const lines = [
-    JSON.stringify({ type: 'header', manifestVersion: 2, format: 'jsonl', locale: 'en' }),
+    JSON.stringify({ type: 'header', manifestVersion: MANIFEST_VERSION, format: 'jsonl', locale: 'en' }),
     JSON.stringify({
       type: 'kind',
       kind: 'active-job',
