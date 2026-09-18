@@ -243,7 +243,13 @@ function validateLifecycleTransition(candidateId, priorEvents, event, { allCandi
       .filter((candidateEvent) => candidateEvent.eventType === optionalType)
       .map((priorEvent) => occurredAtMs(priorEvent))
       .filter((time) => time !== null);
-    if (observed.length && Math.min(...observed) > eventTime) {
+    // `some`, not `Math.min`: with the minimum, a candidate that already has an
+    // earlier authorisation would silently accept a SECOND one landing after
+    // the merge. A candidate can legitimately hold several — 3 pairs in the
+    // 4217-event ledger, from one candidate that ran two PR cycles (#8981 then
+    // #9041) — and there the merge still follows all of them, so rejecting on
+    // any late one costs nothing real and closes the gap.
+    if (observed.some((time) => time > eventTime)) {
       throw new Error(
         `${candidateId}.lifecycle ${eventType} occurs before observed ${optionalType}`,
       );

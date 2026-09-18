@@ -596,6 +596,59 @@ describe('loop-fleet independent lifecycle observer', () => {
     expect(fs.readFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'utf8')).toBe(before);
   });
 
+  it('rejects a late second authorisation even when an earlier one exists', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-late-second-auth-'));
+    const eventsFile = path.join(root, 'events.jsonl');
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(ledgerDir);
+    const candidateId = 'lf-late-second-auth';
+    seedLedger(ledgerDir, recorderChain(candidateId));
+    const before = fs.readFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'utf8');
+    // With `Math.min` the early review satisfied the check and the one landing
+    // after the merge slipped through unnoticed.
+    writeJsonl(eventsFile, [
+      terminalEvent('pr_opened', candidateId, '2026-09-10T11:00:00.000Z', 27_000),
+      terminalEvent('review_approved', candidateId, '2026-09-10T11:02:00.000Z', 27_001),
+      terminalEvent('merged', candidateId, '2026-09-10T11:05:00.000Z', 27_002),
+      terminalEvent('review_approved', candidateId, '2026-09-10T11:40:00.000Z', 27_003),
+    ]);
+
+    expect(() => appendLoopFleetLifecycle({
+      eventsFile,
+      ledgerDir,
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+    })).toThrow(/merged occurs before observed review_approved/u);
+    expect(fs.readFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'utf8')).toBe(before);
+  });
+
+  it('accepts a candidate that ran two PR cycles before merging', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-two-cycles-'));
+    const eventsFile = path.join(root, 'events.jsonl');
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(ledgerDir);
+    const candidateId = 'lf-two-cycles';
+    seedLedger(ledgerDir, recorderChain(candidateId));
+    // Shape of lf-decision-080c86e01b5f17fcc1e886fa: an abandoned first cycle
+    // (#8981) then a second that merges (#9041). Every authorisation, from both
+    // cycles, still precedes the merge — so `some` must not reject it.
+    writeJsonl(eventsFile, [
+      terminalEvent('pr_opened', candidateId, '2026-09-10T11:00:00.000Z', 28_000),
+      terminalEvent('review_approved', candidateId, '2026-09-10T11:02:00.000Z', 28_001),
+      terminalEvent('tests_passed', candidateId, '2026-09-10T11:05:00.000Z', 28_002),
+      terminalEvent('pr_opened', candidateId, '2026-09-10T19:00:00.000Z', 28_003),
+      terminalEvent('review_approved', candidateId, '2026-09-10T19:28:00.000Z', 28_004),
+      terminalEvent('tests_passed', candidateId, '2026-09-10T19:28:10.000Z', 28_005),
+      terminalEvent('merged', candidateId, '2026-09-10T19:28:40.000Z', 28_006),
+      terminalEvent('post_merge_verified', candidateId, '2026-09-10T19:32:00.000Z', 28_007),
+    ]);
+
+    expect(appendLoopFleetLifecycle({
+      eventsFile,
+      ledgerDir,
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+    })).toMatchObject({ inputRecords: 8, appended: 8, skipped: 0 });
+  });
+
   it('accepts a PR opened before the recorder noticed the candidate', () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-recorder-clock-'));
     const eventsFile = path.join(root, 'events.jsonl');
