@@ -104,7 +104,7 @@ describe('runtime reliability watchdog', () => {
     expect(evaluateRepairPolicy({ probe: mismatch }).action).toBe('blocked_marker');
   });
 
-  it('fails closed without purging while markers disagree', () => {
+  it('fails closed without purging when the apex is ahead of the CDN', () => {
     const result = evaluateProbe({
       siteCached: { body: '1789306155656', status: 200, ok: true },
       siteFresh: { body: '1789306155657', status: 200, ok: true },
@@ -115,8 +115,55 @@ describe('runtime reliability watchdog', () => {
         fresh: { status: 200, ok: true, bytes: 3, hash: 'new' },
       }],
     });
-    expect(result.markerState).toBe('marker_mismatch');
+    // The apex serves HTML for a generation the CDN never received: the one
+    // direction of skew that no rollout can explain.
+    expect(result.markerState).toBe('marker_regression');
+    expect(result.ok).toBe(false);
     expect(result.purgeUrls).toEqual([]);
+  });
+
+  // Production only ever shows the opposite direction: the deploy mints the CDN
+  // marker in the build leg and the apex marker goes live once deploy-publish
+  // has pushed the Pages artifact. Measured on 2026-09-18 across 11 watchdog
+  // runs: the apex trailed the CDN by 2.61h–7.03h in all nine red runs, with
+  // every critical asset healthy and zero purge candidates — so the old verdict
+  // failed on a healthy rollout and offered a repair it had already blocked.
+  it('treats an apex that trails the CDN as a rollout, not a degradation', () => {
+    const result = evaluateProbe({
+      siteCached: { body: '1789724819997', status: 200, ok: true },
+      siteFresh: { body: '1789724819997', status: 200, ok: true },
+      cdnMarker: { body: '1789734217605', status: 200, ok: true },
+      assets: [{
+        path: '/assets/App.js',
+        cached: { status: 200, ok: true, bytes: 3, hash: 'same' },
+        fresh: { status: 200, ok: true, bytes: 3, hash: 'same' },
+      }],
+    });
+    expect(result.markerState).toBe('rollout_in_progress');
+    expect(result.ok).toBe(true);
+    expect(result.siteBehindMs).toBe(9_397_608);
+    // Purging mid-rollout would refill the edge from the generation the live
+    // HTML does not reference yet.
+    expect(result.purgeUrls).toEqual([]);
+    expect(result.reasons).toContain('apex behind CDN by 2.61h');
+  });
+
+  it('still refuses to purge mid-rollout when an asset looks stale', () => {
+    const result = evaluateProbe({
+      siteCached: { body: '1789724819997', status: 200, ok: true },
+      siteFresh: { body: '1789724819997', status: 200, ok: true },
+      cdnMarker: { body: '1789734217605', status: 200, ok: true },
+      assets: [{
+        path: '/assets/App.js',
+        cached: { status: 200, ok: true, bytes: 3, hash: 'old' },
+        fresh: { status: 200, ok: true, bytes: 3, hash: 'new' },
+      }],
+    });
+    // The edge holding the previous object is what the currently-live HTML
+    // wants, so this is reported but is not a degradation.
+    expect(result.ok).toBe(true);
+    expect(result.reasons).toContain('/assets/App.js: stale');
+    expect(evaluateRepairPolicy({ probe: result }).action).toBe('blocked_marker');
   });
 
   it('compares cache-busted and stable URLs through the same fetch contract', async () => {
