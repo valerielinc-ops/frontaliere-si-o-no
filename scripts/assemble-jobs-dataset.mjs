@@ -54,7 +54,7 @@ import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator } from './lib/dedicated-crawler-common.mjs';
-import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, isKnownSwissMunicipalityInCanton, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
 import { getCantonDisplayName, markLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
@@ -267,6 +267,28 @@ export function realignCantonOnlyLocality(value, canton) {
   const code = String(canton || '').toUpperCase().trim();
   if (!s || !code) return value;
   if (!isCantonOnlyLabel(s)) return value;
+  // A real municipality of the job's OWN canton is never a placeholder.
+  //
+  // `isCantonOnlyLabel` answers `true` for a bare AMBIGUOUS municipality name:
+  // each canton's alias list folds in representative city names to strengthen
+  // fuzzy canton detection, and BFS stores a name shared by several cantons
+  // only in disambiguated `<City> (XX)` form, so the bare spelling resolves to
+  // whichever canton owns the alias. `inferAnyCanton('Buchs')` is therefore
+  // `SG`, and on an AG job the two checks above both fell through and rewrote
+  // the correct city into its canton's name — `Buchs` → `Argovia`. That is
+  // precisely the shape this function exists to REMOVE from `addressLocality`
+  // (AGENTS.md Non-Negotiable #3: jobLocation must be correct in every
+  // locale), produced by the repair itself.
+  //
+  // Seven BFS municipalities carry this collision — Buchs (AG), Reinach (AG),
+  // Rapperswil (BE), Kilchberg (BL), Buchs (ZH), Gossau (ZH), Wil (ZH) — and
+  // swisslog's five Buchs AG postings shipped `addressLocality: "Argovia"`,
+  // the single `locationMismatch` that holds that crawler CRITICAL in
+  // audit-parser-quality.yml (the source detail page says `Buchs`).
+  //
+  // The BFS snapshot is the authority for canton membership, so ask it
+  // directly instead of going through the alias-folded inference.
+  if (isKnownSwissMunicipalityInCanton(s, code)) return value;
   if (inferAnyCanton(s) === code) return value;
   const label = getCantonDisplayName(code, 'it');
   return label && label !== code ? label : value;
