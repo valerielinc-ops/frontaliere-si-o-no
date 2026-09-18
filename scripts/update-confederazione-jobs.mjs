@@ -362,7 +362,11 @@ function buildLocalizedContent(job = {}, sourceLang = 'it') {
  * Fetch the unfiltered national federal listing (all 26 cantons).
  * No `f=region:` facet → the API returns every Swiss federal job.
  */
-async function fetchNationalListings() {
+function sourceListingIdentity(job = {}) {
+  return String(job?.viewkey || job?.id || extractViewkey(job?.directLink) || '').trim();
+}
+
+export async function fetchNationalListings() {
   console.log('\nFetching CH-wide federal jobs (national, unfiltered)...');
 
   const allItems = [];
@@ -371,6 +375,7 @@ async function fetchNationalListings() {
   const maxPages = 1000;
   let declaredTotal = null;
   let pageCount = 0;
+  const seenSourceIds = new Set();
 
   while (true) {
     const url = `${API_BASE}?lang=it&offset=${offset}&limit=${limit}`;
@@ -402,14 +407,45 @@ async function fetchNationalListings() {
       }
     }
 
+    let pageUniqueCount = 0;
+    for (const item of items) {
+      const sourceId = sourceListingIdentity(item);
+      if (!sourceId) {
+        throw new Error(
+          `Confederazione API pagination failed at offset ${offset}: `
+          + 'source record has no stable identity.',
+        );
+      }
+      if (seenSourceIds.has(sourceId)) {
+        throw new Error(
+          `Confederazione API pagination failed at offset ${offset}: `
+          + `repeated source identity "${sourceId}"; no unique progress proven.`,
+        );
+      }
+      seenSourceIds.add(sourceId);
+      pageUniqueCount += 1;
+    }
+
+    if (items.length > 0 && pageUniqueCount === 0) {
+      throw new Error(
+        `Confederazione API pagination failed at offset ${offset}: no unique progress proven.`,
+      );
+    }
+
     allItems.push(...items);
     pageCount += 1;
 
-    if (declaredTotal !== null && allItems.length >= declaredTotal) break;
+    const recordsSeen = seenSourceIds.size;
+    if (declaredTotal !== null && recordsSeen > declaredTotal) {
+      throw new Error(
+        `Confederazione API pagination failed: unique records ${recordsSeen} exceed declared total ${declaredTotal}.`,
+      );
+    }
+    if (declaredTotal !== null && recordsSeen >= declaredTotal) break;
     if (items.length === 0) {
-      if (declaredTotal !== null && allItems.length < declaredTotal) {
+      if (declaredTotal !== null && recordsSeen < declaredTotal) {
         throw new Error(
-          `Confederazione API pagination incomplete: received ${allItems.length} of ${declaredTotal} declared jobs.`,
+          `Confederazione API pagination incomplete: received ${recordsSeen} of ${declaredTotal} declared jobs.`,
         );
       }
       break;
@@ -417,13 +453,13 @@ async function fetchNationalListings() {
     if (pageCount >= maxPages) {
       throw new Error(
         `Confederazione API pagination incomplete after ${pageCount} pages: ` +
-          `${allItems.length} jobs received${declaredTotal !== null ? ` of ${declaredTotal} declared` : ''}.`,
+          `${seenSourceIds.size} unique records received${declaredTotal !== null ? ` of ${declaredTotal} declared` : ''}.`,
       );
     }
     offset += limit;
   }
 
-  console.log(`  CH: ${declaredTotal ?? 'unknown'} declared jobs; ${allItems.length} rows read from API`);
+  console.log(`  CH: ${declaredTotal ?? 'unknown'} declared jobs; ${seenSourceIds.size} unique records read from API`);
   return allItems;
 }
 
@@ -439,7 +475,7 @@ async function fetchAllListings() {
   const seenViewkeys = new Set();
   const allJobs = [];
   for (const job of swissJobs) {
-    const vk = job.viewkey || job.id;
+    const vk = sourceListingIdentity(job);
     if (seenViewkeys.has(vk)) continue;
     seenViewkeys.add(vk);
     allJobs.push(job);
