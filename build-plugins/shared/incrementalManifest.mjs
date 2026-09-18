@@ -226,18 +226,6 @@ function jobRecordForDigest(job) {
   return record;
 }
 
-/**
- * The WeakMap identity fast path is sound only for immutable snapshots. Freeze
- * the source record (including nested rendered fields) before retaining its
- * digest so an in-place mutation cannot make the cached digest stale.
- */
-function freezeJobRecord(value, seen = new WeakSet()) {
-  if (!value || typeof value !== 'object' || seen.has(value)) return value;
-  seen.add(value);
-  for (const nested of Object.values(value)) freezeJobRecord(nested, seen);
-  return Object.freeze(value);
-}
-
 export function createIncrementalManifestInputCache() {
   const cache = {
     jobDigestsById: new Map(),
@@ -295,13 +283,45 @@ function setInputCacheEntry(inputCache, mapName, key, value) {
   inputCache._estimatedBytes[mapName] += estimateMapEntryBytes(key, value);
 }
 
+/**
+ * Shallow signature of a job record: primitives by value, nested objects by
+ * reference, arrays by reference + length + every element (primitive by
+ * value, object by reference). It is what the WeakMap identity fast path
+ * checks before trusting a cached digest, so an in-place `Array.push`, an
+ * element replacement or a top-level reassignment by a downstream plugin
+ * forces a recompute. Mutation inside a nested object (`job.foo.bar = x`) is
+ * not detected: the assembler does not do that, and a deep walk would cost
+ * as much as the digest itself on the related-jobs hot path.
+ */
+function shallowJobRecordSignature(job) {
+  const signature = [];
+  for (const key of Object.keys(job)) {
+    const value = job[key];
+    signature.push(key, value);
+    if (Array.isArray(value)) {
+      signature.push(value.length);
+      for (const element of value) signature.push(element);
+    }
+  }
+  return signature;
+}
+
+function shallowSignatureMatches(left, right) {
+  if (!left || !right || left.length !== right.length) return false;
+  for (let index = 0; index < left.length; index += 1) {
+    if (left[index] !== right[index]) return false;
+  }
+  return true;
+}
+
 function digestJobRecord(job, inputCache = null) {
   if (!job || typeof job !== 'object') return sha256('{}');
   const stableId = stableJobId(job);
-  const cachedDigest = jobRecordDigestCache.get(job);
-  if (cachedDigest?.immutable) {
-    if (inputCache && stableId) setInputCacheEntry(inputCache, 'jobDigestsById', stableId, cachedDigest);
-    return cachedDigest.digest;
+  const signature = shallowJobRecordSignature(job);
+  const cached = jobRecordDigestCache.get(job);
+  if (cached && shallowSignatureMatches(cached.signature, signature)) {
+    rememberDigestById(inputCache, stableId, cached.entry);
+    return cached.entry.digest;
   }
 
   // The assembler preserves source JSON key order. A shallow filter keeps the
@@ -309,18 +329,25 @@ function digestJobRecord(job, inputCache = null) {
   const record = jobRecordForDigest(job);
   if (inputCache?._metrics) inputCache._metrics.jobDigestComputations += 1;
   const digest = sha256(JSON.stringify(record));
-  freezeJobRecord(job);
-  const cachedById = inputCache && stableId
-    ? inputCache.jobDigestsById.get(stableId)
-    : null;
-  if (cachedById?.digest === digest) {
-    jobRecordDigestCache.set(job, cachedById);
-    return cachedById.digest;
-  }
-  const cacheEntry = { digest, immutable: true };
-  jobRecordDigestCache.set(job, cacheEntry);
-  if (inputCache && stableId) setInputCacheEntry(inputCache, 'jobDigestsById', stableId, cacheEntry);
+  // Do NOT freeze the record to make the identity cache sound: downstream
+  // closeBundle plugins push into its arrays and a frozen record fails the
+  // whole build (deploy 35397312111, `object is not extensible`). The shallow
+  // signature above detects those mutations instead. The signature lives only
+  // in the WeakMap (same lifetime as the record); the by-id entry stays a
+  // tiny `{ digest }` so the input cache does not retain nested objects.
+  const cachedById = inputCache && stableId ? inputCache.jobDigestsById.get(stableId) : null;
+  const entry = cachedById?.digest === digest ? cachedById : { digest };
+  jobRecordDigestCache.set(job, { signature, entry });
+  rememberDigestById(inputCache, stableId, entry);
   return digest;
+}
+
+// Content-identical clones of a stable id share the by-id entry: only a
+// different digest replaces it (keeps the input-cache footprint stable).
+function rememberDigestById(inputCache, stableId, entry) {
+  if (!inputCache || !stableId) return;
+  if (inputCache.jobDigestsById.get(stableId)?.digest === entry.digest) return;
+  setInputCacheEntry(inputCache, 'jobDigestsById', stableId, entry);
 }
 
 function projectRelatedJob(relatedJob, locale, inputCache = null) {
