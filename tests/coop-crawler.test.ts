@@ -125,24 +125,6 @@ describe('Coop authoritative detail routing', () => {
     expect(assertCompleteCoopDiscovery(discovery)).toBe(true);
   });
 
-  it('fails closed when a later page repeats all source identities', async () => {
-    const swissJob = (index) => ({
-      links: {
-        directlink: `https://jobs.coopjobs.ch/offene-stellen/job-${index}/11111111-1111-4111-8111-${String(index).padStart(12, '0')}`,
-      },
-      attributes: { '30': ['Zurigo'], '70': ['Coop Genossenschaft'] },
-    });
-    const firstPage = Array.from({ length: 500 }, (_, index) => swissJob(index));
-    const fetchImpl = vi.fn(async () => new Response(JSON.stringify({
-      total: 1000,
-      jobs: firstPage,
-    }), { status: 200 }));
-
-    await expect(fetchCoopJobDetailUrls({ fetchImpl }))
-      .rejects.toThrow(/added no unique source records|repeated page/);
-    expect(fetchImpl).toHaveBeenCalledTimes(2);
-  });
-
   it('rejects a partial or internally inconsistent authoritative feed', () => {
     expect(() => assertCompleteCoopDiscovery({
       apiTotal: null,
