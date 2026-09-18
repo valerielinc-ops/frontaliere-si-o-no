@@ -206,14 +206,18 @@ export async function fetchAllListings() {
   return [...uniqueItems.values()];
 }
 
-function buildPwcJob(row) {
+export function buildPwcJob(row) {
   const city = String(row._explodedCity || row.city || '').trim();
   const sourceCity = String(row.city || '').trim();
   const country = normalize(row.country).toUpperCase();
   if ((country && !SWISS_COUNTRY_VALUES.has(country)) || !city) return null;
 
   const canton = inferAnyCanton(city) || '';
-  if (!canton || !isTargetSwissLocation(city)) return null;
+  // `inferAnyCanton()` and the default location predicate include border
+  // proximity (e.g. Como/Varese → TI). A source row without an explicit
+  // country must still have a concrete Swiss locality, otherwise a foreign
+  // row can be serialized as a Swiss JobPosting.
+  if (!canton || !isTargetSwissLocation(city, { includeBorderProximity: false })) return null;
 
   const localized = buildPwcLocalizedContent({ ...row, city });
   const detailUrl = row.directLink || CAREERS_URL;

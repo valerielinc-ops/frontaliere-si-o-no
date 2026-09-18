@@ -6,7 +6,7 @@
  * using mock API response fixtures.
  */
 import { afterEach, describe, it, expect, vi } from 'vitest';
-import { fetchAllListings } from '../scripts/update-pwc-jobs.mjs';
+import { buildPwcJob, fetchAllListings } from '../scripts/update-pwc-jobs.mjs';
 
 import {
   parsePwcJobs,
@@ -179,6 +179,29 @@ describe('PwC source pagination', () => {
 
     await expect(fetchAllListings()).rejects.toThrow(/did not advance/);
     expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+});
+
+describe('PwC source locality filtering', () => {
+  const baseRow = {
+    id: 201,
+    viewkey: 'border-location-201',
+    title: 'Consultant',
+    description: 'Consulting role in Switzerland',
+    city: 'Como',
+    directLink: 'https://www.pwc.ch/careers/consultant/border-location-201',
+  };
+
+  it('rejects a border-near foreign city when country is absent', () => {
+    expect(buildPwcJob(baseRow)).toBeNull();
+  });
+
+  it('keeps a known Swiss city when country is absent', () => {
+    expect(buildPwcJob({ ...baseRow, city: 'Lugano', directLink: 'https://www.pwc.ch/careers/consultant/lugano-201' })).toMatchObject({
+      addressLocality: 'Lugano',
+      addressRegion: 'TI',
+      addressCountry: 'CH',
+    });
   });
 });
 
