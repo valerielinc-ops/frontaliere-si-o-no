@@ -201,6 +201,14 @@ const SCHEDULE_ARMED_WORKFLOWS = [
   'suppression-hygiene.yml',
   'telegram-channel-broadcast.yml',
   'tiktok-daily-broadcast.yml',
+  // Both crons are producing principals, not merely preview paths: the cold
+  // email schedule refreshes the GA4 target report before printing the batch
+  // it would send, and the SEO health cron is the only writer of
+  // data/seo-health/latest.json and of the protected 404 repair.  Unarmed they
+  // do not stand down quietly — they fail on the first step that needs the
+  // credentials the gate refused to hydrate.
+  'cold-email-outreach.yml',
+  'seo-health-loop.yml',
 ];
 
 const SCHEDULE_UNARMED_WORKFLOWS = [
@@ -807,9 +815,9 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
   });
 
   it('arms trusted schedules only on workflows whose schedules apply side effects', () => {
-    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(14);
+    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(16);
     expect(SCHEDULE_UNARMED_WORKFLOWS).toHaveLength(10);
-    expect(SCHEDULE_SIDE_EFFECT_WORKFLOWS).toHaveLength(24);
+    expect(SCHEDULE_SIDE_EFFECT_WORKFLOWS).toHaveLength(26);
 
     for (const name of SCHEDULE_SIDE_EFFECT_WORKFLOWS) {
       const document = YAML.parse(workflow(name)) as { jobs?: Record<string, { steps?: Array<Record<string, unknown>> }> };
