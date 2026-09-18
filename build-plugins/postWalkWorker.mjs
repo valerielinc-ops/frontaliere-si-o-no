@@ -28,6 +28,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { parentPort, workerData } from 'node:worker_threads';
+import { createSharedHtmlPathIndexView } from './shared/htmlPathIndex.mjs';
 
 if (!parentPort) {
   throw new Error('[postWalkWorker] must be spawned via worker_threads');
@@ -63,20 +64,21 @@ const {
   blogIndexEntries,
   contextualLinkDefaults,
   assignedFiles,
+  htmlPathIndex: serializedHtmlPathIndex,
 } = workerData;
 
-// The coordinator already walked the same dist tree. Rebuilding a 1.5M-entry
-// Set in every worker was a large structured-clone/retention multiplier; the
-// worker can use the filesystem as the exact existence oracle instead.
+// The coordinator already walked the same dist tree. A shared, exact byte
+// index avoids both a 1.5M-entry Set clone per worker and one synchronous
+// filesystem stat per lookup. The index is immutable and collision-safe.
+const htmlPathIndex = createSharedHtmlPathIndexView(serializedHtmlPathIndex);
 const blogIndexHtmlByPath = new Map(blogIndexEntries);
 
 // `transformFlatRedirect` requires a SYNC sibling-existence + body reader
 // (it short-circuits when the sibling index.html is missing or empty). We
-// keep that sync surface and check the already-emitted sibling on disk only
-// when needed. Sibling reads are rare relative to the per-file walk so the
-// sync hop here is negligible.
+// use the shared index for the existence branch and read the sibling only
+// when needed.
 const readSibling = (siblingPath) => {
-  if (!fs.existsSync(siblingPath)) return null;
+  if (!htmlPathIndex.has(siblingPath)) return null;
   try {
     return fs.readFileSync(siblingPath, 'utf-8');
   } catch {
@@ -90,7 +92,7 @@ const readSibling = (siblingPath) => {
 // applies in targetExists(). Mirrored in postWalkCoordinatorPlugin.ts; both
 // paths must agree or the verdict depends on POST_WALK_WORKERS.
 const existsCheck = allowExternallyServedTargets(
-  (absPath) => fs.existsSync(absPath),
+  (absPath) => htmlPathIndex.has(absPath),
   distDir,
 );
 

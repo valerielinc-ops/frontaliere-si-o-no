@@ -81,6 +81,7 @@ import { transformHreflang } from './hreflangPostprocessPlugin';
 import { allowExternallyServedTargets } from '../scripts/lib/externally-served-paths.mjs';
 import { shouldEmitPath } from './shared/localeEmitFilter';
 import { collectHtml } from './shared/distHtmlWalk';
+import { buildSharedHtmlPathIndex } from './shared/htmlPathIndex.mjs';
 import {
   startTimer as profileStart,
   recordEmit as profileRecord,
@@ -360,6 +361,7 @@ async function runInWorker(
     blogIndexEntries: ReadonlyArray<readonly [string, BlogLinkLocale]>;
     contextualLinkDefaults: ContextualLinkDefaults;
     assignedFiles: readonly string[];
+    htmlPathIndex: ReturnType<typeof buildSharedHtmlPathIndex>;
   },
 ): Promise<WorkerResult> {
   return new Promise((resolve, reject) => {
@@ -685,7 +687,7 @@ export function postWalkCoordinatorPlugin(
           // The affected/changed list is already the incremental dispatch
           // array. Verify it in-place, without constructing a combined
           // `affected + sample` path list or a second full-walk index.
-          runSingleThreaded(
+          const affectedFullDryRun = runSingleThreaded(
             processHtmlPaths,
             existingHtmlSet,
             blogIndexHtmlByPath,
@@ -693,13 +695,15 @@ export function postWalkCoordinatorPlugin(
             baseUrl,
             trimmedBase,
             false,
-            false,
+            true,
           );
           const verificationPathCount = sampledPaths.length + processHtmlPaths.length;
           const comparison = comparePostWalkVerification({
             fullWouldWritePaths: fullSampleDryRun.wouldWritePaths ?? [],
             incrementalProcessPaths: processHtmlPaths,
             sampledPaths,
+            affectedWouldWritePaths: affectedFullDryRun.wouldWritePaths ?? [],
+            affectedPaths: processHtmlPaths,
           });
           incrementalVerifyPhaseMs = Date.now() - verifyStartedAt;
           // eslint-disable-next-line no-console
@@ -759,6 +763,9 @@ export function postWalkCoordinatorPlugin(
                 profileRecord('chunk-roundrobin', __tChunk);
                 const workerUrl = new URL('./postWalkWorker.mjs', import.meta.url);
                 const blogIndexEntries = Array.from(blogIndexHtmlByPath.entries());
+                const __tHtmlIndex = profileStart();
+                const htmlPathIndex = buildSharedHtmlPathIndex(existingHtmlSet);
+                profileRecord('shared-html-path-index', __tHtmlIndex);
                 const __tDispatch = profileStart();
                 const finalMerged = emptyWorkerResult();
                 await Promise.all(
@@ -770,6 +777,7 @@ export function postWalkCoordinatorPlugin(
                       blogIndexEntries,
                       contextualLinkDefaults: contextualLinkDefaults(),
                       assignedFiles,
+                      htmlPathIndex,
                     });
                     if (r.profilerBuckets && r.profilerBuckets.length > 0) {
                       profileIngestBuckets(r.profilerBuckets);

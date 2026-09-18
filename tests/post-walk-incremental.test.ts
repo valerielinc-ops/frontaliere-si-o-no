@@ -8,11 +8,13 @@ import { afterEach, describe, expect, it } from 'vitest';
 
 import { IncrementalManifest } from '../build-plugins/shared/incrementalManifest.mjs';
 import {
-  buildPostWalkIncrementalPlan,
+  buildSharedHtmlPathIndex,
+  createSharedHtmlPathIndexView,
+} from '../build-plugins/shared/htmlPathIndex.mjs';
+import {
   buildPostWalkIncrementalPlanFromState,
   comparePostWalkVerification,
   loadPostWalkManifestState,
-  loadPostWalkManifestPair,
   postWalkIncrementalEnabled,
   replacePostWalkPathList,
   selectPostWalkVerificationPaths,
@@ -92,16 +94,16 @@ describe('post-walk incremental planning', () => {
       { path: 'jobs/unchanged/', kind: 'active-job', input: { title: 'same' } },
     ]);
 
-    const loaded = await loadPostWalkManifestPair(root, ['it']);
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
     expect(loaded.ok).toBe(true);
     if ('reason' in loaded) throw new Error(loaded.reason);
 
-    const plan = buildPostWalkIncrementalPlan({
+    const plan = buildPostWalkIncrementalPlanFromState({
       distDir,
       allHtmlPaths: htmlPaths,
       processableHtmlPaths: htmlPaths,
       baseUrl: BASE_URL,
-      manifests: loaded.pair,
+      state: loaded.state,
     });
 
     expect(plan.mode).toBe('incremental');
@@ -126,7 +128,7 @@ describe('post-walk incremental planning', () => {
       { path: 'jobs/changed/', kind: 'active-job', input: { title: 'new' } },
     ]);
 
-    const loaded = await loadPostWalkManifestPair(root, ['it']);
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
     expect(loaded.ok).toBe(false);
     if (!('reason' in loaded)) throw new Error('expected missing previous manifest');
     expect(loaded.reason).toContain('precedente manifest mancante');
@@ -157,15 +159,15 @@ describe('post-walk incremental planning', () => {
       { path: 'jobs/unchanged/', kind: 'active-job', input: { title: 'same' } },
     ]);
 
-    const loaded = await loadPostWalkManifestPair(root, ['it']);
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
     expect(loaded.ok).toBe(true);
     if ('reason' in loaded) throw new Error(loaded.reason);
-    const plan = buildPostWalkIncrementalPlan({
+    const plan = buildPostWalkIncrementalPlanFromState({
       distDir,
       allHtmlPaths: htmlPaths,
       processableHtmlPaths: htmlPaths,
       baseUrl: BASE_URL,
-      manifests: loaded.pair,
+      state: loaded.state,
     });
 
     expect(plan.mode).toBe('incremental');
@@ -228,16 +230,16 @@ describe('post-walk incremental planning', () => {
 
     writeManifest(root, 'incremental-manifest-prev', previousEntries, true);
     writeManifest(root, 'incremental-manifest', currentEntries, true);
-    const loaded = await loadPostWalkManifestPair(root, ['it']);
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
     expect(loaded.ok).toBe(true);
     if ('reason' in loaded) throw new Error(loaded.reason);
 
-    const plan = buildPostWalkIncrementalPlan({
+    const plan = buildPostWalkIncrementalPlanFromState({
       distDir,
       allHtmlPaths: htmlPaths,
       processableHtmlPaths: htmlPaths,
       baseUrl: BASE_URL,
-      manifests: loaded.pair,
+      state: loaded.state,
     });
 
     expect(plan.mode).toBe('incremental');
@@ -266,16 +268,16 @@ describe('post-walk incremental planning', () => {
     const makeEntry = (title: string) => ({ path: 'jobs/changed/', kind: 'active-job', input: { title } });
     writeManifest(root, 'incremental-manifest-prev', [makeEntry('old')]);
     writeManifest(root, 'incremental-manifest', [makeEntry('new')]);
-    const loaded = await loadPostWalkManifestPair(root, ['it']);
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
     expect(loaded.ok).toBe(true);
     if ('reason' in loaded) throw new Error(loaded.reason);
 
-    const plan = buildPostWalkIncrementalPlan({
+    const plan = buildPostWalkIncrementalPlanFromState({
       distDir,
       allHtmlPaths: [changedPath],
       processableHtmlPaths: [changedPath],
       baseUrl: BASE_URL,
-      manifests: loaded.pair,
+      state: loaded.state,
     });
 
     expect(plan.mode).toBe('full');
@@ -295,6 +297,15 @@ describe('post-walk incremental planning', () => {
 
     expect(comparison.wouldWriteButSkipped).toEqual([skipped]);
     expect(comparison.processedButWouldNotWrite).toEqual([processed]);
+
+    const affectedComparison = comparePostWalkVerification({
+      fullWouldWritePaths: [],
+      incrementalProcessPaths: [processed],
+      sampledPaths: [],
+      affectedWouldWritePaths: [skipped],
+      affectedPaths: [processed],
+    });
+    expect(affectedComparison.wouldWriteButSkipped).toEqual([skipped]);
   });
 
   it('copies large coordinator path lists without overflowing the call stack', () => {
@@ -380,6 +391,8 @@ describe('post-walk incremental planning', () => {
     if ('reason' in loaded) throw new Error(loaded.reason);
     expect(loaded.state.added).toEqual(new Set(['jobs/added']));
     expect(loaded.state.affected).toEqual(new Set(['jobs/referrer', 'jobs/added']));
+    expect(loaded.state.current.entries.get('jobs/referrer')?.postWalk?.references)
+      .toBeUndefined();
     expect(phases).toEqual([
       'current-loaded',
       'references-loading',
@@ -436,5 +449,21 @@ describe('post-walk incremental planning', () => {
     const sampleOnly = selectPostWalkVerificationPaths(paths, null, forced, false);
     expect(sampleOnly).toHaveLength(2);
     expect(sampleOnly).not.toContain(paths[99]);
+  });
+
+  it('keeps the worker existence oracle exact without cloning path strings', () => {
+    const paths = [
+      '/synthetic/dist/jobs/citta/index.html',
+      '/synthetic/dist/jobs/città/index.html',
+      '/synthetic/dist/en/jobs/citta/index.html',
+    ];
+    const serialized = buildSharedHtmlPathIndex(new Set(paths));
+    const index = createSharedHtmlPathIndexView(serialized);
+
+    expect(index.has(paths[0])).toBe(true);
+    expect(index.has(paths[1])).toBe(true);
+    expect(index.has(paths[2])).toBe(true);
+    expect(index.has('/synthetic/dist/jobs/citta/index.htm')).toBe(false);
+    expect(index.has('/synthetic/dist/jobs/città/index.htm')).toBe(false);
   });
 });

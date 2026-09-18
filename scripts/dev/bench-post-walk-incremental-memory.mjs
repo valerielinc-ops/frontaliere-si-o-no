@@ -31,6 +31,9 @@ const {
   buildPostWalkIncrementalPlanFromState,
   selectPostWalkVerificationPaths,
 } = await import(path.join(MODULE_ROOT, 'build-plugins/shared/postWalkIncremental.ts'));
+const { buildSharedHtmlPathIndex } = await import(
+  path.join(MODULE_ROOT, 'build-plugins/shared/htmlPathIndex.mjs'),
+);
 
 function forceGc() {
   for (let pass = 0; pass < 3; pass += 1) {
@@ -239,6 +242,9 @@ function runStreaming(scanPaths) {
   };
 
   measurePhase(phases, baseHeap, 'streaming:scan+existing-set', () => {});
+  measurePhase(phases, baseHeap, 'streaming:shared-existence-oracle', () => {
+    state.sharedHtmlPathIndex = buildSharedHtmlPathIndex(state.existingHtmlSet);
+  });
   measurePhase(phases, baseHeap, 'streaming:current-minimal-projection', () => {
     for (let index = 0; index < ENTRY_COUNT; index += 1) {
       const changed = index < CANONICAL_COUNT && index % 100 === 0;
@@ -298,6 +304,10 @@ function runStreaming(scanPaths) {
     eligibleByManifest: state.plan.eligibleByManifest,
   };
   report.verificationPathCount = state.verificationPaths.length + state.plan.processed;
+  report.sharedExistenceIndexBytes =
+    state.sharedHtmlPathIndex.slots.byteLength
+    + state.sharedHtmlPathIndex.offsets.byteLength
+    + state.sharedHtmlPathIndex.data.byteLength;
   return report;
 }
 

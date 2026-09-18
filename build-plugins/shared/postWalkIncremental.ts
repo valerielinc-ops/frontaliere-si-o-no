@@ -74,15 +74,6 @@ export type PostWalkManifestSnapshot = {
   readonly kinds: ReadonlyMap<string, string>;
 };
 
-export type PostWalkManifestPair = {
-  readonly current: PostWalkManifestSnapshot;
-  readonly previous: PostWalkManifestSnapshot;
-};
-
-export type PostWalkManifestLoadResult =
-  | { readonly ok: true; readonly pair: PostWalkManifestPair }
-  | { readonly ok: false; readonly reason: string };
-
 export type PostWalkPathReason = 'changed' | 'affected';
 
 export type PostWalkIncrementalPlan = {
@@ -284,62 +275,6 @@ function mergeKindMetadata(
       throw new Error(`metadata divergenti per kind ${kind}`);
     }
     target.set(kind, serialized);
-  }
-}
-
-async function loadSnapshot(
-  files: readonly string[],
-  locales: readonly string[],
-  label: string,
-): Promise<PostWalkManifestSnapshot> {
-  const entries = new Map<string, PostWalkManifestEntry>();
-  const kinds = new Map<string, string>();
-  for (let index = 0; index < files.length; index += 1) {
-    const file = files[index];
-    if (!fs.existsSync(file)) {
-      throw new Error(`${label} manifest mancante: ${file}`);
-    }
-    const streamed = await streamIncrementalManifest(
-      file,
-      (rawEntry: StreamManifestEntry) => {
-        const entry = normalizeStreamManifestEntry(rawEntry, rawEntry.path, true, false);
-        if (entries.has(entry.path)) {
-          throw new Error(`path manifest duplicato tra locale: ${entry.path}`);
-        }
-        entries.set(entry.path, entry);
-      },
-      { validateUniquePaths: true },
-    );
-    if (streamed.data.locale !== locales[index]) {
-      throw new Error(
-        `${label} manifest ${file} dichiara locale ${streamed.data.locale}, atteso ${locales[index]}`,
-      );
-    }
-    mergeKindMetadata(kinds, streamed.data.kinds);
-  }
-  return { locales, entries, kinds };
-}
-
-/** Load and validate the complete previous/current manifest set for a build. */
-export async function loadPostWalkManifestPair(
-  rootDir: string,
-  locales: readonly string[],
-): Promise<PostWalkManifestLoadResult> {
-  const selectedLocales = normalizeLocales(locales);
-  if (selectedLocales.length === 0) {
-    return { ok: false, reason: 'nessuna locale BUILD_LOCALE valida' };
-  }
-  try {
-    const [previous, current] = await Promise.all([
-      loadSnapshot(manifestFilePaths(rootDir, selectedLocales, true), selectedLocales, 'precedente'),
-      loadSnapshot(manifestFilePaths(rootDir, selectedLocales, false), selectedLocales, 'corrente'),
-    ]);
-    return { ok: true, pair: { current, previous } };
-  } catch (error) {
-    return {
-      ok: false,
-      reason: error instanceof Error ? error.message : String(error),
-    };
   }
 }
 
@@ -596,50 +531,6 @@ function clearPlanningStateMarkers(entries: ReadonlyMap<string, PostWalkManifest
     delete mutable._seenPreviousEntry;
     delete mutable._seenPreviousHtml;
   }
-}
-
-function stateFromManifestPair(
-  manifests: PostWalkManifestPair,
-  baseUrl: string,
-): PostWalkManifestState {
-  const changed = new Set<string>();
-  const added = new Set<string>();
-  const removed = new Set<string>();
-  const affected = new Set<string>();
-  const unresolvedRemovals = new Set<string>();
-  const state: MutablePostWalkPlanningState = {
-    current: manifests.current,
-    changed,
-    added,
-    removed,
-    affected,
-    unresolvedRemovals,
-    eventJobIds: new Set(),
-    eventSlugs: new Set(),
-  };
-  const seenPreviousPaths = new Set<string>();
-  for (const previousEntry of manifests.previous.entries.values()) {
-    registerPreviousEntry(state, previousEntry, seenPreviousPaths);
-  }
-  finalizePlanningState(state, baseUrl);
-  if (added.size > 0 || removed.size > 0) {
-    for (const previousEntry of manifests.previous.entries.values()) {
-      addPreviousReferenceMatches(state, previousEntry, baseUrl);
-    }
-  }
-  clearPlanningStateMarkers(manifests.current.entries);
-  return {
-    current: manifests.current,
-    currentEntryCount: manifests.current.entries.size,
-    previousEntryCount: manifests.previous.entries.size,
-    previousKinds: manifests.previous.kinds,
-    changed,
-    added,
-    removed,
-    affected,
-    unresolvedRemovals,
-    fallbackReason: manifestKindMetadataMismatch(manifests.current.kinds, manifests.previous.kinds),
-  };
 }
 
 async function streamManifestFiles(
@@ -1234,42 +1125,59 @@ export function buildPostWalkIncrementalPlanFromState(
   return buildPostWalkPlanFromState(input, input.state);
 }
 
-/**
- * Compatibility wrapper for direct unit-test callers that already have a pair.
- * Production uses loadPostWalkManifestState() + the state variant above.
- */
-export function buildPostWalkIncrementalPlan(input: PostWalkPlanInput & {
-  readonly manifests: PostWalkManifestPair;
-}): PostWalkIncrementalPlan {
-  const state = stateFromManifestPair(input.manifests, input.baseUrl);
-  return buildPostWalkPlanFromState(input, state);
-}
-
 export type PostWalkVerificationComparison = {
   readonly wouldWriteButSkipped: readonly string[];
   readonly processedButWouldNotWrite: readonly string[];
 };
 
-/** Compare the full dry-run writes with paths omitted by the incremental plan. */
+/**
+ * Compare bounded dry-run scopes with the one incremental dispatch list.
+ *
+ * The sample and affected scopes are intentionally passed separately. The
+ * verifier never builds a `sample + affected` array or a full-walk index.
+ */
 export function comparePostWalkVerification(input: {
   readonly fullWouldWritePaths: readonly string[];
   readonly incrementalProcessPaths: readonly string[];
   readonly sampledPaths?: readonly string[];
+  readonly affectedWouldWritePaths?: readonly string[];
+  readonly affectedPaths?: readonly string[];
 }): PostWalkVerificationComparison {
-  const fullWrites = new Set(input.fullWouldWritePaths);
-  const scope = new Set(input.sampledPaths ?? input.incrementalProcessPaths);
-  const planned = new Set<string>();
-  for (const filePath of input.incrementalProcessPaths) {
-    if (scope.has(filePath)) planned.add(filePath);
-  }
+  const planned = new Set(input.incrementalProcessPaths);
+  const reportedSkipped = new Set<string>();
+  const reportedNotWritten = new Set<string>();
+  const wouldWriteButSkipped: string[] = [];
   const processedButWouldNotWrite: string[] = [];
-  for (const filePath of input.incrementalProcessPaths) {
-    if (scope.has(filePath) && !fullWrites.has(filePath)) {
-      processedButWouldNotWrite.push(filePath);
+
+  const compareScope = (
+    fullWouldWritePaths: readonly string[],
+    scopedPaths: readonly string[],
+  ): void => {
+    const fullWrites = new Set(fullWouldWritePaths);
+    for (const filePath of fullWrites) {
+      if (!planned.has(filePath) && !reportedSkipped.has(filePath)) {
+        reportedSkipped.add(filePath);
+        wouldWriteButSkipped.push(filePath);
+      }
     }
+    for (const filePath of scopedPaths) {
+      if (!fullWrites.has(filePath) && !reportedNotWritten.has(filePath)) {
+        reportedNotWritten.add(filePath);
+        processedButWouldNotWrite.push(filePath);
+      }
+    }
+  };
+
+  compareScope(
+    input.fullWouldWritePaths,
+    input.sampledPaths ?? input.incrementalProcessPaths,
+  );
+  if (input.affectedWouldWritePaths !== undefined && input.affectedPaths !== undefined) {
+    compareScope(input.affectedWouldWritePaths, input.affectedPaths);
   }
+
   return {
-    wouldWriteButSkipped: [...fullWrites].filter((filePath) => scope.has(filePath) && !planned.has(filePath)),
+    wouldWriteButSkipped,
     processedButWouldNotWrite,
   };
 }
