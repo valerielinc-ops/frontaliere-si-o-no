@@ -405,7 +405,9 @@ function hasUnavailableSourceInput(input) {
   if (input === null || input === undefined) return true;
   if (typeof input !== 'object' || Array.isArray(input)) return false;
   for (const key of ['sourceInputHash', 'canonicalInputHash']) {
-    if (Object.prototype.hasOwnProperty.call(input, key) && !input[key]) return true;
+    if (!Object.prototype.hasOwnProperty.call(input, key)) continue;
+    const value = input[key];
+    if (value === null || value === undefined || value === '') return true;
   }
   return false;
 }

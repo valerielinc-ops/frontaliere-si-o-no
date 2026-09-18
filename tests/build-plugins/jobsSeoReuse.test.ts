@@ -204,14 +204,19 @@ describe('jobs SEO disk HTML reuse', () => {
     }
   });
 
-  it.each(['sourceInputHash', 'canonicalInputHash'])(
-    'does not reuse a bridge when %s is unavailable',
-    async (sourceHashKey) => {
+  it.each([
+    ['sourceInputHash', null],
+    ['sourceInputHash', ''],
+    ['canonicalInputHash', null],
+    ['canonicalInputHash', ''],
+  ])(
+    'does not reuse a bridge when %s=%s is unavailable',
+    async (sourceHashKey, sourceHashValue) => {
       const rootDir = fixtureRoot();
       const pagePath = '/cerca-lavoro-ticino/unresolved-source/';
       const input = {
         source: 'active-job',
-        [sourceHashKey]: null,
+        [sourceHashKey]: sourceHashValue,
         jobId: 'job-1',
         path: pagePath,
       };
