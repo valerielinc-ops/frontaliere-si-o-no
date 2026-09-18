@@ -167,6 +167,40 @@ const OPEN_ISSUE_LISTING_CAP = 1000;
  */
 const DORMANT_GRACE_MULTIPLIER = intFromEnv('DORMANT_GRACE_MULTIPLIER', 3);
 
+/**
+ * Pavimento assoluto: sotto questo ritardo non si parla di dormienza, qualunque
+ * sia la cadenza.
+ *
+ * Il moltiplicatore da solo non basta, e il dry-run del 2026-09-18 sul repo vero
+ * lo ha dimostrato: su 178 workflow schedulati ne segnalava 8 fermi da 1-3 ore —
+ * `sync-pharmacy-duties` (cadenza 20 min), `Close Recovered Failure Issues`,
+ * `Follow-up drainer`, `Runtime reliability watchdog`… — tutti workflow VIVI.
+ * Per una cadenza corta «tre cadenze mancate» è un'ora, e un'ora di ritardo su
+ * questo repo è normale: il cron di Actions non è un orologio, salta le
+ * esecuzioni sotto carico, e la coda di concorrenza qui arriva a ~1 h di attesa
+ * misurata. Segnalarli avrebbe aperto 8 issue false alla prima passata, cioè la
+ * valanga che questo meccanismo esiste per evitare, sull'altro lato.
+ *
+ * La condizione da rilevare è «ha SMESSO di girare», che richiede persistenza: i
+ * casi reali portati dal proprietario sono dormienti da 13 a 114 giorni. A 24 h
+ * un orario deve aver mancato 24 esecuzioni, un giornaliero 3, un settimanale 21
+ * giorni. È la manopola da girare se un giorno servisse più reattività su una
+ * cadenza corta specifica.
+ */
+const DORMANT_MIN_IDLE_MINUTES = intFromEnv('DORMANT_MIN_IDLE_HOURS', 24) * 60;
+
+/**
+ * Minuti di inattività oltre i quali un workflow schedulato è dormiente.
+ *
+ * @param {number} gapMinutes intervallo massimo fra due esecuzioni del suo cron
+ * @param {{grace?: number, floorMinutes?: number}} [opts]
+ */
+export function dormancyThresholdMinutes(gapMinutes, opts = {}) {
+  const grace = opts.grace ?? DORMANT_GRACE_MULTIPLIER;
+  const floor = opts.floorMinutes ?? DORMANT_MIN_IDLE_MINUTES;
+  return Math.max(gapMinutes * grace, floor);
+}
+
 const IGNORE = new Set(
   String(process.env.IGNORE_WORKFLOWS || '')
     .split(',')
@@ -196,22 +230,36 @@ function gh(args, { allowFailure = false } = {}) {
 }
 
 /**
- * `gh api --paginate` concatena le pagine come array JSON separati quando si usa
- * `--jq`. Si chiede il campo già estratto e si splicano le pagine.
+ * Righe di `gh api --paginate`, una per record, lette come TSV.
+ *
+ * `@tsv` e non un filtro che rende oggetti: `gh api --jq` STAMPA IN FORMA
+ * INDENTATA, quindi un `| {id, name}` esce su piu' righe e un parse riga-per-riga
+ * fallisce su ognuna. Non e' teoria — la prima versione di questo file lo faceva,
+ * e il dry-run del 2026-09-18 sul repo vero e' uscito con
+ * «0 workflow schedulati e attivi da verificare» ed exit code 0: la scansione dei
+ * dormienti non controllava NIENTE e lo dichiarava come lavoro fatto. E'
+ * esattamente la classe di guasto silenzioso che questo meccanismo esiste per
+ * impedire, quindi qui si usa la forma tabellare, che e' una riga per record per
+ * costruzione.
+ *
+ * @param {string[]} fields i nomi da associare, in ordine, alle colonne
  */
-function ghApiList(apiPath, jqExpr, { allowFailure = true } = {}) {
-  const out = gh(['api', apiPath, '--paginate', '--jq', jqExpr], { allowFailure });
+function ghApiRows(apiPath, jqExpr, fields, { allowFailure = true, paginate = true } = {}) {
+  const args = paginate
+    ? ['api', apiPath, '--paginate', '--jq', jqExpr]
+    : ['api', apiPath, '--jq', jqExpr];
+  const out = gh(args, { allowFailure });
   if (out === null || out === '') return [];
   const rows = [];
   for (const line of out.split('\n')) {
-    const t = line.trim();
-    if (!t) continue;
-    try {
-      rows.push(JSON.parse(t));
-    } catch {
-      // Una riga illeggibile è un dato perso, non un motivo per perdere le altre.
-      console.warn(`[scan-unreported-failures] riga JSON illeggibile ignorata: ${t.slice(0, 80)}`);
-    }
+    if (!line.trim()) continue;
+    const cols = line.split('\t');
+    const row = {};
+    fields.forEach((f, i) => {
+      const v = cols[i];
+      row[f] = v === undefined || v === '' ? null : v;
+    });
+    rows.push(row);
   }
   return rows;
 }
@@ -416,15 +464,24 @@ export function openFailureIssueWorkflows() {
 
 /* ── modalità failure ───────────────────────────────────────────────── */
 
-/** `workflow_id` → `{ name, path, state }`, il solo nome che il chiuditore sa risolvere. */
+/**
+ * `workflow_id` → `{ name, path, state }`, il solo nome che il chiuditore sa
+ * risolvere con `gh run list -w`.
+ *
+ * Un registro VUOTO non è «nessun workflow»: è una lettura fallita. Rende `null`
+ * e chi chiama si ferma, perché proseguire significherebbe concludere «niente da
+ * segnalare» — un verde su una misura che non è stata fatta.
+ */
 function registeredWorkflows() {
-  const rows = ghApiList(
+  const rows = ghApiRows(
     `repos/${REPO || '{owner}/{repo}'}/actions/workflows?per_page=100`,
-    '.workflows[] | {id, name, path, state, created_at}',
+    '.workflows[] | [.id, .name, .path, .state, .created_at] | @tsv',
+    ['id', 'name', 'path', 'state', 'created_at'],
   );
+  if (!rows.length) return null;
   const byId = new Map();
   for (const w of rows) if (w?.id) byId.set(String(w.id), w);
-  return byId;
+  return byId.size ? byId : null;
 }
 
 export function runBody({ run, workflowName, jobs }) {
@@ -473,11 +530,16 @@ async function scanFailures() {
   }
 
   const workflows = registeredWorkflows();
-  const runs = ghApiList(
+  if (!workflows) {
+    console.error('::error::[scan-unreported-failures] registro dei workflow illeggibile — impossibile risolvere i nomi, nessuna issue aperta in questa passata.');
+    return 1;
+  }
+  const runs = ghApiRows(
     `repos/${REPO || '{owner}/{repo}'}/actions/runs`
       + `?created=%3E%3D${encodeURIComponent(horizon)}&status=failure&per_page=100`,
-    '.workflow_runs[] | {id, workflow_id, event, head_branch, conclusion,'
-      + ' created_at, updated_at, html_url, path}',
+    '.workflow_runs[] | [.id, .workflow_id, .event, .head_branch, .conclusion,'
+      + ' .created_at, .updated_at, .html_url, .path] | @tsv',
+    ['id', 'workflow_id', 'event', 'head_branch', 'conclusion', 'created_at', 'updated_at', 'html_url', 'path'],
   );
 
   const reportable = [];
@@ -596,8 +658,13 @@ async function scanDormant() {
 
   // La cadenza si legge dal FILE sul branch di default (è quello che GitHub
   // usa per schedulare), lo stato e l'id dal registro API.
+  const registry = registeredWorkflows();
+  if (!registry) {
+    console.error('::error::[scan-unreported-failures --dormant] registro dei workflow illeggibile — la dormienza NON e\' stata verificata.');
+    return 1;
+  }
   const byPath = new Map();
-  for (const wf of registeredWorkflows().values()) byPath.set(wf.path, wf);
+  for (const wf of registry.values()) byPath.set(wf.path, wf);
 
   const candidates = [];
   for (const file of fs.readdirSync(WORKFLOWS_DIR).filter((f) => /\.ya?ml$/.test(f))) {
@@ -624,10 +691,15 @@ async function scanDormant() {
   let opened = 0;
   let checked = 0;
   for (const { wf, crons, gapMinutes } of candidates) {
-    const thresholdMinutes = gapMinutes * DORMANT_GRACE_MULTIPLIER;
-    const rows = ghApiList(
+    const thresholdMinutes = dormancyThresholdMinutes(gapMinutes);
+    // `paginate: false` e' obbligatorio: con `--paginate` un `per_page=1`
+    // camminerebbe TUTTE le run del workflow una per chiamata, cioe' migliaia di
+    // richieste sul bucket Actions per un dato che sta nella prima riga.
+    const rows = ghApiRows(
       `repos/${REPO || '{owner}/{repo}'}/actions/workflows/${wf.id}/runs?per_page=1`,
-      '.workflow_runs[] | {created_at}',
+      '.workflow_runs[] | [.created_at] | @tsv',
+      ['created_at'],
+      { paginate: false },
     );
     checked += 1;
     const lastRunAt = rows[0]?.created_at || null;

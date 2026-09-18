@@ -24,6 +24,7 @@ import {
   isReportableRun,
   cronFieldValues,
   maxCronGapMinutes,
+  dormancyThresholdMinutes,
   workflowScheduleFromSource,
   runBody,
   dormantBody,
@@ -193,12 +194,47 @@ describe('cadenza dichiarata dal cron', () => {
   // 2026-09-18 erano TUTTI settimanali e legittimi, e non devono suonare.
   it('un settimanale legittimo fermo da 10 giorni resta sotto la soglia di grazia', () => {
     const weekly = maxCronGapMinutes(['0 5 * * 1'])!;
-    expect(10 * 1440).toBeLessThan(weekly * 3);
-    expect(22 * 1440).toBeGreaterThan(weekly * 3);
+    expect(10 * 1440).toBeLessThan(dormancyThresholdMinutes(weekly));
+    expect(22 * 1440).toBeGreaterThan(dormancyThresholdMinutes(weekly));
+  });
+});
+
+describe('soglia di dormienza — il pavimento assoluto', () => {
+  // Regressione misurata: senza pavimento, il dry-run sul repo vero segnalava 8
+  // workflow VIVI fermi da 1-3 h, perché per una cadenza di 20 min «tre cadenze
+  // mancate» è un'ora — e un'ora di ritardo qui è normale.
+  it('una cadenza corta non suona dopo un\'ora: sotto 24 h non è dormienza', () => {
+    const every20min = maxCronGapMinutes(['*/20 * * * *'])!;
+    expect(every20min * 3).toBe(60); // ciò che diceva la versione senza pavimento
+    expect(dormancyThresholdMinutes(every20min)).toBe(24 * 60);
+    expect(3 * 60).toBeLessThan(dormancyThresholdMinutes(every20min));
   });
 
-  it('un orario fermo da 4 ore invece la supera', () => {
-    expect(4 * 60).toBeGreaterThan(maxCronGapMinutes(['47 * * * *'])! * 3);
+  it('un orario deve aver mancato 24 esecuzioni, non 3', () => {
+    expect(dormancyThresholdMinutes(maxCronGapMinutes(['47 * * * *'])!)).toBe(24 * 60);
+  });
+
+  it('oltre il pavimento comanda la cadenza: settimanale a 21 giorni, mensile a 93', () => {
+    expect(dormancyThresholdMinutes(maxCronGapMinutes(['0 5 * * 1'])!)).toBe(21 * 1440);
+    expect(dormancyThresholdMinutes(maxCronGapMinutes(['0 3 1 * *'])!)).toBe(3 * 44640);
+  });
+
+  // I 31 workflow dormienti misurati stanno fra 13 e 114 giorni. A cadenza
+  // oraria e giornaliera suonano già a 13 giorni; un SETTIMANALE no, e non deve:
+  // 13 giorni sono meno di tre cadenze, ed è lo stesso motivo per cui i 55
+  // workflow fermi da oltre 48 h erano tutti settimanali legittimi. Il caso
+  // limite del settimanale è il più lento del parco insieme al mensile.
+  it('un dormiente da 13 giorni suona a cadenza oraria e giornaliera', () => {
+    for (const cron of ['47 * * * *', '40 6 * * *']) {
+      expect(13 * 1440).toBeGreaterThan(dormancyThresholdMinutes(maxCronGapMinutes([cron])!));
+    }
+  });
+
+  it('un settimanale suona a 21 giorni e un mensile a 93, non prima', () => {
+    const weekly = dormancyThresholdMinutes(maxCronGapMinutes(['0 5 * * 1'])!);
+    expect(13 * 1440).toBeLessThan(weekly);
+    expect(114 * 1440).toBeGreaterThan(weekly);
+    expect(114 * 1440).toBeGreaterThan(dormancyThresholdMinutes(maxCronGapMinutes(['0 3 1 * *'])!));
   });
 });
 
