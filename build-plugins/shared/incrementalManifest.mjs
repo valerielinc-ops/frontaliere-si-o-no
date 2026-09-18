@@ -1,9 +1,13 @@
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import * as readline from 'node:readline';
+import { StringDecoder } from 'node:string_decoder';
 
-export const MANIFEST_VERSION = 2;
+// Version 3 adds the optional jobs-emitter fingerprint to the header.  A
+// fingerprint mismatch invalidates the whole post-walk delta, so an old
+// snapshot must fail closed into the existing full pass instead of being
+// compared entry by entry.
+export const MANIFEST_VERSION = 3;
 export const MANIFEST_FORMAT = 'jsonl';
 export const SOURCE_VERSION = 'input@1';
 // The emitter fingerprint includes this value. Bumping it makes the first
@@ -12,7 +16,10 @@ export const SOURCE_VERSION = 'input@1';
 // job-digest@3: active pages hash the six rendered related jobs plus a compact
 // full-pool membership signature; full-content bridge pages reference the
 // canonical active input hash instead of re-hashing the source record/pool.
-export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@3';
+// The reusable job-page input now carries the UTC build-day bucket used by
+// deterministic JobPosting fallbacks. Bump the digest contract explicitly so
+// manifests produced before that field cannot be mistaken for current input.
+export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@4';
 export const INCREMENTAL_MANIFEST_ENABLED = process.env.INCREMENTAL_MANIFEST === '1';
 
 export const PAGE_KINDS = Object.freeze([
@@ -687,6 +694,9 @@ export class IncrementalManifest {
         manifestVersion: MANIFEST_VERSION,
         format: MANIFEST_FORMAT,
         locale: this.locale,
+        ...(this.jobsSeoEmitterFingerprint
+          ? { jobsSeoEmitterFingerprint: this.jobsSeoEmitterFingerprint }
+          : {}),
       });
       const entriesForKind = new Map(PAGE_KINDS.map((kind) => [kind, []]));
       for (const [pagePath, entry] of this.entriesByPath) {
@@ -826,6 +836,28 @@ export function resetIncrementalManifestInputCache(rootDir) {
   manifestInputCachesByRoot.delete(rootKey);
 }
 
+/**
+ * The post-walk coordinator is the last consumer of the build-scoped manifest
+ * maps.  Dropping only its local `manifests` variable leaves the two global
+ * maps (and their ~GB-scale input projections) reachable.  Release both
+ * roots explicitly once the writers have finished.
+ */
+export function releaseIncrementalManifestState(rootDir) {
+  const rootKey = path.resolve(String(rootDir));
+  const manifests = manifestMapsByRoot.get(rootKey);
+  if (manifests) {
+    for (const manifest of manifests.values()) {
+      manifest.entriesByPath.clear();
+      manifest.kindMetadata.clear();
+      manifest.jobsSeoEmitterFingerprint = null;
+      manifest.estimatedEntryBytes = 0;
+    }
+    manifests.clear();
+  }
+  manifestMapsByRoot.delete(rootKey);
+  manifestInputCachesByRoot.delete(rootKey);
+}
+
 export function getIncrementalManifestMap(rootDir, locales, force = false) {
   if (!INCREMENTAL_MANIFEST_ENABLED && !force) return null;
   const rootKey = path.resolve(String(rootDir));
@@ -860,6 +892,50 @@ function parseManifestJsonLine(file, lineNumber, line) {
   }
 }
 
+/**
+ * Read only the first JSONL record. The header carries the producer
+ * fingerprint, so the coordinator can reject an incompatible previous cache
+ * before materialising the current 650k-entry map.
+ */
+export function readIncrementalManifestHeader(file) {
+  const fd = fs.openSync(file, 'r');
+  const decoder = new StringDecoder('utf8');
+  const buffer = Buffer.allocUnsafe(64 * 1024);
+  let carry = '';
+  try {
+    while (true) {
+      const bytesRead = fs.readSync(fd, buffer, 0, buffer.length, null);
+      if (bytesRead === 0) break;
+      carry += decoder.write(buffer.subarray(0, bytesRead));
+      const newline = carry.indexOf('\n');
+      if (newline === -1) continue;
+      carry = carry.slice(0, newline).trim();
+      break;
+    }
+    if (!carry) {
+      carry = decoder.end().trim();
+    }
+    if (!carry) throw new Error(`${file}: header mancante`);
+    const header = parseManifestJsonLine(file, 1, carry);
+    if (
+      header.type !== 'header'
+      || header.manifestVersion !== MANIFEST_VERSION
+      || header.format !== MANIFEST_FORMAT
+      || typeof header.locale !== 'string'
+    ) {
+      throw new Error(`${file}: header manifest non valido`);
+    }
+    return {
+      locale: header.locale,
+      jobsSeoEmitterFingerprint: header.jobsSeoEmitterFingerprint === undefined
+        ? undefined
+        : normalizeJobsSeoEmitterFingerprint(header.jobsSeoEmitterFingerprint),
+    };
+  } finally {
+    fs.closeSync(fd);
+  }
+}
+
 function assertManifestCounts(file, counts, entryCount, observedByKind) {
   if (!counts || !Number.isInteger(counts.total) || !counts.byKind || typeof counts.byKind !== 'object') {
     throw new Error(`${file}: footer counts non valido`);
@@ -885,8 +961,14 @@ function assertManifestCounts(file, counts, entryCount, observedByKind) {
  * duplicates that can affect the current tree while consuming the stream.
  */
 export async function streamIncrementalManifest(file, onEntry, options = {}) {
-  const input = fs.createReadStream(file, { encoding: 'utf8' });
-  const reader = readline.createInterface({ input, crlfDelay: Infinity });
+  // `readline` + async iteration creates one Promise/iterator step per JSONL
+  // record.  A 650k-entry manifest paid that scheduling cost twice (and up to
+  // four times for add/remove references).  Keep the stream bounded, but scan
+  // it with a chunk decoder and a single line callback.
+  const fd = fs.openSync(file, 'r');
+  const decoder = new StringDecoder('utf8');
+  const buffer = Buffer.allocUnsafe(1024 * 1024);
+  let carry = '';
   let header = null;
   let footer = null;
   let currentKind = null;
@@ -899,78 +981,102 @@ export async function streamIncrementalManifest(file, onEntry, options = {}) {
   const seenPaths = validateUniquePaths ? new Set() : null;
   let entryCount = 0;
 
-  try {
-    for await (const rawLine of reader) {
-      lineNumber += 1;
-      const line = rawLine.trim();
-      if (!line) continue;
-      const record = parseManifestJsonLine(file, lineNumber, line);
-      if (sawFooter) throw new Error(`${file}:${lineNumber}: record dopo il footer`);
+  const handleLine = (rawLine) => {
+    lineNumber += 1;
+    const line = rawLine.trim();
+    if (!line) return;
+    const record = parseManifestJsonLine(file, lineNumber, line);
+    if (sawFooter) throw new Error(`${file}:${lineNumber}: record dopo il footer`);
 
-      if (record.type === 'header') {
-        if (header) throw new Error(`${file}:${lineNumber}: header duplicato`);
-        if (
-          record.manifestVersion !== MANIFEST_VERSION
-          || record.format !== MANIFEST_FORMAT
-          || typeof record.locale !== 'string'
-        ) {
-          throw new Error(`${file}:${lineNumber}: header manifest non valido`);
-        }
-        header = record;
-        continue;
+    if (record.type === 'header') {
+      if (header) throw new Error(`${file}:${lineNumber}: header duplicato`);
+      if (
+        record.manifestVersion !== MANIFEST_VERSION
+        || record.format !== MANIFEST_FORMAT
+        || typeof record.locale !== 'string'
+      ) {
+        throw new Error(`${file}:${lineNumber}: header manifest non valido`);
       }
-      if (!header) throw new Error(`${file}:${lineNumber}: header mancante`);
-
-      if (record.type === 'kind') {
-        if (!PAGE_KINDS.includes(record.kind)) {
-          throw new Error(`${file}:${lineNumber}: kind non valido`);
-        }
-        if (kinds.has(record.kind)) {
-          throw new Error(`${file}:${lineNumber}: kind duplicato ${record.kind}`);
-        }
-        for (const field of ['templateVersion', 'sourceVersion', 'state']) {
-          if (typeof record[field] !== 'string' || record[field].length === 0) {
-            throw new Error(`${file}:${lineNumber}: metadata ${field} non valida`);
-          }
-        }
-        kinds.set(record.kind, {
-          templateVersion: record.templateVersion,
-          sourceVersion: record.sourceVersion,
-          state: record.state,
-        });
-        currentKind = record.kind;
-        continue;
+      header = record;
+      if (record.jobsSeoEmitterFingerprint !== undefined) {
+        jobsSeoEmitterFingerprint = normalizeJobsSeoEmitterFingerprint(record.jobsSeoEmitterFingerprint);
       }
-
-      if (record.type === 'footer') {
-        assertManifestCounts(file, record.counts, entryCount, observedByKind);
-        if (record.jobsSeoEmitterFingerprint !== undefined) {
-          jobsSeoEmitterFingerprint = normalizeJobsSeoEmitterFingerprint(record.jobsSeoEmitterFingerprint);
-        }
-        footer = record;
-        sawFooter = true;
-        continue;
-      }
-
-      if (record.type !== undefined) {
-        throw new Error(`${file}:${lineNumber}: record type non valido`);
-      }
-      if (!currentKind) throw new Error(`${file}:${lineNumber}: entry senza kind`);
-      if (typeof record.path !== 'string' || record.path.length === 0 || typeof record.hash !== 'string') {
-        throw new Error(`${file}:${lineNumber}: entry non valida`);
-      }
-      if (seenPaths?.has(record.path)) throw new Error(`${file}:${lineNumber}: path duplicato ${record.path}`);
-      seenPaths?.add(record.path);
-      entryCount += 1;
-      observedByKind[currentKind] += 1;
-      const entry = { path: record.path, inputHash: record.hash, kind: currentKind };
-      // POST_WALK_INCREMENTAL (#8942) adds a compact identity/reference index
-      // per entry; consumers decide which projection to retain.
-      if (record.postWalk !== undefined) entry.postWalk = record.postWalk;
-      onEntry(entry);
+      return;
     }
+    if (!header) throw new Error(`${file}:${lineNumber}: header mancante`);
+
+    if (record.type === 'kind') {
+      if (!PAGE_KINDS.includes(record.kind)) {
+        throw new Error(`${file}:${lineNumber}: kind non valido`);
+      }
+      if (kinds.has(record.kind)) {
+        throw new Error(`${file}:${lineNumber}: kind duplicato ${record.kind}`);
+      }
+      for (const field of ['templateVersion', 'sourceVersion', 'state']) {
+        if (typeof record[field] !== 'string' || record[field].length === 0) {
+          throw new Error(`${file}:${lineNumber}: metadata ${field} non valida`);
+        }
+      }
+      kinds.set(record.kind, {
+        templateVersion: record.templateVersion,
+        sourceVersion: record.sourceVersion,
+        state: record.state,
+      });
+      currentKind = record.kind;
+      return;
+    }
+
+    if (record.type === 'footer') {
+      assertManifestCounts(file, record.counts, entryCount, observedByKind);
+      if (record.jobsSeoEmitterFingerprint !== undefined) {
+        const footerFingerprint = normalizeJobsSeoEmitterFingerprint(record.jobsSeoEmitterFingerprint);
+        if (
+          jobsSeoEmitterFingerprint
+          && JSON.stringify(jobsSeoEmitterFingerprint) !== JSON.stringify(footerFingerprint)
+        ) {
+          throw new Error(`${file}:${lineNumber}: jobs SEO emitter fingerprint divergente`);
+        }
+        jobsSeoEmitterFingerprint = footerFingerprint;
+      }
+      footer = record;
+      sawFooter = true;
+      return;
+    }
+
+    if (record.type !== undefined) {
+      throw new Error(`${file}:${lineNumber}: record type non valido`);
+    }
+    if (!currentKind) throw new Error(`${file}:${lineNumber}: entry senza kind`);
+    if (typeof record.path !== 'string' || record.path.length === 0 || typeof record.hash !== 'string') {
+      throw new Error(`${file}:${lineNumber}: entry non valida`);
+    }
+    if (seenPaths?.has(record.path)) throw new Error(`${file}:${lineNumber}: path duplicato ${record.path}`);
+    seenPaths?.add(record.path);
+    entryCount += 1;
+    observedByKind[currentKind] += 1;
+    const entry = { path: record.path, inputHash: record.hash, kind: currentKind };
+    // POST_WALK_INCREMENTAL (#8942) adds a compact identity/reference index
+    // per entry; consumers decide which projection to retain.
+    if (record.postWalk !== undefined) entry.postWalk = record.postWalk;
+    onEntry(entry);
+  };
+
+  try {
+    while (true) {
+      const bytesRead = fs.readSync(fd, buffer, 0, buffer.length, null);
+      if (bytesRead === 0) break;
+      carry += decoder.write(buffer.subarray(0, bytesRead));
+      let newline;
+      while ((newline = carry.indexOf('\n')) !== -1) {
+        const rawLine = carry.slice(0, newline);
+        carry = carry.slice(newline + 1);
+        handleLine(rawLine);
+      }
+    }
+    carry += decoder.end();
+    if (carry.length > 0) handleLine(carry);
   } finally {
-    reader.close();
+    fs.closeSync(fd);
   }
 
   if (!header) throw new Error(`${file}: header mancante`);
@@ -988,6 +1094,7 @@ export async function streamIncrementalManifest(file, onEntry, options = {}) {
     file,
     data,
     entryCount,
+    jobsSeoEmitterFingerprint,
   };
 }
 

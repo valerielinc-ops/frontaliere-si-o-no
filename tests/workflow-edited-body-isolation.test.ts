@@ -38,7 +38,12 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(job.name).toBe(VITEST_EXECUTION_JOB_NAME);
     expect(job.if).toBeUndefined();
     expect(workflow.on.pull_request.types).not.toContain('labeled');
-    expect(workflow.on.pull_request.types).toContain('edited');
+    // Un `edited` lascia l'HEAD invariato: far ripartire questa run rimisura
+    // codice identico. Erano 38 delle 116 run su PR (33%) nelle ultime 200,
+    // 14 minuti l'una. La rivalidazione dopo una correzione del body resta a
+    // retry-code-check-after-body-edit.yml, che riesegue la run fallita e solo
+    // quella.
+    expect(workflow.on.pull_request.types).not.toContain('edited');
     expect(workflow.on.pull_request.types).toContain('synchronize');
     const guard = job.steps.find((step: { name?: string }) => step.name?.startsWith('Re-review guard')) as { env?: Record<string, string>; run?: string } | undefined;
     expect(guard?.run).toContain('node scripts/ci/lib/pr-review-admission.mjs skip');
