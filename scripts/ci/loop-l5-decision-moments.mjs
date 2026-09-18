@@ -49,6 +49,11 @@ function integer(value) {
   return Number.isInteger(value) && value >= 0;
 }
 
+/** 0 is a measured count; a missing/invalid field is exported as 0, never omitted. */
+function counted(value) {
+  return integer(value) ? value : 0;
+}
+
 function text(value) {
   return typeof value === 'string' && value.trim().length > 0;
 }
@@ -136,7 +141,7 @@ function checkFreshness(value, label, { now, maxAgeHours, issues }) {
 function validateFuel(fuel, { now, maxAgeHours, issues }) {
   if (!fuel || typeof fuel !== 'object' || Array.isArray(fuel)) {
     issues.push('fuel source is not a JSON object');
-    return { present: false, generatedAt: null, municipalityCount: null, stale: false, future: false };
+    return { present: false, generatedAt: null, ageHours: null, municipalityCount: null, stale: false, future: false };
   }
   const freshness = checkFreshness(fuel.generatedAt, 'fuel.generatedAt', { now, maxAgeHours, issues });
   const summary = fuel.summary;
@@ -166,7 +171,7 @@ function validateFuel(fuel, { now, maxAgeHours, issues }) {
 function validateBorder(border, { now, maxAgeHours, issues, candidates }) {
   if (!border || typeof border !== 'object' || Array.isArray(border)) {
     issues.push('border source is not a JSON object');
-    return { present: false, updatedAt: null, crossings: null, stale: false, future: false };
+    return { present: false, updatedAt: null, ageHours: null, crossings: null, stale: false, future: false };
   }
   const freshness = checkFreshness(border.updatedAt, 'border.updatedAt', { now, maxAgeHours, issues });
   const crossings = border.perCrossing;
@@ -175,6 +180,7 @@ function validateBorder(border, { now, maxAgeHours, issues, candidates }) {
     return {
       present: true,
       updatedAt: freshness?.iso || null,
+      ageHours: freshness?.ageHours ?? null,
       crossings: null,
       stale: Boolean(freshness?.stale),
       future: Boolean(freshness?.future),
@@ -208,6 +214,7 @@ function validateBorder(border, { now, maxAgeHours, issues, candidates }) {
   return {
     present: true,
     updatedAt: freshness?.iso || null,
+    ageHours: freshness?.ageHours ?? null,
     crossings: Object.keys(crossings).length,
     validCrossings: valid,
     stale,
@@ -218,7 +225,7 @@ function validateBorder(border, { now, maxAgeHours, issues, candidates }) {
 function validatePharmacies(pharmacies, { now, maxAgeHours, issues, candidates }) {
   if (!pharmacies || typeof pharmacies !== 'object' || Array.isArray(pharmacies)) {
     issues.push('pharmacy source is not a JSON object');
-    return { present: false, fetchedAt: null, pharmacies: null, stale: false, future: false };
+    return { present: false, fetchedAt: null, ageHours: null, pharmacies: null, stale: false, future: false };
   }
   const freshness = checkFreshness(pharmacies._fetchedAt, 'pharmacies._fetchedAt', { now, maxAgeHours: Math.max(maxAgeHours, 96), issues });
   if (!Array.isArray(pharmacies.pharmacies)) issues.push('pharmacies.pharmacies is missing or not an array');
@@ -246,6 +253,7 @@ function validatePharmacies(pharmacies, { now, maxAgeHours, issues, candidates }
   return {
     present: true,
     fetchedAt: freshness?.iso || null,
+    ageHours: freshness?.ageHours ?? null,
     pharmacies: Array.isArray(pharmacies.pharmacies) ? pharmacies.pharmacies.length : null,
     validPharmacies: valid,
     stale: Boolean(freshness?.stale),
@@ -256,7 +264,7 @@ function validatePharmacies(pharmacies, { now, maxAgeHours, issues, candidates }
 function validateDuties(duties, { now, maxAgeHours, issues }) {
   if (!duties || typeof duties !== 'object' || Array.isArray(duties)) {
     issues.push('pharmacy duty source is not a JSON object');
-    return { present: false, fetchedAt: null, duties: null, stale: false, future: false };
+    return { present: false, fetchedAt: null, ageHours: null, duties: null, stale: false, future: false };
   }
   const freshness = checkFreshness(duties._fetchedAt, 'duties._fetchedAt', { now, maxAgeHours: Math.max(maxAgeHours, 96), issues });
   if (!Array.isArray(duties.duties)) issues.push('duties.duties is missing or not an array');
@@ -275,6 +283,7 @@ function validateDuties(duties, { now, maxAgeHours, issues }) {
   return {
     present: true,
     fetchedAt: freshness?.iso || null,
+    ageHours: freshness?.ageHours ?? null,
     duties: Array.isArray(duties.duties) ? duties.duties.length : null,
     validDuties: valid,
     stale: Boolean(freshness?.stale),
@@ -293,8 +302,8 @@ function validateOutcomes(outcomes, { now, maxAgeHours, minimumSample, issues, o
         independent: false,
         evidence: null,
         generatedAt: null,
-        eligibleDecisionSessions: null,
-        nextUsefulActions: null,
+        eligibleDecisionSessions: 0,
+        nextUsefulActions: 0,
         quality: 'partial',
       },
     };
@@ -346,8 +355,8 @@ function validateOutcomes(outcomes, { now, maxAgeHours, minimumSample, issues, o
       : null,
     generatedAt: generated?.iso || null,
     ageHours: generated?.ageHours ?? null,
-    eligibleDecisionSessions: integer(eligibleDecisionSessions) ? eligibleDecisionSessions : null,
-    nextUsefulActions: integer(nextUsefulActions) ? nextUsefulActions : null,
+    eligibleDecisionSessions: counted(eligibleDecisionSessions),
+    nextUsefulActions: counted(nextUsefulActions),
   };
   let quality = 'observed';
   if (!independent || !evidenceValid || !generated || !integer(eligibleDecisionSessions) || !integer(nextUsefulActions)) quality = 'partial';
@@ -458,21 +467,17 @@ function reportMarkdown(verdict, observation, decision) {
 function buildDecisionMomentOutcome({ source, verdict, policy, registry, now }) {
   const outcomeSnapshot = verdict.snapshot?.outcomes || {};
   const generatedAt = finiteDate(outcomeSnapshot.generatedAt);
-  const eligibleDecisionSessions = integer(outcomeSnapshot.eligibleDecisionSessions)
-    ? outcomeSnapshot.eligibleDecisionSessions
-    : null;
-  const nextUsefulActions = integer(outcomeSnapshot.nextUsefulActions)
-    ? outcomeSnapshot.nextUsefulActions
-    : null;
+  const eligibleDecisionSessions = counted(outcomeSnapshot.eligibleDecisionSessions);
+  const nextUsefulActions = counted(outcomeSnapshot.nextUsefulActions);
   const explicitIndependent = source?.independent === true;
   const outcomeQuality = outcomeSnapshot.quality || 'partial';
-  // A valid outcome export must not mask a stale or malformed decision
-  // surface. Keep the metrics null until the complete verdict is observed.
+  // Counts stay numeric even when the join is missing or a surface is stale.
+  // The generic rate stays null until the complete verdict is independently
+  // observed, so a zero/under-floor/stale cohort cannot look like a measured
+  // improvement.
   const measured = verdict.ok
     && outcomeQuality === 'observed'
-    && explicitIndependent
-    && eligibleDecisionSessions !== null
-    && nextUsefulActions !== null;
+    && explicitIndependent;
   const status = measured
     ? 'observed'
     : (verdict.quality === 'stale' || outcomeQuality === 'stale'
@@ -491,21 +496,15 @@ function buildDecisionMomentOutcome({ source, verdict, policy, registry, now }) 
       : `decision-moment outcome is ${status}; no bridge or freshness claim is authorized`,
     now,
   });
-  // Keep the normalized artifact fail-closed as well as its numerator and
-  // denominator. The raw export remains available in the verdict snapshot,
-  // but a zero/under-floor cohort must not look like a measured 0% metric to
-  // consumers that read the outcome directly.
-  const reportedEligibleDecisionSessions = measured ? eligibleDecisionSessions : null;
-  const reportedNextUsefulActions = measured ? nextUsefulActions : null;
   return {
     ...outcome,
     loopId: LOOP_ID,
     generatedAt: generatedAt?.toISOString() || null,
-    eligibleDecisionSessions: reportedEligibleDecisionSessions,
-    nextUsefulActions: reportedNextUsefulActions,
+    eligibleDecisionSessions,
+    nextUsefulActions,
     metrics: {
-      eligibleDecisionSessions: reportedEligibleDecisionSessions,
-      nextUsefulActions: reportedNextUsefulActions,
+      eligibleDecisionSessions,
+      nextUsefulActions,
     },
     evidence: outcomeSnapshot.evidence || {
       status: 'missing',
@@ -733,7 +732,20 @@ export async function main({ argv = process.argv.slice(2), logger = console } = 
   const options = parseArgs(argv);
   const runLogger = options.json ? { ...logger, log: () => {} } : logger;
   const result = await runL5({ ...options, issue: options.issue && !options.dryRun, logger: runLogger });
-  if (options.json) logger.log(JSON.stringify({ verdict: result.verdict, observation: result.observation, decision: result.decision, outcome: result.outcome, issued: result.issued, actionsWritten: result.actionsWritten }, null, 2));
+  if (options.json) {
+    logger.log(JSON.stringify({
+      verdict: result.verdict,
+      observation: result.observation,
+      decision: result.decision,
+      outcome: result.outcome,
+      outcomes: {
+        eligibleDecisionSessions: result.outcome?.eligibleDecisionSessions ?? 0,
+        nextUsefulActions: result.outcome?.nextUsefulActions ?? 0,
+      },
+      issued: result.issued,
+      actionsWritten: result.actionsWritten,
+    }, null, 2));
+  }
   if (options.strict && !result.verdict.ok) process.exitCode = 2;
   return result;
 }

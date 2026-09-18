@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { runL5, validateDecisionMoments } from '../scripts/ci/loop-l5-decision-moments.mjs';
+import { main, runL5, validateDecisionMoments } from '../scripts/ci/loop-l5-decision-moments.mjs';
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
 
@@ -94,11 +94,17 @@ describe('L5 Decision Moments', () => {
     expect(verdict.issues.join(' ')).toContain('must include registry source refs: posthog');
   });
 
-  it('keeps missing outcomes partial and metrics null', () => {
+  it('keeps missing outcomes partial and metrics numeric zeros', () => {
     const verdict = validate({}, null);
     expect(verdict.quality).toBe('partial');
-    expect(verdict.snapshot.outcomes.nextUsefulActions).toBeNull();
-    expect(verdict.snapshot.outcomes.independent).toBe(false);
+    expect(verdict.snapshot.outcomes).toMatchObject({
+      missing: true,
+      independent: false,
+      eligibleDecisionSessions: 0,
+      nextUsefulActions: 0,
+    });
+    expect(typeof verdict.snapshot.outcomes.eligibleDecisionSessions).toBe('number');
+    expect(typeof verdict.snapshot.outcomes.nextUsefulActions).toBe('number');
   });
 
   it('requires an explicit independent evidence assertion', () => {
@@ -140,7 +146,14 @@ describe('L5 Decision Moments', () => {
     });
 
     expect(result.verdict.quality).toBe('stale');
-    expect(result.outcome).toMatchObject({ status: 'stale', independent: false, numerator: null, denominator: null });
+    expect(result.outcome).toMatchObject({
+      status: 'stale',
+      independent: false,
+      numerator: null,
+      denominator: null,
+      eligibleDecisionSessions: 120,
+      nextUsefulActions: 45,
+    });
     expect(result.observation).toMatchObject({ quality: 'stale', numerator: null, denominator: null });
   });
 
@@ -153,9 +166,9 @@ describe('L5 Decision Moments', () => {
       independent: false,
       numerator: null,
       denominator: null,
-      eligibleDecisionSessions: null,
-      nextUsefulActions: null,
-      metrics: { eligibleDecisionSessions: null, nextUsefulActions: null },
+      eligibleDecisionSessions: 0,
+      nextUsefulActions: 0,
+      metrics: { eligibleDecisionSessions: 0, nextUsefulActions: 0 },
     });
     expect(result.observation.numerator).toBeNull();
     expect(result.observation.denominator).toBeNull();
@@ -191,7 +204,9 @@ describe('L5 Decision Moments', () => {
       loopId: 'L5',
       status: 'partial',
       independent: false,
-      metrics: { eligibleDecisionSessions: null, nextUsefulActions: null },
+      eligibleDecisionSessions: 0,
+      nextUsefulActions: 0,
+      metrics: { eligibleDecisionSessions: 0, nextUsefulActions: 0 },
       safeToAct: false,
       publishedDataUntouched: true,
     });
@@ -213,6 +228,46 @@ describe('L5 Decision Moments', () => {
     const result = await runL5({ now: NOW, fuelPath: path.join(source.dir, 'missing.json'), borderPath: source.files.border, pharmacyPath: source.files.pharmacies, dutyPath: source.files.duties, logger: { log() {} } });
     expect(result.verdict.quality).toBe('unmeasurable');
     expect(result.observation.denominator).toBeNull();
+  });
+
+  it('emits numeric outcomes on the shipped dry-run path and does not treat stale-over-TTL as an improvement', async () => {
+    const source = tempSource(null);
+    const stalePharmacies = JSON.parse(fs.readFileSync(source.files.pharmacies, 'utf8'));
+    stalePharmacies._fetchedAt = new Date(Date.now() - 300 * 3_600_000).toISOString();
+    fs.writeFileSync(source.files.pharmacies, `${JSON.stringify(stalePharmacies)}\n`);
+
+    const lines: string[] = [];
+    const result = await main({
+      argv: [
+        '--json',
+        '--dry-run',
+        '--fuel', source.files.fuel,
+        '--border', source.files.border,
+        '--pharmacies', source.files.pharmacies,
+        '--duties', source.files.duties,
+        '--outcomes', source.files.outcomes,
+      ],
+      logger: { log(message: string) { lines.push(String(message)); } },
+    });
+
+    const payload = JSON.parse(lines.join('\n'));
+    expect(typeof payload.outcomes.eligibleDecisionSessions).toBe('number');
+    expect(typeof payload.outcomes.nextUsefulActions).toBe('number');
+    expect(Number.isInteger(payload.outcomes.eligibleDecisionSessions)).toBe(true);
+    expect(Number.isInteger(payload.outcomes.nextUsefulActions)).toBe(true);
+    expect(typeof payload.outcome.eligibleDecisionSessions).toBe('number');
+    expect(typeof payload.outcome.nextUsefulActions).toBe('number');
+    expect(typeof payload.verdict.snapshot.outcomes.eligibleDecisionSessions).toBe('number');
+    expect(typeof payload.verdict.snapshot.outcomes.nextUsefulActions).toBe('number');
+    expect(typeof payload.verdict.snapshot.sources.pharmacies.ageHours).toBe('number');
+    expect(payload.verdict.snapshot.sources.pharmacies.stale).toBe(true);
+    expect(payload.verdict.quality).toBe('stale');
+    expect(payload.verdict.ok).toBe(false);
+    expect(payload.decision.decision).not.toBe('observing');
+    expect(payload.outcome.independent).toBe(false);
+    expect(payload.outcome.safeToAct).toBe(false);
+    expect(payload.issued).toBe(false);
+    expect(result.verdict.issues.join(' ')).toMatch(/pharmacies\._fetchedAt is \d+\.\d+h old \(max 96h\)/);
   });
 
   it('does not persist a result when issue creation fails', async () => {
