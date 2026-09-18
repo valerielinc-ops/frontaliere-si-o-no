@@ -27,10 +27,12 @@ export type {
 export {
   renderHeroBadges,
   type HeroBadgesContext,
+  type HeroBadgesRenderContext,
 } from './heroBadges';
 export {
   renderMobileActionBlock,
   type MobileActionBlockContext,
+  type MobileActionBlockRenderContext,
 } from './mobileActionBlock';
 export {
   renderHighlightsChips,

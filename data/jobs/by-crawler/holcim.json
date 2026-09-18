@@ -1128,8 +1128,8 @@
       "titleByLocale": {
         "de": "Legal Counsel 80-100%",
         "it": "Consulente Legale 80-100%",
-        "en": "Legal Counsel 80-100 %",
-        "fr": "Conseiller juridique 80-100 %"
+        "en": "Legal Counsel 80-100%",
+        "fr": "Legal Counsel 80-100 %"
       },
       "description": "Bei Holcim Central Europe West (Schweiz, Italien, Süddeutschland und Haut-Rhin) erwarten dich spannende juristische Herausforderungen in einem dynamischen Umfeld. Als Legal Counsel wirst du zur vertrauensvollen Ansprechperson für unsere Business Partner in der Schweiz und unterstützt den General Counsel direkt bei wegweisenden Projekten – von der Dekarbonisierung bis zur digitalen Transformation der Rechtsabteilung. Bring deine Expertise ein und bewege mit uns die Welt von morgen!\n\nWas dich erwartet:\n\n•\n Umfassende Rechtsberatung: Du berätst und unterstützt unsere Schweizer Business Partner eigenverantwortlich in zentralen Themenbereichen wie Litigation, M&A, Wettbewerbsrecht, Real Estate und komplexen kommerziellen Verträgen.\n\n•\n Strategische Fallführung: Du leitest Gerichtsfälle und Verfahren inklusive der Strategieentwicklung und steuerst externe Anwälte.\n\n•\n Zukunftsprojekte begleiten: Du unterstützt die rechtliche Leitung und Verhandlungsführung bei strategischen Projekten und Initiativen, insbesondere bei unseren wegweisenden industriellen Dekarbonisierungs-Grossprojekten.\n\n•\n Rechtliche Infrastruktur optimieren: Du entwirfst, prüfst und überarbeitest Verträge, Standardvorlagen sowie Protokolle und stehst sämtlichen Abteilungen bei allgemeinen Rechtsfragen beratend zur Seite.\n\n•\n Legal Tech & Innovation: Du treibst die Digitalisierung der Rechtsabteilung des Clusters Central Europe West aktiv voran und entwickelst digitale Tools zur nachhaltigen Prozessoptimierung weiter.\n\nWas du mitbringst:\n\n•\n Fundierte Ausbildung: Du hast dein Universitätsstudium der Rechtswissenschaften erfolgreich abgeschlossen und besitzt das Schweizer Rechtsanwaltspatent (Zulassung als Rechtsanwalt/Rechtsanwältin in der Schweiz).\n\n•\n Einschlägige Erfahrung: Du bringst mindestens 3 bis 5 Jahre relevante Berufserfahrung im juristischen Umfeld mit, die du idealerweise in einer Wirtschaftskanzlei oder als In-House Counsel gesammelt hast.\n\n•\n Digitale Affinität: Neben dem sicheren Umgang mit MS Office und Google Tools hast du eine ausgeprägte Begeisterung für Legal Tech und die Optimierung digitaler Arbeitsabläufe.\n\n•\n Starke Persönlichkeit: Du zeichnest dich durch eine lösungsorientierte, pragmatische Arbeitsweise, hohe Flexibilität sowie ausgeprägtes Durchsetzungsvermögen und echten Teamgeist aus.\n\n•\n Sprachkompetenz: Du kommunizierst verhandlungssicher und stilsicher in Deutsch und Englisch (in Wort und Schrift); gute Französisch- und/oder Italienischkenntnisse sind ein willkommener Vorteil.\n\nUnser Angebot:\n\n•\n Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n•\n Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n•\n Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n•\n Flexibilität & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n•\n Attraktive Vergütung: Wir bieten unseren Mitarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse.\n\n•\n Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst.\n\n•\n Gesundheit und Soziales : Wir engagieren uns für deine Gesundheit und fördern diese durch präventive Massnahmen.",
       "descriptionByLocale": {
@@ -1169,7 +1169,6 @@
       "previousSlugs": [
         "legal-counsel-80-100-holcim-ch"
       ],
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 145000,
       "salarySource": "estimated",
@@ -1184,7 +1183,9 @@
         }
       },
       "firstSeenAt": "2026-09-17T06:58:56.891Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3919
     },
     {
       "id": "holcim-59fb64a4e193",
@@ -1343,7 +1344,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "holcim-408ddee49d0d",

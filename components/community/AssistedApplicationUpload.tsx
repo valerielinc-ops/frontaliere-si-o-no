@@ -4,6 +4,7 @@ import { CheckCircle2, FileText, Loader2, LockKeyhole, Shield, UploadCloud } fro
 import { useTranslation } from '@/services/i18n';
 import {
   ASSISTED_APPLICATION_CONSENT_VERSION,
+  ASSISTED_APPLICATION_PRICE_EUR_CENTS,
   trackAssistedApplicationEvent,
   type AssistedApplicationVariant,
 } from '@/services/assistedApplicationExperiment';
@@ -140,6 +141,7 @@ export default function AssistedApplicationUpload({
             variant: data.experimentVariant === 'assisted_application' ? 'assisted_application' : 'control',
             jobId: data.jobId || 'unknown',
             companyId: data.companyId || data.companyName || 'unknown',
+            price_eur_cents: Number(data.amountTotal ?? ASSISTED_APPLICATION_PRICE_EUR_CENTS),
           });
         }
         return true;
