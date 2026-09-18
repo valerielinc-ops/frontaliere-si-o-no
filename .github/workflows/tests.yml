@@ -3,7 +3,9 @@ run-name: "Code checks and review · ${{ github.event.pull_request.number && for
 
 # One required check owns checkout, source guards, typecheck, Vitest and review.
 # The PR body contract is a step of this code run. Title/body edits start one
-# fresh validation/review run on the current SHA; labels remain non-triggering.
+# fresh validation run on the current SHA; a second reviewer is admitted only
+# for a new HEAD (or a retryable provider failure), so metadata churn cannot
+# manufacture contradictory reviews on one commit. Labels remain non-triggering.
 # Keep the job name aligned with the ruleset and scripts/ci/lib/constants.mjs.
 
 on:
@@ -1884,38 +1886,76 @@ jobs:
           } >> "$GITHUB_OUTPUT"
           echo "Risolto PR #$PRN (draft=$is_draft) sulla head $HEAD_SHA."
 
-      - name: Re-review guard (skip only an identical review input)
+      - name: Re-review guard (one verdict per PR HEAD)
         id: guard
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          EVENT_ACTION: ${{ github.event.action || '' }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
           REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
+          # A review body edit is still a pull_request event, but it is not a
+          # new code contribution. The old guard deliberately re-ran Codex on
+          # every `edited` event; fixer comments/body bookkeeping then produced
+          # a second (and sometimes contradictory) verdict on the same SHA.
+          # Count every terminal managed review, not only LGTM: an Important
+          # verdict is already the authoritative state that the next fixer
+          # round must resolve, and must not be replaced by a stochastic retry.
           last=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
-            --jq '[.[] | select((.user.login // "" | test("^(claude\\[bot\\]|frontaliere-automation\\[bot\\])$";"i")) and (.body|contains("## LGTM")))] | last | .commit_id // empty' 2>/dev/null || true)
-          if [ -z "$last" ]; then
-            echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Nessuna review LGTM precedente → review piena."; exit 0
-          fi
-          if [ "${EVENT_ACTION:-}" = "edited" ]; then
-            echo "skip=false" >> "$GITHUB_OUTPUT"
-            echo "PR metadata modificata → review piena sulla revisione corrente del review input."
-            exit 0
-          fi
-          if [ "$last" = "$HEAD_SHA" ]; then
+            --jq '[.[] | select((.state // "") != "PENDING") | select(
+              ((.user.login // "" | test("^(claude\\[bot\\]|frontaliere-automation\\[bot\\])$";"i")))
+              or ((.user.login // "" | test("^github-actions\\[bot\\]$";"i")) and (.body // "" | contains("<!-- CODEX_FALLBACK_REVIEW -->")))
+            )] | last | .commit_id // empty' 2>/dev/null || true)
+          if [ -n "$last" ] && [ "$last" = "$HEAD_SHA" ]; then
             echo "skip=true" >> "$GITHUB_OUTPUT"
-            echo "Esiste già una review terminale sulla HEAD $HEAD_SHA → nessuna seconda review per lo stesso input."
+            echo "Esiste già una review terminale sulla HEAD $HEAD_SHA → nessuna seconda review, anche dopo un evento edited."
             exit 0
           fi
           echo "skip=false" >> "$GITHUB_OUTPUT"
-          echo "Review terminale sulla HEAD precedente ($last) → review piena obbligatoria sulla nuova HEAD $HEAD_SHA; nessun riuso del verdetto precedente."
+          if [ -z "$last" ]; then
+            echo "Nessuna review terminale precedente → review piena."
+          else
+            echo "Review terminale sulla HEAD precedente ($last) → review piena obbligatoria sulla nuova HEAD $HEAD_SHA."
+          fi
+
+      # The concurrency group serializes duplicate runs, but it is not a
+      # durable admission guarantee: an older runner can already be inside the
+      # provider action when a second `edited` event is queued. Reuse the PR
+      # comment claim ledger used by the redflag/redcheck consumers, with a
+      # stable signal per PR+HEAD. Exactly one runner may publish the verdict;
+      # retries on the same SHA only evaluate the verdict already present.
+      - name: Claim review PR + HEAD (zero-agent)
+        id: review_claim
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          CLAIM_ACTION: acquire
+          CLAIM_KIND: review
+          PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
+          HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
+          EVENT_KEY: run:${{ github.run_id }}
+          VERDICT_KEY: review
+          CLAIM_TTL_SEC: '3600'
+          GITHUB_RUN_ID: ${{ github.run_id }}
+        run: node scripts/ci/pr-fixer-claim.mjs --claim
+
+      - name: Fail closed when review claim is unreadable
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.review_claim.outputs.claim_error == 'true' }}
+        run: |
+          echo "::error::Claim review PR+HEAD illeggibile o non verificabile → nessun nuovo reviewer."
+          exit 1
+
+      - name: Skip already-consumed review contribution
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.review_claim.outputs.claim_allowed != 'true' && steps.review_claim.outputs.claim_error != 'true' }}
+        run: echo "Review già acquisita per questa PR+HEAD → nessun secondo reviewer."
 
       - name: Determine review tier
         id: tier
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.review_claim.outputs.claim_allowed == 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -2116,7 +2156,7 @@ jobs:
         # ripiegare su `gh pr view --json files`. Il risparmio non era nelle tre
         # `gh` call (puro bash, zero Claude) ma nel `gh pr diff`, che su una PR
         # data-only puo' essere enorme: quello resta saltato, sotto.
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.review_claim.outputs.claim_allowed == 'true') }}
         # Fetch una volta sola, PRIMA che Claude parta, ciò che il prompt gli
         # farebbe rifare turno-per-turno (osservato in 3/3 transcript morti
         # error_max_turns analizzati 2026-07-17: `gh pr view`, `gh pr diff`, il
@@ -2248,7 +2288,7 @@ jobs:
           ls -la "$CTX_DIR"
 
       - name: Mint GitHub App token for Codex review
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.review_claim.outputs.claim_allowed == 'true') }}
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -2258,7 +2298,7 @@ jobs:
 
       - name: Publish automatic LGTM for a tests-only PR
         id: test_only_review
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && success() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.tier.outputs.tier == 'tests-only' }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && success() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.review_claim.outputs.claim_allowed == 'true' && steps.tier.outputs.tier == 'tests-only' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -2275,7 +2315,7 @@ jobs:
         # `continue-on-error` sotto, lo scadere non tinge il job di rosso.
         timeout-minutes: 45
         id: codex_review
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.review_claim.outputs.claim_allowed == 'true') }}
         # Don't let a hard action failure abort the job before the guard below
         # can classify it — the guard decides whether to fail loudly.
         continue-on-error: true
@@ -2361,7 +2401,7 @@ jobs:
         #    completed run. There is no shared quota lease or admission cap:
         #    independent PR+HEAD reviews remain concurrent.
         # `set -uo pipefail` (NOT -e): grep in conditionals must not abort.
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.review_claim.outputs.claim_allowed == 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -2423,7 +2463,7 @@ jobs:
         # 429/action crash). Skipping here left the required check green with
         # zero bot reviews on HEAD (PR #7635): no LGTM, nothing red, auto-merge
         # parked forever. Fail this step when HEAD has no valid LGTM.
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.review_claim.outputs.claim_reason != 'same-pr-head-claim-active' && steps.review_claim.outputs.claim_reason != 'same-pr-head-claim-contended') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -2445,10 +2485,30 @@ jobs:
       # percorso è stato saltato, trasformiamo l'assenza di verdetto in un
       # rosso reale. Il job non ha condizioni che possano saltarlo.
       - name: Fail when required review gate is skipped
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.review_gate.outcome == 'skipped') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.review_claim.outputs.claim_reason != 'same-pr-head-claim-active' && steps.review_claim.outputs.claim_reason != 'same-pr-head-claim-contended' && steps.review_gate.outcome == 'skipped') }}
         run: |
           echo "::error::Required review gate was skipped on a pull request; no approving review verdict was evaluated."
           exit 1
+
+      - name: Finalize review PR + HEAD claim
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && always() && steps.review_claim.outputs.claim_acquired == 'true' }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          CLAIM_ACTION: finalize
+          CLAIM_KIND: review
+          PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
+          HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
+          EVENT_KEY: run:${{ github.run_id }}
+          VERDICT_KEY: review
+          CLAIM_TOKEN: ${{ steps.review_claim.outputs.claim_token }}
+          PROCEED: true
+          CLAIM_STATUS: ${{ steps.review_gate.outcome == 'success' && 'completed' || steps.review_abort.outcome == 'failure' && 'failed-transient' || 'failed-terminal' }}
+          ACTION_OUTCOME: ${{ steps.codex_review.outcome || steps.test_only_review.outcome || '' }}
+          EXEC_FILE: ${{ steps.codex_review.outputs.execution_file }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+        run: node scripts/ci/pr-fixer-claim.mjs --claim
 
       # L’autorebase usa esattamente il checkout e npm ci già pagati da questo
       # job. Il ramo stale-review usa la label corrente letta dalle API,

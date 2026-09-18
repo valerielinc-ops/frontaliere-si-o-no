@@ -49,6 +49,25 @@ function comment(event: Record<string, unknown>, id = 1) {
 }
 
 describe('persisted PR fixer claims (#8362, #8363)', () => {
+  it('uses the same stable review signal for retries of one PR HEAD', () => {
+    const first = {
+      workflow: 'review',
+      prNumber: '9066',
+      headSha: HEAD,
+      eventKey: 'run:100',
+      verdictKey: 'review',
+    };
+    const retry = { ...first, eventKey: 'run:101' };
+    const nextHead = { ...first, headSha: NEXT_HEAD, eventKey: 'run:102' };
+
+    expect(prFixClaimKey(first)).not.toBe('');
+    expect(prFixClaimKey(retry)).not.toBe(prFixClaimKey(first));
+    expect(prFixClaimDedupeKey(retry)).toBe(prFixClaimDedupeKey(first));
+    expect(prFixClaimDedupeKey(nextHead)).not.toBe(prFixClaimDedupeKey(first));
+    expect(prFixClaimDedupeKey(first)).toContain('workflow:review');
+    expect(prFixClaimDedupeKey(first)).toContain('signal:review');
+  });
+
   it('keys the exact PR + HEAD + event/verdict, while deduping retries of one verdict', () => {
     const base = {
       workflow: 'redflag',
@@ -210,6 +229,20 @@ describe('persisted PR fixer claims (#8362, #8363)', () => {
 describe('workflow wiring for the two site PR fixer consumers', () => {
   const redflag = readFileSync(new URL('../.github/workflows/pr-redflag-fixer.yml', import.meta.url), 'utf8');
   const redcheck = readFileSync(new URL('../.github/workflows/pr-redcheck-fixer.yml', import.meta.url), 'utf8');
+  const tests = readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8');
+
+  it('admits one reviewer per PR HEAD and evaluates the existing verdict on skipped reruns', () => {
+    expect(tests).toContain('Claim review PR + HEAD (zero-agent)');
+    expect(tests).toContain('CLAIM_KIND: review');
+    expect(tests).toContain('VERDICT_KEY: review');
+    expect(tests).toContain('CLAIM_ACTION: finalize');
+    expect(tests).toContain('nessuna seconda review, anche dopo un evento edited');
+    expect(tests).toContain('steps.review_claim.outputs.claim_allowed == \'true\'');
+
+    const gate = tests.slice(tests.indexOf('id: review_gate'), tests.indexOf('name: Fail when required review gate is skipped'));
+    expect(gate).toContain('steps.resolve.outputs.should_review == \'true\'');
+    expect(gate).not.toContain('steps.guard.outputs.skip != \'true\'');
+  });
 
   it('persists a redflag claim before the bounded fixer and finalizes it', () => {
     expect(redflag).toContain('scripts/ci/pr-fixer-claim.mjs --claim');
