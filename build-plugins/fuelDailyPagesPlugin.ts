@@ -5444,6 +5444,10 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         name: c.station.name ?? c.brandDisplay,
         brand: c.brandDisplay,
         address: c.station.address ?? '',
+        lat: typeof c.station.lat === 'number' ? c.station.lat : null,
+        lng: typeof c.station.lng === 'number' ? c.station.lng : null,
+        benzinaPriceChf: c.prices.benzina,
+        dieselPriceChf: c.prices.diesel,
       }));
       // Per-fuel Italian leaves — derived from the SAME contexts emitted as
       // station pages, so the index links exactly what we publish (and the
