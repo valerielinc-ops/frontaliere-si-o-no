@@ -29,15 +29,20 @@ export type HeroBadgesContext = Pick<
   'job' | 'locale' | 'salaryMin' | 'salaryText' | 'esc'
 >;
 
-export function renderHeroBadges(ctx: HeroBadgesContext): string {
-  const { job, locale, salaryMin, salaryText, esc } = ctx;
+/** Optional build clock used by the deterministic Jobs SEO reuse renderer. */
+export type HeroBadgesRenderContext = HeroBadgesContext & {
+  readonly now?: Date;
+};
+
+export function renderHeroBadges(ctx: HeroBadgesRenderContext): string {
+  const { job, locale, salaryMin, salaryText, esc, now } = ctx;
   const isFeatured = job.featured === true;
   const isNew = (() => {
     const dateStr = String(job.postedDate ?? job.crawledAt ?? '');
     if (!dateStr) return false;
     const t = new Date(dateStr).getTime();
     if (!Number.isFinite(t)) return false;
-    return (Date.now() - t) < 7 * 86400000;
+    return ((now || new Date()).getTime() - t) < 7 * 86400000;
   })();
   const hasSalaryPill = Number.isFinite(salaryMin);
   if (!isFeatured && !isNew && !hasSalaryPill) return '';
