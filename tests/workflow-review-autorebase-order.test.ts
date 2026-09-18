@@ -91,9 +91,13 @@ describe('review → autorebase ordering', () => {
     expect(reviewGate).toContain('reviewCommit === headSha');
     expect(reviewGate).not.toContain('scripts/ci/pr-contribution-fingerprint.mjs');
     expect(nativeAutoMerge).toContain('native-automerge-gate.mjs');
-    expect(nativeAutoMerge).toContain('types: [opened, edited, reopened, ready_for_review, synchronize]');
-    expect(nativeAutoMerge).toContain('pull_request_review:');
-    expect(nativeAutoMerge).toContain('workflow_run:');
+    // L'opt-in non è più event-driven: nessun trigger per-PR resta su questo
+    // workflow, la concessione avviene alla fine del job required e il
+    // ritentativo/revoca passa dal cron di retry-native-automerge.yml.
+    // Misurato sul blocco `on:` PARSATO, non sul testo: un commento che nomina
+    // un trigger rimosso non deve poter far passare né fallire l'asserzione.
+    expect(Object.keys((YAML.parse(nativeAutoMerge) as { on?: Record<string, unknown> }).on ?? {}))
+      .toEqual(['workflow_dispatch']);
     expect(nativeAutoMergeRetry).toContain("cron: '*/20 * * * *'");
     expect(nativeAutoMergeRetry).toContain('gh pr list');
     expect(nativeAutoMergeRetry).toContain('MAX_PR_SCAN: \'100\'');

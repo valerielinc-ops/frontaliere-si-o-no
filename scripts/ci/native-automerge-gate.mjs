@@ -45,6 +45,9 @@ const TESTS_WORKFLOW_PATH = '.github/workflows/tests.yml';
 const TESTS_WORKFLOW_EVENT = 'pull_request';
 const TEST_ONLY_REVIEW_BOT_RE = /^(?:github-actions|frontaliere-automation)\[bot\]$/i;
 const CODEX_FALLBACK_REVIEWER_RE = /^github-actions\[bot\]$/i;
+// Explicit, verifiable entry point for the in-job opt-in: the caller declares
+// WHICH run it is, never THAT the tests passed. See `inJobRequiredVitestDecision`.
+const IN_JOB_RUN_ID_ENV = 'NATIVE_AUTOMERGE_IN_JOB_RUN_ID';
 const MAX_TRANSIENT_GH_READ_ATTEMPTS = 3;
 const TRANSIENT_GH_READ_RETRY_DELAYS_MS = Object.freeze([250, 750]);
 const TRANSIENT_GH_READ_ERROR_RE = /(?:\bHTTP\s+5\d{2}\b|\b5\d{2}\s+(?:bad gateway|service unavailable|gateway timeout)\b|service unavailable|bad gateway|gateway timeout|timed?\s*out|ECONNRESET|ETIMEDOUT|EAI_AGAIN)/iu;
@@ -188,6 +191,92 @@ export function requiredVitestDecision(checkRuns, head) {
     return { allow: false, reason: `check required ${VITEST_CHECK_NAME} conclusion=${latest.conclusion}` };
   }
   return { allow: true, reason: `${VITEST_CHECK_NAME} success sulla HEAD` };
+}
+
+/**
+ * In-job opt-in decision.
+ *
+ * `tests` itself calls this gate as one of the last steps of the required job,
+ * so its own required check is necessarily still in flight and
+ * `requiredVitestDecision` would deny forever — that permanent fail-closed is
+ * exactly why the `workflow_run` trigger existed.
+ *
+ * The caller does not get to assert «vitest passed»: a boolean flag would be a
+ * bypass that any later step — or a PR that edits the workflow it is running
+ * from — could set. It passes the id of the run it is executing in, and this
+ * function confirms that claim against fields only GitHub can write: the single
+ * in-flight required check on this HEAD must belong to that run, the run must be
+ * `tests.yml` on a `pull_request` for this HEAD, the job must be the required
+ * job on this HEAD, and the approving review-gate step inside that job must
+ * already have completed successfully. Any missing or contradicting field denies.
+ *
+ * Enabling native auto-merge is not merging: GitHub still refuses to merge until
+ * the required check on this exact HEAD is green, and the opt-in is bound to that
+ * HEAD by `--match-head-commit`. So a job that turns red after this step cannot
+ * produce a merge.
+ */
+export function inJobRequiredVitestDecision({
+  checkRuns,
+  head,
+  runId,
+  repo,
+  workflow,
+  job,
+} = {}) {
+  const deny = (reason) => ({ allow: false, reason: `opt-in in-job: ${reason}` });
+  if (!Array.isArray(checkRuns)) return deny('check-runs non verificabili');
+  if (typeof head !== 'string' || !/^[0-9a-f]{40}$/iu.test(head)) {
+    return deny('HEAD non verificabile');
+  }
+  if (!validPositiveInteger(runId)) return deny('run id del chiamante mancante o non valido');
+  if (typeof repo !== 'string' || !repo) return deny('repository del chiamante mancante');
+
+  const named = checkRuns.filter((check) => check?.name === VITEST_CHECK_NAME
+    && check.head_sha === head);
+  const own = named.filter((check) => parseActionsJobUrl(check.details_url, repo)?.runId === runId);
+  if (own.length !== 1) {
+    return deny(`il run ${runId} non possiede esattamente un check required su questa HEAD (${own.length})`);
+  }
+  const [ownCheck] = own;
+  if (ownCheck.status === 'completed') {
+    return deny('il check required del chiamante è già completato: il chiamante non è dentro quel run');
+  }
+  if (named.some((check) => check !== ownCheck && check.status !== 'completed')) {
+    return deny('un altro run required è in volo sulla stessa HEAD e supererebbe questo verdetto');
+  }
+  const location = parseActionsJobUrl(ownCheck.details_url, repo);
+  if (!location) return deny('details_url del check required non riconducibile a un job di questo repo');
+
+  if (!workflow
+      || workflow.id !== runId
+      || workflow.path !== TESTS_WORKFLOW_PATH
+      || workflow.event !== TESTS_WORKFLOW_EVENT
+      || workflow.head_sha !== head
+      || workflow.status === 'completed') {
+    return deny('run tests del chiamante non verificabile');
+  }
+
+  if (!job
+      || job.id !== location.jobId
+      || job.run_id !== runId
+      || job.name !== VITEST_CHECK_NAME
+      || job.head_sha !== head
+      || job.status === 'completed'
+      || !Array.isArray(job.steps)) {
+    return deny('job required del chiamante non verificabile');
+  }
+
+  const gateSteps = job.steps.filter((step) => step?.name === REVIEW_GATE_STEP_NAME);
+  if (gateSteps.length !== 1) return deny('step review-gate assente o ambiguo nel job del chiamante');
+  const [gateStep] = gateSteps;
+  if (gateStep.status !== 'completed' || gateStep.conclusion !== 'success') {
+    return deny(`step review-gate non approvante (status=${gateStep.status}, conclusion=${gateStep.conclusion})`);
+  }
+
+  return {
+    allow: true,
+    reason: `${VITEST_CHECK_NAME} in volo nel run ${runId} confermato via API; step ${REVIEW_GATE_STEP_NAME} success`,
+  };
 }
 
 function latestRequiredVitestCheck(checkRuns, head) {
@@ -377,6 +466,7 @@ export function evaluateNativeAutoMerge({
   repository = null,
   changedFiles,
   changedFilesComplete,
+  inJobRun = null,
 } = {}) {
   if (!pr || pr.state !== 'OPEN' || pr.isDraft !== false || pr.baseRefName !== 'main') {
     return { allow: false, reason: 'PR non aperta, draft o non basata su main' };
@@ -442,7 +532,18 @@ export function evaluateNativeAutoMerge({
     return { allow: false, reason: 'review bot sulla HEAD non è LGTM senza 🔴 Important' };
   }
 
-  const check = requiredVitestDecision(checkRuns, pr.headRefOid);
+  // Two independent sources have to agree before the opt-in: the workflow step
+  // only runs when `job.status == 'success'` and the review gate published
+  // `approved`, and the decision below re-derives both facts from the API.
+  // Neither half alone can enable anything.
+  const check = inJobRun
+    ? inJobRequiredVitestDecision({
+      ...inJobRun,
+      checkRuns,
+      head: pr.headRefOid,
+      repo: repository,
+    })
+    : requiredVitestDecision(checkRuns, pr.headRefOid);
   if (!check.allow) return check;
   if (reviewGateException.allow) {
     const latestCheck = latestRequiredVitestCheck(checkRuns, pr.headRefOid);
@@ -483,6 +584,7 @@ export function revalidateNativeAutoMerge({
   repository = null,
   changedFiles,
   changedFilesComplete,
+  inJobRun = null,
 } = {}) {
   if (!pr || !Object.hasOwn(pr, 'autoMergeRequest')) {
     return { allow: false, action: 'skip', reason: 'stato auto-merge non verificabile' };
@@ -496,6 +598,7 @@ export function revalidateNativeAutoMerge({
     repository,
     changedFiles,
     changedFilesComplete,
+    inJobRun,
   });
   if (pr.autoMergeRequest !== null) {
     return {
@@ -676,6 +779,30 @@ function loadReviewGateEvidence(repo, head, checkRuns, review) {
   };
 }
 
+/**
+ * Read the caller's own run id and resolve, from the API, the run and job that
+ * id names. Absent env var → `null`, i.e. the ordinary post-hoc behaviour used
+ * by `retry-native-automerge.yml` is untouched. Present but unresolvable → a
+ * context with null run/job, so the pure decision denies with a reason instead
+ * of silently falling back to the completed-check path.
+ */
+function loadInJobRun(repo, head, checkRuns) {
+  const runId = Number(process.env[IN_JOB_RUN_ID_ENV] || '');
+  if (!validPositiveInteger(runId)) return null;
+  const own = (Array.isArray(checkRuns) ? checkRuns : []).filter(
+    (check) => check?.name === VITEST_CHECK_NAME
+      && check.head_sha === head
+      && parseActionsJobUrl(check.details_url, repo)?.runId === runId,
+  );
+  if (own.length !== 1) return { runId, workflow: null, job: null };
+  const { jobId } = parseActionsJobUrl(own[0].details_url, repo);
+  return {
+    runId,
+    workflow: ghJson(['api', `repos/${repo}/actions/runs/${runId}`]),
+    job: ghJson(['api', `repos/${repo}/actions/jobs/${jobId}`]),
+  };
+}
+
 const DISABLE_AUTO_MERGE_MUTATION =
   'mutation($pullRequestId:ID!){disablePullRequestAutoMerge(input:{pullRequestId:$pullRequestId}){pullRequest{number autoMergeRequest{enabledAt}}}}';
 
@@ -803,9 +930,11 @@ function main() {
   let checkRuns;
   let verifiedTestOnlyReview;
   let reviewGateEvidence;
+  let inJobRun;
   try {
     reviews = loadReviews(repo, prNumber);
     checkRuns = loadCheckRuns(repo, pr.headRefOid);
+    inJobRun = loadInJobRun(repo, pr.headRefOid, checkRuns);
     verifiedTestOnlyReview = loadVerifiedTestOnlyReview(repo, prNumber, pr.headRefOid, reviews);
     reviewGateEvidence = loadReviewGateEvidence(
       repo,
@@ -832,6 +961,7 @@ function main() {
     repository: repo,
     changedFiles: changedFileSnapshot.files,
     changedFilesComplete: changedFileSnapshot.complete,
+    inJobRun,
   });
   console.log(`Native auto-merge guard PR #${prNumber} HEAD=${pr.headRefOid}: ${decision.reason}`);
   if (decision.action === 'revoke') {
@@ -867,10 +997,12 @@ function main() {
   let finalVerifiedTestOnlyReview;
   let finalReviewGateEvidence;
   let finalChangedFileSnapshot;
+  let finalInJobRun;
   try {
     finalChangedFileSnapshot = loadChangedFiles(repo, prNumber);
     finalReviews = loadReviews(repo, prNumber);
     finalCheckRuns = loadCheckRuns(repo, current.headRefOid);
+    finalInJobRun = loadInJobRun(repo, current.headRefOid, finalCheckRuns);
     finalVerifiedTestOnlyReview = loadVerifiedTestOnlyReview(
       repo,
       prNumber,
@@ -925,6 +1057,7 @@ function main() {
     repository: repo,
     changedFiles: finalChangedFileSnapshot.files,
     changedFilesComplete: finalChangedFileSnapshot.complete,
+    inJobRun: finalInJobRun,
   });
   console.log(`Native auto-merge guard PR #${prNumber} final gate: ${finalDecision.reason}`);
   if (finalDecision.action === 'revoke') {
