@@ -87,7 +87,7 @@ describe('native auto-merge source-loading contract', () => {
   });
 
   it('covers the transitive runtime graph, including REST fallback, gate, and registry', () => {
-    expect(NATIVE_AUTOMERGE_HELPER_FILES).toHaveLength(7);
+    expect(NATIVE_AUTOMERGE_HELPER_FILES).toHaveLength(8);
     const loader = readSourceFile('scripts/load-rc-env.mjs');
     const gate = readSourceFile('scripts/ci/native-automerge-gate.mjs');
     const policy = readSourceFile('scripts/ci/review-test-policy.mjs');
@@ -115,8 +115,8 @@ describe('native auto-merge source-loading contract', () => {
     }
   });
 
-  it('keeps the seven gate helpers explicit and validates the live source tree', () => {
-    expect(NATIVE_AUTOMERGE_HELPER_FILES).toHaveLength(7);
+  it('keeps the eight gate helpers explicit and validates the live source tree', () => {
+    expect(NATIVE_AUTOMERGE_HELPER_FILES).toHaveLength(8);
     const validated = validateNativeAutoMergeSource(REPOSITORY_ROOT);
     expect(validated.files).toEqual(NATIVE_AUTOMERGE_SOURCE_FILES);
     expect(validated.helperDir).toMatch(/scripts\/ci$/u);
