@@ -31,6 +31,7 @@ import { TLS_ERROR_CODES } from './transient-fetch.mjs';
 
 import { inferAnyCanton, isTargetSwissLocation, normalizeCantonCode } from './target-swiss-locations.mjs';
 import { isChCountry } from './ch-country-guard.mjs';
+import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.mjs';
 
 export const MCDO_KEY = 'mcdonald-s-switzerland';
 export const COMPANY_NAME = "McDonald's Switzerland";
@@ -522,14 +523,46 @@ export async function fetchMcdoDetailPage(url, { userAgent = DEFAULT_UA, timeout
 export function buildMcdoJob(parsed) {
   if (!parsed || !parsed.title) return null;
   if (parsed.locationStatus && parsed.locationStatus !== 'verified') return null;
-  const location = String(parsed.city || '').trim();
-  const canton = String(parsed.canton || '').trim();
-  const sourceLocation = String(parsed.sourceLocation || `${location}, ${canton}`).trim();
+  const sourceCity = String(parsed.city || '').trim();
+  const sourceCanton = String(parsed.canton || '').trim();
+  const sourceLocation = String(parsed.sourceLocation || `${sourceCity}, ${sourceCanton}`).trim();
+  if (
+    !sourceCity
+    || !sourceCanton
+    || !isTargetSwissLocation(sourceLocation, { includeBorderProximity: false })
+    || inferAnyCanton(sourceLocation) !== sourceCanton
+  ) return null;
+
+  const sourcePostalCode = String(parsed.postalCode || '').trim();
+  const sourceStreetAddress = String(parsed.streetAddress || '').trim();
+  const hasConcreteSourceAddress = /^\d{4}$/.test(sourcePostalCode)
+    && sourceStreetAddress
+    && sourceStreetAddress.toLocaleLowerCase() !== sourceCity.toLocaleLowerCase();
+  const fallbackAddress = hasConcreteSourceAddress
+    ? null
+    : resolveFallbackAddress('', sourceCity, sourceCanton);
+  const location = hasConcreteSourceAddress
+    ? sourceCity
+    : String(fallbackAddress?.addressLocality || '').trim();
+  const canton = hasConcreteSourceAddress
+    ? sourceCanton
+    : String(fallbackAddress?.addressRegion || '').trim();
+  const postalCode = hasConcreteSourceAddress
+    ? sourcePostalCode
+    : String(fallbackAddress?.postalCode || '').trim();
+  const streetAddress = hasConcreteSourceAddress
+    ? sourceStreetAddress
+    : String(fallbackAddress?.streetAddress || '').trim();
+  const resolvedSourceLocation = hasConcreteSourceAddress
+    ? sourceLocation
+    : [location, canton].filter(Boolean).join(', ');
   if (
     !location
     || !canton
-    || !isTargetSwissLocation(sourceLocation, { includeBorderProximity: false })
-    || inferAnyCanton(sourceLocation) !== canton
+    || !postalCode
+    || !streetAddress
+    || !isTargetSwissLocation(resolvedSourceLocation, { includeBorderProximity: false })
+    || inferAnyCanton(resolvedSourceLocation) !== canton
   ) return null;
   const slug = slugify(`${parsed.title}-mcdonalds-switzerland-${location}-${parsed.jobReqId || ''}`);
   if (!slug || slug.length < 3) return null;
@@ -550,8 +583,8 @@ export function buildMcdoJob(parsed) {
     addressCountry: 'CH',
     canton,
     country: 'CH',
-    postalCode: parsed.postalCode || '',
-    streetAddress: parsed.streetAddress || location,
+    postalCode,
+    streetAddress,
     description,
     // Canonical pipeline field is `postedDate` (schema.org JSON-LD calls it
     // `datePosted`, but every downstream consumer — JobBoard, sitemap,
@@ -596,7 +629,7 @@ export async function fetchMcdoJobs({
      }
       if (detail.locationStatus === 'foreign') {
         detailForeignDrops += 1;
-        return { ...parsed, ...detail, canton: '', locationStatus: 'foreign' };
+        return null;
       }
       if (detail.locationStatus !== 'verified') {
         throw new Error(
@@ -606,6 +639,9 @@ export async function fetchMcdoJobs({
       }
      return {
        ...parsed,
+       city: detail.city || parsed.city,
+       sourceLocation: detail.sourceLocation || parsed.sourceLocation,
+       sourceCountry: detail.sourceCountry || parsed.sourceCountry,
        description: detail.description || parsed.description,
        datePosted: detail.datePosted || parsed.datePosted,
        validThrough: detail.validThrough || parsed.validThrough,
@@ -618,8 +654,9 @@ export async function fetchMcdoJobs({
    detailConcurrency
  );
 
- const jobs = [];
+  const jobs = [];
   for (const parsed of enriched) {
+    if (!parsed) continue;
     const job = buildMcdoJob(parsed);
     if (job) jobs.push(job);
   }
