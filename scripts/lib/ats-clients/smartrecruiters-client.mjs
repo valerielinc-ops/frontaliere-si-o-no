@@ -121,6 +121,13 @@ export class SmartRecruitersApiError extends Error {
   }
 }
 
+class SmartRecruitersMalformedResponseError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'SmartRecruitersMalformedResponseError';
+  }
+}
+
 /* ── Helpers ─────────────────────────────────────────────────── */
 
 function normalizeSpace(s = '') {
@@ -275,7 +282,6 @@ export async function fetchSmartRecruitersDepartments(tenant, options = {}) {
  *   content: SmartRecruitersPosting[],
  *   totalFound: number,
  *   hasDeclaredTotal: boolean,
- *   hasMalformedDeclaredTotal: boolean,
  * }>}
  */
 async function fetchListPage(url, { timeoutMs, userAgent }) {
@@ -295,12 +301,16 @@ async function fetchListPage(url, { timeoutMs, userAgent }) {
           json && typeof json === 'object' && Object.prototype.hasOwnProperty.call(json, 'totalFound'),
         );
         const hasDeclaredTotal = Number.isInteger(json?.totalFound) && json.totalFound >= 0;
+        if (hasTotalFoundField && !hasDeclaredTotal) {
+          throw new SmartRecruitersMalformedResponseError(
+            `SmartRecruiters API returned malformed totalFound for ${url}`,
+          );
+        }
         const totalFound = hasDeclaredTotal ? Number(json.totalFound) : content.length;
         return {
           content,
           totalFound,
           hasDeclaredTotal,
-          hasMalformedDeclaredTotal: hasTotalFoundField && !hasDeclaredTotal,
         };
       }
       throw new SmartRecruitersApiError(
@@ -311,6 +321,7 @@ async function fetchListPage(url, { timeoutMs, userAgent }) {
     {
       label: `smartrecruiters ${url}`,
       isTransient: (err) => {
+        if (err instanceof SmartRecruitersMalformedResponseError) return false;
         if (err instanceof SmartRecruitersApiError) {
           return err.statusCode == null || err.statusCode >= 500;
         }
@@ -509,16 +520,7 @@ export async function* fetchSmartRecruitersJobs(tenant, options = {}) {
       content,
       totalFound: serverTotal,
       hasDeclaredTotal,
-      hasMalformedDeclaredTotal,
     } = await fetchListPage(url, ctx);
-    if (requireTerminationProof && hasMalformedDeclaredTotal) {
-      // A malformed total after a valid page is not equivalent to an
-      // undeclared total: it is a broken source declaration. The prior pages
-      // may be a prefix of a larger result, so strict callers must not turn
-      // this response into a complete zero (or a complete non-zero snapshot).
-      paginationIntegrityProven = false;
-      break;
-    }
     if (hasDeclaredTotal) {
       if (totalFound === null) {
         totalFound = serverTotal;
