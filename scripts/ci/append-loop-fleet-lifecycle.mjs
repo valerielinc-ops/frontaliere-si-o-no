@@ -66,20 +66,27 @@ const REQUIRED_PREDECESSOR_CHAIN = Object.freeze({
   // not advance into a PR; it intentionally needs no pr_opened.
   inconclusive: Object.freeze(['candidate', 'owner_assigned']),
 });
-// Pre-merge authorisation is observable for only one of this repo's two merge
-// paths, so it is ordered-when-present rather than required. `auto-merge-eval.mjs`
-// merges either on an LGTM review whose commit equals the current head
-// (`reviewCommitMatchesHead`) or, through the documented zero-Claude
-// drift-fallback, on a trusted author with a green body contract — which
-// produces no review event to observe. Measured on 2026-09-18 over the 568
-// merged candidates the observer can see: 233 (41.0%) have no `review_approved`
-// at all, 12 have no `tests_passed`, and 4 record it after the merge. Demanding
-// either event therefore makes the ledger unwritable instead of stricter: the
-// rule shipped on 2026-09-17 (#8991) blocked 100% of batches and produced no
-// true positive. When the event IS observed it must still fall before the merge,
-// and the post-merge ordering below keeps its teeth.
-// The uncovered case — 41% of merges carrying no reviewable authorisation — is a
-// governance question for the owner, not something this validator can assert.
+// Pre-merge authorisation is ordered-when-present rather than required,
+// because `approvedReviewEvidence` only emits `review_approved` when the LGTM
+// review's commit equals the PR's CURRENT head (`reviewIsForHead`, mirroring
+// `auto-merge-eval.mjs`'s `reviewCommitMatchesHead`) — and on the ledger's own
+// bot PRs the head keeps moving after the review.
+// Measured on 2026-09-18: 233 merged CANDIDATES lack `review_approved`, but they
+// collapse to just 23 distinct PRs, every one of them an
+// `app/frontaliere-automation` `chore(loop-fleet): persist ... evidence` PR
+// touching only `data/loop-fleet/ledger/*.jsonl` — no production code. Of the 22
+// verifiable, 21 DO carry an LGTM review, just on a commit before the final head
+// (#8910: LGTM on commit 4 of 12, 8 commits landed after it); the remaining one
+// (#8695) carries LGTM on the exact head but with literal `\n` two-character
+// sequences instead of newlines, so every matcher anchored on `(?:^|\r?\n)##
+// LGTM` is blind to it. 12 candidates have no `tests_passed` and 4 record it
+// after the merge.
+// Demanding either event therefore makes the ledger unwritable instead of
+// stricter: the rule shipped on 2026-09-17 (#8991) blocked 100% of batches and
+// produced no true positive. When the event IS observed it must still fall
+// before the merge, and the post-merge ordering below keeps its teeth.
+// Note the ledger's population is limited to fleet-ledger PRs (`isFleetLedgerPr`),
+// so none of this measures production merges.
 // `merged` is concurrent with `tests_passed` for the same reason: auto-merge is
 // triggered by the review, and the review is emitted from inside the very job
 // whose completion `tests_passed` records, so the merge can land before that job

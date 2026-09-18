@@ -556,9 +556,9 @@ describe('loop-fleet independent lifecycle observer', () => {
     fs.mkdirSync(ledgerDir);
     const candidateId = 'lf-drift-fallback';
     seedLedger(ledgerDir, recorderChain(candidateId));
-    // 233 of 568 observed merges (41.0%) carry no `review_approved`: auto-merge
-    // also lands through the zero-Claude drift-fallback, which needs no LGTM on
-    // the current head and so leaves no review to observe.
+    // The 233 review-less merged candidates collapse to 23 distinct bot PRs whose
+    // head moved past the reviewed commit, so no `review_approved` was emitted for
+    // them even though 21 of 22 do carry an LGTM on an earlier commit.
     writeJsonl(eventsFile, [
       terminalEvent('pr_opened', candidateId, '2026-09-10T11:00:00.000Z', 24_000),
       terminalEvent('tests_passed', candidateId, '2026-09-10T11:08:00.000Z', 24_001),
