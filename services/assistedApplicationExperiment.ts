@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Analytics } from './analytics';
 import { getDistinctId, getFeatureFlag, onFeatureFlags, registerSuperProperty } from './posthog';
+import { ASSISTED_APPLICATION_PRICE_EUR_CENTS as SHARED_ASSISTED_APPLICATION_PRICE_EUR_CENTS } from '@/functions/src/assistedApplicationConstants.js';
+
+export const ASSISTED_APPLICATION_PRICE_EUR_CENTS = SHARED_ASSISTED_APPLICATION_PRICE_EUR_CENTS;
 
 /** Stable identifiers shared by the SPA funnel and its analytics queries. */
 export const ASSISTED_APPLICATION_EXPERIMENT_ID = 'assisted-application-v1';

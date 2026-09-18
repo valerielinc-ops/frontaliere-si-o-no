@@ -185,6 +185,7 @@ import {
 } from '@/build-plugins/shared/jobDescription/parser';
 import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
 import {
+ ASSISTED_APPLICATION_PRICE_EUR_CENTS,
  trackAssistedApplicationEvent,
  useAssistedApplicationVariant,
 } from '@/services/assistedApplicationExperiment';
@@ -6545,11 +6546,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
   setAssistedCheckoutError(null);
   trackAssistedApplicationEvent(
    'assisted_application_choose_paid',
-   assistedApplicationJobContext(job, assistedApplicationVariant),
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS },
   );
   trackAssistedApplicationEvent(
    'checkout_started',
-   { ...assistedApplicationJobContext(job, assistedApplicationVariant), price_eur_cents: 99 },
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS },
   );
   try {
    const user = authUser?.getIdToken ? authUser : await ensureAssistedApplicationAuth();
