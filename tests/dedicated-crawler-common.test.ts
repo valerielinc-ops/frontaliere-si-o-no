@@ -2,7 +2,9 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, hasCorrectLocaleCoverage, normalizeContract, mergeLocaleTextMap, pickMergedPostedDate, pickMergedCrawledAt, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, hasCorrectLocaleCoverage, normalizeContract, mergeLocaleTextMap, pickMergedPostedDate, pickMergedCrawledAt, isActiveJobPastRetirement, ACTIVE_JOB_RETIREMENT_DAYS, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
+
+const daysAgoIso = (days: number) => new Date(Date.now() - days * 86_400_000).toISOString();
 import { canonicalizeCompanyDefinition, legacyTruncatedCompanyKey, normalizeCompanyKey } from '../scripts/lib/company-key.mjs';
 import { getEvents, clear as clearSlugHistoryJournal } from '../scripts/lib/slug-history-journal.mjs';
 
@@ -837,6 +839,69 @@ describe('mergePreserveLocaleData grace-period retention (silent job loss guard)
     expect(dataset).toHaveLength(1);
     expect(dataset[0].crawlerMissStreak).toBe(1);
   });
+
+  it('retires a fixture whose crawledAt is 61 days old even on the first miss', () => {
+    const stale = {
+      id: 'eoc-uilr3r',
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/1950/Description/4',
+      title: 'Stale EOC role',
+      crawledAt: daysAgoIso(ACTIVE_JOB_RETIREMENT_DAYS + 1),
+    };
+    const fresh = {
+      id: 'still-live',
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/1951/Description/4',
+      title: 'Live EOC role',
+      crawledAt: daysAgoIso(1),
+    };
+    expect(isActiveJobPastRetirement(stale)).toBe(true);
+    expect(isActiveJobPastRetirement(fresh)).toBe(false);
+
+    const merged = mergePreserveLocaleData([stale, fresh], [fresh]);
+    expect(merged.map((job) => job.id)).toEqual(['still-live']);
+  });
+});
+
+describe('mergeAndDeduplicate — crawledAt older than 60 days leaves the active slice', () => {
+  const cfg = { minQualityScore: 0, minDescriptionChars: 0 };
+  let registryOverridePath: string;
+  let prevOverride: string | undefined;
+
+  beforeEach(() => {
+    prevOverride = process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    registryOverridePath = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'ft-slug-registry-')), 'slug-registry.json');
+    process.env.SLUG_REGISTRY_PATH_OVERRIDE = registryOverridePath;
+  });
+
+  afterEach(() => {
+    if (prevOverride === undefined) delete process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    else process.env.SLUG_REGISTRY_PATH_OVERRIDE = prevOverride;
+  });
+
+  const baseJob = (over: Record<string, unknown> = {}) => ({
+    id: 'jysk-6h1xzk',
+    title: 'Verkäufer/in',
+    company: 'JYSK',
+    location: 'Lugano, Ticino',
+    url: 'https://jobs.de.jysk.ch/offene-stellen/stale-role',
+    description: 'D'.repeat(60),
+    slug: 'verkaeuferin-jysk-lugano',
+    ...over,
+  });
+
+  it('excludes an unmatched existing job whose crawledAt is 61 days old', () => {
+    const stale = baseJob({ crawledAt: daysAgoIso(ACTIVE_JOB_RETIREMENT_DAYS + 1) });
+    expect(isActiveJobPastRetirement(stale)).toBe(true);
+    const { merged } = mergeAndDeduplicate([stale], [], cfg);
+    expect(merged).toHaveLength(0);
+  });
+
+  it('keeps an unmatched existing job whose crawledAt is 59 days old', () => {
+    const recent = baseJob({ crawledAt: daysAgoIso(ACTIVE_JOB_RETIREMENT_DAYS - 1) });
+    expect(isActiveJobPastRetirement(recent)).toBe(false);
+    const { merged } = mergeAndDeduplicate([recent], [], cfg);
+    expect(merged).toHaveLength(1);
+    expect(merged[0].id).toBe('jysk-6h1xzk');
+  });
 });
 
 describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)', () => {
@@ -1213,7 +1278,7 @@ describe('mergeAndDeduplicate — previousSlugs history preserved across duplica
       slug: 'department-manager-coop',
       slugByLocale: { it: 'responsabile-reparto-coop', en: 'department-manager-coop' },
       postedDate: '2026-06-30',
-      crawledAt: '2026-06-30T00:00:00.000Z',
+      crawledAt: daysAgoIso(3),
     };
     const existingA = {
       ...base,
@@ -1249,7 +1314,7 @@ describe('mergeAndDeduplicate — previousSlugs history preserved across duplica
       slug: 'sales-associate-coop',
       slugByLocale: { it: 'addetto-vendita-coop', en: 'sales-associate-coop' },
       postedDate: '2026-06-30',
-      crawledAt: '2026-06-30T00:00:00.000Z',
+      crawledAt: daysAgoIso(3),
       featured: true, // ensures deterministic winner via preferJob's score
     };
     const existingB = {
@@ -1291,7 +1356,7 @@ describe('mergeAndDeduplicate — previousSlugs history preserved across duplica
       slug: 'warehouse-operator-coop',
       slugByLocale: { it: 'warehouse-operator-coop' },
       postedDate: '2026-06-30',
-      crawledAt: '2026-06-30T00:00:00.000Z',
+      crawledAt: daysAgoIso(3),
     };
     // LEGACY_PREV_SLUGS_CAP (issue #3630) is the flat legacy array's cap —
     // it unions across multiple sources (here: two merging job records), so
@@ -1457,8 +1522,8 @@ describe('mergeAndDeduplicate — postedDate falls back to legacy datePosted ins
   });
 
   it('existing-vs-existing collapse (mergeDuplicateJobPreservingSlugHistory path) keeps the older datePosted-only date instead of the winner\'s fabricated one', () => {
-    const winner = baseJob({ postedDate: '2026-07-05', crawledAt: '2026-07-05T00:00:00.000Z', featured: true });
-    const loser = baseJob({ datePosted: '2026-05-20', crawledAt: '2026-07-05T00:00:00.000Z', featured: false });
+    const winner = baseJob({ postedDate: '2026-07-05', crawledAt: daysAgoIso(3), featured: true });
+    const loser = baseJob({ datePosted: '2026-05-20', crawledAt: daysAgoIso(3), featured: false });
     const { merged } = mergeAndDeduplicate([winner, loser], [], cfg);
     expect(merged).toHaveLength(1);
     expect(merged[0].postedDate).toBe('2026-05-20');
@@ -1502,7 +1567,7 @@ describe('mergeAndDeduplicate — crawledAt is last-seen-live, refreshed on ever
     else process.env.SLUG_REGISTRY_PATH_OVERRIDE = prevOverride;
   });
 
-  const STALE_CRAWLED_AT = '2026-06-01T00:00:00.000Z';
+  const STALE_CRAWLED_AT = daysAgoIso(10);
 
   const baseJob = (over = {}) => ({
     id: 'job-crawledat-1',
@@ -1560,15 +1625,16 @@ describe('mergeAndDeduplicate — crawledAt is last-seen-live, refreshed on ever
       featured: true, // outscores loser ⇒ wins preferJob despite staler crawledAt
       description: 'D'.repeat(400),
     });
+    const newerCrawledAt = daysAgoIso(2);
     const loser = baseJob({
-      crawledAt: '2026-06-25T12:00:00.000Z',
+      crawledAt: newerCrawledAt,
       featured: false,
       description: 'D'.repeat(60),
     });
     const { merged } = mergeAndDeduplicate([winner, loser], [], cfg);
     expect(merged).toHaveLength(1);
     expect(merged[0].featured).toBe(true);
-    expect(merged[0].crawledAt).toBe('2026-06-25T12:00:00.000Z');
+    expect(merged[0].crawledAt).toBe(newerCrawledAt);
     expect(merged[0].firstSeenAt).toBe('2026-05-20T08:00:00.000Z');
   });
 

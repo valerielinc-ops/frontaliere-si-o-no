@@ -6439,6 +6439,29 @@ export function recencyTs(job) {
   return Number.isFinite(t) ? t : 0;
 }
 
+/** Hard cap matching cleanup-jobs JOBS_STALE_DAYS and the weekly stale-active audit. */
+export const ACTIVE_JOB_RETIREMENT_DAYS = 60;
+const ACTIVE_JOB_RETIREMENT_MS = ACTIVE_JOB_RETIREMENT_DAYS * 24 * 60 * 60 * 1000;
+
+/**
+ * True when a still-active record's crawledAt heartbeat is older than 60 days.
+ * Miss-streak grace absorbs a couple of transient pagination holes; this bound
+ * expires a job that was never recrawled (or never had crawledAt refreshed)
+ * even when the miss streak never advanced. Missing/unparseable crawledAt
+ * fails open — same as cleanup-jobs' `ts > 0` guard.
+ *
+ * @param {object} job
+ * @param {number} [nowMs]
+ * @returns {boolean}
+ */
+export function isActiveJobPastRetirement(job, nowMs = Date.now()) {
+  const raw = job?.crawledAt;
+  const ts = typeof raw === 'string' || typeof raw === 'number' ? Date.parse(String(raw)) : NaN;
+  if (!Number.isFinite(ts) || ts <= 0) return false;
+  const now = Number.isFinite(nowMs) ? nowMs : Date.now();
+  return now - ts > ACTIVE_JOB_RETIREMENT_MS;
+}
+
 export function mergeRequirements(a = [], b = []) {
   const cleanReq = (value = '') =>
     normalizeSpace(String(value || '')
@@ -6689,6 +6712,7 @@ export function mergeLocaleRequirementsMap(a = {}, b = {}) {
  * @param {object}   [opts]
  * @param {Function} [opts.matchKey] – (job) => string – key for matching (default: normalized URL)
  * @param {boolean}  [opts.retainMissingJobs=true] – Keep unmatched jobs under the grace-period policy
+ * @param {number}   [opts.nowMs] – Clock for the 60-day crawledAt retirement cap
  * @returns {object[]} Merged jobs array (fresh data wins for source fields, existing wins for translations)
  */
 export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
@@ -6698,6 +6722,7 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
   // logic below. Crawlers whose URLs lack any stable token fall back to
   // the normalized full URL (legacy behaviour) — no regression.
   const matchKey = opts.matchKey || ((job) => extractStableJobId(job?.url));
+  const nowMs = Number.isFinite(opts.nowMs) ? opts.nowMs : Date.now();
 
   // Guard against a non-injective matchKey (collisions). A bridge key that is
   // not unique — e.g. a slug bridge where two distinct postings share
@@ -7010,10 +7035,14 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
   // silently archive a still-open job; only let it drop — and flow
   // into computeCrawlDiff's removedJobs / archive path — once it has
   // been missing for GRACE_PERIOD_MAX_MISSES consecutive runs in a row.
+  // Independently, crawledAt older than ACTIVE_JOB_RETIREMENT_DAYS leaves
+  // the active slice even on miss 1: miss-streak grace never advanced for
+  // EOC/JYSK rows that stayed "known" without a recrawl heartbeat.
   const GRACE_PERIOD_MAX_MISSES = 2;
   const retainedJobs = [];
   for (const [key, old] of existingByKey) {
     if (matchedExistingKeys.has(key)) continue;
+    if (isActiveJobPastRetirement(old, nowMs)) continue;
     const missStreak = (Number(old.crawlerMissStreak) || 0) + 1;
     if (missStreak > GRACE_PERIOD_MAX_MISSES) continue;
     retainedJobs.push({ ...old, crawlerMissStreak: missStreak });
@@ -7904,12 +7933,14 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
   }
 
   const allMerged = [...map.values()];
-  const inScopeJobs = hasScopedCompanyKeys
+  const mergeNowMs = Date.parse(nowIsoTs) || Date.now();
+  const inScopeJobs = (hasScopedCompanyKeys
     ? allMerged.filter((j) => {
       const key = resolveJobCompanyKey(j);
       return scopeCompanyKeys.has(key);
     })
-    : allMerged;
+    : allMerged
+  ).filter((job) => !isActiveJobPastRetirement(job, mergeNowMs));
   const outOfScopeJobs = hasScopedCompanyKeys
     ? allMerged.filter((j) => {
       const key = resolveJobCompanyKey(j);
