@@ -138,7 +138,7 @@ describe('GA4 page_view employer attribution', () => {
 
   it('uses the canonical identity for job_apply instead of a display-name route slug', () => {
     const applyBlock = jobBoardSource.match(
-      /const trackPublisherApplySignals = \(job: JobListing[\s\S]*?return eventId;/,
+      /const trackPublisherApplySignals\s*=\s*\(\s*job: JobListing[\s\S]*?return eventId;/,
     );
     expect(applyBlock).not.toBeNull();
     expect(applyBlock![0]).toMatch(/\.\.\.buildJobApplyAttributionParams\(job\)/);

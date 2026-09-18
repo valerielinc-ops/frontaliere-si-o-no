@@ -31,28 +31,37 @@ beforeEach(() => {
 });
 
 describe('assisted application experiment assignment', () => {
-  it('keeps the same distinct id in the same 60/40 arm', () => {
+  it('keeps the same distinct id in the same three-arm assignment', () => {
     const ids = ['posthog-user-1', 'posthog-user-2', 'anon-sticky-id', 'posthog-user-3'];
 
     for (const id of ids) {
       expect(resolveAssistedApplicationVariant(id)).toBe(resolveAssistedApplicationVariant(id));
     }
-    expect(resolveAssistedApplicationVariant('posthog-user-1')).toBe('control');
-    expect(resolveAssistedApplicationVariant('posthog-user-3')).toBe('assisted_application');
+    expect(resolveAssistedApplicationVariant('posthog-user-1')).toBe('rewarded_ad');
+    expect(resolveAssistedApplicationVariant('posthog-user-3')).toBe('control');
   });
 
-  it('assigns approximately 40% of deterministic buckets to treatment', () => {
+  it('assigns approximately 20/40/40% to control, paid, and rewarded arms', () => {
     const ids = Array.from({ length: 10_000 }, (_, index) => `experiment-user-${index}`);
-    const treatmentCount = ids.filter((id) => resolveAssistedApplicationVariant(id) === 'assisted_application').length;
+    const counts = ids.reduce<Record<string, number>>((acc, id) => {
+      const variant = resolveAssistedApplicationVariant(id);
+      acc[variant] = (acc[variant] || 0) + 1;
+      return acc;
+    }, {});
 
-    expect(treatmentCount).toBeGreaterThanOrEqual(3_500);
-    expect(treatmentCount).toBeLessThanOrEqual(4_500);
+    expect(counts.control).toBeGreaterThanOrEqual(1_500);
+    expect(counts.control).toBeLessThanOrEqual(2_500);
+    expect(counts.assisted_application).toBeGreaterThanOrEqual(3_500);
+    expect(counts.assisted_application).toBeLessThanOrEqual(4_500);
+    expect(counts.rewarded_ad).toBeGreaterThanOrEqual(3_500);
+    expect(counts.rewarded_ad).toBeLessThanOrEqual(4_500);
   });
 
   it('fails closed to control for missing or unknown assignments', () => {
     expect(resolveAssistedApplicationVariant('')).toBe('control');
     expect(normalizeAssistedApplicationVariant('control')).toBe('control');
     expect(normalizeAssistedApplicationVariant('assisted_application')).toBe('assisted_application');
+    expect(normalizeAssistedApplicationVariant('rewarded_ad')).toBe('rewarded_ad');
     expect(normalizeAssistedApplicationVariant('treatment')).toBeNull();
     expect(normalizeAssistedApplicationVariant(true)).toBeNull();
   });

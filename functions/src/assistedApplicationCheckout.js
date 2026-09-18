@@ -10,10 +10,13 @@
 import admin from 'firebase-admin';
 import { createHash } from 'node:crypto';
 import { db, getStripe, verifyCaller } from './stripePublisherCore.js';
-import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+import {
+  ASSISTED_APPLICATIONS_COLLECTION,
+  ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+} from './assistedApplicationConstants.js';
 
 export const ASSISTED_APPLICATION_PRODUCT = 'assisted_application';
-export const ASSISTED_APPLICATION_PRICE_CENTS = 99;
+export const ASSISTED_APPLICATION_PRICE_CENTS = ASSISTED_APPLICATION_PRICE_EUR_CENTS;
 export const ASSISTED_APPLICATION_CURRENCY = 'eur';
 export const ASSISTED_APPLICATION_CONSENT_VERSION = 'assisted-application-v1';
 

@@ -6,6 +6,9 @@
 
 export const ASSISTED_APPLICATIONS_COLLECTION = 'assisted_applications';
 
+/** One-off price in EUR cents, shared by checkout validation and analytics. */
+export const ASSISTED_APPLICATION_PRICE_EUR_CENTS = 99;
+
 export const ASSISTED_APPLICATION_ADMIN_STATUSES = Object.freeze([
   'ready_for_manual_submission',
   'in_progress',

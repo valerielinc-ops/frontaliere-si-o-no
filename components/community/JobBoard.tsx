@@ -185,9 +185,14 @@ import {
 } from '@/build-plugins/shared/jobDescription/parser';
 import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
 import {
+ ASSISTED_APPLICATION_PRICE_EUR_CENTS,
  trackAssistedApplicationEvent,
  useAssistedApplicationVariant,
+ type AssistedApplicationVariant,
 } from '@/services/assistedApplicationExperiment';
+import {
+ getRewardedApplicationAccessExpiresAt,
+} from '@/services/rewardedApplicationAccess';
 import {
  createAssistedApplicationCheckout,
  ensureAssistedApplicationAuth,
@@ -2242,7 +2247,7 @@ function isExternalApplicationJob(job: JobListing): boolean {
  return mode !== 'in_house' && mode !== 'forward_email';
 }
 
-function assistedApplicationJobContext(job: JobListing, variant: 'control' | 'assisted_application') {
+function assistedApplicationJobContext(job: JobListing, variant: AssistedApplicationVariant) {
  return {
   variant,
   jobId: String(job.id),
@@ -6658,7 +6663,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return eventId;
  };
 
- const redirectExternalApplication = (job: JobListing, surface: string, trackHandoff: boolean) => {
+ const redirectExternalApplication = (job: JobListing, surface: string, trackHandoff: boolean, sameTab = false) => {
   const applyDestination = buildReferralUrl(job);
   if (!applyDestination) return;
   if (trackHandoff) {
@@ -6671,7 +6676,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
    'external_apply_redirected',
    { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface },
   );
-  window.open(applyDestination, '_blank', 'noopener,noreferrer');
+  if (sameTab) {
+   window.location.assign(applyDestination);
+  } else {
+   window.open(applyDestination, '_blank', 'noopener,noreferrer');
+  }
   // Mutate the page in the same tick as the hand-off — the confirmation is the
   // user-visible receipt AND the DOM change that makes this click non-dead.
   setAppliedJobId(job.id);
@@ -6686,21 +6695,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
   );
   setAssistedApplicationJob(null);
   setAssistedCheckoutError(null);
-  redirectExternalApplication(job, 'assisted_application_offer', true);
+  redirectExternalApplication(
+   job,
+   assistedApplicationVariant === 'rewarded_ad' ? 'rewarded_application_fallback' : 'assisted_application_offer',
+   true,
+  );
  };
 
  const handleAssistedPaid = async () => {
   const job = assistedApplicationJob;
-  if (!job || assistedCheckoutBusy) return;
+  if (!job || assistedApplicationVariant !== 'assisted_application' || assistedCheckoutBusy) return;
   setAssistedCheckoutBusy(true);
   setAssistedCheckoutError(null);
   trackAssistedApplicationEvent(
    'assisted_application_choose_paid',
-   assistedApplicationJobContext(job, assistedApplicationVariant),
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS },
   );
   trackAssistedApplicationEvent(
    'checkout_started',
-   { ...assistedApplicationJobContext(job, assistedApplicationVariant), price_eur_cents: 99 },
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS },
   );
   try {
    const user = authUser?.getIdToken ? authUser : await ensureAssistedApplicationAuth();
@@ -6720,10 +6733,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
   } catch (error) {
    setAssistedCheckoutBusy(false);
    setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
-   trackAssistedApplicationEvent(
-    'checkout_failed',
-    { ...assistedApplicationJobContext(job, assistedApplicationVariant), reason: 'session_creation_failed' },
-   );
+  trackAssistedApplicationEvent(
+   'checkout_failed',
+    {
+     ...assistedApplicationJobContext(job, assistedApplicationVariant),
+     price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+     reason: 'session_creation_failed',
+    },
+  );
    if ((error as { message?: string })?.message === 'assisted_application_auth_required') onRequireAuth?.();
   }
  };
@@ -6739,10 +6756,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const handleApply = (job: JobListing, surface = 'job_board_apply') => {
   const isExternal = isExternalApplicationJob(job);
+  const rewardedAccessExpiresAt = isExternal && assistedApplicationVariant === 'rewarded_ad'
+   ? getRewardedApplicationAccessExpiresAt()
+   : null;
+  const rewardedNeedsOffer = assistedApplicationVariant === 'rewarded_ad'
+   && !killSwitches.rewardedApplicationAd
+   && rewardedAccessExpiresAt === null;
   const eventId = trackPublisherApplySignals(
    job,
    surface,
-   isExternal && assistedApplicationVariant === 'assisted_application'
+   isExternal && (assistedApplicationVariant === 'assisted_application' || rewardedNeedsOffer)
     ? { deferExternalHandoff: true }
     : undefined,
   );
@@ -6760,6 +6783,37 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // External publisher ads: count the apply click too (session-debounced, so it
  // never double-counts with the header logo/title links). No-op for crawled jobs.
  trackPublisherApplyClick(job as { publisherJobId?: string | null }, { eventId: eventId });
+ if (isExternal && assistedApplicationVariant === 'rewarded_ad') {
+  trackAssistedApplicationEvent(
+   'job_apply_click',
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface },
+  );
+  if (killSwitches.rewardedApplicationAd || rewardedAccessExpiresAt !== null) {
+   if (rewardedAccessExpiresAt !== null) {
+    trackAssistedApplicationEvent(
+     'rewarded_application_access_used',
+     { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, access_expires_at: rewardedAccessExpiresAt, access_ttl_hours: 12 },
+    );
+   }
+   redirectExternalApplication(
+    job,
+    killSwitches.rewardedApplicationAd ? 'rewarded_application_killswitch' : 'rewarded_application_entitlement',
+    false,
+   );
+   return;
+  }
+  // The native Google Offerwall owns the page-level gate and the 12-hour
+  // entitlement. Once the user has completed it, the next click is a normal
+  // direct hand-off. There is no documented native callback that can safely
+  // perform a late external redirect after the ad, so we keep this hand-off
+  // synchronous and let Funding Choices own the reward UI.
+  trackAssistedApplicationEvent(
+   'rewarded_application_offer_requested',
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, provider: 'google_offerwall' },
+  );
+  redirectExternalApplication(job, 'rewarded_application_native_offerwall', false);
+  return;
+ }
  if (assistedApplicationVariant === 'assisted_application') {
   trackAssistedApplicationEvent(
    'job_apply_click',
@@ -7095,7 +7149,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  ) : null;
 
- const assistedApplicationOfferJsx = assistedApplicationJob ? (
+ const assistedApplicationOfferJsx = assistedApplicationJob && assistedApplicationVariant === 'assisted_application' ? (
   <Suspense fallback={null}>
    <AssistedApplicationOffer
     jobId={String(assistedApplicationJob.id)}

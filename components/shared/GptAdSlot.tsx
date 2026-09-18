@@ -57,6 +57,9 @@ const gtag = (): any => {
   return gt;
 };
 
+/** Shared GPT access for out-of-page formats (for example rewarded ads). */
+export const getGptTag = gtag;
+
 function ensureGptScript(): void {
   // ── ADVERTISING CONSENT GATE (#5842) ────────────────────────────────
   // Placed BEFORE the `gptScriptRequested` latch on purpose: that latch is
@@ -78,7 +81,7 @@ function ensureGptScript(): void {
 /** Initialise the GPT framework once (post-load idle, not on scroll): the GAM
  *  Offerwall evaluates at page entry, so GPT must be present then. The ad slots
  *  themselves stay lazy to protect CWV. */
-function initGptFramework(): void {
+export function initGptFramework(): void {
   ensureGptScript();
   const gt = gtag();
   gt.cmd.push(() => {

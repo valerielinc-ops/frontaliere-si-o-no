@@ -100,6 +100,10 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  // restores manual in-feed slots on the treatment pages. Auto Ads remain
  // operational in both states.
  KILL_JOBLIST_INFEED_EXPERIMENT: 'false',
+ // Assisted-application rewarded ad. Default 'false' keeps the rewarded
+ // treatment live; flip to 'true' to fall back to the direct destination
+ // without redeploying if GAM inventory or policy review requires a pause.
+ KILL_ASSISTED_APPLICATION_REWARDED_AD: 'false',
  // E3: Inline consulting CTA on calculator results view.
  // Default 'true' so the CTA is visible until explicitly disabled via Firebase
  // Remote Config console. Flip to 'false' to hide the CTA without a redeploy.
