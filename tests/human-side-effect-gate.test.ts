@@ -63,6 +63,12 @@ const VALID_PUBLISHER_EVENT = {
   },
 };
 
+// Fixed clock, so the freshness window is exercised by fixtures rather than by
+// the wall clock. `NOW` is arbitrary; only the distance to run_started_at ever
+// matters.
+const NOW = Date.parse('2026-09-18T15:28:16.000Z');
+const SOURCE_RUN_STARTED_AT = '2026-09-18T15:25:08.000Z';
+
 const VALID_SOURCE_RUN = {
   id: 123456789,
   workflow_id: 323736126,
@@ -72,6 +78,7 @@ const VALID_SOURCE_RUN = {
   status: 'in_progress',
   conclusion: null,
   run_attempt: 1,
+  run_started_at: SOURCE_RUN_STARTED_AT,
   repository: { full_name: PUBLISHER_SOURCE_REPOSITORY },
 };
 
@@ -92,11 +99,12 @@ function sourceRun(overrides = {}) {
   return { ...VALID_SOURCE_RUN, ...overrides };
 }
 
-function verifyPublisher({ clientPayload, runMetadata, workflowMetadata } = {}) {
+function verifyPublisher({ clientPayload, runMetadata, workflowMetadata, now = NOW } = {}) {
   return evaluatePublisherDispatchAttestation({
     eventPayload: publisherEvent(clientPayload),
     runMetadata: runMetadata === undefined ? sourceRun() : runMetadata,
     workflowMetadata: workflowMetadata === undefined ? VALID_SOURCE_WORKFLOW : workflowMetadata,
+    now,
   });
 }
 
@@ -216,6 +224,21 @@ const SCHEDULE_ARMED_WORKFLOWS = [
   // 2026-09-15T06:58:44.350Z. Arming it makes the underlying failure visible
   // again — it does not repair it.
   'refresh-plate-auctions.yml',
+  // Armed 2026-09-18, and the FOURTH workflow #8889's fail-closed switch
+  // caught that no rearm pass inventoried: #9004 took 14, #9135 took two more,
+  // #9164 took refresh-plate-auctions, and this one was in none of them. Its
+  // 5:23/17:23 cron is the article chain's only backstop, and
+  // verify-publisher-dispatch.mjs's header names the schedule "the safe
+  // recovery path" for a lost dispatch race — so here the omission cost more
+  // than elsewhere: #8918 closed the DISPATCH path the same day
+  // (2026-09-16T19:25Z), leaving the chain no path at all, and
+  // packages/articles/content stopped being written at 2026-09-16T12:00:46Z.
+  //
+  // Four instances of one omission is the argument for the closure assertion
+  // this list still lacks: nothing asserts that every workflow with a
+  // `side_effect_gate` and a `schedule:` appears in exactly one of the two
+  // inventories. Enumerated 2026-09-18: 12 were in neither.
+  'sync-articles-sitemaps.yml',
 ];
 
 const SCHEDULE_UNARMED_WORKFLOWS = [
@@ -356,6 +379,18 @@ const GATED_SIDE_EFFECT_STEPS: Record<string, RegExp[]> = {
     /Trigger deploy for live compat correction/u,
   ],
 };
+
+/**
+ * One step's RAW yaml slice. Raw, not YAML.parse'd, because the assertions
+ * that matter here are about the `if:` expression and the `${{ }}` bindings
+ * verbatim — parsing resolves them away.
+ */
+function step(source: string, name: string) {
+  const start = source.indexOf(`- name: ${name}`);
+  if (start < 0) throw new Error(`step not found: ${name}`);
+  const end = source.indexOf('\n      - name:', start + 1);
+  return source.slice(start, end < 0 ? undefined : end);
+}
 
 function credentialHydrationSteps(source: string) {
   const document = YAML.parse(source) as { jobs?: Record<string, { steps?: Array<Record<string, unknown>> }> };
@@ -637,15 +672,18 @@ describe('publisher dispatch provenance verifier', () => {
     }
   });
 
-  it('rejects API errors, failed/cancelled/unknown states, and completed replay', () => {
+  it('rejects API errors and failed/cancelled/unknown states', () => {
     for (const [name, runMetadata, reason] of [
       ['run API error', null, 'publisher-source-run-api-response-invalid'],
       ['workflow API error', sourceRun(), 'publisher-source-workflow-api-response-invalid'],
-      ['failed run', sourceRun({ status: 'completed', conclusion: 'failure' }), 'publisher-source-run-status-not-allowed'],
-      ['cancelled run', sourceRun({ status: 'completed', conclusion: 'cancelled' }), 'publisher-source-run-status-not-allowed'],
+      // A conclusion, once present, must be exactly `success`. These three used
+      // to report `publisher-source-run-status-not-allowed` because completed
+      // was refused wholesale; now the refusal is specific to the conclusion.
+      ['failed run', sourceRun({ status: 'completed', conclusion: 'failure' }), 'publisher-source-run-not-successful'],
+      ['cancelled run', sourceRun({ status: 'completed', conclusion: 'cancelled' }), 'publisher-source-run-not-successful'],
+      ['completed without conclusion', sourceRun({ status: 'completed', conclusion: null }), 'publisher-source-run-not-successful'],
       ['unknown status', sourceRun({ status: 'unknown', conclusion: null }), 'publisher-source-run-status-not-allowed'],
       ['unknown conclusion', sourceRun({ status: 'in_progress', conclusion: 'unknown' }), 'publisher-source-run-status-not-allowed'],
-      ['completed success replay', sourceRun({ status: 'completed', conclusion: 'success' }), 'publisher-source-run-status-not-allowed'],
     ] as const) {
       const decision = verifyPublisher({
         runMetadata,
@@ -654,6 +692,51 @@ describe('publisher dispatch provenance verifier', () => {
       expect(decision.verified, name).toBe(false);
       expect(decision.reasons, name).toContain(reason);
     }
+  });
+
+  // ── The regression this whole block exists for ───────────────────────────
+  //
+  // The predecessor of this test asserted the opposite: `['completed success
+  // replay', …, 'publisher-source-run-status-not-allowed']`. That rule cannot
+  // be satisfied by the workflow that enforces it. The provenance step runs
+  // only after a 46'229-file checkout of this repo, and by then the publisher
+  // run has finished — so from 8d953d627c8 (2026-09-16T19:25Z) every
+  // `articles-published` dispatch denied, `Commit if changed` never ran, and
+  // packages/articles/content sat at 49b38547dad for ~52h while the corpus
+  // went on publishing. The visible symptom was two repos disagreeing about
+  // how many svizzera articles exist: 2157 here against 2183 announced, which
+  // tripped rerender-article-hubs' freshness guard (tolerance 25) on run
+  // 35308833501 and stayed red for 9 runs.
+  it('accepts a publisher run that has already completed successfully', () => {
+    const decision = verifyPublisher({
+      runMetadata: sourceRun({ status: 'completed', conclusion: 'success' }),
+    });
+    expect(decision).toMatchObject({ verified: true, reason: 'publisher-source-run-verified' });
+  });
+
+  it('bounds replay by freshness instead of by liveness', () => {
+    // Anti-replay is the reason completed was refused in the first place, so
+    // the property has to survive the change: an old payload names a run that
+    // STARTED long ago, and run_started_at comes from the API response rather
+    // than from the attested client_payload.
+    for (const [name, runMetadata, now, reason] of [
+      ['replayed hours later', sourceRun({ status: 'completed', conclusion: 'success' }), NOW + 6 * 60 * 60 * 1000, 'publisher-source-run-stale'],
+      ['started in the future', sourceRun(), NOW - 6 * 60 * 60 * 1000, 'publisher-source-run-stale'],
+      ['no start time at all', sourceRun({ run_started_at: undefined }), NOW, 'publisher-source-run-started-at-invalid'],
+      ['unparseable start time', sourceRun({ run_started_at: 'yesterday' }), NOW, 'publisher-source-run-started-at-invalid'],
+    ] as const) {
+      const decision = verifyPublisher({ runMetadata, now });
+      expect(decision.verified, name).toBe(false);
+      expect(decision.reasons, name).toContain(reason);
+    }
+
+    // And the window is wide enough for the real latency it has to absorb —
+    // the 2m36s job measured in run 35362400341, with headroom.
+    const withinWindow = verifyPublisher({
+      runMetadata: sourceRun({ status: 'completed', conclusion: 'success' }),
+      now: Date.parse(SOURCE_RUN_STARTED_AT) + 30 * 60 * 1000,
+    });
+    expect(withinWindow.verified).toBe(true);
   });
 
   it('rejects source reruns even if all other metadata matches', () => {
@@ -709,6 +792,33 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
     expect(source).toContain('APPROVAL_EXPECTED_DISPATCH_REPOSITORY: valerielinc-ops/frontaliere-si-o-no');
     expect(source).toContain('APPROVAL_EXPECTED_DISPATCH_SCOPE: article-sitemap-publication');
     expect(source).toContain('APPROVAL_EXPECTED_DISPATCH_WORKFLOW: Sync article sitemaps, feeds and ticker from the articles API');
+  });
+
+  it('asks "may this run write?" in exactly one place', () => {
+    // The `gate` step always claimed to be that one place, but it read only
+    // the two pull outputs. `Commit if changed` carried a second, independent
+    // copy of the side-effect condition, so a withheld write permission left
+    // `skipped` false: the escalation never fired and `Clear the skip
+    // escalation` CLOSED the standing issue on every denied run. That is the
+    // mechanism that turned a dead pipeline into a wall of green.
+    const source = workflow('sync-articles-sitemaps.yml');
+    const gate = step(source, 'Decide whether this run may commit');
+    expect(gate).toContain('ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}');
+    expect(gate).toContain('EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}');
+
+    // The commit keeps stating the side-effect condition verbatim — the
+    // inventory test above requires that of every writer step, so permission
+    // cannot be laundered through an intermediate output. What the fold buys
+    // is that `skipped` is now true whenever nothing will be committed, for
+    // ANY reason, which is what the escalation and the resolve hang off.
+    const commit = step(source, 'Commit if changed');
+    expect(commit).toContain("steps.gate.outputs.skipped != 'true'");
+    expect(commit).toContain("steps.side_effect_gate.outputs.allow_side_effect == 'true'");
+
+    const escalate = step(source, 'Escalate a sync that keeps being skipped');
+    expect(escalate).toContain("steps.gate.outputs.skipped == 'true'");
+    const resolve = step(source, 'Clear the skip escalation');
+    expect(resolve).toContain("steps.gate.outputs.skipped != 'true'");
   });
 
   it('ritenta solo lookup transitori e run queued, mantenendo il deny sui terminali', () => {
@@ -851,9 +961,9 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
   });
 
   it('arms trusted schedules only on workflows whose schedules apply side effects', () => {
-    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(17);
+    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(18);
     expect(SCHEDULE_UNARMED_WORKFLOWS).toHaveLength(10);
-    expect(SCHEDULE_SIDE_EFFECT_WORKFLOWS).toHaveLength(27);
+    expect(SCHEDULE_SIDE_EFFECT_WORKFLOWS).toHaveLength(28);
 
     for (const name of SCHEDULE_SIDE_EFFECT_WORKFLOWS) {
       const document = YAML.parse(workflow(name)) as { jobs?: Record<string, { steps?: Array<Record<string, unknown>> }> };

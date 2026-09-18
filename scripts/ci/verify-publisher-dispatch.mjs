@@ -23,11 +23,13 @@
  *     source_branch: GITHUB_REF_NAME (must be main)
  *     source_event: GITHUB_EVENT_NAME (must be push)
  *
- * The publisher sends this event before its own run is complete. Only
- * status=in_progress with conclusion=null is accepted. A completed run cannot
- * prove that a new dispatch came from the publisher rather than being a replay
- * of an old payload, so it is deliberately denied; the site's schedule is the
- * safe recovery path for that race.
+ * The publisher sends this event before its own run is complete, but the run
+ * is normally already finished by the time this verifier reads it — the
+ * receiving job has to check this repo out first, and that takes minutes. So
+ * the admitted lifecycle is in_progress/null OR completed/success, and the
+ * anti-replay property is carried by FRESHNESS (run_started_at, an API field,
+ * not an attested one) rather than by liveness. See the lifecycle check in
+ * compareMetadata for the measurement that forced this.
  */
 
 import fs from 'node:fs';
@@ -41,6 +43,22 @@ export const PUBLISHER_SOURCE_WORKFLOW = 'Publish article data API';
 export const PUBLISHER_SOURCE_WORKFLOW_PATH = '.github/workflows/publish-api.yml';
 export const PUBLISHER_SOURCE_BRANCH = 'main';
 export const PUBLISHER_SOURCE_EVENT = 'push';
+
+/**
+ * How far in the past the publisher run may have STARTED and still count as
+ * this dispatch's run.
+ *
+ * One hour, chosen against the two things that bracket it. The floor is the
+ * real end-to-end latency this has to tolerate: the publisher run itself, plus
+ * this job's queue wait, plus the 46'229-file checkout that precedes the
+ * lookup — 1m53s of checkout alone in run 35362400341, and the whole job took
+ * 2m36s. Minutes, so an hour is two orders of magnitude of headroom. The
+ * ceiling is the workflow's own `cron: '23 5,17 * * *'` schedule floor, 12
+ * hours: the window must stay well under it, or a replayed payload could
+ * substitute for a genuine publish between two scheduled runs. An hour sits
+ * clear of both.
+ */
+export const MAX_PUBLISHER_RUN_AGE_MS = 60 * 60 * 1000;
 
 export const PUBLISHER_ATTESTATION_FIELDS = Object.freeze([
   'schema_version',
@@ -129,7 +147,7 @@ function parseAttestation(eventPayload, reasons) {
   return reasons.length === 0 ? attestation : null;
 }
 
-function compareMetadata(attestation, runMetadata, workflowMetadata, reasons) {
+function compareMetadata(attestation, runMetadata, workflowMetadata, reasons, now) {
   if (!isRecord(runMetadata)) {
     reasons.push('publisher-source-run-api-response-invalid');
     return;
@@ -173,10 +191,48 @@ function compareMetadata(attestation, runMetadata, workflowMetadata, reasons) {
     reasons.push('publisher-source-event-api-mismatch');
   }
 
-  // This is the only admitted lifecycle pair. In particular, completed/success
-  // is not enough: after completion the same valid payload could be replayed.
-  if (runMetadata.status !== 'in_progress' || runMetadata.conclusion !== null) {
+  // ── Lifecycle, and why it is no longer liveness-only ─────────────────────
+  //
+  // #8918 admitted in_progress/null and nothing else, arguing that a completed
+  // run cannot prove the dispatch is new rather than a replay of an old
+  // payload. Measured 2026-09-18: that pair is unreachable in practice. This
+  // verifier lives in the repo, so the receiving job must check the repo out
+  // before it can run — 46'229 files, 1m53s in run 35362674586's sibling
+  // 35362400341, whose provenance step then read a publisher run that had
+  // already completed. Result: every `articles-published` dispatch from
+  // 8d953d627c8 (2026-09-16T19:25Z) onward denied with
+  // publisher-source-run-status-not-allowed, `Commit if changed` never ran,
+  // and packages/articles/content froze at 49b38547dad (2026-09-16T12:00Z)
+  // with 2157 svizzera articles against the 2183 the corpus announced.
+  //
+  // Freshness carries the anti-replay property instead, and it is the stronger
+  // half of the original argument: a replayed old payload names a run that
+  // STARTED long ago, and run_started_at comes from the API response, never
+  // from the untrusted client_payload. The window is far under the workflow's
+  // 12-hourly schedule floor, so a replay can never stand in for a real
+  // publish.
+  //
+  // Admitting completed also closes a hole liveness left open: an in_progress
+  // run can still FAIL after the site has synced from it. Once a conclusion
+  // exists it must therefore be exactly `success`.
+  if (runMetadata.status === 'completed') {
+    if (runMetadata.conclusion !== 'success') {
+      reasons.push('publisher-source-run-not-successful');
+    }
+  } else if (runMetadata.status !== 'in_progress' || runMetadata.conclusion !== null) {
     reasons.push('publisher-source-run-status-not-allowed');
+  }
+
+  // Symmetric window: a run_started_at an hour in the FUTURE is as suspect as
+  // one an hour in the past, and costs one `Math.abs` rather than a second
+  // constant nobody would tune separately.
+  const startedAt = Date.parse(
+    typeof runMetadata.run_started_at === 'string' ? runMetadata.run_started_at : '',
+  );
+  if (!Number.isFinite(startedAt)) {
+    reasons.push('publisher-source-run-started-at-invalid');
+  } else if (Math.abs(now - startedAt) > MAX_PUBLISHER_RUN_AGE_MS) {
+    reasons.push('publisher-source-run-stale');
   }
 }
 
@@ -189,6 +245,9 @@ export function evaluatePublisherDispatchAttestation({
   eventPayload,
   runMetadata,
   workflowMetadata,
+  // Injected so the freshness window is exercised by fixtures rather than by
+  // the wall clock, which would make the test suite time-dependent.
+  now = Date.now(),
 } = {}) {
   const reasons = [];
   if (!isRecord(eventPayload) || eventPayload.action !== PUBLISHER_DISPATCH_ACTION) {
@@ -196,7 +255,7 @@ export function evaluatePublisherDispatchAttestation({
   }
 
   const attestation = parseAttestation(eventPayload, reasons);
-  if (attestation) compareMetadata(attestation, runMetadata, workflowMetadata, reasons);
+  if (attestation) compareMetadata(attestation, runMetadata, workflowMetadata, reasons, now);
 
   return {
     verified: reasons.length === 0,
