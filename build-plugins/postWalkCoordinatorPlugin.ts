@@ -91,8 +91,8 @@ import {
 } from './shared/postWalkCoordinatorProfiler';
 import { logBuildMem } from './shared/buildMemLog';
 import { releaseIncrementalManifestState } from './shared/incrementalManifest.mjs';
+import { getPathHistory } from './sharedWriteRegistry';
 import {
-  getPathHistory,
   latestClaimHash,
   loadPostWalkDerivedDigestSidecar,
   loadPostWalkUnmanifestedTopLevels,
