@@ -78,6 +78,44 @@ describe('incremental manifest input contract', () => {
     expect(secondHash).not.toBe(firstHash);
   });
 
+  it('changes the cross-locale hash when the rendered datePosted changes', () => {
+    const cache = createIncrementalManifestInputCache();
+    const baseRecord = {
+      id: 'cross-locale-job-1',
+      slug: 'detailhandelsassistent-in-eba-jumbo-dietlikon-tkbjqj',
+      title: 'Detailhandelsassistent',
+      sourceRecordHash: 'source-v1',
+      datePosted: '2026-08-19T14:02:37.348Z',
+      postedDate: '2026-08-19T14:02:37.348Z',
+    };
+    const changedRecord = {
+      ...baseRecord,
+      datePosted: '2026-08-19T16:17:13.045Z',
+    };
+    const crossLocaleInput = (record) => ({
+      ...buildMinimalJobInput(record, 'it', record.slug, [], cache, record),
+      source: 'active-job',
+      sourceInputHash: 'canonical-active-hash',
+      path: `/it/jobs/${record.slug}/`,
+      baseLocale: 'it',
+      foreignSlug: record.slug,
+      canton: 'ZH',
+      slugPerLocale: { it: record.slug },
+      previousSlugsByLocale: {},
+    });
+
+    const firstHash = computeInputHash(
+      crossLocaleInput(baseRecord),
+      'cross-locale-reconciliation',
+    );
+    const secondHash = computeInputHash(
+      crossLocaleInput(changedRecord),
+      'cross-locale-reconciliation',
+    );
+
+    expect(secondHash).not.toBe(firstHash);
+  });
+
   it('changes the page hash when only related company and salary change', () => {
     const pageJob = { id: 'page-1', updatedAt: 'v1', title: 'Page' };
     const relatedJob = {
