@@ -126,6 +126,7 @@ describe('Concordia crawler parser', () => {
       expect(parseConcordiaListingTotal('<div class="total-jobs">1\'234 Jobs</div>')).toBe(1234);
       expect(parseConcordiaListingTotal('<div class="total-jobs">1’234 Jobs</div>')).toBe(1234);
       expect(parseConcordiaListingTotal('<div class="total-jobs">1&nbsp;234 Jobs</div>')).toBe(1234);
+      expect(parseConcordiaListingTotal('<div data-testid="count" class="total-jobs"><strong>1&nbsp;234</strong> Jobs</div>')).toBe(1234);
       expect(parseConcordiaListingTotal('<div class="jobs">no total</div>')).toBeNull();
     });
 

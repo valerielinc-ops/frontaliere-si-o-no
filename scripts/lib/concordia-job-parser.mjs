@@ -136,10 +136,13 @@ export function parseConcordiaListingTotal(html = '') {
   const normalizedHtml = String(html || '')
     .replace(/&(nbsp|#160|#xA0|thinsp|#8239|#x202F);/gi, ' ');
   const match = normalizedHtml.match(
-    /class=["'][^"']*\btotal-jobs\b[^"']*["'][^>]*>\s*([\d\s.,'’\u00a0]+)/i,
+    /<([a-z][\w:-]*)\b[^>]*\bclass=["'][^"']*\btotal-jobs\b[^"']*["'][^>]*>([\s\S]*?)<\/\1>/i,
   );
   if (!match) return null;
-  const total = Number(match[1].replace(/[^\d]/g, ''));
+  const text = match[2].replace(/<[^>]+>/g, ' ');
+  const numberMatch = text.match(/[\d][\d\s.,'’\u00a0]*/);
+  if (!numberMatch) return null;
+  const total = Number(numberMatch[0].replace(/[^\d]/g, ''));
   return Number.isInteger(total) ? total : null;
 }
 
