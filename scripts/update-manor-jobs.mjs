@@ -18,7 +18,7 @@
  * Manor AG is a national department-store chain (HQ Basel) with stores in
  * every canton, so the crawler collects CH-wide. Per-job canton is inferred
  * from the store city encoded in the URL via inferAnyCanton; the region gate
- * is isTargetSwissLocation (spans all 26 TARGET_CANTONS).
+ * is isTargetSwissLocation across all 26 Swiss cantons.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -54,7 +54,7 @@ import {
   normalizeCantonCode,
   normalizeSwissTargetLocationText,
 } from './lib/target-swiss-locations.mjs';
-import { getCompanyDefaults, getCantonDisplayName } from './lib/crawler-location-config.mjs';
+import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { exitCrawlerOnError, fetchHtml, normalizeDescriptionBullets } from './lib/crawler-template.mjs';
 import { decodeEntities, htmlToText } from './lib/hospital-custom-html-helpers.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -73,7 +73,6 @@ const MANOR_KEY = 'manor';
 // of #3775/#3768).
 const DATA_JOBS = crawlerScratchPathFor(MANOR_KEY);
 const PUBLIC_DATA_JOBS = `${DATA_JOBS}.public.json`;
-const DEFAULT_CANTON = getCompanyDefaults(MANOR_KEY)?.canton || 'TI';
 const MANOR_COMPANY_NAME = 'Manor AG';
 const MANOR_HOST = 'positions.manor.ch';
 const MANOR_SITEMAP_URL = 'https://positions.manor.ch/sitemap.xml';
@@ -81,7 +80,7 @@ const MANOR_LOCALES = ['it', 'en', 'de', 'fr'];
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
-  'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+  'Mozilla/5.0 (compatible; FrontaliereBot/1.0; +https://frontaliereticino.ch/)';
 
 /* ── Matcher ───────────────────────────────────────────────── */
 function isManorJob(job) {
@@ -269,6 +268,17 @@ function readMetaContent(html, key) {
   return '';
 }
 
+function readItempropContent(html, key) {
+  const wanted = String(key || '').toLowerCase();
+  for (const match of String(html || '').matchAll(/<[^>]+>/g)) {
+    const tag = match[0];
+    if (readHtmlAttribute(tag, 'itemprop').toLowerCase() !== wanted) continue;
+    const content = readHtmlAttribute(tag, 'content');
+    if (content) return content;
+  }
+  return '';
+}
+
 export function stripSiteTitleSuffix(rawTitle) {
   const title = decodeEntities(String(rawTitle || '')).trim();
   return title
@@ -298,14 +308,60 @@ export function parseJobPage(html, url) {
     } catch { /* ignore */ }
   }
 
-  // Extract location from itemprop="streetAddress"
-  const locMatch = html.match(/itemprop="streetAddress"\s+content="([^"]+)"/);
-  const location = locMatch ? locMatch[1].trim() : '';
+  // SuccessFactors currently exposes only a combined `streetAddress` value
+  // such as "Chavannes-de-Bogis, CH". Preserve every address signal that is
+  // actually present; the URL city remains the authoritative workplace when
+  // the portal omits locality/postal fields.
+  const streetAddress = readItempropContent(html, 'streetAddress');
+  const addressLocality = readItempropContent(html, 'addressLocality');
+  const postalCode = readItempropContent(html, 'postalCode');
+  const addressRegion = readItempropContent(html, 'addressRegion');
+  const location = addressLocality || streetAddress.split(',')[0].trim();
+  const hasOnlyCombinedLocation = /^.+,\s*(?:CH|Switzerland|Schweiz|Suisse|Svizzera)$/iu.test(streetAddress);
 
-  return { title, description: rawDesc, postedDate, location };
+  return {
+    title,
+    description: rawDesc,
+    postedDate,
+    location,
+    addressLocality,
+    addressRegion,
+    postalCode,
+    streetAddress: hasOnlyCombinedLocation ? '' : streetAddress,
+  };
 }
 
 /* ── Fetch & parse ─────────────────────────────────────────── */
+/**
+ * Resolve the one locality/canton pair emitted into Manor JobPosting data.
+ * Detail metadata wins when present, but it must remain in the canton selected
+ * by the URL and must not contradict an explicit detail-page region.
+ */
+export function resolveManorLocation(pageData = {}, urlCity = '') {
+  const detailLocality = String(pageData?.addressLocality || '').trim();
+  const location = detailLocality || String(urlCity || '').trim();
+  const canton = inferAnyCanton(location);
+  const urlCanton = inferAnyCanton(urlCity);
+  const detailRegion = String(pageData?.addressRegion || '').trim();
+  const normalizedDetailCanton = normalizeCantonCode(detailRegion);
+  // An explicit schema region is a canton field, not a free-text workplace.
+  // Do not let a border city or another location token infer a Swiss canton
+  // and contaminate the locality/canton tuple.
+  const detailCanton = normalizedDetailCanton;
+
+  if (
+    !location
+    || !canton
+    || (detailRegion && !detailCanton)
+    || (urlCanton && urlCanton !== canton)
+    || (detailCanton && detailCanton !== canton)
+  ) {
+    return null;
+  }
+
+  return { location, canton };
+}
+
 async function fetchManorJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
   const delayMs = Number(process.env.MANOR_CRAWL_DELAY_MS) || 1500;
@@ -327,7 +383,7 @@ async function fetchManorJobs() {
   const targetUrls = [];
   for (const url of allUrls) {
     const { city } = extractCityFromUrl(url);
-    if (city && isTargetSwissLocation(city)) {
+    if (city && isTargetSwissLocation(city, { includeBorderProximity: false })) {
       targetUrls.push({ url, city });
     }
   }
@@ -339,6 +395,8 @@ async function fetchManorJobs() {
   }
 
   const jobs = [];
+  const skipped = { missingTitle: 0, unresolvedCanton: 0 };
+  let detailFailures = 0;
 
   // Fetch detail pages for each target job
   for (let i = 0; i < targetUrls.length; i++) {
@@ -352,6 +410,7 @@ async function fetchManorJobs() {
       const html = await fetchText(url, timeoutMs);
       pageData = parseJobPage(html, url);
     } catch (err) {
+      detailFailures++;
       console.warn(`  ⚠️  Failed to fetch job detail: ${err?.message || err}`);
       // Still include with minimal data from URL
       pageData = {
@@ -359,42 +418,57 @@ async function fetchManorJobs() {
         description: '',
         postedDate: '',
         location: `${city}, CH`,
+        addressLocality: city,
+        addressRegion: '',
+        postalCode: '',
+        streetAddress: '',
       };
     }
 
     const title = pageData.title || extractTitleFromUrl(url);
     if (!title) {
+      skipped.missingTitle++;
       console.log(`  ⚠️  Skipping job ${jobId}: no title`);
       continue;
     }
 
     const category = detectCategory(title);
 
-    // Per-job canton inferred CH-wide from the store city; HQ default only as
-    // a last resort when the central helper cannot resolve a code. City-first
-    // (not a combined string): inferAnyCanton returns the first canton in
-    // TARGET_CANTONS array order, so a combined "city + detail location" string
-    // could let the detail location's canton override the URL-derived store
-    // city. Resolve city alone first, fall back to detail location.
-    const canton = inferAnyCanton(city) || inferAnyCanton(pageData.location || '') || DEFAULT_CANTON;
+    // Keep location, addressLocality and addressRegion on the same source
+    // signal. A detail page that names another canton is rejected instead of
+    // publishing a structurally incoherent JobPosting.
+    const resolvedLocation = resolveManorLocation(pageData, city);
+    if (!resolvedLocation) {
+      skipped.unresolvedCanton++;
+      console.warn(`  ⚠️  Skipping job ${jobId}: detail locality/canton disagrees with store city (${city})`);
+      continue;
+    }
+
+    const { location: resolvedCity, canton } = resolvedLocation;
+    const addressLocality = resolvedCity;
+    const addressRegion = canton;
 
     // Use page description if substantial, otherwise template
     const pageDesc = (pageData.description || '').trim();
     const descIt = pageDesc.length >= 100
       ? pageDesc
-      : buildDescriptionIt(title, city, canton);
-    const descEn = buildDescriptionEn(title, city, canton);
-    const descDe = buildDescriptionDe(title, city, canton);
-    const descFr = buildDescriptionFr(title, city, canton);
+      : buildDescriptionIt(title, resolvedCity, canton);
+    const descEn = buildDescriptionEn(title, resolvedCity, canton);
+    const descDe = buildDescriptionDe(title, resolvedCity, canton);
+    const descFr = buildDescriptionFr(title, resolvedCity, canton);
 
-    const baseSlug = normalizeKey(`manor ${title} ${city}`);
+    const baseSlug = normalizeKey(`manor ${title} ${resolvedCity}`);
 
     const job = {
       title,
       company: MANOR_COMPANY_NAME,
       companyKey: MANOR_KEY,
       url,
-      location: city,
+      location: resolvedCity,
+      addressLocality,
+      streetAddress: pageData.streetAddress || '',
+      postalCode: pageData.postalCode || '',
+      addressRegion,
       canton,
       country: 'CH',
       category,
@@ -427,7 +501,14 @@ async function fetchManorJobs() {
     }
   }
 
+  console.log(`📋 Detail pages fetched: ${targetUrls.length - detailFailures}/${targetUrls.length}`);
   console.log(`📋 Total unique Manor Swiss jobs discovered: ${jobs.length}`);
+  if (skipped.missingTitle || skipped.unresolvedCanton) {
+    console.warn(`⚠️ Skipped Manor listings: ${JSON.stringify(skipped)}`);
+  }
+  if (targetUrls.length > 0 && jobs.length === 0) {
+    throw new Error(`Manor sitemap returned ${targetUrls.length} Swiss listings but no listing produced a resolvable job`);
+  }
   return jobs;
 }
 
