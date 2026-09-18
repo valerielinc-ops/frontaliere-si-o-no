@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import { resolveFnzSwissLocation } from '../scripts/lib/fnz-job-parser.mjs';
 import { resolveFnzLocation } from '../scripts/update-fnz-jobs.mjs';
+import { isCantonOnlyLabel } from '../scripts/lib/target-swiss-locations.mjs';
 
 const fnzCrawlerSource = fs.readFileSync(
   new URL('../scripts/update-fnz-jobs.mjs', import.meta.url),
@@ -60,6 +61,12 @@ describe('fnz-job-parser / resolveFnzSwissLocation', () => {
       location: 'Zürich',
       canton: 'ZH',
     });
+  });
+
+  it('keeps capital municipalities out of the canton-only classification', () => {
+    expect(isCantonOnlyLabel('Bern')).toBe(false);
+    expect(isCantonOnlyLabel('Zürich')).toBe(false);
+    expect(isCantonOnlyLabel('Ticino')).toBe(true);
   });
 
   it('rejects a city and richer address signal that point to different cantons', () => {
