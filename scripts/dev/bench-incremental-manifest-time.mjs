@@ -192,11 +192,17 @@ function runFullPoolBridgeScenario(label, relatedJobs, sourceJobOrFactory, sourc
   return finishScenario(rootDir, manifest, startedAt);
 }
 
-function runCompactBridgeScenario(sourceJob, selectedRelatedJobs, relatedPoolSignature) {
+function runCompactBridgeScenario(sourceJob, selectedRelatedJobs, relatedPool) {
   const label = 'compact-bridge';
   const rootDir = path.join(os.tmpdir(), `incremental-manifest-time-${process.pid}-${label}`);
   const manifest = getIncrementalManifestMap(rootDir, [BENCHMARK_LOCALE]).get(BENCHMARK_LOCALE);
   const inputCache = getIncrementalManifestInputCache(rootDir);
+  // The production emitter computes this once while preparing the canonical
+  // active page, then reuses its hash for all legacy bridges. Keep that
+  // one-time O(pool) work inside the measured scenario and amortize it over
+  // the bridge pages instead of hiding it in setup.
+  const startedAt = performance.now();
+  const relatedPoolSignature = computeRelatedJobPoolSignature(relatedPool);
   const activeInput = {
     ...buildMinimalJobInput(
       sourceJob,
@@ -211,7 +217,6 @@ function runCompactBridgeScenario(sourceJob, selectedRelatedJobs, relatedPoolSig
     relatedPoolSignature,
   };
   const sourceInputHash = computeInputHash(activeInput, 'active-job');
-  const startedAt = performance.now();
 
   for (let pageIndex = 0; pageIndex < PAGE_COUNT; pageIndex += 1) {
     manifest.register(
@@ -295,7 +300,7 @@ const report = {
     () => sourceJob,
     'c'.repeat(64),
   ),
-  after: runCompactBridgeScenario(sourceJob, selectedRelated, relatedPoolSignature),
+  after: runCompactBridgeScenario(sourceJob, selectedRelated, relatedPool),
 };
 
 if (!noAssert) assertReport(report);
