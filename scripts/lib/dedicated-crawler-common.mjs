@@ -32,7 +32,7 @@ import {
 } from './job-locale-utils.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { MAX_SLUG_LENGTH } from './regenerate-slugs-helpers.mjs';
-import { mergeJobIdentity } from './job-match-key.mjs';
+import { extractStableJobId, etaRoleStemFromJob, mergeJobIdentity } from './job-match-key.mjs';
 import {
   WORKDAY_HOST_RE,
   workdayReqFromLeaf,
@@ -6607,11 +6607,12 @@ export function mergeLocaleTextMap(a = {}, b = {}, minChars = 1, sourceLocale = 
     // titleByLocale.en/de/fr stayed stuck on "Dipl. Physiotherapist" for
     // dozens of crawls after the vacancy was refilled with a completely
     // different "Cuoco/a in dietetica" (Cook) posting under the same URL).
-    // The matcher upstream (mergePreserveLocaleData's matchKey) keys on
-    // mergeJobIdentity — URL-only for most crawlers, URL+role-stem for ETA
-    // recycled requisitions (issue 8624). A host that still reuses a bare
-    // stable ID (EOC Umantis, #4569) can hand us `a` (old, physiotherapist)
-    // and `b` (fresh, cook) as if they were the same job. Detect that case here,
+    // The matcher upstream (mergePreserveLocaleData's matchKey) keeps the
+    // stable requisition key for continuity and only adds ETA's role
+    // discriminator when that requisition is actually colliding in the same
+    // run. A host that still reuses a bare stable ID (EOC Umantis, #4569) can
+    // hand us `a` (old, physiotherapist) and `b` (fresh, cook) as if they were
+    // the same job. Detect that case here,
     // where we have the only pair of same-locale source texts to compare:
     // if the source-locale text itself changed beyond recognition, the old
     // non-source-locale translations almost certainly belong to a different
@@ -6731,7 +6732,7 @@ export function mergeLocaleRequirementsMap(a = {}, b = {}) {
  * @param {object[]} existingJobs  – Jobs from the current slice/dataset for this company
  * @param {object[]} freshJobs     – Newly parsed jobs (may only have one locale filled)
  * @param {object}   [opts]
- * @param {Function} [opts.matchKey] – (job) => string – key for matching (default: normalized URL)
+ * @param {Function} [opts.matchKey] – (job) => string – key for matching (default: stable URL/requisition key; ETA role discriminator is added only for collisions)
  * @param {boolean}  [opts.retainMissingJobs=true] – Keep unmatched jobs under the grace-period policy
  * @param {number}   [opts.nowMs] – Clock for the 60-day crawledAt retirement cap
  * @returns {object[]} Merged jobs array (fresh data wins for source fields, existing wins for translations)
@@ -6740,9 +6741,39 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
   // Default to the stable-id matchKey so vendor URL renames (slug-portion
   // rewrites with the underlying job ID intact, e.g. PwC's Workday-style
   // UUID URLs) preserve the merge and trigger the previousSlugs capture
-  // logic below. Crawlers whose URLs lack any stable token fall back to
-  // the normalized full URL (legacy behaviour) — no regression.
-  const matchKey = opts.matchKey || ((job) => mergeJobIdentity(job));
+  // logic below. ETA reuses a requisition for different roles: keep the
+  // stable requisition key when it is injective (so a legitimate role/title
+  // edit keeps continuity), and add the role stem only when the same key is
+  // present more than once in this run. That discriminator is deliberately
+  // not part of the ordinary key: the first three slug tokens are lossy and
+  // can change when the vendor rewrites a title.
+  const baseMatchKey = opts.matchKey || ((job) => {
+    const urlKey = extractStableJobId(job?.url);
+    if (urlKey) return urlKey;
+    const slug = String(job?.slug || '').trim().toLowerCase();
+    return slug ? `slug:${slug}` : '';
+  });
+  const matchKey = opts.matchKey
+    ? baseMatchKey
+    : (() => {
+      const collisionBases = new Set();
+      for (const jobs of [existingJobs, freshJobs]) {
+        const counts = new Map();
+        for (const job of jobs) {
+          const base = baseMatchKey(job);
+          if (!base) continue;
+          const count = (counts.get(base) || 0) + 1;
+          counts.set(base, count);
+          if (count > 1) collisionBases.add(base);
+        }
+      }
+      return (job) => {
+        const base = baseMatchKey(job);
+        if (!collisionBases.has(base) || !base.startsWith('req:eta.ch:')) return base;
+        const role = etaRoleStemFromJob(job);
+        return role ? `${base}#role:${role}` : `${base}#role:`;
+      };
+    })();
   const nowMs = Number.isFinite(opts.nowMs) ? opts.nowMs : Date.now();
 
   // Guard against a non-injective matchKey (collisions). A bridge key that is
