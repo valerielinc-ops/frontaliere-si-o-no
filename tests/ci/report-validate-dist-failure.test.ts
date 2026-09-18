@@ -314,6 +314,7 @@ describe('resolve — chiude sia il titolo legacy sia i per-gate', () => {
     ];
     execFileSync.mockImplementation((_cmd: string, args: string[]) => {
       if (args[0] === 'issue' && args[1] === 'list') return JSON.stringify(open);
+      if (args[0] === 'issue' && args[1] === 'view') return JSON.stringify({ state: 'CLOSED' });
       return '';
     });
     process.env.GH_REPO = 'valerielinc-ops/frontaliere-si-o-no';

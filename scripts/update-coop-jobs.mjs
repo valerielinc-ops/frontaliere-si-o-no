@@ -66,6 +66,7 @@ import { detectLanguage } from './lib/detect-language.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { preferLocationEncodedCanton } from './lib/job-location-display.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -305,21 +306,52 @@ function dateOnly(raw = '') {
 
 function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
   const attr30 = String(job?.attributes?.['30']?.[0] || '').trim();
-  const canton = resolveCoopCantonCode(attr30, '', fallbackCanton);
+  const attrCanton = resolveCoopCantonCode(attr30, '', fallbackCanton);
   // Try to get city-level location from various API fields before falling back to canton
   const apiCity = String(job?.location || job?.place || job?.city || job?.address?.city || '').trim();
-  const location = apiCity || attr30 || cantonLabel(canton || fallbackCanton);
+  const location = apiCity || attr30 || cantonLabel(attrCanton || fallbackCanton);
+  const canton = preferLocationEncodedCanton(location, attrCanton || fallbackCanton)
+    || attrCanton
+    || fallbackCanton;
   const company = String(job?.attributes?.['70']?.[0] || job?.company || '').trim();
   const contract = String(job?.attributes?.['40']?.[0] || '').trim();
   return {
     location,
-    canton: canton || fallbackCanton,
+    canton,
     ...(company ? { company } : {}),
     ...(contract ? { contract } : {}),
     ...(job?.date || job?.datePosted || job?.publishedAt || job?.published_at || job?.createdAt
       ? { postedDate: dateOnly(job?.date || job?.datePosted || job?.publishedAt || job?.published_at || job?.createdAt) }
       : {}),
   };
+}
+
+/**
+ * Stamp the canton the location already names when that marker is a real
+ * Swiss canton. Shared JSON-LD assembly concatenates `locality, region` and
+ * then prefers the Prospective attr-30 seed canton, which is how
+ * `"Reinach (AG)"` / `"Büren an der Aare, Bern"` land with a different
+ * `job.canton`. Returns the same object when nothing changes.
+ *
+ * @param {Record<string, any>} job
+ * @returns {Record<string, any>}
+ */
+export function reconcileCoopLocationCanton(job = {}) {
+  const location = String(job?.location || '').trim();
+  const preferred = preferLocationEncodedCanton(location, job?.canton);
+  if (!preferred) return job;
+  const canton = String(job?.canton || '').trim().toUpperCase();
+  const region = String(job?.addressRegion || '').trim().toUpperCase();
+  if (canton === preferred && (!region || region === preferred)) return job;
+  return { ...job, canton: preferred, addressRegion: preferred };
+}
+
+function applyCoopLocationCantonPreference(job) {
+  const next = reconcileCoopLocationCanton(job);
+  if (next === job) return false;
+  job.canton = next.canton;
+  job.addressRegion = next.addressRegion;
+  return true;
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -821,6 +853,7 @@ async function postProcessCoopJobs() {
       Object.assign(job, ldResult.job);
       changed = true;
     }
+    if (applyCoopLocationCantonPreference(job)) changed = true;
 
     // ── Title validation ──
     const ldTitle = (jsonLd.title || '').trim();
@@ -979,10 +1012,18 @@ async function postProcessCoopJobs() {
     allJobs.push(...kept);
   }
 
-  if (repaired > 0 || dropped > 0) {
+  let reconciled = 0;
+  for (const job of allJobs) {
+    if (!isCoopJob(job)) continue;
+    if (applyCoopLocationCantonPreference(job)) reconciled += 1;
+  }
+
+  if (repaired > 0 || dropped > 0 || reconciled > 0) {
     writeJsonAtomic(DATA_JOBS, allJobs);
     writeJsonAtomic(PUBLIC_JOBS, allJobs);
-    console.log(`  ✅ Repaired ${repaired}/${coopJobs.length} Coop jobs` + (dropped ? ` · quarantined ${dropped} without a real source description` : ''));
+    console.log(`  ✅ Repaired ${repaired}/${coopJobs.length} Coop jobs`
+      + (dropped ? ` · quarantined ${dropped} without a real source description` : '')
+      + (reconciled ? ` · aligned ${reconciled} location/canton stamps` : ''));
   } else {
     console.log(`  ✅ All ${coopJobs.length} Coop jobs passed validation`);
   }

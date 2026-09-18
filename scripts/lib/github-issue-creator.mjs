@@ -830,14 +830,32 @@ function setIssuePriorityLabel(issueNumber, targetPriorityLabel, extraAdd = []) 
 }
 
 /**
+ * True only when `gh issue view` proves the issue is CLOSED. Unreadable
+ * output is not a close: a refused or silent failure must stay visible.
+ */
+function issueViewIsClosed(number) {
+  const out = gh(
+    ['issue', 'view', String(number), '--json', 'state', ...repoFlag()],
+    { allowFailure: true },
+  );
+  if (typeof out !== 'string' || !out) return false;
+  try {
+    return String(JSON.parse(out)?.state || '').toUpperCase() === 'CLOSED';
+  } catch {
+    return String(out).toUpperCase() === 'CLOSED';
+  }
+}
+
+/**
  * Resolve (close) the canonical OPEN issue with the given stable title prefix.
  *
  * The mirror of the `reopenWithinHours` flap-collapse logic: failure reporters
  * REOPEN the canonical issue on red, so a green run must CLOSE it again —
  * otherwise the issue stays open while the state is already OK (stale-issue
  * churn). Idempotent: a no-op when no matching OPEN issue exists, so it's safe
- * to run on every green pass. Best-effort — never throws; returns the closed
- * issue ref or null.
+ * to run on every green pass. A verified close returns the issue ref with
+ * `persisted: true`. A refused or unverified close throws (the error carries
+ * `persisted: false`) so callers cannot treat it as a successful no-op.
  *
  * @param {string} titlePrefix  Stable title (first DEDUP_TITLE_PREFIX_LEN chars
  *                              are matched, exactly as createGithubIssue dedups).
@@ -874,12 +892,22 @@ export function resolveGithubIssue(titlePrefix, { workflow, runUrl } = {}) {
     ['issue', 'close', String(existing.number), '--reason', 'completed', ...repoFlag()],
     { allowFailure: true },
   );
-  if (closed !== null) {
+  if (issueViewIsClosed(existing.number)) {
     console.log(`[github-issue-creator] resolve: closed #${existing.number} — ${existing.title}`);
-    return { number: existing.number, title: existing.title, url: existing.url };
+    return {
+      number: existing.number,
+      title: existing.title,
+      url: existing.url,
+      persisted: true,
+    };
   }
-  console.error(`[github-issue-creator] resolve: could not close #${existing.number} (best-effort)`);
-  return null;
+  const detail = closed === null ? 'close rejected' : 'post-condition not closed';
+  const message = `[github-issue-creator] resolve: could not close #${existing.number} (${detail})`;
+  console.error(message);
+  const err = new Error(message);
+  err.persisted = false;
+  err.number = existing.number;
+  throw err;
 }
 
 /**
@@ -1415,10 +1443,15 @@ if (isDirectRun) {
 
   // --resolve: close the OPEN canonical issue with this stable title (green run).
   // Mirror of the failure reporter; runs from `if: success()` steps so a recovered
-  // gate doesn't leave a stale open issue. Best-effort, always exits 0.
+  // gate doesn't leave a stale open issue. A refused close must not exit 0.
   if (args.includes('--resolve')) {
-    resolveGithubIssue(title, { workflow: get('--workflow'), runUrl: get('--run-url') });
-    process.exit(0);
+    try {
+      resolveGithubIssue(title, { workflow: get('--workflow'), runUrl: get('--run-url') });
+      process.exit(0);
+    } catch (err) {
+      console.error(`[github-issue-creator] ${err.message}`);
+      process.exit(1);
+    }
   }
 
   // --consecutive-gate: N>0 forces the gate (escalate on the Nth failure);

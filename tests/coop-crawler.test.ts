@@ -11,7 +11,9 @@ import {
   fetchCoopJobDetailUrls,
   findUnrecognizedCoopDivisions,
   isCoopJob,
+  reconcileCoopLocationCanton,
 } from '../scripts/update-coop-jobs.mjs';
+import { jobLocationRedundancy } from '../scripts/lib/job-location-display.mjs';
 import { fingerprintJob } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { __testables as sharedCrawlerTestables } from '../scripts/lib/shared-jobs-crawler.mjs';
 import {
@@ -35,6 +37,34 @@ const makeCoopApiJob = (index, { canton = 'Zurigo' } = {}) => ({
     directlink: `https://jobs.coopjobs.ch/offene-stellen/job-${index}/22222222-2222-4222-8222-${String(index).padStart(12, '0')}`,
   },
   attributes: { '30': [canton], '70': ['Coop Genossenschaft'] },
+});
+
+describe('reconcileCoopLocationCanton', () => {
+  const conflictShape = [
+    { location: 'Reinach (AG)', canton: 'BL' },
+    { location: 'Büren an der Aare, Bern', canton: 'SO' },
+    { location: 'Feuerthalen, Zürich', canton: 'SH' },
+  ];
+
+  it('prefers the canton encoded in the location over a conflicting stamp', () => {
+    const reconciled = reconcileCoopLocationCanton({ location: 'Reinach (AG)', canton: 'BL' });
+    expect(reconciled.canton).toBe('AG');
+    expect(reconciled.addressRegion).toBe('AG');
+    expect(jobLocationRedundancy(reconciled.location, reconciled.canton)?.conflict).toBeFalsy();
+  });
+
+  it('drains the ❗ conflict class to 0 on a fixture of the Coop conflict shape', () => {
+    expect(conflictShape.filter((job) => jobLocationRedundancy(job.location, job.canton)?.conflict).length).toBe(3);
+    const remaining = conflictShape
+      .map((job) => reconcileCoopLocationCanton(job))
+      .filter((job) => jobLocationRedundancy(job.location, job.canton)?.conflict).length;
+    expect(remaining).toBe(0);
+  });
+
+  it('does not rewrite a pair that already agrees', () => {
+    const job = { location: 'Lugano', canton: 'TI', addressRegion: 'TI' };
+    expect(reconcileCoopLocationCanton(job)).toBe(job);
+  });
 });
 
 describe('Coop authoritative detail routing', () => {
@@ -132,6 +162,23 @@ describe('Coop authoritative detail routing', () => {
       droppedDuplicateIdentity: 0,
     });
     expect(assertCompleteCoopDiscovery(discovery)).toBe(true);
+  });
+
+  it('prefers a canton encoded in the listing location over a conflicting attr-30 stamp', async () => {
+    const url = 'https://jobs.coopjobs.ch/offene-stellen/reinach/11111111-1111-4111-8111-111111111111';
+    const jobs = [{
+      links: { directlink: url },
+      location: 'Reinach (AG)',
+      attributes: { '30': ['Basilea Campagna'], '70': ['Coop Genossenschaft'] },
+    }];
+    const discovery = await fetchCoopJobDetailUrls({
+      fetchImpl: async () => new Response(JSON.stringify({ total: 1, jobs }), { status: 200 }),
+    });
+    expect(discovery.seedMetaByUrl[url]).toMatchObject({ location: 'Reinach (AG)', canton: 'AG' });
+    expect(jobLocationRedundancy(
+      discovery.seedMetaByUrl[url].location,
+      discovery.seedMetaByUrl[url].canton,
+    )?.conflict).toBeFalsy();
   });
 
   it('fails closed when a partially repeated page cannot prove unique progress', async () => {
