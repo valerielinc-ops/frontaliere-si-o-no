@@ -401,6 +401,15 @@ function elapsedMs(startedAt) {
   return Number(process.hrtime.bigint() - startedAt) / 1e6;
 }
 
+function hasUnavailableSourceInput(input) {
+  if (input === null || input === undefined) return true;
+  if (typeof input !== 'object' || Array.isArray(input)) return false;
+  for (const key of ['sourceInputHash', 'canonicalInputHash']) {
+    if (Object.prototype.hasOwnProperty.call(input, key) && !input[key]) return true;
+  }
+  return false;
+}
+
 export class JobsSeoHtmlReuse {
   constructor({ cacheRoot, previousByLocale, verify, verifySample = 1, emitterFingerprints = {} }) {
     this.cacheRoot = cacheRoot;
@@ -424,21 +433,27 @@ export class JobsSeoHtmlReuse {
     if (!stats) throw new Error(`Unknown jobs SEO reuse block: ${block}`);
     const normalizedPath = normalizeManifestPath(pagePath);
     const previous = this.previousByLocale.get(String(locale));
-    const inputHash = computeInputHash(input, kind);
+    // A bridge depends on the current source page. If that source was not
+    // registered in this shard, its `sourceInputHash`/`canonicalInputHash`
+    // is null. Hashing that null would make every such bridge look stable
+    // across builds and could reuse HTML from a different source revision.
+    // Treat the missing dependency as an explicit render miss instead.
+    const inputUnavailable = hasUnavailableSourceInput(input);
+    const inputHash = inputUnavailable ? null : computeInputHash(input, kind);
     const cachePath = htmlReuseCachePath(
       this.cacheRoot,
       locale,
       normalizedPath,
       this.cacheRoot,
       kind,
-      inputHash,
+      inputHash || 'input-unavailable',
     );
-    let missReason = null;
+    let missReason = inputUnavailable ? 'input-unavailable' : null;
     let html = null;
 
-    if (!previous) {
+    if (!missReason && !previous) {
       missReason = 'manifest-missing';
-    } else {
+    } else if (!missReason) {
       const entry = previous.entries.get(normalizedPath);
       if (!entry) {
         missReason = 'path-added';
@@ -494,6 +509,7 @@ export class JobsSeoHtmlReuse {
       html,
       hit: html !== null,
       verify,
+      cacheable: !inputUnavailable,
       startedAt: process.hrtime.bigint(),
     };
   }
@@ -545,6 +561,7 @@ export class JobsSeoHtmlReuse {
         );
       }
     }
+    if (!candidate.cacheable) return;
     this.persist(candidate.cachePath, renderedHtml, candidate.block, candidate.path);
   }
 
