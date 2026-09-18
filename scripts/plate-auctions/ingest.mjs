@@ -76,7 +76,9 @@ function sourceStatus(source, result) {
     lastCheckedAt: result.fetchedAt,
   };
   if (result.error) return { ...base, status: 'degraded', rowCount: result.previousRows.length, errorCode: 'fetch_failed', lastSuccessAt: result.previousSuccessAt };
-  if (result.sourceDisappeared) return {
+  // Recognised sales are a healthy catalogue doing what a catalogue does; only
+  // an unrecognised loss is evidence of a broken or truncated upstream.
+  if (result.sourceDisappeared && !(result.salesRecognized && (result.catalogueSales || []).length > 0)) return {
     ...base,
     status: 'degraded',
     rowCount: result.rows.length,
@@ -115,6 +117,87 @@ function applyQualityPolicy(rows, previousRows, now) {
     })),
     issues,
   };
+}
+
+export const PLATE_AUCTION_HISTORY_CAP = 5000;
+
+/**
+ * Calibration knob for reading a vanished row as a sale. NOT a law: these
+ * three numbers are meant to be retuned on the first real data, which is why
+ * they live in one named place instead of inline in the condition.
+ *
+ * A fixed-price catalogue has no "sold" flag — the canton just drops the row —
+ * so the only available evidence is the SHAPE of the loss. Neither dimension
+ * works alone: 1% of BS's 16'976 rows is 170, a sane ceiling for BS and absurd
+ * for a 26-row source, while a low fixed cap is the reverse. `max(3, 1%)`
+ * gives BS 170 and a 26-row source 3.
+ */
+export const PLATE_AUCTION_SALE_RECOGNITION = Object.freeze({
+  /** Band: the catalogue came back healthy, not truncated. */
+  minFetchedRatio: 0.95,
+  /** Cap: share of the catalogue that may be read as sales in one run. */
+  maxVanishedRatio: 0.01,
+  /** Floor so a very small catalogue is not permanently stuck at zero. */
+  minVanishedCap: 3,
+});
+
+/**
+ * Fail-closed toward never inventing a sale: when either test fails we keep
+ * today's preserve-as-live behaviour. The accepted consequence is staying at
+ * zero recorded sales until the calibration above is confirmed on real data —
+ * which is the right direction, because a truncated PDF read as sales would
+ * stamp hundreds of plates with a fabricated sale date and price.
+ */
+export function recognizeCatalogueSales({ previousCount, fetchedCount, vanishedCount }) {
+  const cap = Math.max(
+    PLATE_AUCTION_SALE_RECOGNITION.minVanishedCap,
+    Math.ceil(PLATE_AUCTION_SALE_RECOGNITION.maxVanishedRatio * previousCount),
+  );
+  const withinBand = fetchedCount >= PLATE_AUCTION_SALE_RECOGNITION.minFetchedRatio * previousCount;
+  const withinCap = vanishedCount <= cap;
+  const blockedBy = [
+    ...(withinBand ? [] : ['band']),
+    ...(withinCap ? [] : ['cap']),
+  ];
+  return { recognized: withinBand && withinCap, cap, blockedBy };
+}
+
+/**
+ * A plate that vanished from its cantonal catalogue.
+ *
+ * A fixed-price catalogue has no "sold" flag: the canton simply drops the row
+ * from the published list, so disappearance IS the only sale signal available.
+ * 16'976 of 17'260 rows are `fixed-price` and carry `endsAt` in ZERO cases, so
+ * `closeExpiredObservation()` — which needs a deadline — can never close them:
+ * before this, a sold fixed-price plate just silently left the site with no
+ * record at all, and `history` held 5'000 rows that were all still `active`.
+ *
+ * The price we hold is the last published ASKING price, never a verified
+ * final. This deliberately does NOT set `finalPriceChf` or
+ * `finalPriceVerifiedAt` and forces `dataConfidence` below `verified`, so the
+ * observation can never satisfy the `finalsVerified` predicate that guards the
+ * finals ranking. A catalogue removal is not a sale result we witnessed.
+ */
+export function observeCatalogueDisappearance(row, now) {
+  const askingPriceChf = typeof row.currentBidChf === 'number' ? row.currentBidChf : row.startingPriceChf;
+  return {
+    ...row,
+    auctionStatus: 'closed',
+    closedAt: row.closedAt || row.lastSeenAt || row.sourceFetchedAt || now.toISOString(),
+    disappearedFromCatalogue: true,
+    ...(typeof askingPriceChf === 'number' ? { lastAskingPriceChf: askingPriceChf } : {}),
+    // Never a witnessed final: keep it out of the finals ranking by construction.
+    finalPriceChf: undefined,
+    finalPriceVerifiedAt: undefined,
+    dataConfidence: 'partial',
+  };
+}
+
+/** Latest observation per id wins; input must be oldest-first. */
+function dedupeHistoryById(rows) {
+  const byId = new Map();
+  for (const row of rows) byId.set(row.id, row);
+  return [...byId.values()];
 }
 
 function closeExpiredObservation(row, now) {
@@ -169,14 +252,44 @@ export async function collectPlateAuctions({
       const expiredCarry = missingPreviousRows
         .map((row) => closeExpiredObservation(row, now))
         .filter((row, index, all) => row.auctionStatus === 'closed' && all.findIndex((candidate) => candidate.id === row.id) === index);
-      const preservedMissing = sourceDisappeared
-        ? missingPreviousRows
-          .filter((row) => isUnexpiredActiveObservation(row, now))
-          .map((row) => ({
-            ...row,
-            dataConfidence: row.dataConfidence === 'verified' ? 'partial' : row.dataConfidence,
-          }))
+      // Is this loss shaped like sales, or like a truncated catalogue?
+      //
+      // Only a row with NO deadline is ambiguous. A row that vanishes before
+      // its own published deadline is an upstream anomaly whatever the shape
+      // of the loss — the auction should still have been listed — so it keeps
+      // the existing preserve-as-live behaviour and is never read as a sale.
+      // Deadline-less rows are the fixed-price catalogue (16'976 of 17'260),
+      // where disappearance is the only sale signal that exists.
+      const stillLive = missingPreviousRows.filter((row) => isUnexpiredActiveObservation(row, now));
+      const saleCandidates = stillLive.filter((row) => !Number.isFinite(Date.parse(row.endsAt || '')));
+      const withDeadline = stillLive.filter((row) => Number.isFinite(Date.parse(row.endsAt || '')));
+      const saleDecision = recognizeCatalogueSales({
+        previousCount: previousForSource.length,
+        fetchedCount: rows.length,
+        vanishedCount: saleCandidates.length,
+      });
+      // Logged on EVERY run, including when sales are recognised: without the
+      // four numbers the first week of real data is not verifiable and the
+      // retuning would be done by eye.
+      console.log(
+        `[collectPlateAuctions:${key}] sale-recognition previous=${previousForSource.length} `
+        + `fetched=${rows.length} vanished=${saleCandidates.length} cap=${saleDecision.cap} `
+        + `deadline-protected=${withDeadline.length} `
+        + (saleDecision.recognized ? `decision=sales sold=${saleCandidates.length}` : `decision=preserve-as-live blocked-by=${saleDecision.blockedBy.join('+')}`),
+      );
+      const catalogueSales = saleDecision.recognized
+        ? saleCandidates.map((row) => observeCatalogueDisappearance(row, now))
         : [];
+      // Not recognised: keep the rows visible rather than assert a sale. Rows
+      // with a future deadline are preserved either way.
+      const demoteConfidence = (row) => ({
+        ...row,
+        dataConfidence: row.dataConfidence === 'verified' ? 'partial' : row.dataConfidence,
+      });
+      const preservedMissing = [
+        ...withDeadline.map(demoteConfidence),
+        ...(saleDecision.recognized ? [] : saleCandidates.map(demoteConfidence)),
+      ];
       const displayRows = [...normalizedRows, ...expiredCarry, ...preservedMissing];
       // An empty response is degraded and preserves the last good snapshot.
       // A non-empty response is authoritative when quality checks do not flag
@@ -185,7 +298,7 @@ export async function collectPlateAuctions({
       const outputRows = rows.length === 0
         ? previousForSource.map((row) => closeExpiredObservation(row, now))
         : displayRows;
-      results[key] = { rows: outputRows, fetchedAt, fetchedRowCount: rows.length, previousRows: previousForSource, previousSuccessAt, zeroRows: rows.length === 0, sourceDisappeared, qualityIssues: quality.issues, error: null };
+      results[key] = { rows: outputRows, fetchedAt, fetchedRowCount: rows.length, previousRows: previousForSource, previousSuccessAt, zeroRows: rows.length === 0, sourceDisappeared, salesRecognized: saleDecision.recognized, catalogueSales, qualityIssues: quality.issues, error: null };
     } catch (error) {
       const previousForSource = previousRows.filter((row) => row.sourceKey === source.plateCode);
       console.warn(`[collectPlateAuctions:${key}] ${error instanceof Error ? error.message : String(error)}`);
@@ -213,12 +326,26 @@ export async function collectPlateAuctions({
   }
 
   const previousHistory = Array.isArray(previous?.history) ? previous.history : [];
-  const disappearedObservations = Object.values(results).flatMap((result) => {
-    if (!result || result.error || result.fetchedRowCount === 0) return [];
-    const currentIds = new Set(result.rows.map((row) => row.id));
-    return result.previousRows.filter((row) => !currentIds.has(row.id));
-  });
-  const history = [...previousHistory, ...disappearedObservations, ...outputAuctions].slice(-5000);
+  // Taken from the per-source decision rather than re-derived from the row
+  // sets: one place decides what counts as a sale, and it is the place that
+  // logged why.
+  const disappearedObservations = Object.values(results)
+    .flatMap((result) => (result && !result.error ? result.catalogueSales || [] : []));
+  // History is the record of what is NO LONGER live, so the live catalogue does
+  // not belong in it. Concatenating `outputAuctions` (17'260 rows) before a
+  // `.slice(-5000)` meant the window was filled entirely by current rows and
+  // BOTH `previousHistory` and `disappearedObservations` were discarded on
+  // every single run — the sale signal was computed and then thrown away.
+  // Measured on the committed snapshot: 5'000 history rows, 100% `auctionStatus:
+  // 'active'`, zero finals, 4'139 of them BS, i.e. the tail of the current
+  // catalogue. Keeping only non-live rows also makes the cap a disappearance
+  // budget instead of a mixed one. Oldest first: `.slice` keeps the tail.
+  const closedFromOutput = outputAuctions.filter((row) => !['active', 'upcoming'].includes(row.auctionStatus));
+  const history = dedupeHistoryById([
+    ...previousHistory,
+    ...closedFromOutput,
+    ...disappearedObservations,
+  ]).slice(-PLATE_AUCTION_HISTORY_CAP);
   const finalsVerified = outputAuctions.filter((row) => ['closed', 'sold', 'unsold'].includes(row.auctionStatus)
     && row.dataConfidence === 'verified'
     && typeof row.finalPriceChf === 'number'
