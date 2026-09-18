@@ -14,8 +14,10 @@
 import { describe, expect, it } from 'vitest';
 import {
   KNOWN_CANTON_CODES,
+  cantonNamedByLocation,
   formatJobLocation,
   jobLocationRedundancy,
+  preferLocationEncodedCanton,
   splitJobLocation,
 } from '../scripts/lib/job-location-display.mjs';
 
@@ -198,5 +200,43 @@ describe('KNOWN_CANTON_CODES', () => {
       expect(KNOWN_CANTON_CODES.has(code)).toBe(true);
     }
     expect(KNOWN_CANTON_CODES.has('CH')).toBe(false);
+  });
+});
+
+describe('preferLocationEncodedCanton', () => {
+  it('adopts the canton the location already names when the stamp disagrees', () => {
+    // Same homonym the formatter reports as conflict without picking a winner.
+    expect(splitJobLocation('Reinach (AG)', 'BL').conflict).toBe(true);
+    expect(preferLocationEncodedCanton('Reinach (AG)', 'BL')).toBe('AG');
+    expect(cantonNamedByLocation('Reinach (AG)')).toBe('AG');
+    expect(preferLocationEncodedCanton('Büren an der Aare, Bern', 'SO')).toBe('BE');
+    expect(preferLocationEncodedCanton('Feuerthalen, Zürich', 'SH')).toBe('ZH');
+  });
+
+  it('keeps a consistent stamp and does not invent a canton from a bare city', () => {
+    expect(preferLocationEncodedCanton('Lengnau (BE)', 'BE')).toBe('BE');
+    expect(preferLocationEncodedCanton('Lugano', 'TI')).toBe('TI');
+    expect(preferLocationEncodedCanton('Lugano', 'XX')).toBe('');
+  });
+
+  it('leaves a two-canton region unresolved rather than picking the tail', () => {
+    expect(cantonNamedByLocation('Obwalden/Nidwalden')).toBeNull();
+    expect(preferLocationEncodedCanton('Obwalden/Nidwalden', 'OW')).toBe('');
+  });
+
+  it('checks every peeled marker instead of trusting only the outer canton', () => {
+    expect(cantonNamedByLocation('Reinach (AG), Basel-Landschaft')).toBeNull();
+    expect(cantonNamedByLocation('Obwalden/Nidwalden')).toBeNull();
+    expect(preferLocationEncodedCanton('Reinach (AG), Basel-Landschaft', 'BL')).toBe('');
+  });
+
+  it('does not infer Aargau from an unverified company suffix', () => {
+    expect(cantonNamedByLocation('XpertCenter AG')).toBeNull();
+    expect(preferLocationEncodedCanton('XpertCenter AG', 'BL')).toBe('');
+  });
+
+  it('accepts a verified Aargau locality with the bare AG suffix', () => {
+    expect(cantonNamedByLocation('Stein AG')).toBe('AG');
+    expect(preferLocationEncodedCanton('Stein AG', 'BL')).toBe('AG');
   });
 });
