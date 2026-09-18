@@ -28,8 +28,62 @@ export const GLOBAL_DATA_PIPELINE_LEASE_TTL_MS = 60 * 60 * 1000;
 // crawl and wait for the next scheduled cycle. A stale/crashed owner still
 // expires after the TTL; callers that outlive this wait window remain
 // retryable via exit 44.
-export const GLOBAL_DATA_PIPELINE_LEASE_WAIT_MS = 5 * 60 * 1000;
-export const GLOBAL_DATA_PIPELINE_LEASE_POLL_MS = 5 * 1000;
+//
+// That intent is right and unchanged. The 5-minute value DEFEATED it, and the
+// sentence above was an assertion the data disproves: a normal convoy was
+// discarding whole crawls, every wave, for 124 hours.
+//
+// Measured 2026-09-18 (corpus issue #1573):
+//   · one group-batch hold, with no push contention at all: 2m23s
+//     (group 03 run 35350742718 — 13:47:24Z acquire → 13:49:47Z pushed)
+//   · 23 groups reach their commit inside a ~48-minute band
+//     (13:57Z–14:45Z in the last healthy wave)
+//   · serialized demand therefore ≈ 23 × 2.4 min ≈ 55 min per wave, BEFORE any
+//     push-retry backoff
+//
+// Against 55 minutes of demand, a 5-minute wait admits only the first two to
+// four arrivals; everyone else exits 44 and throws away a finished crawl. That
+// is exactly what was observed: 23 of 23 groups delivering daily through
+// 2026-09-13, then 2, 0, 4, 6, 2 per day — one group discarded 27 successful
+// crawlers out of 27 (run 35351794322).
+//
+// The wait now equals the TTL, and that bound is not arbitrary: the ONLY case
+// in which giving up is correct is a dead owner, and a dead owner becomes
+// takeable exactly at `expiresAt`, where `leaseDecision` already returns
+// `{action: 'acquire', reason: 'expired'}`. So a waiter never abandons before
+// the lease is provably takeable, and 60 minutes absorbs the 55 of a full
+// 23-deep convoy.
+//
+// Safe against the job budget, which is the failure mode to avoid — waiting an
+// hour and then being killed is worse than discarding early, because it burns
+// the crawl without delivering it. Groups reach their commit phase 11–22
+// minutes into a 340-minute job budget (measured on groups 03, 04, 13), so the
+// worst case lands at ~82 minutes and leaves ~258 minutes of headroom.
+//
+// NOT sufficient on its own, and the remaining half is deliberately not in this
+// change: the hold spans the whole 14-attempt push-retry loop in
+// git-commit-data.sh, whose backoff alone sleeps ~10 minutes while holding the
+// global mutex. Three contended holders push demand past 60 minutes and the
+// starvation returns. Releasing the lease around that backoff is the causal
+// fix; it rewrites the lease boundary inside the shared push path and belongs
+// in its own change. Tracked in corpus issue #1573.
+export const GLOBAL_DATA_PIPELINE_LEASE_WAIT_MS = GLOBAL_DATA_PIPELINE_LEASE_TTL_MS;
+// Raised from 5s together with the wait above, because the two multiply: each
+// poll is a Firestore TRANSACTION, not a cheap read, and the wait went from 5
+// to 60 minutes. At 5s that is 720 transactions per waiting writer, ×23 groups
+// ≈ 16'500 per wave and ~33'000/day over two waves — a quota ceiling that would
+// have traded one outage for another.
+//
+// At 15s the worst case is 240 per waiter, ≈5'500 per wave, and the realistic
+// figure is about half that because the convoy drains instead of every waiter
+// sitting out the full hour.
+//
+// The cost is granularity: a freed lease is noticed up to 15s late instead of
+// 5s. Against a measured hold of 2m23s that is ~10% per convoy slot, and over
+// 23 slots it adds ~3 minutes to a ~55-minute convoy — under 6%, and it buys a
+// 3x reduction in transactions. Worth it; if the convoy ever needs to drain
+// faster, shorten the HOLD (see the note on the wait above), not this.
+export const GLOBAL_DATA_PIPELINE_LEASE_POLL_MS = 15 * 1000;
 // Keep this distinct from git-commit-data.sh's 42 (push contention). A lease
 // convoy is a coordination outcome, not evidence that a push lost a race.
 export const GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT = 44;
