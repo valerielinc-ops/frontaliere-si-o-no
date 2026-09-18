@@ -28,4 +28,20 @@ describe('JobBoard category pages — results-first ordering', () => {
     expect(filterToggle).toBeGreaterThan(firstRow);
     expect(secondRowMount).toBeGreaterThan(filterToggle);
   });
+
+  it('keeps the category/sector alert CTA before the first result', () => {
+    const alertRender = source.indexOf('{boardFilterAlertCtaJsx}');
+    const firstResult = source.indexOf('{displayJobs.map((job, idx) => {');
+
+    expect(alertRender).toBeGreaterThan(-1);
+    expect(firstResult).toBeGreaterThan(alertRender);
+    expect(source).toContain("context={boardFilterAlertContext}");
+    expect(source).toContain("userId={userId}");
+    expect(source).toContain("onAnonymousOpen={() => {");
+  });
+
+  it('keeps the first job link and filter CTA on mobile-sized tap targets', () => {
+    expect(source).toContain('className="block min-h-[44px] cursor-pointer');
+    expect(source).toContain('min-h-11 text-xs font-medium rounded-full border');
+  });
 });

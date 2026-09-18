@@ -14,6 +14,14 @@ import { describe, it, expect, vi, afterEach } from 'vitest';
 import { render, screen, fireEvent, cleanup, act, waitFor } from '@testing-library/react';
 import JobBoardFilterAlertCta from '@/components/community/JobBoardFilterAlertCta';
 import type { JobAlert, subscribeJobAlertOneTap } from '@/services/jobAlertService';
+import { consumeJobAlertOpen } from '@/services/jobAlertOpenSignal';
+
+vi.mock('@/services/i18n', () => ({
+  useTranslation: () => ({
+    t: (_key: string, fallback?: string) => fallback ?? _key,
+    locale: 'it',
+  }),
+}));
 
 type SubscribeFn = typeof subscribeJobAlertOneTap;
 
@@ -38,6 +46,9 @@ interface RenderOpts {
   subscribe?: SubscribeFn;
   cantonCode?: string | null;
   keywordLabel?: string;
+  context?: 'category' | 'sector' | 'search';
+  userId?: string | null;
+  email?: string | null;
 }
 
 function renderCta(opts: RenderOpts = {}) {
@@ -48,9 +59,10 @@ function renderCta(opts: RenderOpts = {}) {
   const keywordLabel = opts.keywordLabel ?? 'Tecnologia';
   render(
     <JobBoardFilterAlertCta
-      userId="user-1"
-      email="foo@example.com"
+      userId={'userId' in opts ? opts.userId : 'user-1'}
+      email={'email' in opts ? opts.email : 'foo@example.com'}
       locale="it"
+      context={opts.context}
       keywordLabel={keywordLabel}
       cantonCode={cantonCode}
       onSubscribed={onSubscribed}
@@ -64,6 +76,8 @@ function renderCta(opts: RenderOpts = {}) {
 describe('JobBoardFilterAlertCta', () => {
   afterEach(() => {
     cleanup();
+    consumeJobAlertOpen();
+    vi.restoreAllMocks();
   });
 
   it('renders the idle CTA copy', () => {
@@ -115,5 +129,21 @@ describe('JobBoardFilterAlertCta', () => {
       fireEvent.click(screen.getByText(/Avvisami per questa ricerca/));
     });
     expect(subscribe).not.toHaveBeenCalled();
+  });
+
+  it('uses explicit category copy and hands anonymous taps to the existing form flow', () => {
+    const subscribe = vi.fn<SubscribeFn>();
+    const dispatchSpy = vi.spyOn(window, 'dispatchEvent');
+    renderCta({ context: 'category', userId: null, email: null, subscribe });
+
+    expect(screen.getByRole('button', { name: 'Segui questa categoria' })).toBeTruthy();
+    fireEvent.click(screen.getByRole('button', { name: 'Segui questa categoria' }));
+
+    expect(subscribe).not.toHaveBeenCalled();
+    expect(consumeJobAlertOpen()).toEqual({ keyword: 'Tecnologia' });
+    expect(dispatchSpy.mock.calls.some(([event]) => {
+      return event.type === 'openJobAlert'
+        && (event as CustomEvent<{ keyword?: string }>).detail?.keyword === 'Tecnologia';
+    })).toBe(true);
   });
 });

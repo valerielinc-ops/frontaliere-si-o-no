@@ -8,6 +8,7 @@ import municipalitiesFile from '../data/canton-municipalities.json';
 import { resolveJobCanton } from './shared/cantonSection';
 import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
 import { composePlaceTitle, escapeForBudget, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import { resolveJobIntentKeyBySlug, type JobIntentKey } from './jobIntentLanding';
 
 type CantonSlugEntry = { it: string; en: string; de: string; fr: string; dePrefix?: string };
 type CantonMunicipalitiesFile = {
@@ -512,6 +513,7 @@ export type JobPartTimeLandingModel = {
 export type EditorialLandingDescriptor =
  | { kind: 'today'; canton?: string }
  | { kind: 'official-gazette' }
+ | { kind: 'intent'; intentKey: JobIntentKey; canton?: string }
  | { kind: 'nurses-hub'; canton?: string }
  | { kind: 'part-time'; canton?: string }
  | { kind: 'care-variant'; clusterKey: JobCareClusterKey; canton?: string }
@@ -1741,6 +1743,8 @@ export function resolveEditorialJobLandingDescriptor(value: string): EditorialLa
  if (Object.values(JOB_OFFICIAL_GAZETTE_LANDING_SLUGS).includes(slug as (typeof JOB_OFFICIAL_GAZETTE_LANDING_SLUGS)[JobLandingLocale])) {
  return { kind: 'official-gazette' };
  }
+ const intentKey = resolveJobIntentKeyBySlug(slug);
+ if (intentKey) return { kind: 'intent', intentKey };
  // Scan ALL canton variants for the nurses-hub and part-time slugs
  // (long-form per canton post-2026-05-18). The matcher also recognises
  // legacy short-form aliases (`infermieri`, `lavoro-part-time`, …) so

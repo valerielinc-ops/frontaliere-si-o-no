@@ -39,6 +39,7 @@ describe('jobsSeoPagesPlugin editorial-canton below-floor bridges', () => {
     for (const slugGetter of expectedSlugGetters) {
       expect(source).toContain(`emitEditorialBelowFloorBridge(locale, editorialCanton, ${slugGetter});`);
     }
+    expect(source).toContain('emitEditorialBelowFloorBridge(locale, editorialCanton, getJobIntentLandingSlug(locale, intentKey));');
     // Care-variant has two distinct below-floor sites (the shared canton
     // floor-check and the cluster-specific zero-jobs check) that both bridge
     // via the same careClusterSlug(...) call -- both must be wired.
@@ -150,7 +151,7 @@ describe('jobsSeoPagesPlugin editorial-canton below-floor bridges', () => {
       'emitCompanyCityBelowFloorBridge(locale, canton,',
     ];
     const expectedCallSiteCounts: Record<string, number> = {
-      'emitEditorialBelowFloorBridge(locale, editorialCanton,': 5,
+      'emitEditorialBelowFloorBridge(locale, editorialCanton,': 6,
       'emitLocationBelowFloorBridge(locale, location);': 1,
       'emitLocationTypeBelowFloorBridge(locale, location, typeKey);': 1,
       'emitLocationSectorBelowFloorBridge(locale, location, sectorKey);': 1,

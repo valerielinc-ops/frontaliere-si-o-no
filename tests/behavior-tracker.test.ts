@@ -3,8 +3,9 @@
  */
 import { describe, it, expect, beforeEach } from 'vitest';
 import {
-  getBehaviorData,
-  trackJobViewBehavior,
+ getBehaviorData,
+ readBehaviorAndMarkVisit,
+ trackJobViewBehavior,
   trackSearch,
   trackFilterUsage,
   getLastVisitTimestamp,
@@ -143,14 +144,38 @@ describe('lastVisit', () => {
     expect(getLastVisitTimestamp()).toBeNull();
   });
 
-  it('records and retrieves last visit', () => {
+ it('records and retrieves last visit', () => {
     const before = Date.now();
     updateLastVisit();
     const ts = getLastVisitTimestamp();
     expect(ts).not.toBeNull();
     expect(ts!).toBeGreaterThanOrEqual(before - 1000);
-    expect(ts!).toBeLessThanOrEqual(Date.now() + 1000);
-  });
+ expect(ts!).toBeLessThanOrEqual(Date.now() + 1000);
+ });
+
+ it('returns the previous timestamp before recording the current visit', () => {
+ const previous = Date.parse('2026-09-17T08:00:00.000Z');
+ const data = emptyBehavior();
+ data.lastVisit = new Date(previous).toISOString();
+ localStorage.setItem('frontaliere_job_personalization', JSON.stringify(data));
+
+ const snapshot = readBehaviorAndMarkVisit();
+
+ expect(snapshot.previousLastVisit).toBe(previous);
+ expect(snapshot.data.lastVisit).not.toBe(data.lastVisit);
+ expect(getLastVisitTimestamp()).toBeGreaterThan(previous);
+ });
+
+ it('treats a malformed visit stamp like a first visit and repairs it', () => {
+ const data = emptyBehavior();
+ data.lastVisit = 'not-a-date';
+ localStorage.setItem('frontaliere_job_personalization', JSON.stringify(data));
+
+ const snapshot = readBehaviorAndMarkVisit();
+
+ expect(snapshot.previousLastVisit).toBeNull();
+ expect(Number.isFinite(new Date(snapshot.data.lastVisit!).getTime())).toBe(true);
+ });
 });
 
 // ── mergeBehavior ──────────────────────────────────────────────

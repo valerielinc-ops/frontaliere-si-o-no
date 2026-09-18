@@ -162,8 +162,21 @@ const SIBLING_RAIL_HEADING: Record<JobBoardLocale, string> = {
  * simply render nothing rather than weak cross-links. The rail markup is a few
  * hundred bytes — well inside the 260 KB page-weight budget.
  */
-function renderSiblingSectorRail(locale: JobBoardLocale, sector: SectorHubKey): string {
-  const siblings = SECTOR_HUB_SIBLINGS[sector];
+export function filterSectorHubSiblings(
+  sector: SectorHubKey,
+  siblingCounts?: Readonly<Partial<Record<SectorHubKey, number>>>,
+): readonly SectorHubKey[] {
+  const siblings = SECTOR_HUB_SIBLINGS[sector] ?? [];
+  if (!siblingCounts) return siblings;
+  return siblings.filter((sibling) => Number(siblingCounts[sibling] ?? 0) > 0);
+}
+
+function renderSiblingSectorRail(
+  locale: JobBoardLocale,
+  sector: SectorHubKey,
+  siblingCounts?: Readonly<Partial<Record<SectorHubKey, number>>>,
+): string {
+  const siblings = filterSectorHubSiblings(sector, siblingCounts);
   if (!siblings || siblings.length === 0) return '';
   const items = siblings
     .map((sib) => {
@@ -261,6 +274,8 @@ export interface BuildSectorLandingHtmlOptions {
   companyCount?: number;
   cityCount?: number;
   freshCount?: number;
+  /** Full per-locale inventory, used to suppress links to empty sibling hubs. */
+  siblingCounts?: Readonly<Partial<Record<SectorHubKey, number>>>;
 }
 
 /**
@@ -373,7 +388,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
   // Sibling-sector rail — links this hub to its 3-5 nearest siblings so the
   // 49 sector hubs are mutually reachable in the BFS graph (the orphan fix).
   // Empty string for unmapped long-tail sectors.
-  const siblingRailHtml = renderSiblingSectorRail(locale, sector);
+  const siblingRailHtml = renderSiblingSectorRail(locale, sector, opts.siblingCounts);
 
   // Issue #4303 item 2b: from this Ticino sector hub, link the same
   // profession's combo page in the curated CROSS_CANTON_LINK_TARGETS cantons — only when
@@ -536,7 +551,7 @@ ${alternates}
   <body>
     ${rootShell(hasSpaBundle)}
     ${railGutters(true).open}
-    <main class="seo-static-content s-Ziv1Xn">
+    <main class="seo-static-content s-Ziv1Xn" data-sector-hub="${esc(sector)}" data-sector-inventory-count="${String(count)}">
         <nav class="s-bcr">
           <a href="/" class="s-bcl">Home</a>
           <span> / </span>
@@ -675,6 +690,7 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
             companyCount,
             cityCount,
             freshCount,
+            siblingCounts: counts[locale],
           });
 
           // Hard budget gate — prevents future regressions from quietly

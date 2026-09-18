@@ -39,8 +39,10 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import type { JobBoardLocale } from './jobBoardSeoPure';
 import {
+  SECTOR_HUB_KEYS,
   SECTOR_HUB_DISPLAY,
   buildSectorHubPath,
+  type SectorHubKey,
 } from './jobSectorLanding';
 import { TOP_DEMAND_SECTORS } from './shared/sectorHubClusters';
 import {
@@ -59,11 +61,12 @@ const SECTOR_LINKS_MARKER = 'data-sector-hub-links';
 
 const LOCALES: ReadonlyArray<JobBoardLocale> = ['it', 'en', 'de', 'fr'];
 
-interface InjectionTarget {
+export interface InjectionTarget {
   readonly indexPath: string;
   readonly locale: JobBoardLocale;
   readonly title: string;
   readonly intro: string;
+  readonly availableSectors?: ReadonlySet<SectorHubKey>;
 }
 
 /** Per-locale relative path of each job-board root hub (`dist/<…>/index.html`). */
@@ -104,7 +107,10 @@ function esc(s: string): string {
 
 /** Pure renderer — exported for unit tests. */
 export function renderSectorHubLinksBlock(target: InjectionTarget): string {
-  const items = TOP_DEMAND_SECTORS.map((sector) => {
+  const sectors = target.availableSectors
+    ? TOP_DEMAND_SECTORS.filter((sector) => target.availableSectors?.has(sector))
+    : TOP_DEMAND_SECTORS;
+  const items = sectors.map((sector) => {
     const href = buildSectorHubPath(target.locale, sector);
     const label = SECTOR_HUB_DISPLAY[target.locale][sector];
     return `<li class="s-sec-li"><a class="s-sec-a" href="${esc(href)}">${esc(label)}</a></li>`;
@@ -153,6 +159,22 @@ function patchFile(target: InjectionTarget): PatchResult {
   return { target, outcome };
 }
 
+/** Read the inventory marker emitted by jobSectorPagesPlugin. */
+export function readEmittedSectorInventory(
+  distDir: string,
+  locale: JobBoardLocale,
+): ReadonlySet<SectorHubKey> {
+  const available = new Set<SectorHubKey>();
+  for (const sector of SECTOR_HUB_KEYS) {
+    const pagePath = np.join(distDir, buildSectorHubPath(locale, sector).slice(1), 'index.html');
+    if (!fs.existsSync(pagePath)) continue;
+    const html = fs.readFileSync(pagePath, 'utf-8');
+    const match = html.match(/data-sector-inventory-count="(\d+)"/);
+    if (match && Number(match[1]) > 0) available.add(sector);
+  }
+  return available;
+}
+
 /** Build the per-locale root-hub injection targets. */
 export function buildTargets(distDir: string): readonly InjectionTarget[] {
   return LOCALES.map((locale) => ({
@@ -185,7 +207,12 @@ export function sectorHubLinksPlugin(rootDir: string): Plugin {
       // (the write-gate skips the others → their hub pages are absent). No-op in
       // the default all-locale build.
       const targets = buildTargets(distDir).filter((t) => shouldEmitLocale(t.locale));
-      const results = targets.map((t) => patchFile(t));
+      const availableByLocale = new Map(
+        LOCALES.map((locale) => [locale, readEmittedSectorInventory(distDir, locale)]),
+      );
+      const results = targets.map((t) =>
+        patchFile({ ...t, availableSectors: availableByLocale.get(t.locale) }),
+      );
 
       const inserted = results.filter((r) => r.outcome === 'inserted').length;
       const duplicate = results.filter((r) => r.outcome === 'duplicate').length;
