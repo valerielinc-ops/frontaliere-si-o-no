@@ -6,7 +6,13 @@
  * careers-page.com/convit-holding-gmbh detail pages.
  */
 import { describe, expect, it } from 'vitest';
-import { parseConvitDetailPage, parseConvitListingPage, buildConvitLocalizedContent } from '../scripts/lib/convit-job-parser.mjs';
+import {
+  parseConvitDetailPage,
+  parseConvitListingPage,
+  buildConvitLocalizedContent,
+  isConvitSwissRelevant,
+  inferConvitCanton,
+} from '../scripts/lib/convit-job-parser.mjs';
 
 // ─── Shared fixture helpers ────────────────────────────────────────────────────
 
@@ -255,5 +261,23 @@ describe('convit-job-parser / buildConvitLocalizedContent', () => {
     });
     expect(result.descriptionByLocale.it).toContain('Convit');
     expect(result.descriptionByLocale.it.length).toBeGreaterThan(50);
+  });
+
+  it('uses the resolved canton label instead of a TI/GR binary fallback', () => {
+    const result = buildConvitLocalizedContent({
+      title: 'Analista finanziario',
+      location: 'Zurich',
+      canton: 'ZH',
+      description: '',
+    });
+    expect(result.descriptionByLocale.it).toContain('Zurigo');
+    expect(result.descriptionByLocale.it).not.toContain('Ticino');
+    expect(result.descriptionByLocale.de).toContain('Zürich');
+  });
+
+  it('accepts all Swiss cantons and keeps foreign locations out', () => {
+    expect(isConvitSwissRelevant('Zurich')).toBe(true);
+    expect(inferConvitCanton('Zurich')).toBe('ZH');
+    expect(isConvitSwissRelevant('Milano, Italia')).toBe(false);
   });
 });
