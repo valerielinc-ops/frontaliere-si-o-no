@@ -26,6 +26,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'JOBS_SEO_MEM_GC',
       'JOBS_SEO_REUSE',
       'JOBS_SEO_REUSE_VERIFY',
+      'JOBS_SEO_REUSE_VERIFY_SAMPLE',
       'JOBS_SEO_SAMPLE',
       'POST_WALK_INCREMENTAL',
       'POST_WALK_INCREMENTAL_VERIFY',
@@ -76,13 +77,14 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
 
   it('accepts the benchmark-only stop and sample flags in a variant', () => {
     expect(parseVariants(
-      'canary=BUILD_STOP_AFTER=jobsSeoPages,JOBS_SEO_SAMPLE=0.1,BUILD_BENCH=1',
+      'canary=BUILD_STOP_AFTER=jobsSeoPages,JOBS_SEO_SAMPLE=0.1,BUILD_BENCH=1,JOBS_SEO_REUSE_VERIFY_SAMPLE=0.02',
     )).toEqual([{
       name: 'canary',
       env: {
         BUILD_STOP_AFTER: 'jobsSeoPages',
         JOBS_SEO_SAMPLE: '0.1',
         BUILD_BENCH: '1',
+        JOBS_SEO_REUSE_VERIFY_SAMPLE: '0.02',
       },
     }]);
   });

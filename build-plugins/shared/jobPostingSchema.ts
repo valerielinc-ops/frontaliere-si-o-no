@@ -145,6 +145,11 @@ export interface BuildJobPostingOptions {
    * `hiringOrganization.logo` path. Never affects mandatory-field output.
    */
   readonly baseUrl?: string;
+  /**
+   * Optional build clock for deterministic SSG output. Callers that omit it
+   * retain the historical wall-clock fallback (notably the runtime SPA).
+   */
+  readonly now?: Date;
 }
 
 /** Strict schema.org `PostalAddress` shape emitted by the builder. */
@@ -378,8 +383,8 @@ function toIsoDate(raw: string | null | undefined): string | null {
 }
 
 /** Return today's ISO 8601 date (UTC, date-only). */
-function todayIso(): string {
-  return new Date().toISOString();
+function todayIso(now?: Date): string {
+  return (now || new Date()).toISOString();
 }
 
 /** Floor a derived `validThrough` to at least now+30d (#3505): derived windows
@@ -388,8 +393,8 @@ function todayIso(): string {
  * as an expired posting (dropped from Google Jobs). Explicit source-provided
  * `validThrough` values are NOT floored: they are source truth (real
  * deadlines), and the expired soft-landing deliberately passes a past one. */
-function floorToFuture(computed: Date): string {
-  const floor = new Date();
+function floorToFuture(computed: Date, now?: Date): string {
+  const floor = new Date(now || new Date());
   floor.setUTCDate(floor.getUTCDate() + 30);
   return (computed.getTime() < floor.getTime() ? floor : computed).toISOString();
 }
@@ -399,6 +404,7 @@ function computeValidThrough(
   explicit: string | null | undefined,
   crawledAt: string | null | undefined,
   datePosted: string,
+  now?: Date,
 ): string {
   const explicitIso = toIsoDate(explicit);
   if (explicitIso) return explicitIso;
@@ -407,17 +413,17 @@ function computeValidThrough(
   if (crawledIso) {
     const out = new Date(crawledIso);
     out.setUTCDate(out.getUTCDate() + 60);
-    return floorToFuture(out);
+    return floorToFuture(out, now);
   }
 
   const posted = new Date(datePosted);
   if (!Number.isNaN(posted.getTime())) {
     const out = new Date(posted);
     out.setUTCDate(out.getUTCDate() + 90);
-    return floorToFuture(out);
+    return floorToFuture(out, now);
   }
 
-  const fallback = new Date();
+  const fallback = new Date(now || new Date());
   fallback.setUTCDate(fallback.getUTCDate() + 60);
   return fallback.toISOString();
 }
@@ -670,13 +676,13 @@ function resolveBaseSalary(job: JobInput): BaseSalarySchema {
 }
 
 /** Resolve datePosted to an ISO-8601 string (never empty). */
-function resolveDatePosted(job: JobInput): string {
+function resolveDatePosted(job: JobInput, now?: Date): string {
   return (
     toIsoDate(job.datePosted) ||
     toIsoDate(job.postedDate) ||
     toIsoDate(job.scrapedAt) ||
     toIsoDate(job.crawledAt) ||
-    todayIso()
+    todayIso(now)
   );
 }
 
@@ -708,11 +714,12 @@ export function buildJobPostingSchema(
     address.addressLocality,
     opts.locale,
   );
-  const datePosted = resolveDatePosted(job);
+  const datePosted = resolveDatePosted(job, opts.now);
   const validThrough = computeValidThrough(
     job.validThrough,
     job.crawledAt || job.scrapedAt || null,
     datePosted,
+    opts.now,
   );
   const employmentType = normaliseEmploymentType(
     job.employmentType || job.contractType || job.contract,

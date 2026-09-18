@@ -1,15 +1,18 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
+  computeInputHash,
   IncrementalManifest,
 } from '../../build-plugins/shared/incrementalManifest.mjs';
 import {
   computeJobsSeoEmitterFingerprints,
   createJobsSeoHtmlReuse,
+  diagnoseHtmlReuseMismatch,
   htmlHasIndexableRobots,
   htmlReuseCachePath,
+  JOBS_SEO_REUSE_VERIFY_SAMPLE_ENV,
   normalizeHtmlForReuse,
   refreshHtmlBuildId,
 } from '../../build-plugins/shared/incrementalHtmlReuse.mjs';
@@ -25,6 +28,7 @@ const FINGERPRINT_ENV_KEYS = [
 const envBefore = Object.fromEntries([
   'JOBS_SEO_REUSE',
   'JOBS_SEO_REUSE_VERIFY',
+  JOBS_SEO_REUSE_VERIFY_SAMPLE_ENV,
   ...FINGERPRINT_ENV_KEYS,
 ].map((key) => [key, process.env[key]]));
 
@@ -142,7 +146,13 @@ describe('jobs SEO disk HTML reuse', () => {
       expect(candidate).toMatchObject({ hit: true, html });
       expect(refreshHtmlBuildId('<meta name="ft-build-id" content="old">', '123')).toContain('content="123"');
       reuse.finish(candidate, html);
-      expect(reuse.summary().active).toMatchObject({ rendered: 0, reused: 1, mismatches: 0 });
+      expect(reuse.summary().active).toMatchObject({
+        rendered: 0,
+        reused: 1,
+        reusable: 1,
+        verified: 0,
+        mismatches: 0,
+      });
     } finally {
       fs.rmSync(rootDir, { recursive: true, force: true });
     }
@@ -210,6 +220,30 @@ describe('jobs SEO disk HTML reuse', () => {
     }
   });
 
+  it('reuses an expired soft-landing without rendering its HTML', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/expired-fixture/';
+    const input = { value: 'same' };
+    const html = '<html><body>expired</body></html>';
+    try {
+      writePreviousManifest(rootDir, pagePath, 'expired-soft-landing', input);
+      writeCachedHtml(rootDir, pagePath, html);
+      const reuse = await createReuse(rootDir);
+      const candidate = reuse.lookup('it', pagePath, 'expired-soft-landing', input, 'expired-soft-landing');
+      expect(reuse.reusedHtml(candidate, '123')).toContain('expired');
+      reuse.finish(candidate, html);
+      expect(reuse.summary()['expired-soft-landing']).toMatchObject({
+        rendered: 0,
+        reused: 1,
+        reusable: 1,
+        verified: 0,
+        mismatches: 0,
+      });
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
   it('verify mode renders a hit and reports normalized-output mismatches', async () => {
     const rootDir = fixtureRoot();
     const pagePath = '/cerca-lavoro-ticino/verify/';
@@ -223,12 +257,40 @@ describe('jobs SEO disk HTML reuse', () => {
       const candidate = reuse.lookup('it', pagePath, 'cross-locale-reconciliation', input, 'cross-locale-reconciliation');
       expect(candidate.hit).toBe(true);
       reuse.finish(candidate, currentHtml);
+      const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+      let logLines: string[] = [];
+      try {
+        reuse.logSummary();
+      } finally {
+        logLines = logSpy.mock.calls.map(([line]) => String(line));
+        logSpy.mockRestore();
+      }
+      expect(logLines.some((line) => line.includes(
+        'block=cross-locale-reconciliation mode=verify-render rendered=1 reused=0 reusable=1 verified=1',
+      ))).toBe(true);
       expect(reuse.summary()['cross-locale-reconciliation']).toMatchObject({
         rendered: 1,
         reused: 0,
+        reusable: 1,
+        verified: 1,
         mismatches: 1,
         mismatchReasons: { 'html-content-changed': 1 },
       });
+      const artifact = JSON.parse(fs.readFileSync(
+        path.join(rootDir, '.cache', 'incremental-html', 'verify-it.json'),
+        'utf8',
+      ));
+      expect(artifact).toMatchObject({ version: 1, locale: 'it' });
+      expect(artifact.mismatches[0]).toMatchObject({
+        block: 'cross-locale-reconciliation',
+        path: 'cerca-lavoro-ticino/verify/',
+        reason: 'html-content-changed',
+      });
+      expect(artifact.mismatches[0].offset).toBeGreaterThan(0);
+      expect(artifact.mismatches[0].expectedContext).toContain('old content');
+      expect(artifact.mismatches[0].actualContext).toContain('new content');
+      expect(artifact.mismatches[0].expectedContext.length).toBeLessThanOrEqual(120);
+      expect(artifact.mismatches[0].actualContext.length).toBeLessThanOrEqual(120);
       expect(normalizeHtmlForReuse(previousHtml)).not.toBe(normalizeHtmlForReuse(currentHtml));
       expect(htmlHasIndexableRobots('<meta name="robots" content="index,follow">')).toBe(true);
       expect(htmlHasIndexableRobots('<meta name="robots" content="noindex,follow">')).toBe(false);
@@ -298,6 +360,15 @@ describe('jobs SEO disk HTML reuse', () => {
       const candidate = reuse.lookup('it', pagePath, 'active-job', input, 'active');
       reuse.finish(candidate, currentHtml);
       expect(reuse.summary().active.mismatchReasons).toEqual({ 'asset-reference-changed': 1 });
+      const diagnostic = diagnoseHtmlReuseMismatch(
+        previousHtml,
+        currentHtml,
+        'asset-reference-changed',
+      );
+      expect(diagnostic.asset).toEqual({
+        expected: 'link:href:/assets/seo-static.css',
+        actual: 'link:href:/assets/seo-static-v2.css',
+      });
     } finally {
       fs.rmSync(rootDir, { recursive: true, force: true });
     }
@@ -334,6 +405,63 @@ describe('jobs SEO disk HTML reuse', () => {
       const candidate = reuse.lookup('it', pagePath, 'active-job', input, 'active');
       reuse.finish(candidate, currentHtml);
       expect(reuse.summary().active.mismatchReasons).toEqual({ 'inline-content-changed': 1 });
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('uses a deterministic, explicit sample for verify mode', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/verify-sample/';
+    const input = { value: 'same' };
+    const html = '<html><body>same</body></html>';
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', input);
+      writeCachedHtml(rootDir, pagePath, html);
+      process.env[JOBS_SEO_REUSE_VERIFY_SAMPLE_ENV] = '0';
+      const skipped = await createReuse(rootDir, true);
+      const skippedCandidate = skipped.lookup('it', pagePath, 'active-job', input, 'active');
+      expect(skippedCandidate.verify).toBe(false);
+      expect(skipped.shouldRender(skippedCandidate)).toBe(false);
+      skipped.finish(skippedCandidate, html);
+      expect(skipped.summary().active).toMatchObject({ rendered: 0, reused: 1, reusable: 1, verified: 0 });
+
+      process.env[JOBS_SEO_REUSE_VERIFY_SAMPLE_ENV] = '0.5';
+      const first = await createReuse(rootDir, true);
+      const second = await createReuse(rootDir, true);
+      expect(first.lookup('it', pagePath, 'active-job', input, 'active').verify)
+        .toBe(second.lookup('it', pagePath, 'active-job', input, 'active').verify);
+
+      process.env[JOBS_SEO_REUSE_VERIFY_SAMPLE_ENV] = '2';
+      await expect(createReuse(rootDir, true)).rejects.toThrow(
+        `${JOBS_SEO_REUSE_VERIFY_SAMPLE_ENV} must be a number between 0 and 1`,
+      );
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('expires reuse input when the deterministic build day changes', () => {
+    const base = { jobId: 'job-1', renderDateBucket: '2026-09-18' };
+    expect(computeInputHash(base, 'active-job')).toBe(computeInputHash({ ...base }, 'active-job'));
+    expect(computeInputHash(base, 'active-job')).not.toBe(
+      computeInputHash({ ...base, renderDateBucket: '2026-09-19' }, 'active-job'),
+    );
+  });
+
+  it('includes statically imported JSON content in the renderer fingerprint', () => {
+    const rootDir = fingerprintFixtureRoot();
+    try {
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/jobsSeoPagesPlugin.ts',
+        'import "./shared/render-data.json";\nexport const renderVersion = "v1";\n',
+      );
+      writeFixtureFile(rootDir, 'build-plugins/shared/render-data.json', '{"version":1}\n');
+      const before = computeJobsSeoEmitterFingerprints(rootDir);
+      writeFixtureFile(rootDir, 'build-plugins/shared/render-data.json', '{"version":2}\n');
+      const after = computeJobsSeoEmitterFingerprints(rootDir);
+      expect(after).not.toEqual(before);
     } finally {
       fs.rmSync(rootDir, { recursive: true, force: true });
     }
