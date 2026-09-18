@@ -33,6 +33,10 @@ on:
         description: 'PR to validate when recovering a missing code run'
         type: string
         required: false
+      head_sha:
+        description: 'Exact PR head SHA for trusted recovery dispatches'
+        type: string
+        required: false
 
 # Union of the three original workflows' `permissions:` (tests.yml itself had
 # none — it inherited the repo default — so this is now the explicit floor):
@@ -71,7 +75,7 @@ permissions:
 #   Direct pushes to main and merge queues retain their own SHA in the fallback
 #   portion of the key, so every emitted source-gate verdict remains observable.
 concurrency:
-  group: tests-${{ github.workflow }}-${{ github.event.pull_request.number || inputs.pr_number || github.ref }}-${{ github.event.pull_request.head.sha || github.sha }}
+  group: tests-${{ github.workflow }}-${{ github.event.pull_request.number || inputs.pr_number || github.ref }}-${{ inputs.head_sha || github.event.pull_request.head.sha || github.sha }}
   cancel-in-progress: false
 
 jobs:
@@ -1862,7 +1866,7 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number || inputs.pr_number }}
           RUN_ID: ${{ github.run_id }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          HEAD_SHA: ${{ inputs.head_sha || github.event.pull_request.head.sha || github.sha }}
           VITEST_REPORT_FILES: shard-timing-related.json
         run: node scripts/ci/report-vitest-failure.mjs
 
@@ -1872,7 +1876,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PRN: ${{ github.event.pull_request.number || inputs.pr_number }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          HEAD_SHA: ${{ inputs.head_sha || github.event.pull_request.head.sha || github.sha }}
           REPO: ${{ github.repository }}
         run: |
           set -uo pipefail
@@ -2490,7 +2494,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number || inputs.pr_number }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          HEAD_SHA: ${{ inputs.head_sha || github.event.pull_request.head.sha || github.sha }}
         run: |
           set +e
           classification='cancelled_external'

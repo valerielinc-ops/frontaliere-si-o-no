@@ -559,7 +559,7 @@ describe('owner policy excluding test files from review', () => {
     }
     expect(ledgerPolicy.if).toContain("startsWith(github.head_ref, 'chore/loop-fleet-ledger-lifecycle-')");
     expect(ledgerPolicy.if).not.toContain("startsWith(github.head_ref, 'chore/loop-fleet-ledger-')");
-    expect(source).toContain('group: tests-${{ github.workflow }}-${{ github.event.pull_request.number || inputs.pr_number || github.ref }}-${{ github.event.pull_request.head.sha || github.sha }}');
+    expect(source).toContain('group: tests-${{ github.workflow }}-${{ github.event.pull_request.number || inputs.pr_number || github.ref }}-${{ inputs.head_sha || github.event.pull_request.head.sha || github.sha }}');
     expect(source).toContain('cancel-in-progress: false');
     expect(source).toContain('trusted loop-fleet bridge');
     expect(source).toContain('Classify bounded loop-fleet ledger path');
