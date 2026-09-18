@@ -9,11 +9,8 @@
   ],
   "seedUrls": [
     "https://careers.zegnagroup.com/?FreeSearch=&Location=177940409",
-    "https://careers.zegnagroup.com/jobs/job-details?JobID=272704425&Team=231361273",
-    "https://careers.zegnagroup.com/jobs/job-details?JobID=272660927&Team=231361273",
-    "https://careers.zegnagroup.com/jobs/job-details?JobID=272160171&Team=231361271",
-    "https://careers.zegnagroup.com/jobs/job-details?JobID=270362936&Team=231361275"
+    "https://careers.zegnagroup.com/jobs/job-details?JobID=272704425&Team=231361273"
   ],
-  "notes": "Zegna Group careers portal — job listings extracted from careers.zegnagroup.com with Switzerland location filter.",
-  "updatedAt": "2026-09-01T10:29:58.074Z"
+  "notes": "Zegna Group careers portal — national Switzerland listing filter, followed by a source-backed per-detail Swiss location and canton check. No historical HQ location is substituted when a detail page omits its workplace.",
+  "updatedAt": "2026-09-17T18:35:30.139Z"
 }

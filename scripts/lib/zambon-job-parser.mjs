@@ -25,6 +25,18 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 const ZAMBON_BASE_URL = 'https://www.zambon.com';
 
+// NcorePlat exposes the country for API positions, but not a per-posting
+// municipality. The Swiss entity's own source pages identify its registered
+// site as Cadempino; this is source-backed company-address data, not a
+// regional filter or an invented canton for an unknown Swiss posting.
+export const ZAMBON_SWISS_SITE = Object.freeze({
+  city: 'Cadempino',
+  canton: 'TI',
+  postalCode: '6814',
+  streetAddress: 'Via Industria 13',
+  country: 'CH',
+});
+
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
@@ -102,7 +114,7 @@ export function parseListingPage(html = '') {
             id,
             title: normalizeSpace(item.title),
             url: item.url || '',
-            location: normalizeSpace(item.jobLocation?.address?.addressLocality || 'Cadempino'),
+            location: normalizeSpace(item.jobLocation?.address?.addressLocality || ZAMBON_SWISS_SITE.city),
           });
         }
       }
@@ -121,7 +133,7 @@ export function parseListingPage(html = '') {
     const id = href.match(/jobposition\/(\d+)/)?.[1] || String(jobs.length + 1);
     if (seen.has(id)) continue;
     seen.add(id);
-    jobs.push({ id, title, url: href, location: 'Cadempino' });
+    jobs.push({ id, title, url: href, location: ZAMBON_SWISS_SITE.city });
   }
   if (jobs.length > 0) return jobs;
 
@@ -142,7 +154,7 @@ export function parseListingPage(html = '') {
       const id = String(jobs.length + 1);
       if (seen.has(title)) continue;
       seen.add(title);
-      jobs.push({ id, title, url: url.startsWith('http') ? url : `${ZAMBON_BASE_URL}${url}`, location: 'Cadempino' });
+      jobs.push({ id, title, url: url.startsWith('http') ? url : `${ZAMBON_BASE_URL}${url}`, location: ZAMBON_SWISS_SITE.city });
     }
   }
   if (jobs.length > 0) return jobs;
@@ -174,7 +186,7 @@ export function parseListingPage(html = '') {
         }
       }
     }
-    jobs.push({ id, title, url: absoluteUrl, location: location || 'Cadempino' });
+    jobs.push({ id, title, url: absoluteUrl, location: location || ZAMBON_SWISS_SITE.city });
   }
 
   return jobs;

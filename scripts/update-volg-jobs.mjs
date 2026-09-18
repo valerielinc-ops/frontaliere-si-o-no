@@ -30,6 +30,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
 import {
@@ -58,6 +59,7 @@ import {
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { CANTON_POSTAL_FALLBACK } from './lib/canton-postal-fallback.mjs';
 import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -154,7 +156,7 @@ async function fetchPage(url) {
  */
 function extractTotalCount(html) {
   const match = html.match(/<span\s+class="total">\s*(\d+)\s*<\/span>/i);
-  return match ? parseInt(match[1], 10) : 0;
+  return match ? parseInt(match[1], 10) : null;
 }
 
 /**
@@ -215,8 +217,8 @@ function resolveJobCanton(city = '') {
  * via the `offset` query parameter. Canton is inferred per job later
  * from the city; non-CH / unresolved jobs are dropped.
  */
-async function fetchAllJobs() {
-  const allJobs = [];
+export async function fetchAllJobs() {
+  const uniqueJobs = new Map();
   let offset = 0;
 
   // First page to get total count
@@ -224,26 +226,68 @@ async function fetchAllJobs() {
   console.log(`  📥 Fetching national page 1: ${firstUrl}`);
   const firstHtml = await fetchPage(firstUrl);
   const totalCount = extractTotalCount(firstHtml);
+  if (totalCount === null) {
+    throw new Error('Volg source did not publish a total job count; refusing an unproven partial crawl');
+  }
   console.log(`     Total: ${totalCount} jobs (national, unfiltered)`);
 
   if (totalCount === 0) return [];
 
-  allJobs.push(...parseJobListings(firstHtml));
+  const firstBatch = parseJobListings(firstHtml);
+  if (firstBatch.length === 0) {
+    throw new Error(`Volg source declared ${totalCount} jobs but page 1 contained none`);
+  }
+  const addUniqueJobs = (batch) => {
+    let added = 0;
+    for (const job of batch) {
+      const key = jobMatchKey(job);
+      if (!key) {
+        throw new Error('Volg source listing has no stable identity; pagination completeness is unverified');
+      }
+      if (!uniqueJobs.has(key)) {
+        uniqueJobs.set(key, job);
+        added += 1;
+      }
+    }
+    return added;
+  };
+
+  addUniqueJobs(firstBatch);
+  if (uniqueJobs.size > totalCount) {
+    throw new Error(`Volg pagination exceeded declared total: fetched ${uniqueJobs.size}/${totalCount} unique jobs`);
+  }
 
   // Paginate through remaining pages
-  offset += JOBS_PER_PAGE;
-  while (offset < totalCount) {
+  offset += firstBatch.length;
+  while (uniqueJobs.size < totalCount) {
     const pageNum = Math.floor(offset / JOBS_PER_PAGE) + 1;
     const url = `${CC_BASE}?lang=de&offset=${offset}`;
     console.log(`  📥 Fetching national page ${pageNum}: ${url}`);
     const html = await fetchPage(url);
     const batch = parseJobListings(html);
-    if (batch.length === 0) break;
-    allJobs.push(...batch);
-    offset += JOBS_PER_PAGE;
+    if (batch.length === 0) {
+      throw new Error(
+        `Volg source pagination ended early: fetched ${uniqueJobs.size}/${totalCount} unique jobs`,
+      );
+    }
+    const added = addUniqueJobs(batch);
+    if (uniqueJobs.size > totalCount) {
+      throw new Error(`Volg pagination exceeded declared total: fetched ${uniqueJobs.size}/${totalCount} unique jobs`);
+    }
+    if (added === 0) {
+      throw new Error(
+        `Volg source pagination did not advance at offset ${offset}: page added no unique jobs`,
+      );
+    }
+    offset += batch.length;
   }
 
-  return allJobs;
+  if (uniqueJobs.size !== totalCount) {
+    throw new Error(`Volg source pagination incomplete: fetched ${uniqueJobs.size}/${totalCount} unique jobs`);
+  }
+  console.log(`     Fetched ${uniqueJobs.size}/${totalCount} unique jobs`);
+
+  return [...uniqueJobs.values()];
 }
 
 /* ── Fetch & Parse Detail Page ──────────────────────────────── */
@@ -652,18 +696,6 @@ const CITY_POSTAL_CH = {
   'Giubiasco': '6512', Locarno: '6600', Lugano: '6900', Mendrisio: '6850',
 };
 
-// Canton-specific fallback postal codes (canton capital / representative PLZ)
-// when the city is not in the lookup table. CH-wide now (Volg is national), so
-// every canton needs a sane fallback — '0000' would emit a bogus postalCode in
-// the JobPosting structured data on hundreds of pages.
-const CANTON_POSTAL_FALLBACK = {
-  AG: '5000', AI: '9050', AR: '9100', BE: '3000', BL: '4410', BS: '4000',
-  FR: '1700', GE: '1200', GL: '8750', GR: '7000', JU: '2800', LU: '6000',
-  NE: '2000', NW: '6370', OW: '6060', SG: '9000', SH: '8200', SO: '4500',
-  SZ: '6430', TG: '8500', TI: '6900', UR: '6460', VD: '1000', VS: '3900',
-  ZG: '6300', ZH: '8000',
-};
-
 function getPostalCode(city = '', canton = '') {
   return CITY_POSTAL_CH[city] || CANTON_POSTAL_FALLBACK[canton] || '0000';
 }
@@ -862,10 +894,11 @@ async function main() {
     return;
   }
 
-  // Deduplicate by URL (same job might appear across pages)
+  // Keep the same identity used by pagination (same job might appear across pages).
   const seen = new Set();
   const uniqueJobs = allRawJobs.filter((j) => {
-    const key = j.url.toLowerCase();
+    const key = jobMatchKey(j);
+    if (!key) throw new Error('Volg listing has no stable identity after pagination');
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -950,4 +983,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Volg / fenaco'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Volg / fenaco'));
+}

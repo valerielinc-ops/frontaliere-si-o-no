@@ -13,7 +13,7 @@
  */
 import { describe, it, expect } from 'vitest';
 
-import { isSwissGalenicaItem } from '../scripts/update-galenica-jobs.mjs';
+import { isSwissGalenicaItem, resolveGalenicaCanton } from '../scripts/update-galenica-jobs.mjs';
 import { SWISS_CANTONS } from '../scripts/lib/crawler-location-config.mjs';
 
 describe('isSwissGalenicaItem (issue #3055 item 3)', () => {
@@ -32,6 +32,10 @@ describe('isSwissGalenicaItem (issue #3055 item 3)', () => {
     expect(isSwissGalenicaItem(item)).toBe(true);
   });
 
+  it('uses a populated contact.state as the authoritative canton', () => {
+    expect(resolveGalenicaCanton({ state: 'TI', city: 'Zürich' })).toBe('TI');
+  });
+
   it('keeps an item with a blank state and a Swiss city alias (no regression)', () => {
     const item = { contact: { state: '', city: 'Lugano' } };
     expect(isSwissGalenicaItem(item)).toBe(true);
@@ -40,5 +44,14 @@ describe('isSwissGalenicaItem (issue #3055 item 3)', () => {
   it('rejects an item with a blank state and a non-Swiss city', () => {
     const item = { contact: { state: '', city: 'Berlin' } };
     expect(isSwissGalenicaItem(item)).toBe(false);
+  });
+
+  it('accepts Swiss localities resolved through the source canton', () => {
+    expect(isSwissGalenicaItem({ contact: { state: 'VD', city: 'Blonay' } })).toBe(true);
+    expect(isSwissGalenicaItem({ contact: { state: 'BE', city: 'Wabern' } })).toBe(true);
+  });
+
+  it('rejects an explicit foreign country even when the city aliases Switzerland', () => {
+    expect(isSwissGalenicaItem({ contact: { country: 'IT', state: '', city: 'Lugano' } })).toBe(false);
   });
 });

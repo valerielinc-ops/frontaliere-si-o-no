@@ -1866,6 +1866,6 @@
       "companyDomain": "galenica.com"
     }
   },
-  "notes": "Solique data.json crawler — static JSON endpoint. Galenica AG healthcare group: Sun Store, Amavita, Coop Vitality, UFD subsidiaries across Switzerland.",
+  "notes": "Solique data.json crawler — static national endpoint. Galenica AG healthcare group: Sun Store, Amavita, Coop Vitality and UFD subsidiaries across all 26 Swiss cantons. Each item keeps its source city, postal code and canton; foreign or unresolved locations are dropped.",
   "updatedAt": "2026-09-01T10:43:13.559Z"
 }

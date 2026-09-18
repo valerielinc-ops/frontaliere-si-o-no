@@ -2,7 +2,7 @@
  * PwC Switzerland — Prospective.ch JSON API job parser
  *
  * API: https://ohws.prospective.ch/public/v1/medium/1000311/jobs
- *   Query params: lang=en&offset=0&limit=500
+ *   Query params: lang=en&offset=0&limit=<page-size>
  *   Returns JSON: { medium_id, offset, total, jobs: [...], filtercount }
  *   Each job: { id, hk_id, viewkey, title, attributes, szas, links, start_date, end_date, language }
  *
@@ -91,21 +91,20 @@ export function buildPwcDescription(szas = {}) {
 
 /**
  * Extract location city from structured szas.sza_location fields.
- * Falls back through city -> region -> 'Switzerland'.
+ * Returns the source city only. A region is useful as a canton signal but is
+ * not a city; callers must not publish it as `addressLocality` or invent a
+ * country/employer headquarters as a substitute.
  * @param {object} szas - The szas object from the API response
  * @returns {string}
  */
 export function inferPwcLocation(szas = {}) {
-  if (!szas) return 'Switzerland';
+  if (!szas) return '';
   const loc = szas['sza_location'] || {};
   // sza_location can be an object with nested fields, or szas can have flat keys
   const city = normalizeSpace(loc.city || szas['sza_location.city'] || '');
   if (city) return city;
 
-  const region = normalizeSpace(loc.region || szas['sza_location.region'] || '');
-  if (region) return region;
-
-  return 'Switzerland';
+  return '';
 }
 
 /**
@@ -117,6 +116,26 @@ export function inferPwcPostalCode(szas = {}) {
   if (!szas) return '';
   const loc = szas['sza_location'] || {};
   return normalizeSpace(loc.zip || szas['sza_location.zip'] || '');
+}
+
+/**
+ * Extract the source street address. The API exposes both nested and flat
+ * forms; keep the field source-backed rather than substituting a PwC HQ.
+ */
+export function inferPwcStreetAddress(szas = {}) {
+  if (!szas) return '';
+  const loc = szas['sza_location'] || {};
+  return normalizeSpace(loc.street || szas['sza_location.street'] || '');
+}
+
+/**
+ * Extract the source country when present. An empty result means the API did
+ * not declare a country and lets the caller rely on the Swiss locality check.
+ */
+export function inferPwcCountry(szas = {}) {
+  if (!szas) return '';
+  const loc = szas['sza_location'] || {};
+  return normalizeSpace(loc.country || szas['sza_location.country'] || '');
 }
 
 /**
@@ -166,10 +185,10 @@ export function inferPwcCategory(title = '', description = '') {
 /**
  * Parse the Prospective API response and extract PwC job items.
  * @param {object} data - Parsed JSON from the API
- * @returns {{ items: Array, total: number }}
+ * @returns {{ items: Array, total: number|null }}
  */
 export function parsePwcJobs(data = {}) {
-  if (!data) return { items: [], total: 0 };
+  if (!data) return { items: [], total: null };
   const rawJobs = assertJsonListShape(data, { key: 'jobs', source: 'pwc' });
   const items = rawJobs.map((j) => {
     const attrs = j.attributes || {};
@@ -183,6 +202,8 @@ export function parsePwcJobs(data = {}) {
 
     const city = inferPwcLocation(szas);
     const postalCode = inferPwcPostalCode(szas);
+    const streetAddress = inferPwcStreetAddress(szas);
+    const country = inferPwcCountry(szas);
     const description = buildPwcDescription(szas);
     const employmentType = mapPwcEmploymentType(szas);
 
@@ -192,6 +213,8 @@ export function parsePwcJobs(data = {}) {
       title: normalizeSpace(j.title),
       city,
       postalCode,
+      streetAddress,
+      country,
       location: locationAttrs[0] || city,
       locationAttrs,
       region: normalizeSpace((szas['sza_location'] || {}).region || szas['sza_location.region'] || ''),
@@ -209,7 +232,11 @@ export function parsePwcJobs(data = {}) {
     };
   });
 
-  return { items, total: data.total || items.length };
+  const declaredTotal = Number(data.total);
+  return {
+    items,
+    total: Number.isInteger(declaredTotal) && declaredTotal >= 0 ? declaredTotal : null,
+  };
 }
 
 /**
@@ -219,10 +246,11 @@ export function parsePwcJobs(data = {}) {
  */
 export function buildPwcLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
-  const city = String(job.city || 'Switzerland').trim();
+  const city = String(job.city || '').trim();
   const description = String(job.description || '').trim();
 
-  const fallbackDesc = `PwC Switzerland cerca ${title} con sede a ${city}. PwC e una delle principali societa di consulenza e revisione al mondo. Candidati online su pwc.ch.`;
+  const locationText = city ? ` con sede a ${city}` : '';
+  const fallbackDesc = `PwC Switzerland cerca ${title}${locationText}. PwC e una delle principali societa di consulenza e revisione al mondo. Candidati online su pwc.ch.`;
 
   return {
     titleByLocale: { it: title, en: title, de: title, fr: title },

@@ -45,6 +45,7 @@
 import { createProspectiveChParser } from './prospective-ch-job-parser-common.mjs';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { inferAnyCanton, isSwissLocationText } from './target-swiss-locations.mjs';
+import { getCantonPostalFallback } from './canton-postal-fallback.mjs';
 
 export const RAIFFEISEN_KEY = 'raiffeisen';
 export const RAIFFEISEN_COMPANY_NAME = 'Raiffeisen';
@@ -125,6 +126,8 @@ const parser = createProspectiveChParser({
   defaultPostalCode: '',
   publicCareerUrl: 'https://jobs.raiffeisen.ch/',
   defaultSourceLang: 'de',
+  strictPagination: true,
+  postalCodeFallback: (canton) => getCantonPostalFallback(canton),
   extraTrustedHosts: ['jobs.raiffeisen.ch', 'www.raiffeisen.ch'],
   // Partition: drop the regional bank already covered by the dedicated
   // raiffeisen-vc crawler (see header comment above).

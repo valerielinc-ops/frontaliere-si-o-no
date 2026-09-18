@@ -109,4 +109,68 @@ describe('Prospective.ch shared parser contract', () => {
       { title: 'Malformed location', location: '6850--', postalCode: '6850', streetAddress: '' },
     ]);
   });
+
+  it('strict pagination reaches a total above one page using unique source identities', async () => {
+    const job = (id: number) => ({
+      id,
+      title: `Role ${id}`,
+      links: { directlink: `https://observer.example/jobs/${id}` },
+      szas: { sza_title: `Role ${id}`, 'sza_location.city': '6850 Mendrisio' },
+    });
+    const firstPage = Array.from({ length: 100 }, (_, index) => job(index));
+    const secondPage = [job(100)];
+    const fetchMock = vi.fn(async (rawUrl: string) => {
+      const offset = Number(new URL(rawUrl).searchParams.get('offset'));
+      return {
+        ok: true,
+        json: async () => ({ total: 101, jobs: offset === 0 ? firstPage : secondPage }),
+      };
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const parser = createProspectiveChParser({
+      companyKey: 'prospective-strict',
+      companyName: 'Prospective Strict',
+      companyDomain: 'observer.example',
+      mediumId: '999998',
+      defaultCanton: 'TI',
+      defaultCity: 'Mendrisio',
+      defaultPostalCode: '6850',
+      strictPagination: true,
+    });
+    const jobs = await parser.fetchAllJobs();
+
+    expect(jobs).toHaveLength(101);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(new URL(fetchMock.mock.calls[1][0]).searchParams.get('offset')).toBe('100');
+  });
+
+  it('strict pagination fails when a later page adds no unique source identity', async () => {
+    const job = (id: number) => ({
+      id,
+      title: `Role ${id}`,
+      links: { directlink: `https://observer.example/jobs/${id}` },
+      szas: { sza_title: `Role ${id}`, 'sza_location.city': '6850 Mendrisio' },
+    });
+    const firstPage = Array.from({ length: 100 }, (_, index) => job(index));
+    const fetchMock = vi.fn(async () => ({
+      ok: true,
+      json: async () => ({ total: 101, jobs: firstPage }),
+    }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const parser = createProspectiveChParser({
+      companyKey: 'prospective-strict-repeat',
+      companyName: 'Prospective Strict Repeat',
+      companyDomain: 'observer.example',
+      mediumId: '999997',
+      defaultCanton: 'TI',
+      defaultCity: 'Mendrisio',
+      defaultPostalCode: '6850',
+      strictPagination: true,
+    });
+
+    await expect(parser.fetchAllJobs()).rejects.toThrow(/pagination did not advance/i);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
 });
