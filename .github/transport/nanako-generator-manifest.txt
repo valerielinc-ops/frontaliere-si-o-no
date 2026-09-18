@@ -57,6 +57,7 @@ scripts/generate-journalist-image-catalog.mjs
 # scoring inputs, evergreen refresh, event/border-wait content shaping. No
 # site-rendering dependency (docs §2).
 scripts/lib/ai-models.mjs
+scripts/lib/gh-models-endpoint.mjs
 scripts/lib/ai-search-template.mjs
 scripts/lib/article-body-repetition.mjs
 scripts/lib/article-defect-memory.mjs
