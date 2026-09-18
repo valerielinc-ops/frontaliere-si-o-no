@@ -187,3 +187,75 @@ export function derivePlateAuctionDataConfidence(current, issuesForId) {
   if (issuesForId.some((item) => CONFLICTING_CODES.has(item.code))) return 'conflicting';
   return 'partial';
 }
+
+/**
+ * Calibration knob for reading a vanished row as a sale. NOT a law: these
+ * three numbers are meant to be retuned on the first real data, which is why
+ * they live in one named place instead of inline in the condition.
+ *
+ * A fixed-price catalogue has no "sold" flag — the canton just drops the row —
+ * so the only available evidence is the SHAPE of the loss. Neither dimension
+ * works alone: 1% of BS's 16'976 rows is 170, a sane ceiling for BS and absurd
+ * for a 26-row source, while a low fixed cap is the reverse. `max(3, 1%)`
+ * gives BS 170 and a 26-row source 3.
+ */
+export const PLATE_AUCTION_SALE_RECOGNITION = Object.freeze({
+  /** Band: the catalogue came back healthy, not truncated. */
+  minFetchedRatio: 0.95,
+  /** Cap: share of the catalogue that may be read as sales in one run. */
+  maxVanishedRatio: 0.01,
+  /** Floor so a very small catalogue is not permanently stuck at zero. */
+  minVanishedCap: 3,
+});
+
+/**
+ * Fail-closed toward never inventing a sale: when either test fails we keep
+ * today's preserve-as-live behaviour. The accepted consequence is staying at
+ * zero recorded sales until the calibration above is confirmed on real data —
+ * which is the right direction, because a truncated PDF read as sales would
+ * stamp hundreds of plates with a fabricated sale date and price.
+ */
+export function recognizeCatalogueSales({ previousCount, fetchedCount, vanishedCount }) {
+  const cap = Math.max(
+    PLATE_AUCTION_SALE_RECOGNITION.minVanishedCap,
+    Math.ceil(PLATE_AUCTION_SALE_RECOGNITION.maxVanishedRatio * previousCount),
+  );
+  const withinBand = fetchedCount >= PLATE_AUCTION_SALE_RECOGNITION.minFetchedRatio * previousCount;
+  const withinCap = vanishedCount <= cap;
+  const blockedBy = [
+    ...(withinBand ? [] : ['band']),
+    ...(withinCap ? [] : ['cap']),
+  ];
+  return { recognized: withinBand && withinCap, cap, blockedBy };
+}
+
+/**
+ * A plate that vanished from its cantonal catalogue.
+ *
+ * A fixed-price catalogue has no "sold" flag: the canton simply drops the row
+ * from the published list, so disappearance IS the only sale signal available.
+ * 16'976 of 17'260 rows are `fixed-price` and carry `endsAt` in ZERO cases, so
+ * `closeExpiredObservation()` — which needs a deadline — can never close them:
+ * before this, a sold fixed-price plate just silently left the site with no
+ * record at all, and `history` held 5'000 rows that were all still `active`.
+ *
+ * The price we hold is the last published ASKING price, never a verified
+ * final. This deliberately does NOT set `finalPriceChf` or
+ * `finalPriceVerifiedAt` and forces `dataConfidence` below `verified`, so the
+ * observation can never satisfy the `finalsVerified` predicate that guards the
+ * finals ranking. A catalogue removal is not a sale result we witnessed.
+ */
+export function observeCatalogueDisappearance(row, now) {
+  const askingPriceChf = typeof row.currentBidChf === 'number' ? row.currentBidChf : row.startingPriceChf;
+  return {
+    ...row,
+    auctionStatus: 'closed',
+    closedAt: row.closedAt || row.lastSeenAt || row.sourceFetchedAt || now.toISOString(),
+    disappearedFromCatalogue: true,
+    ...(typeof askingPriceChf === 'number' ? { lastAskingPriceChf: askingPriceChf } : {}),
+    // Never a witnessed final: keep it out of the finals ranking by construction.
+    finalPriceChf: undefined,
+    finalPriceVerifiedAt: undefined,
+    dataConfidence: 'partial',
+  };
+}

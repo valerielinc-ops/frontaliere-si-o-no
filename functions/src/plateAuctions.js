@@ -21,6 +21,8 @@ import { chunkPlateAuctionWrites } from './plateAuctionBatch.js';
 import {
   checkPlateAuctionQuality,
   derivePlateAuctionDataConfidence,
+  observeCatalogueDisappearance,
+  recognizeCatalogueSales,
 } from './plateAuctionQualityCore.js';
 
 export const PLATE_AUCTION_COLLECTION = 'plate_auctions_current';
@@ -632,9 +634,31 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
         writes.push({ ref: db.collection(PLATE_AUCTION_HISTORY_COLLECTION).doc(`${row.id}-${fetchedAt.replace(/[^0-9]/g, '').slice(0, 14)}`), record });
       }
       const currentIds = new Set(rows.map((row) => row.id));
-      for (const [id, old] of previousById) {
-        if (currentIds.has(id)) continue;
-        const record = closeExpiredObservation(old, now);
+      // Same defect class as scripts/plate-auctions/ingest.mjs, in the other
+      // pipeline: closeExpiredObservation() returns null without an `endsAt`,
+      // which no fixed-price row has, so a sold plate was skipped here and
+      // never recorded as closed. The decision and its threshold come from the
+      // shared quality core so the two pipelines cannot drift apart.
+      const vanished = [...previousById.entries()].filter(([id]) => !currentIds.has(id));
+      const saleCandidates = vanished.filter(([, old]) => timestampMs(old.endsAt) === undefined
+        && ['active', 'upcoming'].includes(old.auctionStatus));
+      const saleDecision = recognizeCatalogueSales({
+        previousCount: previousById.size,
+        fetchedCount: rows.length,
+        vanishedCount: saleCandidates.length,
+      });
+      console.log(
+        `[refreshPlateAuctions:${key}] sale-recognition previous=${previousById.size} `
+        + `fetched=${rows.length} vanished=${saleCandidates.length} cap=${saleDecision.cap} `
+        + (saleDecision.recognized ? `decision=sales sold=${saleCandidates.length}` : `decision=preserve-as-live blocked-by=${saleDecision.blockedBy.join('+')}`),
+      );
+      const recognizedSaleIds = new Set(saleDecision.recognized ? saleCandidates.map(([id]) => id) : []);
+      for (const [id, old] of vanished) {
+        // A deadline that has passed archives the row; a catalogue removal in
+        // a healthy catalogue is a sale. Neither ever carries a final price.
+        const record = recognizedSaleIds.has(id)
+          ? observeCatalogueDisappearance({ ...old, id }, now)
+          : closeExpiredObservation(old, now);
         if (!record) continue;
         writes.push({ ref: db.collection(PLATE_AUCTION_COLLECTION).doc(id), record, merge: true });
         writes.push({ ref: db.collection(PLATE_AUCTION_HISTORY_COLLECTION).doc(`${id}-${fetchedAt.replace(/[^0-9]/g, '').slice(0, 14)}-closed`), record });
