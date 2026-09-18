@@ -2,16 +2,26 @@ name: tests
 run-name: "Code checks and review · ${{ github.event.pull_request.number && format('PR #{0}', github.event.pull_request.number) || github.ref_name }} · ${{ github.event.action || github.event_name }}"
 
 # One required check owns checkout, source guards, typecheck, Vitest and review.
-# The PR body contract is a step of this code run. Title/body edits start one
-# fresh validation run on the current SHA; a second model review is admitted
-# only for a new HEAD, so metadata churn cannot manufacture contradictory
-# reviews on one commit. Labels remain non-triggering.
+# The PR body contract is a step of this code run. A second model review is
+# admitted only for a new HEAD, so metadata churn cannot manufacture
+# contradictory reviews on one commit. Labels remain non-triggering.
 # Keep the job name aligned with the ruleset and scripts/ci/lib/constants.mjs.
-
+#
+# `edited` NON e' fra i tipi: un cambio di titolo o descrizione lascia l'HEAD
+# identico, quindi rieseguire l'intera run rimisura codice che non e' cambiato.
+# Misurato il 2026-09-18 sulle ultime 200 run: 38 delle 116 run su PR (33%)
+# nascono da un `edited`, 14 minuti di mediana l'una, 8 ore di CI in quella
+# sola finestra. La review non veniva comunque rifatta — il `Re-review guard`
+# salta quando esiste gia' una review terminale sulla HEAD — quindi quelle run
+# rimisuravano soltanto i test.
+#
+# Il caso che `edited` copriva resta coperto: se la run fallisce sul contratto
+# del body o sul gate della review, `retry-code-check-after-body-edit.yml`
+# riesegue QUELLA run quando la descrizione viene corretta, e solo allora.
 on:
   pull_request:
     branches: [main]
-    types: [opened, edited, synchronize, reopened, ready_for_review]
+    types: [opened, synchronize, reopened, ready_for_review]
   push:
     branches: [main]
   # Required checks are evaluated on the merge queue ref, not on the PR event.
