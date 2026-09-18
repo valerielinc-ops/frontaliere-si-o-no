@@ -114,7 +114,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { createGithubIssue, commentOnGithubIssue } from '../lib/github-issue-creator.mjs';
 import { TITLE_RE } from './close-recovered-failure-issues.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 
@@ -155,6 +155,68 @@ const MAX_ISSUES = intFromEnv('UNREPORTED_SCAN_MAX_ISSUES', 20);
 
 /** Cap di sicurezza sul listing delle issue aperte, con warning se raggiunto. */
 const OPEN_ISSUE_LISTING_CAP = 1000;
+
+/**
+ * Dopo quante ore di SILENZIO su una issue già aperta il guasto che continua a
+ * ricorrere viene ri-registrato con un commento.
+ *
+ * Perché non basta «esiste una issue aperta → è già segnalato». Caso misurato
+ * sul campo: `rerender-article-hubs` aveva 9 run rosse che deduplicavano tutte
+ * su #6650, aperta il 2026-08-27 e parcheggiata `needs-human` — l'allarme
+ * esisteva e non allarmava più. Trattare «aperta» come «coperta» senza guardare
+ * se qualcuno la stia ancora toccando riproduce esattamente il silenzio che
+ * questo meccanismo esiste per rompere, solo un livello più in là.
+ *
+ * Non si apre un secondo thread (sarebbe la valanga) e non si tenta di
+ * spacchettare il parcheggio: `needs-human` ha la sua porta di rientro nello
+ * sweep settimanale, e forzarla da qui vorrebbe dire litigare con quel ciclo.
+ * Si aggiunge UN commento con la run nuova, che è il minimo che rimette il
+ * guasto in circolo: aggiorna `updatedAt`, riporta la issue in cima alle liste
+ * ordinate per attività e dà allo sweep una prova fresca invece di una pagina
+ * ferma da tre settimane.
+ *
+ * 24 ore, non ogni passata: a cadenza oraria un workflow rosso da 438 h — il
+ * caso `audit-parser-quality` — avrebbe prodotto 438 commenti, cioè rumore che
+ * si legge come guasto del monitor. La soglia si misura su `updatedAt` della
+ * issue, che arriva GIÀ nel listing: qualunque attività (un commento, una
+ * label, una modifica) rimanda avanti il conto, quindi una issue su cui si sta
+ * lavorando non viene mai disturbata e costa zero chiamate in più.
+ *
+ * ── Il limite di questo segnale, misurato e non dedotto ──────────────────
+ *
+ * `updatedAt` è mosso ANCHE dall'etichettatura del ciclo, non solo dal lavoro
+ * umano. Verificato il 2026-09-18 sulla issue del caso citato sopra: #6650 è
+ * parcheggiata `needs-human` dal 2026-08-27, eppure porta
+ * `updatedAt: 2026-09-18T16:46:55Z` perché il drainer le ha aggiornato le label
+ * (`fu-attempt`, `fu-parked`). Per questa classe il commento NON scatta, e va
+ * detto invece di far credere il contrario: la soglia coglie l'abbandono vero
+ * (nessuno tocca più niente, come #8611 fermo da tre giorni), non il parcheggio
+ * curato.
+ *
+ * Il parcheggio, deliberatamente, non lo si forza da qui. `needs-human` ha una
+ * sola porta di rientro documentata — lo sweep settimanale, con una capacità
+ * misurata — e aprire una seconda via di escalation da uno scanner di
+ * fallimenti significherebbe due meccanismi che decidono la stessa cosa senza
+ * parlarsi, che in questo repo è già stato un difetto a sé. Qui il contratto si
+ * ferma dove deve: garantire che un allarme ESISTA per ogni workflow rosso, e
+ * lasciarlo fresco quando nessun altro lo tiene in vita.
+ */
+const COVERED_ISSUE_SILENCE_HOURS = intFromEnv('COVERED_ISSUE_SILENCE_HOURS', 24);
+
+/**
+ * Una issue aperta è ancora un allarme VIVO, o è ferma da tanto da essere
+ * diventata silenzio?
+ *
+ * @param {string|null|undefined} updatedAt
+ * @param {number} [nowMs]
+ */
+export function isCoveredIssueStale(updatedAt, nowMs = Date.now(), hours = COVERED_ISSUE_SILENCE_HOURS) {
+  const t = Date.parse(String(updatedAt ?? ''));
+  // Una data illeggibile NON è «fresca»: meglio un commento in più che il
+  // silenzio che questa funzione esiste per rilevare.
+  if (!Number.isFinite(t)) return true;
+  return nowMs - t > hours * 3600_000;
+}
 
 /**
  * Quante cadenze perse prima di chiamare dormiente un workflow schedulato.
@@ -242,14 +304,24 @@ function gh(args, { allowFailure = false } = {}) {
  * impedire, quindi qui si usa la forma tabellare, che e' una riga per record per
  * costruzione.
  *
+ * Rende `null` quando la CHIAMATA è fallita e `[]` quando la risposta è
+ * legittimamente vuota. La distinzione è il punto: con `[]` per entrambi, un
+ * 403 sul bucket Actions o un 422 su un filtro si leggeva come «nessuna run
+ * rossa» e la passata finiva con exit 0 e un `Verdict` verde senza aver
+ * guardato niente — lo stesso falso verde che la forma `@tsv` ha già chiuso una
+ * volta qui. Ogni chiamante deve decidere che fare di `null`, e per una lettura
+ * obbligatoria l'unica risposta giusta è fermarsi.
+ *
  * @param {string[]} fields i nomi da associare, in ordine, alle colonne
+ * @returns {Array<Record<string,string|null>>|null}
  */
-function ghApiRows(apiPath, jqExpr, fields, { allowFailure = true, paginate = true } = {}) {
+function ghApiRows(apiPath, jqExpr, fields, { paginate = true } = {}) {
   const args = paginate
     ? ['api', apiPath, '--paginate', '--jq', jqExpr]
     : ['api', apiPath, '--jq', jqExpr];
-  const out = gh(args, { allowFailure });
-  if (out === null || out === '') return [];
+  const out = gh(args, { allowFailure: true });
+  if (out === null) return null;
+  if (out === '') return [];
   const rows = [];
   for (const line of out.split('\n')) {
     if (!line.trim()) continue;
@@ -341,14 +413,32 @@ export function cronFieldValues(field, min, max, names = null) {
  * Intervallo massimo, in minuti, fra due esecuzioni consecutive dell'unione dei
  * cron passati. `null` quando nessun cron è interpretabile.
  *
- * ponytail: forza bruta su una finestra di 70 giorni invece di un motore cron
- * (nessuna dipendenza cron installata, e aggiungerne una per questo sarebbe
- * sproporzionato). 70 giorni bastano a misurare anche un mensile; l'ora viene
- * saltata in blocco quando non è ammessa, quindi il costo reale è di poche
- * decine di migliaia di iterazioni per workflow. Se un giorno servisse la
- * precisione su cadenze più rare di un mese, qui va un vero parser.
+ * ponytail: forza bruta invece di un motore cron (nessuna dipendenza cron
+ * installata, e aggiungerne una per questo sarebbe sproporzionato). L'ora viene
+ * saltata in blocco quando non è ammessa, quindi per una cadenza rara il costo
+ * reale è di poche decine di migliaia di iterazioni.
+ *
+ * La finestra CRESCE solo se serve. Una finestra fissa di 70 giorni era il
+ * difetto trovato in review: un cron mensile sul giorno 29, 30 o 31 ha una sola
+ * occorrenza fra il 1° gennaio e la metà di marzo — febbraio quei giorni non li
+ * ha — quindi cadeva nel ramo `fires.length < 2` e quel workflow restava fuori
+ * dal controllo di dormienza. Si prova 70 giorni (che copre tutto il parco
+ * attuale al costo minimo), poi 400 e infine 1.500 solo per chi non ha ancora
+ * due occorrenze: così un orario non paga mai la finestra lunga e un mensile
+ * raro viene comunque misurato. Oltre 1.500 giorni resta `null` — il caso è un
+ * `29 febbraio`, che ricorre ogni 4 anni — e chi chiama lo DICE invece di
+ * inventare una cadenza.
  */
-export function maxCronGapMinutes(crons, { windowDays = 70 } = {}) {
+export function maxCronGapMinutes(crons, { windowDays = null } = {}) {
+  if (windowDays !== null) return cronGapInWindow(crons, windowDays);
+  for (const days of [70, 400, 1500]) {
+    const gap = cronGapInWindow(crons, days);
+    if (gap !== null) return gap;
+  }
+  return null;
+}
+
+function cronGapInWindow(crons, windowDays) {
   const parsed = [];
   for (const expr of crons) {
     const f = String(expr).trim().split(/\s+/);
@@ -437,7 +527,10 @@ export function workflowScheduleFromSource(source) {
 export function openFailureIssueWorkflows() {
   const raw = gh(
     ['issue', 'list', '--state', 'open', '--limit', String(OPEN_ISSUE_LISTING_CAP),
-      '--json', 'number,title', ...repoFlag()],
+      // `updatedAt` arriva qui e non costa una chiamata in più: è il dato con cui
+      // si distingue un allarme vivo da uno parcheggiato (vedi
+      // COVERED_ISSUE_SILENCE_HOURS).
+      '--json', 'number,title,updatedAt', ...repoFlag()],
     { allowFailure: true },
   );
   if (raw === null) return null;
@@ -457,7 +550,7 @@ export function openFailureIssueWorkflows() {
   const byWorkflow = new Map();
   for (const issue of issues) {
     const m = TITLE_RE.exec(String(issue?.title || ''));
-    if (m) byWorkflow.set(m[1].trim(), issue.number);
+    if (m) byWorkflow.set(m[1].trim(), { number: issue.number, updatedAt: issue.updatedAt ?? null });
   }
   return byWorkflow;
 }
@@ -478,7 +571,7 @@ function registeredWorkflows() {
     '.workflows[] | [.id, .name, .path, .state, .created_at] | @tsv',
     ['id', 'name', 'path', 'state', 'created_at'],
   );
-  if (!rows.length) return null;
+  if (rows === null || !rows.length) return null;
   const byId = new Map();
   for (const w of rows) if (w?.id) byId.set(String(w.id), w);
   return byId.size ? byId : null;
@@ -541,6 +634,12 @@ async function scanFailures() {
       + ' .created_at, .updated_at, .html_url, .path] | @tsv',
     ['id', 'workflow_id', 'event', 'head_branch', 'conclusion', 'created_at', 'updated_at', 'html_url', 'path'],
   );
+  // Lettura obbligatoria: senza l'elenco delle run non c'è niente da decidere, e
+  // dichiarare «nessuna run rossa» sarebbe un verde su una misura non fatta.
+  if (runs === null) {
+    console.error('::error::[scan-unreported-failures] elenco delle run rosse illeggibile (API Actions non disponibile?) — nessuna conclusione possibile in questa passata.');
+    return 1;
+  }
 
   const reportable = [];
   for (const run of runs) {
@@ -578,7 +677,32 @@ async function scanFailures() {
     const already = openIssues.get(workflowName);
     if (already) {
       skipped += 1;
-      console.log(`[scan-unreported-failures] ${workflowName}: issue #${already} già aperta → nessun secondo thread.`);
+      // Un secondo thread non si apre mai. Ma se la issue è ferma da oltre la
+      // soglia, il guasto che continua a ricorrere va ri-registrato: «aperta» non
+      // significa «viva» (caso `rerender-article-hubs`/#6650, parcheggiata dal
+      // 2026-08-27 mentre 9 run rosse le deduplicavano sopra).
+      if (!isCoveredIssueStale(already.updatedAt)) {
+        console.log(`[scan-unreported-failures] ${workflowName}: issue #${already.number} aperta e attiva → nessun commento.`);
+        continue;
+      }
+      const silentHours = Math.round((Date.now() - Date.parse(String(already.updatedAt ?? ''))) / 3600_000);
+      if (DRY_RUN) {
+        console.log(`[scan-unreported-failures] (dry-run) commenterebbe la ricorrenza su #${already.number} (${workflowName}, ferma da ~${silentHours} h)`);
+        continue;
+      }
+      const ok = commentOnGithubIssue(
+        already.number,
+        `🔁 Il guasto ricorre e questa issue è ferma da ~${silentHours} h.\n\n`
+          + `- run: ${run.html_url}\n- event: \`${run.event}\` · branch: \`${run.head_branch}\`\n`
+          + `- aggiornata: ${run.updated_at}\n\n`
+          + 'Registrato da `scripts/ci/scan-unreported-failures.mjs`: nessun secondo thread, '
+          + 'solo la prova che la condizione non è rientrata.',
+      );
+      if (!ok) {
+        console.error(`::error::[scan-unreported-failures] commento di ricorrenza NON persistito su #${already.number} (${workflowName}).`);
+        return 1;
+      }
+      console.log(`[scan-unreported-failures] ${workflowName}: ricorrenza registrata su #${already.number} (ferma da ~${silentHours} h).`);
       continue;
     }
     if (opened >= MAX_ISSUES) {
@@ -701,6 +825,14 @@ async function scanDormant() {
       ['created_at'],
       { paginate: false },
     );
+    // Una lettura FALLITA non è «non ha mai girato»: senza questo guard il
+    // fallback sulla data di registrazione del workflow avrebbe aperto una issue
+    // di dormienza su un workflow sano ogni volta che l'API Actions restituisce
+    // 403 — un allarme falso costruito su un dato mancante.
+    if (rows === null) {
+      console.warn(`::warning::[scan-unreported-failures --dormant] ultima run di ${wf.name} illeggibile — dormienza NON verificata per questo workflow.`);
+      continue;
+    }
     checked += 1;
     const lastRunAt = rows[0]?.created_at || null;
     // Senza run non si distingue «morto» da «appena aggiunto»: si usa la data di
@@ -712,7 +844,11 @@ async function scanDormant() {
 
     const already = openIssues.get(wf.name);
     if (already) {
-      console.log(`[scan-unreported-failures --dormant] ${wf.name}: issue #${already} già aperta → skip.`);
+      // Qui non si commenta la ricorrenza come nel ramo dei rossi: una issue
+      // aperta su questo workflow dice già che qualcuno lo sta guardando, e la
+      // dormienza non "ricorre" — è uno stato continuo, quindi un commento al
+      // giorno sarebbe puro rumore.
+      console.log(`[scan-unreported-failures --dormant] ${wf.name}: issue #${already.number} già aperta → skip.`);
       continue;
     }
     if (opened >= MAX_ISSUES) {

@@ -25,6 +25,7 @@ import {
   cronFieldValues,
   maxCronGapMinutes,
   dormancyThresholdMinutes,
+  isCoveredIssueStale,
   workflowScheduleFromSource,
   runBody,
   dormantBody,
@@ -235,6 +236,62 @@ describe('soglia di dormienza — il pavimento assoluto', () => {
     expect(13 * 1440).toBeLessThan(weekly);
     expect(114 * 1440).toBeGreaterThan(weekly);
     expect(114 * 1440).toBeGreaterThan(dormancyThresholdMinutes(maxCronGapMinutes(['0 3 1 * *'])!));
+  });
+});
+
+describe('«issue aperta» non significa «allarme vivo»', () => {
+  // Caso misurato sul campo: `rerender-article-hubs` con 9 run rosse che
+  // deduplicavano su #6650, aperta il 2026-08-27 e parcheggiata `needs-human`.
+  // L'allarme esisteva e non allarmava: trattare «aperta» come «coperta»
+  // riprodurrebbe lo stesso silenzio un livello più in là.
+  it('una issue toccata di recente non viene disturbata', () => {
+    const now = Date.parse('2026-09-18T18:00:00Z');
+    expect(isCoveredIssueStale('2026-09-18T15:00:00Z', now)).toBe(false);
+    expect(isCoveredIssueStale('2026-09-17T19:00:00Z', now)).toBe(false);
+  });
+
+  it('una issue parcheggiata da settimane è silenzio, e la ricorrenza va registrata', () => {
+    const now = Date.parse('2026-09-18T18:00:00Z');
+    expect(isCoveredIssueStale('2026-08-27T10:00:00Z', now)).toBe(true);
+  });
+
+  it('una data illeggibile conta come silenzio, non come freschezza', () => {
+    // Fail-safe nel verso giusto: meglio un commento in piu' che il silenzio.
+    expect(isCoveredIssueStale(null)).toBe(true);
+    expect(isCoveredIssueStale(undefined)).toBe(true);
+    expect(isCoveredIssueStale('non-una-data')).toBe(true);
+  });
+
+  it('la soglia è configurabile e il confine è esattamente 24 h', () => {
+    const now = Date.parse('2026-09-18T18:00:00Z');
+    expect(isCoveredIssueStale('2026-09-17T17:59:00Z', now)).toBe(true);
+    expect(isCoveredIssueStale('2026-09-17T18:01:00Z', now)).toBe(false);
+    expect(isCoveredIssueStale('2026-09-18T16:00:00Z', now, 1)).toBe(true);
+  });
+});
+
+describe('cadenze rare: il cron non si scarta in silenzio', () => {
+  // Difetto trovato in review: con una finestra fissa di 70 giorni un cron
+  // mensile sul giorno 29/30/31 aveva UNA sola occorrenza (febbraio quei giorni
+  // non li ha), cadeva nel ramo `fires.length < 2` e quel workflow restava fuori
+  // dal controllo di dormienza.
+  it('un mensile sul 29, 30 o 31 viene misurato invece di essere scartato', () => {
+    for (const day of [29, 30, 31]) {
+      const gap = maxCronGapMinutes([`0 3 ${day} * *`]);
+      expect(gap, `giorno ${day} deve avere una cadenza misurabile`).not.toBeNull();
+      // Il salto vero comprende febbraio, quindi e' piu' di un mese.
+      expect(gap!).toBeGreaterThan(44640);
+    }
+  });
+
+  it('una cadenza da 4 anni resta null: dichiarata, non inventata', () => {
+    expect(maxCronGapMinutes(['0 3 29 2 *'])).toBeNull();
+  });
+
+  it('una cadenza corta non paga la finestra lunga', () => {
+    const t0 = Date.now();
+    for (let i = 0; i < 20; i += 1) maxCronGapMinutes(['47 * * * *']);
+    expect(Date.now() - t0).toBeLessThan(2000);
   });
 });
 
