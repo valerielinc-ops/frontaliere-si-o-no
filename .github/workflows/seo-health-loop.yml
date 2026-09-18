@@ -69,6 +69,11 @@ jobs:
           APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
           APPROVAL_CONSENT: ${{ inputs.human_approval }}
           APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          # The daily cron is this workflow's only producing principal: it
+          # writes data/seo-health/latest.json and applies the already-protected
+          # 404 repair.  Unarmed, every producing step is skipped and the
+          # fail-closed artifact upload is the only thing left to report it.
+          APPROVAL_TRUSTED_SCHEDULE: 'true'
           APPROVAL_SCOPE: seo-health-loop
         run: node scripts/ci/human-side-effect-gate.mjs
 
@@ -268,6 +273,7 @@ jobs:
           fi
 
       - name: Upload health report
+        id: health_report
         if: always()
         uses: actions/upload-artifact@v6
         with:
@@ -277,7 +283,12 @@ jobs:
           retention-days: 30
 
       - name: Report workflow failure
-        if: ${{ always() && inputs.dry_run != true && (steps.health.outcome == 'failure' || steps.compat_reconcile.outcome == 'failure' || steps.compat_validation.outcome == 'failure' || steps.compat.outcome == 'failure' || steps.health_commit.outcome == 'failure' || steps.deploy.outcome == 'failure') }}
+        # The producing steps are continue-on-error, so job-level failure() does
+        # not see them and every failure mode must be named here.  health_report
+        # is named too: a missing latest.json is the one symptom that surfaces a
+        # run where the producer never executed at all, and while it was left
+        # out that failure raised no issue for two consecutive days.
+        if: ${{ always() && inputs.dry_run != true && (steps.health.outcome == 'failure' || steps.compat_reconcile.outcome == 'failure' || steps.compat_validation.outcome == 'failure' || steps.compat.outcome == 'failure' || steps.health_commit.outcome == 'failure' || steps.deploy.outcome == 'failure' || steps.health_report.outcome == 'failure') }}
         continue-on-error: true
         env:
           GH_REPO: ${{ github.repository }}
