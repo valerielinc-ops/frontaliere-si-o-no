@@ -7,7 +7,7 @@
  *
  * - https://www.nordangliaeducation.com/careers is the group marketing page
  *   (no ATS signature — plain marketing site).
- * - The actual application backend lives on `careers.nordangliaeducation.com`,
+ * - The actual application backend lives on `careers.nordanglia.com`,
  *   an SAP SuccessFactors "jobs2web" (j2w) Career Site Builder tenant shared
  *   by ALL Nord Anglia schools worldwide, including several other Swiss
  *   brands: Collège du Léman (Geneva), Collège Champittet (Lausanne/Pully),
@@ -15,14 +15,11 @@
  *   `keywords=(Switzerland)` RSS query that returned postings across the
  *   Swiss schools. This parser keeps every Swiss location returned by the
  *   tenant.
- * - The tenant exposes a free, unauthenticated RSS export per saved search:
- *   `https://careers.nordanglia.com/services/rss/job/?locale=en_GB&keywords=(Switzerland)`
- *   — confirmed live, returns full HTML job descriptions inline (no
- *   secondary detail-page fetch needed). This is simpler and more robust
- *   than scraping the jobs2web HTML search/detail pages (used by the
- *   shared `./ats-clients/successfactors-client.mjs` 'html-jobreq' flavor
- *   for other tenants) so this parser talks to the RSS feed directly
- *   instead of routing through that shared client.
+ * - The tenant's RSS export was the original source, but now responds with
+ *   an endpoint-level 403. The live replacement is the server-rendered
+ *   SuccessFactors search page at `/search/?locationsearch=Switzerland`, with
+ *   one detail-page fetch per listing for the real description. RSS remains
+ *   preferred when it is available; the HTML path is a bounded fallback.
  *
  * The RSS `keywords=(Switzerland)` filter is a full-text search, not a strict
  * location filter. Each item is therefore accepted only when its title or
@@ -44,8 +41,15 @@ import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddr
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { assertFeedBodyLooksLikeXml, assertFeedEndpointHost } from './feed-endpoint-guard.mjs';
-import { httpFetchWithRetry } from './transient-fetch.mjs';
+import { decodeEntities } from './hospital-custom-html-helpers.mjs';
+import { parseCsbDetailPage } from './successfactors-shared-job-parser-common.mjs';
+import { isSuccessFactorsWidgetText } from './successfactors-jobs2web-widget-guard.mjs';
+import {
+  assertFeedBodyLooksLikeXml,
+  assertFeedEndpointHost,
+  FeedEndpointUnavailableError,
+} from './feed-endpoint-guard.mjs';
+import { httpFetchWithRetry, isConnectionLevelFetchError } from './transient-fetch.mjs';
 import {
   canonicalSwissCityName,
   inferAnyCanton,
@@ -66,6 +70,12 @@ const CAREER_URL = 'https://careers.nordanglia.com/services/rss/job/?locale=en_G
 const ATS_HOST = 'careers.nordanglia.com';
 const LEGACY_ATS_HOST = 'careers.nordangliaeducation.com';
 const ATS_HOSTS = new Set([ATS_HOST, LEGACY_ATS_HOST]);
+const ATS_ORIGIN = `https://${ATS_HOST}`;
+const SEARCH_URL = `${ATS_ORIGIN}/search/?createNewAlert=false&locationsearch=Switzerland&optionsFacetsDD_city=&optionsFacetsDD_customfield3=&optionsFacetsDD_facility=Europe&q=`;
+const SEARCH_PAGE_SIZE = 25;
+const MAX_SEARCH_PAGES = 20;
+const DETAIL_DELAY_MS = 250;
+const VENDOR_ENDPOINT_UNAVAILABLE_STATUSES = new Set([403, 404, 410]);
 const POLITE_UA = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)';
 const DEFAULT_TIMEOUT_MS = 20_000;
 // Exactly 50% is deliberately tolerated: one malformed vendor item must not
@@ -224,6 +234,115 @@ function isGenericOffer(title = '') {
   return GENERIC_OFFER_PATTERNS.some((re) => re.test(title));
 }
 
+function readHtmlText(value = '') {
+  return normalizeSpace(decodeEntities(stripHtml(value)));
+}
+
+function trustedApplyUrl(rawUrl, fallbackUrl) {
+  if (!rawUrl) return fallbackUrl;
+  try {
+    const resolved = new URL(rawUrl, fallbackUrl).toString();
+    return isTrustedDomain(resolved) ? resolved : fallbackUrl;
+  } catch {
+    return fallbackUrl;
+  }
+}
+
+/**
+ * Parse the current SuccessFactors search page. The vendor repeats each
+ * result in desktop/mobile markup, so the numeric requisition ID is the
+ * stable deduplication key.
+ */
+export function parseNordAngliaSearchResults(html = '') {
+  if (typeof html !== 'string' || !html) return [];
+
+  const rows = [];
+  const seen = new Set();
+  const anchorRe = /<a\b(?=[^>]*\bhref\s*=\s*["'][^"']*\/job\/[^"']*\/\d+\/?[^"']*["'])[^>]*\bhref\s*=\s*["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  let match;
+  while ((match = anchorRe.exec(html)) !== null) {
+    const rawHref = decodeEntities(match[1]);
+    let absoluteUrl;
+    try {
+      absoluteUrl = new URL(rawHref, ATS_ORIGIN).toString();
+    } catch {
+      continue;
+    }
+    const link = canonicalizeNordAngliaJobUrl(absoluteUrl);
+    const jobReqId = extractJobReqId(link);
+    // The Switzerland query is a full-text vendor search and can still
+    // surface foreign records. The canonical route is the authoritative
+    // location signal for the HTML fallback, just as it is for RSS items.
+    if (!link || !jobReqId || !extractRouteLocation(link) || seen.has(jobReqId)) continue;
+
+    const title = readHtmlText(match[2]);
+    if (!title || title.length < 3 || isSuccessFactorsWidgetText(title)) continue;
+    seen.add(jobReqId);
+    rows.push({ title, link, jobReqId, sourceFormat: 'html' });
+  }
+  return rows;
+}
+
+async function fetchNordAngliaHtml(url, label) {
+  const res = await httpFetchWithRetry(
+    url,
+    { headers: { 'User-Agent': POLITE_UA, Accept: 'text/html,application/xhtml+xml' } },
+    { timeout: DEFAULT_TIMEOUT_MS, label: `nord-anglia ${label}` },
+  );
+  assertFeedEndpointHost('nord-anglia', [...ATS_HOSTS], res.url);
+  if (!res.ok) {
+    const error = new Error(`Nord Anglia ${label} returned HTTP ${res.status}`);
+    error.status = res.status;
+    if (res.retryBudgetExhausted === true) error.retryBudgetExhausted = true;
+    throw error;
+  }
+  return res.text();
+}
+
+async function fetchNordAngliaSearchListings() {
+  const listings = [];
+  const seen = new Set();
+
+  for (let page = 0; page < MAX_SEARCH_PAGES; page += 1) {
+    const pageUrl = new URL(SEARCH_URL);
+    if (page > 0) pageUrl.searchParams.set('startrow', String(page * SEARCH_PAGE_SIZE));
+    let html;
+    try {
+      html = await fetchNordAngliaHtml(pageUrl.toString(), 'search');
+    } catch (error) {
+      if (!VENDOR_ENDPOINT_UNAVAILABLE_STATUSES.has(error?.status)) throw error;
+      const unavailable = new FeedEndpointUnavailableError(
+        `[nord-anglia] SuccessFactors search endpoint returned HTTP ${error.status} `
+        + '— the vendor endpoint is unavailable, keeping the indexed slice',
+      );
+      unavailable.status = error.status;
+      if (error.retryBudgetExhausted === true) unavailable.retryBudgetExhausted = true;
+      throw unavailable;
+    }
+    const pageRows = parseNordAngliaSearchResults(html);
+    let added = 0;
+    for (const row of pageRows) {
+      if (seen.has(row.jobReqId)) continue;
+      seen.add(row.jobReqId);
+      listings.push(row);
+      added += 1;
+    }
+    if (pageRows.length === 0 || pageRows.length < SEARCH_PAGE_SIZE || added === 0) break;
+    await new Promise((resolve) => setTimeout(resolve, DETAIL_DELAY_MS));
+  }
+  return listings;
+}
+
+async function fetchNordAngliaDetail(url) {
+  try {
+    const html = await fetchNordAngliaHtml(url, 'detail');
+    return parseCsbDetailPage(html);
+  } catch (error) {
+    console.warn(`⚠️ Nord Anglia detail fetch failed for ${jobUrlForDiagnostic(url)}: ${error?.message || error}`);
+    return null;
+  }
+}
+
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
@@ -369,7 +488,7 @@ function detectEmploymentType(text = '') {
  *
  * @returns {Promise<Array<{title, link, description, pubDate}>>}
  */
-async function fetchJobListings() {
+async function fetchNordAngliaRssListings() {
   console.log(`   Fetching from: ${CAREER_URL}`);
 
   const res = await httpFetchWithRetry(
@@ -379,6 +498,14 @@ async function fetchJobListings() {
   );
   assertFeedEndpointHost('nord-anglia', ATS_HOST, res.url);
   if (!res.ok) {
+    if (VENDOR_ENDPOINT_UNAVAILABLE_STATUSES.has(res.status)) {
+      const error = new FeedEndpointUnavailableError(
+        `[nord-anglia] RSS endpoint returned HTTP ${res.status} — using the SuccessFactors search fallback`,
+      );
+      error.status = res.status;
+      if (res.retryBudgetExhausted === true) error.retryBudgetExhausted = true;
+      throw error;
+    }
     const error = new Error(`Nord Anglia RSS feed returned HTTP ${res.status}`);
     error.status = res.status;
     if (res.retryBudgetExhausted === true) error.retryBudgetExhausted = true;
@@ -388,6 +515,23 @@ async function fetchJobListings() {
   const xml = await res.text();
   assertFeedBodyLooksLikeXml('nord-anglia', ATS_HOST, xml);
   return parseNordAngliaRss(xml);
+}
+
+/**
+ * Prefer RSS while it is available, then use the live SuccessFactors search
+ * when the vendor has disabled or moved the RSS endpoint. A successful HTML
+ * search with no recognized Swiss listing is not evidence of an empty board:
+ * keep the soft endpoint error so the previous indexed slice is retained.
+ */
+async function fetchJobListings() {
+  try {
+    return await fetchNordAngliaRssListings();
+  } catch (error) {
+    if (!error?.feedEndpointUnavailable && !isConnectionLevelFetchError(error)) throw error;
+    const htmlListings = await fetchNordAngliaSearchListings();
+    if (htmlListings.length > 0) return htmlListings;
+    throw error;
+  }
 }
 
 /** Parse the Switzerland-scoped jobs2web RSS payload into scalar item fields. */
@@ -478,14 +622,19 @@ export async function fetchAllNordAngliaJobs() {
     return [];
   }
 
-  console.log(`  📋 Raw RSS items found: ${listings.length}`);
+  const listingFormat = listings.some((item) => item.sourceFormat === 'html')
+    ? 'SuccessFactors HTML'
+    : 'RSS';
+  console.log(`  📋 Raw ${listingFormat} items found: ${listings.length}`);
 
   const jobs = [];
   const seen = new Set();
   let swissScopeCandidates = 0;
   let swissSignalCandidates = 0;
   let swissScopeDrops = 0;
+  let detailFetches = 0;
   for (const item of listings) {
+    const isHtmlListing = item.sourceFormat === 'html';
     const rawTitle = normalizeSpace(item.title || '');
     const link = normalizeSpace(item.link || '');
     const title = stripLocationSuffix(rawTitle);
@@ -554,8 +703,27 @@ export async function fetchAllNordAngliaJobs() {
     if (seen.has(publicUrl)) continue;
     seen.add(publicUrl);
 
+    let detail = null;
+    if (isHtmlListing) {
+      if (detailFetches > 0) await new Promise((resolve) => setTimeout(resolve, DETAIL_DELAY_MS));
+      detailFetches += 1;
+      detail = await fetchNordAngliaDetail(publicUrl);
+    }
+    const detailDescriptionText = normalizeSpace(detail?.descriptionText || '');
+    if (isHtmlListing && detailDescriptionText.split(/\s+/).filter(Boolean).length < 50) {
+      swissScopeDrops++;
+      console.warn(
+        `[nord-anglia-detail-drop] Skipped "${title}" at ${jobUrlForDiagnostic(publicUrl)} `
+        + 'because the live detail page did not expose a substantive description',
+      );
+      continue;
+    }
+
     const descriptionHtml = item.description;
-    const descriptionText = stripHtml(descriptionHtml);
+    const descriptionText = isHtmlListing ? detailDescriptionText : stripHtml(descriptionHtml);
+    const jobTitle = isHtmlListing && detail?.title && !isSuccessFactorsWidgetText(detail.title)
+      ? normalizeSpace(detail.title)
+      : title;
     const location = titleIsSwiss ? titleLocation : routeLocation;
     const canton = inferAnyCanton(location);
     if (!canton) {
@@ -566,17 +734,17 @@ export async function fetchAllNordAngliaJobs() {
       continue;
     }
     const fallbackAddress = resolveFallbackAddress(undefined, location, canton);
-    const description = descriptionText || `${title} presso ${NORD_ANGLIA_COMPANY_NAME} a ${location}, Svizzera.`;
-    const sourceLang = detectLang(descriptionText || title, 'en');
-    const jobSlug = slugify(`${title} nord-anglia ${location}`);
+    const description = descriptionText || `${jobTitle} presso ${NORD_ANGLIA_COMPANY_NAME} a ${location}, Svizzera.`;
+    const sourceLang = detail?.language || detectLang(descriptionText || jobTitle, 'en');
+    const jobSlug = slugify(`${jobTitle} nord-anglia ${location}`);
     // New identity is derived from the same canonical URL that is published,
     // so tracking/session query rotation cannot mint a new job. The standard
     // crawler merge matches the stable numeric requisition ID in this URL and
     // preserves any already-indexed legacy raw-link ID and slug history.
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const jobReqId = extractJobReqId(publicUrl);
-    const employmentType = detectEmploymentType(`${descriptionText} ${title}`);
-    const postedDate = toIsoDate(item.pubDate) || new Date().toISOString().split('T')[0];
+    const employmentType = detectEmploymentType(`${detail?.rateText || ''} ${descriptionText} ${jobTitle}`);
+    const postedDate = toIsoDate(detail?.postedDate) || toIsoDate(item.pubDate) || new Date().toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
@@ -586,14 +754,16 @@ export async function fetchAllNordAngliaJobs() {
       company: NORD_ANGLIA_COMPANY_NAME,
       companyKey: NORD_ANGLIA_KEY,
       companyDomain: NORD_ANGLIA_COMPANY_DOMAIN,
-      title,
-      titleByLocale: { [sourceLang]: title },
+      title: jobTitle,
+      titleByLocale: { [sourceLang]: jobTitle },
       description,
       descriptionByLocale: { [sourceLang]: description },
       location,
       canton,
       url: publicUrl,
-      source: 'Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)',
+      source: isHtmlListing
+        ? 'Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)'
+        : 'Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)',
       sourceLang,
       crawledAt: new Date().toISOString(),
 
@@ -604,15 +774,15 @@ export async function fetchAllNordAngliaJobs() {
       postalCode: fallbackAddress.postalCode,
       addressCountry: 'CH',
       country: 'CH',
-      category: detectCategory(title),
+      category: detectCategory(jobTitle),
       contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
       employmentType,
-      experienceLevel: detectExperienceLevel(title),
+      experienceLevel: detectExperienceLevel(jobTitle),
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
       postedDate,
-      applyUrl: publicUrl,
+      applyUrl: trustedApplyUrl(detail?.applyUrl, publicUrl),
       jobReqId: jobReqId || null,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
