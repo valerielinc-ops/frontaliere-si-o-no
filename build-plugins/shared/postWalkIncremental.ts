@@ -1130,27 +1130,26 @@ function buildPostWalkPlanFromState(
     );
   }
 
-  // The full HTML reference scan is retained for the conservative non-verify
-  // path. With the sampled verifier enabled, manifest-backed references are
-  // resolved during load and the verifier samples uncovered pages; reopening
-  // every HTML file here would defeat the O(changed) planner.
-  if (input.includeUncoveredPaths !== false) {
-    const unresolvedScanReason = scanUnresolvedRemovalReferences(
-      input,
-      state.unresolvedRemovals,
-      affected,
-      readHtml,
+  // An unresolved removal has no manifest identity or reverse edge, so the
+  // bounded HTML scan is required even in sampled-verifier mode. Otherwise a
+  // page outside the sample can retain a stale reference after the removal.
+  // This scan is only entered for that conservative edge case; ordinary
+  // verified planning remains O(changed + affected).
+  const unresolvedScanReason = scanUnresolvedRemovalReferences(
+    input,
+    state.unresolvedRemovals,
+    affected,
+    readHtml,
+  );
+  if (unresolvedScanReason) {
+    return fullPlan(
+      input.processableHtmlPaths,
+      eligibleByManifest,
+      state.changed.size,
+      state.added.size,
+      state.removed.size,
+      unresolvedScanReason,
     );
-    if (unresolvedScanReason) {
-      return fullPlan(
-        input.processableHtmlPaths,
-        eligibleByManifest,
-        state.changed.size,
-        state.added.size,
-        state.removed.size,
-        unresolvedScanReason,
-      );
-    }
   }
 
   // Select physical aliases directly from the compact logical manifest index.

@@ -314,6 +314,42 @@ describe('post-walk incremental planning', () => {
     expect(streamedPlan.processHtmlPaths).toEqual([htmlPaths[4], htmlPaths[5], htmlPaths[6]]);
   });
 
+  it('scans unresolved removal references before omitting unmanifested paths', async () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const sourcePath = writeHtml(
+      root,
+      'jobs/unchanged/index.html',
+      `<a href="${BASE_URL}/jobs/removed/">removed</a>`,
+    );
+    const uncoveredPath = writeHtml(root, 'uncovered/index.html', 'uncovered');
+    writeManifest(root, 'incremental-manifest-prev', [
+      { path: 'jobs/unchanged/', kind: 'active-job', input: { title: 'same' } },
+      { path: 'jobs/removed/', kind: 'active-job', input: { title: 'removed' } },
+    ]);
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/unchanged/', kind: 'active-job', input: { title: 'same' } },
+    ]);
+
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+    expect(loaded.ok).toBe(true);
+    if ('reason' in loaded) throw new Error(loaded.reason);
+    const plan = buildPostWalkIncrementalPlanFromState({
+      distDir,
+      allHtmlPaths: [sourcePath, uncoveredPath],
+      processableHtmlPaths: [sourcePath, uncoveredPath],
+      existingHtmlSet: new Set([sourcePath, uncoveredPath]),
+      baseUrl: BASE_URL,
+      includeUncoveredPaths: false,
+      state: loaded.state,
+    });
+
+    expect(plan.mode).toBe('incremental');
+    expect(plan.fallbackMode).toBe('entry');
+    expect(plan.processHtmlPaths).toEqual([sourcePath]);
+    expect(plan.processHtmlPaths).not.toContain(uncoveredPath);
+  });
+
   it('keeps add/remove incremental and selects same-job/explicit dependants among untouched pages', async () => {
     const root = fixtureRoot();
     const distDir = path.join(root, 'dist');
