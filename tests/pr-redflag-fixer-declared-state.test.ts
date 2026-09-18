@@ -224,23 +224,13 @@ describe('the autonomous fixers read declared states before contradicting them (
     );
   });
 
-  it('pr-redflag-fixer unblocks the loop when the round ends with no diff', () => {
+  it('pr-redflag-fixer does not manufacture a new HEAD when the round has no code change', () => {
     const p = prompt('pr-redflag-fixer.yml');
-    // `pr-review-loop` only fires on workflow_run[tests] with event ==
-    // pull_request, i.e. only after a PUSH. A comment-only terminal leaves the
-    // 🔴 review as the last one, auto-merge-eval keeps refusing, and nothing
-    // collects the PR (recycle-stale-prs only touches `stale-review`).
     expect(
       p,
-      'the prompt no longer tells the fixer to push an empty commit when it has nothing ' +
-        'to commit — a comment-only terminal deadlocks the PR forever (no re-review, no ' +
-        'merge, no recycling).',
-    ).toMatch(/git commit --allow-empty/);
-    expect(p, 'the prompt no longer explains WHY the push is what re-arms the review.').toMatch(
-      /pr-review-loop/,
-    );
-    expect(p, 'the prompt no longer names auto-merge-eval as the thing that stays blocked.')
-      .toMatch(/auto-merge-eval/);
+      'the prompt still tells the fixer to push an empty commit — that creates a new HEAD and a second review on the same work.',
+    ).not.toMatch(/git commit --allow-empty/);
+    expect(p).toMatch(/Niente commit vuoto|non pushare un commit vuoto/i);
   });
 
   it('pr-redflag-fixer forbids writing a closing state on an item it is skipping', () => {
