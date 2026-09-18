@@ -2926,6 +2926,21 @@ export function parsePath(pathname: string): ParseResult {
          ? resolveEditorialJobLandingDescriptor(rawSecond)
          : null;
        if (editorialDescriptor) {
+         // Demand-qualified intent landings are emitted only for Ticino. A
+         // localized intent slug under another canton must therefore resolve
+         // to the real TI page instead of being treated as a static overlay
+         // for a file that does not exist.
+         if (editorialDescriptor.kind === 'intent') {
+           const canonicalSlug = getJobIntentLandingSlug(locale, editorialDescriptor.intentKey);
+           const canonicalSection = getJobBoardSlugForCanton('TI', locale);
+           const localePref = locale === 'it' ? '' : `/${locale}`;
+           const redirectTo = `${localePref}/${canonicalSection}/${canonicalSlug}/`.replace(/\/+/g, '/');
+           return {
+             route: { activeTab: 'job-board', jobBoardCanton: 'TI', staticOverlay: true },
+             locale,
+             redirectTo,
+           };
+         }
          const canonicalSlug: string | null = (() => {
            if (editorialDescriptor.kind === 'today') return getJobTodayLandingSlug(locale, cantonCode);
            if (editorialDescriptor.kind === 'nurses-hub') return getJobNursesHubSlug(locale, cantonCode);
@@ -3218,8 +3233,24 @@ export function parsePath(pathname: string): ParseResult {
  // All of these have static HTML on disk and the SPA must NOT re-render
  // over them. staticOverlay tells App.tsx to skip the React main render
  // so the build-time SEO HTML stays visible (lite-shell mode).
- if (rawSecond && resolveEditorialJobLandingDescriptor(rawSecond)) {
- return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', staticOverlay: true }, locale };
+ if (rawSecond) {
+ const editorialDescriptor = resolveEditorialJobLandingDescriptor(rawSecond);
+ if (editorialDescriptor?.kind === 'intent') {
+   const canonicalSlug = getJobIntentLandingSlug(locale, editorialDescriptor.intentKey);
+   if (canonicalSlug !== rawSecond) {
+     const prefix = localePrefix(locale);
+     const redirectTo = `${prefix}/${table.jobBoard}/${canonicalSlug}/`.replace(/\/+/g, '/');
+     return {
+       route: { activeTab: 'job-board', jobBoardCanton: 'TI', staticOverlay: true },
+       locale,
+       redirectTo,
+     };
+   }
+   return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', staticOverlay: true }, locale };
+ }
+ if (editorialDescriptor) {
+   return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', staticOverlay: true }, locale };
+ }
  }
  // Related-search cluster landings (build-plugins/relatedSearchClustersPlugin.ts):
  // emit `/cerca-lavoro-ticino/ricerca-{slug}/` (locale variants) with rich
