@@ -154,7 +154,9 @@ async function fetchListings() {
   const nonSwissRows = classifiedRows.filter(({ classification }) => classification === 'foreign');
   console.log(`🌍 Non-Swiss rows discarded before detail fetch: ${nonSwissRows.length}`);
   swissRows.forEach((row) => console.log(`  📄 ${row.title} (${row.location})`));
-  Object.defineProperty(rows, 'finconsListingReadComplete', { value: true, enumerable: false });
+  if (rows.finconsListingReadComplete !== true) {
+    throw new Error('Fincons listing parser did not prove a complete source snapshot');
+  }
   return rows;
 }
 
