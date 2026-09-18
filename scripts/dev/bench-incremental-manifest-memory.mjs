@@ -125,8 +125,8 @@ for (let index = 0; index < RECORD_COUNT; index += 1) {
     inputCache.relatedProjectionListsByKey.set(
       `${stableId}\u0000de\u0000${relatedIds.join('\u0000')}`,
       {
-        signatures: sharedRelatedJobs.map((relatedJob) => (
-          inputCache.jobDigestsById.get(stableJobId(relatedJob))?.signature ?? null
+        digests: sharedRelatedJobs.map((relatedJob) => (
+          inputCache.jobDigestsById.get(stableJobId(relatedJob))?.digest ?? null
         )),
         projections: input.relatedJobs,
       },
