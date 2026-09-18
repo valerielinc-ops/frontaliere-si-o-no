@@ -247,7 +247,9 @@ export function splitJobLocation(location, canton) {
 
     if (classified.code && validCanton && classified.code !== validCanton) {
       // The location names a different canton than the field. Stop here and
-      // report it; do not strip, do not append.
+      // report it; do not strip, do not append. Crawlers that must not emit
+      // this pair call preferLocationEncodedCanton — picking a winner here
+      // would hide the data bug on every surface that only prints the line.
       conflict = true;
       break;
     }
@@ -264,6 +266,71 @@ export function splitJobLocation(location, canton) {
   }
 
   return { city, canton: conflict ? null : validCanton, stripped, conflict };
+}
+
+/**
+ * Swiss canton the location string itself names — `Reinach (AG)`, `Stein AG`,
+ * `Büren an der Aare, Bern`. `null` when it names none, or two different ones
+ * (`Obwalden/Nidwalden`). Independent of `job.canton`.
+ *
+ * @param {string | null | undefined} location
+ * @returns {string | null}
+ */
+export function cantonNamedByLocation(location) {
+  let city = String(location || '').trim();
+  if (!city) return null;
+
+  for (let pass = 0; pass < 4; pass += 1) {
+    /** @type {string | null} */
+    let head = null;
+    /** @type {string | null} */
+    let tail = null;
+
+    const paren = PAREN_TAIL.exec(city);
+    if (paren) {
+      [, head, tail] = paren;
+    } else {
+      const sep = SEP_TAIL.exec(city);
+      if (sep) {
+        [, head, tail] = sep;
+      } else {
+        const bare = BARE_CODE_TAIL.exec(city);
+        if (bare) {
+          [, head, tail] = bare;
+        }
+      }
+    }
+    if (head === null || tail === null) break;
+    if (!head.trim()) break;
+
+    const classified = classifyTail(tail);
+    if (!classified) break;
+
+    if (classified.code) {
+      const headClassified = classifyTail(head.trim());
+      if (headClassified?.code && headClassified.code !== classified.code) return null;
+      return classified.code;
+    }
+
+    city = head.trim();
+  }
+  return null;
+}
+
+/**
+ * Canton a crawler should stamp. A location that already names a real Swiss
+ * canton wins over a conflicting `job.canton` — the `"Reinach (AG)"` stamped
+ * `BL` class. Display still reports `conflict` without picking a winner.
+ *
+ * @param {string | null | undefined} location
+ * @param {string | null | undefined} stampedCanton
+ * @returns {string} a 2-letter code, or `''` when neither half is a canton
+ */
+export function preferLocationEncodedCanton(location, stampedCanton) {
+  const encoded = cantonNamedByLocation(location);
+  if (encoded) return encoded;
+  const stamped = String(stampedCanton || '').trim().toUpperCase();
+  return CANTON_CODES.has(stamped) ? stamped : '';
 }
 
 /**
