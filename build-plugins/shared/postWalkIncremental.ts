@@ -820,7 +820,7 @@ export async function loadPostWalkManifestState(
         registerPreviousEntry(state, entry);
         recordPreviousReferenceSources(state, entry, baseUrl);
       },
-      { validateUniquePaths: false, retainReferences: true },
+      { validateUniquePaths: true, retainReferences: true },
     );
 
     // The jobs/related emitters deliberately change this fingerprint when a

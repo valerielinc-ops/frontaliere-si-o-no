@@ -120,6 +120,29 @@ describe('post-walk incremental planning', () => {
     expect(loaded.reason).toMatch(/path (?:manifest )?duplicato/);
   });
 
+  it('rejects duplicate paths in the previous streamed manifest even when removed', async () => {
+    const root = fixtureRoot();
+    writeManifest(root, 'incremental-manifest-prev', [
+      { path: 'jobs/removed-a/', kind: 'active-job', input: { title: 'a' } },
+      { path: 'jobs/removed-b/', kind: 'active-job', input: { title: 'b' } },
+    ]);
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/stable/', kind: 'active-job', input: { title: 'stable' } },
+    ]);
+    replaceManifestEntryPath(
+      root,
+      'incremental-manifest-prev',
+      'jobs/removed-b/',
+      'jobs/removed-a/',
+    );
+
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+
+    expect(loaded.ok).toBe(false);
+    if (loaded.ok) throw new Error('expected duplicate previous path to fail closed');
+    expect(loaded.reason).toMatch(/precedente manifest path duplicato/);
+  });
+
   it('processes changed and affected aliases while skipping unchanged manifest pages', async () => {
     const root = fixtureRoot();
     const distDir = path.join(root, 'dist');
