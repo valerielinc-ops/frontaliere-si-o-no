@@ -79,6 +79,14 @@ describe('Manor jobs2web URL and title parsing', () => {
     expect(resolveManorLocation({ addressLocality: 'Lugano', addressRegion: 'Ontario' }, 'Lugano')).toBeNull();
   });
 
+  it('does not treat an explicit unknown detail region as missing', () => {
+    expect(resolveManorLocation({ addressLocality: 'Lugano', addressRegion: 'N/A' }, 'Lugano')).toBeNull();
+  });
+
+  it('does not infer a Swiss canton from a foreign region containing a Swiss token', () => {
+    expect(resolveManorLocation({ addressLocality: 'Como', addressRegion: 'Como, TI' }, 'Como')).toBeNull();
+  });
+
   it('rejects a foreign border locality in an explicit detail region', () => {
     expect(resolveManorLocation({ addressLocality: 'Como', addressRegion: 'Como' }, 'Como')).toBeNull();
   });

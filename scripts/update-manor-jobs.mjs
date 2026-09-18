@@ -344,10 +344,10 @@ export function resolveManorLocation(pageData = {}, urlCity = '') {
   const urlCanton = inferAnyCanton(urlCity);
   const detailRegion = String(pageData?.addressRegion || '').trim();
   const normalizedDetailCanton = normalizeCantonCode(detailRegion);
-  const detailCanton = normalizedDetailCanton
-    || (detailRegion && isTargetSwissLocation(detailRegion, { includeBorderProximity: false })
-      ? inferAnyCanton(detailRegion)
-      : '');
+  // An explicit schema region is a canton field, not a free-text workplace.
+  // Do not let a border city or another location token infer a Swiss canton
+  // and contaminate the locality/canton tuple.
+  const detailCanton = normalizedDetailCanton;
 
   if (
     !location
