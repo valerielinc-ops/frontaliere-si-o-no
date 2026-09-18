@@ -23,6 +23,10 @@ const FIXTURES = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtur
 //   https://jobs.mcdonalds.ch/fr-ch/agent-e-de-maintenance/job/P8-317484-1 → mcdonalds-job-p8-317484-1.html
 const listingHtml = readFileSync(path.join(FIXTURES, 'mcdonalds-emplois-restauration.html'), 'utf8');
 const detailHtml = readFileSync(path.join(FIXTURES, 'mcdonalds-job-p8-317484-1.html'), 'utf8');
+const runnerSource = readFileSync(
+  path.join(path.dirname(FIXTURES), '..', 'scripts', 'update-mcdonalds-jobs.mjs'),
+  'utf8',
+);
 
 function listingPageHtml(jobs: object[], totalJob: number) {
   return `<script>window.__PRELOAD_STATE__ = ${JSON.stringify({ jobSearch: { jobs, totalJob } })};</script>`;
@@ -79,6 +83,13 @@ describe("McDonald's Switzerland crawler parser", () => {
       expect(extractListingJobs('<script>window.__PRELOAD_STATE__ = {broken</script>')).toEqual({ jobs: [], totalJob: 0 });
       expect(extractListingJobs('')).toEqual({ jobs: [], totalJob: 0 });
       expect(extractListingJobs(undefined as unknown as string)).toEqual({ jobs: [], totalJob: 0 });
+    });
+
+    it('passes a verified empty source through the authoritative merge', () => {
+      const emptyBranch = runnerSource.match(/if \(parsedJobs\.length === 0\) \{[\s\S]*?\}/)?.[0] || '';
+      expect(emptyBranch).toContain('applying it authoritatively');
+      expect(emptyBranch).not.toContain('return;');
+      expect(runnerSource).toContain('const publishedJobs = mergeParsedMcdoJobs(parsedJobs);');
     });
 
     it('does NOT depend on the retired mcdo_jobs_mapEntries Drupal shape', () => {

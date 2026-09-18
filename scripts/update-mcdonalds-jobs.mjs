@@ -178,8 +178,7 @@ async function main() {
 
   const parsedJobs = await fetchAndParseMcdoJobs();
   if (parsedJobs.length === 0) {
-    console.log('⚠️ Verified listing/source result is empty — keeping existing McDonald\'s jobs unchanged.');
-    return;
+    console.warn('⚠️ Verified complete McDonald\'s source snapshot is empty — applying it authoritatively to remove stale jobs.');
   }
 
   const publishedJobs = mergeParsedMcdoJobs(parsedJobs);
