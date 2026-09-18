@@ -50,7 +50,6 @@ import {
   canonicalSwissCityName,
   inferAnyCanton,
   isCantonOnlyLabel,
-  isKnownSwissMunicipalityInCanton,
   isKnownSwissCity,
   isSwissLocationText,
   normalizeSwissTargetLocationText,
@@ -104,13 +103,7 @@ function normalizeSpace(s = '') {
 
 function canonicalNordAngliaCity(value = '', canton = '') {
   const candidate = normalizeSpace(value);
-  if (!candidate || !canton) return '';
-  // An ambiguous BFS municipality (`Buchs` AG/SG/ZH, `Gossau` SG/ZH, …) answers
-  // `isCantonOnlyLabel` with `true`, because BFS stores a shared name only as
-  // `<City> (XX)` and each canton's alias list folds in representative city
-  // names. Discarding it here throws away a real, fully precise city. Ask the
-  // BFS snapshot whether it belongs to the canton in hand before rejecting.
-  if (isCantonOnlyLabel(candidate) && !isKnownSwissMunicipalityInCanton(candidate, canton)) return '';
+  if (!candidate || !canton || isCantonOnlyLabel(candidate)) return '';
   const canonical = isKnownSwissCity(candidate, canton)
     ? canonicalSwissCityName(candidate)
     : candidate;
