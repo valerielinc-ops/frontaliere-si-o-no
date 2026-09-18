@@ -150,6 +150,7 @@ function isFindingStart(line, marker, extractCitations = extractFileCitations) {
   if (!structuralPrefix || /^[#*_~`]+$/u.test(structuralPrefix)) return true;
   if (extractCitations(structuralPrefix).length > 0) return true;
   return /(?:^|\s)(?:L?\d+)(?:[-–]\d+)?\s*:\s*$/iu.test(structuralPrefix)
+    || /^PR\s+body\s*[:#]\s*L?\d+(?:[-–]\d+)?\s*:\s*$/iu.test(structuralPrefix)
     || /`[^`\n]+`\s*:\s*$/u.test(structuralPrefix);
 }
 
