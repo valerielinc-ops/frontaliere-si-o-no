@@ -10,6 +10,7 @@ import {
   fetchSmartRecruitersJobs,
   SmartRecruitersApiError,
 } from './ats-clients/smartrecruiters-client.mjs';
+import { classifyCountryValue } from './prospector/country-inventory.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -93,7 +94,7 @@ function hasRecognizedSourceLocation(posting = {}) {
   if (!city && !fullLocation) return false;
   // An explicit non-Swiss country code/name is a complete classification even
   // when the vendor does not provide a municipality in our Swiss inventory.
-  if (country && !/^(?:ch|che|switzerland|schweiz|suisse|svizzera)$/i.test(country)) return true;
+  if (classifyCountryValue(country) === 'foreign') return true;
   // Prefer the repository's existing foreign-location classifier so a Swiss
   // city name paired with a foreign country is not misclassified as Swiss.
   if (isLocationExplicitlyForeign(locationText)) return true;

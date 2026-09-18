@@ -128,8 +128,47 @@ describe('SmartRecruiters strict source pagination', () => {
       terminationProven: false,
       recordsSeen: 0,
       rawRecordsSeen: 0,
-      paginationIntegrityProven: true,
+      paginationIntegrityProven: false,
       totalFound: null,
+    });
+  });
+
+  it('does not prove a source when a later page corrupts an earlier valid total', async () => {
+    const pages = [
+      {
+        totalFound: 2,
+        content: [{ id: 'posting-a', name: 'Role A', location: { city: 'Lugano', country: { code: 'CH' } } }],
+      },
+      {
+        totalFound: -1,
+        content: [{ id: 'posting-b', name: 'Role B', location: { city: 'Zürich', country: { code: 'CH' } } }],
+      },
+    ];
+    const requestedOffsets: string[] = [];
+    let outcome: Record<string, unknown> | undefined;
+    vi.stubGlobal('fetch', vi.fn(async (input) => {
+      const url = new URL(String(input));
+      const offset = url.searchParams.get('offset') || '';
+      requestedOffsets.push(offset);
+      return new Response(JSON.stringify(pages[Math.min(requestedOffsets.length - 1, pages.length - 1)]), { status: 200 });
+    }));
+
+    const rows = [];
+    for await (const row of fetchSmartRecruitersJobs('Avaloq1', {
+      minDelayMs: 0,
+      onComplete: (info) => { outcome = info; },
+    })) {
+      rows.push(row);
+    }
+
+    expect(rows).toHaveLength(1);
+    expect(requestedOffsets).toEqual(['0', '1']);
+    expect(outcome).toMatchObject({
+      terminationProven: false,
+      recordsSeen: 1,
+      rawRecordsSeen: 1,
+      paginationIntegrityProven: false,
+      totalFound: 2,
     });
   });
 

@@ -240,6 +240,24 @@ describe('assertCompleteArtisaSnapshot', () => {
     expect(assertCompleteArtisaTargetSnapshot(rows)).toBe(true);
   });
 
+  it('does not publish a zero when one foreign-looking snapshot row is unproven', () => {
+    const rows = parseArtisaCareerPage(`
+      <div>
+        <h2>Carriera</h2>
+        <h2>Architect role</h2>
+        <h4>Milano, Italy</h4>
+        <a href="https://app.smartsheet.com/b/form/019c46ebd5137236a9d1b0d500840bf4">Scopri di piu</a>
+        <h2>Project role</h2>
+        <h4>Remote</h4>
+        <a href="https://app.smartsheet.com/b/form/019c46ebd5137236a9d1b0d500840bf4">Scopri di piu</a>
+        <h2>Le nostre sedi</h2>
+      </div>
+    `);
+
+    expect(rows).toHaveLength(0);
+    expect(() => assertCompleteArtisaTargetSnapshot(rows)).toThrow(/unrecognised location/);
+  });
+
   it('does not treat a Swiss municipality plus an explicit foreign country as Swiss', () => {
     const rows = parseArtisaCareerPage(`
       <div>

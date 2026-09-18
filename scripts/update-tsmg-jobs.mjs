@@ -38,8 +38,10 @@ import {
   buildTsmgLocalizedContent,
 } from './lib/tsmg-job-parser.mjs';
 import { inferAnyCanton, isSwissLocationText } from './lib/target-swiss-locations.mjs';
+import { classifyCountryValue } from './lib/prospector/country-inventory.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -61,7 +63,6 @@ const COMPANY_DOMAIN = 'tsmg.co';
 const CAREERS_URL = 'https://jobs.lever.co/tsmg';
 const API_URL = 'https://api.lever.co/v0/postings/tsmg?mode=json';
 const LOCALES = ['it', 'en', 'de', 'fr'];
-const SWISS_COUNTRY_VALUES = new Set(['CH', 'CHE', 'SWITZERLAND', 'SCHWEIZ', 'SUISSE', 'SVIZZERA']);
 
 function readJson(filePath, fallback) {
   try {
@@ -131,6 +132,12 @@ function assertCompleteTsmgSourceSnapshot(payload) {
     }
     const normalizedCountry = normalizeTsmgCountry(country);
     const normalizedLocation = location.trim();
+    if (!normalizedCountry) {
+      throw new Error(
+        `TSMG Lever returned a degraded snapshot at posting ${index + 1}: `
+        + `country "${country}" is not a recognised country value`,
+      );
+    }
     if (normalizedCountry === 'CH' && (
       isLocationExplicitlyForeign(normalizedLocation)
       || !inferAnyCanton(normalizedLocation)
@@ -140,7 +147,7 @@ function assertCompleteTsmgSourceSnapshot(payload) {
         + `categories.location "${normalizedLocation}" is not a recognised Swiss location`,
       );
     }
-    if (normalizedCountry !== 'CH' && isSwissLocationText(normalizedLocation)) {
+    if (normalizedCountry === 'FOREIGN' && isSwissLocationText(normalizedLocation)) {
       throw new Error(
         `TSMG Lever returned a degraded snapshot at posting ${index + 1}: `
         + `country ${normalizedCountry} conflicts with Swiss categories.location "${normalizedLocation}"`,
@@ -152,7 +159,10 @@ function assertCompleteTsmgSourceSnapshot(payload) {
 
 function normalizeTsmgCountry(value = '') {
   const country = String(value || '').trim().toUpperCase();
-  return SWISS_COUNTRY_VALUES.has(country) ? 'CH' : country;
+  const classification = classifyCountryValue(country);
+  if (classification === 'CH') return 'CH';
+  if (classification === 'foreign') return 'FOREIGN';
+  return '';
 }
 
 function isTargetJob(job = {}) {
@@ -386,4 +396,8 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'TSMG'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'TSMG'));
+}
+
+export { assertCompleteTsmgSourceSnapshot, normalizeTsmgCountry };

@@ -159,7 +159,11 @@ async function fetchBoardListings() {
   });
 
   while (pageUrl && page <= MAX_PAGES) {
-    if (seenPageUrls.has(pageUrl)) break; // already visited → cyclic paginator, stop
+    if (seenPageUrls.has(pageUrl)) {
+      throw new Error(
+        `⚠️ Board pagination cycle detected at ${pageUrl}; refusing to publish an incomplete source snapshot.`,
+      );
+    }
     seenPageUrls.add(pageUrl);
     console.log(`📄 Fetching page ${page}: ${pageUrl}`);
     const html = await fetchText(pageUrl);
@@ -187,7 +191,9 @@ async function fetchBoardListings() {
       page++;
     } else {
       // A cyclic paginator is not evidence that the entire source was read.
-      break;
+      throw new Error(
+        `⚠️ Board pagination cycle detected at ${nextUrl}; refusing to publish an incomplete source snapshot.`,
+      );
     }
   }
 

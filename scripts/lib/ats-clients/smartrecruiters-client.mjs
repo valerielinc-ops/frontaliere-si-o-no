@@ -271,7 +271,12 @@ export async function fetchSmartRecruitersDepartments(tenant, options = {}) {
  *
  * @param {string} url
  * @param {{ timeoutMs: number, userAgent: string }} ctx
- * @returns {Promise<{ content: SmartRecruitersPosting[], totalFound: number, hasDeclaredTotal: boolean }>}
+ * @returns {Promise<{
+ *   content: SmartRecruitersPosting[],
+ *   totalFound: number,
+ *   hasDeclaredTotal: boolean,
+ *   hasMalformedDeclaredTotal: boolean,
+ * }>}
  */
 async function fetchListPage(url, { timeoutMs, userAgent }) {
   // Route through the shared exponential-backoff helper. TRANSIENT failures
@@ -286,9 +291,17 @@ async function fetchListPage(url, { timeoutMs, userAgent }) {
       if (res.ok) {
         const json = await res.json();
         const content = assertJsonListShape(json, { key: 'content', source: 'smartrecruiters' });
+        const hasTotalFoundField = Boolean(
+          json && typeof json === 'object' && Object.prototype.hasOwnProperty.call(json, 'totalFound'),
+        );
         const hasDeclaredTotal = Number.isInteger(json?.totalFound) && json.totalFound >= 0;
         const totalFound = hasDeclaredTotal ? Number(json.totalFound) : content.length;
-        return { content, totalFound, hasDeclaredTotal };
+        return {
+          content,
+          totalFound,
+          hasDeclaredTotal,
+          hasMalformedDeclaredTotal: hasTotalFoundField && !hasDeclaredTotal,
+        };
       }
       throw new SmartRecruitersApiError(
         `SmartRecruiters API ${res.status} ${res.statusText} for ${url}`,
@@ -496,7 +509,16 @@ export async function* fetchSmartRecruitersJobs(tenant, options = {}) {
       content,
       totalFound: serverTotal,
       hasDeclaredTotal,
+      hasMalformedDeclaredTotal,
     } = await fetchListPage(url, ctx);
+    if (requireTerminationProof && hasMalformedDeclaredTotal) {
+      // A malformed total after a valid page is not equivalent to an
+      // undeclared total: it is a broken source declaration. The prior pages
+      // may be a prefix of a larger result, so strict callers must not turn
+      // this response into a complete zero (or a complete non-zero snapshot).
+      paginationIntegrityProven = false;
+      break;
+    }
     if (hasDeclaredTotal) {
       if (totalFound === null) {
         totalFound = serverTotal;

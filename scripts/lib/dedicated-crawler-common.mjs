@@ -6238,7 +6238,12 @@ function hasExplicitForeignCountryCode(lower) {
 
 export function isLocationExplicitlyForeign(locationField) {
   const lower = String(locationField || '').toLowerCase();
-  if (FOREIGN_COUNTRY_CODES.includes(lower.trim().toUpperCase())) return true;
+  const bareCode = lower.trim().toUpperCase();
+  // BE/FR/GR (and the other canton codes) are also ISO country codes. In a
+  // free-text location field a bare token is ambiguous; leave it for the
+  // Swiss-canton resolver instead of proving that the row is foreign.
+  if (ALL_CANTON_CODES.includes(bareCode)) return false;
+  if (FOREIGN_COUNTRY_CODES.includes(bareCode)) return true;
   if (!lower || lower.length < 3) return false;
   // Some source cards combine a Swiss municipality with an explicit foreign
   // country (e.g. "Zurich, Germany"). The explicit negative country signal

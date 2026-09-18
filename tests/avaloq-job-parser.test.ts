@@ -81,6 +81,24 @@ describe('avaloq-job-parser', () => {
     expect(() => assertCompleteAvaloqSnapshot(rows)).toThrow(/authoritative source snapshot/);
   });
 
+  it('rejects an unknown country paired with an unrecognised location', async () => {
+    const posting = {
+      id: '744000000000003',
+      name: 'Unmapped role',
+      location: { city: 'Unmapped City', country: { code: 'UNKNOWN' } },
+    };
+    vi.stubGlobal('fetch', vi.fn(async (input) => {
+      const url = new URL(String(input));
+      if (url.pathname.endsWith('/postings/744000000000003')) {
+        return new Response(JSON.stringify(posting), { status: 200 });
+      }
+      return new Response(JSON.stringify({ content: [posting], totalFound: 1 }), { status: 200 });
+    }));
+
+    await expect(fetchAvaloqJobsFromApi(100, () => false))
+      .rejects.toThrow(/unrecognised Avaloq location/);
+  });
+
   it('extracts public job detail links from listing page html', () => {
     const html = `
       <div style="display:none">

@@ -97,4 +97,11 @@ describe('listing pagination integrity', () => {
       paginationIntegrityProven: true,
     })).toBe(true);
   });
+
+  it('aborts a Board pagination cycle instead of publishing its prefix', () => {
+    const source = fs.readFileSync(path.join(ROOT, 'scripts', 'update-board-jobs.mjs'), 'utf8');
+    expect(source).toContain('Board pagination cycle detected');
+    expect(source).toContain('refusing to publish an incomplete source snapshot');
+    expect(source).not.toMatch(/if \(seenPageUrls\.has\(pageUrl\)\) break/);
+  });
 });
