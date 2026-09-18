@@ -7,15 +7,17 @@
  *
  * 1. Fetches all PwC job listings via JSON API (medium 1000311)
  * 2. All data is in the API response (no detail page fetching needed)
- * 3. Crawls ALL jobs (canton filter in frontend handles geographic filtering)
+ * 3. Pages to the API-declared total, then keeps source-backed Swiss
+ *    localities across all 26 cantons and drops foreign/unresolved rows.
  * 4. Merges into data/jobs.json
  */
 
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { exitCrawlerOnError, warnIfListingAtCap } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -38,7 +40,6 @@ import {
   validateDedicatedLocaleCoverage,
   detectLang,
   mergeLocaleTextMap,
-  isLocationExplicitlyForeign,
   captureLostSlugs,
   LEGACY_PREV_SLUGS_CAP,
 } from './lib/dedicated-crawler-common.mjs';
@@ -48,7 +49,7 @@ import {
   inferPwcCategory,
   buildPwcLocalizedContent,
 } from './lib/pwc-job-parser.mjs';
-import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
@@ -66,9 +67,11 @@ const COMPANY_NAME = 'PwC Switzerland';
 const COMPANY_HOST = 'www.pwc.ch';
 const COMPANY_DOMAIN = 'pwc.ch';
 const CAREERS_URL = 'https://www.pwc.ch/en/careers-with-pwc/open-positions.html';
-const LISTING_LIMIT = 500;
-const API_URL = `https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=${LISTING_LIMIT}`;
+const API_BASE_URL = 'https://ohws.prospective.ch/public/v1/medium/1000311/jobs';
+const LISTING_PAGE_SIZE = 100;
+const API_URL = `${API_BASE_URL}?lang=en&offset=0&limit=${LISTING_PAGE_SIZE}`;
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const SWISS_COUNTRY_VALUES = new Set(['CH', 'CHE', 'SWITZERLAND', 'SCHWEIZ', 'SUISSE', 'SVIZZERA']);
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 25000;
 
@@ -135,26 +138,94 @@ function isTrustedDomain(rawUrl = '') {
   }
 }
 
-async function fetchAllListings() {
+export async function fetchAllListings() {
   console.log('Fetching PwC Switzerland job listings via Prospective API...');
   console.log(`  API: ${API_URL}`);
 
-  const data = await fetchJson(API_URL);
-  const { items, total } = parsePwcJobs(data);
+  const fetchPage = async (offset) => {
+    const url = `${API_BASE_URL}?lang=en&offset=${offset}&limit=${LISTING_PAGE_SIZE}`;
+    const data = await fetchJson(url);
+    const parsed = parsePwcJobs(data);
+    return { ...parsed, url };
+  };
 
-  console.log(`API returned ${total} PwC jobs total`);
-  console.log(`Parsed ${items.length} job items`);
-  warnIfListingAtCap({ label: 'PwC listing', count: items.length, cap: LISTING_LIMIT, total });
+  const firstPage = await fetchPage(0);
+  if (!Number.isInteger(firstPage.total) || firstPage.total < 0) {
+    throw new Error('PwC source did not publish a declared total job count; refusing an unproven partial crawl');
+  }
 
-  return items;
+  const uniqueItems = new Map();
+  const addUniqueItems = (items) => {
+    let added = 0;
+    for (const item of items) {
+      const id = String(item?.id || '').trim();
+      const viewkey = String(item?.viewkey || '').trim();
+      const urlKey = extractStableJobId(item?.directLink);
+      const key = id ? `id:${id}` : viewkey ? `viewkey:${viewkey}` : urlKey;
+      if (!key) {
+        throw new Error('PwC source listing has no stable identity; pagination completeness is unverified');
+      }
+      if (!uniqueItems.has(key)) {
+        uniqueItems.set(key, item);
+        added += 1;
+      }
+    }
+    return added;
+  };
+
+  addUniqueItems(firstPage.items);
+  if (uniqueItems.size > firstPage.total) {
+    throw new Error(`PwC pagination exceeded declared total: fetched ${uniqueItems.size}/${firstPage.total} unique jobs`);
+  }
+  let offset = firstPage.items.length;
+  while (uniqueItems.size < firstPage.total) {
+    const page = await fetchPage(offset);
+    if (page.total !== firstPage.total) {
+      throw new Error(`PwC source total changed during pagination (${firstPage.total} → ${page.total})`);
+    }
+    if (page.items.length === 0) {
+      throw new Error(`PwC source returned an empty page at offset ${offset} before declared total ${firstPage.total}`);
+    }
+    const added = addUniqueItems(page.items);
+    if (uniqueItems.size > firstPage.total) {
+      throw new Error(`PwC pagination exceeded declared total: fetched ${uniqueItems.size}/${firstPage.total} unique jobs`);
+    }
+    if (added === 0) {
+      throw new Error(
+        `PwC source pagination did not advance at offset ${offset}: page added no unique jobs`,
+      );
+    }
+    offset += page.items.length;
+  }
+
+  if (uniqueItems.size !== firstPage.total) {
+    throw new Error(`PwC pagination incomplete: fetched ${uniqueItems.size}/${firstPage.total} unique jobs`);
+  }
+
+  console.log(`API declared ${firstPage.total} PwC jobs; fetched ${uniqueItems.size}/${firstPage.total} unique jobs`);
+  return [...uniqueItems.values()];
 }
 
-function buildPwcJob(row) {
-  const city = row._explodedCity || row.city || row.location || 'Switzerland';
+export function buildPwcJob(row) {
+  const city = String(row._explodedCity || row.city || '').trim();
+  const sourceCity = String(row.city || '').trim();
+  const country = normalize(row.country).toUpperCase();
+  if ((country && !SWISS_COUNTRY_VALUES.has(country)) || !city) return null;
+
   const canton = inferAnyCanton(city) || '';
+  // `inferAnyCanton()` and the default location predicate include border
+  // proximity (e.g. Como/Varese → TI). A source row without an explicit
+  // country must still have a concrete Swiss locality, otherwise a foreign
+  // row can be serialized as a Swiss JobPosting.
+  if (!canton || !isTargetSwissLocation(city, { includeBorderProximity: false })) return null;
+
   const localized = buildPwcLocalizedContent({ ...row, city });
   const detailUrl = row.directLink || CAREERS_URL;
   const applyUrl = row.applyUrl || row.directLink || CAREERS_URL;
+  // A multi-location tag has no per-city address in the API. Never copy the
+  // primary office's CAP/street to a secondary city; the shared assembler can
+  // fill a coherent city-level safe default for that secondary record.
+  const hasSourceAddress = !row._explodedCity || city === sourceCity;
 
   return {
     title: localized.titleByLocale.it,
@@ -168,6 +239,8 @@ function buildPwcJob(row) {
     addressLocality: city,
     addressRegion: canton,
     addressCountry: 'CH',
+    postalCode: hasSourceAddress ? row.postalCode || '' : '',
+    streetAddress: hasSourceAddress ? row.streetAddress || '' : '',
     canton,
     country: 'CH',
     category: inferPwcCategory(row.title, row.description),
@@ -219,7 +292,10 @@ function explodeListings(listings) {
   for (const row of listings) {
     const candidates = [row.city, ...(row.locationAttrs || [])].filter(Boolean);
     const cities = dedupeCitiesByCanton(candidates);
-    if (cities.length === 0) cities.push(row.city || row.location || 'Switzerland');
+    if (cities.length === 0) {
+      console.warn(`  ⚠️  Skipped PwC listing ${row.id || '?'}: source provided no locality`);
+      continue;
+    }
     for (const city of cities) {
       exploded.push({ ...row, _explodedCity: city });
     }
@@ -311,7 +387,7 @@ function updateAdapterConfig(jobs) {
     priority: 10,
     crawlerModes: ['api'],
     seedUrls: [API_URL],
-    notes: 'Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.',
+    notes: 'Dedicated PwC Switzerland crawler. Uses the Prospective.ch API (medium 1000311), paginates to the declared total, and keeps source-backed city, postal code and canton across all 26 Swiss cantons. Foreign or unresolved locations are dropped; no historical HQ fallback is used.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -351,20 +427,27 @@ async function main() {
   if (explodedListings.length !== listings.length) {
     console.log(`🏙️  Multi-location explosion: ${listings.length} listings → ${explodedListings.length} per-city records`);
   }
-  const allBuilt = explodedListings.map(buildPwcJob);
-  const jobs = allBuilt.filter((job) => {
-    const loc = String(job.addressLocality || job.location || '');
-    if (isLocationExplicitlyForeign(loc)) {
-      console.log(`  ⏭️  Skipped foreign location: ${loc} — ${job.title}`);
-      return false;
+  const jobs = [];
+  let rejectedLocations = 0;
+  for (const row of explodedListings) {
+    const job = buildPwcJob(row);
+    if (!job) {
+      rejectedLocations += 1;
+      const city = String(row._explodedCity || row.city || '').trim() || '(missing)';
+      const country = String(row.country || '').trim();
+      const reason = country && !SWISS_COUNTRY_VALUES.has(country.toUpperCase())
+        ? `foreign country: ${country}`
+        : 'unresolved Swiss locality';
+      console.log(`  ⏭️  Skipped ${reason}: ${city} — ${row.title}`);
+      continue;
     }
-    return true;
-  });
-  if (jobs.length < allBuilt.length) {
-    console.log(`🌍 Foreign location filter: ${allBuilt.length} → ${jobs.length} Swiss jobs`);
+    jobs.push(job);
+  }
+  if (rejectedLocations > 0) {
+    console.log(`🌍 Location filter: ${explodedListings.length} source locations → ${jobs.length} Swiss jobs (${rejectedLocations} rejected)`);
   }
 
-  const { total, added, updated, diff} = mergeJobs(jobs);
+  const { total, added, updated, diff } = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
   console.log('\nRunning locale fill for PwC jobs...');
@@ -405,4 +488,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => exitCrawlerOnError(error, 'PwC'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((error) => exitCrawlerOnError(error, 'PwC'));
+}

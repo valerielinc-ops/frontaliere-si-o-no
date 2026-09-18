@@ -5,7 +5,8 @@
  * buildPwcDescription(), inferPwcLocation(), and buildPwcLocalizedContent()
  * using mock API response fixtures.
  */
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
+import { buildPwcJob, fetchAllListings } from '../scripts/update-pwc-jobs.mjs';
 
 import {
   parsePwcJobs,
@@ -14,9 +15,15 @@ import {
   buildPwcDescription,
   inferPwcLocation,
   inferPwcPostalCode,
+  inferPwcStreetAddress,
+  inferPwcCountry,
   stripHtml,
   buildPwcLocalizedContent,
 } from '@/scripts/lib/pwc-job-parser.mjs';
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
 
 // ─── Fixtures: Mock API response ──────────────────────────────────────────
 
@@ -145,12 +152,56 @@ describe('parsePwcJobs', () => {
   it('handles empty/missing API response gracefully', () => {
     const { items, total } = parsePwcJobs({});
     expect(items).toHaveLength(0);
-    expect(total).toBe(0);
+    expect(total).toBeNull();
   });
 
   it('handles null input gracefully', () => {
     const { items } = parsePwcJobs(null as any);
     expect(items).toHaveLength(0);
+  });
+});
+
+describe('PwC source pagination', () => {
+  it('fails when a repeated page adds no unique stable records', async () => {
+    const listing = {
+      id: 101,
+      viewkey: 'abc-123-def',
+      title: 'Senior Tax Consultant',
+      attributes: { '20': ['Lugano'] },
+      szas: { sza_location: { city: 'Lugano', country: 'CH' } },
+      links: { directlink: 'https://www.pwc.ch/careers/senior-tax-consultant/abc-123-def' },
+    };
+    const fetchMock = vi.fn(async () => new Response(JSON.stringify({
+      total: 2,
+      jobs: [listing],
+    }), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(fetchAllListings()).rejects.toThrow(/did not advance/);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+});
+
+describe('PwC source locality filtering', () => {
+  const baseRow = {
+    id: 201,
+    viewkey: 'border-location-201',
+    title: 'Consultant',
+    description: 'Consulting role in Switzerland',
+    city: 'Como',
+    directLink: 'https://www.pwc.ch/careers/consultant/border-location-201',
+  };
+
+  it('rejects a border-near foreign city when country is absent', () => {
+    expect(buildPwcJob(baseRow)).toBeNull();
+  });
+
+  it('keeps a known Swiss city when country is absent', () => {
+    expect(buildPwcJob({ ...baseRow, city: 'Lugano', directLink: 'https://www.pwc.ch/careers/consultant/lugano-201' })).toMatchObject({
+      addressLocality: 'Lugano',
+      addressRegion: 'TI',
+      addressCountry: 'CH',
+    });
   });
 });
 
@@ -305,17 +356,14 @@ describe('inferPwcLocation', () => {
     expect(inferPwcLocation({ 'sza_location.city': 'Zurich' })).toBe('Zurich');
   });
 
-  it('falls back to region when city is missing', () => {
-    expect(inferPwcLocation({ sza_location: { region: 'Ticino' } })).toBe('Ticino');
+  it('does not publish a region as a city when the source city is missing', () => {
+    expect(inferPwcLocation({ sza_location: { region: 'Ticino' } })).toBe('');
+    expect(inferPwcLocation({ 'sza_location.region': 'Bern' })).toBe('');
   });
 
-  it('falls back to flat sza_location.region key', () => {
-    expect(inferPwcLocation({ 'sza_location.region': 'Bern' })).toBe('Bern');
-  });
-
-  it('defaults to Switzerland when no location data', () => {
-    expect(inferPwcLocation({})).toBe('Switzerland');
-    expect(inferPwcLocation(null as any)).toBe('Switzerland');
+  it('returns an empty locality when the source has no location data', () => {
+    expect(inferPwcLocation({})).toBe('');
+    expect(inferPwcLocation(null as any)).toBe('');
   });
 });
 
@@ -332,6 +380,16 @@ describe('inferPwcPostalCode', () => {
 
   it('returns empty string when no zip', () => {
     expect(inferPwcPostalCode({})).toBe('');
+  });
+});
+
+describe('source address fields', () => {
+  it('extracts street and country without inventing an HQ', () => {
+    const szas = {
+      sza_location: { city: 'Lugano', street: 'Via della Posta 7', zip: '6900', country: 'Switzerland' },
+    };
+    expect(inferPwcStreetAddress(szas)).toBe('Via della Posta 7');
+    expect(inferPwcCountry(szas)).toBe('Switzerland');
   });
 });
 

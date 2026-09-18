@@ -1,6 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { fetchAllJobs } from '../scripts/update-volg-jobs.mjs';
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
 
 /**
  * Tests for the Volg/fenaco crawler detail page parser.
@@ -73,6 +78,31 @@ const FIXTURE_HTML = `<!DOCTYPE html>
 <p>Volg ist der Spezialist für Dorfläden und Kleinflächen.</p>
 </body>
 </html>`;
+
+function renderListingPage(ids: string[], total: number): string {
+  const listings = ids.map((id) => `
+    <a class="job job-${id}" href="/job/${id}">
+      <h3 class="job-title">Verkäuferin ${id}</h3>
+      <div class="company-name">VOLG, Binn</div>
+      <span class="place-of-work">100%, unbefristet</span>
+    </a>
+  `).join('');
+  return `<span class="total">${total}</span>${listings}`;
+}
+
+describe('Volg source pagination', () => {
+  it('fails when a repeated page adds no unique stable records', async () => {
+    const fetchMock = vi.fn(async (input) => {
+      const offset = new URL(String(input)).searchParams.get('offset');
+      const ids = offset === '0' ? ['1', '2', '3', '4', '5', '6', '7'] : ['1'];
+      return new Response(renderListingPage(ids, 8), { status: 200 });
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(fetchAllJobs()).rejects.toThrow(/did not advance/);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+});
 
 describe('Volg source-detail wiring', () => {
   it('uses the shared Coop-family detail contract with retryable-status listing fallback', () => {
