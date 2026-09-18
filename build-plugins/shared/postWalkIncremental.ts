@@ -50,7 +50,7 @@ const NON_HTML_MANIFEST_KIND = 'related-search-sitemap';
  * manifest entry. Unregistered families remain on the existing full path.
  */
 export const POST_WALK_INCREMENTAL_DEPENDENCY_RULE =
-  'aliases + same kind/inputHash cluster + same-job/explicit path references + manifest-projected hreflang targets; add/remove stays incremental unless identity or existence proof is missing; unmanifested paths require the verifier sample';
+  'aliases + same kind/inputHash cluster + same-job/explicit path references + manifest-projected hreflang targets; add/remove stays incremental unless identity or existence proof is missing; unmanifested paths require the verifier sample unless the full-transform predicate selects them';
 
 export type PostWalkManifestMetadata = {
   /** Compact JSONL projection used by the streaming planner. */
@@ -1066,6 +1066,13 @@ type PostWalkPlanInput = {
   readonly coveredHtmlPathCount?: number;
   /** Keep the historical conservative path when no verifier is active. */
   readonly includeUncoveredPaths?: boolean;
+  /**
+   * Unmanifested physical files for which the full transform predicate has
+   * already proved a write is possible. They stay bounded to the walk's
+   * uncovered subset instead of reopening every unmanifested file in the
+   * verifier.
+   */
+  readonly transformableUnmanifestedPaths?: readonly string[];
 };
 
 function unresolvedRemovalReason(unresolved: ReadonlySet<string>): string {
@@ -1184,6 +1191,21 @@ function buildPostWalkPlanFromState(
         affectedPhysical += 1;
       }
     }
+  }
+
+  // Some post-walk transforms intentionally operate on files that no current
+  // emitter registers (for example a stale keyword landing left in a carried
+  // dist). Keep those exact full-walk candidates in the incremental dispatch;
+  // treating every unmanifested file as eligible would erase the optimization.
+  for (const filePath of input.transformableUnmanifestedPaths ?? []) {
+    if (input.excludedHtmlPaths?.has(filePath) || !allHtml.has(filePath)) continue;
+    const relative = normalizeRelativePath(path.relative(input.distDir, filePath));
+    const logical = logicalPathForHtml(relative);
+    const entry = logical === null ? undefined : state.current.entries.get(logical);
+    if (entry !== undefined && isHtmlManifestEntry(entry)) continue;
+    if (selectedPathSet.has(filePath)) continue;
+    selectedPathSet.add(filePath);
+    unmanifestedSelected += 1;
   }
 
   const includeUncoveredPaths = input.includeUncoveredPaths !== false;

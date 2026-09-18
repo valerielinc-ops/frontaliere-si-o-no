@@ -275,6 +275,40 @@ describe('post-walk incremental planning', () => {
     expect(plan.unmanifestedSkipped).toBe(1);
   });
 
+  it('selects an unmanifested path proven transformable by the full walk', async () => {
+    const root = fixtureRoot();
+    const manifestPath = writeHtml(root, 'jobs/unchanged/index.html', 'unchanged');
+    const transformablePath = writeHtml(
+      root,
+      'cerca-lavoro-ticino/ricerca-stale/index.html',
+      'stale landing',
+    );
+    writeManifest(root, 'incremental-manifest-prev', [
+      { path: 'jobs/unchanged/', kind: 'active-job', input: { title: 'same' } },
+    ]);
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/unchanged/', kind: 'active-job', input: { title: 'same' } },
+    ]);
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+    expect(loaded.ok).toBe(true);
+    if ('reason' in loaded) throw new Error(loaded.reason);
+
+    const plan = buildPostWalkIncrementalPlanFromState({
+      distDir: path.join(root, 'dist'),
+      allHtmlPaths: [manifestPath, transformablePath],
+      processableHtmlPaths: [manifestPath, transformablePath],
+      existingHtmlSet: new Set([manifestPath, transformablePath]),
+      baseUrl: BASE_URL,
+      includeUncoveredPaths: false,
+      transformableUnmanifestedPaths: [transformablePath],
+      state: loaded.state,
+    });
+
+    expect(plan.processHtmlPaths).toEqual([transformablePath]);
+    expect(plan.unmanifested).toBe(1);
+    expect(plan.unmanifestedSkipped).toBe(0);
+  });
+
   it('classifies sampled paths before the manifest state is released', async () => {
     const root = fixtureRoot();
     const changedPath = writeHtml(root, 'jobs/changed/index.html', 'changed');

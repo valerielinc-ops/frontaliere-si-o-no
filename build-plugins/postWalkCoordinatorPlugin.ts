@@ -96,6 +96,12 @@ import { logBuildMem } from './shared/buildMemLog';
 import { releaseIncrementalManifestState } from './shared/incrementalManifest.mjs';
 import { getPathHistory } from './sharedWriteRegistry';
 import {
+  getKeywordLandingPlanSnapshot,
+  isStaleKeywordLanding,
+  landingPathFromDistRelative,
+  type KeywordLandingPlanSnapshot,
+} from './shared/keywordLandingPlan';
+import {
   filterPostWalkDerivedDigestRecords,
   latestClaimHash,
   loadPostWalkDerivedDigestSidecar,
@@ -383,6 +389,7 @@ async function runInWorker(
     contextualLinkDefaults: ContextualLinkDefaults;
     assignedFiles: readonly string[];
     htmlPathIndex: ReturnType<typeof buildSharedHtmlPathIndex>;
+    keywordLandingPlan: KeywordLandingPlanSnapshot;
   },
 ): Promise<WorkerResult> {
   return new Promise((resolve, reject) => {
@@ -669,6 +676,7 @@ export function postWalkCoordinatorPlugin(
           : null;
         let coveredHtmlPathCount = 0;
         const unmanifestedByTopLevel = new Map<string, number>();
+        const transformableUnmanifestedPaths: string[] = [];
         let processableCount = 0;
         let preEmittedFlatBridgesSkipped = 0;
         let nonOwnedLocaleSkipped = 0;
@@ -716,6 +724,9 @@ export function postWalkCoordinatorPlugin(
                   topLevel,
                   (unmanifestedByTopLevel.get(topLevel) ?? 0) + 1,
                 );
+                if (isStaleKeywordLanding(landingPathFromDistRelative(relative))) {
+                  transformableUnmanifestedPaths.push(file);
+                }
               }
             }
             allHtmlPaths[processableCount] = file;
@@ -776,6 +787,7 @@ export function postWalkCoordinatorPlugin(
               // main dispatch. Without verification we keep the conservative
               // historical behaviour and process every uncovered file.
               includeUncoveredPaths: !postWalkIncrementalVerifyEnabled(),
+              transformableUnmanifestedPaths,
               state: manifests.state,
             });
             processHtmlPaths = incrementalPlan.mode === 'incremental'
@@ -994,6 +1006,7 @@ export function postWalkCoordinatorPlugin(
                 profileRecord('chunk-roundrobin', __tChunk);
                 const workerUrl = new URL('./postWalkWorker.mjs', import.meta.url);
                 const blogIndexEntries = Array.from(blogIndexHtmlByPath.entries());
+                const keywordLandingPlan = getKeywordLandingPlanSnapshot();
                 const __tHtmlIndex = profileStart();
                 const htmlPathIndex = buildSharedHtmlPathIndex(existingHtmlSet);
                 profileRecord('shared-html-path-index', __tHtmlIndex);
@@ -1009,6 +1022,7 @@ export function postWalkCoordinatorPlugin(
                       contextualLinkDefaults: contextualLinkDefaults(),
                       assignedFiles,
                       htmlPathIndex,
+                      keywordLandingPlan,
                     });
                     if (r.profilerBuckets && r.profilerBuckets.length > 0) {
                       profileIngestBuckets(r.profilerBuckets);
@@ -1079,6 +1093,7 @@ export function postWalkCoordinatorPlugin(
               + `processed=${processHtmlPaths.length} `
               + `skipped-unchanged=${incrementalPlan.skippedUnchanged} `
               + `unmanifested=${incrementalPlan.unmanifested ?? 'n/a'} `
+              + `transformable-unmanifested=${transformableUnmanifestedPaths.length} `
               + `unmanifested-skipped=${incrementalPlan.unmanifestedSkipped ?? 'n/a'} `
               + `walk=${walkMode} walk-claimed=${walkClaimed} walk-targeted=${walkTargeted} `
               + `unmanifested-top-level=${unmanifestedTopLevel || 'none'} `
