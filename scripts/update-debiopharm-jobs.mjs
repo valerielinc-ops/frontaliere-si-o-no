@@ -56,7 +56,7 @@ import {
   parseDebiopharmJobDetailPayload,
   buildDebiopharmDetailUrl,
   buildDebiopharmApplyUrl,
-  isDebiopharmSwissJob,
+  classifyDebiopharmSourceLocation,
 } from './lib/debiopharm-job-parser.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
@@ -235,6 +235,37 @@ export function isVerifiedStaleDebiopharmDetailFailure(error = {}, listing = {})
     && error?.url === expectedUrl;
 }
 
+/**
+ * Empty publication is valid only after the source and every non-stale detail
+ * have been read successfully. A failed fetch, malformed detail response, or
+ * unverified empty listing is not evidence that Debiopharm has no Swiss jobs.
+ */
+export function assertDebiopharmDiscoveryComplete({
+  listings = [],
+  verifiedEmptySource = false,
+  detailsRead = 0,
+  verifiedStaleDetails = 0,
+  detailFetchFailures = 0,
+  malformedDetailResponses = 0,
+  discoveredJobs = [],
+} = {}) {
+  if (Array.isArray(discoveredJobs) && discoveredJobs.length > 0) return true;
+
+  const listingCount = Array.isArray(listings) ? listings.length : 0;
+  const completeDetailRead = detailsRead + verifiedStaleDetails === listingCount;
+  const emptyProven = verifiedEmptySource
+    || (listingCount > 0
+      && completeDetailRead
+      && detailFetchFailures === 0
+      && malformedDetailResponses === 0);
+  if (!emptyProven) {
+    throw new Error(
+      'Debiopharm detail enrichment could not prove an empty Swiss result; refusing empty publication.',
+    );
+  }
+  return true;
+}
+
 export function buildDebiopharmJob(listing, detail) {
   const parsed = parseDebiopharmJobDetailPayload(detail, listing?.locationLabel || '');
   const title = parsed.title || String(listing?.title || '').trim();
@@ -267,7 +298,10 @@ export function buildDebiopharmJob(listing, detail) {
     addressRegion: canton,
     addressCountry: 'CH',
     postalCode: parsed.postalCode || '',
-    streetAddress: parsed.streetAddress || city,
+    // Do not put the municipality in streetAddress. The shared structured-data
+    // builder supplies a coherent city/canton fallback when the source omits a
+    // street or postal code.
+    streetAddress: parsed.streetAddress || '',
     canton,
     country: 'CH',
     employmentType: parsed.employmentType,
@@ -480,7 +514,10 @@ function logStats(beforeSnapshot = new Map()) {
   return { total: targetJobs.length, crawlDiff };
 }
 
-function validateLocales() {
+function validateLocales({ emptyResultProven = false } = {}) {
+  if (!emptyResultProven) {
+    throw new Error('Debiopharm locale validation requires a proven source snapshot.');
+  }
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_DEBIOPHARM_STRICT',
     label: 'Debiopharm',
@@ -489,6 +526,8 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_debiopharm_domain',
+    // Owner decision: zero announcements is valid, but only after
+    // assertDebiopharmDiscoveryComplete has proven the source read.
     failWhenNoJobs: false,
     noJobsMessage: 'No Debiopharm jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'en'),
@@ -516,6 +555,8 @@ async function main() {
   let detailFetchFailures = 0;
   let unresolvedSourceDetails = 0;
   let staleSourceDetails = 0;
+  let detailsRead = 0;
+  let malformedDetailResponses = 0;
   for (const listing of listings) {
     console.log(`  📄 Processing: ${listing.title} [${listing.shortcode}]`);
     let detail;
@@ -531,8 +572,20 @@ async function main() {
       console.warn(`     ⚠️  Detail fetch failed for ${listing.shortcode}: ${err?.message || err}`);
       continue;
     }
-    if (!isDebiopharmSwissJob(detail, listing.locationLabel, { requireConcreteLocation: true })) {
-      console.log(`     ⏭️  Skipping (not Switzerland): ${detail?.location?.countryCode || '?'}`);
+    if (!detail || typeof detail !== 'object' || Array.isArray(detail) || !String(detail.title || '').trim()) {
+      malformedDetailResponses += 1;
+      console.warn(`     ⚠️  Malformed Workable detail for ${listing.shortcode}; refusing to count it as a read source record.`);
+      continue;
+    }
+    detailsRead += 1;
+    const sourceLocationClass = classifyDebiopharmSourceLocation(detail, listing.locationLabel);
+    if (sourceLocationClass === 'foreign') {
+      console.log(`     ⏭️  Skipping explicit foreign source location: ${detail?.location?.countryCode || '?'}`);
+      continue;
+    }
+    if (sourceLocationClass === 'unresolved') {
+      unresolvedSourceDetails += 1;
+      console.warn(`     ⚠️  Unresolved Workable source location for ${listing.shortcode}; refusing to publish the listing.`);
       continue;
     }
     const job = buildDebiopharmJob(listing, detail);
@@ -543,10 +596,19 @@ async function main() {
     discoveredJobs.push(job);
   }
 
-  if (detailFetchFailures > 0 || unresolvedSourceDetails > 0) {
+  const discoveryComplete = assertDebiopharmDiscoveryComplete({
+    listings,
+    verifiedEmptySource: verifiedEmpty,
+    detailsRead,
+    verifiedStaleDetails: staleSourceDetails,
+    detailFetchFailures,
+    malformedDetailResponses,
+    discoveredJobs,
+  });
+  if (detailFetchFailures > 0 || unresolvedSourceDetails > 0 || malformedDetailResponses > 0) {
     throw new Error(
       `Debiopharm detail enrichment could not prove a complete source snapshot `
-      + `(detail failures: ${detailFetchFailures}, unresolved source locations: ${unresolvedSourceDetails}); refusing partial publication.`
+      + `(detail failures: ${detailFetchFailures}, malformed details: ${malformedDetailResponses}, unresolved source locations: ${unresolvedSourceDetails}); refusing partial publication.`
     );
   }
   if (staleSourceDetails > 0) {
@@ -571,7 +633,7 @@ async function main() {
   if (stats.total === 0) {
     console.warn('⚠️ Debiopharm source listings were read, but no source-backed Swiss job was publishable; preserving the verified empty result.');
   }
-  validateLocales();
+  validateLocales({ emptyResultProven: discoveryComplete || stats.total > 0 });
 
   console.log('\n✅ Debiopharm crawler complete.');
 

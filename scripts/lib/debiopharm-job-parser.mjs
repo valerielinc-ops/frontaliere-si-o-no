@@ -1,6 +1,6 @@
 import { JSDOM } from 'jsdom';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
-import { isChCountry } from './ch-country-guard.mjs';
+import { coerceCountryField, isChCountry } from './ch-country-guard.mjs';
 
 export const DEBIOPHARM_WORKABLE_ACCOUNT_SLUG = 'debiopharm';
 export const DEBIOPHARM_WORKABLE_ACCOUNT_UID = '0b48274e-6ab8-4036-83b2-fc59eb412891';
@@ -153,13 +153,6 @@ function fallbackLocationParts(fallbackLocation = '') {
   return { city: parts[0] || '', region: parts[1] || '' };
 }
 
-function hasSwissSourceCountry(candidate = {}, fallbackLocation = '') {
-  const country = candidate?.countryCode ?? candidate?.country ?? '';
-  const locationText = candidateLocationText(candidate, fallbackLocation);
-  return isChCountry(country)
-    && (!locationText || isTargetSwissLocation(locationText, { includeBorderProximity: false }));
-}
-
 function hasConcreteSwissSourceLocation(candidate = {}, fallbackLocation = '') {
   const country = candidate?.countryCode ?? candidate?.country ?? '';
   const locationText = candidateLocationText(candidate, fallbackLocation);
@@ -173,21 +166,35 @@ function hasConcreteSwissSourceLocation(candidate = {}, fallbackLocation = '') {
  * country field is necessary but not sufficient: a CH country code paired
  * with a foreign or unknown city must not inherit a Swiss HQ location.
  *
- * The default country-only mode preserves the shared country-guard contract
- * for callers that validate aliases before location enrichment. Publication
- * callers pass requireConcreteLocation so an empty detail cannot enter the
- * authoritative job snapshot.
+ * A country code alone is not a source-backed workplace. Every caller uses
+ * the same concrete-locality predicate so a country-only response cannot
+ * enter the authoritative job snapshot or derive a canton/address.
  */
 export function isDebiopharmSwissJob(
   detail = {},
   fallbackLocation = '',
-  { requireConcreteLocation = false } = {},
 ) {
-  const predicate = requireConcreteLocation
-    ? hasConcreteSwissSourceLocation
-    : hasSwissSourceCountry;
   return locationCandidateList(detail).some((candidate) =>
-    predicate(candidate, fallbackLocation));
+    hasConcreteSwissSourceLocation(candidate, fallbackLocation));
+}
+
+/**
+ * Classifies the source evidence before the crawler decides whether to skip
+ * or fail closed. A non-CH country on every location candidate is explicit
+ * foreign evidence; an absent/ambiguous locality remains unresolved.
+ */
+export function classifyDebiopharmSourceLocation(detail = {}, fallbackLocation = '') {
+  const candidates = locationCandidateList(detail);
+  if (candidates.some((candidate) => hasConcreteSwissSourceLocation(candidate, fallbackLocation))) {
+    return 'swiss';
+  }
+  if (candidates.length > 0 && candidates.every((candidate) => {
+    const country = coerceCountryField(candidate?.countryCode ?? candidate?.country);
+    return Boolean(country) && !isChCountry(country);
+  })) {
+    return 'foreign';
+  }
+  return 'unresolved';
 }
 
 export function parseDebiopharmJobDetailPayload(detail = {}, fallbackLocation = '') {

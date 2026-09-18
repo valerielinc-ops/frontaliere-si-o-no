@@ -1,10 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import {
+  classifyDebiopharmSourceLocation,
   isDebiopharmSwissJob,
   isVerifiedEmptyDebiopharmCareersSource,
   parseDebiopharmJobDetailPayload,
 } from '../scripts/lib/debiopharm-job-parser.mjs';
 import {
+  assertDebiopharmDiscoveryComplete,
   buildDebiopharmJob,
   isVerifiedStaleDebiopharmDetailFailure,
   resolveDebiopharmBackfillCanton,
@@ -20,6 +22,26 @@ describe('debiopharm-job-parser', () => {
         '<div class="u-section-open-position-list__list-no-result">There are currently no positions matching your criteria.</div><a href="https://apply.workable.com/debiopharm/j/ABC123">Scientist</a>',
       )).toBe(false);
       expect(isVerifiedEmptyDebiopharmCareersSource('<main>Careers</main>')).toBe(false);
+    });
+
+    it('fails closed when an empty publication was not proven by a complete read', () => {
+      expect(() => assertDebiopharmDiscoveryComplete({
+        listings: [{ shortcode: 'ABC123' }],
+        verifiedEmptySource: false,
+        detailsRead: 0,
+        detailFetchFailures: 1,
+        malformedDetailResponses: 0,
+        discoveredJobs: [],
+      })).toThrow(/could not prove an empty Swiss result/);
+
+      expect(() => assertDebiopharmDiscoveryComplete({
+        listings: [],
+        verifiedEmptySource: true,
+        detailsRead: 0,
+        detailFetchFailures: 0,
+        malformedDetailResponses: 0,
+        discoveredJobs: [],
+      })).not.toThrow();
     });
 
     it('classifies only the exact Workable detail 404 for a verified listing as stale', () => {
@@ -93,6 +115,24 @@ describe('debiopharm-job-parser', () => {
       });
       expect(parsed.inferredCanton).toBe('BE');
       expect(parsed.inferredCanton).not.toBe('VD');
+    });
+
+    it('distinguishes explicit foreign evidence from an unresolved source location', () => {
+      expect(classifyDebiopharmSourceLocation({
+        location: { city: 'Como', region: 'Lombardia', countryCode: 'IT' },
+      })).toBe('foreign');
+      expect(classifyDebiopharmSourceLocation({
+        location: { city: '', region: '', countryCode: 'CH' },
+      })).toBe('unresolved');
+      expect(classifyDebiopharmSourceLocation({
+        location: { city: 'Como', region: 'Lombardia', countryCode: 'CH' },
+      })).toBe('unresolved');
+      expect(classifyDebiopharmSourceLocation({
+        locations: [
+          { city: 'Como', countryCode: 'IT' },
+          { city: 'Lausanne', region: 'Vaud', countryCode: 'CH' },
+        ],
+      })).toBe('swiss');
     });
   });
 
