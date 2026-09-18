@@ -330,6 +330,25 @@ describe("McDonald's Switzerland crawler parser", () => {
       expect(job.description.length).toBeGreaterThan(20);
     });
 
+    it('keeps mandatory address fields coherent when source address data is absent', () => {
+      const job = buildMcdoJob({
+        ...parsed,
+        city: 'Lugano',
+        canton: 'TI',
+        sourceLocation: 'Lugano, TI',
+        postalCode: '',
+        streetAddress: '',
+      })!;
+      expect(job).toMatchObject({
+        location: 'Lugano',
+        addressLocality: 'Lugano',
+        addressRegion: 'TI',
+        postalCode: '6900',
+        streetAddress: 'Piazza Riforma 1',
+      });
+      expect(job.streetAddress).not.toBe(job.location);
+    });
+
     it('returns null for empty parse results', () => {
       expect(buildMcdoJob(null)).toBeNull();
       expect(buildMcdoJob({ title: '' } as never)).toBeNull();
