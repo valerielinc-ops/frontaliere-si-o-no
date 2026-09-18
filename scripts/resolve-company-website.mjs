@@ -8,6 +8,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { gateLookup, MAX_CONCURRENT_LOOKUPS } from './lib/dns-lookup-gate.mjs';
 import {
   createPublicConnectionLookup,
+  HEAD_FALLBACK_STATUSES,
   isPrivateOrLocalAddress,
 } from './lib/prospector/public-fetch-policy.mjs';
 
@@ -16,7 +17,6 @@ const MAX_REDIRECTS = 5;
 const MAX_DOMAIN_CONCURRENCY = 4;
 const DEFAULT_DOMAIN_CONCURRENCY = 2;
 const REDIRECT_STATUSES = new Set([300, 301, 302, 303, 307, 308]);
-const HEAD_FALLBACK_STATUSES = new Set([403, 405, 501]);
 const BLOCKED_HOSTNAMES = new Set(['localhost', 'metadata.google.internal']);
 
 /** @typedef {{ get?: (name: string) => string|null }} ResolverHeaders */
