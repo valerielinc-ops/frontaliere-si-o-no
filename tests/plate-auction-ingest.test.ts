@@ -77,6 +77,25 @@ describe('plate-auction ingest resilience', () => {
     expect(snapshot.counts.finalsVerified).toBe(0);
   });
 
+  it('reports a rowCount that matches the rows the snapshot carries', async () => {
+    // check-health.mjs fails the run when `rowCount` disagrees with the rows
+    // present for that source, so the two must not be allowed to drift: a
+    // carried row (expired auction, or a deadline-protected preserved row)
+    // makes the fetched count differ from what the snapshot holds.
+    const live = { ...previousRow, id: 'gr-live', normalizedPlate: 'GR500', endsAt: '2026-09-20T18:00:00.000Z' };
+    const carried = { ...previousRow, id: 'gr-carried', normalizedPlate: 'GR501', endsAt: '2026-09-14T18:00:00.000Z' };
+    const snapshot = await collectPlateAuctions({
+      selectedCantons: ['gr'],
+      fetchers: { gr: async () => [live] },
+      previous: { generatedAt: '2026-09-12T12:00:00.000Z', auctions: [live, carried] },
+      now: NOW,
+    });
+    const rowsForSource = snapshot.auctions.filter(
+      (auction) => String(auction.sourceKey || auction.platePrefix || '').toLowerCase() === 'gr',
+    );
+    expect(snapshot.sources.gr.rowCount).toBe(rowsForSource.length);
+  });
+
   it('refuses to call a truncated catalogue a batch of sales', async () => {
     // Same source, same shape of row, but the PDF came back short. Reading
     // this as sales would stamp a fabricated sale date and price on half the

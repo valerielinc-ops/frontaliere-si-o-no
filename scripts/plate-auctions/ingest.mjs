@@ -86,7 +86,13 @@ function sourceStatus(source, result) {
     lastSuccessAt: result.previousSuccessAt,
   };
   if (result.zeroRows && source.status === 'active') return { ...base, status: 'degraded', errorCode: 'zero_rows' };
-  return { ...base, status: source.status, lastSuccessAt: result.fetchedAt };
+  // `rowCount` must describe the rows this snapshot actually carries for the
+  // source, because check-health.mjs compares it against them and fails the
+  // run on a mismatch. `fetchedRowCount` is the count the FETCH returned,
+  // which differs whenever a row is carried (an expired auction archived, or
+  // a deadline-protected row preserved) — the degraded branches above already
+  // report the output count for exactly this reason.
+  return { ...base, rowCount: result.rows.length, status: source.status, lastSuccessAt: result.fetchedAt };
 }
 
 function mergeWithPrevious(rows, previousRows, sourceKey) {
