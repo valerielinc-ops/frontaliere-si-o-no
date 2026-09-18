@@ -174,7 +174,7 @@ describe('Raiffeisen (national) crawler parser', () => {
       globalThis.fetch = vi.fn(async () => {
         calls += 1;
         const body = calls === 1
-          ? { total: 2, jobs: [{ title: 'Kundenberater/in', szas: { sza_title: 'Kundenberater/in', 'sza_location.city': 'Zürich', 'sza_location.country': 'Schweiz' } }] }
+          ? { total: 2, jobs: [{ title: 'Kundenberater/in', szas: { sza_title: 'Kundenberater/in', 'sza_location.city': 'Zürich', 'sza_location.country': 'Schweiz' }, links: { directlink: 'https://jobs.raiffeisen.ch/careercenter/1950/job/partial-1' } }] }
           : { total: 2, jobs: [] };
         return new Response(JSON.stringify(body), { status: 200 });
       }) as any;
