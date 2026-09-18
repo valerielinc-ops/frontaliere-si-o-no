@@ -116,7 +116,27 @@ jobs:
             echo "compat_changed=true" >> "$GITHUB_OUTPUT"
           fi
           git commit -m "chore(seo): refresh search-cluster 301 map (regen + prune stale targets)"
+          # `--max-attempts 20` invece del default 40: il budget di retry DEVE
+          # esaurirsi dentro `timeout-minutes: 20`, altrimenti il job muore di
+          # timeout e GitHub lo marca `cancelled`, non `failure` — e lo step
+          # "Report failure to GitHub Issues" qui sotto (`if: failure()`) viene
+          # SKIPPATO. E' esattamente quello che e' successo il 31-08, 07-09 e
+          # 14-09: tre fallimenti di fila, zero issue dal workflow stesso, e la
+          # mappa 301 ferma all'ultimo success del 24-08.
+          #
+          # Il numero viene da una misura, non a occhio (run 34840508579):
+          # "attempt 4/40" alle 11:59:00Z, "attempt 27/40" alle 12:13:28Z, cioe'
+          # 23 tentativi in 868 s = 37,7 s/tentativo, perche' ogni retry perso
+          # rigenera l'artefatto via `--regenerate-cmd` mentre `main` riceve
+          # ~147 commit/24h su `data/`. Lo step parte intorno al minuto 4 del
+          # job, quindi ha ~16 min utili: 20 x 37,7 s = 12,6 min, con margine.
+          # Rimisurare se il costo del regenerate cambia.
+          #
+          # NON si alza il timeout: 5->10->15->25->40 e' la leva gia' invalidata
+          # quattro volte. Qui l'obiettivo non e' far atterrare il push a tutti
+          # i costi, e' far RIEMERGERE il fallimento come `failure` osservabile.
           bash scripts/lib/git-push-with-retry.sh \
+            --max-attempts 20 \
             --regenerate-cmd "node scripts/build-search-cluster-301-map.mjs && node scripts/prune-search-cluster-301-map.mjs && git add data/search-cluster-301-map.json data/seo-404-compat"
 
       - name: Trigger deploy if compat store changed
