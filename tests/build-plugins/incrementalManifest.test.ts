@@ -116,6 +116,26 @@ describe('incremental manifest input contract', () => {
     expect(secondHash).not.toBe(firstHash);
   });
 
+  it('freezes records before reusing their identity digest', () => {
+    const cache = createIncrementalManifestInputCache();
+    const job = {
+      id: 'immutable-job-1',
+      slug: 'immutable-role',
+      title: 'Immutable role',
+      datePosted: '2026-08-19T14:02:37.348Z',
+      descriptionByLocale: { it: 'Original description' },
+    };
+
+    buildMinimalJobInput(job, 'it', job.slug, [], cache, job);
+
+    expect(Object.isFrozen(job)).toBe(true);
+    expect(Object.isFrozen(job.descriptionByLocale)).toBe(true);
+    expect(Reflect.set(job, 'datePosted', '2026-08-19T16:17:13.045Z')).toBe(false);
+    expect(Reflect.set(job.descriptionByLocale, 'it', 'Changed description')).toBe(false);
+    expect(job.datePosted).toBe('2026-08-19T14:02:37.348Z');
+    expect(job.descriptionByLocale.it).toBe('Original description');
+  });
+
   it('changes the page hash when only related company and salary change', () => {
     const pageJob = { id: 'page-1', updatedAt: 'v1', title: 'Page' };
     const relatedJob = {

@@ -226,6 +226,18 @@ function jobRecordForDigest(job) {
   return record;
 }
 
+/**
+ * The WeakMap identity fast path is sound only for immutable snapshots. Freeze
+ * the source record (including nested rendered fields) before retaining its
+ * digest so an in-place mutation cannot make the cached digest stale.
+ */
+function freezeJobRecord(value, seen = new WeakSet()) {
+  if (!value || typeof value !== 'object' || seen.has(value)) return value;
+  seen.add(value);
+  for (const nested of Object.values(value)) freezeJobRecord(nested, seen);
+  return Object.freeze(value);
+}
+
 export function createIncrementalManifestInputCache() {
   const cache = {
     jobDigestsById: new Map(),
@@ -287,7 +299,7 @@ function digestJobRecord(job, inputCache = null) {
   if (!job || typeof job !== 'object') return sha256('{}');
   const stableId = stableJobId(job);
   const cachedDigest = jobRecordDigestCache.get(job);
-  if (cachedDigest) {
+  if (cachedDigest?.immutable) {
     if (inputCache && stableId) setInputCacheEntry(inputCache, 'jobDigestsById', stableId, cachedDigest);
     return cachedDigest.digest;
   }
@@ -297,6 +309,7 @@ function digestJobRecord(job, inputCache = null) {
   const record = jobRecordForDigest(job);
   if (inputCache?._metrics) inputCache._metrics.jobDigestComputations += 1;
   const digest = sha256(JSON.stringify(record));
+  freezeJobRecord(job);
   const cachedById = inputCache && stableId
     ? inputCache.jobDigestsById.get(stableId)
     : null;
@@ -304,7 +317,7 @@ function digestJobRecord(job, inputCache = null) {
     jobRecordDigestCache.set(job, cachedById);
     return cachedById.digest;
   }
-  const cacheEntry = { digest };
+  const cacheEntry = { digest, immutable: true };
   jobRecordDigestCache.set(job, cacheEntry);
   if (inputCache && stableId) setInputCacheEntry(inputCache, 'jobDigestsById', stableId, cacheEntry);
   return digest;
