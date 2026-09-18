@@ -108,6 +108,9 @@ const CANTON_NAMES = Object.freeze(/** @type {Readonly<Record<string, readonly s
 }));
 
 const CANTON_CODES = new Set(Object.keys(CANTON_NAMES));
+const CANTON_NAME_TAILS = Object.entries(CANTON_NAMES)
+  .flatMap(([, values]) => values)
+  .sort((a, b) => b.length - a.length);
 
 /** Country markers that say "Switzerland" and therefore never add information to a canton line. */
 const COUNTRY_NAMES = [
@@ -169,6 +172,27 @@ const PAREN_TAIL = /^(.*?)[\s,]*\(\s*([^()]{1,40}?)\s*\)\s*$/;
 const SEP_TAIL = /^(.*?)\s*[,/–—-]\s*([^,/–—-]{1,30})\s*$/;
 /** Trailing bare uppercase code, e.g. `Stein AG` → `AG`. Uppercase only: `Stein Am` must not match. */
 const BARE_CODE_TAIL = /^(.*\S)\s+([A-Z]{2,3})\s*$/;
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/**
+ * The generic separator regex deliberately treats `-` as a separator. That
+ * means it cannot peel a named canton containing a hyphen, such as
+ * `Basel-Landschaft`. Keep this narrow fallback tied to known canton names,
+ * so arbitrary hyphenated location text is not mistaken for a marker.
+ */
+function cantonNameTail(city) {
+  for (const name of CANTON_NAME_TAILS) {
+    const match = new RegExp(
+      `^(.*?)(?:[,/\\s–—-])\\s*(${escapeRegExp(name)})\\s*$`,
+      'i',
+    ).exec(city);
+    if (match?.[1]?.trim()) return { head: match[1], tail: match[2] };
+  }
+  return null;
+}
 
 /** Classify a candidate tail token. `null` when it carries information we must keep. */
 /**
@@ -276,9 +300,9 @@ export function splitJobLocation(location, canton) {
  * @param {string | null | undefined} location
  * @returns {string | null}
  */
-export function cantonNamedByLocation(location) {
+function cantonLocationEvidence(location) {
   let city = String(location || '').trim();
-  if (!city) return null;
+  if (!city) return { code: null, ambiguous: false };
 
   const namedCantons = new Set();
   let ambiguousBareAg = false;
@@ -306,10 +330,25 @@ export function cantonNamedByLocation(location) {
         }
       }
     }
+    if (head === null || tail === null) {
+      const named = cantonNameTail(city);
+      if (named) {
+        ({ head, tail } = named);
+        kindHint = 'canton-name';
+      }
+    }
     if (head === null || tail === null) break;
     if (!head.trim()) break;
 
-    const classified = classifyTail(tail);
+    let classified = classifyTail(tail);
+    if (!classified) {
+      const named = cantonNameTail(city);
+      if (named) {
+        ({ head, tail } = named);
+        kindHint = 'canton-name';
+        classified = classifyTail(tail);
+      }
+    }
     if (!classified) break;
 
     if (classified.code) {
@@ -333,8 +372,15 @@ export function cantonNamedByLocation(location) {
     city = head.trim();
   }
 
-  if (ambiguousBareAg || namedCantons.size !== 1) return null;
-  return [...namedCantons][0];
+  const ambiguous = ambiguousBareAg || namedCantons.size > 1;
+  return {
+    code: ambiguous || namedCantons.size !== 1 ? null : [...namedCantons][0],
+    ambiguous,
+  };
+}
+
+export function cantonNamedByLocation(location) {
+  return cantonLocationEvidence(location).code;
 }
 
 /**
@@ -344,11 +390,12 @@ export function cantonNamedByLocation(location) {
  *
  * @param {string | null | undefined} location
  * @param {string | null | undefined} stampedCanton
- * @returns {string} a 2-letter code, or `''` when neither half is a canton
+ * @returns {string} a 2-letter code, or `''` when no safe winner exists
  */
 export function preferLocationEncodedCanton(location, stampedCanton) {
-  const encoded = cantonNamedByLocation(location);
-  if (encoded) return encoded;
+  const evidence = cantonLocationEvidence(location);
+  if (evidence.ambiguous) return '';
+  if (evidence.code) return evidence.code;
   const stamped = String(stampedCanton || '').trim().toUpperCase();
   return CANTON_CODES.has(stamped) ? stamped : '';
 }
