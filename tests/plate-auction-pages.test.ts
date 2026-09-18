@@ -5,6 +5,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { loadPlateAuctionContext, plateAuctionsPagesPlugin, renderPlateAuctionPage } from '../build-plugins/plateAuctionsPagesPlugin';
 import { buildPlateAuctionPath } from '../services/plateAuctions/paths';
 import { AD_SLOTS } from '../services/adsenseSlots';
+import { auditPage } from '../scripts/adsense-prereview-audit.mjs';
 
 const tempDirs: string[] = [];
 const FULL_FIXTURE_GROUPS = [
@@ -77,6 +78,24 @@ function fixtureRoot({ auctionCount = 1, withDist = false }: { auctionCount?: nu
 }
 
 describe('plate-auction static pages', () => {
+  it('keeps every locale of a detail page above the AdSense thin-content floor', () => {
+    // Run 35339314162 failed with 10 blocking `ads_on_thin_content_page`
+    // findings, all on plate-auction detail pages and all in de/en. Of the 19
+    // sampled pages 0 passed: IT read 146 words, FR 143, EN 137, DE 126 against
+    // the 140-word floor, so the identical template was thin in every locale
+    // and only dipped under the line where German and English compound the
+    // same sentences into fewer tokens. This asserts the real auditor's verdict
+    // on the real rendered page, not a proxy for it.
+    const rootDir = fixtureRoot();
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const rendered = renderPlateAuctionPage({ locale, view: 'detail', canton: 'GR', plate: 'GR7', rootDir });
+      const audited = auditPage(`https://frontaliereticino.ch/${locale}/x/`, 'x', rendered.html, 'plate-auctions');
+      expect(audited.issues, `${locale}: blocking AdSense findings`).toEqual([]);
+      expect(audited.metrics.wordCount, `${locale}: word count`).toBeGreaterThanOrEqual(140);
+      expect(audited.metrics.thin, `${locale}: still thin`).toBe(false);
+    }
+  });
+
   it('renders registry-backed canton coverage and freshness on the national hub', () => {
     const rootDir = fixtureRoot();
     const rendered = renderPlateAuctionPage({ locale: 'it', view: 'hub', rootDir });

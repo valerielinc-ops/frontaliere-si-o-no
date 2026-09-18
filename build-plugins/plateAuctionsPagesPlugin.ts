@@ -208,6 +208,50 @@ export function loadPlateAuctionContext(rootDir: string): PlateAuctionContext {
   return { snapshot, coverage, auctionRows, activeHistoryRows, detailRows, detailRowsByPlate, rankingRows };
 }
 
+/**
+ * Per-lot explanatory copy for DETAIL pages only.
+ *
+ * A detail page carries one auction row, so the shared intro plus a single
+ * table left it at 126 words in German and 137 in English against the 140-word
+ * floor that `scripts/adsense-prereview-audit.mjs` enforces for any indexed
+ * page serving ads (`ads_on_thin_content_page`). The identical template reads
+ * 146 words in Italian and 143 in French purely because German and English
+ * compound the same sentences into fewer tokens — so the fix is substance on
+ * the page, never a lower floor. Measured on run 35339314162: of 19 sampled
+ * plate-auction pages, 0 passed, 10 failed and 9 warned, which makes this a
+ * property of the template and not of ten unlucky lots.
+ *
+ * Everything here restates what the published fields mean, how to verify them
+ * at the cantonal source, and what is deliberately never collected. No claim
+ * about Swiss registration law is made, because the snapshot cannot support one.
+ */
+const DETAIL_GUIDE: Record<PlateLocale, { heading: string; fields: string; verify: string; privacy: string }> = {
+  it: {
+    heading: 'Come leggere questa scheda',
+    fields: 'La scheda descrive un singolo lotto: la targa nella forma pubblicata dal cantone, il tipo di veicolo a cui è abbinata, lo stato dell’asta e, quando la fonte li espone, il prezzo di partenza, l’offerta corrente, il numero di offerte e la scadenza. Il prezzo corrente è l’ultima offerta visibile al momento della rilevazione e non indica una vendita conclusa.',
+    verify: 'Il riferimento resta quanto pubblicato dal cantone: il collegamento alla fonte ufficiale permette di controllare la riga prima di agire. Un prezzo finale entra nello storico soltanto quando una fonte ufficiale lo rende verificabile, quindi una scheda può restare senza prezzo finale anche dopo la chiusura, e le righe in conflitto tra due rilevazioni non vengono pubblicate.',
+    privacy: 'I nomi degli offerenti non vengono raccolti né pubblicati e dai cataloghi non viene ricavato alcun dato personale.',
+  },
+  en: {
+    heading: 'How to read this listing',
+    fields: 'This listing describes a single lot: the plate as the canton publishes it, the vehicle type it is paired with, the auction status and, when the source exposes them, the starting price, the current bid, the number of bids and the deadline. The current price is the last bid visible when the snapshot was taken and does not indicate a completed sale.',
+    verify: 'The canton’s own publication remains the reference: the link to the official source lets you check the row before acting on it. A final price enters the history only once an official source makes it verifiable, so a listing can stay without a final price even after closing, and rows that conflict between two snapshots are not published at all.',
+    privacy: 'Bidder names are neither collected nor published, and no personal data is derived from the catalogues.',
+  },
+  de: {
+    heading: 'So lesen Sie diesen Eintrag',
+    fields: 'Dieser Eintrag beschreibt ein einzelnes Los: das Kontrollschild in der vom Kanton veröffentlichten Form, den zugeordneten Fahrzeugtyp, den Status der Auktion sowie, sofern die Quelle sie ausweist, den Startpreis, das aktuelle Gebot, die Anzahl der Gebote und die Frist. Der aktuelle Preis ist das letzte zum Zeitpunkt der Erhebung sichtbare Gebot und bedeutet keinen abgeschlossenen Verkauf.',
+    verify: 'Verbindlich bleibt die Veröffentlichung des Kantons: über den Link zur offiziellen Quelle lässt sich die Zeile vor jeder Handlung überprüfen. Ein Endpreis wird erst dann in die Historie übernommen, wenn eine offizielle Quelle ihn überprüfbar macht — ein Eintrag kann deshalb auch nach dem Abschluss ohne Endpreis bleiben, und Zeilen, die sich zwischen zwei Erhebungen widersprechen, werden gar nicht veröffentlicht.',
+    privacy: 'Namen von Bietern werden weder gesammelt noch veröffentlicht, und aus den Katalogen werden keine Personendaten abgeleitet.',
+  },
+  fr: {
+    heading: 'Comment lire cette fiche',
+    fields: 'Cette fiche décrit un seul lot : la plaque telle que le canton la publie, le type de véhicule auquel elle est associée, le statut de l’enchère et, lorsque la source les expose, le prix de départ, l’offre actuelle, le nombre d’offres et l’échéance. Le prix actuel est la dernière offre visible au moment du relevé et n’indique pas une vente conclue.',
+    verify: 'La publication du canton reste la référence : le lien vers la source officielle permet de vérifier la ligne avant d’agir. Un prix final n’entre dans l’historique que lorsqu’une source officielle le rend vérifiable, une fiche peut donc rester sans prix final même après la clôture, et les lignes contradictoires entre deux relevés ne sont pas publiées.',
+    privacy: 'Les noms des enchérisseurs ne sont ni collectés ni publiés, et aucune donnée personnelle n’est déduite des catalogues.',
+  },
+};
+
 export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleType, rootDir, distDir, context }: { locale: PlateLocale; view: 'hub' | 'rankings' | 'canton' | 'detail'; canton?: string; plate?: string; vehicleType?: PlateVehicleType; rootDir: string; distDir?: string; context?: PlateAuctionContext }): { urlPath: string; html: string } {
   const copy = COPY[locale];
   const { snapshot, coverage, auctionRows, detailRowsByPlate, rankingRows } = context ?? loadPlateAuctionContext(rootDir);
@@ -256,7 +300,13 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleTyp
     : `<section><h2 style="${H2_STYLE}">${esc(view === 'rankings' ? copy.rankings : view === 'detail' ? copy.detail : copy.current)}</h2>${tableRows(rows, locale, copy)}${detailLinks ? `<h3 style="${H2_STYLE}">${esc(copy.allListings)}</h3><ul>${detailLinks}</ul>` : ''}</section>`;
   const coverageSource = coverage.entries.find((source) => source.plateCode.toUpperCase() === String(canton || '').toUpperCase());
   const sourceSection = `<section><h2 style="${H2_STYLE}">${esc(canton ? copy.method : copy.sources)}</h2><p>${esc(canton && coverageSource?.status !== 'active' ? copy.notDiscovered : copy.context)}</p>${canton || view === 'detail' ? '' : `<ul>${links}</ul>`}</section>`;
-  const body = `<main><nav aria-label="breadcrumb"><a href="${esc(pathFor(locale, 'hub'))}" style="${LINK_ACCENT_STYLE}">Home</a>${breadcrumbParent} / <span>${esc(title)}</span></nav><div data-plate-auctions-static="true" data-generated-at="${esc(snapshot.generatedAt || '')}"><h1 style="${H1_STYLE}">${esc(h1)}</h1><p style="${LEDE_STYLE}">${esc(description)}</p><p>${esc(copy.context)}</p>${topAdHtml}<p><a href="${esc(pathFor(locale, 'hub'))}" style="${LINK_ACCENT_STYLE}">${esc(copy.current)}</a> · <a href="${esc(pathFor(locale, 'rankings'))}" style="${LINK_ACCENT_STYLE}">${esc(copy.rankings)}</a></p>${coverageSection}${listingSection}${sourceSection}</div></main>`;
+  // Detail pages only: index pages already carry a table of many rows plus the
+  // coverage registry, and are not thin.
+  const detailGuide = DETAIL_GUIDE[locale];
+  const detailGuideSection = view === 'detail'
+    ? `<section><h2 style="${H2_STYLE}">${esc(detailGuide.heading)}</h2><p>${esc(detailGuide.fields)}</p><p>${esc(detailGuide.verify)}</p><p>${esc(detailGuide.privacy)}</p></section>`
+    : '';
+  const body = `<main><nav aria-label="breadcrumb"><a href="${esc(pathFor(locale, 'hub'))}" style="${LINK_ACCENT_STYLE}">Home</a>${breadcrumbParent} / <span>${esc(title)}</span></nav><div data-plate-auctions-static="true" data-generated-at="${esc(snapshot.generatedAt || '')}"><h1 style="${H1_STYLE}">${esc(h1)}</h1><p style="${LEDE_STYLE}">${esc(description)}</p><p>${esc(copy.context)}</p>${topAdHtml}<p><a href="${esc(pathFor(locale, 'hub'))}" style="${LINK_ACCENT_STYLE}">${esc(copy.current)}</a> · <a href="${esc(pathFor(locale, 'rankings'))}" style="${LINK_ACCENT_STYLE}">${esc(copy.rankings)}</a></p>${coverageSection}${listingSection}${detailGuideSection}${sourceSection}</div></main>`;
   // buildSeoPageHtml owns the single outer <main> in outside-root mode. Keep
   // this page-specific string as inner content so React mounts only its lite
   // chrome in #root and cannot replace the crawler-facing table.
