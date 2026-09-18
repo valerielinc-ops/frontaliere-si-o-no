@@ -45,12 +45,18 @@ import {
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
-import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { isChCountry } from './lib/ch-country-guard.mjs';
+import {
+  inferAnyCanton,
+  isSwissLocationText,
+  swissCityFromLocationField,
+} from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { resolveSwissStructuredAddress } from './lib/swiss-structured-address.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -64,7 +70,6 @@ const CAPRI_KEY = 'capri-holdings';
 const DATA_JOBS = crawlerScratchPathFor(CAPRI_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
-const DEFAULT_CANTON = getCompanyDefaults(CAPRI_KEY)?.canton || 'TI';
 const CAPRI_COMPANY_NAME = 'Capri Holdings (Michael Kors / Versace)';
 const CAPRI_HOST = 'capri.wd1.myworkdayjobs.com';
 const LOCALES = ['it', 'en', 'de', 'fr'];
@@ -77,15 +82,6 @@ const WORKDAY_SITES = [
 
 const WORKDAY_API_BASE = 'https://capri.wd1.myworkdayjobs.com/wday/cxs/capri';
 const WORKDAY_PUBLIC_BASE = 'https://capri.wd1.myworkdayjobs.com/en-US';
-
-/** Swiss/Ticino location keywords for filtering */
-const SWISS_LOCATION_KEYWORDS = [
-  'mendrisio', 'lugano', 'chiasso', 'stabio', 'coldrerio',
-  'balerna', 'novazzano', 'ticino', 'tessin', 'switzerland',
-  'svizzera', 'schweiz', 'suisse', 'graubünden', 'graubunden',
-  'landquart', 'zurich', 'zürich', 'geneva', 'genève', 'bern',
-  'basel', 'lausanne', 'winterthur', 'st. gallen',
-];
 
 /* ── Helpers ──────────────────────────────────────────────── */
 
@@ -128,8 +124,130 @@ function slugify(text = '', suffix = '') {
 }
 
 function isSwissLocation(locationText = '') {
-  const loc = String(locationText || '').toLowerCase();
-  return SWISS_LOCATION_KEYWORDS.some((kw) => loc.includes(kw));
+  return isSwissLocationText(locationText);
+}
+
+function stringifyWorkdayLocationField(value) {
+  if (value == null) return '';
+  if (Array.isArray(value)) return value.map(stringifyWorkdayLocationField).filter(Boolean).join(' ');
+  if (typeof value === 'object') {
+    return [
+      value.descriptor,
+      value.name,
+      value.city,
+      value.location,
+      value.country,
+      value.countryCode,
+      value.addressLocality,
+      value.address?.addressLocality,
+      value.address?.city,
+    ].map(stringifyWorkdayLocationField).filter(Boolean).join(' ');
+  }
+  return normalizeSpace(value);
+}
+
+const WORKDAY_COUNTRY_FIELDS = [
+  'country',
+  'countryName',
+  'countryCode',
+  'locationCountry',
+  'locationCountryCode',
+];
+
+function getWorkdayLocationCandidates(posting = {}) {
+  const namedFields = [
+    posting.locationsText,
+    posting.locationText,
+    posting.location,
+    posting.primaryLocation,
+    posting.jobLocation,
+    posting.addressLocality,
+    posting.locations,
+  ];
+  const dynamicLocationFields = Object.entries(posting)
+    .filter(([key]) => /location/i.test(key) && !/country/i.test(key))
+    .map(([, value]) => value);
+  const bulletFields = Array.isArray(posting.bulletFields) ? posting.bulletFields : [];
+  return [...new Set([...namedFields, ...dynamicLocationFields, ...bulletFields]
+    .map(stringifyWorkdayLocationField)
+    .filter(Boolean))];
+}
+
+function getWorkdayCountrySignal(posting = {}) {
+  return WORKDAY_COUNTRY_FIELDS
+    .map((field) => stringifyWorkdayLocationField(posting[field]))
+    .filter(Boolean)
+    .join(' ');
+}
+
+function getWorkdayListingLocationSignal(posting = {}) {
+  return [...getWorkdayLocationCandidates(posting), getWorkdayCountrySignal(posting)]
+    .filter(Boolean)
+    .join(' ');
+}
+
+function isWorkdayMultiLocation(signal = '') {
+  return /\b\d+\s+locations?\b/i.test(String(signal || ''));
+}
+
+function hasWorkdaySwissCountry(posting = {}, signal = '') {
+  return [getWorkdayCountrySignal(posting), signal].some((value) => isChCountry(value));
+}
+
+export function isSwissWorkdayListing(posting = {}) {
+  const signal = getWorkdayListingLocationSignal(posting);
+  return isSwissLocation(signal)
+    || hasWorkdaySwissCountry(posting, signal)
+    || isWorkdayMultiLocation(signal);
+}
+
+export function resolveWorkdayLocation(listing = {}, detail = {}) {
+  const listingSignal = getWorkdayListingLocationSignal(listing);
+  const detailSignal = getWorkdayListingLocationSignal(detail);
+  const detailLocation = getWorkdayLocationCandidates(detail)
+    .find((candidate) => Boolean(inferCanton(candidate))) || '';
+  const listingLocation = getWorkdayLocationCandidates(listing)
+    .find((candidate) => Boolean(inferCanton(candidate))) || '';
+  const detailCountry = getWorkdayCountrySignal(detail);
+  const listingCountry = getWorkdayCountrySignal(listing);
+  const countryDesc = detailCountry || listingCountry;
+  const locationRaw = detailLocation || listingLocation;
+
+  return {
+    countryDesc,
+    countryIsSwiss: countryDesc ? isChCountry(countryDesc) : false,
+    detailLocation,
+    listingLocation,
+    locationRaw,
+    canton: inferCanton(locationRaw),
+    resolvedSwissSignal: Boolean(locationRaw)
+      || hasWorkdaySwissCountry(detail, detailSignal)
+      || hasWorkdaySwissCountry(listing, listingSignal),
+  };
+}
+
+export function resolveWorkdayCity(listing = {}, detail = {}) {
+  return [
+    ...getWorkdayLocationCandidates(detail),
+    ...getWorkdayLocationCandidates(listing),
+  ].map(swissCityFromLocationField).find(Boolean) || '';
+}
+
+function getWorkdaySourceField(info = {}, fields = []) {
+  const sources = [
+    info,
+    info.address,
+    info.jobRequisitionLocation,
+    info.jobRequisitionLocation?.address,
+  ];
+  for (const source of sources) {
+    if (!source || typeof source !== 'object') continue;
+    for (const field of fields) {
+      const value = stringifyWorkdayLocationField(source[field]);
+      if (value) return value;
+    }
+  }
+  return '';
 }
 
 function inferCanton(location = '') {
@@ -235,7 +353,7 @@ async function fetchJson(url, options = {}) {
  * List all jobs from a Workday site, filtering for Swiss locations.
  * Uses text search + client-side location filtering since location facet IDs are not stable.
  */
-async function listSwissJobs(site, brand) {
+export async function listSwissJobs(site, brand) {
   const apiUrl = `${WORKDAY_API_BASE}/${site}/jobs`;
   const allPostings = [];
 
@@ -243,34 +361,55 @@ async function listSwissJobs(site, brand) {
   for (const searchText of ['Switzerland', 'Mendrisio', 'Lugano', 'Ticino', '']) {
     let offset = 0;
     const limit = 20;
+    let queryPostingsFetched = 0;
+    let queryExpectedTotal;
+    const queryPostingIdentities = new Set();
     while (true) {
       const body = JSON.stringify({ appliedFacets: {}, limit, offset, searchText });
       const data = await fetchJson(apiUrl, { method: 'POST', body });
-      if (!data || !Array.isArray(data.jobPostings)) break;
+      const { jobPostings, declaredTotal } = assertWorkdayPage(data, {
+        brand,
+        searchText,
+        offset,
+        expectedTotal: queryExpectedTotal,
+      });
+      if (queryExpectedTotal === undefined) queryExpectedTotal = declaredTotal;
+      const pageLength = jobPostings.length;
+      assertUniqueWorkdayPostings(jobPostings, {
+        brand,
+        searchText,
+        offset,
+        seen: queryPostingIdentities,
+      });
+      queryPostingsFetched += pageLength;
+      if (queryPostingsFetched > declaredTotal) {
+        throw new Error(
+          `Workday ${brand} ${searchText || 'empty'} search fetched `
+          + `${queryPostingsFetched}/${declaredTotal} rows at offset ${offset}`,
+        );
+      }
 
-      for (const posting of data.jobPostings) {
+      for (const posting of jobPostings) {
         // Check if already found
         if (allPostings.some((p) => p.externalPath === posting.externalPath)) continue;
 
-        // For text searches, all results are relevant; for empty search, filter by location
-        if (searchText === '') {
-          const fields = [
-            posting.locationsText || '',
-            posting.title || '',
-            ...(posting.bulletFields || []),
-          ].join(' ');
-          if (!isSwissLocation(fields)) continue;
-        }
+        // Workday search matches arbitrary posting fields, so every result
+        // still needs a location-only Swiss check, including country searches.
+        // Location may be in locationsText, a later bullet field, or a country
+        // field; don't assume bulletFields[0] is the location.
+        if (!isSwissWorkdayListing(posting)) continue;
         allPostings.push({ ...posting, brand });
       }
 
-      if (data.jobPostings.length < limit || (searchText === '' && offset > 200)) break;
+      if (queryPostingsFetched < declaredTotal && pageLength < limit) {
+        throw new Error(
+          `Workday ${brand} ${searchText || 'empty'} search returned `
+          + `${queryPostingsFetched}/${declaredTotal} rows before a short page`,
+        );
+      }
+      if (queryPostingsFetched === declaredTotal) break;
       offset += limit;
-      // For non-empty search, the results are already filtered, paginate them all
-      if (searchText !== '' && allPostings.length >= (data.total || 0)) break;
     }
-    // If we found jobs via text search, skip the empty search
-    if (searchText !== '' && allPostings.length > 0) continue;
   }
 
   return allPostings;
@@ -278,6 +417,62 @@ async function listSwissJobs(site, brand) {
 
 async function fetchJobDetail(site, externalPath) {
   return fetchJson(`${WORKDAY_API_BASE}/${site}${externalPath}`);
+}
+
+export function assertWorkdayPage(data, {
+  brand = 'Capri Holdings',
+  searchText = '',
+  offset = 0,
+  expectedTotal,
+} = {}) {
+  if (!data || !Array.isArray(data.jobPostings)) {
+    throw new Error(
+      `Workday ${brand} ${searchText || 'empty'} search returned a malformed page at offset ${offset}`,
+    );
+  }
+  const rawTotal = data.total;
+  const rawTotalText = typeof rawTotal === 'string' ? rawTotal.trim() : '';
+  const hasNumericTotal = (typeof rawTotal === 'number' && Number.isFinite(rawTotal))
+    || (typeof rawTotal === 'string' && /^\d+$/.test(rawTotalText));
+  const declaredTotal = hasNumericTotal ? Number(rawTotal) : NaN;
+  if (!hasNumericTotal || !Number.isInteger(declaredTotal) || declaredTotal < 0) {
+    throw new Error(
+      `Workday ${brand} ${searchText || 'empty'} search returned an invalid total `
+      + `${rawTotal ?? '?'} at offset ${offset}`,
+    );
+  }
+  if (expectedTotal !== undefined && declaredTotal !== expectedTotal) {
+    throw new Error(
+      `Workday ${brand} ${searchText || 'empty'} search changed its total from `
+      + `${expectedTotal} to ${declaredTotal} at offset ${offset}`,
+    );
+  }
+  return { jobPostings: data.jobPostings, declaredTotal };
+}
+
+export function assertUniqueWorkdayPostings(
+  jobPostings,
+  { brand = 'Capri Holdings', searchText = '', offset = 0, seen = new Set() } = {},
+) {
+  for (const posting of jobPostings) {
+    const identity = typeof posting?.externalPath === 'string'
+      ? normalizeSpace(posting.externalPath)
+      : '';
+    if (!identity) {
+      throw new Error(
+        `Workday ${brand} ${searchText || 'empty'} search returned a posting without an identity `
+        + `at offset ${offset}`,
+      );
+    }
+    if (seen.has(identity)) {
+      throw new Error(
+        `Workday ${brand} ${searchText || 'empty'} search repeated posting identity `
+        + `${identity} at offset ${offset}`,
+      );
+    }
+    seen.add(identity);
+  }
+  return seen;
 }
 
 /**
@@ -293,13 +488,13 @@ async function fetchCapriHoldingsJobs() {
   for (const { site, brand } of WORKDAY_SITES) {
     console.log(`  🏷️  Querying ${brand} (${site})...`);
     const listings = await listSwissJobs(site, brand);
-    console.log(`     Swiss listings found: ${listings.length}`);
+    console.log(`     Swiss-location candidates found: ${listings.length}`);
     // Tag with site for detail fetching
     for (const l of listings) l._site = site;
     allSwissListings.push(...listings);
   }
 
-  console.log(`\n  📋 Total Swiss listings across all brands: ${allSwissListings.length}`);
+  console.log(`\n  📋 Total Swiss-location candidates across all brands: ${allSwissListings.length}`);
   if (allSwissListings.length === 0) return [];
 
   const jobs = [];
@@ -313,27 +508,52 @@ async function fetchCapriHoldingsJobs() {
     const title = normalizeSpace(info.title || listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const locationRaw = info.location || listing.locationsText || (listing.bulletFields || [])[0] || '';
-    const countryDesc = info.country?.descriptor || '';
-    const city = locationRaw.split(/\s*-\s*/).slice(-1)[0]?.trim().replace(/,\s*switzerland$/i, '') || locationRaw;
-    const canton = inferCanton(city || locationRaw);
+    const listingLocationSignal = getWorkdayListingLocationSignal(listing);
+    const resolved = resolveWorkdayLocation(listing, info);
+    const {
+      countryDesc,
+      countryIsSwiss,
+      locationRaw,
+      canton,
+      resolvedSwissSignal,
+    } = resolved;
+    const city = resolveWorkdayCity(listing, info);
 
-    // Double-check this is actually a Swiss job
-    if (countryDesc && !countryDesc.toLowerCase().includes('switzerland') && !countryDesc.toLowerCase().includes('schweiz') && !countryDesc.toLowerCase().includes('suisse') && !countryDesc.toLowerCase().includes('svizzera')) {
-      const allText = [locationRaw, city, title, ...listing.bulletFields || []].join(' ');
-      if (!isSwissLocation(allText)) {
-        console.log(`     ⏭️  Skipped — not Swiss (country: ${countryDesc})`);
-        continue;
-      }
+    // Double-check this is actually a Swiss job using authoritative country
+    // data when present, otherwise the location-only all-canton matcher.
+    if (countryDesc && !countryIsSwiss) {
+      console.log(`     ⏭️  Skipped — not Swiss (country: ${countryDesc})`);
+      continue;
+    }
+    if (!resolvedSwissSignal || !canton) {
+      console.log(`     ⏭️  Skipped — no concrete Swiss canton resolved: ${locationRaw || countryDesc || 'n/a'}`);
+      continue;
+    }
+    if (!city) {
+      console.log(`     ⏭️  Skipped — no concrete Swiss city resolved: ${locationRaw || countryDesc || 'n/a'}`);
+      continue;
     }
 
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = `${WORKDAY_PUBLIC_BASE}/${listing._site}${externalPath}`;
     const brand = listing.brand || 'Capri Holdings';
-    const descEn = descriptionText || `${title} position at ${brand} in ${city || 'Switzerland'}.`;
-    const descIt = `Posizione aperta presso ${brand} (Capri Holdings) a ${city || 'Svizzera'}.\nRuolo: ${title}.\n\nCapri Holdings è un gruppo globale della moda di lusso con i marchi Michael Kors, Versace e Jimmy Choo. L'azienda ha un importante hub logistico a Mendrisio, Canton Ticino.`;
+    const resolvedCity = city;
+    const descEn = descriptionText || `${title} position at ${brand} in ${resolvedCity}.`;
+    const descIt = `Posizione aperta presso ${brand} (Capri Holdings) a ${resolvedCity === 'Switzerland' ? 'Svizzera' : resolvedCity}.\nRuolo: ${title}.\n\nCapri Holdings è un gruppo globale della moda di lusso con i marchi Michael Kors, Versace e Jimmy Choo. L'azienda ha un importante hub logistico a Mendrisio, Canton Ticino.`;
     const slug = slugify(title, 'capri-holdings');
+    const locationText = `${locationRaw} ${listingLocationSignal}`;
+    const sourcePostalCode = getWorkdaySourceField(info, ['postalCode', 'postal_code', 'zipCode', 'zip'])
+      || locationText.match(/\b\d{4}\b/)?.[0]
+      || '';
+    const structuredAddress = resolveSwissStructuredAddress({
+      city: resolvedCity,
+      canton,
+      postalCode: sourcePostalCode,
+      streetAddress: getWorkdaySourceField(info, ['streetAddress', 'street_address', 'addressLine1', 'address_line_1']),
+    });
+    const addressCity = structuredAddress.city;
+    const addressCanton = structuredAddress.canton;
 
     jobs.push({
       url: publicUrl,
@@ -341,14 +561,14 @@ async function fetchCapriHoldingsJobs() {
       title,
       company: CAPRI_COMPANY_NAME,
       companyKey: CAPRI_KEY,
-      location: city || locationRaw || 'Switzerland',
-      canton: canton || '',
+      location: addressCity,
+      canton: addressCanton,
       country: 'CH',
-      addressLocality: city || 'Mendrisio',
-      addressRegion: canton || DEFAULT_CANTON,
+      addressLocality: addressCity,
+      addressRegion: addressCanton,
       addressCountry: 'CH',
-      postalCode: city?.toLowerCase() === 'mendrisio' || !city ? '6850' : city?.toLowerCase() === 'stabio' ? '6855' : city?.toLowerCase() === 'coldrerio' ? '6877' : '6850',
-      streetAddress: 'Via Penate',
+      postalCode: structuredAddress.postalCode,
+      streetAddress: structuredAddress.streetAddress,
       description: descEn,
       descriptionByLocale: { en: descEn, it: descIt },
       titleByLocale: { en: title },
@@ -362,7 +582,7 @@ async function fetchCapriHoldingsJobs() {
       sourceLang: detectLang(descEn || title, 'en'),
       sector: 'Fashion / Luxury Retail',
       _brand: brand,
-      _targetScope: { canton: canton || '', location: city || locationRaw || '' },
+      _targetScope: { canton: addressCanton, location: addressCity },
     });
   }
 
@@ -458,7 +678,6 @@ function postProcessCapriJobs() {
       j.canton = inferCanton(j.location);
       if (j.canton) fixed++;
     }
-    if (!j.location) { j.location = 'Mendrisio'; fixed++; }
   }
   if (fixed > 0) {
     writeJsonAtomic(DATA_JOBS, jobs);
@@ -596,4 +815,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Capri Holdings'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Capri Holdings'));
+}

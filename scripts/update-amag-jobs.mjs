@@ -3,10 +3,10 @@
  * AMAG Group — Dedicated Crawler
  *
  * Crawls https://jobs.amag-group.ch (rexx systems ATS)
- * 1. Fetches Italian listing (/it) — pre-filtered to Ticino
- * 2. Also scans German listing (/de) for TI/GR locations not in /it
+ * 1. Fetches Italian listing (/it) — source-specific feed pre-filtered to Ticino
+ * 2. Also scans the full German listing (/de) for remaining Swiss locations
  * 3. Fetches each detail page → extracts JSON-LD JobPosting
- * 4. Filters TI/GR-relevant jobs via shared inferSwissTargetCanton()
+ * 4. Resolves Swiss cantons via the shared all-26-canton location helper
  * 5. Merges into data/jobs.json
  * 6. Updates adapter config
  */
@@ -14,6 +14,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { JSDOM } from 'jsdom';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -46,9 +47,11 @@ import {
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
+import { assertDetailFetchComplete } from './lib/detail-fetch-cap.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -95,6 +98,32 @@ function normalizeKey(value = '') {
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+// The source repeats the same HTML ids in every row. Parsing the whole table
+// with an id selector makes JSDOM resolve only the first duplicate id, so
+// isolate each source row before delegating to the canonical parser.
+function parseAmagListingRows(html) {
+  const document = new JSDOM(String(html || '')).window.document;
+  const rows = [...document.querySelectorAll('#joboffers tbody tr')];
+  return rows.flatMap((row) => parseAmagListingPage(
+    `<table id="joboffers"><tbody>${row.outerHTML}</tbody></table>`,
+  ));
+}
+
+function assertAmagListingPage(html, items, locale) {
+  const document = new JSDOM(String(html || '')).window.document;
+  const listingTable = document.querySelector('#joboffers');
+  if (!listingTable) {
+    throw new Error(`AMAG ${locale} listing has no #joboffers source container`);
+  }
+
+  const sourceRows = listingTable.querySelectorAll('tbody tr').length;
+  if (items.length !== sourceRows) {
+    throw new Error(
+      `AMAG ${locale} listing parsed ${items.length} of ${sourceRows} source job rows`,
+    );
+  }
 }
 
 async function fetchText(url, timeoutMs = TIMEOUT_MS) {
@@ -150,7 +179,7 @@ function mapEmploymentType(rawType = '') {
   return 'full-time';
 }
 
-async function fetchAllListings() {
+export async function fetchAllListings() {
   console.log('🔍 Fetching AMAG Group listing pages...');
 
   const allItems = new Map(); // keyed by jobId
@@ -159,22 +188,25 @@ async function fetchAllListings() {
   console.log(`  📄 Italian listing: ${CAREERS_URL_IT}`);
   try {
     const htmlIt = await fetchText(CAREERS_URL_IT);
-    const itemsIt = parseAmagListingPage(htmlIt);
+    const itemsIt = parseAmagListingRows(htmlIt);
+    assertAmagListingPage(htmlIt, itemsIt, 'Italian');
     for (const item of itemsIt) {
       allItems.set(item.jobId, item);
     }
     console.log(`     Found ${itemsIt.length} jobs from Italian listing`);
   } catch (err) {
     console.log(`  ⚠️ Italian listing fetch failed: ${err.message}`);
+    throw new Error(`AMAG Italian listing fetch failed: ${err?.message || err}`, { cause: err });
   }
 
   await sleep(DETAIL_DELAY_MS);
 
-  // 2. Fetch German listing (full list) and filter for TI/GR locations
+  // 2. Fetch German listing (full list) and keep Swiss locations not in /it
   console.log(`  📄 German listing: ${CAREERS_URL_DE}`);
   try {
     const htmlDe = await fetchText(CAREERS_URL_DE);
-    const itemsDe = parseAmagListingPage(htmlDe);
+    const itemsDe = parseAmagListingRows(htmlDe);
+    assertAmagListingPage(htmlDe, itemsDe, 'German');
     let extraCount = 0;
     for (const item of itemsDe) {
       if (allItems.has(item.jobId)) continue;
@@ -183,21 +215,22 @@ async function fetchAllListings() {
         extraCount++;
       }
     }
-    console.log(`     Found ${itemsDe.length} total jobs, ${extraCount} extra TI/GR jobs not in Italian listing`);
+    console.log(`     Found ${itemsDe.length} total jobs, ${extraCount} extra Swiss jobs not in Italian listing`);
   } catch (err) {
     console.log(`  ⚠️ German listing fetch failed: ${err.message}`);
+    throw new Error(`AMAG German listing fetch failed: ${err?.message || err}`, { cause: err });
   }
 
   const listings = [...allItems.values()];
-  console.log(`📋 Total unique TI/GR listings: ${listings.length}`);
+  console.log(`📋 Total unique Swiss listings: ${listings.length}`);
   return listings;
 }
 
 async function enrichWithDetails(listings) {
   const enriched = [];
-  const toFetch = listings.slice(0, MAX_DETAIL_PAGES);
+  const toFetch = assertDetailFetchComplete(listings, MAX_DETAIL_PAGES, 'AMAG');
 
-  console.log(`\n🔎 Fetching up to ${toFetch.length} detail pages...`);
+  console.log(`\n🔎 Fetching ${toFetch.length} detail pages...`);
 
   for (let i = 0; i < toFetch.length; i++) {
     const item = toFetch[i];
@@ -226,17 +259,19 @@ async function enrichWithDetails(listings) {
       const location = detail.location || item.location || '';
       const region = detail.region || '';
 
-      // Verify TI/GR relevance after detail enrichment
+      // Verify Swiss relevance after detail enrichment
       const canton = inferAmagCanton(location, region) || inferAmagCanton(item.location, '');
       if (!canton) {
-        console.log(`  ⏭️ [${i + 1}/${toFetch.length}] ${item.jobId}: Skipped (not TI/GR: ${location})`);
+        console.log(`  ⏭️ [${i + 1}/${toFetch.length}] ${item.jobId}: Skipped (not a resolvable Swiss location: ${location})`);
         continue;
       }
+
+      const displayLocation = location || region || canton;
 
       enriched.push({
         ...item,
         title: detail.title || item.title,
-        location: location || (canton === 'GR' ? 'Graubünden' : 'Ticino'),
+        location: displayLocation,
         region: region || canton,
         _canton: canton,
         postalCode: detail.postalCode || '',
@@ -267,16 +302,20 @@ async function enrichWithDetails(listings) {
     if (i < toFetch.length - 1) await sleep(DETAIL_DELAY_MS);
   }
 
-  const tiCount = enriched.filter((j) => j._canton === 'TI').length;
-  const grCount = enriched.filter((j) => j._canton === 'GR').length;
-  console.log(`\n📍 Target jobs after enrichment: ${enriched.length} (TI: ${tiCount}, GR: ${grCount})`);
+  const cantonCounts = new Map();
+  for (const job of enriched) cantonCounts.set(job._canton, (cantonCounts.get(job._canton) || 0) + 1);
+  const cantonSummary = [...cantonCounts.entries()]
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([canton, count]) => `${canton}: ${count}`)
+    .join(', ');
+  console.log(`\n📍 Swiss jobs after enrichment: ${enriched.length}${cantonSummary ? ` (${cantonSummary})` : ''}`);
   return enriched;
 }
 
 function buildAmagJob(row) {
   const localized = buildAmagLocalizedContent(row);
   const canton = row._canton || inferAmagCanton(row.location, row.region) || DEFAULT_CANTON;
-  const location = row.location || (canton === 'GR' ? 'Graubünden' : 'Ticino');
+  const location = row.location || row.region || canton;
   const empType = mapEmploymentType(row.employmentType);
 
   return {
@@ -379,7 +418,7 @@ function updateAdapterConfig(jobs) {
     priority: 18,
     crawlerModes: ['html', 'jsonld'],
     seedUrls: [CAREERS_URL_IT],
-    notes: 'Dedicated AMAG Group crawler fetches Italian listing (pre-filtered to Ticino) + German full listing for TI/GR jobs, enriches with JSON-LD JobPosting from detail pages.',
+    notes: 'Dedicated AMAG Group crawler fetches the Italian source-specific listing plus the full German listing, resolves all Swiss cantons, and enriches with JSON-LD JobPosting from detail pages.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -410,7 +449,7 @@ async function main() {
 
   const listings = await fetchAllListings();
   if (listings.length === 0) {
-    console.log('⚠️ No TI/GR listings found on AMAG — skipping.');
+    console.log('⚠️ No Swiss listings found on AMAG — skipping.');
     return;
   }
 
@@ -473,4 +512,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => exitCrawlerOnError(error, 'AMAG Group'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((error) => exitCrawlerOnError(error, 'AMAG Group'));
+}

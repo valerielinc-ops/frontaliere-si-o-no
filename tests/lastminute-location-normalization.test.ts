@@ -43,6 +43,8 @@ describe('lastminute location normalization', () => {
       url: 'https://corporate.lastminute.com/careers/jobs/job?id=744000149000001',
       location: 'Chiasso',
       country: 'CH',
+      addressLocality: 'Chiasso',
+      streetAddress: 'Chiasso',
       description: 'A sufficiently detailed job description for a Swiss software role.',
       titleByLocale: { en: 'Software Engineer' },
       descriptionByLocale: { en: 'A sufficiently detailed job description for a Swiss software role.' },
@@ -53,9 +55,10 @@ describe('lastminute location normalization', () => {
       canton: 'TI',
       addressLocality: 'Chiasso',
       postalCode: '6830',
-      streetAddress: 'Chiasso',
+      streetAddress: 'Corso San Gottardo 84',
       addressCountry: 'CH',
     });
+    expect(normalized.streetAddress).not.toBe(normalized.addressLocality);
   });
 
   it('rejects a Swiss municipality paired with an explicit foreign country', () => {
@@ -81,7 +84,7 @@ describe('lastminute location normalization', () => {
       addressLocality: 'Chiasso',
       addressRegion: 'TI',
       postalCode: '',
-      streetAddress: 'Chiasso',
+      streetAddress: '',
       canton: 'TI',
       country: 'CH',
       addressCountry: 'CH',

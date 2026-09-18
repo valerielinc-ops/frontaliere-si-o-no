@@ -402,7 +402,7 @@ function updateAdapterConfig(jobs) {
     priority: 10,
     crawlerModes: ['html'],
     seedUrls: [CAREERS_URL],
-    notes: 'Colin&Cie — independent wealth management firm. Swiss HQ, Lugano office on Via Nassa. Careers listing at /de/karriere with individual detail pages.',
+    notes: 'Colin&Cie — independent wealth management firm with Swiss offices including Lugano on Via Nassa. Careers listing at /de/karriere with individual detail pages.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });

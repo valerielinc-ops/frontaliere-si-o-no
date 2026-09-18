@@ -1,126 +1,108 @@
-/**
- * Safe structured-data address defaults for Swiss job postings.
- *
- * Crawlers keep the source locality/canton as the location signal, but a
- * missing street or postal code must not remove the JobPosting address fields.
- * The fallback street is deliberately the resolved locality itself: it is a
- * coherent, non-fabricated token until the source exposes a real street.
- */
-
 import MUNICIPALITY_DATA from '../../data/canton-municipalities.json' with { type: 'json' };
 import SWISS_POSTAL_CODES from '../../data/swiss-postal-codes.json' with { type: 'json' };
+import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
-const CANTON_CAPITALS = {
-  AG: { city: 'Aarau', postalCode: '5000' },
-  AI: { city: 'Appenzell', postalCode: '9050' },
-  AR: { city: 'Herisau', postalCode: '9100' },
-  BE: { city: 'Bern', postalCode: '3001' },
-  BL: { city: 'Liestal', postalCode: '4410' },
-  BS: { city: 'Basel', postalCode: '4001' },
-  FR: { city: 'Fribourg', postalCode: '1700' },
-  GE: { city: 'Genève', postalCode: '1201' },
-  GL: { city: 'Glarus', postalCode: '8750' },
-  GR: { city: 'Chur', postalCode: '7000' },
-  JU: { city: 'Delémont', postalCode: '2800' },
-  LU: { city: 'Luzern', postalCode: '6000' },
-  NE: { city: 'Neuchâtel', postalCode: '2000' },
-  NW: { city: 'Stans', postalCode: '6370' },
-  OW: { city: 'Sarnen', postalCode: '6060' },
-  SG: { city: 'St. Gallen', postalCode: '9000' },
-  SH: { city: 'Schaffhausen', postalCode: '8200' },
-  SO: { city: 'Solothurn', postalCode: '4500' },
-  SZ: { city: 'Schwyz', postalCode: '6430' },
-  TG: { city: 'Frauenfeld', postalCode: '8500' },
-  TI: { city: 'Bellinzona', postalCode: '6500' },
-  UR: { city: 'Altdorf', postalCode: '6460' },
-  VD: { city: 'Lausanne', postalCode: '1000' },
-  VS: { city: 'Sion', postalCode: '1950' },
-  ZG: { city: 'Zug', postalCode: '6300' },
-  ZH: { city: 'Zürich', postalCode: '8001' },
-};
+const CANTONS = new Set([
+  'AG', 'AI', 'AR', 'BE', 'BL', 'BS', 'FR', 'GE', 'GL', 'GR', 'JU', 'LU',
+  'NE', 'NW', 'OW', 'SG', 'SH', 'SO', 'SZ', 'TG', 'TI', 'UR', 'VD', 'VS', 'ZG', 'ZH',
+]);
 
-function normalizeSpace(value = '') {
-  return String(value || '').replace(/\s+/g, ' ').trim();
+function normalize(value = '') {
+  return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase().replace(/[^a-z0-9]+/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
-function isSwissPostalCode(value = '') {
-  return /^\d{4}$/.test(normalizeSpace(value));
+function cleanCity(value = '') {
+  return String(value || '').replace(/\s*\([A-Z]{2}\)\s*$/i, '')
+    .replace(/\s*,\s*(?:Switzerland|Schweiz|Svizzera|Suisse)\s*$/i, '').trim();
 }
 
-function normalizeLocationKey(value = '') {
-  return normalizeSpace(value).toLowerCase();
+function buildMunicipalityIndex() {
+  const byCanton = new Map();
+  const global = new Map();
+  for (const [canton, entry] of Object.entries(MUNICIPALITY_DATA.cantons || {})) {
+    const scoped = new Map();
+    for (const raw of [...(entry?.municipalities || []), ...(entry?.aliases || [])]) {
+      const display = cleanCity(raw);
+      const key = normalize(display);
+      if (!key) continue;
+      if (!scoped.has(key)) scoped.set(key, display);
+      if (!global.has(key)) global.set(key, new Map());
+      global.get(key).set(canton, display);
+    }
+    byCanton.set(canton, scoped);
+  }
+  return { byCanton, global };
 }
 
-function firstLocalitySegment(value = '') {
-  return normalizeSpace(value).split(/[,·]/, 1)[0];
+const MUNICIPALITIES = buildMunicipalityIndex();
+const POSTALS_BY_CITY = new Map(Object.entries(SWISS_POSTAL_CODES)
+  .map(([city, postal]) => [normalize(city), String(postal)]));
+
+function resolveCanton(value, city) {
+  const code = normalize(value).toUpperCase();
+  if (CANTONS.has(code)) return code;
+  return inferAnyCanton(value) || inferAnyCanton(city) || '';
 }
 
-const MUNICIPALITY_KEYS_BY_CANTON = new Map(
-  Object.entries(MUNICIPALITY_DATA?.cantons || {}).map(([canton, entry]) => [
-    canton.toUpperCase(),
-    new Set((entry?.municipalities || []).map(normalizeLocationKey)),
-  ]),
-);
-
-const POSTAL_CODES_BY_LOCALITY = new Map(
-  Object.entries(SWISS_POSTAL_CODES || {}).map(([locality, postalCode]) => [
-    normalizeLocationKey(locality),
-    normalizeSpace(postalCode),
-  ]),
-);
-
-function resolveMunicipalityPostalCode(city = '', canton = '') {
-  const locality = firstLocalitySegment(city);
-  const localityKey = normalizeLocationKey(locality);
-  const municipalityKeys = MUNICIPALITY_KEYS_BY_CANTON.get(canton);
-  if (!localityKey || !municipalityKeys?.has(localityKey)) return '';
-  const postalCode = POSTAL_CODES_BY_LOCALITY.get(localityKey) || '';
-  return isSwissPostalCode(postalCode) ? postalCode : '';
+function resolveMunicipality(city, canton) {
+  const key = normalize(cleanCity(city));
+  if (!key) return '';
+  const scoped = MUNICIPALITIES.byCanton.get(canton);
+  if (scoped?.has(key)) return scoped.get(key);
+  const candidates = MUNICIPALITIES.global.get(key);
+  return candidates?.size === 1 ? [...candidates.values()][0] : '';
 }
 
-/**
- * Keep a resolved city/canton and fill only missing address components.
- * `streetAddress: city` is the same safe fallback used by other crawlers in
- * this repository; it avoids inventing a street number while keeping the
- * required structured-data field present and locality-coherent.
- */
+function verifiedPostalForCity(city) {
+  return POSTALS_BY_CITY.get(normalize(city)) || '';
+}
+
+export function sourcePostalMatchesCity(city, postalCode) {
+  const postal = String(postalCode || '').trim();
+  return /^\d{4}$/.test(postal) && verifiedPostalForCity(city) === postal;
+}
+
+function structuredFallback(city, canton, companySlug = '') {
+  const fallback = resolveFallbackAddress(companySlug, city, canton);
+  return {
+    city: fallback.addressLocality,
+    canton: fallback.addressRegion,
+    postalCode: fallback.postalCode,
+    streetAddress: fallback.streetAddress,
+  };
+}
+
+/** Resolve a complete address without pairing a city with another locality's CAP. */
 export function resolveSwissStructuredAddress({
   city = '',
   canton = '',
   postalCode = '',
   streetAddress = '',
+  companySlug = '',
 } = {}) {
-  const normalizedCanton = normalizeSpace(canton).toUpperCase();
-  const capital = CANTON_CAPITALS[normalizedCanton] || {};
-  const sourceCity = normalizeSpace(city);
-  const resolvedCity = sourceCity || capital.city || 'Switzerland';
+  const cantonCode = resolveCanton(canton, city) || 'TI';
+  const municipality = resolveMunicipality(city, cantonCode);
+  const knownPostal = municipality ? verifiedPostalForCity(municipality) : '';
 
-  const municipalityPostalCode = resolveMunicipalityPostalCode(sourceCity, normalizedCanton);
-  if (!isSwissPostalCode(postalCode) && municipalityPostalCode) {
+  if (municipality && knownPostal) {
+    const sourcePostal = String(postalCode || '').trim();
+    const sourceStreet = String(streetAddress || '').trim();
+    const fallback = structuredFallback(municipality, cantonCode, companySlug);
+    const streetIsLocality = normalize(sourceStreet) === normalize(municipality);
+    const postalIsCoherent = !sourcePostal || sourcePostalMatchesCity(municipality, sourcePostal);
+    if (!postalIsCoherent) {
+      return fallback;
+    }
+    if (!sourceStreet || streetIsLocality) return fallback;
     return {
-      city: resolvedCity,
-      canton: normalizedCanton || 'CH',
-      postalCode: municipalityPostalCode,
-      streetAddress: normalizeSpace(streetAddress) || resolvedCity,
+      city: municipality,
+      canton: cantonCode,
+      postalCode: knownPostal,
+      streetAddress: sourceStreet,
     };
   }
 
-  // A canton-capital postcode cannot safely be paired with a different
-  // municipality and the municipality lookup has no CAP, use the complete
-  // capital fallback so the structured address remains internally coherent.
-  if (!isSwissPostalCode(postalCode) && capital.city && capital.postalCode) {
-    return {
-      city: capital.city,
-      canton: normalizedCanton || 'CH',
-      postalCode: capital.postalCode,
-      streetAddress: capital.city,
-    };
-  }
-
-  return {
-    city: resolvedCity,
-    canton: normalizedCanton || 'CH',
-    postalCode: isSwissPostalCode(postalCode) ? normalizeSpace(postalCode) : capital.postalCode || '0000',
-    streetAddress: normalizeSpace(streetAddress) || resolvedCity,
-  };
+  return structuredFallback(city, cantonCode, companySlug);
 }

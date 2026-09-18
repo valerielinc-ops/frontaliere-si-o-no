@@ -39,7 +39,7 @@ import {
 import {
   parsePemsaListingPage,
   parsePemsaDetailPage,
-  isPemsaTicinoRelevant,
+  isPemsaSwissRelevant,
   buildPemsaLocalizedContent,
 } from './lib/pemsa-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
@@ -146,7 +146,7 @@ function buildPemsaJob(detail, url) {
   // PEMSA is a national agency (HQ Geneva + Ticino branch); the JSON-LD region
   // field is usually empty, so derive the canton per-job from the city. No HQ
   // default — leave blank when unresolved so the downstream hardening fills it
-  // instead of mislabeling on Ticino.
+  // instead of mislabeling on a fixed canton.
   const canton = inferAnyCanton(city) || inferAnyCanton(detail.region || '') || '';
   const localized = buildPemsaLocalizedContent(detail);
 
@@ -285,7 +285,7 @@ async function main() {
   let skipped = 0;
   for (const url of jobUrls) {
     const detail = await parsePemsaDetailPage(url, TIMEOUT_MS);
-    if (detail && detail.title && isPemsaTicinoRelevant(detail)) {
+    if (detail && detail.title && isPemsaSwissRelevant(detail)) {
       console.log(`  ✅ ${detail.title} → ${detail.city || '?'} (${detail.region || '?'})`);
       jobs.push(buildPemsaJob(detail, url));
     } else if (detail) {

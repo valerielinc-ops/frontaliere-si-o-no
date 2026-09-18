@@ -4,7 +4,7 @@
  * Tests parseCapriHoldingsDetailPage(), isCapriHoldingsSwissJob(),
  * isCapriHoldingsJob(), and CAPRI_WORKDAY_HOSTS constants.
  */
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 
 import {
   parseCapriHoldingsDetailPage,
@@ -12,6 +12,194 @@ import {
   isCapriHoldingsJob,
   CAPRI_WORKDAY_HOSTS,
 } from '@/scripts/lib/capri-holdings-job-parser.mjs';
+import {
+  assertWorkdayPage,
+  assertUniqueWorkdayPostings,
+  listSwissJobs,
+  isSwissWorkdayListing,
+  resolveWorkdayCity,
+  resolveWorkdayLocation,
+} from '../scripts/update-capri-holdings-jobs.mjs';
+import { resolveSwissStructuredAddress } from '../scripts/lib/swiss-structured-address.mjs';
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
+
+describe('Capri structured address resolution', () => {
+  it('replaces a Mendrisio CAP with the verified CAP for the actual city', () => {
+    const address = resolveSwissStructuredAddress({
+      city: 'Winterthur',
+      canton: 'ZH',
+      postalCode: '6850',
+      streetAddress: 'Via Penate',
+    });
+
+    expect(address).toMatchObject({ city: 'Winterthur', canton: 'ZH', postalCode: '8400' });
+    expect(address.streetAddress).not.toBe('Via Penate');
+  });
+
+  it('rejects an arbitrary four-digit CAP instead of pairing it with the city', () => {
+    expect(resolveSwissStructuredAddress({ city: 'Winterthur', canton: 'ZH', postalCode: '0000' }))
+      .toMatchObject({ city: 'Winterthur', canton: 'ZH', postalCode: '8400' });
+  });
+
+  it('uses a complete same-canton fallback for an unverified municipality CAP', () => {
+    expect(resolveSwissStructuredAddress({ city: 'Küsnacht (ZH)', canton: 'ZH' }))
+      .toMatchObject({
+        city: 'Zürich', canton: 'ZH', postalCode: '8001', streetAddress: 'Bahnhofstrasse 1',
+      });
+  });
+
+  it('does not carry a source street into a canton fallback tuple', () => {
+    expect(resolveSwissStructuredAddress({
+      city: 'Küsnacht (ZH)',
+      canton: 'ZH',
+      postalCode: '9999',
+      streetAddress: 'Via Penate',
+    })).toMatchObject({
+      city: 'Zürich', canton: 'ZH', postalCode: '8001', streetAddress: 'Bahnhofstrasse 1',
+    });
+  });
+
+  it('uses the verified city tuple when the source omits a street', () => {
+    expect(resolveSwissStructuredAddress({ city: 'Manno', canton: 'TI' })).toMatchObject({
+      city: 'Manno', canton: 'TI', postalCode: '6928', streetAddress: 'Via Cantonale 2c',
+    });
+  });
+});
+
+describe('Capri Workday location resolution', () => {
+  it('accepts a Swiss location in a later bullet field', () => {
+    expect(isSwissWorkdayListing({ bulletFields: ['Full time', 'Manno'] })).toBe(true);
+  });
+
+  it('accepts an explicit Swiss country signal from the listing', () => {
+    expect(isSwissWorkdayListing({ locationCountry: 'Switzerland' })).toBe(true);
+  });
+
+  it('does not invent a historical location for a country-only listing', () => {
+    const resolved = resolveWorkdayLocation(
+      { country: 'Switzerland', bulletFields: ['5 locations'] },
+      { country: 'Switzerland' },
+    );
+
+    expect(resolved).toMatchObject({
+      countryIsSwiss: true,
+      locationRaw: '',
+      canton: '',
+      resolvedSwissSignal: true,
+    });
+  });
+
+  it('prefers a concrete canton resolved from the detail over the listing', () => {
+    const resolved = resolveWorkdayLocation(
+      { bulletFields: ['Zurich'] },
+      { location: 'Manno' },
+    );
+
+    expect(resolved).toMatchObject({
+      detailLocation: 'Manno',
+      locationRaw: 'Manno',
+      canton: 'TI',
+    });
+  });
+
+  it('does not turn a canton-only detail into a concrete city', () => {
+    expect(resolveWorkdayCity(
+      { country: 'Switzerland', bulletFields: ['5 locations'] },
+      { location: 'Ticino', country: 'Switzerland' },
+    )).toBe('');
+  });
+
+  it('fails closed on a malformed Workday page', () => {
+    expect(() => assertWorkdayPage({ total: 3, jobPostings: null }, {
+      brand: 'Michael Kors', searchText: 'Switzerland', offset: 20,
+    })).toThrow(/malformed page/);
+  });
+
+  it('fails closed when Workday omits its declared total', () => {
+    expect(() => assertWorkdayPage({ jobPostings: [] }, {
+      brand: 'Versace', searchText: 'Switzerland', offset: 0,
+    })).toThrow(/invalid total/);
+  });
+
+  it('fails closed when Workday declares a null or blank total', () => {
+    for (const total of [null, '']) {
+      expect(() => assertWorkdayPage({ jobPostings: [], total }, {
+        brand: 'Versace', searchText: 'Switzerland', offset: 0,
+      })).toThrow(/invalid total/);
+    }
+    expect(assertWorkdayPage({ jobPostings: [], total: 0 }, {
+      brand: 'Versace', searchText: 'Switzerland', offset: 0,
+    })).toEqual({ jobPostings: [], declaredTotal: 0 });
+  });
+
+  it('fails closed when Workday changes its total between pages', () => {
+    expect(() => assertWorkdayPage({ jobPostings: [], total: 4 }, {
+      brand: 'Michael Kors', searchText: 'Switzerland', offset: 20, expectedTotal: 3,
+    })).toThrow(/changed its total/);
+  });
+
+  it('fails closed when a query repeats a posting identity across pages', () => {
+    const seen = new Set();
+    assertUniqueWorkdayPostings([{ externalPath: '/job/Zurich/role-1' }], {
+      brand: 'Michael Kors', searchText: 'Switzerland', offset: 0, seen,
+    });
+
+    expect(() => assertUniqueWorkdayPostings([{ externalPath: '/job/Zurich/role-1' }], {
+      brand: 'Michael Kors', searchText: 'Switzerland', offset: 20, seen,
+    })).toThrow(/repeated posting identity/);
+  });
+
+  it('fails closed when Workday repeats a full page instead of advancing', async () => {
+    const page = {
+      total: 40,
+      jobPostings: Array.from({ length: 20 }, (_, index) => ({
+        externalPath: `/job/Mendrisio/role-${index + 1}`,
+        title: `Role ${index + 1}`,
+        locationsText: 'Mendrisio, Switzerland',
+      })),
+    };
+    const fetchMock = vi.fn(async () => new Response(JSON.stringify(page), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(listSwissJobs('Michael_Kors', 'Michael Kors'))
+      .rejects.toThrow(/repeated posting identity/);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('fails closed when Workday changes the total between pages', async () => {
+    const pages = [
+      {
+        total: 40,
+        jobPostings: Array.from({ length: 20 }, (_, index) => ({
+          externalPath: `/job/Mendrisio/first-${index + 1}`,
+          title: `First role ${index + 1}`,
+          locationsText: 'Mendrisio, Switzerland',
+        })),
+      },
+      {
+        total: 41,
+        jobPostings: Array.from({ length: 20 }, (_, index) => ({
+          externalPath: `/job/Mendrisio/second-${index + 1}`,
+          title: `Second role ${index + 1}`,
+          locationsText: 'Mendrisio, Switzerland',
+        })),
+      },
+    ];
+    let pageIndex = 0;
+    const fetchMock = vi.fn(async () => {
+      const page = pages[Math.min(pageIndex++, pages.length - 1)];
+      return new Response(JSON.stringify(page), { status: 200 });
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(listSwissJobs('Michael_Kors', 'Michael Kors'))
+      .rejects.toThrow(/changed its total/);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+});
 
 // ─── Fixture: Workday detail page (Mendrisio) ───
 const MENDRISIO_JOB_HTML = `

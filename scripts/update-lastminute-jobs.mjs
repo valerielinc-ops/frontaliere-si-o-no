@@ -824,7 +824,7 @@ export function syncLastminuteExistingLocation(existing, detail) {
   // postcode. Clear stale source values so post-processing derives a
   // coherent Swiss structured address from the new locality.
   existing.postalCode = '';
-  existing.streetAddress = location;
+  existing.streetAddress = '';
   existing.canton = canton;
   existing.country = 'CH';
   existing.addressCountry = 'CH';

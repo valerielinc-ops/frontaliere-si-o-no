@@ -568,7 +568,10 @@ async function streamManifestFiles(
   locales: readonly string[],
   label: string,
   onEntry: (entry: PostWalkManifestEntry) => void,
-  options: { readonly retainReferences?: boolean } = {},
+  options: {
+    readonly validateUniquePaths?: boolean;
+    readonly retainReferences?: boolean;
+  } = {},
 ): Promise<{ readonly entryCount: number; readonly kinds: Map<string, string> }> {
   const kinds = new Map<string, string>();
   const duplicateGuard = new BoundedManifestDuplicateGuard();
@@ -576,23 +579,34 @@ async function streamManifestFiles(
   for (let index = 0; index < files.length; index += 1) {
     const file = files[index];
     if (!fs.existsSync(file)) throw new Error(`${label} manifest mancante: ${file}`);
-    const streamed = await streamIncrementalManifest(
-      file,
-      (rawEntry: StreamManifestEntry) => {
-        const entry = normalizeStreamManifestEntry(
-          rawEntry,
-          rawEntry.path,
-          options.retainReferences === true,
-        );
-        if (duplicateGuard.hasSeen(entry.path)) {
-          throw new Error(`${label} manifest path duplicato: ${entry.path}`);
+    let streamed;
+    try {
+      streamed = await streamIncrementalManifest(
+        file,
+        (rawEntry: StreamManifestEntry) => {
+          const entry = normalizeStreamManifestEntry(
+            rawEntry,
+            rawEntry.path,
+            options.retainReferences === true,
+          );
+          if (duplicateGuard.hasSeen(entry.path)) {
+            throw new Error(`${label} manifest path duplicato: ${entry.path}`);
+          }
+          onEntry(entry);
+        },
+        // The current snapshot owns the exact path map. The previous snapshot is
+        // consumed as a stream and never needs a second all-path Set.
+        { validateUniquePaths: options.validateUniquePaths !== false },
+      );
+    } catch (error) {
+      if (options.validateUniquePaths !== false && error instanceof Error) {
+        const duplicate = error.message.match(/path duplicato\s+(.+)$/);
+        if (duplicate) {
+          throw new Error(`${label} manifest path duplicato: ${duplicate[1]}`);
         }
-        onEntry(entry);
-      },
-      // The current snapshot owns the exact path map. The previous snapshot is
-      // consumed as a stream and never needs a second all-path Set.
-      { validateUniquePaths: false },
-    );
+      }
+      throw error;
+    }
     if (streamed.data.locale !== locales[index]) {
       throw new Error(
         `${label} manifest ${file} dichiara locale ${streamed.data.locale}, atteso ${locales[index]}`,
@@ -633,6 +647,7 @@ export async function loadPostWalkManifestState(
         }
         currentEntries.set(entry.path, entry);
       },
+      { validateUniquePaths: true },
     );
     const current: PostWalkManifestSnapshot = {
       locales: selectedLocales,
@@ -666,6 +681,7 @@ export async function loadPostWalkManifestState(
       selectedLocales,
       'precedente',
       (entry) => registerPreviousEntry(state, entry),
+      { validateUniquePaths: false },
     );
     finalizePlanningState(state, baseUrl);
     if (added.size > 0 || removed.size > 0) {
@@ -686,7 +702,7 @@ export async function loadPostWalkManifestState(
         selectedLocales,
         'precedente',
         (entry) => addPreviousReferenceMatches(state, entry, baseUrl),
-        { retainReferences: true },
+        { validateUniquePaths: false, retainReferences: true },
       );
       if (currentReferenceResult.entryCount !== currentResult.entryCount) {
         throw new Error(

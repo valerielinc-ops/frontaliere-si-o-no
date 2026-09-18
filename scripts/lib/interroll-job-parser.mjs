@@ -60,7 +60,7 @@ export function slugify(value = '', suffix = '') {
 export const MIN_DESC_LENGTH = 100;
 
 /**
- * Check if a location string indicates a Swiss/Ticino position.
+ * Check if a location string indicates a Swiss position.
  */
 export function isSwissLocation(location = '') {
   return isTargetSwissLocation(location);

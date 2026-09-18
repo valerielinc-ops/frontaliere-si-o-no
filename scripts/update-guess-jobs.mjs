@@ -7,7 +7,7 @@
  *
  * Flow:
  *   1. Fetch Workable widget JSONP for Guess Europe Sagl
- *   2. Keep only Ticino jobs (Bioggio/Stabio/Ticino)
+ *   2. Keep only jobs located in Switzerland's target cantons
  *   3. Fetch Workable v2 detail JSON for each job
  *   4. Build complete job objects and merge them into jobs.json
  *   5. Run scoped localization for the Guess company key
@@ -46,7 +46,7 @@ import {
   GUESS_WORKABLE_ACCOUNT_ID,
   GUESS_WORKABLE_ACCOUNT_SLUG,
   parseGuessWidgetJsonp,
-  isGuessTicinoWidgetJob,
+  isGuessSwissWidgetJob,
   buildGuessDetailUrl,
   buildGuessApplyUrl,
   parseGuessJobDetailPayload,
@@ -205,13 +205,13 @@ async function fetchGuessListings() {
   const jsonp = await fetchText(WORKABLE_WIDGET_URL, Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000);
   const payload = parseGuessWidgetJsonp(jsonp);
   const jobs = assertJsonListShape(payload, { key: 'jobs', source: 'guess' });
-  const ticino = jobs.filter(isGuessTicinoWidgetJob);
+  const swissJobs = jobs.filter(isGuessSwissWidgetJob);
   console.log(`  📦 Total widget jobs: ${jobs.length}`);
-  console.log(`  🎯 Ticino jobs found: ${ticino.length}`);
-  for (const job of ticino) {
+  console.log(`  🎯 Swiss jobs found: ${swissJobs.length}`);
+  for (const job of swissJobs) {
     console.log(`     - ${job.title} (${job.city}, ${job.state})`);
   }
-  return ticino;
+  return swissJobs;
 }
 
 async function fetchGuessDetail(shortcode) {
@@ -236,7 +236,7 @@ function buildGuessJob(listing, detail) {
   // Slug-only guard: `city` can be the literal "undefined"/"null" string (truthy)
   // → `-undefined` in an active slug (#952, class #900/#901). location/addressLocality
   // keep raw `city` (choke-point normalizer owns de-index).
-  const slug = slugify(`${title} ${COMPANY_NAME} ${safeLocationToken(city, 'Bioggio')} Ticino Switzerland`);
+  const slug = slugify(`${title} ${COMPANY_NAME} ${safeLocationToken(city, 'Bioggio')} Switzerland`);
   const detailUrl = buildGuessDetailUrl(listing.shortcode);
   const applyUrl = buildGuessApplyUrl(listing.shortcode);
   const publishedDate = toIsoDate(parsed.publishedDate || listing.published_on || listing.created_at);
@@ -364,7 +364,7 @@ function updateAdapterConfig(discoveredJobs) {
       },
     ])
   );
-  adapter.notes = 'Dedicated Guess crawler uses Workable widget API + Workable v2 job detail API for Ticino jobs.';
+  adapter.notes = 'Dedicated Guess crawler uses Workable widget API + Workable v2 job detail API for Swiss jobs across the target cantons.';
   adapter.updatedAt = new Date().toISOString();
   writeJson(ADAPTER_PATH, adapter);
   console.log(`📝 Adapter ${COMPANY_KEY} updated.`);
@@ -476,7 +476,7 @@ async function main() {
 
   const listings = await fetchGuessListings();
   if (listings.length === 0) {
-    throw new Error('Guess discovery returned 0 Ticino jobs.');
+    throw new Error('Guess discovery returned 0 Swiss jobs.');
   }
 
   const discoveredJobs = [];

@@ -11,7 +11,8 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  *
  * MKS PAMP SA is a precious metals refinery headquartered in Castel San Pietro, TI.
  * Global offices in Geneva, Barcelona, New York, Kuala Lumpur, Hong Kong, Shanghai, Dubai.
- * We filter for Ticino-relevant positions (Castel San Pietro).
+ * The active Swiss site is Castel San Pietro (TI); the crawler keeps Swiss
+ * positions and does not treat the company's foreign offices as Swiss jobs.
  */
 
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
@@ -153,9 +154,9 @@ export async function fetchMksPampDetailLocation(url, timeoutMs = 15000) {
 }
 
 /**
- * Check if a location is Ticino-relevant.
+ * Check if a location is relevant to the Swiss site.
  */
-export function isMksPampTicinoRelevant(location = {}) {
+export function isMksPampSwissRelevant(location = {}) {
   const city = normalizeSpace(location.city || '').toLowerCase();
   const country = normalizeSpace(location.country || '').toUpperCase();
 
@@ -167,6 +168,9 @@ export function isMksPampTicinoRelevant(location = {}) {
 
   return isTargetSwissLocation(city);
 }
+
+/** @deprecated Use isMksPampSwissRelevant() instead. Kept for API compatibility. */
+export const isMksPampTicinoRelevant = isMksPampSwissRelevant;
 
 /**
  * Build localized content for an MKS PAMP job.

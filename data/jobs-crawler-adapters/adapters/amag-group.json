@@ -11,7 +11,7 @@
   "seedUrls": [
     "https://jobs.amag-group.ch/it"
   ],
-  "notes": "Dedicated AMAG Group crawler fetches Italian listing (pre-filtered to Ticino) + German full listing for TI/GR jobs, enriches with JSON-LD JobPosting from detail pages.",
+  "notes": "Dedicated AMAG Group crawler fetches the Italian source-specific listing plus the full German listing, resolves all Swiss cantons, and enriches with JSON-LD JobPosting from detail pages.",
   "updatedAt": "2026-09-01T10:36:48.255Z",
   "seedMetaByUrl": {
     "https://jobs.amag-group.ch/Consulente-tecnico-motoveicoli-mf-100-it-j23121.html": {
