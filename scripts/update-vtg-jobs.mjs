@@ -218,9 +218,17 @@ export async function fetchVtgJobUrls(options = {}) {
           source: 'vtg',
           lang: `${scopeKey}:offset:${offset}`,
         });
-        const pageTotal = Number(data?.total);
-        if (!Number.isInteger(pageTotal) || pageTotal < 0) {
-          throw new Error(`VTG discovery incomplete for ${scopeKey} at offset ${offset}: invalid total ${data?.total ?? '?'} (limit ${API_LIMIT}).`);
+        const rawTotal = data?.total;
+        const normalizedTotal = typeof rawTotal === 'string' ? rawTotal.trim() : rawTotal;
+        const pageTotal = Number(normalizedTotal);
+        const totalTypeIsValid = typeof normalizedTotal === 'number' || typeof normalizedTotal === 'string';
+        if (
+          !totalTypeIsValid
+          || (typeof normalizedTotal === 'string' && normalizedTotal === '')
+          || !Number.isSafeInteger(pageTotal)
+          || pageTotal < 0
+        ) {
+          throw new Error(`VTG discovery incomplete for ${scopeKey} at offset ${offset}: invalid total ${rawTotal ?? '?'} (limit ${API_LIMIT}).`);
         }
         if (total === null) total = pageTotal;
         if (pageTotal !== total) {

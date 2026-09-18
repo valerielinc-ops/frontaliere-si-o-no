@@ -73,6 +73,15 @@ describe('VTG authoritative regional discovery', () => {
     });
   });
 
+  it('rejects missing or blank totals before numeric coercion', async () => {
+    for (const total of [null, '']) {
+      const fetchImpl = async () => new Response(JSON.stringify({ total, jobs: [] }), { status: 200 });
+
+      await expect(fetchVtgJobUrls({ fetchImpl, scope: 'ch-wide', timeoutMs: 1000 }))
+        .rejects.toThrow(/invalid total/);
+    }
+  });
+
   it('paginates the Swiss-wide scope through the declared total', async () => {
     const jobs = Array.from({ length: 501 }, (_, index) => job(
       `00000000-0000-4000-8000-${String(index).padStart(12, '0')}`,
