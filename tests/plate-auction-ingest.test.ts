@@ -96,6 +96,96 @@ describe('plate-auction ingest resilience', () => {
     expect(snapshot.sources.gr.rowCount).toBe(rowsForSource.length);
   });
 
+  it('keeps a source degraded when the loss also includes a protected row', async () => {
+    // One recognized sale must not launder an upstream anomaly into `active`:
+    // a feed can lose a future-deadline row (which checkDisappearedSources
+    // calls an anomaly) plus one fixed-price row, and pass band/cap.
+    const fp = (index: number) => ({
+      ...previousRow,
+      id: `ur-${index}`,
+      sourceKey: 'UR',
+      platePrefix: 'UR',
+      plateNumber: String(index),
+      normalizedPlate: `UR${index}`,
+      listingType: 'fixed-price',
+      startingPriceChf: 4200,
+      currentBidChf: undefined,
+      endsAt: undefined,
+      dataConfidence: 'verified',
+    });
+    const timed = {
+      ...fp(999),
+      id: 'ur-timed',
+      normalizedPlate: 'UR999',
+      listingType: 'auction',
+      endsAt: '2026-09-25T18:00:00.000Z',
+    };
+    const previousCatalogue = [...Array.from({ length: 60 }, (_unused, index) => fp(index)), timed];
+    // ur-0 (a sale) and ur-timed (protected) both vanish: keep only fp1..fp59.
+    const stillListed = previousCatalogue.slice(1, 60);
+    const snapshot = await collectPlateAuctions({
+      selectedCantons: ['ur'],
+      fetchers: { ur: async () => stillListed },
+      previous: { generatedAt: '2026-09-12T12:00:00.000Z', auctions: previousCatalogue },
+      now: NOW,
+    });
+    expect(snapshot.sources.ur).toMatchObject({ status: 'degraded', errorCode: 'source_disappeared' });
+    // The protected row is preserved, not sold.
+    expect(snapshot.auctions.map((auction) => auction.id)).toContain('ur-timed');
+    expect(snapshot.history.find((auction) => auction.id === 'ur-timed')).toBeUndefined();
+  });
+
+  it('never reads a malformed timed-auction row as a fixed-price sale', async () => {
+    // An `auction` row whose endsAt is unparseable has no usable deadline, but
+    // it is not a fixed-price catalogue entry and must not be stamped closed.
+    const fp = (index: number) => ({
+      ...previousRow,
+      id: `ur-${index}`,
+      sourceKey: 'UR',
+      platePrefix: 'UR',
+      plateNumber: String(index),
+      normalizedPlate: `UR${index}`,
+      listingType: 'fixed-price',
+      startingPriceChf: 4200,
+      currentBidChf: undefined,
+      endsAt: undefined,
+      dataConfidence: 'verified',
+    });
+    const malformed = { ...fp(500), id: 'ur-bad', normalizedPlate: 'UR500', listingType: 'auction', endsAt: 'not-a-date' };
+    const previousCatalogue = [...Array.from({ length: 60 }, (_unused, index) => fp(index)), malformed];
+    const stillListed = previousCatalogue.slice(0, 60);
+    const snapshot = await collectPlateAuctions({
+      selectedCantons: ['ur'],
+      fetchers: { ur: async () => stillListed },
+      previous: { generatedAt: '2026-09-12T12:00:00.000Z', auctions: previousCatalogue },
+      now: NOW,
+    });
+    expect(snapshot.history.find((auction) => auction.id === 'ur-bad')).toBeUndefined();
+    expect(snapshot.auctions.map((auction) => auction.id)).toContain('ur-bad');
+  });
+
+  it('drops the inherited active history instead of waiting for sales to evict it', async () => {
+    // The committed history is 5'000 rows that are all still `active`, the
+    // artefact of the window bug. Carried forward unfiltered they would
+    // consume the whole cap and keep the invariant false for many runs.
+    const staleActiveHistory = Array.from({ length: 12 }, (_unused, index) => ({
+      ...previousRow,
+      id: `gr-stale-${index}`,
+      normalizedPlate: `GR${9000 + index}`,
+      auctionStatus: 'active',
+      endsAt: '2026-09-30T18:00:00.000Z',
+    }));
+    const live = { ...previousRow, id: 'gr-live', normalizedPlate: 'GR600', endsAt: '2026-09-30T18:00:00.000Z' };
+    const snapshot = await collectPlateAuctions({
+      selectedCantons: ['gr'],
+      fetchers: { gr: async () => [live] },
+      previous: { generatedAt: '2026-09-12T12:00:00.000Z', auctions: [live], history: staleActiveHistory },
+      now: NOW,
+    });
+    expect(snapshot.history.filter((auction) => ['active', 'upcoming'].includes(auction.auctionStatus))).toEqual([]);
+    expect(snapshot.history.map((auction) => auction.id)).not.toContain('gr-stale-0');
+  });
+
   it('refuses to call a truncated catalogue a batch of sales', async () => {
     // Same source, same shape of row, but the PDF came back short. Reading
     // this as sales would stamp a fabricated sale date and price on half the

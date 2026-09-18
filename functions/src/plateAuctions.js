@@ -640,7 +640,14 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
       // never recorded as closed. The decision and its threshold come from the
       // shared quality core so the two pipelines cannot drift apart.
       const vanished = [...previousById.entries()].filter(([id]) => !currentIds.has(id));
-      const saleCandidates = vanished.filter(([, old]) => timestampMs(old.endsAt) === undefined
+      // Mirrors the ingest predicate: fixed-price AND no usable deadline.
+      // Without the type check a malformed timed-auction row would be stamped
+      // closed as a sale; every other missing row stays protected.
+      const isSaleCandidate = (row) => row.listingType === 'fixed-price'
+        && timestampMs(row.endsAt) === undefined
+        && ['active', 'upcoming'].includes(row.auctionStatus);
+      const saleCandidates = vanished.filter(([, old]) => isSaleCandidate(old));
+      const protectedVanished = vanished.filter(([, old]) => !isSaleCandidate(old)
         && ['active', 'upcoming'].includes(old.auctionStatus));
       const saleDecision = recognizeCatalogueSales({
         previousCount: previousById.size,
@@ -649,7 +656,7 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
       });
       console.log(
         `[refreshPlateAuctions:${key}] sale-recognition previous=${previousById.size} `
-        + `fetched=${rows.length} vanished=${saleCandidates.length} cap=${saleDecision.cap} `
+        + `fetched=${rows.length} vanished=${saleCandidates.length} protected=${protectedVanished.length} cap=${saleDecision.cap} `
         + (saleDecision.recognized ? `decision=sales sold=${saleCandidates.length}` : `decision=preserve-as-live blocked-by=${saleDecision.blockedBy.join('+')}`),
       );
       const recognizedSaleIds = new Set(saleDecision.recognized ? saleCandidates.map(([id]) => id) : []);
@@ -684,11 +691,20 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
         }
         await batch.commit();
       }
-      const sourcePatch = sourceDisappeared
+      // Same rule as ingest's sourceStatus(): recognized fixed-price sales
+      // leave `sourceDisappeared` true, so deriving the patch from that raw
+      // flag kept a healthy source `degraded` and could hide its active rows
+      // from consumers that require an active source. A single protected row
+      // still means an upstream anomaly, so it must NOT be laundered into
+      // `active` by one recognized sale.
+      const allLossesAreSales = saleDecision.recognized
+        && protectedVanished.length === 0
+        && recognizedSaleIds.size > 0;
+      const sourcePatch = sourceDisappeared && !allLossesAreSales
         ? { status: 'degraded', rowCount: rows.length, errorCode: 'source_disappeared' }
         : { status: 'active', rowCount: rows.length, lastSuccessAt: fetchedAt, errorCode: null };
       await sourceRef.set(sourceDocument(key, config, fetchedAt, sourcePatch), { merge: true });
-      summaries[key] = { status: sourcePatch.status, rowCount: rows.length, ...(sourceDisappeared ? { errorCode: 'source_disappeared' } : {}) };
+      summaries[key] = { status: sourcePatch.status, rowCount: rows.length, ...(sourcePatch.errorCode ? { errorCode: sourcePatch.errorCode } : {}) };
     } catch (error) {
       await db.collection(PLATE_AUCTION_SOURCE_COLLECTION).doc(key).set(sourceDocument(key, config, fetchedAt, { status: 'degraded', errorCode: 'fetch_failed', errorMessage: error instanceof Error ? error.message.slice(0, 180) : 'unknown_error' }), { merge: true });
       summaries[key] = { status: 'degraded', errorCode: 'fetch_failed' };
