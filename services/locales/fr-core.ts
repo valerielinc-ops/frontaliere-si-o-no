@@ -942,6 +942,8 @@ const frCore: Record<string, string> = {
  'savedJobsNudge.successBody': 'Nous vous écrivons dès que de nouvelles offres correspondent à vos critères.',
  'savedJobsNudge.errorBody': "Impossible de créer l'alerte. Réessayez.",
  'savedJobsNudge.retryCta': 'Réessayer',
+ 'jobAlert.boardFilterCta.category': 'Suivre cette catégorie',
+ 'jobAlert.boardFilterCta.sector': 'Suivre ce secteur',
  'jobAlert.boardFilterCta.cta': "M'alerter pour cette recherche",
  'jobAlert.boardFilterCta.success': 'Alerte activée ✓',
  'jobAlert.boardFilterCta.error': "Impossible de créer l'alerte. Réessayez.",

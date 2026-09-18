@@ -979,6 +979,8 @@ const translations: Record<string, string> = {
  'savedJobsNudge.successBody': 'Ti scriviamo appena escono nuove offerte nei tuoi criteri.',
  'savedJobsNudge.errorBody': "Non sono riuscito a creare l'alert. Riprova.",
  'savedJobsNudge.retryCta': 'Riprova',
+ 'jobAlert.boardFilterCta.category': 'Segui questa categoria',
+ 'jobAlert.boardFilterCta.sector': 'Segui questo settore',
  'jobAlert.boardFilterCta.cta': 'Avvisami per questa ricerca',
  'jobAlert.boardFilterCta.success': 'Alert attivato ✓',
  'jobAlert.boardFilterCta.error': "Non sono riuscito a creare l'alert. Riprova.",

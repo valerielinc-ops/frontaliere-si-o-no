@@ -942,6 +942,8 @@ const deCore: Record<string, string> = {
  'savedJobsNudge.successBody': 'Wir schreiben Ihnen, sobald neue Stellen Ihren Kriterien entsprechen.',
  'savedJobsNudge.errorBody': 'Alert konnte nicht erstellt werden. Bitte erneut versuchen.',
  'savedJobsNudge.retryCta': 'Erneut versuchen',
+ 'jobAlert.boardFilterCta.category': 'Dieser Kategorie folgen',
+ 'jobAlert.boardFilterCta.sector': 'Diesem Bereich folgen',
  'jobAlert.boardFilterCta.cta': 'Für diese Suche benachrichtigen',
  'jobAlert.boardFilterCta.success': 'Alert aktiviert ✓',
  'jobAlert.boardFilterCta.error': 'Alert konnte nicht erstellt werden. Erneut versuchen.',

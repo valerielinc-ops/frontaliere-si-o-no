@@ -71,11 +71,10 @@ import {
 import {
  type BehaviorData,
  getBehaviorData,
+ readBehaviorAndMarkVisit,
  trackJobViewBehavior,
  trackSearch as trackSearchBehavior,
  trackFilterUsage,
- getLastVisitTimestamp,
- updateLastVisit,
 } from '@/services/behaviorTracker';
 import {
  computePersonalScore,
@@ -2087,7 +2086,7 @@ const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, lo
  <a
  href={jobHref}
  onClick={(e) => { e.preventDefault(); onSelect(job); }}
- className="block cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"
+ className="block min-h-[44px] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"
  >
  <div className="flex items-start gap-3">
  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0">
@@ -2490,6 +2489,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  // ── Personalization: behavior data + derived state ──
  const [behaviorData, setBehaviorData] = useState<BehaviorData | null>(null);
+ const [lastVisitTimestamp, setLastVisitTimestamp] = useState<number | null>(null);
+ const visitCapturedRef = useRef(false);
  const [newJobsDismissed, setNewJobsDismissed] = useState(false);
  const [jobMatchProfile, setJobMatchProfile] = useState<JobMatchProfileData | null>(null);
  // INP: behaviorData/jobMatchProfile land via a post-mount effect (localStorage
@@ -2546,12 +2547,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return () => { cancelled = true; clearTimeout(timer); };
  }, [enablePersonalization]);
 
- // Load behavior data on mount and update last visit
+ // Capture the previous visit before writing the current one. The timestamp
+ // stays in React state for this board session, so later SPA updates to
+ // behaviorData cannot make the counter compare against "now".
  useEffect(() => {
- if (!enablePersonalization) return;
- const data = getBehaviorData();
+ if (!enablePersonalization || visitCapturedRef.current) return;
+ visitCapturedRef.current = true;
+ const { data, previousLastVisit } = readBehaviorAndMarkVisit();
  setBehaviorData(data);
- updateLastVisit();
+ setLastVisitTimestamp(previousLastVisit);
  }, [enablePersonalization]);
 
  // Load survey-derived job-match profile (sector/canton/experience level).
@@ -2705,9 +2709,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // above).
  const newJobsInfo = useMemo(() => {
  if (!enablePersonalization || !deferredBehaviorData) return { total: 0, matching: 0 };
- const lastVisit = getLastVisitTimestamp();
- return computeNewJobsCount(jobs, lastVisit, deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile);
- }, [enablePersonalization, deferredBehaviorData, jobs, deferredUserProfile, deferredJobMatchProfile]);
+ return computeNewJobsCount(jobs, lastVisitTimestamp, deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile);
+ }, [enablePersonalization, deferredBehaviorData, jobs, lastVisitTimestamp, deferredUserProfile, deferredJobMatchProfile]);
 
  // Trending jobs for user's location
  const userLocation = userProfile?.municipality ?? null;
@@ -3676,12 +3679,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return canton && canton !== AGGREGATE_CANTON_CODE ? canton : null;
  }, [initialFilterCanton]);
 
+ const boardFilterAlertSectorLabel = useMemo(() => {
+ if (selectedSector === 'all') return '';
+ return uniqueSectors.find((sector) => sector.toLowerCase() === selectedSector) || selectedSector;
+ }, [selectedSector, uniqueSectors]);
+
+ const boardFilterAlertContext = selectedCategory !== 'all'
+ ? 'category'
+ : selectedSector !== 'all'
+ ? 'sector'
+ : 'search';
+
  const boardFilterAlertKeywordLabel = useMemo(() => {
  const categoryLabel = selectedCategory !== 'all' ? t(`jobBoard.filter.${selectedCategory}`) : '';
  // Prefer the category label — validated taxonomy, same source the
- // job-detail one-tap prompt already uses. Free-text search is a fallback.
- return categoryLabel || searchQuery.trim();
- }, [selectedCategory, searchQuery, t]);
+ // job-detail one-tap prompt already uses. The sector label is the next
+ // strongest signal; free-text search remains the fallback.
+ return categoryLabel || boardFilterAlertSectorLabel || searchQuery.trim();
+ }, [boardFilterAlertSectorLabel, searchQuery, selectedCategory, t]);
 
  // null = still checking (existing alerts / quota), false = hide, true = show.
  const [boardFilterAlertEligible, setBoardFilterAlertEligible] = useState<boolean | null>(null);
@@ -3728,7 +3743,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [enableJobAlerts, boardFilterAlertKeywordLabel, userId, userEmail, isJobDetailView]);
 
  const boardFilterAlertVisible = Boolean(
- enableJobAlerts && boardFilterAlertKeywordLabel && userId && userEmail && !isJobDetailView && boardFilterAlertEligible,
+ enableJobAlerts && boardFilterAlertKeywordLabel && !isJobDetailView && (
+ (userId && userEmail && boardFilterAlertEligible) || (!userId || !userEmail)
+ ),
  );
 
  // Same as the job-match pill above: the impression comes from
@@ -9674,6 +9691,45 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  }
 
+ // This surface stays next to the filters so a category/sector intent is
+ // actionable before the first result on mobile. Anonymous visitors are
+ // handed to the already-mounted JobAlertForm; authenticated visitors keep
+ // the one-tap create path below.
+ const boardFilterAlertCtaJsx = boardFilterAlertVisible ? (
+ <Suspense fallback={null}>
+ <JobBoardFilterAlertCta
+ userId={userId}
+ email={userEmail}
+ locale={locale}
+ context={boardFilterAlertContext}
+ onImpression={() => trackJobAlertCtaShownOnce('job_board_filters', boardFilterAlertKeywordLabel)}
+ keywordLabel={boardFilterAlertKeywordLabel}
+ cantonCode={boardFilterAlertCantonCode}
+ onAnonymousOpen={() => {
+ Analytics.trackJobAlertCtaClick('job_board_filters', 'open', boardFilterAlertKeywordLabel);
+ }}
+ onSubscribed={() => {
+ Analytics.trackJobAlertCtaClick('job_board_filters', 'success', boardFilterAlertKeywordLabel);
+ Analytics.trackJobAlertCreated({
+ keywords: boardFilterAlertKeywordLabel,
+ location: boardFilterAlertCantonCode || '',
+ frequency: 'weekly',
+ surface: 'job_board_filters',
+ });
+ invalidateUserAlertsCache();
+ if (boardFilterAlertHideTimerRef.current !== null) window.clearTimeout(boardFilterAlertHideTimerRef.current);
+ boardFilterAlertHideTimerRef.current = window.setTimeout(() => {
+ boardFilterAlertHideTimerRef.current = null;
+ setBoardFilterAlertEligible(false);
+ }, 2500);
+ }}
+ onErrored={() => {
+ Analytics.trackJobAlertCtaClick('job_board_filters', 'error', boardFilterAlertKeywordLabel);
+ }}
+ />
+ </Suspense>
+ ) : null;
+
  const postFirstResultsUtilities = (
  <div className="space-y-3" data-testid="jobboard-post-first-results-utilities">
  {/* Role/category shortcuts are useful after users have seen real inventory,
@@ -9703,38 +9759,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </button>
  ))}
  </div>
-
- {/* Issue #4298: one-tap alert CTA driven by the board's own active filters */}
- {boardFilterAlertVisible && userId && userEmail && (
- <Suspense fallback={null}>
- <JobBoardFilterAlertCta
- userId={userId}
- email={userEmail}
- locale={locale}
- onImpression={() => trackJobAlertCtaShownOnce('job_board_filters', boardFilterAlertKeywordLabel)}
- keywordLabel={boardFilterAlertKeywordLabel}
- cantonCode={boardFilterAlertCantonCode}
- onSubscribed={() => {
- Analytics.trackJobAlertCtaClick('job_board_filters', 'success', boardFilterAlertKeywordLabel);
- Analytics.trackJobAlertCreated({
- keywords: boardFilterAlertKeywordLabel,
- location: boardFilterAlertCantonCode || '',
- frequency: 'weekly',
- surface: 'job_board_filters',
- });
- invalidateUserAlertsCache();
- if (boardFilterAlertHideTimerRef.current !== null) window.clearTimeout(boardFilterAlertHideTimerRef.current);
- boardFilterAlertHideTimerRef.current = window.setTimeout(() => {
- boardFilterAlertHideTimerRef.current = null;
- setBoardFilterAlertEligible(false);
- }, 2500);
- }}
- onErrored={() => {
- Analytics.trackJobAlertCtaClick('job_board_filters', 'error', boardFilterAlertKeywordLabel);
- }}
- />
- </Suspense>
- )}
 
  {/* Single search-utility mount remains the 0-results alert scroll target. */}
  <div id="jobboard-search-utilities">
@@ -9899,7 +9923,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  key={s}
  type="button"
  onClick={() => commitSearchQuery(s)}
- className="px-2.5 py-1 rounded-full text-xs bg-accent-subtle text-accent border border-accent-border hover:bg-accent-subtle transition-colors"
+ className="inline-flex items-center px-2.5 py-1 min-h-[44px] rounded-full text-xs bg-accent-subtle text-accent border border-accent-border hover:bg-accent-subtle transition-colors"
  >
  {s}
  </button>
@@ -10191,6 +10215,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  </div>
  </div>
+
+ {boardFilterAlertCtaJsx}
 
  {/* ── Personalization: NewJobsCounter + Personalizzato pill + TrendingSection ── */}
  {enablePersonalization && (

@@ -939,6 +939,8 @@ const enCore: Record<string, string> = {
  'savedJobsNudge.successBody': 'We will email you as soon as new jobs match your criteria.',
  'savedJobsNudge.errorBody': "Couldn't create the alert. Please try again.",
  'savedJobsNudge.retryCta': 'Retry',
+ 'jobAlert.boardFilterCta.category': 'Follow this category',
+ 'jobAlert.boardFilterCta.sector': 'Follow this sector',
  'jobAlert.boardFilterCta.cta': 'Notify me for this search',
  'jobAlert.boardFilterCta.success': 'Alert activated ✓',
  'jobAlert.boardFilterCta.error': "Couldn't create the alert. Retry.",
