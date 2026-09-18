@@ -12,8 +12,10 @@ import { describe, it, expect } from 'vitest';
 import {
   extractStableJobId,
   hasUsableJobId,
+  mergeJobIdentity,
   resolveJobDiffKey,
 } from '../scripts/lib/job-match-key.mjs';
+import { fingerprintJob } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 describe('hasUsableJobId', () => {
   it('accepts numeric zero but rejects nullish and empty ids', () => {
@@ -131,5 +133,49 @@ describe('resolveJobDiffKey', () => {
     const key = resolveJobDiffKey(job);
     expect(key).toBe('url:https://example.com/jobs/only-a-slug');
     expect(key).not.toContain('url:url:');
+  });
+});
+
+describe('mergeJobIdentity ETA recycled requisition (issue 8624)', () => {
+  // Two records in eta-sa-swatch-group shared URL-key `req:eta.ch:3770` but
+  // were distinct postings (polymechaniker vs quality-assurance). The
+  // crawl-time merge (fingerprintJob → mergeAndDeduplicate) and the default
+  // dedicated matchKey now go through mergeJobIdentity so those slugs mint
+  // two keys, while an ancestor-path rename of the SAME slug still collapses.
+  const url = 'https://www.eta.ch/en/jobs-careers/vacancies/detail/3770';
+  const urlIndexPhp = 'https://www.eta.ch/index.php/en/jobs-careers/vacancies/detail/3770';
+  const polySlug = 'polymechaniker-in-nel-settore-area-80-100-sul-sito-produzione-horlogere-suisse-eta-sa-eta-sa-swatch-group-2540-grenchen';
+  const qaSlug = 'responsabile-qualitaetssicherung-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-phone-49gsdw';
+  const poly = { url, slug: polySlug };
+  const qa = { url, slug: qaSlug };
+
+  it('gives two jobs sharing req:3770 and divergent slugs two identities, not one', () => {
+    const keys = [mergeJobIdentity(poly), mergeJobIdentity(qa)];
+    expect(keys[0]).not.toBe(keys[1]);
+    expect(new Set(keys).size).toBe(2);
+    expect(extractStableJobId(url)).toBe('req:eta.ch:3770');
+    expect(keys.every((k) => k.startsWith('req:eta.ch:3770#'))).toBe(true);
+  });
+
+  it('still collapses an index.php ancestor rename of the same slug', () => {
+    expect(mergeJobIdentity({ url, slug: polySlug }))
+      .toBe(mergeJobIdentity({ url: urlIndexPhp, slug: polySlug }));
+  });
+
+  it('keeps the URL-only key when no slug/title is present (no silent re-key)', () => {
+    expect(mergeJobIdentity({ url })).toBe(extractStableJobId(url));
+    expect(mergeJobIdentity({ url })).toBe('req:eta.ch:3770');
+  });
+
+  it('does not alter non-ETA hosts', () => {
+    const job = { url: 'https://example.com/careers/vacancies/detail/3770', slug: polySlug };
+    expect(mergeJobIdentity(job)).toBe(extractStableJobId(job.url));
+  });
+
+  it('fingerprintJob (swatchgroup merge key) also yields two keys for those slugs', () => {
+    const fps = [fingerprintJob(poly), fingerprintJob(qa)];
+    expect(fps[0]).not.toBe(fps[1]);
+    expect(new Set(fps).size).toBe(2);
+    expect(fingerprintJob({ url })).toBe('id|eta.ch|3770');
   });
 });

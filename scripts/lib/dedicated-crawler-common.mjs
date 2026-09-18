@@ -32,7 +32,7 @@ import {
 } from './job-locale-utils.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { MAX_SLUG_LENGTH } from './regenerate-slugs-helpers.mjs';
-import { extractStableJobId } from './job-match-key.mjs';
+import { mergeJobIdentity } from './job-match-key.mjs';
 import {
   WORKDAY_HOST_RE,
   workdayReqFromLeaf,
@@ -5524,6 +5524,18 @@ export function isLowQualityLocalizedSlug(value = '') {
 // ── Job fingerprinting & deduplication ───────────────────────
 
 export function fingerprintJob(job) {
+  // ETA recycles the four-digit requisition in `/vacancies/detail/<req>` for
+  // a different role (issue 8624). mergeJobIdentity appends the role stem so
+  // two postings sharing req:3770 stay distinct; URL-only callers (no
+  // slug/title) keep the previous `id|eta.ch|<req>` fingerprint.
+  const mergeKey = mergeJobIdentity(job);
+  const eta = typeof mergeKey === 'string'
+    ? mergeKey.match(/^req:(eta\.ch):(\d+)(?:#(.+))?$/)
+    : null;
+  if (eta) {
+    return eta[3] ? `id|${eta[1]}|${eta[2]}|${eta[3]}` : `id|${eta[1]}|${eta[2]}`;
+  }
+
   const identity = extractJobIdentityFromUrl(job.url || '');
   if (identity) return `id|${identity}`;
 
@@ -5537,7 +5549,14 @@ export function fingerprintJob(job) {
 
 export function dedupHeuristicKey(job) {
   const identity = extractJobIdentityFromUrl(job?.url || '');
-  if (identity) return `id|${identity}`;
+  if (identity) {
+    // fingerprintJob is the crawl-time identity, including ETA's role stem
+    // on recycled requisitions (issue 8624). Using the URL-only id here
+    // would re-collapse two postings that fingerprintJob just split.
+    const fp = fingerprintJob(job);
+    if (fp && fp.startsWith('id|')) return fp;
+    return `id|${identity}`;
+  }
 
   const domain = registrableDomain(hostOf(job?.url || '')) || normalizeSpace(job?.company).toLowerCase();
   const company = normalizeSpace(job?.company || '').toLowerCase().replace(/\s+/g, ' ');
@@ -6565,9 +6584,11 @@ export function mergeLocaleTextMap(a = {}, b = {}, minChars = 1, sourceLocale = 
     // titleByLocale.en/de/fr stayed stuck on "Dipl. Physiotherapist" for
     // dozens of crawls after the vacancy was refilled with a completely
     // different "Cuoco/a in dietetica" (Cook) posting under the same URL).
-    // The matcher upstream (mergePreserveLocaleData's matchKey) only keys on
-    // that stable ID, so it happily hands us `a` (old, physiotherapist) and
-    // `b` (fresh, cook) as if they were the same job. Detect that case here,
+    // The matcher upstream (mergePreserveLocaleData's matchKey) keys on
+    // mergeJobIdentity — URL-only for most crawlers, URL+role-stem for ETA
+    // recycled requisitions (issue 8624). A host that still reuses a bare
+    // stable ID (EOC Umantis, #4569) can hand us `a` (old, physiotherapist)
+    // and `b` (fresh, cook) as if they were the same job. Detect that case here,
     // where we have the only pair of same-locale source texts to compare:
     // if the source-locale text itself changed beyond recognition, the old
     // non-source-locale translations almost certainly belong to a different
@@ -6697,7 +6718,7 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
   // UUID URLs) preserve the merge and trigger the previousSlugs capture
   // logic below. Crawlers whose URLs lack any stable token fall back to
   // the normalized full URL (legacy behaviour) — no regression.
-  const matchKey = opts.matchKey || ((job) => extractStableJobId(job?.url));
+  const matchKey = opts.matchKey || ((job) => mergeJobIdentity(job));
 
   // Guard against a non-injective matchKey (collisions). A bridge key that is
   // not unique — e.g. a slug bridge where two distinct postings share
