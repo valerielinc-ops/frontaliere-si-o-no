@@ -271,6 +271,9 @@ async function fetchJobListings() {
   const listingsByKey = new Map();
   let declaredTotal = null;
 
+  // pageSize=50 is only the per-response size: keep requesting pages until
+  // the unique aggregate reaches resultsTotalCount. Partial pages are accepted
+  // only as intermediate responses; the returned aggregate is always complete.
   for (let page = 0; page < MAX_LISTING_PAGES; page++) {
     const url = `${API_BASE}${API_PATH}&page=${page}`;
     console.log(`  📡 Fetching API page ${page + 1}: ${url}`);
