@@ -256,11 +256,15 @@ export function extractListingJobs(html = '') {
  * are needed.
  *
  * @param {object} entry
- * @returns {object|null}
+ * @returns {object|null} parsed entry, or null only for an explicitly foreign row
  */
 export function listingEntryToParsed(entry) {
   const outcome = classifyListingEntry(entry);
-  return outcome.kind === 'accepted' ? outcome.parsed : null;
+  if (outcome.kind === 'accepted') return outcome.parsed;
+  if (outcome.kind === 'foreign') return null;
+  throw new Error(
+    '[mcdonalds] listing entry has no verified Swiss source location: ' + outcome.reason + '.',
+  );
 }
 
 /**
