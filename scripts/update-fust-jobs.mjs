@@ -345,9 +345,13 @@ export function deriveFustWorkplaceCanton(workplace = '', apiCanton = '', option
   const location = normalizeFustWorkplace(workplace);
   const direct = inferAnyCanton(location);
   if (direct) {
-    const explicitSuffix = Object.keys(SWISS_CANTONS).some((canton) =>
-      new RegExp(`(?:^|[\\s,(])${canton}$`, 'i').test(location));
-    if (isTargetSwissLocation(location, { includeBorderProximity: false }) || explicitSuffix) {
+    // `inferAnyCanton()` can resolve a trailing two-letter token (for
+    // example, `Milan, TI`). Remove that token before the Swiss-location
+    // predicate so a canton code cannot turn a foreign city into a match.
+    const locationWithoutCantonCode = location
+      .replace(new RegExp(`(?:,\\s*|\\s+)${direct}$`, 'i'), '')
+      .trim();
+    if (isTargetSwissLocation(locationWithoutCantonCode, { includeBorderProximity: false })) {
       return direct;
     }
     throw new Error(`Fust workplace canton invariant failed: "${location || '(empty)'}" is not resolvable to a Swiss municipality.`);
