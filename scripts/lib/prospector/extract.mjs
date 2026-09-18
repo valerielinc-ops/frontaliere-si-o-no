@@ -96,6 +96,41 @@ export function textOf(html = '') {
  * @param {string} html
  * @returns {any[]}
  */
+/**
+ * Escape U+0000-U+001F where JSON forbids them — inside a string literal —
+ * and leave them untouched everywhere else, because there they are the legal
+ * whitespace that formats the document. A blanket replace would corrupt valid
+ * JSON-LD (`{\n"a":1}` with a literal backslash-n outside a string no longer
+ * parses), so the scan tracks string state and honours backslash escapes.
+ *
+ * Deliberately NOT a full JSON parser: it only makes an otherwise-valid
+ * document parseable, and anything still malformed is left to `JSON.parse` to
+ * reject, so a genuinely broken block keeps being discarded.
+ *
+ * @param {string} raw
+ * @returns {string}
+ */
+export function escapeControlCharsInJsonStrings(raw = '') {
+  let out = '';
+  let inString = false;
+  let escaped = false;
+  for (const char of String(raw)) {
+    if (escaped) { out += char; escaped = false; continue; }
+    if (inString && char === '\\') { out += char; escaped = true; continue; }
+    if (char === '"') { inString = !inString; out += char; continue; }
+    const code = char.codePointAt(0);
+    if (inString && code < 0x20) {
+      if (code === 0x0a) out += '\\n';
+      else if (code === 0x0d) out += '\\r';
+      else if (code === 0x09) out += '\\t';
+      else out += `\\u${code.toString(16).padStart(4, '0')}`;
+      continue;
+    }
+    out += char;
+  }
+  return out;
+}
+
 export function jsonLdBlocks(html = '') {
   const out = [];
   const rx = /<script\b[^>]*type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
@@ -112,7 +147,24 @@ export function jsonLdBlocks(html = '') {
       // whose extractor is module-private: without it a whole employer's
       // structured data is silently discarded and the cascade falls back to
       // link-shape inference on a page that had perfectly good data.
-      try { parsed = JSON.parse(decodeEntities(raw)); } catch { continue; }
+      try { parsed = JSON.parse(decodeEntities(raw)); } catch {
+        // Third chance on RAW CONTROL CHARACTERS inside a string literal, which
+        // a CMS emits whenever it interpolates a textarea/rich-text field into
+        // JSON-LD without escaping: `JSON.parse` rejects any U+0000-U+001F
+        // there ("Bad control character in string literal"), while the very
+        // same bytes are legal JSON whitespace BETWEEN tokens — so they cannot
+        // be stripped blindly, only escaped where they sit inside a string.
+        //
+        // Why it matters more than a parse statistic: the two `continue`s above
+        // discard the block silently, and a caller that then falls back to
+        // synthesizing content turns the loss into plausible-looking data. On
+        // jobs.csd.ch this exact path produced descriptions that were just
+        // `<title> — CSD ENGINEERS, <city>` (6-11 unique words) while the page
+        // carried a 2595-char JobPosting description, and the boilerplate guard
+        // in assemble-jobs-dataset.mjs only caught it afterwards, by failing
+        // the whole crawler.
+        try { parsed = JSON.parse(escapeControlCharsInJsonStrings(raw)); } catch { continue; }
+      }
     }
     const push = (node) => {
       if (!node || typeof node !== 'object') return;

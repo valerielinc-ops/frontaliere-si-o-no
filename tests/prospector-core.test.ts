@@ -879,6 +879,30 @@ describe('vacancy extraction', () => {
     expect(extractJsonLd(escaped, 'https://x.example/')).toHaveLength(1);
   });
 
+  it('recovers JSON-LD carrying raw control characters inside a string', () => {
+    // jobs.csd.ch ships a rich-text description interpolated into JSON-LD with
+    // unescaped newlines. `JSON.parse` rejects any U+0000-U+001F inside a
+    // string literal, both attempts failed, and the block was dropped in
+    // silence — after which csd-engineers-job-parser.mjs substituted a
+    // title-derived description and the loss looked like real data.
+    const raw = '{"@type":"JobPosting","title":"Bauingenieur:in","description":"Aufgaben:\n- Planung\n- Bauleitung"}';
+    const html = `<script type="application/ld+json">${raw}</script>`;
+    const [job] = extractJsonLd(html, 'https://jobs.csd.example/jobs/1');
+    expect(job).toMatchObject({ title: 'Bauingenieur:in' });
+    expect(job.description).toContain('Planung');
+    expect(job.description).toContain('Bauleitung');
+  });
+
+  it('leaves control characters BETWEEN tokens alone and still drops real garbage', () => {
+    // Newlines outside a string literal are legal JSON whitespace: escaping
+    // them blindly would corrupt every pretty-printed block on the web.
+    const pretty = '<script type="application/ld+json">\n  {\n    "@type": "JobPosting",\n    "title": "Zeichner:in"\n  }\n</script>';
+    expect(extractJsonLd(pretty, 'https://x.example/')).toHaveLength(1);
+    // A genuinely malformed block must keep being discarded — the recovery
+    // must not become a parser that invents structure.
+    expect(extractJsonLd('<script type="application/ld+json">{"@type":"JobPosting",</script>', 'https://x.example/')).toHaveLength(0);
+  });
+
   it('scores a page with no vacancy signal at zero', () => {
     const { score } = scoreVacancyPage('<html><body><p>Certificazioni e qualita</p></body></html>', 'https://sgs.example/', []);
     expect(score).toBe(0);
