@@ -67,7 +67,7 @@ const VALID_PUBLISHER_EVENT = {
 // the wall clock. `NOW` is arbitrary; only the distance to run_started_at ever
 // matters.
 const NOW = Date.parse('2026-09-18T15:28:16.000Z');
-const SOURCE_RUN_STARTED_AT = '2026-09-18T15:25:08.000Z';
+const SOURCE_RUN_UPDATED_AT = '2026-09-18T15:25:08.000Z';
 
 const VALID_SOURCE_RUN = {
   id: 123456789,
@@ -75,10 +75,12 @@ const VALID_SOURCE_RUN = {
   head_branch: 'main',
   head_sha: SOURCE_SHA,
   event: 'push',
-  status: 'in_progress',
-  conclusion: null,
+  // completed/success is the only admitted pair: the publisher dispatches from
+  // its second-to-last step, so the run is durable by then.
+  status: 'completed',
+  conclusion: 'success',
   run_attempt: 1,
-  run_started_at: SOURCE_RUN_STARTED_AT,
+  updated_at: SOURCE_RUN_UPDATED_AT,
   repository: { full_name: PUBLISHER_SOURCE_REPOSITORY },
 };
 
@@ -683,7 +685,11 @@ describe('publisher dispatch provenance verifier', () => {
       ['cancelled run', sourceRun({ status: 'completed', conclusion: 'cancelled' }), 'publisher-source-run-not-successful'],
       ['completed without conclusion', sourceRun({ status: 'completed', conclusion: null }), 'publisher-source-run-not-successful'],
       ['unknown status', sourceRun({ status: 'unknown', conclusion: null }), 'publisher-source-run-status-not-allowed'],
-      ['unknown conclusion', sourceRun({ status: 'in_progress', conclusion: 'unknown' }), 'publisher-source-run-status-not-allowed'],
+      // The hole reviewers caught in the first draft of this fix: an
+      // in_progress run outlives the lookup retries and would otherwise
+      // authorize a sync from a publication that can still fail afterwards.
+      ['still in progress', sourceRun({ status: 'in_progress', conclusion: null }), 'publisher-source-run-status-not-allowed'],
+      ['queued', sourceRun({ status: 'queued', conclusion: null }), 'publisher-source-run-status-not-allowed'],
     ] as const) {
       const decision = verifyPublisher({
         runMetadata,
@@ -708,22 +714,20 @@ describe('publisher dispatch provenance verifier', () => {
   // tripped rerender-article-hubs' freshness guard (tolerance 25) on run
   // 35308833501 and stayed red for 9 runs.
   it('accepts a publisher run that has already completed successfully', () => {
-    const decision = verifyPublisher({
-      runMetadata: sourceRun({ status: 'completed', conclusion: 'success' }),
-    });
+    const decision = verifyPublisher({ runMetadata: sourceRun() });
     expect(decision).toMatchObject({ verified: true, reason: 'publisher-source-run-verified' });
   });
 
   it('bounds replay by freshness instead of by liveness', () => {
     // Anti-replay is the reason completed was refused in the first place, so
-    // the property has to survive the change: an old payload names a run that
-    // STARTED long ago, and run_started_at comes from the API response rather
-    // than from the attested client_payload.
+    // the property has to survive the change: an old payload names a run whose
+    // last activity is long past, and updated_at comes from the API response
+    // rather than from the attested client_payload.
     for (const [name, runMetadata, now, reason] of [
-      ['replayed hours later', sourceRun({ status: 'completed', conclusion: 'success' }), NOW + 6 * 60 * 60 * 1000, 'publisher-source-run-stale'],
-      ['started in the future', sourceRun(), NOW - 6 * 60 * 60 * 1000, 'publisher-source-run-stale'],
-      ['no start time at all', sourceRun({ run_started_at: undefined }), NOW, 'publisher-source-run-started-at-invalid'],
-      ['unparseable start time', sourceRun({ run_started_at: 'yesterday' }), NOW, 'publisher-source-run-started-at-invalid'],
+      ['replayed hours later', sourceRun(), NOW + 6 * 60 * 60 * 1000, 'publisher-source-run-stale'],
+      ['updated in the future', sourceRun(), NOW - 6 * 60 * 60 * 1000, 'publisher-source-run-stale'],
+      ['no timestamp at all', sourceRun({ updated_at: undefined }), NOW, 'publisher-source-run-updated-at-invalid'],
+      ['unparseable timestamp', sourceRun({ updated_at: 'yesterday' }), NOW, 'publisher-source-run-updated-at-invalid'],
     ] as const) {
       const decision = verifyPublisher({ runMetadata, now });
       expect(decision.verified, name).toBe(false);
@@ -733,10 +737,24 @@ describe('publisher dispatch provenance verifier', () => {
     // And the window is wide enough for the real latency it has to absorb —
     // the 2m36s job measured in run 35362400341, with headroom.
     const withinWindow = verifyPublisher({
-      runMetadata: sourceRun({ status: 'completed', conclusion: 'success' }),
-      now: Date.parse(SOURCE_RUN_STARTED_AT) + 30 * 60 * 1000,
+      runMetadata: sourceRun(),
+      now: Date.parse(SOURCE_RUN_UPDATED_AT) + 30 * 60 * 1000,
     });
     expect(withinWindow.verified).toBe(true);
+  });
+
+  // The regression the reviewers' first finding named: anchoring the window on
+  // run_started_at makes it double as a cap on how long a publisher run may
+  // LAST, so a legitimately slow run is rejected as stale and the corpus
+  // freezes again. Publisher runs measured 2.5-3.5 min on 2026-09-18, but the
+  // corpus grows, and this is the failure class the whole file is repairing.
+  it('does not cap how long the publisher run may take', () => {
+    const slowRun = sourceRun({
+      // Started four hours before it finished; finished seconds ago.
+      run_started_at: new Date(NOW - 4 * 60 * 60 * 1000).toISOString(),
+      updated_at: new Date(NOW - 30 * 1000).toISOString(),
+    });
+    expect(verifyPublisher({ runMetadata: slowRun, now: NOW }).verified).toBe(true);
   });
 
   it('rejects source reruns even if all other metadata matches', () => {

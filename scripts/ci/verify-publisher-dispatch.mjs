@@ -23,13 +23,13 @@
  *     source_branch: GITHUB_REF_NAME (must be main)
  *     source_event: GITHUB_EVENT_NAME (must be push)
  *
- * The publisher sends this event before its own run is complete, but the run
- * is normally already finished by the time this verifier reads it — the
- * receiving job has to check this repo out first, and that takes minutes. So
- * the admitted lifecycle is in_progress/null OR completed/success, and the
- * anti-replay property is carried by FRESHNESS (run_started_at, an API field,
- * not an attested one) rather than by liveness. See the lifecycle check in
- * compareMetadata for the measurement that forced this.
+ * The publisher dispatches from its second-to-last step, so its run is
+ * normally already finished by the time this verifier reads it — the receiving
+ * job has to check this repo out first, and that takes minutes. The only
+ * admitted lifecycle is therefore `completed/success`, and the anti-replay
+ * property is carried by FRESHNESS (`updated_at`, an API field, not an
+ * attested one) rather than by liveness. See the lifecycle check in
+ * compareMetadata for the measurements that forced both choices.
  */
 
 import fs from 'node:fs';
@@ -45,18 +45,24 @@ export const PUBLISHER_SOURCE_BRANCH = 'main';
 export const PUBLISHER_SOURCE_EVENT = 'push';
 
 /**
- * How far in the past the publisher run may have STARTED and still count as
- * this dispatch's run.
+ * How long ago the publisher run may have LAST CHANGED (`updated_at`, i.e. its
+ * completion) and still count as this dispatch's run.
  *
  * One hour, chosen against the two things that bracket it. The floor is the
- * real end-to-end latency this has to tolerate: the publisher run itself, plus
- * this job's queue wait, plus the 46'229-file checkout that precedes the
- * lookup — 1m53s of checkout alone in run 35362400341, and the whole job took
- * 2m36s. Minutes, so an hour is two orders of magnitude of headroom. The
- * ceiling is the workflow's own `cron: '23 5,17 * * *'` schedule floor, 12
+ * latency between the publisher finishing and this verifier looking: this
+ * job's queue wait plus the 46'229-file checkout that precedes the lookup —
+ * 1m53s of checkout alone in run 35362400341, 2m36s for the whole job. So an
+ * hour is roughly 20x the observed end-to-end latency, not the "two orders of
+ * magnitude" an earlier draft of this comment claimed; a reviewer caught that
+ * arithmetic, and the honest margin is what a future tuning decision needs.
+ * The ceiling is the workflow's own `cron: '23 5,17 * * *'` schedule floor, 12
  * hours: the window must stay well under it, or a replayed payload could
  * substitute for a genuine publish between two scheduled runs. An hour sits
- * clear of both.
+ * clear of both, with ~12x of room beneath the ceiling.
+ *
+ * Deliberately NOT a bound on how long a publisher run may last — see the
+ * `updated_at` note in compareMetadata for why anchoring on the start instead
+ * would rebuild the very trap this file is being repaired for.
  */
 export const MAX_PUBLISHER_RUN_AGE_MS = 60 * 60 * 1000;
 
@@ -206,32 +212,50 @@ function compareMetadata(attestation, runMetadata, workflowMetadata, reasons, no
   // with 2157 svizzera articles against the 2183 the corpus announced.
   //
   // Freshness carries the anti-replay property instead, and it is the stronger
-  // half of the original argument: a replayed old payload names a run that
-  // STARTED long ago, and run_started_at comes from the API response, never
-  // from the untrusted client_payload. The window is far under the workflow's
-  // 12-hourly schedule floor, so a replay can never stand in for a real
-  // publish.
+  // half of the original argument: a replayed old payload names a run whose
+  // last activity is long past, and the timestamp comes from the API response,
+  // never from the untrusted client_payload.
   //
-  // Admitting completed also closes a hole liveness left open: an in_progress
-  // run can still FAIL after the site has synced from it. Once a conclusion
-  // exists it must therefore be exactly `success`.
-  if (runMetadata.status === 'completed') {
-    if (runMetadata.conclusion !== 'success') {
-      reasons.push('publisher-source-run-not-successful');
-    }
-  } else if (runMetadata.status !== 'in_progress' || runMetadata.conclusion !== null) {
+  // `completed/success` is now the ONLY admitted pair. An earlier draft of this
+  // fix also accepted in_progress/null, which reviewers correctly rejected:
+  // after the lookup retries give up, an in_progress run would authorize a
+  // sync and could still FAIL afterwards, committing article data from a
+  // publication that never finished. Requiring a conclusion is safe because of
+  // where the publisher dispatches from — `Notify the site` is the
+  // second-to-last step of publish-api.yml, after "Build data surface",
+  // "Verify artifact" and the edge push, so the publication is durable before
+  // the event is sent. Measured 2026-09-18 over the last 15 publisher runs:
+  // 2.5-3.5 min wall clock, median 3.1. The receiving job spends 2m36s of its
+  // own (1m53s of it checking out 46'229 files) before reaching this verifier,
+  // and the step then still retries while the run reads `queued`/`in_progress`.
+  // A publisher that is somehow slower than that loses one dispatch and is
+  // picked up by the next one or by the 5:23/17:23 cron.
+  if (runMetadata.status !== 'completed') {
     reasons.push('publisher-source-run-status-not-allowed');
+  } else if (runMetadata.conclusion !== 'success') {
+    reasons.push('publisher-source-run-not-successful');
   }
 
-  // Symmetric window: a run_started_at an hour in the FUTURE is as suspect as
+  // Anchored on `updated_at`, NOT on `run_started_at`.
+  //
+  // An earlier draft used run_started_at and reviewers caught the consequence:
+  // that measures the publisher's START, so the window silently doubles as a
+  // cap on how long a publisher run may LAST. A legitimate run longer than the
+  // window would be rejected as stale and freeze the corpus again — the exact
+  // failure class this file is being repaired for, reintroduced with a
+  // different constant. `updated_at` measures how long ago the run last
+  // changed, which for a completed run is its completion, so the check is
+  // independent of publisher runtime and keeps holding as the corpus grows.
+  //
+  // Symmetric window: an `updated_at` an hour in the FUTURE is as suspect as
   // one an hour in the past, and costs one `Math.abs` rather than a second
   // constant nobody would tune separately.
-  const startedAt = Date.parse(
-    typeof runMetadata.run_started_at === 'string' ? runMetadata.run_started_at : '',
+  const updatedAt = Date.parse(
+    typeof runMetadata.updated_at === 'string' ? runMetadata.updated_at : '',
   );
-  if (!Number.isFinite(startedAt)) {
-    reasons.push('publisher-source-run-started-at-invalid');
-  } else if (Math.abs(now - startedAt) > MAX_PUBLISHER_RUN_AGE_MS) {
+  if (!Number.isFinite(updatedAt)) {
+    reasons.push('publisher-source-run-updated-at-invalid');
+  } else if (Math.abs(now - updatedAt) > MAX_PUBLISHER_RUN_AGE_MS) {
     reasons.push('publisher-source-run-stale');
   }
 }

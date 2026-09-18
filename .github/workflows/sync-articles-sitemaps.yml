@@ -327,8 +327,16 @@ jobs:
       #
       # The counter resets on success (the resolve step below closes the issue),
       # so "3" means three in a row with no good sync between them.
+      # `github.event_name != 'workflow_dispatch'` because folding the
+      # side-effect verdict into `gate` gave this step a new false-alarm
+      # source: a manual preview run (the `dry_run` input defaults to true) now
+      # legitimately sets `skipped=true`, and three of those inside the 36h
+      # window would open an incident describing a stuck mirror that is not
+      # stuck. A human watching their own preview does not need an issue; a
+      # schedule or a publisher dispatch that goes quiet does. The counter is
+      # neither advanced nor reset by a preview, which is the intent.
       - name: Escalate a sync that keeps being skipped
-        if: steps.gate.outputs.skipped == 'true'
+        if: steps.gate.outputs.skipped == 'true' && github.event_name != 'workflow_dispatch'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -346,7 +354,7 @@ jobs:
           DESC=$(cat <<EOF
           This sync committed nothing. Either the corpus pull and the sitemap pull could not agree on a single upstream commit (background: \`scripts/lib/articles-sync-pin.mjs\`), or the side-effect gate withheld write permission (background: \`scripts/ci/human-side-effect-gate.mjs\` and \`scripts/ci/verify-publisher-dispatch.mjs\`). The reason below says which.
 
-          **Reason:** ${GATE_REASON:-}${CORPUS_REASON:-}${API_REASON:-}
+          **Reason:** ${GATE_REASON:-}${CORPUS_REASON:+ | ${CORPUS_REASON}}${API_REASON:+ | ${API_REASON}}
 
           **Run:** ${RUN_URL}
 
