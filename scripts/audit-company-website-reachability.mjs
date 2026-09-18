@@ -11,13 +11,13 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, isAbsolute, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createSpecUrlPolicy } from './lib/prospector/public-fetch-policy.mjs';
+import { createSpecUrlPolicy, HEAD_FALLBACK_STATUSES } from './lib/prospector/public-fetch-policy.mjs';
 import { mapPool, politeFetch } from './lib/prospector/polite-fetch.mjs';
 
 export const COMPANY_WEBSITE_REACHABILITY_SCHEMA_VERSION = 1;
 export const DEFAULT_COMPANY_WEBSITE_REACHABILITY_CONCURRENCY = 6;
 export const DEFAULT_COMPANY_WEBSITE_REACHABILITY_TIMEOUT_MS = 15_000;
-export const HEAD_FALLBACK_STATUSES = Object.freeze(new Set([403, 405, 501]));
+export { HEAD_FALLBACK_STATUSES };
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(SCRIPT_DIR, '..');

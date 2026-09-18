@@ -175,6 +175,16 @@ function nat64EmbeddedIpv4(address) {
   return [words[6] >> 8, words[6] & 0xff, words[7] >> 8, words[7] & 0xff].join('.');
 }
 
+/**
+ * Statuses that mean "this server dislikes the METHOD", not "this resource is
+ * gone": retry them with GET before concluding anything about the target.
+ *
+ * Single definition on purpose — `resolve-company-website.mjs` and
+ * `audit-company-website-reachability.mjs` each carried a literal copy, so
+ * adding a status to one silently disagreed with the other (AGENTS.md #6).
+ */
+export const HEAD_FALLBACK_STATUSES = Object.freeze(new Set([403, 405, 501]));
+
 export class PublicFetchPolicyError extends Error {
   /** @param {string} message */
   constructor(message) {
