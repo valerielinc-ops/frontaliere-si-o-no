@@ -161,6 +161,8 @@ describe('Fust authoritative discovery', () => {
       .toThrow(/ambiguous across BL, LU, SO, TG, ZH/);
     expect(() => deriveFustWorkplaceCanton('Schweizweit'))
       .toThrow(/not resolvable to a Swiss municipality/);
+    expect(() => deriveFustWorkplaceCanton('Como, Italy'))
+      .toThrow(/not resolvable to a Swiss municipality/);
     expect(() => deriveFustWorkplaceCanton('Cressier'))
       .toThrow(/ambiguous across FR, NE/);
   });
@@ -257,6 +259,26 @@ describe('Fust authoritative discovery', () => {
     }), { status: 200 });
     await expect(fetchFustJobUrls({ fetchImpl, enrichDetails: false }))
       .rejects.toThrow(/fetched 4\/501/);
+  });
+
+  it('fails loud when a later page repeats a source identity instead of proving unique progress', async () => {
+    const firstPage = Array.from({ length: 500 }, (_, index) => ({
+      ...fixture.api.jobs[0],
+      id: String(20000000 + index),
+      links: {
+        directlink: fixture.api.jobs[0].links.directlink.replace(
+          /[0-9a-f-]{36}$/i,
+          `00000000-0000-4000-8000-${index.toString(16).padStart(12, '0')}`,
+        ),
+      },
+    }));
+    const fetchImpl = async (input: string | URL | Request) => {
+      const offset = new URL(String(input)).searchParams.get('offset');
+      const jobs = offset === '0' ? firstPage : [firstPage[0]];
+      return new Response(JSON.stringify({ total: 501, jobs }), { status: 200 });
+    };
+    await expect(fetchFustJobUrls({ fetchImpl, enrichDetails: false }))
+      .rejects.toThrow(/repeated source identity/);
   });
 
   it('fails loud when a canonical detail has no verified workplace', async () => {
