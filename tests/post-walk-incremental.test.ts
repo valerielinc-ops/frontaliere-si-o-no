@@ -11,15 +11,27 @@ import {
   buildSharedHtmlPathIndex,
   createSharedHtmlPathIndexView,
 } from '../build-plugins/shared/htmlPathIndex.mjs';
+import { collectHtmlFromClaimedPaths } from '../build-plugins/shared/distHtmlWalk';
 import {
   buildPostWalkIncrementalPlanFromState,
   comparePostWalkVerification,
+  describePostWalkVerificationPaths,
   loadPostWalkManifestState,
   postWalkIncrementalEnabled,
   releasePostWalkManifestState,
   replacePostWalkPathList,
   selectPostWalkVerificationPaths,
 } from '../build-plugins/shared/postWalkIncremental';
+import {
+  clearPostWalkDerivedDigestCacheForTest,
+  filterPostWalkDerivedDigestRecords,
+  loadPostWalkDerivedDigestSidecar,
+  loadPostWalkUnmanifestedTopLevels,
+  preservePostWalkDerivedOutput,
+  writePostWalkDerivedDigestSidecar,
+  writePostWalkUnmanifestedTopLevels,
+} from '../build-plugins/shared/postWalkDerivedDigest';
+import { claim, hashContent, reset as resetWriteRegistry } from '../build-plugins/sharedWriteRegistry';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const ROOT = path.resolve(__dirname, '..');
@@ -93,6 +105,9 @@ function collectFixtureHtml(root: string): string[] {
 }
 
 afterEach(() => {
+  delete process.env.POST_WALK_INCREMENTAL;
+  clearPostWalkDerivedDigestCacheForTest();
+  resetWriteRegistry();
   for (const root of roots.splice(0)) fs.rmSync(root, { recursive: true, force: true });
 });
 
@@ -258,6 +273,218 @@ describe('post-walk incremental planning', () => {
     expect(plan.processHtmlPaths).toEqual([manifestPath]);
     expect(plan.unmanifested).toBe(1);
     expect(plan.unmanifestedSkipped).toBe(1);
+  });
+
+  it('classifies sampled paths before the manifest state is released', async () => {
+    const root = fixtureRoot();
+    const changedPath = writeHtml(root, 'jobs/changed/index.html', 'changed');
+    const unchangedPath = writeHtml(root, 'jobs/unchanged/index.html', 'unchanged');
+    const uncoveredPath = writeHtml(root, 'blog/article/index.html', 'uncovered');
+    writeManifest(root, 'incremental-manifest-prev', [
+      { path: 'jobs/changed/', kind: 'expired-soft-landing', input: { title: 'old' } },
+      { path: 'jobs/unchanged/', kind: 'cross-locale-reconciliation', input: { title: 'same' } },
+    ], true);
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/changed/', kind: 'expired-soft-landing', input: { title: 'new' } },
+      { path: 'jobs/unchanged/', kind: 'cross-locale-reconciliation', input: { title: 'same' } },
+    ], true);
+
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+    expect(loaded.ok).toBe(true);
+    if ('reason' in loaded) throw new Error(loaded.reason);
+    const details = describePostWalkVerificationPaths({
+      distDir: path.join(root, 'dist'),
+      sampledPaths: [changedPath, unchangedPath, uncoveredPath],
+      incrementalProcessPaths: [changedPath],
+      state: loaded.state,
+    });
+
+    expect(details.get(changedPath)).toMatchObject({
+      relativePath: 'jobs/changed/index.html',
+      topLevel: 'jobs',
+      kind: 'expired-soft-landing',
+      reason: 'changed entry selected by manifest delta',
+    });
+    expect(details.get(unchangedPath)).toMatchObject({
+      relativePath: 'jobs/unchanged/index.html',
+      topLevel: 'jobs',
+      kind: 'cross-locale-reconciliation',
+      reason: 'unchanged entry: no changed/added/affected dependency edge',
+    });
+    expect(details.get(uncoveredPath)).toMatchObject({
+      relativePath: 'blog/article/index.html',
+      topLevel: 'blog',
+      kind: 'unmanifested',
+      reason: 'unmanifested: no current HTML manifest entry',
+    });
+  });
+
+  it('preserves a derived bridge when the upstream input digest is unchanged', () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const filePath = writeHtml(root, 'jobs/bridge.html', '<!DOCTYPE html>bridge');
+    const sourcePath = writeHtml(root, 'jobs/bridge/index.html', '<!DOCTYPE html>source');
+    process.env.POST_WALK_INCREMENTAL = '1';
+    writePostWalkDerivedDigestSidecar(root, new Map([
+      ['jobs/bridge.html', {
+        path: 'jobs/bridge.html',
+        kind: 'bridge',
+        inputHash: hashContent('<!DOCTYPE html>source'),
+        sourcePath: 'jobs/bridge/index.html',
+        sourceHash: hashContent('<!DOCTYPE html>source'),
+        templateHash: 'flat-bridge@1',
+      }],
+    ]));
+    clearPostWalkDerivedDigestCacheForTest();
+    claim(sourcePath, 'fixture', '<!DOCTYPE html>source');
+    claim(filePath, 'fixture', '<!DOCTYPE html>source');
+
+    expect(preservePostWalkDerivedOutput(distDir, filePath, '<!DOCTYPE html>source')).toBe(true);
+    expect(fs.readFileSync(filePath, 'utf8')).toBe('<!DOCTYPE html>bridge');
+  });
+
+  it('does not preserve a derived bridge when its source dependency changed', () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const filePath = writeHtml(root, 'jobs/bridge.html', '<!DOCTYPE html>bridge');
+    const sourcePath = writeHtml(root, 'jobs/bridge/index.html', '<!DOCTYPE html>source-new');
+    process.env.POST_WALK_INCREMENTAL = '1';
+    writePostWalkDerivedDigestSidecar(root, new Map([
+      ['jobs/bridge.html', {
+        path: 'jobs/bridge.html',
+        kind: 'bridge',
+        inputHash: hashContent('<!DOCTYPE html>source'),
+        sourcePath: 'jobs/bridge/index.html',
+        sourceHash: hashContent('<!DOCTYPE html>source-old'),
+        templateHash: 'flat-bridge@1',
+      }],
+    ]));
+    clearPostWalkDerivedDigestCacheForTest();
+    claim(sourcePath, 'fixture', '<!DOCTYPE html>source-new');
+    claim(filePath, 'fixture', '<!DOCTYPE html>source');
+
+    expect(preservePostWalkDerivedOutput(distDir, filePath, '<!DOCTYPE html>source')).toBe(false);
+  });
+
+  it('requires the current derived kind before preserving a sidecar record', () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const filePath = writeHtml(root, 'blog/article/index.html', '<!DOCTYPE html>article');
+    process.env.POST_WALK_INCREMENTAL = '1';
+    writePostWalkDerivedDigestSidecar(root, new Map([
+      ['blog/article/index.html', {
+        path: 'blog/article/index.html',
+        kind: 'blog',
+        inputHash: hashContent('<!DOCTYPE html>article'),
+        sourcePath: 'blog/article/index.html',
+        sourceHash: hashContent('<!DOCTYPE html>article'),
+        templateHash: 'contextual-blog-links@1',
+      }],
+    ]));
+    clearPostWalkDerivedDigestCacheForTest();
+    claim(filePath, 'fixture', '<!DOCTYPE html>article');
+
+    expect(preservePostWalkDerivedOutput(distDir, filePath, '<!DOCTYPE html>article', 'bridge')).toBe(false);
+    expect(preservePostWalkDerivedOutput(distDir, filePath, '<!DOCTYPE html>article', 'blog')).toBe(true);
+  });
+
+  it('drops failed derived outputs before writing the next sidecar', () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const records = new Map([
+      ['jobs/failed.html', {
+        path: 'jobs/failed.html',
+        kind: 'bridge' as const,
+        inputHash: 'input-failed',
+        sourcePath: 'jobs/failed/index.html',
+        sourceHash: 'source-failed',
+        templateHash: 'flat-bridge@1',
+      }],
+      ['jobs/ok.html', {
+        path: 'jobs/ok.html',
+        kind: 'bridge' as const,
+        inputHash: 'input-ok',
+        sourcePath: 'jobs/ok/index.html',
+        sourceHash: 'source-ok',
+        templateHash: 'flat-bridge@1',
+      }],
+    ]);
+
+    const filtered = filterPostWalkDerivedDigestRecords(
+      records,
+      distDir,
+      [{ filePath: path.join(distDir, 'jobs/failed.html') }],
+    );
+
+    expect([...filtered.keys()]).toEqual(['jobs/ok.html']);
+  });
+
+  it('fails closed on an incomplete derived sidecar footer', () => {
+    const root = fixtureRoot();
+    writePostWalkDerivedDigestSidecar(root, new Map([
+      ['jobs/bridge.html', {
+        path: 'jobs/bridge.html',
+        kind: 'bridge',
+        inputHash: null,
+        sourcePath: 'jobs/bridge/index.html',
+        sourceHash: null,
+        templateHash: 'flat-bridge@1',
+      }],
+    ]));
+    const sidecarPath = path.join(
+      root,
+      '.cache/incremental-manifest/post-walk-derived-v2.jsonl',
+    );
+    const lines = fs.readFileSync(sidecarPath, 'utf8').trimEnd().split('\n');
+    lines.pop();
+    fs.writeFileSync(sidecarPath, `${lines.join('\n')}\n`, 'utf8');
+    clearPostWalkDerivedDigestCacheForTest();
+
+    expect(loadPostWalkDerivedDigestSidecar(root)).toEqual(new Map());
+  });
+
+  it('rebuilds the HTML inventory from claimed paths plus unmanifested roots', () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const claimed = writeHtml(root, 'jobs/claimed/index.html', 'claimed');
+    const targeted = writeHtml(root, 'legacy/a/index.html', 'targeted-a');
+    const targetedFlat = writeHtml(root, 'legacy/b.html', 'targeted-b');
+    writeHtml(root, 'new-direct/index.html', 'must-not-be-guessed');
+
+    const result = collectHtmlFromClaimedPaths(
+      distDir,
+      [claimed, claimed, path.join(distDir, 'assets', 'ignored.html')],
+      ['legacy'],
+    );
+
+    expect(result.claimed).toBe(1);
+    expect(result.targeted).toBe(3);
+    expect(result.paths).toEqual([
+      claimed,
+      targeted,
+      targetedFlat,
+      path.join(distDir, 'new-direct/index.html'),
+    ]);
+  });
+
+  it('finds a new direct HTML subtree below an already-claimed top-level root', () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const claimed = writeHtml(root, 'it/jobs/claimed/index.html', 'claimed');
+    const direct = writeHtml(root, 'it/direct-new/index.html', 'direct');
+
+    const result = collectHtmlFromClaimedPaths(distDir, [claimed], []);
+
+    expect(result.claimed).toBe(1);
+    expect(result.targeted).toBe(1);
+    expect(result.paths).toEqual([claimed, direct]);
+  });
+
+  it('round-trips the targeted-walk inventory and fails closed when absent', () => {
+    const root = fixtureRoot();
+    expect(loadPostWalkUnmanifestedTopLevels(root)).toBeNull();
+    writePostWalkUnmanifestedTopLevels(root, ['legacy', '<root>', 'legacy']);
+    expect(loadPostWalkUnmanifestedTopLevels(root)).toEqual(['<root>', 'legacy']);
   });
 
   it('keeps an unresolved removal as a per-entry fallback', async () => {

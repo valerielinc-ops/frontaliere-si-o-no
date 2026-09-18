@@ -24,9 +24,14 @@ const BASE_URL = 'https://frontaliereticino.ch';
 const MODULE_ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../..');
 const {
   buildPostWalkIncrementalPlanFromState,
+  // Keep the benchmark coupled to the production registry walk: this is the
+  // part that replaces reopening every directory on an identical build.
   loadPostWalkManifestState,
   selectPostWalkVerificationPaths,
 } = await import(path.join(MODULE_ROOT, 'build-plugins/shared/postWalkIncremental.ts'));
+const { collectHtmlFromClaimedPaths } = await import(
+  path.join(MODULE_ROOT, 'build-plugins/shared/distHtmlWalk.ts'),
+);
 const { MANIFEST_VERSION } = await import(
   path.join(MODULE_ROOT, 'build-plugins/shared/incrementalManifest.mjs'),
 );
@@ -230,6 +235,13 @@ async function main() {
     false,
   );
   const verificationSelectionMs = elapsed(verifyStartedAt);
+  const registryWalkStartedAt = performance.now();
+  const registryWalk = collectHtmlFromClaimedPaths(
+    DIST_DIR,
+    allHtmlPaths.slice(0, ENTRY_COUNT),
+    [],
+  );
+  const registryWalkMs = elapsed(registryWalkStartedAt);
   const report = {
     entries: ENTRY_COUNT,
     scanPaths: SCAN_PATH_COUNT,
@@ -240,6 +252,10 @@ async function main() {
     verificationSelectionMs,
     verificationPathCount: verificationPaths.length,
     fullVerificationPathCount: allHtmlPaths.length,
+    registryWalkMs,
+    registryWalkClaimed: registryWalk.claimed,
+    registryWalkTargeted: registryWalk.targeted,
+    registryWalkPathCount: registryWalk.paths.length,
     mode: plan.mode,
     changed: plan.changed,
     processed: plan.processed,

@@ -53,3 +53,105 @@ export function collectHtml(dir: string, out: string[]): string[] {
   }
   return out;
 }
+
+export type IncrementalHtmlWalkResult = {
+  readonly paths: readonly string[];
+  readonly claimed: number;
+  readonly targeted: number;
+};
+
+function isWalkableHtmlPath(distDir: string, filePath: string): boolean {
+  if (!filePath.endsWith('.html')) return false;
+  const relative = path.relative(distDir, filePath);
+  if (relative.startsWith('..') || path.isAbsolute(relative)) return false;
+  const segments = relative.split(path.sep);
+  return !segments.some((segment) => segment === 'assets' || segment === 'data' || segment === 'images');
+}
+
+/**
+ * Rebuild the existence list from the current write registry and walk only
+ * roots that were not claimed by an upstream emitter in the previous full
+ * inventory. WriteCollector already visited the claimed paths while emitting
+ * this build, so reopening their parent directories would only repeat the
+ * 1.5M-entry filesystem walk.
+ */
+export function collectHtmlFromClaimedPaths(
+  distDir: string,
+  claimedPaths: Iterable<string>,
+  targetedTopLevels: readonly string[],
+): IncrementalHtmlWalkResult {
+  const paths: string[] = [];
+  const seen = new Set<string>();
+  const claimedTopLevels = new Set<string>();
+  const claimedChildrenByTopLevel = new Map<string, Set<string>>();
+  let claimed = 0;
+  for (const filePath of claimedPaths) {
+    if (!isWalkableHtmlPath(distDir, filePath) || seen.has(filePath)) continue;
+    seen.add(filePath);
+    paths.push(filePath);
+    const relative = path.relative(distDir, filePath);
+    const segments = relative.split(path.sep);
+    const topLevel = segments[0] || '<root>';
+    claimedTopLevels.add(topLevel);
+    if (segments.length > 1) {
+      let children = claimedChildrenByTopLevel.get(topLevel);
+      if (!children) {
+        children = new Set<string>();
+        claimedChildrenByTopLevel.set(topLevel, children);
+      }
+      children.add(segments[1]);
+    }
+    claimed++;
+  }
+
+  const rootsToWalk = new Set(targetedTopLevels);
+  // A new direct emitter can introduce a top-level that was not present in
+  // the previous inventory. The single shallow readdir is cheap and catches
+  // that case without reopening any already-claimed tree.
+  for (const entry of fs.readdirSync(distDir, { withFileTypes: true })) {
+    if (entry.isDirectory() && (entry.name === 'assets' || entry.name === 'data' || entry.name === 'images')) {
+      continue;
+    }
+    const topLevel = entry.isDirectory()
+      ? entry.name
+      : entry.isFile() && entry.name.endsWith('.html')
+        ? '<root>'
+        : null;
+    if (topLevel !== null && !claimedTopLevels.has(topLevel)) rootsToWalk.add(topLevel);
+  }
+
+  const targetedPaths: string[] = [];
+  for (const topLevel of [...rootsToWalk].sort()) {
+    const root = topLevel === '<root>' ? distDir : path.join(distDir, topLevel);
+    if (!fs.existsSync(root)) continue;
+    collectHtml(root, targetedPaths);
+  }
+  // A direct fs emitter can add a new subtree below a top-level that already
+  // has WriteCollector claims (most notably a locale root). Probe that one
+  // directory level: existing claimed children remain covered by the registry,
+  // while a new child is walked in full. This catches newly emitted HTML
+  // without reopening the millions of already-claimed slug directories.
+  for (const topLevel of [...claimedTopLevels].sort()) {
+    const root = topLevel === '<root>' ? distDir : path.join(distDir, topLevel);
+    if (!fs.existsSync(root) || !fs.statSync(root).isDirectory()) continue;
+    const claimedChildren = claimedChildrenByTopLevel.get(topLevel) ?? new Set<string>();
+    for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
+      if (entry.name === 'assets' || entry.name === 'data' || entry.name === 'images') continue;
+      if (entry.isFile()) {
+        if (entry.name.endsWith('.html')) targetedPaths.push(root + path.sep + entry.name);
+        continue;
+      }
+      if (entry.isDirectory() && !claimedChildren.has(entry.name)) {
+        collectHtml(root + path.sep + entry.name, targetedPaths);
+      }
+    }
+  }
+  let targeted = 0;
+  for (const filePath of targetedPaths) {
+    if (!isWalkableHtmlPath(distDir, filePath) || seen.has(filePath)) continue;
+    seen.add(filePath);
+    paths.push(filePath);
+    targeted++;
+  }
+  return { paths, claimed, targeted };
+}

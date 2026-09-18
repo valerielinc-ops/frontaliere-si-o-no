@@ -28,7 +28,11 @@ describe('post-walk incremental memory benchmark', () => {
     expect(report.aliasFraction).toBe(0.3);
     expect(report.aliasCount).toBe(210_000);
     expect(report.streaming.plan.mode).toBe('incremental');
-    expect(report.streaming.plan.processed).toBeGreaterThan(100_000);
+    // The bounded planner dispatches only the changed entries (7,000) and
+    // their affected aliases (7,000); the old >100k assertion described the
+    // pre-#9100 whole-corpus selection and made the benchmark fail on the
+    // current planner before this task touched it.
+    expect(report.streaming.plan.processed).toBe(14_000);
     expect(report.streaming.peakRetainedMB).toBeLessThan(report.legacy.peakRetainedMB);
     expect(report.streaming.peakRetainedMB).toBeLessThanOrEqual(report.budget.maxRetainedHeapMB);
     expect(report.budget.margin).toBe('20%');
