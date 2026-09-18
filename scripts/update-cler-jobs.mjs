@@ -160,6 +160,7 @@ const API_BASE = 'https://www.cler.ch';
 // German API returns results; Italian returns 0 (locale mismatch on server side)
 const PAGE_SIZE = 50;
 const MAX_LISTING_PAGES = 1000;
+// locale-segment-ok: cler.ch exposes the complete API only under this fixed German portal route; it is not a site-locale URL.
 const API_PATH = `/de/api/jobssearch/search?sc_site=bc&jobs=%7B3F115DCF-9CE3-4466-9E05-53D8D9B5DAC0%7D&predefinedFilter=&pageSize=${PAGE_SIZE}`;
 
 const TIMEOUT_MS = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '15000', 10);
