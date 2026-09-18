@@ -342,12 +342,15 @@ export function resolveManorLocation(pageData = {}, urlCity = '') {
   const location = detailLocality || String(urlCity || '').trim();
   const canton = inferAnyCanton(location);
   const urlCanton = inferAnyCanton(urlCity);
-  const detailCanton = inferAnyCanton(pageData?.addressRegion || '')
-    || normalizeCantonCode(pageData?.addressRegion || '');
+  const detailRegion = String(pageData?.addressRegion || '').trim();
+  const detailCanton = detailRegion
+    ? (inferAnyCanton(detailRegion) || normalizeCantonCode(detailRegion))
+    : '';
 
   if (
     !location
     || !canton
+    || (detailRegion && !detailCanton)
     || (urlCanton && urlCanton !== canton)
     || (detailCanton && detailCanton !== canton)
   ) {
