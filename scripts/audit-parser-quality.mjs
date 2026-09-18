@@ -999,6 +999,17 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
       return {
         ...item,
         ...comparison,
+        // Attached to the RESULT, deliberately not routed through
+        // `comparison.replayObservation`: the replay-evidence schema and its
+        // strict validator in `classifySourceDetailObservation` would have to
+        // grow a field for a signal no replay consumer reads. Only propagated
+        // when the extractor actually decided — an injected extractor that
+        // omits it leaves the flag absent, and an absent flag keeps the old
+        // WARNING (see `applySourceDetailResults`). Silence on a missing
+        // signal would be the one failure mode worse than the noise.
+        ...(typeof detail.hasStructuredVacancy === 'boolean'
+          ? { sourceHasStructuredVacancy: detail.hasStructuredVacancy }
+          : {}),
         ...(locationObservation.locationEvidenceCounts
           ? { locationEvidenceCounts: locationObservation.locationEvidenceCounts }
           : {}),
@@ -1230,6 +1241,11 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     unexplainedFetchFailureRatePct: 0,
     processingFailed: 0,
     unobserved: 0,
+    // Subset of `unobserved` whose source served no JobPosting node at all.
+    // `unobserved` stays the TOTAL so the observability rate keeps meaning
+    // "fetched pages that yielded nothing" — a mute page yielded nothing
+    // either. The split only decides whether it is the PARSER's fault.
+    unobservedSourceMute: 0,
     tenantConstantLocationObservations: 0,
     authoritativeLocationChecks: 0,
     authoritativeLocationChecksByEvidence: {
@@ -1253,7 +1269,8 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     if (!byKey[key]) byKey[key] = {
       checked: 0, fetchFailed: 0, processingFailed: 0, processingErrors: [],
       locationChecked: 0, locationInconclusive: 0, locationMismatches: 0,
-      descriptionMismatches: 0, unobserved: 0, tenantConstantObservations: 0,
+      descriptionMismatches: 0, unobserved: 0, unobservedSourceMute: 0,
+      tenantConstantObservations: 0,
       circularCorroborationObservations: 0,
       unobservedDetails: [], details: [], failureFamilies: {},
     };
@@ -1286,9 +1303,25 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       result.locationEvidenceCounts?.afterGate,
     );
     if (sourceDetailUnobserved(result)) {
-      info.unobserved++;
       sourceDetailSummary.unobserved++;
-      info.unobservedDetails.push(`${sourceReference}: fetched, but no source location was readable and only ${result.sourceDescriptionLength} chars of source description (< ${COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS}) — this sample can contradict nothing`);
+      // «Nothing was readable» splits into two different statements about two
+      // different things. When the response carried no JobPosting node, the
+      // sentence is about the SOURCE and it is simply true: there is no
+      // structured vacancy to read, so `unobserved` is the correct reading of
+      // an unobservable page and not a parser defect. When a JobPosting WAS
+      // served and still nothing came out, the sentence is about the PARSER,
+      // and that is the finding the 331 warnings were burying — 17 of 21
+      // sampled `parses-today` crawlers were the first case, 0 of 21 were
+      // "structure present, audit read the wrong field".
+      // Absent flag (no boolean from the extractor) counts as the parser case:
+      // an unknown must not silence a warning.
+      if (result.sourceHasStructuredVacancy === false) {
+        info.unobservedSourceMute++;
+        sourceDetailSummary.unobservedSourceMute++;
+      } else {
+        info.unobserved++;
+        info.unobservedDetails.push(`${sourceReference}: fetched, but no source location was readable and only ${result.sourceDescriptionLength} chars of source description (< ${COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS}) — this sample can contradict nothing`);
+      }
     }
     const isTenantConstant = result.locationChecked
       && tenantConstant.has(`${result.crawlerKey}\u0000${normalizePlace(result.sourceLocation || '')}`);
@@ -1445,6 +1478,16 @@ export function formatSourceDetailObservationLines(summary = {}) {
   if (processingFailed > 0) {
     lines.push(`Source detail processing failures: ${processingFailed}/${processed}`);
   }
+  // Printed on every run, and that is the point: the sources reclassified out
+  // of WARNING are counted HERE instead of being dropped. The tally is
+  // recomputed from this run's fetches, so it can be checked against the run
+  // that produced it — never inherited from a snapshot or an allowlist that
+  // nobody re-measures.
+  const unobserved = count(summary.unobserved);
+  const sourceMute = count(summary.unobservedSourceMute);
+  if (unobserved > 0) {
+    lines.push(`Source detail unobserved split: ${sourceMute} source served no JobPosting structured data (no issue raised), ${unobserved - sourceMute} served one and still read as nothing (parser finding)`);
+  }
   return lines;
 }
 
@@ -1515,6 +1558,17 @@ export async function runSourceDetailChecks(report, sourceDetailsToCheck, {
 }
 
 /** Source-detail portion of the audit's shared severity contract. */
+/**
+ * The last rung of the severity chain: once no specific rule has claimed the
+ * entry, ANY remaining issue makes the crawler a WARNING. Exported because it
+ * is the rule a reclassification has to be measured against — a source that
+ * must stop being a WARNING has to emit NO issue, and a test can only prove
+ * that by running the same rule the audit runs, not by reading the chain.
+ */
+export function issueDrivenSeverity(entry) {
+  return (entry?.issues?.length || 0) > 0 ? 'WARNING' : 'OK';
+}
+
 export function sourceDetailSeverity(entry) {
   const issue = entry?.issues?.find((candidate) => candidate.type === 'source-detail-mismatch');
   if (issue?.locationMismatches > 0) return 'CRITICAL';
@@ -2025,8 +2079,7 @@ async function main() {
     else if (formChromeCount > 0) entry.severity = 'CRITICAL';
     else if (thinRatio >= 0.5 || (thinRatio > 0 && urlFail)) entry.severity = 'CRITICAL';
     else if (detailSeverity === 'WARNING') entry.severity = 'WARNING';
-    else if (entry.issues.length > 0) entry.severity = 'WARNING';
-    else entry.severity = 'OK';
+    else entry.severity = issueDrivenSeverity(entry);
     if (entry.severity === 'CRITICAL') {
       const h = [];
       if (formChromeCount > 0) h.push(`${formChromeCount} description(s) contain form/footer/contact chrome — parser is sweeping page boundaries (most likely an unbounded HTML split). Bound extraction to the per-job DOM subtree`);
