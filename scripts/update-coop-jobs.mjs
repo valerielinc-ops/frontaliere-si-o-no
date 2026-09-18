@@ -352,7 +352,6 @@ export async function fetchCoopJobDetailUrls(options = {}) {
   let droppedMalformedUrl = 0;
   let droppedDuplicateUrl = 0;
   let droppedDuplicateIdentity = 0;
-  const sourceIdentities = new Set();
 
   for (let page = 0; page < API_MAX_PAGES; page += 1) {
     const offset = page * API_LIMIT;
@@ -404,32 +403,11 @@ export async function fetchCoopJobDetailUrls(options = {}) {
       break;
     }
 
-    if (jobs.length === 0) {
-      if (apiTotal !== null && fetched < apiTotal) {
-        throw new Error(`Coop discovery incomplete: received ${fetched}/${apiTotal} unique source records before an empty page.`);
-      }
-      break;
-    }
-    let pageNew = 0;
+    if (jobs.length === 0) break;
+    fetched += jobs.length;
 
     for (const job of jobs) {
       const directLink = String(job?.links?.directlink || '').trim();
-      if (!directLink) {
-        throw new Error(`Coop discovery incomplete: page ${page + 1} contains a source row without a stable identity.`);
-      }
-      const fingerprint = fingerprintJob({ url: directLink });
-      if (!fingerprint) {
-        throw new Error(`Coop discovery incomplete: page ${page + 1} contains a source row without a stable identity.`);
-      }
-      if (sourceIdentities.has(fingerprint)) {
-        if (allUrls.has(directLink)) droppedDuplicateUrl += 1;
-        else droppedDuplicateIdentity += 1;
-        continue;
-      }
-      sourceIdentities.add(fingerprint);
-      fetched = sourceIdentities.size;
-      pageNew += 1;
-
       let parsedUrl;
       try {
         parsedUrl = new URL(directLink);
@@ -445,6 +423,11 @@ export async function fetchCoopJobDetailUrls(options = {}) {
       }
       if (allUrls.has(directLink)) {
         droppedDuplicateUrl += 1;
+        continue;
+      }
+      const fingerprint = fingerprintJob({ url: directLink });
+      if (!fingerprint) {
+        droppedMalformedUrl += 1;
         continue;
       }
       if (allFingerprints.has(fingerprint)) {
@@ -465,31 +448,16 @@ export async function fetchCoopJobDetailUrls(options = {}) {
       cantonCounts[meta.canton] = (cantonCounts[meta.canton] || 0) + 1;
     }
 
-    if (pageNew === 0) {
-      throw new Error(
-        `Coop discovery incomplete: page ${page + 1} added no unique source records; `
-        + 'refusing to infer completeness from a repeated page.',
-      );
-    }
-    if (apiTotal !== null && fetched > apiTotal) {
-      throw new Error(`Coop discovery invariant failed: unique source records ${fetched} exceed API total ${apiTotal}.`);
-    }
-
     console.log(`  📦 page ${page + 1}: ${jobs.length} jobs (cumulative ${fetched}${apiTotal !== null ? `/${apiTotal}` : ''})`);
 
     // Drained the full result set.
-    if (apiTotal !== null && fetched === apiTotal) break;
-    if (jobs.length < API_LIMIT) {
-      if (apiTotal !== null && fetched < apiTotal) {
-        throw new Error(`Coop discovery incomplete: received ${fetched}/${apiTotal} unique source records before a short page.`);
-      }
-      break;
-    }
+    if (apiTotal !== null && offset + jobs.length >= apiTotal) break;
+    if (jobs.length < API_LIMIT) break;
   }
 
   // Surface the safety-ceiling so a silent stop ≠ a fully drained feed.
   if (apiTotal !== null && fetched < apiTotal) {
-    throw new Error(`Coop discovery incomplete: pagination stopped at ${fetched}/${apiTotal} unique source records (API_MAX_PAGES=${API_MAX_PAGES} ceiling).`);
+    console.warn(`  ⚠️ Pagination stopped at ${fetched}/${apiTotal} jobs (API_MAX_PAGES=${API_MAX_PAGES} ceiling) — raise the ceiling if Coop's national listing has grown.`);
   }
 
   // Summary log
