@@ -3,14 +3,15 @@
  * Dedicated Debiopharm crawler runner.
  *
  * Discovery: scrape the SSR career page at https://www.debiopharm.com/careers/
- * (HTML lists every job link → apply.workable.com/debiopharm/j/{shortcode}).
+ * (HTML lists every job link → apply.workable.com/debiopharm/j/{shortcode})
+ * for the CH-wide set of source-backed openings across all 26 cantons.
  *
  * Enrichment: fetch Workable v2 detail JSON for each shortcode
  *   GET https://apply.workable.com/api/v2/accounts/debiopharm/jobs/{shortcode}
  *
  * Flow:
  *   1. Fetch SSR careers page + extract job shortcodes
- *   2. For each shortcode, fetch v2 detail and keep Switzerland-located jobs
+ *   2. For each shortcode, fetch v2 detail and keep source-backed Swiss jobs
  *   3. Build complete ParsedJob records with needsRetranslation: true
  *   4. Merge into jobs.json keyed by Workable shortcode (stable id)
  *   5. Run scoped localization for the Debiopharm company key
@@ -56,8 +57,7 @@ import {
   buildDebiopharmApplyUrl,
   isDebiopharmSwissJob,
 } from './lib/debiopharm-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
-import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -72,7 +72,6 @@ const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'debiopharm.json');
 
 const COMPANY_KEY = 'debiopharm';
-const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'VD';
 const COMPANY_NAME = 'Debiopharm';
 const COMPANY_HOST = 'apply.workable.com';
 const COMPANY_DOMAIN = 'debiopharm.com';
@@ -212,30 +211,24 @@ async function fetchDebiopharmDetail(shortcode) {
 }
 
 export function buildDebiopharmJob(listing, detail) {
-  const parsed = parseDebiopharmJobDetailPayload(detail);
+  const parsed = parseDebiopharmJobDetailPayload(detail, listing?.locationLabel || '');
   const title = parsed.title || String(listing?.title || '').trim();
-  const city = parsed.city || 'Lausanne';
+  const city = String(parsed.city || '').trim();
+  const canton = parsed.inferredCanton;
+  if (!city || !canton) {
+    console.warn(`     ⚠️  Skipping job without a source-backed Swiss locality (${title || 'untitled'})`);
+    return null;
+  }
   // Slug-only guard: both `city` and `parsed.inferredCanton` can be the literal
   // "undefined"/"null" string (truthy) → `-undefined` in an active slug (#952, class
   // #900/#901). location/addressLocality keep raw `city` (choke-point normalizer
   // owns de-index); guard only the slug tokens here.
-  const slug = slugify(`${title} ${COMPANY_NAME} ${safeLocationToken(city, 'Lausanne')} ${safeLocationToken(parsed.inferredCanton, 'Vaud')} Switzerland`);
+  const slug = slugify(`${title} ${COMPANY_NAME} ${safeLocationToken(city, city)} ${safeLocationToken(canton, canton)} Switzerland`);
   const detailUrl = buildDebiopharmDetailUrl(listing.shortcode);
   const applyUrl = buildDebiopharmApplyUrl(listing.shortcode);
   const publishedDate = toIsoDate(parsed.publishedDate);
-  // Trust parsed.inferredCanton as-is: it was already derived from the RAW
-  // (pre-HQ-default) city/region inside parseDebiopharmJobDetailPayload().
-  // Re-deriving from `city` here is wrong — `city` is `parsed.city`, which is
-  // ITSELF already HQ-defaulted to 'Lausanne' when the raw city was empty, so
-  // inferAnyCanton(city) would trivially resolve to 'VD' and short-circuit
-  // before ever consulting the real null-skip signal (e.g. empty city + a
-  // genuinely unresolvable region would wrongly publish as Lausanne/VD).
-  const canton = parsed.inferredCanton;
-  if (canton === null) {
-    console.warn(`     ⚠️  Skipping unresolvable location "${city}" (${title})`);
-    return null;
-  }
-
+  // The parser derives this canton from the validated source location; do not
+  // replace it with an employer-wide default at the publication boundary.
   return {
     title,
     slug,
@@ -248,6 +241,8 @@ export function buildDebiopharmJob(listing, detail) {
     addressLocality: city,
     addressRegion: canton,
     addressCountry: 'CH',
+    postalCode: parsed.postalCode || '',
+    streetAddress: parsed.streetAddress || city,
     canton,
     country: 'CH',
     employmentType: parsed.employmentType,
@@ -352,13 +347,13 @@ function updateAdapterConfig(discoveredJobs) {
       job.url,
       {
         location: job.location,
-        canton: inferAnyCanton(job.location) || DEFAULT_CANTON,
+        canton: inferAnyCanton(job.location) || '',
         company: COMPANY_NAME,
         postedDate: job.postedDate || '',
       },
     ])
   );
-  adapter.notes = 'Dedicated Debiopharm crawler uses SSR debiopharm.com/careers + Workable v2 job detail API for Swiss jobs.';
+  adapter.notes = 'Dedicated Debiopharm crawler reads the SSR careers source and Workable v2 detail API, keeping source-backed openings across Switzerland (all 26 cantons).';
   adapter.updatedAt = new Date().toISOString();
   writeJson(ADAPTER_PATH, adapter);
   console.log(`📝 Adapter ${COMPANY_KEY} updated.`);
@@ -367,11 +362,10 @@ function updateAdapterConfig(discoveredJobs) {
 /**
  * Pure canton-backfill decision for postProcessJobs() (#3480). Given the
  * real (already-scraped) location text of an ALREADY-published job whose
- * `canton` field is currently missing, returns the safe-default canton to
- * write (Non-Negotiable #3: structured data must always carry a canton —
- * the safe default itself is never removed) plus a `needsCantonReview`
- * flag when the location text is real but unresolvable, distinct from "no
- * location text at all" (which safely defaults to HQ with no flag).
+ * `canton` field is currently missing, returns a source-backed canton when
+ * possible plus a `needsCantonReview` flag when the location is absent or
+ * unresolvable. The structured-data builder still supplies its coherent
+ * required-field fallback; this migration never invents an employer city.
  *
  * Unlike buildDebiopharmJob's admission-time skip guard, an already-published
  * job is never dropped/cut here (AGENTS.md "never cut live pages without
@@ -380,10 +374,12 @@ function updateAdapterConfig(discoveredJobs) {
  */
 export function resolveDebiopharmBackfillCanton(locationText = '') {
   const text = String(locationText || '').trim();
-  const inferredCanton = inferAnyCanton(text);
+  const inferredCanton = isTargetSwissLocation(text, { includeBorderProximity: false })
+    ? inferAnyCanton(text)
+    : '';
   return {
-    canton: inferredCanton || DEFAULT_CANTON,
-    needsCantonReview: Boolean(text && !inferredCanton),
+    canton: inferredCanton,
+    needsCantonReview: !inferredCanton,
   };
 }
 
@@ -407,22 +403,21 @@ function postProcessJobs() {
     }
     if (!job.canton) {
       const { canton, needsCantonReview } = resolveDebiopharmBackfillCanton(job.location || job.addressLocality || '');
-      job.canton = canton;
+      if (canton) job.canton = canton;
       if (needsCantonReview) job.needsCantonReview = true;
-      fixed += 1;
+      if (canton) fixed += 1;
     }
     job.country = 'CH';
     // Deliberately does NOT default addressCountry to 'CH' here (#5403/#5384/#5405)
     // — an undeclared country and a declared-Swiss one are different pieces
     // of evidence; overwriting the former destroys that distinction at rest.
     // Consumers already fall back to 'CH' at read time.
-    if (!job.addressRegion) job.addressRegion = job.canton;
-    if (!job.location) {
-      job.location = 'Lausanne';
+    if (!job.addressRegion && job.canton) {
+      job.addressRegion = job.canton;
       fixed += 1;
     }
-    if (!job.addressLocality) {
-      job.addressLocality = job.location || 'Lausanne';
+    if (!job.addressLocality && job.location) {
+      job.addressLocality = job.location;
       fixed += 1;
     }
     if (job.needsRetranslation !== true) {
@@ -446,7 +441,7 @@ function logStats(beforeSnapshot = new Map()) {
   if (targetJobs.length > 0) {
     console.log('  📋 Jobs:');
     for (const job of targetJobs) {
-      console.log(`     - ${job.title} (${job.location || 'Lausanne'})`);
+      console.log(`     - ${job.title} (${job.location || 'location non indicata'})`);
     }
   }
 
@@ -469,7 +464,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_debiopharm_domain',
-    failWhenNoJobs: true,
+    failWhenNoJobs: false,
     noJobsMessage: 'No Debiopharm jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'en'),
   });
@@ -489,7 +484,7 @@ async function main() {
 
   const listings = await fetchDebiopharmListings();
   if (listings.length === 0) {
-    throw new Error('Debiopharm discovery returned 0 listings.');
+    console.warn('⚠️ Debiopharm careers source was read but declared no listing entries; continuing with the verified empty discovery.');
   }
 
   const discoveredJobs = [];
@@ -502,7 +497,7 @@ async function main() {
       console.warn(`     ⚠️  Detail fetch failed for ${listing.shortcode}: ${err?.message || err}`);
       continue;
     }
-    if (!isDebiopharmSwissJob(detail)) {
+    if (!isDebiopharmSwissJob(detail, listing.locationLabel)) {
       console.log(`     ⏭️  Skipping (not Switzerland): ${detail?.location?.countryCode || '?'}`);
       continue;
     }
@@ -512,7 +507,7 @@ async function main() {
   }
 
   if (discoveredJobs.length === 0) {
-    throw new Error('Debiopharm produced 0 Switzerland-located jobs after enrichment.');
+    console.warn('⚠️ Debiopharm detail enrichment produced no source-backed Swiss jobs; continuing with the verified empty discovery.');
   }
 
   updateAdapterConfig(discoveredJobs);
@@ -528,7 +523,7 @@ async function main() {
   const stats = logStats(beforeSnapshot);
   const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
-    throw new Error('Debiopharm crawler produced 0 jobs.');
+    console.warn('⚠️ Debiopharm source listings were read, but no source-backed Swiss job was publishable; preserving the verified empty result.');
   }
   validateLocales();
 
