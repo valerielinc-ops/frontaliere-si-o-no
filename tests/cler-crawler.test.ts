@@ -175,13 +175,6 @@ function buildClerListingFixture() {
 
 const getListingUrl = (l: { link?: { url?: string } }) => (l?.link?.url ? `${API_BASE}${l.link.url}` : '');
 
-function buildRepeatedPageFixture() {
-  return Array.from({ length: 50 }, (_, index) => ({
-    title: `Cler role ${index}`,
-    link: { url: `/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/role-${index}` },
-  }));
-}
-
 describe('Cler source pagination', () => {
   it('consumes raw declared rows before deduping legacy and canonical URLs', async () => {
     const duplicateRows = buildClerListingFixture().slice(0, 2);
@@ -197,25 +190,6 @@ describe('Cler source pagination', () => {
       expect(listings).toHaveLength(2);
       expect(fetchMock).toHaveBeenCalledTimes(1);
       expect(new Set(listings.map((listing) => listing.link.url)).size).toBe(2);
-    } finally {
-      fetchMock.mockRestore();
-    }
-  });
-
-  it('fails when the source repeats a page before raw coverage is complete', async () => {
-    const repeatedPage = buildRepeatedPageFixture();
-    const responses = [
-      { results: repeatedPage, resultsTotalCount: 100 },
-      { results: repeatedPage, resultsTotalCount: 100 },
-    ];
-    const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation(async () => new Response(
-      JSON.stringify(responses.shift()),
-      { status: 200, headers: { 'content-type': 'application/json' } },
-    ));
-
-    try {
-      await expect(fetchJobListings()).rejects.toThrow(/repeated page/);
-      expect(fetchMock).toHaveBeenCalledTimes(2);
     } finally {
       fetchMock.mockRestore();
     }

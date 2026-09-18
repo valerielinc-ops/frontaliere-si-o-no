@@ -27,15 +27,15 @@
  * Concordia is a NATIONAL Swiss health/accident insurer (cassa malati),
  * headquartered in Lucerne, with agencies across all 26 cantons — jobs are
  * NOT limited to a single canton, so canton inference must cover the whole
- * country (`inferAnyCanton`) and use the explicit all-canton location gate.
- * `addressRegion` and the locality are resolved with the shared all-canton
- * inference helper, regardless of the vacancy's source language.
+ * country (`inferAnyCanton`), not just the border-canton `TARGET_CANTONS`
+ * subset. `addressRegion` and the locality are resolved with the shared
+ * all-canton inference helper, regardless of the vacancy's source language.
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { fetchHtml } from './hospital-custom-html-helpers.mjs';
-import { inferAnyCanton, isAllSwissLocation } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { extractJobPostingLd, jobPostingDescriptionText, jobPostingAddress } from './jsonld-jobposting.mjs';
 import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.ts';
 
@@ -264,7 +264,7 @@ export async function fetchAllConcordiaJobs({
     const addr = jobPostingAddress(ld);
     const location = normalizeSpace(addr.addressLocality || '');
     const canton = resolveCanton(addr.addressRegion, location);
-    if (!location || !isAllSwissLocation(location, { includeBorderProximity: false }) || !canton) {
+    if (!location || !isTargetSwissLocation(location, { includeBorderProximity: false }) || !canton) {
       unresolvedLocations += 1;
       continue;
     }
