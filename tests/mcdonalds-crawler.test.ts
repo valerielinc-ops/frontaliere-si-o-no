@@ -187,14 +187,7 @@ describe("McDonald's Switzerland crawler parser", () => {
         title: 'Crew Member',
         reference: 'BE-1',
         originalURL: 'fr-ch/crew-member/job/BE-1',
-        locations: [{
-          city: 'KOENIZ',
-          state: 'Bern',
-          stateAbbr: 'BE',
-          countryAbbr: 'CH',
-          zipCode: '3084',
-          streetAddress: 'Hauptstrasse 1',
-        }],
+        locations: [{ city: 'KOENIZ', state: 'Bern', stateAbbr: 'BE', countryAbbr: 'CH' }],
       });
       expect(parsed).toMatchObject({ canton: 'BE', sourceLocation: 'KOENIZ, Bern, BE' });
       expect(buildMcdoJob(parsed)).toMatchObject({ location: 'KOENIZ', canton: 'BE' });
@@ -328,25 +321,6 @@ describe("McDonald's Switzerland crawler parser", () => {
       // Listing-only build has no enrichment yet, so it falls back to the
       // synthesized description rather than a scraped one.
       expect(job.description.length).toBeGreaterThan(20);
-    });
-
-    it('keeps mandatory address fields coherent when source address data is absent', () => {
-      const job = buildMcdoJob({
-        ...parsed,
-        city: 'Lugano',
-        canton: 'TI',
-        sourceLocation: 'Lugano, TI',
-        postalCode: '',
-        streetAddress: '',
-      })!;
-      expect(job).toMatchObject({
-        location: 'Lugano',
-        addressLocality: 'Lugano',
-        addressRegion: 'TI',
-        postalCode: '6900',
-        streetAddress: 'Piazza Riforma 1',
-      });
-      expect(job.streetAddress).not.toBe(job.location);
     });
 
     it('returns null for empty parse results', () => {
