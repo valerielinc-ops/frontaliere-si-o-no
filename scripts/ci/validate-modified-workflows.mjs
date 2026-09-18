@@ -2,15 +2,49 @@
  * Pre-merge validation for workflow files changed by the current PR.
  *
  * actionlint catches YAML and GitHub Actions schema errors, but GitHub also
- * rejects an otherwise valid workflow when a multiline step scalar exceeds
- * the server-side prompt limit. Keep that contract in this zero-dependency
- * gate so a future issue-fix prompt cannot silently produce a zero-job run.
+ * rejects an otherwise valid workflow when a prompt scalar — or the whole
+ * rendered `with:` mapping that contains it — exceeds the server-side limit.
+ * Keep that contract in this zero-dependency gate so a future issue-fix
+ * prompt cannot silently produce a zero-job run.
  */
 import { appendFileSync, existsSync, readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 
 export const PROMPT_SCALAR_LIMIT = 20_000;
+
+function indentWidth(line) {
+  return line.length - line.replace(/^\s*/, '').length;
+}
+
+function collectIndentedYaml(lines, headerIndex, headerIndent) {
+  const block = [];
+  let last = headerIndex;
+  for (let j = headerIndex + 1; j < lines.length; j += 1) {
+    const line = lines[j];
+    if (line.trim() === '') {
+      block.push(line);
+      last = j;
+      continue;
+    }
+    if (indentWidth(line) <= headerIndent) break;
+    block.push(line);
+    last = j;
+  }
+  return { block, last };
+}
+
+function dedentYamlBlock(block, headerIndent, explicitIndent = 0) {
+  const contentIndent = explicitIndent > 0
+    ? headerIndent + explicitIndent
+    : block
+      .filter(line => line.trim() !== '')
+      .reduce((minimum, line) => Math.min(minimum, indentWidth(line)), Number.POSITIVE_INFINITY);
+  return block.map(line => {
+    if (line.trim() === '') return '';
+    return line.slice(Number.isFinite(contentIndent) ? contentIndent : line.length);
+  }).join('\n');
+}
 
 /** Extract YAML block scalars attached to a `prompt:` key, dedented come li riceve GitHub. */
 export function promptBlocks(text) {
@@ -21,37 +55,46 @@ export function promptBlocks(text) {
     if (!match) continue;
     const indent = match[1].length;
     const explicitIndent = Number(match[2] || match[3] || 0);
-    const block = [];
-    for (let j = i + 1; j < lines.length; j += 1) {
-      const line = lines[j];
-      if (line.trim() === '') {
-        block.push(line);
-        continue;
-      }
-      const lineIndent = line.length - line.replace(/^\s*/, '').length;
-      if (lineIndent <= indent) break;
-      block.push(line);
-    }
-    const contentIndent = explicitIndent > 0
-      ? indent + explicitIndent
-      : block
-        .filter(line => line.trim() !== '')
-        .reduce((minimum, line) => Math.min(
-          minimum,
-          line.length - line.replace(/^\s*/, '').length,
-        ), Number.POSITIVE_INFINITY);
-    out.push(block.map(line => {
-      if (line.trim() === '') return '';
-      return line.slice(Number.isFinite(contentIndent) ? contentIndent : line.length);
-    }).join('\n'));
+    const { block } = collectIndentedYaml(lines, i, indent);
+    out.push(dedentYamlBlock(block, indent, explicitIndent));
+  }
+  return out;
+}
+
+/**
+ * Dedented `with:` mappings that contain a `prompt:` input.
+ * GitHub may weigh the whole mapping (prompt plus sibling inputs), not the
+ * prompt scalar alone.
+ */
+export function withBlocks(text) {
+  const out = [];
+  const lines = String(text || '').split(/\r?\n/);
+  for (let i = 0; i < lines.length; i += 1) {
+    const match = /^(\s*)with:\s*(?:#.*)?$/.exec(lines[i]);
+    if (!match) continue;
+    const indent = match[1].length;
+    const { block, last } = collectIndentedYaml(lines, i, indent);
+    const rendered = dedentYamlBlock(block, indent);
+    i = last;
+    if (/(?:^|\n)prompt\s*:/m.test(rendered)) out.push(rendered);
   }
   return out;
 }
 
 export function validateWorkflowText(file, text) {
-  return promptBlocks(text)
-    .map((prompt, index) => ({ file, index: index + 1, length: prompt.length }))
-    .filter(({ length }) => length > PROMPT_SCALAR_LIMIT);
+  const source = String(text || '');
+  const offenders = [];
+  for (const [index, prompt] of promptBlocks(source).entries()) {
+    if (prompt.length > PROMPT_SCALAR_LIMIT) {
+      offenders.push({ file, index: index + 1, length: prompt.length });
+    }
+  }
+  for (const [index, block] of withBlocks(source).entries()) {
+    if (block.length > PROMPT_SCALAR_LIMIT) {
+      offenders.push({ file, index: index + 1, length: block.length });
+    }
+  }
+  return offenders;
 }
 
 function removeYamlComments(source) {
