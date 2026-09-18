@@ -317,7 +317,7 @@ function loadGraph(files, assets) {
     previousVersion = cached.version || 0;
     previousAssets = cached.assets || null;
   } catch {}
-  const reusable = previousVersion === 7 && previousAssets === assetsDigest;
+  const reusable = previousVersion === 8 && previousAssets === assetsDigest;
   const fileSet = new Set(files);
   // Keep old entries for deleted files: a deleted module can still be a
   // changed root, and its cached reverse edges identify the tests that used
@@ -332,7 +332,7 @@ function loadGraph(files, assets) {
       : { signature: sig, deps: importsOf(file, fileSet, assets) };
   }
   mkdirSync(path.dirname(graphFile), { recursive: true });
-  writeFileSync(graphFile, JSON.stringify({ version: 7, assets: assetsDigest, files: graph }));
+  writeFileSync(graphFile, JSON.stringify({ version: 8, assets: assetsDigest, files: graph }));
   return graph;
 }
 
