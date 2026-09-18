@@ -21,8 +21,8 @@
  * so every SEO feature page renders with:
  *
  *   - `<body class="bg-surface-alt text-heading overflow-x-hidden">` (theme)
- *   - `<script type="module" src="/assets/index-{hash}.js">` (SPA hydration)
- *   - `<link rel="stylesheet" href="/assets/index-{hash}.css">` (site CSS)
+ *   - `<script type="module" src="/assets/index-entry.js">` (SPA hydration)
+ *   - `<link rel="stylesheet" href="/assets/index.css">` (site CSS)
  *   - `<div id="root">` containing the SEO content (React hydrates after load)
  *
  * Entry asset resolution

@@ -1672,7 +1672,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "stellentreff-4d506753c8a9",
@@ -2078,7 +2079,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "stellentreff-2fefde17ce53",
@@ -3233,17 +3235,32 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-holzfassadenmontage-frauenfeld-thurgau-stellentreff-ch"
+        "zimmermann-zimmerin-fur-holzfassadenmontage-frauenfeld-thurgau-stellentreff-ch",
+        "lavoratori-per-facciate-stellentreff-ag-frauenfeld-thurgau",
+        "woodworkers-for-facade-assembly-stellentreff-ag-frauenfeld-thurgau",
+        "holzbaubearbeiter-in-fur-fassadenmontage-frauenfeld-thurgau-stellentreff-ch",
+        "ouvriers-en-bois-pour-montage-de-facade-stellentreff-ag-frauenfeld-thurgau",
+        "holzbaubearbeiter-in-per-fassadenmontage-stellentreff-ag-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-zimmerin-fur-holzfassadenmontage-frauenfeld-thurgau-stellentreff-ch"
+          "zimmermann-zimmerin-fur-holzfassadenmontage-frauenfeld-thurgau-stellentreff-ch",
+          "lavoratori-per-facciate-stellentreff-ag-frauenfeld-thurgau",
+          "woodworkers-for-facade-assembly-stellentreff-ag-frauenfeld-thurgau",
+          "holzbaubearbeiter-in-fur-fassadenmontage-frauenfeld-thurgau-stellentreff-ch",
+          "ouvriers-en-bois-pour-montage-de-facade-stellentreff-ag-frauenfeld-thurgau",
+          "holzbaubearbeiter-in-per-fassadenmontage-stellentreff-ag-frauenfeld"
         ],
         "en": [
-          "zimmermann-zimmerin-fur-holzfassadenmontage-frauenfeld-thurgau-stellentreff-ch"
+          "zimmermann-zimmerin-fur-holzfassadenmontage-frauenfeld-thurgau-stellentreff-ch",
+          "woodworkers-for-facade-assembly-stellentreff-ag-frauenfeld-thurgau"
         ],
         "fr": [
-          "zimmermann-zimmerin-fur-holzfassadenmontage-frauenfeld-thurgau-stellentreff-ch"
+          "zimmermann-zimmerin-fur-holzfassadenmontage-frauenfeld-thurgau-stellentreff-ch",
+          "ouvriers-en-bois-pour-montage-de-facade-stellentreff-ag-frauenfeld-thurgau"
+        ],
+        "de": [
+          "holzbaubearbeiter-in-fur-fassadenmontage-frauenfeld-thurgau-stellentreff-ch"
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.389Z",
@@ -3432,7 +3449,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "stellentreff-c698e6c62dae",
@@ -36379,18 +36397,33 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "metallbauer-in-fur-8211-storenmontagen-bulach-zurich-stellentreff-ch",
-        "metallbauer-in-per-storenmontagen-stellentreff-ag-bulach"
+        "metallbauer-in-per-storenmontagen-stellentreff-ag-bulach",
+        "lavoratori-per-officina-e-assemblaggio-stellentreff-ag-bulach-zurich",
+        "metalworkers-for-workshop-and-assembly-stellentreff-ag-bulach-zurich",
+        "metallbauer-in-fur-werkstatt-und-montage-bulach-zurich-stellentreff-ch",
+        "metaux-pour-atelier-et-montage-stellentreff-ag-bulach-zurich",
+        "metallbauer-in-per-werkstatt-e-montage-stellentreff-ag-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "metallbauer-in-fur-8211-storenmontagen-bulach-zurich-stellentreff-ch",
-          "metallbauer-in-per-storenmontagen-stellentreff-ag-bulach"
+          "metallbauer-in-per-storenmontagen-stellentreff-ag-bulach",
+          "lavoratori-per-officina-e-assemblaggio-stellentreff-ag-bulach-zurich",
+          "metalworkers-for-workshop-and-assembly-stellentreff-ag-bulach-zurich",
+          "metallbauer-in-fur-werkstatt-und-montage-bulach-zurich-stellentreff-ch",
+          "metaux-pour-atelier-et-montage-stellentreff-ag-bulach-zurich",
+          "metallbauer-in-per-werkstatt-e-montage-stellentreff-ag-bulach"
         ],
         "en": [
-          "metallbauer-in-fur-8211-storenmontagen-bulach-zurich-stellentreff-ch"
+          "metallbauer-in-fur-8211-storenmontagen-bulach-zurich-stellentreff-ch",
+          "metalworkers-for-workshop-and-assembly-stellentreff-ag-bulach-zurich"
         ],
         "fr": [
-          "metallbauer-in-fur-8211-storenmontagen-bulach-zurich-stellentreff-ch"
+          "metallbauer-in-fur-8211-storenmontagen-bulach-zurich-stellentreff-ch",
+          "metaux-pour-atelier-et-montage-stellentreff-ag-bulach-zurich"
+        ],
+        "de": [
+          "metallbauer-in-fur-werkstatt-und-montage-bulach-zurich-stellentreff-ch"
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.232Z",
@@ -39433,7 +39466,11 @@
         "professionisti-di-pittura-con-vari-progetti-dei-clienti-stellentreff-ag-bulach-zurich",
         "painting-practitioners-with-varied-customer-projects-stellentreff-ag-bulach-zurich",
         "malerpraktiker-in-mit-abwechslungsreichen-kundenprojekten-bulach-zurich-stellentreff-ch",
-        "pratiques-de-peinture-avec-des-projets-clients-varies-stellentreff-ag-bulach-zurich"
+        "pratiques-de-peinture-avec-des-projets-clients-varies-stellentreff-ag-bulach-zurich",
+        "professionisti-di-pittura-con-orientamento-del-cliente-stellentreff-ag-luzern-luzern",
+        "painting-practitioners-with-customer-orientation-stellentreff-ag-luzern-luzern",
+        "malerpraktiker-in-mit-kundenorientierung-luzern-luzern-stellentreff-ch",
+        "pratiques-de-peinture-avec-orientation-client-stellentreff-ag-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -39441,18 +39478,25 @@
           "professionisti-di-pittura-con-vari-progetti-dei-clienti-stellentreff-ag-bulach-zurich",
           "painting-practitioners-with-varied-customer-projects-stellentreff-ag-bulach-zurich",
           "malerpraktiker-in-mit-abwechslungsreichen-kundenprojekten-bulach-zurich-stellentreff-ch",
-          "pratiques-de-peinture-avec-des-projets-clients-varies-stellentreff-ag-bulach-zurich"
+          "pratiques-de-peinture-avec-des-projets-clients-varies-stellentreff-ag-bulach-zurich",
+          "professionisti-di-pittura-con-orientamento-del-cliente-stellentreff-ag-luzern-luzern",
+          "painting-practitioners-with-customer-orientation-stellentreff-ag-luzern-luzern",
+          "malerpraktiker-in-mit-kundenorientierung-luzern-luzern-stellentreff-ch",
+          "pratiques-de-peinture-avec-orientation-client-stellentreff-ag-luzern-luzern"
         ],
         "en": [
           "malerpraktiker-in-mit-abwechslungsreichen-kundenprojekten-luzern-luzern-stellentreff-ch",
-          "painting-practitioners-with-varied-customer-projects-stellentreff-ag-bulach-zurich"
+          "painting-practitioners-with-varied-customer-projects-stellentreff-ag-bulach-zurich",
+          "painting-practitioners-with-customer-orientation-stellentreff-ag-luzern-luzern"
         ],
         "fr": [
           "malerpraktiker-in-mit-abwechslungsreichen-kundenprojekten-luzern-luzern-stellentreff-ch",
-          "pratiques-de-peinture-avec-des-projets-clients-varies-stellentreff-ag-bulach-zurich"
+          "pratiques-de-peinture-avec-des-projets-clients-varies-stellentreff-ag-bulach-zurich",
+          "pratiques-de-peinture-avec-orientation-client-stellentreff-ag-luzern-luzern"
         ],
         "de": [
-          "malerpraktiker-in-mit-abwechslungsreichen-kundenprojekten-bulach-zurich-stellentreff-ch"
+          "malerpraktiker-in-mit-abwechslungsreichen-kundenprojekten-bulach-zurich-stellentreff-ch",
+          "malerpraktiker-in-mit-kundenorientierung-luzern-luzern-stellentreff-ch"
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.214Z",
@@ -53225,18 +53269,33 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gipserpraktiker-in-fur-trockenbau-winterthur-zurich-stellentreff-ch",
-        "gipserpraktiker-in-per-trockenbau-stellentreff-ag-winterthur"
+        "gipserpraktiker-in-per-trockenbau-stellentreff-ag-winterthur",
+        "praticanti-in-gesso-a-muro-secco-stellentreff-ag-winterthur-zurich",
+        "drywall-plaster-practitioners-stellentreff-ag-winterthur-zurich",
+        "gipserpraktiker-in-fur-trockenbau-und-spachtelarbeiten-winterthur-zurich-stellentreff-ch",
+        "pratiques-de-platre-a-paroi-seche-stellentreff-ag-winterthur-zurich",
+        "gipserpraktiker-in-per-trockenbau-e-spachtelarbeiten-stellentreff-ag-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gipserpraktiker-in-fur-trockenbau-winterthur-zurich-stellentreff-ch",
-          "gipserpraktiker-in-per-trockenbau-stellentreff-ag-winterthur"
+          "gipserpraktiker-in-per-trockenbau-stellentreff-ag-winterthur",
+          "praticanti-in-gesso-a-muro-secco-stellentreff-ag-winterthur-zurich",
+          "drywall-plaster-practitioners-stellentreff-ag-winterthur-zurich",
+          "gipserpraktiker-in-fur-trockenbau-und-spachtelarbeiten-winterthur-zurich-stellentreff-ch",
+          "pratiques-de-platre-a-paroi-seche-stellentreff-ag-winterthur-zurich",
+          "gipserpraktiker-in-per-trockenbau-e-spachtelarbeiten-stellentreff-ag-winterthur"
         ],
         "en": [
-          "gipserpraktiker-in-fur-trockenbau-winterthur-zurich-stellentreff-ch"
+          "gipserpraktiker-in-fur-trockenbau-winterthur-zurich-stellentreff-ch",
+          "drywall-plaster-practitioners-stellentreff-ag-winterthur-zurich"
         ],
         "fr": [
-          "gipserpraktiker-in-fur-trockenbau-winterthur-zurich-stellentreff-ch"
+          "gipserpraktiker-in-fur-trockenbau-winterthur-zurich-stellentreff-ch",
+          "pratiques-de-platre-a-paroi-seche-stellentreff-ag-winterthur-zurich"
+        ],
+        "de": [
+          "gipserpraktiker-in-fur-trockenbau-und-spachtelarbeiten-winterthur-zurich-stellentreff-ch"
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.137Z",
@@ -59972,20 +60031,39 @@
         "elektroinstallateur-in-mit-serviceeinsatzen-luzern-luzern-stellentreff-ch",
         "installatore-trice-elettrico-a-in-con-serviceeinsatzen-stellentreff-ag-luzern",
         "electrical-installer-mit-serviceeinsatzen-stellentreff-ag-luzern",
-        "installateur-trice-electricien-ne-mit-serviceeinsatzen-stellentreff-ag-luzern"
+        "installateur-trice-electricien-ne-mit-serviceeinsatzen-stellentreff-ag-luzern",
+        "servizio-installatore-elettrico-con-lavoro-di-squadra-stellentreff-ag-luzern-luzern",
+        "electrical-installer-service-with-teamwork-stellentreff-ag-luzern-luzern",
+        "elektroinstallateur-in-service-mit-teamarbeit-luzern-luzern-stellentreff-ch",
+        "service-d-installateur-electrique-avec-teamwork-stellentreff-ag-luzern-luzern",
+        "installatore-trice-elettrico-a-in-service-con-teamarbeit-stellentreff-ag-luzern",
+        "electrical-installer-service-mit-teamarbeit-stellentreff-ag-luzern",
+        "installateur-trice-electricien-ne-service-mit-teamarbeit-stellentreff-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-mit-serviceeinsatzen-luzern-luzern-stellentreff-ch",
-          "installatore-trice-elettrico-a-in-con-serviceeinsatzen-stellentreff-ag-luzern"
+          "installatore-trice-elettrico-a-in-con-serviceeinsatzen-stellentreff-ag-luzern",
+          "servizio-installatore-elettrico-con-lavoro-di-squadra-stellentreff-ag-luzern-luzern",
+          "electrical-installer-service-with-teamwork-stellentreff-ag-luzern-luzern",
+          "elektroinstallateur-in-service-mit-teamarbeit-luzern-luzern-stellentreff-ch",
+          "service-d-installateur-electrique-avec-teamwork-stellentreff-ag-luzern-luzern",
+          "installatore-trice-elettrico-a-in-service-con-teamarbeit-stellentreff-ag-luzern",
+          "electrical-installer-service-mit-teamarbeit-stellentreff-ag-luzern",
+          "installateur-trice-electricien-ne-service-mit-teamarbeit-stellentreff-ag-luzern"
         ],
         "en": [
           "elektroinstallateur-in-mit-serviceeinsatzen-luzern-luzern-stellentreff-ch",
-          "electrical-installer-mit-serviceeinsatzen-stellentreff-ag-luzern"
+          "electrical-installer-mit-serviceeinsatzen-stellentreff-ag-luzern",
+          "electrical-installer-service-with-teamwork-stellentreff-ag-luzern-luzern"
         ],
         "fr": [
           "elektroinstallateur-in-mit-serviceeinsatzen-luzern-luzern-stellentreff-ch",
-          "installateur-trice-electricien-ne-mit-serviceeinsatzen-stellentreff-ag-luzern"
+          "installateur-trice-electricien-ne-mit-serviceeinsatzen-stellentreff-ag-luzern",
+          "service-d-installateur-electrique-avec-teamwork-stellentreff-ag-luzern-luzern"
+        ],
+        "de": [
+          "elektroinstallateur-in-service-mit-teamarbeit-luzern-luzern-stellentreff-ch"
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.100Z",
@@ -60707,20 +60785,39 @@
         "elektroinstallateur-in-fur-tormontagen-und-servicearbeiten-sursee-luzern-stellentreff-ch",
         "installatore-trice-elettrico-a-in-per-tormontagen-e-servicearbeiten-stellentreff-ag-sursee",
         "electrical-installer-fur-tormontagen-und-servicearbeiten-stellentreff-ag-sursee",
-        "installateur-trice-electricien-ne-fur-tormontagen-und-servicearbeiten-stellentreff-ag-sursee"
+        "installateur-trice-electricien-ne-fur-tormontagen-und-servicearbeiten-stellentreff-ag-sursee",
+        "installatore-elettrico-per-lavori-di-servizio-commerciale-stellentreff-ag-sursee-luzern",
+        "electrical-installer-for-commercial-service-work-stellentreff-ag-sursee-luzern",
+        "elektroinstallateur-in-fur-servicearbeiten-im-gewerbe-sursee-luzern-stellentreff-ch",
+        "installation-electrique-pour-travaux-commerciaux-stellentreff-ag-sursee-luzern",
+        "installatore-trice-elettrico-a-in-per-servicearbeiten-im-gewerbe-stellentreff-ag-sursee",
+        "electrical-installer-fur-servicearbeiten-im-gewerbe-stellentreff-ag-sursee",
+        "installateur-trice-electricien-ne-fur-servicearbeiten-im-gewerbe-stellentreff-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-fur-tormontagen-und-servicearbeiten-sursee-luzern-stellentreff-ch",
-          "installatore-trice-elettrico-a-in-per-tormontagen-e-servicearbeiten-stellentreff-ag-sursee"
+          "installatore-trice-elettrico-a-in-per-tormontagen-e-servicearbeiten-stellentreff-ag-sursee",
+          "installatore-elettrico-per-lavori-di-servizio-commerciale-stellentreff-ag-sursee-luzern",
+          "electrical-installer-for-commercial-service-work-stellentreff-ag-sursee-luzern",
+          "elektroinstallateur-in-fur-servicearbeiten-im-gewerbe-sursee-luzern-stellentreff-ch",
+          "installation-electrique-pour-travaux-commerciaux-stellentreff-ag-sursee-luzern",
+          "installatore-trice-elettrico-a-in-per-servicearbeiten-im-gewerbe-stellentreff-ag-sursee",
+          "electrical-installer-fur-servicearbeiten-im-gewerbe-stellentreff-ag-sursee",
+          "installateur-trice-electricien-ne-fur-servicearbeiten-im-gewerbe-stellentreff-ag-sursee"
         ],
         "en": [
           "elektroinstallateur-in-fur-tormontagen-und-servicearbeiten-sursee-luzern-stellentreff-ch",
-          "electrical-installer-fur-tormontagen-und-servicearbeiten-stellentreff-ag-sursee"
+          "electrical-installer-fur-tormontagen-und-servicearbeiten-stellentreff-ag-sursee",
+          "electrical-installer-for-commercial-service-work-stellentreff-ag-sursee-luzern"
         ],
         "fr": [
           "elektroinstallateur-in-fur-tormontagen-und-servicearbeiten-sursee-luzern-stellentreff-ch",
-          "installateur-trice-electricien-ne-fur-tormontagen-und-servicearbeiten-stellentreff-ag-sursee"
+          "installateur-trice-electricien-ne-fur-tormontagen-und-servicearbeiten-stellentreff-ag-sursee",
+          "installation-electrique-pour-travaux-commerciaux-stellentreff-ag-sursee-luzern"
+        ],
+        "de": [
+          "elektroinstallateur-in-fur-servicearbeiten-im-gewerbe-sursee-luzern-stellentreff-ch"
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.093Z",
@@ -64779,17 +64876,32 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "betriebsmitarbeiter-in-montage-mit-mikroskoptechnik-sarnen-obwalden-stellentreff-ch"
+        "betriebsmitarbeiter-in-montage-mit-mikroskoptechnik-sarnen-obwalden-stellentreff-ch",
+        "installazione-e-controllo-della-qualita-stellentreff-ag-sarnen-obwalden",
+        "installation-and-quality-control-workers-stellentreff-ag-sarnen-obwalden",
+        "betriebsmitarbeiter-in-fur-montage-und-qualitatskontrolle-sarnen-obwalden-stellentreff-ch",
+        "travailleurs-de-l-installation-et-du-controle-de-la-qualite-stellentreff-ag-sarnen-obwalden",
+        "betriebsmitarbeiter-in-per-montage-e-qualitatskontrolle-stellentreff-ag-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmitarbeiter-in-montage-mit-mikroskoptechnik-sarnen-obwalden-stellentreff-ch"
+          "betriebsmitarbeiter-in-montage-mit-mikroskoptechnik-sarnen-obwalden-stellentreff-ch",
+          "installazione-e-controllo-della-qualita-stellentreff-ag-sarnen-obwalden",
+          "installation-and-quality-control-workers-stellentreff-ag-sarnen-obwalden",
+          "betriebsmitarbeiter-in-fur-montage-und-qualitatskontrolle-sarnen-obwalden-stellentreff-ch",
+          "travailleurs-de-l-installation-et-du-controle-de-la-qualite-stellentreff-ag-sarnen-obwalden",
+          "betriebsmitarbeiter-in-per-montage-e-qualitatskontrolle-stellentreff-ag-sarnen"
         ],
         "en": [
-          "betriebsmitarbeiter-in-montage-mit-mikroskoptechnik-sarnen-obwalden-stellentreff-ch"
+          "betriebsmitarbeiter-in-montage-mit-mikroskoptechnik-sarnen-obwalden-stellentreff-ch",
+          "installation-and-quality-control-workers-stellentreff-ag-sarnen-obwalden"
         ],
         "fr": [
-          "betriebsmitarbeiter-in-montage-mit-mikroskoptechnik-sarnen-obwalden-stellentreff-ch"
+          "betriebsmitarbeiter-in-montage-mit-mikroskoptechnik-sarnen-obwalden-stellentreff-ch",
+          "travailleurs-de-l-installation-et-du-controle-de-la-qualite-stellentreff-ag-sarnen-obwalden"
+        ],
+        "de": [
+          "betriebsmitarbeiter-in-fur-montage-und-qualitatskontrolle-sarnen-obwalden-stellentreff-ch"
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.069Z",
@@ -65256,7 +65368,12 @@
         "operations-personnel-for-assembly-and-precise-production-stellentreff-ag-sarnen-obwalden",
         "betriebsmitarbeiter-in-fur-montage-und-prazise-fertigung-sarnen-obwalden-stellentreff-ch",
         "personnel-d-exploitation-pour-le-montage-et-la-production-precise-stellentreff-ag-sarnen-obwalden",
-        "betriebsmitarbeiter-in-per-montage-e-prazise-fertigung-stellentreff-ag-sarnen"
+        "betriebsmitarbeiter-in-per-montage-e-prazise-fertigung-stellentreff-ag-sarnen",
+        "funzionamento-del-personale-con-esperienza-di-montaggio-e-precisione-stellentreff-ag-sarnen-obwalden",
+        "operations-personnel-with-assembly-experience-and-precision-stellentreff-ag-sarnen-obwalden",
+        "betriebsmitarbeiter-in-mit-montageerfahrung-und-prazision-sarnen-obwalden-stellentreff-ch",
+        "personnel-d-exploitation-avec-experience-et-precision-de-montage-stellentreff-ag-sarnen-obwalden",
+        "betriebsmitarbeiter-in-con-montageerfahrung-e-prazision-stellentreff-ag-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -65266,18 +65383,26 @@
           "operations-personnel-for-assembly-and-precise-production-stellentreff-ag-sarnen-obwalden",
           "betriebsmitarbeiter-in-fur-montage-und-prazise-fertigung-sarnen-obwalden-stellentreff-ch",
           "personnel-d-exploitation-pour-le-montage-et-la-production-precise-stellentreff-ag-sarnen-obwalden",
-          "betriebsmitarbeiter-in-per-montage-e-prazise-fertigung-stellentreff-ag-sarnen"
+          "betriebsmitarbeiter-in-per-montage-e-prazise-fertigung-stellentreff-ag-sarnen",
+          "funzionamento-del-personale-con-esperienza-di-montaggio-e-precisione-stellentreff-ag-sarnen-obwalden",
+          "operations-personnel-with-assembly-experience-and-precision-stellentreff-ag-sarnen-obwalden",
+          "betriebsmitarbeiter-in-mit-montageerfahrung-und-prazision-sarnen-obwalden-stellentreff-ch",
+          "personnel-d-exploitation-avec-experience-et-precision-de-montage-stellentreff-ag-sarnen-obwalden",
+          "betriebsmitarbeiter-in-con-montageerfahrung-e-prazision-stellentreff-ag-sarnen"
         ],
         "en": [
           "betriebsmitarbeiter-in-fur-feinmontage-und-montageanlagen-sarnen-obwalden-stellentreff-ch",
-          "operations-personnel-for-assembly-and-precise-production-stellentreff-ag-sarnen-obwalden"
+          "operations-personnel-for-assembly-and-precise-production-stellentreff-ag-sarnen-obwalden",
+          "operations-personnel-with-assembly-experience-and-precision-stellentreff-ag-sarnen-obwalden"
         ],
         "fr": [
           "betriebsmitarbeiter-in-fur-feinmontage-und-montageanlagen-sarnen-obwalden-stellentreff-ch",
-          "personnel-d-exploitation-pour-le-montage-et-la-production-precise-stellentreff-ag-sarnen-obwalden"
+          "personnel-d-exploitation-pour-le-montage-et-la-production-precise-stellentreff-ag-sarnen-obwalden",
+          "personnel-d-exploitation-avec-experience-et-precision-de-montage-stellentreff-ag-sarnen-obwalden"
         ],
         "de": [
-          "betriebsmitarbeiter-in-fur-montage-und-prazise-fertigung-sarnen-obwalden-stellentreff-ch"
+          "betriebsmitarbeiter-in-fur-montage-und-prazise-fertigung-sarnen-obwalden-stellentreff-ch",
+          "betriebsmitarbeiter-in-mit-montageerfahrung-und-prazision-sarnen-obwalden-stellentreff-ch"
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.064Z",
@@ -66802,18 +66927,33 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatikmonteur-in-fur-schaltschrankbau-willisau-luzern-stellentreff-ch",
-        "automatikmonteur-in-per-schaltschrankbau-stellentreff-ag-willisau"
+        "automatikmonteur-in-per-schaltschrankbau-stellentreff-ag-willisau",
+        "gestione-e-cablaggio-automatico-stellentreff-ag-willisau-luzern",
+        "steering-and-wiring-automatic-operators-stellentreff-ag-willisau-luzern",
+        "automatiker-in-fur-steuergeruste-und-verdrahtung-willisau-luzern-stellentreff-ch",
+        "operateurs-automatiques-de-direction-et-de-cablage-stellentreff-ag-willisau-luzern",
+        "automatiker-in-per-steuergeruste-e-verdrahtung-stellentreff-ag-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automatikmonteur-in-fur-schaltschrankbau-willisau-luzern-stellentreff-ch",
-          "automatikmonteur-in-per-schaltschrankbau-stellentreff-ag-willisau"
+          "automatikmonteur-in-per-schaltschrankbau-stellentreff-ag-willisau",
+          "gestione-e-cablaggio-automatico-stellentreff-ag-willisau-luzern",
+          "steering-and-wiring-automatic-operators-stellentreff-ag-willisau-luzern",
+          "automatiker-in-fur-steuergeruste-und-verdrahtung-willisau-luzern-stellentreff-ch",
+          "operateurs-automatiques-de-direction-et-de-cablage-stellentreff-ag-willisau-luzern",
+          "automatiker-in-per-steuergeruste-e-verdrahtung-stellentreff-ag-willisau"
         ],
         "en": [
-          "automatikmonteur-in-fur-schaltschrankbau-willisau-luzern-stellentreff-ch"
+          "automatikmonteur-in-fur-schaltschrankbau-willisau-luzern-stellentreff-ch",
+          "steering-and-wiring-automatic-operators-stellentreff-ag-willisau-luzern"
         ],
         "fr": [
-          "automatikmonteur-in-fur-schaltschrankbau-willisau-luzern-stellentreff-ch"
+          "automatikmonteur-in-fur-schaltschrankbau-willisau-luzern-stellentreff-ch",
+          "operateurs-automatiques-de-direction-et-de-cablage-stellentreff-ag-willisau-luzern"
+        ],
+        "de": [
+          "automatiker-in-fur-steuergeruste-und-verdrahtung-willisau-luzern-stellentreff-ch"
         ]
       },
       "firstSeenAt": "2026-09-13T14:20:27.862Z",
@@ -69025,18 +69165,33 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatiker-in-fur-niederspannungsanlagen-zofingen-aargau-stellentreff-ch",
-        "automatiker-in-per-niederspannungsanlagen-stellentreff-ag-zofingen"
+        "automatiker-in-per-niederspannungsanlagen-stellentreff-ag-zofingen",
+        "operatore-automatico-con-impianto-di-montaggio-e-messa-in-servizio-stellentreff-ag-zofingen-aargau",
+        "automatic-operator-with-assembly-and-commissioning-plant-stellentreff-ag-zofingen-aargau",
+        "automatiker-in-mit-montage-und-inbetriebnahmewerk-zofingen-aargau-stellentreff-ch",
+        "operateur-automatique-avec-installation-de-montage-et-de-mise-en-service-stellentreff-ag-zofingen-aargau",
+        "automatiker-in-con-montage-e-inbetriebnahmewerk-stellentreff-ag-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-fur-niederspannungsanlagen-zofingen-aargau-stellentreff-ch",
-          "automatiker-in-per-niederspannungsanlagen-stellentreff-ag-zofingen"
+          "automatiker-in-per-niederspannungsanlagen-stellentreff-ag-zofingen",
+          "operatore-automatico-con-impianto-di-montaggio-e-messa-in-servizio-stellentreff-ag-zofingen-aargau",
+          "automatic-operator-with-assembly-and-commissioning-plant-stellentreff-ag-zofingen-aargau",
+          "automatiker-in-mit-montage-und-inbetriebnahmewerk-zofingen-aargau-stellentreff-ch",
+          "operateur-automatique-avec-installation-de-montage-et-de-mise-en-service-stellentreff-ag-zofingen-aargau",
+          "automatiker-in-con-montage-e-inbetriebnahmewerk-stellentreff-ag-zofingen"
         ],
         "en": [
-          "automatiker-in-fur-niederspannungsanlagen-zofingen-aargau-stellentreff-ch"
+          "automatiker-in-fur-niederspannungsanlagen-zofingen-aargau-stellentreff-ch",
+          "automatic-operator-with-assembly-and-commissioning-plant-stellentreff-ag-zofingen-aargau"
         ],
         "fr": [
-          "automatiker-in-fur-niederspannungsanlagen-zofingen-aargau-stellentreff-ch"
+          "automatiker-in-fur-niederspannungsanlagen-zofingen-aargau-stellentreff-ch",
+          "operateur-automatique-avec-installation-de-montage-et-de-mise-en-service-stellentreff-ag-zofingen-aargau"
+        ],
+        "de": [
+          "automatiker-in-mit-montage-und-inbetriebnahmewerk-zofingen-aargau-stellentreff-ch"
         ]
       },
       "firstSeenAt": "2026-09-13T14:20:27.843Z",
@@ -70002,18 +70157,33 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "anlagen-und-apparatebauer-in-mit-vielseitigen-werkstattaufgaben-bulach-zurich-stellentreff",
-        "anlagen-e-apparatebauer-in-con-vielseitigen-werkstattaufgaben-stellentreff-ag-bulach"
+        "anlagen-e-apparatebauer-in-con-vielseitigen-werkstattaufgaben-stellentreff-ag-bulach",
+        "costruttori-di-impianti-e-apparati-per-la-lavorazione-di-metalli-versatili-stellentreff-ag-bulach-zurich",
+        "plant-and-apparatus-builders-for-versatile-metal-processing-stellentreff-ag-bulach-zurich",
+        "anlagen-und-apparatebauer-in-fur-vielseitige-metallverarbeitung-bulach-zurich-stellentreff",
+        "constructeurs-d-installations-et-d-appareils-pour-le-traitement-des-metaux-polyvalents-stellentreff-ag-bulach-zurich",
+        "anlagen-e-apparatebauer-in-per-vielseitige-metallverarbeitung-stellentreff-ag-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "anlagen-und-apparatebauer-in-mit-vielseitigen-werkstattaufgaben-bulach-zurich-stellentreff",
-          "anlagen-e-apparatebauer-in-con-vielseitigen-werkstattaufgaben-stellentreff-ag-bulach"
+          "anlagen-e-apparatebauer-in-con-vielseitigen-werkstattaufgaben-stellentreff-ag-bulach",
+          "costruttori-di-impianti-e-apparati-per-la-lavorazione-di-metalli-versatili-stellentreff-ag-bulach-zurich",
+          "plant-and-apparatus-builders-for-versatile-metal-processing-stellentreff-ag-bulach-zurich",
+          "anlagen-und-apparatebauer-in-fur-vielseitige-metallverarbeitung-bulach-zurich-stellentreff",
+          "constructeurs-d-installations-et-d-appareils-pour-le-traitement-des-metaux-polyvalents-stellentreff-ag-bulach-zurich",
+          "anlagen-e-apparatebauer-in-per-vielseitige-metallverarbeitung-stellentreff-ag-bulach"
         ],
         "en": [
-          "anlagen-und-apparatebauer-in-mit-vielseitigen-werkstattaufgaben-bulach-zurich-stellentreff"
+          "anlagen-und-apparatebauer-in-mit-vielseitigen-werkstattaufgaben-bulach-zurich-stellentreff",
+          "plant-and-apparatus-builders-for-versatile-metal-processing-stellentreff-ag-bulach-zurich"
         ],
         "fr": [
-          "anlagen-und-apparatebauer-in-mit-vielseitigen-werkstattaufgaben-bulach-zurich-stellentreff"
+          "anlagen-und-apparatebauer-in-mit-vielseitigen-werkstattaufgaben-bulach-zurich-stellentreff",
+          "constructeurs-d-installations-et-d-appareils-pour-le-traitement-des-metaux-polyvalents-stellentreff-ag-bulach-zurich"
+        ],
+        "de": [
+          "anlagen-und-apparatebauer-in-fur-vielseitige-metallverarbeitung-bulach-zurich-stellentreff"
         ]
       },
       "firstSeenAt": "2026-09-08T14:02:01.037Z",

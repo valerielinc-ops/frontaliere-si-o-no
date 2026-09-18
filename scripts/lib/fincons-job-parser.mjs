@@ -151,13 +151,24 @@ export function parseFinconsJobDetail(html = '') {
   const description = sections.join('\n\n').trim() || htmlToText(jsonLd?.description || '');
   const applyUrl = canonicalUrl || String(jsonLd?.url || '').trim();
   const locationParts = meta.split('|').map((part) => normalizeSpace(part));
-  const location = locationParts[1] || normalizeSpace([
+  const metaLocationParts = meta
+    .split(/\s+\|\s+|\s+-\s+/)
+    .map((part) => normalizeSpace(part))
+    .filter(Boolean);
+  const metaLocation = metaLocationParts.length >= 2 ? metaLocationParts[1] : '';
+  const location = locationParts[1] || metaLocation || normalizeSpace([
     jsonLd?.jobLocation?.address?.addressLocality || '',
     jsonLd?.jobLocation?.address?.addressRegion || '',
-    'Switzerland',
   ].filter(Boolean).join(', '));
+  const addressCountry = jsonLd?.jobLocation?.address?.addressCountry;
+  const country = normalizeSpace(
+    typeof addressCountry === 'object'
+      ? addressCountry?.name || addressCountry?.value || ''
+      : addressCountry || ''
+  );
   const employmentType = String(jsonLd?.employmentType || locationParts[2] || '').trim();
   const postalCode = String(jsonLd?.jobLocation?.address?.postalCode || '').trim();
+  const streetAddress = normalizeSpace(jsonLd?.jobLocation?.address?.streetAddress || '');
   const region = normalizeSpace(jsonLd?.jobLocation?.address?.addressRegion || '');
   const datePosted = String(jsonLd?.datePosted || '').trim();
   const validThrough = String(jsonLd?.validThrough || '').trim();
@@ -171,7 +182,9 @@ export function parseFinconsJobDetail(html = '') {
     applyUrl,
     location,
     region,
+    country,
     postalCode,
+    streetAddress,
     employmentType,
     datePosted,
     validThrough,
@@ -183,7 +196,7 @@ export function parseFinconsJobDetail(html = '') {
 
 export function buildFinconsLocalizedContent(detail = {}) {
   const sourceTitle = String(detail.title || '').trim();
-  const location = String(detail.location || 'Lugano').trim();
+  const location = String(detail.location || '').trim();
   const descriptions = {
     en: detail.description || '',
   };

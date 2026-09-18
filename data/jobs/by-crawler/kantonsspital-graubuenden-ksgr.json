@@ -273,17 +273,30 @@
       },
       "featured": false,
       "previousSlugs": [
-        "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-chur"
+        "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-chur",
+        "salute-specialistica-efz-pneumology-kantonsspital-graubunden-chur",
+        "fachfrau-fachmann-gesundheit-efz-pneumologie-kantonsspital-graubunden-chur",
+        "specialist-health-efz-pneumology-kantonsspital-graubunden-chur",
+        "pneumologie-efz-specialisee-en-sante-kantonsspital-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-chur"
+          "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-chur",
+          "salute-specialistica-efz-pneumology-kantonsspital-graubunden-chur",
+          "fachfrau-fachmann-gesundheit-efz-pneumologie-kantonsspital-graubunden-chur",
+          "specialist-health-efz-pneumology-kantonsspital-graubunden-chur",
+          "pneumologie-efz-specialisee-en-sante-kantonsspital-graubunden-chur"
         ],
         "en": [
-          "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-chur"
+          "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-chur",
+          "specialist-health-efz-pneumology-kantonsspital-graubunden-chur"
         ],
         "fr": [
-          "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-chur"
+          "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-chur",
+          "pneumologie-efz-specialisee-en-sante-kantonsspital-graubunden-chur"
+        ],
+        "de": [
+          "fachfrau-fachmann-gesundheit-efz-pneumologie-kantonsspital-graubunden-chur"
         ]
       },
       "needsRetranslation": false,
@@ -1347,7 +1360,7 @@
           "klinische-r-fachspezialist-in-schlafmedizinische-diagnostik-und-technologie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 87000,
@@ -1552,7 +1565,7 @@
         }
       },
       "featured": false,
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 87000,
@@ -3595,13 +3608,30 @@
         "berufslehre-kochin-koch-kantonsspital-graubunden-chur-2",
         "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
         "cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur",
-        "diet-chef-kantonsspital-graubunden-chur"
+        "diet-chef-kantonsspital-graubunden-chur",
+        "cuocere-cucinare-kantonsspital-graubunden-chur",
+        "kochin-koch-kantonsspital-graubunden-chur",
+        "cook-cook-kantonsspital-graubunden-chur",
+        "cuisiniere-kantonsspital-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
           "berufslehre-kochin-koch-kantonsspital-graubunden-chur-2",
-          "cucina-professionale-cuoco-kantonsspital-graubunden-chur"
+          "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
+          "cuocere-cucinare-kantonsspital-graubunden-chur",
+          "kochin-koch-kantonsspital-graubunden-chur",
+          "cook-cook-kantonsspital-graubunden-chur",
+          "cuisiniere-kantonsspital-graubunden-chur"
+        ],
+        "en": [
+          "cook-cook-kantonsspital-graubunden-chur"
+        ],
+        "de": [
+          "kochin-koch-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "cuisiniere-kantonsspital-graubunden-chur"
         ]
       },
       "needsRetranslation": false,
@@ -3635,7 +3665,7 @@
       "crawledAt": "2026-09-13T14:02:00.516Z",
       "slug": "professionisti-professionisti-industria-alberghiera-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur-12y522",
+        "de": "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
         "it": "professionisti-professionisti-industria-alberghiera-kantonsspital-graubunden-chur",
         "en": "professionals-professionals-hotel-industry-kantonsspital-graubunden-chur",
         "fr": "professionnels-professionnels-industrie-hoteliere-kantonsspital-graubunden-chur"
@@ -3704,7 +3734,8 @@
         "apprentissage-professionnel-de-specialiste-en-hotellerie-menager-kantonsspital-graubunden-chur",
         "specialiste-de-l-apprentissage-professionnel-specialiste-de-l-hotellerie-et-du-menage-kantonsspital-graubunden-chur",
         "apprentissage-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
-        "apprentissage-en-tant-que-specialiste-dans-l-industrie-hoteliere-et-le-menage-kantonsspital-graubunden-chur"
+        "apprentissage-en-tant-que-specialiste-dans-l-industrie-hoteliere-et-le-menage-kantonsspital-graubunden-chur",
+        "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur-12y522"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3755,7 +3786,8 @@
           "apprentissage-en-tant-que-specialiste-dans-l-industrie-hoteliere-et-le-menage-kantonsspital-graubunden-chur"
         ],
         "de": [
-          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
+          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
+          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur-12y522"
         ]
       },
       "needsRetranslation": false,
@@ -3823,7 +3855,15 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-05-17T10:33:43.517Z"
+      "firstSeenAt": "2026-05-17T10:33:43.517Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10020180",

@@ -1,17 +1,17 @@
 #!/usr/bin/env node
 /**
- * Dedicated lastminute.com (Chiasso) crawler runner.
+ * Dedicated lastminute.com Switzerland-wide crawler runner.
  *
  * Source:
- *   https://corporate.lastminute.com/careers/jobs/?search=&department=&location=chiasso&contract=
+ *   https://corporate.lastminute.com/careers/jobs/?search=&department=&contract=
  *
  * This script:
- *   1. Reads lastminute careers listing pages for Chiasso.
+ *   1. Reads the complete lastminute careers listing.
  *   2. Extracts canonical detail URLs under /careers/jobs/job?id=...
  *   3. Updates adapter seed URLs + seedMetaByUrl.
  *   4. Runs shared crawler scoped to lastminute company key.
  *   5. Post-processes rows for canonical consistency + dedupe.
- *   6. Enforces locale coverage in strict mode.
+ *   6. Enforces Swiss location and locale coverage in strict mode.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -41,6 +41,7 @@ import {
   mergeLocaleTextMap,
   hasCorrectLocaleCoverage,
   normalizeSpace,
+  isLocationExplicitlyForeign,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   extractSrIdFromUrl,
@@ -49,7 +50,8 @@ import {
   validateLastminuteDescription,
   buildLastminuteLocaleFallback,
 } from './lib/lastminute-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
+import { resolveSwissStructuredAddress } from './lib/swiss-structured-address.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -66,18 +68,16 @@ const LASTMINUTE_KEY = 'lastminute-com';
 // of #3775/#3768).
 const DATA_JOBS = crawlerScratchPathFor(LASTMINUTE_KEY);
 const PUBLIC_DATA_JOBS = `${DATA_JOBS}.public.json`;
-const DEFAULT_CANTON = getCompanyDefaults(LASTMINUTE_KEY)?.canton || 'TI';
 const LASTMINUTE_COMPANY_NAME = 'lastminute.com';
 const LASTMINUTE_COMPANY_DOMAIN = 'lastminute.com';
 const LASTMINUTE_CORP_HOST = 'corporate.lastminute.com';
 const LASTMINUTE_SOURCE = {
-  name: 'Chiasso',
-  canton: DEFAULT_CANTON,
   listingUrl:
-    'https://corporate.lastminute.com/careers/jobs/?search=&department=&location=chiasso&contract=',
+    'https://corporate.lastminute.com/careers/jobs/?search=&department=&contract=',
 };
 
 const LASTMINUTE_LOCALES = ['it', 'en', 'de', 'fr'];
+const SWISS_COUNTRY_TOKENS = new Set(['ch', 'switzerland', 'svizzera', 'schweiz', 'suisse']);
 const LASTMINUTE_BAD_FOOTER_LOCATION_RE =
   /\b(?:rokin\s+92\s*-\s*96|1012\s*kz\s+amsterdam|amsterdam,\s*netherlands|amsterdam)\b/i;
 
@@ -218,6 +218,44 @@ function isLastminuteJob(job) {
   );
 }
 
+function normalizeCountry(value = '') {
+  return String(value || '').trim().toLowerCase();
+}
+
+export function resolveSwissLastminuteLocation(detail = {}) {
+  const location = String(detail.location || detail.city || '').trim();
+  const country = normalizeCountry(detail.country);
+  if (country && !SWISS_COUNTRY_TOKENS.has(country)) {
+    return null;
+  }
+  if (
+    !location ||
+    isLocationExplicitlyForeign(location) ||
+    !isTargetSwissLocation(location, { includeBorderProximity: false })
+  ) {
+    return null;
+  }
+  const canton = inferAnyCanton(location);
+  if (!canton) return null;
+  return { location, canton };
+}
+
+function isUsableSmartRecruitersDetail(detail = {}) {
+  return Boolean(
+    String(detail.title || '').trim() &&
+    String(detail.location || detail.city || '').trim()
+  );
+}
+
+function isExplicitlyForeignSmartRecruitersDetail(detail = {}) {
+  const location = String(detail.location || detail.city || '').trim();
+  const country = normalizeCountry(detail.country);
+  return Boolean(
+    (country && !SWISS_COUNTRY_TOKENS.has(country)) ||
+    (location && isLocationExplicitlyForeign(location))
+  );
+}
+
 function parseJobLinksFromListingHtml(html = '') {
   const source = String(html || '');
   const hrefRe = /href=(["'])(.*?)\1/gi;
@@ -256,7 +294,33 @@ async function fetchListingPage(url, timeoutMs, userAgent) {
   }
 }
 
-async function fetchLastminuteJobDetailUrls() {
+export function hasLastminuteNextPageSignal(html = '', nextPage = 2) {
+  const source = String(html || '');
+  const page = String(nextPage);
+  if (!/^\d+$/.test(page)) return false;
+
+  const hasNextPageHref = new RegExp(
+    `[?&](?:amp;)?page=${page}(?:[&#"'\\s]|$)`,
+    'i',
+  ).test(source);
+  const hasRelNext = /<[^>]+\brel\s*=\s*["'][^"']*\bnext\b[^"']*["'][^>]*>/i.test(source);
+  const hasNextLabel = /<[^>]+\b(?:aria-label|title)\s*=\s*["'][^"']*\bnext\b[^"']*["'][^>]*>/i.test(source);
+
+  return hasNextPageHref || hasRelNext || hasNextLabel;
+}
+
+export function parseLastminuteDeclaredTotal(html = '') {
+  const source = String(html || '');
+  const totals = [
+    ...source.matchAll(/\b(\d+)\s+(?:open\s+positions?|positions?\s+found)\b/giu),
+  ]
+    .map((match) => Number(match[1]))
+    .filter((value) => Number.isInteger(value));
+  const distinctTotals = [...new Set(totals)];
+  return distinctTotals.length === 1 ? distinctTotals[0] : null;
+}
+
+export async function fetchLastminuteJobDetailUrls() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   const userAgent =
     process.env.JOBS_CRAWLER_USER_AGENT ||
@@ -265,7 +329,7 @@ async function fetchLastminuteJobDetailUrls() {
   const detailByKey = new Map();
   const seedMetaByUrl = {};
   const maxPages = 20;
-  let consecutiveNoNewPages = 0;
+  let declaredTotal = null;
 
   console.log('🔍 Fetching lastminute.com jobs from careers listing...');
 
@@ -280,16 +344,33 @@ async function fetchLastminuteJobDetailUrls() {
     } catch (err) {
       console.warn(`    ⚠️ Fetch failed on page ${page}: ${err?.message || err}`);
       if (page === 1) throw err;
-      break;
+      throw new Error(
+        `lastminute careers listing pagination failed on page ${page}; source completeness is unverified, preserving the previous adapter and data`,
+        { cause: err },
+      );
     }
 
     const links = parseJobLinksFromListingHtml(html);
     if (links.length === 0) {
-      // Fetch succeeded but parsed to zero links — could be genuine EOF or
-      // a challenge/error page rendered with a 200 status. Warn so a
-      // sustained pattern is visible, since we can't tell the two apart.
-      console.warn(`    ⚠️ No detail links found on page ${page} — treating as end of pagination.`);
-      break;
+      if (page === 1) {
+        throw new Error(
+          'lastminute careers listing returned no detail URLs on page 1; source completeness is unverified, preserving the previous adapter and data',
+        );
+      }
+      throw new Error(
+        `lastminute careers listing returned no detail URLs on page ${page}; source completeness is unverified, preserving the previous adapter and data`,
+      );
+    }
+
+    const pageDeclaredTotal = parseLastminuteDeclaredTotal(html);
+    if (pageDeclaredTotal !== null) {
+      if (declaredTotal !== null && pageDeclaredTotal !== declaredTotal) {
+        throw new Error(
+          `lastminute careers listing declared inconsistent totals (${declaredTotal} then ${pageDeclaredTotal}); `
+          + 'source completeness is unverified, preserving the previous adapter and data',
+        );
+      }
+      declaredTotal = pageDeclaredTotal;
     }
 
     let pageNew = 0;
@@ -305,28 +386,112 @@ async function fetchLastminuteJobDetailUrls() {
 
     console.log(`    📦 ${links.length} link(s), ${pageNew} new`);
 
-    if (pageNew === 0) consecutiveNoNewPages += 1;
-    else consecutiveNoNewPages = 0;
+    if (pageNew === 0) {
+      throw new Error(
+        `lastminute careers listing page ${page} repeated only previously seen detail URLs; `
+        + 'source completeness is unverified, preserving the previous adapter and data',
+      );
+    }
 
-    if (consecutiveNoNewPages >= 1) {
-      console.log('    ℹ️ Page produced no new jobs, stopping pagination.');
+    if (declaredTotal !== null && detailByKey.size > declaredTotal) {
+      throw new Error(
+        `lastminute careers listing discovered ${detailByKey.size} detail URLs but declared only ${declaredTotal}; `
+        + 'source completeness is unverified, preserving the previous adapter and data',
+      );
+    }
+
+    if (declaredTotal !== null && detailByKey.size === declaredTotal) {
+      console.log(`    ✅ Source declares ${declaredTotal} position(s); listing is complete.`);
       break;
+    }
+
+    if (!hasLastminuteNextPageSignal(html, page + 1)) {
+      throw new Error(
+        `lastminute careers listing page ${page} exposed no terminal total or next-page signal; `
+        + 'source completeness is unverified, preserving the previous adapter and data',
+      );
+    }
+    if (page === maxPages) {
+      throw new Error(
+        `lastminute careers listing reached the maximum page limit ${maxPages} while the source advertised page ${page + 1}; `
+        + 'source completeness is unverified, preserving the previous adapter and data',
+      );
     }
   }
 
-  const seedUrls = [...detailByKey.values()];
-  for (const detailUrl of seedUrls) {
+  const candidateUrls = [...detailByKey.values()];
+  if (candidateUrls.length === 0) {
+    throw new Error(
+      'lastminute careers listing returned no detail URLs; source completeness is unverified, preserving the previous adapter and data',
+    );
+  }
+  const seedUrls = [];
+  const detailsByUrl = new Map();
+  let apiResolved = 0;
+  let apiFailures = 0;
+  let nonSwiss = 0;
+
+  for (const detailUrl of candidateUrls) {
+    const postingId = extractSrIdFromUrl(detailUrl);
+    if (!postingId) {
+      apiFailures += 1;
+      console.warn(`  ⚠️ Could not extract a SmartRecruiters posting ID from ${detailUrl}`);
+      continue;
+    }
+    const apiData = await fetchSmartRecruitersDetail(postingId, timeoutMs);
+    if (!apiData) {
+      apiFailures += 1;
+      continue;
+    }
+    const detail = parseSmartRecruitersDetail(apiData);
+    if (!isUsableSmartRecruitersDetail(detail)) {
+      apiFailures += 1;
+      console.warn(`  ⚠️ SmartRecruiters returned incomplete detail for ${postingId}`);
+      continue;
+    }
+    apiResolved += 1;
+    const resolved = resolveSwissLastminuteLocation(detail);
+    if (!resolved) {
+      if (!isExplicitlyForeignSmartRecruitersDetail(detail)) {
+        apiFailures += 1;
+        console.warn(`  ⚠️ SmartRecruiters returned an unresolved location for ${postingId}`);
+        continue;
+      }
+      nonSwiss += 1;
+      console.log(`  ⏭️  Discarded non-Swiss lastminute posting ${postingId}`);
+      continue;
+    }
+
+    const normalizedDetail = {
+      ...detail,
+      location: resolved.location,
+      canton: resolved.canton,
+      country: 'CH',
+    };
+    seedUrls.push(detailUrl);
+    detailsByUrl.set(detailUrl, normalizedDetail);
     seedMetaByUrl[detailUrl] = {
-      location: 'Chiasso',
-      canton: LASTMINUTE_SOURCE.canton,
+      location: resolved.location,
+      canton: resolved.canton,
       country: 'CH',
       company: LASTMINUTE_COMPANY_NAME,
       companyDomain: LASTMINUTE_COMPANY_DOMAIN,
     };
   }
 
-  console.log(`✅ Found ${seedUrls.length} unique lastminute.com detail URL(s).`);
-  return { seedUrls, seedMetaByUrl };
+  if (candidateUrls.length > 0 && apiResolved === 0) {
+    throw new Error(`SmartRecruiters location discovery failed for all ${candidateUrls.length} lastminute postings`);
+  }
+  if (apiFailures > 0) {
+    throw new Error(
+      `SmartRecruiters location discovery incomplete: ${apiFailures} of ${candidateUrls.length} `
+      + 'postings failed; preserving the previous lastminute adapter and data',
+    );
+  }
+
+  console.log(`✅ Found ${seedUrls.length} Swiss lastminute.com detail URL(s).`);
+  console.log(`🌍 Discarded ${nonSwiss} non-Swiss posting(s); ${apiFailures} SmartRecruiters fetch failure(s).`);
+  return { seedUrls, seedMetaByUrl, detailsByUrl };
 }
 
 function updateLastminuteAdapter({ seedUrls, seedMetaByUrl }) {
@@ -354,7 +519,7 @@ function updateLastminuteAdapter({ seedUrls, seedMetaByUrl }) {
     seedUrls: nextSeedUrls,
     seedMetaByUrl,
     notes:
-      'Dedicated lastminute.com crawler seeds from Chiasso listing pages and canonicalizes detail URLs under corporate.lastminute.com/careers/jobs/job?id=...',
+      'Dedicated lastminute.com crawler reads the complete careers listing, resolves each posting through SmartRecruiters, keeps only Swiss locations with inferAnyCanton(), and canonicalizes detail URLs under corporate.lastminute.com/careers/jobs/job?id=...',
     updatedAt: new Date().toISOString(),
   };
 
@@ -472,7 +637,7 @@ export function inferLastminuteLocation(job) {
 
   const current = String(job?.location || '').trim();
   if (current && !LASTMINUTE_BAD_FOOTER_LOCATION_RE.test(current)) return current;
-  return LASTMINUTE_SOURCE.name;
+  return '';
 }
 
 function inferLastminuteContract(job) {
@@ -512,8 +677,25 @@ export function normalizeLastminuteRow(job) {
   const canonicalUrl = canonicalizeLastminuteUrl(job?.url || '', job?.title || '');
   const localeFields = ensureLocaleFields(job);
   const location = inferLastminuteLocation({ ...job, ...localeFields });
+  const canton = inferAnyCanton(location);
+  const country = normalizeCountry(job?.country);
+  if (
+    !location ||
+    !canton ||
+    (country && !SWISS_COUNTRY_TOKENS.has(country)) ||
+    isLocationExplicitlyForeign(location) ||
+    !isTargetSwissLocation(location, { includeBorderProximity: false })
+  ) {
+    return null;
+  }
   const refreshedSlugs = refreshLastminuteSlugs({ ...job, ...localeFields }, location);
   const contract = inferLastminuteContract({ ...job, ...localeFields });
+  const address = resolveSwissStructuredAddress({
+    city: location,
+    canton,
+    postalCode: job?.postalCode,
+    streetAddress: job?.streetAddress,
+  });
 
   return {
     ...job,
@@ -523,9 +705,13 @@ export function normalizeLastminuteRow(job) {
     companyDomain: LASTMINUTE_COMPANY_DOMAIN,
     source: 'Company Careers Crawler',
     location,
-    addressLocality: location,
-    canton: String(job?.canton || '').trim() || DEFAULT_CANTON,
-    country: String(job?.country || '').trim() || 'CH',
+    addressLocality: address.city,
+    addressRegion: address.canton,
+    addressCountry: 'CH',
+    postalCode: address.postalCode,
+    streetAddress: address.streetAddress,
+    canton: address.canton,
+    country: 'CH',
     contract,
     slug: refreshedSlugs.slug,
     ...localeFields,
@@ -549,6 +735,7 @@ export function postProcessLastminuteJobs() {
   for (const job of raw) {
     if (!isLastminuteJob(job)) continue;
     const normalizedRow = normalizeLastminuteRow(job);
+    if (!normalizedRow) continue;
     const dedupeKey = buildLastminuteDedupeKey(normalizedRow);
     const current = bestByKey.get(dedupeKey);
     if (!current || scoreLastminuteCandidate(normalizedRow) > scoreLastminuteCandidate(current)) {
@@ -568,6 +755,7 @@ export function postProcessLastminuteJobs() {
     }
 
     const normalizedRow = normalizeLastminuteRow(job);
+    if (!normalizedRow) continue;
     const dedupeKey = buildLastminuteDedupeKey(normalizedRow);
     if (seen.has(dedupeKey)) {
       droppedDuplicates += 1;
@@ -598,8 +786,15 @@ async function runDedicatedLastminuteCrawler() {
   return runDedicatedBaseCrawler({
     root: ROOT,
     companyKeys: [LASTMINUTE_KEY],
+    dataJobsPath: DATA_JOBS,
     disableWorkdayForce: true,
     forceLocalizationWhenAiEnabledOnly: true,
+    // Discovery and source enrichment are handled above by the complete
+    // careers listing plus SmartRecruiters. The corporate detail HTML carries
+    // lastminute.com's foreign headquarters address, so routing it through the
+    // generic HTML discovery would reject valid Swiss postings before the API
+    // data can be persisted.
+    localizeExistingOnly: true,
   });
 }
 
@@ -608,9 +803,38 @@ async function runDedicatedLastminuteCrawler() {
  * This fetches the complete job description (all sections) directly
  * from the SR API, which the corporate website only loads via JS.
  */
-async function enrichFromSmartRecruitersApi(seedUrls) {
-  if (!fs.existsSync(DATA_JOBS)) return;
-  const allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+export function syncLastminuteExistingLocation(existing, detail) {
+  const location = String(detail?.location || '').trim();
+  const canton = String(detail?.canton || '').trim().toUpperCase();
+  if (!existing || !location || !canton) return false;
+
+  const changed =
+    existing.location !== location
+    || existing.addressLocality !== location
+    || existing.addressRegion !== canton
+    || existing.canton !== canton
+    || existing.country !== 'CH'
+    || existing.addressCountry !== 'CH';
+  if (!changed) return false;
+
+  existing.location = location;
+  existing.addressLocality = location;
+  existing.addressRegion = canton;
+  // The detail API exposes the locality/canton but not a reliable street or
+  // postcode. Clear stale source values so post-processing derives a
+  // coherent Swiss structured address from the new locality.
+  existing.postalCode = '';
+  existing.streetAddress = location;
+  existing.canton = canton;
+  existing.country = 'CH';
+  existing.addressCountry = 'CH';
+  return true;
+}
+
+async function enrichFromSmartRecruitersApi(seedUrls, detailsByUrl = new Map()) {
+  const allJobs = fs.existsSync(DATA_JOBS)
+    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
+    : readExistingCrawlerJobs(LASTMINUTE_KEY, DATA_JOBS);
   if (!Array.isArray(allJobs)) return;
 
   // Build a map of SR ID → seed URL for discovered jobs
@@ -631,10 +855,19 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
   let enriched = 0;
 
   for (const [srId, corpUrl] of srIdToUrl) {
-    const apiData = await fetchSmartRecruitersDetail(srId);
-    if (!apiData) continue;
+    const seededDetail = detailsByUrl.get(corpUrl);
+    const apiData = seededDetail ? null : await fetchSmartRecruitersDetail(srId);
+    if (!seededDetail && !apiData) continue;
 
-    const detail = parseSmartRecruitersDetail(apiData);
+    const detail = seededDetail || parseSmartRecruitersDetail(apiData);
+    const resolved = resolveSwissLastminuteLocation(detail);
+    if (!resolved) {
+      console.warn(`  ⏭️  Skipping ${detail.title || srId} — unresolved or non-Swiss location`);
+      continue;
+    }
+    detail.location = resolved.location;
+    detail.canton = resolved.canton;
+    detail.country = 'CH';
     const validation = validateLastminuteDescription(detail);
     if (!validation.ok) {
       for (const w of validation.warnings) {
@@ -672,6 +905,13 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
       // reproducing the bug this guard exists to fix.
       const sourceContentChanged = normalizeSpace(priorDescription) !== normalizeSpace(detail.description);
       // Only replace if SR API content is richer, or the source text itself drifted
+      let existingChanged = false;
+      const locationChanged = syncLastminuteExistingLocation(existing, detail);
+      if (locationChanged) {
+        existingChanged = true;
+        console.log(`  📍 Updated location for "${detail.title}" (${detail.location}, ${detail.canton})`);
+      }
+
       if (sourceContentChanged || detail.description.length > priorDescription.length * 0.8) {
         // hasCorrectLocaleCoverage (not hasFullLocaleCoverage) is deliberate
         // (issue #4788 sibling): presence-only coverage would call a job
@@ -695,14 +935,13 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
         }
         existing.title = detail.title || existing.title;
         if (detail.applyUrl) existing.applyUrl = detail.applyUrl;
-        existing.location = detail.location || existing.location || 'Chiasso';
-        existing.canton = detail.canton || existing.canton || DEFAULT_CANTON;
-        enriched++;
+        existingChanged = true;
         console.log(`  ✅ Enriched "${detail.title}" (${detail.description.length} chars, ${detail.sectionCount} sections)`);
       }
+      if (existingChanged) enriched++;
     } else {
       // New job from SR API — build and add with locale boilerplate
-      const location = detail.location || 'Chiasso';
+      const location = detail.location;
       const slug = slugifyLastminute(`${detail.title} ${location}`);
       const fallbackOpts = { title: detail.title, location, enDescription: detail.description };
       allJobs.push({
@@ -715,8 +954,8 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
         companyDomain: LASTMINUTE_COMPANY_DOMAIN,
         location,
         addressLocality: location,
-        canton: detail.canton || DEFAULT_CANTON,
-        country: detail.country || 'CH',
+        canton: detail.canton,
+        country: 'CH',
         source: 'Company Careers Crawler',
         description: buildLastminuteLocaleFallback(fallbackOpts, 'it') || detail.description,
         descriptionByLocale: {
@@ -767,7 +1006,8 @@ function fillMissingLastminuteDescriptions() {
 
     const enDesc = String(job.descriptionByLocale.en || job.description || '').trim();
     const title = String(job.title || '').trim();
-    const location = String(job.location || 'Chiasso').trim();
+    const location = String(job.location || '').trim();
+    if (!location) continue;
 
     for (const locale of FALLBACK_LOCALES) {
       const current = String(job.descriptionByLocale[locale] || '').trim();
@@ -800,14 +1040,21 @@ async function main() {
   console.log('🚀 lastminute.com dedicated crawler start');
   const beforeSnapshot = snapshotJobSlugs(loadLastminuteJobs());
 
-  const { seedUrls, seedMetaByUrl } = await fetchLastminuteJobDetailUrls();
+  const { seedUrls, seedMetaByUrl, detailsByUrl } = await fetchLastminuteJobDetailUrls();
   updateLastminuteAdapter({ seedUrls, seedMetaByUrl });
 
   // Phase 1: Enrich descriptions directly from SmartRecruiters API
-  await enrichFromSmartRecruitersApi(seedUrls);
+  await enrichFromSmartRecruitersApi(seedUrls, detailsByUrl);
 
   // Phase 2: Run base crawler for AI localization (EN→IT/DE/FR translations)
   await runDedicatedLastminuteCrawler();
+
+  // The shared localize-only pass can preserve a stale slice entry when the
+  // corporate page is not a usable job-detail source. Re-apply the
+  // SmartRecruiters payload after that pass so the API remains authoritative
+  // for title, description, location and canton before normalization.
+  await enrichFromSmartRecruitersApi(seedUrls, detailsByUrl);
+
   const post = postProcessLastminuteJobs();
   console.log(
     `🧹 Post-process lastminute: ${post.lastminute} active, ${post.deduped} duplicate(s) removed.`
@@ -827,7 +1074,7 @@ async function main() {
     untrustedDomainReason: 'untrusted_lastminute_domain',
     failOnMissingJobsFile: true,
     failWhenNoJobs: false,
-    noJobsMessage: 'No lastminute.com jobs found after crawl — company may have no Ticino openings.',
+    noJobsMessage: 'No Swiss lastminute.com jobs found after crawl — the company may have no current Swiss openings.',
     maxToleratedMissingDescriptions: 3,
   });
 

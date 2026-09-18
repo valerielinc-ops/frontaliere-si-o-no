@@ -1562,7 +1562,8 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-2a4e9415f521",
@@ -6525,7 +6526,9 @@
         }
       },
       "addressRegion": "OW",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-20feb2c97427",
@@ -9591,7 +9594,7 @@
           "recycleur-ffs-officine-ferrovie-federali-trimbach"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-23T22:21:23.520Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -9607,7 +9610,8 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-133b1d32511a",

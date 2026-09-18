@@ -32,7 +32,8 @@ import {
   parseFinconsJobDetail,
   buildFinconsLocalizedContent,
 } from './lib/fincons-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { classifyFinconsLocation, resolveFinconsLocation } from './lib/fincons-location.mjs';
+import { resolveSwissStructuredAddress } from './lib/swiss-structured-address.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { isTargetSwissLocation as isGenericTargetSwissLocation } from './lib/target-swiss-locations.mjs';
@@ -51,12 +52,11 @@ const COMPANY_KEY = 'fincons-group';
 // cross-process-racy write pattern behind #3769/#3770. Scope it per-company.
 const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
-const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Fincons Group';
 const COMPANY_HOST = 'fincons.applytojob.com';
 const COMPANY_DOMAIN = 'finconsgroup.com';
-const CAREERS_URL = 'https://ita.finconsgroup.com/culture-and-careers/job-offers/sedi/lugano.kl';
-const LISTING_URL = 'https://fincons.applytojob.com/apply/jobs/?city=lugano';
+const CAREERS_URL = 'https://ita.finconsgroup.com/culture-and-careers/job-offers/';
+const LISTING_URL = 'https://fincons.applytojob.com/apply/jobs/';
 const DETAIL_BASE = 'https://fincons.applytojob.com';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
@@ -80,6 +80,19 @@ function normalizeKey(value = '') {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+}
+
+function assertCompleteFinconsListing(html, rows) {
+  const source = String(html || '');
+  const hasJobsTable = /<table\b[^>]*\bid\s*=\s*["']jobs_table["'][^>]*>/i.test(source);
+  const sourceRowCount = [...source.matchAll(
+    /<tr\b[^>]*\bid\s*=\s*["']row_job_[^"']+["'][^>]*>/gi,
+  )].length;
+  if (!hasJobsTable || sourceRowCount !== rows.length) {
+    throw new Error(
+      `Fincons listing could not be read completely (table=${hasJobsTable}, source rows=${sourceRowCount}, parsed rows=${rows.length}); preserving the last known-good crawler data.`,
+    );
+  }
 }
 
 function absoluteUrl(raw = '') {
@@ -113,14 +126,35 @@ function isTrustedDomain(rawUrl = '') {
 }
 
 async function fetchListings() {
-  console.log('🔍 Fetching Fincons jobs from Lugano listing...');
+  console.log('🔍 Fetching Fincons jobs from the Switzerland-wide listing...');
   const html = await fetchText(LISTING_URL);
   const rows = parseFinconsListingsPage(html);
-  console.log(`📋 Lugano job rows found: ${rows.length}`);
-  if (rows.length === 0) {
-    console.log('ℹ️  Nessun annuncio trovato per Fincons Group — non è un errore, il crawler prosegue.');
+  console.log(`📋 Global job rows found: ${rows.length}`);
+  assertCompleteFinconsListing(html, rows);
+
+  const classifiedRows = rows.map((row) => ({
+    row,
+    classification: classifyFinconsLocation(row.location),
+  }));
+  const unresolvedRows = classifiedRows.filter(({ classification }) => classification === 'unresolved');
+  if (unresolvedRows.length > 0) {
+    const examples = unresolvedRows
+      .slice(0, 3)
+      .map(({ row }) => row.location || 'missing')
+      .join(', ');
+    throw new Error(
+      `Fincons Swiss location recognition incomplete for ${unresolvedRows.length}/${rows.length} listing row(s) (${examples}); preserving the last known-good crawler data.`,
+    );
   }
-  rows.forEach((row) => console.log(`  📄 ${row.title} (${row.location})`));
+
+  const swissRows = classifiedRows
+    .filter(({ classification }) => classification === 'swiss')
+    .map(({ row }) => row);
+  console.log(`🇨🇭 Swiss rows kept after location filter: ${swissRows.length}`);
+  const nonSwissRows = classifiedRows.filter(({ classification }) => classification === 'foreign');
+  console.log(`🌍 Non-Swiss rows discarded before detail fetch: ${nonSwissRows.length}`);
+  swissRows.forEach((row) => console.log(`  📄 ${row.title} (${row.location})`));
+  Object.defineProperty(rows, 'finconsListingReadComplete', { value: true, enumerable: false });
   return rows;
 }
 
@@ -143,9 +177,20 @@ async function buildFinconsJob(listing) {
   const detailUrl = absoluteUrl(listing.href);
   const html = await fetchText(detailUrl);
   const detail = parseFinconsJobDetail(html);
+  const resolved = resolveFinconsLocation(detail, listing);
+  if (!resolved) {
+    console.log(`  ⏭️  Skipped ${listing.title} — unresolved or non-Swiss location`);
+    return null;
+  }
   const localized = buildFinconsLocalizedContent(detail);
   const description = localized.descriptionByLocale.en || detail.description || '';
   const sourceTitle = localized.titleByLocale.en || detail.title || listing.title;
+  const address = resolveSwissStructuredAddress({
+    city: resolved.location,
+    canton: resolved.canton,
+    postalCode: detail.postalCode,
+    streetAddress: detail.streetAddress,
+  });
   return {
     title: sourceTitle,
     slug: localized.slugByLocale.en,
@@ -154,12 +199,13 @@ async function buildFinconsJob(listing) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
-    location: 'Lugano',
-    addressLocality: 'Lugano',
-    addressRegion: 'TI',
+    location: resolved.location,
+    addressLocality: address.city,
+    addressRegion: address.canton,
     addressCountry: 'CH',
-    postalCode: detail.postalCode || '6900',
-    canton: DEFAULT_CANTON,
+    postalCode: address.postalCode,
+    streetAddress: address.streetAddress,
+    canton: address.canton,
     country: 'CH',
     category: inferCategory(detail),
     sector: 'Tecnologia & IT',
@@ -176,7 +222,7 @@ async function buildFinconsJob(listing) {
     metadata: {
       experienceRequirements: detail.experienceRequirements,
       uniqueJobCode: detail.uniqueJobCode,
-      listingLocation: listing.location,
+      listingLocation: resolved.sourceLocation,
       listingDepartment: listing.department,
     },
   };
@@ -226,7 +272,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: DEFAULT_CANTON,
+      canton: job.canton,
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };
@@ -239,7 +285,7 @@ function updateAdapterConfig(jobs) {
     priority: 15,
     crawlerModes: ['html'],
     seedUrls: [CAREERS_URL, LISTING_URL],
-    notes: 'Dedicated Fincons crawler parses the Lugano landing page iframe source hosted on JazzHR and keeps the public Lugano positions in sync.',
+    notes: 'Dedicated Fincons crawler parses the Switzerland-wide listing hosted on applytojob.com, filters each row with the shared Swiss-location predicate, and infers the canton per announcement from the detail/listing location.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -319,9 +365,9 @@ async function main() {
   const listings = sourceListings.filter((row) => isTargetSwissLocation(row.location));
   const jobs = [];
   for (const listing of listings) {
-    jobs.push(await buildFinconsJob(listing));
+    const job = await buildFinconsJob(listing);
+    if (job) jobs.push(job);
   }
-
   copyFinconsSourceEvidence(jobs, sourceListings, listings);
   const {
     authoritativeEmptySnapshot,

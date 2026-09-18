@@ -4,8 +4,24 @@ import {
   parseFinconsJobDetail,
   buildFinconsLocalizedContent,
 } from '../scripts/lib/fincons-job-parser.mjs';
+import { classifyFinconsLocation, resolveFinconsLocation } from '../scripts/lib/fincons-location.mjs';
 
 describe('fincons-job-parser', () => {
+  it('does not relabel an explicitly foreign detail with a Swiss listing fallback', () => {
+    expect(resolveFinconsLocation(
+      { location: 'Milan, Italy', country: 'Italy' },
+      { location: 'Lugano, Ticino, Switzerland' },
+    )).toBeNull();
+  });
+
+  it('rejects an explicit foreign country even when the location also names Zurich', () => {
+    expect(classifyFinconsLocation('Zurich, Germany')).toBe('foreign');
+    expect(resolveFinconsLocation(
+      { location: 'Zurich, Germany' },
+      { location: 'Lugano, Ticino, Switzerland' },
+    )).toBeNull();
+  });
+
   it('parses Lugano listing rows', () => {
     const html = `
       <table id="jobs_table">
@@ -98,7 +114,7 @@ describe('fincons-job-parser', () => {
         "employmentType":"FULL_TIME",
         "experienceRequirements":"Experienced",
         "uniqueJobCode":"job_20260220112408_6XP4TQFMRVG7NLCL",
-        "jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Lugano","addressRegion":"Ticino","postalCode":"6900"}}
+        "jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Lugano","addressRegion":"Ticino","postalCode":"6900","streetAddress":"Via Cantonale 1"}}
       }
       </script>
       <div class="job_header">
@@ -118,6 +134,7 @@ describe('fincons-job-parser', () => {
     expect(detail.title).toBe('Angular / Java - Senior Full-Stack Developer');
     expect(detail.location).toBe('Lugano, Ticino, Switzerland');
     expect(detail.postalCode).toBe('6900');
+    expect(detail.streetAddress).toBe('Via Cantonale 1');
     expect(detail.description).toContain('## What you\'ll do');
     expect(detail.description).toContain('- Design and develop web applications');
 
