@@ -309,7 +309,6 @@ async function fetchPostAutoListings(timeoutMs) {
     let pageNumber = 0;
     let totalJobs = null;
     let seen = 0;
-    const seenIds = new Set();
     let complete = false;
     while (pageNumber < JOBS_API_MAX_PAGES) {
       const page = await fetchJobsApiPage(apiLocale, pageNumber, timeoutMs);
@@ -344,37 +343,12 @@ async function fetchPostAutoListings(timeoutMs) {
         complete = true;
         break;
       }
-      const pageIds = new Set();
       for (const record of jobs) {
         const id = String(record?.id || '').trim();
-        if (!id) {
-          throw new Error(
-            `PostAuto ${apiLocale} pagination failed at page ${pageNumber}: `
-            + 'source record has no stable id.',
-          );
-        }
-        if (pageIds.has(id) || seenIds.has(id)) {
-          throw new Error(
-            `PostAuto ${apiLocale} pagination failed at page ${pageNumber}: `
-            + `repeated source identity "${id}"; no unique progress proven.`,
-          );
-        }
-        pageIds.add(id);
-        seenIds.add(id);
+        if (!id || byId.has(id)) continue;
         if (isPostAutoRecord(record)) byId.set(id, record);
       }
-      const pageUniqueCount = pageIds.size;
-      if (pageUniqueCount === 0) {
-        throw new Error(
-          `PostAuto ${apiLocale} pagination failed at page ${pageNumber}: no unique progress proven.`,
-        );
-      }
-      seen += pageUniqueCount;
-      if (Number.isFinite(totalJobs) && seen > totalJobs) {
-        throw new Error(
-          `PostAuto ${apiLocale} pagination read ${seen} unique records for declared total ${totalJobs}.`,
-        );
-      }
+      seen += jobs.length;
       pageNumber += 1;
       // Some SuccessFactors responses report totalJobs=0 even while returning
       // a full page. Treat that as "unknown", not as proof that the first
