@@ -214,7 +214,16 @@ export class WriteCollector {
  // WriteCollisionError in `throw` mode and returns 'skip-write' for
  // idempotent re-claims (identical content) or declared-shared losers.
  const outcome: ClaimOutcome = claim(filePath, this._pluginName, content);
- if (preservePostWalkDerivedOutput(this._distDir, filePath, content)) return;
+ if (preservePostWalkDerivedOutput(this._distDir, filePath, content)) {
+ // The derived file on disk is the post-walk representation, while the
+ // content-hash manifest tracks the upstream bytes passed to add(). Keep its
+ // current projection populated even though no upstream write is queued.
+ const manifest = getManifest();
+ if (manifest && this._distDir) {
+  manifest.shouldWrite(path.relative(this._distDir, filePath), content);
+ }
+ return;
+ }
  if (outcome === 'skip-write') {
  this._skippedByCollision++;
  return;
