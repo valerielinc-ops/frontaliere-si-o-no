@@ -7169,7 +7169,7 @@ function validate(data, opts = {}) {
     }
     for (const field of ['title', 'excerpt', 'body1', 'body2', 'body3']) {
       // Ultima rete prima della scrittura: `"null"` e' mancante quanto il vuoto.
-      if (!hasUsableContentText(data.content[locale][field])) {
+      if (!hasUsableTranslatedText(data.content[locale][field], locale)) {
         const err = new Error(`Campo ${field} mancante per ${locale}`);
         err.qualityReject = true;
         throw err;
