@@ -10,7 +10,10 @@ import type { ItalyDutySnapshot } from '../services/pharmacies/italyRelease';
 import type { PharmacyDutiesDataset } from '../services/pharmacies/types';
 
 const duties = dutiesJson as unknown as PharmacyDutiesDataset;
-const now = new Date('2026-09-15T12:00:00.000Z');
+// Keep the clock just after the checked-in duty snapshot. The fixture is
+// refreshed independently of the test source, so a historical fixed date
+// would make a valid fresh release look like it came from the future.
+const now = new Date(new Date(duties._fetchedAt).getTime() + 60 * 60 * 1000);
 
 afterEach(cleanup);
 
