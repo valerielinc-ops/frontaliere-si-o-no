@@ -96,6 +96,24 @@ describe('buildJobPostingSchema — address coherence (#3513)', () => {
     expect(addr.addressLocality).toBe('Bellinzona');
   });
 
+  it('FNZ Zurich posting gets Zurich CAP/region instead of the Lugano HQ pair', () => {
+    const s = buildJobPostingSchema(
+      {
+        ...baseJob,
+        company: 'FNZ (Switzerland) AG',
+        companyKey: 'fnz',
+        addressLocality: 'Zürich',
+        addressRegion: 'ZH',
+      },
+      OPTS,
+    );
+    const addr = s.jobLocation.address;
+    expect(addr.addressLocality).toBe('Zürich');
+    expect(addr.postalCode).toBe('8001');
+    expect(addr.addressRegion).toBe('ZH');
+    expect(addr.streetAddress).not.toBe('Via Cantonale 19');
+  });
+
   it('region name shipped as locality ("Ticino") normalizes to a coherent capital locality', () => {
     const s = buildJobPostingSchema(
       { ...baseJob, company: 'UBS', companyKey: 'ubs', addressLocality: 'Ticino', addressRegion: 'TI', postalCode: '6500' },
@@ -297,5 +315,30 @@ describe('applyCompanyDefaults — crawler-side stamping (#3513)', () => {
     expect(sameLocalityAsHq('', 'Bellinzona')).toBe(true);
     expect(sameLocalityAsHq('Bellinzona, Ticino', 'Bellinzona')).toBe(true);
     expect(sameLocalityAsHq('Winterthur', 'Manno')).toBe(false);
+  });
+});
+
+describe('FNZ country-only national fallback', () => {
+  it('keeps the fallback city, postal code, and region aligned', () => {
+    const s = buildJobPostingSchema(
+      {
+        ...baseJob,
+        company: 'FNZ (Switzerland) AG',
+        companyKey: 'fnz',
+        location: 'Switzerland',
+        addressLocality: 'Bern',
+        addressRegion: 'BE',
+        postalCode: '3011',
+        streetAddress: 'Bundesplatz 3',
+      },
+      OPTS,
+    );
+    expect(s.jobLocation.address).toMatchObject({
+      addressLocality: 'Bern',
+      addressRegion: 'BE',
+      postalCode: '3011',
+      streetAddress: 'Bundesplatz 3',
+    });
+    expect(Object.values(s.jobLocation.address).every(Boolean)).toBe(true);
   });
 });
