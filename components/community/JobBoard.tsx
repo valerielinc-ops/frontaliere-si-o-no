@@ -6570,10 +6570,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
   } catch (error) {
    setAssistedCheckoutBusy(false);
    setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
-   trackAssistedApplicationEvent(
-    'checkout_failed',
-    { ...assistedApplicationJobContext(job, assistedApplicationVariant), reason: 'session_creation_failed' },
-   );
+  trackAssistedApplicationEvent(
+   'checkout_failed',
+    {
+     ...assistedApplicationJobContext(job, assistedApplicationVariant),
+     price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+     reason: 'session_creation_failed',
+    },
+  );
    if ((error as { message?: string })?.message === 'assisted_application_auth_required') onRequireAuth?.();
   }
  };
