@@ -54,8 +54,8 @@ export function normalizeSwissTargetLocationText(text = '') {
 // alone no longer classifies a job as Swiss. A genuine job in one of these
 // villages is still recognised via OTHER signals (canton name "Fribourg" /
 // "Vaud" / "Bern", "Switzerland", a 4-digit postal code, the "(FR)" canton
-// code, or a multi-word locality). A bare common-word collision is not enough
-// evidence of a Swiss workplace, regardless of the crawler's employer scope.
+// code, or a multi-word locality). The villages are tiny and well outside the
+// Ticino-frontaliere target, so the trade-off is safe.
 //
 // Criterion: single-word BFS token that is also a common EN/FR/DE/IT word
 // frequently present in job descriptions. Regenerate candidates by
@@ -494,26 +494,12 @@ export function normalizeCantonCode(raw = '') {
 
 // ─── Target location check ────────────────────────────────────────────────
 
-// Regional callers retain the TARGET_CANTONS contract; this list currently
-// contains all 26 cantons. National callers use isAllSwissLocation explicitly
-// so their geographic intent remains visible at the call site.
 export function isTargetSwissLocation(text = '', { includeGrigioni = true, includeBorderProximity = true } = {}) {
-  for (const code of TARGET_CANTONS) {
-    if (code === 'GR' && !includeGrigioni) continue;
-    if (isCantonRelevant(text, code, { includeBorderProximity })) return true;
-  }
-  return false;
-}
-
-/**
- * Validate a Swiss location across all 26 cantons.
- *
- * Keep this separate from isTargetSwissLocation(): many legacy callers are
- * intentionally scoped to TARGET_CANTONS, while national crawlers opt into
- * the complete Swiss geography explicitly.
- */
-export function isAllSwissLocation(text = '', { includeBorderProximity = true } = {}) {
+  // This predicate is the Swiss-location gate used by CH-wide crawlers. Keep
+  // it independent of a narrower legacy target list: all 26 cantons are in
+  // scope, while foreign locations are still rejected by isCantonRelevant.
   for (const code of ALL_CANTON_CODES) {
+    if (code === 'GR' && !includeGrigioni) continue;
     if (isCantonRelevant(text, code, { includeBorderProximity })) return true;
   }
   return false;
