@@ -28,7 +28,9 @@ function extractPackSectionFns(yml: string): string[] {
 describe('scripts/lib/push-section-shard.sh — persists an independent src_n baseline', () => {
   it('writes $RUNNER_TEMP/shard-srcn-<section>-<locale> right after computing src_n from the staged tree', () => {
     expect(PUSH_SECTION_SHARD_SH).toMatch(
-      /src_n="\$\(find "\$stage_src\/dist\/\$sub" -type f \| wc -l\)"\n\s*printf '%s' "\$src_n" > "\$RUNNER_TEMP\/shard-srcn-\$section-\$loc"/,
+      // #9070 moved the count behind shard_count_files (NUL-safe); either form
+      // still persists the baseline on the very next line.
+      /src_n="\$\((?:find "\$stage_src\/dist\/\$sub" -type f \| wc -l|shard_count_files "\$stage_src\/dist\/\$sub")\)"\n\s*printf '%s' "\$src_n" > "\$RUNNER_TEMP\/shard-srcn-\$section-\$loc"/,
     );
   });
 });
