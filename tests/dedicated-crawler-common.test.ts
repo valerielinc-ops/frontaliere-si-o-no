@@ -693,6 +693,59 @@ describe('mergePreserveLocaleData URL matching', () => {
     expect(retainedB.previousSlugs).toEqual(['old-bridge-b']);
     expect(retainedB.crawlerMissStreak).toBe(1);
   });
+
+  it('keeps ETA requisition continuity for a wording rewrite with meaningful title overlap', () => {
+    const url = 'https://www.eta.ch/en/jobs-careers/vacancies/detail/3770';
+    const existing = [{
+      id: 'eta-old',
+      url,
+      slug: 'polymechaniker-in-produktion-eta',
+      title: 'Polymechaniker in Produktion',
+      sourceLang: 'de',
+      previousSlugs: ['polymechaniker-old'],
+      titleByLocale: { de: 'Polymechaniker in Produktion' },
+    }];
+    const fresh = [{
+      id: 'eta-fresh',
+      url,
+      slug: 'polymechaniker-production-specialist-eta',
+      title: 'Polymechaniker Production Specialist',
+      sourceLang: 'de',
+      titleByLocale: { de: 'Polymechaniker Production Specialist' },
+    }];
+
+    const [merged] = mergePreserveLocaleData(existing, fresh, { retainMissingJobs: false });
+    expect(merged.id).toBe('eta-old');
+    expect(merged.title).toBe('Polymechaniker Production Specialist');
+    expect(merged.previousSlugs).toContain('polymechaniker-old');
+  });
+
+  it('does not inherit from a recycled ETA role when old and fresh records share one requisition', () => {
+    const url = 'https://www.eta.ch/en/jobs-careers/vacancies/detail/3770';
+    const existing = [{
+      id: 'eta-poly-old',
+      url,
+      slug: 'polymechaniker-in-produktion-eta',
+      title: 'Polymechaniker in Produktion',
+      sourceLang: 'de',
+      previousSlugs: ['polymechaniker-old'],
+      titleByLocale: { de: 'Polymechaniker in Produktion', en: 'Polymechaniker' },
+    }];
+    const fresh = [{
+      id: 'eta-qa-fresh',
+      url,
+      slug: 'responsabile-qualitaetssicherung-eta',
+      title: 'Responsabile Qualitätssicherung',
+      sourceLang: 'de',
+      titleByLocale: { de: 'Responsabile Qualitätssicherung' },
+    }];
+
+    const merged = mergePreserveLocaleData(existing, fresh, { retainMissingJobs: false });
+    expect(merged).toHaveLength(1);
+    expect(merged[0].id).toBe('eta-qa-fresh');
+    expect(merged[0].titleByLocale?.en).toBeUndefined();
+    expect(merged[0].previousSlugs || []).not.toContain('polymechaniker-old');
+  });
 });
 
 describe('mergeLocaleTextMap / mergePreserveLocaleData — source-locale drift guard (#4569)', () => {
@@ -901,6 +954,33 @@ describe('mergeAndDeduplicate — crawledAt older than 60 days leaves the active
     const { merged } = mergeAndDeduplicate([recent], [], cfg);
     expect(merged).toHaveLength(1);
     expect(merged[0].id).toBe('jysk-6h1xzk');
+  });
+
+  it('keeps distinct ETA roles separate when the collision spans existing and incoming jobs', () => {
+    const url = 'https://www.eta.ch/en/jobs-careers/vacancies/detail/3770';
+    const existing = baseJob({
+      id: 'eta-poly-old',
+      url,
+      slug: 'polymechaniker-in-produktion-eta',
+      title: 'Polymechaniker in Produktion',
+      sourceLang: 'de',
+      titleByLocale: { de: 'Polymechaniker in Produktion', en: 'Polymechaniker' },
+      previousSlugs: ['polymechaniker-old'],
+    });
+    const incoming = baseJob({
+      id: 'eta-qa-fresh',
+      url,
+      slug: 'responsabile-qualitaetssicherung-eta',
+      title: 'Responsabile Qualitätssicherung',
+      sourceLang: 'de',
+      titleByLocale: { de: 'Responsabile Qualitätssicherung' },
+    });
+
+    const { merged } = mergeAndDeduplicate([existing], [incoming], cfg);
+    expect(merged.map((job) => job.id).sort()).toEqual(['eta-poly-old', 'eta-qa-fresh']);
+    const qa = merged.find((job) => job.id === 'eta-qa-fresh');
+    expect(qa?.titleByLocale?.en).toBeUndefined();
+    expect(qa?.previousSlugs || []).not.toContain('polymechaniker-old');
   });
 });
 

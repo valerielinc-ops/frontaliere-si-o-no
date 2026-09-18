@@ -32,7 +32,11 @@ import {
 } from './job-locale-utils.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { MAX_SLUG_LENGTH } from './regenerate-slugs-helpers.mjs';
-import { extractStableJobId } from './job-match-key.mjs';
+import {
+  extractStableJobId,
+  etaRoleDiscriminatorFromJob,
+  mergeJobIdentity,
+} from './job-match-key.mjs';
 import {
   WORKDAY_HOST_RE,
   workdayReqFromLeaf,
@@ -5524,6 +5528,18 @@ export function isLowQualityLocalizedSlug(value = '') {
 // ── Job fingerprinting & deduplication ───────────────────────
 
 export function fingerprintJob(job) {
+  // The fingerprint is the stable requisition identity. ETA role separation
+  // is added only by collision-aware merge contexts below; putting a mutable
+  // role stem here would make ordinary title/slug rewrites lose registry and
+  // locale continuity (issue 8624).
+  const mergeKey = mergeJobIdentity(job);
+  const eta = typeof mergeKey === 'string'
+    ? mergeKey.match(/^req:(eta\.ch):(\d+)$/)
+    : null;
+  if (eta) {
+    return `id|${eta[1]}|${eta[2]}`;
+  }
+
   const identity = extractJobIdentityFromUrl(job.url || '');
   if (identity) return `id|${identity}`;
 
@@ -5537,7 +5553,19 @@ export function fingerprintJob(job) {
 
 export function dedupHeuristicKey(job) {
   const identity = extractJobIdentityFromUrl(job?.url || '');
-  if (identity) return `id|${identity}`;
+  if (identity) {
+    // Keep same-requisition roles distinct in the heuristic pass. The stable
+    // fingerprint itself remains URL/requisition-only for continuity; this
+    // pass is explicitly collision-oriented and may use the full role
+    // discriminator.
+    const fp = fingerprintJob(job);
+    if (fp && fp.startsWith('id|eta.ch|')) {
+      const role = etaRoleDiscriminatorFromJob(job);
+      return role ? `${fp}#role:${role}` : fp;
+    }
+    if (fp && fp.startsWith('id|')) return fp;
+    return `id|${identity}`;
+  }
 
   const domain = registrableDomain(hostOf(job?.url || '')) || normalizeSpace(job?.company).toLowerCase();
   const company = normalizeSpace(job?.company || '').toLowerCase().replace(/\s+/g, ' ');
@@ -6574,6 +6602,82 @@ function normalizeLocaleTextKeepLines(value = '') {
 // catch a genuinely unrelated role.
 const SOURCE_DRIFT_JACCARD_FLOOR = 0.15;
 
+function sourceTitleForEtaRole(job = {}) {
+  const sourceLocale = String(job?.sourceLang || '').trim();
+  const localized = sourceLocale ? job?.titleByLocale?.[sourceLocale] : '';
+  return normalizeSpace(
+    localized
+    || job?.title
+    || job?.titleByLocale?.it
+    || job?.titleByLocale?.de
+    || job?.titleByLocale?.en
+    || job?.titleByLocale?.fr
+    || '',
+  );
+}
+
+/**
+ * Decide whether two records under one ETA requisition are distinct roles.
+ *
+ * The full discriminator catches roles that share the first three tokens. A
+ * title rewrite with a different first-three-token stem is still treated as
+ * the same posting when its source titles retain meaningful overlap, keeping
+ * the stable requisition continuity path intact.
+ */
+function etaRolesConflict(a = {}, b = {}) {
+  const aRole = etaRoleDiscriminatorFromJob(a);
+  const bRole = etaRoleDiscriminatorFromJob(b);
+  if (aRole === bRole) return false;
+  if (!aRole || !bRole) return true;
+
+  const aStem = aRole.split('-').slice(0, 3).join('-');
+  const bStem = bRole.split('-').slice(0, 3).join('-');
+  if (aStem === bStem) return true;
+
+  const aTitle = sourceTitleForEtaRole(a);
+  const bTitle = sourceTitleForEtaRole(b);
+  if (!aTitle || !bTitle) return true;
+  return slugJaccard(slugify(aTitle), slugify(bTitle)) < SOURCE_DRIFT_JACCARD_FLOOR;
+}
+
+/**
+ * Add an ETA role discriminator only for a base key that has genuinely
+ * conflicting records across the complete merge input. Counting the union of
+ * existing and fresh records is essential: a recycled requisition normally
+ * appears once on each side, not twice inside either side alone.
+ */
+function collisionAwareMatchKey(jobs, baseKey, isEtaBase) {
+  const groups = new Map();
+  for (const job of jobs) {
+    const base = baseKey(job);
+    if (!base || !isEtaBase(base)) continue;
+    const group = groups.get(base) || [];
+    group.push(job);
+    groups.set(base, group);
+  }
+
+  const collisionBases = new Set();
+  for (const [base, group] of groups) {
+    if (group.length < 2) continue;
+    outer:
+    for (let i = 0; i < group.length; i += 1) {
+      for (let j = i + 1; j < group.length; j += 1) {
+        if (etaRolesConflict(group[i], group[j])) {
+          collisionBases.add(base);
+          break outer;
+        }
+      }
+    }
+  }
+
+  return (job) => {
+    const base = baseKey(job);
+    if (!collisionBases.has(base)) return base;
+    const role = etaRoleDiscriminatorFromJob(job);
+    return role ? `${base}#role:${role}` : `${base}#role:`;
+  };
+}
+
 export function mergeLocaleTextMap(a = {}, b = {}, minChars = 1, sourceLocale = null) {
   const out = {};
 
@@ -6588,9 +6692,12 @@ export function mergeLocaleTextMap(a = {}, b = {}, minChars = 1, sourceLocale = 
     // titleByLocale.en/de/fr stayed stuck on "Dipl. Physiotherapist" for
     // dozens of crawls after the vacancy was refilled with a completely
     // different "Cuoco/a in dietetica" (Cook) posting under the same URL).
-    // The matcher upstream (mergePreserveLocaleData's matchKey) only keys on
-    // that stable ID, so it happily hands us `a` (old, physiotherapist) and
-    // `b` (fresh, cook) as if they were the same job. Detect that case here,
+    // The matcher upstream (mergePreserveLocaleData's matchKey) keeps the
+    // stable requisition key for continuity and only adds ETA's role
+    // discriminator when that requisition is actually colliding in the same
+    // run. A host that still reuses a bare stable ID (EOC Umantis, #4569) can
+    // hand us `a` (old, physiotherapist) and `b` (fresh, cook) as if they were
+    // the same job. Detect that case here,
     // where we have the only pair of same-locale source texts to compare:
     // if the source-locale text itself changed beyond recognition, the old
     // non-source-locale translations almost certainly belong to a different
@@ -6710,7 +6817,7 @@ export function mergeLocaleRequirementsMap(a = {}, b = {}) {
  * @param {object[]} existingJobs  – Jobs from the current slice/dataset for this company
  * @param {object[]} freshJobs     – Newly parsed jobs (may only have one locale filled)
  * @param {object}   [opts]
- * @param {Function} [opts.matchKey] – (job) => string – key for matching (default: normalized URL)
+ * @param {Function} [opts.matchKey] – (job) => string – key for matching (default: stable URL/requisition key; ETA role discriminator is added only for collisions)
  * @param {boolean}  [opts.retainMissingJobs=true] – Keep unmatched jobs under the grace-period policy
  * @param {number}   [opts.nowMs] – Clock for the 60-day crawledAt retirement cap
  * @returns {object[]} Merged jobs array (fresh data wins for source fields, existing wins for translations)
@@ -6719,9 +6826,25 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
   // Default to the stable-id matchKey so vendor URL renames (slug-portion
   // rewrites with the underlying job ID intact, e.g. PwC's Workday-style
   // UUID URLs) preserve the merge and trigger the previousSlugs capture
-  // logic below. Crawlers whose URLs lack any stable token fall back to
-  // the normalized full URL (legacy behaviour) — no regression.
-  const matchKey = opts.matchKey || ((job) => extractStableJobId(job?.url));
+  // logic below. ETA reuses a requisition for different roles: keep the
+  // stable requisition key when it is injective (so a legitimate role/title
+  // edit keeps continuity), and add the role stem only when the same key is
+  // present more than once in this run. That discriminator is deliberately
+  // not part of the ordinary key: the first three slug tokens are lossy and
+  // can change when the vendor rewrites a title.
+  const baseMatchKey = opts.matchKey || ((job) => {
+    const urlKey = extractStableJobId(job?.url);
+    if (urlKey) return urlKey;
+    const slug = String(job?.slug || '').trim().toLowerCase();
+    return slug ? `slug:${slug}` : '';
+  });
+  const matchKey = opts.matchKey
+    ? baseMatchKey
+    : collisionAwareMatchKey(
+      [...existingJobs, ...freshJobs],
+      baseMatchKey,
+      (base) => base.startsWith('req:eta.ch:'),
+    );
   const nowMs = Number.isFinite(opts.nowMs) ? opts.nowMs : Date.now();
 
   // Guard against a non-injective matchKey (collisions). A bridge key that is
@@ -7753,6 +7876,11 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
   // explicit companyKey/company value. It has no legacy-alias reassignment
   // fallback, so the single-key ambiguity guarded in pruneStaleCrawlerJobs
   // does not apply here.
+  const mergeFingerprint = collisionAwareMatchKey(
+    [...existingJobs, ...incomingJobs],
+    (job) => fingerprintJob(job),
+    (base) => base.startsWith('id|eta.ch|'),
+  );
   let duplicateExisting = 0;
 
   for (const job of existingJobs) {
@@ -7762,7 +7890,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     ) {
       continue;
     }
-    const fp = fingerprintJob(job);
+    const fp = mergeFingerprint(job);
     if (!fp) continue;
     const normalized = {
       ...job,
@@ -7788,7 +7916,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
   const seenIncoming = new Set();
 
   for (const raw of incomingJobs) {
-    const fp = fingerprintJob(raw);
+    const fp = mergeFingerprint(raw);
     if (!fp) continue;
     if (seenIncoming.has(fp)) {
       duplicateIncoming += 1;
@@ -8012,7 +8140,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     : deduped;
   const dedupedByFp = new Map();
   for (const job of withPreservedOutOfScope) {
-    const fp = fingerprintJob(job);
+    const fp = mergeFingerprint(job);
     if (!fp) continue;
     const prev = dedupedByFp.get(fp);
     dedupedByFp.set(fp, prev ? mergeDuplicateJobPreservingSlugHistory(prev, job) : job);
