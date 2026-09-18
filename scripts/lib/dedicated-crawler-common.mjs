@@ -46,6 +46,7 @@ import { intFromEnv } from './int-from-env.mjs';
 import { isSystemicRejection } from './source-record-quarantine.mjs';
 import { sourceChangedSinceSuppression } from './source-changed-since-suppression.mjs';
 import { normalizeCompanyKey, normalizeKey } from './company-key.mjs';
+import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -3828,7 +3829,7 @@ export function healTruncatedStLocalities(jobs) {
 /**
  * True when the job's city is empty (no signal — HQ is the best guess) or
  * names the HQ's own city (#3513). Local twin of `localityMatchesHq` in
- * build-plugins/shared/companyHqAddresses.ts (this module imports only from
+ * build-plugins/shared/companyHqAddresses.mjs (this module imports only from
  * scripts/lib per its contract). Case/diacritic-insensitive, tolerates
  * decorated localities ("Bellinzona (TI)", "Bellinzona, Ticino").
  */
@@ -6155,9 +6156,93 @@ export function isExplicitlyOutsideTarget(text) {
 /**
  * Check if a job's LOCATION field explicitly indicates a non-Swiss location.
  */
+const EXPLICIT_FOREIGN_COUNTRY_MARKERS = [
+  'malaysia', 'italy', 'italia', 'france', 'germany', 'deutschland',
+  'austria', 'österreich', 'spain', 'españa', 'portugal',
+  'united kingdom', 'uk', 'usa', 'united states', 'canada',
+  'china', 'japan', 'india', 'singapore', 'thailand', 'indonesia',
+  'vietnam', 'philippines', 'taiwan', 'south korea', 'hong kong',
+  'united arab emirates', 'uae', 'saudi arabia', 'qatar',
+  'australia', 'brazil', 'mexico', 'south africa',
+  'netherlands', 'belgium', 'sweden', 'norway', 'denmark', 'finland',
+  'poland', 'czech republic', 'hungary', 'romania', 'greece',
+  'russia', 'ukraine', 'turkey', 'bermuda',
+];
+const EXPLICIT_FOREIGN_COUNTRY_RE = new RegExp(
+  `(?:^|[^\\p{L}])(?:${EXPLICIT_FOREIGN_COUNTRY_MARKERS
+    .map((marker) => marker.replace(/\s+/g, '\\s+'))
+    .join('|')})(?=$|[^\\p{L}])`,
+  'iu',
+);
+const FOREIGN_COUNTRY_CODES = [
+  'AT', 'DE', 'IT', 'NL', 'ES', 'PT', 'GB', 'UK', 'US', 'CA', 'AU', 'CN', 'JP',
+  'IN', 'SG', 'TH', 'ID', 'VN', 'PH', 'TW', 'AE', 'SA', 'QA', 'IL', 'TR', 'BR',
+  'MX', 'ZA', 'SE', 'NO', 'DK', 'FI', 'PL', 'CZ', 'HU', 'RO', 'BG', 'HR', 'SI',
+  'SK', 'RS', 'UA', 'RU', 'FR', 'BE',
+];
+const SWISS_LOCATION_CODES = new Set(['CH', ...ALL_CANTON_CODES]);
+// ISO-like tokens are accepted only in a labelled country field or after a
+// non-empty location component. A final code is Swiss only when the locality
+// before it resolves to the same canton; this keeps SG/FR canton suffixes
+// valid without allowing a mismatched country signal such as "Zurich, FR".
+const FOREIGN_COUNTRY_CODE_PATTERN = `(${FOREIGN_COUNTRY_CODES.join('|')})`;
+const EXPLICIT_FOREIGN_COUNTRY_FIELD_CODE_RE = new RegExp(
+  `\\b(?:addresscountry|country(?:[_\\s-]+(?:code|iso))?|countrycode|isocountry(?:[_\\s-]+code)?|land|pays|paese|codice[_\\s-]+paese)\\b\\s*[:=_-]\\s*["']?${FOREIGN_COUNTRY_CODE_PATTERN}["']?(?=\\s*(?:[,;)]|$))`,
+  'iu',
+);
+const FINAL_FOREIGN_COUNTRY_CODE_RE = new RegExp(
+  `([^;]+?)[,;]\\s*${FOREIGN_COUNTRY_CODE_PATTERN}(?=\\s*(?:\\)|$))`,
+  'giu',
+);
+
+// A bare `BE` suffix is ambiguous with Bern's canton code. Keep an
+// unresolved Swiss street address such as `Industriestrasse 10, BE` in the
+// ambiguous bucket, but do not let a comma-separated foreign city/postcode
+// such as `Hasselt, 3500, BE` pass merely because it contains digits.
+const BE_SWISS_STREET_ADDRESS_RE = /^\s*(?:ch[-\s]?\d{4}\s+)?[^,;]+\s+\d+[a-z]?\s*$/iu;
+
+function hasExplicitForeignCountryCode(lower) {
+  // A labelled field is authoritative even when its two-letter value also
+  // names a Swiss canton (for example, country: FR).
+  if (EXPLICIT_FOREIGN_COUNTRY_FIELD_CODE_RE.test(lower)) return true;
+
+  for (const match of lower.matchAll(FINAL_FOREIGN_COUNTRY_CODE_RE)) {
+    const location = String(match[1] || '').trim();
+    const code = String(match[2] || '').toUpperCase();
+    if (code === 'CH') continue;
+    // A final code is Swiss when it agrees with a Swiss municipality in the
+    // same field. An unrecognized locality keeps a canton code ambiguous;
+    // otherwise a known Swiss locality with a mismatched code remains an
+    // explicit negative country signal (e.g. "Zurich, FR").
+    if (inferAnyCanton(location) === code) continue;
+    // BE is both Belgium's country code and Bern's canton code. Keep it
+    // ambiguous only for an unresolved street-plus-house-number address;
+    // treat a city/postcode pair such as Hasselt, 3500 as an explicit country
+    // context. The other canton-shaped suffixes remain ambiguous here because
+    // their source fields historically use the code as an address suffix
+    // without a resolvable locality.
+    if (SWISS_LOCATION_CODES.has(code) && !isTargetSwissLocation(location, { includeBorderProximity: false })) {
+      if (code === 'BE' && !isKnownSwissMunicipality(location) && !BE_SWISS_STREET_ADDRESS_RE.test(location)) return true;
+      continue;
+    }
+    return true;
+  }
+  return false;
+}
+
 export function isLocationExplicitlyForeign(locationField) {
   const lower = String(locationField || '').toLowerCase();
   if (!lower || lower.length < 3) return false;
+  // Some source cards combine a Swiss municipality with an explicit foreign
+  // country (e.g. "Zurich, Germany"). The explicit negative country signal
+  // must win over the generic Swiss-name safeguard below for every caller of
+  // this shared helper.
+  const hasExplicitForeignCountry =
+    EXPLICIT_FOREIGN_COUNTRY_RE.test(lower)
+    || hasExplicitForeignCountryCode(lower);
+  if (hasExplicitForeignCountry) {
+    return true;
+  }
   if (/(\bch\b|swiss|svizzera|switzerland|schweiz|suisse)/i.test(lower)) return false;
   if (/\b(ticino|tessin|ti|graubunden|graubünden|grigioni|grisons|gr)\b/i.test(lower)) return false;
   // Word-boundary aware target-location check (NOT a substring scan, which let
@@ -6170,18 +6255,6 @@ export function isLocationExplicitlyForeign(locationField) {
   // Uses the full BFS dataset (2,110 municipalities + aliases) instead of
   // a manual list, so every Swiss city is protected.
   if (isKnownSwissMunicipality(lower)) return false;
-  const foreignCountries = [
-    'malaysia', 'italy', 'italia', 'france', 'germany', 'deutschland',
-    'austria', 'österreich', 'spain', 'españa', 'portugal',
-    'united kingdom', 'uk', 'usa', 'united states', 'canada',
-    'china', 'japan', 'india', 'singapore', 'thailand', 'indonesia',
-    'vietnam', 'philippines', 'taiwan', 'south korea', 'hong kong',
-    'united arab emirates', 'uae', 'saudi arabia', 'qatar',
-    'australia', 'brazil', 'mexico', 'south africa',
-    'netherlands', 'belgium', 'sweden', 'norway', 'denmark', 'finland',
-    'poland', 'czech republic', 'hungary', 'romania', 'greece',
-    'russia', 'ukraine', 'turkey', 'bermuda',
-  ];
   const foreignCities = [
     // Italian cities
     'kuala lumpur', 'milano', 'milan', 'roma', 'rome', 'firenze', 'florence',
@@ -6213,7 +6286,7 @@ export function isLocationExplicitlyForeign(locationField) {
     'ruggell', 'barberà del vallès', 'barbera del valles',
     'montecarlo', 'monte carlo', 'monte-carlo', 'monaco-ville',
   ];
-  return foreignCountries.some((k) => lower.includes(k)) || foreignCities.some((k) => lower.includes(k));
+  return foreignCities.some((k) => lower.includes(k));
 }
 
 // A SuccessFactors / SAP "career site" job page (used by Swatch Group, Omega,

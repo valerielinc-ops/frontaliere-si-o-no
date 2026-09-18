@@ -23,6 +23,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { resolveVfSwissLocation } from './lib/vf-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -35,6 +36,12 @@ const VF_KEY = 'vf-international-the-north-face-timberland';
 // shared engine's actual freshly-crawled+localized output instead of
 // crashing on the unguarded read below (issue #3768).
 const DATA_JOBS = crawlerScratchPathFor(VF_KEY);
+const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
+
+function writeVfJobs(jobs) {
+  writeJsonAtomic(DATA_JOBS, jobs);
+  writeJsonAtomic(PUBLIC_JOBS, jobs);
+}
 
 function normalizeKey(value = '') {
   return String(value || '')
@@ -77,6 +84,50 @@ function runBaseCrawler() {
   });
 }
 
+function normalizeVfLocations() {
+  if (!fs.existsSync(DATA_JOBS)) return { normalized: 0, unresolved: 0, total: 0, byCanton: {} };
+  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const jobs = Array.isArray(raw) ? raw : [];
+  let normalized = 0;
+  let unresolved = 0;
+  const byCanton = {};
+
+  for (const job of jobs) {
+    if (!isVfJob(job)) continue;
+    const rawLocation = String(job.location || job.addressLocality || '').trim();
+    const resolved = resolveVfSwissLocation(rawLocation);
+    if (!resolved) {
+      unresolved += 1;
+      console.warn(`⚠️ VF job has no concrete Swiss Workday locality; leaving it unresolved: ${job.title || 'untitled'} (${rawLocation || 'unknown'})`);
+      continue;
+    }
+
+    const changed =
+      job.location !== resolved.locality ||
+      job.addressLocality !== resolved.locality ||
+      job.canton !== resolved.canton ||
+      job.addressRegion !== resolved.canton ||
+      job.country !== 'CH' ||
+      job.addressCountry !== 'CH';
+    job.location = resolved.locality;
+    job.addressLocality = resolved.locality;
+    job.canton = resolved.canton;
+    job.addressRegion = resolved.canton;
+    job.country = 'CH';
+    job.addressCountry = 'CH';
+    // Keep the field present even when Workday provides no postal code. The
+    // assembler/build schema then derives a locality-coherent safe default;
+    // never copy a fixed Stabio/Ticino value here.
+    job.postalCode = String(job.postalCode || '');
+    if (changed) normalized += 1;
+    byCanton[resolved.canton] = (byCanton[resolved.canton] || 0) + 1;
+  }
+
+  if (normalized > 0) writeVfJobs(jobs);
+  console.log(`🗺️ VF Swiss locality normalization: ${normalized}/${normalized + unresolved} changed, ${unresolved} unresolved; cantons ${JSON.stringify(byCanton)}`);
+  return { normalized, unresolved, total: normalized + unresolved, byCanton };
+}
+
 function ensureSourceLang() {
   if (!fs.existsSync(DATA_JOBS)) return;
   const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
@@ -88,7 +139,7 @@ function ensureSourceLang() {
     if (job.sourceLang !== lang) { job.sourceLang = lang; changed++; }
   }
   if (changed > 0) {
-    writeJsonAtomic(DATA_JOBS, jobs);
+    writeVfJobs(jobs);
     console.log(`📝 Set sourceLang on ${changed} VF job(s).`);
   }
 }
@@ -118,6 +169,7 @@ async function main() {
     const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(VF_KEY, DATA_JOBS).filter(isVfJob))
 
   await runBaseCrawler();
+  normalizeVfLocations();
   ensureSourceLang();
   await translateMissingJobLocales({
     dataJobsPath: DATA_JOBS,

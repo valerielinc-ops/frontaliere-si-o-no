@@ -841,7 +841,7 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-13T13:59:32.557Z",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Bahnhofstrasse 45",
@@ -2924,7 +2924,17 @@
         "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-dubendorf",
         "assistant-cook-assistant-cook-80-zfv-unternehmungen-dubendorf",
         "hilfskochin-hilfskoch-80-zfv-unternehmungen-dubendorf",
-        "cuisinier-adjoint-cuisinier-adjoint-80-zfv-unternehmungen-dubendorf"
+        "cuisinier-adjoint-cuisinier-adjoint-80-zfv-unternehmungen-dubendorf",
+        "assistente-cuoco-assistente-cuoco-80-100-zfv-unternehmungen-dubendorf",
+        "assistant-cook-assistant-cook-80-100-zfv-unternehmungen-dubendorf",
+        "hilfskochin-hilfskoch-80-100-zfv-unternehmungen-dubendorf",
+        "cuisinier-adjoint-cuisinier-adjoint-80-100-zfv-unternehmungen-dubendorf",
+        "cucinare-cucinare-80-zfv-unternehmungen-dubendorf",
+        "cook-cook-80-100-zfv-unternehmungen-dubendorf",
+        "kochin-koch-80-zfv-unternehmungen-dubendorf",
+        "cuire-cuire-80-zfv-unternehmungen-dubendorf",
+        "kochin-koch-80-100-zfv-unternehmungen-dubendorf",
+        "cook-cook-80-zfv-unternehmungen-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2932,18 +2942,34 @@
           "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-dubendorf",
           "assistant-cook-assistant-cook-80-zfv-unternehmungen-dubendorf",
           "hilfskochin-hilfskoch-80-zfv-unternehmungen-dubendorf",
-          "cuisinier-adjoint-cuisinier-adjoint-80-zfv-unternehmungen-dubendorf"
+          "cuisinier-adjoint-cuisinier-adjoint-80-zfv-unternehmungen-dubendorf",
+          "assistente-cuoco-assistente-cuoco-80-100-zfv-unternehmungen-dubendorf",
+          "assistant-cook-assistant-cook-80-100-zfv-unternehmungen-dubendorf",
+          "hilfskochin-hilfskoch-80-100-zfv-unternehmungen-dubendorf",
+          "cuisinier-adjoint-cuisinier-adjoint-80-100-zfv-unternehmungen-dubendorf",
+          "cucinare-cucinare-80-zfv-unternehmungen-dubendorf",
+          "cook-cook-80-100-zfv-unternehmungen-dubendorf",
+          "kochin-koch-80-zfv-unternehmungen-dubendorf",
+          "cuire-cuire-80-zfv-unternehmungen-dubendorf",
+          "kochin-koch-80-100-zfv-unternehmungen-dubendorf",
+          "cook-cook-80-zfv-unternehmungen-dubendorf"
         ],
         "en": [
           "assistant-cook-assistant-cook-80-zfv-unternehmungen-dubendorf",
-          "kochin-koch-60-zfv-unternehmungen-dubendorf"
+          "kochin-koch-60-zfv-unternehmungen-dubendorf",
+          "assistant-cook-assistant-cook-80-100-zfv-unternehmungen-dubendorf",
+          "cook-cook-80-100-zfv-unternehmungen-dubendorf"
         ],
         "de": [
-          "hilfskochin-hilfskoch-80-zfv-unternehmungen-dubendorf"
+          "hilfskochin-hilfskoch-80-zfv-unternehmungen-dubendorf",
+          "hilfskochin-hilfskoch-80-100-zfv-unternehmungen-dubendorf",
+          "kochin-koch-80-zfv-unternehmungen-dubendorf"
         ],
         "fr": [
           "kochin-koch-60-zfv-unternehmungen-dubendorf",
-          "cuisinier-adjoint-cuisinier-adjoint-80-zfv-unternehmungen-dubendorf"
+          "cuisinier-adjoint-cuisinier-adjoint-80-zfv-unternehmungen-dubendorf",
+          "cuisinier-adjoint-cuisinier-adjoint-80-100-zfv-unternehmungen-dubendorf",
+          "cuire-cuire-80-zfv-unternehmungen-dubendorf"
         ]
       },
       "firstSeenAt": "2026-08-07T01:10:33.084Z",
@@ -3533,11 +3559,35 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-befristet-bis-feb-2027-zfv-unternehmungen-zurich"
+        "kochin-koch-befristet-bis-feb-2027-zfv-unternehmungen-zurich",
+        "chef-de-service-temporaneo-fino-al-febbraio-2027-zfv-unternehmungen-zurich",
+        "chef-de-service-temporary-until-february-2027-zfv-unternehmungen-zurich",
+        "chef-de-service-befristet-bis-februar-2027-zfv-unternehmungen-zurich",
+        "chef-de-service-temporaire-jusqu-en-fevrier-2027-zfv-unternehmungen-zurich",
+        "chef-de-service-temporaneo-fino-a-febbraio-2027-zfv-unternehmungen-zurich",
+        "service-collaboratore-trice-befristet-bis-februar-2027-zfv-unternehmungen-zurich",
+        "service-mitarbeiter-in-befristet-bis-februar-2027-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-befristet-bis-feb-2027-zfv-unternehmungen-zurich"
+          "kochin-koch-befristet-bis-feb-2027-zfv-unternehmungen-zurich",
+          "chef-de-service-temporaneo-fino-al-febbraio-2027-zfv-unternehmungen-zurich",
+          "chef-de-service-temporary-until-february-2027-zfv-unternehmungen-zurich",
+          "chef-de-service-befristet-bis-februar-2027-zfv-unternehmungen-zurich",
+          "chef-de-service-temporaire-jusqu-en-fevrier-2027-zfv-unternehmungen-zurich",
+          "chef-de-service-temporaneo-fino-a-febbraio-2027-zfv-unternehmungen-zurich",
+          "service-collaboratore-trice-befristet-bis-februar-2027-zfv-unternehmungen-zurich",
+          "service-mitarbeiter-in-befristet-bis-februar-2027-zfv-unternehmungen-zurich"
+        ],
+        "en": [
+          "chef-de-service-temporary-until-february-2027-zfv-unternehmungen-zurich"
+        ],
+        "de": [
+          "chef-de-service-befristet-bis-februar-2027-zfv-unternehmungen-zurich",
+          "service-mitarbeiter-in-befristet-bis-februar-2027-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
+          "chef-de-service-temporaire-jusqu-en-fevrier-2027-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T12:44:00.470Z",
@@ -4917,17 +4967,29 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kuchenchef-in-zfv-unternehmungen-zurich"
+        "kuchenchef-in-zfv-unternehmungen-zurich",
+        "capo-de-servizio-zfv-unternehmungen-zurich",
+        "chief-de-service-zfv-unternehmungen-zurich",
+        "chef-de-service-zfv-unternehmungen-zurich",
+        "chef-di-sala-zfv-unternehmungen-zurich",
+        "head-of-service-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kuchenchef-in-zfv-unternehmungen-zurich"
+          "kuchenchef-in-zfv-unternehmungen-zurich",
+          "capo-de-servizio-zfv-unternehmungen-zurich",
+          "chief-de-service-zfv-unternehmungen-zurich",
+          "chef-de-service-zfv-unternehmungen-zurich",
+          "chef-di-sala-zfv-unternehmungen-zurich",
+          "head-of-service-zfv-unternehmungen-zurich"
         ],
         "en": [
-          "kuchenchef-in-zfv-unternehmungen-zurich"
+          "kuchenchef-in-zfv-unternehmungen-zurich",
+          "chief-de-service-zfv-unternehmungen-zurich"
         ],
         "fr": [
-          "kuchenchef-in-zfv-unternehmungen-zurich"
+          "kuchenchef-in-zfv-unternehmungen-zurich",
+          "chef-de-service-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-08-21T21:34:33.188Z",
