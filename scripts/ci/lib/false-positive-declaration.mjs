@@ -24,8 +24,29 @@
  * negation is part of their correct affirmative meaning ("is NOT the same
  * construct" = a genuine false-positive declaration, not a negation of one).
  */
+/**
+ * Every shape of "this is NOT a false positive" that must NOT be read as a
+ * declaration. Measured on #9134: the first two arms alone let four negations
+ * through, each one closing a bullet whose author said the opposite —
+ * `isn't a false positive`, `aren't false positive`, `wasn't a false positive`
+ * and `never a false positive` all matched, and so did the ASCII Italian
+ * `non e un falso positivo` (the arm required the accented `è`).
+ *
+ * Contractions are the load-bearing case: `isn't` does not contain the word
+ * `not`, so `\bnot\s+` cannot see it. Keep this list and its test in
+ * tests/followup-bullet-state-classes.test.ts in step.
+ */
 export const NEGATION_LOOKBEHIND =
-  '(?<!\\bnon\\s+(?:è|sono|erano)\\s+(?:un\\s+|una\\s+)?)(?<!\\bnot\\s+(?:a\\s+)?)';
+  // Italian: "non è/sono/erano/e (un|una) ". The unaccented `e` is last so the
+  // longer alternatives win first; an ASCII-only body still means the negation.
+  '(?<!\\bnon\\s+(?:è|sono|erano|e)\\s+(?:un\\s+|una\\s+)?)'
+  // English, uncontracted: "not (a) ".
+  + '(?<!\\bnot\\s+(?:a\\s+)?)'
+  // English, contracted: "isn't/aren't/wasn't/weren't (a) ", straight or curly
+  // apostrophe — neither spelling contains the token `not`.
+  + "(?<!\\b(?:is|are|was|were)n['’]t\\s+(?:a\\s+)?)"
+  // English, adverbial: "never (a) ".
+  + '(?<!\\bnever\\s+(?:a\\s+)?)';
 
 export const FALSE_POSITIVE_DECLARATION_RE = new RegExp(
   `${NEGATION_LOOKBEHIND}falso positivo` +
