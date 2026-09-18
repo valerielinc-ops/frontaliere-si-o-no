@@ -2,6 +2,7 @@ import { firstLocationSegment } from './ats-clients/workday-client.mjs';
 import {
   inferAnyCanton,
   isCantonOnlyLabel,
+  isKnownSwissMunicipalityInCanton,
   isSwissLocationText,
   swissCityFromLocationField,
 } from './target-swiss-locations.mjs';
@@ -124,7 +125,15 @@ export function resolveFnzSwissLocation(candidates = []) {
       && (
         explicitCity
         || hasStructuredAddress
-        || (signalCity && !isCantonOnlyLabel(signalCity))
+        // `isCantonOnlyLabel` is true for an ambiguous BFS municipality
+        // (`Buchs` AG/SG/ZH, `Gossau` SG/ZH, …), because BFS stores a shared
+        // name only as `<City> (XX)`. Such a name IS a concrete city, so
+        // confirm against the snapshot for the canton it resolves to instead
+        // of rejecting the candidate outright.
+        || (signalCity && (
+          !isCantonOnlyLabel(signalCity)
+          || isKnownSwissMunicipalityInCanton(signalCity, locationCanton)
+        ))
       ),
     );
     if (

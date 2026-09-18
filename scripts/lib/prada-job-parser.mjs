@@ -27,6 +27,7 @@ import {
   canonicalSwissCityName,
   inferAnyCanton,
   isCantonOnlyLabel,
+  isKnownSwissMunicipalityInCanton,
   isKnownSwissCity,
   isSwissLocationText,
   isTargetSwissLocation,
@@ -168,7 +169,12 @@ function normalizeSpace(value = '') {
 
 function canonicalPradaCity(value = '', canton = '') {
   const candidate = normalizeSpace(value);
-  if (!candidate || !canton || isCantonOnlyLabel(candidate)) return '';
+  if (!candidate || !canton) return '';
+  // Same collision as canonicalNordAngliaCity: an ambiguous BFS municipality
+  // (`Buchs` AG/SG/ZH, `Gossau` SG/ZH, …) is `isCantonOnlyLabel`-true because
+  // BFS stores a shared name only as `<City> (XX)`. Consult the snapshot for
+  // the canton in hand so a real, precise city is not discarded.
+  if (isCantonOnlyLabel(candidate) && !isKnownSwissMunicipalityInCanton(candidate, canton)) return '';
   const canonical = isKnownSwissCity(candidate, canton)
     ? canonicalSwissCityName(candidate)
     : candidate;
