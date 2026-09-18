@@ -157,7 +157,13 @@ async function fetchAllListings() {
     }
     const items = parseConvitListingPage(html);
     const newItems = items.filter((item) => !seenCodes.has(item.code));
-    if (newItems.length === 0) break;
+    if (items.length === 0) break;
+    if (newItems.length === 0) {
+      throw new Error(
+        `Convit listing page ${page} repeated only previously seen source identities; `
+        + 'refusing to publish an incomplete snapshot.',
+      );
+    }
     for (const item of newItems) {
       seenCodes.add(item.code);
       allItems.push(item);
