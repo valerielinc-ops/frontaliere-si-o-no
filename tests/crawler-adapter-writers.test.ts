@@ -235,16 +235,29 @@ describe('EFG Oracle discovery invariants', () => {
 });
 
 describe('JYSK SSR discovery invariants', () => {
-  it('accepts canonical details/verified zero and rejects transport failure', async () => {
+  it('retries transient transport failures while preserving discovery guards', async () => {
     const marker = '<title>Switzerland (German) | JYSK Open Positions</title>';
     const complete = async () => new Response(`${marker}<a href="/offene-stellen/verkaeufer-lugano">job</a>`, { status: 200 });
     await expect(fetchJyskJobUrls({ fetchImpl: complete, timeoutMs: 1000 })).resolves.toMatchObject({
       urls: ['https://jobs.de.jysk.ch/offene-stellen/verkaeufer-lugano'], sourceZero: false, duplicateIdentity: 0,
     });
+    let attempts = 0;
+    const transientThenComplete = async () => {
+      attempts += 1;
+      if (attempts === 1) throw new TypeError('fetch failed');
+      return new Response(`${marker}<a href="/offene-stellen/verkaeufer-lugano">job</a>`, { status: 200 });
+    };
+    await expect(fetchJyskJobUrls({
+      fetchImpl: transientThenComplete,
+      timeoutMs: 1000,
+      retries: 1,
+      retryBaseMs: 0,
+    })).resolves.toMatchObject({ urls: ['https://jobs.de.jysk.ch/offene-stellen/verkaeufer-lugano'] });
+    expect(attempts).toBe(2);
     const zero = async () => new Response(`${marker}<main>Nessuna posizione</main>`, { status: 200 });
     await expect(fetchJyskJobUrls({ fetchImpl: zero, timeoutMs: 1000 })).resolves.toMatchObject({ urls: [], sourceZero: true });
     const unavailable = async () => new Response('down', { status: 503 });
-    await expect(fetchJyskJobUrls({ fetchImpl: unavailable, timeoutMs: 1000 })).rejects.toThrow(/503/);
+    await expect(fetchJyskJobUrls({ fetchImpl: unavailable, timeoutMs: 1000, retries: 0 })).rejects.toThrow(/503/);
     const unrelated = async () => new Response('<html>challenge</html>', { status: 200 });
     await expect(fetchJyskJobUrls({ fetchImpl: unrelated, timeoutMs: 1000 })).rejects.toThrow(/identity marker/);
   });
