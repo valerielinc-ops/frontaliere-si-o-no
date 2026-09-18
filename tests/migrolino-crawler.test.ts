@@ -343,7 +343,7 @@ describe('migrolino crawler parser', () => {
       expect(parsed.streetAddress).not.toBe('Wynenfeldstrasse 3');
     });
 
-    it('emits a coherent national fallback when the source city is unresolved', () => {
+    it('does not emit an explicit unresolved source city through the fallback', () => {
       const html = `<script type="application/ld+json">${JSON.stringify({
         '@context': 'https://schema.org/',
         '@type': 'JobPosting',
@@ -355,10 +355,11 @@ describe('migrolino crawler parser', () => {
         },
       })}</script>`;
       const parsed = parseMigrolinoDetail(html);
-      expect(parsed.city).toBe('Bern');
-      expect(parsed.canton).toBe('BE');
-      expect(parsed.postalCode).toBe('3000');
-      expect(parsed.streetAddress).toBe('Bern city centre');
+      expect(parsed.title).toBe('Verkäufer*in');
+      expect(parsed.city).toBe('');
+      expect(parsed.canton).toBe('');
+      expect(parsed.postalCode).toBe('');
+      expect(parsed.streetAddress).toBe('');
     });
 
     it('returns an empty title (not a throw) for empty/invalid input', () => {

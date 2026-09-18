@@ -292,7 +292,9 @@ export function parseMigrolinoDetail(html = '', url = '') {
       ? address.addressCountry.name || address.addressCountry.value || ''
       : address.addressCountry || '',
   );
-  const canton = inferAnyCanton(rawCity) || inferAnyCanton(sourceRegion) || '';
+  const sourceCityCanton = inferAnyCanton(rawCity);
+  const unresolvedExplicitCity = Boolean(rawCity && !sourceCityCanton);
+  const canton = sourceCityCanton || inferAnyCanton(sourceRegion) || '';
   const {
     city,
     canton: addressCanton,
@@ -321,16 +323,24 @@ export function parseMigrolinoDetail(html = '', url = '') {
   const postedDate = normalizeSpace(jsonLd?.datePosted || '').slice(0, 10);
   const locationSignal = [city, sourceRegion, addressCanton].filter(Boolean).join(' ');
   const resolvedCanton = addressCanton && isTargetSwissLocation(locationSignal) ? addressCanton : '';
+  // A fabricated national fallback is safe only when the source supplied no
+  // locality at all. Never turn an explicit, unrecognised city into Bern (or
+  // another canton fallback), because the fallback would make the Swiss guard
+  // accept a foreign/unknown posting as a real Swiss job.
+  const outputCity = unresolvedExplicitCity ? '' : city;
+  const outputCanton = unresolvedExplicitCity ? '' : resolvedCanton;
+  const outputPostalCode = unresolvedExplicitCity ? '' : postalCode;
+  const outputStreetAddress = unresolvedExplicitCity ? '' : streetAddress;
 
   return {
     title,
     description: description || (title
       ? `${title} — ${MIGROLINO_COMPANY_NAME}${city ? ` (${city})` : ''}.`
       : ''),
-    city,
-    canton: resolvedCanton,
-    postalCode,
-    streetAddress,
+    city: outputCity,
+    canton: outputCanton,
+    postalCode: outputPostalCode,
+    streetAddress: outputStreetAddress,
     country: sourceCountry,
     sourceRegion,
     employmentType,
