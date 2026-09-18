@@ -90,6 +90,7 @@ import {
 import { freeTranslateWithRetry, balanceMarkdownMarkers } from './lib/free-translate.mjs';
 import { sanitizeBodyText } from './lib/sanitize-body-braces.mjs';
 import { translateFieldFreeMt, translatedStringOrNull, joinTranslatedChunks } from './lib/article-free-mt.mjs';
+import { hasUsableContentText, hasUsableTranslatedText } from './lib/usable-content-text.mjs';
 import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord, STOP_WORDS_IT } from './lib/it-text-similarity.mjs';
 import { DOMAIN_DUP_STOPLIST, filterDistinctive } from './lib/dup-stoplist.mjs';
@@ -3254,7 +3255,8 @@ function normalizeItalianContentFromPayload(payload, locale = 'it') {
     let hasAnyField = false;
 
     for (const field of REQUIRED_IT_BODY_FIELDS) {
-      const value = typeof candidate[field] === 'string' ? candidate[field].trim() : '';
+      const raw = candidate[field];
+      const value = hasUsableContentText(raw) ? raw.trim() : '';
       if (value) hasAnyField = true;
       block[field] = value;
     }
@@ -3267,7 +3269,10 @@ function normalizeItalianContentFromPayload(payload, locale = 'it') {
 
 function validateItalianPayload(contentIt, locale = 'it') {
   for (const field of REQUIRED_IT_BODY_FIELDS) {
-    if (!contentIt?.[field] || contentIt[field].trim().length < 1) {
+    // `hasUsableContentText` e non un `.trim()` nudo: la stringa `"null"`
+    // supererebbe il gate e un campo non-stringa lancerebbe TypeError invece
+    // del qualityReject.
+    if (!hasUsableContentText(contentIt?.[field])) {
       // qualityReject=true: missing-field is the same content-quality class as
       // callLLM's body2-validation throws (malformed/incomplete generation),
       // not an infrastructure error — isQualityRejectError() didn't match a
@@ -6651,7 +6656,7 @@ ${terminologyByLang[targetLang] || ''}`;
         // downstream, which stringifies to the literal "[object Object]" and
         // ships as prose. Drop the key instead so the per-field missing-
         // translation retry (and then the IT fallback) can recover it.
-        const text = translatedStringOrNull(result?.[bodyKey]);
+        const text = translatedStringOrNull(result?.[bodyKey], lang);
         if (text === null) {
           console.error(`  ⚠️  ${lang}:${bodyKey} non è una stringa (${typeof result?.[bodyKey]}) — campo scartato, recupero per-campo downstream`);
           return {};
@@ -6694,7 +6699,7 @@ ${terminologyByLang[targetLang] || ''}`;
       // be stringified into the joined body as "[object Object]" — one corrupted
       // paragraph in the middle of otherwise-good prose. Refuse the whole field
       // instead and let the per-field recovery re-translate it.
-      const joined = joinTranslatedChunks(translated, bodyKey);
+      const joined = joinTranslatedChunks(translated, bodyKey, lang);
       if (joined === null) {
         console.error(`  ⚠️  ${lang}:${bodyKey} — almeno un chunk non è una stringa, campo scartato: recupero per-campo downstream`);
         return {};
@@ -6802,9 +6807,9 @@ ${terminologyByLang[targetLang] || ''}`;
   for (const locale of ['en', 'de', 'fr']) {
     const langName = locale === 'en' ? 'inglese' : locale === 'de' ? 'tedesco' : 'francese';
     for (const field of ['title', 'excerpt', 'body1', 'body2', 'body3']) {
-      if (data.content[locale][field]) continue;
+      if (hasUsableTranslatedText(data.content[locale][field], locale)) continue;
       const itValue = itContent[field];
-      if (!itValue) {
+      if (!hasUsableContentText(itValue)) {
         throw new Error(`Campo ${field} mancante nella traduzione ${locale} (e assente anche nella sorgente IT)`);
       }
       console.error(`  ⚠️  Campo ${field} mancante nella traduzione ${locale} — retry traduzione mirata...`);
@@ -6819,7 +6824,7 @@ ${terminologyByLang[targetLang] || ''}`;
         // `String(retried)` on an object yields "[object Object]" — truthy and
         // different from the IT value, so the old check ASSIGNED it. Require a
         // real string so a non-string retry falls through to the IT fallback.
-        const retried = translatedStringOrNull(parsed?.[field]);
+        const retried = translatedStringOrNull(parsed?.[field], locale);
         if (retried && String(retried).trim() !== String(itValue).trim()) {
           data.content[locale][field] = retried;
           console.error(`  ✅ Campo ${field} (${locale}) ritradotto con successo dopo missing-field retry`);
@@ -6847,7 +6852,7 @@ ${terminologyByLang[targetLang] || ''}`;
             `ATTENZIONE: la traduzione precedente è rimasta in ITALIANO. Traduci OBBLIGATORIAMENTE in ${langName}.\n\nCONTENUTO ITALIANO DA TRADURRE:\n- ${field}: ${itVal}`,
             `{"${field}": "..."}`,
           ), 1000, `${locale}:${field}-retry`);
-          if (retryResult?.[field] && retryResult[field].trim() !== itVal) {
+          if (hasUsableTranslatedText(retryResult?.[field], locale) && retryResult[field].trim() !== itVal) {
             data.content[locale][field] = retryResult[field];
             console.error(`  ✅ [translation-check] ${locale.toUpperCase()}.${field} ritradotto con successo`);
           } else {
@@ -7163,7 +7168,8 @@ function validate(data, opts = {}) {
       }
     }
     for (const field of ['title', 'excerpt', 'body1', 'body2', 'body3']) {
-      if (!data.content[locale][field]) {
+      // Ultima rete prima della scrittura: `"null"` e' mancante quanto il vuoto.
+      if (!hasUsableContentText(data.content[locale][field])) {
         const err = new Error(`Campo ${field} mancante per ${locale}`);
         err.qualityReject = true;
         throw err;
@@ -11904,6 +11910,11 @@ export { llmFactCheck };
 // without duplicating the pool-assembly logic at L10545-10547 or the
 // duplicate-check it feeds into. Pure re-export — no behavior change.
 export { PRIORITY_EVERGREEN_TOPICS, PRIORITY_EVERGREEN_TOPICS_SVIZZERA, buildDynamicEvergreenTopics, buildDynamicEvergreenTopicsSvizzera, preFlightEvergreenTopicCheck, loadExistingArticleSummaries };
+
+// Presence predicates and the two IT gates that consume them: tests import the
+// shipped functions instead of grepping a copy (AGENTS.md #6).
+export { hasUsableContentText, hasUsableTranslatedText };
+export { normalizeItalianContentFromPayload, validateItalianPayload };
 
 // Only run the AI generation pipeline when invoked directly as a CLI — importing
 // this module (to reuse registerArticleFiles/buildBodyFile) must NOT execute it.
