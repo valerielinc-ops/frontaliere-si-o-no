@@ -467,7 +467,21 @@ jobs:
                 # A zero-candidate summary may name the unchanged daily bucket for
                 # audit context. That is not a claim that this PR was persisted in
                 # the bucket, so it must use the empty-result path below.
-                if printf '%s' "$marker_body" | grep -Eiq 'zero outstanding items|backfill skipped|Created:[[:space:]]*0 issue[[:space:]]*\(solo live-verification batchata\)|Created/updated:[[:space:]]*(0 issue[[:space:]]*[—-][[:space:]]*nessun item nuovo aggiunto|nessun nuovo item nel bucket)'; then
+                # Discriminante STRUTTURALE, gemello di `triageMarkerPersistenceExpectation`
+                # in scripts/ci/collect-followup-batch.mjs (il legame e' coperto da
+                # tests/followup-marker-zero-claim.test.ts): sulla riga di claim
+                # isolata qui sopra conta il NUMERO dichiarato, non la prosa. La
+                # lista di formule ammesse che stava qui e' stata superata tre volte
+                # dalla variante successiva; l'ultima il 2026-09-18 con
+                # «Created/updated: 0 item; nessun bucket creato.», marker corretto
+                # per un esito legittimo, run rossa.
+                claim_lines=$(printf '%s\n' "$marker_body" | sed -n -E '/^[[:space:]]*(-[[:space:]]+|\*[[:space:]]+)?Created(\/updated)?:/p')
+                zero_claim=false
+                if [ -n "$claim_lines" ] && ! printf '%s\n' "$claim_lines" \
+                  | grep -Eqv '^[[:space:]]*(-[[:space:]]+|\*[[:space:]]+)?Created(/updated)?:[[:space:]]*0([^0-9]|$)'; then
+                  zero_claim=true
+                fi
+                if [ "$zero_claim" = true ] || printf '%s' "$marker_body" | grep -Eiq 'zero outstanding items|backfill skipped'; then
                   # The explicit zero-item marker is an empty-result claim. A
                   # bucket named only as unchanged audit context is not a
                   # persistence claim and must not fail this branch.
