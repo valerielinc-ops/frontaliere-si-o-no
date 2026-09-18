@@ -60,6 +60,23 @@ function lightSlug(value) {
     .replace(/^-+|-+$/g, '');
 }
 
+function etaRoleTokens(job = {}) {
+  const slug = String(
+    job?.slug || job?.slugByLocale?.it || job?.slugByLocale?.de || '',
+  ).trim().toLowerCase();
+  const titleHead = String(job?.title || '').split('|')[0];
+  const raw = slug || lightSlug(titleHead);
+  if (!raw) return [];
+  return raw.split(/[^a-z0-9]+/).filter((t) => {
+    if (t.length < 4) return false;
+    if (ETA_ROLE_NOISE.has(t)) return false;
+    if (/^\d+$/.test(t)) return false;
+    // Trailing slug-disambiguator (`49gsdw`, `6oyznl`) — not a role word.
+    if (/^[a-z]{0,4}\d+[a-z0-9]*$/.test(t)) return false;
+    return true;
+  });
+}
+
 /**
  * Coarse role signature from slug (preferred) or title. First three
  * significant tokens after stripping company/location noise — enough to
@@ -69,32 +86,30 @@ function lightSlug(value) {
  * @returns {string}
  */
 export function etaRoleStemFromJob(job = {}) {
-  const slug = String(
-    job?.slug || job?.slugByLocale?.it || job?.slugByLocale?.de || '',
-  ).trim().toLowerCase();
-  const titleHead = String(job?.title || '').split('|')[0];
-  const raw = slug || lightSlug(titleHead);
-  if (!raw) return '';
-  const tokens = raw.split(/[^a-z0-9]+/).filter((t) => {
-    if (t.length < 4) return false;
-    if (ETA_ROLE_NOISE.has(t)) return false;
-    if (/^\d+$/.test(t)) return false;
-    // Trailing slug-disambiguator (`49gsdw`, `6oyznl`) — not a role word.
-    if (/^[a-z]{0,4}\d+[a-z0-9]*$/.test(t)) return false;
-    return true;
-  });
-  return tokens.slice(0, 3).join('-');
+  return etaRoleTokens(job).slice(0, 3).join('-');
 }
 
 /**
- * Crawl-time identity of a job RECORD (URL +, for ETA, the role stem).
+ * Full ETA role discriminator for collision handling only.
+ *
+ * Unlike etaRoleStemFromJob(), this keeps every meaningful role token. It is
+ * deliberately NOT part of the stable requisition identity: title/slug
+ * rewrites must keep continuity unless a merge sees genuinely distinct roles
+ * under the same recycled requisition.
+ */
+export function etaRoleDiscriminatorFromJob(job = {}) {
+  return etaRoleTokens(job).join('-');
+}
+
+/**
+ * Stable crawl-time identity of a job RECORD.
  *
  * `extractStableJobId` is URL-only: eta.ch Rule L keys `/vacancies/detail/3770`
  * as `req:eta.ch:3770` so an ancestor `index.php/` rename does not fragment
- * the match. ETA recycles that four-digit requisition for a different role
- * (issue 8624: polymechaniker vs responsabile-qualitaetssicherung under the
- * same `req:3770`). Appending the role stem distinguishes those postings
- * while URL-path variants of the SAME slug still collapse.
+ * the match. ETA can recycle that four-digit requisition for a different role
+ * (issue 8624), but the role discriminator belongs to the collision-aware
+ * merge context, not this stable key: ordinary title/slug rewrites must not
+ * lose previousSlugs or locale continuity.
  *
  * Non-ETA keys are byte-for-byte `extractStableJobId(url)`. Empty slug/title
  * on an ETA URL also falls back to the URL-only key (no silent re-key of
@@ -109,9 +124,7 @@ export function mergeJobIdentity(job = {}) {
     const slug = String(job?.slug || '').trim().toLowerCase();
     return slug ? `slug:${slug}` : '';
   }
-  if (!urlKey.startsWith('req:eta.ch:')) return urlKey;
-  const role = etaRoleStemFromJob(job);
-  return role ? `${urlKey}#${role}` : urlKey;
+  return urlKey;
 }
 
 /**

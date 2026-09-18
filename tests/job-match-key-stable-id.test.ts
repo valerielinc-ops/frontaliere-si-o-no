@@ -11,6 +11,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   extractStableJobId,
+  etaRoleDiscriminatorFromJob,
   hasUsableJobId,
   mergeJobIdentity,
   resolveJobDiffKey,
@@ -139,9 +140,9 @@ describe('resolveJobDiffKey', () => {
 describe('mergeJobIdentity ETA recycled requisition (issue 8624)', () => {
   // Two records in eta-sa-swatch-group shared URL-key `req:eta.ch:3770` but
   // were distinct postings (polymechaniker vs quality-assurance). The
-  // crawl-time merge (fingerprintJob → mergeAndDeduplicate) and the default
-  // dedicated matchKey now go through mergeJobIdentity so those slugs mint
-  // two keys, while an ancestor-path rename of the SAME slug still collapses.
+  // The stable requisition identity stays URL-only. Collision-aware merge
+  // contexts add etaRoleDiscriminatorFromJob only when the same requisition
+  // contains genuinely distinct roles.
   const url = 'https://www.eta.ch/en/jobs-careers/vacancies/detail/3770';
   const urlIndexPhp = 'https://www.eta.ch/index.php/en/jobs-careers/vacancies/detail/3770';
   const polySlug = 'polymechaniker-in-nel-settore-area-80-100-sul-sito-produzione-horlogere-suisse-eta-sa-eta-sa-swatch-group-2540-grenchen';
@@ -149,12 +150,12 @@ describe('mergeJobIdentity ETA recycled requisition (issue 8624)', () => {
   const poly = { url, slug: polySlug };
   const qa = { url, slug: qaSlug };
 
-  it('gives two jobs sharing req:3770 and divergent slugs two identities, not one', () => {
+  it('keeps the stable requisition identity independent of mutable role wording', () => {
     const keys = [mergeJobIdentity(poly), mergeJobIdentity(qa)];
-    expect(keys[0]).not.toBe(keys[1]);
-    expect(new Set(keys).size).toBe(2);
+    expect(keys[0]).toBe(keys[1]);
     expect(extractStableJobId(url)).toBe('req:eta.ch:3770');
-    expect(keys.every((k) => k.startsWith('req:eta.ch:3770#'))).toBe(true);
+    expect(keys[0]).toBe('req:eta.ch:3770');
+    expect(etaRoleDiscriminatorFromJob(poly)).not.toBe(etaRoleDiscriminatorFromJob(qa));
   });
 
   it('still collapses an index.php ancestor rename of the same slug', () => {
@@ -172,10 +173,10 @@ describe('mergeJobIdentity ETA recycled requisition (issue 8624)', () => {
     expect(mergeJobIdentity(job)).toBe(extractStableJobId(job.url));
   });
 
-  it('fingerprintJob (swatchgroup merge key) also yields two keys for those slugs', () => {
+  it('keeps the registry fingerprint stable while exposing distinct role discriminators', () => {
     const fps = [fingerprintJob(poly), fingerprintJob(qa)];
-    expect(fps[0]).not.toBe(fps[1]);
-    expect(new Set(fps).size).toBe(2);
+    expect(fps[0]).toBe(fps[1]);
+    expect(fps[0]).toBe('id|eta.ch|3770');
     expect(fingerprintJob({ url })).toBe('id|eta.ch|3770');
   });
 });
