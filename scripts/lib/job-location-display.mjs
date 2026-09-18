@@ -108,6 +108,9 @@ const CANTON_NAMES = Object.freeze(/** @type {Readonly<Record<string, readonly s
 }));
 
 const CANTON_CODES = new Set(Object.keys(CANTON_NAMES));
+const CANTON_NAME_TAILS = Object.entries(CANTON_NAMES)
+  .flatMap(([, values]) => values)
+  .sort((a, b) => b.length - a.length);
 
 /** Country markers that say "Switzerland" and therefore never add information to a canton line. */
 const COUNTRY_NAMES = [
@@ -144,6 +147,17 @@ function fold(s) {
 }
 
 /**
+ * Official locality names observed with the bare `AG` suffix in generated
+ * locations. Keep this allowlist narrow: `AG` is also the company suffix
+ * Aktiengesellschaft, so an arbitrary head such as `XpertCenter AG` is not
+ * evidence that the location is in Aargau.
+ */
+const VERIFIED_BARE_AG_LOCALITIES = new Set([
+  'Buchs', 'Brugg', 'Bremgarten', 'Dättwil', 'Lengnau', 'Muri',
+  'Reinach', 'Staufen', 'Stein', 'Veltheim', 'Wohlen',
+].map(fold));
+
+/**
  * What kind of redundant marker the location carried.
  *   · `paren-code`  — `Lengnau (BE)`, a parenthesised canton code
  *   · `bare-code`   — `Stein AG`, a bare trailing canton code
@@ -169,6 +183,27 @@ const PAREN_TAIL = /^(.*?)[\s,]*\(\s*([^()]{1,40}?)\s*\)\s*$/;
 const SEP_TAIL = /^(.*?)\s*[,/–—-]\s*([^,/–—-]{1,30})\s*$/;
 /** Trailing bare uppercase code, e.g. `Stein AG` → `AG`. Uppercase only: `Stein Am` must not match. */
 const BARE_CODE_TAIL = /^(.*\S)\s+([A-Z]{2,3})\s*$/;
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/**
+ * The generic separator regex deliberately treats `-` as a separator. That
+ * means it cannot peel a named canton containing a hyphen, such as
+ * `Basel-Landschaft`. Keep this narrow fallback tied to known canton names,
+ * so arbitrary hyphenated location text is not mistaken for a marker.
+ */
+function cantonNameTail(city) {
+  for (const name of CANTON_NAME_TAILS) {
+    const match = new RegExp(
+      `^(.*?)(?:[,/\\s–—-])\\s*(${escapeRegExp(name)})\\s*$`,
+      'i',
+    ).exec(city);
+    if (match?.[1]?.trim()) return { head: match[1], tail: match[2] };
+  }
+  return null;
+}
 
 /** Classify a candidate tail token. `null` when it carries information we must keep. */
 /**
@@ -247,7 +282,9 @@ export function splitJobLocation(location, canton) {
 
     if (classified.code && validCanton && classified.code !== validCanton) {
       // The location names a different canton than the field. Stop here and
-      // report it; do not strip, do not append.
+      // report it; do not strip, do not append. Crawlers that must not emit
+      // this pair call preferLocationEncodedCanton — picking a winner here
+      // would hide the data bug on every surface that only prints the line.
       conflict = true;
       break;
     }
@@ -264,6 +301,116 @@ export function splitJobLocation(location, canton) {
   }
 
   return { city, canton: conflict ? null : validCanton, stripped, conflict };
+}
+
+/**
+ * Swiss canton the location string itself names — `Reinach (AG)`, `Stein AG`,
+ * `Büren an der Aare, Bern`. `null` when it names none, or two different ones
+ * (`Obwalden/Nidwalden`). Independent of `job.canton`.
+ *
+ * @param {string | null | undefined} location
+ * @returns {string | null}
+ */
+function cantonLocationEvidence(location) {
+  let city = String(location || '').trim();
+  if (!city) return { code: null, ambiguous: false };
+
+  const namedCantons = new Set();
+  let ambiguousBareAg = false;
+
+  for (let pass = 0; pass < 4; pass += 1) {
+    /** @type {string | null} */
+    let head = null;
+    /** @type {string | null} */
+    let tail = null;
+    /** @type {LocationRedundancy | null} */
+    let kindHint = null;
+
+    const paren = PAREN_TAIL.exec(city);
+    if (paren) {
+      [, head, tail] = paren;
+    } else {
+      const sep = SEP_TAIL.exec(city);
+      if (sep) {
+        [, head, tail] = sep;
+      } else {
+        const bare = BARE_CODE_TAIL.exec(city);
+        if (bare) {
+          [, head, tail] = bare;
+          kindHint = 'bare-code';
+        }
+      }
+    }
+    if (head === null || tail === null) {
+      const named = cantonNameTail(city);
+      if (named) {
+        ({ head, tail } = named);
+        kindHint = 'canton-name';
+      }
+    }
+    if (head === null || tail === null) break;
+    if (!head.trim()) break;
+
+    let classified = classifyTail(tail);
+    if (!classified) {
+      const named = cantonNameTail(city);
+      if (named) {
+        ({ head, tail } = named);
+        kindHint = 'canton-name';
+        classified = classifyTail(tail);
+      }
+    }
+    if (!classified) break;
+
+    if (classified.code) {
+      // `AG` is both Aargau and the German company suffix Aktiengesellschaft.
+      // This helper has no source/company evidence, so a bare `XpertCenter AG`
+      // must not be allowed to overwrite a crawler canton. Explicit markers
+      // such as `(AG)` remain trustworthy for display and reconciliation.
+      const isBareAg = (kindHint ?? classified.kind) === 'bare-code' && classified.code === 'AG';
+      const isVerifiedBareAg = isBareAg && VERIFIED_BARE_AG_LOCALITIES.has(fold(head));
+      if (isBareAg && !isVerifiedBareAg) {
+        ambiguousBareAg = true;
+      } else {
+        namedCantons.add(classified.code);
+      }
+
+      // A separator can put a second explicit canton in the peeled head,
+      // e.g. `Obwalden/Nidwalden`. Record it before peeling further so a
+      // location with distinct canton markers is never reduced to the tail.
+      const headClassified = classifyTail(head.trim());
+      if (headClassified?.code) namedCantons.add(headClassified.code);
+    }
+
+    city = head.trim();
+  }
+
+  const ambiguous = ambiguousBareAg || namedCantons.size > 1;
+  return {
+    code: ambiguous || namedCantons.size !== 1 ? null : [...namedCantons][0],
+    ambiguous,
+  };
+}
+
+export function cantonNamedByLocation(location) {
+  return cantonLocationEvidence(location).code;
+}
+
+/**
+ * Canton a crawler should stamp. A location that already names a real Swiss
+ * canton wins over a conflicting `job.canton` — the `"Reinach (AG)"` stamped
+ * `BL` class. Display still reports `conflict` without picking a winner.
+ *
+ * @param {string | null | undefined} location
+ * @param {string | null | undefined} stampedCanton
+ * @returns {string} a 2-letter code, or `''` when no safe winner exists
+ */
+export function preferLocationEncodedCanton(location, stampedCanton) {
+  const evidence = cantonLocationEvidence(location);
+  if (evidence.ambiguous) return '';
+  if (evidence.code) return evidence.code;
+  const stamped = String(stampedCanton || '').trim().toUpperCase();
+  return CANTON_CODES.has(stamped) ? stamped : '';
 }
 
 /**
