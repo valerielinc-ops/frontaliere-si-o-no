@@ -166,6 +166,29 @@ describe('runtime reliability watchdog', () => {
     expect(evaluateRepairPolicy({ probe: result }).action).toBe('blocked_marker');
   });
 
+  // A rollout explains a stale edge object; it does not explain an asset that
+  // is BROKEN. Without this the final probe would exit green and resolve the
+  // reliability issue while a critical bundle 404s for every browser — and
+  // since the coherent window is narrow by construction, that would be the
+  // watchdog's normal state rather than an edge case.
+  it.each([
+    ['cached_failure', { status: 404, ok: false, bytes: 0, hash: null }, { status: 200, ok: true, bytes: 3, hash: 'new' }],
+    ['fresh_failure', { status: 200, ok: true, bytes: 3, hash: 'old' }, { status: 500, ok: false, bytes: 0, hash: null }],
+    ['unavailable', { status: 0, ok: false, bytes: 0, hash: null }, { status: 0, ok: false, bytes: 0, hash: null }],
+  ])('stays degraded mid-rollout when a critical asset is %s', (state, cached, fresh) => {
+    const result = evaluateProbe({
+      siteCached: { body: '1789724819997', status: 200, ok: true },
+      siteFresh: { body: '1789724819997', status: 200, ok: true },
+      cdnMarker: { body: '1789734217605', status: 200, ok: true },
+      assets: [{ path: '/assets/App.js', cached, fresh }],
+    });
+    expect(result.markerState).toBe('rollout_in_progress');
+    expect(result.assets[0].state).toBe(state);
+    expect(result.ok).toBe(false);
+    // Still no blind purge against a generation the live HTML does not serve.
+    expect(result.purgeUrls).toEqual([]);
+  });
+
   it('compares cache-busted and stable URLs through the same fetch contract', async () => {
     const calls: string[] = [];
     const fetchImpl = vi.fn(async (url: string) => {

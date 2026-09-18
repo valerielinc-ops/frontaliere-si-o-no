@@ -26,6 +26,10 @@ export const RUNTIME_CIRCUIT_COOLDOWN_MS = 15 * 60 * 1000;
 // These are the stable bundle files involved in the observed version-skew
 // family. Keep the list short: the goal is a cheap liveness/coherence signal,
 // not a second full-site download.
+// Asset states a mid-rollout probe can explain away. Deliberately excludes
+// every failure state: see the verdict in evaluateProbe.
+export const ROLLOUT_EXPLAINED_ASSET_STATES = new Set(['healthy', 'stale']);
+
 export const CRITICAL_ASSET_PATHS = [
   '/assets/App.js',
   '/assets/index-entry.js',
@@ -244,9 +248,19 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets }) {
   // issue; post-deploy-validate-live.yml likewise records an apex that has not
   // caught up as "an older VALID build (not broken)". Only the reverse skew is
   // a coherence break: apex HTML referencing a generation the CDN never got.
+  // Only `stale` is explained by a rollout: the edge still holds the previous
+  // generation's object because the live HTML still references it. A stable URL
+  // that ERRORS for a normal browser while the cache-busted fetch succeeds
+  // (`cached_failure`), or that fails at origin (`fresh_failure`,
+  // `unavailable`), is a live-site breakage in every generation — and because
+  // the coherent window is narrow by construction (apex 2.61h–7.03h behind
+  // against a deploy period of the same order), tolerating those here would
+  // leave the asset guard switched off almost all the time and would let the
+  // final probe resolve the reliability issue while critical assets are broken.
   const ok = markerState === 'coherent'
     ? unhealthyAssets.length === 0
-    : markerState === 'rollout_in_progress';
+    : markerState === 'rollout_in_progress'
+      && assetResults.every((asset) => ROLLOUT_EXPLAINED_ASSET_STATES.has(asset.state));
 
   const result = {
     ok,
