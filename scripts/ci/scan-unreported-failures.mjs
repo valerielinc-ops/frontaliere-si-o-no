@@ -92,9 +92,10 @@
  *
  * `gh api rate_limit` può mostrare quota mentre una chiamata Actions rende 403.
  * Costo per passata, dimensionato di conseguenza:
- *   - modalità failure (oraria): ~3 chiamate per l'elenco workflow + ~3 per le
- *     run rosse della finestra + 1 `gh issue list` + 1 lettura job per ogni
- *     workflow effettivamente segnalato (≤ MAX_ISSUES).
+ *   - modalità failure (oraria): ~3 chiamate per l'elenco workflow + ~5 per le
+ *     run rosse della finestra di 24 h (~465 `failure`, 100 per pagina) +
+ *     1 `gh issue list` + per ogni workflow candidato 1 lettura dell'ultima run
+ *     (il guard sul rientro) e 1 lettura dei job, entrambe ≤ MAX_ISSUES.
  *   - modalità `--dormant` (GIORNALIERA, non oraria, proprio per questo): 1
  *     chiamata per workflow schedulato, oggi 180. Una al giorno è il prezzo che
  *     rende il controllo possibile; orario costerebbe 4.320 chiamate/giorno sul
@@ -127,10 +128,39 @@ const DORMANT_MODE = process.argv.includes('--dormant');
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 
 /**
- * Finestra di scansione. Default 75 min su un cron orario: la sovrapposizione è
- * voluta, copre il jitter del cron e una passata saltata senza lasciare un buco.
+ * Finestra di scansione: 24 ORE, non «poco più del cron».
+ *
+ * ── Perché non 75 minuti su un cron orario ──────────────────────────────
+ *
+ * Perché il cron non è un orologio, e la finestra tarata sulla cadenza NOMINALE
+ * è un buco cieco garantito. È il difetto misurato sul gemello del corpus
+ * (issue #1569): lookback di 40 minuti contro un cron che GitHub strozza a
+ * 3,4-5,2 ore, con due fallimenti mancati — uno per 79 secondi e uno per 70,6
+ * minuti. Con 75 minuti questo scanner aveva esattamente la stessa forma di
+ * difetto: se GitHub ritarda la MIA passata di tre ore, tutto ciò che è fallito
+ * nel buco non viene visto da nessuno, per sempre.
+ *
+ * Allargare non costa duplicati, e questo è il punto che rende la scelta
+ * gratuita: la de-duplicazione di questo scanner è di STATO, non di tempo —
+ * «esiste una issue aperta per questo workflow?» — quindi ripassare sulle stesse
+ * run rosse è idempotente. Una finestra larga non genera rumore, genera solo
+ * qualche pagina di API in più (misurato: ~465 run `failure` in 24 h, 5 pagine).
+ *
+ * È anche ciò che rende il cap di MAX_ISSUES un rinvio invece di una perdita:
+ * l'eccedenza di una passata rientra nella finestra della successiva.
+ *
+ * ── Nessun gate «N fallimenti in M ore»: è la trappola, non la prudenza ──
+ *
+ * Questo scanner allarma al PRIMO fallimento. Una soglia del tipo «3 fallimenti
+ * in 48 h» sembra prudente e invece rende inallarmabile per costruzione la
+ * classe di guasto più comune della flotta: il workflow a cron GIORNALIERO che
+ * fallisce ogni volta, che non raggiungerà mai 3 fallimenti in 48 ore. È il
+ * secondo difetto di #1569, e il caso reale è `bing-seo-loop`, rosso 54 ore su
+ * DUE repo senza che nessuno dei due meccanismi allarmasse. Il rumore si governa
+ * con la dedup (una issue per workflow, ricorrenze in commento) e col cap
+ * anti-valanga, non alzando la soglia di ingresso.
  */
-const LOOKBACK_MINUTES = intFromEnv('UNREPORTED_SCAN_LOOKBACK_MINUTES', 75);
+const LOOKBACK_MINUTES = intFromEnv('UNREPORTED_SCAN_LOOKBACK_MINUTES', 24 * 60);
 
 /**
  * Orizzonte della query `created=>=`, che NON è il filtro.
@@ -497,13 +527,37 @@ function cronGapInWindow(crons, windowDays) {
   return gap || null;
 }
 
-/** I `cron:` e il `name:` dichiarati da un file di workflow, letti testualmente. */
+/**
+ * I `cron:` e il `name:` dichiarati da un file di workflow, letti testualmente.
+ *
+ * NON si tronca più al primo `jobs:`. La versione precedente lo faceva per
+ * restare dentro il blocco `on:`, ma l'ordine delle chiavi in YAML è libero: un
+ * workflow che dichiara `jobs:` PRIMA di `on:` rendeva zero cron e usciva in
+ * silenzio dal controllo di dormienza — un workflow non sorvegliato che si
+ * presenta come «senza cadenza», che è il modo peggiore di sbagliare qui.
+ *
+ * Si cercano quindi le voci `- cron:` in tutto il file, saltando le righe
+ * commentate. Il compromesso è dichiarato: un `- cron:` scritto altrove (per
+ * esempio dentro l'env di un job) verrebbe contato come cadenza. È un errore che
+ * porta a sorvegliare un workflow in più con una soglia forse sbagliata, mentre
+ * la troncatura portava a non sorvegliarlo per niente: il primo si vede in un
+ * log, il secondo no.
+ *
+ * ponytail: resta un parse testuale invece di `yaml` perché il workflow che
+ * esegue questo scanner non fa `npm ci` — le dipendenze non ci sono, e
+ * aggiungere l'installazione per leggere cinque campi costerebbe più di quanto
+ * valga. Se un giorno servisse la struttura vera, va aggiunto `npm ci` insieme
+ * al parser, non uno dei due.
+ */
 export function workflowScheduleFromSource(source) {
   const text = String(source);
-  const head = text.split(/^jobs:/m)[0];
   const nameMatch = text.match(/^name:\s*(.+)$/m);
   const name = nameMatch ? nameMatch[1].replace(/\s+#.*$/, '').trim() : null;
-  const crons = [...head.matchAll(/^\s*-\s*cron:\s*['"]?([^'"#\n]+)['"]?/gm)]
+  const crons = text
+    .split('\n')
+    .filter((line) => !/^\s*#/.test(line))
+    .map((line) => line.match(/^\s*-\s*cron:\s*['"]?([^'"#\n]+)['"]?/))
+    .filter(Boolean)
     .map((m) => m[1].trim())
     .filter(Boolean);
   return { name, crons };
@@ -541,11 +595,18 @@ export function openFailureIssueWorkflows() {
     return null;
   }
   if (!Array.isArray(issues)) return null;
+  // FAIL CLOSED al cap, non un warning. Con l'elenco troncato la canonica di un
+  // workflow può restare fuori pagina, e una canonica «assente» significa aprire
+  // un DUPLICATO — cioè il contrario dello scopo di questa funzione. Meglio una
+  // passata che non apre niente e lo dice: il rosso vero rientra alla prossima,
+  // un duplicato no.
   if (issues.length >= OPEN_ISSUE_LISTING_CAP) {
-    console.warn(
-      `::warning::[scan-unreported-failures] cap di ${OPEN_ISSUE_LISTING_CAP} raggiunto sul listing `
-        + 'delle issue aperte: la canonica di qualche workflow può essere fuori elenco.',
+    console.error(
+      `::error::[scan-unreported-failures] cap di ${OPEN_ISSUE_LISTING_CAP} raggiunto sul listing `
+        + 'delle issue aperte: la mappa delle canoniche è incompleta e aprire ora significherebbe '
+        + 'duplicare. Nessuna issue aperta in questa passata.',
     );
+    return null;
   }
   const byWorkflow = new Map();
   for (const issue of issues) {
@@ -577,7 +638,7 @@ function registeredWorkflows() {
   return byId.size ? byId : null;
 }
 
-export function runBody({ run, workflowName, jobs }) {
+export function runBody({ run, workflowName, jobs, jobsReadable = true }) {
   const total = jobs?.total_count;
   const failed = (jobs?.jobs || []).filter((j) => j?.conclusion === 'failure');
   const lines = [];
@@ -599,6 +660,13 @@ export function runBody({ run, workflowName, jobs }) {
       const step = (j.steps || []).find((s) => s?.conclusion === 'failure');
       lines.push(`- \`${j.name}\`${step ? ` — step: \`${step.name}\`` : ''}\n  ${j.html_url}`);
     }
+  } else if (!jobsReadable) {
+    // Distinto dal caso sopra di proposito: «non ho potuto leggere i job» e
+    // «i job non riportano fallimenti» portano a diagnosi diverse, e spacciare
+    // il primo per il secondo manda chi legge a cercare la causa nel posto
+    // sbagliato.
+    lines.push('_(lettura dei job NON riuscita per questa run: la diagnosi qui sotto è incompleta,');
+    lines.push('apri la run per vedere quale job è caduto.)_');
   } else {
     lines.push('_(l\'API non riporta job falliti per questa run: fallimento a livello di run.)_');
   }
@@ -669,28 +737,38 @@ async function scanFailures() {
       + `${byWorkflow.size} workflow distinti${DRY_RUN ? ' (dry-run)' : ''}.`,
   );
 
-  let opened = 0;
-  let skipped = 0;
+  // ── Un solo accumulatore, una sola uscita ─────────────────────────────
+  // Il confine non avanza senza una consegna PROVATA: `delivered` cresce solo
+  // dopo che GitHub ha confermato la scrittura. `createGithubIssue` rende `null`
+  // se la creazione non e' andata e `persisted: false` se la scrittura non e'
+  // confermata, e `commentOnGithubIssue` rende `false`: un `if (res) delivered++`
+  // conterebbe come consegnato anche cio' che non e' mai atterrato. Ogni esito
+  // confluisce qui e la funzione esce in UN punto, cosi' il verdetto non puo'
+  // divergere dai conteggi che stampa.
+  const tally = { delivered: 0, active: 0, recovered: 0, deferred: [], undelivered: [] };
   const pending = [...byWorkflow.entries()];
+
   for (let i = 0; i < pending.length; i += 1) {
     const [workflowName, run] = pending[i];
     const already = openIssues.get(workflowName);
+
     if (already) {
-      skipped += 1;
-      // Un secondo thread non si apre mai. Ma se la issue è ferma da oltre la
+      // Un secondo thread non si apre mai. Ma se la issue e' ferma da oltre la
       // soglia, il guasto che continua a ricorrere va ri-registrato: «aperta» non
       // significa «viva» (caso `rerender-article-hubs`/#6650, parcheggiata dal
       // 2026-08-27 mentre 9 run rosse le deduplicavano sopra).
       if (!isCoveredIssueStale(already.updatedAt)) {
+        tally.active += 1;
         console.log(`[scan-unreported-failures] ${workflowName}: issue #${already.number} aperta e attiva → nessun commento.`);
         continue;
       }
       const silentHours = Math.round((Date.now() - Date.parse(String(already.updatedAt ?? ''))) / 3600_000);
       if (DRY_RUN) {
+        tally.delivered += 1;
         console.log(`[scan-unreported-failures] (dry-run) commenterebbe la ricorrenza su #${already.number} (${workflowName}, ferma da ~${silentHours} h)`);
         continue;
       }
-      const ok = commentOnGithubIssue(
+      const commented = commentOnGithubIssue(
         already.number,
         `🔁 Il guasto ricorre e questa issue è ferma da ~${silentHours} h.\n\n`
           + `- run: ${run.html_url}\n- event: \`${run.event}\` · branch: \`${run.head_branch}\`\n`
@@ -698,52 +776,97 @@ async function scanFailures() {
           + 'Registrato da `scripts/ci/scan-unreported-failures.mjs`: nessun secondo thread, '
           + 'solo la prova che la condizione non è rientrata.',
       );
-      if (!ok) {
-        console.error(`::error::[scan-unreported-failures] commento di ricorrenza NON persistito su #${already.number} (${workflowName}).`);
-        return 1;
+      if (commented !== true) {
+        tally.undelivered.push(`${workflowName} (commento su #${already.number})`);
+        continue;
       }
+      tally.delivered += 1;
       console.log(`[scan-unreported-failures] ${workflowName}: ricorrenza registrata su #${already.number} (ferma da ~${silentHours} h).`);
       continue;
     }
-    if (opened >= MAX_ISSUES) {
-      const rest = pending.length - i;
+
+    // Cap anti-valanga. Con la finestra di lookback larga l'eccedenza NON si
+    // perde: rientra nella finestra della passata successiva, che e' proprio
+    // cio' che una finestra tarata sulla cadenza del cron non garantiva.
+    if (tally.delivered >= MAX_ISSUES) {
+      tally.deferred = pending.slice(i).map(([n]) => n);
       console.warn(
         `::warning::[scan-unreported-failures] cap di ${MAX_ISSUES} issue raggiunto — `
-          + `${rest} workflow rossi NON segnalati in questa passata: `
-          + `${pending.slice(i).map(([n]) => n).join(', ')}. Rientrano alla prossima.`,
+          + `${tally.deferred.length} workflow rossi rinviati alla prossima passata `
+          + `(la finestra di ${LOOKBACK_MINUTES} min li ricomprende): ${tally.deferred.join(', ')}.`,
       );
       break;
     }
 
-    const jobs = DRY_RUN
-      ? null
-      : JSON.parse(gh(['api', `repos/${REPO || '{owner}/{repo}'}/actions/runs/${run.id}/jobs?per_page=100`], { allowFailure: true }) || 'null');
-    const title = `CI Failure: ${workflowName}`;
-    const description = runBody({ run, workflowName, jobs });
-
-    if (DRY_RUN) {
-      console.log(`[scan-unreported-failures] (dry-run) aprirebbe "${title}" per ${run.html_url}`);
-      opened += 1;
+    // La finestra e' larga 24 h, quindi una run rossa di stanotte puo' essere
+    // gia' stata seguita da una verde: aprire ora segnalerebbe un guasto
+    // rientrato. Si chiede l'ultima run COMPLETATA del workflow e si apre solo
+    // se il rosso e' ancora l'ultima parola. Una lettura illeggibile non fa
+    // saltare la segnalazione: in dubbio si segnala, perche' il costo di una
+    // issue in piu' e' un commento, quello di un rosso perso e' giorni.
+    const latest = ghApiRows(
+      `repos/${REPO || '{owner}/{repo}'}/actions/workflows/${run.workflow_id}/runs`
+        + '?per_page=1&status=completed',
+      '.workflow_runs[] | [.conclusion, .created_at] | @tsv',
+      ['conclusion', 'created_at'],
+      { paginate: false },
+    );
+    if (latest && latest.length && latest[0].conclusion === 'success'
+      && Date.parse(latest[0].created_at) > Date.parse(run.created_at)) {
+      tally.recovered += 1;
+      console.log(
+        `[scan-unreported-failures] ${workflowName}: rientrato (run verde ${latest[0].created_at} `
+          + `dopo il rosso ${run.created_at}) → nessuna issue.`,
+      );
       continue;
     }
 
+    const title = `CI Failure: ${workflowName}`;
+    if (DRY_RUN) {
+      tally.delivered += 1;
+      console.log(`[scan-unreported-failures] (dry-run) aprirebbe "${title}" per ${run.html_url}`);
+      continue;
+    }
+
+    const jobsRaw = gh(
+      ['api', `repos/${REPO || '{owner}/{repo}'}/actions/runs/${run.id}/jobs?per_page=100`],
+      { allowFailure: true },
+    );
+    let jobs = null;
+    if (jobsRaw !== null) {
+      try {
+        jobs = JSON.parse(jobsRaw);
+      } catch {
+        jobs = null;
+      }
+    }
     const issue = await createGithubIssue({
       title,
-      description,
+      description: runBody({ run, workflowName, jobs, jobsReadable: jobsRaw !== null }),
       priority: 2,
       labels: ['automation', 'ci-failure'],
       workflow: workflowName,
     });
     if (!issue?.number || issue.persisted !== true) {
-      console.error(`::error::[scan-unreported-failures] apertura NON confermata per ${workflowName} (${run.html_url}).`);
-      return 1;
+      tally.undelivered.push(workflowName);
+      continue;
     }
+    tally.delivered += 1;
     console.log(`[scan-unreported-failures] ${workflowName} → #${issue.number}`);
-    opened += 1;
   }
 
-  console.log(`[scan-unreported-failures] fatto — ${opened} aperte, ${skipped} già coperte (dry-run=${DRY_RUN}).`);
-  return 0;
+  console.log(
+    `[scan-unreported-failures] fatto — ${tally.delivered} consegnate, ${tally.active} già coperte da `
+      + `una issue viva, ${tally.recovered} rientrate, ${tally.deferred.length} rinviate, `
+      + `${tally.undelivered.length} NON consegnate (dry-run=${DRY_RUN}).`,
+  );
+  if (tally.undelivered.length) {
+    console.error(
+      `::error::[scan-unreported-failures] ${tally.undelivered.length} segnalazioni NON sono atterrate `
+        + `su GitHub: ${tally.undelivered.join(', ')}. Quei workflow restano rossi e invisibili.`,
+    );
+  }
+  return tally.undelivered.length ? 1 : 0;
 }
 
 /* ── modalità dormienti ─────────────────────────────────────────────── */

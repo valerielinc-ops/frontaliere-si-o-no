@@ -314,6 +314,78 @@ describe('lettura del cron dal file di workflow', () => {
   it('un workflow senza schedule non ha cron', () => {
     expect(workflowScheduleFromSource('name: x\non:\n  workflow_dispatch:\njobs: {}').crons).toEqual([]);
   });
+
+  // Difetto trovato in review: la versione precedente troncava al primo `jobs:`
+  // testuale per restare dentro `on:`. In YAML l'ordine delle chiavi è libero,
+  // quindi un workflow che dichiara `jobs:` PRIMA di `on:` rendeva zero cron e
+  // usciva in silenzio dal controllo di dormienza — non sorvegliato, e
+  // indistinguibile da un workflow senza cadenza.
+  it('trova il cron anche se `jobs:` è dichiarato PRIMA di `on:`', () => {
+    const { name, crons } = workflowScheduleFromSource([
+      'name: ordine-invertito',
+      'jobs:',
+      '  scan:',
+      '    runs-on: ubuntu-latest',
+      '    steps: []',
+      'on:',
+      '  schedule:',
+      "    - cron: '0 5 * * 1'",
+    ].join('\n'));
+    expect(name).toBe('ordine-invertito');
+    expect(crons).toEqual(['0 5 * * 1']);
+  });
+
+  it('una riga di cron commentata non conta come cadenza', () => {
+    const { crons } = workflowScheduleFromSource([
+      'name: x',
+      'on:',
+      '  schedule:',
+      "    # - cron: '0 3 * * *'   disattivato",
+      "    - cron: '0 5 * * *'",
+    ].join('\n'));
+    expect(crons).toEqual(['0 5 * * *']);
+  });
+});
+
+describe('corpo della issue: job illeggibili vs nessun job fallito', () => {
+  const run = {
+    id: 1, event: 'schedule', head_branch: 'main',
+    created_at: '2026-09-18T12:00:00Z', updated_at: '2026-09-18T12:01:00Z',
+    html_url: 'https://github.com/o/r/actions/runs/1',
+  };
+
+  it('una lettura dei job fallita NON si spaccia per «nessun job fallito»', () => {
+    const body = runBody({ run, workflowName: 'x', jobs: null, jobsReadable: false });
+    expect(body).toContain('lettura dei job NON riuscita');
+    expect(body).not.toContain('fallimento a livello di run');
+  });
+
+  it('job leggibili senza fallimenti restano il caso «a livello di run»', () => {
+    const body = runBody({ run, workflowName: 'x', jobs: { total_count: 2, jobs: [] }, jobsReadable: true });
+    expect(body).toContain('fallimento a livello di run');
+    expect(body).not.toContain('lettura dei job NON riuscita');
+  });
+});
+
+describe('la finestra di lookback non è tarata sulla cadenza del cron', () => {
+  // Difetto da NON ereditare dal gemello del corpus (#1569): lookback di 40 min
+  // contro un cron strozzato da GitHub a 3,4-5,2 h, due fallimenti mancati per
+  // 79 secondi e per 70,6 minuti. La finestra deve coprire un ritardo di ore.
+  it('la finestra copre un cron strozzato a 5,2 ore', () => {
+    const lookbackMinutes = 24 * 60;
+    expect(lookbackMinutes).toBeGreaterThan(5.2 * 60);
+    // e anche il caso peggiore osservato di una passata saltata del tutto
+    expect(lookbackMinutes).toBeGreaterThan(2 * 5.2 * 60);
+  });
+
+  it('una run rossa di 20 ore fa resta dentro la finestra', () => {
+    const since = new Date(Date.now() - 24 * 60 * 60_000).toISOString();
+    const twentyHoursAgo = new Date(Date.now() - 20 * 3600_000).toISOString();
+    expect(isReportableRun(
+      { conclusion: 'failure', event: 'schedule', head_branch: 'main', updated_at: twentyHoursAgo, workflow_name: 'x' },
+      { since, ignore: new Set() },
+    )).toBe(true);
+  });
 });
 
 describe('corpo della issue di dormienza', () => {
