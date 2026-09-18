@@ -533,6 +533,36 @@ function clearPlanningStateMarkers(entries: ReadonlyMap<string, PostWalkManifest
   }
 }
 
+/**
+ * Bounded duplicate detector for a streamed manifest.
+ *
+ * A full `Set(path)` would recreate the memory problem on the previous
+ * snapshot. This fixed-size Bloom guard never misses an exact duplicate; a
+ * false positive only fails closed and makes the coordinator use full mode.
+ */
+class BoundedManifestDuplicateGuard {
+  // 2^28 bits = 32 MiB; with four hashes this keeps false-positive fallback
+  // probability negligible for the measured ~700k-entry manifests.
+  private readonly bits = new Uint8Array(1 << 25);
+
+  hasSeen(pathValue: string): boolean {
+    let allSet = true;
+    for (let seed = 0; seed < 4; seed += 1) {
+      let hash = (2_166_136_261 ^ Math.imul(seed + 1, 0x9e3779b1)) >>> 0;
+      for (let index = 0; index < pathValue.length; index += 1) {
+        hash ^= pathValue.charCodeAt(index);
+        hash = Math.imul(hash, 16_777_619);
+      }
+      const bit = hash & 0x0fff_ffff;
+      const byteIndex = bit >>> 3;
+      const mask = 1 << (bit & 7);
+      if ((this.bits[byteIndex] & mask) === 0) allSet = false;
+      this.bits[byteIndex] |= mask;
+    }
+    return allSet;
+  }
+}
+
 async function streamManifestFiles(
   files: readonly string[],
   locales: readonly string[],
@@ -541,15 +571,24 @@ async function streamManifestFiles(
   options: { readonly retainReferences?: boolean } = {},
 ): Promise<{ readonly entryCount: number; readonly kinds: Map<string, string> }> {
   const kinds = new Map<string, string>();
+  const duplicateGuard = new BoundedManifestDuplicateGuard();
   let entryCount = 0;
   for (let index = 0; index < files.length; index += 1) {
     const file = files[index];
     if (!fs.existsSync(file)) throw new Error(`${label} manifest mancante: ${file}`);
     const streamed = await streamIncrementalManifest(
       file,
-      (rawEntry: StreamManifestEntry) => onEntry(
-        normalizeStreamManifestEntry(rawEntry, rawEntry.path, options.retainReferences === true),
-      ),
+      (rawEntry: StreamManifestEntry) => {
+        const entry = normalizeStreamManifestEntry(
+          rawEntry,
+          rawEntry.path,
+          options.retainReferences === true,
+        );
+        if (duplicateGuard.hasSeen(entry.path)) {
+          throw new Error(`${label} manifest path duplicato: ${entry.path}`);
+        }
+        onEntry(entry);
+      },
       // The current snapshot owns the exact path map. The previous snapshot is
       // consumed as a stream and never needs a second all-path Set.
       { validateUniquePaths: false },

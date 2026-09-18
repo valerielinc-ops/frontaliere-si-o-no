@@ -366,6 +366,35 @@ describe('post-walk incremental planning', () => {
     expect('previous' in loaded.state).toBe(false);
   });
 
+  it('fails closed on a duplicate path in a streamed manifest', async () => {
+    const root = fixtureRoot();
+    writeManifest(root, 'incremental-manifest-prev', [
+      { path: 'jobs/stable/', kind: 'active-job', input: { jobId: 'stable-1' } },
+    ]);
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/stable/', kind: 'active-job', input: { jobId: 'stable-1' } },
+    ]);
+
+    const manifestFile = path.join(root, '.cache', 'incremental-manifest', 'it.jsonl');
+    const lines = fs.readFileSync(manifestFile, 'utf8').trimEnd().split('\n');
+    const footerLine = lines.pop();
+    if (!footerLine) throw new Error('footer manifest mancante nel fixture');
+    const footer = JSON.parse(footerLine) as {
+      counts: { total: number; byKind: Record<string, number> };
+    };
+    const duplicateEntry = lines.at(-1);
+    if (!duplicateEntry) throw new Error('entry manifest mancante nel fixture');
+    footer.counts.total += 1;
+    footer.counts.byKind['active-job'] += 1;
+    lines.push(duplicateEntry, JSON.stringify(footer));
+    fs.writeFileSync(manifestFile, `${lines.join('\n')}\n`, 'utf8');
+
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+    expect(loaded.ok).toBe(false);
+    if (!('reason' in loaded)) throw new Error('expected duplicate manifest failure');
+    expect(loaded.reason).toContain('corrente manifest path duplicato');
+  });
+
   it('does a second bounded previous stream for references to an added page', async () => {
     const root = fixtureRoot();
     writeManifest(root, 'incremental-manifest-prev', [
