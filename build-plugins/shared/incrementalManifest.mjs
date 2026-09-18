@@ -284,21 +284,24 @@ function setInputCacheEntry(inputCache, mapName, key, value) {
 }
 
 /**
- * Shallow signature of a job record: primitives by value, arrays by length,
- * nested objects by reference. It is what the WeakMap identity fast path
- * checks before trusting a cached digest, so an in-place `Array.push` or a
- * top-level reassignment by a downstream plugin forces a recompute. Nested
- * object mutation (`job.foo.bar = x`) is not detected: the assembler does not
- * do that, and a deep check would cost as much as the digest itself.
+ * Shallow signature of a job record: primitives by value, nested objects by
+ * reference, arrays by reference + length + every element (primitive by
+ * value, object by reference). It is what the WeakMap identity fast path
+ * checks before trusting a cached digest, so an in-place `Array.push`, an
+ * element replacement or a top-level reassignment by a downstream plugin
+ * forces a recompute. Mutation inside a nested object (`job.foo.bar = x`) is
+ * not detected: the assembler does not do that, and a deep walk would cost
+ * as much as the digest itself on the related-jobs hot path.
  */
 function shallowJobRecordSignature(job) {
-  const keys = Object.keys(job);
-  const signature = new Array(keys.length * 2);
-  let index = 0;
-  for (const key of keys) {
+  const signature = [];
+  for (const key of Object.keys(job)) {
     const value = job[key];
-    signature[index++] = key;
-    signature[index++] = Array.isArray(value) ? value.length : value;
+    signature.push(key, value);
+    if (Array.isArray(value)) {
+      signature.push(value.length);
+      for (const element of value) signature.push(element);
+    }
   }
   return signature;
 }

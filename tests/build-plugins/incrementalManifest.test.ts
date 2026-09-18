@@ -161,6 +161,16 @@ describe('incremental manifest input contract', () => {
     const afterReassign = buildMinimalJobInput(job, 'it', job.slug, [], cache, job).jobRecordDigest;
     expect(afterReassign).not.toBe(afterPush);
     expect(cache._metrics.jobDigestComputations).toBe(3);
+
+    job.locations[0] = 'Mendrisio';
+    const afterElementReplace = buildMinimalJobInput(job, 'it', job.slug, [], cache, job).jobRecordDigest;
+    expect(afterElementReplace).not.toBe(afterReassign);
+    expect(cache._metrics.jobDigestComputations).toBe(4);
+
+    job.locations = ['Bellinzona', 'Chiasso'];
+    const afterSameLengthReassign = buildMinimalJobInput(job, 'it', job.slug, [], cache, job).jobRecordDigest;
+    expect(afterSameLengthReassign).not.toBe(afterElementReplace);
+    expect(cache._metrics.jobDigestComputations).toBe(5);
   });
 
   it('changes the page hash when only related company and salary change', () => {
