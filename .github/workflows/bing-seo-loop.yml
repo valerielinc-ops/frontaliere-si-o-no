@@ -43,22 +43,50 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+          # Allowlist → exclude-list. La lista per-file qui sopra prometteva di
+          # enumerare le dipendenze di questo job, ma nessuno dei due entry
+          # point ha un grafo di import stabile: `vitest.config.ts` ne ha
+          # acquisiti cinque (`scripts/ci/lpt-shard.mjs`,
+          # `tests/shard-weights.json`, `scripts/ci/dataset-dependent-tests.mjs`,
+          # `scripts/ci/corpus-wide-tests.mjs`,
+          # `scripts/ci/live-data-test-guard.mjs`) e `scripts/seo/bing-seo-policy.mjs`
+          # uno (`build-plugins/shared/cantonResolvers.mjs`), tutti dopo che
+          # questa lista era stata scritta. Nessuno di quei file era stato
+          # spostato: erano presenti su main e assenti dal cono sparse, quindi
+          # il job è rimasto rosso 54h con tre moduli «non trovati» che
+          # esistevano. Un allowlist per-file è un secondo grafo di dipendenze
+          # mantenuto a mano, che si rompe in silenzio a ogni import aggiunto
+          # da una PR che non sa di questo workflow.
+          #
+          # Gli esclusi sono i bucket pesanti di scripts/ci/checkout-buckets.json
+          # (unica sorgente di verità, generata da
+          # scripts/ci/generate-checkout-buckets.mjs), esattamente come
+          # post-deploy-validate-dist.yml e guard-data-integrity.yml: 6,8 GB di
+          # albero → ~200 MB di sorgente. Ogni import futuro è già nel checkout,
+          # e `scripts/dev/fast-worktree.sh` riproduce in locale lo stesso
+          # profilo, quindi un rosso di questo tipo è riproducibile fuori dalla CI.
           sparse-checkout: |
-            index.html
-            build-plugins/staticPagesPlugin.ts
-            scripts/seo/
-            scripts/lib/indexnow-submit.mjs
-            scripts/submit-indexnow.js
-            scripts/submit-indexnow-batch.mjs
-            scripts/submit-indexnow-remediation.mjs
-            scripts/load-rc-env.mjs
-            scripts/ci/pr-body-check-gate.mjs
-            .github/workflows/submit-indexnow-batch.yml
-            package.json
-            package-lock.json
-            vitest.config.ts
-            tsconfig.json
-            tests/seo/
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
