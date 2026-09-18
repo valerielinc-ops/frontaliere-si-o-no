@@ -99,8 +99,8 @@ export const LOCALES = ['it', 'en', 'de', 'fr'];
 // style path has no map entry, resolveSearchConsoleCompatTarget's
 // `JOB_BOARD_SECTION_COMPAT_PATTERN` fallback (build-plugins/searchConsole
 // Compat.ts) already canonicalizes it to the SAME canton section it was
-// requested under — which `tests/search-console-compat.test.ts`'s "Section-
-// preservation guard" locks in as the wrong-canton-drift invariant (#2041).
+// requested under — which the deterministic resolver tests lock in as the
+// wrong-canton-drift invariant (#2041).
 // This script's own "specific" target is ALWAYS the NATIONAL aggregate
 // section by design (the live cluster hub is national, not per-canton), so
 // force-mapping these 28 mixed-locale URLs here would REPLACE that better,

@@ -78,17 +78,11 @@ jobs:
       - name: Prune stale "specific" entries (target no longer live)
         run: node scripts/prune-search-cluster-301-map.mjs
 
-      - name: Validate committed-snapshot invariant before commit
-        # tests/search-console-compat.test.ts's "resolves EVERY entry in
-        # cluster-301 map to its own literal target" pins the same invariant
-        # AGENTS.md requires for any bot-direct-to-main data commit: never
-        # poison main with a dump that violates a committed-snapshot test.
-        # Both scripts above build/prune from the same single-source helpers
-        # the resolver itself uses, so this should always be green — but it
-        # is the cheap, existing, non-duplicated gate to catch a regression
-        # BEFORE it lands on main instead of after (root cause of the
-        # 2026-06-02 ~83min drain freeze this pattern now guards against
-        # repo-wide).
+      - name: Validate resolver contract before commit
+        # Keep this gate deterministic: the resolver suite uses explicit
+        # synthetic paths and does not scan changing production exports.
+        # The generator and pruner validate their own input/output contracts
+        # before this step.
         run: npx vitest run tests/search-console-compat.test.ts
 
       - name: Commit if changed
