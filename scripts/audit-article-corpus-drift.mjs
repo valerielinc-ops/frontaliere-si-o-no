@@ -264,8 +264,49 @@ export function categorizeLocaleVerdicts(localeVerdicts) {
 
 export const DIVERGENT_CATEGORIES = new Set(['content-mismatch', 'no-locale-verdicts', 'unrecognized-verdicts']);
 
+/**
+ * Rifiuta di misurare quando l'ambiente non puo' produrre un confronto valido.
+ *
+ * Questo audit confronta il rendering locale con la produzione. Il rendering
+ * locale passa per `publish-article-fast.mjs`, che symlinka `public/images` nel
+ * `distDir` perche' il renderer verifica con `statSync` che il file hero esista
+ * prima di scriverlo in `og:image`, `<link rel=preload>`, `<img src>` e nei due
+ * campi immagine del JSON-LD. Se `public/images/blog/` non e' su disco quel
+ * symlink riesce comunque — puntare al nulla e' legale — ogni `statSync`
+ * fallisce in silenzio e ogni articolo prende il fallback `/og-image.png`.
+ *
+ * Il risultato non e' un errore ma un VERDETTO SBAGLIATO: la run 34751134339
+ * (2026-09-13) ha riportato 40 `content-mismatch` su 40 (10 articoli x 4
+ * locale), tutte false, perche' un checkout sparse aveva escluso
+ * `public/images/` (iniettato il 2026-08-19, 91983bf5d825; ultima run verde
+ * 2026-08-10). Tre run rosse consecutive che nessuna modifica al corpus o al
+ * sito poteva far tornare verdi.
+ *
+ * Per AGENTS.md — «se un gate sbaglia la MISURA, quello e' un difetto della
+ * misura» — l'audit deve dire «non posso misurare», non «il corpus e' divergente
+ * in 40 punti». Il bucket e' ora dichiarato opaco in
+ * `scripts/ci/checkout-profile-analyzer.mjs`, quindi il profilo non puo' piu'
+ * escluderlo; questa guardia e' la rete che rende DIAGNOSTICABILE, e non
+ * silenziosa, la prossima volta che un need invisibile all'analisi statica
+ * sparisce dal checkout.
+ */
+export function assertHeroImagesOnDisk(rootDir, existsSync = fs.existsSync) {
+  const blogImagesDir = path.join(rootDir, 'public', 'images', 'blog');
+  if (existsSync(blogImagesDir)) return;
+  throw new Error(
+    `[audit-article-corpus-drift] ABORT: ${path.relative(rootDir, blogImagesDir)} non e' su disco.\n` +
+      "  Senza i file hero il rendering locale cade sul fallback '/og-image.png' per OGNI articolo\n" +
+      '  e questo audit riporterebbe `content-mismatch` su tutto il campione — 100% falsi positivi.\n' +
+      '  Causa tipica: un profilo sparse-checkout che esclude `public/images/`. Il bisogno arriva da\n' +
+      '  publish-article-fast.mjs via spawn, invisibile a checkout-profile-analyzer.mjs, che per questo\n' +
+      "  tratta ora `audit-article-corpus-drift.mjs` come entry point opaco (checkout pieno).\n" +
+      '  Non re-introdurre uno sparse-checkout su questo job.',
+  );
+}
+
 async function main() {
   const args = parseArgs(process.argv.slice(2));
+  assertHeroImagesOnDisk(ROOT_DIR);
   const { ARTICLE_SECTION_DESCRIPTORS, enumerateSectionArticleIds } = await import('../build-plugins/shared/articleSectionDescriptors.ts');
   const sections = ARTICLE_SECTION_DESCRIPTORS.filter((s) => args.section === 'all' || s.name === args.section);
 
