@@ -27,7 +27,7 @@ export interface FuelStationSwitzerland {
  sp95PriceChf: number;
  dieselPriceChf?: number | null;
  dieselPriceEur?: number | null;
- dieselSource?: 'api' | 'derived' | 'unknown' | null;
+ dieselSource?: 'api' | 'derived' | 'unknown' | 'monthly_average' | 'scraped' | null;
  dieselUpdatedAt?: string | null;
  sp95PriceEur: number;
  updatedAt: string | null;

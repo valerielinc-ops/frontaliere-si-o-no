@@ -29,6 +29,7 @@ const UNTRACKED_COUNT = SCAN_PATH_COUNT - ENTRY_COUNT * 2;
 const MODULE_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const {
   buildPostWalkIncrementalPlanFromState,
+  releasePostWalkManifestState,
   selectPostWalkVerificationPaths,
 } = await import(path.join(MODULE_ROOT, 'build-plugins/shared/postWalkIncremental.ts'));
 const { buildSharedHtmlPathIndex } = await import(
@@ -100,6 +101,7 @@ function compactEntry(index, changed) {
     postWalk: {
       jobId,
       slug: slugFor(index),
+      references: [`https://frontaliereticino.ch/${logical}/`],
     },
   };
   return entry;
@@ -239,6 +241,7 @@ function runStreaming(scanPaths) {
     added: new Set(),
     removed: new Set(['jobs/removed-page-no-identity']),
     affected: new Set(),
+    previousReferenceSources: new Map(),
   };
 
   measurePhase(phases, baseHeap, 'streaming:scan+existing-set', () => {});
@@ -268,6 +271,7 @@ function runStreaming(scanPaths) {
   const manifestState = {
     current,
     currentEntryCount: ENTRY_COUNT,
+    currentHtmlEntryCount: ENTRY_COUNT,
     previousEntryCount: ENTRY_COUNT,
     previousKinds: current.kinds,
     changed: state.changed,
@@ -276,6 +280,18 @@ function runStreaming(scanPaths) {
     affected: state.affected,
     unresolvedRemovals: new Set(),
   };
+  measurePhase(phases, baseHeap, 'streaming:previous-reference-index', () => {
+    for (let index = CANONICAL_COUNT; index < ENTRY_COUNT; index += 1) {
+      const source = logicalPath(index);
+      const target = logicalPath(index - CANONICAL_COUNT);
+      let sources = state.previousReferenceSources.get(target);
+      if (!sources) {
+        sources = new Set();
+        state.previousReferenceSources.set(target, sources);
+      }
+      sources.add(source);
+    }
+  });
   measurePhase(phases, baseHeap, 'streaming:bounded-plan', () => {
     state.plan = buildPostWalkIncrementalPlanFromState({
       distDir: DIST_DIR,
@@ -284,6 +300,8 @@ function runStreaming(scanPaths) {
       baseUrl: 'https://frontaliereticino.ch',
       existingHtmlSet: state.existingHtmlSet,
       readHtml: () => '',
+      includeUncoveredPaths: false,
+      coveredHtmlPathCount: ENTRY_COUNT * 2,
       state: manifestState,
     });
   });
@@ -297,13 +315,20 @@ function runStreaming(scanPaths) {
       false,
     );
   });
+  measurePhase(phases, baseHeap, 'streaming:release-manifest-state', () => {
+    releasePostWalkManifestState(manifestState);
+    state.previousReferenceSources.clear();
+  });
   const report = phaseReport(phases);
   report.plan = {
     mode: state.plan.mode,
     processed: state.plan.processed,
     eligibleByManifest: state.plan.eligibleByManifest,
+    unmanifested: state.plan.unmanifested,
+    unmanifestedSkipped: state.plan.unmanifestedSkipped,
   };
-  report.verificationPathCount = state.verificationPaths.length + state.plan.processed;
+  report.verificationPathCount = state.verificationPaths.length;
+  report.forcedProcessedPathCount = state.plan.processed;
   report.sharedExistenceIndexBytes =
     state.sharedHtmlPathIndex.slots.byteLength
     + state.sharedHtmlPathIndex.offsets.byteLength

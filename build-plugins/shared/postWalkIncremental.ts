@@ -5,9 +5,10 @@ import path from 'node:path';
 // shebang and an `import.meta.url` main guard, and Vite's config bundler
 // prepends its file-scope variables on the same line as the shebang, which
 // broke every build leg of run 35169891808 (`Syntax error "!"`).
-import { streamIncrementalManifest } from './incrementalManifest.mjs';
-import { extractHreflangAlternates } from '../hreflangPostprocessPlugin';
-import { EMIT_ALL_LOCALES, ownerEmitLocale, shouldEmitLocale } from './localeEmitFilter';
+import {
+  readIncrementalManifestHeader,
+  streamIncrementalManifest,
+} from './incrementalManifest.mjs';
 
 export const POST_WALK_INCREMENTAL_ENV = 'POST_WALK_INCREMENTAL';
 export const POST_WALK_INCREMENTAL_VERIFY_ENV = 'POST_WALK_INCREMENTAL_VERIFY';
@@ -29,12 +30,13 @@ const NON_HTML_MANIFEST_KIND = 'related-search-sitemap';
  *   cluster and are affected together;
  * - pages carrying the same job identity in current/previous input metadata,
  *   and entries explicitly referring to an added/removed path, are affected;
- * - hreflang siblings named by a changed page are affected by resolving only
- *   the changed page's links against the complete `existingHtmlSet`;
+ * - hreflang siblings named by a changed page are affected by the compact
+ *   manifest reference projection, without reopening the changed HTML;
  * - an added/removed page does not itself force a full pass. A removal without
  *   a resolvable kind + job identity gets a bounded per-entry reference scan;
- *   only an unreadable scan falls back to full. An owned hreflang target
- *   missing from `existingHtmlSet` still requires the full proof fallback.
+ *   only an unreadable scan falls back to full. A missing hreflang target is
+ *   handled by the changed page's own transform; no target page exists that
+ *   needs a second dispatch.
  *
  * `hreflangPostprocessPlugin` uses this same existence oracle: a target owned
  * by the current BUILD_LOCALE is checked against this leg's HTML set, while a
@@ -48,7 +50,7 @@ const NON_HTML_MANIFEST_KIND = 'related-search-sitemap';
  * manifest entry. Unregistered families remain on the existing full path.
  */
 export const POST_WALK_INCREMENTAL_DEPENDENCY_RULE =
-  'aliases + same kind/inputHash cluster + same-job/explicit path references + owned hreflang targets; add/remove stays incremental unless identity or existence proof is missing';
+  'aliases + same kind/inputHash cluster + same-job/explicit path references + manifest-projected hreflang targets; add/remove stays incremental unless identity or existence proof is missing; unmanifested paths require the verifier sample';
 
 export type PostWalkManifestMetadata = {
   /** Compact JSONL projection used by the streaming planner. */
@@ -86,6 +88,10 @@ export type PostWalkIncrementalPlan = {
   readonly changed: number;
   readonly added: number;
   readonly removed: number;
+  /** HTML files emitted by a producer that has no manifest entry. */
+  readonly unmanifested?: number;
+  /** Unmanifested files omitted only when the sampled verifier is enabled. */
+  readonly unmanifestedSkipped?: number;
   readonly fallbackReason?: string;
   readonly fallbackMode?: 'full' | 'entry';
   readonly reasonsByPath: ReadonlyMap<string, ReadonlySet<PostWalkPathReason>>;
@@ -93,12 +99,13 @@ export type PostWalkIncrementalPlan = {
 
 /**
  * Compact state produced by the streaming loader. `current.entries` contains
- * only path/hash/kind plus the small post-walk identity projection; the
- * previous snapshot is consumed once and is not retained.
+ * only path/hash/kind plus the small post-walk identity/reference projection;
+ * the previous snapshot is consumed as a stream and is never retained.
  */
 export type PostWalkManifestState = {
   readonly current: PostWalkManifestSnapshot;
   readonly currentEntryCount: number;
+  readonly currentHtmlEntryCount: number;
   readonly previousEntryCount: number;
   readonly previousKinds: ReadonlyMap<string, string>;
   readonly changed: ReadonlySet<string>;
@@ -172,6 +179,32 @@ function manifestFilePaths(rootDir: string, locales: readonly string[], previous
     previous ? 'incremental-manifest-prev' : 'incremental-manifest',
   );
   return locales.map((locale) => path.join(directory, `${locale}.jsonl`));
+}
+
+function readManifestEmitterFingerprint(
+  files: readonly string[],
+  locales: readonly string[],
+  label: string,
+): Readonly<Record<string, string>> | undefined {
+  let fingerprint: Readonly<Record<string, string>> | undefined;
+  for (let index = 0; index < files.length; index += 1) {
+    const file = files[index];
+    if (!fs.existsSync(file)) throw new Error(`${label} manifest mancante: ${file}`);
+    const header = readIncrementalManifestHeader(file);
+    if (header.locale !== locales[index]) {
+      throw new Error(
+        `${label} manifest ${file} dichiara locale ${header.locale}, atteso ${locales[index]}`,
+      );
+    }
+    if (header.jobsSeoEmitterFingerprint) {
+      const serialized = JSON.stringify(header.jobsSeoEmitterFingerprint);
+      if (fingerprint && JSON.stringify(fingerprint) !== serialized) {
+        throw new Error(`${label} manifest con fingerprint emitter divergente`);
+      }
+      fingerprint = header.jobsSeoEmitterFingerprint;
+    }
+  }
+  return fingerprint;
 }
 
 function normalizeLocales(locales: readonly string[]): string[] {
@@ -362,6 +395,19 @@ function isHtmlManifestEntry(entry: PostWalkManifestEntry): boolean {
   return logicalPathForManifestEntry(entry) !== null;
 }
 
+/** Return whether one emitted physical HTML alias is covered by the index. */
+export function postWalkManifestCoversHtmlPath(
+  distDir: string,
+  filePath: string,
+  entries: ReadonlyMap<string, PostWalkManifestEntry>,
+): boolean {
+  const logical = logicalPathForHtml(
+    normalizeRelativePath(path.relative(distDir, filePath)),
+  );
+  const entry = logical === null ? undefined : entries.get(logical);
+  return entry !== undefined && isHtmlManifestEntry(entry);
+}
+
 type MutablePostWalkPlanningState = {
   readonly current: PostWalkManifestSnapshot;
   readonly changed: Set<string>;
@@ -369,6 +415,7 @@ type MutablePostWalkPlanningState = {
   readonly removed: Set<string>;
   readonly affected: Set<string>;
   readonly unresolvedRemovals: Set<string>;
+  readonly previousReferenceSources: Map<string, Set<string>>;
   readonly eventJobIds: Set<string>;
   readonly eventSlugs: Set<string>;
 };
@@ -480,6 +527,49 @@ function addReferenceMatches(
   }
 }
 
+/**
+ * Mark manifest-backed pages named by a changed page's compact references.
+ * The reference projection is produced from the emitter input, so this keeps
+ * the dependency proof bounded to changed entries without rereading their HTML
+ * bodies during planning. Missing targets are handled by the changed page's
+ * own post-walk transform; they do not require a second page to be opened.
+ */
+function addChangedReferenceMatches(
+  state: MutablePostWalkPlanningState,
+  logical: string | null,
+  entry: PostWalkManifestEntry,
+  baseUrl: string,
+): void {
+  if (logical === null || !state.changed.has(logical)) return;
+  for (const reference of entry.postWalk?.references ?? []) {
+    const target = logicalPathFromReference(String(reference), baseUrl);
+    if (target === null || target === logical) continue;
+    const targetEntry = state.current.entries.get(target);
+    if (targetEntry !== undefined && isHtmlManifestEntry(targetEntry)) {
+      state.affected.add(target);
+    }
+  }
+}
+
+function recordPreviousReferenceSources(
+  state: MutablePostWalkPlanningState,
+  entry: PostWalkManifestEntry,
+  baseUrl: string,
+): void {
+  const source = logicalPathForManifestEntry(entry);
+  if (source === null || !state.current.entries.has(source)) return;
+  for (const reference of entry.postWalk?.references ?? []) {
+    const target = logicalPathFromReference(String(reference), baseUrl);
+    if (target === null || target === source) continue;
+    let sources = state.previousReferenceSources.get(target);
+    if (!sources) {
+      sources = new Set<string>();
+      state.previousReferenceSources.set(target, sources);
+    }
+    sources.add(source);
+  }
+}
+
 function finalizePlanningState(
   state: MutablePostWalkPlanningState,
   baseUrl: string,
@@ -493,36 +583,36 @@ function finalizePlanningState(
     }
   }
 
-  // Scan the compact current projection once for event identities. This is
-  // linear and bounded by the one current map; an inverse jobId/slug index
-  // would retain another Set of logical paths for every identity.
+  // Scan the compact current projection once for event identities and content
+  // clusters. The cluster check is folded into this pass so the planner does
+  // not rescan the full current map after the manifest phase.
+  const changedClusters = new Set<string>();
+  for (const logical of state.changed) {
+    const entry = state.current.entries.get(logical);
+    if (entry) changedClusters.add(`${entry.kind}\u0000${entry.inputHash}`);
+  }
   for (const [logical, entry] of state.current.entries) {
     if (!isHtmlManifestEntry(entry)) continue;
     if (entrySharesEventIdentity(entry, state.eventJobIds, state.eventSlugs)) {
       state.affected.add(logical);
     }
+    if (changedClusters.has(`${entry.kind}\u0000${entry.inputHash}`)) {
+      state.affected.add(logical);
+    }
+    addChangedReferenceMatches(state, logical, entry, baseUrl);
   }
 
   if (state.added.size > 0 || state.removed.size > 0) {
+    for (const [target, sources] of state.previousReferenceSources) {
+      if (!state.added.has(target) && !state.removed.has(target)) continue;
+      for (const source of sources) {
+        if (state.current.entries.has(source)) state.affected.add(source);
+      }
+    }
     for (const [logical, entry] of state.current.entries) {
       addReferenceMatches(state, logicalPathForManifestEntry(entry), entry, baseUrl);
     }
   }
-}
-
-/**
- * Recover reverse edges that exist only in the previous snapshot. The current
- * map is enough for ordinary identity matching, but a previous page may link
- * to a newly added/removed page. This pass is deliberately a second JSONL
- * stream: it retains no previous entry map or previous-path Set.
- */
-function addPreviousReferenceMatches(
-  state: MutablePostWalkPlanningState,
-  entry: PostWalkManifestEntry,
-  baseUrl: string,
-): void {
-  const logical = logicalPathForManifestEntry(entry);
-  addReferenceMatches(state, logical, entry, baseUrl);
 }
 
 function clearPlanningStateMarkers(entries: ReadonlyMap<string, PostWalkManifestEntry>): void {
@@ -572,10 +662,19 @@ async function streamManifestFiles(
     readonly validateUniquePaths?: boolean;
     readonly retainReferences?: boolean;
   } = {},
-): Promise<{ readonly entryCount: number; readonly kinds: Map<string, string> }> {
+): Promise<{
+  readonly entryCount: number;
+  readonly htmlEntryCount: number;
+  readonly kinds: Map<string, string>;
+  readonly jobsSeoEmitterFingerprint?: Readonly<Record<string, string>>;
+}> {
   const kinds = new Map<string, string>();
-  const duplicateGuard = new BoundedManifestDuplicateGuard();
+  const duplicateGuard = options.validateUniquePaths === false
+    ? null
+    : new BoundedManifestDuplicateGuard();
   let entryCount = 0;
+  let htmlEntryCount = 0;
+  let jobsSeoEmitterFingerprint: Readonly<Record<string, string>> | undefined;
   for (let index = 0; index < files.length; index += 1) {
     const file = files[index];
     if (!fs.existsSync(file)) throw new Error(`${label} manifest mancante: ${file}`);
@@ -589,14 +688,18 @@ async function streamManifestFiles(
             rawEntry.path,
             options.retainReferences === true,
           );
-          if (duplicateGuard.hasSeen(entry.path)) {
+          if (duplicateGuard?.hasSeen(entry.path)) {
             throw new Error(`${label} manifest path duplicato: ${entry.path}`);
           }
           onEntry(entry);
         },
         // The current snapshot owns the exact path map. The previous snapshot is
         // consumed as a stream and never needs a second all-path Set.
-        { validateUniquePaths: options.validateUniquePaths !== false },
+        // The coordinator's bounded Bloom guard handles duplicate paths for
+        // the current snapshot. Recreating streamIncrementalManifest's full
+        // Set(path) here would undo the memory reduction this loader exists
+        // to provide.
+        { validateUniquePaths: false },
       );
     } catch (error) {
       if (options.validateUniquePaths !== false && error instanceof Error) {
@@ -613,9 +716,21 @@ async function streamManifestFiles(
       );
     }
     entryCount += streamed.entryCount;
+    htmlEntryCount += streamed.entryCount
+      - Number(streamed.data.counts?.byKind?.[NON_HTML_MANIFEST_KIND] ?? 0);
     mergeKindMetadata(kinds, streamed.data.kinds);
+    if (streamed.jobsSeoEmitterFingerprint) {
+      const serialized = JSON.stringify(streamed.jobsSeoEmitterFingerprint);
+      if (
+        jobsSeoEmitterFingerprint
+        && JSON.stringify(jobsSeoEmitterFingerprint) !== serialized
+      ) {
+        throw new Error(`${label} manifest con fingerprint emitter divergente`);
+      }
+      jobsSeoEmitterFingerprint = streamed.jobsSeoEmitterFingerprint;
+    }
   }
-  return { entryCount, kinds };
+  return { entryCount, htmlEntryCount, kinds, jobsSeoEmitterFingerprint };
 }
 
 /**
@@ -637,6 +752,27 @@ export async function loadPostWalkManifestState(
   try {
     const currentEntries = new Map<string, PostWalkManifestEntry>();
     const currentFiles = manifestFilePaths(rootDir, selectedLocales, false);
+    const previousFiles = manifestFilePaths(rootDir, selectedLocales, true);
+    const currentEmitterFingerprint = readManifestEmitterFingerprint(
+      currentFiles,
+      selectedLocales,
+      'corrente',
+    );
+    const previousEmitterFingerprint = readManifestEmitterFingerprint(
+      previousFiles,
+      selectedLocales,
+      'precedente',
+    );
+    if (
+      (currentEmitterFingerprint || previousEmitterFingerprint)
+      && JSON.stringify(currentEmitterFingerprint ?? null)
+        !== JSON.stringify(previousEmitterFingerprint ?? null)
+    ) {
+      return {
+        ok: false,
+        reason: 'jobs SEO emitter fingerprint cambiato: delta non riusabile',
+      };
+    }
     const currentResult = await streamManifestFiles(
       currentFiles,
       selectedLocales,
@@ -647,7 +783,7 @@ export async function loadPostWalkManifestState(
         }
         currentEntries.set(entry.path, entry);
       },
-      { validateUniquePaths: true },
+      { validateUniquePaths: true, retainReferences: true },
     );
     const current: PostWalkManifestSnapshot = {
       locales: selectedLocales,
@@ -672,17 +808,40 @@ export async function loadPostWalkManifestState(
       removed,
       affected,
       unresolvedRemovals,
+      previousReferenceSources: new Map(),
       eventJobIds: new Set(),
       eventSlugs: new Set(),
     };
-    const previousFiles = manifestFilePaths(rootDir, selectedLocales, true);
     const previousResult = await streamManifestFiles(
       previousFiles,
       selectedLocales,
       'precedente',
-      (entry) => registerPreviousEntry(state, entry),
-      { validateUniquePaths: false },
+      (entry) => {
+        registerPreviousEntry(state, entry);
+        recordPreviousReferenceSources(state, entry, baseUrl);
+      },
+      { validateUniquePaths: true, retainReferences: true },
     );
+
+    // The jobs/related emitters deliberately change this fingerprint when a
+    // template, digest algorithm, or other producer contract changes.  Every
+    // page hash may then differ even though there is no post-walk dependency
+    // delta.  Treat that as one bounded full-pass fallback instead of building
+    // hundreds of thousands of individual `changed` edges and then paying the
+    // full planner/read cost anyway.
+    const emitterFingerprintChanged = Boolean(
+      (currentResult.jobsSeoEmitterFingerprint || previousResult.jobsSeoEmitterFingerprint)
+      && JSON.stringify(currentResult.jobsSeoEmitterFingerprint ?? null)
+        !== JSON.stringify(previousResult.jobsSeoEmitterFingerprint ?? null),
+    );
+    if (emitterFingerprintChanged) {
+      currentEntries.clear();
+      changed.clear();
+      added.clear();
+      removed.clear();
+      affected.clear();
+      unresolvedRemovals.clear();
+    }
     finalizePlanningState(state, baseUrl);
     if (added.size > 0 || removed.size > 0) {
       onProgress?.({
@@ -690,32 +849,6 @@ export async function loadPostWalkManifestState(
         currentEntries: currentResult.entryCount,
         previousEntries: previousResult.entryCount,
       });
-      const currentReferenceResult = await streamManifestFiles(
-        currentFiles,
-        selectedLocales,
-        'corrente',
-        (entry) => addReferenceMatches(state, logicalPathForManifestEntry(entry), entry, baseUrl),
-        { retainReferences: true },
-      );
-      const previousReferenceResult = await streamManifestFiles(
-        previousFiles,
-        selectedLocales,
-        'precedente',
-        (entry) => addPreviousReferenceMatches(state, entry, baseUrl),
-        { validateUniquePaths: false, retainReferences: true },
-      );
-      if (currentReferenceResult.entryCount !== currentResult.entryCount) {
-        throw new Error(
-          `corrente manifest cambiato durante la lettura: `
-            + `${currentResult.entryCount} -> ${currentReferenceResult.entryCount} entry`,
-        );
-      }
-      if (previousReferenceResult.entryCount !== previousResult.entryCount) {
-        throw new Error(
-          `precedente manifest cambiato durante la lettura: `
-            + `${previousResult.entryCount} -> ${previousReferenceResult.entryCount} entry`,
-        );
-      }
       onProgress?.({
         phase: 'references-loaded',
         currentEntries: currentResult.entryCount,
@@ -734,6 +867,7 @@ export async function loadPostWalkManifestState(
       state: {
         current,
         currentEntryCount: currentResult.entryCount,
+        currentHtmlEntryCount: currentResult.htmlEntryCount,
         previousEntryCount: previousResult.entryCount,
         previousKinds: previousResult.kinds,
         changed,
@@ -741,7 +875,9 @@ export async function loadPostWalkManifestState(
         removed,
         affected,
         unresolvedRemovals,
-        fallbackReason: manifestKindMetadataMismatch(current.kinds, previousResult.kinds),
+        fallbackReason: emitterFingerprintChanged
+          ? 'jobs SEO emitter fingerprint cambiato: delta non riusabile'
+          : manifestKindMetadataMismatch(current.kinds, previousResult.kinds),
       },
     };
   } catch (error) {
@@ -750,6 +886,23 @@ export async function loadPostWalkManifestState(
       reason: error instanceof Error ? error.message : String(error),
     };
   }
+}
+
+/**
+ * Release the mutable maps retained by the loader once the coordinator has
+ * copied the bounded plan. Assigning the state holder to null is not enough:
+ * V8 can keep the live close-over and its 650k-entry maps until a later GC,
+ * which overlaps the worker phase with the manifest projection.
+ */
+export function releasePostWalkManifestState(state: PostWalkManifestState): void {
+  (state.current.entries as Map<string, PostWalkManifestEntry>).clear();
+  (state.current.kinds as Map<string, string>).clear();
+  (state.previousKinds as Map<string, string>).clear();
+  (state.changed as Set<string>).clear();
+  (state.added as Set<string>).clear();
+  (state.removed as Set<string>).clear();
+  (state.affected as Set<string>).clear();
+  (state.unresolvedRemovals as Set<string>).clear();
 }
 
 function fullPlan(
@@ -772,6 +925,8 @@ function fullPlan(
     changed,
     added,
     removed,
+    unmanifested: Math.max(0, processHtmlPaths.length - eligibleByManifest),
+    unmanifestedSkipped: 0,
     fallbackReason: reason,
     fallbackMode: 'full',
     reasonsByPath: new Map(),
@@ -875,37 +1030,6 @@ function logicalPathFromReference(value: string, baseUrl: string): string | null
   return reference || null;
 }
 
-function resolveHreflangTargetFiles(
-  locale: string,
-  href: string,
-  baseUrl: string,
-  distDir: string,
-  allHtmlPaths: ReadonlySet<string>,
-): { readonly files: string[]; readonly missingOwnedTarget: boolean } {
-  const targetOwned = EMIT_ALL_LOCALES || shouldEmitLocale(ownerEmitLocale(locale));
-  const trimmedBase = baseUrl.replace(/\/+$/, '');
-  let target = String(href).trim();
-  if (target === trimmedBase) target = '';
-  else if (target.startsWith(`${trimmedBase}/`)) target = target.slice(trimmedBase.length);
-  else if (/^[a-z][a-z\d+.-]*:/i.test(target)) {
-    // A different absolute origin is not a cross-locale sibling in this
-    // build. The legacy transform will check it on an owned page, so keep the
-    // proof conservative and let the coordinator take the full path.
-    return { files: [], missingOwnedTarget: targetOwned };
-  }
-  const query = target.indexOf('?');
-  if (query !== -1) target = target.slice(0, query);
-  const hash = target.indexOf('#');
-  if (hash !== -1) target = target.slice(0, hash);
-  target = normalizeLogicalPath(target);
-  const candidates = logicalCandidates(target).map((relative) => path.join(distDir, relative));
-  const files = candidates.filter((candidate) => allHtmlPaths.has(candidate));
-  return {
-    files,
-    missingOwnedTarget: files.length === 0 && targetOwned,
-  };
-}
-
 // Path selection is performed directly from the compact manifest state below;
 // keeping a second reasons-by-path index would retain another large path map.
 
@@ -922,17 +1046,6 @@ function physicalHtmlPathsForLogical(
   return physical;
 }
 
-function hasPhysicalHtmlForLogical(
-  distDir: string,
-  logical: string,
-  allHtml: ReadonlySet<string>,
-): boolean {
-  for (const relative of logicalCandidates(logical)) {
-    if (allHtml.has(path.join(distDir, relative))) return true;
-  }
-  return false;
-}
-
 type PostWalkPlanInput = {
   readonly distDir: string;
   readonly allHtmlPaths: readonly string[];
@@ -940,20 +1053,13 @@ type PostWalkPlanInput = {
   readonly baseUrl: string;
   readonly readHtml?: (filePath: string) => string;
   readonly existingHtmlSet?: ReadonlySet<string>;
+  /** Paths excluded from the transform pass but retained in the existence oracle. */
+  readonly excludedHtmlPaths?: ReadonlySet<string>;
+  /** Physical HTML aliases counted during the coordinator's single dist walk. */
+  readonly coveredHtmlPathCount?: number;
+  /** Keep the historical conservative path when no verifier is active. */
+  readonly includeUncoveredPaths?: boolean;
 };
-
-function countEligibleManifestPaths(
-  input: PostWalkPlanInput,
-  current: ReadonlyMap<string, PostWalkManifestEntry>,
-): number {
-  let eligible = 0;
-  for (const filePath of input.processableHtmlPaths) {
-    const logical = logicalPathForHtml(normalizeRelativePath(path.relative(input.distDir, filePath)));
-    const entry = logical === null ? undefined : current.get(logical);
-    if (entry && isHtmlManifestEntry(entry)) eligible += 1;
-  }
-  return eligible;
-}
 
 function unresolvedRemovalReason(unresolved: ReadonlySet<string>): string {
   const preview: string[] = [];
@@ -1001,44 +1107,6 @@ function scanUnresolvedRemovalReferences(
   return undefined;
 }
 
-function markChangedHreflangDependants(
-  input: PostWalkPlanInput,
-  state: PostWalkManifestState,
-  affected: Set<string>,
-  allHtml: ReadonlySet<string>,
-  readHtml: (filePath: string) => string,
-): string | undefined {
-  for (const logical of state.changed) {
-    for (const filePath of physicalHtmlPathsForLogical(input.distDir, logical, allHtml)) {
-      let html: string;
-      try {
-        html = readHtml(filePath);
-      } catch (error) {
-        return `impossibile leggere il path cambiato ${filePath}: ${error instanceof Error ? error.message : String(error)}`;
-      }
-      for (const alternate of extractHreflangAlternates(html)) {
-        const resolution = resolveHreflangTargetFiles(
-          alternate.locale,
-          alternate.url,
-          input.baseUrl,
-          input.distDir,
-          allHtml,
-        );
-        if (resolution.missingOwnedTarget) {
-          return `target hreflang di pagina cambiata non presente in existingHtmlSet: ${alternate.url}`;
-        }
-        for (const targetFile of resolution.files) {
-          const targetLogical = logicalPathForHtml(
-            normalizeRelativePath(path.relative(input.distDir, targetFile)),
-          );
-          if (targetLogical !== null && targetLogical !== logical) affected.add(targetLogical);
-        }
-      }
-    }
-  }
-  return undefined;
-}
-
 function buildPostWalkPlanFromState(
   input: PostWalkPlanInput,
   state: PostWalkManifestState,
@@ -1046,25 +1114,10 @@ function buildPostWalkPlanFromState(
   const readHtml = input.readHtml ?? ((filePath: string) => fs.readFileSync(filePath, 'utf-8'));
   const allHtml = input.existingHtmlSet ?? new Set(input.allHtmlPaths);
   const affected = state.affected as Set<string>;
-  const eligibleByManifest = countEligibleManifestPaths(input, state.current.entries);
-
-  let missingCurrentCount = 0;
-  const missingCurrentPreview: string[] = [];
-  for (const [logical, entry] of state.current.entries) {
-    if (!isHtmlManifestEntry(entry) || hasPhysicalHtmlForLogical(input.distDir, logical, allHtml)) continue;
-    missingCurrentCount += 1;
-    if (missingCurrentPreview.length < 3) missingCurrentPreview.push(logical || '/');
-  }
-  if (missingCurrentCount > 0) {
-    return fullPlan(
-      input.processableHtmlPaths,
-      eligibleByManifest,
-      state.changed.size,
-      state.added.size,
-      state.removed.size,
-      `manifest corrente incompleto: path HTML non emesso (${missingCurrentPreview.join(', ')})`,
-    );
-  }
+  // The footer already reports how many entries belong to HTML-producing
+  // kinds. Recounting current entries against the 1.5M-file walk made the
+  // planner O(all); path existence is checked only for selected entries below.
+  const eligibleByManifest = input.coveredHtmlPathCount ?? state.currentHtmlEntryCount;
 
   if (state.fallbackReason) {
     return fullPlan(
@@ -1077,6 +1130,11 @@ function buildPostWalkPlanFromState(
     );
   }
 
+  // An unresolved removal has no manifest identity or reverse edge, so the
+  // bounded HTML scan is required even in sampled-verifier mode. Otherwise a
+  // page outside the sample can retain a stale reference after the removal.
+  // This scan is only entered for that conservative edge case; ordinary
+  // verified planning remains O(changed + affected).
   const unresolvedScanReason = scanUnresolvedRemovalReferences(
     input,
     state.unresolvedRemovals,
@@ -1094,63 +1152,54 @@ function buildPostWalkPlanFromState(
     );
   }
 
-  const hreflangReason = markChangedHreflangDependants(input, state, affected, allHtml, readHtml);
-  if (hreflangReason) {
-    return fullPlan(
-      input.processableHtmlPaths,
-      eligibleByManifest,
-      state.changed.size,
-      state.added.size,
-      state.removed.size,
-      hreflangReason,
-    );
-  }
+  // Select physical aliases directly from the compact logical manifest index.
+  // The old implementation derived a logical key for every HTML path and
+  // then scanned the whole 1.5M-file walk again. In verified mode the dispatch
+  // is now O(changed + affected), with no per-file `path.relative` loop.
+  const selectedPathSet = new Set<string>();
+  const selectedLogical = new Set<string>();
+  for (const logical of state.changed) selectedLogical.add(logical);
+  for (const logical of state.added) selectedLogical.add(logical);
+  for (const logical of state.affected) selectedLogical.add(logical);
 
-  // Canonical cluster/mirror pages share the exact manifest hash when they
-  // were rendered from the same source projection. Build this small key set
-  // without materialising an intermediate array of changed entries.
-  const changedClusters = new Set<string>();
-  for (const logical of state.changed) {
-    const entry = state.current.entries.get(logical);
-    if (entry) changedClusters.add(`${entry.kind}\u0000${entry.inputHash}`);
-  }
-  for (const [logical, entry] of state.current.entries) {
-    if (isHtmlManifestEntry(entry) && changedClusters.has(`${entry.kind}\u0000${entry.inputHash}`)) {
-      affected.add(logical);
-    }
-  }
-
-  // Build the one dispatch list in bounded chunks. The old implementation
-  // kept byLogical/byAbsolute, reasonsByPath, selected, and a copied full list
-  // alive at the same time; selection now derives directly from the compact
-  // manifest map and the existing HTML set.
-  const selectedPaths: string[] = [];
-  let skippedUnchanged = 0;
   let affectedPhysical = 0;
-  const chunkSize = 8192;
-  for (let start = 0; start < input.processableHtmlPaths.length; start += chunkSize) {
-    const end = Math.min(start + chunkSize, input.processableHtmlPaths.length);
-    for (let index = start; index < end; index += 1) {
-      const filePath = input.processableHtmlPaths[index];
-      const logical = logicalPathForHtml(
-        normalizeRelativePath(path.relative(input.distDir, filePath)),
-      );
-      const entry = logical === null ? undefined : state.current.entries.get(logical);
-      const covered = entry !== undefined && isHtmlManifestEntry(entry);
-      const selected = !covered
-        || state.changed.has(logical as string)
-        || state.added.has(logical as string)
-        || state.affected.has(logical as string);
-      if (!selected) {
-        skippedUnchanged += 1;
-        continue;
-      }
-      selectedPaths.push(filePath);
-      if (covered && state.affected.has(logical as string) && !state.changed.has(logical as string)) {
+  let unmanifestedSelected = 0;
+  for (const logical of selectedLogical) {
+    const entry = state.current.entries.get(logical);
+    const covered = entry !== undefined && isHtmlManifestEntry(entry);
+    const physicalPaths = physicalHtmlPathsForLogical(input.distDir, logical, allHtml);
+    for (const filePath of physicalPaths) {
+      if (input.excludedHtmlPaths?.has(filePath)) continue;
+      if (selectedPathSet.has(filePath)) continue;
+      selectedPathSet.add(filePath);
+      if (!covered) unmanifestedSelected += 1;
+      if (covered && state.affected.has(logical) && !state.changed.has(logical)) {
         affectedPhysical += 1;
       }
     }
   }
+
+  const includeUncoveredPaths = input.includeUncoveredPaths !== false;
+  let unmanifested = Math.max(0, input.processableHtmlPaths.length - eligibleByManifest);
+  let unmanifestedSkipped = 0;
+  if (includeUncoveredPaths) {
+    unmanifested = 0;
+    for (const filePath of input.processableHtmlPaths) {
+      const logical = logicalPathForHtml(
+        normalizeRelativePath(path.relative(input.distDir, filePath)),
+      );
+      const entry = logical === null ? undefined : state.current.entries.get(logical);
+      if (entry === undefined || !isHtmlManifestEntry(entry)) {
+        unmanifested += 1;
+        selectedPathSet.add(filePath);
+      }
+    }
+  } else {
+    unmanifestedSkipped = Math.max(0, unmanifested - unmanifestedSelected);
+  }
+
+  const selectedPaths = [...selectedPathSet];
+  const skippedUnchanged = Math.max(0, input.processableHtmlPaths.length - selectedPaths.length);
 
   return {
     mode: 'incremental',
@@ -1162,6 +1211,8 @@ function buildPostWalkPlanFromState(
     changed: state.changed.size,
     added: state.added.size,
     removed: state.removed.size,
+    unmanifested,
+    unmanifestedSkipped,
     fallbackReason: state.unresolvedRemovals.size > 0
       ? unresolvedRemovalReason(state.unresolvedRemovals)
       : undefined,

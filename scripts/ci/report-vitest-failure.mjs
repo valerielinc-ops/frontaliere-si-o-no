@@ -2,10 +2,10 @@
 /**
  * Pubblica sulla PR il dettaglio dei test Vitest falliti.
  *
- * Il job mantiene i due gruppi Vitest nello stesso job per condividere
- * checkout/setup/npm ci. I loro log, però, sono difficili da trovare nella
- * vista della PR; i JSON prodotti dal reporter sono invece una sorgente
- * strutturata e contengono file, nome del test e messaggi d'errore.
+ * Il job mantiene il run Vitest nello stesso job di checkout/setup/npm ci. Il
+ * log, però, è difficile da trovare nella vista della PR; il JSON prodotto dal
+ * reporter è invece una sorgente strutturata e contiene file, nome del test e
+ * messaggi d'errore.
  *
  * Best-effort: questo reporter non deve mai aggiungere un secondo rosso al
  * gate che sta già fallendo.
@@ -39,7 +39,14 @@ function trimMessage(message) {
   return `${text.slice(0, MAX_MESSAGE_LENGTH - 1)}…`;
 }
 
-export function collectFailures(files = ['shard-timing-1.json', 'shard-timing-2.json']) {
+export function reportFilesFromEnv(value = process.env.VITEST_REPORT_FILES) {
+  return String(value || 'shard-timing-related.json')
+    .split(/[\n,]/u)
+    .map((file) => file.trim())
+    .filter(Boolean);
+}
+
+export function collectFailures(files = reportFilesFromEnv()) {
   const groups = [];
   for (const file of files) {
     const report = readJson(file);
@@ -76,9 +83,12 @@ export function buildComment(groups, {
     MARKER,
     '## ❌ Test Vitest falliti',
     '',
-    'Il gate `tests` è fallito. Dettaglio estratto dai report JSON dei due gruppi Vitest:',
+    'Il gate `tests` è fallito. Dettaglio estratto dal report JSON del run Vitest:',
     '',
   ];
+  if (groups.length === 0) {
+    lines.push('- Il passo Vitest è fallito, ma il reporter JSON non è disponibile; consultare il log del job.', '');
+  }
   for (const group of groups) {
     lines.push(`### ${group.file}`);
     lines.push(`- Test falliti: **${group.failedTests}**${group.failedSuites ? ` — file suite falliti: **${group.failedSuites}**` : ''}`);
@@ -145,10 +155,6 @@ function publishComment(repo, prNumber, body) {
 
 function main() {
   const groups = collectFailures();
-  if (groups.length === 0) {
-    console.log('Vitest reports: nessun failure da pubblicare.');
-    return;
-  }
   const prNumber = process.env.PR_NUMBER || '';
   const repo = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
   if (!prNumber || !repo) {
