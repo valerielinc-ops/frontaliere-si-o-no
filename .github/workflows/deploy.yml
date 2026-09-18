@@ -381,6 +381,14 @@ jobs:
       # restore, no reuse reads, and no extra current-cache writes.
       JOBS_SEO_REUSE: ${{ vars.JOBS_SEO_REUSE == '1' && '1' || '' }}
       JOBS_SEO_REUSE_VERIFY: ${{ vars.JOBS_SEO_REUSE_VERIFY == '1' && '1' || '' }}
+      # Optional deterministic verify sample (0-1, e.g. 0.02) for production:
+      # verifies a stable 2% of reuse hits instead of re-rendering everything.
+      JOBS_SEO_REUSE_VERIFY_SAMPLE: ${{ vars.JOBS_SEO_REUSE_VERIFY_SAMPLE || '' }}
+      # Post-walk incremental mode is repository-variable opt-in like the two
+      # flags above; it requires INCREMENTAL_MANIFEST=1 (previous manifest).
+      # Unset keeps the full post-walk byte-for-byte.
+      POST_WALK_INCREMENTAL: ${{ vars.POST_WALK_INCREMENTAL == '1' && '1' || '' }}
+      POST_WALK_INCREMENTAL_VERIFY: ${{ vars.POST_WALK_INCREMENTAL_VERIFY == '1' && '1' || '' }}
     steps:
       # #7106 — anchors the CDN gate's job-deadline safety margin (see "WHY A
       # THIRD CLOCK" in scripts/lib/wait-cdn-build-id.sh) to this leg's REAL

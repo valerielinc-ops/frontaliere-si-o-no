@@ -50,7 +50,9 @@ describe('post-walk worker imports a leaf injector (#4959)', () => {
     expect(src).toContain('shared/contextualLinkInjector.ts');
     expect(src).not.toMatch(/await import\((\s|\n)*'\.\/blogContextualLinksPlugin\.ts'\)/);
     // The defaults must arrive over workerData — the worker cannot resolve them.
-    expect(src).toMatch(/contextualLinkDefaults,?\s*\n?\s*(assignedFiles,)?\s*\}\s*=\s*workerData/);
+    // #9075 added htmlPathIndex after assignedFiles: any further destructured
+    // keys are fine, the point is that contextualLinkDefaults comes from workerData.
+    expect(src).toMatch(/contextualLinkDefaults,[\s\S]{0,200}?\}\s*=\s*workerData/);
   });
 
   it('the deploy runs the post-walk with more than one worker again', () => {
