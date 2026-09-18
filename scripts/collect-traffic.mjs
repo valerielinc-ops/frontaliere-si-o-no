@@ -18,7 +18,11 @@
  */
 
 import admin from 'firebase-admin';
-import { runTrafficCollection } from '../functions/src/trafficSchedulerCore.js';
+import {
+  MAX_CROSSING_FAILURE_RATE,
+  runIsPublishable,
+  runTrafficCollection,
+} from '../functions/src/trafficSchedulerCore.js';
 import { collectOfficialTrafficSignals } from './lib/official-traffic-sources.mjs';
 import { snapshotBorderWaitFiles } from './snapshot-border-wait-history.mjs';
 
@@ -53,7 +57,7 @@ try {
   console.warn(`⚠️ Official traffic layer unavailable: ${error.message}`);
 }
 
-const { collected, errors } = await runTrafficCollection({
+const { collected, errors, skipped } = await runTrafficCollection({
   hereApiKey,
   tomtomApiKey,
   googleApiKey,
@@ -68,26 +72,40 @@ const { collected, errors } = await runTrafficCollection({
   enableWebcam,
 });
 
-if (collected === 0 && errors > 0) {
-  console.error(`❌ All ${errors} crossings failed — traffic data NOT collected`);
+// Zero collected is a failure however it is reported. `skipped` covers the
+// paths that answer `{ collected: 0, errors: 0 }` — no provider configured,
+// provider mesh exhausted at preflight, webcam module unavailable: without
+// this branch they fell through to the success log, reached the JSON mirror
+// and republished a stale snapshot from a run that had fetched nothing.
+if (collected === 0) {
+  const why = skipped
+    ? `collection skipped (${skipped})`
+    : errors > 0
+      ? `all ${errors} crossings failed`
+      : 'no crossing was polled';
+  console.error(`❌ Traffic data NOT collected — ${why}`);
+  process.exit(1);
+}
+
+// `errors` counts CROSSINGS, one per rejected fetchCrossingTraffic() — not the
+// two per-segment warnings that precede each of them. The rate is a share of
+// the crossings polled, so the denominator is the crossing list. The ceiling
+// lives in trafficSchedulerCore so this exit and the Firestore write obey one
+// rule: a run that fails here must not have persisted a partial snapshot.
+if (!runIsPublishable(collected, errors)) {
+  const failRate = errors / (collected + errors);
+  console.error(
+    `⚠️ High failure rate: ${collected} crossings collected, ${errors} crossings failed `
+    + `of ${collected + errors} polled (${(failRate * 100).toFixed(1)}% of crossings, `
+    + `ceiling ${(MAX_CROSSING_FAILURE_RATE * 100).toFixed(1)}%)`,
+  );
   process.exit(1);
 }
 
 if (errors > 0) {
-  const failRate = errors / (collected + errors);
-  if (failRate > 0.5) {
-    // `errors` counts CROSSINGS, one per rejected fetchCrossingTraffic() — not
-    // the two per-segment warnings that precede each of them. The rate is a
-    // share of the crossings polled, so the denominator is the crossing list.
-    console.error(
-      `⚠️ High failure rate: ${collected} crossings collected, ${errors} crossings failed `
-      + `of ${collected + errors} polled (${Math.round(failRate * 100)}% of crossings)`,
-    );
-    process.exit(1);
-  }
   console.warn(`⚠️ Partial success: ${collected} crossings collected, ${errors} crossings failed`);
 } else {
-  console.log(`✅ Done — ${collected} collected, ${errors} errors`);
+  console.log(`✅ Done — ${collected} crossings collected, 0 failed`);
 }
 
 // Mirror Firestore state into data/*.json so the static SEO build always

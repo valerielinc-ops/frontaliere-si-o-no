@@ -130,3 +130,63 @@ describe('stadia adapter speaks Valhalla, not OSRM', () => {
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 });
+
+/**
+ * Reviewer finding on PR #9143 L667: converting EVERY thrown reservation error
+ * into `quota-check-failed` swapped one wrong absolute for another — a
+ * permission or configuration fault would be retried once per segment for all
+ * 141 crossings instead of rotating away once.
+ */
+describe('a permanent reservation failure still disables the provider', () => {
+  it('separates retryable Firestore codes from configuration faults', async () => {
+    const { isRetryableReservationError } = await import('../functions/src/trafficProviderMesh.js');
+    const withCode = (code: number, message = 'boom') => Object.assign(new Error(message), { code });
+
+    // ABORTED (contention — the 2026-09-18 outage), UNAVAILABLE, INTERNAL,
+    // DEADLINE_EXCEEDED, RESOURCE_EXHAUSTED: another attempt can succeed.
+    for (const code of [4, 8, 10, 13, 14]) {
+      expect(isRetryableReservationError(withCode(code))).toBe(true);
+    }
+    // PERMISSION_DENIED, UNAUTHENTICATED, INVALID_ARGUMENT, NOT_FOUND,
+    // FAILED_PRECONDITION: identical on every remaining segment.
+    for (const code of [3, 5, 7, 9, 16]) {
+      expect(isRetryableReservationError(withCode(code))).toBe(false);
+    }
+    // The real shape from the outage log, with the numeric code lost by a
+    // wrapper but the gax message prefix intact.
+    expect(isRetryableReservationError(
+      new Error('10 ABORTED: Aborted due to cross-transaction contention.'),
+    )).toBe(true);
+    expect(isRetryableReservationError(
+      new Error('7 PERMISSION_DENIED: Missing or insufficient permissions.'),
+    )).toBe(false);
+    // Unclassifiable → treated as permanent: an error nobody can read, retried
+    // once per segment, is the stall this guard exists to avoid.
+    expect(isRetryableReservationError(new Error('something odd'))).toBe(false);
+    expect(isRetryableReservationError(undefined)).toBe(false);
+  });
+});
+
+/**
+ * Reviewer findings on PR #9143 L716 and L759: the Firestore write and the
+ * collector's exit code have to obey ONE rule, and a run that collected
+ * nothing must never read as success.
+ */
+describe('publishability is one rule for persistence and exit code', () => {
+  it('refuses a run that collected nothing, whatever errors says', async () => {
+    const { runIsPublishable } = await import('../functions/src/trafficSchedulerCore.js');
+    // The provider-mesh-exhausted and no-provider paths both report 0/0.
+    expect(runIsPublishable(0, 0)).toBe(false);
+    expect(runIsPublishable(0, 141)).toBe(false);
+  });
+
+  it('draws the line at the same 50% the collector exits on', async () => {
+    const { runIsPublishable, MAX_CROSSING_FAILURE_RATE } = await import('../functions/src/trafficSchedulerCore.js');
+    expect(MAX_CROSSING_FAILURE_RATE).toBe(0.5);
+    expect(runIsPublishable(141, 0)).toBe(true);   // the healthy run
+    expect(runIsPublishable(27, 114)).toBe(false); // the 2026-09-18 outage
+    expect(runIsPublishable(71, 70)).toBe(true);   // 49.6% — publishable
+    expect(runIsPublishable(70, 70)).toBe(true);   // exactly 50% — still in
+    expect(runIsPublishable(69, 72)).toBe(false);  // 51.1% — out
+  });
+});

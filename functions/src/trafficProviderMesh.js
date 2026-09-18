@@ -594,6 +594,34 @@ export function isTransientProviderRefusal(error) {
   return TRANSIENT_RESERVATION_REASONS.includes(error?.reason);
 }
 
+/**
+ * gRPC status codes for which a later reservation attempt can still succeed:
+ * DEADLINE_EXCEEDED, RESOURCE_EXHAUSTED, ABORTED, INTERNAL, UNAVAILABLE.
+ *
+ * Everything else Firestore raises here — PERMISSION_DENIED (7),
+ * UNAUTHENTICATED (16), INVALID_ARGUMENT (3), NOT_FOUND (5),
+ * FAILED_PRECONDITION (9) — is a configuration fault that every one of the
+ * remaining segments would hit identically. Retrying those 280 times is not
+ * resilience, it is a stall: the provider has to be disabled for the run.
+ */
+const RETRYABLE_RESERVATION_CODES = Object.freeze(new Set([4, 8, 10, 13, 14]));
+
+/**
+ * True when a THROWN reservation error is worth another attempt on the next
+ * segment. Unknown shapes answer false: an error nobody can classify, repeated
+ * once per segment, is the stall this guard exists to avoid.
+ *
+ * @param {unknown} error the error `reserveTrafficProviderRequest` threw
+ */
+export function isRetryableReservationError(error) {
+  const code = Number(error?.code);
+  if (Number.isInteger(code)) return RETRYABLE_RESERVATION_CODES.has(code);
+  // google-gax formats the message as `<code> <STATUS>: <details>` and some
+  // wrappers lose the numeric `code` while keeping that prefix.
+  const prefix = String(error?.message ?? '').match(/^\s*(\d+)\s+[A-Z_]+:/);
+  return prefix ? RETRYABLE_RESERVATION_CODES.has(Number(prefix[1])) : false;
+}
+
 function safeBody(text) {
   return String(text ?? '').replace(/\s+/g, ' ').slice(0, 240);
 }

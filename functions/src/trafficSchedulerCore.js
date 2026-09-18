@@ -20,6 +20,7 @@ import {
   buildTrafficProviderChain,
   classifyProviderError,
   getTrafficSegmentTravelTimes,
+  isRetryableReservationError,
   isTransientProviderRefusal,
   providerBudgetExhaustedError,
   reserveTrafficProviderRequest,
@@ -649,6 +650,30 @@ export async function reserveHereTransactionBudget(callsThisRun) {
  };
 }
 
+/**
+ * Share of crossings that may fail before a run is not worth publishing.
+ *
+ * ONE definition for two decisions that must never diverge: whether the
+ * partial snapshot reaches Firestore, and whether `scripts/collect-traffic.mjs`
+ * exits non-zero. The collector imports it instead of keeping its own `0.5`.
+ */
+export const MAX_CROSSING_FAILURE_RATE = 0.5;
+
+/**
+ * Whether a run's yield is good enough to become the published snapshot.
+ * A run that collected nothing is never publishable, whatever `errors` says —
+ * that also covers the provider-mesh-exhausted path, which reports
+ * `{ collected: 0, errors: 0 }` and would otherwise read as a clean success.
+ *
+ * @param {number} collected crossings with usable data
+ * @param {number} errors crossings with none
+ */
+export function runIsPublishable(collected, errors) {
+ if (!(collected > 0)) return false;
+ if (!(errors > 0)) return true;
+ return errors / (collected + errors) <= MAX_CROSSING_FAILURE_RATE;
+}
+
 function createProviderMeshRuntime(providerChain) {
  const disabled = new Set();
  const reserveRequest = async (providerId, operation = 'route') => {
@@ -666,13 +691,21 @@ function createProviderMeshRuntime(providerChain) {
    return reservation;
   } catch (error) {
    // A failed quota transaction cannot prove that a paid request is safe, so
-   // THIS request still fails closed. But the transaction failing is a
-   // Firestore condition (contention on the single per-provider counter), not
-   // evidence that the provider is out of allowance: banning it for the whole
-   // run is what collapsed the mesh on 2026-09-18. Keep it eligible for the
-   // next segment.
-   console.warn(`🛑 ${providerId}/${operation} quota check failed — retrying next segment: ${error.message}`);
-   return { allowed: false, reason: 'quota-check-failed' };
+   // THIS request always fails closed. Whether the PROVIDER survives depends
+   // on why the transaction failed, and the two cases are opposites:
+   //   - retryable (contention on the single per-provider counter, Firestore
+   //     unavailable): keep the provider eligible. Banning it here is what
+   //     collapsed the mesh on 2026-09-18.
+   //   - permanent (permission denied, bad configuration): every remaining
+   //     segment would fail identically, so disable and rotate once instead of
+   //     re-hitting the same fault 280 times.
+   const retryable = isRetryableReservationError(error);
+   if (!retryable) disabled.add(providerId);
+   console.warn(
+    `🛑 ${providerId}/${operation} quota check failed `
+    + `(${retryable ? 'retryable — next segment may reserve' : 'permanent — provider disabled'}): ${error.message}`,
+   );
+   return { allowed: false, reason: retryable ? 'quota-check-failed' : 'quota-check-permanent' };
   }
  };
 
@@ -756,12 +789,27 @@ async function runTrafficCollectionWithProviderMesh(options, providerChain) {
   }
  }
 
- if (results.length > 0) await saveTrafficToFirestore(results);
+ // Persistence obeys the SAME rule as the collector's exit code. When the two
+ // disagreed, a run that was about to fail still overwrote trafficCurrent for
+ // the crossings that had succeeded: the static JSON mirror was withheld by the
+ // non-zero exit, but the SPA reads Firestore, so it got a snapshot that was
+ // fresh for 27 slugs and stale for 114 with nothing marking the difference.
+ // Wholly stale is honest — every lastUpdate is old; mixed is not.
+ const publishable = runIsPublishable(results.length, errors);
+ if (results.length > 0 && publishable) {
+  await saveTrafficToFirestore(results);
+ } else if (results.length > 0) {
+  console.error(
+   `⛔ ${results.length} crossings collected but NOT persisted: `
+   + `${errors}/${results.length + errors} failed, over the ${Math.round(MAX_CROSSING_FAILURE_RATE * 100)}% ceiling. `
+   + 'trafficCurrent keeps its previous, uniformly-aged snapshot.',
+  );
+ }
  console.log(
   `✅ Provider-mesh collection done – ${results.length}/${BORDER_CROSSINGS.length} crossings OK, `
   + `${errors} crossings with no usable data`,
  );
- return { collected: results.length, errors };
+ return { collected: results.length, errors, persisted: results.length > 0 && publishable };
 }
 
 /**
