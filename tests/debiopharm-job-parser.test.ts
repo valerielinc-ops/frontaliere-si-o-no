@@ -1,8 +1,24 @@
 import { describe, expect, it } from 'vitest';
-import { isDebiopharmSwissJob, parseDebiopharmJobDetailPayload } from '../scripts/lib/debiopharm-job-parser.mjs';
+import {
+  isDebiopharmSwissJob,
+  isVerifiedEmptyDebiopharmCareersSource,
+  parseDebiopharmJobDetailPayload,
+} from '../scripts/lib/debiopharm-job-parser.mjs';
 import { buildDebiopharmJob, resolveDebiopharmBackfillCanton } from '../scripts/update-debiopharm-jobs.mjs';
 
 describe('debiopharm-job-parser', () => {
+  describe('careers source completeness', () => {
+    it('accepts zero only with the explicit source empty-state marker and no Workable link', () => {
+      expect(isVerifiedEmptyDebiopharmCareersSource(
+        '<div class="u-section-open-position-list__list-no-result">There are currently no positions matching your criteria.</div>',
+      )).toBe(true);
+      expect(isVerifiedEmptyDebiopharmCareersSource(
+        '<div class="u-section-open-position-list__list-no-result">There are currently no positions matching your criteria.</div><a href="https://apply.workable.com/debiopharm/j/ABC123">Scientist</a>',
+      )).toBe(false);
+      expect(isVerifiedEmptyDebiopharmCareersSource('<main>Careers</main>')).toBe(false);
+    });
+  });
+
   // ── parseDebiopharmJobDetailPayload.inferredCanton (unresolved-canton skip guard — task-critical) ──
   describe('inferredCanton', () => {
     it('resolves a known Swiss city/region to its canton', () => {

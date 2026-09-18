@@ -117,6 +117,19 @@ export function parseDebiopharmCareersHtml(html = '') {
   return [...results.values()];
 }
 
+/**
+ * A zero-result careers page is authoritative only when the source itself
+ * renders its explicit empty-state marker and no Workable job link. A blank
+ * parser result without that evidence is a source/parser failure, not a
+ * valid empty snapshot.
+ */
+export function isVerifiedEmptyDebiopharmCareersSource(html = '') {
+  const source = String(html || '');
+  const hasWorkableJobLink = /apply\.workable\.com\/debiopharm\/j\/[A-Z0-9]+/i.test(source);
+  const hasEmptyState = /u-section-open-position-list__list-no-result|There are currently no positions matching your criteria\./i.test(source);
+  return !hasWorkableJobLink && hasEmptyState;
+}
+
 function locationCandidateList(detail = {}) {
   const candidates = [];
   if (detail?.location && typeof detail.location === 'object') candidates.push(detail.location);

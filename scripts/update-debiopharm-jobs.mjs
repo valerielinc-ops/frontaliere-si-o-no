@@ -52,6 +52,7 @@ import {
   DEBIOPHARM_CAREERS_URL,
   DEBIOPHARM_WORKABLE_DETAIL_API_BASE,
   parseDebiopharmCareersHtml,
+  isVerifiedEmptyDebiopharmCareersSource,
   parseDebiopharmJobDetailPayload,
   buildDebiopharmDetailUrl,
   buildDebiopharmApplyUrl,
@@ -203,11 +204,15 @@ async function fetchDebiopharmListings() {
     throw new Error('Debiopharm careers source returned an empty or unexpected page; refusing an unverified empty discovery.');
   }
   const listings = parseDebiopharmCareersHtml(html);
+  const verifiedEmpty = listings.length === 0 && isVerifiedEmptyDebiopharmCareersSource(sourceHtml);
+  if (listings.length === 0 && !verifiedEmpty) {
+    throw new Error('Debiopharm careers source exposed no parseable listing links and no explicit empty-state marker; refusing an unverified empty discovery.');
+  }
   console.log(`  📦 Total listing entries from verified careers markup: ${listings.length}`);
   for (const job of listings) {
     console.log(`     - ${job.title} (${job.locationLabel || 'unknown'}) [${job.shortcode}]`);
   }
-  return listings;
+  return { listings, verifiedEmpty };
 }
 
 async function fetchDebiopharmDetail(shortcode) {
@@ -486,9 +491,9 @@ async function main() {
   const pre = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   if (Array.isArray(pre)) beforeSnapshot = snapshotJobSlugs(pre.filter(isTargetJob));
 
-  const listings = await fetchDebiopharmListings();
+  const { listings, verifiedEmpty } = await fetchDebiopharmListings();
   if (listings.length === 0) {
-    console.warn('⚠️ Debiopharm careers source was read but declared no listing entries; continuing with the verified empty discovery.');
+    console.warn(`⚠️ Debiopharm careers source declared no listing entries; explicit empty-state evidence: ${verifiedEmpty ? 'yes' : 'no'}.`);
   }
 
   const discoveredJobs = [];
