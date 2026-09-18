@@ -24,6 +24,21 @@ on:
     workflows: [tests]
     types: [completed]
 
+# Every event type above is an observation point for the same fail-closed
+# verdict, and the helper re-reads the review/check pair from scratch on each
+# run. Only the newest evaluation per pull request can therefore be correct, so
+# older ones are cancelled instead of queued: with a fleet of open PRs the
+# fan-out (5 pull_request_target types + 3 review types + every `tests` run)
+# otherwise fills the account's concurrent-job budget with runs whose verdict is
+# already superseded. Measured 2026-09-18: 72 of 100 sampled queued runs were
+# this workflow, starving the `vitest` runs the same PRs were waiting for.
+# Keyed on the head branch because `workflow_run` does not expose
+# `pull_request.number` reliably, while `head_branch` is present for all three
+# event types.
+concurrency:
+  group: enable-native-automerge-${{ github.event.pull_request.head.ref || github.event.workflow_run.head_branch || github.run_id }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
   pull-requests: write
