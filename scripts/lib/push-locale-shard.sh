@@ -417,8 +417,17 @@ push_shard() {
     # delta would always trip the diff and the skip would be dead code. We
     # only care whether the SERVED CONTENT changed; if it didn't, there is
     # nothing to publish and bumping the history counter is pointless.
-    if [ "$incremental" = 1 ] \
-       && ! shard_index_has_content_changes "$stage"; then
+    _skip_content_push=0
+    if [ "$incremental" = 1 ]; then
+      _content_diff_status=0
+      shard_index_has_content_changes "$stage" || _content_diff_status=$?
+      if [ "$_content_diff_status" -eq 1 ]; then
+        _skip_content_push=1
+      elif [ "$_content_diff_status" -gt 1 ]; then
+        echo "::warning::$loc shard: staged content diff failed — publishing conservatively"
+      fi
+    fi
+    if [ "$_skip_content_push" -eq 1 ]; then
       echo "$loc shard: no content changes vs remote — skipping push (already current)"
     else
       _sha="${GITHUB_SHA:-local}"; _sha="${_sha:0:8}"

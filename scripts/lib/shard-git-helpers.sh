@@ -188,10 +188,28 @@ shard_count_files() {
 # A NUL-safe equivalent of the old quiet diff check. `--name-only -z` keeps the
 # path transport lossless even though the result is consumed only as a boolean.
 shard_index_has_content_changes() {
-  local stage="$1"
-  git -C "$stage" -c core.quotePath=false diff --cached --name-only -z -- \
-    . ':!.shard-deploys' ':!.shard-filecount' \
-    | perl -0ne '$found = 1; END { exit($found ? 0 : 1) }'
+  local stage="$1" work diff_list git_status diff_status
+  work="$(mktemp -d)" || return 2
+  diff_list="$work/diff.list"
+  # Keep Git's status separate from the empty-diff status. A failed diff must
+  # publish conservatively; it must never look like a successful empty diff.
+  if git -C "$stage" -c core.quotePath=false diff --cached --name-only -z -- \
+      . ':!.shard-deploys' ':!.shard-filecount' > "$diff_list"; then
+    git_status=0
+  else
+    git_status=$?
+  fi
+  if [ "$git_status" -ne 0 ]; then
+    rm -rf "$work"
+    return 2
+  fi
+  if perl -0ne '$found = 1; END { exit($found ? 0 : 1) }' < "$diff_list"; then
+    diff_status=0
+  else
+    diff_status=$?
+  fi
+  rm -rf "$work"
+  return "$diff_status"
 }
 
 # shard_delta_remove_stale_payload_paths <stage> <scope_prefix>
@@ -391,6 +409,11 @@ shard_delta_apply_source_tree() {
           next if $relative eq q{};
           my $source = "$root/$relative";
           my $target = $prefix eq q{} ? $relative : "$prefix/$relative";
+          # `git hash-object --stdin-paths` is newline-delimited and has no
+          # NUL mode. Reject this otherwise valid Git path before building the
+          # bridge rather than splitting it into multiple source paths.
+          die "newline in payload path is unsupported by hash-object --stdin-paths: $relative\n"
+            if index($relative, "\n") >= 0;
           print {$metadata} "$source\0$target\0";
           # `git hash-object --stdin-paths` has no NUL switch: it consumes one
           # literal path per line. Keep this bridge unquoted and byte-for-byte;

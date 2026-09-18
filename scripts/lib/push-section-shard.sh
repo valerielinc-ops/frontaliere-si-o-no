@@ -402,8 +402,17 @@ push_section_shard() {
       git config user.email "valerielinc@gmail.com"
       git config user.name "Valerie Linc"
       git add -A
-      if [ "$incremental" = 1 ] \
-         && ! shard_index_has_content_changes "$stage"; then
+      _skip_content_push=0
+      if [ "$incremental" = 1 ]; then
+        _content_diff_status=0
+        shard_index_has_content_changes "$stage" || _content_diff_status=$?
+        if [ "$_content_diff_status" -eq 1 ]; then
+          _skip_content_push=1
+        elif [ "$_content_diff_status" -gt 1 ]; then
+          echo "::warning::$section-$loc shard: staged content diff failed — publishing conservatively"
+        fi
+      fi
+      if [ "$_skip_content_push" -eq 1 ]; then
         echo "$section-$loc shard: no content changes vs remote — skipping push (already current)"
       else
       _sha="${GITHUB_SHA:-local}"; _sha="${_sha:0:8}"
