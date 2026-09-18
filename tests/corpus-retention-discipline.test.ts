@@ -4,9 +4,17 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
+  JOBS_SEO_GCFREED_PROBE_CANDIDATES,
+  JOBS_SEO_GCFREED_PROBE_ENV,
+  JOBS_SEO_RETENTION_PROBE_CANDIDATES,
   JOBS_SEO_RETENTION_PROBE_ENV,
+  extraGcFreedProbeReleases,
+  gcFreedProbeLogFields,
   jobsSeoRetentionReleasePlan,
+  logGcFreedProbeCheckpoint,
+  parseJobsSeoGcFreedProbe,
   parseJobsSeoRetentionProbe,
+  selectGcFreedProbeCandidate,
   shouldReleaseJobsSeoRetentionCandidate,
 } from '../build-plugins/shared/jobsSeoRetentionProbe';
 
@@ -224,8 +232,69 @@ describe('corpus retention discipline (#5330)', () => {
     expect(shouldReleaseJobsSeoRetentionCandidate(null, 'careClusterPartition')).toBe(true);
     expect(shouldReleaseJobsSeoRetentionCandidate('careClusterPartition', 'careClusterPartition')).toBe(true);
     expect(shouldReleaseJobsSeoRetentionCandidate('careClusterPartition', 'locationPartition')).toBe(false);
-    expect(jobsSeoRetentionReleasePlan(null)).toEqual(['careClusterPartition', 'locationPartition']);
+    expect(jobsSeoRetentionReleasePlan(null)).toEqual([...JOBS_SEO_RETENTION_PROBE_CANDIDATES]);
     expect(jobsSeoRetentionReleasePlan('careClusterPartition')).toEqual(['careClusterPartition']);
     expect(jobsSeoRetentionReleasePlan('locationPartition')).toEqual(['locationPartition']);
+  });
+
+  it('keeps the gcFreed extra-candidate probe opt-in, one-at-a-time, and logged', () => {
+    const source = fs.readFileSync(path.join(PLUGIN_DIR, 'jobsSeoPagesPlugin.ts'), 'utf8');
+    const extraLoop = source.indexOf('extraGcFreedProbeReleases(extraGcFreedProbeCandidate)');
+    const checkpoint = source.indexOf("'jobsSeoPages: after corpus-release'");
+
+    expect(source).toContain('process.env[JOBS_SEO_GCFREED_PROBE_ENV]');
+    expect(source).toContain('logGcFreedProbeCheckpoint');
+    expect(source).toContain('candidate=${extraGcFreedProbeCandidate}');
+    expect(extraLoop, 'extra probe release loop disappeared').toBeGreaterThan(-1);
+    expect(extraLoop, 'extra probe release moved past the checkpoint').toBeLessThan(checkpoint);
+
+    expect(JOBS_SEO_GCFREED_PROBE_CANDIDATES.length).toBeGreaterThan(0);
+    expect(selectGcFreedProbeCandidate(undefined, JOBS_SEO_GCFREED_PROBE_CANDIDATES)).toBeNull();
+    expect(parseJobsSeoGcFreedProbe(undefined)).toBeNull();
+    expect(extraGcFreedProbeReleases(null)).toEqual([]);
+    expect(jobsSeoRetentionReleasePlan(null)).toEqual([...JOBS_SEO_RETENTION_PROBE_CANDIDATES]);
+
+    const named = selectGcFreedProbeCandidate(
+      JOBS_SEO_GCFREED_PROBE_CANDIDATES[0],
+      JOBS_SEO_GCFREED_PROBE_CANDIDATES,
+    );
+    expect(named).toBe(JOBS_SEO_GCFREED_PROBE_CANDIDATES[0]);
+    expect(extraGcFreedProbeReleases(named)).toEqual([named]);
+    expect(extraGcFreedProbeReleases(named)).toHaveLength(1);
+    expect(() => selectGcFreedProbeCandidate(
+      `${JOBS_SEO_GCFREED_PROBE_CANDIDATES[0]},${JOBS_SEO_GCFREED_PROBE_CANDIDATES[1]}`,
+      JOBS_SEO_GCFREED_PROBE_CANDIDATES,
+    )).toThrow(JOBS_SEO_GCFREED_PROBE_ENV);
+    expect(() => parseJobsSeoGcFreedProbe('not-a-candidate')).toThrow(JOBS_SEO_GCFREED_PROBE_ENV);
+
+    const fields = gcFreedProbeLogFields(named, 12);
+    expect(fields).toEqual({ candidate: named, gcFreed: 12 });
+    expect(gcFreedProbeLogFields(null, 1)).toEqual({ candidate: 'none', gcFreed: 1 });
+  });
+
+  it('returns candidate and gcFreed from the shipped corpus-release checkpoint helper', () => {
+    const logs: string[] = [];
+    const originalLog = console.log;
+    console.log = (...args: unknown[]) => {
+      logs.push(String(args[0] ?? ''));
+    };
+    try {
+      const named = JOBS_SEO_GCFREED_PROBE_CANDIDATES[0];
+      const off = logGcFreedProbeCheckpoint(null);
+      expect(off.candidate).toBe('none');
+      expect(off).toHaveProperty('gcFreed');
+      expect(typeof off.gcFreed).toBe('number');
+      expect(logs.some((line) => line.includes('jobsSeoPages: after corpus-release') && line.includes('gcFreed='))).toBe(true);
+
+      logs.length = 0;
+      const on = logGcFreedProbeCheckpoint(named);
+      expect(on.candidate).toBe(named);
+      expect(on).toHaveProperty('gcFreed');
+      expect(typeof on.gcFreed).toBe('number');
+      expect(logs.some((line) =>
+        line.includes(`candidate=${named}`) && line.includes('gcFreed='))).toBe(true);
+    } finally {
+      console.log = originalLog;
+    }
   });
 });
