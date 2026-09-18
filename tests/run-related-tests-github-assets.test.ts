@@ -426,4 +426,16 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selected).not.toContain('tests/workflow-background-wait-schema.test.ts');
     expect(selected.length).toBeLessThan(20);
   }, 120_000);
+
+  it('action.yml seleziona i contratti dell’action, non quelli dei workflow consumer', () => {
+    const selected = selectionFor(['.github/actions/claude-codex-fallback/action.yml']);
+    expect(selected).toEqual(expect.arrayContaining([
+      'tests/claude-codex-fallback.test.ts',
+      'tests/codex-finalizer.test.ts',
+      'tests/codex-sandbox-probe.test.ts',
+      'tests/scripts/setup-codex-sandbox.test.ts',
+    ]));
+    expect(selected).not.toContain('tests/issue-fix-agents-contract.test.ts');
+    expect(selected.length).toBeLessThan(20);
+  }, 120_000);
 });

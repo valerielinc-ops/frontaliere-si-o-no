@@ -66,17 +66,27 @@ const ignoredRe = GRAPH_IGNORED_RE;
 const githubAssetRe = /^\.github\/.+\.(?:ya?ml|json)$/i;
 const testFixtureRe = /^tests\/.+\.json$/i;
 const assetLiteralRe = /(?:\.github|tests)\/[A-Za-z0-9._-][A-Za-z0-9._/-]*/g;
-// `tests.yml` is the required runner itself, not an application input. A
-// directory scanner that reads every workflow must not make a small change to
-// this file fan out to 139 unrelated test files. Keep a short, explicit
-// contract roster for this workflow; other generated workflows retain the
-// directory dependency used by their scanners.
-const targetedWorkflowTests = new Map([
+// These are orchestration contracts, not application inputs. A directory
+// scanner that reads every workflow/action must not make a small change to
+// one YAML file fan out to unrelated tests (for example, the root AGENTS size
+// contract is not a dependency of the shared Codex action). Keep short,
+// explicit rosters for the two hand-maintained CI assets; other generated
+// workflows retain the directory dependency used by their scanners.
+const targetedGithubAssetTests = new Map([
   ['.github/workflows/tests.yml', [
     'tests/pr-fixer-claim-idempotency.test.ts',
     'tests/workflow-edited-body-isolation.test.ts',
     'tests/workflow-review-identity-jq.test.ts',
     'tests/workflow-review-autorebase-order.test.ts',
+  ]],
+  ['.github/actions/claude-codex-fallback/action.yml', [
+    'tests/claude-action-effort-runtime-guard.test.ts',
+    'tests/claude-codex-fallback.test.ts',
+    'tests/codex-finalizer.test.ts',
+    'tests/codex-sandbox-probe.test.ts',
+    'tests/followup-acceptance-condition.test.ts',
+    'tests/repair-quota-admission.test.ts',
+    'tests/scripts/setup-codex-sandbox.test.ts',
   ]],
 ]);
 const skipCorpusWide = process.env.VITEST_SKIP_CORPUS_WIDE === 'true';
@@ -276,7 +286,8 @@ function importsOf(file, fileSet, assets) {
       // The main tests runner is covered by the explicit contract roster below,
       // so neither generic directory scans nor incidental exact reads in
       // unrelated inventory tests can fan out when only tests.yml changes.
-      if (asset === '.github/workflows/tests.yml') continue;
+      if (asset === '.github/workflows/tests.yml'
+        || asset === '.github/actions/claude-codex-fallback/action.yml') continue;
       if (asset === literal || asset.startsWith(`${literal}/`)) deps.add(asset);
     }
   }
@@ -417,7 +428,7 @@ for (const [file, entry] of Object.entries(graph)) {
 const related = new Set(forceFull ? allTests : candidates.filter(isRunnableTest));
 if (!forceFull) {
   for (const asset of candidates.filter((file) => githubAssetRe.test(file))) {
-    for (const test of targetedWorkflowTests.get(asset) || []) {
+    for (const test of targetedGithubAssetTests.get(asset) || []) {
       if (isRunnableTest(test)) related.add(test);
     }
   }
