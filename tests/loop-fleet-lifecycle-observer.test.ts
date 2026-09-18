@@ -516,8 +516,106 @@ describe('loop-fleet independent lifecycle observer', () => {
       eventsFile,
       ledgerDir,
       registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
-    })).toThrow(/review_approved requires predecessor chain: pr_opened, tests_passed/u);
+    // `tests_passed` is NOT a predecessor of `review_approved`: this repo's
+    // review gate runs inside the test job, so at review time the tests have
+    // not finished (110/110 candidates of the 2026-09-18 batch, 234/234 already
+    // persisted). `pr_opened` remains required.
+    })).toThrow(/review_approved requires predecessor chain: pr_opened/u);
     expect(fs.readFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'utf8')).toBe(before);
+  });
+
+  it('accepts a review that precedes the test job it was emitted from', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-review-concurrency-'));
+    const eventsFile = path.join(root, 'events.jsonl');
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(ledgerDir);
+    const candidateId = 'lf-review-concurrency';
+    seedLedger(ledgerDir, recorderChain(candidateId));
+    // The real shape of every observed candidate: the review lands while the
+    // `vitest (unit + integration)` job that carries it is still running, and
+    // the merge is triggered by that review, so it can precede the job's own
+    // completion (#8916: merged 18:49:04, job completed 18:49:28).
+    writeJsonl(eventsFile, [
+      terminalEvent('pr_opened', candidateId, '2026-09-10T11:00:00.000Z', 23_000),
+      terminalEvent('review_approved', candidateId, '2026-09-10T11:05:58.000Z', 23_001),
+      terminalEvent('merged', candidateId, '2026-09-10T11:06:20.000Z', 23_002),
+      terminalEvent('tests_passed', candidateId, '2026-09-10T11:09:14.000Z', 23_003),
+    ]);
+
+    expect(appendLoopFleetLifecycle({
+      eventsFile,
+      ledgerDir,
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+    })).toMatchObject({ inputRecords: 4, appended: 4, skipped: 0 });
+  });
+
+  it('accepts a drift-fallback merge that produced no reviewable authorisation', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-drift-fallback-'));
+    const eventsFile = path.join(root, 'events.jsonl');
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(ledgerDir);
+    const candidateId = 'lf-drift-fallback';
+    seedLedger(ledgerDir, recorderChain(candidateId));
+    // 233 of 568 observed merges (41.0%) carry no `review_approved`: auto-merge
+    // also lands through the zero-Claude drift-fallback, which needs no LGTM on
+    // the current head and so leaves no review to observe.
+    writeJsonl(eventsFile, [
+      terminalEvent('pr_opened', candidateId, '2026-09-10T11:00:00.000Z', 24_000),
+      terminalEvent('tests_passed', candidateId, '2026-09-10T11:08:00.000Z', 24_001),
+      terminalEvent('merged', candidateId, '2026-09-10T11:09:00.000Z', 24_002),
+    ]);
+
+    expect(appendLoopFleetLifecycle({
+      eventsFile,
+      ledgerDir,
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+    })).toMatchObject({ inputRecords: 3, appended: 3, skipped: 0 });
+  });
+
+  it('still rejects a merge recorded before an observed review', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-merge-before-review-'));
+    const eventsFile = path.join(root, 'events.jsonl');
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(ledgerDir);
+    const candidateId = 'lf-merge-before-review';
+    seedLedger(ledgerDir, recorderChain(candidateId));
+    const before = fs.readFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'utf8');
+    // Ordered-when-present keeps its teeth: an authorisation the observer DID
+    // see may not sit after the merge it is supposed to authorise.
+    writeJsonl(eventsFile, [
+      terminalEvent('pr_opened', candidateId, '2026-09-10T11:00:00.000Z', 25_000),
+      terminalEvent('merged', candidateId, '2026-09-10T11:05:00.000Z', 25_001),
+      terminalEvent('review_approved', candidateId, '2026-09-10T11:30:00.000Z', 25_002),
+    ]);
+
+    expect(() => appendLoopFleetLifecycle({
+      eventsFile,
+      ledgerDir,
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+    })).toThrow(/merged occurs before observed review_approved/u);
+    expect(fs.readFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'utf8')).toBe(before);
+  });
+
+  it('accepts a PR opened before the recorder noticed the candidate', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-recorder-clock-'));
+    const eventsFile = path.join(root, 'events.jsonl');
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(ledgerDir);
+    const candidateId = 'lf-recorder-clock';
+    seedLedger(ledgerDir, recorderChain(candidateId));
+    // `candidate`/`owner_assigned` carry a RECORDING clock (the instant the
+    // supervisor inventoried the work), not an event clock, so a PR opened
+    // before the recorder noticed is normal: measured 454/579 candidates
+    // (78.4%), median 17 min and up to 12.7 h earlier. Presence stays required.
+    writeJsonl(eventsFile, [
+      terminalEvent('pr_opened', candidateId, '2026-09-10T09:00:00.000Z', 26_000),
+    ]);
+
+    expect(appendLoopFleetLifecycle({
+      eventsFile,
+      ledgerDir,
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+    })).toMatchObject({ inputRecords: 1, appended: 1, skipped: 0 });
   });
 
   it('rejects a downstream batch when its predecessor appears later in the input', () => {
