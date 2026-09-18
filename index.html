@@ -523,6 +523,10 @@
         var g = window.googlefc = window.googlefc || {};
         var ow = g.offerwall = g.offerwall || {};
         var cc = ow.customchoice = ow.customchoice || {};
+        // The job-board Offerwall is intentionally video-only; its message is
+        // scoped in Ad Manager and must not inherit the newsletter custom
+        // choice. Other Offerwall surfaces keep the choice below.
+        if (/^\/cerca-lavoro-ticino(?:\/|$)/.test(window.location.pathname)) return;
         if (cc.registry) return; // don't overwrite a registry set elsewhere
         // Grant access (suppress the Offerwall) for existing newsletter
         // subscribers OR signed-in users. The Firebase key arrives through
@@ -576,6 +580,51 @@
             }
             return run(fn);
           }
+        };
+      })();
+    </script>
+
+    <!-- Google Offerwall experiment gate: the native Offerwall is configured in
+         Ad Manager for the rewarded_ad arm only (40% of stable buckets). The
+         assignment must happen before Funding Choices loads, so seed the same
+         non-PII browser id used by services/assistedApplicationExperiment and
+         suppress only OFFERWALL for control/paid buckets. Consent and all other
+         Funding Choices messages continue normally. -->
+    <script>
+      (function(){
+        var g = window.googlefc = window.googlefc || {};
+        if (g.controlledMessagingFunction) return;
+        var STORAGE_KEY = 'frontaliere_assisted_application_distinct_id';
+        function distinctId(){
+          try {
+            var existing = window.localStorage.getItem(STORAGE_KEY);
+            if (existing) return existing;
+            var created = (window.crypto && typeof window.crypto.randomUUID === 'function')
+              ? 'anon-' + window.crypto.randomUUID()
+              : 'anon-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 12);
+            window.localStorage.setItem(STORAGE_KEY, created);
+            return created;
+          } catch (e) {
+            return 'anon-fallback';
+          }
+        }
+        function bucket(value){
+          var hash = 2166136261;
+          for (var i = 0; i < value.length; i++) {
+            hash ^= value.charCodeAt(i);
+            hash = Math.imul(hash, 16777619);
+          }
+          return (hash >>> 0) % 100;
+        }
+        g.controlledMessagingFunction = function(message){
+          var E = g.MessageTypeEnum || {};
+          // Fail open if the enum is unavailable: never block the consent CMP
+          // because an older Funding Choices runtime lacks Offerwall filtering.
+          if (E.OFFERWALL === undefined || bucket(distinctId()) >= 60) {
+            message.proceed(true);
+            return;
+          }
+          message.proceed(false, [E.OFFERWALL]);
         };
       })();
     </script>

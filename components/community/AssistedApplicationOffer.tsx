@@ -1,11 +1,9 @@
 import { useEffect } from 'react';
 import { ArrowUpRight, Check, Loader2, Shield, X } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
-import GptRewardedAd from '@/components/shared/GptRewardedAd';
 import {
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
   trackAssistedApplicationEvent,
-  type AssistedApplicationVariant,
 } from '@/services/assistedApplicationExperiment';
 
 export interface AssistedApplicationOfferProps {
@@ -13,13 +11,11 @@ export interface AssistedApplicationOfferProps {
   companyId: string;
   companyName: string;
   jobTitle: string;
-  variant: AssistedApplicationVariant;
+  variant: 'assisted_application';
   onChooseExternal: () => void;
   onChoosePaid: () => void | Promise<void>;
-  onRewardedGranted?: () => void;
   onClose: () => void;
   paidLoading?: boolean;
-  rewardedAdEnabled?: boolean;
   error?: string | null;
 }
 
@@ -32,25 +28,20 @@ export default function AssistedApplicationOffer({
   variant,
   onChooseExternal,
   onChoosePaid,
-  onRewardedGranted,
   onClose,
   paidLoading = false,
-  rewardedAdEnabled = true,
   error = null,
 }: AssistedApplicationOfferProps) {
   const { t } = useTranslation();
-  const isRewardedVariant = variant === 'rewarded_ad';
 
   useEffect(() => {
-    trackAssistedApplicationEvent(isRewardedVariant ? 'rewarded_application_offer_viewed' : 'assisted_application_offer_viewed', {
+    trackAssistedApplicationEvent('assisted_application_offer_viewed', {
       variant,
       jobId,
       companyId,
-      ...(isRewardedVariant ? { access_ttl_hours: 12 } : { price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS }),
+      price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
     });
-  }, [companyId, isRewardedVariant, jobId, variant]);
-
-  const rewardContext = { variant, jobId, companyId, access_ttl_hours: 12 } as const;
+  }, [companyId, jobId, variant]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -78,7 +69,7 @@ export default function AssistedApplicationOffer({
             <div className="min-w-0">
               <p className="text-sm font-semibold text-accent">{companyName}</p>
               <h2 id="assisted-application-offer-title" className="mt-1 text-xl font-semibold font-display text-heading">
-                {t(isRewardedVariant ? 'jobBoard.assisted.rewardedTitle' : 'jobBoard.assisted.title')}
+                {t('jobBoard.assisted.title')}
               </h2>
               <p className="mt-2 text-sm text-subtle line-clamp-3">{jobTitle}</p>
             </div>
@@ -95,26 +86,17 @@ export default function AssistedApplicationOffer({
           </div>
 
           <p id="assisted-application-offer-description" className="text-sm leading-relaxed text-body">
-            {t(isRewardedVariant ? 'jobBoard.assisted.rewardedBody' : 'jobBoard.assisted.body')}
+            {t('jobBoard.assisted.body')}
           </p>
 
-          {isRewardedVariant ? (
-            <div className="rounded-stripe border border-success-border bg-success-subtle/60 p-3 text-sm leading-relaxed text-body">
-              <div className="flex items-start gap-2.5">
+          <ul className="space-y-2.5 text-sm text-body" aria-label={t('jobBoard.assisted.stepsLabel')}>
+            {(['step1', 'step2', 'step3'] as const).map((step) => (
+              <li key={step} className="flex items-start gap-2.5">
                 <Check className="mt-0.5 h-4 w-4 shrink-0 text-success" aria-hidden="true" />
-                <p>{t('jobBoard.assisted.rewardedExpiry')}</p>
-              </div>
-            </div>
-          ) : (
-            <ul className="space-y-2.5 text-sm text-body" aria-label={t('jobBoard.assisted.stepsLabel')}>
-              {(['step1', 'step2', 'step3'] as const).map((step) => (
-                <li key={step} className="flex items-start gap-2.5">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-success" aria-hidden="true" />
-                  <span>{t(`jobBoard.assisted.${step}`)}</span>
-                </li>
-              ))}
-            </ul>
-          )}
+                <span>{t(`jobBoard.assisted.${step}`)}</span>
+              </li>
+            ))}
+          </ul>
 
           <div className="rounded-stripe border border-info-border bg-info-subtle/60 p-3">
             <div className="flex items-start gap-2.5">
@@ -124,35 +106,18 @@ export default function AssistedApplicationOffer({
           </div>
 
           <div className="space-y-3">
-            {isRewardedVariant ? (
-              <GptRewardedAd
-                label={t('jobBoard.assisted.rewardedCta')}
-                loadingLabel={t('jobBoard.assisted.rewardedLoading')}
-                unavailableLabel={t('jobBoard.assisted.rewardedUnavailable')}
-                enabled={rewardedAdEnabled}
-                onOptIn={() => trackAssistedApplicationEvent('rewarded_ad_opt_in', rewardContext)}
-                onGranted={() => {
-                  trackAssistedApplicationEvent('rewarded_ad_granted', rewardContext);
-                  onRewardedGranted?.();
-                }}
-                onUnavailable={() => trackAssistedApplicationEvent('rewarded_ad_unavailable', rewardContext)}
-              />
-            ) : (
-              <>
-                <button
-                  type="button"
-                  onClick={() => { void onChoosePaid(); }}
-                  disabled={paidLoading}
-                  aria-busy={paidLoading}
-                  className="inline-flex min-h-[50px] w-full items-center justify-center gap-2 rounded-stripe bg-accent px-4 py-3 text-sm font-semibold text-on-accent shadow-stripe-sm transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
-                  data-testid="assisted-application-offer-paid"
-                >
-                  {paidLoading && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
-                  {paidLoading ? t('jobBoard.assisted.paidLoading') : t('jobBoard.assisted.paidCta')}
-                </button>
-                <p className="text-center text-xs font-medium text-subtle">{t('jobBoard.assisted.priceNote')}</p>
-              </>
-            )}
+            <button
+              type="button"
+              onClick={() => { void onChoosePaid(); }}
+              disabled={paidLoading}
+              aria-busy={paidLoading}
+              className="inline-flex min-h-[50px] w-full items-center justify-center gap-2 rounded-stripe bg-accent px-4 py-3 text-sm font-semibold text-on-accent shadow-stripe-sm transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
+              data-testid="assisted-application-offer-paid"
+            >
+              {paidLoading && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
+              {paidLoading ? t('jobBoard.assisted.paidLoading') : t('jobBoard.assisted.paidCta')}
+            </button>
+            <p className="text-center text-xs font-medium text-subtle">{t('jobBoard.assisted.priceNote')}</p>
             <button
               type="button"
               onClick={onChooseExternal}
@@ -161,7 +126,7 @@ export default function AssistedApplicationOffer({
               data-testid="assisted-application-offer-external"
             >
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-              {t(isRewardedVariant ? 'jobBoard.assisted.rewardedExternalCta' : 'jobBoard.assisted.externalCta')}
+              {t('jobBoard.assisted.externalCta')}
             </button>
           </div>
 

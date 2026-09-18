@@ -33,14 +33,6 @@ vi.mock('@/services/i18n', () => ({
   }),
 }));
 
-vi.mock('@/components/shared/GptRewardedAd', () => ({
-  default: ({ label, onOptIn, onGranted }: { label: string; onOptIn?: () => void; onGranted: () => void }) => (
-    <button type="button" data-testid="assisted-application-offer-rewarded" onClick={() => { onOptIn?.(); onGranted(); }}>
-      {label}
-    </button>
-  ),
-}));
-
 vi.mock('@/services/assistedApplicationExperiment', () => ({
   ASSISTED_APPLICATION_PRICE_EUR_CENTS: 99,
   trackAssistedApplicationEvent: mocks.trackAssistedApplicationEvent,
@@ -100,20 +92,4 @@ describe('AssistedApplicationOffer', () => {
     expect(screen.getByRole('alert')).toHaveTextContent('Non siamo riusciti ad avviare il pagamento.');
   });
 
-  it('offers the rewarded arm and forwards the granted reward', () => {
-    const props = renderOffer({ variant: 'rewarded_ad', onRewardedGranted: vi.fn() });
-
-    expect(screen.getByTestId('assisted-application-offer-rewarded')).toHaveTextContent('Guarda il video e continua');
-    fireEvent.click(screen.getByTestId('assisted-application-offer-rewarded'));
-
-    expect(props.onRewardedGranted).toHaveBeenCalledTimes(1);
-    expect(mocks.trackAssistedApplicationEvent).toHaveBeenCalledWith(
-      'rewarded_application_offer_viewed',
-      expect.objectContaining({ access_ttl_hours: 12, variant: 'rewarded_ad' }),
-    );
-    expect(mocks.trackAssistedApplicationEvent).toHaveBeenCalledWith(
-      'rewarded_ad_granted',
-      expect.objectContaining({ access_ttl_hours: 12, variant: 'rewarded_ad' }),
-    );
-  });
 });

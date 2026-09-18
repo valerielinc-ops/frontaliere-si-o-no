@@ -192,7 +192,6 @@ import {
 } from '@/services/assistedApplicationExperiment';
 import {
  getRewardedApplicationAccessExpiresAt,
- grantRewardedApplicationAccess,
 } from '@/services/rewardedApplicationAccess';
 import {
  createAssistedApplicationCheckout,
@@ -6552,21 +6551,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
   );
  };
 
- const handleRewardedApplicationGranted = () => {
-  const job = assistedApplicationJob;
-  if (!job || assistedApplicationVariant !== 'rewarded_ad') return;
-  const expiresAt = grantRewardedApplicationAccess();
-  trackAssistedApplicationEvent(
-   'rewarded_application_access_granted',
-   { ...assistedApplicationJobContext(job, assistedApplicationVariant), access_expires_at: expiresAt, access_ttl_hours: 12 },
-  );
-  setAssistedApplicationJob(null);
-  setAssistedCheckoutError(null);
-  // The callback is asynchronous (after the video), so same-tab navigation
-  // avoids the popup blocker that can reject a late window.open().
-  redirectExternalApplication(job, 'rewarded_application_reward', true, true);
- };
-
  const handleAssistedPaid = async () => {
   const job = assistedApplicationJob;
   if (!job || assistedApplicationVariant !== 'assisted_application' || assistedCheckoutBusy) return;
@@ -6648,7 +6632,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // External publisher ads: count the apply click too (session-debounced, so it
  // never double-counts with the header logo/title links). No-op for crawled jobs.
  trackPublisherApplyClick(job as { publisherJobId?: string | null }, { eventId: eventId });
- if (assistedApplicationVariant === 'rewarded_ad') {
+ if (isExternal && assistedApplicationVariant === 'rewarded_ad') {
   trackAssistedApplicationEvent(
    'job_apply_click',
    { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface },
@@ -6667,9 +6651,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
    );
    return;
   }
-  setAssistedCheckoutError(null);
-  setAssistedApplicationJob(job);
-  if (!isJobDetailView) openDetail(job);
+  // The native Google Offerwall owns the page-level gate and the 12-hour
+  // entitlement. Once the user has completed it, the next click is a normal
+  // direct hand-off. There is no documented native callback that can safely
+  // perform a late external redirect after the ad, so we keep this hand-off
+  // synchronous and let Funding Choices own the reward UI.
+  trackAssistedApplicationEvent(
+   'rewarded_application_offer_requested',
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, provider: 'google_offerwall' },
+  );
+  redirectExternalApplication(job, 'rewarded_application_native_offerwall', false);
   return;
  }
  if (assistedApplicationVariant === 'assisted_application') {
@@ -7007,7 +6998,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  ) : null;
 
- const assistedApplicationOfferJsx = assistedApplicationJob ? (
+ const assistedApplicationOfferJsx = assistedApplicationJob && assistedApplicationVariant === 'assisted_application' ? (
   <Suspense fallback={null}>
    <AssistedApplicationOffer
     jobId={String(assistedApplicationJob.id)}
@@ -7017,14 +7008,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
     variant={assistedApplicationVariant}
     onChooseExternal={handleAssistedExternal}
     onChoosePaid={handleAssistedPaid}
-    onRewardedGranted={handleRewardedApplicationGranted}
     onClose={() => {
      setAssistedApplicationJob(null);
      setAssistedCheckoutBusy(false);
      setAssistedCheckoutError(null);
     }}
     paidLoading={assistedCheckoutBusy}
-    rewardedAdEnabled={!killSwitches.rewardedApplicationAd}
     error={assistedCheckoutError}
    />
   </Suspense>

@@ -16,6 +16,7 @@ export const ASSISTED_APPLICATION_EVENT_NAMES = [
   'experiment_assigned',
   'job_apply_click',
   'assisted_application_offer_viewed',
+  'rewarded_application_offer_requested',
   'assisted_application_choose_external',
   'assisted_application_choose_paid',
   'rewarded_application_offer_viewed',
