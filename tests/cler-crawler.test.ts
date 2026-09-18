@@ -1,7 +1,13 @@
 import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
 import { parseClerApiResponse } from '../scripts/lib/cler-job-parser.mjs';
 import { htmlToMarkdown, validateClerDescription, extractJobMeta, dedupeClerJobsByStableId, clerCareerSectionYear } from '../scripts/lib/cler-job-parser.mjs';
 import { extractStableJobId } from '../scripts/lib/job-match-key.mjs';
+
+const clerCrawlerSource = fs.readFileSync(
+  new URL('../scripts/update-cler-jobs.mjs', import.meta.url),
+  'utf8',
+);
 
 // ──────────────────────────────────────────────────────────────
 // Real HTML fixture: Geschäftsstellenleiterin Schaffhausen
@@ -190,6 +196,16 @@ describe('parseClerApiResponse — source completeness proof', () => {
     expect(parsed.listings).toHaveLength(1);
     expect(() => parseClerApiResponse({ results: [{ title: 'A' }], resultsTotalCount: 51 }))
       .toThrow(/shorter than the declared total/);
+  });
+
+  it('lets the paginator opt into partial pages while keeping direct parsing strict', () => {
+    expect(clerCrawlerSource).toMatch(
+      /parseClerApiResponse\(data, \{ allowPartial: true \}\)/u,
+    );
+    expect(parseClerApiResponse(
+      { results: [{ title: 'A' }], resultsTotalCount: 2 },
+      { allowPartial: true },
+    ).declaredTotal).toBe(2);
   });
 
   it('rejects a page that exceeds the declared total even in pagination mode', () => {
