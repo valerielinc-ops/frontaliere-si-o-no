@@ -307,10 +307,33 @@ jobs:
           node-version: '22'
           cache: npm
 
+      - name: Admit only the first terminal 🔴 on this HEAD
+        id: admission
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REVIEW_ID: ${{ github.event.review.id }}
+          REVIEW_COMMIT: ${{ github.event.review.commit_id }}
+        run: |
+          set -uo pipefail
+          if [ ! -f scripts/ci/lib/pr-review-admission.mjs ]; then
+            echo "helper assente su questa HEAD → admission no-op (fixer procede)."
+            echo "actionable=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          reviews=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null || echo '[]')
+          decision=$(printf '%s' "$reviews" | node scripts/ci/lib/pr-review-admission.mjs fixer \
+            --head "$HEAD_SHA" --review-id "$REVIEW_ID" --review-commit "$REVIEW_COMMIT")
+          printf '%s\n' "$decision" >> "$GITHUB_OUTPUT"
+
       - name: Install dependencies
+        if: steps.admission.outputs.actionable == 'true'
         run: npm ci
 
       - name: Prepare Firebase credentials
+        if: steps.admission.outputs.actionable == 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -322,6 +345,7 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config (GITHUB_PAT)
+        if: steps.admission.outputs.actionable == 'true'
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
@@ -330,6 +354,7 @@ jobs:
       # push re-triggers pr-review-loop just like the PAT (no GITHUB_TOKEN
       # anti-recursion). Falls back to env.GITHUB_PAT (#2861/#2899).
       - name: Mint App token (primary identity, PAT fallback)
+        if: steps.admission.outputs.actionable == 'true'
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -344,7 +369,7 @@ jobs:
       # GH_TOKEN = GITHUB_TOKEN, NON l'App/PAT (e' la cosa rotta). Scatta solo se
       # NESSUN token usabile (né App né PAT).
       - name: Alert token-down (dedup, zero-Claude)
-        if: env.APP_TOKEN == '' && env.GITHUB_PAT == ''
+        if: steps.admission.outputs.actionable == 'true' && env.APP_TOKEN == '' && env.GITHUB_PAT == ''
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -353,6 +378,7 @@ jobs:
 
       - name: Claim redflag PR + HEAD + review verdict (zero-Claude)
         id: claim
+        if: steps.admission.outputs.actionable == 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -757,7 +783,7 @@ jobs:
             - **Regola specifica del `pr-redflag-fixer`:** la tassonomia resta quella canonica a cinque stati, ma `in questa PR` e `PR concatenata #N` NON sono un veto sul finding della review corrente: dichiarano lavoro tracciato, non che l'implementazione sulla PR viva sia corretta. Per questo fixer il veto su quel finding vale solo per i tre NO motivati (`per scelta`, `by construction`, `blocked: decisione del proprietario`), con motivo valido dopo lo stato e senza negazione. `issue-fix.yml` può invece onorare tutti e cinque nel proprio contesto di follow-up.
             - **Due controlli prima di onorare un veto.** `bulletState` vince sull'occorrenza più a SINISTRA, e questo si presta a un falso veto: verifica sul testo del bullet che (a) le parole dello stato non stiano dentro una NEGAZIONE — «il floor non è a 3 per scelta ma per un limite dell'API, il fix vero arriva in questa PR» viene classificato `by-choice` mentre dichiara l'opposto — e che (b) il MOTIVO venga DOPO lo stato, non prima e non altrove. Una menzione nuda di `per scelta` o `by construction`, senza motivo, non è una chiusura anche se `bulletState` trova il token: resta un finding aperto. Se uno dei due controlli non regge, lo stato NON copre il finding: fixa il 🔴 normalmente e scrivi nel commento che il bullet è ambiguo. E il veto vale solo per il bullet che copre il TEMA del finding, mai per uno che gli somiglia.
             - **Quando il veto regge:** quel punto è chiuso per decisione, non rinviato — NON toccarlo, non implementarlo, non riscriverlo sotto `## Implementato`. Commenta sulla PR citando il bullet verbatim e lo stato letto (`🔴 non applicato: il body dichiara «<bullet>» → stato <per scelta|by construction|blocked: decisione del proprietario> con un motivo; lo stato dichiarato copre il finding`) e passa al finding successivo. Un fixer che riapre di iniziativa una voce chiusa contraddice una decisione già presa e ri-arma il round successivo su lavoro che nessuno vuole.
-            - **Terminale SENZA modifiche al codice: il commento non basta, serve un commit vuoto.** Vale per ogni uscita senza diff — tutti i 🔴 coperti da uno stato dichiarato, oppure non auto-fixabili. `pr-review-loop` parte SOLO su `workflow_run` di `tests` con `event == pull_request`, cioè solo dopo un PUSH (il `workflow_dispatch(pr)` che ha il repo corpus qui non esiste). Un round chiuso col solo commento lascia viva l'ultima review col 🔴, `scripts/ci/auto-merge-eval.mjs` legge quella e rifiuta il merge per sempre, e non la raccoglie nessuno: `recycle-stale-prs` agisce solo sulle PR etichettate `stale-review`, che una PR ferma così non riceve mai. Quindi, DOPO aver postato il commento: `git commit --allow-empty -m "chore(redflag): round <N> chiuso senza modifiche — vedi commento sulla PR"` e `git push origin HEAD:${{ github.event.pull_request.head.ref }}`. Il push ri-lancia `tests` → `pr-review-loop` → una review NUOVA sull'head corrente, che è l'unica strada perché quel 🔴 venga ritirato; lo step `Classify outcome` di questo workflow lo conta come round SUCCESS (HEAD avanzato e presente su origin), e il round cap a 2 impedisce che diventi un ciclo.
+            - **Terminale SENZA modifiche al codice: commenta e FERMATI. Niente commit vuoto.** Vale per ogni uscita senza diff — tutti i 🔴 coperti da uno stato dichiarato, oppure non auto-fixabili. Un commit senza modifiche creerebbe una HEAD nuova e una seconda review sullo stesso lavoro (storm #9066/#9074). La review terminale sulla HEAD corrente resta il verdetto: se è 🔴 Important il required check resta rosso e native auto-merge non opta-in; il prossimo model review arriva solo dopo un push di codice reale. Non pushare un commit vuoto.
             - Fix CHIRURGICO alla CLASSE del bug (AGENTS.md non-negotiable #6): se il 🔴 segnala un pattern (regex/guard/floor/threshold/selector/idiom), `rg` i sibling funnel-critical (`scripts/update-*.mjs`, `scripts/lib/*-parser.mjs`, `build-plugins/**`, `services/seoService.ts`) e sweepa l'intera classe nella STESSA commit, oppure giustifica ogni sibling non toccato in `## Non implementato`.
             - Mai abbassare quality gate/test/validation/SEO gate per "far passare" (#1). Mai disabilitare AdSense Auto Ads (#7). Mai path home assoluti o email personali (Privacy).
             - CODE vs DATA: non scorrere i blob `data/**`/`public/**`; fixa il CODE che li genera.

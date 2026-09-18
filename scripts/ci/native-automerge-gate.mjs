@@ -2,12 +2,13 @@
  * Native auto-merge guard.
  *
  * GitHub's native auto-merge remains the merger. This helper is only the
- * fail-closed opt-in gate: it must see the latest approving
- * Claude/frontaliere reviewer-bot verdict (or an explicitly marked Codex
- * fallback with structured review-gate evidence) and a completed required
- * Vitest check on the current HEAD before calling `gh pr merge --auto`. The
- * required check is the complete `tests` job. Both the check and the review
- * must name the exact current HEAD; an older verdict is never carried forward.
+ * fail-closed opt-in gate: it must see the first terminal approving
+ * Claude/frontaliere reviewer-bot verdict on the current HEAD (or an
+ * explicitly marked Codex fallback with structured review-gate evidence) and
+ * a completed required Vitest check on that HEAD before calling
+ * `gh pr merge --auto`. A later same-HEAD review cannot revoke a clean LGTM.
+ * The required check is the complete `tests` job. An older SHA is never
+ * carried forward.
  */
 import { execFileSync } from 'node:child_process';
 import { realpathSync } from 'node:fs';
@@ -15,7 +16,6 @@ import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
   isReviewerBot,
-  REDFLAG_IMPORTANT_RE,
   VITEST_CHECK_NAME,
 } from './lib/constants.mjs';
 import {
@@ -27,14 +27,24 @@ import {
   classifyAutomationRisk,
 } from './lib/automation-risk-policy.mjs';
 import { REVIEW_GATE_STEP_NAME } from './lib/vitestCheck.mjs';
+import {
+  CODEX_FALLBACK_REVIEW_MARKER,
+  firstTerminalBotReviewOnHead,
+  reviewBodyIsApproving,
+  reviewHasLgtm,
+  reviewHasZeroFindings,
+} from './lib/pr-review-admission.mjs';
+
+export {
+  firstTerminalBotReviewOnHead,
+  reviewHasLgtm,
+  reviewHasZeroFindings,
+} from './lib/pr-review-admission.mjs';
 
 const TESTS_WORKFLOW_PATH = '.github/workflows/tests.yml';
 const TESTS_WORKFLOW_EVENT = 'pull_request';
-const FINDINGS_HEADING_RE = /^\s{0,3}#{1,3}\s+Findings\b[^\n]*$/i;
-const LGTM_HEADING_RE = /^\s{0,3}##\s+LGTM\s*$/m;
 const TEST_ONLY_REVIEW_BOT_RE = /^(?:github-actions|frontaliere-automation)\[bot\]$/i;
 const CODEX_FALLBACK_REVIEWER_RE = /^github-actions\[bot\]$/i;
-const CODEX_FALLBACK_REVIEW_MARKER = '<!-- CODEX_FALLBACK_REVIEW -->';
 const MAX_TRANSIENT_GH_READ_ATTEMPTS = 3;
 const TRANSIENT_GH_READ_RETRY_DELAYS_MS = Object.freeze([250, 750]);
 const TRANSIENT_GH_READ_ERROR_RE = /(?:\bHTTP\s+5\d{2}\b|\b5\d{2}\s+(?:bad gateway|service unavailable|gateway timeout)\b|service unavailable|bad gateway|gateway timeout|timed?\s*out|ECONNRESET|ETIMEDOUT|EAI_AGAIN)/iu;
@@ -95,8 +105,14 @@ function isCodexFallbackReviewOnHead(review, head) {
     && String(review.body || '').includes(CODEX_FALLBACK_REVIEW_MARKER);
 }
 
-/** Select a normal reviewer or the explicitly marked Codex evidence candidate. */
-function latestReviewGateCandidate(reviews, head) {
+/**
+ * A clean LGTM on HEAD is sticky: a later same-SHA Important cannot revoke it.
+ * If the first terminal verdict is not approving, keep the latest HEAD review
+ * so structured/stale-fallback evidence still sees the current body.
+ */
+function firstReviewGateCandidate(reviews, head) {
+  const first = firstTerminalBotReviewOnHead(reviews, head);
+  if (first && reviewBodyIsApproving(first.body)) return first;
   return latestReviewMatching(reviews, (review) => isCodexFallbackReviewOnHead(review, head)
     || (isReviewerBot(review?.user) && review?.commit_id === head));
 }
@@ -114,24 +130,12 @@ export function latestBotReviewOnHead(reviews, head) {
 }
 
 /**
- * Require the explicit reviewer summary with zero blocking findings.
+ * Require an H2 LGTM with zero blocking findings.
  *
  * `🟡 Nit` is advisory per REVIEW.md and may therefore coexist with `## LGTM`.
- * The native gate must agree with the review gate in `tests.yml`: only an
- * actual `🔴 Important` keeps the merge out, not a non-blocking nit.
+ * A missing `## Findings` heading is still approving when the body has no
+ * real `🔴 Important`. Only an actual Important keeps the merge out.
  */
-export function reviewHasZeroFindings(body) {
-  if (typeof body !== 'string') return false;
-  const findingsHeading = body.split(/\r?\n/).find((line) => FINDINGS_HEADING_RE.test(line));
-  if (!findingsHeading) return false;
-  return /\bImportant\s*:\s*0\b/i.test(findingsHeading)
-    && !REDFLAG_IMPORTANT_RE.test(body);
-}
-
-export function reviewHasLgtm(body) {
-  return typeof body === 'string' && LGTM_HEADING_RE.test(body);
-}
-
 export function reviewIsApproved(review) {
   if (!review || !/^[0-9a-f]{40}$/i.test(String(review.commit_id || ''))) return false;
   if (!isReviewerBot(review.user)) return false;
@@ -420,7 +424,7 @@ export function evaluateNativeAutoMerge({
   // The required check is the complete `tests` job. Its review gate and this
   // native helper both require the exact current HEAD, so a completed check or
   // LGTM from an autorebase predecessor cannot unlock this commit.
-  const review = latestReviewGateCandidate(reviews, pr.headRefOid);
+  const review = firstReviewGateCandidate(reviews, pr.headRefOid);
   const testOnlyApproval = !review
     && testOnlyReviewIsApproved(verifiedTestOnlyReview, pr.headRefOid);
   if (!review && !testOnlyApproval) {
@@ -435,7 +439,7 @@ export function evaluateNativeAutoMerge({
     })
     : { allow: false, reason: 'review raw già approvante' };
   if (review && !reviewIsApproved(review) && !reviewGateException.allow) {
-    return { allow: false, reason: 'ultima review bot non è Important 0 + LGTM senza 🔴 Important' };
+    return { allow: false, reason: 'review bot sulla HEAD non è LGTM senza 🔴 Important' };
   }
 
   const check = requiredVitestDecision(checkRuns, pr.headRefOid);
@@ -807,7 +811,7 @@ function main() {
       repo,
       pr.headRefOid,
       checkRuns,
-      latestReviewGateCandidate(reviews, pr.headRefOid),
+      firstReviewGateCandidate(reviews, pr.headRefOid),
     );
   } catch (error) {
     if (hadAutoMerge) {
@@ -877,7 +881,7 @@ function main() {
       repo,
       current.headRefOid,
       finalCheckRuns,
-      latestReviewGateCandidate(finalReviews, current.headRefOid),
+      firstReviewGateCandidate(finalReviews, current.headRefOid),
     );
   } catch (error) {
     if (current.autoMergeRequest !== null) {
