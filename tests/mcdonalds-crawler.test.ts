@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
@@ -14,6 +14,7 @@ import {
   inferEmploymentType,
   listingPageUrl,
   discoverMcdoJobUrls,
+  fetchMcdoJobs,
 } from '../scripts/lib/mcdonalds-job-parser.mjs';
 
 const FIXTURES = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures');
@@ -191,6 +192,18 @@ describe("McDonald's Switzerland crawler parser", () => {
         locations: [{ city: 'Como', stateAbbr: 'TI', country: 'Italy', countryAbbr: 'IT' }],
       })).toBeNull();
     });
+
+    it('fails discovery when a source row has no provable Swiss locality', async () => {
+      const unresolved = {
+        title: 'Crew Member',
+        reference: 'CH-unknown',
+        originalURL: 'fr-ch/crew/job/CH-unknown',
+        locations: [{ city: 'Unknown City', countryAbbr: 'CH' }],
+      };
+      await expect(discoverMcdoJobUrls({
+        fetchPage: async () => listingPageHtml([unresolved], 1),
+      })).rejects.toThrow(/no verified Swiss source location/);
+    });
   });
 
   // ── Detail page (enrichment is now mandatory, not optional) ──
@@ -221,6 +234,43 @@ describe("McDonald's Switzerland crawler parser", () => {
     it('returns null when no JobPosting block is present', () => {
       expect(parseMcdoDetailPage('<html><body>no ld+json</body></html>')).toBeNull();
       expect(parseMcdoDetailPage('')).toBeNull();
+    });
+
+    it('marks an explicitly foreign detail and prevents Swiss fallback', () => {
+      const foreignDetail = `<script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting',
+        title: 'Crew Member',
+        jobLocation: { address: { addressLocality: 'Como', addressRegion: 'CO', addressCountry: 'IT' } },
+      })}</script>`;
+      const parsed = parseMcdoDetailPage(foreignDetail)!;
+      expect(parsed).toMatchObject({ locationStatus: 'foreign', canton: '' });
+      expect(buildMcdoJob(parsed)).toBeNull();
+    });
+
+    it('does not reuse the listing canton when the detail proves a foreign location', async () => {
+      const listingEntry = {
+        title: 'Crew Member',
+        reference: 'P8-foreign-detail',
+        originalURL: 'fr-ch/crew-member/job/P8-foreign-detail',
+        locations: [{ city: 'Lugano', stateAbbr: 'TI', countryAbbr: 'CH' }],
+      };
+      const foreignDetail = `<script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting',
+        title: 'Crew Member',
+        jobLocation: { address: { addressLocality: 'Como', addressRegion: 'CO', addressCountry: 'IT' } },
+      })}</script>`;
+      const fetchMock = vi.fn(async (url) => new Response(
+        String(url).includes('/emplois-restauration')
+          ? listingPageHtml([listingEntry], 1)
+          : foreignDetail,
+        { status: 200 },
+      ));
+      vi.stubGlobal('fetch', fetchMock);
+      try {
+        await expect(fetchMcdoJobs({ detailConcurrency: 1, timeoutMs: 1000 })).resolves.toEqual([]);
+      } finally {
+        vi.unstubAllGlobals();
+      }
     });
   });
 
