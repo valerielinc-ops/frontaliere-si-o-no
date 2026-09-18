@@ -861,6 +861,19 @@ describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)'
     const usText = 'Company address The Swatch Group (U.S.) Inc. 800 Waterford Way Miami FL United States';
     expect(isExplicitlyOutsideTarget(usText)).toBe(true);
     expect(isLocationExplicitlyForeign('Garden City, company HQ, United States')).toBe(true);
+    expect(isLocationExplicitlyForeign('Lugano, Italy')).toBe(true);
+    expect(isLocationExplicitlyForeign('Lugano, Italien')).toBe(true);
+    expect(isLocationExplicitlyForeign('Lugano, Italie')).toBe(true);
+    expect(isLocationExplicitlyForeign('Lugano, IT')).toBe(true);
+    expect(isLocationExplicitlyForeign('IT')).toBe(true);
+    expect(isLocationExplicitlyForeign('IT Support in Lugano')).toBe(false);
+    expect(isLocationExplicitlyForeign('IT, Support in Lugano')).toBe(false);
+    expect(isLocationExplicitlyForeign('Brussels, BE')).toBe(true);
+    expect(isLocationExplicitlyForeign('Athens, GR')).toBe(true);
+    expect(isLocationExplicitlyForeign('Paris, FR')).toBe(true);
+    expect(isLocationExplicitlyForeign('Lugano, CH')).toBe(false);
+    expect(isLocationExplicitlyForeign('Bern, BE')).toBe(false);
+    expect(isLocationExplicitlyForeign('Lugano, Switzerland')).toBe(false);
     expect(isLocationExplicitlyForeign('Zurich, Germany')).toBe(true);
     expect(isLocationExplicitlyForeign('country: DE')).toBe(true);
     expect(isLocationExplicitlyForeign('addressCountry="FR"')).toBe(true);
@@ -872,6 +885,13 @@ describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)'
     expect(isLocationExplicitlyForeign('Lausanne, VD')).toBe(false);
     expect(isLocationExplicitlyForeign('Zürich, CH')).toBe(false);
     expect(isLocationExplicitlyForeign('Zurich, FR')).toBe(true);
+    // A bare canton code is ambiguous in free-text location fields: it may be
+    // a Swiss canton, while the same token is also an ISO country code.
+    // Structured country fields classify BE/FR/GR separately; free text must
+    // not manufacture an explicit foreign result from the token alone.
+    expect(isLocationExplicitlyForeign('BE')).toBe(false);
+    expect(isLocationExplicitlyForeign('FR')).toBe(false);
+    expect(isLocationExplicitlyForeign('GR')).toBe(false);
   });
 
   it('does not reject Swiss address text that ends with any canton code', async () => {
@@ -883,6 +903,8 @@ describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)'
     for (const code of ALL_CANTON_CODES) {
       expect(isLocationExplicitlyForeign(`Industriestrasse 10, ${code}`)).toBe(false);
     }
+    expect(isLocationExplicitlyForeign('Athens 10, GR')).toBe(true);
+    expect(isLocationExplicitlyForeign('Industriestrasse 10, SG')).toBe(false);
     expect(isLocationExplicitlyForeign('Sâles, FR')).toBe(false);
     expect(isLocationExplicitlyForeign('CH-9000 St. Gallen, SG')).toBe(false);
   });

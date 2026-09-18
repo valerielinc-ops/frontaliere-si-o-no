@@ -9,7 +9,15 @@ import {
   localizeJobContentWithPipeline,
 } from './job-localization-pipeline.mjs';
 import { hardenJobsWithStructuredSalary } from './structured-salary.mjs';
-import { normalizeCantonCode, isTargetSwissLocation, isTargetCanton, inferAnyCanton, isKnownSwissMunicipality } from './target-swiss-locations.mjs';
+import {
+  normalizeCantonCode,
+  isTargetSwissLocation,
+  isTargetCanton,
+  inferAnyCanton,
+  isKnownSwissMunicipality,
+  isKnownSwissMunicipalityInCanton,
+} from './target-swiss-locations.mjs';
+import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
 let _aiModels = null;
 try { _aiModels = await import('./ai-models.mjs'); } catch { /* ai-models not available */ }
 import {
@@ -46,7 +54,6 @@ import { intFromEnv } from './int-from-env.mjs';
 import { isSystemicRejection } from './source-record-quarantine.mjs';
 import { sourceChangedSinceSuppression } from './source-changed-since-suppression.mjs';
 import { normalizeCompanyKey, normalizeKey } from './company-key.mjs';
-import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -6157,7 +6164,7 @@ export function isExplicitlyOutsideTarget(text) {
  * Check if a job's LOCATION field explicitly indicates a non-Swiss location.
  */
 const EXPLICIT_FOREIGN_COUNTRY_MARKERS = [
-  'malaysia', 'italy', 'italia', 'france', 'germany', 'deutschland',
+  'malaysia', 'italy', 'italia', 'italien', 'italie', 'france', 'germany', 'deutschland',
   'austria', 'österreich', 'spain', 'españa', 'portugal',
   'united kingdom', 'uk', 'usa', 'united states', 'canada',
   'china', 'japan', 'india', 'singapore', 'thailand', 'indonesia',
@@ -6177,7 +6184,7 @@ const EXPLICIT_FOREIGN_COUNTRY_RE = new RegExp(
 const FOREIGN_COUNTRY_CODES = [
   'AT', 'DE', 'IT', 'NL', 'ES', 'PT', 'GB', 'UK', 'US', 'CA', 'AU', 'CN', 'JP',
   'IN', 'SG', 'TH', 'ID', 'VN', 'PH', 'TW', 'AE', 'SA', 'QA', 'IL', 'TR', 'BR',
-  'MX', 'ZA', 'SE', 'NO', 'DK', 'FI', 'PL', 'CZ', 'HU', 'RO', 'BG', 'HR', 'SI',
+  'MX', 'ZA', 'SE', 'NO', 'DK', 'FI', 'PL', 'CZ', 'HU', 'RO', 'BG', 'GR', 'HR', 'SI',
   'SK', 'RS', 'UA', 'RU', 'FR', 'BE',
 ];
 const SWISS_LOCATION_CODES = new Set(['CH', ...ALL_CANTON_CODES]);
@@ -6195,11 +6202,12 @@ const FINAL_FOREIGN_COUNTRY_CODE_RE = new RegExp(
   'giu',
 );
 
-// A bare `BE` suffix is ambiguous with Bern's canton code. Keep an
-// unresolved Swiss street address such as `Industriestrasse 10, BE` in the
-// ambiguous bucket, but do not let a comma-separated foreign city/postcode
-// such as `Hasselt, 3500, BE` pass merely because it contains digits.
-const BE_SWISS_STREET_ADDRESS_RE = /^\s*(?:ch[-\s]?\d{4}\s+)?[^,;]+\s+\d+[a-z]?\s*$/iu;
+// A canton-shaped suffix is ambiguous with the ISO country code. Keep an
+// unresolved Swiss street address such as `Industriestrasse 10, SG` in the
+// ambiguous bucket, but do not let a known foreign city or a
+// comma-separated foreign city/postcode such as `Hasselt, 3500, BE` pass
+// merely because it contains digits.
+const SWISS_STREET_ADDRESS_RE = /^\s*(?:ch[-\s]?\d{4}\s+)?[^,;]+\s+\d+[a-z]?\s*$/iu;
 
 function hasExplicitForeignCountryCode(lower) {
   // A labelled field is authoritative even when its two-letter value also
@@ -6215,15 +6223,15 @@ function hasExplicitForeignCountryCode(lower) {
     // otherwise a known Swiss locality with a mismatched code remains an
     // explicit negative country signal (e.g. "Zurich, FR").
     if (inferAnyCanton(location) === code) continue;
-    // BE is both Belgium's country code and Bern's canton code. Keep it
-    // ambiguous only for an unresolved street-plus-house-number address;
-    // treat a city/postcode pair such as Hasselt, 3500 as an explicit country
-    // context. The other canton-shaped suffixes remain ambiguous here because
-    // their source fields historically use the code as an address suffix
-    // without a resolvable locality.
+    // Canton-shaped suffixes remain ambiguous for an unresolved
+    // street-plus-house-number address such as "Industriestrasse 10, SG";
+    // a city/postcode pair such as "Hasselt, 3500, BE" is an explicit country
+    // context, as is a known foreign city such as "Athens, GR".
     if (SWISS_LOCATION_CODES.has(code) && !isTargetSwissLocation(location, { includeBorderProximity: false })) {
-      if (code === 'BE' && !isKnownSwissMunicipality(location) && !BE_SWISS_STREET_ADDRESS_RE.test(location)) return true;
-      continue;
+      if (isKnownSwissMunicipalityInCanton(location, code)) continue;
+      if (isExplicitlyOutsideTarget(location)) return true;
+      if (SWISS_STREET_ADDRESS_RE.test(location)) continue;
+      return true;
     }
     return true;
   }
@@ -6232,6 +6240,12 @@ function hasExplicitForeignCountryCode(lower) {
 
 export function isLocationExplicitlyForeign(locationField) {
   const lower = String(locationField || '').toLowerCase();
+  const bareCode = lower.trim().toUpperCase();
+  // BE/FR/GR (and the other canton codes) are also ISO country codes. In a
+  // free-text location field a bare token is ambiguous; leave it for the
+  // Swiss-canton resolver instead of proving that the row is foreign.
+  if (ALL_CANTON_CODES.includes(bareCode)) return false;
+  if (FOREIGN_COUNTRY_CODES.includes(bareCode)) return true;
   if (!lower || lower.length < 3) return false;
   // Some source cards combine a Swiss municipality with an explicit foreign
   // country (e.g. "Zurich, Germany"). The explicit negative country signal

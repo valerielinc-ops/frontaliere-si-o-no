@@ -100,3 +100,27 @@ export const FOREIGN_COUNTRY_NAME_LABELS = new Set(
     .filter(([code]) => code !== 'CH')
     .flatMap(([, labels]) => [...labels]),
 );
+
+/**
+ * Classify one structured country value without guessing from an unknown
+ * string. Country codes are accepted only in their exact ISO-2/ISO-3 form;
+ * punctuation such as `N/A` must not collapse into the Namibia code `NA`.
+ *
+ * @param {unknown} value
+ * @returns {'CH'|'foreign'|'unknown'}
+ */
+export function classifyCountryValue(value) {
+  const raw = String(value || '').trim();
+  if (!raw) return 'unknown';
+  const token = normalize(raw);
+  const code = raw.toUpperCase();
+  if (SWISS_COUNTRY_LABELS.has(token) || SWISS_COUNTRY_LABELS.has(code)) return 'CH';
+  if (
+    ISO_ALPHA2_COUNTRY_CODES.has(code)
+    || ISO_ALPHA3_COUNTRY_CODES.has(code)
+    || FOREIGN_COUNTRY_NAME_LABELS.has(token)
+  ) {
+    return 'foreign';
+  }
+  return 'unknown';
+}

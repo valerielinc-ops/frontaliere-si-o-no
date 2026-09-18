@@ -14,7 +14,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -29,6 +29,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
   appendSlugDisambiguator,
+  isLocationExplicitlyForeign,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   isTsmgTargetLocation,
@@ -36,8 +37,11 @@ import {
   inferTsmgCategory,
   buildTsmgLocalizedContent,
 } from './lib/tsmg-job-parser.mjs';
+import { inferAnyCanton, isSwissLocationText } from './lib/target-swiss-locations.mjs';
+import { classifyCountryValue } from './lib/prospector/country-inventory.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -104,6 +108,61 @@ async function fetchJson(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
   } finally {
     clearTimeout(timer);
   }
+}
+
+function assertCompleteTsmgSourceSnapshot(payload) {
+  if (!Array.isArray(payload)) {
+    throw new Error('TSMG Lever returned an invalid snapshot: expected an array of postings');
+  }
+  for (const [index, job] of payload.entries()) {
+    const location = job?.categories?.location;
+    const country = typeof job?.country === 'string' ? job.country.trim() : '';
+    if (
+      !job
+      || typeof job !== 'object'
+      || !String(job.id || '').trim()
+      || !String(job.hostedUrl || '').trim()
+      || !country
+      || !job.categories
+      || typeof job.categories !== 'object'
+      || typeof location !== 'string'
+      || !location.trim()
+    ) {
+      throw new Error(`TSMG Lever returned a degraded snapshot at posting ${index + 1}`);
+    }
+    const normalizedCountry = normalizeTsmgCountry(country);
+    const normalizedLocation = location.trim();
+    if (!normalizedCountry) {
+      throw new Error(
+        `TSMG Lever returned a degraded snapshot at posting ${index + 1}: `
+        + `country "${country}" is not a recognised country value`,
+      );
+    }
+    if (normalizedCountry === 'CH' && (
+      isLocationExplicitlyForeign(normalizedLocation)
+      || !inferAnyCanton(normalizedLocation)
+    )) {
+      throw new Error(
+        `TSMG Lever returned a degraded snapshot at posting ${index + 1}: `
+        + `categories.location "${normalizedLocation}" is not a recognised Swiss location`,
+      );
+    }
+    if (normalizedCountry === 'FOREIGN' && isSwissLocationText(normalizedLocation)) {
+      throw new Error(
+        `TSMG Lever returned a degraded snapshot at posting ${index + 1}: `
+        + `country ${normalizedCountry} conflicts with Swiss categories.location "${normalizedLocation}"`,
+      );
+    }
+  }
+  return payload;
+}
+
+function normalizeTsmgCountry(value = '') {
+  const country = String(value || '').trim().toUpperCase();
+  const classification = classifyCountryValue(country);
+  if (classification === 'CH') return 'CH';
+  if (classification === 'foreign') return 'FOREIGN';
+  return '';
 }
 
 function isTargetJob(job = {}) {
@@ -245,7 +304,7 @@ function updateAdapterConfig(jobs) {
   });
 }
 
-function validateLocales() {
+function validateLocales(authoritativeEmptySnapshot = false) {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_TSMG_STRICT',
     label: 'TSMG',
@@ -254,7 +313,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_tsmg_lever',
-    failWhenNoJobs: true,
+    failWhenNoJobs: !authoritativeEmptySnapshot,
     noJobsMessage: 'No TSMG jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'en'),
   });
@@ -269,14 +328,24 @@ async function main() {
   console.log(`  Careers page: ${CAREERS_URL}`);
   console.log(`  API: ${API_URL}\n`);
 
-  const rawJobs = await fetchJson(API_URL);
-  const swiss = rawJobs.filter((job) => String(job.country || '').trim().toUpperCase() === 'CH');
+  // Lever's no-pagination endpoint is a complete postings snapshot. Reject a
+  // degraded country/location classification before merge so the prior slice
+  // remains untouched without using a count floor. A complete source may also
+  // contain Swiss postings outside the target cantons, so the filtered target
+  // is allowed to be empty.
+  const rawJobs = assertCompleteTsmgSourceSnapshot(await fetchJson(API_URL));
+  const authoritativeSnapshotVerified = true;
+  const swiss = rawJobs.filter((job) => normalizeTsmgCountry(job.country) === 'CH');
   const target = swiss.filter((job) => isTsmgTargetLocation(job?.categories?.location || ''));
+  const authoritativeEmptySnapshot = target.length === 0;
+  if (target.length === 0) {
+    console.log('ℹ️  Nessun annuncio trovato per TSMG — non è un errore, il crawler prosegue.');
+  }
   console.log(`📋 Total Lever jobs: ${rawJobs.length}`);
   console.log(`📋 Switzerland jobs: ${swiss.length}`);
   console.log(`📋 Ticino/Grigioni jobs: ${target.length}`);
-  if (target.length < 2) {
-    throw new Error(`Expected at least 2 Ticino/Grigioni jobs, found ${target.length}`);
+  if (authoritativeEmptySnapshot) {
+    console.log('✅ Lever complete snapshot contains no target-canton postings — publishing the verified empty result.');
   }
   const discoveredJobs = target.map(buildJob);
   const { total, added, updated, diff} = mergeJobs(discoveredJobs);
@@ -294,19 +363,24 @@ async function main() {
     isTargetJob,
   });
 
-  validateLocales();
+  validateLocales(authoritativeEmptySnapshot);
   console.log(`\n✅ TSMG crawler complete (${total} jobs, added=${added}, updated=${updated}).`);
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified,
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'TSMG',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,
@@ -322,4 +396,8 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'TSMG'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'TSMG'));
+}
+
+export { assertCompleteTsmgSourceSnapshot, normalizeTsmgCountry };

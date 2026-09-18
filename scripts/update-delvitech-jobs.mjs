@@ -16,7 +16,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -26,6 +26,7 @@ import {
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
   detectLang,
+  isLocationExplicitlyForeign,
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
@@ -37,9 +38,10 @@ import {
   inferDelvitechCanton,
   buildDelvitechLocalizedContent,
 } from './lib/delvitech-job-parser.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { evaluateAuthoritativeSnapshot, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -224,10 +226,53 @@ async function fetchListings() {
   const html = await fetchRobust(CAREERS_URL);
   const listings = parseDelvitechCareerPage(html);
   console.log(`📋 Total Delvitech job pages found: ${listings.length}`);
-  if (listings.length < 12) {
-    throw new Error(`Expected at least 12 Delvitech career pages, found ${listings.length}`);
+  if (listings.length === 0) {
+    console.log('ℹ️  Nessun annuncio trovato per Delvitech SA — non è un errore, il crawler prosegue.');
   }
+  Object.defineProperties(listings, {
+    delvitechSourceReadComplete: {
+      value: listings.delvitechListingSkippedMalformedRows === 0
+        && (listings.length > 0 ? listings.delvitechListingMarkupSeen : listings.delvitechListingEmptyStateObserved),
+      enumerable: false,
+    },
+    delvitechSourceTerminationProven: { value: true, enumerable: false },
+    delvitechSourceRecordCount: { value: listings.length, enumerable: false },
+  });
   return listings;
+}
+
+function classifyDelvitechSourceLocation(detail = {}) {
+  const location = String(detail.location || '').trim();
+  if (isLocationExplicitlyForeign(location)) return 'foreign';
+  if (inferAnyCanton(location)) return 'swiss';
+  return '';
+}
+
+function copyDelvitechSourceEvidence(jobs, source, classifiedCount) {
+  Object.defineProperties(jobs, {
+    delvitechSourceReadComplete: {
+      value: source.delvitechSourceReadComplete === true && classifiedCount === source.length,
+      enumerable: false,
+    },
+    delvitechSourceTerminationProven: { value: source.delvitechSourceTerminationProven === true, enumerable: false },
+    delvitechSourceRecordCount: { value: source.delvitechSourceRecordCount, enumerable: false },
+    delvitechSourceClassifiedCount: { value: classifiedCount, enumerable: false },
+    delvitechSourceTargetCount: { value: jobs.length, enumerable: false },
+  });
+  return jobs;
+}
+
+function assertCompleteDelvitechSnapshot(jobs = []) {
+  if (!Array.isArray(jobs) || jobs.delvitechSourceReadComplete !== true || jobs.delvitechSourceTerminationProven !== true) {
+    throw new Error('Delvitech: source detail snapshot was not read and classified completely');
+  }
+  if (jobs.delvitechSourceRecordCount !== jobs.delvitechSourceClassifiedCount) {
+    throw new Error('Delvitech: at least one source detail has no recognized location');
+  }
+  if (jobs.delvitechSourceTargetCount !== 0 || jobs.length !== 0) {
+    throw new Error('Delvitech: empty authority requested for a non-empty filtered result');
+  }
+  return true;
 }
 
 function buildApplyUrl(email, title, fallbackUrl) {
@@ -243,40 +288,50 @@ async function buildDelvitechJob(listing) {
   if (!detail.title) {
     throw new Error(`Missing title while parsing ${detailUrl}`);
   }
+  const sourceLocationClass = classifyDelvitechSourceLocation(detail);
+  if (!sourceLocationClass) {
+    throw new Error(`Unrecognized location while parsing ${detailUrl}`);
+  }
+  if (sourceLocationClass === 'foreign') {
+    return { job: null, sourceLocationClassified: true };
+  }
   if (!isDelvitechTicinoJob(detail)) {
-    return null;
+    return { job: null, sourceLocationClassified: true };
   }
   const localized = buildDelvitechLocalizedContent(detail);
   const canton = inferDelvitechCanton(detail);
   const defaultCity = canton === 'GR' ? 'Graubünden' : 'Mendrisio';
   const location = detail.location || defaultCity;
   return {
-    title: detail.title,
-    slug: localized.slugByLocale.en,
-    url: detailUrl,
-    applyUrl: buildApplyUrl(detail.email, detail.title, detailUrl),
-    company: COMPANY_NAME,
-    companyKey: COMPANY_KEY,
-    companyDomain: COMPANY_DOMAIN,
-    location,
-    addressLocality: location,
-    addressRegion: canton,
-    addressCountry: 'CH',
-    canton,
-    country: 'CH',
-    category: inferDelvitechCategory(detail.title, detail.description),
-    sector: 'Tecnologia & IT',
-    source: 'delvitech-dedicated-crawler',
-    sourceLang: detectLang(detail.description || detail.title, 'en'),
-    postedDate: new Date().toISOString().slice(0, 10),
-    employmentType: 'full-time',
-    contractType: 'full-time',
-    validThrough: '',
-    description: detail.description,
-    titleByLocale: localized.titleByLocale,
-    descriptionByLocale: localized.descriptionByLocale,
-    slugByLocale: localized.slugByLocale,
-    contactEmail: detail.email || 'career@delvi.tech',
+    sourceLocationClassified: true,
+    job: {
+      title: detail.title,
+      slug: localized.slugByLocale.en,
+      url: detailUrl,
+      applyUrl: buildApplyUrl(detail.email, detail.title, detailUrl),
+      company: COMPANY_NAME,
+      companyKey: COMPANY_KEY,
+      companyDomain: COMPANY_DOMAIN,
+      location,
+      addressLocality: location,
+      addressRegion: canton,
+      addressCountry: 'CH',
+      canton,
+      country: 'CH',
+      category: inferDelvitechCategory(detail.title, detail.description),
+      sector: 'Tecnologia & IT',
+      source: 'delvitech-dedicated-crawler',
+      sourceLang: detectLang(detail.description || detail.title, 'en'),
+      postedDate: new Date().toISOString().slice(0, 10),
+      employmentType: 'full-time',
+      contractType: 'full-time',
+      validThrough: '',
+      description: detail.description,
+      titleByLocale: localized.titleByLocale,
+      descriptionByLocale: localized.descriptionByLocale,
+      slugByLocale: localized.slugByLocale,
+      contactEmail: detail.email || 'career@delvi.tech',
+    },
   };
 }
 
@@ -348,7 +403,7 @@ function updateAdapterConfig(jobs) {
   });
 }
 
-function validateLocales() {
+function validateLocales(authoritativeEmptySnapshot = false) {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_DELVITECH_STRICT',
     label: 'Delvitech SA',
@@ -357,7 +412,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_delvitech_domain',
-    failWhenNoJobs: true,
+    failWhenNoJobs: !authoritativeEmptySnapshot,
     noJobsMessage: 'No Delvitech jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'en'),
   });
@@ -381,11 +436,13 @@ async function main() {
   const listings = await fetchListings();
   const jobs = [];
   let skipped = 0;
+  let classifiedCount = 0;
   for (const listing of listings) {
     console.log(`  📄 Processing: ${listing.title}`);
     try {
-      const job = await buildDelvitechJob(listing);
-      if (job) jobs.push(job);
+      const result = await buildDelvitechJob(listing);
+      if (result.sourceLocationClassified) classifiedCount += 1;
+      if (result.job) jobs.push(result.job);
     } catch (err) {
       skipped += 1;
       console.warn(`  ⚠️  Skipping "${listing.title}": ${err.message}`);
@@ -394,10 +451,26 @@ async function main() {
   }
   if (skipped) console.log(`  ⚠️  Skipped ${skipped}/${listings.length} listings due to errors`);
 
-  const minJobs = Math.max(1, 8 - skipped);
-  if (jobs.length < minJobs) {
-    throw new Error(`Expected at least ${minJobs} TI/GR Delvitech jobs after excluding foreign roles, found ${jobs.length}`);
+  const allDetailsFailed = listings.length > 0 && skipped === listings.length;
+  if (allDetailsFailed) {
+    throw new Error(`Failed to fetch any Delvitech job details (${skipped}/${listings.length} skipped)`);
   }
+  if (jobs.length === 0 && listings.length === 0) {
+    console.log('ℹ️  Nessun annuncio trovato per Delvitech SA — non è un errore, il crawler prosegue.');
+  } else if (jobs.length === 0) {
+    console.log('ℹ️  Nessun annuncio trovato per Delvitech SA dopo aver elaborato tutte le pagine — non è un errore, il crawler prosegue.');
+  }
+
+  copyDelvitechSourceEvidence(jobs, listings, classifiedCount);
+  const {
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
+  } = evaluateAuthoritativeSnapshot(jobs, {
+    validateAuthoritativeSnapshot: assertCompleteDelvitechSnapshot,
+    allowAuthoritativeEmptySnapshot: true,
+    authoritativeSnapshotScope: 'empty-only',
+    companyLabel: COMPANY_NAME,
+  });
 
   const { total, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
@@ -407,7 +480,7 @@ async function main() {
     dataJobsPath: DATA_JOBS,
     isTargetJob,
   });
-  validateLocales();
+  validateLocales(authoritativeEmptySnapshot);
 
   console.log('\n📊 === Delvitech Job Stats ===');
   const tiCount = jobs.filter((j) => j.canton === 'TI').length;
@@ -421,12 +494,17 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified,
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'Delvitech SA',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,

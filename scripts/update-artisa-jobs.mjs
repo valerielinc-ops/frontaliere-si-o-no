@@ -33,7 +33,8 @@ import {
   parseArtisaCareerPage,
   parseSmartsheetFormPage,
   buildArtisaLocalizedContent,
-  assertCompleteArtisaSnapshot,
+  assertCompleteArtisaListingSnapshot,
+  assertCompleteArtisaTargetSnapshot,
 } from './lib/artisa-job-parser.mjs';
 import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
@@ -56,11 +57,6 @@ const COMPANY_HOST = 'artisagroup.com';
 const COMPANY_DOMAIN = 'artisagroup.com';
 const CAREERS_URL = 'https://artisagroup.com/carriera';
 const LOCALES = ['it', 'en', 'de', 'fr'];
-// Drift floor for a NON-empty parse: finding one or two rows where the page
-// still shows a vacancy list means the selectors are half-broken. A *proven*
-// zero is handled separately by the authoritative-snapshot contract below.
-const MIN_LISTINGS = 3;
-
 function readJson(filePath, fallback) {
   try {
     return JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -139,15 +135,26 @@ async function fetchListings() {
   // the floor below, re-filing the same issue. A zero is publishable only when
   // the page proves it rendered in full (both landmark headings, no vacancy
   // between them); an unproven zero still throws.
-  const { authoritativeEmptySnapshot } = evaluateAuthoritativeSnapshot(rows, {
-    validateAuthoritativeSnapshot: assertCompleteArtisaSnapshot,
+  // Artisa does not publish a declared total or pagination metadata. The
+  // parser's source-DOM proof is therefore the authority for both branches:
+  // the two landmark headings plus every vacancy heading accounted for. Run
+  // that proof through the shared contract before fetching details or merging.
+  const {
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
+  } = evaluateAuthoritativeSnapshot(rows, {
+    validateAuthoritativeSnapshot: (snapshot) => (
+      Array.isArray(snapshot) && snapshot.length === 0
+        ? assertCompleteArtisaTargetSnapshot(snapshot)
+        : assertCompleteArtisaListingSnapshot(snapshot)
+    ),
     allowAuthoritativeEmptySnapshot: true,
-    authoritativeSnapshotScope: 'empty-only',
+    authoritativeSnapshotScope: 'all',
     companyLabel: 'Artisa Group',
   });
   if (authoritativeEmptySnapshot) {
     console.log('✅ Careers page rendered with no open position — publishing the proven empty snapshot.');
-    return { rows, authoritativeEmptySnapshot };
+    return { rows, authoritativeEmptySnapshot, authoritativeSnapshotVerified };
   }
 
   // Fetch detail pages from Smartsheet forms (sequential to be polite)
@@ -168,10 +175,10 @@ async function fetchListings() {
     }
   }
 
-  if (rows.length < MIN_LISTINGS) {
-    throw new Error(`Expected at least ${MIN_LISTINGS} Artisa jobs, found ${rows.length}`);
+  if (rows.length === 0) {
+    console.log('ℹ️  Nessun annuncio trovato per Artisa Group — non è un errore, il crawler prosegue.');
   }
-  return { rows, authoritativeEmptySnapshot };
+  return { rows, authoritativeEmptySnapshot, authoritativeSnapshotVerified };
 }
 
 async function buildArtisaJob(row) {
@@ -328,7 +335,11 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log(`  Careers page: ${CAREERS_URL}\n`);
 
-  const { rows: listings, authoritativeEmptySnapshot } = await fetchListings();
+  const {
+    rows: listings,
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
+  } = await fetchListings();
   const jobs = [];
   for (const listing of listings) {
     jobs.push(await buildArtisaJob(listing));
@@ -373,7 +384,10 @@ async function main() {
     if (archived > 0) {
       console.log(`📦 Archived ${archived} expired Artisa job(s) → data/jobs/expired/by-crawler/${COMPANY_KEY}.json`);
     }
-    writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs, { skipShrinkGuard: true, preserveExistingSlugs: true });
+    writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs, {
+      skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified,
+      preserveExistingSlugs: true,
+    });
   } else {
     writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
   }
@@ -388,6 +402,7 @@ async function main() {
     // (#7324). This bespoke runner writes its own summary slice, so it has to
     // carry the field itself.
     authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,

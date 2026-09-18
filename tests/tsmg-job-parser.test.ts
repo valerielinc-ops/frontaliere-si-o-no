@@ -5,6 +5,7 @@ import {
   inferTsmgCategory,
   buildTsmgLocalizedContent,
 } from '../scripts/lib/tsmg-job-parser.mjs';
+import { assertCompleteTsmgSourceSnapshot, normalizeTsmgCountry } from '../scripts/update-tsmg-jobs.mjs';
 
 describe('tsmg-job-parser', () => {
   it('keeps only Ticino and Grigioni locations', () => {
@@ -12,6 +13,7 @@ describe('tsmg-job-parser', () => {
     expect(isTsmgTargetLocation('Lugano')).toBe(true);
     expect(isTsmgTargetLocation('Chur')).toBe(true);
     expect(isTsmgTargetLocation('Landquart')).toBe(true);
+    expect(isTsmgTargetLocation('Lugano, Italy')).toBe(false);
     // Cathedral 2026-05-10: Zurich (ZH) is now a target canton — assertion updated to true.
     expect(isTsmgTargetLocation('Zurich')).toBe(true);
   });
@@ -38,5 +40,17 @@ describe('tsmg-job-parser', () => {
     expect(localized.fr.description).toContain('TSMG recrute');
     expect(localized.de.slug).toContain('ki-sprachtester');
     expect(inferTsmgCategory(job.text)).toBe('tech');
+  });
+
+  it('fails closed when a source country is unknown instead of treating it as foreign', () => {
+    expect(normalizeTsmgCountry('Germany')).toBe('FOREIGN');
+    expect(normalizeTsmgCountry('UNKNOWN')).toBe('');
+    expect(normalizeTsmgCountry('N/A')).toBe('');
+    expect(() => assertCompleteTsmgSourceSnapshot([{
+      id: 'unknown-country-job',
+      hostedUrl: 'https://jobs.lever.co/tsmg/unknown-country-job',
+      country: 'UNKNOWN',
+      categories: { location: 'Unmapped City' },
+    }])).toThrow(/not a recognised country value/);
   });
 });

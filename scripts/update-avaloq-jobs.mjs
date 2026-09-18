@@ -14,7 +14,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -34,8 +34,13 @@ import {
   inferAvaloqCanton,
   buildAvaloqLocalizedContent,
   fetchAvaloqJobsFromApi,
+  assertCompleteAvaloqSnapshot,
 } from './lib/avaloq-job-parser.mjs';
-import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import {
+  evaluateAuthoritativeSnapshot,
+  exitCrawlerOnError,
+  fetchHtml,
+} from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -135,15 +140,24 @@ async function mapConcurrent(items, limit, mapper) {
 
 async function buildAvaloqJobs() {
   const details = await fetchListings();
+  const {
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
+  } = evaluateAuthoritativeSnapshot(details, {
+    validateAuthoritativeSnapshot: assertCompleteAvaloqSnapshot,
+    allowAuthoritativeEmptySnapshot: true,
+    authoritativeSnapshotScope: 'all',
+    companyLabel: COMPANY_NAME,
+  });
   const target = details.filter((detail) => isAvaloqTargetLocation(detail.location || ''));
   console.log(`📋 Avaloq Ticino/Grigioni jobs: ${target.length}`);
   for (const detail of target) {
     console.log(`  📄 ${detail.title} (${detail.location || 'n/a'})`);
   }
-  if (target.length < 7) {
-    throw new Error(`Expected at least 7 Avaloq Ticino/Grigioni jobs, found ${target.length}`);
+  if (target.length === 0) {
+    console.log('ℹ️  Nessun annuncio trovato per Avaloq — non è un errore, il crawler prosegue.');
   }
-  return target.map((detail) => {
+  const jobs = target.map((detail) => {
     const localized = buildAvaloqLocalizedContent(detail, COMPANY_NAME);
     const canton = inferAvaloqCanton(detail.location || '');
     const contractType = /part/i.test(detail.workArrangement || '') ? 'part-time' : 'full-time';
@@ -176,6 +190,7 @@ async function buildAvaloqJobs() {
       slugByLocale: localized.slugByLocale,
     };
   });
+  return { jobs, authoritativeEmptySnapshot, authoritativeSnapshotVerified };
 }
 
 function jobMatchKey(job = {}) {
@@ -246,7 +261,7 @@ function updateAdapterConfig(jobs) {
   });
 }
 
-function validateLocales() {
+function validateLocales(authoritativeEmptySnapshot = false) {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_AVALOQ_STRICT',
     label: 'Avaloq',
@@ -255,7 +270,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_avaloq_domain',
-    failWhenNoJobs: true,
+    failWhenNoJobs: !authoritativeEmptySnapshot,
     noJobsMessage: 'No Avaloq jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'en'),
   });
@@ -269,7 +284,11 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log(`  Careers page: ${CAREERS_URL}\n`);
 
-  const jobs = await buildAvaloqJobs();
+  const {
+    jobs,
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
+  } = await buildAvaloqJobs();
   const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
@@ -279,7 +298,7 @@ async function main() {
     isTargetJob,
   });
 
-  validateLocales();
+  validateLocales(authoritativeEmptySnapshot);
 
   console.log('\n📊 === Avaloq Job Stats ===');
   console.log(`  🏢 Total Avaloq jobs: ${total}`);
@@ -290,12 +309,17 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified,
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'Avaloq',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,
