@@ -162,8 +162,12 @@ import {
  type LocationPartition,
 } from './jobEditorialLanding';
 import {
+  JOBS_SEO_GCFREED_PROBE_ENV,
   JOBS_SEO_RETENTION_PROBE_ENV,
+  extraGcFreedProbeReleases,
   jobsSeoRetentionReleasePlan,
+  logGcFreedProbeCheckpoint,
+  parseJobsSeoGcFreedProbe,
   parseJobsSeoRetentionProbe,
 } from './shared/jobsSeoRetentionProbe';
 import { resolveJobsSeoSample, selectJobsSeoSample } from './shared/jobsSeoSample';
@@ -739,6 +743,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // see assertSectorHubTablesComplete() doc comment in ./jobSectorLanding.
  assertSectorHubTablesComplete();
  const retentionProbeCandidate = parseJobsSeoRetentionProbe(process.env[JOBS_SEO_RETENTION_PROBE_ENV]);
+ const extraGcFreedProbeCandidate = parseJobsSeoGcFreedProbe(process.env[JOBS_SEO_GCFREED_PROBE_ENV]);
  const distDir = np.resolve(rootDir, 'dist');
  const jobsPath = np.resolve(rootDir, 'data/jobs.json');
  const jobsSeoEmitterFingerprints = (
@@ -14658,6 +14663,16 @@ ${staticAnalyticsHtml}
  implicitPreviousSlugs.length = 0;
  companyActiveJobsMap.clear();
  recentJobPool.length = 0;
+ // Opt-in extra retainer: default keeps the full 9-container release above
+ // and does not clear these leftover closeBundle bindings. A probe deploy
+ // names exactly one so gcFreed at the checkpoint is attributable.
+ for (const extra of extraGcFreedProbeReleases(extraGcFreedProbeCandidate)) {
+  if (extra === 'jobsByToken') jobsByToken.clear();
+  else if (extra === 'jobCityTokens') jobCityTokens.length = 0;
+  else if (extra === 'emittedEmployerProfilesBySlug') emittedEmployerProfilesBySlug.clear();
+  else if (extra === 'emittedEmployerHubs') emittedEmployerHubs.clear();
+  else if (extra === 'companySlugMap') companySlugMap.length = 0;
+ }
  // NIENTE forceGc() esplicito prima del checkpoint (review di #6154,
  // finding 1): logBuildMem fotografa heapUsed, POI esegue la sua GC e
  // riporta gcFreed come delta. Con una GC gia' fatta qui il checkpoint
@@ -14666,16 +14681,25 @@ ${staticAnalyticsHtml}
  // revert-trigger. Cosi' invece gcFreed AL checkpoint E' la misura del
  // rilascio.
  // Label storico a due forme: pinnato da tests/corpus-retention-discipline.test.ts.
- const corpusReleaseLabel = retentionProbeCandidate === null
-   ? 'jobsSeoPages: after corpus-release'
-   : `jobsSeoPages: after corpus-release candidate=${retentionProbeCandidate}`;
- logBuildMem(corpusReleaseLabel, collector, jobsSeoMemDetails({
-  crossLocaleActiveCount: crossLocaleCount,
-  retentionProbeCandidate: retentionProbeCandidate ?? 'none',
-  releasedValidJobs: validJobs.length === 0 ? 1 : 0,
-  releasedJobHtmlCache: jobHtmlCache.size === 0 ? 1 : 0,
-  releasedRelatedIndexes: relatedJobsByCategory.size === 0 && relatedJobsByLocation.size === 0 ? 1 : 0,
- }));
+ const corpusReleaseProbeCandidate = extraGcFreedProbeCandidate ?? retentionProbeCandidate;
+ const corpusReleaseLabel = extraGcFreedProbeCandidate !== null
+   ? `jobsSeoPages: after corpus-release candidate=${extraGcFreedProbeCandidate}`
+   : retentionProbeCandidate === null
+     ? 'jobsSeoPages: after corpus-release'
+     : `jobsSeoPages: after corpus-release candidate=${retentionProbeCandidate}`;
+ logGcFreedProbeCheckpoint(
+  corpusReleaseProbeCandidate,
+  collector,
+  jobsSeoMemDetails({
+   crossLocaleActiveCount: crossLocaleCount,
+   retentionProbeCandidate: retentionProbeCandidate ?? 'none',
+   gcFreedProbeCandidate: extraGcFreedProbeCandidate ?? 'none',
+   releasedValidJobs: validJobs.length === 0 ? 1 : 0,
+   releasedJobHtmlCache: jobHtmlCache.size === 0 ? 1 : 0,
+   releasedRelatedIndexes: relatedJobsByCategory.size === 0 && relatedJobsByLocation.size === 0 ? 1 : 0,
+  }),
+  corpusReleaseLabel,
+ );
 
  /* ── Self-healing: cover any tracking paths not yet written ──── */
  // Safety net: any tracking path that wasn't covered by active, soft-landing,

@@ -48,7 +48,7 @@ export function logBuildMem(
   collector?: unknown,
   details?: BuildMemDetails,
   options?: BuildMemOptions,
-): void {
+): { gcFreed: number } {
   const mb = (n: number) => Math.round(n / 1048576);
   // Force a full GC first (build:ci runs with --expose-gc) so the reported heap
   // is the LIVE set, not garbage V8 keeps lazily under its 12 GB ceiling. DUAL
@@ -76,4 +76,5 @@ export function logBuildMem(
   console.log(
     `\x1b[35m[mem]\x1b[0m ${label} heapUsed=${mb(m.heapUsed)}MB (gcFreed=${freed}MB) external=${mb(m.external)}MB arrayBuffers=${mb(m.arrayBuffers)}MB rss=${mb(m.rss)}MB${extra}${detailText}`,
   );
+  return { gcFreed: freed };
 }
