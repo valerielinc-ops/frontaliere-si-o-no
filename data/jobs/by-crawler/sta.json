@@ -725,8 +725,8 @@
       "slugByLocale": {
         "de": "schreiner-in-efz-fur-vielseitige-montagearbeiten-zurich-zurich-sta-ch",
         "it": "schreiner-in-cfc-per-vielseitige-montagearbeiten-sta-personal-ag-zurich",
-        "en": "schreiner-in-efz-fur-vielseitige-montagearbeiten-zurich-zurich-sta-ch",
-        "fr": "schreiner-in-efz-fur-vielseitige-montagearbeiten-zurich-zurich-sta-ch"
+        "en": "carpenter-efz-for-versatile-assembly-work-sta-personal-ag-zurich-zurich",
+        "fr": "menuisier-cfc-pour-travaux-de-montage-polyvalents-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -770,6 +770,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-efz-fur-vielseitige-montagearbeiten-zurich-zurich-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-efz-fur-vielseitige-montagearbeiten-zurich-zurich-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-efz-fur-vielseitige-montagearbeiten-zurich-zurich-sta-ch"
         ]
       },
