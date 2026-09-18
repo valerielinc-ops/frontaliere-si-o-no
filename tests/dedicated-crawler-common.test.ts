@@ -861,6 +861,30 @@ describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)'
     const usText = 'Company address The Swatch Group (U.S.) Inc. 800 Waterford Way Miami FL United States';
     expect(isExplicitlyOutsideTarget(usText)).toBe(true);
     expect(isLocationExplicitlyForeign('Garden City, company HQ, United States')).toBe(true);
+    expect(isLocationExplicitlyForeign('Zurich, Germany')).toBe(true);
+    expect(isLocationExplicitlyForeign('country: DE')).toBe(true);
+    expect(isLocationExplicitlyForeign('addressCountry="FR"')).toBe(true);
+    expect(isLocationExplicitlyForeign('Zurich, DE')).toBe(true);
+    expect(isLocationExplicitlyForeign('Hasselt, BE')).toBe(true);
+    expect(isLocationExplicitlyForeign('Hasselt, 3500, BE')).toBe(true);
+    expect(isLocationExplicitlyForeign('Rue de la Gare, Lausanne')).toBe(false);
+    expect(isLocationExplicitlyForeign('St. Gallen, SG')).toBe(false);
+    expect(isLocationExplicitlyForeign('Lausanne, VD')).toBe(false);
+    expect(isLocationExplicitlyForeign('Zürich, CH')).toBe(false);
+    expect(isLocationExplicitlyForeign('Zurich, FR')).toBe(true);
+  });
+
+  it('does not reject Swiss address text that ends with any canton code', async () => {
+    const { isLocationExplicitlyForeign } = await import(
+      '../scripts/lib/dedicated-crawler-common.mjs'
+    );
+    const { ALL_CANTON_CODES } = await import('../scripts/lib/crawler-location-config.mjs');
+
+    for (const code of ALL_CANTON_CODES) {
+      expect(isLocationExplicitlyForeign(`Industriestrasse 10, ${code}`)).toBe(false);
+    }
+    expect(isLocationExplicitlyForeign('Sâles, FR')).toBe(false);
+    expect(isLocationExplicitlyForeign('CH-9000 St. Gallen, SG')).toBe(false);
   });
 
   it('foreign-job gates do not treat a foreign border town as a Swiss location', async () => {
