@@ -42,7 +42,7 @@ import {
   normalize,
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -94,22 +94,17 @@ export async function fetchJyskJobUrls(options = {}) {
   const fetchImpl = options.fetchImpl || globalThis.fetch;
   console.log(`🔍 Fetching JYSK listing page: ${JYSK_LISTING_URL}`);
 
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-
   try {
-    const res = await fetchImpl(JYSK_LISTING_URL, {
-      signal: controller.signal,
+    const html = await fetchHtml(JYSK_LISTING_URL, {
+      fetchImpl,
+      retries: options.retries,
+      retryBaseMs: options.retryBaseMs,
+      timeoutMs,
       headers: {
         Accept: 'text/html',
         'User-Agent': UA,
       },
     });
-    if (!res.ok) {
-      throw new Error(`JYSK discovery failed: listing returned HTTP ${res.status}.`);
-    }
-
-    const html = await res.text();
     if (!/<title[^>]*>[^<]*JYSK Open Positions/i.test(html)) {
       throw new Error('JYSK discovery failed: listing identity marker missing.');
     }
@@ -144,8 +139,6 @@ export async function fetchJyskJobUrls(options = {}) {
   } catch (err) {
     if (String(err?.message || '').startsWith('JYSK discovery')) throw err;
     throw new Error(`JYSK discovery failed: ${err.message}`, { cause: err });
-  } finally {
-    clearTimeout(timer);
   }
 }
 
