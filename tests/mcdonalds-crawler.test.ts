@@ -167,10 +167,19 @@ describe("McDonald's Switzerland crawler parser", () => {
       expect(cantons).toEqual(['TG', 'GR', 'NE', 'TI']);
     });
 
-    it('returns null for entries without a title or originalURL', () => {
-      expect(listingEntryToParsed(null)).toBeNull();
-      expect(listingEntryToParsed({ title: 'x' })).toBeNull();
-      expect(listingEntryToParsed({ originalURL: 'fr-ch/x/job/1' })).toBeNull();
+    it('returns null only for explicitly foreign entries', () => {
+      expect(listingEntryToParsed({
+        title: 'Crew Member',
+        reference: 'IT-1',
+        originalURL: 'it/crew/job/IT-1',
+        locations: [{ city: 'Como', stateAbbr: 'CO', countryAbbr: 'IT' }],
+      })).toBeNull();
+    });
+
+    it('fails closed instead of counting malformed rows as legitimate exclusions', () => {
+      expect(() => listingEntryToParsed(null)).toThrow(/no verified Swiss source location/);
+      expect(() => listingEntryToParsed({ title: 'x' })).toThrow(/no verified Swiss source location/);
+      expect(() => listingEntryToParsed({ originalURL: 'fr-ch/x/job/1' })).toThrow(/no verified Swiss source location/);
     });
 
     it('uses the source canton name when a branch label is not a BFS municipality spelling', () => {
