@@ -26,7 +26,7 @@ export const BING_TITLE_AUDIT_URLS = [
   '/de/grenzgaenger-artikel/monte-lema-bahn-saison-2026/',
   '/de/schweiz-artikel/aufenthaltsbewilligung-b-quellensteuer-2026/',
   '/fr/articles-frontalier/autoroute-a9-fermee-la-nuit-2026/',
-  '/fr/articles-frontalier/frais-de-transit-suisse/',
+  '/fr/articles-frontalier/frais-de-transit-suisse-2026/',
   '/fr/articles-frontalier/heures-de-travail-semanelles-suisses-en-2025/',
   '/fr/articles-frontalier/permis-g-vs-b-frontalier-2026-erreurs-communes/',
 ].map((path) => BING_SEO_BASE_URL + path);
