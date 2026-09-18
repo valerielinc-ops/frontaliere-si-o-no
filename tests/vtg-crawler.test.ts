@@ -73,8 +73,8 @@ describe('VTG authoritative regional discovery', () => {
     });
   });
 
-  it('rejects missing or blank totals before numeric coercion', async () => {
-    for (const total of [null, '']) {
+  it('rejects missing, blank, or malformed totals before numeric coercion', async () => {
+    for (const total of [null, '', 'not-a-number']) {
       const fetchImpl = async () => new Response(JSON.stringify({ total, jobs: [] }), { status: 200 });
 
       await expect(fetchVtgJobUrls({ fetchImpl, scope: 'ch-wide', timeoutMs: 1000 }))

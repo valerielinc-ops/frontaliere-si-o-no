@@ -40,6 +40,27 @@ function writeManifest(
   }
 }
 
+function replaceManifestEntryPath(
+  root: string,
+  directory: 'incremental-manifest' | 'incremental-manifest-prev',
+  sourcePath: string,
+  duplicatePath: string,
+): void {
+  const filePath = path.join(root, '.cache', directory, 'it.jsonl');
+  const lines = fs.readFileSync(filePath, 'utf8').trimEnd().split('\n');
+  let replaced = false;
+  const rewritten = lines.map((line) => {
+    const record = JSON.parse(line) as { type?: string; path?: string };
+    if (!record.type && record.path === sourcePath && !replaced) {
+      replaced = true;
+      return JSON.stringify({ ...record, path: duplicatePath });
+    }
+    return line;
+  });
+  if (!replaced) throw new Error(`manifest entry not found: ${sourcePath}`);
+  fs.writeFileSync(filePath, `${rewritten.join('\n')}\n`, 'utf8');
+}
+
 function fixtureRoot(): string {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'post-walk-incremental-'));
   roots.push(root);
@@ -71,6 +92,29 @@ afterEach(() => {
 });
 
 describe('post-walk incremental planning', () => {
+  it('rejects duplicate paths in the current streamed manifest', async () => {
+    const root = fixtureRoot();
+    writeManifest(root, 'incremental-manifest-prev', [
+      { path: 'jobs/previous/', kind: 'active-job', input: { title: 'previous' } },
+    ]);
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/current-a/', kind: 'active-job', input: { title: 'a' } },
+      { path: 'jobs/current-b/', kind: 'active-job', input: { title: 'b' } },
+    ]);
+    replaceManifestEntryPath(
+      root,
+      'incremental-manifest',
+      'jobs/current-b/',
+      'jobs/current-a/',
+    );
+
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+
+    expect(loaded.ok).toBe(false);
+    if (loaded.ok) throw new Error('expected duplicate current path to fail closed');
+    expect(loaded.reason).toMatch(/path (?:manifest )?duplicato/);
+  });
+
   it('processes changed and affected aliases while skipping unchanged manifest pages', async () => {
     const root = fixtureRoot();
     const distDir = path.join(root, 'dist');

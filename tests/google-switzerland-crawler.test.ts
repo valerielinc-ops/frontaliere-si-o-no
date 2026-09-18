@@ -223,8 +223,8 @@ describe('Google Switzerland crawler parser', () => {
         city: 'Bern',
         sourceCity: 'Bern',
         usedFallback: false,
-        postalCode: '3001',
-        streetAddress: 'Bern',
+        postalCode: '3011',
+        streetAddress: 'Bundesplatz 3',
         region: 'BE',
       });
     });
@@ -246,7 +246,7 @@ describe('Google Switzerland crawler parser', () => {
         sourceCity: 'Winterthur',
         usedFallback: false,
         postalCode: '8400',
-        streetAddress: 'Winterthur',
+        streetAddress: 'Stadthausstrasse 4a',
         region: 'ZH',
       });
     });
@@ -257,7 +257,7 @@ describe('Google Switzerland crawler parser', () => {
         sourceCity: 'Küsnacht',
         usedFallback: true,
         postalCode: '8001',
-        streetAddress: 'Zürich',
+        streetAddress: 'Bahnhofstrasse 1',
         region: 'ZH',
       });
     });

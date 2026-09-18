@@ -2,16 +2,16 @@ import { describe, expect, it } from 'vitest';
 import { resolveSwissStructuredAddress } from '../scripts/lib/swiss-structured-address.mjs';
 
 describe('resolveSwissStructuredAddress', () => {
-  it('keeps the real municipality when its Swiss postal code is known', () => {
+  it('uses a coherent canton fallback when no local street is curated', () => {
     const address = resolveSwissStructuredAddress({ city: 'Bioggio', canton: 'TI' });
 
     expect(address).toMatchObject({
-      city: 'Bioggio',
+      city: 'Bellinzona',
       canton: 'TI',
-      postalCode: '6934',
-      streetAddress: 'Bioggio',
+      postalCode: '6500',
+      streetAddress: 'Piazza Governo',
     });
-    expect(address.city).not.toBe('Bellinzona');
+    expect(address.streetAddress).not.toBe(address.city);
   });
 
   it('uses a complete canton-capital fallback when the municipality CAP is unknown', () => {
@@ -19,7 +19,7 @@ describe('resolveSwissStructuredAddress', () => {
       city: 'Zürich',
       canton: 'ZH',
       postalCode: '8001',
-      streetAddress: 'Zürich',
+      streetAddress: 'Bahnhofstrasse 1',
     });
   });
 
@@ -28,7 +28,7 @@ describe('resolveSwissStructuredAddress', () => {
       city: 'Winterthur',
       canton: 'ZH',
       postalCode: '8400',
-      streetAddress: 'Winterthur',
+      streetAddress: 'Stadthausstrasse 4a',
     });
   });
 });

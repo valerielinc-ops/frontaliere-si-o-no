@@ -1,55 +1,12 @@
 import MUNICIPALITY_DATA from '../../data/canton-municipalities.json' with { type: 'json' };
 import SWISS_POSTAL_CODES from '../../data/swiss-postal-codes.json' with { type: 'json' };
+import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 const CANTONS = new Set([
   'AG', 'AI', 'AR', 'BE', 'BL', 'BS', 'FR', 'GE', 'GL', 'GR', 'JU', 'LU',
   'NE', 'NW', 'OW', 'SG', 'SH', 'SO', 'SZ', 'TG', 'TI', 'UR', 'VD', 'VS', 'ZG', 'ZH',
 ]);
-
-const EXTRA_CAPITALS = Object.freeze({
-  AI: { streetAddress: 'Hauptgasse 2', postalCode: '9050', addressLocality: 'Appenzell', addressRegion: 'AI' },
-  AR: { streetAddress: 'Poststrasse 6', postalCode: '9100', addressLocality: 'Herisau', addressRegion: 'AR' },
-  BL: { streetAddress: 'Rathausstrasse 36', postalCode: '4410', addressLocality: 'Liestal', addressRegion: 'BL' },
-  GL: { streetAddress: 'Rathausplatz 1', postalCode: '8750', addressLocality: 'Glarus', addressRegion: 'GL' },
-  JU: { streetAddress: 'Rue de la Préfecture 12', postalCode: '2800', addressLocality: 'Delémont', addressRegion: 'JU' },
-  NW: { streetAddress: 'Stansstaderstrasse 54', postalCode: '6370', addressLocality: 'Stans', addressRegion: 'NW' },
-  OW: { streetAddress: 'Brünigstrasse 160', postalCode: '6060', addressLocality: 'Sarnen', addressRegion: 'OW' },
-  SZ: { streetAddress: 'Herrengasse 23', postalCode: '6430', addressLocality: 'Schwyz', addressRegion: 'SZ' },
-  UR: { streetAddress: 'Rathausplatz 2', postalCode: '6460', addressLocality: 'Altdorf', addressRegion: 'UR' },
-});
-
-// Keep the fallback tuple self-contained and Node-loadable: this helper is
-// imported by the standalone Capri .mjs crawler, before Vite/tsx exists.
-const CANTON_CAPITAL_ADDRESSES = Object.freeze({
-  TI: { streetAddress: 'Piazza Governo', postalCode: '6500', addressLocality: 'Bellinzona', addressRegion: 'TI' },
-  ZH: { streetAddress: 'Bahnhofstrasse 1', postalCode: '8001', addressLocality: 'Zürich', addressRegion: 'ZH' },
-  BE: { streetAddress: 'Bundesplatz 3', postalCode: '3011', addressLocality: 'Bern', addressRegion: 'BE' },
-  GE: { streetAddress: "Rue de l'Hôtel-de-Ville 2", postalCode: '1204', addressLocality: 'Genève', addressRegion: 'GE' },
-  VD: { streetAddress: 'Place de la Palud 2', postalCode: '1003', addressLocality: 'Lausanne', addressRegion: 'VD' },
-  BS: { streetAddress: 'Marktplatz 9', postalCode: '4001', addressLocality: 'Basel', addressRegion: 'BS' },
-  SO: { streetAddress: 'Hauptgasse 72', postalCode: '4500', addressLocality: 'Solothurn', addressRegion: 'SO' },
-  VS: { streetAddress: 'Rue du Grand-Pont 12', postalCode: '1950', addressLocality: 'Sion', addressRegion: 'VS' },
-  LU: { streetAddress: 'Kornmarkt 3', postalCode: '6004', addressLocality: 'Luzern', addressRegion: 'LU' },
-  SG: { streetAddress: 'Gallusstrasse 14', postalCode: '9000', addressLocality: 'St. Gallen', addressRegion: 'SG' },
-  ZG: { streetAddress: 'Postplatz 1', postalCode: '6300', addressLocality: 'Zug', addressRegion: 'ZG' },
-  GR: { streetAddress: 'Poststrasse 33', postalCode: '7000', addressLocality: 'Chur', addressRegion: 'GR' },
-  AG: { streetAddress: 'Rathausgasse 1', postalCode: '5000', addressLocality: 'Aarau', addressRegion: 'AG' },
-  TG: { streetAddress: 'Rathausplatz 1', postalCode: '8500', addressLocality: 'Frauenfeld', addressRegion: 'TG' },
-  SH: { streetAddress: 'Vordergasse 17', postalCode: '8200', addressLocality: 'Schaffhausen', addressRegion: 'SH' },
-  FR: { streetAddress: "Place de l'Hôtel-de-Ville 1", postalCode: '1700', addressLocality: 'Fribourg', addressRegion: 'FR' },
-  NE: { streetAddress: "Rue de l'Hôtel-de-Ville 1", postalCode: '2000', addressLocality: 'Neuchâtel', addressRegion: 'NE' },
-  ...EXTRA_CAPITALS,
-});
-
-// Only use a city-level street when it is a curated tuple for that same
-// locality. Unknown municipalities fall back to the complete canton tuple.
-const CITY_FALLBACK_STREETS = Object.freeze({
-  lugano: 'Piazza Riforma 1',
-  manno: 'Via Cantonale 2c',
-  mendrisio: 'Via Luigi Benteler 1',
-  landquart: 'Bahnhofstrasse 2',
-});
 
 function normalize(value = '') {
   return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -107,51 +64,45 @@ export function sourcePostalMatchesCity(city, postalCode) {
   return /^\d{4}$/.test(postal) && verifiedPostalForCity(city) === postal;
 }
 
-function cantonFallback(canton, { representativeStreet = false } = {}) {
-  const fallback = CANTON_CAPITAL_ADDRESSES[canton] || CANTON_CAPITAL_ADDRESSES.TI;
+function structuredFallback(city, canton, companySlug = '') {
+  const fallback = resolveFallbackAddress(companySlug, city, canton);
   return {
     city: fallback.addressLocality,
     canton: fallback.addressRegion,
     postalCode: fallback.postalCode,
-    streetAddress: representativeStreet ? fallback.streetAddress : fallback.addressLocality,
+    streetAddress: fallback.streetAddress,
   };
 }
 
-function cityFallback(city, canton, postalCode) {
-  const streetAddress = CITY_FALLBACK_STREETS[normalize(city)];
-  if (!streetAddress) return null;
-  return { city, canton, postalCode, streetAddress };
-}
-
 /** Resolve a complete address without pairing a city with another locality's CAP. */
-export function resolveSwissStructuredAddress({ city = '', canton = '', postalCode = '', streetAddress = '' } = {}) {
+export function resolveSwissStructuredAddress({
+  city = '',
+  canton = '',
+  postalCode = '',
+  streetAddress = '',
+  companySlug = '',
+} = {}) {
   const cantonCode = resolveCanton(canton, city) || 'TI';
-  const sourceCity = String(city || '').trim();
-  const prefersRepresentativeStreet = /\([A-Z]{2}\)\s*$/i.test(sourceCity);
   const municipality = resolveMunicipality(city, cantonCode);
   const knownPostal = municipality ? verifiedPostalForCity(municipality) : '';
 
   if (municipality && knownPostal) {
     const sourcePostal = String(postalCode || '').trim();
     const sourceStreet = String(streetAddress || '').trim();
+    const fallback = structuredFallback(municipality, cantonCode, companySlug);
+    const streetIsLocality = normalize(sourceStreet) === normalize(municipality);
     const postalIsCoherent = !sourcePostal || sourcePostalMatchesCity(municipality, sourcePostal);
-    const localFallback = cityFallback(municipality, cantonCode, knownPostal);
     if (!postalIsCoherent) {
-      return localFallback || {
-        city: municipality,
-        canton: cantonCode,
-        postalCode: knownPostal,
-        streetAddress: municipality,
-      };
+      return fallback;
     }
-    if (!sourceStreet && localFallback) return localFallback;
+    if (!sourceStreet || streetIsLocality) return fallback;
     return {
       city: municipality,
       canton: cantonCode,
       postalCode: knownPostal,
-      streetAddress: sourceStreet || municipality,
+      streetAddress: sourceStreet,
     };
   }
 
-  return cantonFallback(cantonCode, { representativeStreet: prefersRepresentativeStreet });
+  return structuredFallback(city, cantonCode, companySlug);
 }

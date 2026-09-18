@@ -574,6 +574,7 @@ async function streamManifestFiles(
   locales: readonly string[],
   label: string,
   onEntry: (entry: PostWalkManifestEntry) => void,
+  { validateUniquePaths = true }: { readonly validateUniquePaths?: boolean } = {},
 ): Promise<{ readonly entryCount: number; readonly kinds: Map<string, string> }> {
   const kinds = new Map<string, string>();
   let entryCount = 0;
@@ -585,7 +586,7 @@ async function streamManifestFiles(
       (rawEntry: StreamManifestEntry) => onEntry(normalizeStreamManifestEntry(rawEntry, rawEntry.path)),
       // The current snapshot owns the exact path map. The previous snapshot is
       // consumed as a stream and never needs a second all-path Set.
-      { validateUniquePaths: false },
+      { validateUniquePaths },
     );
     if (streamed.data.locale !== locales[index]) {
       throw new Error(
@@ -626,6 +627,7 @@ export async function loadPostWalkManifestState(
         }
         currentEntries.set(entry.path, entry);
       },
+      { validateUniquePaths: true },
     );
     const current: PostWalkManifestSnapshot = {
       locales: selectedLocales,
@@ -659,6 +661,7 @@ export async function loadPostWalkManifestState(
       selectedLocales,
       'precedente',
       (entry) => registerPreviousEntry(state, entry),
+      { validateUniquePaths: false },
     );
     finalizePlanningState(state, baseUrl);
     if (added.size > 0 || removed.size > 0) {
@@ -672,6 +675,7 @@ export async function loadPostWalkManifestState(
         selectedLocales,
         'precedente',
         (entry) => addPreviousReferenceMatches(state, entry, baseUrl),
+        { validateUniquePaths: false },
       );
       if (previousReferenceResult.entryCount !== previousResult.entryCount) {
         throw new Error(
