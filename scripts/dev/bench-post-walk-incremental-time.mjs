@@ -140,7 +140,6 @@ async function runLegacyBaseline(allHtmlPaths) {
   const manifestStartedAt = performance.now();
   const previous = await legacyReadManifest(path.join(ROOT, '.cache/incremental-manifest-prev/it.jsonl'));
   const current = await legacyReadManifest(path.join(ROOT, '.cache/incremental-manifest/it.jsonl'));
-  const manifestMs = elapsed(manifestStartedAt);
   const changed = new Set();
   const added = new Set();
   const removed = new Set();
@@ -152,10 +151,14 @@ async function runLegacyBaseline(allHtmlPaths) {
   for (const logical of previous.keys()) {
     if (!current.has(logical)) removed.add(logical);
   }
+  let referencePassMs = 0;
   if (added.size > 0 || removed.size > 0) {
+    const referenceStartedAt = performance.now();
     await legacyReadManifest(path.join(ROOT, '.cache/incremental-manifest/it.jsonl'));
     await legacyReadManifest(path.join(ROOT, '.cache/incremental-manifest-prev/it.jsonl'));
+    referencePassMs = elapsed(referenceStartedAt);
   }
+  const manifestMs = elapsed(manifestStartedAt);
 
   const planStartedAt = performance.now();
   const existingHtmlSet = new Set(allHtmlPaths);
@@ -186,6 +189,7 @@ async function runLegacyBaseline(allHtmlPaths) {
     processed: selected.size,
     eligibleByManifest,
     unmanifested: Math.max(0, allHtmlPaths.length - eligibleByManifest),
+    referencePassMs,
   };
 }
 
