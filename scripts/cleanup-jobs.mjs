@@ -27,6 +27,7 @@ import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import { collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
+import { isSliceFile } from './lib/crawler-slice-files.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -367,6 +368,21 @@ async function main() {
   // ── Slice-only mode: operate on a single per-crawler slice file ──────────
   if (SLICE_FILE) {
     const slicePath = path.resolve(SLICE_FILE);
+    // The caller is a shell glob over `data/jobs/by-crawler/*.json`
+    // (cleanup-stale-jobs.yml), and that directory also holds crawler scratch
+    // companions that are NOT slices: `update-coop-jobs.mjs` parks its
+    // translation cache in `coop-ticino-locale-cache.json` (a bare array, by its
+    // own contract), and a housekeeping run killed mid-write leaves a
+    // `<key>.json.cleanup-tmp.json`. Without this guard the bare array fell
+    // through `sliceJobs` below as if it were a job list: housekeeping pruned
+    // the Coop cache down to `[]` on 2026-08-31, and the `crawlerKey` basename
+    // fallback further down archived it into a phantom
+    // `data/jobs/expired/by-crawler/coop-ticino-locale-cache.json`. Guarding here
+    // rather than in the glob covers every caller of this script at once.
+    if (!isSliceFile(path.basename(slicePath))) {
+      console.log(`ℹ️  Not a crawler slice: ${SLICE_FILE} — skip housekeeping`);
+      return;
+    }
     if (!fs.existsSync(slicePath)) {
       console.log(`ℹ️  Slice file not found: ${SLICE_FILE} — skip housekeeping`);
       return;

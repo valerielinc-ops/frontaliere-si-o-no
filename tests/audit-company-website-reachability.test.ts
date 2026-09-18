@@ -44,6 +44,44 @@ describe('company website reachability audit', () => {
     expect(fetchImpl).toHaveBeenNthCalledWith(2, 'https://blocked.example/', expect.objectContaining({ method: 'GET' }));
   });
 
+  it('probes the apex/www alias before recording a published origin as dead', async () => {
+    // The registry publishes the bare apex when the resolver has no verified
+    // winner, and an apex with no A record is common on hosts that serve fine
+    // on www. Measured on the 2026-09-18 run: 15 of 37 "unreachable" hosts
+    // answered on their alias.
+    const fetchImpl = vi.fn()
+      .mockResolvedValueOnce({ ok: false, status: 0, url: 'https://apex.example/', body: '', transportError: 'dns' })
+      .mockResolvedValueOnce({ ok: false, status: 0, url: 'https://apex.example/', body: '', transportError: 'dns' })
+      .mockResolvedValueOnce({ ok: true, status: 200, url: 'https://www.apex.example/', body: '' });
+
+    const result = await probePublishedWebsite('https://apex.example/', { fetchImpl });
+
+    expect(result).toMatchObject({ reachable: true, status: 200, viaAlias: 'https://www.apex.example/' });
+    expect(result.publishedReason).toBe('dns');
+    expect(fetchImpl).toHaveBeenNthCalledWith(3, 'https://www.apex.example/', expect.objectContaining({ method: 'HEAD' }));
+  });
+
+  it('keeps the published origin verdict when the alias is dead too', async () => {
+    const fetchImpl = vi.fn().mockResolvedValue({
+      ok: false, status: 0, url: 'https://gone.example/', body: '', transportError: 'dns',
+    });
+
+    const result = await probePublishedWebsite('https://gone.example/', { fetchImpl });
+
+    expect(result).toMatchObject({ reachable: false, reason: 'dns' });
+    expect(result.viaAlias).toBeUndefined();
+  });
+
+  it('records a GET 403 as reachable-but-unverified instead of a dead host', async () => {
+    // A WAF refusing an automated probe is the origin answering. Counting it
+    // as dead charged the ceiling for 13 live hosts on the 2026-09-18 run.
+    const fetchImpl = vi.fn().mockResolvedValue({ ok: false, status: 403, url: 'https://waf.example/', body: '' });
+
+    const result = await probePublishedWebsite('https://waf.example/', { fetchImpl });
+
+    expect(result).toMatchObject({ reachable: true, verified: false, reason: 'access-denied' });
+  });
+
   it('does not call an allowed-alias redirect a dead host when policy stops the final hop', async () => {
     const fetchImpl = vi.fn().mockResolvedValue({
       ok: false,

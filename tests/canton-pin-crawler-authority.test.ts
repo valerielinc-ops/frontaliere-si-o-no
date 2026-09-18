@@ -371,6 +371,35 @@ describe('realignCantonOnlyLocality — a canton-name locality must name the job
     expect(realignCantonOnlyLocality('Bellinzona', 'SO')).toBe('Bellinzona');
   });
 
+  it('never touches an AMBIGUOUS municipality of the job\'s own canton', () => {
+    // BFS stores a name shared by several cantons only as `<City> (XX)`, and
+    // each canton's alias list folds in representative city names, so the bare
+    // spelling is `isCantonOnlyLabel` AND resolves to the wrong canton:
+    // `inferAnyCanton('Buchs')` is SG. Both guards fell through and the
+    // correct city was rewritten into its canton's name.
+    expect(inferAnyCanton('Buchs')).not.toBe('AG'); // premise of the bug
+    expect(realignCantonOnlyLocality('Buchs', 'AG')).toBe('Buchs');
+    expect(realignCantonOnlyLocality('Reinach', 'AG')).toBe('Reinach');
+    expect(realignCantonOnlyLocality('Rapperswil', 'BE')).toBe('Rapperswil');
+    expect(realignCantonOnlyLocality('Kilchberg', 'BL')).toBe('Kilchberg');
+    expect(realignCantonOnlyLocality('Buchs', 'ZH')).toBe('Buchs');
+    expect(realignCantonOnlyLocality('Gossau', 'ZH')).toBe('Gossau');
+    expect(realignCantonOnlyLocality('Wil', 'ZH')).toBe('Wil');
+    // The same name in the canton the alias list happens to own stayed correct
+    // even before the fix — keep it pinned so the guard cannot regress one way.
+    expect(realignCantonOnlyLocality('Buchs', 'SG')).toBe('Buchs');
+    expect(realignCantonOnlyLocality('Gossau', 'SG')).toBe('Gossau');
+    expect(realignCantonOnlyLocality('Reinach', 'BL')).toBe('Reinach');
+  });
+
+  it('still rewrites a canton label that is not a municipality anywhere', () => {
+    // The repair must keep working: these are the placeholders it exists for,
+    // and none of them is a BFS municipality of the canton under test.
+    expect(realignCantonOnlyLocality('Ticino', 'NW')).toBe('Nidvaldo');
+    expect(realignCantonOnlyLocality('Argovia', 'ZH')).toBe('Zurigo');
+    expect(realignCantonOnlyLocality('Buchs', 'NW')).toBe('Nidvaldo');
+  });
+
   it('is a no-op without a canton or without a value', () => {
     expect(realignCantonOnlyLocality('Ticino', '')).toBe('Ticino');
     expect(realignCantonOnlyLocality('', 'SO')).toBe('');

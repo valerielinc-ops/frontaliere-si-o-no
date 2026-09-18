@@ -175,6 +175,16 @@ function nat64EmbeddedIpv4(address) {
   return [words[6] >> 8, words[6] & 0xff, words[7] >> 8, words[7] & 0xff].join('.');
 }
 
+/**
+ * Statuses that mean "this server dislikes the METHOD", not "this resource is
+ * gone": retry them with GET before concluding anything about the target.
+ *
+ * Single definition on purpose — `resolve-company-website.mjs` and
+ * `audit-company-website-reachability.mjs` each carried a literal copy, so
+ * adding a status to one silently disagreed with the other (AGENTS.md #6).
+ */
+export const HEAD_FALLBACK_STATUSES = Object.freeze(new Set([403, 405, 501]));
+
 export class PublicFetchPolicyError extends Error {
   /** @param {string} message */
   constructor(message) {
@@ -191,7 +201,7 @@ export class PublicFetchPolicyError extends Error {
  * forbidden target.
  * @param {unknown} error
  */
-export function isPublicFetchPolicyError(error) {
+function findPublicFetchPolicyError(error) {
   const seen = new Set();
   let current = error;
   while (current && (typeof current === 'object' || typeof current === 'function') && !seen.has(current)) {
@@ -200,11 +210,32 @@ export function isPublicFetchPolicyError(error) {
     if (candidate instanceof PublicFetchPolicyError
       || candidate.code === 'ERR_PUBLIC_FETCH_POLICY'
       || candidate.retryable === false && /^unsafe prospector|^prospector URL|^credentials forbidden|^no public prospector/i.test(String(candidate.message || ''))) {
-      return true;
+      return candidate;
     }
     current = candidate.cause;
   }
-  return false;
+  return null;
+}
+
+export function isPublicFetchPolicyError(error) {
+  return findPublicFetchPolicyError(error) !== null;
+}
+
+/**
+ * The policy's OWN message, unwrapped from the chain.
+ *
+ * Recognising the policy error through undici's wrappers is not enough for a
+ * caller that has to tell one rejection apart from another: the wrapper's
+ * message is the generic `fetch failed`, so a caller matching on it sees the
+ * same opaque string for a redirect outside the seed origin and for a blocked
+ * private address, and classifies the same host differently depending only on
+ * whether the throw happened to be wrapped. Callers must branch on this.
+ * @param {unknown} error
+ * @returns {string} the policy message, or '' when this is not a policy error
+ */
+export function publicFetchPolicyReason(error) {
+  const found = findPublicFetchPolicyError(error);
+  return found ? String(found.message || '') : '';
 }
 
 export function isPrivateOrLocalAddress(address = '') {

@@ -137,4 +137,36 @@ describe('translation scheduler v2 runtime wiring', () => {
       state: { reserved: false, settled: false },
     });
   });
+
+  // `data/jobs/by-crawler/` is not a directory of slices only: a crawler writes a
+  // `<key>-locale-cache.json` scratch companion next to its slice, and a housekeeping
+  // run killed mid-write leaves a `<key>.json.cleanup-tmp.json` behind. Both are
+  // real files on main — `coop-ticino-locale-cache.json` is a bare `[]` — and this
+  // scanner read them as slices, so every shadow run since the workflow was created
+  // died on `… must be an object` and never produced its report. The shared
+  // `isSliceFile` predicate exists for exactly this; the scanner has to use it.
+  it('skips crawler scratch companions instead of reading them as slices', async () => {
+    const { one, providerModule, remote } = createRepositories();
+    const dataDirectory = join(one, 'data/jobs/by-crawler');
+    // Verbatim shape of the file that failed in production: a bare empty array.
+    writeFileSync(join(dataDirectory, 'coop-ticino-locale-cache.json'), '[]\n');
+    writeFileSync(join(dataDirectory, 'example-crawler.json.cleanup-tmp.json'), '[]\n');
+
+    const report = await runTranslationScheduleV2({
+      repository: one,
+      providerModule,
+      maxJobs: 10,
+      maxUnits: 1,
+      providerTimeoutMs: 10_000,
+      logger: { log() {} },
+    });
+
+    // The run completes and still does its real work; the decoys are not counted.
+    expect(report.status).toBe('settled');
+    expect(report.scan.filesScanned).toBe(1);
+    expect(report.scheduler.selectedUnits).toBe(1);
+    // The scratch files stay untouched on disk — skipped, not repaired or deleted.
+    expect(readFileSync(join(dataDirectory, 'coop-ticino-locale-cache.json'), 'utf8')).toBe('[]\n');
+    expect(git(one, 'ls-remote', '--refs', remote, report.stateRef)).toContain(report.state.after);
+  });
 });

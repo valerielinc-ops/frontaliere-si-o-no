@@ -55,6 +55,12 @@ jobs:
           APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
           APPROVAL_CONSENT: ${{ inputs.human_approval }}
           APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          # The 6-hourly cron is this workflow's only producing principal: it
+          # is what refreshes public/data/plate-auctions.json. Unarmed since
+          # #8889 the gate denied every scheduled run, so the refresh was
+          # skipped and the snapshot froze at 2026-09-15T06:58:44.350Z while
+          # the job kept reporting success four times a day.
+          APPROVAL_TRUSTED_SCHEDULE: 'true'
           APPROVAL_SCOPE: refresh-plate-auctions
         run: node scripts/ci/human-side-effect-gate.mjs
 
@@ -72,8 +78,22 @@ jobs:
           fi
 
       - name: Refresh every active public catalogue
+        id: refresh
         if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/plate-auctions/ingest.mjs
+
+      - name: Fail a scheduled run whose refresh never executed
+        # A run is alive only if the producer actually ran. When the gate
+        # denies a schedule every producing step is skipped, and the drift
+        # check below still passes because it re-validates the COMMITTED
+        # snapshot rather than a fresh fetch — so the job reports success
+        # having refreshed nothing. Conclusions cannot see that; only this
+        # step-level assertion can. Manual dry-run dispatches are denied by
+        # design and stay green.
+        if: ${{ always() && github.event_name == 'schedule' && steps.refresh.outcome == 'skipped' }}
+        run: |
+          echo "::error::Scheduled refresh did not execute (side-effect gate reason: ${{ steps.side_effect_gate.outputs.approval_reason }}). The published snapshot is unchanged and its age is whatever the last real refresh left."
+          exit 1
 
       - name: Fail closed on source health or snapshot drift
         run: node scripts/plate-auctions/check-health.mjs

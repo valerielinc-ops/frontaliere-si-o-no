@@ -96,6 +96,46 @@ export function textOf(html = '') {
  * @param {string} html
  * @returns {any[]}
  */
+/**
+ * Escape U+0000-U+001F inside a string literal, where JSON forbids them, and
+ * leave every byte outside a string exactly as it is. Outside a string, tab,
+ * CR and LF are the whitespace that formats the document and must survive
+ * verbatim — escaping them would corrupt valid JSON-LD (`{\n"a":1}` with a
+ * literal backslash-n outside a string no longer parses). The remaining
+ * control characters are invalid out there whatever this function does, so
+ * they are left for `JSON.parse` to reject rather than rewritten into
+ * something that parses. Hence the scan tracks string state and honours
+ * backslash escapes instead of doing a blanket replace.
+ *
+ * Deliberately NOT a full JSON parser, and not a specification of one: it only
+ * makes an otherwise-valid document parseable, and anything still malformed is
+ * left to `JSON.parse` to reject, so a genuinely broken block keeps being
+ * discarded.
+ *
+ * @param {string} raw
+ * @returns {string}
+ */
+export function escapeControlCharsInJsonStrings(raw = '') {
+  let out = '';
+  let inString = false;
+  let escaped = false;
+  for (const char of String(raw)) {
+    if (escaped) { out += char; escaped = false; continue; }
+    if (inString && char === '\\') { out += char; escaped = true; continue; }
+    if (char === '"') { inString = !inString; out += char; continue; }
+    const code = char.codePointAt(0);
+    if (inString && code < 0x20) {
+      if (code === 0x0a) out += '\\n';
+      else if (code === 0x0d) out += '\\r';
+      else if (code === 0x09) out += '\\t';
+      else out += `\\u${code.toString(16).padStart(4, '0')}`;
+      continue;
+    }
+    out += char;
+  }
+  return out;
+}
+
 export function jsonLdBlocks(html = '') {
   const out = [];
   const rx = /<script\b[^>]*type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
@@ -103,17 +143,42 @@ export function jsonLdBlocks(html = '') {
   while ((m = rx.exec(html))) {
     const raw = m[1].trim().replace(/^\uFEFF/, '');
     if (!raw) continue;
+    // Two independent defects can afflict one block, so BOTH repairs must be
+    // tried against BOTH representations — four combinations, not a chain.
+    //
+    //   entity-escaped JSON-LD, which CMS-generated pages emit routinely (the
+    //     retry this inherits from scripts/lib/shared-jobs-crawler.mjs, whose
+    //     extractor is module-private);
+    //   raw control characters inside a string literal, which a CMS emits
+    //     whenever it interpolates a textarea/rich-text field without
+    //     escaping — `JSON.parse` rejects any U+0000-U+001F there ("Bad
+    //     control character in string literal").
+    //
+    // Chaining them (escape only the raw text, after entity-decoding failed)
+    // left a block that needs BOTH still discarded — the gap the review of
+    // PR #9161 caught. A block is dropped only when all four attempts fail.
+    //
+    // Why this matters more than a parse statistic: every miss used to be a
+    // silent `continue`, and a caller that then falls back to synthesizing
+    // content turns the loss into plausible-looking data. On jobs.csd.ch this
+    // exact path produced descriptions that were just `<title> — CSD
+    // ENGINEERS, <city>` (6-11 unique words) while the page carried a
+    // 2595-char JobPosting description, and the boilerplate guard in
+    // assemble-jobs-dataset.mjs only caught it afterwards, by failing the
+    // whole crawler.
     let parsed;
-    try {
-      parsed = JSON.parse(raw);
-    } catch {
-      // Second chance on entity-escaped JSON-LD, which CMS-generated pages emit
-      // routinely. Taken from the retry in scripts/lib/shared-jobs-crawler.mjs,
-      // whose extractor is module-private: without it a whole employer's
-      // structured data is silently discarded and the cascade falls back to
-      // link-shape inference on a page that had perfectly good data.
-      try { parsed = JSON.parse(decodeEntities(raw)); } catch { continue; }
+    let didParse = false;
+    for (const candidate of [raw, decodeEntities(raw)]) {
+      for (const repaired of [candidate, escapeControlCharsInJsonStrings(candidate)]) {
+        try {
+          parsed = JSON.parse(repaired);
+          didParse = true;
+          break;
+        } catch { /* try the next representation */ }
+      }
+      if (didParse) break;
     }
+    if (!didParse) continue;
     const push = (node) => {
       if (!node || typeof node !== 'object') return;
       if (Array.isArray(node)) { node.forEach(push); return; }

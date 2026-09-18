@@ -10,6 +10,11 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '.
 
 const consumers = [
   ['scripts/audit-job-content-plausibility.mjs', 'filter(isSliceFile)'],
+  // Both added after the translation scheduler v2 shadow lane ran red on every
+  // run of its life by re-rolling this predicate as `.endsWith('.json')`, and
+  // housekeeping silently pruned the Coop translation cache for the same reason.
+  ['scripts/cleanup-jobs.mjs', 'isSliceFile(path.basename(slicePath))'],
+  ['scripts/translation-schedule-run-v2.mjs', 'isSliceFile(entry.name)'],
   ['scripts/audit-job-locations.mjs', 'listSliceFileNames(dir)'],
   ['scripts/audit-job-title-locale.mjs', 'listSliceFileNames(sliceDir)'],
   ['scripts/backfill-firstSeenAt.mjs', 'filter(isSliceFile)'],
