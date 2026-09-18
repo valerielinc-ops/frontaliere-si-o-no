@@ -674,6 +674,35 @@ export function runIsPublishable(collected, errors) {
  return errors / (collected + errors) <= MAX_CROSSING_FAILURE_RATE;
 }
 
+/**
+ * The ONLY place a collection run writes its results to Firestore.
+ *
+ * Both collection paths — provider mesh and webcam-only — route through here
+ * so the publishability rule cannot hold on one and not the other. It held
+ * only on the mesh when this guard was written twice, and the webcam path is
+ * the one the scheduled workflow actually falls back to (`ENABLE_WEBCAM_ANALYSIS: '1'`),
+ * so the gap sat exactly where it mattered most. A third caller now inherits
+ * the rule instead of having to remember it.
+ *
+ * @param {Array<object>} results crossings with usable data
+ * @param {number} errors crossings with none
+ * @param {string} label collection path, for the operator-facing log line
+ * @returns {Promise<boolean>} whether the snapshot was written
+ */
+async function persistIfPublishable(results, errors, label) {
+ if (results.length === 0) return false;
+ if (!runIsPublishable(results.length, errors)) {
+  console.error(
+   `⛔ ${label}: ${results.length} crossings collected but NOT persisted — `
+   + `${errors}/${results.length + errors} failed, over the ${(MAX_CROSSING_FAILURE_RATE * 100).toFixed(1)}% ceiling. `
+   + 'trafficCurrent keeps its previous, uniformly-aged snapshot: wholly stale is honest, mixed is not.',
+  );
+  return false;
+ }
+ await saveTrafficToFirestore(results);
+ return true;
+}
+
 function createProviderMeshRuntime(providerChain) {
  const disabled = new Set();
  const reserveRequest = async (providerId, operation = 'route') => {
@@ -789,27 +818,12 @@ async function runTrafficCollectionWithProviderMesh(options, providerChain) {
   }
  }
 
- // Persistence obeys the SAME rule as the collector's exit code. When the two
- // disagreed, a run that was about to fail still overwrote trafficCurrent for
- // the crossings that had succeeded: the static JSON mirror was withheld by the
- // non-zero exit, but the SPA reads Firestore, so it got a snapshot that was
- // fresh for 27 slugs and stale for 114 with nothing marking the difference.
- // Wholly stale is honest — every lastUpdate is old; mixed is not.
- const publishable = runIsPublishable(results.length, errors);
- if (results.length > 0 && publishable) {
-  await saveTrafficToFirestore(results);
- } else if (results.length > 0) {
-  console.error(
-   `⛔ ${results.length} crossings collected but NOT persisted: `
-   + `${errors}/${results.length + errors} failed, over the ${Math.round(MAX_CROSSING_FAILURE_RATE * 100)}% ceiling. `
-   + 'trafficCurrent keeps its previous, uniformly-aged snapshot.',
-  );
- }
+ const persisted = await persistIfPublishable(results, errors, 'provider-mesh');
  console.log(
   `✅ Provider-mesh collection done – ${results.length}/${BORDER_CROSSINGS.length} crossings OK, `
   + `${errors} crossings with no usable data`,
  );
- return { collected: results.length, errors, persisted: results.length > 0 && publishable };
+ return { collected: results.length, errors, persisted };
 }
 
 /**
@@ -991,10 +1005,11 @@ export async function runWebcamOnlyCollection(options = {}) {
  );
  }
 
- if (results.length > 0) {
- await saveTrafficToFirestore(results);
- }
+ const persisted = await persistIfPublishable(results, errors, 'webcam-only');
 
- console.log(`✅ Webcam-only collection done – ${results.length} OK, ${errors} errors`);
- return { collected: results.length, errors, source: 'webcam-only' };
+ console.log(
+  `✅ Webcam-only collection done – ${results.length} crossings OK, `
+  + `${errors} crossings with no usable data`,
+ );
+ return { collected: results.length, errors, persisted, source: 'webcam-only' };
 }
