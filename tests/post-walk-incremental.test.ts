@@ -14,6 +14,7 @@ import {
 import {
   buildPostWalkIncrementalPlanFromState,
   comparePostWalkVerification,
+  describePostWalkVerificationPaths,
   loadPostWalkManifestState,
   postWalkIncrementalEnabled,
   releasePostWalkManifestState,
@@ -258,6 +259,50 @@ describe('post-walk incremental planning', () => {
     expect(plan.processHtmlPaths).toEqual([manifestPath]);
     expect(plan.unmanifested).toBe(1);
     expect(plan.unmanifestedSkipped).toBe(1);
+  });
+
+  it('classifies sampled paths before the manifest state is released', async () => {
+    const root = fixtureRoot();
+    const changedPath = writeHtml(root, 'jobs/changed/index.html', 'changed');
+    const unchangedPath = writeHtml(root, 'jobs/unchanged/index.html', 'unchanged');
+    const uncoveredPath = writeHtml(root, 'blog/article/index.html', 'uncovered');
+    writeManifest(root, 'incremental-manifest-prev', [
+      { path: 'jobs/changed/', kind: 'expired-soft-landing', input: { title: 'old' } },
+      { path: 'jobs/unchanged/', kind: 'cross-locale-reconciliation', input: { title: 'same' } },
+    ], true);
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/changed/', kind: 'expired-soft-landing', input: { title: 'new' } },
+      { path: 'jobs/unchanged/', kind: 'cross-locale-reconciliation', input: { title: 'same' } },
+    ], true);
+
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+    expect(loaded.ok).toBe(true);
+    if ('reason' in loaded) throw new Error(loaded.reason);
+    const details = describePostWalkVerificationPaths({
+      distDir: path.join(root, 'dist'),
+      sampledPaths: [changedPath, unchangedPath, uncoveredPath],
+      incrementalProcessPaths: [changedPath],
+      state: loaded.state,
+    });
+
+    expect(details.get(changedPath)).toMatchObject({
+      relativePath: 'jobs/changed/index.html',
+      topLevel: 'jobs',
+      kind: 'expired-soft-landing',
+      reason: 'changed entry selected by manifest delta',
+    });
+    expect(details.get(unchangedPath)).toMatchObject({
+      relativePath: 'jobs/unchanged/index.html',
+      topLevel: 'jobs',
+      kind: 'cross-locale-reconciliation',
+      reason: 'unchanged entry: no changed/added/affected dependency edge',
+    });
+    expect(details.get(uncoveredPath)).toMatchObject({
+      relativePath: 'blog/article/index.html',
+      topLevel: 'blog',
+      kind: 'unmanifested',
+      reason: 'unmanifested: no current HTML manifest entry',
+    });
   });
 
   it('keeps an unresolved removal as a per-entry fallback', async () => {

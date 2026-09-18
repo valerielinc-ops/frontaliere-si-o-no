@@ -94,6 +94,7 @@ import { releaseIncrementalManifestState } from './shared/incrementalManifest.mj
 import {
   buildPostWalkIncrementalPlanFromState,
   comparePostWalkVerification,
+  describePostWalkVerificationPaths,
   loadPostWalkManifestState,
   postWalkManifestCoversHtmlPath,
   POST_WALK_INCREMENTAL_DEPENDENCY_RULE,
@@ -105,6 +106,7 @@ import {
   type PostWalkManifestProgress,
   type PostWalkManifestStateLoadResult,
   type PostWalkIncrementalPlan,
+  type PostWalkVerificationPathInfo,
 } from './shared/postWalkIncremental';
 
 interface CoordinatorOptions {
@@ -400,6 +402,20 @@ function emptyWorkerResult(): WorkerResult {
   };
 }
 
+function formatVerificationMismatchSample(
+  paths: readonly string[],
+  details: ReadonlyMap<string, PostWalkVerificationPathInfo>,
+): string {
+  return paths
+    .slice(0, 20)
+    .map((filePath) => {
+      const detail = details.get(filePath);
+      if (!detail) return `${filePath}|kind=unknown|top-level=unknown|reason=not-classified`;
+      return `${detail.relativePath}|kind=${detail.kind}|top-level=${detail.topLevel}|reason=${detail.reason}`;
+    })
+    .join('; ');
+}
+
 /** Fold one worker into the accumulator without retaining a results array. */
 function mergeResultInto(acc: WorkerResult, result: WorkerResult): void {
   acc.bridgeConverted += result.bridgeConverted;
@@ -449,6 +465,8 @@ export function postWalkCoordinatorPlugin(
         let manifests: PostWalkManifestStateLoadResult | null = null;
         let manifestHtmlEntryCount = 0;
         let changedByKind = 'none';
+        let verificationSamplePaths: readonly string[] = [];
+        let verificationSampleDetails: ReadonlyMap<string, PostWalkVerificationPathInfo> = new Map();
 
         if (incrementalEnabled) {
           // jobsSeoPagesPlugin and relatedSearchClustersPlugin have completed
@@ -665,6 +683,23 @@ export function postWalkCoordinatorPlugin(
               .slice(0, 12)
               .map(([kind, count]) => `${kind}:${count}`)
               .join(',') || 'none';
+            if (
+              incrementalPlan.mode === 'incremental'
+              && postWalkIncrementalVerifyEnabled()
+            ) {
+              verificationSamplePaths = selectPostWalkVerificationPaths(
+                fullProcessHtmlPaths,
+                postWalkIncrementalVerifySampleSize(),
+                incrementalPlan.processHtmlPaths,
+                false,
+              );
+              verificationSampleDetails = describePostWalkVerificationPaths({
+                distDir,
+                sampledPaths: verificationSamplePaths,
+                incrementalProcessPaths: incrementalPlan.processHtmlPaths,
+                state: manifests.state,
+              });
+            }
             logBuildMem(
               'postWalkCoordinator: after-plan',
               undefined,
@@ -726,12 +761,7 @@ export function postWalkCoordinatorPlugin(
           && postWalkIncrementalVerifyEnabled()
         ) {
           const verifyStartedAt = Date.now();
-          const sampledPaths = selectPostWalkVerificationPaths(
-            fullProcessHtmlPaths,
-            postWalkIncrementalVerifySampleSize(),
-            incrementalPlan.processHtmlPaths,
-            false,
-          );
+          const sampledPaths = verificationSamplePaths;
           const fullSampleDryRun = runSingleThreaded(
             sampledPaths,
             existingHtmlSet,
@@ -756,6 +786,18 @@ export function postWalkCoordinatorPlugin(
               + `processed-without-write=${comparison.processedButWouldNotWrite.length}`,
           );
           if (comparison.wouldWriteButSkipped.length > 0) {
+            // Keep the first bounded sample in the marker so a canary exposes
+            // the skipped class (manifest kind/top-level/dependency reason)
+            // instead of only reporting a cardinality before falling back.
+            // eslint-disable-next-line no-console
+            console.warn(
+              `[post-walk-coordinator][incremental-verify-mismatch-sample] `
+                + `count=${comparison.wouldWriteButSkipped.length} `
+                + formatVerificationMismatchSample(
+                  comparison.wouldWriteButSkipped,
+                  verificationSampleDetails,
+                ),
+            );
             const reason =
               `verify mismatch: ${comparison.wouldWriteButSkipped.length} full-write path(s) were skipped`;
             // eslint-disable-next-line no-console

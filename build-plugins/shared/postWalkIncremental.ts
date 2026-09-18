@@ -97,6 +97,13 @@ export type PostWalkIncrementalPlan = {
   readonly reasonsByPath: ReadonlyMap<string, ReadonlySet<PostWalkPathReason>>;
 };
 
+export type PostWalkVerificationPathInfo = {
+  readonly relativePath: string;
+  readonly topLevel: string;
+  readonly kind: string;
+  readonly reason: string;
+};
+
 /**
  * Compact state produced by the streaming loader. `current.entries` contains
  * only path/hash/kind plus the small post-walk identity/reference projection;
@@ -1229,6 +1236,50 @@ export function buildPostWalkIncrementalPlanFromState(
   input: PostWalkPlanInput & { readonly state: PostWalkManifestState },
 ): PostWalkIncrementalPlan {
   return buildPostWalkPlanFromState(input, input.state);
+}
+
+/**
+ * Classify the bounded verifier sample while the manifest projection is still
+ * alive. The coordinator releases that projection before reading HTML, so the
+ * mismatch marker must retain only this small diagnostic map, never a second
+ * complete path index.
+ */
+export function describePostWalkVerificationPaths(input: {
+  readonly distDir: string;
+  readonly sampledPaths: readonly string[];
+  readonly incrementalProcessPaths: readonly string[];
+  readonly state: PostWalkManifestState;
+}): ReadonlyMap<string, PostWalkVerificationPathInfo> {
+  const planned = new Set(input.incrementalProcessPaths);
+  const described = new Map<string, PostWalkVerificationPathInfo>();
+  for (const filePath of input.sampledPaths) {
+    const relativePath = normalizeRelativePath(path.relative(input.distDir, filePath));
+    const topLevel = relativePath.split('/', 1)[0] || '<root>';
+    const logical = logicalPathForHtml(relativePath);
+    const entry = logical === null ? undefined : input.state.current.entries.get(logical);
+    let kind = entry?.kind ?? 'unmanifested';
+    let reason = logical === null
+      ? 'unmanifested: physical path has no logical manifest key'
+      : 'unmanifested: no current HTML manifest entry';
+
+    if (entry && isHtmlManifestEntry(entry)) {
+      kind = entry.kind;
+      if (input.state.changed.has(logical)) {
+        reason = 'changed entry selected by manifest delta';
+      } else if (input.state.added.has(logical)) {
+        reason = 'added entry selected by manifest delta';
+      } else if (input.state.affected.has(logical)) {
+        reason = 'affected entry selected by dependency rule';
+      } else if (planned.has(filePath)) {
+        reason = 'selected by incremental plan';
+      } else {
+        reason = 'unchanged entry: no changed/added/affected dependency edge';
+      }
+    }
+
+    described.set(filePath, { relativePath, topLevel, kind, reason });
+  }
+  return described;
 }
 
 export type PostWalkVerificationComparison = {
