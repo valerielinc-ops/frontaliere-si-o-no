@@ -60,8 +60,8 @@ import { createAuditor, MAX_HTML_BYTES } from '../../scripts/audit-page-weight.m
 const TODAY = new Date('2026-04-28T08:00:00Z');
 
 const SYNTHETIC_SWISS: SwissStationLeaf[] = [
-  { zone: 'chiasso', slug: 'eni-via-foo', name: 'Eni Chiasso', brand: 'Eni', address: 'Via Foo 1, 6830 Chiasso' },
-  { zone: 'lugano', slug: 'tamoil-via-bar', name: 'Tamoil Lugano', brand: 'Tamoil', address: 'Via Bar 2, 6900 Lugano' },
+  { zone: 'chiasso', slug: 'eni-via-foo', name: 'Eni Chiasso', brand: 'Eni', address: 'Via Foo 1, 6830 Chiasso', lat: 45.84, lng: 9.02, benzinaPriceChf: 1.89, dieselPriceChf: 1.98 },
+  { zone: 'lugano', slug: 'tamoil-via-bar', name: 'Tamoil Lugano', brand: 'Tamoil', address: 'Via Bar 2, 6900 Lugano', lat: 46.01, lng: 8.95, benzinaPriceChf: 1.94, dieselPriceChf: 2.04 },
   { zone: 'mendrisio', slug: 'avia-via-baz', name: 'Avia Mendrisio', brand: 'Avia', address: 'Via Baz 3, 6850 Mendrisio' },
 ];
 
@@ -258,6 +258,36 @@ describe('fuel-station orphans — index pages clear the >=200-word content thre
       });
     }
   }
+});
+
+describe('fuel-station map — Swiss index carries a client island without losing the static list', () => {
+  const pages = generateFuelIndexPages({
+    today: TODAY,
+    swissStations: SYNTHETIC_SWISS,
+    italianStations: SYNTHETIC_ITALIAN,
+  });
+
+  it('embeds the map mount and price payload on the DE Swiss-stations index', () => {
+    const html = pages[buildFuelIndexPath('de', 'benzina', 'swissStations')]!;
+    const payloadText = html.match(/<script id="fuel-station-map-data" type="application\/json">([\s\S]*?)<\/script>/)?.[1];
+    expect(html).toMatch(/id=(?:"|')?fuel-station-map-root/);
+    expect(html).toMatch(/id=(?:"|')?browseAll/);
+    expect(html.indexOf('data-fuel-map-section')).toBeLessThan(html.indexOf('id=browseAll'));
+    expect(payloadText).toBeTruthy();
+    const payload = JSON.parse(payloadText!);
+    expect(payload.locale).toBe('de');
+    expect(payload.fuel).toBe('benzina');
+    expect(payload.stations).toHaveLength(2);
+    expect(payload.stations.every((station: { lat: number; lng: number; benzinaPriceChf: number }) => Number.isFinite(station.lat) && Number.isFinite(station.lng) && station.benzinaPriceChf > 0)).toBe(true);
+  });
+
+  it('keeps map payload fuel-specific for diesel indexes', () => {
+    const html = pages[buildFuelIndexPath('it', 'diesel', 'swissStations')]!;
+    const payloadText = html.match(/<script id="fuel-station-map-data" type="application\/json">([\s\S]*?)<\/script>/)?.[1];
+    const payload = JSON.parse(payloadText!);
+    expect(payload.fuel).toBe('diesel');
+    expect(payload.stations[0].dieselPriceChf).toBeGreaterThan(0);
+  });
 });
 
 describe('fuel-station orphans — emittedPaths gate excludes pages the build skipped', () => {

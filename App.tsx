@@ -37,6 +37,7 @@ const CompanyFollowMount = React.lazy(() => import('@/components/community/Compa
 const LanguageSelector = lazyRetry(() => import('@/components/shared/LanguageSelector'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
 const SeasonalNaspiSimulator = lazyRetry(() => import('@/components/calculator/SeasonalNaspiSimulator'));
+const FuelStationMap = React.lazy(() => import('@/components/pages/FuelStationMap'));
 const SiteSearch = lazyRetry(() => import('@/components/shared/SiteSearch'));
 // WhatsNewModal/Bell are non-critical UI; use React.lazy (not lazyRetry) so a
 // post-deploy chunk-hash miss silently degrades via SilentErrorBoundary instead
@@ -72,6 +73,30 @@ function NaspiSimulatorPortal({ target }: { target: HTMLElement }) {
     document.getElementById('naspi-simulator-fallback')?.remove();
   }, []);
   return createPortal(<SeasonalNaspiSimulator />, target);
+}
+
+function readFuelStationMapPayload(): FuelStationMapPayload | null {
+  if (typeof document === 'undefined') return null;
+  const node = document.getElementById('fuel-station-map-data');
+  if (!node?.textContent) return null;
+  try {
+    const parsed = JSON.parse(node.textContent) as FuelStationMapPayload;
+    if (!parsed || !Array.isArray(parsed.stations) || !parsed.locale || !parsed.fuel) return null;
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+
+function FuelStationMapPortal({ target }: { target: HTMLElement }) {
+  const [payload] = useState<FuelStationMapPayload | null>(() => readFuelStationMapPayload());
+  if (!payload) return null;
+  return createPortal(
+    <SafeLazy boundary="fuel-station-map" fallback={<div className="fuel-map-loading" role="status">Mappa prezzi in caricamento…</div>}>
+      <FuelStationMap payload={payload} />
+    </SafeLazy>,
+    target,
+  );
 }
 
 // Lazy-loaded components — still used in secondary tabs / non-extracted sections
@@ -249,6 +274,7 @@ import {
  Banknote, Fuel, Scale, Loader2, Menu, X, ScrollText, Info, Send, Gavel
 } from 'lucide-react';
 import { TELEGRAM_CHANNEL_URL, isTelegramChannelConfigured } from '@/services/telegramChannel';
+import type { FuelStationMapPayload } from '@/components/pages/FuelStationMap';
 
 import SkeletonFallback, { SkeletonPageShell, SkeletonComparator, SkeletonGuide, SkeletonDashboard, SkeletonFisco, SkeletonStats, SkeletonBlog, SkeletonVita, SkeletonNewsTicker, SkeletonWeeklyFact, SkeletonInputCard, SkeletonFooterSlot } from '@/components/shared/Skeletons';
 
@@ -3201,6 +3227,16 @@ const App: React.FC = () => {
  <NaspiSimulatorPortal target={target} />
  </SafeLazy>
    );
+ })()}
+
+ {/* Interactive fuel-station map — the static index keeps its SEO HTML and
+   * the map component hydrates into the empty mount point inside it. This is
+   * intentionally scoped to Swiss-station index pages; the other fuel index
+   * pages keep their lighter static browse experience. */}
+ {staticOverlay && (() => {
+   const target = document.getElementById('fuel-station-map-root');
+   if (!target) return null;
+   return <FuelStationMapPortal target={target} />;
  })()}
 
  {/* Footer — on staticOverlay pages it is portalled into #footer-root which
