@@ -188,10 +188,30 @@ describe('pr-body-check-gate hook (process behavior)', () => {
     expect(res.stderr).toMatch(/Non implementato/);
   });
 
-  it('fails safe (exit 0) when body cannot be extracted at all', () => {
-    // No --body / --body-file at all: gate should not block on its own
-    // inability to locate the argument.
+  it('blocks a create when the body cannot be extracted at all', () => {
+    // The remote PR body check still evaluates the resulting empty body, so
+    // the local write gate must reject a create that cannot provide one.
     const res = runGate('gh pr create --title "x"');
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/body PR mancante o non leggibile/);
+  });
+
+  it('blocks an unparseable body write on gh pr edit', () => {
+    const res = runGate('gh pr edit 9132 --body "$PR_BODY"');
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/body PR mancante o non leggibile/);
+  });
+
+  it('blocks Markdown backticks in a double-quoted body before the shell expands them', () => {
+    const res = runGate(
+      'gh pr create --title "x" --body "## Implementato\\n\\n- usa `stationCount`\\n\\n## Non implementato (ancora)\\n\\nNessuno"',
+    );
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/body PR mancante o non leggibile/);
+  });
+
+  it('passes through a non-body gh pr edit', () => {
+    const res = runGate('gh pr edit 9132 --title "nuovo titolo"');
     expect(res.status).toBe(0);
   });
 
@@ -471,21 +491,22 @@ describe('pr-body-check-gate hook (process behavior)', () => {
     expect(res.stderr).toMatch(/Non implementato/);
   });
 
-  it('fails safe when a --body-file path is absent instead of reporting a header violation', () => {
+  it('blocks an unreadable --body-file instead of reporting a header violation', () => {
     const tracked = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-tracked-'));
     createdDirs.push(tracked);
     const res = runGate('gh pr create --title "x" --body-file missing-body.md', { cwd: tracked });
-    expect(res.status).toBe(0);
-    expect(res.stderr).not.toMatch(/header obbligatori mancanti/);
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/body PR mancante o non leggibile/);
   });
 
-  it('without payload.cwd, the same relative --body-file fails safe (exit 0) — the pre-fix behaviour', () => {
+  it('without payload.cwd, the same relative --body-file is blocked as unreadable', () => {
     const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-'));
     createdDirs.push(dir);
     writeFileSync(join(dir, 'body.md'), MISSING_NON, 'utf8');
     const cmd = 'gh pr create --title "x" --body-file body.md';
     const res = runGate(cmd); // no cwd in payload
-    expect(res.status).toBe(0);
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/body PR mancante o non leggibile/);
   });
 });
 

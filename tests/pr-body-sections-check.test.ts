@@ -244,6 +244,17 @@ describe('decision deferrals', () => {
     });
     expect(decisionDeferralFindings(negated)).toHaveLength(0);
   });
+
+  it('treats the remote check’s `false positive` spelling as the same decision', () => {
+    const vague = makeBody({ nonImplContent: '- The finding is a false positive.' });
+    expect(checkPrBodySections(vague, { strictDecisionDeferrals: true }).ok).toBe(false);
+    expect(decisionDeferralFindings(vague)).toHaveLength(1);
+
+    const negated = makeBody({
+      nonImplContent: '- This is not a false positive: fix it in the follow-up.',
+    });
+    expect(decisionDeferralFindings(negated)).toHaveLength(0);
+  });
 });
 
 // ---------------------------------------------------------------------------

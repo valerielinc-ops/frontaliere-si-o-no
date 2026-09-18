@@ -12,9 +12,9 @@
  * `scripts/lib/pr-body-sections-check.mjs`. Keep the pure validation here and
  * expose it to both callers; do not duplicate the state vocabulary.
  *
- * Fail-safe: any internal error, or body we can't confidently extract from the
- * command string (e.g. unrecognized `--body`/`--body-file` shape) → exit 0
- * (never block PR creation on this hook's own inability to parse the command).
+ * Internal validation errors remain fail-safe. An unrecognized or missing body
+ * on a PR body write is different: the remote workflow validates the resulting
+ * body anyway, so this gate blocks and asks the caller to use `--body-file`.
  *
  * Blocking uses EXIT_BLOCK (2), not 1: for PreToolUse hooks Claude Code treats
  * 1 as a NON-blocking error and runs the tool anyway, so this gate printed
@@ -37,6 +37,12 @@ import { bulletsWithoutState, checkPrBodySections, extractSection, filesUncitedI
 const NON_IMPL_ANCORA_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato[^\n]*/im;
 
 const BODY_FILE_RE = /--body-file[= ]+(?:"([^"]+)"|'([^']+)'|(\S+))/;
+
+// A double-quoted shell argument still expands backticks and `$...`. Treat
+// any such argument as unreadable instead of validating text that the shell
+// may mutate before the remote workflow sees it. Single-quoted bodies and the
+// documented heredoc form remain safe.
+const UNSAFE_DOUBLE_QUOTED_BODY_RE = /[`$]/;
 
 /** Exit code used by the workflow-facing CLI for an unreadable body file. */
 export const BODY_FILE_INFRA = 3;
@@ -127,6 +133,7 @@ export function extractPrBody(command, cwd = process.cwd()) {
   // --body "text" (double-quoted, possibly with escaped quotes)
   const doubleQuoted = command.match(/--body[= ]+"((?:[^"\\]|\\.)*)"/);
   if (doubleQuoted) {
+    if (UNSAFE_DOUBLE_QUOTED_BODY_RE.test(doubleQuoted[1])) return undefined;
     return doubleQuoted[1].replace(/\\"/g, '"');
   }
 
@@ -169,6 +176,20 @@ export function validatePrBody(body, options = {}) {
       (warning) => warning.type !== 'bullet-without-state',
     ),
   };
+}
+
+/**
+ * True when a shell command writes a PR body and must be checked locally.
+ * Non-body `gh pr edit` mutations (title, labels, assignees, ...) pass through.
+ *
+ * @param {string} command
+ * @returns {boolean}
+ */
+export function isPrBodyWriteCommand(command) {
+  const cmd = String(command ?? '');
+  if (/\bgh\s+pr\s+create\b/.test(cmd)) return true;
+  if (!/\bgh\s+pr\s+edit\b/.test(cmd)) return false;
+  return /(?:--body(?:-file)?|-b|-F)(?:[=\s]|$)/.test(cmd);
 }
 
 /**
@@ -347,21 +368,28 @@ async function main() {
     process.exit(0); // stdin failure → fail-safe
   }
 
+  const isBodyWrite = isPrBodyWriteCommand(command);
   if (!command.includes('gh pr create')) {
-    process.exit(0);
+    if (!isBodyWrite) process.exit(0);
   }
 
   let body;
   try {
     body = extractPrBody(command, targetCwd);
   } catch {
-    process.exit(0); // extraction error → fail-safe
+    process.stderr.write(
+      '\n🚫 pr-body-check-gate: body PR non verificabile; scrittura bloccata.\n' +
+        'Usa `--body-file <path>` con un file leggibile, come il check remoto.\n',
+    );
+    process.exit(EXIT_BLOCK);
   }
 
   if (body === undefined) {
-    // Couldn't confidently locate/read a --body / --body-file argument —
-    // don't block on our own parsing gap.
-    process.exit(0);
+    process.stderr.write(
+      '\n🚫 pr-body-check-gate: body PR mancante o non leggibile; scrittura bloccata.\n' +
+        'Usa `--body-file <path>` con un file leggibile, come il check remoto.\n',
+    );
+    process.exit(EXIT_BLOCK);
   }
 
   // ADVISORY (mai bloccante): i bullet di `## Non implementato (ancora)` che

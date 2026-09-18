@@ -171,15 +171,16 @@ export function hasNessuno(rawContent) {
 export const STATE_PATTERNS = Object.freeze({
   inThisPr: /\bin\s+questa\s+PR\b/i,
   chainedPr: /\bPR\s+concatenat[ao]\s*#\s*\d+/i,
-  // «falso positivo» è un sinonimo accettato dello stesso stato `by-choice`
-  // (stesso significato: nessuna azione dovuta) — non una classe nuova.
+  // «falso positivo» / «false positive» sono sinonimi accettati dello stesso
+  // stato `by-choice` (stesso significato: nessuna azione dovuta) — non una
+  // classe nuova.
   // La variante negata ("non è un falso positivo, va sistemato in
   // follow-up") dichiara l'OPPOSTO — lavoro dovuto, non chiuso — quindi
   // riusa lo stesso NEGATION_LOOKBEHIND già fixato per questa identica
   // frase in scripts/ci/lib/false-positive-declaration.mjs (incidente
   // #3367) invece di duplicare la naive substring-match qui.
   byChoice: new RegExp(
-    String.raw`\bper\s+scelta\b|${NEGATION_LOOKBEHIND}\bfalso\s+positivo\b`,
+    String.raw`\bper\s+scelta\b|${NEGATION_LOOKBEHIND}\b(?:falso\s+positivo|false\s+positive)\b`,
     'i',
   ),
   byConstruction: /\bby\s+construction\b/i,
