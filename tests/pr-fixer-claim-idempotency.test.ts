@@ -235,4 +235,18 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
   it('serializes the redcheck failure set without comma ambiguity', () => {
     expect(redcheck).toMatch(/\.check_runs\[\].*\.name\] \| sort \| @json/u);
   });
+
+  it('releases a run superseded by an external branch push before failure classification', () => {
+    for (const [name, source] of [['redflag', redflag], ['redcheck', redcheck] as const]) {
+      const classify = source.slice(source.indexOf('Classify outcome (work-done, not CLI exit)'));
+      expect(classify, `${name}: classify step`).toContain('CLAIM_STATUS=released');
+      expect(classify, `${name}: remote must differ from the baseline`).toContain('[ "$REMOTE_SHA" != "$BASE_SHA" ]');
+      expect(classify, `${name}: remote must not be this runner's local head`).toContain('[ "$REMOTE_SHA" != "$HEAD_NOW" ]');
+      const supersededAt = classify.indexOf('run SUPERSEDED');
+      const failureAt = classify.indexOf('ACTION_OUTCOME" = "failure');
+      expect(supersededAt, `${name}: superseded branch missing`).toBeGreaterThan(-1);
+      expect(failureAt, `${name}: failure branch missing`).toBeGreaterThan(-1);
+      expect(supersededAt, `${name}: stale race must be classified before failure`).toBeLessThan(failureAt);
+    }
+  });
 });

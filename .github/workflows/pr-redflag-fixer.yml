@@ -779,6 +779,8 @@ jobs:
       #  • commit pushato sul branch della PR  → round SUCCESS (la re-review girerà;
       #    se 🔴 di nuovo, il round successivo o il round-cap → needs-human). Vale
       #    anche se Claude è morto error_max_turns DOPO il push (false-failure).
+      #  • branch remoto avanzato da un altro writer dopo la baseline → run
+      #    SUPERSEDED: il claim viene rilasciato e nessun round viene consumato.
       #  • nessun push + Claude FAILED          → non-progress reale → RED (segnale
       #    preservato per il loop-health-report + escalation round-cap).
       #  • nessun push + Claude SUCCESS + NUOVO commento → terminale pulito (es.
@@ -812,6 +814,14 @@ jobs:
           echo "base=$BASE_SHA local=$HEAD_NOW remote=$REMOTE_SHA action=$ACTION_OUTCOME"
           if [ -n "$HEAD_NOW" ] && [ -n "$BASE_SHA" ] && [ "$HEAD_NOW" != "$BASE_SHA" ] && [ "$REMOTE_SHA" = "$HEAD_NOW" ]; then
             echo "✓ Fix pushato questo round (HEAD avanzato e presente su origin/$HEAD_REF) → round SUCCESS. Job verde anche se l'azione è uscita '$ACTION_OUTCOME'."
+            exit 0
+          fi
+          if [ -n "$HEAD_NOW" ] && [ -n "$BASE_SHA" ] && [ -n "$REMOTE_SHA" ] \
+             && [ "$REMOTE_SHA" != "$BASE_SHA" ] && [ "$REMOTE_SHA" != "$HEAD_NOW" ]; then
+            if [ -n "${GITHUB_ENV:-}" ]; then
+              echo 'CLAIM_STATUS=released' >> "$GITHUB_ENV"
+            fi
+            echo "⚠️ Branch avanzato da un altro writer dopo l'avvio del round (base=$BASE_SHA local=$HEAD_NOW remote=$REMOTE_SHA) → run SUPERSEDED; claim rilasciato, nessun round consumato."
             exit 0
           fi
           if [ "$ACTION_OUTCOME" = "failure" ]; then
