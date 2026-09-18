@@ -5,25 +5,13 @@ import { TLS_ERROR_CODES } from './transient-fetch.mjs';
  *
  * Careers portal: https://jobs.mcdonalds.ch/
  *
- * ── 2026-08-14 rewrite (issue #5852) ──────────────────────────
- *
- * The Drupal vacancies page (`/postes-vacants`, `mcdo_jobs_mapEntries`)
- * that the 2026-08-10 rewrite (#5393) targeted is gone again — the portal
- * reverted to the Paradox/McHire SPA the crawler ran *before* that rewrite,
- * this time server-rendered rather than client-fetched. Measured live on
- * 2026-08-14: `/postes-vacants` still 200s, but the response no longer
- * embeds `mcdo_jobs_mapEntries` anywhere, so the old regex found nothing
- * and every crawl returned zero jobs for three consecutive runs.
- *
- * The canonical listing is now `/fr/emplois-restauration` (10 jobs/page,
- * further pages at `/fr/emplois-restauration/page/{n}`). Each page embeds
- * its slice of results server-side in a `<script>` assigning
- * `window.__PRELOAD_STATE__.jobSearch` (`jobs: [...]`, `totalJob`), so
- * `discoverAllListingEntries()` walks every page and builds the full
- * result set from that JSON — no client-side rendering or bot-protected
- * XHR involved. Listing entries carry title/location/URL but not the job
- * description or posting date, so every job is still enriched from its
- * detail page.
+ * The canonical listing is `/fr/emplois-restauration` (10 jobs/page, further
+ * pages at `/fr/emplois-restauration/page/{n}`). Each page embeds its slice
+ * server-side in `window.__PRELOAD_STATE__.jobSearch` (`jobs: [...]`,
+ * `totalJob`). The crawler walks the declared CH-wide result set across all
+ * 26 cantons and rejects a page that cannot prove unique progress. Listing
+ * entries carry title/location/URL but not the job description or posting
+ * date, so every job is still enriched from its detail page.
  *
  * Detail pages moved from `/details-offre/{id}` back to
  * `/{lang}/{slug}/job/{reference}` (e.g.
@@ -40,7 +28,8 @@ import { TLS_ERROR_CODES } from './transient-fetch.mjs';
  * measure even though the certificate is valid again as of 2026-08-14.
  */
 
-import { normalizeCantonCode, inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetSwissLocation, normalizeCantonCode } from './target-swiss-locations.mjs';
+import { isChCountry } from './ch-country-guard.mjs';
 
 export const MCDO_KEY = 'mcdonald-s-switzerland';
 export const COMPANY_NAME = "McDonald's Switzerland";
@@ -90,9 +79,10 @@ export function slugify(value = '') {
 }
 
 export function inferCanton(addressRegion = '', city = '') {
+  const sourceLocation = [city, addressRegion].filter(Boolean).join(', ').trim();
+  if (!sourceLocation || !isTargetSwissLocation(sourceLocation, { includeBorderProximity: false })) return '';
   const explicit = normalizeCantonCode(String(addressRegion || ''));
-  if (explicit) return explicit;
-  return inferAnyCanton(String(city || addressRegion || ''));
+  return inferAnyCanton(sourceLocation) || explicit;
 }
 
 /**
@@ -251,7 +241,8 @@ export function parseMcdoPreloadState(html = '') {
 export function extractListingJobs(html = '') {
   const state = parseMcdoPreloadState(html);
   const jobs = state?.jobSearch?.jobs;
-  const totalJob = Number(state?.jobSearch?.totalJob) || 0;
+  const numericTotal = Number(state?.jobSearch?.totalJob);
+  const totalJob = Number.isSafeInteger(numericTotal) && numericTotal >= 0 ? numericTotal : 0;
   return { jobs: Array.isArray(jobs) ? jobs : [], totalJob };
 }
 
@@ -274,13 +265,17 @@ export function listingEntryToParsed(entry) {
 
   const location = Array.isArray(entry.locations) ? entry.locations[0] : null;
   const city = String(location?.city || '').trim();
+  const sourceCountry = location?.countryAbbr || location?.country || '';
+  if (sourceCountry && !isChCountry(sourceCountry)) return null;
+  const canton = inferCanton(location?.stateAbbr || location?.state || '', city);
+  if (!canton) return null;
 
   return {
     title,
     url: `${MCDO_BASE}/${originalURL.replace(/^\/+/, '')}`,
     jobReqId: String(entry.reference || '').trim(),
     city,
-    canton: inferCanton(location?.stateAbbr || location?.state || '', city),
+    canton,
     postalCode: String(location?.zipCode || '').trim(),
     streetAddress: String(location?.streetAddress || '').trim(),
     description: '',
@@ -300,21 +295,26 @@ export function listingPageUrl(pageNum) {
   return pageNum <= 1 ? `${MCDO_BASE}${MCDO_LISTING_PATH}` : `${MCDO_BASE}${MCDO_LISTING_PATH}/page/${pageNum}`;
 }
 
-async function fetchListingPage(pageNum, { userAgent, timeoutMs }) {
-  const html = await fetchText(listingPageUrl(pageNum), { userAgent, timeoutMs });
-  if (!html) {
-    console.warn(`[mcdonalds] listing page ${pageNum}: fetch fallito — contata come vuota`);
-    return { jobs: [], totalJob: 0 };
+async function fetchListingPage(pageNum, { userAgent, timeoutMs, fetchPage }) {
+  const url = listingPageUrl(pageNum);
+  const html = typeof fetchPage === 'function'
+    ? await fetchPage(url)
+    : await fetchText(url, { userAgent, timeoutMs });
+  if (typeof html !== 'string' || !html) {
+    throw new Error(`[mcdonalds] listing page ${pageNum} unavailable after retries (${url}).`);
   }
-  const out = extractListingJobs(html);
-  // "200 senza __PRELOAD_STATE__" NON e' "zero job": e' la firma del prossimo
-  // format drift (classe #5852). Il guard anti-wipe dell'updater impedisce la
-  // perdita dati, ma senza questo warn la diagnosi resterebbe muta per i 3 run
-  // che servono al monitor.
-  if (out.jobs.length === 0 && out.totalJob === 0 && !html.includes('__PRELOAD_STATE__')) {
-    console.warn(`[mcdonalds] listing page ${pageNum}: 200 ma nessun __PRELOAD_STATE__ — probabile cambio di formato del portale`);
+  const state = parseMcdoPreloadState(html);
+  if (!state || !state.jobSearch || !Array.isArray(state.jobSearch.jobs)) {
+    throw new Error(`[mcdonalds] listing page ${pageNum} has no authoritative __PRELOAD_STATE__.`);
   }
-  return out;
+  const numericTotal = Number(state.jobSearch.totalJob);
+  if (!Number.isSafeInteger(numericTotal) || numericTotal < 0) {
+    throw new Error(`[mcdonalds] listing page ${pageNum} has an invalid totalJob.`);
+  }
+  if (state.jobSearch.jobs.length > numericTotal) {
+    throw new Error(`[mcdonalds] listing page ${pageNum} contains ${state.jobSearch.jobs.length} rows for totalJob=${numericTotal}.`);
+  }
+  return { jobs: state.jobSearch.jobs, totalJob: numericTotal };
 }
 
 /**
@@ -324,10 +324,12 @@ async function fetchListingPage(pageNum, { userAgent, timeoutMs }) {
  * no separate "page count" field, only the running total and the observed
  * page size.
  */
-async function discoverAllListingEntries({ userAgent = DEFAULT_UA, timeoutMs = 15000 } = {}) {
-  const first = await fetchListingPage(1, { userAgent, timeoutMs });
-  if (first.jobs.length === 0) return { entries: [], pageCount: 0 };
+async function discoverAllListingEntries({ userAgent = DEFAULT_UA, timeoutMs = 15000, fetchPage } = {}) {
+  const first = await fetchListingPage(1, { userAgent, timeoutMs, fetchPage });
+  const declaredTotal = first.totalJob;
+  if (declaredTotal === 0) return { entries: [], pageCount: 1, sourceTotal: 0 };
 
+  const uniqueEntries = new Map();
   const perPage = first.jobs.length;
   // totalJob arriva dal JSON del portale e va creduto solo fino a un punto:
   // un valore assurdo (bug loro, semantica cambiata, tarpit) non deve
