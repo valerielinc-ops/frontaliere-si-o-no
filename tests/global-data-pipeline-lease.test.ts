@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT,
   GLOBAL_DATA_PIPELINE_LEASE_POLL_MS,
+  GLOBAL_DATA_PIPELINE_LEASE_TTL_MS,
   GLOBAL_DATA_PIPELINE_LEASE_WAIT_MS,
   firestoreDocumentName,
   isRetryableLeaseError,
@@ -41,8 +42,26 @@ describe('global data pipeline lease', () => {
 
   it('mantiene distinto il blocco del lease dalla contesa del push', () => {
     expect(GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT).toBe(44);
-    expect(GLOBAL_DATA_PIPELINE_LEASE_WAIT_MS).toBe(300_000);
-    expect(GLOBAL_DATA_PIPELINE_LEASE_POLL_MS).toBe(5_000);
+    // L'attesa EGUAGLIA il TTL, e non e' un numero arbitrario: l'unico caso in
+    // cui rinunciare e' corretto e' un owner morto, che diventa prendibile
+    // esattamente a `expiresAt` — dove `leaseDecision` rende gia'
+    // `{action: 'acquire', reason: 'expired'}`, come asserito qui sopra. Un
+    // waiter non deve quindi mai abbandonare PRIMA che il lease sia
+    // dimostrabilmente prendibile.
+    //
+    // Il valore precedente (5 min) affamava il convoglio: 23 gruppi arrivano al
+    // commit in una banda di ~48 min e un hold misurato di 2m23s fa ~55 min di
+    // domanda serializzata, quindi entravano solo i primi 2-4 e gli altri
+    // scartavano un crawl finito. Misurato: 23/23 gruppi al giorno fino al
+    // 2026-09-13, poi 2, 0, 4, 6, 2 (corpus #1573).
+    expect(GLOBAL_DATA_PIPELINE_LEASE_WAIT_MS).toBe(GLOBAL_DATA_PIPELINE_LEASE_TTL_MS);
+    expect(GLOBAL_DATA_PIPELINE_LEASE_WAIT_MS).toBe(3_600_000);
+    // Il poll e' salito con l'attesa perche' i due si MOLTIPLICANO: ogni poll e'
+    // una transazione Firestore, e a 5s un'attesa di 60 min ne fa 720 per
+    // writer, ~16'500 per ondata, ~33'000/giorno — si scambierebbe un'outage
+    // con un'altra. A 15s il caso peggiore e' 240 per writer.
+    expect(GLOBAL_DATA_PIPELINE_LEASE_POLL_MS).toBe(15_000);
+    expect(GLOBAL_DATA_PIPELINE_LEASE_WAIT_MS / GLOBAL_DATA_PIPELINE_LEASE_POLL_MS).toBe(240);
     const shell = fs.readFileSync('scripts/lib/git-commit-data.sh', 'utf8');
     expect(shell).toContain('global-data-pipeline-lease.mjs');
     expect(shell).toContain('global_data_pipeline_lease_cleanup');

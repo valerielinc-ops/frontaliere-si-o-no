@@ -95,9 +95,15 @@ const { webcamBySlug } = vi.hoisted(() => ({
 }));
 
 vi.mock('../scripts/analyze-webcam-frame.mjs', () => ({
-  analyzeWebcamForCrossing: vi.fn(async (slug: string) =>
-    webcamBySlug.has(slug) ? webcamBySlug.get(slug) : null,
-  ),
+  // An `Error` value in the map makes the analysis THROW for that crossing,
+  // which is the only path that increments `errors` in
+  // runWebcamOnlyCollection() — a crossing with no camera is skipped, not
+  // failed. Needed to exercise the publishability ceiling on this path.
+  analyzeWebcamForCrossing: vi.fn(async (slug: string) => {
+    const verdict = webcamBySlug.get(slug);
+    if (verdict instanceof Error) throw verdict;
+    return webcamBySlug.has(slug) ? verdict : null;
+  }),
 }));
 
 // ─── helpers ──────────────────────────────────────────────────────
@@ -114,6 +120,7 @@ interface CrossingResult {
 }
 
 interface CollectionResult {
+  persisted?: boolean;
   collected: number;
   errors: number;
   source?: string;
@@ -148,6 +155,69 @@ afterEach(() => {
 // ─── runWebcamOnlyCollection ──────────────────────────────────────
 
 describe('runWebcamOnlyCollection', () => {
+  /**
+   * Reviewer finding on PR #9143 L995: the publishability ceiling was applied
+   * on the provider-mesh path only, so the webcam path — the one the scheduled
+   * workflow actually falls back to (`ENABLE_WEBCAM_ANALYSIS: '1'`) — could
+   * still write a mixed fresh/stale snapshot to Firestore while the collector
+   * exited non-zero. Both paths now share persistIfPublishable().
+   */
+  it('does not persist a snapshot when more than half the analysed crossings failed', async () => {
+    const good = BORDER_CROSSINGS.slice(0, 2);
+    const broken = BORDER_CROSSINGS.slice(2, 9); // 7 throws vs 2 successes = 78% failure
+    for (const crossing of good) {
+      webcamBySlug.set(slugifyCrossingName(crossing.name), {
+        congestionScore: 0.85,
+        queueDetected: true,
+        visibility: 'good',
+        feeds: ['02.0N'],
+      });
+    }
+    for (const crossing of broken) {
+      webcamBySlug.set(slugifyCrossingName(crossing.name), new Error('frame fetch failed'));
+    }
+
+    const { runWebcamOnlyCollection } = (await import(
+      '../functions/src/trafficSchedulerCore.js'
+    )) as CoreModule;
+
+    const result = await runWebcamOnlyCollection({ enableWebcam: true });
+
+    expect(result.collected).toBe(2);
+    expect(result.errors).toBe(7);
+    // The two readings exist, but publishing them would leave trafficCurrent
+    // fresh for 2 slugs and months old for the rest, with nothing marking it.
+    expect(result.persisted).toBe(false);
+    expect(adminState.savedCurrent).toHaveLength(0);
+  });
+
+  it('still persists when the failure share stays under the ceiling', async () => {
+    const good = BORDER_CROSSINGS.slice(0, 5);
+    const broken = BORDER_CROSSINGS.slice(5, 9); // 4 throws vs 5 successes = 44%
+    for (const crossing of good) {
+      webcamBySlug.set(slugifyCrossingName(crossing.name), {
+        congestionScore: 0.85,
+        queueDetected: true,
+        visibility: 'good',
+        feeds: ['02.0N'],
+      });
+    }
+    for (const crossing of broken) {
+      webcamBySlug.set(slugifyCrossingName(crossing.name), new Error('frame fetch failed'));
+    }
+
+    const { runWebcamOnlyCollection } = (await import(
+      '../functions/src/trafficSchedulerCore.js'
+    )) as CoreModule;
+
+    const result = await runWebcamOnlyCollection({ enableWebcam: true });
+
+    expect(result.collected).toBe(5);
+    expect(result.errors).toBe(4);
+    expect(result.persisted).toBe(true);
+    expect(adminState.savedCurrent).toHaveLength(5);
+  });
+
   it('produces source:"webcam" results for good-visibility crossings and persists them', async () => {
     const first = BORDER_CROSSINGS[0];
     const second = BORDER_CROSSINGS[1];

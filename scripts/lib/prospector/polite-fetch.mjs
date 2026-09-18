@@ -20,6 +20,7 @@ import {
   createSpecUrlPolicy,
   fetchFollowingValidatedRedirectsWithUrl,
   isPublicFetchPolicyError,
+  publicFetchPolicyReason,
   PublicFetchPolicyError,
 } from './public-fetch-policy.mjs';
 
@@ -297,7 +298,9 @@ export async function politeFetch(url, opts = {}) {
           transportError: transportErrorKind(error),
           ...(isRobotsDeniedError(error) ? { blockedByRobots: true } : {}),
           ...(isPublicFetchPolicyError(error)
-            ? { policyBlocked: true, error: String(error?.message || error) }
+            // The policy's own message, not undici's `fetch failed` wrapper:
+            // callers classify by this reason.
+            ? { policyBlocked: true, error: publicFetchPolicyReason(error) || String(error?.message || error) }
             : {}),
         };
       }
@@ -324,7 +327,7 @@ export async function politeFetch(url, opts = {}) {
       transportError: transportErrorKind(error),
       ...(isRobotsDeniedError(error) ? { blockedByRobots: true } : {}),
       ...(isPublicFetchPolicyError(error)
-        ? { policyBlocked: true, error: String(error?.message || error) }
+        ? { policyBlocked: true, error: publicFetchPolicyReason(error) || String(error?.message || error) }
         : {}),
     };
   } finally {

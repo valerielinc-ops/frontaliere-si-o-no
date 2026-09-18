@@ -11,6 +11,11 @@ on:
 
 permissions:
   contents: read
+  # The failure reporter below files an issue with GITHUB_TOKEN. Without this
+  # the call 403s, and because that step is continue-on-error the job would
+  # still go red-but-unreported — a reporting path that fails open is worse
+  # than none, because it looks like coverage.
+  issues: write
 
 concurrency:
   group: audit-company-website-reachability
@@ -71,3 +76,25 @@ jobs:
           name: company-website-reachability-report
           path: /tmp/company-website-reachability/report.json
           if-no-files-found: ignore
+
+      - name: Report failure to GitHub Issues
+        # This monitor had no reporting path at all: the 4 consecutive red runs
+        # from 2026-09-15 to 2026-09-18 raised nothing, so a ceiling breach was
+        # only visible to whoever opened the Actions tab. The title is stable so
+        # github-issue-creator comments on the canonical issue instead of
+        # opening one per day.
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          Il report completo e' l'artifact \`company-website-reachability-report\` della run." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

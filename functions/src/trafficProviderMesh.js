@@ -15,8 +15,17 @@ const MAPBOX_DIRECTIONS_URL = 'https://api.mapbox.com/directions/v5/mapbox/drivi
 const GEOAPIFY_ROUTING_URL = 'https://api.geoapify.com/v1/routing';
 const GRAPHHOPPER_ROUTING_URL = 'https://graphhopper.com/api/1/route';
 const OPENROUTESERVICE_ROUTING_URL = 'https://api.heigit.org/openrouteservice/v2/directions/driving-car';
-const STADIA_ROUTING_URL = 'https://api.stadiamaps.com/route/v1/driving';
+const STADIA_ROUTING_URL = 'https://api.stadiamaps.com/route/v1';
 const REQUEST_TIMEOUT_MS = 12_000;
+
+// Every route/flow request reserves its unit in its own Firestore transaction
+// against ONE document per provider, and the collector fires a whole batch
+// concurrently (5 crossings × 2 segments = 10 writers on the same document for
+// mapbox). Firestore's default of 5 attempts is not enough headroom for that
+// burst: on 2026-09-18 three reservations returned `10 ABORTED` and the run
+// lost its only working provider. Contention retries are cheap and serialize
+// naturally; the budget decision stays exact either way.
+const RESERVATION_TX_MAX_ATTEMPTS = 15;
 
 function quotaLimit({ period, quotaScope, documentId = null, budgetEnv, defaultBudget, safeMaximum = defaultBudget }) {
   return Object.freeze({ period, quotaScope, documentId, budgetEnv, defaultBudget, safeMaximum });
@@ -530,7 +539,7 @@ export async function reserveTrafficProviderRequest(providerId, operation = 'rou
       units: requestedUnits,
       periods: decisions.map((item) => ({ period: item.period, count: item.decision.count, budget: item.limit.budget })),
     };
-  });
+  }, { maxAttempts: RESERVATION_TX_MAX_ATTEMPTS });
 }
 
 export function getProviderApiKey(providerId, options = {}) {
@@ -563,6 +572,56 @@ export function isProviderQuotaError(error) {
   return classifyProviderError(error) === 'quota';
 }
 
+/**
+ * Reservation refusals that describe a MOMENTARY condition, not a spent
+ * allowance. The reservation itself still fails closed — an unmetered paid
+ * request is never sent — but the provider must stay eligible for the next
+ * segment.
+ *
+ * `quota-check-failed` is the Firestore transaction itself failing, typically
+ * `10 ABORTED: cross-transaction contention` because a batch of 5 crossings
+ * reserves 10 units concurrently against the same `meta/trafficProviderQuota-*`
+ * document. `rate-limit` is a per-provider minimum interval that carries its
+ * own `retryAfterMs`. Treating either as account-wide is what turned three
+ * aborted transactions into a 5.6-hour outage on 2026-09-18: mapbox — the only
+ * provider that actually serves all 141 crossings — was banned mid-run and the
+ * mesh collapsed onto its misconfigured fallbacks.
+ */
+export const TRANSIENT_RESERVATION_REASONS = Object.freeze(['quota-check-failed', 'rate-limit']);
+
+/** True when a refusal must not disable the provider for the rest of the run. */
+export function isTransientProviderRefusal(error) {
+  return TRANSIENT_RESERVATION_REASONS.includes(error?.reason);
+}
+
+/**
+ * gRPC status codes for which a later reservation attempt can still succeed:
+ * DEADLINE_EXCEEDED, RESOURCE_EXHAUSTED, ABORTED, INTERNAL, UNAVAILABLE.
+ *
+ * Everything else Firestore raises here — PERMISSION_DENIED (7),
+ * UNAUTHENTICATED (16), INVALID_ARGUMENT (3), NOT_FOUND (5),
+ * FAILED_PRECONDITION (9) — is a configuration fault that every one of the
+ * remaining segments would hit identically. Retrying those 280 times is not
+ * resilience, it is a stall: the provider has to be disabled for the run.
+ */
+const RETRYABLE_RESERVATION_CODES = Object.freeze(new Set([4, 8, 10, 13, 14]));
+
+/**
+ * True when a THROWN reservation error is worth another attempt on the next
+ * segment. Unknown shapes answer false: an error nobody can classify, repeated
+ * once per segment, is the stall this guard exists to avoid.
+ *
+ * @param {unknown} error the error `reserveTrafficProviderRequest` threw
+ */
+export function isRetryableReservationError(error) {
+  const code = Number(error?.code);
+  if (Number.isInteger(code)) return RETRYABLE_RESERVATION_CODES.has(code);
+  // google-gax formats the message as `<code> <STATUS>: <details>` and some
+  // wrappers lose the numeric `code` while keeping that prefix.
+  const prefix = String(error?.message ?? '').match(/^\s*(\d+)\s+[A-Z_]+:/);
+  return prefix ? RETRYABLE_RESERVATION_CODES.has(Number(prefix[1])) : false;
+}
+
 function safeBody(text) {
   return String(text ?? '').replace(/\s+/g, ' ').slice(0, 240);
 }
@@ -584,8 +643,12 @@ async function reserveRequestIfNeeded(options, providerId, operation = 'route') 
   if (typeof reserveRequest !== 'function') return;
   const result = await reserveRequest(providerId, operation);
   if (result === false || result?.allowed === false) {
-    const error = providerBudgetExhaustedError(providerId, result?.budget, result?.period);
-    error.reason = result?.reason ?? 'quota';
+    const error = providerBudgetExhaustedError(
+      providerId,
+      result?.budget,
+      result?.period,
+      result?.reason ?? 'quota',
+    );
     error.retryAfterMs = result?.retryAfterMs;
     throw error;
   }
@@ -701,12 +764,33 @@ async function getOpenRouteServiceTimes(originLat, originLng, destLat, destLng, 
   return normaliseTimes(seconds, seconds);
 }
 
+/**
+ * Stadia Maps routing is Valhalla, not OSRM: `POST /route/v1?api_key=…` with a
+ * JSON body. The original adapter called it OSRM-style — a GET on
+ * `/route/v1/driving/{lng,lat;lng,lat}` — which is not a route on that host and
+ * answered `HTTP 404` with an empty body on EVERY segment since the provider
+ * was added. It was the final error for 45 of the 141 crossings in run
+ * 35358498994, and its 20-credit reservation was spent on each of those 404s.
+ *
+ * Both response shapes are accepted: `trip.summary.time` is the native reply,
+ * `routes[0].duration` the OSRM-formatted one.
+ */
 async function getStadiaTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl, options = {}) {
   await reserveRequestIfNeeded(options, 'stadia');
-  const coordinates = `${originLng},${originLat};${destLng},${destLat}`;
-  const params = new URLSearchParams({ api_key: apiKey, overview: 'false' });
-  const data = await requestJson(`${STADIA_ROUTING_URL}/${coordinates}?${params}`, {}, fetchImpl);
-  const seconds = Number(data?.routes?.[0]?.duration);
+  const params = new URLSearchParams({ api_key: apiKey });
+  const data = await requestJson(`${STADIA_ROUTING_URL}?${params}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      locations: [
+        { lat: originLat, lon: originLng },
+        { lat: destLat, lon: destLng },
+      ],
+      costing: 'auto',
+      directions_options: { units: 'kilometers' },
+    }),
+  }, fetchImpl);
+  const seconds = Number(data?.trip?.summary?.time ?? data?.routes?.[0]?.duration);
   if (!Number.isFinite(seconds)) throw new Error('Stadia Routing: NO_ROUTE');
   return normaliseTimes(seconds, seconds);
 }
@@ -739,9 +823,12 @@ export async function getTrafficSegmentTravelTimes(providerId, originLat, origin
 }
 
 /** Build a stable error used when the local cap blocks a fallback. */
-export function providerBudgetExhaustedError(providerId, budget, period) {
-  const error = new Error(`${providerId} local budget exhausted (${budget}/${period})`);
+export function providerBudgetExhaustedError(providerId, budget, period, reason = 'quota') {
+  const error = new Error(
+    `${providerId} reservation refused (${reason}) — local budget ${budget}/${period}`,
+  );
   error.code = 'TRAFFIC_PROVIDER_BUDGET_EXHAUSTED';
   error.providerId = providerId;
+  error.reason = reason;
   return error;
 }
