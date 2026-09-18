@@ -314,6 +314,34 @@ describe('delta push degli shard', () => {
     }
   });
 
+  it('esclude dal manifest del locale i subtree già assegnati agli shard-sezione', () => {
+    const scenario = createScenario('locale-section-strip');
+    try {
+      const sectionPage = 'find-jobs-aargau/job-slug';
+      writePayload(scenario, {
+        'pages/kept': '<html>kept</html>',
+        [sectionPage]: '<html>section</html>',
+      });
+      writeManifest(scenario, ['pages/kept', sectionPage], 'v1');
+      expect(runPush(scenario, 'delta').status).toBe(0);
+      expect(treeFiles(scenario.remote)).toContain(`en/${sectionPage}/index.html`);
+
+      // Mirrors deploy.yml: the section push has succeeded, then
+      // strip-section-subtree.sh removes the section from the locale dist, but
+      // the build manifest remains the complete pre-strip manifest.
+      writePayload(scenario, { 'pages/kept': '<html>kept</html>' });
+      writeManifest(scenario, ['pages/kept', sectionPage], 'v2');
+      const result = runPush(scenario, 'delta');
+      expect(result.status).toBe(0);
+      expect(result.output).toContain('delta indexed tree');
+      expect(result.output).not.toContain('payload mancante');
+      expect(treeFiles(scenario.remote)).not.toContain(`en/${sectionPage}/index.html`);
+      assertContent(scenario.remote, 'en/pages/kept/index.html', '<html>kept</html>');
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
   it('fa fallback full su manifest corrente invalido e conserva l’output finale', () => {
     const scenario = createScenario('invalid-manifest');
     try {

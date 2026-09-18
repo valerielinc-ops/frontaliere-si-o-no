@@ -6,6 +6,13 @@ import { fileURLToPath } from 'node:url';
 import { loadManifest } from './incremental-manifest-report.mjs';
 import { MANIFEST_FORMAT, MANIFEST_VERSION, PAGE_KINDS } from '../../build-plugins/shared/incrementalManifest.mjs';
 
+const SECTION_SHARD_SLUGS = JSON.parse(
+  fs.readFileSync(
+    path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../lib/section-shard-slugs.json'),
+    'utf8',
+  ),
+);
+
 function parseArgs(argv) {
   const args = {};
   for (const arg of argv) {
@@ -40,8 +47,22 @@ function isSafeManifestPath(pagePath) {
     && segments.every((segment, index) => segment.length > 0 || index === segments.length - 1);
 }
 
-function inScope(pagePath, scope) {
-  return !scope || pagePath === scope || pagePath.startsWith(`${scope}/`);
+function sectionScopesForLocale(scope) {
+  // The non-IT locale dist is stripped after each section shard is pushed;
+  // its build manifest is intentionally the pre-strip corpus.
+  if (!['en', 'de', 'fr'].includes(scope)) return [];
+  return Object.values(SECTION_SHARD_SLUGS)
+    .filter((section) => section && typeof section === 'object')
+    .map((section) => section[scope])
+    .filter(Boolean)
+    .map((slug) => `${scope}/${slug}`);
+}
+
+function inScope(pagePath, scope, excludedScopes) {
+  if (scope && pagePath !== scope && !pagePath.startsWith(`${scope}/`)) return false;
+  return !excludedScopes.some((excludedScope) => (
+    pagePath === excludedScope || pagePath.startsWith(`${excludedScope}/`)
+  ));
 }
 
 function validateManifest(manifest, label) {
@@ -63,7 +84,10 @@ function validateManifest(manifest, label) {
 }
 
 function selectEntries(manifest, scope) {
-  return new Map([...manifest.entries].filter(([pagePath]) => inScope(pagePath, scope)));
+  const excludedScopes = sectionScopesForLocale(scope);
+  return new Map([...manifest.entries].filter(([pagePath]) => (
+    inScope(pagePath, scope, excludedScopes)
+  )));
 }
 
 function assertPayload(entries, sourceRoot) {
@@ -206,12 +230,14 @@ async function main() {
   const currentBases = new Set([...currentEntries.keys()].map((pagePath) => relativeManifestPath(pagePath, scope)));
   const changedBases = new Set(changed.map((pagePath) => relativeManifestPath(pagePath, scope)));
   const changedFiles = payloadFiles.filter((relativePath) => isCoveredByManifest(relativePath, changedBases));
+  const manifestCoveredFiles = payloadFiles.filter((relativePath) => isCoveredByManifest(relativePath, currentBases));
   const unmanifestedFiles = payloadFiles.filter((relativePath) => !isCoveredByManifest(relativePath, currentBases));
   writeSnapshot(current, currentEntries, path.join(args.out, 'snapshot.jsonl'));
   writePathList(path.join(args.out, 'changed.txt'), changed);
   writePathList(path.join(args.out, 'removed.txt'), removed);
   writePathList(path.join(args.out, 'payload-files.txt'), payloadFiles);
   writePathList(path.join(args.out, 'changed-files.txt'), changedFiles);
+  writePathList(path.join(args.out, 'manifest-covered-files.txt'), manifestCoveredFiles);
   writePathList(path.join(args.out, 'unmanifested-files.txt'), unmanifestedFiles);
   fs.writeFileSync(path.join(args.out, 'summary.json'), `${JSON.stringify({
     locale: current.data.locale,
