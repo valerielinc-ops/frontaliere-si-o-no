@@ -279,6 +279,9 @@ describe('fuel-station map — Swiss index carries a client island without losin
     expect(payload.fuel).toBe('benzina');
     expect(payload.stations).toHaveLength(2);
     expect(payload.stations.every((station: { lat: number; lng: number; benzinaPriceChf: number }) => Number.isFinite(station.lat) && Number.isFinite(station.lng) && station.benzinaPriceChf > 0)).toBe(true);
+    expect(html).toMatch(/<h2 id=(?:"|')?fuel-map-title(?:"|')? class=(?:"|')?fuel-map-ssr-title(?:"|')?>Karte der Treibstoffpreise im Tessin<\/h2>/);
+    expect(html).toMatch(/<strong>2<\/strong>\s*<span>Tankstellen auf der Karte<\/span>/);
+    expect(html).toMatch(/<time dateTime=(?:"|')?2026-04-28(?:"|')?>Preise des Tages · 2026-04-28<\/time>/);
   });
 
   it('keeps map payload fuel-specific for diesel indexes', () => {

@@ -1615,3 +1615,163 @@ input[type=number] { -moz-appearance: textfield; }
   .fuel-map-spin { animation-duration: 0.01ms; }
   .fuel-map-zone-filter button { transition: none; }
 }
+
+/* ── Fuel map refinement ──────────────────────────────────────────
+   The map is an Operate surface: the price signal leads, controls stay
+   discoverable, and the list remains a calm companion to the geography. */
+.fuel-map-section {
+  margin: 38px 0 48px;
+  border-radius: 22px;
+}
+.fuel-map-ssr-header {
+  position: relative;
+  overflow: hidden;
+  gap: clamp(24px, 5vw, 72px);
+  padding: clamp(26px, 4vw, 40px) clamp(22px, 4vw, 42px) clamp(24px, 3.5vw, 34px);
+}
+.fuel-map-ssr-header::after {
+  position: absolute;
+  right: -44px;
+  bottom: -102px;
+  width: 260px;
+  height: 260px;
+  border: 1px solid color-mix(in srgb, var(--color-on-accent) 14%, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 22px color-mix(in srgb, var(--color-on-accent) 4%, transparent), 0 0 0 44px color-mix(in srgb, var(--color-on-accent) 3%, transparent);
+  content: '';
+  pointer-events: none;
+}
+.fuel-map-ssr-header > div { position: relative; z-index: 1; }
+.fuel-map-ssr-title,
+main.seo-static-content .fuel-map-ssr-title {
+  margin: 0;
+  color: var(--color-on-accent);
+  font-family: inherit;
+  font-size: clamp(1.5rem, 3.2vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+.fuel-map-ssr-description,
+main.seo-static-content .fuel-map-ssr-description {
+  max-width: 64ch;
+  margin: 12px 0 0;
+  color: color-mix(in srgb, var(--color-on-accent) 78%, transparent);
+  font-size: clamp(0.92rem, 1.4vw, 1rem);
+  line-height: 1.55;
+}
+.fuel-map-ssr-meta {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: baseline;
+  column-gap: 11px;
+  row-gap: 2px;
+  min-width: min(250px, 34%);
+  padding-top: 4px;
+  text-align: left;
+}
+.fuel-map-ssr-meta strong {
+  grid-row: span 2;
+  color: var(--color-on-accent);
+  font-size: clamp(2.2rem, 5vw, 3.3rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 750;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+}
+.fuel-map-ssr-meta span {
+  color: var(--color-on-accent);
+  font-size: 0.93rem;
+  font-weight: 650;
+  line-height: 1.1;
+}
+.fuel-map-ssr-meta time {
+  color: color-mix(in srgb, var(--color-on-accent) 68%, transparent);
+  font-size: 0.72rem;
+  line-height: 1.2;
+}
+.fuel-map-toolbar {
+  grid-template-columns: minmax(240px, 0.72fr) minmax(0, 1.28fr);
+  gap: 16px;
+  padding: 18px 22px;
+}
+.fuel-map-zone-filter {
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: visible;
+  scrollbar-width: none;
+}
+.fuel-map-zone-filter button {
+  min-height: 40px;
+  padding: 0 14px;
+}
+.fuel-map-grid {
+  grid-template-columns: minmax(0, 1.6fr) minmax(360px, 0.9fr);
+}
+.fuel-map-canvas-heading {
+  flex-wrap: wrap;
+  padding: 16px 22px;
+}
+.fuel-map-status {
+  max-width: 100%;
+  white-space: normal;
+  text-align: right;
+}
+.fuel-map-canvas,
+.fuel-map-leaflet {
+  height: clamp(360px, 42vw, 500px);
+  min-height: 0;
+}
+.fuel-map-results {
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+.fuel-map-result-links a {
+  min-height: 36px;
+  align-items: center;
+}
+
+@media (max-width: 980px) {
+  .fuel-map-grid { grid-template-columns: 1fr; }
+  .fuel-map-canvas-wrap { border-right: 0; border-bottom: 1px solid var(--color-edge); }
+  .fuel-map-list { min-height: 0; }
+  .fuel-map-results { max-height: 430px; }
+}
+
+@media (max-width: 860px) {
+  .fuel-map-ssr-header { gap: 18px; padding: 24px 22px 26px; }
+  .fuel-map-ssr-meta {
+    min-width: 0;
+    padding-top: 0;
+    text-align: left;
+  }
+  .fuel-map-toolbar { grid-template-columns: 1fr; padding: 14px 16px; }
+  .fuel-map-zone-filter {
+    flex-wrap: nowrap;
+    margin: 0 -2px;
+    overflow-x: auto;
+    padding: 2px 2px 5px;
+    scrollbar-width: none;
+  }
+  .fuel-map-zone-filter::-webkit-scrollbar { display: none; }
+  .fuel-map-canvas-heading { padding: 14px 18px; }
+  .fuel-map-status { width: 100%; justify-content: flex-start; text-align: left; }
+  .fuel-map-results { max-height: 430px; padding-inline: 14px; }
+}
+
+@media (max-width: 600px) {
+  .fuel-map-section { margin: 28px 0 36px; border-radius: 18px; }
+  .fuel-map-ssr-header { padding: 22px 18px 24px; }
+  .fuel-map-ssr-title { font-size: clamp(1.45rem, 8vw, 2rem); }
+  .fuel-map-ssr-meta strong { font-size: 2.2rem; }
+  .fuel-map-search { min-height: 48px; border-radius: 14px; }
+  .fuel-map-zone-filter button { min-height: 44px; }
+  .fuel-map-canvas,
+  .fuel-map-leaflet { height: 360px; }
+  .fuel-map-list-heading { flex-direction: column; gap: 12px; padding: 20px 18px 12px; }
+  .fuel-map-cheapest { grid-auto-flow: column; align-items: baseline; gap: 8px; text-align: left; }
+  .fuel-map-list-meta { padding-inline: 18px; }
+  .fuel-map-result { min-height: 60px; padding-block: 9px; }
+  .fuel-map-result-links { padding-top: 2px; }
+  .fuel-map-result-links a { min-height: 44px; }
+}
