@@ -394,7 +394,12 @@ export default function FuelStationMap({ payload }: { payload: FuelStationMapPay
                     eventHandlers={{ click: () => setFocusedId(station.id) }}
                     pathOptions={{ fillColor: color, color: isFocused ? MAP_COLORS.accent : MAP_COLORS.primaryStroke, weight: isFocused ? 4 : 2, fillOpacity: 0.92 }}
                   >
-                    <Tooltip direction="top" offset={[0, -8]} opacity={0.96} permanent>
+                    <Tooltip
+                      direction="top"
+                      offset={[0, -8]}
+                      opacity={0.96}
+                      permanent={isFocused || (!focusedId && station.id === cheapest?.id)}
+                    >
                       {formatPrice(price, payload.locale, copy.fuelUnit)}
                     </Tooltip>
                     <Popup>

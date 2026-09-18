@@ -1009,10 +1009,14 @@ function renderFuelMapSection(
   return `<section class="fuel-map-section" aria-labelledby="fuel-map-title" data-fuel-map-section>
     <div class="fuel-map-ssr-header">
       <div>
-        <h2 id="fuel-map-title">${esc(copy.title)}</h2>
-        <p>${esc(copy.description)}</p>
+        <h2 id="fuel-map-title" class="fuel-map-ssr-title">${esc(copy.title)}</h2>
+        <p class="fuel-map-ssr-description">${esc(copy.description)}</p>
       </div>
-      <div class="fuel-map-ssr-meta"><strong>${esc(stationCount)}</strong><span>${esc(copy.updatedLabel)} · ${esc(dateStamp)}</span></div>
+      <div class="fuel-map-ssr-meta" aria-label="${esc(stationCount)}">
+        <strong>${mappedStations.length}</strong>
+        <span>${esc(copy.stationNoun(mappedStations.length))}</span>
+        <time dateTime="${esc(dateStamp)}">${esc(copy.updatedLabel)} · ${esc(dateStamp)}</time>
+      </div>
     </div>
     <div id="fuel-station-map-root" class="fuel-map-mount" data-fuel-map-root></div>
     <script id="fuel-station-map-data" type="application/json">${payload}</script>
