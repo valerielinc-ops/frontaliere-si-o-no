@@ -26,6 +26,7 @@ import {
  careClusterSlug,
  type JobCareClusterKey,
 } from './jobEditorialLanding';
+import { getJobIntentLandingSlug, JOB_INTENT_KEYS } from './jobIntentLanding';
 import { EVENTS_INDEX_PATH } from '../scripts/lib/events-utils.mjs';
 import {
  EMPLOYER_PROFILE_PATH_RX,
@@ -47,7 +48,9 @@ type SupportedLocale = CantonLocale;
 // Editorial-canton landing kinds confirmed (via emitEditorialBelowFloorBridge
 // call sites in jobsSeoPagesPlugin.ts) to ALWAYS have a live page at their
 // canonical slug for EVERY canton — either the full listing or a noindex
-// below-floor bridge, never a silent skip. Other descriptor kinds
+// below-floor bridge, never a silent skip. The demand-qualified intent family
+// is the exception: it is emitted only for the TI section, so it is added
+// separately below with an explicit canton guard. Other descriptor kinds
 // (official-gazette/location/location-type/location-sector/sector-region/
 // recency) do NOT have that universal per-canton guarantee, so they are
 // deliberately excluded — self-mapping them would risk telling the compat
@@ -70,6 +73,11 @@ const SELF_MAPPABLE_EDITORIAL_SLUGS: ReadonlySet<string> = (() => {
  s.add(getJobPartTimeLandingSlug(locale, canton));
  for (const key of CARE_CLUSTER_KEYS) {
  s.add(careClusterSlug(key, canton, locale));
+ }
+ if (canton === 'TI') {
+ for (const intentKey of JOB_INTENT_KEYS) {
+ s.add(getJobIntentLandingSlug(locale, intentKey));
+ }
  }
  }
  }

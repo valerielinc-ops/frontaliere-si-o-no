@@ -6,6 +6,7 @@ import {
   resolveJobIntentKeyBySlug,
 } from '../build-plugins/jobIntentLanding';
 import { resolveEditorialJobLandingDescriptor } from '../build-plugins/jobEditorialLanding';
+import { resolveSearchConsoleCompatTarget } from '../build-plugins/searchConsoleCompat';
 
 function job(overrides: Record<string, unknown> = {}) {
   return {
@@ -29,6 +30,11 @@ describe('job intent landings', () => {
     expect(resolveEditorialJobLandingDescriptor('lavoro-tedesco-ticino')).toMatchObject({
       kind: 'intent',
       intentKey: 'german-speaking',
+    });
+    expect(resolveSearchConsoleCompatTarget('/cerca-lavoro-ticino/lavoro-tedesco-ticino/')).toEqual({
+      canonicalPath: '/cerca-lavoro-ticino/lavoro-tedesco-ticino/',
+      kind: 'legacy',
+      locale: 'it',
     });
   });
 
