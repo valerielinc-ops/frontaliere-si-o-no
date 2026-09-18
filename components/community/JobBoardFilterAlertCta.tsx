@@ -3,9 +3,11 @@ import { BellRing, Check, Loader2 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { subscribeJobAlertOneTap } from '@/services/jobAlertService';
+import { requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
 import { useImpressionTracker } from '@/hooks/useImpressionTracker';
 
 export type JobBoardFilterAlertCtaStatus = 'idle' | 'submitting' | 'success' | 'error';
+export type JobBoardFilterAlertCtaContext = 'category' | 'sector' | 'search';
 
 /**
  * One-tap "Avvisami per questa ricerca" CTA (issue #4298).
@@ -24,20 +26,24 @@ export type JobBoardFilterAlertCtaStatus = 'idle' | 'submitting' | 'success' | '
  * frequency default and canton hard-scope validation.
  */
 export interface JobBoardFilterAlertCtaProps {
-  /** Authenticated user id. */
-  userId: string;
-  /** Authenticated user email. */
-  email: string;
+  /** Authenticated user id, or null for the existing form/pending-intent path. */
+  userId?: string | null;
+  /** Authenticated user email, or null for the existing form/pending-intent path. */
+  email?: string | null;
   /** Active locale — passed straight to the alert config. */
   locale: Locale;
   /** Localized profession/search label used as both keyword and CTA copy. */
   keywordLabel: string;
+  /** Whether the active filter is a category, sector, or free-text search. */
+  context?: JobBoardFilterAlertCtaContext;
   /** 2-letter canton code from the current board route, or null (all cantons). */
   cantonCode?: string | null;
   /** Called on a successful create (analytics / gating side-effects). */
   onSubscribed?: () => void;
   /** Called when subscribe throws. */
   onErrored?: (error: unknown) => void;
+  /** Called when an anonymous visitor hands off to the mounted JobAlertForm. */
+  onAnonymousOpen?: () => void;
   /** Fired ONCE, the first time this CTA is genuinely visible in the viewport.
    * Deliberately not a mount callback: this surface renders inside a long job
    * list most visitors never scroll to, and firing on mount is what inflated the
@@ -53,17 +59,35 @@ export default function JobBoardFilterAlertCta({
   email,
   locale,
   keywordLabel,
+  context = 'search',
   cantonCode,
   onSubscribed,
   onErrored,
+  onAnonymousOpen,
   onImpression,
   subscribe = subscribeJobAlertOneTap,
 }: JobBoardFilterAlertCtaProps) {
   const { t } = useTranslation();
   const [status, setStatus] = useState<JobBoardFilterAlertCtaStatus>('idle');
 
+  const handleAnonymousOpen = useCallback(() => {
+    if (!keywordLabel) return;
+    // JobAlertForm owns auth, email capture, and pending-intent replay. Keep
+    // the request queued for a lazy mount, and also notify an already-mounted
+    // list form so the tap opens it immediately.
+    requestJobAlertOpen(keywordLabel);
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('openJobAlert', { detail: { keyword: keywordLabel } }));
+    }
+    onAnonymousOpen?.();
+  }, [keywordLabel, onAnonymousOpen]);
+
   const handleClick = useCallback(async () => {
     if (!keywordLabel) return;
+    if (!userId || !email) {
+      handleAnonymousOpen();
+      return;
+    }
     setStatus('submitting');
     try {
       // No `source` job to attribute — this CTA is driven by board filters,
@@ -84,7 +108,7 @@ export default function JobBoardFilterAlertCta({
       setStatus('error');
       if (onErrored) onErrored(error);
     }
-  }, [cantonCode, email, keywordLabel, locale, onErrored, onSubscribed, subscribe, userId]);
+  }, [cantonCode, email, handleAnonymousOpen, keywordLabel, locale, onErrored, onSubscribed, subscribe, userId]);
 
   // Impression = genuinely on screen, never merely mounted (issue #5039).
   const impressionRef = useImpressionTracker(() => { if (onImpression) onImpression(); });
@@ -112,7 +136,11 @@ export default function JobBoardFilterAlertCta({
         ) : (
           <BellRing className="w-4 h-4" aria-hidden="true" />
         )}
-        {t('jobAlert.boardFilterCta.cta', 'Avvisami per questa ricerca')}
+        {context === 'category'
+          ? t('jobAlert.boardFilterCta.category', 'Segui questa categoria')
+          : context === 'sector'
+          ? t('jobAlert.boardFilterCta.sector', 'Segui questo settore')
+          : t('jobAlert.boardFilterCta.cta', 'Avvisami per questa ricerca')}
       </button>
       {status === 'error' && (
         <p className="mt-2 text-xs text-danger">

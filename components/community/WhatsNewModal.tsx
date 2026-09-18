@@ -45,6 +45,12 @@ export const RELEASES: Release[] = [
         descKey: 'whatsNew.v3966.rewardedApply.desc',
         link: { tab: 'job-board' },
       },
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3966.jobSearchLoop.title',
+        descKey: 'whatsNew.v3966.jobSearchLoop.desc',
+        link: { tab: 'job-board' },
+      },
     ],
   },
   {

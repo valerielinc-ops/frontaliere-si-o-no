@@ -1,4 +1,7 @@
 const enCore: Record<string, string> = {
+ 'whatsNew.v3966.title': 'A more useful job search',
+ 'whatsNew.v3966.jobSearchLoop.title': 'New jobs, categories and alerts',
+ 'whatsNew.v3966.jobSearchLoop.desc': 'Pick up where you left off, follow a category, and move between related categories, employers and new German-speaking or entry-level job pages.',
  'app.title': 'Frontaliere Ticino',
  'app.subtitle': 'Calculate and compare your net salary as a cross-border worker',
  'app.fullscreen': 'Fullscreen',
@@ -952,6 +955,8 @@ const enCore: Record<string, string> = {
  'savedJobsNudge.successBody': 'We will email you as soon as new jobs match your criteria.',
  'savedJobsNudge.errorBody': "Couldn't create the alert. Please try again.",
  'savedJobsNudge.retryCta': 'Retry',
+ 'jobAlert.boardFilterCta.category': 'Follow this category',
+ 'jobAlert.boardFilterCta.sector': 'Follow this sector',
  'jobAlert.boardFilterCta.cta': 'Notify me for this search',
  'jobAlert.boardFilterCta.success': 'Alert activated ✓',
  'jobAlert.boardFilterCta.error': "Couldn't create the alert. Retry.",
