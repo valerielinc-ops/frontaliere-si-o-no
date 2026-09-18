@@ -280,11 +280,16 @@ export function cantonNamedByLocation(location) {
   let city = String(location || '').trim();
   if (!city) return null;
 
+  const namedCantons = new Set();
+  let ambiguousBareAg = false;
+
   for (let pass = 0; pass < 4; pass += 1) {
     /** @type {string | null} */
     let head = null;
     /** @type {string | null} */
     let tail = null;
+    /** @type {LocationRedundancy | null} */
+    let kindHint = null;
 
     const paren = PAREN_TAIL.exec(city);
     if (paren) {
@@ -297,6 +302,7 @@ export function cantonNamedByLocation(location) {
         const bare = BARE_CODE_TAIL.exec(city);
         if (bare) {
           [, head, tail] = bare;
+          kindHint = 'bare-code';
         }
       }
     }
@@ -307,14 +313,28 @@ export function cantonNamedByLocation(location) {
     if (!classified) break;
 
     if (classified.code) {
+      // `AG` is both Aargau and the German company suffix Aktiengesellschaft.
+      // This helper has no source/company evidence, so a bare `XpertCenter AG`
+      // must not be allowed to overwrite a crawler canton. Explicit markers
+      // such as `(AG)` remain trustworthy for display and reconciliation.
+      if ((kindHint ?? classified.kind) === 'bare-code' && classified.code === 'AG') {
+        ambiguousBareAg = true;
+      } else {
+        namedCantons.add(classified.code);
+      }
+
+      // A separator can put a second explicit canton in the peeled head,
+      // e.g. `Obwalden/Nidwalden`. Record it before peeling further so a
+      // location with distinct canton markers is never reduced to the tail.
       const headClassified = classifyTail(head.trim());
-      if (headClassified?.code && headClassified.code !== classified.code) return null;
-      return classified.code;
+      if (headClassified?.code) namedCantons.add(headClassified.code);
     }
 
     city = head.trim();
   }
-  return null;
+
+  if (ambiguousBareAg || namedCantons.size !== 1) return null;
+  return [...namedCantons][0];
 }
 
 /**

@@ -223,4 +223,14 @@ describe('preferLocationEncodedCanton', () => {
     expect(cantonNamedByLocation('Obwalden/Nidwalden')).toBeNull();
     expect(preferLocationEncodedCanton('Obwalden/Nidwalden', 'OW')).toBe('OW');
   });
+
+  it('checks every peeled marker instead of trusting only the outer canton', () => {
+    expect(cantonNamedByLocation('Reinach (AG), Basel-Landschaft')).toBeNull();
+    expect(cantonNamedByLocation('Obwalden/Nidwalden')).toBeNull();
+  });
+
+  it('does not infer Aargau from an unverified company suffix', () => {
+    expect(cantonNamedByLocation('XpertCenter AG')).toBeNull();
+    expect(preferLocationEncodedCanton('XpertCenter AG', 'BL')).toBe('BL');
+  });
 });
