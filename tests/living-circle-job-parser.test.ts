@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { parseLivingCircleFeed, buildLivingCircleLocalizedContent } from '../scripts/lib/living-circle-job-parser.mjs';
+import {
+  parseLivingCircleFeed,
+  buildLivingCircleLocalizedContent,
+  isLivingCircleTargetRole,
+  resolveLivingCircleCanton,
+} from '../scripts/lib/living-circle-job-parser.mjs';
 
 const FEED = {
   dataFeedElement: [
@@ -39,5 +44,43 @@ describe('living-circle-job-parser', () => {
     expect(localized.it.title).toContain('Assistant Gouvernante');
     expect(localized.en.slug).toContain('the-living-circle');
     expect(localized.fr.description).toContain('The Living Circle recrute');
+  });
+
+  // The crawler used to drop every role outside eight Ticino municipalities.
+  // On the live feed that discarded 23 of 24 vacancies (20 Zürich, 3 Bern).
+  it('keeps Swiss roles from every canton the group operates in', () => {
+    const roles = [
+      { location: 'Ascona' },
+      { location: 'Zürich' },
+      { location: 'Thalwil' },
+      { location: 'Grindelwald' },
+    ];
+    expect(roles.filter(isLivingCircleTargetRole)).toHaveLength(4);
+  });
+
+  it('drops roles outside Switzerland', () => {
+    expect(isLivingCircleTargetRole({ location: 'Berlin' })).toBe(false);
+    expect(isLivingCircleTargetRole({ location: '' })).toBe(false);
+  });
+
+  // With the shared predicate's default border proximity these all pass, and
+  // buildJob() would stamp addressCountry 'CH' plus a Swiss canton on them.
+  it('drops the Italian border belt, which the default predicate would admit', () => {
+    for (const location of ['Como', 'Varese', 'Domodossola']) {
+      expect(isLivingCircleTargetRole({ location })).toBe(false);
+    }
+    // Chiasso is Swiss and sits on the same border: it must survive.
+    expect(isLivingCircleTargetRole({ location: 'Chiasso' })).toBe(true);
+  });
+
+  it('resolves the canton per vacancy, not from the HQ', () => {
+    expect(resolveLivingCircleCanton({ location: 'Zürich' }, 'TI')).toBe('ZH');
+    expect(resolveLivingCircleCanton({ location: 'Thalwil' }, 'TI')).toBe('ZH');
+    expect(resolveLivingCircleCanton({ location: 'Grindelwald' }, 'TI')).toBe('BE');
+    expect(resolveLivingCircleCanton({ location: 'Ascona' }, 'TI')).toBe('TI');
+  });
+
+  it('falls back to the HQ canton only when the location resolves to nothing', () => {
+    expect(resolveLivingCircleCanton({ location: '' }, 'TI')).toBe('TI');
   });
 });
