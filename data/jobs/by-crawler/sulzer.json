@@ -158,11 +158,11 @@
     },
     {
       "id": "sulzer-d9f1bc8e7df2",
-      "slug": "constructiewerker-rotorshop-mechanic-bbl-opleiding-sulzer-ch",
+      "slug": "meccanico-reparto-rotori-formazione-bbl-sulzer-venlo",
       "slugByLocale": {
-        "it": "constructiewerker-rotorshop-mechanic-bbl-opleiding-sulzer-ch",
+        "it": "meccanico-reparto-rotori-formazione-bbl-sulzer-venlo",
         "en": "constructiewerker-rotorshop-mechanic-bbl-opleiding-sulzer-ch",
-        "de": "constructiewerker-rotorshop-mechanic-bbl-opleiding-sulzer-ch",
+        "de": "konstruktionsmechaniker-rotorwerkstatt-bbl-ausbildung-sulzer-venlo",
         "fr": "constructionwerker-rotorshop-mecanique-bbl-opleiding-sulzer-venlo"
       },
       "company": "Sulzer",
@@ -216,7 +216,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "constructiewerker-rotorshop-mechanic-bbl-opleiding-sulzer-ch"
+        ],
+        "de": [
+          "constructiewerker-rotorshop-mechanic-bbl-opleiding-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "constructiewerker-rotorshop-mechanic-bbl-opleiding-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-e799f2bc2f04",

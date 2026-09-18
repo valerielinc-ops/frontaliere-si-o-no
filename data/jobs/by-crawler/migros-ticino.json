@@ -1491,7 +1491,7 @@
         "it": "stv-team-leader-picking-night-shift-migros-online-regensdorf",
         "de": "stv-teamleitung-picking-nachtschicht-migros-online-regensdorf-uf1soe",
         "fr": "stv-choix-de-chef-d-equipe-quart-de-nuit-migros-online-regensdorf",
-        "en": "stv-teamleitung-picking-nachtschicht-migros-online-regensdorf-uf1soe"
+        "en": "deputy-team-lead-picking-night-shift-migros-online-regensdorf"
       },
       "titleByLocale": {
         "de": "Stv. Teamleitung Picking - Nachtschicht",
@@ -1536,7 +1536,15 @@
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "en": [
+          "stv-teamleitung-picking-nachtschicht-migros-online-regensdorf-uf1soe"
+        ]
+      },
+      "previousSlugs": [
+        "stv-teamleitung-picking-nachtschicht-migros-online-regensdorf-uf1soe"
+      ]
     },
     {
       "id": "company-4sqd91",
@@ -3904,15 +3912,7 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "previousSlugsByLocale": {
-        "it": [
-          "leitung-people-culture-wepractice-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "leitung-people-culture-wepractice-zurich"
-      ]
+      "salaryMax": 111500
     },
     {
       "id": "company-5e97zg",
@@ -5837,15 +5837,7 @@
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsaushilfe-abends-genossenschaft-migros-ostschweiz-st-gallen"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsaushilfe-abends-genossenschaft-migros-ostschweiz-st-gallen"
-      ]
+      "salaryMax": 87000
     },
     {
       "id": "company-lv5233",
@@ -6705,13 +6697,11 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "co-leitende-r-psychotherapeut-in-wepractice-bern-edq8fw",
-          "co-leitende-r-psychotherapeut-in-wepractice-bern"
+          "co-leitende-r-psychotherapeut-in-wepractice-bern-edq8fw"
         ]
       },
       "previousSlugs": [
-        "co-leitende-r-psychotherapeut-in-wepractice-bern-edq8fw",
-        "co-leitende-r-psychotherapeut-in-wepractice-bern"
+        "co-leitende-r-psychotherapeut-in-wepractice-bern-edq8fw"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -9095,7 +9085,7 @@
     },
     {
       "id": "company-1y2ycv",
-      "slug": "hilfsmitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel-1y2ycv",
+      "slug": "collaboratore-trice-alla-ristorazione-migros-restaurant-stucki-basel-genossenschaft-migros-basel-basel",
       "company": "Genossenschaft Migros Basel",
       "title": "Hilfsmitarbeiter*in Gastro Migros Restaurant Stücki Basel",
       "location": "Basel",
@@ -9144,10 +9134,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "hilfsmitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel-1y2ycv",
-        "en": "hilfsmitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel-1y2ycv",
+        "it": "collaboratore-trice-alla-ristorazione-migros-restaurant-stucki-basel-genossenschaft-migros-basel-basel",
+        "en": "kitchen-assistant-migros-restaurant-stucki-basel-genossenschaft-migros-basel-basel",
         "de": "hilfsmitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel-1y2ycv",
-        "fr": "hilfsmitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel-1y2ycv"
+        "fr": "employe-e-de-soutien-restauration-migros-restaurant-stucki-bale-genossenschaft-migros-basel-basel"
       },
       "requirementsByLocale": {
         "it": [],
@@ -9166,11 +9156,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "hilfsmitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel"
+          "hilfsmitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel",
+          "hilfsmitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel-1y2ycv"
+        ],
+        "en": [
+          "hilfsmitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel-1y2ycv"
+        ],
+        "fr": [
+          "hilfsmitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel-1y2ycv"
         ]
       },
       "previousSlugs": [
-        "hilfsmitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel"
+        "hilfsmitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel",
+        "hilfsmitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel-1y2ycv"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -9248,9 +9246,9 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel-qm9c4q",
-        "en": "mitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel-qm9c4q",
+        "en": "employee-gastronomy-migros-restaurant-stucki-basel-genossenschaft-migros-basel-basel",
         "de": "mitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel-qm9c4q",
-        "fr": "mitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel-qm9c4q"
+        "fr": "employe-e-de-restauration-restaurant-migros-stucki-bale-genossenschaft-migros-basel-basel"
       },
       "requirementsByLocale": {
         "it": [],
@@ -9270,10 +9268,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel"
+        ],
+        "en": [
+          "mitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel-qm9c4q"
+        ],
+        "fr": [
+          "mitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel-qm9c4q"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel"
+        "mitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel",
+        "mitarbeiter-in-gastro-migros-restaurant-stucki-basel-genossenschaft-migros-basel-qm9c4q"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -33138,15 +33143,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/fitness-instructor-wmd/1c744d73-5da9-4417-b2b3-41c4144f6313",
       "salaryMin": 62000,
-      "salaryMax": 94000,
-      "previousSlugsByLocale": {
-        "it": [
-          "fitness-instructor-m-w-d-activ-fitness-zofingen"
-        ]
-      },
-      "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-zofingen"
-      ]
+      "salaryMax": 94000
     },
     {
       "id": "company-8b1a40",
@@ -34564,8 +34561,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "assistant-manager-fitness-club-m-w-d-activ-fitness-thun",
-          "assistente-direttore-centro-fitness-m-f-d-activ-fitness-thun"
+          "assistant-manager-fitness-club-m-w-d-activ-fitness-thun"
         ],
         "fr": [
           "directeur-adjoint-centre-fitness-m-w-d-activ-fitness-thun-umceh1"
@@ -34573,8 +34569,7 @@
       },
       "previousSlugs": [
         "assistant-manager-fitness-club-m-w-d-activ-fitness-thun",
-        "directeur-adjoint-centre-fitness-m-w-d-activ-fitness-thun-umceh1",
-        "assistente-direttore-centro-fitness-m-f-d-activ-fitness-thun"
+        "directeur-adjoint-centre-fitness-m-w-d-activ-fitness-thun-umceh1"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -40740,13 +40735,11 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "assistante-administrative-m-w-d-societe-cooperative-migros-geneve-ecublens-1gytu0",
-          "assistante-administrative-m-w-d-societe-cooperative-migros-geneve-ecublens"
+          "assistante-administrative-m-w-d-societe-cooperative-migros-geneve-ecublens-1gytu0"
         ]
       },
       "previousSlugs": [
-        "assistante-administrative-m-w-d-societe-cooperative-migros-geneve-ecublens-1gytu0",
-        "assistante-administrative-m-w-d-societe-cooperative-migros-geneve-ecublens"
+        "assistante-administrative-m-w-d-societe-cooperative-migros-geneve-ecublens-1gytu0"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -57604,16 +57597,14 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv",
-          "fitness-instructor-m-w-d-activ-fitness-st-gallen"
+          "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv"
         ]
       },
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv",
-        "fitness-instructor-m-w-d-activ-fitness-st-gallen"
+        "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -63368,13 +63359,11 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-bern-o6mdet",
-        "fitness-instructor-m-w-d-activ-fitness-bern"
+        "fitness-instructor-m-w-d-activ-fitness-bern-o6mdet"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-bern-o6mdet",
-          "fitness-instructor-m-w-d-activ-fitness-bern"
+          "fitness-instructor-m-w-d-activ-fitness-bern-o6mdet"
         ],
         "en": [
           "fitness-instructor-m-w-d-activ-fitness-bern-o6mdet"
@@ -66475,13 +66464,11 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen",
-          "assistente-manager-fitness-club-activ-fitness-zofingen"
+          "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen"
         ]
       },
       "previousSlugs": [
-        "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen",
-        "assistente-manager-fitness-club-activ-fitness-zofingen"
+        "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -71026,16 +71013,14 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy",
-          "fitness-instructor-m-w-d-activ-fitness-uzwil"
+          "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy"
         ]
       },
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy",
-        "fitness-instructor-m-w-d-activ-fitness-uzwil"
+        "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -82489,14 +82474,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
-          "fitness-instructor-w-m-d-activ-fitness-kloten",
-          "fitness-instructor-m-w-d-activ-fitness-kloten"
+          "fitness-instructor-w-m-d-activ-fitness-kloten"
         ]
       },
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
-        "fitness-instructor-w-m-d-activ-fitness-kloten",
-        "fitness-instructor-m-w-d-activ-fitness-kloten"
+        "fitness-instructor-w-m-d-activ-fitness-kloten"
       ],
       "salarySource": "estimated",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/fitness-instructor-wmd/e7163729-d943-49f1-a605-9974741d2815",
@@ -88549,8 +88532,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil-9l6a24",
-          "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil",
-          "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil"
+          "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil"
         ],
         "de": [
           "fitnesstrainer-aushilfe-m-w-d-activ-fitness-uzwil-9l6a24"
@@ -88566,8 +88548,7 @@
         "fitness-instructor-aushilfe-m-w-d-activ-fitness-thun",
         "fitnesstrainer-aushilfe-w-m-d-activ-fitness-thun",
         "fitnesstrainer-aushilfe-m-w-d-activ-fitness-thun-lxomto",
-        "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil",
-        "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil"
+        "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -108206,8 +108187,7 @@
           "fitness-instructor-m-w-d-fitnesspark-luzern-6dw70t",
           "instructeur-de-fitness-f-m-d-fitnesspark-luzern",
           "fitness-instructor-m-w-d-fitnesspark-luzern",
-          "fitness-instructor-w-m-d-fitnesspark-luzern",
-          "fitness-instructor-m-w-d-activ-fitness-luzern"
+          "fitness-instructor-w-m-d-fitnesspark-luzern"
         ],
         "de": [
           "fitness-instructor-m-w-d-fitnesspark-luzern-6dw70t"
@@ -108223,8 +108203,7 @@
         "fitness-instructor-m-w-d-fitnesspark-luzern-6dw70t",
         "instructeur-de-fitness-f-m-d-fitnesspark-luzern",
         "fitness-instructor-m-w-d-fitnesspark-luzern",
-        "fitness-instructor-w-m-d-fitnesspark-luzern",
-        "fitness-instructor-m-w-d-activ-fitness-luzern"
+        "fitness-instructor-w-m-d-fitnesspark-luzern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

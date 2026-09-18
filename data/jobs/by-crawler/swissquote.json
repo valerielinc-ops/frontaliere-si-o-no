@@ -447,13 +447,11 @@
       "postalCode": "1196",
       "streetAddress": "Chemin de la Crétaux 33",
       "previousSlugs": [
-        "ufficiale-di-controllo-interno-swissquote-gland",
-        "internal-controlling-officer-swissquote-gland"
+        "ufficiale-di-controllo-interno-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ufficiale-di-controllo-interno-swissquote-gland",
-          "internal-controlling-officer-swissquote-gland"
+          "ufficiale-di-controllo-interno-swissquote-gland"
         ]
       },
       "firstSeenAt": "2026-08-07T01:19:10.490Z",
@@ -1445,12 +1443,12 @@
     },
     {
       "id": "swissquote-0fccc9091822",
-      "slug": "site-reliability-engineer-efx-crypto-swissquote-gland",
+      "slug": "ingegnere-dell-affidabilita-del-sito-sre-efx-crypto-swissquote-gland",
       "slugByLocale": {
-        "it": "site-reliability-engineer-efx-crypto-swissquote-gland",
+        "it": "ingegnere-dell-affidabilita-del-sito-sre-efx-crypto-swissquote-gland",
         "en": "site-reliability-engineer-efx-crypto-swissquote-gland",
-        "de": "site-reliability-engineer-efx-crypto-swissquote-gland",
-        "fr": "site-reliability-engineer-efx-crypto-swissquote-gland"
+        "de": "standortsicherheitsingenieur-efx-crypto-swissquote-gland",
+        "fr": "ingenieur-de-fiabilite-de-site-sre-efx-crypto-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -1508,16 +1506,30 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "site-reliability-engineer-efx-crypto-swissquote-gland"
+        ],
+        "de": [
+          "site-reliability-engineer-efx-crypto-swissquote-gland"
+        ],
+        "fr": [
+          "site-reliability-engineer-efx-crypto-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "site-reliability-engineer-efx-crypto-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-19751efac362",
-      "slug": "site-reliability-engineer-cloud-operations-swissquote-gland",
+      "slug": "ingegnere-dell-affidabilita-del-sito-operazioni-cloud-swissquote-gland",
       "slugByLocale": {
-        "it": "site-reliability-engineer-cloud-operations-swissquote-gland",
+        "it": "ingegnere-dell-affidabilita-del-sito-operazioni-cloud-swissquote-gland",
         "en": "site-reliability-engineer-cloud-operations-swissquote-gland",
-        "de": "site-reliability-engineer-cloud-operations-swissquote-gland",
-        "fr": "site-reliability-engineer-cloud-operations-swissquote-gland"
+        "de": "standort-zuverlassigkeitsingenieur-cloud-betriebe-swissquote-gland",
+        "fr": "ingenieur-en-fiabilite-de-site-operations-cloud-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -1575,7 +1587,21 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "site-reliability-engineer-cloud-operations-swissquote-gland"
+        ],
+        "de": [
+          "site-reliability-engineer-cloud-operations-swissquote-gland"
+        ],
+        "fr": [
+          "site-reliability-engineer-cloud-operations-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "site-reliability-engineer-cloud-operations-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-d5a8e3e34d64",
