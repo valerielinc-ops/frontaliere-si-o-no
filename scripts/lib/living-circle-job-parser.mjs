@@ -175,7 +175,17 @@ export function resolveLivingCircleCanton(role = {}, fallbackCanton = '') {
   return inferAnyCanton(role.location || '') || fallbackCanton;
 }
 
-/** Keeps any Swiss vacancy: the feed is national, not Ascona-only. */
+/**
+ * Keeps any Swiss vacancy: the feed is national, not Ascona-only.
+ *
+ * Border proximity is OFF on purpose. The default admits the Italian border
+ * belt (Como, Varese, Domodossola all pass), and buildJob() would then stamp
+ * addressCountry: 'CH' plus a Swiss canton on a foreign vacancy — indexed
+ * structured data claiming a job is in Switzerland when it is not.
+ */
 export function isLivingCircleTargetRole(role = {}) {
-  return isTargetSwissLocation(role.location || '');
+  return isTargetSwissLocation(role.location || '', {
+    includeGrigioni: true,
+    includeBorderProximity: false,
+  });
 }

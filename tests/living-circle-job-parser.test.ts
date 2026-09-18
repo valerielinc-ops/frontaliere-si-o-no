@@ -63,6 +63,16 @@ describe('living-circle-job-parser', () => {
     expect(isLivingCircleTargetRole({ location: '' })).toBe(false);
   });
 
+  // With the shared predicate's default border proximity these all pass, and
+  // buildJob() would stamp addressCountry 'CH' plus a Swiss canton on them.
+  it('drops the Italian border belt, which the default predicate would admit', () => {
+    for (const location of ['Como', 'Varese', 'Domodossola']) {
+      expect(isLivingCircleTargetRole({ location })).toBe(false);
+    }
+    // Chiasso is Swiss and sits on the same border: it must survive.
+    expect(isLivingCircleTargetRole({ location: 'Chiasso' })).toBe(true);
+  });
+
   it('resolves the canton per vacancy, not from the HQ', () => {
     expect(resolveLivingCircleCanton({ location: 'Zürich' }, 'TI')).toBe('ZH');
     expect(resolveLivingCircleCanton({ location: 'Thalwil' }, 'TI')).toBe('ZH');
