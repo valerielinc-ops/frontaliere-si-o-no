@@ -12,7 +12,10 @@ export const SOURCE_VERSION = 'input@1';
 // job-digest@3: active pages hash the six rendered related jobs plus a compact
 // full-pool membership signature; full-content bridge pages reference the
 // canonical active input hash instead of re-hashing the source record/pool.
-export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@3';
+// The reusable job-page input now carries the UTC build-day bucket used by
+// deterministic JobPosting fallbacks. Bump the digest contract explicitly so
+// manifests produced before that field cannot be mistaken for current input.
+export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@4';
 export const INCREMENTAL_MANIFEST_ENABLED = process.env.INCREMENTAL_MANIFEST === '1';
 
 export const PAGE_KINDS = Object.freeze([
