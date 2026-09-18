@@ -20,7 +20,7 @@
  *
  * Byte-identical output: this worker MUST produce the same dist/ HTML as
  * the single-threaded coordinator. The 3 transforms are pure functions
- * that operate per-file with the same shared inputs (existingHtmlSet,
+ * that operate per-file with the same shared inputs (HTML existence on disk,
  * blogIndexHtmlByPath). The only divergence point is write ordering, which
  * does not affect the final on-disk content because each file is written
  * by exactly one worker.
@@ -60,24 +60,23 @@ const {
   distDir,
   baseUrl,
   trimmedBase,
-  existingHtmlPaths,
   blogIndexEntries,
   contextualLinkDefaults,
   assignedFiles,
 } = workerData;
 
-// Reconstruct the lookup structures (arrays/entries cross postMessage cheaply,
-// Set/Map do not — clone shape only once, here, not per file).
-const existingHtmlSet = new Set(existingHtmlPaths);
+// The coordinator already walked the same dist tree. Rebuilding a 1.5M-entry
+// Set in every worker was a large structured-clone/retention multiplier; the
+// worker can use the filesystem as the exact existence oracle instead.
 const blogIndexHtmlByPath = new Map(blogIndexEntries);
 
 // `transformFlatRedirect` requires a SYNC sibling-existence + body reader
 // (it short-circuits when the sibling index.html is missing or empty). We
-// keep that sync surface and back it with the in-memory `existingHtmlSet`
-// + readFileSync only when the sibling actually exists. Sibling reads are
-// rare relative to the per-file walk so the sync hop here is negligible.
+// keep that sync surface and check the already-emitted sibling on disk only
+// when needed. Sibling reads are rare relative to the per-file walk so the
+// sync hop here is negligible.
 const readSibling = (siblingPath) => {
-  if (!existingHtmlSet.has(siblingPath)) return null;
+  if (!fs.existsSync(siblingPath)) return null;
   try {
     return fs.readFileSync(siblingPath, 'utf-8');
   } catch {
@@ -91,7 +90,7 @@ const readSibling = (siblingPath) => {
 // applies in targetExists(). Mirrored in postWalkCoordinatorPlugin.ts; both
 // paths must agree or the verdict depends on POST_WALK_WORKERS.
 const existsCheck = allowExternallyServedTargets(
-  (absPath) => existingHtmlSet.has(absPath),
+  (absPath) => fs.existsSync(absPath),
   distDir,
 );
 

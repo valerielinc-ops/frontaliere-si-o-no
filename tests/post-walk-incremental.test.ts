@@ -174,6 +174,20 @@ describe('post-walk incremental planning', () => {
     expect(plan.fallbackReason).toContain('rimozione senza kind/jobId risolvibile');
     expect(plan.processHtmlPaths).toEqual([htmlPaths[4], htmlPaths[5], htmlPaths[6]]);
     expect(plan.processHtmlPaths).not.toEqual(htmlPaths);
+
+    const streamed = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+    expect(streamed.ok).toBe(true);
+    if ('reason' in streamed) throw new Error(streamed.reason);
+    const streamedPlan = buildPostWalkIncrementalPlanFromState({
+      distDir,
+      allHtmlPaths: htmlPaths,
+      processableHtmlPaths: htmlPaths,
+      baseUrl: BASE_URL,
+      state: streamed.state,
+    });
+    expect(streamedPlan.mode).toBe('incremental');
+    expect(streamedPlan.fallbackMode).toBe('entry');
+    expect(streamedPlan.processHtmlPaths).toEqual([htmlPaths[4], htmlPaths[5], htmlPaths[6]]);
   });
 
   it('keeps add/remove incremental and selects same-job/explicit dependants among untouched pages', async () => {
@@ -333,6 +347,10 @@ describe('post-walk incremental planning', () => {
     if ('reason' in loaded) throw new Error(loaded.reason);
     expect(loaded.state.current.entries.size).toBe(1);
     expect(loaded.state.previousEntryCount).toBe(1);
+    expect(loaded.state.current.entries.get('jobs/stable')?.postWalk?.jobId)
+      .toBe('stable-1');
+    expect(loaded.state.current.entries.get('jobs/stable')?.postWalk?.jobIds)
+      .toBeUndefined();
     expect(phases).toEqual(['current-loaded', 'previous-loaded']);
     expect('previous' in loaded.state).toBe(false);
   });
@@ -364,8 +382,8 @@ describe('post-walk incremental planning', () => {
     expect(loaded.state.affected).toEqual(new Set(['jobs/referrer', 'jobs/added']));
     expect(phases).toEqual([
       'current-loaded',
-      'previous-references-loading',
-      'previous-references-loaded',
+      'references-loading',
+      'references-loaded',
       'previous-loaded',
     ]);
   });
@@ -388,8 +406,8 @@ describe('post-walk incremental planning', () => {
     const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
     expect(loaded.ok).toBe(true);
     if ('reason' in loaded) throw new Error(loaded.reason);
-    expect(loaded.state.current.entries.get('jobs/migrated')?.postWalk?.jobIds)
-      .toEqual(['shared-job']);
+    expect(loaded.state.current.entries.get('jobs/migrated')?.postWalk?.jobId)
+      .toBe('shared-job');
 
     const plan = buildPostWalkIncrementalPlanFromState({
       distDir,
@@ -414,5 +432,9 @@ describe('post-walk incremental planning', () => {
     expect(selected).toHaveLength(3);
     expect(selected).toContain(paths[99]);
     expect(new Set(reordered)).toEqual(new Set(selected));
+
+    const sampleOnly = selectPostWalkVerificationPaths(paths, null, forced, false);
+    expect(sampleOnly).toHaveLength(2);
+    expect(sampleOnly).not.toContain(paths[99]);
   });
 });

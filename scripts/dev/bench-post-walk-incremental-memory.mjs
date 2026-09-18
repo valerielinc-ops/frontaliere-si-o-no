@@ -29,6 +29,7 @@ const UNTRACKED_COUNT = SCAN_PATH_COUNT - ENTRY_COUNT * 2;
 const MODULE_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const {
   buildPostWalkIncrementalPlanFromState,
+  selectPostWalkVerificationPaths,
 } = await import(path.join(MODULE_ROOT, 'build-plugins/shared/postWalkIncremental.ts'));
 
 function forceGc() {
@@ -94,16 +95,10 @@ function compactEntry(index, changed) {
     inputHash: changed ? `hash-current-${index}` : `hash-stable-${jobId}`,
     kind: index < CANONICAL_COUNT ? 'active-job' : 'legacy-slug-bridge',
     postWalk: {
-      jobIds: [jobId],
-      slugs: [slugFor(index)],
+      jobId,
+      slug: slugFor(index),
     },
   };
-  if (index >= CANONICAL_COUNT) {
-    entry.postWalk.references = [
-      `${DIST_DIR}/jobs/${slugFor(index)}.html`,
-      `${DIST_DIR}/jobs/${slugFor(index)}/index.html`,
-    ];
-  }
   return entry;
 }
 
@@ -220,6 +215,11 @@ function runLegacy(scanPaths) {
       if (state.reasonsByPath.has(filePath)) state.selected.add(filePath);
     }
   });
+  measurePhase(phases, baseHeap, 'legacy:worker-existing-set-clones', () => {
+    // POST_WALK_WORKERS=2 was the canary configuration. Each worker used to
+    // receive the full path array and rebuild this Set after structured clone.
+    state.workerExistingSets = [new Set(scanPaths), new Set(scanPaths)];
+  });
   const report = phaseReport(phases);
   return report;
 }
@@ -281,12 +281,23 @@ function runStreaming(scanPaths) {
       state: manifestState,
     });
   });
+  measurePhase(phases, baseHeap, 'streaming:verify-bounded-sample', () => {
+    // The verifier keeps only the deterministic sample plus the already
+    // selected affected paths; it never materialises a second full walk.
+    state.verificationPaths = selectPostWalkVerificationPaths(
+      scanPaths,
+      Math.ceil(SCAN_PATH_COUNT * 0.02),
+      state.plan.processHtmlPaths,
+      false,
+    );
+  });
   const report = phaseReport(phases);
   report.plan = {
     mode: state.plan.mode,
     processed: state.plan.processed,
     eligibleByManifest: state.plan.eligibleByManifest,
   };
+  report.verificationPathCount = state.verificationPaths.length + state.plan.processed;
   return report;
 }
 

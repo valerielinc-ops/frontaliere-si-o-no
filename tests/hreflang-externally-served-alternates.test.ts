@@ -183,10 +183,16 @@ describe('hreflang post-walk — the exemption is wired into both build call sit
     it(`${rel} builds its hreflang existence check through allowExternallyServedTargets`, () => {
       const src = fs.readFileSync(path.join(REPO, rel), 'utf-8');
       expect(src).toContain('allowExternallyServedTargets');
-      // The bare `existingHtmlSet.has` predicate must not reach
-      // transformHreflang unwrapped.
-      const wrapped = /allowExternallyServedTargets\(\s*\(absPath[^)]*\)\s*=>\s*existingHtmlSet\.has\(absPath\)/;
+      // The bare existence predicate must not reach transformHreflang
+      // unwrapped. Workers use the filesystem oracle so they do not clone the
+      // coordinator's full HTML path Set through workerData.
+      const wrapped = rel.endsWith('postWalkWorker.mjs')
+        ? /allowExternallyServedTargets\(\s*\(absPath[^)]*\)\s*=>\s*fs\.existsSync\(absPath\)/
+        : /allowExternallyServedTargets\(\s*\(absPath[^)]*\)\s*=>\s*existingHtmlSet\.has\(absPath\)/;
       expect(src).toMatch(wrapped);
+      if (rel.endsWith('postWalkWorker.mjs')) {
+        expect(src).not.toContain('existingHtmlPaths');
+      }
     });
   }
 });
