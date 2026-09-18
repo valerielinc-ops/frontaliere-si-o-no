@@ -18,7 +18,7 @@
  * Manor AG is a national department-store chain (HQ Basel) with stores in
  * every canton, so the crawler collects CH-wide. Per-job canton is inferred
  * from the store city encoded in the URL via inferAnyCanton; the region gate
- * is isTargetSwissLocation across all 26 Swiss cantons.
+ * is isAllSwissLocation across all 26 Swiss cantons.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -48,7 +48,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
-  isTargetSwissLocation,
+  isAllSwissLocation,
   isKnownSwissCity,
   inferAnyCanton,
   normalizeCantonCode,
@@ -211,7 +211,7 @@ function isManorUrlCityCandidate(value) {
  * segments) that resolves to a known Swiss city or a target Swiss canton via
  * the central helpers. A trailing numeric district segment (e.g. "Genève 1")
  * is tolerated. Returns the matched city string, or null when no Swiss city is
- * recognisable (the downstream isTargetSwissLocation gate then drops the row).
+ * recognisable (the downstream isAllSwissLocation gate then drops the row).
  */
 // Returns { city, segments }: the resolved city and the NUMBER OF DASH-PARTS it
 // consumed from the slug. Callers need `segments` (not the rendered city's word
@@ -231,7 +231,7 @@ export function extractCityFromUrl(url) {
     const candidateNoDistrict = candidate.replace(/\s+\d+$/, '').trim();
     for (const c of [candidate, candidateNoDistrict]) {
       if (!c) continue;
-      // `isTargetSwissLocation` is intentionally fuzzy for free-text fields
+      // `isAllSwissLocation` is intentionally fuzzy for free-text fields
       // (it recognizes a city/canton mentioned anywhere in a description).
       // A URL prefix must be exact: otherwise `Biel-Mitarbeiterin-Visual-...`
       // is accepted as one giant city and the fallback title collapses to
@@ -383,7 +383,7 @@ async function fetchManorJobs() {
   const targetUrls = [];
   for (const url of allUrls) {
     const { city } = extractCityFromUrl(url);
-    if (city && isTargetSwissLocation(city, { includeBorderProximity: false })) {
+    if (city && isAllSwissLocation(city, { includeBorderProximity: false })) {
       targetUrls.push({ url, city });
     }
   }
