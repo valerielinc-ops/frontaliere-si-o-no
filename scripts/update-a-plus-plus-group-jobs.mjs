@@ -8,7 +8,7 @@
  *
  * This crawler:
  *   1. Fetches the InRecruiting listing page for the a2plus tenant.
- *   2. Filters cards to Swiss (TI / GR) positions.
+ *   2. Filters cards to Swiss positions.
  *   3. Fetches each detail page — prefers JSON-LD, falls back to HTML.
  *   4. Merges results into data/jobs.json.
  *   5. Updates the adapter config with current seed URLs.
@@ -292,7 +292,7 @@ function updateAdapterConfig(jobs) {
     priority: 14,
     crawlerModes: ['html', 'jsonld'],
     seedUrls: [LISTING_URL],
-    notes: 'Dedicated A++ Group crawler uses the InRecruiting portal at inrecruiting.intervieweb.it/a2plus/en/career. Prefers JobPosting JSON-LD on detail pages; falls back to standard InRecruiting HTML structure. Filters to Swiss (TI/GR) positions. A++ Group is an architecture, design & sustainability firm headquartered in Massagno (TI).',
+    notes: 'Dedicated A++ Group crawler uses the InRecruiting portal at inrecruiting.intervieweb.it/a2plus/en/career. Prefers JobPosting JSON-LD on detail pages; falls back to standard InRecruiting HTML structure. Filters to Swiss positions. A++ Group is an architecture, design & sustainability firm headquartered in Massagno (TI).',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });

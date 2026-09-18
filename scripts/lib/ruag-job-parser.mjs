@@ -1,6 +1,6 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
-import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -165,12 +165,14 @@ export function parseRuagJobDetail(html = '', url = '') {
 }
 
 export function isRuagTargetLocation(raw = '') {
-  return isTargetSwissLocation(raw, { includeGrigioni: true });
+  // Country-only labels prove Switzerland, not a concrete job locality.
+  // Require a resolvable city/canton before emitting a Swiss JobPosting.
+  return Boolean(inferAnyCanton(raw));
 }
 
 export function inferRuagCanton(raw = '') {
-  // No Ticino default — RUAG is Bern-based and national (defence); leave blank
-  // when unresolved so the downstream hardening derives the canton.
+  // No fixed-canton default — RUAG is a national defence employer; leave blank
+  // when unresolved so downstream hardening can derive the canton.
   return inferAnyCanton(raw) || '';
 }
 

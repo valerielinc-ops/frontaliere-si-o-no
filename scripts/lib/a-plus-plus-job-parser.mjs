@@ -171,7 +171,7 @@ export function parseAplusJobDetail(html = '', pageUrl = '') {
 
 /**
  * Return true if the raw location string corresponds to a Swiss location.
- * A++ Group operates in TI/GR but may have other Swiss positions.
+ * A++ Group is headquartered in Ticino and may have other Swiss positions.
  */
 export function isAplusSwissLocation(raw = '') {
   const lower = normalizeSpace(raw)
@@ -188,7 +188,7 @@ export function isAplusSwissLocation(raw = '') {
  * Infer the Swiss canton abbreviation from a raw location string.
  * A++ Group is headquartered in Massagno (TI) but, per `isAplusSwissLocation`
  * above, may post other Swiss positions too — resolve via the comprehensive
- * nationwide `inferAnyCanton` rather than a TI/GR-only hand-rolled list, so
+ * nationwide `inferAnyCanton` rather than a regional-only hand-rolled list, so
  * jobs located in other cantons don't fall through as unresolved.
  */
 export function inferAplusCanton(raw = '') {

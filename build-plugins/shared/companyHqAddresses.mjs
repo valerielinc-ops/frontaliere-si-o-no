@@ -95,6 +95,8 @@ export const CITY_FALLBACK_ADDRESSES = {
   'zurich': { streetAddress: 'Bahnhofstrasse 1', postalCode: '8001', addressLocality: 'Zürich', addressRegion: 'ZH' },
   'zurigo': { streetAddress: 'Bahnhofstrasse 1', postalCode: '8001', addressLocality: 'Zürich', addressRegion: 'ZH' },
   'winterthur': { streetAddress: 'Stadthausstrasse 4a', postalCode: '8400', addressLocality: 'Winterthur', addressRegion: 'ZH' },
+  'manno': { streetAddress: 'Via Cantonale 2c', postalCode: '6928', addressLocality: 'Manno', addressRegion: 'TI' },
+  'landquart': { streetAddress: 'Bahnhofstrasse 2', postalCode: '7302', addressLocality: 'Landquart', addressRegion: 'GR' },
   'bern': { streetAddress: 'Bundesplatz 3', postalCode: '3011', addressLocality: 'Bern', addressRegion: 'BE' },
   'berna': { streetAddress: 'Bundesplatz 3', postalCode: '3011', addressLocality: 'Bern', addressRegion: 'BE' },
   'genève': { streetAddress: "Rue de l'Hôtel-de-Ville 2", postalCode: '1204', addressLocality: 'Genève', addressRegion: 'GE' },

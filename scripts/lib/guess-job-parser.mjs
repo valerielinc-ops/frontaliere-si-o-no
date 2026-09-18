@@ -38,7 +38,7 @@ export function parseGuessWidgetJsonp(jsonp = '') {
   return JSON.parse(match[1]);
 }
 
-export function isGuessTicinoWidgetJob(job = {}) {
+export function isGuessSwissWidgetJob(job = {}) {
   const signal = [job.city, job.state, job.department, job.country].filter(Boolean).join(' ');
   // Recognise CH across alias formats (CH / CHE / 756 / object) instead of a
   // strict `=== 'switzerland'`, which dropped valid CH rows (#2419, shared guard).
@@ -48,14 +48,16 @@ export function isGuessTicinoWidgetJob(job = {}) {
   );
 }
 
+/** @deprecated Use isGuessSwissWidgetJob() instead. Kept for test/API compatibility. */
+export const isGuessTicinoWidgetJob = isGuessSwissWidgetJob;
+
 /**
  * Resolve the canton for a job, or signal (via null) that it should be
  * skipped.
  *
- * isGuessTicinoWidgetJob() actually admits ANY TARGET_CANTON job (via
+ * isGuessSwissWidgetJob() admits any TARGET_CANTON job (via
  * inferSwissTargetCanton()/isTargetSwissLocation() over the combined
- * city+state+department+country signal), not just Ticino, despite this
- * crawler's Ticino-only docstring/intent — so a real, non-empty city text
+ * city+state+department+country signal), so a real, non-empty city text
  * that itself fails to resolve to a canton must never fabricate the
  * Bioggio HQ canton (TI) for a job that isn't verifiably there (AGENTS.md
  * Non-Negotiable #3, mirrors clariant/swisslog/debiopharm/komax/lindt-

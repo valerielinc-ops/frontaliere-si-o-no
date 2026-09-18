@@ -224,9 +224,10 @@ export async function parsePemsaDetailPage(url, timeoutMs = 15000) {
 
 /**
  * Check if a PEMSA job is in a Swiss target canton (all 26).
- * (Name kept for API stability; scope is now CH-wide, not Ticino-only.)
+ * The predicate is CH-wide: a Swiss city/canton is accepted across all 26
+ * cantons, while foreign locations are rejected.
  */
-export function isPemsaTicinoRelevant(job = {}) {
+export function isPemsaSwissRelevant(job = {}) {
   const region = normalizeSpace(job.region || '');
   const city = normalizeSpace(job.city || '');
   // inferAnyCanton resolves both canton codes ("GE") and city names ("Genève").
@@ -234,6 +235,9 @@ export function isPemsaTicinoRelevant(job = {}) {
   if (!city && !region) return true; // PEMSA is a Swiss-only agency — keep location-less rows
   return isTargetSwissLocation(city);
 }
+
+/** @deprecated Use isPemsaSwissRelevant() instead. Kept for test/API compatibility. */
+export const isPemsaTicinoRelevant = isPemsaSwissRelevant;
 
 /**
  * Build localized content for a PEMSA job.

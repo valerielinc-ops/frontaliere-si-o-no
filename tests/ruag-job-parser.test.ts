@@ -58,4 +58,10 @@ describe('ruag-job-parser', () => {
     expect(inferRuagCanton('Lodrino')).toBe('TI');
     expect(inferRuagCanton('Chur')).toBe('GR');
   });
+
+  it('rejects country-only labels without inventing a job locality', () => {
+    expect(isRuagTargetLocation('Switzerland')).toBe(false);
+    expect(isRuagTargetLocation('Swiss')).toBe(false);
+    expect(isRuagTargetLocation('Ticino')).toBe(true);
+  });
 });

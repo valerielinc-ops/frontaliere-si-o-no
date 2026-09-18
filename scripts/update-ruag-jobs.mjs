@@ -200,15 +200,17 @@ async function discoverRuagGraph() {
     byUrl.set(key, detail);
   }
   const all = [...byUrl.values()];
-  const target = all.filter((detail) => isRuagTargetLocation(`${detail.location || ''} ${detail.description || ''}`));
+  // Only the authoritative location field decides Swiss inclusion. Free-text
+  // descriptions may mention Switzerland while describing an unrelated site.
+  const target = all.filter((detail) => isRuagTargetLocation(detail.location || ''));
 
   console.log(`📋 RUAG detail pages discovered: ${all.length}`);
-  console.log(`📋 RUAG Ticino/Grigioni jobs: ${target.length}`);
+  console.log(`📋 RUAG Swiss jobs: ${target.length}`);
   for (const detail of target) {
     console.log(`  📄 ${detail.title} (${detail.location || 'n/a'})`);
   }
   // Only fail hard if discovery itself is broken (0 detail pages fetched).
-  // If we fetched jobs but none are in TI/GR, that is a legitimate empty state —
+  // If we fetched jobs but none are in Switzerland, that is a legitimate empty state —
   // RUAG currently has no openings in our target cantons. Return [] so main()
   // can exit cleanly without wiping the existing dataset.
   if (all.length === 0) {
@@ -339,10 +341,10 @@ async function main() {
 
   const discoveredJobs = await discoverRuagGraph();
 
-  // Legit empty-region state: discovery worked but 0 jobs in TI/GR.
+  // Legit empty-state: discovery worked but 0 Swiss jobs were found.
   // Preserve existing dataset (don't wipe) and exit cleanly with an empty slice.
   if (discoveredJobs.length === 0) {
-    console.log('ℹ️  RUAG has no current openings in Ticino/Grigioni — skipping merge and validator.');
+    console.log('ℹ️  RUAG has no current Swiss openings — skipping merge and validator.');
     const _durationMs = getCrawlerElapsedMs();
     writeJobsCrawlerSlice(COMPANY_KEY, []);
     writeSummaryCrawlerSlice({
