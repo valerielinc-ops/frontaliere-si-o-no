@@ -36,8 +36,12 @@ jobs:
               await github.rest.actions.createWorkflowDispatch({
                 ...repo,
                 workflow_id: 'tests.yml',
-                ref: pr.head.ref,
-                inputs: { pr_number: String(number) },
+                // Dispatch the trusted workflow from the base branch. A fork
+                // PR has no branch in this repository, so pr.head.ref is not
+                // a valid dispatch ref here. The exact untrusted head travels
+                // as data and is resolved/checked by tests.yml.
+                ref: pr.base.ref,
+                inputs: { pr_number: String(number), head_sha: pr.head.sha },
               });
               core.info(`Dispatched tests.yml for PR #${number}: no run existed on ${pr.head.sha}.`);
               return;

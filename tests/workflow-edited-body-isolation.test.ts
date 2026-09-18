@@ -18,7 +18,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
   const manualRun = { ...run, id: 43, event: 'workflow_dispatch' };
   const github = {
     rest: {
-      pulls: { get: async () => ({ data: { state: 'open', head: { sha: ++reads > 1 && changedHead ? 'new' : 'head', ref: 'head-branch' } } }) },
+      pulls: { get: async () => ({ data: { state: 'open', head: { sha: ++reads > 1 && changedHead ? 'new' : 'head', ref: 'fork-branch' }, base: { ref: 'main' } } }) },
       actions: {
         listWorkflowRuns: 'runs', listJobsForWorkflowRun: 'jobs',
         getWorkflowRun: async ({ run_id }: { run_id: number }) => ({ data: { ...run, id: run_id, status: finishing ? 'completed' : status, conclusion: finishing ? 'failure' : conclusion, run_attempt: changedAttempt ? 2 : 1 } }),
@@ -56,6 +56,8 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     // quella.
     expect(workflow.on.pull_request.types).not.toContain('edited');
     expect(workflow.on.pull_request.types).toContain('synchronize');
+    expect(workflow.on.workflow_dispatch.inputs.head_sha).toEqual(expect.objectContaining({ type: 'string' }));
+    expect(workflow.concurrency.group).toContain('inputs.head_sha');
     const guard = job.steps.find((step: { name?: string }) => step.name?.startsWith('Re-review guard')) as { env?: Record<string, string>; run?: string } | undefined;
     expect(guard?.run).toContain('node scripts/ci/lib/pr-review-admission.mjs skip');
     expect(guard?.run).toContain('gh api "repos/$REPO/pulls/$PR_NUMBER/reviews"');
@@ -122,10 +124,10 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(await runRecovery()).toEqual({ reruns: [42], dispatches: [] });
   });
 
-  it('dispatches tests.yml on the PR branch when no run exists for the head', async () => {
+  it('dispatches tests.yml on the trusted base ref and passes the exact PR head when no run exists', async () => {
     expect(await runRecovery({ workflowRuns: 'none' })).toEqual({
       reruns: [],
-      dispatches: [{ owner: 'owner', repo: 'repo', workflow_id: 'tests.yml', ref: 'head-branch', inputs: { pr_number: '1' } }],
+      dispatches: [{ owner: 'owner', repo: 'repo', workflow_id: 'tests.yml', ref: 'main', inputs: { pr_number: '1', head_sha: 'head' } }],
     });
   });
 
