@@ -2,6 +2,8 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 
 const HQ = getCompanyDefaults('delvitech');
 
@@ -54,8 +56,10 @@ export function parseDelvitechCareerPage(html = '') {
   const dom = new JSDOM(html);
   const document = dom.window.document;
   const cards = [...document.querySelectorAll('.post-content a.fusion-column-anchor[href*="legacy.delvi.tech/"]')];
+  const listingContainer = document.querySelector('.post-content');
   const seen = new Set();
   const jobs = [];
+  let skippedMalformedRows = 0;
 
   for (const anchor of cards) {
     const href = String(anchor.getAttribute('href') || '').trim();
@@ -65,10 +69,24 @@ export function parseDelvitechCareerPage(html = '') {
 
     const card = anchor.closest('.fusion-layout-column') || anchor.parentElement?.nextElementSibling || anchor.nextElementSibling;
     const title = normalizeSpace(card?.querySelector('h5')?.textContent || '');
-    if (!title) continue;
+    if (!title) {
+      skippedMalformedRows += 1;
+      continue;
+    }
     jobs.push({ href, title });
   }
 
+  Object.defineProperties(jobs, {
+    delvitechListingMarkupSeen: { value: Boolean(listingContainer), enumerable: false },
+    delvitechListingRecordCount: { value: cards.length, enumerable: false },
+    delvitechListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
+    delvitechListingEmptyStateObserved: {
+      value: hasExplicitEmptyJobListing(listingContainer, {
+        scopedToListing: Boolean(listingContainer),
+      }),
+      enumerable: false,
+    },
+  });
   return jobs;
 }
 
@@ -132,12 +150,14 @@ export function parseDelvitechJobDetail(html = '', url = '') {
 }
 
 export function isDelvitechTicinoJob(detail = {}) {
-  const title = normalizeSpace(detail.title || '');
   const location = normalizeSpace(detail.location || '');
-  const description = normalizeSpace(detail.description || '');
-  const combined = `${title} ${location} ${description}`;
-  if (/germany/i.test(combined)) return false;
-  return isTargetSwissLocation(combined) || /switzerland/i.test(combined);
+  // The source location is authoritative. Description prose can mention
+  // foreign countries as customers, partners, or travel destinations without
+  // changing the vacancy's workplace; including it here turned a valid Swiss
+  // detail into a false source-zero candidate.
+  if (isLocationExplicitlyForeign(location)) return false;
+  if (/germany/i.test(location)) return false;
+  return isTargetSwissLocation(location) || /switzerland/i.test(location);
 }
 
 export function inferDelvitechCategory(title = '', description = '') {

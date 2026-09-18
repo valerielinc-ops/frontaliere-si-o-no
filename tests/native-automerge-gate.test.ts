@@ -504,18 +504,19 @@ describe('native auto-merge gate (#8512)', () => {
     });
   });
 
-  it('uses the newest bot review on the current HEAD, so a later finding wins', () => {
+  it('keeps the first terminal review on the current HEAD, so a later same-HEAD Important does not revoke LGTM', () => {
     const reviews = [
-      review(CLEAN_BODY, HEAD, '2026-09-13T12:00:00Z'),
+      review(CLEAN_BODY, HEAD, '2026-09-13T12:00:00Z', { id: 1 }),
       review(
         '## Findings (Important: 1, Nit: 0)\n\n🔴 Important: guard bypass.\n\n## LGTM',
         HEAD,
         '2026-09-13T12:02:00Z',
+        { id: 2 },
       ),
     ];
 
     expect(latestBotReviewOnHead(reviews, HEAD)?.body).toContain('Important: 1');
-    expect(evaluateNativeAutoMerge({ pr: pr(), reviews, checkRuns: [vitest()] }).allow).toBe(false);
+    expect(evaluateNativeAutoMerge({ pr: pr(), reviews, checkRuns: [vitest()] }).allow).toBe(true);
   });
 
   it('keeps an in-scope Important finding blocked without an approving verdict', () => {
@@ -553,6 +554,13 @@ describe('native auto-merge gate (#8512)', () => {
       checkRuns: [vitest()],
     })).toMatchObject({ allow: true });
     expect(reviewHasZeroFindings('## Findings (Important: 1, Nit: 0)\n\n🔴 Important: not harmless')).toBe(false);
+    expect(reviewHasZeroFindings('## Scope\nReviewed the delta.\n\n## LGTM')).toBe(true);
+    expect(reviewIsApproved(review('## Scope\nReviewed the delta.\n\n## LGTM'))).toBe(true);
+    expect(evaluateNativeAutoMerge({
+      pr: pr(),
+      reviews: [review('## Scope\nReviewed the delta.\n\n## LGTM')],
+      checkRuns: [vitest()],
+    })).toMatchObject({ allow: true });
     expect(reviewHasLgtm('The text says ## LGTM, but is not a heading')).toBe(false);
   });
 
@@ -700,7 +708,7 @@ describe('native auto-merge gate (#8512)', () => {
     expect(gateSource).toContain('title,body,labels,state,isDraft,baseRefName,headRefOid,autoMergeRequest');
   });
 
-  it('fails closed when the final same-HEAD snapshot gains a finding or check failure', () => {
+  it('fails closed when the final same-HEAD snapshot gains a check failure', () => {
     const initial = revalidateNativeAutoMerge({
       pr: pr(),
       reviews: [review(CLEAN_BODY)],
@@ -708,16 +716,24 @@ describe('native auto-merge gate (#8512)', () => {
     });
     expect(initial).toMatchObject({ allow: true, action: 'enable' });
 
-    const final = revalidateNativeAutoMerge({
+    const laterImportantStillGreen = revalidateNativeAutoMerge({
       pr: pr(),
       reviews: [
-        review(CLEAN_BODY, HEAD, '2026-09-13T12:00:00Z'),
+        review(CLEAN_BODY, HEAD, '2026-09-13T12:00:00Z', { id: 1 }),
         review(
           '## Findings (Important: 1, Nit: 0)\n\n🔴 Important: stale gate.\n\n## LGTM',
           HEAD,
           '2026-09-13T12:02:00Z',
+          { id: 2 },
         ),
       ],
+      checkRuns: [vitest()],
+    });
+    expect(laterImportantStillGreen).toMatchObject({ allow: true, action: 'enable' });
+
+    const final = revalidateNativeAutoMerge({
+      pr: pr(),
+      reviews: [review(CLEAN_BODY)],
       checkRuns: [vitest({ conclusion: 'failure' })],
     });
     expect(final).toMatchObject({ allow: false, action: 'skip' });

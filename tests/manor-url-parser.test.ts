@@ -3,6 +3,7 @@ import {
   extractCityFromUrl,
   extractTitleFromUrl,
   parseJobPage,
+  resolveManorLocation,
   stripSiteTitleSuffix,
 } from '../scripts/update-manor-jobs.mjs';
 import { normalizeKey } from '../scripts/lib/dedicated-crawler-common.mjs';
@@ -45,6 +46,49 @@ describe('Manor jobs2web URL and title parsing', () => {
     expect(parseJobPage(page, BIEL_URL).title).toBe(
       'Mitarbeiter*in Visual Merchandising 80%',
     );
+  });
+
+  it('keeps the portal city out of streetAddress when SuccessFactors combines it with CH', () => {
+    const page = `
+      <meta property="og:title" content="Collaborateur/trice service 50%" />
+      <meta itemprop="streetAddress" content="Chavannes-de-Bogis, CH" />
+      <meta itemprop="datePosted" content="Mon Aug 24 00:00:00 UTC 2026" />
+    `;
+
+    expect(parseJobPage(page, BIEL_URL)).toMatchObject({
+      location: 'Chavannes-de-Bogis',
+      streetAddress: '',
+      postalCode: '',
+      addressRegion: '',
+    });
+  });
+
+  it('keeps emitted locality and canton aligned with the detail page source', () => {
+    expect(resolveManorLocation({ addressLocality: 'Zürich', addressRegion: 'ZH' }, 'Zürich')).toEqual({
+      location: 'Zürich',
+      canton: 'ZH',
+    });
+  });
+
+  it('rejects a detail locality from another canton instead of mixing address fields', () => {
+    expect(resolveManorLocation({ addressLocality: 'Zürich', addressRegion: 'ZH' }, 'Lugano')).toBeNull();
+    expect(resolveManorLocation({ addressLocality: 'Lugano', addressRegion: 'ZH' }, 'Lugano')).toBeNull();
+  });
+
+  it('rejects an explicit detail region that is not a Swiss canton', () => {
+    expect(resolveManorLocation({ addressLocality: 'Lugano', addressRegion: 'Ontario' }, 'Lugano')).toBeNull();
+  });
+
+  it('does not treat an explicit unknown detail region as missing', () => {
+    expect(resolveManorLocation({ addressLocality: 'Lugano', addressRegion: 'N/A' }, 'Lugano')).toBeNull();
+  });
+
+  it('does not infer a Swiss canton from a foreign region containing a Swiss token', () => {
+    expect(resolveManorLocation({ addressLocality: 'Como', addressRegion: 'Como, TI' }, 'Como')).toBeNull();
+  });
+
+  it('rejects a foreign border locality in an explicit detail region', () => {
+    expect(resolveManorLocation({ addressLocality: 'Como', addressRegion: 'Como' }, 'Como')).toBeNull();
   });
 
   it('removes the site suffix while preserving the role title', () => {

@@ -44,8 +44,9 @@
  * the sequential profile measured 121s wall vs 65s CPU — the 56s gap is pure
  * single-thread I/O wait that a second core can absorb. Each worker reads,
  * transforms, and writes its assigned slice independently; the inputs
- * (existingHtmlSet, blogIndexHtmlByPath) are read-only and identical across
- * workers, so output is byte-equivalent to the single-threaded path.
+ * (HTML existence on disk, blogIndexHtmlByPath) are identical across workers,
+ * so output is byte-equivalent to the single-threaded path without cloning a
+ * full HTML path Set into every worker.
  *
  * Set POST_WALK_WORKERS=1 to force single-threaded execution (useful when
  * profiling or when running on a constrained runner where worker spawn cost
@@ -53,10 +54,11 @@
  *
  * Opt-in incremental mode: POST_WALK_INCREMENTAL=1 keeps the complete HTML
  * existence walk/set but sends only manifest-changed and proven-affected files
- * through the transforms. The default is the unchanged full path. Set
- * POST_WALK_INCREMENTAL_VERIFY=1 to dry-run the full single-threaded path on
- * all files or the deterministic POST_WALK_INCREMENTAL_VERIFY_SAMPLE subset;
- * a full-write mismatch falls back to the full write path.
+ * through the transforms. With POST_WALK_INCREMENTAL_VERIFY=1, unmanifested
+ * files are sample-only and the deterministic sample is checked before worker
+ * dispatch; POST_WALK_INCREMENTAL_VERIFY_SAMPLE overrides the sample count. A
+ * full-write mismatch or emitter-fingerprint change falls back to the full
+ * write path. The default is the unchanged full path.
  */
 
 import path from 'node:path';
@@ -79,6 +81,7 @@ import { transformHreflang } from './hreflangPostprocessPlugin';
 import { allowExternallyServedTargets } from '../scripts/lib/externally-served-paths.mjs';
 import { shouldEmitPath } from './shared/localeEmitFilter';
 import { collectHtml } from './shared/distHtmlWalk';
+import { buildSharedHtmlPathIndex } from './shared/htmlPathIndex.mjs';
 import {
   startTimer as profileStart,
   recordEmit as profileRecord,
@@ -86,16 +89,21 @@ import {
   printSummary as printPostWalkProfile,
   type SerializedBuckets,
 } from './shared/postWalkCoordinatorProfiler';
+import { logBuildMem } from './shared/buildMemLog';
+import { releaseIncrementalManifestState } from './shared/incrementalManifest.mjs';
 import {
-  buildPostWalkIncrementalPlan,
+  buildPostWalkIncrementalPlanFromState,
   comparePostWalkVerification,
-  loadPostWalkManifestPair,
+  loadPostWalkManifestState,
+  postWalkManifestCoversHtmlPath,
   POST_WALK_INCREMENTAL_DEPENDENCY_RULE,
   postWalkIncrementalEnabled,
   postWalkIncrementalVerifyEnabled,
   postWalkIncrementalVerifySampleSize,
-  replacePostWalkPathList,
+  releasePostWalkManifestState,
   selectPostWalkVerificationPaths,
+  type PostWalkManifestProgress,
+  type PostWalkManifestStateLoadResult,
   type PostWalkIncrementalPlan,
 } from './shared/postWalkIncremental';
 
@@ -211,6 +219,7 @@ function runSingleThreaded(
   baseUrl: string,
   trimmedBase: string,
   writeFiles = true,
+  collectWouldWritePaths = false,
 ): WorkerResult {
   const result: WorkerResult = {
     bridgeConverted: 0,
@@ -222,7 +231,7 @@ function runSingleThreaded(
     hreflangLinksDropped: 0,
     totalWrites: 0,
     writeFailures: [],
-    wouldWritePaths: [],
+    ...(collectWouldWritePaths ? { wouldWritePaths: [] } : {}),
   };
 
   // Article sections are routed away from this build and have no file here on
@@ -328,7 +337,7 @@ function runSingleThreaded(
     }
 
     if (mutated && html !== original) {
-      result.wouldWritePaths?.push(filePath);
+      if (collectWouldWritePaths) result.wouldWritePaths?.push(filePath);
       const __tWrite = profileStart();
       if (writeFiles) {
         try {
@@ -352,10 +361,10 @@ async function runInWorker(
     distDir: string;
     baseUrl: string;
     trimmedBase: string;
-    existingHtmlPaths: readonly string[];
     blogIndexEntries: ReadonlyArray<readonly [string, BlogLinkLocale]>;
     contextualLinkDefaults: ContextualLinkDefaults;
     assignedFiles: readonly string[];
+    htmlPathIndex: ReturnType<typeof buildSharedHtmlPathIndex>;
   },
 ): Promise<WorkerResult> {
   return new Promise((resolve, reject) => {
@@ -377,33 +386,34 @@ async function runInWorker(
   });
 }
 
-function mergeResults(results: WorkerResult[]): WorkerResult {
-  return results.reduce<WorkerResult>(
-    (acc, r) => ({
-      bridgeConverted: acc.bridgeConverted + r.bridgeConverted,
-      bridgeSkipped: acc.bridgeSkipped + r.bridgeSkipped,
-      blogArticlesModified: acc.blogArticlesModified + r.blogArticlesModified,
-      blogLinksInjected: acc.blogLinksInjected + r.blogLinksInjected,
-      hreflangFilesRewritten: acc.hreflangFilesRewritten + r.hreflangFilesRewritten,
-      hreflangLinksKept: acc.hreflangLinksKept + r.hreflangLinksKept,
-      hreflangLinksDropped: acc.hreflangLinksDropped + r.hreflangLinksDropped,
-      totalWrites: acc.totalWrites + r.totalWrites,
-      writeFailures: acc.writeFailures.concat(r.writeFailures),
-      wouldWritePaths: (acc.wouldWritePaths ?? []).concat(r.wouldWritePaths ?? []),
-    }),
-    {
-      bridgeConverted: 0,
-      bridgeSkipped: 0,
-      blogArticlesModified: 0,
-      blogLinksInjected: 0,
-      hreflangFilesRewritten: 0,
-      hreflangLinksKept: 0,
-      hreflangLinksDropped: 0,
-      totalWrites: 0,
-      writeFailures: [],
-      wouldWritePaths: [],
-    },
-  );
+function emptyWorkerResult(): WorkerResult {
+  return {
+    bridgeConverted: 0,
+    bridgeSkipped: 0,
+    blogArticlesModified: 0,
+    blogLinksInjected: 0,
+    hreflangFilesRewritten: 0,
+    hreflangLinksKept: 0,
+    hreflangLinksDropped: 0,
+    totalWrites: 0,
+    writeFailures: [],
+  };
+}
+
+/** Fold one worker into the accumulator without retaining a results array. */
+function mergeResultInto(acc: WorkerResult, result: WorkerResult): void {
+  acc.bridgeConverted += result.bridgeConverted;
+  acc.bridgeSkipped += result.bridgeSkipped;
+  acc.blogArticlesModified += result.blogArticlesModified;
+  acc.blogLinksInjected += result.blogLinksInjected;
+  acc.hreflangFilesRewritten += result.hreflangFilesRewritten;
+  acc.hreflangLinksKept += result.hreflangLinksKept;
+  acc.hreflangLinksDropped += result.hreflangLinksDropped;
+  acc.totalWrites += result.totalWrites;
+  acc.writeFailures.push(...result.writeFailures);
+  if (acc.wouldWritePaths && result.wouldWritePaths) {
+    acc.wouldWritePaths.push(...result.wouldWritePaths);
+  }
 }
 
 export function postWalkCoordinatorPlugin(
@@ -430,15 +440,113 @@ export function postWalkCoordinatorPlugin(
 
         const startTotal = Date.now();
 
+        let processHtmlPaths: readonly string[] = [];
+        let incrementalPlan: PostWalkIncrementalPlan | null = null;
+        let incrementalManifestPhaseMs = 0;
+        let incrementalPlanPhaseMs = 0;
+        let incrementalVerifyPhaseMs = 0;
+        const incrementalEnabled = postWalkIncrementalEnabled();
+        let manifests: PostWalkManifestStateLoadResult | null = null;
+        let manifestHtmlEntryCount = 0;
+        let changedByKind = 'none';
+
+        if (incrementalEnabled) {
+          // jobsSeoPagesPlugin and relatedSearchClustersPlugin have completed
+          // their manifest writes before this sequential closeBundle hook. The
+          // producer maps are not needed by the coordinator; release them
+          // before loading the disk snapshots so their input projections do
+          // not overlap the planner's current-entry map.
+          releaseIncrementalManifestState(rootDir);
+          const manifestStartedAt = Date.now();
+          // Load and report the two manifest cardinalities before the expensive
+          // dist walk. If a later phase dies, the last [mem] marker identifies
+          // whether the retained state belonged to JSONL, planning, or workers.
+          // eslint-disable-next-line no-console
+          console.log(
+            '[post-walk-coordinator][incremental] previous=loading current=loading phase=manifest-load-start',
+          );
+          logBuildMem(
+            'postWalkCoordinator: before-manifest',
+            undefined,
+            { phase: 'manifest-load' },
+            { forceGc: false },
+          );
+
+          const manifestProgress = (progress: PostWalkManifestProgress): void => {
+            const previous = progress.previousEntries === null
+              ? 'loading'
+              : String(progress.previousEntries);
+            // eslint-disable-next-line no-console
+            console.log(
+              `[post-walk-coordinator][incremental] previous=${previous} `
+                + `current=${progress.currentEntries} phase=${progress.phase}`,
+            );
+            logBuildMem(
+              `postWalkCoordinator: ${progress.phase}`,
+              undefined,
+              {
+                previousEntries: progress.previousEntries === null ? 'loading' : progress.previousEntries,
+                currentEntries: progress.currentEntries,
+              },
+              { forceGc: false },
+            );
+          };
+
+          manifests = fs.existsSync(path.join(rootDir, 'data', 'jobs.json'))
+            ? await loadPostWalkManifestState(
+                rootDir,
+                resolvePostWalkManifestLocales(),
+                baseUrl,
+                manifestProgress,
+              )
+            : {
+                ok: false as const,
+                reason: 'data/jobs.json missing: current manifest is incomplete',
+              };
+          if ('reason' in manifests) {
+            // eslint-disable-next-line no-console
+            console.warn(
+              `[post-walk-coordinator][incremental] fallback=full reason=${manifests.reason}`,
+            );
+          } else {
+            manifestHtmlEntryCount = manifests.state.currentHtmlEntryCount;
+            // This is the first line containing both cardinalities, and is
+            // intentionally before dist enumeration and worker dispatch.
+            // eslint-disable-next-line no-console
+            console.log(
+              `[post-walk-coordinator][incremental] previous=${manifests.state.previousEntryCount} `
+                + `current=${manifests.state.currentEntryCount} phase=manifest-loaded`,
+            );
+            logBuildMem(
+              'postWalkCoordinator: after-manifest',
+              undefined,
+              {
+                previousEntries: manifests.state.previousEntryCount,
+                currentEntries: manifests.state.currentEntryCount,
+              },
+              { forceGc: false },
+            );
+          }
+          incrementalManifestPhaseMs = Date.now() - manifestStartedAt;
+        }
+
         // ── Phase A: enumerate every emitted HTML file once ──────────
         const walkStartedAt = Date.now();
         const __tWalk = profileStart();
         const allHtmlPaths: string[] = collectHtml(distDir, []);
-        const processHtmlPaths: string[] = [];
+        const filesScanned = allHtmlPaths.length;
         const existingHtmlSet = new Set<string>(allHtmlPaths);
+        const manifestState = manifests !== null && !('reason' in manifests)
+          ? manifests.state
+          : null;
+        let coveredHtmlPathCount = 0;
+        const unmanifestedByTopLevel = new Map<string, number>();
+        let processableCount = 0;
         let preEmittedFlatBridgesSkipped = 0;
         let nonOwnedLocaleSkipped = 0;
-        for (const file of allHtmlPaths) {
+        const excludedHtmlPaths = incrementalEnabled ? new Set<string>() : null;
+        for (let index = 0; index < allHtmlPaths.length; index += 1) {
+          const file = allHtmlPaths[index];
           // Per-locale matrix shard (BUILD_LOCALE): a file in a NON-owned
           // locale subtree is deleted, unread, by scripts/ci/prune-locale-shard.mjs
           // in the very next workflow step — it can never ship from this shard,
@@ -460,33 +568,52 @@ export function postWalkCoordinatorPlugin(
           // build (EMIT_ALL_LOCALES) → no-op, full coverage, byte-identical.
           if (!shouldEmitPath(file, distDir)) {
             nonOwnedLocaleSkipped++;
+            excludedHtmlPaths?.add(file);
           } else if (isPreEmittedJobFlatBridgePath(distDir, file)) {
             preEmittedFlatBridgesSkipped++;
+            excludedHtmlPaths?.add(file);
           } else {
-            processHtmlPaths.push(file);
+            if (manifestState) {
+              const covered = postWalkManifestCoversHtmlPath(
+                distDir,
+                file,
+                manifestState.current.entries,
+              );
+              if (covered) {
+                coveredHtmlPathCount++;
+              } else {
+                const relative = path.relative(distDir, file);
+                const topLevel = relative.split(path.sep, 1)[0] || '<root>';
+                unmanifestedByTopLevel.set(
+                  topLevel,
+                  (unmanifestedByTopLevel.get(topLevel) ?? 0) + 1,
+                );
+              }
+            }
+            allHtmlPaths[processableCount] = file;
+            processableCount++;
           }
         }
+        allHtmlPaths.length = processableCount;
+        const fullProcessHtmlPaths: readonly string[] = allHtmlPaths;
+        processHtmlPaths = fullProcessHtmlPaths;
         profileRecord('walk-dist', __tWalk);
         const walkPhaseMs = Date.now() - walkStartedAt;
-        const fullProcessHtmlPaths = [...processHtmlPaths];
-        let incrementalPlan: PostWalkIncrementalPlan | null = null;
-        let incrementalManifestPhaseMs = 0;
-        let incrementalVerifyPhaseMs = 0;
-        const incrementalEnabled = postWalkIncrementalEnabled();
         if (incrementalEnabled) {
-          const manifestStartedAt = Date.now();
-          const manifests = fs.existsSync(path.join(rootDir, 'data', 'jobs.json'))
-            ? await loadPostWalkManifestPair(rootDir, resolvePostWalkManifestLocales())
-            : {
-                ok: false as const,
-                reason: 'data/jobs.json missing: current manifest is incomplete',
-              };
-          if ('reason' in manifests) {
-            const fallbackReason = manifests.reason;
-            // eslint-disable-next-line no-console
-            console.warn(
-              `[post-walk-coordinator][incremental] fallback=full reason=${fallbackReason}`,
-            );
+          logBuildMem(
+            'postWalkCoordinator: after-walk',
+            undefined,
+            { scanned: filesScanned, processable: fullProcessHtmlPaths.length },
+            { forceGc: false },
+          );
+        }
+
+        if (incrementalEnabled) {
+          const planStartedAt = Date.now();
+          if (manifests === null || 'reason' in manifests) {
+            const fallbackReason = manifests !== null && 'reason' in manifests
+              ? manifests.reason
+              : 'manifest loader returned no result';
             incrementalPlan = {
               mode: 'full',
               processHtmlPaths: fullProcessHtmlPaths,
@@ -498,32 +625,78 @@ export function postWalkCoordinatorPlugin(
               added: 0,
               removed: 0,
               fallbackReason,
+              fallbackMode: 'full',
               reasonsByPath: new Map(),
             };
           } else {
-            incrementalPlan = buildPostWalkIncrementalPlan({
+            incrementalPlan = buildPostWalkIncrementalPlanFromState({
               distDir,
-              allHtmlPaths,
+              allHtmlPaths: fullProcessHtmlPaths,
               processableHtmlPaths: fullProcessHtmlPaths,
               baseUrl,
-              manifests: manifests.pair,
+              existingHtmlSet,
+              excludedHtmlPaths: excludedHtmlPaths ?? undefined,
+              coveredHtmlPathCount,
+              // Once the deterministic sample verifier is on, unmanifested
+              // producers are included in that sample and omitted from the
+              // main dispatch. Without verification we keep the conservative
+              // historical behaviour and process every uncovered file.
+              includeUncoveredPaths: !postWalkIncrementalVerifyEnabled(),
+              state: manifests.state,
             });
-            if (incrementalPlan.mode === 'incremental') {
-              replacePostWalkPathList(processHtmlPaths, incrementalPlan.processHtmlPaths);
-            } else {
-              // Keep the pre-existing full path when the proof is incomplete.
-              replacePostWalkPathList(processHtmlPaths, fullProcessHtmlPaths);
-            }
+            processHtmlPaths = incrementalPlan.mode === 'incremental'
+              ? incrementalPlan.processHtmlPaths
+              : fullProcessHtmlPaths;
             if (incrementalPlan.fallbackReason) {
               // eslint-disable-next-line no-console
               console.warn(
-                `[post-walk-coordinator][incremental] fallback=full reason=${incrementalPlan.fallbackReason}`,
+                `[post-walk-coordinator][incremental] `
+                  + `fallback=${incrementalPlan.fallbackMode ?? 'full'} `
+                  + `reason=${incrementalPlan.fallbackReason}`,
               );
             }
+            const changedKindCounts = new Map<string, number>();
+            for (const logical of manifests.state.changed) {
+              const kind = manifests.state.current.entries.get(logical)?.kind ?? '<missing>';
+              changedKindCounts.set(kind, (changedKindCounts.get(kind) ?? 0) + 1);
+            }
+            changedByKind = [...changedKindCounts.entries()]
+              .sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0]))
+              .slice(0, 12)
+              .map(([kind, count]) => `${kind}:${count}`)
+              .join(',') || 'none';
+            logBuildMem(
+              'postWalkCoordinator: after-plan',
+              undefined,
+              {
+                mode: incrementalPlan.mode,
+                previousEntries: manifests.state.previousEntryCount,
+                currentEntries: manifests.state.currentEntryCount,
+                processed: incrementalPlan.processed,
+                changed: incrementalPlan.changed,
+                added: incrementalPlan.added,
+                removed: incrementalPlan.removed,
+              },
+              { forceGc: false },
+            );
           }
-          incrementalManifestPhaseMs = Date.now() - manifestStartedAt;
+          incrementalPlanPhaseMs = Date.now() - planStartedAt;
+          // Explicitly drop the one current-entry map and delta sets before
+          // blog maps, verification, or workers are allocated.
+          if (manifests && !('reason' in manifests)) {
+            releasePostWalkManifestState(manifests.state);
+          }
+          manifests = null;
+          excludedHtmlPaths?.clear();
+          if (incrementalPlan) {
+            logBuildMem(
+              'postWalkCoordinator: after-manifest-state-release',
+              undefined,
+              { mode: incrementalPlan.mode, processed: processHtmlPaths.length },
+              { forceGc: true },
+            );
+          }
         }
-        const filesScanned = allHtmlPaths.length;
         if (filesScanned === 0) {
           // eslint-disable-next-line no-console
           console.warn('[post-walk-coordinator] no HTML files in dist/ — skipping');
@@ -553,28 +726,32 @@ export function postWalkCoordinatorPlugin(
           && postWalkIncrementalVerifyEnabled()
         ) {
           const verifyStartedAt = Date.now();
-          const verificationPaths = selectPostWalkVerificationPaths(
+          const sampledPaths = selectPostWalkVerificationPaths(
             fullProcessHtmlPaths,
             postWalkIncrementalVerifySampleSize(),
+            incrementalPlan.processHtmlPaths,
+            false,
           );
-          const fullDryRun = runSingleThreaded(
-            verificationPaths,
+          const fullSampleDryRun = runSingleThreaded(
+            sampledPaths,
             existingHtmlSet,
             blogIndexHtmlByPath,
             distDir,
             baseUrl,
             trimmedBase,
             false,
+            true,
           );
           const comparison = comparePostWalkVerification({
-            fullWouldWritePaths: fullDryRun.wouldWritePaths ?? [],
+            fullWouldWritePaths: fullSampleDryRun.wouldWritePaths ?? [],
             incrementalProcessPaths: processHtmlPaths,
-            sampledPaths: verificationPaths,
+            sampledPaths,
           });
           incrementalVerifyPhaseMs = Date.now() - verifyStartedAt;
           // eslint-disable-next-line no-console
           console.log(
-            `[post-walk-coordinator][incremental-verify] sampled=${verificationPaths.length} `
+            `[post-walk-coordinator][incremental-verify] sampled=${sampledPaths.length} `
+              + `sample-only=${sampledPaths.length} forced=${processHtmlPaths.length} `
               + `would-write-but-skipped=${comparison.wouldWriteButSkipped.length} `
               + `processed-without-write=${comparison.processedButWouldNotWrite.length}`,
           );
@@ -591,9 +768,22 @@ export function postWalkCoordinatorPlugin(
               skippedUnchanged: 0,
               affected: 0,
               fallbackReason: reason,
+              fallbackMode: 'full',
             };
-            replacePostWalkPathList(processHtmlPaths, fullProcessHtmlPaths);
+            processHtmlPaths = fullProcessHtmlPaths;
           }
+          logBuildMem(
+            'postWalkCoordinator: after-verify',
+            undefined,
+            {
+              sampled: sampledPaths.length,
+              sampleOnly: sampledPaths.length,
+              forced: processHtmlPaths.length,
+              processed: processHtmlPaths.length,
+              mismatch: comparison.wouldWriteButSkipped.length,
+            },
+            { forceGc: false },
+          );
         }
 
         // ── Phase C: dispatch work ─────────────────────────────────
@@ -615,32 +805,43 @@ export function postWalkCoordinatorPlugin(
                 profileRecord('chunk-roundrobin', __tChunk);
                 const workerUrl = new URL('./postWalkWorker.mjs', import.meta.url);
                 const blogIndexEntries = Array.from(blogIndexHtmlByPath.entries());
+                const __tHtmlIndex = profileStart();
+                const htmlPathIndex = buildSharedHtmlPathIndex(existingHtmlSet);
+                profileRecord('shared-html-path-index', __tHtmlIndex);
                 const __tDispatch = profileStart();
-                const results = await Promise.all(
-                  chunks.map((assignedFiles) =>
-                    runInWorker(workerUrl, {
+                const finalMerged = emptyWorkerResult();
+                await Promise.all(
+                  chunks.map(async (assignedFiles) => {
+                    const r = await runInWorker(workerUrl, {
                       distDir,
                       baseUrl,
                       trimmedBase,
-                      existingHtmlPaths: allHtmlPaths,
                       blogIndexEntries,
                       contextualLinkDefaults: contextualLinkDefaults(),
                       assignedFiles,
-                    }),
-                  ),
+                      htmlPathIndex,
+                    });
+                    if (r.profilerBuckets && r.profilerBuckets.length > 0) {
+                      profileIngestBuckets(r.profilerBuckets);
+                    }
+                    const __tMerge = profileStart();
+                    mergeResultInto(finalMerged, r);
+                    profileRecord('merge-results', __tMerge);
+                  }),
                 );
                 profileRecord('worker-dispatch', __tDispatch);
-                const __tMerge = profileStart();
-                for (const r of results) {
-                  if (r.profilerBuckets && r.profilerBuckets.length > 0) {
-                    profileIngestBuckets(r.profilerBuckets);
-                  }
-                }
-                const finalMerged = mergeResults(results);
-                profileRecord('merge-results', __tMerge);
                 return finalMerged;
               })();
         const processPhaseMs = Date.now() - processPhaseStartedAt;
+
+        if (incrementalEnabled) {
+          logBuildMem(
+            'postWalkCoordinator: after-process',
+            undefined,
+            { processed: processHtmlPaths.length, writes: merged.totalWrites },
+            { forceGc: false },
+          );
+        }
 
         for (const f of merged.writeFailures) {
           // eslint-disable-next-line no-console
@@ -661,18 +862,31 @@ export function postWalkCoordinatorPlugin(
         );
 
         if (incrementalEnabled && incrementalPlan) {
+          const unmanifestedTopLevel = [...unmanifestedByTopLevel.entries()]
+            .sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0]))
+            .slice(0, 12)
+            .map(([topLevel, count]) => `${topLevel}:${count}`)
+            .join(',');
           // eslint-disable-next-line no-console
           console.log(
             `[post-walk-coordinator][incremental] scanned=${filesScanned} `
               + `eligible-by-manifest=${incrementalPlan.eligibleByManifest} `
+              + `manifest-html-entries=${manifestHtmlEntryCount} `
               + `mode=${incrementalPlan.mode} `
               + `changed-entries=${incrementalPlan.changed} added-entries=${incrementalPlan.added} removed-entries=${incrementalPlan.removed} `
+              + `changed-by-kind=${changedByKind} `
               + `processed=${processHtmlPaths.length} `
               + `skipped-unchanged=${incrementalPlan.skippedUnchanged} `
+              + `unmanifested=${incrementalPlan.unmanifested ?? 'n/a'} `
+              + `unmanifested-skipped=${incrementalPlan.unmanifestedSkipped ?? 'n/a'} `
+              + `unmanifested-top-level=${unmanifestedTopLevel || 'none'} `
               + `affected=${incrementalPlan.affected} `
               + `writes=${merged.totalWrites} `
-              + `fallback=${incrementalPlan.fallbackReason ?? 'none'} `
+              + `fallback=${incrementalPlan.fallbackMode
+                ? `${incrementalPlan.fallbackMode}:${incrementalPlan.fallbackReason ?? 'unspecified'}`
+                : 'none'} `
               + `phases_ms=walk:${walkPhaseMs},manifest:${incrementalManifestPhaseMs},`
+              + `plan:${incrementalPlanPhaseMs},`
               + `blog:${blogPhaseMs},process:${processPhaseMs},verify:${incrementalVerifyPhaseMs} `
               + `dependency-rule="${POST_WALK_INCREMENTAL_DEPENDENCY_RULE}"`,
           );

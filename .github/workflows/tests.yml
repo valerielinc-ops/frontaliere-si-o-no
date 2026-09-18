@@ -2,14 +2,26 @@ name: tests
 run-name: "Code checks and review · ${{ github.event.pull_request.number && format('PR #{0}', github.event.pull_request.number) || github.ref_name }} · ${{ github.event.action || github.event_name }}"
 
 # One required check owns checkout, source guards, typecheck, Vitest and review.
-# The PR body contract is a step of this code run. Title/body edits start one
-# fresh validation/review run on the current SHA; labels remain non-triggering.
+# The PR body contract is a step of this code run. A second model review is
+# admitted only for a new HEAD, so metadata churn cannot manufacture
+# contradictory reviews on one commit. Labels remain non-triggering.
 # Keep the job name aligned with the ruleset and scripts/ci/lib/constants.mjs.
-
+#
+# `edited` NON e' fra i tipi: un cambio di titolo o descrizione lascia l'HEAD
+# identico, quindi rieseguire l'intera run rimisura codice che non e' cambiato.
+# Misurato il 2026-09-18 sulle ultime 200 run: 38 delle 116 run su PR (33%)
+# nascono da un `edited`, 14 minuti di mediana l'una, 8 ore di CI in quella
+# sola finestra. La review non veniva comunque rifatta — il `Re-review guard`
+# salta quando esiste gia' una review terminale sulla HEAD — quindi quelle run
+# rimisuravano soltanto i test.
+#
+# Il caso che `edited` copriva resta coperto: se la run fallisce sul contratto
+# del body o sul gate della review, `retry-code-check-after-body-edit.yml`
+# riesegue QUELLA run quando la descrizione viene corretta, e solo allora.
 on:
   pull_request:
     branches: [main]
-    types: [opened, edited, synchronize, reopened, ready_for_review]
+    types: [opened, synchronize, reopened, ready_for_review]
   push:
     branches: [main]
   # Required checks are evaluated on the merge queue ref, not on the PR event.
@@ -1670,6 +1682,7 @@ jobs:
           node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
       - name: vitest related (PR diff)
+        id: vitest_related
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         # FOREGROUND, dopo "Assemble + migrate": i test scelti dal grafo
         # possono leggere i dataset generati. Questo è l'unico invocatore di
@@ -1702,15 +1715,16 @@ jobs:
           VITEST_CACHE_DIR: node_modules/.vite-related
           CHANGED_PATHS_STATUS_FILE: changed-paths-status.txt
           VITEST_SKIP_CORPUS_WIDE: 'true'
+          VITEST_REPORT_FILE: shard-timing-related.json
         run: |
           set -euo pipefail
           case "$ASSEMBLE_REQUIRED" in
             true)
-              node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile=shard-timing-related.json
+              node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile="$VITEST_REPORT_FILE"
               ;;
             false)
               VITEST_DATASET_GROUP=independent \
-                node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile=shard-timing-related.json
+                node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile="$VITEST_REPORT_FILE"
               ;;
             *)
               echo "::error::unexpected Assemble + migrate decision: $ASSEMBLE_REQUIRED"
@@ -1838,16 +1852,18 @@ jobs:
           if-no-files-found: ignore
 
       - name: Report Vitest failures on PR
-        # The two Vitest steps can fail independently; this step must still
-        # run after either group fails and must never mask the original gate.
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && github.event_name == 'pull_request') }}
+        # The Vitest step can fail before the review chain; this reporter must
+        # still run and must never mask the original gate.
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && (github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.pr_number != '')) && steps.vitest_related.outcome == 'failure') }}
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_NUMBER: ${{ github.event.pull_request.number || inputs.pr_number }}
           RUN_ID: ${{ github.run_id }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          VITEST_REPORT_FILES: shard-timing-related.json
         run: node scripts/ci/report-vitest-failure.mjs
 
       - name: Resolve PR from pull request
@@ -1884,34 +1900,22 @@ jobs:
           } >> "$GITHUB_OUTPUT"
           echo "Risolto PR #$PRN (draft=$is_draft) sulla head $HEAD_SHA."
 
-      - name: Re-review guard (skip only an identical review input)
+      - name: Re-review guard (one terminal verdict per HEAD)
         id: guard
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          EVENT_ACTION: ${{ github.event.action || '' }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
           REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          last=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
-            --jq '[.[] | select((.user.login // "" | test("^(claude\\[bot\\]|frontaliere-automation\\[bot\\])$";"i")) and (.body|contains("## LGTM")))] | last | .commit_id // empty' 2>/dev/null || true)
-          if [ -z "$last" ]; then
-            echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Nessuna review LGTM precedente → review piena."; exit 0
-          fi
-          if [ "${EVENT_ACTION:-}" = "edited" ]; then
-            echo "skip=false" >> "$GITHUB_OUTPUT"
-            echo "PR metadata modificata → review piena sulla revisione corrente del review input."
-            exit 0
-          fi
-          if [ "$last" = "$HEAD_SHA" ]; then
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-            echo "Esiste già una review terminale sulla HEAD $HEAD_SHA → nessuna seconda review per lo stesso input."
-            exit 0
-          fi
-          echo "skip=false" >> "$GITHUB_OUTPUT"
-          echo "Review terminale sulla HEAD precedente ($last) → review piena obbligatoria sulla nuova HEAD $HEAD_SHA; nessun riuso del verdetto precedente."
+          # Count every terminal managed review on this HEAD, not only LGTM.
+          # An `edited` body/title event must not launch a second model review
+          # on the same SHA (PRs #9066/#9074: LGTM then 🔴 Important).
+          reviews=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null || echo '[]')
+          decision=$(printf '%s' "$reviews" | node scripts/ci/lib/pr-review-admission.mjs skip --head "$HEAD_SHA")
+          printf '%s\n' "$decision" >> "$GITHUB_OUTPUT"
 
       - name: Determine review tier
         id: tier
@@ -2423,7 +2427,7 @@ jobs:
         # 429/action crash). Skipping here left the required check green with
         # zero bot reviews on HEAD (PR #7635): no LGTM, nothing red, auto-merge
         # parked forever. Fail this step when HEAD has no valid LGTM.
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -2436,16 +2440,17 @@ jobs:
           # Il gate autorevole resta questo step required; la decisione è
           # estratta in un modulo testabile che verifica la coppia review/check
           # sulla HEAD corrente, la classificazione fail-closed e il conio della
-          # follow-up aggregata.
+          # follow-up aggregata. Corre anche quando la guardia salta il model
+          # reviewer: deve valutare il verdetto già presente sulla HEAD.
           node scripts/ci/review-gate.mjs
 
       # GitHub può pubblicare `skipped` per uno step controllato da `if:` e
       # trattarlo come verde nel ruleset. Il gate sopra deve aver valutato la
-      # review quando la guardia non ha saltato per uno stesso input già visto; se quel
+      # review anche quando il model reviewer è stato saltato; se quel
       # percorso è stato saltato, trasformiamo l'assenza di verdetto in un
       # rosso reale. Il job non ha condizioni che possano saltarlo.
       - name: Fail when required review gate is skipped
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.review_gate.outcome == 'skipped') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.review_gate.outcome == 'skipped') }}
         run: |
           echo "::error::Required review gate was skipped on a pull request; no approving review verdict was evaluated."
           exit 1

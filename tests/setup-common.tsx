@@ -246,7 +246,7 @@ vi.mock('react-leaflet', () => ({
  // Tooltip used by LivabilityMap.tsx and destructured by the shared MapCanvas
  // shell, which reads the whole react-leaflet surface once on load.
  Tooltip: ({ children }: any) => <div data-testid="tooltip">{children}</div>,
- useMap: () => ({ setView: vi.fn(), fitBounds: vi.fn() }),
+ useMap: () => ({ setView: vi.fn(), fitBounds: vi.fn(), flyTo: vi.fn() }),
 }));
 
 // ─── Global isolation guards (isolate: false — all files share one module registry per worker)

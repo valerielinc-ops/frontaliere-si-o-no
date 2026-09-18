@@ -119,7 +119,7 @@ async function fetchAristonListings() {
   // Zero-feed guard: fetchHtml's connection-level Jina fallback can return a
   // parseable-but-`<loc>`-less body (proxy hiccup, rendered XML tree) instead of
   // throwing like the old fetchText did. An empty feed must NOT flow into
-  // mergeJobs([]) → writeJson, which would silently wipe every Ariston TI/GR job
+  // mergeJobs([]) → writeJson, which would silently wipe every Ariston Swiss job
   // from the indexed dataset (de-index). Abort before any write so prior data is
   // preserved (safe-fail), mirroring Skyguide's fetchListings throw.
   if (discovered.length === 0) {

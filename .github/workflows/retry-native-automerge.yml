@@ -42,6 +42,7 @@ jobs:
             /scripts/ci/lib/fetchPrFiles.mjs
             /scripts/ci/lib/vitestCheck.mjs
             /scripts/ci/lib/constants.mjs
+            /scripts/ci/lib/pr-review-admission.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /data/loop-fleet/loop-registry.json
           sparse-checkout-cone-mode: false

@@ -10,22 +10,22 @@
  *   - POST /wday/cxs/swisslife/Swiss_Life_Career_Site/jobs  — paginated listing
  *   - GET  /wday/cxs/swisslife/Swiss_Life_Career_Site{externalPath} — job detail
  *
- * Filter: Valais (VS) locations only — kept by location TEXT (Sion, Visp,
- * Martigny, …), NOT brittle Workday location facet UUIDs.
+ * Scope: all Swiss locations — kept by location TEXT, NOT brittle Workday
+ * location facet UUIDs.
  *
  * Source: https://www.swisslife.ch/en/about-us/job-careers/our-vacancies.html
  *
  * Exports the 4 required functions for the crawler template:
- *   - fetchAllSwissLifeJobs()  — Fetch and parse all Valais jobs
+ *   - fetchAllSwissLifeJobs()  — Fetch and parse all Swiss jobs
  *   - isSwissLifeJob()         — Match jobs belonging to this company
  *   - isTrustedDomain()        — Validate URLs belong to this company
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferAnyCanton, isCantonRelevant } from './target-swiss-locations.mjs';
-import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { inferAnyCanton, isKnownSwissCity, isSwissLocationText, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -34,24 +34,19 @@ export const SWISS_LIFE_KEY = 'swiss-life';
 export const SWISS_LIFE_COMPANY_NAME = 'Swiss Life';
 export const SWISS_LIFE_COMPANY_DOMAIN = 'swisslife.ch';
 
-const SWISS_LIFE_HQ = getCompanyDefaults(SWISS_LIFE_KEY);
-const DEFAULT_SWISS_LIFE_CANTON = SWISS_LIFE_HQ?.canton || 'VS';
-
 const WORKDAY_API_BASE =
   'https://swisslife.wd3.myworkdayjobs.com/wday/cxs/swisslife/Swiss_Life_Career_Site';
 const WORKDAY_PUBLIC_BASE =
   'https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site';
 
-// Valais detection — text-based via the authoritative shared helper
-// (isCantonRelevant(text, 'VS'): canton names + all VS BFS municipalities/aliases
-// + code patterns), NOT brittle Workday location UUIDs. Workday recycles/renames
-// location facet IDs whenever Swiss Life restructures its general agencies (the
-// old Sion/Visp/Martigny UUIDs would vanish from the facet list → 0 jobs, the
-// silent slow death that broke fnz for 7 runs). We instead fetch ALL postings and
-// keep the ones whose location text resolves to Valais, so the crawler self-heals
-// when Swiss Life adds/renames VS locations.
-function isValaisLocationText(text = '') {
-  return isCantonRelevant(String(text || ''), 'VS');
+// Location detection is text-based via the shared all-canton helpers, NOT
+// brittle Workday location UUIDs. Workday recycles/renames location facet IDs
+// when Swiss Life restructures its agencies, so we fetch all postings and keep
+// those whose location text resolves to Switzerland.
+function isSwissLifeLocationText(text = '') {
+  const value = String(text || '');
+  return isTargetSwissLocation(value, { includeGrigioni: true, includeBorderProximity: false })
+    || isSwissLocationText(value);
 }
 
 const PAGE_SIZE = 20;
@@ -64,6 +59,16 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function swissLifePostingKey(posting = {}) {
+  const id = [
+    (posting.bulletFields || [])[0],
+    posting.externalPath,
+  ]
+    .map((value) => String(value ?? '').trim())
+    .find(Boolean);
+  return id ? `id:${id}` : '';
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -180,25 +185,46 @@ async function fetchJson(url, options = {}) {
 }
 
 /**
- * List candidate Valais Swiss Life postings via Workday API.
+ * Refuse to publish a national result set unless pagination reached a
+ * provable terminal condition. A short page is not terminal while Workday
+ * still declares records that have not been read.
+ */
+export function assertSwissLifeNationalReadComplete({
+  terminationProven = false,
+  totalHits = null,
+  recordsSeen = 0,
+} = {}) {
+  if (terminationProven && (totalHits === null || recordsSeen >= totalHits)) return;
+  const coverage = totalHits === null
+    ? `${recordsSeen} records fetched without a proven terminal page`
+    : `${recordsSeen} of ${totalHits} declared records fetched`;
+  throw new Error(
+    `Swiss Life national Workday read is incomplete: ${coverage}. `
+    + 'Refusing to conclude anything about Swiss openings from a truncated set.',
+  );
+}
+
+/**
+ * List candidate Swiss Life postings via Workday API.
  *
  * We do NOT filter by Workday location facet IDs (they go stale whenever Swiss
  * Life restructures its general agencies). Instead we page through ALL postings
  * (appliedFacets:{}) and keep:
- *   - single-location postings whose locationsText resolves to Valais;
- *   - multi-location postings (e.g. "N Locations") whose Valais membership can
+ *   - single-location postings whose locationsText resolves to Switzerland;
+ *   - multi-location postings (e.g. "N Locations") whose Swiss membership can
  *     only be confirmed from the detail page → handed downstream for resolution.
- * Pagination advances offset by the actual page length and stops on a
- * short/empty page (the genuine end of results). The first page's `total` is
- * used only as a positive upper bound: an unfiltered Workday query can echo
- * total:0 alongside a full page of postings, so we never break on
- * `offset >= total` when total is 0 (that would drop every posting on pages 2+).
- * A page cap bounds the loop if a tenant never shortens.
+ * Pagination advances offset by the actual page length. A short page is not
+ * treated as terminal: Workday can return one mid-set while still declaring a
+ * higher total. We stop only on an empty page or after reaching a positive
+ * declared total; an incomplete read fails closed.
  */
-async function fetchValaisListings() {
+export async function fetchSwissListings() {
   const seen = new Map();
+  const seenSourceRecordKeys = new Set();
   let offset = 0;
-  let total = null;
+  let totalHits = null;
+  let recordsSeen = 0;
+  let terminationProven = false;
   let pages = 0;
   const MAX_PAGES = 100;
 
@@ -219,27 +245,52 @@ async function fetchValaisListings() {
       break;
     }
 
-    if (total === null) total = data.total || 0;
+    const reportedTotal = Number(data.total);
+    if (totalHits === null && Number.isFinite(reportedTotal) && reportedTotal > 0) {
+      totalHits = reportedTotal;
+    }
     pages += 1;
+
+    const pageRecordKeys = data.jobPostings.map(swissLifePostingKey);
+    if (pageRecordKeys.some((key) => !key)) {
+      throw new Error(
+        `Swiss Life national Workday page ${pages} contains a record without a stable record identity (requisition ID/path). `
+        + 'Refusing to count a source row that the final deduplication map cannot retain.',
+      );
+    }
+    const uniquePageRecordKeys = [...new Set(pageRecordKeys)];
+    const newRecordKeys = uniquePageRecordKeys.filter((key) => !seenSourceRecordKeys.has(key));
+    if (uniquePageRecordKeys.length !== pageRecordKeys.length || newRecordKeys.length !== uniquePageRecordKeys.length) {
+      throw new Error(
+        `Swiss Life national Workday page ${pages} made no progress: repeated page or no new records. `
+        + 'Refusing to conclude national coverage from a duplicated response.',
+      );
+    }
+    for (const key of newRecordKeys) seenSourceRecordKeys.add(key);
 
     for (const posting of data.jobPostings) {
       const locText = posting.locationsText || '';
       // Multi-location postings ("N Locations") hide individual sites — keep as
       // candidate and let fetchAllSwissLifeJobs() confirm via the detail page.
-      if (/^\s*\d+\s+location/i.test(locText) || isValaisLocationText(locText)) {
-        const reqId = (posting.bulletFields || [])[0] || posting.externalPath;
-        if (reqId && !seen.has(reqId)) {
-          seen.set(reqId, posting);
+      if (/^\s*\d+\s+location/i.test(locText) || isSwissLifeLocationText(locText)) {
+        const key = swissLifePostingKey(posting);
+        if (!seen.has(key)) {
+          seen.set(key, posting);
         }
       }
     }
 
-    offset += data.jobPostings.length;
-    // Stop on a short/empty page. Trust `total` as an upper bound ONLY when
-    // positive: an unfiltered query echoing total:0 with a full page must not
-    // break here, or every posting on pages 2+ is silently dropped.
-    if (data.jobPostings.length < PAGE_SIZE) break;
-    if (total > 0 && offset >= total) break;
+    const pageCount = uniquePageRecordKeys.length;
+    recordsSeen += newRecordKeys.length;
+    offset += pageCount;
+    if (pageCount === 0) {
+      terminationProven = true;
+      break;
+    }
+    if (totalHits !== null && recordsSeen >= totalHits) {
+      terminationProven = true;
+      break;
+    }
     if (pages >= MAX_PAGES) {
       console.warn(`  ⚠️ Reached pagination safety cap (${MAX_PAGES} pages); stopping.`);
       break;
@@ -247,6 +298,7 @@ async function fetchValaisListings() {
     await new Promise((r) => setTimeout(r, 300));
   }
 
+  assertSwissLifeNationalReadComplete({ terminationProven, totalHits, recordsSeen });
   return [...seen.values()];
 }
 
@@ -268,15 +320,15 @@ export function parseWorkdayLocation(locText = '') {
 }
 
 /**
- * Resolve the Valais city for a job from detail data.
+ * Resolve the Swiss city for a job from detail data.
  *
  * Multi-location postings ("N Locations") only reveal their real sites here, so
- * we confirm Valais membership from the detail page (primary location,
+ * we confirm Swiss membership from the detail page (primary location,
  * additionalLocations — string or `{descriptor}` — and the requisition
- * descriptor). Returns the matching Valais location text, or '' if the job is
- * NOT in Valais (caller SKIPs it — no blind fallback to a default VS city).
+ * descriptor). Returns the matching Swiss location text, or '' if the job is
+ * not Swiss or no canton can be inferred (caller skips it without a fallback).
  */
-function resolveValaisCity(info = {}, listingLocText = '') {
+export function resolveSwissLifeLocation(info = {}, listingLocText = '') {
   const additionalLocations = Array.isArray(info.additionalLocations)
     ? info.additionalLocations.map((l) => (typeof l === 'string' ? l : l?.descriptor || ''))
     : [];
@@ -287,21 +339,33 @@ function resolveValaisCity(info = {}, listingLocText = '') {
     listingLocText || '',
   ];
 
-  const valaisLoc = candidates.find((l) => isValaisLocationText(l));
-  if (!valaisLoc) return '';
+  const rankedCandidates = candidates
+    .map((value, index) => {
+      const text = normalizeSpace(value);
+      if (!isSwissLifeLocationText(text)) return null;
+      const parsedCity = parseWorkdayLocation(text);
+      const specificity = isKnownSwissCity(parsedCity)
+        ? 3
+        : inferAnyCanton(text)
+          ? 2
+          : 1;
+      return { text, specificity, index };
+    })
+    .filter(Boolean)
+    .sort((a, b) => b.specificity - a.specificity || a.index - b.index);
+  const swissLoc = rankedCandidates[0]?.text || '';
+  if (!swissLoc) return '';
 
-  const city = parseWorkdayLocation(valaisLoc);
-  // No fabricated city: empty → skip (caller drops the row); a bare canton
-  // descriptor ("Valais"/"Wallis") is returned as-is — honest region-level
-  // location that still resolves to canton VS, instead of inventing "Sion".
+  const city = parseWorkdayLocation(swissLoc);
+  // No fabricated city or canton: an empty/ambiguous location is skipped.
   if (!city) return '';
-  return city;
+  return inferAnyCanton(city) ? city : '';
 }
 
 /* ── Main fetch function ──────────────────────────────────── */
 
 /**
- * Fetch all Swiss Life Valais jobs from the Workday API.
+ * Fetch all Swiss Life jobs from the Workday API.
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
@@ -310,15 +374,15 @@ function resolveValaisCity(info = {}, listingLocText = '') {
 export async function fetchAllSwissLifeJobs() {
   console.log(`🔍 Fetching Swiss Life jobs from Workday API`);
   console.log(`   API: ${WORKDAY_API_BASE}/jobs`);
-  console.log(`   Keeping Valais (VS) locations (Sion, Visp, Martigny, …) by location text\n`);
+  console.log(`   Keeping Swiss locations across all 26 cantons by location text\n`);
 
-  const listings = await fetchValaisListings();
+  const listings = await fetchSwissListings();
   if (!listings || listings.length === 0) {
-    console.warn('⚠️ No Valais job listings returned from Workday API.');
+    console.warn('⚠️ No Swiss job listings returned from Workday API.');
     return [];
   }
 
-  console.log(`\n  📋 Unique Valais listings found: ${listings.length}\n`);
+  console.log(`\n  📋 Unique Swiss listings found: ${listings.length}\n`);
 
   const jobs = [];
   for (const listing of listings) {
@@ -335,15 +399,39 @@ export async function fetchAllSwissLifeJobs() {
       continue;
     }
 
-    // Confirm Valais membership from the detail page. Multi-location postings
-    // only reveal their sites here, so non-Valais jobs are skipped (no blind
-    // fallback to a default VS city).
-    const city = resolveValaisCity(info, listing.locationsText);
+    // Confirm Swiss membership from the detail page. Multi-location postings
+    // only reveal their sites here, so unknown locations are skipped without
+    // inventing a historical headquarters city.
+    const city = resolveSwissLifeLocation(info, listing.locationsText);
     if (!city) {
-      console.log(`  ⏭️  Skipped — not a Valais location (${parseWorkdayLocation(info.location || listing.locationsText || '') || 'unknown'})`);
+      console.log(`  ⏭️  Skipped — not a resolvable Swiss location (${parseWorkdayLocation(info.location || listing.locationsText || '') || 'unknown'})`);
       continue;
     }
-    const canton = inferAnyCanton(city) || DEFAULT_SWISS_LIFE_CANTON;
+    const canton = inferAnyCanton(city);
+    if (!canton) {
+      console.log(`  ⏭️  Skipped — no Swiss canton could be inferred from ${city}`);
+      continue;
+    }
+    const fallbackAddress = resolveFallbackAddress(undefined, city, canton);
+    const sourceAddress = typeof info.streetAddress === 'string'
+      ? info.streetAddress
+      : typeof info.address === 'string'
+        ? info.address
+        : info.address?.streetAddress || info.address?.addressLine1 || '';
+    const sourcePostalCode = info.postalCode
+      || info.zipCode
+      || info.address?.postalCode
+      || info.address?.zipCode
+      || '';
+    const normalizedSourceAddress = normalizeSpace(sourceAddress);
+    const normalizedSourcePostalCode = normalizeSpace(sourcePostalCode);
+    const resolvedAddress = normalizedSourceAddress && normalizedSourcePostalCode
+      ? {
+        addressLocality: city,
+        streetAddress: normalizedSourceAddress,
+        postalCode: normalizedSourcePostalCode,
+      }
+      : fallbackAddress;
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = `${WORKDAY_PUBLIC_BASE}${externalPath}`;
@@ -379,7 +467,10 @@ export async function fetchAllSwissLifeJobs() {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: city,
+      addressLocality: resolvedAddress.addressLocality,
+      addressRegion: canton,
+      streetAddress: resolvedAddress.streetAddress,
+      postalCode: resolvedAddress.postalCode,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
@@ -403,6 +494,6 @@ export async function fetchAllSwissLifeJobs() {
     await new Promise((r) => setTimeout(r, 300));
   }
 
-  console.log(`\n📋 Total Swiss Life Valais jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total Swiss Life jobs discovered: ${jobs.length}`);
   return jobs;
 }

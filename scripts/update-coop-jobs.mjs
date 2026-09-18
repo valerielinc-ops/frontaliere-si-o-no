@@ -60,10 +60,10 @@ import {
   titleOverlap,
   applyCoopJsonLdToJob,
   buildCoopTranslationCacheEntry,
+  resolveCoopCantonCode,
 } from './lib/coop-job-parser.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
-import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -293,33 +293,6 @@ function deriveLocalizedSlug(job, locale) {
   return String(job?.slug || '').trim();
 }
 
-/**
- * Resolve a Prospective.ch attribute-30 canton label (e.g. "Zurigo",
- * "Vallese", "Ticino") to a 2-letter Swiss canton code, CH-wide.
- *
- * inferAnyCanton (BFS over names + aliases + municipalities for all 26
- * cantons) resolves most labels directly. A few localized labels the API
- * uses are not in that name set, so they are mapped explicitly here:
- *   - "Regione di Basilea" → BL (Basel-Landschaft)
- *   - "Nidwaldo"           → NW
- *   - "Obwaldo"            → OW
- * The Liechtenstein label ("Principato del Liechtenstein") is intentionally
- * left unresolved (not a Swiss canton).
- */
-const COOP_CANTON_LABEL_OVERRIDES = {
-  'regione di basilea': 'BL',
-  nidwaldo: 'NW',
-  obwaldo: 'OW',
-};
-
-function normalizeCantonCode(raw = '', fallback = '') {
-  const label = String(raw || '').trim();
-  if (!label) return fallback || '';
-  const override = COOP_CANTON_LABEL_OVERRIDES[label.toLowerCase()];
-  if (override) return override;
-  return inferAnyCanton(label) || fallback || '';
-}
-
 function cantonLabel(canton = '') {
   return canton || '';
 }
@@ -332,7 +305,7 @@ function dateOnly(raw = '') {
 
 function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
   const attr30 = String(job?.attributes?.['30']?.[0] || '').trim();
-  const canton = normalizeCantonCode(attr30, fallbackCanton);
+  const canton = resolveCoopCantonCode(attr30, '', fallbackCanton);
   // Try to get city-level location from various API fields before falling back to canton
   const apiCity = String(job?.location || job?.place || job?.city || job?.address?.city || '').trim();
   const location = apiCity || attr30 || cantonLabel(canton || fallbackCanton);
@@ -379,6 +352,7 @@ export async function fetchCoopJobDetailUrls(options = {}) {
   let droppedMalformedUrl = 0;
   let droppedDuplicateUrl = 0;
   let droppedDuplicateIdentity = 0;
+  const sourceIdentities = new Set();
 
   for (let page = 0; page < API_MAX_PAGES; page += 1) {
     const offset = page * API_LIMIT;
@@ -430,11 +404,32 @@ export async function fetchCoopJobDetailUrls(options = {}) {
       break;
     }
 
-    if (jobs.length === 0) break;
-    fetched += jobs.length;
+    if (jobs.length === 0) {
+      if (apiTotal !== null && fetched < apiTotal) {
+        throw new Error(`Coop discovery incomplete: received ${fetched}/${apiTotal} unique source records before an empty page.`);
+      }
+      break;
+    }
+    let pageNew = 0;
 
     for (const job of jobs) {
       const directLink = String(job?.links?.directlink || '').trim();
+      if (!directLink) {
+        throw new Error(`Coop discovery incomplete: page ${page + 1} contains a source row without a stable identity.`);
+      }
+      const fingerprint = fingerprintJob({ url: directLink });
+      if (!fingerprint) {
+        throw new Error(`Coop discovery incomplete: page ${page + 1} contains a source row without a stable identity.`);
+      }
+      if (sourceIdentities.has(fingerprint)) {
+        if (allUrls.has(directLink)) droppedDuplicateUrl += 1;
+        else droppedDuplicateIdentity += 1;
+        continue;
+      }
+      sourceIdentities.add(fingerprint);
+      fetched = sourceIdentities.size;
+      pageNew += 1;
+
       let parsedUrl;
       try {
         parsedUrl = new URL(directLink);
@@ -450,11 +445,6 @@ export async function fetchCoopJobDetailUrls(options = {}) {
       }
       if (allUrls.has(directLink)) {
         droppedDuplicateUrl += 1;
-        continue;
-      }
-      const fingerprint = fingerprintJob({ url: directLink });
-      if (!fingerprint) {
-        droppedMalformedUrl += 1;
         continue;
       }
       if (allFingerprints.has(fingerprint)) {
@@ -475,16 +465,31 @@ export async function fetchCoopJobDetailUrls(options = {}) {
       cantonCounts[meta.canton] = (cantonCounts[meta.canton] || 0) + 1;
     }
 
+    if (pageNew === 0) {
+      throw new Error(
+        `Coop discovery incomplete: page ${page + 1} added no unique source records; `
+        + 'refusing to infer completeness from a repeated page.',
+      );
+    }
+    if (apiTotal !== null && fetched > apiTotal) {
+      throw new Error(`Coop discovery invariant failed: unique source records ${fetched} exceed API total ${apiTotal}.`);
+    }
+
     console.log(`  📦 page ${page + 1}: ${jobs.length} jobs (cumulative ${fetched}${apiTotal !== null ? `/${apiTotal}` : ''})`);
 
     // Drained the full result set.
-    if (apiTotal !== null && offset + jobs.length >= apiTotal) break;
-    if (jobs.length < API_LIMIT) break;
+    if (apiTotal !== null && fetched === apiTotal) break;
+    if (jobs.length < API_LIMIT) {
+      if (apiTotal !== null && fetched < apiTotal) {
+        throw new Error(`Coop discovery incomplete: received ${fetched}/${apiTotal} unique source records before a short page.`);
+      }
+      break;
+    }
   }
 
   // Surface the safety-ceiling so a silent stop ≠ a fully drained feed.
   if (apiTotal !== null && fetched < apiTotal) {
-    console.warn(`  ⚠️ Pagination stopped at ${fetched}/${apiTotal} jobs (API_MAX_PAGES=${API_MAX_PAGES} ceiling) — raise the ceiling if Coop's national listing has grown.`);
+    throw new Error(`Coop discovery incomplete: pagination stopped at ${fetched}/${apiTotal} unique source records (API_MAX_PAGES=${API_MAX_PAGES} ceiling).`);
   }
 
   // Summary log
@@ -580,9 +585,9 @@ export function assertCompleteCoopDiscovery(discovery) {
     }
   });
   const droppedCounts = [droppedNonCh, droppedMalformedUrl, droppedDuplicateUrl, droppedDuplicateIdentity];
-  const accounted = urls.length + droppedCounts.reduce((sum, count) => sum + count, 0);
+  const accountedUnique = urls.length + droppedNonCh + droppedMalformedUrl;
   if (droppedCounts.some((count) => !Number.isInteger(count) || count < 0)
-      || accounted !== fetched
+      || accountedUnique !== fetched
       || apiTotals.length !== 1
       || apiTotals[0] !== apiTotal
       || (apiTotal > 0 && urls.length === 0)
@@ -590,7 +595,7 @@ export function assertCompleteCoopDiscovery(discovery) {
       || feedFingerprints.size !== urls.length
       || !trustedHostsOnly) {
     throw new Error(
-      `Coop discovery invariant failed: totals=${apiTotals.join(',')}, fetched=${fetched}, accounted=${accounted}, canonical=${urls.length}, identities=${feedFingerprints.size}, non-CH=${droppedNonCh}, malformed=${droppedMalformedUrl}, duplicate-url=${droppedDuplicateUrl}, duplicate-identity=${droppedDuplicateIdentity}, metadata=${Object.keys(seedMetaByUrl).length}, trusted-hosts=${trustedHostsOnly}.`
+      `Coop discovery invariant failed: totals=${apiTotals.join(',')}, fetched=${fetched}, accountedUnique=${accountedUnique}, canonical=${urls.length}, identities=${feedFingerprints.size}, non-CH=${droppedNonCh}, malformed=${droppedMalformedUrl}, duplicate-url=${droppedDuplicateUrl}, duplicate-identity=${droppedDuplicateIdentity}, metadata=${Object.keys(seedMetaByUrl).length}, trusted-hosts=${trustedHostsOnly}.`
     );
   }
   return true;
@@ -990,13 +995,11 @@ async function postProcessCoopJobs() {
 function logCoopJobStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
-    return { total: 0, ticino: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
+    return { total: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
   const coopJobs = allJobs.filter(isCoopJob);
-  const ticinoJobs = coopJobs.filter((job) => normalize(job?.canton) === 'ti');
-
   const unrecognizedDivisions = findUnrecognizedCoopDivisions(allJobs);
   if (unrecognizedDivisions.length > 0) {
     console.warn(
@@ -1024,7 +1027,7 @@ function logCoopJobStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'Coop');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Coop');
 
-  return { total: coopJobs.length, ticino: ticinoJobs.length, coopJobs, crawlDiff };
+  return { total: coopJobs.length, coopJobs, crawlDiff };
 }
 
 function validateCoopLocaleCoverage() {

@@ -11,6 +11,7 @@ import {
   isTicinoRelevant,
   TICINO_MUNICIPALITIES,
 } from '../scripts/lib/target-swiss-locations.mjs';
+import { ALL_CANTON_CODES, TARGET_CANTONS } from '../scripts/lib/crawler-location-config.mjs';
 
 describe('target swiss locations', () => {
   it('recognizes extended Ticino municipalities like Bedano', () => {
@@ -53,6 +54,28 @@ describe('target swiss locations', () => {
     // Zurich (ZH) and Geneva (GE) are now targets. Assert non-CH locations instead.
     expect(isTargetSwissLocation('Milan, IT')).toBe(false);
     expect(inferSwissTargetCanton('Tokyo, JP')).toBe('');
+  });
+
+  it('keeps the target scope aligned with all 26 Swiss cantons', () => {
+    expect(TARGET_CANTONS).toHaveLength(ALL_CANTON_CODES.length);
+    expect(new Set(TARGET_CANTONS)).toEqual(new Set(ALL_CANTON_CODES));
+  });
+
+  it('accepts a representative municipality from every Swiss canton', () => {
+    const representativeByCanton = {
+      AG: 'Aarau', AI: 'Appenzell', AR: 'Herisau', BE: 'Bern',
+      BL: 'Liestal', BS: 'Basel', FR: 'Fribourg', GE: 'Genève',
+      GL: 'Glarus', GR: 'Chur', JU: 'Delémont', LU: 'Luzern',
+      NE: 'Neuchâtel', NW: 'Stans', OW: 'Sarnen', SG: 'St. Gallen',
+      SH: 'Schaffhausen', SO: 'Solothurn', SZ: 'Schwyz', TG: 'Frauenfeld',
+      TI: 'Lugano', UR: 'Altdorf', VD: 'Lausanne', VS: 'Sion',
+      ZG: 'Zug', ZH: 'Zürich',
+    };
+
+    expect(Object.keys(representativeByCanton)).toEqual(expect.arrayContaining(ALL_CANTON_CODES));
+    for (const city of Object.values(representativeByCanton)) {
+      expect(isTargetSwissLocation(`${city}, Switzerland`)).toBe(true);
+    }
   });
 
   it('honors explicit parenthesized canton codes before same-name city aliases', () => {

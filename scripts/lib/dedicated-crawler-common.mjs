@@ -9,7 +9,15 @@ import {
   localizeJobContentWithPipeline,
 } from './job-localization-pipeline.mjs';
 import { hardenJobsWithStructuredSalary } from './structured-salary.mjs';
-import { normalizeCantonCode, isTargetSwissLocation, isTargetCanton, inferAnyCanton, isKnownSwissMunicipality } from './target-swiss-locations.mjs';
+import {
+  normalizeCantonCode,
+  isTargetSwissLocation,
+  isTargetCanton,
+  inferAnyCanton,
+  isKnownSwissMunicipality,
+  isKnownSwissMunicipalityInCanton,
+} from './target-swiss-locations.mjs';
+import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
 let _aiModels = null;
 try { _aiModels = await import('./ai-models.mjs'); } catch { /* ai-models not available */ }
 import {
@@ -3828,7 +3836,7 @@ export function healTruncatedStLocalities(jobs) {
 /**
  * True when the job's city is empty (no signal — HQ is the best guess) or
  * names the HQ's own city (#3513). Local twin of `localityMatchesHq` in
- * build-plugins/shared/companyHqAddresses.ts (this module imports only from
+ * build-plugins/shared/companyHqAddresses.mjs (this module imports only from
  * scripts/lib per its contract). Case/diacritic-insensitive, tolerates
  * decorated localities ("Bellinzona (TI)", "Bellinzona, Ticino").
  */
@@ -6155,9 +6163,100 @@ export function isExplicitlyOutsideTarget(text) {
 /**
  * Check if a job's LOCATION field explicitly indicates a non-Swiss location.
  */
+const EXPLICIT_FOREIGN_COUNTRY_MARKERS = [
+  'malaysia', 'italy', 'italia', 'italien', 'italie', 'france', 'germany', 'deutschland',
+  'austria', 'österreich', 'spain', 'españa', 'portugal',
+  'united kingdom', 'uk', 'usa', 'united states', 'canada',
+  'china', 'japan', 'india', 'singapore', 'thailand', 'indonesia',
+  'vietnam', 'philippines', 'taiwan', 'south korea', 'hong kong',
+  'united arab emirates', 'uae', 'saudi arabia', 'qatar',
+  'australia', 'brazil', 'mexico', 'south africa',
+  'netherlands', 'belgium', 'sweden', 'norway', 'denmark', 'finland',
+  'poland', 'czech republic', 'hungary', 'romania', 'greece',
+  'russia', 'ukraine', 'turkey', 'bermuda',
+];
+const EXPLICIT_FOREIGN_COUNTRY_RE = new RegExp(
+  `(?:^|[^\\p{L}])(?:${EXPLICIT_FOREIGN_COUNTRY_MARKERS
+    .map((marker) => marker.replace(/\s+/g, '\\s+'))
+    .join('|')})(?=$|[^\\p{L}])`,
+  'iu',
+);
+const FOREIGN_COUNTRY_CODES = [
+  'AT', 'DE', 'IT', 'NL', 'ES', 'PT', 'GB', 'UK', 'US', 'CA', 'AU', 'CN', 'JP',
+  'IN', 'SG', 'TH', 'ID', 'VN', 'PH', 'TW', 'AE', 'SA', 'QA', 'IL', 'TR', 'BR',
+  'MX', 'ZA', 'SE', 'NO', 'DK', 'FI', 'PL', 'CZ', 'HU', 'RO', 'BG', 'GR', 'HR', 'SI',
+  'SK', 'RS', 'UA', 'RU', 'FR', 'BE',
+];
+const SWISS_LOCATION_CODES = new Set(['CH', ...ALL_CANTON_CODES]);
+// ISO-like tokens are accepted only in a labelled country field or after a
+// non-empty location component. A final code is Swiss only when the locality
+// before it resolves to the same canton; this keeps SG/FR canton suffixes
+// valid without allowing a mismatched country signal such as "Zurich, FR".
+const FOREIGN_COUNTRY_CODE_PATTERN = `(${FOREIGN_COUNTRY_CODES.join('|')})`;
+const EXPLICIT_FOREIGN_COUNTRY_FIELD_CODE_RE = new RegExp(
+  `\\b(?:addresscountry|country(?:[_\\s-]+(?:code|iso))?|countrycode|isocountry(?:[_\\s-]+code)?|land|pays|paese|codice[_\\s-]+paese)\\b\\s*[:=_-]\\s*["']?${FOREIGN_COUNTRY_CODE_PATTERN}["']?(?=\\s*(?:[,;)]|$))`,
+  'iu',
+);
+const FINAL_FOREIGN_COUNTRY_CODE_RE = new RegExp(
+  `([^;]+?)[,;]\\s*${FOREIGN_COUNTRY_CODE_PATTERN}(?=\\s*(?:\\)|$))`,
+  'giu',
+);
+
+// A canton-shaped suffix is ambiguous with the ISO country code. Keep an
+// unresolved Swiss street address such as `Industriestrasse 10, SG` in the
+// ambiguous bucket, but do not let a known foreign city or a
+// comma-separated foreign city/postcode such as `Hasselt, 3500, BE` pass
+// merely because it contains digits.
+const SWISS_STREET_ADDRESS_RE = /^\s*(?:ch[-\s]?\d{4}\s+)?[^,;]+\s+\d+[a-z]?\s*$/iu;
+
+function hasExplicitForeignCountryCode(lower) {
+  // A labelled field is authoritative even when its two-letter value also
+  // names a Swiss canton (for example, country: FR).
+  if (EXPLICIT_FOREIGN_COUNTRY_FIELD_CODE_RE.test(lower)) return true;
+
+  for (const match of lower.matchAll(FINAL_FOREIGN_COUNTRY_CODE_RE)) {
+    const location = String(match[1] || '').trim();
+    const code = String(match[2] || '').toUpperCase();
+    if (code === 'CH') continue;
+    // A final code is Swiss when it agrees with a Swiss municipality in the
+    // same field. An unrecognized locality keeps a canton code ambiguous;
+    // otherwise a known Swiss locality with a mismatched code remains an
+    // explicit negative country signal (e.g. "Zurich, FR").
+    if (inferAnyCanton(location) === code) continue;
+    // Canton-shaped suffixes remain ambiguous for an unresolved
+    // street-plus-house-number address such as "Industriestrasse 10, SG";
+    // a city/postcode pair such as "Hasselt, 3500, BE" is an explicit country
+    // context, as is a known foreign city such as "Athens, GR".
+    if (SWISS_LOCATION_CODES.has(code) && !isTargetSwissLocation(location, { includeBorderProximity: false })) {
+      if (isKnownSwissMunicipalityInCanton(location, code)) continue;
+      if (isExplicitlyOutsideTarget(location)) return true;
+      if (SWISS_STREET_ADDRESS_RE.test(location)) continue;
+      return true;
+    }
+    return true;
+  }
+  return false;
+}
+
 export function isLocationExplicitlyForeign(locationField) {
   const lower = String(locationField || '').toLowerCase();
+  const bareCode = lower.trim().toUpperCase();
+  // BE/FR/GR (and the other canton codes) are also ISO country codes. In a
+  // free-text location field a bare token is ambiguous; leave it for the
+  // Swiss-canton resolver instead of proving that the row is foreign.
+  if (ALL_CANTON_CODES.includes(bareCode)) return false;
+  if (FOREIGN_COUNTRY_CODES.includes(bareCode)) return true;
   if (!lower || lower.length < 3) return false;
+  // Some source cards combine a Swiss municipality with an explicit foreign
+  // country (e.g. "Zurich, Germany"). The explicit negative country signal
+  // must win over the generic Swiss-name safeguard below for every caller of
+  // this shared helper.
+  const hasExplicitForeignCountry =
+    EXPLICIT_FOREIGN_COUNTRY_RE.test(lower)
+    || hasExplicitForeignCountryCode(lower);
+  if (hasExplicitForeignCountry) {
+    return true;
+  }
   if (/(\bch\b|swiss|svizzera|switzerland|schweiz|suisse)/i.test(lower)) return false;
   if (/\b(ticino|tessin|ti|graubunden|graubünden|grigioni|grisons|gr)\b/i.test(lower)) return false;
   // Word-boundary aware target-location check (NOT a substring scan, which let
@@ -6170,18 +6269,6 @@ export function isLocationExplicitlyForeign(locationField) {
   // Uses the full BFS dataset (2,110 municipalities + aliases) instead of
   // a manual list, so every Swiss city is protected.
   if (isKnownSwissMunicipality(lower)) return false;
-  const foreignCountries = [
-    'malaysia', 'italy', 'italia', 'france', 'germany', 'deutschland',
-    'austria', 'österreich', 'spain', 'españa', 'portugal',
-    'united kingdom', 'uk', 'usa', 'united states', 'canada',
-    'china', 'japan', 'india', 'singapore', 'thailand', 'indonesia',
-    'vietnam', 'philippines', 'taiwan', 'south korea', 'hong kong',
-    'united arab emirates', 'uae', 'saudi arabia', 'qatar',
-    'australia', 'brazil', 'mexico', 'south africa',
-    'netherlands', 'belgium', 'sweden', 'norway', 'denmark', 'finland',
-    'poland', 'czech republic', 'hungary', 'romania', 'greece',
-    'russia', 'ukraine', 'turkey', 'bermuda',
-  ];
   const foreignCities = [
     // Italian cities
     'kuala lumpur', 'milano', 'milan', 'roma', 'rome', 'firenze', 'florence',
@@ -6213,7 +6300,7 @@ export function isLocationExplicitlyForeign(locationField) {
     'ruggell', 'barberà del vallès', 'barbera del valles',
     'montecarlo', 'monte carlo', 'monte-carlo', 'monaco-ville',
   ];
-  return foreignCountries.some((k) => lower.includes(k)) || foreignCities.some((k) => lower.includes(k));
+  return foreignCities.some((k) => lower.includes(k));
 }
 
 // A SuccessFactors / SAP "career site" job page (used by Swatch Group, Omega,
@@ -6350,6 +6437,29 @@ export function recencyTs(job) {
   const raw = job?.crawledAt || job?.postedDate || '';
   const t = Date.parse(String(raw));
   return Number.isFinite(t) ? t : 0;
+}
+
+/** Hard cap matching cleanup-jobs JOBS_STALE_DAYS and the weekly stale-active audit. */
+export const ACTIVE_JOB_RETIREMENT_DAYS = 60;
+const ACTIVE_JOB_RETIREMENT_MS = ACTIVE_JOB_RETIREMENT_DAYS * 24 * 60 * 60 * 1000;
+
+/**
+ * True when a still-active record's crawledAt heartbeat is older than 60 days.
+ * Miss-streak grace absorbs a couple of transient pagination holes; this bound
+ * expires a job that was never recrawled (or never had crawledAt refreshed)
+ * even when the miss streak never advanced. Missing/unparseable crawledAt
+ * fails open — same as cleanup-jobs' `ts > 0` guard.
+ *
+ * @param {object} job
+ * @param {number} [nowMs]
+ * @returns {boolean}
+ */
+export function isActiveJobPastRetirement(job, nowMs = Date.now()) {
+  const raw = job?.crawledAt;
+  const ts = typeof raw === 'string' || typeof raw === 'number' ? Date.parse(String(raw)) : NaN;
+  if (!Number.isFinite(ts) || ts <= 0) return false;
+  const now = Number.isFinite(nowMs) ? nowMs : Date.now();
+  return now - ts > ACTIVE_JOB_RETIREMENT_MS;
 }
 
 export function mergeRequirements(a = [], b = []) {
@@ -6602,6 +6712,7 @@ export function mergeLocaleRequirementsMap(a = {}, b = {}) {
  * @param {object}   [opts]
  * @param {Function} [opts.matchKey] – (job) => string – key for matching (default: normalized URL)
  * @param {boolean}  [opts.retainMissingJobs=true] – Keep unmatched jobs under the grace-period policy
+ * @param {number}   [opts.nowMs] – Clock for the 60-day crawledAt retirement cap
  * @returns {object[]} Merged jobs array (fresh data wins for source fields, existing wins for translations)
  */
 export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
@@ -6611,6 +6722,7 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
   // logic below. Crawlers whose URLs lack any stable token fall back to
   // the normalized full URL (legacy behaviour) — no regression.
   const matchKey = opts.matchKey || ((job) => extractStableJobId(job?.url));
+  const nowMs = Number.isFinite(opts.nowMs) ? opts.nowMs : Date.now();
 
   // Guard against a non-injective matchKey (collisions). A bridge key that is
   // not unique — e.g. a slug bridge where two distinct postings share
@@ -6923,10 +7035,14 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
   // silently archive a still-open job; only let it drop — and flow
   // into computeCrawlDiff's removedJobs / archive path — once it has
   // been missing for GRACE_PERIOD_MAX_MISSES consecutive runs in a row.
+  // Independently, crawledAt older than ACTIVE_JOB_RETIREMENT_DAYS leaves
+  // the active slice even on miss 1: miss-streak grace never advanced for
+  // EOC/JYSK rows that stayed "known" without a recrawl heartbeat.
   const GRACE_PERIOD_MAX_MISSES = 2;
   const retainedJobs = [];
   for (const [key, old] of existingByKey) {
     if (matchedExistingKeys.has(key)) continue;
+    if (isActiveJobPastRetirement(old, nowMs)) continue;
     const missStreak = (Number(old.crawlerMissStreak) || 0) + 1;
     if (missStreak > GRACE_PERIOD_MAX_MISSES) continue;
     retainedJobs.push({ ...old, crawlerMissStreak: missStreak });
@@ -7817,12 +7933,14 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
   }
 
   const allMerged = [...map.values()];
-  const inScopeJobs = hasScopedCompanyKeys
+  const mergeNowMs = Date.parse(nowIsoTs) || Date.now();
+  const inScopeJobs = (hasScopedCompanyKeys
     ? allMerged.filter((j) => {
       const key = resolveJobCompanyKey(j);
       return scopeCompanyKeys.has(key);
     })
-    : allMerged;
+    : allMerged
+  ).filter((job) => !isActiveJobPastRetirement(job, mergeNowMs));
   const outOfScopeJobs = hasScopedCompanyKeys
     ? allMerged.filter((j) => {
       const key = resolveJobCompanyKey(j);

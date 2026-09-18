@@ -1,5 +1,12 @@
 import { describe, expect, it } from 'vitest';
-import { parseArtisaCareerPage, parseSmartsheetFormPage, buildArtisaLocalizedContent, assertCompleteArtisaSnapshot } from '../scripts/lib/artisa-job-parser.mjs';
+import {
+  parseArtisaCareerPage,
+  parseSmartsheetFormPage,
+  buildArtisaLocalizedContent,
+  assertCompleteArtisaSnapshot,
+  assertCompleteArtisaListingSnapshot,
+  assertCompleteArtisaTargetSnapshot,
+} from '../scripts/lib/artisa-job-parser.mjs';
 
 const SAMPLE_HTML = `
   <div>
@@ -120,6 +127,21 @@ describe('assertCompleteArtisaSnapshot', () => {
     expect(assertCompleteArtisaSnapshot(rows)).toBe(true);
   });
 
+  it('does not prove zero when a Smartsheet form anchor has no vacancy heading', () => {
+    const rows = parseArtisaCareerPage(`
+      <div>
+        <h2>Carriera</h2>
+        <a href="https://app.smartsheet.com/b/form/drift">Apply</a>
+        <h2>Le nostre sedi</h2>
+      </div>
+    `);
+    expect(rows).toHaveLength(0);
+    expect(rows.artisaCandidateVacancies).toBe(1);
+    expect(rows.artisaParsedVacancies).toBe(0);
+    expect(rows.artisaSnapshotState).toBe('unverified');
+    expect(() => assertCompleteArtisaSnapshot(rows)).toThrow(/1 candidate vacancy h2 present/);
+  });
+
   it('rejects a zero produced by a page that never rendered the landmarks', () => {
     const rows = parseArtisaCareerPage('<html><body><h2>Access denied</h2></body></html>');
     expect(rows).toHaveLength(0);
@@ -130,6 +152,48 @@ describe('assertCompleteArtisaSnapshot', () => {
     const rows = parseArtisaCareerPage(SAMPLE_HTML);
     expect(rows.length).toBeGreaterThan(0);
     expect(() => assertCompleteArtisaSnapshot(rows)).toThrow(/not a proven authoritative empty state/);
+  });
+
+  it('accepts one vacancy when the complete source DOM accounts for it', () => {
+    const rows = parseArtisaCareerPage(`
+      <div>
+        <h2>Carriera</h2>
+        <h2>Architetto qualificato</h2>
+        <h4>Lugano</h4>
+        <a href="https://app.smartsheet.com/b/form/019c46ebd5137236a9d1b0d500840bf4">Scopri di piu</a>
+        <h2>Le nostre sedi</h2>
+      </div>
+    `);
+    expect(rows).toHaveLength(1);
+    expect(assertCompleteArtisaListingSnapshot(rows)).toBe(true);
+  });
+
+  it('rejects a non-empty snapshot when a vacancy heading was not parsed', () => {
+    const rows = parseArtisaCareerPage(`
+      <div>
+        <h2>Carriera</h2>
+        <h2>Architetto qualificato</h2>
+        <a href="https://app.smartsheet.com/b/form/019c46ebd5137236a9d1b0d500840bf4">Scopri di piu</a>
+        <h2>Le nostre sedi</h2>
+      </div>
+    `);
+    expect(rows).toHaveLength(0);
+    expect(() => assertCompleteArtisaListingSnapshot(rows)).toThrow(/complete non-empty state/);
+  });
+
+  it('rejects a partial one-of-two vacancy snapshot', () => {
+    const rows = parseArtisaCareerPage(`
+      <div>
+        <h2>Carriera</h2>
+        <h2>Architetto qualificato</h2>
+        <h4>Lugano</h4>
+        <a href="https://app.smartsheet.com/b/form/019c46ebd5137236a9d1b0d500840bf4">Scopri di piu</a>
+        <h2>Project Manager</h2>
+        <h2>Le nostre sedi</h2>
+      </div>
+    `);
+    expect(rows).toHaveLength(1);
+    expect(() => assertCompleteArtisaListingSnapshot(rows)).toThrow(/complete non-empty state/);
   });
 
   // Both drifts below render the page in full (landmarks present) and yield zero
@@ -161,6 +225,67 @@ describe('assertCompleteArtisaSnapshot', () => {
     `);
     expect(rows).toHaveLength(0);
     expect(() => assertCompleteArtisaSnapshot(rows)).toThrow(/not a proven authoritative empty state/);
+  });
+
+  it('rejects an empty target when a source vacancy has an unrecognised location', () => {
+    const rows = parseArtisaCareerPage(`
+      <div>
+        <h2>Carriera</h2>
+        <h2>Architect role</h2>
+        <h4>Remote</h4>
+        <a href="https://app.smartsheet.com/b/form/019c46ebd5137236a9d1b0d500840bf4">Scopri di piu</a>
+        <h2>Le nostre sedi</h2>
+      </div>
+    `);
+    expect(rows).toHaveLength(0);
+    expect(() => assertCompleteArtisaTargetSnapshot(rows)).toThrow(/unrecognised location/);
+  });
+
+  it('accepts a complete non-target snapshot when every location is explicitly foreign', () => {
+    const rows = parseArtisaCareerPage(`
+      <div>
+        <h2>Carriera</h2>
+        <h2>Architect role</h2>
+        <h4>Milano, Italy</h4>
+        <a href="https://app.smartsheet.com/b/form/019c46ebd5137236a9d1b0d500840bf4">Scopri di piu</a>
+        <h2>Le nostre sedi</h2>
+      </div>
+    `);
+    expect(rows).toHaveLength(0);
+    expect(assertCompleteArtisaTargetSnapshot(rows)).toBe(true);
+  });
+
+  it('does not publish a zero when one foreign-looking snapshot row is unproven', () => {
+    const rows = parseArtisaCareerPage(`
+      <div>
+        <h2>Carriera</h2>
+        <h2>Architect role</h2>
+        <h4>Milano, Italy</h4>
+        <a href="https://app.smartsheet.com/b/form/019c46ebd5137236a9d1b0d500840bf4">Scopri di piu</a>
+        <h2>Project role</h2>
+        <h4>Remote</h4>
+        <a href="https://app.smartsheet.com/b/form/019c46ebd5137236a9d1b0d500840bf4">Scopri di piu</a>
+        <h2>Le nostre sedi</h2>
+      </div>
+    `);
+
+    expect(rows).toHaveLength(0);
+    expect(() => assertCompleteArtisaTargetSnapshot(rows)).toThrow(/unrecognised location/);
+  });
+
+  it('does not treat a Swiss municipality plus an explicit foreign country as Swiss', () => {
+    const rows = parseArtisaCareerPage(`
+      <div>
+        <h2>Carriera</h2>
+        <h2>Architect role</h2>
+        <h4>Lugano, Italy</h4>
+        <a href="https://app.smartsheet.com/b/form/019c46ebd5137236a9d1b0d500840bf4">Scopri di piu</a>
+        <h2>Le nostre sedi</h2>
+      </div>
+    `);
+
+    expect(rows).toHaveLength(0);
+    expect(assertCompleteArtisaTargetSnapshot(rows)).toBe(true);
   });
 
   // Issue #7425 item 3. The two failures below are indistinguishable from the

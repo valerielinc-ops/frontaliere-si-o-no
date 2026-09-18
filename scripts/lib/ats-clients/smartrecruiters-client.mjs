@@ -5,7 +5,8 @@
  *
  *   tenant → buildSmartRecruitersApiUrl → GET /v1/companies/{tenant}/postings
  *                                                 ↓
- *                  paginated walk (limit=100, offset+=100, until offset>=totalFound)
+ *                  paginated walk (limit=100, offset advances by returned rows,
+ *                  until declared unique-ID coverage reaches totalFound)
  *                                                 ↓
  *                  optional: location filters (locationContains substring,
  *                            locationCountryCodes ISO match, custom predicate)
@@ -117,6 +118,13 @@ export class SmartRecruitersApiError extends Error {
     this.name = 'SmartRecruitersApiError';
     /** @type {number|null} */
     this.statusCode = statusCode;
+  }
+}
+
+class SmartRecruitersMalformedResponseError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'SmartRecruitersMalformedResponseError';
   }
 }
 
@@ -270,7 +278,11 @@ export async function fetchSmartRecruitersDepartments(tenant, options = {}) {
  *
  * @param {string} url
  * @param {{ timeoutMs: number, userAgent: string }} ctx
- * @returns {Promise<{ content: SmartRecruitersPosting[], totalFound: number }>}
+ * @returns {Promise<{
+ *   content: SmartRecruitersPosting[],
+ *   totalFound: number,
+ *   hasDeclaredTotal: boolean,
+ * }>}
  */
 async function fetchListPage(url, { timeoutMs, userAgent }) {
   // Route through the shared exponential-backoff helper. TRANSIENT failures
@@ -285,8 +297,21 @@ async function fetchListPage(url, { timeoutMs, userAgent }) {
       if (res.ok) {
         const json = await res.json();
         const content = assertJsonListShape(json, { key: 'content', source: 'smartrecruiters' });
-        const totalFound = Number.isFinite(json?.totalFound) ? Number(json.totalFound) : content.length;
-        return { content, totalFound };
+        const hasTotalFoundField = Boolean(
+          json && typeof json === 'object' && Object.prototype.hasOwnProperty.call(json, 'totalFound'),
+        );
+        const hasDeclaredTotal = Number.isInteger(json?.totalFound) && json.totalFound >= 0;
+        if (hasTotalFoundField && !hasDeclaredTotal) {
+          throw new SmartRecruitersMalformedResponseError(
+            `SmartRecruiters API returned malformed totalFound for ${url}`,
+          );
+        }
+        const totalFound = hasDeclaredTotal ? Number(json.totalFound) : content.length;
+        return {
+          content,
+          totalFound,
+          hasDeclaredTotal,
+        };
       }
       throw new SmartRecruitersApiError(
         `SmartRecruiters API ${res.status} ${res.statusText} for ${url}`,
@@ -296,6 +321,7 @@ async function fetchListPage(url, { timeoutMs, userAgent }) {
     {
       label: `smartrecruiters ${url}`,
       isTransient: (err) => {
+        if (err instanceof SmartRecruitersMalformedResponseError) return false;
         if (err instanceof SmartRecruitersApiError) {
           return err.statusCode == null || err.statusCode >= 500;
         }
@@ -408,9 +434,10 @@ function matchesLocationContains(posting, needles) {
 /**
  * Fetch and yield SmartRecruiters postings for a tenant.
  *
- * Pagination: SR returns at most 100 postings per call. We call repeatedly
- * with `offset += 100` until either `offset >= totalFound`, the response is
- * empty, or we hit `options.maxPages`. Polite delay between pages.
+ * Pagination: SR returns at most 100 postings per call. Normal consumers keep
+ * the legacy short-page stop; consumers that provide `onComplete` opt into a
+ * strict walk that continues until the declared total or an actual terminal
+ * page, so they can prove that a filtered zero covered the whole source.
  *
  * @param {string} tenant
  * @param {Object} [options]
@@ -439,6 +466,8 @@ function matchesLocationContains(posting, needles) {
  * @param {number} [options.minDelayMs]           Inter-page delay. Default 2000 ms.
  * @param {number} [options.timeoutMs]            Per-request. Default 20_000 ms.
  * @param {string} [options.userAgent]            Default polite UA.
+ * @param {(info: { terminationProven: boolean, totalFound: number|null, recordsSeen: number, rawRecordsSeen: number, paginationIntegrityProven: boolean }) => void} [options.onComplete]
+ *                                                Called after a complete generator walk with the source-read proof.
  * @returns {AsyncIterable<NormalizedJob>}
  * @throws {SmartRecruitersApiError} on persistent failure.
  */
@@ -455,6 +484,7 @@ export async function* fetchSmartRecruitersJobs(tenant, options = {}) {
     minDelayMs = DEFAULT_MIN_DELAY_MS,
     timeoutMs = DEFAULT_TIMEOUT_MS,
     userAgent = POLITE_UA,
+    onComplete = null,
   } = options;
 
   if (!tenant || typeof tenant !== 'string') {
@@ -470,15 +500,82 @@ export async function* fetchSmartRecruitersJobs(tenant, options = {}) {
     .filter(Boolean);
 
   let offset = 0;
-  let totalFound = Infinity;
+  let totalFound = null;
+  let recordsSeen = 0;
+  let rawRecordsSeen = 0;
+  let terminationProven = false;
+  let paginationIntegrityProven = true;
+  const seenPostingIds = new Set();
+  const seenPageKeys = new Set();
+  const requireTerminationProof = typeof onComplete === 'function';
 
   for (let page = 0; page < Math.max(1, maxPages); page++) {
-    if (offset >= totalFound) break;
+    if (totalFound !== null && paginationIntegrityProven && recordsSeen >= totalFound) {
+      terminationProven = true;
+      break;
+    }
 
     const url = buildSmartRecruitersApiUrl(tenant, { limit: DEFAULT_PAGE_SIZE, offset });
-    const { content, totalFound: serverTotal } = await fetchListPage(url, ctx);
-    if (Number.isFinite(serverTotal)) totalFound = serverTotal;
-    if (content.length === 0) break;
+    const {
+      content,
+      totalFound: serverTotal,
+      hasDeclaredTotal,
+    } = await fetchListPage(url, ctx);
+    if (hasDeclaredTotal) {
+      if (totalFound === null) {
+        totalFound = serverTotal;
+      } else if (requireTerminationProof && serverTotal !== totalFound) {
+        // A strict source proof cannot use either total as a moving target:
+        // accepting a changed count could certify a truncated or shifting
+        // response merely because the current page reaches the newer value.
+        paginationIntegrityProven = false;
+        break;
+      } else {
+        // Preserve the legacy walk for consumers that do not request a proof;
+        // only strict callers make total stability part of the contract.
+        totalFound = Math.max(totalFound, serverTotal);
+      }
+    }
+    if (content.length === 0) {
+      // An undeclared empty page is not source-completeness evidence in strict
+      // mode: after an earlier page it may be a transient/truncated response.
+      // Only a declared total reached by unique IDs can authorize the strict
+      // zero path. Legacy callers retain the historical short/empty stop.
+      terminationProven = paginationIntegrityProven
+        && (totalFound !== null && recordsSeen >= totalFound
+          || (!requireTerminationProof && totalFound === null));
+      break;
+    }
+
+    rawRecordsSeen += content.length;
+    if (requireTerminationProof) {
+      const pageIds = content.map((posting) => String(posting?.id || '').trim());
+      const pageHasCompleteIds = pageIds.length === content.length && pageIds.every(Boolean);
+      const pageHasDuplicateIds = new Set(pageIds).size !== pageIds.length;
+      const pageKey = pageHasCompleteIds ? JSON.stringify([...pageIds].sort()) : '';
+      const pageRepeats = Boolean(pageKey && seenPageKeys.has(pageKey));
+      const pageOverlaps = pageIds.some((id) => seenPostingIds.has(id));
+      // A strict source proof requires an independently identifiable row for
+      // every declared posting. A repeated page, an overlapping ID, or a row
+      // without an ID can otherwise make a truncated response look complete
+      // merely because raw row count reached `totalFound`.
+      if (!pageHasCompleteIds || pageHasDuplicateIds || pageRepeats || pageOverlaps) {
+        paginationIntegrityProven = false;
+        break;
+      }
+      seenPageKeys.add(pageKey);
+      for (const id of pageIds) seenPostingIds.add(id);
+      recordsSeen = seenPostingIds.size;
+      if (totalFound !== null && recordsSeen > totalFound) {
+        // The source declaration cannot describe fewer postings than the
+        // unique rows it has already returned. Keep the rows unproven rather
+        // than allowing the contradictory total to certify termination.
+        paginationIntegrityProven = false;
+        break;
+      }
+    } else {
+      recordsSeen = rawRecordsSeen;
+    }
 
     // Apply filters BEFORE optional detail-fetch (avoids wasted detail calls).
     const kept = [];
@@ -507,11 +604,35 @@ export async function* fetchSmartRecruitersJobs(tenant, options = {}) {
       yield normalizeSmartRecruitersJob(posting, { company, tenant });
     }
 
-    if (content.length < DEFAULT_PAGE_SIZE) break;
-    offset += DEFAULT_PAGE_SIZE;
-    if (offset < totalFound && minDelayMs > 0) {
+    if (totalFound !== null && recordsSeen >= totalFound) {
+      terminationProven = true;
+      break;
+    }
+    if (!requireTerminationProof && content.length < DEFAULT_PAGE_SIZE) {
+      terminationProven = true;
+      break;
+    }
+    if (totalFound === null && content.length < DEFAULT_PAGE_SIZE) {
+      // Strict callers cannot infer complete coverage from a short page when
+      // SmartRecruiters omitted totalFound. Leave the source unproven and
+      // fail closed instead of publishing a filtered zero.
+      terminationProven = false;
+      break;
+    }
+    offset += content.length;
+    if ((totalFound === null || offset < totalFound) && minDelayMs > 0) {
       await new Promise((r) => setTimeout(r, minDelayMs));
     }
+  }
+
+  if (typeof onComplete === 'function') {
+    onComplete({
+      terminationProven,
+      totalFound,
+      recordsSeen,
+      rawRecordsSeen,
+      paginationIntegrityProven,
+    });
   }
 }
 

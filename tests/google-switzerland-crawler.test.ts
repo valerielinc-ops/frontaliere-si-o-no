@@ -9,6 +9,8 @@ import {
   parseGoogleListingHtml,
   parseGoogleDeclaredTotal,
   extractGoogleDetailDescription,
+  resolveAddress,
+  resolveSwissGoogleLocation,
 } from '../scripts/lib/google-switzerland-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -212,6 +214,70 @@ describe('Google Switzerland crawler parser', () => {
     it('returns "" when no body section is present', () => {
       expect(extractGoogleDetailDescription('<html><body><div id="app"></div></body></html>')).toBe('');
       expect(extractGoogleDetailDescription('')).toBe('');
+    });
+  });
+
+  describe('resolveAddress', () => {
+    it('keeps required address fields for a non-Zurich Swiss canton', () => {
+      expect(resolveAddress('Bern', 'BE')).toEqual({
+        city: 'Bern',
+        sourceCity: 'Bern',
+        usedFallback: false,
+        postalCode: '3011',
+        streetAddress: 'Bundesplatz 3',
+        region: 'BE',
+      });
+    });
+
+    it('uses the documented Zurich HQ only for Zurich cards', () => {
+      expect(resolveAddress('Zürich', 'ZH')).toEqual({
+        city: 'Zürich',
+        sourceCity: 'Zürich',
+        usedFallback: false,
+        postalCode: '8002',
+        streetAddress: 'Brandschenkestrasse 110',
+        region: 'Zürich',
+      });
+    });
+
+    it('keeps a non-capital municipality aligned with the canton fallback address', () => {
+      expect(resolveAddress('Winterthur', 'ZH')).toEqual({
+        city: 'Winterthur',
+        sourceCity: 'Winterthur',
+        usedFallback: false,
+        postalCode: '8400',
+        streetAddress: 'Stadthausstrasse 4a',
+        region: 'ZH',
+      });
+    });
+
+    it('marks a capital fallback while keeping the source municipality visible', () => {
+      expect(resolveAddress('Küsnacht', 'ZH')).toEqual({
+        city: 'Zürich',
+        sourceCity: 'Küsnacht',
+        usedFallback: true,
+        postalCode: '8001',
+        streetAddress: 'Bahnhofstrasse 1',
+        region: 'ZH',
+      });
+    });
+  });
+
+  describe('resolveSwissGoogleLocation', () => {
+    it('keeps the Swiss entry from a mixed-location card', () => {
+      expect(resolveSwissGoogleLocation('Mountain View, CA, USA ; Zürich, Switzerland')).toEqual({
+        city: 'Zürich',
+        canton: 'ZH',
+      });
+    });
+
+    it('rejects a foreign-only card', () => {
+      expect(resolveSwissGoogleLocation('Mountain View, CA, USA ; Kirkland, WA, USA')).toBeNull();
+    });
+
+    it('rejects a mixed-looking field with an explicit foreign country', () => {
+      expect(resolveSwissGoogleLocation('Zürich, Germany')).toBeNull();
+      expect(resolveSwissGoogleLocation('Zürich, DE')).toBeNull();
     });
   });
 

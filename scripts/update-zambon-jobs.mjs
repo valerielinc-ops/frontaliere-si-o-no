@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 /**
- * Dedicated Zambon Svizzera SA (Cadempino, TI) crawler runner.
+ * Dedicated Zambon Svizzera SA Swiss-source crawler runner.
  *
  * Zambon's careers portal is at:
  *   https://www.zambon.com/en/open-positions
  *
- * The page uses NcorePlat ATS with a Vue.js frontend.
+ * The page uses NcorePlat ATS with a Vue.js frontend. The API is national
+ * for Zambon's Swiss entity and exposes country=CH; its source-backed Swiss
+ * site address is Cadempino, so this is not a Ticino facet or a city filter.
  * Job data is rendered client-side, so the HTML may contain only
  * Vue template placeholders when fetched server-side.
  *
@@ -21,8 +23,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parseListingPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/zambon-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { parseListingPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, ZAMBON_SWISS_SITE } from './lib/zambon-job-parser.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -38,7 +39,6 @@ const COMPANY_KEY = 'zambon';
 // of #3775/#3768, confirmed cause of #3769/#3770).
 const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
-const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Zambon Svizzera SA';
 const COMPANY_HOST = 'www.zambon.com';
 const CAREERS_URL = 'https://www.zambon.com/en/open-positions';
@@ -59,6 +59,11 @@ async function fetchPage(url, timeoutMs = 20000) {
     if (!res.ok) { console.warn(`⚠️ HTTP ${res.status}`); return null; } return await res.text();
   } catch (err) { console.warn(`⚠️ Fetch failed: ${err.message}`); return null; }
   finally { clearTimeout(timer); }
+}
+
+function isZambonSwissSiteLocation(rawLocation = '') {
+  const location = normalize(rawLocation);
+  return !location || /\bcadempino\b/.test(location);
 }
 
 /**
@@ -88,12 +93,12 @@ function buildZambonDescription(title, raw) {
     : 'Contratto';
 
   const parts = [
-    `${title}: opportunità professionale presso ${COMPANY_NAME}, azienda farmaceutica internazionale con sede a Cadempino, Canton Ticino (Svizzera).`,
+    `${title}: opportunità professionale presso ${COMPANY_NAME}, azienda farmaceutica internazionale con sede a ${ZAMBON_SWISS_SITE.city}, Canton ${ZAMBON_SWISS_SITE.canton} (Svizzera).`,
     `Zambon è un gruppo farmaceutico fondato nel 1906, leader nel settore delle malattie respiratorie, del dolore e delle malattie rare, con oltre 2.800 dipendenti e presenza in più di 20 paesi.`,
     area ? `Area funzionale: ${area}.` : '',
     `${contractInfo}, ${contract.toLowerCase()}.`,
     seniorityText ? `Posizione ${seniorityText}.` : '',
-    `Sede di lavoro: Cadempino (TI), Svizzera — zona frontaliera con l'Italia, facilmente raggiungibile dal confine di Chiasso/Como.`,
+    `Sede di lavoro: ${ZAMBON_SWISS_SITE.city} (${ZAMBON_SWISS_SITE.canton}), Svizzera — zona frontaliera con l'Italia, facilmente raggiungibile dal confine di Chiasso/Como.`,
     `Zambon offre un ambiente di lavoro dinamico e innovativo, con opportunità di crescita professionale nel settore farmaceutico. L'azienda investe costantemente in ricerca, sviluppo e qualità.`,
     `Per candidarsi, visitare il portale carriere Zambon. La candidatura può essere inviata online tramite il sistema NcorePlat.`,
   ];
@@ -132,9 +137,9 @@ async function fetchJobs() {
         id: `zambon-${raw.id}`,
         url: detailUrl, applyUrl: detailUrl, title,
         company: COMPANY_NAME, companyKey: COMPANY_KEY,
-        location: 'Cadempino', canton: DEFAULT_CANTON, country: 'CH',
-        addressLocality: 'Cadempino', addressRegion: 'TI', addressCountry: 'CH',
-        postalCode: '6814', streetAddress: 'Via Industria 13',
+        location: ZAMBON_SWISS_SITE.city, canton: ZAMBON_SWISS_SITE.canton, country: ZAMBON_SWISS_SITE.country,
+        addressLocality: ZAMBON_SWISS_SITE.city, addressRegion: ZAMBON_SWISS_SITE.canton, addressCountry: ZAMBON_SWISS_SITE.country,
+        postalCode: ZAMBON_SWISS_SITE.postalCode, streetAddress: ZAMBON_SWISS_SITE.streetAddress,
         description: buildZambonDescription(title, raw),
         titleByLocale: { it: title }, descriptionByLocale: {},
         slug, slugByLocale: { it: slug },
@@ -162,15 +167,21 @@ async function fetchJobs() {
   const listings = parseListingPage(html);
   console.log(`  📋 HTML fallback found: ${listings.length} jobs`);
 
-  return listings.map((raw) => {
+  const sourceBackedListings = listings.filter((raw) => {
+    if (isZambonSwissSiteLocation(raw.location)) return true;
+    console.warn(`  ⏭️ Dropping fallback row with non-Cadempino source location: ${raw.location}`);
+    return false;
+  });
+
+  return sourceBackedListings.map((raw) => {
     const slug = slugify(raw.title, 'zambon');
     return {
       url: raw.url, applyUrl: raw.url, title: raw.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,
-      location: raw.location || 'Cadempino', canton: DEFAULT_CANTON, country: 'CH',
-      addressLocality: 'Cadempino', addressRegion: 'TI', addressCountry: 'CH',
-      postalCode: '6814', streetAddress: 'Via Industria 13',
-      description: `${raw.title} — posizione presso ${COMPANY_NAME} a Cadempino (TI).`,
+      location: ZAMBON_SWISS_SITE.city, canton: ZAMBON_SWISS_SITE.canton, country: ZAMBON_SWISS_SITE.country,
+      addressLocality: ZAMBON_SWISS_SITE.city, addressRegion: ZAMBON_SWISS_SITE.canton, addressCountry: ZAMBON_SWISS_SITE.country,
+      postalCode: ZAMBON_SWISS_SITE.postalCode, streetAddress: ZAMBON_SWISS_SITE.streetAddress,
+      description: `${raw.title} — posizione presso ${COMPANY_NAME} a ${ZAMBON_SWISS_SITE.city} (${ZAMBON_SWISS_SITE.canton}).`,
       titleByLocale: { en: raw.title }, descriptionByLocale: {},
       slug, slugByLocale: { en: slug, it: slug },
       category: detectCategory(raw.title),
@@ -239,7 +250,7 @@ async function mergeJobs(discoveredJobs) {
 function updateAdapterConfig(seedUrls) {
   const p = path.join(ADAPTERS_DIR, `${COMPANY_KEY}.json`);
   const a = fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf-8')) : {};
-  Object.assign(a, { companyKey: COMPANY_KEY, companyName: COMPANY_NAME, companyHost: COMPANY_HOST, enabled: true, priority: 10, crawlerModes: ['html'], seedUrls: seedUrls.length ? seedUrls : [CAREERS_URL], notes: 'zambon.com NcorePlat ATS — Zambon Svizzera SA pharma jobs in Cadempino, TI.', updatedAt: new Date().toISOString() });
+  Object.assign(a, { companyKey: COMPANY_KEY, companyName: COMPANY_NAME, companyHost: COMPANY_HOST, enabled: true, priority: 10, crawlerModes: ['html'], seedUrls: seedUrls.length ? seedUrls : [CAREERS_URL], notes: `zambon.com NcorePlat ATS — national Swiss feed filtered by source country=CH. Current Swiss postings use the source-backed Zambon Switzerland SA site at ${ZAMBON_SWISS_SITE.city} (${ZAMBON_SWISS_SITE.canton}); this is not a regional facet.`, updatedAt: new Date().toISOString() });
   fs.mkdirSync(path.dirname(p), { recursive: true });
   fs.writeFileSync(p, JSON.stringify(a, null, 2) + '\n');
 }

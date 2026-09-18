@@ -10,7 +10,8 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  * lives on the jobs.ems-group.com portal.
  *
  * EMS-Chemie is headquartered in Domat/Ems (GR) with ~3000 employees
- * globally. The company is a leading specialty chemicals producer.
+ * globally. The company is a leading specialty chemicals producer; this
+ * parser remains tied to the company's own portal and site postings.
  *
  * Exports: parseListingPage, parseDetailPage, buildJob, stripHtml, normalizeSpace,
  *          inferLocation, isSwissJob
@@ -96,8 +97,8 @@ export function inferLocation(title = '', description = '') {
 
 /**
  * Check if a job location is in Switzerland. Uses the canonical BFS-based
- * check so every canton/municipality is recognized, with a fallback for
- * empty locations (EMS HQ in Domat/Ems is assumed when no location is given).
+ * check for the portal's site postings, with a fallback for empty locations
+ * (the EMS seat in Domat/Ems is assumed when no location is given).
  */
 export function isSwissJob(location = '') {
   const loc = String(location || '');

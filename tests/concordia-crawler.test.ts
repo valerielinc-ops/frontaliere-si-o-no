@@ -15,10 +15,14 @@ import { describe, it, expect } from 'vitest';
 import {
   CONCORDIA_KEY,
   CONCORDIA_COMPANY_NAME,
+  fetchAllConcordiaJobs,
+  fetchConcordiaListingUrls,
   isConcordiaJob,
   isTrustedDomain,
   parseConcordiaListing,
+  parseConcordiaListingTotal,
   resolveCanton,
+  resolveConcordiaAddress,
   detectCategory,
   detectExperienceLevel,
 } from '@/scripts/lib/concordia-job-parser.mjs';
@@ -116,6 +120,65 @@ describe('Concordia crawler parser', () => {
       expect(parseConcordiaListing('')).toEqual([]);
       expect(parseConcordiaListing('<p>no jobs here</p>')).toEqual([]);
     });
+
+    it('reads the total declared by the listing board', () => {
+      expect(parseConcordiaListingTotal('<div class="total-jobs">51 Jobs</div>')).toBe(51);
+      expect(parseConcordiaListingTotal('<div class="total-jobs">1\'234 Jobs</div>')).toBe(1234);
+      expect(parseConcordiaListingTotal('<div class="total-jobs">1’234 Jobs</div>')).toBe(1234);
+      expect(parseConcordiaListingTotal('<div class="total-jobs">1&nbsp;234 Jobs</div>')).toBe(1234);
+      expect(parseConcordiaListingTotal('<div data-testid="count" class="total-jobs"><strong>1&nbsp;234</strong> Jobs</div>')).toBe(1234);
+      expect(parseConcordiaListingTotal('<div class="jobs">no total</div>')).toBeNull();
+    });
+
+    it('fails closed when a declared detail page cannot be read', async () => {
+      const detailUrl = 'https://jobs.concordia.ch/offene-stellen/job/00000000-0000-4000-8000-000000000000';
+      await expect(fetchAllConcordiaJobs({
+        fetchPage: async (url: string) => {
+          if (url === detailUrl) throw new Error('synthetic detail outage');
+          return `<div class="total-jobs">1 Jobs</div><a href="${detailUrl}">Job</a>`;
+        },
+        delayMs: 0,
+      })).rejects.toThrow(/refusing to publish a partial dataset/);
+    });
+
+    it('fails closed when a detail page lacks JobPosting data', async () => {
+      const detailUrl = 'https://jobs.concordia.ch/offene-stellen/job/00000000-0000-4000-8000-000000000001';
+      await expect(fetchAllConcordiaJobs({
+        fetchPage: async (url: string) => {
+          if (url === detailUrl) return '<html><body>missing structured data</body></html>';
+          return `<div class="total-jobs">1 Jobs</div><a href="${detailUrl}">Job</a>`;
+        },
+        delayMs: 0,
+      })).rejects.toThrow(/failed or lacked JobPosting/);
+    });
+
+    it('fails closed when the board repeats a full page without advancing the offset', async () => {
+      const page = Array.from({ length: 100 }, (_, index) => (
+        `<a href="/offene-stellen/job-${index}/00000000-0000-4000-8000-${String(index).padStart(12, '0')}">Job</a>`
+      )).join('');
+      let calls = 0;
+
+      await expect(fetchConcordiaListingUrls({
+        fetchPage: async () => {
+          calls += 1;
+          return page;
+        },
+        delayMs: 0,
+      })).rejects.toThrow(/did not advance/);
+      expect(calls).toBe(2);
+    });
+
+    it('fails closed when full pages reach the pagination safety bound', async () => {
+      const page = (offset: number) => Array.from({ length: 100 }, (_, index) => (
+        `<a href="/offene-stellen/job-${offset + index}/00000000-0000-4000-8000-${String(offset + index).padStart(12, '0')}">Job</a>`
+      )).join('');
+
+      await expect(fetchConcordiaListingUrls({
+        fetchPage: async (url) => page(Number(new URL(url).searchParams.get('offset') || 0)),
+        maxPages: 2,
+        delayMs: 0,
+      })).rejects.toThrow(/safety bound \(2 pages\)/);
+    });
   });
 
   // ── resolveCanton — addressRegion is the canton name, DE/FR/IT variants ──
@@ -136,8 +199,24 @@ describe('Concordia crawler parser', () => {
       expect(resolveCanton('', 'Lugano')).toBe('TI');
     });
 
-    it('falls back to HQ default (LU) when nothing resolves', () => {
-      expect(resolveCanton('', '')).toBe('LU');
+    it('does not invent a canton when the source gives no resolvable location', () => {
+      expect(resolveCanton('', '')).toBe('');
+    });
+  });
+
+  describe('resolveConcordiaAddress', () => {
+    it('fills omitted fields with a fallback in the derived canton', () => {
+      expect(resolveConcordiaAddress({}, 'Zürich', 'ZH')).toEqual({
+        postalCode: '8001',
+        streetAddress: 'Bahnhofstrasse 1',
+      });
+    });
+
+    it('keeps a valid source postal code and street address', () => {
+      expect(resolveConcordiaAddress({ postalCode: '3011', streetAddress: 'Bundesplatz 5' }, 'Bern', 'BE')).toEqual({
+        postalCode: '3011',
+        streetAddress: 'Bundesplatz 5',
+      });
     });
   });
 

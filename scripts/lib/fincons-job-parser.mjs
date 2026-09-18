@@ -1,5 +1,6 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
+import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -52,7 +53,9 @@ function bulletLines(listNode) {
 export function parseFinconsListingsPage(html = '') {
   const dom = new JSDOM(html);
   const document = dom.window.document;
-  return [...document.querySelectorAll('#jobs_table tr[id^="row_job_"]')]
+  const sourceRows = [...document.querySelectorAll('#jobs_table tr[id^="row_job_"]')];
+  let skippedMalformedRows = 0;
+  const rows = sourceRows
     .map((row) => {
       const link = row.querySelector('a.job_title_link');
       const href = String(link?.getAttribute('href') || '').trim();
@@ -61,7 +64,28 @@ export function parseFinconsListingsPage(html = '') {
       const location = normalizeSpace(row.querySelector('td:last-child')?.textContent || '');
       return { href, title, department, location };
     })
-    .filter((row) => row.href && row.title);
+    .filter((row) => {
+      const valid = row.href && row.title;
+      if (!valid) skippedMalformedRows += 1;
+      return valid;
+    });
+  const sourceRowCount = sourceRows.length;
+  const listingContainer = document.querySelector('#jobs_table');
+  const emptyStateObserved = hasExplicitEmptyJobListing(listingContainer, {
+    scopedToListing: Boolean(listingContainer),
+  });
+  const sourceReadComplete = Boolean(
+    listingContainer
+    && (sourceRowCount > 0 ? rows.length === sourceRowCount : emptyStateObserved),
+  );
+  Object.defineProperties(rows, {
+    finconsListingMarkupSeen: { value: Boolean(listingContainer), enumerable: false },
+    finconsListingSourceRowCount: { value: sourceRowCount, enumerable: false },
+    finconsListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
+    finconsListingEmptyStateObserved: { value: emptyStateObserved, enumerable: false },
+    finconsListingReadComplete: { value: sourceReadComplete, enumerable: false },
+  });
+  return rows;
 }
 
 function parseJsonLd(document) {
@@ -127,13 +151,24 @@ export function parseFinconsJobDetail(html = '') {
   const description = sections.join('\n\n').trim() || htmlToText(jsonLd?.description || '');
   const applyUrl = canonicalUrl || String(jsonLd?.url || '').trim();
   const locationParts = meta.split('|').map((part) => normalizeSpace(part));
-  const location = locationParts[1] || normalizeSpace([
+  const metaLocationParts = meta
+    .split(/\s+\|\s+|\s+-\s+/)
+    .map((part) => normalizeSpace(part))
+    .filter(Boolean);
+  const metaLocation = metaLocationParts.length >= 2 ? metaLocationParts[1] : '';
+  const location = locationParts[1] || metaLocation || normalizeSpace([
     jsonLd?.jobLocation?.address?.addressLocality || '',
     jsonLd?.jobLocation?.address?.addressRegion || '',
-    'Switzerland',
   ].filter(Boolean).join(', '));
+  const addressCountry = jsonLd?.jobLocation?.address?.addressCountry;
+  const country = normalizeSpace(
+    typeof addressCountry === 'object'
+      ? addressCountry?.name || addressCountry?.value || ''
+      : addressCountry || ''
+  );
   const employmentType = String(jsonLd?.employmentType || locationParts[2] || '').trim();
   const postalCode = String(jsonLd?.jobLocation?.address?.postalCode || '').trim();
+  const streetAddress = normalizeSpace(jsonLd?.jobLocation?.address?.streetAddress || '');
   const region = normalizeSpace(jsonLd?.jobLocation?.address?.addressRegion || '');
   const datePosted = String(jsonLd?.datePosted || '').trim();
   const validThrough = String(jsonLd?.validThrough || '').trim();
@@ -147,7 +182,9 @@ export function parseFinconsJobDetail(html = '') {
     applyUrl,
     location,
     region,
+    country,
     postalCode,
+    streetAddress,
     employmentType,
     datePosted,
     validThrough,
@@ -159,7 +196,7 @@ export function parseFinconsJobDetail(html = '') {
 
 export function buildFinconsLocalizedContent(detail = {}) {
   const sourceTitle = String(detail.title || '').trim();
-  const location = String(detail.location || 'Lugano').trim();
+  const location = String(detail.location || '').trim();
   const descriptions = {
     en: detail.description || '',
   };

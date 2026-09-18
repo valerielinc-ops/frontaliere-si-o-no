@@ -1299,7 +1299,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "anker-swiss-472409863f66",
@@ -5889,9 +5890,9 @@
     },
     {
       "id": "anker-swiss-db79b9a5659f",
-      "slug": "fabbro-in-calcestruzzo-schaler-100-anker-swiss-ag-anker-swiss-ticino-ag-giswil-db79b9a5",
+      "slug": "mulino-per-calcestruzzo-ciotola-100-aker-swiss-ag-anker-swiss-ticino-ag-giswil-db79b9a5",
       "slugByLocale": {
-        "it": "fabbro-in-calcestruzzo-schaler-100-anker-swiss-ag-anker-swiss-ticino-ag-giswil-db79b9a5",
+        "it": "mulino-per-calcestruzzo-ciotola-100-aker-swiss-ag-anker-swiss-ticino-ag-giswil-db79b9a5",
         "en": "concrete-worker-scaler-100-anker-swiss-ag-anker-swiss-ticino-ag-giswil-db79b9a5",
         "de": "betonwerker-schaler-100-anker-swiss-ag-giswil-anker-swiss-ch-db79b9a5",
         "fr": "betonniere-coffrage-100-anker-swiss-ag-anker-swiss-ticino-ag-giswil-db79b9a5"
@@ -5937,12 +5938,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "betonwerker-schaler-100-anker-swiss-ag-giswil-anker-swiss-ch-db79b9a5",
-        "betonwerker-schaler-100-anker-swiss-ag-anker-swiss-ticino-ag-giswil-db79b9a5"
+        "betonwerker-schaler-100-anker-swiss-ag-anker-swiss-ticino-ag-giswil-db79b9a5",
+        "fabbro-in-calcestruzzo-schaler-100-anker-swiss-ag-anker-swiss-ticino-ag-giswil-db79b9a5"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betonwerker-schaler-100-anker-swiss-ag-giswil-anker-swiss-ch-db79b9a5",
-          "betonwerker-schaler-100-anker-swiss-ag-anker-swiss-ticino-ag-giswil-db79b9a5"
+          "betonwerker-schaler-100-anker-swiss-ag-anker-swiss-ticino-ag-giswil-db79b9a5",
+          "fabbro-in-calcestruzzo-schaler-100-anker-swiss-ag-anker-swiss-ticino-ag-giswil-db79b9a5"
         ]
       },
       "firstSeenAt": "2026-09-06T23:03:18.378Z",

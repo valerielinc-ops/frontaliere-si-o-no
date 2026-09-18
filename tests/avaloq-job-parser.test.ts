@@ -1,12 +1,104 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   parseAvaloqListingLinks,
   parseAvaloqJobDetail,
   isAvaloqTargetLocation,
   inferAvaloqCanton,
+  fetchAvaloqJobsFromApi,
+  assertCompleteAvaloqSnapshot,
 } from '../scripts/lib/avaloq-job-parser.mjs';
 
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
+
 describe('avaloq-job-parser', () => {
+  it('rejects an empty target without a complete source proof', () => {
+    expect(() => assertCompleteAvaloqSnapshot([])).toThrow(/authoritative source snapshot/);
+  });
+
+  it('accepts an empty target only when the complete source was classified', () => {
+    const rows = [];
+    Object.defineProperties(rows, {
+      avaloqSourceSnapshot: { value: 'authoritative-api-snapshot' },
+      avaloqSourceReadComplete: { value: true },
+      avaloqSourceTerminationProven: { value: true },
+      avaloqSourcePaginationIntegrityProven: { value: true },
+      avaloqSourceTotalFound: { value: 2 },
+      avaloqSourceRecordsSeen: { value: 2 },
+      avaloqSourcePostingCount: { value: 2 },
+      avaloqClassifiedPostingCount: { value: 2 },
+    });
+    expect(assertCompleteAvaloqSnapshot(rows)).toBe(true);
+  });
+
+  it('rejects a zero target when the API total proves that the read was truncated', async () => {
+    const posting = {
+      id: '744000000000001',
+      name: 'Zürich role',
+      location: { city: 'Zürich', country: { code: 'CH' } },
+    };
+    let listCalls = 0;
+    vi.stubGlobal('fetch', vi.fn(async (input) => {
+      const url = String(input);
+      if (url.endsWith('/postings/744000000000001')) {
+        return new Response(JSON.stringify(posting), { status: 200 });
+      }
+      listCalls += 1;
+      return new Response(JSON.stringify({
+        content: listCalls === 1 ? [posting] : [],
+        totalFound: 2,
+      }), { status: 200 });
+    }));
+
+    const rows = await fetchAvaloqJobsFromApi(100, () => false);
+    expect(rows).toHaveLength(0);
+    expect(listCalls).toBe(2);
+    expect(() => assertCompleteAvaloqSnapshot(rows)).toThrow(/authoritative source snapshot/);
+  });
+
+  it('rejects a zero target when repeated source pages fake totalFound coverage', async () => {
+    const sourcePage = [
+      { id: '744000000000001', name: 'Zürich role', location: { city: 'Zürich', country: { code: 'CH' } } },
+      { id: '744000000000002', name: 'Basel role', location: { city: 'Basel', country: { code: 'CH' } } },
+    ];
+    let listCalls = 0;
+    vi.stubGlobal('fetch', vi.fn(async (input) => {
+      const url = new URL(String(input));
+      if (url.pathname.endsWith('/postings/744000000000001')) {
+        return new Response(JSON.stringify(sourcePage[0]), { status: 200 });
+      }
+      if (url.pathname.endsWith('/postings/744000000000002')) {
+        return new Response(JSON.stringify(sourcePage[1]), { status: 200 });
+      }
+      listCalls += 1;
+      return new Response(JSON.stringify({ content: sourcePage, totalFound: 4 }), { status: 200 });
+    }));
+
+    const rows = await fetchAvaloqJobsFromApi(100, () => false);
+    expect(rows).toHaveLength(0);
+    expect(listCalls).toBe(2);
+    expect(() => assertCompleteAvaloqSnapshot(rows)).toThrow(/authoritative source snapshot/);
+  });
+
+  it('rejects an unknown country paired with an unrecognised location', async () => {
+    const posting = {
+      id: '744000000000003',
+      name: 'Unmapped role',
+      location: { city: 'Unmapped City', country: { code: 'UNKNOWN' } },
+    };
+    vi.stubGlobal('fetch', vi.fn(async (input) => {
+      const url = new URL(String(input));
+      if (url.pathname.endsWith('/postings/744000000000003')) {
+        return new Response(JSON.stringify(posting), { status: 200 });
+      }
+      return new Response(JSON.stringify({ content: [posting], totalFound: 1 }), { status: 200 });
+    }));
+
+    await expect(fetchAvaloqJobsFromApi(100, () => false))
+      .rejects.toThrow(/unrecognised Avaloq location/);
+  });
+
   it('extracts public job detail links from listing page html', () => {
     const html = `
       <div style="display:none">
@@ -69,6 +161,7 @@ describe('avaloq-job-parser', () => {
   it('matches Ticino and Grigioni locations', () => {
     expect(isAvaloqTargetLocation('Bioggio')).toBe(true);
     expect(isAvaloqTargetLocation('Chur')).toBe(true);
+    expect(isAvaloqTargetLocation('Lugano, Italy')).toBe(false);
     expect(inferAvaloqCanton('Bioggio')).toBe('TI');
     expect(inferAvaloqCanton('Chur')).toBe('GR');
   });

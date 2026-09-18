@@ -27,7 +27,7 @@
  *      `data/jobs/by-crawler/migros-ticino.json` today — but lumped under
  *      `companyKey: 'migros-ticino'` with `company: 'migrolino'`, not their
  *      own dedicated company identity. This dedicated crawler gives migrolino
- *      its own `companyKey`/HQ/SEO profile (as the #3337 backlog requires for
+ *      its own `companyKey`/SEO profile (as the #3337 backlog requires for
  *      every company) by re-fetching the SAME portal scoped to the
  *      migrolino-only listing URL and, defensively, filtering discovered
  *      hrefs to the `/job/migrolino/` company-slug segment (the nationwide
@@ -59,27 +59,23 @@
  *
  * migrolino AG operates ~700 convenience-store shop locations across ALL of
  * Switzerland (a retail chain, not a single-site employer), so per-job
- * addresses come from the JSON-LD `jobLocation.address` of EACH posting
- * (the real shop address) — `resolveAddress()` below is the migrolino AG
- * HQ-fallback ONLY, and is gated on the resolved city text actually matching
- * Suhr (never applied canton-wide), so a same-canton-but-different-city shop
- * posting (e.g. Baden AG, Wohlen AG) never inherits the Suhr HQ street
- * address just because it shares canton AG.
- *
- * migrolino AG HQ address — Wynenfeldstrasse 3, 5034 Suhr (AG) — confirmed via
- * THREE independent sources: (1) the company's own JSON-LD `LocalBusiness`
- * block on migrolino-ag.ch/de/karriere (`addressLocality: "Suhr", postalCode:
- * "5034", streetAddress: "Wynenfeld"`) AND the JobPosting JSON-LD for an
- * HQ-based role (`streetAddress: "Wynenfeldstrasse 3", addressLocality:
- * "Suhr", postalCode: "5034"`); (2) help.ch Handelsregister entry (UID
- * CHE-105.489.643, "migrolino AG in Suhr"); (3) Moneyhouse company profile
- * (migrolino AG, Suhr, canton Aargau) — cross-checked, not assumed.
+ * addresses come from the JSON-LD `jobLocation.address` of EACH posting.
+ * When the source omits a mandatory address field, `resolveAddress()` keeps
+ * a source city only when a matching postal fallback is available, uses the
+ * verified Suhr HQ only for a Suhr posting, and otherwise applies a coherent
+ * canton location tuple plus a city-centre label — never the Suhr street
+ * address for a different city in AG.
  */
 import { createHash } from 'node:crypto';
 import { fetchHtml, slugify, normalizeSpace } from './crawler-template.mjs';
 import { detectLang, guessCategory, normalizeContract } from './dedicated-crawler-common.mjs';
 import { extractMigrosStructuredData, cleanDescription } from './migros-job-parser.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import {
+  getCantonLocationFallback,
+  getCityPostalFallback,
+  getDefaultCantonLocationFallback,
+} from './canton-postal-fallback.mjs';
 import { launchChromium } from './ensure-chromium.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -94,6 +90,7 @@ const DETAIL_BASE = 'https://jobs.migros.ch';
 const CAREER_URL = 'https://www.migrolino-ag.ch/de/karriere';
 
 const SECTOR = 'Retail / Convenience Store';
+const SWISS_COUNTRY_VALUES = new Set(['CH', 'CHE', 'SWITZERLAND', 'SCHWEIZ', 'SUISSE', 'SVIZZERA']);
 
 /**
  * Matches a migrolino job detail href in any of the four locale prefixes AND
@@ -105,16 +102,6 @@ const SECTOR = 'Retail / Convenience Store';
 const JOB_HREF_RE =
   /^\/(it|de|fr|en)\/(le-nostre-imprese|unsere-unternehmen|nos-entreprises|our-companies)\/job\/migrolino\/[^/]+\/[a-f0-9-]{36}$/;
 
-/** HQ fallback — migrolino AG, Wynenfeldstrasse 3, 5034 Suhr (AG). See file
- * header for the 3-source verification. */
-const HQ = {
-  city: 'Suhr',
-  canton: 'AG',
-  postalCode: '5034',
-  streetAddress: 'Wynenfeldstrasse 3',
-  region: 'Aargau',
-};
-
 /* ── Helpers ───────────────────────────────────────────────── */
 
 function normalize(value = '') {
@@ -122,25 +109,86 @@ function normalize(value = '') {
 }
 
 /**
- * Resolve the best city / postal code / street address for a job, falling
- * back to the documented migrolino AG HQ ONLY when the resolved city text
- * itself matches Suhr (city-gated, never canton-only) — this is what stops a
- * same-canton-but-different-city shop posting (e.g. Baden AG, Wohlen AG) from
- * incorrectly inheriting the Suhr HQ street address just because it shares
- * canton AG.
- *
- * Exported so tests exercise this exact gate instead of a duplicated regex.
+ * Resolve source-backed city / postal code / street address, with safe
+ * non-empty fallbacks. The verified HQ address is city-gated on Suhr. Other
+ * cities keep their own locality only when `data/swiss-postal-codes.json`
+ * supplies a matching postal code; otherwise the complete canton fallback is
+ * used so city, postalCode and addressRegion cannot describe different places.
+ * An unresolved city/canton uses the canonical national fallback location.
  *
  * @param {{ city?: string, postalCode?: string, streetAddress?: string }} [raw]
- * @returns {{ city: string, postalCode: string, streetAddress: string }}
+ * @param {string} [canton]
+ * @returns {{ city: string, canton: string, postalCode: string, streetAddress: string }}
  */
-export function resolveAddress(raw = {}) {
-  const city = normalizeSpace(raw.city || '') || HQ.city;
-  const isSuhrHq = /\bsuhr\b/i.test(city);
+const HQ = {
+  city: 'Suhr',
+  canton: 'AG',
+  postalCode: '5034',
+  streetAddress: 'Wynenfeldstrasse 3',
+};
+
+export function resolveAddress(raw = {}, canton = '') {
+  const sourceCity = normalizeSpace(raw.city || '');
+  const sourcePostalCode = normalizeSpace(raw.postalCode || '');
+  const sourceStreetAddress = normalizeSpace(raw.streetAddress || '');
+  const cantonHint = normalizeSpace(canton);
+  const resolvedCanton = (/^[a-z]{2}$/i.test(cantonHint)
+    ? cantonHint.toUpperCase()
+    : inferAnyCanton(cantonHint)) || inferAnyCanton(sourceCity);
+  const cityPostalFallback = getCityPostalFallback(sourceCity);
+  const cantonLocationFallback = getCantonLocationFallback(resolvedCanton)
+    || getDefaultCantonLocationFallback();
+  const isRegionLabel = /^(ticino|tessin|grigioni|graub[uü]nden|grisons|grischun)$/i.test(sourceCity);
+  const isSuhrHq = resolvedCanton === HQ.canton && /\bsuhr\b/i.test(sourceCity);
+
+  if (!sourceCity) {
+    return {
+      city: cantonLocationFallback.city,
+      canton: cantonLocationFallback.addressRegion,
+      postalCode: cantonLocationFallback.postalCode,
+      streetAddress: `${cantonLocationFallback.city} city centre`,
+    };
+  }
+
+  if (isSuhrHq) {
+    return {
+      city: sourceCity,
+      canton: HQ.canton,
+      postalCode: sourcePostalCode || HQ.postalCode,
+      streetAddress: sourceStreetAddress || HQ.streetAddress,
+    };
+  }
+
+  // A source postal code is already tied to the source city; preserve it and
+  // only synthesize the missing street label. If the source canton is
+  // unresolved, fall through to the canonical tuple so addressRegion is not
+  // left empty beside a fabricated locality.
+  if (resolvedCanton && sourcePostalCode && !isRegionLabel) {
+    return {
+      city: sourceCity,
+      canton: resolvedCanton,
+      postalCode: sourcePostalCode,
+      streetAddress: sourceStreetAddress || `${sourceCity} city centre`,
+    };
+  }
+
+  // A known city can keep its own locality when the shared city map provides
+  // its postal code. This avoids pairing e.g. Baden or Wohlen with Aarau's
+  // canton-level postal code.
+  if (resolvedCanton && cityPostalFallback && !isRegionLabel) {
+    return {
+      city: sourceCity,
+      canton: resolvedCanton,
+      postalCode: cityPostalFallback,
+      streetAddress: sourceStreetAddress || `${sourceCity} city centre`,
+    };
+  }
+
   return {
-    city,
-    postalCode: normalizeSpace(raw.postalCode || '') || (isSuhrHq ? HQ.postalCode : ''),
-    streetAddress: normalizeSpace(raw.streetAddress || '') || (isSuhrHq ? HQ.streetAddress : ''),
+    city: cantonLocationFallback.city,
+    canton: cantonLocationFallback.addressRegion,
+    postalCode: cantonLocationFallback.postalCode,
+    streetAddress: `${cantonLocationFallback.city} city centre`,
   };
 }
 
@@ -234,11 +282,29 @@ export function parseMigrolinoDetail(html = '', url = '') {
   const title = normalizeSpace(jsonLd?.title || '');
   const address = jsonLd?.jobLocation?.address || {};
   const rawCity = normalizeSpace(address.addressLocality || '');
-  const { city, postalCode, streetAddress } = resolveAddress({
+  const sourceRegion = normalizeSpace(
+    typeof address.addressRegion === 'object'
+      ? address.addressRegion.name || ''
+      : address.addressRegion || '',
+  );
+  const sourceCountry = normalizeSpace(
+    typeof address.addressCountry === 'object'
+      ? address.addressCountry.name || address.addressCountry.value || ''
+      : address.addressCountry || '',
+  );
+  const sourceCityCanton = inferAnyCanton(rawCity);
+  const unresolvedExplicitCity = Boolean(rawCity && !sourceCityCanton);
+  const canton = sourceCityCanton || inferAnyCanton(sourceRegion) || '';
+  const {
+    city,
+    canton: addressCanton,
+    postalCode,
+    streetAddress,
+  } = resolveAddress({
     city: rawCity,
     postalCode: address.postalCode || '',
     streetAddress: address.streetAddress || '',
-  });
+  }, canton);
 
   const jsonLdDescription = normalizeSpace(cleanDescription(jsonLd?.description || ''));
   const richDescription = structured?.description ? cleanDescription(structured.description) : '';
@@ -255,15 +321,35 @@ export function parseMigrolinoDetail(html = '', url = '') {
   const employmentType = contract === 'part-time' ? 'PART_TIME' : 'FULL_TIME';
 
   const postedDate = normalizeSpace(jsonLd?.datePosted || '').slice(0, 10);
-  const canton = inferSwissTargetCanton(city) || HQ.canton;
+  // Validate the source locality before considering any safe fallback. Using
+  // the fabricated city here would let an unknown/foreign source inherit the
+  // fallback canton and pass the Swiss-location guard.
+  const locationSignal = [rawCity || city, sourceRegion, addressCanton].filter(Boolean).join(' ');
+  const resolvedCanton = addressCanton
+    && !unresolvedExplicitCity
+    && isTargetSwissLocation(locationSignal, { includeBorderProximity: false })
+    ? addressCanton
+    : '';
+  // A fabricated national fallback is safe only when the source supplied no
+  // locality at all. Never turn an explicit, unrecognised city into Bern (or
+  // another canton fallback), because the fallback would make the Swiss guard
+  // accept a foreign/unknown posting as a real Swiss job.
+  const outputCity = unresolvedExplicitCity ? '' : city;
+  const outputCanton = unresolvedExplicitCity ? '' : resolvedCanton;
+  const outputPostalCode = unresolvedExplicitCity ? '' : postalCode;
+  const outputStreetAddress = unresolvedExplicitCity ? '' : streetAddress;
 
   return {
     title,
-    description: description || (title ? `${title} — ${MIGROLINO_COMPANY_NAME} (${city}).` : ''),
-    city,
-    canton,
-    postalCode,
-    streetAddress,
+    description: description || (title
+      ? `${title} — ${MIGROLINO_COMPANY_NAME}${city ? ` (${city})` : ''}.`
+      : ''),
+    city: outputCity,
+    canton: outputCanton,
+    postalCode: outputPostalCode,
+    streetAddress: outputStreetAddress,
+    country: sourceCountry,
+    sourceRegion,
     employmentType,
     contract,
     postedDate: postedDate || new Date().toISOString().split('T')[0],
@@ -329,11 +415,16 @@ export async function fetchMigrolinoListingHrefs() {
     for (const u of await collect()) allUrls.add(u);
 
     let pageIdx = 1;
-    while (pageIdx < maxPages) {
+    while (true) {
       const nextBtn = page.locator('button[aria-label*="ächste" i], button:has-text("Nächste Seite")').first();
       const visible = await nextBtn.isVisible().catch(() => false);
       const disabled = await nextBtn.isDisabled().catch(() => true);
       if (!visible || disabled) break;
+      if (pageIdx >= maxPages) {
+        throw new Error(
+          `migrolino discovery incomplete: safety cap ${maxPages} pages reached while the next control remained enabled (${allUrls.size} URLs).`,
+        );
+      }
 
       await nextBtn.scrollIntoViewIfNeeded().catch(() => {});
       try {
@@ -417,6 +508,20 @@ export async function fetchAllMigrolinoJobs() {
       console.warn(`  ⚠️ Could not parse JobPosting JSON-LD for ${publicUrl} — skipping.`);
       continue;
     }
+    const country = normalize(parsed.country).toUpperCase();
+    const locationSignal = [parsed.city, parsed.sourceRegion].filter(Boolean).join(' ');
+    if (
+      (country && !SWISS_COUNTRY_VALUES.has(country)) ||
+      !parsed.city ||
+      !parsed.canton ||
+      !isTargetSwissLocation(locationSignal)
+    ) {
+      const reason = country && !SWISS_COUNTRY_VALUES.has(country)
+        ? `foreign country: ${parsed.country}`
+        : 'unresolved Swiss locality';
+      console.warn(`  ⏭️ Skipped ${reason} for ${publicUrl}`);
+      continue;
+    }
 
     const sourceLang = detectLang(parsed.description || parsed.title, 'de');
     const jobSlug = slugify(`${parsed.title} migrolino ${parsed.city}`);
@@ -443,7 +548,7 @@ export async function fetchAllMigrolinoJobs() {
 
       // ── Recommended fields ──
       addressLocality: parsed.city,
-      addressRegion: parsed.canton === HQ.canton ? HQ.region : parsed.canton,
+      addressRegion: parsed.canton,
       streetAddress: parsed.streetAddress,
       postalCode: parsed.postalCode,
       addressCountry: 'CH',

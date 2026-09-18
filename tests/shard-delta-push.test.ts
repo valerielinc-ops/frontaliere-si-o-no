@@ -10,6 +10,7 @@ import {
 } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { MANIFEST_VERSION } from '../build-plugins/shared/incrementalManifest.mjs';
 
 const ROOT = process.cwd();
 const PUSH_LOCALE = join(ROOT, 'scripts/lib/push-locale-shard.sh');
@@ -65,7 +66,7 @@ function writeManifest(scenario: Scenario, pages: string[], version: string, pre
   const counts = Object.fromEntries(KINDS.map((kind) => [kind, 0]));
   counts['active-job'] = pages.length;
   const lines = [
-    JSON.stringify({ type: 'header', manifestVersion: 2, format: 'jsonl', locale: 'en' }),
+    JSON.stringify({ type: 'header', manifestVersion: MANIFEST_VERSION, format: 'jsonl', locale: 'en' }),
     JSON.stringify({
       type: 'kind',
       kind: 'active-job',
@@ -141,7 +142,7 @@ function treeSha(remote: string): string {
 }
 
 function treeFiles(remote: string): string[] {
-  const output = git(['-C', remote, 'ls-tree', '-r', '--name-only', 'main']);
+  const output = git(['-c', 'core.quotePath=false', '-C', remote, 'ls-tree', '-r', '--name-only', 'main']);
   return output ? output.split('\n') : [];
 }
 
@@ -520,6 +521,85 @@ describe('delta push degli shard', () => {
       expect(result.output).toMatch(/\[shard-push-verify\] shard=.* mode=full plan=delta .*mismatches=0 wall_plan=\d+s/);
       expect(treeFiles(scenario.remote)).toContain('.deploy-manifest/v1/en.jsonl');
       expect(treeFiles(scenario.remote)).not.toContain('en/find-jobs-ticino/pages/b/index.html');
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
+  it('mantiene path Unicode e bookkeeping identici tra piano delta e push full', () => {
+    const full = createScenario('unicode-full');
+    const delta = createScenario('unicode-delta');
+    const initialFiles = {
+      'pages/aktienmarkt-rot-ölpreise-tessin': '<html>oil v1</html>',
+    };
+    const updatedFiles = {
+      'pages/aktienmarkt-rot-ölpreise-tessin': '<html>oil v2</html>',
+    };
+    try {
+      for (const scenario of [full, delta]) {
+        writePayload(scenario, initialFiles);
+        writeManifest(scenario, Object.keys(initialFiles), 'v1');
+        expect(runPush(scenario, 'full', { SHARD_PUSH_VERIFY: '1' }).status).toBe(0);
+      }
+
+      for (const scenario of [full, delta]) {
+        writePayload(scenario, updatedFiles);
+        writeManifest(scenario, Object.keys(updatedFiles), 'v2');
+      }
+
+      const fullResult = runPush(full, 'full', { SHARD_PUSH_VERIFY: '1' });
+      const deltaResult = runPush(delta, 'delta');
+      expect(fullResult.status).toBe(0);
+      expect(fullResult.output).toMatch(/mismatches=0/);
+      expect(deltaResult.status).toBe(0);
+      expect(deltaResult.output).toContain('delta indexed tree');
+      expect(treeSha(delta.remote)).toBe(treeSha(full.remote));
+      expect(treeFiles(delta.remote)).toContain('en/pages/aktienmarkt-rot-ölpreise-tessin/index.html');
+      expect(blobSha(delta.remote, '.shard-filecount')).toBe(blobSha(full.remote, '.shard-filecount'));
+    } finally {
+      rmSync(full.root, { recursive: true, force: true });
+      rmSync(delta.root, { recursive: true, force: true });
+    }
+  });
+
+  it('mantiene path con spazi e apostrofi nel piano delta', () => {
+    const scenario = createScenario('spaces-and-apostrophes');
+    const initialFiles = {
+      "pages/spaced path/editor's-choice": '<html>apostrophe</html>',
+    };
+    try {
+      writePayload(scenario, initialFiles);
+      writeManifest(scenario, Object.keys(initialFiles), 'v1');
+      const initialResult = runPush(scenario, 'full', { SHARD_PUSH_VERIFY: '1' });
+      expect(initialResult.status).toBe(0);
+      expect(initialResult.output).toMatch(/mismatches=0/);
+      const updatedFiles = {
+        "pages/spaced path/editor's-choice": '<html>apostrophe v2</html>',
+      };
+      writePayload(scenario, updatedFiles);
+      writeManifest(scenario, Object.keys(updatedFiles), 'v2');
+      const result = runPush(scenario, 'full', { SHARD_PUSH_VERIFY: '1' });
+      expect(result.status).toBe(0);
+      expect(result.output).toMatch(/mismatches=0/);
+      expect(treeFiles(scenario.remote)).toContain("en/pages/spaced path/editor's-choice/index.html");
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
+  it('mantiene path Unicode anche nel fallback del verifier senza manifest valido', () => {
+    const scenario = createScenario('unicode-verifier-fallback');
+    const files = {
+      'pages/aktienmarkt-rot-ölpreise-tessin': '<html>oil fallback</html>',
+    };
+    try {
+      writePayload(scenario, files);
+      writeManifest(scenario, Object.keys(files), 'v1');
+      writeFileSync(join(scenario.manifestDir, 'en.jsonl'), '{invalid jsonl\n');
+      const result = runPush(scenario, 'full', { SHARD_PUSH_VERIFY: '1' });
+      expect(result.status).toBe(0);
+      expect(result.output).toMatch(/mismatches=0/);
+      expect(treeFiles(scenario.remote)).toContain('en/pages/aktienmarkt-rot-ölpreise-tessin/index.html');
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }

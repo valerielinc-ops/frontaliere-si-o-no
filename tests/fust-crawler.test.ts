@@ -146,7 +146,7 @@ describe('Fust authoritative discovery', () => {
     const addressBlock = '<h4 data-type="section-title"><b>Arbeitsort</b></h4>'
       + '<p>Fust <br> Riedmoosstrasse 10 <br> 3172 Niederwangen BE</p>';
     expect(extractFustWorkplaceFromHtml(addressBlock)).toBe('Niederwangen BE');
-    expect(deriveFustWorkplaceCanton('Niederwangen BE', 'BE')).toBe('BE');
+    expect(deriveFustWorkplaceCanton('Köniz BE', 'BE')).toBe('BE');
     expect(extractFustWorkplaceFromHtml(
       `<script>var utag_data = { job_arbeitsort: 'Fust' };</script>${fixture.details[3].html}`,
     )).toBe('Bellinzona');
@@ -160,6 +160,10 @@ describe('Fust authoritative discovery', () => {
     expect(() => deriveFustWorkplaceCanton('Rickenbach', 'BS'))
       .toThrow(/ambiguous across BL, LU, SO, TG, ZH/);
     expect(() => deriveFustWorkplaceCanton('Schweizweit'))
+      .toThrow(/not resolvable to a Swiss municipality/);
+    expect(() => deriveFustWorkplaceCanton('Como, Italy'))
+      .toThrow(/not resolvable to a Swiss municipality/);
+    expect(() => deriveFustWorkplaceCanton('Milan, TI'))
       .toThrow(/not resolvable to a Swiss municipality/);
     expect(() => deriveFustWorkplaceCanton('Cressier'))
       .toThrow(/ambiguous across FR, NE/);
@@ -257,6 +261,32 @@ describe('Fust authoritative discovery', () => {
     }), { status: 200 });
     await expect(fetchFustJobUrls({ fetchImpl, enrichDetails: false }))
       .rejects.toThrow(/fetched 4\/501/);
+  });
+
+  it('fails loudly before paginating a pathological source total', async () => {
+    const fetchImpl = async () => new Response(JSON.stringify({ total: 100_001, jobs: [] }), { status: 200 });
+    await expect(fetchFustJobUrls({ fetchImpl, enrichDetails: false }))
+      .rejects.toThrow(/operational safety ceiling/);
+  });
+
+  it('fails loud when a later page repeats a source identity instead of proving unique progress', async () => {
+    const firstPage = Array.from({ length: 500 }, (_, index) => ({
+      ...fixture.api.jobs[0],
+      id: String(20000000 + index),
+      links: {
+        directlink: fixture.api.jobs[0].links.directlink.replace(
+          /[0-9a-f-]{36}$/i,
+          `00000000-0000-4000-8000-${index.toString(16).padStart(12, '0')}`,
+        ),
+      },
+    }));
+    const fetchImpl = async (input: string | URL | Request) => {
+      const offset = new URL(String(input)).searchParams.get('offset');
+      const jobs = offset === '0' ? firstPage : [firstPage[0]];
+      return new Response(JSON.stringify({ total: 501, jobs }), { status: 200 });
+    };
+    await expect(fetchFustJobUrls({ fetchImpl, enrichDetails: false }))
+      .rejects.toThrow(/repeated source identity/);
   });
 
   it('fails loud when a canonical detail has no verified workplace', async () => {

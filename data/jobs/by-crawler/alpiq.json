@@ -4,9 +4,11 @@
   "jobs": [
     {
       "id": "alpiq-150e7535e7a7",
-      "slug": "project-manager-non-it-iii-alpiq-switzerland",
+      "slug": "direttore-del-progetto-non-it-iii-alpiq-switzerland",
       "slugByLocale": {
-        "it": "project-manager-non-it-iii-alpiq-switzerland"
+        "it": "direttore-del-progetto-non-it-iii-alpiq-switzerland",
+        "de": "projektleiter-nicht-it-iii-alpiq-switzerland",
+        "fr": "gestionnaire-de-projet-non-ti-iii-alpiq-switzerland"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -59,7 +61,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-17T10:32:06.223Z"
+      "firstSeenAt": "2026-09-17T10:32:06.223Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-non-it-iii-alpiq-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-non-it-iii-alpiq-switzerland"
+      ]
     },
     {
       "id": "alpiq-c58e916d1b0b",
@@ -126,7 +136,8 @@
       "slug": "it-domain-architect-trading-alpiq-switzerland",
       "slugByLocale": {
         "it": "it-domain-architect-trading-alpiq-switzerland",
-        "fr": "domaine-it-architect-trading-alpiq-switzerland"
+        "fr": "domaine-it-architect-trading-alpiq-switzerland",
+        "de": "it-bereich-architektenhandel-alpiq-switzerland"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -238,17 +249,7 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "head-of-algorithmic-trading-governance-alpiq-lausanne",
-          "capo-della-governance-di-trading-algoritmico-alpiq-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "head-of-algorithmic-trading-governance-alpiq-lausanne",
-        "capo-della-governance-di-trading-algoritmico-alpiq-lausanne"
-      ]
+      }
     }
   ]
 }

@@ -23,10 +23,12 @@ name: Refresh search-cluster 301 map
 #
 # Neither build/prune script needs GSC/GA4/PostHog credentials — both only
 # hit the public live site's own sitemaps over plain fetch(). load-rc-env.mjs
-# + the App-token mint below are only for the deploy-dispatch step: a
-# GITHUB_TOKEN push doesn't trigger other workflows (GitHub anti-loop rule),
-# so redeploying after data/seo-404-compat changes needs a PAT/App token
-# (same pattern as discover-404s.yml / sync-gsc-orphans.yml).
+# + the App-token mint below serve TWO steps, not just the deploy dispatch:
+# a GITHUB_TOKEN push doesn't trigger other workflows (GitHub anti-loop
+# rule), so redeploying after data/seo-404-compat changes needs a PAT/App
+# token — and the direct push to `main` itself needs `GITHUB_PAT` as the
+# ruleset bypass identity (see "Prepare Firebase credentials" below; same
+# pattern as discover-404s.yml / sync-gsc-orphans.yml).
 
 on:
   schedule:
@@ -57,6 +59,27 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      # `load-rc-env.mjs` e' fail-open: senza GOOGLE_APPLICATION_CREDENTIALS
+      # stampa "skipping RC secret loading", esce 0 e lo step resta VERDE, ma
+      # `GITHUB_PAT` non viene popolato. Questo era l'unico dei dodici workflow
+      # che pushano su `main` a non preparare il service account (gli altri
+      # undici hanno tutti questo step), quindi `configure-main-push-auth.sh`
+      # ricadeva su `APP_TOKEN` e il push si autenticava come installation
+      # token dell'App. Il ruleset "main required CI checks" (creato il
+      # 2026-08-27) elenca `frontaliere-automation[bot]` fra i bypass con
+      # `actor_type: "User"`, ma un installation token si presenta come
+      # Integration e non matcha quell'attore: GH013 su tutti e 20 i
+      # tentativi, con i retry destinati a fallire. Ultimo push riuscito il
+      # 2026-08-24, tre giorni prima del ruleset.
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
 
       - name: Load RC secrets
         run: node scripts/load-rc-env.mjs
@@ -116,7 +139,27 @@ jobs:
             echo "compat_changed=true" >> "$GITHUB_OUTPUT"
           fi
           git commit -m "chore(seo): refresh search-cluster 301 map (regen + prune stale targets)"
+          # `--max-attempts 20` invece del default 40: il budget di retry DEVE
+          # esaurirsi dentro `timeout-minutes: 20`, altrimenti il job muore di
+          # timeout e GitHub lo marca `cancelled`, non `failure` — e lo step
+          # "Report failure to GitHub Issues" qui sotto (`if: failure()`) viene
+          # SKIPPATO. E' esattamente quello che e' successo il 31-08, 07-09 e
+          # 14-09: tre fallimenti di fila, zero issue dal workflow stesso, e la
+          # mappa 301 ferma all'ultimo success del 24-08.
+          #
+          # Il numero viene da una misura, non a occhio (run 34840508579):
+          # "attempt 4/40" alle 11:59:00Z, "attempt 27/40" alle 12:13:28Z, cioe'
+          # 23 tentativi in 868 s = 37,7 s/tentativo, perche' ogni retry perso
+          # rigenera l'artefatto via `--regenerate-cmd` mentre `main` riceve
+          # ~147 commit/24h su `data/`. Lo step parte intorno al minuto 4 del
+          # job, quindi ha ~16 min utili: 20 x 37,7 s = 12,6 min, con margine.
+          # Rimisurare se il costo del regenerate cambia.
+          #
+          # NON si alza il timeout: 5->10->15->25->40 e' la leva gia' invalidata
+          # quattro volte. Qui l'obiettivo non e' far atterrare il push a tutti
+          # i costi, e' far RIEMERGERE il fallimento come `failure` osservabile.
           bash scripts/lib/git-push-with-retry.sh \
+            --max-attempts 20 \
             --regenerate-cmd "node scripts/build-search-cluster-301-map.mjs && node scripts/prune-search-cluster-301-map.mjs && git add data/search-cluster-301-map.json data/seo-404-compat"
 
       - name: Trigger deploy if compat store changed

@@ -2,12 +2,14 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * AMAG Group — rexx systems ATS parser
  *
- * Listing page: https://jobs.amag-group.ch/it (Italian → pre-filtered to Ticino)
+ * Listing page: https://jobs.amag-group.ch/it (Italian source-specific feed,
+ *   pre-filtered to Ticino)
  *   - Jobs in <table id="joboffers"> → <tr class="alternative_0|1">
  *     - Location in <div id="jobStandort">
  *     - Title + link in <div id="jobTitel"> → <a href="...">
  *
- * Also scans the German listing (/de, 100+ jobs) for Ticino locations not in /it.
+ * The crawler also scans the German listing (/de, 100+ jobs) for Swiss
+ * locations not in /it.
  *
  * Detail page: https://jobs.amag-group.ch/{slug}-it-j{ID}.html
  *   - Full JSON-LD JobPosting with title, description, datePosted, validThrough,
@@ -169,8 +171,8 @@ export function parseAmagDetailPage(html = '', fallbackTitle = '') {
 }
 
 /**
- * Infer canton (TI or GR) from location/region strings.
- * Returns canton code or '' if not a target location.
+ * Infer a Swiss canton from location/region strings.
+ * Returns a canton code or '' when no Swiss location can be resolved.
  */
 export function inferAmagCanton(location = '', region = '') {
   const signal = `${location} ${region}`;
@@ -178,9 +180,13 @@ export function inferAmagCanton(location = '', region = '') {
 }
 
 /**
- * @deprecated Use inferAmagCanton() instead. Kept for backward compatibility.
+ * @deprecated Use isAmagSwissRelevant() instead. Kept for backward compatibility.
  */
 export function isAmagTicinoRelevant(location = '', region = '') {
+  return isAmagSwissRelevant(location, region);
+}
+
+export function isAmagSwissRelevant(location = '', region = '') {
   return inferAmagCanton(location, region) !== '';
 }
 

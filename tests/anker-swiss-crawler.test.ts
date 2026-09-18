@@ -10,12 +10,20 @@ import {
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import { buildSlug as buildCanonicalSlug } from '../scripts/lib/regenerate-slugs-helpers.mjs';
 import { mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { lookupSwissPostalCode } from '../scripts/lib/swiss-postal-code.mjs';
 
 describe('Anker Swiss Ticino AG crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(ANKER_SWISS_KEY).toBe('anker-swiss');
     expect(ANKER_SWISS_COMPANY_NAME).toBe('Anker Swiss Ticino AG');
+  });
+
+  it('resolves only catalogue-backed postal codes', () => {
+    expect(lookupSwissPostalCode('Zürich')).toBe('8001');
+    expect(lookupSwissPostalCode('Zürich, CH')).toBe('8001');
+    expect(lookupSwissPostalCode('8001')).toBe('8001');
+    expect(lookupSwissPostalCode('Unknown Swiss locality')).toBe('');
   });
 
   // ── isCompanyJob ──

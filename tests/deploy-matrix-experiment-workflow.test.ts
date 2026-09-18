@@ -19,12 +19,14 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'BUILD_BENCH',
       'BUILD_PROFILE',
       'BUILD_STOP_AFTER',
+      'CPU_PROFILE',
       'FAST_BUILD',
       'INCREMENTAL_MANIFEST',
       'INCREMENTAL_MANIFEST_VERIFY',
       'JOBS_SEO_MEM_GC',
       'JOBS_SEO_REUSE',
       'JOBS_SEO_REUSE_VERIFY',
+      'JOBS_SEO_REUSE_VERIFY_SAMPLE',
       'JOBS_SEO_SAMPLE',
       'POST_WALK_INCREMENTAL',
       'POST_WALK_INCREMENTAL_VERIFY',
@@ -38,6 +40,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(inputs.variants).toMatchObject({ type: 'string', default: 'base=' });
     expect(inputs.chain).toMatchObject({ type: 'string', default: '' });
     expect(inputs.stop_after_jobs_seo).toMatchObject({ type: 'boolean', default: false });
+    expect(inputs.cpu_profile).toMatchObject({ type: 'boolean', default: false });
     expect(inputs.compare_monolith).toMatchObject({ type: 'boolean', default: false });
   });
 
@@ -50,6 +53,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ github.run_id }}',
       "bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}",
     ]));
+    expect(WORKFLOW_TEXT).not.toMatch(/hashFiles\([^)]*(?:incremental-html|dist)\/\*\*/u);
     expect(WORKFLOW_TEXT).not.toMatch(/uses:\s*actions\/cache@/u);
     expect(WORKFLOW.concurrency.group).toBe('deploy-matrix-experiment-${{ github.run_id }}');
     expect(String(WORKFLOW.concurrency.group)).not.toBe('pages-build-run');
@@ -73,14 +77,22 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
 
   it('accepts the benchmark-only stop and sample flags in a variant', () => {
     expect(parseVariants(
-      'canary=BUILD_STOP_AFTER=jobsSeoPages,JOBS_SEO_SAMPLE=0.1,BUILD_BENCH=1',
+      'canary=BUILD_STOP_AFTER=jobsSeoPages,JOBS_SEO_SAMPLE=0.1,BUILD_BENCH=1,JOBS_SEO_REUSE_VERIFY_SAMPLE=0.02',
     )).toEqual([{
       name: 'canary',
       env: {
         BUILD_STOP_AFTER: 'jobsSeoPages',
         JOBS_SEO_SAMPLE: '0.1',
         BUILD_BENCH: '1',
+        JOBS_SEO_REUSE_VERIFY_SAMPLE: '0.02',
       },
+    }]);
+  });
+
+  it('accepts CPU profiling as a variant-local flag', () => {
+    expect(parseVariants('profile=CPU_PROFILE=1')).toEqual([{
+      name: 'profile',
+      env: { CPU_PROFILE: '1' },
     }]);
   });
 
@@ -90,6 +102,8 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     const manifest = steps.find((step) => step.name === 'Restore previous incremental manifest');
     const benchHtml = steps.find((step) => step.name === 'Restore chained jobs SEO HTML cache');
     const html = steps.find((step) => step.name === 'Restore previous jobs SEO HTML cache');
+    const benchHtmlSave = steps.find((step) => step.name === 'Save chained jobs SEO HTML cache');
+    const benchManifestSave = steps.find((step) => step.name === 'Save chained incremental manifest');
     const extract = steps.find((step) => step.name === 'Extract build markers');
     const upload = steps.find((step) => step.name === 'Upload build markers');
     const stop = steps.find((step) => step.name === 'Enforce stop-after jobs SEO control');
@@ -107,8 +121,13 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(steps.indexOf(benchManifest!)).toBeLessThan(steps.indexOf(manifest!));
 
     expect(benchHtml?.uses).toBe('actions/cache/restore@v5');
-    expect(benchHtml?.with?.key).toBe(
-      "bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}",
+    const benchHtmlKey =
+      "bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}";
+    expect(benchHtml?.with?.key).toBe(benchHtmlKey);
+    expect(benchHtmlSave?.with?.key).toBe(benchHtmlKey);
+    expect(benchHtmlSave?.if).toContain("steps.bench-jobs-seo-html-content.outputs.has_files == 'true'");
+    expect(benchManifestSave?.if).toContain(
+      "hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''",
     );
     expect(html?.uses).toBe('actions/cache/restore@v5');
     expect(html?.with?.key).toBe(
@@ -129,10 +148,15 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(WORKFLOW.jobs['build-locale'].env).toMatchObject({
       BUILD_BENCH: '1',
       BUILD_STOP_AFTER: "${{ inputs.stop_after_jobs_seo == true && 'jobsSeoPages' || '' }}",
+      CPU_PROFILE: "${{ inputs.cpu_profile == true && '1' || '' }}",
     });
     const build = steps.find((step) => String(step.name).startsWith('Build ('));
     expect(build?.run).toContain('./node_modules/.bin/vite build --minify esbuild');
+    expect(build?.run).toContain('--cpu-prof');
+    expect(build?.run).toContain('--cpu-prof-dir=/tmp/cpuprof');
+    expect(build?.run).toContain('NODE_OPTIONS');
     expect(build?.run).toContain('skip post-build SPA asset verification');
+    expect(build?.run).toContain('build_exit="${PIPESTATUS[0]}"');
     expect(build?.run).toContain('stop_after=${BUILD_STOP_AFTER:-}');
     const prune = steps.find((step) => step.name === 'Prune to locale shard (filesystem-level, mirrors production push_shard)');
     const validate = steps.find((step) => step.name === 'Validate locale shard output');
@@ -141,6 +165,15 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(upload?.with).toMatchObject({
       name: 'build-markers-${{ matrix.locale }}-${{ matrix.variant }}-${{ github.run_id }}',
       'retention-days': 14,
+    });
+    const cpuUpload = steps.find((step) => step.name === 'Upload CPU profile');
+    expect(cpuUpload?.if).toContain('inputs.cpu_profile == true');
+    expect(cpuUpload?.uses).toBe('actions/upload-artifact@v7');
+    expect(cpuUpload?.with).toMatchObject({
+      name: 'cpu-profile-${{ matrix.locale }}-${{ matrix.variant }}-${{ github.run_id }}',
+      path: '/tmp/cpuprof/*.cpuprofile',
+      'retention-days': 7,
+      'if-no-files-found': 'warn',
     });
   });
 

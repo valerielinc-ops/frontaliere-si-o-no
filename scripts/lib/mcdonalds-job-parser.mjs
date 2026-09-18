@@ -5,31 +5,20 @@ import { TLS_ERROR_CODES } from './transient-fetch.mjs';
  *
  * Careers portal: https://jobs.mcdonalds.ch/
  *
- * ── 2026-08-14 rewrite (issue #5852) ──────────────────────────
- *
- * The Drupal vacancies page (`/postes-vacants`, `mcdo_jobs_mapEntries`)
- * that the 2026-08-10 rewrite (#5393) targeted is gone again — the portal
- * reverted to the Paradox/McHire SPA the crawler ran *before* that rewrite,
- * this time server-rendered rather than client-fetched. Measured live on
- * 2026-08-14: `/postes-vacants` still 200s, but the response no longer
- * embeds `mcdo_jobs_mapEntries` anywhere, so the old regex found nothing
- * and every crawl returned zero jobs for three consecutive runs.
- *
- * The canonical listing is now `/fr/emplois-restauration` (10 jobs/page,
- * further pages at `/fr/emplois-restauration/page/{n}`). Each page embeds
- * its slice of results server-side in a `<script>` assigning
- * `window.__PRELOAD_STATE__.jobSearch` (`jobs: [...]`, `totalJob`), so
- * `discoverAllListingEntries()` walks every page and builds the full
- * result set from that JSON — no client-side rendering or bot-protected
- * XHR involved. Listing entries carry title/location/URL but not the job
- * description or posting date, so every job is still enriched from its
- * detail page.
+ * The canonical listing is `/fr/emplois-restauration` (10 jobs/page, further
+ * pages at `/fr/emplois-restauration/page/{n}`). Each page embeds its slice
+ * server-side in `window.__PRELOAD_STATE__.jobSearch` (`jobs: [...]`,
+ * `totalJob`). The crawler walks the declared CH-wide result set across all
+ * 26 cantons and rejects a page that cannot prove unique progress. Listing
+ * entries carry title/location/URL but not the job description or posting
+ * date, so every job is still enriched from its detail page.
  *
  * Detail pages moved from `/details-offre/{id}` back to
  * `/{lang}/{slug}/job/{reference}` (e.g.
  * `/fr-ch/agent-e-de-maintenance/job/P8-317484-1`), still carrying a
- * schema.org JobPosting JSON-LD block — `parseMcdoDetailPage()` needed no
- * changes at all, only the URLs feeding it. That block currently omits
+ * schema.org JobPosting JSON-LD block. The parser retains the source-backed
+ * address fields and rejects a detail page whose country is not Switzerland;
+ * the block currently omits
  * `employmentType` and `validThrough` outright (present pre-2026-08-10,
  * absent again now); both already have safe fallbacks downstream.
  *
@@ -40,7 +29,9 @@ import { TLS_ERROR_CODES } from './transient-fetch.mjs';
  * measure even though the certificate is valid again as of 2026-08-14.
  */
 
-import { normalizeCantonCode, inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetSwissLocation, normalizeCantonCode } from './target-swiss-locations.mjs';
+import { isChCountry } from './ch-country-guard.mjs';
+import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.mjs';
 
 export const MCDO_KEY = 'mcdonald-s-switzerland';
 export const COMPANY_NAME = "McDonald's Switzerland";
@@ -54,7 +45,7 @@ const MCDO_BASE = 'https://jobs.mcdonalds.ch';
 const MCDO_LISTING_PATH = '/fr/emplois-restauration';
 
 const DEFAULT_UA = process.env.JOBS_CRAWLER_USER_AGENT
-  || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+  || 'Mozilla/5.0 (compatible; FrontaliereSwissBot/1.0; +https://frontaliereticino.ch/)';
 
 /* ── Text helpers ─────────────────────────────────────────────── */
 
@@ -90,9 +81,10 @@ export function slugify(value = '') {
 }
 
 export function inferCanton(addressRegion = '', city = '') {
+  const sourceLocation = [city, addressRegion].filter(Boolean).join(', ').trim();
+  if (!sourceLocation || !isTargetSwissLocation(sourceLocation, { includeBorderProximity: false })) return '';
   const explicit = normalizeCantonCode(String(addressRegion || ''));
-  if (explicit) return explicit;
-  return inferAnyCanton(String(city || addressRegion || ''));
+  return inferAnyCanton(sourceLocation) || explicit;
 }
 
 /**
@@ -251,7 +243,8 @@ export function parseMcdoPreloadState(html = '') {
 export function extractListingJobs(html = '') {
   const state = parseMcdoPreloadState(html);
   const jobs = state?.jobSearch?.jobs;
-  const totalJob = Number(state?.jobSearch?.totalJob) || 0;
+  const numericTotal = Number(state?.jobSearch?.totalJob);
+  const totalJob = Number.isSafeInteger(numericTotal) && numericTotal >= 0 ? numericTotal : 0;
   return { jobs: Array.isArray(jobs) ? jobs : [], totalJob };
 }
 
@@ -264,30 +257,15 @@ export function extractListingJobs(html = '') {
  * are needed.
  *
  * @param {object} entry
- * @returns {object|null}
+ * @returns {object|null} parsed entry, or null only for an explicitly foreign row
  */
 export function listingEntryToParsed(entry) {
-  if (!entry || typeof entry !== 'object') return null;
-  const title = String(entry.title || '').trim();
-  const originalURL = String(entry.originalURL || '').trim();
-  if (!title || !originalURL) return null;
-
-  const location = Array.isArray(entry.locations) ? entry.locations[0] : null;
-  const city = String(location?.city || '').trim();
-
-  return {
-    title,
-    url: `${MCDO_BASE}/${originalURL.replace(/^\/+/, '')}`,
-    jobReqId: String(entry.reference || '').trim(),
-    city,
-    canton: inferCanton(location?.stateAbbr || location?.state || '', city),
-    postalCode: String(location?.zipCode || '').trim(),
-    streetAddress: String(location?.streetAddress || '').trim(),
-    description: '',
-    datePosted: '',
-    validThrough: '',
-    employmentType: inferEmploymentType(title, entry.employmentType),
-  };
+  const outcome = classifyListingEntry(entry);
+  if (outcome.kind === 'accepted') return outcome.parsed;
+  if (outcome.kind === 'foreign') return null;
+  throw new Error(
+    '[mcdonalds] listing entry has no verified Swiss source location: ' + outcome.reason + '.',
+  );
 }
 
 /**
@@ -300,59 +278,157 @@ export function listingPageUrl(pageNum) {
   return pageNum <= 1 ? `${MCDO_BASE}${MCDO_LISTING_PATH}` : `${MCDO_BASE}${MCDO_LISTING_PATH}/page/${pageNum}`;
 }
 
-async function fetchListingPage(pageNum, { userAgent, timeoutMs }) {
-  const html = await fetchText(listingPageUrl(pageNum), { userAgent, timeoutMs });
-  if (!html) {
-    console.warn(`[mcdonalds] listing page ${pageNum}: fetch fallito — contata come vuota`);
-    return { jobs: [], totalJob: 0 };
+function listingSourceIdentity(entry) {
+  if (!entry || typeof entry !== 'object') return '';
+  for (const candidate of [entry.reference, entry.id, entry.originalURL, entry.applyURL]) {
+    const identity = String(candidate || '').trim();
+    if (identity) return identity;
   }
-  const out = extractListingJobs(html);
-  // "200 senza __PRELOAD_STATE__" NON e' "zero job": e' la firma del prossimo
-  // format drift (classe #5852). Il guard anti-wipe dell'updater impedisce la
-  // perdita dati, ma senza questo warn la diagnosi resterebbe muta per i 3 run
-  // che servono al monitor.
-  if (out.jobs.length === 0 && out.totalJob === 0 && !html.includes('__PRELOAD_STATE__')) {
-    console.warn(`[mcdonalds] listing page ${pageNum}: 200 ma nessun __PRELOAD_STATE__ — probabile cambio di formato del portale`);
+  return '';
+}
+
+function classifyListingEntry(entry) {
+  if (!entry || typeof entry !== 'object') {
+    return { kind: 'unresolved', reason: 'row is not an object' };
   }
-  return out;
+  const title = String(entry.title || '').trim();
+  const originalURL = String(entry.originalURL || '').trim();
+  if (!title || !originalURL) {
+    return { kind: 'unresolved', reason: 'title or originalURL is missing' };
+  }
+
+  const location = Array.isArray(entry.locations) ? entry.locations[0] : null;
+  const city = String(location?.city || '').trim();
+  const sourceCountry = String(location?.countryAbbr || location?.country || '').trim();
+  if (sourceCountry && !isChCountry(sourceCountry)) {
+    return { kind: 'foreign', reason: 'source country ' + sourceCountry };
+  }
+  if (!city) {
+    return { kind: 'unresolved', reason: 'source city is missing' };
+  }
+
+  const sourceRegion = [location?.state, location?.stateAbbr]
+    .map((value) => String(value || '').trim())
+    .filter(Boolean)
+    .join(', ');
+  const sourceLocation = [city, sourceRegion].filter(Boolean).join(', ').trim();
+  const canton = inferCanton(sourceRegion, city);
+  if (!canton) {
+    return { kind: 'unresolved', reason: 'source locality "' + sourceLocation + '" has no Swiss canton' };
+  }
+
+  return {
+    kind: 'accepted',
+    parsed: {
+      title,
+      url: String(MCDO_BASE) + '/' + originalURL.replace(/^\/+/, ''),
+      jobReqId: String(entry.reference || '').trim(),
+      city,
+      canton,
+      sourceLocation,
+      sourceCountry,
+      locationStatus: 'verified',
+      postalCode: String(location?.zipCode || '').trim(),
+      streetAddress: String(location?.streetAddress || '').trim(),
+      description: '',
+      datePosted: '',
+      validThrough: '',
+      employmentType: inferEmploymentType(title, entry.employmentType),
+    },
+  };
+}
+
+function parseListingEntries(entries) {
+  const parsed = [];
+  for (const [index, entry] of entries.entries()) {
+    const outcome = classifyListingEntry(entry);
+    if (outcome.kind === 'accepted') {
+      parsed.push(outcome.parsed);
+      continue;
+    }
+    if (outcome.kind === 'foreign') continue;
+    throw new Error(
+      '[mcdonalds] listing entry ' + (index + 1)
+      + ' has no verified Swiss source location: ' + outcome.reason + '.',
+    );
+  }
+  return parsed;
+}
+
+async function fetchListingPage(pageNum, { userAgent, timeoutMs, fetchPage }) {
+  const url = listingPageUrl(pageNum);
+  const html = typeof fetchPage === 'function'
+    ? await fetchPage(url)
+    : await fetchText(url, { userAgent, timeoutMs });
+  if (typeof html !== 'string' || !html) {
+    throw new Error(`[mcdonalds] listing page ${pageNum} unavailable after retries (${url}).`);
+  }
+  const state = parseMcdoPreloadState(html);
+  if (!state || !state.jobSearch || !Array.isArray(state.jobSearch.jobs)) {
+    throw new Error(`[mcdonalds] listing page ${pageNum} has no authoritative __PRELOAD_STATE__.`);
+  }
+  const numericTotal = Number(state.jobSearch.totalJob);
+  if (!Number.isSafeInteger(numericTotal) || numericTotal < 0) {
+    throw new Error(`[mcdonalds] listing page ${pageNum} has an invalid totalJob.`);
+  }
+  if (state.jobSearch.jobs.length > numericTotal) {
+    throw new Error(`[mcdonalds] listing page ${pageNum} contains ${state.jobSearch.jobs.length} rows for totalJob=${numericTotal}.`);
+  }
+  return { jobs: state.jobSearch.jobs, totalJob: numericTotal };
 }
 
 /**
  * Walk every listing page (10 jobs/page) and return the raw entries.
  *
- * Page 1's `totalJob` drives how many further pages to fetch — there is
- * no separate "page count" field, only the running total and the observed
- * page size.
+ * Page 1's `totalJob` is authoritative. The loop stops only when that many
+ * unique source records have been read; repeated identities, empty pages, and
+ * short pages before the declared total fail closed.
  */
-async function discoverAllListingEntries({ userAgent = DEFAULT_UA, timeoutMs = 15000 } = {}) {
-  const first = await fetchListingPage(1, { userAgent, timeoutMs });
-  if (first.jobs.length === 0) return { entries: [], pageCount: 0 };
+async function discoverAllListingEntries({ userAgent = DEFAULT_UA, timeoutMs = 15000, fetchPage } = {}) {
+  const first = await fetchListingPage(1, { userAgent, timeoutMs, fetchPage });
+  const declaredTotal = first.totalJob;
+  if (declaredTotal === 0) return { entries: [], pageCount: 1, sourceTotal: 0 };
 
+  const uniqueEntries = new Map();
   const perPage = first.jobs.length;
-  // totalJob arriva dal JSON del portale e va creduto solo fino a un punto:
-  // un valore assurdo (bug loro, semantica cambiata, tarpit) non deve
-  // trasformarsi in una tempesta di fetch. 100 pagine = ~1000 job, oltre 6x
-  // il massimo storico osservato (165 job il 2026-08-15).
-  const MAX_LISTING_PAGES = 100;
-  const totalPages = Math.max(1, Math.min(MAX_LISTING_PAGES, Math.ceil((first.totalJob || perPage) / perPage)));
-  const all = [...first.jobs];
+  let pageNum = 1;
+  let page = first;
 
-  if (totalPages > 1) {
-    const pageNums = Array.from({ length: totalPages - 1 }, (_, i) => i + 2);
-    const rest = await runWithConcurrency(
-      pageNums,
-      (pageNum) => fetchListingPage(pageNum, { userAgent, timeoutMs }),
-      4
-    );
-    for (const page of rest) all.push(...page.jobs);
+  while (uniqueEntries.size < declaredTotal) {
+    if (page.totalJob !== declaredTotal) {
+      throw new Error(`[mcdonalds] listing page ${pageNum} changed totalJob from ${declaredTotal} to ${page.totalJob}.`);
+    }
+    if (page.jobs.length === 0) {
+      throw new Error(`[mcdonalds] listing pagination incomplete: read ${uniqueEntries.size}/${declaredTotal} unique records before an empty page.`);
+    }
+
+    let pageNew = 0;
+    for (const entry of page.jobs) {
+      const identity = listingSourceIdentity(entry);
+      if (!identity) {
+        throw new Error(`[mcdonalds] listing page ${pageNum} contains a row without a stable source identity.`);
+      }
+      if (uniqueEntries.has(identity)) {
+        throw new Error(`[mcdonalds] listing pagination repeated source identity "${identity}"; unique progress stopped at ${uniqueEntries.size}/${declaredTotal}.`);
+      }
+      uniqueEntries.set(identity, entry);
+      pageNew += 1;
+    }
+    if (pageNew === 0) {
+      throw new Error(`[mcdonalds] listing pagination page ${pageNum} added no unique source records.`);
+    }
+    if (uniqueEntries.size > declaredTotal) {
+      throw new Error(`[mcdonalds] listing pagination read ${uniqueEntries.size} unique records for totalJob=${declaredTotal}.`);
+    }
+    if (uniqueEntries.size === declaredTotal) break;
+    if (page.jobs.length < perPage) {
+      throw new Error(`[mcdonalds] listing pagination incomplete: read ${uniqueEntries.size}/${declaredTotal} unique records from a short page.`);
+    }
+
+    pageNum += 1;
+    page = await fetchListingPage(pageNum, { userAgent, timeoutMs, fetchPage });
   }
-  // Un raccolto parziale (pagina intermedia fallita, o totale mendace) non e'
-  // uno zero: il monitor non lo vede, e nel merge dell'updater i job mancanti
-  // uscirebbero come "removed". Almeno il log deve dirlo.
-  if (all.length < (first.totalJob || 0)) {
-    console.warn(`[mcdonalds] raccolto parziale: ${all.length}/${first.totalJob} job — pagina fallita o totalJob mendace`);
-  }
-  return { entries: all, pageCount: totalPages };
+  return { entries: [...uniqueEntries.values()], pageCount: pageNum, sourceTotal: declaredTotal };
 }
 
 /**
@@ -366,10 +442,10 @@ async function discoverAllListingEntries({ userAgent = DEFAULT_UA, timeoutMs = 1
  * debugging, and `sitemapCount` now really is the listing-page count it
  * always claimed to be (it returned a bare 1/0 before).
  */
-export async function discoverMcdoJobUrls({ userAgent = DEFAULT_UA, timeoutMs = 15000 } = {}) {
-  const { entries, pageCount } = await discoverAllListingEntries({ userAgent, timeoutMs });
-  const jobUrls = [...new Set(entries.map((e) => listingEntryToParsed(e)?.url).filter(Boolean))];
-  return { jobUrls, sitemapCount: pageCount };
+export async function discoverMcdoJobUrls({ userAgent = DEFAULT_UA, timeoutMs = 15000, fetchPage } = {}) {
+  const { entries, pageCount, sourceTotal } = await discoverAllListingEntries({ userAgent, timeoutMs, fetchPage });
+  const jobUrls = [...new Set(parseListingEntries(entries).map((entry) => entry.url))];
+  return { jobUrls, sitemapCount: pageCount, sourceTotal };
 }
 
 /* ── Detail page parsing ──────────────────────────────────────── */
@@ -401,7 +477,18 @@ export function parseMcdoDetailPage(html, pageUrl = '') {
   const place = Array.isArray(ld.jobLocation) ? ld.jobLocation[0] : ld.jobLocation;
   const address = place?.address || {};
   const city = address.addressLocality || place?.name || '';
-  const canton = inferCanton(address.addressRegion, city);
+  const sourceCountry = address.addressCountry || place?.addressCountry || '';
+  const sourceRegion = String(address.addressRegion || '').trim();
+  const sourceLocation = [city, sourceRegion].filter(Boolean).join(', ').trim();
+  const normalizedSourceCountry = String(sourceCountry || '').trim();
+  const canton = normalizedSourceCountry && !isChCountry(normalizedSourceCountry)
+    ? ''
+    : inferCanton(sourceRegion, city);
+  const locationStatus = normalizedSourceCountry && !isChCountry(normalizedSourceCountry)
+    ? 'foreign'
+    : canton
+      ? 'verified'
+      : 'unresolved';
 
   const description = stripHtml(ld.description || '');
   const datePosted = ld.datePosted ? String(ld.datePosted).slice(0, 10) : '';
@@ -413,6 +500,9 @@ export function parseMcdoDetailPage(html, pageUrl = '') {
     jobReqId: ld.identifier?.value || '',
     city,
     canton,
+    sourceLocation,
+    sourceCountry: normalizedSourceCountry,
+    locationStatus,
     postalCode: address.postalCode || '',
     streetAddress: address.streetAddress || '',
     description,
@@ -432,7 +522,48 @@ export async function fetchMcdoDetailPage(url, { userAgent = DEFAULT_UA, timeout
 
 export function buildMcdoJob(parsed) {
   if (!parsed || !parsed.title) return null;
-  const location = parsed.city || 'Svizzera';
+  if (parsed.locationStatus && parsed.locationStatus !== 'verified') return null;
+  const sourceCity = String(parsed.city || '').trim();
+  const sourceCanton = String(parsed.canton || '').trim();
+  const sourceLocation = String(parsed.sourceLocation || `${sourceCity}, ${sourceCanton}`).trim();
+  if (
+    !sourceCity
+    || !sourceCanton
+    || !isTargetSwissLocation(sourceLocation, { includeBorderProximity: false })
+    || inferAnyCanton(sourceLocation) !== sourceCanton
+  ) return null;
+
+  const sourcePostalCode = String(parsed.postalCode || '').trim();
+  const sourceStreetAddress = String(parsed.streetAddress || '').trim();
+  const hasConcreteSourceAddress = /^\d{4}$/.test(sourcePostalCode)
+    && sourceStreetAddress
+    && sourceStreetAddress.toLocaleLowerCase() !== sourceCity.toLocaleLowerCase();
+  const fallbackAddress = hasConcreteSourceAddress
+    ? null
+    : resolveFallbackAddress('', sourceCity, sourceCanton);
+  const location = hasConcreteSourceAddress
+    ? sourceCity
+    : String(fallbackAddress?.addressLocality || '').trim();
+  const canton = hasConcreteSourceAddress
+    ? sourceCanton
+    : String(fallbackAddress?.addressRegion || '').trim();
+  const postalCode = hasConcreteSourceAddress
+    ? sourcePostalCode
+    : String(fallbackAddress?.postalCode || '').trim();
+  const streetAddress = hasConcreteSourceAddress
+    ? sourceStreetAddress
+    : String(fallbackAddress?.streetAddress || '').trim();
+  const resolvedSourceLocation = hasConcreteSourceAddress
+    ? sourceLocation
+    : [location, canton].filter(Boolean).join(', ');
+  if (
+    !location
+    || !canton
+    || !postalCode
+    || !streetAddress
+    || !isTargetSwissLocation(resolvedSourceLocation, { includeBorderProximity: false })
+    || inferAnyCanton(resolvedSourceLocation) !== canton
+  ) return null;
   const slug = slugify(`${parsed.title}-mcdonalds-switzerland-${location}-${parsed.jobReqId || ''}`);
   if (!slug || slug.length < 3) return null;
 
@@ -447,10 +578,13 @@ export function buildMcdoJob(parsed) {
     url: parsed.url,
     slug,
     location,
-    canton: parsed.canton || '',
+    addressLocality: location,
+    addressRegion: canton,
+    addressCountry: 'CH',
+    canton,
     country: 'CH',
-    postalCode: parsed.postalCode || '',
-    streetAddress: parsed.streetAddress || '',
+    postalCode,
+    streetAddress,
     description,
     // Canonical pipeline field is `postedDate` (schema.org JSON-LD calls it
     // `datePosted`, but every downstream consumer — JobBoard, sitemap,
@@ -477,36 +611,62 @@ export async function fetchMcdoJobs({
   timeoutMs = 15000,
   detailConcurrency = 8,
 } = {}) {
-  const { entries, pageCount } = await discoverAllListingEntries({ userAgent, timeoutMs });
-  console.log(`  🗺️  Listing entries (jobSearch): ${entries.length} across ${pageCount} page(s)`);
+  const { entries, pageCount, sourceTotal } = await discoverAllListingEntries({ userAgent, timeoutMs });
+  console.log(`  🗺️  Listing entries (jobSearch): ${entries.length}/${sourceTotal} unique records across ${pageCount} page(s)`);
   if (entries.length === 0) return [];
 
-  const parsedList = entries.map((e) => listingEntryToParsed(e)).filter(Boolean);
+  const parsedList = parseListingEntries(entries);
 
-  const enriched = await runWithConcurrency(
-    parsedList,
-    async (parsed) => {
-      const detail = await fetchMcdoDetailPage(parsed.url, { userAgent, timeoutMs });
-      if (!detail) return parsed;
-      return {
-        ...parsed,
-        description: detail.description || parsed.description,
-        datePosted: detail.datePosted || parsed.datePosted,
-        validThrough: detail.validThrough || parsed.validThrough,
-        postalCode: detail.postalCode || parsed.postalCode,
-        streetAddress: detail.streetAddress || parsed.streetAddress,
-        canton: detail.canton || parsed.canton,
-      };
-    },
-    detailConcurrency
-  );
+ let detailFallbacks = 0;
+  let detailForeignDrops = 0;
+ const enriched = await runWithConcurrency(
+   parsedList,
+   async (parsed) => {
+     const detail = await fetchMcdoDetailPage(parsed.url, { userAgent, timeoutMs });
+     if (!detail) {
+       detailFallbacks += 1;
+       return parsed;
+     }
+      if (detail.locationStatus === 'foreign') {
+        detailForeignDrops += 1;
+        return null;
+      }
+      if (detail.locationStatus !== 'verified') {
+        throw new Error(
+          '[mcdonalds] detail ' + parsed.url
+          + ' has no verified Swiss source location; refusing listing fallback.',
+        );
+      }
+     return {
+       ...parsed,
+       city: detail.city || parsed.city,
+       sourceLocation: detail.sourceLocation || parsed.sourceLocation,
+       sourceCountry: detail.sourceCountry || parsed.sourceCountry,
+       description: detail.description || parsed.description,
+       datePosted: detail.datePosted || parsed.datePosted,
+       validThrough: detail.validThrough || parsed.validThrough,
+       postalCode: detail.postalCode || parsed.postalCode,
+       streetAddress: detail.streetAddress || parsed.streetAddress,
+        canton: detail.canton,
+        locationStatus: 'verified',
+     };
+   },
+   detailConcurrency
+ );
 
-  const jobs = [];
+ const jobs = [];
   for (const parsed of enriched) {
+    if (!parsed) continue;
     const job = buildMcdoJob(parsed);
     if (job) jobs.push(job);
   }
-  return jobs;
+ if (detailFallbacks > 0) {
+   console.warn(`  ⚠️  Detail pages unavailable or without JobPosting JSON-LD: ${detailFallbacks}; listing location data retained.`);
+ }
+  if (detailForeignDrops > 0) {
+    console.warn(`  ⚠️  Explicitly foreign detail locations excluded: ${detailForeignDrops}.`);
+  }
+ return jobs;
 }
 
 export { MCDO_LISTING_PATH, MCDO_BASE };

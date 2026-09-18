@@ -13,7 +13,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -23,6 +23,7 @@ import {
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
   detectLang,
+  isLocationExplicitlyForeign,
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
@@ -34,7 +35,7 @@ import {
 } from './lib/rittmeyer-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -175,15 +176,62 @@ function isTrustedDomain(rawUrl = '') {
 async function fetchListings() {
   console.log('🔍 Fetching Rittmeyer jobs from careers page...');
   const html = await fetchText(CAREERS_URL);
-  const rows = parseRittmeyerListingsPage(html).filter(isRittmeyerTicinoListing);
+  const sourceRows = parseRittmeyerListingsPage(html);
+  const rows = sourceRows.filter(isRittmeyerTicinoListing);
+  const sourceReadComplete = Boolean(
+    sourceRows.rittmeyerListingSkippedMalformedRows === 0
+    && (sourceRows.length > 0 ? sourceRows.rittmeyerListingMarkupSeen : sourceRows.rittmeyerListingEmptyStateObserved),
+  );
+  const unrecognizedLocations = sourceRows.filter((row) => !isRecognizedRittmeyerSourceLocation(row));
   console.log(`📋 Matching Ticino listing rows: ${rows.length}`);
   for (const row of rows) {
     console.log(`  📄 ${row.title}`);
   }
-  if (rows.length < 1) {
-    throw new Error(`Expected at least 1 Rittmeyer Ticino job, found ${rows.length}`);
+  if (rows.length === 0) {
+    console.log('ℹ️  Nessun annuncio trovato per Rittmeyer — non è un errore, il crawler prosegue.');
   }
+  Object.defineProperties(rows, {
+    rittmeyerSourceRows: { value: sourceRows, enumerable: false },
+    rittmeyerSourceReadComplete: { value: sourceReadComplete, enumerable: false },
+    rittmeyerSourceTerminationProven: { value: true, enumerable: false },
+    rittmeyerSourceTargetCount: { value: rows.length, enumerable: false },
+    rittmeyerSourceUnrecognizedLocationCount: { value: unrecognizedLocations.length, enumerable: false },
+  });
   return rows;
+}
+
+function isRecognizedRittmeyerSourceLocation(listing = {}) {
+  const value = [listing.href, listing.title, listing.snippet].filter(Boolean).join(' ');
+  return Boolean(inferAnyCanton(value) || isLocationExplicitlyForeign(value));
+}
+
+function copyRittmeyerSourceEvidence(jobs, source) {
+  Object.defineProperties(jobs, {
+    rittmeyerSourceRows: { value: source.rittmeyerSourceRows, enumerable: false },
+    rittmeyerSourceReadComplete: { value: source.rittmeyerSourceReadComplete === true, enumerable: false },
+    rittmeyerSourceTerminationProven: { value: source.rittmeyerSourceTerminationProven === true, enumerable: false },
+    rittmeyerSourceTargetCount: { value: source.rittmeyerSourceTargetCount, enumerable: false },
+    rittmeyerSourceUnrecognizedLocationCount: { value: source.rittmeyerSourceUnrecognizedLocationCount, enumerable: false },
+  });
+  return jobs;
+}
+
+function assertCompleteRittmeyerSnapshot(jobs = []) {
+  if (!Array.isArray(jobs) || jobs.rittmeyerSourceReadComplete !== true || jobs.rittmeyerSourceTerminationProven !== true) {
+    throw new Error('Rittmeyer: source listing snapshot was not read completely');
+  }
+  const rows = jobs.rittmeyerSourceRows;
+  if (!Array.isArray(rows) || rows.filter(isRittmeyerTicinoListing).length !== jobs.rittmeyerSourceTargetCount) {
+    throw new Error('Rittmeyer: source listing snapshot evidence is inconsistent');
+  }
+  const unrecognized = rows.filter((row) => !isRecognizedRittmeyerSourceLocation(row));
+  if (unrecognized.length > 0) {
+    throw new Error(`Rittmeyer: ${unrecognized.length} source listing location(s) were not classifiable`);
+  }
+  if (jobs.rittmeyerSourceTargetCount !== 0 || jobs.length !== 0) {
+    throw new Error('Rittmeyer: empty authority requested for a non-empty filtered result');
+  }
+  return true;
 }
 
 function inferCategory(detail = {}) {
@@ -300,7 +348,7 @@ function updateAdapterConfig(jobs) {
   });
 }
 
-function validateLocales() {
+function validateLocales(authoritativeEmptySnapshot = false) {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_RITTMEYER_STRICT',
     label: 'Rittmeyer AG',
@@ -309,7 +357,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_rittmeyer_domain',
-    failWhenNoJobs: true,
+    failWhenNoJobs: !authoritativeEmptySnapshot,
     noJobsMessage: 'No Rittmeyer jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'it'),
   });
@@ -328,6 +376,16 @@ async function main() {
   for (const listing of listings) {
     jobs.push(await buildRittmeyerJob(listing));
   }
+  copyRittmeyerSourceEvidence(jobs, listings);
+  const {
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
+  } = evaluateAuthoritativeSnapshot(jobs, {
+    validateAuthoritativeSnapshot: assertCompleteRittmeyerSnapshot,
+    allowAuthoritativeEmptySnapshot: true,
+    authoritativeSnapshotScope: 'empty-only',
+    companyLabel: COMPANY_NAME,
+  });
   const { total, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
@@ -337,19 +395,24 @@ async function main() {
     isTargetJob,
   });
 
-  validateLocales();
+  validateLocales(authoritativeEmptySnapshot);
   console.log(`\n✅ Rittmeyer crawler complete (${total} jobs).`);
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified,
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'Rittmeyer AG',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,

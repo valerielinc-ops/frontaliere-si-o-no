@@ -2,6 +2,8 @@
 /**
  * Dedicated ETAVIS crawler runner.
  *
+ * ETAVIS publishes a national, multi-subsidiary Swiss board; each vacancy's
+ * canton is derived from its own city across all 26 cantons.
  * Uses the standard crawler template with the ETAVIS parser.
  * All fetch/parse logic lives in ./lib/etavis-job-parser.mjs.
  */

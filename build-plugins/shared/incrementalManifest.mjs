@@ -1,15 +1,25 @@
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import * as readline from 'node:readline';
+import { StringDecoder } from 'node:string_decoder';
 
-export const MANIFEST_VERSION = 2;
+// Version 3 adds the optional jobs-emitter fingerprint to the header.  A
+// fingerprint mismatch invalidates the whole post-walk delta, so an old
+// snapshot must fail closed into the existing full pass instead of being
+// compared entry by entry.
+export const MANIFEST_VERSION = 3;
 export const MANIFEST_FORMAT = 'jsonl';
 export const SOURCE_VERSION = 'input@1';
 // The emitter fingerprint includes this value. Bumping it makes the first
-// build after a change to the canonical job digest algorithm miss old HTML
+// build after a change to the canonical job digest/input shape miss old HTML
 // reuse entries even when the page input happens to hash identically.
-export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@2';
+// job-digest@3: active pages hash the six rendered related jobs plus a compact
+// full-pool membership signature; full-content bridge pages reference the
+// canonical active input hash instead of re-hashing the source record/pool.
+// The reusable job-page input now carries the UTC build-day bucket used by
+// deterministic JobPosting fallbacks. Bump the digest contract explicitly so
+// manifests produced before that field cannot be mistaken for current input.
+export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@4';
 export const INCREMENTAL_MANIFEST_ENABLED = process.env.INCREMENTAL_MANIFEST === '1';
 
 export const PAGE_KINDS = Object.freeze([
@@ -198,36 +208,44 @@ function markCanonicalJson(value, canonicalJson) {
   return value;
 }
 
-function cheapTextLength(value) {
-  if (value === undefined || value === null) return -1;
-  return typeof value === 'string' ? value.length : String(value).length;
+/**
+ * Return an explicit content version when the upstream record provides one.
+ * These fields are contracts, not guesses: callers may reuse a digest for a
+ * cloned record only when the producer promises to bump the token for every
+ * rendered-content mutation. The crawler snapshot currently has no such field,
+ * so its records are reused by object identity only.
+ */
+function authoritativeJobRecordVersion(job) {
+  for (const key of [
+    'contentHash',
+    'recordHash',
+    'sourceRecordHash',
+    'sourceHash',
+    'contentVersion',
+    'recordVersion',
+  ]) {
+    const value = job?.[key];
+    if (typeof value === 'string' && value.length > 0) return `${key}:${value}`;
+    if (typeof value === 'number' && Number.isFinite(value)) return `${key}:${value}`;
+  }
+  return null;
 }
 
 /**
- * Validate ID-keyed cache entries without walking or serializing the record.
- * The fixed tuple is captured only when a digest is computed; cache hits compare
- * its scalar fields and text lengths directly, without allocating or serializing
- * the record on the hot path.
+ * Validate cache entries without walking or serializing the large record.
+ * A versioned clone is checked by its authoritative content token plus cheap
+ * route/status scalars. An unversioned clone deliberately misses both caches:
+ * reusing it from a bounded sample would make a middle-of-description change
+ * invisible. The WeakMap path may reuse an unversioned record by identity;
+ * build snapshots are read-only after loading, so that is the only safe cheap
+ * reuse available when the producer exposes no content version.
  */
 function cheapJobRecordSignature(job) {
   if (!job || typeof job !== 'object') return '';
   const titleByLocale = job.titleByLocale;
   const slugByLocale = job.slugByLocale;
-  const descriptionByLocale = job.descriptionByLocale;
-  const htmlByLocale = job.htmlByLocale;
   return [
-    job.sourceRecordHash,
-    job.sourceHash,
-    job.updatedAt,
-    job.lastUpdatedAt,
-    job.lastSeen,
-    job.lastSeenAt,
-    job.postedAt,
-    job.datePosted,
-    job.postedDate,
-    job.firstSeenAt,
-    job.crawledAt,
-    job.expiredAt,
+    authoritativeJobRecordVersion(job),
     job.title,
     job.slug,
     titleByLocale?.it,
@@ -238,63 +256,28 @@ function cheapJobRecordSignature(job) {
     slugByLocale?.en,
     slugByLocale?.de,
     slugByLocale?.fr,
-    cheapTextLength(job.description),
-    cheapTextLength(job.html),
-    cheapTextLength(job.descriptionHtml),
-    cheapTextLength(descriptionByLocale?.it),
-    cheapTextLength(descriptionByLocale?.en),
-    cheapTextLength(descriptionByLocale?.de),
-    cheapTextLength(descriptionByLocale?.fr),
-    cheapTextLength(htmlByLocale?.it),
-    cheapTextLength(htmlByLocale?.en),
-    cheapTextLength(htmlByLocale?.de),
-    cheapTextLength(htmlByLocale?.fr),
+    job.canonicalUrl,
+    job.status,
+    job.state,
+    job.expiredAt,
   ];
 }
 
-function hasMatchingJobRecordSignature(job, signature) {
+function hasMatchingJobRecordSignature(job, signature, allowUnversionedIdentity = false) {
   if (!job || typeof job !== 'object' || !Array.isArray(signature)) return false;
-  const titleByLocale = job.titleByLocale;
-  const slugByLocale = job.slugByLocale;
-  const descriptionByLocale = job.descriptionByLocale;
-  const htmlByLocale = job.htmlByLocale;
-  return signature[0] === job.sourceRecordHash
-    && signature[1] === job.sourceHash
-    && signature[2] === job.updatedAt
-    && signature[3] === job.lastUpdatedAt
-    && signature[4] === job.lastSeen
-    && signature[5] === job.lastSeenAt
-    && signature[6] === job.postedAt
-    && signature[7] === job.datePosted
-    && signature[8] === job.postedDate
-    && signature[9] === job.firstSeenAt
-    && signature[10] === job.crawledAt
-    && signature[11] === job.expiredAt
-    && signature[12] === job.title
-    && signature[13] === job.slug
-    && signature[14] === titleByLocale?.it
-    && signature[15] === titleByLocale?.en
-    && signature[16] === titleByLocale?.de
-    && signature[17] === titleByLocale?.fr
-    && signature[18] === slugByLocale?.it
-    && signature[19] === slugByLocale?.en
-    && signature[20] === slugByLocale?.de
-    && signature[21] === slugByLocale?.fr
-    && signature[22] === cheapTextLength(job.description)
-    && signature[23] === cheapTextLength(job.html)
-    && signature[24] === cheapTextLength(job.descriptionHtml)
-    && signature[25] === cheapTextLength(descriptionByLocale?.it)
-    && signature[26] === cheapTextLength(descriptionByLocale?.en)
-    && signature[27] === cheapTextLength(descriptionByLocale?.de)
-    && signature[28] === cheapTextLength(descriptionByLocale?.fr)
-    && signature[29] === cheapTextLength(htmlByLocale?.it)
-    && signature[30] === cheapTextLength(htmlByLocale?.en)
-    && signature[31] === cheapTextLength(htmlByLocale?.de)
-    && signature[32] === cheapTextLength(htmlByLocale?.fr);
+  // A WeakMap hit already proves object identity. Do not rebuild any tuple for
+  // the common unversioned crawler-record path; the snapshot is immutable by
+  // contract and this keeps the identity fast path out of the page hot loop.
+  if (signature[0] === null) return allowUnversionedIdentity;
+  const current = cheapJobRecordSignature(job);
+  if (current.length !== signature.length) return false;
+  return current.every((value, index) => value === signature[index]);
 }
 
-function hasMatchingSignature(entry, job) {
-  return entry && typeof entry === 'object' && hasMatchingJobRecordSignature(job, entry.signature);
+function hasMatchingSignature(entry, job, allowUnversionedIdentity = false) {
+  return entry
+    && typeof entry === 'object'
+    && hasMatchingJobRecordSignature(job, entry.signature, allowUnversionedIdentity);
 }
 
 export function createIncrementalManifestInputCache() {
@@ -362,8 +345,10 @@ function digestJobRecord(job, inputCache = null) {
     if (hasMatchingSignature(cachedById, job)) return cachedById.digest;
   }
   const cachedDigest = jobRecordDigestCache.get(job);
-  if (hasMatchingSignature(cachedDigest, job)) {
-    if (inputCache && stableId) setInputCacheEntry(inputCache, 'jobDigestsById', stableId, cachedDigest);
+  if (hasMatchingSignature(cachedDigest, job, true)) {
+    if (inputCache && stableId && cachedDigest.signature[0] !== null) {
+      setInputCacheEntry(inputCache, 'jobDigestsById', stableId, cachedDigest);
+    }
     return cachedDigest.digest;
   }
 
@@ -404,8 +389,12 @@ function projectRelatedJob(relatedJob, locale, inputCache = null) {
     relatedJobProjectionCache.set(relatedJob, projectionsByLocale);
   }
   const cachedProjection = projectionsByLocale.get(locale);
-  if (hasMatchingSignature(cachedProjection, relatedJob)) {
-    if (cacheKey) inputCache.relatedJobProjectionsByKey.set(cacheKey, cachedProjection);
+  if (hasMatchingSignature(cachedProjection, relatedJob, true)) {
+    if (cacheKey && cachedProjection.signature[0] !== null) {
+      setInputCacheEntry(inputCache, 'relatedJobProjectionsByKey', cacheKey, cachedProjection);
+      const digestEntry = jobRecordDigestCache.get(relatedJob);
+      if (digestEntry) setInputCacheEntry(inputCache, 'jobDigestsById', id, digestEntry);
+    }
     return cachedProjection.projection;
   }
   const projection = {
@@ -457,6 +446,22 @@ export function stableJobVersion(job) {
     ?? job?.firstSeenAt
     ?? '',
   );
+}
+
+/**
+ * Fingerprint the complete related-job candidate pool without retaining or
+ * serializing its records. The renderer chooses only six entries from this
+ * ordered pool; the compact signature keeps additions/removals/reordering and
+ * the slug used by the selection guard in the page dependency set.
+ */
+export function computeRelatedJobPoolSignature(relatedJobs = []) {
+  const jobs = Array.isArray(relatedJobs) ? relatedJobs : [];
+  const membership = jobs.map((relatedJob) => (
+    relatedJob && typeof relatedJob === 'object'
+      ? [stableJobId(relatedJob), String(relatedJob.slug ?? '')]
+      : [String(relatedJob ?? ''), '']
+  ));
+  return sha256(JSON.stringify(membership));
 }
 
 /**
@@ -689,6 +694,9 @@ export class IncrementalManifest {
         manifestVersion: MANIFEST_VERSION,
         format: MANIFEST_FORMAT,
         locale: this.locale,
+        ...(this.jobsSeoEmitterFingerprint
+          ? { jobsSeoEmitterFingerprint: this.jobsSeoEmitterFingerprint }
+          : {}),
       });
       const entriesForKind = new Map(PAGE_KINDS.map((kind) => [kind, []]));
       for (const [pagePath, entry] of this.entriesByPath) {
@@ -828,6 +836,28 @@ export function resetIncrementalManifestInputCache(rootDir) {
   manifestInputCachesByRoot.delete(rootKey);
 }
 
+/**
+ * The post-walk coordinator is the last consumer of the build-scoped manifest
+ * maps.  Dropping only its local `manifests` variable leaves the two global
+ * maps (and their ~GB-scale input projections) reachable.  Release both
+ * roots explicitly once the writers have finished.
+ */
+export function releaseIncrementalManifestState(rootDir) {
+  const rootKey = path.resolve(String(rootDir));
+  const manifests = manifestMapsByRoot.get(rootKey);
+  if (manifests) {
+    for (const manifest of manifests.values()) {
+      manifest.entriesByPath.clear();
+      manifest.kindMetadata.clear();
+      manifest.jobsSeoEmitterFingerprint = null;
+      manifest.estimatedEntryBytes = 0;
+    }
+    manifests.clear();
+  }
+  manifestMapsByRoot.delete(rootKey);
+  manifestInputCachesByRoot.delete(rootKey);
+}
+
 export function getIncrementalManifestMap(rootDir, locales, force = false) {
   if (!INCREMENTAL_MANIFEST_ENABLED && !force) return null;
   const rootKey = path.resolve(String(rootDir));
@@ -862,32 +892,83 @@ function parseManifestJsonLine(file, lineNumber, line) {
   }
 }
 
-function assertManifestCounts(file, counts, entries) {
+/**
+ * Read only the first JSONL record. The header carries the producer
+ * fingerprint, so the coordinator can reject an incompatible previous cache
+ * before materialising the current 650k-entry map.
+ */
+export function readIncrementalManifestHeader(file) {
+  const fd = fs.openSync(file, 'r');
+  const decoder = new StringDecoder('utf8');
+  const buffer = Buffer.allocUnsafe(64 * 1024);
+  let carry = '';
+  try {
+    while (true) {
+      const bytesRead = fs.readSync(fd, buffer, 0, buffer.length, null);
+      if (bytesRead === 0) break;
+      carry += decoder.write(buffer.subarray(0, bytesRead));
+      const newline = carry.indexOf('\n');
+      if (newline === -1) continue;
+      carry = carry.slice(0, newline).trim();
+      break;
+    }
+    if (!carry) {
+      carry = decoder.end().trim();
+    }
+    if (!carry) throw new Error(`${file}: header mancante`);
+    const header = parseManifestJsonLine(file, 1, carry);
+    if (
+      header.type !== 'header'
+      || header.manifestVersion !== MANIFEST_VERSION
+      || header.format !== MANIFEST_FORMAT
+      || typeof header.locale !== 'string'
+    ) {
+      throw new Error(`${file}: header manifest non valido`);
+    }
+    return {
+      locale: header.locale,
+      jobsSeoEmitterFingerprint: header.jobsSeoEmitterFingerprint === undefined
+        ? undefined
+        : normalizeJobsSeoEmitterFingerprint(header.jobsSeoEmitterFingerprint),
+    };
+  } finally {
+    fs.closeSync(fd);
+  }
+}
+
+function assertManifestCounts(file, counts, entryCount, observedByKind) {
   if (!counts || !Number.isInteger(counts.total) || !counts.byKind || typeof counts.byKind !== 'object') {
     throw new Error(`${file}: footer counts non valido`);
   }
-  if (counts.total !== entries.size) {
-    throw new Error(`${file}: footer total=${counts.total}, osservate ${entries.size} entry`);
+  if (counts.total !== entryCount) {
+    throw new Error(`${file}: footer total=${counts.total}, osservate ${entryCount} entry`);
   }
-  const byKind = Object.fromEntries(PAGE_KINDS.map((kind) => [kind, 0]));
-  for (const entry of entries.values()) byKind[entry.kind] += 1;
   for (const kind of PAGE_KINDS) {
     const declared = counts.byKind[kind];
     if (declared === undefined && LEGACY_OPTIONAL_KINDS.has(kind)) continue;
-    if (declared !== byKind[kind]) {
-      throw new Error(`${file}: footer byKind.${kind}=${counts.byKind[kind]}, osservate ${byKind[kind]}`);
+    if (declared !== observedByKind[kind]) {
+      throw new Error(`${file}: footer byKind.${kind}=${counts.byKind[kind]}, osservate ${observedByKind[kind]}`);
     }
   }
 }
 
 /**
- * Read one manifest without materialising any HTML. The same strict reader is
- * shared by CI reporting and the optional jobs-SEO disk cache so both paths
- * agree on what constitutes a usable previous snapshot.
+ * Read one manifest without materialising any HTML or retaining its entries.
+ * The post-walk planner uses this callback form to keep only the projection it
+ * needs while the JSONL stream is open. The default duplicate check is kept for
+ * callers that need the same strictness as loadIncrementalManifest(); the
+ * planner can disable it for a previous snapshot because it already proves
+ * duplicates that can affect the current tree while consuming the stream.
  */
-export async function loadIncrementalManifest(file) {
-  const input = fs.createReadStream(file, { encoding: 'utf8' });
-  const reader = readline.createInterface({ input, crlfDelay: Infinity });
+export async function streamIncrementalManifest(file, onEntry, options = {}) {
+  // `readline` + async iteration creates one Promise/iterator step per JSONL
+  // record.  A 650k-entry manifest paid that scheduling cost twice (and up to
+  // four times for add/remove references).  Keep the stream bounded, but scan
+  // it with a chunk decoder and a single line callback.
+  const fd = fs.openSync(file, 'r');
+  const decoder = new StringDecoder('utf8');
+  const buffer = Buffer.allocUnsafe(1024 * 1024);
+  let carry = '';
   let header = null;
   let footer = null;
   let currentKind = null;
@@ -895,83 +976,112 @@ export async function loadIncrementalManifest(file) {
   let jobsSeoEmitterFingerprint = null;
   let lineNumber = 0;
   const kinds = new Map();
-  const entries = new Map();
+  const observedByKind = Object.fromEntries(PAGE_KINDS.map((kind) => [kind, 0]));
+  const validateUniquePaths = options.validateUniquePaths !== false;
+  const seenPaths = validateUniquePaths ? new Set() : null;
+  let entryCount = 0;
+
+  const handleLine = (rawLine) => {
+    lineNumber += 1;
+    const line = rawLine.trim();
+    if (!line) return;
+    const record = parseManifestJsonLine(file, lineNumber, line);
+    if (sawFooter) throw new Error(`${file}:${lineNumber}: record dopo il footer`);
+
+    if (record.type === 'header') {
+      if (header) throw new Error(`${file}:${lineNumber}: header duplicato`);
+      if (
+        record.manifestVersion !== MANIFEST_VERSION
+        || record.format !== MANIFEST_FORMAT
+        || typeof record.locale !== 'string'
+      ) {
+        throw new Error(`${file}:${lineNumber}: header manifest non valido`);
+      }
+      header = record;
+      if (record.jobsSeoEmitterFingerprint !== undefined) {
+        jobsSeoEmitterFingerprint = normalizeJobsSeoEmitterFingerprint(record.jobsSeoEmitterFingerprint);
+      }
+      return;
+    }
+    if (!header) throw new Error(`${file}:${lineNumber}: header mancante`);
+
+    if (record.type === 'kind') {
+      if (!PAGE_KINDS.includes(record.kind)) {
+        throw new Error(`${file}:${lineNumber}: kind non valido`);
+      }
+      if (kinds.has(record.kind)) {
+        throw new Error(`${file}:${lineNumber}: kind duplicato ${record.kind}`);
+      }
+      for (const field of ['templateVersion', 'sourceVersion', 'state']) {
+        if (typeof record[field] !== 'string' || record[field].length === 0) {
+          throw new Error(`${file}:${lineNumber}: metadata ${field} non valida`);
+        }
+      }
+      kinds.set(record.kind, {
+        templateVersion: record.templateVersion,
+        sourceVersion: record.sourceVersion,
+        state: record.state,
+      });
+      currentKind = record.kind;
+      return;
+    }
+
+    if (record.type === 'footer') {
+      assertManifestCounts(file, record.counts, entryCount, observedByKind);
+      if (record.jobsSeoEmitterFingerprint !== undefined) {
+        const footerFingerprint = normalizeJobsSeoEmitterFingerprint(record.jobsSeoEmitterFingerprint);
+        if (
+          jobsSeoEmitterFingerprint
+          && JSON.stringify(jobsSeoEmitterFingerprint) !== JSON.stringify(footerFingerprint)
+        ) {
+          throw new Error(`${file}:${lineNumber}: jobs SEO emitter fingerprint divergente`);
+        }
+        jobsSeoEmitterFingerprint = footerFingerprint;
+      }
+      footer = record;
+      sawFooter = true;
+      return;
+    }
+
+    if (record.type !== undefined) {
+      throw new Error(`${file}:${lineNumber}: record type non valido`);
+    }
+    if (!currentKind) throw new Error(`${file}:${lineNumber}: entry senza kind`);
+    if (typeof record.path !== 'string' || record.path.length === 0 || typeof record.hash !== 'string') {
+      throw new Error(`${file}:${lineNumber}: entry non valida`);
+    }
+    if (seenPaths?.has(record.path)) throw new Error(`${file}:${lineNumber}: path duplicato ${record.path}`);
+    seenPaths?.add(record.path);
+    entryCount += 1;
+    observedByKind[currentKind] += 1;
+    const entry = { path: record.path, inputHash: record.hash, kind: currentKind };
+    // POST_WALK_INCREMENTAL (#8942) adds a compact identity/reference index
+    // per entry; consumers decide which projection to retain.
+    if (record.postWalk !== undefined) entry.postWalk = record.postWalk;
+    onEntry(entry);
+  };
 
   try {
-    for await (const rawLine of reader) {
-      lineNumber += 1;
-      const line = rawLine.trim();
-      if (!line) continue;
-      const record = parseManifestJsonLine(file, lineNumber, line);
-      if (sawFooter) throw new Error(`${file}:${lineNumber}: record dopo il footer`);
-
-      if (record.type === 'header') {
-        if (header) throw new Error(`${file}:${lineNumber}: header duplicato`);
-        if (
-          record.manifestVersion !== MANIFEST_VERSION
-          || record.format !== MANIFEST_FORMAT
-          || typeof record.locale !== 'string'
-        ) {
-          throw new Error(`${file}:${lineNumber}: header manifest non valido`);
-        }
-        header = record;
-        continue;
+    while (true) {
+      const bytesRead = fs.readSync(fd, buffer, 0, buffer.length, null);
+      if (bytesRead === 0) break;
+      carry += decoder.write(buffer.subarray(0, bytesRead));
+      let newline;
+      while ((newline = carry.indexOf('\n')) !== -1) {
+        const rawLine = carry.slice(0, newline);
+        carry = carry.slice(newline + 1);
+        handleLine(rawLine);
       }
-      if (!header) throw new Error(`${file}:${lineNumber}: header mancante`);
-
-      if (record.type === 'kind') {
-        if (!PAGE_KINDS.includes(record.kind)) {
-          throw new Error(`${file}:${lineNumber}: kind non valido`);
-        }
-        if (kinds.has(record.kind)) {
-          throw new Error(`${file}:${lineNumber}: kind duplicato ${record.kind}`);
-        }
-        for (const field of ['templateVersion', 'sourceVersion', 'state']) {
-          if (typeof record[field] !== 'string' || record[field].length === 0) {
-            throw new Error(`${file}:${lineNumber}: metadata ${field} non valida`);
-          }
-        }
-        kinds.set(record.kind, {
-          templateVersion: record.templateVersion,
-          sourceVersion: record.sourceVersion,
-          state: record.state,
-        });
-        currentKind = record.kind;
-        continue;
-      }
-
-      if (record.type === 'footer') {
-        assertManifestCounts(file, record.counts, entries);
-        if (record.jobsSeoEmitterFingerprint !== undefined) {
-          jobsSeoEmitterFingerprint = normalizeJobsSeoEmitterFingerprint(record.jobsSeoEmitterFingerprint);
-        }
-        footer = record;
-        sawFooter = true;
-        continue;
-      }
-
-      if (record.type !== undefined) {
-        throw new Error(`${file}:${lineNumber}: record type non valido`);
-      }
-      if (!currentKind) throw new Error(`${file}:${lineNumber}: entry senza kind`);
-      if (typeof record.path !== 'string' || record.path.length === 0 || typeof record.hash !== 'string') {
-        throw new Error(`${file}:${lineNumber}: entry non valida`);
-      }
-      if (entries.has(record.path)) throw new Error(`${file}:${lineNumber}: path duplicato ${record.path}`);
-      const entry = { path: record.path, inputHash: record.hash, kind: currentKind };
-      // POST_WALK_INCREMENTAL (#8942) adds a compact identity/reference index
-      // per entry; the planner proves same-job and explicit path dependencies
-      // from it, so the shared loader must carry it through.
-      if (record.postWalk !== undefined) entry.postWalk = record.postWalk;
-      entries.set(record.path, entry);
     }
+    carry += decoder.end();
+    if (carry.length > 0) handleLine(carry);
   } finally {
-    reader.close();
+    fs.closeSync(fd);
   }
 
   if (!header) throw new Error(`${file}: header mancante`);
   if (!footer) throw new Error(`${file}: footer mancante`);
-  assertManifestCounts(file, footer.counts, entries);
+  assertManifestCounts(file, footer.counts, entryCount, observedByKind);
   const data = {
     manifestVersion: header.manifestVersion,
     format: header.format,
@@ -983,6 +1093,28 @@ export async function loadIncrementalManifest(file) {
   return {
     file,
     data,
+    entryCount,
+    jobsSeoEmitterFingerprint,
+  };
+}
+
+/**
+ * Read one manifest into the legacy Map-shaped result. This remains available
+ * to reporting/cache callers; memory-sensitive post-walk code uses the stream
+ * API above instead.
+ */
+export async function loadIncrementalManifest(file) {
+  const entries = new Map();
+  const streamed = await streamIncrementalManifest(
+    file,
+    (entry) => {
+      entries.set(entry.path, entry);
+    },
+    { validateUniquePaths: true },
+  );
+  return {
+    file,
+    data: streamed.data,
     entries,
   };
 }

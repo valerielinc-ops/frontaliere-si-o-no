@@ -216,7 +216,7 @@ function parseApiJob(j = {}) {
   // from the location text via inferAnyCanton (all 26 cantons). Most federal
   // region labels are composite (e.g. "Espace Mittelland (BE, FR, JU, NE, SO)"),
   // so we infer from the actual arbeitsort/city rather than trust the label.
-  // A single-canton region label like "Ticino (TI)" is used only as last resort.
+  // A single-canton region label is used only as a last resort.
   const cantonMatch = regionRaw.match(/\(([A-Z]{2})\)$/);
   const cantonFromRegion = normalizeCantonCode(cantonMatch ? cantonMatch[1] : '');
   const canton = normalizedLocation.canton
@@ -351,7 +351,7 @@ function buildLocalizedContent(job = {}, sourceLang = 'it') {
     descriptionByLocale: { [sourceLang]: sourceDesc || title },
     // Slug-only guard: `job.city` can be the literal "undefined"/"null" string
     // (truthy) → `-undefined` in an active slug (#952, class #900/#901). Fallback is
-    // `regionLabel` (Ticino/Grigioni), region-correct. addressLocality untouched.
+    // the localized region label, region-correct. addressLocality untouched.
     slugByLocale: { [sourceLang]: slugify(`${title} confederazione ${safeLocationToken(city, regionLabel)}`) },
   };
 }
@@ -368,20 +368,62 @@ async function fetchNationalListings() {
   const allItems = [];
   let offset = 0;
   const limit = 100;
-  let total = 0;
+  const maxPages = 1000;
+  let declaredTotal = null;
+  let pageCount = 0;
 
-  do {
+  while (true) {
     const url = `${API_BASE}?lang=it&offset=${offset}&limit=${limit}`;
     console.log(`  API: ${url}`);
 
     const data = await fetchJson(url);
-    const items = assertJsonListShape(data, { key: 'jobs', source: 'confederazione:CH' }).map(parseApiJob);
-    total = data.total || 0;
-    allItems.push(...items);
-    offset += limit;
-  } while (offset < total);
+    const rawItems = data?.jobs;
+    assertJsonListShape(data, { key: 'jobs', source: 'confederazione:CH' });
+    if (!Array.isArray(rawItems)) {
+      throw new Error(`Confederazione API pagination failed at offset ${offset}: expected jobs array.`);
+    }
+    const items = rawItems.map(parseApiJob);
 
-  console.log(`  CH: ${total} jobs from API`);
+    const rawTotal = data?.total;
+    if (rawTotal !== undefined && rawTotal !== null && rawTotal !== '') {
+      const pageTotal = Number(rawTotal);
+      if (!Number.isFinite(pageTotal) || pageTotal < 0) {
+        throw new Error(`Confederazione API pagination failed at offset ${offset}: invalid declared total.`);
+      }
+      // Some API responses expose total=0 while still returning rows. Treat
+      // that value as unknown so it cannot truncate a national crawl.
+      if (pageTotal > 0) {
+        if (declaredTotal !== null && declaredTotal !== pageTotal) {
+          throw new Error(
+            `Confederazione API pagination failed: declared total changed from ${declaredTotal} to ${pageTotal}.`,
+          );
+        }
+        declaredTotal = pageTotal;
+      }
+    }
+
+    allItems.push(...items);
+    pageCount += 1;
+
+    if (declaredTotal !== null && allItems.length >= declaredTotal) break;
+    if (items.length === 0) {
+      if (declaredTotal !== null && allItems.length < declaredTotal) {
+        throw new Error(
+          `Confederazione API pagination incomplete: received ${allItems.length} of ${declaredTotal} declared jobs.`,
+        );
+      }
+      break;
+    }
+    if (pageCount >= maxPages) {
+      throw new Error(
+        `Confederazione API pagination incomplete after ${pageCount} pages: ` +
+          `${allItems.length} jobs received${declaredTotal !== null ? ` of ${declaredTotal} declared` : ''}.`,
+      );
+    }
+    offset += limit;
+  }
+
+  console.log(`  CH: ${declaredTotal ?? 'unknown'} declared jobs; ${allItems.length} rows read from API`);
   return allItems;
 }
 
@@ -605,7 +647,7 @@ function validateLocales() {
     },
     untrustedDomainReason: 'url_not_admin_domain',
     failWhenNoJobs: false,
-    noJobsMessage: 'No Confederazione Ticino jobs found after dedicated crawl.',
+    noJobsMessage: 'No Confederazione Swiss jobs found after dedicated crawl.',
     detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
     maxToleratedMissingDescriptions: 20,
   });

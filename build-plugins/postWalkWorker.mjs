@@ -20,7 +20,7 @@
  *
  * Byte-identical output: this worker MUST produce the same dist/ HTML as
  * the single-threaded coordinator. The 3 transforms are pure functions
- * that operate per-file with the same shared inputs (existingHtmlSet,
+ * that operate per-file with the same shared inputs (HTML existence on disk,
  * blogIndexHtmlByPath). The only divergence point is write ordering, which
  * does not affect the final on-disk content because each file is written
  * by exactly one worker.
@@ -28,6 +28,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { parentPort, workerData } from 'node:worker_threads';
+import { createSharedHtmlPathIndexView } from './shared/htmlPathIndex.mjs';
 
 if (!parentPort) {
   throw new Error('[postWalkWorker] must be spawned via worker_threads');
@@ -60,24 +61,24 @@ const {
   distDir,
   baseUrl,
   trimmedBase,
-  existingHtmlPaths,
   blogIndexEntries,
   contextualLinkDefaults,
   assignedFiles,
+  htmlPathIndex: serializedHtmlPathIndex,
 } = workerData;
 
-// Reconstruct the lookup structures (arrays/entries cross postMessage cheaply,
-// Set/Map do not — clone shape only once, here, not per file).
-const existingHtmlSet = new Set(existingHtmlPaths);
+// The coordinator already walked the same dist tree. A shared, exact byte
+// index avoids both a 1.5M-entry Set clone per worker and one synchronous
+// filesystem stat per lookup. The index is immutable and collision-safe.
+const htmlPathIndex = createSharedHtmlPathIndexView(serializedHtmlPathIndex);
 const blogIndexHtmlByPath = new Map(blogIndexEntries);
 
 // `transformFlatRedirect` requires a SYNC sibling-existence + body reader
 // (it short-circuits when the sibling index.html is missing or empty). We
-// keep that sync surface and back it with the in-memory `existingHtmlSet`
-// + readFileSync only when the sibling actually exists. Sibling reads are
-// rare relative to the per-file walk so the sync hop here is negligible.
+// use the shared index for the existence branch and read the sibling only
+// when needed.
 const readSibling = (siblingPath) => {
-  if (!existingHtmlSet.has(siblingPath)) return null;
+  if (!htmlPathIndex.has(siblingPath)) return null;
   try {
     return fs.readFileSync(siblingPath, 'utf-8');
   } catch {
@@ -91,7 +92,7 @@ const readSibling = (siblingPath) => {
 // applies in targetExists(). Mirrored in postWalkCoordinatorPlugin.ts; both
 // paths must agree or the verdict depends on POST_WALK_WORKERS.
 const existsCheck = allowExternallyServedTargets(
-  (absPath) => existingHtmlSet.has(absPath),
+  (absPath) => htmlPathIndex.has(absPath),
   distDir,
 );
 

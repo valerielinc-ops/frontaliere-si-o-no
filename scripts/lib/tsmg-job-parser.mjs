@@ -1,6 +1,7 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
+import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -56,7 +57,7 @@ function sectionToMarkdown(section = {}) {
 }
 
 export function isTsmgTargetLocation(rawLocation = '') {
-  return isTargetSwissLocation(rawLocation);
+  return !isLocationExplicitlyForeign(rawLocation) && isTargetSwissLocation(rawLocation);
 }
 
 export function inferTsmgRegion(rawLocation = '') {

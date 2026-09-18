@@ -26,7 +26,7 @@
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/consulente_vendita__lamal.pdf",
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/full_stack_developer.pdf"
   ],
-  "notes": "Dedicated LWPHR crawler parses the open positions accordion and extracts descriptions directly from the linked PDF files.",
+  "notes": "Dedicated LWPHR crawler parses Swiss job postings from the open positions accordion and extracts descriptions directly from the linked PDF files; canton and city are inferred per publication when a location is stated.",
   "updatedAt": "2026-09-13T13:56:15.756Z",
   "seedMetaByUrl": {
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/event_coordinator.pdf": {

@@ -7,14 +7,14 @@
  *
  * This script:
  *   1. Queries the Prospective.ch API for VTG departments
- *      (verwaltungseinheit IDs) filtered by the Ticino + Ostschweiz regions.
+ *      (verwaltungseinheit IDs) across the Swiss-wide feed.
  *   2. Writes discovered job detail URLs as seed URLs in the adapter config.
  *   3. Runs the shared base crawler which fetches each detail page.
- *   4. The shared infrastructure filters for Ticino/GR locations automatically.
+ *   4. The shared infrastructure keeps Swiss locations and resolves their cantons.
  *   5. Translates missing locales and validates coverage.
  *
- * VTG has military facilities in Rivera, Ambrì, and Claro (TI), plus
- * several locations in the Ostschweiz region that may include GR.
+ * VTG has military facilities throughout Switzerland, including Rivera,
+ * Ambrì, and Claro (TI).
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -50,6 +50,7 @@ import {
   normalizeFederalDepartmentCompany,
   normalizeFederalJobLocation,
 } from './lib/federal-job-normalization.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -79,14 +80,14 @@ const VTG_HOST = 'jobs.admin.ch';
  *   1132414 — Gruppe Verteidigung
  *   1083406 — Generalstab / Führungsstab der Armee
  *
- * Region IDs:
- *   1083341 — Tessin (TI)
- *   1083334 — Ostschweiz (AI, AR, GL, GR, SG, SH, TG) — includes GR
- *   1083319 — Ostschweiz (second bucket, same cantons)
+ * The production discovery is Swiss-wide and sends only the department facet.
+ * The legacy regional filter map remains available to direct helper callers
+ * that still exercise the pre-migration fixture contract; the runner below
+ * always passes `scope: 'ch-wide'`.
  */
 const API_BASE = 'https://ohws.prospective.ch/public/v1/medium/1000624';
 const VTG_VERWALTUNGSEINHEIT = '1083433,1132413,1526654,1132414,1083406';
-const REGION_IDS = {
+const LEGACY_REGION_IDS = {
   TI: '1083341',
   Ostschweiz1: '1083334',
   Ostschweiz2: '1083319',
@@ -124,24 +125,20 @@ function normalizeCantonCode(raw = '', fallback = '') {
   return fallback || '';
 }
 
-function cantonFromRegion(regionLabel = '') {
-  const lower = regionLabel.toLowerCase();
-  if (lower.includes('tessin') || lower.includes('ticino')) return 'TI';
-  // Ostschweiz includes GR but also other cantons — we'll let the base crawler filter by city
-  return '';
-}
-
 function dateOnly(raw = '') {
   const dt = new Date(raw || Date.now());
   if (Number.isNaN(dt.getTime())) return new Date().toISOString().slice(0, 10);
   return dt.toISOString().slice(0, 10);
 }
 
-function buildSeedMetaFromApiJob(job, regionKey) {
+function buildSeedMetaFromApiJob(job) {
   const arbeitsort = String(job?.attributes?.['arbeitsort']?.[0] || '').trim();
   const region = String(job?.attributes?.['region']?.[0] || '').trim();
-  const normalizedLocation = normalizeFederalJobLocation(arbeitsort, cantonFromRegion(region));
-  const canton = normalizeCantonCode(normalizedLocation.canton, cantonFromRegion(region));
+  const normalizedLocation = normalizeFederalJobLocation(arbeitsort, '');
+  const canton = normalizeCantonCode(normalizedLocation.canton)
+    || inferAnyCanton(arbeitsort)
+    || inferAnyCanton(normalizedLocation.location)
+    || inferAnyCanton(region);
   const dept = String(job?.attributes?.['verwaltungseinheit']?.[0] || '').trim();
   return {
     location: normalizedLocation.location || region || 'Schweiz',
@@ -174,85 +171,127 @@ export async function fetchVtgJobUrls(options = {}) {
   const seedMetaByUrl = {};
   const timeoutMs = Number(options.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   const fetchImpl = options.fetchImpl || globalThis.fetch;
+  const scope = options.scope || 'legacy-regional';
+  const scopeFilters = scope === 'ch-wide'
+    ? [['CH', '']]
+    : Object.entries(LEGACY_REGION_IDS);
   const regionTotals = {};
   let fetched = 0;
   let duplicateIdentity = 0;
   let droppedMalformed = 0;
 
-  for (const [regionKey, regionId] of Object.entries(REGION_IDS)) {
-    const params = new URLSearchParams({
-      lang: 'de',
-      offset: '0',
-      limit: String(API_LIMIT),
-    });
-    params.append('f', `verwaltungseinheit:${VTG_VERWALTUNGSEINHEIT}`);
-    params.append('f', `region:${regionId}`);
+  for (const [scopeKey, regionId] of scopeFilters) {
+    let offset = 0;
+    let total = null;
+    let scopeFetched = 0;
+    let addedCount = 0;
+    let page = 0;
+    const scopeStableIds = new Set();
 
-    const apiUrl = `${API_BASE}/jobs?${params}`;
-    console.log(`🔍 Fetching VTG jobs for region ${regionKey} from Prospective API…`);
+    console.log(`🔍 Fetching VTG jobs for ${scope === 'ch-wide' ? 'all Swiss locations' : `scope ${scopeKey}`} from Prospective API…`);
 
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    try {
-      const res = await fetchImpl(apiUrl, {
-        signal: controller.signal,
-        headers: { Accept: 'application/json', 'User-Agent': UA },
+    while (total === null || offset < total) {
+      const params = new URLSearchParams({
+        lang: 'de',
+        offset: String(offset),
+        limit: String(API_LIMIT),
       });
+      params.append('f', `verwaltungseinheit:${VTG_VERWALTUNGSEINHEIT}`);
+      if (regionId) params.append('f', `region:${regionId}`);
 
-      if (!res.ok) {
-        throw new Error(`VTG discovery failed: API returned ${res.status} for region ${regionKey}.`);
-      }
+      const apiUrl = `${API_BASE}/jobs?${params}`;
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        const res = await fetchImpl(apiUrl, {
+          signal: controller.signal,
+          headers: { Accept: 'application/json', 'User-Agent': UA },
+        });
 
-      const data = await res.json();
-      const jobs = assertJsonListShape(data, { key: 'jobs', source: 'vtg', lang: regionKey });
-      const total = Number(data?.total);
-      if (!Number.isInteger(total) || total < 0 || total > API_LIMIT || jobs.length !== total) {
-        throw new Error(`VTG discovery incomplete for ${regionKey}: fetched ${jobs.length}/${data?.total ?? '?'} jobs (limit ${API_LIMIT}).`);
-      }
-      regionTotals[regionKey] = total;
-      fetched += jobs.length;
-      console.log(`  📦 ${regionKey}: ${jobs.length} VTG jobs in this region`);
-
-      let addedCount = 0;
-      for (const job of jobs) {
-        const directLink = canonicalizeVtgDetailUrl(job?.links?.directlink || '');
-        if (!directLink) {
-          droppedMalformed += 1;
-          continue;
+        if (!res.ok) {
+          throw new Error(`VTG discovery failed: API returned ${res.status} for scope ${scopeKey} at offset ${offset}.`);
         }
-        const stableId = extractStableJobId(directLink);
-        const previousUrl = stableIdToUrl.get(stableId);
-        if (previousUrl) {
-          if (previousUrl !== directLink) {
-            throw new Error(`VTG discovery identity conflict: ${stableId} maps to both ${previousUrl} and ${directLink}.`);
+
+        const data = await res.json();
+        const jobs = assertJsonListShape(data, {
+          key: 'jobs',
+          source: 'vtg',
+          lang: `${scopeKey}:offset:${offset}`,
+        });
+        const rawTotal = data?.total;
+        const normalizedTotal = typeof rawTotal === 'string' ? rawTotal.trim() : rawTotal;
+        const pageTotal = Number(normalizedTotal);
+        const totalTypeIsValid = typeof normalizedTotal === 'number' || typeof normalizedTotal === 'string';
+        if (
+          !totalTypeIsValid
+          || (typeof normalizedTotal === 'string' && normalizedTotal === '')
+          || !Number.isSafeInteger(pageTotal)
+          || pageTotal < 0
+        ) {
+          throw new Error(`VTG discovery incomplete for ${scopeKey} at offset ${offset}: invalid total ${rawTotal ?? '?'} (limit ${API_LIMIT}).`);
+        }
+        if (total === null) total = pageTotal;
+        if (pageTotal !== total) {
+          throw new Error(`VTG discovery incomplete for ${scopeKey}: total changed from ${total} to ${pageTotal} at offset ${offset}.`);
+        }
+        const expectedPageSize = Math.min(API_LIMIT, total - offset);
+        if (jobs.length !== expectedPageSize) {
+          throw new Error(`VTG discovery incomplete for ${scopeKey}: fetched ${scopeFetched + jobs.length}/${total} jobs at offset ${offset} (expected page size ${expectedPageSize}, limit ${API_LIMIT}).`);
+        }
+
+        scopeFetched += jobs.length;
+        fetched += jobs.length;
+        page++;
+        console.log(`  📦 ${scopeKey} page ${page} (offset ${offset}): ${jobs.length} VTG jobs`);
+
+        for (const job of jobs) {
+          const directLink = canonicalizeVtgDetailUrl(job?.links?.directlink || '');
+          if (!directLink) {
+            droppedMalformed += 1;
+            continue;
           }
-          duplicateIdentity += 1;
-          continue;
+          const stableId = extractStableJobId(directLink);
+          if (scope === 'ch-wide' && scopeStableIds.has(stableId)) {
+            throw new Error(`VTG discovery incomplete for ${scopeKey}: repeated job identity ${stableId} at offset ${offset}.`);
+          }
+          scopeStableIds.add(stableId);
+          const previousUrl = stableIdToUrl.get(stableId);
+          if (previousUrl) {
+            if (previousUrl !== directLink) {
+              throw new Error(`VTG discovery identity conflict: ${stableId} maps to both ${previousUrl} and ${directLink}.`);
+            }
+            duplicateIdentity += 1;
+            continue;
+          }
+          stableIdToUrl.set(stableId, directLink);
+          allUrls.add(directLink);
+          seedMetaByUrl[directLink] = buildSeedMetaFromApiJob(job);
+          addedCount++;
         }
-        stableIdToUrl.set(stableId, directLink);
-        allUrls.add(directLink);
-        seedMetaByUrl[directLink] = buildSeedMetaFromApiJob(job, regionKey);
-        addedCount++;
+
+        offset += jobs.length;
+      } catch (err) {
+        if (String(err?.message || '').startsWith('VTG discovery')) throw err;
+        throw new Error(`VTG discovery failed for ${scopeKey} at offset ${offset}: ${err.message}`, { cause: err });
+      } finally {
+        clearTimeout(timer);
       }
-      console.log(`  🎖️ ${regionKey}: ${addedCount} new unique URLs added`);
-    } catch (err) {
-      if (String(err?.message || '').startsWith('VTG discovery')) throw err;
-      throw new Error(`VTG discovery failed for ${regionKey}: ${err.message}`, { cause: err });
-    } finally {
-      clearTimeout(timer);
     }
+
+    regionTotals[scopeKey] = total;
+    console.log(`  🎖️ ${scopeKey}: ${addedCount} new unique URLs added (${scopeFetched}/${total} fetched)`);
   }
 
-  const expectedRegions = Object.keys(REGION_IDS);
+  const expectedScopes = scopeFilters.map(([scopeKey]) => scopeKey);
   const sourceZero = fetched === 0;
-  if (Object.keys(regionTotals).length !== expectedRegions.length
-      || expectedRegions.some((key) => !Object.hasOwn(regionTotals, key))
+  if (Object.keys(regionTotals).length !== expectedScopes.length
+      || expectedScopes.some((key) => !Object.hasOwn(regionTotals, key))
       || droppedMalformed !== 0
       || allUrls.size + duplicateIdentity !== fetched
       || Object.keys(seedMetaByUrl).length !== allUrls.size
       || (sourceZero && Object.values(regionTotals).some((total) => total !== 0))) {
     throw new Error(
-      `VTG discovery invariant failed: regions=${Object.keys(regionTotals).length}/${expectedRegions.length}, fetched=${fetched}, canonical=${allUrls.size}, duplicates=${duplicateIdentity}, malformed=${droppedMalformed}, metadata=${Object.keys(seedMetaByUrl).length}.`
+      `VTG discovery invariant failed: scopes=${Object.keys(regionTotals).length}/${expectedScopes.length}, fetched=${fetched}, canonical=${allUrls.size}, duplicates=${duplicateIdentity}, malformed=${droppedMalformed}, metadata=${Object.keys(seedMetaByUrl).length}.`
     );
   }
   console.log(`\n✅ Total unique VTG detail URLs discovered: ${allUrls.size}\n`);
@@ -260,6 +299,7 @@ export async function fetchVtgJobUrls(options = {}) {
     urls: [...allUrls],
     seedMetaByUrl,
     regionTotals,
+    scope,
     fetched,
     duplicateIdentity,
     droppedMalformed,
@@ -284,7 +324,7 @@ export function buildVtgAdapterConfig(baseAdapter, seedUrls, seedMetaByUrl = {},
 export function assertVtgAdapterParity(adapter, seedUrls, seedMetaByUrl = {}) {
   if (!isDeepStrictEqual(adapter?.seedUrls, seedUrls)
       || !isDeepStrictEqual(adapter?.seedMetaByUrl, seedMetaByUrl)) {
-    throw new Error('VTG adapter parity failed: persisted seeds differ from the complete regional feed.');
+    throw new Error('VTG adapter parity failed: persisted seeds differ from the complete API feed.');
   }
   return true;
 }
@@ -304,13 +344,13 @@ export function ensureAdapterSeedUrls(
       enabled: true,
       priority: 10,
       crawlerModes: ['generic_ats', 'html', 'jsonld'],
-      notes: 'Swiss Armed Forces (VTG) — Prospective.ch JobBooster (Career Center 1000624, jobs.admin.ch). Filtered by VTG verwaltungseinheit IDs for TI + Ostschweiz regions.',
+      notes: 'Swiss Armed Forces (VTG) — Prospective.ch JobBooster (Career Center 1000624, jobs.admin.ch). Filtered by VTG verwaltungseinheit IDs across the Swiss-wide feed.',
     };
   const adapter = buildVtgAdapterConfig(baseAdapter, seedUrls, seedMetaByUrl, updatedAt);
   writeJsonAtomic(adapterPath, adapter);
   const persisted = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
   assertVtgAdapterParity(persisted, seedUrls, seedMetaByUrl);
-  console.log(`📝 Adapter ${VTG_KEY} updated with ${seedUrls.length} seed URLs (regional feed parity verified).`);
+  console.log(`📝 Adapter ${VTG_KEY} updated with ${seedUrls.length} seed URLs (Swiss-wide feed parity verified).`);
   return persisted;
 }
 
@@ -356,13 +396,19 @@ function logStats(beforeSnapshot = new Map()) {
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
   const jobs = allJobs.filter(isVtgJob);
-  const tiJobs = jobs.filter((j) => normalize(j?.canton) === 'ti');
-  const grJobs = jobs.filter((j) => normalize(j?.canton) === 'gr');
+  const byCanton = new Map();
+  for (const job of jobs) {
+    const canton = normalize(job?.canton).toUpperCase() || 'UNRESOLVED';
+    byCanton.set(canton, (byCanton.get(canton) || 0) + 1);
+  }
+  const cantonSummary = [...byCanton.entries()]
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([canton, count]) => `${canton}: ${count}`)
+    .join(', ');
 
   console.log(`\n📊 === VTG Job Stats ===`);
   console.log(`  🎖️ Total VTG jobs: ${jobs.length}`);
-  console.log(`  ✅ Ticino: ${tiJobs.length}`);
-  console.log(`  ✅ Grigioni: ${grJobs.length}`);
+  console.log(`  ✅ Cantons: ${cantonSummary || 'none'}`);
   console.log('');
 
   const afterSnapshot = snapshotJobSlugs(jobs);
@@ -392,11 +438,11 @@ async function main() {
   registerCrawlerSummaryGuard(VTG_KEY, 'VTG');
   console.log('🎖️ Running dedicated Swiss Armed Forces (VTG) jobs crawler...');
   console.log('   Platform: Prospective.ch JobBooster (Career Center 1000624, jobs.admin.ch)');
-  console.log('   Regions: Tessin (TI) + Ostschweiz (GR)');
+  console.log('   Scope: all Swiss locations (all 26 cantons)');
   console.log('');
 
   // Step 1: Discover VTG job URLs from the Prospective.ch API
-  const discovery = await fetchVtgJobUrls();
+  const discovery = await fetchVtgJobUrls({ scope: 'ch-wide' });
   const detailUrls = discovery.urls;
   if (discovery.sourceZero) {
     console.log('ℹ️ No VTG detail URLs found from API. Exiting OK.');

@@ -2,14 +2,13 @@
  * Denner crawler parser tests
  *
  * Tests parseDennerListingPage(), parseDennerDetailPage(),
- * isDennerTicinoJob(), isDennerJob(), and constants.
+ * isDennerJob(), and constants.
  */
 import { describe, it, expect } from 'vitest';
 
 import {
   parseDennerListingPage,
   parseDennerDetailPage,
-  isDennerTicinoJob,
   isDennerJob,
   DENNER_PORTAL_URL,
 } from '@/scripts/lib/denner-job-parser.mjs';
@@ -172,32 +171,6 @@ describe('parseDennerDetailPage', () => {
 });
 
 // ===================================================================
-// isDennerTicinoJob
-// ===================================================================
-
-describe('isDennerTicinoJob', () => {
-  it('returns true for Lugano', () => {
-    expect(isDennerTicinoJob({ location: 'Lugano' })).toBe(true);
-  });
-
-  it('returns true for canton TI', () => {
-    expect(isDennerTicinoJob({ canton: 'TI' })).toBe(true);
-  });
-
-  it('returns false for Bern', () => {
-    // Cathedral 2026-05-10: Bern (BE) is now a target canton — assertion updated to true.
-    expect(isDennerTicinoJob({ location: 'Bern' })).toBe(true);
-  });
-
-  it('returns false for null', () => {
-    expect(isDennerTicinoJob(null)).toBe(false);
-  });
-
-  it('returns true for Massagno', () => {
-    expect(isDennerTicinoJob({ location: 'Massagno' })).toBe(true);
-  });
-});
-
 // ===================================================================
 // isDennerJob
 // ===================================================================

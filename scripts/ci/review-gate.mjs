@@ -19,6 +19,7 @@ import { execFileSync } from 'node:child_process';
 import { realpathSync, readFileSync, appendFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';
+import { boundReviewsToFirstHeadVerdict } from './lib/pr-review-admission.mjs';
 import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
@@ -150,6 +151,7 @@ function isFindingStart(line, marker, extractCitations = extractFileCitations) {
   if (!structuralPrefix || /^[#*_~`]+$/u.test(structuralPrefix)) return true;
   if (extractCitations(structuralPrefix).length > 0) return true;
   return /(?:^|\s)(?:L?\d+)(?:[-–]\d+)?\s*:\s*$/iu.test(structuralPrefix)
+    || /^PR\s+body\s*[:#]\s*L?\d+(?:[-–]\d+)?\s*:\s*$/iu.test(structuralPrefix)
     || /`[^`\n]+`\s*:\s*$/u.test(structuralPrefix);
 }
 
@@ -1133,7 +1135,10 @@ export async function runReviewGate({
     throw new Error('repo, PR number or HEAD SHA non valido');
   }
 
-  const reviewHistory = reviews ?? readReviews(repo, pr);
+  const reviewHistory = boundReviewsToFirstHeadVerdict(
+    reviews ?? readReviews(repo, pr),
+    headSha,
+  );
   const structuredCodexEvidence = codexEvidence
     || readCodexEvidenceFile(codexEvidenceFile || process.env.CODEX_FALLBACK_EVIDENCE_FILE);
   const automatic = findTestOnlyApproval(reviewHistory, headSha, { ghFn: gh, repo, pr });

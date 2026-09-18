@@ -113,7 +113,7 @@ describe('mergeAndDeduplicate registry authority (post source-copy dedup)', () =
       canton: 'ZH',
       sourceLang: 'de',
       description: 'x'.repeat(200),
-      crawledAt: '2026-07-07T00:44:00.265Z',
+      crawledAt: new Date(Date.now() - 3 * 86_400_000).toISOString(),
       source: 'Company Careers Crawler',
       slug: GOOD_IT_MASTER,
       slugByLocale: {

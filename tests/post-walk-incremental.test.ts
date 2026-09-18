@@ -8,11 +8,17 @@ import { afterEach, describe, expect, it } from 'vitest';
 
 import { IncrementalManifest } from '../build-plugins/shared/incrementalManifest.mjs';
 import {
-  buildPostWalkIncrementalPlan,
+  buildSharedHtmlPathIndex,
+  createSharedHtmlPathIndexView,
+} from '../build-plugins/shared/htmlPathIndex.mjs';
+import {
+  buildPostWalkIncrementalPlanFromState,
   comparePostWalkVerification,
-  loadPostWalkManifestPair,
+  loadPostWalkManifestState,
   postWalkIncrementalEnabled,
+  releasePostWalkManifestState,
   replacePostWalkPathList,
+  selectPostWalkVerificationPaths,
 } from '../build-plugins/shared/postWalkIncremental';
 
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -24,17 +30,40 @@ function writeManifest(
   directory: 'incremental-manifest' | 'incremental-manifest-prev',
   entries: ReadonlyArray<{ path: string; kind: string; input: unknown }>,
   includePostWalkMetadata = false,
+  emitterFingerprint?: Record<string, string>,
 ): void {
   const previousFlag = process.env.POST_WALK_INCREMENTAL;
   if (includePostWalkMetadata) process.env.POST_WALK_INCREMENTAL = '1';
   try {
     const manifest = new IncrementalManifest('it');
+    if (emitterFingerprint) manifest.setJobsSeoEmitterFingerprint(emitterFingerprint);
     for (const entry of entries) manifest.register(entry.path, entry.kind, entry.input);
     manifest.write(root, path.join(root, '.cache', directory));
   } finally {
     if (previousFlag === undefined) delete process.env.POST_WALK_INCREMENTAL;
     else process.env.POST_WALK_INCREMENTAL = previousFlag;
   }
+}
+
+function replaceManifestEntryPath(
+  root: string,
+  directory: 'incremental-manifest' | 'incremental-manifest-prev',
+  sourcePath: string,
+  duplicatePath: string,
+): void {
+  const filePath = path.join(root, '.cache', directory, 'it.jsonl');
+  const lines = fs.readFileSync(filePath, 'utf8').trimEnd().split('\n');
+  let replaced = false;
+  const rewritten = lines.map((line) => {
+    const record = JSON.parse(line) as { type?: string; path?: string };
+    if (!record.type && record.path === sourcePath && !replaced) {
+      replaced = true;
+      return JSON.stringify({ ...record, path: duplicatePath });
+    }
+    return line;
+  });
+  if (!replaced) throw new Error(`manifest entry not found: ${sourcePath}`);
+  fs.writeFileSync(filePath, `${rewritten.join('\n')}\n`, 'utf8');
 }
 
 function fixtureRoot(): string {
@@ -68,6 +97,52 @@ afterEach(() => {
 });
 
 describe('post-walk incremental planning', () => {
+  it('rejects duplicate paths in the current streamed manifest', async () => {
+    const root = fixtureRoot();
+    writeManifest(root, 'incremental-manifest-prev', [
+      { path: 'jobs/previous/', kind: 'active-job', input: { title: 'previous' } },
+    ]);
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/current-a/', kind: 'active-job', input: { title: 'a' } },
+      { path: 'jobs/current-b/', kind: 'active-job', input: { title: 'b' } },
+    ]);
+    replaceManifestEntryPath(
+      root,
+      'incremental-manifest',
+      'jobs/current-b/',
+      'jobs/current-a/',
+    );
+
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+
+    expect(loaded.ok).toBe(false);
+    if (!('reason' in loaded)) throw new Error('expected duplicate current path to fail closed');
+    expect(loaded.reason).toMatch(/path (?:manifest )?duplicato/);
+  });
+
+  it('rejects duplicate paths in the previous streamed manifest even when removed', async () => {
+    const root = fixtureRoot();
+    writeManifest(root, 'incremental-manifest-prev', [
+      { path: 'jobs/removed-a/', kind: 'active-job', input: { title: 'a' } },
+      { path: 'jobs/removed-b/', kind: 'active-job', input: { title: 'b' } },
+    ]);
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/stable/', kind: 'active-job', input: { title: 'stable' } },
+    ]);
+    replaceManifestEntryPath(
+      root,
+      'incremental-manifest-prev',
+      'jobs/removed-b/',
+      'jobs/removed-a/',
+    );
+
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+
+    expect(loaded.ok).toBe(false);
+    if (!('reason' in loaded)) throw new Error('expected duplicate previous path to fail closed');
+    expect(loaded.reason).toMatch(/precedente manifest path duplicato/);
+  });
+
   it('processes changed and affected aliases while skipping unchanged manifest pages', async () => {
     const root = fixtureRoot();
     const distDir = path.join(root, 'dist');
@@ -79,31 +154,39 @@ describe('post-walk incremental planning', () => {
     );
 
     writeManifest(root, 'incremental-manifest-prev', [
-      { path: 'jobs/changed/', kind: 'active-job', input: { title: 'old' } },
+      {
+        path: 'jobs/changed/',
+        kind: 'active-job',
+        input: { title: 'old', href: `${BASE_URL}/en/jobs/changed/` },
+      },
       { path: 'en/jobs/changed/', kind: 'active-job', input: { title: 'stable' } },
       { path: 'jobs/unchanged/', kind: 'active-job', input: { title: 'same' } },
-    ]);
+    ], true);
     writeManifest(root, 'incremental-manifest', [
-      { path: 'jobs/changed/', kind: 'active-job', input: { title: 'new' } },
+      {
+        path: 'jobs/changed/',
+        kind: 'active-job',
+        input: { title: 'new', href: `${BASE_URL}/en/jobs/changed/` },
+      },
       { path: 'en/jobs/changed/', kind: 'active-job', input: { title: 'stable' } },
       { path: 'jobs/unchanged/', kind: 'active-job', input: { title: 'same' } },
-    ]);
+    ], true);
 
-    const loaded = await loadPostWalkManifestPair(root, ['it']);
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
     expect(loaded.ok).toBe(true);
     if ('reason' in loaded) throw new Error(loaded.reason);
 
-    const plan = buildPostWalkIncrementalPlan({
+    const plan = buildPostWalkIncrementalPlanFromState({
       distDir,
       allHtmlPaths: htmlPaths,
       processableHtmlPaths: htmlPaths,
       baseUrl: BASE_URL,
-      manifests: loaded.pair,
+      state: loaded.state,
     });
 
     expect(plan.mode).toBe('incremental');
     expect(plan.changed).toBe(1);
-    expect(plan.eligibleByManifest).toBe(6);
+    expect(plan.eligibleByManifest).toBe(3);
     expect(plan.skippedUnchanged).toBe(2);
     expect(plan.affected).toBe(2);
     expect(plan.processHtmlPaths).toEqual([
@@ -123,7 +206,7 @@ describe('post-walk incremental planning', () => {
       { path: 'jobs/changed/', kind: 'active-job', input: { title: 'new' } },
     ]);
 
-    const loaded = await loadPostWalkManifestPair(root, ['it']);
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
     expect(loaded.ok).toBe(false);
     if (!('reason' in loaded)) throw new Error('expected missing previous manifest');
     expect(loaded.reason).toContain('precedente manifest mancante');
@@ -133,33 +216,138 @@ describe('post-walk incremental planning', () => {
     expect(htmlPaths).toHaveLength(7);
   });
 
-  it('falls back when a removed logical page has no resolvable kind/job identity', async () => {
+  it('falls back as one unit when the producer fingerprint changes', async () => {
+    const root = fixtureRoot();
+    const entry = { path: 'jobs/changed/', kind: 'active-job', input: { jobId: 'job-1', title: 'same' } };
+    writeManifest(root, 'incremental-manifest-prev', [entry], true, { jobs: 'jobs-seo@old' });
+    writeManifest(root, 'incremental-manifest', [entry], true, { jobs: 'jobs-seo@new' });
+
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+
+    expect(loaded.ok).toBe(false);
+    if (!('reason' in loaded)) {
+      throw new Error('expected producer fingerprint mismatch to fall back before loading entries');
+    }
+    expect(loaded.reason).toContain('emitter fingerprint cambiato');
+  });
+
+  it('can omit unmanifested paths only for the sampled-verifier plan', async () => {
+    const root = fixtureRoot();
+    const manifestPath = writeHtml(root, 'jobs/changed/index.html', 'changed');
+    const unmanifestedPath = writeHtml(root, 'uncovered/index.html', 'uncovered');
+    writeManifest(root, 'incremental-manifest-prev', [
+      { path: 'jobs/changed/', kind: 'active-job', input: { title: 'old' } },
+    ]);
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/changed/', kind: 'active-job', input: { title: 'new' } },
+    ]);
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+    expect(loaded.ok).toBe(true);
+    if ('reason' in loaded) throw new Error(loaded.reason);
+
+    const plan = buildPostWalkIncrementalPlanFromState({
+      distDir: path.join(root, 'dist'),
+      allHtmlPaths: [manifestPath, unmanifestedPath],
+      processableHtmlPaths: [manifestPath, unmanifestedPath],
+      existingHtmlSet: new Set([manifestPath, unmanifestedPath]),
+      baseUrl: BASE_URL,
+      includeUncoveredPaths: false,
+      state: loaded.state,
+    });
+
+    expect(plan.processHtmlPaths).toEqual([manifestPath]);
+    expect(plan.unmanifested).toBe(1);
+    expect(plan.unmanifestedSkipped).toBe(1);
+  });
+
+  it('keeps an unresolved removal as a per-entry fallback', async () => {
     const root = fixtureRoot();
     const distDir = path.join(root, 'dist');
     const htmlPaths = collectFixtureHtml(root);
+    writeHtml(
+      root,
+      'jobs/unchanged/index.html',
+      `<a href="${BASE_URL}/jobs/removed/">removed</a>`,
+    );
     writeManifest(root, 'incremental-manifest-prev', [
       { path: 'jobs/changed/', kind: 'active-job', input: { title: 'old' } },
+      { path: 'en/jobs/changed/', kind: 'active-job', input: { title: 'same' } },
+      { path: 'jobs/unchanged/', kind: 'active-job', input: { title: 'same' } },
       { path: 'jobs/removed/', kind: 'active-job', input: { title: 'removed' } },
     ]);
     writeManifest(root, 'incremental-manifest', [
       { path: 'jobs/changed/', kind: 'active-job', input: { title: 'old' } },
+      { path: 'en/jobs/changed/', kind: 'active-job', input: { title: 'same' } },
+      { path: 'jobs/unchanged/', kind: 'active-job', input: { title: 'same' } },
     ]);
 
-    const loaded = await loadPostWalkManifestPair(root, ['it']);
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
     expect(loaded.ok).toBe(true);
     if ('reason' in loaded) throw new Error(loaded.reason);
-    const plan = buildPostWalkIncrementalPlan({
+    const plan = buildPostWalkIncrementalPlanFromState({
       distDir,
       allHtmlPaths: htmlPaths,
       processableHtmlPaths: htmlPaths,
       baseUrl: BASE_URL,
-      manifests: loaded.pair,
+      state: loaded.state,
     });
 
-    expect(plan.mode).toBe('full');
+    expect(plan.mode).toBe('incremental');
     expect(plan.removed).toBe(1);
+    expect(plan.fallbackMode).toBe('entry');
     expect(plan.fallbackReason).toContain('rimozione senza kind/jobId risolvibile');
-    expect(plan.processHtmlPaths).toEqual(htmlPaths);
+    expect(plan.processHtmlPaths).toEqual([htmlPaths[4], htmlPaths[5], htmlPaths[6]]);
+    expect(plan.processHtmlPaths).not.toEqual(htmlPaths);
+
+    const streamed = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+    expect(streamed.ok).toBe(true);
+    if ('reason' in streamed) throw new Error(streamed.reason);
+    const streamedPlan = buildPostWalkIncrementalPlanFromState({
+      distDir,
+      allHtmlPaths: htmlPaths,
+      processableHtmlPaths: htmlPaths,
+      baseUrl: BASE_URL,
+      state: streamed.state,
+    });
+    expect(streamedPlan.mode).toBe('incremental');
+    expect(streamedPlan.fallbackMode).toBe('entry');
+    expect(streamedPlan.processHtmlPaths).toEqual([htmlPaths[4], htmlPaths[5], htmlPaths[6]]);
+  });
+
+  it('scans unresolved removal references before omitting unmanifested paths', async () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const sourcePath = writeHtml(
+      root,
+      'jobs/unchanged/index.html',
+      `<a href="${BASE_URL}/jobs/removed/">removed</a>`,
+    );
+    const uncoveredPath = writeHtml(root, 'uncovered/index.html', 'uncovered');
+    writeManifest(root, 'incremental-manifest-prev', [
+      { path: 'jobs/unchanged/', kind: 'active-job', input: { title: 'same' } },
+      { path: 'jobs/removed/', kind: 'active-job', input: { title: 'removed' } },
+    ]);
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/unchanged/', kind: 'active-job', input: { title: 'same' } },
+    ]);
+
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+    expect(loaded.ok).toBe(true);
+    if ('reason' in loaded) throw new Error(loaded.reason);
+    const plan = buildPostWalkIncrementalPlanFromState({
+      distDir,
+      allHtmlPaths: [sourcePath, uncoveredPath],
+      processableHtmlPaths: [sourcePath, uncoveredPath],
+      existingHtmlSet: new Set([sourcePath, uncoveredPath]),
+      baseUrl: BASE_URL,
+      includeUncoveredPaths: false,
+      state: loaded.state,
+    });
+
+    expect(plan.mode).toBe('incremental');
+    expect(plan.fallbackMode).toBe('entry');
+    expect(plan.processHtmlPaths).toEqual([sourcePath]);
+    expect(plan.processHtmlPaths).not.toContain(uncoveredPath);
   });
 
   it('keeps add/remove incremental and selects same-job/explicit dependants among untouched pages', async () => {
@@ -200,16 +388,16 @@ describe('post-walk incremental planning', () => {
 
     writeManifest(root, 'incremental-manifest-prev', previousEntries, true);
     writeManifest(root, 'incremental-manifest', currentEntries, true);
-    const loaded = await loadPostWalkManifestPair(root, ['it']);
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
     expect(loaded.ok).toBe(true);
     if ('reason' in loaded) throw new Error(loaded.reason);
 
-    const plan = buildPostWalkIncrementalPlan({
+    const plan = buildPostWalkIncrementalPlanFromState({
       distDir,
       allHtmlPaths: htmlPaths,
       processableHtmlPaths: htmlPaths,
       baseUrl: BASE_URL,
-      manifests: loaded.pair,
+      state: loaded.state,
     });
 
     expect(plan.mode).toBe('incremental');
@@ -227,7 +415,7 @@ describe('post-walk incremental planning', () => {
     ]));
   });
 
-  it('falls back when a changed page has an owned hreflang target outside existingHtmlSet', async () => {
+  it('processes a changed page even when its owned hreflang target is absent', async () => {
     const root = fixtureRoot();
     const distDir = path.join(root, 'dist');
     const changedPath = writeHtml(
@@ -238,20 +426,20 @@ describe('post-walk incremental planning', () => {
     const makeEntry = (title: string) => ({ path: 'jobs/changed/', kind: 'active-job', input: { title } });
     writeManifest(root, 'incremental-manifest-prev', [makeEntry('old')]);
     writeManifest(root, 'incremental-manifest', [makeEntry('new')]);
-    const loaded = await loadPostWalkManifestPair(root, ['it']);
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
     expect(loaded.ok).toBe(true);
     if ('reason' in loaded) throw new Error(loaded.reason);
 
-    const plan = buildPostWalkIncrementalPlan({
+    const plan = buildPostWalkIncrementalPlanFromState({
       distDir,
       allHtmlPaths: [changedPath],
       processableHtmlPaths: [changedPath],
       baseUrl: BASE_URL,
-      manifests: loaded.pair,
+      state: loaded.state,
     });
 
-    expect(plan.mode).toBe('full');
-    expect(plan.fallbackReason).toContain('target hreflang');
+    expect(plan.mode).toBe('incremental');
+    expect(plan.fallbackReason).toBeUndefined();
     expect(plan.processHtmlPaths).toEqual([changedPath]);
   });
 
@@ -267,6 +455,15 @@ describe('post-walk incremental planning', () => {
 
     expect(comparison.wouldWriteButSkipped).toEqual([skipped]);
     expect(comparison.processedButWouldNotWrite).toEqual([processed]);
+
+    const affectedComparison = comparePostWalkVerification({
+      fullWouldWritePaths: [],
+      incrementalProcessPaths: [processed],
+      sampledPaths: [],
+      affectedWouldWritePaths: [skipped],
+      affectedPaths: [processed],
+    });
+    expect(affectedComparison.wouldWriteButSkipped).toEqual([skipped]);
   });
 
   it('copies large coordinator path lists without overflowing the call stack', () => {
@@ -297,5 +494,185 @@ describe('post-walk incremental planning', () => {
     expect(postWalkIncrementalEnabled()).toBe(false);
     if (previous === undefined) delete process.env.POST_WALK_INCREMENTAL;
     else process.env.POST_WALK_INCREMENTAL = previous;
+  });
+
+  it('streams the current projection and previous delta without returning a previous map', async () => {
+    const root = fixtureRoot();
+    writeManifest(root, 'incremental-manifest-prev', [
+      { path: 'jobs/stable/', kind: 'active-job', input: { jobId: 'stable-1' } },
+    ], true);
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/stable/', kind: 'active-job', input: { jobId: 'stable-1' } },
+    ], true);
+
+    const phases: string[] = [];
+    const loaded = await loadPostWalkManifestState(
+      root,
+      ['it'],
+      BASE_URL,
+      (progress) => phases.push(progress.phase),
+    );
+    expect(loaded.ok).toBe(true);
+    if ('reason' in loaded) throw new Error(loaded.reason);
+    expect(loaded.state.current.entries.size).toBe(1);
+    expect(loaded.state.previousEntryCount).toBe(1);
+    expect(loaded.state.current.entries.get('jobs/stable')?.postWalk?.jobId)
+      .toBe('stable-1');
+    expect(loaded.state.current.entries.get('jobs/stable')?.postWalk?.jobIds)
+      .toBeUndefined();
+    expect(phases).toEqual(['current-loaded', 'previous-loaded']);
+    expect('previous' in loaded.state).toBe(false);
+  });
+
+  it('releases the manifest projection after the bounded plan is copied', async () => {
+    const root = fixtureRoot();
+    writeManifest(root, 'incremental-manifest-prev', [
+      { path: 'jobs/stable/', kind: 'active-job', input: { jobId: 'stable-1' } },
+    ], true);
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/stable/', kind: 'active-job', input: { jobId: 'stable-1' } },
+    ], true);
+
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+    expect(loaded.ok).toBe(true);
+    if ('reason' in loaded) throw new Error(loaded.reason);
+
+    releasePostWalkManifestState(loaded.state);
+
+    expect(loaded.state.current.entries.size).toBe(0);
+    expect(loaded.state.current.kinds.size).toBe(0);
+    expect(loaded.state.previousKinds.size).toBe(0);
+    expect(loaded.state.changed.size).toBe(0);
+    expect(loaded.state.affected.size).toBe(0);
+  });
+
+  it('fails closed on a duplicate path in a streamed manifest', async () => {
+    const root = fixtureRoot();
+    writeManifest(root, 'incremental-manifest-prev', [
+      { path: 'jobs/stable/', kind: 'active-job', input: { jobId: 'stable-1' } },
+    ]);
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/stable/', kind: 'active-job', input: { jobId: 'stable-1' } },
+    ]);
+
+    const manifestFile = path.join(root, '.cache', 'incremental-manifest', 'it.jsonl');
+    const lines = fs.readFileSync(manifestFile, 'utf8').trimEnd().split('\n');
+    const footerLine = lines.pop();
+    if (!footerLine) throw new Error('footer manifest mancante nel fixture');
+    const footer = JSON.parse(footerLine) as {
+      counts: { total: number; byKind: Record<string, number> };
+    };
+    const duplicateEntry = lines.at(-1);
+    if (!duplicateEntry) throw new Error('entry manifest mancante nel fixture');
+    footer.counts.total += 1;
+    footer.counts.byKind['active-job'] += 1;
+    lines.push(duplicateEntry, JSON.stringify(footer));
+    fs.writeFileSync(manifestFile, `${lines.join('\n')}\n`, 'utf8');
+
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+    expect(loaded.ok).toBe(false);
+    if (!('reason' in loaded)) throw new Error('expected duplicate manifest failure');
+    expect(loaded.reason).toContain('corrente manifest path duplicato');
+  });
+
+  it('does a second bounded previous stream for references to an added page', async () => {
+    const root = fixtureRoot();
+    writeManifest(root, 'incremental-manifest-prev', [
+      {
+        path: 'jobs/referrer/',
+        kind: 'active-job',
+        input: { jobId: 'referrer-1', targetPath: '/jobs/added/' },
+      },
+    ], true);
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/referrer/', kind: 'active-job', input: { jobId: 'referrer-1' } },
+      { path: 'jobs/added/', kind: 'active-job', input: { jobId: 'added-1' } },
+    ], true);
+
+    const phases: string[] = [];
+    const loaded = await loadPostWalkManifestState(
+      root,
+      ['it'],
+      BASE_URL,
+      (progress) => phases.push(progress.phase),
+    );
+    expect(loaded.ok).toBe(true);
+    if ('reason' in loaded) throw new Error(loaded.reason);
+    expect(loaded.state.added).toEqual(new Set(['jobs/added']));
+    expect(loaded.state.affected).toEqual(new Set(['jobs/referrer', 'jobs/added']));
+    expect(loaded.state.current.entries.get('jobs/referrer')?.postWalk?.references)
+      .toBeUndefined();
+    expect(phases).toEqual([
+      'current-loaded',
+      'references-loading',
+      'references-loaded',
+      'previous-loaded',
+    ]);
+  });
+
+  it('preserves previous identity metadata when an unchanged current entry predates the projection', async () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const changedPath = writeHtml(root, 'jobs/changed/index.html', 'changed');
+    const migratedPath = writeHtml(root, 'jobs/migrated/index.html', 'migrated');
+    const previousEntries = [
+      { path: 'jobs/changed/', kind: 'active-job', input: { jobId: 'shared-job', title: 'old' } },
+      { path: 'jobs/migrated/', kind: 'active-job', input: { jobId: 'shared-job', title: 'same' } },
+    ];
+    writeManifest(root, 'incremental-manifest-prev', previousEntries, true);
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/changed/', kind: 'active-job', input: { jobId: 'shared-job', title: 'new' } },
+      { path: 'jobs/migrated/', kind: 'active-job', input: { jobId: 'shared-job', title: 'same' } },
+    ]);
+
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+    expect(loaded.ok).toBe(true);
+    if ('reason' in loaded) throw new Error(loaded.reason);
+    expect(loaded.state.current.entries.get('jobs/migrated')?.postWalk?.jobId)
+      .toBe('shared-job');
+
+    const plan = buildPostWalkIncrementalPlanFromState({
+      distDir,
+      allHtmlPaths: [changedPath, migratedPath],
+      processableHtmlPaths: [changedPath, migratedPath],
+      baseUrl: BASE_URL,
+      state: loaded.state,
+    });
+
+    expect(plan.mode).toBe('incremental');
+    expect(plan.changed).toBe(1);
+    expect(plan.affected).toBe(1);
+    expect(plan.processHtmlPaths).toEqual([changedPath, migratedPath]);
+  });
+
+  it('selects a deterministic 2% sample and always includes forced affected paths', () => {
+    const paths = Array.from({ length: 100 }, (_, index) => `/dist/jobs/${index}/index.html`);
+    const forced = [paths[99]];
+    const selected = selectPostWalkVerificationPaths(paths, null, forced);
+    const reordered = selectPostWalkVerificationPaths([...paths].reverse(), null, forced);
+
+    expect(selected).toHaveLength(3);
+    expect(selected).toContain(paths[99]);
+    expect(new Set(reordered)).toEqual(new Set(selected));
+
+    const sampleOnly = selectPostWalkVerificationPaths(paths, null, forced, false);
+    expect(sampleOnly).toHaveLength(2);
+    expect(sampleOnly).not.toContain(paths[99]);
+  });
+
+  it('keeps the worker existence oracle exact without cloning path strings', () => {
+    const paths = [
+      '/synthetic/dist/jobs/citta/index.html',
+      '/synthetic/dist/jobs/città/index.html',
+      '/synthetic/dist/en/jobs/citta/index.html',
+    ];
+    const serialized = buildSharedHtmlPathIndex(new Set(paths));
+    const index = createSharedHtmlPathIndexView(serialized);
+
+    expect(index.has(paths[0])).toBe(true);
+    expect(index.has(paths[1])).toBe(true);
+    expect(index.has(paths[2])).toBe(true);
+    expect(index.has('/synthetic/dist/jobs/citta/index.htm')).toBe(false);
+    expect(index.has('/synthetic/dist/jobs/città/index.htm')).toBe(false);
   });
 });

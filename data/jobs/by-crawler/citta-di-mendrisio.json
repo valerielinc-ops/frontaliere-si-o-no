@@ -1,7 +1,70 @@
 {
   "crawlerKey": "citta-di-mendrisio",
-  "assembledAt": "2026-09-16T23:43:31.200Z",
+  "assembledAt": "2026-09-17T23:32:18.652Z",
   "jobs": [
+    {
+      "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=67c1fc6e-8449-4514-bbc8-0a3f2ab28bda",
+      "applyUrl": "https://cittamen.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=IS#position,id=67c1fc6e-8449-4514-bbc8-0a3f2ab28bda,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "title": "Responsabile del Servizio Operativo (Aiutante) al 100%",
+      "company": "Città di Mendrisio",
+      "companyKey": "citta-di-mendrisio",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "description": "Concorso pubblico presso la Città di Mendrisio.\n\nPosizione: Responsabile del Servizio Operativo (Aiutante) al 100%.\n\nTermine di iscrizione: 2026-10-09.\n\nBando ufficiale disponibile in PDF.",
+      "descriptionByLocale": {
+        "it": "Concorso pubblico presso la Città di Mendrisio.\n\nPosizione: Responsabile del Servizio Operativo (Aiutante) al 100%.\n\nTermine di iscrizione: 2026-10-09.\n\nBando ufficiale disponibile in PDF.",
+        "en": "Public competition at the City of Mendrisio.\n\nLocation: 100% Operating Service Manager.\n\nRegistration deadline: 2026-10-09.\n\nOfficial message available in PDF.",
+        "de": "Öffentlicher Wettbewerb in der Stadt Mendrisio.\n\nStandort: 100% Operating Service Manager.\n\nAnmeldefrist: 2026-10-09.\n\nOffizielle Nachricht in PDF verfügbar.",
+        "fr": "Concours public à la ville de Mendrisio.\n\nLieu : 100% Gestionnaire de services d'exploitation.\n\nDate limite d'inscription: 2026-10-09.\n\nMessage officiel disponible en PDF."
+      },
+      "titleByLocale": {
+        "it": "Responsabile del Servizio Operativo (Aiutante) al 100%",
+        "en": "Manager del Servizio Operativo (Aiutante) al 100%",
+        "de": "Verantwortlicher del Servizio Operativo (Aiutante) al 100%",
+        "fr": "Responsable del Servizio Operativo (Aiutante) al 100%"
+      },
+      "slug": "responsabile-del-servizio-operativo-aiutante-al-100-mendrisio",
+      "slugByLocale": {
+        "it": "responsabile-del-servizio-operativo-aiutante-al-100-mendrisio",
+        "en": "responsabile-del-servizio-operativo-aiutante-al-100-mendrisio",
+        "de": "responsabile-del-servizio-operativo-aiutante-al-100-mendrisio",
+        "fr": "responsabile-del-servizio-operativo-aiutante-al-100-mendrisio"
+      },
+      "sourceLang": "it",
+      "category": "general",
+      "datePosted": "2026-09-18",
+      "validThrough": "2026-10-09",
+      "source": "mendrisio-concorsi-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Amministrazione pubblica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "crawledAt": "",
+      "id": "citta-di-mendrisio-372a55430eb4",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Municipio 13",
+      "postalCode": "6850",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-09-17T23:32:16.368Z"
+    },
     {
       "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=b73e0e64-5744-4538-aa9e-51144606f363",
       "applyUrl": "https://cittamen.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=IS#position,id=b73e0e64-5744-4538-aa9e-51144606f363,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",

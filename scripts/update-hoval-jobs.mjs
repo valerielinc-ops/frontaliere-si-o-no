@@ -5,12 +5,12 @@
  * Crawls https://www.hoval.it/it_IT/jobs via SAP Hybris JSON API
  *
  * Hoval is a national heating/HVAC employer, so this crawler is CH-wide
- * (all 26 cantons) — there is NO Ticino/Grigioni restriction.
+ * (all 26 cantons) — there is no single-canton restriction.
  *
  * 1. Fetches JSON listing API filtered by country=Switzerland (national set)
  * 2. Fetches each detail page → extracts description + apply URL
  * 3. Keeps only Swiss (CH) postings; drops any foreign posting
- * 4. Infers per-job canton via inferAnyCanton over all 26 cantons (no TI default)
+ * 4. Infers per-job canton via inferAnyCanton over all 26 cantons (no fixed-canton default)
  * 5. Merges into data/jobs.json
  * 6. Updates adapter config
  */
@@ -54,6 +54,7 @@ import {
 } from './lib/hoval-job-parser.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
+import { assertDetailFetchComplete } from './lib/detail-fetch-cap.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -185,7 +186,7 @@ async function fetchAllListings() {
 }
 
 async function enrichWithDetails(listings) {
-  const toFetch = listings.slice(0, MAX_DETAIL_PAGES);
+  const toFetch = assertDetailFetchComplete(listings, MAX_DETAIL_PAGES, 'Hoval');
   const enriched = [];
 
   console.log(`\n🔎 Fetching up to ${toFetch.length} detail pages...`);

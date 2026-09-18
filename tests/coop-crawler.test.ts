@@ -23,13 +23,28 @@ import {
   applyCoopSourceDetailToJob,
   enrichCoopSourceBackedJobs,
   buildCoopTranslationCacheEntry,
+  resolveCoopCantonCode,
 } from '../scripts/lib/coop-job-parser.mjs';
 
 const frenchDetailFixture = JSON.parse(
   fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'coop-french-detail.json'), 'utf8'),
 );
 
+const makeCoopApiJob = (index, { canton = 'Zurigo' } = {}) => ({
+  links: {
+    directlink: `https://jobs.coopjobs.ch/offene-stellen/job-${index}/22222222-2222-4222-8222-${String(index).padStart(12, '0')}`,
+  },
+  attributes: { '30': [canton], '70': ['Coop Genossenschaft'] },
+});
+
 describe('Coop authoritative detail routing', () => {
+  it('resolves localized canton labels and locality across the full Swiss scope', () => {
+    expect(resolveCoopCantonCode('Graubünden', '', '')).toBe('GR');
+    expect(resolveCoopCantonCode('Nidwaldo', '', '')).toBe('NW');
+    expect(resolveCoopCantonCode('', 'Chur', '')).toBe('GR');
+    expect(resolveCoopCantonCode('Principato del Liechtenstein', '', '')).toBe('');
+  });
+
   it('publishes the feed allowlist only through explicit detail seeds', () => {
     const seedDetailUrls = [
       frenchDetailFixture.url,
@@ -88,18 +103,20 @@ describe('Coop authoritative detail routing', () => {
     expect(assertCoopAdapterParity(adapter, urls, expectedMeta)).toBe(true);
   });
 
-  it('accounts duplicate URLs, duplicate UUID aliases and malformed rows explicitly', async () => {
+  it('accounts each unique source record and explicit drops', async () => {
     const canonicalUrl = 'https://jobs.coopjobs.ch/offene-stellen/one/11111111-1111-4111-8111-111111111111';
-    const aliasUrl = 'https://jobs.coopjobs.ch/postes-vacantes/un/11111111-1111-4111-8111-111111111111';
+    const secondUrl = 'https://jobs.coopjobs.ch/offene-stellen/two/22222222-2222-4222-8222-222222222222';
+    const offHostUrl = 'https://careers.example.com/offene-stellen/three/33333333-3333-4333-8333-333333333333';
+    const foreignUrl = 'https://jobs.coopjobs.ch/offene-stellen/four/44444444-4444-4444-8444-444444444444';
     const swissJob = (directlink) => ({
       links: { directlink },
       attributes: { '30': ['Zurigo'], '70': ['Coop Genossenschaft'] },
     });
     const jobs = [
       swissJob(canonicalUrl),
-      swissJob(canonicalUrl),
-      swissJob(aliasUrl),
-      { links: {}, attributes: { '30': ['Zurigo'] } },
+      swissJob(secondUrl),
+      swissJob(offHostUrl),
+      { ...swissJob(foreignUrl), attributes: { '30': ['Principato del Liechtenstein'] } },
     ];
     const discovery = await fetchCoopJobDetailUrls({
       fetchImpl: async () => new Response(JSON.stringify({ total: jobs.length, jobs }), { status: 200 }),
@@ -108,13 +125,40 @@ describe('Coop authoritative detail routing', () => {
     expect(discovery).toMatchObject({
       apiTotal: 4,
       fetched: 4,
-      urls: [canonicalUrl],
-      droppedNonCh: 0,
+      urls: [canonicalUrl, secondUrl],
+      droppedNonCh: 1,
       droppedMalformedUrl: 1,
-      droppedDuplicateUrl: 1,
-      droppedDuplicateIdentity: 1,
+      droppedDuplicateUrl: 0,
+      droppedDuplicateIdentity: 0,
     });
     expect(assertCompleteCoopDiscovery(discovery)).toBe(true);
+  });
+
+  it('fails closed when a partially repeated page cannot prove unique progress', async () => {
+    const firstPage = Array.from({ length: 500 }, (_, index) => makeCoopApiJob(index));
+    const mixedPage = [...firstPage.slice(1), makeCoopApiJob(500)];
+    const fetchImpl = vi.fn(async (url) => {
+      const offset = new URL(url).searchParams.get('offset');
+      const jobs = offset === '0' ? firstPage : offset === '500' ? mixedPage : [];
+      return new Response(JSON.stringify({ total: 1000, jobs }), { status: 200 });
+    });
+
+    await expect(fetchCoopJobDetailUrls({ fetchImpl }))
+      .rejects.toThrow(/incomplete/);
+    expect(fetchImpl).toHaveBeenCalledTimes(3);
+  });
+
+  it('fails closed when a page adds no unique source records', async () => {
+    const firstPage = Array.from({ length: 500 }, (_, index) => makeCoopApiJob(index));
+    const fetchImpl = vi.fn(async (url) => {
+      const offset = new URL(url).searchParams.get('offset');
+      const jobs = offset === '0' || offset === '500' ? firstPage : [];
+      return new Response(JSON.stringify({ total: 1000, jobs }), { status: 200 });
+    });
+
+    await expect(fetchCoopJobDetailUrls({ fetchImpl }))
+      .rejects.toThrow(/added no unique source records/);
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
   });
 
   it('rejects a partial or internally inconsistent authoritative feed', () => {

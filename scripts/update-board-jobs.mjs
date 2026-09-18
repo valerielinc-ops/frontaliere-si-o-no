@@ -13,7 +13,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -23,6 +23,7 @@ import {
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
   detectLang,
+  isLocationExplicitlyForeign,
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
@@ -35,10 +36,14 @@ import {
   parseBoardJobDetail,
   inferBoardCategory,
   buildBoardLocalizedContent,
+  hasBoardShortListingPageProof,
 } from './lib/board-job-parser.mjs';
-import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { hasAuthoritativeListingPageEvidence } from './lib/job-listing-evidence.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { createListingPaginationIntegrity } from './lib/listing-pagination-integrity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -126,43 +131,140 @@ function extractNextPageUrl(html, currentUrl) {
   return null;
 }
 
+function hasBoardTerminalPageEvidence(discovered, paginationIntegrityProven) {
+  const explicitEmpty = discovered.boardListingEmptyStateObserved === true;
+  const shortPage = discovered.boardListingMarkupSeen === true
+    && hasBoardShortListingPageProof(discovered.boardListingSourceRowCount);
+  return hasAuthoritativeListingPageEvidence({
+    isTerminalPage: shortPage,
+    paginationIntegrityProven,
+    listingMarkupSeen: shortPage,
+    listingRowsSeen: discovered.length > 0,
+    emptyStateObserved: shortPage && explicitEmpty,
+  });
+}
+
 async function fetchBoardListings() {
   console.log('🔍 Fetching Board jobs from careers page...');
   const MAX_PAGES = 100000; // uncapped — loop breaks when there is no next page URL
   const allDiscovered = [];
   const seenPageUrls = new Set(); // cycle guard: a ciclic paginator (A→B→A) would otherwise spin to MAX_PAGES
+  let skippedMalformedRows = 0;
+  let terminalPageEvidenceProven = false;
+  let terminationProven = false;
   let pageUrl = CAREERS_URL;
   let page = 1;
+  const paginationIntegrity = createListingPaginationIntegrity({
+    getRowKey: (row) => row?.href && new URL(row.href, CAREERS_URL).href,
+  });
 
   while (pageUrl && page <= MAX_PAGES) {
-    if (seenPageUrls.has(pageUrl)) break; // already visited → cyclic paginator, stop
+    if (seenPageUrls.has(pageUrl)) {
+      throw new Error(
+        `⚠️ Board pagination cycle detected at ${pageUrl}; refusing to publish an incomplete source snapshot.`,
+      );
+    }
     seenPageUrls.add(pageUrl);
     console.log(`📄 Fetching page ${page}: ${pageUrl}`);
     const html = await fetchText(pageUrl);
     const discovered = parseBoardListings(html);
+    skippedMalformedRows += Number(discovered.boardListingSkippedMalformedRows || 0);
     console.log(`  → Found ${discovered.length} listings on page ${page}`);
+    const pageIntegrity = paginationIntegrity.observe(discovered);
+    if (!pageIntegrity.accepted) {
+      throw new Error(
+        `⚠️ Board pagination integrity failed on page ${page} (${pageIntegrity.reason}); `
+        + 'refusing to publish an incomplete source snapshot.',
+      );
+    }
     allDiscovered.push(...discovered);
 
     // Check for next page
     const nextUrl = extractNextPageUrl(html, pageUrl);
-    if (nextUrl && !seenPageUrls.has(nextUrl)) {
+    if (!nextUrl) {
+      terminalPageEvidenceProven = hasBoardTerminalPageEvidence(discovered, paginationIntegrity.proven);
+      terminationProven = terminalPageEvidenceProven;
+      break;
+    }
+    if (!seenPageUrls.has(nextUrl)) {
       pageUrl = nextUrl;
       page++;
     } else {
-      break;
+      // A cyclic paginator is not evidence that the entire source was read.
+      throw new Error(
+        `⚠️ Board pagination cycle detected at ${nextUrl}; refusing to publish an incomplete source snapshot.`,
+      );
     }
   }
 
   const target = allDiscovered.filter((row) => isBoardTargetLocation(row.location));
+  const unrecognizedLocations = allDiscovered.filter((row) => !isRecognizedBoardSourceLocation(row.location));
+  const sourceReadComplete = Boolean(
+    terminationProven
+    && skippedMalformedRows === 0
+    && paginationIntegrity.proven
+    && terminalPageEvidenceProven,
+  );
   console.log(`📋 Total listing rows (all pages): ${allDiscovered.length}`);
   console.log(`📋 Ticino/Grigioni rows: ${target.length}`);
   for (const row of target) {
     console.log(`  📄 ${row.title} (${row.location})`);
   }
-  if (target.length < 1) {
-    throw new Error(`Expected at least 1 Board job in Ticino/Grigioni, found ${target.length}`);
+  if (target.length === 0) {
+    console.log('ℹ️  Nessun annuncio trovato per Board International — non è un errore, il crawler prosegue.');
   }
+  Object.defineProperties(target, {
+    boardSourceRows: { value: allDiscovered, enumerable: false },
+    boardSourceReadComplete: { value: sourceReadComplete, enumerable: false },
+    boardSourceTerminationProven: { value: terminationProven, enumerable: false },
+    boardSourcePaginationIntegrityProven: { value: paginationIntegrity.proven, enumerable: false },
+    boardSourceTargetCount: { value: target.length, enumerable: false },
+    boardSourceUnrecognizedLocationCount: { value: unrecognizedLocations.length, enumerable: false },
+  });
   return target;
+}
+
+function isRecognizedBoardSourceLocation(raw = '') {
+  const value = String(raw || '').trim();
+  return Boolean(value && (isLocationExplicitlyForeign(value) || inferAnyCanton(value)));
+}
+
+function copyBoardSourceEvidence(jobs, source) {
+  Object.defineProperties(jobs, {
+    boardSourceRows: { value: source.boardSourceRows, enumerable: false },
+    boardSourceReadComplete: { value: source.boardSourceReadComplete === true, enumerable: false },
+    boardSourceTerminationProven: { value: source.boardSourceTerminationProven === true, enumerable: false },
+    boardSourcePaginationIntegrityProven: { value: source.boardSourcePaginationIntegrityProven === true, enumerable: false },
+    boardSourceTargetCount: { value: source.boardSourceTargetCount, enumerable: false },
+    boardSourceUnrecognizedLocationCount: { value: source.boardSourceUnrecognizedLocationCount, enumerable: false },
+  });
+  return jobs;
+}
+
+function assertCompleteBoardSnapshot(jobs = []) {
+  if (
+    !Array.isArray(jobs)
+    || jobs.boardSourceReadComplete !== true
+    || jobs.boardSourceTerminationProven !== true
+    || jobs.boardSourcePaginationIntegrityProven !== true
+  ) {
+    throw new Error('Board: source listing snapshot was not read to a proven terminal page');
+  }
+  const rows = jobs.boardSourceRows;
+  const actualTargetCount = Array.isArray(rows)
+    ? rows.filter((row) => isBoardTargetLocation(row.location)).length
+    : -1;
+  if (!Array.isArray(rows) || actualTargetCount !== jobs.boardSourceTargetCount) {
+    throw new Error('Board: source listing snapshot evidence is inconsistent');
+  }
+  const unrecognized = rows.filter((row) => !isRecognizedBoardSourceLocation(row.location));
+  if (unrecognized.length > 0) {
+    throw new Error(`Board: ${unrecognized.length} source listing location(s) were not classifiable`);
+  }
+  if (jobs.boardSourceTargetCount !== 0 || jobs.length !== 0) {
+    throw new Error('Board: empty authority requested for a non-empty filtered result');
+  }
+  return true;
 }
 
 async function buildBoardJob(listing) {
@@ -273,7 +375,7 @@ function updateAdapterConfig(jobs) {
   });
 }
 
-function validateLocales() {
+function validateLocales(authoritativeEmptySnapshot = false) {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_BOARD_STRICT',
     label: COMPANY_NAME,
@@ -282,7 +384,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_board_domain',
-    failWhenNoJobs: true,
+    failWhenNoJobs: !authoritativeEmptySnapshot,
     noJobsMessage: 'No Board jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'en'),
   });
@@ -305,10 +407,20 @@ async function main() {
       console.warn(`⚠️ Skipping "${listing.title}" — detail fetch failed: ${err?.message || err}`);
     }
   }
-  if (jobs.length === 0) {
+  if (jobs.length === 0 && listings.length > 0) {
     throw new Error(`All ${listings.length} Board job detail fetches failed — no jobs to process.`);
   }
   console.log(`✅ Built ${jobs.length}/${listings.length} Board job objects from detail pages.`);
+  copyBoardSourceEvidence(jobs, listings);
+  const {
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
+  } = evaluateAuthoritativeSnapshot(jobs, {
+    validateAuthoritativeSnapshot: assertCompleteBoardSnapshot,
+    allowAuthoritativeEmptySnapshot: true,
+    authoritativeSnapshotScope: 'empty-only',
+    companyLabel: COMPANY_NAME,
+  });
 
   const result = mergeJobs(jobs);
   const diff = result.diff || { newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: [], unchangedCount: 0 };
@@ -320,19 +432,24 @@ async function main() {
     isTargetJob,
   });
 
-  validateLocales();
+  validateLocales(authoritativeEmptySnapshot);
   console.log(`\n✅ Board crawler complete (${result.total} jobs).`);
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified,
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'board',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,

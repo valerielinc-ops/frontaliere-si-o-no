@@ -22,8 +22,7 @@ import {
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { translateMissingJobLocales, validateDedicatedLocaleCoverage, detectLang, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
-import { parseLwphrOpenJobs, inferLwphrLocation, inferLwphrCategory, buildLwphrLocalizedPayload, extractTitleFromPdfText, reconcilePdfTitle } from './lib/lwphr-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { parseLwphrOpenJobs, inferLwphrLocation, inferLwphrCanton, inferLwphrCategory, buildLwphrLocalizedPayload, extractTitleFromPdfText, reconcilePdfTitle } from './lib/lwphr-job-parser.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -41,7 +40,6 @@ const COMPANY_KEY = 'lwphr';
 // cross-process-racy write pattern behind #3769/#3770. Scope it per-company.
 const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
-const HQ = getCompanyDefaults('lwphr');
 const COMPANY_NAME = 'LWP Ledermann Wieting & Partners';
 const COMPANY_HOST = 'www.lwphr.ch';
 const COMPANY_DOMAIN = 'lwphr.ch';
@@ -102,7 +100,9 @@ function buildJob({ title, pdfUrl, pdfText }) {
   const resolvedTitle = reconcilePdfTitle(title, pdfTitle);
   title = resolvedTitle;
   const location = inferLwphrLocation(title, pdfText);
+  const canton = inferLwphrCanton(title, pdfText);
   const localized = buildLwphrLocalizedPayload({ title, pdfText, location, pdfUrl });
+  const locationFields = location ? { location, addressLocality: location } : {};
   return {
     title: localized.titles.it,
     slug: localized.slugs.it,
@@ -111,11 +111,10 @@ function buildJob({ title, pdfUrl, pdfText }) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
-    location,
-    addressLocality: location,
-    addressRegion: HQ.addressRegion,
+    ...locationFields,
+    addressRegion: canton,
     addressCountry: 'CH',
-    canton: HQ.canton,
+    canton,
     country: 'CH',
     category: inferLwphrCategory(title, pdfText),
     sector: 'Consulenza',
@@ -129,7 +128,7 @@ function buildJob({ title, pdfUrl, pdfText }) {
       introLines: [
         `${COMPANY_NAME} pubblica questa opportunita sul suo portale careers.`,
         `Titolo: ${title}.`,
-        `Sede indicativa: ${location}.`,
+        location ? `Sede indicativa: ${location}.` : 'Sede indicativa non specificata nella pubblicazione.',
       ],
       pdfText,
       footerLines: [
@@ -148,6 +147,10 @@ function buildJob({ title, pdfUrl, pdfText }) {
   };
 }
 
+function hasPublishableLocation(job = {}) {
+  return Boolean(String(job.location || '').trim());
+}
+
 async function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
@@ -155,6 +158,10 @@ async function mergeJobs(discoveredJobs) {
   const existingByKey = new Map(existingTarget.map((job) => [jobMatchKey(job), job]));
 
   // Preserve existing AI translations and slugs
+  // Keep every fetched source row in the crawler slice so the shrink guard sees
+  // the complete PDF snapshot. Rows without an explicit work location remain
+  // location-less and are removed by assembleJobsDataset before any page or
+  // JobPosting schema is emitted; they must not inherit an HQ locality here.
   const mergedTarget = mergePreserveLocaleData(existingTarget, discoveredJobs);
 
   const beforeSnapshot = snapshotJobSlugs(existingTarget);
@@ -189,7 +196,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: HQ.canton,
+      canton: job.canton || '',
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };
@@ -223,6 +230,46 @@ function validateLocales() {
   });
 }
 
+function clearUnresolvedLocationFields(discoveredJobs) {
+  if (!fs.existsSync(DATA_JOBS)) return;
+  const jobs = readJson(DATA_JOBS, []);
+  if (!Array.isArray(jobs)) return;
+
+  const unresolvedByKey = new Map(
+    discoveredJobs
+      .filter((job) => !hasPublishableLocation(job))
+      .map((job) => [jobMatchKey(job), job]),
+  );
+  let cleared = 0;
+  for (const job of jobs) {
+    if (!isTargetJob(job)) continue;
+    const discovered = unresolvedByKey.get(jobMatchKey(job));
+    if (!discovered) continue;
+
+    let changed = false;
+    if (job.location || job.addressLocality || job.postalCode || job.streetAddress) changed = true;
+    delete job.location;
+    delete job.addressLocality;
+    delete job.postalCode;
+    delete job.streetAddress;
+    if (discovered.canton) {
+      if (job.canton !== discovered.canton || job.addressRegion !== discovered.canton) changed = true;
+      job.canton = discovered.canton;
+      job.addressRegion = discovered.canton;
+    } else {
+      if (job.canton || job.addressRegion) changed = true;
+      delete job.canton;
+      delete job.addressRegion;
+    }
+    if (changed) cleared += 1;
+  }
+
+  if (cleared > 0) {
+    console.log(`  🧭 LWP location guard: cleared inherited locality/address from ${cleared} unresolved posting(s); assembler will exclude them from published jobs.`);
+    writeJson(DATA_JOBS, jobs);
+  }
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, 'LWP Ledermann Wieting & Partners');
@@ -249,6 +296,17 @@ async function main() {
     }));
   }
 
+  const publishableJobs = discoveredJobs.filter(hasPublishableLocation);
+  const unresolvedCount = discoveredJobs.length - publishableJobs.length;
+  if (unresolvedCount > 0) {
+    console.warn(`  ⚠️ LWP skipped ${unresolvedCount} posting(s) without an explicit Swiss work location; no locality was inferred.`);
+  }
+  if (publishableJobs.length === 0) {
+    throw new Error('LWPHR discovery returned no postings with an explicit work location.');
+  }
+
+  // Keep the adapter's source seeds complete; the publication guard below is
+  // applied by the dataset assembler, not by the source adapter inventory.
   updateAdapterConfig(discoveredJobs);
   const { diff } = await mergeJobs(discoveredJobs);
 
@@ -259,6 +317,7 @@ async function main() {
   });
 
   validateLocales();
+  clearUnresolvedLocationFields(discoveredJobs);
   console.log('\n✅ LWPHR crawler complete.');
 
   // Write per-crawler slice and reassemble global dataset

@@ -151,6 +151,27 @@ describe('buildJobPostingSchema — partial input (missing address + salary)', (
   });
 });
 
+describe('buildJobPostingSchema — deterministic SSG clock', () => {
+  it('renders identical fallback dates in separate fixed-clock renders', () => {
+    const job: JobInput = {
+      id: 'clock-fixture',
+      title: 'Operatore amministrativo',
+      description: 'Descrizione sufficientemente lunga per il test del clock di build statico.',
+      company: 'Azienda Fixture SA',
+      city: 'Lugano',
+    };
+    const buildDay = new Date('2026-09-18T00:00:00.000Z');
+    const first = buildJobPostingSchema(job, { ...OPTS, now: buildDay });
+    const second = buildJobPostingSchema(job, { ...OPTS, now: new Date(buildDay) });
+    expect(JSON.stringify(first)).toBe(JSON.stringify(second));
+    expect(first.datePosted).toBe('2026-09-18T00:00:00.000Z');
+    expect(first.validThrough).toBe('2026-12-17T00:00:00.000Z');
+    expect(JSON.stringify(first)).not.toBe(JSON.stringify(
+      buildJobPostingSchema(job, { ...OPTS, now: new Date('2026-09-19T00:00:00.000Z') }),
+    ));
+  });
+});
+
 describe('buildJobPostingSchema — application destination', () => {
   it('keeps directApply false when only an applyUrl is available without employer proof', () => {
     const schema = buildJobPostingSchema({

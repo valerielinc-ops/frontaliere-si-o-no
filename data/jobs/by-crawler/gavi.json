@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gavi",
-  "assembledAt": "2026-09-16T23:43:44.694Z",
+  "assembledAt": "2026-09-17T23:31:43.988Z",
   "jobs": [
     {
       "id": "gavi-46907ae4fc28",
@@ -33,7 +33,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2489&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-16T23:43:38.485Z",
+      "crawledAt": "2026-09-17T23:31:40.542Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -87,7 +87,7 @@
       "slugByLocale": {
         "it": "partenariati-e-innovazione-del-settore-privato-gavi-the-vaccine-alliance-le-grand-saconnex",
         "en": "head-private-sector-partnerships-and-innovation-gavi-le-grand-saconnex",
-        "de": "head-private-sector-partnerships-and-innovation-gavi-le-grand-saconnex",
+        "de": "leiter-partnerschaften-und-innovation-im-privatsektor-gavi-the-vaccine-alliance-le-grand-saconnex",
         "fr": "chef-partenariats-avec-le-secteur-prive-et-innovation-gavi-the-vaccine-alliance-le-grand-saconnex"
       },
       "company": "Gavi, the Vaccine Alliance",
@@ -112,7 +112,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2526&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-16T23:43:37.694Z",
+      "crawledAt": "2026-09-17T23:31:39.308Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -139,6 +139,9 @@
         "it": [
           "head-private-sector-partnerships-and-innovation-gavi-le-grand-saconnex",
           "partenariati-e-innovazione-del-settore-privato-gavi-the-vaccine-alliance-le-grand-saconnex"
+        ],
+        "de": [
+          "head-private-sector-partnerships-and-innovation-gavi-le-grand-saconnex"
         ],
         "fr": [
           "head-private-sector-partnerships-and-innovation-gavi-le-grand-saconnex"
