@@ -5,7 +5,7 @@ import {
 } from '../scripts/lib/compat-paths-floor-guard.mjs';
 
 describe('assertCompatFloor', () => {
-  it('exports a 150_000 floor (matches search-console-compat test invariant)', () => {
+  it('exports the configured 150_000 writer floor', () => {
     expect(COMPAT_PATHS_SANITY_FLOOR).toBe(150_000);
   });
 

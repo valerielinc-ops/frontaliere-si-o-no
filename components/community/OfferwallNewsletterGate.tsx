@@ -155,6 +155,9 @@ function offerwallHasAccess(w: any): boolean {
 
 function ensureOfferwallRegistry(): void {
   if (typeof window === 'undefined') return;
+  // The job-board Offerwall is configured as Google Rewarded ad only. Do not
+  // re-add the newsletter custom choice after React hydrates that route.
+  if (/^\/cerca-lavoro-ticino(?:\/|$)/.test(window.location.pathname)) return;
   const w = window as any;
   const g = (w.googlefc = w.googlefc || {});
   const ow = (g.offerwall = g.offerwall || {});

@@ -622,6 +622,11 @@ describe('localesNeedingTranslation', () => {
   it('does not flag genuinely distinct present locales even when short', () => {
     expect(localesNeedingTranslation({ it: 'Festa', en: 'Feast', de: 'Fest', fr: 'Fête' })).toEqual([]);
   });
+
+  it('treats serialized null markers as missing, not as a present locale', () => {
+    expect(localesNeedingTranslation({ it: 'Concerto', de: 'null', en: 'NULL', fr: 'Null' })).toEqual(['en', 'de', 'fr']);
+    expect(localesNeedingTranslation({ it: 'NULL', en: 'null', de: 'Null', fr: 'NULL' })).toEqual(['it', 'en', 'de', 'fr']);
+  });
 });
 
 describe('enrichEventsWithLocaleFallbackTranslations', () => {
