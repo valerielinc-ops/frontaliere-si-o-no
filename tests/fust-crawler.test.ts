@@ -261,6 +261,12 @@ describe('Fust authoritative discovery', () => {
       .rejects.toThrow(/fetched 4\/501/);
   });
 
+  it('fails loudly before paginating a pathological source total', async () => {
+    const fetchImpl = async () => new Response(JSON.stringify({ total: 100_001, jobs: [] }), { status: 200 });
+    await expect(fetchFustJobUrls({ fetchImpl, enrichDetails: false }))
+      .rejects.toThrow(/operational safety ceiling/);
+  });
+
   it('fails loud when a later page repeats a source identity instead of proving unique progress', async () => {
     const firstPage = Array.from({ length: 500 }, (_, index) => ({
       ...fixture.api.jobs[0],

@@ -17,7 +17,7 @@
  *      subsidiaries out — see #5975).
  *   3. Drops any Fust job whose canton label doesn't resolve to a Swiss
  *      canton (CH-only gate — foreign/unresolved postings are dropped, never
- *      defaulted to TI).
+ *      inheriting a fixed canton fallback).
  *   4. Declares those verified pages as adapter seedDetailUrls.
  *   5. Runs the base crawler to fetch JSON-LD JobPosting data from each page.
  *   6. Re-tags discovered jobs with companyKey "fust".
@@ -118,6 +118,9 @@ const FUST_SLUG_MAX_LENGTH = 90;
  */
 const API_BASE = 'https://ohws.prospective.ch/public/v1/medium/1000103';
 const API_LIMIT = 500; // max jobs per request
+// Operational safety ceiling for a malformed source total. This is not a
+// regional pagination cap: values above it fail loudly before any truncation.
+const MAX_SOURCE_TOTAL = 100_000;
 // Attribute 70 ("Azienda") value id for "Fust" on medium 1000103 (Coop Group
 // career center) — confirmed against /public/v1/medium/1000103/attributes.
 const FUST_COMPANY_FILTER_ID = '1114045';
@@ -450,7 +453,7 @@ async function enrichFustSeedMetadata(urls, seedMetaByUrl, options) {
  * Uses a single UNFILTERED query (no canton facet) paginated over the full
  * national result set. Keeps only the Fust subsidiary (company attribute 70 =
  * "Fust"), and drops any Fust posting whose canton label doesn't resolve to a
- * Swiss canton (CH-only gate — never defaulted to TI).
+ * Swiss canton (CH-only gate — never uses a fixed canton fallback).
  *
  * @param {FustDiscoveryOptions} [options]
  * @returns {Promise<FustDiscoveryResult>}
@@ -506,11 +509,15 @@ export async function fetchFustJobUrls(options = {}) {
       if (!Number.isSafeInteger(data?.total) || data.total < 0) {
         throw new Error(`Fust discovery invariant failed: API response at offset ${offset} did not expose a non-negative safe integer total.`);
       }
+      if (data.total > MAX_SOURCE_TOTAL) {
+        throw new Error(`Fust discovery invariant failed: API total ${data.total} exceeds the operational safety ceiling ${MAX_SOURCE_TOTAL}; refusing truncated pagination.`);
+      }
       if (apiTotal === null) apiTotal = data.total;
       if (data.total !== apiTotal) {
         throw new Error(`Fust discovery invariant failed: API total changed from ${apiTotal} to ${data.total} at offset ${offset}.`);
       }
     } catch (err) {
+      if (/Fust discovery invariant failed/.test(String(err?.message || err))) throw err;
       console.warn(`⚠️ API fetch failed at offset ${offset}: ${err.message}`);
       break;
     } finally {
@@ -559,7 +566,7 @@ export async function fetchFustJobUrls(options = {}) {
 
       const meta = buildSeedMetaFromApiJob(job);
       // CH-only gate: drop foreign/unresolved postings whose label doesn't
-      // resolve to a Swiss canton (never defaulted to TI).
+      // resolve to a Swiss canton (never uses a fixed canton fallback).
       if (!meta.canton) { droppedNonCh += 1; continue; }
 
       allUrls.add(directLink);
@@ -592,7 +599,7 @@ export async function fetchFustJobUrls(options = {}) {
     throw new Error(`Fust discovery incomplete: fetched ${fetched}/${apiTotal} API jobs.`);
   }
   // droppedNonCh is a normal, expected outcome (a job whose label doesn't
-  // resolve to a Swiss canton is dropped, never defaulted to TI) — it must
+  // resolve to a Swiss canton is dropped, never given a fixed canton fallback) — it must
   // NOT gate a hard failure the same way droppedMalformedUrl/
   // droppedDuplicateIdentity do (those indicate real parser/feed drift), so
   // it's folded into the accounted total instead of compared to zero.
