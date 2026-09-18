@@ -1,5 +1,6 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 
 function stripHtml(html = '') {
   return String(html || '')
@@ -163,4 +164,18 @@ export function buildLivingCircleLocalizedContent(role) {
       description: `${introFr}\n\n${sectionMarkdown('fr', sections)}`.trim(),
     },
   };
+}
+
+/**
+ * The group runs properties across several cantons (Zürich, Bern, Ticino), so
+ * the canton belongs to the vacancy and not to the HQ. Stamping the HQ canton
+ * on every role filed Zürich hotel jobs under TI.
+ */
+export function resolveLivingCircleCanton(role = {}, fallbackCanton = '') {
+  return inferAnyCanton(role.location || '') || fallbackCanton;
+}
+
+/** Keeps any Swiss vacancy: the feed is national, not Ascona-only. */
+export function isLivingCircleTargetRole(role = {}) {
+  return isTargetSwissLocation(role.location || '');
 }

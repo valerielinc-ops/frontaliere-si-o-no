@@ -28,6 +28,8 @@ import {
 import {
   parseLivingCircleFeed,
   buildLivingCircleLocalizedContent,
+  isLivingCircleTargetRole,
+  resolveLivingCircleCanton,
 } from './lib/living-circle-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -51,7 +53,9 @@ const COMPANY_NAME = 'The Living Circle';
 const COMPANY_HOST = 'jobs.thelivingcircle.ch';
 const COMPANY_DOMAIN = 'thelivingcircle.ch';
 const FEED_URL = 'https://jobs.thelivingcircle.ch/jobs.feed.json';
-const CAREERS_URL = 'https://jobs.thelivingcircle.ch/#jobs:location=%5B%22Ascona%22%5D';
+// Unfiltered board: the previous seed pinned location=["Ascona"], which kept
+// the generic adapter fallback as regionally scoped as the dedicated crawler.
+const CAREERS_URL = 'https://jobs.thelivingcircle.ch/#jobs';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 function readJson(filePath, fallback) {
@@ -118,6 +122,7 @@ function isTrustedDomain(rawUrl = '') {
 
 function buildJob(role) {
   const localized = buildLivingCircleLocalizedContent(role);
+  const canton = resolveLivingCircleCanton(role, HQ.canton);
   return {
     title: localized.it.title,
     slug: localized.it.slug,
@@ -126,11 +131,11 @@ function buildJob(role) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
-    location: role.location || 'Ascona',
-    addressLocality: role.location || 'Ascona',
-    addressRegion: HQ.addressRegion,
+    location: role.location || HQ.city,
+    addressLocality: role.location || HQ.city,
+    addressRegion: canton,
     addressCountry: 'CH',
-    canton: HQ.canton,
+    canton,
     country: 'CH',
     category: 'hospitality',
     sector: 'Hotellerie & Ospitalità',
@@ -185,7 +190,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: HQ.canton,
+      canton: job.canton,
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };
@@ -198,7 +203,7 @@ function updateAdapterConfig(jobs) {
     priority: 10,
     crawlerModes: ['jsonld'],
     seedUrls: [CAREERS_URL],
-    notes: 'Dedicated The Living Circle crawler uses the public Softgarden jobs.feed.json feed and filters vacancies in Ascona, Ticino.',
+    notes: 'Dedicated The Living Circle crawler uses the public Softgarden jobs.feed.json feed and keeps vacancies anywhere in Switzerland.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -228,14 +233,10 @@ async function main() {
   console.log(`  Feed: ${FEED_URL}\n`);
   const feed = await fetchJson(FEED_URL);
   const allRoles = parseLivingCircleFeed(feed);
-  const TICINO_LOCATIONS = ['ascona', 'losone', 'locarno', 'brissago', 'muralto', 'minusio', 'tenero', 'gordola'];
-  const targetRoles = allRoles.filter((role) => {
-    const loc = normalize(role.location);
-    return TICINO_LOCATIONS.some((t) => loc.includes(t));
-  });
-  console.log(`  Found ${allRoles.length} total jobs, ${targetRoles.length} in Ticino.`);
+  const targetRoles = allRoles.filter(isLivingCircleTargetRole);
+  console.log(`  Found ${allRoles.length} total jobs, ${targetRoles.length} in Switzerland.`);
   if (!targetRoles.length) {
-    console.log('ℹ️  No Ticino jobs in current feed — preserving existing data.');
+    console.log('ℹ️  No Swiss jobs in current feed — preserving existing data.');
     return;
   }
   const jobs = targetRoles.map(buildJob);
