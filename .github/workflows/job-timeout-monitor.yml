@@ -25,7 +25,17 @@ on:
 
 concurrency:
   group: job-timeout-monitor
-  cancel-in-progress: true
+  # Lo scan e' idempotente (dedup per run-URL + `emittedByTitle`), quindi due
+  # run sovrapposte non producono issue doppie. Con `true` invece il cron orario
+  # sfrattava lo scan precedente ogni volta che partiva in ritardo, e il job qui
+  # puo' durare fino a `timeout-minutes: 23`: misurato il 2026-09-18, 4 delle
+  # ultime 6 run erano `cancelled` e fra una `success` e l'altra passavano 5-6
+  # ore. Con buchi cosi' il lookback di 75 minuti non copre niente, ed e' il
+  # motivo per cui i timeout di `refresh-search-cluster-301-map` del 07-09 e del
+  # 14-09 non hanno prodotto nessuna issue (il 31-08, con lo scan vivo, l'aveva
+  # prodotta: #6774). Il monitor e' la rete di riconciliazione di TUTTI i
+  # workflow del repo: non deve cancellare se stesso.
+  cancel-in-progress: false
 
 permissions:
   contents: read
