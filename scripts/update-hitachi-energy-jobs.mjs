@@ -207,7 +207,13 @@ async function fetchAllListings() {
     lastJson = json;
     const items = parseHitachiEnergyListingJson(json);
     const newItems = items.filter((item) => !seenIds.has(item.jobId));
-    if (newItems.length === 0) break;
+    if (items.length === 0) break;
+    if (newItems.length === 0) {
+      throw new Error(
+        `Hitachi Energy listing page ${page + 1} repeated only previously seen source identities; `
+        + 'refusing to publish an incomplete snapshot.',
+      );
+    }
 
     for (const item of newItems) {
       seenIds.add(item.jobId);
