@@ -29,6 +29,11 @@ describe('rittmeyer-job-parser', () => {
     // listing-stage filter; location-bearing rows like listings[0] are
     // unaffected.)
     expect(isRittmeyerTicinoListing(listings[1])).toBe(false);
+
+    const isoInTitle = parseRittmeyerListingsPage(`
+      <a href="/offene-stellen/it-support-in-lugano/">IT Support in Lugano</a>
+    `);
+    expect(isRittmeyerTicinoListing(isoInTitle[0])).toBe(true);
   });
 
   it('parses detail content and builds localized descriptions', () => {

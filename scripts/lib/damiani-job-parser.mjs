@@ -7,6 +7,8 @@ import {
   sanitizeSuccessFactorsField,
   stripSuccessFactorsMoreLocations,
 } from './successfactors-jobs2web-widget-guard.mjs';
+import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 
 const HQ = getCompanyDefaults('damiani');
 
@@ -41,7 +43,7 @@ function htmlToText(html = '') {
 }
 
 export function isDamianiTicinoLocation(rawLocation = '') {
-  return isTargetSwissLocation(rawLocation);
+  return !isLocationExplicitlyForeign(rawLocation) && isTargetSwissLocation(rawLocation);
 }
 
 /** Infer canton (TI or GR) from location text. Falls back to HQ canton. */
@@ -110,7 +112,16 @@ export function parseDamianiSearchPage(html = '') {
     }
     parsedRows.push({ title, href, location, postedDate });
   }
-  return { rows: parsedRows, skippedMalformedRows, ignoredNonJobRows };
+  const listingContainer = document.querySelector('#searchresults');
+  return {
+    rows: parsedRows,
+    skippedMalformedRows,
+    ignoredNonJobRows,
+    searchTableRendered: Boolean(document.querySelector('#searchresults')),
+    emptyStateObserved: hasExplicitEmptyJobListing(listingContainer, {
+      scopedToListing: Boolean(listingContainer),
+    }),
+  };
 }
 
 function bulletize(section) {

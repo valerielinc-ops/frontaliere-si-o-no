@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
+  BOARD_LISTING_FULL_PAGE_SIZE,
+  hasBoardShortListingPageProof,
   parseBoardListings,
   isBoardTargetLocation,
   parseBoardJobDetail,
@@ -71,6 +73,26 @@ describe('parseBoardListings', () => {
     expect(isBoardTargetLocation(rows[0].location)).toBe(true);
     // Cathedral 2026-05-10: Zürich (ZH) is now a target canton — rows[1] location "Zürich, Switzerland" passes.
     expect(isBoardTargetLocation(rows[1].location)).toBe(true);
+    expect(rows.boardListingSourceRowCount).toBe(2);
+    expect(rows.boardListingShortPageProof).toBe(true);
+  });
+
+  it('does not treat a full source page as a terminal short-page proof', () => {
+    const html = `<ul class="list-group">${Array.from(
+      { length: BOARD_LISTING_FULL_PAGE_SIZE },
+      (_, index) => `
+        <li class="list-group-item">
+          <h3 class="list-group-item-heading"><a href="/apply/${index}">Role ${index}</a></h3>
+          <ul class="list-group-item-text"><li>London, United Kingdom</li></ul>
+        </li>`,
+    ).join('')}</ul>`;
+    const rows = parseBoardListings(html);
+
+    expect(rows).toHaveLength(BOARD_LISTING_FULL_PAGE_SIZE);
+    expect(rows.boardListingSourceRowCount).toBe(BOARD_LISTING_FULL_PAGE_SIZE);
+    expect(rows.boardListingShortPageProof).toBe(false);
+    expect(hasBoardShortListingPageProof(BOARD_LISTING_FULL_PAGE_SIZE - 1)).toBe(true);
+    expect(hasBoardShortListingPageProof(BOARD_LISTING_FULL_PAGE_SIZE)).toBe(false);
   });
 });
 

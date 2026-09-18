@@ -1,7 +1,11 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const readRepoFile = (relativePath: string) => fs.readFileSync(path.join(REPO_ROOT, relativePath), 'utf8');
 
 const mocks = vi.hoisted(() => ({
   archiveRemovedJobsToSlice: vi.fn(() => 1),
@@ -90,6 +94,11 @@ import {
   exitCrawlerOnError,
   runStandardCrawlerPipeline,
 } from '../scripts/lib/crawler-template.mjs';
+import {
+  hasAuthoritativeListingPageEvidence,
+  hasExplicitEmptyJobListing,
+} from '../scripts/lib/job-listing-evidence.mjs';
+import { JSDOM } from 'jsdom';
 
 const COMPANY_KEY = 'authoritative-empty-test';
 const SCRATCH_PATH = path.join(os.tmpdir(), `frontaliere-jobs-scratch-${COMPANY_KEY}.json`);
@@ -247,6 +256,103 @@ describe('standard crawler authoritative-empty policy', () => {
     expect(validator).toHaveBeenCalledOnce();
   });
 
+  it('refuses a filtered zero when the source read or location classification is unproven', () => {
+    const unproven = Object.assign([], {
+      sourceReadComplete: false,
+      terminationProven: false,
+      unrecognizedLocationCount: 1,
+    });
+    const predicate = (batch: typeof unproven) => (
+      batch.sourceReadComplete === true
+      && batch.terminationProven === true
+      && batch.unrecognizedLocationCount === 0
+    );
+
+    expect(() => evaluateAuthoritativeSnapshot(unproven, {
+      validateAuthoritativeSnapshot: predicate,
+      allowAuthoritativeEmptySnapshot: true,
+      authoritativeSnapshotScope: 'empty-only',
+      companyLabel: 'Unproven Empty Test',
+    })).toThrow(/Unproven Empty Test: authoritative snapshot validator did not return true/);
+  });
+
+  it('requires an explicit listing marker rather than an empty parser result', () => {
+    const visible = new JSDOM(
+      '<div id="listing"><p class="empty-state">No open positions are currently available.</p></div>',
+    ).window.document.querySelector('#listing');
+    expect(hasExplicitEmptyJobListing(visible, {
+      scopedToListing: true,
+    })).toBe(true);
+    expect(hasExplicitEmptyJobListing('No open positions are currently available.')).toBe(false);
+    expect(hasExplicitEmptyJobListing('')).toBe(false);
+  });
+
+  it('does not use hidden or template empty-state copy as source evidence', () => {
+    const hidden = new JSDOM(
+      '<div id="listing"><div class="empty-state" style="display:none">No open positions are currently available.</div></div>',
+    ).window.document.querySelector('#listing');
+    const template = new JSDOM(
+      '<div id="listing"><template><p>No open positions are currently available.</p></template></div>',
+    ).window.document.querySelector('#listing');
+    const hiddenChild = new JSDOM(
+      '<div id="listing"><div class="empty-state"><span hidden>No open positions are currently available.</span></div></div>',
+    ).window.document.querySelector('#listing');
+
+    expect(hasExplicitEmptyJobListing(hidden, { scopedToListing: true })).toBe(false);
+    expect(hasExplicitEmptyJobListing(template, { scopedToListing: true })).toBe(false);
+    expect(hasExplicitEmptyJobListing(hiddenChild, { scopedToListing: true })).toBe(false);
+  });
+
+  it('requires listing evidence on the page that proved termination', () => {
+    expect(hasAuthoritativeListingPageEvidence({
+      isTerminalPage: false,
+      listingMarkupSeen: true,
+    })).toBe(false);
+    expect(hasAuthoritativeListingPageEvidence({
+      isTerminalPage: true,
+      listingMarkupSeen: true,
+      listingRowsSeen: true,
+      paginationIntegrityProven: true,
+    })).toBe(true);
+    expect(hasAuthoritativeListingPageEvidence({
+      isTerminalPage: true,
+      listingMarkupSeen: true,
+      listingRowsSeen: false,
+    })).toBe(false);
+    expect(hasAuthoritativeListingPageEvidence({
+      isTerminalPage: true,
+      emptyStateObserved: true,
+      paginationIntegrityProven: true,
+    })).toBe(true);
+    expect(hasAuthoritativeListingPageEvidence({
+      isTerminalPage: true,
+    })).toBe(false);
+  });
+
+  it('does not treat a full Board page without a next link as terminal evidence', () => {
+    const source = readRepoFile('scripts/update-board-jobs.mjs');
+    expect(source).toContain('hasBoardShortListingPageProof');
+    expect(source).toContain('isTerminalPage: shortPage');
+    expect(source).toContain('hasBoardTerminalPageEvidence(discovered, paginationIntegrity.proven)');
+  });
+
+  it.each([
+    'scripts/update-board-jobs.mjs',
+    'scripts/update-alten-jobs.mjs',
+    'scripts/update-damiani-jobs.mjs',
+    'scripts/update-delvitech-jobs.mjs',
+    'scripts/update-fincons-jobs.mjs',
+    'scripts/update-rittmeyer-jobs.mjs',
+    'scripts/update-skyguide-jobs.mjs',
+    'scripts/update-sunrise-jobs.mjs',
+  ])('%s wires the source-proof predicate into zero publication', (runner) => {
+    const source = readRepoFile(runner);
+    expect(source).toContain('evaluateAuthoritativeSnapshot');
+    expect(source).toContain('writeJobsCrawlerSliceVerified');
+    expect(source).toContain('failWhenNoJobs: !authoritativeEmptySnapshot');
+    expect(source).toContain('skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified');
+  });
+
   it('publishes a verified zero, archives prior identities, and skips localization', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'authoritative-empty-root-'));
     try {
@@ -284,6 +390,28 @@ describe('standard crawler authoritative-empty policy', () => {
     expect(mocks.writeSummaryCrawlerSlice).toHaveBeenCalledWith(
       expect.objectContaining({ key: COMPANY_KEY, total: 0, authoritativeEmptySnapshot: true }),
     );
+  });
+
+  it('does not publish an unproven empty snapshot', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'unproven-empty-root-'));
+    try {
+      await expect(runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Unproven Empty Test',
+        root,
+        fetchJobs: async () => [],
+        isCompanyJob: () => true,
+        validateAuthoritativeSnapshot: () => false,
+        allowAuthoritativeEmptySnapshot: true,
+        authoritativeSnapshotScope: 'empty-only',
+      })).rejects.toThrow(/Unproven Empty Test: authoritative snapshot validator did not return true/);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    expect(mocks.writeJobsCrawlerSliceVerified).not.toHaveBeenCalled();
+    expect(mocks.writeSummaryCrawlerSlice).not.toHaveBeenCalled();
+    expect(mocks.assembleJobsDataset).not.toHaveBeenCalled();
   });
 
   it('reports the post-parser count so a pipeline-level emptying is not read as filtered-empty (#7707)', async () => {

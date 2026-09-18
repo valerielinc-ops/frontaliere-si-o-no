@@ -1,6 +1,7 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -74,14 +75,23 @@ export function inferSunriseCanton(job = {}) {
  * resolves to one of the 26 Swiss cantons. Drops non-CH / unresolved postings.
  */
 export function isSunriseTargetLocation(job = {}) {
-  return inferSunriseCanton(job) !== '';
+  const signal = sunriseCitySignal(job);
+  return !isLocationExplicitlyForeign(signal) && inferAnyCanton(signal) !== '';
 }
 
 export function parseSunriseSearchPage(html = '') {
   const ddo = extractSunriseDdo(html);
   const jobs = ddo?.eagerLoadRefineSearch?.data?.jobs;
-  if (!Array.isArray(jobs)) return [];
-  return jobs.map((job) => ({
+  if (!Array.isArray(jobs)) {
+    const empty = [];
+    Object.defineProperties(empty, {
+      sunriseSearchPayloadPresent: { value: false, enumerable: false },
+      sunriseSearchRawRecordCount: { value: 0, enumerable: false },
+      sunriseSearchSkippedMalformedRecords: { value: 0, enumerable: false },
+    });
+    return empty;
+  }
+  const mapped = jobs.map((job) => ({
     reqId: String(job.reqId || job.jobId || '').trim(),
     jobId: String(job.jobId || job.reqId || '').trim(),
     title: normalizeSpace(job.title || ''),
@@ -96,7 +106,14 @@ export function parseSunriseSearchPage(html = '') {
     applyUrl: String(job.applyUrl || '').trim(),
     jobSeqNo: String(job.jobSeqNo || '').trim(),
     standardisedStateCode: String(job.standardisedStateCode || '').trim(),
-  })).filter((job) => job.reqId && job.title);
+  }));
+  const parsed = mapped.filter((job) => job.reqId && job.title);
+  Object.defineProperties(parsed, {
+    sunriseSearchPayloadPresent: { value: true, enumerable: false },
+    sunriseSearchRawRecordCount: { value: jobs.length, enumerable: false },
+    sunriseSearchSkippedMalformedRecords: { value: mapped.length - parsed.length, enumerable: false },
+  });
+  return parsed;
 }
 
 export function buildSunriseDetailUrl(job = {}) {
