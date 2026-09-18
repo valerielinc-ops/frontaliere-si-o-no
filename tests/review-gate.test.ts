@@ -211,6 +211,21 @@ describe('review gate: scope classification is fail-closed', () => {
     expect(finding?.citations.map((citation) => citation.path)).toEqual(['scripts/legacy.mjs']);
   });
 
+  it('stops an Important finding before a PR-body Nit anchor', () => {
+    const body = [
+      '## Findings',
+      '',
+      '`scripts/legacy.mjs:L12`: 🔴 Important: old parser is unsafe.',
+      'PR body:L10: 🟡 Nit: the implementation summary is stale.',
+      '',
+      '## LGTM',
+    ].join('\n');
+
+    const [finding] = importantFindings(body);
+    expect(finding?.text).not.toContain('PR body:L10');
+    expect(finding?.citations).toEqual([{ path: 'scripts/legacy.mjs', line: 12 }]);
+  });
+
   it('blocks when a severity marker has an ambiguous boundary instead of guessing', () => {
     const body = [
       '## Findings',
