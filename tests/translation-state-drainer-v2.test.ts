@@ -187,6 +187,41 @@ describe('translation state drainer v2', () => {
     expect(statePaths.filter((path) => path.startsWith('v2/intents/by-patch/'))).toHaveLength(2);
   });
 
+  // Same defect class as the state store's writeTree, found by the sibling
+  // check on that fix: `createMainCommit` called `commit-tree` with no identity
+  // env, so it took the author from git config — and a CI runner has none.
+  // `setup()` runs `git config user.email` on its repo, so every other case
+  // here hands the library the ambient identity production lacks; this one
+  // removes it and points GIT_CONFIG_GLOBAL/SYSTEM at /dev/null so the
+  // developer's own ~/.gitconfig cannot stand in for the runner's empty one.
+  it('publishes to main without any ambient git identity', async () => {
+    const { one, slice } = setup();
+    git(one, 'config', '--unset', 'user.name');
+    git(one, 'config', '--unset', 'user.email');
+    const previous = {
+      global: process.env.GIT_CONFIG_GLOBAL,
+      system: process.env.GIT_CONFIG_SYSTEM,
+    };
+    process.env.GIT_CONFIG_GLOBAL = '/dev/null';
+    process.env.GIT_CONFIG_SYSTEM = '/dev/null';
+    try {
+      const { drainer } = createPair(one);
+      const result = await drainer.drain({ slicePath: SLICE_PATH, patches: [patchFor(slice.jobs[0])] });
+
+      expect(result.outcomes).toEqual(['applied']);
+      expect(result.publishedCommit).not.toBeNull();
+      // The commit carries the bot identity git-commit-data.sh uses for every
+      // other bot-direct-to-main write, not the state ref's scratch address.
+      expect(git(one, 'log', '-1', '--format=%an <%ae>', result.publishedCommit))
+        .toBe('github-actions[bot] <github-actions[bot]@users.noreply.github.com>');
+    } finally {
+      if (previous.global === undefined) delete process.env.GIT_CONFIG_GLOBAL;
+      else process.env.GIT_CONFIG_GLOBAL = previous.global;
+      if (previous.system === undefined) delete process.env.GIT_CONFIG_SYSTEM;
+      else process.env.GIT_CONFIG_SYSTEM = previous.system;
+    }
+  });
+
   it('completes a stable happy path with one main CAS attempt', async () => {
     const { one, slice } = setup();
     const patch = patchFor(slice.jobs[0]);

@@ -134,6 +134,19 @@ async function createMainCommit(git, parent, slicePath, content) {
     const blob = await checked(git, ['hash-object', '-w', '--', sliceFile]);
     await checked(git, ['update-index', '--add', '--cacheinfo', `100644,${blob},${slicePath}`], { env });
     const tree = await checked(git, ['write-tree'], { env });
+    // Same class of defect as the state store's writeTree: `commit-tree` takes
+    // the author from git config when the environment carries none, and a CI
+    // runner has no `user.email` — so this would die with `Author identity
+    // unknown` the first time it ran outside a repo somebody had configured by
+    // hand. The drainer's own test fixture runs `git config user.email` on its
+    // clone, so no local test reaches the failing path either.
+    //
+    // The identity is deliberately NOT the state store's
+    // `translation-state-v2@example.invalid`: that one signs scratch commits on
+    // a side ref, while these land in `main`'s real history, so they carry the
+    // same bot identity `scripts/lib/git-commit-data.sh` already uses for every
+    // other bot-direct-to-main write. Dates are left to the clock — nothing
+    // here needs a reproducible sha.
     const commit = await checked(git, [
       'commit-tree',
       tree,
@@ -141,7 +154,14 @@ async function createMainCommit(git, parent, slicePath, content) {
       parent,
       '-m',
       'translation: apply derived locale batch',
-    ]);
+    ], {
+      env: {
+        GIT_AUTHOR_EMAIL: 'github-actions[bot]@users.noreply.github.com',
+        GIT_AUTHOR_NAME: 'github-actions[bot]',
+        GIT_COMMITTER_EMAIL: 'github-actions[bot]@users.noreply.github.com',
+        GIT_COMMITTER_NAME: 'github-actions[bot]',
+      },
+    });
     return { commit, blob };
   } finally {
     await rm(directory, { recursive: true, force: true });

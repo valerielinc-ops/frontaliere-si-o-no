@@ -799,15 +799,28 @@ async function writeCommit(git, tip, changes, message, { deterministicRoot = fal
     const tree = await checked(git, ['write-tree'], { env });
     const args = ['commit-tree', tree, '-m', message];
     if (tip !== null) args.splice(2, 0, '-p', tip);
-    const commitEnv = deterministicRoot ? {
-      GIT_AUTHOR_DATE: '2000-01-01T00:00:00Z',
+    // The identity is unconditional; only the DATES are pinned, and only for the
+    // deterministic root. `commit-tree` takes the author from git config when
+    // the environment does not carry one, and a CI runner has no `user.email`
+    // configured — so every non-root commit died with `Author identity unknown`
+    // and the whole shadow lane failed. It went unseen twice over: the lane
+    // crashed earlier, in the slice scan, until that was fixed, and the test
+    // fixture runs `git config user.email` on its clone, so no local test could
+    // ever reach the failing path. A library that writes commits must not
+    // depend on ambient config belonging to whoever happens to call it.
+    // Keeping the same six values for the root leaves its sha byte-identical.
+    const commitIdentity = {
       GIT_AUTHOR_EMAIL: 'translation-state-v2@example.invalid',
       GIT_AUTHOR_NAME: 'Translation State V2',
-      GIT_COMMITTER_DATE: '2000-01-01T00:00:00Z',
       GIT_COMMITTER_EMAIL: 'translation-state-v2@example.invalid',
       GIT_COMMITTER_NAME: 'Translation State V2',
-    } : undefined;
-    return await checked(git, args, commitEnv ? { env: commitEnv } : undefined);
+    };
+    const commitEnv = deterministicRoot ? {
+      ...commitIdentity,
+      GIT_AUTHOR_DATE: '2000-01-01T00:00:00Z',
+      GIT_COMMITTER_DATE: '2000-01-01T00:00:00Z',
+    } : commitIdentity;
+    return await checked(git, args, { env: commitEnv });
   } finally {
     await rm(directory, { recursive: true, force: true });
   }
