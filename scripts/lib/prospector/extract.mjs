@@ -374,6 +374,7 @@ function selectDetailStructuredRecords(records, pageUrl, renderedTitle) {
  *   description: string,
  *   postedDate: string,
  *   employmentType: string,
+ *   hasStructuredVacancy: boolean,
  * }}
  */
 export function extractDetailFields(html = '', pageUrl = '') {
@@ -500,6 +501,18 @@ export function extractDetailFields(html = '', pageUrl = '') {
     workplaceLabels: renderedWorkplaceLabelValues(html, title),
     postedDate: structuredRecords.find((record) => record.postedDate)?.postedDate || '',
     employmentType: structuredRecords.find((record) => record.employmentType)?.employmentType || '',
+    // Whether THIS response carried a structured vacancy at all. Both readers
+    // above gate on the JobPosting type (`isJobPostingNode`, the
+    // `schema.org/JobPosting` itemtype), so an empty `allStructuredRecords`
+    // means the page served none. Measured shapes behind that: one Ticino bank
+    // publishes `WebPage`, `ImageObject`, `BreadcrumbList`, `WebSite` and
+    // `Organization` and no vacancy node at all; `galenica` only `WebPage`;
+    // `triaplus` an empty array. A source with nothing to read
+    // cannot be read wrong, and the audit needs to tell that apart from a
+    // parser that failed to read what WAS there. Computed per fetch and never
+    // a per-crawler allowlist: 4 of 21 sampled crawlers flip between runs, so a
+    // hand-written list would silence a real mismatch for good.
+    hasStructuredVacancy: allStructuredRecords.length > 0,
   };
 }
 

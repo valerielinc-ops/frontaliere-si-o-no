@@ -34,6 +34,7 @@ import {
   applySourceDetailResults,
   formatSourceDetailObservationLines,
   sourceDetailSeverity,
+  issueDrivenSeverity,
   finalizeSourceDetailEvidence,
   runSourceDetailChecks,
   finishAudit,
@@ -2242,5 +2243,107 @@ describe('effectiveDescription (issue #3432 — burkhalter-group false positive)
   it('falls back to an empty string when neither field carries content', () => {
     expect(effectiveDescription({})).toBe('');
     expect(effectiveDescription(null)).toBe('');
+  });
+});
+
+describe('source-detail unobserved split by source observability', () => {
+  // A source that serves no `JobPosting` node cannot be read wrong, so
+  // `unobserved` on it is a true statement about the source, not a parser
+  // defect. These pin the BEHAVIOUR of that split — which issues come out and
+  // which severity the audit's own rule then derives — because the severity
+  // chain turns ANY remaining issue into a WARNING, so the only way to stop
+  // being a WARNING is to emit no issue at all.
+  const unobservedSample = (overrides: Record<string, unknown>) => ({
+    crawlerKey: 'fixture',
+    url: 'https://example.test/fixture',
+    sourceLocation: '',
+    publishedLocation: 'Lugano',
+    locationChecked: false,
+    locationInconclusive: false,
+    sourceDescriptionLength: 0,
+    publishedDescriptionLength: 400,
+    descriptionMismatch: false,
+    ...overrides,
+  });
+  const freshEntry = () => ({ total: 1, issues: [] as Issue[], severity: 'OK' as const });
+  const derivedSeverity = (entry: Entry) =>
+    sourceDetailSeverity(entry) || issueDrivenSeverity(entry);
+
+  it('raises no issue for a source that served no JobPosting node', () => {
+    const report = { fixture: freshEntry() };
+    const summary = applySourceDetailResults(
+      report,
+      [unobservedSample({ sourceHasStructuredVacancy: false })],
+      1,
+    );
+
+    expect(report.fixture.issues).toEqual([]);
+    expect(derivedSeverity(report.fixture as Entry)).not.toBe('WARNING');
+    expect(summary).toMatchObject({ unobserved: 1, unobservedSourceMute: 1 });
+    expect(formatSourceDetailObservationLines(summary)).toContain(
+      'Source detail unobserved split: 1 source served no JobPosting structured data (no issue raised), 0 served one and still read as nothing (parser finding)',
+    );
+  });
+
+  it('keeps the unobserved warning when a JobPosting was served and read as nothing', () => {
+    const report = { fixture: freshEntry() };
+    const summary = applySourceDetailResults(
+      report,
+      [unobservedSample({ sourceHasStructuredVacancy: true })],
+      1,
+    );
+
+    expect(report.fixture.issues).toHaveLength(1);
+    expect(report.fixture.issues[0]).toMatchObject({
+      type: 'source-detail-unobserved',
+      unobserved: 1,
+    });
+    expect(derivedSeverity(report.fixture as Entry)).toBe('WARNING');
+    expect(summary).toMatchObject({ unobserved: 1, unobservedSourceMute: 0 });
+  });
+
+  it('treats a missing observability flag as the parser case, never as silence', () => {
+    const report = { fixture: freshEntry() };
+    const summary = applySourceDetailResults(report, [unobservedSample({})], 1);
+
+    expect(report.fixture.issues[0]).toMatchObject({ type: 'source-detail-unobserved' });
+    expect(derivedSeverity(report.fixture as Entry)).toBe('WARNING');
+    expect(summary).toMatchObject({ unobservedSourceMute: 0 });
+  });
+
+  it('splits the old unobserved total without losing a single sample', () => {
+    const report = {
+      mute: freshEntry(),
+      leaky: freshEntry(),
+      mixed: freshEntry(),
+    };
+    const results = [
+      unobservedSample({ crawlerKey: 'mute', sourceHasStructuredVacancy: false }),
+      unobservedSample({ crawlerKey: 'mute', sourceHasStructuredVacancy: false }),
+      unobservedSample({ crawlerKey: 'leaky', sourceHasStructuredVacancy: true }),
+      unobservedSample({ crawlerKey: 'mixed', sourceHasStructuredVacancy: false }),
+      unobservedSample({ crawlerKey: 'mixed', sourceHasStructuredVacancy: true }),
+      // Observable sample: must stay out of both counters.
+      unobservedSample({
+        crawlerKey: 'mixed',
+        sourceLocation: 'Lugano',
+        sourceHasStructuredVacancy: true,
+      }),
+    ];
+    const summary = applySourceDetailResults(report, results, results.length);
+
+    // The reclassification may not lose cases: every sample the old single
+    // counter would have taken is still in exactly one of the two.
+    const parserFindings = report.mute.issues.concat(report.leaky.issues, report.mixed.issues)
+      .filter((issue) => issue.type === 'source-detail-unobserved')
+      .reduce((sum, issue) => sum + Number((issue as { unobserved?: number }).unobserved || 0), 0);
+    expect(summary.unobservedSourceMute + parserFindings).toBe(summary.unobserved);
+    expect(summary.unobserved).toBe(5);
+    expect(summary.unobservedSourceMute).toBe(3);
+
+    expect(report.mute.issues).toEqual([]);
+    expect(derivedSeverity(report.mute as Entry)).not.toBe('WARNING');
+    expect(derivedSeverity(report.leaky as Entry)).toBe('WARNING');
+    expect(derivedSeverity(report.mixed as Entry)).toBe('WARNING');
   });
 });
