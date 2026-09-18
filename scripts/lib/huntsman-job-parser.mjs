@@ -186,8 +186,7 @@ async function listSwissJobs() {
     if (data.jobPostings.length < limit) break;
     if ((data.total || 0) > 0 && allPostings.length >= data.total) break;
     if (pages >= MAX_PAGES) {
-      console.warn(`⚠️ Reached pagination safety cap (${MAX_PAGES} pages); stopping.`);
-      break;
+      throw new Error(`Huntsman Workday pagination safety cap reached after ${MAX_PAGES} pages without a verified end.`);
     }
     offset += limit;
 

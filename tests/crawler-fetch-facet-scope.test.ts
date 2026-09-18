@@ -49,7 +49,7 @@ describe('PEMSA relevance — all 26 cantons, not Ticino-only', () => {
   });
 });
 
-describe('Mikron teaser parsing — keeps non-Agno Swiss sites, no fabricated location', () => {
+describe('Mikron teaser parsing — keeps Swiss sites, no fabricated location', () => {
   const FIXTURE = `
     <div class="open-jobs">
       <article class="mi-job-teaser">
@@ -70,7 +70,7 @@ describe('Mikron teaser parsing — keeps non-Agno Swiss sites, no fabricated lo
     </div>`;
 
   it('extracts the real per-teaser location (Boudry survives, never forced to Agno)', () => {
-    const jobs = parseMikronJobs(FIXTURE, { filterAgno: false });
+    const jobs = parseMikronJobs(FIXTURE, { filterSwiss: false });
     const byTitle = Object.fromEntries(jobs.map((j) => [j.title, j.location]));
     expect(byTitle['Controls Engineer']).toBe('Switzerland, Boudry');
     expect(byTitle['CNC Operator']).toBe('Switzerland, Agno');

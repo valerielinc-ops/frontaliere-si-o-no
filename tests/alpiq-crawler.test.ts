@@ -2,14 +2,13 @@
  * Tests for the Alpiq crawler parser.
  *
  * Tests parseAlpiqListingHtml(), parseAlpiqJobBlock(),
- * isTicinoLocation(), isSwissLocation(), slugify(), stripHtml()
+ * isSwissLocation(), slugify(), stripHtml()
  */
 import { describe, it, expect } from 'vitest';
 import {
   parseAlpiqListingHtml,
   parseAlpiqJobBlock,
   parseAlpiqDetailHtml,
-  isTicinoLocation,
   isSwissLocation,
   normalizeListingWhitespace,
   extractLocationContractSegment,
@@ -136,11 +135,11 @@ Disclaimer: applications from agencies are not considered.
 // ── Tests ────────────────────────────────────────────────────────
 
 describe('Alpiq crawler — location filtering', () => {
-  it('identifies Ticino locations', () => {
-    expect(isTicinoLocation('Airolo')).toBe(true);
-    expect(isTicinoLocation('Biasca')).toBe(true);
-    expect(isTicinoLocation('Locarno')).toBe(true);
-    expect(isTicinoLocation('Ritom')).toBe(true);
+  it('identifies Swiss locations', () => {
+    expect(isSwissLocation('Airolo')).toBe(true);
+    expect(isSwissLocation('Biasca')).toBe(true);
+    expect(isSwissLocation('Locarno')).toBe(true);
+    expect(isSwissLocation('Ritom')).toBe(true);
   });
 
   it('keeps current Alpiq listings whose contract row only exposes the CH country code', () => {
@@ -149,12 +148,12 @@ describe('Alpiq crawler — location filtering', () => {
     expect(isSwissLocation(job?.location)).toBe(true);
   });
 
-  it('rejects non-Ticino locations', () => {
+  it('rejects foreign locations', () => {
     // Cathedral 2026-05-10: TARGET_CANTONS expanded to all 26 CH cantons;
     // only foreign/non-CH locations should be false now.
-    expect(isTicinoLocation('Cammarata')).toBe(false); // Italian city, not CH
-    expect(isTicinoLocation('Madrid')).toBe(false);    // Spanish city, not CH
-    expect(isTicinoLocation('Berlin')).toBe(false);    // German city, not CH
+    expect(isSwissLocation('Cammarata')).toBe(false); // Italian city, not CH
+    expect(isSwissLocation('Madrid')).toBe(false);    // Spanish city, not CH
+    expect(isSwissLocation('Berlin')).toBe(false);    // German city, not CH
   });
 
   it('identifies Swiss locations', () => {
@@ -213,7 +212,7 @@ describe('Alpiq crawler — listing HTML parsing with Swiss filter', () => {
     expect(locations).not.toContain('Cammarata');
   });
 
-  it('keeps Swiss and Ticino jobs', () => {
+  it('keeps Swiss jobs, including Ticino', () => {
     const jobs = parseAlpiqListingHtml(LISTING_HTML_FIXTURE, { swissOnly: true });
     expect(jobs.length).toBeGreaterThanOrEqual(1);
   });

@@ -18,8 +18,8 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  *     - Brief description text
  *     - Location and employment type (e.g., "Lausanne - 100% Permanent")
  *
- * This parser extracts jobs from the listing page HTML, filtering for Swiss
- * locations across all 26 cantons.
+ * This parser extracts jobs from the listing page HTML, filtering for
+ * Swiss locations only.
  */
 
 import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
@@ -124,12 +124,6 @@ export function isSwissLocation(location = '') {
   if (hasStandaloneSwissSignal(normalized)) return true;
   return inferAnyCanton(normalized.toLowerCase()) !== '';
 }
-
-/**
- * Compatibility export for older parser consumers. The Alpiq crawler is
- * national; new callers must use isSwissLocation().
- */
-export const isTicinoLocation = isSwissLocation;
 
 /**
  * Parse a single job listing block from the Alpiq listing page.

@@ -266,8 +266,12 @@ describe('inferLwphrLocation', () => {
     expect(inferLwphrLocation('Manager', 'office in Locarno')).toBe('Locarno');
   });
 
-  it('defaults to Lugano when no location found', () => {
-    expect(inferLwphrLocation('Software Engineer', 'No location mentioned here.')).toBe('Lugano');
+  it('leaves locality empty when no Swiss city can be resolved', () => {
+    expect(inferLwphrLocation('Software Engineer', 'No location mentioned here.')).toBe('');
+  });
+
+  it('does not turn a foreign location into Lugano', () => {
+    expect(inferLwphrLocation('Software Engineer', 'Office in Milano, Italy')).toBe('');
   });
 });
 

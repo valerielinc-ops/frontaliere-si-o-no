@@ -10,7 +10,7 @@
  *   - Category detection for pharma/biotech roles
  *   - Employment type and experience level detection
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { inferSwissTargetCanton } from '../scripts/lib/target-swiss-locations.mjs';
 import { COMPANY_HQ } from '../scripts/lib/crawler-location-config.mjs';
 import { __internals as lonzaInternals } from '../scripts/lib/lonza-job-parser.mjs';
@@ -665,5 +665,37 @@ describe('Workday API request construction', () => {
       offsets.push(offset);
     }
     expect(offsets).toEqual([0, 20, 40, 60, 80, 100, 120, 140, 160, 180]);
+  });
+});
+
+describe('Workday pagination integrity', () => {
+  it('fails closed at the safety cap instead of returning partial postings', async () => {
+    const fetchMock = vi.fn(async () => ({
+      ok: true,
+      async json() {
+        return {
+          jobPostings: Array.from({ length: 20 }, (_, index) => ({
+            externalPath: `/job/Visp/Role_${index}`,
+          })),
+        };
+      },
+    }));
+    const realSetTimeout = globalThis.setTimeout;
+
+    vi.stubGlobal('fetch', fetchMock);
+    vi.stubGlobal('setTimeout', (callback: (...args: any[]) => void, delay: number, ...args: any[]) => {
+      if (delay === 500) {
+        callback(...args);
+        return 0 as unknown as ReturnType<typeof setTimeout>;
+      }
+      return realSetTimeout(callback, delay, ...args);
+    });
+
+    try {
+      await expect(lonzaInternals.listSwissJobs()).rejects.toThrow(/safety cap/i);
+      expect(fetchMock).toHaveBeenCalledTimes(100);
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 });

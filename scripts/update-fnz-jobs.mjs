@@ -22,6 +22,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -47,11 +48,12 @@ import {
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { isSwissLocationText, inferAnyCanton, swissCityFromLocationField } from './lib/target-swiss-locations.mjs';
+import { isSwissLocationText, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { firstLocationSegment } from './lib/ats-clients/workday-client.mjs';
+import { resolveFnzSwissLocation } from './lib/fnz-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -69,7 +71,6 @@ const FNZ_COMPANY_NAME = 'FNZ (Switzerland) AG';
 const FNZ_COMPANY_HOST = 'fnz.wd3.myworkdayjobs.com';
 const FNZ_API_BASE = 'https://fnz.wd3.myworkdayjobs.com/wday/cxs/fnz/fnz_careers';
 const FNZ_PUBLIC_BASE = 'https://fnz.wd3.myworkdayjobs.com/en/fnz_careers';
-const FNZ_SAFE_DEFAULT_CITY = 'Zürich';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 // Switzerland detection — text-based via the authoritative shared helper
@@ -195,7 +196,8 @@ async function fetchJson(url, options = {}) {
  * of results). The first page's `total` is used only as a positive upper bound:
  * an unfiltered Workday query can echo total:0 alongside a full page of postings,
  * so we never break on `offset >= total` when total is 0 (that would drop every
- * posting on pages 2+). A page cap bounds the loop if a tenant never shortens.
+ * posting on pages 2+). A page cap bounds the loop if a tenant never shortens,
+ * but reaching that cap without a verified end is an error, not a normal stop.
  */
 async function listSwissJobs() {
   const candidates = [];
@@ -218,12 +220,34 @@ async function listSwissJobs() {
       body,
     });
 
-    if (!data || !Array.isArray(data.jobPostings)) {
-      if (offset === 0) console.warn('⚠️ Failed to fetch Workday listings.');
-      break;
+    const rawTotal = data?.total;
+    if (rawTotal !== undefined && rawTotal !== null && rawTotal !== '') {
+      const pageTotal = Number(rawTotal);
+      if (!Number.isFinite(pageTotal) || pageTotal < 0) {
+        throw new Error(`FNZ Workday pagination failed at offset ${offset}: invalid declared total.`);
+      }
+      // Workday can echo total=0 for an unfiltered query that still contains
+      // rows. Keep only positive totals so that the response cannot truncate
+      // the scan; a later positive total must remain stable across pages.
+      if (pageTotal > 0) {
+        if (total !== null && total !== pageTotal) {
+          throw new Error(`FNZ Workday pagination failed: declared total changed from ${total} to ${pageTotal}.`);
+        }
+        total = pageTotal;
+      }
     }
 
-    if (total === null) total = data.total || 0;
+    if (!data || !Array.isArray(data.jobPostings)) {
+      if (offset === 0 && total === null) {
+        console.warn('⚠️ Failed to fetch Workday listings.');
+        break;
+      }
+      throw new Error(
+        `FNZ Workday pagination incomplete at offset ${offset}: ` +
+          `${offset} jobs received${total !== null ? ` of ${total} declared` : ''}.`,
+      );
+    }
+
     pages += 1;
 
     for (const posting of data.jobPostings) {
@@ -235,15 +259,24 @@ async function listSwissJobs() {
       }
     }
 
-    offset += data.jobPostings.length;
+    const pageSize = data.jobPostings.length;
+    const received = offset + pageSize;
+    offset = received;
     // Stop on a short/empty page. Trust `total` as an upper bound ONLY when
     // positive: an unfiltered query echoing total:0 with a full page must not
     // break here, or every posting on pages 2+ is silently dropped.
-    if (data.jobPostings.length < limit) break;
-    if (total > 0 && offset >= total) break;
-    if (pages >= MAX_PAGES) {
-      console.warn(`⚠️ Reached pagination safety cap (${MAX_PAGES} pages); stopping.`);
+    if (pageSize < limit) {
+      if (total > 0 && received < total) {
+        throw new Error(`FNZ Workday pagination incomplete: received ${received} of ${total} declared postings.`);
+      }
       break;
+    }
+    if (total > 0 && received >= total) break;
+    if (pages >= MAX_PAGES) {
+      throw new Error(
+        `FNZ Workday pagination safety cap reached at ${received}` +
+          `${total > 0 ? ` of ${total} declared` : ''} postings without a verified end.`,
+      );
     }
   }
 
@@ -314,32 +347,22 @@ function buildDescriptionIt(title, location) {
   return `Posizione aperta presso FNZ${location ? ` a ${location}` : ' in Svizzera'}.\nRuolo: ${title}.\n\nFNZ è un provider globale di piattaforme fintech che collabora con istituzioni finanziarie, gestori patrimoniali e asset manager. L'azienda opera da più sedi in Svizzera.`.trim();
 }
 
-function isBareSwissCountry(value = '') {
-  return /^(?:ch|che|switzerland|schweiz|suisse|svizzera|swiss)$/i.test(normalizeSpace(value));
-}
-
-function extractFnzCity(value = '') {
-  const canonicalCity = swissCityFromLocationField(value);
-  if (canonicalCity) return canonicalCity;
-  if (isBareSwissCountry(value)) return '';
-
-  // Preserve a concrete Workday city even when the shared municipality
-  // registry has no canonical alias for that spelling (for example Geneva).
-  return parseWorkdayLocation(value)
-    .replace(/\s*,\s*(?:ch|che|switzerland|schweiz|suisse|svizzera|swiss)\s*$/i, '')
-    .trim();
-}
-
-/** Resolve a Workday location list with a confirmed Swiss-office fallback. */
+/** Resolve a Workday location list while preserving national fallback data. */
 export function resolveFnzLocation(locationCandidates = []) {
-  const candidates = Array.isArray(locationCandidates)
-    ? locationCandidates.map((value) => normalizeSpace(value)).filter(Boolean)
-    : [];
-  const swissCandidates = candidates.filter((value) => isSwissLocationText(value));
-  const concrete = swissCandidates.find((value) => extractFnzCity(value) && !isBareSwissCountry(value));
-  const raw = concrete || swissCandidates.find((value) => !isBareSwissCountry(value)) || swissCandidates[0] || '';
-  const city = extractFnzCity(raw);
-  return { raw, city, canton: inferCanton(city || raw) };
+  const resolved = resolveFnzSwissLocation(locationCandidates);
+  if (!resolved) return null;
+  return {
+    raw: resolved.raw,
+    city: resolved.location,
+    canton: resolved.canton,
+    ...(resolved.nationalFallback ? {
+      nationalFallback: true,
+      addressLocality: resolved.addressLocality,
+      addressRegion: resolved.addressRegion,
+      postalCode: resolved.postalCode,
+      streetAddress: resolved.streetAddress,
+    } : {}),
+  };
 }
 
 function buildPublicUrl(externalPath) {
@@ -380,25 +403,40 @@ async function fetchFnzJobs() {
     // reveal their real sites here, so we must confirm Switzerland membership
     // from the detail page rather than assuming a Swiss fallback.
     const additionalLocations = Array.isArray(info.additionalLocations)
-      ? info.additionalLocations.map((l) => (typeof l === 'string' ? l : l?.descriptor || ''))
+      ? info.additionalLocations.filter(Boolean)
       : [];
     const locationCandidates = [
       info.location || '',
       ...additionalLocations,
+      // Workday can expose only `Switzerland` in `location` while the
+      // requisition object still carries the concrete office (`CH Zurich`,
+      // `CH Chiasso`, ...). Pass the full object so its address/CAP fields can
+      // participate in canton inference as well.
+      info.jobRequisitionLocation || '',
       listing.locationsText || '',
     ];
 
     const resolvedLocation = resolveFnzLocation(locationCandidates);
-    if (!resolvedLocation.raw) {
-      console.log(`  ⏭️  Skipped — not a Swiss location (${parseWorkdayLocation(info.location || listing.locationsText || '') || 'unknown'})`);
+    if (!resolvedLocation) {
+      console.log(`  ⏭️  Skipped — Swiss location unresolved; no concrete city/address/CAP signal (${parseWorkdayLocation(info.location || listing.locationsText || '') || 'unknown'})`);
       continue;
     }
 
-    const resolvedCity = resolvedLocation.city || FNZ_SAFE_DEFAULT_CITY;
-    const canton = resolvedLocation.canton || inferCanton(resolvedCity);
-    // FNZ has a Swiss office in Zürich; use that confirmed office as the
-    // structured-data fallback when Workday exposes only the country.
-    const location = resolvedCity;
+    const {
+      city: location,
+      canton,
+      nationalFallback,
+      addressLocality,
+      addressRegion,
+      postalCode,
+      streetAddress,
+    } = resolvedLocation;
+    if (nationalFallback) {
+      console.log(
+        `  ℹ️ Retained — Swiss country-only location with national address fallback `
+        + `(${addressLocality}, ${addressRegion} ${postalCode})`,
+      );
+    }
 
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
@@ -418,6 +456,9 @@ async function fetchFnzJobs() {
       company: FNZ_COMPANY_NAME,
       companyKey: FNZ_KEY,
       location,
+      addressLocality: addressLocality || location,
+      addressRegion: addressRegion || canton,
+      addressCountry: 'CH',
       canton,
       country: 'CH',
       description: descEn,
@@ -442,6 +483,12 @@ async function fetchFnzJobs() {
       sector: 'Fintech / Servizi finanziari',
       _targetScope: { canton, location },
     };
+
+    if (nationalFallback) {
+      job.nationalFallback = true;
+      job.postalCode = postalCode;
+      job.streetAddress = streetAddress;
+    }
 
     if (jobReqId) job.jobReqId = jobReqId;
 
@@ -703,4 +750,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'FNZ'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'FNZ'));
+}

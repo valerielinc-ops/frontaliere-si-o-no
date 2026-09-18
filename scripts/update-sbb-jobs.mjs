@@ -9,7 +9,7 @@
  *   1. Fetches the company.sbb.ch JSON API (PRIMARY source) to discover SBB/FFS
  *      roles across Switzerland.
  *   2. Fetches login.org apprenticeship pages (SECONDARY/optional source,
- *      partner=SBB CFF FFS, canton=Ticino) to include apprenticeship positions
+ *      partner=SBB CFF FFS) to include apprenticeship positions
  *      not exposed by the company.sbb.ch API. login.org has been observed
  *      returning HTTP 451 persistently from CI runners (#6961) — that outage
  *      degrades this step (zero new seeds, existing apprenticeship jobs kept
@@ -32,7 +32,7 @@
  * so the base crawler's extractJsonLdBlocks() parses them correctly.
  *
  * Job attribute codes in the API:
- *   110 = regions (e.g. "Ticino (TI)", "Berna Mittelland (BE/SO/AG)")
+ *   110 = regions (e.g. "Zurigo (ZH/AG/SH/ZG)", "Berna Mittelland (BE/SO/AG)")
  *   100 = city (e.g. "Bellinzona", "Biasca")
  *    50 = employment type ("Tempo pieno", "Tempo parziale")
  *   160 = work percentage ("60-100%", "80-100%")
@@ -862,9 +862,9 @@ function extractLocationFromJobPosting(jobPosting, html, apiMeta) {
     const candidate = h1.split(',').pop()?.trim();
     if (candidate && candidate.length <= 60) return candidate;
   }
-  // No concrete city: return '' so the literal 'Ticino' never pollutes the
-  // canton inference (inferAnyCanton scans TARGET_CANTONS in order and 'ticino'
-  // would win over the real region for a city-less non-TI posting). The caller
+  // No concrete city: return '' so a literal regional label never pollutes the
+  // canton inference (inferAnyCanton scans TARGET_CANTONS in order and a
+  // country/region label could win over the real region). The caller
   // derives the canton from apiMeta.region and uses the canton display name as
   // the locality when no city is available.
   return '';
@@ -974,7 +974,7 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
   }
 
   // For non-login.org pages, detect the actual source language from content
-  // (SBB posts GR/non-Ticino jobs in German, not Italian)
+  // (SBB posts in several Swiss languages; detect the source from the content.)
   const resolvedSourceLocale = sourceLocale || detectLang(`${title} ${description}`);
 
   const requirements = sourceLoginData.requirements?.length
@@ -991,13 +991,13 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
   ).trim();
   // Canton: prefer the concrete city, else the region label's PRIMARY canton
   // (cantonFromSbbRegion avoids the parens-code mis-match), else the default.
-  // location is '' for city-less postings so it can't force a TI default.
+  // location is '' for city-less postings so it can't force a regional default.
   const canton =
     (location ? inferAnyCanton(location) : '') ||
     cantonFromSbbRegion(apiMeta?.region || '') ||
     DEFAULT_CANTON;
   // City-less posting → use the (localized) canton display name as the locality
-  // instead of leaving it empty or emitting a misleading 'Ticino' literal.
+  // instead of leaving it empty or emitting a misleading regional literal.
   if (!location) location = getCantonDisplayName(canton, 'it');
   // Slug-only guard: `location` is `String(...).trim()`, so all-undefined sources
   // collapse to the literal "undefined"/"null" string → `-undefined` in an active

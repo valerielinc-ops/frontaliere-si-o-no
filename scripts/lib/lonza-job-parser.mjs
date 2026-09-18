@@ -163,8 +163,9 @@ async function listSwissJobs() {
     if (data.jobPostings.length < limit) break;
     if ((data.total || 0) > 0 && allPostings.length >= data.total) break;
     if (pages >= MAX_PAGES) {
-      console.warn(`⚠️ Reached pagination safety cap (${MAX_PAGES} pages); stopping.`);
-      break;
+      throw new Error(
+        `Lonza Workday pagination safety cap reached at ${allPostings.length} postings without a verified end.`,
+      );
     }
     offset += limit;
 
@@ -369,6 +370,7 @@ export async function fetchAllLonzaJobs() {
 }
 
 export const __internals = {
+ listSwissJobs,
  parseWorkdayLocation,
  inferCanton,
  resolveWorkdayLocation,

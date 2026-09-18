@@ -1,14 +1,14 @@
 /**
  * Mikron Group crawler parser tests
  *
- * Tests parseMikronJobs(), parseMikronJobDetail(), isAgnoLocation(),
+ * Tests parseMikronJobs(), parseMikronJobDetail(), isSwissLocation(),
  * and utility functions using HTML fixtures.
  */
 import { describe, it, expect } from 'vitest';
 import {
   parseMikronJobs,
   parseMikronJobDetail,
-  isAgnoLocation,
+  isSwissLocation,
   htmlToText,
   slugify,
   normalizeSpace,
@@ -89,25 +89,19 @@ const FIXTURE_DETAIL = `
 
 // ─── parseMikronJobs tests ────────────────────────────────────────────────────
 
-describe('parseMikronJobs — Agno filtering', () => {
-  it('finds Agno jobs when filterAgno is true (excludes non-Agno)', () => {
-    const jobs = parseMikronJobs(FIXTURE_AGNO_JOBS, { filterAgno: true });
-    // Should find at least the 2 Agno jobs; may include more depending on parser strategy
-    expect(jobs.length).toBeGreaterThanOrEqual(2);
-    // Boudry-only jobs should not appear
-    const boudryOnly = jobs.filter((j) => j.location.includes('Boudry') && !j.location.includes('Agno'));
-    // Since the parser uses fallback strategies, just verify Agno jobs are present
-    const agnoJobs = jobs.filter((j) => j.title === 'Apprendisti (m/f/d)' || j.title === 'CNC Operator');
-    expect(agnoJobs.length).toBeGreaterThanOrEqual(2);
+describe('parseMikronJobs — Swiss filtering', () => {
+  it('keeps all Swiss-site jobs when filterSwiss is true', () => {
+    const jobs = parseMikronJobs(FIXTURE_AGNO_JOBS, { filterSwiss: true });
+    expect(jobs.length).toBeGreaterThanOrEqual(3);
   });
 
-  it('finds all jobs when filterAgno is false', () => {
-    const jobs = parseMikronJobs(FIXTURE_AGNO_JOBS, { filterAgno: false });
+  it('finds all jobs when filterSwiss is false', () => {
+    const jobs = parseMikronJobs(FIXTURE_AGNO_JOBS, { filterSwiss: false });
     expect(jobs.length).toBeGreaterThanOrEqual(3);
   });
 
   it('extracts correct titles', () => {
-    const jobs = parseMikronJobs(FIXTURE_AGNO_JOBS, { filterAgno: true });
+    const jobs = parseMikronJobs(FIXTURE_AGNO_JOBS, { filterSwiss: true });
     const titles = jobs.map((j) => j.title);
     expect(titles).toContain('Apprendisti (m/f/d)');
     expect(titles).toContain('CNC Operator');
@@ -136,11 +130,12 @@ describe('parseMikronJobs — Agno filtering', () => {
 });
 
 describe('parseMikronJobs — edge cases', () => {
-  it('returns fewer results for non-Agno page with filterAgno', () => {
-    const jobsFiltered = parseMikronJobs(FIXTURE_NO_AGNO, { filterAgno: true });
-    const jobsUnfiltered = parseMikronJobs(FIXTURE_NO_AGNO, { filterAgno: false });
-    // When filtering Agno, should have fewer or equal results
+  it('keeps Swiss jobs on a non-Agno page with filterSwiss', () => {
+    const jobsFiltered = parseMikronJobs(FIXTURE_NO_AGNO, { filterSwiss: true });
+    const jobsUnfiltered = parseMikronJobs(FIXTURE_NO_AGNO, { filterSwiss: false });
+    // Swiss filtering must not discard a valid Swiss site.
     expect(jobsFiltered.length).toBeLessThanOrEqual(jobsUnfiltered.length);
+    expect(jobsFiltered).toHaveLength(1);
   });
 
   it('returns empty for empty page', () => {
@@ -179,15 +174,14 @@ describe('parseMikronJobDetail', () => {
   });
 });
 
-// ─── isAgnoLocation tests ─────────────────────────────────────────────────────
+// ─── isSwissLocation tests ────────────────────────────────────────────────────
 
-describe('isAgnoLocation', () => {
-  it('returns true for Switzerland, Agno', () => { expect(isAgnoLocation('Switzerland, Agno')).toBe(true); });
-  it('returns true for agno lowercase', () => { expect(isAgnoLocation('agno')).toBe(true); });
-  it('returns true for ticino', () => { expect(isAgnoLocation('Ticino')).toBe(true); });
-  // Cathedral 2026-05-10: Boudry (NE canton) is now a target — assertion updated to true.
-  it('returns false for Boudry', () => { expect(isAgnoLocation('Switzerland, Boudry')).toBe(true); });
-  it('returns false for Rottweil', () => { expect(isAgnoLocation('Germany, Rottweil')).toBe(false); });
+describe('isSwissLocation', () => {
+  it('returns true for Switzerland, Agno', () => { expect(isSwissLocation('Switzerland, Agno')).toBe(true); });
+  it('returns true for agno lowercase', () => { expect(isSwissLocation('agno')).toBe(true); });
+  it('returns true for Ticino', () => { expect(isSwissLocation('Ticino')).toBe(true); });
+  it('returns true for Boudry', () => { expect(isSwissLocation('Switzerland, Boudry')).toBe(true); });
+  it('returns false for Rottweil', () => { expect(isSwissLocation('Germany, Rottweil')).toBe(false); });
 });
 
 // ─── Utility tests ────────────────────────────────────────────────────────────

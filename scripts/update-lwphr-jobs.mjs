@@ -99,7 +99,7 @@ function buildJob({ title, pdfUrl, pdfText }) {
   const pdfTitle = extractTitleFromPdfText(pdfText);
   const resolvedTitle = reconcilePdfTitle(title, pdfTitle);
   title = resolvedTitle;
-  const location = inferLwphrLocation(title, pdfText, { fallbackLocation: '' });
+  const location = inferLwphrLocation(title, pdfText);
   const canton = inferLwphrCanton(title, pdfText);
   const localized = buildLwphrLocalizedPayload({ title, pdfText, location, pdfUrl });
   const locationFields = location ? { location, addressLocality: location } : {};

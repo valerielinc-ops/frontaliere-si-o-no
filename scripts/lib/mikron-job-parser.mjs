@@ -72,9 +72,6 @@ export function isSwissLocation(locationText = '') {
   return isTargetSwissLocation(locationText);
 }
 
-/** @deprecated Use isSwissLocation(); retained for existing parser consumers. */
-export const isAgnoLocation = isSwissLocation;
-
 /**
  * Parse job listings from Mikron's Drupal HTML career page.
  *
@@ -90,11 +87,10 @@ export const isAgnoLocation = isSwissLocation;
  * @param {object} options - Options
  * @param {boolean} options.filterSwiss - If true, keep jobs matching the
  *   Swiss location helper (default: false → all Swiss sites)
- * @param {boolean} options.filterAgno - Deprecated alias for filterSwiss.
  * @returns {Array<{title: string, url: string, division: string, jobFunction: string, location: string, idx: number}>}
  */
 export function parseMikronJobs(html = '', options = {}) {
-  const filterSwiss = options.filterSwiss ?? options.filterAgno ?? false;
+  const filterSwiss = options.filterSwiss ?? false;
   if (!html || typeof html !== 'string') return [];
 
   const jobs = [];
