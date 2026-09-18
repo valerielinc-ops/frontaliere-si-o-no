@@ -371,6 +371,78 @@ describe('isSystemicBoilerplateFailure — sample-size floor', () => {
     expect(isSystemicBoilerplateFailure(report)).toBe(false);
   });
 
+  // ── Marginal-shortfall band (crawler-group runs of 2026-09-18) ─────────────
+  // Two populations of `low_unique_words`, measured, with nothing in between:
+  //   posta-svizzera-centro-regionale  5/5 at 27-29 unique words — real prose
+  //     ("Zusteller:in Briefe und Pakete"), on a crawler whose own 211-job
+  //     slice has a MEDIAN of 163 unique words and only 3 below the floor.
+  //     Eligible samples exclude fresh discoveries, so 5 of 211 happened to be
+  //     all-terse → 100% ratio → whole crawler bricked, group 08 red.
+  //   csd-engineers                    10/12 at 6-11 unique words — the
+  //     synthesized `<title> — CSD ENGINEERS, <city>` placeholder, i.e. no
+  //     description at all.
+  // The floor stays 30 and both still get flagged; only the SYSTEMIC verdict
+  // changes. 11 vs 27 is a 2.45x gap, so the band sits at 60% of the floor.
+
+  it('does not brick a crawler whose boilerplate jobs are only marginally terse (postch 5/5 at 27-29)', () => {
+    const report = {
+      ratio: 1,
+      boilerplateCount: 5,
+      totalJobs: 5,
+      boilerplateJobs: [27, 28, 28, 29, 29].map((uniqueWords, i) => ({
+        slug: `zusteller-${i}`, title: 'Zusteller:in Briefe und Pakete',
+        reason: 'low_unique_words', totalWords: uniqueWords + 6, uniqueWords,
+      })),
+    };
+    expect(isSystemicBoilerplateFailure(report)).toBe(false);
+  });
+
+  it('still bricks a crawler whose descriptions are effectively absent (csd-engineers 10/12 at 6-11)', () => {
+    const report = {
+      ratio: 10 / 12,
+      boilerplateCount: 10,
+      totalJobs: 12,
+      boilerplateJobs: [6, 8, 8, 9, 9, 9, 10, 10, 10, 11].map((uniqueWords, i) => ({
+        slug: `bauingenieur-${i}`, title: 'Bauingenieur:in 80-100%',
+        reason: 'low_unique_words', totalWords: uniqueWords + 2, uniqueWords,
+      })),
+    };
+    expect(isSystemicBoilerplateFailure(report)).toBe(true);
+  });
+
+  it('marker-phrase boilerplate is untouched by the band, at any length (artificialy 8/8 at 24-27)', () => {
+    // Same word band as postch, opposite verdict: the text IS there, it is the
+    // wrong text (privacy-policy chrome), so length says nothing about it.
+    const report = {
+      ratio: 1,
+      boilerplateCount: 8,
+      totalJobs: 8,
+      boilerplateJobs: [24, 26, 26, 27, 27, 27, 27, 27].map((uniqueWords, i) => ({
+        slug: `ai-engineer-${i}`, title: 'AI Engineer',
+        reason: 'marker_phrases', totalWords: uniqueWords + 4, uniqueWords,
+      })),
+    };
+    expect(isSystemicBoilerplateFailure(report)).toBe(true);
+  });
+
+  it('a mixed report counts only the non-marginal jobs toward the ratio', () => {
+    // 2 real stubs + 3 merely-terse on 5 eligible: 2/5 = 40%, below the 50%
+    // threshold, so the terse ones must not carry the verdict over the line.
+    const report = {
+      ratio: 1,
+      boilerplateCount: 5,
+      totalJobs: 5,
+      boilerplateJobs: [
+        { slug: 'a', title: 'A', reason: 'low_unique_words', totalWords: 8, uniqueWords: 7 },
+        { slug: 'b', title: 'B', reason: 'low_unique_words', totalWords: 10, uniqueWords: 9 },
+        { slug: 'c', title: 'C', reason: 'low_unique_words', totalWords: 32, uniqueWords: 28 },
+        { slug: 'd', title: 'D', reason: 'low_unique_words', totalWords: 32, uniqueWords: 28 },
+        { slug: 'e', title: 'E', reason: 'low_unique_words', totalWords: 33, uniqueWords: 29 },
+      ],
+    };
+    expect(isSystemicBoilerplateFailure(report)).toBe(false);
+  });
+
   it('integration: detectBoilerplateDescriptions output for the #3254 shape is NOT systemic', () => {
     const jobs = [
       makeJob('eligible-good', RICH_DESCRIPTION),
