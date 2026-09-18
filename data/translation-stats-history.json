@@ -1,83 +1,5 @@
 [
   {
-    "timestamp": "2026-09-02T10:52:41.366Z",
-    "label": "after",
-    "total": 28557,
-    "needsRetranslation": 14643,
-    "suppressed": 87,
-    "incomplete": 15715,
-    "complete": 12842,
-    "slotsPresent": 12842,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 12842,
-    "sourceCopyExcused": 607,
-    "languageVerified": null,
-    "missingByLocale": {
-      "it": 4774,
-      "en": 4187,
-      "de": 1119,
-      "fr": 4299
-    },
-    "queueAge": {
-      "count": 14643,
-      "withTimestamp": 14643,
-      "oldestAgeDays": 142,
-      "p50AgeDays": 8,
-      "p90AgeDays": 60.5,
-      "buckets": {
-        "0-7d": 6687,
-        "7-30d": 3642,
-        "30-90d": 3614,
-        "90-180d": 700,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 3212
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1492
-      },
-      {
-        "company": "Roche",
-        "pending": 732
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 388
-      },
-      {
-        "company": "VOLG",
-        "pending": 352
-      },
-      {
-        "company": "Migros Bank",
-        "pending": 327
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 268
-      },
-      {
-        "company": "BKW",
-        "pending": 235
-      },
-      {
-        "company": "Sulzer",
-        "pending": 203
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 192
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-02T12:32:33.171Z",
     "label": "before",
     "total": 28557,
@@ -18331,6 +18253,118 @@
       "processed": 0,
       "residual": 0,
       "residualRate": null
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 313
+      },
+      {
+        "company": "Roche",
+        "pending": 236
+      },
+      {
+        "company": "Sulzer",
+        "pending": 131
+      },
+      {
+        "company": "PEMSA",
+        "pending": 129
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 103
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 62
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 60
+      },
+      {
+        "company": "JUMBO",
+        "pending": 59
+      },
+      {
+        "company": "Stellentreff AG",
+        "pending": 57
+      },
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 55
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-18T20:07:06.403Z",
+    "label": "after",
+    "total": 31958,
+    "needsRetranslation": 2590,
+    "suppressed": 198,
+    "incomplete": 2938,
+    "complete": 29020,
+    "slotsPresent": 29020,
+    "flaggedAmongSlotsPresent": 5,
+    "verifiedTranslated": 29015,
+    "sourceCopyExcused": 422,
+    "slotsPresentByLength": 31842,
+    "languageVerified": 29824,
+    "missingByLocale": {
+      "it": 58,
+      "en": 44,
+      "de": 60,
+      "fr": 64
+    },
+    "queueAge": {
+      "count": 2590,
+      "withTimestamp": 2590,
+      "oldestAgeDays": 158.4,
+      "p50AgeDays": 24.9,
+      "p90AgeDays": 105.3,
+      "buckets": {
+        "0-1d": 8,
+        "1-2d": 32,
+        "2-7d": 29,
+        "0-7d": 69,
+        "7-30d": 1281,
+        "30-90d": 911,
+        "90-180d": 329,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 10,
+      "withTimestamp": 10,
+      "oldestAgeDays": 45.4,
+      "p50AgeDays": 15.3,
+      "p90AgeDays": 45.4,
+      "buckets": {
+        "0-1d": 2,
+        "1-2d": 0,
+        "2-7d": 0,
+        "0-7d": 2,
+        "7-30d": 7,
+        "30-90d": 1,
+        "90-180d": 0,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "genderFormRepair": {
+      "measured": false,
+      "status": "partial",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 969,
+      "sampled": 120,
+      "processed": 56,
+      "residual": 0,
+      "residualRate": 0
     },
     "topPending": [
       {
