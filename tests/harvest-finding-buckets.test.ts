@@ -31,7 +31,7 @@
  * `nanakokyobashi-rgb/frontaliere-articles` (node:test), stessi casi.
  */
 import { describe, it, expect } from 'vitest';
-import { bucketFinding, stripNegatedImpactClauses, tallyFindings } from '../scripts/ci/harvest-agent-lessons.mjs';
+import { bucketFinding, stripNegatedImpactClauses, tallyFindings, isGenuinePrBodyContractViolation } from '../scripts/ci/harvest-agent-lessons.mjs';
 
 // Verbatim dalle review claude delle PR citate in #901.
 const RICOGNIZIONI_NEGATE: Array<[string, string]> = [
@@ -235,5 +235,65 @@ describe('bucketFinding — un difetto mal-strippato perde al piu il bucket, mai
       expect(bucketFinding(line)).not.toBe('canonical-sitemap');
     }
     expect(bucketFinding('🟡 Nit: il diff non tocca `dist/api/`, gli slug, le sitemap o i feed.')).not.toBe('canonical-sitemap');
+  });
+});
+
+// --- Round pr-body-contract: keep=true gonfiava il bucket (corpus #140) ------
+// Verbatim dalle review Codex delle PR citate nella riapertura 2026-09-17
+// (14 hit / 14gg: #1536, #1535, #1534, #1521, #1520). Il gate next-step accetta
+// già `per scelta` / `by construction`; il harvester le contava perché il
+// default di isGenuinePrBodyContractViolation era keep=true e LOCATION_RE non
+// riconosceva `PR body:Ln`.
+
+const PR_BODY_PER_SCELTA: Array<[string, string]> = [
+  ['#1536', 'PR body:L16: 🔴 Important: `Stato: per scelta` (ripetuto anche a `PR body:L18`) non è un piano di completamento valido per `## Non implementato (ancora)`; sostituisci ciascuna voce con `in questa PR`, `PR concatenata #N` o `blocked: <causa esterna reale>`, oppure rimuovila dalla sezione.'],
+  ['#1535', 'PR body:L12: 🔴 Important: la voce in `## Non implementato (ancora)` lascia deliberatamente il predicato reviewer duplicato ma `Per scelta` non è uno stato o next-step ammesso dal contratto; lo scope dovuto resta un deferral senza piano concreto. Rimuovi la voce se non è lavoro dovuto, oppure indica `in questa PR`, `PR concatenata #N` o `blocked: <causa reale>`.'],
+  ['#1534', 'PR body:L8: 🔴 Important: la voce di `## Non implementato (ancora)` dichiara lavoro non eseguito e lo chiude con “per scelta”, senza un next-step concreto; se non resta lavoro dovuto scrivi `Nessuno`, altrimenti indica `in questa PR`, una PR concatenata o `blocked: <causa reale>`.'],
+  ['#1521', 'PR body:L8: 🔴 Important: le voci in `## Non implementato (ancora)` non dichiarano uno stato concreto (`in questa PR`, `PR concatenata #N` o `blocked: ...`); “by construction” e “per scelta” lasciano scope/processo non chiuso senza next-step. Riscrivile con stato e next-step verificabili, oppure indica `Nessuno: task completo.`'],
+  ['#1520', 'PR body:L12: 🔴 Important: le due voci sotto `## Non implementato (ancora)` descrivono una scelta di non eseguire il lavoro (`non viene rimosso` e `nomi legacy restano`), ma non indicano una PR concatenata o una causa `blocked:` reale; la stringa `in questa PR` non è un next step quando la frase dichiara che il lavoro non sarà fatto. Sposta questa compatibilità tra le decisioni implementate oppure indica il prossimo passo concreto.'],
+];
+
+const PR_BODY_FALSE_CLAIM_1521 =
+  'PR body:L3: 🟡 Nit: `## Implementato` dichiara la sincronizzazione di 24 workflow, sette observer e 32 baseline, ma il bundle code-only contiene una sola modifica di workflow e due entry di baseline oltre al contratto; allinea il resoconto a ciò che questa PR modifica — deferred, non funnel-critical.';
+
+describe('bucketFinding — pr-body-contract conta solo missing/empty/false-claim (corpus #140)', () => {
+  for (const [pr, line] of PR_BODY_PER_SCELTA) {
+    it(`${pr}: per scelta / by construction su PR body:Ln NON fa punteggio`, () => {
+      expect(isGenuinePrBodyContractViolation(line)).toBe(false);
+      expect(bucketFinding(line)).not.toBe('pr-body-contract');
+    });
+  }
+
+  it('#1521 🟡: false-claim in ## Implementato resta contato', () => {
+    expect(isGenuinePrBodyContractViolation(PR_BODY_FALSE_CLAIM_1521)).toBe(true);
+    expect(bucketFinding(PR_BODY_FALSE_CLAIM_1521)).toBe('pr-body-contract');
+  });
+
+  it('sezione mancante/vuota resta contata', () => {
+    expect(bucketFinding('🔴 process: manca la sezione `## Non implementato`')).toBe('pr-body-contract');
+    // `senza testo` contiene il tell `senza test` di missing-test-funnel, che
+    // precede pr-body-contract in TAXONOMY: il classificatore resta true, il
+    // bucket topic vince. È la precedenza intenzionale, non un buco del guard.
+    expect(isGenuinePrBodyContractViolation('🟡 nit: `## Non implementato` ha un bullet vuoto (`- ` senza testo)')).toBe(true);
+  });
+
+  it('❓ che nomina solo il vocabolario Implementato non è un finding confermato', () => {
+    const line = '❓ q: non è verificato che ogni voce di `## Non implementato (ancora)` resti vera dopo il rebase.';
+    expect(isGenuinePrBodyContractViolation(line)).toBe(false);
+  });
+
+  it('end-to-end: le cinque PR per-scelta non aprono un bucket pr-body-contract; il false-claim sì', () => {
+    const perSceltaPrs = PR_BODY_PER_SCELTA.map(([, line], i) => ({
+      number: 1530 + i,
+      mergedAt: '2026-09-16T00:00:00Z',
+      reviews: [{ author: { login: 'claude' }, body: `## Findings\n${line}\n` }],
+    }));
+    const falseClaimPr = {
+      number: 1521,
+      mergedAt: '2026-09-16T00:00:00Z',
+      reviews: [{ author: { login: 'claude' }, body: `## Findings\n${PR_BODY_FALSE_CLAIM_1521}\n` }],
+    };
+    const { counts } = tallyFindings([...perSceltaPrs, falseClaimPr]);
+    expect(counts['pr-body-contract'] ?? 0).toBe(1);
   });
 });

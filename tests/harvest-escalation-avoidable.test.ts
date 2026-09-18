@@ -258,8 +258,67 @@ describe('isGenuinePrBodyContractViolation — conta solo la violazione reale, n
     )).toBe(true);
   });
 
-  it('vocabolario contratto senza affermazione né etichetta → conservativo: violazione', () => {
+  it('linguaggio esplicito "non è rispettato" resta violazione (caso a)', () => {
     expect(isGenuinePrBodyContractViolation('🔴 il completeness contract non è rispettato qui')).toBe(true);
+    expect(isGenuinePrBodyContractViolation('🔴 il completeness contract non è valido')).toBe(true);
+  });
+
+  it('vocabolario contratto senza missing/empty/false-claim → NON violazione (default false, corpus #140)', () => {
+    // keep=true gonfiava il bucket: una riga che nomina ## Implementato senza
+    // dire che la sezione manca/è vuota/mente sul diff veniva contata. Misura
+    // 2026-09-17: 14/14d, esempi #1536/#1535/#1534/#1521/#1520.
+    expect(isGenuinePrBodyContractViolation('🔴 Important: vedi `## Implementato` per il dettaglio del wiring.')).toBe(false);
+    expect(isGenuinePrBodyContractViolation('')).toBe(false);
+    expect(isGenuinePrBodyContractViolation(undefined)).toBe(false);
+  });
+
+  it('❓ adversarial che nomina solo il vocabolario Implementato → NON violazione', () => {
+    expect(isGenuinePrBodyContractViolation(
+      '❓ q: non è verificato che ogni voce di `## Non implementato (ancora)` resti vera dopo il rebase.',
+    )).toBe(false);
+    // un 🔴 confermato sulla stessa riga non viene salvato dal glifo ❓
+    expect(isGenuinePrBodyContractViolation(
+      '🔴 Important: manca la sezione `## Non implementato`. ❓ q: il rebase la ripristina?',
+    )).toBe(true);
+  });
+
+  // Verbatim dalle review Codex delle PR citate nella riapertura corpus #140
+  // (2026-09-17). Un test su prosa inventata avrebbe dimostrato solo che la
+  // regex fa quello che ho scritto io, non che chiude il caso misurato.
+  it('corpus #1536: `Stato: per scelta` su PR body:L16 non è una violazione di sezione', () => {
+    expect(isGenuinePrBodyContractViolation(
+      'PR body:L16: 🔴 Important: `Stato: per scelta` (ripetuto anche a `PR body:L18`) non è un piano di completamento valido per `## Non implementato (ancora)`; sostituisci ciascuna voce con `in questa PR`, `PR concatenata #N` o `blocked: <causa esterna reale>`, oppure rimuovila dalla sezione.',
+    )).toBe(false);
+  });
+
+  it('corpus #1535: `Per scelta` su PR body:L12 non è una violazione di sezione', () => {
+    expect(isGenuinePrBodyContractViolation(
+      'PR body:L12: 🔴 Important: la voce in `## Non implementato (ancora)` lascia deliberatamente il predicato reviewer duplicato ma `Per scelta` non è uno stato o next-step ammesso dal contratto; lo scope dovuto resta un deferral senza piano concreto. Rimuovi la voce se non è lavoro dovuto, oppure indica `in questa PR`, `PR concatenata #N` o `blocked: <causa reale>`.',
+    )).toBe(false);
+  });
+
+  it('corpus #1534: “per scelta” senza next-step su PR body:L8 non è una violazione di sezione', () => {
+    expect(isGenuinePrBodyContractViolation(
+      'PR body:L8: 🔴 Important: la voce di `## Non implementato (ancora)` dichiara lavoro non eseguito e lo chiude con “per scelta”, senza un next-step concreto; se non resta lavoro dovuto scrivi `Nessuno`, altrimenti indica `in questa PR`, una PR concatenata o `blocked: <causa reale>`.',
+    )).toBe(false);
+  });
+
+  it('corpus #1521 🔴: “by construction” / “per scelta” su PR body:L8 non è una violazione di sezione', () => {
+    expect(isGenuinePrBodyContractViolation(
+      'PR body:L8: 🔴 Important: le voci in `## Non implementato (ancora)` non dichiarano uno stato concreto (`in questa PR`, `PR concatenata #N` o `blocked: ...`); “by construction” e “per scelta” lasciano scope/processo non chiuso senza next-step. Riscrivile con stato e next-step verificabili, oppure indica `Nessuno: task completo.`',
+    )).toBe(false);
+  });
+
+  it('corpus #1521 🟡: `## Implementato` dichiara 24 workflow ma il bundle ne ha 1 → false-claim, resta violazione', () => {
+    expect(isGenuinePrBodyContractViolation(
+      'PR body:L3: 🟡 Nit: `## Implementato` dichiara la sincronizzazione di 24 workflow, sette observer e 32 baseline, ma il bundle code-only contiene una sola modifica di workflow e due entry di baseline oltre al contratto; allinea il resoconto a ciò che questa PR modifica — deferred, non funnel-critical.',
+    )).toBe(true);
+  });
+
+  it('corpus #1520: scelta di non eseguire il lavoro su PR body:L12 non è una violazione di sezione', () => {
+    expect(isGenuinePrBodyContractViolation(
+      'PR body:L12: 🔴 Important: le due voci sotto `## Non implementato (ancora)` descrivono una scelta di non eseguire il lavoro (`non viene rimosso` e `nomi legacy restano`), ma non indicano una PR concatenata o una causa `blocked:` reale; la stringa `in questa PR` non è un next step quando la frase dichiara che il lavoro non sarà fatto. Sposta questa compatibilità tra le decisioni implementate oppure indica il prossimo passo concreto.',
+    )).toBe(false);
   });
 });
 
@@ -275,6 +334,18 @@ describe('bucketFinding — pr-body-contract scarta i falsi positivi e lascia ri
 
   it('violazione genuina di sezione mancante resta pr-body-contract', () => {
     expect(bucketFinding('🔴 process: manca la sezione `## Implementato`')).toBe('pr-body-contract');
+  });
+
+  it('corpus #140: `per scelta` su PR body:Ln non finisce in pr-body-contract', () => {
+    expect(bucketFinding(
+      'PR body:L16: 🔴 Important: `Stato: per scelta` (ripetuto anche a `PR body:L18`) non è un piano di completamento valido per `## Non implementato (ancora)`; sostituisci ciascuna voce con `in questa PR`, `PR concatenata #N` o `blocked: <causa esterna reale>`, oppure rimuovila dalla sezione.',
+    )).not.toBe('pr-body-contract');
+  });
+
+  it('corpus #1521 🟡: false-claim in ## Implementato resta pr-body-contract', () => {
+    expect(bucketFinding(
+      'PR body:L3: 🟡 Nit: `## Implementato` dichiara la sincronizzazione di 24 workflow, sette observer e 32 baseline, ma il bundle code-only contiene una sola modifica di workflow e due entry di baseline oltre al contratto; allinea il resoconto a ciò che questa PR modifica — deferred, non funnel-critical.',
+    )).toBe('pr-body-contract');
   });
 });
 
