@@ -70,12 +70,25 @@ jobs:
           # possono piu' essere esclusi. `apply-checkout-profiles.mjs` tiene
           # questo job fra i profili scritti a mano e non lo rigenera, quindi la
           # correttezza e' a carico di questo blocco.
+          # `/packages/*/engine/` non e' decorativo: 6 dei 30 symlink del repo
+          # stanno in `build-plugins/shared/` e puntano dentro
+          # `packages/articles/engine/`. Un symlink il cui target e' fuori dal
+          # cono si segue e riporta ENOENT nominando IL LINK, non il target —
+          # cioe' un file presente che sembra assente, che e' il modo in cui
+          # questa classe di difetti si ripresenta. Costa 34 file / 0,5 MB.
+          # I 22 symlink che da `services/` puntano a
+          # `packages/articles/content/` restano invece pendenti per scelta:
+          # sono 24'276 file / 249 MB, e `tests.yml:vitest` — il gate dei test
+          # di questo repo — ha esattamente la stessa postura (prende
+          # `/services/` e `/packages/*/engine/`, non `content/`). I `vi.mock`
+          # di `tests/setup-common.tsx` risolvono quei moduli senza eseguirli.
           sparse-checkout: |
             /.github/workflows/
             /build-plugins/
             /scripts/
             /services/
             /tests/
+            /packages/*/engine/
             /index.html
             /vitest.config.ts
             /tsconfig.json
