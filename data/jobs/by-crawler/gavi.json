@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gavi",
-  "assembledAt": "2026-09-16T23:43:44.694Z",
+  "assembledAt": "2026-09-17T23:31:43.988Z",
   "jobs": [
     {
       "id": "gavi-46907ae4fc28",
@@ -33,7 +33,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2489&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-16T23:43:38.485Z",
+      "crawledAt": "2026-09-17T23:31:40.542Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -53,11 +53,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manager-governance-gavi-le-grand-saconnex"
+        "manager-governance-gavi-le-grand-saconnex",
+        "direttore-governance-gavi-the-vaccine-alliance-le-grand-saconnex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-governance-gavi-le-grand-saconnex"
+          "manager-governance-gavi-le-grand-saconnex",
+          "direttore-governance-gavi-the-vaccine-alliance-le-grand-saconnex"
         ],
         "fr": [
           "manager-governance-gavi-le-grand-saconnex"
@@ -110,7 +112,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2526&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-16T23:43:37.694Z",
+      "crawledAt": "2026-09-17T23:31:39.308Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -130,16 +132,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-private-sector-partnerships-and-innovation-gavi-le-grand-saconnex"
+        "head-private-sector-partnerships-and-innovation-gavi-le-grand-saconnex",
+        "partenariati-e-innovazione-del-settore-privato-gavi-the-vaccine-alliance-le-grand-saconnex"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "head-private-sector-partnerships-and-innovation-gavi-le-grand-saconnex",
+          "partenariati-e-innovazione-del-settore-privato-gavi-the-vaccine-alliance-le-grand-saconnex"
+        ],
+        "de": [
           "head-private-sector-partnerships-and-innovation-gavi-le-grand-saconnex"
         ],
         "fr": [
-          "head-private-sector-partnerships-and-innovation-gavi-le-grand-saconnex"
-        ],
-        "de": [
           "head-private-sector-partnerships-and-innovation-gavi-le-grand-saconnex"
         ]
       },

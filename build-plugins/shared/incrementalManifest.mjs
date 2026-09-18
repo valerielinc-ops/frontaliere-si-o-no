@@ -862,30 +862,31 @@ function parseManifestJsonLine(file, lineNumber, line) {
   }
 }
 
-function assertManifestCounts(file, counts, entries) {
+function assertManifestCounts(file, counts, entryCount, observedByKind) {
   if (!counts || !Number.isInteger(counts.total) || !counts.byKind || typeof counts.byKind !== 'object') {
     throw new Error(`${file}: footer counts non valido`);
   }
-  if (counts.total !== entries.size) {
-    throw new Error(`${file}: footer total=${counts.total}, osservate ${entries.size} entry`);
+  if (counts.total !== entryCount) {
+    throw new Error(`${file}: footer total=${counts.total}, osservate ${entryCount} entry`);
   }
-  const byKind = Object.fromEntries(PAGE_KINDS.map((kind) => [kind, 0]));
-  for (const entry of entries.values()) byKind[entry.kind] += 1;
   for (const kind of PAGE_KINDS) {
     const declared = counts.byKind[kind];
     if (declared === undefined && LEGACY_OPTIONAL_KINDS.has(kind)) continue;
-    if (declared !== byKind[kind]) {
-      throw new Error(`${file}: footer byKind.${kind}=${counts.byKind[kind]}, osservate ${byKind[kind]}`);
+    if (declared !== observedByKind[kind]) {
+      throw new Error(`${file}: footer byKind.${kind}=${counts.byKind[kind]}, osservate ${observedByKind[kind]}`);
     }
   }
 }
 
 /**
- * Read one manifest without materialising any HTML. The same strict reader is
- * shared by CI reporting and the optional jobs-SEO disk cache so both paths
- * agree on what constitutes a usable previous snapshot.
+ * Read one manifest without materialising any HTML or retaining its entries.
+ * The post-walk planner uses this callback form to keep only the projection it
+ * needs while the JSONL stream is open. The default duplicate check is kept for
+ * callers that need the same strictness as loadIncrementalManifest(); the
+ * planner can disable it for a previous snapshot because it already proves
+ * duplicates that can affect the current tree while consuming the stream.
  */
-export async function loadIncrementalManifest(file) {
+export async function streamIncrementalManifest(file, onEntry, options = {}) {
   const input = fs.createReadStream(file, { encoding: 'utf8' });
   const reader = readline.createInterface({ input, crlfDelay: Infinity });
   let header = null;
@@ -895,7 +896,10 @@ export async function loadIncrementalManifest(file) {
   let jobsSeoEmitterFingerprint = null;
   let lineNumber = 0;
   const kinds = new Map();
-  const entries = new Map();
+  const observedByKind = Object.fromEntries(PAGE_KINDS.map((kind) => [kind, 0]));
+  const validateUniquePaths = options.validateUniquePaths !== false;
+  const seenPaths = validateUniquePaths ? new Set() : null;
+  let entryCount = 0;
 
   try {
     for await (const rawLine of reader) {
@@ -941,7 +945,7 @@ export async function loadIncrementalManifest(file) {
       }
 
       if (record.type === 'footer') {
-        assertManifestCounts(file, record.counts, entries);
+        assertManifestCounts(file, record.counts, entryCount, observedByKind);
         if (record.jobsSeoEmitterFingerprint !== undefined) {
           jobsSeoEmitterFingerprint = normalizeJobsSeoEmitterFingerprint(record.jobsSeoEmitterFingerprint);
         }
@@ -957,13 +961,15 @@ export async function loadIncrementalManifest(file) {
       if (typeof record.path !== 'string' || record.path.length === 0 || typeof record.hash !== 'string') {
         throw new Error(`${file}:${lineNumber}: entry non valida`);
       }
-      if (entries.has(record.path)) throw new Error(`${file}:${lineNumber}: path duplicato ${record.path}`);
+      if (seenPaths?.has(record.path)) throw new Error(`${file}:${lineNumber}: path duplicato ${record.path}`);
+      seenPaths?.add(record.path);
+      entryCount += 1;
+      observedByKind[currentKind] += 1;
       const entry = { path: record.path, inputHash: record.hash, kind: currentKind };
       // POST_WALK_INCREMENTAL (#8942) adds a compact identity/reference index
-      // per entry; the planner proves same-job and explicit path dependencies
-      // from it, so the shared loader must carry it through.
+      // per entry; consumers decide which projection to retain.
       if (record.postWalk !== undefined) entry.postWalk = record.postWalk;
-      entries.set(record.path, entry);
+      onEntry(entry);
     }
   } finally {
     reader.close();
@@ -971,7 +977,7 @@ export async function loadIncrementalManifest(file) {
 
   if (!header) throw new Error(`${file}: header mancante`);
   if (!footer) throw new Error(`${file}: footer mancante`);
-  assertManifestCounts(file, footer.counts, entries);
+  assertManifestCounts(file, footer.counts, entryCount, observedByKind);
   const data = {
     manifestVersion: header.manifestVersion,
     format: header.format,
@@ -983,6 +989,27 @@ export async function loadIncrementalManifest(file) {
   return {
     file,
     data,
+    entryCount,
+  };
+}
+
+/**
+ * Read one manifest into the legacy Map-shaped result. This remains available
+ * to reporting/cache callers; memory-sensitive post-walk code uses the stream
+ * API above instead.
+ */
+export async function loadIncrementalManifest(file) {
+  const entries = new Map();
+  const streamed = await streamIncrementalManifest(
+    file,
+    (entry) => {
+      entries.set(entry.path, entry);
+    },
+    { validateUniquePaths: true },
+  );
+  return {
+    file,
+    data: streamed.data,
     entries,
   };
 }

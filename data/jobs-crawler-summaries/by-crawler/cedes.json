@@ -1,16 +1,16 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-09-16T23:44:22.822Z",
+  "generatedAt": "2026-09-17T23:32:33.854Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5498,
-  "avgDurationMs": 5498,
+  "durationMs": 5410,
+  "avgDurationMs": 5410,
   "durationHistory": [
-    5498
+    5410
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -24,6 +24,8 @@
       "location": "Landquart",
       "canton": "GR",
       "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "postalCode": "7302",
       "addressCountry": "CH",
       "category": "technology",
       "contract": "full-time",
@@ -34,14 +36,14 @@
       "url": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-16T23:44:14.220Z",
+      "crawledAt": "2026-09-17T23:32:28.055Z",
       "firstSeenAt": "2026-08-25T09:46:00.183Z",
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 14
+        "completeness": 17
       }
     },
     {
@@ -54,6 +56,8 @@
       "location": "Landquart",
       "canton": "GR",
       "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "postalCode": "7302",
       "addressCountry": "CH",
       "category": "technology",
       "contract": "full-time",
@@ -64,14 +68,14 @@
       "url": "https://www.cedes.com/en/career/jobs/software-test-engineer-80-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-16T23:44:13.885Z",
+      "crawledAt": "2026-09-17T23:32:27.497Z",
       "firstSeenAt": "2026-07-15T22:20:19.070Z",
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 14
+        "completeness": 17
       }
     },
     {
@@ -84,6 +88,8 @@
       "location": "Landquart",
       "canton": "GR",
       "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "postalCode": "7302",
       "addressCountry": "CH",
       "category": "technology",
       "contract": "full-time",
@@ -94,14 +100,14 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-16T23:44:13.519Z",
+      "crawledAt": "2026-09-17T23:32:26.980Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 16,
         "translation": 25,
-        "completeness": 14
+        "completeness": 17
       }
     }
   ],
@@ -117,6 +123,8 @@
       "location": "Landquart",
       "canton": "GR",
       "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "postalCode": "7302",
       "addressCountry": "CH",
       "category": "technology",
       "contract": "full-time",
@@ -127,18 +135,17 @@
       "url": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-16T23:44:14.220Z",
+      "crawledAt": "2026-09-17T23:32:28.055Z",
       "firstSeenAt": "2026-08-25T09:46:00.183Z",
       "salaryMin": 92000,
       "salaryMax": 156500,
       "salarySource": "estimated",
-      "addressRegion": "GR",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -151,6 +158,8 @@
       "location": "Landquart",
       "canton": "GR",
       "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "postalCode": "7302",
       "addressCountry": "CH",
       "category": "technology",
       "contract": "full-time",
@@ -161,18 +170,17 @@
       "url": "https://www.cedes.com/en/career/jobs/software-test-engineer-80-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-16T23:44:13.885Z",
+      "crawledAt": "2026-09-17T23:32:27.497Z",
       "firstSeenAt": "2026-07-15T22:20:19.070Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
-      "addressRegion": "GR",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -185,6 +193,8 @@
       "location": "Landquart",
       "canton": "GR",
       "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "postalCode": "7302",
       "addressCountry": "CH",
       "category": "technology",
       "contract": "full-time",
@@ -195,19 +205,18 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-16T23:44:13.519Z",
+      "crawledAt": "2026-09-17T23:32:26.980Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
-      "addressRegion": "GR",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 16,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ]
