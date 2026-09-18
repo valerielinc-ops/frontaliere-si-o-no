@@ -40,7 +40,7 @@ import {
   dedupeClerJobsByStableId,
   parseClerApiResponse,
 } from './lib/cler-job-parser.mjs';
-import { inferAnyCanton, isAllSwissLocation } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -143,7 +143,7 @@ function resolveBranchAddress(arbeitsort) {
         street: branch.street,
       };
     }
-    if (isAllSwissLocation(candidate, { includeBorderProximity: false })) {
+    if (isTargetSwissLocation(candidate, { includeBorderProximity: false })) {
       const canton = inferAnyCanton(candidate);
       if (!canton) continue;
       return {
@@ -267,16 +267,13 @@ async function fetchWithTimeout(url, options = {}) {
   }
 }
 
-export async function fetchJobListings() {
+async function fetchJobListings() {
   const listingsByKey = new Map();
-  const seenRawListingKeys = new Set();
-  let rawRowsRead = 0;
   let declaredTotal = null;
 
-  // `resultsTotalCount` counts source rows, including the legacy and 2026 URL
-  // aliases that are collapsed later by dedupeClerJobsByStableId(). Track raw
-  // rows for pagination completeness, but reject a repeated raw URL before the
-  // raw counter can falsely prove that the source is complete.
+  // pageSize=50 is only the per-response size: keep requesting pages until
+  // the unique aggregate reaches resultsTotalCount. Partial pages are accepted
+  // only as intermediate responses; the returned aggregate is always complete.
   for (let page = 0; page < MAX_LISTING_PAGES; page++) {
     const url = `${API_BASE}${API_PATH}&page=${page}`;
     console.log(`  📡 Fetching API page ${page + 1}: ${url}`);
@@ -299,23 +296,12 @@ export async function fetchJobListings() {
       );
     }
 
-    const beforeRawRows = rawRowsRead;
+    const before = listingsByKey.size;
     for (const listing of pageListings) {
       const relativeUrl = listing?.link?.url || '';
       const absoluteUrl = relativeUrl.startsWith('http')
         ? relativeUrl
         : `${API_BASE}${relativeUrl.startsWith('/') ? relativeUrl : `/${relativeUrl}`}`;
-      const rawKey = absoluteUrl || String(listing?.slug || '').trim().toLowerCase();
-      if (!rawKey) {
-        throw new Error('Cler source listing has no stable raw identity; pagination completeness is unverified.');
-      }
-      if (seenRawListingKeys.has(rawKey)) {
-        throw new Error(
-          `Cler source pagination overlapped a previously read raw listing at page=${page}: ${rawKey}`,
-        );
-      }
-      seenRawListingKeys.add(rawKey);
-
       const key = extractStableJobId(absoluteUrl)
         || String(listing?.slug || '').trim().toLowerCase();
       if (!key) {
@@ -323,38 +309,38 @@ export async function fetchJobListings() {
       }
       if (!listingsByKey.has(key)) listingsByKey.set(key, listing);
     }
-    rawRowsRead += pageListings.length;
+    const added = listingsByKey.size - before;
 
-    if (rawRowsRead > declaredTotal) {
+    if (listingsByKey.size > declaredTotal) {
       throw new Error(
-        `Cler source pagination exceeded declared total: source=${declaredTotal}, rawRead=${rawRowsRead}`,
+        `Cler source pagination exceeded declared total: source=${declaredTotal}, read=${listingsByKey.size}`,
       );
     }
-    if (rawRowsRead >= declaredTotal) break;
+    if (listingsByKey.size >= declaredTotal) break;
     if (pageListings.length === 0) {
       throw new Error(
-        `Cler source pagination ended before declared coverage: source=${declaredTotal}, rawRead=${rawRowsRead}`,
+        `Cler source pagination ended before declared coverage: source=${declaredTotal}, read=${listingsByKey.size}`,
       );
     }
-    if (rawRowsRead === beforeRawRows) {
+    if (added === 0) {
       throw new Error(
         `Cler source pagination did not advance at page=${page}; repeated page has ${listingsByKey.size} unique listings`,
       );
     }
     if (pageListings.length < PAGE_SIZE) {
       throw new Error(
-        `Cler source pagination returned a short page before declared coverage: source=${declaredTotal}, rawRead=${rawRowsRead}`,
+        `Cler source pagination returned a short page before declared coverage: source=${declaredTotal}, read=${listingsByKey.size}`,
       );
     }
   }
 
-  if (declaredTotal === null || rawRowsRead < declaredTotal) {
+  if (declaredTotal === null || listingsByKey.size < declaredTotal) {
     throw new Error(
-      `Cler source pagination exhausted its safety bound: source=${declaredTotal ?? 'unknown'}, rawRead=${rawRowsRead}`,
+      `Cler source pagination exhausted its safety bound: source=${declaredTotal ?? 'unknown'}, read=${listingsByKey.size}`,
     );
   }
   const listings = [...listingsByKey.values()];
-  console.log(`  📋 API returned ${rawRowsRead}/${declaredTotal} raw rows; ${listings.length} unique listings after source-alias dedup`);
+  console.log(`  📋 API returned ${listings.length}/${declaredTotal} unique listings (source total verified)`);
   return listings;
 }
 

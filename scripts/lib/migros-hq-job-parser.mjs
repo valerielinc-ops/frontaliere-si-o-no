@@ -34,7 +34,7 @@ import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import {
   inferAnyCanton,
   isKnownSwissCity,
-  isAllSwissLocation,
+  isTargetSwissLocation,
   normalizeCantonCode,
 } from './target-swiss-locations.mjs';
 import { extractMigrosStructuredData } from './migros-job-parser.mjs';
@@ -257,7 +257,7 @@ export function resolveMigrosHqSourceGeography(addressLocality = '', addressRegi
     !location
     || !canton
     || !isKnownSwissCity(location, canton)
-    || !isAllSwissLocation(location, { includeBorderProximity: false })
+    || !isTargetSwissLocation(location, { includeBorderProximity: false })
     || (sourceRegion && (!regionCanton || regionCanton !== canton))
   ) return null;
   return {

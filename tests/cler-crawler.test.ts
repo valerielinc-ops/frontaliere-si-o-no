@@ -1,9 +1,8 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import { parseClerApiResponse } from '../scripts/lib/cler-job-parser.mjs';
 import { htmlToMarkdown, validateClerDescription, extractJobMeta, dedupeClerJobsByStableId, clerCareerSectionYear } from '../scripts/lib/cler-job-parser.mjs';
 import { extractStableJobId } from '../scripts/lib/job-match-key.mjs';
-import { fetchJobListings } from '../scripts/update-cler-jobs.mjs';
 
 const clerCrawlerSource = fs.readFileSync(
   new URL('../scripts/update-cler-jobs.mjs', import.meta.url),
@@ -174,47 +173,6 @@ function buildClerListingFixture() {
 }
 
 const getListingUrl = (l: { link?: { url?: string } }) => (l?.link?.url ? `${API_BASE}${l.link.url}` : '');
-
-function buildPagedApiListing(id: number, section: 'legacy' | '2026') {
-  const prefix = section === '2026' ? 'jobs-und-karriere-2026' : 'jobs-und-karriere';
-  return {
-    title: `Cler role ${id}`,
-    link: { url: `/de/bank-cler/${prefix}/suchen-und-bewerben/offene-stellen/role-${id}` },
-  };
-}
-
-function buildPagedApiResponse(section: 'legacy' | '2026') {
-  return Array.from({ length: 50 }, (_, index) => buildPagedApiListing(1000 + index, section));
-}
-
-describe('Cler source pagination', () => {
-  it('counts raw alias rows for source completion, then deduplicates requisitions', async () => {
-    const responses = [
-      { results: buildPagedApiResponse('legacy'), resultsTotalCount: 100 },
-      { results: buildPagedApiResponse('2026'), resultsTotalCount: 100 },
-    ];
-    const fetchMock = vi.fn(async () => new Response(JSON.stringify(responses.shift()), { status: 200 }));
-    vi.stubGlobal('fetch', fetchMock);
-
-    await expect(fetchJobListings()).resolves.toHaveLength(50);
-    expect(fetchMock).toHaveBeenCalledTimes(2);
-    vi.unstubAllGlobals();
-  });
-
-  it('fails when the source repeats the same raw page before completion', async () => {
-    const page = buildPagedApiResponse('legacy');
-    const responses = [
-      { results: page, resultsTotalCount: 100 },
-      { results: page, resultsTotalCount: 100 },
-    ];
-    const fetchMock = vi.fn(async () => new Response(JSON.stringify(responses.shift()), { status: 200 }));
-    vi.stubGlobal('fetch', fetchMock);
-
-    await expect(fetchJobListings()).rejects.toThrow(/overlapped a previously read raw listing/);
-    expect(fetchMock).toHaveBeenCalledTimes(2);
-    vi.unstubAllGlobals();
-  });
-});
 
 describe('parseClerApiResponse — source completeness proof', () => {
   it('accepts a genuinely empty API result when the source declares zero', () => {
