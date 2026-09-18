@@ -17,7 +17,7 @@
  *   tenant.
  * - The tenant's RSS export was the original source, but now responds with
  *   an endpoint-level 403. The live replacement is the server-rendered
- *   SuccessFactors search page at `/search/?locationsearch=Aubonne`, with
+ *   SuccessFactors search page at `/search/?locationsearch=Switzerland`, with
  *   one detail-page fetch per listing for the real description. RSS remains
  *   preferred when it is available; the HTML path is a bounded fallback.
  *
@@ -71,7 +71,7 @@ const ATS_HOST = 'careers.nordanglia.com';
 const LEGACY_ATS_HOST = 'careers.nordangliaeducation.com';
 const ATS_HOSTS = new Set([ATS_HOST, LEGACY_ATS_HOST]);
 const ATS_ORIGIN = `https://${ATS_HOST}`;
-const SEARCH_URL = `${ATS_ORIGIN}/search/?createNewAlert=false&locationsearch=Aubonne&optionsFacetsDD_city=&optionsFacetsDD_customfield3=&optionsFacetsDD_facility=Europe&q=`;
+const SEARCH_URL = `${ATS_ORIGIN}/search/?createNewAlert=false&locationsearch=Switzerland&optionsFacetsDD_city=&optionsFacetsDD_customfield3=&optionsFacetsDD_facility=Europe&q=`;
 const SEARCH_PAGE_SIZE = 25;
 const MAX_SEARCH_PAGES = 20;
 const DETAIL_DELAY_MS = 250;
@@ -258,7 +258,7 @@ export function parseNordAngliaSearchResults(html = '') {
 
   const rows = [];
   const seen = new Set();
-  const anchorRe = /<a\b(?=[^>]*\bhref\s*=\s*["'][^"']*\/job\/Aubonne-[^"']*\/\d+\/?[^"']*["'])[^>]*\bhref\s*=\s*["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  const anchorRe = /<a\b(?=[^>]*\bhref\s*=\s*["'][^"']*\/job\/[^"']*\/\d+\/?[^"']*["'])[^>]*\bhref\s*=\s*["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
   let match;
   while ((match = anchorRe.exec(html)) !== null) {
     const rawHref = decodeEntities(match[1]);
@@ -270,7 +270,10 @@ export function parseNordAngliaSearchResults(html = '') {
     }
     const link = canonicalizeNordAngliaJobUrl(absoluteUrl);
     const jobReqId = extractJobReqId(link);
-    if (!link || !jobReqId || seen.has(jobReqId)) continue;
+    // The Switzerland query is a full-text vendor search and can still
+    // surface foreign records. The canonical route is the authoritative
+    // location signal for the HTML fallback, just as it is for RSS items.
+    if (!link || !jobReqId || !extractRouteLocation(link) || seen.has(jobReqId)) continue;
 
     const title = readHtmlText(match[2]);
     if (!title || title.length < 3 || isSuccessFactorsWidgetText(title)) continue;
@@ -517,7 +520,7 @@ async function fetchNordAngliaRssListings() {
 /**
  * Prefer RSS while it is available, then use the live SuccessFactors search
  * when the vendor has disabled or moved the RSS endpoint. A successful HTML
- * search with no recognized Aubonne listing is not evidence of an empty board:
+ * search with no recognized Swiss listing is not evidence of an empty board:
  * keep the soft endpoint error so the previous indexed slice is retained.
  */
 async function fetchJobListings() {

@@ -140,7 +140,7 @@ describe('Nord Anglia Education Switzerland crawler parser', () => {
     expect(canonicalizeNordAngliaJobUrl('https://example.com/job/Geneva-Teacher/1/?utm_source=rss')).toBe('');
   });
 
-  it('parses and deduplicates the live Aubonne SuccessFactors search results', () => {
+  it('parses and deduplicates Swiss SuccessFactors search results across locations', () => {
     const html = `
       <a class="job-link" href="/job/Aubonne-PE-teacher/1428165033/">
         <span>PE teacher</span>
@@ -148,21 +148,48 @@ describe('Nord Anglia Education Switzerland crawler parser', () => {
       <a class="job-link mobile" href="https://careers.nordanglia.com/job/Aubonne-PE-teacher/1428165033/?source=mobile">
         PE teacher
       </a>
+      <a class="job-link" href="/job/Geneva-Boarding-Activity-Leader/1432993533/">Geneva activity leader</a>
+      <a class="job-link" href="/job/Pully-IB-Teachers/1142314801/">Pully IB teachers</a>
+      <a class="job-link" href="/job/Villars-sur-Ollon-Boarding-Assistant/1436026633/">Villars assistant</a>
       <a class="job-link" href="/job/Paris-Teacher/1428165034/">Paris teacher</a>
     `;
 
-    expect(parseNordAngliaSearchResults(html)).toEqual([{
-      title: 'PE teacher',
-      link: 'https://careers.nordanglia.com/job/Aubonne-PE-teacher/1428165033/',
-      jobReqId: '1428165033',
-      sourceFormat: 'html',
-    }]);
+    expect(parseNordAngliaSearchResults(html)).toEqual([
+      {
+        title: 'PE teacher',
+        link: 'https://careers.nordanglia.com/job/Aubonne-PE-teacher/1428165033/',
+        jobReqId: '1428165033',
+        sourceFormat: 'html',
+      },
+      {
+        title: 'Geneva activity leader',
+        link: 'https://careers.nordanglia.com/job/Geneva-Boarding-Activity-Leader/1432993533/',
+        jobReqId: '1432993533',
+        sourceFormat: 'html',
+      },
+      {
+        title: 'Pully IB teachers',
+        link: 'https://careers.nordanglia.com/job/Pully-IB-Teachers/1142314801/',
+        jobReqId: '1142314801',
+        sourceFormat: 'html',
+      },
+      {
+        title: 'Villars assistant',
+        link: 'https://careers.nordanglia.com/job/Villars-sur-Ollon-Boarding-Assistant/1436026633/',
+        jobReqId: '1436026633',
+        sourceFormat: 'html',
+      },
+    ]);
   });
 
-  it('falls back from a retired RSS endpoint to real SuccessFactors detail content', async () => {
+  it('falls back from a retired RSS endpoint to real SuccessFactors detail content across Swiss locations', async () => {
     const description = Array.from({ length: 60 }, (_, index) => `detail-word-${index}`).join(' ');
-    const searchHtml = '<a href="/job/Aubonne-PE-teacher/1428165033/">PE teacher</a>';
-    const detailHtml = `
+    const searchHtml = `
+      <a href="/job/Aubonne-PE-teacher/1428165033/">PE teacher</a>
+      <a href="/job/Geneva-Boarding-Activity-Leader/1432993533/">Geneva activity leader</a>
+      <a href="/job/Paris-Teacher/1428165034/">Paris teacher</a>
+    `;
+    const aubonneDetailHtml = `
       <html lang="en">
         <span data-careersite-propertyid="title">PE teacher</span>
         <div data-careersite-propertyid="description"><p>${description}</p></div>
@@ -170,24 +197,45 @@ describe('Nord Anglia Education Switzerland crawler parser', () => {
         <a href="/talentcommunity/apply/1428165033/?locale=en_GB">Apply</a>
       </html>
     `;
+    const genevaDetailHtml = `
+      <html lang="en">
+        <span data-careersite-propertyid="title">Geneva activity leader</span>
+        <div data-careersite-propertyid="description"><p>${description}</p></div>
+        <meta itemprop="datePosted" content="2026-09-17">
+        <a href="/talentcommunity/apply/1432993533/?locale=en_GB">Apply</a>
+      </html>
+    `;
     const fetchMock = vi.fn()
       .mockResolvedValueOnce(new Response('RSS unavailable', { status: 403 }))
       .mockResolvedValueOnce(new Response(searchHtml, { status: 200 }))
-      .mockResolvedValueOnce(new Response(detailHtml, { status: 200 }));
+      .mockResolvedValueOnce(new Response(aubonneDetailHtml, { status: 200 }))
+      .mockResolvedValueOnce(new Response(genevaDetailHtml, { status: 200 }));
     vi.stubGlobal('fetch', fetchMock);
 
-    const [job] = await fetchAllNordAngliaJobs();
-    expect(job).toMatchObject({
-      title: 'PE teacher',
-      canton: 'VD',
-      jobReqId: '1428165033',
-      postedDate: '2026-09-18',
-      source: 'Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)',
-      applyUrl: 'https://careers.nordanglia.com/talentcommunity/apply/1428165033/?locale=en_GB',
-    });
-    expect(job.url).toBe('https://careers.nordanglia.com/job/Aubonne-PE-teacher/1428165033/');
-    expect(job.description.split(/\s+/)).toHaveLength(60);
-    expect(fetchMock).toHaveBeenCalledTimes(3);
+    const jobs = await fetchAllNordAngliaJobs();
+    expect(jobs).toHaveLength(2);
+    expect(jobs).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        title: 'PE teacher',
+        canton: 'VD',
+        jobReqId: '1428165033',
+        postedDate: '2026-09-18',
+        source: 'Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)',
+        applyUrl: 'https://careers.nordanglia.com/talentcommunity/apply/1428165033/?locale=en_GB',
+        url: 'https://careers.nordanglia.com/job/Aubonne-PE-teacher/1428165033/',
+      }),
+      expect.objectContaining({
+        title: 'Geneva activity leader',
+        canton: 'GE',
+        jobReqId: '1432993533',
+        postedDate: '2026-09-17',
+        applyUrl: 'https://careers.nordanglia.com/talentcommunity/apply/1432993533/?locale=en_GB',
+        url: 'https://careers.nordanglia.com/job/Geneva-Boarding-Activity-Leader/1432993533/',
+      }),
+    ]));
+    expect(jobs[0].description.split(/\s+/)).toHaveLength(60);
+    expect(fetchMock.mock.calls[1][0]).toContain('locationsearch=Switzerland');
+    expect(fetchMock).toHaveBeenCalledTimes(4);
   });
 
   it('tries the HTML fallback after a connection-level RSS failure', async () => {
