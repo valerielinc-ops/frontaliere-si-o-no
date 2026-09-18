@@ -2,19 +2,15 @@
 /**
  * Dedicated McDonald's Switzerland crawler runner.
  *
- * See scripts/lib/mcdonalds-job-parser.mjs for the full root-cause
- * explanation and discovery strategy. Short version (rewritten 2026-08-10,
- * issue #5393): the Paradox/McHire SPA the previous version targeted is
- * gone — jobs.mcdonalds.ch is back on Drupal, serves an invalid TLS
- * certificate, and publishes every open posting in the
- * `mcdo_jobs_mapEntries` array on /postes-vacants. One request, no
- * Playwright, no bot-protection.
+ * See scripts/lib/mcdonalds-job-parser.mjs for the discovery strategy. The
+ * current Paradox/McHire portal exposes a paginated server-rendered listing
+ * and detail JSON-LD; the crawler reads the complete CH-wide result across
+ * all 26 cantons and validates each source location before publication.
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
-import { safeLocationToken } from './lib/safe-location-token.mjs';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
@@ -122,12 +118,15 @@ function mergeParsedMcdoJobs(parsedJobs) {
   for (const job of parsedJobs) {
     const key = String(job?.url || '').trim().replace(/\/+$/, '');
     if (!key) continue;
-    job.location = safeLocationToken(job.location, job.location || 'Svizzera');
     byUrl.set(key, job);
   }
   const deduped = [...byUrl.values()];
 
-  const cleanMcdoJobs = mergePreserveLocaleData(mcdoExisting, deduped).sort(
+  // Listing pagination is an authoritative snapshot: fetchMcdoJobs proves the
+  // declared source total before returning, so a missing old URL is a genuine
+  // removal (including stale foreign records such as Liechtenstein's Vaduz),
+  // not a transient partial crawl.
+  const cleanMcdoJobs = mergePreserveLocaleData(mcdoExisting, deduped, { retainMissingJobs: false }).sort(
     (a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || ''))
   );
   const merged = [...nonMcdo, ...cleanMcdoJobs];
@@ -146,7 +145,7 @@ function validateMcdoLocaleCoverage() {
     dataJobsPath: DATA_JOBS,
     isTargetJob: isMcdoJob,
     failOnMissingJobsFile: true,
-    failWhenNoJobs: true,
+    failWhenNoJobs: false,
     noJobsMessage: "No McDonald's Switzerland jobs found after crawl.",
     detectSourceLang: (text) => detectLang(text, 'de'),
     deriveSlug: deriveLocalizedSlug,
@@ -179,8 +178,7 @@ async function main() {
 
   const parsedJobs = await fetchAndParseMcdoJobs();
   if (parsedJobs.length === 0) {
-    console.log('⚠️ No valid jobs parsed — keeping existing McDonald\'s jobs unchanged.');
-    return;
+    console.warn('⚠️ Verified complete McDonald\'s source snapshot is empty — applying it authoritatively to remove stale jobs.');
   }
 
   const publishedJobs = mergeParsedMcdoJobs(parsedJobs);

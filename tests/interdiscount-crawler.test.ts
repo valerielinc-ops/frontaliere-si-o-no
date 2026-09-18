@@ -4,6 +4,7 @@ import { describe, it, expect } from 'vitest';
 import {
   INTERDISCOUNT_KEY,
   INTERDISCOUNT_COMPANY_NAME,
+  fetchAllInterdiscountJobs,
   isInterdiscountJob,
   isTrustedDomain,
   htmlToMarkdown,
@@ -146,6 +147,88 @@ describe('Interdiscount crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+describe('Interdiscount source coverage and location contract', () => {
+  function makeListing(index: number, overrides: Record<string, string> = {}) {
+    const city = overrides.city || 'Chur';
+    const region = overrides.region || 'Graubünden';
+    const country = overrides.country || 'Schweiz';
+    return {
+      id: String(10000000 + index),
+      hk_id: String(20000000 + index),
+      viewkey: `viewkey-${index}`,
+      title: `Verkaufsberater ${index}`,
+      attributes: { '30': [region], '40': ['unbefristet'] },
+      szas: {
+        sza_title: `Verkaufsberater ${index}`,
+        'sza_workplace.city': city,
+        'sza_workplace.region': region,
+        'sza_workplace.country': country,
+      },
+      links: { directlink: `https://jobs.coopjobs.ch/offene-stellen/verkaufsberater/${index}` },
+    };
+  }
+
+  it('reads until the declared total of unique source records, not until a short raw page', async () => {
+    const rows = Array.from({ length: 201 }, (_, index) => makeListing(index));
+    const requestedOffsets: number[] = [];
+    const jobs = await fetchAllInterdiscountJobs({
+      fetchPage: async (url: string) => {
+        const offset = Number(new URL(url).searchParams.get('offset'));
+        requestedOffsets.push(offset);
+        return { total: rows.length, jobs: rows.slice(offset, offset + 100) };
+      },
+    });
+
+    expect(requestedOffsets).toEqual([0, 100, 200]);
+    expect(jobs).toHaveLength(rows.length);
+  });
+
+  it('fails when pagination repeats a source identity before the declared total', async () => {
+    const rows = Array.from({ length: 201 }, (_, index) => makeListing(index));
+    const requestedOffsets: number[] = [];
+
+    await expect(fetchAllInterdiscountJobs({
+      fetchPage: async (url: string) => {
+        const offset = Number(new URL(url).searchParams.get('offset'));
+        requestedOffsets.push(offset);
+        if (offset === 0) return { total: rows.length, jobs: rows.slice(0, 100) };
+        return { total: rows.length, jobs: [rows[99], ...rows.slice(100, 199)] };
+      },
+    })).rejects.toThrow(/repeated source identity/);
+
+    expect(requestedOffsets).toEqual([0, 100]);
+  });
+
+  it('fails when a short page arrives before the declared total', async () => {
+    const rows = Array.from({ length: 201 }, (_, index) => makeListing(index));
+    const requestedOffsets: number[] = [];
+
+    await expect(fetchAllInterdiscountJobs({
+      fetchPage: async (url: string) => {
+        const offset = Number(new URL(url).searchParams.get('offset'));
+        requestedOffsets.push(offset);
+        return {
+          total: rows.length,
+          jobs: offset === 0 ? rows.slice(0, 100) : rows.slice(100, 199),
+        };
+      },
+    })).rejects.toThrow(/short page/);
+
+    expect(requestedOffsets).toEqual([0, 100]);
+  });
+
+  it('rejects a foreign source location without matching against the description', async () => {
+    const foreign = makeListing(1, { city: 'Como', region: 'Lombardia', country: 'Italia' });
+    foreign.szas.sza_introduction = '<p>Lugano Ticino Switzerland appears only in the description.</p>';
+
+    const jobs = await fetchAllInterdiscountJobs({
+      fetchPage: async () => ({ total: 1, jobs: [foreign] }),
+    });
+
+    expect(jobs).toEqual([]);
   });
 });
 

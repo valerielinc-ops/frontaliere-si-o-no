@@ -56,12 +56,21 @@ describe('ch-country-guard', () => {
 });
 
 describe('sibling CH guards use the shared alias matcher (#2419)', () => {
-  it('isDebiopharmSwissJob accepts CHE / 756 / object countryCode', () => {
-    expect(isDebiopharmSwissJob({ location: { countryCode: 'CH' } })).toBe(true);
-    expect(isDebiopharmSwissJob({ location: { countryCode: 'CHE' } })).toBe(true);
-    expect(isDebiopharmSwissJob({ location: { countryCode: 756 } })).toBe(true);
-    expect(isDebiopharmSwissJob({ location: { countryCode: { code: 'CH' } } })).toBe(true);
-    expect(isDebiopharmSwissJob({ locations: [{ countryCode: 'FR' }, { countryCode: 'CHE' }] })).toBe(true);
+  it('isDebiopharmSwissJob accepts CH aliases only with a concrete Swiss locality', () => {
+    const withCountry = (countryCode: unknown) => ({
+      location: { city: 'Lausanne', region: 'Vaud', countryCode },
+    });
+    expect(isDebiopharmSwissJob(withCountry('CH'))).toBe(true);
+    expect(isDebiopharmSwissJob(withCountry('CHE'))).toBe(true);
+    expect(isDebiopharmSwissJob(withCountry(756))).toBe(true);
+    expect(isDebiopharmSwissJob(withCountry({ code: 'CH' }))).toBe(true);
+    expect(isDebiopharmSwissJob({
+      locations: [
+        { city: 'Como', region: 'Lombardia', countryCode: 'FR' },
+        { city: 'Lausanne', region: 'Vaud', countryCode: 'CHE' },
+      ],
+    })).toBe(true);
+    expect(isDebiopharmSwissJob({ location: { countryCode: 'CH' } })).toBe(false);
     expect(isDebiopharmSwissJob({ location: { countryCode: 'FR' } })).toBe(false);
     expect(isDebiopharmSwissJob({})).toBe(false);
   });
