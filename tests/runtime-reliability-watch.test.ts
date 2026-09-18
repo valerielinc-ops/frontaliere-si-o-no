@@ -168,6 +168,42 @@ describe('runtime reliability watchdog', () => {
     expect(evaluateRepairPolicy({ probe: result }).action).toBe('blocked_marker');
   });
 
+  it('names the skew direction instead of leaning on the sign', () => {
+    const regression = evaluateProbe({
+      siteCached: { body: '1789734217605', status: 200, ok: true },
+      siteFresh: { body: '1789734217605', status: 200, ok: true },
+      cdnMarker: { body: '1789724819997', status: 200, ok: true },
+      assets: [{
+        path: '/assets/App.js',
+        cached: { status: 200, ok: true, bytes: 3, hash: 'same' },
+        fresh: { status: 200, ok: true, bytes: 3, hash: 'same' },
+      }],
+    });
+    expect(regression.markerState).toBe('marker_regression');
+    // Never "behind by -2.61h": the direction an operator must act on is named.
+    expect(regression.reasons).toContain('apex AHEAD of CDN by 2.61h');
+    expect(regression.reasons.some((r: string) => r.includes('-'))).toBe(false);
+  });
+
+  it('classifies the skew direction exactly beyond 2^53', () => {
+    // validBuildId accepts up to 20 digits; these two differ by 1 but are
+    // indistinguishable as IEEE-754 doubles, so a Number comparison would call
+    // a regression a healthy rollout.
+    const result = evaluateProbe({
+      siteCached: { body: '10000000000000000002', status: 200, ok: true },
+      siteFresh: { body: '10000000000000000002', status: 200, ok: true },
+      cdnMarker: { body: '10000000000000000001', status: 200, ok: true },
+      assets: [{
+        path: '/assets/App.js',
+        cached: { status: 200, ok: true, bytes: 3, hash: 'same' },
+        fresh: { status: 200, ok: true, bytes: 3, hash: 'same' },
+      }],
+    });
+    expect(Number('10000000000000000002') === Number('10000000000000000001')).toBe(true);
+    expect(result.markerState).toBe('marker_regression');
+    expect(result.ok).toBe(false);
+  });
+
   it('never reports health when no asset was observed at all', () => {
     const result = evaluateProbe({
       siteCached: { body: '1789306155656', status: 200, ok: true },

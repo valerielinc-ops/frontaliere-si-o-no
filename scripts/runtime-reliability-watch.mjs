@@ -117,6 +117,21 @@ export function evaluateRepairPolicy({
   };
 }
 
+/**
+ * Name the direction instead of leaning on the sign. A `marker_regression`
+ * would otherwise be reported as "apex behind CDN by -2.61h", which reads as a
+ * negative lag rather than as the apex being ahead — the one direction an
+ * operator has to act on.
+ */
+export function formatMarkerSkew(siteBehindMs) {
+  if (!Number.isFinite(siteBehindMs)) return 'apex/CDN skew unmeasurable';
+  const hours = (Math.abs(siteBehindMs) / 3_600_000).toFixed(2);
+  if (siteBehindMs === 0) return 'apex and CDN on the same generation';
+  return siteBehindMs > 0
+    ? `apex behind CDN by ${hours}h`
+    : `apex AHEAD of CDN by ${hours}h`;
+}
+
 function validBuildId(value) {
   const id = String(value || '').trim();
   return /^\d{10,20}$/.test(id) ? id : null;
@@ -208,12 +223,18 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets }) {
       ? 'cdn_marker_unavailable'
       : siteBuildId === cdnBuildId
         ? 'coherent'
-        : Number(cdnBuildId) > Number(siteBuildId)
+        // BigInt, not Number: validBuildId accepts up to 20 digits, and past
+        // 2^53 a Number comparison could misclassify the direction of the skew
+        // — which is the difference between a benign rollout and a regression.
+        : BigInt(cdnBuildId) > BigInt(siteBuildId)
           ? 'rollout_in_progress'
           : 'marker_regression';
-  // Positive while the apex is still serving an older generation than the CDN.
+  // Positive while the apex is still serving an older generation than the CDN,
+  // negative when it is ahead. Kept as a Number for the report: the magnitude
+  // is a human-readable duration, and only the comparison above needs to be
+  // exact.
   const siteBehindMs = siteBuildId && cdnBuildId
-    ? Number(cdnBuildId) - Number(siteBuildId)
+    ? Number(BigInt(cdnBuildId) - BigInt(siteBuildId))
     : null;
 
   const assetResults = assets.map(({ path, cached, fresh }) => ({
@@ -277,7 +298,7 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets }) {
       // Print the measured skew on every run so the next tightening of this
       // check argues from data instead of intuition.
       Number.isFinite(siteBehindMs) && siteBehindMs !== 0
-        ? `apex behind CDN by ${(siteBehindMs / 3_600_000).toFixed(2)}h`
+        ? formatMarkerSkew(siteBehindMs)
         : null,
       ...unhealthyAssets.map((asset) => `${asset.path}: ${asset.state}`),
     ].filter(Boolean),
@@ -325,7 +346,7 @@ async function main() {
     console.error(
       `Runtime reliability: ${result.ok ? 'healthy' : 'degraded'} — ${result.markerState}`
       + ` (site=${result.siteBuildId || '—'}, cdn=${result.cdnBuildId || '—'},`
-      + ` apex behind by ${Number.isFinite(result.siteBehindMs) ? (result.siteBehindMs / 3_600_000).toFixed(2) : '—'}h)`,
+      + ` ${formatMarkerSkew(result.siteBehindMs)})`,
     );
   } else {
     console.log(`Runtime reliability: ${result.ok ? 'healthy' : 'degraded'}`);
