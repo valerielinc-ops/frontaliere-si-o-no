@@ -11309,7 +11309,6 @@
         "deine-aufgaben-hirslanden-search",
         "chef-de-partie-a-la-carte-a-80-100-hirslanden-klinik-zurich"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T12:17:53.196Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -11323,8 +11322,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "hirslanden-eb468b32c745",

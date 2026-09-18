@@ -2475,10 +2475,10 @@
       "companyDomain": "spitalmaennedorf.ch",
       "title": "Lehrstelle Kauffrau / Kaufmann (KV) EFZ 2027",
       "titleByLocale": {
-        "it": "Apprendistato impiegato /a di commercio (TC) AFC 2027",
-        "en": "Teaching position Kauffrau / Kaufmann (KV) EFZ 2027",
+        "it": "Apprendistato Impiegato/a di commercio AFC 2027",
+        "en": "Apprenticeship Business Administrator (KV) EFZ 2027",
         "de": "Lehrstelle Kauffrau / Kaufmann (KV) EFZ 2027",
-        "fr": "Poste d'enseignant Kauffrau / Kaufmann (KV) EFZ 2027"
+        "fr": "Apprentissage Employé(e) de commerce CFC 2027"
       },
       "description": "Spital Männedorf – Dein ganz besonderer Arbeitsort.\nOb ein kleines „Danke“ oder ein morgendliches „Grüezi“ - bei uns stehen echte Wertschätzung und Menschlichkeit im Vordergrund. Die Nähe in unserem Haus macht den Alltag unkompliziert und ermöglicht interprofessionelle Zusammenarbeit auf höchstem Niveau. In einem Umfeld, in dem Unterstützung selbstverständlich ist, wird dein Engagement geschätzt und gefördert.\n\nDas Wesen deiner Tätigkeit:\nAdministrative und organisatorische Aufgaben in verschiedenen Einsatzbereichen:\n• Empfang\n• Marketing / Kommunikation\n• Patientenaufnahme\n• Einkauf & Logistik / Spitalapotheke\n• Patientenadministration\n• Finanz- und Rechnungswesen, Controlling\n• Human Resources\n\nDie Basis deiner Leistung:\n\n• Abgeschlossene Sekundarschule A (oder gute Sek B) oder 10. Schuljahr mit gutem Notendurchschnitt\n• Tastaturschreiben (Fertigkeit muss vor Lehrbeginn erworben werden)\n• Zusätzliche Anforderung für das M-Profil: Bestehen der BMS-Aufnahmeprüfung\n• Interesse am Spitalbetrieb und Gesundheitswesen\n• Vernetztes Denken und ein Flair für Zahlen\n• Kommunikationsfähigkeit und Engagement in der Teamarbeit\n• Aktueller Multicheck\n\nDie Gründe deiner Entscheidung:\nWir bieten moderne Arbeitsbedingungen, fördern interne Weiterbildungen und setzen auf fachlichen Austausch über alle Disziplinen hinweg. Die ruhige Lage direkt am See und die Nähe zur pulsierenden Stadt Zürich runden deinen Arbeitsplatz ab. Darüber hinaus kannst du dich auf ganz spezielle Vorteile freuen.",
       "descriptionByLocale": {
@@ -2492,7 +2492,6 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1982/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-17T14:23:19.128Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
@@ -2535,7 +2534,9 @@
         }
       },
       "addressRegion": "ZH",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1495
     },
     {
       "id": "spital-maennedorf-59e48b8e7e5f",
