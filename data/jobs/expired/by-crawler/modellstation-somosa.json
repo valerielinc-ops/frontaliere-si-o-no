@@ -1,5 +1,52 @@
 [
   {
+    "slug": "nessun-posto-vacante-modellstation-somosa-winterthur",
+    "title": "Keine offenen Stellen",
+    "titleByLocale": {
+      "de": "Keine offenen Stellen",
+      "it": "Nessun posto vacante",
+      "en": "No vacancy",
+      "fr": "Aucun poste vacant"
+    },
+    "company": "Modellstation SOMOSA",
+    "companyKey": "modellstation-somosa",
+    "location": "Winterthur",
+    "addressLocality": "Winterthur",
+    "descriptionByLocale": {
+      "de": "Auch wenn aktuell keine Stellen zu besetzten sind, sind wir offen für motivierte Menschen.\n\nModellstation SOMOSA — jugendpsychiatrische Klinik und Jugendheim für Adoleszente (6–18 Jahre), Winterthur (ZH), Schweiz.",
+      "it": "Anche se attualmente non ci sono posti di lavoro da riempire, siamo aperti a persone motivate.\n\nStazione di modello SOMOSA — clinica psichiatrica giovanile e casa dei giovani per adolescenti (6-18 anni), Winterthur (ZH), Svizzera.",
+      "en": "Even if there are currently no jobs to fill, we are open to motivated people.\n\nModel station SOMOSA — youth psychiatric clinic and youth home for adolescents (6–18 years), Winterthur (ZH), Switzerland.",
+      "fr": "Même s'il n'y a actuellement aucun emploi à combler, nous sommes ouverts aux personnes motivées.\n\nStation modèle SOMOSA — clinique psychiatrique pour jeunes et foyer pour adolescents (6-18 ans), Winterthur (ZH), Suisse."
+    },
+    "slugByLocale": {
+      "de": "keine-offenen-stellen-modellstation-somosa-winterthur",
+      "it": "nessun-posto-vacante-modellstation-somosa-winterthur",
+      "en": "no-vacancy-modellstation-somosa-winterthur",
+      "fr": "aucun-poste-vacant-modellstation-somosa-winterthur"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-09-17T18:39:55.058Z",
+    "previousSlugs": [
+      "keine-offenen-stellen-modellstation-somosa-winterthur"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "keine-offenen-stellen-modellstation-somosa-winterthur"
+      ],
+      "en": [
+        "keine-offenen-stellen-modellstation-somosa-winterthur"
+      ],
+      "fr": [
+        "keine-offenen-stellen-modellstation-somosa-winterthur"
+      ]
+    },
+    "postalCode": "8400",
+    "salaryMin": 91500,
+    "salaryMax": 128000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "team-management-struttura-giornaliera-90-modellstation-somosa-winterthur",
     "title": "Teamleitung Tagesstruktur, 90%",
     "titleByLocale": {
