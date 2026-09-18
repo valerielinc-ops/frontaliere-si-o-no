@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import YAML from 'yaml';
 import {
   evaluateNativeAutoMerge,
   latestBotReview,
@@ -760,12 +761,17 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(evaluator).toContain("'--match-head-commit', freshPr.headRefOid");
   });
 
-  it('evaluates review and workflow-run events, while opening remains a guarded observation', () => {
-    expect(workflow).toContain('types: [opened, edited, reopened, ready_for_review, synchronize]');
-    expect(workflow).toContain('pull_request_review:');
-    expect(workflow).toContain('types: [submitted, edited, dismissed]');
-    expect(workflow).toContain('workflow_run:');
-    expect(workflow).toContain('workflows: [tests]');
+  it('keeps only the manual escape hatch: the opt-in happens inside the required job', () => {
+    // Le nove osservazioni per-evento erano nove run per PR (misurato il
+    // 2026-09-18: 49 workflow_run + 29 pull_request_target + 22
+    // pull_request_review sulle ultime 100, e 59 delle 79 run in coda
+    // dell'account). Il percorso caldo vive in tests.yml; il ritentativo e la
+    // revoca restano nel cron di retry-native-automerge.yml.
+    // Asserito sul blocco `on:` PARSATO: i commenti del workflow nominano i
+    // trigger rimossi per spiegare perché lo sono, e una grep sul testo
+    // confonderebbe quella prosa con la configurazione.
+    expect(Object.keys((YAML.parse(workflow) as { on?: Record<string, unknown> }).on ?? {}))
+      .toEqual(['workflow_dispatch']);
     expect(workflow).not.toContain('NATIVE_AUTOMERGE_BOOTSTRAP_READY');
     expect(workflow).not.toContain('Static control-plane bootstrap guard');
     expect(workflow).not.toContain('control-plane path');

@@ -7,36 +7,59 @@ name: Enable native auto-merge
 # job. The helper below additionally requires the latest reviewer-bot verdict
 # to be anchored to the current HEAD, so an opening event cannot opt in an
 # unreviewed PR.
+# THE PER-PR EVENT TRIGGERS ARE GONE. The hot path now lives at the end of the
+# required `tests` job (`.github/workflows/tests.yml`, step `Enable native
+# auto-merge from the required job`), which already holds the review verdict and
+# the run identity this gate needs — so the nine events that used to observe the
+# same fail-closed verdict were nine separate runs each redoing the sparse
+# checkout, Firebase, the Remote Config PAT and the review/check reads.
+# Measured 2026-09-18 on the last 100 runs of this workflow: 49 `workflow_run`,
+# 29 `pull_request_target`, 22 `pull_request_review`; 59 of the 79 runs queued on
+# the account (75%) were this workflow, starving the `vitest` runs those same PRs
+# were waiting for. The per-branch `concurrency` group added earlier deduplicates
+# bursts on the SAME PR, not the volume across PRs: of 11 runs created after that
+# push exactly one was cancelled.
+#
+# Perché ciascun tipo rimosso non perde nulla — verificato su `origin/main`,
+# dove i tipi di `tests.yml` sono `[opened, synchronize, reopened,
+# ready_for_review]`:
+#   - `opened`, `reopened`, `ready_for_review`: sono tra i tipi di `tests`, che
+#     riparte e concede dall'interno del job.
+#   - `synchronize`: idem, e in più un push nuovo rimette il check required in
+#     pending, quindi il native auto-merge si ferma da sé — la revoca è implicita
+#     nel check required, non serve un evento che la esegua.
+#   - `edited`: NON è tra i tipi di `tests` (rimosso di proposito: 38 delle 116
+#     run su PR nascevano da un `edited` che lasciava l'HEAD identico). Resta
+#     comunque rimovibile qui, ma per un altro motivo: un cambio di titolo o
+#     descrizione non tocca né la review né i check, quindi non può in nessun
+#     caso produrre una concessione che non ci fosse già.
+#   - `pull_request_review: [submitted]`: la review ora è a monte, nello stesso
+#     job che concede.
+#   - `pull_request_review: [dismissed, edited]`: erano il solo caso in cui
+#     l'LGTM decade senza che nulla rivaluti. La rivalutazione non sparisce, si
+#     sposta sul cron sotto: `revalidateNativeAutoMerge` revoca l'opt-in quando
+#     la coppia review/check non tiene più, entro 20 minuti invece che subito.
+#
+# The retry and revocation channel is NOT gone and is not per-PR:
+# `retry-native-automerge.yml` runs `*/20 * * * *`, ONE run per tick for every
+# open PR (up to 100), through this same helper — which also revokes an opt-in
+# whose review/check pair no longer holds (a dismissed or edited review). The
+# outside-diff review-gate exception, which structurally needs a COMPLETED run
+# and therefore cannot be granted from inside the job, is served by that sweep.
+#
+# `workflow_dispatch` is kept so a single PR can still be re-evaluated by hand
+# without waiting for the sweep. Removing this file has its own closing
+# criterion (no orphan runs + green consumers in a real run) and is a separate
+# change.
 on:
-  # This workflow only calls the GitHub API and never executes PR code. Any
-  # local source is checked out explicitly from trusted main below.
-  # pull_request_target keeps the write permission available for fork PRs too.
-  pull_request_target:
-    # These events are observation/retry points only: the helper is fail-closed
-    # until review and the required check both pass.
-    types: [opened, edited, reopened, ready_for_review, synchronize]
-  pull_request_review:
-    # A later edit/dismissal invalidates a previously valid verdict too; the
-    # same fail-closed gate must re-read the review/check pair and revoke any
-    # persisted native opt-in.
-    types: [submitted, edited, dismissed]
-  workflow_run:
-    workflows: [tests]
-    types: [completed]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'PR aperta su main da rivalutare'
+        required: true
 
-# Every event type above is an observation point for the same fail-closed
-# verdict, and the helper re-reads the review/check pair from scratch on each
-# run. Only the newest evaluation per pull request can therefore be correct, so
-# older ones are cancelled instead of queued: with a fleet of open PRs the
-# fan-out (5 pull_request_target types + 3 review types + every `tests` run)
-# otherwise fills the account's concurrent-job budget with runs whose verdict is
-# already superseded. Measured 2026-09-18: 72 of 100 sampled queued runs were
-# this workflow, starving the `vitest` runs the same PRs were waiting for.
-# Keyed on the head branch because `workflow_run` does not expose
-# `pull_request.number` reliably, while `head_branch` is present for all three
-# event types.
 concurrency:
-  group: enable-native-automerge-${{ github.event.pull_request.head.ref || github.event.workflow_run.head_branch || github.run_id }}
+  group: enable-native-automerge-${{ inputs.pr_number || github.run_id }}
   cancel-in-progress: true
 
 permissions:
@@ -45,13 +68,6 @@ permissions:
 
 jobs:
   enable:
-    # Guard explicitly against non-PR dispatches. This keeps a malformed or
-    # manually replayed push event from producing a failed empty run while
-    # dereferencing pull_request fields that do not exist.
-    if: >-
-      github.event_name == 'workflow_run' ||
-      (github.event_name == 'pull_request_review' && github.event.pull_request.draft == false) ||
-      (github.event_name == 'pull_request_target' && github.event.pull_request.draft == false)
     runs-on: ubuntu-latest
     steps:
       # Git is used instead of one Contents API request per helper. The ref is
@@ -104,8 +120,7 @@ jobs:
 
       - name: Enable GitHub auto-merge after verified verdict
         env:
-          PR_NUMBER: ${{ github.event.pull_request.number || '' }}
-          WORKFLOW_HEAD_SHA: ${{ github.event.workflow_run.head_sha || '' }}
+          PR_NUMBER: ${{ inputs.pr_number }}
           REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
@@ -114,14 +129,11 @@ jobs:
             exit 1
           fi
           pr_number="${PR_NUMBER:-}"
-          if [ -z "$pr_number" ] && [ -n "${WORKFLOW_HEAD_SHA:-}" ]; then
-            pr_number=$(GH_TOKEN="$GITHUB_PAT" gh api \
-              "repos/$REPOSITORY/commits/$WORKFLOW_HEAD_SHA/pulls" --paginate --slurp \
-              | jq -r '[add[] | select(.state == "open" and .base.ref == "main") | .number] | .[0] // empty')
-          fi
-          if [ -z "$pr_number" ]; then
-            echo 'Native auto-merge guard: no open main PR found for this event; no merge.'
-            exit 0
+          # Un input a mano non è una prova: il gate rifiuta tutto ciò che non è
+          # un numero di PR, e resta lui l'unico a decidere l'opt-in.
+          if ! printf '%s' "$pr_number" | grep -qE '^[0-9]+$'; then
+            echo "::error::pr_number non valido: serve il numero di una PR aperta su main."
+            exit 1
           fi
           cd "$NATIVE_AUTOMERGE_SOURCE_ROOT"
           GH_TOKEN="$GITHUB_PAT" node "$NATIVE_AUTOMERGE_HELPER_DIR/native-automerge-gate.mjs" \
