@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-18T10:05:19.016Z",
+  "updatedAt": "2026-09-18T10:05:55.469Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -125876,12 +125876,12 @@
     },
     "buersten-technik.ch": {
       "key": "buersten-technik.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-08-21T09:48:05.278Z",
-      "updatedAt": "2026-09-16T10:46:20.133Z",
+      "updatedAt": "2026-09-18T10:05:54.569Z",
       "name": "buersten-technik",
       "domain": "buersten-technik.ch",
       "careersUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12473242-produktionsmechaniker-in-efz-wattwil-sg-a-b-buersten-technik-ag",
@@ -126031,7 +126031,8 @@
       ],
       "detailEnrichment": false,
       "promotionPr": "8849",
-      "promotionBranch": "prospector/promote-2026-09-16"
+      "promotionBranch": "prospector/promote-2026-09-16",
+      "promotedAt": "2026-09-18T10:05:54.569Z"
     },
     "bueschlen-bikesport.ch": {
       "key": "bueschlen-bikesport.ch",
@@ -228371,12 +228372,12 @@
     },
     "elprom.ch": {
       "key": "elprom.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-08-22T04:10:02.842Z",
-      "updatedAt": "2026-09-16T10:46:20.133Z",
+      "updatedAt": "2026-09-18T10:05:55.049Z",
       "name": "elprom",
       "domain": "elprom.ch",
       "careersUrl": "https://elprom.ch/job/elektroplaner-3d-bim-m-w-d-80-100-wallisellen/",
@@ -228446,7 +228447,8 @@
         }
       ],
       "promotionPr": "8849",
-      "promotionBranch": "prospector/promote-2026-09-16"
+      "promotionBranch": "prospector/promote-2026-09-16",
+      "promotedAt": "2026-09-18T10:05:55.049Z"
     },
     "elrafa.ch": {
       "key": "elrafa.ch",
@@ -231650,12 +231652,12 @@
     },
     "endeso@frauenfeld": {
       "key": "endeso@frauenfeld",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:25:27.646Z",
-      "updatedAt": "2026-09-17T08:55:35.239Z",
+      "updatedAt": "2026-09-18T10:05:55.442Z",
       "name": "endeso GmbH",
       "city": "Frauenfeld",
       "zip": "8500",
@@ -231743,7 +231745,8 @@
         }
       ],
       "promotionPr": "8849",
-      "promotionBranch": "prospector/promote-2026-09-16"
+      "promotionBranch": "prospector/promote-2026-09-16",
+      "promotedAt": "2026-09-18T10:05:55.442Z"
     },
     "endingen.ch": {
       "key": "endingen.ch",
