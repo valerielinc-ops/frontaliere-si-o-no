@@ -893,6 +893,18 @@ describe('vacancy extraction', () => {
     expect(job.description).toContain('Bauleitung');
   });
 
+  it('recovers JSON-LD that is entity-escaped AND carries a raw control character', () => {
+    // The two defects are independent, so a CMS can ship both at once: the
+    // block needs entity decoding to become JSON at all, and control-char
+    // escaping to survive `JSON.parse`. Chaining the repairs (escaping only
+    // the raw text, after entity-decoding already failed) left this case
+    // discarded — caught by the review of PR #9161.
+    const raw = '{&quot;@type&quot;:&quot;JobPosting&quot;,&quot;title&quot;:&quot;Autista CE&quot;,&quot;description&quot;:&quot;Aufgaben:\n- Fahren&quot;}';
+    const [job] = extractJsonLd(`<script type="application/ld+json">${raw}</script>`, 'https://x.example/');
+    expect(job).toMatchObject({ title: 'Autista CE' });
+    expect(job.description).toContain('Fahren');
+  });
+
   it('leaves control characters BETWEEN tokens alone and still drops real garbage', () => {
     // Newlines outside a string literal are legal JSON whitespace: escaping
     // them blindly would corrupt every pretty-printed block on the web.
