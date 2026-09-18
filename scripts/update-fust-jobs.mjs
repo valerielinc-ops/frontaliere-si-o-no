@@ -121,6 +121,7 @@ const API_LIMIT = 500; // max jobs per request
 // Operational safety ceiling for a malformed source total. This is not a
 // regional pagination cap: values above it fail loudly before any truncation.
 const MAX_SOURCE_TOTAL = 100_000;
+const MAX_SOURCE_PAGES = Math.ceil(MAX_SOURCE_TOTAL / API_LIMIT);
 // Attribute 70 ("Azienda") value id for "Fust" on medium 1000103 (Coop Group
 // career center) — confirmed against /public/v1/medium/1000103/attributes.
 const FUST_COMPANY_FILTER_ID = '1114045';
@@ -477,8 +478,9 @@ export async function fetchFustJobUrls(options = {}) {
   let droppedDuplicateIdentity = 0;
   const sourceListingKeys = new Set();
   const stableIds = new Set();
+  let paginationComplete = false;
 
-  for (let page = 0; ; page += 1) {
+  for (let page = 0; page < MAX_SOURCE_PAGES; page += 1) {
     const offset = page * API_LIMIT;
     const params = new URLSearchParams({
       lang: 'it',
@@ -500,8 +502,7 @@ export async function fetchFustJobUrls(options = {}) {
         headers: { Accept: 'application/json', 'User-Agent': UA },
       });
       if (!res.ok) {
-        console.warn(`⚠️ API returned ${res.status} at offset ${offset} — stopping pagination.`);
-        break;
+        throw new Error(`Fust discovery failed at offset ${offset}: API returned HTTP ${res.status}.`);
       }
 
       const data = await res.json();
@@ -518,14 +519,16 @@ export async function fetchFustJobUrls(options = {}) {
       }
     } catch (err) {
       if (/Fust discovery invariant failed/.test(String(err?.message || err))) throw err;
-      console.warn(`⚠️ API fetch failed at offset ${offset}: ${err.message}`);
-      break;
+      throw new Error(`Fust discovery failed at offset ${offset}: ${err?.message || err}`, { cause: err });
     } finally {
       clearTimeout(timer);
     }
 
     if (jobs.length === 0) {
-      if (apiTotal !== null && sourceListingKeys.size === apiTotal) break;
+      if (apiTotal !== null && sourceListingKeys.size === apiTotal) {
+        paginationComplete = true;
+        break;
+      }
       throw new Error(`Fust discovery incomplete: fetched ${sourceListingKeys.size}/${apiTotal ?? '?' } API jobs; the source ended before its declared total.`);
     }
 
@@ -585,10 +588,20 @@ export async function fetchFustJobUrls(options = {}) {
     console.log(`  📦 page ${page + 1}: ${jobs.length} rows / ${pageNew} unique records (cumulative ${fetched}${apiTotal !== null ? `/${apiTotal}` : ''})`);
 
     // Drained the full result set.
-    if (apiTotal !== null && fetched === apiTotal) break;
+    if (apiTotal !== null && fetched === apiTotal) {
+      paginationComplete = true;
+      break;
+    }
     if (jobs.length < API_LIMIT) {
       throw new Error(`Fust discovery incomplete: fetched ${fetched}/${apiTotal ?? '?'} API jobs; a short page arrived before the declared total.`);
     }
+  }
+
+  if (!paginationComplete) {
+    throw new Error(
+      `Fust discovery incomplete: reached the pagination safety ceiling `
+      + `MAX_SOURCE_PAGES=${MAX_SOURCE_PAGES} without reading the declared source total.`
+    );
   }
 
   // A partial listing must never become an authoritative destructive snapshot.
