@@ -315,10 +315,10 @@ function digestJobRecord(job, inputCache = null) {
   if (!job || typeof job !== 'object') return sha256('{}');
   const stableId = stableJobId(job);
   const signature = shallowJobRecordSignature(job);
-  const cachedDigest = jobRecordDigestCache.get(job);
-  if (cachedDigest && shallowSignatureMatches(cachedDigest.signature, signature)) {
-    rememberDigestById(inputCache, stableId, cachedDigest);
-    return cachedDigest.digest;
+  const cached = jobRecordDigestCache.get(job);
+  if (cached && shallowSignatureMatches(cached.signature, signature)) {
+    rememberDigestById(inputCache, stableId, cached.entry);
+    return cached.entry.digest;
   }
 
   // The assembler preserves source JSON key order. A shallow filter keeps the
@@ -329,10 +329,13 @@ function digestJobRecord(job, inputCache = null) {
   // Do NOT freeze the record to make the identity cache sound: downstream
   // closeBundle plugins push into its arrays and a frozen record fails the
   // whole build (deploy 35397312111, `object is not extensible`). The shallow
-  // signature above detects those mutations instead.
-  const cacheEntry = { digest, signature };
-  jobRecordDigestCache.set(job, cacheEntry);
-  rememberDigestById(inputCache, stableId, cacheEntry);
+  // signature above detects those mutations instead. The signature lives only
+  // in the WeakMap (same lifetime as the record); the by-id entry stays a
+  // tiny `{ digest }` so the input cache does not retain nested objects.
+  const cachedById = inputCache && stableId ? inputCache.jobDigestsById.get(stableId) : null;
+  const entry = cachedById?.digest === digest ? cachedById : { digest };
+  jobRecordDigestCache.set(job, { signature, entry });
+  rememberDigestById(inputCache, stableId, entry);
   return digest;
 }
 
