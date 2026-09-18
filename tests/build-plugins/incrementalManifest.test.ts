@@ -116,7 +116,7 @@ describe('incremental manifest input contract', () => {
     expect(secondHash).not.toBe(firstHash);
   });
 
-  it('freezes records before reusing their identity digest', () => {
+  it('leaves records mutable after taking their identity digest', () => {
     const cache = createIncrementalManifestInputCache();
     const job = {
       id: 'immutable-job-1',
@@ -124,16 +124,53 @@ describe('incremental manifest input contract', () => {
       title: 'Immutable role',
       datePosted: '2026-08-19T14:02:37.348Z',
       descriptionByLocale: { it: 'Original description' },
+      locations: ['Lugano'],
     };
 
     buildMinimalJobInput(job, 'it', job.slug, [], cache, job);
 
-    expect(Object.isFrozen(job)).toBe(true);
-    expect(Object.isFrozen(job.descriptionByLocale)).toBe(true);
-    expect(Reflect.set(job, 'datePosted', '2026-08-19T16:17:13.045Z')).toBe(false);
-    expect(Reflect.set(job.descriptionByLocale, 'it', 'Changed description')).toBe(false);
-    expect(job.datePosted).toBe('2026-08-19T14:02:37.348Z');
-    expect(job.descriptionByLocale.it).toBe('Original description');
+    // Downstream plugins push into job arrays after the digest is taken:
+    // a frozen record broke every production leg (deploy 35397312111).
+    expect(Object.isFrozen(job)).toBe(false);
+    expect(Object.isFrozen(job.descriptionByLocale)).toBe(false);
+    expect(Object.isFrozen(job.locations)).toBe(false);
+    expect(() => job.locations.push('Chiasso')).not.toThrow();
+    expect(job.locations).toEqual(['Lugano', 'Chiasso']);
+  });
+
+  it('recomputes the digest after an in-place mutation of a cached record', () => {
+    const cache = createIncrementalManifestInputCache();
+    const job = {
+      id: 'mutated-job-1',
+      slug: 'mutated-role',
+      title: 'Mutated role',
+      datePosted: '2026-08-19T14:02:37.348Z',
+      locations: ['Lugano'],
+    };
+    const before = buildMinimalJobInput(job, 'it', job.slug, [], cache, job).jobRecordDigest;
+    const cached = buildMinimalJobInput(job, 'it', job.slug, [], cache, job).jobRecordDigest;
+    expect(cached).toBe(before);
+    expect(cache._metrics.jobDigestComputations).toBe(1);
+
+    job.locations.push('Chiasso');
+    const afterPush = buildMinimalJobInput(job, 'it', job.slug, [], cache, job).jobRecordDigest;
+    expect(afterPush).not.toBe(before);
+    expect(cache._metrics.jobDigestComputations).toBe(2);
+
+    job.datePosted = '2026-08-19T16:17:13.045Z';
+    const afterReassign = buildMinimalJobInput(job, 'it', job.slug, [], cache, job).jobRecordDigest;
+    expect(afterReassign).not.toBe(afterPush);
+    expect(cache._metrics.jobDigestComputations).toBe(3);
+
+    job.locations[0] = 'Mendrisio';
+    const afterElementReplace = buildMinimalJobInput(job, 'it', job.slug, [], cache, job).jobRecordDigest;
+    expect(afterElementReplace).not.toBe(afterReassign);
+    expect(cache._metrics.jobDigestComputations).toBe(4);
+
+    job.locations = ['Bellinzona', 'Chiasso'];
+    const afterSameLengthReassign = buildMinimalJobInput(job, 'it', job.slug, [], cache, job).jobRecordDigest;
+    expect(afterSameLengthReassign).not.toBe(afterElementReplace);
+    expect(cache._metrics.jobDigestComputations).toBe(5);
   });
 
   it('changes the page hash when only related company and salary change', () => {
