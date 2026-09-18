@@ -31,6 +31,12 @@ describe('debiopharm-job-parser', () => {
       expect(parsed.inferredCanton).toBeNull();
     });
 
+    it('does not treat an explicit foreign locality as Swiss even when country says CH', () => {
+      expect(isDebiopharmSwissJob({
+        location: { city: 'Como', region: 'Lombardia', countryCode: 'CH' },
+      })).toBe(false);
+    });
+
     it('does NOT fabricate VD for the negative-control case (Bern, not VD)', () => {
       const parsed = parseDebiopharmJobDetailPayload({
         title: 'Scientist',

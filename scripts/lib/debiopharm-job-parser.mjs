@@ -144,8 +144,7 @@ function hasSwissSourceLocation(candidate = {}, fallbackLocation = '') {
   const country = candidate?.countryCode ?? candidate?.country ?? '';
   const locationText = candidateLocationText(candidate, fallbackLocation);
   return isChCountry(country)
-    && Boolean(locationText)
-    && isTargetSwissLocation(locationText, { includeBorderProximity: false });
+    && (!locationText || isTargetSwissLocation(locationText, { includeBorderProximity: false }));
 }
 
 /**
