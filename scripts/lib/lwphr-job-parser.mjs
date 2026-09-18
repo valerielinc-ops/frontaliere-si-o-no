@@ -119,11 +119,10 @@ export function parseLwphrOpenJobs(html = '') {
 /**
  * Resolve the location named by an LWP publication.
  *
- * The optional legacy fallback is retained for direct parser callers; the
- * crawler passes an empty fallback so an unresolved publication stays without
- * a fabricated locality. For the crawler path, city rescue is limited to the
- * title, explicit work-location labels, and canton-qualified parentheticals;
- * ordinary PDF prose is never treated as an address.
+ * City rescue is limited to the title, explicit work-location labels, and
+ * canton-qualified parentheticals; ordinary PDF prose is never treated as an
+ * address. A canton or country without a resolvable city leaves the locality
+ * empty so the crawler cannot fabricate an address.
  */
 const LWPHR_LOCATION_LABEL_RE = /\b(?:luogo\s+di\s+lavoro|sede\s+di\s+lavoro|posto\s+di\s+lavoro|localit(?:a|à)\s+di\s+lavoro|arbeitsort|arbeitsplatz|standort|lieu\s+de\s+travail|work(?:ing)?\s+location|based\s+(?:in|at)|office\s+in)\b\s*[:\-–]?\s*(.*)$/iu;
 const LWPHR_PARENTHETICAL_RE = /\(([^()\n]{2,100})\)/gu;
@@ -153,28 +152,30 @@ function extractLwphrLocationContext(title = '', pdfText = '') {
   return contexts.join('\n');
 }
 
-export function inferLwphrLocation(title = '', pdfText = '', { fallbackLocation = 'Lugano' } = {}) {
+export function inferLwphrLocation(title = '', pdfText = '') {
   const locationContext = extractLwphrLocationContext(title, pdfText);
   const explicitCity = rescueSwissCityFromText(locationContext);
   if (explicitCity) return explicitCity;
 
-  // Keep the legacy direct-call behaviour for the old parser API. The crawler
-  // always passes an empty fallback, so these broad compatibility matches can
-  // never turn ordinary PDF prose into a published locality.
-  if (fallbackLocation) {
-    const text = `${title} ${pdfText}`.toLowerCase();
-    if (/locarno/.test(text)) return 'Locarno';
-    if (/mendrisiotto|mendrisio/.test(text)) return 'Mendrisio';
-    if (/luganese|lugano/.test(text)) return 'Lugano';
-    if (/ticino|tessin/.test(text)) return 'Ticino';
-    return fallbackLocation;
+  // Preserve the known city aliases used in LWP location contexts, but never
+  // turn a city mentioned in ordinary PDF prose into a locality. Each
+  // returned alias is checked through the shared all-canton registry before
+  // it becomes a locality.
+  const text = locationContext.toLowerCase();
+  const cityAliases = [
+    ['Locarno', /locarno/],
+    ['Mendrisio', /mendrisiotto|mendrisio/],
+    ['Lugano', /luganese|lugano/],
+  ];
+  for (const [city, pattern] of cityAliases) {
+    if (pattern.test(text) && inferAnyCanton(city)) return city;
   }
 
   return '';
 }
 
 export function inferLwphrCanton(title = '', pdfText = '') {
-  const location = inferLwphrLocation(title, pdfText, { fallbackLocation: '' });
+  const location = inferLwphrLocation(title, pdfText);
   if (location) return inferAnyCanton(location);
 
   return inferAnyCanton(extractLwphrLocationContext(title, pdfText));
