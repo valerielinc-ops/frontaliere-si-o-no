@@ -9,6 +9,7 @@ import { createConnection, createServer } from '../.github/actions/claude-codex-
 import {
   isPullRequestReviewArgs,
   isTransientReviewFailure,
+  persistReviewBody,
   reviewRetryDetails,
 } from '../.github/actions/claude-codex-fallback/gh-bridge-server.mjs';
 
@@ -95,6 +96,15 @@ describe('Codex file IPC', () => {
       cwd: process.cwd(), workspaceRoot: process.cwd(), scratchRoot: process.cwd(), headSha: 'short',
     })).toBeNull();
   });
+  it('persists the exact review body only to a trusted absolute path', () => {
+    const root = mkdtempSync(join(tmpdir(), 'codex-review-body-'));
+    roots.push(root);
+    const file = join(root, 'review.md');
+    const body = '<!-- CODEX_FALLBACK_REVIEW -->\n## LGTM\n';
+    expect(persistReviewBody(file, body)).toBe(true);
+    expect(readFileSync(file, 'utf8')).toBe(body);
+    expect(persistReviewBody('review.md', body)).toBe(false);
+  });
   it('retains authenticated GH reads, auth denial, and repository scope through the real bridge', async () => {
     const root = mkdtempSync(join(tmpdir(), 'codex-gh-files-'));
     roots.push(root);
@@ -127,6 +137,7 @@ describe('Codex file IPC', () => {
     roots.push(root);
     const endpoint = join(root, 'mailbox');
     const state = join(root, 'review-attempts');
+    const reviewBodyFile = join(root, 'review.md');
     writeFileSync(state, '0');
     const fakeGh = join(root, 'gh');
     writeFileSync(fakeGh, `#!/bin/sh
@@ -157,7 +168,8 @@ esac
     const server = spawn(process.execPath, [join(action, 'gh-bridge-server.mjs')], {
       env: { PATH: '/usr/bin:/bin', HEAD_SHA: headSha, CODEX_BRIDGE_TRANSPORT: 'files', CODEX_GH_SOCKET: endpoint,
         CODEX_GH_AUTH: 'fixture-token', CODEX_REAL_GH: fakeGh, CODEX_GH_CWD: root,
-        CODEX_GH_WORKSPACE: root, CODEX_GH_SCRATCH: root, CODEX_GH_REPOSITORY: 'owner/repo', CODEX_GH_HOST: 'github.com' },
+        CODEX_GH_WORKSPACE: root, CODEX_GH_SCRATCH: root, CODEX_GH_REPOSITORY: 'owner/repo', CODEX_GH_HOST: 'github.com',
+        CODEX_REVIEW_BODY_FILE: reviewBodyFile },
       stdio: 'ignore',
     });
     try {
@@ -168,6 +180,7 @@ esac
       });
       expect(result.stdout).toContain('reviewed');
       expect(readFileSync(state, 'utf8')).toBe('2');
+      expect(readFileSync(reviewBodyFile, 'utf8')).toBe('## LGTM');
     } finally {
       server.kill('SIGTERM');
       await new Promise(resolve => server.once('exit', resolve));

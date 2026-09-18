@@ -823,6 +823,21 @@ function readCodexEvidenceFile(file) {
   }
 }
 
+/**
+ * Read the review body captured by the provider bridge in this workflow run.
+ * A missing file is deliberately represented by null: the required gate must
+ * not silently fall back to an older PR review when the current run failed to
+ * publish its own verdict.
+ */
+export function readReviewBodyFile(file) {
+  if (!file) return null;
+  try {
+    return readFileSync(realpathSync(file), 'utf8');
+  } catch {
+    return null;
+  }
+}
+
 function fetchRepositoryTreePaths(repo, sha) {
   try {
     if (!/^[0-9a-f]{40}$/iu.test(String(sha || ''))) {
@@ -1124,6 +1139,9 @@ export async function runReviewGate({
   prUrl,
   mutate = true,
   reviews,
+  currentReviewBody,
+  currentReviewCommit,
+  currentReviewLogin = 'frontaliere-automation[bot]',
   codexEvidence,
   codexEvidenceFile,
   repositoryPaths,
@@ -1134,10 +1152,26 @@ export async function runReviewGate({
     throw new Error('repo, PR number or HEAD SHA non valido');
   }
 
-  const reviewHistory = reviews ?? readReviews(repo, pr);
+  const currentReview = typeof currentReviewBody === 'string'
+    ? {
+        user: { type: 'Bot', login: currentReviewLogin },
+        body: currentReviewBody,
+        commit_id: String(currentReviewCommit || headSha),
+        state: 'COMMENTED',
+      }
+    : null;
+  const directCurrentReview = Boolean(currentReview);
+  const reviewHistory = currentReview
+    ? [currentReview]
+    : reviews ?? readReviews(repo, pr);
   const structuredCodexEvidence = codexEvidence
     || readCodexEvidenceFile(codexEvidenceFile || process.env.CODEX_FALLBACK_EVIDENCE_FILE);
-  const automatic = findTestOnlyApproval(reviewHistory, headSha, { ghFn: gh, repo, pr });
+  // The workflow has already verified and published a tests-only review before
+  // this step. In direct mode, do not re-read the PR review history merely to
+  // rediscover that body; the current run's file is the source of truth.
+  const automatic = directCurrentReview
+    ? null
+    : findTestOnlyApproval(reviewHistory, headSha, { ghFn: gh, repo, pr });
   if (automatic) return { approved: true, reason: 'tests-only owner policy', review: automatic, reviewCommit: headSha };
   const codexEvidenceRequested = Boolean(codexEvidence || codexEvidenceFile || process.env.CODEX_FALLBACK_EVIDENCE_FILE);
   if (codexEvidenceRequested
@@ -1154,7 +1188,7 @@ export async function runReviewGate({
   const latest = codexReview || latestReviewer(reviewHistory);
   if (!latest) return { approved: false, reason: 'nessuna review Codex leggibile' };
   const body = normalizeReviewBody(latest.body || '');
-  const staleCarry = staleFallbackCarryForward({
+  const staleCarry = directCurrentReview ? null : staleFallbackCarryForward({
     reviews: reviewHistory,
     latest,
     headSha,
@@ -1171,10 +1205,18 @@ export async function runReviewGate({
       staleFindings: staleCarry.findings,
     };
   }
-  const historical = historicalImportantFindings(reviewHistory, {
-    repositoryPaths: repositoryPaths ?? null,
-  });
-  const effectiveBody = reviewBodyWithHistoricalFindings(body, historical);
+  // Historical carry-forward belongs to the separate audit path. The required
+  // check must classify only the verdict emitted by this run; otherwise an old
+  // Important can invalidate a new LGTM even when the current review no longer
+  // contains that finding.
+  const historical = directCurrentReview
+    ? []
+    : historicalImportantFindings(reviewHistory, {
+        repositoryPaths: repositoryPaths ?? null,
+      });
+  const effectiveBody = directCurrentReview
+    ? body
+    : reviewBodyWithHistoricalFindings(body, historical);
   const findings = importantFindings(effectiveBody);
   const reviewCommit = String(latest.commit_id || '');
   let classification = emptyClassification(findings);
@@ -1239,14 +1281,22 @@ async function main() {
   const pr = process.env.PR_NUMBER || '';
   const headSha = process.env.HEAD_SHA || '';
   const repositoryPaths = fetchRepositoryHeadPaths(repo, pr);
-  const result = await runReviewGate({
-    repo,
-    pr,
-    headSha,
-    runUrl: process.env.RUN_URL,
-    prUrl: process.env.PR_URL,
-    repositoryPaths,
-  });
+  const reviewBodyFile = process.env.REVIEW_BODY_FILE
+    || process.env.CODEX_REVIEW_BODY_FILE
+    || '';
+  const currentReviewBody = readReviewBodyFile(reviewBodyFile);
+  const result = currentReviewBody === null
+    ? { approved: false, reason: 'review corrente del run assente o non leggibile' }
+    : await runReviewGate({
+        repo,
+        pr,
+        headSha,
+        runUrl: process.env.RUN_URL,
+        prUrl: process.env.PR_URL,
+        repositoryPaths,
+        currentReviewBody,
+        currentReviewCommit: headSha,
+      });
   writeApproved(result.approved);
   if (!result.approved) {
     postBlockedComment(repo, pr, headSha, process.env.RUN_URL || '', result.reason || 'verdetto non risolvibile');

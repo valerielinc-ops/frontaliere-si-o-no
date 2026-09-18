@@ -36,6 +36,10 @@ inputs:
     description: "Optional marker required in a Codex primary review body before a review gate accepts it."
     required: false
     default: ""
+  review_body_file:
+    description: "Trusted absolute path where the host bridge captures the exact posted review body."
+    required: false
+    default: ""
 
 outputs:
   execution_file:
@@ -56,6 +60,9 @@ outputs:
   codex_output_file:
     description: "Ephemeral last-message file written by Codex, if attempted."
     value: ${{ steps.finalize.outputs.codex_output_file }}
+  review_body_file:
+    description: "Ephemeral exact review body captured by the host bridge for this run."
+    value: ${{ steps.finalize.outputs.review_body_file }}
   claude_outcome:
     description: "Deprecated compatibility output; always skipped for the Codex-only action."
     value: ${{ steps.finalize.outputs.claude_outcome }}
@@ -432,6 +439,7 @@ runs:
         CODEX_PROMPT: ${{ inputs.prompt }}
         CODEX_REVIEW_MARKER: ${{ inputs.review_marker }}
         CODEX_OUTPUT: ${{ runner.temp }}/codex-fallback-${{ github.run_id }}-${{ github.run_attempt }}.txt
+        CODEX_REVIEW_BODY_FILE: ${{ inputs.review_body_file || format('{0}/codex-review-body-{1}-{2}.md', runner.temp, github.run_id, github.run_attempt) }}
       run: |
         set -euo pipefail
         realpath_cmd=/usr/bin/realpath
@@ -904,6 +912,8 @@ runs:
           CODEX_GH_HOST="$codex_github_host" \
           CODEX_GH_CORPUS_REPOSITORY="nanakokyobashi-rgb/frontaliere-articles" \
           CODEX_GH_SIDE_EFFECT_FILE="$codex_side_effect_file" \
+          CODEX_REVIEW_HEAD_SHA="${HEAD_SHA:-}" \
+          CODEX_REVIEW_BODY_FILE="$CODEX_REVIEW_BODY_FILE" \
           PATH="$gh_host_tools/bin:$PATH" \
           HOME="$scratch_home" \
           "$node_realpath" "$bridge_dir/gh-server.mjs" >/dev/null 2>&1 &
@@ -1114,6 +1124,7 @@ runs:
         REPAIR_QUOTA_ADMIT: ${{ steps.repair_quota.outputs.admit }}
         REPAIR_QUOTA_HELD: ${{ steps.repair_quota.outputs.held }}
         EVIDENCE_FILE: ${{ runner.temp }}/codex-primary-evidence-${{ github.run_id }}-${{ github.run_attempt }}.md
+        REVIEW_BODY_FILE: ${{ inputs.review_body_file || format('{0}/codex-review-body-{1}-{2}.md', runner.temp, github.run_id, github.run_attempt) }}
         TRUSTED_NODE: ${{ steps.trusted_node.outputs.node_realpath }}
         RUNTIME_ROOT: ${{ steps.runtime_snapshot.outputs.runtime_root }}
       run: |
@@ -1128,7 +1139,7 @@ runs:
           # the round marker before this finalizer was reached.
           printf 'execution_file=\n' >> "$GITHUB_OUTPUT"
           printf 'fallback_used=false\nfallback_success=false\nfallback_trigger=\n' >> "$GITHUB_OUTPUT"
-          printf 'fallback_evidence_file=\ncodex_output_file=\n' >> "$GITHUB_OUTPUT"
+          printf 'fallback_evidence_file=\ncodex_output_file=\nreview_body_file=\n' >> "$GITHUB_OUTPUT"
           printf 'codex_outcome=skipped\nclaude_outcome=skipped\nclaude_used=false\nclaude_success=false\n' >> "$GITHUB_OUTPUT"
           printf 'side_effect_detected=false\nprimary_provider=codex\nprimary_success=false\nselected_provider=none\naction_success=true\n' >> "$GITHUB_OUTPUT"
           exit 0
@@ -1182,6 +1193,11 @@ runs:
         printf 'fallback_trigger=%s\n' "$trigger" >> "$GITHUB_OUTPUT"
         printf 'fallback_evidence_file=%s\n' "$evidence_file" >> "$GITHUB_OUTPUT"
         printf 'codex_output_file=%s\n' "${CODEX_OUTPUT:-}" >> "$GITHUB_OUTPUT"
+        if [ -n "${REVIEW_BODY_FILE:-}" ] && [ -s "$REVIEW_BODY_FILE" ]; then
+          printf 'review_body_file=%s\n' "$REVIEW_BODY_FILE" >> "$GITHUB_OUTPUT"
+        else
+          printf 'review_body_file=\n' >> "$GITHUB_OUTPUT"
+        fi
         printf 'codex_outcome=%s\n' "$codex_outcome" >> "$GITHUB_OUTPUT"
         printf 'claude_outcome=skipped\n' >> "$GITHUB_OUTPUT"
         printf 'claude_used=%s\n' "$claude_used" >> "$GITHUB_OUTPUT"

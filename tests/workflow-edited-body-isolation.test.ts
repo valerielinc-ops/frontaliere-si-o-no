@@ -32,7 +32,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
 }
 
 describe('one code verdict and metadata-triggered review recovery', () => {
-  it('has exactly one unconditional required execution job and reviews edited PR metadata', () => {
+  it('has exactly one unconditional required execution job and one verdict per PR HEAD', () => {
     expect(Object.keys(workflow.jobs)).toEqual(['vitest']);
     expect(job.name).toBe(VITEST_CHECK_NAME);
     expect(job.name).toBe(VITEST_EXECUTION_JOB_NAME);
@@ -41,10 +41,11 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(workflow.on.pull_request.types).toContain('edited');
     expect(workflow.on.pull_request.types).toContain('synchronize');
     const guard = job.steps.find((step: { name?: string }) => step.name?.startsWith('Re-review guard')) as { env?: Record<string, string>; run?: string } | undefined;
-    expect(guard?.env?.EVENT_ACTION).toContain('github.event.action');
-    expect(guard?.run).toContain('PR metadata modificata → review piena sulla revisione corrente del review input.');
+    expect(guard?.env?.EVENT_ACTION).toBeUndefined();
+    expect(guard?.env?.REVIEW_BODY_FILE).toContain('current-review-body-');
+    expect(guard?.run).toContain('nessuna seconda review, anche dopo un evento edited');
+    expect(guard?.run).toContain('jq -c');
     expect(guard?.run).toContain('gh api "repos/$REPO/pulls/$PR_NUMBER/reviews"');
-    expect(guard?.run).toContain('nessun riuso del verdetto precedente');
     expect(guard?.run).toContain('skip=false');
   });
 

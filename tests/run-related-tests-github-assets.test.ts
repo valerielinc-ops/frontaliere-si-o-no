@@ -414,4 +414,16 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(total).toBeGreaterThan(100);
     expect(selectionFor([orphan]).length).toBeLessThan(total / 4);
   }, 120_000);
+
+  it('tests.yml seleziona solo i contratti della pipeline, non gli scanner della cartella', () => {
+    const selected = selectionFor(['.github/workflows/tests.yml']);
+    expect(selected).toEqual(expect.arrayContaining([
+      'tests/pr-fixer-claim-idempotency.test.ts',
+      'tests/workflow-edited-body-isolation.test.ts',
+      'tests/workflow-review-identity-jq.test.ts',
+      'tests/workflow-review-autorebase-order.test.ts',
+    ]));
+    expect(selected).not.toContain('tests/workflow-background-wait-schema.test.ts');
+    expect(selected.length).toBeLessThan(20);
+  }, 120_000);
 });

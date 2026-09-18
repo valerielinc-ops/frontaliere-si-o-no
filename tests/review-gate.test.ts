@@ -354,6 +354,24 @@ describe('review gate: scope classification is fail-closed', () => {
 });
 
 describe('review gate: unresolvable head verdicts are blocking', () => {
+  it('in current-run mode ignores historical PR reviews and evaluates only the supplied body', async () => {
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[historicalImportantReview]],
+      currentReviewBody: alignmentLgtmReview.body,
+      currentReviewCommit: HEAD_SHA,
+      repositoryPaths: TREE_FILES,
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(true);
+    expect(result.reviewCommit).toBe(HEAD_SHA);
+    expect(result.classification?.blocking).toBe(false);
+  });
+
   it('renders the only previous review as historical context before the next review exists', () => {
     expect(historicalImportantFindings([[historicalImportantReview]])).toHaveLength(0);
     expect(historicalImportantFindings([[historicalImportantReview]], { includeLatest: true }))

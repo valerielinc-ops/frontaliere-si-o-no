@@ -31,7 +31,7 @@ function runJq(filter: string, input: unknown): string {
 describe('tests.yml review identity jq contract', () => {
   it('accepts valid logins without trusting variable REST type metadata', () => {
     const filters = reviewJqFilters();
-    expect(filters).toHaveLength(2);
+    expect(filters).toHaveLength(1);
     for (const filter of filters) {
       expect(filter).not.toContain('.user.type');
     }
@@ -59,10 +59,9 @@ describe('tests.yml review identity jq contract', () => {
       },
     ];
 
-    // The first filter is the carry-forward LGTM query; the second is the
-    // incremental re-review base query. Both must use the same exact allowlist.
-    expect(runJq(filters[0], reviews)).toBe('app-commit');
-    expect(runJq(filters[1], reviews)).toBe('claude-commit');
+    // The remaining filter is the incremental re-review base query. It uses
+    // the exact allowlist and does not trust the variable REST `type` field.
+    expect(runJq(filters[0], reviews)).toBe('claude-commit');
   });
 
   it('keeps the review gate blocking without a quota admission step', () => {
@@ -70,6 +69,8 @@ describe('tests.yml review identity jq contract', () => {
     const abort = workflowStepContaining('id: review_abort');
 
     expect(gate).toContain('node scripts/ci/review-gate.mjs');
+    expect(gate).toContain('REVIEW_BODY_FILE: ${{ runner.temp }}/current-review-body-');
+    expect(gate).not.toContain('/pulls/$PR_NUMBER/reviews');
     expect(gate).not.toContain('continue-on-error: true');
     expect(abort).not.toContain('continue-on-error: true');
     expect(workflow).not.toContain('id: quota');

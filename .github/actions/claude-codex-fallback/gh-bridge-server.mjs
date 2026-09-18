@@ -207,6 +207,21 @@ export function isTransientReviewFailure({ code, stderr } = {}) {
   return Number(code) !== 0 && TRANSIENT_REVIEW_FAILURE_RE.test(String(stderr || ''));
 }
 
+/**
+ * Persist the exact review body accepted by `gh pr review` for the required
+ * gate in the same workflow run. The path is supplied by the trusted action
+ * host, never by model-generated arguments.
+ */
+export function persistReviewBody(file, body) {
+  if (!path.isAbsolute(String(file || '')) || typeof body !== 'string') return false;
+  try {
+    fs.writeFileSync(file, body, { encoding: 'utf8', mode: 0o600 });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 function pullRequestReviewNumber(args, commandIndex) {
   let operationSeen = false;
   for (let index = commandIndex + 1; index < args.length; index += 1) {
@@ -686,6 +701,7 @@ function main() {
   const corpusToken = process.env.CODEX_GH_CORPUS_AUTH || '';
   const realGh = process.env.CODEX_REAL_GH;
   const sideEffectFile = process.env.CODEX_GH_SIDE_EFFECT_FILE || '';
+  const reviewBodyFile = process.env.CODEX_REVIEW_BODY_FILE || '';
   const cwd = process.env.CODEX_GH_CWD;
   const workspaceRoot = process.env.CODEX_GH_WORKSPACE || cwd;
   const scratchRoot = process.env.CODEX_GH_SCRATCH;
@@ -805,7 +821,7 @@ function main() {
         cwd,
         workspaceRoot,
         scratchRoot,
-        headSha: process.env.HEAD_SHA,
+        headSha: process.env.CODEX_REVIEW_HEAD_SHA || process.env.HEAD_SHA,
       });
       let reviewAttempt = 0;
 
@@ -943,6 +959,7 @@ function main() {
             && !client.destroyed
             && !shuttingDown) {
             if (await reviewWasPersisted(reviewDetails)) {
+              persistReviewBody(reviewBodyFile, reviewDetails.body);
               finish({
                 code: 0,
                 stdout,
@@ -956,6 +973,9 @@ function main() {
               else finish(result);
             }, delay);
             return;
+          }
+          if (reviewDetails && resultCode === 0) {
+            persistReviewBody(reviewBodyFile, reviewDetails.body);
           }
           finish(result);
           if (shuttingDown && children.size === 0) finalizeShutdown();

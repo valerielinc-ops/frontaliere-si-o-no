@@ -1,6 +1,6 @@
 /** Owner policy: tests run in CI, but are excluded from model review. */
 import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
@@ -251,15 +251,30 @@ export function findTestOnlyApproval(reviews, head, { ghFn = gh, repo, pr } = {}
   if (!candidates.length || !verifyTestOnlyHead(ghFn, repo, pr, head)) return null;
   return candidates.at(-1);
 }
+
+function publishCurrentReviewBody(body) {
+  const file = process.env.REVIEW_BODY_FILE;
+  if (!file) return;
+  if (resolve(file) !== file) throw new Error('REVIEW_BODY_FILE deve essere assoluto');
+  writeFileSync(file, body, { encoding: 'utf8', mode: 0o600 });
+  if (process.env.GITHUB_OUTPUT) {
+    writeFileSync(process.env.GITHUB_OUTPUT, `review_body_file=${file}\n`, { encoding: 'utf8', flag: 'a' });
+  }
+}
+
 export function postTestOnlyReview({ repo, pr, head, ghFn = gh }) {
   if (!/^[\w.-]+\/[\w.-]+$/.test(repo ?? '') || !/^\d+$/.test(String(pr)) || !/^[a-f0-9]{40}$/.test(head ?? '')) throw new Error('Invalid review target');
   if (!verifyTestOnlyHead(ghFn, repo, pr, head)) throw new Error('PR is not a complete tests-only change on the expected HEAD');
-  const reviews = ghFn(['api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate']);
-  if (findTestOnlyApproval(reviews, head, { ghFn, repo, pr })) return;
   const body = `${TEST_REVIEW_MARKER}\n## Scope\nApprovazione automatica: la PR modifica esclusivamente test. I controlli CI e il contratto del body restano obbligatori; nessuna review del modello richiesta dalla policy del proprietario.\n\n## Findings (Important: 0, Nit: 0)\n\n## LGTM\n`;
+  const reviews = ghFn(['api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate']);
+  if (findTestOnlyApproval(reviews, head, { ghFn, repo, pr })) {
+    publishCurrentReviewBody(body);
+    return;
+  }
   ghFn(['api', `repos/${repo}/pulls/${pr}/reviews`, '--method', 'POST', '--input', '-'], {
     input: JSON.stringify({ commit_id: head, event: 'COMMENT', body }),
   });
+  publishCurrentReviewBody(body);
 }
 
 function normalizedPrLabels(pr) {

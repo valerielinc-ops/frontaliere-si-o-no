@@ -66,6 +66,19 @@ const ignoredRe = GRAPH_IGNORED_RE;
 const githubAssetRe = /^\.github\/.+\.(?:ya?ml|json)$/i;
 const testFixtureRe = /^tests\/.+\.json$/i;
 const assetLiteralRe = /(?:\.github|tests)\/[A-Za-z0-9._-][A-Za-z0-9._/-]*/g;
+// `tests.yml` is the required runner itself, not an application input. A
+// directory scanner that reads every workflow must not make a small change to
+// this file fan out to 139 unrelated test files. Keep a short, explicit
+// contract roster for this workflow; other generated workflows retain the
+// directory dependency used by their scanners.
+const targetedWorkflowTests = new Map([
+  ['.github/workflows/tests.yml', [
+    'tests/pr-fixer-claim-idempotency.test.ts',
+    'tests/workflow-edited-body-isolation.test.ts',
+    'tests/workflow-review-identity-jq.test.ts',
+    'tests/workflow-review-autorebase-order.test.ts',
+  ]],
+]);
 const skipCorpusWide = process.env.VITEST_SKIP_CORPUS_WIDE === 'true';
 const corpusWideTests = skipCorpusWide ? new Set(listCorpusWideTests()) : new Set();
 // A related-test verdict is only meaningful when the generated runtime data
@@ -260,6 +273,10 @@ function importsOf(file, fileSet, assets) {
     // lascia il letterale con lo slash e senza normalizzazione non matcha.
     const literal = rawLiteral.replace(/\/+$/, '');
     for (const asset of assets) {
+      // The main tests runner is covered by the explicit contract roster below,
+      // so neither generic directory scans nor incidental exact reads in
+      // unrelated inventory tests can fan out when only tests.yml changes.
+      if (asset === '.github/workflows/tests.yml') continue;
       if (asset === literal || asset.startsWith(`${literal}/`)) deps.add(asset);
     }
   }
@@ -289,7 +306,7 @@ function loadGraph(files, assets) {
     previousVersion = cached.version || 0;
     previousAssets = cached.assets || null;
   } catch {}
-  const reusable = previousVersion === 6 && previousAssets === assetsDigest;
+  const reusable = previousVersion === 7 && previousAssets === assetsDigest;
   const fileSet = new Set(files);
   // Keep old entries for deleted files: a deleted module can still be a
   // changed root, and its cached reverse edges identify the tests that used
@@ -304,7 +321,7 @@ function loadGraph(files, assets) {
       : { signature: sig, deps: importsOf(file, fileSet, assets) };
   }
   mkdirSync(path.dirname(graphFile), { recursive: true });
-  writeFileSync(graphFile, JSON.stringify({ version: 6, assets: assetsDigest, files: graph }));
+  writeFileSync(graphFile, JSON.stringify({ version: 7, assets: assetsDigest, files: graph }));
   return graph;
 }
 
@@ -398,6 +415,13 @@ for (const [file, entry] of Object.entries(graph)) {
   }
 }
 const related = new Set(forceFull ? allTests : candidates.filter(isRunnableTest));
+if (!forceFull) {
+  for (const asset of candidates.filter((file) => githubAssetRe.test(file))) {
+    for (const test of targetedWorkflowTests.get(asset) || []) {
+      if (isRunnableTest(test)) related.add(test);
+    }
+  }
+}
 if (forceFull) {
   console.log(`Changed-paths status is ${changedStatus} → running all tracked tests conservatively.`);
 }
