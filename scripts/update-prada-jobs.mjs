@@ -5,13 +5,14 @@
  * Source:
  *   https://jobs.pradagroup.com/
  *
- * Prada Group operates luxury fashion brands with a major site in Mendrisio, Ticino.
+ * Prada Group operates luxury fashion brands with offices and boutiques across Switzerland.
  * The careers portal is likely SAP SuccessFactors-based.
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { createHash } from 'node:crypto';
+import { resolveFallbackAddress } from '../build-plugins/shared/companyHqAddresses.mjs';
 import { fileURLToPath } from 'node:url';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
 import {
@@ -41,9 +42,10 @@ import {
 import {
   fetchPradaJobUrls,
   fetchPradaDetailPage,
-  resolvePradaTicinoLocation,
+  resolvePradaSwissLocation,
   slugify, inferEmploymentType,
 } from './lib/prada-job-parser.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
@@ -102,16 +104,16 @@ function buildPradaDescriptions(title, location, department) {
 
   return {
     it: `Prada Group cerca ${title}${dept} presso la sede di ${location}, Svizzera. ` +
-        `Prada Group è una delle principali aziende del lusso al mondo, con la sede industriale e logistica di Mendrisio in Canton Ticino. ` +
+        `Prada Group è una delle principali aziende del lusso al mondo, con boutique, uffici e attività commerciali in diverse località svizzere. ` +
         `Il gruppo comprende i marchi Prada, Miu Miu, Church's e Car Shoe. Candidatura tramite il portale ufficiale jobs.pradagroup.com.`,
     en: `Prada Group is looking for a ${title}${deptEn} at their ${location}, Switzerland location. ` +
-        `Prada Group is one of the world's leading luxury fashion companies, with a major industrial and logistics hub in Mendrisio, Canton Ticino. ` +
+        `Prada Group is one of the world's leading luxury fashion companies, with boutiques, offices and commercial activities across Switzerland. ` +
         `The group includes the Prada, Miu Miu, Church's and Car Shoe brands. Apply through the official careers portal at jobs.pradagroup.com.`,
     de: `Prada Group sucht eine/n ${title}${deptDe} am Standort ${location}, Schweiz. ` +
-        `Die Prada Group ist eines der weltweit führenden Luxusmodeunternehmen mit einem wichtigen Industrie- und Logistikstandort in Mendrisio, Kanton Tessin. ` +
+        `Die Prada Group ist eines der weltweit führenden Luxusmodeunternehmen mit Boutiquen, Büros und kommerziellen Aktivitäten in der ganzen Schweiz. ` +
         `Zur Gruppe gehören die Marken Prada, Miu Miu, Church's und Car Shoe. Bewerbung über das offizielle Karriereportal jobs.pradagroup.com.`,
     fr: `Prada Group recherche un/une ${title}${deptFr} sur le site de ${location}, Suisse. ` +
-        `Prada Group est l'une des principales entreprises de mode de luxe au monde, avec un important pôle industriel et logistique à Mendrisio, Canton du Tessin. ` +
+        `Prada Group est l'une des principales entreprises de mode de luxe au monde, avec des boutiques, des bureaux et des activités commerciales partout en Suisse. ` +
         `Le groupe comprend les marques Prada, Miu Miu, Church's et Car Shoe. Candidature via le portail officiel jobs.pradagroup.com.`,
   };
 }
@@ -121,7 +123,7 @@ async function main() {
   // `sourceCounts.parsed` (issue #7707): the post-parser, pre-pipeline count.
   // Without it a run emptied downstream of the parser (detail-fetch abort,
   // merge, localization) reads as `discovered > 0, written === 0`, the same
-  // shape as a legitimate "found jobs, none in Mendrisio" run, and
+  // shape as a legitimate "found jobs, none in Switzerland" run, and
   // check-crawler-health calls a broken crawler healthy.
   const sourceCounts = { discovered: null, parsed: null };
   registerCrawlerSummaryGuard(COMPANY_KEY, 'Prada Group', sourceCounts);
@@ -140,9 +142,9 @@ async function main() {
   console.log(`\ud83e\udde9 Found ${rawJobs.length} Prada Group job links. Fetching details...`);
   const parsedJobs = [];
   for (const raw of rawJobs) {
-    const listingLocation = resolvePradaTicinoLocation(raw);
+    const listingLocation = resolvePradaSwissLocation(raw);
     if (!listingLocation) {
-      console.log(`  ⏭️  ${raw.title}: source location "${raw.location || '(missing)'}" is outside Mendrisio — skipping`);
+      console.log(`  ⏭️  ${raw.title}: source location "${raw.location || '(missing)'}" is outside Switzerland — skipping`);
       continue;
     }
 
@@ -158,13 +160,19 @@ async function main() {
     // to the already-proven listing/route location.
     const detailLocation = String(detail?.location || '').trim();
     const loc = detailLocation
-      ? resolvePradaTicinoLocation({ location: detailLocation, url: raw.url })
+      ? resolvePradaSwissLocation({ location: detailLocation, url: raw.url })
       : listingLocation;
     const dept = raw.department || detail?.department || '';
     if (!loc) {
-      console.log(`  ⏭️  ${raw.title}: detail location "${detailLocation}" is outside Mendrisio — skipping`);
+      console.log(`  ⏭️  ${raw.title}: detail location "${detailLocation}" is outside Switzerland — skipping`);
       continue;
     }
+    const canton = inferAnyCanton(loc);
+    if (!canton) {
+      console.log(`  ⏭️  ${raw.title}: no Swiss canton could be inferred from "${loc}" — skipping`);
+      continue;
+    }
+    const fallbackAddress = resolveFallbackAddress(undefined, loc, canton);
 
     // Build rich locale-specific descriptions (200+ chars each)
     const descByLocale = hasRealDescription
@@ -177,11 +185,7 @@ async function main() {
       continue;
     }
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
-    // Slug-only guard: `loc` (`detail?.location || raw.location || 'Mendrisio'`)
-    // can be the literal "undefined"/"null" string (truthy) → `-undefined` in an
-    // active slug (#952, class #900/#901). addressLocality keeps `loc` (choke-point
-    // normalizer handles de-index).
-    const jobSlug = slugify(`${raw.title}-prada-group-${safeLocationToken(loc, 'Mendrisio')}`);
+    const jobSlug = slugify(`${raw.title}-prada-group-${safeLocationToken(loc)}`);
     parsedJobs.push({
       id: `prada-${urlHash}`,
       slug: jobSlug,
@@ -196,8 +200,11 @@ async function main() {
       requirements: [],
       requirementsByLocale: { en: [] },
       location: loc,
-      canton: 'TI',
-      addressLocality: loc,
+      canton,
+      addressRegion: canton,
+      addressLocality: fallbackAddress.addressLocality,
+      streetAddress: fallbackAddress.streetAddress,
+      postalCode: fallbackAddress.postalCode,
       addressCountry: 'CH',
       category: 'fashion',
       contract: 'full-time', employmentType: inferEmploymentType(raw.title, description),
@@ -220,10 +227,10 @@ async function main() {
   sourceCounts.parsed = parsedJobs.length;
 
   // The query endpoint returned a coherent non-empty snapshot, so records
-  // outside this crawler's Mendrisio ownership are known false positives, not
+  // outside this crawler's Swiss ownership are known false positives, not
   // transient misses. Exclude them from merge grace and archive their routes.
-  const targetExisting = priorJobs.filter((job) => resolvePradaTicinoLocation(job));
-  const retiredForeign = priorJobs.filter((job) => !resolvePradaTicinoLocation(job));
+  const targetExisting = priorJobs.filter((job) => resolvePradaSwissLocation(job));
+  const retiredForeign = priorJobs.filter((job) => !resolvePradaSwissLocation(job));
   const archivedForeign = archiveRemovedJobsToSlice(retiredForeign, COMPANY_KEY);
   const published = mergeCompanyJobs(parsedJobs, targetExisting);
   printPublishedJobUrls(published, 'Prada Group');
@@ -259,7 +266,7 @@ async function main() {
       unchangedJobs: [],
     });
     await assembleJobsDataset();
-    console.log(`ℹ️ Prada source proved 0 Mendrisio jobs; archived ${archivedForeign} foreign route(s).`);
+    console.log(`ℹ️ Prada source proved 0 Swiss jobs; archived ${archivedForeign} foreign route(s).`);
     return;
   }
 
@@ -285,4 +292,7 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Prada Group'));
+const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isDirectRun) {
+  main().catch((err) => exitCrawlerOnError(err, 'Prada Group'));
+}
