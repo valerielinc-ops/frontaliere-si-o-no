@@ -20,6 +20,7 @@ import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import {
   acquireLease,
+  firestoreDocumentName,
   releaseLease,
 } from './lib/global-data-pipeline-lease.mjs';
 
@@ -49,6 +50,11 @@ export function crawlerGroupLeaseDoc(groupFile) {
   const match = /^crawler-group-(\d{2})\.yml$/u.exec(String(groupFile || ''));
   if (!match) throw new Error(`invalid crawler group file for lease: ${JSON.stringify(groupFile)}`);
   return `ci_leases/crawler-group-live-${match[1]}`;
+}
+
+/** Firestore resource name for this group's leaseDoc; not a REST URL. */
+export function crawlerGroupLeaseResourceName(projectId, groupFile) {
+  return firestoreDocumentName(projectId, crawlerGroupLeaseDoc(groupFile));
 }
 
 export function parseArgs(argv) {
