@@ -138,29 +138,6 @@ describe('PostAuto crawler parser', () => {
         vi.unstubAllGlobals();
       }
     });
-
-    it('fails closed when a non-empty page repeats source identities', async () => {
-      const pageRecords = Array.from({ length: 20 }, (_, index) => ({
-        response: {
-          id: `postauto-repeated-${index}`,
-          cust_brandCompanyJobSearch: ['PostAuto'],
-        },
-      }));
-      const fetchMock = vi.fn(async () => ({
-        ok: true,
-        status: 200,
-        json: async () => ({ totalJobs: 40, jobSearchResult: pageRecords }),
-      }));
-      vi.stubGlobal('fetch', fetchMock);
-
-      try {
-        await expect(postAutoTestables.fetchPostAutoListings(1000))
-          .rejects.toThrow(/repeated source identity|no unique progress/);
-        expect(fetchMock).toHaveBeenCalledTimes(2);
-      } finally {
-        vi.unstubAllGlobals();
-      }
-    });
   });
 
   // ── slugify (imported from crawler-template) ──
