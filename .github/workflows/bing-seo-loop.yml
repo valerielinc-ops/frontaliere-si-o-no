@@ -43,22 +43,57 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+          # Allowlist → exclude-list. La lista per-file qui sopra prometteva di
+          # enumerare le dipendenze di questo job, ma nessuno dei due entry
+          # point ha un grafo di import stabile: `vitest.config.ts` ne ha
+          # acquisiti cinque (`scripts/ci/lpt-shard.mjs`,
+          # `tests/shard-weights.json`, `scripts/ci/dataset-dependent-tests.mjs`,
+          # `scripts/ci/corpus-wide-tests.mjs`,
+          # `scripts/ci/live-data-test-guard.mjs`) e `scripts/seo/bing-seo-policy.mjs`
+          # uno (`build-plugins/shared/cantonResolvers.mjs`), tutti dopo che
+          # questa lista era stata scritta. Nessuno di quei file era stato
+          # spostato: erano presenti su main e assenti dal cono sparse, quindi
+          # il job è rimasto rosso 54h con tre moduli «non trovati» che
+          # esistevano. Un allowlist per-file è un secondo grafo di dipendenze
+          # mantenuto a mano, che si rompe in silenzio a ogni import aggiunto
+          # da una PR che non sa di questo workflow.
+          #
+          # La forma e' un allowlist per DIRECTORY, come `tests.yml:vitest`, non
+          # una exclude-list `/*` + `!/...`: il sorgente di questo repo e' ~200 MB
+          # su 6,8 GB di albero, quindi prendere le directory di codice per intero
+          # costa quanto escludere i bucket pesanti, ma resta corretto quando il
+          # grafo cresce. Una exclude-list qui sarebbe anche sbagliata di
+          # sostanza: `scripts/ci/verify-checkout-profiles.mjs` verifica che un
+          # profilo non escluda cio' che il job usa, e con l'intero albero di
+          # `tests/` presente il job «usa» anche `data/jobs/`,
+          # `packages/articles/content/` e gli altri bucket, che quindi non
+          # possono piu' essere esclusi. `apply-checkout-profiles.mjs` tiene
+          # questo job fra i profili scritti a mano e non lo rigenera, quindi la
+          # correttezza e' a carico di questo blocco.
+          # `/packages/*/engine/` non e' decorativo: 6 dei 30 symlink del repo
+          # stanno in `build-plugins/shared/` e puntano dentro
+          # `packages/articles/engine/`. Un symlink il cui target e' fuori dal
+          # cono si segue e riporta ENOENT nominando IL LINK, non il target —
+          # cioe' un file presente che sembra assente, che e' il modo in cui
+          # questa classe di difetti si ripresenta. Costa 34 file / 0,5 MB.
+          # I 22 symlink che da `services/` puntano a
+          # `packages/articles/content/` restano invece pendenti per scelta:
+          # sono 24'276 file / 249 MB, e `tests.yml:vitest` — il gate dei test
+          # di questo repo — ha esattamente la stessa postura (prende
+          # `/services/` e `/packages/*/engine/`, non `content/`). I `vi.mock`
+          # di `tests/setup-common.tsx` risolvono quei moduli senza eseguirli.
           sparse-checkout: |
-            index.html
-            build-plugins/staticPagesPlugin.ts
-            scripts/seo/
-            scripts/lib/indexnow-submit.mjs
-            scripts/submit-indexnow.js
-            scripts/submit-indexnow-batch.mjs
-            scripts/submit-indexnow-remediation.mjs
-            scripts/load-rc-env.mjs
-            scripts/ci/pr-body-check-gate.mjs
-            .github/workflows/submit-indexnow-batch.yml
-            package.json
-            package-lock.json
-            vitest.config.ts
-            tsconfig.json
-            tests/seo/
+            /.github/workflows/
+            /build-plugins/
+            /scripts/
+            /services/
+            /tests/
+            /packages/*/engine/
+            /index.html
+            /vitest.config.ts
+            /tsconfig.json
+            /package.json
+            /package-lock.json
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
