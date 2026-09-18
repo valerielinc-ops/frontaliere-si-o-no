@@ -201,6 +201,20 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
       const output = removeStale(stage, payload, removed, manifestPayload);
       expect(output).toContain('RC=1 REASON=manifest tombstone cross-check failed');
     });
+
+    it('fallisce chiuso se manca l’inventario dei file coperti dal manifest', () => {
+      const stage = stageWithFiles('tombstone-missing-inventory-stage', {
+        'en/jobs/job/index.html': '<html>route</html>',
+      });
+      const payload = join(root, 'tombstone-missing-inventory-payload');
+      const removed = join(root, 'tombstone-missing-inventory-removed');
+      const manifestPayload = join(root, 'tombstone-missing-inventory-manifest-payload');
+      writeFileSync(payload, 'jobs/job/index.html\0');
+      writeFileSync(removed, 'en/jobs/job/\0');
+
+      const output = removeStale(stage, payload, removed, manifestPayload);
+      expect(output).toContain('RC=1 REASON=manifest-covered payload inventory missing');
+    });
   });
 
   describe('shard_orphan_flatten_and_push', () => {

@@ -229,11 +229,19 @@ shard_index_has_content_changes() {
 shard_delta_remove_stale_payload_paths() {
   local stage="$1" scope_prefix="$2" payload_file_list="$3" removed_file="$4"
   local require_tombstones="${5:-1}"
-  local manifest_payload_file="${6:-$payload_file_list}"
+  local manifest_payload_file="${6:-}"
   local work index_dump delete_info count_file missing_file noop_file removed_count
   [ -f "$payload_file_list" ] || return 1
   [ -f "$removed_file" ] || return 1
-  [ -f "$manifest_payload_file" ] || manifest_payload_file="$payload_file_list"
+  if [ "$require_tombstones" = 1 ]; then
+    if [ -z "$manifest_payload_file" ] || [ ! -f "$manifest_payload_file" ]; then
+      SHARD_DELTA_REASON='manifest-covered payload inventory missing'
+      return 1
+    fi
+  else
+    [ -n "$manifest_payload_file" ] || manifest_payload_file="$payload_file_list"
+    [ -f "$manifest_payload_file" ] || manifest_payload_file="$payload_file_list"
+  fi
   work="$(mktemp -d)" || return 1
   index_dump="$work/index.dump"
   delete_info="$work/delete.info"
