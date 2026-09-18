@@ -13,6 +13,7 @@
  */
 
 import { droppedNumericFacts } from './article-locale-lexicon.mjs';
+import { hasUsableContentText, hasUsableTranslatedText } from './usable-content-text.mjs';
 
 const NAV_LINK_RE = /\[[^\]]+\]\(nav:[^)]+\)/g;
 const NAV_SENTINEL_RE = /0NAV(\d+)0/g;
@@ -39,10 +40,12 @@ const NAV_SENTINEL_RE = /0NAV(\d+)0/g;
  * A stringified object is unrecoverable; a missing field is not.
  *
  * @param {unknown} value raw field value as parsed from the model's JSON
+ * @param {string} [targetLang] locale del campo tradotto ('en' | 'de' | 'fr')
  * @returns {string|null} the string, or null when it is anything else / blank
+ *          / the literal serialization of `null`
  */
-export function translatedStringOrNull(value) {
-  return typeof value === 'string' && value.trim() ? value : null;
+export function translatedStringOrNull(value, targetLang) {
+  return hasUsableTranslatedText(value, targetLang) ? value : null;
 }
 
 /**
@@ -55,13 +58,14 @@ export function translatedStringOrNull(value) {
  *
  * @param {unknown[]} results  per-chunk parsed JSON objects
  * @param {string} bodyKey     'body1' | 'body2' | 'body3'
+ * @param {string} [targetLang] locale dei chunk tradotti ('en' | 'de' | 'fr')
  * @returns {string|null}
  */
-export function joinTranslatedChunks(results, bodyKey) {
+export function joinTranslatedChunks(results, bodyKey, targetLang) {
   if (!Array.isArray(results) || results.length === 0) return null;
   const parts = [];
   for (const r of results) {
-    const part = translatedStringOrNull(r?.[bodyKey]);
+    const part = translatedStringOrNull(r?.[bodyKey], targetLang);
     if (part === null) return null;
     parts.push(part);
   }
@@ -194,7 +198,10 @@ export async function translateFieldFreeMt({
     onWarn(`free-MT ${targetLang}:${fieldType} failed (${err?.message || err})`);
     return '';
   }
-  if (!out || !String(out).trim()) return '';
+  // Uscita di un MOTORE, non prosa di un modello: predicato severo, tutte
+  // le grafie di `null`. `String(out)` su un oggetto produceva
+  // `[object Object]` truthy e lo pubblicava. Non-stringa e marker → ''.
+  if (!hasUsableContentText(out)) return '';
   let restored = String(out);
   if (expected > 0) {
     const r = restore(restored);

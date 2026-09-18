@@ -22,6 +22,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import CANTON_URL_SLUGS from '../../data/canton-url-slugs.json' with { type: 'json' };
 import { MUNICIPALITIES } from '../../data/municipalities.ts';
 import { freeTranslateWithRetryDetailed, asTranslationResult } from './free-translate.mjs';
+import { hasUsableContentText } from './usable-content-text.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -1214,7 +1215,10 @@ const DEFAULT_TRANSLATE_FN = freeTranslateWithRetryDetailed;
  * network, no mutation. Exported for direct unit testing.
  */
 export function localesNeedingTranslation(byLocale, locales = ['it', 'en', 'de', 'fr']) {
-  const present = locales.filter((l) => typeof byLocale?.[l] === 'string' && byLocale[l].trim());
+  // Predicato severo: un motore MT o un export CSV che scrive `NULL` nella
+  // colonna vuota conterebbe come locale PRESENTE e il titolo `null` resterebbe
+  // nel record pubblicato.
+  const present = locales.filter((l) => hasUsableContentText(byLocale?.[l]));
   const normalized = new Map();
   const counts = new Map();
   for (const l of present) {
@@ -1249,7 +1253,7 @@ async function fillLocaleGaps(byLocale, cache, { fieldType, locales, delayMs, tr
   const needing = localesNeedingTranslation(byLocale, locales);
   if (needing.length === 0) return byLocale;
 
-  const present = locales.filter((l) => typeof byLocale?.[l] === 'string' && byLocale[l].trim());
+  const present = locales.filter((l) => hasUsableContentText(byLocale?.[l]));
   if (present.length === 0) return byLocale;
   const sourceLocale = present.find((l) => !needing.includes(l)) || present[0];
   const sourceText = byLocale[sourceLocale];
@@ -1270,7 +1274,7 @@ async function fillLocaleGaps(byLocale, cache, { fieldType, locales, delayMs, tr
       // Solo testo non vuoto e utilizzabile e' un memo positivo autoritativo.
       // Un valore vuoto/legacy non deve congelare lo slot duplicato alla
       // sorgente: si ritenta e si sostituisce il memo corrotto.
-      if (typeof memo === 'string' && memo.trim()) {
+      if (hasUsableContentText(memo)) {
         updated[target] = memo;
         continue;
       }
@@ -1278,7 +1282,7 @@ async function fillLocaleGaps(byLocale, cache, { fieldType, locales, delayMs, tr
     const { text: translated, passthrough } = asTranslationResult(
       await translateFn({ text: sourceText, sourceLang: sourceLocale, targetLang: target, fieldType, maxRetries: 1 }),
     );
-    if (translated) {
+    if (hasUsableContentText(translated)) {
       cache[cacheKey] = { ...entry, [target]: translated };
       updated[target] = translated;
       if (translateFn === DEFAULT_TRANSLATE_FN) await sleep(delayMs);

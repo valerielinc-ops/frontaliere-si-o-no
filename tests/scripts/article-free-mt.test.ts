@@ -79,6 +79,15 @@ describe('translateFieldFreeMt', () => {
     expect(await translateFieldFreeMt({ text: '   ', sourceLang: 'it', targetLang: 'en', fieldType: 'title', translate })).toBe('');
     expect(called).toBe(false);
   });
+
+  it('returns "" (fail-closed) when the engine emits a null marker or a non-string', async () => {
+    const marker = async () => 'null';
+    expect(await translateFieldFreeMt({ text: 'Ciao', sourceLang: 'it', targetLang: 'de', fieldType: 'title', translate: marker })).toBe('');
+    const capital = async () => 'Null';
+    expect(await translateFieldFreeMt({ text: 'Ciao', sourceLang: 'it', targetLang: 'de', fieldType: 'title', translate: capital })).toBe('');
+    const obj = async () => ({ text: 'Hallo' });
+    expect(await translateFieldFreeMt({ text: 'Ciao', sourceLang: 'it', targetLang: 'de', fieldType: 'title', translate: obj as never })).toBe('');
+  });
 });
 
 // Regression: 206 en/de/fr body files shipped a literal "[object Object]"
@@ -104,6 +113,18 @@ describe('translatedStringOrNull', () => {
     expect(translatedStringOrNull(null)).toBeNull();
     expect(translatedStringOrNull('')).toBeNull();
     expect(translatedStringOrNull('   \n  ')).toBeNull();
+  });
+
+  it('rejects the serialized null marker so it does not ship as a paragraph', () => {
+    expect(translatedStringOrNull('null')).toBeNull();
+    expect(translatedStringOrNull('NULL', 'en')).toBeNull();
+    expect(translatedStringOrNull('"null"', 'fr')).toBeNull();
+  });
+
+  it('keeps German Null as the word for zero, only on de', () => {
+    expect(translatedStringOrNull('Null', 'de')).toBe('Null');
+    expect(translatedStringOrNull('Null', 'en')).toBeNull();
+    expect(translatedStringOrNull('Null')).toBeNull();
   });
 });
 
