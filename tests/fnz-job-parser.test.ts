@@ -71,6 +71,17 @@ describe('fnz-job-parser / resolveFnzSwissLocation', () => {
     });
   });
 
+  it('retains a concrete municipality when the canton-only guard misclassifies its label', () => {
+    expect(resolveFnzSwissLocation([{
+      descriptor: 'CH Altdorf',
+      addressLocality: 'Altdorf',
+      postalCode: '6460',
+    }])).toMatchObject({
+      location: 'Altdorf',
+      canton: 'UR',
+    });
+  });
+
   it('keeps capital municipalities out of the canton-only classification', () => {
     expect(isCantonOnlyLabel('Bern')).toBe(false);
     expect(isCantonOnlyLabel('Zürich')).toBe(false);
@@ -95,6 +106,14 @@ describe('fnz-job-parser / resolveFnzSwissLocation', () => {
       addressRegion: 'BE',
       postalCode: '3011',
       streetAddress: 'Bundesplatz 3',
+    });
+  });
+
+  it('keeps a posting whose only location field is Switzerland', () => {
+    expect(resolveFnzSwissLocation([{ location: 'Switzerland' }])).toMatchObject({
+      location: 'Switzerland',
+      canton: '',
+      nationalFallback: true,
     });
   });
 

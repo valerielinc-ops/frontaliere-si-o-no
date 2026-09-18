@@ -46,8 +46,20 @@ function locationText(value) {
 function normalizeCandidate(candidate) {
   const signal = locationText(candidate);
   if (!candidate || typeof candidate !== 'object') {
-    return { raw: signal, signal, city: '' };
+    return { raw: signal, signal, city: '', hasStructuredAddress: false };
   }
+
+  const city = locationText(candidate.addressLocality) || locationText(candidate.city);
+  const hasStructuredAddress = Boolean(
+    city
+    && [
+      candidate.postalCode,
+      candidate.postCode,
+      candidate.streetAddress,
+      candidate.address,
+      candidate.postalAddress,
+    ].some((value) => locationText(value)),
+  );
 
   return {
     raw: locationText(candidate.descriptor)
@@ -55,7 +67,8 @@ function normalizeCandidate(candidate) {
       || locationText(candidate.location)
       || signal,
     signal,
-    city: locationText(candidate.addressLocality) || locationText(candidate.city),
+    city,
+    hasStructuredAddress,
   };
 }
 
@@ -86,7 +99,7 @@ export function resolveFnzSwissLocation(candidates = []) {
   let countryOnlyFallback = null;
 
   for (const candidate of Array.isArray(candidates) ? candidates : []) {
-    const { raw, signal, city } = normalizeCandidate(candidate);
+    const { raw, signal, city, hasStructuredAddress } = normalizeCandidate(candidate);
     const countryOnly = isCountryOnlySwissSignal(signal);
     if (!raw || !signal || (!countryOnly && !isSwissLocationText(signal))) continue;
 
@@ -94,17 +107,21 @@ export function resolveFnzSwissLocation(candidates = []) {
     // segment. This covers `location: Switzerland` plus a richer
     // jobRequisitionLocation/address/postalCode object without losing the
     // source location provenance.
-    const location = swissCityFromLocationField(city)
+    const resolvedLocation = swissCityFromLocationField(city)
       || swissCityFromLocationField(signal)
-      || city
-      || firstLocationSegment(raw);
+    const location = resolvedLocation || city || firstLocationSegment(raw);
     const signalCanton = inferAnyCanton(signal);
     const locationCanton = inferAnyCanton(location);
     // A city and a richer address signal must describe the same canton. If
     // they disagree, reject the candidate rather than emit plausible-looking
-    // but internally inconsistent structured data.
+    // but internally inconsistent structured data. `isCantonOnlyLabel` is
+    // only a guard for an unstructured label: an explicit locality with a
+    // postal/street signal is a concrete municipality even when the shared
+    // canton inventory classifies its spelling as canton-only.
     const locationIsConcreteCity = Boolean(
-      location && locationCanton && !isCantonOnlyLabel(location),
+      location
+      && locationCanton
+      && (resolvedLocation || hasStructuredAddress || !isCantonOnlyLabel(location)),
     );
     if (
       locationIsConcreteCity
