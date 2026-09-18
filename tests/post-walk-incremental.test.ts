@@ -6,6 +6,7 @@ import { pathToFileURL } from 'node:url';
 
 import { afterEach, describe, expect, it } from 'vitest';
 
+import { WriteCollector } from '../build-plugins/batchWrite';
 import { IncrementalManifest } from '../build-plugins/shared/incrementalManifest.mjs';
 import {
   buildSharedHtmlPathIndex,
@@ -374,6 +375,38 @@ describe('post-walk incremental planning', () => {
     claim(filePath, 'fixture', '<!DOCTYPE html>source');
 
     expect(preservePostWalkDerivedOutput(distDir, filePath, '<!DOCTYPE html>source')).toBe(true);
+    expect(fs.readFileSync(filePath, 'utf8')).toBe('<!DOCTYPE html>bridge');
+  });
+
+  it('does not queue an unchanged derived bridge through WriteCollector', async () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const filePath = writeHtml(root, 'jobs/bridge.html', '<!DOCTYPE html>bridge');
+    const sourcePath = writeHtml(root, 'jobs/bridge/index.html', '<!DOCTYPE html>source');
+    process.env.POST_WALK_INCREMENTAL = '1';
+    writePostWalkDerivedDigestSidecar(root, new Map([
+      ['jobs/bridge.html', {
+        path: 'jobs/bridge.html',
+        kind: 'bridge',
+        inputHash: hashContent('<!DOCTYPE html>source'),
+        sourcePath: 'jobs/bridge/index.html',
+        sourceHash: hashContent('<!DOCTYPE html>source'),
+        templateHash: 'flat-bridge@1',
+      }],
+    ]));
+    clearPostWalkDerivedDigestCacheForTest();
+    claim(sourcePath, 'fixture', '<!DOCTYPE html>source');
+
+    const collector = new WriteCollector({
+      distDir,
+      pluginName: 'fixture',
+      postWalkDerivedKind: 'bridge',
+    });
+    collector.add(filePath, '<!DOCTYPE html>source');
+
+    expect(collector.count).toBe(0);
+    expect(await collector.flush()).toBe(0);
+    expect(collector.hasWritten(filePath)).toBe(false);
     expect(fs.readFileSync(filePath, 'utf8')).toBe('<!DOCTYPE html>bridge');
   });
 
