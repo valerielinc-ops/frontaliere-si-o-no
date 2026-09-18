@@ -54,11 +54,11 @@
  *
  * Opt-in incremental mode: POST_WALK_INCREMENTAL=1 keeps the complete HTML
  * existence walk/set but sends only manifest-changed and proven-affected files
- * through the transforms. The default is the unchanged full path. Set
- * POST_WALK_INCREMENTAL_VERIFY=1 to dry-run a deterministic 2% sample of the
- * full path plus every path selected by the incremental dependency proof;
- * POST_WALK_INCREMENTAL_VERIFY_SAMPLE overrides the sample count. A full-write
- * mismatch falls back to the full write path.
+ * through the transforms. With POST_WALK_INCREMENTAL_VERIFY=1, unmanifested
+ * files are sample-only and the deterministic sample is checked before worker
+ * dispatch; POST_WALK_INCREMENTAL_VERIFY_SAMPLE overrides the sample count. A
+ * full-write mismatch or emitter-fingerprint change falls back to the full
+ * write path. The default is the unchanged full path.
  */
 
 import path from 'node:path';
@@ -90,6 +90,7 @@ import {
   type SerializedBuckets,
 } from './shared/postWalkCoordinatorProfiler';
 import { logBuildMem } from './shared/buildMemLog';
+import { releaseIncrementalManifestState } from './shared/incrementalManifest.mjs';
 import {
   buildPostWalkIncrementalPlanFromState,
   comparePostWalkVerification,
@@ -446,6 +447,12 @@ export function postWalkCoordinatorPlugin(
         let manifests: PostWalkManifestStateLoadResult | null = null;
 
         if (incrementalEnabled) {
+          // jobsSeoPagesPlugin and relatedSearchClustersPlugin have completed
+          // their manifest writes before this sequential closeBundle hook. The
+          // producer maps are not needed by the coordinator; release them
+          // before loading the disk snapshots so their input projections do
+          // not overlap the planner's current-entry map.
+          releaseIncrementalManifestState(rootDir);
           const manifestStartedAt = Date.now();
           // Load and report the two manifest cardinalities before the expensive
           // dist walk. If a later phase dies, the last [mem] marker identifies
@@ -527,6 +534,7 @@ export function postWalkCoordinatorPlugin(
         let processableCount = 0;
         let preEmittedFlatBridgesSkipped = 0;
         let nonOwnedLocaleSkipped = 0;
+        const excludedHtmlPaths = incrementalEnabled ? new Set<string>() : null;
         for (let index = 0; index < allHtmlPaths.length; index += 1) {
           const file = allHtmlPaths[index];
           // Per-locale matrix shard (BUILD_LOCALE): a file in a NON-owned
@@ -550,8 +558,10 @@ export function postWalkCoordinatorPlugin(
           // build (EMIT_ALL_LOCALES) → no-op, full coverage, byte-identical.
           if (!shouldEmitPath(file, distDir)) {
             nonOwnedLocaleSkipped++;
+            excludedHtmlPaths?.add(file);
           } else if (isPreEmittedJobFlatBridgePath(distDir, file)) {
             preEmittedFlatBridgesSkipped++;
+            excludedHtmlPaths?.add(file);
           } else {
             allHtmlPaths[processableCount] = file;
             processableCount++;
@@ -598,6 +608,12 @@ export function postWalkCoordinatorPlugin(
               processableHtmlPaths: fullProcessHtmlPaths,
               baseUrl,
               existingHtmlSet,
+              excludedHtmlPaths: excludedHtmlPaths ?? undefined,
+              // Once the deterministic sample verifier is on, unmanifested
+              // producers are included in that sample and omitted from the
+              // main dispatch. Without verification we keep the conservative
+              // historical behaviour and process every uncovered file.
+              includeUncoveredPaths: !postWalkIncrementalVerifyEnabled(),
               state: manifests.state,
             });
             processHtmlPaths = incrementalPlan.mode === 'incremental'
@@ -630,12 +646,13 @@ export function postWalkCoordinatorPlugin(
           // Explicitly drop the one current-entry map and delta sets before
           // blog maps, verification, or workers are allocated.
           manifests = null;
+          excludedHtmlPaths?.clear();
           if (incrementalPlan) {
             logBuildMem(
               'postWalkCoordinator: after-manifest-state-release',
               undefined,
               { mode: incrementalPlan.mode, processed: processHtmlPaths.length },
-              { forceGc: false },
+              { forceGc: true },
             );
           }
         }
@@ -684,31 +701,15 @@ export function postWalkCoordinatorPlugin(
             false,
             true,
           );
-          // The affected/changed list is already the incremental dispatch
-          // array. Verify it in-place, without constructing a combined
-          // `affected + sample` path list or a second full-walk index.
-          const affectedFullDryRun = runSingleThreaded(
-            processHtmlPaths,
-            existingHtmlSet,
-            blogIndexHtmlByPath,
-            distDir,
-            baseUrl,
-            trimmedBase,
-            false,
-            true,
-          );
-          const verificationPathCount = sampledPaths.length + processHtmlPaths.length;
           const comparison = comparePostWalkVerification({
             fullWouldWritePaths: fullSampleDryRun.wouldWritePaths ?? [],
             incrementalProcessPaths: processHtmlPaths,
             sampledPaths,
-            affectedWouldWritePaths: affectedFullDryRun.wouldWritePaths ?? [],
-            affectedPaths: processHtmlPaths,
           });
           incrementalVerifyPhaseMs = Date.now() - verifyStartedAt;
           // eslint-disable-next-line no-console
           console.log(
-            `[post-walk-coordinator][incremental-verify] sampled=${verificationPathCount} `
+            `[post-walk-coordinator][incremental-verify] sampled=${sampledPaths.length} `
               + `sample-only=${sampledPaths.length} affected=${processHtmlPaths.length} `
               + `would-write-but-skipped=${comparison.wouldWriteButSkipped.length} `
               + `processed-without-write=${comparison.processedButWouldNotWrite.length}`,
@@ -734,7 +735,7 @@ export function postWalkCoordinatorPlugin(
             'postWalkCoordinator: after-verify',
             undefined,
             {
-              sampled: verificationPathCount,
+              sampled: sampledPaths.length,
               sampleOnly: sampledPaths.length,
               affected: processHtmlPaths.length,
               processed: processHtmlPaths.length,
@@ -828,6 +829,8 @@ export function postWalkCoordinatorPlugin(
               + `changed-entries=${incrementalPlan.changed} added-entries=${incrementalPlan.added} removed-entries=${incrementalPlan.removed} `
               + `processed=${processHtmlPaths.length} `
               + `skipped-unchanged=${incrementalPlan.skippedUnchanged} `
+              + `unmanifested=${incrementalPlan.unmanifested ?? 'n/a'} `
+              + `unmanifested-skipped=${incrementalPlan.unmanifestedSkipped ?? 'n/a'} `
               + `affected=${incrementalPlan.affected} `
               + `writes=${merged.totalWrites} `
               + `fallback=${incrementalPlan.fallbackMode

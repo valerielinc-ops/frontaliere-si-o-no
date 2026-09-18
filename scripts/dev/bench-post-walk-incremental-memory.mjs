@@ -284,6 +284,7 @@ function runStreaming(scanPaths) {
       baseUrl: 'https://frontaliereticino.ch',
       existingHtmlSet: state.existingHtmlSet,
       readHtml: () => '',
+      includeUncoveredPaths: false,
       state: manifestState,
     });
   });
@@ -302,8 +303,11 @@ function runStreaming(scanPaths) {
     mode: state.plan.mode,
     processed: state.plan.processed,
     eligibleByManifest: state.plan.eligibleByManifest,
+    unmanifested: state.plan.unmanifested,
+    unmanifestedSkipped: state.plan.unmanifestedSkipped,
   };
-  report.verificationPathCount = state.verificationPaths.length + state.plan.processed;
+  report.verificationPathCount = state.verificationPaths.length;
+  report.forcedProcessedPathCount = state.plan.processed;
   report.sharedExistenceIndexBytes =
     state.sharedHtmlPathIndex.slots.byteLength
     + state.sharedHtmlPathIndex.offsets.byteLength
