@@ -1,15 +1,16 @@
 #!/usr/bin/env node
 /**
- * Dedicated Hugo Boss (Coldrerio, TI) crawler runner.
+ * Dedicated Hugo Boss Switzerland crawler runner.
  *
  * Hugo Boss uses the Phenom People platform at careers.hugoboss.com.
  * Job data is embedded in the phApp.ddo JavaScript object on the search
- * results page. We filter for Coldrerio/Ticino positions.
+ * results page. We fetch the national result set and filter Swiss positions
+ * with the shared location helper.
  *
  * Discovery flow:
- *   1. Fetch https://careers.hugoboss.com/global/en/search-results?keywords=&location=Coldrerio
+ *   1. Fetch the unfiltered national search endpoint
  *   2. Extract phApp.ddo.eagerLoadRefineSearch.data.jobs
- *   3. Filter for Ticino/Coldrerio positions
+ *   3. Filter for Swiss positions across all 26 cantons
  *   4. Build job objects with detail URLs
  *   5. Merge into data/jobs.json
  *   6. Run base crawler for AI localization
@@ -17,6 +18,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { resolveFallbackAddress } from '../build-plugins/shared/companyHqAddresses.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
@@ -26,8 +28,8 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parseSearchPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/hugo-boss-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { assertHugoBossNationalReadComplete, extractPhenomDdo, parseSearchPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/hugo-boss-job-parser.mjs';
+import { inferAnyCanton, isKnownSwissCity } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -44,10 +46,11 @@ const COMPANY_KEY = 'hugo-boss';
 // of #3775/#3768).
 const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
-const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Hugo Boss';
 const COMPANY_HOST = 'careers.hugoboss.com';
-const CAREERS_URL = 'https://careers.hugoboss.com/global/en/search-results?keywords=&location=Coldrerio';
+const CAREERS_URL = 'https://careers.hugoboss.com/global/en/search-results?keywords=';
+const PAGE_SIZE = 100;
+const MAX_PAGES = 20;
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 function normalize(value = '') { return String(value || '').trim().toLowerCase(); }
@@ -86,36 +89,142 @@ function slugify(value = '') {
   return truncateSlugAtWordBoundary(slug, 200);
 }
 
-async function fetchJobs() {
+function rawHugoRecordKey(job = {}) {
+  const id = [job.jobId, job.reqId]
+    .map((value) => String(value ?? '').trim())
+    .find(Boolean);
+  return id ? `id:${id}` : '';
+}
+
+export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
   console.log(`🔍 Fetching Hugo Boss jobs from ${CAREERS_URL}`);
-  const html = await fetchPage(CAREERS_URL, 25000);
-  if (!html) { console.error('❌ Failed to fetch Hugo Boss careers page.'); return []; }
-  console.log(`  📄 Page fetched (${html.length} chars)`);
+  const allJobsById = new Map();
+  const seenRawRecordKeys = new Set();
+  let from = 0;
+  let totalHits = null;
+  let recordsSeen = 0;
+  let terminationProven = false;
 
-  const allJobs = parseSearchPage(html);
-  console.log(`  📋 Total jobs in DDO: ${allJobs.length}`);
+  for (let page = 0; page < MAX_PAGES; page += 1) {
+    const pageUrl = new URL(CAREERS_URL);
+    pageUrl.searchParams.set('from', String(from));
+    pageUrl.searchParams.set('pageSize', String(PAGE_SIZE));
+    const html = await fetchHtml(pageUrl.href, 25000);
+    if (!html) {
+      if (page === 0) console.error('❌ Failed to fetch Hugo Boss careers page.');
+      break;
+    }
+    const ddo = extractPhenomDdo(html);
+    const reportedTotal = Number(
+      ddo?.eagerLoadRefineSearch?.data?.totalHits
+      ?? ddo?.eagerLoadRefineSearch?.data?.total
+      ?? ddo?.eagerLoadRefineSearch?.totalHits
+      ?? 0,
+    );
+    if (reportedTotal > 0) totalHits = reportedTotal;
+    const rawPageJobs = ddo?.eagerLoadRefineSearch?.data?.jobs;
+    if (!Array.isArray(rawPageJobs)) {
+      const coverage = totalHits === null
+        ? 'totalHits is unavailable to confirm national coverage'
+        : `declared totalHits=${totalHits} cannot confirm coverage after a missing DDO envelope`;
+      throw new Error(
+        `Hugo Boss page ${page + 1} is missing a valid Phenom DDO/data envelope `
+        + `(expected eagerLoadRefineSearch.data.jobs); ${coverage}. `
+        + 'Aborting without a proven terminal page.',
+      );
+    }
+    const rawPageCount = rawPageJobs.length;
+    const pageRecordKeys = rawPageJobs.map(rawHugoRecordKey);
+    if (pageRecordKeys.some((key) => !key)) {
+      throw new Error(
+        `Hugo Boss national DDO page ${page + 1} contains a record without a stable record identity (jobId/reqId). `
+        + 'Refusing to count a source row that the final deduplication map cannot retain.',
+      );
+    }
+    const uniquePageRecordKeys = [...new Set(pageRecordKeys)];
+    const newRecordKeys = uniquePageRecordKeys.filter((key) => !seenRawRecordKeys.has(key));
+    if (uniquePageRecordKeys.length !== pageRecordKeys.length || newRecordKeys.length !== uniquePageRecordKeys.length) {
+      throw new Error(
+        `Hugo Boss national DDO page ${page + 1} made no progress: repeated page or no new raw records. `
+        + 'Refusing to conclude national coverage from a duplicated response.',
+      );
+    }
+    for (const key of newRecordKeys) seenRawRecordKeys.add(key);
+    const pageRecordCount = uniquePageRecordKeys.length;
+    const pageJobs = parseSearchPage(html);
+    console.log(`  📄 Page ${page + 1}: ${pageJobs.length} parsed jobs from ${rawPageCount} DDO records (from=${from}${totalHits ? `, total=${totalHits}` : ''})`);
+    for (const job of pageJobs) {
+      const key = rawHugoRecordKey(job);
+      if (key && !allJobsById.has(key)) allJobsById.set(key, job);
+    }
+    // A short page is NOT proof that the result set ended: the Phenom DDO
+    // serves short pages mid-set while still declaring a higher totalHits, and
+    // a missing total cannot prove that the page was the final one. Stop only
+    // on a genuinely empty page or once the declared total has been reached.
+    if (pageRecordCount === 0) {
+      terminationProven = true;
+      break;
+    }
+    recordsSeen += newRecordKeys.length;
+    from += newRecordKeys.length;
+    if (totalHits !== null && recordsSeen >= totalHits) {
+      terminationProven = true;
+      break;
+    }
+  }
 
-  const ticinoJobs = allJobs.filter(isHugoBossTargetLocation);
-  console.log(`  🎯 Ticino/Coldrerio jobs: ${ticinoJobs.length}`);
+  const allJobs = [...allJobsById.values()];
+  console.log(`  📋 Total jobs in national DDO: ${allJobs.length}`);
 
-  return ticinoJobs.map((raw) => {
+  // A partial read cannot prove the absence of Swiss jobs — the missing
+  // records may be exactly the ones we are looking for. Fail loudly rather
+  // than publish "0 Swiss jobs" derived from a truncated result set.
+  assertHugoBossNationalReadComplete({ terminationProven, totalHits, recordsSeen });
+
+  const swissJobs = allJobs.filter(isHugoBossTargetLocation);
+  console.log(`  🎯 Swiss jobs across all cantons: ${swissJobs.length}`);
+
+  return swissJobs.map((raw) => {
+    const canton = inferAnyCanton([
+      raw.city,
+      raw.state,
+      raw.cityState,
+      raw.cityStateCountry,
+      raw.address,
+    ].filter(Boolean).join(' '));
+    if (!canton) return null;
+
+    // Country-only/canton-only source values are not localities. Accept a
+    // source address only when raw.city resolves to a concrete Swiss city;
+    // otherwise use the coherent canton fallback as the locality too.
+    const sourceCity = isKnownSwissCity(raw.city, canton) ? raw.city : '';
+    const fallbackAddress = resolveFallbackAddress(undefined, sourceCity, canton);
+    const resolvedAddress = sourceCity && raw.address && raw.postalCode
+      ? {
+        addressLocality: sourceCity,
+        streetAddress: raw.address,
+        postalCode: raw.postalCode,
+      }
+      : fallbackAddress;
+    const location = resolvedAddress.addressLocality;
     const detailUrl = buildDetailUrl(raw);
-    const slug = slugify(`${raw.title} hugo-boss coldrerio`);
+    const locationToken = location || canton;
+    const slug = slugify(`${raw.title} hugo-boss ${locationToken}`);
     return {
       url: detailUrl || CAREERS_URL,
       applyUrl: raw.applyUrl ? `https://${COMPANY_HOST}${raw.applyUrl}` : detailUrl,
       title: raw.title,
       company: COMPANY_NAME,
       companyKey: COMPANY_KEY,
-      location: raw.city || 'Coldrerio',
-      canton: DEFAULT_CANTON,
+      location,
+      canton,
       country: 'CH',
-      addressLocality: raw.city || 'Coldrerio',
-      addressRegion: 'TI',
+      addressLocality: resolvedAddress.addressLocality,
+      addressRegion: canton,
       addressCountry: 'CH',
-      postalCode: '6862',
-      streetAddress: 'Hugo Boss Ticino SA, Rancate/Coldrerio',
-      description: raw.description || `${raw.title} position at Hugo Boss in Coldrerio, Ticino, Switzerland.`,
+      postalCode: resolvedAddress.postalCode,
+      streetAddress: resolvedAddress.streetAddress,
+      description: raw.description || `${raw.title} position at Hugo Boss in ${locationToken}, Switzerland.`,
       titleByLocale: { en: raw.title },
       descriptionByLocale: { en: raw.description || '' },
       slug,
@@ -128,7 +237,7 @@ async function fetchJobs() {
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Moda / Lusso',
     };
-  });
+  }).filter(Boolean);
 }
 
 async function mergeJobs(discoveredJobs) {
@@ -200,4 +309,7 @@ async function main() {
   console.log('\n✅ Hugo Boss crawler complete.');
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Hugo Boss'));
+const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isDirectRun) {
+  main().catch((err) => exitCrawlerOnError(err, 'Hugo Boss'));
+}

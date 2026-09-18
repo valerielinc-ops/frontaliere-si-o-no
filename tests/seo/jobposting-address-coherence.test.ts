@@ -12,8 +12,10 @@
  * (Non-Negotiable #3) — these tests assert coherence, never absence.
  */
 import { describe, it, expect } from 'vitest';
+import MUNICIPALITY_DATA from '../../data/canton-municipalities.json' with { type: 'json' };
 import { buildJobPostingSchema } from '../../build-plugins/shared/jobPostingSchema';
 import {
+  CANTON_CAPITAL_ADDRESSES,
   localityMatchesHq,
   regionLocalityCapital,
   resolveFallbackAddress,
@@ -29,6 +31,35 @@ const baseJob = {
   description: 'Ruolo infermieristico con responsabilità cliniche e collaborazione con il team multidisciplinare della struttura.',
   company: 'EOC',
 };
+
+const CANTON_CAPITALS = {
+  AG: { city: 'Aarau', postalCode: '5000' },
+  AI: { city: 'Appenzell', postalCode: '9050' },
+  AR: { city: 'Herisau', postalCode: '9100' },
+  BE: { city: 'Bern', postalCode: '3011' },
+  BL: { city: 'Liestal', postalCode: '4410' },
+  BS: { city: 'Basel', postalCode: '4001' },
+  FR: { city: 'Fribourg', postalCode: '1700' },
+  GE: { city: 'Genève', postalCode: '1204' },
+  GL: { city: 'Glarus', postalCode: '8750' },
+  GR: { city: 'Chur', postalCode: '7000' },
+  JU: { city: 'Delémont', postalCode: '2800' },
+  LU: { city: 'Luzern', postalCode: '6004' },
+  NE: { city: 'Neuchâtel', postalCode: '2000' },
+  NW: { city: 'Stans', postalCode: '6370' },
+  OW: { city: 'Sarnen', postalCode: '6060' },
+  SG: { city: 'St. Gallen', postalCode: '9000' },
+  SH: { city: 'Schaffhausen', postalCode: '8200' },
+  SO: { city: 'Solothurn', postalCode: '4500' },
+  SZ: { city: 'Schwyz', postalCode: '6430' },
+  TG: { city: 'Frauenfeld', postalCode: '8500' },
+  TI: { city: 'Bellinzona', postalCode: '6500' },
+  UR: { city: 'Altdorf', postalCode: '6460' },
+  VD: { city: 'Lausanne', postalCode: '1003' },
+  VS: { city: 'Sion', postalCode: '1950' },
+  ZG: { city: 'Zug', postalCode: '6300' },
+  ZH: { city: 'Zürich', postalCode: '8001' },
+} as const;
 
 describe('buildJobPostingSchema — address coherence (#3513)', () => {
   it('same-canton job in a DIFFERENT city no longer inherits the HQ street/CAP', () => {
@@ -154,6 +185,62 @@ describe('buildJobPostingSchema — parenthetical-only BFS municipalities (#6147
 });
 
 describe('shared locality helpers (#3513)', () => {
+  it('resolveFallbackAddress returns a coherent capital tuple for all 26 cantons', () => {
+    expect(MUNICIPALITY_DATA.totalMunicipalities).toBe(2110);
+    expect(Object.keys(CANTON_CAPITALS)).toHaveLength(26);
+
+    for (const [canton, expected] of Object.entries(CANTON_CAPITALS)) {
+      const cantonData = MUNICIPALITY_DATA.cantons[canton as keyof typeof MUNICIPALITY_DATA.cantons];
+      const municipalities = [
+        ...(cantonData?.municipalities || []),
+        ...(cantonData?.aliases || []),
+      ];
+      const hasCapital = municipalities.some((municipality) => municipality === expected.city
+        || municipality.replace(/\s*\([A-Z]{2}\)$/i, '') === expected.city);
+      expect(hasCapital, `${canton} capital must exist in BFS municipality data`).toBe(true);
+      expect(CANTON_CAPITAL_ADDRESSES[canton]).toMatchObject({
+        addressLocality: expected.city,
+        postalCode: expected.postalCode,
+        addressRegion: canton,
+      });
+
+      const address = resolveFallbackAddress(undefined, expected.city, canton);
+      expect(address).toMatchObject({
+        addressLocality: expected.city,
+        postalCode: expected.postalCode,
+        addressRegion: canton,
+      });
+      expect(address.streetAddress).toBeTruthy();
+    }
+  });
+
+  it('never keeps a non-capital city with the capital postal code', () => {
+    const address = resolveFallbackAddress(undefined, 'Heiden', 'AR');
+
+    expect(address).toMatchObject({
+      addressLocality: 'Herisau',
+      postalCode: '9100',
+      addressRegion: 'AR',
+    });
+  });
+
+  it('keeps the nine newly covered capital CAPs in emitted JobPosting schema', () => {
+    for (const canton of ['AI', 'AR', 'BL', 'GL', 'JU', 'NW', 'OW', 'SZ', 'UR'] as const) {
+      const expected = CANTON_CAPITALS[canton];
+      const schema = buildJobPostingSchema({
+        ...baseJob,
+        addressLocality: expected.city,
+        addressRegion: canton,
+      }, OPTS);
+
+      expect(schema.jobLocation.address).toMatchObject({
+        addressLocality: expected.city,
+        postalCode: expected.postalCode,
+        addressRegion: canton,
+      });
+    }
+  });
+
   it('localityMatchesHq: empty city matches, different city does not', () => {
     const hq = { addressLocality: 'Bellinzona' };
     expect(localityMatchesHq('', hq)).toBe(true);
@@ -174,6 +261,15 @@ describe('shared locality helpers (#3513)', () => {
     expect(addr.streetAddress).not.toBe('Viale Officina 3');
     expect(addr.streetAddress.length).toBeGreaterThan(0);
     expect(addr.addressRegion).toBe('TI');
+  });
+
+  it('uses a curated non-TI HQ when the city is absent', () => {
+    expect(resolveFallbackAddress('microsoft')).toMatchObject({
+      addressLocality: 'Zürich',
+      addressRegion: 'ZH',
+      postalCode: '8058',
+      streetAddress: 'The Circle 02',
+    });
   });
 });
 
