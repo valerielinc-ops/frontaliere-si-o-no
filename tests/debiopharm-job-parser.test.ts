@@ -37,6 +37,19 @@ describe('debiopharm-job-parser', () => {
       })).toBe(false);
     });
 
+    it('requires a concrete Swiss locality for authoritative publication', () => {
+      expect(isDebiopharmSwissJob(
+        { location: { countryCode: 'CH' } },
+        '',
+        { requireConcreteLocation: true },
+      )).toBe(false);
+      expect(isDebiopharmSwissJob(
+        { location: { countryCode: 'CH' } },
+        'Lausanne, Vaud',
+        { requireConcreteLocation: true },
+      )).toBe(true);
+    });
+
     it('does NOT fabricate VD for the negative-control case (Bern, not VD)', () => {
       const parsed = parseDebiopharmJobDetailPayload({
         title: 'Scientist',

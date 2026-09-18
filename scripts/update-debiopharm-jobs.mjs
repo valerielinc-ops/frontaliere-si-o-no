@@ -198,8 +198,12 @@ async function fetchDebiopharmListings() {
   console.log('🔍 Fetching Debiopharm jobs from SSR careers page...');
   console.log(`  📡 ${DEBIOPHARM_CAREERS_URL}`);
   const html = await fetchText(DEBIOPHARM_CAREERS_URL, Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000);
+  const sourceHtml = String(html || '').trim();
+  if (!sourceHtml || !/debiopharm|careers|open positions|workable/i.test(sourceHtml)) {
+    throw new Error('Debiopharm careers source returned an empty or unexpected page; refusing an unverified empty discovery.');
+  }
   const listings = parseDebiopharmCareersHtml(html);
-  console.log(`  📦 Total listing entries: ${listings.length}`);
+  console.log(`  📦 Total listing entries from verified careers markup: ${listings.length}`);
   for (const job of listings) {
     console.log(`     - ${job.title} (${job.locationLabel || 'unknown'}) [${job.shortcode}]`);
   }
@@ -488,26 +492,38 @@ async function main() {
   }
 
   const discoveredJobs = [];
+  let detailFetchFailures = 0;
+  let unresolvedSourceDetails = 0;
   for (const listing of listings) {
     console.log(`  📄 Processing: ${listing.title} [${listing.shortcode}]`);
     let detail;
     try {
       detail = await fetchDebiopharmDetail(listing.shortcode);
     } catch (err) {
+      detailFetchFailures += 1;
       console.warn(`     ⚠️  Detail fetch failed for ${listing.shortcode}: ${err?.message || err}`);
       continue;
     }
-    if (!isDebiopharmSwissJob(detail, listing.locationLabel)) {
+    if (!isDebiopharmSwissJob(detail, listing.locationLabel, { requireConcreteLocation: true })) {
       console.log(`     ⏭️  Skipping (not Switzerland): ${detail?.location?.countryCode || '?'}`);
       continue;
     }
     const job = buildDebiopharmJob(listing, detail);
-    if (!job) continue;
+    if (!job) {
+      unresolvedSourceDetails += 1;
+      continue;
+    }
     discoveredJobs.push(job);
   }
 
+  if (discoveredJobs.length === 0 && (detailFetchFailures > 0 || unresolvedSourceDetails > 0)) {
+    throw new Error(
+      `Debiopharm detail enrichment could not prove an empty Swiss result `
+      + `(detail failures: ${detailFetchFailures}, unresolved source locations: ${unresolvedSourceDetails}); refusing empty publication.`
+    );
+  }
   if (discoveredJobs.length === 0) {
-    console.warn('⚠️ Debiopharm detail enrichment produced no source-backed Swiss jobs; continuing with the verified empty discovery.');
+    console.warn('⚠️ Debiopharm detail enrichment produced a verified empty Swiss result after reading all source details.');
   }
 
   updateAdapterConfig(discoveredJobs);

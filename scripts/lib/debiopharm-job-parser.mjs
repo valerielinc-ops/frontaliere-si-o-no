@@ -140,21 +140,41 @@ function fallbackLocationParts(fallbackLocation = '') {
   return { city: parts[0] || '', region: parts[1] || '' };
 }
 
-function hasSwissSourceLocation(candidate = {}, fallbackLocation = '') {
+function hasSwissSourceCountry(candidate = {}, fallbackLocation = '') {
   const country = candidate?.countryCode ?? candidate?.country ?? '';
   const locationText = candidateLocationText(candidate, fallbackLocation);
   return isChCountry(country)
     && (!locationText || isTargetSwissLocation(locationText, { includeBorderProximity: false }));
 }
 
+function hasConcreteSwissSourceLocation(candidate = {}, fallbackLocation = '') {
+  const country = candidate?.countryCode ?? candidate?.country ?? '';
+  const locationText = candidateLocationText(candidate, fallbackLocation);
+  return isChCountry(country)
+    && Boolean(locationText)
+    && isTargetSwissLocation(locationText, { includeBorderProximity: false });
+}
+
 /**
  * Filter for source-backed Swiss jobs across all 26 cantons. The Workable
  * country field is necessary but not sufficient: a CH country code paired
  * with a foreign or unknown city must not inherit a Swiss HQ location.
+ *
+ * The default country-only mode preserves the shared country-guard contract
+ * for callers that validate aliases before location enrichment. Publication
+ * callers pass requireConcreteLocation so an empty detail cannot enter the
+ * authoritative job snapshot.
  */
-export function isDebiopharmSwissJob(detail = {}, fallbackLocation = '') {
+export function isDebiopharmSwissJob(
+  detail = {},
+  fallbackLocation = '',
+  { requireConcreteLocation = false } = {},
+) {
+  const predicate = requireConcreteLocation
+    ? hasConcreteSwissSourceLocation
+    : hasSwissSourceCountry;
   return locationCandidateList(detail).some((candidate) =>
-    hasSwissSourceLocation(candidate, fallbackLocation));
+    predicate(candidate, fallbackLocation));
 }
 
 export function parseDebiopharmJobDetailPayload(detail = {}, fallbackLocation = '') {
@@ -174,7 +194,7 @@ export function parseDebiopharmJobDetailPayload(detail = {}, fallbackLocation = 
   }
 
   const candidates = locationCandidateList(detail);
-  const selected = candidates.find((candidate) => hasSwissSourceLocation(candidate, fallbackLocation)) || {};
+  const selected = candidates.find((candidate) => hasConcreteSwissSourceLocation(candidate, fallbackLocation)) || {};
   const fallback = fallbackLocationParts(fallbackLocation);
   const city = String(selected.city || '').trim() || fallback.city;
   const region = String(selected.region || '').trim() || fallback.region;
