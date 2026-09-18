@@ -48,7 +48,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
-  isTargetSwissLocation,
+  isAllSwissLocation,
   isKnownSwissCity,
   inferAnyCanton,
   normalizeCantonCode,
@@ -383,7 +383,7 @@ async function fetchManorJobs() {
   const targetUrls = [];
   for (const url of allUrls) {
     const { city } = extractCityFromUrl(url);
-    if (city && isTargetSwissLocation(city, { includeBorderProximity: false })) {
+    if (city && isAllSwissLocation(city, { includeBorderProximity: false })) {
       targetUrls.push({ url, city });
     }
   }

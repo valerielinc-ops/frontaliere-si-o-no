@@ -35,7 +35,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { fetchHtml } from './hospital-custom-html-helpers.mjs';
-import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isAllSwissLocation } from './target-swiss-locations.mjs';
 import { extractJobPostingLd, jobPostingDescriptionText, jobPostingAddress } from './jsonld-jobposting.mjs';
 import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.ts';
 
@@ -264,7 +264,7 @@ export async function fetchAllConcordiaJobs({
     const addr = jobPostingAddress(ld);
     const location = normalizeSpace(addr.addressLocality || '');
     const canton = resolveCanton(addr.addressRegion, location);
-    if (!location || !isTargetSwissLocation(location, { includeBorderProximity: false }) || !canton) {
+    if (!location || !isAllSwissLocation(location, { includeBorderProximity: false }) || !canton) {
       unresolvedLocations += 1;
       continue;
     }

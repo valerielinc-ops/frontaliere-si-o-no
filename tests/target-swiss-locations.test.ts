@@ -5,6 +5,7 @@ import {
   inferAnyCanton,
   inferSwissTargetCanton,
   isCantonRelevant,
+  isAllSwissLocation,
   isGrigioniRelevant,
   isKnownSwissMunicipalityInCanton,
   isTargetSwissLocation,
@@ -59,6 +60,11 @@ describe('target swiss locations', () => {
   it('keeps the target scope aligned with all 26 Swiss cantons', () => {
     expect(TARGET_CANTONS).toHaveLength(ALL_CANTON_CODES.length);
     expect(new Set(TARGET_CANTONS)).toEqual(new Set(ALL_CANTON_CODES));
+  });
+
+  it('exposes an explicit all-canton predicate for national crawlers', () => {
+    expect(isAllSwissLocation('Aarau, Switzerland', { includeBorderProximity: false })).toBe(true);
+    expect(isAllSwissLocation('Como, Italy', { includeBorderProximity: false })).toBe(false);
   });
 
   it('accepts a representative municipality from every Swiss canton', () => {

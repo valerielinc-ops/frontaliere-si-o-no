@@ -495,11 +495,22 @@ export function normalizeCantonCode(raw = '') {
 // ─── Target location check ────────────────────────────────────────────────
 
 export function isTargetSwissLocation(text = '', { includeGrigioni = true, includeBorderProximity = true } = {}) {
-  // This predicate is the Swiss-location gate used by CH-wide crawlers. Keep
-  // it independent of a narrower legacy target list: all 26 cantons are in
-  // scope, while foreign locations are still rejected by isCantonRelevant.
-  for (const code of ALL_CANTON_CODES) {
+  for (const code of TARGET_CANTONS) {
     if (code === 'GR' && !includeGrigioni) continue;
+    if (isCantonRelevant(text, code, { includeBorderProximity })) return true;
+  }
+  return false;
+}
+
+/**
+ * Validate a Swiss location across all 26 cantons.
+ *
+ * Keep this separate from isTargetSwissLocation(): many legacy callers are
+ * intentionally scoped to TARGET_CANTONS, while national crawlers opt into
+ * the complete Swiss geography explicitly.
+ */
+export function isAllSwissLocation(text = '', { includeBorderProximity = true } = {}) {
+  for (const code of ALL_CANTON_CODES) {
     if (isCantonRelevant(text, code, { includeBorderProximity })) return true;
   }
   return false;
