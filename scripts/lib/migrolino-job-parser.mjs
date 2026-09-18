@@ -321,8 +321,15 @@ export function parseMigrolinoDetail(html = '', url = '') {
   const employmentType = contract === 'part-time' ? 'PART_TIME' : 'FULL_TIME';
 
   const postedDate = normalizeSpace(jsonLd?.datePosted || '').slice(0, 10);
-  const locationSignal = [city, sourceRegion, addressCanton].filter(Boolean).join(' ');
-  const resolvedCanton = addressCanton && isTargetSwissLocation(locationSignal) ? addressCanton : '';
+  // Validate the source locality before considering any safe fallback. Using
+  // the fabricated city here would let an unknown/foreign source inherit the
+  // fallback canton and pass the Swiss-location guard.
+  const locationSignal = [rawCity || city, sourceRegion, addressCanton].filter(Boolean).join(' ');
+  const resolvedCanton = addressCanton
+    && !unresolvedExplicitCity
+    && isTargetSwissLocation(locationSignal, { includeBorderProximity: false })
+    ? addressCanton
+    : '';
   // A fabricated national fallback is safe only when the source supplied no
   // locality at all. Never turn an explicit, unrecognised city into Bern (or
   // another canton fallback), because the fallback would make the Swiss guard
