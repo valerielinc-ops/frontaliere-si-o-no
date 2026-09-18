@@ -17,7 +17,7 @@
  *      subsidiaries out — see #5975).
  *   3. Drops any Fust job whose canton label doesn't resolve to a Swiss
  *      canton (CH-only gate — foreign/unresolved postings are dropped, never
- *      defaulted to TI).
+ *      inheriting a fixed canton fallback).
  *   4. Declares those verified pages as adapter seedDetailUrls.
  *   5. Runs the base crawler to fetch JSON-LD JobPosting data from each page.
  *   6. Re-tags discovered jobs with companyKey "fust".
@@ -63,7 +63,11 @@ import {
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
-import { inferAnyCanton, isKnownSwissMunicipality } from './lib/target-swiss-locations.mjs';
+import {
+  inferAnyCanton,
+  isKnownSwissMunicipality,
+  isTargetSwissLocation,
+} from './lib/target-swiss-locations.mjs';
 import { SWISS_CANTONS } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -109,20 +113,22 @@ const FUST_SLUG_MAX_LENGTH = 90;
  *
  *   https://ohws.prospective.ch/public/v1/medium/1000103/jobs?lang=it&offset=0&limit=500&f=70:1114045
  *
- * Per-job canton comes from attribute 30 (a localized canton label such as
- * "Zurigo", "Vallese", "San Gallo", "Ticino"), resolved CH-wide by
- * inferAnyCanton.
+ * Per-job canton comes from attribute 30, a localized source canton label
+ * resolved across all 26 cantons by isTargetSwissLocation/inferAnyCanton.
  */
 const API_BASE = 'https://ohws.prospective.ch/public/v1/medium/1000103';
 const API_LIMIT = 500; // max jobs per request
-const API_MAX_PAGES = 20; // hard ceiling: 20 * 500 = 10000 jobs (safety stop)
+// Operational safety ceiling for a malformed source total. This is not a
+// regional pagination cap: values above it fail loudly before any truncation.
+const MAX_SOURCE_TOTAL = 100_000;
+const MAX_SOURCE_PAGES = Math.ceil(MAX_SOURCE_TOTAL / API_LIMIT);
 // Attribute 70 ("Azienda") value id for "Fust" on medium 1000103 (Coop Group
 // career center) — confirmed against /public/v1/medium/1000103/attributes.
 const FUST_COMPANY_FILTER_ID = '1114045';
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
-  'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+  'Mozilla/5.0 (compatible; FrontaliereSwissBot/1.0; +https://frontaliereticino.ch/)';
 
 const FUST_DETAIL_HOST = 'jobs.fust.ch';
 const FUST_DETAIL_CONCURRENCY = 8;
@@ -218,15 +224,17 @@ export function isFustJob(job) {
 }
 
 /**
- * Resolve a Prospective.ch attribute-30 canton label (e.g. "Zurigo",
- * "Vallese", "San Gallo", "Ticino") to a 2-letter Swiss canton code, CH-wide.
- * Returns '' (never a TI default) when the label doesn't resolve to a Swiss
+ * Resolve a Prospective.ch attribute-30 canton label to a 2-letter Swiss
+ * canton code across all 26 cantons.
+ * Returns '' (never a fixed canton default) when the label doesn't resolve to a Swiss
  * canton — the caller uses that to drop foreign/unresolved postings.
  */
 function normalizeCantonCode(raw = '', fallback = '') {
   const label = String(raw || '').trim();
   if (!label) return fallback || '';
-  return inferAnyCanton(label) || fallback || '';
+  return isTargetSwissLocation(label, { includeBorderProximity: false })
+    ? inferAnyCanton(label) || fallback || ''
+    : '';
 }
 
 function cantonLabel(canton = '') {
@@ -241,10 +249,12 @@ function dateOnly(raw = '') {
 
 function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
   const attr30 = String(job?.attributes?.['30']?.[0] || '').trim();
-  // Canton inferred from the clean attribute-30 label ALONE (never a combined
-  // "city + region" string, which would mislead inferAnyCanton).
-  const canton = normalizeCantonCode(attr30, fallbackCanton);
   const apiCity = String(job?.location || job?.place || job?.city || job?.address?.city || '').trim();
+  // Attribute 30 is the source's geographic facet. Validate the source text
+  // before inferring the canton so a border place cannot become Swiss merely
+  // because inferAnyCanton knows the nearby canton.
+  const sourceLocation = attr30 || apiCity;
+  const canton = normalizeCantonCode(sourceLocation, fallbackCanton);
   const location = apiCity || attr30 || cantonLabel(canton || fallbackCanton);
   const company = String(job?.attributes?.['70']?.[0] || job?.company || '').trim();
   const contract = String(job?.attributes?.['40']?.[0] || '').trim();
@@ -334,22 +344,41 @@ export function extractFustWorkplaceFromHtml(html = '') {
 export function deriveFustWorkplaceCanton(workplace = '', apiCanton = '', options = {}) {
   const location = normalizeFustWorkplace(workplace);
   const direct = inferAnyCanton(location);
-  if (direct) return direct;
+  if (direct) {
+    // `inferAnyCanton()` can resolve a trailing two-letter token (for
+    // example, `Milan, TI`). Remove that token before the Swiss-location
+    // predicate so a canton code cannot turn a foreign city into a match.
+    const locationWithoutCantonCode = location
+      .replace(new RegExp(`(?:,\\s*|\\s+)${direct}$`, 'i'), '')
+      .trim();
+    if (isTargetSwissLocation(locationWithoutCantonCode, { includeBorderProximity: false })) {
+      return direct;
+    }
+    throw new Error(`Fust workplace canton invariant failed: "${location || '(empty)'}" is not resolvable to a Swiss municipality.`);
+  }
 
   const hinted = Object.keys(SWISS_CANTONS)
     .filter((canton) => isKnownSwissMunicipality(location, canton));
-  if (hinted.length === 1) return hinted[0];
   const normalizedApiCanton = String(apiCanton || '').trim().toUpperCase();
-  if (hinted.length > 1 && hinted.includes(normalizedApiCanton)) return normalizedApiCanton;
+  let resolvedCanton = '';
+  if (hinted.length === 1) resolvedCanton = hinted[0];
+  if (hinted.length > 1 && hinted.includes(normalizedApiCanton)) resolvedCanton = normalizedApiCanton;
   if (hinted.length === 0 && SWISS_CANTONS[normalizedApiCanton]) {
     options.onUnknownFallback?.({ workplace: location, canton: normalizedApiCanton });
-    return normalizedApiCanton;
+    resolvedCanton = normalizedApiCanton;
   }
 
   const reason = hinted.length > 1
     ? `ambiguous across ${hinted.join(', ')}`
     : 'not resolvable to a Swiss municipality';
-  throw new Error(`Fust workplace canton invariant failed: "${location || '(empty)'}" is ${reason}.`);
+  if (!resolvedCanton) {
+    throw new Error(`Fust workplace canton invariant failed: "${location || '(empty)'}" is ${reason}.`);
+  }
+  const cantonName = SWISS_CANTONS[resolvedCanton]?.names?.[0] || resolvedCanton;
+  if (!isTargetSwissLocation(`${location}, ${cantonName}`, { includeBorderProximity: false })) {
+    throw new Error(`Fust workplace canton invariant failed: "${location || '(empty)'}" is not resolvable to a Swiss municipality.`);
+  }
+  return resolvedCanton;
 }
 
 function canonicalizeFustDetailUrl(rawUrl = '') {
@@ -429,7 +458,7 @@ async function enrichFustSeedMetadata(urls, seedMetaByUrl, options) {
  * Uses a single UNFILTERED query (no canton facet) paginated over the full
  * national result set. Keeps only the Fust subsidiary (company attribute 70 =
  * "Fust"), and drops any Fust posting whose canton label doesn't resolve to a
- * Swiss canton (CH-only gate — never defaulted to TI).
+ * Swiss canton (CH-only gate — never uses a fixed canton fallback).
  *
  * @param {FustDiscoveryOptions} [options]
  * @returns {Promise<FustDiscoveryResult>}
@@ -451,9 +480,11 @@ export async function fetchFustJobUrls(options = {}) {
   let droppedNonCh = 0;
   let droppedMalformedUrl = 0;
   let droppedDuplicateIdentity = 0;
+  const sourceListingKeys = new Set();
   const stableIds = new Set();
+  let paginationComplete = false;
 
-  for (let page = 0; page < API_MAX_PAGES; page += 1) {
+  for (let page = 0; page < MAX_SOURCE_PAGES; page += 1) {
     const offset = page * API_LIMIT;
     const params = new URLSearchParams({
       lang: 'it',
@@ -475,24 +506,55 @@ export async function fetchFustJobUrls(options = {}) {
         headers: { Accept: 'application/json', 'User-Agent': UA },
       });
       if (!res.ok) {
-        console.warn(`⚠️ API returned ${res.status} at offset ${offset} — stopping pagination.`);
-        break;
+        throw new Error(`Fust discovery failed at offset ${offset}: API returned HTTP ${res.status}.`);
       }
 
       const data = await res.json();
       jobs = assertJsonListShape(data, { key: 'jobs', source: 'fust', lang: `offset:${offset}` });
-      if (apiTotal === null && typeof data?.total === 'number') apiTotal = data.total;
+      if (!Number.isSafeInteger(data?.total) || data.total < 0) {
+        throw new Error(`Fust discovery invariant failed: API response at offset ${offset} did not expose a non-negative safe integer total.`);
+      }
+      if (data.total > MAX_SOURCE_TOTAL) {
+        throw new Error(`Fust discovery invariant failed: API total ${data.total} exceeds the operational safety ceiling ${MAX_SOURCE_TOTAL}; refusing truncated pagination.`);
+      }
+      if (apiTotal === null) apiTotal = data.total;
+      if (data.total !== apiTotal) {
+        throw new Error(`Fust discovery invariant failed: API total changed from ${apiTotal} to ${data.total} at offset ${offset}.`);
+      }
     } catch (err) {
-      console.warn(`⚠️ API fetch failed at offset ${offset}: ${err.message}`);
-      break;
+      if (/Fust discovery invariant failed/.test(String(err?.message || err))) throw err;
+      throw new Error(`Fust discovery failed at offset ${offset}: ${err?.message || err}`, { cause: err });
     } finally {
       clearTimeout(timer);
     }
 
-    if (jobs.length === 0) break;
-    fetched += jobs.length;
+    if (jobs.length === 0) {
+      if (apiTotal !== null && sourceListingKeys.size === apiTotal) {
+        paginationComplete = true;
+        break;
+      }
+      throw new Error(`Fust discovery incomplete: fetched ${sourceListingKeys.size}/${apiTotal ?? '?' } API jobs; the source ended before its declared total.`);
+    }
+
+    let pageNew = 0;
 
     for (const job of jobs) {
+      const sourceListingKey = String(
+        job?.id
+        ?? job?.hk_id
+        ?? job?.viewkey
+        ?? job?.links?.directlink
+        ?? ''
+      ).trim();
+      if (!sourceListingKey) {
+        throw new Error(`Fust discovery invariant failed: API row on page ${page + 1} has no stable source identity.`);
+      }
+      if (sourceListingKeys.has(sourceListingKey)) {
+        droppedDuplicateIdentity += 1;
+        throw new Error(`Fust discovery incomplete: page ${page + 1} repeated source identity "${sourceListingKey}"; unique progress stopped at ${sourceListingKeys.size}/${apiTotal ?? '?'}.`);
+      }
+      sourceListingKeys.add(sourceListingKey);
+      pageNew += 1;
       const company = normalize(job?.attributes?.['70']?.[0] || job?.company || '');
       if (!company.includes('fust')) continue; // keep only the Fust subsidiary
       fustFound++;
@@ -511,7 +573,7 @@ export async function fetchFustJobUrls(options = {}) {
 
       const meta = buildSeedMetaFromApiJob(job);
       // CH-only gate: drop foreign/unresolved postings whose label doesn't
-      // resolve to a Swiss canton (never defaulted to TI).
+      // resolve to a Swiss canton (never uses a fixed canton fallback).
       if (!meta.canton) { droppedNonCh += 1; continue; }
 
       allUrls.add(directLink);
@@ -519,11 +581,31 @@ export async function fetchFustJobUrls(options = {}) {
       seedMetaByUrl[directLink] = meta;
     }
 
-    console.log(`  📦 page ${page + 1}: ${jobs.length} jobs (cumulative ${fetched}${apiTotal !== null ? `/${apiTotal}` : ''})`);
+    fetched = sourceListingKeys.size;
+    if (pageNew === 0) {
+      throw new Error(`Fust discovery incomplete: page ${page + 1} added no unique source records.`);
+    }
+    if (apiTotal !== null && fetched > apiTotal) {
+      throw new Error(`Fust discovery invariant failed: unique source records ${fetched} exceed API total ${apiTotal}.`);
+    }
+
+    console.log(`  📦 page ${page + 1}: ${jobs.length} rows / ${pageNew} unique records (cumulative ${fetched}${apiTotal !== null ? `/${apiTotal}` : ''})`);
 
     // Drained the full result set.
-    if (apiTotal !== null && offset + jobs.length >= apiTotal) break;
-    if (jobs.length < API_LIMIT) break;
+    if (apiTotal !== null && fetched === apiTotal) {
+      paginationComplete = true;
+      break;
+    }
+    if (jobs.length < API_LIMIT) {
+      throw new Error(`Fust discovery incomplete: fetched ${fetched}/${apiTotal ?? '?'} API jobs; a short page arrived before the declared total.`);
+    }
+  }
+
+  if (!paginationComplete) {
+    throw new Error(
+      `Fust discovery incomplete: reached the pagination safety ceiling `
+      + `MAX_SOURCE_PAGES=${MAX_SOURCE_PAGES} without reading the declared source total.`
+    );
   }
 
   // A partial listing must never become an authoritative destructive snapshot.
@@ -531,10 +613,10 @@ export async function fetchFustJobUrls(options = {}) {
     throw new Error('Fust discovery invariant failed: API response did not expose a numeric total.');
   }
   if (fetched < apiTotal) {
-    throw new Error(`Fust discovery incomplete: fetched ${fetched}/${apiTotal} API jobs (API_MAX_PAGES=${API_MAX_PAGES}).`);
+    throw new Error(`Fust discovery incomplete: fetched ${fetched}/${apiTotal} API jobs.`);
   }
   // droppedNonCh is a normal, expected outcome (a job whose label doesn't
-  // resolve to a Swiss canton is dropped, never defaulted to TI) — it must
+  // resolve to a Swiss canton is dropped, never given a fixed canton fallback) — it must
   // NOT gate a hard failure the same way droppedMalformedUrl/
   // droppedDuplicateIdentity do (those indicate real parser/feed drift), so
   // it's folded into the accounted total instead of compared to zero.
@@ -638,7 +720,7 @@ export function ensureAdapterSeedUrls(
       enabled: true,
       priority: 10,
       crawlerModes: ['generic_ats', 'html', 'jsonld'],
-      notes: 'Fust (Coop Group) — Prospective.ch JobBooster (Career Center 1000103, server-side filtered to attribute 70=1114045 "Fust"). Canonical detail pages on jobs.fust.ch; real workplace enriched from page analytics.',
+      notes: 'Fust (Coop Group) — CH-wide discovery across all 26 cantons via Prospective.ch JobBooster (Career Center 1000103, server-side filtered to Fust). Canonical detail pages on jobs.fust.ch; real workplace enriched from source page metadata.',
     };
   if (!fs.existsSync(adapterPath)) {
     console.log(`⚠️ Adapter ${FUST_KEY}.json not found — creating it.`);
@@ -676,7 +758,7 @@ function retagFustJobs() {
     if (fs.existsSync(publicPath)) {
       writeJsonAtomic(publicPath, raw);
     }
-    console.log(`🔄 Re-tagged ${retagged} existing Fust jobs from coop-ticino → ${FUST_KEY}`);
+    console.log(`🔄 Re-tagged ${retagged} existing Fust jobs from the legacy company key → ${FUST_KEY}`);
   }
   return retagged;
 }
@@ -1231,7 +1313,7 @@ async function main() {
   console.log('   Scope: CH-wide (all 26 cantons, unfiltered national query; Fust subsidiary only)');
   console.log('');
 
-  // Step 0: Re-tag existing Fust jobs that may have coop-ticino key
+  // Step 0: Re-tag existing Fust jobs that may carry a legacy company key.
   retagFustJobs();
 
   // Step 1: Discover Fust job URLs from the Prospective.ch API
@@ -1284,7 +1366,9 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _plan = buildFustPublishPlan(readScratchJobs(), _beforeSnapshot, { durationMs: _durationMs, detailDrop: fustSummaryCounts.detailDrop });
   const stats = logStats(_plan);
-  if (stats.total === 0) throw new Error('Fust parser produced zero jobs for a non-empty authoritative snapshot.');
+  if (stats.total === 0) {
+    console.warn('⚠️ Fust source was read and reconciled, but produced zero publishable jobs; retaining the verified empty result for the normal shrink/empty-snapshot handling.');
+  }
 
   validateLocaleCoverage();
 
