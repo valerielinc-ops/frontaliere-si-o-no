@@ -76,7 +76,7 @@ const JOBS_API_URL = 'https://job.post.ch/services/recruiting/v1/jobs';
 // jobs) but Italian-only / French-only postings are missing from it — we'd
 // silently drop them without scanning it_IT / fr_FR separately.
 const JOBS_API_LISTING_LOCALES = ['de_DE', 'it_IT', 'fr_FR', 'en_US'];
-const JOBS_API_MAX_PAGES = 100000; // uncapped — loop already bounded by `seen < totalJobs` and breaks on empty page
+const JOBS_API_MAX_PAGES = 100000; // safety cap; a declared total or an empty page normally ends pagination
 const JOBS_DETAIL_LOCALES = ['it_IT', 'de_DE', 'fr_FR', 'en_US']; // priority for description language
 
 // Kept for adapter seedUrls / external references only.
@@ -180,8 +180,9 @@ async function fetchPage(url, timeoutMs = 15000) {
 /**
  * POST one page against the SuccessFactors NES jobs search endpoint.
  *
- * @returns {Promise<{totalJobs:number, jobs:object[]}>}  always returns an
- *   object so callers can break the pagination loop on `jobs.length === 0`.
+ * @returns {Promise<{totalJobs:number|null, jobs:object[], error?:string}>}
+ *   always returns an object; callers must fail the crawl on a source error or
+ *   on an empty page before reaching a declared total.
  */
 async function fetchJobsApiPage(locale, pageNumber, timeoutMs = 20000) {
   const controller = new AbortController();
@@ -203,16 +204,36 @@ async function fetchJobsApiPage(locale, pageNumber, timeoutMs = 20000) {
     });
     if (!res.ok) {
       console.warn(`⚠️ HTTP ${res.status} for jobs API (${locale} page ${pageNumber})`);
-      return { totalJobs: 0, jobs: [] };
+      return { totalJobs: null, jobs: [], error: `HTTP ${res.status}` };
     }
     const data = await res.json();
-    const jobs = assertJsonListShape(data, { key: 'jobSearchResult', source: 'postch', lang: locale })
+    const rawJobs = data?.jobSearchResult;
+    assertJsonListShape(data, { key: 'jobSearchResult', source: 'postch', lang: locale });
+    if (!Array.isArray(rawJobs)) {
+      return {
+        totalJobs: null,
+        jobs: [],
+        error: 'expected jobSearchResult array',
+      };
+    }
+    const rawTotal = data?.totalJobs;
+    let totalJobs = null;
+    if (rawTotal !== undefined && rawTotal !== null && rawTotal !== '') {
+      const parsedTotal = Number(rawTotal);
+      if (!Number.isFinite(parsedTotal) || parsedTotal < 0) {
+        return { totalJobs: null, jobs: [], error: 'invalid declared totalJobs' };
+      }
+      // A few SuccessFactors responses report totalJobs=0 while returning
+      // rows. Treat zero as unknown so it cannot truncate this locale crawl.
+      if (parsedTotal > 0) totalJobs = parsedTotal;
+    }
+    const jobs = rawJobs
       .map(r => r?.response)
       .filter(Boolean);
-    return { totalJobs: Number(data?.totalJobs ?? 0), jobs };
+    return { totalJobs, jobs };
   } catch (err) {
     console.warn(`⚠️ Jobs API fetch failed (${locale} page ${pageNumber}): ${err.message}`);
-    return { totalJobs: 0, jobs: [] };
+    return { totalJobs: null, jobs: [], error: err.message };
   } finally {
     clearTimeout(timer);
   }
@@ -369,22 +390,48 @@ async function fetchPostJobs() {
   const byId = new Map();
   for (const apiLocale of JOBS_API_LISTING_LOCALES) {
     let pageNumber = 0;
-    let totalJobs = Infinity;
+    let totalJobs = null;
     let seen = 0;
-    while (seen < totalJobs && pageNumber < JOBS_API_MAX_PAGES) {
-      const { totalJobs: total, jobs } = await fetchJobsApiPage(apiLocale, pageNumber);
-      if (jobs.length === 0) break;
+    while (pageNumber < JOBS_API_MAX_PAGES) {
+      const { totalJobs: total, jobs, error } = await fetchJobsApiPage(apiLocale, pageNumber);
+      if (error) {
+        throw new Error(`Post.ch ${apiLocale} pagination failed at page ${pageNumber}: ${error}`);
+      }
+
+      if (total !== null) {
+        if (totalJobs !== null && totalJobs !== total) {
+          throw new Error(
+            `Post.ch ${apiLocale} pagination failed: declared total changed from ${totalJobs} to ${total}.`,
+          );
+        }
+        totalJobs = total;
+      }
+
+      if (jobs.length === 0) {
+        if (totalJobs !== null && seen < totalJobs) {
+          throw new Error(
+            `Post.ch ${apiLocale} pagination incomplete: received ${seen} of ${totalJobs} declared jobs.`,
+          );
+        }
+        break;
+      }
       for (const j of jobs) {
         const id = String(j?.id || '').trim();
         if (!id) continue;
         if (!byId.has(id)) byId.set(id, j);
       }
       seen += jobs.length;
-      totalJobs = total;
       pageNumber += 1;
+      if (totalJobs !== null && seen >= totalJobs) break;
       await delay(250);
     }
-    console.log(`     ${apiLocale}: ${seen} record(s) (claimed total: ${Number.isFinite(totalJobs) ? totalJobs : 'unknown'})`);
+    if (pageNumber >= JOBS_API_MAX_PAGES && (totalJobs === null || seen < totalJobs)) {
+      throw new Error(
+        `Post.ch ${apiLocale} pagination incomplete after ${pageNumber} pages: ` +
+          `${seen} records received${totalJobs !== null ? ` of ${totalJobs} declared` : ''}.`,
+      );
+    }
+    console.log(`     ${apiLocale}: ${seen} record(s) (claimed total: ${totalJobs ?? 'unknown'})`);
   }
   const apiRecords = [...byId.values()];
   console.log(`  📋 Merged unique records across locales: ${apiRecords.length}`);

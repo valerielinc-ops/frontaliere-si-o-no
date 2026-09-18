@@ -185,8 +185,7 @@ async function fetchSwissJobListings() {
     if (data.jobPostings.length < PAGE_SIZE) break;
     if ((data.total || 0) > 0 && allPostings.length >= data.total) break;
     if (pages >= MAX_PAGES) {
-      console.warn(`⚠️ Reached pagination safety cap (${MAX_PAGES} pages); stopping.`);
-      break;
+      throw new Error(`Fielmann Workday pagination safety cap reached after ${MAX_PAGES} pages without a verified end.`);
     }
     offset += PAGE_SIZE;
     await new Promise((r) => setTimeout(r, 500));
