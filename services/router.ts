@@ -48,6 +48,7 @@ import {
  getJobTodayLandingSlug,
  resolveEditorialJobLandingDescriptor,
 } from '../build-plugins/jobEditorialLanding';
+import { getJobIntentLandingSlug } from '../build-plugins/jobIntentLanding';
 import { JOB_RECENCY_LANDING_SLUGS as RECENCY_LANDING_SLUGS } from '../build-plugins/jobRecencyLanding';
 import { FUEL_DAILY_ROUTES, isFuelDailyPath } from '../build-plugins/fuelDailyData';
 import { HEALTH_PREMIUMS_ROUTES, isHealthPremiumsPath } from '../build-plugins/shared/healthPremiumsPaths';
@@ -3440,6 +3441,9 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  sectionSlug: table.jobBoard,
  localePrefix: prefix,
  }).slug;
+ }
+ if (descriptor.kind === 'intent') {
+ return getJobIntentLandingSlug(lang, descriptor.intentKey);
  }
  if (descriptor.kind === 'nurses-hub') {
  return buildJobNursesHubLandingModel({

@@ -1,4 +1,7 @@
 const enCore: Record<string, string> = {
+ 'whatsNew.v3966.title': 'A more useful job search',
+ 'whatsNew.v3966.jobSearchLoop.title': 'New jobs, categories and alerts',
+ 'whatsNew.v3966.jobSearchLoop.desc': 'Pick up where you left off, follow a category, and move between related categories, employers and new German-speaking or entry-level job pages.',
  'app.title': 'Frontaliere Ticino',
  'app.subtitle': 'Calculate and compare your net salary as a cross-border worker',
  'app.fullscreen': 'Fullscreen',

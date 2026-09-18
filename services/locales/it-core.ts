@@ -1,5 +1,8 @@
 // Italian translations — core page chunk
 const translations: Record<string, string> = {
+ 'whatsNew.v3966.title': 'Una ricerca di lavoro più utile',
+ 'whatsNew.v3966.jobSearchLoop.title': 'Nuove offerte, categorie e alert',
+ 'whatsNew.v3966.jobSearchLoop.desc': 'Riprendi la ricerca dalle ultime visite, segui una categoria e passa tra categorie collegate, aziende e nuove pagine per il tedesco o la prima esperienza.',
  'app.title': 'Frontaliere Ticino',
  'app.subtitle': 'Calcola e confronta il tuo stipendio netto come lavoratore frontaliero',
  'app.fullscreen': 'Schermo intero',
