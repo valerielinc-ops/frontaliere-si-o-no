@@ -2,8 +2,10 @@ import { describe, it, expect } from 'vitest';
 import {
   MIGROS_HQ_KEY,
   MIGROS_HQ_COMPANY_NAME,
+  fetchAllMigrosHqJobs,
   isMigrosHqJob,
   isTrustedDomain,
+  resolveMigrosHqSourceGeography,
 } from '../scripts/lib/migros-hq-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -25,7 +27,7 @@ describe('Migros HQ Zürich crawler parser', () => {
     });
 
     it('matches by URL domain', () => {
-      expect(isMigrosHqJob({ url: 'https://migros.ch/jobs/123' })).toBe(true);
+      expect(isMigrosHqJob({ url: 'https://migros.ch/jobs/123' })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {
@@ -34,8 +36,20 @@ describe('Migros HQ Zürich crawler parser', () => {
 
     it('matches jobs.migros.ch URLs (live source since #3797)', () => {
       expect(
-        isMigrosHqJob({ url: 'https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/x/uuid' }),
+        isMigrosHqJob({ url: 'https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/x/5ebe9a24-db13-4fee-a3b1-b041531b7f2b' }),
       ).toBe(true);
+    });
+
+    it('rejects a different Migros group-company path', () => {
+      expect(isMigrosHqJob({
+        url: 'https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/x/5ebe9a24-db13-4fee-a3b1-b041531b7f2b',
+      })).toBe(false);
+    });
+
+    it('rejects a lookalike URL on a different host', () => {
+      expect(isMigrosHqJob({
+        url: 'https://evil.example/?next=https://jobs.migros.ch/unsere-unternehmen/job/migros-genossenschafts-bund/x/5ebe9a24-db13-4fee-a3b1-b041531b7f2b',
+      })).toBe(false);
     });
 
     it('handles null/undefined gracefully', () => {
@@ -43,6 +57,44 @@ describe('Migros HQ Zürich crawler parser', () => {
       expect(isMigrosHqJob(undefined)).toBe(false);
       expect(isMigrosHqJob({})).toBe(false);
     });
+  });
+
+  describe('source-backed geography', () => {
+    it('derives canton and postal code from the posting locality', () => {
+      expect(resolveMigrosHqSourceGeography('Lugano', '')).toEqual({
+        location: 'Lugano',
+        canton: 'TI',
+        postalCode: '6900',
+      });
+    });
+
+    it('does not invent the Zürich HQ address when locality is absent or foreign', () => {
+      expect(resolveMigrosHqSourceGeography('', '')).toBeNull();
+      expect(resolveMigrosHqSourceGeography('Berlin', '')).toBeNull();
+    });
+
+    it('rejects a foreign locality paired with a Swiss region', () => {
+      expect(resolveMigrosHqSourceGeography('London', 'Zürich')).toBeNull();
+    });
+
+    it('rejects a locality field that embeds a foreign place alongside a Swiss city', () => {
+      expect(resolveMigrosHqSourceGeography('London, Zürich', 'Zürich')).toBeNull();
+    });
+
+    it('rejects locality and region that resolve to different cantons', () => {
+      expect(resolveMigrosHqSourceGeography('Lugano', 'Zürich')).toBeNull();
+    });
+  });
+
+  it('fails closed when a sitemap detail page cannot be read', async () => {
+    const detailUrl = 'https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/test-role/5ebe9a24-db13-4fee-a3b1-b041531b7f2b';
+    await expect(fetchAllMigrosHqJobs({
+      fetchPage: async (url: string) => {
+        if (url === 'https://jobs.migros.ch/de/sitemap.xml') return `<url><loc>${detailUrl}</loc></url>`;
+        throw new Error('synthetic detail outage');
+      },
+      delayMs: 0,
+    })).rejects.toThrow(/refusing to publish a partial dataset/);
   });
 
   // ── isTrustedDomain ──
@@ -115,7 +167,7 @@ describe('Migros HQ Zürich crawler parser', () => {
       location: 'Lugano',
       canton: 'TI',
       url: 'https://migros.ch/jobs/test',
-      source: 'Migros HQ Zürich Dedicated Parser',
+      source: 'Migros-Genossenschafts-Bund National Dedicated Parser',
       sourceLang: 'de',
       crawledAt: new Date().toISOString(),
     };

@@ -4,6 +4,8 @@
  * La Fonte careers page uses HubSpot's `pwr-simple-list-item` cards with rich
  * HTML descriptions containing <p>, <ul>/<li>, <em>, <strong>, <span> elements.
  * This module converts the card HTML to clean markdown with proper structure.
+ * The source is the foundation's own Lugano (TI) careers page, not a national
+ * employer-search feed.
  */
 
 import { JSDOM } from 'jsdom';

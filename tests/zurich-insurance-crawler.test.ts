@@ -241,9 +241,20 @@ describe('Zurich Insurance Switzerland crawler', () => {
     expect(jobs.every((job) => job.id === `${ZURICH_INSURANCE_KEY}-${job.slugDisambiguator}`)).toBe(true);
     expect(jobs.every((job) => /^https:\/\/www\.careers\.zurich\.com\/job\/[^/]+\/\d+\/$/.test(job.url))).toBe(true);
     expect(jobs.every((job) => job.country === 'CH' && job.addressCountry === 'CH')).toBe(true);
+    expect(jobs.every((job) => Object.hasOwn(job, 'postalCode'))).toBe(true);
+    expect(jobs.every((job) => Object.hasOwn(job, 'streetAddress'))).toBe(true);
     expect(new Set(jobs.map((job) => job.canton))).toEqual(new Set(['ZH', 'VD', 'LU', 'GE']));
     expect(jobs.every((job) => !job.location.includes(', CH'))).toBe(true);
     expect(jobs.every((job) => Object.keys(job.slugByLocale).length === 1)).toBe(true);
+  });
+
+  it('fails loud when an explicit page limit would truncate the declared total', async () => {
+    await expect(fetchZurichInsuranceListings({
+      maxPages: 1,
+      snapshotAttempts: 1,
+      snapshotRetryDelayMs: 0,
+      fetchPage: fixtureFetch,
+    })).rejects.toThrow(/page limit reached at 25\/45 unique jobs/);
   });
 
   it('migration matcher keeps only active legacy requisitions and all dedicated records', async () => {

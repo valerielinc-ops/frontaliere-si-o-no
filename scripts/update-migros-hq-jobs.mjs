@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Dedicated Migros HQ Zürich crawler runner.
+ * Dedicated national crawler runner for the Migros-Genossenschafts-Bund legal entity (HQ Zürich).
  *
- * Uses the standard crawler template with the Migros HQ Zürich parser.
+ * Uses the standard crawler template with the national Migros-Genossenschafts-Bund parser.
  * All fetch/parse logic lives in ./lib/migros-hq-job-parser.mjs.
  */
 import path from 'node:path';

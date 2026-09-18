@@ -5,8 +5,10 @@
  * Source:
  *   https://www.ems-group.com/en/career/job-vacancies/
  *
- * EMS-Chemie AG is the world.s leading producer of high-performance polyamides,
+ * EMS-Chemie AG is the world's leading producer of high-performance polyamides,
  * headquartered in Domat/Ems (Graubünden) with ~3000 employees globally.
+ * This crawler is tied to the company's own career portal and Swiss sites; it
+ * is not a national employer-search crawler.
  *
  * This script:
  *   1. Fetches the career page HTML.
@@ -79,7 +81,7 @@ const CAREERS_URLS = [
 ];
 const CAREERS_URL = CAREERS_URLS[0];
 const LOCALES = ['it', 'en', 'de', 'fr'];
-const UA = process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+const UA = process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereBot/1.0; +https://frontaliereticino.ch/)';
 
 /* ── Matcher ───────────────────────────────────────────────── */
 export function isCompanyJob(job) {
@@ -259,7 +261,7 @@ function updateAdapterConfig(seedUrls) {
   try { adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8')); } catch { /* first run */ }
   const seedMetaByUrl = {};
   for (const url of seedUrls) seedMetaByUrl[url] = { company: COMPANY_NAME, companyDomain: 'ems-group.com' };
-  adapter = { ...adapter, companyKey: COMPANY_KEY, companyName: COMPANY_NAME, companyHost: COMPANY_HOST, enabled: true, priority: 10, crawlerModes: ['html'], seedUrls, seedMetaByUrl, notes: 'Specialty chemicals company HQ in Domat/Ems (GR). Career page HTML crawler.', updatedAt: new Date().toISOString() };
+  adapter = { ...adapter, companyKey: COMPANY_KEY, companyName: COMPANY_NAME, companyHost: COMPANY_HOST, enabled: true, priority: 10, crawlerModes: ['html'], seedUrls, seedMetaByUrl, notes: 'Career-portal HTML crawler tied to EMS-Chemie/EFTEC Swiss sites, centered on the Domat/Ems (GR) company seat; not a national employer search.', updatedAt: new Date().toISOString() };
   fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
   fs.writeFileSync(adapterPath, `${JSON.stringify(adapter, null, 2)}\n`, 'utf-8');
   console.log(`📝 Adapter updated: ${adapterPath}`);
