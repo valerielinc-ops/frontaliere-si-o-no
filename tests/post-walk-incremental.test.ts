@@ -341,6 +341,29 @@ describe('post-walk incremental planning', () => {
     expect(fs.readFileSync(filePath, 'utf8')).toBe('<!DOCTYPE html>bridge');
   });
 
+  it('does not preserve a derived bridge when its source dependency changed', () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const filePath = writeHtml(root, 'jobs/bridge.html', '<!DOCTYPE html>bridge');
+    const sourcePath = writeHtml(root, 'jobs/bridge/index.html', '<!DOCTYPE html>source-new');
+    process.env.POST_WALK_INCREMENTAL = '1';
+    writePostWalkDerivedDigestSidecar(root, new Map([
+      ['jobs/bridge.html', {
+        path: 'jobs/bridge.html',
+        kind: 'bridge',
+        inputHash: hashContent('<!DOCTYPE html>source'),
+        sourcePath: 'jobs/bridge/index.html',
+        sourceHash: hashContent('<!DOCTYPE html>source-old'),
+        templateHash: 'flat-bridge@1',
+      }],
+    ]));
+    clearPostWalkDerivedDigestCacheForTest();
+    claim(sourcePath, 'fixture', '<!DOCTYPE html>source-new');
+    claim(filePath, 'fixture', '<!DOCTYPE html>source');
+
+    expect(preservePostWalkDerivedOutput(distDir, filePath, '<!DOCTYPE html>source')).toBe(false);
+  });
+
   it('rebuilds the HTML inventory from claimed paths plus unmanifested roots', () => {
     const root = fixtureRoot();
     const distDir = path.join(root, 'dist');
