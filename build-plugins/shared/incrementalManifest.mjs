@@ -7,9 +7,12 @@ export const MANIFEST_VERSION = 2;
 export const MANIFEST_FORMAT = 'jsonl';
 export const SOURCE_VERSION = 'input@1';
 // The emitter fingerprint includes this value. Bumping it makes the first
-// build after a change to the canonical job digest algorithm miss old HTML
+// build after a change to the canonical job digest/input shape miss old HTML
 // reuse entries even when the page input happens to hash identically.
-export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@2';
+// job-digest@3: active pages hash the six rendered related jobs plus a compact
+// full-pool membership signature; full-content bridge pages reference the
+// canonical active input hash instead of re-hashing the source record/pool.
+export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@3';
 export const INCREMENTAL_MANIFEST_ENABLED = process.env.INCREMENTAL_MANIFEST === '1';
 
 export const PAGE_KINDS = Object.freeze([
@@ -198,36 +201,44 @@ function markCanonicalJson(value, canonicalJson) {
   return value;
 }
 
-function cheapTextLength(value) {
-  if (value === undefined || value === null) return -1;
-  return typeof value === 'string' ? value.length : String(value).length;
+/**
+ * Return an explicit content version when the upstream record provides one.
+ * These fields are contracts, not guesses: callers may reuse a digest for a
+ * cloned record only when the producer promises to bump the token for every
+ * rendered-content mutation. The crawler snapshot currently has no such field,
+ * so its records are reused by object identity only.
+ */
+function authoritativeJobRecordVersion(job) {
+  for (const key of [
+    'contentHash',
+    'recordHash',
+    'sourceRecordHash',
+    'sourceHash',
+    'contentVersion',
+    'recordVersion',
+  ]) {
+    const value = job?.[key];
+    if (typeof value === 'string' && value.length > 0) return `${key}:${value}`;
+    if (typeof value === 'number' && Number.isFinite(value)) return `${key}:${value}`;
+  }
+  return null;
 }
 
 /**
- * Validate ID-keyed cache entries without walking or serializing the record.
- * The fixed tuple is captured only when a digest is computed; cache hits compare
- * its scalar fields and text lengths directly, without allocating or serializing
- * the record on the hot path.
+ * Validate cache entries without walking or serializing the large record.
+ * A versioned clone is checked by its authoritative content token plus cheap
+ * route/status scalars. An unversioned clone deliberately misses both caches:
+ * reusing it from a bounded sample would make a middle-of-description change
+ * invisible. The WeakMap path may reuse an unversioned record by identity;
+ * build snapshots are read-only after loading, so that is the only safe cheap
+ * reuse available when the producer exposes no content version.
  */
 function cheapJobRecordSignature(job) {
   if (!job || typeof job !== 'object') return '';
   const titleByLocale = job.titleByLocale;
   const slugByLocale = job.slugByLocale;
-  const descriptionByLocale = job.descriptionByLocale;
-  const htmlByLocale = job.htmlByLocale;
   return [
-    job.sourceRecordHash,
-    job.sourceHash,
-    job.updatedAt,
-    job.lastUpdatedAt,
-    job.lastSeen,
-    job.lastSeenAt,
-    job.postedAt,
-    job.datePosted,
-    job.postedDate,
-    job.firstSeenAt,
-    job.crawledAt,
-    job.expiredAt,
+    authoritativeJobRecordVersion(job),
     job.title,
     job.slug,
     titleByLocale?.it,
@@ -238,63 +249,28 @@ function cheapJobRecordSignature(job) {
     slugByLocale?.en,
     slugByLocale?.de,
     slugByLocale?.fr,
-    cheapTextLength(job.description),
-    cheapTextLength(job.html),
-    cheapTextLength(job.descriptionHtml),
-    cheapTextLength(descriptionByLocale?.it),
-    cheapTextLength(descriptionByLocale?.en),
-    cheapTextLength(descriptionByLocale?.de),
-    cheapTextLength(descriptionByLocale?.fr),
-    cheapTextLength(htmlByLocale?.it),
-    cheapTextLength(htmlByLocale?.en),
-    cheapTextLength(htmlByLocale?.de),
-    cheapTextLength(htmlByLocale?.fr),
+    job.canonicalUrl,
+    job.status,
+    job.state,
+    job.expiredAt,
   ];
 }
 
-function hasMatchingJobRecordSignature(job, signature) {
+function hasMatchingJobRecordSignature(job, signature, allowUnversionedIdentity = false) {
   if (!job || typeof job !== 'object' || !Array.isArray(signature)) return false;
-  const titleByLocale = job.titleByLocale;
-  const slugByLocale = job.slugByLocale;
-  const descriptionByLocale = job.descriptionByLocale;
-  const htmlByLocale = job.htmlByLocale;
-  return signature[0] === job.sourceRecordHash
-    && signature[1] === job.sourceHash
-    && signature[2] === job.updatedAt
-    && signature[3] === job.lastUpdatedAt
-    && signature[4] === job.lastSeen
-    && signature[5] === job.lastSeenAt
-    && signature[6] === job.postedAt
-    && signature[7] === job.datePosted
-    && signature[8] === job.postedDate
-    && signature[9] === job.firstSeenAt
-    && signature[10] === job.crawledAt
-    && signature[11] === job.expiredAt
-    && signature[12] === job.title
-    && signature[13] === job.slug
-    && signature[14] === titleByLocale?.it
-    && signature[15] === titleByLocale?.en
-    && signature[16] === titleByLocale?.de
-    && signature[17] === titleByLocale?.fr
-    && signature[18] === slugByLocale?.it
-    && signature[19] === slugByLocale?.en
-    && signature[20] === slugByLocale?.de
-    && signature[21] === slugByLocale?.fr
-    && signature[22] === cheapTextLength(job.description)
-    && signature[23] === cheapTextLength(job.html)
-    && signature[24] === cheapTextLength(job.descriptionHtml)
-    && signature[25] === cheapTextLength(descriptionByLocale?.it)
-    && signature[26] === cheapTextLength(descriptionByLocale?.en)
-    && signature[27] === cheapTextLength(descriptionByLocale?.de)
-    && signature[28] === cheapTextLength(descriptionByLocale?.fr)
-    && signature[29] === cheapTextLength(htmlByLocale?.it)
-    && signature[30] === cheapTextLength(htmlByLocale?.en)
-    && signature[31] === cheapTextLength(htmlByLocale?.de)
-    && signature[32] === cheapTextLength(htmlByLocale?.fr);
+  // A WeakMap hit already proves object identity. Do not rebuild any tuple for
+  // the common unversioned crawler-record path; the snapshot is immutable by
+  // contract and this keeps the identity fast path out of the page hot loop.
+  if (signature[0] === null) return allowUnversionedIdentity;
+  const current = cheapJobRecordSignature(job);
+  if (current.length !== signature.length) return false;
+  return current.every((value, index) => value === signature[index]);
 }
 
-function hasMatchingSignature(entry, job) {
-  return entry && typeof entry === 'object' && hasMatchingJobRecordSignature(job, entry.signature);
+function hasMatchingSignature(entry, job, allowUnversionedIdentity = false) {
+  return entry
+    && typeof entry === 'object'
+    && hasMatchingJobRecordSignature(job, entry.signature, allowUnversionedIdentity);
 }
 
 export function createIncrementalManifestInputCache() {
@@ -362,8 +338,10 @@ function digestJobRecord(job, inputCache = null) {
     if (hasMatchingSignature(cachedById, job)) return cachedById.digest;
   }
   const cachedDigest = jobRecordDigestCache.get(job);
-  if (hasMatchingSignature(cachedDigest, job)) {
-    if (inputCache && stableId) setInputCacheEntry(inputCache, 'jobDigestsById', stableId, cachedDigest);
+  if (hasMatchingSignature(cachedDigest, job, true)) {
+    if (inputCache && stableId && cachedDigest.signature[0] !== null) {
+      setInputCacheEntry(inputCache, 'jobDigestsById', stableId, cachedDigest);
+    }
     return cachedDigest.digest;
   }
 
@@ -404,8 +382,12 @@ function projectRelatedJob(relatedJob, locale, inputCache = null) {
     relatedJobProjectionCache.set(relatedJob, projectionsByLocale);
   }
   const cachedProjection = projectionsByLocale.get(locale);
-  if (hasMatchingSignature(cachedProjection, relatedJob)) {
-    if (cacheKey) inputCache.relatedJobProjectionsByKey.set(cacheKey, cachedProjection);
+  if (hasMatchingSignature(cachedProjection, relatedJob, true)) {
+    if (cacheKey && cachedProjection.signature[0] !== null) {
+      setInputCacheEntry(inputCache, 'relatedJobProjectionsByKey', cacheKey, cachedProjection);
+      const digestEntry = jobRecordDigestCache.get(relatedJob);
+      if (digestEntry) setInputCacheEntry(inputCache, 'jobDigestsById', id, digestEntry);
+    }
     return cachedProjection.projection;
   }
   const projection = {
@@ -457,6 +439,22 @@ export function stableJobVersion(job) {
     ?? job?.firstSeenAt
     ?? '',
   );
+}
+
+/**
+ * Fingerprint the complete related-job candidate pool without retaining or
+ * serializing its records. The renderer chooses only six entries from this
+ * ordered pool; the compact signature keeps additions/removals/reordering and
+ * the slug used by the selection guard in the page dependency set.
+ */
+export function computeRelatedJobPoolSignature(relatedJobs = []) {
+  const jobs = Array.isArray(relatedJobs) ? relatedJobs : [];
+  const membership = jobs.map((relatedJob) => (
+    relatedJob && typeof relatedJob === 'object'
+      ? [stableJobId(relatedJob), String(relatedJob.slug ?? '')]
+      : [String(relatedJob ?? ''), '']
+  ));
+  return sha256(JSON.stringify(membership));
 }
 
 /**

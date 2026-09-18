@@ -49,6 +49,7 @@ import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import {
  buildMinimalJobInput,
+ computeRelatedJobPoolSignature,
  getIncrementalManifestInputCache,
  getIncrementalManifestMap,
  logIncrementalManifestMemory,
@@ -2634,6 +2635,30 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return relatedPool;
  };
 
+ const selectRelatedJobs = (relatedPool: any[], relatedSeed: number): any[] => {
+  if (relatedPool.length === 0) return [];
+  const out: any[] = [];
+  const seen = new Set<string>();
+  const limit = Math.min(6, relatedPool.length);
+  for (let i = 0; i < limit; i++) {
+   const idx = (relatedSeed + i * 2654435761) % relatedPool.length;
+   const candidate = relatedPool[idx];
+   if (candidate && !seen.has(candidate.slug)) {
+    seen.add(candidate.slug);
+    out.push(candidate);
+   }
+  }
+  // Top-up with sequential picks if hash collisions reduced the selection.
+  for (let i = 0; out.length < limit && i < relatedPool.length; i++) {
+   const candidate = relatedPool[i];
+   if (candidate && !seen.has(candidate.slug)) {
+    seen.add(candidate.slug);
+    out.push(candidate);
+   }
+  }
+  return out;
+ };
+
  // `companyRoutePrefix` / `isCompanyHubNamespaceSlug` now live in
  // `./shared/cantonSection` (COMPANY_ROUTE_PREFIX / isCompanyHubNamespaceSlug)
  // so jobOrphanBridgePlugin.ts can share the exact same reserved-namespace
@@ -3015,9 +3040,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const perJob_matchedCity = CITY_HUB_KEYS.find((c) => jobMatchesCity(job as never, c));
  const perJob_logoUrl = companyLogo(job);
  const perJob_relatedPool = getRelatedPool(job);
- // Keep the indexed record references: relatedHtml renders these same
- // objects, so their full digest covers every related-card field.
- const perJob_relatedJobs = incrementalManifests ? perJob_relatedPool : null;
  const perJob_relatedSeed = (() => {
  const s = String(job.slug || '');
  let h = 2166136261 >>> 0;
@@ -3027,6 +3049,16 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }
  return h;
  })();
+ // The HTML renderer selects six cards from the full candidate pool. The
+ // manifest carries those same six records plus a compact signature of the
+ // full pool, so a pool membership/order change still invalidates the page
+ // without serializing every candidate for every locale.
+ const perJob_relatedJobs = incrementalManifests
+  ? selectRelatedJobs(perJob_relatedPool, perJob_relatedSeed)
+  : null;
+ const perJob_relatedPoolSignature = incrementalManifests
+  ? computeRelatedJobPoolSignature(perJob_relatedPool)
+  : null;
  const perJob_salaryMin = Number.isFinite(Number(job.salaryMin))
  ? Number(job.salaryMin)
  : Number(job?.baseSalary?.value?.minValue);
@@ -3086,6 +3118,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    ...buildMinimalJobInput(job, locale, perLocaleSlug[locale], perJob_relatedJobs || [], incrementalManifestInputCache, job),
    canton: jobCanton,
    canonicalUrl: effectiveCanonicalUrl,
+   relatedPoolSignature: perJob_relatedPoolSignature,
   }
  : null;
  const outDir = np.join(distDir, canonicalPath.slice(1));
@@ -3299,28 +3332,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // without losing determinism between builds. Hoisted to perJob block —
  // see top of the outer for-each-job loop.
  const relatedSeed = perJob_relatedSeed;
- const related = relatedPool.length === 0 ? [] : (() => {
- const out: any[] = [];
- const seen = new Set<string>();
- const N = Math.min(6, relatedPool.length);
- for (let i = 0; i < N; i++) {
- const idx = (relatedSeed + i * 2654435761) % relatedPool.length;
- const cand = relatedPool[idx];
- if (cand && !seen.has(cand.slug)) {
- seen.add(cand.slug);
- out.push(cand);
- }
- }
- // Top-up with sequential picks if hash collisions reduced count.
- for (let i = 0; out.length < N && i < relatedPool.length; i++) {
- const cand = relatedPool[i];
- if (cand && !seen.has(cand.slug)) {
- seen.add(cand.slug);
- out.push(cand);
- }
- }
- return out;
- })();
+ const related = perJob_relatedJobs ?? selectRelatedJobs(relatedPool, relatedSeed);
  // close related-pool phase (selection done); relatedHtml render goes into
  // the same bucket so the bucket measures the full cross-link block cost.
  const relatedHtml = related
@@ -4007,6 +4019,10 @@ ${staticAnalyticsHtml}
  if (incrementalManifests) {
   registerIncrementalPage(locale, canonicalPath, 'active-job', activeJobManifestInput);
  }
+ const activeJobInputHash = incrementalManifests?.get(locale)?.getHash(
+  canonicalPath,
+  'active-job',
+ ) ?? null;
  jobHtmlCache.set(`${locale}:${perLocaleSlug[locale]}`, html);
  activeHtmlPaths.set(`${locale}:${perLocaleSlug[locale]}`, canonicalPath);
  // Also write flat .html so /slug serves 200 (avoids GitHub Pages 301 redirect)
@@ -4055,7 +4071,9 @@ ${staticAnalyticsHtml}
  const legacyReuseInput = incrementalManifests
   ? {
    bridgeType: 'locale-slug',
-   source: activeJobManifestInput,
+   source: 'active-job',
+   sourceInputHash: activeJobInputHash,
+   jobId: stableJobId(job),
    sourcePath: canonicalPath,
    targetPath: legacyRel,
    legacySlug: job.slug,
@@ -4111,7 +4129,9 @@ ${staticAnalyticsHtml}
  const legacyTIReuseInput = incrementalManifests
   ? {
    bridgeType: 'legacy-ti',
-   source: activeJobManifestInput,
+   source: 'active-job',
+   sourceInputHash: activeJobInputHash,
+   jobId: stableJobId(job),
    sourcePath: canonicalPath,
    targetPath: legacyTIRel,
    legacySlug: job.slug,
@@ -13541,6 +13561,10 @@ ${staticAnalyticsHtml}
    registerIncrementalPage(locale, relPath, 'expired-soft-landing', softLandingManifestInput);
   }
  }
+ const softLandingInputHash = incrementalManifests?.get(locale)?.getHash(
+  relPath,
+  'expired-soft-landing',
+ ) ?? null;
  const cacheKey = `${locale}:${slug}`;
  if (expiredCacheKeys.has(cacheKey)) {
   expiredSoftLandingCache.set(cacheKey, softLandingHtml);
@@ -13566,7 +13590,9 @@ ${staticAnalyticsHtml}
  const legacySoftLandingReuseInput = incrementalManifests
   ? {
    bridgeType: 'expired-soft-landing-legacy-locale',
-   source: softLandingManifestInput,
+   source: 'expired-soft-landing',
+   sourceInputHash: softLandingInputHash,
+   jobId: stableJobId(ejData || { slug }),
    sourcePath: relPath,
    targetPath: legacyRel,
    legacySlug: slug,
@@ -13801,9 +13827,9 @@ ${staticAnalyticsHtml}
  const __tCrossLocaleExpired = startTimer();
  const crossLocaleExpiredReuseInput = incrementalManifests
   ? {
-   ...buildMinimalJobInput(ej, baseLocale, baseSlug, [], incrementalManifestInputCache),
    source: 'expired-soft-landing',
    sourceInputHash: baseInputHash,
+   jobId: stableJobId(ej),
    path: relPath,
    baseLocale,
    foreignSlug,
@@ -14199,7 +14225,8 @@ ${staticAnalyticsHtml}
  if (__brAction === 'thin') bridgeThinCount++; else bridgeFullCount++;
  const previousSlugReuseInput = incrementalManifests
   ? {
-   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job), incrementalManifestInputCache, job),
+   source: 'active-job',
+   jobId: stableJobId(job),
    path: oldPath,
    sourceInputHash: canonicalInputHash,
    canton: jobCantonForBridge,
@@ -14281,7 +14308,8 @@ ${staticAnalyticsHtml}
  const legacyTIOutDir = np.join(distDir, legacyTIRelPath);
  const legacyTIReuseInput = incrementalManifests
   ? {
-   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job), incrementalManifestInputCache, job),
+   source: 'active-job',
+   jobId: stableJobId(job),
    path: legacyTIRelPath,
    sourceInputHash: canonicalInputHash,
    canton: jobCantonForBridge,
@@ -14527,9 +14555,9 @@ ${staticAnalyticsHtml}
  const __tCrossLocaleActive = startTimer();
  const crossLocaleActiveReuseInput = incrementalManifests
   ? {
-   ...buildMinimalJobInput(job, baseLocale, baseSlug, getRelatedPool(job), incrementalManifestInputCache, job),
    source: 'active-job',
    sourceInputHash: baseInputHash,
+   jobId: stableJobId(job),
    path: relPath,
    baseLocale,
    foreignSlug,

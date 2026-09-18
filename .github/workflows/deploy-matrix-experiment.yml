@@ -55,6 +55,11 @@ on:
         type: boolean
         required: false
         default: false
+      cpu_profile:
+        description: 'Capture a Node.js CPU profile for every locale × variant build'
+        type: boolean
+        required: false
+        default: false
       variants:
         description: 'One variant per line: name=KEY=VAL,KEY=VAL (empty value means no extra env)'
         type: string
@@ -214,6 +219,7 @@ jobs:
       JOBS_SEO_RETENTION_PROBE: ${{ github.event.inputs.retention_probe }}
       BUILD_BENCH: '1'
       BUILD_STOP_AFTER: ${{ inputs.stop_after_jobs_seo == true && 'jobsSeoPages' || '' }}
+      CPU_PROFILE: ${{ inputs.cpu_profile == true && '1' || '' }}
     steps:
       # Copied minimally from deploy.yml's build-locale job, whose source of
       # truth is the production cleanup step in this same repository.
@@ -466,13 +472,36 @@ jobs:
 
           BUILD_LOCALE_FOR_LOG="${BUILD_LOCALE:-all}"
           BUILD_LOG="/tmp/build-${BUILD_LOCALE_FOR_LOG}.log"
+          BUILD_NODE_OPTIONS='--max-old-space-size=14336 --expose-gc'
+          if [ "${CPU_PROFILE:-}" = '1' ]; then
+            mkdir -p /tmp/cpuprof
+            rm -f /tmp/cpuprof/*.cpuprofile
+            BUILD_NODE_OPTIONS="$BUILD_NODE_OPTIONS --cpu-prof --cpu-prof-dir=/tmp/cpuprof"
+            echo "[cpu-profile] enabled dir=/tmp/cpuprof"
+          fi
           if [ -n "${BUILD_STOP_AFTER:-}" ]; then
             echo "[build-stop-after] requested=${BUILD_STOP_AFTER} (skip post-build SPA asset verification)"
-            NODE_OPTIONS='--max-old-space-size=14336 --expose-gc' ./node_modules/.bin/vite build --minify esbuild 2>&1 | tee "$BUILD_LOG"
+            export NODE_OPTIONS="$BUILD_NODE_OPTIONS"
+            ./node_modules/.bin/vite build --minify esbuild 2>&1 | tee "$BUILD_LOG"
+            build_exit="${PIPESTATUS[0]}"
+          elif [ "${CPU_PROFILE:-}" = '1' ]; then
+            echo '[cpu-profile] using direct Vite invocation so NODE_OPTIONS is not overwritten by build:ci'
+            export NODE_OPTIONS="$BUILD_NODE_OPTIONS"
+            set +e
+            ./node_modules/.bin/vite build --minify esbuild 2>&1 | tee "$BUILD_LOG"
+            build_exit="${PIPESTATUS[0]}"
+            set -e
+            if [ "$build_exit" -eq 0 ]; then
+              if ./node_modules/.bin/tsx scripts/verify-spa-entry-assets.mjs; then
+                :
+              else
+                build_exit="$?"
+              fi
+            fi
           else
             npm run build:ci 2>&1 | tee "$BUILD_LOG"
+            build_exit="${PIPESTATUS[0]}"
           fi
-          build_exit="${PIPESTATUS[0]}"
           END=$(date +%s)
           echo "::endgroup::"
           ELAPSED=$((END - START))
@@ -788,6 +817,15 @@ jobs:
           path: /tmp/markers-${{ matrix.locale }}-${{ matrix.variant }}.txt
           retention-days: 14
           if-no-files-found: error
+
+      - name: Upload CPU profile
+        if: always() && (inputs.cpu_profile == true || contains(matrix.env_json, '"CPU_PROFILE":"1"'))
+        uses: actions/upload-artifact@v7
+        with:
+          name: cpu-profile-${{ matrix.locale }}-${{ matrix.variant }}-${{ github.run_id }}
+          path: /tmp/cpuprof/*.cpuprofile
+          retention-days: 7
+          if-no-files-found: warn
 
       - name: Check chained jobs SEO HTML cache contents
         if: success() && inputs.chain != '' && env.JOBS_SEO_REUSE == '1'
