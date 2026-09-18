@@ -22,4 +22,13 @@ describe('resolveSwissStructuredAddress', () => {
       streetAddress: 'Zürich',
     });
   });
+
+  it('keeps a known municipality when no curated street fallback exists', () => {
+    expect(resolveSwissStructuredAddress({ city: 'Winterthur', canton: 'ZH' })).toEqual({
+      city: 'Winterthur',
+      canton: 'ZH',
+      postalCode: '8400',
+      streetAddress: 'Winterthur',
+    });
+  });
 });
