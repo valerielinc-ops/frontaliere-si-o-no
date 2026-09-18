@@ -80,7 +80,7 @@ import { transformFlatRedirect } from './flatHtmlRedirectPlugin';
 import { transformHreflang } from './hreflangPostprocessPlugin';
 import { allowExternallyServedTargets } from '../scripts/lib/externally-served-paths.mjs';
 import { shouldEmitPath } from './shared/localeEmitFilter';
-import { collectHtml } from './shared/distHtmlWalk';
+import { collectHtml, collectHtmlFromClaimedPaths } from './shared/distHtmlWalk';
 import { buildSharedHtmlPathIndex } from './shared/htmlPathIndex.mjs';
 import {
   startTimer as profileStart,
@@ -91,6 +91,18 @@ import {
 } from './shared/postWalkCoordinatorProfiler';
 import { logBuildMem } from './shared/buildMemLog';
 import { releaseIncrementalManifestState } from './shared/incrementalManifest.mjs';
+import {
+  getPathHistory,
+  latestClaimHash,
+  loadPostWalkDerivedDigestSidecar,
+  loadPostWalkUnmanifestedTopLevels,
+  postWalkDerivedTemplateHash,
+  wasPostWalkDerivedOutputPreserved,
+  writePostWalkDerivedDigestSidecar,
+  writePostWalkUnmanifestedTopLevels,
+  type PostWalkDerivedDigestRecord,
+  type PostWalkDerivedKind,
+} from './shared/postWalkDerivedDigest';
 import {
   buildPostWalkIncrementalPlanFromState,
   comparePostWalkVerification,
@@ -416,6 +428,67 @@ function formatVerificationMismatchSample(
     .join('; ');
 }
 
+function isBridgeCandidate(
+  filePath: string,
+  existingHtmlSet: ReadonlySet<string>,
+): boolean {
+  const baseName = path.basename(filePath);
+  if (baseName === 'index.html' || baseName.startsWith('.') || !baseName.endsWith('.html')) return false;
+  return existingHtmlSet.has(path.join(filePath.slice(0, -'.html'.length), 'index.html'));
+}
+
+function derivedKindForPath(
+  filePath: string,
+  existingHtmlSet: ReadonlySet<string>,
+  blogIndexHtmlByPath: ReadonlyMap<string, BlogLinkLocale>,
+): PostWalkDerivedKind | null {
+  if (isBridgeCandidate(filePath, existingHtmlSet)) return 'bridge';
+  return blogIndexHtmlByPath.has(filePath) ? 'blog' : null;
+}
+
+function prepareDerivedPostWalkScope(input: {
+  readonly rootDir: string;
+  readonly distDir: string;
+  readonly paths: readonly string[];
+  readonly existingHtmlSet: ReadonlySet<string>;
+  readonly blogIndexHtmlByPath: ReadonlyMap<string, BlogLinkLocale>;
+  readonly previous: ReadonlyMap<string, PostWalkDerivedDigestRecord>;
+}): {
+  readonly processPaths: readonly string[];
+  readonly skippedPaths: ReadonlySet<string>;
+  readonly records: ReadonlyMap<string, PostWalkDerivedDigestRecord>;
+} {
+  const selected = new Set<string>();
+  const skipped = new Set<string>();
+  const records = new Map<string, PostWalkDerivedDigestRecord>();
+  for (const filePath of input.paths) {
+    const kind = derivedKindForPath(filePath, input.existingHtmlSet, input.blogIndexHtmlByPath);
+    if (kind === null) continue;
+    const relative = path.relative(input.distDir, filePath).split(path.sep).join('/');
+    const sourceFilePath = kind === 'bridge'
+      ? path.join(filePath.slice(0, -'.html'.length), 'index.html')
+      : filePath;
+    const inputHash = latestClaimHash(filePath);
+    records.set(relative, {
+      path: relative,
+      kind,
+      inputHash,
+      sourcePath: path.relative(input.distDir, sourceFilePath).split(path.sep).join('/'),
+      sourceHash: latestClaimHash(sourceFilePath),
+      templateHash: postWalkDerivedTemplateHash(kind),
+    });
+    const previous = input.previous.get(relative);
+    const preserved = previous !== undefined
+      && previous.kind === kind
+      && previous.inputHash !== null
+      && previous.inputHash === inputHash
+      && wasPostWalkDerivedOutputPreserved(input.rootDir, filePath);
+    if (preserved) skipped.add(filePath);
+    else selected.add(filePath);
+  }
+  return { processPaths: [...selected], skippedPaths: skipped, records };
+}
+
 /** Fold one worker into the accumulator without retaining a results array. */
 function mergeResultInto(acc: WorkerResult, result: WorkerResult): void {
   acc.bridgeConverted += result.bridgeConverted;
@@ -467,6 +540,17 @@ export function postWalkCoordinatorPlugin(
         let changedByKind = 'none';
         let verificationSamplePaths: readonly string[] = [];
         let verificationSampleDetails: ReadonlyMap<string, PostWalkVerificationPathInfo> = new Map();
+        let derivedSidecarRecords = 0;
+        let derivedSidecarSkipped = 0;
+        let derivedSidecarProcessed = 0;
+        let derivedRecordsForWrite: ReadonlyMap<string, PostWalkDerivedDigestRecord> = new Map();
+        const previousDerivedSidecar = incrementalEnabled
+          ? loadPostWalkDerivedDigestSidecar(rootDir)
+          : new Map<string, PostWalkDerivedDigestRecord>();
+        const previousUnmanifestedTopLevels = incrementalEnabled
+          ? loadPostWalkUnmanifestedTopLevels(rootDir)
+          : null;
+        derivedSidecarRecords = previousDerivedSidecar.size;
 
         if (incrementalEnabled) {
           // jobsSeoPagesPlugin and relatedSearchClustersPlugin have completed
@@ -551,7 +635,26 @@ export function postWalkCoordinatorPlugin(
         // ── Phase A: enumerate every emitted HTML file once ──────────
         const walkStartedAt = Date.now();
         const __tWalk = profileStart();
-        const allHtmlPaths: string[] = collectHtml(distDir, []);
+        const canUseTargetedWalk = incrementalEnabled
+          && previousUnmanifestedTopLevels !== null
+          && manifests !== null
+          && !('reason' in manifests)
+          && getPathHistory().size > 0;
+        const walkResult = canUseTargetedWalk
+          ? collectHtmlFromClaimedPaths(
+            distDir,
+            getPathHistory().keys(),
+            previousUnmanifestedTopLevels,
+          )
+          : {
+            paths: collectHtml(distDir, []),
+            claimed: 0,
+            targeted: 0,
+          };
+        const walkMode = canUseTargetedWalk ? 'claimed+targeted' : 'full';
+        const walkClaimed = walkResult.claimed;
+        const walkTargeted = walkResult.targeted;
+        const allHtmlPaths: string[] = [...walkResult.paths];
         const filesScanned = allHtmlPaths.length;
         const existingHtmlSet = new Set<string>(allHtmlPaths);
         const manifestState = manifests !== null && !('reason' in manifests)
@@ -621,7 +724,13 @@ export function postWalkCoordinatorPlugin(
           logBuildMem(
             'postWalkCoordinator: after-walk',
             undefined,
-            { scanned: filesScanned, processable: fullProcessHtmlPaths.length },
+            {
+              scanned: filesScanned,
+              processable: fullProcessHtmlPaths.length,
+              walkMode,
+              walkClaimed,
+              walkTargeted,
+            },
             { forceGc: false },
           );
         }
@@ -755,6 +864,36 @@ export function postWalkCoordinatorPlugin(
         profileRecord('load-blog-articles', __tBlogLoad);
         const blogPhaseMs = Date.now() - blogPhaseStartedAt;
 
+        if (incrementalEnabled && incrementalPlan) {
+          const derivedScope = prepareDerivedPostWalkScope({
+            rootDir,
+            distDir,
+            paths: fullProcessHtmlPaths,
+            existingHtmlSet,
+            blogIndexHtmlByPath,
+            previous: previousDerivedSidecar,
+          });
+          derivedSidecarSkipped = incrementalPlan.mode === 'incremental'
+            ? derivedScope.skippedPaths.size
+            : 0;
+          derivedSidecarProcessed = incrementalPlan.mode === 'incremental'
+            ? derivedScope.processPaths.length
+            : derivedScope.records.size;
+          derivedRecordsForWrite = derivedScope.records;
+          if (incrementalPlan.mode === 'incremental') {
+            const selected = new Set(processHtmlPaths);
+            for (const filePath of derivedScope.skippedPaths) selected.delete(filePath);
+            for (const filePath of derivedScope.processPaths) selected.add(filePath);
+            processHtmlPaths = [...selected];
+            incrementalPlan = {
+              ...incrementalPlan,
+              processHtmlPaths,
+              processed: processHtmlPaths.length,
+              skippedUnchanged: Math.max(0, fullProcessHtmlPaths.length - processHtmlPaths.length),
+            };
+          }
+        }
+
         if (
           incrementalEnabled
           && incrementalPlan?.mode === 'incremental'
@@ -885,6 +1024,13 @@ export function postWalkCoordinatorPlugin(
           );
         }
 
+        if (incrementalEnabled && derivedRecordsForWrite.size > 0) {
+          writePostWalkDerivedDigestSidecar(rootDir, derivedRecordsForWrite);
+        }
+        if (incrementalEnabled && incrementalPlan) {
+          writePostWalkUnmanifestedTopLevels(rootDir, unmanifestedByTopLevel.keys());
+        }
+
         for (const f of merged.writeFailures) {
           // eslint-disable-next-line no-console
           console.warn(`[post-walk-coordinator] failed to write ${f.filePath}: ${f.msg}`);
@@ -921,7 +1067,9 @@ export function postWalkCoordinatorPlugin(
               + `skipped-unchanged=${incrementalPlan.skippedUnchanged} `
               + `unmanifested=${incrementalPlan.unmanifested ?? 'n/a'} `
               + `unmanifested-skipped=${incrementalPlan.unmanifestedSkipped ?? 'n/a'} `
+              + `walk=${walkMode} walk-claimed=${walkClaimed} walk-targeted=${walkTargeted} `
               + `unmanifested-top-level=${unmanifestedTopLevel || 'none'} `
+              + `derived-sidecar=${derivedSidecarRecords}/${derivedSidecarSkipped}/${derivedSidecarProcessed} `
               + `affected=${incrementalPlan.affected} `
               + `writes=${merged.totalWrites} `
               + `fallback=${incrementalPlan.fallbackMode

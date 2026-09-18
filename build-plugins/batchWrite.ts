@@ -23,6 +23,7 @@ import path from 'node:path';
 import { getManifest } from './contentHash';
 import { claim, type ClaimOutcome } from './sharedWriteRegistry';
 import { shouldEmitPath, EMIT_ALL_LOCALES } from './shared/localeEmitFilter';
+import { preservePostWalkDerivedOutput } from './shared/postWalkDerivedDigest';
 
 export interface PendingWrite {
  filePath: string;
@@ -213,6 +214,7 @@ export class WriteCollector {
  // WriteCollisionError in `throw` mode and returns 'skip-write' for
  // idempotent re-claims (identical content) or declared-shared losers.
  const outcome: ClaimOutcome = claim(filePath, this._pluginName, content);
+ if (preservePostWalkDerivedOutput(this._distDir, filePath, content)) return;
  if (outcome === 'skip-write') {
  this._skippedByCollision++;
  return;

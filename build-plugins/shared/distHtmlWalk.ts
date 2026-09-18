@@ -53,3 +53,55 @@ export function collectHtml(dir: string, out: string[]): string[] {
   }
   return out;
 }
+
+export type IncrementalHtmlWalkResult = {
+  readonly paths: readonly string[];
+  readonly claimed: number;
+  readonly targeted: number;
+};
+
+function isWalkableHtmlPath(distDir: string, filePath: string): boolean {
+  if (!filePath.endsWith('.html')) return false;
+  const relative = path.relative(distDir, filePath);
+  if (relative.startsWith('..') || path.isAbsolute(relative)) return false;
+  const segments = relative.split(path.sep);
+  return !segments.some((segment) => segment === 'assets' || segment === 'data' || segment === 'images');
+}
+
+/**
+ * Rebuild the existence list from the current write registry and walk only
+ * roots that were not claimed by an upstream emitter in the previous full
+ * inventory. WriteCollector already visited the claimed paths while emitting
+ * this build, so reopening their parent directories would only repeat the
+ * 1.5M-entry filesystem walk.
+ */
+export function collectHtmlFromClaimedPaths(
+  distDir: string,
+  claimedPaths: Iterable<string>,
+  targetedTopLevels: readonly string[],
+): IncrementalHtmlWalkResult {
+  const paths: string[] = [];
+  const seen = new Set<string>();
+  let claimed = 0;
+  for (const filePath of claimedPaths) {
+    if (!isWalkableHtmlPath(distDir, filePath) || seen.has(filePath)) continue;
+    seen.add(filePath);
+    paths.push(filePath);
+    claimed++;
+  }
+
+  const targetedPaths: string[] = [];
+  for (const topLevel of targetedTopLevels) {
+    const root = topLevel === '<root>' ? distDir : path.join(distDir, topLevel);
+    if (!fs.existsSync(root)) continue;
+    collectHtml(root, targetedPaths);
+  }
+  let targeted = 0;
+  for (const filePath of targetedPaths) {
+    if (!isWalkableHtmlPath(distDir, filePath) || seen.has(filePath)) continue;
+    seen.add(filePath);
+    paths.push(filePath);
+    targeted++;
+  }
+  return { paths, claimed, targeted };
+}
