@@ -1,20 +1,20 @@
 {
   "companyKey": "my",
-  "companyName": "Ex Team AG Kanalservices",
+  "companyName": "Bellevue Parkhotel & Spa",
   "companyHost": "my.jobalino.ch",
   "platform": "jobalino.ch",
   "mode": "jsonld",
   "seedUrls": [
-    "https://my.jobalino.ch/job/af2d709294ce19b28d316d6c2a60dfbb/spontanbewerbung_1703"
+    "https://my.jobalino.ch/de/jobpreview/18921"
   ],
-  "detailTemplate": "/job/af2d709294ce19b28d316d6c2a60dfbb/spontanbewerbung_1703",
+  "detailTemplate": "/de/jobpreview/18921",
   "detailEnrichment": false,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 1,
   "sampleTitles": [
-    "Spontanbewerbung / 100%"
+    "Spontanbewerbung (w/m/d) / 100%"
   ],
-  "canton": "BL",
+  "canton": "BE",
   "sourceLang": "de",
-  "learnedAt": "2026-09-16T10:38:54.596Z"
+  "learnedAt": "2026-09-18T09:58:06.567Z"
 }
