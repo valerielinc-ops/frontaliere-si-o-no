@@ -4,13 +4,16 @@ name: Post-merge follow-up triage
 # ~3h triagia TUTTE le PR mergiate dall'owner dalla finestra precedente, invece di
 # UNA run per ogni merge. Il ~60-80% delle run per-PR creava zero issue → spreco
 # sulla quota Max OAuth CONDIVISA (AGENTS.md § frugalità — "più batched"). Sicurezza
-# garantita dal watermark-su-SUCCESSO + idempotenza (vedi collect-followup-batch.mjs):
+# garantita dal marker di idempotenza per-PR, che e' il cursore durevole (vedi
+# collect-followup-batch.mjs):
 # una finestra non viene mai persa, al più ri-triagiata (no-op grazie all'idempotenza).
 # L'unità di processo è il GIORNO: un solo bucket aggregato per
 # `(daily_key, target repository)`, alimentato da tutte le run del giorno. La
-# copertura arretrata è limitata a MAX_WINDOW_HOURS (48h): oltre quel limite una
-# finestra non è ri-copribile in una sessione, quindi il tetto è ciò che impedisce
-# al watermark di bloccarsi per sempre (vedi collect-followup-batch.mjs).
+# finestra di raccolta è un lookback FISSO di MAX_WINDOW_HOURS (48h) e NON
+# dipende dall'esito delle run: il cursore durevole per-PR è il commento marker,
+# quindi il confine serve solo a limitare il costo della query. I candidati sono
+# serviti dal più VECCHIO, così il residuo del cap scala invece di restare
+# indietro (vedi collect-followup-batch.mjs).
 on:
   schedule:
     - cron: '0 */3 * * *' # ogni 3h
@@ -26,7 +29,8 @@ permissions:
   pull-requests: write
   issues: write
   id-token: write
-  actions: read # collect-followup-batch.mjs legge `gh run list` per il watermark
+  actions: read # letture Actions dei passi di telemetria/quota (non piu' il watermark:
+  # la finestra e' un lookback fisso, vedi collect-followup-batch.mjs)
 
 concurrency:
   # Questo è il mutex condiviso con followup-reconcile.yml e followup-drainer.yml:
@@ -64,8 +68,8 @@ jobs:
 
       # Collect-batch (zero-Claude, deterministico). Produce la lista FINALE di PR da
       # triagiare:
-      #  - schedule → watermark (ultima run di SUCCESSO, tetto MAX_WINDOW_HOURS=48h,
-      #    fallback now-6h) → PR mergiate
+      #  - schedule → finestra = lookback FISSO di MAX_WINDOW_HOURS (48h),
+      #    indipendente dall'esito delle run → PR mergiate
       #    dall'owner dalla finestra → scarta le già-triagiate (commento idempotenza) →
       #    applica i DUE gate per-PR esistenti (grandchild-suppression + no-op pre-gate,
       #    invocati come subprocess: risparmio preservato anche in batch).
@@ -77,11 +81,14 @@ jobs:
       # solo il prefisso e dichiara il residuo in `deferred_count`, MA
       # `collection_ok` resta true: il troncamento è un rinvio pianificato, non un
       # errore di raccolta. Il prefisso viene triagiato, la run resta verde, il
-      # watermark avanza sul lavoro consegnato e il residuo rientra nella finestra
-      # successiva (l'idempotenza salta ciò che è già stato commentato).
-      # Le due condizioni erano lo stesso bit fino al 2026-09-18 e hanno esiti
-      # OPPOSTI sul watermark: confuse producevano un ratchet irreversibile —
-      # finestra crescente → troncamento garantito → run rossa → watermark fermo.
+      # residuo rientra nella finestra successiva, che e' un lookback FISSO e non
+      # dipende dall'esito delle run (l'idempotenza salta cio' che e' gia' stato
+      # commentato, e i candidati sono serviti dal piu' VECCHIO).
+      # Le due condizioni erano lo stesso bit fino al 2026-09-18, e il confine era
+      # l'inizio dell'ultima run di SUCCESSO: una definizione che sbaglia in
+      # ENTRAMBI i versi — run troncata rossa → finestra crescente e verde
+      # irraggiungibile; run troncata verde → confine in avanti e residuo perso in
+      # silenzio. Per questo il confine ora e' un lookback fisso.
       # Misurato: 35 run rosse consecutive sul sito (161,6 h), 34 sul corpus.
       # Emette collection_ok, batch_prs (csv), batch_count, deferred_count,
       # max_turns e daily_key (Europe/Zurich). collection_ok è distinto dal batch
@@ -116,9 +123,9 @@ jobs:
       # esaurita, esattamente come le 60/61 di issue-fix. Il lane non esegue (0
       # turni, $0) e la run muore rossa.
       #
-      # Qui il RECUPERO era già corretto e NON va toccato: il watermark avanza
-      # solo sulle run di SUCCESSO, quindi una run fallita lascia la finestra
-      # indietro e la successiva (≤3h) la ri-copre — nessun contatore di
+      # Qui il RECUPERO era già corretto e NON va toccato: la finestra è un
+      # lookback fisso di MAX_WINDOW_HOURS, quindi una run morta su 429 non
+      # sposta nulla e la successiva ri-copre le stesse ore — nessun contatore di
       # Il beacon legacy viene conservato per telemetria e diagnosi della quota;
       # non e' un gate di esecuzione: Codex Luna Max e' l'unico provider del lane.
       - name: Pre-flight — Codex lane quota telemetry
@@ -349,9 +356,9 @@ jobs:
             - NB: la supersede detection NON è scope di questo prompt — la fa già `followup-reconcile.yml` deterministico daily (zero-agent). Una PR nata per un bucket porta `Follow-up item: FU-...` e `Addresses #<bucket>`; non usare `Closes` finché resta anche un item aperto.
 
       # NB: niente self-retry step (era richiesto dal modello per-PR, dove un run fallito
-      # = triage perso per sempre). Nel modello batch il watermark avanza SOLO su run di
-      # SUCCESSO → una run fallita lascia il watermark indietro → la prossima run
-      # schedulata (≤3h) ri-copre l'intera finestra; l'idempotenza (commento
+      # = triage perso per sempre). Nel modello batch la finestra e' un lookback fisso
+      # di MAX_WINDOW_HOURS: la prossima run schedulata ri-copre comunque le stesse ore
+      # qualunque sia stato l'esito di questa, e l'idempotenza (commento
       # `## Post-merge follow-up triage`) salta le PR già processate e riprende le altre.
       # Retry at-least-once by-construction, senza ricorsione né `actions: write`.
 
@@ -361,7 +368,8 @@ jobs:
       # the required idempotency marker and the action/fallback itself succeeded.
       # A successful empty collection is complete without invoking an agent; an
       # empty/failed collection is not. The explicit collection_ok output keeps
-      # those states distinct so a collector error cannot advance the watermark.
+      # those states distinct: a collector error stays red, while a planned
+      # truncation does not, and neither can move the fixed collection window.
       - name: Verify complete follow-up triage (zero-agent)
         id: triage_complete
         if: always()
