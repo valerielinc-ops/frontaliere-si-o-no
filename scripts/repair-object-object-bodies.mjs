@@ -32,6 +32,7 @@ import { extractBodies, escapeForTS, unescapeFromTS, BODY_DIRS } from './lib/blo
 import { maskNavLinks } from './lib/article-free-mt.mjs';
 import { freeTranslateWithRetry, balanceMarkdownMarkers } from './lib/free-translate.mjs';
 import { sanitizeBodyText } from './lib/sanitize-body-braces.mjs';
+import { hasUsableContentText } from './lib/usable-content-text.mjs';
 
 const MARKER = '[object Object]';
 const BODY_KEYS = ['body1', 'body2', 'body3'];
@@ -153,9 +154,8 @@ async function translateBlock(block, locale) {
   const raw = await freeTranslateWithRetry({
     text: acr.masked, sourceLang: 'it', targetLang: locale, fieldType: 'description',
   });
-  const out = typeof raw === 'string' ? raw : '';
-  if (!out.trim()) throw new Error('MT returned empty');
-  let restored = out;
+  if (!hasUsableContentText(raw)) throw new Error('MT returned empty');
+  let restored = raw;
   if (acr.expected > 0) {
     const a = acr.restore(restored);
     if (!a.ok) throw new Error(`acronym sentinel mangled (expected ${acr.expected})`);

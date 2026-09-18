@@ -48,7 +48,17 @@ export type AdEvent =
   // reporting in AdSense Privacy & Messaging.
   | 'ad_consent_shown'
   | 'ad_consent_granted'
-  | 'ad_consent_denied';
+  | 'ad_consent_denied'
+  // Google Ad Manager rewarded-web lifecycle. These stay separate from the
+  // display-slot events above so reward rate can be joined to the application
+  // funnel without inflating ordinary ad fill metrics.
+  | 'rewarded_ad_request'
+  | 'rewarded_ad_ready'
+  | 'rewarded_ad_started'
+  | 'rewarded_ad_video_completed'
+  | 'rewarded_ad_granted'
+  | 'rewarded_ad_closed'
+  | 'rewarded_ad_unavailable';
 
 export interface AdEventProps {
   slot: string;

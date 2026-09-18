@@ -137,14 +137,15 @@ function fingerprintFinding(text) {
 //       multi-issue line, or `## Implementato` makes a false/unverified claim.
 //       This is the escalation target.
 //   (b) AFFIRMATION — the reviewer states the contract is fine ("sezioni presenti
-//       e sensate", "completeness contract OK", "## Implementato accurato"). NOT a
-//       defect; counting it inflates the bucket (#2397/#2396 examples).
+//       e sensate", "completeness contract OK", "## Implementato accurato",
+//       "completeness contract del body è valido"). NOT a defect; counting it
+//       inflates the bucket (#2397/#2396 examples).
 //   (c) LOCATION LABEL — the finding is about a DIFFERENT topic (sibling count,
 //       stale comment, CSS) and merely cites `PR body ## Implementato L2` /
-//       `## Non implementato L1` as the line address. Those findings belong to
-//       their own bucket (sibling-class-fix / stale-comment), reached via the
-//       fingerprint net or another taxonomy entry — not pr-body-contract (#2409/
-//       #2408 examples).
+//       `## Non implementato L1` / `PR body:L16` as the line address. Those
+//       findings belong to their own bucket (sibling-class-fix / stale-comment),
+//       reached via the fingerprint net or another taxonomy entry — not
+//       pr-body-contract (#2409/#2408 examples; corpus #140: `PR body:Ln`).
 //   (d) PRESCRIPTION REFERENCE — the reviewer prescribes what to ADD to
 //       ## Non implementato / ## Implementato as a remediation suggestion ("dichiara
 //       nel ## Non implementato il revert-risk", "listare in Non implementato il
@@ -152,27 +153,38 @@ function fingerprintFinding(text) {
 //       appears only as the write-target of a suggested fix. Counting these inflates
 //       the bucket with non-violations (#2836/#2840 examples: code findings that
 //       mention ## Non implementato only as a remediation slot).
+//   (e) ❓-ONLY adversarial questions that mention the vocabulary ("❓ q: non è
+//       verificato che ## Non implementato resti vero dopo il rebase") are due
+//       diligence, not a confirmed defect. tallyFindings already skips ❓ via
+//       COUNTABLE_SEVERITIES; the classifier repeats the rule so a direct call
+//       cannot reintroduce them.
 // Crucially the deterministic gate `pr-body-contract.yml` ALREADY enforces section
-// PRESENCE (`hasImpl`/`hasNon`, multi-issue `Closes`) — the structural fix for
-// missing-section violations already shipped. The bucket's recurrence is dominated
-// by (b)/(c)/(d) false positives. Only count (a). Pure → unit-tested.
+// PRESENCE (`hasImpl`/`hasNon`, multi-issue `Closes`) and the next-step check
+// already accepts `per scelta` / `by construction` as motivated decisions — the
+// structural fix for missing-section / no-plan violations already shipped. The
+// 2026-09-17 reopen (corpus #140, 14/14d, #1536/#1535/#1534/#1521/#1520) was the
+// keep=true default counting `PR body:Ln` lines about those accepted states.
+// Only count (a). Pure → unit-tested.
 //
 // Same false-positive class as the `❓`/per-line dedup fixes in tallyFindings and
 // the `already-fixed` avoidability classifier: don't escalate non-defects.
 // Explicit "the section/Closes is broken" language → a real violation. Negation-
-// aware on the affirmation side (below): "non rispettato" must NOT read as "ok".
+// aware on the affirmation side (below): "non rispettato" / "non è valido" must
+// NOT read as "ok".
 const PR_BODY_CONTRACT_VIOLATION_RE =
-  /\b(manca\w*|mancant\w*|assent\w*|vuot\w*|incomplet\w*|placeholder|tbd|stub|multi-?issue)\b|sezion\w*\s+obbligator\w*\s+(manca|assent)|non\s+(è\s+|e\s+)?(corrisponde|rispettat\w*|accurat\w*|coerent\w*|corrett\w*)|senza testo|n\/a|claim.*(?:non.*(diff|reale)|\bfalso\b|errat\w*|sbagliato\w*)|rivendicat\w*.*non\s+esiste|una riga sola/i;
+  /\b(manca\w*|mancant\w*|assent\w*|vuot\w*|incomplet\w*|placeholder|tbd|stub|multi-?issue)\b|sezion\w*\s+obbligator\w*\s+(manca|assent)|non\s+(è\s+|e\s+)?(corrisponde|rispettat\w*|accurat\w*|coerent\w*|corrett\w*|valid[oaie]?)|senza testo|n\/a|claim.*(?:non.*(diff|reale)|\bfalso\b|errat\w*|sbagliato\w*)|rivendicat\w*.*non\s+esiste|una riga sola|dichiar\w*.{0,160}\b(?:ma|but)\b.{0,120}\b(?:diff|bundle|modific|non lo mostra)/i;
 // Positive contract-state words. Only an AFFIRMATION when NOT negated by a
-// preceding "non " (so "non rispettato" / "non accurato" are not swallowed here).
+// preceding "non " (so "non rispettato" / "non accurato" / "non è valido" are
+// not swallowed here: those hit VIOLATION_RE first).
 const PR_BODY_CONTRACT_AFFIRM_RE =
-  /(?<!non\s)\b(ok|presenti|presente|sensate?|accurat\w*|coerent\w*|corrett\w*|completo|in regola|rispettat\w*)\b|nessun\w*\s+(problema|drift|violazione|scope drift)/i;
+  /(?<!non\s)\b(ok|presenti|presente|sensate?|accurat\w*|coerent\w*|corrett\w*|completo|in regola|rispettat\w*|valid[oaie]?)\b|nessun\w*\s+(problema|drift|violazione|scope drift)/i;
 // Location-label tell: the finding cites `## Implementato`/`## Non implementato`
 // (optionally prefixed "PR body", optionally with an L<n> line ref) only as the
 // ADDRESS of a finding about another topic. Tolerant of arrows/quotes between
-// "PR body" and the section, and of the section being quoted.
+// "PR body" and the section, of the section being quoted, and of the reviewer
+// form `PR body:L16:` measured on corpus #1536/#1535/#1534/#1521/#1520.
 const PR_BODY_CONTRACT_LOCATION_RE =
-  /pr body\b[^a-z]*#{0,3}\s*"?\s*(non\s+)?implementato\b|#{2,3}\s*(non\s+)?implementato\s+l?\d|"\s*#{2,3}\s*(non\s+)?implementato\s*"\s*l?\d/i;
+  /pr body\b[^a-z]*#{0,3}\s*"?\s*(non\s+)?implementato\b|#{2,3}\s*(non\s+)?implementato\s+l?\d|"\s*#{2,3}\s*(non\s+)?implementato\s*"\s*l?\d|pr body\s*:\s*l\d+/i;
 // Prescription-reference tell: an imperative/infinitive suggestion verb followed
 // (within the same sentence) by "in"/"nel" and then the section name. The
 // reviewer is telling the author WHERE to write something, not flagging the
@@ -183,21 +195,26 @@ const PR_BODY_CONTRACT_PRESCRIPTION_RE =
   /\b(?:aggiungi|inserisci|inserir[ei]|dichiara(?:re)?|elenc[ao](?:re)?|list[ao](?:re)?|menziona(?:re)?|nota(?:re)?|documenta(?:re)?|scrivi|scrivere|aggiorna(?:re)?|specifica(?:re)?|includi|includere)\b[^.]{0,150}\b(?:in|nel(?:la)?)\b[^.]{0,80}\b(?:non\s+)?implementato\b/i;
 export function isGenuinePrBodyContractViolation(text) {
   const s = String(text || '');
+  // (e) ❓-only adversarial questions that mention the vocabulary are due
+  //     diligence, not a confirmed defect. A confirmed 🔴/🟡 on the same line
+  //     still proceeds to (a)–(d).
+  if (s.includes('❓') && !s.includes('🔴') && !s.includes('🟡')) return false;
   // (a) explicit violation language wins — a real missing/empty/mismatched section,
   //     a multi-issue Closes, or a false/unverified claim in ## Implementato.
   if (PR_BODY_CONTRACT_VIOLATION_RE.test(s)) return true;
   // (b) the line AFFIRMS the contract is fine (un-negated positive) → not a defect.
   if (PR_BODY_CONTRACT_AFFIRM_RE.test(s)) return false;
-  // (c) section name used only as a `PR body ## X (L<n>)` location label for a
-  //     finding about a different topic → not a contract defect.
+  // (c) section name used only as a `PR body ## X (L<n>)` / `PR body:Ln` location
+  //     label for a finding about a different topic → not a contract defect.
   if (PR_BODY_CONTRACT_LOCATION_RE.test(s)) return false;
   // (d) the reviewer prescribes what to ADD to ## Non implementato / ## Implementato
   //     as a remediation suggestion — the section itself is not broken, the
   //     vocabulary appears only as the write-target. (#2836/#2840 pattern)
   if (PR_BODY_CONTRACT_PRESCRIPTION_RE.test(s)) return false;
-  // Default: no affirmation, no location-label, no prescription → conservative:
-  // keep as a genuine violation.
-  return true;
+  // Default: vocabulary without explicit missing/empty/false-claim language is
+  // (b)/(c)/(d)/(e) residue — NOT a genuine violation. keep=true was the
+  // recurrence (corpus #140: 14/14d, #1536/#1535/#1534/#1521/#1520).
+  return false;
 }
 
 // ---- `sibling-class-fix` false-positive guard (DETERMINISTIC) ---------------
