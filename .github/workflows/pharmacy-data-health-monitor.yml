@@ -44,6 +44,21 @@ jobs:
 
       # Nessun `npm ci`: lo script usa solo la stdlib di Node e legge i dataset
       # checked-in — nessuna rete, nessuna dipendenza.
+      #
+      # Quella premessa va VERIFICATA, non solo dichiarata. Dal 2026-09-14 non
+      # era più vera: la closure di import del monitor raggiungeva
+      # `scripts/lib/crawler-template.mjs` per il solo helper `slugify`, e
+      # quello importa `./prospector/public-fetch-policy.mjs` -> npm `undici`.
+      # Senza node_modules lo script moriva al module load con
+      # `ERR_MODULE_NOT_FOUND: Cannot find package 'undici'` PRIMA di scrivere
+      # `data/pharmacy-data-health-report.json`, quindi il monitor non era né
+      # verde né rosso: era cieco, cioè esattamente la classe di guasto che
+      # esiste per chiudere. Questo step trasforma quel caso in un rosso
+      # immediato e leggibile, in millisecondi e senza rete. Stesso idiom di
+      # followup-drainer.yml.
+      - name: Verify dependency-free import closure
+        run: node scripts/ci/check-dependency-free-import-closure.mjs
+
       - name: Run pharmacy data-health dashboard
         id: check
         continue-on-error: true

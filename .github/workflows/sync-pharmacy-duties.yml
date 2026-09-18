@@ -12,9 +12,25 @@ on:
 permissions:
   contents: write
 
-concurrency:
-  group: sync-pharmacy-data
-  cancel-in-progress: false
+# NO top-level `concurrency` here, deliberately. This workflow only calls the
+# reusable sync-pharmacies-border.yml, which declares
+# `concurrency.group: sync-pharmacy-data` itself. A caller that requests the
+# SAME group as the workflow it calls deadlocks: the caller holds the group and
+# then waits for a called workflow that can never acquire it, so GitHub fails
+# the run at the workflow-file level BEFORE creating any job — conclusion
+# `failure` with zero jobs and zero check-runs, and no step-level log to read.
+# That is what happened here from 2026-09-14 (23 consecutive red scheduled runs
+# after #8653 turned this workflow into a caller while both halves kept the
+# group), and it was reproduced in isolation: two caller/callee probe pairs
+# identical except for the group name gave failure/0-jobs when the groups
+# matched and success/1-job when they differed.
+#
+# Serialization is NOT lost: every write path to the pharmacy datasets goes
+# through sync-pharmacies-border.yml, so its own `sync-pharmacy-data` group
+# still serializes this trigger against the border workflow's standalone daily
+# cron and any manual dispatch. Adding a group back here buys nothing and
+# re-arms the deadlock.
+# Regression guard: tests/reusable-workflow-concurrency-deadlock.test.ts.
 
 jobs:
   sync:

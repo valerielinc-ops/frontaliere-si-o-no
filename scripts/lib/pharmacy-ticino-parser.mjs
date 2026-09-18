@@ -13,7 +13,12 @@
  * no dedicated parser exists yet (no anagraphic table, duty table has no
  * address/postal code).
  */
-import { slugify } from './crawler-template.mjs';
+// Dependency-free source: this parser is reached by
+// scripts/check-pharmacy-data-health.mjs, whose workflow runs without
+// `npm ci`. Importing slugify from crawler-template.mjs would pull in
+// ./prospector/public-fetch-policy.mjs -> npm `undici` and kill that observer
+// at module load. Guarded by scripts/ci/check-dependency-free-import-closure.mjs.
+import { slugify } from './slugify.mjs';
 
 export const OFCT_REGIONS = [
   { key: 'mendrisiotto', name: 'Mendrisiotto', url: 'https://www.ofct.ch/mendrisiotto/' },

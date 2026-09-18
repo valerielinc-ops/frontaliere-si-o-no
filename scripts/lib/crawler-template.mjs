@@ -203,19 +203,17 @@ function isRetryBudgetExhaustedError(err) {
  * Standard slugify function. Parsers should use this to build slugs
  * consistently (lowercase, diacritics stripped, alphanumeric+dash only).
  * Trims at word boundary when the cap would split a token.
+ *
+ * The implementation lives in the dependency-free `./slugify.mjs` so a pure
+ * consumer can import it without dragging in this module's fetch stack
+ * (`./prospector/public-fetch-policy.mjs` -> npm `undici`). Re-exported here so
+ * every existing `import { slugify } from './crawler-template.mjs'` is
+ * unchanged.
  */
-import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { slugify } from './slugify.mjs';
 import { restoreExistingSlugIdentity } from './slug-history-journal.mjs';
 
-export function slugify(text = '', maxLength = 90) {
-  const base = String(text || '')
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-  return truncateSlugAtWordBoundary(base, maxLength);
-}
+export { slugify };
 
 /**
  * Environment switch used by the strict validation gate for one crawler.
