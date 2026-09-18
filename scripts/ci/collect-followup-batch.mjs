@@ -17,6 +17,16 @@
  *    run schedulata successiva = nessuna perdita (at-least-once by-construction).
  *    Se non esiste ancora una schedule riuscita, il limite durevole è la più antica
  *    schedule osservata; solo una storia completamente vuota usa now − 6h.
+ *    **La finestra ha però un tetto duro (`MAX_WINDOW_HOURS`, default 48h).**
+ *    Senza tetto il watermark «ultima run di SUCCESSO» è un ratchet: se le run
+ *    restano rosse la finestra cresce in modo monotono, supera per sempre il
+ *    budget di una sessione e quindi non può più tornare verde — cioè la
+ *    condizione che dovrebbe far avanzare il watermark diventa irraggiungibile
+ *    proprio perché il watermark non avanza. Misurato il 2026-09-18 sul sito:
+ *    watermark fermo al 2026-09-10T13:13:51Z, finestra di 8,0 giorni, 737 PR
+ *    candidate, 35 run rosse consecutive (161,6 h). Il tetto rende quel loop
+ *    impossibile per costruzione, al prezzo dichiarato di non ri-coprire le PR
+ *    mergiate da più di 48h (vedi `deferred_count` e il body della PR).
  *  - **Idempotenza:** scarta le PR che hanno GIÀ un commento
  *    `## Post-merge follow-up triage` (il marker che Claude posta su OGNI PR
  *    processata) → niente doppio-triage sulla finestra di overlap.
@@ -32,13 +42,15 @@
  *    commenti — invece falliscono chiuse: un output vuoto non può mascherare un
  *    errore e far avanzare il watermark.
  *
- * Output (GITHUB_OUTPUT): `collection_ok=true|false`, `batch_prs=<csv di numeri>`,
- *   `batch_count=<n>`, `max_turns=<n>` e `daily_key=YYYY-MM-DD` (giorno di triage
+ * Output (GITHUB_OUTPUT): `collection_ok=true|false` (le SORGENTI erano
+ *   leggibili — non «la finestra è stata drenata»), `batch_prs=<csv di numeri>`,
+ *   `batch_count=<n>`, `deferred_count=<n>` (PR rimaste fuori dal cap di
+ *   sessione), `max_turns=<n>` e `daily_key=YYYY-MM-DD` (giorno di triage
  *   riuscito in Zurich).
  *
  * Uso:  node scripts/ci/collect-followup-batch.mjs
  * Env:  GH_REPO|GITHUB_REPOSITORY, GITHUB_OUTPUT/GITHUB_STEP_SUMMARY (opz),
- *       FALLBACK_HOURS (opz, default 6).
+ *       FALLBACK_HOURS (opz, default 6), MAX_WINDOW_HOURS (opz, default 48).
  *       Richiede `gh` in PATH.
  */
 import { execFileSync } from 'node:child_process';
@@ -50,16 +62,25 @@ import { dailyBucketInfo, dailyKeyZurich } from './followup-resolution-match.mjs
 const WORKFLOW = 'post-merge-followup.yml';
 const TRIAGE_COMMENT_PREFIX = '## Post-merge follow-up triage';
 const FALLBACK_HOURS = Number(process.env.FALLBACK_HOURS) || 6;
+// Tetto duro della finestra di raccolta. Non è un'ottimizzazione: è ciò che
+// impedisce al watermark «ultima run di SUCCESSO» di diventare un ratchet
+// irreversibile (vedi l'intestazione). 48h = due giorni di triage, cioè il
+// doppio dell'unità di processo dichiarata (il bucket giornaliero), quindi una
+// giornata intera di run rosse viene ancora ri-coperta per intero.
+const MAX_WINDOW_HOURS = Number(process.env.MAX_WINDOW_HOURS) || 48;
 const SEARCH_PAGE_SIZE = 100;
 // Capacity evidence: run 34602892494 reached the provider's 32-minute ceiling
 // while processing a 36-PR window. Four is therefore a conservative operational
-// cap, not a promise of measured per-PR capacity; the workflow's incomplete-run
-// trigger below is the rollback signal if that bound proves too high.
-// If the candidate window is
-// larger, the workflow deliberately reports an incomplete collection after
-// emitting the prefix: its final verifier fails the scheduled run, so the
-// successful-run watermark does not advance and the next run re-collects the
-// deferred PRs. Idempotency skips the prefix already persisted in that run.
+// cap, not a promise of measured per-PR capacity.
+//
+// Una finestra più larga del cap NON è un errore di raccolta: è un rinvio
+// PIANIFICATO. Il troncamento viene dichiarato in `deferred_count`, mentre
+// `collection_ok` continua a descrivere l'unica cosa che sa descrivere — se le
+// SORGENTI (watermark, elenco paginato, commenti) erano leggibili. Prima erano
+// lo stesso bit, e le due condizioni hanno esiti opposti: un errore di sorgente
+// deve tenere il watermark indietro, un rinvio pianificato deve lasciarlo
+// avanzare, altrimenti il residuo non si drena mai. Confuse, producevano il
+// ratchet documentato sopra (35 run rosse consecutive, 161,6 h).
 export const FOLLOWUP_SESSION_BATCH_LIMIT = 4;
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 
@@ -100,12 +121,22 @@ export function canonicalLogin(login) {
  * retries cannot slide a now-minus-six-hours window forward and lose deferred PRs.
  * Prefers `startedAt`, falls back to `createdAt`, then to now − FALLBACK_HOURS only
  * when the workflow has no scheduled-run history at all.
+ * Il confine non può però essere più antico di `maxWindowHours`: oltre quel
+ * limite la finestra non è più ri-copribile in una sessione e il watermark
+ * resterebbe bloccato per sempre.
+ *
  * @param {string} runListJson output of `gh run list ... --json createdAt,startedAt,event,status,conclusion`
  * @param {number} [nowMs]
  * @param {number} [fallbackHours]
+ * @param {number} [maxWindowHours] tetto duro della finestra (default 48h)
  * @returns {string} ISO8601
  */
-export function computeWatermarkISO(runListJson, nowMs = Date.now(), fallbackHours = FALLBACK_HOURS) {
+export function computeWatermarkISO(
+  runListJson,
+  nowMs = Date.now(),
+  fallbackHours = FALLBACK_HOURS,
+  maxWindowHours = MAX_WINDOW_HOURS,
+) {
   let runs = [];
   try {
     runs = JSON.parse(runListJson || '[]');
@@ -127,12 +158,18 @@ export function computeWatermarkISO(runListJson, nowMs = Date.now(), fallbackHou
     || run.conclusion === 'success'
   ));
   const candidates = successfulRuns.length ? successfulRuns : validRuns;
+  // Il tetto si applica DOPO la scelta del confine, non al posto suo: la
+  // semantica «ultima run di successo» resta, ma non può più guardare
+  // indietro oltre `maxWindowHours`. Senza questo `Math.max` una sequenza di
+  // run rosse rende la finestra monotonicamente crescente e il verde
+  // irraggiungibile.
+  const floorMs = nowMs - maxWindowHours * 3600_000;
   if (candidates.length) {
     const timestamps = candidates.map((run) => Date.parse(run.startedAt || run.createdAt));
     const timestamp = successfulRuns.length ? Math.max(...timestamps) : Math.min(...timestamps);
-    return new Date(timestamp).toISOString();
+    return new Date(Math.max(timestamp, floorMs)).toISOString();
   }
-  return new Date(nowMs - fallbackHours * 3600_000).toISOString();
+  return new Date(Math.max(nowMs - fallbackHours * 3600_000, floorMs)).toISOString();
 }
 
 /**
@@ -348,20 +385,19 @@ export function maxTurnsFor(batchCount) {
   return Math.min(26 + 8 * Math.max(0, Number(batchCount) || 0), 80);
 }
 
-/** Select one bounded provider session; the caller must keep incomplete runs red. */
+/** Select one bounded provider session; il residuo è rinviato, non perso. */
 export function selectFollowupSessionBatch(batch) {
   return Array.isArray(batch) ? batch.slice(0, FOLLOWUP_SESSION_BATCH_LIMIT) : [];
 }
 
 /**
- * A capped session is intentionally not a successful collection: the workflow
- * must leave its successful-run watermark unchanged so the deferred suffix is
- * visible to the next scheduled run.
+ * Quante PR il cap ha rinviato. È un CONTEGGIO dichiarato, non un verdetto: il
+ * gate finale non ci si appoggia (non si appoggia un gate a un numero prodotto
+ * da chi viene giudicato), lo usano solo il summary e la telemetria di capacità.
  */
-export function sessionCollectionComplete(batch, sessionBatch) {
-  return Array.isArray(batch)
-    && Array.isArray(sessionBatch)
-    && batch.length === sessionBatch.length;
+export function deferredCount(batch, sessionBatch) {
+  if (!Array.isArray(batch) || !Array.isArray(sessionBatch)) return 0;
+  return Math.max(0, batch.length - sessionBatch.length);
 }
 
 /**
@@ -420,27 +456,33 @@ function runGate(scriptName, prNumber, outputKey) {
   return gateBoolean(runGateOutput(scriptName, prNumber), outputKey);
 }
 
-function emit(batch, dailyKey = triageDailyKey(), { collectionOk = true } = {}) {
+function emit(batch, dailyKey = triageDailyKey(), { collectionOk = true, deferred = 0 } = {}) {
   const csv = batch.join(',');
   const count = batch.length;
   const ok = collectionOk === true;
+  const deferredN = Math.max(0, Number(deferred) || 0);
   const maxTurns = maxTurnsFor(count);
   console.log(`collection_ok=${ok}`);
   console.log(`batch_count=${count}`);
   console.log(`batch_prs=${csv}`);
+  console.log(`deferred_count=${deferredN}`);
   console.log(`max_turns=${maxTurns}`);
   console.log(`daily_key=${dailyKey}`);
   if (process.env.GITHUB_OUTPUT) {
     fs.appendFileSync(
       process.env.GITHUB_OUTPUT,
-      `collection_ok=${ok}\nbatch_prs=${csv}\nbatch_count=${count}\nmax_turns=${maxTurns}\ndaily_key=${dailyKey}\n`,
+      `collection_ok=${ok}\nbatch_prs=${csv}\nbatch_count=${count}\n`
+      + `deferred_count=${deferredN}\nmax_turns=${maxTurns}\ndaily_key=${dailyKey}\n`,
     );
   }
   if (process.env.GITHUB_STEP_SUMMARY) {
     fs.appendFileSync(
       process.env.GITHUB_STEP_SUMMARY,
       `## Follow-up batch collected: ${count} PR\nDaily key: ${dailyKey} (Europe/Zurich).\n` +
-      (count ? `PR: ${csv} — max-turns ${maxTurns}.\n` : `Nessuna PR da triagiare in questa finestra.\n`),
+      (count ? `PR: ${csv} — max-turns ${maxTurns}.\n` : `Nessuna PR da triagiare in questa finestra.\n`) +
+      (deferredN
+        ? `Rinviate al prossimo giro: ${deferredN} PR (cap di sessione ${FOLLOWUP_SESSION_BATCH_LIMIT}).\n`
+        : ''),
     );
   }
 }
@@ -537,18 +579,15 @@ export function main() {
   }
 
   const sessionBatch = selectFollowupSessionBatch(batch);
-  const collectionOk = sessionCollectionComplete(batch, sessionBatch);
-  if (sessionBatch.length < batch.length) {
-    const deferred = batch.length - sessionBatch.length;
-    console.log(`Sessione limitata a ${sessionBatch.length} PR; ${deferred} PR rinviate alla prossima finestra. collection_ok=false: il watermark di successo resta invariato.`);
-    if (process.env.GITHUB_STEP_SUMMARY) {
-      fs.appendFileSync(
-        process.env.GITHUB_STEP_SUMMARY,
-        `Sessione limitata a ${sessionBatch.length} PR; ${deferred} PR rinviate alla prossima finestra schedulata.\n`,
-      );
-    }
+  const deferred = deferredCount(batch, sessionBatch);
+  if (deferred) {
+    // Arrivare qui significa che TUTTE le sorgenti sono state lette: il
+    // troncamento è una decisione di capacità presa da noi, non un guasto.
+    // Quindi `collection_ok` resta true e il watermark avanza sul lavoro
+    // effettivamente consegnato; il residuo rientra nella finestra successiva.
+    console.log(`Sessione limitata a ${sessionBatch.length} PR; ${deferred} PR rinviate alla prossima finestra. collection_ok resta true: il troncamento è un rinvio pianificato, non un errore di raccolta.`);
   }
-  emit(sessionBatch, dailyKey, { collectionOk });
+  emit(sessionBatch, dailyKey, { collectionOk: true, deferred });
 }
 
 // CLI entrypoint only (importing for tests must not invoke gh). Proceed-safe: any

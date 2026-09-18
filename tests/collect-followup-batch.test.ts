@@ -22,7 +22,7 @@ import {
   canonicalLogin,
   maxTurnsFor,
   selectFollowupSessionBatch,
-  sessionCollectionComplete,
+  deferredCount,
   shouldTriageAfterCandidateGate,
   shouldTriageAfterFixGate,
 } from '../scripts/ci/collect-followup-batch.mjs';
@@ -45,6 +45,22 @@ describe('canonicalLogin', () => {
 
 describe('computeWatermarkISO', () => {
   const NOW = Date.parse('2026-06-30T12:00:00Z');
+
+  // Replay del guasto misurato il 2026-09-18 (run 35349264019): watermark fermo
+  // al 2026-09-10T13:13:51Z e finestra di 8 giorni. Senza tetto la finestra
+  // cresce per sempre e il verde è irraggiungibile; col tetto resta 48h.
+  it('non guarda indietro oltre il tetto della finestra, anche con un successo antico', () => {
+    const stuck = Date.parse('2026-09-18T13:16:33Z');
+    const json = JSON.stringify([
+      { event: 'schedule', startedAt: '2026-09-10T13:13:51Z', status: 'completed', conclusion: 'success' },
+    ]);
+    expect(computeWatermarkISO(json, stuck)).toBe(new Date(stuck - 48 * 3600_000).toISOString());
+    // Il tetto è un limite, non un'imposizione: un successo recente vince.
+    const recent = JSON.stringify([
+      { event: 'schedule', startedAt: '2026-09-18T10:00:00Z', status: 'completed', conclusion: 'success' },
+    ]);
+    expect(computeWatermarkISO(recent, stuck)).toBe('2026-09-18T10:00:00.000Z');
+  });
 
   it('uses startedAt of the last successful run', () => {
     const json = JSON.stringify([{ createdAt: '2026-06-30T09:00:00Z', startedAt: '2026-06-30T09:01:00Z' }]);
@@ -156,7 +172,11 @@ describe('collector fail-closed parsing', () => {
     ]));
     expect(runs).toHaveLength(1);
     expect(runs?.[0].event).toBe('schedule');
-    expect(computeWatermarkISO(JSON.stringify(runs))).toBe('2026-09-09T09:00:00.000Z');
+    // `nowMs` pinnato: questo test giudica il filtro per evento, non il tetto
+    // della finestra. Col clock reale il tetto `MAX_WINDOW_HOURS` dominerebbe e
+    // il test fallirebbe per una ragione che non è la sua.
+    expect(computeWatermarkISO(JSON.stringify(runs), Date.parse('2026-09-09T12:00:00Z')))
+      .toBe('2026-09-09T09:00:00.000Z');
     expect(parseSuccessfulRunList(JSON.stringify([
       { event: 'workflow_dispatch', startedAt: '2026-09-09T12:00:00Z' },
     ]))).toEqual([]);
@@ -292,9 +312,12 @@ describe('follow-up provider session bound', () => {
     expect(candidates).toEqual([1, 2, 3, 4, 5, 6]);
   });
 
-  it('keeps the successful-run watermark closed while overflow is deferred', () => {
-    expect(sessionCollectionComplete([1, 2, 3, 4], [1, 2, 3, 4])).toBe(true);
-    expect(sessionCollectionComplete([1, 2, 3, 4, 5, 6], [1, 2, 3, 4])).toBe(false);
+  it('conta il residuo rinviato senza trasformarlo in un errore di raccolta', () => {
+    expect(deferredCount([1, 2, 3, 4], [1, 2, 3, 4])).toBe(0);
+    expect(deferredCount([1, 2, 3, 4, 5, 6], [1, 2, 3, 4])).toBe(2);
+    // Input non validi non devono inventare un residuo.
+    expect(deferredCount(null as unknown as number[], [1])).toBe(0);
+    expect(deferredCount([1, 2], [1, 2, 3])).toBe(0);
   });
 });
 

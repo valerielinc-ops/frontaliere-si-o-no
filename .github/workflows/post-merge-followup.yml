@@ -6,6 +6,11 @@ name: Post-merge follow-up triage
 # sulla quota Max OAuth CONDIVISA (AGENTS.md § frugalità — "più batched"). Sicurezza
 # garantita dal watermark-su-SUCCESSO + idempotenza (vedi collect-followup-batch.mjs):
 # una finestra non viene mai persa, al più ri-triagiata (no-op grazie all'idempotenza).
+# L'unità di processo è il GIORNO: un solo bucket aggregato per
+# `(daily_key, target repository)`, alimentato da tutte le run del giorno. La
+# copertura arretrata è limitata a MAX_WINDOW_HOURS (48h): oltre quel limite una
+# finestra non è ri-copribile in una sessione, quindi il tetto è ciò che impedisce
+# al watermark di bloccarsi per sempre (vedi collect-followup-batch.mjs).
 on:
   schedule:
     - cron: '0 */3 * * *' # ogni 3h
@@ -59,7 +64,8 @@ jobs:
 
       # Collect-batch (zero-Claude, deterministico). Produce la lista FINALE di PR da
       # triagiare:
-      #  - schedule → watermark (ultima run di SUCCESSO, fallback now-6h) → PR mergiate
+      #  - schedule → watermark (ultima run di SUCCESSO, tetto MAX_WINDOW_HOURS=48h,
+      #    fallback now-6h) → PR mergiate
       #    dall'owner dalla finestra → scarta le già-triagiate (commento idempotenza) →
       #    applica i DUE gate per-PR esistenti (grandchild-suppression + no-op pre-gate,
       #    invocati come subprocess: risparmio preservato anche in batch).
@@ -68,13 +74,18 @@ jobs:
       # PROCEED-SAFE: un gate per-PR inconcludente → PR inclusa nel batch (mai persa);
       # errori delle sorgenti di raccolta → collection_ok=false e run rossa.
       # Se il batch supera il limite della sessione provider, il collector emette
-      # solo il prefisso e imposta anch'esso collection_ok=false: il prefisso viene
-      # triagiato, poi il verifier finale rende la run rossa così il watermark di
-      # successo non avanza. La run successiva ricopre la stessa finestra e
-      # l'idempotenza salta il prefisso già persistito, lasciando il residuo.
-      # Emette collection_ok, batch_prs (csv), batch_count, max_turns e daily_key
-      # (Europe/Zurich). collection_ok è distinto dal batch vuoto: un errore di
-      # raccolta non può essere interpretato come "nessuna PR".
+      # solo il prefisso e dichiara il residuo in `deferred_count`, MA
+      # `collection_ok` resta true: il troncamento è un rinvio pianificato, non un
+      # errore di raccolta. Il prefisso viene triagiato, la run resta verde, il
+      # watermark avanza sul lavoro consegnato e il residuo rientra nella finestra
+      # successiva (l'idempotenza salta ciò che è già stato commentato).
+      # Le due condizioni erano lo stesso bit fino al 2026-09-18 e hanno esiti
+      # OPPOSTI sul watermark: confuse producevano un ratchet irreversibile —
+      # finestra crescente → troncamento garantito → run rossa → watermark fermo.
+      # Misurato: 35 run rosse consecutive sul sito (161,6 h), 34 sul corpus.
+      # Emette collection_ok, batch_prs (csv), batch_count, deferred_count,
+      # max_turns e daily_key (Europe/Zurich). collection_ok è distinto dal batch
+      # vuoto: un errore di raccolta non può essere interpretato come "nessuna PR".
       # Vedi scripts/ci/collect-followup-batch.mjs.
       - name: Collect follow-up batch
         id: collect
@@ -91,6 +102,7 @@ jobs:
               echo "batch_prs=${PR}"
               echo "batch_count=1"
               echo "collection_ok=true"
+              echo "deferred_count=0" # un backfill esplicito non rinvia nulla
               echo "max_turns=34" # = maxTurnsFor(1) — tenere allineato a collect-followup-batch.mjs
               echo "daily_key=$(TZ=Europe/Zurich date +%F)"
             } >> "$GITHUB_OUTPUT"
@@ -246,8 +258,9 @@ jobs:
           # i token host-side restano limitati ai permessi del job e ai bridge espliciti.
           # max-turns DINAMICO = min(26 + 8*batch_count, 80), floor 26: il cap cresce
           # con il numero di PR, senza consentire sessioni illimitate.
-          # Se il batch satura il cap, il watermark non avanza e la run successiva
-          # ricopre la finestra; l'idempotenza salta le PR già commentate.
+          # Se il batch satura il cap, il residuo è dichiarato in `deferred_count`
+          # e ricade nella finestra successiva; l'idempotenza salta le PR già
+          # commentate. La run resta verde: il troncamento non è un guasto.
           # Percorsi storici non presenti in questo repository: `auto-merge-on-lgtm.yml`
           # e `pr-review-loop.yml`. Il triage corrente vive in questo workflow e in
           # `tests.yml`; i nomi sopra sono solo riferimenti documentali di confine.
@@ -274,7 +287,7 @@ jobs:
             - Cerca prima un issue aperto con quella chiave e quel repository. Se esiste, rileggi il body immediatamente prima dell'append; confronta la baseline (o una hash), ricostruisci l'append dalla lettura nuova su divergenza e non sovrascrivere contenuto concorrente. Se trovi un bucket `collecting` storico che contiene una PR della finestra, riusa quella chiave/titolo anche se il retry è entrato nel giorno successivo: mai sdoppiare la finestra. Se non esiste, crea UNA sola issue per gruppo con `State: collecting`; non aggiungere `agent:fix` né `agent:fix-queued` durante la raccolta.
             - Ogni item deve avere un ID stabile `FU-YYYY-MM-DD-NNN`, assegnato una sola volta, e i campi `Target repository`, `Target file`, `Original text`, `Suggested action`, `Acceptance token`, `Sources`. Deduplica col fingerprint `target repository + target file + token/azione normalizzata`; su match aggiungi la PR alla riga `Sources`, non un secondo item.
             - Il body resta `State: collecting` finché tutti i chunk seriali del batch sono conclusi. Non troncare mai il set per un cap “max 10”: il cap vale solo per chunk/sessione. Un errore lascia il bucket collecting e la finestra senza avanzare; il retry riusa la stessa chiave e le PR già commentate restano idempotenti.
-            - Se la finestra supera il budget della sessione, il collector fornisce al massimo quattro PR e imposta `collection_ok=false`. Processa tutte le PR emesse; il verifier finale rende intenzionalmente rossa la run schedulata, quindi il watermark di successo non avanza. La run successiva riusa la stessa finestra, salta per idempotenza le PR già commentate e processa il residuo dal primo PR non commentato. Non aprire un secondo bucket per lo stesso `(daily_key, target repository)`.
+            - Se la finestra supera il budget della sessione, il collector fornisce al massimo quattro PR e dichiara il residuo in `deferred_count`, lasciando `collection_ok=true`: il troncamento è un rinvio pianificato, non un errore, e la run schedulata deve restare VERDE. Processa tutte le PR emesse e nient'altro: il residuo è compito della finestra successiva, che salta per idempotenza le PR già commentate. Non trattare `deferred_count > 0` come un motivo per allargare il lavoro, per lasciare un commento di allarme o per aprire un secondo bucket sullo stesso `(daily_key, target repository)`.
             - Solo il gate zero-agent successivo demota gli item privi di acceptance falsificabile, porta il bucket a `State: sealed` e aggiunge `agent:fix-queued`. Un bucket collecting non è lavorabile dal drainer.
             - Una PR di fix daily con `Addresses #<bucket>` e `Follow-up item: FU-...` passa il gate anti-nipote solo per cercare finding nuovi: non creare issue figlie. Leggi il bucket padre nello stesso repository target; i finding già coperti dal padre aggiornano `Sources`/si deduplicano, quelli genuinamente nuovi si appendono al padre (se sealed, riportalo a collecting per il gate successivo). Se il padre è illeggibile, posta il blocco sulla PR e non creare un contenitore alternativo.
 
