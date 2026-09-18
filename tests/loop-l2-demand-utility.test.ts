@@ -4,6 +4,7 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   MAX_CANDIDATES,
+  main,
   runL2,
   validateDemandSnapshot,
 } from '../scripts/ci/loop-l2-demand-utility.mjs';
@@ -51,7 +52,9 @@ describe('L2 Demand → Utility', () => {
     expect(verdict.ok).toBe(false);
     expect(verdict.quality).toBe('partial');
     expect(verdict.snapshot.outcomeJoin).toBe('missing');
-    expect(verdict.snapshot.outcomes).toBeNull();
+    expect(verdict.snapshot.outcomes).toEqual({ eligibleLandingSessions: 0, usefulActions: 0 });
+    expect(verdict.snapshot.outcomes.usefulActions).not.toBe(120);
+    expect(verdict.snapshot.outcomes.eligibleLandingSessions).not.toBe(1200);
   });
 
   it('fails closed when the joined outcome numerator exceeds its denominator', async () => {
@@ -60,7 +63,11 @@ describe('L2 Demand → Utility', () => {
     }));
     const result = await runL2({ now: NOW, sourcePath: input.file, logger: { log() {} } });
     expect(result.verdict).toMatchObject({ ok: false, quality: 'partial' });
-    expect(result.verdict.snapshot).toMatchObject({ outcomeJoin: 'joined', outcomes: null });
+    expect(result.verdict.snapshot).toMatchObject({
+      outcomeJoin: 'joined',
+      outcomes: { eligibleLandingSessions: 0, usefulActions: 0 },
+    });
+    expect(result.outcomes).toEqual({ eligibleLandingSessions: 0, usefulActions: 0 });
     expect(result.observation.numerator).toBeNull();
     expect(result.observation.denominator).toBeNull();
   });
@@ -70,7 +77,10 @@ describe('L2 Demand → Utility', () => {
       metrics: { outcomes: { eligibleLandingSessions: 1200, usefulActions: 181 } },
     }), { now: NOW });
     expect(verdict).toMatchObject({ ok: false, quality: 'partial' });
-    expect(verdict.snapshot).toMatchObject({ outcomeJoin: 'conflicting', outcomes: null });
+    expect(verdict.snapshot).toMatchObject({
+      outcomeJoin: 'conflicting',
+      outcomes: { eligibleLandingSessions: 0, usefulActions: 0 },
+    });
     expect(verdict.issues.join(' ')).toContain('disagree');
   });
 
@@ -147,6 +157,53 @@ describe('L2 Demand → Utility', () => {
     expect(result.verdict.quality).toBe('unmeasurable');
     expect(result.observation.numerator).toBeNull();
     expect(result.observation.denominator).toBeNull();
+  });
+
+  it('emits numeric outcomes from the default shipped dry-run JSON', async () => {
+    const lines: string[] = [];
+    await main({
+      argv: ['--json', '--dry-run'],
+      logger: { log(message: string) { lines.push(String(message)); } },
+    });
+    const payload = JSON.parse(lines.at(-1) ?? 'null');
+    expect(typeof payload.outcomes.eligibleLandingSessions).toBe('number');
+    expect(typeof payload.outcomes.usefulActions).toBe('number');
+    expect(Number.isInteger(payload.outcomes.eligibleLandingSessions)).toBe(true);
+    expect(Number.isInteger(payload.outcomes.usefulActions)).toBe(true);
+    expect(payload.outcomes.eligibleLandingSessions).toBeGreaterThanOrEqual(0);
+    expect(payload.outcomes.usefulActions).toBeGreaterThanOrEqual(0);
+  });
+
+  it('emits numeric outcomes from the shipped dry-run JSON, including 0', async () => {
+    const missing = tempFile(snapshot({ outcomes: undefined }));
+    const joined = tempFile(snapshot());
+    const lines: string[] = [];
+    const logger = { log(message: string) { lines.push(String(message)); } };
+
+    await main({
+      argv: ['--json', '--dry-run', '--source', missing.file],
+      logger,
+    });
+    const missingPayload = JSON.parse(lines.at(-1) ?? 'null');
+    expect(typeof missingPayload.outcomes.eligibleLandingSessions).toBe('number');
+    expect(typeof missingPayload.outcomes.usefulActions).toBe('number');
+    expect(Number.isInteger(missingPayload.outcomes.eligibleLandingSessions)).toBe(true);
+    expect(Number.isInteger(missingPayload.outcomes.usefulActions)).toBe(true);
+    expect(missingPayload.outcomes.eligibleLandingSessions).toBeGreaterThanOrEqual(0);
+    expect(missingPayload.outcomes.usefulActions).toBeGreaterThanOrEqual(0);
+    expect(missingPayload.outcomes).toEqual({ eligibleLandingSessions: 0, usefulActions: 0 });
+    expect(missingPayload.outcomes.usefulActions).not.toBe(120);
+    expect(missingPayload.verdict.snapshot.outcomeJoin).toBe('missing');
+    expect(missingPayload.issued).toBe(false);
+
+    await main({
+      argv: ['--json', '--dry-run', '--source', joined.file],
+      logger,
+    });
+    const joinedPayload = JSON.parse(lines.at(-1) ?? 'null');
+    expect(typeof joinedPayload.outcomes.eligibleLandingSessions).toBe('number');
+    expect(typeof joinedPayload.outcomes.usefulActions).toBe('number');
+    expect(joinedPayload.outcomes).toEqual({ eligibleLandingSessions: 1200, usefulActions: 180 });
   });
 
   it('does not write a persisted result when issue creation fails', async () => {
