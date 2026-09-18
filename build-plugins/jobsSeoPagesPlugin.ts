@@ -162,6 +162,13 @@ import {
  type LocationPartition,
 } from './jobEditorialLanding';
 import {
+ buildJobIntentLandingModel,
+ getJobIntentLandingSlug,
+ JOB_INTENT_KEYS,
+ JOB_INTENT_MIN_INDEXABLE_JOBS,
+ type JobIntentKey,
+} from './jobIntentLanding';
+import {
   JOBS_SEO_GCFREED_PROBE_ENV,
   JOBS_SEO_RETENTION_PROBE_ENV,
   extraGcFreedProbeReleases,
@@ -6242,6 +6249,185 @@ ${staticAnalyticsHtml}
  localePrefix: localePrefix[locale],
  canton: editorialCanton,
  }), '0.76', sectionByLocaleCanton);
+ }
+
+ /* ── Demand-qualified intent landings ───────────────────────────────
+  * Keep the non-taxonomic layer intentionally small. The builders match the
+  * live TI inventory and this loop emits indexable pages only at the same
+  * five-job floor used by the editorial canton family. Below the floor we
+  * preserve a noindex bridge to the canton hub so a previously known URL does
+  * not become a hard 404.
+  */
+ for (const intentKey of JOB_INTENT_KEYS) {
+ const editorialCanton = 'TI';
+ const sectionByLocaleCanton = (l: 'it' | 'en' | 'de' | 'fr') => buildCantonAwareSection(l, editorialCanton);
+ const italianIntentModel = buildJobIntentLandingModel({
+ jobs: validJobs,
+ locale: 'it',
+ intentKey,
+ now: new Date().toISOString(),
+ localizedSlug,
+ baseUrl: BASE_URL,
+ sectionSlug: sectionByLocaleCanton('it'),
+ localePrefix: localePrefix.it,
+ canton: editorialCanton,
+ });
+ if (italianIntentModel.totalJobs < JOB_INTENT_MIN_INDEXABLE_JOBS) {
+ for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue;
+ emitEditorialBelowFloorBridge(locale, editorialCanton, getJobIntentLandingSlug(locale, intentKey));
+ }
+ continue;
+ }
+
+ for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue;
+ const __tEdIntent = startTimer();
+ const model = buildJobIntentLandingModel({
+ jobs: validJobs,
+ locale,
+ intentKey,
+ now: new Date().toISOString(),
+ localizedSlug,
+ baseUrl: BASE_URL,
+ sectionSlug: sectionByLocaleCanton(locale),
+ localePrefix: localePrefix[locale],
+ canton: editorialCanton,
+ });
+ editorialSearchSlugsByLocale.get(locale)?.add(model.slug);
+ const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocaleCanton(locale)}/${model.slug}`.replace(/\/+/g, '/'));
+ const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+ const intentAltPairs = localeList.map((altLocale) => {
+ const altModel = buildJobIntentLandingModel({
+ jobs: validJobs,
+ locale: altLocale,
+ intentKey,
+ now: new Date().toISOString(),
+ localizedSlug,
+ baseUrl: BASE_URL,
+ sectionSlug: sectionByLocaleCanton(altLocale),
+ localePrefix: localePrefix[altLocale],
+ canton: editorialCanton,
+ });
+ const altPath = `${localePrefix[altLocale]}/${sectionByLocaleCanton(altLocale)}/${altModel.slug}`.replace(/\/+/g, '/');
+ return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
+ });
+ const intentXDefault = intentAltPairs.find((pair) => pair.lang === 'it')?.href ?? canonicalUrl;
+ const intentAlternates = [
+ ...intentAltPairs.map((pair) => ` <link rel="alternate" hreflang="${pair.lang}" href="${pair.href}">`),
+ ` <link rel="alternate" hreflang="x-default" href="${intentXDefault}">`,
+ ].join('\n');
+ const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocaleCanton(locale)}`.replace(/\/+/g, '/'))}`;
+ const relatedLinks = model.relatedLinks.length > 0
+ ? model.relatedLinks.map((link) => `<a class="s-tcCzKK" href="${link.href}"><span>${esc(link.label)}</span><span class="s-IjpSYt">${link.count}</span></a>`).join('')
+ : '<p class="s-heE-6f">—</p>';
+ const { breadcrumbLd, collectionLd, itemListLd } = buildEditorialJsonLd({
+ locale,
+ name: model.heading,
+ url: canonicalUrl,
+ description: model.description,
+ isPartOf: sectionRootUrl,
+ breadcrumbs: [
+ { name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
+ { name: cantonSectionName(locale, getCantonDisplayLabel(editorialCanton, locale)), item: sectionRootUrl },
+ { name: model.heading, item: canonicalUrl },
+ ],
+ items: [...model.feed.jobs, ...model.latestJobs],
+ });
+ const intentHtml = `<!doctype html>
+<html lang="${locale}">
+ <head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
+ <title>${esc(model.title)}</title>
+ <meta name="description" content="${esc(clampMetaDescription(model.description))}">${ROBOTS_INDEX_ENHANCED}
+ <meta property="og:type" content="website">
+ <meta property="og:site_name" content="Frontaliere Ticino">
+ <meta property="og:locale" content="${localeOg[locale]}">
+ <meta property="og:title" content="${esc(model.title)}">
+ <meta property="og:description" content="${esc(clampMetaDescription(model.description))}">
+ <meta property="og:url" content="${canonicalUrl}">
+ <meta property="og:image" content="${BASE_URL}/og-image.png">
+ <meta property="og:image:width" content="1200">
+ <meta property="og:image:height" content="630">
+ <meta property="og:image:type" content="image/png">
+ <meta property="og:image:alt" content="${esc(model.title)}">
+ <link rel="canonical" href="${canonicalUrl}">
+${intentAlternates}
+ <script type="application/ld+json">${breadcrumbLd}</script>
+ <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}
+ ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
+${staticAnalyticsHtml}
+ </head>
+ <body>
+ ${rootShell(hasSpaBundle)}
+ ${railGutters(true).open}
+ <main class="seo-static-content s-it71Rt">
+ <nav class="s-bcr" aria-label="breadcrumb">
+ <a href="${locale === 'it' ? '/' : `/${locale}/`}" class="s-bcl">${esc(homeLabel[locale])}</a>
+ <span> / </span>
+ <a href="${sectionRootUrl}" class="s-bcl">${esc(cantonSectionName(locale, getCantonDisplayLabel(editorialCanton, locale)))}</a>
+ <span> / </span>
+ <span>${esc(model.heading)}</span>
+ </nav>
+ <header class="s-S_0cal sx-hero">
+ <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+ <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
+ <p class="s-wU5Nrr">${esc(model.description)}</p>
+ <p class="s-rDKEKn">${esc(model.intro)}</p>
+ </header>
+ <section class="s-S6PRaY">
+ <div class="s-CGuDZg"><div class="s-JFi4vt">${esc(model.countsLabel)}</div><div class="s-9UotdJ">${model.totalJobs}</div></div>${model.latestJobs.length > 0 ? `
+ <div class="s-3kP_AL"><div class="s-z4q8yI">${esc(model.latestLabel)}</div><div class="s-9UotdJ">${model.latestJobs.length}</div></div>` : ''}
+ </section>
+ <section class="s-KZc0LQ">
+ <div class="s-r2QmTP">
+ <h2 class="s-CqexyJ">${esc(model.feed.label)}</h2>
+ <a class="s-YszcPD" href="${sectionRootUrl}">${esc(model.openAllLabel)}</a>
+ </div>
+ ${renderJobList(model.feed.jobs)}
+ </section>
+ ${model.latestJobs.length > 0 ? `<section class="s-4FxAs0">
+ <h2 class="s-iEVPhz">${esc(model.latestLabel)}</h2>
+ ${renderJobList(model.latestJobs)}
+ </section>` : ''}
+ <section class="s-KZc0LQ">
+ <h2 class="s-iEVPhz">${esc(model.relatedLabel)}</h2>
+ <div class="s-J2fKgL">${relatedLinks}</div>
+ </section>
+ ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: getCantonDisplayLabel(editorialCanton, locale), omitCommute: true, cantonDisplay: getCantonDisplayLabel(editorialCanton, locale), cantonSlot: 'editorial-intent' }))}
+ </main>${railGutters(true).close}
+ <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
+ </body>
+</html>`;
+ const intentHtmlBytes = Buffer.byteLength(intentHtml, 'utf-8');
+ if (intentHtmlBytes > 195 * 1024) {
+ throw new Error(`[jobs-seo-pages] Intent landing ${canonicalPath} renders to ${(intentHtmlBytes / 1024).toFixed(1)} KB — reduce its feed cap before shipping.`);
+ }
+ const outDir = np.join(distDir, canonicalPath.slice(1));
+ _md(outDir);
+ _qw(np.join(outDir, 'index.html'), intentHtml);
+ const flatPath = canonicalPath.replace(/\/+$/, '');
+ if (flatPath) {
+ const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
+ _md(np.dirname(flatFile));
+ _qwFlat(flatFile, intentHtml);
+ }
+ recordEmit(`editorial-intent-${intentKey}`, __tEdIntent);
+ }
+
+ pushEditorialSitemapEntry((locale) => buildJobIntentLandingModel({
+ jobs: validJobs,
+ locale,
+ intentKey: intentKey as JobIntentKey,
+ now: new Date().toISOString(),
+ localizedSlug,
+ baseUrl: BASE_URL,
+ sectionSlug: sectionByLocaleCanton(locale),
+ localePrefix: localePrefix[locale],
+ canton: editorialCanton,
+ }), '0.78', sectionByLocaleCanton);
  }
 
  // Primary CTA label — same copy as professionLandingsCopy.primaryCtaLabel;
