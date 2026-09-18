@@ -43,6 +43,23 @@ type Snapshot = ItalyDutySnapshot;
 export type ItalyDutyProvinceFreshness = 'fresh' | 'stale' | 'unknown';
 export type ItalyDutyProvinceCoverage = 'covered' | 'partial' | 'not_published' | 'unknown';
 
+/**
+ * Classe di pubblicazione della fonte provinciale. Deve restare allineata a
+ * `sourcePublicationClass` in `scripts/lib/pharmacy-italy-duty-parser.mjs`: la
+ * logica di stato della release esiste in DUE copie (questa per la SPA, quella
+ * per l'importer) e una sola delle due aggiornata significa che il sito e il
+ * writer non sono d'accordo su cosa e' pubblicabile.
+ *
+ * `required` e' il default fail-closed: una provincia che non dichiara la
+ * classe resta bloccante.
+ */
+export type ItalyDutyPublicationClass = 'required' | 'best-effort';
+
+export function italyDutyPublicationClass(entry: unknown): ItalyDutyPublicationClass {
+  const value = isRecord(entry) ? entry.publication : undefined;
+  return value === 'best-effort' ? 'best-effort' : 'required';
+}
+
 export interface ItalyDutyProvinceEvaluation {
   province: ItalyDutyProvince;
   state: ItalyDutyReleaseState;
@@ -52,6 +69,7 @@ export interface ItalyDutyProvinceEvaluation {
   observedDutyCount: number;
   sourceUrl: string | null;
   fetchedAt: string | null;
+  publication: ItalyDutyPublicationClass;
 }
 
 export interface ItalyDutyReleaseEvaluation {
@@ -127,6 +145,8 @@ function statusEntries(status: Snapshot): Record<ItalyDutyProvince, Record<strin
     dutyCount: 0,
     sourceUrl: '',
     fetchedAt: null,
+    // Provincia assente dallo status: resta bloccante.
+    publication: 'required',
   }])) as Record<ItalyDutyProvince, Record<string, unknown>>;
 }
 
@@ -136,10 +156,16 @@ function deriveState(duties: Snapshot, status: Snapshot, provinces: Record<Italy
     ...(Array.isArray(status._errors) ? status._errors : []),
   ];
   const entries = Object.values(provinces);
-  if (status._allSourcesFailed === true || entries.every((entry) => entry.coverage === 'not_published')) return 'not_published';
-  if (errors.length > 0 || entries.some((entry) => entry.state === 'conflicting')) return 'partial';
-  if (entries.some((entry) => entry.freshness === 'stale')) return 'stale';
-  if (entries.some((entry) => entry.coverage !== 'covered' || entry.freshness !== 'fresh')) return 'not_published';
+  // Solo le province `required` decidono lo stato: una provincia `best-effort`
+  // dichiarata irraggiungibile non deve azzerare quelle pubblicabili. Se
+  // nessuna fosse required si ricade su tutte, perche' un verde che non ha
+  // verificato niente e' peggio di un rosso.
+  const required = entries.filter((entry) => italyDutyPublicationClass(entry) === 'required');
+  const deciding = required.length > 0 ? required : entries;
+  if (status._allSourcesFailed === true || deciding.every((entry) => entry.coverage === 'not_published')) return 'not_published';
+  if (errors.length > 0 || deciding.some((entry) => entry.state === 'conflicting')) return 'partial';
+  if (deciding.some((entry) => entry.freshness === 'stale')) return 'stale';
+  if (deciding.some((entry) => entry.coverage !== 'covered' || entry.freshness !== 'fresh')) return 'not_published';
   return 'fresh';
 }
 
@@ -410,7 +436,12 @@ function validateItalyDutyProvinceStatusEntries(
     if (expected && entry.sourceUrl !== expected.officialSourceUrl) errors.push(province + ': source URL does not match the official source registry');
     if (!Array.isArray(entry.errors)) {
       errors.push(province + ': province status errors must be an array');
-    } else if (entry.errors.length > 0) {
+    } else if (entry.errors.length > 0 && italyDutyPublicationClass(entry) !== 'best-effort') {
+      // Per una provincia `best-effort` l'array `errors` contiene il guasto
+      // ATTESO e dichiarato (la fonte VCO non e' raggiungibile dai runner
+      // GitHub), quindi non e' un difetto di integrita' dello snapshot. La
+      // forma resta verificata sopra: deve comunque essere un array, e
+      // l'identita' della fonte deve comunque corrispondere al registry.
       errors.push(province + ': province status reports source errors');
     }
     if (!Array.isArray(entry.warnings)) {
@@ -576,6 +607,7 @@ export function evaluateItalyDutyRelease({
       observedDutyCount,
       sourceUrl: httpsUrl(entry?.sourceUrl),
       fetchedAt: entryFetchedAt,
+      publication: italyDutyPublicationClass(entry),
     };
     provinces[province] = evaluation;
 
@@ -588,7 +620,12 @@ export function evaluateItalyDutyRelease({
       && evaluation.dutyCount > 0
       && dutyRows.length === evaluation.dutyCount;
     if (!ready) {
-      allProvincesReady = false;
+      // Una provincia `best-effort` non pronta NON blocca la pubblicazione: i
+      // suoi motivi restano elencati in `reasons` (la degradazione deve essere
+      // visibile) ma il sito continua a servire le province bloccanti sane.
+      // Senza questo, una sola fonte irraggiungibile nascondeva anche Como e
+      // Varese, che sono pubblicabili.
+      if (evaluation.publication !== 'best-effort') allProvincesReady = false;
       if (!rawEntry) reasons.push(`${province}: province status is missing`);
       if (evaluation.state !== 'fresh') reasons.push(`${province}: ${evaluation.state}`);
       if (evaluation.coverage !== 'covered') reasons.push(`${province}: coverage is ${evaluation.coverage}`);

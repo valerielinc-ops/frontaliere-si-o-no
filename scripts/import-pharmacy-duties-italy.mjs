@@ -9,6 +9,8 @@ import {
   buildAtomicItalyDutySnapshots,
   ITALY_DUTY_PROVINCES,
   parseItalyDutySource,
+  sourceCoverageModel,
+  sourcePublicationClass,
 } from './lib/pharmacy-italy-duty-parser.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -19,6 +21,20 @@ const DUTIES_PATH = resolve(REPO_ROOT, 'data/pharmacy-duties-italy.json');
 const STATUS_PATH = resolve(REPO_ROOT, 'data/pharmacy-duties-italy-status.json');
 const USER_AGENT = 'FrontaliereItalyPharmacyDutyBot/1.0 (+https://frontaliereticino.ch/bot)';
 const FETCH_TIMEOUT_MS = 30_000;
+/**
+ * Un tentativo solo trasformava qualunque singhiozzo di rete in una release non
+ * pubblicabile. Il retry copre il timeout TRANSITORIO; NON supera il blocco di
+ * egress misurato su aslvco.it (HTTP 200 da rete residenziale 3/3, ma
+ * UND_ERR_CONNECT_TIMEOUT dai runner GitHub, che filtrano le reti Azure) —
+ * quella fonte e' dichiarata `best-effort` nel registry, che e' il meccanismo
+ * giusto per un blocco permanente. Qui si usa il `fetch` globale di Node: NON
+ * introdurre un `Agent` npm di undici, la combinazione lascia il gzip non
+ * decompresso.
+ */
+const FETCH_ATTEMPTS = 3;
+const FETCH_RETRY_BASE_MS = 1_000;
+
+const sleep = (ms) => new Promise((resolve_) => setTimeout(resolve_, ms));
 
 function argumentValue(prefix) {
   const argument = process.argv.find((value) => value.startsWith(prefix));
@@ -48,6 +64,25 @@ export function assertOfficialItalyUrl(url, source, label = 'official source URL
 }
 
 async function fetchResponse(url, options = {}, source, label = 'official source') {
+  let lastError;
+  for (let attempt = 1; attempt <= FETCH_ATTEMPTS; attempt += 1) {
+    try {
+      return await fetchResponseOnce(url, options, source, label);
+    } catch (error) {
+      lastError = error;
+      // L'URL non ufficiale e il 4xx non sono transitori: ritentarli e' solo
+      // tempo speso, e il messaggio di errore deve restare quello vero.
+      const message = error instanceof Error ? error.message : String(error);
+      if (/must remain official|is not a valid URL|host does not match/i.test(message)) throw error;
+      if (/^HTTP 4\d\d/.test(message)) throw error;
+      if (attempt === FETCH_ATTEMPTS) break;
+      await sleep(FETCH_RETRY_BASE_MS * attempt);
+    }
+  }
+  throw lastError;
+}
+
+async function fetchResponseOnce(url, options = {}, source, label = 'official source') {
   assertOfficialItalyUrl(url, source, label);
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
@@ -136,27 +171,49 @@ function sourceStatus(source, parsed, fetchedAt) {
     freshness: parsed.freshness,
     coverage: parsed.coverage,
     state,
+    // La classe di pubblicazione viaggia NELLO status, non solo nel registry:
+    // `releaseState` e il checker leggono lo status, non le fonti.
+    publication: sourcePublicationClass(source),
+    coverageModel: sourceCoverageModel(source),
+    observedCalendarDays: parsed.observedCalendarDays ?? null,
+    minimumCalendarDays: parsed.minimumCalendarDays ?? null,
     errors: parsed.errors,
     warnings: parsed.warnings,
   };
 }
 
-function buildDatasets({ attemptedAt, duties, sourceStatuses, errors, warnings }) {
+function buildDatasets({ attemptedAt, duties, sourceStatuses, errors, bestEffortErrors, warnings }) {
   const successfulProvinces = sourceStatuses
     .filter((source) => source.state === 'fresh' && source.coverage === 'covered')
     .map((source) => source.province);
+  // Le province che DEVONO pubblicare. `_allSourcesFailed` e
+  // `_lastSuccessfulFetchAt` si misurano su queste: con VB best-effort e
+  // irraggiungibile, pretendere 3 province su 3 teneva
+  // `_lastSuccessfulFetchAt` eternamente null.
+  const requiredProvinces = sourceStatuses
+    .filter((source) => source.publication !== 'best-effort')
+    .map((source) => source.province);
+  const successfulRequired = requiredProvinces.filter((province) => successfulProvinces.includes(province));
   const status = {
     _source: 'official Italian provincial duty calendars',
     _sourceKeys: sourceStatuses.map((source) => source.sourceKey),
     _fetchedAt: attemptedAt,
     _attemptedAt: attemptedAt,
-    _lastSuccessfulFetchAt: successfulProvinces.length === ITALY_DUTY_PROVINCES.length ? attemptedAt : null,
+    _lastSuccessfulFetchAt: requiredProvinces.length > 0 && successfulRequired.length === requiredProvinces.length
+      ? attemptedAt
+      : null,
     _timezone: 'Europe/Rome',
     _scope: { country: 'IT', provinces: [...ITALY_DUTY_PROVINCES] },
     _successfulProvinces: successfulProvinces,
-    _allSourcesFailed: successfulProvinces.length === 0,
+    _requiredProvinces: requiredProvinces,
+    _allSourcesFailed: successfulRequired.length === 0,
     _provinces: Object.fromEntries(sourceStatuses.map((source) => [source.province, source])),
     _errors: errors,
+    // Errori delle fonti `best-effort`: NON decidono lo stato della release, ma
+    // restano nello snapshot e nell'output del workflow. Toglierli del tutto
+    // sarebbe silenziare il difetto; tenerli in `_errors` azzerava le province
+    // sane. Questa e' la distinzione, non una scorciatoia per il verde.
+    _bestEffortErrors: bestEffortErrors,
     _warnings: warnings,
   };
   const dataset = {
@@ -167,6 +224,7 @@ function buildDatasets({ attemptedAt, duties, sourceStatuses, errors, warnings }
     _timezone: 'Europe/Rome',
     _scope: { country: 'IT', provinces: [...ITALY_DUTY_PROVINCES] },
     _errors: errors,
+    _bestEffortErrors: bestEffortErrors,
     _warnings: warnings,
     duties,
   };
@@ -196,6 +254,7 @@ export async function importItalyPharmacyDuties({
   const catalogue = await readJson(CATALOGUE_PATH);
   const allDuties = [];
   const allErrors = [];
+  const allBestEffortErrors = [];
   const allWarnings = [];
   const statuses = [];
 
@@ -208,14 +267,16 @@ export async function importItalyPharmacyDuties({
         catalogue,
       });
       allDuties.push(...parsed.duties);
-      allErrors.push(...parsed.errors.map((error) => `${source.key}: ${error}`));
+      const bucket = sourcePublicationClass(source) === 'best-effort' ? allBestEffortErrors : allErrors;
+      bucket.push(...parsed.errors.map((error) => `${source.key}: ${error}`));
       allWarnings.push(...parsed.warnings.map((warning) => `${source.key}: ${warning}`));
       statuses.push(sourceStatus(source, parsed, attemptedAt));
     } catch (error) {
       const baseMessage = error instanceof Error ? error.message : String(error);
       const causeCode = error?.cause?.code ? ' (' + error.cause.code + ')' : '';
       const message = source.key + ': ' + baseMessage + causeCode;
-      allErrors.push(message);
+      const publication = sourcePublicationClass(source);
+      (publication === 'best-effort' ? allBestEffortErrors : allErrors).push(message);
       statuses.push({
         province: source.province,
         sourceKey: source.key,
@@ -226,6 +287,10 @@ export async function importItalyPharmacyDuties({
         freshness: 'unknown',
         coverage: 'not_published',
         state: 'not_published',
+        publication,
+        coverageModel: sourceCoverageModel(source),
+        observedCalendarDays: null,
+        minimumCalendarDays: null,
         errors: [message],
         warnings: [],
       });
@@ -237,6 +302,7 @@ export async function importItalyPharmacyDuties({
     duties: allDuties,
     sourceStatuses: statuses,
     errors: allErrors,
+    bestEffortErrors: allBestEffortErrors,
     warnings: allWarnings,
   });
   const atomic = buildAtomicItalyDutySnapshots({ duties: dataset, status, evaluatedAt: attemptedAt });
@@ -244,7 +310,13 @@ export async function importItalyPharmacyDuties({
     await writeJson(DUTIES_PATH, atomic.duties);
     await writeJson(STATUS_PATH, atomic.status);
   }
-  return { ...atomic, sourceStatuses: statuses, errors: allErrors, warnings: allWarnings };
+  return {
+    ...atomic,
+    sourceStatuses: statuses,
+    errors: allErrors,
+    bestEffortErrors: allBestEffortErrors,
+    warnings: allWarnings,
+  };
 }
 
 async function main() {
@@ -257,8 +329,13 @@ async function main() {
     state: result.release.state,
     publishable: result.release.state === 'fresh',
     duties: result.duties.duties.length,
-    provinces: result.sourceStatuses.map(({ province, dutyCount, state }) => ({ province, dutyCount, state })),
+    provinces: result.sourceStatuses.map(({ province, dutyCount, state, publication, observedCalendarDays }) => ({
+      province, dutyCount, state, publication, observedCalendarDays,
+    })),
     errors: result.errors,
+    // Stampati sempre: una provincia best-effort degradata non deve diventare
+    // invisibile solo perche' non fa piu' fallire la run.
+    bestEffortErrors: result.bestEffortErrors,
   }, null, 2));
   if (result.release.state !== 'fresh') process.exitCode = 1;
 }

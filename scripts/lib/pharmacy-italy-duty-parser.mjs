@@ -12,6 +12,46 @@ export const ITALY_DUTY_START_TIME = '08:30';
 export const ITALY_DUTY_MAX_AGE_HOURS = 72;
 export const ITALY_DUTY_MINIMUM_CALENDAR_DAYS = 300;
 
+/**
+ * Le fonti provinciali NON sono omogenee, e trattarle come tali e' il difetto
+ * che ha tenuto questo import rosso dalla sua prima run.
+ *
+ * - `full-calendar`: la fonte pubblica il calendario annuale completo, un giorno
+ *   per riga (Como, Varese). Per queste la copertura in giorni e' misurabile e
+ *   il minimo si applica.
+ * - `corrections-only`: la fonte pubblica solo i CAMBI TURNO con data esplicita
+ *   su una rotazione di base che il parser deliberatamente non espande (VCO, che
+ *   lo dichiara nelle proprie `notes`). Misurata sul PDF reale: 14 righe su 7
+ *   giorni distinti. Un minimo in giorni-calendario e un modello
+ *   corrections-only sono mutuamente esclusivi per costruzione, quindi il
+ *   minimo NON si applica a queste fonti.
+ */
+export const ITALY_DUTY_COVERAGE_MODELS = Object.freeze(['full-calendar', 'corrections-only']);
+export const ITALY_DUTY_PUBLICATION_CLASSES = Object.freeze(['required', 'best-effort']);
+
+/** Modello di copertura dichiarato dalla fonte; default fail-closed. */
+export function sourceCoverageModel(source) {
+  return ITALY_DUTY_COVERAGE_MODELS.includes(source?.coverageModel)
+    ? source.coverageModel
+    : 'full-calendar';
+}
+
+/**
+ * Classe di pubblicazione. Default `required`: una fonte che non la dichiara
+ * resta bloccante, cosi' un errore di registry non declassa una provincia in
+ * silenzio.
+ */
+export function sourcePublicationClass(source) {
+  return ITALY_DUTY_PUBLICATION_CLASSES.includes(source?.publication)
+    ? source.publication
+    : 'required';
+}
+
+/** Chiave `YYYY-MM-DD` di una data di calendario gia' validata. */
+export function calendarDateKey(date) {
+  return date.year + '-' + String(date.month).padStart(2, '0') + '-' + String(date.day).padStart(2, '0');
+}
+
 const ITALIAN_MONTHS = Object.freeze({
   gen: 1,
   gennaio: 1,
@@ -179,8 +219,14 @@ function validOfficialSource(source) {
     && ITALY_DUTY_PROVINCES.includes(source.province)
     && typeof source.key === 'string'
     && typeof source.format === 'string'
-    && Number.isInteger(source.minimumCalendarDays)
-    && source.minimumCalendarDays >= ITALY_DUTY_MINIMUM_CALENDAR_DAYS;
+    && ITALY_DUTY_COVERAGE_MODELS.includes(sourceCoverageModel(source))
+    && ITALY_DUTY_PUBLICATION_CLASSES.includes(sourcePublicationClass(source))
+    // Il minimo in giorni-calendario vale solo per una fonte che PUBBLICA un
+    // calendario completo. Una fonte corrections-only non puo' soddisfarlo per
+    // costruzione, quindi pretenderlo la rendeva "invalid official source".
+    && (sourceCoverageModel(source) === 'corrections-only'
+      || (Number.isInteger(source.minimumCalendarDays)
+        && source.minimumCalendarDays >= ITALY_DUTY_MINIMUM_CALENDAR_DAYS));
 }
 
 function sourceAliases(source) {
@@ -222,7 +268,7 @@ function makeRawRecord({ date, alias, province, rawLine, source }) {
   };
 }
 
-function parseExplicitDutyLines(lines, source, province, aliases, warnings) {
+function parseExplicitDutyLines(lines, source, province, aliases, warnings, calendarDays) {
   const records = [];
   for (const line of lines) {
     const match = line.match(DUTY_LINE_RE);
@@ -237,6 +283,9 @@ function parseExplicitDutyLines(lines, source, province, aliases, warnings) {
       warnings.push(`explicit duty row has invalid date: ${line.trim()}`);
       continue;
     }
+    // Per una fonte a righe esplicite il "calendario" SONO le righe di turno:
+    // la data entra nel conteggio prima del match sull'anagrafica.
+    calendarDays.add(calendarDateKey(date));
     const idMatches = aliases.filter((candidate) => candidate.pharmacyId === fields.pharmacyid);
     const labelMatches = aliases.filter((candidate) => candidate.normalized === normalizeItalyDutyText(fields.label));
     const matches = idMatches.length > 0 ? idMatches : labelMatches;
@@ -253,7 +302,7 @@ function parseExplicitDutyLines(lines, source, province, aliases, warnings) {
   return records;
 }
 
-function parseComoCalendar(lines, source, province, aliases, warnings) {
+function parseComoCalendar(lines, source, province, aliases, warnings, calendarDays) {
   const records = [];
   for (const line of lines) {
     const match = line.match(DATE_LINE_RE);
@@ -263,6 +312,10 @@ function parseComoCalendar(lines, source, province, aliases, warnings) {
       warnings.push(`Como calendar row has invalid date: ${line.trim()}`);
       continue;
     }
+    // La copertura si misura QUI, sulle righe-data, non sulle righe che hanno
+    // fatto match con gli alias: il calendario di Como copre 365 giorni
+    // distinti, ma solo ~5 farmacie del catalogo vi compaiono.
+    calendarDays.add(calendarDateKey(date));
     for (const alias of findAliases(match[2], aliases)) {
       records.push(makeRawRecord({ date, alias, province, rawLine: line, source }));
     }
@@ -270,7 +323,7 @@ function parseComoCalendar(lines, source, province, aliases, warnings) {
   return records;
 }
 
-function parseVareseCalendar(lines, source, province, aliases, warnings) {
+function parseVareseCalendar(lines, source, province, aliases, warnings, calendarDays) {
   const records = [];
   let month = null;
   let year = null;
@@ -283,6 +336,9 @@ function parseVareseCalendar(lines, source, province, aliases, warnings) {
       warnings.push(`Varese calendar row has invalid date: ${day}/${month}/${year}`);
       return;
     }
+    // Come Como: il giorno conta per la copertura anche quando nessun alias
+    // compare nel blocco di quel giorno.
+    calendarDays.add(calendarDateKey(date));
     const sourceText = block.join(' ');
     for (const alias of findAliases(sourceText, aliases)) {
       records.push(makeRawRecord({ date, alias, province, rawLine: rawLine || sourceText, source }));
@@ -309,7 +365,7 @@ function parseVareseCalendar(lines, source, province, aliases, warnings) {
   return records;
 }
 
-function parseVcoCalendar(lines, source, province, aliases, warnings) {
+function parseVcoCalendar(lines, source, province, aliases, warnings, calendarDays) {
   const records = [];
   let explicitRows = 0;
   for (const line of lines) {
@@ -321,6 +377,9 @@ function parseVcoCalendar(lines, source, province, aliases, warnings) {
       warnings.push(`VCO correction row has invalid date: ${line.trim()}`);
       continue;
     }
+    // Fonte corrections-only: i giorni sono solo i cambi turno con data
+    // esplicita (misurati: 7). Il minimo in giorni non si applica a VCO.
+    calendarDays.add(calendarDateKey(date));
     for (const alias of findAliases(match[3], aliases)) {
       records.push(makeRawRecord({ date, alias, province, rawLine: line, source }));
     }
@@ -454,26 +513,45 @@ export function parseItalyDutySource(rawText, source, {
   }
 
   const aliases = sourceAliases(source);
-  const explicitRecords = parseExplicitDutyLines(lines, source, provinceResult.province, aliases, warnings);
+  // I giorni-calendario OSSERVATI nella fonte, raccolti dai parser di layout
+  // indipendentemente dal match sull'anagrafica. Vedi il commento sul gate piu'
+  // sotto: derivarli dalle righe di turno era il difetto.
+  const calendarDays = new Set();
+  const explicitRecords = parseExplicitDutyLines(lines, source, provinceResult.province, aliases, warnings, calendarDays);
   let records = explicitRecords;
   if (records.length === 0) {
-    if (source.format === 'como-calendar-v1') records = parseComoCalendar(lines, source, provinceResult.province, aliases, warnings);
-    if (source.format === 'varese-calendar-v1') records = parseVareseCalendar(lines, source, provinceResult.province, aliases, warnings);
-    if (source.format === 'vco-calendar-v1') records = parseVcoCalendar(lines, source, provinceResult.province, aliases, warnings);
+    if (source.format === 'como-calendar-v1') records = parseComoCalendar(lines, source, provinceResult.province, aliases, warnings, calendarDays);
+    if (source.format === 'varese-calendar-v1') records = parseVareseCalendar(lines, source, provinceResult.province, aliases, warnings, calendarDays);
+    if (source.format === 'vco-calendar-v1') records = parseVcoCalendar(lines, source, provinceResult.province, aliases, warnings, calendarDays);
   }
 
   const freshness = sourceFreshness(source, fetchedAt, asOf);
   if (freshness === 'stale') errors.push('official source fetch is stale');
   const dedupedRecords = dedupeRecords(records);
   const observedDuties = recordsToDuties(dedupedRecords, source, provinceResult.province, fetchedAt, catalogue, warnings);
-  const observedCalendarDays = new Set(dedupedRecords.map((record) => record.date.year + '-' + String(record.date.month).padStart(2, '0') + '-' + String(record.date.day).padStart(2, '0'))).size;
+  // COPERTURA DEL CALENDARIO, non copertura dell'anagrafica.
+  //
+  // Questo valore era calcolato su `dedupedRecords`, che contiene SOLO le righe
+  // che hanno fatto match con uno dei 5-6 `identityAliases` del catalogo, e
+  // veniva poi confrontato con `minimumCalendarDays: 300`, che descrive
+  // l'ampiezza del CALENDARIO. Le due grandezze non sono confrontabili: in una
+  // rotazione provinciale ogni farmacia aliasata e' di turno ~14-16 volte
+  // l'anno, quindi il numero non poteva superare ~70 e il gate era
+  // insoddisfacibile per costruzione. Misurato sui PDF reali: Como pubblica 365
+  // giorni distinti e Varese 355, mentre il parser riportava 71 e 70. Il parser
+  // non perdeva righe: non gliele si era mai chieste.
+  const observedCalendarDays = calendarDays.size;
   const outOfWindowRecords = dedupedRecords.filter((record) => !sourceCalendarDateWithinValidity(source, record.date));
   if (outOfWindowRecords.length > 0) {
     errors.push('official duty date is outside its declared validity window: ' + outOfWindowRecords.length + ' row(s)');
   }
   const minimumCalendarDays = Number(source.minimumCalendarDays);
   let incompleteCalendar = false;
-  if (Number.isInteger(minimumCalendarDays) && minimumCalendarDays > 0 && observedCalendarDays < minimumCalendarDays) {
+  // Il minimo vale solo per una fonte che pubblica un calendario completo. Una
+  // fonte `corrections-only` pubblica per definizione i soli cambi turno, quindi
+  // un minimo in giorni la marcherebbe incompleta per sempre.
+  const appliesCalendarMinimum = sourceCoverageModel(source) === 'full-calendar';
+  if (appliesCalendarMinimum && Number.isInteger(minimumCalendarDays) && minimumCalendarDays > 0 && observedCalendarDays < minimumCalendarDays) {
     incompleteCalendar = true;
     errors.push('official calendar coverage is incomplete: ' + observedCalendarDays + '/' + minimumCalendarDays + ' distinct calendar days');
   }
@@ -508,6 +586,12 @@ export function parseItalyDutySource(rawText, source, {
     coverage,
     sourceKey: source.key,
     fetchedAt,
+    // Esposti perche' il difetto era proprio una misura sbagliata: renderla
+    // leggibile nello status e nei test evita di doverla dedurre dagli errori.
+    observedCalendarDays,
+    minimumCalendarDays: appliesCalendarMinimum && Number.isInteger(minimumCalendarDays) ? minimumCalendarDays : null,
+    coverageModel: sourceCoverageModel(source),
+    publication: sourcePublicationClass(source),
   };
 }
 
@@ -556,19 +640,31 @@ function releaseProvinceStatuses(status) {
     dutyCount: 0,
     sourceUrl: '',
     fetchedAt: null,
+    // Provincia assente dallo status: resta bloccante.
+    publication: 'required',
   }]));
 }
 
 function releaseState(duties, status, provinces) {
+  // `_errors` contiene SOLO gli errori delle fonti `required`. Gli errori delle
+  // fonti `best-effort` vivono in `_bestEffortErrors`: restano nello snapshot e
+  // visibili al monitor, ma non decidono lo stato della release. Senza questa
+  // separazione una sola provincia irraggiungibile azzerava le altre due, che
+  // e' esattamente cosa accadeva a CO e VA per colpa di VB.
   const errors = [
     ...(Array.isArray(duties?._errors) ? duties._errors : []),
     ...(Array.isArray(status?._errors) ? status._errors : []),
   ];
   const entries = Object.values(provinces);
-  if (status?._allSourcesFailed === true || entries.every((entry) => entry.coverage === 'not_published')) return 'not_published';
-  if (errors.length > 0 || entries.some((entry) => entry.state === 'conflicting')) return 'partial';
-  if (entries.some((entry) => entry.freshness === 'stale')) return 'stale';
-  if (entries.some((entry) => entry.coverage !== 'covered' || entry.freshness !== 'fresh')) return 'not_published';
+  // Una provincia che non dichiara la classe e' `required` (fail-closed).
+  const required = entries.filter((entry) => sourcePublicationClass(entry) === 'required');
+  // Se il registry non dichiarasse NESSUNA fonte required, ricadiamo su tutte:
+  // meglio un rosso che una release verde che non ha verificato niente.
+  const deciding = required.length > 0 ? required : entries;
+  if (status?._allSourcesFailed === true || deciding.every((entry) => entry.coverage === 'not_published')) return 'not_published';
+  if (errors.length > 0 || deciding.some((entry) => entry.state === 'conflicting')) return 'partial';
+  if (deciding.some((entry) => entry.freshness === 'stale')) return 'stale';
+  if (deciding.some((entry) => entry.coverage !== 'covered' || entry.freshness !== 'fresh')) return 'not_published';
   return 'fresh';
 }
 
