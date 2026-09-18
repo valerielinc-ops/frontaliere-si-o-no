@@ -259,37 +259,8 @@ export function extractListingJobs(html = '') {
  * @returns {object|null}
  */
 export function listingEntryToParsed(entry) {
-  if (!entry || typeof entry !== 'object') return null;
-  const title = String(entry.title || '').trim();
-  const originalURL = String(entry.originalURL || '').trim();
-  if (!title || !originalURL) return null;
-
-  const location = Array.isArray(entry.locations) ? entry.locations[0] : null;
-  const city = String(location?.city || '').trim();
-  const sourceCountry = location?.countryAbbr || location?.country || '';
-  if (sourceCountry && !isChCountry(sourceCountry)) return null;
-  const sourceRegion = [location?.state, location?.stateAbbr]
-    .map((value) => String(value || '').trim())
-    .filter(Boolean)
-    .join(', ');
-  const sourceLocation = [city, sourceRegion].filter(Boolean).join(', ').trim();
-  const canton = inferCanton(sourceRegion, city);
-  if (!canton) return null;
-
-  return {
-    title,
-    url: `${MCDO_BASE}/${originalURL.replace(/^\/+/, '')}`,
-    jobReqId: String(entry.reference || '').trim(),
-    city,
-    canton,
-    sourceLocation,
-    postalCode: String(location?.zipCode || '').trim(),
-    streetAddress: String(location?.streetAddress || '').trim(),
-    description: '',
-    datePosted: '',
-    validThrough: '',
-    employmentType: inferEmploymentType(title, entry.employmentType),
-  };
+  const outcome = classifyListingEntry(entry);
+  return outcome.kind === 'accepted' ? outcome.parsed : null;
 }
 
 /**
@@ -309,6 +280,74 @@ function listingSourceIdentity(entry) {
     if (identity) return identity;
   }
   return '';
+}
+
+function classifyListingEntry(entry) {
+  if (!entry || typeof entry !== 'object') {
+    return { kind: 'unresolved', reason: 'row is not an object' };
+  }
+  const title = String(entry.title || '').trim();
+  const originalURL = String(entry.originalURL || '').trim();
+  if (!title || !originalURL) {
+    return { kind: 'unresolved', reason: 'title or originalURL is missing' };
+  }
+
+  const location = Array.isArray(entry.locations) ? entry.locations[0] : null;
+  const city = String(location?.city || '').trim();
+  const sourceCountry = String(location?.countryAbbr || location?.country || '').trim();
+  if (sourceCountry && !isChCountry(sourceCountry)) {
+    return { kind: 'foreign', reason: 'source country ' + sourceCountry };
+  }
+  if (!city) {
+    return { kind: 'unresolved', reason: 'source city is missing' };
+  }
+
+  const sourceRegion = [location?.state, location?.stateAbbr]
+    .map((value) => String(value || '').trim())
+    .filter(Boolean)
+    .join(', ');
+  const sourceLocation = [city, sourceRegion].filter(Boolean).join(', ').trim();
+  const canton = inferCanton(sourceRegion, city);
+  if (!canton) {
+    return { kind: 'unresolved', reason: 'source locality "' + sourceLocation + '" has no Swiss canton' };
+  }
+
+  return {
+    kind: 'accepted',
+    parsed: {
+      title,
+      url: String(MCDO_BASE) + '/' + originalURL.replace(/^\/+/, ''),
+      jobReqId: String(entry.reference || '').trim(),
+      city,
+      canton,
+      sourceLocation,
+      sourceCountry,
+      locationStatus: 'verified',
+      postalCode: String(location?.zipCode || '').trim(),
+      streetAddress: String(location?.streetAddress || '').trim(),
+      description: '',
+      datePosted: '',
+      validThrough: '',
+      employmentType: inferEmploymentType(title, entry.employmentType),
+    },
+  };
+}
+
+function parseListingEntries(entries) {
+  const parsed = [];
+  for (const [index, entry] of entries.entries()) {
+    const outcome = classifyListingEntry(entry);
+    if (outcome.kind === 'accepted') {
+      parsed.push(outcome.parsed);
+      continue;
+    }
+    if (outcome.kind === 'foreign') continue;
+    throw new Error(
+      '[mcdonalds] listing entry ' + (index + 1)
+      + ' has no verified Swiss source location: ' + outcome.reason + '.',
+    );
+  }
+  return parsed;
 }
 
 async function fetchListingPage(pageNum, { userAgent, timeoutMs, fetchPage }) {
@@ -400,7 +439,7 @@ async function discoverAllListingEntries({ userAgent = DEFAULT_UA, timeoutMs = 1
  */
 export async function discoverMcdoJobUrls({ userAgent = DEFAULT_UA, timeoutMs = 15000, fetchPage } = {}) {
   const { entries, pageCount, sourceTotal } = await discoverAllListingEntries({ userAgent, timeoutMs, fetchPage });
-  const jobUrls = [...new Set(entries.map((e) => listingEntryToParsed(e)?.url).filter(Boolean))];
+  const jobUrls = [...new Set(parseListingEntries(entries).map((entry) => entry.url))];
   return { jobUrls, sitemapCount: pageCount, sourceTotal };
 }
 
@@ -436,9 +475,15 @@ export function parseMcdoDetailPage(html, pageUrl = '') {
   const sourceCountry = address.addressCountry || place?.addressCountry || '';
   const sourceRegion = String(address.addressRegion || '').trim();
   const sourceLocation = [city, sourceRegion].filter(Boolean).join(', ').trim();
-  const canton = sourceCountry && !isChCountry(sourceCountry)
+  const normalizedSourceCountry = String(sourceCountry || '').trim();
+  const canton = normalizedSourceCountry && !isChCountry(normalizedSourceCountry)
     ? ''
     : inferCanton(sourceRegion, city);
+  const locationStatus = normalizedSourceCountry && !isChCountry(normalizedSourceCountry)
+    ? 'foreign'
+    : canton
+      ? 'verified'
+      : 'unresolved';
 
   const description = stripHtml(ld.description || '');
   const datePosted = ld.datePosted ? String(ld.datePosted).slice(0, 10) : '';
@@ -451,6 +496,8 @@ export function parseMcdoDetailPage(html, pageUrl = '') {
     city,
     canton,
     sourceLocation,
+    sourceCountry: normalizedSourceCountry,
+    locationStatus,
     postalCode: address.postalCode || '',
     streetAddress: address.streetAddress || '',
     description,
@@ -470,6 +517,7 @@ export async function fetchMcdoDetailPage(url, { userAgent = DEFAULT_UA, timeout
 
 export function buildMcdoJob(parsed) {
   if (!parsed || !parsed.title) return null;
+  if (parsed.locationStatus && parsed.locationStatus !== 'verified') return null;
   const location = String(parsed.city || '').trim();
   const canton = String(parsed.canton || '').trim();
   const sourceLocation = String(parsed.sourceLocation || `${location}, ${canton}`).trim();
@@ -530,42 +578,54 @@ export async function fetchMcdoJobs({
   console.log(`  🗺️  Listing entries (jobSearch): ${entries.length}/${sourceTotal} unique records across ${pageCount} page(s)`);
   if (entries.length === 0) return [];
 
-  const parsedList = entries.map((e) => listingEntryToParsed(e)).filter(Boolean);
-  if (parsedList.length !== entries.length) {
-    console.warn(`  ⚠️  Listing records rejected by the Swiss location/company contract: ${entries.length - parsedList.length}`);
-  }
+  const parsedList = parseListingEntries(entries);
 
-  let detailFallbacks = 0;
-  const enriched = await runWithConcurrency(
-    parsedList,
-    async (parsed) => {
-      const detail = await fetchMcdoDetailPage(parsed.url, { userAgent, timeoutMs });
-      if (!detail) {
-        detailFallbacks += 1;
-        return parsed;
+ let detailFallbacks = 0;
+  let detailForeignDrops = 0;
+ const enriched = await runWithConcurrency(
+   parsedList,
+   async (parsed) => {
+     const detail = await fetchMcdoDetailPage(parsed.url, { userAgent, timeoutMs });
+     if (!detail) {
+       detailFallbacks += 1;
+       return parsed;
+     }
+      if (detail.locationStatus === 'foreign') {
+        detailForeignDrops += 1;
+        return { ...parsed, ...detail, canton: '', locationStatus: 'foreign' };
       }
-      return {
-        ...parsed,
-        description: detail.description || parsed.description,
-        datePosted: detail.datePosted || parsed.datePosted,
-        validThrough: detail.validThrough || parsed.validThrough,
-        postalCode: detail.postalCode || parsed.postalCode,
-        streetAddress: detail.streetAddress || parsed.streetAddress,
-        canton: detail.canton || parsed.canton,
-      };
-    },
-    detailConcurrency
-  );
+      if (detail.locationStatus !== 'verified') {
+        throw new Error(
+          '[mcdonalds] detail ' + parsed.url
+          + ' has no verified Swiss source location; refusing listing fallback.',
+        );
+      }
+     return {
+       ...parsed,
+       description: detail.description || parsed.description,
+       datePosted: detail.datePosted || parsed.datePosted,
+       validThrough: detail.validThrough || parsed.validThrough,
+       postalCode: detail.postalCode || parsed.postalCode,
+       streetAddress: detail.streetAddress || parsed.streetAddress,
+        canton: detail.canton,
+        locationStatus: 'verified',
+     };
+   },
+   detailConcurrency
+ );
 
-  const jobs = [];
+ const jobs = [];
   for (const parsed of enriched) {
     const job = buildMcdoJob(parsed);
     if (job) jobs.push(job);
   }
-  if (detailFallbacks > 0) {
-    console.warn(`  ⚠️  Detail pages unavailable or without JobPosting JSON-LD: ${detailFallbacks}; listing location data retained.`);
+ if (detailFallbacks > 0) {
+   console.warn(`  ⚠️  Detail pages unavailable or without JobPosting JSON-LD: ${detailFallbacks}; listing location data retained.`);
+ }
+  if (detailForeignDrops > 0) {
+    console.warn(`  ⚠️  Explicitly foreign detail locations excluded: ${detailForeignDrops}.`);
   }
-  return jobs;
+ return jobs;
 }
 
 export { MCDO_LISTING_PATH, MCDO_BASE };
