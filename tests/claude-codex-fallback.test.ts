@@ -762,8 +762,19 @@ describe('copertura workflow diretti', () => {
     expect(workflow).not.toContain('CODEX_ACCESS_TOKEN');
   });
 
-  it('separa l’identità Claude dal token del bridge quando il mint App fallisce soft', () => {
-    for (const workflowName of ['tests.yml', 'issue-fix.yml', 'issue-decompose.yml', 'needs-human-sweep.yml', 'growth-report.yml']) {
+  it('separa l’identità del bridge dalla GITHUB_TOKEN sui fixer mutanti', () => {
+    for (const workflowName of ['issue-fix.yml', 'pr-redflag-fixer.yml', 'pr-redcheck-fixer.yml']) {
+      const workflow = readFileSync(resolve(repoRoot, '.github', 'workflows', workflowName), 'utf8');
+      const bridgeLine = workflow.split('\n').find((line) => line.trim().startsWith('codex_github_token:'));
+      expect(bridgeLine, `${workflowName} deve dichiarare il token bridge`).toContain(
+        'codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}',
+      );
+      expect(bridgeLine).not.toContain('secrets.GITHUB_TOKEN');
+    }
+  });
+
+  it('conserva il fallback GITHUB_TOKEN solo nei lane che non hanno il bridge mutante F4', () => {
+    for (const workflowName of ['tests.yml', 'issue-decompose.yml', 'needs-human-sweep.yml', 'growth-report.yml']) {
       const workflow = readFileSync(resolve(repoRoot, '.github', 'workflows', workflowName), 'utf8');
       expect(workflow).toContain('codex_github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}');
     }
@@ -905,6 +916,11 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('env -i "${codex_env[@]}" "$codex_bin" exec');
     expect(action).toContain('CODEX_GH_AUTH: ${{ inputs.codex_github_token }}');
     expect(action).toContain('codex_github_token:');
+    const bridgeGuard = action.indexOf('if [ -z "$codex_github_auth" ]');
+    const codexExec = action.indexOf('env -i "${codex_env[@]}" "$codex_bin" exec');
+    expect(bridgeGuard).toBeGreaterThanOrEqual(0);
+    expect(codexExec).toBeGreaterThan(bridgeGuard);
+    expect(action).not.toContain('CODEX_GH_AUTH: ${{ inputs.github_token }}');
     expect(action).toContain('CODEX_GH_REPOSITORY="$codex_github_repository"');
     expect(action).toContain('CODEX_GH_HOST="$codex_github_host"');
     expect(action).toContain('CODEX_GH_AUTH="$codex_github_auth"');
