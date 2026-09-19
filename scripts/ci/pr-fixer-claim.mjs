@@ -217,6 +217,17 @@ export function runIsFinished(state) {
 }
 
 /**
+ * Build the append-only release for a claim that lost post-write arbitration.
+ * The local event is the fallback when the just-posted active marker is not
+ * visible yet through the comments API.
+ */
+export function releaseClaimEvent({ ownClaim, localClaim, issuedAt } = {}) {
+  const claim = ownClaim || localClaim;
+  if (!claim || typeof claim !== 'object' || claim.state !== 'active') return null;
+  return { ...claim, state: 'released', issuedAt: Number(issuedAt) };
+}
+
+/**
  * Pick only claims that can still win the post-write arbitration. A runner
  * that already ended with a retryable infrastructure outcome must not keep
  * the slot reserved until its TTL while the retry it just admitted is posted.
@@ -448,8 +459,9 @@ function acquireClaim(base, repo) {
   const own = latestPrFixClaims(after, { key: base.key }).find((claim) => claim.token === claimToken);
   const winner = active[0];
   if (!own || own.state !== 'active' || terminal || (winner && winner.token !== claimToken)) {
-    if (own?.state === 'active' && process.env.DRY_RUN !== '1') {
-      try { postClaim(repo, base.prNumber, { ...own, state: 'released', issuedAt: nowSec }); } catch { /* safe loser cleanup */ }
+    const release = releaseClaimEvent({ ownClaim: own, localClaim: event, issuedAt: nowSec });
+    if (release && process.env.DRY_RUN !== '1') {
+      try { postClaim(repo, base.prNumber, release); } catch { /* safe loser cleanup */ }
     }
     if (terminal) return output({ ...base, allowed: false, exists: true, reason: 'same-pr-head-terminal-claim' });
     if (winner && winner.token !== claimToken) return output({ ...base, allowed: false, exists: true, reason: 'same-pr-head-claim-contended' });
