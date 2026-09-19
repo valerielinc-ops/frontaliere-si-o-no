@@ -240,6 +240,8 @@ export function validateCanonicalBuildRun({ runId, run }) {
   if (String(run.workflow_id ?? '').trim() !== EXPECTED_BUILD_WORKFLOW_ID) {
     errors.push(`source build workflow id must be ${EXPECTED_BUILD_WORKFLOW_ID}`);
   }
+  // Recovery and workflow_run admission must share one event contract; a
+  // separate inline list here could silently reopen an unapproved source.
   if (!EXPECTED_BUILD_EVENTS.includes(String(run.event || '').trim())) {
     errors.push('source build event is not an approved build trigger');
   }
