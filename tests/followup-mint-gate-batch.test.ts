@@ -105,16 +105,25 @@ describe('gate sul conio — proceed-safe PER ISSUE, non per PR', () => {
     };
     const comments = { comments: [{ body: '## Post-merge follow-up triage: zero outstanding items.' }] };
     const log = join(binDir, 'recovery-calls.log');
+    const state = join(binDir, 'recovery-state.json');
     writeFileSync(log, '');
+    writeFileSync(state, JSON.stringify(issue));
     const fake = `#!/usr/bin/env node
 const fs = require('node:fs');
 const args = process.argv.slice(2);
 fs.appendFileSync(process.env.CALL_LOG, JSON.stringify(args) + '\\n');
-const issue = ${JSON.stringify(issue)};
+const issue = JSON.parse(fs.readFileSync(process.env.STATE, 'utf8'));
 const comments = ${JSON.stringify(comments)};
 if (args[0] === 'api') process.stdout.write(JSON.stringify([[{ number: issue.number, title: issue.title, created_at: issue.createdAt }]]));
 else if (args[0] === 'issue' && args[1] === 'view') process.stdout.write(JSON.stringify(issue));
 else if (args[0] === 'pr' && args[1] === 'view') process.stdout.write(JSON.stringify(comments));
+else if (args[0] === 'issue' && args[1] === 'edit' && args.includes('--body-file')) {
+  const updated = JSON.parse(fs.readFileSync(process.env.STATE, 'utf8'));
+  updated.body = fs.readFileSync(args[args.indexOf('--body-file') + 1], 'utf8');
+  const titleIndex = args.indexOf('--title');
+  if (titleIndex >= 0) updated.title = args[titleIndex + 1];
+  fs.writeFileSync(process.env.STATE, JSON.stringify(updated));
+}
 `;
     writeFileSync(join(binDir, 'gh'), fake);
     chmodSync(join(binDir, 'gh'), 0o755);
@@ -128,6 +137,7 @@ else if (args[0] === 'pr' && args[1] === 'view') process.stdout.write(JSON.strin
         DRY_RUN: '0',
         GH_REPO: 'o/r',
         CALL_LOG: log,
+        STATE: state,
         COLLECTION_OK: 'true',
       },
     });
@@ -388,5 +398,228 @@ else if (args[0] === 'issue' && args[1] === 'view') {
     expect(out).toContain('demozione sigillata senza nuova coda');
     expect(out).toContain('labels non verificabili');
     expect(calls).not.toContain('"--add-label","agent:fix-queued"');
+  });
+});
+
+function runFreshQueueFixture({
+  title,
+  body,
+  labels,
+  mode,
+  collectionOk,
+}: {
+  title: string;
+  body: string;
+  labels: Array<{ name: string }>;
+  mode: string;
+  collectionOk: string;
+}) {
+  const dir = mkdtempSync(join(tmpdir(), 'mint-gate-fresh-queue-'));
+  const log = join(dir, 'calls.log');
+  const statePath = join(dir, 'state.json');
+  const viewsPath = join(dir, 'views');
+  const issue = { number: 701, title, body, labels, createdAt: new Date().toISOString() };
+  writeFileSync(log, '');
+  writeFileSync(statePath, JSON.stringify(issue));
+  writeFileSync(viewsPath, '0');
+  const fake = `#!/usr/bin/env node
+const fs = require('node:fs');
+const args = process.argv.slice(2);
+const mode = ${JSON.stringify(mode)};
+const statePath = process.env.STATE;
+const readState = () => JSON.parse(fs.readFileSync(statePath, 'utf8'));
+const writeState = (value) => fs.writeFileSync(statePath, JSON.stringify(value));
+fs.appendFileSync(process.env.CALL_LOG, JSON.stringify(args) + '\\n');
+if (args[0] === 'api') {
+  const current = readState();
+  process.stdout.write(JSON.stringify([[{ number: current.number, title: current.title, state: 'open', labels: current.labels, created_at: current.createdAt }]]));
+  process.exit(0);
+}
+if (args[0] === 'issue' && args[1] === 'view') {
+  const count = Number(fs.readFileSync(process.env.VIEWS, 'utf8') || '0');
+  fs.writeFileSync(process.env.VIEWS, String(count + 1));
+  const latest = readState();
+  if (mode === 'mutate-after-decision' && count > 0) latest.labels = [...latest.labels, { name: 'needs-human' }];
+  if (mode === 'remove-followup-after-decision' && count > 0) latest.labels = [];
+  if (mode === 'wrong-number-after-decision' && count > 0) latest.number = 702;
+  if (mode === 'missing-number-after-decision' && count > 0) delete latest.number;
+  process.stdout.write(JSON.stringify(latest));
+  process.exit(0);
+}
+if (args[0] === 'pr' && args[1] === 'view') {
+  process.stdout.write(JSON.stringify({ comments: [{ body: '## Post-merge follow-up triage\\n- Daily bucket: #701' }] }));
+  process.exit(0);
+}
+if (args[0] === 'issue' && args[1] === 'edit' && args.includes('--body-file')) {
+  const updated = readState();
+  updated.body = fs.readFileSync(args[args.indexOf('--body-file') + 1], 'utf8');
+  const titleIndex = args.indexOf('--title');
+  if (titleIndex >= 0) updated.title = args[titleIndex + 1];
+  if (mode === 'mutate-after-body') updated.labels = [...updated.labels, { name: 'needs-human' }];
+  writeState(updated);
+  process.exit(0);
+}
+if ((args[0] === 'issue' || args[0] === 'pr') && (args[1] === 'edit' || args[1] === 'comment')) process.exit(0);
+process.exit(66);
+`;
+  writeFileSync(join(binDir, 'gh'), fake);
+  chmodSync(join(binDir, 'gh'), 0o755);
+  const stdout = execFileSync('node', [GATE], {
+    encoding: 'utf-8',
+    env: {
+      ...process.env,
+      PATH: `${binDir}:${process.env.PATH ?? ''}`,
+      BATCH_PRS: '',
+      DRY_RUN: '0',
+      GH_REPO: 'o/r',
+      GATE_PR_REPO: 'o/r',
+      COLLECTION_OK: collectionOk,
+      TRIAGE_COMPLETE: 'true',
+      CALL_LOG: log,
+      STATE: statePath,
+      VIEWS: viewsPath,
+      GITHUB_STEP_SUMMARY: '',
+    },
+  });
+  const calls = readFileSync(log, 'utf8');
+  return { out: { status: 0, stdout }, calls, cleanup: () => rmSync(dir, { recursive: true, force: true }) };
+}
+
+const freshDailyBody = (state: 'sealed' | 'collecting', includeInvalid = false) => {
+  const tick = String.fromCharCode(96);
+  const valid = [
+    '### FU-2026-09-19-001 — queue candidate',
+    '- State: open',
+    '- Sources: PR #8101',
+    '- Target file: ' + tick + 'scripts/example.mjs' + tick,
+    '- Original text:',
+    '  > il controllo non è sempre applicato',
+    '- Suggested action: aggiungi ' + tick + 'firstGuard()' + tick,
+    '- Acceptance token: ' + tick + 'firstGuard()' + tick,
+  ].join('\n');
+  const invalid = [
+    '### FU-2026-09-19-002 — missing acceptance',
+    '- State: open',
+    '- Sources: PR #8101',
+    '- Target file: ' + tick + 'scripts/example.mjs' + tick,
+    '- Suggested action: controllare il file',
+  ].join('\n');
+  return [
+    '## Batch',
+    '- Daily key: 2026-09-19 (Europe/Zurich)',
+    '- State: ' + state,
+    '- Target repository: o/r',
+    '',
+    '## Item',
+    '',
+    valid,
+    ...(includeInvalid ? ['', invalid] : []),
+    '',
+  ].join('\n');
+};
+
+describe('gate queue — final freshness read before add-label', () => {
+  it('keep: una label aggiunta dopo la decisione blocca la nuova coda', () => {
+    const fixture = runFreshQueueFixture({
+      title: 'follow-up(daily:2026-09-19): 1 item — o/r',
+      body: freshDailyBody('sealed'),
+      labels: [{ name: 'follow-up' }],
+      mode: 'mutate-after-decision',
+      collectionOk: 'false',
+    });
+    try {
+      expect(fixture.out.status).toBe(0);
+      expect(fixture.calls).not.toContain('"--add-label","agent:fix-queued"');
+      expect(fixture.out.stdout).toContain('latest snapshot stale');
+    } finally {
+      fixture.cleanup();
+    }
+  });
+
+  it('seal: una label mutata dopo il body-write blocca la nuova coda', () => {
+    const fixture = runFreshQueueFixture({
+      title: 'follow-up(daily:2026-09-19): 1 item — o/r',
+      body: freshDailyBody('collecting'),
+      labels: [{ name: 'follow-up' }],
+      mode: 'mutate-after-body',
+      collectionOk: 'true',
+    });
+    try {
+      expect(fixture.out.status).toBe(0);
+      expect(fixture.calls).toContain('"--body-file"');
+      expect(fixture.calls).not.toContain('"--add-label","agent:fix-queued"');
+      expect(fixture.out.stdout).toContain('latest snapshot stale');
+    } finally {
+      fixture.cleanup();
+    }
+  });
+
+  it('demote: una label mutata dopo il body-write blocca la nuova coda', () => {
+    const fixture = runFreshQueueFixture({
+      title: 'follow-up(daily:2026-09-19): 2 items — o/r',
+      body: freshDailyBody('collecting', true),
+      labels: [{ name: 'follow-up' }],
+      mode: 'mutate-after-body',
+      collectionOk: 'true',
+    });
+    try {
+      expect(fixture.out.status).toBe(0);
+      expect(fixture.calls).toContain('"--body-file"');
+      expect(fixture.calls).not.toContain('"--add-label","agent:fix-queued"');
+      expect(fixture.out.stdout).toContain('latest snapshot stale');
+    } finally {
+      fixture.cleanup();
+    }
+  });
+
+  it('rimozione della follow-up fra decisione e rilettura non riaccoda l issue', () => {
+    const fixture = runFreshQueueFixture({
+      title: 'follow-up(daily:2026-09-19): 1 item — o/r',
+      body: freshDailyBody('sealed'),
+      labels: [{ name: 'follow-up' }],
+      mode: 'remove-followup-after-decision',
+      collectionOk: 'false',
+    });
+    try {
+      expect(fixture.out.status).toBe(0);
+      expect(fixture.calls).not.toContain('"--add-label","agent:fix-queued"');
+      expect(fixture.out.stdout).toContain('latest snapshot stale');
+    } finally {
+      fixture.cleanup();
+    }
+  });
+
+  it('numero issue diverso fra decisione e rilettura non può spostare la label', () => {
+    const fixture = runFreshQueueFixture({
+      title: 'follow-up(daily:2026-09-19): 1 item — o/r',
+      body: freshDailyBody('sealed'),
+      labels: [{ name: 'follow-up' }],
+      mode: 'wrong-number-after-decision',
+      collectionOk: 'false',
+    });
+    try {
+      expect(fixture.out.status).toBe(0);
+      expect(fixture.calls).not.toContain('"--add-label","agent:fix-queued"');
+      expect(fixture.out.stdout).toContain('latest snapshot stale');
+    } finally {
+      fixture.cleanup();
+    }
+  });
+
+  it('numero issue mancante nella rilettura rende la snapshot non verificabile', () => {
+    const fixture = runFreshQueueFixture({
+      title: 'follow-up(daily:2026-09-19): 1 item — o/r',
+      body: freshDailyBody('sealed'),
+      labels: [{ name: 'follow-up' }],
+      mode: 'missing-number-after-decision',
+      collectionOk: 'false',
+    });
+    try {
+      expect(fixture.out.status).toBe(0);
+      expect(fixture.calls).not.toContain('"--add-label","agent:fix-queued"');
+      expect(fixture.out.stdout).toContain('latest snapshot non verificabile');
+    } finally {
+      fixture.cleanup();
+    }
   });
 });
