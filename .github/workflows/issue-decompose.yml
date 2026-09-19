@@ -154,7 +154,8 @@ jobs:
           github_token: ${{ env.APP_TOKEN }}
           # Il bridge host-side può creare sub-issue e il loro evento deve
           # riaprire il triage: usa solo l'identità operativa App/PAT, mai
-          # GITHUB_TOKEN (anti-ricorsione GitHub). Se entrambe sono vuote,
+          # GITHUB_TOKEN (anti-ricorsione GitHub). Se il conio fallisce,
+          # APP_TOKEN resta vuota, il bridge non ricade su GITHUB_TOKEN e
           # l'action rifiuta il run prima di avviare Codex.
           codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           prompt: |

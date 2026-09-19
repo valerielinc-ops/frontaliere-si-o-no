@@ -15,6 +15,7 @@ import {
 import { join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { describe, expect, it } from 'vitest';
+import YAML from 'yaml';
 import {
   CODEX_FALLBACK_EFFORT,
   CODEX_FALLBACK_MODEL,
@@ -130,6 +131,25 @@ function jobBlockContaining(workflow: string, needle: string): string {
   }
   if (current.length > 0) blocks.push(current.join('\n'));
   return blocks.find((block) => block.includes(needle)) || '';
+}
+
+type WorkflowStep = {
+  uses?: unknown;
+  with?: Record<string, unknown>;
+};
+
+function codexFallbackWith(workflow: string): Record<string, unknown> {
+  const parsed = YAML.parse(workflow) as {
+    jobs?: Record<string, { steps?: WorkflowStep[] }>;
+  };
+  for (const job of Object.values(parsed.jobs ?? {})) {
+    for (const step of job.steps ?? []) {
+      if (step.uses === './.github/actions/claude-codex-fallback' && step.with) {
+        return step.with;
+      }
+    }
+  }
+  return {};
 }
 
 const highConcurrencyReviewWorkflows = new Set([
@@ -807,14 +827,16 @@ describe('copertura workflow diretti', () => {
   it('mantiene github_token separato dal bridge host-side', () => {
     for (const workflowName of mutatingBridgeWorkflows) {
       const workflow = readFileSync(resolve(repoRoot, '.github', 'workflows', workflowName), 'utf8');
-      const bridgeLine = workflow.split('\n').find((line) => line.trim().startsWith('codex_github_token:'));
-      const helperLine = workflow.split('\n').find((line) => line.trim().startsWith('github_token:'));
-      expect(bridgeLine, `${workflowName} deve avere il bridge`).toContain('env.APP_TOKEN || env.GITHUB_PAT');
-      expect(helperLine, `${workflowName} deve conservare il lifecycle helper`).toContain('github_token:');
+      const actionWith = codexFallbackWith(workflow);
+      const bridgeToken = String(actionWith.codex_github_token ?? '');
+      const helperToken = String(actionWith.github_token ?? '');
+      expect(bridgeToken, `${workflowName} deve avere il bridge`).toContain('env.APP_TOKEN || env.GITHUB_PAT');
+      expect(helperToken, `${workflowName} deve conservare il lifecycle helper`).not.toBe('');
     }
     const issueFix = readFileSync(resolve(repoRoot, '.github', 'workflows', 'issue-fix.yml'), 'utf8');
-    expect(issueFix).toMatch(/\n\s+github_token: \$\{\{ env\.APP_TOKEN \}\}/);
-    expect(issueFix).not.toMatch(/\n\s+github_token: \$\{\{ env\.APP_TOKEN \|\| secrets\.GITHUB_TOKEN \}\}/);
+    const issueFixWith = codexFallbackWith(issueFix);
+    expect(issueFixWith.github_token).toBe('${{ env.APP_TOKEN }}');
+    expect(issueFixWith.github_token).not.toBe('${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}');
   });
 
   it('prepara App/PAT prima dei caller senza token già caricato', () => {
