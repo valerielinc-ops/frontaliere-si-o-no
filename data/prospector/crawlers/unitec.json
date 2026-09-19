@@ -1,0 +1,23 @@
+{
+  "companyKey": "unitec",
+  "companyName": "Unitec S.p.A.",
+  "companyHost": "unitec.altamiraweb.com",
+  "platform": "altamiraweb.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://unitec.altamiraweb.com/"
+  ],
+  "detailTemplate": "/annunci-lavoro/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Magasinier Service - Avignon (France)",
+    "Asistente de bodega - Rancagua - Chile",
+    "Area Manager - Kilsyth South (Melbourne)",
+    "KAM Agroindustrial - Perú",
+    "Computer Vision Engineer"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-09-19T09:31:36.277Z"
+}

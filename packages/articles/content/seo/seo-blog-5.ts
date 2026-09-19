@@ -45299,7 +45299,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "caption": "Eventi del weekend in Ticino"
       },
       "datePublished": "2026-06-29T23:19:06+02:00",
-      "dateModified": "2026-09-10T00:00:00+02:00",
+      "dateModified": "2026-09-17T00:00:00+02:00",
       "inLanguage": "it",
       "author": {
         "@type": "Person",
@@ -91134,6 +91134,747 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-09-16/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-stefania-filetti-cgil-nazionale': {
+    title: 'Stefania Filetti eletta nella segreteria nazionale Cgil',
+    description: 'Stefania Filetti entra nella segreteria nazionale della Cgil eletta a Roma dall\'assemblea generale. Dalla gavetta all\'Alfa Romeo ai vertici sindacali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, stefania, filetti, eletta, nella',
+    ogTitle: 'Stefania Filetti eletta nella segreteria nazionale della Cgil',
+    ogDescription: 'L\'assemblea generale della Cgil riunita a Roma ha eletto a voto segreto Stefania Filetti nella nuova segreteria confederale guidata da Maurizio Landini, dopo un percorso iniziato nello stabilimento Alfa Romeo di Arese.',
+    canonicalPath: '/articoli-frontaliere/stefania-filetti-cgil-nazionale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stefania Filetti eletta nella segreteria nazionale Cgil",
+      "description": "Stefania Filetti entra nella segreteria nazionale della Cgil eletta a Roma dall'assemblea generale. Dalla gavetta all'Alfa Romeo ai vertici sindacali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stefania-filetti-cgil-nazionale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stefania Filetti eletta nella segreteria nazionale della Cgil"
+      },
+      "datePublished": "2026-09-17T01:00:16+00:00",
+      "dateModified": "2026-09-17T01:00:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stefania-filetti-cgil-nazionale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-leroy-merlin-lavoro-varese': {
+    title: 'Leroy Merlin: nuove opportunità di lavoro nell\'area di Varese',
+    description: 'Scopri le nuove opportunità di lavoro e le selezioni aperte da Leroy Merlin nell\'area di Varese per il settore retail e GDO. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, leroy, merlin, nuove, opportunità',
+    ogTitle: 'Leroy Merlin: nuove opportunità di lavoro nell area di Varese',
+    ogDescription: 'Approfondimento sulle selezioni di personale e le opportunità lavorative aperte da Leroy Merlin nella provincia di Varese.',
+    canonicalPath: '/articoli-frontaliere/leroy-merlin-lavoro-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Leroy Merlin: nuove opportunità di lavoro nell'area di Varese",
+      "description": "Scopri le nuove opportunità di lavoro e le selezioni aperte da Leroy Merlin nell'area di Varese per il settore retail e GDO. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/leroy-merlin-lavoro-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Opportunità di lavoro Leroy Merlin nell area di Varese"
+      },
+      "datePublished": "2026-09-17T02:41:32+00:00",
+      "dateModified": "2026-09-17T02:41:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/leroy-merlin-lavoro-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-stazioni-ferroviarie-ticino-sicurezza': {
+    title: 'Stazioni ferroviarie in Ticino: decoro e sicurezza',
+    description: 'Interrogazione della Lega dei Ticinesi al Consiglio di Stato sulle condizioni di sicurezza, pulizia e decoro nelle stazioni ferroviarie ticinesi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, stazioni, ferroviarie, decoro, sicurezza',
+    ogTitle: 'Stazioni ferroviarie in Ticino: decoro e sicurezza a rischio',
+    ogDescription: 'Un\'interrogazione parlamentare solleva il tema della pulizia, del decoro e della sicurezza nelle stazioni ferroviarie principali e secondarie del Ticino, chiedendo un monitoraggio coordinato e un piano FFS mirato.',
+    canonicalPath: '/articoli-frontaliere/stazioni-ferroviarie-ticino-sicurezza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stazioni ferroviarie in Ticino: decoro e sicurezza",
+      "description": "Interrogazione della Lega dei Ticinesi al Consiglio di Stato sulle condizioni di sicurezza, pulizia e decoro nelle stazioni ferroviarie ticinesi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stazioni-ferroviarie-ticino-sicurezza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ferroviaria in Ticino con illuminazione serale"
+      },
+      "datePublished": "2026-09-17T03:01:49+00:00",
+      "dateModified": "2026-09-17T03:01:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stazioni-ferroviarie-ticino-sicurezza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-09-17': {
+    title: 'Bollettino del frontaliere – 17 settembre 2026: a Bardonnex 12 minuti di coda',
+    description: 'Bollettino frontalieri del 17 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 17 settembre 2026: a Bardonnex 12 minuti di coda',
+    ogDescription: 'I numeri del 17 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-09-17',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 17 settembre 2026: a Bardonnex 12 minuti di coda",
+      "description": "Bollettino frontalieri del 17 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-09-17.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 17 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-09-17T09:54:57+00:00",
+      "dateModified": "2026-09-17T09:54:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-09-17/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tavolo-interministeriale-frontalieri': {
+    title: 'Frontalieri: nuovo confronto tra Governo e territori',
+    description: 'Nuovo incontro del tavolo interministeriale sul frontalierato: focus su Naspi, sanità, assegno unico e statuto. Prossima riunione il 9 novembre. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, confronto, governo, territori',
+    ogTitle: 'Frontalieri, nuovo confronto tra Governo e territori',
+    ogDescription: 'Si è tenuto un nuovo incontro del tavolo interministeriale sul frontalierato con la partecipazione del Piemonte. Al centro del dibattito Naspi, sanità, assegno unico e statuto. Fissata la data del prossimo incontro per il 9 novembre.',
+    canonicalPath: '/articoli-frontaliere/tavolo-interministeriale-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: nuovo confronto tra Governo e territori",
+      "description": "Nuovo incontro del tavolo interministeriale sul frontalierato: focus su Naspi, sanità, assegno unico e statuto. Prossima riunione il 9 novembre. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tavolo-interministeriale-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Riunione del tavolo interministeriale sui frontalieri"
+      },
+      "datePublished": "2026-09-18T00:13:06+00:00",
+      "dateModified": "2026-09-18T00:13:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tavolo-interministeriale-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-barometro-raiffeisen-zhaw-record': {
+    title: 'Previdenza Svizzera: Barometro Raiffeisen record a 725 punti',
+    description: 'Barometro Raiffeisen e ZHAW record a 725 punti. Cresce il pilastro 3a al 79%, ma il 39% teme per l\'AVS. Scopri i dati della previdenza in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, previdenza, barometro, raiffeisen, record',
+    ogTitle: 'Previdenza: Barometro Raiffeisen e ZHAW a quota 725 punti',
+    ogDescription: 'Il sistema previdenziale svizzero segna un record con il barometro Raiffeisen e ZHAW a 725 punti. Aumenta il risparmio nel pilastro 3a al 79%, ma persistono i timori per il finanziamento a lungo termine dell\'AVS e la sostenibilità del primo pilastro.',
+    canonicalPath: '/articoli-frontaliere/barometro-raiffeisen-zhaw-record',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Previdenza Svizzera: Barometro Raiffeisen record a 725 punti",
+      "description": "Barometro Raiffeisen e ZHAW record a 725 punti. Cresce il pilastro 3a al 79%, ma il 39% teme per l'AVS. Scopri i dati della previdenza in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/barometro-raiffeisen-zhaw-record.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Barometro previdenziale Raiffeisen e ZHAW in Ticino e Svizzera"
+      },
+      "datePublished": "2026-09-18T01:36:40+00:00",
+      "dateModified": "2026-09-18T01:36:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/barometro-raiffeisen-zhaw-record/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-giorgetti-firma-decreto-contributi-comuni-confine': {
+    title: 'Frontalieri: Giorgetti firma il decreto sui contributi',
+    description: 'Il ministro Giorgetti ha firmato il decreto sui contributi per i Comuni di frontiera nella fascia di 20 chilometri in base all\'accordo Roma-Berna del 2020.',
+    keywords: 'frontalieri, ticino, svizzera, italia, giorgetti, firma, decreto, contributi',
+    ogTitle: 'Frontalieri: firmato il decreto contributi per i Comuni di confine',
+    ogDescription: 'Il ministro italiano dell\'Economia Giancarlo Giorgetti ha firmato il decreto sui contributi statali per i Comuni di frontiera nella fascia di 20 chilometri, attuando l\'accordo Roma-Berna del 2020 per Ticino, Grigioni e Vallese.',
+    canonicalPath: '/articoli-frontaliere/giorgetti-firma-decreto-contributi-comuni-confine',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: Giorgetti firma il decreto sui contributi",
+      "description": "Il ministro Giorgetti ha firmato il decreto sui contributi per i Comuni di frontiera nella fascia di 20 chilometri in base all'accordo Roma-Berna del 2020.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/giorgetti-firma-decreto-contributi-comuni-confine.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il ministro Giancarlo Giorgetti ha firmato il decreto sui contributi ai Comuni di confine"
+      },
+      "datePublished": "2026-09-18T01:50:29+00:00",
+      "dateModified": "2026-09-18T01:50:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giorgetti-firma-decreto-contributi-comuni-confine/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sequestro-pappagalli-gandria': {
+    title: 'Sequestro di pappagalli protetti al valico di Gandria',
+    description: 'Fermato al valico di Gandria un cittadino svizzero con due pappagalli cenerini sprovvisti di autorizzazione Cites. Intervento di Udsc e Usav. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, sequestro, pappagalli, protetti, valico',
+    ogTitle: 'Pappagalli protetti sequestrati al valico di Gandria',
+    ogDescription: 'Scopri i dettagli sul sequestro di due pappagalli cenerini sprovvisti di certificato Cites fermati al valico di Gandria dagli agenti dell\'Udsc e dell\'Usav.',
+    canonicalPath: '/articoli-frontaliere/sequestro-pappagalli-gandria',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sequestro di pappagalli protetti al valico di Gandria",
+      "description": "Fermato al valico di Gandria un cittadino svizzero con due pappagalli cenerini sprovvisti di autorizzazione Cites. Intervento di Udsc e Usav. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sequestro-pappagalli-gandria.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Controlli doganali al valico di Gandria in Ticino"
+      },
+      "datePublished": "2026-09-18T02:08:16+00:00",
+      "dateModified": "2026-09-18T02:08:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sequestro-pappagalli-gandria/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-crescita-economia-svizzera-seco-2026': {
+    title: 'Crescita svizzera al rialzo: PIL al 1,7% secondo la SECO',
+    description: 'La SECO alza le stime del PIL svizzero al 1,7% per il 2026 grazie all\'export. Scopri i dati su disoccupazione e inflazione per i lavoratori. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, crescita, rialzo, secondo, seco',
+    ogTitle: 'Crescita PIL Svizzera al rialzo: SECO fissa l\'1,7% per il 2026',
+    ogDescription: 'Le ultime previsioni economiche della SECO per la Svizzera: PIL all\'1,7% nel 2026, export in crescita e inflazione contenuta allo 0,6% per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/crescita-economia-svizzera-seco-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crescita svizzera al rialzo: PIL al 1,7% secondo la SECO",
+      "description": "La SECO alza le stime del PIL svizzero al 1,7% per il 2026 grazie all'export. Scopri i dati su disoccupazione e inflazione per i lavoratori. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/crescita-economia-svizzera-seco-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Crescita economica svizzera e previsioni SECO"
+      },
+      "datePublished": "2026-09-18T02:18:07+00:00",
+      "dateModified": "2026-09-18T02:18:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crescita-economia-svizzera-seco-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sospensione-treni-luino-porto': {
+    title: 'Sospensioni treni tra Luino e Porto Valtravaglia',
+    description: 'Scopri le modifiche alla circolazione dei treni regionali tra Luino e Porto Valtravaglia dal 23 settembre al 1 ottobre 2026 per lavori RFI. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, sospensioni, treni, luino, porto',
+    ogTitle: 'Sospensioni treni tra Luino e Porto Valtravaglia',
+    ogDescription: 'Aggiornamenti sui lavori di potenziamento infrastrutturale di Rete Ferroviaria Italiana e stop ai treni regionali tra Luino e Porto Valtravaglia.',
+    canonicalPath: '/articoli-frontaliere/sospensione-treni-luino-porto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sospensioni treni tra Luino e Porto Valtravaglia",
+      "description": "Scopri le modifiche alla circolazione dei treni regionali tra Luino e Porto Valtravaglia dal 23 settembre al 1 ottobre 2026 per lavori RFI. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sospensione-treni-luino-porto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno regionale sulla linea tra Luino e Porto Valtravaglia"
+      },
+      "datePublished": "2026-09-18T02:47:07+00:00",
+      "dateModified": "2026-09-18T02:47:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sospensione-treni-luino-porto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-assenteismo-psichico-ticino-51': {
+    title: 'Assenze psichiche in Ticino: 51% finiscono in licenziamento',
+    description: 'In Ticino, il 51% delle assenze per cause psichiche termina con lo scioglimento del contratto. La quota di beneficiari AI per motivi psichiatrici è salita',
+    keywords: 'frontalieri, ticino, svizzera, italia, assenze, psichiche, finiscono, licenziamento',
+    ogTitle: 'Assenze psichiche in Ticino: 51% finiscono in licenziamento',
+    ogDescription: 'In Ticino, il 51% delle assenze per cause psichiche termina con lo scioglimento del contratto. La quota di beneficiari AI per motivi psichiatrici è salita al 51% dal 33% di vent\'anni fa. Scopri i dati e le soluzioni.',
+    canonicalPath: '/articoli-frontaliere/assenteismo-psichico-ticino-51',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assenze psichiche in Ticino: 51% finiscono in licenziamento",
+      "description": "In Ticino, il 51% delle assenze per cause psichiche termina con lo scioglimento del contratto. La quota di beneficiari AI per motivi psichiatrici è salita",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assenteismo-psichico-ticino-51.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ambiente di lavoro sereno in Ticino, focus sulla salute mentale e integrazione"
+      },
+      "datePublished": "2026-09-18T03:45:59+00:00",
+      "dateModified": "2026-09-18T03:45:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/assenteismo-psichico-ticino-51/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-09-18': {
+    title: 'Bollettino del frontaliere – 18 settembre 2026: franco a 1.0580 €',
+    description: 'Bollettino frontalieri del 18 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 18 settembre 2026: franco a 1.0580 €',
+    ogDescription: 'I numeri del 18 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-09-18',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 18 settembre 2026: franco a 1.0580 €",
+      "description": "Bollettino frontalieri del 18 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-09-18.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 18 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-09-18T09:30:19+00:00",
+      "dateModified": "2026-09-18T09:30:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/samuele-valente/#person",
+        "name": "Samuele Valente",
+        "url": "https://frontaliereticino.ch/autori/samuele-valente/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-09-18/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-fondi-comuni-frontiera-decreto': {
+    title: 'Fondi comuni di frontiera: firmato il decreto MEF',
+    description: 'Il Ministro Giorgetti ha firmato il decreto per i fondi ai Comuni entro 20 km dal confine con Ticino, Grigioni e Vallese. Scopri i dettagli. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, fondi, comuni, frontiera, firmato',
+    ogTitle: 'Fondi Comuni di frontiera: firmato il decreto MEF',
+    ogDescription: 'Svolta per i territori di confine: il MEF assegna risorse ai Comuni entro 20 km dal confine con Ticino, Grigioni e Vallese per infrastrutture e servizi.',
+    canonicalPath: '/articoli-frontaliere/fondi-comuni-frontiera-decreto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fondi comuni di frontiera: firmato il decreto MEF",
+      "description": "Il Ministro Giorgetti ha firmato il decreto per i fondi ai Comuni entro 20 km dal confine con Ticino, Grigioni e Vallese. Scopri i dettagli. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fondi-comuni-frontiera-decreto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro di un comune di frontiera nel Mendrisiotto"
+      },
+      "datePublished": "2026-09-18T11:45:45+00:00",
+      "dateModified": "2026-09-18T11:45:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fondi-comuni-frontiera-decreto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-governo-no-iniziativa-frontiere': {
+    title: 'Controlli frontiere: il Governo boccia l\'iniziativa UDC',
+    description: 'Il Consiglio federale boccia l\'iniziativa UDC: controlli sistematici alle frontiere costerebbero miliardi e rischierebbero l\'uscita da Schengen. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, controlli, frontiere, governo, boccia',
+    ogTitle: 'Controlli frontiere: il Governo dice no all\'iniziativa UDC',
+    ogDescription: 'Il Consiglio federale avverte: controlli sistematici alle frontiere causerebbero miliardi di franchi di costi e rischierebbero l\'uscita dal sistema Schengen/Dublino.',
+    canonicalPath: '/articoli-frontaliere/governo-no-iniziativa-frontiere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Controlli frontiere: il Governo boccia l'iniziativa UDC",
+      "description": "Il Consiglio federale boccia l'iniziativa UDC: controlli sistematici alle frontiere costerebbero miliardi e rischierebbero l'uscita da Schengen. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/governo-no-iniziativa-frontiere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Passaggio di frontiera in Ticino con traffico di pendolari"
+      },
+      "datePublished": "2026-09-18T15:22:41+00:00",
+      "dateModified": "2026-09-18T15:22:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/governo-no-iniziativa-frontiere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tasse-frontaliere-oltre-20km-2026': {
+    title: 'Tasse frontaliere Italia Svizzera 2026: guida oltre 20 km',
+    description: 'Guida fiscale 2026 per frontalieri oltre 20 km: imposta alla fonte, franchigie 7.500/10.000€ e credito d\'imposta per evitare la doppia imposizione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tasse, oltre, regole, fiscali',
+    ogTitle: 'Tasse frontaliere 2026: regole per chi risiede oltre 20 km',
+    ogDescription: 'Scopri come funziona la tassazione per i frontalieri nel 2026: franchigie, aliquote IRPEF e gestione del credito d\'imposta per evitare la doppia imposizione CH-IT.',
+    canonicalPath: '/articoli-frontaliere/tasse-frontaliere-oltre-20km-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tasse frontaliere Italia Svizzera 2026: guida oltre 20 km",
+      "description": "Guida fiscale 2026 per frontalieri oltre 20 km: imposta alla fonte, franchigie 7.500/10.000€ e credito d'imposta per evitare la doppia imposizione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tasse-frontaliere-oltre-20km-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano con documenti fiscali per frontalieri"
+      },
+      "datePublished": "2026-09-18T23:37:15+00:00",
+      "dateModified": "2026-09-18T23:37:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tasse-frontaliere-oltre-20km-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-studio-svizzero-confine-frontalieri': {
+    title: 'Studio svizzero sul confine: costi e crollo frontalieri',
+    description: 'Rapporto del Consiglio federale e studio Ecoplan: ingorghi per 422.000 ore al giorno, costi miliardari e crollo dei frontalieri fino al 60% senza Schengen.',
+    keywords: 'frontalieri, ticino, svizzera, italia, studio, svizzero, confine, costi',
+    ogTitle: 'Studio svizzero sul confine: ingorghi, costi e crollo dei frontalieri',
+    ogDescription: 'Il rapporto del Consiglio federale basato sullo studio Ecoplan del 18 settembre 2026 delinea scenari preoccupanti per il confine e i lavoratori frontalieri in caso di uscita da Schengen.',
+    canonicalPath: '/articoli-frontaliere/studio-svizzero-confine-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Studio svizzero sul confine: costi e crollo frontalieri",
+      "description": "Rapporto del Consiglio federale e studio Ecoplan: ingorghi per 422.000 ore al giorno, costi miliardari e crollo dei frontalieri fino al 60% senza Schengen.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/studio-svizzero-confine-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Coda di auto al confine tra Svizzera e Italia"
+      },
+      "datePublished": "2026-09-19T01:47:35+00:00",
+      "dateModified": "2026-09-19T01:47:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/studio-svizzero-confine-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sindaco-malesco-fondi-confine': {
+    title: 'Frontalieri, Malesco scrive al Governo per i fondi',
+    description: 'Il sindaco di Malesco, Enrico Barbazza, chiede al Governo il trasferimento integrale delle risorse di confine per garantire i servizi locali ai cittadini.',
+    keywords: 'frontalieri, ticino, svizzera, italia, malesco, scrive, governo, fondi',
+    ogTitle: 'Frontalieri, Barbazza chiede fondi al Governo',
+    ogDescription: 'Enrico Barbazza, sindaco di Malesco, scrive al Governo italiano per difendere il trasferimento integrale delle risorse destinate ai comuni di frontiera.',
+    canonicalPath: '/articoli-frontaliere/sindaco-malesco-fondi-confine',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri, Malesco scrive al Governo per i fondi",
+      "description": "Il sindaco di Malesco, Enrico Barbazza, chiede al Governo il trasferimento integrale delle risorse di confine per garantire i servizi locali ai cittadini.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sindaco-malesco-fondi-confine.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo comunale di una città ticinese"
+      },
+      "datePublished": "2026-09-19T01:57:04+00:00",
+      "dateModified": "2026-09-19T01:57:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sindaco-malesco-fondi-confine/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-confapi-avsi-accordo-varese-formazione': {
+    title: 'Accordo Confapi Varese-AVSI per formazione giovani',
+    description: 'Confapi Varese e Fondazione AVSI siglano un accordo il 17 settembre per formare giovani tramite apprendistato e formazione duale, unendo accoglienza',
+    keywords: 'frontalieri, ticino, svizzera, italia, accordo, confapi, varese-avsi, formazione',
+    ogTitle: 'Accordo Confapi Varese-AVSI per formazione giovani',
+    ogDescription: 'Nuovo protocollo tra Confapi Varese e Fondazione AVSI per l\'inserimento lavorativo dei giovani nel tessuto delle PMI. Focus su apprendistato e formazione duale per rispondere alle esigenze del mercato.',
+    canonicalPath: '/articoli-frontaliere/confapi-avsi-accordo-varese-formazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Accordo Confapi Varese-AVSI per formazione giovani",
+      "description": "Confapi Varese e Fondazione AVSI siglano un accordo il 17 settembre per formare giovani tramite apprendistato e formazione duale, unendo accoglienza",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/confapi-avsi-accordo-varese-formazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa Museo Lodovico Pogliaghi a Varese, sede dell'accordo tra Confapi Varese e Fondazione AVSI"
+      },
+      "datePublished": "2026-09-19T02:39:34+00:00",
+      "dateModified": "2026-09-19T02:39:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/confapi-avsi-accordo-varese-formazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-09-19': {
+    title: 'Bollettino del frontaliere – 19 settembre 2026: franco a 1.0554 €',
+    description: 'Bollettino frontalieri del 19 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 19 settembre 2026: franco a 1.0554 €',
+    ogDescription: 'I numeri del 19 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-09-19',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 19 settembre 2026: franco a 1.0554 €",
+      "description": "Bollettino frontalieri del 19 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-09-19.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 19 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-09-19T09:18:26+00:00",
+      "dateModified": "2026-09-19T09:18:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-09-19/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

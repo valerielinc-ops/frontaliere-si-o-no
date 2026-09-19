@@ -1,0 +1,23 @@
+{
+  "companyKey": "leolandia",
+  "companyName": "Leolandia Spa",
+  "companyHost": "leolandia.altamiraweb.com",
+  "platform": "altamiraweb.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://leolandia.altamiraweb.com/"
+  ],
+  "detailTemplate": "/annunci-lavoro/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "MAGAZZINIERE JUNIOR- SETTORE RISTORAZIONE",
+    "MAGAZZINIERE - SETTORE RISTORAZIONE",
+    "ASPIRANTE MANUTENTORE",
+    "PRIMA ESPERIENZA LAVORATIVA",
+    "OPERATRICE/OPERATORE GIOSTRE"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-09-19T09:31:53.392Z"
+}

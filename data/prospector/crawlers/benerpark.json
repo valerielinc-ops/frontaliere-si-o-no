@@ -1,0 +1,21 @@
+{
+  "companyKey": "benerpark",
+  "companyName": "Bener-Park Betriebs-AG",
+  "companyHost": "benerpark.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://benerpark.ch/karriere/karriere-jobs/"
+  ],
+  "detailTemplate": "/karriere/karriere-jobs/residenz/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Dienstleistungsbroschüre - Alles auf einen Blick",
+    "Verein \"Spitex Alterswohnungen Chur\""
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-19T09:32:09.786Z"
+}

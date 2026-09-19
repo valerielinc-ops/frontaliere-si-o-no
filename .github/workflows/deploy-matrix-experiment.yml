@@ -621,28 +621,26 @@ jobs:
           MEMORY_BREACH: ${{ steps.memguard.outputs.breach }}
         run: |
           set -o pipefail
-          echo '::group::Disk/dist usage AFTER build'
-          echo '[dist-metrics] df -B1 .'
-          df -B1 .
-          echo '[dist-metrics] du -sb dist'
-          if [ -d dist ]; then
-            du -sb dist
-          else
-            echo 'dist is absent after build'
-          fi
-          echo '[dist-metrics] find dist -type f | wc -l'
-          if [ -d dist ]; then
-            find dist -type f | wc -l
-          else
-            echo 0
-          fi
-          echo '::endgroup::'
+          # One walk of dist (1.5M files ≈ 3 min each): compute the metrics
+          # once and print them, instead of du/find twice (was ~13 min/run).
           dist_bytes='?'
           dist_files='0'
           if [ -d dist ]; then
             dist_bytes="$(du -sb dist | awk '{print $1}')"
             dist_files="$(find dist -type f | wc -l | tr -d ' ')"
           fi
+          echo '::group::Disk/dist usage AFTER build'
+          echo '[dist-metrics] df -B1 .'
+          df -B1 .
+          echo '[dist-metrics] du -sb dist'
+          if [ -d dist ]; then
+            echo "${dist_bytes}	dist"
+          else
+            echo 'dist is absent after build'
+          fi
+          echo '[dist-metrics] find dist -type f | wc -l'
+          echo "${dist_files}"
+          echo '::endgroup::'
           wall_time="${BUILD_ELAPSED_SECONDS:-?}s"
           if [ -n "${BUILD_STOP_AFTER:-}" ]; then
             wall_time="${wall_time} (stopped after ${BUILD_STOP_AFTER})"
@@ -676,8 +674,12 @@ jobs:
         run: node scripts/ci/validate-locale-shard-build.mjs dist
 
       - name: Hash-manifest the dist (equivalence check)
+        # Only the monolith compare job consumes this manifest; on plain
+        # variant benches it cost ~5.5 min of sha256 over 1.5M files per run.
+        if: inputs.compare_monolith == true
         run: node scripts/ci/dist-hash-manifest.mjs dist "/tmp/manifest-${{ matrix.locale }}.txt"
       - name: Upload build manifest
+        if: inputs.compare_monolith == true
         uses: actions/upload-artifact@v7
         with:
           name: manifest-${{ matrix.locale }}

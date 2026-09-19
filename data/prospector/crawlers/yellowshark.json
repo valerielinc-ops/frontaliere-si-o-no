@@ -1,0 +1,24 @@
+{
+  "companyKey": "yellowshark",
+  "companyName": "yellowshark AG",
+  "companyHost": "jobs.yellowshark.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.yellowshark.com/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 20,
+  "sampleTitles": [
+    "Betriebsmechaniker 80–100 % (m/w)",
+    "Einkäufer (m/w) 80-100%",
+    "Elektroniker als Servicetechniker 80–100 % (m/w)",
+    "Gärtner Neuanlagen (m/w)",
+    "Gärtner Unterhalt (m/w)"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-19T09:32:52.477Z"
+}
