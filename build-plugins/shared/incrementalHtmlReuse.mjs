@@ -1388,6 +1388,12 @@ export class JobsSeoHtmlReuse {
     };
   }
 
+  /**
+   * A block stops inheriting from here on. Pages already reused belong to
+   * strata that each collected `perStratum` byte-identical renders with the
+   * new code, and they still pass through the sampled verify; the counter
+   * `reusedBeforeInvalidate` keeps that exposure visible in the verdict file.
+   */
   invalidateProbe(state, block, locale, reason, pagePath) {
     if (state.state === 'invalidate') return;
     state.reusedBeforeInvalidate = state.reused;
