@@ -1235,29 +1235,31 @@ jobs:
               echo "no push ok-marker for $section-it (push skipped/failed this run) — validate-dist will fall back to git clone"
               return 0
             fi
-            local sub src packed_n src_n persisted_src_n live_src_n
+            local sub src packed_n persisted_src_n live_src_n
             sub="$(jq -r --arg s "$section" --arg l "it" '.[$s][$l] // empty' scripts/lib/section-shard-slugs.json)"
             src="$RUNNER_TEMP/${section}-src-it/dist"
             if [ ! -d "$src/$sub" ]; then
               echo "no staged $section-it subtree (push skipped/failed) — validate-dist will fall back to git clone"
               return 0
             fi
+            live_src_n=$(find "$src/$sub" -type f | wc -l)
             # Independent shrink guard (issue #6283): push-section-shard.sh
             # persists the file count it saw right after staging (BEFORE the
-            # pack step's own recount below, which reads the SAME directory
-            # and so can never disagree with itself if the tree shrank
-            # in-between). Comparing the LIVE count here against that
-            # independent, earlier baseline catches a shrink the
-            # packed_n-vs-recount check below is structurally blind to.
+            # pack step's secondary tar-vs-source guard below). Comparing the
+            # LIVE count here against that independent, earlier baseline
+            # catches a shrink the secondary guard is structurally blind to.
             if [ -f "$RUNNER_TEMP/shard-srcn-$section-it" ]; then
               persisted_src_n="$(cat "$RUNNER_TEMP/shard-srcn-$section-it")"
-              live_src_n=$(find "$src/$sub" -type f | wc -l)
               if [ "$live_src_n" -ne "$persisted_src_n" ]; then
                 echo "::warning::$section-it subtree shrank between push and pack (persisted src_n=$persisted_src_n, live=$live_src_n) — skipping pack, validate-dist will fall back to git-clone"
                 return 0
               fi
             fi
-            tar -C "$src" -cf "$RUNNER_TEMP/$section-dist-it.tar" "$sub"
+            if ! packed_n=$(tar -C "$src" -cvf "$RUNNER_TEMP/$section-dist-it.tar" "$sub" | awk '!/\/$/ { n++ } END { print n + 0 }'); then
+              echo "::warning::$section-dist-it.tar creation failed — discarding tar, validate-dist will fall back to git-clone"
+              rm -f "$RUNNER_TEMP/$section-dist-it.tar"
+              return 0
+            fi
             ls -lh "$RUNNER_TEMP/$section-dist-it.tar"
             # Byte-identity guard (#2761 item 1): this tar and push-section-shard.sh's
             # own push both read the SAME already-offloaded "$src/$sub" staged copy
@@ -1268,11 +1270,9 @@ jobs:
             # instead of silently validating a partial/mismatched tree. It is a
             # SECONDARY guard (covers a bug in tar itself) — the independent
             # shrink check above is now the primary defence against a
-            # between-steps shrink, which this recount alone cannot see.
-            packed_n=$(tar -tf "$RUNNER_TEMP/$section-dist-it.tar" | { grep -vc '/$' || true; })
-            src_n=$(find "$src/$sub" -type f | wc -l)
-            if [ "$packed_n" -ne "$src_n" ]; then
-              echo "::warning::$section-dist-it.tar file count mismatch (packed=$packed_n src=$src_n) — discarding tar, validate-dist will fall back to git-clone"
+            # between-steps shrink, which this secondary comparison alone cannot see.
+            if [ "$packed_n" -ne "$live_src_n" ]; then
+              echo "::warning::$section-dist-it.tar file count mismatch (packed=$packed_n src=$live_src_n) — discarding tar, validate-dist will fall back to git-clone"
               rm -f "$RUNNER_TEMP/$section-dist-it.tar"
             fi
             rm -rf "$src"
@@ -2022,7 +2022,7 @@ jobs:
               echo "no push ok-marker for $section-$loc (push skipped/failed this run) — validate-dist will fall back to git clone"
               return 0
             fi
-            local slug sub src packed_n src_n persisted_src_n live_src_n
+            local slug sub src packed_n persisted_src_n live_src_n
             slug="$(jq -r --arg s "$section" --arg l "$loc" '.[$s][$l] // empty' scripts/lib/section-shard-slugs.json)"
             sub="$loc/$slug"
             src="$RUNNER_TEMP/${section}-src-$loc/dist"
@@ -2030,19 +2030,24 @@ jobs:
               echo "no staged $section-$loc subtree (push skipped/failed) — validate-dist will fall back to git clone"
               return 0
             fi
+            live_src_n=$(find "$src/$sub" -type f | wc -l)
             # Independent shrink guard (issue #6283) — see the IT leg's "Pack
             # section shard dist" step above for the full rationale: compare
             # the LIVE count against the baseline push-section-shard.sh
-            # persisted right after staging, independent of the recount below.
+            # persisted right after staging, independent of the secondary
+            # tar-vs-source comparison below.
             if [ -f "$RUNNER_TEMP/shard-srcn-$section-$loc" ]; then
               persisted_src_n="$(cat "$RUNNER_TEMP/shard-srcn-$section-$loc")"
-              live_src_n=$(find "$src/$sub" -type f | wc -l)
               if [ "$live_src_n" -ne "$persisted_src_n" ]; then
                 echo "::warning::$section-$loc subtree shrank between push and pack (persisted src_n=$persisted_src_n, live=$live_src_n) — skipping pack, validate-dist will fall back to git-clone"
                 return 0
               fi
             fi
-            tar -C "$src" -cf "$RUNNER_TEMP/$section-dist-$loc.tar" "$sub"
+            if ! packed_n=$(tar -C "$src" -cvf "$RUNNER_TEMP/$section-dist-$loc.tar" "$sub" | awk '!/\/$/ { n++ } END { print n + 0 }'); then
+              echo "::warning::$section-dist-$loc.tar creation failed — discarding tar, validate-dist will fall back to git-clone"
+              rm -f "$RUNNER_TEMP/$section-dist-$loc.tar"
+              return 0
+            fi
             ls -lh "$RUNNER_TEMP/$section-dist-$loc.tar"
             # Byte-identity guard (#2761 item 1) — see the IT leg's "Pack section
             # shard dist" step above for the full rationale: this tar and
@@ -2052,10 +2057,8 @@ jobs:
             # tar validate-dist could trust incorrectly. SECONDARY guard now: the
             # independent shrink check above is the primary defence against a
             # between-steps shrink.
-            packed_n=$(tar -tf "$RUNNER_TEMP/$section-dist-$loc.tar" | { grep -vc '/$' || true; })
-            src_n=$(find "$src/$sub" -type f | wc -l)
-            if [ "$packed_n" -ne "$src_n" ]; then
-              echo "::warning::$section-dist-$loc.tar file count mismatch (packed=$packed_n src=$src_n) — discarding tar, validate-dist will fall back to git-clone"
+            if [ "$packed_n" -ne "$live_src_n" ]; then
+              echo "::warning::$section-dist-$loc.tar file count mismatch (packed=$packed_n src=$live_src_n) — discarding tar, validate-dist will fall back to git-clone"
               rm -f "$RUNNER_TEMP/$section-dist-$loc.tar"
             fi
             rm -rf "$src"
@@ -2282,7 +2285,11 @@ jobs:
           if [ -f "dist/${{ matrix.locale }}.html" ]; then
             members+=( "${{ matrix.locale }}.html" )
           fi
-          tar -C dist -cf "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar" "${members[@]}"
+          if ! packed_n=$(tar -C dist -cvf "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar" "${members[@]}" | awk '!/\/$/ { n++ } END { print n + 0 }'); then
+            echo "::warning::locale-dist-${{ matrix.locale }}.tar creation failed — discarding tar, validate-dist will fall back to git-clone"
+            rm -f "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar"
+            exit 0
+          fi
           ls -lh "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar"
           # Byte-identity guard (#2761 item 1): this tar and push-locale-shard.sh's
           # `cp -al "$dist_dir/$loc" "$stage/$loc"` both read the SAME dist/<loc>
@@ -2295,7 +2302,6 @@ jobs:
           # validating a partial/mismatched tree.
           prefixed_members=()
           for m in "${members[@]}"; do prefixed_members+=( "dist/$m" ); done
-          packed_n=$(tar -tf "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar" | { grep -vc '/$' || true; })
           src_n=$(find "${prefixed_members[@]}" -type f 2>/dev/null | wc -l)
           if [ "$packed_n" -ne "$src_n" ]; then
             echo "::warning::locale-dist-${{ matrix.locale }}.tar file count mismatch (packed=$packed_n src=$src_n) — discarding tar, validate-dist will fall back to git-clone"

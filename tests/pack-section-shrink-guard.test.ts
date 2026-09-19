@@ -6,15 +6,10 @@ import { join } from 'node:path';
 import { resolve } from 'node:path';
 
 // Guard for issue #6283 (follow-up of PR #6263): deploy.yml's pack_section()
-// byte-identity guard compares packed_n against a src_n RECOMPUTED at pack
-// time from the same directory push-section-shard.sh already staged — if
-// that directory shrinks between the push step and this later pack step,
-// both counts derive from the already-shrunk tree and agree, so the guard
-// is structurally blind to the shrink. push-section-shard.sh now persists
-// the file count it saw right after staging ($RUNNER_TEMP/shard-srcn-<section>-<loc>),
-// and pack_section() compares the LIVE count against that independent,
-// earlier baseline BEFORE packing — this is the guard that is actually able
-// to catch the shrink.
+// byte-identity guard compares packed_n against the live source count from
+// the same directory push-section-shard.sh already staged. The independent
+// baseline at $RUNNER_TEMP/shard-srcn-<section>-<loc> is compared BEFORE
+// packing, so a shrink between the push and pack steps is still caught.
 
 const ROOT = resolve(import.meta.dirname, '..');
 const DEPLOY_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), 'utf-8');
@@ -45,10 +40,20 @@ describe('deploy.yml pack_section() — independent shrink guard (issue #6283)',
   it('both blocks compare the LIVE count against the persisted baseline BEFORE creating the tar', () => {
     for (const fn of fns) {
       const shrinkCheckIdx = fn.search(/if \[ "\$live_src_n" -ne "\$persisted_src_n" \]/);
-      const tarCreateIdx = fn.search(/tar -C "\$src" -cf/);
+      const tarCreateIdx = fn.search(/tar -C "\$src" -cvf/);
       expect(shrinkCheckIdx, `missing independent shrink check:\n${fn}`).toBeGreaterThan(-1);
       expect(tarCreateIdx, `missing tar creation:\n${fn}`).toBeGreaterThan(-1);
       expect(shrinkCheckIdx, 'shrink check must run BEFORE the tar is created').toBeLessThan(tarCreateIdx);
+    }
+  });
+
+  it('walks the source once and counts tar members from tar -cvf output without masking tar failures', () => {
+    for (const fn of fns) {
+      expect(fn.match(/find "\$src\/\$sub" -type f \| wc -l/g)).toHaveLength(1);
+      expect(fn).toMatch(/if ! packed_n=\$\(tar -C "\$src" -cvf[\s\S]*\| awk '!\/\\\/\$\/ \{ n\+\+ \} END \{ print n \+ 0 \}'\); then[\s\S]*rm -f "\$RUNNER_TEMP\/[^\"]+\.tar"[\s\S]*return 0/);
+      expect(fn).not.toMatch(/tar -C "\$src" -cvf[\s\S]*\|[^\n]*\|\| true/);
+      expect(fn).not.toContain('tar -tf');
+      expect(fn).toContain('if [ "$packed_n" -ne "$live_src_n" ]');
     }
   });
 
