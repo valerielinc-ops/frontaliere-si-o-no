@@ -45,6 +45,7 @@
  * guard without being one. Use EXIT_BLOCK, never a bare 1.
  */
 import { execFileSync } from 'node:child_process';
+import { readHookStdin } from './lib/hook-stdin.mjs';
 import { fileURLToPath } from 'node:url';
 import { basename, resolve } from 'node:path';
 import { extractPrBody, describePrBodySource } from './pr-body-check-gate.mjs';
@@ -155,11 +156,9 @@ async function main() {
   let targetCwd;
   let targetCwdResolution;
   try {
-    const chunks = [];
-    for await (const chunk of process.stdin) {
-      chunks.push(chunk);
-    }
-    const raw = Buffer.concat(chunks).toString('utf8').trim();
+    // Timeout: uno stdin ereditato e mai chiuso (invocazione a mano dalla
+    // shell di un agente) teneva il gate appeso senza output. Vedi lib/hook-stdin.mjs.
+    const raw = (await readHookStdin()).raw.trim();
     if (raw) {
       try {
         const payload = JSON.parse(raw);

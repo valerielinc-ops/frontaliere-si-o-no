@@ -712,18 +712,42 @@ describe('pr-body-check-gate — never hangs on an open stdin', () => {
     }
   });
 
+  it.each([
+    'scripts/ci/sibling-check-gate.mjs',
+    'scripts/ci/pr-watch-register.mjs',
+    'scripts/ci/pr-body-write-gate.mjs',
+    'scripts/ci/run-mutation-gate.mjs',
+    'scripts/ci/pr-watch-gate.mjs',
+  ])('sibling hook %s also exits on a silent open stdin (lib/hook-stdin.mjs)', async (script) => {
+    const res = await new Promise<{ status: number | null; ms: number }>((done) => {
+      const started = Date.now();
+      const child = spawn(process.execPath, [resolve(ROOT, script)], {
+        stdio: ['pipe', 'ignore', 'ignore'],
+        env: { ...process.env, HOOK_STDIN_TIMEOUT_MS: '300' },
+      });
+      const killer = setTimeout(() => child.kill('SIGKILL'), 15_000);
+      child.on('close', (status) => {
+        clearTimeout(killer);
+        child.stdin.destroy();
+        done({ status, ms: Date.now() - started });
+      });
+    });
+    expect(res.status).toBe(0);
+    expect(res.ms).toBeLessThan(5_000);
+  });
+
   it('readHookStdin returns what arrived and flags the timeout', async () => {
     const stream = new PassThrough();
     stream.write('{"partial":');
     const res = await readHookStdin(stream, 50);
-    expect(res).toEqual({ raw: '{"partial":', timedOut: true });
+    expect(res).toMatchObject({ raw: '{"partial":', timedOut: true });
   });
 
   it('readHookStdin resolves on EOF without timing out', async () => {
     const stream = new PassThrough();
     stream.end('{"tool_input":{"command":"ls"}}');
     const res = await readHookStdin(stream, 5_000);
-    expect(res).toEqual({ raw: '{"tool_input":{"command":"ls"}}', timedOut: false });
+    expect(res).toMatchObject({ raw: '{"tool_input":{"command":"ls"}}', timedOut: false });
   });
 
   it('hookStdinTimeoutMs honours the env override and ignores garbage', () => {

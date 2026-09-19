@@ -25,6 +25,9 @@ import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
+import { hookStdinTimeoutMs, readHookStdin } from './lib/hook-stdin.mjs';
+
+export { hookStdinTimeoutMs, readHookStdin };
 import {
   resolveHookRepository,
   resolveHookTargetCwd,
@@ -351,55 +354,6 @@ const USAGE = [
   '  node scripts/ci/pr-body-check-gate.mjs < payload.json        modalita\' hook PreToolUse (payload JSON su stdin)',
   '',
 ].join('\n');
-
-const DEFAULT_HOOK_STDIN_TIMEOUT_MS = 5000;
-
-/** Timeout di lettura del payload hook; `PR_BODY_GATE_STDIN_TIMEOUT_MS` lo sovrascrive. */
-export function hookStdinTimeoutMs(env = process.env) {
-  const n = Number(env.PR_BODY_GATE_STDIN_TIMEOUT_MS);
-  return Number.isFinite(n) && n > 0 ? n : DEFAULT_HOOK_STDIN_TIMEOUT_MS;
-}
-
-/**
- * Legge stdin fino a EOF, ma non oltre `timeoutMs`: uno stdin che non si
- * chiude mai (la shell di un agente eredita un socket aperto) teneva il gate
- * appeso per ore senza output. Allo scadere restituisce quanto arrivato.
- *
- * @param {NodeJS.ReadableStream & { destroy?: () => void, unref?: () => void }} stream
- * @param {number} timeoutMs
- * @returns {Promise<{ raw: string, timedOut: boolean }>}
- */
-export function readHookStdin(stream, timeoutMs) {
-  return new Promise((resolvePromise, reject) => {
-    const chunks = [];
-    let settled = false;
-    const finish = (timedOut) => {
-      if (settled) return;
-      settled = true;
-      clearTimeout(timer);
-      stream.removeListener('data', onData);
-      stream.removeListener('end', onEnd);
-      stream.removeListener('error', onError);
-      if (timedOut) {
-        stream.pause?.();
-        stream.destroy?.();
-      }
-      resolvePromise({ raw: Buffer.concat(chunks).toString('utf8'), timedOut });
-    };
-    const onData = (chunk) => chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
-    const onEnd = () => finish(false);
-    const onError = (err) => {
-      if (settled) return;
-      settled = true;
-      clearTimeout(timer);
-      reject(err);
-    };
-    const timer = setTimeout(() => finish(true), timeoutMs);
-    stream.on('data', onData);
-    stream.once('end', onEnd);
-    stream.once('error', onError);
-  });
-}
 
 async function main() {
   let command = '';
