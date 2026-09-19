@@ -134,6 +134,21 @@ function normalizePostalCityKey(value: string | undefined | null): string {
     .trim();
 }
 
+/**
+ * Normalized lookup for the complete snapshot, with curated aliases taking
+ * precedence. The curated table is intentionally small; the snapshot fills
+ * the gap for valid municipalities such as Novaggio that are not frequent
+ * enough to need a hand-maintained alias.
+ */
+const NORMALIZED_POSTAL_BY_CITY = new Map<string, string>(
+  [
+    ...Object.entries(SWISS_POSTAL_CODES as Record<string, string>),
+    ...Object.entries(POSTAL_BY_CITY),
+  ]
+    .map(([city, postalCode]) => [normalizePostalCityKey(city), String(postalCode || '').trim()] as const)
+    .filter(([city, postalCode]) => city.length > 0 && /^\d{4}$/.test(postalCode)),
+);
+
 const KNOWN_CITY_KEYS_BY_POSTAL = new Map<string, Set<string>>();
 for (const [city, postalCode] of [
   ...Object.entries(SWISS_POSTAL_CODES as Record<string, string>),
@@ -206,8 +221,9 @@ export function resolvePostalCode(
   canton: string | undefined | null,
 ): string {
   if (city) {
-    const key = String(city).trim().toLowerCase();
-    if (POSTAL_BY_CITY[key]) return POSTAL_BY_CITY[key];
+    const key = normalizePostalCityKey(city);
+    const snapshotPostalCode = NORMALIZED_POSTAL_BY_CITY.get(key);
+    if (snapshotPostalCode) return snapshotPostalCode;
   }
   if (canton) {
     const cap = CANTON_CAPITAL_POSTAL[String(canton).toUpperCase().trim()];
