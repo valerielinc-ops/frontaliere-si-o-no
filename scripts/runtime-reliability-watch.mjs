@@ -117,6 +117,21 @@ export function evaluateRepairPolicy({
   };
 }
 
+/**
+ * Name the direction instead of leaning on the sign. A `marker_regression`
+ * would otherwise be reported as "apex behind CDN by -2.61h", which reads as a
+ * negative lag rather than as the apex being ahead — the one direction an
+ * operator has to act on.
+ */
+export function formatMarkerSkew(siteBehindMs) {
+  if (!Number.isFinite(siteBehindMs)) return 'apex/CDN skew unmeasurable';
+  const hours = (Math.abs(siteBehindMs) / 3_600_000).toFixed(2);
+  if (siteBehindMs === 0) return 'apex and CDN on the same generation';
+  return siteBehindMs > 0
+    ? `apex behind CDN by ${hours}h`
+    : `apex AHEAD of CDN by ${hours}h`;
+}
+
 function validBuildId(value) {
   const id = String(value || '').trim();
   return /^\d{10,20}$/.test(id) ? id : null;
@@ -183,6 +198,15 @@ export function classifyAssetResponses(cached, fresh) {
  * behind/ahead, invalidating its assets could make the edge refill from the
  * wrong generation; that condition is reported for human/issue automation,
  * never “fixed” by a blind purge.
+ *
+ * The marker pair has three meanings, not two. The deploy uploads CDN assets
+ * and mints `cdn-build-id.txt` in the build leg, while the apex `build-id.txt`
+ * only goes live once deploy-publish.yml has pushed the ~13 GB Pages artifact
+ * — hours later. `cdnBuildId > siteBuildId` is therefore the *normal* state of
+ * a healthy rollout (measured 2.61h–7.03h on 2026-09-18, and the deploy period
+ * is of the same order, so coherence is the exception rather than the rule).
+ * `siteBuildId > cdnBuildId` is the break worth failing on: the apex is serving
+ * HTML for a generation whose assets the CDN never received.
  */
 export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets }) {
   // The cache-busted site marker is the authoritative current origin value.
@@ -191,13 +215,27 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets }) {
   // generation.
   const siteBuildId = siteFresh?.ok ? validBuildId(siteFresh.body) : null;
   const cdnBuildId = cdnMarker?.ok ? validBuildId(cdnMarker.body) : null;
+  // Build ids are epoch milliseconds minted once per deploy, so the pair also
+  // carries the direction and the size of the skew — no extra state needed.
   const markerState = !siteBuildId
     ? 'site_marker_unavailable'
     : !cdnBuildId
       ? 'cdn_marker_unavailable'
       : siteBuildId === cdnBuildId
         ? 'coherent'
-        : 'marker_mismatch';
+        // BigInt, not Number: validBuildId accepts up to 20 digits, and past
+        // 2^53 a Number comparison could misclassify the direction of the skew
+        // — which is the difference between a benign rollout and a regression.
+        : BigInt(cdnBuildId) > BigInt(siteBuildId)
+          ? 'rollout_in_progress'
+          : 'marker_regression';
+  // Positive while the apex is still serving an older generation than the CDN,
+  // negative when it is ahead. Kept as a Number for the report: the magnitude
+  // is a human-readable duration, and only the comparison above needs to be
+  // exact.
+  const siteBehindMs = siteBuildId && cdnBuildId
+    ? Number(BigInt(cdnBuildId) - BigInt(siteBuildId))
+    : null;
 
   const assetResults = assets.map(({ path, cached, fresh }) => ({
     path,
@@ -217,13 +255,34 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets }) {
       .map((asset) => `${CDN_ORIGIN}${asset.path}`)
     : [];
   const unhealthyAssets = assetResults.filter((asset) => asset.state !== 'healthy');
-  const ok = markerState === 'coherent' && unhealthyAssets.length === 0;
+  // The failure mode this watchdog exists for is scoped, by its own contract,
+  // to the coherent state: a stable asset URL still serving the previous edge
+  // object *after the current build marker is live*. While the CDN marker is
+  // ahead the apex is still serving the previous generation's HTML, which wants
+  // the previous asset — so an edge/origin hash difference is the intended
+  // state there, and purging it would break the live page. Timeliness of the
+  // rollout is owned by pages-publish-lag-watchdog.yml, which files its own
+  // issue; post-deploy-validate-live.yml likewise records an apex that has not
+  // caught up as "an older VALID build (not broken)". Only the reverse skew is
+  // a coherence break: apex HTML referencing a generation the CDN never got.
+  // A rollout explains the MARKER skew and nothing else. It is tempting to also
+  // excuse a `stale` asset — the edge holding the object the live HTML still
+  // references — but `classifyAssetResponses` only proves that two 200s hash
+  // differently: it cannot show the cached body is the generation the apex HTML
+  // actually wants, so an even older generation or an incompatible 200 would
+  // pass as "explained". Every asset therefore has to be healthy in both marker
+  // states, and `assetResults.length` is required because observing nothing is
+  // not the same as observing health.
+  const ok = (markerState === 'coherent' || markerState === 'rollout_in_progress')
+    && assetResults.length > 0
+    && unhealthyAssets.length === 0;
 
   const result = {
     ok,
     markerState,
     siteBuildId,
     cdnBuildId,
+    siteBehindMs,
     siteCachedStatus: siteCached?.status || 0,
     siteFreshStatus: siteFresh?.status || 0,
     cdnMarkerStatus: cdnMarker?.status || 0,
@@ -236,6 +295,11 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets }) {
     purgeUrls,
     reasons: [
       markerState !== 'coherent' ? `build markers: ${markerState}` : null,
+      // Print the measured skew on every run so the next tightening of this
+      // check argues from data instead of intuition.
+      Number.isFinite(siteBehindMs) && siteBehindMs !== 0
+        ? formatMarkerSkew(siteBehindMs)
+        : null,
       ...unhealthyAssets.map((asset) => `${asset.path}: ${asset.state}`),
     ].filter(Boolean),
   };
@@ -274,8 +338,17 @@ export async function probeRuntime({
 async function main() {
   const json = process.argv.includes('--json');
   const result = await probeRuntime();
-  if (json) process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
-  else {
+  if (json) {
+    process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
+    // stdout is redirected to the report file, so keep the measured skew on
+    // stderr: it has to be readable in the run log of every run, not only in
+    // the uploaded artifact.
+    console.error(
+      `Runtime reliability: ${result.ok ? 'healthy' : 'degraded'} — ${result.markerState}`
+      + ` (site=${result.siteBuildId || '—'}, cdn=${result.cdnBuildId || '—'},`
+      + ` ${formatMarkerSkew(result.siteBehindMs)})`,
+    );
+  } else {
     console.log(`Runtime reliability: ${result.ok ? 'healthy' : 'degraded'}`);
     console.log(`Markers: ${result.markerState} (site=${result.siteBuildId || '—'}, cdn=${result.cdnBuildId || '—'})`);
     for (const reason of result.reasons) console.log(`- ${reason}`);
