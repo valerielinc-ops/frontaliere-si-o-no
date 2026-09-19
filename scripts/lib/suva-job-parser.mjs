@@ -41,6 +41,10 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, buildJobSlug, stripHtml, fetchHtml, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
+import {
+  locateTagByAttribute,
+  extractBalancedTagBlockWithStatus,
+} from './hospital-custom-html-helpers.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -49,6 +53,10 @@ export const SUVA_COMPANY_NAME = 'Suva';
 export const SUVA_COMPANY_DOMAIN = 'suva.ch';
 
 const SITEMAP_URL = 'https://jobs.suva.ch/sitemap.xml';
+// Suva's rich-text bodies can exceed the generic helper's defensive 20k scan
+// window. Keep an explicit source-specific ceiling, and reject an unclosed
+// scan at that ceiling rather than persisting a silently truncated description.
+const SUVA_DESCRIPTION_SCAN_CAP = 50_000;
 
 /**
  * Static Suva regional-agency address table — reproduced from the inline
@@ -220,7 +228,7 @@ function extractCantonZipFromUrl(url = '') {
  * postings — passed through as-is, matching how the SPA already handles
  * non-geographic multi-location blobs elsewhere in the codebase).
  */
-function parseDetailPage(html = '') {
+export function parseDetailPage(html = '') {
   if (!html) return null;
 
   const ogTitleMatch = html.match(/property="og:title"\s+content="([^"]*)"/i);
@@ -230,11 +238,32 @@ function parseDetailPage(html = '') {
   );
   if (!title || title.length < 3) return null;
 
-  const descMatch = html.match(/<span[^>]*itemprop="description"[^>]*>([\s\S]*?)<\/span>/i);
-  const description = normalizeSpace(stripHtml(descMatch ? descMatch[1] : ''));
+  // SuccessFactors can wrap the description in nested spans. A non-greedy
+  // closing-tag match stops at the first child span and drops the rest of the
+  // job body; walk the matching outer element instead.
+  const descriptionField = locateTagByAttribute(
+    html,
+    `itemprop=["']description["']`,
+    { skipVoidTags: true },
+  );
+  // `rest` starts immediately after the selected opening tag. Deriving the
+  // boundary from it keeps the location scan aligned with the same element
+  // even when the attribute uses single quotes or different casing.
+  const descriptionOpeningEnd = descriptionField
+    ? html.length - descriptionField.rest.length
+    : -1;
+  const descriptionScan = descriptionField
+    ? extractBalancedTagBlockWithStatus(
+      descriptionField.rest,
+      descriptionField.tagName,
+      SUVA_DESCRIPTION_SCAN_CAP,
+    )
+    : null;
+  const description = descriptionScan?.complete
+    ? normalizeSpace(stripHtml(descriptionScan.html))
+    : '';
 
-  const descIdx = html.indexOf('itemprop="description"');
-  const before = descIdx >= 0 ? html.slice(0, descIdx) : html;
+  const before = descriptionOpeningEnd >= 0 ? html.slice(0, descriptionOpeningEnd) : html;
   const spanPattern = /<span[^>]*class="rtltextaligneligible"[^>]*>([\s\S]*?)<\/span>/gi;
   let spanMatch;
   let location = '';
