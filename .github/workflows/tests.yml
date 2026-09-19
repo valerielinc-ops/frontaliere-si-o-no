@@ -2508,7 +2508,18 @@ jobs:
 
           const policyRoot = process.env.REVIEW_POLICY_ROOT;
           if (!policyRoot) throw new Error('REVIEW_POLICY_ROOT mancante');
-          const { parseReviewPages } = await import(pathToFileURL(`${policyRoot}/scripts/ci/lib/pr-review-admission.mjs`).href);
+          const admission = await import(pathToFileURL(`${policyRoot}/scripts/ci/lib/pr-review-admission.mjs`).href);
+          // Bootstrap: la copia trusted arriva dal BASE sha, e `parseReviewPages`
+          // è introdotto da questa stessa PR — su main non esiste ancora, quindi
+          // l'import nominale la rendeva non-reviewabile da sé (run 35472199618:
+          // `TypeError: parseReviewPages is not a function`, zero review mai
+          // postate). Finché non è mergiata si ricade su `flattenReviewPages`,
+          // che sul base c'è; dopo il merge il ramo di fallback è morto.
+          const parseReviewPages = admission.parseReviewPages
+            ?? ((value) => {
+              const flat = admission.flattenReviewPages(value);
+              return Array.isArray(flat) ? flat : null;
+            });
           const { historicalImportantFindings } = await import(pathToFileURL(`${policyRoot}/scripts/ci/review-gate.mjs`).href);
 
           const pages = JSON.parse(readFileSync(process.argv[2], 'utf8'));
