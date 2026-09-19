@@ -83,7 +83,13 @@ import { transformFlatRedirect } from './flatHtmlRedirectPlugin';
 import { transformHreflang } from './hreflangPostprocessPlugin';
 import { allowExternallyServedTargets } from '../scripts/lib/externally-served-paths.mjs';
 import { shouldEmitPath } from './shared/localeEmitFilter';
-import { collectHtml, collectHtmlFromClaimedPaths } from './shared/distHtmlWalk';
+import {
+  collectHtml,
+  collectHtmlFromClaimedPaths,
+  listWalkableDistTopLevels,
+  relativeDistPath,
+  type PostWalkIndexedInventory,
+} from './shared/distHtmlWalk';
 import { buildSharedHtmlPathIndex } from './shared/htmlPathIndex.mjs';
 import {
   startTimer as profileStart,
@@ -96,10 +102,17 @@ import { logBuildMem } from './shared/buildMemLog';
 import { releaseIncrementalManifestState } from './shared/incrementalManifest.mjs';
 import { getPathHistory } from './sharedWriteRegistry';
 import {
+  getKeywordLandingPlanSnapshot,
+  isStaleKeywordLanding,
+  landingPathFromDistRelative,
+  type KeywordLandingPlanSnapshot,
+} from './shared/keywordLandingPlan';
+import {
   filterPostWalkDerivedDigestRecords,
   latestClaimHash,
   loadPostWalkDerivedDigestSidecar,
   loadPostWalkUnmanifestedTopLevels,
+  postWalkDependencyHash,
   postWalkDerivedTemplateHash,
   wasPostWalkDerivedOutputPreserved,
   writePostWalkDerivedDigestSidecar,
@@ -116,6 +129,7 @@ import {
   POST_WALK_INCREMENTAL_DEPENDENCY_RULE,
   postWalkIncrementalEnabled,
   postWalkIncrementalVerifyEnabled,
+  postWalkTargetedWalkEnabled,
   postWalkIncrementalVerifySampleSize,
   releasePostWalkManifestState,
   selectPostWalkVerificationPaths,
@@ -124,6 +138,11 @@ import {
   type PostWalkIncrementalPlan,
   type PostWalkVerificationPathInfo,
 } from './shared/postWalkIncremental';
+import {
+  loadPostWalkWalkInventory,
+  writePostWalkWalkInventory,
+  type PostWalkWalkInventory,
+} from './shared/postWalkWalkInventory';
 
 interface CoordinatorOptions {
   readonly baseUrl: string;
@@ -207,10 +226,12 @@ function resolvePostWalkManifestLocales(): readonly string[] {
 }
 
 function isPreEmittedJobFlatBridgePath(distDir: string, filePath: string): boolean {
-  if (path.basename(filePath) === 'index.html' || !filePath.endsWith('.html')) return false;
-  const rel = path.relative(distDir, filePath).split(path.sep).join('/');
-  const parts = rel.split('/');
-  const fileName = parts[parts.length - 1];
+  if (!filePath.endsWith('.html')) return false;
+  const relative = relativeDistPath(distDir, filePath);
+  const rel = path.sep === '/' ? relative : relative.replaceAll(path.sep, '/');
+  const lastSlash = rel.lastIndexOf('/');
+  const fileName = lastSlash < 0 ? rel : rel.slice(lastSlash + 1);
+  if (fileName === 'index.html') return false;
   // relatedSearchClustersPlugin emits these hub flat files as full HTML; the
   // coordinator must still convert them via the normal sibling transform.
   if (RELATED_SEARCH_HUB_FLAT.has(fileName)) return false;
@@ -218,14 +239,18 @@ function isPreEmittedJobFlatBridgePath(distDir: string, filePath: string): boole
   // Direct flat files under job-board sections are emitted as redirect bridges
   // by jobsSeoPagesPlugin._qwFlat() and relatedSearchClustersPlugin's cluster
   // loop. Keep them in existingHtmlSet, but skip the worker read/transform.
+  const firstSlash = rel.indexOf('/');
+  if (firstSlash < 0) return false;
+  const secondSlash = rel.indexOf('/', firstSlash + 1);
+  if (rel.startsWith('cerca-lavoro-') && secondSlash < 0) return true;
+  if (secondSlash < 0 || rel.indexOf('/', secondSlash + 1) >= 0) return false;
+  const secondSegment = rel.slice(firstSlash + 1, secondSlash);
   return (
-    parts.length === 2 && parts[0].startsWith('cerca-lavoro-')
+    rel.startsWith('en/') && secondSegment.startsWith('find-jobs-')
   ) || (
-    parts.length === 3 && parts[0] === 'en' && parts[1].startsWith('find-jobs-')
+    rel.startsWith('de/') && secondSegment.startsWith('jobs-im-')
   ) || (
-    parts.length === 3 && parts[0] === 'de' && parts[1].startsWith('jobs-im-')
-  ) || (
-    parts.length === 3 && parts[0] === 'fr' && parts[1].startsWith('trouver-emploi-')
+    rel.startsWith('fr/') && secondSegment.startsWith('trouver-emploi-')
   );
 }
 
@@ -383,6 +408,7 @@ async function runInWorker(
     contextualLinkDefaults: ContextualLinkDefaults;
     assignedFiles: readonly string[];
     htmlPathIndex: ReturnType<typeof buildSharedHtmlPathIndex>;
+    keywordLandingPlan: KeywordLandingPlanSnapshot;
   },
 ): Promise<WorkerResult> {
   return new Promise((resolve, reject) => {
@@ -456,6 +482,7 @@ function prepareDerivedPostWalkScope(input: {
   readonly paths: readonly string[];
   readonly existingHtmlSet: ReadonlySet<string>;
   readonly blogIndexHtmlByPath: ReadonlyMap<string, BlogLinkLocale>;
+  readonly dependencyHash: string;
   readonly previous: ReadonlyMap<string, PostWalkDerivedDigestRecord>;
 }): {
   readonly processPaths: readonly string[];
@@ -479,6 +506,7 @@ function prepareDerivedPostWalkScope(input: {
       inputHash,
       sourcePath: path.relative(input.distDir, sourceFilePath).split(path.sep).join('/'),
       sourceHash: latestClaimHash(sourceFilePath),
+      dependencyHash: input.dependencyHash,
       templateHash: postWalkDerivedTemplateHash(kind),
     });
     const previous = input.previous.get(relative);
@@ -486,6 +514,7 @@ function prepareDerivedPostWalkScope(input: {
       && previous.kind === kind
       && previous.inputHash !== null
       && previous.inputHash === inputHash
+      && previous.dependencyHash === input.dependencyHash
       && wasPostWalkDerivedOutputPreserved(input.rootDir, filePath);
     if (preserved) skipped.add(filePath);
     else selected.add(filePath);
@@ -550,6 +579,9 @@ export function postWalkCoordinatorPlugin(
         let derivedSidecarReady = false;
         let derivedRecordsForWrite: ReadonlyMap<string, PostWalkDerivedDigestRecord> = new Map();
         let canPersistUnmanifestedInventory = false;
+        const previousWalkInventory: PostWalkWalkInventory | null = incrementalEnabled
+          ? await loadPostWalkWalkInventory(rootDir)
+          : null;
         const previousDerivedSidecar = incrementalEnabled
           ? loadPostWalkDerivedDigestSidecar(rootDir)
           : new Map<string, PostWalkDerivedDigestRecord>();
@@ -642,37 +674,99 @@ export function postWalkCoordinatorPlugin(
         // ── Phase A: enumerate every emitted HTML file once ──────────
         const walkStartedAt = Date.now();
         const __tWalk = profileStart();
-        const canUseTargetedWalk = incrementalEnabled
-          && previousUnmanifestedTopLevels !== null
-          && manifests !== null
+        const __tEnumeration = profileStart();
+        const walkEnumerationStartedAt = Date.now();
+        const currentClaimedPaths = [...getPathHistory().keys()];
+        const currentClaimedSet = new Set(currentClaimedPaths);
+        // A claim persisted by the previous build but not re-claimed now may
+        // belong to a page this build no longer emits. Keep it only when the
+        // file still exists, so a removed URL never lingers in
+        // existingHtmlSet (hreflang/bridge existence checks) nor in the next
+        // inventory. Only persisted-only paths pay the stat.
+        let persistedClaimsPruned = 0;
+        const persistedClaimedPaths: string[] = [];
+        for (const relative of previousWalkInventory?.claimedPaths ?? []) {
+          const filePath = path.join(distDir, relative);
+          if (currentClaimedSet.has(filePath)) continue;
+          if (fs.existsSync(filePath)) persistedClaimedPaths.push(filePath);
+          else persistedClaimsPruned++;
+        }
+        const claimedWalkPaths = [
+          ...new Set([...currentClaimedPaths, ...persistedClaimedPaths]),
+        ];
+        const hasPersistedTargetRoots = previousWalkInventory !== null
+          || previousUnmanifestedTopLevels !== null;
+        const hasPersistedWalkPaths = previousWalkInventory !== null
+          && previousWalkInventory.unmanifestedPaths.length > 0;
+        const manifestAllowsTargetedWalk = manifests !== null
           && !('reason' in manifests)
-          && getPathHistory().size > 0;
+          && !manifests.state.fallbackReason;
+        const canUseTargetedWalk = incrementalEnabled
+          && postWalkTargetedWalkEnabled()
+          && manifestAllowsTargetedWalk
+          && hasPersistedTargetRoots
+          && (claimedWalkPaths.length > 0 || hasPersistedWalkPaths);
+        const indexedInventory: PostWalkIndexedInventory | undefined = previousWalkInventory
+          ? {
+            topLevels: previousWalkInventory.topLevels,
+            unmanifestedPaths: previousWalkInventory.unmanifestedPaths,
+          }
+          : undefined;
+        if (incrementalEnabled) {
+          // eslint-disable-next-line no-console
+          console.log(
+            `[post-walk-coordinator][incremental] walk-input `
+              + `inventory=${previousWalkInventory ? 'present' : 'missing'} `
+              + `inventory-claimed=${previousWalkInventory?.claimedPaths.length ?? 0} `
+              + `inventory-unmanifested=${previousWalkInventory?.unmanifestedPaths.length ?? 0} `
+              + `legacy-top-levels=${previousUnmanifestedTopLevels?.length ?? 0} `
+              + `path-history=${currentClaimedPaths.length} `
+              + `persisted-claims-pruned=${persistedClaimsPruned} `
+              + `targeted-walk=${postWalkTargetedWalkEnabled() ? 'opt-in' : 'off'} `
+              + `manifests=${manifests === null ? 'missing' : 'loaded'}`,
+          );
+        }
         const walkResult = canUseTargetedWalk
           ? collectHtmlFromClaimedPaths(
             distDir,
-            getPathHistory().keys(),
-            previousUnmanifestedTopLevels,
+            claimedWalkPaths,
+            previousWalkInventory?.unmanifestedTopLevels
+              ?? previousUnmanifestedTopLevels
+              ?? [],
+            indexedInventory,
           )
           : {
             paths: collectHtml(distDir, []),
             claimed: 0,
             targeted: 0,
-          };
+            topLevels: listWalkableDistTopLevels(distDir),
+            topLevelsChanged: false,
+            indexed: 0,
+        };
+        const walkEnumerationMs = Date.now() - walkEnumerationStartedAt;
+        profileRecord('walk-enumerate', __tEnumeration);
+        const __tClassify = profileStart();
+        const walkClassifyStartedAt = Date.now();
         const walkMode = canUseTargetedWalk ? 'claimed+targeted' : 'full';
         const walkClaimed = walkResult.claimed;
         const walkTargeted = walkResult.targeted;
-        const allHtmlPaths: string[] = [...walkResult.paths];
+        const allHtmlPaths = walkResult.paths;
         const filesScanned = allHtmlPaths.length;
         const existingHtmlSet = new Set<string>(allHtmlPaths);
         const manifestState = manifests !== null && !('reason' in manifests)
           ? manifests.state
           : null;
+        canPersistUnmanifestedInventory = incrementalEnabled;
         let coveredHtmlPathCount = 0;
         const unmanifestedByTopLevel = new Map<string, number>();
+        const unmanifestedPathsForInventory: string[] = [];
+        const transformableUnmanifestedPaths: string[] = [];
         let processableCount = 0;
         let preEmittedFlatBridgesSkipped = 0;
         let nonOwnedLocaleSkipped = 0;
-        const excludedHtmlPaths = incrementalEnabled ? new Set<string>() : null;
+        const excludedHtmlPaths = incrementalEnabled && manifestState
+          ? new Set<string>()
+          : null;
         for (let index = 0; index < allHtmlPaths.length; index += 1) {
           const file = allHtmlPaths[index];
           // Per-locale matrix shard (BUILD_LOCALE): a file in a NON-owned
@@ -697,10 +791,9 @@ export function postWalkCoordinatorPlugin(
           if (!shouldEmitPath(file, distDir)) {
             nonOwnedLocaleSkipped++;
             excludedHtmlPaths?.add(file);
-          } else if (isPreEmittedJobFlatBridgePath(distDir, file)) {
-            preEmittedFlatBridgesSkipped++;
-            excludedHtmlPaths?.add(file);
           } else {
+            const preEmitted = isPreEmittedJobFlatBridgePath(distDir, file);
+            let relative: string | null = null;
             if (manifestState) {
               const covered = postWalkManifestCoversHtmlPath(
                 distDir,
@@ -710,13 +803,30 @@ export function postWalkCoordinatorPlugin(
               if (covered) {
                 coveredHtmlPathCount++;
               } else {
-                const relative = path.relative(distDir, file);
-                const topLevel = relative.split(path.sep, 1)[0] || '<root>';
+                relative = relativeDistPath(distDir, file);
+                // A root-level file such as dist/404.html is an inventory
+                // member, not a directory root. Encode it as <root> so the
+                // next targeted walk does not try to readdir(dist/404.html).
+                const relativeSegments = relative.split(path.sep);
+                const topLevel = relativeSegments.length > 1
+                  ? relativeSegments[0]
+                  : '<root>';
                 unmanifestedByTopLevel.set(
                   topLevel,
                   (unmanifestedByTopLevel.get(topLevel) ?? 0) + 1,
                 );
+                unmanifestedPathsForInventory.push(file);
+                if (!preEmitted && isStaleKeywordLanding(landingPathFromDistRelative(relative))) {
+                  transformableUnmanifestedPaths.push(file);
+                }
               }
+            } else {
+              unmanifestedPathsForInventory.push(file);
+            }
+            if (preEmitted) {
+              preEmittedFlatBridgesSkipped++;
+              excludedHtmlPaths?.add(file);
+              continue;
             }
             allHtmlPaths[processableCount] = file;
             processableCount++;
@@ -725,6 +835,8 @@ export function postWalkCoordinatorPlugin(
         allHtmlPaths.length = processableCount;
         const fullProcessHtmlPaths: readonly string[] = allHtmlPaths;
         processHtmlPaths = fullProcessHtmlPaths;
+        const walkClassifyMs = Date.now() - walkClassifyStartedAt;
+        profileRecord('walk-classify', __tClassify);
         profileRecord('walk-dist', __tWalk);
         const walkPhaseMs = Date.now() - walkStartedAt;
         if (incrementalEnabled) {
@@ -776,6 +888,7 @@ export function postWalkCoordinatorPlugin(
               // main dispatch. Without verification we keep the conservative
               // historical behaviour and process every uncovered file.
               includeUncoveredPaths: !postWalkIncrementalVerifyEnabled(),
+              transformableUnmanifestedPaths,
               state: manifests.state,
             });
             processHtmlPaths = incrementalPlan.mode === 'incremental'
@@ -868,6 +981,7 @@ export function postWalkCoordinatorPlugin(
             blogIndexHtmlByPath.set(article.absPath, article.locale);
           }
         }
+        const dependencyHash = postWalkDependencyHash(existingHtmlSet, blogIndexHtmlByPath);
         profileRecord('load-blog-articles', __tBlogLoad);
         const blogPhaseMs = Date.now() - blogPhaseStartedAt;
 
@@ -878,6 +992,7 @@ export function postWalkCoordinatorPlugin(
             paths: fullProcessHtmlPaths,
             existingHtmlSet,
             blogIndexHtmlByPath,
+            dependencyHash,
             previous: previousDerivedSidecar,
           });
           derivedSidecarSkipped = incrementalPlan.mode === 'incremental'
@@ -994,6 +1109,7 @@ export function postWalkCoordinatorPlugin(
                 profileRecord('chunk-roundrobin', __tChunk);
                 const workerUrl = new URL('./postWalkWorker.mjs', import.meta.url);
                 const blogIndexEntries = Array.from(blogIndexHtmlByPath.entries());
+                const keywordLandingPlan = getKeywordLandingPlanSnapshot();
                 const __tHtmlIndex = profileStart();
                 const htmlPathIndex = buildSharedHtmlPathIndex(existingHtmlSet);
                 profileRecord('shared-html-path-index', __tHtmlIndex);
@@ -1009,6 +1125,7 @@ export function postWalkCoordinatorPlugin(
                       contextualLinkDefaults: contextualLinkDefaults(),
                       assignedFiles,
                       htmlPathIndex,
+                      keywordLandingPlan,
                     });
                     if (r.profilerBuckets && r.profilerBuckets.length > 0) {
                       profileIngestBuckets(r.profilerBuckets);
@@ -1041,7 +1158,20 @@ export function postWalkCoordinatorPlugin(
           writePostWalkDerivedDigestSidecar(rootDir, recordsWithoutFailures);
         }
         if (incrementalEnabled && incrementalPlan && canPersistUnmanifestedInventory) {
-          writePostWalkUnmanifestedTopLevels(rootDir, unmanifestedByTopLevel.keys());
+          const inventoryUnmanifestedTopLevels = new Set(unmanifestedByTopLevel.keys());
+          for (const filePath of unmanifestedPathsForInventory) {
+            const relative = relativeDistPath(distDir, filePath).split(path.sep).join('/');
+            inventoryUnmanifestedTopLevels.add(relative.split('/', 1)[0] || '<root>');
+          }
+          await writePostWalkWalkInventory(rootDir, distDir, {
+            topLevels: walkResult.topLevels,
+            unmanifestedTopLevels: inventoryUnmanifestedTopLevels,
+            claimedPaths: claimedWalkPaths,
+            unmanifestedPaths: unmanifestedPathsForInventory,
+          });
+          // Keep the v1 top-level cache for older runners and for a bounded
+          // fallback when the exact path index is unavailable.
+          writePostWalkUnmanifestedTopLevels(rootDir, inventoryUnmanifestedTopLevels);
         }
 
         for (const f of merged.writeFailures) {
@@ -1079,8 +1209,11 @@ export function postWalkCoordinatorPlugin(
               + `processed=${processHtmlPaths.length} `
               + `skipped-unchanged=${incrementalPlan.skippedUnchanged} `
               + `unmanifested=${incrementalPlan.unmanifested ?? 'n/a'} `
+              + `transformable-unmanifested=${transformableUnmanifestedPaths.length} `
               + `unmanifested-skipped=${incrementalPlan.unmanifestedSkipped ?? 'n/a'} `
               + `walk=${walkMode} walk-claimed=${walkClaimed} walk-targeted=${walkTargeted} `
+              + `walk-enumerate-ms=${walkEnumerationMs} walk-classify-ms=${walkClassifyMs} `
+              + `walk-indexed=${walkResult.indexed} walk-top-levels-changed=${walkResult.topLevelsChanged} `
               + `unmanifested-top-level=${unmanifestedTopLevel || 'none'} `
               + `derived-sidecar=${derivedSidecarRecords}/${derivedSidecarSkipped}/${derivedSidecarProcessed} `
               + `affected=${incrementalPlan.affected} `

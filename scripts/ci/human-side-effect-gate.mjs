@@ -8,7 +8,9 @@
  *
  *   - the event is an explicit workflow_dispatch, a repository_dispatch
  *     carrying the exact publisher action and a workflow-pinned principal
- *     attestation, or an explicitly opted-in schedule
+ *     attestation (or the narrowly allowlisted event-only compatibility
+ *     contract while that attestation is being rolled out), or an explicitly
+ *     opted-in schedule
  *     (APPROVAL_TRUSTED_SCHEDULE=true);
  *   - the dispatch was initiated by the same actor that triggered the run;
  *   - GitHub identifies that actor as a User (not an App/bot);
@@ -169,6 +171,7 @@ export function evaluateHumanApproval({
   dispatchSourceEvent,
   approvalTrustedSchedule,
   trustedSchedule,
+  allowLegacyPublisherDispatch,
   expectedDispatchActor,
   expectedDispatchRepository,
   expectedDispatchScope,
@@ -195,6 +198,9 @@ export function evaluateHumanApproval({
   const publisherActor = stringValue(dispatchActor);
   const publisherAction = stringValue(dispatchAction);
   const publisherPayloadPresent = stringValue(dispatchPayloadPresent);
+  const legacyPublisherDispatch = isPublisherDispatchEvent
+    && publisherPayloadPresent === 'false'
+    && normalizeBooleanInput(allowLegacyPublisherDispatch) === 'true';
   const publisherVerification = stringValue(publisherSourceVerified);
   const sourceSchemaVersion = stringValue(dispatchSourceSchemaVersion);
   const sourceRepository = stringValue(dispatchSourceRepository);
@@ -229,9 +235,11 @@ export function evaluateHumanApproval({
   if (!isSafeScope(approvalScope)) reasons.push('scope-invalid');
 
   if (isPublisherDispatchEvent) {
-    // client_payload is only an untrusted claim. The preceding workflow step
-    // must have verified it against the source repository's read-only metadata
-    // API; the gate also checks the exact values passed from that payload.
+    // client_payload is only an untrusted claim. When present, the preceding
+    // workflow step must have verified it against the source repository's
+    // read-only metadata API; the gate also checks the exact values passed from
+    // that payload. During the emitter migration, the explicit compatibility
+    // flag can admit only the old event-only contract (no payload at all).
     if (consentValue !== '') reasons.push('publisher-dispatch-has-consent-override');
     if (dryRunValue !== '') reasons.push('publisher-dispatch-has-dry-run-override');
     if (publisherAction !== PUBLISHER_DISPATCH_ACTION) reasons.push('publisher-dispatch-action-mismatch');
@@ -245,7 +253,9 @@ export function evaluateHumanApproval({
     if (!publisherActor || !humanActor || publisherActor.toLowerCase() !== humanActor.toLowerCase()) {
       reasons.push('publisher-dispatch-sender-mismatch');
     }
-    if (publisherPayloadPresent !== 'true') reasons.push('publisher-dispatch-payload-missing-or-unknown');
+    if (publisherPayloadPresent !== 'true' && !legacyPublisherDispatch) {
+      reasons.push('publisher-dispatch-payload-missing-or-unknown');
+    }
     if (!isSafeRepository(configuredRepository) || repo.toLowerCase() !== configuredRepository.toLowerCase()) {
       reasons.push('publisher-dispatch-repository-mismatch');
     }
@@ -255,22 +265,24 @@ export function evaluateHumanApproval({
     if (!isSafeScope(configuredScope) || approvalScope !== configuredScope) {
       reasons.push('publisher-dispatch-scope-mismatch');
     }
-    if (publisherVerification !== 'true') reasons.push('publisher-source-run-unverified');
-    if (sourceSchemaVersion !== '1') reasons.push('publisher-source-schema-mismatch');
-    if (sourceRepository !== PUBLISHER_SOURCE_REPOSITORY) {
-      reasons.push('publisher-source-repository-mismatch');
+    if (publisherPayloadPresent === 'true') {
+      if (publisherVerification !== 'true') reasons.push('publisher-source-run-unverified');
+      if (sourceSchemaVersion !== '1') reasons.push('publisher-source-schema-mismatch');
+      if (sourceRepository !== PUBLISHER_SOURCE_REPOSITORY) {
+        reasons.push('publisher-source-repository-mismatch');
+      }
+      if (sourceWorkflow !== PUBLISHER_SOURCE_WORKFLOW) {
+        reasons.push('publisher-source-workflow-mismatch');
+      }
+      if (sourceWorkflowPath !== PUBLISHER_SOURCE_WORKFLOW_PATH) {
+        reasons.push('publisher-source-workflow-path-mismatch');
+      }
+      if (!isPositiveIntegerString(sourceRunId)) reasons.push('publisher-source-run-id-invalid');
+      if (sourceRunAttempt !== '1') reasons.push('publisher-source-run-is-rerun');
+      if (!isSafeSha(sourceSha)) reasons.push('publisher-source-sha-invalid');
+      if (sourceBranch !== PUBLISHER_SOURCE_BRANCH) reasons.push('publisher-source-branch-mismatch');
+      if (sourceEvent !== PUBLISHER_SOURCE_EVENT) reasons.push('publisher-source-event-mismatch');
     }
-    if (sourceWorkflow !== PUBLISHER_SOURCE_WORKFLOW) {
-      reasons.push('publisher-source-workflow-mismatch');
-    }
-    if (sourceWorkflowPath !== PUBLISHER_SOURCE_WORKFLOW_PATH) {
-      reasons.push('publisher-source-workflow-path-mismatch');
-    }
-    if (!isPositiveIntegerString(sourceRunId)) reasons.push('publisher-source-run-id-invalid');
-    if (sourceRunAttempt !== '1') reasons.push('publisher-source-run-is-rerun');
-    if (!isSafeSha(sourceSha)) reasons.push('publisher-source-sha-invalid');
-    if (sourceBranch !== PUBLISHER_SOURCE_BRANCH) reasons.push('publisher-source-branch-mismatch');
-    if (sourceEvent !== PUBLISHER_SOURCE_EVENT) reasons.push('publisher-source-event-mismatch');
   }
 
   const nonce = deriveApprovalNonce({
@@ -287,7 +299,9 @@ export function evaluateHumanApproval({
     effectiveDryRun: reasons.length !== 0 || nonce === null,
     nonce,
     reason: reasons[0] || (isPublisherDispatchEvent
-      ? 'trusted-publisher-dispatch-approved'
+      ? (legacyPublisherDispatch
+        ? 'trusted-legacy-publisher-dispatch-approved'
+        : 'trusted-publisher-dispatch-approved')
       : isTrustedScheduleEvent
         ? 'trusted-schedule-approved'
         : 'human-workflow-dispatch-approved'),
@@ -353,6 +367,7 @@ function githubEnvironment(env = process.env) {
     dispatchSourceBranch: env.APPROVAL_DISPATCH_SOURCE_BRANCH,
     dispatchSourceEvent: env.APPROVAL_DISPATCH_SOURCE_EVENT,
     approvalTrustedSchedule: env.APPROVAL_TRUSTED_SCHEDULE,
+    allowLegacyPublisherDispatch: env.APPROVAL_ALLOW_LEGACY_PUBLISHER_DISPATCH,
     expectedDispatchActor: env.APPROVAL_EXPECTED_DISPATCH_ACTOR,
     expectedDispatchRepository: env.APPROVAL_EXPECTED_DISPATCH_REPOSITORY,
     expectedDispatchScope: env.APPROVAL_EXPECTED_DISPATCH_SCOPE,

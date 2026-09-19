@@ -60,6 +60,13 @@ jobs:
       - name: Load push credentials from Remote Config
         run: node scripts/load-rc-env.mjs
 
+      # #9142: remove the one expired archive emitted when the Coop translation
+      # cache was mistaken for a crawler slice. The command is an explicit
+      # allowlist with validation, so normal crawler-owned archives remain
+      # untouched and the absent/already-clean case is idempotent.
+      - name: Remove legacy crawler scratch archives
+        run: node scripts/cleanup-legacy-crawler-residues.mjs --apply
+
       - name: Cleanup each per-crawler slice
         env:
           JOBS_STALE_DAYS: ${{ github.event.inputs.stale_days || '' }}

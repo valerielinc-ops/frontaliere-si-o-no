@@ -115,6 +115,16 @@ interface EmployerDataset {
 const HOME_LABEL: Record<Locale, string> = { it: 'Home', en: 'Home', de: 'Startseite', fr: 'Accueil' };
 const HUB_LABEL: Record<Locale, string> = { it: 'Aziende', en: 'Companies', de: 'Unternehmen', fr: 'Entreprises' };
 
+// Visible methodology copy for indexable profiles. It explains the boundary
+// of the corpus-derived facts and gives the page useful context even when an
+// employer has many ad slots but only a compact set of cards.
+const PROFILE_METHOD_NOTE: Record<Locale, string> = {
+  it: 'I conteggi riflettono gli annunci attivi disponibili al momento della compilazione; sedi, salari e contratti compaiono solo quando il dato è pubblicato nella fonte dell’offerta. Per candidarti, verifica sempre l’annuncio originale.',
+  en: 'The counts reflect active postings available when this page was built; locations, salaries and contract types appear only when the job source publishes them. For an application, always check the original posting.',
+  de: 'Die Zählungen beziehen sich auf aktive Stellen, die beim Seitenaufbau verfügbar waren; Standorte, Gehälter und Vertragsarten erscheinen nur, wenn die Stellenquelle sie veröffentlicht. Vor einer Bewerbung bitte die Originalanzeige prüfen.',
+  fr: 'Les totaux correspondent aux annonces actives disponibles lors de la génération de la page; lieux, salaires et types de contrat apparaissent uniquement si la source de l’offre les publie. Pour postuler, vérifiez toujours l’annonce originale.',
+};
+
 // ── <title> / <h1>: aligned to the phrase people actually type ─────────────
 //
 // Until 2026-08-07 this page shipped «Lavorare in Coop: posizioni aperte e
@@ -609,7 +619,7 @@ ${breadcrumbHtml(locale, name)}
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4">${tiles}</div>
 </header>
 ${companyFollowMountPlaceholder({ company: name, companyKey: profile.companyKey, locale, surface: 'employer_profile' })}
-<section class="mb-7"><p class="my-2.5 leading-relaxed text-body">${esc(introProse(profile, allActiveJobs, locale))}</p></section>
+<section class="mb-7"><p class="my-2.5 leading-relaxed text-body">${esc(introProse(profile, allActiveJobs, locale))}</p><p class="my-2.5 leading-relaxed text-body">${esc(PROFILE_METHOD_NOTE[locale])}</p></section>
 <section class="mb-2">
 <h2 class="text-lg font-bold text-strong mb-3">${esc(JOBS_HEADING[locale])} (${profile.activeJobs})</h2>
 ${jobListHtml}

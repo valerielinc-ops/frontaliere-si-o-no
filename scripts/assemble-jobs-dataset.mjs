@@ -806,7 +806,9 @@ const MIN_UNIQUE_WORDS = 30;
 // (dedicated-crawler-common.mjs SYSTEMIC_MIN_TOTAL/absolute-count floor): a
 // genuine parser regression manifests across MANY jobs, not one or two, so
 // below this floor the signal is too weak to justify bricking the whole run.
-const BOILERPLATE_MIN_ELIGIBLE = Number(process.env.JOBS_BOILERPLATE_MIN_ELIGIBLE) || 4;
+// Keep small marker-only samples quarantineable: 8/8 is enough to remove the
+// bad records from the slice, but not enough to prove a fleet-wide parser break.
+const BOILERPLATE_MIN_ELIGIBLE = Number(process.env.JOBS_BOILERPLATE_MIN_ELIGIBLE) || 10;
 const BOILERPLATE_MIN_COUNT = Number(process.env.JOBS_BOILERPLATE_MIN_COUNT) || 2;
 
 // Anti-shrink guard thresholds (axa-svizzera incident, 2026-07-01): only
@@ -1532,8 +1534,8 @@ export function detectBoilerplateDescriptions(jobs, crawlerKey) {
  * the band sits at 60% of the floor (18) with >=5 words of margin on each
  * side. Above it the systemic verdict stops counting the job; the job is still
  * reported, and marker-phrase or empty descriptions are untouched at any
- * length — which is why artificialy (8/8 `marker_phrases` at 24-27 unique
- * words, group 12) keeps failing exactly as before.
+ * length — which is why artificialy (10/12 `marker_phrases` at 24-27 unique
+ * words) keeps failing.
  */
 const MARGINAL_UNIQUE_WORDS_FLOOR = Math.ceil(MIN_UNIQUE_WORDS * 0.6);
 

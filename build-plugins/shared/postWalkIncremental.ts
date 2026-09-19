@@ -9,6 +9,7 @@ import {
   readIncrementalManifestHeader,
   streamIncrementalManifest,
 } from './incrementalManifest.mjs';
+import { relativeDistPath } from './distHtmlWalk';
 
 export const POST_WALK_INCREMENTAL_ENV = 'POST_WALK_INCREMENTAL';
 export const POST_WALK_INCREMENTAL_VERIFY_ENV = 'POST_WALK_INCREMENTAL_VERIFY';
@@ -50,7 +51,7 @@ const NON_HTML_MANIFEST_KIND = 'related-search-sitemap';
  * manifest entry. Unregistered families remain on the existing full path.
  */
 export const POST_WALK_INCREMENTAL_DEPENDENCY_RULE =
-  'aliases + same kind/inputHash cluster + same-job/explicit path references + manifest-projected hreflang targets; add/remove stays incremental unless identity or existence proof is missing; unmanifested paths require the verifier sample';
+  'aliases + same kind/inputHash cluster + same-job/explicit path references + manifest-projected hreflang targets; add/remove stays incremental unless identity or existence proof is missing; unmanifested paths require the verifier sample unless the full-transform predicate selects them';
 
 export type PostWalkManifestMetadata = {
   /** Compact JSONL projection used by the streaming planner. */
@@ -408,9 +409,7 @@ export function postWalkManifestCoversHtmlPath(
   filePath: string,
   entries: ReadonlyMap<string, PostWalkManifestEntry>,
 ): boolean {
-  const logical = logicalPathForHtml(
-    normalizeRelativePath(path.relative(distDir, filePath)),
-  );
+  const logical = logicalPathForHtml(relativeDistPath(distDir, filePath));
   const entry = logical === null ? undefined : entries.get(logical);
   return entry !== undefined && isHtmlManifestEntry(entry);
 }
@@ -765,21 +764,14 @@ export async function loadPostWalkManifestState(
       selectedLocales,
       'corrente',
     );
-    const previousEmitterFingerprint = readManifestEmitterFingerprint(
-      previousFiles,
-      selectedLocales,
-      'precedente',
-    );
-    if (
-      (currentEmitterFingerprint || previousEmitterFingerprint)
-      && JSON.stringify(currentEmitterFingerprint ?? null)
-        !== JSON.stringify(previousEmitterFingerprint ?? null)
-    ) {
-      return {
-        ok: false,
-        reason: 'jobs SEO emitter fingerprint cambiato: delta non riusabile',
-      };
-    }
+    // A first build has a current manifest but deliberately no previous one.
+    // Treat that as a seed/full fallback while retaining the current compact
+    // projection so the coordinator can classify unmanifested paths and write
+    // the walk inventory for the very next build.
+    const previousManifestAvailable = previousFiles.every((file) => fs.existsSync(file));
+    const previousEmitterFingerprint = previousManifestAvailable
+      ? readManifestEmitterFingerprint(previousFiles, selectedLocales, 'precedente')
+      : undefined;
     const currentResult = await streamManifestFiles(
       currentFiles,
       selectedLocales,
@@ -819,16 +811,32 @@ export async function loadPostWalkManifestState(
       eventJobIds: new Set(),
       eventSlugs: new Set(),
     };
-    const previousResult = await streamManifestFiles(
-      previousFiles,
-      selectedLocales,
-      'precedente',
-      (entry) => {
-        registerPreviousEntry(state, entry);
-        recordPreviousReferenceSources(state, entry, baseUrl);
-      },
-      { validateUniquePaths: true, retainReferences: true },
+    // Keep the current compact projection even when the producer fingerprint
+    // changes. The plan still falls back as one full unit, but the coordinator
+    // can classify the full walk against the current manifest and persist the
+    // exact unmanifested index for the next identical build.
+    const emitterFingerprintChanged = previousManifestAvailable && Boolean(
+      (currentEmitterFingerprint || previousEmitterFingerprint)
+      && JSON.stringify(currentEmitterFingerprint ?? null)
+        !== JSON.stringify(previousEmitterFingerprint ?? null),
     );
+    const previousResult = previousManifestAvailable && !emitterFingerprintChanged
+      ? await streamManifestFiles(
+        previousFiles,
+        selectedLocales,
+        'precedente',
+        (entry) => {
+          registerPreviousEntry(state, entry);
+          recordPreviousReferenceSources(state, entry, baseUrl);
+        },
+        { validateUniquePaths: true, retainReferences: true },
+      )
+      : {
+        entryCount: 0,
+        htmlEntryCount: 0,
+        kinds: new Map<string, string>(),
+        jobsSeoEmitterFingerprint: undefined,
+      };
 
     // The jobs/related emitters deliberately change this fingerprint when a
     // template, digest algorithm, or other producer contract changes.  Every
@@ -836,13 +844,7 @@ export async function loadPostWalkManifestState(
     // delta.  Treat that as one bounded full-pass fallback instead of building
     // hundreds of thousands of individual `changed` edges and then paying the
     // full planner/read cost anyway.
-    const emitterFingerprintChanged = Boolean(
-      (currentResult.jobsSeoEmitterFingerprint || previousResult.jobsSeoEmitterFingerprint)
-      && JSON.stringify(currentResult.jobsSeoEmitterFingerprint ?? null)
-        !== JSON.stringify(previousResult.jobsSeoEmitterFingerprint ?? null),
-    );
     if (emitterFingerprintChanged) {
-      currentEntries.clear();
       changed.clear();
       added.clear();
       removed.clear();
@@ -882,9 +884,11 @@ export async function loadPostWalkManifestState(
         removed,
         affected,
         unresolvedRemovals,
-        fallbackReason: emitterFingerprintChanged
-          ? 'jobs SEO emitter fingerprint cambiato: delta non riusabile'
-          : manifestKindMetadataMismatch(current.kinds, previousResult.kinds),
+        fallbackReason: !previousManifestAvailable
+          ? 'manifest precedente assente: seed full fallback'
+          : emitterFingerprintChanged
+            ? 'jobs SEO emitter fingerprint cambiato: delta non riusabile'
+            : manifestKindMetadataMismatch(current.kinds, previousResult.kinds),
       },
     };
   } catch (error) {
@@ -1066,6 +1070,13 @@ type PostWalkPlanInput = {
   readonly coveredHtmlPathCount?: number;
   /** Keep the historical conservative path when no verifier is active. */
   readonly includeUncoveredPaths?: boolean;
+  /**
+   * Unmanifested physical files for which the full transform predicate has
+   * already proved a write is possible. They stay bounded to the walk's
+   * uncovered subset instead of reopening every unmanifested file in the
+   * verifier.
+   */
+  readonly transformableUnmanifestedPaths?: readonly string[];
 };
 
 function unresolvedRemovalReason(unresolved: ReadonlySet<string>): string {
@@ -1184,6 +1195,21 @@ function buildPostWalkPlanFromState(
         affectedPhysical += 1;
       }
     }
+  }
+
+  // Some post-walk transforms intentionally operate on files that no current
+  // emitter registers (for example a stale keyword landing left in a carried
+  // dist). Keep those exact full-walk candidates in the incremental dispatch;
+  // treating every unmanifested file as eligible would erase the optimization.
+  for (const filePath of input.transformableUnmanifestedPaths ?? []) {
+    if (input.excludedHtmlPaths?.has(filePath) || !allHtml.has(filePath)) continue;
+    const relative = normalizeRelativePath(path.relative(input.distDir, filePath));
+    const logical = logicalPathForHtml(relative);
+    const entry = logical === null ? undefined : state.current.entries.get(logical);
+    if (entry !== undefined && isHtmlManifestEntry(entry)) continue;
+    if (selectedPathSet.has(filePath)) continue;
+    selectedPathSet.add(filePath);
+    unmanifestedSelected += 1;
   }
 
   const includeUncoveredPaths = input.includeUncoveredPaths !== false;
@@ -1341,6 +1367,21 @@ export function comparePostWalkVerification(input: {
 
 export function postWalkIncrementalEnabled(): boolean {
   return process.env[POST_WALK_INCREMENTAL_ENV] === '1';
+}
+
+export const POST_WALK_TARGETED_WALK_ENV = 'POST_WALK_TARGETED_WALK';
+
+/**
+ * The claimed+targeted walk (and its persisted exact inventory) is an
+ * explicit opt-in on top of POST_WALK_INCREMENTAL. At least 18 build plugins
+ * still emit new HTML without WriteCollector/claim(), so a targeted walk can
+ * miss a new unclaimed page below an indexed or claimed tree. Until those
+ * writers are registered, POST_WALK_INCREMENTAL alone keeps the full walk,
+ * which is complete by construction, and only the process phase is
+ * incremental.
+ */
+export function postWalkTargetedWalkEnabled(): boolean {
+  return process.env[POST_WALK_TARGETED_WALK_ENV] === '1';
 }
 
 export function postWalkIncrementalVerifyEnabled(): boolean {

@@ -102,9 +102,34 @@ export function hasNvidiaSwissLocation(info = {}, listingLocation = '') {
 }
 
 /**
- * Return true only when the authoritative Workday primary location is Swiss.
- * Additional locations are useful diagnostics, but publishing a requisition
- * as Zurich based on one of them mislabels foreign-primary jobs.
+ * Whether the req's OWN primary workplace is Swiss.
+ *
+ * `hasNvidiaSwissLocation` answers a different question — «does this req touch
+ * Switzerland ANYWHERE», over the union of `location` + `additionalLocations` +
+ * `jobRequisitionLocation` + the listing summary (see
+ * `getWorkdayLocationCandidates`). That union is the right predicate for the
+ * facet, and its tests pin it deliberately: a Berlin req that also lists
+ * «Zurich, Switzerland» among its additional locations IS Switzerland-tagged.
+ * It is the wrong predicate for deciding what to PUBLISH, because NVIDIA lists
+ * most reqs against several countries at once: the union is true while the
+ * workplace is in Germany, Poland or the UK, and the record still went out
+ * stamped `Zürich / ZH / CH`.
+ *
+ * Measured 2026-09-19 on the published slice `data/jobs/by-crawler/nvidia-zurich.json`
+ * (35 records, 1 distinct location — `Zürich` — for all of them): 21 of the 35
+ * carried a NON-Swiss primary location in their own Workday path — 5
+ * France-Remote, 4 Poland-Remote, 3 Germany-Munich, 2 Germany-Berlin, 2
+ * UK-Remote, 2 UK-Cambridge, 1 each Italy-Remote, Spain-Remote and
+ * Germany-Remote. Only 10 were Switzerland-Zurich and 4 Switzerland-Remote.
+ * Those 21 are what `audit-parser-quality.mjs --strict --check-source-details`
+ * reports as «2/2 authoritative source location mismatches» on run
+ * 35405505394, and they are foreign vacancies served to a Swiss cross-border
+ * audience as Zürich jobs.
+ *
+ * Only the req's own primary location licenses that stamp. Fail-closed: a req
+ * whose primary location is unreadable is skipped rather than defaulted to the
+ * hub city — the same rule the shared Workday factory already applies («keep
+ * raw empty so the guard drops it», `workday-swiss-job-parser-common.mjs`).
  */
 export function hasNvidiaSwissPrimaryLocation(info = {}) {
   const primary = getWorkdayLocationCandidates({ location: info?.location }, '')[0] || '';
@@ -238,10 +263,16 @@ export async function fetchAllNvidiaZurichJobs() {
     // only reports "N Locations" for these multi-country reqs.
     const detail = await fetchWorkdayJobDetail(WORKDAY_API_BASE, listing.externalPath);
     const info = detail?.jobPostingInfo || {};
-    if (!hasNvidiaSwissPrimaryLocation(info)) {
-      // A Swiss additional location or a Swiss city mentioned in the prose is
-      // not an authoritative workplace for this requisition.
-      console.log(`  ⏭️  Skipped (primary detail location is not Swiss): ${title}`);
+    // The req's OWN primary workplace, not the union of every country it is
+    // cross-posted to — see hasNvidiaSwissPrimaryLocation for the measurement.
+    // The description rescue that used to sit here was removed with it: NVIDIA
+    // names Zurich in the boilerplate of reqs worked anywhere, so «a Swiss city
+    // appears in the description» corroborated nothing about the workplace.
+    const isSwissRole = hasNvidiaSwissPrimaryLocation(info);
+    if (!isSwissRole) {
+      // Facet match without a Swiss PRIMARY location on detail —
+      // skip rather than mislabel a foreign role as Zurich.
+      console.log(`  ⏭️  Skipped (primary location not in Switzerland): ${title}`);
       await new Promise((r) => setTimeout(r, 300));
       continue;
     }

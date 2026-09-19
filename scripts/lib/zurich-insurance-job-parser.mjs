@@ -108,7 +108,7 @@ function normalizeKey(value = '') {
 function isSwissListingLocation(location = '') {
   const value = String(location || '');
   return /(?:^|,\s*)CH(?:\s|$)/i.test(value)
-    || isTargetSwissLocation(value, { includeBorderProximity: false });
+    || isTargetSwissLocation(value, { includeAllCantons: true, includeBorderProximity: false });
 }
 
 function wordCount(text = '') {
@@ -465,7 +465,7 @@ export async function prepareZurichInsuranceCrawler({
       const detailDescription = extractDescription(detailHtml);
       const canton = inferAnyCanton(listing.location);
       const location = splitJobLocation(listing.location, canton).city;
-      if (!canton || !location || !isTargetSwissLocation(listing.location, { includeBorderProximity: false })) {
+      if (!canton || !location || !isTargetSwissLocation(listing.location, { includeAllCantons: true, includeBorderProximity: false })) {
         // Per-row reject, not a run abort: the failure granularity is the run
         // (aggregate gate below), so one undecodable office cannot zero the
         // entire Zurich slice.

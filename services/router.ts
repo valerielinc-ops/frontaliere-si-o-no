@@ -836,9 +836,10 @@ export interface AppRoute {
  /** Route-driven pharmacy surface, preserving the canonical page payload. */
  pharmacyPath?: PharmacyPath;
  statsSubTab?: StatsSubTab;
- /** Swiss plate-auction route: hub, canton catalogue, or plate detail. */
- plateAuctionView?: 'hub' | 'canton' | 'detail' | 'rankings';
+ /** Swiss plate-auction route: hub, canton catalogue, paginated catalogue, or plate detail. */
+ plateAuctionView?: 'hub' | 'canton' | 'directory' | 'detail' | 'rankings';
  plateAuctionCanton?: string;
+ plateAuctionPage?: number;
  plateAuctionPlate?: string;
  plateAuctionVehicleType?: PlateVehicleType;
  blogArticle?: BlogArticleId;
@@ -2040,6 +2041,7 @@ export function parsePath(pathname: string): ParseResult {
        activeTab: 'plate-auctions',
        plateAuctionView: plateAuctionPath.view,
        ...(plateAuctionPath.canton ? { plateAuctionCanton: plateAuctionPath.canton } : {}),
+       ...(plateAuctionPath.page ? { plateAuctionPage: plateAuctionPath.page } : {}),
        ...(plateAuctionPath.plate ? { plateAuctionPlate: plateAuctionPath.plate } : {}),
        ...(plateAuctionPath.vehicleType ? { plateAuctionVehicleType: plateAuctionPath.vehicleType } : {}),
      },
@@ -3436,6 +3438,7 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
      locale: lang,
      view: route.plateAuctionView || 'hub',
      canton: route.plateAuctionCanton,
+     page: route.plateAuctionPage,
      plate: route.plateAuctionPlate,
      vehicleType: route.plateAuctionVehicleType,
    })}${hashSuffix}`;

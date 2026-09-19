@@ -7,11 +7,16 @@ import {
   IncrementalManifest,
 } from '../../build-plugins/shared/incrementalManifest.mjs';
 import {
+  collectSourceModuleFiles,
   computeJobsSeoEmitterFingerprints,
+  JOBS_SEO_FINGERPRINT_INERT_MODULES,
   createJobsSeoHtmlReuse,
   diagnoseHtmlReuseMismatch,
   htmlHasIndexableRobots,
+  htmlReusePackIndexPath,
+  htmlReusePackPath,
   htmlReuseCachePath,
+  JOBS_SEO_HTML_PACK_VERSION,
   JOBS_SEO_REUSE_VERIFY_SAMPLE_ENV,
   normalizeHtmlForReuse,
   refreshHtmlBuildId,
@@ -195,10 +200,10 @@ describe('jobs SEO disk HTML reuse', () => {
         reused: 0,
         missReasons: { 'input-hash-changed': 1 },
       });
-      expect(fs.readFileSync(
-        htmlReuseCachePath(rootDir, 'it', pagePath, null, 'active-job', computeInputHash({ value: 'new' }, 'active-job')),
-        'utf8',
-      )).toBe('<html>new</html>');
+      writePreviousManifest(rootDir, pagePath, 'active-job', { value: 'new' });
+      const reread = await createReuse(rootDir);
+      expect(reread.lookup('it', pagePath, 'active-job', { value: 'new' }, 'active').html)
+        .toBe('<html>new</html>');
     } finally {
       fs.rmSync(rootDir, { recursive: true, force: true });
     }
@@ -253,23 +258,6 @@ describe('jobs SEO disk HTML reuse', () => {
     try {
       writePreviousManifest(rootDir, pagePath, 'active-job', oldInput);
       writeCachedHtml(rootDir, pagePath, 'active-job', oldInput, '<html>old</html>');
-      const oldCachePath = htmlReuseCachePath(
-        rootDir,
-        'it',
-        pagePath,
-        null,
-        'active-job',
-        computeInputHash(oldInput, 'active-job'),
-      );
-      const newCachePath = htmlReuseCachePath(
-        rootDir,
-        'it',
-        pagePath,
-        null,
-        'active-job',
-        computeInputHash(newInput, 'active-job'),
-      );
-      expect(oldCachePath).not.toBe(newCachePath);
 
       const reuse = await createReuse(rootDir);
       const oldCandidate = reuse.lookup('it', pagePath, 'active-job', oldInput, 'active');
@@ -280,8 +268,14 @@ describe('jobs SEO disk HTML reuse', () => {
       expect(newCandidate.hit).toBe(false);
       reuse.finish(newCandidate, '<html>new</html>');
 
-      expect(fs.readFileSync(oldCachePath, 'utf8')).toBe('<html>old</html>');
-      expect(fs.readFileSync(newCachePath, 'utf8')).toBe('<html>new</html>');
+      writePreviousManifest(rootDir, pagePath, 'active-job', oldInput);
+      const oldRead = await createReuse(rootDir);
+      expect(oldRead.lookup('it', pagePath, 'active-job', oldInput, 'active').html)
+        .toBe('<html>old</html>');
+      writePreviousManifest(rootDir, pagePath, 'active-job', newInput);
+      const newRead = await createReuse(rootDir);
+      expect(newRead.lookup('it', pagePath, 'active-job', newInput, 'active').html)
+        .toBe('<html>new</html>');
     } finally {
       fs.rmSync(rootDir, { recursive: true, force: true });
     }
@@ -302,6 +296,142 @@ describe('jobs SEO disk HTML reuse', () => {
         reused: 0,
         missReasons: { 'html-unavailable': 1 },
       });
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('round-trips HTML through a locale/block pack and index', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/pack-round-trip/';
+    const input = { value: 'pack' };
+    const html = '<html><body>pack round-trip</body></html>';
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', input);
+      const reuse = await createReuse(rootDir);
+      const candidate = reuse.lookup('it', pagePath, 'active-job', input, 'active');
+      expect(candidate.hit).toBe(false);
+      reuse.finish(candidate, html);
+      expect(fs.existsSync(htmlReusePackPath(rootDir, 'it', 'active'))).toBe(true);
+      expect(fs.existsSync(htmlReusePackIndexPath(rootDir, 'it', 'active'))).toBe(true);
+      expect(fs.readdirSync(path.join(rootDir, '.cache', 'incremental-html', 'it')))
+        .not.toContain(expect.stringMatching(/\.html$/u));
+
+      const reread = await createReuse(rootDir);
+      const rereadCandidate = reread.lookup('it', pagePath, 'active-job', input, 'active');
+      expect(rereadCandidate).toMatchObject({ hit: true, html });
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('promotes a legacy entry to the pack and prunes the old file', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/pack-migration/';
+    const input = { value: 'migration' };
+    const legacyPath = htmlReuseCachePath(
+      rootDir,
+      'it',
+      pagePath,
+      null,
+      'active-job',
+      computeInputHash(input, 'active-job'),
+    );
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', input);
+      writeCachedHtml(rootDir, pagePath, 'active-job', input, '<html>legacy</html>');
+      const reuse = await createReuse(rootDir);
+      const candidate = reuse.lookup('it', pagePath, 'active-job', input, 'active');
+      expect(candidate).toMatchObject({ hit: true, storage: 'legacy' });
+      reuse.finish(candidate, candidate.html);
+      reuse.prune('it', {
+        entries: new Map([[pagePath, {
+          kind: 'active-job',
+          inputHash: computeInputHash(input, 'active-job'),
+        }]]),
+      });
+      expect(fs.existsSync(legacyPath)).toBe(false);
+      expect(fs.existsSync(htmlReusePackPath(rootDir, 'it', 'active'))).toBe(true);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('treats a truncated pack payload as a clean cache miss', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/pack-truncated/';
+    const input = { value: 'truncated' };
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', input);
+      const reuse = await createReuse(rootDir);
+      const candidate = reuse.lookup('it', pagePath, 'active-job', input, 'active');
+      reuse.finish(candidate, '<html>truncated payload</html>');
+      const packPath = htmlReusePackPath(rootDir, 'it', 'active');
+      fs.truncateSync(packPath, fs.statSync(packPath).size - 1);
+
+      const reread = await createReuse(rootDir);
+      const truncated = reread.lookup('it', pagePath, 'active-job', input, 'active');
+      expect(truncated).toMatchObject({ hit: false, html: null });
+      expect(reread.summary().active.missReasons).toMatchObject({ 'html-unavailable': 1 });
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('ignores a pack with an unknown version', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/pack-version/';
+    const input = { value: 'version' };
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', input);
+      const reuse = await createReuse(rootDir);
+      const candidate = reuse.lookup('it', pagePath, 'active-job', input, 'active');
+      reuse.finish(candidate, '<html>unknown version</html>');
+      const packPath = htmlReusePackPath(rootDir, 'it', 'active');
+      const lines = fs.readFileSync(packPath, 'utf8').split('\n');
+      const header = JSON.parse(lines[0]);
+      header.version = `${JOBS_SEO_HTML_PACK_VERSION}-unknown`;
+      lines[0] = JSON.stringify(header);
+      fs.writeFileSync(packPath, lines.join('\n'), 'utf8');
+
+      const reread = await createReuse(rootDir);
+      const unknown = reread.lookup('it', pagePath, 'active-job', input, 'active');
+      expect(unknown).toMatchObject({ hit: false, html: null });
+      expect(reread.summary().active.missReasons).toMatchObject({ 'html-unavailable': 1 });
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('compacts overwritten entries once a pack exceeds twice its live bytes', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/pack-compact/';
+    const input = { value: 'compact' };
+    const liveHtml = '<html>' + 'x'.repeat(4096) + '</html>';
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', input);
+      const seed = await createReuse(rootDir);
+      const seedCandidate = seed.lookup('it', pagePath, 'active-job', input, 'active');
+      seed.finish(seedCandidate, liveHtml);
+
+      const verify = await createReuse(rootDir, true);
+      for (let index = 0; index < 4; index += 1) {
+        const candidate = verify.lookup('it', pagePath, 'active-job', input, 'active');
+        expect(candidate).toMatchObject({ hit: true, verify: true });
+        verify.finish(candidate, `${liveHtml}${index}`);
+      }
+      const packPath = htmlReusePackPath(rootDir, 'it', 'active');
+      const before = fs.statSync(packPath).size;
+      verify.prune('it', {
+        entries: new Map([[pagePath, {
+          kind: 'active-job',
+          inputHash: computeInputHash(input, 'active-job'),
+        }]]),
+      });
+      const after = fs.statSync(packPath).size;
+      expect(after).toBeLessThan(before);
+      expect((await createReuse(rootDir)).lookup('it', pagePath, 'active-job', input, 'active').hit)
+        .toBe(true);
     } finally {
       fs.rmSync(rootDir, { recursive: true, force: true });
     }
@@ -405,6 +535,32 @@ describe('jobs SEO disk HTML reuse', () => {
       const before = computeJobsSeoEmitterFingerprints(rootDir)['active-job'];
       writeFixtureFile(rootDir, 'build-plugins/jobsSeoPagesPlugin.ts', 'export const renderVersion = "v2";\n');
       expect(computeJobsSeoEmitterFingerprints(rootDir)['active-job']).not.toBe(before);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps the emitter fingerprint stable when cache storage changes', () => {
+    const rootDir = fingerprintFixtureRoot();
+    try {
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/jobsSeoPagesPlugin.ts',
+        'import "./shared/incrementalHtmlReuse.mjs";\nexport const renderVersion = "v1";\n',
+      );
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/shared/incrementalHtmlReuse.mjs',
+        'export const storageVersion = "v1";\n',
+      );
+      clearFingerprintEnv();
+      const before = computeJobsSeoEmitterFingerprints(rootDir)['active-job'];
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/shared/incrementalHtmlReuse.mjs',
+        'export const storageVersion = "v2";\n',
+      );
+      expect(computeJobsSeoEmitterFingerprints(rootDir)['active-job']).toBe(before);
     } finally {
       fs.rmSync(rootDir, { recursive: true, force: true });
     }
@@ -534,6 +690,158 @@ describe('jobs SEO disk HTML reuse', () => {
     expect(computeInputHash(base, 'active-job')).not.toBe(
       computeInputHash({ ...base, renderDateBucket: '2026-09-19' }, 'active-job'),
     );
+  });
+
+  it('ignores type-only imports and imports quoted inside comments', () => {
+    const rootDir = fingerprintFixtureRoot();
+    try {
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/jobsSeoPagesPlugin.ts',
+        [
+          "import type { JobListing } from '../components/community/JobBoard';",
+          "export type { Spa } from '../components/community/JobBoard';",
+          "// NOT a static `import … from '@/data/job-popularity.json'` here.",
+          ' * import x from "../components/community/JobBoard";',
+          'export const renderVersion = "v1";',
+          '',
+        ].join('\n'),
+      );
+      writeFixtureFile(rootDir, 'components/community/JobBoard.tsx', 'export const spa = "v1";\n');
+      writeFixtureFile(rootDir, 'data/job-popularity.json', '{"v":1}\n');
+      clearFingerprintEnv();
+      const before = computeJobsSeoEmitterFingerprints(rootDir)['active-job'];
+      expect(collectSourceModuleFiles(rootDir, ['build-plugins/jobsSeoPagesPlugin.ts']))
+        .toEqual(['build-plugins/jobsSeoPagesPlugin.ts']);
+      writeFixtureFile(rootDir, 'components/community/JobBoard.tsx', 'export const spa = "v2";\n');
+      writeFixtureFile(rootDir, 'data/job-popularity.json', '{"v":2}\n');
+      expect(computeJobsSeoEmitterFingerprints(rootDir)['active-job']).toBe(before);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('changes the emitter fingerprint when a template module imported by value changes', () => {
+    const rootDir = fingerprintFixtureRoot();
+    try {
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/jobsSeoPagesPlugin.ts',
+        [
+          "import type { Shape } from './shared/jobDetailHtml/types';",
+          "import { renderHero, type Hero } from './shared/jobDetailHtml/hero';",
+          'const a = 1; import { footer } from "./shared/footer";',
+          'export const renderVersion = "v1";',
+          '',
+        ].join('\n'),
+      );
+      writeFixtureFile(rootDir, 'build-plugins/shared/jobDetailHtml/types.ts', 'export type Shape = 1;\n');
+      writeFixtureFile(rootDir, 'build-plugins/shared/jobDetailHtml/hero.ts', 'export const renderHero = () => "<h1>";\n');
+      writeFixtureFile(rootDir, 'build-plugins/shared/footer.ts', 'export const footer = "<footer>";\n');
+      clearFingerprintEnv();
+      const before = computeJobsSeoEmitterFingerprints(rootDir)['active-job'];
+      writeFixtureFile(rootDir, 'build-plugins/shared/jobDetailHtml/types.ts', 'export type Shape = 2;\n');
+      expect(computeJobsSeoEmitterFingerprints(rootDir)['active-job']).toBe(before);
+      writeFixtureFile(rootDir, 'build-plugins/shared/jobDetailHtml/hero.ts', 'export const renderHero = () => "<h2>";\n');
+      const afterHero = computeJobsSeoEmitterFingerprints(rootDir)['active-job'];
+      expect(afterHero).not.toBe(before);
+      writeFixtureFile(rootDir, 'build-plugins/shared/footer.ts', 'export const footer = "<footer class=x>";\n');
+      expect(computeJobsSeoEmitterFingerprints(rootDir)['active-job']).not.toBe(afterHero);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps imports that follow or contain a comment in the render graph', () => {
+    const rootDir = fingerprintFixtureRoot();
+    try {
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/jobsSeoPagesPlugin.ts',
+        [
+          "/* banner */ import { a } from './shared/a';",
+          "import /* inline */ { b } from './shared/b';",
+          "import {",
+          "  c, // trailing 'quoted' note",
+          "} from './shared/c';",
+          "export /* re-export */ { d } from './shared/d';",
+          'export const renderVersion = "v1";',
+          '',
+        ].join('\n'),
+      );
+      for (const name of ['a', 'b', 'c', 'd']) {
+        writeFixtureFile(rootDir, `build-plugins/shared/${name}.ts`, `export const ${name} = 1;\n`);
+      }
+      expect(collectSourceModuleFiles(rootDir, ['build-plugins/jobsSeoPagesPlugin.ts'])).toEqual([
+        'build-plugins/jobsSeoPagesPlugin.ts',
+        'build-plugins/shared/a.ts',
+        'build-plugins/shared/b.ts',
+        'build-plugins/shared/c.ts',
+        'build-plugins/shared/d.ts',
+      ]);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('prunes an inert module only while every importer is on its allowlist', () => {
+    const rootDir = fingerprintFixtureRoot();
+    try {
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/jobsSeoPagesPlugin.ts',
+        "import { borderCrossings } from '../data/borderCrossings';\nexport const renderVersion = \"v1\";\n",
+      );
+      writeFixtureFile(
+        rootDir,
+        'data/borderCrossings.ts',
+        "import averages from './border-wait-averages.json' with { type: 'json' };\nexport const borderCrossings = [averages];\n",
+      );
+      writeFixtureFile(rootDir, 'data/border-wait-averages.json', '{"chiasso":{"morning":"10 min"}}\n');
+      clearFingerprintEnv();
+      const before = computeJobsSeoEmitterFingerprints(rootDir)['active-job'];
+      writeFixtureFile(rootDir, 'data/border-wait-averages.json', '{"chiasso":{"morning":"25 min"}}\n');
+      expect(computeJobsSeoEmitterFingerprints(rootDir)['active-job']).toBe(before);
+
+      // A second, unlisted consumer makes the same data a render input again.
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/jobsSeoPagesPlugin.ts',
+        [
+          "import { borderCrossings } from '../data/borderCrossings';",
+          "import averages from '../data/border-wait-averages.json';",
+          'export const renderVersion = "v1";',
+          '',
+        ].join('\n'),
+      );
+      expect(collectSourceModuleFiles(
+        rootDir,
+        ['build-plugins/jobsSeoPagesPlugin.ts'],
+        JOBS_SEO_FINGERPRINT_INERT_MODULES,
+      )).toContain('data/border-wait-averages.json');
+      const withConsumer = computeJobsSeoEmitterFingerprints(rootDir)['active-job'];
+      writeFixtureFile(rootDir, 'data/border-wait-averages.json', '{"chiasso":{"morning":"40 min"}}\n');
+      expect(computeJobsSeoEmitterFingerprints(rootDir)['active-job']).not.toBe(withConsumer);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps the inert-module rationale true for the real render graph', () => {
+    // data/border-wait-averages.json is inert only while the job renderer reads
+    // no wait average from borderCrossings; free-translate.mjs only while the
+    // renderer imports no translator from events-utils.mjs.
+    const repoRoot = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../..');
+    const snapshot = fs.readFileSync(path.join(repoRoot, 'services/jobLocationSnapshot.ts'), 'utf8');
+    expect(snapshot).not.toMatch(/avgWait/);
+    const crosslink = fs.readFileSync(path.join(repoRoot, 'build-plugins/shared/jobEventsCrosslink.ts'), 'utf8');
+    const eventsImport = crosslink.match(/import\s*\{([^}]*)\}\s*from\s*['"][^'"]*events-utils\.mjs['"]/);
+    expect(eventsImport?.[1]).toBeDefined();
+    expect(eventsImport?.[1]).not.toMatch(/[Tt]ranslat/);
+    expect(Object.keys(JOBS_SEO_FINGERPRINT_INERT_MODULES).sort()).toEqual([
+      'data/border-wait-averages.json',
+      'scripts/lib/free-translate.mjs',
+    ]);
   });
 
   it('includes statically imported JSON content in the renderer fingerprint', () => {

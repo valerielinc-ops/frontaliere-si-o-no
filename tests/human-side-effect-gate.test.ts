@@ -141,6 +141,22 @@ const TRUSTED_PUBLISHER_DISPATCH = {
   expectedDispatchWorkflow: 'Sync article sitemaps, feeds and ticker from the articles API',
 };
 
+const TRUSTED_LEGACY_PUBLISHER_DISPATCH = {
+  ...TRUSTED_PUBLISHER_DISPATCH,
+  dispatchPayloadPresent: 'false',
+  publisherSourceVerified: 'false',
+  dispatchSourceSchemaVersion: '',
+  dispatchSourceRepository: '',
+  dispatchSourceWorkflow: '',
+  dispatchSourceWorkflowPath: '',
+  dispatchSourceRunId: '',
+  dispatchSourceRunAttempt: '',
+  dispatchSourceSha: '',
+  dispatchSourceBranch: '',
+  dispatchSourceEvent: '',
+  allowLegacyPublisherDispatch: 'true',
+};
+
 /** Workflows whose scheduled/manual paths can send, post, publish, or alter recipient state. */
 const SIDE_EFFECT_WORKFLOWS = [
   // Writer/publication/content scope from the audit.
@@ -528,6 +544,28 @@ describe('human-side-effect-gate policy', () => {
     expect(decision.nonce).toMatch(/^[a-f0-9]{64}$/);
   });
 
+  it('allows the legacy event-only publisher contract only with its explicit compatibility flag', () => {
+    const legacy = evaluateHumanApproval(TRUSTED_LEGACY_PUBLISHER_DISPATCH);
+    expect(legacy.allow).toBe(true);
+    expect(legacy.effectiveDryRun).toBe(false);
+    expect(legacy.reason).toBe('trusted-legacy-publisher-dispatch-approved');
+
+    const disabled = evaluateHumanApproval({
+      ...TRUSTED_LEGACY_PUBLISHER_DISPATCH,
+      allowLegacyPublisherDispatch: 'false',
+    });
+    expect(disabled.allow).toBe(false);
+    expect(disabled.effectiveDryRun).toBe(true);
+    expect(disabled.reasons).toContain('publisher-dispatch-payload-missing-or-unknown');
+
+    const unverifiedPayload = evaluateHumanApproval({
+      ...TRUSTED_PUBLISHER_DISPATCH,
+      publisherSourceVerified: 'false',
+    });
+    expect(unverifiedPayload.allow).toBe(false);
+    expect(unverifiedPayload.reasons).toContain('publisher-source-run-unverified');
+  });
+
   it('denies an allowlisted sender when the source run was not verified', () => {
     const decision = evaluateHumanApproval({
       ...TRUSTED_PUBLISHER_DISPATCH,
@@ -808,6 +846,7 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
     expect(source).toContain('gh api --method GET');
     expect(source).toContain('actions/runs/$PUBLISHER_SOURCE_RUN_ID');
     expect(source).toContain("actions/workflows/publish-api.yml");
+    expect(source).toContain("if: github.event_name == 'repository_dispatch' && github.event.client_payload != null");
     expect(source).toContain("PUBLISHER_SOURCE_RUN_ID: ${{ github.event.client_payload.source_run_id || '' }}");
     expect(source).toContain('APPROVAL_EVENT: ${{ github.event_name }}');
     expect(source).toContain('APPROVAL_ACTOR: ${{ github.actor }}');
@@ -815,6 +854,7 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
     expect(source).toContain("APPROVAL_DISPATCH_ACTOR: ${{ github.event.sender.login || '' }}");
     expect(source).toContain("APPROVAL_DISPATCH_ACTION: ${{ github.event.action || '' }}");
     expect(source).toContain('APPROVAL_DISPATCH_PAYLOAD_PRESENT: ${{ github.event.client_payload != null }}');
+    expect(source).toContain("APPROVAL_ALLOW_LEGACY_PUBLISHER_DISPATCH: 'true'");
     expect(source).toContain("APPROVAL_PUBLISHER_SOURCE_VERIFIED: ${{ steps.publisher_provenance.outputs.verified || 'false' }}");
     expect(source).toContain("APPROVAL_DISPATCH_SOURCE_SCHEMA_VERSION: ${{ github.event.client_payload.schema_version || '' }}");
     expect(source).toContain("APPROVAL_DISPATCH_SOURCE_REPOSITORY: ${{ github.event.client_payload.source_repository || '' }}");

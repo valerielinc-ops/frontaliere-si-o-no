@@ -59,7 +59,15 @@
           "maxValue": 179500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-non-it-iii-alpiq-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-non-it-iii-alpiq-switzerland"
+      ]
     },
     {
       "id": "alpiq-c58e916d1b0b",
@@ -247,7 +255,16 @@
           "maxValue": 179500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-algorithmic-trading-governance-alpiq-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-algorithmic-trading-governance-alpiq-lausanne"
+      ],
+      "retranslationAttempts": 2
     }
   ]
 }
