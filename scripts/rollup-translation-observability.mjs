@@ -26,6 +26,8 @@ function compactReport(report) {
     before: report.before, final: report.final, delta: report.delta,
     cohorts: report.cohorts, quality: report.quality, languageQuality: report.languageQuality, continuity,
     runPhases: report.runPhases,
+    rungAttribution: report.rungAttribution,
+    companyConcentration: report.companyConcentration,
   };
 }
 function validDigest(report) {
