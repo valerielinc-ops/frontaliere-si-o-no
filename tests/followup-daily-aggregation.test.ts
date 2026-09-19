@@ -66,16 +66,30 @@ describe('daily writer concurrency contract', () => {
 describe('post-merge triage marker contract', () => {
   it('treats an explicit zero-candidate marker naming an unchanged bucket as empty', () => {
     const workflow = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
-    const verifierLine = workflow.split('\n').find((line) => line.includes("grep -Eiq '") && line.includes('zero outstanding items'));
-    const pattern = verifierLine?.match(/grep -Eiq '([^']+)'/)?.[1];
+    // L'invariante non cambia — quel marker va classificato come VUOTO e non
+    // deve mai produrre `persistence_ok=false` — ma il discriminante non e' piu'
+    // una lista di formule ammesse: e' il CONTEGGIO sulla riga di claim. La
+    // lista era stata superata tre volte dalla variante successiva, l'ultima il
+    // 2026-09-18 con «Created/updated: 0 item; nessun bucket creato.» (run
+    // 35391820039, `persistence_ok=false` su 3 PR con marker corretti).
+    const zeroClaimLine = workflow
+      .split('\n')
+      .find((line) => line.includes('grep -Eqv') && line.includes('Created'));
+    const pattern = zeroClaimLine?.match(/grep -Eqv '([^']+)'/)?.[1];
     expect(pattern).toBeTruthy();
 
     const marker = '## Post-merge follow-up triage\n\nCreated/updated: 0 issue — nessun item nuovo aggiunto al daily bucket #8248.';
-    expect(() => execFileSync('grep', ['-Eiq', pattern!], { input: marker })).not.toThrow();
+    const claimLines = marker
+      .split('\n')
+      .filter((line) => /^\s*(?:[-*]\s+)?Created(?:\/updated)?:/i.test(line));
+    expect(claimLines).toHaveLength(1);
+    // `grep -Eqv` esce 1 quando NESSUNA riga viola il pattern del claim a zero,
+    // che e' esattamente la condizione con cui lo YAML imposta `zero_claim=true`.
+    expect(() => execFileSync('grep', ['-Eqv', pattern!], { input: claimLines.join('\n') })).toThrow();
 
     const zeroResultBranch = workflow
-      .split("elif [ -z \"$bucket_refs\" ]")[0]
-      .split("if printf '%s' \"$marker_body\" | grep -Eiq '")
+      .split('elif [ -z "$bucket_refs" ]')[0]
+      .split('if [ "$zero_claim" = true ]')
       .at(-1);
     expect(zeroResultBranch).toBeTruthy();
     expect(zeroResultBranch).not.toContain('persistence_ok=false');
