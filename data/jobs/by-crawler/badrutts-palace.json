@@ -1159,12 +1159,12 @@
     },
     {
       "id": "badrutts-palace-7dbae39b8b97",
-      "slug": "floor-supervisor-staff-housing-m-f-d-badrutts-palace-ch",
+      "slug": "supervisore-ai-piani-alloggi-del-personale-m-f-d-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
         "en": "floor-supervisor-staff-housing-m-f-d-badrutts-palace-ch",
-        "it": "floor-supervisor-staff-housing-m-f-d-badrutts-palace-ch",
-        "de": "floor-supervisor-staff-housing-m-f-d-badrutts-palace-ch",
-        "fr": "floor-supervisor-staff-housing-m-f-d-badrutts-palace-ch"
+        "it": "supervisore-ai-piani-alloggi-del-personale-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "de": "etagen-supervisor-personalunterkunfte-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "fr": "superviseur-d-etage-logements-du-personnel-h-f-d-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
@@ -1220,7 +1220,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-09-18T23:21:57.375Z"
+      "firstSeenAt": "2026-09-18T23:21:57.375Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "floor-supervisor-staff-housing-m-f-d-badrutts-palace-ch"
+        ],
+        "de": [
+          "floor-supervisor-staff-housing-m-f-d-badrutts-palace-ch"
+        ],
+        "fr": [
+          "floor-supervisor-staff-housing-m-f-d-badrutts-palace-ch"
+        ]
+      },
+      "previousSlugs": [
+        "floor-supervisor-staff-housing-m-f-d-badrutts-palace-ch"
+      ]
     },
     {
       "id": "badrutts-palace-f6389a361791",
