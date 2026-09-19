@@ -240,6 +240,100 @@ function executableWords(segment) {
 }
 
 /**
+ * Every assignment made anywhere in one shell text, in order.
+ *
+ * `BODY=/tmp/body.md` on its own line and `BODY=/tmp/body.md gh pr create …`
+ * are the same declaration to the caller, and a hook that reads only the
+ * second form rejects the first for a reason the caller cannot see. Shell
+ * state does not survive between tool calls, so an agent's variable is
+ * practically always assigned in the SAME command text as its use — which is
+ * exactly what this can resolve.
+ *
+ * @param {unknown} input
+ * @returns {{ok:boolean, variables:Record<string,string>}}
+ */
+export function commandVariables(input) {
+  const parsed = parseShellCommands(input);
+  if (!parsed.ok) return { ok: false, variables: Object.create(null) };
+
+  const variables = Object.create(null);
+  for (const segment of parsed.commands) {
+    Object.assign(variables, splitCommandPrefix(segment).assignments);
+  }
+  return { ok: true, variables };
+}
+
+const SIMPLE_EXPANSION_RE = /\$\{([A-Za-z_][A-Za-z0-9_]*)\}|\$([A-Za-z_][A-Za-z0-9_]*)/g;
+
+/**
+ * Expand `$NAME` / `${NAME}` against a known variable map.
+ *
+ * Deliberately NOT a shell: no defaults, no command substitution, no nesting.
+ * Anything it cannot resolve is reported by name in `missing` so the caller
+ * can say WHICH variable it could not see, instead of blaming the path.
+ *
+ * @param {unknown} value
+ * @param {Record<string,string>} [variables]
+ * @returns {{ok:boolean, value:string, missing:string[]}}
+ */
+export function expandShellValue(value, variables = {}) {
+  const source = String(value ?? '');
+  if (!source.includes('$')) return { ok: true, value: source, missing: [] };
+  if (source.includes('`') || source.includes('$(')) {
+    return { ok: false, value: source, missing: [] };
+  }
+
+  const missing = [];
+  const expanded = source.replace(SIMPLE_EXPANSION_RE, (match, braced, bare) => {
+    const name = braced ?? bare;
+    const resolved = variables?.[name];
+    if (typeof resolved !== 'string') {
+      missing.push(name);
+      return match;
+    }
+    return resolved;
+  });
+  return { ok: missing.length === 0, value: expanded, missing };
+}
+
+/**
+ * Find a real `gh pr create` / `gh pr edit --body…` invocation.
+ *
+ * The point of parsing instead of grepping: `gh pr edit … --body-file x.md`
+ * quoted inside a heredoc — a commit message, a PR body, a brief — is TEXT,
+ * not a command. A regex over the whole tool call cannot tell the difference
+ * and blocks the wrong thing (observed 2026-09-20 on a `git commit -F -`
+ * whose message documented this very gate).
+ *
+ * @param {unknown} input
+ * @returns {{action:'create'|'edit', bodyFlag?:string}|null}
+ */
+export function findPrBodyWriteCommand(input) {
+  const parsed = parseShellCommands(input);
+  if (!parsed.ok) return null;
+
+  for (const segment of parsed.commands) {
+    const { words } = splitCommandPrefix(segment);
+    if (words[0] !== 'gh') continue;
+    const globalOptions = skipGhGlobalOptions(words, 1);
+    const index = globalOptions.index;
+    if (index < 0 || words[index] !== 'pr') continue;
+
+    const action = words[index + 1];
+    if (action === 'create') return { action };
+    if (action !== 'edit') continue;
+
+    for (let cursor = index + 2; cursor < words.length; cursor += 1) {
+      const word = words[cursor];
+      if (BODY_FLAGS.has(word)) return { action, bodyFlag: word };
+      const prefixed = [...BODY_FLAGS].find((flag) => word.startsWith(`${flag}=`));
+      if (prefixed) return { action, bodyFlag: prefixed };
+    }
+  }
+  return null;
+}
+
+/**
  * Split a simple command into the per-command environment assignments that
  * precede it and the words of the command itself.
  *
