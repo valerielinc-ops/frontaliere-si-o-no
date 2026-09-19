@@ -47,4 +47,18 @@ describe('isDetailContentValid — Kispi German compound titles', () => {
 
     expect(isDetailContentValid(genericContent, 'Mitarbeiterin Fallmanagement 90% (m/w)')).toBe(false);
   });
+
+  it('rejects an unrelated long token sharing only a short German prefix', () => {
+    const unrelatedContent = `${'Fallberichte '.repeat(24)}Aufgaben und Profil`;
+
+    expect(isDetailContentValid(unrelatedContent, 'Mitarbeiterin Fallmanagement 90% (m/w)')).toBe(false);
+  });
+
+  it('accepts the live Kispi inflection and compound variants', () => {
+    const dieteticsContent = `${'Diäten und diätetisches Wissen gehören zur Ausbildung. '.repeat(4)}Aufgaben und Profil`;
+    const admissionsContent = `${'Patientinnen und Patientendokumentationen gehören zur Patientenaufnahme. '.repeat(4)}Aufgaben und Profil`;
+
+    expect(isDetailContentValid(dieteticsContent, 'Ausbildung Diätköchin mit eidg. FA (w/m) 80%')).toBe(true);
+    expect(isDetailContentValid(admissionsContent, 'Mitarbeiterin Patientenaufnahme (w/m) 40%')).toBe(true);
+  });
 });

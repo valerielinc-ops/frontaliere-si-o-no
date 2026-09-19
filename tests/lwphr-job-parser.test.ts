@@ -49,7 +49,21 @@ describe('lwphr-job-parser', () => {
     )).toBe('Lugano');
     expect(inferLwphrLocation(
       'Consulente patrimoniale',
-      'Il nostro cliente è una banca svizzera sita nel luganese.',
+      'Il nostro cliente è una banca svizzera sita nel luganese, ci ha incaricato di selezionare la seguente figura professionale.',
     )).toBe('Lugano');
+  });
+
+  it('does not promote an employer seat without a mandate lead to a work location', () => {
+    expect(inferLwphrLocation(
+      'Consulente',
+      'La società ha sede nel Luganese e opera su tutto il territorio svizzero.',
+    )).toBe('');
+  });
+
+  it('prefers an explicit worksite label when the client seat differs', () => {
+    expect(inferLwphrLocation(
+      'Consulente',
+      'Il cliente ha sede nel Luganese. Sede di lavoro: Zürich.',
+    )).toBe('Zürich');
   });
 });

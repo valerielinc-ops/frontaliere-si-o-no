@@ -411,18 +411,46 @@ function isDetailContentValid(content, title) {
     const bodyTokens = lower.match(/[\p{L}\p{N}]{4,}/gu) || [];
     const overlap = tokens.some((tok) => bodyTokens.some((bodyToken) => {
       if (bodyToken === tok) return true;
-      // German vacancy prose often inflects or compounds a title noun:
-      // "Fallmanagement" is evidenced by "Falleröffnung", and
-      // "Sozialpädagogin" by "Sozialkompetenz". A four-letter prefix is
-      // deliberately the minimum so generic one-letter/short-token matches
-      // cannot make an unrelated page look like the requested vacancy.
-      return tok.length >= 10
-        && bodyToken.length >= tok.length - 1
-        && bodyToken.startsWith(tok.slice(0, 4));
+      // German vacancy prose sometimes uses a compound with the same
+      // lexical component as the title ("Fallmanagement"/"Falleröffnung",
+      // "Sozialpädagogin"/"Sozialkompetenz"). Do not accept an arbitrary
+      // prefix: both remaining compound heads must be known German role/body
+      // words, which keeps generic "Mitarbeiter" references from validating
+      // an unrelated detail page.
+      return isNarrowGermanCompoundRelation(tok, bodyToken);
     }));
     if (!overlap) return false;
   }
   return true;
+}
+
+const GERMAN_COMPOUND_HEADS = [
+  /^(?:management|eröffnung)$/u,
+  /^pädagog(?:e|in)$/u,
+  /^(?:kompetenz|köchin|koch)$/u,
+  /^(?:en|innen)?aufnahme$/u,
+  /^etisch(?:e|en|er|es|em)?$/u,
+  /^(?:e|en|er|es|em|s|n|in|innen)$/u,
+];
+
+function isNarrowGermanCompoundRelation(titleToken, bodyToken) {
+  const titleValue = String(titleToken || '').normalize('NFKC');
+  const bodyValue = String(bodyToken || '').normalize('NFKC');
+  let commonLength = 0;
+  while (
+    commonLength < titleValue.length
+    && commonLength < bodyValue.length
+    && titleValue[commonLength] === bodyValue[commonLength]
+  ) {
+    commonLength += 1;
+  }
+  if (commonLength < 4) return false;
+
+  const titleHead = titleValue.slice(commonLength);
+  const bodyHead = bodyValue.slice(commonLength);
+  if (titleHead.length < 4 || bodyHead.length < 4) return false;
+  return GERMAN_COMPOUND_HEADS.some((pattern) => pattern.test(titleHead))
+    && GERMAN_COMPOUND_HEADS.some((pattern) => pattern.test(bodyHead));
 }
 
 // Exported for unit tests.
