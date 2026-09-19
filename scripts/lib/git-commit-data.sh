@@ -1040,6 +1040,35 @@ function preserveDroppedActiveSlugs(remoteObj, localObj, merged, warnings, pathL
   bank(localObj?.slug, '');
 }
 
+// The usual object-recursion path above is skipped when mergeValue() takes a
+// base-equality fast path. Job slices are root arrays, so walk matching job
+// objects explicitly before returning a cloned remote/local value. This keeps
+// active slugs reachable for both one-sided cases: local==base and remote==base.
+function preserveDroppedActiveSlugsInValue(remoteValue, localValue, merged, warnings, pathLabel, forcedKey = '') {
+  if (isPlainObject(merged)) {
+    preserveDroppedActiveSlugs(remoteValue, localValue, merged, warnings, pathLabel);
+    return;
+  }
+  if (!Array.isArray(merged)) return;
+
+  const keyHint = detectArrayKey([remoteValue, localValue, merged], forcedKey);
+  if (!keyHint) return;
+  const remoteData = arrayToMap(Array.isArray(remoteValue) ? remoteValue : [], keyHint);
+  const localData = arrayToMap(Array.isArray(localValue) ? localValue : [], keyHint);
+  const mergedData = arrayToMap(merged, keyHint);
+  for (const key of new Set([...remoteData.map.keys(), ...localData.map.keys()])) {
+    const mergedObj = mergedData.map.get(key);
+    if (!isPlainObject(mergedObj)) continue;
+    preserveDroppedActiveSlugs(
+      remoteData.map.get(key),
+      localData.map.get(key),
+      mergedObj,
+      warnings,
+      `${pathLabel}[${keyHint}=${key}]`,
+    );
+  }
+}
+
 function mergeArrayByDelta(baseArr, remoteArr, localArr) {
   const baseFp = baseArr.map((v) => stableStringify(v));
   const remoteFp = remoteArr.map((v) => stableStringify(v));
@@ -1161,9 +1190,21 @@ function mergeArray(baseArr, remoteArr, localArr, warnings, pathLabel, forcedKey
 }
 
 function mergeValue(baseValue, remoteValue, localValue, warnings, pathLabel, forcedKey = '') {
-  if (isSame(localValue, baseValue)) return clone(remoteValue);
-  if (isSame(remoteValue, baseValue)) return clone(localValue);
-  if (isSame(localValue, remoteValue)) return clone(localValue);
+  if (isSame(localValue, baseValue)) {
+    const merged = clone(remoteValue);
+    preserveDroppedActiveSlugsInValue(remoteValue, localValue, merged, warnings, pathLabel, forcedKey);
+    return merged;
+  }
+  if (isSame(remoteValue, baseValue)) {
+    const merged = clone(localValue);
+    preserveDroppedActiveSlugsInValue(remoteValue, localValue, merged, warnings, pathLabel, forcedKey);
+    return merged;
+  }
+  if (isSame(localValue, remoteValue)) {
+    const merged = clone(localValue);
+    preserveDroppedActiveSlugsInValue(remoteValue, localValue, merged, warnings, pathLabel, forcedKey);
+    return merged;
+  }
 
   const anyArray = Array.isArray(baseValue) || Array.isArray(remoteValue) || Array.isArray(localValue);
   if (anyArray) {
@@ -1839,8 +1880,11 @@ commit_isolated_from_worktree() {
       # updates or another group's ai-cache entries pushed mid-run).
       if { [[ "$f" == *.json ]] || [ "$f" = "data/crawler-generation-ledger.jsonl" ]; } \
         && [ -n "$remote_blob" ] \
-        && [ "$remote_blob" != "$base_blob" ] \
-        && [ "$remote_blob" != "$local_blob" ]; then
+        && [ "$remote_blob" != "$local_blob" ] \
+        && { [ "$remote_blob" != "$base_blob" ] || [ "$local_blob" != "$base_blob" ]; }; then
+        # Merge both one-sided changes too. When only local changed, the
+        # remote/base equality fast path still has to bank an active slug that
+        # local removed; direct staging would bypass that safety net.
         key_hint=""
         is_job_slice_path "$f" && key_hint="url"
         mkdir -p "$merge_dir/base/$(dirname "$f")" "$merge_dir/remote/$(dirname "$f")" "$merge_dir/out/$(dirname "$f")"
