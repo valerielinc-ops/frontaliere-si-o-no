@@ -290,11 +290,51 @@ export const DIVERGENT_CATEGORIES = new Set(['content-mismatch', 'no-locale-verd
  * silenziosa, la prossima volta che un need invisibile all'analisi statica
  * sparisce dal checkout.
  */
-export function assertHeroImagesOnDisk(rootDir, existsSync = fs.existsSync) {
-  const blogImagesDir = path.join(rootDir, 'public', 'images', 'blog');
-  if (existsSync(blogImagesDir)) return;
+export function assertHeroImagesOnDisk(rootDir, deps = {}) {
+  const {
+    countOnDisk = (dir) => {
+      try {
+        return fs.readdirSync(dir, { withFileTypes: true }).filter((e) => e.isFile()).length;
+      } catch {
+        return 0;
+      }
+    },
+    countTracked = (dir) => {
+      const out = spawnSync('git', ['ls-files', '-z', '--', dir], {
+        cwd: rootDir,
+        encoding: 'utf-8',
+      });
+      // `git` assente o non-repo: l'indice non e' disponibile come riferimento.
+      // `null` significa «non misurabile», che e' diverso da zero — vedi sotto.
+      if (out.status !== 0 || typeof out.stdout !== 'string') return null;
+      return out.stdout.split('\0').filter(Boolean).length;
+    },
+  } = deps;
+
+  const rel = path.join('public', 'images', 'blog');
+  const blogImagesDir = path.join(rootDir, rel);
+  const onDisk = countOnDisk(blogImagesDir);
+  const tracked = countTracked(rel);
+
+  // Il confronto e' contro l'INDICE di git, non contro una soglia inventata:
+  // in un checkout pieno i due numeri coincidono, in un checkout mutilato il
+  // disco e' sotto. Questo copre i tre modi in cui l'ambiente puo' mentire —
+  // directory assente, directory VUOTA, directory materializzata solo in parte
+  // — che un `existsSync` da solo non distingue (rilievo della review su questa
+  // PR: `existsSync` passava su una directory vuota e l'audit tornava a
+  // riportare `content-mismatch` falsi).
+  //
+  // Se l'indice non e' leggibile si degrada al solo controllo di non-vuoto:
+  // meglio una rete piu' larga che nessuna rete, e resta comunque piu' stretta
+  // dell'esistenza della directory.
+  if (tracked === null ? onDisk > 0 : onDisk >= tracked) return;
+
+  const misura = tracked === null
+    ? `${onDisk} file su disco (indice git non leggibile: nessun riferimento con cui confrontare)`
+    : `${onDisk} file su disco contro ${tracked} tracciati in git`;
+
   throw new Error(
-    `[audit-article-corpus-drift] ABORT: ${path.relative(rootDir, blogImagesDir)} non e' su disco.\n` +
+    `[audit-article-corpus-drift] ABORT: ${rel} non e' materializzato — ${misura}.\n` +
       "  Senza i file hero il rendering locale cade sul fallback '/og-image.png' per OGNI articolo\n" +
       '  e questo audit riporterebbe `content-mismatch` su tutto il campione — 100% falsi positivi.\n' +
       '  Causa tipica: un profilo sparse-checkout che esclude `public/images/`. Il bisogno arriva da\n' +
