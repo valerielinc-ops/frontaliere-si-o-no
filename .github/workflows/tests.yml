@@ -2332,6 +2332,7 @@ jobs:
           CTX_DIR: ${{ runner.temp }}/review-ctx
           TIER: ${{ steps.tier.outputs.tier }}
           CODE_UNCHANGED_SINCE: ${{ steps.tier.outputs.code_unchanged_since }}
+          BODY_CONTRACT_OUTCOME: ${{ steps.body_contract.outcome }}
           REVIEW_DIFF_EXCLUSIONS: data,public,reports,_newsletter_variants,docs
         run: |
           set -uo pipefail
@@ -2434,6 +2435,13 @@ jobs:
               echo "The PR code contribution is identical to the one reviewed at ${CODE_UNCHANGED_SINCE} (same contribution fingerprint, no PR code file changed since). This is a body-only re-review: judge only the PR body, carry every historical code Important below verbatim with its anchor, and never write \`Fix di\` for a code anchor."
               echo
             fi
+            echo "## Deterministic body contract"
+            if [ "${BODY_CONTRACT_OUTCOME:-}" = "success" ]; then
+              echo "✅ passed on the current body (sections, bullet states, Motivo/Prossimo passo, placeholders, Closes). The body cannot produce a 🔴 Important in this review: at most a 🟡 Nit anchored as \`PR body:L<n>\`."
+            else
+              echo "Verdict unavailable (${BODY_CONTRACT_OUTCOME:-unknown}): apply the REVIEW.md body rules."
+            fi
+            echo
             echo "## Historical open Important findings"
             cat "$CTX_DIR/inherited-findings.md"
             echo
@@ -2564,7 +2572,7 @@ jobs:
 
             Review in one pass with a hard repository-tool budget: read the two contract files and the bundle, then use at most one batched read/search call for direct delta interactions. Never scan the whole repository, enumerate all siblings, or re-fetch the PR through GitHub. Validate the body contract, inspect only concrete interactions, verify declared performance claims against supplied evidence, and stop probing once the verdict is determined. Do not invent missing-test findings. Use sibling candidates as leads, not verdicts. For high tiers, include exactly three concise unresolved items in `## Adversarial check`; they must be real unverified risks, not generic missing coverage. Every non-funnel `❓ q:` in that section MUST end with the exact disposition `— deferred, non funnel-critical.`. The words `report-only`, `deferred`, or `non-funnel-critical` inside the question do not dispose it; a funnel-critical question must be promoted to `🔴 Important` instead.
 
-            **Closing states in `## Non implementato (ancora)`.** The five states of `CLOSING_STATES` (`scripts/ci/followup-has-candidates.mjs`) close a bullet, e su quello **non si emette 🔴**: `in questa PR` and `PR concatenata #N` (tracked work, not residual scope), then `per scelta` — «falso positivo» is an accepted synonym of the same `by-choice` state, unless negated — `by construction`, and `blocked: decisione del proprietario`. Those last three are a motivated no, so they close only when the bullet contains both explicit fields **`Motivo: <causa concreta>`** and **`Prossimo passo: <azione concreta>`**; a bare `per scelta`/`by construction`, a placeholder, or a generic “motive” stays 🔴. `PR concatenata` without `#N` is not a closing state and is always an open violation. What does NOT close is `blocked: <causa tecnica>`, i.e. every other `blocked: <causa>`: `bulletState()` maps it to `blocked-technical`, which `CLOSING_STATES` deliberately omits — read the CAUSE, not the prefix. Getting either side wrong deadlocks the loop: re-raise the 🔴 on a closed bullet and the fixer declines with a reason, the round cap trips, and `needs-human` lands with the wrong diagnosis on a PR that has nothing to fix. Tier `minimal` carries the same rule: check that both sections exist and that **nessun placeholder vuoto** (`TBD`, `N/A`, empty bullet) fills them — but a bullet closed with specific fields **non è un finding**.
+            **PR body: one source of truth.** The deterministic body contract (`scripts/lib/pr-body-sections-check.mjs`, step `PR-body completeness`) already validated sections, bullet states, `Motivo`/`Prossimo passo`, placeholders and `Closes`; its verdict is in the bundle under `## Deterministic body contract`. When it is ✅, do not re-validate those rules and never emit a `🔴 Important` about the body: a doubt about those rules is at most a `🟡 Nit` anchored as `PR body:L<n>`, and the review gate declassifies such a 🔴 on a green contract anyway. REVIEW.md step 7 (a perf claim without a baseline) is not a contract rule and still applies. The states it accepts in `## Non implementato (ancora)` — `in questa PR`, `PR concatenata #N`, `per scelta`, `by construction`, `blocked: decisione del proprietario` (the five `CLOSING_STATES` of `scripts/ci/followup-has-candidates.mjs`) and any other `blocked: <causa>`, which keeps the task open without blocking the PR — are valid, e su quelli **non si emette 🔴**. A `PR concatenata` without `#N` is not a state and the contract already rejects it (non passa). Re-raising a 🔴 on a bullet the contract accepted deadlocks the loop: the fixer declines with a reason, the round cap trips, and `needs-human` lands with the wrong diagnosis on a PR that has nothing to fix. Tier `minimal` carries the same rule: check that both sections exist and that **nessun placeholder vuoto** (`TBD`, `N/A`, empty bullet) fills them — but a bullet closed with specific fields **non è un finding**.
 
             Post exactly one review with `gh pr review ${PR_NUMBER} --comment --body ...`. End with `## LGTM` only when there is no open `🔴 Important`, no unresolved funnel-critical question, and the bundle/body contract is valid. If uncertain, emit `❓ q:`; never use `## LGTM` beside an unresolved Important finding. Work read-only: do not edit files, commit, push, run npm, or run tests. Batch independent reads/searches in one tool call and stop immediately after posting the review.
       - name: Fail on transient API error (no review posted)
@@ -2665,6 +2673,9 @@ jobs:
           REPO: ${{ github.repository }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           CODEX_FALLBACK_EVIDENCE_FILE: ${{ steps.codex_review.outputs.fallback_evidence_file }}
+          # Single source of truth for the PR body: a model 🔴 anchored only on
+          # `PR body:L<n>` does not block when this contract passed.
+          BODY_CONTRACT_OUTCOME: ${{ steps.body_contract.outcome }}
         run: |
           set -euo pipefail
           # Il gate autorevole resta questo step required; la decisione è
