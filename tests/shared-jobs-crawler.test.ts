@@ -3,6 +3,52 @@ import { looksLikeShortLabelValue, extractCompanyFromText, extractLocationFromTe
 
 const { buildKnownJobUrlsSet } = __testables;
 
+describe('crawlWorkdayJobs — concrete Swiss location default (#9210)', () => {
+  it('drops country-only records and keeps records with a concrete Swiss locality by default', async () => {
+    const source = {
+      endpoint: 'https://example.wd5.myworkdayjobs.com/wday/cxs/example/External/jobs',
+      origin: 'https://example.wd5.myworkdayjobs.com',
+      appliedFacets: {},
+    };
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      const url = String(input);
+      if (url === source.endpoint) {
+        return new Response(JSON.stringify({
+          total: 2,
+          jobPostings: [
+            {
+              title: 'Senior Finance Analyst',
+              externalPath: '/job/Switzerland/senior-finance-analyst',
+              locationsText: 'Switzerland',
+              postedOn: 'Posted Today',
+            },
+            {
+              title: 'Senior Finance Engineer',
+              externalPath: '/job/Lugano/senior-finance-engineer',
+              locationsText: 'Lugano, Switzerland',
+              postedOn: 'Posted Today',
+            },
+          ],
+        }), { status: 200, headers: { 'content-type': 'application/json' } });
+      }
+      return new Response('', { status: 404 });
+    });
+
+    const jobs = await __testables.crawlWorkdayJobs(
+      { name: 'Example Company' },
+      source,
+      { aiLocalizationEnabled: false },
+    );
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      title: 'Senior Finance Engineer',
+      location: 'Lugano, Switzerland',
+      canton: 'TI',
+    });
+  });
+});
+
 describe('generic link discovery — quote-balanced hrefs (#6574)', () => {
   const { absoluteLinks, absoluteSameHostLinks } = __testables;
   const baseUrl = 'https://careers.example.ch/jobs/';

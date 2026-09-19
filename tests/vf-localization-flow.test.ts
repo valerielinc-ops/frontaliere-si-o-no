@@ -52,7 +52,8 @@ describe('VF localization flow', () => {
 
     expect(source).toContain('WORKDAY_MAX_PAGES');
     expect(source).not.toContain('while (offset < 200)');
-    expect(source).toContain('requireConcreteLocation: true');
+    expect(source).toContain('{ requireConcreteLocation = true }');
+    expect(source).not.toContain('requireConcreteLocation: true');
   });
 
   it('requires a concrete Swiss Workday locality before canton inference', () => {
