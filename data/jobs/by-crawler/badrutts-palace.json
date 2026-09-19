@@ -1,6 +1,6 @@
 {
   "crawlerKey": "badrutts-palace",
-  "assembledAt": "2026-09-18T23:22:03.355Z",
+  "assembledAt": "2026-09-18T20:20:56.427Z",
   "jobs": [
     {
       "id": "badrutts-palace-1b28acf029cb",
@@ -949,7 +949,24 @@
         "beauty-therapist-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "kosmetiker-in-badrutt-s-palace-hotel-st-moritz",
         "estheticienne-badrutt-s-palace-hotel-st-moritz",
-        "pittura-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        "pittura-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "chef-de-rang-m-w-d-badrutts-palace-ch",
+        "chef-de-rang-m-p-j-badrutt-s-palace-hotel-st-moritz",
+        "chef-de-partie-m-f-d-badrutts-palace-ch",
+        "chef-de-partie-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "chef-esecutivo-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "executive-chef-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "executive-chef-m-w-d-badrutts-palace-ch",
+        "chef-de-cuisine-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "cucina-indiana-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "indischer-spezialitatenkoch-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "capopartita-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "indian-speciality-chef-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "chef-de-partie-m-w-d-badrutts-palace-ch",
+        "indischer-spezialitatenkoch-m-w-d-badrutts-palace-ch",
+        "kuchenchef-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "chef-specialise-indien-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "chef-de-partie-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -972,27 +989,43 @@
           "estetista-badrutt-s-palace-hotel-st-moritz",
           "painter-m-f-d-badrutts-palace-ch",
           "applicazione-spontanea-badrutt-s-palace-hotel-st-moritz",
-          "pittura-m-f-d-badrutt-s-palace-hotel-st-moritz"
+          "pittura-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "chef-de-rang-m-w-d-badrutts-palace-ch",
+          "chef-de-rang-m-p-j-badrutt-s-palace-hotel-st-moritz",
+          "chef-de-partie-m-f-d-badrutts-palace-ch",
+          "chef-de-partie-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "chef-esecutivo-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "executive-chef-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "executive-chef-m-w-d-badrutts-palace-ch",
+          "chef-de-cuisine-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "cucina-indiana-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "indischer-spezialitatenkoch-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "capopartita-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
           "spontaneous-application-badrutt-s-palace-hotel-st-moritz",
-          "beauty-therapist-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "beauty-therapist-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "indian-speciality-chef-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "chef-de-partie-m-w-d-badrutts-palace-ch"
         ],
         "de": [
           "spontaneous-application-badrutts-palace-ch",
           "ironer-guest-laundry-m-f-d-badrutts-palace-ch",
           "painter-m-f-d-badrutts-palace-ch",
-          "kosmetiker-in-badrutt-s-palace-hotel-st-moritz"
+          "kosmetiker-in-badrutt-s-palace-hotel-st-moritz",
+          "indischer-spezialitatenkoch-m-w-d-badrutts-palace-ch",
+          "kuchenchef-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "fr": [
           "demande-spontanee-badrutt-s-palace-hotel-st-moritz",
           "blanchisserie-pour-personnes-a-charge-m-f-d-badrutt-s-palace-hotel-st-moritz",
           "painter-m-f-d-badrutts-palace-ch",
-          "estheticienne-badrutt-s-palace-hotel-st-moritz"
+          "estheticienne-badrutt-s-palace-hotel-st-moritz",
+          "chef-specialise-indien-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "chef-de-partie-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ]
       },
       "firstSeenAt": "2026-08-11T10:33:44.652Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -1006,7 +1039,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "badrutts-palace-a601c6b40bd4",

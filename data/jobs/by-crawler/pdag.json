@@ -3682,7 +3682,15 @@
         "chef-de-la-pharmacie-psychiatrische-dienste-aargau-pdag-windisch",
         "leiterin-leiter-spitalapotheke-pdag-windisch",
         "medecin-chef-medecin-chef-psychiatrische-dienste-aargau-pdag-windisch",
-        "medecin-chef-medecin-cheffe-psychiatrische-dienste-aargau-pdag-windisch"
+        "medecin-chef-medecin-cheffe-psychiatrische-dienste-aargau-pdag-windisch",
+        "capoclinica-capoclinica-psichiatria-forense-ospedaliera-psychiatrische-dienste-aargau-pdag-windisch",
+        "senior-physician-forensic-psychiatry-inpatient-psychiatrische-dienste-aargau-pdag-windisch",
+        "oberarztin-oberarzt-forensische-psychiatrie-stationar-pdag-windisch",
+        "medecin-chef-psychiatrie-forensique-stationnaire-psychiatrische-dienste-aargau-pdag-windisch",
+        "oberarztin-oberarzt-forensische-psychiatrie-stationar-pdag-windisch-xtgp8k",
+        "medico-senior-senior-medico-forense-psichiatria-inpatient-psychiatrische-dienste-aargau-pdag-windisch",
+        "senior-physician-senior-physician-forensic-psychiatry-inpatient-psychiatrische-dienste-aargau-pdag-windisch",
+        "medecin-principal-medecin-principal-medecin-legiste-psychiatrie-hospitalise-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3694,19 +3702,32 @@
           "chef-de-la-pharmacie-psychiatrische-dienste-aargau-pdag-windisch",
           "leiterin-leiter-spitalapotheke-pdag-windisch",
           "medecin-chef-medecin-chef-psychiatrische-dienste-aargau-pdag-windisch",
-          "medecin-chef-medecin-cheffe-psychiatrische-dienste-aargau-pdag-windisch"
+          "medecin-chef-medecin-cheffe-psychiatrische-dienste-aargau-pdag-windisch",
+          "capoclinica-capoclinica-psichiatria-forense-ospedaliera-psychiatrische-dienste-aargau-pdag-windisch",
+          "senior-physician-forensic-psychiatry-inpatient-psychiatrische-dienste-aargau-pdag-windisch",
+          "oberarztin-oberarzt-forensische-psychiatrie-stationar-pdag-windisch",
+          "medecin-chef-psychiatrie-forensique-stationnaire-psychiatrische-dienste-aargau-pdag-windisch",
+          "oberarztin-oberarzt-forensische-psychiatrie-stationar-pdag-windisch-xtgp8k",
+          "medico-senior-senior-medico-forense-psichiatria-inpatient-psychiatrische-dienste-aargau-pdag-windisch",
+          "senior-physician-senior-physician-forensic-psychiatry-inpatient-psychiatrische-dienste-aargau-pdag-windisch",
+          "medecin-principal-medecin-principal-medecin-legiste-psychiatrie-hospitalise-psychiatrische-dienste-aargau-pdag-windisch"
         ],
         "en": [
           "senior-physician-senior-physician-psychiatrische-dienste-aargau-pdag-windisch",
-          "head-of-pharmacy-psychiatrische-dienste-aargau-pdag-windisch"
+          "head-of-pharmacy-psychiatrische-dienste-aargau-pdag-windisch",
+          "senior-physician-forensic-psychiatry-inpatient-psychiatrische-dienste-aargau-pdag-windisch",
+          "medico-senior-senior-medico-forense-psichiatria-inpatient-psychiatrische-dienste-aargau-pdag-windisch",
+          "senior-physician-senior-physician-forensic-psychiatry-inpatient-psychiatrische-dienste-aargau-pdag-windisch"
         ],
         "de": [
           "leiterin-leiter-apotheke-pdag-windisch",
-          "leiterin-leiter-spitalapotheke-pdag-windisch"
+          "leiterin-leiter-spitalapotheke-pdag-windisch",
+          "oberarztin-oberarzt-forensische-psychiatrie-stationar-pdag-windisch"
         ],
         "fr": [
           "medecin-superieur-medecin-superieur-psychiatrische-dienste-aargau-pdag-windisch",
-          "chef-de-la-pharmacie-psychiatrische-dienste-aargau-pdag-windisch"
+          "chef-de-la-pharmacie-psychiatrische-dienste-aargau-pdag-windisch",
+          "medecin-chef-psychiatrie-forensique-stationnaire-psychiatrische-dienste-aargau-pdag-windisch"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:03.570Z",
@@ -5254,17 +5275,51 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sekretarin-sekretar-pdag-aarau"
+        "sekretarin-sekretar-pdag-aarau",
+        "segretario-medico-segretario-medico-psychiatrische-dienste-aargau-pdag-aarau",
+        "medical-secretary-medical-secretary-psychiatrische-dienste-aargau-pdag-aarau",
+        "arztsekretarin-arztsekretar-pdag-aarau",
+        "secretaire-medical-secretaire-medical-psychiatrische-dienste-aargau-pdag-aarau",
+        "segretario-medico-segretario-medico-psychiatrische-dienste-aargau-pdag-baden",
+        "arztsekretarin-arztsekretar-psychiatrische-dienste-aargau-pdag-baden",
+        "arztsekretarin-arztsekretar-pdag-baden",
+        "secretaire-medical-secretaire-medical-psychiatrische-dienste-aargau-pdag-baden",
+        "medical-secretary-medical-secretary-psychiatrische-dienste-aargau-pdag-baden",
+        "arztsekretarin-arztsekretar-psychiatrische-dienste-aargau-pdag-aarau",
+        "assistente-medico-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau",
+        "assistant-physician-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau",
+        "assistenzarztin-assistenzarzt-ambulatorium-aarau-pdag-aarau",
+        "medecin-adjoint-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sekretarin-sekretar-pdag-aarau"
+          "sekretarin-sekretar-pdag-aarau",
+          "segretario-medico-segretario-medico-psychiatrische-dienste-aargau-pdag-aarau",
+          "medical-secretary-medical-secretary-psychiatrische-dienste-aargau-pdag-aarau",
+          "arztsekretarin-arztsekretar-pdag-aarau",
+          "secretaire-medical-secretaire-medical-psychiatrische-dienste-aargau-pdag-aarau",
+          "segretario-medico-segretario-medico-psychiatrische-dienste-aargau-pdag-baden",
+          "arztsekretarin-arztsekretar-psychiatrische-dienste-aargau-pdag-baden",
+          "arztsekretarin-arztsekretar-pdag-baden",
+          "secretaire-medical-secretaire-medical-psychiatrische-dienste-aargau-pdag-baden",
+          "medical-secretary-medical-secretary-psychiatrische-dienste-aargau-pdag-baden",
+          "arztsekretarin-arztsekretar-psychiatrische-dienste-aargau-pdag-aarau",
+          "assistente-medico-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau",
+          "assistant-physician-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau",
+          "assistenzarztin-assistenzarzt-ambulatorium-aarau-pdag-aarau",
+          "medecin-adjoint-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau"
         ],
         "en": [
-          "sekretarin-sekretar-pdag-aarau"
+          "sekretarin-sekretar-pdag-aarau",
+          "medical-secretary-medical-secretary-psychiatrische-dienste-aargau-pdag-aarau"
         ],
         "fr": [
-          "sekretarin-sekretar-pdag-aarau"
+          "sekretarin-sekretar-pdag-aarau",
+          "secretaire-medical-secretaire-medical-psychiatrische-dienste-aargau-pdag-aarau",
+          "medecin-adjoint-ambulatorium-aarau-psychiatrische-dienste-aargau-pdag-aarau"
+        ],
+        "de": [
+          "arztsekretarin-arztsekretar-pdag-aarau"
         ]
       },
       "firstSeenAt": "2026-08-31T17:31:44.744Z",

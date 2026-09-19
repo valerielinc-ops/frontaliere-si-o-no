@@ -135,7 +135,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -157,8 +156,7 @@
       },
       "previousSlugs": [
         "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2ya6"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "komax-93cd153014b9",
@@ -374,7 +372,6 @@
       "jobReqId": "1165135955",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "development-engineer-electronics-with-emv-lead-komax-ch",
         "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i0zqmm",
@@ -407,8 +404,7 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "komax-aafe73ad37b8",
@@ -778,7 +774,7 @@
       "slugByLocale": {
         "it": "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon",
         "en": "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch-ij2xjh",
-        "de": "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
+        "de": "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch-ij2xjh",
         "fr": "sales-switzerland-technical-sales-ingenieur-w-m-d-komax-dierikon"
       },
       "company": "Komax",
@@ -833,7 +829,8 @@
           "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2xjh"
         ],
         "de": [
-          "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch-ij2xjh"
+          "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch-ij2xjh",
+          "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch"
         ]
       },
       "firstSeenAt": "2026-09-10T23:22:05.155Z",
