@@ -1,6 +1,6 @@
 {
   "crawlerKey": "duferco",
-  "assembledAt": "2026-09-13T14:00:26.784Z",
+  "assembledAt": "2026-09-19T22:59:36.811Z",
   "jobs": [
     {
       "id": "duferco-b77369d4-d159-4e52-8bd9-e56da3035df5",
@@ -33,7 +33,7 @@
       "url": "https://duferco.talentics.ai/job/b77369d4-d159-4e52-8bd9-e56da3035df5",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-13T14:00:14.273Z",
+      "crawledAt": "2026-09-19T22:59:32.239Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "url": "https://duferco.talentics.ai/job/acf31343-af32-4da9-98d4-b985d14baa10",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-13T14:00:14.267Z",
+      "crawledAt": "2026-09-19T22:59:32.238Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -134,6 +134,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T06:06:36.061Z",
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -179,7 +180,7 @@
       "url": "https://duferco.talentics.ai/job/7d3cb7f4-0255-411c-98c5-92ad1132c9b1",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-13T14:00:14.257Z",
+      "crawledAt": "2026-09-19T22:59:32.236Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -216,6 +217,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T06:06:36.042Z",
+      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -261,7 +263,7 @@
       "url": "https://duferco.talentics.ai/job/3ce2e723-cfe3-46ff-92cc-cd3f49dde19b",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-13T14:00:14.234Z",
+      "crawledAt": "2026-09-19T22:59:32.224Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -340,7 +342,7 @@
       "url": "https://duferco.talentics.ai/job/ce2e4e2d-3560-47d1-8655-400dce5e2d9f",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-13T14:00:14.229Z",
+      "crawledAt": "2026-09-19T22:59:32.222Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -423,7 +425,7 @@
       "url": "https://duferco.talentics.ai/job/24216bb0-34f2-4d8c-a640-1bbceaa47497",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-13T14:00:14.188Z",
+      "crawledAt": "2026-09-19T22:59:32.219Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -457,6 +459,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T10:55:24.056Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -470,6 +473,72 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "duferco-1cf7268a-a1ec-4fda-8e3a-94da072587c4",
+      "slug": "operations-research-engineer-duferco-lugano",
+      "slugByLocale": {
+        "en": "operations-research-engineer-duferco-lugano",
+        "it": "operations-research-engineer-duferco-lugano",
+        "de": "operations-research-engineer-duferco-lugano",
+        "fr": "operations-research-engineer-duferco-lugano"
+      },
+      "company": "Duferco",
+      "companyKey": "duferco",
+      "companyDomain": "duferco.talentics.ai",
+      "title": "Operations Research Engineer",
+      "titleByLocale": {
+        "en": "Operations Research Engineer",
+        "it": "Operations Ricerca Ingegnere",
+        "de": "Operations Forschung Ingenieur",
+        "fr": "Operations Recherche Ingénieur"
+      },
+      "description": "TL;DR\n We are expanding Duferco’s Corporate Innovation Team: a fast-moving team operating in a startup-like environment, backed by the stability and scale of a globally diversified group.\n We are looking for an Operations Research Engineer : someone who works close to business teams, understands messy operational and planning problems, develops optimization models and algorithms to solve them efficiently, and turns solutions into practical tools used by a diverse range of stakeholders.\n You will work across domains such as energy, trading, logistics, steel, insurance, sports, and other sectors — not as an external consultant, but as part of the group itself, with the ownership and continuity of an internal product and engineering team.\n You will identify opportunities, prototype optimization-based tools, evaluate impact, and help deploy solutions that remove bottlenecks, improve decision-making, and create leverage across the business.\n About the Team\n We sit close to real business problems and have the freedom to prototype and ship quickly, with AI being already part of our daily workflow.\n We care about building solutions that work in the real world: useful tools, reliable and smart decisions, better workflows, and systems that create measurable impact.\n We appreciate people who enjoy ownership, fast iteration, pragmatic problem solving, and working directly with users to understand how things actually get done.\n What You’ll Do\n\n• Design, build, test, and deploy optimization-based solutions for a variety of business applications\n\n• Collaborate closely with business and technical teams to understand needs, formalize optimization problems, prototype solutions, measure impact, and iterate — not just execute predefined specs\n\n• Develop linear, nonlinear, and mixed-integer programming models, along with heuristic and stochastic optimization methods, to enhance operational efficiency and decision-making\n\n• Ensure the robustness, scalability, and interpretability of optimization solutions deployed in production environments\n\n• Research and evaluate emerging technologies and methodologies in operations research and mathematical optimization to drive innovation\n\nWhat We Offer\n\n• A high-autonomy role with direct influence on how optimization is applied across the group\n\n• Real business problems with visible impact\n\n• Modern AI-assisted tools and time to explore new technologies and approaches\n\n• A fast-moving, collaborative environment with talented and ambitious people\n\n• A broad variety of technical and business challenges across different domains\n\n• Competitive compensation and benefits\n\n• Flexible working hours and hybrid work setup\n\nYou’re Probably a Fit If\n\n• You have a master’s degree with at least 2-3 years of relevant experience, or a Ph.D. in Operations Research, Applied Mathematics, Industrial Engineering, or a related field.\n\n• You have in-depth knowledge of mathematical programming (linear, integer, etc.), various heuristic and metaheuristic approaches, and stochastic optimization methods\n\n• You are proficient in optimization software (e.g., Gurobi, CPLEX, open solvers) and have strong programming skills in Python or other languages relevant to optimization and modeling\n\n• You have experience in building and solving large-scale optimization models and the ability to communicate insights and trade-offs clearly to stakeholders\n\n• You enjoy working close to users and business teams, understanding how work happens, and turning messy problems into useful optimization-based solutions\n\n• You have proven track record of implementing optimization-based solutions in real-world settings and/or in publishing optimization-based research in Operations Research related journals\n\n• You are pragmatic about using AI in the daily workflow: excited by what it can do, but aware of its limitations, failure modes, and the importance of good evaluation\n\nExperience with forecasting and machine learning, structured and unstructured data, simulation, database systems, AWS, deploying tools in production environments or complex operational domains is a plus.\n You do not need experience with every technology and optimization method. Curiosity, analytical thinking, adaptability, and the ability to turn optimization into practical business impact matter much more.\n If this sounds like the right fit for you, we’d love to hear from you.",
+      "descriptionByLocale": {
+        "en": "TL;DR\n We are expanding Duferco’s Corporate Innovation Team: a fast-moving team operating in a startup-like environment, backed by the stability and scale of a globally diversified group.\n We are looking for an Operations Research Engineer : someone who works close to business teams, understands messy operational and planning problems, develops optimization models and algorithms to solve them efficiently, and turns solutions into practical tools used by a diverse range of stakeholders.\n You will work across domains such as energy, trading, logistics, steel, insurance, sports, and other sectors — not as an external consultant, but as part of the group itself, with the ownership and continuity of an internal product and engineering team.\n You will identify opportunities, prototype optimization-based tools, evaluate impact, and help deploy solutions that remove bottlenecks, improve decision-making, and create leverage across the business.\n About the Team\n We sit close to real business problems and have the freedom to prototype and ship quickly, with AI being already part of our daily workflow.\n We care about building solutions that work in the real world: useful tools, reliable and smart decisions, better workflows, and systems that create measurable impact.\n We appreciate people who enjoy ownership, fast iteration, pragmatic problem solving, and working directly with users to understand how things actually get done.\n What You’ll Do\n\n• Design, build, test, and deploy optimization-based solutions for a variety of business applications\n\n• Collaborate closely with business and technical teams to understand needs, formalize optimization problems, prototype solutions, measure impact, and iterate — not just execute predefined specs\n\n• Develop linear, nonlinear, and mixed-integer programming models, along with heuristic and stochastic optimization methods, to enhance operational efficiency and decision-making\n\n• Ensure the robustness, scalability, and interpretability of optimization solutions deployed in production environments\n\n• Research and evaluate emerging technologies and methodologies in operations research and mathematical optimization to drive innovation\n\nWhat We Offer\n\n• A high-autonomy role with direct influence on how optimization is applied across the group\n\n• Real business problems with visible impact\n\n• Modern AI-assisted tools and time to explore new technologies and approaches\n\n• A fast-moving, collaborative environment with talented and ambitious people\n\n• A broad variety of technical and business challenges across different domains\n\n• Competitive compensation and benefits\n\n• Flexible working hours and hybrid work setup\n\nYou’re Probably a Fit If\n\n• You have a master’s degree with at least 2-3 years of relevant experience, or a Ph.D. in Operations Research, Applied Mathematics, Industrial Engineering, or a related field.\n\n• You have in-depth knowledge of mathematical programming (linear, integer, etc.), various heuristic and metaheuristic approaches, and stochastic optimization methods\n\n• You are proficient in optimization software (e.g., Gurobi, CPLEX, open solvers) and have strong programming skills in Python or other languages relevant to optimization and modeling\n\n• You have experience in building and solving large-scale optimization models and the ability to communicate insights and trade-offs clearly to stakeholders\n\n• You enjoy working close to users and business teams, understanding how work happens, and turning messy problems into useful optimization-based solutions\n\n• You have proven track record of implementing optimization-based solutions in real-world settings and/or in publishing optimization-based research in Operations Research related journals\n\n• You are pragmatic about using AI in the daily workflow: excited by what it can do, but aware of its limitations, failure modes, and the importance of good evaluation\n\nExperience with forecasting and machine learning, structured and unstructured data, simulation, database systems, AWS, deploying tools in production environments or complex operational domains is a plus.\n You do not need experience with every technology and optimization method. Curiosity, analytical thinking, adaptability, and the ability to turn optimization into practical business impact matter much more.\n If this sounds like the right fit for you, we’d love to hear from you.",
+        "it": "TL;DR\n We are expanding Duferco’s Corporate Innovation Team: a fast-moving team operating in a startup-like environment, backed by the stability and scale of a globally diversified group.\n We are looking for an Operations Research Engineer : someone who works close to business teams, understands messy operational and planning problems, develops optimization models and algorithms to solve them efficiently, and turns solutions into practical tools used by a diverse range of stakeholders.\n You will work across domains such as energy, trading, logistics, steel, insurance, sports, and other sectors — not as an external consultant, but as part of the group itself, with the ownership and continuity of an internal product and engineering team.\n You will identify opportunities, prototype optimization-based tools, evaluate impact, and help deploy solutions that remove bottlenecks, improve decision-making, and create leverage across the business.\n About the Team\n We sit close to real business problems and have the freedom to prototype and ship quickly, with AI being already part of our daily workflow.\n We care about building solutions that work in the real world: useful tools, reliable and smart decisions, better workflows, and systems that create measurable impact.\n We appreciate people who enjoy ownership, fast iteration, pragmatic problem solving, and working directly with users to understand how things actually get done.\n What You’ll Do\n\n• Design, build, test, and deploy optimization-based solutions for a variety of business applications\n\n• Collaborate closely with business and technical teams to understand needs, formalize optimization problems, prototype solutions, measure impact, and iterate — not just execute predefined specs\n\n• Develop linear, nonlinear, and mixed-integer programming models, along with heuristic and stochastic optimization methods, to enhance operational efficiency and decision-making\n\n• Ensure the robustness, scalability, and interpretability of optimization solutions deployed in production environments\n\n• Research and evaluate emerging technologies and methodologies in operations research and mathematical optimization to drive innovation\n\nWhat We Offer\n\n• A high-autonomy role with direct influence on how optimization is applied across the group\n\n• Real business problems with visible impact\n\n• Modern AI-assisted tools and time to explore new technologies and approaches\n\n• A fast-moving, collaborative environment with talented and ambitious people\n\n• A broad variety of technical and business challenges across different domains\n\n• Competitive compensation and benefits\n\n• Flexible working hours and hybrid work setup\n\nYou’re Probably a Fit If\n\n• You have a master’s degree with at least 2-3 years of relevant experience, or a Ph.D. in Operations Research, Applied Mathematics, Industrial Engineering, or a related field.\n\n• You have in-depth knowledge of mathematical programming (linear, integer, etc.), various heuristic and metaheuristic approaches, and stochastic optimization methods\n\n• You are proficient in optimization software (e.g., Gurobi, CPLEX, open solvers) and have strong programming skills in Python or other languages relevant to optimization and modeling\n\n• You have experience in building and solving large-scale optimization models and the ability to communicate insights and trade-offs clearly to stakeholders\n\n• You enjoy working close to users and business teams, understanding how work happens, and turning messy problems into useful optimization-based solutions\n\n• You have proven track record of implementing optimization-based solutions in real-world settings and/or in publishing optimization-based research in Operations Research related journals\n\n• You are pragmatic about using AI in the daily workflow: excited by what it can do, but aware of its limitations, failure modes, and the importance of good evaluation\n\nExperience with forecasting and machine learning, structured and unstructured data, simulation, database systems, AWS, deploying tools in production environments or complex operational domains is a plus.\n You do not need experience with every technology and optimization method. Curiosity, analytical thinking, adaptability, and the ability to turn optimization into practical business impact matter much more.\n If this sounds like the right fit for you, we’d love to hear from you.",
+        "de": "TL;DR\n We are expanding Duferco’s Corporate Innovation Team: a fast-moving team operating in a startup-like environment, backed by the stability and scale of a globally diversified group.\n We are looking for an Operations Research Engineer : someone who works close to business teams, understands messy operational and planning problems, develops optimization models and algorithms to solve them efficiently, and turns solutions into practical tools used by a diverse range of stakeholders.\n You will work across domains such as energy, trading, logistics, steel, insurance, sports, and other sectors — not as an external consultant, but as part of the group itself, with the ownership and continuity of an internal product and engineering team.\n You will identify opportunities, prototype optimization-based tools, evaluate impact, and help deploy solutions that remove bottlenecks, improve decision-making, and create leverage across the business.\n About the Team\n We sit close to real business problems and have the freedom to prototype and ship quickly, with AI being already part of our daily workflow.\n We care about building solutions that work in the real world: useful tools, reliable and smart decisions, better workflows, and systems that create measurable impact.\n We appreciate people who enjoy ownership, fast iteration, pragmatic problem solving, and working directly with users to understand how things actually get done.\n What You’ll Do\n\n• Design, build, test, and deploy optimization-based solutions for a variety of business applications\n\n• Collaborate closely with business and technical teams to understand needs, formalize optimization problems, prototype solutions, measure impact, and iterate — not just execute predefined specs\n\n• Develop linear, nonlinear, and mixed-integer programming models, along with heuristic and stochastic optimization methods, to enhance operational efficiency and decision-making\n\n• Ensure the robustness, scalability, and interpretability of optimization solutions deployed in production environments\n\n• Research and evaluate emerging technologies and methodologies in operations research and mathematical optimization to drive innovation\n\nWhat We Offer\n\n• A high-autonomy role with direct influence on how optimization is applied across the group\n\n• Real business problems with visible impact\n\n• Modern AI-assisted tools and time to explore new technologies and approaches\n\n• A fast-moving, collaborative environment with talented and ambitious people\n\n• A broad variety of technical and business challenges across different domains\n\n• Competitive compensation and benefits\n\n• Flexible working hours and hybrid work setup\n\nYou’re Probably a Fit If\n\n• You have a master’s degree with at least 2-3 years of relevant experience, or a Ph.D. in Operations Research, Applied Mathematics, Industrial Engineering, or a related field.\n\n• You have in-depth knowledge of mathematical programming (linear, integer, etc.), various heuristic and metaheuristic approaches, and stochastic optimization methods\n\n• You are proficient in optimization software (e.g., Gurobi, CPLEX, open solvers) and have strong programming skills in Python or other languages relevant to optimization and modeling\n\n• You have experience in building and solving large-scale optimization models and the ability to communicate insights and trade-offs clearly to stakeholders\n\n• You enjoy working close to users and business teams, understanding how work happens, and turning messy problems into useful optimization-based solutions\n\n• You have proven track record of implementing optimization-based solutions in real-world settings and/or in publishing optimization-based research in Operations Research related journals\n\n• You are pragmatic about using AI in the daily workflow: excited by what it can do, but aware of its limitations, failure modes, and the importance of good evaluation\n\nExperience with forecasting and machine learning, structured and unstructured data, simulation, database systems, AWS, deploying tools in production environments or complex operational domains is a plus.\n You do not need experience with every technology and optimization method. Curiosity, analytical thinking, adaptability, and the ability to turn optimization into practical business impact matter much more.\n If this sounds like the right fit for you, we’d love to hear from you.",
+        "fr": "TL;DR\n We are expanding Duferco’s Corporate Innovation Team: a fast-moving team operating in a startup-like environment, backed by the stability and scale of a globally diversified group.\n We are looking for an Operations Research Engineer : someone who works close to business teams, understands messy operational and planning problems, develops optimization models and algorithms to solve them efficiently, and turns solutions into practical tools used by a diverse range of stakeholders.\n You will work across domains such as energy, trading, logistics, steel, insurance, sports, and other sectors — not as an external consultant, but as part of the group itself, with the ownership and continuity of an internal product and engineering team.\n You will identify opportunities, prototype optimization-based tools, evaluate impact, and help deploy solutions that remove bottlenecks, improve decision-making, and create leverage across the business.\n About the Team\n We sit close to real business problems and have the freedom to prototype and ship quickly, with AI being already part of our daily workflow.\n We care about building solutions that work in the real world: useful tools, reliable and smart decisions, better workflows, and systems that create measurable impact.\n We appreciate people who enjoy ownership, fast iteration, pragmatic problem solving, and working directly with users to understand how things actually get done.\n What You’ll Do\n\n• Design, build, test, and deploy optimization-based solutions for a variety of business applications\n\n• Collaborate closely with business and technical teams to understand needs, formalize optimization problems, prototype solutions, measure impact, and iterate — not just execute predefined specs\n\n• Develop linear, nonlinear, and mixed-integer programming models, along with heuristic and stochastic optimization methods, to enhance operational efficiency and decision-making\n\n• Ensure the robustness, scalability, and interpretability of optimization solutions deployed in production environments\n\n• Research and evaluate emerging technologies and methodologies in operations research and mathematical optimization to drive innovation\n\nWhat We Offer\n\n• A high-autonomy role with direct influence on how optimization is applied across the group\n\n• Real business problems with visible impact\n\n• Modern AI-assisted tools and time to explore new technologies and approaches\n\n• A fast-moving, collaborative environment with talented and ambitious people\n\n• A broad variety of technical and business challenges across different domains\n\n• Competitive compensation and benefits\n\n• Flexible working hours and hybrid work setup\n\nYou’re Probably a Fit If\n\n• You have a master’s degree with at least 2-3 years of relevant experience, or a Ph.D. in Operations Research, Applied Mathematics, Industrial Engineering, or a related field.\n\n• You have in-depth knowledge of mathematical programming (linear, integer, etc.), various heuristic and metaheuristic approaches, and stochastic optimization methods\n\n• You are proficient in optimization software (e.g., Gurobi, CPLEX, open solvers) and have strong programming skills in Python or other languages relevant to optimization and modeling\n\n• You have experience in building and solving large-scale optimization models and the ability to communicate insights and trade-offs clearly to stakeholders\n\n• You enjoy working close to users and business teams, understanding how work happens, and turning messy problems into useful optimization-based solutions\n\n• You have proven track record of implementing optimization-based solutions in real-world settings and/or in publishing optimization-based research in Operations Research related journals\n\n• You are pragmatic about using AI in the daily workflow: excited by what it can do, but aware of its limitations, failure modes, and the importance of good evaluation\n\nExperience with forecasting and machine learning, structured and unstructured data, simulation, database systems, AWS, deploying tools in production environments or complex operational domains is a plus.\n You do not need experience with every technology and optimization method. Curiosity, analytical thinking, adaptability, and the ability to turn optimization into practical business impact matter much more.\n If this sounds like the right fit for you, we’d love to hear from you."
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://duferco.talentics.ai/job/1cf7268a-a1ec-4fda-8e3a-94da072587c4",
+      "source": "Duferco Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-19T22:59:32.207Z",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Tecnologia & IT",
+      "department": "Innovation",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-15",
+      "applyUrl": "https://duferco.talentics.ai/job/1cf7268a-a1ec-4fda-8e3a-94da072587c4",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-19T22:59:32.207Z"
     }
   ]
 }
