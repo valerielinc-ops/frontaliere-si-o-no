@@ -21,7 +21,9 @@ import YAML from 'yaml';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const TESTS_YML = readFileSync(resolve(ROOT, '.github/workflows/tests.yml'), 'utf-8');
-const steps: any[] = (YAML.parse(TESTS_YML) as any).jobs.vitest.steps;
+const jobs = (YAML.parse(TESTS_YML) as any).jobs as Record<string, { steps: any[] }>;
+// Tutti i job: `post-review` esegue `pr-autorebase.mjs` su un checkout treeless.
+const steps: any[] = Object.values(jobs).flatMap((job) => job.steps);
 
 // Storia per path: un comando di storia seguito, nella stessa riga/array, da
 // un separatore `--` di pathspec.
@@ -93,10 +95,12 @@ function code(src: string): string {
 }
 
 describe('tests.yml: checkout treeless', () => {
-  it('il checkout principale e` treeless con la storia completa dei commit', () => {
-    const checkout = steps.find((s) => s.uses === 'actions/checkout@v5' && !s.with?.path);
-    expect(checkout?.with?.['fetch-depth']).toBe(0);
-    expect(checkout?.with?.filter).toBe('tree:0');
+  it('i checkout con la storia (vitest e post-review) sono treeless', () => {
+    for (const name of ['vitest', 'post-review']) {
+      const checkout = jobs[name].steps.find((s) => s.uses === 'actions/checkout@v5' && !s.with?.path);
+      expect(checkout?.with?.['fetch-depth'], name).toBe(0);
+      expect(checkout?.with?.filter, name).toBe('tree:0');
+    }
   });
 
   it('gli step inline non chiedono una storia per path', () => {

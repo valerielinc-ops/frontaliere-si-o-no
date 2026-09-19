@@ -52,15 +52,18 @@ describe('review → autorebase ordering', () => {
     expect(pullRequestTypes).not.toContain('labeled');
     expect(workflowJobs.vitest?.if).toBeUndefined();
 
+    // La decisione e' presa dal job required (step `post_review`) con le
+    // STESSE condizioni di prima; il job `post-review` la esegue dopo.
+    const decisionStart = workflow.indexOf('id: post_review');
+    const decisionBlock = workflow.slice(decisionStart, workflow.indexOf('\n      - name:', decisionStart + 1));
+    const expectedIf = "(job.status == 'success' && steps.review_gate.outputs.approved == 'true') || (steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.codex_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure')";
+    expect(decisionStart).toBeGreaterThan(reviewGate);
+    expect(decisionBlock).toContain(`AUTOREBASE: \${{ ${expectedIf} }}`);
+    expect(decisionBlock).toMatch(/if: .*always\(\) && !cancelled\(\)/);
     const autorebaseBlock = workflow.slice(autorebase, workflow.indexOf('\n      - name:', autorebase + 1));
-    const mint = workflow.indexOf('name: Mint autorebase App token');
-    const mintBlock = workflow.slice(mint, workflow.indexOf('\n      - name:', mint + 1));
-    const expectedIf = "(success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.codex_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure')";
-    for (const block of [mintBlock, autorebaseBlock]) {
-      const ifLine = block.split('\n').find((line) => /^\s+if:/.test(line));
-      expect(ifLine).toBeTruthy();
-      expect(ifLine).toContain(expectedIf);
-    }
+    expect(autorebaseBlock).toContain("if: ${{ needs.vitest.outputs.autorebase == 'true' }}");
+    expect(workflowJobs['post-review']?.if).toContain("needs.vitest.outputs.autorebase == 'true'");
+    expect(workflowJobs['post-review']?.if).toContain('always()');
 
     // Verifica il ponte completo: il rescuer produce proprio la label che
     // l'alternativa del consumer rende soddisfacibile quando il gate è rosso,

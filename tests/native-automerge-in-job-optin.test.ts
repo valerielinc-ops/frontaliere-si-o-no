@@ -210,21 +210,24 @@ describe('native auto-merge opt-in from inside the required job', () => {
   });
 });
 
-describe('tests.yml wiring of the in-job opt-in', () => {
-  const steps = (() => {
-    const parsed = YAML.parse(testsWorkflow) as {
-      jobs?: Record<string, { steps?: Array<Record<string, any>> }>;
-    };
-    return parsed.jobs?.vitest?.steps ?? [];
-  })();
+describe('tests.yml wiring of the post-review opt-in', () => {
+  const parsed = YAML.parse(testsWorkflow) as {
+    jobs?: Record<string, { steps?: Array<Record<string, any>>; needs?: unknown; if?: string;
+      outputs?: Record<string, string>; name?: string; 'continue-on-error'?: boolean }>;
+  };
+  const vitestSteps = parsed.jobs?.vitest?.steps ?? [];
+  const vitestNames = vitestSteps.map((step) => String(step.name ?? step.uses ?? ''));
+  const postReview = parsed.jobs?.['post-review'];
+  const steps = postReview?.steps ?? [];
   const names = steps.map((step) => String(step.name ?? step.uses ?? ''));
-  const optIn = steps.find((step) => step.name === 'Enable native auto-merge from the required job');
+  const optIn = steps.find((step) => step.name === 'Enable native auto-merge after the required job');
   const trustedCheckout = steps.find(
     (step) => step.name === 'Checkout trusted native auto-merge source',
   );
   const validation = steps.find(
     (step) => step.name === 'Validate trusted native auto-merge source',
   );
+  const decision = vitestSteps.find((step) => step.id === 'post_review');
 
   it('runs the gate from a validated main checkout, never from the PR tree', () => {
     expect(trustedCheckout?.uses).toBe('actions/checkout@v5');
@@ -243,8 +246,6 @@ describe('tests.yml wiring of the in-job opt-in', () => {
       .map((line) => line.trim())
       .filter(Boolean);
     expect(cone).toEqual(NATIVE_AUTOMERGE_IN_JOB_SOURCE_FILES.map((file) => `/${file}`));
-    // The in-job profile is a subset of the trusted list, and it still carries
-    // every file the gate can execute or import.
     for (const file of NATIVE_AUTOMERGE_IN_JOB_SOURCE_FILES) {
       expect(NATIVE_AUTOMERGE_SOURCE_FILES).toContain(file);
     }
@@ -256,47 +257,57 @@ describe('tests.yml wiring of the in-job opt-in', () => {
     expect(optIn?.run).toContain('cd "$NATIVE_AUTOMERGE_SOURCE_ROOT"');
     expect(optIn?.run).toContain('$NATIVE_AUTOMERGE_HELPER_DIR/native-automerge-gate.mjs');
     expect(names.indexOf('Checkout trusted native auto-merge source'))
-      .toBeLessThan(names.indexOf('Enable native auto-merge from the required job'));
+      .toBeLessThan(names.indexOf('Enable native auto-merge after the required job'));
     expect(names.indexOf('Validate trusted native auto-merge source'))
-      .toBeLessThan(names.indexOf('Enable native auto-merge from the required job'));
+      .toBeLessThan(names.indexOf('Enable native auto-merge after the required job'));
+    // Token and sweeper come from main, not from the PR tree.
+    const rootCheckout = steps.find((step) => step.uses === 'actions/checkout@v5' && !step.with?.path);
+    expect(rootCheckout?.with?.ref).toBe('main');
   });
 
-  it('passes the run id, not a "tests passed" flag', () => {
-    expect(optIn?.env?.NATIVE_AUTOMERGE_IN_JOB_RUN_ID).toBe('${{ github.run_id }}');
+  it('uses the ordinary completed-check path, with no "tests passed" flag', () => {
+    // After `needs: vitest` the required check is completed: the gate verifies
+    // it via API like retry-native-automerge.yml. The in-job run id would now
+    // deny forever (the caller check is no longer in flight).
+    expect(optIn?.env?.NATIVE_AUTOMERGE_IN_JOB_RUN_ID).toBeUndefined();
     expect(testsWorkflow).not.toMatch(/NATIVE_AUTOMERGE_(?:SKIP|BYPASS|FORCE|ASSUME)/u);
     expect(optIn?.run).not.toContain('--skip-vitest-check');
   });
 
-  it('gates on the job verdict and the published review approval', () => {
-    const condition = String(optIn?.if ?? '');
-    expect(condition).toContain('always()');
-    expect(condition).toContain("job.status == 'success'");
-    expect(condition).toContain("steps.review_gate.outputs.approved == 'true'");
+  it('runs only after the required job, on its published decision', () => {
+    expect(postReview?.needs).toBe('vitest');
+    expect(postReview?.name).not.toBe(VITEST);
+    expect(postReview?.if).toContain('always()');
+    expect(postReview?.if).toContain("needs.vitest.outputs.automerge == 'true'");
+    expect(String(optIn?.if ?? '')).toContain("needs.vitest.outputs.automerge == 'true'");
+    expect(parsed.jobs?.vitest?.outputs?.automerge).toBe('${{ steps.post_review.outputs.automerge }}');
+    const automerge = String(decision?.env?.AUTOMERGE ?? '');
+    expect(automerge).toContain("job.status == 'success'");
+    expect(automerge).toContain("steps.review_gate.outputs.approved == 'true'");
+    expect(String(decision?.if ?? '')).toContain('always()');
   });
 
-  it('cannot paint the required job red, and never falls back to GITHUB_TOKEN', () => {
+  it('cannot paint the run red, and never falls back to GITHUB_TOKEN', () => {
+    expect(postReview?.['continue-on-error']).toBe(true);
     expect(optIn?.['continue-on-error']).toBe(true);
     expect(trustedCheckout?.['continue-on-error']).toBe(true);
     expect(validation?.['continue-on-error']).toBe(true);
-    // `github-actions[bot]` events do not start other workflows, and the deploy
-    // sits on `push: main`. A missing App token must SKIP the opt-in.
     expect(String(optIn?.run ?? '')).toContain('GH_TOKEN="$APP_TOKEN"');
     expect(String(optIn?.run ?? '')).not.toMatch(/GH_TOKEN=(?!"\$APP_TOKEN")/u);
     expect(String(optIn?.run ?? '')).not.toContain('secrets.GITHUB_TOKEN');
     expect(optIn?.env?.GH_TOKEN).toBeUndefined();
     expect(String(optIn?.run ?? '')).toMatch(/APP_TOKEN[\s\S]*exit 0/u);
-    // The ~92-variable Remote Config loader stays out of this workflow: the
-    // invariant in tests/ci-vitest-check-name.test.ts is why this step uses the
-    // App token at all.
     expect(testsWorkflow).not.toContain('load-rc-env.mjs');
   });
 
-  it('stays before the final verdict-summary step, which must remain last', () => {
-    expect(names.at(-1)).toBe('Explain the job verdict in the run summary');
-    expect(names.indexOf('Enable native auto-merge from the required job'))
-      .toBeGreaterThan(names.indexOf('Require approving Codex review'));
-    expect(names.indexOf('Enable native auto-merge from the required job'))
-      .toBeLessThan(names.length - 1);
+  it('leaves the verdict-summary step last in the required job, with the decision before it', () => {
+    expect(vitestNames.at(-1)).toBe('Explain the job verdict in the run summary');
+    expect(vitestNames.indexOf('Decide post-review follow-up'))
+      .toBeGreaterThan(vitestNames.indexOf('Require approving Codex review'));
+    expect(vitestNames.indexOf('Decide post-review follow-up'))
+      .toBeGreaterThan(vitestNames.indexOf('Fail when required review gate is skipped'));
+    expect(vitestNames).not.toContain('Enable native auto-merge from the required job');
+    expect(vitestNames).not.toContain('Rebase near-merge PRs after review or stale rescue');
   });
 });
 

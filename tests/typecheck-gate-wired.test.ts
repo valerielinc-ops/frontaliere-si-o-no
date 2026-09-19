@@ -88,7 +88,10 @@ describe('typecheck gate wiring (#5540)', () => {
   // l'invariante nuova, che è più forte: il gate deve stare DENTRO l'unico
   // check-run che governa il merge.
   it('tests.yml espone solo il job che esegue tutti i cancelli', () => {
-    expect(topLevelJobKeys(workflow)).toEqual(['vitest']);
+    // `post-review` gira dopo il required (autorebase + opt-in auto-merge) e
+    // non esegue nessun cancello.
+    expect(topLevelJobKeys(workflow)).toEqual(['vitest', 'post-review']);
+    expect(workflow.slice(workflow.indexOf('\n  post-review:'))).not.toMatch(/typecheck:gate|run-related-tests/);
     expect(workflow).toContain(`name: ${VITEST_JOB_NAME}`);
   });
 
