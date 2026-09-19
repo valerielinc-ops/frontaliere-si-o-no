@@ -131,6 +131,7 @@ const LIDL_VERIFIED_LOCALITY_CANTONS = new Map([
   ['siebnen|8854', 'SZ'],
   ['samstagern|8833', 'ZH'],
   ['butzberg|4922', 'BE'],
+  ['gwatt|3645', 'BE'],
   ['kussnacht-a-r|6403', 'SZ'],
   ['perlen|6035', 'LU'],
   ['emmenbrucke|6020', 'LU'],
