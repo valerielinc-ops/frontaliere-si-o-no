@@ -267,7 +267,7 @@ export async function fetchAllConcordiaJobs({
     const addr = jobPostingAddress(ld);
     const location = normalizeSpace(addr.addressLocality || '');
     const canton = resolveCanton(addr.addressRegion, location);
-    if (!location || !isTargetSwissLocation(location, { includeBorderProximity: false }) || !canton) {
+    if (!location || !isTargetSwissLocation(location, { includeAllCantons: true, includeBorderProximity: false }) || !canton) {
       unresolvedLocations += 1;
       continue;
     }

@@ -144,7 +144,7 @@ function resolveBranchAddress(arbeitsort) {
         street: branch.street,
       };
     }
-    if (isTargetSwissLocation(candidate, { includeBorderProximity: false })) {
+    if (isTargetSwissLocation(candidate, { includeAllCantons: true, includeBorderProximity: false })) {
       const canton = inferAnyCanton(candidate);
       if (!canton) continue;
       return {

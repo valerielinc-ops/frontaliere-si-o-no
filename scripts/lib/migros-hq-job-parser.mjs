@@ -257,7 +257,7 @@ export function resolveMigrosHqSourceGeography(addressLocality = '', addressRegi
     !location
     || !canton
     || !isKnownSwissCity(location, canton)
-    || !isTargetSwissLocation(location, { includeBorderProximity: false })
+    || !isTargetSwissLocation(location, { includeAllCantons: true, includeBorderProximity: false })
     || (sourceRegion && (!regionCanton || regionCanton !== canton))
   ) return null;
   return {
