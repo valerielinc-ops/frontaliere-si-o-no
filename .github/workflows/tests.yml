@@ -3010,6 +3010,7 @@ jobs:
           # Single source of truth for the PR body: a model 🔴 anchored only on
           # `PR body:L<n>` does not block when this contract passed.
           BODY_CONTRACT_OUTCOME: ${{ steps.body_contract.outcome }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           REVIEW_POLICY_ROOT: ${{ steps.review_policy_final.outputs.final_root }}
         run: |
           set -euo pipefail

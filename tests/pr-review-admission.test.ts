@@ -376,6 +376,7 @@ describe('workflow wiring for one review per HEAD', () => {
   const testsYml = readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8');
   const fixerYml = readFileSync(new URL('../.github/workflows/pr-redflag-fixer.yml', import.meta.url), 'utf8');
   const bodyRecoveryYml = readFileSync(new URL('../.github/workflows/retry-code-check-after-body-edit.yml', import.meta.url), 'utf8');
+  const reviewGateSource = readFileSync(new URL('../scripts/ci/review-gate.mjs', import.meta.url), 'utf8');
   const tests = YAML.parse(testsYml);
 
   it('tests.yml skip guard calls the shipped helper and does not re-review on edited', () => {
@@ -386,6 +387,8 @@ describe('workflow wiring for one review per HEAD', () => {
     const input = tests.jobs.vitest.steps.find((step: { id?: string }) => step.id === 'review_input');
     expect(input?.run).toContain('review-input-revision.mjs" hash-pr-json');
     expect(testsYml).toContain('REVIEW_INPUT_REVISION: ${{ steps.review_input.outputs.review_revision }}');
+    expect(testsYml).toContain('TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}');
+    expect(reviewGateSource).toContain('process.env.TRUSTED_GH_BIN');
     expect(guard?.run).not.toContain('PR metadata modificata → review piena');
     expect(guard?.env?.EVENT_ACTION).toBeUndefined();
     const gate = tests.jobs.vitest.steps.find((step: { id?: string }) => step.id === 'review_gate');

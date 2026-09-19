@@ -177,6 +177,34 @@ jobs:
       blocking: ${{ steps.scope.outputs.blocking }}
       error: ${{ steps.scope.outputs.error }}
     steps:
+      # The scope classifier runs trusted policy from main and calls review-gate;
+      # attest the runner-owned CLI before checkout just like the fixer job.
+      - name: Resolve trusted GitHub CLI (before classifier checkout)
+        id: trusted_gh
+        run: |
+          set -euo pipefail
+          gh_bin="$(command -v gh || true)"
+          if [ -z "$gh_bin" ] || [[ "$gh_bin" != /* ]] || [ ! -x "$gh_bin" ]; then
+            echo "::error::GitHub CLI path non assoluto o non eseguibile: ${gh_bin:-missing}"
+            exit 1
+          fi
+          gh_bin="$(realpath "$gh_bin")"
+          case "$gh_bin" in
+            "$GITHUB_WORKSPACE"/*|"$RUNNER_TEMP"/*)
+              echo "::error::GitHub CLI risolve in un path controllabile dalla PR: $gh_bin"
+              exit 1
+              ;;
+          esac
+          probe="$gh_bin"
+          while [ "$probe" != '/' ]; do
+            if [ -w "$probe" ]; then
+              echo "::error::GitHub CLI o una directory del suo path è scrivibile dal runner: $probe"
+              exit 1
+            fi
+            probe="$(dirname "$probe")"
+          done
+          printf 'path=%s\n' "$gh_bin" >> "$GITHUB_OUTPUT"
+
       - name: Checkout trusted classifier from main
         continue-on-error: true
         uses: actions/checkout@v5
@@ -222,6 +250,7 @@ jobs:
           REVIEW_COMMIT: ${{ github.event.review.commit_id }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           REVIEW_SCOPE_MUTATE: 'true'
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: |
           set -uo pipefail
           set +e

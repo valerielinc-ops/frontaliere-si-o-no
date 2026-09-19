@@ -19,6 +19,7 @@
 import { isReviewTestPath, findTestOnlyApproval } from './review-test-policy.mjs';
 import { execFileSync } from 'node:child_process';
 import { realpathSync, readFileSync, appendFileSync } from 'node:fs';
+import { isAbsolute } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';
 import { boundReviewsToFirstHeadVerdict } from './lib/pr-review-admission.mjs';
@@ -596,7 +597,11 @@ export function followupIssueBody({ repo, pr, prUrl, findings, existingBody = ''
 
 function gh(args, { json = true, allowFail = false } = {}) {
   try {
-    const output = execFileSync('gh', args, {
+    const trustedGhBin = process.env.TRUSTED_GH_BIN || '';
+    if (!isAbsolute(trustedGhBin)) {
+      throw new Error('TRUSTED_GH_BIN mancante o non assoluto');
+    }
+    const output = execFileSync(trustedGhBin, args, {
       encoding: 'utf8',
       maxBuffer: 64 * 1024 * 1024,
     });
