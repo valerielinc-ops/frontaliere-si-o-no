@@ -345,15 +345,80 @@ export function warnAboutUncitedFiles(body, cwd, headRef = 'HEAD') {
   return uncited;
 }
 
+const USAGE = [
+  'Uso:',
+  '  node scripts/ci/pr-body-check-gate.mjs --body-file <path>   valida un body PR (exit 0 conforme, 2 non conforme)',
+  '  node scripts/ci/pr-body-check-gate.mjs < payload.json        modalita\' hook PreToolUse (payload JSON su stdin)',
+  '',
+].join('\n');
+
+const DEFAULT_HOOK_STDIN_TIMEOUT_MS = 5000;
+
+/** Timeout di lettura del payload hook; `PR_BODY_GATE_STDIN_TIMEOUT_MS` lo sovrascrive. */
+export function hookStdinTimeoutMs(env = process.env) {
+  const n = Number(env.PR_BODY_GATE_STDIN_TIMEOUT_MS);
+  return Number.isFinite(n) && n > 0 ? n : DEFAULT_HOOK_STDIN_TIMEOUT_MS;
+}
+
+/**
+ * Legge stdin fino a EOF, ma non oltre `timeoutMs`: uno stdin che non si
+ * chiude mai (la shell di un agente eredita un socket aperto) teneva il gate
+ * appeso per ore senza output. Allo scadere restituisce quanto arrivato.
+ *
+ * @param {NodeJS.ReadableStream & { destroy?: () => void, unref?: () => void }} stream
+ * @param {number} timeoutMs
+ * @returns {Promise<{ raw: string, timedOut: boolean }>}
+ */
+export function readHookStdin(stream, timeoutMs) {
+  return new Promise((resolvePromise, reject) => {
+    const chunks = [];
+    let settled = false;
+    const finish = (timedOut) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      stream.removeListener('data', onData);
+      stream.removeListener('end', onEnd);
+      stream.removeListener('error', onError);
+      if (timedOut) {
+        stream.pause?.();
+        stream.destroy?.();
+      }
+      resolvePromise({ raw: Buffer.concat(chunks).toString('utf8'), timedOut });
+    };
+    const onData = (chunk) => chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+    const onEnd = () => finish(false);
+    const onError = (err) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      reject(err);
+    };
+    const timer = setTimeout(() => finish(true), timeoutMs);
+    stream.on('data', onData);
+    stream.once('end', onEnd);
+    stream.once('error', onError);
+  });
+}
+
 async function main() {
   let command = '';
   let targetCwd;
   try {
-    const chunks = [];
-    for await (const chunk of process.stdin) {
-      chunks.push(chunk);
+    const { raw: rawInput, timedOut } = await readHookStdin(process.stdin, hookStdinTimeoutMs());
+    const raw = rawInput.trim();
+    if (timedOut && !raw) {
+      // Nessun hook reale arriva qui: Claude Code e Codex scrivono il payload
+      // e chiudono stdin. Uno stdin aperto e muto e' un'invocazione manuale
+      // (socket/pipe ereditati da una shell di agente) — prima restava appesa
+      // per ore senza output. Esito fail-safe dell'hook, ma dichiarato.
+      process.stderr.write(
+        `pr-body-check-gate: nessun payload hook su stdin entro ${hookStdinTimeoutMs()} ms; `
+          + 'nessun body e\' stato validato.\n'
+          + 'Per validare un body usa: node scripts/ci/pr-body-check-gate.mjs --body-file <path>\n',
+      );
+      process.exit(0);
     }
-    const raw = Buffer.concat(chunks).toString('utf8').trim();
     if (raw) {
       try {
         const payload = JSON.parse(raw);
@@ -439,6 +504,22 @@ async function main() {
 // hook) — not when imported (e.g. by tests importing `extractPrBody`).
 const isMain = process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1]);
 if (isMain) {
+  const firstArg = process.argv[2];
+  if (firstArg === '--help' || firstArg === '-h') {
+    process.stdout.write(USAGE);
+    process.exit(0);
+  }
+  if (firstArg !== undefined && !firstArg.startsWith('--body-file')) {
+    // Un argomento sconosciuto non e' un hook (gli hook non passano argomenti):
+    // prima ricadeva nella modalita' hook e restava appeso su stdin.
+    process.stderr.write(`pr-body-check-gate: argomento non riconosciuto: ${firstArg}\n${USAGE}`);
+    process.exit(EXIT_BLOCK);
+  }
+  if (firstArg === undefined && process.stdin.isTTY) {
+    // Un terminale non e' mai un hook: niente payload da aspettare.
+    process.stderr.write(USAGE);
+    process.exit(EXIT_BLOCK);
+  }
   const bodyFileArg = process.argv[2] === '--body-file'
     ? process.argv[3]
     : process.argv[2]?.startsWith('--body-file=')
