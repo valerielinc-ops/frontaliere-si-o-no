@@ -275,6 +275,17 @@ describe('stale-pr-rescuer — cablaggio', () => {
     expect(WORKFLOW).not.toContain('UPD_S=$(date -u -d "$UPD" +%s');
   });
 
+  it('raggiunge il ripiego su `updated_at` quando la risposta del commit non e\' una data', () => {
+    const ageGate = WORKFLOW.slice(
+      WORKFLOW.indexOf('PUSHED_AT='),
+      WORKFLOW.indexOf('if [ $((NOW - UPD_S))'),
+    );
+    // `${PUSHED_AT:-$UPD}` non copre una risposta non vuota come `{}`: il
+    // secondo `date` deve provare davvero `updated_at` prima di `NOW`.
+    expect(ageGate).toContain('date -u -d "$UPD" +%s 2>/dev/null');
+    expect(ageGate).toContain('|| echo "$NOW")');
+  });
+
   it('sceglie la review del bot con il fencing sulla revisione del body', () => {
     // `commit_id` da solo lascia attivo un verdetto che una modifica del body
     // ha gia' invalidato: la selezione passa dal filtro sui marker.
