@@ -3,7 +3,6 @@ import { describe, expect, it } from 'vitest';
 import dutiesJson from '../data/pharmacy-duties-italy.json';
 import sourcesJson from '../data/pharmacy-duties-italy-sources.json';
 import statusJson from '../data/pharmacy-duties-italy-status.json';
-import sourcesJson from '../data/pharmacy-duties-italy-sources.json';
 import {
   buildAtomicItalyDutySnapshots,
   ITALY_DUTY_RELEASE_MAX_AGE_MS,
@@ -77,17 +76,23 @@ function freshSnapshots(fetchedAt = FETCHED_AT): { duties: ItalyDutySnapshot; st
 }
 
 describe('Italian duty week read model', () => {
-  it('keeps the checked-in not_published release source-only without operational rows or timestamps', () => {
-    const model = buildItalyDutyWeekModel({ now: NOW, weekStart: WEEK });
+  it('serves verified required provinces while keeping an unavailable best-effort province source-only', () => {
+    const model = buildItalyDutyWeekModel({
+      now: new Date(Date.parse(dutiesJson._fetchedAt) + 60_000),
+      weekStart: WEEK,
+    });
 
-    expect(model.state).toBe('not_published');
-    expect(model.publishable).toBe(false);
+    expect(model.state).toBe('fresh');
+    expect(model.publishable).toBe(true);
     expect(model.indexable).toBe(false);
     expect(model.provinces).toHaveLength(3);
-    expect(model.provinces.every((province) => province.duties.length === 0)).toBe(true);
+    expect(model.provinces.map((province) => province.publishable)).toEqual([true, true, false]);
+    expect(model.provinces.map((province) => province.duties.length)).toEqual([2, 3, 0]);
+    expect(model.provinces.find((province) => province.code === 'VB')?.fetchedAt).toBeTruthy();
     expect(model.provinces.map((province) => province.sourceUrl)).toEqual(PROVINCES.map((province) => province.sourceUrl));
     expect(model.sourceOnly.map((province) => province.sourceUrl)).toEqual(PROVINCES.map((province) => province.sourceUrl));
     expect(model.sourceOnly.every((province) => !('dutyCount' in province))).toBe(true);
+    expect(model.reason).toContain('VB: no operational duty rows are publishable');
   });
 
   it('publishes only a fresh complete release with one verified province row per province', () => {

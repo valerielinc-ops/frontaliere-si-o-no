@@ -75,7 +75,10 @@
  * quiet all publish the same `total: 0`. `selector_miss`/`anti_bot_block`,
  * `connection_error`, `exhausted_retry` and `feed_endpoint_unavailable` are
  * proof of a broken refresh, so they flag `broken` immediately and NAME the
- * cause;
+ * cause. The exception is a `connection-level-fetch` early exit: the standard
+ * pipeline explicitly preserves the previous slice for this transient
+ * transport failure, so the monitor keeps the normal three-run corroboration
+ * gate for it.
  * `filtered_empty` is the same evidence as the `discovered > 0, written === 0`
  * signal above and clears the streak. Like `discovered`/`written`, the field is
  * OPTIONAL: a slice without it — every historical slice included — is read
@@ -1330,6 +1333,19 @@ function selectNewestCrawlerObservation(
  * it only changes the reason we report, because "returned 0 jobs" is a claim
  * about the source that an aborted run never made.
  */
+/**
+ * How old a crawler's last SUCCESS may be before a transport failure stops
+ * counting as transient.
+ *
+ * Ten days = twice the measured p90 refresh age of the tracked fleet (5 days;
+ * 552 of the 597 crawlers carrying a `lastSuccessfulRunAt` refresh inside a
+ * week). Only reachable together with a proven transport failure on the last
+ * observation — see the rationale at its use site. Raising it past 14 days
+ * re-opens the hole it closes: `nord-anglia` sat at exactly 14 days.
+ */
+export const TRANSPORT_ABORT_STALE_FLOOR_DAYS = 10;
+export const TRANSPORT_ABORT_STALE_FLOOR_MS = TRANSPORT_ABORT_STALE_FLOOR_DAYS * 24 * 60 * 60 * 1000;
+
 function nextCrawlerState(prev, observation, nowIso, nowMs) {
   const previous = prev && typeof prev === 'object' ? prev : {};
   const hadPriorState = Boolean(prev);
@@ -1380,14 +1396,51 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   // existed, which is what keeps historical slices readable without a backfill.
   const fetchOutcome = normalizeFetchOutcome(observation.lastFetchOutcome);
   const abortKind = normalizeAbortKind(observation.abortKind);
+  // The standard pipeline soft-exits on a transport failure after preserving
+  // the previous live slice. Keep that run in the ordinary empty streak so a
+  // single CI/egress incident cannot turn a healthy crawler into a broken one.
+  const abortedRun = observation.earlyExit === true && lastObservedJobs === 0;
+  // ...but only while it is genuinely a blip. That reclassification routes a
+  // proven transport failure into the 3-empty-run streak, and the streak
+  // counter is the wrong witness for a source that has actually died: it only
+  // advances on runs that observe the crawler at all, so `nord-anglia` sat at
+  // `consecutiveEmptyRuns: 1` with `feed_endpoint_unavailable` and a last
+  // success of 2026-09-04 — fifteen days. Without a floor this monitor goes
+  // green with nothing repaired, which is a detection change wearing a
+  // recovery's clothes.
+  //
+  // The floor is the age of the last SUCCESS, which is independent of the
+  // counter. It is deliberately NOT a bare age check: measured on the 612
+  // tracked crawlers (597 carry a `lastSuccessfulRunAt`), 37 are older than 14
+  // days and all 37 are `healthy`, because the field only advances on a
+  // non-zero-jobs run and a source with no vacancies for months is legitimately
+  // quiet — `linnea` is at 108 days. Age alone would flag all 37 and drown the
+  // signal. The predicate is age AND a proven transport failure on the last
+  // observation, which today holds for exactly 4 crawlers.
+  //
+  // Threshold from that same distribution: p50 and p90 of the age are both 5
+  // days (552 of 597 refresh inside a week), so 10 days is twice the p90
+  // cadence and cannot fire on normal quiet. Measured effect at this value:
+  // 1 crawler (nord-anglia, 14 days). The three genuine 5-day transport blips
+  // stay inside the transient window, which is what that window is for.
+  const lastSuccessAtMs = previous.lastSuccessfulRunAt
+    ? Date.parse(previous.lastSuccessfulRunAt)
+    : NaN;
+  const transportAbortOutlivedFloor =
+    Number.isFinite(lastSuccessAtMs) &&
+    nowMs - lastSuccessAtMs > TRANSPORT_ABORT_STALE_FLOOR_MS;
+  const transientTransportAbort =
+    abortedRun && abortKind === 'connection-level-fetch' && !transportAbortOutlivedFloor;
   // Same evidence as the #5945 filtered-empty counts, stated directly instead
   // of derived: the run fetched and parsed fine, its own filter kept nothing.
   const filteredEmptyOutcome = fetchOutcome === 'filtered_empty' && lastObservedJobs === 0;
   // A PROVEN break, on the run's own report. Waiting three days to say "0 jobs"
-  // adds nothing here: the cause is already known and named.
+  // adds nothing here: the cause is already known and named. A soft transport
+  // abort is intentionally excluded and uses the ordinary empty-streak gate.
   const fetchFailed =
     (CRAWLER_FETCH_FAILURE_OUTCOMES.has(fetchOutcome) || abortKind === 'connection-level-fetch') &&
-    lastObservedJobs === 0;
+    lastObservedJobs === 0 &&
+    !transientTransportAbort;
 
   // A proven fetch failure cancels every empty-ok signal, including a manual
   // EMPTY_OK_CRAWLERS entry. Those signals all mean "this zero is not evidence
@@ -1405,9 +1458,10 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     !fetchFailed;
 
   // The run aborted before publishing (exit-guard slice). This deliberately
-  // does NOT feed `emptyOk`: an aborting crawler is broken and must keep its
-  // streak. It only changes the failure we NAME, because "returned 0 jobs"
-  // asserts something about the source that the run never established.
+  // does NOT feed `emptyOk`: even a soft transport abort must keep its streak
+  // so a persistent outage is eventually surfaced. It only changes the
+  // failure we NAME, because "returned 0 jobs" asserts something about the
+  // source that the run never established.
   //
   // It is the exact complement of the #7324 proof above. That one carries a
   // proof the source IS empty and can only ride on a slice the pipeline wrote
@@ -1415,8 +1469,6 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   // the #7324 mechanism can never classify them however many validators are
   // added. Together they cover both halves of a zero: proven-empty, and
   // never-observed.
-  const abortedRun = observation.earlyExit === true && lastObservedJobs === 0;
-
   // Back-compat: legacy callers (older tests) pass `{ assembledAt, jobCount }`
   // directly. Resolve a freshness timestamp from whichever field is present.
   const freshnessAt =
@@ -1556,9 +1608,11 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     // source is usually still full. Say what actually happened instead.
     const abortKindDiagnosis = abortKind === 'no-jobs-parsed'
       ? 'the crawler reached a fail-closed no-jobs bail-out before publishing'
-      : abortKind === 'crash'
-        ? 'the crawler crashed before publishing'
-        : 'the early-exit cause was not reported';
+      : abortKind === 'connection-level-fetch'
+        ? 'the crawler could not reach the source at the transport boundary'
+        : abortKind === 'crash'
+          ? 'the crawler crashed before publishing'
+          : 'the early-exit cause was not reported';
     reason = pipelineDroppedAll && !abortedRun
       // The parser worked — it handed `parsed` jobs to the pipeline and the
       // published slice still came out empty. Naming it "returned 0 jobs"

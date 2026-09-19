@@ -56,6 +56,26 @@ const FIXTURE_NO_AGNO = `
 </body></html>
 `;
 
+const FIXTURE_MISSING_LOCATION = `
+<html><body>
+<article class="mi-job-teaser">
+  <h3><a href="/en/group/our-people/join-us/jobs/unknown-site">Unknown site role</a></h3>
+  <div class="field--division">Machining</div>
+</article>
+</body></html>
+`;
+
+const FIXTURE_NESTED_ROW = `
+<html><body>
+<div class="views-row job-listing">
+  <div class="job-detail-wrapper">
+    <h3><a href="/en/group/our-people/join-us/jobs/nested-location">Nested location role</a></h3>
+    <div class="field--location">Switzerland, Boudry</div>
+  </div>
+</div>
+</body></html>
+`;
+
 // ─── Fixture: Empty page ──────────────────────────────────────────────────────
 
 const FIXTURE_EMPTY = `
@@ -138,6 +158,19 @@ describe('parseMikronJobs — edge cases', () => {
     expect(jobsFiltered).toHaveLength(1);
   });
 
+  it('rejects teaser rows without a Swiss location when filterSwiss is true', () => {
+    const jobsFiltered = parseMikronJobs(FIXTURE_MISSING_LOCATION, { filterSwiss: true });
+    const jobsUnfiltered = parseMikronJobs(FIXTURE_MISSING_LOCATION, { filterSwiss: false });
+    expect(jobsFiltered).toHaveLength(0);
+    expect(jobsUnfiltered).toHaveLength(1);
+  });
+
+  it('reads a Swiss location through nested Views-row wrappers', () => {
+    const jobs = parseMikronJobs(FIXTURE_NESTED_ROW, { filterSwiss: true });
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].location).toBe('Switzerland, Boudry');
+  });
+
   it('returns empty for empty page', () => {
     const jobs = parseMikronJobs(FIXTURE_EMPTY);
     expect(jobs).toHaveLength(0);
@@ -178,6 +211,7 @@ describe('parseMikronJobDetail', () => {
 
 describe('isSwissLocation', () => {
   it('returns true for Switzerland, Agno', () => { expect(isSwissLocation('Switzerland, Agno')).toBe(true); });
+  it('returns true for a country-only Swiss location', () => { expect(isSwissLocation('Switzerland')).toBe(true); });
   it('returns true for agno lowercase', () => { expect(isSwissLocation('agno')).toBe(true); });
   it('returns true for Ticino', () => { expect(isSwissLocation('Ticino')).toBe(true); });
   it('returns true for Boudry', () => { expect(isSwissLocation('Switzerland, Boudry')).toBe(true); });

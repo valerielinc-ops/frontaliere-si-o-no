@@ -44,6 +44,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { isDedicatedPostBrand } from './lib/crawler-company-ownership.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { recordUniquePageProgress } from './lib/pagination-identity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -391,7 +392,7 @@ async function fetchPostJobs() {
   for (const apiLocale of JOBS_API_LISTING_LOCALES) {
     let pageNumber = 0;
     let totalJobs = null;
-    let seen = 0;
+    const localeIds = new Set();
     while (pageNumber < JOBS_API_MAX_PAGES) {
       const { totalJobs: total, jobs, error } = await fetchJobsApiPage(apiLocale, pageNumber);
       if (error) {
@@ -408,30 +409,33 @@ async function fetchPostJobs() {
       }
 
       if (jobs.length === 0) {
-        if (totalJobs !== null && seen < totalJobs) {
+        if (totalJobs !== null && localeIds.size < totalJobs) {
           throw new Error(
-            `Post.ch ${apiLocale} pagination incomplete: received ${seen} of ${totalJobs} declared jobs.`,
+            `Post.ch ${apiLocale} pagination incomplete: received ${localeIds.size} of ${totalJobs} declared jobs.`,
           );
         }
         break;
       }
-      for (const j of jobs) {
-        const id = String(j?.id || '').trim();
-        if (!id) continue;
+      const pageIds = recordUniquePageProgress(localeIds, jobs, {
+        getIdentity: (job) => job?.id,
+        source: `Post.ch ${apiLocale}`,
+        page: pageNumber,
+      });
+      for (const [index, j] of jobs.entries()) {
+        const id = pageIds[index];
         if (!byId.has(id)) byId.set(id, j);
       }
-      seen += jobs.length;
       pageNumber += 1;
-      if (totalJobs !== null && seen >= totalJobs) break;
+      if (totalJobs !== null && localeIds.size >= totalJobs) break;
       await delay(250);
     }
-    if (pageNumber >= JOBS_API_MAX_PAGES && (totalJobs === null || seen < totalJobs)) {
+    if (pageNumber >= JOBS_API_MAX_PAGES && (totalJobs === null || localeIds.size < totalJobs)) {
       throw new Error(
         `Post.ch ${apiLocale} pagination incomplete after ${pageNumber} pages: ` +
-          `${seen} records received${totalJobs !== null ? ` of ${totalJobs} declared` : ''}.`,
+          `${localeIds.size} records received${totalJobs !== null ? ` of ${totalJobs} declared` : ''}.`,
       );
     }
-    console.log(`     ${apiLocale}: ${seen} record(s) (claimed total: ${totalJobs ?? 'unknown'})`);
+    console.log(`     ${apiLocale}: ${localeIds.size} record(s) (claimed total: ${totalJobs ?? 'unknown'})`);
   }
   const apiRecords = [...byId.values()];
   console.log(`  📋 Merged unique records across locales: ${apiRecords.length}`);

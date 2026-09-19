@@ -13,6 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml } from './crawler-template.mjs';
+import { jsonLdBlocks } from './prospector/extract.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -193,11 +194,103 @@ function extractTag(block, tag) {
   return m ? m[1].trim() : '';
 }
 
+function isCsdJobPostingNode(node) {
+  const types = Array.isArray(node?.['@type']) ? node['@type'] : [node?.['@type']];
+  return types.some((type) => String(type || '').split('/').pop().toLowerCase() === 'jobposting');
+}
+
+function identityText(value = '') {
+  return String(value || '').toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function canonicalDetailUrl(value = '', baseUrl = '') {
+  try {
+    const url = new URL(value, baseUrl || undefined);
+    url.hash = '';
+    url.pathname = url.pathname.replace(/\/+$/, '') || '/';
+    return url.toString();
+  } catch {
+    return '';
+  }
+}
+
+function structuredUrlValues(node) {
+  const values = [node?.url, node?.sameAs, node?.mainEntityOfPage, node?.['@id']];
+  return values.flatMap((value) => {
+    const candidates = Array.isArray(value) ? value : [value];
+    return candidates.flatMap((candidate) => {
+      if (candidate && typeof candidate === 'object') return [candidate.url, candidate['@id']].filter(Boolean);
+      return candidate ? [candidate] : [];
+    });
+  });
+}
+
+function selectCsdJobPostingNode(nodes, { url = '', title = '' } = {}, renderedTitle = '') {
+  if (nodes.length <= 1) return nodes[0] || null;
+
+  const pageIdentity = canonicalDetailUrl(url);
+  if (pageIdentity) {
+    const exactUrlMatches = nodes.filter((node) => structuredUrlValues(node)
+      .some((value) => canonicalDetailUrl(value, url) === pageIdentity));
+    if (exactUrlMatches.length === 1) return exactUrlMatches[0];
+    if (exactUrlMatches.length > 1) return null;
+  }
+
+  const expectedTitles = new Set([identityText(title), identityText(renderedTitle)].filter(Boolean));
+  if (!expectedTitles.size) return null;
+  const titleMatches = nodes.filter((node) => expectedTitles.has(identityText(node.title || node.name)));
+  return titleMatches.length === 1 ? titleMatches[0] : null;
+}
+
+/**
+ * Parse a CSD detail page's JobPosting JSON-LD.
+ *
+ * The live Teamtailor page currently embeds entity-escaped rich HTML and raw
+ * line breaks inside the JSON string. jsonLdBlocks owns both repairs and
+ * keeps pretty-printed whitespace outside strings valid, so this parser does
+ * not need a second, subtly different JSON-LD implementation.
+ *
+ * @param {{ url?: string, title?: string } | string} expectedDetail
+ * @returns {{ city: string, postalCode: string, street: string, description: string, employmentType: string, datePosted: string } | null}
+ */
+export function parseCsdDetailPage(html = '', expectedDetail = {}) {
+  if (!html || typeof html !== 'string') return null;
+
+  const nodes = jsonLdBlocks(html).filter(isCsdJobPostingNode);
+  const expected = typeof expectedDetail === 'string' ? { url: expectedDetail } : expectedDetail || {};
+  const renderedTitle = stripHtml(/<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(html)?.[1] || '');
+  const data = selectCsdJobPostingNode(nodes, expected, renderedTitle);
+  if (!data) return null;
+
+  const locations = Array.isArray(data.jobLocation) ? data.jobLocation : [data.jobLocation];
+  const location = locations.find(Boolean) || {};
+  const addresses = Array.isArray(location.address) ? location.address : [location.address];
+  const address = addresses.find(Boolean) || {};
+  // jsonLdBlocks preserves &lt; and &gt; inside decoded JSON values so that
+  // entity-escaped JSON syntax remains parseable. The first pass decodes those
+  // entities; the second pass strips the HTML tags they reveal.
+  const description = data.description ? stripHtml(stripHtml(data.description)) : '';
+
+  return {
+    city: normalizeSpace(address.addressLocality || ''),
+    postalCode: normalizeSpace(address.postalCode || ''),
+    street: normalizeSpace(address.streetAddress || ''),
+    description: description.length >= 50 ? description : '',
+    employmentType: normalizeSpace(data.employmentType || ''),
+    datePosted: normalizeSpace(data.datePosted || ''),
+  };
+}
+
 /**
  * Fetch a detail page and extract structured data from JSON-LD.
  * Returns { city, postalCode, street, description, employmentType, datePosted } or null.
  */
-async function fetchDetailPage(url) {
+async function fetchDetailPage(url, title = '') {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15_000;
 
   try {
@@ -205,41 +298,7 @@ async function fetchDetailPage(url) {
     // the single-attempt fetch left ~12 jobs on the "{title} — CSD" placeholder
     // whenever one request hiccuped (audit run 29094286784 residue).
     const html = await fetchHtml(url, { timeoutMs, headers: { Accept: 'text/html', 'User-Agent': USER_AGENT } });
-    if (!html) return null;
-
-    const result = {
-      city: '', postalCode: '', street: '',
-      description: '', employmentType: '', datePosted: '',
-    };
-
-    // Extract JSON-LD JobPosting data
-    const ldRegex = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi;
-    let ldMatch;
-    while ((ldMatch = ldRegex.exec(html)) !== null) {
-      try {
-        const data = JSON.parse(ldMatch[1]);
-        if (data['@type'] !== 'JobPosting') continue;
-
-        // Location
-        const loc = data.jobLocation;
-        const addr = Array.isArray(loc) ? (loc[0]?.address || {}) : (loc?.address || {});
-        result.city = normalizeSpace(addr.addressLocality || '');
-        result.postalCode = normalizeSpace(addr.postalCode || '');
-        result.street = normalizeSpace(addr.streetAddress || '');
-
-        // Description
-        if (data.description) {
-          const desc = stripHtml(data.description);
-          if (desc.length >= 50) result.description = desc;
-        }
-
-        // Employment type and date
-        result.employmentType = normalizeSpace(data.employmentType || '');
-        result.datePosted = normalizeSpace(data.datePosted || '');
-      } catch { /* ignore malformed JSON-LD */ }
-    }
-
-    return result;
+    return parseCsdDetailPage(html, { url, title });
   } catch {
     return null;
   }
@@ -293,7 +352,7 @@ export async function fetchAllCsdEngineersJobs() {
     let detail = null;
     if (item.link) {
       try {
-        detail = await fetchDetailPage(item.link);
+        detail = await fetchDetailPage(item.link, title);
         console.log(`  ✅ ${title.substring(0, 60)}`);
       } catch (err) {
         console.warn(`  ⚠️ Detail fetch failed for ${title}: ${err?.message}`);

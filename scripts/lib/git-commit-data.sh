@@ -187,7 +187,7 @@ elif [ "$GROUP_BATCH" = true ]; then
   # shared worktree.
   STANDARD_FILES=()
 elif [ "$SLICE_ONLY" = true ]; then
-  # Slice-only mode: only commit per-crawler slice files + ai-cache.
+  # Slice-only mode: only commit per-crawler slice files.
   # Shared monolithic files are assembled during deploy, not per-crawler.
   #
   # Crawler-group workflows run ~25 sibling crawlers concurrently against ONE
@@ -199,6 +199,14 @@ elif [ "$SLICE_ONLY" = true ]; then
   # SPITEX BASEL jobs". The group workflow generator already exports
   # JOBS_SLICE_FILE (this crawler's own slice path) for the crawler's own
   # pipeline; reuse it to scope staging to exactly this crawler's own files.
+  #
+  # `data/jobs-ai-cache.json` is intentionally absent below. It is a shared
+  # whole-file accumulator, not a crawler-owned slice: concurrent grouped
+  # writers can each hold a stale copy even when the private-index retry path
+  # merges their slices safely. Keeping it out of every JOBS_SLICE_FILE commit
+  # prevents a lease-free crawler from publishing that stale candidate. The
+  # cache remains in the directory-wide fallback for sequential writers, which
+  # are the only callers that own the whole cache file.
   # Falls back to the old directory-wide behavior when unset (non-grouped
   # callers, e.g. translate-pending.yml, which legitimately touches every
   # crawler's slice in one sequential job).
@@ -209,7 +217,6 @@ elif [ "$SLICE_ONLY" = true ]; then
       "data/jobs/expired/by-crawler/${SLICE_BASENAME}"
       "data/jobs-crawler-summaries/by-crawler/${SLICE_BASENAME}"
       "data/translation-cache/${SLICE_BASENAME}"
-      data/jobs-ai-cache.json
     )
     # SLICE_ONLY + JOBS_SLICE_FILE set ⇔ this invocation comes from a grouped
     # crawler-group-*.yml background step sharing ONE checkout with ~25
@@ -1040,6 +1047,35 @@ function preserveDroppedActiveSlugs(remoteObj, localObj, merged, warnings, pathL
   bank(localObj?.slug, '');
 }
 
+// The usual object-recursion path above is skipped when mergeValue() takes a
+// base-equality fast path. Job slices are root arrays, so walk matching job
+// objects explicitly before returning a cloned remote/local value. This keeps
+// active slugs reachable for both one-sided cases: local==base and remote==base.
+function preserveDroppedActiveSlugsInValue(remoteValue, localValue, merged, warnings, pathLabel, forcedKey = '') {
+  if (isPlainObject(merged)) {
+    preserveDroppedActiveSlugs(remoteValue, localValue, merged, warnings, pathLabel);
+    return;
+  }
+  if (!Array.isArray(merged)) return;
+
+  const keyHint = detectArrayKey([remoteValue, localValue, merged], forcedKey);
+  if (!keyHint) return;
+  const remoteData = arrayToMap(Array.isArray(remoteValue) ? remoteValue : [], keyHint);
+  const localData = arrayToMap(Array.isArray(localValue) ? localValue : [], keyHint);
+  const mergedData = arrayToMap(merged, keyHint);
+  for (const key of new Set([...remoteData.map.keys(), ...localData.map.keys()])) {
+    const mergedObj = mergedData.map.get(key);
+    if (!isPlainObject(mergedObj)) continue;
+    preserveDroppedActiveSlugs(
+      remoteData.map.get(key),
+      localData.map.get(key),
+      mergedObj,
+      warnings,
+      `${pathLabel}[${keyHint}=${key}]`,
+    );
+  }
+}
+
 function mergeArrayByDelta(baseArr, remoteArr, localArr) {
   const baseFp = baseArr.map((v) => stableStringify(v));
   const remoteFp = remoteArr.map((v) => stableStringify(v));
@@ -1161,9 +1197,21 @@ function mergeArray(baseArr, remoteArr, localArr, warnings, pathLabel, forcedKey
 }
 
 function mergeValue(baseValue, remoteValue, localValue, warnings, pathLabel, forcedKey = '') {
-  if (isSame(localValue, baseValue)) return clone(remoteValue);
-  if (isSame(remoteValue, baseValue)) return clone(localValue);
-  if (isSame(localValue, remoteValue)) return clone(localValue);
+  if (isSame(localValue, baseValue)) {
+    const merged = clone(remoteValue);
+    preserveDroppedActiveSlugsInValue(remoteValue, localValue, merged, warnings, pathLabel, forcedKey);
+    return merged;
+  }
+  if (isSame(remoteValue, baseValue)) {
+    const merged = clone(localValue);
+    preserveDroppedActiveSlugsInValue(remoteValue, localValue, merged, warnings, pathLabel, forcedKey);
+    return merged;
+  }
+  if (isSame(localValue, remoteValue)) {
+    const merged = clone(localValue);
+    preserveDroppedActiveSlugsInValue(remoteValue, localValue, merged, warnings, pathLabel, forcedKey);
+    return merged;
+  }
 
   const anyArray = Array.isArray(baseValue) || Array.isArray(remoteValue) || Array.isArray(localValue);
   if (anyArray) {
@@ -1839,8 +1887,11 @@ commit_isolated_from_worktree() {
       # updates or another group's ai-cache entries pushed mid-run).
       if { [[ "$f" == *.json ]] || [ "$f" = "data/crawler-generation-ledger.jsonl" ]; } \
         && [ -n "$remote_blob" ] \
-        && [ "$remote_blob" != "$base_blob" ] \
-        && [ "$remote_blob" != "$local_blob" ]; then
+        && [ "$remote_blob" != "$local_blob" ] \
+        && { [ "$remote_blob" != "$base_blob" ] || [ "$local_blob" != "$base_blob" ]; }; then
+        # Merge both one-sided changes too. When only local changed, the
+        # remote/base equality fast path still has to bank an active slug that
+        # local removed; direct staging would bypass that safety net.
         key_hint=""
         is_job_slice_path "$f" && key_hint="url"
         mkdir -p "$merge_dir/base/$(dirname "$f")" "$merge_dir/remote/$(dirname "$f")" "$merge_dir/out/$(dirname "$f")"

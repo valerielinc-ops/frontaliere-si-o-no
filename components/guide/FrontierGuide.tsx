@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef, useDeferredValue, Suspense } from 'react';
-import { haversineKm as sharedHaversineKm } from '../../scripts/lib/haversine.mjs';
 import AvgRentValue from '@/components/shared/AvgRentValue';
 import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { useTranslation } from '../../services/i18n';
@@ -32,6 +31,7 @@ import { borderCrossings as centralizedBorderCrossings, type BorderCrossing } fr
 import borderWaitCurrent from '../../data/border-wait-current.json';
 import { MUNICIPALITIES as BORDER_MUNICIPALITIES } from '@/data/municipalities';
 import { slugifyCrossingName } from '../../services/borderCrossingSlug';
+import { nearestOpenCrossing } from '@/services/nearestBorderCrossing';
 
 type WaitSnapshot = {
  perCrossing?: Record<string, {
@@ -50,6 +50,7 @@ type WaitSnapshot = {
 // paths-ignored by deploy.yml, so a freshly-committed snapshot would otherwise
 // stay invisible until the next unrelated deploy rebuilds the bundle.
 const CURRENT_BORDER_WAIT = borderWaitCurrent as WaitSnapshot;
+const LiveWaitContext = React.createContext<WaitSnapshot>(CURRENT_BORDER_WAIT);
 
 // Live snapshot source: raw main reflects the scheduler's commits immediately
 // (CORS '*', ~5min CDN cache), no deploy required.
@@ -125,26 +126,6 @@ function getAgreementType(distanceKm: number): 'new' | 'old' | 'both' {
  return distanceKm <= 20 ? 'both' : 'old';
 }
 
-/**
- * Point-to-point wrapper over the shared great-circle helper.
- *
- * The trigonometry was inlined here, one of six byte-equivalent copies of
- * `scripts/lib/haversine.mjs` in the repo (issue #5002 removed the class).
- * Same formula in six places means five of them miss the next correction —
- * exactly what AGENTS.md rule #6 forbids. Signature kept object-shaped so the
- * call sites are untouched.
- */
-function haversineKm(a: { lat: number; lng: number }, b: { lat: number; lng: number }): number {
-  return sharedHaversineKm(a.lat, a.lng, b.lat, b.lng);
-}
-
-function nearestOpenCrossing(lat: number, lng: number): BorderCrossing {
- return centralizedBorderCrossings
- .filter((crossing) => crossing.trafficLevel !== 'closed')
- .map((crossing) => ({ crossing, distanceKm: haversineKm({ lat, lng }, crossing) }))
- .sort((a, b) => a.distanceKm - b.distanceKm)[0].crossing;
-}
-
 function currentWaitLabel(slug: string, snapshot: WaitSnapshot = CURRENT_BORDER_WAIT): string {
  const current = snapshot.perCrossing?.[slug];
  const total = current?.totalCrossingMinutes ?? current?.waitTimeMinutes;
@@ -171,6 +152,7 @@ function trafficToneClasses(level: BorderCrossing['trafficLevel']): string {
 
 // Custom marker icons per tipo (need the `L` handed over by MapCanvas)
 const TRAFFIC_COLORS = { high: '#ef4444', medium: '#f59e0b', low: '#10b981' } as const;
+const MUNICIPALITIES_PAGE_SIZE = 24;
 
 const createCustomIcon = (L: any, type: 'new' | 'old' | 'both') => {
  const colors = {
@@ -236,8 +218,6 @@ interface Municipality {
  borderCrossingTraffic: BorderCrossing['trafficLevel'];
  borderCrossingCustomsPresent: boolean;
  borderCrossingHasWebcam: boolean;
- borderCrossingWaitNow: string;
- borderCrossingWaitSource: string;
  population: number;
  type: 'new' | 'old' | 'both';
  lat: number;
@@ -258,6 +238,27 @@ interface MunicipalityDetailPanelProps {
  t: (key: string, paramsOrFallback?: string | Record<string, string | number>) => string;
  onClose: () => void;
 }
+
+const MunicipalityLiveWaitBadge: React.FC<{
+ crossingSlug: string;
+ traffic: BorderCrossing['trafficLevel'];
+ label: string;
+}> = React.memo(({ crossingSlug, traffic, label }) => {
+ const liveWait = React.useContext(LiveWaitContext);
+ return (
+  <span className={`shrink-0 rounded-lg border px-2.5 py-1 text-xs font-bold ${trafficToneClasses(traffic)}`}>
+   {label}: {currentWaitLabel(crossingSlug, liveWait)}
+  </span>
+ );
+});
+
+const MunicipalityLiveWaitSource: React.FC<{
+ crossingSlug: string;
+ label: string;
+}> = React.memo(({ crossingSlug, label }) => {
+ const liveWait = React.useContext(LiveWaitContext);
+ return <p className="mt-3 text-xs text-muted">{label}: {liveWait.perCrossing?.[crossingSlug]?.source ?? 'storico dogane'}</p>;
+});
 
 // ══════════ SCHOOL DIRECTORY DATA ══════════
 const SCHOOL_TYPE_ORDER = ['nido', 'infanzia', 'elementare', 'media', 'superiore'];
@@ -446,7 +447,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
  );
 };
 
-const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ municipality, t, onClose }) => (
+const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = React.memo(({ municipality, t, onClose }) => (
  <div className="bg-surface rounded-2xl border-2 border-accent-border p-5 sm:p-6 shadow-lg animate-fade-in">
  <div className="flex items-start justify-between gap-4 mb-5">
  <div>
@@ -504,9 +505,11 @@ const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ munic
  {municipality.borderCrossingDistanceKm.toLocaleString('it-IT', { maximumFractionDigits: 1 })} km · {municipality.borderCrossingHours}
  </p>
  </div>
- <div className={`rounded-xl border px-3 py-2 text-sm font-bold ${trafficToneClasses(municipality.borderCrossingTraffic)}`}>
- {t('guide.municipalities.detail.currentWait')}: {municipality.borderCrossingWaitNow}
- </div>
+ <MunicipalityLiveWaitBadge
+ crossingSlug={municipality.borderCrossingSlug}
+ traffic={municipality.borderCrossingTraffic}
+ label={t('guide.municipalities.detail.currentWait')}
+ />
  </div>
  <div className="mt-4 grid grid-cols-2 gap-2 text-sm sm:grid-cols-4">
  <div className="rounded-xl bg-surface p-3">
@@ -526,7 +529,10 @@ const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ munic
  <p className="font-bold text-body">{municipality.borderCrossingHasWebcam ? t('guide.yes') : t('guide.no')}</p>
  </div>
  </div>
- <p className="mt-3 text-xs text-muted">{t('guide.municipalities.detail.waitSource')}: {municipality.borderCrossingWaitSource}</p>
+ <MunicipalityLiveWaitSource
+ crossingSlug={municipality.borderCrossingSlug}
+ label={t('guide.municipalities.detail.waitSource')}
+ />
  <div className="mt-4 flex flex-col gap-2 sm:flex-row">
  <a
  href={`/traffico-dogane/${municipality.borderCrossingSlug}/oggi/`}
@@ -604,7 +610,7 @@ const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ munic
  </div>
  </div>
  </div>
-);
+));
 
 // Memoized card to avoid re-rendering all 518 municipality cards on select
 // (INP): `selectedMunicipality` (unlike search/sort/filter, see the
@@ -678,9 +684,11 @@ const MunicipalityCard: React.FC<MunicipalityCardProps> = React.memo(({ m, isSel
  <p className="text-xs font-semibold uppercase tracking-wider text-muted">{t('guide.municipalities.detail.nearestCustoms')}</p>
  <p className="truncate text-sm font-bold text-strong">{m.borderCrossing}</p>
  </div>
- <span className={`shrink-0 rounded-lg border px-2.5 py-1 text-xs font-bold ${trafficToneClasses(m.borderCrossingTraffic)}`}>
- {t('guide.municipalities.detail.currentWait')}: {m.borderCrossingWaitNow}
- </span>
+ <MunicipalityLiveWaitBadge
+ crossingSlug={m.borderCrossingSlug}
+ traffic={m.borderCrossingTraffic}
+ label={t('guide.municipalities.detail.currentWait')}
+ />
  </div>
  <div className="mt-2 grid grid-cols-2 gap-2 text-xs text-subtle">
  <span>{t('guide.municipalities.detail.avgMorning')}: <strong className="text-body">{m.borderCrossingMorning}</strong></span>
@@ -714,6 +722,102 @@ const MunicipalityCard: React.FC<MunicipalityCardProps> = React.memo(({ m, isSel
  </div>
  <CheckCircle2 size={24} className={`flex-shrink-0 ${isSelected ? 'text-accent' : m.type === 'new' ? 'text-accent' : 'text-warning'}`} />
  </div>
+ </div>
+));
+
+interface MunicipalityMapProps {
+ municipalities: Municipality[];
+ totalCount: number;
+ t: (key: string, paramsOrFallback?: string | Record<string, string | number>) => string;
+}
+
+// Keep the Leaflet subtree out of unrelated guide renders (selection, banner,
+// or live-wait state). `municipalities` is the bounded page slice, so marker
+// and Popup construction remains bounded even when the filtered result set is
+// the full dataset; the paginated list remains the accessible complete view.
+const MunicipalityMap: React.FC<MunicipalityMapProps> = React.memo(({ municipalities, totalCount, t }) => (
+ <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 overflow-hidden">
+ <div className="flex items-center gap-3 mb-4">
+ <div className="p-2 bg-gradient-to-br from-success-strong to-info-strong rounded-xl">
+ <MapPin className="text-on-accent" size={20} />
+ </div>
+ <div>
+ <h3 className="text-xl font-bold font-display text-strong">{t('guide.municipalities.mapTitle')}</h3>
+ <p className="text-xs text-muted mt-1">
+ {t('guide.municipalities.mapPageNote', { count: municipalities.length, total: totalCount })}
+ </p>
+ </div>
+ </div>
+ {/* Legenda */}
+ <div className="flex gap-4 mb-4 flex-wrap text-sm">
+ <div className="flex items-center gap-2">
+ <div className="w-4 h-4 rounded-full bg-accent-strong"></div>
+ <span className="text-body">{t('guide.legendNewOnly')}</span>
+ </div>
+ <div className="flex items-center gap-2">
+ <div className="w-4 h-4 rounded-full bg-warning-strong"></div>
+ <span className="text-body">{t('guide.legendOldOnly')}</span>
+ </div>
+ <div className="flex items-center gap-2">
+ <div className="w-4 h-4 rounded-full bg-accent-strong"></div>
+ <span className="text-body">{t('guide.legendBoth')}</span>
+ </div>
+ </div>
+ <Suspense fallback={MAP_LOADING}>
+ <LazyMapCanvas
+ center={[46.0, 9.2]}
+ zoom={8}
+ height="500px"
+ className="rounded-xl overflow-hidden border-2 border-edge"
+ placeholder={MAP_LOADING}
+ >
+ {({ Marker, Popup, L }) => {
+ // Build the 3 icon variants once instead of calling createCustomIcon per
+ // marker — Leaflet icon construction is part of the long task this boundary
+ // isolates.
+ const iconByType: Record<'new' | 'old' | 'both', any> = {
+ new: createCustomIcon(L, 'new'),
+ old: createCustomIcon(L, 'old'),
+ both: createCustomIcon(L, 'both'),
+ };
+ return (
+  <>
+  {municipalities.map((m) => (
+ <Marker
+ key={m.name}
+ position={[m.lat, m.lng]}
+ icon={iconByType[m.type]}
+ >
+ <Popup>
+ <div className="text-sm">
+ <h4 className="font-bold text-base mb-1">{m.name}</h4>
+ <div className="space-y-1 text-xs">
+ <p><strong>{t('guide.province')}:</strong> {m.province}</p>
+ <p><strong>{t('guide.distance')}:</strong> {m.distance} km</p>
+ <p><strong>{t('guide.population')}:</strong> {m.population.toLocaleString('it-IT')}</p>
+ <p><strong>{t('guide.borderCrossing')}:</strong> {m.borderCrossing}</p>
+ <div className="flex gap-1 mt-2">
+ {m.type === 'both' ? (
+ <>
+ <span className="px-2 py-0.5 rounded bg-accent-strong text-on-accent text-xs font-bold">{t('guide.new')}</span>
+ <span className="px-2 py-0.5 rounded bg-warning-strong text-on-accent text-xs font-bold">{t('guide.old')}</span>
+ </>
+ ) : (
+ <span className={`px-2 py-0.5 rounded ${m.type === 'new' ? 'bg-accent-strong' : 'bg-warning-strong'} text-on-accent text-xs font-bold`}>
+ {m.type === 'new' ? t('guide.new') : t('guide.old')}
+ </span>
+ )}
+ </div>
+ </div>
+ </div>
+ </Popup>
+ </Marker>
+ ))}
+ </>
+ );
+ }}
+ </LazyMapCanvas>
+ </Suspense>
  </div>
 ));
 
@@ -804,6 +908,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  const deferredSortBy = useDeferredValue(sortBy);
  const deferredFilterType = useDeferredValue(filterType);
  const deferredFilterProvince = useDeferredValue(filterProvince);
+ const [municipalityPage, setMunicipalityPage] = useState(1);
  const [borderFilter, setBorderFilter] = useState<'all' | 'low-traffic' | '24h' | 'morning' | 'evening'>('all');
  const [selectedTime, setSelectedTime] = useState<'morning' | 'evening' | 'night'>('morning');
  const [selectedMunicipality, setSelectedMunicipality] = useState<Municipality | null>(null);
@@ -829,24 +934,25 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  };
 
  // Comuni frontalieri — lista completa da data/municipalities.ts (115 comuni, 5 province)
- // Static fields: nearestOpenCrossing + haversineKm are expensive and don't depend on liveWait;
+ // Static fields: nearestOpenCrossing is expensive and doesn't depend on liveWait;
  // computed once at mount so the live-fetch update doesn't re-run them 518×.
  const lombardyMunicipalitiesBase = useMemo(() => BORDER_MUNICIPALITIES.map(m => {
  const nearest = nearestOpenCrossing(m.lat, m.lng);
- const slug = crossingSlug(nearest);
+ const crossing = nearest.crossing;
+ const slug = crossingSlug(crossing);
  return {
  name: m.name,
  province: PROVINCE_NAMES[m.province] || m.province,
  distance: m.distanceKm,
- borderCrossing: nearest.name || getBorderCrossing(m.province, m.lat, m.lng, m.name),
+ borderCrossing: crossing.name || getBorderCrossing(m.province, m.lat, m.lng, m.name),
  borderCrossingSlug: slug,
- borderCrossingDistanceKm: haversineKm({ lat: m.lat, lng: m.lng }, nearest),
- borderCrossingMorning: nearest.avgWaitMorning ?? 'n.d.',
- borderCrossingEvening: nearest.avgWaitEvening ?? 'n.d.',
- borderCrossingHours: nearest.hours,
- borderCrossingTraffic: nearest.trafficLevel,
- borderCrossingCustomsPresent: nearest.customsPresent,
- borderCrossingHasWebcam: (nearest.webcams?.length ?? 0) > 0,
+ borderCrossingDistanceKm: nearest.distanceKm,
+ borderCrossingMorning: crossing.avgWaitMorning ?? 'n.d.',
+ borderCrossingEvening: crossing.avgWaitEvening ?? 'n.d.',
+ borderCrossingHours: crossing.hours,
+ borderCrossingTraffic: crossing.trafficLevel,
+ borderCrossingCustomsPresent: crossing.customsPresent,
+ borderCrossingHasWebcam: (crossing.webcams?.length ?? 0) > 0,
  population: m.population,
  type: getAgreementType(m.distanceKm),
  lat: m.lat,
@@ -857,15 +963,10 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  };
  }), []);
 
- // Only the two liveWait-derived fields refresh when the live fetch lands — cheap spread + 2 lookups per entry
- const lombardyMunicipalities: Municipality[] = useMemo(() =>
- lombardyMunicipalitiesBase.map(m => ({
- ...m,
- borderCrossingWaitNow: currentWaitLabel(m.borderCrossingSlug, liveWait),
- borderCrossingWaitSource: liveWait.perCrossing?.[m.borderCrossingSlug]?.source ?? 'storico dogane',
- })), [lombardyMunicipalitiesBase, liveWait]);
-
- const filteredMunicipalities = useMemo(() => lombardyMunicipalities
+ // Keep the 518 static municipality objects referentially stable. Live wait
+ // values are consumed by the small badge/source leaves below, so a refresh
+ // does not clone the list or invalidate filtering, sorting, and markers.
+ const filteredMunicipalities = useMemo(() => lombardyMunicipalitiesBase
  .filter(m => {
  const q = deferredMunicipalitySearch.trim().toLowerCase();
  if (q && !`${m.name} ${m.province} ${m.borderCrossing}`.toLowerCase().includes(q)) return false;
@@ -878,16 +979,39 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  .sort((a, b) => {
  if (deferredSortBy === 'distance') return a.distance - b.distance;
  return b.population - a.population;
- }), [lombardyMunicipalities, deferredFilterProvince, deferredFilterType, deferredSortBy, deferredMunicipalitySearch]);
+ }), [lombardyMunicipalitiesBase, deferredFilterProvince, deferredFilterType, deferredSortBy, deferredMunicipalitySearch]);
+ const municipalityPageCount = Math.max(1, Math.ceil(filteredMunicipalities.length / MUNICIPALITIES_PAGE_SIZE));
+ const currentMunicipalityPage = Math.min(municipalityPage, municipalityPageCount);
+ const visibleMunicipalities = useMemo(() => {
+ const start = (currentMunicipalityPage - 1) * MUNICIPALITIES_PAGE_SIZE;
+ return filteredMunicipalities.slice(start, start + MUNICIPALITIES_PAGE_SIZE);
+ }, [filteredMunicipalities, currentMunicipalityPage]);
+ const municipalityPageStart = filteredMunicipalities.length === 0
+ ? 0
+ : (currentMunicipalityPage - 1) * MUNICIPALITIES_PAGE_SIZE + 1;
+ const municipalityPageEnd = Math.min(
+ currentMunicipalityPage * MUNICIPALITIES_PAGE_SIZE,
+ filteredMunicipalities.length,
+ );
  const selectedMunicipalityIndex = selectedMunicipality
- ? filteredMunicipalities.findIndex((m) => m.name === selectedMunicipality.name)
+ ? visibleMunicipalities.findIndex((m) => m.name === selectedMunicipality.name)
  : -1;
  const desktopDetailInsertIndex = selectedMunicipalityIndex >= 0
  ? Math.min(
  selectedMunicipalityIndex % 2 === 0 ? selectedMunicipalityIndex + 1 : selectedMunicipalityIndex,
- filteredMunicipalities.length - 1,
+ visibleMunicipalities.length - 1,
  )
  : -1;
+
+ // Return to the first result page when the deferred query/sort/filter changes;
+ // the selected detail stays in state and is rendered above the page if it is
+ // still part of the filtered result set.
+ useEffect(() => {
+ setMunicipalityPage(1);
+ }, [deferredMunicipalitySearch, deferredSortBy, deferredFilterType, deferredFilterProvince]);
+ useEffect(() => {
+ if (municipalityPage !== currentMunicipalityPage) setMunicipalityPage(currentMunicipalityPage);
+ }, [municipalityPage, currentMunicipalityPage]);
 
  // Dogane Canton Ticino - Italia (fonte centralizzata: data/borderCrossings.ts)
  // waitNow/waitSource (issue #4892 sibling fix): avgWaitMorning/avgWaitEvening
@@ -895,8 +1019,8 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  // even though `liveWait` (fetched above) already has data for ~140/143 — the
  // exact same root defect fixed in BorderMunicipalitiesMap.tsx's popup, here in
  // FrontierGuide's own crossing cards. Reuses the currentWaitLabel/liveWait
- // machinery already wired up for lombardyMunicipalities' borderCrossingWaitNow
- // above — added as an EXTRA "now" stat, not a replacement, since a live
+ // machinery already wired up for the municipality cards above — added as an
+ // EXTRA "now" stat, not a replacement, since a live
  // reading is a single current value, not bucketed by time-of-day like the
  // historical morning/evening averages.
  const borderCrossings = useMemo(() => centralizedBorderCrossings.map(c => {
@@ -980,6 +1104,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  {/* Content Sections */}
  {activeSection === 'municipalities' && (
  <div className="space-y-6 animate-fade-in">
+ <LiveWaitContext.Provider value={liveWait}>
  <SectionHeader 
  icon={MapPin} 
  title={t('guide.municipalities.title')} 
@@ -1082,8 +1207,49 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  {t('guide.municipalities.noResults')}
  </div>
  )}
- <div className="grid md:grid-cols-2 gap-4">
- {filteredMunicipalities.map((m, idx) => {
+ {filteredMunicipalities.length > 0 && (
+ <div className="mb-4 flex flex-col gap-3 rounded-2xl border border-edge bg-surface-alt p-4 sm:flex-row sm:items-center sm:justify-between">
+ <p className="text-sm text-subtle" aria-live="polite">
+ {t('guide.municipalities.showing', {
+ from: municipalityPageStart,
+ to: municipalityPageEnd,
+ total: filteredMunicipalities.length,
+ })}
+ </p>
+ {municipalityPageCount > 1 && (
+ <nav className="flex items-center justify-between gap-3" aria-label={t('guide.municipalities.pagination.label')} aria-controls="municipality-results">
+ <button
+ type="button"
+ onClick={() => setMunicipalityPage((page) => Math.max(1, page - 1))}
+ disabled={currentMunicipalityPage === 1}
+ aria-label={t('guide.municipalities.pagination.previous')}
+ className="rounded-lg border border-edge px-3 py-1.5 text-xs font-semibold text-body transition-colors hover:bg-surface-raised disabled:cursor-not-allowed disabled:opacity-50"
+ >
+ {t('guide.municipalities.pagination.previous')}
+ </button>
+ <span className="text-xs font-semibold text-subtle" aria-current="page">
+ {t('guide.municipalities.pagination.pageOf', { page: currentMunicipalityPage, pages: municipalityPageCount })}
+ </span>
+ <button
+ type="button"
+ onClick={() => setMunicipalityPage((page) => Math.min(municipalityPageCount, page + 1))}
+ disabled={currentMunicipalityPage === municipalityPageCount}
+ aria-label={t('guide.municipalities.pagination.next')}
+ className="rounded-lg border border-edge px-3 py-1.5 text-xs font-semibold text-body transition-colors hover:bg-surface-raised disabled:cursor-not-allowed disabled:opacity-50"
+ >
+ {t('guide.municipalities.pagination.next')}
+ </button>
+ </nav>
+ )}
+ </div>
+ )}
+ {selectedMunicipality && selectedMunicipalityIndex < 0 && filteredMunicipalities.some((m) => m.name === selectedMunicipality.name) && (
+ <div className="mb-4">
+ <MunicipalityDetailPanel municipality={selectedMunicipality} t={t} onClose={() => setSelectedMunicipality(null)} />
+ </div>
+ )}
+ <div id="municipality-results" className="grid md:grid-cols-2 gap-4">
+ {visibleMunicipalities.map((m, idx) => {
  const isSelected = selectedMunicipality?.name === m.name;
  return (
  // stable key (name is unique) so re-sorting/filtering doesn't churn the
@@ -1105,85 +1271,9 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  })}
  </div>
 
- {/* Mappa Interattiva */}
- <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 overflow-hidden">
- <div className="flex items-center gap-3 mb-4">
- <div className="p-2 bg-gradient-to-br from-success-strong to-info-strong rounded-xl">
- <MapPin className="text-on-accent" size={20} />
- </div>
- <h3 className="text-xl font-bold font-display text-strong">{t('guide.municipalities.mapTitle')}</h3>
- </div>
- {/* Legenda */}
- <div className="flex gap-4 mb-4 flex-wrap text-sm">
- <div className="flex items-center gap-2">
- <div className="w-4 h-4 rounded-full bg-accent-strong"></div>
- <span className="text-body">{t('guide.legendNewOnly')}</span>
- </div>
- <div className="flex items-center gap-2">
- <div className="w-4 h-4 rounded-full bg-warning-strong"></div>
- <span className="text-body">{t('guide.legendOldOnly')}</span>
- </div>
- <div className="flex items-center gap-2">
- <div className="w-4 h-4 rounded-full bg-accent-strong"></div>
- <span className="text-body">{t('guide.legendBoth')}</span>
- </div>
- </div>
- <Suspense fallback={MAP_LOADING}>
- <LazyMapCanvas
- center={[46.0, 9.2]}
- zoom={8}
- height="500px"
- className="rounded-xl overflow-hidden border-2 border-edge"
- placeholder={MAP_LOADING}
- >
- {({ Marker, Popup, L }) => {
- // Build the 3 icon variants once instead of calling createCustomIcon per
- // marker (was 518×) — Leaflet icon construction is part of the long task
- // the INP fix targets.
- const iconByType: Record<'new' | 'old' | 'both', any> = {
- new: createCustomIcon(L, 'new'),
- old: createCustomIcon(L, 'old'),
- both: createCustomIcon(L, 'both'),
- };
- return (
-  <>
-  {filteredMunicipalities.map((m) => (
- <Marker
- key={m.name}
- position={[m.lat, m.lng]}
- icon={iconByType[m.type]}
- >
- <Popup>
- <div className="text-sm">
- <h4 className="font-bold text-base mb-1">{m.name}</h4>
- <div className="space-y-1 text-xs">
- <p><strong>{t('guide.province')}:</strong> {m.province}</p>
- <p><strong>{t('guide.distance')}:</strong> {m.distance} km</p>
- <p><strong>{t('guide.population')}:</strong> {m.population.toLocaleString('it-IT')}</p>
- <p><strong>{t('guide.borderCrossing')}:</strong> {m.borderCrossing}</p>
- <div className="flex gap-1 mt-2">
- {m.type === 'both' ? (
- <>
- <span className="px-2 py-0.5 rounded bg-accent-strong text-on-accent text-xs font-bold">{t('guide.new')}</span>
- <span className="px-2 py-0.5 rounded bg-warning-strong text-on-accent text-xs font-bold">{t('guide.old')}</span>
- </>
- ) : (
- <span className={`px-2 py-0.5 rounded ${m.type === 'new' ? 'bg-accent-strong' : 'bg-warning-strong'} text-on-accent text-xs font-bold`}>
- {m.type === 'new' ? t('guide.new') : t('guide.old')}
- </span>
- )}
- </div>
- </div>
- </div>
- </Popup>
- </Marker>
- ))}
- </>
- );
- }}
- </LazyMapCanvas>
- </Suspense>
- </div>
+ {/* Mappa Interattiva: markers bounded alla pagina corrente; la lista sopra
+     conserva tutti i risultati e la navigazione da tastiera. */}
+ <MunicipalityMap municipalities={visibleMunicipalities} totalCount={filteredMunicipalities.length} t={t} />
 
  <div className="bg-warning-subtle border-2 border-warning-border rounded-2xl p-6">
  <div className="flex items-start gap-3">
@@ -1200,6 +1290,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  </div>
  </div>
  </div>
+ </LiveWaitContext.Provider>
  </div>
  )}
 

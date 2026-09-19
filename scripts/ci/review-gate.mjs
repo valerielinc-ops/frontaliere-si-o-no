@@ -96,13 +96,25 @@ function citationPathAndLine(rawPath, fullMatch) {
 }
 
 /** Extract file-like citations from one finding, deduplicated by path+line. */
-function extractFileCitationsWith(text, pattern) {
+function extractFileCitationsWith(
+  text,
+  pattern,
+  { dedupe = true, includeMatchIndex = false } = {},
+) {
   const citations = [];
   pattern.lastIndex = 0;
   for (const match of String(text || '').matchAll(pattern)) {
     const citation = citationPathAndLine(match[1], match[0]);
-    if (citation.path) citations.push(citation);
+    if (citation.path) {
+      citations.push(includeMatchIndex
+        ? {
+          ...citation,
+          __pathStart: match.index + match[0].indexOf(match[1]),
+        }
+        : citation);
+    }
   }
+  if (!dedupe) return citations;
   const seen = new Set();
   return citations.filter((citation) => {
     const key = `${citation.path}:${citation.line || ''}`;
@@ -112,16 +124,16 @@ function extractFileCitationsWith(text, pattern) {
   });
 }
 
-export function extractFileCitations(text) {
-  return extractFileCitationsWith(text, FILE_CITATION_RE);
+export function extractFileCitations(text, options) {
+  return extractFileCitationsWith(text, FILE_CITATION_RE, options);
 }
 
 // Historical audit oracle: this mirrors the pre-#8189 parser so the audit can
 // quantify findings the old first-match extension bug would have left open.
 const LEGACY_FILE_CITATION_RE = /(?:^|[\s([{"'`])(?:\\(?=\.))?((?:\.\.?\/)?(?:[A-Za-z0-9_.@-]+\/)*[A-Za-z0-9_.@-]+\.(?:cjs|css|html|js|json|md|mjs|sh|ts|tsx|txt|toml|yaml|yml|jsx))(?:[:#]L?\d+(?:[-–]\d+)?)?/giu;
 
-function extractLegacyFileCitations(text) {
-  return extractFileCitationsWith(text, LEGACY_FILE_CITATION_RE);
+function extractLegacyFileCitations(text, options) {
+  return extractFileCitationsWith(text, LEGACY_FILE_CITATION_RE, options);
 }
 
 function isInsideCodeSpan(line, index) {
@@ -290,6 +302,10 @@ export function classifyReview(body, {
   complete,
   reason = 'diff non verificabile',
   repositoryPaths = null,
+  // Proof that a path is ignored by the repository. Default `false` keeps this
+  // pure classifier fail-closed: only a caller holding a real checkout can
+  // prove the carve-out, and everything unproven keeps blocking.
+  isIgnoredPath = () => false,
 } = {}) {
   const findings = importantFindings(body);
   if (findings.length === 0) return emptyClassification(findings);
@@ -319,6 +335,7 @@ export function classifyReview(body, {
   const outside = [];
   const inScope = [];
   const unresolved = [];
+  const ignoredCitations = [];
 
   for (const finding of findings) {
     if (finding.parserUncertain) {
@@ -329,7 +346,42 @@ export function classifyReview(body, {
       unresolved.push({ ...finding, reason: 'nessun file citato' });
       continue;
     }
-    const resolved = finding.citations.map((citation) => ({
+    // A path the repository ignores is absent from the tree by construction,
+    // so it cannot be part of the PR diff and cannot be a second edit target.
+    // Such a citation is context: drop it instead of failing the whole finding.
+    // Only a proven ignore qualifies; a missing or misspelled path stays
+    // unresolved and therefore blocking.
+    const ignoredPaths = [];
+    const citations = finding.citations.filter((citation) => {
+      const result = resolveCitedPath(citation, knownPaths);
+      if (result.status === 'resolved') return true;
+      // An ambiguous citation is not proven to be anything: a basename that
+      // happens to match an ignore rule must stay blocking, so only a
+      // zero-candidate path qualifies.
+      if (result.candidates.length > 0) return true;
+      const path = normalizePath(citation.path, { stripGitPrefix: false });
+      if (!path) return true;
+      // A path in the changed list is in the diff whatever git says about
+      // ignoring it: a deleted or newly ignored file still belongs to this PR.
+      if (changedContains(changed, path) || changed.includes(path)) return true;
+      if (!isIgnoredPath(path)) return true;
+      ignoredCitations.push({ findingNumber: finding.findingNumber, path });
+      ignoredPaths.push(path);
+      return false;
+    });
+    if (citations.length === 0) {
+      // Every citation is an ignored path: the finding cannot describe the
+      // diff. It is still declassed rather than dropped, so the aggregate
+      // follow-up records what the reviewer said.
+      outside.push({
+        ...finding,
+        resolvedFiles: [...new Set(ignoredPaths.filter(Boolean))],
+        resolved: [],
+        ignoredOnly: true,
+      });
+      continue;
+    }
+    const resolved = citations.map((citation) => ({
       citation,
       result: resolveCitedPath(citation, knownPaths),
     }));
@@ -355,6 +407,7 @@ export function classifyReview(body, {
     outside,
     inScope,
     unresolved,
+    ignoredCitations,
     outsideOnly: outside.length > 0 && inScope.length === 0 && unresolved.length === 0,
     blocking: inScope.length > 0 || unresolved.length > 0,
   };
@@ -615,7 +668,7 @@ function findingConfirmed(
   finding,
   confirmations,
   openFindings = [finding],
-  { repositoryPaths = null } = {},
+  { repositoryPaths = null, repositoryPathsFromFallback = false } = {},
 ) {
   if (finding.citations.length === 0) {
     const bodyAnchor = prBodyAnchor(finding.line);
@@ -630,18 +683,30 @@ function findingConfirmed(
       finding,
       openFindings,
     ))
-    && (!Array.isArray(repositoryPaths) || preciseCitations.every((citation) =>
-      resolveCitedPath(citation, repositoryPaths).status === 'resolved'));
+    // The tree only ever *tightens* this anchor check, so a locally rebuilt
+    // tree would newly close findings on PRs that pass today. The fallback is
+    // allowed to prove that a path is outside the diff, never to raise the bar
+    // here: under a fallback tree this clause keeps the tree-unavailable
+    // posture. Only an authoritative API tree tightens it.
+    && (repositoryPathsFromFallback
+      || !Array.isArray(repositoryPaths)
+      || preciseCitations.every((citation) =>
+        resolveCitedPath(citation, repositoryPaths).status === 'resolved'));
   return finding.citations.every((citation) => {
     const isBareCompanion = citation.line === null && citation.path.includes('/');
     // Review prose often uses illustrative paths that are not repository
     // files. Once every precise repository anchor is confirmed, a bare path
     // with no HEAD-tree match is context rather than a second edit target.
     // Keep the default strict when the tree is unavailable, and never apply
-    // this exception to precise or resolvable paths.
+    // this exception to precise or resolvable paths. A fallback tree does not
+    // qualify either: it may only prove that a path is outside the diff, so it
+    // must not close a historical Important whose bare companion is
+    // unconfirmed. That keeps the whole of `findingConfirmed` at the
+    // tree-unavailable posture whenever the provenance is the local fallback.
     const isUnresolvableBareContext = isBareCompanion
       && preciseAnchorsConfirmed
       && Array.isArray(repositoryPaths)
+      && !repositoryPathsFromFallback
       && resolveCitedPath(citation, repositoryPaths).status === 'non-risolubile'
       && resolveCitedPath(citation, repositoryPaths).candidates.length === 0;
     if (isUnresolvableBareContext) return true;
@@ -670,6 +735,7 @@ export function historicalImportantFindings(
     includeLatest = false,
     citationExtractor = extractFileCitations,
     repositoryPaths = null,
+    repositoryPathsFromFallback = false,
   } = {},
 ) {
   const bots = reviewerList(reviews).filter((review) =>
@@ -684,7 +750,10 @@ export function historicalImportantFindings(
     const openFindings = [...open.values()].map(({ finding }) => finding);
     for (const [key, entry] of open.entries()) {
       if (entry.reviewIndex >= index) continue;
-      if (findingConfirmed(entry.finding, confirmations, openFindings, { repositoryPaths })) {
+      if (findingConfirmed(entry.finding, confirmations, openFindings, {
+        repositoryPaths,
+        repositoryPathsFromFallback,
+      })) {
         open.delete(key);
       }
     }
@@ -726,8 +795,14 @@ function truncatedPathCandidates(citation, repositoryPaths) {
  * Audit a persisted review history against the final repository tree. The
  * legacy count is an evidence line for the old extension parser; the current
  * count is the fail-closed result that must be zero before the audit passes.
+ *
+ * The audit declares historical anchors clean, so it needs an authoritative
+ * tree. The refusal of a fallback tree lives here rather than at the call site:
+ * this function is exported, and a caller that forgot the provenance would
+ * otherwise get an authoritative-looking verdict from a locally rebuilt tree.
  */
-export function auditHistoricalCitations(reviews, repositoryPaths) {
+export function auditHistoricalCitations(reviews, repositoryPaths, { fromFallback = false } = {}) {
+  if (fromFallback) throw new Error('tree di fallback non ammesso per audit storico');
   const list = reviewerList(reviews);
   const findingCitations = (extractCitations) => list.flatMap((review, reviewIndex) =>
     parseImportantFindings(review?.body, extractCitations).flatMap((finding) =>
@@ -824,26 +899,75 @@ function readCodexEvidenceFile(file) {
   }
 }
 
+/**
+ * Full tree of this repository from the local checkout.
+ *
+ * On a repository this size the API tree is unusable: GitHub flags it
+ * `truncated`, and the local coordinator caps a response body at 8 MiB
+ * (`MAX_BODY_BYTES`), which cuts the JSON mid-string and makes it unparseable.
+ * `git ls-tree` has neither limit and needs no network.
+ *
+ * Only the requested SHA is read, never `HEAD`: resolving citations against a
+ * different tree could declass a path as outside the diff on the strength of a
+ * tree that is not the one under review. If that SHA is not in the local
+ * checkout the tree stays unavailable and the strict posture holds.
+ */
+function localTreePaths(sha) {
+  for (const ref of [/^[0-9a-f]{40}$/iu.test(String(sha || '')) ? String(sha) : null]) {
+    if (!ref) continue;
+    try {
+      const output = execFileSync('git', ['ls-tree', '-r', '--name-only', ref], {
+        encoding: 'utf8',
+        maxBuffer: 64 * 1024 * 1024,
+        stdio: ['ignore', 'pipe', 'ignore'],
+      });
+      const paths = [...new Set(String(output).split(/\r?\n/u)
+        .map((path) => normalizePath(path, { stripGitPrefix: false }))
+        .filter(Boolean))];
+      if (paths.length) return paths;
+    } catch {
+      // try the next ref; an unusable local tree keeps the strict default
+    }
+  }
+  return null;
+}
+
+/**
+ * Resolve the repository tree, reporting where it came from.
+ *
+ * `fromFallback` is not cosmetic: a locally rebuilt tree may only prove that a
+ * path is outside the diff. It must not tighten `preciseAnchorsConfirmed`,
+ * which would newly close findings on PRs that pass today.
+ */
 function fetchRepositoryTreePaths(repo, sha) {
+  let apiPaths = null;
   try {
     if (!/^[0-9a-f]{40}$/iu.test(String(sha || ''))) {
-      console.log('review-gate: tree non recuperabile (SHA assente o non valida).');
-      return null;
+      console.log('review-gate: tree API non recuperabile (SHA assente o non valida).');
+    } else {
+      const tree = gh(['api', `repos/${repo}/git/trees/${sha}?recursive=1`]);
+      if (tree?.truncated || !Array.isArray(tree?.tree) || tree.tree.length === 0) {
+        console.log('review-gate: tree API non recuperabile (risposta troncata o vuota).');
+      } else {
+        apiPaths = tree.tree
+          .filter((entry) => entry?.type === 'blob' && entry.path)
+          .map((entry) => normalizePath(entry.path, { stripGitPrefix: false }))
+          .filter(Boolean);
+        if (!apiPaths.length) apiPaths = null;
+      }
     }
-    const tree = gh(['api', `repos/${repo}/git/trees/${sha}?recursive=1`]);
-    if (tree?.truncated || !Array.isArray(tree?.tree) || tree.tree.length === 0) {
-      console.log('review-gate: tree non recuperabile (risposta troncata o vuota).');
-      return null;
-    }
-    const paths = tree.tree
-      .filter((entry) => entry?.type === 'blob' && entry.path)
-      .map((entry) => normalizePath(entry.path, { stripGitPrefix: false }))
-      .filter(Boolean);
-    return paths.length ? paths : null;
   } catch (error) {
-    console.log(`review-gate: tree non recuperabile (${String(error).slice(0, 160)}).`);
-    return null;
+    console.log(`review-gate: tree API non recuperabile (${String(error).slice(0, 160)}).`);
   }
+  if (apiPaths) return { paths: apiPaths, fromFallback: false };
+
+  const paths = localTreePaths(sha);
+  if (!paths) {
+    console.log('review-gate: tree non recuperabile nemmeno da git ls-tree; resta la postura stretta.');
+    return { paths: null, fromFallback: false };
+  }
+  console.log(`review-gate: tree da fallback locale (git ls-tree) paths=${paths.length}; usato solo per provare che un path e' fuori dal diff.`);
+  return { paths, fromFallback: true };
 }
 
 function fetchRepositoryHeadPaths(repo, pr) {
@@ -851,6 +975,29 @@ function fetchRepositoryHeadPaths(repo, pr) {
     'api', `repos/${repo}/pulls/${pr}`, '--jq', '.head.sha',
   ], { json: false })).trim();
   return fetchRepositoryTreePaths(repo, head);
+}
+
+const ignoredPathCache = new Map();
+
+/**
+ * `git check-ignore` exits 0 only for a path the repository provably ignores.
+ * Exit 1 (not ignored), 128 (no checkout) and any spawn error all mean "not
+ * proven" and therefore keep the citation blocking.
+ */
+function gitPathIsIgnored(path) {
+  const wanted = normalizePath(path, { stripGitPrefix: false });
+  if (!wanted || wanted.includes('\0')) return false;
+  if (!ignoredPathCache.has(wanted)) {
+    let ignored = false;
+    try {
+      execFileSync('git', ['check-ignore', '-q', '--', wanted], { stdio: 'ignore' });
+      ignored = true;
+    } catch {
+      ignored = false;
+    }
+    ignoredPathCache.set(wanted, ignored);
+  }
+  return ignoredPathCache.get(wanted);
 }
 
 function readReviews(repo, pr) {
@@ -1037,6 +1184,9 @@ async function mintFollowup({ repo, pr, prUrl, findings }) {
 }
 
 export function logClassification(classification) {
+  for (const { findingNumber, path } of classification.ignoredCitations ?? []) {
+    console.log(`review-gate: DECLASSIFIED-IGNORED finding=${findingNumber} path=${path} reason=path ignored by git, cannot be in the PR diff`);
+  }
   for (const finding of classification.outside) {
     for (const path of finding.resolvedFiles) {
       console.log(`review-gate: DECLASSIFIED finding=${finding.findingNumber} path=${path} reason=all cited files resolved outside current PR diff`);
@@ -1093,13 +1243,14 @@ export async function classifyAndMintReview(body, {
   const repositoryPaths = suppliedRepositoryPaths !== undefined
     ? suppliedRepositoryPaths
     : changed.complete === true && changed.files.length > 0
-      ? fetchRepositoryHeadPaths(repo, pr)
+      ? fetchRepositoryHeadPaths(repo, pr).paths
     : null;
   const classification = classifyReview(body, {
     files: changed.files,
     complete: changed.complete,
     reason: changed.reason,
     repositoryPaths,
+    isIgnoredPath: gitPathIsIgnored,
   });
   logClassification(classification);
 
@@ -1128,6 +1279,7 @@ export async function runReviewGate({
   codexEvidence,
   codexEvidenceFile,
   repositoryPaths,
+  repositoryPathsFromFallback = false,
   changedPathsFn = changedPathsBetween,
   classifyAndMintReviewFn = classifyAndMintReview,
 } = {}) {
@@ -1177,6 +1329,7 @@ export async function runReviewGate({
   }
   const historical = historicalImportantFindings(reviewHistory, {
     repositoryPaths: repositoryPaths ?? null,
+    repositoryPathsFromFallback,
   });
   const effectiveBody = reviewBodyWithHistoricalFindings(body, historical);
   const findings = importantFindings(effectiveBody);
@@ -1242,14 +1395,15 @@ async function main() {
   const repo = process.env.REPO || process.env.GITHUB_REPOSITORY || '';
   const pr = process.env.PR_NUMBER || '';
   const headSha = process.env.HEAD_SHA || '';
-  const repositoryPaths = fetchRepositoryHeadPaths(repo, pr);
+  const tree = fetchRepositoryHeadPaths(repo, pr);
   const result = await runReviewGate({
     repo,
     pr,
     headSha,
     runUrl: process.env.RUN_URL,
     prUrl: process.env.PR_URL,
-    repositoryPaths,
+    repositoryPaths: tree.paths,
+    repositoryPathsFromFallback: tree.fromFallback,
   });
   writeApproved(result.approved);
   if (!result.approved) {
@@ -1268,9 +1422,9 @@ async function auditHistoricalCitationsMain() {
   if (!/^\d+$/u.test(String(pr))) throw new Error('PR audit non valido');
 
   const reviews = readReviews(repo, pr);
-  const repositoryPaths = fetchRepositoryHeadPaths(repo, pr);
+  const { paths: repositoryPaths, fromFallback } = fetchRepositoryHeadPaths(repo, pr);
   if (!repositoryPaths) throw new Error('tree HEAD non recuperabile per audit storico');
-  const result = auditHistoricalCitations(reviews, repositoryPaths);
+  const result = auditHistoricalCitations(reviews, repositoryPaths, { fromFallback });
   console.log(`review-gate: historical citation audit ${repo}#${pr}`);
   console.log(`review-gate: reviews=${result.reviewCount} citations=${result.citationCount}`);
   console.log(`review-gate: legacy-open-findings=${result.legacyOpenFindings.length}`);
@@ -1334,7 +1488,46 @@ function extractFindingCitations(text, extractCitations) {
     .split(/\r?\n/u)
     .filter((line) => !FIX_CONFIRMATION_RE.test(line))
     .join('\n');
-  return extractCitations(findingText);
+  const occurrences = extractCitations(findingText, {
+    dedupe: false,
+    includeMatchIndex: true,
+  });
+  const seen = new Set();
+  return occurrences
+    .filter((citation) => !isIllustrativeBareCitation(findingText, citation))
+    .filter((citation) => {
+      const key = `${citation.path}:${citation.line || ''}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
+    .map(({ __pathStart, ...citation }) => citation);
+}
+
+/**
+ * A reviewer may cite a source file as an example of where a value comes
+ * from, not as a second edit anchor. Keep this carve-out deliberately narrow:
+ * an explicit line citation, or an imperative such as "also fix <path>",
+ * remains an actionable citation and must still be confirmed independently.
+ */
+function isIllustrativeBareCitation(text, citation) {
+  if (!citation || citation.line !== null) return false;
+  const escapedPath = String(citation.path || '').replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
+  if (!escapedPath) return false;
+  const backtick = String.fromCharCode(96);
+  const pathToken = `(?:${backtick}${escapedPath}${backtick}|${escapedPath})`;
+  const illustrativePattern = new RegExp(
+    `\\bpresent(?:\\s+only)?\\s+in\\s+${pathToken}\\s+(?:such\\s+as|for\\s+example|e\\.g\\.|come)`,
+    'igu',
+  );
+  const pathStart = Number.isInteger(citation.__pathStart) ? citation.__pathStart : null;
+  if (pathStart === null) return illustrativePattern.test(String(text || ''));
+  return [...String(text || '').matchAll(illustrativePattern)].some((match) => {
+    const start = match.index;
+    return Number.isInteger(start)
+      && pathStart >= start
+      && pathStart < start + match[0].length;
+  });
 }
 
 if (isDirectRun) {

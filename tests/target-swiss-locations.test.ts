@@ -61,6 +61,17 @@ describe('target swiss locations', () => {
     expect(new Set(TARGET_CANTONS)).toEqual(new Set(ALL_CANTON_CODES));
   });
 
+  it('supports an explicit all-canton scope for nationwide crawlers', () => {
+    expect(isTargetSwissLocation('Schaffhausen, Switzerland', {
+      includeAllCantons: true,
+      includeBorderProximity: false,
+    })).toBe(true);
+    expect(isTargetSwissLocation('Milan, Italy', {
+      includeAllCantons: true,
+      includeBorderProximity: false,
+    })).toBe(false);
+  });
+
   it('accepts a representative municipality from every Swiss canton', () => {
     const representativeByCanton = {
       AG: 'Aarau', AI: 'Appenzell', AR: 'Herisau', BE: 'Bern',

@@ -10,7 +10,7 @@
  * The API returns all jobs globally. We filter for positions in Switzerland.
  */
 
-import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+import { isSwissLocationText, inferAnyCanton } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
@@ -75,7 +75,7 @@ export function slugify(value = '', suffix = '') {
  * Check if a Greenhouse job location matches Switzerland.
  */
 export function isSwissLocation(locationName = '') {
-  return isTargetSwissLocation(locationName);
+  return isSwissLocationText(locationName);
 }
 
 /**

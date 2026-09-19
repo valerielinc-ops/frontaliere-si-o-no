@@ -311,8 +311,8 @@ describe('deploy.yml + post-deploy-validate-dist.yml — tar-pack rehydrate fast
     const packSteps = DEPLOY_YML.match(/- name: Pack [^\n]*shard dist \(tar\)[^\n]*\n(?:.*\n)*?(?=\n {6}- name:|\n {4}- name:)/g) || [];
     expect(packSteps.length, 'expected at least the IT/non-IT Ticino + locale pack steps').toBeGreaterThanOrEqual(3);
     for (const step of packSteps) {
-      expect(step, `pack step missing tar -tf listing count:\n${step}`).toMatch(/tar -tf .*\| \{ grep -vc '\/\$' \|\| true; \}/);
-      expect(step, `pack step missing packed-vs-source file count comparison:\n${step}`).toMatch(/if \[ "\$packed_n" -ne "\$src_n" \]/);
+      expect(step, `pack step missing tar -cvf output count:\n${step}`).toMatch(/if ! packed_n=\$\(tar -C [^\n]* -cvf [^\n]*\| awk '!\/\\\/\$\/ \{ n\+\+ \} END \{ print n \+ 0 \}'\); then[\s\S]*rm -f "\$RUNNER_TEMP\/[^\"]+\.tar"[\s\S]*(?:return|exit) 0/);
+      expect(step, `pack step missing packed-vs-source file count comparison:\n${step}`).toMatch(/if \[ "\$packed_n" -ne "\$(?:live_src_n|src_n)" \]/);
       expect(step, `pack step must discard a mismatched tar (rm -f), not upload it:\n${step}`).toMatch(/rm -f "\$RUNNER_TEMP\/[^"]*\.tar"/);
     }
   });
@@ -633,6 +633,14 @@ describe('deploy-publish.yml — Pages poll usa il budget residuo del job', () =
     expect(pollStep!.run).toContain('job_deadline="${{ steps.publish_budget.outputs.job_deadline }}"');
     expect(pollStep!.run).toContain('deadline=$((job_deadline - 60))');
     expect(pollStep!.run).toContain('pre-poll publish steps consumed the available job budget');
+    expect(pollStep!.run).toContain('gh_api_with_deadline()');
+    expect(pollStep!.run).toContain('remaining=$((deadline - $(date +%s)))');
+    expect(pollStep!.run).toContain('timeout --foreground --signal=TERM --kill-after=5s "${remaining}s" gh api "$@"');
+    expect(pollStep!.run).toContain('ids=$(gh_api_with_deadline');
+    expect(pollStep!.run).toContain('st=$(gh_api_with_deadline');
+    expect(pollStep!.run).toContain('sleep "$sleep_for"');
+    expect(pollStep!.run).not.toMatch(/ids=\$\(gh api/);
+    expect(pollStep!.run).not.toMatch(/st=\$\(gh api/);
     expect(pollStep!.run).not.toContain('date +%s) + 330*60');
   });
 });

@@ -11,11 +11,14 @@ name: Sync article sitemaps, feeds and ticker from the articles API
 # publisher's repository_dispatch keys on the event type, not on this name.
 #
 # repository_dispatch is the primary trigger, and it is the right shape: the
-# publisher knows when it has published, so the push is the event. Its
-# client_payload is an attestation-shaped claim only; the receiver verifies the
+# publisher knows when it has published, so the push is the event. New publisher
+# runs send the exact client_payload contract below; the receiver verifies the
 # source run and workflow with read-only GitHub metadata API before allowing any
-# write. The schedule is only a safety net for a dispatch that never arrives
-# (token rotated, API outage) — it is not the mechanism.
+# write. Until the paired emitter is live, the gate's explicit compatibility
+# flag keeps the old event-only contract alive, still pinned to the exact PAT
+# actor/action/repository/workflow/scope and only when no payload is present.
+# The schedule is only a safety net for a dispatch that never arrives (token
+# rotated, API outage) — it is not the primary mechanism.
 #
 # scripts/pull-articles-api.mjs refuses rather than degrades: it validates the
 # manifest, both sitemaps (gating on hreflang alternate counts as well as url
@@ -87,7 +90,7 @@ jobs:
       # PR #1531 (.github/workflows/publish-api.yml); keep both contracts live.
       - name: Verify publisher provenance via read-only metadata API
         id: publisher_provenance
-        if: github.event_name == 'repository_dispatch'
+        if: github.event_name == 'repository_dispatch' && github.event.client_payload != null
         env:
           GH_TOKEN: ${{ github.token }}
           PUBLISHER_SOURCE_RUN_ID: ${{ github.event.client_payload.source_run_id || '' }}
@@ -196,6 +199,11 @@ jobs:
           # packages/articles/content stopped being written at
           # 2026-09-16T12:00:46Z while every run stayed green.
           APPROVAL_TRUSTED_SCHEDULE: 'true'
+          # Migration compatibility only: the current corpus emitter may still
+          # send event_type without client_payload. The shared gate admits this
+          # path only with the exact pins below and only when the payload is
+          # absent; a present payload must pass source-run verification.
+          APPROVAL_ALLOW_LEGACY_PUBLISHER_DISPATCH: 'true'
           APPROVAL_SCOPE: article-sitemap-publication
           APPROVAL_DISPATCH_ACTOR: ${{ github.event.sender.login || '' }}
           APPROVAL_DISPATCH_ACTION: ${{ github.event.action || '' }}
@@ -751,3 +759,64 @@ jobs:
           # the bare-URL variant for everyone else, and mirrors the purge
           # publish-article-chunks.mjs already issues after its own PUT.
           node scripts/cf-purge-cache.mjs --files=https://cdn.frontaliereticino.ch/data/news-ticker-live.json
+
+      # ── LAST STEP, and that is the whole point: a green run must have
+      #    DELIVERED ────────────────────────────────────────────────────────────
+      #
+      # THE FAILURE THIS CATCHES. On 2026-09-19 this workflow reported `success`
+      # on eight consecutive dispatches (35414176623 01:56Z → 35420916144
+      # 04:18Z) having committed nothing. The last of them logged
+      # `svizzera: 2157 → 2194 articles (+37 new)` from the corpus pull and then
+      # `human-side-effect-gate: DENY (publisher-source-run-unverified)`, so
+      # `Commit if changed` was skipped and 55 pulled articles died with the
+      # runner. The only actor that noticed was a DIFFERENT workflow:
+      # rerender-article-hubs.yml refused to push a 2157-item archive over the
+      # live 2194-item one (run 35423187532, `37 behind, tolerance 25`) and went
+      # red for it. A guard in the consumer should not be how the producer's
+      # silence is discovered.
+      #
+      # #9141 fixed that particular denial and made a withheld permission set
+      # `skipped=true` so the escalation could count it. This step is the guard
+      # UNDER both, and it asks a different question: not "may this run write?"
+      # (`gate`) and not "has this condition survived three runs?" (the
+      # escalation), but "is what this run pulled now ON main?" — measured
+      # against the committed tree, which no future skip or committed-nothing
+      # path can answer by assertion.
+      #
+      # WHY IT FAILS THE JOB rather than warning. A skipped sync being green is
+      # a deliberate choice this file documents, and it is right when the
+      # residue is ZERO: a dispatch that arrives with nothing new to fetch is a
+      # no-op and must not page anyone. It is wrong when the residue is 55
+      # articles, and today both look identical from the outside — same
+      # conclusion, same escalation counter. The residue is what separates them,
+      # so the residue is what decides.
+      #
+      # THE CONDITION IS THE HUMAN'S STATED INTENT, not the event name and not
+      # the effective verdict. Review caught both wrong answers:
+      #
+      #   - `github.event_name != 'workflow_dispatch'` (the first draft) excused
+      #     EVERY manual run, including one an owner dispatched with
+      #     `dry_run: false` and an approval nonce precisely because they wanted
+      #     a real sync. A denial on that run would have finished green with the
+      #     new corpus rows absent from `main` — this guard's own failure mode.
+      #   - `effective_dry_run != 'true'` is worse, and it is why the fix is not
+      #     the obvious one: `human-side-effect-gate.mjs` sets
+      #     `effectiveDryRun: reasons.length !== 0 || nonce === null`, so a
+      #     DENIAL forces it true. Gating on it would skip the guard on exactly
+      #     the runs it exists for, which is how the 2026-09-19 incident stayed
+      #     invisible in the first place.
+      #
+      # `github.event.inputs.dry_run` is the input as the human left it: `'true'`
+      # on a preview (the declared default), `'false'` when they asked for a real
+      # sync, and null on `repository_dispatch` and `schedule`, which therefore
+      # run the guard. A preview pulls without committing on purpose and must
+      # stay green; everything else must prove delivery.
+      #
+      # No `always()`: when an earlier step already failed, the job is red and a
+      # second, more confusing cause helps nobody. The mode this exists for is a
+      # job that is otherwise entirely green.
+      - name: Assert the pulled corpus actually reached main
+        if: github.event.inputs.dry_run != 'true'
+        env:
+          SKIP_REASON: ${{ steps.gate.outputs.skip-reason }}
+        run: node scripts/ci/assert-articles-sync-delivered.mjs

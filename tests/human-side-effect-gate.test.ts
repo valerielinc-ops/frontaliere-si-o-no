@@ -141,6 +141,22 @@ const TRUSTED_PUBLISHER_DISPATCH = {
   expectedDispatchWorkflow: 'Sync article sitemaps, feeds and ticker from the articles API',
 };
 
+const TRUSTED_LEGACY_PUBLISHER_DISPATCH = {
+  ...TRUSTED_PUBLISHER_DISPATCH,
+  dispatchPayloadPresent: 'false',
+  publisherSourceVerified: 'false',
+  dispatchSourceSchemaVersion: '',
+  dispatchSourceRepository: '',
+  dispatchSourceWorkflow: '',
+  dispatchSourceWorkflowPath: '',
+  dispatchSourceRunId: '',
+  dispatchSourceRunAttempt: '',
+  dispatchSourceSha: '',
+  dispatchSourceBranch: '',
+  dispatchSourceEvent: '',
+  allowLegacyPublisherDispatch: 'true',
+};
+
 /** Workflows whose scheduled/manual paths can send, post, publish, or alter recipient state. */
 const SIDE_EFFECT_WORKFLOWS = [
   // Writer/publication/content scope from the audit.
@@ -241,6 +257,26 @@ const SCHEDULE_ARMED_WORKFLOWS = [
   // `side_effect_gate` and a `schedule:` appears in exactly one of the two
   // inventories. Enumerated 2026-09-18: 12 were in neither.
   'sync-articles-sitemaps.yml',
+  // Recovery is an approved scheduled write: it remains non-destructive and
+  // its backfill/commit steps keep their own dry-run guards in depth.
+  'recover-prev-slugs.yml',
+  // Aggiunto il 2026-09-19, ed era uno dei 12 che il commento sopra dichiara
+  // «in neither» inventory al 2026-09-18: il buco noto di questa lista lo aveva
+  // gia' contato senza nominarlo.
+  // Senza l'armamento il cron MENSILE di questo workflow risultava `success`
+  // avendo backfillato ZERO expired job: il gate negava ogni `schedule`
+  // (`event-not-workflow-dispatch`, human-side-effect-gate.mjs:214), un diniego
+  // esce 0 «so the workflow can finish quietly» (riga 34), e tutti e 7 i suoi
+  // step di scrittura sono condizionati a `allow_side_effect`. Verde e inerte —
+  // la stessa classe del verde fabbricato che #9205 chiude sull'audit del
+  // corpus, e su un cron mensile nessuno se ne sarebbe accorto prima del
+  // 2026-11-01.
+  // La scrittura e' non distruttiva: ricostruisce
+  // `data/jobs/expired/by-crawler/*` camminando la history con `git show`,
+  // passa `npm test` come gate PRIMA del commit, e i suoi 7 step usano tutti
+  // l'APPROVED_GATE_IF esatto, quindi `dry_run` continua a valere sul dispatch
+  // manuale.
+  'backfill-expired-from-history.yml',
 ];
 
 const SCHEDULE_UNARMED_WORKFLOWS = [
@@ -252,7 +288,6 @@ const SCHEDULE_UNARMED_WORKFLOWS = [
   'mailtrap-suppression-retry.yml',
   'probe-mailgun-scheduled.yml',
   'publisher-blast.yml',
-  'recover-prev-slugs.yml',
   'reddit-jobs-daily-schedule.yml',
 ];
 
@@ -507,6 +542,28 @@ describe('human-side-effect-gate policy', () => {
     expect(decision.effectiveDryRun).toBe(false);
     expect(decision.reason).toBe('trusted-publisher-dispatch-approved');
     expect(decision.nonce).toMatch(/^[a-f0-9]{64}$/);
+  });
+
+  it('allows the legacy event-only publisher contract only with its explicit compatibility flag', () => {
+    const legacy = evaluateHumanApproval(TRUSTED_LEGACY_PUBLISHER_DISPATCH);
+    expect(legacy.allow).toBe(true);
+    expect(legacy.effectiveDryRun).toBe(false);
+    expect(legacy.reason).toBe('trusted-legacy-publisher-dispatch-approved');
+
+    const disabled = evaluateHumanApproval({
+      ...TRUSTED_LEGACY_PUBLISHER_DISPATCH,
+      allowLegacyPublisherDispatch: 'false',
+    });
+    expect(disabled.allow).toBe(false);
+    expect(disabled.effectiveDryRun).toBe(true);
+    expect(disabled.reasons).toContain('publisher-dispatch-payload-missing-or-unknown');
+
+    const unverifiedPayload = evaluateHumanApproval({
+      ...TRUSTED_PUBLISHER_DISPATCH,
+      publisherSourceVerified: 'false',
+    });
+    expect(unverifiedPayload.allow).toBe(false);
+    expect(unverifiedPayload.reasons).toContain('publisher-source-run-unverified');
   });
 
   it('denies an allowlisted sender when the source run was not verified', () => {
@@ -789,6 +846,7 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
     expect(source).toContain('gh api --method GET');
     expect(source).toContain('actions/runs/$PUBLISHER_SOURCE_RUN_ID');
     expect(source).toContain("actions/workflows/publish-api.yml");
+    expect(source).toContain("if: github.event_name == 'repository_dispatch' && github.event.client_payload != null");
     expect(source).toContain("PUBLISHER_SOURCE_RUN_ID: ${{ github.event.client_payload.source_run_id || '' }}");
     expect(source).toContain('APPROVAL_EVENT: ${{ github.event_name }}');
     expect(source).toContain('APPROVAL_ACTOR: ${{ github.actor }}');
@@ -796,6 +854,7 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
     expect(source).toContain("APPROVAL_DISPATCH_ACTOR: ${{ github.event.sender.login || '' }}");
     expect(source).toContain("APPROVAL_DISPATCH_ACTION: ${{ github.event.action || '' }}");
     expect(source).toContain('APPROVAL_DISPATCH_PAYLOAD_PRESENT: ${{ github.event.client_payload != null }}');
+    expect(source).toContain("APPROVAL_ALLOW_LEGACY_PUBLISHER_DISPATCH: 'true'");
     expect(source).toContain("APPROVAL_PUBLISHER_SOURCE_VERIFIED: ${{ steps.publisher_provenance.outputs.verified || 'false' }}");
     expect(source).toContain("APPROVAL_DISPATCH_SOURCE_SCHEMA_VERSION: ${{ github.event.client_payload.schema_version || '' }}");
     expect(source).toContain("APPROVAL_DISPATCH_SOURCE_REPOSITORY: ${{ github.event.client_payload.source_repository || '' }}");
@@ -979,9 +1038,9 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
   });
 
   it('arms trusted schedules only on workflows whose schedules apply side effects', () => {
-    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(18);
-    expect(SCHEDULE_UNARMED_WORKFLOWS).toHaveLength(10);
-    expect(SCHEDULE_SIDE_EFFECT_WORKFLOWS).toHaveLength(28);
+    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(20);
+    expect(SCHEDULE_UNARMED_WORKFLOWS).toHaveLength(9);
+    expect(SCHEDULE_SIDE_EFFECT_WORKFLOWS).toHaveLength(29);
 
     for (const name of SCHEDULE_SIDE_EFFECT_WORKFLOWS) {
       const document = YAML.parse(workflow(name)) as { jobs?: Record<string, { steps?: Array<Record<string, unknown>> }> };

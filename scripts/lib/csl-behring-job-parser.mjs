@@ -19,8 +19,9 @@
  * Location text format: `EMEA, CH, Kanton Bern, Bern, CSL Behring` (region,
  * country code, canton, city, business unit). We split on commas and pick
  * the first segment that looks like a city. Multi-location postings collapse
- * to `N Locations` in the listing, so the detail payload's primary and
- * additional locations are inspected before using any fallback.
+ * to `N Locations` in the listing, so the detail payload's primary location is
+ * inspected before publication. An additional location does not override a
+ * foreign primary workplace.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllCslBehringJobs() — Fetch and parse all Swiss jobs
@@ -39,6 +40,7 @@ import {
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
+  workdayPrimaryLocationState,
 } from './ats-clients/workday-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -106,7 +108,15 @@ function cleanCslLocation(raw = '') {
 
 function locationDescriptor(value) {
   if (typeof value === 'string') return value;
-  return value?.descriptor || value?.location || value?.name || '';
+  return [
+    value?.descriptor,
+    value?.location,
+    value?.name,
+    value?.country?.descriptor,
+    value?.country?.name,
+    value?.country?.alpha2Code,
+    value?.country?.code,
+  ].filter(Boolean).join(', ');
 }
 
 /**
@@ -125,6 +135,23 @@ export function resolveCslLocation(primaryLocation = '', additionalLocations = [
     if (cleaned && inferSwissTargetCanton(cleaned)) return cleaned;
   }
   return '';
+}
+
+/**
+ * The Swiss city a req may be PUBLISHED under, or `''`.
+ *
+ * `resolveCslLocation` above answers a different question — «is any location
+ * on this req Swiss, and which» — over `[primary, ...additionalLocations]`,
+ * and its cases pin that union deliberately. It is the wrong question for the
+ * publish decision, because a req worked in King of Prussia that also lists
+ * Glattbrugg resolves to Glattbrugg and goes out as a Swiss vacancy.
+ *
+ * Only the req's own primary location licenses the stamp. Kept as its own
+ * exported predicate so the call site cannot drift back to the union without
+ * breaking a test that names this rule.
+ */
+export function resolveCslPublishLocation(info = {}) {
+  return resolveCslLocation(info?.location, []);
 }
 
 /* ── Company matchers ──────────────────────────────────────── */
@@ -251,15 +278,27 @@ export async function fetchAllCslBehringJobs() {
     if (!title || title.length < 3) continue;
 
     // The listing endpoint frequently returns only `N Locations`. Fetch the
-    // detail once and use its Swiss additional location when the primary
-    // location belongs to the global posting tenant.
+    // detail once, then require its authoritative primary location to be Swiss.
     const detail = await fetchWorkdayJobDetail(WORKDAY_API_BASE, listing.externalPath);
     const info = detail?.jobPostingInfo || {};
     const detailLocations = [
       info.location,
       ...(Array.isArray(info.additionalLocations) ? info.additionalLocations : []),
     ].map(locationDescriptor).filter(Boolean);
-    const resolvedDetailLocation = resolveCslLocation(info.location, info.additionalLocations);
+    // The Swiss city that licenses publication has to come from the req's OWN
+    // primary location. Resolving it over [primary, ...additionalLocations]
+    // published a foreign vacancy under whichever Swiss site happened to be
+    // listed alongside it: measured on data/jobs/by-crawler/csl-behring.json,
+    // 12 of 25 records carried a non-Swiss primary location in their own
+    // Workday path and went out as Swiss cities anyway — 8 King-of-Prussia (US-PA)
+    // as Glattbrugg/Opfikon/Bern, 2 Waltham (US-MA) and 3 Maidenhead (GB) as
+    // Glattbrugg (the Maidenhead group overlaps the count by one record whose
+    // path is Berkshire-Maidenhead). Every one of the 13 correctly-published
+    // records has a `EMEA-CH-*` primary, so the primary is the reliable field
+    // here and the docblock's premise — a foreign primary standing in for a
+    // Swiss workplace named only among the additional locations — is not
+    // exhibited by a single record in the slice.
+    const resolvedDetailLocation = resolveCslPublishLocation(info);
     const detailLocationText = detailLocations.join(' | ');
     if (!resolvedDetailLocation && isLocationExplicitlyForeign(detailLocationText)) {
       console.log(`  ⏭️  Skipped foreign location: ${detailLocationText} — ${title}`);
@@ -267,15 +306,34 @@ export async function fetchAllCslBehringJobs() {
       continue;
     }
 
-    const rawLocation = resolvedDetailLocation || listing.locationRaw || 'Bern';
-    if (isLocationExplicitlyForeign(rawLocation)) {
-      console.log(`  ⏭️  Skipped foreign location: ${rawLocation} — ${title}`);
+    // Fail closed instead of defaulting to Bern. `|| 'Bern'` here and
+    // `|| 'Bern'` / `|| 'BE'` below were the generic-city fallback
+    // audit-parser-quality.mjs names in its ACTION line, and one US-PA req in
+    // the slice is published as `Bern` purely through it.
+    // The listing row may stand in for the primary only when the detail has NO
+    // primary at all. `resolveCslPublishLocation` returns '' both when the field
+    // is absent and when it is present but unrecognised, and `resolved ||
+    // listing.locationRaw` turned the second case into the first — so a Swiss
+    // listing row could publish an unknown or foreign primary under a Swiss
+    // city and canton. That is fail-open, and it is the same semantic error as
+    // a canton resolver that never fails: the resolver is right, the caller
+    // misreads its empty answer.
+    const primaryState = workdayPrimaryLocationState(info);
+    const rawLocation = resolvedDetailLocation
+      || (primaryState.present ? '' : (listing.locationRaw || ''));
+    if (!rawLocation || isLocationExplicitlyForeign(rawLocation)) {
+      console.log(`  ⏭️  Skipped (no Swiss primary location): ${detailLocationText || rawLocation} — ${title}`);
       await new Promise((r) => setTimeout(r, 400));
       continue;
     }
     const cleaned = cleanCslLocation(rawLocation);
-    const location = cleaned || 'Bern';
-    const canton = inferSwissTargetCanton(location) || 'BE';
+    const canton = cleaned ? inferSwissTargetCanton(cleaned) : '';
+    if (!cleaned || !canton) {
+      console.log(`  ⏭️  Skipped (Swiss canton not resolvable from "${rawLocation}"): ${title}`);
+      await new Promise((r) => setTimeout(r, 400));
+      continue;
+    }
+    const location = cleaned;
     const publicUrl = listing.url || CAREER_URL;
     const employmentType = detectEmploymentType(listing.timeType || '', title);
 

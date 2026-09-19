@@ -31,7 +31,10 @@
 
 import { describe, it, expect } from 'vitest';
 
-import { nextCrawlerState } from '../../scripts/check-crawler-health.mjs';
+import {
+  nextCrawlerState,
+  TRANSPORT_ABORT_STALE_FLOOR_DAYS,
+} from '../../scripts/check-crawler-health.mjs';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -1177,10 +1180,151 @@ describe('nextCrawlerState — aborted runs are not "returned 0 jobs" (#7461 & a
       NOW_ISO,
       NOW_MS,
     );
-    expect(connection.status).toBe('broken');
-    expect(connection.reason).toContain('abortKind=connection-level-fetch');
-    expect(connection.reason).toMatch(/crawler egress\/transport/);
+    expect(connection.status).toBe('warming_up');
+    expect(connection.reason).toBeNull();
     expect(connection.state._lastObservedAbortKind).toBe('connection-level-fetch');
+  });
+
+  it('does not break a live crawler after one soft transport abort (#9022)', () => {
+    const previousDay = new Date(NOW_MS - DAY_MS).toISOString();
+    const connection = nextCrawlerState(
+      {
+        ...brokenEligiblePrev,
+        lastSuccessfulRunAt: previousDay,
+        lastNonZeroJobs: 44,
+        consecutiveEmptyRuns: 0,
+        status: 'healthy',
+        _lastObservedJobs: 44,
+        _lastObservedEmptyOk: false,
+        _lastObservedFreshnessAt: previousDay,
+      },
+      {
+        ...abortedObs(0),
+        abortKind: 'connection-level-fetch',
+        lastFetchOutcome: 'exhausted_retry',
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+
+    expect(connection.status).toBe('healthy');
+    expect(connection.reason).toBeNull();
+    expect(connection.state.consecutiveEmptyRuns).toBe(1);
+    expect(connection.state.lastNonZeroJobs).toBe(44);
+    expect(connection.state._lastObservedAbortKind).toBe('connection-level-fetch');
+  });
+
+  // The floor under that reclassification. Routing a proven transport failure
+  // into the 3-empty-run streak is right for a blip and wrong forever: the
+  // streak counter only advances on runs that observe the crawler, so a source
+  // that has actually died can sit at `consecutiveEmptyRuns: 1` indefinitely
+  // and the monitor goes green with nothing repaired. Reproduces nord-anglia:
+  // `feed_endpoint_unavailable`, last success 2026-09-04, counter at 1.
+  it('breaks a crawler whose transport failure outlived the stale-success floor', () => {
+    const longDead = new Date(NOW_MS - 15 * DAY_MS).toISOString();
+    const nordAnglia = nextCrawlerState(
+      {
+        ...brokenEligiblePrev,
+        lastSuccessfulRunAt: longDead,
+        lastNonZeroJobs: 7,
+        consecutiveEmptyRuns: 1,
+        status: 'broken',
+        _lastObservedJobs: 0,
+        _lastObservedEmptyOk: false,
+        _lastObservedFreshnessAt: longDead,
+      },
+      {
+        ...abortedObs(0),
+        abortKind: 'connection-level-fetch',
+        lastFetchOutcome: 'feed_endpoint_unavailable',
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+
+    expect(nordAnglia.status).toBe('broken');
+    expect(nordAnglia.reason).toBeTruthy();
+  });
+
+  // ...and the floor must not swallow the blip it was added next to: the same
+  // failure five days in is still transient. Three of the four crawlers with a
+  // proven transport failure sat exactly here when this was written.
+  it('still treats a recent transport failure as transient, just under the floor', () => {
+    const recent = new Date(NOW_MS - (TRANSPORT_ABORT_STALE_FLOOR_DAYS - 1) * DAY_MS).toISOString();
+    const hornbach = nextCrawlerState(
+      {
+        ...brokenEligiblePrev,
+        lastSuccessfulRunAt: recent,
+        lastNonZeroJobs: 31,
+        consecutiveEmptyRuns: 0,
+        status: 'healthy',
+        _lastObservedJobs: 31,
+        _lastObservedEmptyOk: false,
+        _lastObservedFreshnessAt: recent,
+      },
+      {
+        ...abortedObs(0),
+        abortKind: 'connection-level-fetch',
+        lastFetchOutcome: 'exhausted_retry',
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+
+    expect(hornbach.status).toBe('healthy');
+    expect(hornbach.state.consecutiveEmptyRuns).toBe(1);
+  });
+
+  it('does not break hochgebirgsklinik-davos after one soft transport abort (#9021)', () => {
+    const previousDay = new Date(NOW_MS - DAY_MS).toISOString();
+    const connection = nextCrawlerState(
+      {
+        ...brokenEligiblePrev,
+        lastSuccessfulRunAt: previousDay,
+        lastNonZeroJobs: 19,
+        consecutiveEmptyRuns: 0,
+        status: 'healthy',
+        _lastObservedJobs: 19,
+        _lastObservedEmptyOk: false,
+        _lastObservedFreshnessAt: previousDay,
+      },
+      {
+        ...abortedObs(0),
+        slug: 'hochgebirgsklinik-davos',
+        abortKind: 'connection-level-fetch',
+        lastFetchOutcome: 'exhausted_retry',
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+
+    expect(connection.status).toBe('healthy');
+    expect(connection.reason).toBeNull();
+    expect(connection.state.consecutiveEmptyRuns).toBe(1);
+    expect(connection.state.lastNonZeroJobs).toBe(19);
+    expect(connection.state._lastObservedAbortKind).toBe('connection-level-fetch');
+  });
+
+  it('flags a persistent soft transport failure after the normal empty streak', () => {
+    const connection = nextCrawlerState(
+      {
+        ...brokenEligiblePrev,
+        consecutiveEmptyRuns: 2,
+        lastSuccessfulRunAt: new Date(NOW_MS - DAY_MS).toISOString(),
+        _lastObservedFreshnessAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      },
+      {
+        ...abortedObs(0),
+        abortKind: 'connection-level-fetch',
+        lastFetchOutcome: 'connection_error',
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+
+    expect(connection.status).toBe('broken');
+    expect(connection.reason).toMatch(/abortKind=connection-level-fetch/);
+    expect(connection.reason).toMatch(/transport/);
   });
 
   it('never reports a missing exitCode as a clean bail-out', () => {
