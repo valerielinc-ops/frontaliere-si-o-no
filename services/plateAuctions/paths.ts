@@ -2,7 +2,7 @@ import type { Locale } from '@/services/i18n';
 import type { PlateVehicleType } from './types';
 import { PLATE_AUCTION_BASE_BY_LOCALE } from '../../scripts/lib/plateAuctionSections.mjs';
 
-export type PlateAuctionPageView = 'hub' | 'canton' | 'detail' | 'rankings';
+export type PlateAuctionPageView = 'hub' | 'canton' | 'directory' | 'detail' | 'rankings';
 
 const BASE_BY_LOCALE = PLATE_AUCTION_BASE_BY_LOCALE as Record<Locale, string>;
 
@@ -36,6 +36,7 @@ const CANTON_SLUGS: Record<string, Record<Locale, string>> = {
 };
 
 const RANKING_SEGMENT: Record<Locale, string> = { it: 'classifiche', en: 'rankings', de: 'ranglisten', fr: 'classements' };
+const DIRECTORY_SEGMENT: Record<Locale, string> = { it: 'catalogo', en: 'catalogue', de: 'katalog', fr: 'catalogue' };
 
 export interface PlateAuctionPath {
   locale: Locale;
@@ -106,6 +107,7 @@ export function buildPlateAuctionPath({
   if (view === 'rankings') return `${base}/${RANKING_SEGMENT[locale]}/`;
   if (!canton) return `${base}/`;
   const cantonSlug = cantonAuctionSlug(canton, locale) || canton.toLowerCase();
+  if (view === 'directory') return `${base}/${cantonSlug}/${DIRECTORY_SEGMENT[locale]}/`;
   return `${base}/${cantonSlug}${view === 'detail' && plate ? `/${encodeURIComponent(detailPlateSegment(plate, vehicleType))}` : ''}/`;
 }
 
@@ -117,6 +119,7 @@ export function parsePlateAuctionPath(pathname: string): PlateAuctionPath | null
   if (rest[0] === RANKING_SEGMENT[parsed.locale]) return { locale: parsed.locale, view: 'rankings' };
   const canton = cantonCodeFromAuctionSlug(rest[0]);
   if (!canton) return null;
+  if (rest[1] === DIRECTORY_SEGMENT[parsed.locale]) return { locale: parsed.locale, view: 'directory', canton };
   if (rest[1]) return { locale: parsed.locale, view: 'detail', canton, ...parseDetailPlateSegment(rest[1]) };
   return { locale: parsed.locale, view: 'canton', canton };
 }
