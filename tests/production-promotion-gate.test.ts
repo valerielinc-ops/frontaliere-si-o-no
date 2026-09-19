@@ -98,6 +98,7 @@ describe('production promotion admission', () => {
       id: 26138669646,
       name: EXPECTED_BUILD_WORKFLOW,
       path: EXPECTED_BUILD_WORKFLOW_PATH,
+      workflow_id: Number(EXPECTED_BUILD_WORKFLOW_ID),
       event: 'push',
       head_branch: 'main',
       conclusion: 'success',
@@ -118,6 +119,10 @@ describe('production promotion admission', () => {
     expect(validateCanonicalBuildRun({
       runId: '26138669646',
       run: { ...run, head_sha: 'not-a-commit' },
+    }).valid).toBe(false);
+    expect(validateCanonicalBuildRun({
+      runId: '26138669646',
+      run: { ...run, workflow_id: 999999999 },
     }).valid).toBe(false);
   });
 
