@@ -279,7 +279,7 @@ push_shard() {
           fi
           if [ "$delta_apply_ok" = 1 ]; then
             delta_applied=1
-            echo "$loc shard: delta indexed tree, $n files served / $built_n built (src $src_n, prev $prev_n, changed=$SHARD_DELTA_CHANGED_FILES, reused=$SHARD_DELTA_REUSED_FILES, removed=$SHARD_DELTA_REMOVED_FILES, deploys-since-flatten=$((dcount + 1)))"
+            echo "$loc shard: delta indexed tree, $n files served / $built_n built (src $src_n, prev $prev_n, changed=$SHARD_DELTA_CHANGED_FILES, unmanifested-overlay=$SHARD_DELTA_UNMANIFESTED_FILES, reused=$SHARD_DELTA_REUSED_FILES, removed=$SHARD_DELTA_REMOVED_FILES, deploys-since-flatten=$((dcount + 1)))"
           fi
         else
           delta_fallback_reason="${SHARD_DELTA_REASON:-remote delta preparation failed}"
@@ -288,7 +288,7 @@ push_shard() {
         delta_fallback_reason="${SHARD_DELTA_REASON:-current manifest missing or invalid}"
       fi
       if [ "$delta_applied" != 1 ]; then
-        echo "::warning::$loc shard: delta fallback: $delta_fallback_reason — using full overlay"
+        echo "::warning::$loc shard: delta fallback: fallback reason=$delta_fallback_reason — using full overlay"
       fi
     fi
 
