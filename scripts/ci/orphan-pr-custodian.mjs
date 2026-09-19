@@ -34,13 +34,32 @@
  * adottate. Ogni azione e' idempotente per (azione, HEAD) tramite un marker
  * nel commento: una seconda esecuzione sulla stessa HEAD non ripete nulla.
  *
+ * L'orologio di quella soglia e' la data dell'ULTIMO COMMIT sulla HEAD, non
+ * `updated_at`. La differenza non e' cosmetica: `updated_at` viene rinfrescato
+ * da ogni review, commento, label e modifica del body — cioe' proprio
+ * dall'attivita' automatica che NON significa che un agente sia vivo. Misurato
+ * il 2026-09-19 sulle tre PR orfane del corpus (#1599, #1616, #1622): tutte e
+ * tre ferme senza un agente, tutte e tre respinte da questo gate con
+ * «attivita' recente (<2h)» perche' il bot di review aveva appena postato il
+ * suo ennesimo 🔴 — #1599 era aperta da 11,7 h e `updated_at` diceva 1,8 h.
+ * Il custode non agiva MAI proprio sulla classe di PR che il ciclo continua a
+ * toccare senza sbloccarle, cioe' la classe per cui e' stato scritto. Il testo
+ * delle sue stesse decisioni diceva gia' «nessun commit da oltre 2h»: qui il
+ * codice torna a dire quello che il contratto dichiarava.
+ *
  * Il file e' identico su sito e corpus: il nome del check richiesto e la regex
  * del marker 🔴 arrivano da `scripts/ci/lib/constants.mjs` di ciascun lato.
  */
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { isReviewerBot, REDFLAG_IMPORTANT_RE, VITEST_CHECK_NAME } from './lib/constants.mjs';
+// Parser CANONICO dei marker di revisione: normalizza i newline serializzati
+// (`\n` come due caratteri) e pretende la riga di contratto completa, esattamente
+// come `review-gate`. Una seconda copia della regex qui sarebbe la deriva che
+// AGENTS.md #6 vieta, e il gate la giudicherebbe con un parser diverso dal nostro.
+import { reviewHasInputRevision, reviewInputRevisions } from './lib/review-input-revision.mjs';
 
 export const ORPHAN_MIN_AGE_S = 2 * 60 * 60;
 export const ORPHANED_LABEL = 'orphaned';
@@ -52,9 +71,35 @@ export const CODEX_FALLBACK_MARKER = '<!-- CODEX_FALLBACK_REVIEW -->';
 const SHA_RE = /^[0-9a-f]{40}$/i;
 const TRUSTED_COMMENTER_RE = /^(github-actions\[bot\]|frontaliere-automation(\[bot\])?|claude(\[bot\])?|nanakokyobashi-rgb|valerielinc-ops)$/i;
 
-export function actionMarker(action, headSha) {
-  return `<!-- orphan-pr-custodian action=${action} head=${String(headSha).slice(0, 12)} -->`;
+/**
+ * Marker di idempotenza. `key` restringe il marker a un sottostato della HEAD:
+ * il `rerun` lo usa per le generazioni cancellate che ha rilanciato, cosi' una
+ * generazione cancellata NUOVA (che ha un altro check-run id) non viene
+ * soppressa dal marker della precedente. Senza, un rerun a sua volta
+ * `cancelled` murava la PR sulla stessa HEAD per sempre.
+ */
+export function actionMarker(action, headSha, key = '') {
+  const head = String(headSha).slice(0, 12);
+  return `<!-- orphan-pr-custodian action=${action} head=${key ? `${head}:${key}` : head} -->`;
 }
+
+/**
+ * `body:<sha256>` della rappresentazione esatta con cui il CORPUS emette il
+ * marker (`scripts/ci/review-test-policy.mjs`: `sha256(body + "\n")`, la forma
+ * che esce da `gh api --jq`). NON e' un duplicato di
+ * `scripts/ci/lib/review-input-revision.mjs`: quel modulo esiste solo sul sito
+ * e digerisce `sha256(body)` senza newline finale, quindi produrrebbe un
+ * digest che non coincide con nessun marker realmente emesso. Questo file e'
+ * `identical` fra i due repo e deve validare i marker del lato che li scrive.
+ * Sul sito il reviewer non emette il marker (verificato sulle review di
+ * `frontaliere-automation[bot]`): li' questa funzione non viene mai confrontata
+ * con nulla e la selezione resta quella per HEAD.
+ */
+export function reviewRevisionForBody(body) {
+  if (typeof body !== 'string') return null;
+  return `body:${createHash('sha256').update(`${body}\n`).digest('hex')}`;
+}
+
 
 /** Stessa definizione di «autonoma» usata da fixer, rescuer e recycle. */
 export function isAutonomousPr(pr) {
@@ -79,13 +124,34 @@ export function hasImportantFinding(body) {
   return String(body || '').split('\n').some((line) => REDFLAG_IMPORTANT_RE.test(line));
 }
 
-/** Ultima review gestita sulla HEAD esatta (ordine per id, come i gate). */
-export function headReview(reviews, headSha) {
+/**
+ * Ultima review gestita sulla HEAD esatta (ordine per id, come i gate).
+ *
+ * `commit_id` da solo non basta: una modifica del BODY non cambia la HEAD, e
+ * `review-gate` / `stale-pr-rescuer` / `pr-redflag-fixer` pretendono il marker
+ * `REVIEW_INPUT_REVISION` della revisione corrente. Riusare qui un verdetto
+ * emesso su un body precedente significherebbe rilanciare o adottare su un
+ * `## LGTM` che quei gate hanno gia' invalidato.
+ *
+ * Il filtro vale solo dove le review PORTANO il marker (corpus). Sul sito il
+ * reviewer non lo emette: li' nessuna review ne ha uno e la selezione resta
+ * quella per HEAD, senza cambiare comportamento. Quando i marker ci sono ma la
+ * revisione corrente non e' nota, si chiude: non si puo' provare la validita'.
+ */
+export function headReview(reviews, headSha, { revision = '' } = {}) {
   const onHead = (reviews || [])
     .filter(isManagedReview)
     .filter((review) => String(review.commit_id || '').toLowerCase() === String(headSha).toLowerCase())
     .sort((a, b) => (a.id || 0) - (b.id || 0));
-  return onHead.length ? onHead[onHead.length - 1] : null;
+  if (!onHead.length) return null;
+  const marked = onHead.filter((review) => reviewInputRevisions(review.body).length > 0);
+  if (!marked.length) return onHead[onHead.length - 1];
+  // `reviewHasInputRevision` pretende ESATTAMENTE un marker, uguale alla
+  // revisione corrente: una review che ne porta due (o la revisione corrente
+  // accanto a un'altra) non e' un verdetto che il gate riusa, e non lo e'
+  // nemmeno qui.
+  const current = marked.filter((review) => reviewHasInputRevision(review.body, revision));
+  return current.length ? current[current.length - 1] : null;
 }
 
 function runIdFromDetailsUrl(url) {
@@ -128,17 +194,25 @@ export function cancelledRequiredSuites(checkRuns, headSha, checkName) {
  */
 export function classifyOrphan({
   pr, checkRuns, reviews, comments, nowS, checkName = VITEST_CHECK_NAME, minAgeS = ORPHAN_MIN_AGE_S,
+  reviewRevision = '',
 }) {
   const none = (reason) => ({ action: 'none', reason });
   if (!pr || !SHA_RE.test(String(pr.headSha || ''))) return none('HEAD non verificabile');
   if (pr.draft) return none('draft');
+  // L'orologio e' il PUSH, non `updated_at`: vedi il blocco in testa al file.
+  // `updated_at` resta il ripiego quando la data del commit non e' leggibile,
+  // ed e' conservativo — e' sempre >= la data del push, quindi al massimo
+  // ritarda un'azione, non ne anticipa una.
+  const pushedS = Date.parse(pr.headCommittedAt || '') / 1000;
   const updatedS = Date.parse(pr.updatedAt || '') / 1000;
-  if (!Number.isFinite(updatedS)) return none('updated_at non verificabile');
-  if (nowS - updatedS < minAgeS) return none('attivita recente (<2h)');
+  const idleSinceS = Number.isFinite(pushedS) ? pushedS : updatedS;
+  if (!Number.isFinite(idleSinceS)) return none('eta della HEAD non verificabile');
+  if (nowS - idleSinceS < minAgeS) return none('push recente sulla HEAD (<2h)');
 
   const postedBodies = (comments || []).map((comment) => String(comment?.body || ''));
-  const alreadyDone = (action) => postedBodies.some((body) => body.includes(actionMarker(action, pr.headSha)));
-  const review = headReview(reviews, pr.headSha);
+  const alreadyDone = (action, key = '') => postedBodies
+    .some((body) => body.includes(actionMarker(action, pr.headSha, key)));
+  const review = headReview(reviews, pr.headSha, { revision: reviewRevision });
   const reviewBody = String(review?.body || '');
   const important = review ? hasImportantFinding(reviewBody) : false;
   const lgtm = review ? /^## LGTM\b/m.test(reviewBody) && !important : false;
@@ -147,10 +221,19 @@ export function classifyOrphan({
     const { cancelled, inFlight } = cancelledRequiredSuites(checkRuns, pr.headSha, checkName);
     if (inFlight) return none(`\`${checkName}\` in volo sulla HEAD`);
     if (cancelled.length > 0) {
-      if (alreadyDone('rerun')) return none('rerun gia eseguito su questa HEAD');
+      // Il marker e' per-generazione, non per-HEAD: se il rerun finisce a sua
+      // volta `cancelled`, GitHub crea un check-run NUOVO e il prossimo giro
+      // ha una chiave diversa, quindi ritenta. Con la chiave sulla sola HEAD
+      // una PR umana (che `stale-pr-rescuer` salta) restava murata per sempre
+      // sul check richiesto cancellato.
+      const rerunKey = cancelled
+        .map((entry) => entry.checkRunId).filter((id) => id != null)
+        .sort((a, b) => Number(a) - Number(b)).join('.');
+      if (alreadyDone('rerun', rerunKey)) return none('rerun gia eseguito su queste generazioni');
       return {
         action: 'rerun',
         runIds: [...new Set(cancelled.map((entry) => entry.runId))],
+        rerunKey,
         reason: `LGTM sulla HEAD ma \`${checkName}\` ha una generazione cancelled: il merge resta bloccato`,
       };
     }
@@ -163,14 +246,25 @@ export function classifyOrphan({
     // ref non esiste nel repo base per il dispatch.
     if (pr.headRepo && pr.baseRepo && pr.headRepo !== pr.baseRepo) return none('head da fork: non adottabile');
     if ((pr.labels || []).includes(NEEDS_HUMAN_LABEL)) return none('needs-human: veto terminale');
-    const outOfScope = (comments || []).some((comment) => (
+    if (alreadyDone('adopt')) return none('adozione gia eseguita su questa HEAD');
+    // `REDFLAG_OUT_OF_SCOPE` e' PROVA, non precondizione. Il commento lo scrive
+    // `pr-redflag-fixer.yml` quando si dichiara fuori scope, usando lo stesso
+    // predicato di `isAutonomousPr` che abbiamo appena valutato qui sopra:
+    // pretenderlo significa subordinare l'adozione a un run che puo' non
+    // esistere. Misurato il 2026-09-19 sul corpus: `pr-redflag-fixer` non
+    // girava dal 17-09 — le review del corpus le posta `github-actions[bot]`
+    // con `GITHUB_TOKEN`, e GitHub sopprime il `pull_request_review` a valle
+    // per anti-ricorsione — quindi il marker non poteva esistere su nessuna
+    // delle tre PR orfane e questo ramo era codice morto su quel repo.
+    const outOfScopeDeclared = (comments || []).some((comment) => (
       TRUSTED_COMMENTER_RE.test(String(comment?.user?.login || ''))
       && String(comment?.body || '').includes(OUT_OF_SCOPE_MARKER)));
-    if (!outOfScope) return none('🔴 senza dichiarazione REDFLAG_OUT_OF_SCOPE');
-    if (alreadyDone('adopt')) return none('adozione gia eseguita su questa HEAD');
     return {
       action: 'adopt',
-      reason: '🔴 Important sulla HEAD, redflag-fixer fuori scope e nessun commit da oltre 2h',
+      outOfScopeDeclared,
+      reason: `🔴 Important sulla HEAD, PR fuori dallo scope autonomo dei fixer${
+        outOfScopeDeclared ? ' (REDFLAG_OUT_OF_SCOPE dichiarato)' : ' (nessun run del redflag-fixer l\'ha dichiarato)'
+      } e nessun push da oltre 2h`,
     };
   }
   return none('nessuno stato orfano noto');
@@ -223,18 +317,32 @@ function main() {
       baseRepo: raw.base?.repo?.full_name || '',
       labels: (raw.labels || []).map((label) => label.name),
     };
-    // Filtro economico prima delle letture per-PR.
-    const cheap = classifyOrphan({ pr, checkRuns: [], reviews: [], comments: [], nowS });
-    if (cheap.reason === 'draft' || cheap.reason.startsWith('attivita recente') || cheap.reason.startsWith('HEAD')) {
-      continue;
-    }
+    // Filtro economico prima delle letture per-PR. L'eta' NON si decide qui:
+    // serve la data del push, che costa una lettura.
+    const cheap = classifyOrphan({ pr, checkRuns: [], reviews: [], comments: [], nowS, minAgeS: 0 });
+    if (cheap.reason === 'draft' || cheap.reason.startsWith('HEAD')) continue;
     let decision;
     try {
+      // Una sola lettura decide l'eta' reale: se la HEAD e' fresca ci si ferma
+      // qui, senza pagare le tre letture per-PR.
+      pr.headCommittedAt = String(gh([
+        'api', `repos/${repo}/commits/${pr.headSha}`, '--jq', '.commit.committer.date',
+      ]).trim());
+      const aged = classifyOrphan({ pr, checkRuns: [], reviews: [], comments: [], nowS });
+      if (aged.reason.startsWith('push recente') || aged.reason.startsWith('eta della HEAD')) {
+        console.log(`PR #${pr.number}: ${aged.reason}`);
+        continue;
+      }
       const reviews = ghPages(`repos/${repo}/pulls/${pr.number}/reviews?per_page=100`).flat();
       const comments = ghPages(`repos/${repo}/issues/${pr.number}/comments?per_page=100`).flat();
       const checkRuns = ghPages(`repos/${repo}/commits/${pr.headSha}/check-runs?filter=all&per_page=100`)
         .flatMap((page) => page?.check_runs || []);
-      decision = classifyOrphan({ pr, checkRuns, reviews, comments, nowS });
+      // La revisione si rilegge ORA, non dallo snapshot di `/pulls`: fra la
+      // lista e questo punto il body puo' essere cambiato, e un verdetto va
+      // riusato solo contro la revisione che i gate considerano corrente.
+      const freshBody = JSON.parse(gh(['api', `repos/${repo}/pulls/${pr.number}`])).body ?? '';
+      const reviewRevision = reviewRevisionForBody(String(freshBody)) || '';
+      decision = classifyOrphan({ pr, checkRuns, reviews, comments, nowS, reviewRevision });
     } catch (error) {
       console.log(`::warning::PR #${pr.number}: stato non leggibile (${error.message.split('\n')[0]}) — nessuna azione.`);
       continue;
@@ -246,7 +354,7 @@ function main() {
     console.log(`::notice::PR #${pr.number} ORFANA → ${decision.action}: ${decision.reason}`);
     if (dryRun) continue;
 
-    const marker = actionMarker(decision.action, pr.headSha);
+    const marker = actionMarker(decision.action, pr.headSha, decision.rerunKey || '');
     let detail;
     let ok = true;
     if (decision.action === 'rerun') {

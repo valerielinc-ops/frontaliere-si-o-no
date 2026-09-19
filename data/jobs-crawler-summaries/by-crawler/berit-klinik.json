@@ -1,18 +1,55 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-09-16T09:22:03.722Z",
+  "generatedAt": "2026-09-19T22:54:41.284Z",
   "total": 12,
   "newCount": 1,
-  "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 8259,
-  "avgDurationMs": 8259,
+  "updatedCount": 11,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3090,
+  "avgDurationMs": 3090,
   "durationHistory": [
-    8259
+    3090
   ],
   "newJobs": [
+    {
+      "title": "Mitarbeiter:in Technischer Dienst, 100%",
+      "slug": "mitarbeiter-in-technischer-dienst-100-berit-klinik",
+      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_ma_technischer_dienst_ww__100__ec505ebaf2.pdf",
+      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
+      "company": "Berit Klinik",
+      "companyKey": "berit-klinik",
+      "companyDomain": "beritklinik.ch",
+      "location": "Wattwil",
+      "addressLocality": "Wattwil",
+      "addressRegion": "SG",
+      "postalCode": "9630",
+      "addressCountry": "CH",
+      "canton": "SG",
+      "country": "CH",
+      "category": "health",
+      "sector": "Gesundheitswesen / Klinik",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "berit-klinik-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-19",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "stelleninserat_ma_technischer_dienst_ww__100__ec505ebaf2.pdf"
+      },
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Fachperson Marketing Assistenz Ceo 80–100%",
       "slug": "fachperson-marketing-assistenz-ceo-80-100-berit-klinik",
@@ -40,16 +77,16 @@
       "_meta": {
         "sourceFilename": "stelleninserat_fachperson_marketing_assistenz_ceo__80_100__1a2fe90520.pdf"
       },
-      "_qualityScore": 64,
+      "id": "berit-klinik-c3f977db7e53",
+      "firstSeenAt": "2026-09-16T09:21:30.508Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Sportphysiotherapeut:In Fh 80–100%",
       "slug": "sportphysiotherapeut-in-fh-80-100-berit-klinik",
@@ -421,8 +458,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Fakturierung, 100%",
       "slug": "fatturazione-100-berit-klinik-speicher",
@@ -456,7 +492,6 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -465,5 +500,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
