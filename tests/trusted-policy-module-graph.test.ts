@@ -108,3 +108,60 @@ describe('guard del grafo di import della copia trusted', () => {
     expect(() => readFileSync(marker, 'utf8')).toThrow();
   });
 });
+
+/**
+ * Il CLI trusted è risolto PRIMA del checkout proprio perché dopo il checkout
+ * `PATH` è influenzabile dal codice della PR (npm lifecycle compreso). Una
+ * hardening che si ferma ai soli step di download lascia la DECISIONE della
+ * review — chi risolve la PR, il guard di re-review, il tier, il prefetch, il
+ * marker — a chiamare `gh` per PATH: è il 🔴 della review su #9313.
+ */
+describe('ogni step che decide la review usa il CLI trusted', () => {
+  // `head_watch` NON è in elenco di proposito: parte PRIMA del checkout, dove
+  // `PATH` è ancora quello del runner — la stessa ragione per cui `trusted_gh`
+  // può risolvere il binario proprio lì. Il rischio che questa lista copre è
+  // il codice della PR e i lifecycle hook di npm, che esistono solo dopo.
+  const REVIEW_DECISION_STEPS = [
+    'corpus',
+    'resolve',
+    'review_input',
+    'guard',
+    'tier',
+    'prefetch',
+    'review_abort',
+    'review_marker',
+    'review_policy',
+    'review_policy_final',
+  ];
+  const BARE_GH_RE = /(?<![\w"/$.-])gh (?:api|pr|run|workflow) /u;
+
+  function stepById(id: string) {
+    const step = stepsOf().find((candidate) => candidate.id === id) as
+      { id?: string; run?: string; env?: Record<string, string> } | undefined;
+    expect(step, `step ${id} assente da tests.yml`).toBeTruthy();
+    return step!;
+  }
+
+  it.each(REVIEW_DECISION_STEPS)('%s riceve TRUSTED_GH_BIN', (id) => {
+    const env = stepById(id).env ?? {};
+    expect(Object.keys(env)).toContain('TRUSTED_GH_BIN');
+    expect(String(env.TRUSTED_GH_BIN)).toContain('steps.trusted_gh.outputs.path');
+  });
+
+  it.each(REVIEW_DECISION_STEPS)('%s non invoca mai un `gh` risolto per PATH', (id) => {
+    const bare = String(stepById(id).run ?? '')
+      .split('\n')
+      .filter((line) => !line.trim().startsWith('#'))
+      .filter((line) => BARE_GH_RE.test(line));
+    expect(bare, `invocazioni gh non trusted in ${id}:\n${bare.join('\n')}`).toEqual([]);
+  });
+
+  it('il CLI trusted è risolto prima del checkout', () => {
+    const steps = stepsOf() as { id?: string; uses?: string }[];
+    const trusted = steps.findIndex((step) => step.id === 'trusted_gh');
+    const checkout = steps.findIndex((step) => String(step.uses ?? '').startsWith('actions/checkout'));
+    expect(trusted).toBeGreaterThan(-1);
+    expect(checkout).toBeGreaterThan(-1);
+    expect(trusted).toBeLessThan(checkout);
+  });
+});

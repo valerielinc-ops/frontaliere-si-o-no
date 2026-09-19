@@ -1710,6 +1710,7 @@ jobs:
         # delegati.
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'merge_group') }}
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           BASE_REF: ${{ github.base_ref }}
@@ -1739,7 +1740,7 @@ jobs:
           printf '%s\n' unknown > changed-paths-status.txt
           cap=3000
           if [ -n "$PR_NUMBER" ]; then
-            if gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}/files" \
+            if "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}/files" \
               --paginate -q '.[].filename' > changed-paths.txt 2>/dev/null; then
               printf '%s\n' complete > changed-paths-status.txt
             else
@@ -1774,7 +1775,7 @@ jobs:
             if [ "$GITHUB_EVENT_NAME" = "merge_group" ]; then
               compare_base="$MERGE_GROUP_BASE_SHA"
             fi
-            if gh api "repos/${GITHUB_REPOSITORY}/compare/${compare_base}...${AFTER_SHA}" \
+            if "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/compare/${compare_base}...${AFTER_SHA}" \
               -q '.files[].filename' > changed-paths.txt 2>/dev/null; then
               printf '%s\n' complete > changed-paths-status.txt
             else
@@ -2169,6 +2170,7 @@ jobs:
         id: resolve
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && github.event_name == 'pull_request' }}
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PRN: ${{ github.event.pull_request.number }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
@@ -2176,7 +2178,7 @@ jobs:
         run: |
           set -uo pipefail
           [[ "$PRN" =~ ^[1-9][0-9]*$ ]] || exit 1
-          meta=$(gh pr view "$PRN" --repo "$REPO" --json isDraft,title,labels,headRefOid)
+          meta=$("$TRUSTED_GH_BIN" pr view "$PRN" --repo "$REPO" --json isDraft,title,labels,headRefOid)
           [ "$(echo "$meta" | jq -r '.headRefOid')" = "$HEAD_SHA" ] || { echo "::error::PR head changed; this run cannot review it."; exit 1; }
           stale_review=$(echo "$meta" | jq -r 'any(.labels[]?; .name == "stale-review")')
           echo "stale_review=$stale_review" >> "$GITHUB_OUTPUT"
@@ -2206,13 +2208,14 @@ jobs:
         id: review_input
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true') }}
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           PR_FILE: ${{ runner.temp }}/review-pr.json
         run: |
           set -euo pipefail
-          if ! gh api "repos/$REPO/pulls/$PR_NUMBER" > "$PR_FILE"; then
+          if ! "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" > "$PR_FILE"; then
             echo "::error::PR metadata/body non leggibile → review input unavailable, nessun Codex."
             exit 1
           fi
@@ -2232,6 +2235,7 @@ jobs:
         id: guard
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true') }}
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
@@ -2242,7 +2246,7 @@ jobs:
           # Count every terminal managed review on this HEAD, not only LGTM.
           # An `edited` body/title event must not launch a second model review
           # on the same SHA (PRs #9066/#9074: LGTM then 🔴 Important).
-          if ! reviews=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null); then
+          if ! reviews=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null); then
             echo "::error::Reviews API illeggibile → review input unavailable, nessun Codex."
             exit 1
           fi
@@ -2253,7 +2257,7 @@ jobs:
           # piena. `lastEditedAt` e' l'ultima modifica del body; vuoto = mai
           # modificato, e l'eccezione non scatta.
           # shellcheck disable=SC2016 # $owner/$name/$number sono variabili GraphQL, non shell.
-          body_edited_at=$(gh api graphql \
+          body_edited_at=$("$TRUSTED_GH_BIN" api graphql \
             -f query='query($owner:String!,$name:String!,$number:Int!){repository(owner:$owner,name:$name){pullRequest(number:$number){lastEditedAt}}}' \
             -F owner="${REPO%%/*}" -F name="${REPO#*/}" -F number="$PR_NUMBER" \
             --jq '.data.repository.pullRequest.lastEditedAt // empty' 2>/dev/null || true)
@@ -2267,6 +2271,7 @@ jobs:
         id: tier
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
@@ -2428,10 +2433,10 @@ jobs:
           # "stesso input di review"; qui il contributo È cambiato, ma in modo
           # incrementale. Il prompt resta autorizzato a Read/grep i file pieni per il
           # contesto → le interazioni col code non-toccato restano coglibili.
-          lastRev=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
+          lastRev=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
             --jq '[.[] | select((.user.login // "" | test("^(claude\\[bot\\]|frontaliere-automation\\[bot\\])$";"i")))] | last | .commit_id // empty' 2>/dev/null || true)
           if [ -n "$lastRev" ] && [ "$lastRev" != "$HEAD_SHA" ]; then
-            delta_code=$(gh api "repos/$REPO/compare/$lastRev...$HEAD_SHA" --jq '.files[] | .filename, (.previous_filename // empty)' 2>/dev/null \
+            delta_code=$("$TRUSTED_GH_BIN" api "repos/$REPO/compare/$lastRev...$HEAD_SHA" --jq '.files[] | .filename, (.previous_filename // empty)' 2>/dev/null \
               | grep -Fxf <(echo "$code_files") || true)
             if [ -n "$delta_code" ]; then
               echo "incremental_base=$lastRev" >> "$GITHUB_OUTPUT"
@@ -2457,7 +2462,7 @@ jobs:
             # Fingerprint non calcolabile o diverso → review piena, come prima.
             fp_head=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$HEAD_SHA" 2>/dev/null || echo NULL)
             fp_prior=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$lastRev" 2>/dev/null || echo NULL)
-            carry=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null \
+            carry=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null \
               | node "$REVIEW_POLICY_ROOT/scripts/ci/lib/review-carry-forward.mjs" decide --head "$HEAD_SHA" --prior-commit "$lastRev" \
                   --fp-head "$fp_head" --fp-prior "$fp_prior" || echo 'carry_tier=full')
             carry_tier=$(printf '%s\n' "$carry" | sed -n 's/^carry_tier=//p' | tail -n 1)
@@ -2520,6 +2525,7 @@ jobs:
         # Zero costo Claude: puro bash. Il prompt sotto legge questi file con
         # `Read` invece di rieseguire le stesse `gh` call a ogni turno.
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
@@ -2549,13 +2555,13 @@ jobs:
             exit 1
           fi
           jq '{title, body, labels}' "$PR_FILE" > "$CTX_DIR/pr.json"
-          gh api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' \
+          "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' \
             > "$CTX_DIR/files.txt" 2>/dev/null || : > "$CTX_DIR/files.txt"
           # A re-review must see open Important findings from the whole bot-review
           # history, not only the immediately previous body. The gate persists the
           # same path+line anchors; this zero-Claude render gives the reviewer the
           # state it must carry forward before it can write `## LGTM`.
-          if ! gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp \
+          if ! "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp \
             > "$CTX_DIR/reviews.json" 2>/dev/null; then
             echo "::error::Review history illeggibile → input unavailable, nessun Codex."
             exit 1
@@ -2617,7 +2623,7 @@ jobs:
             # patch must fail here, not force the model to rebuild it via API.
             node "$REVIEW_POLICY_ROOT/scripts/ci/prefetch-review-diff.mjs" || exit 1
           fi
-          gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
+          "$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
             --jq '[.[] | select(.body // "" | contains("<!-- sibling-check -->"))] | last | .body // empty' \
             > "$CTX_DIR/sibling-check.md" 2>/dev/null || true
           # Claude non ha bisogno dell'elenco completo dei file dati/statici:
@@ -2922,6 +2928,7 @@ jobs:
         # `set -uo pipefail` (NOT -e): grep in conditionals must not abort.
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.tier.outputs.tier != 'carry-forward' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           REVIEW_OUTCOME: ${{ steps.codex_review.outcome }}
@@ -2953,7 +2960,7 @@ jobs:
             # literal content for the issue comment.
             # shellcheck disable=SC2016,SC1112
             BODY=$(printf '⚠️ **Review automatica fallita** (`terminal_reason=max_turns`, tier `%s`, cap %s turni, turni usati %s): Claude ha esaurito il budget di turni prima di poter postare un verdetto (`## LGTM` / 🔴). Nessuna review è stata pubblicata su questa PR — auto-merge non può scattare finché non ce n’è una.\n\nLog del run: %s\n\nPer sbloccare:\n- rilancia il job (rerun del run `tests` più recente di questa PR fa ripartire anche `pr-review-loop`), oppure\n- esegui la review in locale: checkout del branch, poi lancia la review con lo stesso contratto di `REVIEW.md` sul diff verso `main` (es. skill `/code-review` a effort alto) prima di mergiare a mano.\n\nSe questa PR ha già avuto una morte `max_turns` in precedenza, un retry raramente basta — dato osservato: le morti ripetute sono quasi tutte su PR con molti file indipendenti in un unico batch; valuta di splittarla in PR più piccole.' "${REVIEW_TIER:-?}" "${REVIEW_MAX_TURNS:-?}" "${NUM_TURNS:-?}" "$RUN_URL")
-            gh pr comment "$PR_NUMBER" --body "$BODY" || echo "::warning::gh pr comment fallito (non bloccante)."
+            "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --body "$BODY" || echo "::warning::commento PR fallito (non bloccante)."
             echo "::error::Codex review hit its turn cap (tier=${REVIEW_TIER:-?}, cap=${REVIEW_MAX_TURNS:-?}, turns=${NUM_TURNS:-?}) without posting a review — re-run this job, or split the PR if this recurs."
             exit 1
           fi
@@ -3105,6 +3112,7 @@ jobs:
         # is an unavailable review input, never a reason to invoke Codex again.
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true') }}
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -3113,7 +3121,7 @@ jobs:
           REVIEW_POLICY_ROOT: ${{ steps.review_policy_final.outputs.final_root }}
         run: |
           set -euo pipefail
-          if ! reviews=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp); then
+          if ! reviews=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp); then
             echo "::error::Reviews API unavailable after reviewer: marker non verificabile, nessun retry Codex."
             exit 1
           fi
