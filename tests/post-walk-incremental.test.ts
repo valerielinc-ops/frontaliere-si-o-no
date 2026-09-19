@@ -15,6 +15,7 @@ import {
 import { collectHtmlFromClaimedPaths } from '../build-plugins/shared/distHtmlWalk';
 import {
   loadPostWalkWalkInventory,
+  POST_WALK_WALK_INVENTORY_FILE,
   writePostWalkWalkInventory,
 } from '../build-plugins/shared/postWalkWalkInventory';
 import {
@@ -610,6 +611,17 @@ describe('post-walk incremental planning', () => {
     expect(result.paths).toContain(path.join(distDir, 'new-root/page/index.html'));
   });
 
+  it('walks root-level unmanifested HTML through the <root> sentinel', () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const rootHtml = writeHtml(root, '404.html', 'root');
+
+    const result = collectHtmlFromClaimedPaths(distDir, [], ['<root>']);
+
+    expect(result.paths).toEqual([rootHtml]);
+    expect(result.targeted).toBe(1);
+  });
+
   it('finds a new direct HTML subtree below an already-claimed top-level root', () => {
     const root = fixtureRoot();
     const distDir = path.join(root, 'dist');
@@ -627,6 +639,67 @@ describe('post-walk incremental planning', () => {
     const root = fixtureRoot();
     expect(loadPostWalkUnmanifestedTopLevels(root)).toBeNull();
     writePostWalkUnmanifestedTopLevels(root, ['legacy', '<root>', 'legacy']);
+    expect(loadPostWalkUnmanifestedTopLevels(root)).toEqual(['<root>', 'legacy']);
+  });
+
+  it('migrates a legacy root HTML filename in the persisted walk inventory', async () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const rootHtml = writeHtml(root, '404.html', 'root');
+    const inventoryPath = path.join(
+      root,
+      '.cache/incremental-manifest',
+      POST_WALK_WALK_INVENTORY_FILE,
+    );
+    fs.mkdirSync(path.dirname(inventoryPath), { recursive: true });
+    fs.writeFileSync(
+      inventoryPath,
+      [
+        JSON.stringify({
+          type: 'header',
+          version: 1,
+          format: 'jsonl',
+          topLevels: ['404.html', 'legacy'],
+          unmanifestedTopLevels: ['404.html', 'legacy'],
+        }),
+        JSON.stringify({ type: 'footer', claimed: 0, unmanifested: 0 }),
+        '',
+      ].join('\n'),
+      'utf8',
+    );
+
+    const inventory = await loadPostWalkWalkInventory(root);
+    expect(inventory?.topLevels).toEqual(['<root>', 'legacy']);
+    expect(inventory?.unmanifestedTopLevels).toEqual(['<root>', 'legacy']);
+
+    const result = collectHtmlFromClaimedPaths(
+      distDir,
+      [],
+      inventory?.unmanifestedTopLevels ?? [],
+      inventory ?? undefined,
+    );
+    expect(result.paths).toEqual([rootHtml]);
+    expect(result.targeted).toBe(1);
+  });
+
+  it('migrates a legacy root HTML filename in the targeted-walk inventory', () => {
+    const root = fixtureRoot();
+    writeHtml(root, '404.html', 'root');
+    const sidecar = path.join(
+      root,
+      '.cache/incremental-manifest/post-walk-unmanifested-v1.json',
+    );
+    fs.mkdirSync(path.dirname(sidecar), { recursive: true });
+    fs.writeFileSync(
+      sidecar,
+      `${JSON.stringify({
+        type: 'post-walk-unmanifested',
+        version: 1,
+        topLevels: ['404.html', 'legacy'],
+      })}\n`,
+      'utf8',
+    );
+
     expect(loadPostWalkUnmanifestedTopLevels(root)).toEqual(['<root>', 'legacy']);
   });
 

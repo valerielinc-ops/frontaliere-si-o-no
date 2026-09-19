@@ -785,7 +785,13 @@ export function postWalkCoordinatorPlugin(
                 coveredHtmlPathCount++;
               } else {
                 relative = relativeDistPath(distDir, file);
-                const topLevel = relative.split(path.sep, 1)[0] || '<root>';
+                // A root-level file such as dist/404.html is an inventory
+                // member, not a directory root. Encode it as <root> so the
+                // next targeted walk does not try to readdir(dist/404.html).
+                const relativeSegments = relative.split(path.sep);
+                const topLevel = relativeSegments.length > 1
+                  ? relativeSegments[0]
+                  : '<root>';
                 unmanifestedByTopLevel.set(
                   topLevel,
                   (unmanifestedByTopLevel.get(topLevel) ?? 0) + 1,

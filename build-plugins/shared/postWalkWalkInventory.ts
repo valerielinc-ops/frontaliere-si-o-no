@@ -39,6 +39,23 @@ function normalizeTopLevel(value: unknown): string | null {
   return value;
 }
 
+function migrateLegacyRootFileTopLevel(distDir: string, topLevel: string): string {
+  if (
+    topLevel !== '<root>'
+    && topLevel.endsWith('.html')
+    && !topLevel.includes('/')
+    && !topLevel.includes('\\')
+  ) {
+    try {
+      if (fs.statSync(path.join(distDir, topLevel)).isFile()) return '<root>';
+    } catch {
+      // A missing legacy root file is safe to leave as a directory name;
+      // the targeted walker will skip it when it is absent.
+    }
+  }
+  return topLevel;
+}
+
 function normalizeRelativePath(value: unknown): string | null {
   if (typeof value !== 'string' || value.length === 0) return null;
   const normalized = value.replaceAll('\\', '/').replace(/^\/+/, '');
@@ -72,6 +89,7 @@ export async function loadPostWalkWalkInventory(
   rootDir: string,
 ): Promise<PostWalkWalkInventory | null> {
   const file = inventoryPath(rootDir);
+  const distDir = path.join(path.resolve(rootDir), 'dist');
   if (!fs.existsSync(file)) return null;
 
   const claimedPaths: string[] = [];
@@ -94,8 +112,12 @@ export async function loadPostWalkWalkInventory(
           || !validTopLevels(record.topLevels)
           || !validTopLevels(record.unmanifestedTopLevels)
         ) return null;
-        topLevels = uniqueSorted(record.topLevels);
-        unmanifestedTopLevels = uniqueSorted(record.unmanifestedTopLevels);
+        topLevels = uniqueSorted(
+          record.topLevels.map((value) => migrateLegacyRootFileTopLevel(distDir, value)),
+        );
+        unmanifestedTopLevels = uniqueSorted(
+          record.unmanifestedTopLevels.map((value) => migrateLegacyRootFileTopLevel(distDir, value)),
+        );
         continue;
       }
       if (record.type === 'path') {
@@ -163,12 +185,12 @@ export async function writePostWalkWalkInventory(
     [...input.topLevels]
       .map(normalizeTopLevel)
       .filter((value): value is string => value !== null),
-  );
+  ).map((value) => migrateLegacyRootFileTopLevel(distDir, value));
   const unmanifestedTopLevels = uniqueSorted(
     [...input.unmanifestedTopLevels]
       .map(normalizeTopLevel)
       .filter((value): value is string => value !== null),
-  );
+  ).map((value) => migrateLegacyRootFileTopLevel(distDir, value));
   const claimed = uniqueSorted(
     [...input.claimedPaths]
       .map((value) => normalizePathInput(distDir, value))
