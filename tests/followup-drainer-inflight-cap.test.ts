@@ -73,6 +73,12 @@ function makeDispatch(queuedRuns: number, candidates: number) {
       if (label === 'agent:fix-queued') return JSON.stringify(issues);
       return '[]';
     }
+    if (a[0] === 'api' && typeof a[1] === 'string' && a[1].includes('/issues?state=open')) {
+      const labelMatch = /[?&]labels=([^&]+)/.exec(a[1]);
+      const label = labelMatch ? decodeURIComponent(labelMatch[1]) : null;
+      if (label === 'agent:fix-queued') return JSON.stringify(issues);
+      return '[]';
+    }
     if (a[0] === 'issue' && a[1] === 'view') {
       if (a.includes('comments')) return JSON.stringify({ comments: [] });
       if (a.includes('body')) return JSON.stringify({ body: BODY_OK });

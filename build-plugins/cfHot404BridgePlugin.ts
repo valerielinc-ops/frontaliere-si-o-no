@@ -25,6 +25,7 @@
  * enriched soft-landing, jobOrphan/hub bridge), never overwrites them.
  */
 
+import { createHash } from 'node:crypto';
 import path from 'path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
@@ -32,7 +33,11 @@ import { BASE_URL, buildCanonicalBridgePage } from './constants';
 import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
-import { shouldEmitPath } from './shared/localeEmitFilter';
+import { ALL_EMIT_LOCALES, shouldEmitLocale, shouldEmitPath } from './shared/localeEmitFilter';
+import {
+  getIncrementalManifestMap,
+  INCREMENTAL_MANIFEST_ENABLED,
+} from './shared/incrementalManifest.mjs';
 import searchClusterMapFile from '../data/search-cluster-301-map.json';
 
 // Legacy per-canton related-search cluster URLs (old slug format, now 404). The
@@ -107,6 +112,47 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
       handler: async () => {
       const distDir = path.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
+      // This emitter runs after jobsSeoPagesPlugin and relatedSearchClustersPlugin
+      // have flushed the shared manifest. Reuse that build-scoped map, then flush
+      // it once more after registering the direct fs.writeFileSync outputs below.
+      // Do not create a partial manifest when the shared jobs corpus is absent.
+      const jobsInputAvailable = fs.existsSync(path.resolve(rootDir, 'data/jobs.json'));
+      const manifestForce = process.env.JOBS_SEO_REUSE === '1';
+      const incrementalManifests = jobsInputAvailable && (INCREMENTAL_MANIFEST_ENABLED || manifestForce)
+        ? getIncrementalManifestMap(
+          rootDir,
+          ALL_EMIT_LOCALES.filter((locale) => shouldEmitLocale(locale)),
+          manifestForce,
+        )
+        : null;
+      let registeredManifestEntries = 0;
+      const registerIncrementalBridge = (
+        pagePath: string,
+        resolution: { canonicalPath: string; kind: string; locale: string },
+        canonicalPath: string,
+        outputMode: string,
+        sourceHtml?: string,
+      ) => {
+        const manifest = incrementalManifests?.get(resolution.locale);
+        if (!manifest) return;
+        const canonicalInputHash = outputMode.startsWith('full-copy')
+          ? manifest.getHash(canonicalPath)
+          : null;
+        const sourceFingerprint = outputMode.startsWith('full-copy')
+          ? canonicalInputHash
+            || createHash('sha256').update(sourceHtml || '', 'utf8').digest('hex')
+          : null;
+        manifest.register(pagePath, 'cf-hot-404-bridge', {
+          emitter: 'cf-hot-404-bridge',
+          pagePath: pagePath.replace(/\/+$/, ''),
+          canonicalPath: canonicalPath.replace(/\/+$/, ''),
+          locale: resolution.locale,
+          resolutionKind: resolution.kind,
+          outputMode,
+          ...(sourceFingerprint ? { sourceFingerprint } : {}),
+        });
+        registeredManifestEntries += 1;
+      };
       const hotFile = path.resolve(rootDir, 'data/cf-hot-404s.json');
       // Second bounded source: URLs Google's Coverage report flags as 404.
       // These are confirmed-indexed-but-gone URLs that may have NO recent
@@ -328,6 +374,13 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
             }
             fs.mkdirSync(outDir, { recursive: true });
             fs.writeFileSync(path.join(outDir, 'index.html'), canonHtml, 'utf-8');
+            registerIncrementalBridge(
+              from,
+              resolution,
+              to,
+              itIndexable ? 'full-copy-indexable' : 'full-copy-noindex',
+              canonHtml,
+            );
             emitted++;
             emittedFull++;
             continue;
@@ -374,7 +427,24 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
 
         fs.mkdirSync(outDir, { recursive: true });
         fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf-8');
+        registerIncrementalBridge(
+          from,
+          resolution,
+          to,
+          isClusterRedirect ? 'thin-bridge-meta-refresh' : 'thin-bridge',
+        );
         emitted++;
+      }
+
+      if (incrementalManifests && registeredManifestEntries > 0) {
+        for (const manifest of incrementalManifests.values()) {
+          const manifestPath = manifest.write(rootDir);
+          const manifestData = manifest.toJSON();
+          console.log(
+            `\x1b[36m[cf-hot-404-bridge]\x1b[0m incremental manifest ${path.relative(rootDir, manifestPath)} `
+              + `entries=${manifestData.counts.total} kinds=${JSON.stringify(manifestData.counts.byKind)}`,
+          );
+        }
       }
 
       if (emitted > 0) {

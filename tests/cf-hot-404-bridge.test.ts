@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeAll, afterAll } from 'vitest';
+import { describe, it, expect, beforeAll, afterAll, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -132,6 +132,57 @@ describe('cfHot404BridgePlugin', () => {
     const html = fs.readFileSync(file, 'utf-8');
     expect(html).toContain('rel="canonical" href="https://frontaliereticino.ch/en/find-jobs-zurich/"');
     expect(html).not.toContain('/en/find-jobs-zurich/page-88/');
+  });
+});
+
+describe('cfHot404BridgePlugin incremental manifest coverage', () => {
+  it('registers direct bridge writes after the shared manifest flush', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'cf-hot-manifest-'));
+    const previousIncrementalManifest = process.env.INCREMENTAL_MANIFEST;
+    const previousBuildLocale = process.env.BUILD_LOCALE;
+    const previousJobsReuse = process.env.JOBS_SEO_REUSE;
+    try {
+      process.env.INCREMENTAL_MANIFEST = '1';
+      delete process.env.BUILD_LOCALE;
+      delete process.env.JOBS_SEO_REUSE;
+      fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.mkdirSync(path.join(root, 'dist', 'en', 'find-jobs-zurich'), { recursive: true });
+      fs.writeFileSync(path.join(root, 'data', 'jobs.json'), '{}');
+      fs.writeFileSync(
+        path.join(root, 'data', 'cf-hot-404s.json'),
+        JSON.stringify({ paths: [{ path: '/en/find-jobs-zurich/manifested-hot-role', hits: 1 }] }),
+      );
+      fs.writeFileSync(
+        path.join(root, 'dist', 'en', 'find-jobs-zurich', 'index.html'),
+        '<html>section root</html>',
+      );
+
+      vi.resetModules();
+      const { cfHot404BridgePlugin: freshPlugin } = await import('../build-plugins/cfHot404BridgePlugin');
+      const hook = freshPlugin(root).closeBundle;
+      if (!hook || typeof hook !== 'object' || !('handler' in hook)) throw new Error('object hook expected');
+      await hook.handler.call({} as never);
+
+      const manifest = fs.readFileSync(
+        path.join(root, '.cache', 'incremental-manifest', 'en.jsonl'),
+        'utf8',
+      );
+      const records = manifest.trim().split('\n').map((line) => JSON.parse(line));
+      expect(records).toContainEqual(expect.objectContaining({ type: 'kind', kind: 'cf-hot-404-bridge' }));
+      expect(records).toContainEqual(expect.objectContaining({
+        path: 'en/find-jobs-zurich/manifested-hot-role/',
+        hash: expect.stringMatching(/^[a-f0-9]{64}$/),
+      }));
+    } finally {
+      if (previousIncrementalManifest === undefined) delete process.env.INCREMENTAL_MANIFEST;
+      else process.env.INCREMENTAL_MANIFEST = previousIncrementalManifest;
+      if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousBuildLocale;
+      if (previousJobsReuse === undefined) delete process.env.JOBS_SEO_REUSE;
+      else process.env.JOBS_SEO_REUSE = previousJobsReuse;
+      vi.resetModules();
+      fs.rmSync(root, { recursive: true, force: true });
+    }
   });
 });
 
