@@ -338,12 +338,20 @@ jobs:
             exit 1
           fi
           echo "Pages poll has $((deadline - now)) seconds remaining before the deploy job close margin"
+          gh_api_with_deadline() {
+            local remaining
+            remaining=$((deadline - $(date +%s)))
+            if [ "$remaining" -le 1 ]; then
+              return 124
+            fi
+            timeout --foreground --signal=TERM --kill-after=5s "${remaining}s" gh api "$@"
+          }
           while [ "$(date +%s)" -lt "$deadline" ]; do
-            ids=$(gh api "repos/${GITHUB_REPOSITORY}/deployments?environment=github-pages&sha=${GITHUB_SHA}&per_page=20" --jq '.[].id' 2>/dev/null || echo "")
+            ids=$(gh_api_with_deadline "repos/${GITHUB_REPOSITORY}/deployments?environment=github-pages&sha=${GITHUB_SHA}&per_page=20" --jq '.[].id' 2>/dev/null || echo "")
             if [ -n "$ids" ]; then
               any_active=0
               for d in $ids; do
-                st=$(gh api "repos/${GITHUB_REPOSITORY}/deployments/${d}/statuses?per_page=1" --jq '.[0].state // empty' 2>/dev/null || echo "")
+                st=$(gh_api_with_deadline "repos/${GITHUB_REPOSITORY}/deployments/${d}/statuses?per_page=1" --jq '.[0].state // empty' 2>/dev/null || echo "")
                 echo "$(date -u +%H:%M:%S) github-pages deployment ${d} state=${st:-<none>}"
                 if [ "$st" = "success" ]; then
                   echo "✅ GitHub Pages completed the publish server-side (after the action's 10-min cap)."
@@ -359,7 +367,11 @@ jobs:
             else
               echo "$(date -u +%H:%M:%S) no github-pages deployment for ${GITHUB_SHA} yet — waiting"
             fi
-            sleep 60
+            remaining=$((deadline - $(date +%s)))
+            if [ "$remaining" -le 0 ]; then break; fi
+            sleep_for=60
+            if [ "$remaining" -lt "$sleep_for" ]; then sleep_for="$remaining"; fi
+            sleep "$sleep_for"
           done
           echo "::error::GitHub Pages did not report success before the remaining deploy-job budget expired for ${GITHUB_SHA} (job deadline ${job_deadline})."
           exit 1
