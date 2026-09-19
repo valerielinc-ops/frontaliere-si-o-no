@@ -1222,8 +1222,11 @@ jobs:
           # SHARD_DELTA_CDN_REWRITE=changed: the push rewrote only the files it
           # read and completes each staged copy in background. Barrier FIRST,
           # before any live gate — the staged files are hardlinked to
-          # dist/<sub>, which later steps read for non-stripped sections. With
-          # the variable off there is no partial marker: both calls are no-ops.
+          # dist/<sub>, which later steps read for non-stripped sections. It
+          # waits for every pass and re-runs a failed one synchronously; a
+          # section still failing is not packed (see shard-cdn-rewrite.sh for
+          # why its dist/<sub> stays safe). With the variable off there is no
+          # partial marker: both calls are no-ops.
           source scripts/lib/shard-cdn-rewrite.sh
           shard_cdn_rewrite_wait_all "$RUNNER_TEMP" || true
           pack_section() {
@@ -2028,8 +2031,11 @@ jobs:
           # SHARD_DELTA_CDN_REWRITE=changed: the push rewrote only the files it
           # read and completes each staged copy in background. Barrier FIRST,
           # before any live gate — the staged files are hardlinked to
-          # dist/<sub>, which later steps read for non-stripped sections. With
-          # the variable off there is no partial marker: both calls are no-ops.
+          # dist/<sub>, which later steps read for non-stripped sections. It
+          # waits for every pass and re-runs a failed one synchronously; a
+          # section still failing is not packed (see shard-cdn-rewrite.sh for
+          # why its dist/<sub> stays safe). With the variable off there is no
+          # partial marker: both calls are no-ops.
           source scripts/lib/shard-cdn-rewrite.sh
           shard_cdn_rewrite_wait_all "$RUNNER_TEMP" || true
           pack_section() {

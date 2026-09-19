@@ -116,6 +116,10 @@ describe('offload --files-from', () => {
     const tmp = mkdtempSync(join(tmpdir(), 'offload-files-bad-'));
     try {
       mkdirSync(join(tmp, 'dist'), { recursive: true });
+      const bare = spawnSync('node', [OFFLOAD, '--files-from'], {
+        cwd: tmp, env: { ...process.env, CDN_BASE }, encoding: 'utf8',
+      });
+      expect(bare.status).toBe(1);
       for (const entry of ['missing/index.html', '../escape.html']) {
         writeFileSync(join(tmp, 'list.txt'), `${entry}\n`);
         const result = spawnSync('node', [OFFLOAD, '--files-from', join(tmp, 'list.txt')], {
@@ -277,5 +281,49 @@ describe('deploy.yml cabla SHARD_DELTA_CDN_REWRITE', () => {
     expect(yml.split(wire).length - 1).toBe(2);
     expect(yml.split('shard_cdn_rewrite_wait_all "$RUNNER_TEMP" || true').length - 1).toBe(2);
     expect(yml.split('shard_cdn_rewrite_ready "$RUNNER_TEMP" "$section"').length - 1).toBe(2);
+  });
+});
+
+describe('barriera del pack: shard_cdn_rewrite_wait_all', () => {
+  it('ripete in modo sincrono un pass in background fallito e registra il nuovo exit code', () => {
+    const tmp = mkdtempSync(join(tmpdir(), 'cdn-barrier-'));
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'cdn-barrier-runner-'));
+    try {
+      const stageSrc = join(tmp, 'ticino-src-en');
+      mkdirSync(join(stageSrc, 'dist', 'en', 'a'), { recursive: true });
+      mkdirSync(join(stageSrc, 'dist', 'en', 'b'), { recursive: true });
+      writeFileSync(join(stageSrc, 'dist', 'en', 'a', 'index.html'), page('a'));
+      // CRLF newline list: accepted, the \r is not part of the path.
+      writeFileSync(join(tmp, 'list.txt'), 'en/b/index.html\r\n');
+      writeFileSync(join(stageSrc, 'dist', 'en', 'b', 'index.html'), page('b'));
+      execFileSync('node', [OFFLOAD, '--files-from', join(tmp, 'list.txt')], {
+        cwd: stageSrc, env: { ...process.env, CDN_BASE }, stdio: 'pipe',
+      });
+      writeFileSync(join(runnerTemp, 'shard-cdn-partial-ticino-en'), `${stageSrc}\n${OFFLOAD}\n${CDN_BASE}\n`);
+      writeFileSync(join(runnerTemp, 'shard-cdn-done-ticino-en'), '1');
+
+      const run = (fn: string) => spawnSync('bash', ['-c', `source "${CDN_LIB}"; ${fn}`, '_', runnerTemp], {
+        encoding: 'utf8',
+      });
+      const barrier = run('shard_cdn_rewrite_wait_all "$1"');
+      expect(barrier.status, barrier.stdout).toBe(0);
+      expect(barrier.stdout).toContain('re-running the full pass synchronously');
+      expect(readFileSync(join(runnerTemp, 'shard-cdn-done-ticino-en'), 'utf8')).toBe('0');
+      expect(run('shard_cdn_rewrite_ready "$1" ticino en').status).toBe(0);
+      const a = readFileSync(join(stageSrc, 'dist', 'en', 'a', 'index.html'), 'utf8');
+      expect(a).toContain(`${CDN_BASE}/og/jobs/a.webp`);
+      expect(readFileSync(join(stageSrc, 'dist', 'en', 'b', 'index.html'), 'utf8')).toContain('__CDN_DATA_BASE__');
+
+      // A section whose staged copy is gone stays failed and is not packed.
+      writeFileSync(join(runnerTemp, 'shard-cdn-partial-zurigo-en'), `${join(tmp, 'missing')}\n${OFFLOAD}\n${CDN_BASE}\n`);
+      writeFileSync(join(runnerTemp, 'shard-cdn-done-zurigo-en'), '1');
+      const failed = run('shard_cdn_rewrite_wait_all "$1"');
+      expect(failed.status).toBe(1);
+      expect(failed.stdout).toContain('failed twice');
+      expect(run('shard_cdn_rewrite_ready "$1" zurigo en').status).toBe(1);
+    } finally {
+      rmSync(tmp, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
   });
 });

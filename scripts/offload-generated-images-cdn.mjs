@@ -603,9 +603,11 @@ function parseCli(argv) {
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
     if (arg === '--strict') out.strict = true;
-    else if (arg === '--files-from') out.filesFrom = argv[++i] || '';
-    else if (arg.startsWith('--files-from=')) out.filesFrom = arg.slice('--files-from='.length);
-    else throw new Error(`unknown argument ${arg}`);
+    else if (arg === '--files-from' || arg.startsWith('--files-from=')) {
+      out.filesFrom = arg === '--files-from' ? (argv[++i] || '') : arg.slice('--files-from='.length);
+      // A bare flag must not silently degrade to the full walk.
+      if (!out.filesFrom) throw new Error('--files-from requires a file');
+    } else throw new Error(`unknown argument ${arg}`);
   }
   if (out.filesFrom) out.strict = true;
   return out;
@@ -616,7 +618,8 @@ function readFileList(listFile, distDir) {
   const sep = raw.includes('\0') ? '\0' : '\n';
   const files = [];
   const seen = new Set();
-  for (const rel of raw.split(sep)) {
+  for (const entry of raw.split(sep)) {
+    const rel = sep === '\n' ? entry.replace(/\r$/, '') : entry;
     if (!rel) continue;
     const abs = path.resolve(distDir, rel);
     if (abs !== distDir && !abs.startsWith(distDir + path.sep)) {

@@ -444,7 +444,10 @@ push_section_shard() {
     fi
 
     if [ "$delta_applied" = 1 ] && [ "$cdn_rewrite_partial" = 1 ]; then
-      : > "$RUNNER_TEMP/shard-cdn-partial-$section-$loc"
+      # Records how to complete this staged copy, so the pack-step barrier can
+      # re-run the full pass synchronously if the background one fails.
+      printf '%s\n%s\n%s\n' "$stage_src" "$offload_script" "$CDN_BASE_FIXED" \
+        > "$RUNNER_TEMP/shard-cdn-partial-$section-$loc"
     fi
     if [ "$delta_applied" = 1 ]; then
       cd "$stage"

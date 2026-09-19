@@ -65,14 +65,24 @@ shard_cdn_rewrite_launch() {
 }
 
 # shard_cdn_rewrite_wait_all <runner_temp> [max_seconds]
-# Barrier: returns once every partial marker has its done marker, or after
-# max_seconds (default 3600). Called at the top of both pack steps, BEFORE any
-# live-gate: the background pass writes the staged files in place, and those
-# are hardlinked to dist/<sub> — which the later apex steps read when a section
-# is not stripped. Returns 1 on timeout (the per-section check then refuses to
-# pack the incomplete sections).
+# Barrier + repair, called at the top of both pack steps BEFORE any live gate.
+# The staged files are hardlinked to dist/<sub>, which later steps read for a
+# section that is not stripped, so the barrier must cover every section, live
+# or not. It (1) waits for every background pass — with no time limit by
+# default (0): the job timeout bounds it, and giving up while a writer is still
+# rewriting files in place would hand later steps a tree under modification;
+# (2) re-runs, synchronously and in strict mode, the full pass of any section
+# whose background pass exited non-zero, and records the new exit code. The
+# offload is idempotent, so the retry never changes a byte already rewritten.
+# A section that still fails is NOT packed (shard_cdn_rewrite_ready), and its
+# dist/<sub> is harmless by construction: stripped → never published from the
+# apex; not stripped → the leg's later full-dist offload ("Offload shard refs
+# to CDN" on en/de/fr, deploy-it-pages-prep.sh on it) rewrites it, as it does
+# today for any section whose push failed. Returns 1 only on timeout or on a
+# section that stays failed.
 shard_cdn_rewrite_wait_all() {
-  local runner_temp="$1" max="${2:-3600}" started="$SECONDS" partial pending
+  local runner_temp="$1" max="${2:-0}" started="$SECONDS" partial pending key rc
+  local stage_src offload cdn_base failed=0
   while :; do
     pending=0
     for partial in "$runner_temp"/shard-cdn-partial-*; do
@@ -81,13 +91,35 @@ shard_cdn_rewrite_wait_all() {
         pending=$((pending + 1))
       fi
     done
-    [ "$pending" -eq 0 ] && return 0
-    if [ $((SECONDS - started)) -ge "$max" ]; then
+    [ "$pending" -eq 0 ] && break
+    if [ "$max" -gt 0 ] && [ $((SECONDS - started)) -ge "$max" ]; then
       echo "::warning::$pending background CDN rewrite(s) still running after ${max}s — those sections will not be packed (validate-dist falls back to git clone)"
       return 1
     fi
     sleep 2
   done
+  for partial in "$runner_temp"/shard-cdn-partial-*; do
+    [ -e "$partial" ] || continue
+    key="${partial##*/shard-cdn-partial-}"
+    rc="$(cat "$runner_temp/shard-cdn-done-$key")"
+    [ "$rc" = 0 ] && continue
+    { IFS= read -r stage_src; IFS= read -r offload; IFS= read -r cdn_base; } < "$partial"
+    echo "::warning::$key background CDN rewrite exited $rc — re-running the full pass synchronously"
+    rc=0
+    if [ -n "$stage_src" ] && [ -d "$stage_src" ] && [ -n "$offload" ] && [ -n "$cdn_base" ]; then
+      ( cd "$stage_src" && CDN_BASE="$cdn_base" node "$offload" --strict ) \
+        >> "$runner_temp/shard-cdn-rewrite-$key.log" 2>&1 || rc=$?
+    else
+      rc=1
+    fi
+    printf '%s' "$rc" > "$runner_temp/shard-cdn-done-$key.tmp" \
+      && mv "$runner_temp/shard-cdn-done-$key.tmp" "$runner_temp/shard-cdn-done-$key"
+    if [ "$rc" != 0 ]; then
+      echo "::error::$key staged CDN rewrite failed twice (exit $rc) — not packed; the pushed shard tree is complete, and a non-stripped dist/<sub> is rewritten by the leg's full-dist offload"
+      failed=1
+    fi
+  done
+  return "$failed"
 }
 
 # shard_cdn_rewrite_ready <runner_temp> <section> <loc>
