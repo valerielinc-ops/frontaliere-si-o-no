@@ -635,6 +635,46 @@ describe('post-walk incremental planning', () => {
     expect(result.paths).toContain(path.join(distDir, 'new-root/page/index.html'));
   });
 
+  it('reuses a root-level 404.html from the persisted inventory on the next targeted walk', async () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const claimed = writeHtml(root, 'it/jobs/claimed/index.html', 'claimed');
+    const rootHtml = writeHtml(root, '404.html', 'root');
+
+    // The completed walk hands absolute paths and a root-file top-level; the
+    // writer must persist it as the <root> sentinel, never as a directory.
+    await writePostWalkWalkInventory(root, distDir, {
+      topLevels: ['it', '404.html'],
+      unmanifestedTopLevels: ['<root>'],
+      claimedPaths: [claimed],
+      unmanifestedPaths: [rootHtml],
+    });
+    const inventory = await loadPostWalkWalkInventory(root);
+    expect(inventory?.topLevels).toEqual(['<root>', 'it']);
+    expect(inventory?.unmanifestedTopLevels).toEqual(['<root>']);
+    expect(inventory?.unmanifestedPaths).toEqual(['404.html']);
+
+    // Neither the indexed reuse nor the <root> fallback may readdir a file
+    // (ENOTDIR on dist/404.html was the original failure).
+    const indexed = collectHtmlFromClaimedPaths(
+      distDir,
+      [claimed],
+      inventory?.unmanifestedTopLevels ?? [],
+      inventory ?? undefined,
+    );
+    expect(indexed.topLevelsChanged).toBe(false);
+    expect(indexed.indexed).toBe(1);
+    expect(indexed.paths).toEqual([claimed, rootHtml]);
+
+    const fallback = collectHtmlFromClaimedPaths(
+      distDir,
+      [claimed],
+      inventory?.unmanifestedTopLevels ?? [],
+    );
+    expect(fallback.indexed).toBe(0);
+    expect(new Set(fallback.paths)).toEqual(new Set([claimed, rootHtml]));
+  });
+
   it('walks root-level unmanifested HTML through the <root> sentinel', () => {
     const root = fixtureRoot();
     const distDir = path.join(root, 'dist');
