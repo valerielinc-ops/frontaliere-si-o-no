@@ -46,6 +46,13 @@ export interface ItalyDutyWeekProvince {
   code: ItalyDutyProvince;
   name: string;
   sourceKey: string | null;
+  /**
+   * True only when this province's own release slice is verified. The Italy
+   * release may be globally consumable while a `best-effort` province is
+   * unavailable; consumers must use this flag instead of the global one when
+   * emitting operational badges or intervals.
+   */
+  publishable: boolean;
   state: ItalyDutyReleaseState;
   freshness: ItalyDutyProvinceFreshness;
   coverage: ItalyDutyProvinceCoverage;
@@ -329,17 +336,24 @@ export function buildItalyDutyWeekModel(options: BuildItalyDutyWeekOptions = {})
   const provinces = ITALY_DUTY_PROVINCES.map(({ code, name }) => {
     const province = evaluation.provinces[code];
     const source = sourceContract.byProvince.get(code);
+    const provinceDuties = publishable ? weekRows.filter((duty) => duty.province === code) : [];
+    const provincePublishable = publishable
+      && province.state === 'fresh'
+      && province.freshness === 'fresh'
+      && province.coverage === 'covered'
+      && province.dutyCount > 0;
     return {
       code,
       name: source?.name ?? name,
       sourceKey: source?.key ?? null,
+      publishable: provincePublishable,
       state: province.state,
       freshness: province.freshness,
       coverage: province.coverage,
       dutyCount: province.dutyCount,
       sourceUrl: source?.sourceUrl ?? null,
       fetchedAt: province.fetchedAt,
-      duties: publishable ? weekRows.filter((duty) => duty.province === code) : [],
+      duties: provinceDuties,
     };
   });
   const sourceOnly = provinces.map(({ code, name, sourceKey, sourceUrl }) => ({
@@ -348,7 +362,9 @@ export function buildItalyDutyWeekModel(options: BuildItalyDutyWeekOptions = {})
     sourceKey,
     sourceUrl,
   }));
-  const missingProvinces = provinces.filter((province) => province.duties.length === 0).map((province) => province.code);
+  const missingProvinces = provinces
+    .filter((province) => !province.publishable || province.duties.length === 0)
+    .map((province) => province.code);
   const indexable = publishable && Boolean(start && end) && missingProvinces.length === 0;
   if (publishable && missingProvinces.length > 0) reasons.push(`missing verified intervals: ${missingProvinces.join(', ')}`);
   if (!indexable && reasons.length === 0) reasons.push('Italy duty week is not indexable');

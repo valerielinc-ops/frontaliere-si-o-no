@@ -81,6 +81,7 @@ export interface DutyCoverageMatrixCopy {
   italyHeading: string;
   italyLede: string;
   italyReadyNotice: string;
+  italyPartialNotice: string;
   italyUnavailableNotice: (state: string) => string;
   italyPublishedLabel: string;
   italyNotPublishedLabel: string;
@@ -204,8 +205,9 @@ export function getDutyCoverageMatrixCopy(locale: Locale): DutyCoverageMatrixCop
       lede: 'Il calendario operativo verificato riguarda cinque regioni del Ticino. Gli altri 25 cantoni sono presenti solo come riferimenti alle fonti.',
       ticinoHeading: 'Ticino · cinque regioni con turni pubblicati',
       italyHeading: 'Italia · Como, Varese e Verbano-Cusio-Ossola',
-      italyLede: 'I turni italiani vengono mostrati soltanto quando il release ufficiale è completo, fresco e pubblicabile. In caso contrario indichiamo lo stato senza creare intervalli o collegamenti operativi.',
+      italyLede: 'I turni italiani sono separati per provincia: mostriamo intervalli solo per le province con dati verificati; le fonti non pubblicate restano riferimenti.',
       italyReadyNotice: 'Release italiano fresh e pubblicato: gli intervalli verificati sono mostrati per la settimana corrente.',
+      italyPartialNotice: 'Release italiano parziale: sono visibili solo le province con dati verificati; la pagina resta fuori indice.',
       italyUnavailableNotice: (state) => `Turni italiani non pubblicabili: il release è ${state}.`,
       italyPublishedLabel: 'Turni italiani pubblicati',
       italyNotPublishedLabel: 'Turni italiani non pubblicabili',
@@ -234,8 +236,9 @@ export function getDutyCoverageMatrixCopy(locale: Locale): DutyCoverageMatrixCop
       lede: 'Verified operational coverage covers five Ticino regions. The other 25 cantons appear only as source references.',
       ticinoHeading: 'Ticino · five regions with published duties',
       italyHeading: 'Italy · Como, Varese and Verbano-Cusio-Ossola',
-      italyLede: 'Italian duties appear only when the official release is complete, fresh and publishable. Otherwise we show its state without creating operational intervals or links.',
+      italyLede: 'Italian duties are separated by province: intervals appear only for provinces with verified data; unpublished sources remain references.',
       italyReadyNotice: 'Fresh and published Italian release: verified intervals are shown for the current week.',
+      italyPartialNotice: 'Partial Italian release: only provinces with verified data are visible; the page remains out of the index.',
       italyUnavailableNotice: (state) => `Italian duties are not publishable: the release is ${state}.`,
       italyPublishedLabel: 'Published Italian duties',
       italyNotPublishedLabel: 'Italian duties not publishable',
@@ -264,8 +267,9 @@ export function getDutyCoverageMatrixCopy(locale: Locale): DutyCoverageMatrixCop
       lede: 'Die verifizierte operative Abdeckung umfasst fünf Tessiner Regionen. Die anderen 25 Kantone erscheinen nur als Quellenreferenzen.',
       ticinoHeading: 'Tessin · fünf Regionen mit veröffentlichtem Notdienst',
       italyHeading: 'Italien · Como, Varese und Verbano-Cusio-Ossola',
-      italyLede: 'Italienische Notdienste werden nur angezeigt, wenn die offizielle Veröffentlichung vollständig, aktuell und veröffentlichbar ist. Andernfalls zeigen wir den Status ohne operative Zeiträume oder Links.',
+      italyLede: 'Italienische Notdienste sind nach Provinz getrennt: Zeiträume erscheinen nur für Provinzen mit verifizierten Daten; unveröffentlichte Quellen bleiben Referenzen.',
       italyReadyNotice: 'Aktuelle und veröffentlichte italienische Ausgabe: Verifizierte Zeiträume der laufenden Woche werden angezeigt.',
+      italyPartialNotice: 'Teilweiser italienischer Release: Nur Provinzen mit verifizierten Daten sind sichtbar; die Seite bleibt aus dem Index.',
       italyUnavailableNotice: (state) => `Italienische Notdienste sind nicht veröffentlichbar: Die Veröffentlichung ist ${state}.`,
       italyPublishedLabel: 'Veröffentlichte italienische Notdienste',
       italyNotPublishedLabel: 'Italienische Notdienste nicht veröffentlichbar',
@@ -294,8 +298,9 @@ export function getDutyCoverageMatrixCopy(locale: Locale): DutyCoverageMatrixCop
       lede: 'La couverture opérationnelle vérifiée concerne cinq régions tessinoises. Les 25 autres cantons apparaissent uniquement comme références de sources.',
       ticinoHeading: 'Tessin · cinq régions avec gardes publiées',
       italyHeading: 'Italie · Côme, Varèse et Verbano-Cusio-Ossola',
-      italyLede: 'Les gardes italiennes apparaissent uniquement lorsque la publication officielle est complète, récente et publiable. Sinon, nous affichons son statut sans créer d’intervalles ni de liens opérationnels.',
+      italyLede: 'Les gardes italiennes sont séparées par province : les intervalles apparaissent seulement pour les provinces avec des données vérifiées ; les sources non publiées restent des références.',
       italyReadyNotice: 'Publication italienne récente et publiée : les intervalles vérifiés de la semaine en cours sont affichés.',
+      italyPartialNotice: 'Release italien partiel : seules les provinces avec des données vérifiées sont visibles ; la page reste hors index.',
       italyUnavailableNotice: (state) => `Les gardes italiennes ne sont pas publiables : la publication est ${state}.`,
       italyPublishedLabel: 'Gardes italiennes publiées',
       italyNotPublishedLabel: 'Gardes italiennes non publiables',

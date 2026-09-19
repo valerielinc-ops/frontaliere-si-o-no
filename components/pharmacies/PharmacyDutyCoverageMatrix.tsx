@@ -108,20 +108,20 @@ export default function PharmacyDutyCoverageMatrix({
     <section className="space-y-4" aria-labelledby="pharmacy-duty-coverage-italy-heading">
       <div className="space-y-2">
         <h3 id="pharmacy-duty-coverage-italy-heading" className="font-display text-xl font-bold text-heading">{copy.italyHeading}</h3>
-        <p className="max-w-3xl text-sm leading-6 text-muted" role="status">{matrix.italy.indexable ? copy.italyReadyNotice : matrix.italy.publishable ? copy.noIntervals : `${copy.italyUnavailableNotice(matrix.italy.state)} ${matrix.italy.reason}`}</p>
+        <p className="max-w-3xl text-sm leading-6 text-muted" role="status">{matrix.italy.indexable ? copy.italyReadyNotice : matrix.italy.publishable ? `${copy.italyPartialNotice} ${matrix.italy.reason}` : `${copy.italyUnavailableNotice(matrix.italy.state)} ${matrix.italy.reason}`}</p>
       </div>
       <div className="grid gap-4 md:grid-cols-2">
-        {matrix.italy.provinces.map((province) => <article key={province.code} className="overflow-hidden rounded-2xl border border-edge bg-surface" data-coverage-kind="italy-province" data-province-code={province.code} {...(matrix.italy.publishable ? { 'data-italy-duty-published': 'true' } : {})}>
+        {matrix.italy.provinces.map((province) => <article key={province.code} className="overflow-hidden rounded-2xl border border-edge bg-surface" data-coverage-kind="italy-province" data-province-code={province.code} {...(province.publishable ? { 'data-italy-duty-published': 'true' } : {})}>
           <header className="border-b border-edge bg-surface-alt px-5 py-4">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
                 <h4 className="font-display text-lg font-bold text-heading">{province.name}</h4>
-                <p className={`text-xs font-semibold uppercase tracking-wide ${matrix.italy.publishable ? 'text-emerald-700' : 'text-amber-800'}`}>{matrix.italy.publishable ? copy.italyPublishedLabel : copy.italyNotPublishedLabel}</p>
+                <p className={`text-xs font-semibold uppercase tracking-wide ${province.publishable ? 'text-emerald-700' : 'text-amber-800'}`}>{province.publishable ? copy.italyPublishedLabel : copy.italyNotPublishedLabel}</p>
               </div>
               {province.sourceUrl && <a className="text-sm font-semibold text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={province.sourceUrl} rel="nofollow noopener">{copy.openOfficialSource}<span aria-hidden="true"> ↗</span></a>}
             </div>
           </header>
-          {matrix.italy.indexable && province.duties.length > 0
+          {province.publishable && province.duties.length > 0
             ? <ul className="divide-y divide-edge">
               {province.duties.map((duty) => {
                 const pharmacy = pharmacyById(duty.pharmacyId);
@@ -132,7 +132,7 @@ export default function PharmacyDutyCoverageMatrix({
                 </li>;
               })}
             </ul>
-            : <p className="px-5 py-4 text-sm text-muted" role="status">{matrix.italy.indexable || matrix.italy.publishable ? copy.noIntervals : copy.italyUnavailableNotice(matrix.italy.state)}</p>}
+            : <p className="px-5 py-4 text-sm text-muted" role="status">{province.publishable ? copy.noIntervals : copy.italyUnavailableNotice(matrix.italy.state)}</p>}
         </article>)}
       </div>
     </section>

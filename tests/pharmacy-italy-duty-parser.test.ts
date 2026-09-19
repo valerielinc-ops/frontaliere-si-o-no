@@ -32,7 +32,7 @@ describe('Italian official duty parser', () => {
     // Como e Varese sono `full-calendar`: queste fixture coprono pochi giorni,
     // molto sotto il minimo di 300, quindi restano incomplete e non pubblicano.
     // E' l'unico motivo per cui qui la copertura e' `partial`: sui PDF reali
-    // valgono 365 e 355 giorni distinti e superano il minimo.
+    // entrambe le fonti coprono 365 giorni distinti e superano il minimo.
     for (const result of [como, varese]) {
       expect(result.coverageModel).toBe('full-calendar');
       expect(result.duties.length).toBe(0);
@@ -155,6 +155,7 @@ describe('Italian official duty parser', () => {
  */
 describe('Italian duty calendar coverage is measured on the calendar', () => {
   const CO_SOURCE = sources.sources.find((entry: { province: string }) => entry.province === 'CO');
+  const VA_SOURCE = sources.sources.find((entry: { province: string }) => entry.province === 'VA');
 
   function syntheticComoCalendar(days: number, aliasDays: Record<number, string>) {
     const lines = [
@@ -213,5 +214,43 @@ describe('Italian duty calendar coverage is measured on the calendar', () => {
     expect(parsed.errors.some((error: string) => error.includes('coverage is incomplete: 45/300'))).toBe(true);
     expect(parsed.duties.length).toBe(0);
     expect(parsed.coverage).toBe('partial');
+  });
+
+  it('keeps Varese full when layout headings and bare day markers split a block', () => {
+    const monthNames = [
+      'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre',
+      'dicembre', 'gennaio', 'febbraio', 'marzo', 'aprile', 'maggio',
+    ];
+    const bareMarkerMonths = new Set([8, 10, 3, 5]);
+    const lines = ['PROVINCIA DI VARESE'];
+    const start = Date.UTC(2026, 5, 1);
+    for (let index = 0; index < 365; index += 1) {
+      const date = new Date(start + index * 86_400_000);
+      const month = date.getUTCMonth() + 1;
+      const year = date.getUTCFullYear();
+      const day = date.getUTCDate();
+      lines.push(`LUN VARESE - Europa`);
+      lines.push(bareMarkerMonths.has(month) && day === 23 ? '23' : `${day} Zona Generica ${index}`);
+      lines.push(`Zona Generica ${index}`);
+      // pdftotext -layout emits the month title after the first six blocks of
+      // the month; it is a page-layout marker inside the current block, not a
+      // reliable block boundary.
+      if (day === 6) {
+        const monthName = monthNames[month >= 6 ? month - 6 : month + 6];
+        lines.push(`${monthName} ${year}`);
+      }
+    }
+
+    const parsed = parseItalyDutySource(lines.join('\n'), VA_SOURCE, {
+      fetchedAt: FETCHED_AT,
+      asOf: FETCHED_AT,
+      catalogue,
+    });
+
+    expect(parsed.observedCalendarDays).toBe(365);
+    expect(parsed.errors).not.toContain(expect.stringContaining('coverage is incomplete'));
+    expect(parsed.coverage).toBe('covered');
+    expect(parsed.duties.some((duty: { startsAt: string }) => duty.startsAt.startsWith('2026-06-01'))).toBe(true);
+    expect(parsed.duties.some((duty: { startsAt: string }) => duty.startsAt.startsWith('2027-05-31'))).toBe(true);
   });
 });

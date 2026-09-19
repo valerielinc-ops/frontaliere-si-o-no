@@ -141,7 +141,7 @@ const PROVINCE_MARKERS = Object.freeze([
 
 const DUTY_LINE_RE = /^\s*DUTY\|([^\r\n]+)$/i;
 const DATE_LINE_RE = /^\s*(\d{1,2}[/.]\d{1,2}[/.]\d{4})\b(.*)$/;
-const VARESE_DAY_MARKER_RE = /^\s*(\d{1,2})\s+(.+)$/;
+const VARESE_DAY_MARKER_RE = /^\s*(\d{1,2})(?:\s+(.*?))?\s*$/;
 /**
  * Nel calendario di Varese ogni giorno e' un BLOCCO che comincia con
  * l'abbreviazione del giorno della settimana; il numero del giorno compare su
@@ -205,6 +205,31 @@ function datePartsToText(parts) {
 function nextLocalDate(parts) {
   const candidate = new Date(Date.UTC(parts.year, parts.month - 1, parts.day) + 86_400_000);
   return { year: candidate.getUTCFullYear(), month: candidate.getUTCMonth() + 1, day: candidate.getUTCDate() };
+}
+
+function sourceCalendarDateParts(value) {
+  if (!isSourceCalendarDate(value)) return null;
+  const [year, month, day] = value.split('-').map(Number);
+  return { year, month, day };
+}
+
+/**
+ * Varese's PDF layout can emit a month heading in the middle of the current
+ * day block. The day markers themselves are ordered, so the declared source
+ * window is the reliable date axis; headings are only useful as a fallback
+ * for a partial fixture that starts after the first block.
+ */
+function nextVareseCalendarDate(day, source, previousDate) {
+  const start = sourceCalendarDateParts(source?.validFrom);
+  const end = sourceCalendarDateParts(source?.validTo);
+  if (!start || !end) return null;
+
+  let candidate = previousDate ? nextLocalDate(previousDate) : start;
+  while (calendarDateKey(candidate) <= calendarDateKey(end)) {
+    if (candidate.day === day) return candidate;
+    candidate = nextLocalDate(candidate);
+  }
+  return null;
 }
 
 function dateTimeParts(date) {
@@ -389,7 +414,9 @@ function parseVareseCalendar(lines, source, province, aliases, warnings, calenda
   let month = null;
   let year = null;
   // Blocco del giorno APERTO. Si chiude quando arriva il giorno della settimana
-  // successivo, un nuovo mese, o la fine del documento.
+  // successivo o la fine del documento. Il titolo del mese non e' un confine:
+  // nel PDF prodotto da pdftotext -layout puo' comparire dopo sei blocchi o
+  // dentro la continuazione del giorno appena numerato.
   //
   // Il layout reale (verificato sul PDF ufficiale) e':
   //
@@ -407,6 +434,7 @@ function parseVareseCalendar(lines, source, province, aliases, warnings, calenda
   let block = [];
   let pendingDay = null;
   let pendingRawLine = null;
+  let previousDate = null;
 
   const flushPending = () => {
     const day = pendingDay;
@@ -416,12 +444,14 @@ function parseVareseCalendar(lines, source, province, aliases, warnings, calenda
     pendingDay = null;
     pendingRawLine = null;
     if (day === null) return;
-    if (!month || !year) return;
-    const date = parseCalendarDate(`${day}/${month}/${year}`);
+    const date = previousDate === null && month && year
+      ? parseCalendarDate(`${day}/${month}/${year}`)
+      : nextVareseCalendarDate(day, source, previousDate);
     if (!date) {
-      warnings.push(`Varese calendar row has invalid date: ${day}/${month}/${year}`);
+      warnings.push(`Varese calendar row has no date in declared validity window for day ${day}`);
       return;
     }
+    previousDate = date;
     // Come Como: il giorno conta per la copertura anche quando nessun alias
     // compare nel blocco di quel giorno.
     calendarDays.add(calendarDateKey(date));
@@ -433,8 +463,9 @@ function parseVareseCalendar(lines, source, province, aliases, warnings, calenda
   for (const line of lines) {
     const monthMatch = line.match(VARESE_MONTH_RE);
     if (monthMatch) {
-      // Chiude l'ultimo giorno del mese precedente PRIMA di cambiare mese.
-      flushPending();
+      // È un suggerimento di contesto, non un delimitatore del blocco: nel
+      // layout ufficiale può stare tra il numero del giorno e le sue righe di
+      // continuazione (inclusi i marcatori nudi, ad esempio "23").
       month = ITALIAN_MONTHS[monthMatch[1].toLocaleLowerCase('it-IT')];
       year = Number(monthMatch[2]);
       continue;
@@ -456,7 +487,7 @@ function parseVareseCalendar(lines, source, province, aliases, warnings, calenda
       } else if (pendingDay !== Number(dayMarker[1])) {
         warnings.push(`Varese calendar block carries two day numbers: ${pendingDay} and ${dayMarker[1]}`);
       }
-      if (dayMarker[2].trim()) block.push(dayMarker[2]);
+      if (dayMarker[2]?.trim()) block.push(dayMarker[2]);
       continue;
     }
     if (line.trim()) block.push(line);
@@ -637,9 +668,10 @@ export function parseItalyDutySource(rawText, source, {
   // l'ampiezza del CALENDARIO. Le due grandezze non sono confrontabili: in una
   // rotazione provinciale ogni farmacia aliasata e' di turno ~14-16 volte
   // l'anno, quindi il numero non poteva superare ~70 e il gate era
-  // insoddisfacibile per costruzione. Misurato sui PDF reali: Como pubblica 365
-  // giorni distinti e Varese 355, mentre il parser riportava 71 e 70. Il parser
-  // non perdeva righe: non gliele si era mai chieste.
+  // insoddisfacibile per costruzione. I PDF reali pubblicano 365 giorni
+  // distinti; prima della correzione del layout Varese ne esponeva solo 355,
+  // perché quattro marcatori nudi e sei giorni attraversati dai titoli mensili
+  // non venivano associati al calendario corretto.
   const observedCalendarDays = calendarDays.size;
   const outOfWindowRecords = dedupedRecords.filter((record) => !sourceCalendarDateWithinValidity(source, record.date));
   if (outOfWindowRecords.length > 0) {

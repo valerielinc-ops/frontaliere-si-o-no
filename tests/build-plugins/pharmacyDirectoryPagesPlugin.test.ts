@@ -164,10 +164,11 @@ describe('pharmacy directory page matrix', () => {
     expect(page.html.match(/data-source-status=(?:"(?:unverified|degraded|active|blocked|unavailable)"|(?:unverified|degraded|active|blocked|unavailable))/g) || []).toHaveLength(25);
     expect(page.html).toMatch(/data-release-ready=(?:"true"|true)/);
     expect(page.html.match(/data-coverage-kind=(?:"italy-province"|italy-province)/g) || []).toHaveLength(3);
-    expect(page.html).toMatch(/data-italy-release-ready=(?:"false"|false)/);
+    expect(page.html).toMatch(/data-italy-release-ready=(?:"true"|true)/);
     expect(page.html).toMatch(/data-italy-indexable=(?:"false"|false)/);
-    expect(page.html).toMatch(/data-italy-release-state=(?:"not_published"|not_published)/);
-    expect(page.html).not.toContain('data-italy-duty-published');
+    expect(page.html).toMatch(/data-italy-release-state=(?:"fresh"|fresh)/);
+    expect(page.html.match(/data-italy-duty-published/g) || []).toHaveLength(2);
+    expect(page.html).not.toMatch(/data-province-code=(?:"VB"|VB)[^>]*data-italy-duty-published/);
     expect(page.html).toContain('https://apotheken-aargau.ch/notfall/');
     expect(page.html).toContain('https://www.farmacielocarnese.ch/');
 
@@ -305,7 +306,7 @@ describe('pharmacy directory page matrix', () => {
     expect(tamperedPage.html).not.toContain('"@type":"ItemList"');
   });
 
-  it.each(locales)('keeps Italian duty hub and week noindex and without JSON-LD while the release is not published (%s)', (locale) => {
+  it.each(locales)('keeps Italian duty hub and week noindex while exposing only verified provinces (%s)', (locale) => {
     const hub = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'italy-duty-hub');
     const week = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'italy-duty-week');
     const weekDescriptor = { ...week!, weekStart: '2026-09-14' };
@@ -315,8 +316,10 @@ describe('pharmacy directory page matrix', () => {
       expect(page.indexable).toBe(false);
       expect(page.html).toContain('noindex,follow');
       expect(page.html).not.toContain('application/ld+json');
-      expect(page.html).not.toContain('data-italy-duty-published');
-      expect(page.html).not.toMatch(/<time\b/);
+      expect(page.html.match(/data-italy-duty-published/g) || []).toHaveLength(2);
+      expect(page.html.match(/data-duty-country=IT/g) || []).toHaveLength(5);
+      expect(page.html).toMatch(/<time\b/);
+      expect(page.html).not.toMatch(/data-italy-duty-province=VB[^>]*data-italy-duty-published/);
       expect(page.html).toContain('novita_138.html');
       expect(page.html).toContain('Dettaglionews?IDNews=400586');
       expect(page.html).toContain('2968938.pdf');

@@ -1,7 +1,7 @@
 import { sha256 } from '@noble/hashes/sha256';
 import italyCatalogueJson from '../../data/pharmacies-italy-border.json';
 import italySourcesJson from '../../data/pharmacy-duties-italy-sources.json';
-import { validatePharmacyDutyList } from './types';
+import { validatePharmacyDuty } from './types';
 
 export const ITALY_DUTY_RELEASE_VERSION = 1 as const;
 export const ITALY_DUTY_RELEASE_TIMEZONE = 'Europe/Rome' as const;
@@ -533,7 +533,20 @@ function validateItalyDutyRows(
   catalogue: unknown,
   sources: ItalyDutySourceRegistry,
 ): string[] {
-  const errors = validatePharmacyDutyList(rows, now, { checkTemporalState: false });
+  // Una release italiana ha copertura provinciale: piu' farmacie possono
+  // avere lo stesso intervallo per la stessa provincia. Il validatore generico
+  // delle duty list marca invece ogni sovrapposizione della stessa coverage
+  // come `conflicting`, regola corretta per una singola rotazione ma non per
+  // questo contratto provinciale. Manteniamo i controlli per-riga e gli ID
+  // unici senza importare quella regola di cardinalita'.
+  const errors: string[] = [];
+  const seenIds = new Set<string>();
+  rows.forEach((row, index) => {
+    errors.push(...validatePharmacyDuty(index, row, now, { checkTemporalState: false }));
+    if (!isRecord(row) || typeof row.id !== 'string' || row.id.trim() === '') return;
+    if (seenIds.has(row.id)) errors.push(`duty[${index}]: duplicate id "${row.id}"`);
+    seenIds.add(row.id);
+  });
   const records = catalogueRecords(catalogue);
   rows.forEach((row, index) => {
     if (!isRecord(row)) return;
