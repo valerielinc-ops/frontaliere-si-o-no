@@ -61,3 +61,59 @@ describe('run-mutation-gate repository scope', () => {
     expect(() => readdirSync(join(stateRoot, 'run-mutations'))).toThrow();
   });
 });
+
+/**
+ * Same class as `tests/pr-body-write-gate.test.ts`: the authorization must be
+ * reachable by the caller the gate stops. An agent cannot set a variable in
+ * the hook's process, so the declaration has to ride the command line.
+ */
+describe('run-mutation-gate: the authorization is reachable from the command', () => {
+  function runCommand(stateRoot: string, command: string) {
+    const env = { ...process.env, FRONTALIERE_HOOK_STATE_DIR: stateRoot };
+    delete env.GITHUB_REPOSITORY;
+    delete env.GH_REPO;
+    delete env.FRONTALIERE_RUN_MUTATION_REASON;
+    return spawnSync(process.execPath, [GATE], {
+      input: JSON.stringify({ cwd: ROOT, tool_input: { command } }),
+      encoding: 'utf8',
+      env,
+    });
+  }
+
+  it('accepts the reason declared on the same line as the command', () => {
+    const stateRoot = mkdtempSync(join(tmpdir(), 'run-mutation-inline-'));
+    roots.push(stateRoot);
+
+    const declared = runCommand(
+      stateRoot,
+      "FRONTALIERE_RUN_MUTATION_REASON='runner morto a meta job' gh run rerun 987654",
+    );
+    expect(declared.status).toBe(0);
+
+    // The cap still holds: one authorized attempt, not a bypass.
+    const second = runCommand(
+      stateRoot,
+      "FRONTALIERE_RUN_MUTATION_REASON='runner morto a meta job' gh run rerun 987654",
+    );
+    expect(second.status).toBe(EXIT_BLOCK);
+    expect(second.stderr).toMatch(/tetto raggiunto/);
+  });
+
+  it('still blocks an undeclared rerun and shows the in-command form', () => {
+    const stateRoot = mkdtempSync(join(tmpdir(), 'run-mutation-undeclared-'));
+    roots.push(stateRoot);
+
+    const blocked = runCommand(stateRoot, 'gh run rerun 987655');
+    expect(blocked.status).toBe(EXIT_BLOCK);
+    expect(blocked.stderr).toContain("FRONTALIERE_RUN_MUTATION_REASON='");
+    expect(blocked.stderr).toContain("non vede l'ambiente della tua shell");
+  });
+
+  it('does not accept a reason that reached the hook unexpanded', () => {
+    const stateRoot = mkdtempSync(join(tmpdir(), 'run-mutation-unexpanded-'));
+    roots.push(stateRoot);
+
+    const blocked = runCommand(stateRoot, 'FRONTALIERE_RUN_MUTATION_REASON="$MOTIVO" gh run rerun 987656');
+    expect(blocked.status).toBe(EXIT_BLOCK);
+  });
+});

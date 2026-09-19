@@ -127,15 +127,19 @@ export function parseShellCommands(input) {
 /**
  * Find an actual `gh run rerun|cancel` invocation.
  *
+ * `assignments` are the per-command environment declarations made on the same
+ * line; see `findPrBodyWrite` for why a hook has no other way to hear from
+ * the caller.
+ *
  * @param {unknown} input
- * @returns {{action:'rerun'|'cancel', runId?:string, repo?:string}|null}
+ * @returns {{action:'rerun'|'cancel', runId?:string, repo?:string, assignments:Record<string,string>}|null}
  */
 export function findGhRunMutation(input) {
   const parsed = parseShellCommands(input);
   if (!parsed.ok) return null;
 
   for (const segment of parsed.commands) {
-    const words = executableWords(segment);
+    const { words, assignments } = splitCommandPrefix(segment);
     if (words[0] !== 'gh') continue;
 
     const globalOptions = skipGhGlobalOptions(words, 1);
@@ -146,7 +150,7 @@ export function findGhRunMutation(input) {
     const action = words[index + 1];
     const runId = words.slice(index + 2).find((word) => /^\d+$/.test(word));
     const repo = normalizeRepository(globalOptions.repo ?? findRepositoryFlag(words, index + 2));
-    return { action, ...(runId ? { runId } : {}), ...(repo ? { repo } : {}) };
+    return { action, ...(runId ? { runId } : {}), ...(repo ? { repo } : {}), assignments };
   }
   return null;
 }
@@ -156,16 +160,20 @@ export function findGhRunMutation(input) {
  * target is deliberately represented as unknown: the caller can allow rather
  * than associate state with the wrong PR.
  *
+ * `assignments` carries the per-command environment declared on the same line
+ * (`NAME=value gh pr edit …`, `env NAME=value gh pr edit …`). A PreToolUse
+ * hook cannot read the caller's shell, so this is the caller's only channel.
+ *
  * @param {unknown} input
  * @param {Record<string, unknown>} [env]
- * @returns {{prNumber?:string, repo?:string, bodyFlag:string}|null}
+ * @returns {{prNumber?:string, repo?:string, bodyFlag:string, assignments:Record<string,string>}|null}
  */
 export function findPrBodyWrite(input, env = process.env) {
   const parsed = parseShellCommands(input);
   if (!parsed.ok) return null;
 
   for (const segment of parsed.commands) {
-    const words = executableWords(segment);
+    const { words, assignments } = splitCommandPrefix(segment);
     if (words[0] !== 'gh') continue;
     const globalOptions = skipGhGlobalOptions(words, 1);
     const ghCommandIndex = globalOptions.index;
@@ -222,17 +230,43 @@ export function findPrBodyWrite(input, env = process.env) {
     prNumber ??= firstNumericEnv(envRecord, ['FRONTALIERE_PR_NUMBER', 'PR_NUMBER', 'GITHUB_PR_NUMBER']);
     repo ??= firstStringEnv(envRecord, ['GITHUB_REPOSITORY', 'GH_REPO']);
     repo = normalizeRepository(repo);
-    return { prNumber, repo, bodyFlag };
+    return { prNumber, repo, bodyFlag, assignments };
   }
   return null;
 }
 
 function executableWords(segment) {
-  let words = [...segment];
+  return splitCommandPrefix(segment).words;
+}
+
+/**
+ * Split a simple command into the per-command environment assignments that
+ * precede it and the words of the command itself.
+ *
+ * The assignments matter to a policy hook: they are the ONLY place where the
+ * caller can declare something to the hook, because the hook runs in the
+ * harness' process and never sees the agent's own shell environment. The
+ * values come back as the lexer produced them, so an unexpanded `"$VAR"`
+ * stays literally `$VAR` — the caller decides whether that is acceptable.
+ *
+ * @param {string[]} segment
+ * @returns {{words:string[], assignments:Record<string,string>}}
+ */
+export function splitCommandPrefix(segment) {
+  const words = [...segment];
+  const assignments = Object.create(null);
   let index = 0;
 
+  const take = (word) => {
+    const separator = word.indexOf('=');
+    assignments[word.slice(0, separator)] = word.slice(separator + 1);
+  };
+
   while (SHELL_KEYWORDS.has(words[index])) index += 1;
-  while (ASSIGNMENT_RE.test(words[index] ?? '')) index += 1;
+  while (ASSIGNMENT_RE.test(words[index] ?? '')) {
+    take(words[index]);
+    index += 1;
+  }
 
   while (index < words.length) {
     const word = words[index];
@@ -247,6 +281,7 @@ function executableWords(segment) {
       continue;
     }
     if (ASSIGNMENT_RE.test(word)) {
+      take(word);
       index += 1;
       continue;
     }
@@ -259,12 +294,18 @@ function executableWords(segment) {
           break;
         }
         if (ASSIGNMENT_RE.test(option)) {
+          take(option);
           index += 1;
           continue;
         }
         if (option.startsWith('-')) {
           index += 1;
-          if (ENV_VALUE_OPTIONS.has(option)) index += 1;
+          if (ENV_VALUE_OPTIONS.has(option)) {
+            // `env -u NAME` removes it: a declaration that was unset must not
+            // survive as if it had been made.
+            if (option === '-u' || option === '--unset') delete assignments[words[index]];
+            index += 1;
+          }
           continue;
         }
         break;
@@ -287,7 +328,7 @@ function executableWords(segment) {
     }
     break;
   }
-  return words.slice(index);
+  return { words: words.slice(index), assignments };
 }
 
 function skipGhGlobalOptions(words, index) {
