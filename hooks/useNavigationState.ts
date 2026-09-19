@@ -216,8 +216,13 @@ export function useNavigationState(): NavigationState {
  // (e.g. clicking a career-landing link). Fresh entries must scroll to top.
  const prevAppliedRouteRef = useRef<AppRoute | null>(null);
 
- // Eagerly prefetch the active tab's component chunk on initial load
- useEffect(() => { prefetchTab(activeTab); }, []);
+ // Prefetch the active route, including the Vita subtab's lazy component.
+ // In particular, /vivere-in-ticino/comuni-di-frontiera/ resolves to
+ // FrontierGuide rather than the generic CostOfLiving hub chunk.
+ useEffect(() => {
+  if (activeTab === 'vita') prefetchTab(activeTab, vitaSubTab);
+  else prefetchTab(activeTab);
+ }, [activeTab, vitaSubTab]);
 
  // Check for hidden API status page via URL parameter
  useEffect(() => {
