@@ -94,6 +94,29 @@ function sameStringList(left: readonly string[], right: readonly string[]): bool
 }
 
 /**
+ * Absolute directories at depth 2 and 3 below `distDir` that contain at least
+ * one of `knownPaths`. Pure string work: no filesystem access.
+ */
+export function collectKnownDirectories(
+  distDir: string,
+  knownPaths: Iterable<string>,
+): Set<string> {
+  const known = new Set<string>();
+  const prefixLength = distDir.endsWith(path.sep) ? distDir.length : distDir.length + 1;
+  for (const filePath of knownPaths) {
+    if (!filePath.startsWith(distDir) || filePath.length <= prefixLength) continue;
+    const first = filePath.indexOf(path.sep, prefixLength);
+    if (first < 0) continue;
+    const second = filePath.indexOf(path.sep, first + 1);
+    if (second < 0) continue;
+    known.add(filePath.slice(0, second));
+    const third = filePath.indexOf(path.sep, second + 1);
+    if (third >= 0) known.add(filePath.slice(0, third));
+  }
+  return known;
+}
+
+/**
  * Return a dist-relative path without invoking path.relative for the normal
  * case. Every path emitted by collectHtml and WriteCollector is rooted below
  * the same absolute dist directory, so the prefix slice is both cheaper and
@@ -195,6 +218,13 @@ export function collectHtmlFromClaimedPaths(
     ) rootsToWalk.add(topLevel);
   }
 
+  // Directories (depth 2 and 3 below dist) that already hold a path known
+  // from the write registry or from the persisted inventory. The probe below
+  // opens a known directory one level at most and never re-enumerates it:
+  // new HTML inside a known subtree must come from the registry/inventory,
+  // while a directory with no known path at all is new and is walked in full.
+  const knownDirectories = collectKnownDirectories(distDir, seen);
+
   const targetedPaths: string[] = [];
   for (const topLevel of [...rootsToWalk].sort()) {
     const root = topLevel === '<root>' ? distDir : path.join(distDir, topLevel);
@@ -218,7 +248,7 @@ export function collectHtmlFromClaimedPaths(
       }
       if (!entry.isDirectory()) continue;
       const childRoot = root + path.sep + entry.name;
-      if (!claimedChildren.has(entry.name)) {
+      if (!claimedChildren.has(entry.name) && !knownDirectories.has(childRoot)) {
         collectHtml(childRoot, targetedPaths);
         continue;
       }
@@ -235,11 +265,10 @@ export function collectHtmlFromClaimedPaths(
           }
           continue;
         }
-        if (
-          childEntry.isDirectory()
-          && !seen.has(path.join(childRoot, childEntry.name, 'index.html'))
-        ) {
-          collectHtml(childRoot + path.sep + childEntry.name, targetedPaths);
+        if (!childEntry.isDirectory()) continue;
+        const grandchildRoot = childRoot + path.sep + childEntry.name;
+        if (!knownDirectories.has(grandchildRoot)) {
+          collectHtml(grandchildRoot, targetedPaths);
         }
       }
     }
