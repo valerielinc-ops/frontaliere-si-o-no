@@ -387,9 +387,17 @@ export function classifyReview(body, {
   const comparedLines = changedLinesSince instanceof Map
     ? new Map(changed.map((file) => [file, changedLinesSince.get(file) ?? new Set()]))
     : null;
+  // Un finding che il parser non sa delimitare non è un finding di cui si
+  // possa dire «punta a una riga non cambiata»: non si sa nemmeno dove
+  // finisca, quindi non entra proprio nel calcolo. L'insieme dei candidati
+  // alla declassazione si costruisce QUI, sui soli finding certi: così la
+  // proprietà non dipende dall'ordine dei controlli nel loop sotto, che è
+  // com'era scritta prima e che bastava invertire per lasciar passare una
+  // review malformata.
+  const certainFindings = findings.filter((finding) => !finding.parserUncertain);
   const staleImportants = comparedLines
     ? unchangedLineImportants({
-      findings,
+      findings: certainFindings,
       priorFindingIds: priorFindingIds instanceof Set ? priorFindingIds : new Set(priorFindingIds || []),
       changedLines: comparedLines,
     })
@@ -398,10 +406,6 @@ export function classifyReview(body, {
   const staleDeclassified = [];
 
   for (const finding of findings) {
-    // L'ambiguità del parser viene PRIMA di ogni declassazione: un finding che
-    // il parser non sa delimitare non è un finding di cui si possa dire
-    // «punta a una riga non cambiata», perché non si sa nemmeno dove finisca.
-    // Declassarlo per primo lasciava passare il gate su una review malformata.
     if (finding.parserUncertain) {
       unresolved.push({ ...finding, reason: 'struttura della review ambigua' });
       continue;

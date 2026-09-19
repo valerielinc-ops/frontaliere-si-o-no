@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   changedLinesFromPatch,
@@ -415,6 +416,15 @@ describe('finding ambiguo: mai declassato (review #9318, finding 4)', () => {
       priorFindingIds: new Set(),
       changedLines: new Map([['scripts/ci/foo.mjs', new Set([80])]]),
     })).toHaveLength(0);
+  });
+
+  it('l’insieme dei candidati alla declassazione esclude gli ambigui a monte', () => {
+    // Proprietà per costruzione, non per ordine: `unchangedLineImportants()`
+    // riceve i soli finding certi, quindi invertire i controlli nel loop non
+    // può più far uscire un ambiguo come declassato.
+    const source = readFileSync('scripts/ci/review-gate.mjs', 'utf8');
+    expect(source).toMatch(/const certainFindings = findings\.filter\(\(finding\) => !finding\.parserUncertain\);/u);
+    expect(source).toMatch(/unchangedLineImportants\(\{\s*\n\s*findings: certainFindings,/u);
   });
 
   it('`classifyReview` lo tiene bloccante invece di declassarlo', () => {
