@@ -41,7 +41,10 @@
 
 import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
-import { classifyAutomationRisk } from '../ci/lib/automation-risk-policy.mjs';
+import {
+  classifyAutomationRisk,
+  extractIssueReferences,
+} from '../ci/lib/automation-risk-policy.mjs';
 
 /**
  * Label che PINNANO una issue fuori dal ciclo di fix automatico.
@@ -81,7 +84,7 @@ export function isFixerExempt(labels = []) {
   return FIXER_EXEMPT_LABELS.some((l) => set.has(l));
 }
 
-export function classifyIssue(title = '', labels = [], body = '') {
+export function classifyIssue(title = '', labels = [], body = '', options = {}) {
   const labelNames = (Array.isArray(labels) ? labels : []).map((label) =>
     String(typeof label === 'string' ? label : label?.name ?? '').toLowerCase());
   const set = new Set(labelNames);
@@ -110,7 +113,28 @@ export function classifyIssue(title = '', labels = [], body = '') {
   // La policy riceve la categoria già derivata: una follow-up ordinaria resta
   // classificabile anche quando il caller non passa il body, mentre `other`
   // sconosciuto resta deny-by-default. I segnali F1/F7 continuano a prevalere.
-  const risk = classifyAutomationRisk({ title, body, labels, category });
+  // Condividi con issue-fix l'unico snapshot dei riferimenti: URL GitHub non
+  // file e identificatori di comando restano prosa, mentre ref/path ambigui
+  // producono un elenco incompleto e quindi il deny fail-closed della policy.
+  const repository = String(
+    options?.repository
+      ?? process.env.REPO
+      ?? process.env.GH_REPO
+      ?? process.env.GITHUB_REPOSITORY
+      ?? '',
+  ).trim();
+  const issueText = [title, body, ...labelNames].filter(Boolean).join('\n');
+  const references = extractIssueReferences(issueText, { repository });
+  const hasReferenceSnapshot = references.hasReferences;
+  const risk = classifyAutomationRisk({
+    title,
+    body,
+    labels,
+    category,
+    ...(hasReferenceSnapshot
+      ? { paths: references.paths, pathsComplete: references.pathsComplete }
+      : {}),
+  });
 
   // High-risk F1/F7 ha precedenza sul pin: nessun dominio ad alto rischio può
   // essere auto-gestito, anche se qualcuno ha lasciato una label di routing.

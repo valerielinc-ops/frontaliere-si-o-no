@@ -19,8 +19,9 @@
  * Location text format: `EMEA, CH, Kanton Bern, Bern, CSL Behring` (region,
  * country code, canton, city, business unit). We split on commas and pick
  * the first segment that looks like a city. Multi-location postings collapse
- * to `N Locations` in the listing, so the detail payload's primary and
- * additional locations are inspected before using any fallback.
+ * to `N Locations` in the listing, so the detail payload's primary location is
+ * inspected before publication. An additional location does not override a
+ * foreign primary workplace.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllCslBehringJobs() — Fetch and parse all Swiss jobs
@@ -106,7 +107,15 @@ function cleanCslLocation(raw = '') {
 
 function locationDescriptor(value) {
   if (typeof value === 'string') return value;
-  return value?.descriptor || value?.location || value?.name || '';
+  return [
+    value?.descriptor,
+    value?.location,
+    value?.name,
+    value?.country?.descriptor,
+    value?.country?.name,
+    value?.country?.alpha2Code,
+    value?.country?.code,
+  ].filter(Boolean).join(', ');
 }
 
 /**
@@ -125,6 +134,19 @@ export function resolveCslLocation(primaryLocation = '', additionalLocations = [
     if (cleaned && inferSwissTargetCanton(cleaned)) return cleaned;
   }
   return '';
+}
+
+/**
+ * Resolve the publishable CSL location from the authoritative primary detail
+ * location only. This deliberately does not fall through to additional
+ * locations: a multi-country requisition whose primary workplace is foreign
+ * must not be emitted as a Swiss job.
+ */
+export function resolveCslPublishLocation(info = {}) {
+  const primary = locationDescriptor(info?.location);
+  if (!primary || isLocationExplicitlyForeign(primary)) return '';
+  const cleaned = cleanCslLocation(primary);
+  return cleaned && inferSwissTargetCanton(cleaned) ? cleaned : '';
 }
 
 /* ── Company matchers ──────────────────────────────────────── */
@@ -251,31 +273,18 @@ export async function fetchAllCslBehringJobs() {
     if (!title || title.length < 3) continue;
 
     // The listing endpoint frequently returns only `N Locations`. Fetch the
-    // detail once and use its Swiss additional location when the primary
-    // location belongs to the global posting tenant.
+    // detail once, then require its authoritative primary location to be Swiss.
     const detail = await fetchWorkdayJobDetail(WORKDAY_API_BASE, listing.externalPath);
     const info = detail?.jobPostingInfo || {};
-    const detailLocations = [
-      info.location,
-      ...(Array.isArray(info.additionalLocations) ? info.additionalLocations : []),
-    ].map(locationDescriptor).filter(Boolean);
-    const resolvedDetailLocation = resolveCslLocation(info.location, info.additionalLocations);
-    const detailLocationText = detailLocations.join(' | ');
-    if (!resolvedDetailLocation && isLocationExplicitlyForeign(detailLocationText)) {
-      console.log(`  ⏭️  Skipped foreign location: ${detailLocationText} — ${title}`);
+    const resolvedDetailLocation = resolveCslPublishLocation(info);
+    if (!resolvedDetailLocation) {
+      console.log(`  ⏭️  Skipped (primary detail location is not Swiss): ${locationDescriptor(info.location) || 'missing'} — ${title}`);
       await new Promise((r) => setTimeout(r, 400));
       continue;
     }
 
-    const rawLocation = resolvedDetailLocation || listing.locationRaw || 'Bern';
-    if (isLocationExplicitlyForeign(rawLocation)) {
-      console.log(`  ⏭️  Skipped foreign location: ${rawLocation} — ${title}`);
-      await new Promise((r) => setTimeout(r, 400));
-      continue;
-    }
-    const cleaned = cleanCslLocation(rawLocation);
-    const location = cleaned || 'Bern';
-    const canton = inferSwissTargetCanton(location) || 'BE';
+    const location = resolvedDetailLocation;
+    const canton = inferSwissTargetCanton(location);
     const publicUrl = listing.url || CAREER_URL;
     const employmentType = detectEmploymentType(listing.timeType || '', title);
 
