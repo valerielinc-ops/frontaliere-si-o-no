@@ -27,7 +27,7 @@ import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
 import { REVIEWER_BOT_LOGIN_RE } from './lib/constants.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
-import { hasEnumeratedItems } from './followup-resolution-match.mjs';
+import { ACCEPTANCE_CONDITION, hasEnumeratedItems } from './followup-resolution-match.mjs';
 import { isAggregateForAnalytics } from './check-issue-already-resolved.mjs';
 
 export { hasEnumeratedItems };
@@ -493,7 +493,11 @@ export function tallyFindings(prs, { bucketOf = bucketFinding } = {}) {
 //      never be pre-empted by a content-token matcher.
 // Same feedback-loop class as the reconcile-bot / pre-flight-deterministic skips in
 // the outcome loop below: don't count burn that no safe gate could have prevented.
-// Pure → unit-tested. `labels` is an array of label-name strings.
+// A single-item follow-up is countable only when it carries the same explicit
+// `Suggested action` + distinctive code-token contract used by the deterministic
+// already-resolved gate. Path-only or body-less follow-ups still need the Claude
+// verification path, so counting them here would recreate the false escalation
+// loop tracked by #9109. Pure → unit-tested. `labels` is an array of label names.
 export function isAvoidableAlreadyFixed(title, labels, body = '') {
   const names = Array.isArray(labels) ? labels : [];
   if (!names.includes('follow-up')) return false; // out of the gate's scope
@@ -501,6 +505,10 @@ export function isAvoidableAlreadyFixed(title, labels, body = '') {
   // its title-only keyword contract. A daily bucket is aggregate even with one
   // current item; it is processed item by item and must not be counted as burn.
   if (isAggregateForAnalytics(title, body)) return false;
+  // Keep this classifier aligned with the exact pre-flight acceptance condition:
+  // without a prescribed code token, the deterministic gate cannot possibly
+  // have short-circuited the issue and the Claude run is expected verification.
+  if (!ACCEPTANCE_CONDITION.holds(body)) return false;
   return true; // single-item follow-up → the gate's real target → countable
 }
 

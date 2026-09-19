@@ -12,19 +12,27 @@
  *      rifiuta di cortocircuitare (un item risolto ≠ tutti).
  *   2. issue NON-follow-up (crawler-health, validation-failure, free-form) — lo scope
  *      del gate è solo `follow-up`.
- * Le follow-up single-item (il vero target del gate) restano contate.
+ * Le follow-up single-item restano contate solo quando il body espone la stessa
+ * condizione falsificabile del gate: `Suggested action` + token di codice.
  */
 import { describe, it, expect } from 'vitest';
 import { isAvoidableAlreadyFixed } from '../scripts/ci/harvest-agent-lessons.mjs';
+
+const SINGLE_ITEM_ACTION = 'Suggested action: `resolveCollectionPageSchema()`';
 
 describe('isAvoidableAlreadyFixed — non escalare il burn che nessun gate sicuro previene', () => {
   it('follow-up single-item → contabile (vero target del gate)', () => {
     expect(isAvoidableAlreadyFixed(
       'follow-up(#2101): 1 item deferred — feat(newsletter): auto-promote winning subject',
       ['follow-up', 'agent:fix'],
+      SINGLE_ITEM_ACTION,
     )).toBe(true);
     // anche senza il prefisso "1 item deferred"
-    expect(isAvoidableAlreadyFixed('follow-up(#2229): fix(seo): CollectionPage schema', ['follow-up'])).toBe(true);
+    expect(isAvoidableAlreadyFixed(
+      'follow-up(#2229): fix(seo): CollectionPage schema',
+      ['follow-up'],
+      SINGLE_ITEM_ACTION,
+    )).toBe(true);
   });
 
   it('follow-up AGGREGATE "N item deferred" (N≥2) → NON contabile (#2260/#2246)', () => {
@@ -49,14 +57,31 @@ describe('isAvoidableAlreadyFixed — non escalare il burn che nessun gate sicur
   });
 
   it('"1 item deferred" NON è aggregate (boundary N=1) → contabile', () => {
-    expect(isAvoidableAlreadyFixed('follow-up(#9): 1 item deferred — fix(x)', ['follow-up'])).toBe(true);
+    expect(isAvoidableAlreadyFixed(
+      'follow-up(#9): 1 item deferred — fix(x)',
+      ['follow-up'],
+      SINGLE_ITEM_ACTION,
+    )).toBe(true);
   });
 
   it('"1 item deferred" con parola ordinaria "batch"/"sweep"/"bulk" nel titolo → NON aggregate, il count esplicito vince sul keyword fallback (#3378)', () => {
     expect(isAvoidableAlreadyFixed(
       'follow-up(#3371): 1 item deferred — fix(job-alerts): batch backfill re-checks tier-3 before tier-4 URL fallback',
       ['follow-up'],
+      SINGLE_ITEM_ACTION,
     )).toBe(true);
+  });
+
+  it('follow-up single-item senza acceptance condition → non contabile (#9109)', () => {
+    expect(isAvoidableAlreadyFixed(
+      'follow-up(#8921): fix(automation): finding fuori dal diff',
+      ['follow-up'],
+    )).toBe(false);
+    expect(isAvoidableAlreadyFixed(
+      'follow-up(#8798): fix(crawler): address already resolved',
+      ['follow-up'],
+      'Suggested action: verify the current file and report the result',
+    )).toBe(false);
   });
 
   it('input degeneri → NON contabile (proceed-safe: non gonfia il bucket)', () => {
