@@ -391,3 +391,42 @@ describe('changedLinesFromPatch: dentro un hunk niente è un header (review #931
     expect([...map.get('due.mjs')!]).toEqual([6]);
   });
 });
+
+
+describe('finding ambiguo: mai declassato (review #9318, finding 4)', () => {
+  // Un body in cui un secondo marker cade DENTRO il testo del primo senza
+  // essere un inizio di finding: il parser marca `parserUncertain`.
+  const ambiguous = [
+    '## Findings (Important: 1, Nit: 0)',
+    '',
+    '`scripts/ci/foo.mjs:L12`: 🔴 Important: `parseFoo()` non gestisce il null',
+    'e poi 🟡 Nit: anche questo, ma senza ancora',
+    '',
+    '## LGTM',
+  ].join('\n');
+
+  it('il parser lo marca ambiguo', () => {
+    expect(importantFindings(ambiguous)[0].parserUncertain).toBe(true);
+  });
+
+  it('`unchangedLineImportants` non lo restituisce, qualunque sia il delta', () => {
+    expect(unchangedLineImportants({
+      findings: importantFindings(ambiguous),
+      priorFindingIds: new Set(),
+      changedLines: new Map([['scripts/ci/foo.mjs', new Set([80])]]),
+    })).toHaveLength(0);
+  });
+
+  it('`classifyReview` lo tiene bloccante invece di declassarlo', () => {
+    const result = classifyReview(ambiguous, {
+      files: ['scripts/ci/foo.mjs'],
+      complete: true,
+      repositoryPaths: ['scripts/ci/foo.mjs'],
+      priorFindingIds: new Set<string>(),
+      changedLinesSince: new Map(),
+    });
+    expect(result.staleDeclassified ?? []).toHaveLength(0);
+    expect(result.unresolved.map((f) => f.reason)).toContain('struttura della review ambigua');
+    expect(result.blocking).toBe(true);
+  });
+});

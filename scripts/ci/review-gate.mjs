@@ -398,12 +398,16 @@ export function classifyReview(body, {
   const staleDeclassified = [];
 
   for (const finding of findings) {
-    if (staleIds.has(finding.findingNumber)) {
-      staleDeclassified.push({ ...finding, stableId: stableFindingId(finding) });
-      continue;
-    }
+    // L'ambiguità del parser viene PRIMA di ogni declassazione: un finding che
+    // il parser non sa delimitare non è un finding di cui si possa dire
+    // «punta a una riga non cambiata», perché non si sa nemmeno dove finisca.
+    // Declassarlo per primo lasciava passare il gate su una review malformata.
     if (finding.parserUncertain) {
       unresolved.push({ ...finding, reason: 'struttura della review ambigua' });
+      continue;
+    }
+    if (staleIds.has(finding.findingNumber)) {
+      staleDeclassified.push({ ...finding, stableId: stableFindingId(finding) });
       continue;
     }
     if (bodyContractPassed && finding.citations.length === 0

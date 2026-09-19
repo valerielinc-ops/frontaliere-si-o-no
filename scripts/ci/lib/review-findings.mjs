@@ -213,6 +213,10 @@ export function unchangedLineImportants({ findings, priorFindingIds, changedLine
     : new Set(Array.isArray(priorFindingIds) ? priorFindingIds : []);
   const stale = [];
   for (const finding of findings || []) {
+    // Seconda rete, indipendente dall'ordine del chiamante: un finding che il
+    // parser non ha saputo delimitare non si declassa mai. Non si può dire che
+    // punti a una riga non cambiata se non si sa dove finisce.
+    if (finding?.parserUncertain) continue;
     const id = stableFindingId(finding);
     if (known.has(id)) continue;
     if (isRegressionFinding(finding)) continue;
