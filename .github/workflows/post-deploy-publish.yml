@@ -69,6 +69,7 @@ jobs:
           PROMOTION_SOURCE_REF: ${{ github.event.workflow_run.head_branch }}
           PROMOTION_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
           PROMOTION_SOURCE_WORKFLOW: ${{ github.event.workflow_run.name }}
+          PROMOTION_SOURCE_WORKFLOW_PATH: ${{ github.event.workflow_run.path }}
           PROMOTION_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
           PROMOTION_SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
           PROMOTION_SOURCE_EVENT: ${{ github.event.workflow_run.event }}

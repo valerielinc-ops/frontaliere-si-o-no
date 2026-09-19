@@ -18,6 +18,7 @@ export const APPROVAL_SECRET = 'PRODUCTION_DEPLOY_APPROVAL';
 export const REQUIRED_REVIEWERS_RULE = 'required_reviewers';
 export const EXPECTED_BUILD_WORKFLOW = 'Deploy to GitHub Pages';
 export const EXPECTED_BUILD_WORKFLOW_PATH = '.github/workflows/deploy.yml';
+export const EXPECTED_BUILD_EVENTS = Object.freeze(['push', 'workflow_dispatch']);
 export const EXPECTED_PUBLISH_WORKFLOW = 'Publish to GitHub Pages (deploy + validate)';
 export const EXPECTED_PUBLISH_WORKFLOW_PATH = '.github/workflows/deploy-publish.yml';
 
@@ -37,6 +38,8 @@ function normalizeRef(value) {
  * @param {string} input.sourceRepository repository that produced the source
  * @param {string} [input.conclusion] upstream conclusion for workflow_run
  * @param {string} [input.sourceWorkflow] upstream workflow name
+ * @param {string} [input.sourceWorkflowPath] upstream workflow path
+ * @param {string} [input.sourceEventName] upstream workflow event
  * @param {string} [input.headSha] upstream commit SHA
  * @returns {{ valid: boolean, errors: string[] }}
  */
@@ -47,6 +50,8 @@ export function validatePromotionTrigger({
   sourceRepository,
   conclusion,
   sourceWorkflow,
+  sourceWorkflowPath,
+  sourceEventName,
   headSha,
 }) {
   const errors = [];
@@ -79,6 +84,12 @@ export function validatePromotionTrigger({
     if (String(sourceWorkflow || '').trim() !== EXPECTED_BUILD_WORKFLOW) {
       errors.push(`source workflow must be ${EXPECTED_BUILD_WORKFLOW}`);
     }
+    if (String(sourceWorkflowPath || '').trim() !== EXPECTED_BUILD_WORKFLOW_PATH) {
+      errors.push(`source workflow path must be ${EXPECTED_BUILD_WORKFLOW_PATH}`);
+    }
+    if (!EXPECTED_BUILD_EVENTS.includes(String(sourceEventName || '').trim())) {
+      errors.push(`source workflow event must be one of ${EXPECTED_BUILD_EVENTS.join(', ')}`);
+    }
     if (!String(headSha || '').trim()) errors.push('source build SHA is missing');
   } else if (event) {
     errors.push(`event ${event} is not an approved production-promotion trigger`);
@@ -100,6 +111,7 @@ export function validatePromotionTrigger({
  * @param {string} input.eventName
  * @param {string} input.workflow
  * @param {string} input.workflowRef
+ * @param {string} input.sourceWorkflowPath
  * @param {string} input.repository
  * @param {string} input.sourceRepository
  * @param {string} input.sourceRef
@@ -117,6 +129,7 @@ export function validateDeployPublishCaller({
   eventName,
   workflow,
   workflowRef,
+  sourceWorkflowPath,
   repository,
   sourceRepository,
   sourceRef,
@@ -172,6 +185,8 @@ export function validateDeployPublishCaller({
     sourceRepository,
     conclusion: sourceConclusion,
     sourceWorkflow,
+    sourceWorkflowPath,
+    sourceEventName,
     headSha: sourceSha,
   });
   errors.push(...trigger.errors);
@@ -309,6 +324,7 @@ function runCli(mode) {
       sourceRef: process.env.PROMOTION_SOURCE_REF,
       sourceConclusion: process.env.PROMOTION_CONCLUSION,
       sourceWorkflow: process.env.PROMOTION_SOURCE_WORKFLOW,
+      sourceWorkflowPath: process.env.PROMOTION_SOURCE_WORKFLOW_PATH,
       sourceHeadSha: process.env.PROMOTION_HEAD_SHA,
       sourceRunId: process.env.PROMOTION_SOURCE_RUN_ID,
       sourceEventName: process.env.PROMOTION_SOURCE_EVENT,
