@@ -1,0 +1,24 @@
+{
+  "companyKey": "forestgreen-monkey-477622",
+  "companyName": "Kaufmann Personal GmbH, Zweigniederlassung Chur",
+  "companyHost": "forestgreen-monkey-477622.hostingersite.com",
+  "platform": "hostingersite.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://forestgreen-monkey-477622.hostingersite.com/jobs/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 12,
+  "sampleTitles": [
+    "Maschinenbediener 100% (m/w)",
+    "Kundenberater/in Baumaterial 80-100%",
+    "Produktionsmitarbeiter (Chemie/Rezepturmischung) 100%",
+    "Produktionsmitarbeiter (Mischerei-Anlage)",
+    "Produktionsmitarbeiter (Klebstoffe)"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-19T09:31:30.513Z"
+}

@@ -736,19 +736,13 @@ jobs:
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           # Auth via subscription Max (zero API cost). MAI ANTHROPIC_API_KEY.
-          # Stessa identità dello step `Configure push remote (App token / PAT)` qui sopra,
-          # e per la stessa ragione per cui la si passa in issue-fix.yml: senza questo input
-          # Il lane Codex conia un proprio token e RI-SCRIVE il remote
-          # (`git-config.ts` → `replaceCheckoutCredentials()` fa un `git remote set-url`
-          # incondizionato), buttando via il remote appena configurato. Il commento del
-          # prompt qui sotto — «il remote origin è già autenticato con l'App token» —
-          # era quindi falso nel momento in cui l'agente lo leggeva, e ogni fix 🔴 su
-          # `.github/workflows/**` moriva al push nonostante il guard `HAS_PAT` lo avesse
-          # lasciato passare sulla capacità VERIFICATA (`APP_TOKEN_WORKFLOWS == 'true'`).
-          # Espressione identica a PUSH_TOKEN: se nessuno dei due esiste rende `''`, che è
-          # il ramo di default della action = comportamento odierno invariato.
+          # `github_token` alimenta gli helper provider-neutral di quota/delivery;
+          # resta allineato alla catena App/PAT del push, ma non è il bridge Codex.
           github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
-          codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          # Il bridge host-side `gh`/Git può eseguire anche operazioni mutanti: passa solo
+          # l'identità operativa App/PAT. L'action esistente fa fail-closed prima di
+          # `codex exec` se l'input è vuoto; il token resta fuori dall'ambiente del modello.
+          codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           # Le review/PR autonome sono di claude[bot] / github-actions[bot] /
           # frontaliere-automation[bot] (App): le PR aggiornate via App token
           # triggerano con actor = l'App → senza whitelist la action aborta

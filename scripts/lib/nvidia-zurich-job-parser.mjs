@@ -19,6 +19,8 @@
  * `locationsText` only ever says "N Locations" for these — the real
  * location list lives on the detail endpoint (`jobPostingInfo.location` +
  * `.additionalLocations`), which we already fetch for the description body.
+ * The primary detail location is authoritative for publication; an additional
+ * location cannot turn a foreign-primary requisition into a Zurich job.
  * Live verification (2026-07-03) confirmed every one of the 36
  * Switzerland-tagged postings resolves to either "Switzerland, Zurich" or
  * "Switzerland, Remote" — never another Swiss city — consistent with the
@@ -31,7 +33,7 @@
  *   - NVIDIA_ZURICH_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {
   buildWorkdayApiBase,
@@ -130,7 +132,8 @@ export function hasNvidiaSwissLocation(info = {}, listingLocation = '') {
  * raw empty so the guard drops it», `workday-swiss-job-parser-common.mjs`).
  */
 export function hasNvidiaSwissPrimaryLocation(info = {}) {
-  return hasNvidiaSwissLocation({ location: info?.location });
+  const primary = getWorkdayLocationCandidates({ location: info?.location }, '')[0] || '';
+  return Boolean(primary && !isLocationExplicitlyForeign(primary) && isSwissLocationCandidate(primary));
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */

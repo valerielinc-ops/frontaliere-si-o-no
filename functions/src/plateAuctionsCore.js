@@ -399,17 +399,21 @@ export const FIXED_PRICE_SOURCE_CONFIGS = Object.freeze({
     plateCode: 'BS',
     officialUrl: 'https://www.bs.ch/themen/mobilitaet/kontrollschilder/wunschkontrollschilder',
     pageUrl: 'https://www.bs.ch/themen/mobilitaet/kontrollschilder/wunschkontrollschilder',
-    fallbackPdfUrl: 'https://media.bs.ch/original_file/610e3a67904246e78c7b560e7cbccd3a86ae815b/wuko-pw-35.pdf',
+    // Deliberately NO fallbackPdfUrl. BS publishes one content-addressed PDF
+    // per ISO week (`/original_file/<sha>/wuko-pw-<week>.pdf`), so any URL
+    // hardcoded here is pinned to the week it was captured and is wrong by
+    // construction from the next publication on. The two that used to live
+    // here had drifted to weeks 35 and 33 while the live page served 36 and
+    // 35. Without a fallback, a pattern that stops matching now names itself
+    // instead of 404-ing on a stale week.
     pdfUrlPattern: /\/wuko-pw-[^/]+\.pdf$/i,
     pdfVariants: [
       {
         vehicleType: 'car',
-        fallbackPdfUrl: 'https://media.bs.ch/original_file/610e3a67904246e78c7b560e7cbccd3a86ae815b/wuko-pw-35.pdf',
         pdfUrlPattern: /\/wuko-pw-[^/]+\.pdf$/i,
       },
       {
         vehicleType: 'motorcycle',
-        fallbackPdfUrl: 'https://media.bs.ch/original_file/522007c247964e18b3fcc2359ede666419627d58/wuko-mr-33.pdf',
         pdfUrlPattern: /\/wuko-mr-[^/]+\.pdf$/i,
       },
     ],
@@ -732,6 +736,44 @@ export function extractPdfUrl(html, { baseUrl, pattern } = {}) {
   // (or vice versa) after an upstream markup change. Callers that have a
   // deliberately verified fallback URL choose it explicitly.
   return typeof pattern?.test === 'function' ? matching : hrefs[0];
+}
+
+/**
+ * Resolve the PDF a variant should read, from the live index page.
+ *
+ * Shared by both collectors on purpose: `scripts/plate-auctions/ingest.mjs`
+ * (via connectors/fixed-price.mjs) and the Cloud Function in plateAuctions.js
+ * each carried a literal copy of `extractPdfUrl(...) || variant.fallbackPdfUrl`,
+ * so a fix to one silently left the other wrong.
+ *
+ * That `||` was the bug. `extractPdfUrl` returns nothing when a configured
+ * pattern matches no href — its contract, not a ranking miss — and the `||`
+ * turned that answer into a hardcoded URL. BS publishes one content-addressed
+ * PDF per ISO week (`/original_file/<sha>/wuko-pw-<week>.pdf`), so its
+ * hardcoded copy was pinned to the week it was captured: on 2026-09-19 it
+ * answered HTTP 404 and the run reported `fetch_failed`, which was the LUCKY
+ * outcome. A hashed asset that keeps answering 200 publishes a five-week-old
+ * catalogue as current, with fresh timestamps and `status: active`, and nothing
+ * downstream can tell. Measured the same day the live page served week 36 (car)
+ * and week 35 (motorcycle) while the pinned URLs were weeks 35 and 33.
+ *
+ * A fallback is therefore only honoured when the config still vouches for it —
+ * AI's `/download` and LU's `wunschschilder.pdf` are canonical evergreen paths
+ * — and using one is logged, because a pattern that stopped matching is the
+ * same signal that preceded the BS breakage.
+ */
+export function resolveVariantPdfUrl(variant, { sourceKey, pageUrl, indexHtml }) {
+  const derived = variant.pdfUrlPattern
+    ? extractPdfUrl(indexHtml, { baseUrl: pageUrl, pattern: variant.pdfUrlPattern })
+    : null;
+  const pdfUrl = derived || variant.fallbackPdfUrl;
+  if (!pdfUrl) {
+    throw new Error(`${sourceKey}: no PDF href matched ${variant.pdfUrlPattern} on ${pageUrl}`);
+  }
+  if (variant.pdfUrlPattern && !derived) {
+    console.warn(`[plate-auctions:${sourceKey}] ${variant.pdfUrlPattern} matched no href on ${pageUrl}; falling back to the configured ${pdfUrl}`);
+  }
+  return pdfUrl;
 }
 
 async function extractPdfText(arrayBuffer) {

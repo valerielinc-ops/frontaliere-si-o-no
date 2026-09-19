@@ -66,6 +66,20 @@ describe('CSL Behring crawler parser', () => {
     expect(resolveCslLocation('Americas, US-PA, King of Prussia, CSL Behring')).toBe('');
   });
 
+  it('does not publish a Swiss additional location when the primary is foreign', () => {
+    expect(resolveCslPublishLocation({
+      location: 'Americas, US-PA, King of Prussia, CSL Behring',
+      additionalLocations: [{ descriptor: 'EMEA, CH, Glattbrugg, CSL Behring' }],
+    })).toBe('');
+  });
+
+  it('publishes a Swiss primary location', () => {
+    expect(resolveCslPublishLocation({
+      location: 'EMEA, CH, Kanton Bern, Bern, CSL Behring',
+      additionalLocations: [{ descriptor: 'Americas, US-PA, King of Prussia' }],
+    })).toBe('Bern');
+  });
+
   it('keeps the company matcher and trusted-domain boundary intact', () => {
     expect(CSL_BEHRING_KEY).toBe('csl-behring');
     expect(CSL_BEHRING_COMPANY_NAME).toBe('CSL Behring');

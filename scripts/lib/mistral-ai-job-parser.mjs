@@ -18,7 +18,7 @@
  *   - isTrustedDomain()        — Validate URLs belong to this company
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { fetchWithRetry } from './transient-fetch.mjs';
@@ -142,9 +142,9 @@ function mapEmploymentType(ashbyType = '', text = '') {
  * Mistral is a global org (~164 open roles, mostly Paris). A role targets
  * Switzerland either via its PRIMARY `location`/`address` or one of its
  * `secondaryLocations` (e.g. "Research Engineer, Machine Learning" has
- * primary location "Paris" but a secondary "Zurich" office). We must inspect
- * both, and — for a matched role — surface the Swiss location string (not the
- * Paris primary) so canton inference lands in CH.
+ * primary location "Paris" but a secondary "Zurich" office). The broad
+ * helper remains useful for diagnostics, but publication requires the primary
+ * location to be Swiss so a foreign vacancy is never emitted as Swiss.
  */
 const SWISS_COUNTRY_NEEDLES = ['switzerland', 'suisse', 'schweiz', 'svizzera'];
 const SWISS_LOCATION_NEEDLES = [
@@ -184,6 +184,20 @@ export function ashbyLocationEntries(job) {
 /** Does this Ashby posting target a Swiss office (primary or secondary)? */
 export function isSwissAshbyJob(job) {
   return ashbyLocationEntries(job).some(isSwissLocationEntry);
+}
+
+/** Does the authoritative Ashby primary location identify Switzerland? */
+export function isSwissPrimaryAshbyJob(job) {
+  const primary = ashbyLocationEntries(job)[0];
+  if (!primary) return false;
+  const postalAddress = primary.address?.postalAddress || {};
+  const primaryText = [
+    primary.location,
+    postalAddress.addressLocality,
+    postalAddress.addressCountry,
+  ].filter(Boolean).join(', ');
+  if (isLocationExplicitlyForeign(primaryText)) return false;
+  return isSwissLocationEntry(primary);
 }
 
 /**
@@ -248,7 +262,7 @@ async function fetchJobListings() {
   for (const raw of board) {
     if (!raw || typeof raw !== 'object') continue;
     if (raw.isListed === false) continue;
-    if (!isSwissAshbyJob(raw)) continue;
+    if (!isSwissPrimaryAshbyJob(raw)) continue;
     listings.push({
       title: normalizeSpace(raw.title || ''),
       location: pickSwissLocationLabel(raw),

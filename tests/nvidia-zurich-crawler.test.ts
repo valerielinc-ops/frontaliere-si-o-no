@@ -89,6 +89,22 @@ describe('NVIDIA (ufficio Zurich) crawler parser', () => {
         ],
       })).toBe(false);
     });
+
+    it('rejects a foreign primary location even when an additional location is Swiss', () => {
+      expect(hasNvidiaSwissPrimaryLocation({
+        location: { descriptor: 'Paris, France', country: { alpha2Code: 'FR' } },
+        additionalLocations: [
+          { descriptor: 'Zurich, Switzerland', country: { alpha2Code: 'CH' } },
+        ],
+      })).toBe(false);
+    });
+
+    it('accepts a Swiss primary location', () => {
+      expect(hasNvidiaSwissPrimaryLocation({
+        location: { descriptor: 'Zurich, Switzerland', country: { alpha2Code: 'CH' } },
+        additionalLocations: [{ descriptor: 'Paris, France' }],
+      })).toBe(true);
+    });
   });
 
   // The publish predicate is NOT the facet predicate. `hasNvidiaSwissLocation`

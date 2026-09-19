@@ -9,6 +9,7 @@ import {
   prFixClaimDedupeKey,
   prFixClaimKey,
   normalizedSignal,
+  releaseClaimEvent,
   runIsFinished,
 } from '../scripts/ci/pr-fixer-claim.mjs';
 
@@ -155,6 +156,18 @@ describe('persisted PR fixer claims (#8362, #8363)', () => {
 
   it('treats startup failure as a retryable runner conclusion', () => {
     expect(runIsFinished({ status: 'completed', conclusion: 'startup_failure' })).toBe(true);
+  });
+
+  it('releases a locally posted loser even when its active marker is not yet visible', () => {
+    const local = claim({ token: 'locally-posted-loser' });
+
+    expect(releaseClaimEvent({ localClaim: local, issuedAt: 500 })).toMatchObject({
+      token: 'locally-posted-loser',
+      state: 'released',
+      issuedAt: 500,
+    });
+    expect(releaseClaimEvent({ ownClaim: null, localClaim: { ...local, state: 'completed' }, issuedAt: 500 }))
+      .toBeNull();
   });
 
   it('keeps the latest state per token and does not mix a new HEAD or verdict', () => {
