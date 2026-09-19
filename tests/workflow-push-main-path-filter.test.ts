@@ -88,6 +88,58 @@ describe('validatePushMainPathFilter — un push su main senza filtro è un repe
     expect(reasons(`${WORKFLOWS_DIR}/demo.yml`, text)).toHaveLength(1);
   });
 
+  // Reperto 🟡 della review di PR #9326, riprodotto: `on:` come sequenza a
+  // blocchi e `on:`/`push:` come flow map sono YAML validi che producono lo
+  // stesso workflow della forma a blocchi, e passavano il gate intatti.
+  it('segnala `on:` come sequenza a blocchi che contiene push', () => {
+    const text = ['name: demo', 'on:', '  - push', '  - workflow_dispatch', 'jobs: {}'].join('\n');
+    expect(reasons(`${WORKFLOWS_DIR}/demo.yml`, text)[0]).toContain('sequenza di eventi');
+  });
+
+  it('ignora `on:` come sequenza a blocchi senza push', () => {
+    const text = ['name: demo', 'on:', '  - pull_request', 'jobs: {}'].join('\n');
+    expect(reasons(`${WORKFLOWS_DIR}/demo.yml`, text)).toEqual([]);
+  });
+
+  it('segnala `on:` come flow map con push senza filtro', () => {
+    const text = ['name: demo', 'on: {push: {branches: [main]}}', 'jobs: {}'].join('\n');
+    expect(reasons(`${WORKFLOWS_DIR}/demo.yml`, text)).toHaveLength(1);
+  });
+
+  it('accetta `on:` come flow map con push filtrato', () => {
+    const text = ['name: demo', "on: {push: {branches: [main], paths: ['scripts/**']}}", 'jobs: {}'].join('\n');
+    expect(reasons(`${WORKFLOWS_DIR}/demo.yml`, text)).toEqual([]);
+  });
+
+  it('ignora `on:` come flow map senza push', () => {
+    const text = ['name: demo', 'on: {pull_request: {branches: [main]}}', 'jobs: {}'].join('\n');
+    expect(reasons(`${WORKFLOWS_DIR}/demo.yml`, text)).toEqual([]);
+  });
+
+  it('segnala `push:` come flow map inline senza filtro', () => {
+    const text = ['name: demo', 'on:', '  push: {branches: [main]}', 'jobs: {}'].join('\n');
+    expect(reasons(`${WORKFLOWS_DIR}/demo.yml`, text)).toHaveLength(1);
+  });
+
+  it('accetta `push:` come flow map inline con paths', () => {
+    const text = ['name: demo', 'on:', "  push: {branches: [main], paths: ['scripts/**']}", 'jobs: {}'].join('\n');
+    expect(reasons(`${WORKFLOWS_DIR}/demo.yml`, text)).toEqual([]);
+  });
+
+  it('accetta `push:` come flow map inline di soli tag', () => {
+    const text = ['name: demo', 'on:', "  push: {tags: ['v*']}", 'jobs: {}'].join('\n');
+    expect(reasons(`${WORKFLOWS_DIR}/demo.yml`, text)).toEqual([]);
+  });
+
+  it('non spezza una flow map sulle virgole annidate', () => {
+    const text = [
+      'name: demo', 'on:',
+      "  push: {branches: [main, release/*], paths-ignore: ['docs/**', '*.md']}",
+      'jobs: {}',
+    ].join('\n');
+    expect(reasons(`${WORKFLOWS_DIR}/demo.yml`, text)).toEqual([]);
+  });
+
   it('non guarda i paths di un altro evento', () => {
     const text = [
       'name: demo', 'on:', '  pull_request:', "    paths: ['scripts/**']",
