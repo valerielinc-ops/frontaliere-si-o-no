@@ -24,6 +24,7 @@ import {
   describePostWalkVerificationPaths,
   loadPostWalkManifestState,
   postWalkIncrementalEnabled,
+  postWalkTargetedWalkEnabled,
   releasePostWalkManifestState,
   replacePostWalkPathList,
   selectPostWalkVerificationPaths,
@@ -633,6 +634,21 @@ describe('post-walk incremental planning', () => {
     expect(result.topLevelsChanged).toBe(true);
     expect(result.paths).toContain(legacy);
     expect(result.paths).toContain(path.join(distDir, 'new-root/page/index.html'));
+  });
+
+  it('keeps the targeted walk an explicit opt-in on top of POST_WALK_INCREMENTAL', () => {
+    const previous = process.env.POST_WALK_TARGETED_WALK;
+    try {
+      delete process.env.POST_WALK_TARGETED_WALK;
+      expect(postWalkTargetedWalkEnabled()).toBe(false);
+      process.env.POST_WALK_TARGETED_WALK = 'true';
+      expect(postWalkTargetedWalkEnabled()).toBe(false);
+      process.env.POST_WALK_TARGETED_WALK = '1';
+      expect(postWalkTargetedWalkEnabled()).toBe(true);
+    } finally {
+      if (previous === undefined) delete process.env.POST_WALK_TARGETED_WALK;
+      else process.env.POST_WALK_TARGETED_WALK = previous;
+    }
   });
 
   it('reuses a root-level 404.html from the persisted inventory on the next targeted walk', async () => {

@@ -1369,6 +1369,21 @@ export function postWalkIncrementalEnabled(): boolean {
   return process.env[POST_WALK_INCREMENTAL_ENV] === '1';
 }
 
+export const POST_WALK_TARGETED_WALK_ENV = 'POST_WALK_TARGETED_WALK';
+
+/**
+ * The claimed+targeted walk (and its persisted exact inventory) is an
+ * explicit opt-in on top of POST_WALK_INCREMENTAL. At least 18 build plugins
+ * still emit new HTML without WriteCollector/claim(), so a targeted walk can
+ * miss a new unclaimed page below an indexed or claimed tree. Until those
+ * writers are registered, POST_WALK_INCREMENTAL alone keeps the full walk,
+ * which is complete by construction, and only the process phase is
+ * incremental.
+ */
+export function postWalkTargetedWalkEnabled(): boolean {
+  return process.env[POST_WALK_TARGETED_WALK_ENV] === '1';
+}
+
 export function postWalkIncrementalVerifyEnabled(): boolean {
   return process.env[POST_WALK_INCREMENTAL_VERIFY_ENV] === '1';
 }
