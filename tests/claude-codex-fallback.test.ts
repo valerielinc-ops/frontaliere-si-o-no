@@ -15,6 +15,7 @@ import {
 import { join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { describe, expect, it } from 'vitest';
+import YAML from 'yaml';
 import {
   CODEX_FALLBACK_EFFORT,
   CODEX_FALLBACK_MODEL,
@@ -100,6 +101,56 @@ const workflowNames = [
   'growth-report.yml',
   'crawler-content-plausibility-audit.yml',
 ];
+
+const mutatingBridgeWorkflows = [
+  'issue-fix.yml',
+  'pr-redflag-fixer.yml',
+  'pr-redcheck-fixer.yml',
+  'issue-decompose.yml',
+  'needs-human-sweep.yml',
+  'growth-report.yml',
+  'tests.yml',
+  'post-merge-followup.yml',
+  'crawler-content-plausibility-audit.yml',
+  'lessons-harvester.yml',
+];
+
+function jobBlockContaining(workflow: string, needle: string): string {
+  const jobsStart = workflow.indexOf('\njobs:\n');
+  if (jobsStart < 0) return '';
+  const lines = workflow.slice(jobsStart + '\njobs:\n'.length).split('\n');
+  const blocks: string[] = [];
+  let current: string[] = [];
+  for (const line of lines) {
+    if (/^  [A-Za-z0-9_-]+:\s*$/u.test(line)) {
+      if (current.length > 0) blocks.push(current.join('\n'));
+      current = [line];
+    } else if (current.length > 0) {
+      current.push(line);
+    }
+  }
+  if (current.length > 0) blocks.push(current.join('\n'));
+  return blocks.find((block) => block.includes(needle)) || '';
+}
+
+type WorkflowStep = {
+  uses?: unknown;
+  with?: Record<string, unknown>;
+};
+
+function codexFallbackWith(workflow: string): Record<string, unknown> {
+  const parsed = YAML.parse(workflow) as {
+    jobs?: Record<string, { steps?: WorkflowStep[] }>;
+  };
+  for (const job of Object.values(parsed.jobs ?? {})) {
+    for (const step of job.steps ?? []) {
+      if (step.uses === './.github/actions/claude-codex-fallback' && step.with) {
+        return step.with;
+      }
+    }
+  }
+  return {};
+}
 
 const highConcurrencyReviewWorkflows = new Set([
   'tests.yml',
@@ -762,8 +813,8 @@ describe('copertura workflow diretti', () => {
     expect(workflow).not.toContain('CODEX_ACCESS_TOKEN');
   });
 
-  it('separa l’identità del bridge dalla GITHUB_TOKEN sui fixer mutanti', () => {
-    for (const workflowName of ['issue-fix.yml', 'pr-redflag-fixer.yml', 'pr-redcheck-fixer.yml']) {
+  it('separa l’identità del bridge dalla GITHUB_TOKEN su tutti i caller mutanti', () => {
+    for (const workflowName of mutatingBridgeWorkflows) {
       const workflow = readFileSync(resolve(repoRoot, '.github', 'workflows', workflowName), 'utf8');
       const bridgeLine = workflow.split('\n').find((line) => line.trim().startsWith('codex_github_token:'));
       expect(bridgeLine, `${workflowName} deve dichiarare il token bridge`).toContain(
@@ -773,14 +824,45 @@ describe('copertura workflow diretti', () => {
     }
   });
 
-  it('conserva il fallback GITHUB_TOKEN solo nei lane che non hanno il bridge mutante F4', () => {
-    for (const workflowName of ['tests.yml', 'issue-decompose.yml', 'needs-human-sweep.yml', 'growth-report.yml']) {
+  it('mantiene github_token separato dal bridge host-side', () => {
+    for (const workflowName of mutatingBridgeWorkflows) {
       const workflow = readFileSync(resolve(repoRoot, '.github', 'workflows', workflowName), 'utf8');
-      expect(workflow).toContain('codex_github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}');
+      const actionWith = codexFallbackWith(workflow);
+      const bridgeToken = String(actionWith.codex_github_token ?? '');
+      const helperToken = String(actionWith.github_token ?? '');
+      expect(bridgeToken, `${workflowName} deve avere il bridge`).toContain('env.APP_TOKEN || env.GITHUB_PAT');
+      expect(helperToken, `${workflowName} deve conservare il lifecycle helper`).not.toBe('');
     }
     const issueFix = readFileSync(resolve(repoRoot, '.github', 'workflows', 'issue-fix.yml'), 'utf8');
-    expect(issueFix).toMatch(/\n\s+github_token: \$\{\{ env\.APP_TOKEN \}\}/);
-    expect(issueFix).not.toMatch(/\n\s+github_token: \$\{\{ env\.APP_TOKEN \|\| secrets\.GITHUB_TOKEN \}\}/);
+    const issueFixWith = codexFallbackWith(issueFix);
+    expect(issueFixWith.github_token).toBe('${{ env.APP_TOKEN }}');
+    expect(issueFixWith.github_token).not.toBe('${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}');
+  });
+
+  it('prepara App/PAT prima dei caller senza token già caricato', () => {
+    for (const workflowName of [
+      'lessons-harvester.yml',
+      'crawler-content-plausibility-audit.yml',
+      'post-merge-followup.yml',
+    ]) {
+      const workflow = readFileSync(resolve(repoRoot, '.github', 'workflows', workflowName), 'utf8');
+      expect(workflow).toContain('Mint GitHub App token for Codex bridge (zero-Claude)');
+      expect(workflow).toContain('APP_ID: ${{ secrets.APP_ID }}');
+      expect(workflow).toContain('APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}');
+    }
+  });
+
+  it('colloca mint/load del bridge nello stesso job del consumer YAML', () => {
+    for (const workflowName of mutatingBridgeWorkflows) {
+      const workflow = readFileSync(resolve(repoRoot, '.github', 'workflows', workflowName), 'utf8');
+      const job = jobBlockContaining(workflow, 'codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}');
+      expect(job, `${workflowName} deve avere consumer e job riconoscibili`).not.toBe('');
+      const mintMatch = job.match(/Mint(?: GitHub)? App token/u);
+      const mint = mintMatch?.index ?? -1;
+      const bridge = job.indexOf('codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}');
+      expect(mint, `${workflowName} deve caricare App/PAT nello stesso job`).toBeGreaterThanOrEqual(0);
+      expect(mint, `${workflowName} deve caricare App/PAT prima del consumer`).toBeLessThan(bridge);
+    }
   });
 
   it('mantiene il contratto di invocazione Codex Luna Max e cleanup effimero', () => {
