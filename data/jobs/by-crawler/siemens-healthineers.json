@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "siemens-healthineers-93659aa08ac7",
-      "slug": "senior-strategic-accounts-manager-emea-siemens-healthineers-ch",
+      "slug": "responsabile-senior-account-strategici-emea-siemens-healthineers-zurich",
       "slugByLocale": {
-        "it": "senior-strategic-accounts-manager-emea-siemens-healthineers-ch",
+        "it": "responsabile-senior-account-strategici-emea-siemens-healthineers-zurich",
         "en": "senior-strategic-accounts-manager-emea-siemens-healthineers-ch",
-        "de": "senior-strategic-accounts-manager-emea-siemens-healthineers-ch",
+        "de": "leiter-senior-strategische-kundenkonten-emea-siemens-healthineers-zurich",
         "fr": "gestionnaire-principal-des-comptes-strategiques-emea-siemens-healthineers-zurich"
       },
       "company": "Siemens Healthineers",
@@ -63,7 +63,18 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-strategic-accounts-manager-emea-siemens-healthineers-ch"
+        ],
+        "de": [
+          "senior-strategic-accounts-manager-emea-siemens-healthineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-strategic-accounts-manager-emea-siemens-healthineers-ch"
+      ]
     },
     {
       "id": "siemens-healthineers-d66bed80d71e",
@@ -115,13 +126,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R-25505",
       "previousSlugs": [
-        "medical-physicist-f-m-d-proton-therapy-siemens-healthineers-ch",
-        "medico-medico-m-f-d-terapia-protone-siemens-healthineers-zurich"
+        "medical-physicist-f-m-d-proton-therapy-siemens-healthineers-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medical-physicist-f-m-d-proton-therapy-siemens-healthineers-ch",
-          "medico-medico-m-f-d-terapia-protone-siemens-healthineers-zurich"
+          "medical-physicist-f-m-d-proton-therapy-siemens-healthineers-ch"
         ],
         "de": [
           "medical-physicist-f-m-d-proton-therapy-siemens-healthineers-ch"

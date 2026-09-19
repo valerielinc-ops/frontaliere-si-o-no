@@ -85,17 +85,26 @@ describe('validate-locale-shard-build.mjs — `dist/<loc>.html` belongs to <loc>
       'en/lavoro/index.html',
       'en.html',
     ]);
-    expect(output).toContain('page counts: it=0');
+    expect(output).toContain('page counts: it=0  en=owned=present  de=0  fr=0');
     expect(output).not.toContain('filter leak');
     expect(output).toContain('✓ Locale shard validation PASSED');
     expect(status).toBe(0);
   });
 
-  it('counts the homepage toward its own locale, not as an extra IT page', () => {
-    // Attribution, not exemption — `en` is 3 (2 subtree + 1 homepage), not 2.
-    // This is what makes the reverse-direction leak detectable below.
+  it('reports presence for the owned locale instead of walking its full subtree', () => {
     const { output } = runValidator('en', ['en/index.html', 'en/lavoro/index.html', 'en.html']);
-    expect(output).toMatch(/page counts: it=0\s+en=3\s+de=0\s+fr=0/);
+    expect(output).toMatch(/page counts: it=0\s+en=owned=present\s+de=0\s+fr=0/);
+  });
+
+  it('uses the owned sample as the positive gate and keeps an empty owned shard red', () => {
+    const present = runValidator('en', ['en/index.html']);
+    expect(present.status).toBe(0);
+    expect(present.output).toContain('page counts: it=0  en=owned=present  de=0  fr=0');
+
+    const empty = runValidator('en', ['en.html']);
+    expect(empty.status).toBe(1);
+    expect(empty.output).toContain('page counts: it=0  en=owned=missing  de=0  fr=0');
+    expect(empty.output).toContain("no sample index.html found for emitted locale 'en'");
   });
 
   it('still FAILS when a real IT page leaks into a locale shard', () => {
@@ -122,15 +131,17 @@ describe('validate-locale-shard-build.mjs — `dist/<loc>.html` belongs to <loc>
 
   it('is anchored on the whole filename — lookalike root pages stay IT', () => {
     // `enigma.html` / `frontalieri.html` merely START with a locale code. A
-    // prefix match would hand them to en/fr and invent a leak on the it leg.
-    const { status, output } = runValidator('it', [
+    // prefix match would hand them to en/fr and invent a leak on the EN leg.
+    const { status, output } = runValidator('en', [
+      'en/index.html',
       'index.html',
       'enigma.html',
       'frontalieri.html',
       'de-che-cosa-sapere.html',
     ]);
-    expect(output).toMatch(/page counts: it=4\s+en=0\s+de=0\s+fr=0/);
-    expect(status).toBe(0);
+    expect(output).toMatch(/page counts: it=4\s+en=owned=present\s+de=0\s+fr=0/);
+    expect(output).toContain("locale 'it' was NOT in the shard set but emitted 4 pages (filter leak)");
+    expect(status).toBe(1);
   });
 
   it('keeps the empty-subtree assertion: a locale leg with no pages still fails', () => {

@@ -75,8 +75,8 @@ if [ ! -d "$dist_dir/$sub" ]; then
   exit 0
 fi
 
-# Count the files we are about to remove BEFORE deleting them, then add the
-# tally to a per-locale accumulator marker. push-locale-shard.sh reads it so
+# Delete each file while printing it and count that stream, then add the tally
+# to a per-locale accumulator marker. push-locale-shard.sh reads it so
 # its >50% shrink guard can reconstruct the BUILT (pre-strip) shard size and
 # NOT mistake this PLANNED section split for a partial-build regression. This
 # strip only runs after BOTH gates above (section shard LIVE + push ok-marker),
@@ -85,7 +85,7 @@ fi
 # main-shard push refuses the (correctly) smaller shard and the locale freezes
 # stale (incident jul20: en/fr main shards stuck when svizzera+zurigo went live
 # — 403338→186096 read as a >50% regression).
-n_stripped="$(find "${dist_dir:?}/$sub" -type f 2>/dev/null | wc -l | tr -d ' ')"
+n_stripped="$(find "${dist_dir:?}/$sub" -type f -print -delete 2>/dev/null | wc -l | tr -d ' ')"
 [[ "$n_stripped" =~ ^[0-9]+$ ]] || n_stripped=0
 # Guarded `${dist_dir:?}` so an unset var can never expand `rm -rf /$sub`.
 rm -rf "${dist_dir:?}/$sub"

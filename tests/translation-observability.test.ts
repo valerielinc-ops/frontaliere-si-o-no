@@ -10,6 +10,7 @@ import {
   createTranslationObservabilitySnapshot,
   finalizeTranslationObservabilityReport,
   packTranslationObservabilityRows,
+  summarizeCascadeObservability,
   unpackTranslationObservabilityRows,
   unpackTranslationObservabilityState,
 } from '../scripts/lib/translation-observability.mjs';
@@ -264,6 +265,59 @@ describe('translation observability', () => {
     expect(serialized).not.toContain('private-company');
     expect(serialized).not.toContain('acme-private');
     expect(serialized).not.toContain('example.invalid');
+  });
+
+  it('persists bounded per-job cost, rung attribution and company concentration without raw keys', () => {
+    const observation = generation(null, [job()]);
+    const value = finalizeTranslationObservabilityReport(buildTranslationObservabilityReport({
+      before: snapshot([job()]),
+      final: snapshot([job()], { measureLanguageQuality: true }),
+      runId: 'observability-cost',
+      startedAt: '2026-08-31T00:00:00Z',
+      finishedAt: '2026-08-31T00:01:00Z',
+      sourceCommit: 'abc',
+      outcome: 'success',
+      generationObservation: observation,
+      runPhases: [{
+        name: 'cascade',
+        startedAtMs: 0,
+        endedAtMs: 500,
+        windowMs: 500,
+        jobsCleared: 2,
+        jobDurationsMs: [300, 20, 100, 10, 40],
+        rungAttribution: [
+          { rung: 'deepl', count: 2, durationMs: 30 },
+          { rung: 'unserved', count: 1, durationMs: 7 },
+        ],
+        companyConcentration: [{
+          companyKey: 'private-company',
+          queued: 4,
+          served: 3,
+          cleared: 2,
+          durationMs: 100,
+        }],
+      }],
+    }), 'def');
+
+    expect(value.runPhases.cascade.jobTiming).toEqual({
+      count: 5,
+      p50Ms: 40,
+      p90Ms: 300,
+      maxMs: 300,
+    });
+    expect(value.rungAttribution).toEqual([
+      { rung: 'deepl', count: 2, durationMs: 30 },
+      { rung: 'unserved', count: 1, durationMs: 7 },
+    ]);
+    expect(value.companyConcentration).toHaveLength(1);
+    expect(value.companyConcentration[0]).toMatchObject({ queued: 4, served: 3, cleared: 2, durationMs: 100 });
+    expect(value.companyConcentration[0].companyFingerprint).toMatch(/^sha256:[a-f0-9]{64}$/);
+    expect(JSON.stringify(value)).not.toContain('private-company');
+    expect(summarizeCascadeObservability([])).toEqual({
+      jobTiming: { count: 0, p50Ms: null, p90Ms: null, maxMs: null },
+      rungAttribution: [],
+      companyConcentration: [],
+    });
   });
 
   it('measures wrong-language slots only on the true-final, with the canonical populations and no offenders', () => {
