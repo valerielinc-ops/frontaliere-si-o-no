@@ -26,6 +26,11 @@
  * riceve i finding già parsati, così non esiste una seconda copia del parser.
  */
 import { createHash } from 'node:crypto';
+// `stripFencedBlocks` esiste già, esportato, in `followup-resolution-match.mjs`
+// e gestisce anche le fence annidate e i marcatori di lunghezza diversa:
+// riusarlo invece di riscriverlo tiene una sola copia della regola (AGENTS.md
+// #6), che è esattamente ciò che questo modulo esiste per garantire altrove.
+import { stripFencedBlocks } from '../followup-resolution-match.mjs';
 
 /** Classi dichiarabili. Solo `regression` ha semantica per il gate. */
 export const FINDING_CLASSES = Object.freeze([
@@ -150,20 +155,6 @@ export function dedupeFindingsById(findings) {
 
 const LITERAL_NEWLINE_RE = /\\n/gu;
 const EMPTY_FIX_ANCHOR_RE = /^\s*(?:[-*]\s*)?Fix di\s+(?:``|`\s+`|)\s*:\s*ok\b/imu;
-const FENCE_RE = /^\s*(?:```|~~~)/u;
-
-function stripFencedBlocks(body) {
-  const kept = [];
-  let inFence = false;
-  for (const line of String(body || '').split(/\r?\n/u)) {
-    if (FENCE_RE.test(line)) {
-      inFence = !inFence;
-      continue;
-    }
-    if (!inFence) kept.push(line);
-  }
-  return kept.join('\n');
-}
 
 /**
  * Difetti strutturali che rendono il body illeggibile come verdetto.
