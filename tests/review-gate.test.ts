@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   classifyReview,
   citationConfirmed,
@@ -1372,5 +1373,25 @@ describe('review gate: the ignore carve-out is narrow', () => {
     expect(result.blocking).toBe(true);
     expect(result.unresolved).toHaveLength(1);
     expect(result.ignoredCitations).toHaveLength(0);
+  });
+});
+
+describe('review gate: fallback provenance reaches every authoritative consumer', () => {
+  it('refuses a fallback tree inside auditHistoricalCitations, not just at the call site', () => {
+    // The function is exported: the guard has to live in it, or a caller that
+    // drops the provenance gets an authoritative verdict from a local tree.
+    expect(() => auditHistoricalCitations([], TREE_FILES, { fromFallback: true }))
+      .toThrow(/fallback non ammesso/u);
+    expect(() => auditHistoricalCitations([], TREE_FILES)).not.toThrow();
+  });
+
+  it('never resolves the local tree against HEAD instead of the requested SHA', () => {
+    // Pinned on the source: falling back to HEAD would resolve citations
+    // against a tree other than the one under review.
+    const src = readFileSync(new URL('../scripts/ci/review-gate.mjs', import.meta.url), 'utf8');
+    const body = src.slice(src.indexOf('function localTreePaths'));
+    const fn = body.slice(0, body.indexOf('\n}\n') + 3);
+    expect(fn).toContain('ls-tree');
+    expect(fn).not.toMatch(/['"`]HEAD['"`]/u);
   });
 });

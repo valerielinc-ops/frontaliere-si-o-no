@@ -783,8 +783,14 @@ function truncatedPathCandidates(citation, repositoryPaths) {
  * Audit a persisted review history against the final repository tree. The
  * legacy count is an evidence line for the old extension parser; the current
  * count is the fail-closed result that must be zero before the audit passes.
+ *
+ * The audit declares historical anchors clean, so it needs an authoritative
+ * tree. The refusal of a fallback tree lives here rather than at the call site:
+ * this function is exported, and a caller that forgot the provenance would
+ * otherwise get an authoritative-looking verdict from a locally rebuilt tree.
  */
-export function auditHistoricalCitations(reviews, repositoryPaths) {
+export function auditHistoricalCitations(reviews, repositoryPaths, { fromFallback = false } = {}) {
+  if (fromFallback) throw new Error('tree di fallback non ammesso per audit storico');
   const list = reviewerList(reviews);
   const findingCitations = (extractCitations) => list.flatMap((review, reviewIndex) =>
     parseImportantFindings(review?.body, extractCitations).flatMap((finding) =>
@@ -1406,11 +1412,7 @@ async function auditHistoricalCitationsMain() {
   const reviews = readReviews(repo, pr);
   const { paths: repositoryPaths, fromFallback } = fetchRepositoryHeadPaths(repo, pr);
   if (!repositoryPaths) throw new Error('tree HEAD non recuperabile per audit storico');
-  // The audit reports historical anchors as clean, so it needs an
-  // authoritative tree. A local fallback would let it declare anchors resolved
-  // on the strength of a tree the API never confirmed.
-  if (fromFallback) throw new Error('tree HEAD di fallback non ammesso per audit storico');
-  const result = auditHistoricalCitations(reviews, repositoryPaths);
+  const result = auditHistoricalCitations(reviews, repositoryPaths, { fromFallback });
   console.log(`review-gate: historical citation audit ${repo}#${pr}`);
   console.log(`review-gate: reviews=${result.reviewCount} citations=${result.citationCount}`);
   console.log(`review-gate: legacy-open-findings=${result.legacyOpenFindings.length}`);
