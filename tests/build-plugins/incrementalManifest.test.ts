@@ -26,6 +26,7 @@ const ROOT = path.resolve(TEST_DIR, '../..');
 const REPORT = path.join(ROOT, 'scripts/ci/incremental-manifest-report.mjs');
 const PREVIOUS = path.join(ROOT, 'tests/fixtures/incremental-manifest/previous.jsonl');
 const CURRENT = path.join(ROOT, 'tests/fixtures/incremental-manifest/current.jsonl');
+const JOBS_SEO_PLUGIN = path.join(ROOT, 'build-plugins/jobsSeoPagesPlugin.ts');
 
 describe('incremental manifest input contract', () => {
   it('canonicalizes object keys independently of insertion order', () => {
@@ -76,6 +77,17 @@ describe('incremental manifest input contract', () => {
       'active-job',
     );
     expect(secondHash).not.toBe(firstHash);
+  });
+
+  it('includes the resolved expired-page title in its reuse input', () => {
+    const source = fs.readFileSync(JOBS_SEO_PLUGIN, 'utf8');
+    const resolvedTitle = source.indexOf('const pageTitle = esc(pageTitleRaw);');
+    const inputStart = source.indexOf('const softLandingManifestInput', resolvedTitle);
+    const reuseStart = source.indexOf('const softLandingReuse', inputStart);
+    expect(resolvedTitle).toBeGreaterThanOrEqual(0);
+    expect(inputStart).toBeGreaterThan(resolvedTitle);
+    expect(reuseStart).toBeGreaterThan(inputStart);
+    expect(source.slice(inputStart, reuseStart)).toContain('title: pageTitleRaw,');
   });
 
   it('changes the cross-locale hash when the rendered datePosted changes', () => {
