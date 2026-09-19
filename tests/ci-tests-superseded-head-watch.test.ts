@@ -11,7 +11,7 @@
  * esegue davvero lo script del watcher con `git`/`gh` finti.
  */
 import { describe, it, expect } from 'vitest';
-import { readFileSync, mkdtempSync, writeFileSync, chmodSync, existsSync, mkdirSync } from 'node:fs';
+import { readFileSync, mkdtempSync, writeFileSync, chmodSync, existsSync, mkdirSync, realpathSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { spawnSync } from 'node:child_process';
@@ -85,7 +85,9 @@ function simulate(
   // Ogni chiamata consuma la prossima HEAD (l'ultima resta).
   stub(
     'git',
-    `n=$(cat "${tmp}/count" 2>/dev/null || echo 0); n=$((n+1)); echo $n > "${tmp}/count"
+    `pwd -P >> "${tmp}/git-cwd"
+n=$(cat "${tmp}/count" 2>/dev/null || echo 0); n=$((n+1)); echo $n > "${tmp}/count"
+[ -n "$(sed -n "\${n}p" "${tmp}/heads")" ] || [ "$n" -gt 1 ] || { echo "fatal: auth" >&2; exit 128; }
 line=$(sed -n "\${n}p" "${tmp}/heads"); [ -n "$line" ] || line=$(tail -n1 "${tmp}/heads")
 printf '%s\\trefs/pull/42/head\\n' "$line"`,
   );
@@ -113,7 +115,13 @@ printf '%s\\trefs/pull/42/head\\n' "$line"`,
   expect(stop.status, stop.stderr).toBe(0);
   spawnSync('sleep', [String((opts.settleMs ?? 300) / 1000)]);
   const calls = existsSync(join(tmp, 'gh-calls')) ? readFileSync(join(tmp, 'gh-calls'), 'utf-8') : '';
-  return { calls, stopOut: stop.stdout, head };
+  const gitCwds = existsSync(join(tmp, 'git-cwd'))
+    ? [...new Set(readFileSync(join(tmp, 'git-cwd'), 'utf-8').trim().split('\n'))]
+    : [];
+  const watchLog = existsSync(join(runnerTemp, 'head-watch', 'watch.log'))
+    ? readFileSync(join(runnerTemp, 'head-watch', 'watch.log'), 'utf-8')
+    : '';
+  return { calls, stopOut: stop.stdout, head, gitCwds, runnerTemp, watchLog };
 }
 
 describe('tests.yml: watcher eseguito', () => {
@@ -122,15 +130,24 @@ describe('tests.yml: watcher eseguito', () => {
     expect(calls).toBe('');
   });
 
+  it('interroga la ref da RUNNER_TEMP, mai dal workspace (doppio Authorization)', () => {
+    // Run 35460312069: dopo il checkout il workspace e' un repo con il suo
+    // extraheader, e ogni ls-remote lanciato da li' falliva in silenzio.
+    const { gitCwds, runnerTemp } = simulate(['a'.repeat(40)], { stopWhen: 'polled' });
+    expect(gitCwds.length).toBe(1);
+    expect(gitCwds[0]).toBe(realpathSync(join(runnerTemp, 'head-watch')));
+  });
+
   it('HEAD spostata: cancella SOLO questa run, una volta', () => {
     const { calls, stopOut } = simulate(['a'.repeat(40), 'b'.repeat(40)], { stopWhen: 'cancelled' });
     expect(calls.trim().split('\n')).toEqual(['api -X POST repos/owner/repo/actions/runs/777/cancel --silent']);
     expect(stopOut).toContain('run cancellata dal watcher');
   });
 
-  it('ref illeggibile: nessun cancel (fail-open verso la run, non verso il cancel)', () => {
-    const { calls } = simulate([''], { stopWhen: 'polled' });
+  it('ref illeggibile: nessun cancel (fail-open verso la run, non verso il cancel), ma lo dice', () => {
+    const { calls, watchLog } = simulate([''], { stopWhen: 'polled' });
     expect(calls).toBe('');
+    expect(watchLog).toContain('ls-remote fallito (1): fatal: auth');
   });
 
   it('dopo lo stop una HEAD spostata non cancella piu`', () => {

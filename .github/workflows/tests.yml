@@ -720,8 +720,16 @@ jobs:
           [[ "$HEAD_SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "::warning::HEAD non valida: watcher non avviato."; exit 0; }
           dir="${RUNNER_TEMP}/head-watch"
           mkdir -p "$dir"
+          # Il watcher lavora da RUNNER_TEMP, non dal workspace: dopo il
+          # checkout il workspace e' un repo con il suo
+          # `http.https://github.com/.extraheader`, che si SOMMA a quello
+          # passato qui e manda due Authorization. Misurato sulla run
+          # 35460312069: dopo il checkout nessuna lettura della ref e' andata a
+          # buon fine e la run superata e' arrivata a `Resolve PR`.
           cat > "$dir/watch.sh" <<'WATCH_EOF'
           set -u
+          cd "$WATCH_DIR" || exit 0
+          failures=0
           auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
           export GIT_TERMINAL_PROMPT=0 GIT_CONFIG_COUNT=1
           export GIT_CONFIG_KEY_0='http.https://github.com/.extraheader'
@@ -729,7 +737,14 @@ jobs:
           while [ ! -e "$WATCH_DIR/stop" ]; do
             sleep "$WATCH_INTERVAL_S"
             [ -e "$WATCH_DIR/stop" ] && exit 0
-            line=$(git ls-remote "https://github.com/${REPO}.git" "refs/pull/${PRN}/head" 2>/dev/null) || continue
+            if ! line=$(git ls-remote "https://github.com/${REPO}.git" "refs/pull/${PRN}/head" 2>"$WATCH_DIR/ls-remote.err"); then
+              failures=$((failures + 1))
+              # La prima e poi ogni decima: il log resta leggibile.
+              if [ $((failures % 10)) -eq 1 ]; then
+                echo "$(date -u +%FT%TZ) ls-remote fallito ($failures): $(head -c 300 "$WATCH_DIR/ls-remote.err")"
+              fi
+              continue
+            fi
             current=${line%%[[:space:]]*}
             [[ "$current" =~ ^[0-9a-f]{40}$ ]] || continue
             [ "$current" = "$HEAD_SHA" ] && continue
