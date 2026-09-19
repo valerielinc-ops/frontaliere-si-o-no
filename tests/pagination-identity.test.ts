@@ -44,5 +44,8 @@ describe('pagination source identity contract', () => {
     const postfinance = readFileSync(new URL('../scripts/update-postfinance-jobs.mjs', import.meta.url), 'utf8');
     expect(postfinance).toContain('recordUniquePageProgress(sourceIdentities, pageRecords');
     expect(postfinance).toContain('sourceIdentities.size >= total');
+    expect(postfinance).toContain('const pageRecords = entries.map((entry) => entry?.response);');
+    expect(postfinance).toContain('pageRecords.some((record) => !record)');
+    expect(postfinance).toContain('if (!paginationComplete && pageNumber >= RECRUITING_API_MAX_PAGES)');
   });
 });

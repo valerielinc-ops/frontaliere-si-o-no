@@ -233,6 +233,7 @@ async function fetchPostFinanceListingsViaRecruitingApi() {
   let total = null;
   let pageNumber = 0;
   const sourceIdentities = new Set();
+  let paginationComplete = false;
 
   while (pageNumber < RECRUITING_API_MAX_PAGES) {
     const page = await fetchRecruitingApiPage(pageNumber);
@@ -243,8 +244,8 @@ async function fetchPostFinanceListingsViaRecruitingApi() {
       const declared = Number(page.totalJobs);
       if (Number.isFinite(declared) && declared > 0) total = declared;
     }
-    const pageRecords = entries.map((entry) => entry?.response).filter(Boolean);
-    if (entries.length > 0 && pageRecords.length === 0) {
+    const pageRecords = entries.map((entry) => entry?.response);
+    if (entries.length > 0 && pageRecords.some((record) => !record)) {
       throw new Error(`PostFinance API pagination failed at page ${pageNumber}: rows without a response identity.`);
     }
     if (pageRecords.length > 0) {
@@ -263,10 +264,21 @@ async function fetchPostFinanceListingsViaRecruitingApi() {
           `PostFinance API pagination incomplete: received ${sourceIdentities.size} of ${total} declared jobs.`,
         );
       }
+      paginationComplete = true;
       break;
     }
-    if (total !== null && sourceIdentities.size >= total) break;
+    if (total !== null && sourceIdentities.size >= total) {
+      paginationComplete = true;
+      break;
+    }
     await delay(300);
+  }
+
+  if (!paginationComplete && pageNumber >= RECRUITING_API_MAX_PAGES) {
+    throw new Error(
+      `PostFinance API pagination incomplete after ${pageNumber} pages: ` +
+        `${sourceIdentities.size} records received${total !== null ? ` of ${total} declared` : ''}.`,
+    );
   }
 
   const pfJobs = results.filter((r) => r?.brandUrl === 'PostFinance');
