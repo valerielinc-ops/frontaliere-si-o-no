@@ -30,7 +30,9 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'JOBS_SEO_SAMPLE',
       'POST_WALK_INCREMENTAL',
       'POST_WALK_INCREMENTAL_VERIFY',
+      'POST_WALK_TARGETED_WALK',
       'RELATED_SEARCH_CLUSTERS_NO_CACHE',
+      'RELATED_SEARCH_POSTINGS_SPARSE',
       'SEQUENTIAL_PROFILE',
     ]);
   });
