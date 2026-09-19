@@ -1,21 +1,21 @@
 {
   "key": "alcon",
   "label": "Alcon",
-  "generatedAt": "2026-09-13T14:11:12.250Z",
+  "generatedAt": "2026-09-19T23:11:15.965Z",
   "total": 4,
   "discovered": null,
-  "parsed": 4,
+  "parsed": 3,
   "lastFetchOutcome": null,
   "written": 4,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 9258,
-  "avgDurationMs": 9258,
+  "updatedCount": 3,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 4633,
+  "avgDurationMs": 4633,
   "durationHistory": [
-    9258
+    4633
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Manager--Accounting---Reporting_R-2026-49365-2",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-13T14:11:00.225Z",
+      "crawledAt": "2026-09-19T23:11:07.589Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -69,7 +69,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/Professional-Education---Development-Manager--m-w-d----Vision-Care-DACH_R-2026-48937-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:11:00.833Z",
+      "crawledAt": "2026-09-19T23:11:08.231Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/International-Accounting-and-Reporting-Director_R-2026-46854",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-13T14:10:59.604Z",
+      "crawledAt": "2026-09-19T23:11:06.925Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -129,15 +129,17 @@
         "translation": 25,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "alcon-b66acee3cbdc",
-      "slug": "associate-inter-company-order-invoice-flow-alcon-ch",
+      "slug": "flusso-associato-ordini-e-fatture-interaziendali-alcon-fribourg",
       "company": "Alcon",
       "companyKey": "alcon",
       "companyDomain": "alcon.com",
       "title": "Associate, Inter Company Order & Invoice Flow",
-      "needsRetranslation": false,
       "location": "Fribourg",
       "canton": "FR",
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Associate--Inter-Company-Order---Invoice-Flow_R-2026-47978-1",
@@ -159,49 +161,10 @@
       "applyUrl": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Associate--Inter-Company-Order---Invoice-Flow_R-2026-47978-1",
       "jobReqId": "R-2026-47978",
       "firstSeenAt": "2026-06-29T21:33:20.599Z",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "id": "alcon-9ebeaed89713",
-      "slug": "gestione-dei-materiali-senior-manager-m-f-d-alcon-schaffhausen",
-      "company": "Alcon",
-      "companyKey": "alcon",
-      "companyDomain": "alcon.com",
-      "title": "Senior Manager Materials Management (m/w/d)",
-      "needsRetranslation": true,
-      "location": "Schaffhausen",
-      "canton": "SH",
-      "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Schaffhausen-Switzerland/Senior-Manager-Materials-Management--m-w-d-_R-2026-48278-1",
-      "source": "Alcon Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:52:53.885Z",
-      "addressLocality": "Schaffhausen",
-      "addressRegion": "SH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Medtech / Cura della vista",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "applyUrl": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Schaffhausen-Switzerland/Senior-Manager-Materials-Management--m-w-d-_R-2026-48278-1",
-      "jobReqId": "R-2026-48278",
-      "firstSeenAt": "2026-07-10T22:34:58.643Z",
-      "salaryMin": 110500,
-      "salaryMax": 154000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 2,
+      "crawlerMissStreak": 1,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -210,6 +173,5 @@
         "completeness": 19
       }
     }
-  ],
-  "unchangedJobs": []
+  ]
 }
