@@ -2296,12 +2296,12 @@ jobs:
           REVIEW_TIER: ${{ steps.tier.outputs.tier }}
           INCREMENTAL_BASE: ${{ steps.tier.outputs.incremental_base }}
         with:
-          # A custom App token bypasses Claude's OIDC workflow-identity check.
-          # That check rejects this PR because tests.yml itself is being changed
-          # and therefore is not byte-identical to the version on main.
-          # `mint-app-token.mjs` fails soft, so retain GITHUB_TOKEN as fallback.
+          # `github_token` alimenta gli helper provider-neutral della action e
+          # conserva il fallback lifecycle; il bridge host-side della review
+          # può postare una review che riattiva auto-merge e quindi usa solo
+          # App/PAT. Il mint fallisce soft, ma il bridge resta fail-closed.
           github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
-          codex_github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           review_marker: '<!-- CODEX_FALLBACK_REVIEW -->'
           # Le PR fix-issue possono essere aperte da `claude[bot]`: senza whitelist

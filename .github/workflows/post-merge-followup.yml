@@ -168,6 +168,17 @@ jobs:
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
+      # Il bridge host-side scrive issue/commenti nel repo sito; il PAT RC resta
+      # il fallback operativo, mentre il bridge corpus rimane separato sotto.
+      - name: Mint GitHub App token for Codex bridge (zero-Claude)
+        if: steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       # Prefetch zero-agent (token-lever, stesso bundle di tests.yml/pr-review-loop):
       # il prompt sotto rifà, per OGNI PR del batch, `gh pr view N --json ...` + `gh api
       # .../reviews`, e il check "In-flight PR overlap" rifà `gh pr list --state open` +
@@ -256,7 +267,9 @@ jobs:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           # Token effimero limitato ai permessi del job; non è un PAT statico.
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          codex_github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Il bridge site-side può creare/editare issue e commenti: App/PAT
+          # soltanto, con guardia fail-closed prima del modello.
+          codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           # The corpus PAT is a separate host-side bridge scope. It is never
           # included in the Codex child environment and is accepted only for
           # nanakokyobashi-rgb/frontaliere-articles issue operations.

@@ -1308,26 +1308,26 @@ jobs:
           ISSUE_GROUP: ${{ steps.group.outputs.is_group }}
           ISSUE_GROUP_LABEL: ${{ steps.group.outputs.group_label }}
           ISSUE_GROUP_NUMBERS: ${{ steps.group.outputs.group_numbers }}
+        # `github_token` serve agli helper provider-neutral di quota/delivery dell'action.
+        # Manteniamo l'identità App-only di questo lane per il cascade; non è la
+        # credenziale del bridge host-side e non va usato per dedurre un push riuscito.
+        # Credenziale distinta per i bridge host-side `gh`/Git usati da Codex. Deve
+        # essere un'identità operativa App/PAT, mai GITHUB_TOKEN: il bridge può eseguire
+        # operazioni mutanti autorizzate (push, label, issue/PR handoff) oltre alle
+        # letture. Se entrambe le variabili sono vuote, l'action esistente rifiuta il
+        # run prima di `codex exec`; il modello non riceve comunque il token.
+        # Whitelist esplicita (hardening #898): mai `*` né prefissi. I soli
+        # sender ammessi dal gate sono `claude[bot]`,
+        # `frontaliere-automation[bot]` e l'utente esatto `valerielinc-ops`,
+        # ciascuno con il proprio actor type. `github-actions[bot]` non è
+        # ammesso: un evento GITHUB_TOKEN non deve riattivare il fixer.
+        # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped
+        # (rationale completo: post-merge-followup.yml action-input comment, stesso
+        # fix, evita drift tra copie duplicate).
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
-          # `github_token` serve agli helper provider-neutral di quota/delivery dell'action.
-          # Manteniamo l'identità App-only di questo lane per il cascade; non è la
-          # credenziale del bridge host-side e non va usato per dedurre un push riuscito.
           github_token: ${{ env.APP_TOKEN }}
-          # Credenziale distinta per i bridge host-side `gh`/Git usati da Codex. Deve
-          # essere un'identità operativa App/PAT, mai GITHUB_TOKEN: il bridge può eseguire
-          # operazioni mutanti autorizzate (push, label, issue/PR handoff) oltre alle
-          # letture. Se entrambe le variabili sono vuote, l'action esistente rifiuta il
-          # run prima di `codex exec`; il modello non riceve comunque il token.
           codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
-          # Whitelist esplicita (hardening #898): mai `*` né prefissi. I soli
-          # sender ammessi dal gate sono `claude[bot]`,
-          # `frontaliere-automation[bot]` e l'utente esatto `valerielinc-ops`,
-          # ciascuno con il proprio actor type. `github-actions[bot]` non è
-          # ammesso: un evento GITHUB_TOKEN non deve riattivare il fixer.
-          # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped
-          # (rationale completo: post-merge-followup.yml action-input comment, stesso
-          # fix, evita drift tra copie duplicate).
           prompt: |
             Sei l'agent di fix autonomo per la issue #${{ github.event.issue.number }} ("${{ github.event.issue.title }}"). Tier: ${{ steps.tier.outputs.tier }}.
 
