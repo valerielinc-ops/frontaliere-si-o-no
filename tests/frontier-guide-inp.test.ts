@@ -47,3 +47,26 @@ describe('FrontierGuide live-wait identity (#8903)', () => {
     expect(GUIDE_SOURCE).not.toContain('borderCrossingWaitSource: string');
   });
 });
+
+describe('FrontierGuide bounded municipality rendering (#8899/#8900/#8901)', () => {
+  it('keeps the complete result set accessible while bounding mounted cards', () => {
+    expect(MUNICIPALITIES.length).toBeGreaterThan(24);
+    expect(GUIDE_SOURCE).toContain('const MUNICIPALITIES_PAGE_SIZE = 24;');
+    expect(GUIDE_SOURCE).toContain('const visibleMunicipalities = useMemo(() => {');
+    expect(GUIDE_SOURCE).toContain('return filteredMunicipalities.slice(start, start + MUNICIPALITIES_PAGE_SIZE);');
+    expect(GUIDE_SOURCE).toContain('aria-controls="municipality-results"');
+    expect(GUIDE_SOURCE).toContain('id="municipality-results"');
+    expect(GUIDE_SOURCE).toContain("t('guide.municipalities.pagination.pageOf'");
+  });
+
+  it('feeds only the bounded page into a memoized Leaflet boundary', () => {
+    const mapStart = GUIDE_SOURCE.indexOf('const MunicipalityMap:');
+    const guideStart = GUIDE_SOURCE.indexOf('const FrontierGuide:');
+    const mapSource = GUIDE_SOURCE.slice(mapStart, guideStart);
+
+    expect(mapSource).toContain('React.memo');
+    expect(mapSource).toContain('municipalities.map((m) =>');
+    expect(mapSource).not.toContain('filteredMunicipalities.map');
+    expect(GUIDE_SOURCE).toContain('<MunicipalityMap municipalities={visibleMunicipalities}');
+  });
+});

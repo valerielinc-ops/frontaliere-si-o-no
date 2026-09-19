@@ -152,6 +152,7 @@ function trafficToneClasses(level: BorderCrossing['trafficLevel']): string {
 
 // Custom marker icons per tipo (need the `L` handed over by MapCanvas)
 const TRAFFIC_COLORS = { high: '#ef4444', medium: '#f59e0b', low: '#10b981' } as const;
+const MUNICIPALITIES_PAGE_SIZE = 24;
 
 const createCustomIcon = (L: any, type: 'new' | 'old' | 'both') => {
  const colors = {
@@ -724,6 +725,102 @@ const MunicipalityCard: React.FC<MunicipalityCardProps> = React.memo(({ m, isSel
  </div>
 ));
 
+interface MunicipalityMapProps {
+ municipalities: Municipality[];
+ totalCount: number;
+ t: (key: string, paramsOrFallback?: string | Record<string, string | number>) => string;
+}
+
+// Keep the Leaflet subtree out of unrelated guide renders (selection, banner,
+// or live-wait state). `municipalities` is the bounded page slice, so marker
+// and Popup construction remains bounded even when the filtered result set is
+// the full dataset; the paginated list remains the accessible complete view.
+const MunicipalityMap: React.FC<MunicipalityMapProps> = React.memo(({ municipalities, totalCount, t }) => (
+ <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 overflow-hidden">
+ <div className="flex items-center gap-3 mb-4">
+ <div className="p-2 bg-gradient-to-br from-success-strong to-info-strong rounded-xl">
+ <MapPin className="text-on-accent" size={20} />
+ </div>
+ <div>
+ <h3 className="text-xl font-bold font-display text-strong">{t('guide.municipalities.mapTitle')}</h3>
+ <p className="text-xs text-muted mt-1">
+ {t('guide.municipalities.mapPageNote', { count: municipalities.length, total: totalCount })}
+ </p>
+ </div>
+ </div>
+ {/* Legenda */}
+ <div className="flex gap-4 mb-4 flex-wrap text-sm">
+ <div className="flex items-center gap-2">
+ <div className="w-4 h-4 rounded-full bg-accent-strong"></div>
+ <span className="text-body">{t('guide.legendNewOnly')}</span>
+ </div>
+ <div className="flex items-center gap-2">
+ <div className="w-4 h-4 rounded-full bg-warning-strong"></div>
+ <span className="text-body">{t('guide.legendOldOnly')}</span>
+ </div>
+ <div className="flex items-center gap-2">
+ <div className="w-4 h-4 rounded-full bg-accent-strong"></div>
+ <span className="text-body">{t('guide.legendBoth')}</span>
+ </div>
+ </div>
+ <Suspense fallback={MAP_LOADING}>
+ <LazyMapCanvas
+ center={[46.0, 9.2]}
+ zoom={8}
+ height="500px"
+ className="rounded-xl overflow-hidden border-2 border-edge"
+ placeholder={MAP_LOADING}
+ >
+ {({ Marker, Popup, L }) => {
+ // Build the 3 icon variants once instead of calling createCustomIcon per
+ // marker — Leaflet icon construction is part of the long task this boundary
+ // isolates.
+ const iconByType: Record<'new' | 'old' | 'both', any> = {
+ new: createCustomIcon(L, 'new'),
+ old: createCustomIcon(L, 'old'),
+ both: createCustomIcon(L, 'both'),
+ };
+ return (
+  <>
+  {municipalities.map((m) => (
+ <Marker
+ key={m.name}
+ position={[m.lat, m.lng]}
+ icon={iconByType[m.type]}
+ >
+ <Popup>
+ <div className="text-sm">
+ <h4 className="font-bold text-base mb-1">{m.name}</h4>
+ <div className="space-y-1 text-xs">
+ <p><strong>{t('guide.province')}:</strong> {m.province}</p>
+ <p><strong>{t('guide.distance')}:</strong> {m.distance} km</p>
+ <p><strong>{t('guide.population')}:</strong> {m.population.toLocaleString('it-IT')}</p>
+ <p><strong>{t('guide.borderCrossing')}:</strong> {m.borderCrossing}</p>
+ <div className="flex gap-1 mt-2">
+ {m.type === 'both' ? (
+ <>
+ <span className="px-2 py-0.5 rounded bg-accent-strong text-on-accent text-xs font-bold">{t('guide.new')}</span>
+ <span className="px-2 py-0.5 rounded bg-warning-strong text-on-accent text-xs font-bold">{t('guide.old')}</span>
+ </>
+ ) : (
+ <span className={`px-2 py-0.5 rounded ${m.type === 'new' ? 'bg-accent-strong' : 'bg-warning-strong'} text-on-accent text-xs font-bold`}>
+ {m.type === 'new' ? t('guide.new') : t('guide.old')}
+ </span>
+ )}
+ </div>
+ </div>
+ </div>
+ </Popup>
+ </Marker>
+ ))}
+ </>
+ );
+ }}
+ </LazyMapCanvas>
+ </Suspense>
+ </div>
+));
+
 const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSection }) => {
  const { t } = useTranslation();
  const [internalSection, setInternalSection] = useState<GuideSection>((externalSection as GuideSection) || 'municipalities');
@@ -811,6 +908,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  const deferredSortBy = useDeferredValue(sortBy);
  const deferredFilterType = useDeferredValue(filterType);
  const deferredFilterProvince = useDeferredValue(filterProvince);
+ const [municipalityPage, setMunicipalityPage] = useState(1);
  const [borderFilter, setBorderFilter] = useState<'all' | 'low-traffic' | '24h' | 'morning' | 'evening'>('all');
  const [selectedTime, setSelectedTime] = useState<'morning' | 'evening' | 'night'>('morning');
  const [selectedMunicipality, setSelectedMunicipality] = useState<Municipality | null>(null);
@@ -882,15 +980,38 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  if (deferredSortBy === 'distance') return a.distance - b.distance;
  return b.population - a.population;
  }), [lombardyMunicipalitiesBase, deferredFilterProvince, deferredFilterType, deferredSortBy, deferredMunicipalitySearch]);
+ const municipalityPageCount = Math.max(1, Math.ceil(filteredMunicipalities.length / MUNICIPALITIES_PAGE_SIZE));
+ const currentMunicipalityPage = Math.min(municipalityPage, municipalityPageCount);
+ const visibleMunicipalities = useMemo(() => {
+ const start = (currentMunicipalityPage - 1) * MUNICIPALITIES_PAGE_SIZE;
+ return filteredMunicipalities.slice(start, start + MUNICIPALITIES_PAGE_SIZE);
+ }, [filteredMunicipalities, currentMunicipalityPage]);
+ const municipalityPageStart = filteredMunicipalities.length === 0
+ ? 0
+ : (currentMunicipalityPage - 1) * MUNICIPALITIES_PAGE_SIZE + 1;
+ const municipalityPageEnd = Math.min(
+ currentMunicipalityPage * MUNICIPALITIES_PAGE_SIZE,
+ filteredMunicipalities.length,
+ );
  const selectedMunicipalityIndex = selectedMunicipality
- ? filteredMunicipalities.findIndex((m) => m.name === selectedMunicipality.name)
+ ? visibleMunicipalities.findIndex((m) => m.name === selectedMunicipality.name)
  : -1;
  const desktopDetailInsertIndex = selectedMunicipalityIndex >= 0
  ? Math.min(
  selectedMunicipalityIndex % 2 === 0 ? selectedMunicipalityIndex + 1 : selectedMunicipalityIndex,
- filteredMunicipalities.length - 1,
+ visibleMunicipalities.length - 1,
  )
  : -1;
+
+ // Return to the first result page when the deferred query/sort/filter changes;
+ // the selected detail stays in state and is rendered above the page if it is
+ // still part of the filtered result set.
+ useEffect(() => {
+ setMunicipalityPage(1);
+ }, [deferredMunicipalitySearch, deferredSortBy, deferredFilterType, deferredFilterProvince]);
+ useEffect(() => {
+ if (municipalityPage !== currentMunicipalityPage) setMunicipalityPage(currentMunicipalityPage);
+ }, [municipalityPage, currentMunicipalityPage]);
 
  // Dogane Canton Ticino - Italia (fonte centralizzata: data/borderCrossings.ts)
  // waitNow/waitSource (issue #4892 sibling fix): avgWaitMorning/avgWaitEvening
@@ -1086,8 +1207,49 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  {t('guide.municipalities.noResults')}
  </div>
  )}
- <div className="grid md:grid-cols-2 gap-4">
- {filteredMunicipalities.map((m, idx) => {
+ {filteredMunicipalities.length > 0 && (
+ <div className="mb-4 flex flex-col gap-3 rounded-2xl border border-edge bg-surface-alt p-4 sm:flex-row sm:items-center sm:justify-between">
+ <p className="text-sm text-subtle" aria-live="polite">
+ {t('guide.municipalities.showing', {
+ from: municipalityPageStart,
+ to: municipalityPageEnd,
+ total: filteredMunicipalities.length,
+ })}
+ </p>
+ {municipalityPageCount > 1 && (
+ <nav className="flex items-center justify-between gap-3" aria-label={t('guide.municipalities.pagination.label')} aria-controls="municipality-results">
+ <button
+ type="button"
+ onClick={() => setMunicipalityPage((page) => Math.max(1, page - 1))}
+ disabled={currentMunicipalityPage === 1}
+ aria-label={t('guide.municipalities.pagination.previous')}
+ className="rounded-lg border border-edge px-3 py-1.5 text-xs font-semibold text-body transition-colors hover:bg-surface-raised disabled:cursor-not-allowed disabled:opacity-50"
+ >
+ {t('guide.municipalities.pagination.previous')}
+ </button>
+ <span className="text-xs font-semibold text-subtle" aria-current="page">
+ {t('guide.municipalities.pagination.pageOf', { page: currentMunicipalityPage, pages: municipalityPageCount })}
+ </span>
+ <button
+ type="button"
+ onClick={() => setMunicipalityPage((page) => Math.min(municipalityPageCount, page + 1))}
+ disabled={currentMunicipalityPage === municipalityPageCount}
+ aria-label={t('guide.municipalities.pagination.next')}
+ className="rounded-lg border border-edge px-3 py-1.5 text-xs font-semibold text-body transition-colors hover:bg-surface-raised disabled:cursor-not-allowed disabled:opacity-50"
+ >
+ {t('guide.municipalities.pagination.next')}
+ </button>
+ </nav>
+ )}
+ </div>
+ )}
+ {selectedMunicipality && selectedMunicipalityIndex < 0 && filteredMunicipalities.some((m) => m.name === selectedMunicipality.name) && (
+ <div className="mb-4">
+ <MunicipalityDetailPanel municipality={selectedMunicipality} t={t} onClose={() => setSelectedMunicipality(null)} />
+ </div>
+ )}
+ <div id="municipality-results" className="grid md:grid-cols-2 gap-4">
+ {visibleMunicipalities.map((m, idx) => {
  const isSelected = selectedMunicipality?.name === m.name;
  return (
  // stable key (name is unique) so re-sorting/filtering doesn't churn the
@@ -1109,85 +1271,9 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  })}
  </div>
 
- {/* Mappa Interattiva */}
- <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 overflow-hidden">
- <div className="flex items-center gap-3 mb-4">
- <div className="p-2 bg-gradient-to-br from-success-strong to-info-strong rounded-xl">
- <MapPin className="text-on-accent" size={20} />
- </div>
- <h3 className="text-xl font-bold font-display text-strong">{t('guide.municipalities.mapTitle')}</h3>
- </div>
- {/* Legenda */}
- <div className="flex gap-4 mb-4 flex-wrap text-sm">
- <div className="flex items-center gap-2">
- <div className="w-4 h-4 rounded-full bg-accent-strong"></div>
- <span className="text-body">{t('guide.legendNewOnly')}</span>
- </div>
- <div className="flex items-center gap-2">
- <div className="w-4 h-4 rounded-full bg-warning-strong"></div>
- <span className="text-body">{t('guide.legendOldOnly')}</span>
- </div>
- <div className="flex items-center gap-2">
- <div className="w-4 h-4 rounded-full bg-accent-strong"></div>
- <span className="text-body">{t('guide.legendBoth')}</span>
- </div>
- </div>
- <Suspense fallback={MAP_LOADING}>
- <LazyMapCanvas
- center={[46.0, 9.2]}
- zoom={8}
- height="500px"
- className="rounded-xl overflow-hidden border-2 border-edge"
- placeholder={MAP_LOADING}
- >
- {({ Marker, Popup, L }) => {
- // Build the 3 icon variants once instead of calling createCustomIcon per
- // marker (was 518×) — Leaflet icon construction is part of the long task
- // the INP fix targets.
- const iconByType: Record<'new' | 'old' | 'both', any> = {
- new: createCustomIcon(L, 'new'),
- old: createCustomIcon(L, 'old'),
- both: createCustomIcon(L, 'both'),
- };
- return (
-  <>
-  {filteredMunicipalities.map((m) => (
- <Marker
- key={m.name}
- position={[m.lat, m.lng]}
- icon={iconByType[m.type]}
- >
- <Popup>
- <div className="text-sm">
- <h4 className="font-bold text-base mb-1">{m.name}</h4>
- <div className="space-y-1 text-xs">
- <p><strong>{t('guide.province')}:</strong> {m.province}</p>
- <p><strong>{t('guide.distance')}:</strong> {m.distance} km</p>
- <p><strong>{t('guide.population')}:</strong> {m.population.toLocaleString('it-IT')}</p>
- <p><strong>{t('guide.borderCrossing')}:</strong> {m.borderCrossing}</p>
- <div className="flex gap-1 mt-2">
- {m.type === 'both' ? (
- <>
- <span className="px-2 py-0.5 rounded bg-accent-strong text-on-accent text-xs font-bold">{t('guide.new')}</span>
- <span className="px-2 py-0.5 rounded bg-warning-strong text-on-accent text-xs font-bold">{t('guide.old')}</span>
- </>
- ) : (
- <span className={`px-2 py-0.5 rounded ${m.type === 'new' ? 'bg-accent-strong' : 'bg-warning-strong'} text-on-accent text-xs font-bold`}>
- {m.type === 'new' ? t('guide.new') : t('guide.old')}
- </span>
- )}
- </div>
- </div>
- </div>
- </Popup>
- </Marker>
- ))}
- </>
- );
- }}
- </LazyMapCanvas>
- </Suspense>
- </div>
+ {/* Mappa Interattiva: markers bounded alla pagina corrente; la lista sopra
+     conserva tutti i risultati e la navigazione da tastiera. */}
+ <MunicipalityMap municipalities={visibleMunicipalities} totalCount={filteredMunicipalities.length} t={t} />
 
  <div className="bg-warning-subtle border-2 border-warning-border rounded-2xl p-6">
  <div className="flex items-start gap-3">
