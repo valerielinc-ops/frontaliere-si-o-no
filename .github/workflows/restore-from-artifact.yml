@@ -20,7 +20,94 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  validate-promotion-trigger:
+    name: validate restore promotion trigger
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout promotion gate
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            /scripts/ci/production-promotion-gate.mjs
+          sparse-checkout-cone-mode: false
+      - name: Reject non-main or unverified restore source
+        env:
+          PROMOTION_EVENT: ${{ github.event_name }}
+          PROMOTION_REF: ${{ github.ref }}
+          PROMOTION_REPOSITORY: ${{ github.repository }}
+          PROMOTION_SOURCE_REPOSITORY: ${{ github.repository }}
+          PROMOTION_HEAD_SHA: ${{ github.sha }}
+        run: node scripts/ci/production-promotion-gate.mjs trigger
+
+  validate-source-build:
+    name: validate canonical source build
+    needs: validate-promotion-trigger
+    if: needs.validate-promotion-trigger.result == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - name: Checkout promotion gate
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            /scripts/ci/production-promotion-gate.mjs
+          sparse-checkout-cone-mode: false
+      - name: Validate successful canonical build run
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PROMOTION_REPOSITORY: ${{ github.repository }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+        run: |
+          set -euo pipefail
+          case "$SOURCE_RUN_ID" in
+            ''|*[!0-9]*)
+              echo "::error::source_run_id must contain only decimal digits"
+              exit 1
+              ;;
+          esac
+          source_run_json="$RUNNER_TEMP/canonical-source-run.json"
+          gh api --method GET \
+            "repos/${PROMOTION_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}" \
+            > "$source_run_json"
+          PROMOTION_SOURCE_RUN_ID="$SOURCE_RUN_ID" \
+            node scripts/ci/production-promotion-gate.mjs source-run < "$source_run_json"
+
+  production-approval:
+    name: approve restore promotion
+    needs: validate-source-build
+    if: needs.validate-source-build.result == 'success'
+    runs-on: ubuntu-latest
+    environment:
+      name: production-deploy
+    permissions:
+      contents: read
+      deployments: read
+    steps:
+      - name: Checkout promotion gate
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            /scripts/ci/production-promotion-gate.mjs
+          sparse-checkout-cone-mode: false
+      - name: Verify required reviewers and environment attestation
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PROMOTION_REPOSITORY: ${{ github.repository }}
+          PROMOTION_ENVIRONMENT_NAME: production-deploy
+          PRODUCTION_DEPLOY_APPROVAL: ${{ secrets.PRODUCTION_DEPLOY_APPROVAL }}
+        run: |
+          set -euo pipefail
+          gh api --method GET \
+            "repos/${PROMOTION_REPOSITORY}/environments/${PROMOTION_ENVIRONMENT_NAME}" \
+            | node scripts/ci/production-promotion-gate.mjs approval
+
   deploy:
+    needs: [validate-source-build, production-approval]
+    if: needs.validate-source-build.result == 'success' && needs.production-approval.result == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     environment:
