@@ -23,6 +23,17 @@ import { detectClaudeRateLimit } from './claude-rate-limit.mjs';
 /** Modello e reasoning effort vincolanti per l'esecuzione di fallback. */
 export const CODEX_FALLBACK_MODEL = 'gpt-5.6-luna';
 export const CODEX_FALLBACK_EFFORT = 'max';
+/**
+ * Effort ammessi per tier. Il default resta `max` per ogni chiamante che non
+ * lo sceglie; la review in `tests.yml` passa `high` ai tier minimal,
+ * incremental e normal e tiene `max` per high/high-mega. Il contratto resta
+ * chiuso: un valore fuori da questo insieme invalida l'evidenza.
+ */
+export const CODEX_ALLOWED_EFFORTS = Object.freeze(['high', 'max']);
+
+export function isAllowedCodexEffort(value) {
+  return CODEX_ALLOWED_EFFORTS.includes(value);
+}
 // Passato a `codex exec` come argomento esplicito: impedisce al modello di
 // inoltrare le variabili di ambiente escluse per default (in particolare
 // *TOKEN/*SECRET) ai comandi shell generati.
@@ -100,7 +111,10 @@ export function decideClaudeCodexFallback({
  * @param {{trigger: string, status: string, detail?: string}} input
  * @returns {string}
  */
-export function formatCodexFallbackEvidence({ trigger, status, detail = '' }) {
+export function formatCodexFallbackEvidence({ trigger, status, detail = '', effort = CODEX_FALLBACK_EFFORT }) {
+  if (!isAllowedCodexEffort(effort)) {
+    throw new Error(`effort fallback non valido: ${String(effort)}`);
+  }
   if (!Object.values(FALLBACK_TRIGGER).includes(trigger)) {
     throw new Error(`trigger fallback non valido: ${String(trigger)}`);
   }
@@ -111,7 +125,7 @@ export function formatCodexFallbackEvidence({ trigger, status, detail = '' }) {
   const payload = {
     provider: 'codex',
     model: CODEX_FALLBACK_MODEL,
-    effort: CODEX_FALLBACK_EFFORT,
+    effort,
     trigger,
     status,
   };
@@ -125,9 +139,9 @@ export function formatCodexFallbackEvidence({ trigger, status, detail = '' }) {
  * @param {{trigger: string, status: string, detail?: string, file: string}} input
  * @returns {string}
  */
-export function writeCodexFallbackEvidence({ trigger, status, detail = '', file }) {
+export function writeCodexFallbackEvidence({ trigger, status, detail = '', file, effort = CODEX_FALLBACK_EFFORT }) {
   if (!file || typeof file !== 'string') throw new Error('file evidenza mancante');
-  const marker = formatCodexFallbackEvidence({ trigger, status, detail });
+  const marker = formatCodexFallbackEvidence({ trigger, status, detail, effort });
   fs.writeFileSync(file, `${marker}\n`, { encoding: 'utf8', mode: 0o600 });
   return marker;
 }
@@ -166,7 +180,7 @@ export function isValidCodexFallbackEvidence(value) {
   if (!value || typeof value !== 'object') return false;
   const payload = /** @type {Record<string, unknown>} */ (value);
   if (payload.provider !== 'codex') return false;
-  if (payload.model !== CODEX_FALLBACK_MODEL || payload.effort !== CODEX_FALLBACK_EFFORT) return false;
+  if (payload.model !== CODEX_FALLBACK_MODEL || !isAllowedCodexEffort(payload.effort)) return false;
   if (!Object.values(FALLBACK_TRIGGER).includes(payload.trigger)) return false;
   if (!Object.values(FALLBACK_STATUS).includes(payload.status)) return false;
   if ('detail' in payload && typeof payload.detail !== 'string') return false;
@@ -233,6 +247,7 @@ function main() {
       trigger: process.env.EVIDENCE_TRIGGER || decision.trigger,
       status: process.env.FALLBACK_STATUS || FALLBACK_STATUS.FAILURE,
       detail: process.env.FALLBACK_DETAIL || decision.reason,
+      effort: process.env.EVIDENCE_EFFORT || CODEX_FALLBACK_EFFORT,
     });
   }
 }

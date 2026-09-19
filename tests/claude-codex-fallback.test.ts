@@ -244,6 +244,27 @@ describe('contratto di evidenza strutturata', () => {
     expect(isValidCodexFallbackEvidence({ ...valid, model: 'gpt-5' })).toBe(false);
   });
 
+  it('registra l\'effort per tier e accetta solo l\'insieme chiuso', () => {
+    const high = formatCodexFallbackEvidence({
+      trigger: FALLBACK_TRIGGER.PREFLIGHT_QUOTA,
+      status: FALLBACK_STATUS.SUCCESS,
+      effort: 'high',
+    });
+    expect(parseCodexFallbackEvidence(high)).toMatchObject({ effort: 'high' });
+    expect(parseCodexFallbackEvidence(high.replace('"effort":"high"', '"effort":"low"'))).toBeNull();
+    expect(() => formatCodexFallbackEvidence({
+      trigger: FALLBACK_TRIGGER.PREFLIGHT_QUOTA,
+      status: FALLBACK_STATUS.SUCCESS,
+      effort: 'medium',
+    })).toThrow(/effort/);
+    const byDefault = formatCodexFallbackEvidence({
+      trigger: FALLBACK_TRIGGER.PREFLIGHT_QUOTA,
+      status: FALLBACK_STATUS.SUCCESS,
+    });
+    expect(parseCodexFallbackEvidence(byDefault)).toMatchObject({ effort: CODEX_FALLBACK_EFFORT });
+    expect(CODEX_FALLBACK_EFFORT).toBe('max');
+  });
+
   it('un Codex riuscito non viene classificato rate-limited/refunded', () => {
     expect(classifyCodexFallbackOutcome({ status: FALLBACK_STATUS.SUCCESS })).toBe('codex-success');
     expect(classifyCodexFallbackOutcome({ status: FALLBACK_STATUS.SUCCESS })).not.toMatch(/rate-limited|refunded/);
@@ -996,7 +1017,8 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('--strict-config');
     expect(action).toContain('--ignore-user-config');
     expect(action).toContain('permissions.codex-fallback.filesystem=$codex_filesystem');
-    expect(action).toContain('-c model_reasoning_effort=max');
+    expect(action).toContain('-c "model_reasoning_effort=$codex_reasoning_effort"');
+    expect(action).toContain('codex_reasoning_effort="${CODEX_REASONING_EFFORT:-max}"');
     expect(action).toContain('-c \'default_permissions="codex-fallback"\'');
     expect(action).toContain('-c shell_environment_policy.ignore_default_excludes=false');
     expect(action).toContain('-c "shell_environment_policy.include_only=$codex_env_patterns"');
