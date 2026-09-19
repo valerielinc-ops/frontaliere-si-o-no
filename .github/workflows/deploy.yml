@@ -150,6 +150,9 @@ concurrency:
 jobs:
   # Admit only an explicit main-branch production candidate before any build
   # leg can produce artifacts or mutate deploy targets.
+  # This file is the canonical build producer for the workflow_run handoff;
+  # post-deploy admission binds the source to this workflow's name, path, and
+  # immutable ID before any publish side effect is allowed.
   validate-promotion-trigger:
     name: validate production promotion trigger
     runs-on: ubuntu-latest

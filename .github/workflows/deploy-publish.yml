@@ -502,6 +502,9 @@ jobs:
   publish:
     needs: [deploy, validate-dist, validate-live]
     if: ${{ !cancelled() && needs.deploy.result == 'success' && needs.validate-live.result == 'success' && needs.validate-dist.outputs.integrity_ok == 'true' }}
+    # Forward the complete source identity tuple from the workflow_run payload;
+    # the reusable callee validates these values instead of inferring them from
+    # the orchestrator before it can perform irreversible side effects.
     uses: ./.github/workflows/post-deploy-publish.yml
     with:
       deploy_run_id: ${{ github.event.workflow_run.id }}
