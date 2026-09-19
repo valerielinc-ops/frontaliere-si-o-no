@@ -1,11 +1,11 @@
 import {
   buildEcariDetailUrl,
   extractEcariTabSection,
-  extractPdfUrl,
   fetchJson,
   fetchHtml,
   fetchPdfText,
   FIXED_PRICE_SOURCE_CONFIGS,
+  resolveVariantPdfUrl,
   parseAiFixedPricePdfText,
   parseBsFixedPricePdfText,
   parseGlFixedPriceJson,
@@ -101,12 +101,11 @@ function makeFixedPriceConnector({ sourceKey, parse }) {
       }];
       const rows = [];
       for (const variant of variants) {
-        const pdfUrl = variant.pdfUrlPattern
-          ? extractPdfUrl(pageHtml, {
-            baseUrl: source.pageUrl,
-            pattern: variant.pdfUrlPattern,
-          }) || variant.fallbackPdfUrl
-          : variant.fallbackPdfUrl;
+        const pdfUrl = resolveVariantPdfUrl(variant, {
+          sourceKey: source.plateCode,
+          pageUrl: source.pageUrl,
+          indexHtml: pageHtml,
+        });
         const pdf = injectedFetcher
           ? await injectedFetcher(pdfUrl, { responseType: 'pdf-text', timeoutMs: 30000 })
           : await fetchPdfText(pdfUrl);
