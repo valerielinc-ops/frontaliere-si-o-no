@@ -20,6 +20,11 @@ import { realpathSync, readFileSync, appendFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';
 import { boundReviewsToFirstHeadVerdict } from './lib/pr-review-admission.mjs';
+import {
+  contributionFingerprint,
+  isCarryForwardReview,
+  verifyCarryForwardReview,
+} from './lib/review-carry-forward.mjs';
 import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
@@ -1282,6 +1287,7 @@ export async function runReviewGate({
   repositoryPathsFromFallback = false,
   changedPathsFn = changedPathsBetween,
   classifyAndMintReviewFn = classifyAndMintReview,
+  carryFingerprintFn = contributionFingerprint,
 } = {}) {
   if (!repo || !/^\d+$/u.test(String(pr || '')) || !/^[0-9a-f]{40}$/iu.test(String(headSha || ''))) {
     throw new Error('repo, PR number or HEAD SHA non valido');
@@ -1310,6 +1316,21 @@ export async function runReviewGate({
   const latest = codexReview || latestReviewer(reviewHistory);
   if (!latest) return { approved: false, reason: 'nessuna review Codex leggibile' };
   const body = normalizeReviewBody(latest.body || '');
+  // A verdict carried onto this HEAD without a model run is accepted only
+  // after the gate re-derives, on its own, that the origin was an approving
+  // verdict and that the PR's code contribution is unchanged.
+  if (isCarryForwardReview(latest)) {
+    const carried = verifyCarryForwardReview({
+      review: latest,
+      reviews: reviewHistory,
+      headSha,
+      fingerprintFn: carryFingerprintFn,
+    });
+    if (!carried.ok) {
+      return { approved: false, reason: `carry-forward non verificato: ${carried.reason}`, review: latest };
+    }
+    console.log(`review-gate: ${carried.reason}.`);
+  }
   const staleCarry = staleFallbackCarryForward({
     reviews: reviewHistory,
     latest,

@@ -104,6 +104,37 @@ export function shouldSkipModelReview({ headSha, reviews, eventAction } = {}) {
 }
 
 /**
+ * A corrected PR body is the one metadata change that deserves a second model
+ * look on the same HEAD: the first verdict was not approving (typically a 🔴
+ * on the body) and the author has edited the description since the latest
+ * verdict on this HEAD. Without this, the review gate re-read the same 🔴
+ * forever after `retry-code-check-after-body-edit.yml` re-ran the job, and
+ * agents pushed empty commits to buy a new review — at tier high (7 cases on
+ * 2026-09-19, e.g. #9262, #9216). The admitted review is `minimal`: the code
+ * is unchanged by construction, so only the body is re-judged.
+ *
+ * A clean LGTM stays sticky (the #9066/#9074 storm), and the number of
+ * verdicts on one HEAD is capped so a body edit loop cannot buy unlimited
+ * reviews.
+ */
+export const MAX_BODY_REREVIEWS_PER_HEAD = 3;
+
+export function shouldAdmitBodyReReview({ headSha, reviews, bodyEditedAt } = {}) {
+  const first = firstTerminalBotReviewOnHead(reviews, headSha);
+  if (!first || reviewBodyIsApproving(reviewBody(first))) return false;
+  const editedAt = Date.parse(String(bodyEditedAt || ''));
+  if (!Number.isFinite(editedAt)) return false;
+  const onHead = flattenReviewPages(reviews)
+    .filter((review) => isTerminalManagedReview(review) && review?.commit_id === headSha);
+  if (onHead.length > MAX_BODY_REREVIEWS_PER_HEAD) return false;
+  const latestAt = Math.max(...onHead.map((review) => {
+    const at = Date.parse(review?.submitted_at || review?.submittedAt || '');
+    return Number.isFinite(at) ? at : Number.MAX_SAFE_INTEGER;
+  }));
+  return editedAt > latestAt;
+}
+
+/**
  * The 🔴 fixer may run once for the first terminal Important on the current
  * HEAD. A second same-SHA review, or a review that names an older SHA, is not
  * a new round.
@@ -185,6 +216,17 @@ export function admissionCli(argv = process.argv, stdinText = '') {
       writeGithubOutput('skip=false');
       return 0;
     }
+    const bodyReReview = shouldAdmitBodyReReview({
+      headSha: opts.head,
+      reviews,
+      bodyEditedAt: opts['body-edited-at'],
+    });
+    if (bodyReReview) {
+      writeGithubOutput('skip=false');
+      writeGithubOutput('body_rereview=true');
+      process.stderr.write(`Verdetto non approvante sulla HEAD ${opts.head} e body modificato dopo l'ultima review → review minimal sul body.\n`);
+      return 0;
+    }
     const skip = shouldSkipModelReview({
       headSha: opts.head,
       reviews,
@@ -214,7 +256,7 @@ export function admissionCli(argv = process.argv, stdinText = '') {
       : `🔴-fix saltato: non è la prima review terminale Important sulla HEAD corrente.\n`);
     return 0;
   }
-  process.stderr.write('uso: pr-review-admission.mjs skip|fixer --head <sha> [--event edited] [--review-id id] [--review-commit sha]\n');
+  process.stderr.write('uso: pr-review-admission.mjs skip|fixer --head <sha> [--event edited] [--body-edited-at iso] [--review-id id] [--review-commit sha]\n');
   return 2;
 }
 
