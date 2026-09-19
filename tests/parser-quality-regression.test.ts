@@ -26,9 +26,9 @@ import { htmlToText } from '../scripts/lib/hospital-custom-html-helpers.mjs';
 import { stableStringify } from '../scripts/lib/stable-stringify.mjs';
 import {
   applySourceDetailResults,
+  compareSourceDetail,
   fetchFailureCause,
   sourceDetailSeverity,
-  tenantConstantSourceLocations,
 } from '../scripts/audit-parser-quality.mjs';
 import {
   classifySourceDetailObservation,
@@ -361,73 +361,44 @@ describe('parser-quality regression — an unobservable source-detail sample is 
 });
 
 
-describe('parser-quality regression — a location repeated across different workplaces is the tenant address', () => {
-  // Verbatim from run 33953283741. The two jumbo vacancies are different
-  // stores and `jobs.coopjobs.ch` declares Coop's own Reservatstrasse site for
-  // both: at most one of two different workplaces can sit at one address, so
-  // the value carries no per-vacancy information and must not accuse either.
-  function observation(crawlerKey: string, published: string, source: string, matches: boolean) {
+describe('parser-quality regression — mistral foreign source locations are exempt from mismatch', () => {
+  function resultFor(crawlerKey: string) {
+    const comparison = compareSourceDetail(
+      {
+        addressLocality: 'Zurich',
+        description: 'Descrizione completa '.repeat(20),
+      },
+      {
+        location: 'Paris, Ile-de-France',
+        addressCountry: 'France',
+        description: 'Descrizione completa '.repeat(20),
+      },
+      { locationEvidence: 'jsonld', crawlerKey },
+    );
     return {
       crawlerKey,
-      url: `https://evidence.invalid/${crawlerKey}/${published}`,
-      ...classifySourceDetailObservation({
-        location: {
-          checked: true, matchesPublished: matches, inconclusive: false,
-          evidence: 'jsonld', authority: 'source-detail', published, source,
-        },
-        description: {
-          publishedDescriptionLength: 900, sourceDescriptionLength: 900,
-          publishedWordCount: 60, overlapWordCount: 55,
-        },
-      }),
+      url: `https://evidence.invalid/${crawlerKey}/paris`,
+      ...comparison,
     };
   }
 
-  it('demotes the repeated tenant address to inconclusive instead of accusing both stores', () => {
-    const results = [
-      observation('jumbo', 'Bern Marktgasse', 'Dietikon, Dietikon', false),
-      observation('jumbo', 'Baden-Dättwil', 'Dietikon, Dietikon', false),
-    ];
-    expect(tenantConstantSourceLocations(results).size).toBe(1);
-
-    const report: Record<string, any> = { jumbo: { total: 178, issues: [] } };
+  it('exempts only mistral-ai while an identical foreign source remains a mismatch elsewhere', () => {
+    const results = [resultFor('mistral-ai'), resultFor('other-crawler')];
+    const report: Record<string, any> = {
+      'mistral-ai': { total: 10, issues: [] },
+      'other-crawler': { total: 10, issues: [] },
+    };
     const summary = applySourceDetailResults(report, results, results.length);
-    expect(summary.locationMismatches).toBe(0);
-    expect(summary.tenantConstantLocationObservations).toBe(2);
-    expect(summary.inconclusiveLocationObservations).toBe(2);
-    expect(sourceDetailSeverity(report.jumbo)).toBe(null);
-    const issue = report.jumbo.issues.find((i: any) => i.type === 'source-detail-unobserved');
-    expect(issue.tenantConstantObservations).toBe(2);
-  });
 
-  it('keeps the mismatch when one vacancy sharing that source location does agree with it', () => {
-    // agroscope on the same run: the source says Wädenswil, one record
-    // publishes Wädenswil correctly and the other publishes Zürich. The value
-    // is a real workplace, so the disagreement is a finding — this is the case
-    // the rule's `everMatched` guard exists to protect, and without it the
-    // detector silently ate a genuine red.
-    const results = [
-      observation('agroscope', 'Wädenswil', 'Wädenswil, Wädenswil', true),
-      observation('agroscope', 'Zürich', 'Wädenswil, Wädenswil', false),
-    ];
-    expect(tenantConstantSourceLocations(results).size).toBe(0);
-
-    const report: Record<string, any> = { agroscope: { total: 40, issues: [] } };
-    const summary = applySourceDetailResults(report, results, results.length);
+    expect(results[0].locationMismatch).toBe(false);
+    expect(results[0].locationChecked).toBe(false);
+    expect(results[0].locationInconclusive).toBe(true);
+    expect(results[1].locationMismatch).toBe(true);
     expect(summary.locationMismatches).toBe(1);
-    expect(summary.tenantConstantLocationObservations).toBe(0);
-    expect(sourceDetailSeverity(report.agroscope)).toBe('CRITICAL');
-  });
-
-  it('does not fire on two vacancies genuinely in the same town', () => {
-    const results = [
-      observation('psgn', 'Pfäfers', 'Pfäfers, Pfäfers', true),
-      observation('psgn', 'Pfäfers', 'Pfäfers, Pfäfers', true),
-    ];
-    expect(tenantConstantSourceLocations(results).size).toBe(0);
+    expect(sourceDetailSeverity(report['mistral-ai'])).toBe(null);
+    expect(sourceDetailSeverity(report['other-crawler'])).toBe('CRITICAL');
   });
 });
-
 
 describe('parser-quality regression — a fetch failure says why, not just that', () => {
   it('splits the aggregate into causes that demand different responses', () => {

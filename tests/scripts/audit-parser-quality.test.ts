@@ -1837,14 +1837,13 @@ describe('source-detail observation counters (#7714)', () => {
       locationMismatches: 1,
       sourceCorroboratedLocationObservations: 2,
       inconclusiveLocationObservations: 5,
-      tenantConstantLocationObservations: 3,
       descriptionMismatches: 4,
       processingFailed: 2,
     });
     expect(lines).toEqual([
       'Source detail location observations: 7/8 authoritative checks matched, 1 mismatched',
       '  corroborated by other page evidence: 2/8 (25.0 % of authoritative checks)',
-      '  inconclusive: 5 (3 tenant-constant)',
+      '  inconclusive: 5',
       'Source detail description mismatches: 4',
       'Source detail processing failures: 2/2',
     ]);
