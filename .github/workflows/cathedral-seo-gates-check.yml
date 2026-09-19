@@ -461,7 +461,16 @@ jobs:
                 echo ""
                 echo "- Current:  **${current}**"
                 echo "- Baseline: ${baseline}"
-                echo "- Delta:    +${delta}"
+                # `${delta}` porta GIA' il segno (`current - baseline`), quindi il
+                # `+` letterale che stava qui stampava `+-1955` — visto sulla
+                # issue #8602, dove il gate `text-html-ratio` e' regredito con un
+                # conteggio SCESO di 1955. Non e' una contraddizione del gate: i
+                # gate con `usesOwnRatchet` sono giudicati dal ratchet
+                # mix-adjusted del loro audit (il rate, non il conteggio grezzo),
+                # e current/baseline/delta restano solo informativi. Ma un
+                # «+-1955» accanto a «ELIMINATE the new offenders» manda il triage
+                # a cercare 1955 pagine nuove che non esistono.
+                echo "- Delta:    ${delta}"
                 echo "- Reproduce locally: \`${audit_cmd}\`"
                 echo "- Notes: ${notes}"
                 echo ""
