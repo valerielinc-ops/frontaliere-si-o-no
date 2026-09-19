@@ -41,7 +41,9 @@ describe.each(FIXERS)('$file', ({ file, kind }) => {
   it('needs-human viene postato una volta sola per PR', () => {
     const marker = `<!-- NEEDS_HUMAN_ESCALATION: ${kind} -->`;
     // Il commento porta il marker, e il guard lo cerca prima di ripostare.
-    expect(src).toContain(`grep -qF '${marker}'`);
+    expect(src).toContain(`grep -qF '${marker}' <<<"$comments"`);
+    // Con pipefail, `printf | grep -q` fallisce per SIGPIPE su input grandi.
+    expect(src).not.toMatch(/printf '%s' "\$comments" \| grep -q/u);
     expect(src).toContain(`printf '${marker}\\n🛑 **needs-human** (auto)`);
     // Label e commento stanno entrambi nel ramo else del guard.
     const guard = src.slice(src.indexOf(`grep -qF '${marker}'`));
