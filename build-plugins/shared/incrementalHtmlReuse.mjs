@@ -35,7 +35,27 @@ const JOBS_SEO_REUSE_PROBE_VERSION = 2;
 // build never probed. Only the process that wrote the sidecar can read it back
 // as valid; anything else — another build, a restored cache, a second process —
 // fails closed on the historical full invalidation.
-export const JOBS_SEO_REUSE_PROBE_BUILD_ID = randomBytes(16).toString('hex');
+function resolveProbeBuildId() {
+  const explicit = String(process.env.JOBS_SEO_REUSE_PROBE_BUILD_TAG || '').trim();
+  if (explicit) return `tag:${explicit}`;
+  // A build leg can run the jobs SEO emitter and the post-walk coordinator in
+  // different Node processes. A per-process nonce would then force the full
+  // fallback on every such build, so prefer an identity that is stable inside
+  // ONE build leg and different in every other run: the CI run/attempt/job and
+  // the locale the leg owns. Outside CI (and with no explicit tag) fall back to
+  // the process nonce, which is single-process and still fails closed.
+  const run = String(process.env.GITHUB_RUN_ID || '').trim();
+  if (run) {
+    const attempt = String(process.env.GITHUB_RUN_ATTEMPT || '1').trim();
+    const job = String(process.env.GITHUB_JOB || '').trim();
+    const locale = String(process.env.BUILD_LOCALE || '').trim();
+    const shard = String(process.env.SHARD_INDEX || process.env.BUILD_SHARD || '').trim();
+    return `gha:${run}:${attempt}:${job}:${locale}:${shard}`;
+  }
+  return `pid:${process.pid}:${randomBytes(12).toString('hex')}`;
+}
+
+export const JOBS_SEO_REUSE_PROBE_BUILD_ID = resolveProbeBuildId();
 export const JOBS_SEO_REUSE_BLOCKS = Object.freeze([
   'active',
   'expired-soft-landing',
@@ -415,7 +435,42 @@ export function jobsSeoReuseProbeTarget(blockSize, config) {
 // String fields whose value (not only presence) selects a different template
 // branch. Everything else is reduced to presence/cardinality so the number of
 // strata stays small (tens, not thousands).
-const PROBE_SHAPE_VALUE_KEYS = new Set(['action', 'bridgeType', 'baseLocale', 'locale', 'kind']);
+// Per-page identity and free text: the renderer consumes these as DATA, the
+// same way for every page, so they cannot select a template branch. They are
+// reduced to presence — including them by value would give every page its own
+// stratum and the probe could never generalize.
+// Everything else keeps its VALUE in the stratum key. The default is
+// deliberately this way round: a string nobody enumerated (contract type,
+// sector, traffic tier, a field added tomorrow) must split the strata rather
+// than silently share the verdict of a page rendered through another branch.
+// The cost of a finer key is bounded by construction: a page is either reused
+// or rendered exactly once, so the worst case is today's full re-render.
+const PROBE_IDENTITY_KEYS = new Set([
+  'jobId',
+  'jobRecordDigest',
+  'jobVersion',
+  'slug',
+  'baseSlug',
+  'foreignSlug',
+  'legacySlug',
+  'oldSlug',
+  'currentSlug',
+  'winnerId',
+  'path',
+  'relPath',
+  'sourcePath',
+  'targetPath',
+  'canonicalUrl',
+  'url',
+  'title',
+  'description',
+  'company',
+  'companyKey',
+  'companyDomain',
+  'expiredAt',
+  'datePosted',
+]);
+const PROBE_SHAPE_VALUE_MAX = 64;
 
 function probeCardinality(length) {
   if (length <= 0) return '0';
@@ -430,7 +485,8 @@ function probeValueShape(key, value) {
   if (typeof value === 'number') return 'n';
   if (typeof value === 'string') {
     if (value.length === 0) return 'e';
-    return PROBE_SHAPE_VALUE_KEYS.has(key) ? `=${value}` : 's';
+    if (PROBE_IDENTITY_KEYS.has(key)) return 's';
+    return `=${value.length > PROBE_SHAPE_VALUE_MAX ? sha256(value).slice(0, 16) : value}`;
   }
   if (Array.isArray(value)) return `a${probeCardinality(value.length)}`;
   if (typeof value === 'object') return `o${probeCardinality(Object.keys(value).length)}`;
@@ -445,22 +501,33 @@ function hasText(value) {
 
 /**
  * Optional page-shape hints from the source job record. The manifest input is
- * a digest, so optional render branches (salary block, company logo, multiple
- * locations, requirements list, …) are not visible from it; the call sites of
- * the heavy page kinds pass these hints so every shape is sampled.
+ * a digest, so neither the optional render branches (salary block, company
+ * logo, multiple locations, requirements list, …) nor the low-cardinality
+ * fields that select a branch VALUE (contract, sector, canton, currency) are
+ * visible from it; the call sites of the heavy page kinds pass them here so a
+ * page never inherits the verdict of a page rendered through another branch.
  */
 export function jobsSeoProbeShapeHints(job) {
   if (!job || typeof job !== 'object') return null;
   const location = String(job.location ?? '');
+  const short = (value) => {
+    const text = String(value ?? '').trim().toLowerCase();
+    return text.length > 32 ? sha256(text).slice(0, 12) : text;
+  };
   return {
     salary: hasText(job.salaryMin) || hasText(job.salaryMax),
     logo: hasText(job.companyDomain) || hasText(job.companyLogo) || hasText(job.logo),
     multiLocation: /[,;/|]|\s(?:e|and|und|et)\s/i.test(location),
     requirements: hasText(job.requirements) || hasText(job.requirementsByLocale),
-    contract: hasText(job.contract) || hasText(job.employmentType),
     street: hasText(job.streetAddress),
     previousSlugs: hasText(job.previousSlugs),
     description: hasText(job.description),
+    // Values, not presence: these pick WHICH branch the emitter renders.
+    contract: short(job.contract || job.employmentType),
+    sector: short(job.sector || job.category),
+    canton: short(job.canton || job.addressRegion),
+    currency: short(job.currency),
+    country: short(job.addressCountry),
   };
 }
 
@@ -474,7 +541,8 @@ export function jobsSeoProbeStratum(kind, locale, input, hints = null) {
   }
   if (hints && typeof hints === 'object') {
     for (const key of Object.keys(hints).sort()) {
-      parts.push(`h.${key}:${hints[key] ? 1 : 0}`);
+      const value = hints[key];
+      parts.push(`h.${key}:${typeof value === 'string' ? `=${value}` : (value ? 1 : 0)}`);
     }
   }
   return parts.join('|');

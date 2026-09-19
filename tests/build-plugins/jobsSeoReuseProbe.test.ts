@@ -317,8 +317,49 @@ describe('probe sizing and strata', () => {
     const related = jobsSeoProbeStratum('active-job', 'it', { ...input, relatedJobs: [{}, {}, {}, {}] }, null);
     const thin = jobsSeoProbeStratum('active-job', 'it', { ...input, action: 'thin' }, null);
     expect(new Set([plain, salary, multi, related, thin]).size).toBe(5);
-    // Values of free-form fields do not multiply strata.
+    // Per-page identity and free text stay presence-only: including them would
+    // give every page its own stratum and the probe could never generalize.
     expect(jobsSeoProbeStratum('active-job', 'it', { ...input, jobId: 'b', slug: 'b' }, null))
       .toBe(jobsSeoProbeStratum('active-job', 'it', input, null));
+  });
+
+  it('splits strata on any string nobody enumerated', () => {
+    // The dangerous case: a branch selected by a value that is not in any
+    // allowlist. The default must be to separate, never to share a verdict.
+    const base = { jobId: 'a', slug: 'a', tier: 'full', unknownFutureField: 'alpha' };
+    const other = { ...base, tier: 'thin' };
+    const future = { ...base, unknownFutureField: 'beta' };
+    expect(jobsSeoProbeStratum('active-job', 'it', base, null))
+      .not.toBe(jobsSeoProbeStratum('active-job', 'it', other, null));
+    expect(jobsSeoProbeStratum('active-job', 'it', base, null))
+      .not.toBe(jobsSeoProbeStratum('active-job', 'it', future, null));
+    // The same holds for the branch-selecting values read off the job record.
+    const withContract = jobsSeoProbeShapeHints({ contract: 'CDI', sector: 'sanita' });
+    const withOtherContract = jobsSeoProbeShapeHints({ contract: 'CDD', sector: 'sanita' });
+    const withOtherSector = jobsSeoProbeShapeHints({ contract: 'CDI', sector: 'edilizia' });
+    expect(jobsSeoProbeStratum('active-job', 'it', base, withContract))
+      .not.toBe(jobsSeoProbeStratum('active-job', 'it', base, withOtherContract));
+    expect(jobsSeoProbeStratum('active-job', 'it', base, withContract))
+      .not.toBe(jobsSeoProbeStratum('active-job', 'it', base, withOtherSector));
+  });
+
+  it('never lets a page inherit from a stratum it does not belong to', async () => {
+    // Two contract values, identical in the cache; the renderer changes only
+    // the CDD branch. The CDI samples must not authorize the CDD pages.
+    const allPages = pages(6).map((page, index) => ({
+      ...page,
+      job: { ...page.job, contract: index >= 3 ? 'CDD' : 'CDI' },
+    }));
+    const rootDir = fixture(allPages);
+    enableProbe({ min: 2, max: 2, perStratum: 1 });
+    const { outcomes, verdict } = await build(
+      rootDir,
+      allPages,
+      (page) => (page.job.contract === 'CDD'
+        ? renderV1(page).replace('<body>', '<body data-contract="cdd">')
+        : renderV1(page)),
+    );
+    expect(outcomes).toEqual(['probe', 'probe', 'reuse', 'probe', 'render', 'render']);
+    expect(verdict.blocks.active).toMatchObject({ verdict: 'invalidate', differing: 1 });
   });
 });
