@@ -20,6 +20,11 @@ const FINDINGS_HEADING_RE = /^\s{0,3}#{1,3}\s+Findings\b[^\n]*$/i;
 const LGTM_HEADING_RE = /^\s{0,3}##\s+LGTM\s*$/m;
 const TERMINAL_STATES = new Set(['APPROVED', 'COMMENTED', 'CHANGES_REQUESTED']);
 const NON_TERMINAL_STATES = new Set(['PENDING', 'DISMISSED']);
+const KNOWN_REVIEW_STATES = new Set([...TERMINAL_STATES, ...NON_TERMINAL_STATES]);
+
+export function isKnownReviewState(value) {
+  return typeof value === 'string' && KNOWN_REVIEW_STATES.has(value.trim().toUpperCase());
+}
 
 export function flattenReviewPages(value) {
   if (!Array.isArray(value)) return [];
