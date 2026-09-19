@@ -119,7 +119,11 @@ describe('#5130 — the gate is a no-op on the default all-locale build', () => 
     const batch = fs.readFileSync(path.join(REPO_ROOT, 'build-plugins/batchWrite.ts'), 'utf8');
     const addAt = batch.indexOf('add(filePath: string, content: string) {');
     expect(addAt).toBeGreaterThan(-1);
-    const body = batch.slice(addAt, addAt + 2000);
+    // Bound the window by the end of add() instead of a fixed char count:
+    // #9131 grew the comments above the existence check past 2000 chars.
+    const addEnd = batch.indexOf('\n  }\n', addAt);
+    expect(addEnd).toBeGreaterThan(addAt);
+    const body = batch.slice(addAt, addEnd);
     const dropAt = body.indexOf('!shouldEmitPath(filePath, this._distDir)');
     const claimAt = body.indexOf('= claim(filePath');
     const existsAt = body.indexOf('fs.existsSync(filePath)');

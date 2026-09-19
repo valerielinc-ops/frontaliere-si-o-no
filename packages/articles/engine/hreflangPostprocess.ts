@@ -186,6 +186,17 @@ const REQUIRED_OWNERS: readonly KeywordLandingOwner[] = [
 const owners = new Set<KeywordLandingOwner>();
 
 /**
+ * Immutable-by-convention view sent to post-walk workers. Worker threads load
+ * this module independently, so the host's module-level registry is not
+ * visible there. Sets are cloned once by workerData, not rebuilt per file.
+ */
+export interface KeywordLandingPlanSnapshot {
+  readonly authoritative: boolean;
+  readonly planned: ReadonlySet<string>;
+  readonly retired: ReadonlySet<string>;
+}
+
+/**
  * Register the paths an owner will emit. Safe to call many times per owner.
  *
  * This writer was missing when the readers were extracted into this package,
@@ -230,6 +241,15 @@ export function isRetiredKeywordLanding(urlOrPath: string): boolean {
 /** How many distinct paths the plan holds. Test/diagnostic surface. */
 export function keywordLandingPlanSize(): number {
   return planned.size;
+}
+
+/** Return the sealed landing plan for a worker-thread transform. */
+export function getKeywordLandingPlanSnapshot(): KeywordLandingPlanSnapshot {
+  return {
+    authoritative: hasKeywordLandingPlan(),
+    planned: new Set(planned),
+    retired: new Set(retired),
+  };
 }
 
 /** How many withdrawals are registered. Test/diagnostic surface. */
@@ -416,6 +436,30 @@ export interface HreflangTransformResult {
   readonly dropped: number;
 }
 
+function isStaleKeywordLandingWithPlan(
+  urlOrPath: string,
+  snapshot: KeywordLandingPlanSnapshot,
+): boolean {
+  if (!snapshot.authoritative) return false;
+  const p = normalizeLandingPath(urlOrPath);
+  if (!LANDING_SEGMENT_RE.test(p)) return false;
+  return !snapshot.planned.has(p);
+}
+
+function isPlannedKeywordLandingWithPlan(
+  urlOrPath: string,
+  snapshot: KeywordLandingPlanSnapshot,
+): boolean {
+  return snapshot.planned.has(normalizeLandingPath(urlOrPath));
+}
+
+function isRetiredKeywordLandingWithPlan(
+  urlOrPath: string,
+  snapshot: KeywordLandingPlanSnapshot,
+): boolean {
+  return snapshot.retired.has(normalizeLandingPath(urlOrPath));
+}
+
 export function transformHreflang(
   html: string,
   distDir: string,
@@ -423,6 +467,8 @@ export function transformHreflang(
   existsCheck?: (absPath: string) => boolean,
   /** dist-relative path of the page being rewritten (enables the stale-landing repair). */
   pagePath?: string,
+  /** Optional host snapshot; required when this transform runs in a worker thread. */
+  keywordLandingPlan?: KeywordLandingPlanSnapshot,
 ): HreflangTransformResult | null {
   if (!html.includes('hreflang=')) return null;
 
@@ -466,9 +512,14 @@ export function transformHreflang(
   // 8a reverted on 2026-05-12: that fired everywhere, on the premise that
   // every page emitting hreflang has its full set on disk. This fires only
   // where the build's own plan says a target is never written.
-  if (hasKeywordLandingPlan()) {
+  const planIsAuthoritative = keywordLandingPlan?.authoritative ?? hasKeywordLandingPlan();
+  if (planIsAuthoritative) {
     const pageIsStale =
-      pagePath !== undefined && isStaleKeywordLanding(landingPathFromDistRelative(pagePath));
+      pagePath !== undefined && (
+        keywordLandingPlan
+          ? isStaleKeywordLandingWithPlan(landingPathFromDistRelative(pagePath), keywordLandingPlan)
+          : isStaleKeywordLanding(landingPathFromDistRelative(pagePath))
+      );
     // `!isRetiredKeywordLanding`: a registered junk-doorway withdrawal (#7316)
     // is unplanned but EMITTED — a 200 `noindex,follow` document at that exact
     // path. The judgement this gate makes is "the target is written nowhere",
@@ -482,8 +533,12 @@ export function transformHreflang(
     const hasUnplannedTarget = alternates.some(
       (a) =>
         isKeywordLandingPath(a.url) &&
-        !isPlannedKeywordLanding(a.url) &&
-        !isRetiredKeywordLanding(a.url),
+        !(keywordLandingPlan
+          ? isPlannedKeywordLandingWithPlan(a.url, keywordLandingPlan)
+          : isPlannedKeywordLanding(a.url)) &&
+        !(keywordLandingPlan
+          ? isRetiredKeywordLandingWithPlan(a.url, keywordLandingPlan)
+          : isRetiredKeywordLanding(a.url)),
     );
     if (pageIsStale || hasUnplannedTarget) {
       let stripped = html;

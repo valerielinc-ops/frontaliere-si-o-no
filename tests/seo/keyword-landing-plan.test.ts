@@ -36,6 +36,7 @@ import {
   landingPathFromDistRelative,
   normalizeLandingPath,
   keywordLandingPlanSize,
+  getKeywordLandingPlanSnapshot,
   __resetKeywordLandingPlanForTests,
 } from '../../build-plugins/shared/keywordLandingPlan';
 import { transformHreflang } from '../../build-plugins/hreflangPostprocessPlugin';
@@ -236,6 +237,27 @@ describe('transformHreflang — stale landing repair', () => {
     expect(r).not.toBeNull();
     expect(r!.html).not.toContain('hreflang=');
   });
+
+  it('applies the sealed plan snapshot in an isolated worker registry', () => {
+    sealPlanWith([LIVE]);
+    const snapshot = getKeywordLandingPlanSnapshot();
+    // A worker has its own module instance and therefore cannot see the host's
+    // module-level registry. The snapshot is the explicit hand-off contract.
+    __resetKeywordLandingPlanForTests();
+
+    const r = transformHreflang(
+      page(STALE),
+      '/dist',
+      BASE,
+      () => true,
+      `${STALE.slice(1)}/index.html`,
+      snapshot,
+    );
+
+    expect(r).not.toBeNull();
+    expect(r!.dropped).toBe(5);
+    expect(r!.html).not.toContain('hreflang=');
+  });
 });
 
 /**
@@ -353,13 +375,13 @@ describe('transformHreflang — emitted-but-unplanned target (#7756)', () => {
  * What it pins is exactly what broke — a call site silently dropping the
  * argument.
  */
-describe('post-walk wiring — every path supplies pagePath', () => {
+describe('post-walk wiring — every path supplies pagePath; worker path supplies plan', () => {
   const CALL_RE = /transformHreflang\s*\(([\s\S]*?)\)\s*;/g;
 
   it.each([
     ['build-plugins/postWalkWorker.mjs', 'worker path (POST_WALK_WORKERS >= 2 — production)'],
     ['build-plugins/postWalkCoordinatorPlugin.ts', 'single-threaded path (POST_WALK_WORKERS <= 1)'],
-  ])('%s passes the 5th argument — %s', (file) => {
+  ])('%s passes the page path argument — %s', (file) => {
     const src = readFileSync(resolve(__dirname, '../..', file), 'utf-8');
     const calls = [...src.matchAll(CALL_RE)].filter(
       (m) => !m[0].includes('import') && m[1].includes('html'),
@@ -375,7 +397,8 @@ describe('post-walk wiring — every path supplies pagePath', () => {
         else if (ch === ')' || ch === ']' || ch === '}') depth--;
         else if (ch === ',' && depth === 0) args++;
       }
-      expect(args, `${file}: transformHreflang called with ${args} args, expected 5`).toBe(5);
+      const expectedArgs = file.endsWith('postWalkWorker.mjs') ? 6 : 5;
+      expect(args, `${file}: transformHreflang called with ${args} args, expected ${expectedArgs}`).toBe(expectedArgs);
     }
   });
 });

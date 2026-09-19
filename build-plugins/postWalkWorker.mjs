@@ -65,6 +65,7 @@ const {
   contextualLinkDefaults,
   assignedFiles,
   htmlPathIndex: serializedHtmlPathIndex,
+  keywordLandingPlan,
 } = workerData;
 
 // The coordinator already walked the same dist tree. A shared, exact byte
@@ -216,18 +217,19 @@ async function processFile(filePath) {
 
   if (!isBridge) {
     const __tHl = profileStart();
-    // Same 5th argument the coordinator's single-threaded path passes. Without
-    // it the page-level half of the landing-plan gate (a page that is itself a
-    // landing the build no longer emits) can never fire — and deploy.yml sets
-    // POST_WALK_WORKERS=2, so in production EVERY file goes through this
-    // worker, not runSingleThreaded. Missing it would leave the repair half
-    // inert exactly where it matters.
+    // The coordinator's 5th argument is the page path and the 6th is the
+    // sealed landing-plan snapshot. Without the page path the page-level half
+    // of the gate (a page that is itself a landing the build no longer emits)
+    // cannot fire; without the snapshot the worker's isolated module registry
+    // is empty. deploy.yml sets POST_WALK_WORKERS=2, so in production EVERY
+    // file goes through this worker, not runSingleThreaded.
     const hreflangResult = transformHreflang(
       html,
       distDir,
       baseUrl,
       existsCheck,
       path.relative(distDir, filePath).split(path.sep).join('/'),
+      keywordLandingPlan,
     );
     profileRecord('hreflang-transform', __tHl);
     if (hreflangResult !== null) {

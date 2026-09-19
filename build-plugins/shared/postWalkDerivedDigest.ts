@@ -271,7 +271,28 @@ export function loadPostWalkUnmanifestedTopLevels(rootDir: string): readonly str
       || !Array.isArray(parsed.topLevels)
       || parsed.topLevels.some((value) => typeof value !== 'string' || value.length === 0)
     ) return null;
-    return [...new Set(parsed.topLevels as string[])].sort();
+    const distDir = path.join(path.resolve(rootDir), 'dist');
+    const normalized = (parsed.topLevels as string[]).map((topLevel) => {
+      // Version 1 recorded root-level files by filename (for example
+      // `404.html`) even though the targeted walker accepts only directory
+      // roots plus the <root> sentinel. Migrate an existing cache on load
+      // when that filename is still a real root-level HTML file.
+      if (
+        topLevel !== '<root>'
+        && topLevel.endsWith('.html')
+        && !topLevel.includes('/')
+        && !topLevel.includes('\\')
+      ) {
+        try {
+          if (fs.statSync(path.join(distDir, topLevel)).isFile()) return '<root>';
+        } catch {
+          // A missing legacy root file is safe to leave as a directory name;
+          // the targeted walker will skip it when it is absent.
+        }
+      }
+      return topLevel;
+    });
+    return [...new Set(normalized)].sort();
   } catch {
     return null;
   }
