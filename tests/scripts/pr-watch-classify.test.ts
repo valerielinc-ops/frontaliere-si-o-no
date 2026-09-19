@@ -8,11 +8,17 @@
  * 2026-08-24 while the session that opened the PR had already moved on.
  */
 import { describe, expect, it } from 'vitest';
-import { classifyPr, RESOLVED_STATUSES } from '../../scripts/ci/lib/pr-watch-classify.mjs';
+import {
+  buildBlockReason,
+  classifyPr,
+  PR_WATCH_WAIT_FOR,
+  RESOLVED_STATUSES,
+  subscribeCommand,
+} from '../../scripts/ci/lib/pr-watch-classify.mjs';
 
-const review = (commit_id: string, body: string, login = 'claude[bot]') => ({
+const review = (commit_id: string, body: string, login = 'frontaliere-automation[bot]') => ({
   commit_id,
-  user: { login },
+  user: { login, type: 'Bot' },
   body,
 });
 
@@ -66,7 +72,7 @@ describe('classifyPr', () => {
     expect(v.status).toBe('awaiting-review');
   });
 
-  it('ignores a review from someone other than claude[bot]', () => {
+  it('ignores a review from someone other than the reviewer bot', () => {
     const v = classifyPr({
       state: 'OPEN',
       headSha: 'HEAD2',
@@ -75,13 +81,62 @@ describe('classifyPr', () => {
     expect(v.status).toBe('awaiting-review');
   });
 
-  it('picks the LAST claude[bot] review on the head when there are several', () => {
+  it('picks the LAST reviewer-bot review on the head when there are several', () => {
     const v = classifyPr({
       state: 'OPEN',
       headSha: 'HEAD2',
       reviews: [review('HEAD2', '🔴 Important: first pass'), review('HEAD2', '## LGTM')],
     });
     expect(v.status).toBe('lgtm');
+  });
+
+  // 2026-09-19: il filtro `login === 'claude[bot]'` rendeva il gate cieco alle
+  // review reali (sito: frontaliere-automation[bot]; corpus: github-actions[bot]
+  // col marker Codex). 5 PR con un 🔴 senza risposta per 4-7 ore.
+  it('sees the site reviewer frontaliere-automation[bot] — a 🔴 is not-lgtm, not awaiting-review', () => {
+    const v = classifyPr({
+      state: 'OPEN',
+      headSha: 'H',
+      reviews: [review('H', '## Findings (Important: 1)\n🔴 Important: bug', 'frontaliere-automation[bot]')],
+    });
+    expect(v.status).toBe('not-lgtm');
+  });
+
+  it('sees the corpus reviewer github-actions[bot] only with the Codex marker', () => {
+    const lgtm = '<!-- CODEX_FALLBACK_REVIEW -->\n## LGTM\n';
+    expect(classifyPr({ state: 'OPEN', headSha: 'H', reviews: [review('H', lgtm, 'github-actions[bot]')] }).status).toBe('lgtm');
+    expect(
+      classifyPr({ state: 'OPEN', headSha: 'H', reviews: [review('H', '## LGTM\n', 'github-actions[bot]')] }).status,
+    ).toBe('awaiting-review');
+  });
+
+  it('still accepts claude[bot] (legacy reviewer identity)', () => {
+    expect(classifyPr({ state: 'OPEN', headSha: 'H', reviews: [review('H', '## LGTM\n', 'claude[bot]')] }).status).toBe('lgtm');
+  });
+
+  it('an LGTM heading next to a 🔴 Important is not an approval', () => {
+    const v = classifyPr({ state: 'OPEN', headSha: 'H', reviews: [review('H', '## LGTM\n🔴 Important: still broken')] });
+    expect(v.status).toBe('not-lgtm');
+  });
+
+  it('a DISMISSED review is not a verdict', () => {
+    const r = { ...review('H', '🔴 Important: x'), state: 'DISMISSED' };
+    expect(classifyPr({ state: 'OPEN', headSha: 'H', reviews: [r] }).status).toBe('awaiting-review');
+  });
+
+  it('the block reason points to the event subscription, never to polling gh pr view', () => {
+    const ref = { owner: 'o', repo: 'r', number: 7 };
+    const reason = buildBlockReason([{ ref, verdict: { status: 'not-lgtm', detail: 'd' } }]);
+    expect(reason).not.toMatch(/gh pr view <|ricontrolla con `gh pr view/);
+    expect(reason).toContain(subscribeCommand(ref));
+    expect(reason).toMatch(/NON e' LGTM/);
+  });
+
+  it('the subscription waits for the review events, not only merged/failed', () => {
+    for (const state of ['merged', 'failed', 'commented', 'needs_review']) {
+      expect(PR_WATCH_WAIT_FOR).toContain(state);
+    }
+    expect(subscribeCommand({ owner: 'o', repo: 'r', number: 7 })).toContain(`--wait-for ${PR_WATCH_WAIT_FOR.join(',')}`);
   });
 
   it('RESOLVED_STATUSES matches exactly the statuses that let the watch drop', () => {
