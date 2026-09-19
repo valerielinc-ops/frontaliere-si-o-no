@@ -15,9 +15,10 @@ run-name: "Code checks and review · ${{ github.event.pull_request.number && for
 # salta quando esiste gia' una review terminale sulla HEAD — quindi quelle run
 # rimisuravano soltanto i test.
 #
-# Il caso che `edited` copriva resta coperto: se la run fallisce sul contratto
-# del body o sul gate della review, `retry-code-check-after-body-edit.yml`
-# riesegue QUELLA run quando la descrizione viene corretta, e solo allora.
+# Il caso body che `edited` copriva resta coperto senza riaccendere il trigger
+# costoso: `retry-code-check-after-body-edit.yml` rientra sulla stessa HEAD quando
+# il body cambia, anche se la run precedente era verde. Il guard zero-agent
+# riusa il verdetto solo se porta il digest body corrente; title-only resta fuori.
 on:
   pull_request:
     branches: [main]
@@ -26,18 +27,6 @@ on:
     branches: [main]
   # Required checks are evaluated on the merge queue ref, not on the PR event.
   merge_group:
-  # Kept available for manual diagnostics and recovery runs.
-  workflow_dispatch:
-    inputs:
-      pr_number:
-        description: 'PR to validate when recovering a missing code run'
-        type: string
-        required: false
-      head_sha:
-        description: 'Exact PR head SHA for trusted recovery dispatches'
-        type: string
-        required: false
-
 # Union of the three original workflows' `permissions:` (tests.yml itself had
 # none — it inherited the repo default — so this is now the explicit floor):
 #   pr-collision-detector.yml: contents:read, pull-requests:write, issues:write
@@ -76,7 +65,7 @@ permissions:
 #   Direct pushes to main and merge queues retain their own SHA in the fallback
 #   portion of the key, so every emitted source-gate verdict remains observable.
 concurrency:
-  group: tests-${{ github.workflow }}-${{ github.event.pull_request.number || inputs.pr_number || github.ref }}-${{ inputs.head_sha || github.event.pull_request.head.sha || github.sha }}
+  group: tests-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}-${{ github.event.pull_request.head.sha || github.sha }}
   cancel-in-progress: false
 
 jobs:
@@ -109,14 +98,14 @@ jobs:
       # This is consumed by both the re-review guard and tier selection.
       NONCODE_RE: '^(data/|public/|reports/|_newsletter_variants/|docs/)|(^|/)(package-lock\\.json|pnpm-lock\\.yaml|yarn\\.lock)$|\\.(snap|png|jpe?g|webp|gif|svg|ico|woff2?)$'
     steps:
-      - name: PR-body completeness + multi-issue Closes (no checkout, all events)
-        if: ${{ !cancelled() && (github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.pr_number != '')) }}
+      - name: PR-body completeness + multi-issue Closes (no checkout, pull requests)
+        if: ${{ !cancelled() && github.event_name == 'pull_request' }}
         id: body_contract
         uses: actions/github-script@v8
         with:
           script: |
             const STICKY = '<!-- pr-body-contract -->';
-            const prNumber = Number(context.payload.pull_request?.number || context.payload.inputs?.pr_number);
+            const prNumber = Number(context.payload.pull_request?.number);
             if (!Number.isSafeInteger(prNumber) || prNumber <= 0) throw new Error('Invalid PR number');
             const { data: currentPr } = await github.rest.pulls.get({ ...context.repo, pull_number: prNumber });
             const body = currentPr.body || '';
@@ -585,6 +574,65 @@ jobs:
             await upsert(parts.join('\n\n'));
             core.setFailed(`PR body contract: ${fails.join('; ')}`);
 
+      # Review admission, body-revision and gate code are security-sensitive:
+      # the PR checkout below is attacker-controlled. Download the complete
+      # import cone from the immutable base commit before checkout and execute
+      # every review decision from this private runner copy. The scripts still
+      # inspect the PR tree/API as data, but a PR cannot rewrite the predicate
+      # that decides whether a review or auto-merge is admissible.
+      - name: Bootstrap trusted review policy (no checkout)
+        id: review_policy
+        if: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main' && steps.body_contract.outcome != 'failure' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POLICY_REF: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          policy_root="${RUNNER_TEMP}/review-policy"
+          mkdir -p "$policy_root/scripts/ci/lib" "$policy_root/scripts/lib"
+          download_main() {
+            local path="$1"
+            local destination="$2"
+            gh api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' \
+              > "$destination"
+          }
+          download_main scripts/ci/review-gate.mjs "$policy_root/scripts/ci/review-gate.mjs"
+          download_main scripts/ci/lib/review-carry-forward.mjs "$policy_root/scripts/ci/lib/review-carry-forward.mjs"
+          download_main scripts/ci/pr-contribution-fingerprint.mjs "$policy_root/scripts/ci/pr-contribution-fingerprint.mjs"
+          download_main scripts/ci/auto-merge-eval.mjs "$policy_root/scripts/ci/auto-merge-eval.mjs"
+          download_main scripts/ci/prefetch-review-diff.mjs "$policy_root/scripts/ci/prefetch-review-diff.mjs"
+          download_main scripts/ci/review-test-policy.mjs "$policy_root/scripts/ci/review-test-policy.mjs"
+          download_main scripts/ci/review-marker-recovery.mjs "$policy_root/scripts/ci/review-marker-recovery.mjs"
+          download_main scripts/ci/fetch-pr-files.mjs "$policy_root/scripts/ci/fetch-pr-files.mjs"
+          download_main scripts/ci/claude-codex-fallback.mjs "$policy_root/scripts/ci/claude-codex-fallback.mjs"
+          download_main scripts/ci/claude-rate-limit.mjs "$policy_root/scripts/ci/claude-rate-limit.mjs"
+          download_main scripts/ci/claude-rate-limit-contract.mjs "$policy_root/scripts/ci/claude-rate-limit-contract.mjs"
+          download_main scripts/ci/lib/constants.mjs "$policy_root/scripts/ci/lib/constants.mjs"
+          download_main scripts/ci/lib/fetchPrFiles.mjs "$policy_root/scripts/ci/lib/fetchPrFiles.mjs"
+          download_main scripts/ci/lib/vitestCheck.mjs "$policy_root/scripts/ci/lib/vitestCheck.mjs"
+          download_main scripts/ci/lib/automation-risk-policy.mjs "$policy_root/scripts/ci/lib/automation-risk-policy.mjs"
+          download_main scripts/ci/lib/mergePreviewCheck.mjs "$policy_root/scripts/ci/lib/mergePreviewCheck.mjs"
+          download_main scripts/ci/lib/checkRunObservation.mjs "$policy_root/scripts/ci/lib/checkRunObservation.mjs"
+          download_main scripts/ci/lib/prComments.mjs "$policy_root/scripts/ci/lib/prComments.mjs"
+          download_main scripts/ci/lib/false-positive-declaration.mjs "$policy_root/scripts/ci/lib/false-positive-declaration.mjs"
+          download_main scripts/ci/lib/duplicateDeclarations.mjs "$policy_root/scripts/ci/lib/duplicateDeclarations.mjs"
+          download_main scripts/ci/lib/pr-review-admission.mjs "$policy_root/scripts/ci/lib/pr-review-admission.mjs"
+          download_main scripts/ci/lib/review-input-revision.mjs "$policy_root/scripts/ci/lib/review-input-revision.mjs"
+          download_main scripts/lib/github-issue-creator.mjs "$policy_root/scripts/lib/github-issue-creator.mjs"
+          download_main scripts/lib/loop-fleet-contract.mjs "$policy_root/scripts/lib/loop-fleet-contract.mjs"
+          download_main scripts/lib/pr-body-closes-check.mjs "$policy_root/scripts/lib/pr-body-closes-check.mjs"
+          download_main scripts/lib/pr-body-sections-check.mjs "$policy_root/scripts/lib/pr-body-sections-check.mjs"
+          for trusted_file in \
+            "$policy_root/scripts/ci/review-gate.mjs" \
+            "$policy_root/scripts/ci/pr-contribution-fingerprint.mjs" \
+            "$policy_root/scripts/ci/review-test-policy.mjs" \
+            "$policy_root/scripts/ci/review-marker-recovery.mjs" \
+            "$policy_root/scripts/ci/fetch-pr-files.mjs"; do
+            node --check "$trusted_file"
+          done
+          echo "REVIEW_POLICY_ROOT=$policy_root" >> "$GITHUB_ENV"
+
       # The bounded ledger candidate is classified before checkout. Its policy
       # and every dependency it needs are downloaded from `main`, never read
       # from the untrusted PR tree. A trusted, exact ledger-only result posts
@@ -611,6 +659,9 @@ jobs:
           download_main package.json "$policy_root/package.json"
           download_main scripts/ci/review-test-policy.mjs "$policy_root/scripts/ci/review-test-policy.mjs"
           download_main scripts/ci/lib/fetchPrFiles.mjs "$policy_root/scripts/ci/lib/fetchPrFiles.mjs"
+          download_main scripts/ci/lib/constants.mjs "$policy_root/scripts/ci/lib/constants.mjs"
+          download_main scripts/ci/lib/pr-review-admission.mjs "$policy_root/scripts/ci/lib/pr-review-admission.mjs"
+          download_main scripts/ci/lib/review-input-revision.mjs "$policy_root/scripts/ci/lib/review-input-revision.mjs"
           download_main scripts/lib/loop-fleet-contract.mjs "$policy_root/scripts/lib/loop-fleet-contract.mjs"
           download_main scripts/ci/mint-app-token.mjs "$policy_root/scripts/ci/mint-app-token.mjs"
           download_main scripts/lib/githubApiHeaders.mjs "$policy_root/scripts/lib/githubApiHeaders.mjs"
@@ -805,6 +856,10 @@ jobs:
       - uses: actions/checkout@v5
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         with:
+          # Only the event ref is checked out. Body recovery re-runs an
+          # already-created pull_request tests run; it never dispatches this
+          # trusted workflow against an arbitrary fork SHA.
+          ref: ${{ github.ref }}
           fetch-depth: 0
           filter: tree:0
           # Allowlist non-cone: il job usa tsc e Vitest con riferimenti runtime
@@ -1562,7 +1617,7 @@ jobs:
         # Deve restare attivo perché `run-related-tests.mjs` consuma sempre
         # `changed-paths.txt`, anche quando tutti i gate corpus-wide sono
         # delegati.
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'merge_group' || github.event_name == 'workflow_dispatch') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'merge_group') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
@@ -1987,15 +2042,15 @@ jobs:
       - name: Report Vitest failures on PR
         # The Vitest step can fail before the review chain; this reporter must
         # still run and must never mask the original gate.
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && (github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.pr_number != '')) && steps.vitest_related.outcome == 'failure') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && github.event_name == 'pull_request' && steps.vitest_related.outcome == 'failure') }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
-          PR_NUMBER: ${{ github.event.pull_request.number || inputs.pr_number }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
           RUN_ID: ${{ github.run_id }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          HEAD_SHA: ${{ inputs.head_sha || github.event.pull_request.head.sha || github.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
           VITEST_REPORT_FILES: shard-timing-related.json
         run: node scripts/ci/report-vitest-failure.mjs
 
@@ -2021,11 +2076,11 @@ jobs:
 
       - name: Resolve PR from pull request
         id: resolve
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.pr_number != '')) }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && github.event_name == 'pull_request' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PRN: ${{ github.event.pull_request.number || inputs.pr_number }}
-          HEAD_SHA: ${{ inputs.head_sha || github.event.pull_request.head.sha || github.sha }}
+          PRN: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
           REPO: ${{ github.repository }}
         run: |
           set -uo pipefail
@@ -2053,6 +2108,35 @@ jobs:
           } >> "$GITHUB_OUTPUT"
           echo "Risolto PR #$PRN (draft=$is_draft) sulla head $HEAD_SHA."
 
+      # The PR body is part of the review input. A trusted API digest makes a
+      # corrected description a new review revision without re-enabling the
+      # whole workflow for every title-only `edited` event.
+      - name: Resolve review input revision (zero-agent)
+        id: review_input
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true') }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
+          PR_FILE: ${{ runner.temp }}/review-pr.json
+        run: |
+          set -euo pipefail
+          if ! gh api "repos/$REPO/pulls/$PR_NUMBER" > "$PR_FILE"; then
+            echo "::error::PR metadata/body non leggibile → review input unavailable, nessun Codex."
+            exit 1
+          fi
+          review_revision=$(node "$REVIEW_POLICY_ROOT/scripts/ci/lib/review-input-revision.mjs" hash-pr-json --file "$PR_FILE") || {
+            echo "::error::PR body non verificabile → review input unavailable, nessun Codex."
+            exit 1
+          }
+          printf '%s\n' "$review_revision" | grep -qE '^body:[0-9a-f]{64}$' || {
+            echo "::error::Hash review body malformato → review input unavailable, nessun Codex."
+            exit 1
+          }
+          echo "review_revision=$review_revision" >> "$GITHUB_OUTPUT"
+          echo "review_pr_file=$PR_FILE" >> "$GITHUB_OUTPUT"
+          echo "Review input revision: $review_revision"
+
       - name: Re-review guard (one terminal verdict per HEAD)
         id: guard
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true') }}
@@ -2061,12 +2145,16 @@ jobs:
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
           REPO: ${{ github.repository }}
+          REVIEW_REVISION: ${{ steps.review_input.outputs.review_revision }}
         run: |
           set -euo pipefail
           # Count every terminal managed review on this HEAD, not only LGTM.
           # An `edited` body/title event must not launch a second model review
           # on the same SHA (PRs #9066/#9074: LGTM then 🔴 Important).
-          reviews=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null || echo '[]')
+          if ! reviews=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null); then
+            echo "::error::Reviews API illeggibile → review input unavailable, nessun Codex."
+            exit 1
+          fi
           # Unica eccezione: un verdetto NON approvante sulla HEAD e un body
           # corretto dopo di esso (retry-code-check-after-body-edit.yml riesegue
           # questa run) ammettono una review `minimal` sul body invece di
@@ -2078,7 +2166,10 @@ jobs:
             -f query='query($owner:String!,$name:String!,$number:Int!){repository(owner:$owner,name:$name){pullRequest(number:$number){lastEditedAt}}}' \
             -F owner="${REPO%%/*}" -F name="${REPO#*/}" -F number="$PR_NUMBER" \
             --jq '.data.repository.pullRequest.lastEditedAt // empty' 2>/dev/null || true)
-          decision=$(printf '%s' "$reviews" | node scripts/ci/lib/pr-review-admission.mjs skip --head "$HEAD_SHA" --body-edited-at "${body_edited_at:-none}")
+          if ! decision=$(printf '%s' "$reviews" | node "$REVIEW_POLICY_ROOT/scripts/ci/lib/pr-review-admission.mjs" skip --head "$HEAD_SHA" --revision "$REVIEW_REVISION" --body-edited-at "${body_edited_at:-none}"); then
+            echo "::error::Review admission non verificabile → review input unavailable, nessun Codex."
+            exit 1
+          fi
           printf '%s\n' "$decision" >> "$GITHUB_OUTPUT"
 
       - name: Determine review tier
@@ -2156,7 +2247,7 @@ jobs:
           # `scripts/ci/fetch-pr-files.mjs` (issue #6233: prima erano una
           # reimplementazione shell inline, tenuta allineata a mano alla
           # stessa logica nel gemello `pr-redflag-fixer.yml`).
-          result=$(node scripts/ci/fetch-pr-files.mjs --repo "$REPO" --pr "$PR_NUMBER" 2>/dev/null || echo '{}')
+          result=$(node "$REVIEW_POLICY_ROOT/scripts/ci/fetch-pr-files.mjs" --repo "$REPO" --pr "$PR_NUMBER" 2>/dev/null || echo '{}')
           expected=$(echo "$result" | jq -r '.expected // 0')
           count=$(echo "$result" | jq -r '.count // 0')
           files_complete=$(echo "$result" | jq -r 'if .complete then 1 else 0 end')
@@ -2193,8 +2284,8 @@ jobs:
             exit 0
           fi
           # Strip DATA/static: il tier si decide solo sul CODE.
-          if printf '%s' "$result" | node scripts/ci/review-test-policy.mjs only; then
-            if node scripts/ci/review-test-policy.mjs check; then
+          if printf '%s' "$result" | node "$REVIEW_POLICY_ROOT/scripts/ci/review-test-policy.mjs" only; then
+            if node "$REVIEW_POLICY_ROOT/scripts/ci/review-test-policy.mjs" check; then
               set_tier tests-only none 0
             else
               # Includes a rename from application code or an uncertain snapshot.
@@ -2202,7 +2293,7 @@ jobs:
             fi
             exit 0
           fi
-          code_files=$(echo "$files" | node scripts/ci/review-test-policy.mjs filter | grep -vE "$NONCODE_RE" || true)
+          code_files=$(echo "$files" | node "$REVIEW_POLICY_ROOT/scripts/ci/review-test-policy.mjs" filter | grep -vE "$NONCODE_RE" || true)
           if [ -z "$code_files" ]; then
             # Token-lever: una PR data/docs-only (zero code) non ha contributo
             # code-reviewable — l'unica cosa da verificare è il completeness
@@ -2273,10 +2364,10 @@ jobs:
             # verdetto precedente si riusa: LGTM → carry-forward senza modello,
             # verdetto non approvante → minimal che riporta i 🔴 aperti.
             # Fingerprint non calcolabile o diverso → review piena, come prima.
-            fp_head=$(node scripts/ci/pr-contribution-fingerprint.mjs "$HEAD_SHA" 2>/dev/null || echo NULL)
-            fp_prior=$(node scripts/ci/pr-contribution-fingerprint.mjs "$lastRev" 2>/dev/null || echo NULL)
+            fp_head=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$HEAD_SHA" 2>/dev/null || echo NULL)
+            fp_prior=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$lastRev" 2>/dev/null || echo NULL)
             carry=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null \
-              | node scripts/ci/lib/review-carry-forward.mjs decide --head "$HEAD_SHA" --prior-commit "$lastRev" \
+              | node "$REVIEW_POLICY_ROOT/scripts/ci/lib/review-carry-forward.mjs" decide --head "$HEAD_SHA" --prior-commit "$lastRev" \
                   --fp-head "$fp_head" --fp-prior "$fp_prior" || echo 'carry_tier=full')
             carry_tier=$(printf '%s\n' "$carry" | sed -n 's/^carry_tier=//p' | tail -n 1)
             case "$carry_tier" in
@@ -2347,6 +2438,8 @@ jobs:
           TIER: ${{ steps.tier.outputs.tier }}
           CODE_UNCHANGED_SINCE: ${{ steps.tier.outputs.code_unchanged_since }}
           BODY_CONTRACT_OUTCOME: ${{ steps.body_contract.outcome }}
+          REVIEW_REVISION: ${{ steps.review_input.outputs.review_revision }}
+          PR_FILE: ${{ steps.review_input.outputs.review_pr_file }}
           REVIEW_DIFF_EXCLUSIONS: data,public,reports,_newsletter_variants,docs
         run: |
           set -uo pipefail
@@ -2357,22 +2450,40 @@ jobs:
           # `gh pr view`, quindi si sarebbe fidato di una lista corta senza
           # potersene accorgere. L'elenco vero sta in `files.txt`, dalla REST che
           # in quella banda pagina davvero.
-          gh pr view "$PR_NUMBER" --repo "$REPO" --json title,body,labels > "$CTX_DIR/pr.json" \
-            || echo '{}' > "$CTX_DIR/pr.json"
+          # Reuse the exact trusted pull-request payload that produced the
+          # revision digest; a second `gh pr view` could race a body edit and
+          # leave the model with bytes different from the marker contract.
+          if ! jq -e 'type == "object" and (.title | type == "string") and (.body == null or (.body | type == "string")) and (.labels | type == "array")' "$PR_FILE" >/dev/null; then
+            echo "::error::PR review context/body illeggibile → input unavailable, nessun Codex."
+            exit 1
+          fi
+          jq '{title, body, labels}' "$PR_FILE" > "$CTX_DIR/pr.json"
           gh api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' \
             > "$CTX_DIR/files.txt" 2>/dev/null || : > "$CTX_DIR/files.txt"
           # A re-review must see open Important findings from the whole bot-review
           # history, not only the immediately previous body. The gate persists the
           # same path+line anchors; this zero-Claude render gives the reviewer the
           # state it must carry forward before it can write `## LGTM`.
-          gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp \
-            > "$CTX_DIR/reviews.json" 2>/dev/null || echo '[]' > "$CTX_DIR/reviews.json"
-          node --input-type=module - "$CTX_DIR/reviews.json" > "$CTX_DIR/inherited-findings.md" <<'NODE' || echo 'Sezione storica non disponibile.' > "$CTX_DIR/inherited-findings.md"
+          if ! gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp \
+            > "$CTX_DIR/reviews.json" 2>/dev/null; then
+            echo "::error::Review history illeggibile → input unavailable, nessun Codex."
+            exit 1
+          fi
+          if ! node --input-type=module - "$CTX_DIR/reviews.json" > "$CTX_DIR/inherited-findings.md" <<'NODE'
           import { readFileSync } from 'node:fs';
-          import { historicalImportantFindings } from './scripts/ci/review-gate.mjs';
+          import { pathToFileURL } from 'node:url';
+
+          const policyRoot = process.env.REVIEW_POLICY_ROOT;
+          if (!policyRoot) throw new Error('REVIEW_POLICY_ROOT mancante');
+          const { parseReviewPages } = await import(pathToFileURL(`${policyRoot}/scripts/ci/lib/pr-review-admission.mjs`).href);
+          const { historicalImportantFindings } = await import(pathToFileURL(`${policyRoot}/scripts/ci/review-gate.mjs`).href);
 
           const pages = JSON.parse(readFileSync(process.argv[2], 'utf8'));
-          const findings = historicalImportantFindings(pages, { includeLatest: true });
+          const reviews = parseReviewPages(pages);
+          if (!reviews) {
+            throw new Error('reviews API shape non verificabile');
+          }
+          const findings = historicalImportantFindings(reviews, { includeLatest: true });
           if (findings.length === 0) {
             console.log('Nessun finding Important storico ancora aperto.');
           } else {
@@ -2386,6 +2497,10 @@ jobs:
             }
           }
           NODE
+          then
+            echo "::error::Review history non valida → input unavailable, nessun Codex."
+            exit 1
+          fi
           # `minimal` = PR data/docs-only, ZERO code: il diff esce vuoto per
           # costruzione (gli `--exclude` coprono proprio quei path) e il fetch
           # su una PR da migliaia di file dati non e' gratis. Il file esiste
@@ -2398,7 +2513,7 @@ jobs:
           else
             # Resolve/hydrate the complete scoped patch on the host. A missing
             # patch must fail here, not force the model to rebuild it via API.
-            node scripts/ci/prefetch-review-diff.mjs || exit 1
+            node "$REVIEW_POLICY_ROOT/scripts/ci/prefetch-review-diff.mjs" || exit 1
           fi
           gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
             --jq '[.[] | select(.body // "" | contains("<!-- sibling-check -->"))] | last | .body // empty' \
@@ -2407,11 +2522,11 @@ jobs:
           # per la review servono il body, il diff code e i file code toccati.
           # Tenere fuori i path rigenerati riduce il contesto senza alterare la
           # decisione del tier, gia' calcolata sopra sul payload REST completo.
-          node scripts/ci/review-test-policy.mjs filter < "$CTX_DIR/files.txt" | grep -vE "$NONCODE_RE" > "$CTX_DIR/code-files.txt" || : > "$CTX_DIR/code-files.txt"
+          node "$REVIEW_POLICY_ROOT/scripts/ci/review-test-policy.mjs" filter < "$CTX_DIR/files.txt" | grep -vE "$NONCODE_RE" > "$CTX_DIR/code-files.txt" || : > "$CTX_DIR/code-files.txt"
           if [ -n "${INCREMENTAL_BASE:-}" ]; then
             # Incremental Claude context is strictly delta-scoped. The full PR
             # list remains available only to the zero-Claude tier calculation.
-            node scripts/ci/review-test-policy.mjs filter < "$CTX_DIR/delta-files.txt" | grep -vE "$NONCODE_RE" > "$CTX_DIR/review-code-files.txt" || : > "$CTX_DIR/review-code-files.txt"
+            node "$REVIEW_POLICY_ROOT/scripts/ci/review-test-policy.mjs" filter < "$CTX_DIR/delta-files.txt" | grep -vE "$NONCODE_RE" > "$CTX_DIR/review-code-files.txt" || : > "$CTX_DIR/review-code-files.txt"
           else
             cp "$CTX_DIR/code-files.txt" "$CTX_DIR/review-code-files.txt"
           fi
@@ -2434,6 +2549,7 @@ jobs:
             echo "## Metadata"
             echo "- PR: #$PR_NUMBER"
             echo "- HEAD: $HEAD_SHA"
+            echo "- Review input revision: ${REVIEW_REVISION:-unavailable}"
             echo "- Tier: ${TIER:-unknown}"
             echo "- Incremental base: ${INCREMENTAL_BASE:-none}"
             echo "- Changed file entries: $(wc -l < "$CTX_DIR/files.txt")"
@@ -2491,7 +2607,8 @@ jobs:
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
-        run: node scripts/ci/review-test-policy.mjs post
+          REVIEW_REVISION: ${{ steps.review_input.outputs.review_revision }}
+        run: node "$REVIEW_POLICY_ROOT/scripts/ci/review-test-policy.mjs" post
 
       - name: Publish carry-forward LGTM (code contribution unchanged)
         id: carry_forward_review
@@ -2509,13 +2626,14 @@ jobs:
           CARRY_PRIOR_REVIEW: ${{ steps.tier.outputs.carry_prior_review }}
           CARRY_PRIOR_COMMIT: ${{ steps.tier.outputs.carry_prior_commit }}
           CARRY_FINGERPRINT: ${{ steps.tier.outputs.carry_fingerprint }}
+          REVIEW_REVISION: ${{ steps.review_input.outputs.review_revision }}
         run: |
           set -euo pipefail
           if [ -z "${APP_TOKEN:-}" ]; then
             echo "::error::Token App assente: il carry-forward non puo' pubblicare con l'identita' del reviewer. Rilancia la run."
             exit 1
           fi
-          GH_TOKEN="$APP_TOKEN" node scripts/ci/lib/review-carry-forward.mjs post
+          GH_TOKEN="$APP_TOKEN" node "$REVIEW_POLICY_ROOT/scripts/ci/lib/review-carry-forward.mjs" post
 
       - name: Run Codex Luna Max review
         # Tetto sullo step (classe #7310: nessun tetto sotto il cap del job →
@@ -2535,9 +2653,12 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           PR_TITLE: ${{ steps.resolve.outputs.title }}
+          REPO: ${{ github.repository }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
+          PR_BODY_EXPECTED_REVISION: ${{ steps.review_input.outputs.review_revision }}
           REVIEW_TIER: ${{ steps.tier.outputs.tier }}
           INCREMENTAL_BASE: ${{ steps.tier.outputs.incremental_base }}
+          REVIEW_REVISION: ${{ steps.review_input.outputs.review_revision }}
         with:
           # `github_token` alimenta gli helper provider-neutral della action e
           # conserva il fallback lifecycle; il bridge host-side della review
@@ -2588,7 +2709,7 @@ jobs:
 
             **PR body: one source of truth.** The deterministic body contract (`scripts/lib/pr-body-sections-check.mjs`, step `PR-body completeness`) already validated sections, bullet states, `Motivo`/`Prossimo passo`, placeholders and `Closes`; its verdict is in the bundle under `## Deterministic body contract`. When it is ✅, do not re-validate those rules and never emit a `🔴 Important` about the body: a doubt about those rules is at most a `🟡 Nit` anchored as `PR body:L<n>`, and the review gate declassifies such a 🔴 on a green contract anyway. REVIEW.md step 7 (a perf claim without a baseline) is not a contract rule and still applies. The states it accepts in `## Non implementato (ancora)` — `in questa PR`, `PR concatenata #N`, `per scelta`, `by construction`, `blocked: decisione del proprietario` (the five `CLOSING_STATES` of `scripts/ci/followup-has-candidates.mjs`) and any other `blocked: <causa>`, which keeps the task open without blocking the PR — are valid, e su quelli **non si emette 🔴**. A `PR concatenata` without `#N` is not a state and the contract already rejects it (non passa). Re-raising a 🔴 on a bullet the contract accepted deadlocks the loop: the fixer declines with a reason, the round cap trips, and `needs-human` lands with the wrong diagnosis on a PR that has nothing to fix. Tier `minimal` carries the same rule: check that both sections exist and that **nessun placeholder vuoto** (`TBD`, `N/A`, empty bullet) fills them — but a bullet closed with specific fields **non è un finding**.
 
-            Post exactly one review with `gh pr review ${PR_NUMBER} --comment --body ...`. End with `## LGTM` only when there is no open `🔴 Important`, no unresolved funnel-critical question, and the bundle/body contract is valid. If uncertain, emit `❓ q:`; never use `## LGTM` beside an unresolved Important finding. Work read-only: do not edit files, commit, push, run npm, or run tests. Batch independent reads/searches in one tool call and stop immediately after posting the review.
+            Post exactly one review with `gh pr review ${PR_NUMBER} --comment --body ...`. The review body MUST contain, as its own unchanged line, `<!-- REVIEW_INPUT_REVISION: ${{ steps.review_input.outputs.review_revision }} -->`; this binds the verdict to the trusted body revision supplied by the workflow. End with `## LGTM` only when there is no open `🔴 Important`, no unresolved funnel-critical question, and the bundle/body contract is valid. If uncertain, emit `❓ q:`; never use `## LGTM` beside an unresolved Important finding. Work read-only: do not edit files, commit, push, run npm, or run tests. Batch independent reads/searches in one tool call and stop immediately after posting the review.
       - name: Fail on transient API error (no review posted)
         id: review_abort
         # The Codex lane can exit 0 even when the model run ABORTED on a
@@ -2656,7 +2777,7 @@ jobs:
           # 429 / rate-limit: use the central detector and fail explicitly. The
           # completed failed run is the durable signal for stale-pr-rescuer;
           # there is no shared quota lease or concurrency veto.
-          DECISION=$(GITHUB_OUTPUT=/dev/null EXEC_FILE="${EXEC_FILE:-}" PREFLIGHT_BLOCKED=false FALLBACK_ATTEMPTED=false node scripts/ci/claude-codex-fallback.mjs 2>/dev/null || true)
+          DECISION=$(GITHUB_OUTPUT=/dev/null EXEC_FILE="${EXEC_FILE:-}" PREFLIGHT_BLOCKED=false FALLBACK_ATTEMPTED=false node "$REVIEW_POLICY_ROOT/scripts/ci/claude-codex-fallback.mjs" 2>/dev/null || true)
           if printf '%s\n' "$DECISION" | grep -q '^rate_limited=true$'; then
             echo "::error::Claude review aborted on a 429 (quota/rate-limit) without posting a review — failing so stale-pr-rescuer can re-run the completed run. No shared quota lease blocked this review."
             exit 1
@@ -2673,6 +2794,25 @@ jobs:
             fi
           fi
           echo "Review step completed without an unrecovered transient API error."
+      - name: Validate deterministic review input marker
+        id: review_marker
+        # This is a zero-agent recovery gate: a missing/duplicate/stale marker
+        # is an unavailable review input, never a reason to invoke Codex again.
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true') }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
+          HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
+          REVIEW_REVISION: ${{ steps.review_input.outputs.review_revision }}
+        run: |
+          set -euo pipefail
+          if ! reviews=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp); then
+            echo "::error::Reviews API unavailable after reviewer: marker non verificabile, nessun retry Codex."
+            exit 1
+          fi
+          printf '%s' "$reviews" | node "$REVIEW_POLICY_ROOT/scripts/ci/review-marker-recovery.mjs" validate \
+            --head "$HEAD_SHA" --revision "$REVIEW_REVISION"
       - name: Require approving Codex review
         id: review_gate
         # Must still run when codex_review has outcome=failure (continue-on-error
@@ -2686,6 +2826,7 @@ jobs:
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
           REPO: ${{ github.repository }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          REVIEW_REVISION: ${{ steps.review_input.outputs.review_revision }}
           CODEX_FALLBACK_EVIDENCE_FILE: ${{ steps.codex_review.outputs.fallback_evidence_file }}
           # Single source of truth for the PR body: a model 🔴 anchored only on
           # `PR body:L<n>` does not block when this contract passed.
@@ -2697,7 +2838,7 @@ jobs:
           # sulla HEAD corrente, la classificazione fail-closed e il conio della
           # follow-up aggregata. Corre anche quando la guardia salta il model
           # reviewer: deve valutare il verdetto già presente sulla HEAD.
-          node scripts/ci/review-gate.mjs
+          node "$REVIEW_POLICY_ROOT/scripts/ci/review-gate.mjs"
 
       # GitHub può pubblicare `skipped` per uno step controllato da `if:` e
       # trattarlo come verde nel ruleset. Il gate sopra deve aver valutato la
@@ -2750,8 +2891,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
-          PR_NUMBER: ${{ github.event.pull_request.number || inputs.pr_number }}
-          HEAD_SHA: ${{ inputs.head_sha || github.event.pull_request.head.sha || github.sha }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
           set +e
           classification='cancelled_external'

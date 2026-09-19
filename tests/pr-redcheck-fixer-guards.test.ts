@@ -59,10 +59,9 @@ describe('trigger — parte solo su un rosso vero, di una PR vera', () => {
     expect(src).toContain('Nessuna PR aperta per il branch');
   });
 
-  it('è serializzato per branch, e NON cancella la run in corso', () => {
-    // `cancel-in-progress: true` ucciderebbe un fix a metà push.
-    expect(src).toMatch(/group: redcheck-fix-\$\{\{ github\.event\.workflow_run\.head_branch/);
-    expect(src).toMatch(/cancel-in-progress: false/);
+  it('serializza i body writer e cancella il precedente prima del nuovo CAS', () => {
+    expect(src).toMatch(/group: body-revision-\$\{\{ github\.event\.workflow_run\.head_branch/);
+    expect(src).toMatch(/cancel-in-progress: true/);
   });
 });
 

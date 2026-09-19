@@ -16,10 +16,10 @@ on:
     types: [submitted]
 
 # Un fixer alla volta per PR: evita due round Claude concorrenti sullo stesso
-# branch (push race).
+# branch (push race) e cancella un writer body precedente prima del nuovo CAS.
 concurrency:
-  group: redflag-fix-${{ github.event.pull_request.number }}
-  cancel-in-progress: false
+  group: body-revision-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -177,11 +177,14 @@ jobs:
       blocking: ${{ steps.scope.outputs.blocking }}
       error: ${{ steps.scope.outputs.error }}
     steps:
-      - name: Checkout classifier at PR HEAD
+      - name: Checkout trusted classifier from main
         continue-on-error: true
         uses: actions/checkout@v5
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          # The classifier is executable JavaScript and must never come from
+          # the untrusted PR tree. It still receives the PR HEAD as data below
+          # and resolves the changed files through the GitHub API.
+          ref: main
           fetch-depth: 1
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
@@ -317,16 +320,34 @@ jobs:
           REVIEW_ID: ${{ github.event.review.id }}
           REVIEW_COMMIT: ${{ github.event.review.commit_id }}
         run: |
-          set -uo pipefail
+          set -euo pipefail
           if [ ! -f scripts/ci/lib/pr-review-admission.mjs ]; then
-            echo "helper assente su questa HEAD → admission no-op (fixer procede)."
-            echo "actionable=true" >> "$GITHUB_OUTPUT"
-            exit 0
+            echo "::error::helper admission assente anche dopo l'allineamento a origin/main → 🔴-fix bloccato, nessun Codex."
+            echo "actionable=false" >> "$GITHUB_OUTPUT"
+            exit 1
           fi
-          reviews=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null || echo '[]')
-          decision=$(printf '%s' "$reviews" | node scripts/ci/lib/pr-review-admission.mjs fixer \
-            --head "$HEAD_SHA" --review-id "$REVIEW_ID" --review-commit "$REVIEW_COMMIT")
+          pr_file="$RUNNER_TEMP/redflag-pr.json"
+          if ! gh api "repos/$REPO/pulls/$PR_NUMBER" > "$pr_file"; then
+            echo "::error::PR metadata/body illeggibile → review input unavailable, nessun Codex."
+            exit 1
+          fi
+          review_revision=$(node scripts/ci/lib/review-input-revision.mjs hash-pr-json --file "$pr_file")
+          printf '%s\n' "$review_revision" | grep -qE '^body:[0-9a-f]{64}$' || {
+            echo "::error::PR body non verificabile → review input unavailable, nessun Codex."
+            exit 1
+          }
+          if ! reviews=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp); then
+            echo "::error::Reviews API illeggibile → 🔴-fix bloccato, nessun Codex."
+            exit 1
+          fi
+          if ! decision=$(printf '%s' "$reviews" | node scripts/ci/lib/pr-review-admission.mjs fixer \
+            --head "$HEAD_SHA" --review-id "$REVIEW_ID" --review-commit "$REVIEW_COMMIT" \
+            --revision "$review_revision"); then
+            echo "::error::Review admission non verificabile → 🔴-fix bloccato, nessun Codex."
+            exit 1
+          fi
           printf '%s\n' "$decision" >> "$GITHUB_OUTPUT"
+          echo "review_revision=$review_revision" >> "$GITHUB_OUTPUT"
 
       - name: Install dependencies
         if: steps.admission.outputs.actionable == 'true'
@@ -387,11 +408,35 @@ jobs:
           CLAIM_KIND: redflag
           PR_NUMBER: ${{ github.event.pull_request.number }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REVIEW_REVISION: ${{ steps.admission.outputs.review_revision }}
           EVENT_KEY: review:${{ github.event.review.id }}
           REVIEW_BODY: ${{ github.event.review.body }}
           CLAIM_TTL_SEC: '3600'
           GITHUB_RUN_ID: ${{ github.run_id }}
         run: node scripts/ci/pr-fixer-claim.mjs --claim
+
+      - name: Revalidate redflag claim before model (bounded final snapshot)
+        id: claim_verify
+        if: steps.claim.outputs.claim_allowed == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          CLAIM_ACTION: verify
+          CLAIM_KIND: redflag
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REVIEW_REVISION: ${{ steps.admission.outputs.review_revision }}
+          EVENT_KEY: review:${{ github.event.review.id }}
+          REVIEW_BODY: ${{ github.event.review.body }}
+          CLAIM_TOKEN: ${{ steps.claim.outputs.claim_token }}
+        run: node scripts/ci/pr-fixer-claim.mjs --claim
+
+      - name: Stop when redflag claim changed before model
+        if: steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid != 'true'
+        run: |
+          echo "::error::Claim redflag non più coerente con PR+HEAD+body revision+review id → nessun fixer Claude."
+          exit 1
 
       - name: Fail closed when redflag claim is unreadable
         if: steps.claim.outputs.claim_error == 'true'
@@ -432,7 +477,7 @@ jobs:
       # variabile assente o diversa da 'true' → si ricade sul solo GITHUB_PAT.
       - name: Round cap + capability guard + tier
         id: guard
-        if: steps.claim.outputs.claim_allowed == 'true'
+        if: steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -544,7 +589,7 @@ jobs:
           echo "round=$NEXT"  >> "$GITHUB_OUTPUT"
 
       - name: Configure git identity
-        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
         run: |
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"
@@ -554,7 +599,7 @@ jobs:
       # re-review non partirebbe (anti-ricorsione); il fix verrebbe comunque
       # committato. Esposto come remote authenticato.
       - name: Configure push remote (App token / PAT)
-        if: steps.guard.outputs.proceed == 'true' && (env.APP_TOKEN != '' || env.GITHUB_PAT != '') && steps.claim.outputs.claim_allowed == 'true'
+        if: steps.guard.outputs.proceed == 'true' && (env.APP_TOKEN != '' || env.GITHUB_PAT != '') && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
         env:
           PUSH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           REPO: ${{ github.repository }}
@@ -576,7 +621,7 @@ jobs:
       # gonfiato nel loop-health-report #1951).
       - name: Record base SHA (pre-Codex)
         id: base
-        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -602,7 +647,7 @@ jobs:
       # bundle con una sola `Read`.
       - name: Collect PR + review context (zero-Claude)
         id: ctx
-        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -712,7 +757,8 @@ jobs:
           ls -la "$OUT"
 
       - name: Install deterministic PR body gate
-        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
+        id: body_gate
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
         run: |
           set -euo pipefail
           gate_dir="$RUNNER_TEMP/pr-body-gate-bin"
@@ -720,6 +766,29 @@ jobs:
           ln -sf "$GITHUB_WORKSPACE/scripts/gh-pr-body-check.mjs" "$gate_dir/gh"
           echo "$gate_dir" >> "$GITHUB_PATH"
           echo "PR_BODY_GATE_BIN=$gate_dir" >> "$GITHUB_ENV"
+
+      - name: Revalidate redflag claim immediately before model
+        id: claim_verify_final
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true' && steps.ctx.outcome == 'success' && steps.body_gate.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          CLAIM_ACTION: verify
+          CLAIM_KIND: redflag
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REVIEW_REVISION: ${{ steps.admission.outputs.review_revision }}
+          EVENT_KEY: review:${{ github.event.review.id }}
+          REVIEW_BODY: ${{ github.event.review.body }}
+          CLAIM_TOKEN: ${{ steps.claim.outputs.claim_token }}
+        run: node scripts/ci/pr-fixer-claim.mjs --claim
+
+      - name: Stop when final redflag claim changed before model
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify_final.outputs.claim_valid != 'true'
+        run: |
+          echo "::error::Claim redflag cambiato dopo il prefetch e prima del modello → nessun fixer Claude."
+          exit 1
 
       - name: Run Codex Luna Max 🔴-fix
         # Tetto sullo step: senza, l'unico limite era il cap del job
@@ -730,7 +799,7 @@ jobs:
         # sulle ultime run) e una coda per gli step `if: always()`.
         timeout-minutes: 30
         id: codex_fix
-        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify_final.outputs.claim_valid == 'true'
         # Non far fallire il job sull'exit non-zero della action: lo `Classify
         # outcome` finale decide il colore in base al LAVORO reale (commit pushato),
         # non al subtype della CLI. Un error_max_turns DOPO un push valido non è un
@@ -743,6 +812,7 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number }}
           PR_TITLE: ${{ github.event.pull_request.title }}
           REPO: ${{ github.repository }}
+          PR_BODY_EXPECTED_REVISION: ${{ steps.admission.outputs.review_revision }}
           FIX_TIER: ${{ steps.guard.outputs.tier }}
           FIX_ROUND: ${{ steps.guard.outputs.round }}
         with:
@@ -830,7 +900,7 @@ jobs:
       # step non hanno continue-on-error. Mai fa-passare un gate: il round non ha
       # gate, è telemetria di colore (cfr. #2288, disambigua intenzionale vs crash).
       - name: Classify outcome (work-done, not CLI exit)
-        if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
+        if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -886,6 +956,7 @@ jobs:
           CLAIM_KIND: redflag
           PR_NUMBER: ${{ github.event.pull_request.number }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REVIEW_REVISION: ${{ steps.admission.outputs.review_revision }}
           EVENT_KEY: review:${{ github.event.review.id }}
           REVIEW_BODY: ${{ github.event.review.body }}
           CLAIM_TOKEN: ${{ steps.claim.outputs.claim_token }}

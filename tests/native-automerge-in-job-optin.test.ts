@@ -11,6 +11,10 @@ import {
   NATIVE_AUTOMERGE_IN_JOB_SOURCE_FILES,
   NATIVE_AUTOMERGE_SOURCE_FILES,
 } from '../scripts/ci/native-automerge-source.mjs';
+import {
+  reviewInputMarker,
+  reviewInputRevisionFromBody,
+} from '../scripts/ci/lib/review-input-revision.mjs';
 
 const REPO = 'valerielinc-ops/frontaliere-si-o-no';
 const HEAD = 'a'.repeat(40);
@@ -19,10 +23,15 @@ const JOB_ID = 900_200;
 const VITEST = 'vitest (unit + integration)';
 const REVIEW_GATE_STEP = 'Require approving Codex review';
 const CLEAN_BODY = '## Findings (Important: 0, Nit: 0)\n\n## LGTM';
+const REVIEW_MARKER = reviewInputMarker(reviewInputRevisionFromBody(''));
 
 const testsWorkflow = readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8');
 const enableWorkflow = readFileSync(
   new URL('../.github/workflows/enable-native-automerge.yml', import.meta.url),
+  'utf8',
+);
+const bodyEditRecoveryWorkflow = readFileSync(
+  new URL('../.github/workflows/retry-code-check-after-body-edit.yml', import.meta.url),
   'utf8',
 );
 
@@ -182,7 +191,7 @@ describe('native auto-merge opt-in from inside the required job', () => {
       id: 1,
       user: { type: 'Bot', login: 'claude[bot]' },
       state: 'COMMENTED',
-      body: CLEAN_BODY,
+      body: `${REVIEW_MARKER}\n${CLEAN_BODY}`,
       commit_id: HEAD,
       submitted_at: '2026-09-18T12:00:00Z',
     };
@@ -202,7 +211,7 @@ describe('native auto-merge opt-in from inside the required job', () => {
     // No LGTM on HEAD → denied even with a fully confirmed caller context.
     expect(evaluateNativeAutoMerge({
       ...base,
-      reviews: [{ ...review, body: '## Findings (Important: 1)\n\n🔴 Important: no.' }],
+      reviews: [{ ...review, body: `${REVIEW_MARKER}\n## Findings (Important: 1)\n\n🔴 Important: no.` }],
       inJobRun: inJobRun(),
     })).toMatchObject({ allow: false });
     expect(evaluateNativeAutoMerge({ ...base, reviews: [], inJobRun: inJobRun() }))
@@ -316,5 +325,26 @@ describe('enable-native-automerge.yml no longer fans out per PR event', () => {
     const parsed = YAML.parse(enableWorkflow) as { on?: Record<string, unknown> };
     expect(Object.keys(parsed.on ?? {})).toEqual(['workflow_dispatch']);
     expect(enableWorkflow).toContain('native-automerge-gate.mjs');
+  });
+});
+
+describe('body edits revoke native auto-merge before a fresh review', () => {
+  it('uses the trusted edited event, write permission, and verified disable mutation', () => {
+    const parsed = YAML.parse(bodyEditRecoveryWorkflow) as {
+      on?: Record<string, unknown>;
+      permissions?: Record<string, string>;
+      jobs?: Record<string, { if?: string; steps?: Array<Record<string, any>> }>;
+    };
+    expect(parsed.on?.pull_request_target).toEqual({ types: ['edited'] });
+    expect(parsed.permissions?.['pull-requests']).toBe('write');
+    expect(parsed.jobs?.recover?.if).toContain('changes.body');
+    const script = parsed.jobs?.recover?.steps?.[0]?.with?.script as string;
+    expect(script).toContain('disablePullRequestAutoMerge');
+    expect(script).toContain('revokeNativeAutoMerge');
+    expect(script).toContain('github.graphql');
+    const revocation = script.indexOf('await revokeNativeAutoMerge(number)');
+    const marker = script.indexOf('const existing = await pendingComment(number)');
+    expect(revocation).toBeGreaterThan(-1);
+    expect(marker).toBeGreaterThan(revocation);
   });
 });

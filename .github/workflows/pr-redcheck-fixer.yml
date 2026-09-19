@@ -40,13 +40,13 @@ on:
         description: 'Numero PR da riparare (bypassa il gate workflow_run)'
         required: true
 
-# Serializzato per BRANCH, non per numero PR: nel contesto `workflow_run` il
-# numero non e' affidabile (`pull_requests` e' vuoto in diversi casi), mentre
-# `head_branch` c'e' sempre. Due round Claude concorrenti sullo stesso branch si
-# sovrascriverebbero il push.
+# Serializzato per branch/PR: nel contesto `workflow_run` il numero non e'
+# affidabile (`pull_requests` e' vuoto in diversi casi), mentre `head_branch`
+# c'e' sempre. La cancellazione evita due writer body concorrenti; il wrapper
+# esegue comunque il CAS body+post-read prima di una scrittura.
 concurrency:
-  group: redcheck-fix-${{ github.event.workflow_run.head_branch || github.event.inputs.pr }}
-  cancel-in-progress: false
+  group: body-revision-${{ github.event.workflow_run.head_branch || github.event.inputs.pr }}
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -78,6 +78,7 @@ jobs:
       pr_number: ${{ steps.pre.outputs.pr_number }}
       head_ref: ${{ steps.pre.outputs.head_ref }}
       head_sha: ${{ steps.pre.outputs.head_sha }}
+      review_revision: ${{ steps.pre.outputs.review_revision }}
       failed_check_key: ${{ steps.pre.outputs.failed_check_key }}
       failed_run_id: ${{ steps.pre.outputs.failed_run_id }}
     steps:
@@ -97,7 +98,7 @@ jobs:
 
           if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
             PR="$DISPATCH_PR"
-            HEAD_SHA=$(gh api "repos/$REPO/pulls/$PR" --jq '.head.sha' 2>/dev/null || echo "")
+            HEAD_SHA=$(gh api "repos/$REPO/pulls/$PR" --jq ".head.sha" 2>/dev/null || echo "")
             RUN_ID=$(gh run list --repo "$REPO" --workflow=tests.yml --limit 20 \
               --json databaseId,headSha,conclusion \
               --jq "[.[] | select(.headSha==\"$HEAD_SHA\" and .conclusion==\"failure\")][0].databaseId" 2>/dev/null || echo "")
@@ -125,6 +126,7 @@ jobs:
           author=$(printf '%s' "$pr" | jq -r '.user.login')
           head_ref=$(printf '%s' "$pr" | jq -r '.head.ref')
           head_sha=$(printf '%s' "$pr" | jq -r '.head.sha')
+          review_revision=$(printf '%s' "$pr" | node -e 'const crypto=require("node:crypto");let s="";process.stdin.on("data",c=>s+=c).on("end",()=>{const body=JSON.parse(s).body ?? "";process.stdout.write("body:"+crypto.createHash("sha256").update(body,"utf8").digest("hex"));});')
           has_autofix=$(printf '%s' "$pr" | jq -r 'any(.labels[]?.name; . == "agent:autofix")')
 
           if [ "$state" != "open" ]; then
@@ -185,6 +187,7 @@ jobs:
             echo "pr_number=$PR"
             echo "head_ref=$head_ref"
             echo "head_sha=$head_sha"
+            echo "review_revision=$review_revision"
             echo "failed_check_key=$rollup"
             echo "failed_run_id=$RUN_ID"
           } >> "$GITHUB_OUTPUT"
@@ -604,6 +607,7 @@ jobs:
           PR_NUMBER: ${{ needs.preflight.outputs.pr_number }}
           PR_TITLE: ${{ needs.preflight.outputs.pr_number }}
           REPO: ${{ github.repository }}
+          PR_BODY_EXPECTED_REVISION: ${{ needs.preflight.outputs.review_revision }}
           FIX_TIER: ${{ steps.guard.outputs.tier }}
           FIX_ROUND: ${{ steps.guard.outputs.round }}
         with:

@@ -1,23 +1,40 @@
 name: Retry code check after corrected PR body
-run-name: 'Body recovery · PR #${{ github.event.pull_request.number }}'
+run-name: 'Body recovery · PR #${{ github.event.pull_request.number || github.event.workflow_run.pull_requests[0].number || github.event.workflow_run.id || github.run_id }}'
 
-# API-only recovery on trusted main. It dispatches the trusted tests workflow
-# when the exact head has no run, without executing any file/string from the PR.
+# API-only recovery on trusted main. It only re-runs an already-created
+# pull_request tests workflow, without executing any file/string from the PR.
+# A body edit that races an active tests run leaves a durable PR-comment marker;
+# the `workflow_run` completion event consumes that marker, so liveness does
+# not depend on a short runner-side polling window.
 on:
   pull_request_target:
     types: [edited]
+  workflow_run:
+    workflows: [tests]
+    types: [completed]
+  # An API timeout while asking GitHub to rerun is ambiguous: the mutation may
+  # have been accepted even though no immediate workflow_run event is visible.
+  # Reconcile that durable marker without requiring another body edit.
+  schedule:
+    - cron: '*/15 * * * *'
 
 permissions:
   actions: write
-  pull-requests: read
+  pull-requests: write
+  issues: write
 
 concurrency:
-  group: body-recovery-${{ github.event.pull_request.number }}
-  cancel-in-progress: false
+  # One lane is deliberate: a scheduled reconciliation has no PR/HEAD fields,
+  # so a per-PR expression would let it overlap a workflow_run/body-edit lane
+  # and consume the same durable marker twice. The marker is the source of
+  # truth; cancelling the older API-only attempt is safe and keeps one rerun
+  # request in flight, across all PRs and event types.
+  group: tests-body-recovery
+  cancel-in-progress: true
 
 jobs:
   recover:
-    if: github.event.changes.body != null
+    if: github.event_name == 'workflow_run' || github.event_name == 'schedule' || github.event.changes.body != null
     runs-on: ubuntu-latest
     steps:
       - name: Retry a failed body or review gate on the current head
@@ -25,73 +42,450 @@ jobs:
         with:
           script: |
             const repo = context.repo;
-            const number = context.payload.pull_request.number;
-            const { data: pr } = await github.rest.pulls.get({ ...repo, pull_number: number });
-            if (pr.state !== 'open' || pr.head.sha !== context.payload.pull_request.head.sha) return;
-            const runs = await github.paginate(github.rest.actions.listWorkflowRuns, {
-              ...repo, workflow_id: 'tests.yml', head_sha: pr.head.sha, per_page: 100,
-            });
-            const latest = runs.sort((a, b) => b.id - a.id)[0];
-            if (!latest) {
-              await github.rest.actions.createWorkflowDispatch({
-                ...repo,
-                workflow_id: 'tests.yml',
-                // Dispatch the trusted workflow from the base branch. A fork
-                // PR has no branch in this repository, so pr.head.ref is not
-                // a valid dispatch ref here. The exact untrusted head travels
-                // as data and is resolved/checked by tests.yml.
-                ref: pr.base.ref,
-                inputs: { pr_number: String(number), head_sha: pr.head.sha },
+            const PENDING_MARKER = '<!-- BODY_REVIEW_RECOVERY_PENDING:';
+            const NATIVE_LEASE_MARKER = '<!-- NATIVE_AUTO_MERGE_LEASE:';
+            const TRUSTED_AUTOMATION_BOT_RE = /^(?:github-actions|frontaliere-automation)\[bot\]$/iu;
+            // The scheduled/manual native gate can authenticate with the
+            // repository owner's Remote Config PAT. No other human may create
+            // or release a lease comment.
+            const TRUSTED_AUTOMATION_USER_RE = /^valerielinc-ops$/iu;
+            const trustedAutomationAuthor = (user) => (user?.type === 'Bot'
+              && TRUSTED_AUTOMATION_BOT_RE.test(String(user.login || '')))
+              || (user?.type === 'User'
+                && TRUSTED_AUTOMATION_USER_RE.test(String(user.login || '')));
+            const BODY_REVISION = (body) => {
+              const crypto = require('node:crypto');
+              return `body:${crypto.createHash('sha256').update(String(body ?? ''), 'utf8').digest('hex')}`;
+            };
+            const markerBody = (state) => `${PENDING_MARKER} ${JSON.stringify(state)} -->\n`
+              + `_body-review recovery ${state.status} · head ${state.headSha.slice(0, 12)} · body ${state.bodyRevision}._`;
+            const markerJson = (body) => {
+              const match = String(body || '').match(/<!-- BODY_REVIEW_RECOVERY_PENDING:\s*(\{[\s\S]*?\})\s*-->/u);
+              if (!match) return null;
+              try {
+                const value = JSON.parse(match[1]);
+                return value && typeof value === 'object' && !Array.isArray(value) ? value : null;
+              } catch {
+                return null;
+              }
+            };
+            const leaseJson = (body) => {
+              const match = String(body || '').match(/<!-- NATIVE_AUTO_MERGE_LEASE:\s*(\{[\s\S]*?\})\s*-->/u);
+              if (!match) return null;
+              try {
+                const value = JSON.parse(match[1]);
+                if (!value || typeof value !== 'object' || Array.isArray(value)
+                    || value.version !== 1
+                    || !['held', 'released'].includes(String(value.status || '').toLowerCase())
+                    || !Number.isSafeInteger(value.prNumber) || value.prNumber <= 0
+                    || typeof value.headSha !== 'string' || !/^[0-9a-f]{40}$/iu.test(value.headSha)
+                    || typeof value.bodyRevision !== 'string' || !/^body:[0-9a-f]{64}$/iu.test(value.bodyRevision)
+                    || typeof value.leaseId !== 'string' || value.leaseId.length < 1) return { invalid: true };
+                return { ...value, status: String(value.status).toLowerCase() };
+              } catch {
+                return { invalid: true };
+              }
+            };
+            async function pendingComment(number) {
+              const comments = await github.paginate(github.rest.issues.listComments, {
+                ...repo, issue_number: number, per_page: 100,
               });
-              core.info(`Dispatched tests.yml for PR #${number}: no run existed on ${pr.head.sha}.`);
-              return;
+              const matches = comments
+                .map(comment => ({ comment, state: markerJson(comment.body) }))
+                .filter(item => item.state && trustedAutomationAuthor(item.comment.user));
+              return matches.at(-1) || null;
             }
-            // Inspect the latest attempt only, never an old failure underneath
-            // a running retry. A passed preflight alone is not enough: the
-            // reviewer can also reject the body, and that verdict otherwise
-            // remains attached to the unchanged head forever after an edit.
-            const jobs = await github.paginate(github.rest.actions.listJobsForWorkflowRun, {
-              ...repo, run_id: latest.id, filter: 'latest', per_page: 100,
-            });
-            const failedBody = jobs.some(job => job.steps?.some(step => step.name.startsWith('PR-body completeness + multi-issue Closes') &&
-                step.conclusion === 'failure'));
-            const reviewFailureSteps = new Set([
-              'Require approving Codex review',
-              'Classify review gate failure',
-              'Fail when required review gate is skipped',
-            ]);
-            const failedJobs = jobs.filter(job => job.conclusion === 'failure');
-            const reviewOnlyFailure = failedJobs.length > 0 && failedJobs.every(job => {
-              const failedSteps = (job.steps ?? [])
-                .filter(step => step.conclusion === 'failure')
-                .map(step => step.name);
-              return failedSteps.length > 0 && failedSteps.every(name => reviewFailureSteps.has(name));
-            });
-            const retryReason = failedBody
-              ? 'the body preflight failed'
-              : reviewOnlyFailure
-                ? 'the review gate failed'
-                : '';
-            if (!retryReason) {
-              core.info('Body preflight and review gate did not fail exclusively; preserve the existing code verdict.');
-              return;
+            async function revokeNativeAutoMerge(number) {
+              const query = await github.graphql(`
+                query($owner:String!,$name:String!,$number:Int!){
+                  repository(owner:$owner,name:$name){
+                    pullRequest(number:$number){
+                      id state autoMergeRequest{enabledAt}
+                    }
+                  }
+                }
+              `, { owner: repo.owner, name: repo.repo, number });
+              const current = query?.repository?.pullRequest;
+              if (!current) throw new Error('PR non verificabile per la revoca native auto-merge');
+              if (current.state !== 'OPEN' || current.autoMergeRequest === null) return false;
+              const mutation = await github.graphql(`
+                mutation($pullRequestId:ID!){
+                  disablePullRequestAutoMerge(input:{pullRequestId:$pullRequestId}){
+                    pullRequest{autoMergeRequest{enabledAt}}
+                  }
+                }
+              `, { pullRequestId: current.id });
+              if (mutation?.disablePullRequestAutoMerge?.pullRequest?.autoMergeRequest !== null) {
+                throw new Error('GitHub non ha confermato la revoca native auto-merge');
+              }
+              const after = await github.graphql(`
+                query($owner:String!,$name:String!,$number:Int!){
+                  repository(owner:$owner,name:$name){
+                    pullRequest(number:$number){state autoMergeRequest{enabledAt}}
+                  }
+                }
+              `, { owner: repo.owner, name: repo.repo, number });
+              const observed = after?.repository?.pullRequest;
+              if (!observed || observed.state !== 'OPEN' || observed.autoMergeRequest !== null) {
+                throw new Error('native auto-merge ancora attivo dopo la revoca');
+              }
+              return true;
             }
-            // An edit may arrive while the failed preflight run is finishing.
-            // Wait only for this failed preflight, never for running tests.
-            let settled = latest;
-            for (let poll = 0; settled.status !== 'completed' && poll < 10; poll++) {
-              await new Promise(resolve => setTimeout(resolve, 1000));
-              ({ data: settled } = await github.rest.actions.getWorkflowRun({ ...repo, run_id: latest.id }));
-              if (settled.run_attempt !== latest.run_attempt) return;
+            async function persistMarker(number, state, existing = null) {
+              const body = markerBody(state);
+              if (existing?.comment?.id) {
+                const response = await github.rest.issues.updateComment({
+                  ...repo, comment_id: existing.comment.id, body,
+                });
+                return { comment: response?.data || existing.comment, state };
+              }
+              const response = await github.rest.issues.createComment({
+                ...repo, issue_number: number, body,
+              });
+              return { comment: response?.data || null, state };
             }
-            if (settled.status !== 'completed' || settled.conclusion !== 'failure') return;
-            // Recheck both head and attempt after reading jobs. Duplicate edit
-            // deliveries must not restart a retry that is already queued.
-            const [{ data: currentPr }, { data: currentRun }] = await Promise.all([
-              github.rest.pulls.get({ ...repo, pull_number: number }),
-              github.rest.actions.getWorkflowRun({ ...repo, run_id: latest.id }),
-            ]);
-            if (currentPr.state !== 'open' || currentPr.head.sha !== pr.head.sha ||
-                currentRun.status !== 'completed' || currentRun.run_attempt !== latest.run_attempt) return;
-            await github.rest.actions.reRunWorkflow({ ...repo, run_id: latest.id });
-            core.info(`Retrying code run ${latest.id}: ${retryReason} and the description changed.`);
+            async function releaseNativeAutoMergeLease(number, pr) {
+              const comments = await github.paginate(github.rest.issues.listComments, {
+                ...repo, issue_number: number, per_page: 100,
+              });
+              const leases = [];
+              for (const comment of comments) {
+                if (!comment || typeof comment.body !== 'string') throw new Error('commento lease non verificabile');
+                if (!comment.body.includes(NATIVE_LEASE_MARKER)) continue;
+                if (!trustedAutomationAuthor(comment.user)) throw new Error('lease native auto-merge senza autore automation trusted');
+                const lease = leaseJson(comment.body);
+                if (!lease || lease.invalid || lease.prNumber !== Number(number)) {
+                  throw new Error('lease native auto-merge malformato o associato a PR diversa');
+                }
+                leases.push(lease);
+              }
+              const latest = leases.at(-1);
+              if (!latest || latest.status !== 'held') return false;
+              const released = {
+                version: 1, status: 'released', prNumber: Number(number),
+                headSha: pr.head.sha, bodyRevision: BODY_REVISION(pr.body),
+                leaseId: latest.leaseId, reason: 'body-edited',
+              };
+              await github.rest.issues.createComment({
+                ...repo,
+                issue_number: number,
+                body: `${NATIVE_LEASE_MARKER} ${JSON.stringify(released)} -->\n_native auto-merge lease released by body recovery._`,
+              });
+              return true;
+            }
+            function workflowRunPullRequests() {
+              return context.payload.workflow_run?.pull_requests || [];
+            }
+            async function resolvePullRequests(run = null) {
+              const eventPullRequests = workflowRunPullRequests();
+              if (eventPullRequests.length > 0) {
+                const valid = eventPullRequests
+                  .filter(pr => pr?.base?.ref === 'main' && pr?.head?.sha === run?.head_sha)
+                  .map(pr => Number(pr.number))
+                  .filter(Number.isSafeInteger);
+                return valid.length === eventPullRequests.length ? [...new Set(valid)] : [];
+              }
+              if (!run?.head_sha) return [];
+              const open = await github.paginate(github.rest.pulls.list, {
+                ...repo, state: 'open', per_page: 100,
+              });
+              const found = [];
+              for (const candidate of open) {
+                if (candidate.base?.ref === 'main' && candidate.head?.sha === run.head_sha) {
+                  found.push(candidate.number);
+                }
+              }
+              return found;
+            }
+            async function runForHead(sha, number) {
+              const runs = await github.paginate(github.rest.actions.listWorkflowRuns, {
+                ...repo, workflow_id: 'tests.yml', head_sha: sha, per_page: 100,
+              });
+              const candidates = runs
+                .filter(run => run?.event === 'pull_request' && run?.head_sha === sha)
+                .sort((a, b) => b.id - a.id || b.run_attempt - a.run_attempt);
+              for (const candidate of candidates) {
+                const detail = await github.rest.actions.getWorkflowRun({ ...repo, run_id: candidate.id });
+                const pullRequests = detail.data?.pull_requests;
+                const belongs = Array.isArray(pullRequests)
+                  && pullRequests.some(pr => Number(pr?.number) === Number(number)
+                    && pr?.base?.ref === 'main'
+                    && pr?.head?.sha === sha);
+                if (belongs) return { ...candidate, ...detail.data };
+              }
+              return null;
+            }
+            function validRunAttempt(value) {
+              const attempt = Number(value);
+              return Number.isSafeInteger(attempt) && attempt > 0 ? attempt : null;
+            }
+            async function retryCompletedRun(number, pr, latest, existing, reason) {
+              const { data: currentPr } = await github.rest.pulls.get({ ...repo, pull_number: number });
+              if (currentPr.state !== 'open' || currentPr.base?.ref !== 'main' || currentPr.head.sha !== pr.head.sha) return;
+              pr = currentPr;
+              const currentRun = await github.rest.actions.getWorkflowRun({ ...repo, run_id: latest.id });
+              const observedAttempt = validRunAttempt(currentRun.data?.run_attempt);
+              if (observedAttempt === null) {
+                throw new Error(`run ${latest.id} attempt non verificabile: marker resta pending`);
+              }
+              if (currentRun.data.status !== 'completed') {
+                await persistMarker(number, {
+                  version: 1, status: 'pending', prNumber: number, runId: latest.id,
+                  runAttempt: observedAttempt, headSha: pr.head.sha,
+                  bodyRevision: BODY_REVISION(pr.body),
+                }, existing);
+                core.info(`Tests run ${latest.id} ancora attiva: marker durevole, retry demandato a workflow_run.`);
+                return;
+              }
+              // GitHub keeps the run id stable while incrementing
+              // `run_attempt`. A list response can still expose attempt N
+              // while the detail response already exposes N+1; consume the
+              // observed completed attempt instead of writing N back to the
+              // durable marker and losing its completion event.
+              latest = { ...latest, ...currentRun.data, run_attempt: observedAttempt };
+              const bodyRevision = BODY_REVISION(pr.body);
+              if (existing?.state?.status === 'queued'
+                  && existing.state.headSha === pr.head.sha
+                  && existing.state.bodyRevision === bodyRevision) {
+                if (observedAttempt >= Number(existing.state.runAttempt)) {
+                  await persistMarker(number, {
+                    ...existing.state,
+                    status: 'completed',
+                    runId: latest.id,
+                    runAttempt: observedAttempt,
+                  }, existing);
+                  core.info(`Retry completato per PR #${number}, HEAD ${pr.head.sha}: marker riconciliato.`);
+                  return;
+                }
+                const manualState = {
+                  version: 1, status: 'manual', prNumber: number, runId: null,
+                  runAttempt: null, headSha: pr.head.sha, bodyRevision,
+                  sourceEvent: 'queued-reconciled',
+                };
+                await persistMarker(number, manualState, existing);
+                core.warning(`Marker queued senza attempt osservato per PR #${number}: checkpoint manuale, nessun retry cieco.`);
+                return;
+              }
+              const nextAttempt = Number(latest.run_attempt) + 1;
+              const queuedState = {
+                version: 1, status: 'queued', prNumber: number, runId: latest.id,
+                runAttempt: nextAttempt, headSha: pr.head.sha, bodyRevision,
+                reconcileAttempts: Number(existing?.state?.reconcileAttempts || 0),
+                queuedAt: new Date().toISOString(),
+              };
+              const queuedMarker = await persistMarker(number, queuedState, existing);
+              try {
+                await github.rest.actions.reRunWorkflow({ ...repo, run_id: latest.id });
+              } catch (error) {
+                // An API error is ambiguous: GitHub may have accepted the
+                // rerun while the client timed out. Never roll back to the old
+                // attempt, because its next workflow_run could then trigger a
+                // duplicate rerun. Keep the exact expected attempt in a
+                // durable manual marker: workflow_run can complete it directly,
+                // while the scheduled reconciler can distinguish an accepted
+                // rerun from a mutation that never became visible and retry at
+                // most once more. A manual marker with no run identity would
+                // make a valid completion event indistinguishable from noise.
+                const manualState = {
+                  ...queuedState,
+                  status: 'manual',
+                  reconcileAttempts: Number(queuedState.reconcileAttempts || 0) + 1,
+                  sourceEvent: 'rerun-ambiguous',
+                };
+                try {
+                  try {
+                    await persistMarker(number, manualState, queuedMarker);
+                  } catch {
+                    await persistMarker(number, manualState, null);
+                  }
+                  core.warning(`Rerun tests.yml ambiguo per PR #${number}: checkpoint manuale, nessun retry cieco.`);
+                } catch (manualError) {
+                  core.error(`Rerun tests.yml ambiguo e checkpoint manuale non scrivibile per PR #${number}: ${String(manualError)}`);
+                }
+                throw error;
+              }
+              // The queued marker already names the exact next attempt. Keep it
+              // until that workflow_run arrives; a crash after the mutation
+              // must not lose the durable hand-off.
+              core.info(`Retrying code run ${latest.id} for PR #${number}: ${reason}.`);
+            }
+            async function handleBodyEdit() {
+              const number = context.payload.pull_request.number;
+              const { data: pr } = await github.rest.pulls.get({ ...repo, pull_number: number });
+              if (pr.state !== 'open' || pr.base?.ref !== 'main' || pr.head.sha !== context.payload.pull_request.head.sha) return;
+              // Revoke first. A body revision must never leave an old native
+              // opt-in active while this recovery writes its marker/retries.
+              await revokeNativeAutoMerge(number);
+              // Never release the durable lease before the native opt-in is
+              // confirmed revoked. If comment publication fails afterwards,
+              // the stale lease is safer than an active stale auto-merge.
+              await releaseNativeAutoMergeLease(number, pr);
+              const latest = await runForHead(pr.head.sha, number);
+              const existing = await pendingComment(number);
+              if (!latest) {
+                const bodyRevision = BODY_REVISION(pr.body);
+                // Never dispatch the trusted tests workflow against a fork
+                // SHA: a trusted-workflow dispatch would execute PR-controlled code with
+                // this job's write/id-token secrets. Leave a durable manual
+                // checkpoint instead; only a pre-existing pull_request run may
+                // be re-run by this API-only recovery.
+                await persistMarker(number, {
+                  version: 1, status: 'manual', prNumber: number, runId: null,
+                  runAttempt: null, headSha: pr.head.sha, bodyRevision,
+                  sourceEvent: 'no-existing-pull-request-run',
+                }, existing);
+                core.warning(`Nessuna run tests pull_request per PR #${number}, HEAD ${pr.head.sha}: recovery manuale richiesta; nessun dispatch trusted.`);
+                return;
+              }
+              const jobs = latest.status === 'completed'
+                ? await github.paginate(github.rest.actions.listJobsForWorkflowRun, {
+                  ...repo, run_id: latest.id, filter: 'latest', per_page: 100,
+                })
+                : [];
+              const failedBody = jobs.some(job => job.steps?.some(step => step.name.startsWith('PR-body completeness + multi-issue Closes')
+                && step.conclusion === 'failure'));
+              const reviewFailureSteps = new Set([
+                'Require approving Codex review', 'Classify review gate failure',
+                'Fail when required review gate is skipped',
+              ]);
+              const failedJobs = jobs.filter(job => job.conclusion === 'failure');
+              const reviewOnlyFailure = failedJobs.length > 0 && failedJobs.every(job => {
+                const failedSteps = (job.steps ?? []).filter(step => step.conclusion === 'failure').map(step => step.name);
+                return failedSteps.length > 0 && failedSteps.every(name => reviewFailureSteps.has(name));
+              });
+              const reason = failedBody ? 'body preflight failed'
+                : reviewOnlyFailure ? 'review gate failed'
+                  : 'the PR body changed; revalidate the review input revision';
+              await retryCompletedRun(number, pr, latest, existing, reason);
+            }
+            function markerMatchesRun(state, run) {
+              return state?.runId != null
+                && state?.runAttempt != null
+                && Number(state.runId) === Number(run?.id)
+                && Number(state.runAttempt) === Number(run?.run_attempt);
+            }
+            function markerSameRunWithNewerAttempt(state, run) {
+              const markerAttempt = validRunAttempt(state?.runAttempt);
+              const observedAttempt = validRunAttempt(run?.run_attempt);
+              return state?.runId != null
+                && Number(state.runId) === Number(run?.id)
+                && markerAttempt !== null
+                && observedAttempt !== null
+                && observedAttempt > markerAttempt;
+            }
+            async function handleWorkflowRun() {
+              const run = context.payload.workflow_run;
+              if (!run || run.name !== 'tests' || run.status !== 'completed'
+                  || run.event !== 'pull_request'
+                  || run.repository?.full_name !== `${repo.owner}/${repo.repo}`
+                  || typeof run.head_sha !== 'string') return;
+              for (const number of await resolvePullRequests(run)) {
+                const { data: pr } = await github.rest.pulls.get({ ...repo, pull_number: number });
+                if (pr.state !== 'open' || pr.base?.ref !== 'main' || pr.head.sha !== run.head_sha) continue;
+                let existing = await pendingComment(number);
+                if (!existing?.state || existing.state.headSha !== run.head_sha) continue;
+                // The rerun API preserves `workflow_run.id` and only advances
+                // `run_attempt`. Adopt a newer attempt from the authoritative
+                // completion event before matching/consuming the marker;
+                // otherwise a marker persisted for attempt 1 strands the
+                // valid completion event for attempt 2 forever.
+                if (markerSameRunWithNewerAttempt(existing.state, run)) {
+                  existing = await persistMarker(number, {
+                    ...existing.state, runId: run.id, runAttempt: validRunAttempt(run.run_attempt),
+                  }, existing);
+                }
+                const exactRun = markerMatchesRun(existing.state, run);
+                if (existing.state.status === 'queued') {
+                  if (!exactRun) continue;
+                  if (existing.state.bodyRevision !== BODY_REVISION(pr.body)) {
+                    const latest = await runForHead(run.head_sha, number);
+                    const candidate = latest && markerMatchesRun(existing.state, latest) ? latest : run;
+                    await retryCompletedRun(number, pr, candidate, existing, 'body changed while retry was active');
+                    continue;
+                  }
+                  await persistMarker(number, { ...existing.state, status: 'completed' }, existing);
+                  continue;
+                }
+                if (existing.state.status === 'manual'
+                    && (existing.state.sourceEvent === 'rerun-ambiguous'
+                      || existing.state.sourceEvent === 'no-existing-pull-request-run')) {
+                  // A manual checkpoint is not a green verdict. It only means
+                  // the previous API mutation could not be classified. If a
+                  // trusted completion event proves the same PR/HEAD, consume
+                  // that event instead of making the marker a permanent dead
+                  // end. The scheduled reconciler below handles the case where
+                  // the event was already emitted before the checkpoint.
+                  const manualMatches = existing.state.sourceEvent === 'no-existing-pull-request-run'
+                    ? Number(run?.pull_requests?.[0]?.number) === Number(number)
+                    : exactRun;
+                  if (!manualMatches) continue;
+                  if (existing.state.bodyRevision !== BODY_REVISION(pr.body)) {
+                    await retryCompletedRun(number, pr, run, existing, 'body changed while ambiguous retry was active');
+                    continue;
+                  }
+                  await persistMarker(number, {
+                    ...existing.state, status: 'completed', runId: run.id,
+                    runAttempt: validRunAttempt(run.run_attempt),
+                  }, existing);
+                  continue;
+                }
+                if (existing.state.status !== 'pending' || !exactRun) continue;
+                const latest = await runForHead(run.head_sha, number);
+                const candidate = latest && markerMatchesRun(existing.state, latest) ? latest : run;
+                await retryCompletedRun(number, pr, candidate, existing, 'previous tests run completed after body edit');
+              }
+            }
+            async function handleScheduledRecovery() {
+              const open = await github.paginate(github.rest.pulls.list, {
+                ...repo, state: 'open', base: 'main', per_page: 100,
+              });
+              for (const candidate of open) {
+                const number = Number(candidate?.number);
+                if (!Number.isSafeInteger(number) || candidate?.base?.ref !== 'main' || candidate?.draft === true) continue;
+                const { data: pr } = await github.rest.pulls.get({ ...repo, pull_number: number });
+                if (pr.state !== 'open' || pr.base?.ref !== 'main' || !pr.head?.sha) continue;
+                const existing = await pendingComment(number);
+                if (!existing?.state || existing.state.status !== 'manual'
+                    || !['rerun-ambiguous', 'no-existing-pull-request-run'].includes(existing.state.sourceEvent)) continue;
+                if (existing.state.headSha !== pr.head.sha
+                    || existing.state.bodyRevision !== BODY_REVISION(pr.body)) continue;
+                const latest = await runForHead(pr.head.sha, number);
+                if (!latest) continue;
+                const observedAttempt = validRunAttempt(latest.run_attempt);
+                if (observedAttempt === null) continue;
+                const expectedAttempt = validRunAttempt(existing.state.runAttempt);
+                if (existing.state.sourceEvent === 'rerun-ambiguous' && expectedAttempt !== null
+                    && observedAttempt >= expectedAttempt) {
+                  if (latest.status === 'completed') {
+                    await persistMarker(number, {
+                      ...existing.state, status: 'completed', runId: latest.id,
+                      runAttempt: observedAttempt,
+                    }, existing);
+                  } else {
+                    await persistMarker(number, {
+                      ...existing.state, status: 'queued', runId: latest.id,
+                      runAttempt: observedAttempt, queuedAt: existing.state.queuedAt || new Date().toISOString(),
+                    }, existing);
+                  }
+                  continue;
+                }
+                if (latest.status !== 'completed') continue;
+                const attempts = Number(existing.state.reconcileAttempts || 0);
+                if (attempts >= 2) {
+                  await persistMarker(number, {
+                    ...existing.state, sourceEvent: 'rerun-ambiguous-exhausted',
+                    runId: null, runAttempt: null,
+                  }, existing);
+                  core.warning(`Rerun tests.yml ancora non osservabile per PR #${number}: checkpoint manuale definitivo.`);
+                  continue;
+                }
+                try {
+                  await retryCompletedRun(number, pr, latest, existing, 'scheduled reconciliation of ambiguous rerun');
+                } catch (error) {
+                  core.warning(`Riconciliazione rerun ambigua fallita per PR #${number}: ${String(error)}`);
+                }
+              }
+            }
+            if (context.eventName === 'workflow_run') await handleWorkflowRun();
+            else if (context.eventName === 'schedule') await handleScheduledRecovery();
+            else await handleBodyEdit();

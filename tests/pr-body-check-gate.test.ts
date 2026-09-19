@@ -21,6 +21,7 @@ import {
   validatePrBody,
 } from '../scripts/ci/pr-body-check-gate.mjs';
 import { EXIT_BLOCK } from '../scripts/ci/lib/hook-exit-codes.mjs';
+import { reviewInputRevisionFromBody } from '../scripts/ci/lib/review-input-revision.mjs';
 
 /**
  * Analogous to sibling-check-gate's PreToolUse contract: this hook intercepts
@@ -333,6 +334,164 @@ describe('pr-body-check-gate hook (process behavior)', () => {
     });
     expect(res.status).toBe(EXIT_BLOCK);
     expect(res.stderr).toMatch(/Non implementato/);
+  });
+
+  it('blocks a body edit when the trusted expected revision changed before the write', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const file = join(dir, 'body.md');
+    const edited = join(dir, 'edited');
+    writeFileSync(file, BOTH_HEADERS, 'utf8');
+    const currentBody = `${BOTH_HEADERS}\nconcurrent human edit`;
+    const fakeGh = join(dir, 'gh');
+    writeFileSync(fakeGh, [
+      '#!/bin/sh',
+      'set -eu',
+      'if [ "$1" = api ] && [ "$2" = --include ]; then',
+      `  printf '%s\\n' 'HTTP/2 200' 'etag: "v1"' '' '${JSON.stringify({ body: currentBody })}'`,
+      '  exit 0',
+      'fi',
+      `touch '${edited}'`,
+    ].join('\n') + '\n', 'utf8');
+    chmodSync(fakeGh, 0o755);
+    const res = spawnSync(process.execPath, [
+      SHIM, 'pr', 'edit', '123', '--repo', 'owner/repo', '--body-file', file,
+    ], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: dir,
+        PR_BODY_GATE_BIN: join(dir, 'wrapper-bin'),
+        PR_NUMBER: '123',
+        REPO: 'owner/repo',
+        PR_BODY_EXPECTED_REVISION: reviewInputRevisionFromBody(BOTH_HEADERS),
+      },
+    });
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/cambiato concorrente/);
+    expect(() => readFileSync(edited)).toThrow();
+  });
+
+  it('uses an ETag conditional PATCH and fails closed on a concurrent body edit', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const file = join(dir, 'body.md');
+    const calls = join(dir, 'calls');
+    const edited = join(dir, 'edited');
+    writeFileSync(file, BOTH_HEADERS, 'utf8');
+    const fakeGh = join(dir, 'gh');
+    writeFileSync(fakeGh, [
+      '#!/bin/sh',
+      'set -eu',
+      'if [ "$1" = api ] && [ "$2" = --include ]; then',
+      `  printf '%s\\n' 'HTTP/2 200' 'etag: "v1"' '' '${JSON.stringify({ body: BOTH_HEADERS })}'`,
+      '  exit 0',
+      'fi',
+      'if [ "$1" = api ] && [ "$2" = repos/owner/repo/pulls/123 ] && [ "$3" = --method ] && [ "$4" = PATCH ] && [ "$5" = --header ] && [ "$7" = --field ]; then',
+      `  printf '%s' 'HTTP 412: precondition failed' >&2`,
+      `  : > '${calls}'`,
+      '  exit 1',
+      'fi',
+      `: > '${edited}'`,
+    ].join('\n') + '\n', 'utf8');
+    chmodSync(fakeGh, 0o755);
+    const res = spawnSync(process.execPath, [
+      SHIM, 'pr', 'edit', '123', '--repo', 'owner/repo', '--body-file', file,
+    ], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: dir,
+        PR_BODY_GATE_BIN: join(dir, 'wrapper-bin'),
+        PR_NUMBER: '123',
+        REPO: 'owner/repo',
+        PR_BODY_EXPECTED_REVISION: reviewInputRevisionFromBody(BOTH_HEADERS),
+      },
+    });
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/CAS body rifiutato/);
+    expect(() => readFileSync(edited)).toThrow();
+    expect(readFileSync(calls, 'utf8')).toBe('');
+  });
+
+  it('writes a body with an ETag conditional PATCH when the revision is unchanged', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const file = join(dir, 'body.md');
+    const calls = join(dir, 'calls');
+    writeFileSync(file, BOTH_HEADERS, 'utf8');
+    const fakeGh = join(dir, 'gh');
+    writeFileSync(fakeGh, [
+      '#!/bin/sh',
+      'set -eu',
+      'if [ "$1" = api ] && [ "$2" = --include ]; then',
+      `  printf '%s\\n' 'HTTP/2 200' 'etag: W/"v1"' '' '${JSON.stringify({ body: BOTH_HEADERS })}'`,
+      '  exit 0',
+      'fi',
+      'if [ "$1" = api ] && [ "$2" = repos/owner/repo/pulls/123 ] && [ "$3" = --method ] && [ "$4" = PATCH ] && [ "$5" = --header ] && [ "$7" = --field ]; then',
+      `  : > '${calls}'`,
+      `  printf '%s' '${JSON.stringify({ body: BOTH_HEADERS })}'`,
+      '  exit 0',
+      'fi',
+      `printf '%s' 'unexpected gh invocation' >&2`,
+      'exit 1',
+    ].join('\n') + '\n', 'utf8');
+    chmodSync(fakeGh, 0o755);
+    const res = spawnSync(process.execPath, [
+      SHIM, 'pr', 'edit', '123', '--repo', 'owner/repo', '--body-file', file,
+    ], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: dir,
+        PR_BODY_GATE_BIN: join(dir, 'wrapper-bin'),
+        PR_NUMBER: '123',
+        REPO: 'owner/repo',
+        PR_BODY_EXPECTED_REVISION: reviewInputRevisionFromBody(BOTH_HEADERS),
+      },
+    });
+    expect(res.status).toBe(0);
+    expect(readFileSync(calls, 'utf8')).toBe('');
+  });
+
+  it('accepts an initially null remote body and still performs the CAS PATCH', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const file = join(dir, 'body.md');
+    const calls = join(dir, 'calls');
+    writeFileSync(file, BOTH_HEADERS, 'utf8');
+    const fakeGh = join(dir, 'gh');
+    writeFileSync(fakeGh, [
+      '#!/bin/sh',
+      'set -eu',
+      'if [ "$1" = api ] && [ "$2" = --include ]; then',
+      `  printf '%s\\n' 'HTTP/2 200' 'etag: "v-null"' '' '${JSON.stringify({ body: null })}'`,
+      '  exit 0',
+      'fi',
+      'if [ "$1" = api ] && [ "$2" = repos/owner/repo/pulls/123 ] && [ "$3" = --method ] && [ "$4" = PATCH ] && [ "$5" = --header ] && [ "$7" = --field ]; then',
+      `  : > '${calls}'`,
+      `  printf '%s' '${JSON.stringify({ body: BOTH_HEADERS })}'`,
+      '  exit 0',
+      'fi',
+      'printf "%s" "unexpected gh invocation" >&2',
+      'exit 1',
+    ].join('\n') + '\n', 'utf8');
+    chmodSync(fakeGh, 0o755);
+    const res = spawnSync(process.execPath, [
+      SHIM, 'pr', 'edit', '123', '--repo', 'owner/repo', '--body-file', file,
+    ], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: dir,
+        PR_BODY_GATE_BIN: join(dir, 'wrapper-bin'),
+        PR_NUMBER: '123',
+        REPO: 'owner/repo',
+        PR_BODY_EXPECTED_REVISION: reviewInputRevisionFromBody(''),
+      },
+    });
+    expect(res.status).toBe(0);
+    expect(readFileSync(calls, 'utf8')).toBe('');
   });
 
   it('blocks a body-file flag whose value is another option', () => {

@@ -18,6 +18,10 @@ import {
 
 const DIFF_FILES = ['src/changed.mjs'];
 const TREE_FILES = ['src/changed.mjs', 'scripts/legacy.mjs', 'scripts/other.mjs'];
+const REVIEW_REVISION = `body:${'c'.repeat(64)}`;
+const OLD_REVIEW_REVISION = `body:${'d'.repeat(64)}`;
+const REVIEW_INPUT_MARKER = `<!-- REVIEW_INPUT_REVISION: ${REVIEW_REVISION} -->`;
+const OLD_REVIEW_INPUT_MARKER = `<!-- REVIEW_INPUT_REVISION: ${OLD_REVIEW_REVISION} -->`;
 
 const reviewFor = (path: string, prose: string) =>
   `## Findings (Important: 1, Nit: 0)\n\n\`${path}:L12\`: 🔴 Important: ${prose}\n\n## LGTM`;
@@ -25,25 +29,33 @@ const reviewFor = (path: string, prose: string) =>
 const HEAD_SHA = 'a'.repeat(40);
 const PRIOR_SHA = 'b'.repeat(40);
 const approvingBotReview = {
+  id: 1,
   user: { type: 'Bot', login: 'claude[bot]' },
+  state: 'COMMENTED',
   body: '## Findings (Important: 0, Nit: 0)\n\n## LGTM',
   commit_id: PRIOR_SHA,
 };
 
 const historicalImportantReview = {
+  id: 2,
   user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+  state: 'COMMENTED',
   body: reviewFor('src/changed.mjs', 'the unsafe branch is still present'),
   commit_id: PRIOR_SHA,
 };
 
 const unanchoredImportantReview = {
+  id: 3,
   user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+  state: 'COMMENTED',
   body: '## Findings (Important: 1, Nit: 0)\n\n🔴 Important: process contract remains unresolved\n\n## LGTM',
   commit_id: PRIOR_SHA,
 };
 
 const alignmentLgtmReview = {
+  id: 4,
   user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+  state: 'COMMENTED',
   body: '## Findings (Important: 0, Nit: 1)\n\nThe alignment changed no cited code.\n\n## LGTM',
   commit_id: HEAD_SHA,
 };
@@ -640,6 +652,103 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     expect(result.reason).toMatch(/nessuna review Codex/i);
   });
 
+  it('does not treat a missing review state as COMMENTED', async () => {
+    const missingState = { ...approvingBotReview } as Record<string, unknown>;
+    delete missingState.state;
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[missingState]],
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/nessuna review Codex/i);
+  });
+
+  it('fails closed when a malformed decoded review is beside a valid verdict', async () => {
+    const malformed = { ...approvingBotReview } as Record<string, unknown>;
+    delete malformed.state;
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[approvingBotReview, malformed]],
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/malformato|non disponibile/i);
+  });
+
+  it('requires a current trusted body revision before reusing a same-HEAD verdict', async () => {
+    const oldBodyReview = {
+      ...approvingBotReview,
+      body: `${OLD_REVIEW_INPUT_MARKER}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM`,
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[oldBodyReview]],
+      reviewRevision: REVIEW_REVISION,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/revisione body corrente/i);
+  });
+
+  it('keeps historical Important findings open until the current body revision confirms their fix', async () => {
+    const historical = {
+      ...historicalImportantReview,
+      body: `${OLD_REVIEW_INPUT_MARKER}\n${historicalImportantReview.body}`,
+      commit_id: PRIOR_SHA,
+    };
+    const currentClean = {
+      ...approvingBotReview,
+      body: `${REVIEW_INPUT_MARKER}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM`,
+      commit_id: HEAD_SHA,
+    };
+    const blocked = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[historical, currentClean]],
+      reviewRevision: REVIEW_REVISION,
+      repositoryPaths: TREE_FILES,
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+    expect(blocked.approved).toBe(false);
+    expect(blocked.reason).toMatch(/finding Important/i);
+
+    const currentFixed = {
+      ...currentClean,
+      body: [
+        REVIEW_INPUT_MARKER,
+        '## Findings (Important: 0, Nit: 0)',
+        '',
+        'Fix di `src/changed.mjs:L12`: ok.',
+        '',
+        '## LGTM',
+      ].join('\n'),
+    };
+    const approved = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[historical, currentFixed]],
+      reviewRevision: REVIEW_REVISION,
+      repositoryPaths: TREE_FILES,
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+    expect(approved).toMatchObject({ approved: true, reviewCommit: HEAD_SHA });
+  });
+
   it('blocks an identical-fingerprint review from a previous SHA', async () => {
     const result = await runReviewGate({
       repo: 'owner/repo',
@@ -834,7 +943,9 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
 
   it('accepts a Codex review only with strict evidence, marker and exact HEAD', async () => {
     const codexReview = {
+      id: 5,
       user: { type: 'Bot', login: 'github-actions[bot]' },
+      state: 'COMMENTED',
       body: `${CODEX_REVIEW_MARKER}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM`,
       commit_id: HEAD_SHA,
     };
@@ -892,7 +1003,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
 });
 
 describe('review gate: citazioni e conferme', () => {
-  const bot = (body: string) => ({ user: { type: 'Bot', login: 'claude[bot]' }, body, commit_id: 'c'.repeat(40) });
+  const bot = (body: string) => ({ id: 6, user: { type: 'Bot', login: 'claude[bot]' }, state: 'COMMENTED', body, commit_id: 'c'.repeat(40) });
 
   it('decodifica i separatori newline serializzati dalla review automation', async () => {
     const escaped = [
@@ -958,12 +1069,16 @@ describe('review gate: citazioni e conferme', () => {
       '## LGTM',
     ].join('\n');
     const historicalReview = {
+      id: 7,
       user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+      state: 'COMMENTED',
       body: historicalBody,
       commit_id: PRIOR_SHA,
     };
     const currentReview = {
+      id: 8,
       user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+      state: 'COMMENTED',
       body: currentBody,
       commit_id: HEAD_SHA,
     };
@@ -1383,7 +1498,9 @@ describe('review gate: gitignored citations declass, everything else stays fail-
 
 describe('review gate: a fallback tree proves scope without tightening anchors', () => {
   const bot = (body: string, commit = HEAD_SHA) => ({
+    id: 9,
     user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+    state: 'COMMENTED',
     body,
     commit_id: commit,
   });
@@ -1461,5 +1578,12 @@ describe('review gate: fallback provenance reaches every authoritative consumer'
     const fn = body.slice(0, body.indexOf('\n}\n') + 3);
     expect(fn).toContain('ls-tree');
     expect(fn).not.toMatch(/['"`]HEAD['"`]/u);
+  });
+
+  it('routes persisted GitHub review pages through the shared strict parser', () => {
+    const src = readFileSync(new URL('../scripts/ci/review-gate.mjs', import.meta.url), 'utf8');
+    const read = src.slice(src.indexOf('function readReviews'));
+    expect(read).toContain('parseReviewPages(pages)');
+    expect(read).toContain('reviews PR: JSON/pagine/entry malformate');
   });
 });
