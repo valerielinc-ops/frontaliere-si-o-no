@@ -569,13 +569,14 @@ export function retitleDailyBucket(title, n) {
  * accesso a un suo campo farebbe esplodere il ciclo, facendo perdere tutte le ALTRE issue
  * della stessa PR invece della sola issue illeggibile. Puro.
  *
- * @param {string|null} raw @returns {object|null}
+ * @param {string|null} raw @returns {object|null} issue con numero intero positivo
  */
 export function parseIssueJson(raw) {
   if (typeof raw !== 'string' || !raw.trim()) return null;
   try {
     const o = JSON.parse(raw);
-    return o && typeof o === 'object' && !Array.isArray(o) ? o : null;
+    return o && typeof o === 'object' && !Array.isArray(o)
+      && Number.isInteger(o.number) && o.number > 0 ? o : null;
   } catch {
     return null;
   }
@@ -588,8 +589,32 @@ export function parseIssueJson(raw) {
  */
 function sameIssueSnapshot(expected, actual) {
   return !!actual
+    && Number.isInteger(expected?.number) && expected.number > 0
+    && Number.isInteger(actual.number) && actual.number > 0
+    && actual.number === expected.number
     && String(actual.title || '') === String(expected?.title || '')
     && String(actual.body || '') === String(expected?.body || '');
+}
+
+function stableQueueSnapshotValue(value) {
+  if (Array.isArray(value)) return value.map(stableQueueSnapshotValue);
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(Object.keys(value).sort().map((key) => [key, stableQueueSnapshotValue(value[key])]));
+  }
+  return value;
+}
+
+function rawQueueLabelsFingerprint(labels) {
+  return issueLabelsAreVerifiable(labels) ? JSON.stringify(stableQueueSnapshotValue(labels)) : null;
+}
+
+function sameQueueSnapshot(expected, actual) {
+  const expectedLabels = rawQueueLabelsFingerprint(expected?.labels);
+  const actualLabels = rawQueueLabelsFingerprint(actual?.labels);
+  return sameIssueSnapshot(expected, actual)
+    && expectedLabels !== null
+    && actualLabels !== null
+    && expectedLabels === actualLabels;
 }
 
 /**
@@ -678,7 +703,26 @@ function addQueueLabelIfEligible(issue, repoArgs) {
     console.log('#' + (issue?.number || 'unknown') + ': nessuna nuova agent:fix-queued (' + reason + ').');
     return false;
   }
-  gh(['issue', 'e' + 'dit', String(issue.number), ...repoArgs,
+  // This is a freshness check, not an atomic HTTP CAS: GitHub's issue edit API
+  // cannot condition a label mutation on an unchanged body/title/labels
+  // snapshot.  Read the complete raw snapshot immediately before the mutation;
+  // any missing, malformed, or changed metadata fails closed.
+  const latest = parseIssueJson(gh(['issue', 'view', String(issue?.number), ...repoArgs,
+    '--json', 'number,title,body,labels,createdAt'], { allowFail: true }));
+  if (!latest) {
+    console.log('#' + (issue?.number || 'unknown') + ': nessuna nuova agent:fix-queued (latest snapshot non verificabile).');
+    return false;
+  }
+  if (!sameQueueSnapshot(issue, latest)) {
+    console.log('#' + (issue?.number || 'unknown') + ': nessuna nuova agent:fix-queued (latest snapshot stale).');
+    return false;
+  }
+  if (!canMintQueueLabel(latest)) {
+    const reason = hasNeedsHumanLabel(latest) ? 'needs-human veto' : 'labels non verificabili';
+    console.log('#' + (latest.number || issue?.number || 'unknown') + ': nessuna nuova agent:fix-queued (' + reason + ').');
+    return false;
+  }
+  gh(['issue', 'e' + 'dit', String(latest.number), ...repoArgs,
     '--add-label', 'agent:fix-queued'], { allowFail: true });
   return true;
 }
@@ -1072,7 +1116,11 @@ function main() {
               + ': nessuna nuova coda automatica.';
           gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
             MINT_GATE_MARKER + '\n' + queueMessage], { allowFail: true });
-          if (queueEligible) addQueueLabelIfEligible(iss, repoArgs);
+          if (queueEligible) addQueueLabelIfEligible({
+            ...iss,
+            title: newTitle === null ? iss.title : newTitle,
+            body: d.body,
+          }, repoArgs);
           report.push(`- 🔒 #${iss.number} daily bucket sealed, ${d.valid.length} item accodabili — ${daily?.targetRepository || 'unknown'}`);
           continue;
         }
@@ -1178,7 +1226,11 @@ function main() {
             if (queueEligible) {
               gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
                 MINT_GATE_MARKER + '\n✅ Dopo la demozione il daily bucket è stato sigillato: gli item validi possono entrare in agent:fix-queued.'], { allowFail: true });
-              addQueueLabelIfEligible(iss, repoArgs);
+              addQueueLabelIfEligible({
+                ...iss,
+                title: newTitle === null ? iss.title : newTitle,
+                body: d.body,
+              }, repoArgs);
             } else {
               gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
                 MINT_GATE_MARKER + '\n⚠️ Dopo la demozione il daily bucket resta sigillato, ma '

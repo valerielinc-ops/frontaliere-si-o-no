@@ -405,6 +405,10 @@ async function fetchFnzJobs() {
     const additionalLocations = Array.isArray(info.additionalLocations)
       ? info.additionalLocations.filter(Boolean)
       : [];
+    // Order is load-bearing: `hasFnzSwissPrimaryLocation` in
+    // `lib/fnz-job-parser.mjs` licenses publication from candidates[0] only —
+    // the req's OWN primary workplace — and everything after it can enrich
+    // that primary but never authorise it. Keep `info.location` first.
     const locationCandidates = [
       info.location || '',
       ...additionalLocations,
