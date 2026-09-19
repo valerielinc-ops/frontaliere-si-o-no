@@ -11,11 +11,14 @@ name: Sync article sitemaps, feeds and ticker from the articles API
 # publisher's repository_dispatch keys on the event type, not on this name.
 #
 # repository_dispatch is the primary trigger, and it is the right shape: the
-# publisher knows when it has published, so the push is the event. Its
-# client_payload is an attestation-shaped claim only; the receiver verifies the
+# publisher knows when it has published, so the push is the event. New publisher
+# runs send the exact client_payload contract below; the receiver verifies the
 # source run and workflow with read-only GitHub metadata API before allowing any
-# write. The schedule is only a safety net for a dispatch that never arrives
-# (token rotated, API outage) — it is not the mechanism.
+# write. Until the paired emitter is live, the gate's explicit compatibility
+# flag keeps the old event-only contract alive, still pinned to the exact PAT
+# actor/action/repository/workflow/scope and only when no payload is present.
+# The schedule is only a safety net for a dispatch that never arrives (token
+# rotated, API outage) — it is not the primary mechanism.
 #
 # scripts/pull-articles-api.mjs refuses rather than degrades: it validates the
 # manifest, both sitemaps (gating on hreflang alternate counts as well as url
@@ -87,7 +90,7 @@ jobs:
       # PR #1531 (.github/workflows/publish-api.yml); keep both contracts live.
       - name: Verify publisher provenance via read-only metadata API
         id: publisher_provenance
-        if: github.event_name == 'repository_dispatch'
+        if: github.event_name == 'repository_dispatch' && github.event.client_payload != null
         env:
           GH_TOKEN: ${{ github.token }}
           PUBLISHER_SOURCE_RUN_ID: ${{ github.event.client_payload.source_run_id || '' }}
@@ -196,6 +199,11 @@ jobs:
           # packages/articles/content stopped being written at
           # 2026-09-16T12:00:46Z while every run stayed green.
           APPROVAL_TRUSTED_SCHEDULE: 'true'
+          # Migration compatibility only: the current corpus emitter may still
+          # send event_type without client_payload. The shared gate admits this
+          # path only with the exact pins below and only when the payload is
+          # absent; a present payload must pass source-run verification.
+          APPROVAL_ALLOW_LEGACY_PUBLISHER_DISPATCH: 'true'
           APPROVAL_SCOPE: article-sitemap-publication
           APPROVAL_DISPATCH_ACTOR: ${{ github.event.sender.login || '' }}
           APPROVAL_DISPATCH_ACTION: ${{ github.event.action || '' }}
