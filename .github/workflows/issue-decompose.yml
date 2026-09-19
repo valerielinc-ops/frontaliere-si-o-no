@@ -103,8 +103,9 @@ jobs:
       # Identità di creazione delle sub-issue. Con l'App token gli eventi
       # `issues:[opened]` delle figlie TRIGGERANO issue-triage (routing
       # immediato in coda); con GITHUB_TOKEN no (anti-ricorsione GitHub) e le
-      # figlie aspetterebbero il cron sweep (≤4h). Fallback benigno: il conio
-      # fallito lascia APP_TOKEN vuota e si ricade su GITHUB_TOKEN.
+      # figlie aspetterebbero il cron sweep (≤4h). Se il conio fallisce,
+      # APP_TOKEN resta vuota: il bridge non ricade su GITHUB_TOKEN e l'action
+      # rifiuta il run prima di avviare Codex.
       - name: Mint GitHub App token (zero-Claude, pre-npm)
         continue-on-error: true
         env:
