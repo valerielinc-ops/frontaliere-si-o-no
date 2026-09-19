@@ -1,7 +1,7 @@
 {
   "key": "straumann",
   "label": "Straumann",
-  "generatedAt": "2026-09-18T23:11:13.113Z",
+  "generatedAt": "2026-09-19T22:48:17.687Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -12,10 +12,10 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4356,
-  "avgDurationMs": 4356,
+  "durationMs": 5005,
+  "avgDurationMs": 5005,
   "durationHistory": [
-    4356
+    5005
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://careers.straumann.com/global/en/job/21949/head-of-procurement-emea-global-indirect-categories",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-18T23:11:05.667Z",
+      "crawledAt": "2026-09-19T22:48:10.442Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -67,7 +67,7 @@
       "url": "https://careers.straumann.com/global/en/job/21464/facility-management-and-workplace-project-manager-straumann-campus-basel",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-18T23:11:05.027Z",
+      "crawledAt": "2026-09-19T22:48:09.789Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -104,7 +104,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-18T23:11:05.356Z",
+      "crawledAt": "2026-09-19T22:48:10.154Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -121,11 +121,11 @@
       "applyUrl": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:59.400Z",
-      "_qualityScore": 69,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 15,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -141,7 +141,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-18T23:11:04.724Z",
+      "crawledAt": "2026-09-19T22:48:09.468Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -155,12 +155,13 @@
       "featured": false,
       "postedDate": "2026-01-08",
       "applyUrl": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T07:55:16.721Z",
-      "_qualityScore": 64,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 14
       }
     }
