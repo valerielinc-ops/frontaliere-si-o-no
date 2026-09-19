@@ -232,20 +232,12 @@ export const GATES = [
     auditCmd: 'npm run audit:max-bfs-depth',
     rebaselineCmd: 'npm run audit:max-bfs-depth:rebaseline',
     baselineFile: 'data/bfs-depth-baseline.json',
-    extractCurrent: (parsed) => {
-      const p = /** @type {Record<string, unknown>} */ (parsed);
-      const perSitemap = /** @type {Record<string, Record<string, unknown>>|undefined} */ (
-        p.perSitemap
-      );
-      if (perSitemap && typeof perSitemap === 'object') {
-        let total = 0;
-        for (const v of Object.values(perSitemap)) {
-          total += Number(v.atDepthGtMax ?? 0);
-        }
-        return total;
-      }
-      return Number(p.atDepthGtMax ?? 0);
-    },
+    // The audit writes the authoritative flattened count to the structured
+    // report. Its --json stdout is a diagnostic per-sitemap dump, and parsing
+    // that shape previously produced current=0 in the cathedral verdict even
+    // when the run had thousands of offenders (#9195).
+    readsOwnReport: true,
+    extractCurrent: reportOffenders('max-bfs-depth'),
     extractBaseline: (baseline) => {
       const b = /** @type {Record<string, unknown>} */ (baseline);
       const perSitemap = /** @type {Record<string, Record<string, unknown>>|undefined} */ (
