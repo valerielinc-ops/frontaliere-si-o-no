@@ -1375,9 +1375,24 @@ async function onSentComposed(item, sendResult) {
   await persistJobAlertDelivery(item, sendResult);
 }
 
+// Throttle for both job-alert cascade calls (first send + retry queue). Run
+// 35422626497 sent 1591 emails in 26.5 min = 1.0 email/s at concurrency 3:
+// the cascade's default delayMs (1000) is spacing PER PROVIDER shared by all
+// workers, and ~99% went to maileroo, so 1/s was the ceiling whatever the
+// concurrency. Same scheme as the newsletter (NEWSLETTER_SEND_THROTTLE): 100ms
+// base spacing, adaptive backoff on explicit 429/5xx up to 1s, four workers,
+// per-provider floors for cloudflare/resend (BULK_PROVIDER_MIN_INTERVAL_MS).
+// Target >= 2.5 email/s. Dedup is per item: the cascade claims each item once
+// and onSentComposed writes only that recipient's documents.
+const JOB_ALERT_SEND_THROTTLE = Object.freeze({
+  concurrency: 4,
+  delayMs: 100,
+  adaptiveThrottle: Object.freeze({ stepMs: 100, maxDelayMs: 1000 }),
+});
+
 async function sendBatch(emails) {
   // Use cascade for bulk sending
-  const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
+  const { sendEmailCascade, logProviderSummary, BULK_PROVIDER_MIN_INTERVAL_MS } = await import('./lib/email-cascade.mjs');
 
   const cascadeEmails = emails.map(e => {
     // Gmail FBL: Feedback-ID category:identifier:sender-name
@@ -1425,7 +1440,8 @@ async function sendBatch(emails) {
   });
 
   const result = await sendEmailCascade(cascadeEmails, {
-    concurrency: 3,
+    ...JOB_ALERT_SEND_THROTTLE,
+    providerMinIntervalMs: BULK_PROVIDER_MIN_INTERVAL_MS,
     onSent: onSentComposed,
   });
   logProviderSummary();
@@ -1504,7 +1520,7 @@ async function processRetryQueue(db) {
   }
 
   console.log(`   🔄 Retry queue: ${snap.size} pending email(s) to retry`);
-  const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
+  const { sendEmailCascade, logProviderSummary, BULK_PROVIDER_MIN_INTERVAL_MS } = await import('./lib/email-cascade.mjs');
   const { FieldValue } = await import('firebase-admin/firestore');
 
   const retryEmails = [];
@@ -1616,7 +1632,8 @@ async function processRetryQueue(db) {
   // record — otherwise their open/click webhooks fall back to `skipped` (the exact
   // attribution bug fixed for the first-send path in #1135).
   const result = await sendEmailCascade(retryEmails, {
-    concurrency: 3,
+    ...JOB_ALERT_SEND_THROTTLE,
+    providerMinIntervalMs: BULK_PROVIDER_MIN_INTERVAL_MS,
     onSent: onSentComposed,
   });
   logProviderSummary();

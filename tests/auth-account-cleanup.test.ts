@@ -548,7 +548,7 @@ describe('profile delete path no longer pretends client newsletter delete is the
 
   it('rechecks job-alert backfill when a re-registration clears the tombstone', () => {
     expect(indexSrc).toMatch(/const clearedAccountDeletion = beforeData\s+&& isAccountDeletedTombstone\(beforeData\)\s+&& !isAccountDeletedTombstone\(afterData\)/);
-    expect(indexSrc).toMatch(/if \(!created && !registrationTermsAccepted && !signalTierChanged\(beforeData, afterData\) && !clearedAccountDeletion\) return/);
+    expect(indexSrc).toMatch(/if \(!created && !subscriberRecordAppeared && !signalTierChanged\(beforeData, afterData\) && !clearedAccountDeletion\) return/);
   });
 
   it('clears local newsletter lifecycle flags after a successful account deletion', () => {

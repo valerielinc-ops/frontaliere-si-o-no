@@ -97,12 +97,18 @@ export async function markSent(db, { campaignId, field, chunkMax = DEFAULT_CHUNK
     chunkState.index += 1;
     chunkState.count = 0;
   }
-  await metaCampaignSends(db).doc(chunkDocId(campaignId, chunkState.index)).set({
+  // Claim the room in the chunk BEFORE the await: with a concurrent sender two
+  // flushes can overlap, and counting only after the write let both see the
+  // same pre-write count and overfill the chunk. A failed write over-counts,
+  // which only rolls to the next chunk earlier — harmless for the reader,
+  // which unions every chunk.
+  const index = chunkState.index;
+  chunkState.count += emails.length;
+  await metaCampaignSends(db).doc(chunkDocId(campaignId, index)).set({
     [field]: FieldValue.arrayUnion(...emails),
     updated_at: new Date(),
     ...extraFields,
   }, { merge: true });
-  chunkState.count += emails.length;
 }
 
 /**

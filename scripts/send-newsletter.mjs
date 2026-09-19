@@ -1783,6 +1783,17 @@ const NEWSLETTER_SEND_THROTTLE = Object.freeze({
   adaptiveThrottle: Object.freeze({ stepMs: 100, maxDelayMs: 1000 }),
 });
 
+// Parallel sends. Run 35075707530 sent 3833 emails in 68 min at concurrency 1
+// = 1.035 s/email, with the 100ms spacing never binding: the cost was one
+// maileroo round-trip (~0.9 s) plus the per-recipient onSent bookkeeping, paid
+// serially. Four workers overlap those waits (target >= 2.5 email/s). It is
+// safe for dedup: each item is claimed once by the cascade queue, onSent
+// (persistDelivery, resume.record) writes only that recipient's documents, and
+// the resume log's arrayUnion is order-independent. Burst limits stay guarded
+// by the adaptive throttle (429/5xx) plus BULK_PROVIDER_MIN_INTERVAL_MS floors
+// for cloudflare/resend, passed at the call sites below.
+const NEWSLETTER_SEND_CONCURRENCY = 4;
+
 async function sendEmailBatch(emails, finalizeForProvider, onDelivered) {
   // After a per-provider subject swap, the final variant/subject live on the
   // payload (the source of truth for what was actually sent) — read them there
@@ -1808,10 +1819,11 @@ async function sendEmailBatch(emails, finalizeForProvider, onDelivered) {
   // Single provider mode: force a specific provider via cascade
   if (IS_SINGLE_PROVIDER) {
     console.log(`📧 Sending via ${EMAIL_PROVIDER} only (${emails.length} emails)`);
-    const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
+    const { sendEmailCascade, logProviderSummary, BULK_PROVIDER_MIN_INTERVAL_MS } = await import('./lib/email-cascade.mjs');
     const result = await sendEmailCascade(emails, {
-      concurrency: 1,
+      concurrency: NEWSLETTER_SEND_CONCURRENCY,
       ...NEWSLETTER_SEND_THROTTLE,
+      providerMinIntervalMs: BULK_PROVIDER_MIN_INTERVAL_MS,
       forceProvider: EMAIL_PROVIDER,
       finalizeForProvider,
       onSent: persistSent,
@@ -1822,10 +1834,11 @@ async function sendEmailBatch(emails, finalizeForProvider, onDelivered) {
   // Cascade: multi-provider free tier (default)
   if (EMAIL_PROVIDER === 'cascade') {
     console.log(`📧 Sending via email cascade (${emails.length} emails)`);
-    const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
+    const { sendEmailCascade, logProviderSummary, BULK_PROVIDER_MIN_INTERVAL_MS } = await import('./lib/email-cascade.mjs');
     const result = await sendEmailCascade(emails, {
-      concurrency: 1,
+      concurrency: NEWSLETTER_SEND_CONCURRENCY,
       ...NEWSLETTER_SEND_THROTTLE,
+      providerMinIntervalMs: BULK_PROVIDER_MIN_INTERVAL_MS,
       finalizeForProvider,
       onSent: persistSent,
     });
