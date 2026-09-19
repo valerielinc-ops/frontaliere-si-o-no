@@ -1,11 +1,21 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, it, expect } from 'vitest';
 import {
   CSD_ENGINEERS_KEY,
   CSD_ENGINEERS_COMPANY_NAME,
   isCsdEngineersJob,
   isTrustedDomain,
+  parseCsdDetailPage,
 } from '../scripts/lib/csd-engineers-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+const DETAIL_FIXTURE = path.join(
+  path.dirname(fileURLToPath(import.meta.url)),
+  'fixtures',
+  'csd-engineers-detail-raw-control.html',
+);
 
 describe('CSD ENGINEERS crawler parser', () => {
   // ── Constants ──
@@ -56,6 +66,77 @@ describe('CSD ENGINEERS crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('parseCsdDetailPage', () => {
+    it('recovers the rich description from entity-escaped JSON-LD with raw line breaks', () => {
+      const parsed = parseCsdDetailPage(fs.readFileSync(DETAIL_FIXTURE, 'utf8'));
+
+      expect(parsed).toMatchObject({
+        city: 'Zürich',
+        postalCode: '8005',
+        street: 'Hardturmstrasse 253',
+        employmentType: 'FULL_TIME',
+      });
+      expect(parsed?.description).toContain('Leitung von anspruchsvollen Hochbauprojekten');
+      expect(parsed?.description).toContain('Bauingenieur:innen');
+      expect(parsed?.description.length).toBeGreaterThan(180);
+      expect(parsed?.description).not.toMatch(/<[^>]+>/);
+      expect(parsed?.description).not.toContain('CSD ENGINEERS, Zürich');
+    });
+
+    it('selects the current posting by its structured URL before recommendations', () => {
+      const pageUrl = 'https://jobs.csd.ch/jobs/current-role';
+      const html = `<h1>Current Role</h1><script type="application/ld+json">${JSON.stringify([
+        {
+          '@type': 'JobPosting',
+          title: 'Current Role',
+          url: pageUrl,
+          description: '<p>Current detail description with enough content to publish safely.</p>',
+          jobLocation: { address: { addressLocality: 'Zürich' } },
+        },
+        {
+          '@type': 'JobPosting',
+          title: 'Recommended Role',
+          url: 'https://jobs.csd.ch/jobs/recommended-role',
+          description: '<p>Recommended detail description that must not be published for the current page.</p>',
+          jobLocation: { address: { addressLocality: 'Genève' } },
+        },
+      ])}</script>`;
+
+      expect(parseCsdDetailPage(html, { url: pageUrl, title: 'Current Role' })).toMatchObject({
+        city: 'Zürich',
+        description: 'Current detail description with enough content to publish safely.',
+      });
+    });
+
+    it('uses a unique current title when structured URLs are absent', () => {
+      const html = `<h1>Current Role</h1><script type="application/ld+json">${JSON.stringify([
+        {
+          '@type': 'JobPosting',
+          title: 'Current Role',
+          description: '<p>Current detail description with enough content to publish safely.</p>',
+          jobLocation: { address: { addressLocality: 'Zürich' } },
+        },
+        {
+          '@type': 'JobPosting',
+          title: 'Recommended Role',
+          description: '<p>Recommended detail description that must not be published for the current page.</p>',
+          jobLocation: { address: { addressLocality: 'Genève' } },
+        },
+      ])}</script>`;
+
+      expect(parseCsdDetailPage(html, { title: 'Current Role' })).toMatchObject({ city: 'Zürich' });
+    });
+
+    it('fails closed when multiple postings cannot be tied to the current page', () => {
+      const html = `<script type="application/ld+json">${JSON.stringify([
+        { '@type': 'JobPosting', title: 'First Role', description: '<p>First role.</p>' },
+        { '@type': 'JobPosting', title: 'Second Role', description: '<p>Second role.</p>' },
+      ])}</script>`;
+
+      expect(parseCsdDetailPage(html, { url: 'https://jobs.csd.ch/jobs/current-role' })).toBeNull();
     });
   });
 
