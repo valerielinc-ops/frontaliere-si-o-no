@@ -95,6 +95,51 @@ export const JOBS_SEO_FINGERPRINT_INERT_MODULES = Object.freeze({
   // the default translator of the event crawlers; the job renderer imports
   // dataset and listing helpers from it, none of which translates.
   'scripts/lib/free-translate.mjs': Object.freeze(['scripts/lib/events-utils.mjs']),
+  // Deploy I/O and telemetry. On 2026-09-16..19 these files, edited for build
+  // speed and memory, invalidated every reusable job page without touching a
+  // byte of HTML. Each one receives or measures HTML that is already built:
+  //
+  // WriteCollector queues the exact string passed to add() and writes it
+  // unchanged. What it decides is WHETHER to write (content-hash skip, locale
+  // emit filter, collision claim), never WHAT. Its private imports go with it:
+  // contentHash.ts (skip manifest) and postWalkDerivedDigest.ts (post-walk
+  // digest of files already written).
+  'build-plugins/batchWrite.ts': Object.freeze([
+    'build-plugins/employerProfilePagesPlugin.ts',
+    'build-plugins/jobsSeoPagesPlugin.ts',
+  ]),
+  // Path-collision registry: claim() either accepts the write or throws; the
+  // renderer reads only getPathHistory().size for a memory log line.
+  'build-plugins/sharedWriteRegistry.ts': Object.freeze([
+    'build-plugins/batchWrite.ts',
+    'build-plugins/jobsSeoPagesPlugin.ts',
+    'build-plugins/shared/postWalkDerivedDigest.ts',
+  ]),
+  // `[mem]` log line; returns only the MB freed by the forced GC.
+  'build-plugins/shared/buildMemLog.ts': Object.freeze([
+    'build-plugins/employerProfilePagesPlugin.ts',
+    'build-plugins/jobsSeoPagesPlugin.ts',
+    'build-plugins/shared/jobsSeoRetentionProbe.ts',
+  ]),
+  // global.gc() wrapper: collects garbage, returns whether it ran.
+  'build-plugins/shared/forceGc.ts': Object.freeze([
+    'build-plugins/jobsSeoPagesPlugin.ts',
+    'build-plugins/shared/buildMemLog.ts',
+  ]),
+  // hrtime counters and the timing summary; the renderer imports no
+  // pass-through wrapper (`timed`) from it, only start/record/print.
+  'build-plugins/shared/jobsSeoProfiler.ts': Object.freeze(['build-plugins/jobsSeoPagesPlugin.ts']),
+  // Incremental manifest I/O and the reuse digest (buildMinimalJobInput,
+  // computeInputHash). The renderer uses it to build the manifest input next
+  // to each page, never to build the page. The only render-time helper it
+  // had, stableJobId (a memo key), lives in stableJobId.mjs and stays hashed;
+  // templateVersionForKind and JOB_DIGEST_ALGORITHM_VERSION are hashed by
+  // value in computeJobsSeoEmitterFingerprints. A digest change needs no
+  // fingerprint: pages whose input hash moves are simply not reused.
+  'build-plugins/shared/incrementalManifest.mjs': Object.freeze([
+    'build-plugins/jobsSeoPagesPlugin.ts',
+    'build-plugins/shared/incrementalHtmlReuse.mjs',
+  ]),
 });
 
 function sha256(value) {
@@ -194,12 +239,27 @@ export function collectSourceModuleFiles(rootDir, entryFiles, inertModules = {})
   const toRelative = (file) => path.relative(rootDir, file).replaceAll(path.sep, '/');
   const full = walkSourceGraph(rootDir, entryFiles);
   const pruned = new Set();
+  const inertFiles = new Set(Object.keys(inertModules).map((relativeFile) => path.resolve(rootDir, relativeFile)));
   for (const [relativeFile, allowedImporters] of Object.entries(inertModules)) {
     const file = path.resolve(rootDir, relativeFile);
     if (!full.files.has(file)) continue;
     const allowed = new Set(allowedImporters);
     const actual = [...(full.importers.get(file) || [])].map(toRelative);
     if (actual.length > 0 && actual.every((importer) => allowed.has(importer))) pruned.add(file);
+  }
+  // An allowlisted importer that is itself inert vouches for its import only
+  // while it stays pruned. If an unlisted consumer pulls it back into the
+  // render graph (e.g. a template importing batchWrite.ts), what it imports
+  // (sharedWriteRegistry.ts) is a render input again: un-prune to a fixpoint.
+  for (let changed = true; changed;) {
+    changed = false;
+    for (const file of pruned) {
+      const importers = full.importers.get(file) || new Set();
+      if ([...importers].some((importer) => inertFiles.has(importer) && !pruned.has(importer))) {
+        pruned.delete(file);
+        changed = true;
+      }
+    }
   }
   const { files } = pruned.size > 0 ? walkSourceGraph(rootDir, entryFiles, pruned) : full;
   return [...files].map(toRelative).sort((left, right) => left < right ? -1 : left > right ? 1 : 0);

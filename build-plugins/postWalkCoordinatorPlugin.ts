@@ -753,6 +753,16 @@ export function postWalkCoordinatorPlugin(
         const allHtmlPaths = walkResult.paths;
         const filesScanned = allHtmlPaths.length;
         const existingHtmlSet = new Set<string>(allHtmlPaths);
+        // The exact inventory indexes EVERY walked path that is not claimed
+        // (the writer drops claimed ones), manifest-covered or not and in any
+        // locale. Recording only manifest-uncovered paths left the covered but
+        // unclaimed pages (direct fs emitters, cache restores) to be
+        // re-enumerated on every targeted walk: 342k files and ~240 s of
+        // walk-enumerate on run 35453804070. allHtmlPaths is compacted in
+        // place below, so keep a copy of the walked list.
+        const walkedPathsForInventory: readonly string[] = incrementalEnabled
+          ? allHtmlPaths.slice()
+          : [];
         const manifestState = manifests !== null && !('reason' in manifests)
           ? manifests.state
           : null;
@@ -1167,7 +1177,7 @@ export function postWalkCoordinatorPlugin(
             topLevels: walkResult.topLevels,
             unmanifestedTopLevels: inventoryUnmanifestedTopLevels,
             claimedPaths: claimedWalkPaths,
-            unmanifestedPaths: unmanifestedPathsForInventory,
+            unmanifestedPaths: walkedPathsForInventory,
           });
           // Keep the v1 top-level cache for older runners and for a bounded
           // fallback when the exact path index is unavailable.

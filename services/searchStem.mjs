@@ -6,7 +6,8 @@
  * stay byte-identical or the static cluster page diverges from the hydrated SPA:
  *   - services/textUtils.ts          (SPA: re-exports stemSearchToken)
  *   - build-plugins/relatedSearchClustersPlugin.ts  (static SSG matcher)
- *   - build-plugins/relatedSearchPostingsWorker.mjs (off-thread postings index)
+ *   - build-plugins/relatedSearchPostingsCore.mjs (off-thread postings index,
+ *     run by relatedSearchPostingsWorker.mjs)
  *
  * Before this module the worker carried a "verbatim copy" of the stemmer and
  * the build plugin did NOT stem at all — so a query like
