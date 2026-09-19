@@ -369,6 +369,12 @@ async function handleRefund(db, raw, adminEmail) {
     return { status: 502, body: { ok: false, error: 'stripe_refund_failed' } };
   }
 
+  if (refund?.status !== 'succeeded') {
+    await releaseRefundReservation(db, orderRef, reservation.reservationId);
+    console.error('[manageAssistedApplicationAdmin] Stripe refund did not succeed', refund?.status || 'missing_status');
+    return { status: 502, body: { ok: false, error: 'stripe_refund_failed' } };
+  }
+
   let alreadyRefunded = false;
   const timestamp = FieldValue.serverTimestamp();
   const refundId = boundedString(refund?.id, 200) || null;
