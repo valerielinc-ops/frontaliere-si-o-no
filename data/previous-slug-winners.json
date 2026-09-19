@@ -10911,7 +10911,7 @@
     "winnerJobIdentifier": "company-d9pi57",
     "winnerCanonical": "verkaufer-in-denner-ag-langenthal",
     "decidedAt": "2026-09-13T00:00:00.000Z",
-    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 1,
     "canton": "BE"
@@ -12306,7 +12306,7 @@
     "winnerJobIdentifier": "company-d9pi57",
     "winnerCanonical": "seller-denner-ag-langenthal-34cb20",
     "decidedAt": "2026-09-13T00:00:00.000Z",
-    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 1,
     "canton": "BE"
@@ -13611,7 +13611,7 @@
     "winnerJobIdentifier": "company-d9pi57",
     "winnerCanonical": "vendeur-denner-ag-langenthal-34cb20",
     "decidedAt": "2026-09-13T00:00:00.000Z",
-    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 1,
     "canton": "BE"
@@ -19871,6 +19871,15 @@
     "candidatesCount": 2,
     "canton": "GE"
   },
+  "GE::fr::employe-cvc-h-f-rolex-ch": {
+    "winnerJobIdentifier": "rolex-032f1785eb1c",
+    "winnerCanonical": "employe-intendance-h-f-rolex-ch",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0.7143,
+    "candidatesCount": 2,
+    "canton": "GE"
+  },
   "GE::fr::europe-client-relationship-manager-richemont-plan-les-ouates": {
     "winnerJobIdentifier": "richemont-b60a3cd903fe",
     "winnerCanonical": "gestionnaire-de-relations-client-haute-horlogerie-vacheron-constantin-plan-les-ouates",
@@ -20174,6 +20183,15 @@
     "decidedAt": "2026-07-24T00:00:00.000Z",
     "lastSeenAt": "2026-08-31T00:00:00.000Z",
     "score": 0.2632,
+    "candidatesCount": 2,
+    "canton": "GE"
+  },
+  "GE::it::employe-cvc-h-f-rolex-ch": {
+    "winnerJobIdentifier": "rolex-032f1785eb1c",
+    "winnerCanonical": "stewardship-dipendente-m-f-rolex-geneve",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0.2,
     "candidatesCount": 2,
     "canton": "GE"
   },
@@ -21156,6 +21174,15 @@
     "lastSeenAt": "2026-08-31T00:00:00.000Z",
     "score": 0.0435,
     "candidatesCount": 1,
+    "canton": "GR"
+  },
+  "GR::de::praktikant-in-pdgr-ch": {
+    "winnerJobIdentifier": "pdgr-dec9ea83cfe8",
+    "winnerCanonical": "praktikant-in-psychiatrische-dienste-graubunden-chur",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
     "canton": "GR"
   },
   "GR::de::reservation-supervisor-be-the-master-in-filling-the-house-at-the-best-price": {
@@ -24209,6 +24236,15 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
+  "GR::it::praktikant-in-pdgr-ch": {
+    "winnerJobIdentifier": "pdgr-a093480a1d37",
+    "winnerCanonical": "tirocinante-psychiatrische-dienste-graubunden-cazis-chur",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::it::praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur": {
     "winnerJobIdentifier": "pdgr-f21a5cd7e09f",
     "winnerCanonical": "assistente-medico-psychiatrische-dienste-graubunden-cazis",
@@ -24618,6 +24654,15 @@
     "winnerJobIdentifier": "denner-0b91c22d519e",
     "winnerCanonical": "venditore-denner-ag-chur-2511ee",
     "decidedAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0.1429,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::it::verkaufer-in-denner-3": {
+    "winnerJobIdentifier": "denner-c89a03c031d8",
+    "winnerCanonical": "venditore-denner-ag-schluein",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
     "lastSeenAt": "2026-09-19T00:00:00.000Z",
     "score": 0.1429,
     "candidatesCount": 2,
@@ -33840,10 +33885,10 @@
     "canton": "SG"
   },
   "SG::it::anlagen-und-apparatebauer-in-fur-metallbau-und-schweisskonstruktionen-wil-sg-st-gallen": {
-    "winnerJobIdentifier": "fachkraft-a8b4318ea841",
-    "winnerCanonical": "impianti-ed-apparecchi-per-costruzioni-metalliche-e-strutture-di-saldatura-fachkraft-ch-gmbh-wil-sg-st-gallen",
-    "decidedAt": "2026-09-16T00:00:00.000Z",
-    "lastSeenAt": "2026-09-18T00:00:00.000Z",
+    "winnerJobIdentifier": "fachkraft-3c8e67ed3935",
+    "winnerCanonical": "produttori-di-impianti-e-apparecchi-con-particolare-attenzione-alla-saldatura-fachkraft-ch-gmbh-wil-sg-st-gallen",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
     "score": 0.1667,
     "candidatesCount": 1,
     "canton": "SG"
@@ -36288,11 +36333,11 @@
     "canton": "SG"
   },
   "SG::it::salesman-in-fresh-products-coop-genossenschaft-st-gallen-f2dhxz": {
-    "winnerJobIdentifier": "company-w9huxu",
-    "winnerCanonical": "venditore-in-prodotti-freschi-coop-genossenschaft-st-gallen",
-    "decidedAt": "2026-09-02T00:00:00.000Z",
-    "lastSeenAt": "2026-09-18T00:00:00.000Z",
-    "score": 0.4167,
+    "winnerJobIdentifier": "company-6g94bb",
+    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-st-gallen",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -36999,11 +37044,11 @@
     "canton": "SG"
   },
   "SG::it::vendeur-en-produits-frais-coop-genossenschaft-st-gallen-f2dhxz": {
-    "winnerJobIdentifier": "company-w9huxu",
-    "winnerCanonical": "venditore-in-prodotti-freschi-coop-genossenschaft-st-gallen",
-    "decidedAt": "2026-09-02T00:00:00.000Z",
-    "lastSeenAt": "2026-09-18T00:00:00.000Z",
-    "score": 0.3077,
+    "winnerJobIdentifier": "company-6g94bb",
+    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-st-gallen",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -37584,11 +37629,11 @@
     "canton": "SG"
   },
   "SG::it::verkaufer-in-frischprodukte-coop-st-gallen-sankt-gallen-f2dhxz": {
-    "winnerJobIdentifier": "company-w9huxu",
-    "winnerCanonical": "venditore-in-prodotti-freschi-coop-genossenschaft-st-gallen",
-    "decidedAt": "2026-09-02T00:00:00.000Z",
-    "lastSeenAt": "2026-09-18T00:00:00.000Z",
-    "score": 0.3333,
+    "winnerJobIdentifier": "company-6g94bb",
+    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-st-gallen",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0.25,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -47357,6 +47402,15 @@
     "candidatesCount": 1,
     "canton": "TI"
   },
+  "TI::de::physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uil175",
+    "winnerCanonical": "mitarbeiter-in-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::de::physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be": {
     "winnerJobIdentifier": "company-uil2ol",
     "winnerCanonical": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
@@ -47663,6 +47717,15 @@
     "candidatesCount": 1,
     "canton": "TI"
   },
+  "TI::en::physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::en::physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-050a3d": {
     "winnerJobIdentifier": "company-4333gx",
     "winnerCanonical": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
@@ -47949,6 +48012,15 @@
     "lastSeenAt": "2026-09-12T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 1,
+    "canton": "TI"
+  },
+  "TI::fr::physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0.6667,
+    "candidatesCount": 2,
     "canton": "TI"
   },
   "TI::fr::physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -55494,9 +55566,9 @@
     "canton": "ZH"
   },
   "ZH::de::verkaufer-in-food-coop-genossenschaft-zurich-evfz6t": {
-    "winnerJobIdentifier": "company-2gc6jw",
-    "winnerCanonical": "verkaufer-in-food-coop-city-zurich-2gc6jw",
-    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-emltpo",
+    "winnerCanonical": "verkaufer-in-food-genossenschaft-migros-zurich-emltpo",
+    "decidedAt": "2026-09-18T00:00:00.000Z",
     "lastSeenAt": "2026-09-19T00:00:00.000Z",
     "score": 0.5556,
     "candidatesCount": 1,
@@ -58401,12 +58473,12 @@
     "canton": "ZH"
   },
   "ZH::en::specialist-professional-support-efz-schweizerische-epilepsie-stiftung-epi-zurich": {
-    "winnerJobIdentifier": "epi-stiftung-cdf8a73adb6c",
-    "winnerCanonical": "social-pedagogue-social-pedagogue-or-specialist-professional-supervision-efz-schweizerische-epilepsie-stiftung-epi",
-    "decidedAt": "2026-08-12T00:00:00.000Z",
-    "lastSeenAt": "2026-08-22T00:00:00.000Z",
-    "score": 0.5385,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "epi-stiftung-819d4f0f557b",
+    "winnerCanonical": "specialist-professional-support-efz-schweizerische-epilepsie-stiftung-epi-zurich-b8119a",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0.9,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::en::stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch": {
@@ -61398,12 +61470,12 @@
     "canton": "ZH"
   },
   "ZH::fr::specialiste-soutien-professionnel-efz-schweizerische-epilepsie-stiftung-epi-zurich": {
-    "winnerJobIdentifier": "epi-stiftung-cdf8a73adb6c",
-    "winnerCanonical": "pedagogue-social-pedagogie-sociale-ou-specialiste-supervision-professionnelle-efz-schweizerische-epilepsie-stiftung-epi",
-    "decidedAt": "2026-08-12T00:00:00.000Z",
-    "lastSeenAt": "2026-08-22T00:00:00.000Z",
-    "score": 0.375,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "epi-stiftung-819d4f0f557b",
+    "winnerCanonical": "specialiste-soutien-professionnel-efz-schweizerische-epilepsie-stiftung-epi-zurich-b8119a",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0.9,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::fr::station-de-formation-dipl-professionnel-des-soins-infirmiers-hf-2026-2027-a-spitex-zurich-zurich": {
@@ -61497,11 +61569,11 @@
     "canton": "ZH"
   },
   "ZH::fr::vendeur-dans-la-nourriture-coop-genossenschaft-zurich-24d4e8": {
-    "winnerJobIdentifier": "company-2gc6jw",
-    "winnerCanonical": "aliments-pour-vendeurs-coop-genossenschaft-zurich-7e4e12",
-    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2tqynn",
+    "winnerCanonical": "vendeur-de-produits-frais-coop-genossenschaft-zurich-965156",
+    "decidedAt": "2026-09-18T00:00:00.000Z",
     "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.25,
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -63090,11 +63162,11 @@
     "canton": "ZH"
   },
   "ZH::it::ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch": {
-    "winnerJobIdentifier": "ksw-b8c9c7927e76",
-    "winnerCanonical": "infermiere-di-formazione-infermiere-specialista-hf-kantonsspital-winterthur-ksw-winterthur",
-    "decidedAt": "2026-09-12T00:00:00.000Z",
-    "lastSeenAt": "2026-09-18T00:00:00.000Z",
-    "score": 0.1667,
+    "winnerJobIdentifier": "ksw-a8a7856cbcb4",
+    "winnerCanonical": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0.375,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -63828,11 +63900,11 @@
     "canton": "ZH"
   },
   "ZH::it::consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich": {
-    "winnerJobIdentifier": "kispi-zurich-ac08735a244c",
-    "winnerCanonical": "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
+    "winnerJobIdentifier": "kispi-zurich-cf43ac7e40c5",
+    "winnerCanonical": "formazione-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich",
     "decidedAt": "2026-09-19T00:00:00.000Z",
     "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.3571,
+    "score": 0.4545,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -63981,11 +64053,11 @@
     "canton": "ZH"
   },
   "ZH::it::consultant-principal-m-m-universitats-kinderspital-zurich-kispi-zurich": {
-    "winnerJobIdentifier": "kispi-zurich-ac08735a244c",
-    "winnerCanonical": "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
+    "winnerJobIdentifier": "kispi-zurich-cf43ac7e40c5",
+    "winnerCanonical": "formazione-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich",
     "decidedAt": "2026-09-19T00:00:00.000Z",
     "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.3846,
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -65655,12 +65727,12 @@
     "canton": "ZH"
   },
   "ZH::it::etude-dipl-specialiste-des-soins-infirmiers-a-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich": {
-    "winnerJobIdentifier": "epi-stiftung-6f55546d9bbf",
-    "winnerCanonical": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
-    "lastSeenAt": "2026-09-18T00:00:00.000Z",
-    "score": 0.3889,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "epi-stiftung-cdc20f7a9f2f",
+    "winnerCanonical": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0.3529,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::executive-director-two-spice-ag-dietlikon": {
@@ -66014,6 +66086,24 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::it::food-sales-associate-coop-genossenschaft-zurich-1c3c98": {
+    "winnerJobIdentifier": "company-2gc6jw",
+    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-zurich-7e4e12",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0.2727,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::food-sales-associate-coop-genossenschaft-zurich-d61d8i": {
+    "winnerJobIdentifier": "company-2gc6jw",
+    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-zurich-7e4e12",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0.2727,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::fortgeschrittene-praxispflegekraft-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik": {
     "winnerJobIdentifier": "puk-zuerich-76cd9ec3c3f3",
     "winnerCanonical": "dipl-specialista-infermieristico-specialista-in-allattamento-acute-station-adolescente-a0-psychiatrische",
@@ -66150,12 +66240,12 @@
     "canton": "ZH"
   },
   "ZH::it::gartner-in-8211-garten-und-landschaftsbau-fur-natursteinarbeiten-winterthur-zurich": {
-    "winnerJobIdentifier": "stellenpartner-8b1b2c2c326a",
-    "winnerCanonical": "giardinieri-giardinaggio-e-paesaggistica-per-il-lavoro-in-pietra-naturale-stellenpartner-ag-winterthur-zurich",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
-    "lastSeenAt": "2026-09-18T00:00:00.000Z",
-    "score": 0.1429,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "stellenpartner-3b2fca16e888",
+    "winnerCanonical": "giardinieri-giardinaggio-e-paesaggi-con-una-varieta-di-attivita-stellenpartner-ag-winterthur-zurich",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0.0952,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::gartner-in-8211-garten-und-landschaftsbau-fur-neuanlagen-und-villengarten-meilen-zurich": {
@@ -66987,11 +67077,11 @@
     "canton": "ZH"
   },
   "ZH::it::infirmiere-infirmiere-specialiste-hf-kantonsspital-winterthur-ksw-winterthur": {
-    "winnerJobIdentifier": "ksw-b8c9c7927e76",
-    "winnerCanonical": "infermiere-di-formazione-infermiere-specialista-hf-kantonsspital-winterthur-ksw-winterthur",
-    "decidedAt": "2026-09-12T00:00:00.000Z",
-    "lastSeenAt": "2026-09-18T00:00:00.000Z",
-    "score": 0.4,
+    "winnerJobIdentifier": "ksw-a8a7856cbcb4",
+    "winnerCanonical": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0.375,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -69219,10 +69309,10 @@
     "canton": "ZH"
   },
   "ZH::it::pflegefachperson-hamato-onkologie-60-100-usz-ch": {
-    "winnerJobIdentifier": "usz-807bfe623c35",
-    "winnerCanonical": "infermieristica-professionale-hemato-oncology-60-100-universitatsspital-zurich-usz-campus",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
-    "lastSeenAt": "2026-09-18T00:00:00.000Z",
+    "winnerJobIdentifier": "usz-9b73c8165ee0",
+    "winnerCanonical": "temporaneo-infermiera-emato-oncologia-60-100-universitatsspital-zurich-usz-campus",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
     "score": 0.2143,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -70857,11 +70947,11 @@
     "canton": "ZH"
   },
   "ZH::it::segretaria-medica-m-f-60-80-universitats-kinderspital-zurich-kispi-zurich": {
-    "winnerJobIdentifier": "kispi-zurich-ac08735a244c",
-    "winnerCanonical": "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
+    "winnerJobIdentifier": "kispi-zurich-cf43ac7e40c5",
+    "winnerCanonical": "formazione-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich",
     "decidedAt": "2026-09-19T00:00:00.000Z",
     "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.4,
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -71001,11 +71091,11 @@
     "canton": "ZH"
   },
   "ZH::it::seller-in-food-coop-genossenschaft-zurich-24d4e8": {
-    "winnerJobIdentifier": "company-2gc6jw",
-    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-zurich-7e4e12",
-    "decidedAt": "2026-09-19T00:00:00.000Z",
-    "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.2727,
+    "winnerJobIdentifier": "company-sgq51g",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-zurich-25b40c",
+    "decidedAt": "2026-09-11T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.5556,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -71037,11 +71127,11 @@
     "canton": "ZH"
   },
   "ZH::it::senior-consultant-m-w-universitats-kinderspital-zurich-kispi-zurich": {
-    "winnerJobIdentifier": "kispi-zurich-ac08735a244c",
-    "winnerCanonical": "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
+    "winnerJobIdentifier": "kispi-zurich-cf43ac7e40c5",
+    "winnerCanonical": "formazione-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich",
     "decidedAt": "2026-09-19T00:00:00.000Z",
     "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.3571,
+    "score": 0.4545,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -71811,10 +71901,10 @@
     "canton": "ZH"
   },
   "ZH::it::student-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich": {
-    "winnerJobIdentifier": "epi-stiftung-165d815398df",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
-    "lastSeenAt": "2026-09-18T00:00:00.000Z",
+    "winnerJobIdentifier": "epi-stiftung-cdc20f7a9f2f",
+    "winnerCanonical": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
     "score": 0.4667,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -71852,7 +71942,7 @@
     "decidedAt": "2026-09-19T00:00:00.000Z",
     "lastSeenAt": "2026-09-19T00:00:00.000Z",
     "score": 0.375,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich": {
@@ -71861,7 +71951,7 @@
     "decidedAt": "2026-09-19T00:00:00.000Z",
     "lastSeenAt": "2026-09-19T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::study-coordinator-uzh-zurich": {
@@ -71874,12 +71964,12 @@
     "canton": "ZH"
   },
   "ZH::it::study-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich": {
-    "winnerJobIdentifier": "epi-stiftung-6f55546d9bbf",
-    "winnerCanonical": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
-    "lastSeenAt": "2026-09-18T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "epi-stiftung-cdc20f7a9f2f",
+    "winnerCanonical": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0.4667,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::stv-filialleiter-in-denner": {
@@ -72028,10 +72118,19 @@
   },
   "ZH::it::teamleitung-fur-unsere-wohngruppe-zugang-zum-park-pigna-kloten": {
     "winnerJobIdentifier": "pigna-9ff7a31d166f",
-    "winnerCanonical": "teamleitung-per-unsere-wohngruppe-zugang-zum-park-stiftung-pigna-kloten",
+    "winnerCanonical": "insegnamento-per-il-nostro-gruppo-residenziale-access-to-park-stiftung-pigna-kloten",
     "decidedAt": "2026-09-19T00:00:00.000Z",
     "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.7273,
+    "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::teamleitung-per-unsere-wohngruppe-zugang-zum-park-stiftung-pigna-kloten": {
+    "winnerJobIdentifier": "pigna-9ff7a31d166f",
+    "winnerCanonical": "insegnamento-per-il-nostro-gruppo-residenziale-access-to-park-stiftung-pigna-kloten",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0.2941,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -72117,11 +72216,11 @@
     "canton": "ZH"
   },
   "ZH::it::training-nurse-nurse-specialist-hf-kantonsspital-winterthur-ksw-winterthur": {
-    "winnerJobIdentifier": "ksw-b8c9c7927e76",
-    "winnerCanonical": "infermiere-di-formazione-infermiere-specialista-hf-kantonsspital-winterthur-ksw-winterthur",
-    "decidedAt": "2026-09-12T00:00:00.000Z",
-    "lastSeenAt": "2026-09-18T00:00:00.000Z",
-    "score": 0.3636,
+    "winnerJobIdentifier": "ksw-a8a7856cbcb4",
+    "winnerCanonical": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
+    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -72234,10 +72333,10 @@
     "canton": "ZH"
   },
   "ZH::it::vendeur-dans-la-nourriture-coop-genossenschaft-zurich-24d4e8": {
-    "winnerJobIdentifier": "company-2gc6jw",
-    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-zurich-7e4e12",
-    "decidedAt": "2026-09-19T00:00:00.000Z",
-    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-sgq51g",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-zurich-25b40c",
+    "decidedAt": "2026-09-11T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -72936,11 +73035,11 @@
     "canton": "ZH"
   },
   "ZH::it::venditore-in-cassa-servizi-coop-genossenschaft-horgen": {
-    "winnerJobIdentifier": "company-3vqxr9",
-    "winnerCanonical": "venditore-in-cassa-servizi-coop-genossenschaft-winterthur",
+    "winnerJobIdentifier": "company-1rthd8",
+    "winnerCanonical": "commesso-a-casse-e-servizi-coop-genossenschaft-horgen-zurich",
     "decidedAt": "2026-09-19T00:00:00.000Z",
     "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.75,
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -73008,11 +73107,11 @@
     "canton": "ZH"
   },
   "ZH::it::venditore-in-food-coop-genossenschaft-zurich-24d4e8": {
-    "winnerJobIdentifier": "company-2gc6jw",
-    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-zurich-7e4e12",
-    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-emltpo",
+    "winnerCanonical": "venditore-in-food-genossenschaft-migros-zurich-zurich",
+    "decidedAt": "2026-09-18T00:00:00.000Z",
     "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.2727,
+    "score": 0.625,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -73440,20 +73539,20 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-food-coop-genossenschaft-zurich-2": {
-    "winnerJobIdentifier": "company-2gc6jw",
-    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-zurich-7e4e12",
-    "decidedAt": "2026-09-19T00:00:00.000Z",
-    "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.2727,
+    "winnerJobIdentifier": "company-sgq51g",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-zurich-25b40c",
+    "decidedAt": "2026-09-11T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.5556,
     "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-food-coop-genossenschaft-zurich-evfz6t": {
-    "winnerJobIdentifier": "company-2gc6jw",
-    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-zurich-7e4e12",
-    "decidedAt": "2026-09-19T00:00:00.000Z",
-    "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.2727,
+    "winnerJobIdentifier": "company-sgq51g",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-zurich-25b40c",
+    "decidedAt": "2026-09-11T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.5556,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -73530,11 +73629,11 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-food-coop-zurich": {
-    "winnerJobIdentifier": "company-2gc6jw",
-    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-zurich-7e4e12",
-    "decidedAt": "2026-09-19T00:00:00.000Z",
-    "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.2,
+    "winnerJobIdentifier": "company-sgq51g",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-zurich-25b40c",
+    "decidedAt": "2026-08-31T00:00:00.000Z",
+    "lastSeenAt": "2026-09-17T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -73656,12 +73755,12 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-food-studentenaushilfe-coop-genossenschaft-zurich": {
-    "winnerJobIdentifier": "company-hmng9c",
-    "winnerCanonical": "aiuto-per-gli-studenti-del-venditore-coop-genossenschaft-zurich",
-    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-2gc6jw",
+    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-zurich-7e4e12",
+    "decidedAt": "2026-09-18T00:00:00.000Z",
     "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.2308,
-    "candidatesCount": 1,
+    "score": 0.2727,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-frischprodukte-convenience-fleisch-coop-genossenschaft-opfikon": {
