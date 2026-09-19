@@ -4,6 +4,7 @@ import {
   SUVA_COMPANY_NAME,
   isSuvaJob,
   isTrustedDomain,
+  parseDetailPage,
 } from '../scripts/lib/suva-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -66,6 +67,31 @@ describe('Suva crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  // ── Detail description extraction ──
+  describe('parseDetailPage', () => {
+    it('preserves the full description when SuccessFactors nests spans', () => {
+      const html = `
+        <meta property="og:title" content="Sachbearbeiter:in Fallmanagement">
+        <span class="rtltextaligneligible">Luzern</span>
+        <span itemprop="description">
+          <p>Der Einstieg beginnt mit einer sorgfältigen Einarbeitung.</p>
+          <span>Du bearbeitest selbstständig die Fälle unserer Versicherten.</span>
+          <p>Auch nach dem verschachtelten Abschnitt folgt weiterer Inhalt.</p>
+        </span>
+      `;
+
+      const parsed = parseDetailPage(html);
+
+      expect(parsed).toMatchObject({
+        title: 'Sachbearbeiter:in Fallmanagement',
+        location: 'Luzern',
+      });
+      expect(parsed?.description).toContain('sorgfältigen Einarbeitung');
+      expect(parsed?.description).toContain('Fälle unserer Versicherten');
+      expect(parsed?.description).toContain('folgt weiterer Inhalt');
     });
   });
 

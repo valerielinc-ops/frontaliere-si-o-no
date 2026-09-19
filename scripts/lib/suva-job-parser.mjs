@@ -41,6 +41,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, buildJobSlug, stripHtml, fetchHtml, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
+import { locateTagByAttribute, extractBalancedTagBlock } from './hospital-custom-html-helpers.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -220,7 +221,7 @@ function extractCantonZipFromUrl(url = '') {
  * postings — passed through as-is, matching how the SPA already handles
  * non-geographic multi-location blobs elsewhere in the codebase).
  */
-function parseDetailPage(html = '') {
+export function parseDetailPage(html = '') {
   if (!html) return null;
 
   const ogTitleMatch = html.match(/property="og:title"\s+content="([^"]*)"/i);
@@ -230,8 +231,18 @@ function parseDetailPage(html = '') {
   );
   if (!title || title.length < 3) return null;
 
-  const descMatch = html.match(/<span[^>]*itemprop="description"[^>]*>([\s\S]*?)<\/span>/i);
-  const description = normalizeSpace(stripHtml(descMatch ? descMatch[1] : ''));
+  // SuccessFactors can wrap the description in nested spans. A non-greedy
+  // closing-tag match stops at the first child span and drops the rest of the
+  // job body; walk the matching outer element instead.
+  const descriptionField = locateTagByAttribute(
+    html,
+    `itemprop=["']description["']`,
+    { skipVoidTags: true },
+  );
+  const descriptionHtml = descriptionField
+    ? extractBalancedTagBlock(descriptionField.rest, descriptionField.tagName)
+    : '';
+  const description = normalizeSpace(stripHtml(descriptionHtml));
 
   const descIdx = html.indexOf('itemprop="description"');
   const before = descIdx >= 0 ? html.slice(0, descIdx) : html;
