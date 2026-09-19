@@ -1338,8 +1338,29 @@ function isSoftThrottleError(msg) {
  * Cloudflare code=10004 keeps its established 30s cooldown instead of being
  * retried inside the same run.
  */
+/**
+ * A 429/403 whose body says a DAILY/MONTHLY quota is used up — e.g. Mailgun's
+ * `429 ... daily request limit (100) exceeded`, Resend's `daily_quota_exceeded`.
+ * That is not a burst throttle: waiting 100→1000ms and retrying cannot make the
+ * quota come back before the next UTC day. Job-alert/newsletter runs of
+ * 2026-09 measured it: Mailgun answered this while the synced counter still
+ * said 11/100, and the adaptive throttle spent 9 escalating retries (~5.5s of a
+ * worker, and pushed the provider's spacing to its 1s ceiling) before the
+ * existing exhaustion path finally retired it. Matching it here skips the
+ * adaptive step so isRateLimitedError retires the provider on the first reply.
+ * A bare "rate limit exceeded" / "Too many requests" deliberately does NOT
+ * match: that is the transient case the adaptive throttle exists for.
+ */
+export function isQuotaExhaustedError(msg) {
+  if (!msg) return false;
+  const text = String(msg);
+  return /(daily|monthly)[^"\n]{0,40}?(limit|quota)[^"\n]{0,40}?(exceed|exhaust|reached)/i.test(text)
+    || /(exceed|exhaust|reached)[^"\n]{0,40}?(daily|monthly)[^"\n]{0,40}?(limit|quota)/i.test(text);
+}
+
 function isAdaptiveThrottleRetry(error) {
   if (!error || error.ambiguousDelivery || isSoftThrottleError(error.message)) return false;
+  if (isQuotaExhaustedError(error.message)) return false;
   // Provider errors have the stable "Provider STATUS: body" shape. Anchor the
   // status there so a number in the response body (for example a 500-message
   // quota described by an HTTP 403) cannot accidentally look retryable.
@@ -1486,11 +1507,38 @@ async function sendSingle(email, forceProvider, finalizeForProvider, signal, ada
 }
 
 /**
+ * Spacing between two sends to the same provider: the run's delay (or the
+ * adaptive throttle's current value) but never below the provider's own floor
+ * from `providerMinIntervalMs`. The floor is what lets a bulk caller drop the
+ * shared delay to ~100ms and run several workers without turning a provider
+ * with a known burst limit into the "258 Mailtrap 403s in 5s" incident again.
+ */
+function providerSpacingMs(providerId, delayMs, adaptiveThrottle, providerMinIntervalMs) {
+  const base = adaptiveThrottle?.delayFor(providerId) ?? delayMs;
+  const floor = Number(providerMinIntervalMs?.[providerId]) || 0;
+  return Math.max(base, floor);
+}
+
+/**
+ * Per-provider spacing floors for the bulk senders (job alerts, newsletter)
+ * that run at a low shared delay with concurrency > 1. Opt-in via
+ * `opts.providerMinIntervalMs`, so every other caller keeps its spacing.
+ *   - cloudflare: its burst throttle (code=10004) fired at ~200 sends on
+ *     2026-07-06 while the senders paced it at ~1/s; keep that pace.
+ *   - resend: the free plan documents 2 requests/second per team.
+ * mailtrap is out of the cascade (2026-07-29); if it is ever restored it must
+ * get a floor here before a concurrent bulk sender can reach it.
+ * maileroo (the paid bulk channel) and mailgun/mailjet have no floor: their
+ * guard is the adaptive throttle on explicit 429/5xx.
+ */
+export const BULK_PROVIDER_MIN_INTERVAL_MS = Object.freeze({ cloudflare: 1000, resend: 500 });
+
+/**
  * Send a single email with per-provider throttling.
  * Waits until at least `delayMs` has elapsed since the last send to the same provider,
  * then delegates to the provider loop in sendSingle.
  */
-async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, finalizeForProvider, signal, adaptiveThrottle) {
+async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, finalizeForProvider, signal, adaptiveThrottle, providerMinIntervalMs) {
   // Determine which provider will be tried first (the one with remaining quota)
   const providers = forceProvider
     ? PROVIDERS.filter(p => p.id === forceProvider)
@@ -1507,7 +1555,7 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
     // "258 Mailtrap 403s in 5s" incident, now concurrency-safe for any future
     // concurrency>1 caller (was latent at the default concurrency=1).
     const now = Date.now();
-    const providerDelayMs = adaptiveThrottle?.delayFor(nextProvider.id) ?? delayMs;
+    const providerDelayMs = providerSpacingMs(nextProvider.id, delayMs, adaptiveThrottle, providerMinIntervalMs);
     const slot = Math.max(now, lastSendMap[nextProvider.id] || 0);
     lastSendMap[nextProvider.id] = slot + providerDelayMs;
     const wait = slot - now;
@@ -1522,7 +1570,7 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
   // If a different provider ended up sending, reserve its slot too.
   if (result?.provider && result.provider !== nextProvider?.id) {
     const now = Date.now();
-    const providerDelayMs = adaptiveThrottle?.delayFor(result.provider) ?? delayMs;
+    const providerDelayMs = providerSpacingMs(result.provider, delayMs, adaptiveThrottle, providerMinIntervalMs);
     lastSendMap[result.provider] = Math.max(now, lastSendMap[result.provider] || 0) + providerDelayMs;
   }
   return result;
@@ -1543,6 +1591,9 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
  * @param {{stepMs:number,maxDelayMs:number}} [opts.adaptiveThrottle] - Opt-in
  *   additive backoff for explicit 408/425/429/5xx responses. Starts at delayMs,
  *   retries the rejected message and never exceeds maxDelayMs.
+ * @param {Record<string, number>} [opts.providerMinIntervalMs] - Opt-in
+ *   per-provider spacing floor in ms (see BULK_PROVIDER_MIN_INTERVAL_MS); the
+ *   effective spacing is max(delay or adaptive delay, floor).
  * @param {string} [opts.forceProvider] - Force a specific provider (skip cascade)
  * @param {Function} [opts.onSent] - Called after each provider-accepted send, including ambiguous ack: (item, result) => void
  * @param {Function} [opts.finalizeForProvider] - Called just before sending, once
@@ -1555,7 +1606,7 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
  * @returns {{ sent: Array, accepted: Array, ambiguous: Array, failed: Array, providerBreakdown: Object, adaptiveThrottle?: Object }}
  */
 export async function sendEmailCascade(emails, opts = {}) {
-  const { concurrency = 1, delayMs = 1000, adaptiveThrottle: adaptiveConfig, forceProvider, onSent, finalizeForProvider, signal } = opts;
+  const { concurrency = 1, delayMs = 1000, adaptiveThrottle: adaptiveConfig, providerMinIntervalMs, forceProvider, onSent, finalizeForProvider, signal } = opts;
   const sent = [];
   const accepted = [];
   const ambiguous = [];
@@ -1574,20 +1625,24 @@ export async function sendEmailCascade(emails, opts = {}) {
   const totalQuota = available.reduce((sum, p) => sum + remainingQuota(p.id), 0);
   console.log(`📧 Email cascade: ${emails.length} to send, ${totalQuota} daily quota remaining`);
   console.log(`   Providers: ${available.map(p => `${p.id}(${remainingQuota(p.id)})`).join(' → ')}`);
-  console.log(`   Throttle: concurrency=${concurrency}, delay=${delayMs}ms between sends${adaptiveConfig ? `, adaptive max=${adaptiveConfig.maxDelayMs}ms step=${adaptiveConfig.stepMs}ms` : ''}`);
+  console.log(`   Throttle: concurrency=${concurrency}, delay=${delayMs}ms between sends${adaptiveConfig ? `, adaptive max=${adaptiveConfig.maxDelayMs}ms step=${adaptiveConfig.stepMs}ms` : ''}${providerMinIntervalMs ? `, floors ${Object.entries(providerMinIntervalMs).map(([k, v]) => `${k}=${v}ms`).join(' ')}` : ''}`);
 
   // Per-provider last-send timestamps for throttling
   const _lastSend = {};
   const adaptiveThrottle = createAdaptiveThrottleController(adaptiveConfig, delayMs, _lastSend);
 
-  // Process sequentially (concurrency=1) with per-provider delay
+  // `concurrency` workers pull from one queue. Safe without locks because the
+  // `idx++` claim, the quota-slot reservation in sendSingle and the spacing-slot
+  // reservation in sendSingleThrottled each happen synchronously (no await
+  // between read and write), so no two workers can take the same item, slot or
+  // time window. Each item is sent at most once; onSent is per recipient.
   let idx = 0;
   const worker = async () => {
     while (idx < emails.length) {
       const i = idx++;
       const item = emails[i];
       try {
-        const result = await sendSingleThrottled(item.payload, forceProvider, _lastSend, delayMs, finalizeForProvider, signal, adaptiveThrottle);
+        const result = await sendSingleThrottled(item.payload, forceProvider, _lastSend, delayMs, finalizeForProvider, signal, adaptiveThrottle, providerMinIntervalMs);
         const outcome = { ...item, ...result };
         sent.push(outcome);
         if (result?.ack === 'unidentifiable') {
