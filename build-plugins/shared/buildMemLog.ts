@@ -74,7 +74,7 @@ export function logBuildMem(
         .join('')
     : '';
   console.log(
-    `\x1b[35m[mem]\x1b[0m ${label} heapUsed=${mb(m.heapUsed)}MB (gcFreed=${freed}MB) external=${mb(m.external)}MB arrayBuffers=${mb(m.arrayBuffers)}MB rss=${mb(m.rss)}MB${extra}${detailText}`,
+    `\x1b[35m[mem]\x1b[0m (fp-bench) ${label} heapUsed=${mb(m.heapUsed)}MB (gcFreed=${freed}MB) external=${mb(m.external)}MB arrayBuffers=${mb(m.arrayBuffers)}MB rss=${mb(m.rss)}MB${extra}${detailText}`,
   );
   return { gcFreed: freed };
 }
