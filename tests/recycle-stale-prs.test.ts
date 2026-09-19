@@ -56,7 +56,11 @@ case "$command" in
       set_state REF_PRESENT false
       exit 0
     fi
-    if printf '%s' "$args" | grep -q -- 'issues/17/comments'; then
+    if printf '%s' "$args" | grep -q -- '-X PATCH'; then
+      if [ "\${FAKE_PATCH:-ok}" = fail ]; then exit 1; fi
+      exit 0
+    fi
+    if printf '%s' "$args" | grep -q -- 'issues/77/comments'; then
       if [ "\${FAKE_COMMENT:-ok}" = fail ]; then exit 1; fi
       printf '%s 2026-01-01T00:00:00Z\\n' "\${FAKE_ACTOR:-fixer-bot}"
       exit 0
@@ -148,15 +152,19 @@ function runScenario(overrides: Record<string, string> = {}) {
   const fakeGh = join(bin, 'gh');
   const fakeSleep = join(bin, 'sleep');
   const fakeDate = join(bin, 'date');
+  const fakeTimeout = join(bin, 'timeout');
   const log = join(dir, 'gh.log');
   const state = join(dir, 'state');
   writeFileSync(fakeGh, FAKE_GH);
   writeFileSync(fakeSleep, '#!/bin/sh\nexit 0\n');
+  // Registra il tetto e delega: basta a provare che ogni gh del riciclo e' limitato.
+  writeFileSync(fakeTimeout, '#!/bin/sh\nprintf "%s\\n" "$*" >>"$FAKE_LOG.timeout"\nshift 3\nexec "$@"\n');
   writeFileSync(fakeDate, '#!/bin/sh\ncase "$*" in\n  "-u +%s") printf "2000000000\\n" ;;\n  "-u -d "*" +%s") printf "1577836800\\n" ;;\n  *) exit 1 ;;\nesac\n');
   writeFileSync(log, '');
   writeFileSync(state, 'LABEL_PRESENT=true\nREF_PRESENT=true\nPREMATURE_DELETE=false\nPR_STATE=OPEN\n');
   chmodSync(fakeGh, 0o755);
   chmodSync(fakeSleep, 0o755);
+  chmodSync(fakeTimeout, 0o755);
   chmodSync(fakeDate, 0o755);
   const env = {
     ...process.env,
@@ -183,15 +191,18 @@ function runScenario(overrides: Record<string, string> = {}) {
     output = `${failure.stdout || ''}${failure.stderr || ''}`;
   }
   const events = readFileSync(log, 'utf8').trim().split('\n').filter(Boolean);
-  let tokens: string[] = [];
-  try {
-    tokens = readFileSync(`${log}.tok`, 'utf8').trim().split('\n').filter(Boolean);
-  } catch {
-    tokens = [];
-  }
+  const readLines = (file: string): string[] => {
+    try {
+      return readFileSync(file, 'utf8').trim().split('\n').filter(Boolean);
+    } catch {
+      return [];
+    }
+  };
+  const tokens = readLines(`${log}.tok`);
+  const bounded = readLines(`${log}.timeout`);
   const stateText = readFileSync(state, 'utf8');
   rmSync(dir, { recursive: true, force: true });
-  return { output, events, tokens, stateText };
+  return { output, events, tokens, bounded, stateText };
 }
 
 function eventIndex(events: string[], pattern: RegExp, from = 0): number {
@@ -203,7 +214,8 @@ describe('recycle-stale-prs — R2 action contract', () => {
     const result = runScenario();
     expect(result.output).toContain('issue #77 ri-accodata');
     const preClose = eventIndex(result.events, /^pr view 17 .*--json state,headRefOid/);
-    const announce = eventIndex(result.events, /^api -X POST repos\/owner\/repo\/issues\/17\/comments/);
+    const announce = eventIndex(result.events, /^api -X POST repos\/owner\/repo\/issues\/77\/comments/);
+    const patch = eventIndex(result.events, /^api -X PATCH repos\/owner\/repo\/git\/refs\/heads\/fix\/issue-77 -f sha=a{40} -F force=false/);
     const close = eventIndex(result.events, /^pr close 17/);
     const state = eventIndex(result.events, /^api repos\/owner\/repo\/issues\/17 /);
     const probe = eventIndex(result.events, /^api .*--include/);
@@ -214,7 +226,8 @@ describe('recycle-stale-prs — R2 action contract', () => {
     const addVerify = eventIndex(result.events, /^issue view 77 .*--json labels/, removeVerify + 1);
     expect(preClose).toBeGreaterThanOrEqual(0);
     expect(announce).toBeGreaterThan(preClose);
-    expect(close).toBeGreaterThan(announce);
+    expect(patch).toBeGreaterThan(announce);
+    expect(close).toBeGreaterThan(patch);
     expect(state).toBeGreaterThan(close);
     expect(probe).toBeGreaterThan(state);
     expect(del).toBeGreaterThan(probe);
@@ -323,7 +336,7 @@ describe('recycle-stale-prs — R2 action contract', () => {
   it('head o stato cambiati prima della close: nessuna mutazione', () => {
     const result = runScenario({ FAKE_PRE_SHA: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb' });
     const log = result.events.join('\n');
-    expect(log).not.toMatch(/issues\/17\/comments/);
+    expect(log).not.toMatch(/issues\/77\/comments/);
     expect(log).not.toMatch(/^pr close 17/m);
     expect(result.output).toContain('cambiata prima della close');
   });
@@ -344,9 +357,9 @@ describe('recycle-stale-prs — R2 action contract', () => {
   });
 
   it('deadline: nessuna nuova close se il tempo restante e\' sotto il budget di un riciclo', () => {
-    const result = runScenario({ RECYCLE_STEP_BUDGET_SECONDS: '30', RECYCLE_PER_ITEM_BUDGET_SECONDS: '60' });
+    const result = runScenario({ RECYCLE_STEP_BUDGET_SECONDS: '200', RECYCLE_PER_ITEM_BUDGET_SECONDS: '270' });
     const log = result.events.join('\n');
-    expect(log).not.toMatch(/issues\/17\/comments/);
+    expect(log).not.toMatch(/issues\/77\/comments/);
     expect(log).not.toMatch(/^pr close 17/m);
     expect(result.output).toContain('Deadline');
   });
@@ -360,5 +373,32 @@ describe('recycle-stale-prs — R2 action contract', () => {
   it('remove fallito dopo close+DELETE lascia un commento di recovery', () => {
     const result = runScenario({ FAKE_REMOVE: 'fail' });
     expect(result.events.join('\n')).toMatch(/^issue comment 77 /m);
+  });
+
+  it('token senza contents:write (PATCH no-op del ref rifiutata): nessuna close ne\' DELETE', () => {
+    const result = runScenario({ FAKE_PATCH: 'fail' });
+    const log = result.events.join('\n');
+    expect(log).not.toMatch(/^pr close 17/m);
+    expect(log).not.toMatch(/-X DELETE/);
+    expect(log).not.toMatch(/--remove-label agent:fix/);
+    expect(result.output).toContain('contents:write');
+    expect(result.stateText).toMatch(/PR_STATE=OPEN/);
+  });
+
+  it('ogni chiamata gh del riciclo passa dal tetto per comando', () => {
+    const result = runScenario();
+    expect(result.output).toContain('issue #77 ri-accodata');
+    const riciclo = result.events.slice(eventIndex(result.events, /--json state,headRefOid/));
+    expect(riciclo.length).toBeGreaterThanOrEqual(12);
+    expect(result.bounded.length).toBe(riciclo.length);
+    for (const line of result.bounded) expect(line).toMatch(/^-k 5 15 gh /);
+  });
+
+  it('il budget per riciclo copre il caso peggiore dei comandi limitati', () => {
+    const budget = Number(/RECYCLE_PER_ITEM_BUDGET_SECONDS: '(\d+)'/.exec(WORKFLOW)?.[1]);
+    const cmd = Number(/RECYCLE_CMD_TIMEOUT_SECONDS: '(\d+)'/.exec(WORKFLOW)?.[1]);
+    const step = Number(/RECYCLE_STEP_BUDGET_SECONDS: '(\d+)'/.exec(WORKFLOW)?.[1]);
+    expect(13 * (cmd + 5) + 6).toBeLessThanOrEqual(budget);
+    expect(step).toBeLessThanOrEqual(9 * 60 - 60);
   });
 });

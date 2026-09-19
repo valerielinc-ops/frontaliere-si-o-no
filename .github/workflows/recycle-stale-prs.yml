@@ -140,10 +140,17 @@ jobs:
           MAX_AGE_HOURS: ${{ github.event.inputs.max_age_hours || '24' }}
           MAX_RECYCLES_PER_RUN: ${{ github.event.inputs.max_recycles || '5' }}
           # Deadline interna: nessuna nuova close se il tempo restante dello
-          # step e' sotto il budget di un riciclo completo (preflight, close,
-          # attribuzione, 3 probe con sleep, DELETE, remove/verify/add/verify).
+          # step e' sotto il budget di un riciclo completo. Il budget e' un
+          # tetto DURO, non una stima: ogni chiamata gh del riciclo passa da
+          # `bounded` (timeout per comando) e un riciclo ne fa al massimo 13
+          # (rilettura, annuncio, probe capacita', close, attribuzione, 3
+          # probe ref, DELETE, remove/verify/add/verify) + 3 sleep da 2 s:
+          # 13 x (15 + 5 kill) + 6 = 266 s <= 270. L'ultimo riciclo ammesso
+          # parte entro 420 - 270 = 150 s e finisce entro 420 s, sotto il
+          # tetto di 9 minuti dello step.
           RECYCLE_STEP_BUDGET_SECONDS: '420'
-          RECYCLE_PER_ITEM_BUDGET_SECONDS: '60'
+          RECYCLE_PER_ITEM_BUDGET_SECONDS: '270'
+          RECYCLE_CMD_TIMEOUT_SECONDS: '15'
         timeout-minutes: 9
         run: |
           set -uo pipefail
@@ -164,14 +171,26 @@ jobs:
           RECYCLE_ATTEMPTS=0
           START_TS=$(date -u +%s)
           STEP_BUDGET="${RECYCLE_STEP_BUDGET_SECONDS:-420}"
-          ITEM_BUDGET="${RECYCLE_PER_ITEM_BUDGET_SECONDS:-60}"
+          ITEM_BUDGET="${RECYCLE_PER_ITEM_BUDGET_SECONDS:-270}"
+          CMD_TIMEOUT="${RECYCLE_CMD_TIMEOUT_SECONDS:-15}"
+          TIMEOUT_BIN=$(command -v timeout 2>/dev/null || true)
+          if [ -z "$TIMEOUT_BIN" ]; then
+            echo "::error::coreutils timeout assente: senza un tetto per comando il riciclo non ha una deadline dura — recycle non eseguito."
+            exit 1
+          fi
+          # Ogni chiamata gh del riciclo ha un tetto: una gh appesa fallisce
+          # (exit 124) e cade nel ramo fail-closed/recovery invece di portare
+          # lo step al timeout fra la close e agent:fix.
+          bounded() {
+            "$TIMEOUT_BIN" -k 5 "$CMD_TIMEOUT" "$@"
+          }
 
           # Commento di recovery durevole sulla issue/PR. Prova prima con
           # l'identita' delle mutazioni; se quella e' morta a meta' run usa il
           # GITHUB_TOKEN (un commento non innesca nulla, basta che resti).
           recovery_note() {
-            GH_TOKEN="$PAT" gh issue comment "$1" --repo "$REPO" --body "$2" 2>/dev/null \
-              || gh issue comment "$1" --repo "$REPO" --body "$2" 2>/dev/null \
+            GH_TOKEN="$PAT" bounded gh issue comment "$1" --repo "$REPO" --body "$2" 2>/dev/null \
+              || bounded gh issue comment "$1" --repo "$REPO" --body "$2" 2>/dev/null \
               || echo "::error::commento di recovery su #$1 non pubblicato: $2"
           }
 
@@ -293,25 +312,36 @@ jobs:
 
             # Rilettura immediatamente prima della close: la PR deve essere
             # ancora OPEN e sulla stessa head letta dai gate.
-            PRE_CLOSE=$(gh pr view "$N" --repo "$REPO" --json state,headRefOid --jq '.state + " " + .headRefOid' 2>/dev/null || true)
+            PRE_CLOSE=$(bounded gh pr view "$N" --repo "$REPO" --json state,headRefOid --jq '.state + " " + .headRefOid' 2>/dev/null || true)
             if [ "$PRE_CLOSE" != "OPEN $HEADSHA" ]; then
               echo "PR #$N cambiata prima della close (${PRE_CLOSE:-UNKNOWN}, attesa OPEN $HEADSHA) — skip recycle"
               continue
             fi
 
-            # Preflight della capacita' del token = prima mutazione, non
-            # distruttiva. Il commento restituisce l'identita' ($ACTOR) e un
-            # istante lato server ($MARK_AT) che rendono la close attribuibile.
+            # Preflight delle capacita' del token, tutte PRIMA della close e
+            # tutte non distruttive:
+            # - commento di annuncio sulla ISSUE sorgente: prova issues:write,
+            #   la stessa capacita' che serve a remove/add di agent:fix, e
+            #   restituisce identita' ($ACTOR) e istante lato server ($MARK_AT)
+            #   che rendono la close attribuibile;
+            # - PATCH no-op del ref head sulla SHA che ha gia' (force=false):
+            #   prova contents:write sullo stesso ref che verra' cancellato, e
+            #   fallisce se il ref si e' mosso.
             ANNOUNCE=$(printf '♻️ **recycle** (auto): PR ferma >%sh come \x60stale-review\x60 con branch indietro su un main mosso di molti commit. Viene chiusa; il ref remoto verra verificato e cancellato in sicurezza e issue sorgente #%s verra ri-accodata per un fix fresco contro main corrente (issue-fix aprira un branch nuovo con lo stesso nome). Il lavoro non e perso: la issue resta aperta.' "${MAX_AGE_HOURS:-24}" "$ISSUE")
-            MARK=$(GH_TOKEN="$PAT" gh api -X POST "repos/${REPO}/issues/${N}/comments" -f body="$ANNOUNCE" --jq '(.user.login // "") + " " + (.created_at // "")' 2>/dev/null || true)
+            MARK=$(GH_TOKEN="$PAT" bounded gh api -X POST "repos/${REPO}/issues/${ISSUE}/comments" -f body="$ANNOUNCE" --jq '(.user.login // "") + " " + (.created_at // "")' 2>/dev/null || true)
             ACTOR=""; MARK_AT=""
             read -r ACTOR MARK_AT <<<"$MARK"
             if [ -z "$ACTOR" ] || ! printf '%s' "$MARK_AT" | grep -qE '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$'; then
               echo "::error::PR #$N: preflight del token PAT/App fallito (commento non scritto o identita' illeggibile) — nessuna mutazione eseguita; fermo il run."
               break
             fi
+            if ! GH_TOKEN="$PAT" bounded gh api -X PATCH "repos/${REPO}/git/refs/heads/${HEADREF}" -f sha="$HEADSHA" -F force=false >/dev/null 2>&1; then
+              echo "::error::PR #$N: il token PAT/App non puo' aggiornare il ref ${HEADREF} (contents:write assente o ref mosso) — PR NON chiusa; fermo il run."
+              recovery_note "$ISSUE" "♻️ recycle di PR stale #$N annullato prima della close: il token non ha potuto verificare contents:write sul ref \`${HEADREF}\`. La PR resta aperta."
+              break
+            fi
 
-            if ! GH_TOKEN="$PAT" gh pr close "$N" --repo "$REPO" 2>/dev/null; then
+            if ! GH_TOKEN="$PAT" bounded gh pr close "$N" --repo "$REPO" 2>/dev/null; then
               echo "::warning::close fallita PR #$N: NON ri-accodo issue #$ISSUE (la PR resta aperta e il lavoro recuperabile)."
               continue
             fi
@@ -322,7 +352,7 @@ jobs:
             # closed_by sia l'identita' del token e closed_at non preceda il
             # commento di preflight. Se non e' attribuibile: niente DELETE,
             # niente re-queue, commento di recovery.
-            CLOSE_INFO=$(GH_TOKEN="$PAT" gh api "repos/${REPO}/issues/${N}" --jq '(.state // "") + " " + (.closed_at // "-") + " " + (.closed_by.login // "-")' 2>/dev/null || true)
+            CLOSE_INFO=$(GH_TOKEN="$PAT" bounded gh api "repos/${REPO}/issues/${N}" --jq '(.state // "") + " " + (.closed_at // "-") + " " + (.closed_by.login // "-")' 2>/dev/null || true)
             C_STATE=""; C_AT=""; C_BY=""
             read -r C_STATE C_AT C_BY <<<"$CLOSE_INFO"
             if [ "$C_STATE" != "closed" ] || [ "$C_BY" != "$ACTOR" ] || [ "$C_AT" \< "$MARK_AT" ]; then
@@ -342,7 +372,7 @@ jobs:
               for attempt in 1 2 3; do
                 probe_file=$(mktemp)
                 probe_err=$(mktemp)
-                if gh api --include "repos/${REPO}/git/refs/heads/${HEADREF}" >"$probe_file" 2>"$probe_err"; then
+                if bounded gh api --include "repos/${REPO}/git/refs/heads/${HEADREF}" >"$probe_file" 2>"$probe_err"; then
                   http_status=$(sed 's/\r$//' "$probe_file" | sed -n '1s/^HTTP\/[0-9.][0-9.]*[[:space:]]\{1,\}\([0-9][0-9][0-9]\).*/\1/p')
                   probe_body=$(sed 's/\r$//' "$probe_file" | awk 'BEGIN { body=0 } body { print } /^$/ { body=1; next }')
                   if [ "$http_status" != "200" ]; then
@@ -377,7 +407,7 @@ jobs:
                     echo "::warning::PR #$N: ref ${HEADREF} punta a ${REF_SHA}, diverso dalla head chiusa ${HEADSHA}; skip DELETE"
                     break
                   fi
-                  if ! GH_TOKEN="$PAT" gh api -X DELETE "repos/${REPO}/git/refs/heads/${HEADREF}" >/dev/null 2>&1; then
+                  if ! GH_TOKEN="$PAT" bounded gh api -X DELETE "repos/${REPO}/git/refs/heads/${HEADREF}" >/dev/null 2>&1; then
                     echo "::error::PR #$N: DELETE del ref ${HEADREF} fallita; NON ri-accodo issue #$ISSUE."
                     break
                   fi
@@ -393,12 +423,12 @@ jobs:
 
             # Re-queue: verifica entrambe le transizioni. Se remove fallisce o
             # la label resta presente, NON eseguire add (evita retrigger falso).
-            if ! GH_TOKEN="$PAT" gh issue edit "$ISSUE" --repo "$REPO" --remove-label agent:fix 2>/dev/null; then
+            if ! GH_TOKEN="$PAT" bounded gh issue edit "$ISSUE" --repo "$REPO" --remove-label agent:fix 2>/dev/null; then
               echo "::error::remove-label agent:fix fallita issue #$ISSUE: NON ri-accodo (la label potrebbe essere ancora presente)."
               recovery_note "$ISSUE" "♻️ PR stale #$N chiusa e branch liberato, ma la rimozione di \`agent:fix\` è fallita: rimuovere e riapplicare \`agent:fix\` a mano per un fix fresco."
               continue
             fi
-            label_payload=$(GH_TOKEN="$PAT" gh issue view "$ISSUE" --repo "$REPO" --json labels 2>/dev/null || true)
+            label_payload=$(GH_TOKEN="$PAT" bounded gh issue view "$ISSUE" --repo "$REPO" --json labels 2>/dev/null || true)
             label_present=$(printf '%s' "$label_payload" | jq -er '
               if type != "object" or ((.labels? | type) != "array") then
                 error("labels payload non verificabile")
@@ -419,12 +449,12 @@ jobs:
               continue
             fi
             sleep 2
-            if ! GH_TOKEN="$PAT" gh issue edit "$ISSUE" --repo "$REPO" --add-label agent:fix 2>/dev/null; then
+            if ! GH_TOKEN="$PAT" bounded gh issue edit "$ISSUE" --repo "$REPO" --add-label agent:fix 2>/dev/null; then
               echo "::error::add-label agent:fix fallita issue #$ISSUE (PR #$N gia' chiusa): riapplicarla a mano."
               recovery_note "$ISSUE" "♻️ PR stale #$N chiusa ma il re-label \`agent:fix\` è fallito: riapplicarlo a mano per un fix fresco."
               continue
             fi
-            label_payload=$(GH_TOKEN="$PAT" gh issue view "$ISSUE" --repo "$REPO" --json labels 2>/dev/null || true)
+            label_payload=$(GH_TOKEN="$PAT" bounded gh issue view "$ISSUE" --repo "$REPO" --json labels 2>/dev/null || true)
             label_present=$(printf '%s' "$label_payload" | jq -er '
               if type != "object" or ((.labels? | type) != "array") then
                 error("labels payload non verificabile")
