@@ -529,6 +529,7 @@ const LIDL_VERIFIED_LOCATIONS = [
   ['Siebnen', '8854', 'SZ'],
   ['Samstagern', '8833', 'ZH'],
   ['Bützberg', '4922', 'BE'],
+  ['Gwatt', '3645', 'BE'],
   ['Küssnacht a. R.', '6403', 'SZ'],
   ['Perlen', '6035', 'LU'],
   ['Emmenbrücke', '6020', 'LU'],
