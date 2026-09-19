@@ -194,6 +194,24 @@ describe('orphan-pr-custodian — adozione di un 🔴 fuori scope (sito #9221/#9
     // Dove il reviewer non emette il marker (sito) nulla cambia.
     expect(classifyOrphan({ ...base, reviews: [review(IMPORTANT)], reviewRevision: REV_B })
       .action).toBe('adopt');
+    // Due marker: il gate non riusa quel verdetto, e nemmeno noi.
+    expect(classifyOrphan({
+      ...base,
+      reviews: [review(`<!-- REVIEW_INPUT_REVISION: ${REV_A} -->\n<!-- REVIEW_INPUT_REVISION: ${REV_B} -->\n${IMPORTANT}`)],
+      reviewRevision: REV_B,
+    }).action).toBe('none');
+    // Newline serializzati come due caratteri: li normalizza il parser canonico.
+    expect(classifyOrphan({
+      ...base,
+      reviews: [review(`<!-- REVIEW_INPUT_REVISION: ${REV_B} -->\\n${IMPORTANT}`)],
+      reviewRevision: REV_B,
+    }).action).toBe('adopt');
+  });
+
+  it('usa il parser canonico dei marker, non una copia locale della regex', () => {
+    const src = readFileSync(new URL('../scripts/ci/orphan-pr-custodian.mjs', import.meta.url), 'utf8');
+    expect(src).toContain("from './lib/review-input-revision.mjs'");
+    expect(src).not.toMatch(/REVIEW_INPUT_REVISION: \(body/);
   });
 
   it('la revisione si calcola come `body:sha256(body + newline)`', () => {
@@ -255,6 +273,16 @@ describe('stale-pr-rescuer — cablaggio', () => {
     expect(WORKFLOW).toContain("PUSHED_AT=$(gh api \"repos/$REPO/commits/$HEAD\" --jq '.commit.committer.date'");
     expect(WORKFLOW).toContain('IDLE_SINCE="${PUSHED_AT:-$UPD}"');
     expect(WORKFLOW).not.toContain('UPD_S=$(date -u -d "$UPD" +%s');
+  });
+
+  it('sceglie la review del bot con il fencing sulla revisione del body', () => {
+    // `commit_id` da solo lascia attivo un verdetto che una modifica del body
+    // ha gia' invalidato: la selezione passa dal filtro sui marker.
+    expect(WORKFLOW).toContain('node scripts/ci/lib/review-input-revision.mjs hash-pr-json --file "$PR_JSON"');
+    expect(WORKFLOW).toContain('LAST_BODY=$(printf \'%s\' "$fenced" | jq -r \'last | .body // ""\')');
+    expect(WORKFLOW).toContain('LAST_CID=$(printf \'%s\' "$fenced" | jq -r \'last | .commit_id // ""\')');
+    // Il modulo canonico deve stare nel checkout sparse del job.
+    expect(WORKFLOW).toMatch(/sparse-checkout: \|\n(?:\s+\S+\n)*\s+scripts\/ci\/lib\/review-input-revision\.mjs\n/);
   });
 
   it('esegue il custode con lo script e le costanti presenti nel checkout sparse', () => {

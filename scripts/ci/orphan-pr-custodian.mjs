@@ -55,6 +55,11 @@ import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { isReviewerBot, REDFLAG_IMPORTANT_RE, VITEST_CHECK_NAME } from './lib/constants.mjs';
+// Parser CANONICO dei marker di revisione: normalizza i newline serializzati
+// (`\n` come due caratteri) e pretende la riga di contratto completa, esattamente
+// come `review-gate`. Una seconda copia della regex qui sarebbe la deriva che
+// AGENTS.md #6 vieta, e il gate la giudicherebbe con un parser diverso dal nostro.
+import { reviewHasInputRevision, reviewInputRevisions } from './lib/review-input-revision.mjs';
 
 export const ORPHAN_MIN_AGE_S = 2 * 60 * 60;
 export const ORPHANED_LABEL = 'orphaned';
@@ -95,20 +100,6 @@ export function reviewRevisionForBody(body) {
   return `body:${createHash('sha256').update(`${body}\n`).digest('hex')}`;
 }
 
-// Riga di contratto, non sottostringa: prosa o esempio citato non autenticano
-// un verdetto. Stessa forma di `REVIEW_INPUT_REVISION_MARKER_RE` del corpus.
-const REVIEW_INPUT_REVISION_LINE_RE = /^<!-- REVIEW_INPUT_REVISION: (body:[0-9a-f]{64}) -->\r?$/gimu;
-
-export function reviewRevisionsOf(body) {
-  const re = new RegExp(REVIEW_INPUT_REVISION_LINE_RE.source, 'gimu');
-  const found = [];
-  let match = re.exec(String(body || ''));
-  while (match) {
-    found.push(match[1].toLowerCase());
-    match = re.exec(String(body || ''));
-  }
-  return found;
-}
 
 /** Stessa definizione di «autonoma» usata da fixer, rescuer e recycle. */
 export function isAutonomousPr(pr) {
@@ -153,11 +144,13 @@ export function headReview(reviews, headSha, { revision = '' } = {}) {
     .filter((review) => String(review.commit_id || '').toLowerCase() === String(headSha).toLowerCase())
     .sort((a, b) => (a.id || 0) - (b.id || 0));
   if (!onHead.length) return null;
-  const marked = onHead.filter((review) => reviewRevisionsOf(review.body).length > 0);
+  const marked = onHead.filter((review) => reviewInputRevisions(review.body).length > 0);
   if (!marked.length) return onHead[onHead.length - 1];
-  const wanted = String(revision || '').trim().toLowerCase();
-  if (!wanted) return null;
-  const current = marked.filter((review) => reviewRevisionsOf(review.body).includes(wanted));
+  // `reviewHasInputRevision` pretende ESATTAMENTE un marker, uguale alla
+  // revisione corrente: una review che ne porta due (o la revisione corrente
+  // accanto a un'altra) non e' un verdetto che il gate riusa, e non lo e'
+  // nemmeno qui.
+  const current = marked.filter((review) => reviewHasInputRevision(review.body, revision));
   return current.length ? current[current.length - 1] : null;
 }
 

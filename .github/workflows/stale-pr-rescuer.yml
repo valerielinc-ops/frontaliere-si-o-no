@@ -85,6 +85,7 @@ jobs:
             scripts/ci/mint-app-token.mjs
             scripts/ci/orphan-pr-custodian.mjs
             scripts/ci/lib/constants.mjs
+            scripts/ci/lib/review-input-revision.mjs
             scripts/lib/githubApiHeaders.mjs
             functions/src/githubApiHeaders.js
           sparse-checkout-cone-mode: false
@@ -206,8 +207,38 @@ jobs:
 
             # Ultima review del bot reviewer (claude) + commit a cui si riferisce.
             reviews=$(gh api "repos/$REPO/pulls/$N/reviews" 2>/dev/null || echo '[]')
-            LAST_BODY=$(echo "$reviews" | jq -r '[.[] | select(.user.login|test("^(claude(\\[bot\\])?|frontaliere-automation\\[bot\\])$";"i"))] | last | .body // ""')
-            LAST_CID=$(echo "$reviews" | jq -r '[.[] | select(.user.login|test("^(claude(\\[bot\\])?|frontaliere-automation\\[bot\\])$";"i"))] | last | .commit_id // ""')
+
+            # Fencing sulla REVISIONE del body, non solo su `commit_id`. Una
+            # modifica del body non cambia la HEAD: senza questo confronto un
+            # verdetto che `review-gate` ha gia' invalidato resta attivo qui, e
+            # la classificazione (e il re-queue che ne segue) parte dal
+            # risultato vecchio. E' la stessa regola che applica il custode in
+            # `scripts/ci/orphan-pr-custodian.mjs`, eseguito piu' sotto nello
+            # stesso job.
+            PR_JSON="${RUNNER_TEMP:-/tmp}/rescuer-pr-$N.json"
+            CUR_REV=""
+            if gh api "repos/$REPO/pulls/$N" > "$PR_JSON" 2>/dev/null; then
+              CUR_REV=$(node scripts/ci/lib/review-input-revision.mjs hash-pr-json --file "$PR_JSON" 2>/dev/null || true)
+            fi
+            # Una review SENZA marker resta ammessa: il reviewer di questo repo
+            # non li emette, e il fencing non deve spegnere la classificazione.
+            # Con i marker ne serve ESATTAMENTE uno e uguale alla revisione
+            # corrente — la stessa condizione di `reviewHasInputRevision`.
+            # `CUR_REV` vuota con marker presenti => nessuna review ammessa:
+            # non potendo provare la validita' si chiude, non si indovina.
+            fenced=$(printf '%s' "$reviews" | jq -c --arg rev "$CUR_REV" '
+              def marks: (.body // "")
+                | gsub("\\\\r\\\\n"; "\n") | gsub("\\\\n"; "\n")
+                | split("\n") | map(sub("\r$"; ""))
+                | map(select(test("^<!-- REVIEW_INPUT_REVISION: body:[0-9a-f]{64} -->$"; "i"))
+                      | ascii_downcase | ltrimstr("<!-- review_input_revision: ") | rtrimstr(" -->"));
+              [ .[]
+                | select(.user.login | test("^(claude(\\[bot\\])?|frontaliere-automation\\[bot\\])$"; "i"))
+                | select((marks | length) == 0
+                         or ((marks | length) == 1 and marks[0] == ($rev | ascii_downcase))) ]' \
+              2>/dev/null || echo '[]')
+            LAST_BODY=$(printf '%s' "$fenced" | jq -r 'last | .body // ""')
+            LAST_CID=$(printf '%s' "$fenced" | jq -r 'last | .commit_id // ""')
 
             # La copia bash deve fallire chiuso se PCRE rifiuta `(*UTF)`: exit 1
             # significa solo «nessun marker», exit >1 è un errore del guard.
