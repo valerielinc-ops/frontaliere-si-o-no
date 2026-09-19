@@ -3,6 +3,7 @@ import {
   inferAnyCanton,
   isCantonOnlyLabel,
   isSwissLocationText,
+  swissMunicipalityCantons,
   swissCityFromLocationField,
 } from './target-swiss-locations.mjs';
 
@@ -113,6 +114,16 @@ export function resolveFnzSwissLocation(candidates = []) {
     const location = resolvedLocation || city || firstLocationSegment(raw);
     const signalCanton = inferAnyCanton(signal);
     const locationCanton = inferAnyCanton(location);
+    // A scoped canton must come from the source, not from the same bare
+    // homonymous locality that is being validated. Structured address fields
+    // can otherwise make `Buchs` look coherent while arbitrarily selecting
+    // SG over its other BFS cantons (follow-up #9139/#9159).
+    if (
+      swissMunicipalityCantons(location).length > 1
+      && !signalCity
+    ) {
+      continue;
+    }
     // A city and a richer address signal must describe the same canton. If
     // they disagree, reject the candidate rather than emit plausible-looking
     // but internally inconsistent structured data. A city field or structured
