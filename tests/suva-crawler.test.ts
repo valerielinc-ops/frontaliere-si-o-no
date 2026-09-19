@@ -4,6 +4,7 @@ import {
   SUVA_COMPANY_NAME,
   isSuvaJob,
   isTrustedDomain,
+  parseDetailPage,
 } from '../scripts/lib/suva-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -66,6 +67,68 @@ describe('Suva crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  // ── Detail description extraction ──
+  describe('parseDetailPage', () => {
+    it('preserves the full description when SuccessFactors nests spans', () => {
+      const html = `
+        <meta property="og:title" content="Sachbearbeiter:in Fallmanagement">
+        <span class="rtltextaligneligible">Luzern</span>
+        <span itemprop="description">
+          <p>Der Einstieg beginnt mit einer sorgfältigen Einarbeitung.</p>
+          <span>Du bearbeitest selbstständig die Fälle unserer Versicherten.</span>
+          <p>Auch nach dem verschachtelten Abschnitt folgt weiterer Inhalt.</p>
+        </span>
+      `;
+
+      const parsed = parseDetailPage(html);
+
+      expect(parsed).toMatchObject({
+        title: 'Sachbearbeiter:in Fallmanagement',
+        location: 'Luzern',
+      });
+      expect(parsed?.description).toContain('sorgfältigen Einarbeitung');
+      expect(parsed?.description).toContain('Fälle unserer Versicherten');
+      expect(parsed?.description).toContain('folgt weiterer Inhalt');
+    });
+
+    it('keeps long descriptions beyond the shared 20k scan default', () => {
+      const longBody = 'Langtext für die SUVA-Stelle mit relevanten Aufgaben. '.repeat(900);
+      const html = `
+        <meta property="og:title" content="Sachbearbeiter:in">
+        <span class="rtltextaligneligible">Luzern</span>
+        <span ITEMPROP='description'><p>${longBody}</p><p>Der finale Abschnitt bleibt erhalten.</p></span>
+      `;
+
+      const parsed = parseDetailPage(html);
+
+      expect(parsed?.description.length).toBeGreaterThan(20_000);
+      expect(parsed?.description).toContain('Der finale Abschnitt bleibt erhalten');
+      expect(parsed?.location).toBe('Luzern');
+    });
+
+    it('does not persist a prefix when the capped description never closes', () => {
+      const html = `
+        <meta property="og:title" content="Sachbearbeiter:in">
+        <span itemprop="description">${'Unvollständiger Langtext. '.repeat(2_500)}
+      `;
+
+      const parsed = parseDetailPage(html);
+
+      expect(parsed?.description).toBe('');
+    });
+
+    it('does not treat an under-cap unclosed description as complete', () => {
+      const html = `
+        <meta property="og:title" content="Sachbearbeiter:in">
+        <span itemprop="description">${'Unvollständiger Kurztext. '.repeat(900)}
+      `;
+
+      const parsed = parseDetailPage(html);
+
+      expect(parsed?.description).toBe('');
     });
   });
 
