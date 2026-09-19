@@ -10,12 +10,20 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://corporate.lastminute.com/careers/jobs/job?id=744000150318414&jobName=Consolidation+Specialist",
     "https://corporate.lastminute.com/careers/jobs/job?id=744000148443690&jobName=AI+Automation+Engineer",
     "https://corporate.lastminute.com/careers/jobs/job?id=744000113487537&jobName=Global+Payroll"
   ],
   "notes": "Dedicated lastminute.com crawler reads the complete careers listing, resolves each posting through SmartRecruiters, keeps only Swiss locations with inferAnyCanton(), and canonicalizes detail URLs under corporate.lastminute.com/careers/jobs/job?id=...",
-  "updatedAt": "2026-09-17T15:12:41.255Z",
+  "updatedAt": "2026-09-19T07:39:25.403Z",
   "seedMetaByUrl": {
+    "https://corporate.lastminute.com/careers/jobs/job?id=744000150318414&jobName=Consolidation+Specialist": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "country": "CH",
+      "company": "lastminute.com",
+      "companyDomain": "lastminute.com"
+    },
     "https://corporate.lastminute.com/careers/jobs/job?id=744000148443690&jobName=AI+Automation+Engineer": {
       "location": "Chiasso",
       "canton": "TI",

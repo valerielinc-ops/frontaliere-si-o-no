@@ -41,4 +41,67 @@ describe('lwphr-job-parser', () => {
     expect(localized.descriptions.it).toContain('PDF ufficiale');
     expect(localized.descriptions.en).toContain('official PDF');
   });
+
+  it('recovers an explicit narrative workplace from LWP PDFs', () => {
+    expect(inferLwphrLocation(
+      'Relationship manager',
+      'Per la sede prestigiosa di St. Moritz, siamo stati incaricati di selezionare il seguente profilo professionale.',
+    )).toBe('St. Moritz');
+    expect(inferLwphrLocation(
+      'Consulente patrimoniale',
+      'Per la sede operativa nel Luganese, ci ha incaricato di selezionare la seguente figura professionale.',
+    )).toBe('Lugano');
+  });
+
+  it('accepts contracted and possessive worksite articles across PDF line wraps', () => {
+    expect(inferLwphrLocation(
+      'Consulente',
+      "presso l'ufficio di Lugano,\nsiamo stati incaricati di selezionare il profilo.",
+    )).toBe('Lugano');
+    expect(inferLwphrLocation(
+      'Consulente',
+      'presso la nostra sede di Lugano,\nsiamo stati incaricati di selezionare il profilo.',
+    )).toBe('Lugano');
+    expect(inferLwphrLocation(
+      'Consulente',
+      "all'interno dell'ufficio di Lugano,\nsiamo stati incaricati di selezionare il profilo.",
+    )).toBe('Lugano');
+    expect(inferLwphrLocation(
+      'Consulente',
+      'nell’ufficio di Lugano, siamo stati incaricati di selezionare il profilo.',
+    )).toBe('Lugano');
+    expect(inferLwphrLocation(
+      'Consulente',
+      "all'ufficio di Lugano, siamo stati incaricati di selezionare il profilo.",
+    )).toBe('Lugano');
+  });
+
+  it('removes PDF hyphenation before matching narrative worksite and mandate', () => {
+    expect(inferLwphrLocation(
+      'Relationship manager',
+      'Per la sede presti-\ngiosa di St. Moritz, siamo stati incari-\ncati di selezionare il profilo.',
+    )).toBe('St. Moritz');
+  });
+
+  it('does not promote an employer seat even when a broad mandate token shares the line', () => {
+    expect(inferLwphrLocation(
+      'Consulente',
+      'Azienda con sede a Lugano ricerca una figura da inserire altrove.',
+    )).toBe('');
+    expect(inferLwphrLocation(
+      'Consulente',
+      'Il nostro cliente è una banca svizzera sita nel luganese, ci ha incaricato di selezionare la seguente figura professionale.',
+    )).toBe('');
+    expect(inferLwphrLocation(
+      'Consulente',
+      'La società ha sede nel Luganese e opera su tutto il territorio svizzero.',
+    )).toBe('');
+  });
+
+  it('prefers an explicit worksite label when the client seat differs', () => {
+    expect(inferLwphrLocation(
+      'Consulente',
+      'Il cliente ha sede nel Luganese. Sede di lavoro: Zürich.',
+    )).toBe('Zürich');
+  });
 });
