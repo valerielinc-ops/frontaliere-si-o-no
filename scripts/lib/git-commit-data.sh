@@ -187,7 +187,7 @@ elif [ "$GROUP_BATCH" = true ]; then
   # shared worktree.
   STANDARD_FILES=()
 elif [ "$SLICE_ONLY" = true ]; then
-  # Slice-only mode: only commit per-crawler slice files + ai-cache.
+  # Slice-only mode: only commit per-crawler slice files.
   # Shared monolithic files are assembled during deploy, not per-crawler.
   #
   # Crawler-group workflows run ~25 sibling crawlers concurrently against ONE
@@ -199,6 +199,14 @@ elif [ "$SLICE_ONLY" = true ]; then
   # SPITEX BASEL jobs". The group workflow generator already exports
   # JOBS_SLICE_FILE (this crawler's own slice path) for the crawler's own
   # pipeline; reuse it to scope staging to exactly this crawler's own files.
+  #
+  # `data/jobs-ai-cache.json` is intentionally absent below. It is a shared
+  # whole-file accumulator, not a crawler-owned slice: concurrent grouped
+  # writers can each hold a stale copy even when the private-index retry path
+  # merges their slices safely. Keeping it out of every JOBS_SLICE_FILE commit
+  # prevents a lease-free crawler from publishing that stale candidate. The
+  # cache remains in the directory-wide fallback for sequential writers, which
+  # are the only callers that own the whole cache file.
   # Falls back to the old directory-wide behavior when unset (non-grouped
   # callers, e.g. translate-pending.yml, which legitimately touches every
   # crawler's slice in one sequential job).
@@ -209,7 +217,6 @@ elif [ "$SLICE_ONLY" = true ]; then
       "data/jobs/expired/by-crawler/${SLICE_BASENAME}"
       "data/jobs-crawler-summaries/by-crawler/${SLICE_BASENAME}"
       "data/translation-cache/${SLICE_BASENAME}"
-      data/jobs-ai-cache.json
     )
     # SLICE_ONLY + JOBS_SLICE_FILE set ⇔ this invocation comes from a grouped
     # crawler-group-*.yml background step sharing ONE checkout with ~25

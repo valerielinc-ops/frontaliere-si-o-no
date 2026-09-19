@@ -1829,6 +1829,22 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(translate).toMatch(/retries the atomic ref push after contention/);
   });
 
+  it('non applica il lease globale ai crawler e conserva il guard lease per gruppo', () => {
+    const groupResults = generate({
+      outDir: workflowsDir,
+      assignmentsPath,
+      write: false,
+    });
+
+    expect(groupResults).toHaveLength(GROUP_COUNT);
+    for (const result of groupResults) {
+      const workflow = YAML.parse(result.content);
+      const job = Object.values(workflow.jobs)[0] as any;
+      expect(job.env?.DATA_PIPELINE_LEASE).toBeUndefined();
+    }
+    expect(groupResults[0].content).toContain('node scripts/check-crawler-group-live-run.mjs crawler-group-01.yml');
+  });
+
   it('confina il secret Codex all’action setup e lo rimuove dagli env dei processi', () => {
     const { outDir } = generateArtifacts();
     const generated = YAML.parse(fs.readFileSync(path.join(outDir, 'crawler-group-01.yml'), 'utf8'));
