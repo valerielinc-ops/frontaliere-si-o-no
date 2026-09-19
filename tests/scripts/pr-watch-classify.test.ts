@@ -133,9 +133,11 @@ describe('classifyPr', () => {
   });
 
   it('the subscription waits for the review events, not only merged/failed', () => {
-    for (const state of ['merged', 'failed', 'commented', 'needs_review']) {
+    for (const state of ['merged', 'failed', 'reviewed']) {
       expect(PR_WATCH_WAIT_FOR).toContain(state);
     }
+    // `commented` scatta anche sugli issue_comment advisory: non e' una review.
+    expect(PR_WATCH_WAIT_FOR).not.toContain('commented');
     expect(subscribeCommand({ owner: 'o', repo: 'r', number: 7 })).toContain(`--wait-for ${PR_WATCH_WAIT_FOR.join(',')}`);
   });
 

@@ -9,7 +9,7 @@
  * hook-exit-codes.mjs's note on the same principle for the sibling gates.
  *
  * Dopo la registrazione restituisce all'agente (additionalContext) il comando
- * di subscription event-driven con i waitFor della review oltre al terminale:
+ * di subscription event-driven con il waitFor `reviewed` oltre al terminale:
  * con il solo `merged,failed` di prima una review 🔴 non svegliava nessuno.
  */
 import { fileURLToPath } from 'node:url';
@@ -63,7 +63,7 @@ async function main() {
     `PR #${ref.number} (${ref.owner}/${ref.repo}) registrata nel pr-watch.`,
     'Seguila event-driven, review comprese (niente polling di gh pr view/checks):',
     `  ${subscribeCommand(ref)}`,
-    'poi UN solo `bin/gh-frontaliere events listen <subscription-id>`; a un evento `commented`/`needs_review` leggi la review.',
+    'poi UN solo `bin/gh-frontaliere events listen <subscription-id>`; a un evento `reviewed` leggi la review.',
   ].join('\n');
   process.stdout.write(JSON.stringify({
     hookSpecificOutput: { hookEventName: 'PostToolUse', additionalContext: context },
