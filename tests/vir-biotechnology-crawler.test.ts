@@ -149,6 +149,10 @@ describe('isSwissLocation', () => {
     expect(isSwissLocation('Bellinzona, Switzerland')).toBe(true);
   });
 
+  it('returns true for a country-only Swiss location', () => {
+    expect(isSwissLocation('Switzerland')).toBe(true);
+  });
+
   it('returns true for Lugano', () => {
     expect(isSwissLocation('Lugano, Switzerland')).toBe(true);
   });
