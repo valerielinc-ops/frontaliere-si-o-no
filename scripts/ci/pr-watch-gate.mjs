@@ -74,7 +74,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { readEntries, writeEntries, removeEntry, entriesForSession, entriesOfOtherSessions } from './lib/pr-watch-store.mjs';
-import { classifyPr, RESOLVED_STATUSES } from './lib/pr-watch-classify.mjs';
+import { buildBlockReason, classifyPr, RESOLVED_STATUSES } from './lib/pr-watch-classify.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, '..', '..');
@@ -241,13 +241,13 @@ function main() {
   }
 
   const remaining = [];
-  const blockers = [];
+  const blocked = [];
   for (const entry of entries) {
     const verdict = checkOne(entry);
     if (verdict === null) continue; // unresolvable — drop, do not carry forward
     if (RESOLVED_STATUSES.has(verdict.status)) continue; // resolved — drop
     remaining.push(entry);
-    blockers.push(`  #${entry.number} (${entry.owner}/${entry.repo}): ${verdict.detail}`);
+    blocked.push({ ref: entry, verdict });
   }
 
   try {
@@ -260,21 +260,13 @@ function main() {
     // below from what was just computed.
   }
 
-  if (blockers.length === 0) return;
+  if (blocked.length === 0) return;
 
-  // Dorme QUI, non prima: se nel frattempo tutto si è risolto (blockers vuoto,
+  // Dorme QUI, non prima: se nel frattempo tutto si è risolto (blocked vuoto,
   // già ritornato sopra) non paghiamo il throttle per niente.
   throttleBeforeBlocking();
 
-  const reason = [
-    'PR aperte da questa sessione non hanno ancora raggiunto uno stato terminale',
-    '(AGENTS.md: "Attesa PR = watch ATTIVO nel turno, MAI stop idle").',
-    'Non fermarti: ricontrolla con `gh pr view <numero> --json state,reviews`,',
-    'e se la review più recente sull\'ultimo commit non è "## LGTM", leggila e',
-    'applica il fix — non limitarti ad aspettare di nuovo.',
-    '',
-    ...blockers,
-  ].join('\n');
+  const reason = buildBlockReason(blocked);
 
   console.log(JSON.stringify({ decision: 'block', reason, systemMessage: reason }));
   process.exit(2);
