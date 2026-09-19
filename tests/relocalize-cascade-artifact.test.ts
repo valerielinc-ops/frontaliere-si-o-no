@@ -261,6 +261,55 @@ describe('cascade company artifact', () => {
     expect(artifact.generatedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
   });
 
+  it('emits hash-only cascade concentration with A/B disabled', async () => {
+    const jobs = [{
+      company: 'First Company',
+      companyKey: 'first-company',
+      slug: 'first-job',
+      title: 'Receptionist',
+      description: 'x'.repeat(160),
+      needsRetranslation: true,
+      titleByLocale: {},
+      descriptionByLocale: {},
+    }];
+    const runtimeFs = await installCascadeRuntime(jobs);
+    process.env.TRANSLATION_THINKING_AB = '0';
+    crawler.runSharedCrawlerPipeline.mockResolvedValue({
+      localizationAttemptedCompanyKeys: ['first-company'],
+      localizationObservability: {
+        jobDurationsMs: [12],
+        rungAttribution: [{ rung: 'deepl', count: 1, durationMs: 8 }],
+        companies: [{ companyKey: 'first-company', served: 1, durationMs: 12 }],
+      },
+    });
+
+    const { runRelocalization } = await import('../scripts/relocalize-pending-jobs.mjs');
+    const phase = {
+      name: 'cascade',
+      startedAtMs: null,
+      endedAtMs: null,
+      deadlineMs: 600000,
+      windowMs: null,
+      jobsCleared: 0,
+      companiesQueued: 0,
+      stopReason: 'nothing to relocalize',
+    };
+
+    await runRelocalization(phase);
+
+    const cascadeArtifactPath = path.join(runnerTemp, 'translation-cascade-companies.json');
+    const abArtifactPath = path.join(runnerTemp, 'translation-thinking-ab.json');
+    const artifact = JSON.parse(runtimeFs.readFileSync(cascadeArtifactPath, 'utf8'));
+    expect(runtimeFs.existsSync(abArtifactPath)).toBe(false);
+    expect(artifact.rows).toEqual([]);
+    expect(artifact.summary).toBeNull();
+    expect(artifact.companyConcentration).toEqual([
+      expect.objectContaining({ queued: 1, served: 1, durationMs: 12 }),
+    ]);
+    expect(artifact.companyConcentration[0].companyFingerprint).toMatch(/^sha256:[a-f0-9]{64}$/);
+    expect(JSON.stringify(artifact)).not.toContain('first-company');
+  });
+
   it('counts a failed company separately from a later processed company', async () => {
     const jobs = [
       ...Array.from({ length: 5 }, (_, index) => ({

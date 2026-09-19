@@ -136,6 +136,16 @@ function tally(runnerTemp: string): string {
   return fs.readFileSync(path.join(runnerTemp, 'shard-stripped-it'), 'utf8');
 }
 
+function fileCount(dir: string): number {
+  if (!fs.existsSync(dir)) return 0;
+  let n = 0;
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, e.name);
+    n += e.isDirectory() ? fileCount(full) : 1;
+  }
+  return n;
+}
+
 describe('concurrent section strip is a pure scheduling change', () => {
   it('leaves the same tree and the same tally as the sequential strip', () => {
     const seq = makeFixture();
@@ -149,6 +159,22 @@ describe('concurrent section strip is a pure scheduling change', () => {
     expect(survivors(seq.distDir)).toEqual(['calcolatore/index.html', 'sitemap.xml']);
     expect(tally(par.runnerTemp)).toBe(tally(seq.runnerTemp));
     expect(Number(tally(par.runnerTemp))).toBe(seq.total);
+  });
+
+  it('tallies exactly the files removed by one section strip', () => {
+    const f = makeFixture();
+    const section = 'ticino';
+    const sub = (SLUGS[section] as Record<string, string>).it;
+    const sectionDir = path.join(f.distDir, sub);
+    const before = fileCount(sectionDir);
+
+    runBash(`bash scripts/lib/strip-section-subtree.sh ${section} it "$TARGET"`, {
+      ...liveEnv(f.runnerTemp),
+      TARGET: f.distDir,
+    });
+
+    expect(fileCount(sectionDir)).toBe(0);
+    expect(Number(tally(f.runnerTemp))).toBe(before);
   });
 
   it('reports the identical tally on every repeat (a lost update is a race)', () => {

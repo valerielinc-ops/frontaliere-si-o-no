@@ -1177,10 +1177,90 @@ describe('nextCrawlerState — aborted runs are not "returned 0 jobs" (#7461 & a
       NOW_ISO,
       NOW_MS,
     );
-    expect(connection.status).toBe('broken');
-    expect(connection.reason).toContain('abortKind=connection-level-fetch');
-    expect(connection.reason).toMatch(/crawler egress\/transport/);
+    expect(connection.status).toBe('warming_up');
+    expect(connection.reason).toBeNull();
     expect(connection.state._lastObservedAbortKind).toBe('connection-level-fetch');
+  });
+
+  it('does not break a live crawler after one soft transport abort (#9022)', () => {
+    const previousDay = new Date(NOW_MS - DAY_MS).toISOString();
+    const connection = nextCrawlerState(
+      {
+        ...brokenEligiblePrev,
+        lastSuccessfulRunAt: previousDay,
+        lastNonZeroJobs: 44,
+        consecutiveEmptyRuns: 0,
+        status: 'healthy',
+        _lastObservedJobs: 44,
+        _lastObservedEmptyOk: false,
+        _lastObservedFreshnessAt: previousDay,
+      },
+      {
+        ...abortedObs(0),
+        abortKind: 'connection-level-fetch',
+        lastFetchOutcome: 'exhausted_retry',
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+
+    expect(connection.status).toBe('healthy');
+    expect(connection.reason).toBeNull();
+    expect(connection.state.consecutiveEmptyRuns).toBe(1);
+    expect(connection.state.lastNonZeroJobs).toBe(44);
+    expect(connection.state._lastObservedAbortKind).toBe('connection-level-fetch');
+  });
+
+  it('does not break hochgebirgsklinik-davos after one soft transport abort (#9021)', () => {
+    const previousDay = new Date(NOW_MS - DAY_MS).toISOString();
+    const connection = nextCrawlerState(
+      {
+        ...brokenEligiblePrev,
+        lastSuccessfulRunAt: previousDay,
+        lastNonZeroJobs: 19,
+        consecutiveEmptyRuns: 0,
+        status: 'healthy',
+        _lastObservedJobs: 19,
+        _lastObservedEmptyOk: false,
+        _lastObservedFreshnessAt: previousDay,
+      },
+      {
+        ...abortedObs(0),
+        slug: 'hochgebirgsklinik-davos',
+        abortKind: 'connection-level-fetch',
+        lastFetchOutcome: 'exhausted_retry',
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+
+    expect(connection.status).toBe('healthy');
+    expect(connection.reason).toBeNull();
+    expect(connection.state.consecutiveEmptyRuns).toBe(1);
+    expect(connection.state.lastNonZeroJobs).toBe(19);
+    expect(connection.state._lastObservedAbortKind).toBe('connection-level-fetch');
+  });
+
+  it('flags a persistent soft transport failure after the normal empty streak', () => {
+    const connection = nextCrawlerState(
+      {
+        ...brokenEligiblePrev,
+        consecutiveEmptyRuns: 2,
+        lastSuccessfulRunAt: new Date(NOW_MS - DAY_MS).toISOString(),
+        _lastObservedFreshnessAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      },
+      {
+        ...abortedObs(0),
+        abortKind: 'connection-level-fetch',
+        lastFetchOutcome: 'connection_error',
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+
+    expect(connection.status).toBe('broken');
+    expect(connection.reason).toMatch(/abortKind=connection-level-fetch/);
+    expect(connection.reason).toMatch(/transport/);
   });
 
   it('never reports a missing exitCode as a clean bail-out', () => {

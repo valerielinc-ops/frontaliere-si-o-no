@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 
@@ -147,6 +148,38 @@ describe('#5169 — every gate spec is wired to a reader that can fail loudly', 
     // before this process started), so the reader must refuse it rather than
     // score the gate against it. Same for a missing file.
     expect(() => extract({}, humanTable)).toThrow(/stale|ENOENT|no such file/i);
+  });
+
+  it('#9195 reads max-bfs-depth offenders from its fresh report, not stdout', () => {
+    const gate = (GATES as Array<Record<string, unknown>>).find(
+      (g) => g.name === 'max-bfs-depth',
+    )!;
+    expect(gate.readsOwnReport).toBe(true);
+    const extract = gate.extractCurrent as (parsed: unknown, raw: string) => number;
+    const reportsDir = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-max-bfs-'));
+    const reportPath = path.join(reportsDir, 'max-bfs-depth.json');
+    const previousReportsDir = process.env.AUDIT_REPORTS_DIR;
+    process.env.AUDIT_REPORTS_DIR = reportsDir;
+    try {
+      fs.writeFileSync(
+        reportPath,
+        JSON.stringify({ ranAt: new Date(Date.now() + 1000).toISOString(), offendersTotal: 90534 }),
+      );
+      expect(extract({}, 'not the authoritative report')).toBe(90534);
+
+      fs.writeFileSync(
+        reportPath,
+        JSON.stringify({ ranAt: '2020-01-01T00:00:00.000Z', offendersTotal: 1 }),
+      );
+      expect(() => extract({}, '')).toThrow(/stale/i);
+
+      fs.rmSync(reportPath);
+      expect(() => extract({}, '')).toThrow(/ENOENT|no such file/i);
+    } finally {
+      if (previousReportsDir === undefined) delete process.env.AUDIT_REPORTS_DIR;
+      else process.env.AUDIT_REPORTS_DIR = previousReportsDir;
+      fs.rmSync(reportsDir, { recursive: true, force: true });
+    }
   });
 
   it('accepts a report written during this run, and still refuses a stale one', () => {
