@@ -11,7 +11,10 @@ import {
   createJobsSeoHtmlReuse,
   diagnoseHtmlReuseMismatch,
   htmlHasIndexableRobots,
+  htmlReusePackIndexPath,
+  htmlReusePackPath,
   htmlReuseCachePath,
+  JOBS_SEO_HTML_PACK_VERSION,
   JOBS_SEO_REUSE_VERIFY_SAMPLE_ENV,
   normalizeHtmlForReuse,
   refreshHtmlBuildId,
@@ -195,10 +198,10 @@ describe('jobs SEO disk HTML reuse', () => {
         reused: 0,
         missReasons: { 'input-hash-changed': 1 },
       });
-      expect(fs.readFileSync(
-        htmlReuseCachePath(rootDir, 'it', pagePath, null, 'active-job', computeInputHash({ value: 'new' }, 'active-job')),
-        'utf8',
-      )).toBe('<html>new</html>');
+      writePreviousManifest(rootDir, pagePath, 'active-job', { value: 'new' });
+      const reread = await createReuse(rootDir);
+      expect(reread.lookup('it', pagePath, 'active-job', { value: 'new' }, 'active').html)
+        .toBe('<html>new</html>');
     } finally {
       fs.rmSync(rootDir, { recursive: true, force: true });
     }
@@ -253,23 +256,6 @@ describe('jobs SEO disk HTML reuse', () => {
     try {
       writePreviousManifest(rootDir, pagePath, 'active-job', oldInput);
       writeCachedHtml(rootDir, pagePath, 'active-job', oldInput, '<html>old</html>');
-      const oldCachePath = htmlReuseCachePath(
-        rootDir,
-        'it',
-        pagePath,
-        null,
-        'active-job',
-        computeInputHash(oldInput, 'active-job'),
-      );
-      const newCachePath = htmlReuseCachePath(
-        rootDir,
-        'it',
-        pagePath,
-        null,
-        'active-job',
-        computeInputHash(newInput, 'active-job'),
-      );
-      expect(oldCachePath).not.toBe(newCachePath);
 
       const reuse = await createReuse(rootDir);
       const oldCandidate = reuse.lookup('it', pagePath, 'active-job', oldInput, 'active');
@@ -280,8 +266,14 @@ describe('jobs SEO disk HTML reuse', () => {
       expect(newCandidate.hit).toBe(false);
       reuse.finish(newCandidate, '<html>new</html>');
 
-      expect(fs.readFileSync(oldCachePath, 'utf8')).toBe('<html>old</html>');
-      expect(fs.readFileSync(newCachePath, 'utf8')).toBe('<html>new</html>');
+      writePreviousManifest(rootDir, pagePath, 'active-job', oldInput);
+      const oldRead = await createReuse(rootDir);
+      expect(oldRead.lookup('it', pagePath, 'active-job', oldInput, 'active').html)
+        .toBe('<html>old</html>');
+      writePreviousManifest(rootDir, pagePath, 'active-job', newInput);
+      const newRead = await createReuse(rootDir);
+      expect(newRead.lookup('it', pagePath, 'active-job', newInput, 'active').html)
+        .toBe('<html>new</html>');
     } finally {
       fs.rmSync(rootDir, { recursive: true, force: true });
     }
@@ -302,6 +294,142 @@ describe('jobs SEO disk HTML reuse', () => {
         reused: 0,
         missReasons: { 'html-unavailable': 1 },
       });
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('round-trips HTML through a locale/block pack and index', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/pack-round-trip/';
+    const input = { value: 'pack' };
+    const html = '<html><body>pack round-trip</body></html>';
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', input);
+      const reuse = await createReuse(rootDir);
+      const candidate = reuse.lookup('it', pagePath, 'active-job', input, 'active');
+      expect(candidate.hit).toBe(false);
+      reuse.finish(candidate, html);
+      expect(fs.existsSync(htmlReusePackPath(rootDir, 'it', 'active'))).toBe(true);
+      expect(fs.existsSync(htmlReusePackIndexPath(rootDir, 'it', 'active'))).toBe(true);
+      expect(fs.readdirSync(path.join(rootDir, '.cache', 'incremental-html', 'it')))
+        .not.toContain(expect.stringMatching(/\.html$/u));
+
+      const reread = await createReuse(rootDir);
+      const rereadCandidate = reread.lookup('it', pagePath, 'active-job', input, 'active');
+      expect(rereadCandidate).toMatchObject({ hit: true, html });
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('promotes a legacy entry to the pack and prunes the old file', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/pack-migration/';
+    const input = { value: 'migration' };
+    const legacyPath = htmlReuseCachePath(
+      rootDir,
+      'it',
+      pagePath,
+      null,
+      'active-job',
+      computeInputHash(input, 'active-job'),
+    );
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', input);
+      writeCachedHtml(rootDir, pagePath, 'active-job', input, '<html>legacy</html>');
+      const reuse = await createReuse(rootDir);
+      const candidate = reuse.lookup('it', pagePath, 'active-job', input, 'active');
+      expect(candidate).toMatchObject({ hit: true, storage: 'legacy' });
+      reuse.finish(candidate, candidate.html);
+      reuse.prune('it', {
+        entries: new Map([[pagePath, {
+          kind: 'active-job',
+          inputHash: computeInputHash(input, 'active-job'),
+        }]]),
+      });
+      expect(fs.existsSync(legacyPath)).toBe(false);
+      expect(fs.existsSync(htmlReusePackPath(rootDir, 'it', 'active'))).toBe(true);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('treats a truncated pack payload as a clean cache miss', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/pack-truncated/';
+    const input = { value: 'truncated' };
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', input);
+      const reuse = await createReuse(rootDir);
+      const candidate = reuse.lookup('it', pagePath, 'active-job', input, 'active');
+      reuse.finish(candidate, '<html>truncated payload</html>');
+      const packPath = htmlReusePackPath(rootDir, 'it', 'active');
+      fs.truncateSync(packPath, fs.statSync(packPath).size - 1);
+
+      const reread = await createReuse(rootDir);
+      const truncated = reread.lookup('it', pagePath, 'active-job', input, 'active');
+      expect(truncated).toMatchObject({ hit: false, html: null });
+      expect(reread.summary().active.missReasons).toMatchObject({ 'html-unavailable': 1 });
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('ignores a pack with an unknown version', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/pack-version/';
+    const input = { value: 'version' };
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', input);
+      const reuse = await createReuse(rootDir);
+      const candidate = reuse.lookup('it', pagePath, 'active-job', input, 'active');
+      reuse.finish(candidate, '<html>unknown version</html>');
+      const packPath = htmlReusePackPath(rootDir, 'it', 'active');
+      const lines = fs.readFileSync(packPath, 'utf8').split('\n');
+      const header = JSON.parse(lines[0]);
+      header.version = `${JOBS_SEO_HTML_PACK_VERSION}-unknown`;
+      lines[0] = JSON.stringify(header);
+      fs.writeFileSync(packPath, lines.join('\n'), 'utf8');
+
+      const reread = await createReuse(rootDir);
+      const unknown = reread.lookup('it', pagePath, 'active-job', input, 'active');
+      expect(unknown).toMatchObject({ hit: false, html: null });
+      expect(reread.summary().active.missReasons).toMatchObject({ 'html-unavailable': 1 });
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('compacts overwritten entries once a pack exceeds twice its live bytes', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/pack-compact/';
+    const input = { value: 'compact' };
+    const liveHtml = '<html>' + 'x'.repeat(4096) + '</html>';
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', input);
+      const seed = await createReuse(rootDir);
+      const seedCandidate = seed.lookup('it', pagePath, 'active-job', input, 'active');
+      seed.finish(seedCandidate, liveHtml);
+
+      const verify = await createReuse(rootDir, true);
+      for (let index = 0; index < 4; index += 1) {
+        const candidate = verify.lookup('it', pagePath, 'active-job', input, 'active');
+        expect(candidate).toMatchObject({ hit: true, verify: true });
+        verify.finish(candidate, `${liveHtml}${index}`);
+      }
+      const packPath = htmlReusePackPath(rootDir, 'it', 'active');
+      const before = fs.statSync(packPath).size;
+      verify.prune('it', {
+        entries: new Map([[pagePath, {
+          kind: 'active-job',
+          inputHash: computeInputHash(input, 'active-job'),
+        }]]),
+      });
+      const after = fs.statSync(packPath).size;
+      expect(after).toBeLessThan(before);
+      expect((await createReuse(rootDir)).lookup('it', pagePath, 'active-job', input, 'active').hit)
+        .toBe(true);
     } finally {
       fs.rmSync(rootDir, { recursive: true, force: true });
     }
