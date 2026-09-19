@@ -715,6 +715,60 @@ describe('post-walk incremental planning', () => {
     expect(result.paths).toEqual([claimed, direct]);
   });
 
+  it('does not re-enumerate indexed subtrees below a claimed top-level', async () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const claimed = writeHtml(root, 'en/find-jobs-ticino/claimed/index.html', 'claimed');
+    // Covered-but-unclaimed pages (direct fs emitters) live in the index.
+    const indexedDeep = writeHtml(root, 'en/find-jobs-ticino/cluster/a/index.html', 'deep');
+    const indexedChild = writeHtml(root, 'en/direct-hub/page/index.html', 'hub');
+    await writePostWalkWalkInventory(root, distDir, {
+      topLevels: ['en'],
+      unmanifestedTopLevels: [],
+      claimedPaths: [claimed],
+      unmanifestedPaths: [claimed, indexedDeep, indexedChild],
+    });
+    // A file inside an already-known subtree that neither the registry nor
+    // the inventory knows: finding it would require re-enumerating the tree.
+    const hidden = writeHtml(root, 'en/find-jobs-ticino/cluster/b/index.html', 'hidden');
+    const hiddenHub = writeHtml(root, 'en/direct-hub/page/extra.html', 'hidden-hub');
+    // A brand-new directory with no known path is still discovered.
+    const fresh = writeHtml(root, 'en/find-jobs-ticino/fresh/index.html', 'fresh');
+    const inventory = await loadPostWalkWalkInventory(root);
+
+    const result = collectHtmlFromClaimedPaths(distDir, [claimed], [], inventory ?? undefined);
+
+    expect(result.indexed).toBe(2);
+    expect(new Set(result.paths)).toEqual(new Set([claimed, indexedDeep, indexedChild, fresh]));
+    expect(result.paths).not.toContain(hidden);
+    expect(result.paths).not.toContain(hiddenHub);
+  });
+
+  it('probes indexed-only top-levels and the root for new direct writes', async () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const claimed = writeHtml(root, 'it/jobs/claimed/index.html', 'claimed');
+    const indexed = writeHtml(root, 'eventi/old/index.html', 'old');
+    const rootHtml = writeHtml(root, '404.html', 'root');
+    await writePostWalkWalkInventory(root, distDir, {
+      topLevels: ['<root>', 'eventi', 'it'],
+      unmanifestedTopLevels: ['<root>', 'eventi'],
+      claimedPaths: [claimed],
+      unmanifestedPaths: [indexed, rootHtml],
+    });
+    const freshEvent = writeHtml(root, 'eventi/new/index.html', 'new');
+    const freshFlat = writeHtml(root, 'eventi/new-flat.html', 'flat');
+    const freshRoot = writeHtml(root, '500.html', 'root-new');
+    const inventory = await loadPostWalkWalkInventory(root);
+
+    const result = collectHtmlFromClaimedPaths(distDir, [claimed], [], inventory ?? undefined);
+
+    expect(result.topLevelsChanged).toBe(false);
+    expect(new Set(result.paths)).toEqual(
+      new Set([claimed, indexed, rootHtml, freshEvent, freshFlat, freshRoot]),
+    );
+  });
+
   it('finds flat HTML and new subtrees below an already-claimed child', () => {
     const root = fixtureRoot();
     const distDir = path.join(root, 'dist');
