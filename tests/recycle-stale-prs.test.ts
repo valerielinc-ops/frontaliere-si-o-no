@@ -66,6 +66,7 @@ case "$command" in
       exit 0
     fi
     if printf '%s' "$args" | grep -q -- 'repos/owner/repo/issues/17 '; then
+      if [ "\${FAKE_CLOSE_INFO:-ok}" = empty ]; then exit 1; fi
       if [ "$(get_state PR_STATE)" = CLOSED ]; then
         printf 'closed %s %s\\n' "\${FAKE_CLOSED_AT:-2026-01-01T00:00:05Z}" "\${FAKE_CLOSED_BY:-fixer-bot}"
       else
@@ -95,6 +96,7 @@ case "$command" in
     args="$*"
     if [ "$sub" = close ]; then
       if [ "\${FAKE_CLOSE:-ok}" = fail ]; then exit 1; fi
+      if [ "\${FAKE_CLOSE:-ok}" = applied-then-fail ]; then set_state PR_STATE CLOSED; exit 124; fi
       if printf '%s' "$args" | grep -q -- '--delete-branch'; then
         set_state PREMATURE_DELETE true
         set_state REF_PRESENT false
@@ -357,7 +359,7 @@ describe('recycle-stale-prs — R2 action contract', () => {
   });
 
   it('deadline: nessuna nuova close se il tempo restante e\' sotto il budget di un riciclo', () => {
-    const result = runScenario({ RECYCLE_STEP_BUDGET_SECONDS: '200', RECYCLE_PER_ITEM_BUDGET_SECONDS: '270' });
+    const result = runScenario({ RECYCLE_STEP_BUDGET_SECONDS: '300', RECYCLE_PER_ITEM_BUDGET_SECONDS: '330' });
     const log = result.events.join('\n');
     expect(log).not.toMatch(/issues\/77\/comments/);
     expect(log).not.toMatch(/^pr close 17/m);
@@ -398,7 +400,29 @@ describe('recycle-stale-prs — R2 action contract', () => {
     const budget = Number(/RECYCLE_PER_ITEM_BUDGET_SECONDS: '(\d+)'/.exec(WORKFLOW)?.[1]);
     const cmd = Number(/RECYCLE_CMD_TIMEOUT_SECONDS: '(\d+)'/.exec(WORKFLOW)?.[1]);
     const step = Number(/RECYCLE_STEP_BUDGET_SECONDS: '(\d+)'/.exec(WORKFLOW)?.[1]);
-    expect(13 * (cmd + 5) + 6).toBeLessThanOrEqual(budget);
+    expect(16 * (cmd + 5) + 8).toBeLessThanOrEqual(budget);
     expect(step).toBeLessThanOrEqual(9 * 60 - 60);
+  });
+
+  it('close applicata da GitHub ma client scaduto: rilettura, attribuzione e cleanup proseguono', () => {
+    const result = runScenario({ FAKE_CLOSE: 'applied-then-fail' });
+    expect(result.output).toContain('rc=124');
+    expect(result.events.join('\n')).toMatch(/-X DELETE/);
+    expect(result.output).toContain('issue #77 ri-accodata');
+  });
+
+  it('attribuzione illeggibile anche al secondo tentativo: commento di recovery sempre, niente DELETE', () => {
+    const result = runScenario({ FAKE_CLOSE_INFO: 'empty' });
+    const log = result.events.join('\n');
+    expect(result.events.filter((e) => /^api repos\/owner\/repo\/issues\/17 /.test(e)).length).toBe(2);
+    expect(log).not.toMatch(/-X DELETE/);
+    expect(log).not.toMatch(/--remove-label agent:fix/);
+    expect(log).toMatch(/^issue comment 77 /m);
+  });
+
+  it('closed_at non ISO non passa il confronto lessicografico', () => {
+    const result = runScenario({ FAKE_CLOSED_AT: 'zzz' });
+    expect(result.events.join('\n')).not.toMatch(/-X DELETE/);
+    expect(result.output).toContain('close non attribuibile');
   });
 });

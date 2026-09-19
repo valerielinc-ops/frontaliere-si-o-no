@@ -142,14 +142,15 @@ jobs:
           # Deadline interna: nessuna nuova close se il tempo restante dello
           # step e' sotto il budget di un riciclo completo. Il budget e' un
           # tetto DURO, non una stima: ogni chiamata gh del riciclo passa da
-          # `bounded` (timeout per comando) e un riciclo ne fa al massimo 13
-          # (rilettura, annuncio, probe capacita', close, attribuzione, 3
-          # probe ref, DELETE, remove/verify/add/verify) + 3 sleep da 2 s:
-          # 13 x (15 + 5 kill) + 6 = 266 s <= 270. L'ultimo riciclo ammesso
-          # parte entro 420 - 270 = 150 s e finisce entro 420 s, sotto il
+          # `bounded` (timeout per comando) e un riciclo ne fa al massimo 16
+          # (rilettura, annuncio, probe capacita', close, 2 letture di
+          # attribuzione, 3 probe ref, DELETE, remove/verify/add/verify, un
+          # commento di recovery con fallback = 2) + 4 sleep da 2 s:
+          # 16 x (15 + 5 kill) + 8 = 328 s <= 330. L'ultimo riciclo ammesso
+          # parte entro 420 - 330 = 90 s e finisce entro 420 s, sotto il
           # tetto di 9 minuti dello step.
           RECYCLE_STEP_BUDGET_SECONDS: '420'
-          RECYCLE_PER_ITEM_BUDGET_SECONDS: '270'
+          RECYCLE_PER_ITEM_BUDGET_SECONDS: '330'
           RECYCLE_CMD_TIMEOUT_SECONDS: '15'
         timeout-minutes: 9
         run: |
@@ -171,7 +172,7 @@ jobs:
           RECYCLE_ATTEMPTS=0
           START_TS=$(date -u +%s)
           STEP_BUDGET="${RECYCLE_STEP_BUDGET_SECONDS:-420}"
-          ITEM_BUDGET="${RECYCLE_PER_ITEM_BUDGET_SECONDS:-270}"
+          ITEM_BUDGET="${RECYCLE_PER_ITEM_BUDGET_SECONDS:-330}"
           CMD_TIMEOUT="${RECYCLE_CMD_TIMEOUT_SECONDS:-15}"
           TIMEOUT_BIN=$(command -v timeout 2>/dev/null || true)
           if [ -z "$TIMEOUT_BIN" ]; then
@@ -341,25 +342,41 @@ jobs:
               break
             fi
 
-            if ! GH_TOKEN="$PAT" bounded gh pr close "$N" --repo "$REPO" 2>/dev/null; then
-              echo "::warning::close fallita PR #$N: NON ri-accodo issue #$ISSUE (la PR resta aperta e il lavoro recuperabile)."
-              continue
+            # Una close fallita o scaduta NON prova che GitHub non l'abbia
+            # applicata: il client puo' morire dopo la mutazione. In ogni caso
+            # si rilegge lo stato; solo `open` confermato lascia la PR alla
+            # scansione del prossimo run, tutto il resto passa dal controllo
+            # di attribuzione qui sotto.
+            CLOSE_RC=0
+            GH_TOKEN="$PAT" bounded gh pr close "$N" --repo "$REPO" 2>/dev/null || CLOSE_RC=$?
+            if [ "$CLOSE_RC" -ne 0 ]; then
+              echo "::warning::close PR #$N uscita con rc=$CLOSE_RC: rileggo lo stato prima di decidere."
             fi
 
             # `state == CLOSED` da solo non prova che la transizione l'abbia
             # fatta questo run: un altro actor puo' chiudere nel frattempo
             # (e `gh pr close` su una PR gia' chiusa esce 0). Serve che
-            # closed_by sia l'identita' del token e closed_at non preceda il
-            # commento di preflight. Se non e' attribuibile: niente DELETE,
-            # niente re-queue, commento di recovery.
-            CLOSE_INFO=$(GH_TOKEN="$PAT" bounded gh api "repos/${REPO}/issues/${N}" --jq '(.state // "") + " " + (.closed_at // "-") + " " + (.closed_by.login // "-")' 2>/dev/null || true)
+            # closed_by sia l'identita' del token e closed_at (ISO valido) non
+            # preceda il commento di preflight. Una lettura illeggibile si
+            # ritenta una volta; se resta illeggibile o non attribuibile:
+            # niente DELETE, niente re-queue, commento di recovery SEMPRE.
             C_STATE=""; C_AT=""; C_BY=""
-            read -r C_STATE C_AT C_BY <<<"$CLOSE_INFO"
-            if [ "$C_STATE" != "closed" ] || [ "$C_BY" != "$ACTOR" ] || [ "$C_AT" \< "$MARK_AT" ]; then
-              echo "::error::PR #$N: close non attribuibile a questo run (state=${C_STATE:-UNKNOWN}, closed_by=${C_BY:-?}, closed_at=${C_AT:-?}, atteso $ACTOR >= $MARK_AT) — NON cancello il ref e NON ri-accodo issue #$ISSUE."
-              if [ "$C_STATE" = "closed" ]; then
-                recovery_note "$ISSUE" "♻️ recovery: PR stale #$N risulta chiusa ma la chiusura non è attribuibile al recycle (closed_by=${C_BY:-?}, closed_at=${C_AT:-?}). Il branch \`${HEADREF}\` NON è stato toccato: verificare a mano e riapplicare \`agent:fix\` dopo aver rimosso il ref."
-              fi
+            for close_read in 1 2; do
+              CLOSE_INFO=$(GH_TOKEN="$PAT" bounded gh api "repos/${REPO}/issues/${N}" --jq '(.state // "") + " " + (.closed_at // "-") + " " + (.closed_by.login // "-")' 2>/dev/null || true)
+              C_STATE=""; C_AT=""; C_BY=""
+              read -r C_STATE C_AT C_BY <<<"$CLOSE_INFO"
+              if [ "$C_STATE" = "open" ] || [ "$C_STATE" = "closed" ]; then break; fi
+              [ "$close_read" = "2" ] || sleep 2
+            done
+            if [ "$C_STATE" = "open" ]; then
+              echo "::warning::PR #$N ancora aperta dopo la close (rc=$CLOSE_RC): NON ri-accodo issue #$ISSUE; la PR resta nella scansione del prossimo run."
+              continue
+            fi
+            if [ "$C_STATE" != "closed" ] || [ "$C_BY" != "$ACTOR" ] \
+              || ! printf '%s' "$C_AT" | grep -qE '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$' \
+              || [ "$C_AT" \< "$MARK_AT" ]; then
+              echo "::error::PR #$N: close non attribuibile a questo run (rc=$CLOSE_RC, state=${C_STATE:-UNKNOWN}, closed_by=${C_BY:-?}, closed_at=${C_AT:-?}, atteso $ACTOR >= $MARK_AT) — NON cancello il ref e NON ri-accodo issue #$ISSUE."
+              recovery_note "$ISSUE" "♻️ recovery: il recycle della PR stale #$N non ha potuto verificare una chiusura attribuibile (state=${C_STATE:-illeggibile}, closed_by=${C_BY:-?}, closed_at=${C_AT:-?}). Il branch \`${HEADREF}\` NON è stato toccato: se la PR è chiusa, rimuovere il ref e riapplicare \`agent:fix\` a mano."
               continue
             fi
 
