@@ -86,15 +86,14 @@ const TYPE_ONLY_CLAUSE_RE = /^\s*type\s+(?!from\b)[{*\w$]/;
 // Changing one of the listed importers still changes the fingerprint, because
 // the importer itself stays in the graph.
 export const JOBS_SEO_FINGERPRINT_INERT_MODULES = Object.freeze({
-  // Nightly-refreshed wait averages. borderCrossings.ts copies them into
-  // `avgWaitMorning`/`avgWaitEvening`; the job renderer reaches borderCrossings
-  // only through services/jobLocationSnapshot.ts, which reads name, lat/lng,
-  // type, trafficLevel, customsPresent and province — never the averages.
+  // Nightly-refreshed wait averages. borderCrossings.ts copies them onto the
+  // morning/evening average fields; the job renderer reaches borderCrossings
+  // only through the job location snapshot service, which ranks crossings by
+  // position and static metadata and never reads the averages.
   'data/border-wait-averages.json': Object.freeze(['data/borderCrossings.ts']),
   // Crawler-time machine-translation cascade. events-utils.mjs uses it only as
   // the default translator of the event crawlers; the job renderer imports
-  // loadEventsDataset/upcomingEvents/normalizeText/slugifyComune/
-  // eventsBasePathForCanton, none of which translates.
+  // dataset and listing helpers from it, none of which translates.
   'scripts/lib/free-translate.mjs': Object.freeze(['scripts/lib/events-utils.mjs']),
 });
 
