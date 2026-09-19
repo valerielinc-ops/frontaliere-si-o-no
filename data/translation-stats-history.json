@@ -1,83 +1,5 @@
 [
   {
-    "timestamp": "2026-09-03T00:18:10.476Z",
-    "label": "after",
-    "total": 28663,
-    "needsRetranslation": 14788,
-    "suppressed": 88,
-    "incomplete": 15850,
-    "complete": 12813,
-    "slotsPresent": 12813,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 12813,
-    "sourceCopyExcused": 578,
-    "languageVerified": null,
-    "missingByLocale": {
-      "it": 5006,
-      "en": 4346,
-      "de": 1194,
-      "fr": 4518
-    },
-    "queueAge": {
-      "count": 14788,
-      "withTimestamp": 14788,
-      "oldestAgeDays": 142.6,
-      "p50AgeDays": 8.1,
-      "p90AgeDays": 60.6,
-      "buckets": {
-        "0-7d": 6977,
-        "7-30d": 3415,
-        "30-90d": 3681,
-        "90-180d": 715,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 3194
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1457
-      },
-      {
-        "company": "Roche",
-        "pending": 777
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 393
-      },
-      {
-        "company": "VOLG",
-        "pending": 347
-      },
-      {
-        "company": "Migros Bank",
-        "pending": 294
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 273
-      },
-      {
-        "company": "BKW",
-        "pending": 235
-      },
-      {
-        "company": "Sulzer",
-        "pending": 206
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 192
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-03T02:25:28.476Z",
     "label": "before",
     "total": 28634,
@@ -18524,6 +18446,118 @@
     "genderFormRepair": {
       "measured": false,
       "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 571,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 297
+      },
+      {
+        "company": "Roche",
+        "pending": 236
+      },
+      {
+        "company": "Sulzer",
+        "pending": 131
+      },
+      {
+        "company": "PEMSA",
+        "pending": 129
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 102
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 62
+      },
+      {
+        "company": "JUMBO",
+        "pending": 59
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 58
+      },
+      {
+        "company": "Stellentreff AG",
+        "pending": 57
+      },
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 55
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-19T10:46:18.988Z",
+    "label": "after",
+    "total": 31710,
+    "needsRetranslation": 2522,
+    "suppressed": 199,
+    "incomplete": 2888,
+    "complete": 28822,
+    "slotsPresent": 28822,
+    "flaggedAmongSlotsPresent": 6,
+    "verifiedTranslated": 28816,
+    "sourceCopyExcused": 414,
+    "slotsPresentByLength": 31593,
+    "languageVerified": 29615,
+    "missingByLocale": {
+      "it": 59,
+      "en": 45,
+      "de": 60,
+      "fr": 65
+    },
+    "queueAge": {
+      "count": 2522,
+      "withTimestamp": 2522,
+      "oldestAgeDays": 159,
+      "p50AgeDays": 26,
+      "p90AgeDays": 107.4,
+      "buckets": {
+        "0-1d": 13,
+        "1-2d": 4,
+        "2-7d": 41,
+        "0-7d": 58,
+        "7-30d": 1240,
+        "30-90d": 896,
+        "90-180d": 328,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 15,
+      "withTimestamp": 15,
+      "oldestAgeDays": 101.1,
+      "p50AgeDays": 22.2,
+      "p90AgeDays": 77,
+      "buckets": {
+        "0-1d": 3,
+        "1-2d": 0,
+        "2-7d": 2,
+        "0-7d": 5,
+        "7-30d": 5,
+        "30-90d": 4,
+        "90-180d": 1,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "genderFormRepair": {
+      "measured": false,
+      "status": "awaiting-retranslation",
       "seed": 20260908,
       "requested": 120,
       "queuedCandidates": 571,
