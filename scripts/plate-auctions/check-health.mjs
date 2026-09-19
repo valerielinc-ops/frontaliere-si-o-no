@@ -76,6 +76,12 @@ if (!existsSync(outputPath)) {
       `snapshot is not valid JSON: ${error instanceof Error ? error.message : String(error)}`,
     );
   }
+  // A literal `null` — and `0`, `false`, `""`, `[]` — parses fine and is FALSY,
+  // so the earlier `if (snapshot)` skipped every structural check below and
+  // reported a CLEAN gate on an unusable file. Now that publication reads
+  // `blocking`, that silence would also read as permission to commit. Same
+  // family as `Number(null) === 0`: `null` is not "empty", it is "not known",
+  // so any non-object is rejected here instead of being quietly exempt.
   if (parsed && (snapshot === null || typeof snapshot !== "object" || Array.isArray(snapshot))) {
     fatal("snapshot must be a JSON object");
   } else if (parsed) {
@@ -115,6 +121,16 @@ if (!existsSync(outputPath)) {
           typeof actual.lastSuccessAt !== "string"
         )
           unhealthy(`${key}: missing successful fetch timestamps`);
+        // FATAL, never a health note. Publishing zero rows for a source the
+        // registry still calls `active` IS deleting its live listings — the
+        // same damage as reclassifying a working catalogue, reached through
+        // another door. `ingest.mjs` carries the previous rows forward on a
+        // zero or failed fetch precisely so this cannot happen, so an active
+        // source at zero rows means that carry-over did NOT happen and the
+        // snapshot must not be published. This is not the coupling this file
+        // loosens: the five sources that froze the baseline on 2026-09-19 all
+        // had carried rows and non-zero counts, so keeping it blocking costs
+        // the baseline fix nothing.
         if (actualRowCount < 1)
           fatal(`${key}: active source returned no rows`);
       } else if (actualRowCount > 0) {
