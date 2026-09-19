@@ -160,9 +160,22 @@ jobs:
             # questo allinea il rescuer alla stessa regola.
             if [ "$IS_DRAFT" = "true" ]; then echo "PR #$N draft — skip"; continue; fi
 
-            # Age gate: aggiornata da <2h → probabile lavoro attivo, non disturbare.
-            UPD_S=$(date -u -d "$UPD" +%s 2>/dev/null || echo "$NOW")
-            if [ $((NOW - UPD_S)) -lt $AGE_MIN_S ]; then echo "PR #$N fresca (<2h) — skip"; continue; fi
+            # Age gate: l'orologio è l'ultimo PUSH, non `updated_at`. Ogni
+            # review, commento e label del ciclo rinfresca `updated_at` — cioè
+            # proprio l'attività automatica che NON prova che un agente sia
+            # vivo, che è la domanda che questo gate pone. Misurato il
+            # 2026-09-19 sul corpus: tre PR orfane ferme da ore (#1599 aperta
+            # da 11,7 h) respinte come «fresche» perché il reviewer aveva
+            # appena postato il suo ennesimo 🔴. Stesso difetto e stessa
+            # correzione di `scripts/ci/orphan-pr-custodian.mjs`, che questo
+            # workflow esegue due step più sotto.
+            # `updated_at` resta il ripiego quando la data del commit non è
+            # leggibile: è sempre >= la data del push, quindi al massimo
+            # ritarda un intervento, non ne anticipa uno.
+            PUSHED_AT=$(gh api "repos/$REPO/commits/$HEAD" --jq '.commit.committer.date' 2>/dev/null || true)
+            IDLE_SINCE="${PUSHED_AT:-$UPD}"
+            UPD_S=$(date -u -d "$IDLE_SINCE" +%s 2>/dev/null || echo "$NOW")
+            if [ $((NOW - UPD_S)) -lt $AGE_MIN_S ]; then echo "PR #$N con push recente (<2h) — skip"; continue; fi
 
             # NB: il run di `tests` ora contiene anche la review Claude; il
             # check-run è quindi il segnale condiviso da usare sulla head.

@@ -78,7 +78,18 @@ export function actionMarker(action, headSha, key = '') {
   return `<!-- orphan-pr-custodian action=${action} head=${key ? `${head}:${key}` : head} -->`;
 }
 
-/** `body:<sha256>` della rappresentazione esatta usata dai workflow. */
+/**
+ * `body:<sha256>` della rappresentazione esatta con cui il CORPUS emette il
+ * marker (`scripts/ci/review-test-policy.mjs`: `sha256(body + "\n")`, la forma
+ * che esce da `gh api --jq`). NON e' un duplicato di
+ * `scripts/ci/lib/review-input-revision.mjs`: quel modulo esiste solo sul sito
+ * e digerisce `sha256(body)` senza newline finale, quindi produrrebbe un
+ * digest che non coincide con nessun marker realmente emesso. Questo file e'
+ * `identical` fra i due repo e deve validare i marker del lato che li scrive.
+ * Sul sito il reviewer non emette il marker (verificato sulle review di
+ * `frontaliere-automation[bot]`): li' questa funzione non viene mai confrontata
+ * con nulla e la selezione resta quella per HEAD.
+ */
 export function reviewRevisionForBody(body) {
   if (typeof body !== 'string') return null;
   return `body:${createHash('sha256').update(`${body}\n`).digest('hex')}`;

@@ -248,6 +248,15 @@ describe('stale-pr-rescuer — cablaggio', () => {
     expect(WORKFLOW).toContain("if: github.event_name != 'workflow_run' || github.event.workflow_run.event != 'push'");
   });
 
+  it('misura l\'inattivita\' sul push, come il custode che esegue', () => {
+    // Lo scan e il custode pongono la stessa domanda («qualcuno spingera' un
+    // commit?») e devono usare lo stesso orologio: `updated_at` risponde a una
+    // domanda diversa, perche' lo rinfresca ogni review del bot.
+    expect(WORKFLOW).toContain("PUSHED_AT=$(gh api \"repos/$REPO/commits/$HEAD\" --jq '.commit.committer.date'");
+    expect(WORKFLOW).toContain('IDLE_SINCE="${PUSHED_AT:-$UPD}"');
+    expect(WORKFLOW).not.toContain('UPD_S=$(date -u -d "$UPD" +%s');
+  });
+
   it('esegue il custode con lo script e le costanti presenti nel checkout sparse', () => {
     expect(WORKFLOW).toMatch(/sparse-checkout: \|\n(?:\s+\S+\n)*\s+scripts\/ci\/orphan-pr-custodian\.mjs\n/);
     expect(WORKFLOW).toContain('scripts/ci/lib/constants.mjs');
