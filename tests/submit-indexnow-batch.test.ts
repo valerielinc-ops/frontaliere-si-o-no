@@ -22,6 +22,7 @@ import {
   extractUrls as extractPostDeployUrls,
   INDEXNOW_SITEMAPS,
 } from '../scripts/submit-indexnow.js';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 // A fresh Response per call: a Response body is single-use, so reusing one
 // object across the sub-sitemap fetches would throw on the 2nd read and
@@ -164,7 +165,8 @@ describe('getUrlsFromSitemaps (live mode branches)', () => {
     expect(fetchMock.mock.calls.every(([input]) => !String(input).includes('/indexnow'))).toBe(true);
   });
 
-  it('unions the EN/DE/FR alternates from the public/ registry even when the live sitemaps carry none (issue #3474)', async () => {
+  // Prende l'alternate atteso da `public/sitemap-blog.xml` (e il collector legge `public/sitemap-guides.xml`), sitemap che `sync-articles-sitemaps.yml` ripubblica su main.
+  it.skipIf(SKIP_LIVE_DATA)('unions the EN/DE/FR alternates from the public/ registry even when the live sitemaps carry none (issue #3474)', async () => {
     // The deployed sitemaps no longer annotate one-sided hreflang groups
     // (build-plugins/sitemapAliasPlugin.ts strips them), so the locale
     // article URLs MUST come from the committed public/ sources — a live

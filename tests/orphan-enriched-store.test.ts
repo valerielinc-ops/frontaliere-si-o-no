@@ -18,6 +18,7 @@ import {
   ORPHAN_ENRICHED_SHARD_DIR,
   ORPHAN_ENRICHED_LEGACY_FILE,
 } from '../scripts/lib/orphan-enriched-store.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 /**
  * Guards the sharded enriched-orphan ledger (issue #4248, second half).
@@ -93,6 +94,13 @@ const ALLOWED_FILES = new Set([
   path.join('scripts', 'lib', 'orphan-enriched-store.mjs'),
   // This guard itself asserts on the constant's value.
   path.join('tests', 'orphan-enriched-store.test.ts'),
+  // #9299 lists the retired monolith in `ASSEMBLE_AUX_DATA_INPUTS`, the
+  // cache-key input roster — and that is the OPPOSITE of the read this guard
+  // forbids. A listed path that does not exist hashes as `missing:<path>`, so
+  // naming it is precisely what makes the key notice the monolith coming BACK.
+  // Dropping the entry to satisfy the scan would trade a loud guard for a
+  // silent cache hit on a changed input.
+  path.join('scripts', 'assemble-jobs-dataset.mjs'),
 ]);
 
 /**
@@ -525,7 +533,8 @@ describe('orphan-enriched store — shard layout', () => {
 
 /* ── 5. The committed ledger must stay pushable ────────────────────────── */
 
-describe('orphan-enriched store — committed shards stay under the push limit', () => {
+// Entrambi i casi misurano gli shard committati in `data/orphan-enriched-data/`, che `sync-gsc-orphans.yml` riscrive da solo su main.
+describe.skipIf(SKIP_LIVE_DATA)('orphan-enriched store — committed shards stay under the push limit', () => {
   it('no committed shard approaches GitHub 100 MB hard limit', () => {
     const shards = listOrphanEnrichedShardFiles(REPO_ROOT);
     if (shards.length === 0) return; // ledger not present in this checkout

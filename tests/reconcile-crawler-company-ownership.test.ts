@@ -39,6 +39,7 @@ import {
 import { collapseDuplicateRouteEntries } from '../scripts/lib/expired-jobs-archive.mjs';
 import { COMPANY_HQ } from '../scripts/lib/crawler-location-config.mjs';
 import { resolveBrandCanonical } from '../build-plugins/shared/brandCanonicalMap.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 interface FixtureJob {
   id: string;
@@ -83,7 +84,8 @@ describe('issue #6759 reconciliation', () => {
     }
   });
 
-  it('does not leave retired summary slices discoverable by crawler health', () => {
+  // Dato vivo: l'elenco tracciato di data/jobs-crawler-summaries/by-crawler/**, riscritto dai cron dei crawler.
+  it.skipIf(SKIP_LIVE_DATA)('does not leave retired summary slices discoverable by crawler health', () => {
     const trackedSummaries = new Set(
       execFileSync('git', ['ls-files', 'data/jobs-crawler-summaries/by-crawler/*.json'], {
         encoding: 'utf8',
@@ -94,7 +96,8 @@ describe('issue #6759 reconciliation', () => {
     }
   });
 
-  it('does not leave retired active slices available to stale data writers', () => {
+  // Dato vivo: la presenza delle slice attive data/jobs/by-crawler/**, che un cron puo' ricreare.
+  it.skipIf(SKIP_LIVE_DATA)('does not leave retired active slices available to stale data writers', () => {
     for (const { retired } of RETIREMENTS) {
       expect(existsSync(`data/jobs/by-crawler/${retired}.json`)).toBe(false);
     }
@@ -121,7 +124,8 @@ describe('issue #6759 reconciliation', () => {
     }
   });
 
-  it('keeps retired expired archives absent and canonical archives route-unique', () => {
+  // Dato vivo: gli archivi data/jobs/expired/by-crawler/**, riscritti dall'archiviazione automatica dei job scaduti.
+  it.skipIf(SKIP_LIVE_DATA)('keeps retired expired archives absent and canonical archives route-unique', () => {
     // Nessuna eccezione. La lista `KNOWN_CONTAMINATED_ROUTES` che stava qui era
     // cresciuta due volte in un giorno: l'invariante non tornava verde perché il
     // difetto spariva, ma perché l'elenco degli offender si allungava. La causa
@@ -622,7 +626,8 @@ describe('issue #6759 reconciliation', () => {
     expect(reversed.unmergeable).toBe(forward.unmergeable);
   });
 
-  it('observes a zero-change dry run after repairing the SOH stale-writer resurrection', () => {
+  // Dato vivo: il dry run gira sulle slice attive e scadute reali del checkout, riscritte dai cron.
+  it.skipIf(SKIP_LIVE_DATA)('observes a zero-change dry run after repairing the SOH stale-writer resurrection', () => {
     const dryRun = JSON.parse(execFileSync(
       process.execPath,
       ['scripts/reconcile-crawler-company-ownership.mjs'],
@@ -900,7 +905,8 @@ describe('issue #6797 reconciliation', () => {
     expect(result.targetJobs[0].slugByLocale).toEqual(dedicated.slugByLocale);
   });
 
-  it('keeps the checked-in witness under Obach only, with both former SMN locale routes bridged', () => {
+  // Dato vivo: il job testimone vive in data/jobs/by-crawler/{privatklinik-obach,swiss-medical-network}.json, riscritte a ogni crawl.
+  it.skipIf(SKIP_LIVE_DATA)('keeps the checked-in witness under Obach only, with both former SMN locale routes bridged', () => {
     const readJobs = (key: string) => JSON.parse(
       readFileSync(`data/jobs/by-crawler/${key}.json`, 'utf8'),
     ).jobs as FixtureJob[];

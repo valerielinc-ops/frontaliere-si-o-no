@@ -15,6 +15,7 @@ import {
 } from '../services/pharmacies/italyDuty';
 import type { ItalyDutySnapshot } from '../services/pharmacies/italyRelease';
 import type { ItalyDutySourceRegistry } from '../services/pharmacies/italyDuty';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const NOW = new Date('2026-09-15T12:00:00.000Z');
 const WEEK = '2026-09-14';
@@ -76,7 +77,8 @@ function freshSnapshots(fetchedAt = FETCHED_AT): { duties: ItalyDutySnapshot; st
 }
 
 describe('Italian duty week read model', () => {
-  it('serves verified required provinces while keeping an unavailable best-effort province source-only', () => {
+  // Dato vivo: conta le righe di turno dello snapshot reale data/pharmacy-duties-italy(.|-status.)json, riscritto dal cron farmacie.
+  it.skipIf(SKIP_LIVE_DATA)('serves verified required provinces while keeping an unavailable best-effort province source-only', () => {
     const model = buildItalyDutyWeekModel({
       now: new Date(Date.parse(dutiesJson._fetchedAt) + 60_000),
       weekStart: WEEK,

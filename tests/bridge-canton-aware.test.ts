@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const root = path.resolve(__dirname, '..');
 
@@ -160,7 +161,8 @@ describe('Bridge page canton-aware UX', () => {
     });
   });
 
-  describe('F1: backfilled previousSlugs for the canonical Denner case', () => {
+  // Dato vivo: la slice del crawler data/jobs/by-crawler/denner.json, riscritta a ogni crawl.
+  describe.skipIf(SKIP_LIVE_DATA)('F1: backfilled previousSlugs for the canonical Denner case', () => {
     // The original Denner backfill incident was anchored to a specific job UUID
     // (52bec962-4621-486c-a8f9-e68852c99fb2). That job has since expired and been
     // rotated out of data/jobs/by-crawler/denner.json. The regression these tests

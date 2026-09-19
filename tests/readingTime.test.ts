@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { estimateReadingMinutes } from '@/components/community/BlogArticles';
 import { ARTICLES } from '@/data/blog-articles-data';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 // ── Mock translation function ───────────────────────────────
 /** Returns a string with the given word count for body1; empty for body2/body3 */
@@ -47,7 +48,8 @@ describe('estimateReadingMinutes', () => {
   });
 });
 
-describe('ARTICLES integrity', () => {
+// Entrambi i casi iterano il registro vivo `data/blog-articles-data.ts` (symlink su `packages/articles/content/`), riscritto a ogni articolo pubblicato.
+describe.skipIf(SKIP_LIVE_DATA)('ARTICLES integrity', () => {
   it('no article has a readingMinutes property', () => {
     for (const article of ARTICLES) {
       expect(article).not.toHaveProperty('readingMinutes');

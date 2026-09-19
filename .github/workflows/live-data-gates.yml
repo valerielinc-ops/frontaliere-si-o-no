@@ -1,0 +1,142 @@
+name: live-data gates
+
+# Gli 88 test che leggono DATI VIVI, tolti dal job bloccante delle PR il
+# 2026-09-19. Questo file è l'indirizzo nuovo: non è una cancellazione, è un
+# trasloco, e la differenza sta tutta in chi paga il rosso.
+#
+# ─── PERCHÉ NON POSSONO STARE NEL GATE DELLE PR ───────────────────────────
+#
+# Un dato vivo è un file che un workflow riscrive da solo su `main`: le slice
+# dei crawler, il dataset assemblato, il corpus articoli, i turni delle
+# farmacie, le medie ai valichi, i registri degli slug. Un test che ci asserisce
+# sopra passa e fallisce sulla STESSA revisione di codice a seconda di cosa la
+# pipeline ha pubblicato nel frattempo. E `vitest` è il gate su cui si innesca
+# la review, quindi quel rosso non ferma solo la PR che l'ha incontrato: ferma
+# anche le PR di chi non ha toccato niente di tutto ciò (2026-08-21, cinque PR
+# scorrelate bloccate insieme da un articolo appena pubblicato).
+#
+# ─── PERCHÉ NON SONO STATI CANCELLATI ─────────────────────────────────────
+#
+# Perché trovano difetti veri. Il censimento che li ha tolti dalle PR è
+# inciampato, con `tests/naturalizzazione-san-gallo-de-content.test.ts`,
+# nell'articolo DE di San Gallo pubblicato col CORPO IN ITALIANO: la
+# localizzazione di #8406 sovrascritta da un sync del corpus, live e invisibile.
+# Quel rosso è il segnale voluto — va solo consegnato a chi può agire sul dato,
+# non a chi sta aspettando che la sua PR mergi.
+#
+# ─── COSA NON GIRA QUI ────────────────────────────────────────────────────
+#
+# I sei gate corpus-wide. Hanno già un indirizzo (`corpus-wide-gates.yml`) e
+# quel workflow è `workflow_dispatch` per una decisione del proprietario scritta
+# nel suo header: il corpus appartiene a `nanakokyobashi-rgb/frontaliere-articles`
+# e non deve più consumare CI su `main` di questo repo. Ripescarli in un cron
+# sarebbe quella decisione aggirata da un'altra porta. Il confine è nel codice,
+# non solo in questo commento: `listLiveDataMonitorTests()` li sottrae e
+# `tests/live-data-test-guard.test.ts` lo verifica.
+#
+# ─── CADENZA ──────────────────────────────────────────────────────────────
+#
+# Una volta al giorno, alle 05:40 UTC: dopo il grosso delle run dei crawler
+# notturni e prima della finestra in cui il proprietario guarda la coda. Non su
+# ogni push, perché il dato non cambia coi push — cambia coi cron, ed è quello
+# il tempo che questo osservatore deve seguire.
+
+on:
+  schedule:
+    - cron: '40 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write # per github-issue-creator sul fallimento
+  actions: read # la jobs API che il reporter usa per il body diagnostico
+
+concurrency:
+  group: live-data-gates
+  cancel-in-progress: false
+
+jobs:
+  live-data:
+    name: live-data gates (post-merge)
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: npm ci
+        run: npm ci
+
+      - name: Compute assemble-jobs cache key
+        id: assemble_cache_key
+        uses: ./.github/actions/assemble-jobs-cache-key
+        with:
+          args: --stats
+
+      - name: Cache assemble-jobs output
+        if: steps.assemble_cache_key.outputs.key != ''
+        uses: actions/cache@v5
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+          restore-keys: |
+            assemble-jobs-${{ runner.os }}-
+
+      # Metà dell'inventario legge il dataset assemblato, non le slice: senza
+      # questi due passi quei test si autoskippano su `data/jobs.json` assente e
+      # il workflow sarebbe verde per assenza di dato, cioè il falso verde
+      # esatto che esiste per impedire.
+      - name: Assemble data/jobs.json
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+
+      - name: Migrate canton-aware tracking
+        run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+
+      - name: vitest run (solo i test su dati vivi)
+        env:
+          VITEST_LIVE_DATA_GROUP: only
+          NODE_OPTIONS: --max-old-space-size=8192
+        run: |
+          set -o pipefail
+          npm test -- --reporter=default 2>&1 | tee live-data-vitest.log
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'Workflow Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '2'
+          labels: Bug
+          diag-file: live-data-vitest.log
+          context: |
+            Uno o più test su DATI VIVI sono rossi su `main`.
+
+            Questi test NON girano nel job bloccante `vitest` delle PR: leggono
+            file che la pipeline riscrive da sola (slice dei crawler, dataset
+            assemblato, corpus articoli, farmacie, valichi, registri slug,
+            sitemap pubblicate), quindi il loro esito dipende da cosa è stato
+            pubblicato, non dal codice di una PR. Un rosso qui è quasi sempre un
+            **difetto del dato**, non di una PR in attesa.
+
+            Riproduzione in locale (serve il checkout PIENO, non un worktree
+            sparse — questi test leggono `data/`, `packages/articles/content/` e
+            `public/`):
+
+            ```
+            node scripts/assemble-jobs-dataset.mjs --stats
+            node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+            VITEST_LIVE_DATA_GROUP=only npm test
+            ```
+
+            L'inventario, con la radice dati e la prova (`replay` = ha cambiato
+            esito al solo cambiare dei dati, `review` = letto e giudicato), sta
+            in `scripts/ci/live-data-test-guard.mjs`.
+
+            Se il rosso arriva dal corpus articoli, la riparazione va nel corpus
+            (`nanakokyobashi-rgb/frontaliere-articles`), non nel gate.

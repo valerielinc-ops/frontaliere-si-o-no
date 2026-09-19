@@ -30,6 +30,7 @@ import {
 import { generateExchangePages } from '../build-plugins/exchangeRatePagesPlugin';
 import { countHtmlBodyWords, MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 import { resolveSearchConsoleCompatTarget } from '../build-plugins/searchConsoleCompat';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const SNAPSHOT: ExchangeSnapshot = {
   updatedAt: '2026-07-18T05:35:00.000Z',
@@ -102,7 +103,8 @@ describe('exchange SSG paths', () => {
 });
 
 describe('exchange snapshot loader', () => {
-  it('loads the committed repo snapshot', () => {
+  // Asserisce sul contenuto di `data/exchange-rate-snapshot.json`, che il cron del cambio CHF/EUR riscrive su main.
+  it.skipIf(SKIP_LIVE_DATA)('loads the committed repo snapshot', () => {
     const repoRoot = path.resolve(__dirname, '..');
     const snap = loadExchangeSnapshot(repoRoot);
     expect(snap).not.toBeNull();
