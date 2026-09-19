@@ -1,6 +1,6 @@
 {
   "crawlerKey": "grace-la-margna",
-  "assembledAt": "2026-09-18T14:14:20.352Z",
+  "assembledAt": "2026-09-19T23:12:49.232Z",
   "jobs": [
     {
       "title": "Assistant Outlet Manager - be the spark of great hospitality",
@@ -44,7 +44,7 @@
         "fr": "assistant-outlet-manager-soyez-l-etincelle-d-une-grande-hospitalite-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-18T14:13:12.496Z",
+      "crawledAt": "2026-09-19T23:11:31.066Z",
       "id": "grace-la-margna-675ec72d2b14",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -63,6 +63,7 @@
       "streetAddress": "Via Serlas 5",
       "postalCode": "7500",
       "firstSeenAt": "2026-08-31T17:35:42.182Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "assistant-outlet-manager-be-the-spark-of-great-hospitality"
@@ -120,7 +121,7 @@
         "fr": "greffier-de-l-arriere-de-la-chambre-etre-l-epine-dorsale-des-operations-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-18T14:13:16.903Z",
+      "crawledAt": "2026-09-19T23:11:35.691Z",
       "id": "grace-la-margna-8c67600e0104",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -139,6 +140,7 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-08-28T05:37:26.527Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "back-of-house-clerk-be-the-backbone-of-the-operations"
@@ -196,7 +198,7 @@
         "fr": "barman-soyez-l-alchimiste-des-moments-inoubliables-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-18T14:13:21.154Z",
+      "crawledAt": "2026-09-19T23:11:40.211Z",
       "id": "grace-la-margna-018dee2207e1",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -272,7 +274,7 @@
         "fr": "cadre-administratif-f-b-soyez-le-protecteur-de-l-excellence-f-b-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-18T14:13:25.643Z",
+      "crawledAt": "2026-09-19T23:11:52.063Z",
       "id": "grace-la-margna-ed3bad146cb6",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -348,7 +350,7 @@
         "fr": "responsable-f-b-soyez-le-c-ur-de-l-hospitalite-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-18T14:13:29.826Z",
+      "crawledAt": "2026-09-19T23:11:56.571Z",
       "id": "grace-la-margna-904ca01fa2ea",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -367,6 +369,7 @@
       "streetAddress": "Via Serlas 5",
       "postalCode": "7500",
       "firstSeenAt": "2026-08-31T17:35:54.488Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "f-b-manager-be-the-heart-of-hospitality"
@@ -424,7 +427,7 @@
         "fr": "stagiaire-en-restauration-lance-votre-carriere-chez-nous-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-18T14:13:33.973Z",
+      "crawledAt": "2026-09-19T23:12:01.416Z",
       "id": "grace-la-margna-37be54b5c05d",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -504,7 +507,7 @@
         "fr": "front-office-apprenti-m-w-kickstart-your-career-with-us-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-18T14:13:38.098Z",
+      "crawledAt": "2026-09-19T23:12:06.058Z",
       "id": "grace-la-margna-3a693cb7389a",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -580,7 +583,7 @@
         "fr": "hotesse-soyez-l-ambassadrice-d-une-hospitalite-exceptionnelle-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-18T14:13:42.277Z",
+      "crawledAt": "2026-09-19T23:12:10.629Z",
       "id": "grace-la-margna-64964a3aeda8",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -638,40 +641,26 @@
       "postedDate": "2026-09-18",
       "validThrough": "",
       "titleByLocale": {
-        "en": "Pizzaiolo (m/w/d) - let your pizza fly in the air",
         "it": "Pizzaiolo (m/f/d) - fai volare la tua pizza in aria",
+        "en": "Pizzaiolo (m/w/d) - let your pizza fly in the air",
         "de": "Pizzaiolo (m/w/d) - Lassen Sie Ihre Pizza in der Luft fliegen",
         "fr": "Pizzaiolo (h/f/d) - laissez votre pizza voler dans les airs"
       },
       "descriptionByLocale": {
-        "en": "WHO WE NEED We are looking for ambitious talents who will become the shapers of the new reborn legendary hotel in one of the most prestigious alpine resorts in the world. Are you expecting more than a job? Then let’s GRACE together! WHAT WILL YOU DO? Be part of the kitchen team and ace daily to impress our guests with your pizza skills Bring-in your expertise to twist our menus Share your passion about food with the team Make sure our kitchen is always clean and perfect to use Create memorable, lasting and individual experiences Be pro-active and out-going Take ownership Have fun and broaden always your horizon YOUR +sides Your smile is infectious and you treat people as if they were your best friends You go the extra mile to make the best first and last impression You are a team player and enjoy helping others You have a strong interest in hospitality and you are eager to learn You can multi-task and work in a fast-paced environment You lead with example and pride You love to try new things and go a different path You like to push your comfort zone to the edge Guests always come first to you WHAT’S IN FOR YOU AT GRACE? Become a pioneer for the first hotel opening to happen in 100 years in St. Moritz in this segment Fun, collaborative and caring environment where people are put first Grace House for talents Hands-on learning and training opportunities F&B discounts & sporting activities free of charge Cool uniform from an international luxury clothing brand If needed state-of-the-art accommodation And much, much more… ONE MORE THING 43.5 hours working week according to L-GAV 35 days of holiday according to L-GAV 13 monthly salaries according to L-GAV Wage above L-GAV minimum",
         "it": "DI CHI abbiamo BISOGNO Siamo alla ricerca di talenti ambiziosi che diventeranno i modellatori della rinascita del leggendario hotel in una delle località alpine più prestigiose al mondo. Ti aspetti più di un lavoro? Allora abbelliamo insieme! COSA FARAI? Essere parte del team di cucina e asso quotidiano per impressionare i nostri ospiti con le tue abilità nella pizza Porta la tua esperienza per distorcere i nostri menu Condividi la tua passione per il cibo con il team Assicurati che la nostra cucina sia sempre pulita e perfetta da usare Crea esperienze memorabili, durature e individuali Sii proattivo ed estroverso Divertiti e allarga sempre il TUO orizzonte i tuoi lati + Il tuo sorriso è contagioso e tratti le persone come se fossero i tuoi migliori amici Fai il possibile per dare la migliore prima e ultima impressione Sei un giocatore di squadra e ti diverti ad aiutare gli altri Hai un forte interesse per l'ospitalità e sei desideroso di imparare Puoi essere multitasking e lavorare in un ambiente frenetico Guidi con esempio e orgoglio Ti piace provare cose nuove e andare su un percorso diverso Ti piace spingere la tua zona di comfort al limite Gli ospiti vengono sempre prima DI TE COSA C'È PER TE IN GRAZIA? Diventa un pioniere per la prima apertura di un hotel in 100 anni a St. Moritz in questo segmento Ambiente divertente, collaborativo e premuroso in cui le persone vengono messe al primo posto Grace House per i talenti Opportunità pratiche di apprendimento e formazione Sconti F&B e attività sportive gratuite Divisa fresca di un marchio internazionale di abbigliamento di lusso Se necessario",
+        "en": "WHO WE NEED We are looking for ambitious talents who will become the shapers of the new reborn legendary hotel in one of the most prestigious alpine resorts in the world. Are you expecting more than a job? Then let’s GRACE together! WHAT WILL YOU DO? Be part of the kitchen team and ace daily to impress our guests with your pizza skills Bring-in your expertise to twist our menus Share your passion about food with the team Make sure our kitchen is always clean and perfect to use Create memorable, lasting and individual experiences Be pro-active and out-going Take ownership Have fun and broaden always your horizon YOUR +sides Your smile is infectious and you treat people as if they were your best friends You go the extra mile to make the best first and last impression You are a team player and enjoy helping others You have a strong interest in hospitality and you are eager to learn You can multi-task and work in a fast-paced environment You lead with example and pride You love to try new things and go a different path You like to push your comfort zone to the edge Guests always come first to you WHAT’S IN FOR YOU AT GRACE? Become a pioneer for the first hotel opening to happen in 100 years in St. Moritz in this segment Fun, collaborative and caring environment where people are put first Grace House for talents Hands-on learning and training opportunities F&B discounts & sporting activities free of charge Cool uniform from an international luxury clothing brand If needed state-of-the-art accommodation And much, much more… ONE MORE THING 43.5 hours working week according to L-GAV 35 days of holiday according to L-GAV 13 monthly salaries according to L-GAV Wage above L-GAV minimum",
         "de": "WEN wir BRAUCHEN Wir suchen ambitionierte Talente, die zu Gestaltern des neugeborenen legendären Hotels in einem der renommiertesten Alpenresorts der Welt werden. Erwarten Sie mehr als einen Job? Dann lasst uns gemeinsam ANMUTIG sein! WAS WERDEN SIE TUN? Seien Sie Teil des Küchenteams und beeindrucken Sie unsere Gäste täglich mit Ihren Pizza-Fähigkeiten Bringen Sie Ihr Fachwissen ein, um unsere Menüs zu verdrehen Teilen Sie Ihre Leidenschaft für das Essen mit dem Team Stellen Sie sicher, dass unsere Küche immer sauber und perfekt zu bedienen ist Schaffen Sie unvergessliche, dauerhafte und individuelle Erlebnisse Seien Sie proaktiv und offen Übernehmen Sie Verantwortung Haben Sie Spaß und erweitern Sie immer IHREN Horizont Ihre +Seiten Ihr Lächeln ist ansteckend und Sie behandeln Menschen, als wären sie Ihre besten Freunde Sie gehen die Extrameile, um den besten ersten und letzten Eindruck zu machen Sie sind ein Teamplayer und genießen es, anderen zu helfen Sie haben ein starkes Interesse an Gastfreundschaft und Sie sind begierig zu lernen Sie können Multi-Tasking und arbeiten in einer schnelllebigen Umgebung Sie führen mit gutem Beispiel und Stolz Sie lieben es, neue Dinge auszuprobieren und einen anderen Weg zu gehen Sie lieben es, Ihre Komfortzone an den Rand zu bringen Gäste kommen immer zuerst zu Ihnen, WAS FÜR SIE DA ist? Werden Sie zum Pionier für die erste Hoteleröffnung seit 100 Jahren in St. Moritz in diesem Segment Spaßiges, kollaboratives und fürsorgliches Umfeld, in dem die Menschen an erster Stelle stehen Grace House für Talente Praktische Lern- und Trainingsmöglichkeiten F&B-Rabatte & kostenlose sportliche Aktivitäten Coole Uniform einer internationalen Luxusbekleidungsmarke Bei Bedarf",
         "fr": "QUI avons-nous BESOIN Nous recherchons des talents ambitieux qui deviendront les créateurs du nouvel hôtel légendaire renaissant dans l'une des stations alpines les plus prestigieuses du monde. Vous attendez plus qu'un emploi ? Alors, faisons la GRÂCE ensemble ! QUE FEREZ-VOUS ? Faites partie de l'équipe de cuisine et ace tous les jours pour impressionner nos clients avec vos compétences en pizza Apportez votre expertise pour tordre nos menus Partagez votre passion pour la nourriture avec l'équipe Assurez-vous que notre cuisine est toujours propre et parfaite à utiliser Créez des expériences mémorables, durables et individuelles Soyez proactif et extraverti Prenez possession Amusez-vous et élargissez toujours votre horizon VOS +côtés Votre sourire est contagieux et vous traitez les gens comme s'ils étaient vos meilleurs amis Vous faites un effort supplémentaire pour faire la meilleure première et dernière impression Vous êtes un joueur d'équipe et aimez aider les autres Vous avez un vif intérêt pour l'hospitalité et vous êtes impatient d'apprendre Vous pouvez multi-tâches et travailler dans un environnement au rythme rapide Vous menez avec exemple et fierté Vous aimez essayer de nouvelles choses et emprunter un chemin différent Vous aimez pousser votre zone de confort vers le bord Les clients viennent toujours en premier lieu à vous QU'EST-CE QUI VOUS ATTEND À GRACE ? Devenez un pionnier pour la première ouverture d'hôtel depuis 100 ans à St. Moritz dans ce segment Environnement amusant, collaboratif et bienveillant où les gens sont mis en premier Grace House pour les talents Possibilités d'apprentissage et de formation pratiques Réductions F&B et activités sportives gratuites Uniforme cool d'une marque internationale de vêtements de luxe Si nécessaire"
       },
       "slugByLocale": {
-        "en": "pizzaiolo-m-w-d-let-your-pizza-fly-in-the-air",
         "it": "pizzaiolo-m-p-g-fai-volare-la-tua-pizza-in-aria-grace-la-margna-st-moritz-st-moritz",
+        "en": "pizzaiolo-m-w-d-let-your-pizza-fly-in-the-air",
         "de": "pizzaiolo-m-w-d-lassen-sie-ihre-pizza-in-der-luft-fliegen-grace-la-margna-st-moritz-st-moritz",
         "fr": "pizzaiolo-m-w-j-laissez-votre-pizza-voler-dans-les-airs-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-18T14:13:46.314Z",
+      "crawledAt": "2026-09-19T23:12:15.322Z",
       "id": "grace-la-margna-4d684ca82ff1",
-      "previousSlugsByLocale": {
-        "it": [
-          "pizzaiolo-m-w-d-let-your-pizza-fly-in-the-air"
-        ],
-        "de": [
-          "pizzaiolo-m-w-d-let-your-pizza-fly-in-the-air"
-        ],
-        "fr": [
-          "pizzaiolo-m-w-d-let-your-pizza-fly-in-the-air"
-        ]
-      },
-      "previousSlugs": [
-        "pizzaiolo-m-w-d-let-your-pizza-fly-in-the-air"
-      ],
       "salaryMin": 62000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -688,7 +677,21 @@
       },
       "streetAddress": "Via Serlas 5",
       "postalCode": "7500",
-      "firstSeenAt": "2026-09-18T14:13:46.314Z"
+      "firstSeenAt": "2026-09-18T14:13:46.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pizzaiolo-m-w-d-let-your-pizza-fly-in-the-air"
+        ],
+        "de": [
+          "pizzaiolo-m-w-d-let-your-pizza-fly-in-the-air"
+        ],
+        "fr": [
+          "pizzaiolo-m-w-d-let-your-pizza-fly-in-the-air"
+        ]
+      },
+      "previousSlugs": [
+        "pizzaiolo-m-w-d-let-your-pizza-fly-in-the-air"
+      ]
     },
     {
       "title": "Portier Housekeeping (m/w) - be the running star in the house",
@@ -732,7 +735,7 @@
         "fr": "portier-housekeeping-h-f-soyez-la-star-de-la-course-a-pied-dans-la-maison-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-18T14:13:50.755Z",
+      "crawledAt": "2026-09-19T23:12:19.778Z",
       "id": "grace-la-margna-b4f6437e14a4",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -808,7 +811,7 @@
         "fr": "reservation-superviseur-be-the-master-in-filling-the-house-at-the-best-price-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-18T14:13:54.872Z",
+      "crawledAt": "2026-09-19T23:12:24.280Z",
       "id": "grace-la-margna-ba221949eef3",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -901,7 +904,7 @@
         "fr": "prepose-aux-chambres-h-f-soyez-la-fee-du-nettoyage-de-la-maison-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-18T14:13:59.185Z",
+      "crawledAt": "2026-09-19T23:12:35.955Z",
       "id": "grace-la-margna-e4f2b02066fe",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1001,7 +1004,7 @@
         "fr": "sommelier-h-f-soyez-le-maitre-des-bouteilles-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-18T14:14:03.673Z",
+      "crawledAt": "2026-09-19T23:12:40.725Z",
       "id": "grace-la-margna-cc1efb3e11f3",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1077,7 +1080,7 @@
         "fr": "therapeute-de-spa-receptionniste-soyez-la-touche-magique-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-18T14:14:07.842Z",
+      "crawledAt": "2026-09-19T23:12:45.507Z",
       "id": "grace-la-margna-34a5e3acb295",
       "salaryMin": 57500,
       "salaryMax": 87000,
