@@ -19,6 +19,20 @@ describe('plate-auction localized routing', () => {
     expect(parsePlateAuctionPath(path)).toEqual({ locale: 'it', view: 'detail', canton: 'ZH', plate: 'ZH626' });
   });
 
+  it('round-trips a crawlable canton directory route in every locale', () => {
+    const expected = {
+      it: '/aste-targhe-svizzera/zurigo-zh/catalogo/',
+      en: '/en/swiss-plate-auctions/zurich-zh/catalogue/',
+      de: '/de/schweizer-nummernschildauktionen/zurich-zh/katalog/',
+      fr: '/fr/encheres-plaques-suisses/zurich-zh/catalogue/',
+    } as const;
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const path = buildPlateAuctionPath({ locale, view: 'directory', canton: 'ZH' });
+      expect(path).toBe(expected[locale]);
+      expect(parsePlateAuctionPath(path)).toEqual({ locale, view: 'directory', canton: 'ZH' });
+    }
+  });
+
   it('keeps same-number car and motorcycle catalogues on distinct detail routes', () => {
     const path = buildPlateAuctionPath({ locale: 'it', view: 'detail', canton: 'BS', plate: 'BS186', vehicleType: 'motorcycle' });
     expect(path).toBe('/aste-targhe-svizzera/basilea-citta-bs/bs186-moto/');

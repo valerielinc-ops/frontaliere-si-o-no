@@ -837,7 +837,7 @@ export interface AppRoute {
  pharmacyPath?: PharmacyPath;
  statsSubTab?: StatsSubTab;
  /** Swiss plate-auction route: hub, canton catalogue, or plate detail. */
- plateAuctionView?: 'hub' | 'canton' | 'detail' | 'rankings';
+ plateAuctionView?: 'hub' | 'canton' | 'directory' | 'detail' | 'rankings';
  plateAuctionCanton?: string;
  plateAuctionPlate?: string;
  plateAuctionVehicleType?: PlateVehicleType;
