@@ -104,7 +104,7 @@ describe('tests.yml dataset assembly predicate (#B4)', () => {
     }).required).toBe(false);
   });
 
-  it('keeps the full history with blob filtering and gates both assemble steps', () => {
+  it('keeps the full commit history treeless and gates both assemble steps', () => {
     const checkoutStart = TESTS_YML.indexOf('- uses: actions/checkout@v5');
     const setupStart = TESTS_YML.indexOf('- name: Setup Node.js', checkoutStart);
     const checkout = TESTS_YML.slice(checkoutStart, setupStart);
@@ -115,7 +115,7 @@ describe('tests.yml dataset assembly predicate (#B4)', () => {
     const assemble = TESTS_YML.slice(assembleStart, relatedStart);
 
     expect(checkout).toContain('fetch-depth: 0');
-    expect(checkout).toContain('filter: blob:none');
+    expect(checkout).toContain('filter: tree:0');
     expect(cache).toContain("steps.assemble.outputs.required == 'true'");
     expect(assemble).toContain("steps.assemble.outputs.required == 'true'");
     expect(TESTS_YML).toContain('node scripts/ci/run-related-tests.mjs --select-only');

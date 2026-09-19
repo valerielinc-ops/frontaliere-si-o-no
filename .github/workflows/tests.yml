@@ -686,12 +686,27 @@ jobs:
 
       # CHECKOUT UNICO per tutte e quattro le famiglie del percorso ordinario;
       # il ledger-only verificato sopra lo salta deliberatamente. Il perché di questo
-      # profilo esatto — albero pieno + storia profonda + `blob:none` — sta in
+      # profilo esatto — albero pieno + storia profonda + `tree:0` — sta in
       # «Il checkout: uno solo» nella testata. In breve: i source guard del
       # contract diffano a tre punti e senza storia non hanno un merge-base
       # (`resolve-merge-base.mjs` andrebbe in blocking-skip, issue #5195, cioè
       # il guard direbbe «NON ESEGUITO» a ogni run); vitest vuole l'albero
       # intero; `fetch-depth: 0` senza `filter:` sarebbe il clone da 15 GB.
+      #
+      # `tree:0` invece di `blob:none` (2026-09-19). Il grafo dei commit resta
+      # completo (123.789 commit, 32 MB), quindi merge-base, `rev-list --count`,
+      # il `git merge` e il push di `pr-autorebase.mjs` funzionano come prima; a
+      # non arrivare piu' sono gli 1,22 milioni di tree storici, cioe' il grosso
+      # dei ~414 MB che `blob:none` scaricava a ogni run. I tree che servono
+      # davvero (HEAD, base, merge-base) arrivano pigri e a lotti: misurato su
+      # un clone treeless di questo repo, `ls-tree -r` di un commit = 2 fetch,
+      # 1 s; `diff` fra commit distanti 300 = 4 fetch, 5 s; `merge-tree` di un
+      # ramo 750 commit indietro = 5 fetch, 3 s; push del merge risultante = 0
+      # fetch. Cio' che NON si puo' fare qui e' una storia per path
+      # (`git log -- <path>`, `rev-list -- <path>`): 186 fetch in 120 s senza
+      # finire. Nessuno step di questo job, e nessuno script o test che il job
+      # esegue sul repo reale, lo fa; `tests/ci-tests-treeless-checkout.test.ts`
+      # tiene l'elenco degli script chiamati sotto quel vincolo.
       #
       # NB: con `fetch-depth: 0` `actions/checkout` scarica tutta la storia del
       # ref che gli è stato chiesto, ma NON crea `refs/remotes/origin/<base>` —
@@ -702,7 +717,7 @@ jobs:
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         with:
           fetch-depth: 0
-          filter: blob:none
+          filter: tree:0
           # Allowlist non-cone: il job usa tsc e Vitest con riferimenti runtime
           # che il profilo statico non può chiudere in modo affidabile.
           sparse-checkout: |
