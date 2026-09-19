@@ -1,7 +1,7 @@
 {
   "key": "faulhaber",
   "label": "Faulhaber",
-  "generatedAt": "2026-09-18T23:12:12.754Z",
+  "generatedAt": "2026-09-19T22:50:10.530Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -12,10 +12,10 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 67310,
-  "avgDurationMs": 67310,
+  "durationMs": 68081,
+  "avgDurationMs": 68081,
   "durationHistory": [
-    67310
+    68081
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -44,14 +44,14 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/55489/R-D-Mechanical-Engineer-Gearbox-design",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-18T23:11:52.105Z",
+      "crawledAt": "2026-09-19T22:49:47.424Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:33:48.674Z",
-      "_qualityScore": 66,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -80,7 +80,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57372/Tecnico-di-misura",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-18T23:11:26.635Z",
+      "crawledAt": "2026-09-19T22:49:23.090Z",
       "firstSeenAt": "2026-09-01T01:16:28.159Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -115,7 +115,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57267/JUNIOR-LOGISTICS-SPECIALIST",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-18T23:11:38.842Z",
+      "crawledAt": "2026-09-19T22:49:35.108Z",
       "firstSeenAt": "2026-09-01T01:16:38.472Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -150,7 +150,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/23370/Candidatura-spontanea",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-18T23:12:04.962Z",
+      "crawledAt": "2026-09-19T22:49:59.541Z",
       "firstSeenAt": "2026-09-01T01:16:48.809Z",
       "_qualityScore": 73,
       "_qualityBreakdown": {
