@@ -192,7 +192,7 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
       expect(output).toContain('RC=0 REASON=');
     });
 
-    it('mantiene il fallback se il payload live non è coperto dal manifest corrente', () => {
+    it('tratta il payload live non coperto dal manifest come overlay unmanifested', () => {
       const stage = stageWithFiles('tombstone-unmanifested-stage', {
         'en/jobs/job/index.html': '<html>orphan route</html>',
       });
@@ -204,8 +204,10 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
       writeFileSync(manifestPayload, '');
 
       const output = removeStale(stage, payload, removed, manifestPayload);
-      expect(output).toContain('RC=1 REASON=manifest tombstone cross-check failed');
-      expect(output).toContain('reason=current indexed payload is not covered by the filtered manifest');
+      expect(output).toContain('manifest tombstone no-op');
+      expect(output).toContain('reason=retained by current unmanifested payload; source overlay will replace it');
+      expect(output).toContain('RC=0 REASON=');
+      expect(output).not.toContain('cross-check failed');
     });
 
     it('fa fallback se un file unchanged non è presente nell’indice HEAD', () => {

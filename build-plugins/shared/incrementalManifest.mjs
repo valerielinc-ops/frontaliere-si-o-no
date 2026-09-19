@@ -32,6 +32,7 @@ export const PAGE_KINDS = Object.freeze([
   'cross-locale-reconciliation',
   'related-search-cluster',
   'related-search-sitemap',
+  'cf-hot-404-bridge',
 ]);
 
 export const TEMPLATE_VERSIONS = Object.freeze({
@@ -42,12 +43,16 @@ export const TEMPLATE_VERSIONS = Object.freeze({
   'cross-locale-reconciliation': 'cross-locale-reconciliation@1',
   'related-search-cluster': 'related-search-cluster@1',
   'related-search-sitemap': 'related-search-sitemap@1',
+  'cf-hot-404-bridge': 'cf-hot-404-bridge@1',
 });
 
 // Added after the first manifest format was deployed. Treat the missing field
 // as zero so readers can compare an old snapshot with a new one; newly written
 // manifests still always serialize the key.
-export const LEGACY_OPTIONAL_KINDS = new Set(['related-search-sitemap']);
+export const LEGACY_OPTIONAL_KINDS = new Set([
+  'related-search-sitemap',
+  'cf-hot-404-bridge',
+]);
 
 const RUNTIME_INPUT_KEYS = new Set([
   'ftbuildid',
