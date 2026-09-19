@@ -1658,6 +1658,20 @@ jobs:
               printf '%s\n' error > changed-paths-status.txt
             fi
           fi
+          # A push on main and a merge queue ref have no PR number, so the
+          # merge-base fallback above cannot run for them. Their two SHAs are
+          # already in the full-history checkout: use that local diff when the
+          # compare API is transiently unavailable instead of promoting a
+          # healthy small change to the entire 2,400-test suite.
+          if [ ! -s changed-paths.txt ] && [ -z "$PR_NUMBER" ] && [ -n "${compare_base:-}" ] && [ -n "$AFTER_SHA" ]; then
+            echo "API senza risposta utile → fallback su diff locale degli SHA"
+            if git diff --name-only "$compare_base" "$AFTER_SHA" > changed-paths.txt 2>/dev/null; then
+              printf '%s\n' complete > changed-paths-status.txt
+            else
+              : > changed-paths.txt
+              printf '%s\n' error > changed-paths-status.txt
+            fi
+          fi
           count="$(wc -l < changed-paths.txt | tr -d ' ')"
           echo "path toccati: $count"
           if [ "$count" = "0" ]; then

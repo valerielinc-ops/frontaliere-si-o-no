@@ -460,6 +460,14 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
     expect(TESTS_YML).toContain('hard repository-tool budget');
   });
 
+  it('usa il diff locale quando il compare API fallisce su push/merge queue', () => {
+    expect(TESTS_YML).toContain(
+      'if [ ! -s changed-paths.txt ] && [ -z "$PR_NUMBER" ] && [ -n "${compare_base:-}" ] && [ -n "$AFTER_SHA" ]; then',
+    );
+    expect(TESTS_YML).toContain('git diff --name-only "$compare_base" "$AFTER_SHA" > changed-paths.txt');
+    expect(TESTS_YML).toContain('fallback su diff locale degli SHA');
+  });
+
   it('materializza gli artifact del diff anche nel workflow_dispatch manuale', () => {
     const collector = TESTS_YML.match(/- name: Collect changed paths[\s\S]*?(?=\n      - name:)/)?.[0] || '';
     expect(collector).toContain("github.event_name == 'workflow_dispatch'");
