@@ -43,6 +43,48 @@ type Snapshot = ItalyDutySnapshot;
 export type ItalyDutyProvinceFreshness = 'fresh' | 'stale' | 'unknown';
 export type ItalyDutyProvinceCoverage = 'covered' | 'partial' | 'not_published' | 'unknown';
 
+/**
+ * Classe di pubblicazione della fonte provinciale. Deve restare allineata a
+ * `sourcePublicationClass` in `scripts/lib/pharmacy-italy-duty-parser.mjs`: la
+ * logica di stato della release esiste in DUE copie (questa per la SPA, quella
+ * per l'importer) e una sola delle due aggiornata significa che il sito e il
+ * writer non sono d'accordo su cosa e' pubblicabile.
+ *
+ * `required` e' il default fail-closed: una provincia che non dichiara la
+ * classe resta bloccante.
+ */
+export type ItalyDutyPublicationClass = 'required' | 'best-effort';
+
+export function italyDutyPublicationClass(entry: unknown): ItalyDutyPublicationClass {
+  const value = isRecord(entry) ? entry.publication : undefined;
+  return value === 'best-effort' ? 'best-effort' : 'required';
+}
+
+/**
+ * Classi di pubblicazione per provincia lette DAL REGISTRY, che e' l'unica
+ * fonte di verita' su chi puo' degradare.
+ *
+ * Lo status snapshot non lo e': e' l'artefatto che questi gate giudicano, e
+ * leggergli la propria classe gli permette di concedersi l'esenzione — basta
+ * rietichettare CO o VA come `best-effort` perche' il gate sulle province
+ * bloccanti smetta di applicarsi e la SPA serva una release incompleta come
+ * pubblicabile. Provincia assente dal registry = `required`: in assenza di
+ * verita' si stringe, non si allarga.
+ */
+export function italyDutyRegistryPublicationClasses(
+  sources: unknown = italySourcesJson,
+): Map<string, ItalyDutyPublicationClass> {
+  const raw = isRecord(sources) ? sources.sources : sources;
+  const list = Array.isArray(raw) ? raw : [];
+  const classes = new Map<string, ItalyDutyPublicationClass>();
+  for (const entry of list) {
+    if (isRecord(entry) && typeof entry.province === 'string') {
+      classes.set(entry.province.toUpperCase(), italyDutyPublicationClass(entry));
+    }
+  }
+  return classes;
+}
+
 export interface ItalyDutyProvinceEvaluation {
   province: ItalyDutyProvince;
   state: ItalyDutyReleaseState;
@@ -52,6 +94,7 @@ export interface ItalyDutyProvinceEvaluation {
   observedDutyCount: number;
   sourceUrl: string | null;
   fetchedAt: string | null;
+  publication: ItalyDutyPublicationClass;
 }
 
 export interface ItalyDutyReleaseEvaluation {
@@ -69,6 +112,8 @@ type ItalyDutySourceDescriptor = {
   name: string;
   sourceType: 'official';
   officialSourceUrl: string;
+  /** Classe DICHIARATA dal registry: l'unica autorevole. */
+  publication: ItalyDutyPublicationClass;
 };
 
 type ItalyDutySourceRegistry = {
@@ -127,32 +172,51 @@ function statusEntries(status: Snapshot): Record<ItalyDutyProvince, Record<strin
     dutyCount: 0,
     sourceUrl: '',
     fetchedAt: null,
+    // Provincia assente dallo status: resta bloccante.
+    publication: 'required',
   }])) as Record<ItalyDutyProvince, Record<string, unknown>>;
 }
 
-function deriveState(duties: Snapshot, status: Snapshot, provinces: Record<ItalyDutyProvince, Record<string, unknown>>): ItalyDutyReleaseState {
+function deriveState(
+  duties: Snapshot,
+  status: Snapshot,
+  provinces: Record<ItalyDutyProvince, Record<string, unknown>>,
+  publicationClasses: Map<string, ItalyDutyPublicationClass>,
+): ItalyDutyReleaseState {
   const errors = [
     ...(Array.isArray(duties._errors) ? duties._errors : []),
     ...(Array.isArray(status._errors) ? status._errors : []),
   ];
   const entries = Object.values(provinces);
-  if (status._allSourcesFailed === true || entries.every((entry) => entry.coverage === 'not_published')) return 'not_published';
-  if (errors.length > 0 || entries.some((entry) => entry.state === 'conflicting')) return 'partial';
-  if (entries.some((entry) => entry.freshness === 'stale')) return 'stale';
-  if (entries.some((entry) => entry.coverage !== 'covered' || entry.freshness !== 'fresh')) return 'not_published';
+  // Solo le province `required` decidono lo stato: una provincia `best-effort`
+  // dichiarata irraggiungibile non deve azzerare quelle pubblicabili. Se
+  // nessuna fosse required si ricade su tutte, perche' un verde che non ha
+  // verificato niente e' peggio di un rosso.
+  // Classe dal REGISTRY, mai dall'entry dello snapshot (vedi
+  // `italyDutyRegistryPublicationClasses`).
+  const required = entries.filter((entry) => (
+    publicationClasses.get(String(entry.province)) ?? 'required'
+  ) === 'required');
+  const deciding = required.length > 0 ? required : entries;
+  if (status._allSourcesFailed === true || deciding.every((entry) => entry.coverage === 'not_published')) return 'not_published';
+  if (errors.length > 0 || deciding.some((entry) => entry.state === 'conflicting')) return 'partial';
+  if (deciding.some((entry) => entry.freshness === 'stale')) return 'stale';
+  if (deciding.some((entry) => entry.coverage !== 'covered' || entry.freshness !== 'fresh')) return 'not_published';
   return 'fresh';
 }
 
-function releaseBody({ duties, status, evaluatedAt }: {
+function releaseBody({ duties, status, evaluatedAt, sources }: {
   duties: Snapshot;
   status: Snapshot;
   evaluatedAt: string;
+  sources?: unknown;
 }): Omit<ItalyDutyRelease, 'releaseId'> {
   const provinces = statusEntries(status);
+  const publicationClasses = italyDutyRegistryPublicationClasses(sources);
   return {
     version: ITALY_DUTY_RELEASE_VERSION,
     timezone: ITALY_DUTY_RELEASE_TIMEZONE,
-    state: deriveState(duties, status, provinces),
+    state: deriveState(duties, status, provinces, publicationClasses),
     evaluatedAt,
     scope: {
       country: 'IT',
@@ -183,27 +247,33 @@ export function buildItalyDutyRelease({
   duties,
   status,
   evaluatedAt = new Date().toISOString(),
+  // Default = il registry committato. Un chiamante puo' passarne un altro (i
+  // test lo fanno), mai lo snapshot sotto esame.
+  sources = italySourcesJson,
 }: {
   duties: Snapshot;
   status: Snapshot;
   evaluatedAt?: string;
+  sources?: unknown;
 }): ItalyDutyRelease {
   if (!Number.isFinite(Date.parse(evaluatedAt))) throw new Error('evaluatedAt must be an ISO timestamp');
-  return addReleaseId(releaseBody({ duties, status, evaluatedAt }));
+  return addReleaseId(releaseBody({ duties, status, evaluatedAt, sources }));
 }
 
 export function buildAtomicItalyDutySnapshots({
   duties,
   status,
   evaluatedAt,
+  sources = italySourcesJson,
 }: {
   duties: Snapshot;
   status: Snapshot;
   evaluatedAt: string;
+  sources?: unknown;
 }) {
   const cleanDuties = payloadWithoutRelease(duties);
   const cleanStatus = payloadWithoutRelease(status);
-  const release = buildItalyDutyRelease({ duties: cleanDuties, status: cleanStatus, evaluatedAt });
+  const release = buildItalyDutyRelease({ duties: cleanDuties, status: cleanStatus, evaluatedAt, sources });
   return {
     duties: { ...cleanDuties, _release: release },
     status: { ...cleanStatus, _release: release },
@@ -383,6 +453,7 @@ function buildItalyDutySourceRegistry(sources: unknown): ItalyDutySourceRegistry
       name,
       sourceType: 'official',
       officialSourceUrl,
+      publication: italyDutyPublicationClass(entry),
     });
   });
 
@@ -406,11 +477,23 @@ function validateItalyDutyProvinceStatusEntries(
       continue;
     }
     if (entry.province !== province) errors.push(province + ': province status identity does not match its key');
+    // La rivendicazione dello snapshot non decide nulla, ma una discrepanza col
+    // registry va SEGNALATA: e' uno snapshot stantio o modificato a mano.
+    if (entry.publication !== undefined && expected
+      && italyDutyPublicationClass(entry) !== expected.publication) {
+      errors.push(province + ": publication '" + italyDutyPublicationClass(entry)
+        + "' does not match the source registry ('" + expected.publication + "')");
+    }
     if (expected && entry.sourceKey !== expected.key) errors.push(province + ': source key does not match the official source registry');
     if (expected && entry.sourceUrl !== expected.officialSourceUrl) errors.push(province + ': source URL does not match the official source registry');
     if (!Array.isArray(entry.errors)) {
       errors.push(province + ': province status errors must be an array');
-    } else if (entry.errors.length > 0) {
+    } else if (entry.errors.length > 0 && expected?.publication !== 'best-effort') {
+      // Per una provincia `best-effort` l'array `errors` contiene il guasto
+      // ATTESO e dichiarato (la fonte VCO non e' raggiungibile dai runner
+      // GitHub), quindi non e' un difetto di integrita' dello snapshot. La
+      // forma resta verificata sopra: deve comunque essere un array, e
+      // l'identita' della fonte deve comunque corrispondere al registry.
       errors.push(province + ': province status reports source errors');
     }
     if (!Array.isArray(entry.warnings)) {
@@ -576,6 +659,9 @@ export function evaluateItalyDutyRelease({
       observedDutyCount,
       sourceUrl: httpsUrl(entry?.sourceUrl),
       fetchedAt: entryFetchedAt,
+      // Dal REGISTRY (`expectedSource`), non dall'entry dello snapshot: e'
+      // l'artefatto sotto esame e non puo' dichiarare la propria esenzione.
+      publication: expectedSource?.publication ?? 'required',
     };
     provinces[province] = evaluation;
 
@@ -588,7 +674,12 @@ export function evaluateItalyDutyRelease({
       && evaluation.dutyCount > 0
       && dutyRows.length === evaluation.dutyCount;
     if (!ready) {
-      allProvincesReady = false;
+      // Una provincia `best-effort` non pronta NON blocca la pubblicazione: i
+      // suoi motivi restano elencati in `reasons` (la degradazione deve essere
+      // visibile) ma il sito continua a servire le province bloccanti sane.
+      // Senza questo, una sola fonte irraggiungibile nascondeva anche Como e
+      // Varese, che sono pubblicabili.
+      if (evaluation.publication !== 'best-effort') allProvincesReady = false;
       if (!rawEntry) reasons.push(`${province}: province status is missing`);
       if (evaluation.state !== 'fresh') reasons.push(`${province}: ${evaluation.state}`);
       if (evaluation.coverage !== 'covered') reasons.push(`${province}: coverage is ${evaluation.coverage}`);

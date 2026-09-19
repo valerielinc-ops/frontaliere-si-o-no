@@ -7,6 +7,9 @@ on:
 
 permissions:
   contents: write
+  # Serve allo step di allarme in fondo: prima questo workflow falliva in
+  # silenzio, senza aprire nessuna issue.
+  issues: write
 
 concurrency:
   group: sync-pharmacy-duties-italy
@@ -84,3 +87,35 @@ jobs:
               node scripts/check-pharmacy-duties-italy.mjs
               git add data/pharmacy-duties-italy.json data/pharmacy-duties-italy-status.json
             '
+
+      # Prima di questo step il workflow falliva MUTO: nessun
+      # `github-issue-creator.mjs`, nessuno step `if: failure()`. Le tre run
+      # rosse della sua storia non hanno prodotto alcun segnale operativo, ed e'
+      # per questo che un gate insoddisfacibile per costruzione ha potuto restare
+      # rotto dalla prima run senza che nessuno lo notasse.
+      #
+      # Titolo STABILE e senza contatori nei primi 60 caratteri: il dedup di
+      # github-issue-creator.mjs commenta sulla issue canonica invece di aprirne
+      # una nuova a ogni giro. Stesso idiom di
+      # .github/workflows/pharmacy-data-health-monitor.yml.
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: sync-pharmacy-duties-italy" \
+            --description "## Import dei turni farmacie italiani fallito
+
+          Il workflow importa i calendari ufficiali di turno delle province di confine (CO, VA, VB) e pubblica \`data/pharmacy-duties-italy.json\`.
+
+          Una provincia \`best-effort\` degradata NON fa fallire la run: il suo errore finisce in \`_bestEffortErrors\` e resta visibile nell'output dell'importer. Se questa issue si e' aperta, ha fallito qualcosa di **bloccante** — una provincia \`required\` (Como o Varese), la validazione della release, oppure il push.
+
+          Da leggere nell'output della run: \`state\`, \`provinces[].observedCalendarDays\` contro il minimo dichiarato, e \`errors\`.
+
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

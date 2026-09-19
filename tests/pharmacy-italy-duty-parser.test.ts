@@ -20,14 +20,36 @@ describe('Italian official duty parser', () => {
     });
 
     expect(results.map((result: { province: string }) => result.province)).toEqual(['CO', 'VA', 'VB']);
-    expect(results.every((result: { duties: unknown[]; observedDuties: unknown[]; errors: string[]; freshness: string; coverage: string }) => (
-      result.duties.length === 0
-      && result.observedDuties.length > 0
-      && result.errors.some((error) => error.includes('coverage is incomplete'))
-      && result.errors.some((error) => error.includes('no operational duty rows published'))
-      && result.freshness === 'fresh'
-      && result.coverage === 'partial'
-    ))).toBe(true);
+    // Le aspettative si separano per MODELLO DI COPERTURA: le tre fonti non sono
+    // omogenee. Prima questo test pretendeva `coverage: 'partial'` da tutte e
+    // tre, cioe' pinnava il difetto — anche VCO, che e' corrections-only e non
+    // puo' soddisfare un minimo in giorni-calendario, era incompleta per sempre.
+    const [como, varese, vco] = results as Array<{
+      duties: unknown[]; observedDuties: unknown[]; errors: string[];
+      freshness: string; coverage: string; coverageModel: string;
+    }>;
+
+    // Como e Varese sono `full-calendar`: queste fixture coprono pochi giorni,
+    // molto sotto il minimo di 300, quindi restano incomplete e non pubblicano.
+    // E' l'unico motivo per cui qui la copertura e' `partial`: sui PDF reali
+    // valgono 365 e 355 giorni distinti e superano il minimo.
+    for (const result of [como, varese]) {
+      expect(result.coverageModel).toBe('full-calendar');
+      expect(result.duties.length).toBe(0);
+      expect(result.observedDuties.length).toBeGreaterThan(0);
+      expect(result.errors.some((error) => error.includes('coverage is incomplete'))).toBe(true);
+      expect(result.errors.some((error) => error.includes('no operational duty rows published'))).toBe(true);
+      expect(result.freshness).toBe('fresh');
+      expect(result.coverage).toBe('partial');
+    }
+
+    // VCO e' `corrections-only`: il minimo in giorni non si applica, quindi i
+    // cambi turno con data esplicita vengono pubblicati.
+    expect(vco.coverageModel).toBe('corrections-only');
+    expect(vco.errors.some((error) => error.includes('coverage is incomplete'))).toBe(false);
+    expect(vco.duties.length).toBeGreaterThan(0);
+    expect(vco.coverage).toBe('covered');
+    expect(vco.freshness).toBe('fresh');
     expect(results.flatMap((result: { observedDuties: Array<{ province: string }> }) => result.observedDuties).every((duty) => ['CO', 'VA', 'VB'].includes(duty.province))).toBe(true);
   });
 
@@ -116,5 +138,80 @@ describe('Italian official duty parser', () => {
     );
     expect(result.duties).toEqual([]);
     expect(result.errors.some((error: string) => error.includes('invalid date'))).toBe(true);
+  });
+});
+
+/**
+ * Guard sul difetto vero: la copertura del calendario si misura sul CALENDARIO,
+ * non sulle righe che hanno fatto match con l'anagrafica.
+ *
+ * Le fixture storiche coprivano 2-4 giorni, quindi ogni fonte falliva il minimo
+ * di 300 in modo indistinguibile e 70-contro-300 sembrava identico a
+ * 3-contro-300: il difetto era invisibile ai test. Qui il calendario e' ampio
+ * (310 giorni) mentre gli alias del catalogo compaiono in DUE soli giorni, cioe'
+ * esattamente la forma di una rotazione provinciale reale. Col conteggio vecchio
+ * (giorni delle righe aliasate) questo test leggerebbe 2 e la fonte risulterebbe
+ * incompleta; col conteggio corretto legge 310 e pubblica.
+ */
+describe('Italian duty calendar coverage is measured on the calendar', () => {
+  const CO_SOURCE = sources.sources.find((entry: { province: string }) => entry.province === 'CO');
+
+  function syntheticComoCalendar(days: number, aliasDays: Record<number, string>) {
+    const lines = [
+      'Prot. n. 0005986 del 28-05-2026',
+      'Provincia di COMO',
+      '',
+      'TURNI FARMACIE 01.06.2026 - 31.05.2027',
+      '',
+    ];
+    const start = Date.UTC(2026, 5, 1); // 2026-06-01, inside the declared window
+    for (let index = 0; index < days; index += 1) {
+      const date = new Date(start + index * 86400000);
+      const dd = String(date.getUTCDate()).padStart(2, '0');
+      const mm = String(date.getUTCMonth() + 1).padStart(2, '0');
+      // Le zone non aliasate non devono contenere per caso un'etichetta del
+      // catalogo, altrimenti il test misurerebbe qualcos'altro.
+      const zones = aliasDays[index] || `Zona Generica ${index}`;
+      lines.push(`${dd}/${mm}/${date.getUTCFullYear()} Giorno    ${zones}`);
+    }
+    return lines.join('\n');
+  }
+
+  it('counts calendar days, not alias matches, so a real rotation clears the minimum', () => {
+    const raw = syntheticComoCalendar(310, { 5: 'Merone', 200: 'Albese' });
+    const parsed = parseItalyDutySource(raw, CO_SOURCE, {
+      fetchedAt: FETCHED_AT,
+      asOf: FETCHED_AT,
+      catalogue,
+    });
+
+    // Il calendario copre 310 giorni e supera il minimo di 300...
+    expect(parsed.observedCalendarDays).toBe(310);
+    expect(parsed.minimumCalendarDays).toBe(300);
+    expect(parsed.errors.some((error: string) => error.includes('coverage is incomplete'))).toBe(false);
+    expect(parsed.coverage).toBe('covered');
+
+    // ...mentre le farmacie del catalogo compaiono in due soli giorni. E' questa
+    // differenza che il conteggio vecchio confondeva col minimo del calendario.
+    const aliasDays = new Set(parsed.observedDuties.map((duty: { startsAt: string }) => duty.startsAt.slice(0, 10)));
+    expect(aliasDays.size).toBe(2);
+    expect(parsed.observedCalendarDays).toBeGreaterThan(aliasDays.size);
+    expect(parsed.duties.length).toBeGreaterThan(0);
+  });
+
+  it('still reports an incomplete calendar when the source is genuinely truncated', () => {
+    // Il gate deve restare capace di bocciare: un PDF troncato (per esempio una
+    // sola pagina scaricata) copre pochi giorni e non va pubblicato.
+    const raw = syntheticComoCalendar(45, { 5: 'Merone' });
+    const parsed = parseItalyDutySource(raw, CO_SOURCE, {
+      fetchedAt: FETCHED_AT,
+      asOf: FETCHED_AT,
+      catalogue,
+    });
+
+    expect(parsed.observedCalendarDays).toBe(45);
+    expect(parsed.errors.some((error: string) => error.includes('coverage is incomplete: 45/300'))).toBe(true);
+    expect(parsed.duties.length).toBe(0);
+    expect(parsed.coverage).toBe('partial');
   });
 });
