@@ -1992,13 +1992,21 @@ jobs:
         # (num_turns morto ma minuti di CI esauriti prima) — vedi job timeout-minutes.
         run: |
           set -euo pipefail
+          # Effort per tier: `max` solo dove il contratto chiede probing
+          # avversario sull'intero contributo funnel-critical (high,
+          # high-mega); `high` per minimal/incremental/normal, che leggono un
+          # body, un delta o codice non funnel. Il tier cambiava solo lo
+          # scope mentre l'action passava sempre `model_reasoning_effort=max`.
           set_tier() {
+            local effort=high
+            case "$1" in high|high-mega) effort=max ;; esac
             {
               echo "tier=$1"
               echo "model=$2"
               echo "max_turns=$3"
+              echo "effort=$effort"
             } >> "$GITHUB_OUTPUT"
-            echo "Review tier: $1 ($2, max-turns $3)"
+            echo "Review tier: $1 ($2, max-turns $3, effort $effort)"
           }
           # Body corretto sulla stessa HEAD dopo un verdetto non approvante
           # (vedi il guard): il codice e' identico per costruzione, quindi
@@ -2397,6 +2405,9 @@ jobs:
           codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           review_marker: '<!-- CODEX_FALLBACK_REVIEW -->'
+          # Per-tier effort from the tier step; `max` when the tier step did
+          # not emit one, so a missing output never lowers the effort.
+          reasoning_effort: ${{ steps.tier.outputs.effort || 'max' }}
           # Le PR fix-issue possono essere aperte da `claude[bot]`: senza whitelist
           # il lane Codex abortisce ("non-human actor"). Whitelist esplicita
           # (hardening #898): mai `*`. `claude[bot]` copre le PR fix-issue;
