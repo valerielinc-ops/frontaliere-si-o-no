@@ -13,6 +13,7 @@ import {
   validateProspectedSlugPlans,
 } from '../scripts/migrate-prospected-slugs.mjs';
 import { buildSlug } from '../scripts/lib/regenerate-slugs-helpers.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 function fixture(url = 'https://example.test/jobs/1') {
   return {
@@ -123,7 +124,8 @@ describe('migrate-prospected-slugs', () => {
     ], activeOwners)).toThrow(/it:.*claimed by/);
   });
 
-  it('can migrate every checked-in target job in memory without writing cron data', () => {
+  // Dato vivo: le slice data/jobs/by-crawler/<crawler>.json dei crawler bersaglio, riscritte dai cron.
+  it.skipIf(SKIP_LIVE_DATA)('can migrate every checked-in target job in memory without writing cron data', () => {
     const dataDir = path.join(process.cwd(), 'data', 'jobs', 'by-crawler');
     const entries = [];
     const seen = new Set<string>();

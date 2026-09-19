@@ -12,6 +12,7 @@ import { parseReflineDetail as parseSpitalDetail } from '../scripts/lib/spital-l
 import { parseReflineDetail as parseCaritasDetail } from '../scripts/lib/caritas-schweiz-job-parser.mjs';
 import { parseReflineDetail as parseHoheneggDetail } from '../scripts/lib/privatklinik-hohenegg-job-parser.mjs';
 import { parseReflineDetail as parsePignaDetail } from '../scripts/lib/pigna-job-parser.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 // Regression fixture for the \uXXXX title-corruption class: real Refline
 // detail pages (Spital Limmattal 486538, Caritas 126757, ZKB 792841) ship NO
@@ -125,7 +126,8 @@ describe('decodeUnicodeEscapeLeaks (shared chokepoint guard)', () => {
   });
 });
 
-describe('committed job slices carry no escape-corrupted titles', () => {
+// legge le slice reali data/jobs/by-crawler/* e expired/by-crawler/*: rosso possibile senza cambi di codice
+describe.skipIf(SKIP_LIVE_DATA)('committed job slices carry no escape-corrupted titles', () => {
   const ROOT = join(__dirname, '..');
   const DIRS = [
     join(ROOT, 'data', 'jobs', 'by-crawler'),

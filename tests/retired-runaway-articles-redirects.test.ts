@@ -32,6 +32,8 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 
+import { SKIP_LIVE_DATA } from './helpers/live-data';
+
 const PLUGIN_PATH = path.resolve(
   __dirname,
   '../build-plugins/legacyRedirectsPlugin.ts',
@@ -196,7 +198,8 @@ describe('runaway-workflow articles — retirement redirects', () => {
     }
   });
 
-  it('keeps every retired URL out of the live article registries', () => {
+  // Legge i registri vivi `packages/articles/content/routerBlogData.ts` e `routerSwissData.ts`, che il mirror del corpus sovrascrive a ogni sync.
+  it.skipIf(SKIP_LIVE_DATA)('keeps every retired URL out of the live article registries', () => {
     // The mirror already deleted these four from packages/articles/content. If one
     // ever comes back, the bridge would shadow a real page (or vice versa) — fail loud.
     const registries = [

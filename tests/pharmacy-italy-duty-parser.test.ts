@@ -6,6 +6,7 @@ import {
   parseItalyDutySource,
   resolveItalyDutyProvince,
 } from '../scripts/lib/pharmacy-italy-duty-parser.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const sources = JSON.parse(readFileSync(new URL('../data/pharmacy-duties-italy-sources.json', import.meta.url), 'utf8'));
 const catalogue = JSON.parse(readFileSync(new URL('../data/pharmacies-italy-border.json', import.meta.url), 'utf8'));
@@ -13,7 +14,8 @@ const FIXTURE_DIR = new URL('./fixtures/pharmacy-duties/italy/', import.meta.url
 const FETCHED_AT = '2026-09-15T10:00:00.000Z';
 
 describe('Italian official duty parser', () => {
-  it('parses the three official provincial fixture formats and keeps the province', () => {
+  // `observedDuties`/`duties` non sono vuote solo finche' le farmacie delle fixture restano in `data/pharmacies-italy-border.json`, che il refresh del Ministero riscrive su main.
+  it.skipIf(SKIP_LIVE_DATA)('parses the three official provincial fixture formats and keeps the province', () => {
     const results = sources.sources.map((source: { key: string; fixturePath: string }) => {
       const raw = readFileSync(new URL(`${source.fixturePath}/source.txt`, FIXTURE_DIR), 'utf8');
       return parseItalyDutySource(raw, source, { fetchedAt: FETCHED_AT, asOf: FETCHED_AT, catalogue });
@@ -178,7 +180,8 @@ describe('Italian duty calendar coverage is measured on the calendar', () => {
     return lines.join('\n');
   }
 
-  it('counts calendar days, not alias matches, so a real rotation clears the minimum', () => {
+  // `aliasDays.size === 2` e `duties.length > 0` reggono solo se Merone e Albese restano nel catalogo vivo `data/pharmacies-italy-border.json`.
+  it.skipIf(SKIP_LIVE_DATA)('counts calendar days, not alias matches, so a real rotation clears the minimum', () => {
     const raw = syntheticComoCalendar(310, { 5: 'Merone', 200: 'Albese' });
     const parsed = parseItalyDutySource(raw, CO_SOURCE, {
       fetchedAt: FETCHED_AT,
@@ -216,7 +219,8 @@ describe('Italian duty calendar coverage is measured on the calendar', () => {
     expect(parsed.coverage).toBe('partial');
   });
 
-  it('keeps Varese full when layout headings and bare day markers split a block', () => {
+  // Le asserzioni su `parsed.duties` dipendono dall'alias «VARESE - Europa» presente nel catalogo vivo `data/pharmacies-italy-border.json`.
+  it.skipIf(SKIP_LIVE_DATA)('keeps Varese full when layout headings and bare day markers split a block', () => {
     const monthNames = [
       'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre',
       'dicembre', 'gennaio', 'febbraio', 'marzo', 'aprile', 'maggio',

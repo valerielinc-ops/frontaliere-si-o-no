@@ -13,6 +13,7 @@
 import { describe, it, expect } from 'vitest';
 import { buildPath, parsePath, preloadSwissData, resolveSwissSlug } from '@/services/router';
 import { SWISS_SLUGS, REVERSE_SWISS, ALL_SWISS_ARTICLE_IDS } from '@/services/routerSwissData';
+import { SKIP_LIVE_DATA } from '../helpers/live-data';
 
 const HUB_SLUG = {
   it: 'articoli-svizzera',
@@ -55,7 +56,8 @@ describe('svizzera article section — routing', () => {
     );
   });
 
-  it('REVERSE_SWISS is consistent with SWISS_SLUGS', () => {
+  // Itera l'intera tabella slug di `services/routerSwissData.ts` (symlink su `packages/articles/content/`), riscritta a ogni pubblicazione di un articolo svizzero.
+  it.skipIf(SKIP_LIVE_DATA)('REVERSE_SWISS is consistent with SWISS_SLUGS', () => {
     expect(ALL_SWISS_ARTICLE_IDS).toEqual(Object.keys(SWISS_SLUGS));
     for (const [id, slugs] of Object.entries(SWISS_SLUGS)) {
       for (const locale of ['it', 'en', 'de', 'fr'] as const) {
@@ -64,7 +66,8 @@ describe('svizzera article section — routing', () => {
     }
   });
 
-  it('every seeded article round-trips through buildPath/parsePath', () => {
+  // Gira su ogni id in `ALL_SWISS_ARTICLE_IDS`, cioe' sul corpus articoli vivo che il mirror `packages/articles/content/` riscrive da solo.
+  it.skipIf(SKIP_LIVE_DATA)('every seeded article round-trips through buildPath/parsePath', () => {
     for (const id of ALL_SWISS_ARTICLE_IDS) {
       for (const locale of ['it', 'en', 'de', 'fr'] as const) {
         const slug = SWISS_SLUGS[id][locale];

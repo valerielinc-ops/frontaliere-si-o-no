@@ -9,6 +9,7 @@ import {
   looksLikeCommitText,
   LOCALES,
 } from '../scripts/lib/whats-new-localization-guard.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 /**
  * The What's New modal is read by site visitors in four languages.
@@ -196,7 +197,8 @@ describe("What's New localization guard — untranslated cannot be published", (
 // ── 3. Standing net over what is already committed ──────────────────────────
 
 describe("What's New — the committed locale files carry no untranslated entry", () => {
-  it('scans it/en/de/fr and finds no leak', () => {
+  // Dato vivo: services/locales/<locale>-core.ts, a cui generate-whats-new.mjs appende le voci di release.
+  it.skipIf(SKIP_LIVE_DATA)('scans it/en/de/fr and finds no leak', () => {
     const sources: Record<string, string> = {};
     for (const l of LOCALES) {
       sources[l] = fs.readFileSync(path.join(REPO_ROOT, `services/locales/${l}-core.ts`), 'utf8');

@@ -8,6 +8,7 @@ import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProf
 import { TITLE_MAX_CHARS } from '../build-plugins/shared/titleSuffix';
 import { releaseJobsJson } from '../build-plugins/shared/loadJobsJson';
 import committedDataset from '../data/employer-profiles.json';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 /**
  * Full-pipeline test for the /aziende/<slug>/ employer-profile plugin (#4462).
@@ -350,7 +351,8 @@ describe('employerProfilePagesPlugin', () => {
     expect(canonicalCompanyProfileSlug('Lidl Schweiz', 'lidl-schweiz')).toBe('lidl');
   });
 
-  it('search-console compat self-maps every emitted /aziende/ slug', () => {
+  // Dato vivo: lo slug arriva da data/employer-profiles.json, che il cron degli employer profile ricostruisce.
+  it.skipIf(SKIP_LIVE_DATA)('search-console compat self-maps every emitted /aziende/ slug', () => {
     // Use a real slug from the committed dataset (drift-robust: no hardcoded
     // company that a refresh could drop below floor).
     const slug = (committedDataset as { profiles: Array<{ slug: string }> }).profiles[0].slug;

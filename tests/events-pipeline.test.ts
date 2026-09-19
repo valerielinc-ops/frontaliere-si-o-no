@@ -34,6 +34,7 @@ import {
 import { pruneFailedImageRefs } from '../scripts/push-mirrored-event-images-cdn.mjs';
 import { eventLd, zurichOffset } from '../build-plugins/eventsSeoPagesPlugin';
 import { CANTON_CODES } from '../services/cantonList';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -546,7 +547,8 @@ describe('enrichEventsWithTranslations — partial cache re-validation (#3427)',
 });
 
 describe('assembled dataset integrity (data/events.json)', () => {
-  it('every committed event has the required base shape and ISO dates', () => {
+  // legge il dataset reale data/events.json, riassemblato ogni notte da crawl-events: rosso possibile senza cambi di codice
+  it.skipIf(SKIP_LIVE_DATA)('every committed event has the required base shape and ISO dates', () => {
     const file = path.join(REPO_ROOT, 'data', 'events.json');
     if (!existsSync(file)) return; // dataset is CI-generated; absent locally is fine
     const ds = JSON.parse(readFileSync(file, 'utf-8'));
