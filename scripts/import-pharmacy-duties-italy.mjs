@@ -305,7 +305,7 @@ export async function importItalyPharmacyDuties({
     bestEffortErrors: allBestEffortErrors,
     warnings: allWarnings,
   });
-  const atomic = buildAtomicItalyDutySnapshots({ duties: dataset, status, evaluatedAt: attemptedAt });
+  const atomic = buildAtomicItalyDutySnapshots({ duties: dataset, status, evaluatedAt: attemptedAt, sources: sourceData });
   if (write) {
     await writeJson(DUTIES_PATH, atomic.duties);
     await writeJson(STATUS_PATH, atomic.status);

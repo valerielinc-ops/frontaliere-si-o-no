@@ -14,6 +14,18 @@ import {
 
 const NOW = '2026-09-15T12:00:00.000Z';
 
+/**
+ * Registry di prova in cui VB e' `required`. Serve perche' la classe di
+ * pubblicazione e' autorevole SOLO nel registry: cambiarla nello snapshot non
+ * ha (piu') alcun effetto, che e' il confine di fiducia difeso qui sotto.
+ */
+const registryWithVbRequired = {
+  ...sources,
+  sources: (sources.sources as Array<Record<string, unknown>>).map((source) => (
+    source.province === 'VB' ? { ...source, publication: 'required' } : source
+  )),
+};
+
 describe('Italian duty release contract', () => {
   it('keeps one releaseId and Europe/Rome across the checked-in snapshots', () => {
     expect(duties._release.releaseId).toBe(status._release.releaseId);
@@ -86,19 +98,23 @@ describe('Italian duty release contract', () => {
         { ...entry, state: 'fresh', freshness: 'fresh', coverage: 'covered' },
       ])),
     };
-    // `publication: 'required'` e' esplicito: l'intento del caso e' "una
-    // provincia BLOCCANTE stantia rende stantia la release". Prima si appoggiava
-    // al default fail-closed di uno snapshot generato senza il campo, quindi si
-    // sarebbe invertito da solo appena il cron avesse riscritto VB come
-    // best-effort.
+    // L'intento del caso e' "una provincia BLOCCANTE stantia rende stantia la
+    // release". La classe si impone dal REGISTRY, non dallo snapshot: da quando
+    // la classe la decide il registry, un `publication` scritto nell'entry non
+    // ha alcun effetto (ed e' esattamente il punto della fix).
     const staleStatus = {
       ...completeStatus,
       _provinces: {
         ...completeStatus._provinces,
-        VB: { ...completeStatus._provinces.VB, publication: 'required', freshness: 'stale', state: 'stale' },
+        VB: { ...completeStatus._provinces.VB, freshness: 'stale', state: 'stale' },
       },
     };
-    const stale = buildAtomicItalyDutySnapshots({ duties: { ...duties, _errors: [] }, status: staleStatus, evaluatedAt: NOW });
+    const stale = buildAtomicItalyDutySnapshots({
+      duties: { ...duties, _errors: [] },
+      status: staleStatus,
+      evaluatedAt: NOW,
+      sources: registryWithVbRequired,
+    });
     expect(stale.release.state).toBe('stale');
     expect(isItalyDutyReleasePublishable(stale)).toBe(false);
 
@@ -134,19 +150,13 @@ describe('Italian duty release contract', () => {
     // sono zero proprio perche' il difetto le teneva a zero.
     expect(degradedButPublishable.release.state).toBe('fresh');
 
-    // Ma se la stessa provincia e' `required`, la release NON passa: la
-    // degradazione e' consentita solo dove e' dichiarata.
-    const requiredDown = {
-      ...bestEffortDown,
-      _provinces: {
-        ...bestEffortDown._provinces,
-        VB: { ...bestEffortDown._provinces.VB, publication: 'required' },
-      },
-    };
+    // Ma se il REGISTRY dichiara la stessa provincia `required`, la release NON
+    // passa: la degradazione e' consentita solo dove il registry la concede.
     expect(buildAtomicItalyDutySnapshots({
       duties: { ...duties, _errors: [] },
-      status: requiredDown,
+      status: bestEffortDown,
       evaluatedAt: NOW,
+      sources: registryWithVbRequired,
     }).release.state).toBe('not_published');
 
     const missingProvince = {
@@ -254,5 +264,123 @@ describe('Italian duty release contract', () => {
     expect(vco.minimumCalendarDays).toBeUndefined();
     const errors = checkItalyDutyData({ duties, status, sources, catalogue, now: new Date('2026-09-15T12:00:00.000Z') });
     expect(errors.filter((error) => /^(source|thirdPartyLinkOut)/.test(error))).toEqual([]);
+  });
+});
+
+/**
+ * Confine di fiducia: la classe di pubblicazione e' autorevole SOLO nel
+ * registry delle fonti.
+ *
+ * Lo status snapshot e' l'artefatto che questi gate stanno giudicando. Se gli si
+ * lascia dichiarare la propria classe puo' concedersi da solo l'esenzione:
+ * basta rietichettare Como o Varese come `best-effort` perche' il gate sulle
+ * province bloccanti smetta di applicarsi, e una release incompleta risulti
+ * pubblicabile. E' la classe di difetto «non appoggiare un gate a un valore
+ * dichiarato dalla cosa che stai giudicando», e vale in tutte e tre le copie
+ * della logica (writer ESM, contratto TS, checker).
+ */
+describe('Italian duty publication class is authoritative only in the registry', () => {
+  const healthyProvinces = Object.fromEntries(
+    Object.entries(status._provinces as Record<string, Record<string, unknown>>)
+      .map(([province, entry]) => [province, { ...entry, state: 'fresh', freshness: 'fresh', coverage: 'covered' }]),
+  );
+
+  it('ignores a snapshot that relabels a required province as best-effort', () => {
+    // CO e' `required` nel registry committato. Qui lo snapshot rivendica
+    // `best-effort` E si presenta non pubblicato: se la rivendicazione venisse
+    // creduta, CO uscirebbe dalle province decidenti e la release sarebbe
+    // `fresh` pur con una provincia bloccante a zero.
+    const selfExempting = {
+      ...status,
+      _allSourcesFailed: false,
+      _errors: [],
+      _provinces: {
+        ...healthyProvinces,
+        CO: {
+          ...healthyProvinces.CO,
+          publication: 'best-effort',
+          state: 'not_published',
+          freshness: 'unknown',
+          coverage: 'not_published',
+          dutyCount: 0,
+        },
+      },
+    };
+    const release = buildAtomicItalyDutySnapshots({
+      duties: { ...duties, _errors: [] },
+      status: selfExempting,
+      evaluatedAt: NOW,
+    }).release;
+
+    expect(release.state).toBe('not_published');
+    expect(isItalyDutyReleasePublishable({ duties, status: selfExempting })).toBe(false);
+  });
+
+  it('reports the mismatch instead of silently honouring or coercing it', () => {
+    // La discrepanza non va corretta in silenzio: e' il sintomo di uno snapshot
+    // stantio o modificato a mano, e deve comparire fra gli errori.
+    const selfExempting = {
+      ...status,
+      _provinces: {
+        ...healthyProvinces,
+        VA: { ...healthyProvinces.VA, publication: 'best-effort' },
+      },
+    };
+    const errors = checkItalyDutyData({
+      duties,
+      status: selfExempting,
+      sources,
+      catalogue,
+      now: new Date(NOW),
+    });
+    expect(errors).toEqual(expect.arrayContaining([
+      expect.stringContaining("status.VA: publication 'best-effort' does not match the source registry ('required')"),
+    ]));
+  });
+
+  it('still honours best-effort for the province the registry declares', () => {
+    // Il contrario del caso sopra: VB resta esente perche' lo dice il REGISTRY,
+    // non perche' lo scrive lo snapshot — l'entry qui non dichiara nulla.
+    const vbDown = {
+      ...status,
+      _allSourcesFailed: false,
+      _errors: [],
+      _bestEffortErrors: ['vco-asl-2026: fetch failed (UND_ERR_CONNECT_TIMEOUT)'],
+      _provinces: {
+        ...healthyProvinces,
+        VB: {
+          ...healthyProvinces.VB,
+          state: 'not_published',
+          freshness: 'unknown',
+          coverage: 'not_published',
+          dutyCount: 0,
+        },
+      },
+    };
+    expect(buildAtomicItalyDutySnapshots({
+      duties: { ...duties, _errors: [] },
+      status: vbDown,
+      evaluatedAt: NOW,
+    }).release.state).toBe('fresh');
+  });
+
+  it('treats every province as required when no registry is available', () => {
+    // Fail-closed: senza verita' si stringe. Un registry vuoto non deve
+    // concedere esenzioni a nessuno.
+    const vbDown = {
+      ...status,
+      _allSourcesFailed: false,
+      _errors: [],
+      _provinces: {
+        ...healthyProvinces,
+        VB: { ...healthyProvinces.VB, state: 'not_published', freshness: 'unknown', coverage: 'not_published' },
+      },
+    };
+    expect(buildAtomicItalyDutySnapshots({
+      duties: { ...duties, _errors: [] },
+      status: vbDown,
+      evaluatedAt: NOW,
+      sources: { ...sources, sources: [] },
+    }).release.state).toBe('not_published');
   });
 });

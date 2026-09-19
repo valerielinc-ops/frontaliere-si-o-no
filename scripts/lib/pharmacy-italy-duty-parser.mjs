@@ -47,6 +47,60 @@ export function sourcePublicationClass(source) {
     : 'required';
 }
 
+/**
+ * Classi di pubblicazione per provincia lette DAL REGISTRY.
+ *
+ * Il registry e' l'unica fonte di verita' su chi puo' degradare. Lo status
+ * snapshot NON lo e': e' l'artefatto che i gate stanno giudicando, quindi se
+ * gli si lascia dichiarare la propria classe puo' concedersi da solo
+ * l'esenzione — basta rietichettare CO o VA come `best-effort` e il gate sulle
+ * province bloccanti smette di applicarsi. E' la classe di difetto «non
+ * appoggiare un gate a un valore dichiarato dalla cosa che stai giudicando».
+ *
+ * Senza registry la mappa e' vuota e ogni provincia risulta `required`: in
+ * assenza di verita' si stringe, non si allarga.
+ * @param {unknown} sources registry completo, oppure il solo array `sources`
+ * @returns {Map<string, 'required'|'best-effort'>}
+ */
+export function italyDutyPublicationClassesFromRegistry(sources) {
+  const list = Array.isArray(sources?.sources)
+    ? sources.sources
+    : Array.isArray(sources) ? sources : [];
+  const classes = new Map();
+  for (const source of list) {
+    if (source && typeof source.province === 'string') {
+      classes.set(source.province.toUpperCase(), sourcePublicationClass(source));
+    }
+  }
+  return classes;
+}
+
+/**
+ * Province il cui snapshot rivendica una classe di pubblicazione diversa da
+ * quella dichiarata dal registry. Va SEGNALATO, non corretto in silenzio: una
+ * discrepanza qui significa uno snapshot stantio, modificato a mano, o un
+ * importer che ha scritto una classe che il registry non prevede.
+ * @returns {Array<{province: string, claimed: string, declared: string}>}
+ */
+export function italyDutyPublicationMismatches(status, sources) {
+  const declaredClasses = italyDutyPublicationClassesFromRegistry(sources);
+  const entries = status && typeof status._provinces === 'object' && status._provinces && !Array.isArray(status._provinces)
+    ? status._provinces
+    : {};
+  const mismatches = [];
+  for (const province of ITALY_DUTY_PROVINCES) {
+    const entry = entries[province];
+    if (!entry || typeof entry !== 'object') continue;
+    // Nessuna rivendicazione = nessuna discrepanza: la classe la decide il
+    // registry e il default e' `required`.
+    if (entry.publication === undefined) continue;
+    const claimed = sourcePublicationClass(entry);
+    const declared = declaredClasses.get(province) ?? 'required';
+    if (claimed !== declared) mismatches.push({ province, claimed, declared });
+  }
+  return mismatches;
+}
+
 /** Chiave `YYYY-MM-DD` di una data di calendario gia' validata. */
 export function calendarDateKey(date) {
   return date.year + '-' + String(date.month).padStart(2, '0') + '-' + String(date.day).padStart(2, '0');
@@ -88,6 +142,13 @@ const PROVINCE_MARKERS = Object.freeze([
 const DUTY_LINE_RE = /^\s*DUTY\|([^\r\n]+)$/i;
 const DATE_LINE_RE = /^\s*(\d{1,2}[/.]\d{1,2}[/.]\d{4})\b(.*)$/;
 const VARESE_DAY_MARKER_RE = /^\s*(\d{1,2})\s+(.+)$/;
+/**
+ * Nel calendario di Varese ogni giorno e' un BLOCCO che comincia con
+ * l'abbreviazione del giorno della settimana; il numero del giorno compare su
+ * una riga INTERNA al blocco, con le farmacie sia sopra sia sotto di essa.
+ * Il delimitatore e' quindi questo, non il numero.
+ */
+const VARESE_WEEKDAY_RE = /^\s*(DOM|LUN|MAR|MER|GIO|VEN|SAB)\b(.*)$/i;
 const VARESE_MONTH_RE = /\b(Gennaio|Febbraio|Marzo|Aprile|Maggio|Giugno|Luglio|Agosto|Settembre|Ottobre|Novembre|Dicembre)\s+(20\d{2})\b/i;
 const VCO_CORRECTION_RE = /\b(\d{1,2})[-.](gen|feb|mar|apr|mag|giu|lug|ago|set|ott|nov|dic)\b.*?leggasi\s+(.+)$/i;
 
@@ -327,10 +388,35 @@ function parseVareseCalendar(lines, source, province, aliases, warnings, calenda
   const records = [];
   let month = null;
   let year = null;
+  // Blocco del giorno APERTO. Si chiude quando arriva il giorno della settimana
+  // successivo, un nuovo mese, o la fine del documento.
+  //
+  // Il layout reale (verificato sul PDF ufficiale) e':
+  //
+  //     DOM VARESE - Casbeno   SUMIRAGO     BUSTO - S.Giovanni
+  //         CUVEGLIO           MALNATE      MOZZATE
+  //      7  ANGERA             GALLARATE - Sciare'
+  //                                         SARONNO - Lunghi
+  //     LUN VARESE - Europa    ...
+  //
+  // cioe' le farmacie del giorno 7 stanno sia SOPRA sia SOTTO la riga che porta
+  // il numero. La versione precedente chiudeva il giorno appena vedeva il
+  // numero, usando le righe accumulate PRIMA: attribuiva le righe di
+  // continuazione al giorno seguente e perdeva quelle sotto il numero. Sfasare
+  // di un giorno la farmacia di turno e' un difetto utente, non cosmetico.
   let block = [];
+  let pendingDay = null;
+  let pendingRawLine = null;
 
-  const flush = (day, rawLine) => {
-    if (!month || !year || !Number.isInteger(day)) return;
+  const flushPending = () => {
+    const day = pendingDay;
+    const rawLine = pendingRawLine;
+    const sourceText = block.join(' ');
+    block = [];
+    pendingDay = null;
+    pendingRawLine = null;
+    if (day === null) return;
+    if (!month || !year) return;
     const date = parseCalendarDate(`${day}/${month}/${year}`);
     if (!date) {
       warnings.push(`Varese calendar row has invalid date: ${day}/${month}/${year}`);
@@ -339,7 +425,6 @@ function parseVareseCalendar(lines, source, province, aliases, warnings, calenda
     // Come Como: il giorno conta per la copertura anche quando nessun alias
     // compare nel blocco di quel giorno.
     calendarDays.add(calendarDateKey(date));
-    const sourceText = block.join(' ');
     for (const alias of findAliases(sourceText, aliases)) {
       records.push(makeRawRecord({ date, alias, province, rawLine: rawLine || sourceText, source }));
     }
@@ -348,20 +433,35 @@ function parseVareseCalendar(lines, source, province, aliases, warnings, calenda
   for (const line of lines) {
     const monthMatch = line.match(VARESE_MONTH_RE);
     if (monthMatch) {
+      // Chiude l'ultimo giorno del mese precedente PRIMA di cambiare mese.
+      flushPending();
       month = ITALIAN_MONTHS[monthMatch[1].toLocaleLowerCase('it-IT')];
       year = Number(monthMatch[2]);
-      block = [];
+      continue;
+    }
+    const weekday = line.match(VARESE_WEEKDAY_RE);
+    if (weekday) {
+      flushPending();
+      if (weekday[2].trim()) block.push(weekday[2]);
       continue;
     }
     const dayMarker = line.match(VARESE_DAY_MARKER_RE);
     if (dayMarker && Number(dayMarker[1]) >= 1 && Number(dayMarker[1]) <= 31) {
-      block.push(dayMarker[2]);
-      flush(Number(dayMarker[1]), line);
-      block = [];
+      // Il numero identifica il blocco corrente, non ne apre uno nuovo. Se un
+      // blocco portasse due numeri, vince il primo e il secondo e' un difetto
+      // di layout da segnalare invece di sovrascrivere in silenzio.
+      if (pendingDay === null) {
+        pendingDay = Number(dayMarker[1]);
+        pendingRawLine = line;
+      } else if (pendingDay !== Number(dayMarker[1])) {
+        warnings.push(`Varese calendar block carries two day numbers: ${pendingDay} and ${dayMarker[1]}`);
+      }
+      if (dayMarker[2].trim()) block.push(dayMarker[2]);
       continue;
     }
     if (line.trim()) block.push(line);
   }
+  flushPending();
   return records;
 }
 
@@ -645,7 +745,7 @@ function releaseProvinceStatuses(status) {
   }]));
 }
 
-function releaseState(duties, status, provinces) {
+function releaseState(duties, status, provinces, publicationClasses = new Map()) {
   // `_errors` contiene SOLO gli errori delle fonti `required`. Gli errori delle
   // fonti `best-effort` vivono in `_bestEffortErrors`: restano nello snapshot e
   // visibili al monitor, ma non decidono lo stato della release. Senza questa
@@ -656,8 +756,10 @@ function releaseState(duties, status, provinces) {
     ...(Array.isArray(status?._errors) ? status._errors : []),
   ];
   const entries = Object.values(provinces);
-  // Una provincia che non dichiara la classe e' `required` (fail-closed).
-  const required = entries.filter((entry) => sourcePublicationClass(entry) === 'required');
+  // La classe arriva dal REGISTRY, non dall'entry dello snapshot: lo snapshot e'
+  // l'artefatto sotto esame e non puo' concedersi l'esenzione da se'. Provincia
+  // assente dal registry (o registry non fornito) = `required`, fail-closed.
+  const required = entries.filter((entry) => (publicationClasses.get(entry?.province) ?? 'required') === 'required');
   // Se il registry non dichiarasse NESSUNA fonte required, ricadiamo su tutte:
   // meglio un rosso che una release verde che non ha verificato niente.
   const deciding = required.length > 0 ? required : entries;
@@ -669,12 +771,13 @@ function releaseState(duties, status, provinces) {
 }
 
 /** Shared Node-side release builder used by importer and checker. */
-export function buildItalyReleaseContract({ duties, status, evaluatedAt }) {
+export function buildItalyReleaseContract({ duties, status, evaluatedAt, sources }) {
   const provinces = releaseProvinceStatuses(status);
+  const publicationClasses = italyDutyPublicationClassesFromRegistry(sources);
   const body = {
     version: 1,
     timezone: ITALY_DUTY_TIMEZONE,
-    state: releaseState(duties, status, provinces),
+    state: releaseState(duties, status, provinces, publicationClasses),
     evaluatedAt,
     scope: { country: 'IT', provinces: [...ITALY_DUTY_PROVINCES] },
     snapshots: {
@@ -694,10 +797,10 @@ export function buildItalyReleaseContract({ duties, status, evaluatedAt }) {
   return { ...body, releaseId: `pharmacy-italy-v1-${sha256ItalyDutyPayload(body)}` };
 }
 
-export function buildAtomicItalyDutySnapshots({ duties, status, evaluatedAt }) {
+export function buildAtomicItalyDutySnapshots({ duties, status, evaluatedAt, sources }) {
   const cleanDuties = withoutRelease(duties);
   const cleanStatus = withoutRelease(status);
-  const release = buildItalyReleaseContract({ duties: cleanDuties, status: cleanStatus, evaluatedAt });
+  const release = buildItalyReleaseContract({ duties: cleanDuties, status: cleanStatus, evaluatedAt, sources });
   return {
     duties: { ...cleanDuties, _release: release },
     status: { ...cleanStatus, _release: release },
@@ -705,7 +808,7 @@ export function buildAtomicItalyDutySnapshots({ duties, status, evaluatedAt }) {
   };
 }
 
-export function verifyItalyReleaseSnapshots({ duties, status }) {
+export function verifyItalyReleaseSnapshots({ duties, status, sources }) {
   const errors = [];
   const dutiesRelease = duties?._release;
   const statusRelease = status?._release;
@@ -718,6 +821,7 @@ export function verifyItalyReleaseSnapshots({ duties, status }) {
     duties: withoutRelease(duties),
     status: withoutRelease(status),
     evaluatedAt: dutiesRelease.evaluatedAt,
+    sources,
   });
   if (dutiesRelease.releaseId !== expected.releaseId) errors.push('releaseId does not match the release contract');
   if (canonicalItalyDutyJson({ ...dutiesRelease, releaseId: undefined }) !== canonicalItalyDutyJson({ ...expected, releaseId: undefined })) {

@@ -9,6 +9,8 @@ import {
   ITALY_DUTY_MINIMUM_CALENDAR_DAYS,
   ITALY_DUTY_PROVINCES,
   ITALY_DUTY_TIMEZONE,
+  italyDutyPublicationClassesFromRegistry,
+  italyDutyPublicationMismatches,
   sourceCoverageModel,
   sourcePublicationClass,
   verifyItalyReleaseSnapshots,
@@ -127,6 +129,13 @@ export function checkItalyDutyData({ duties, status, sources, catalogue, now = n
       dutyCountsByProvince.set(duty.province, dutyCountsByProvince.get(duty.province) + 1);
     }
   }
+  const declaredPublicationClasses = italyDutyPublicationClassesFromRegistry(sources);
+  // Una rivendicazione che non corrisponde al registry e' un errore esplicito,
+  // non un dato da correggere in silenzio: significa snapshot stantio,
+  // modificato a mano, o un importer che scrive una classe non prevista.
+  for (const { province, claimed, declared } of italyDutyPublicationMismatches(status, sources)) {
+    errors.push(`status.${province}: publication '${claimed}' does not match the source registry ('${declared}')`);
+  }
   const provinceStatuses = status?._provinces && typeof status._provinces === 'object' ? status._provinces : {};
   for (const province of ITALY_DUTY_PROVINCES) {
     const entry = provinceStatuses[province];
@@ -140,7 +149,11 @@ export function checkItalyDutyData({ duties, status, sources, catalogue, now = n
     // `_bestEffortErrors`. Restano verificati gli invarianti di INTEGRITA'
     // (forma dei campi e coerenza del conteggio con le righe pubblicate): la
     // provincia e' degradata, non esente dai controlli strutturali.
-    const bestEffort = sourcePublicationClass(entry) === 'best-effort';
+    // La classe viene dal REGISTRY, non dall'entry: lo snapshot e' l'artefatto
+    // che questo checker sta giudicando, quindi leggergli la propria classe gli
+    // permetterebbe di concedersi l'esenzione (bastava rietichettare CO o VA
+    // come `best-effort` per disattivare il gate su una provincia bloccante).
+    const bestEffort = (declaredPublicationClasses.get(province) ?? 'required') === 'best-effort';
     if (!bestEffort && (entry.state !== 'fresh' || entry.freshness !== 'fresh' || entry.coverage !== 'covered')) {
       errors.push(`status.${province}: source is not fresh and covered`);
     }
@@ -209,7 +222,7 @@ export function checkItalyDutyData({ duties, status, sources, catalogue, now = n
   }
   if (!Array.isArray(duties?.duties) || duties.duties.length === 0) errors.push('duties: empty dataset');
 
-  errors.push(...verifyItalyReleaseSnapshots({ duties, status }));
+  errors.push(...verifyItalyReleaseSnapshots({ duties, status, sources }));
   if (duties?._release?.state !== 'fresh') errors.push(`release: state is ${String(duties?._release?.state)}`);
   return errors;
 }
