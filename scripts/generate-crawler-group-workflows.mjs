@@ -564,11 +564,15 @@ const CRAWLER_SHELL_PREAMBLE = Object.freeze(['set -uo pipefail', 'set +e', ''])
 // consolidates the signal, it does not silence it.
 const GROUP_SHARED_PRECONDITION_EXIT = 43;
 const GLOBAL_LEASE_BUSY_EXIT = GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT;
+// Runner shutdown (SIGTERM) is a fourth systemic class. A hosted runner can
+// terminate every detached worker in the same wave, so exit 143 is not a
+// per-crawler fault and must not create one issue per sibling.
+const RUNNER_SHUTDOWN_EXIT = 143;
 // Fires the per-crawler failure reporter. Any non-zero commit exit still
-// reports EXCEPT the three systemic classes, which are not per-crawler signals.
-const PER_CRAWLER_REPORT_CONDITION = 'if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ]'
+// reports EXCEPT the four systemic classes, which are not per-crawler signals.
+const PER_CRAWLER_REPORT_CONDITION = 'if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ]'
   + ` && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne ${GROUP_SHARED_PRECONDITION_EXIT} ]`
-  + ` && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ]; }; then`;
+  + ` && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$git_commit_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; }; then`;
 
 function globalLeaseBusyNotice(slug, { propagate = false } = {}) {
   return [
@@ -598,6 +602,21 @@ function sharedPreconditionNotice(slug, { propagate = false } = {}) {
     // non c'e': senza il default questo ramo non arriverebbe mai al suo `exit`.
     `  echo "❌ ${slug}: shared group precondition failure (exit ${GROUP_SHARED_PRECONDITION_EXIT}) — crawl was fine, no per-crawler issue filed" >> "\${GITHUB_STEP_SUMMARY:-/dev/null}"`,
     ...(propagate ? [`  exit ${GROUP_SHARED_PRECONDITION_EXIT}`] : []),
+    'fi',
+  ];
+}
+
+/**
+ * Exit 143 is the runner/host SIGTERM convention, not an individual crawler
+ * diagnosis. Keep the breadcrumb visible and optionally propagate the code to
+ * the timeout wrapper so the outer failure reporter can suppress it too.
+ */
+function runnerShutdownNotice(slug, { propagate = false } = {}) {
+  return [
+    `if [ "$crawler_exit" -eq ${RUNNER_SHUTDOWN_EXIT} ] || [ "$git_commit_exit" -eq ${RUNNER_SHUTDOWN_EXIT} ]; then`,
+    `  echo "::warning::${slug}: runner shutdown interrupted the crawler (exit ${RUNNER_SHUTDOWN_EXIT}); no per-crawler issue filed (systemic class)."`,
+    `  echo "⚠️ ${slug}: runner shutdown (exit ${RUNNER_SHUTDOWN_EXIT}) — no per-crawler issue filed" >> "\${GITHUB_STEP_SUMMARY:-/dev/null}"`,
+    ...(propagate ? [`  exit ${RUNNER_SHUTDOWN_EXIT}`] : []),
     'fi',
   ];
 }
@@ -642,7 +661,8 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
   work.push('fi');
   work.push(...globalLeaseBusyNotice(crawler.slug, { propagate: true }));
   work.push(...sharedPreconditionNotice(crawler.slug, { propagate: true }));
-  work.push(`if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ]; }; then`);
+  work.push(...runnerShutdownNotice(crawler.slug, { propagate: true }));
+  work.push(`if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$git_commit_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; }; then`);
   work.push('  exit 1');
   work.push('fi');
   work.push('exit 0');
@@ -674,17 +694,18 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
     outer.push('if [ "$target_exit" -eq 124 ]; then');
     outer.push(`  crawler_failure_timeout_detail=${shellQuote(`\n**Causa:** timeout del target dopo ${timeoutMinutes} minuti (exit 124).`)}`);
     outer.push('fi');
-    // `-ne 43`/`-ne 44`: the work phase re-exits the systemic commit outcomes
-    // verbatim so this gate can drop the per-crawler report. The final gate
+    // `-ne 43`/`-ne 44`/`-ne 143`: the work phase re-exits the systemic
+    // outcomes verbatim so this gate can drop the per-crawler report.
+    // The final gate
     // still fails for real errors, but treats a lease convoy as a retryable
     // scheduling outcome.
-    outer.push(`if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne ${GROUP_SHARED_PRECONDITION_EXIT} ] && [ "$target_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ]; then`);
+    outer.push(`if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne ${GROUP_SHARED_PRECONDITION_EXIT} ] && [ "$target_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$target_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; then`);
     outer.push(indentBlock(timeoutAwareRun.trimEnd(), 2));
     outer.push('fi');
     outer.push('');
   }
 
-  outer.push(`if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ]; then`);
+  outer.push(`if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$target_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; then`);
   outer.push('  exit 1');
   outer.push('fi');
   outer.push('exit 0');
@@ -802,6 +823,8 @@ export function buildCrawlerShellBody(crawler) {
       // original reporting behavior.
       // GROUP-SHARED PRECONDITION CLASS (exit 43): same remedy, different
       // reason — see GROUP_SHARED_PRECONDITION_EXIT at the top of this file.
+      // RUNNER SHUTDOWN CLASS (exit 143): the hosted runner terminated the
+      // worker wave; it is systemic and must not create one issue per sibling.
       lines.push(PER_CRAWLER_REPORT_CONDITION);
       lines.push(indentBlock(literalizedRun.trimEnd(), 2));
       lines.push('fi');
@@ -811,6 +834,7 @@ export function buildCrawlerShellBody(crawler) {
       lines.push('fi');
       lines.push(...globalLeaseBusyNotice(crawler.slug));
       lines.push(...sharedPreconditionNotice(crawler.slug));
+      lines.push(...runnerShutdownNotice(crawler.slug));
       lines.push('');
       continue;
     }
@@ -866,7 +890,7 @@ export function buildCrawlerShellBody(crawler) {
   // blocked the sweep from draining every sibling's recovered issue and made
   // real failures indistinguishable from herd noise. Real crawl/commit
   // failures (any other non-zero) still fail the step as before.
-  lines.push(`if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ]; }; then`);
+  lines.push(`if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$git_commit_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; }; then`);
   lines.push('  exit 1');
   lines.push('fi');
   lines.push('exit 0');
@@ -909,6 +933,7 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     'mv "$status_tmp" "$status_file"',
     'exit "$crawler_exit"',
   ].join('\n');
+  const watchdogMinutes = crawlerWorkerWatchdogMinutes(crawler);
   const launcher = [
     'set +e',
     `state_dir="$RUNNER_TEMP/crawler-generation/group-${nn}"`,
@@ -916,6 +941,11 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     `status_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status"`,
     `status_tmp="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status.tmp.$$"`,
     `started_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.started"`,
+    `worker_watchdog_minutes="\${CRAWLER_WORKER_TIMEOUT_MINUTES:-${watchdogMinutes}}"`,
+    'if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]]; then',
+    `  echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (default ${watchdogMinutes})"`,
+    `  worker_watchdog_minutes=${watchdogMinutes}`,
+    'fi',
     `max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-${CRAWLER_GROUP_MAX_PARALLEL}}"`,
     'if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then',
     '  echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"',
@@ -923,15 +953,30 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     '  mv "$status_tmp" "$status_file"',
     '  exit 1',
     'fi',
+    'if ! command -v timeout >/dev/null 2>&1; then',
+    '  echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"',
+    '  printf \'127\\n\' > "$status_tmp"',
+    '  mv "$status_tmp" "$status_file"',
+    '  exit 127',
+    'fi',
     'if ! command -v flock >/dev/null 2>&1; then',
     '  echo "flock is unavailable; running this crawler without the group semaphore"',
-    '  bash "$worker_path"',
-    '  exit $?',
+    '  timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"',
+    '  flock_exit=$?',
+    '  if [ -s "$status_file" ]; then',
+    '    status="$(cat "$status_file" 2>/dev/null || true)"',
+    '    if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi',
+    '  fi',
+    '  terminal_exit="$flock_exit"',
+    '  if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi',
+    '  printf "%s\\n" "$terminal_exit" > "$status_tmp"',
+    '  mv "$status_tmp" "$status_file"',
+    '  exit "$terminal_exit"',
     'fi',
     'while :; do',
     '  for slot_index in $(seq 1 "$max_parallel"); do',
     '    slot_path="$state_dir/slots/slot-${slot_index}.lock"',
-    '    flock -n "$slot_path" bash "$worker_path"',
+    '    flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"',
     '    flock_exit=$?',
     '    if [ "$flock_exit" -eq 0 ]; then',
     '      exit 0',
@@ -989,6 +1034,26 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     'launcher_pid=$!',
     'printf \'%s\\n\' "$launcher_pid" > "$pid_path"',
   ].join('\n');
+}
+
+/**
+ * Bound a detached worker before it can consume the whole group job. The
+ * historical duration is deliberately used as a multiplier rather than a
+ * fixed global cap: slow but healthy crawlers keep their measured headroom,
+ * while a missing/hung worker still receives a terminal status well before
+ * the 340-minute job ceiling. Explicit targetTimeoutMinutes gets a small
+ * completion margin for its post-timeout failure reporter.
+ */
+export function crawlerWorkerWatchdogMinutes(crawler = {}) {
+  const explicitTarget = Number(crawler.targetTimeoutMinutes);
+  if (Number.isSafeInteger(explicitTarget) && explicitTarget > 0 && explicitTarget < JOB_TIMEOUT_MINUTES) {
+    return Math.min(JOB_TIMEOUT_MINUTES - 10, explicitTarget + 10);
+  }
+  const averageMinutes = Number(crawler.durationMs) / 60_000;
+  const derived = Number.isFinite(averageMinutes) && averageMinutes > 0
+    ? Math.ceil(averageMinutes * 3)
+    : JOB_TIMEOUT_MINUTES - 10;
+  return Math.min(JOB_TIMEOUT_MINUTES - 10, Math.max(30, derived));
 }
 
 /** Wait for one detached crawler and expose its real exit code to Actions. */
@@ -1068,6 +1133,7 @@ export function buildCrawlerAggregateShellBody(crawlers, groupIndex) {
     'success_count=0',
     'failure_count=0',
     'missing_count=0',
+    'systemic_count=0',
     `printf '%s\\n' '### Crawler group ${nn} outcome' >> "$summary_file"`,
     `printf '%s\\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"`,
   ];
@@ -1085,6 +1151,10 @@ export function buildCrawlerAggregateShellBody(crawlers, groupIndex) {
       `    echo "::error::${slug}: invalid terminal status: $status"`,
       `    printf '%s\\n' '| ${slug} | invalid status |' >> "$summary_file"`,
       '    failure_count=$((failure_count + 1))',
+      `  elif [ "$status" -eq ${RUNNER_SHUTDOWN_EXIT} ]; then`,
+      `    echo "::warning::${slug}: runner shutdown recorded as systemic outcome (exit ${RUNNER_SHUTDOWN_EXIT}); no per-crawler issue filed"`,
+      `    printf '%s\\n' '| ${slug} | systemic runner shutdown (143) |' >> "$summary_file"`,
+      '    systemic_count=$((systemic_count + 1))',
       '  elif [ "$status" -eq 0 ]; then',
       `    printf '%s\\n' '| ${slug} | success |' >> "$summary_file"`,
       '    success_count=$((success_count + 1))',
@@ -1097,13 +1167,13 @@ export function buildCrawlerAggregateShellBody(crawlers, groupIndex) {
     );
   }
   lines.push(
-    `printf '%s\\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing." >> "$summary_file"`,
+    `printf '%s\\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"`,
     'if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ]; then',
     '  wait_outcome=failure',
     'else',
     '  wait_outcome=success',
     'fi',
-    `printf '%s\\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" "wait_outcome=$wait_outcome" >> "$output_file"`,
+    `printf '%s\\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" "systemic_count=$systemic_count" "wait_outcome=$wait_outcome" >> "$output_file"`,
     'exit 0',
   );
   return lines.join('\n');
@@ -1117,21 +1187,22 @@ export function buildCrawlerAggregateFailureGateShellBody() {
     'success_count="${CRAWLER_AGGREGATE_SUCCESS:-invalid}"',
     'failure_count="${CRAWLER_AGGREGATE_FAILURES:-invalid}"',
     'missing_count="${CRAWLER_AGGREGATE_MISSING:-invalid}"',
+    'systemic_count="${CRAWLER_AGGREGATE_SYSTEMIC:-0}"',
     'if [ "$aggregate_outcome" != "success" ]; then',
     '  echo "::error::crawler aggregate step did not complete; group failed after preserving already-running siblings"',
     '  exit 1',
     'fi',
-    'for count in "$success_count" "$failure_count" "$missing_count"; do',
+    'for count in "$success_count" "$failure_count" "$missing_count" "$systemic_count"; do',
     '  if ! [[ "$count" =~ ^[0-9]+$ ]]; then',
     '    echo "::error::crawler aggregate produced an invalid count: $count"',
     '    exit 1',
     '  fi',
     'done',
     'if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ]; then',
-    '  echo "::error::crawler group completed with $success_count succeeded, $failure_count failed, $missing_count missing; healthy siblings were preserved, but the group remains failed until incomplete crawlers are recovered"',
+    '  echo "::error::crawler group completed with $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic; healthy siblings were preserved, but the group remains failed until incomplete crawlers are recovered"',
     '  exit 1',
     'fi',
-    'echo "✅ all $success_count crawler members completed successfully"',
+    'echo "✅ all $success_count crawler members completed successfully; $systemic_count systemic outcomes recorded"',
   ].join('\n');
 }
 
@@ -1545,6 +1616,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
       CRAWLER_AGGREGATE_SUCCESS: "\${{ steps.crawler_aggregate.outputs.success_count || 'invalid' }}",
       CRAWLER_AGGREGATE_FAILURES: "\${{ steps.crawler_aggregate.outputs.failure_count || 'invalid' }}",
       CRAWLER_AGGREGATE_MISSING: "\${{ steps.crawler_aggregate.outputs.missing_count || 'invalid' }}",
+      CRAWLER_AGGREGATE_SYSTEMIC: "\${{ steps.crawler_aggregate.outputs.systemic_count || '0' }}",
     },
     run: buildCrawlerAggregateFailureGateShellBody(),
   });
