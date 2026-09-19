@@ -1,4 +1,10 @@
+import { spawnSync } from 'node:child_process';
+import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
+import registry from '../data/plate-auction-sources-registry.json';
 import { collectPlateAuctions } from '../scripts/plate-auctions/ingest.mjs';
 
 const NOW = new Date('2026-09-13T12:00:00.000Z');
@@ -410,5 +416,119 @@ describe('plate-auction ingest resilience', () => {
       now: NOW,
     });
     expect(snapshot.auctions[0]).toMatchObject({ id: 'gr-incoherent', dataConfidence: 'conflicting' });
+  });
+});
+
+describe('check-health publication gate', () => {
+  // These run the real script, because the thing under test is exactly its
+  // exit/output contract with the workflow. `PLATE_AUCTION_OUTPUT` keeps the
+  // committed snapshot untouched and `GITHUB_OUTPUT` captures the flag the
+  // workflow reads.
+  const runCheckHealth = (snapshot: unknown, args: string[] = []) => {
+    const dir = mkdtempSync(join(tmpdir(), 'plate-health-'));
+    const snapshotPath = join(dir, 'plate-auctions.json');
+    const githubOutput = join(dir, 'github-output');
+    writeFileSync(snapshotPath, JSON.stringify(snapshot), 'utf8');
+    writeFileSync(githubOutput, '', 'utf8');
+    const result = spawnSync(
+      process.execPath,
+      ['scripts/plate-auctions/check-health.mjs', ...args],
+      {
+        cwd: resolve(dirname(fileURLToPath(import.meta.url)), '..'),
+        encoding: 'utf8',
+        env: { ...process.env, PLATE_AUCTION_OUTPUT: snapshotPath, GITHUB_OUTPUT: githubOutput },
+      },
+    );
+    return {
+      status: result.status,
+      summary: JSON.parse(result.stdout.slice(result.stdout.indexOf('{'))),
+      githubOutput: readFileSync(githubOutput, 'utf8'),
+    };
+  };
+
+  /** A snapshot the gate accepts, built from the registry it validates against. */
+  const healthySnapshot = () => {
+    const auctions: Record<string, unknown>[] = [];
+    const sources: Record<string, unknown> = {};
+    for (const [key, source] of Object.entries<Record<string, unknown>>(registry.sources)) {
+      const active = source.status === 'active';
+      if (active) {
+        auctions.push({
+          id: `${key}-1`,
+          sourceKey: String(source.plateCode),
+          platePrefix: String(source.plateCode),
+          normalizedPlate: `${source.plateCode}1`,
+          auctionStatus: 'active',
+        });
+      }
+      sources[key] = {
+        ...source,
+        rowCount: active ? 1 : 0,
+        lastCheckedAt: '2026-09-19T06:00:00.000Z',
+        ...(active
+          ? { lastFetchedAt: '2026-09-19T06:00:00.000Z', lastSuccessAt: '2026-09-19T06:00:00.000Z' }
+          : {}),
+      };
+    }
+    return {
+      schema: 1,
+      complete: true,
+      generatedAt: '2026-09-19T06:00:00.000Z',
+      sources,
+      auctions,
+      counts: { active: auctions.length, upcoming: 0, closed: 0, finalsVerified: 0, cantonsWithData: auctions.length },
+    };
+  };
+
+  it('accepts a snapshot in which every source is healthy', () => {
+    const { status, summary, githubOutput } = runCheckHealth(healthySnapshot());
+    expect(summary.errors).toEqual([]);
+    expect(githubOutput).toContain('blocking=false');
+    expect(status).toBe(0);
+  });
+
+  it('keeps the run red but still clears the commit when one source is degraded', () => {
+    // This is the loop this gate used to create: `lu` reported
+    // `source_disappeared` on 2026-09-19 while its fetch had just returned 133
+    // rows against a baseline of 125, the red skipped the commit, and the
+    // skipped commit left `previous` frozen at 2026-09-15T06:58:44.350Z — so
+    // the next run compared a live catalogue against an even older baseline.
+    // A degraded source must fail the run WITHOUT freezing the other 25.
+    const snapshot = healthySnapshot();
+    const degraded = snapshot.sources.lu as Record<string, unknown>;
+    degraded.status = 'degraded';
+    degraded.errorCode = 'source_disappeared';
+
+    const { status, summary, githubOutput } = runCheckHealth(snapshot);
+    expect(summary.errors.join('\n')).toContain('lu: snapshot status degraded');
+    expect(summary.blockingErrors).toEqual([]);
+    expect(githubOutput).toContain('blocking=false');
+    expect(status).toBe(1);
+  });
+
+  it('blocks the commit when the snapshot contradicts itself', () => {
+    // A rowCount that disagrees with the rows present is not a statement about
+    // an upstream source: the file itself is wrong, so publishing it could
+    // serve numbers that match nothing. This one must stop the commit.
+    const snapshot = healthySnapshot();
+    (snapshot.sources.gr as Record<string, unknown>).rowCount = 99;
+
+    const { status, summary, githubOutput } = runCheckHealth(snapshot);
+    expect(summary.blockingErrors.join('\n')).toContain('gr: rowCount 99 does not match 1 snapshot rows');
+    expect(githubOutput).toContain('blocking=true');
+    expect(status).toBe(1);
+  });
+
+  it('lets --blocking-only ignore a degraded source but still refuse a broken file', () => {
+    // The push-retry regenerate command uses this flag: it must republish after
+    // losing a race even though a source is degraded, and must still refuse a
+    // self-contradictory snapshot.
+    const degradedOnly = healthySnapshot();
+    (degradedOnly.sources.lu as Record<string, unknown>).status = 'degraded';
+    expect(runCheckHealth(degradedOnly, ['--blocking-only']).status).toBe(0);
+
+    const contradictory = healthySnapshot();
+    (contradictory.sources.gr as Record<string, unknown>).rowCount = 99;
+    expect(runCheckHealth(contradictory, ['--blocking-only']).status).toBe(1);
   });
 });

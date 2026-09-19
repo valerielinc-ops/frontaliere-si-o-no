@@ -96,7 +96,24 @@ jobs:
           exit 1
 
       - name: Fail closed on source health or snapshot drift
+        id: health
+        # The run still fails on any health error — see the final step, which
+        # holds the verdict. What this must NOT do any more is skip the commit,
+        # because that is what froze `previous` at 2026-09-15T06:58:44.350Z and
+        # made every later run measure a live catalogue against a four-day-old
+        # baseline. A degraded source is a fact about that source; it is not a
+        # reason to stop the other twenty-five from advancing.
+        continue-on-error: true
         run: node scripts/plate-auctions/check-health.mjs
+
+      - name: Stop before publishing a structurally unusable snapshot
+        # Phrased against `!= 'false'` on purpose: `true` and a MISSING output
+        # (check-health threw before writing it) must both stop the publication.
+        # Testing for `== 'true'` would let a crashed gate through.
+        if: steps.health.outputs.blocking != 'false'
+        run: |
+          echo "::error::check-health did not clear the snapshot for publication (blocking=${{ steps.health.outputs.blocking }}). The snapshot is self-inconsistent or unreadable, so nothing is committed."
+          exit 1
 
       - name: Run plate-auction regression tests
         run: >-
@@ -129,7 +146,7 @@ jobs:
           else
             git commit -m "🚘 Refresh Swiss plate-auction snapshot"
             bash scripts/lib/git-push-with-retry.sh \
-              --regenerate-cmd 'node scripts/plate-auctions/ingest.mjs && node scripts/plate-auctions/check-health.mjs && git add -f public/data/plate-auctions.json'
+              --regenerate-cmd 'node scripts/plate-auctions/ingest.mjs && node scripts/plate-auctions/check-health.mjs --blocking-only && git add -f public/data/plate-auctions.json'
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
             echo "expected_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           fi
@@ -157,6 +174,19 @@ jobs:
             echo "::error::Deploy trigger returned without dispatch_sent=true; refusing a false-green sitemap update."
             exit 1
           fi
+
+      - name: Fail the run on the source-health verdict
+        # The verdict has to be the LAST thing that decides the exit code, and
+        # it has to sit ABOVE the issue reporter: `failure()` below only sees a
+        # job that has already failed, so moving this after it would mean a
+        # health-only red run never opened an issue. Narrow on purpose —
+        # `steps.health.outcome == 'failure'` fires only when check-health
+        # actually reported errors, so a cancelled or skipped run is not
+        # relabelled as a health failure.
+        if: ${{ !cancelled() && steps.health.outcome == 'failure' }}
+        run: |
+          echo "::error::Plate-auction source health reported errors (see the 'Fail closed on source health or snapshot drift' step for the list). The snapshot was still committed if it was structurally sound, so the baseline advanced; this step keeps the run red so the degraded sources stay visible."
+          exit 1
 
       - name: Report failure to GitHub Issues
         if: failure()
