@@ -66,6 +66,28 @@ describe('lastminute location normalization', () => {
     expect(resolveSwissLastminuteLocation({ location: 'Chiasso, DE' })).toBeNull();
   });
 
+  it('keeps non-target-canton Swiss listings at both Lastminute location gates', () => {
+    expect(resolveSwissLastminuteLocation({ location: 'Zürich', country: 'CH' })).toMatchObject({
+      location: 'Zürich',
+      canton: 'ZH',
+    });
+
+    expect(normalizeLastminuteRow({
+      title: 'Software Engineer',
+      companyKey: 'lastminute-com',
+      url: 'https://corporate.lastminute.com/careers/jobs/job?id=744000149000002',
+      location: 'Zürich',
+      country: 'CH',
+      addressLocality: 'Zürich',
+      description: 'A sufficiently detailed job description for a Swiss software role.',
+      titleByLocale: { en: 'Software Engineer' },
+      descriptionByLocale: { en: 'A sufficiently detailed job description for a Swiss software role.' },
+    })).toMatchObject({
+      location: 'Zürich',
+      canton: 'ZH',
+    });
+  });
+
   it('syncs a moved job location even when its description is unchanged', () => {
     const existing = {
       location: 'Zürich',

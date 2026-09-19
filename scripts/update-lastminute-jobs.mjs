@@ -231,7 +231,7 @@ export function resolveSwissLastminuteLocation(detail = {}) {
   if (
     !location ||
     isLocationExplicitlyForeign(location) ||
-    !isTargetSwissLocation(location, { includeBorderProximity: false })
+    !isTargetSwissLocation(location, { includeAllCantons: true, includeBorderProximity: false })
   ) {
     return null;
   }
@@ -684,7 +684,7 @@ export function normalizeLastminuteRow(job) {
     !canton ||
     (country && !SWISS_COUNTRY_TOKENS.has(country)) ||
     isLocationExplicitlyForeign(location) ||
-    !isTargetSwissLocation(location, { includeBorderProximity: false })
+    !isTargetSwissLocation(location, { includeAllCantons: true, includeBorderProximity: false })
   ) {
     return null;
   }

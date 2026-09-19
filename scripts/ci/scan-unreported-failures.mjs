@@ -603,7 +603,9 @@ export function openFailureIssueWorkflows() {
       // `updatedAt` arriva qui e non costa una chiamata in più: è il dato con cui
       // si distingue un allarme vivo da uno parcheggiato (vedi
       // COVERED_ISSUE_SILENCE_HOURS).
-      '--json', 'number,title,updatedAt', ...repoFlag()],
+      // `body` contiene anche il campo strutturato `**Workflow:**` delle issue
+      // aperte dai monitor di dominio, che possono usare un titolo diverso.
+      '--json', 'number,title,updatedAt,body', ...repoFlag()],
     { allowFailure: true },
   );
   if (raw === null) return null;
@@ -629,10 +631,27 @@ export function openFailureIssueWorkflows() {
   }
   const byWorkflow = new Map();
   for (const issue of issues) {
-    const m = TITLE_RE.exec(String(issue?.title || ''));
-    if (m) byWorkflow.set(m[1].trim(), { number: issue.number, updatedAt: issue.updatedAt ?? null });
+    const workflowName = workflowNameFromIssue(issue);
+    if (workflowName) byWorkflow.set(workflowName, { number: issue.number, updatedAt: issue.updatedAt ?? null });
   }
   return byWorkflow;
+}
+
+/**
+ * Risolve il workflow associato a una issue già aperta.
+ *
+ * I fallimenti generici usano un titolo nella famiglia di `TITLE_RE`, mentre i
+ * monitor di dominio possono usare un titolo proprio. Questi ultimi hanno però
+ * già il campo strutturato `**Workflow:** <nome>` nel corpo: usarlo qui permette
+ * alla rete globale di riconoscere la copertura senza indovinare dal testo
+ * libero o dal nome del crawler.
+ */
+export function workflowNameFromIssue(issue) {
+  const titleMatch = TITLE_RE.exec(String(issue?.title || ''));
+  if (titleMatch) return titleMatch[1].trim();
+
+  const bodyMatch = String(issue?.body || '').match(/^\*\*Workflow:\*\*\s*(.+?)\s*$/m);
+  return bodyMatch?.[1]?.trim() || null;
 }
 
 /* ── modalità failure ───────────────────────────────────────────────── */
