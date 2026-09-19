@@ -1,18 +1,42 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-09-13T13:59:37.088Z",
-  "total": 5,
-  "newCount": 0,
+  "generatedAt": "2026-09-19T23:02:58.747Z",
+  "total": 6,
+  "newCount": 1,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5282,
-  "avgDurationMs": 5282,
+  "durationMs": 5667,
+  "avgDurationMs": 5667,
   "durationHistory": [
-    5282
+    5667
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Junior Legal – Banca del Sempione (Lugano)",
+      "company": "Banca del Sempione",
+      "companyKey": "banca-sempione",
+      "url": "https://www.bancasempione.ch/job/junior-legal-banca-del-sempione-lugano/",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "category": "legal",
+      "descriptionIt": "Junior Legal – Banca del Sempione (Lugano) presso Banca del Sempione, banca privata svizzera con sede a Lugano (Ticino). Il ruolo: Come parte del nostro team Legal, facente capo all’ Area Legal & Compliance che si occupa delle pratiche legali e di contenzioso della Banca, curando l’emissione delle normative interne e della contrattualistica bancaria e con i fornitori esterni e fornendo consulenza puntuale ai vari…",
+      "postedDate": "2026-09-15",
+      "source": "company-website",
+      "slug": "banca-del-sempione-junior-legal-banca-del-sempione-lugano",
+      "sourceLang": "it",
+      "crawledAt": "",
+      "_qualityScore": 52,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 2,
+        "completeness": 11
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Global Wealth Management – Assistente alla Consulenza (Lugano)",
