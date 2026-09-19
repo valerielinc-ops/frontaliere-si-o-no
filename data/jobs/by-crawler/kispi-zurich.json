@@ -52,13 +52,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiterin-fallmanagement-90-m-w-kispi-zurich-zurich",
-        "gestione-dei-casi-dei-dipendenti-90-m-f-universitats-kinderspital-zurich-kispi-zurich"
+        "mitarbeiterin-fallmanagement-90-m-w-kispi-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-fallmanagement-90-m-w-kispi-zurich-zurich",
-          "gestione-dei-casi-dei-dipendenti-90-m-f-universitats-kinderspital-zurich-kispi-zurich"
+          "mitarbeiterin-fallmanagement-90-m-w-kispi-zurich-zurich"
         ],
         "en": [
           "mitarbeiterin-fallmanagement-90-m-w-kispi-zurich-zurich"
@@ -131,13 +129,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "koordinatorin-research-management-administration-w-m-80-100-kispi-zurich-zurich",
-        "koordinatorin-ricerca-management-administration-w-m-80-100-universitats-kinderspital-zurich-kispi-zurich"
+        "koordinatorin-research-management-administration-w-m-80-100-kispi-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "koordinatorin-research-management-administration-w-m-80-100-kispi-zurich-zurich",
-          "koordinatorin-ricerca-management-administration-w-m-80-100-universitats-kinderspital-zurich-kispi-zurich"
+          "koordinatorin-research-management-administration-w-m-80-100-kispi-zurich-zurich"
         ],
         "fr": [
           "koordinatorin-research-management-administration-w-m-80-100-kispi-zurich-zurich"
@@ -207,13 +203,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich",
-        "applicazioni-aziendali-di-project-manager-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich"
+        "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich",
-          "applicazioni-aziendali-di-project-manager-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich"
+          "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich"
         ],
         "en": [
           "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich"
@@ -286,13 +280,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich",
-        "stage-in-ospedale-scuola-bambini-rehab-svizzera-m-f-80-universitats-kinderspital-zurich-kispi-zurich"
+        "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich",
-          "stage-in-ospedale-scuola-bambini-rehab-svizzera-m-f-80-universitats-kinderspital-zurich-kispi-zurich"
+          "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich"
         ],
         "en": [
           "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich"
@@ -411,12 +403,12 @@
     },
     {
       "id": "kispi-zurich-22cc5e50164b",
-      "slug": "mitarbeiterin-patientenaufnahme-w-m-40-kispi-zurich-zurich",
+      "slug": "ricevimento-del-paziente-dipendente-m-f-40-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "de": "mitarbeiterin-patientenaufnahme-w-m-40-kispi-zurich-zurich",
-        "it": "mitarbeiterin-patientenaufnahme-w-m-40-kispi-zurich-zurich",
-        "en": "mitarbeiterin-patientenaufnahme-w-m-40-kispi-zurich-zurich",
-        "fr": "mitarbeiterin-patientenaufnahme-w-m-40-kispi-zurich-zurich"
+        "it": "ricevimento-del-paziente-dipendente-m-f-40-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "employee-patient-reception-m-f-40-universitats-kinderspital-zurich-kispi-zurich",
+        "fr": "reception-du-patient-salarie-h-f-40-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -472,16 +464,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-18T23:11:58.444Z"
+      "firstSeenAt": "2026-09-18T23:11:58.444Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-patientenaufnahme-w-m-40-kispi-zurich-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-patientenaufnahme-w-m-40-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "mitarbeiterin-patientenaufnahme-w-m-40-kispi-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-patientenaufnahme-w-m-40-kispi-zurich-zurich"
+      ]
     },
     {
       "id": "kispi-zurich-b621e31d8c5f",
-      "slug": "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich",
+      "slug": "allenamento-dietetic-chef-con-federal-fa-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "de": "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich",
-        "it": "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich",
-        "en": "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich",
-        "fr": "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich"
+        "it": "allenamento-dietetic-chef-con-federal-fa-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "training-dietetic-chef-with-federal-fa-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
+        "fr": "formation-chef-dietetique-avec-fa-federale-h-f-80-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -537,16 +543,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-18T23:11:57.734Z"
+      "firstSeenAt": "2026-09-18T23:11:57.734Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich"
+        ],
+        "en": [
+          "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich"
+      ]
     },
     {
       "id": "kispi-zurich-cf43ac7e40c5",
-      "slug": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
+      "slug": "formazione-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "de": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
-        "it": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
-        "en": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
-        "fr": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich"
+        "it": "formazione-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "vocational-trainer-care-m-f-universitats-kinderspital-zurich-kispi-zurich",
+        "fr": "soins-aux-formateurs-professionnels-h-f-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -602,7 +622,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-18T23:11:57.218Z"
+      "firstSeenAt": "2026-09-18T23:11:57.218Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildnerin-pflege-m-w-kispi-zurich-zurich"
+        ],
+        "en": [
+          "berufsbildnerin-pflege-m-w-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "berufsbildnerin-pflege-m-w-kispi-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildnerin-pflege-m-w-kispi-zurich-zurich"
+      ]
     },
     {
       "id": "kispi-zurich-ac08735a244c",
@@ -657,15 +691,13 @@
         "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
         "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich",
         "psychomotor-therapist-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
-        "psychomotor-therapist-m-f-30-40-universitats-kinderspital-zurich-kispi-zurich",
-        "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
+        "psychomotor-therapist-m-f-30-40-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychomotoriktherapeutin-m-w-d-30-40-kispi-zurich-zurich",
           "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
-          "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich",
-          "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
+          "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich"
         ],
         "en": [
           "psychomotor-therapist-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
@@ -692,12 +724,12 @@
     },
     {
       "id": "kispi-zurich-2c6de88740b8",
-      "slug": "sozialpadagogin-sozialpadagoge-in-ausbildung-60-80-kispi-zurich-zurich",
+      "slug": "pedagoga-sociale-pedagoga-sociale-in-educazione-60-80-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "de": "sozialpadagogin-sozialpadagoge-in-ausbildung-60-80-kispi-zurich-zurich",
-        "it": "sozialpadagogin-sozialpadagoge-in-ausbildung-60-80-kispi-zurich-zurich",
-        "en": "sozialpadagogin-sozialpadagoge-in-ausbildung-60-80-kispi-zurich-zurich",
-        "fr": "sozialpadagogin-sozialpadagoge-in-ausbildung-60-80-kispi-zurich-zurich"
+        "it": "pedagoga-sociale-pedagoga-sociale-in-educazione-60-80-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "social-pedagogue-social-pedagogue-in-education-60-80-universitats-kinderspital-zurich-kispi-zurich",
+        "fr": "pedagogue-sociale-pedagogue-sociale-dans-l-education-60-80-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -753,7 +785,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-18T23:11:09.027Z"
+      "firstSeenAt": "2026-09-18T23:11:09.027Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialpadagogin-sozialpadagoge-in-ausbildung-60-80-kispi-zurich-zurich"
+        ],
+        "en": [
+          "sozialpadagogin-sozialpadagoge-in-ausbildung-60-80-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "sozialpadagogin-sozialpadagoge-in-ausbildung-60-80-kispi-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sozialpadagogin-sozialpadagoge-in-ausbildung-60-80-kispi-zurich-zurich"
+      ]
     },
     {
       "id": "kispi-zurich-0a38b3dc1a38",
@@ -917,9 +963,9 @@
       "slug": "disponentin-m-w-d-70-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "it": "disponentin-m-w-d-70-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "disponent-m-w-d-70-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "disponentine-m-f-70-universitats-kinderspital-zurich-kispi-zurich",
         "de": "disponentin-m-w-70-kispi-zurich-zurich",
-        "fr": "depot-m-w-d-70-universitats-kinderspital-zurich-kispi-zurich"
+        "fr": "depontine-h-f-70-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -966,8 +1012,8 @@
         "disponentin-m-w-d-80-universitats-kinderspital-zurich-kispi-zurich",
         "depontine-m-p-universitats-kinderspital-zurich-kispi-zurich",
         "ampliamento-m-f-70-universitats-kinderspital-zurich-kispi-zurich",
-        "disponentine-m-f-70-universitats-kinderspital-zurich-kispi-zurich",
-        "depontine-h-f-70-universitats-kinderspital-zurich-kispi-zurich"
+        "disponent-m-w-d-70-universitats-kinderspital-zurich-kispi-zurich",
+        "depot-m-w-d-70-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -979,11 +1025,11 @@
         ],
         "en": [
           "disponentin-m-w-70-kispi-zurich-zurich",
-          "disponentine-m-f-70-universitats-kinderspital-zurich-kispi-zurich"
+          "disponent-m-w-d-70-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "fr": [
           "disponentin-m-w-70-kispi-zurich-zurich",
-          "depontine-h-f-70-universitats-kinderspital-zurich-kispi-zurich"
+          "depot-m-w-d-70-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "firstSeenAt": "2026-09-09T13:42:02.172Z",

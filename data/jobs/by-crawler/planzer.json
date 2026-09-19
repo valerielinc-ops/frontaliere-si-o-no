@@ -7,7 +7,7 @@
       "slug": "lavoratore-di-ufficio-m-f-d-planzer-chavornay",
       "slugByLocale": {
         "it": "lavoratore-di-ufficio-m-f-d-planzer-chavornay",
-        "en": "employe-de-bureau-m-w-d-planzer-chavornay",
+        "en": "office-worker-m-f-d-planzer-chavornay",
         "de": "buroangestellter-m-w-d-planzer-chavornay",
         "fr": "employe-de-bureau-m-f-d-planzer-chavornay"
       },
@@ -54,17 +54,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "employe-de-bureau-m-f-d-planzer-chavornay",
-        "office-worker-m-f-d-planzer-chavornay",
-        "lavoratore-di-ufficio-m-f-d-planzer-chavornay"
+        "employe-de-bureau-m-w-d-planzer-chavornay"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "employe-de-bureau-m-f-d-planzer-chavornay",
-          "lavoratore-di-ufficio-m-f-d-planzer-chavornay"
+          "employe-de-bureau-m-f-d-planzer-chavornay"
         ],
         "en": [
           "employe-de-bureau-m-f-d-planzer-chavornay",
-          "office-worker-m-f-d-planzer-chavornay"
+          "employe-de-bureau-m-w-d-planzer-chavornay"
         ],
         "de": [
           "employe-de-bureau-m-f-d-planzer-chavornay"
@@ -137,13 +135,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "disponent-stuckgut-m-w-d-planzer-harkingen",
-        "carico-generale-m-f-d-planzer-harkingen"
+        "disponent-stuckgut-m-w-d-planzer-harkingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "disponent-stuckgut-m-w-d-planzer-harkingen",
-          "carico-generale-m-f-d-planzer-harkingen"
+          "disponent-stuckgut-m-w-d-planzer-harkingen"
         ],
         "en": [
           "disponent-stuckgut-m-w-d-planzer-harkingen"
@@ -219,13 +215,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeur-kat-ce-m-w-d-planzer-marstetten",
-        "chauffeur-cat-ce-m-f-d-z-planzer-marstetten"
+        "chauffeur-kat-ce-m-w-d-planzer-marstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-kat-ce-m-w-d-planzer-marstetten",
-          "chauffeur-cat-ce-m-f-d-z-planzer-marstetten"
+          "chauffeur-kat-ce-m-w-d-planzer-marstetten"
         ],
         "fr": [
           "chauffeur-kat-ce-m-w-d-planzer-marstetten"
@@ -248,12 +242,12 @@
     },
     {
       "id": "planzer-1700caef3332",
-      "slug": "assistant-administratif-m-f-d-planzer-chavornay",
+      "slug": "assistente-amministrativo-m-f-d-planzer-chavornay",
       "slugByLocale": {
         "fr": "assistant-administratif-m-f-d-planzer-chavornay",
-        "it": "assistant-administratif-m-f-d-planzer-chavornay",
-        "en": "assistant-administratif-m-f-d-planzer-chavornay",
-        "de": "assistant-administratif-m-f-d-planzer-chavornay"
+        "it": "assistente-amministrativo-m-f-d-planzer-chavornay",
+        "en": "administrative-assistant-m-f-d-planzer-chavornay",
+        "de": "assistent-administratif-m-f-d-planzer-chavornay"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -311,16 +305,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-18T23:10:26.193Z"
+      "firstSeenAt": "2026-09-18T23:10:26.193Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-administratif-m-f-d-planzer-chavornay"
+        ],
+        "en": [
+          "assistant-administratif-m-f-d-planzer-chavornay"
+        ],
+        "de": [
+          "assistant-administratif-m-f-d-planzer-chavornay"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-administratif-m-f-d-planzer-chavornay"
+      ]
     },
     {
       "id": "planzer-c5969ed38613",
-      "slug": "werbetechniker-m-w-d-planzer-dallikon",
+      "slug": "tecnico-pubblicitario-m-f-d-planzer-dallikon",
       "slugByLocale": {
         "de": "werbetechniker-m-w-d-planzer-dallikon",
-        "it": "werbetechniker-m-w-d-planzer-dallikon",
-        "en": "werbetechniker-m-w-d-planzer-dallikon",
-        "fr": "werbetechniker-m-w-d-planzer-dallikon"
+        "it": "tecnico-pubblicitario-m-f-d-planzer-dallikon",
+        "en": "advertising-technician-m-f-d-planzer-dallikon",
+        "fr": "technicien-en-publicite-h-f-d-planzer-dallikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -378,7 +386,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-18T23:10:25.585Z"
+      "firstSeenAt": "2026-09-18T23:10:25.585Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "werbetechniker-m-w-d-planzer-dallikon"
+        ],
+        "en": [
+          "werbetechniker-m-w-d-planzer-dallikon"
+        ],
+        "fr": [
+          "werbetechniker-m-w-d-planzer-dallikon"
+        ]
+      },
+      "previousSlugs": [
+        "werbetechniker-m-w-d-planzer-dallikon"
+      ]
     },
     {
       "id": "planzer-6547d44e0a6d",
@@ -386,8 +408,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-logistik-musterzug-m-w-d-planzer-birsfelden",
         "it": "addetto-a-alla-logistica-musterzug-m-w-d-planzer-birsfelden",
-        "en": "mitarbeiter-logistik-musterzug-m-w-d-planzer-birsfelden",
-        "fr": "mitarbeiter-logistik-musterzug-m-w-d-planzer-birsfelden"
+        "en": "employee-logistics-sample-train-m-f-d-planzer-birsfelden",
+        "fr": "logistique-des-employes-et-echantillon-de-train-h-f-d-planzer-birsfelden"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -435,6 +457,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-logistik-musterzug-m-w-d-planzer-birsfelden"
+        ],
+        "en": [
+          "mitarbeiter-logistik-musterzug-m-w-d-planzer-birsfelden"
+        ],
+        "fr": [
+          "mitarbeiter-logistik-musterzug-m-w-d-planzer-birsfelden"
         ]
       },
       "previousSlugs": [
@@ -457,12 +485,12 @@
     },
     {
       "id": "planzer-8ee5ad831a99",
-      "slug": "paketzusteller-m-w-d-planzer-schmerikon",
+      "slug": "consegna-del-pacchetto-m-f-d-planzer-schmerikon",
       "slugByLocale": {
         "de": "paketzusteller-m-w-d-planzer-schmerikon",
-        "it": "paketzusteller-m-w-d-planzer-schmerikon",
-        "en": "paketzusteller-m-w-d-planzer-schmerikon",
-        "fr": "paketzusteller-m-w-d-planzer-schmerikon"
+        "it": "consegna-del-pacchetto-m-f-d-planzer-schmerikon",
+        "en": "package-delivery-m-f-d-planzer-schmerikon",
+        "fr": "livraison-de-colis-h-f-d-planzer-schmerikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -520,16 +548,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-18T23:10:24.277Z"
+      "firstSeenAt": "2026-09-18T23:10:24.277Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "paketzusteller-m-w-d-planzer-schmerikon"
+        ],
+        "en": [
+          "paketzusteller-m-w-d-planzer-schmerikon"
+        ],
+        "fr": [
+          "paketzusteller-m-w-d-planzer-schmerikon"
+        ]
+      },
+      "previousSlugs": [
+        "paketzusteller-m-w-d-planzer-schmerikon"
+      ]
     },
     {
       "id": "planzer-477eee432725",
-      "slug": "employe-depot-m-f-d-planzer-geneve-aeroport",
+      "slug": "dipendente-di-deposito-m-f-d-planzer-geneve-aeroport",
       "slugByLocale": {
         "fr": "employe-depot-m-f-d-planzer-geneve-aeroport",
-        "it": "employe-depot-m-f-d-planzer-geneve-aeroport",
-        "en": "employe-depot-m-f-d-planzer-geneve-aeroport",
-        "de": "employe-depot-m-f-d-planzer-geneve-aeroport"
+        "it": "dipendente-di-deposito-m-f-d-planzer-geneve-aeroport",
+        "en": "deposit-employee-m-f-d-planzer-geneve-aeroport",
+        "de": "einlagen-mitarbeiter-m-w-d-planzer-geneve-aeroport"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -587,16 +629,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-18T23:10:23.549Z"
+      "firstSeenAt": "2026-09-18T23:10:23.549Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-depot-m-f-d-planzer-geneve-aeroport"
+        ],
+        "en": [
+          "employe-depot-m-f-d-planzer-geneve-aeroport"
+        ],
+        "de": [
+          "employe-depot-m-f-d-planzer-geneve-aeroport"
+        ]
+      },
+      "previousSlugs": [
+        "employe-depot-m-f-d-planzer-geneve-aeroport"
+      ]
     },
     {
       "id": "planzer-a05a48440af4",
-      "slug": "disponent-stuckgut-regional-m-w-d-planzer-bern",
+      "slug": "cargo-generale-regionale-m-f-d-planzer-bern",
       "slugByLocale": {
         "de": "disponent-stuckgut-regional-m-w-d-planzer-bern",
-        "it": "disponent-stuckgut-regional-m-w-d-planzer-bern",
-        "en": "disponent-stuckgut-regional-m-w-d-planzer-bern",
-        "fr": "disponent-stuckgut-regional-m-w-d-planzer-bern"
+        "it": "cargo-generale-regionale-m-f-d-planzer-bern",
+        "en": "disponent-general-cargo-regional-m-f-d-planzer-bern",
+        "fr": "marchandises-generales-detachees-region-h-f-d-planzer-bern"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -654,16 +710,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-18T23:10:22.940Z"
+      "firstSeenAt": "2026-09-18T23:10:22.940Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-stuckgut-regional-m-w-d-planzer-bern"
+        ],
+        "en": [
+          "disponent-stuckgut-regional-m-w-d-planzer-bern"
+        ],
+        "fr": [
+          "disponent-stuckgut-regional-m-w-d-planzer-bern"
+        ]
+      },
+      "previousSlugs": [
+        "disponent-stuckgut-regional-m-w-d-planzer-bern"
+      ]
     },
     {
       "id": "planzer-4da81dad26cf",
-      "slug": "chauffeur-kat-ce-m-w-d-planzer-bern",
+      "slug": "chauffeur-cat-ce-m-f-d-z-planzer-bern",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-m-w-d-planzer-bern",
-        "it": "chauffeur-kat-ce-m-w-d-planzer-bern",
+        "it": "chauffeur-cat-ce-m-f-d-z-planzer-bern",
         "en": "chauffeur-kat-ce-m-w-d-planzer-bern",
-        "fr": "chauffeur-kat-ce-m-w-d-planzer-bern"
+        "fr": "chauffeur-cat-ce-h-f-d-z-planzer-bern"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -721,7 +791,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-18T23:10:22.227Z"
+      "firstSeenAt": "2026-09-18T23:10:22.227Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-m-w-d-planzer-bern"
+        ],
+        "fr": [
+          "chauffeur-kat-ce-m-w-d-planzer-bern"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-m-w-d-planzer-bern"
+      ]
     },
     {
       "id": "planzer-fa620e0d52e5",
@@ -812,7 +893,7 @@
         "fr": "chauffeur-colis-cat-b-sur-appel-m-f-d-planzer-grand-lancy",
         "it": "cat-b-driver-pacchetto-su-chiamata-m-f-d-planzer-grand-lancy",
         "en": "cat-b-package-driver-on-call-m-f-d-planzer-grand-lancy",
-        "de": "chauffeur-colis-cat-b-sur-appel-m-w-d-planzer-grand-lancy"
+        "de": "katze-b-pakettreiber-auf-anruf-m-w-d-planzer-grand-lancy"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -880,12 +961,12 @@
         ],
         "de": [
           "chauffeur-colis-cat-b-sur-appel-m-f-d-planzer-grand-lancy",
-          "katze-b-pakettreiber-auf-anruf-m-w-d-planzer-grand-lancy"
+          "chauffeur-colis-cat-b-sur-appel-m-w-d-planzer-grand-lancy"
         ]
       },
       "previousSlugs": [
         "chauffeur-colis-cat-b-sur-appel-m-f-d-planzer-grand-lancy",
-        "katze-b-pakettreiber-auf-anruf-m-w-d-planzer-grand-lancy"
+        "chauffeur-colis-cat-b-sur-appel-m-w-d-planzer-grand-lancy"
       ],
       "crawlerMissStreak": 1
     },
@@ -2035,7 +2116,7 @@
       "slugByLocale": {
         "de": "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon",
         "it": "lavoro-meccanico-a-tutto-tondo-m-f-d-planzer-dallikon",
-        "en": "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon",
+        "en": "all-rounder-mechanical-work-m-f-d-planzer-dallikon",
         "fr": "ouvrage-mecanique-complet-h-f-d-planzer-dallikon"
       },
       "company": "Planzer",
@@ -2100,7 +2181,6 @@
           "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon"
         ],
         "en": [
-          "all-rounder-mechanical-work-m-f-d-planzer-dallikon",
           "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon"
         ],
         "fr": [
@@ -2108,8 +2188,7 @@
         ]
       },
       "previousSlugs": [
-        "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon",
-        "all-rounder-mechanical-work-m-f-d-planzer-dallikon"
+        "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon"
       ],
       "crawlerMissStreak": 2
     }

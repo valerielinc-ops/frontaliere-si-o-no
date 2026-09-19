@@ -72,12 +72,12 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1372530057",
-      "slug": "working-student-group-compliance-60-100-6-months-zurich-insurance-sede-ticino-zurich",
+      "slug": "compliance-del-gruppo-di-studenti-di-lavoro-60-100-6-mesi-zurich-insurance-zurich-1372530057",
       "slugByLocale": {
         "en": "working-student-group-compliance-60-100-6-months-zurich-insurance-sede-ticino-zurich",
-        "it": "working-student-group-compliance-60-100-6-months-zurich-insurance-sede-ticino-zurich",
+        "it": "compliance-del-gruppo-di-studenti-di-lavoro-60-100-6-mesi-zurich-insurance-zurich-1372530057",
         "de": "working-student-group-compliance-60-100-6-months-zurich-insurance-sede-ticino-zurich",
-        "fr": "working-student-group-compliance-60-100-6-months-zurich-insurance-sede-ticino-zurich"
+        "fr": "conformite-du-groupe-etudiant-de-travail-60-100-6-mois-zurich-insurance-zurich-1372530057"
       },
       "slugDisambiguator": "1372530057",
       "company": "Zurich Insurance",
@@ -136,7 +136,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-18T23:20:41.276Z"
+      "firstSeenAt": "2026-09-18T23:20:41.276Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "working-student-group-compliance-60-100-6-months-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "working-student-group-compliance-60-100-6-months-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "working-student-group-compliance-60-100-6-months-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1372529057",
@@ -213,7 +224,7 @@
         "de": "senior-property-lease-manager-m-w-d-zurich-insurance-sede-ticino-zurich",
         "it": "senior-property-lease-manager-m-w-d-zurich-insurance-sede-ticino-zurich",
         "en": "senior-property-lease-manager-m-w-d-zurich-insurance-zurich-1372586657",
-        "fr": "senior-property-lease-manager-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "fr": "gestionnaire-principal-de-biens-et-de-location-h-f-d-zurich-insurance-zurich-1372586657"
       },
       "slugDisambiguator": "1372586657",
       "company": "Zurich Insurance",
@@ -356,12 +367,12 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1372353057",
-      "slug": "werkstudent-p-c-transformationsprogramm-m-w-d-zurich-insurance-zurich-1372353057",
+      "slug": "programma-di-trasformazione-dello-studente-di-lavoro-p-c-m-f-d-zurich-insurance-zurich-1372353057",
       "slugByLocale": {
         "de": "werkstudent-p-c-transformationsprogramm-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "it": "werkstudent-p-c-transformationsprogramm-m-w-d-zurich-insurance-zurich-1372353057",
-        "en": "werkstudent-p-c-transformationsprogramm-m-w-d-zurich-insurance-zurich-1372353057",
-        "fr": "werkstudent-p-c-transformationsprogramm-m-w-d-zurich-insurance-zurich-1372353057"
+        "it": "programma-di-trasformazione-dello-studente-di-lavoro-p-c-m-f-d-zurich-insurance-zurich-1372353057",
+        "en": "working-student-p-c-transformation-program-m-f-d-zurich-insurance-zurich-1372353057",
+        "fr": "programme-de-transformation-p-c-de-l-etudiant-travailleur-h-f-d-zurich-insurance-zurich-1372353057"
       },
       "slugDisambiguator": "1372353057",
       "company": "Zurich Insurance",
@@ -409,11 +420,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "werkstudent-p-c-transformationsprogramm-m-w-d-zurich-insurance-sede-ticino-zurich"
+          "werkstudent-p-c-transformationsprogramm-m-w-d-zurich-insurance-sede-ticino-zurich",
+          "werkstudent-p-c-transformationsprogramm-m-w-d-zurich-insurance-zurich-1372353057"
+        ],
+        "en": [
+          "werkstudent-p-c-transformationsprogramm-m-w-d-zurich-insurance-zurich-1372353057"
+        ],
+        "fr": [
+          "werkstudent-p-c-transformationsprogramm-m-w-d-zurich-insurance-zurich-1372353057"
         ]
       },
       "previousSlugs": [
-        "werkstudent-p-c-transformationsprogramm-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "werkstudent-p-c-transformationsprogramm-m-w-d-zurich-insurance-sede-ticino-zurich",
+        "werkstudent-p-c-transformationsprogramm-m-w-d-zurich-insurance-zurich-1372353057"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -500,12 +519,12 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1372050557",
-      "slug": "schadenspezialist-schadencenter-m-w-d-zurich-insurance-st-gallen-1372050557",
+      "slug": "specialista-di-damage-center-m-f-d-zurich-insurance-st-gallen-1372050557",
       "slugByLocale": {
         "de": "schadenspezialist-schadencenter-m-w-d-zurich-insurance-sede-ticino-st-gallen",
-        "it": "schadenspezialist-schadencenter-m-w-d-zurich-insurance-st-gallen-1372050557",
-        "en": "schadenspezialist-schadencenter-m-w-d-zurich-insurance-st-gallen-1372050557",
-        "fr": "schadenspezialist-schadencenter-m-w-d-zurich-insurance-st-gallen-1372050557"
+        "it": "specialista-di-damage-center-m-f-d-zurich-insurance-st-gallen-1372050557",
+        "en": "damage-specialist-damage-center-m-f-d-zurich-insurance-st-gallen-1372050557",
+        "fr": "specialiste-des-dommages-centre-de-dommages-h-f-d-zurich-insurance-st-gallen-1372050557"
       },
       "slugDisambiguator": "1372050557",
       "company": "Zurich Insurance",
@@ -553,11 +572,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schadenspezialist-schadencenter-m-w-d-zurich-insurance-sede-ticino-st-gallen"
+          "schadenspezialist-schadencenter-m-w-d-zurich-insurance-sede-ticino-st-gallen",
+          "schadenspezialist-schadencenter-m-w-d-zurich-insurance-st-gallen-1372050557"
+        ],
+        "en": [
+          "schadenspezialist-schadencenter-m-w-d-zurich-insurance-st-gallen-1372050557"
+        ],
+        "fr": [
+          "schadenspezialist-schadencenter-m-w-d-zurich-insurance-st-gallen-1372050557"
         ]
       },
       "previousSlugs": [
-        "schadenspezialist-schadencenter-m-w-d-zurich-insurance-sede-ticino-st-gallen"
+        "schadenspezialist-schadencenter-m-w-d-zurich-insurance-sede-ticino-st-gallen",
+        "schadenspezialist-schadencenter-m-w-d-zurich-insurance-st-gallen-1372050557"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -4068,7 +4095,7 @@
         "it": "ufficio-di-gestione-del-programma-m-f-d-zurich-insurance-sede-ticino-zurich-1371935457",
         "en": "program-management-office-m-w-d-zurich-insurance-sede-ticino-zurich",
         "de": "program-management-office-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "program-management-office-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "fr": "bureau-de-gestion-du-programme-h-f-d-zurich-insurance-sede-ticino-zurich-1371935457"
       },
       "company": "Zurich Insurance (sede Ticino)",
       "companyKey": "zurich-insurance-sede-ticino",
@@ -4110,15 +4137,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "program-management-office-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "bureau-de-gestion-du-programme-h-f-d-zurich-insurance-sede-ticino-zurich-1371935457"
+        "program-management-office-m-w-d-zurich-insurance-sede-ticino-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "program-management-office-m-w-d-zurich-insurance-sede-ticino-zurich"
         ],
         "fr": [
-          "bureau-de-gestion-du-programme-h-f-d-zurich-insurance-sede-ticino-zurich-1371935457",
           "program-management-office-m-w-d-zurich-insurance-sede-ticino-zurich"
         ]
       },

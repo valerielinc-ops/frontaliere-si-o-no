@@ -52,13 +52,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sanitarfachperson-in-der-hauswartung-100-pigna-kloten",
-        "persona-sanitaria-in-pulizia-100-stiftung-pigna-kloten"
+        "sanitarfachperson-in-der-hauswartung-100-pigna-kloten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sanitarfachperson-in-der-hauswartung-100-pigna-kloten",
-          "persona-sanitaria-in-pulizia-100-stiftung-pigna-kloten"
+          "sanitarfachperson-in-der-hauswartung-100-pigna-kloten"
         ],
         "en": [
           "sanitarfachperson-in-der-hauswartung-100-pigna-kloten"
@@ -133,14 +131,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegfachperson-fur-unsere-fachstelle-gesundheit-60-100-pigna-kloten",
-        "dipl-pflegfachperson-per-unsere-fachstelle-gesundheit-60-100-stiftung-pigna-kloten",
-        "dipl-carriera-per-la-nostra-unita-di-assistenza-sanitaria-60-100-stiftung-pigna-kloten"
+        "dipl-pflegfachperson-per-unsere-fachstelle-gesundheit-60-100-stiftung-pigna-kloten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegfachperson-fur-unsere-fachstelle-gesundheit-60-100-pigna-kloten",
-          "dipl-pflegfachperson-per-unsere-fachstelle-gesundheit-60-100-stiftung-pigna-kloten",
-          "dipl-carriera-per-la-nostra-unita-di-assistenza-sanitaria-60-100-stiftung-pigna-kloten"
+          "dipl-pflegfachperson-per-unsere-fachstelle-gesundheit-60-100-stiftung-pigna-kloten"
         ],
         "en": [
           "dipl-pflegfachperson-fur-unsere-fachstelle-gesundheit-60-100-pigna-kloten"
@@ -214,13 +210,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-im-nachtdienst-40-60-pigna-kloten",
-        "diritto-di-servizio-40-60-stiftung-pigna-kloten"
+        "fachperson-im-nachtdienst-40-60-pigna-kloten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-im-nachtdienst-40-60-pigna-kloten",
-          "diritto-di-servizio-40-60-stiftung-pigna-kloten"
+          "fachperson-im-nachtdienst-40-60-pigna-kloten"
         ],
         "en": [
           "fachperson-im-nachtdienst-40-60-pigna-kloten"
@@ -246,12 +240,12 @@
     },
     {
       "id": "pigna-9f9a0da513c4",
-      "slug": "betreuungspersonal-aussenwohngruppe-60-80-pigna-kloten",
+      "slug": "staffa-esterna-60-80-stiftung-pigna-kloten",
       "slugByLocale": {
         "de": "betreuungspersonal-aussenwohngruppe-60-80-pigna-kloten",
-        "it": "betreuungspersonal-aussenwohngruppe-60-80-pigna-kloten",
-        "en": "betreuungspersonal-aussenwohngruppe-60-80-pigna-kloten",
-        "fr": "betreuungspersonal-aussenwohngruppe-60-80-pigna-kloten"
+        "it": "staffa-esterna-60-80-stiftung-pigna-kloten",
+        "en": "external-group-staff-60-80-stiftung-pigna-kloten",
+        "fr": "personnel-du-groupe-exterieur-60-80-stiftung-pigna-kloten"
       },
       "company": "Stiftung Pigna",
       "companyKey": "pigna",
@@ -307,16 +301,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-18T23:21:26.535Z"
+      "firstSeenAt": "2026-09-18T23:21:26.535Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betreuungspersonal-aussenwohngruppe-60-80-pigna-kloten"
+        ],
+        "en": [
+          "betreuungspersonal-aussenwohngruppe-60-80-pigna-kloten"
+        ],
+        "fr": [
+          "betreuungspersonal-aussenwohngruppe-60-80-pigna-kloten"
+        ]
+      },
+      "previousSlugs": [
+        "betreuungspersonal-aussenwohngruppe-60-80-pigna-kloten"
+      ]
     },
     {
       "id": "pigna-9ff7a31d166f",
-      "slug": "teamleitung-per-unsere-wohngruppe-zugang-zum-park-stiftung-pigna-kloten",
+      "slug": "insegnamento-per-il-nostro-gruppo-residenziale-access-to-park-stiftung-pigna-kloten",
       "slugByLocale": {
         "de": "teamleitung-fur-unsere-wohngruppe-zugang-zum-park-pigna-kloten",
-        "it": "teamleitung-per-unsere-wohngruppe-zugang-zum-park-stiftung-pigna-kloten",
-        "en": "teamleitung-fur-unsere-wohngruppe-zugang-zum-park-pigna-kloten",
-        "fr": "teamleitung-fur-unsere-wohngruppe-zugang-zum-park-pigna-kloten"
+        "it": "insegnamento-per-il-nostro-gruppo-residenziale-access-to-park-stiftung-pigna-kloten",
+        "en": "teaching-for-our-residential-group-access-to-park-stiftung-pigna-kloten",
+        "fr": "enseignement-pour-notre-groupe-residentiel-access-to-park-stiftung-pigna-kloten"
       },
       "company": "Stiftung Pigna",
       "companyKey": "pigna",
@@ -361,11 +369,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "teamleitung-fur-unsere-wohngruppe-zugang-zum-park-pigna-kloten",
+          "teamleitung-per-unsere-wohngruppe-zugang-zum-park-stiftung-pigna-kloten"
+        ],
+        "en": [
+          "teamleitung-fur-unsere-wohngruppe-zugang-zum-park-pigna-kloten"
+        ],
+        "fr": [
           "teamleitung-fur-unsere-wohngruppe-zugang-zum-park-pigna-kloten"
         ]
       },
       "previousSlugs": [
-        "teamleitung-fur-unsere-wohngruppe-zugang-zum-park-pigna-kloten"
+        "teamleitung-fur-unsere-wohngruppe-zugang-zum-park-pigna-kloten",
+        "teamleitung-per-unsere-wohngruppe-zugang-zum-park-stiftung-pigna-kloten"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -437,8 +453,7 @@
         "betreuungsperson-con-option-teamleitung-stellvertretung-60-90-stiftung-pigna-kloten",
         "operational-person-with-option-teamling-administrative-representation-60-90-stiftung-pigna-kloten",
         "personne-operationnelle-avec-representation-administrative-de-l-equipe-d-option-60-90-stiftung-pigna-kloten",
-        "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten",
-        "personale-operativo-con-la-rappresentazione-amministrativa-aperativa-60-90-stiftung-pigna-kloten"
+        "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -447,8 +462,7 @@
           "betreuungsperson-con-option-teamleitung-stellvertretung-60-90-stiftung-pigna-kloten",
           "operational-person-with-option-teamling-administrative-representation-60-90-stiftung-pigna-kloten",
           "personne-operationnelle-avec-representation-administrative-de-l-equipe-d-option-60-90-stiftung-pigna-kloten",
-          "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten",
-          "personale-operativo-con-la-rappresentazione-amministrativa-aperativa-60-90-stiftung-pigna-kloten"
+          "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten"
         ],
         "en": [
           "operation-person-with-option-teamling-administrative-representation-60-90-stiftung-pigna-kloten",
@@ -529,8 +543,7 @@
         "teamleitung-per-unsere-wohngruppe-zugang-zum-park-stiftung-pigna-kloten",
         "teaching-for-our-residential-group-access-to-park-stiftung-pigna-kloten",
         "teamleitung-fur-unsere-wohngruppe-zugang-zum-park-pigna-kloten",
-        "enseignement-pour-notre-groupe-residentiel-access-to-park-stiftung-pigna-kloten",
-        "servizi-di-staff-per-il-nostro-gruppo-di-alloggi-accesso-al-parco-60-90-stiftung-pigna-kloten"
+        "enseignement-pour-notre-groupe-residentiel-access-to-park-stiftung-pigna-kloten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -539,8 +552,7 @@
           "teamleitung-per-unsere-wohngruppe-zugang-zum-park-stiftung-pigna-kloten",
           "teaching-for-our-residential-group-access-to-park-stiftung-pigna-kloten",
           "teamleitung-fur-unsere-wohngruppe-zugang-zum-park-pigna-kloten",
-          "enseignement-pour-notre-groupe-residentiel-access-to-park-stiftung-pigna-kloten",
-          "servizi-di-staff-per-il-nostro-gruppo-di-alloggi-accesso-al-parco-60-90-stiftung-pigna-kloten"
+          "enseignement-pour-notre-groupe-residentiel-access-to-park-stiftung-pigna-kloten"
         ],
         "en": [
           "betreuungspersonal-fur-unsere-wohngruppe-zugang-zum-park-60-90-pigna-kloten",
@@ -571,12 +583,12 @@
     },
     {
       "id": "pigna-19c8942e23ff",
-      "slug": "combi-talent-per-pflegerisch-agogische-betreuung-60-90-stiftung-pigna-kloten",
+      "slug": "combi-talente-per-la-vendita-agogica-60-90-stiftung-pigna-kloten",
       "slugByLocale": {
         "de": "combi-talent-fur-pflegerisch-agogische-betreuung-60-90-pigna-kloten",
-        "it": "combi-talent-per-pflegerisch-agogische-betreuung-60-90-stiftung-pigna-kloten",
-        "en": "combi-talent-fur-pflegerisch-agogische-betreuung-60-90-pigna-kloten",
-        "fr": "combi-talent-fur-pflegerisch-agogische-betreuung-60-90-pigna-kloten"
+        "it": "combi-talente-per-la-vendita-agogica-60-90-stiftung-pigna-kloten",
+        "en": "combi-talent-for-plant-agogic-holding-60-90-stiftung-pigna-kloten",
+        "fr": "combitant-pour-l-hotel-agrogique-phytique-60-90-stiftung-pigna-kloten"
       },
       "company": "Stiftung Pigna",
       "companyKey": "pigna",
@@ -625,13 +637,16 @@
           "combi-talent-for-plant-agigic-holding-60-90-stiftung-pigna-kloten",
           "combi-talent-pour-l-hotel-phytogique-60-90-stiftung-pigna-kloten",
           "combi-talent-for-group-agogic-holding-60-90-stiftung-pigna-kloten",
-          "combitant-pour-l-hotel-groupe-agogique-60-90-stiftung-pigna-kloten"
+          "combitant-pour-l-hotel-groupe-agogique-60-90-stiftung-pigna-kloten",
+          "combi-talent-per-pflegerisch-agogische-betreuung-60-90-stiftung-pigna-kloten"
         ],
         "en": [
-          "combi-talent-for-plant-agigic-holding-60-90-stiftung-pigna-kloten"
+          "combi-talent-for-plant-agigic-holding-60-90-stiftung-pigna-kloten",
+          "combi-talent-fur-pflegerisch-agogische-betreuung-60-90-pigna-kloten"
         ],
         "fr": [
-          "combi-talent-pour-l-hotel-phytogique-60-90-stiftung-pigna-kloten"
+          "combi-talent-pour-l-hotel-phytogique-60-90-stiftung-pigna-kloten",
+          "combi-talent-fur-pflegerisch-agogische-betreuung-60-90-pigna-kloten"
         ]
       },
       "previousSlugs": [
@@ -639,7 +654,8 @@
         "combi-talent-for-plant-agigic-holding-60-90-stiftung-pigna-kloten",
         "combi-talent-pour-l-hotel-phytogique-60-90-stiftung-pigna-kloten",
         "combi-talent-for-group-agogic-holding-60-90-stiftung-pigna-kloten",
-        "combitant-pour-l-hotel-groupe-agogique-60-90-stiftung-pigna-kloten"
+        "combitant-pour-l-hotel-groupe-agogique-60-90-stiftung-pigna-kloten",
+        "combi-talent-per-pflegerisch-agogische-betreuung-60-90-stiftung-pigna-kloten"
       ],
       "salaryMin": 82400,
       "salaryMax": 115200,
@@ -658,12 +674,12 @@
     },
     {
       "id": "pigna-537b1887bc77",
-      "slug": "agogischer-wohnprofi-mit-pflegerischem-flair-60-90-pigna-kloten",
+      "slug": "profi-di-ricerca-agogica-con-flair-pursuant-60-90-stiftung-pigna-kloten",
       "slugByLocale": {
         "de": "agogischer-wohnprofi-mit-pflegerischem-flair-60-90-pigna-kloten",
-        "it": "agogischer-wohnprofi-mit-pflegerischem-flair-60-90-pigna-kloten",
-        "en": "agogischer-wohnprofi-mit-pflegerischem-flair-60-90-pigna-kloten",
-        "fr": "agogischer-wohnprofi-mit-pflegerischem-flair-60-90-pigna-kloten"
+        "it": "profi-di-ricerca-agogica-con-flair-pursuant-60-90-stiftung-pigna-kloten",
+        "en": "agogic-residence-profi-with-pursuant-flair-60-90-stiftung-pigna-kloten",
+        "fr": "profil-de-residence-agogique-avec-flair-actuel-60-90-stiftung-pigna-kloten"
       },
       "company": "Stiftung Pigna",
       "companyKey": "pigna",
@@ -725,20 +741,24 @@
           "profi-di-ricerca-agogica-con-flair-pursuant-60-90-stiftung-pigna-kloten",
           "agogic-residence-profi-with-pursuant-flair-60-90-stiftung-pigna-kloten",
           "professions-de-residence-agogique-avec-flair-actuel-60-90-stiftung-pigna-kloten",
-          "agogischer-wohnprofi-con-pflegerischem-flair-60-90-stiftung-pigna-kloten"
+          "agogischer-wohnprofi-con-pflegerischem-flair-60-90-stiftung-pigna-kloten",
+          "agogischer-wohnprofi-mit-pflegerischem-flair-60-90-pigna-kloten"
         ],
         "en": [
-          "agogic-residence-profi-with-pursuant-flair-60-90-stiftung-pigna-kloten"
+          "agogic-residence-profi-with-pursuant-flair-60-90-stiftung-pigna-kloten",
+          "agogischer-wohnprofi-mit-pflegerischem-flair-60-90-pigna-kloten"
         ],
         "fr": [
-          "professions-de-residence-agogique-avec-flair-actuel-60-90-stiftung-pigna-kloten"
+          "professions-de-residence-agogique-avec-flair-actuel-60-90-stiftung-pigna-kloten",
+          "agogischer-wohnprofi-mit-pflegerischem-flair-60-90-pigna-kloten"
         ]
       },
       "previousSlugs": [
         "profi-di-ricerca-agogica-con-flair-pursuant-60-90-stiftung-pigna-kloten",
         "agogic-residence-profi-with-pursuant-flair-60-90-stiftung-pigna-kloten",
         "professions-de-residence-agogique-avec-flair-actuel-60-90-stiftung-pigna-kloten",
-        "agogischer-wohnprofi-con-pflegerischem-flair-60-90-stiftung-pigna-kloten"
+        "agogischer-wohnprofi-con-pflegerischem-flair-60-90-stiftung-pigna-kloten",
+        "agogischer-wohnprofi-mit-pflegerischem-flair-60-90-pigna-kloten"
       ]
     },
     {
@@ -791,13 +811,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-mittelbeschaffung-50-w-m-d-pigna-kloten",
-        "procurazione-50-w-m-d-stiftung-pigna-kloten"
+        "fachperson-mittelbeschaffung-50-w-m-d-pigna-kloten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-mittelbeschaffung-50-w-m-d-pigna-kloten",
-          "procurazione-50-w-m-d-stiftung-pigna-kloten"
+          "fachperson-mittelbeschaffung-50-w-m-d-pigna-kloten"
         ],
         "en": [
           "fachperson-mittelbeschaffung-50-w-m-d-pigna-kloten"

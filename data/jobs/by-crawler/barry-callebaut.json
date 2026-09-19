@@ -9,7 +9,7 @@
         "it": "finanza-business-partner-csd-global-cocoa-barry-callebaut-zurich",
         "en": "finance-business-partner-csd-global-cocoa-barry-callebaut-ch",
         "de": "finanzen-business-partner-csd-global-cocoa-barry-callebaut-zurich",
-        "fr": "partenaire-d-affaires-financier-csd-global-cocoa-barry-callebaut-zurich"
+        "fr": "partenaires-financiers-csd-global-cocoa-barry-callebaut-zurich"
       },
       "company": "Barry Callebaut",
       "companyKey": "barry-callebaut",
@@ -51,20 +51,18 @@
       "previousSlugs": [
         "finance-business-partner-csd-global-cocoa-barry-callebaut-ch",
         "finance-business-partner-csd-global-cocoa-barry-callebaut-zurich",
-        "partenaires-financiers-csd-global-cocoa-barry-callebaut-zurich",
-        "finanza-business-partner-csd-global-cocoa-barry-callebaut-zurich"
+        "partenaire-d-affaires-financier-csd-global-cocoa-barry-callebaut-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "finance-business-partner-csd-global-cocoa-barry-callebaut-ch",
-          "finanza-business-partner-csd-global-cocoa-barry-callebaut-zurich"
+          "finance-business-partner-csd-global-cocoa-barry-callebaut-ch"
         ],
         "de": [
           "finance-business-partner-csd-global-cocoa-barry-callebaut-ch"
         ],
         "fr": [
           "finance-business-partner-csd-global-cocoa-barry-callebaut-zurich",
-          "partenaires-financiers-csd-global-cocoa-barry-callebaut-zurich"
+          "partenaire-d-affaires-financier-csd-global-cocoa-barry-callebaut-zurich"
         ]
       },
       "firstSeenAt": "2026-09-04T13:42:20.856Z",
@@ -89,7 +87,7 @@
       "slugByLocale": {
         "it": "commercio-di-derivati-del-cacao-senior-barry-callebaut-zurich",
         "en": "senior-cocoa-derivatives-trader-barry-callebaut-ch",
-        "de": "cocoa-derivatives-trader-barry-callebaut-zurich",
+        "de": "kakaoderivatehandler-barry-callebaut-zurich",
         "fr": "metier-principal-des-derives-du-cacao-barry-callebaut-zurich"
       },
       "company": "Barry Callebaut",
@@ -132,19 +130,19 @@
       "previousSlugs": [
         "senior-cocoa-derivatives-trader-barry-callebaut-ch",
         "cocoa-derivatives-trader-barry-callebaut-ch",
-        "commercio-di-derivati-del-cacao-senior-barry-callebaut-zurich"
+        "cocoa-derivatives-trader-barry-callebaut-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-cocoa-derivatives-trader-barry-callebaut-ch",
-          "cocoa-derivatives-trader-barry-callebaut-ch",
-          "commercio-di-derivati-del-cacao-senior-barry-callebaut-zurich"
+          "cocoa-derivatives-trader-barry-callebaut-ch"
         ],
         "fr": [
           "senior-cocoa-derivatives-trader-barry-callebaut-ch"
         ],
         "de": [
-          "senior-cocoa-derivatives-trader-barry-callebaut-ch"
+          "senior-cocoa-derivatives-trader-barry-callebaut-ch",
+          "cocoa-derivatives-trader-barry-callebaut-zurich"
         ]
       },
       "firstSeenAt": "2026-09-10T21:57:23.365Z",
