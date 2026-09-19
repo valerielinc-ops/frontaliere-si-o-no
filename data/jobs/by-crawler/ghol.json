@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-09-13T14:02:52.006Z",
+  "assembledAt": "2026-09-19T23:07:38.633Z",
   "jobs": [
     {
       "id": "ghol-0fd5acb09556",
@@ -47,13 +47,15 @@
       "applyUrl": "https://app.beehire.com/invite/R0-rziyv4",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T14:02:44.872Z",
+      "crawledAt": "2026-09-19T23:07:31.026Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "assistant-e-technique-specialise-e-en-salle-d-operation-groupement-hospitalier-de-l-ouest",
         "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "technical-assistant-in-sterilization-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "technischer-assistent-der-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "assistente-tecnico-specializzato-in-sala-operatoria-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -61,7 +63,8 @@
           "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "technical-assistant-in-sterilization-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "technischer-assistent-der-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "assistente-tecnico-specializzato-in-sala-operatoria-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "technical-assistant-in-sterilization-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -93,8 +96,8 @@
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -133,7 +136,8 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T14:02:44.870Z",
+      "crawledAt": "2026-09-19T23:07:31.025Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -161,18 +165,24 @@
       "previousSlugs": [
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
+          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
+          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
@@ -236,23 +246,196 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T14:02:44.869Z",
+      "crawledAt": "2026-09-19T23:07:31.023Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
         "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+        "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-          "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+          "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+          "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
         ],
         "de": [
           "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
         ]
       },
       "firstSeenAt": "2026-05-21T11:59:27.233Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ghol-bb90df116e65",
+      "slug": "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "assc-for-the-department-of-medicine-and-neurovascular-unit-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "assc-fur-die-abteilung-medizin-und-neurovaskulare-einheit-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "ASSC pour le service de Médecine et Unité neurovasculaire",
+      "titleByLocale": {
+        "it": "ASSC per il Dipartimento di Medicina e Unità Neurovascolare",
+        "en": "ASSC for the Department of Medicine and Neurovascular Unit",
+        "de": "ASSC für die Abteilung Medizin und neurovaskuläre Einheit",
+        "fr": "ASSC pour le service de Médecine et Unité neurovasculaire"
+      },
+      "description": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\n Avec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\n Au quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\n Le travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\n Nous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\n Mission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\n Profil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\n Niveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\n Avantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée",
+      "descriptionByLocale": {
+        "it": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\nAvec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\nAu quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\nLe travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\nNous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\nMission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\nProfil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\nNiveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\nAvantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée",
+        "en": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\nAvec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\nAu quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\nLe travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\nNous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\nMission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\nProfil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\nNiveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\nAvantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée",
+        "de": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\nAvec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\nAu quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\nLe travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\nNous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\nMission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\nProfil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\nNiveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\nAvantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée",
+        "fr": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\nAvec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\nAu quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\nLe travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\nNous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\nMission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\nProfil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\nNiveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\nAvantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée"
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare-nursing",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "url": "https://app.beehire.com/invite/FbUuocJWF",
+      "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-19T23:07:31.021Z",
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l",
+        "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l",
+          "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
+        ],
+        "de": [
+          "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
+        ]
+      },
+      "firstSeenAt": "2026-08-25T21:49:26.103Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ghol-c4e37dddc379",
+      "slug": "infermiere-da-piscina-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "infermiere-da-piscina-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "poolist-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Infirmier·ère pooliste",
+      "titleByLocale": {
+        "it": "Infermiere da piscina",
+        "en": "Poolist nurse",
+        "de": "Infirmier·ère pooliste",
+        "fr": "Infirmier·ère pooliste"
+      },
+      "description": "Vous êtes passionné·e par le domaine de la santé et souhaitez jouer un rôle clé dans le bon fonctionnement des différentes unités de soins alors, rejoignez notre équipe d’ Infirmier·ère Pooliste.\n Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle.\n Nous vous proposons une poste dans un cadre agréable, dans de nouveaux locaux, entouré.e de collègues dynamiques, motivés, volontaires qui vous accueilleront et vous accompagneront dans vos différentes missions.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vous renforcez selon vos préférences les équipes de soins en :\n\n• Chirurgie-Orthopédie-Médecine\n\n• Hémodialyse-Urgences-Soins Intensifs\n\n• Pédiatrie-Maternité\n\n• Pneumologie (site de Rolle)\n\n• EMS (site de Rolle)\n Vos avantages :\n\n• Vous organisez votre planning à votre convenance en gérant votre temps de travail et vos temps de repos\n\n• Vous reprenez une activité plus ou moins progressivement\n\n• Vous élargissez vos connaissances en étant orienté.e dans différents services\n\n• Vous participez aux différentes formations offertes selon vos besoins. Un catalogue de formation continue de développement professionnel et personnel est proposé aux collaborateurs·trices du Département des Soins\n\n• Vous aurez après un temps donné l’opportunité d’accéder à un poste fixe en priorité\n\n• Vous bénéficierez d’une Prime de flexibilité et de disponibilité en sus de votre salaire\n\n• Horaires continus de 12h / horaires en coupé/ jour / nuit / WE\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre:\n\n• Facilité d’adaptation, réactivité à répondre aux demandes\n\n• Envie d’élargir vos connaissances et vos compétences\n\n• Aisance dans l’utilisation des outils informatiques (dossiers de soins, applications mobiles, etc).\n\n• Vos quelques années d’expérience dans les soins infirmiers seront un véritable atout pour une intégration rapide.\n Niveau de formation :\n Bachelor of Science HES-SO en Soins infirmiers exigé ou diplôme jugé équivalent reconnu par la Croix Rouge Suisse\n Eventuellement spécialisation dans un des secteurs spécifiques de soins (Soins Intensifs, Anesthésie, Urgences, Pédiatrie, Gérontologie,etc.)",
+      "descriptionByLocale": {
+        "it": "Sei appassionato di salute e vuoi svolgere un ruolo chiave nel corretto funzionamento delle diverse unità di cura, quindi unisciti al nostro team di Nurse Poolist.\nGHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle.\nVi offriamo un lavoro in un ambiente piacevole, in nuovi locali, circondato da colleghi dinamici, motivati e volontari che vi accoglieranno e vi accompagneranno nelle vostre varie missioni.\nDescrizione della posizione:\nNelle tue nuove funzioni, rafforza i tuoi team di assistenza in base alle tue preferenze:\n\n• Chirurgia, Medicina ortopedica\n\n• Cura intensiva dell'emodialisi-emergenza\n\n• Pediatria/Maternità\n\n• Pneumologia (Sito di ruolo)\n\n• EMS (Sito di ruolo)\nI vostri vantaggi:\n\n• Si organizza il vostro programma a vostra convenienza, gestendo il vostro tempo di lavoro e tempo di riposo\n\n• Stai assumendo un'attività più o meno gradualmente\n\n• Espandi le tue conoscenze orientandoti in diversi servizi\n\n• Partecipate ai vari corsi di formazione offerti in base alle vostre esigenze. Un catalogo di formazione continua per lo sviluppo professionale e personale è offerto ai dipendenti del Dipartimento di Cura\n\n• Si avrà dopo un certo tempo l'opportunità di raggiungere una posizione fissa come priorità\n\n• Riceverai un bonus di flessibilità e disponibilità oltre al tuo stipendio\n\n• Ore continue di 12 ore / ore su un colpo di stato / giorno / notte / WE\nProfilo richiesto:\nSiamo convinti del vostro rapido successo nelle vostre funzioni future grazie al vostro:\n\n• Facilità di adattamento, reattività alle richieste\n\n• Vuoi espandere le tue conoscenze e competenze\n\n• Utilizzo di strumenti IT (cartelle di cura, applicazioni mobili, ecc.).\n\n• I vostri pochi anni di esperienza di allattamento saranno un vero vantaggio per una rapida integrazione.\nLivello di formazione:\nCorso di laurea HES-SO in Infermieristica richiesto o diploma ritenuto equivalente riconosciuto dalla Croce Rossa svizzera\nPossibile specializzazione in una delle aree specifiche di cura (assistenza intensiva, Anaestesia, Emergenze, Pediatria, Gerontologia, ecc.)",
+        "en": "You are passionate about health and want to play a key role in the proper functioning of the different care units, so join our team of Nurse Poolist.\nGHOL is the reference hospital for the German West with its structures on Nyon and Rolle.\nWe offer you a job in a pleasant setting, in new premises, surrounded by dynamic, motivated, volunteer colleagues who will welcome you and accompany you in your various missions.\nDescription of position:\nIn your new functions, you strengthen your care teams according to your preferences by:\n\n• Surgery, Orthopaedic Medicine\n\n• Hemodialysis-Emergency-Intensive care\n\n• Pediatric/Maternity\n\n• Pneumology (Role site)\n\n• EMS (Role site)\nYour benefits:\n\n• You organize your schedule at your convenience by managing your working time and rest time\n\n• You are taking on an activity more or less gradually\n\n• You expand your knowledge by being oriented in different services\n\n• You participate in the various training courses offered according to your needs. A catalogue of continuing vocational and personal development training is offered to employees of the Department of Care\n\n• You will have after a given time the opportunity to get to a fixed position as a priority\n\n• You will receive a flexibility and availability bonus in addition to your salary\n\n• Continuous hours of 12 hours / hours on a coupe/ day / night / WE\nProfile required:\nWe are convinced of your rapid success in your future functions thanks to your:\n\n• Ease of adaptation, responsiveness to requests\n\n• Want to expand your knowledge and skills\n\n• Use of IT tools (care folders, mobile applications, etc.).\n\n• Your few years of nursing experience will be a real asset for rapid integration.\nLevel of training:\nBachelor of Science HES-SO in Nursing required or diploma deemed equivalent recognized by the Swiss Red Cross\nPossible specialization in one of the specific areas of care (Intensive care, Anaesthesia, Emergencies, Pediatrics, Gerontology, etc.)",
+        "de": "Sie sind leidenschaftlich über die Gesundheit und wollen eine Schlüsselrolle in der ordnungsgemäßen Funktion der verschiedenen Pflegeeinheiten spielen, so treten Sie unserem Team von Nurse Poolist.\nGHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle.\nWir bieten Ihnen einen Job in angenehmer Umgebung, in neuen Räumlichkeiten, umgeben von dynamischen, motivierten, ehrenamtlichen Kollegen, die Sie willkommen heißen und Sie in Ihren verschiedenen Missionen begleiten.\nBeschreibung der Position:\nIn Ihren neuen Funktionen stärken Sie Ihre Pflegeteams nach Ihren Vorlieben durch:\n\n• Chirurgie, Orthopädische Medizin\n\n• Hämodialyse-Notfall-Intensivpflege\n\n• Kinder/Mutterschaft\n\n• Pneumologie (Rollenstandort)\n\n• EMS (Rollenstandort)\nIhre Vorteile:\n\n• Sie organisieren Ihren Zeitplan nach Belieben, indem Sie Ihre Arbeitszeit und Ruhezeit verwalten\n\n• Sie übernehmen eine Aktivität mehr oder weniger allmählich\n\n• Sie erweitern Ihr Wissen, indem Sie sich an verschiedenen Dienstleistungen orientieren\n\n• Sie nehmen an den verschiedenen Schulungen teil, die nach Ihren Bedürfnissen angeboten werden. Ein Katalog der Weiterbildung der beruflichen und persönlichen Entwicklung wird für Mitarbeiter des Department of Care angeboten\n\n• Sie haben nach einer bestimmten Zeit die Möglichkeit, eine feste Position als Priorität zu erreichen\n\n• Sie erhalten zusätzlich zu Ihrem Gehalt einen Flexibilitäts- und Verfügbarkeitsbonus\n\n• Kontinuierliche Stunden von 12 Stunden / Stunden auf einem Coupé / Tag / Nacht / WE\nProfil erforderlich:\nWir sind überzeugt von Ihrem schnellen Erfolg in Ihren zukünftigen Funktionen dank Ihrer:\n\n• Leichtigkeit der Anpassung, Reaktionsfähigkeit auf Anfragen\n\n• Möchten Sie Ihr Wissen und Ihre Fähigkeiten erweitern\n\n• Verwendung von IT-Tools (Pflegeordner, mobile Anwendungen usw.).\n\n• Ihre wenigen Jahre Pflegeerfahrung werden ein echter Gewinn für eine schnelle Integration sein.\nAusbildungsniveau:\nBachelor of Science HES-SO in Nursing erforderlich oder Diplom als gleichwertig anerkannt vom Schweizerischen Roten Kreuz\nMögliche Spezialisierung in einem der spezifischen Pflegebereiche (Intensivmedizin, Anästhesie, Notfälle, Kinderheilkunde, Gerontologie usw.)",
+        "fr": "Vous êtes passionné·e par le domaine de la santé et souhaitez jouer un rôle clé dans le bon fonctionnement des différentes unités de soins alors, rejoignez notre équipe d’ Infirmier·ère Pooliste.\nLe GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle.\nNous vous proposons une poste dans un cadre agréable, dans de nouveaux locaux, entouré.e de collègues dynamiques, motivés, volontaires qui vous accueilleront et vous accompagneront dans vos différentes missions.\nDescriptif du poste :\nDans vos nouvelles fonctions, vous renforcez selon vos préférences les équipes de soins en :\n\n• Chirurgie-Orthopédie-Médecine\n\n• Hémodialyse-Urgences-Soins Intensifs\n\n• Pédiatrie-Maternité\n\n• Pneumologie (site de Rolle)\n\n• EMS (site de Rolle)\nVos avantages :\n\n• Vous organisez votre planning à votre convenance en gérant votre temps de travail et vos temps de repos\n\n• Vous reprenez une activité plus ou moins progressivement\n\n• Vous élargissez vos connaissances en étant orienté.e dans différents services\n\n• Vous participez aux différentes formations offertes selon vos besoins. Un catalogue de formation continue de développement professionnel et personnel est proposé aux collaborateurs·trices du Département des Soins\n\n• Vous aurez après un temps donné l’opportunité d’accéder à un poste fixe en priorité\n\n• Vous bénéficierez d’une Prime de flexibilité et de disponibilité en sus de votre salaire\n\n• Horaires continus de 12h / horaires en coupé/ jour / nuit / WE\nProfil requis :\nNous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre:\n\n• Facilité d’adaptation, réactivité à répondre aux demandes\n\n• Envie d’élargir vos connaissances et vos compétences\n\n• Aisance dans l’utilisation des outils informatiques (dossiers de soins, applications mobiles, etc).\n\n• Vos quelques années d’expérience dans les soins infirmiers seront un véritable atout pour une intégration rapide.\nNiveau de formation :\nBachelor of Science HES-SO en Soins infirmiers exigé ou diplôme jugé équivalent reconnu par la Croix Rouge Suisse\nEventuellement spécialisation dans un des secteurs spécifiques de soins (Soins Intensifs, Anesthésie, Urgences, Pédiatrie, Gérontologie,etc.)"
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare-nursing",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-04",
+      "url": "https://app.beehire.com/invite/Buq2JYoQ2",
+      "applyUrl": "https://app.beehire.com/invite/Buq2JYoQ2",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-19T23:07:31.019Z",
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "infermiere-anestetico-certificato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "certified-anaesthetic-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "zertifizierte-narkosekrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "poolist-krankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "infermiere-da-piscina-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infermiere-anestetico-certificato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "certified-anaesthetic-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "zertifizierte-narkosekrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infermiere-da-piscina-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "certified-anaesthetic-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
+          "zertifizierte-narkosekrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "poolist-krankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "fr": [
+          "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "firstSeenAt": "2026-09-04T13:36:03.664Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -378,171 +561,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "ghol-bb90df116e65",
-      "slug": "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "assc-for-the-department-of-medicine-and-neurovascular-unit-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "assc-fur-die-abteilung-medizin-und-neurovaskulare-einheit-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
       },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "ASSC pour le service de Médecine et Unité neurovasculaire",
-      "titleByLocale": {
-        "it": "ASSC per il Dipartimento di Medicina e Unità Neurovascolare",
-        "en": "ASSC for the Department of Medicine and Neurovascular Unit",
-        "de": "ASSC für die Abteilung Medizin und neurovaskuläre Einheit",
-        "fr": "ASSC pour le service de Médecine et Unité neurovasculaire"
-      },
-      "description": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\n Avec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\n Au quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\n Le travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\n Nous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\n Mission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\n Profil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\n Niveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\n Avantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée",
-      "descriptionByLocale": {
-        "it": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\nAvec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\nAu quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\nLe travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\nNous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\nMission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\nProfil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\nNiveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\nAvantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée",
-        "en": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\nAvec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\nAu quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\nLe travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\nNous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\nMission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\nProfil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\nNiveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\nAvantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée",
-        "de": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\nAvec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\nAu quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\nLe travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\nNous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\nMission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\nProfil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\nNiveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\nAvantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée",
-        "fr": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\nAvec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\nAu quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\nLe travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\nNous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\nMission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\nProfil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\nNiveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\nAvantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée"
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare-nursing",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-25",
-      "url": "https://app.beehire.com/invite/FbUuocJWF",
-      "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-13T14:02:44.866Z",
-      "needsRetranslation": true,
-      "previousSlugs": [
-        "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
-        ],
-        "en": [
-          "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
-        ],
-        "de": [
-          "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
-        ]
-      },
-      "firstSeenAt": "2026-08-25T21:49:26.103Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ghol-c4e37dddc379",
-      "slug": "infermiere-da-piscina-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "infermiere-da-piscina-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "poolist-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "poolist-krankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Infirmier·ère pooliste",
-      "titleByLocale": {
-        "it": "Infermiere da piscina",
-        "en": "Poolist nurse",
-        "de": "Poolist Krankenschwester",
-        "fr": "Infirmier·ère pooliste"
-      },
-      "description": "Vous êtes passionné·e par le domaine de la santé et souhaitez jouer un rôle clé dans le bon fonctionnement des différentes unités de soins alors, rejoignez notre équipe d’ Infirmier·ère Pooliste.\n Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle.\n Nous vous proposons une poste dans un cadre agréable, dans de nouveaux locaux, entouré.e de collègues dynamiques, motivés, volontaires qui vous accueilleront et vous accompagneront dans vos différentes missions.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vous renforcez selon vos préférences les équipes de soins en :\n\n• Chirurgie-Orthopédie-Médecine\n\n• Hémodialyse-Urgences-Soins Intensifs\n\n• Pédiatrie-Maternité\n\n• Pneumologie (site de Rolle)\n\n• EMS (site de Rolle)\n Vos avantages :\n\n• Vous organisez votre planning à votre convenance en gérant votre temps de travail et vos temps de repos\n\n• Vous reprenez une activité plus ou moins progressivement\n\n• Vous élargissez vos connaissances en étant orienté.e dans différents services\n\n• Vous participez aux différentes formations offertes selon vos besoins. Un catalogue de formation continue de développement professionnel et personnel est proposé aux collaborateurs·trices du Département des Soins\n\n• Vous aurez après un temps donné l’opportunité d’accéder à un poste fixe en priorité\n\n• Vous bénéficierez d’une Prime de flexibilité et de disponibilité en sus de votre salaire\n\n• Horaires continus de 12h / horaires en coupé/ jour / nuit / WE\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre:\n\n• Facilité d’adaptation, réactivité à répondre aux demandes\n\n• Envie d’élargir vos connaissances et vos compétences\n\n• Aisance dans l’utilisation des outils informatiques (dossiers de soins, applications mobiles, etc).\n\n• Vos quelques années d’expérience dans les soins infirmiers seront un véritable atout pour une intégration rapide.\n Niveau de formation :\n Bachelor of Science HES-SO en Soins infirmiers exigé ou diplôme jugé équivalent reconnu par la Croix Rouge Suisse\n Eventuellement spécialisation dans un des secteurs spécifiques de soins (Soins Intensifs, Anesthésie, Urgences, Pédiatrie, Gérontologie,etc.)",
-      "descriptionByLocale": {
-        "it": "Sei appassionato di salute e vuoi svolgere un ruolo chiave nel corretto funzionamento delle diverse unità di cura, quindi unisciti al nostro team di Nurse Poolist.\nGHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle.\nVi offriamo un lavoro in un ambiente piacevole, in nuovi locali, circondato da colleghi dinamici, motivati e volontari che vi accoglieranno e vi accompagneranno nelle vostre varie missioni.\nDescrizione della posizione:\nNelle tue nuove funzioni, rafforza i tuoi team di assistenza in base alle tue preferenze:\n\n• Chirurgia, Medicina ortopedica\n\n• Cura intensiva dell'emodialisi-emergenza\n\n• Pediatria/Maternità\n\n• Pneumologia (Sito di ruolo)\n\n• EMS (Sito di ruolo)\nI vostri vantaggi:\n\n• Si organizza il vostro programma a vostra convenienza, gestendo il vostro tempo di lavoro e tempo di riposo\n\n• Stai assumendo un'attività più o meno gradualmente\n\n• Espandi le tue conoscenze orientandoti in diversi servizi\n\n• Partecipate ai vari corsi di formazione offerti in base alle vostre esigenze. Un catalogo di formazione continua per lo sviluppo professionale e personale è offerto ai dipendenti del Dipartimento di Cura\n\n• Si avrà dopo un certo tempo l'opportunità di raggiungere una posizione fissa come priorità\n\n• Riceverai un bonus di flessibilità e disponibilità oltre al tuo stipendio\n\n• Ore continue di 12 ore / ore su un colpo di stato / giorno / notte / WE\nProfilo richiesto:\nSiamo convinti del vostro rapido successo nelle vostre funzioni future grazie al vostro:\n\n• Facilità di adattamento, reattività alle richieste\n\n• Vuoi espandere le tue conoscenze e competenze\n\n• Utilizzo di strumenti IT (cartelle di cura, applicazioni mobili, ecc.).\n\n• I vostri pochi anni di esperienza di allattamento saranno un vero vantaggio per una rapida integrazione.\nLivello di formazione:\nCorso di laurea HES-SO in Infermieristica richiesto o diploma ritenuto equivalente riconosciuto dalla Croce Rossa svizzera\nPossibile specializzazione in una delle aree specifiche di cura (assistenza intensiva, Anaestesia, Emergenze, Pediatria, Gerontologia, ecc.)",
-        "en": "You are passionate about health and want to play a key role in the proper functioning of the different care units, so join our team of Nurse Poolist.\nGHOL is the reference hospital for the German West with its structures on Nyon and Rolle.\nWe offer you a job in a pleasant setting, in new premises, surrounded by dynamic, motivated, volunteer colleagues who will welcome you and accompany you in your various missions.\nDescription of position:\nIn your new functions, you strengthen your care teams according to your preferences by:\n\n• Surgery, Orthopaedic Medicine\n\n• Hemodialysis-Emergency-Intensive care\n\n• Pediatric/Maternity\n\n• Pneumology (Role site)\n\n• EMS (Role site)\nYour benefits:\n\n• You organize your schedule at your convenience by managing your working time and rest time\n\n• You are taking on an activity more or less gradually\n\n• You expand your knowledge by being oriented in different services\n\n• You participate in the various training courses offered according to your needs. A catalogue of continuing vocational and personal development training is offered to employees of the Department of Care\n\n• You will have after a given time the opportunity to get to a fixed position as a priority\n\n• You will receive a flexibility and availability bonus in addition to your salary\n\n• Continuous hours of 12 hours / hours on a coupe/ day / night / WE\nProfile required:\nWe are convinced of your rapid success in your future functions thanks to your:\n\n• Ease of adaptation, responsiveness to requests\n\n• Want to expand your knowledge and skills\n\n• Use of IT tools (care folders, mobile applications, etc.).\n\n• Your few years of nursing experience will be a real asset for rapid integration.\nLevel of training:\nBachelor of Science HES-SO in Nursing required or diploma deemed equivalent recognized by the Swiss Red Cross\nPossible specialization in one of the specific areas of care (Intensive care, Anaesthesia, Emergencies, Pediatrics, Gerontology, etc.)",
-        "de": "Sie sind leidenschaftlich über die Gesundheit und wollen eine Schlüsselrolle in der ordnungsgemäßen Funktion der verschiedenen Pflegeeinheiten spielen, so treten Sie unserem Team von Nurse Poolist.\nGHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle.\nWir bieten Ihnen einen Job in angenehmer Umgebung, in neuen Räumlichkeiten, umgeben von dynamischen, motivierten, ehrenamtlichen Kollegen, die Sie willkommen heißen und Sie in Ihren verschiedenen Missionen begleiten.\nBeschreibung der Position:\nIn Ihren neuen Funktionen stärken Sie Ihre Pflegeteams nach Ihren Vorlieben durch:\n\n• Chirurgie, Orthopädische Medizin\n\n• Hämodialyse-Notfall-Intensivpflege\n\n• Kinder/Mutterschaft\n\n• Pneumologie (Rollenstandort)\n\n• EMS (Rollenstandort)\nIhre Vorteile:\n\n• Sie organisieren Ihren Zeitplan nach Belieben, indem Sie Ihre Arbeitszeit und Ruhezeit verwalten\n\n• Sie übernehmen eine Aktivität mehr oder weniger allmählich\n\n• Sie erweitern Ihr Wissen, indem Sie sich an verschiedenen Dienstleistungen orientieren\n\n• Sie nehmen an den verschiedenen Schulungen teil, die nach Ihren Bedürfnissen angeboten werden. Ein Katalog der Weiterbildung der beruflichen und persönlichen Entwicklung wird für Mitarbeiter des Department of Care angeboten\n\n• Sie haben nach einer bestimmten Zeit die Möglichkeit, eine feste Position als Priorität zu erreichen\n\n• Sie erhalten zusätzlich zu Ihrem Gehalt einen Flexibilitäts- und Verfügbarkeitsbonus\n\n• Kontinuierliche Stunden von 12 Stunden / Stunden auf einem Coupé / Tag / Nacht / WE\nProfil erforderlich:\nWir sind überzeugt von Ihrem schnellen Erfolg in Ihren zukünftigen Funktionen dank Ihrer:\n\n• Leichtigkeit der Anpassung, Reaktionsfähigkeit auf Anfragen\n\n• Möchten Sie Ihr Wissen und Ihre Fähigkeiten erweitern\n\n• Verwendung von IT-Tools (Pflegeordner, mobile Anwendungen usw.).\n\n• Ihre wenigen Jahre Pflegeerfahrung werden ein echter Gewinn für eine schnelle Integration sein.\nAusbildungsniveau:\nBachelor of Science HES-SO in Nursing erforderlich oder Diplom als gleichwertig anerkannt vom Schweizerischen Roten Kreuz\nMögliche Spezialisierung in einem der spezifischen Pflegebereiche (Intensivmedizin, Anästhesie, Notfälle, Kinderheilkunde, Gerontologie usw.)",
-        "fr": "Vous êtes passionné·e par le domaine de la santé et souhaitez jouer un rôle clé dans le bon fonctionnement des différentes unités de soins alors, rejoignez notre équipe d’ Infirmier·ère Pooliste.\nLe GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle.\nNous vous proposons une poste dans un cadre agréable, dans de nouveaux locaux, entouré.e de collègues dynamiques, motivés, volontaires qui vous accueilleront et vous accompagneront dans vos différentes missions.\nDescriptif du poste :\nDans vos nouvelles fonctions, vous renforcez selon vos préférences les équipes de soins en :\n\n• Chirurgie-Orthopédie-Médecine\n\n• Hémodialyse-Urgences-Soins Intensifs\n\n• Pédiatrie-Maternité\n\n• Pneumologie (site de Rolle)\n\n• EMS (site de Rolle)\nVos avantages :\n\n• Vous organisez votre planning à votre convenance en gérant votre temps de travail et vos temps de repos\n\n• Vous reprenez une activité plus ou moins progressivement\n\n• Vous élargissez vos connaissances en étant orienté.e dans différents services\n\n• Vous participez aux différentes formations offertes selon vos besoins. Un catalogue de formation continue de développement professionnel et personnel est proposé aux collaborateurs·trices du Département des Soins\n\n• Vous aurez après un temps donné l’opportunité d’accéder à un poste fixe en priorité\n\n• Vous bénéficierez d’une Prime de flexibilité et de disponibilité en sus de votre salaire\n\n• Horaires continus de 12h / horaires en coupé/ jour / nuit / WE\nProfil requis :\nNous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre:\n\n• Facilité d’adaptation, réactivité à répondre aux demandes\n\n• Envie d’élargir vos connaissances et vos compétences\n\n• Aisance dans l’utilisation des outils informatiques (dossiers de soins, applications mobiles, etc).\n\n• Vos quelques années d’expérience dans les soins infirmiers seront un véritable atout pour une intégration rapide.\nNiveau de formation :\nBachelor of Science HES-SO en Soins infirmiers exigé ou diplôme jugé équivalent reconnu par la Croix Rouge Suisse\nEventuellement spécialisation dans un des secteurs spécifiques de soins (Soins Intensifs, Anesthésie, Urgences, Pédiatrie, Gérontologie,etc.)"
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare-nursing",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-04",
-      "url": "https://app.beehire.com/invite/Buq2JYoQ2",
-      "applyUrl": "https://app.beehire.com/invite/Buq2JYoQ2",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-13T14:02:44.865Z",
-      "previousSlugs": [
-        "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "infermiere-anestetico-certificato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "certified-anaesthetic-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "zertifizierte-narkosekrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "infermiere-anestetico-certificato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "certified-anaesthetic-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "zertifizierte-narkosekrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "en": [
-          "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "certified-anaesthetic-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "de": [
-          "zertifizierte-narkosekrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "fr": [
-          "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ]
-      },
-      "firstSeenAt": "2026-09-04T13:36:03.664Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1
     }
   ]
 }
