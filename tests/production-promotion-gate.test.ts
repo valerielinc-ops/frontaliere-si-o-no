@@ -6,6 +6,7 @@ import {
   APPROVAL_SECRET,
   EXPECTED_BUILD_EVENTS,
   EXPECTED_BUILD_WORKFLOW,
+  EXPECTED_BUILD_WORKFLOW_ID,
   EXPECTED_BUILD_WORKFLOW_PATH,
   EXPECTED_PUBLISH_WORKFLOW,
   EXPECTED_PUBLISH_WORKFLOW_PATH,
@@ -63,6 +64,7 @@ describe('production promotion admission', () => {
       conclusion: 'success',
       sourceWorkflow: EXPECTED_BUILD_WORKFLOW,
       sourceWorkflowPath: EXPECTED_BUILD_WORKFLOW_PATH,
+      sourceWorkflowId: EXPECTED_BUILD_WORKFLOW_ID,
       sourceEventName: EXPECTED_BUILD_EVENTS[0],
       headSha: 'abc123',
     }).valid).toBe(true);
@@ -73,6 +75,7 @@ describe('production promotion admission', () => {
       conclusion: 'failure',
       sourceWorkflow: EXPECTED_BUILD_WORKFLOW,
       sourceWorkflowPath: EXPECTED_BUILD_WORKFLOW_PATH,
+      sourceWorkflowId: EXPECTED_BUILD_WORKFLOW_ID,
       sourceEventName: EXPECTED_BUILD_EVENTS[0],
       headSha: 'abc123',
     }).valid).toBe(false);
@@ -84,6 +87,7 @@ describe('production promotion admission', () => {
       conclusion: 'success',
       sourceWorkflow: EXPECTED_BUILD_WORKFLOW,
       sourceWorkflowPath: EXPECTED_BUILD_WORKFLOW_PATH,
+      sourceWorkflowId: EXPECTED_BUILD_WORKFLOW_ID,
       sourceEventName: EXPECTED_BUILD_EVENTS[0],
       headSha: 'abc123',
     }).valid).toBe(false);
@@ -129,6 +133,7 @@ describe('production promotion admission', () => {
       sourceConclusion: 'success',
       sourceWorkflow: EXPECTED_BUILD_WORKFLOW,
       sourceWorkflowPath: EXPECTED_BUILD_WORKFLOW_PATH,
+      sourceWorkflowId: EXPECTED_BUILD_WORKFLOW_ID,
       sourceHeadSha: buildSha,
       sourceRunId: '26138669646',
       sourceEventName: EXPECTED_BUILD_EVENTS[0],
@@ -143,6 +148,7 @@ describe('production promotion admission', () => {
       ...caller,
       sourceWorkflowPath: '.github/workflows/other.yml',
     }).valid).toBe(false);
+    expect(validateDeployPublishCaller({ ...caller, sourceWorkflowId: '999999999' }).valid).toBe(false);
     expect(validateDeployPublishCaller({ ...caller, sourceEventName: 'schedule' }).valid).toBe(false);
     expect(validateDeployPublishCaller({ ...caller, deployRunId: '99999999999' }).valid).toBe(false);
     expect(validateDeployPublishCaller({ ...caller, deployRef: 'bad-ref' }).valid).toBe(false);
@@ -217,6 +223,7 @@ describe('production promotion admission', () => {
     expect(findStep(workflow.jobs['validate-deploy-publish-caller'], 'caller')).toBeDefined();
     const callerStep = findStep(workflow.jobs['validate-deploy-publish-caller'], 'caller');
     expect(callerStep?.env?.PROMOTION_SOURCE_WORKFLOW_PATH).toBe('${{ github.event.workflow_run.path }}');
+    expect(callerStep?.env?.PROMOTION_SOURCE_WORKFLOW_ID).toBe('${{ github.event.workflow_run.workflow_id }}');
     expect(findStep(workflow.jobs['validate-recovery-trigger'], 'trigger')).toBeDefined();
     expect(findStep(workflow.jobs['validate-recovery-source'], 'source-run')).toBeDefined();
     expect(findStep(workflow.jobs['recovery-production-approval'], 'approval')).toBeDefined();
