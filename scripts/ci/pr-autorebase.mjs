@@ -1259,27 +1259,57 @@ export function buildConflictHandoffIssue({ num, branch, head, files }) {
   return { title, body };
 }
 
+/** `gh` con esito binario: true solo se il comando e' uscito 0. */
+function ghOk(args) {
+  try {
+    execFileSync('gh', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 function handOffConflictToFixer(num, branch, head, lgtm) {
   const marker = conflictHandoffMarker(head);
   if (!shouldHandOffConflict({ lgtm, alreadyHandedOff: lgtm && hasCommentMarker(num, marker) })) return;
+  // Il ramo chiamante puo' essersi basato su `mergeable=CONFLICTING`, che e'
+  // una cache: l'hand-off parte solo se merge-tree conferma ADESSO un
+  // conflitto. `clean` o `unknown` → nessuna issue (fail-closed).
   const verdict = mergeTreeVerdict(head);
+  if (verdict.state !== 'conflicted') {
+    console.log(`PR #${num}: merge-tree ${verdict.state} al momento dell'hand-off → nessuna issue.`);
+    return;
+  }
   const { title, body } = buildConflictHandoffIssue({ num, branch, head, files: verdict.files });
   if (DRY) { console.log(`[dry] #${num} conflitto dopo LGTM → issue agent:fix «${title}»`); return; }
-  // `agent:triaged` alla creazione: il triage la salterebbe comunque verso la
-  // coda (`agent:fix-queued`), cioe' ore invece di minuti. `agent:fix` arriva
-  // con un edit separato, perche' e' l'evento `labeled` a far partire
-  // issue-fix, e l'identita' di GH_TOKEN (PAT/App) e' quella ammessa dal suo
-  // sender gate.
-  const url = String(gh(['issue', 'create', '--repo', REPO, '--title', title, '--body', body,
-    '--label', 'agent:triaged'], { json: false, allowFail: true }) || '').trim();
-  const issue = /\/issues\/(\d+)/.exec(url)?.[1];
+  // Il titolo e' stabile: una issue gia' aperta da un tick precedente (routing
+  // fallito, marker non scritto) viene riusata invece di duplicata.
+  const existing = gh(['issue', 'list', '--repo', REPO, '--state', 'open', '--search', `"${title}" in:title`,
+    '--json', 'number,title'], { allowFail: true });
+  if (existing === null) {
+    console.log(`::warning::PR #${num}: elenco issue illeggibile → hand-off rinviato al prossimo tick.`);
+    return;
+  }
+  let issue = String((existing || []).find((i) => i.title === title)?.number || '');
+  if (!issue) {
+    // `agent:triaged` alla creazione: il triage la manderebbe comunque in coda
+    // (`agent:fix-queued`), cioe' ore invece di minuti. `agent:fix` arriva con
+    // un edit separato, perche' e' l'evento `labeled` a far partire issue-fix,
+    // e l'identita' di GH_TOKEN e' quella ammessa dal suo sender gate.
+    const url = String(gh(['issue', 'create', '--repo', REPO, '--title', title, '--body', body,
+      '--label', 'agent:triaged'], { json: false, allowFail: true }) || '').trim();
+    issue = /\/issues\/(\d+)/.exec(url)?.[1] || '';
+  }
   if (!issue) {
     console.log(`::warning::PR #${num}: issue di hand-off del conflitto non creata — resta la label stale-review.`);
     return;
   }
-  const routed = String(gh(['issue', 'edit', issue, '--repo', REPO, '--add-label', 'agent:fix'],
-    { json: false, allowFail: true }) || '').trim();
-  if (!routed) console.log(`::warning::issue #${issue}: agent:fix non applicata — il triage/drainer la riprendera'.`);
+  // Esito dall'exit status, non dallo stdout: senza routing confermato il
+  // marker NON si scrive, cosi' il prossimo tick riprova sulla stessa issue.
+  if (!ghOk(['issue', 'edit', issue, '--repo', REPO, '--add-label', 'agent:fix'])) {
+    console.log(`::warning::issue #${issue}: agent:fix non applicata — marker non scritto, ritento al prossimo tick.`);
+    return;
+  }
   gh(['pr', 'comment', String(num), '--repo', REPO, '--body',
     `${marker}\n♻️ **autorebase / conflitto dopo LGTM**: affidato a issue-fix con #${issue}, che riapplica il contributo approvato su \`main\` in una PR nuova. _Segnale deterministico da pr-autorebase (zero-Claude)._`],
   { json: false, allowFail: true });
