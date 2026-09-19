@@ -62,6 +62,12 @@ function ghDispatch(_cmd: string, args: string[]): string {
     if (label === 'agent:fix-queued') return JSON.stringify([QUEUED_ISSUE]);
     return '[]'; // fu-parked, agent:fix, e il listAllOpenIssues() dell'age-out
   }
+  if (a[0] === 'api' && typeof a[1] === 'string' && a[1].includes('/issues?state=open')) {
+    const labelMatch = /[?&]labels=([^&]+)/.exec(a[1]);
+    const label = labelMatch ? decodeURIComponent(labelMatch[1]) : null;
+    if (label === 'agent:fix-queued') return JSON.stringify([QUEUED_ISSUE]);
+    return '[]';
+  }
   if (a[0] === 'issue' && a[1] === 'view') {
     if (a.includes('comments')) return JSON.stringify({ comments: [] });
     if (a.includes('body')) return JSON.stringify({ body: BODY_OK });
@@ -131,7 +137,9 @@ describe('followup-drainer --dry-run a slot occupato (#5524 item 2)', () => {
   it('non promuove in modalità reale quando il ledger del floor non è leggibile', async () => {
     process.env.FOLLOWUP_MAX_INFLIGHT_FIX = '2';
     execFileSync.mockImplementation((_cmd: string, args: string[]) => {
-      if (args[0] === 'api' && String(args[1] || '').startsWith('repos/')) {
+      if (args[0] === 'api'
+        && String(args[1] || '').startsWith('repos/')
+        && !String(args[1] || '').includes('/issues?state=open')) {
         throw new Error('ledger offline');
       }
       return ghDispatch(_cmd, args);
