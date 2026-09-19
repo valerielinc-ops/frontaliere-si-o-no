@@ -135,17 +135,38 @@ function resolveGraphSpecifier(fromFile, specifier, rootDir) {
   return null;
 }
 
-export function importedSourceModules(source, fromFile, rootDir) {
-  const specifiers = new Set();
+// Blanks block and line comments (keeping newlines, so line anchors survive).
+// Deliberately naive: a `/*` or `//` inside a string or regex literal can blank
+// real code, so the stripped text is only ever scanned IN ADDITION to the raw
+// text — it can add edges (`/* c */ import …`, `import /* c */ x from …`),
+// never remove one the raw scan found.
+function blankComments(source) {
+  return source
+    .replace(/\/\*[\s\S]*?\*\//g, (comment) => comment.replace(/[^\n]/g, ' '))
+    .replace(/\/\/[^\n]*/g, (comment) => ' '.repeat(comment.length));
+}
+
+function collectImportSpecifiers(text, specifiers) {
   STATIC_FROM_RE.lastIndex = 0;
-  for (const match of source.matchAll(STATIC_FROM_RE)) {
+  for (const match of text.matchAll(STATIC_FROM_RE)) {
     if (TYPE_ONLY_CLAUSE_RE.test(match[1])) continue;
     specifiers.add(match[2]);
   }
   for (const pattern of [SIDE_EFFECT_IMPORT_RE, DYNAMIC_IMPORT_RE]) {
     pattern.lastIndex = 0;
-    for (const match of source.matchAll(pattern)) specifiers.add(match[1]);
+    for (const match of text.matchAll(pattern)) specifiers.add(match[1]);
   }
+}
+
+export function importedSourceModules(source, fromFile, rootDir) {
+  const specifiers = new Set();
+  // Union of the raw and comment-blanked scans: the raw scan keeps every
+  // line-start import even if blanking misfires on a string; the blanked scan
+  // catches imports that follow or contain a comment. A commented-out import
+  // only enters through the raw scan when it starts its own line, which errs
+  // on the side of invalidating.
+  collectImportSpecifiers(source, specifiers);
+  collectImportSpecifiers(blankComments(source), specifiers);
   return [...specifiers]
     .map((specifier) => resolveGraphSpecifier(fromFile, specifier, rootDir))
     .filter(Boolean);

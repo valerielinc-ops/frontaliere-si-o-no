@@ -752,6 +752,38 @@ describe('jobs SEO disk HTML reuse', () => {
     }
   });
 
+  it('keeps imports that follow or contain a comment in the render graph', () => {
+    const rootDir = fingerprintFixtureRoot();
+    try {
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/jobsSeoPagesPlugin.ts',
+        [
+          "/* banner */ import { a } from './shared/a';",
+          "import /* inline */ { b } from './shared/b';",
+          "import {",
+          "  c, // trailing 'quoted' note",
+          "} from './shared/c';",
+          "export /* re-export */ { d } from './shared/d';",
+          'export const renderVersion = "v1";',
+          '',
+        ].join('\n'),
+      );
+      for (const name of ['a', 'b', 'c', 'd']) {
+        writeFixtureFile(rootDir, `build-plugins/shared/${name}.ts`, `export const ${name} = 1;\n`);
+      }
+      expect(collectSourceModuleFiles(rootDir, ['build-plugins/jobsSeoPagesPlugin.ts'])).toEqual([
+        'build-plugins/jobsSeoPagesPlugin.ts',
+        'build-plugins/shared/a.ts',
+        'build-plugins/shared/b.ts',
+        'build-plugins/shared/c.ts',
+        'build-plugins/shared/d.ts',
+      ]);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
   it('prunes an inert module only while every importer is on its allowlist', () => {
     const rootDir = fingerprintFixtureRoot();
     try {
