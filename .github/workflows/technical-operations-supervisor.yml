@@ -25,7 +25,27 @@ on:
         required: false
         type: boolean
         default: false
+  # Sulle PR L11 non apre issue (REPORT_ISSUE e' solo schedule/dispatch), non
+  # e' un check richiesto e il ledger scarta le run `pull_request`: senza filtro
+  # partiva su ogni PR (~15 run/ora, ognuna con npm ci e un artifact a 90
+  # giorni). Resta solo dove la PR cambia cio' che L11 audita o il suo codice:
+  # workflow/action, il motore dell'audit con il suo grafo di import, i
+  # producer vincolati dal registry e il registry stesso. Un difetto indotto
+  # altrove (es. uno script cancellato ma ancora referenziato) lo vede il push
+  # su main, che resta senza filtro.
   pull_request:
+    paths:
+      - '.github/workflows/**'
+      - '.github/actions/**'
+      - '.github/scripts/**'
+      - 'scripts/ci/technical-operations-audit.mjs'
+      - 'scripts/ci/loop-fleet-*.mjs'
+      - 'scripts/ci/loop-l*.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
+      - 'scripts/lib/loop-fleet-*.mjs'
+      - 'scripts/lib/github-issue-creator.mjs'
+      - 'data/loop-fleet/loop-registry.json'
+      - 'package-lock.json'
 
 permissions:
   contents: read

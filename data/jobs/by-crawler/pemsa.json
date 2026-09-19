@@ -959,7 +959,32 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-10T23:15:16.093Z"
+      "firstSeenAt": "2026-09-10T23:15:16.093Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-amp-8211-schwei-er-pemsa-bellinzona",
+          "metalworker-amp-8211-welder-pemsa-bellinzona",
+          "metalconstructeur-amp-8211-soudeur-pemsa-bellinzona",
+          "metalcostruttore-amp-8211-saldatore-pemsa-bellinzona",
+          "metallbauer-schwei-er-pemsa-bellinzona"
+        ],
+        "en": [
+          "metalworker-amp-8211-welder-pemsa-bellinzona"
+        ],
+        "de": [
+          "metallbauer-amp-8211-schwei-er-pemsa-bellinzona"
+        ],
+        "fr": [
+          "metalconstructeur-amp-8211-soudeur-pemsa-bellinzona"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-amp-8211-schwei-er-pemsa-bellinzona",
+        "metalworker-amp-8211-welder-pemsa-bellinzona",
+        "metalconstructeur-amp-8211-soudeur-pemsa-bellinzona",
+        "metalcostruttore-amp-8211-saldatore-pemsa-bellinzona",
+        "metallbauer-schwei-er-pemsa-bellinzona"
+      ]
     },
     {
       "title": "Elettricista con attestato ESTI",

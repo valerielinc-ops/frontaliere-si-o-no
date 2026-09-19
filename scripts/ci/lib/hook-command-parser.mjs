@@ -7,6 +7,8 @@
  * remains fail-safe.
  */
 
+import { readHookStdin } from './hook-stdin.mjs';
+
 const MAX_INPUT_BYTES = 512 * 1024;
 const COMMAND_SEPARATORS = new Set([';', '\n', '&&', '||', '|', '&', '(', ')', '{', '}']);
 const REDIRECTION_OPERATORS = new Set(['<', '>', '>>', '<<', '<<<', '>&', '<>', '>|']);
@@ -58,15 +60,11 @@ const VALUE_FLAGS = new Set([
  */
 export async function readHookCommand(stream = process.stdin) {
   try {
-    const chunks = [];
-    let size = 0;
-    for await (const chunk of stream) {
-      const buffer = Buffer.isBuffer(chunk) ? chunk : Buffer.from(String(chunk));
-      size += buffer.length;
-      if (size > MAX_INPUT_BYTES) return { ok: false, command: '' };
-      chunks.push(buffer);
-    }
-    const raw = Buffer.concat(chunks).toString('utf8').trim();
+    // Timeout: uno stdin mai chiuso (invocazione a mano) appendeva l'hook
+    // senza output; allo scadere si giudica quanto arrivato (lib/hook-stdin.mjs).
+    const { raw: input, bytes } = await readHookStdin(stream);
+    if (bytes > MAX_INPUT_BYTES) return { ok: false, command: '' };
+    const raw = input.trim();
     if (!raw) return { ok: true, command: '' };
 
     try {

@@ -74,7 +74,8 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { readEntries, writeEntries, removeEntry, entriesForSession, entriesOfOtherSessions } from './lib/pr-watch-store.mjs';
-import { classifyPr, RESOLVED_STATUSES } from './lib/pr-watch-classify.mjs';
+import { buildBlockReason, classifyPr, RESOLVED_STATUSES } from './lib/pr-watch-classify.mjs';
+import { readHookStdin } from './lib/hook-stdin.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, '..', '..');
@@ -196,9 +197,11 @@ function checkOne(ref) {
  * passasse lascerebbe il fd vuoto e non deve far fallire il gate — senza id si
  * torna al comportamento precedente (enforce tutto).
  */
-function readSessionId() {
+async function readSessionId() {
   try {
-    const raw = readFileSync(0, 'utf-8');
+    // Con timeout: una lettura sincrona di un fd mai chiuso (invocazione a
+    // mano dalla shell di un agente) restava appesa per sempre (lib/hook-stdin.mjs).
+    const { raw } = await readHookStdin();
     if (!raw.trim()) return null;
     const payload = JSON.parse(raw);
     return typeof payload?.session_id === 'string' ? payload.session_id : null;
@@ -207,7 +210,7 @@ function readSessionId() {
   }
 }
 
-function main() {
+async function main() {
   if (!enforcesInThisEnvironment()) {
     // Silenzioso: gira su OGNI Stop di ogni run Claude in CI, e un log per
     // turno non aggiunge niente a chi legge quei log.
@@ -226,7 +229,7 @@ function main() {
   // con un path assoluto, quindi ogni sessione del clone — worktree compresi —
   // legge lo stesso file: senza questo filtro la sessione A resta bloccata
   // sulle PR della sessione B, con l'istruzione di andarci a lavorare sopra.
-  const sessionId = readSessionId();
+  const sessionId = await readSessionId();
   const entries = entriesForSession(allEntries, sessionId);
   const foreign = entriesOfOtherSessions(allEntries, sessionId);
   if (entries.length === 0) return;
@@ -241,13 +244,13 @@ function main() {
   }
 
   const remaining = [];
-  const blockers = [];
+  const blocked = [];
   for (const entry of entries) {
     const verdict = checkOne(entry);
     if (verdict === null) continue; // unresolvable — drop, do not carry forward
     if (RESOLVED_STATUSES.has(verdict.status)) continue; // resolved — drop
     remaining.push(entry);
-    blockers.push(`  #${entry.number} (${entry.owner}/${entry.repo}): ${verdict.detail}`);
+    blocked.push({ ref: entry, verdict });
   }
 
   try {
@@ -260,29 +263,19 @@ function main() {
     // below from what was just computed.
   }
 
-  if (blockers.length === 0) return;
+  if (blocked.length === 0) return;
 
-  // Dorme QUI, non prima: se nel frattempo tutto si è risolto (blockers vuoto,
+  // Dorme QUI, non prima: se nel frattempo tutto si è risolto (blocked vuoto,
   // già ritornato sopra) non paghiamo il throttle per niente.
   throttleBeforeBlocking();
 
-  const reason = [
-    'PR aperte da questa sessione non hanno ancora raggiunto uno stato terminale',
-    '(AGENTS.md: "Attesa PR = watch ATTIVO nel turno, MAI stop idle").',
-    'Non fermarti: ricontrolla con `gh pr view <numero> --json state,reviews`,',
-    'e se la review più recente sull\'ultimo commit non è "## LGTM", leggila e',
-    'applica il fix — non limitarti ad aspettare di nuovo.',
-    '',
-    ...blockers,
-  ].join('\n');
+  const reason = buildBlockReason(blocked);
 
   console.log(JSON.stringify({ decision: 'block', reason, systemMessage: reason }));
   process.exit(2);
 }
 
-try {
-  main();
-} catch {
+main().catch(() => {
   // Any unexpected failure in the gate itself must never be the reason a
   // session cannot end.
-}
+});
