@@ -32,6 +32,8 @@ import {
   parseIssueJson,
   demotedBlock,
   isLosslessSplit,
+  canMintQueueLabel,
+  hasNeedsHumanLabel,
 } from '../scripts/ci/gate-minted-followups.mjs';
 import { citedTokens, hasFalsifiableAcceptance, splitFollowupItems } from '../scripts/ci/followup-resolution-match.mjs';
 
@@ -114,6 +116,17 @@ if (args[0] === 'api') {
 }
 
 describe('gate sul conio — comportamento', () => {
+  it('needs-human è un veto terminale per una nuova coda minted', () => {
+    expect(hasNeedsHumanLabel({ labels: [{ name: 'needs-human' }] })).toBe(true);
+    expect(hasNeedsHumanLabel({ labels: ['Needs-Human'] })).toBe(true);
+    expect(canMintQueueLabel({ labels: [] })).toBe(true);
+    expect(canMintQueueLabel({ labels: [{ name: 'needs-human' }] })).toBe(false);
+    for (const labels of [[{}], [null], [''], [{ name: '' }], [{ name: null }], ['ok', {}]]) {
+      expect(canMintQueueLabel({ labels })).toBe(false);
+    }
+    expect(canMintQueueLabel({})).toBe(false);
+  });
+
   it('sopprime l\'aggregata in cui NESSUN item porta una condizione falsificabile', () => {
     const d = decideMintGate({ body: aggregata(itemProsa, itemProsa), createdAt: new Date().toISOString() });
     expect(d.action).toBe('suppress');
