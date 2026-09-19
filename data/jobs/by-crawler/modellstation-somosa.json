@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "modellstation-somosa-987fdb74c75b",
-      "slug": "dipl-pflegefachperson-hf-dn-ii-o-fh-30-per-den-nachtdienst-modellstation-somosa-winterthur",
+      "slug": "infermiera-hf-dn-ii-o-fh-30-per-servizio-notturno-modellstation-somosa-winterthur",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-dn-ii-oder-fh-30-fur-den-nachtdienst-modellstation-somosa",
-        "it": "dipl-pflegefachperson-hf-dn-ii-o-fh-30-per-den-nachtdienst-modellstation-somosa-winterthur",
-        "en": "dipl-pflegefachperson-hf-dn-ii-oder-fh-30-fur-den-nachtdienst-modellstation-somosa",
-        "fr": "dipl-pflegefachperson-hf-dn-ii-oder-fh-30-fur-den-nachtdienst-modellstation-somosa"
+        "it": "infermiera-hf-dn-ii-o-fh-30-per-servizio-notturno-modellstation-somosa-winterthur",
+        "en": "dipl-nurse-hf-dn-ii-or-fh-30-for-night-service-modellstation-somosa-winterthur",
+        "fr": "infirmiere-diplomee-hf-dn-ii-ou-fh-30-pour-le-service-de-nuit-modellstation-somosa-winterthur"
       },
       "company": "Modellstation SOMOSA",
       "companyKey": "modellstation-somosa",
@@ -54,11 +54,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-dn-ii-oder-fh-30-fur-den-nachtdienst-modellstation-somosa",
+          "dipl-pflegefachperson-hf-dn-ii-o-fh-30-per-den-nachtdienst-modellstation-somosa-winterthur"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-dn-ii-oder-fh-30-fur-den-nachtdienst-modellstation-somosa"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-dn-ii-oder-fh-30-fur-den-nachtdienst-modellstation-somosa"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-dn-ii-oder-fh-30-fur-den-nachtdienst-modellstation-somosa"
+        "dipl-pflegefachperson-hf-dn-ii-oder-fh-30-fur-den-nachtdienst-modellstation-somosa",
+        "dipl-pflegefachperson-hf-dn-ii-o-fh-30-per-den-nachtdienst-modellstation-somosa-winterthur"
       ],
       "salaryMin": 27500,
       "salaryMax": 38400,
@@ -77,12 +85,12 @@
     },
     {
       "id": "modellstation-somosa-4f354264be7e",
-      "slug": "dipl-pflegefachperson-hf-dn-ii-o-fh-come-springer-in-per-den-nachtdienst-modellstation-somosa-winterthur",
+      "slug": "infermiera-hf-dn-ii-o-fh-come-saltatore-per-il-servizio-notturno-modellstation-somosa-winterthur",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-dn-ii-oder-fh-als-springer-in-fur-den-nachtdienst-modellstation",
-        "it": "dipl-pflegefachperson-hf-dn-ii-o-fh-come-springer-in-per-den-nachtdienst-modellstation-somosa-winterthur",
-        "en": "dipl-pflegefachperson-hf-dn-ii-oder-fh-als-springer-in-fur-den-nachtdienst-modellstation",
-        "fr": "dipl-pflegefachperson-hf-dn-ii-oder-fh-als-springer-in-fur-den-nachtdienst-modellstation"
+        "it": "infermiera-hf-dn-ii-o-fh-come-saltatore-per-il-servizio-notturno-modellstation-somosa-winterthur",
+        "en": "dipl-nurse-hf-dn-ii-or-fh-as-a-jumper-for-night-service-modellstation-somosa-winterthur",
+        "fr": "infirmiere-diplomee-hf-dn-ii-ou-fh-pour-le-service-de-nuit-modellstation-somosa-winterthur"
       },
       "company": "Modellstation SOMOSA",
       "companyKey": "modellstation-somosa",
@@ -127,11 +135,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-dn-ii-oder-fh-als-springer-in-fur-den-nachtdienst-modellstation",
+          "dipl-pflegefachperson-hf-dn-ii-o-fh-come-springer-in-per-den-nachtdienst-modellstation-somosa-winterthur"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-dn-ii-oder-fh-als-springer-in-fur-den-nachtdienst-modellstation"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-dn-ii-oder-fh-als-springer-in-fur-den-nachtdienst-modellstation"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-dn-ii-oder-fh-als-springer-in-fur-den-nachtdienst-modellstation"
+        "dipl-pflegefachperson-hf-dn-ii-oder-fh-als-springer-in-fur-den-nachtdienst-modellstation",
+        "dipl-pflegefachperson-hf-dn-ii-o-fh-come-springer-in-per-den-nachtdienst-modellstation-somosa-winterthur"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
