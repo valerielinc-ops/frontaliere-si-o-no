@@ -744,6 +744,31 @@ describe('post-walk incremental planning', () => {
     expect(result.paths).not.toContain(hiddenHub);
   });
 
+  it('probes indexed-only top-levels and the root for new direct writes', async () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const claimed = writeHtml(root, 'it/jobs/claimed/index.html', 'claimed');
+    const indexed = writeHtml(root, 'eventi/old/index.html', 'old');
+    const rootHtml = writeHtml(root, '404.html', 'root');
+    await writePostWalkWalkInventory(root, distDir, {
+      topLevels: ['<root>', 'eventi', 'it'],
+      unmanifestedTopLevels: ['<root>', 'eventi'],
+      claimedPaths: [claimed],
+      unmanifestedPaths: [indexed, rootHtml],
+    });
+    const freshEvent = writeHtml(root, 'eventi/new/index.html', 'new');
+    const freshFlat = writeHtml(root, 'eventi/new-flat.html', 'flat');
+    const freshRoot = writeHtml(root, '500.html', 'root-new');
+    const inventory = await loadPostWalkWalkInventory(root);
+
+    const result = collectHtmlFromClaimedPaths(distDir, [claimed], [], inventory ?? undefined);
+
+    expect(result.topLevelsChanged).toBe(false);
+    expect(new Set(result.paths)).toEqual(
+      new Set([claimed, indexed, rootHtml, freshEvent, freshFlat, freshRoot]),
+    );
+  });
+
   it('finds flat HTML and new subtrees below an already-claimed child', () => {
     const root = fixtureRoot();
     const distDir = path.join(root, 'dist');

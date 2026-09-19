@@ -236,8 +236,27 @@ export function collectHtmlFromClaimedPaths(
   // directory level: existing claimed children remain covered by the registry,
   // while a new child is walked in full. This catches newly emitted HTML
   // without reopening the millions of already-claimed slug directories.
-  for (const topLevel of [...claimedTopLevels].sort()) {
-    const root = topLevel === '<root>' ? distDir : path.join(distDir, topLevel);
+  // Indexed top-levels are probed exactly like claimed ones: when the exact
+  // inventory replaces their walk, a new direct write below them must still
+  // be discoverable at the same one-level depth. A top-level already walked in
+  // full above needs no probe.
+  const probeTopLevels = new Set<string>(claimedTopLevels);
+  if (canReuseIndexedPaths) {
+    for (const topLevel of indexedTopLevels) probeTopLevels.add(topLevel);
+  }
+  for (const topLevel of rootsToWalk) probeTopLevels.delete(topLevel);
+  for (const topLevel of [...probeTopLevels].sort()) {
+    if (topLevel === '<root>') {
+      // Root-level HTML files only: the directories next to them are
+      // top-levels of their own and are handled by their own entry.
+      for (const entry of fs.readdirSync(distDir, { withFileTypes: true })) {
+        if (entry.isFile() && entry.name.endsWith('.html')) {
+          targetedPaths.push(distDir + path.sep + entry.name);
+        }
+      }
+      continue;
+    }
+    const root = path.join(distDir, topLevel);
     if (!fs.existsSync(root) || !fs.statSync(root).isDirectory()) continue;
     const claimedChildren = claimedChildrenByTopLevel.get(topLevel) ?? new Set<string>();
     for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
