@@ -29,6 +29,7 @@ import {
   isCoveredIssueStale,
   workflowScheduleFromSource,
   workflowNameFromIssue,
+  latestIssuePerWorkflow,
   runBody,
   dormantBody,
 } from '../scripts/ci/scan-unreported-failures.mjs';
@@ -91,6 +92,32 @@ describe('dedup con issue canoniche che dichiarano il workflow nel corpo', () =>
       title: 'A crawler needs attention',
       body: 'The workflow crawler-health-monitor reported a stale crawler.',
     })).toBeNull();
+  });
+
+  it('sceglie la issue aggiornata piu recente indipendentemente dall ordine del listing', () => {
+    const issues = [
+      {
+        number: 9195,
+        title: 'SEO gates regression: max-bfs-depth above baseline',
+        updatedAt: '2026-09-19T12:39:07Z',
+        body: '**Workflow:** cathedral-seo-gates-check',
+      },
+      {
+        number: 7421,
+        title: 'CI Failure: cathedral-seo-gates-check',
+        updatedAt: '2026-09-19T11:46:18Z',
+        body: '**Workflow:** cathedral-seo-gates-check',
+      },
+    ];
+
+    expect(latestIssuePerWorkflow(issues).get('cathedral-seo-gates-check')).toEqual({
+      number: 9195,
+      updatedAt: '2026-09-19T12:39:07Z',
+    });
+    expect(latestIssuePerWorkflow([...issues].reverse()).get('cathedral-seo-gates-check')).toEqual({
+      number: 9195,
+      updatedAt: '2026-09-19T12:39:07Z',
+    });
   });
 });
 
