@@ -71,6 +71,16 @@ jobs:
         with:
           node-version: '22'
 
+      # Il lane può pushare una PR documentale: il bridge Codex deve usare
+      # l'identità App/PAT che riattiva tests/review, non GITHUB_TOKEN.
+      - name: Mint GitHub App token for Codex bridge (zero-Claude)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       # One pending proposal at a time: if a harvest PR is already open and
       # awaiting human review, don't pile up a duplicate every day.
       - name: Guard — existing open proposal
@@ -135,8 +145,10 @@ jobs:
           REPO: ${{ github.repository }}
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          # `github_token` resta il lifecycle helper del workflow; il bridge
+          # host-side per push/PR usa solo App/PAT e fallisce chiuso se vuoto.
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          codex_github_token: ${{ secrets.GITHUB_TOKEN }}
+          codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           # Schedule/manual-dispatch → actor umano (owner) oggi, ma stesso
           # class-fix dei sibling: se un'automation interna dispatchasse questo
           # workflow via GITHUB_TOKEN (actor `github-actions[bot]`) o via App token

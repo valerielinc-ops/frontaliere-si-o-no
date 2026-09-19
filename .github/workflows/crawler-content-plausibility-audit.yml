@@ -192,6 +192,16 @@ jobs:
         with:
           node-version: '22'
 
+      # Il consumer Codex vive in questo job: il bridge può creare/commentare
+      # issue che riattivano il ciclo, quindi usa App/PAT, mai GITHUB_TOKEN.
+      - name: Mint GitHub App token for Codex bridge (zero-Claude)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Download shortlist
         uses: actions/download-artifact@v7
         with:
@@ -235,7 +245,9 @@ jobs:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           # Il token GitHub resta esplicito per le operazioni dell'audit.
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          codex_github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Il bridge host-side crea/commenta issue: solo App/PAT, con guardia
+          # fail-closed dell'action prima di avviare Codex.
+          codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           # `--dangerously-skip-permissions` NON funziona su trigger
           # schedule/workflow_dispatch (issue #3269, 3 run live): permissionMode
           # resolve "default" e blocca ~75% delle Bash. Si usa l'allowlist

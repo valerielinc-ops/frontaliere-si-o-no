@@ -181,7 +181,9 @@ jobs:
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           github_token: ${{ env.APP_TOKEN }}
-          codex_github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          # Lo sweep modifica label/issue e riattiva il ciclo: il bridge
+          # host-side usa solo App/PAT; il vuoto resta fail-closed nell'action.
+          codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           prompt: |
             Sei lo sweep settimanale delle issue `needs-human` di questo repo. Il tuo compito: separare le decisioni VERE del proprietario dal resto, e rimettere il resto nel ciclo autonomo. NON implementi fix e NON apri PR.
 
