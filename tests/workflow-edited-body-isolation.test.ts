@@ -205,6 +205,14 @@ describe('one code verdict and metadata-triggered review recovery', () => {
       .toContain('steps.review_policy_final.outputs.final_root');
     expect((job.steps.find((step: { id?: string }) => step.id === 'review_gate') as { env?: Record<string, string> } | undefined)?.env?.REVIEW_POLICY_ROOT)
       .toContain('steps.review_policy_final.outputs.final_root');
+    const publisherRefresh = job.steps.find((step: { id?: string }) => step.id === 'review_policy_publishers') as { run?: string } | undefined;
+    expect(publisherRefresh?.run).toContain('review-policy-publish-${GITHUB_RUN_ID}');
+    for (const publisherId of ['test_only_review', 'carry_forward_review']) {
+      expect((job.steps.find((step: { id?: string }) => step.id === publisherId) as { env?: Record<string, string> } | undefined)?.env?.REVIEW_POLICY_ROOT)
+        .toContain('steps.review_policy_publishers.outputs.root');
+    }
+    expect((job.steps.find((step: { id?: string }) => step.id === 'review_abort') as { env?: Record<string, string> } | undefined)?.env?.REVIEW_POLICY_ROOT)
+      .toContain('steps.review_policy_abort.outputs.root');
   });
 
   it('keeps a fail-closed roster for detached source gates', () => {
@@ -243,7 +251,9 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(script).not.toContain('exec(');
     expect(script).toContain('BODY_REVIEW_RECOVERY_PENDING');
     expect(script).toContain('workflow_run');
-    expect(recovery.concurrency.group).toBe('tests-body-recovery');
+    expect(recovery.concurrency.group).toContain('tests-body-recovery-schedule');
+    expect(recovery.concurrency.group).toContain('tests-body-recovery-pr-');
+    expect(recovery.concurrency.group).toContain('workflow_run.head_branch');
     expect(recovery.concurrency['cancel-in-progress']).toBe(false);
     expect(script).toContain('markerMatchesRun');
     expect(script).not.toContain('createWorkflowDispatch');

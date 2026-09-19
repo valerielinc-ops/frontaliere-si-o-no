@@ -2599,6 +2599,50 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
 
+      # The tests-only and carry-forward lanes publish a review without a
+      # model.  They still execute policy code after `npm ci` and the PR
+      # checkout, so the bootstrap copy in GITHUB_ENV is no longer a trusted
+      # publisher.  Materialize a fresh, base-pinned cone immediately before
+      # either publisher and pass it at step scope; a PR lifecycle hook cannot
+      # rewrite the path selected here.
+      - name: Refresh trusted review policy before automatic publishers
+        id: review_policy_publishers
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && success() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && (steps.tier.outputs.tier == 'tests-only' || steps.tier.outputs.tier == 'carry-forward') }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POLICY_REF: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          policy_root="${RUNNER_TEMP}/review-policy-publish-${GITHUB_RUN_ID}"
+          rm -rf "$policy_root"
+          mkdir -p "$policy_root"
+          download_main() {
+            local path="$1"
+            local destination="$policy_root/$path"
+            mkdir -p "$(dirname "$destination")"
+            gh api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' \
+              > "$destination"
+          }
+          for trusted_path in \
+            scripts/ci/review-test-policy.mjs \
+            scripts/ci/lib/fetchPrFiles.mjs \
+            scripts/ci/lib/review-input-revision.mjs \
+            scripts/ci/lib/pr-review-admission.mjs \
+            scripts/ci/lib/constants.mjs \
+            scripts/lib/loop-fleet-contract.mjs \
+            scripts/lib/githubApiHeaders.mjs; do
+            download_main "$trusted_path"
+          done
+          for trusted_file in \
+            "$policy_root/scripts/ci/review-test-policy.mjs" \
+            "$policy_root/scripts/ci/lib/fetchPrFiles.mjs" \
+            "$policy_root/scripts/ci/lib/review-input-revision.mjs" \
+            "$policy_root/scripts/ci/lib/pr-review-admission.mjs"; do
+            node --check "$trusted_file"
+          done
+          printf 'root=%s\n' "$policy_root" >> "$GITHUB_OUTPUT"
+
       - name: Publish automatic LGTM for a tests-only PR
         id: test_only_review
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && success() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.tier.outputs.tier == 'tests-only' }}
@@ -2608,6 +2652,7 @@ jobs:
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
           REVIEW_REVISION: ${{ steps.review_input.outputs.review_revision }}
+          REVIEW_POLICY_ROOT: ${{ steps.review_policy_publishers.outputs.root }}
         run: node "$REVIEW_POLICY_ROOT/scripts/ci/review-test-policy.mjs" post
 
       - name: Publish carry-forward LGTM (code contribution unchanged)
@@ -2627,6 +2672,7 @@ jobs:
           CARRY_PRIOR_COMMIT: ${{ steps.tier.outputs.carry_prior_commit }}
           CARRY_FINGERPRINT: ${{ steps.tier.outputs.carry_fingerprint }}
           REVIEW_REVISION: ${{ steps.review_input.outputs.review_revision }}
+          REVIEW_POLICY_ROOT: ${{ steps.review_policy_publishers.outputs.root }}
         run: |
           set -euo pipefail
           if [ -z "${APP_TOKEN:-}" ]; then
@@ -2710,6 +2756,38 @@ jobs:
             **PR body: one source of truth.** The deterministic body contract (`scripts/lib/pr-body-sections-check.mjs`, step `PR-body completeness`) already validated sections, bullet states, `Motivo`/`Prossimo passo`, placeholders and `Closes`; its verdict is in the bundle under `## Deterministic body contract`. When it is ✅, do not re-validate those rules and never emit a `🔴 Important` about the body: a doubt about those rules is at most a `🟡 Nit` anchored as `PR body:L<n>`, and the review gate declassifies such a 🔴 on a green contract anyway. REVIEW.md step 7 (a perf claim without a baseline) is not a contract rule and still applies. The states it accepts in `## Non implementato (ancora)` — `in questa PR`, `PR concatenata #N`, `per scelta`, `by construction`, `blocked: decisione del proprietario` (the five `CLOSING_STATES` of `scripts/ci/followup-has-candidates.mjs`) and any other `blocked: <causa>`, which keeps the task open without blocking the PR — are valid, e su quelli **non si emette 🔴**. A `PR concatenata` without `#N` is not a state and the contract already rejects it (non passa). Re-raising a 🔴 on a bullet the contract accepted deadlocks the loop: the fixer declines with a reason, the round cap trips, and `needs-human` lands with the wrong diagnosis on a PR that has nothing to fix. Tier `minimal` carries the same rule: check that both sections exist and that **nessun placeholder vuoto** (`TBD`, `N/A`, empty bullet) fills them — but a bullet closed with specific fields **non è un finding**.
 
             Post exactly one review with `gh pr review ${PR_NUMBER} --comment --body ...`. The review body MUST contain, as its own unchanged line, `<!-- REVIEW_INPUT_REVISION: ${{ steps.review_input.outputs.review_revision }} -->`; this binds the verdict to the trusted body revision supplied by the workflow. End with `## LGTM` only when there is no open `🔴 Important`, no unresolved funnel-critical question, and the bundle/body contract is valid. If uncertain, emit `❓ q:`; never use `## LGTM` beside an unresolved Important finding. Work read-only: do not edit files, commit, push, run npm, or run tests. Batch independent reads/searches in one tool call and stop immediately after posting the review.
+      # The transient-error classifier invokes the fallback detector after the
+      # model step.  Its import cone is also policy, so it must not inherit the
+      # mutable bootstrap path after npm/PR code has run.
+      - name: Refresh trusted review policy before transient-error classifier
+        id: review_policy_abort
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.tier.outputs.tier != 'carry-forward' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POLICY_REF: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          policy_root="${RUNNER_TEMP}/review-policy-abort-${GITHUB_RUN_ID}"
+          rm -rf "$policy_root"
+          mkdir -p "$policy_root"
+          download_main() {
+            local path="$1"
+            local destination="$policy_root/$path"
+            mkdir -p "$(dirname "$destination")"
+            gh api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' \
+              > "$destination"
+          }
+          for trusted_path in \
+            scripts/ci/claude-codex-fallback.mjs \
+            scripts/ci/claude-rate-limit.mjs \
+            scripts/ci/claude-rate-limit-contract.mjs; do
+            download_main "$trusted_path"
+          done
+          node --check "$policy_root/scripts/ci/claude-codex-fallback.mjs"
+          node --check "$policy_root/scripts/ci/claude-rate-limit.mjs"
+          printf 'root=%s\n' "$policy_root" >> "$GITHUB_OUTPUT"
+
       - name: Fail on transient API error (no review posted)
         id: review_abort
         # The Codex lane can exit 0 even when the model run ABORTED on a
@@ -2748,6 +2826,7 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           REVIEW_TIER: ${{ steps.tier.outputs.tier }}
           REVIEW_MAX_TURNS: ${{ steps.tier.outputs.max_turns }}
+          REVIEW_POLICY_ROOT: ${{ steps.review_policy_abort.outputs.root }}
         run: |
           set -uo pipefail
           if [ "${CODEX_PRIMARY_SUCCESS:-false}" = 'true' ]; then

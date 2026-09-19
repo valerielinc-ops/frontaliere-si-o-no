@@ -24,12 +24,16 @@ permissions:
   issues: write
 
 concurrency:
-  # One lane is deliberate: a scheduled reconciliation has no PR/HEAD fields,
-  # so a per-PR expression would let it overlap a workflow_run/body-edit lane
-  # and consume the same durable marker twice. The marker is the source of
-  # truth; cancelling after revokeAutoMerge() but before persistMarker() would
-  # lose the only retry signal, so serialize the API-only attempts instead.
-  group: tests-body-recovery
+  # Keep one serialized lane per PR (and one independent schedule lane). A
+  # global group lets GitHub retain only one pending run: while PR A is
+  # running, a body edit on PR B can be replaced by a later event for PR C,
+  # leaving B without a marker or retry. The durable marker still makes
+  # repeated events idempotent, while the scoped groups preserve liveness for
+  # independent PRs.
+  group: >-
+    ${{ github.event_name == 'schedule'
+        && 'tests-body-recovery-schedule'
+        || format('tests-body-recovery-pr-{0}', github.event.pull_request.number || github.event.workflow_run.pull_requests[0].number || github.event.workflow_run.head_branch || github.run_id) }}
   cancel-in-progress: false
 
 jobs:
