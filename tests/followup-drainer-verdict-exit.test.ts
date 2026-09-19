@@ -95,10 +95,10 @@ describe('VERDICT-EXIT escalate — regressione #6427 (needs-human morto per sem
     const marker = 'VERDICT-EXIT escalate #${iss.number}';
     const markerIdx = src.indexOf(marker);
     expect(markerIdx, 'marker di log del branch escalate non trovato — il branch è stato rinominato?').toBeGreaterThan(-1);
-    // L'`edit()` che precede il log è la mutazione da verificare.
-    const before = src.slice(Math.max(0, markerIdx - 400), markerIdx);
-    const editCallIdx = before.lastIndexOf('edit(iss.number,');
-    expect(editCallIdx, 'edit() del branch escalate non trovato prima del log').toBeGreaterThan(-1);
+    // L'`editChecked()` che precede il log è la mutazione da verificare.
+    const before = src.slice(Math.max(0, markerIdx - 900), markerIdx);
+    const editCallIdx = before.lastIndexOf('editChecked(iss.number,');
+    expect(editCallIdx, 'editChecked() del branch escalate non trovato prima del log').toBeGreaterThan(-1);
     const editCall = before.slice(editCallIdx);
     expect(editCall, editCall).toContain("add: ['needs-human']");
     expect(editCall, editCall).toContain('LBL_FIX');
