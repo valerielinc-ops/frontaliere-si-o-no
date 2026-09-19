@@ -102,6 +102,28 @@ jobs:
           APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
           APPROVAL_CONSENT: ${{ inputs.human_approval }}
           APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          # Senza questa riga il cron di questo workflow e' VERDE E INERTE.
+          # scripts/ci/human-side-effect-gate.mjs:180 calcola
+          # `isTrustedScheduleEvent = eventName === 'schedule' &&
+          # APPROVAL_TRUSTED_SCHEDULE === 'true'`, e alla riga 214 un evento che
+          # non e' ne' dispatch ne' schedule fidato aggiunge
+          # `event-not-workflow-dispatch` alle `reasons` -> diniego. Un diniego
+          # «exits successfully so the workflow can finish quietly» (riga 34 di
+          # quello script), e ogni step di scrittura di questo workflow e'
+          # condizionato a `allow_side_effect == 'true'`: quindi il cron del
+          # 2026-10-01 sarebbe risultato `success` avendo backfillato ZERO
+          # expired job. Non e' un'ipotesi: `grep -c APPROVAL_TRUSTED_SCHEDULE`
+          # su questo file rendeva 0, mentre 19 workflow fratelli lo dichiarano
+          # (recover-prev-slugs.yml:170, send-job-alerts.yml,
+          # refresh-plate-auctions.yml e altri 16) — quindi e' il pattern
+          # stabilito del repo, non un privilegio inventato per questo caso.
+          #
+          # Questa riga ABILITA SCRITTURE SU `main` DA CRON: il percorso di
+          # questo workflow fa `git-commit-data.sh --slice-only` con push
+          # diretto su main e poi `trigger-deploy.sh`. Il gate resta comunque
+          # l'unico cancello (run_attempt == 1, nonce monouso, e `dry_run`
+          # continua a valere sul dispatch manuale).
+          APPROVAL_TRUSTED_SCHEDULE: 'true'
           APPROVAL_SCOPE: backfill-expired-from-history
         run: node scripts/ci/human-side-effect-gate.mjs
 

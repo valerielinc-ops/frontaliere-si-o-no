@@ -244,6 +244,23 @@ const SCHEDULE_ARMED_WORKFLOWS = [
   // Recovery is an approved scheduled write: it remains non-destructive and
   // its backfill/commit steps keep their own dry-run guards in depth.
   'recover-prev-slugs.yml',
+  // Aggiunto il 2026-09-19, ed era uno dei 12 che il commento sopra dichiara
+  // «in neither» inventory al 2026-09-18: il buco noto di questa lista lo aveva
+  // gia' contato senza nominarlo.
+  // Senza l'armamento il cron MENSILE di questo workflow risultava `success`
+  // avendo backfillato ZERO expired job: il gate negava ogni `schedule`
+  // (`event-not-workflow-dispatch`, human-side-effect-gate.mjs:214), un diniego
+  // esce 0 «so the workflow can finish quietly» (riga 34), e tutti e 7 i suoi
+  // step di scrittura sono condizionati a `allow_side_effect`. Verde e inerte —
+  // la stessa classe del verde fabbricato che #9205 chiude sull'audit del
+  // corpus, e su un cron mensile nessuno se ne sarebbe accorto prima del
+  // 2026-11-01.
+  // La scrittura e' non distruttiva: ricostruisce
+  // `data/jobs/expired/by-crawler/*` camminando la history con `git show`,
+  // passa `npm test` come gate PRIMA del commit, e i suoi 7 step usano tutti
+  // l'APPROVED_GATE_IF esatto, quindi `dry_run` continua a valere sul dispatch
+  // manuale.
+  'backfill-expired-from-history.yml',
 ];
 
 const SCHEDULE_UNARMED_WORKFLOWS = [
@@ -981,9 +998,9 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
   });
 
   it('arms trusted schedules only on workflows whose schedules apply side effects', () => {
-    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(19);
+    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(20);
     expect(SCHEDULE_UNARMED_WORKFLOWS).toHaveLength(9);
-    expect(SCHEDULE_SIDE_EFFECT_WORKFLOWS).toHaveLength(28);
+    expect(SCHEDULE_SIDE_EFFECT_WORKFLOWS).toHaveLength(29);
 
     for (const name of SCHEDULE_SIDE_EFFECT_WORKFLOWS) {
       const document = YAML.parse(workflow(name)) as { jobs?: Record<string, { steps?: Array<Record<string, unknown>> }> };
