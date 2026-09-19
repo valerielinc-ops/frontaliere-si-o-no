@@ -892,18 +892,19 @@ describe('employer insights technical deduplication', () => {
       eventName: string,
       employerKey: string,
       jobSlug: string,
+      emissionId: string,
       path: string,
       eventCount: number,
       users: number,
       sessions: number,
     ) => ({
-      dimensionValues: [date, eventName, employerKey || '(not set)', jobSlug || '(not set)', path],
+      dimensionValues: [date, eventName, employerKey || '(not set)', jobSlug || '(not set)', emissionId || '(not set)', path],
       metricValues: [String(eventCount), String(users), String(sessions)].map((value) => ({ value })),
     });
     const rows = [
-      ga4Row('20260901', 'page_view', 'acme', 'role-it', '/cerca-lavoro-ticino/role-it/', 7, 2, 3),
-      ga4Row('20260902', 'page_view', '', '', '/cerca-lavoro-ticino/azienda-acme/', 2, 1, 1),
-      ga4Row('20260903', 'job_apply', 'acme', 'role-it', '/cerca-lavoro-ticino/role-it/', 1, 1, 1),
+      ga4Row('20260901', 'page_view', 'acme', 'role-it', 'page-view-1', '/cerca-lavoro-ticino/role-it/', 7, 2, 3),
+      ga4Row('20260902', 'page_view', '', '', '', '/cerca-lavoro-ticino/azienda-acme/', 2, 1, 1),
+      ga4Row('20260903', 'job_apply', 'acme', 'role-it', 'apply-1', '/cerca-lavoro-ticino/role-it/', 1, 1, 1),
     ];
     const calls: Array<{ body: Record<string, unknown> }> = [];
     const report = async ({ body }: { body: Record<string, unknown> }) => {
@@ -925,6 +926,7 @@ describe('employer insights technical deduplication', () => {
       { name: 'eventName' },
       { name: 'customEvent:employer_key' },
       { name: 'customEvent:job_slug' },
+      { name: 'customEvent:emission_id' },
       { name: 'pagePath' },
     ]);
     expect(buildGa4EventQueryBody(ga4Window).dimensionFilter).toMatchObject({ orGroup: { expressions: expect.any(Array) } });
@@ -947,6 +949,7 @@ describe('employer insights technical deduplication', () => {
       timestamp: '2026-09-01T00:00:00.000Z',
       employerKey: 'acme',
       jobSlug: 'role-it',
+      emissionId: 'page-view-1',
       views: 7,
       persons: 2,
       sessions: 3,
@@ -984,7 +987,7 @@ describe('employer insights technical deduplication', () => {
     const report = async ({ body }: { body: Record<string, unknown> }) => ({
       rowCount: 3,
       rows: Number(body.offset) === 0 ? [{
-        dimensionValues: ['20260901', 'page_view', 'acme', 'role-it', '/cerca-lavoro-ticino/role-it/'],
+        dimensionValues: ['20260901', 'page_view', 'acme', 'role-it', 'page-view-1', '/cerca-lavoro-ticino/role-it/'],
         metricValues: [{ value: '1' }, { value: '1' }, { value: '1' }],
       }] : [],
       metadata: { dataLossFromOtherRow: Number(body.offset) === 0 },

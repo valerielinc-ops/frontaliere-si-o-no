@@ -397,7 +397,7 @@ jobs:
             esac
 
             if ! group_label=$(printf '%s' "$leader_json" | jq -r --arg pattern "$group_label_pattern" \
-              '[.labels[]?.name | select(test($pattern))] | .[0] // empty'); then
+              '[.labels[]? | select(test($pattern))] | .[0] // empty'); then
               echo "::warning::impossibile riconoscere la label B19 → flusso singolo"
               return 0
             fi
@@ -808,7 +808,7 @@ jobs:
             fi
             body=$(jq -r '.[] | (.title + "\n" + (.body // "") + "\n" + ([.labels[]?.name] | join("\n")))' "$CTX_DIR/group.json")
           else
-            body=$(jq -r '.title + "\n" + (.body // "") + "\n" + ([.labels[]?.name] | join("\n"))' "$CTX_DIR/issue.json")
+            body=$(jq -r '.title + "\n" + (.body // "") + "\n" + ([.labels[]?] | join("\n"))' "$CTX_DIR/issue.json")
           fi
           # Decision registry prefetch: il fixer deve ricevere le decisioni senza
           # spendere un turno per una lettura che può arrivare troncata. Il cap
