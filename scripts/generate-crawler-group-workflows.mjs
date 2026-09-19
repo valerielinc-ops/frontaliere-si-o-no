@@ -1673,7 +1673,11 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
           CRAWLER_GENERATION_RECEIPT_DIR: 'crawler-generation/receipts',
           CRAWLER_GROUP_COMMIT_DIR: 'crawler-generation/commit-batch',
           CRAWLER_GROUP_MAX_PARALLEL: String(CRAWLER_GROUP_MAX_PARALLEL),
-          DATA_PIPELINE_LEASE: '1',
+          // Crawler groups publish disjoint slices through the private-index /
+          // ref-retry path in git-commit-data.sh. A global Firestore lease here
+          // would serialize all 23 groups behind the slowest crawler, while
+          // the live-run guard above retains its separate per-group lease.
+          // Translation already follows the same lease-free write boundary.
         },
         steps,
       },

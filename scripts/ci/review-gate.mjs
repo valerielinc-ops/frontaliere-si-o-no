@@ -96,13 +96,25 @@ function citationPathAndLine(rawPath, fullMatch) {
 }
 
 /** Extract file-like citations from one finding, deduplicated by path+line. */
-function extractFileCitationsWith(text, pattern) {
+function extractFileCitationsWith(
+  text,
+  pattern,
+  { dedupe = true, includeMatchIndex = false } = {},
+) {
   const citations = [];
   pattern.lastIndex = 0;
   for (const match of String(text || '').matchAll(pattern)) {
     const citation = citationPathAndLine(match[1], match[0]);
-    if (citation.path) citations.push(citation);
+    if (citation.path) {
+      citations.push(includeMatchIndex
+        ? {
+          ...citation,
+          __pathStart: match.index + match[0].indexOf(match[1]),
+        }
+        : citation);
+    }
   }
+  if (!dedupe) return citations;
   const seen = new Set();
   return citations.filter((citation) => {
     const key = `${citation.path}:${citation.line || ''}`;
@@ -112,16 +124,16 @@ function extractFileCitationsWith(text, pattern) {
   });
 }
 
-export function extractFileCitations(text) {
-  return extractFileCitationsWith(text, FILE_CITATION_RE);
+export function extractFileCitations(text, options) {
+  return extractFileCitationsWith(text, FILE_CITATION_RE, options);
 }
 
 // Historical audit oracle: this mirrors the pre-#8189 parser so the audit can
 // quantify findings the old first-match extension bug would have left open.
 const LEGACY_FILE_CITATION_RE = /(?:^|[\s([{"'`])(?:\\(?=\.))?((?:\.\.?\/)?(?:[A-Za-z0-9_.@-]+\/)*[A-Za-z0-9_.@-]+\.(?:cjs|css|html|js|json|md|mjs|sh|ts|tsx|txt|toml|yaml|yml|jsx))(?:[:#]L?\d+(?:[-–]\d+)?)?/giu;
 
-function extractLegacyFileCitations(text) {
-  return extractFileCitationsWith(text, LEGACY_FILE_CITATION_RE);
+function extractLegacyFileCitations(text, options) {
+  return extractFileCitationsWith(text, LEGACY_FILE_CITATION_RE, options);
 }
 
 function isInsideCodeSpan(line, index) {
@@ -1476,7 +1488,46 @@ function extractFindingCitations(text, extractCitations) {
     .split(/\r?\n/u)
     .filter((line) => !FIX_CONFIRMATION_RE.test(line))
     .join('\n');
-  return extractCitations(findingText);
+  const occurrences = extractCitations(findingText, {
+    dedupe: false,
+    includeMatchIndex: true,
+  });
+  const seen = new Set();
+  return occurrences
+    .filter((citation) => !isIllustrativeBareCitation(findingText, citation))
+    .filter((citation) => {
+      const key = `${citation.path}:${citation.line || ''}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
+    .map(({ __pathStart, ...citation }) => citation);
+}
+
+/**
+ * A reviewer may cite a source file as an example of where a value comes
+ * from, not as a second edit anchor. Keep this carve-out deliberately narrow:
+ * an explicit line citation, or an imperative such as "also fix <path>",
+ * remains an actionable citation and must still be confirmed independently.
+ */
+function isIllustrativeBareCitation(text, citation) {
+  if (!citation || citation.line !== null) return false;
+  const escapedPath = String(citation.path || '').replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
+  if (!escapedPath) return false;
+  const backtick = String.fromCharCode(96);
+  const pathToken = `(?:${backtick}${escapedPath}${backtick}|${escapedPath})`;
+  const illustrativePattern = new RegExp(
+    `\\bpresent(?:\\s+only)?\\s+in\\s+${pathToken}\\s+(?:such\\s+as|for\\s+example|e\\.g\\.|come)`,
+    'igu',
+  );
+  const pathStart = Number.isInteger(citation.__pathStart) ? citation.__pathStart : null;
+  if (pathStart === null) return illustrativePattern.test(String(text || ''));
+  return [...String(text || '').matchAll(illustrativePattern)].some((match) => {
+    const start = match.index;
+    return Number.isInteger(start)
+      && pathStart >= start
+      && pathStart < start + match[0].length;
+  });
 }
 
 if (isDirectRun) {
