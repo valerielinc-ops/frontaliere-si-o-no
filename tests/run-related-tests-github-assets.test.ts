@@ -28,12 +28,17 @@ const sharedGraphDir = fs.mkdtempSync(path.join(os.tmpdir(), 'related-github-sha
 
 afterAll(() => fs.rmSync(sharedGraphDir, { recursive: true, force: true }));
 
-function selectionFor(changedPaths: string[], reuseDir = sharedGraphDir) {
+function selectionOutputFor(
+  changedPaths: string[],
+  reuseDir = sharedGraphDir,
+  args: string[] = [],
+  extraEnv: Record<string, string> = {},
+) {
   const dir = reuseDir;
   const changedFile = path.join(dir, 'changed-paths.txt');
   fs.writeFileSync(changedFile, `${changedPaths.join('\n')}\n`);
   fs.writeFileSync(path.join(dir, 'status.txt'), 'complete\n');
-  const stdout = execFileSync(process.execPath, [RUNNER], {
+  return execFileSync(process.execPath, [RUNNER, ...args], {
     cwd: ROOT,
     encoding: 'utf8',
     maxBuffer: 64 * 1024 * 1024,
@@ -49,8 +54,13 @@ function selectionFor(changedPaths: string[], reuseDir = sharedGraphDir) {
       // sottoprocesso è nostro e lo vogliamo in dry-run anche quando la suite
       // gira in CI, quindi la togliamo esplicitamente per questo figlio.
       GITHUB_ACTIONS: '',
+      ...extraEnv,
     },
   });
+}
+
+function selectionFor(changedPaths: string[], reuseDir = sharedGraphDir) {
+  const stdout = selectionOutputFor(changedPaths, reuseDir);
   return stdout.split('\n').map((line) => line.trim()).filter((line) => line.endsWith('.test.ts'));
 }
 
@@ -141,6 +151,69 @@ function createRunnerVariant(source: string) {
     fs.symlinkSync(path.join(ROOT, 'scripts/ci/lib', file), target);
   }
   return dir;
+}
+
+function createCompleteSelectionFixture(source: string, trackedPaths: string[]) {
+  const dir = createRunnerVariant(source);
+  try {
+    for (const file of trackedPaths) {
+      const target = path.join(dir, file);
+      fs.mkdirSync(path.dirname(target), { recursive: true });
+      fs.symlinkSync(path.join(ROOT, file), target);
+    }
+    execFileSync('git', ['init', '-q', '-b', 'main'], { cwd: dir });
+    execFileSync('git', ['config', 'user.email', 'test@example.invalid'], { cwd: dir });
+    execFileSync('git', ['config', 'user.name', 'related-selection-test'], { cwd: dir });
+    execFileSync('git', ['add', '.'], { cwd: dir });
+    execFileSync('git', ['commit', '-qm', 'complete selection fixture'], { cwd: dir });
+    const base = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: dir, encoding: 'utf8' }).trim();
+    execFileSync('git', ['update-ref', 'refs/remotes/origin/main', base], { cwd: dir });
+    return dir;
+  } catch (error) {
+    fs.rmSync(dir, { recursive: true, force: true });
+    throw error;
+  }
+}
+
+function runSelectionInFixture(
+  fixtureDir: string,
+  runnerDir: string,
+  changedPaths: string[],
+  suffix: string,
+) {
+  const changedFile = path.join(fixtureDir, `changed-${suffix}.txt`);
+  const statusFile = path.join(fixtureDir, `status-${suffix}.txt`);
+  const graphFile = path.join(fixtureDir, `graph-${suffix}.json`);
+  const outputFile = path.join(fixtureDir, `output-${suffix}.txt`);
+  fs.writeFileSync(changedFile, `${changedPaths.join('\n')}\n`);
+  fs.writeFileSync(statusFile, 'complete\n');
+  fs.writeFileSync(outputFile, '');
+  const result = spawnSync(
+    process.execPath,
+    [path.join(runnerDir, 'scripts/ci/run-related-tests.mjs'), '--select-only'],
+    {
+      cwd: fixtureDir,
+      encoding: 'utf8',
+      maxBuffer: 64 * 1024 * 1024,
+      env: {
+        ...process.env,
+        CHANGED_PATHS_FILE: changedFile,
+        CHANGED_PATHS_STATUS_FILE: statusFile,
+        VITEST_RELATED_GRAPH: graphFile,
+        VITEST_SKIP_CORPUS_WIDE: 'true',
+        VITEST_RELATED_DRY_RUN: 'true',
+        GITHUB_ACTIONS: '',
+        GITHUB_EVENT_NAME: 'pull_request',
+        GITHUB_BASE_REF: '',
+        GITHUB_OUTPUT: outputFile,
+      },
+    },
+  );
+  expect(result.status, result.stderr || result.stdout).toBe(0);
+  return {
+    stdout: result.stdout,
+    githubOutput: fs.readFileSync(outputFile, 'utf8'),
+  };
 }
 
 function createStatusStreamGitWrapper({ failFirstDiff = false } = {}) {
@@ -249,6 +322,91 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor([REMOVED_TEST_FIXTURE]))
       .toContain('tests/run-related-tests-github-assets.test.ts');
   }, 120_000);
+
+  it('un diff del runner esegue la sua suite di regressione esplicita', () => {
+    const selected = selectionFor(['scripts/ci/run-related-tests.mjs']);
+    expect(selected).toEqual(expect.arrayContaining([
+      'tests/run-related-tests-github-assets.test.ts',
+      'tests/run-related-tests-sparse.test.ts',
+      'tests/ci-vitest-check-name.test.ts',
+      'tests/agents-related-tests-recipe.test.ts',
+    ]));
+    expect(selected).not.toContain('tests/checkout-sparse-profiles.test.ts');
+    expect(selected).not.toContain('tests/faq-readability-gate.test.ts');
+    expect(selected).not.toContain('tests/firestore-rules-consent-write.test.ts');
+    expect(selected.length).toBeLessThan(20);
+  }, 120_000);
+
+  it('una modifica a vitest.config.ts seleziona la suite globale senza le esclusioni deliberate', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'related-vitest-config-'));
+    try {
+      const selected = selectionFor(['vitest.config.ts'], dir);
+      // È un test volutamente non adiacente al runner: se il config globale
+      // tornasse a essere un candidato orfano, il runner produrrebbe zero.
+      expect(selected).toContain('tests/a-plus-plus-job-parser.test.ts');
+      expect(selected.length).toBeGreaterThan(100);
+      expect(selected).not.toContain('tests/checkout-sparse-profiles.test.ts');
+      expect(selected).not.toContain('tests/faq-readability-gate.test.ts');
+      expect(selected).not.toContain('tests/firestore-rules-consent-write.test.ts');
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  }, 120_000);
+
+  it('un config globale seleziona un test dataset-dependent e richiede l\'assembly', () => {
+    const runnerSource = fs.readFileSync(RUNNER, 'utf8');
+    const dir = createCompleteSelectionFixture(runnerSource, [
+      'vitest.config.ts',
+      'tests/job-locale-completeness.test.ts',
+      'tests/run-related-tests-github-assets.test.ts',
+    ]);
+    try {
+      const result = runSelectionInFixture(
+        dir,
+        dir,
+        ['vitest.config.ts'],
+        'global-config',
+      );
+      expect(result.stdout).toContain('tests/job-locale-completeness.test.ts');
+      expect(result.stdout).toContain(
+        'Assemble + migrate: required (related selection includes a dataset-dependent test)',
+      );
+      expect(result.stdout).not.toContain('tracked file(s) unreadable');
+      expect(result.githubOutput).toBe('required=true\n');
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  }, 120_000);
+
+  it('un diff del runner usa la suite esplicita senza richiedere l\'assembly', () => {
+    const runnerSource = fs.readFileSync(RUNNER, 'utf8');
+    const dir = createCompleteSelectionFixture(runnerSource, [
+      'tests/run-related-tests-github-assets.test.ts',
+      'tests/run-related-tests-sparse.test.ts',
+      'tests/ci-vitest-check-name.test.ts',
+      'tests/agents-related-tests-recipe.test.ts',
+    ]);
+    try {
+      const result = runSelectionInFixture(
+        dir,
+        dir,
+        ['scripts/ci/run-related-tests.mjs'],
+        'runner-only',
+      );
+      expect(result.stdout).toContain('tests/run-related-tests-sparse.test.ts');
+      expect(result.stdout).toContain(
+        'Assemble + migrate: not required (related selection is dataset-independent)',
+      );
+      expect(result.stdout).not.toContain('tracked file(s) unreadable');
+      expect(result.githubOutput).toBe('required=false\n');
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  }, 120_000);
+
+  it('tsconfig.json non diventa una scorciatoia per la suite intera', () => {
+    expect(selectionFor(['tsconfig.json'])).toEqual([]);
+  });
 
   it('rifiuta il dry-run quando il processo gira in GitHub Actions', () => {
     const result = runRunnerWithEnv(
