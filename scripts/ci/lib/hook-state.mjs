@@ -5,6 +5,12 @@
  * Marker creation uses a hard link from a fully-written temporary file, so two
  * concurrent first calls cannot both claim the same slot. Any filesystem
  * anomaly returns `unavailable`; callers must then allow the command.
+ *
+ * A marker is a CLAIM, not a permanent verdict: pass `ttlMs` and an expired
+ * claim is taken over instead of being reported as still held. Without it a
+ * session that died between the claim and its own work would keep the slot
+ * closed forever, and the only way out would be deleting a file by hand under
+ * `.scratch/` — which nobody who hits the block knows about.
  */
 import { createHash, randomUUID } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
@@ -49,10 +55,18 @@ export function resolveHookStateDir(scope) {
  * Atomically claim a marker. The result is one of `claimed`, `exists`, or
  * `unavailable`; only the first two carry policy meaning.
  *
- * @param {{scope:string,key:string,record:Record<string,unknown>}}
- * @returns {{status:'claimed'|'exists'|'unavailable',path?:string}}
+ * `ttlMs` (optional, positive finite number) makes the claim expire: an
+ * existing marker older than the TTL is taken over and the call reports
+ * `claimed` with `takeover: true`. The age is read from the record's
+ * `createdAt` when it is a parseable timestamp, otherwise from the file mtime.
+ * A marker whose age cannot be established is treated as FRESH — expiring on
+ * an unreadable timestamp would turn a filesystem oddity into a silently
+ * reopened gate.
+ *
+ * @param {{scope:string,key:string,record:Record<string,unknown>,ttlMs?:number}}
+ * @returns {{status:'claimed'|'exists'|'unavailable',path?:string,takeover?:boolean,ageMs?:number,record?:Record<string,unknown>}}
  */
-export function claimMarker({ scope, key, record }) {
+export function claimMarker({ scope, key, record, ttlMs }) {
   const directory = resolveHookStateDir(scope);
   if (!directory || typeof key !== 'string' || !key) return { status: 'unavailable' };
 
@@ -76,7 +90,7 @@ export function claimMarker({ scope, key, record }) {
       return { status: 'claimed', path: target };
     } catch (error) {
       if (error?.code !== 'EEXIST') return { status: 'unavailable' };
-      return validMarker(target) ? { status: 'exists', path: target } : { status: 'unavailable' };
+      return resolveExistingMarker({ target, temporary, ttlMs });
     }
   } catch {
     return { status: 'unavailable' };
@@ -87,6 +101,75 @@ export function claimMarker({ scope, key, record }) {
       // Temporary cleanup is best effort and never changes the gate verdict.
     }
   }
+}
+
+/**
+ * Decide what an already-present marker means, and take it over when its TTL
+ * has run out. The takeover is unlink-then-link, not rename: if two callers
+ * both see the same expired claim only one wins the link and the other reads
+ * the fresh marker back, so an expiry cannot hand the slot to two sessions.
+ */
+function resolveExistingMarker({ target, temporary, ttlMs }) {
+  const existing = readMarker(target);
+  if (!existing) return { status: 'unavailable' };
+
+  const ttl = Number(ttlMs);
+  const expired = Number.isFinite(ttl) && ttl > 0
+    && typeof existing.ageMs === 'number' && existing.ageMs > ttl;
+  if (!expired) {
+    return {
+      status: 'exists',
+      path: target,
+      record: existing.record,
+      ...(typeof existing.ageMs === 'number' ? { ageMs: existing.ageMs } : {}),
+    };
+  }
+
+  try {
+    unlinkSync(target);
+  } catch (error) {
+    // ENOENT: another caller already took the same expired claim over; fall
+    // through and let the link below decide who actually holds it now.
+    if (error?.code !== 'ENOENT') return { status: 'unavailable' };
+  }
+  try {
+    linkSync(temporary, target);
+    return { status: 'claimed', path: target, takeover: true, ageMs: existing.ageMs };
+  } catch (error) {
+    if (error?.code !== 'EEXIST') return { status: 'unavailable' };
+    const fresh = readMarker(target);
+    return fresh
+      ? { status: 'exists', path: target, record: fresh.record }
+      : { status: 'unavailable' };
+  }
+}
+
+/**
+ * Read a marker plus its age. Returns `undefined` for anything this module did
+ * not write (the fail-safe `unavailable` case for the caller).
+ *
+ * @param {string} path
+ * @returns {{record:Record<string,unknown>, ageMs?:number}|undefined}
+ */
+function readMarker(path) {
+  try {
+    const stat = statSync(path);
+    if (!stat.isFile() || stat.size > MAX_MARKER_BYTES) return undefined;
+    const parsed = JSON.parse(readFileSync(path, 'utf8'));
+    if (parsed?.version !== 1) return undefined;
+    return { record: parsed, ...ageOf(parsed, stat) };
+  } catch {
+    return undefined;
+  }
+}
+
+/** Age in ms from the record's own timestamp, falling back to the file mtime. */
+function ageOf(record, stat) {
+  const now = Date.now();
+  const declared = Date.parse(String(record?.createdAt ?? ''));
+  if (Number.isFinite(declared)) return { ageMs: Math.max(0, now - declared) };
+  if (Number.isFinite(stat?.mtimeMs)) return { ageMs: Math.max(0, now - stat.mtimeMs) };
+  return {};
 }
 
 export function hashKey(key) {
@@ -119,17 +202,6 @@ export function resolveHookRepositoryScope(candidate = process.cwd()) {
     current = parent;
   }
   return undefined;
-}
-
-function validMarker(path) {
-  try {
-    const stat = statSync(path);
-    if (!stat.isFile() || stat.size > MAX_MARKER_BYTES) return false;
-    const parsed = JSON.parse(readFileSync(path, 'utf8'));
-    return parsed?.version === 1;
-  } catch {
-    return false;
-  }
 }
 
 function validAbsoluteDirectory(candidate) {
