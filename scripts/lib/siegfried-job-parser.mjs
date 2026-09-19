@@ -21,9 +21,11 @@
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
-import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
-import { firstLocationSegment } from './ats-clients/workday-client.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
+import {
+  firstLocationSegment,
+  normalizeWorkdayLocationCandidate,
+} from './ats-clients/workday-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -232,6 +234,26 @@ function inferCanton(location = '') {
   return '';
 }
 
+/**
+ * Resolve the only location that licenses publication for a Siegfried req.
+ *
+ * The Switzerland facet is a set-level filter: a cross-posted requisition can
+ * match it because one of its locations is Swiss. It is not evidence that the
+ * primary workplace is Swiss. Keep the publish decision on `info.location`,
+ * reject an explicitly foreign primary before parsing or falling back, and do
+ * not rescue a city from the description (the company blurb names all three
+ * Swiss sites on every posting).
+ */
+export function resolveSiegfriedPublishLocation(info = {}) {
+  const primaryText = normalizeWorkdayLocationCandidate(info?.location);
+  if (!primaryText || isLocationExplicitlyForeign(primaryText)) return null;
+
+  const city = parseWorkdayLocation(primaryText);
+  const canton = inferCanton(`${city} ${primaryText}`);
+  if (!city || !canton) return null;
+  return { city, canton };
+}
+
 /* ── Main Fetch Function ─────────────────────────────────── */
 
 /**
@@ -269,44 +291,17 @@ export async function fetchAllSiegfriedJobs() {
       continue;
     }
 
-    // ── Location resolution ──
-    let locationRaw = info.location || listing.locationsText || '';
-    let city = parseWorkdayLocation(locationRaw);
-
-    // For multi-location jobs, try the requisition location
-    if (!city && info.jobRequisitionLocation?.descriptor) {
-      city = parseWorkdayLocation(info.jobRequisitionLocation.descriptor);
-    }
-    // Fallback: check additionalLocations for a Swiss entry
-    if (!city && info.additionalLocations) {
-      for (const addLoc of info.additionalLocations) {
-        const country = addLoc?.country?.alpha2Code || '';
-        if (country === 'CH') {
-          city = parseWorkdayLocation(addLoc?.descriptor || '');
-          break;
-        }
-      }
-    }
-    // Last resort: listSwissJobs() already scoped this listing to
-    // Switzerland via a Workday country facet; a free-text location that
-    // failed to parse doesn't mean it's foreign — give it the same
-    // second-chance anchor as assemble-jobs-dataset.mjs's canton rescue:
-    // a real Swiss city named in the description, falling back to
-    // Siegfried's main Swiss site (Evionnaz) rather than dropping a
-    // listing the facet already confirmed is Swiss.
-    let cityFromVacancyText = '';
-    if (!city) {
-      cityFromVacancyText = rescueSwissCityFromText(stripHtml(info.jobDescription || ''));
-      city = cityFromVacancyText || 'Evionnaz';
-    }
-
-    // Skip foreign locations that slipped through Workday's country filter
-    if (isLocationExplicitlyForeign(city)) {
-      console.log(`  ⏭️  Skipped foreign location: ${city} — ${title}`);
+    // The country facet accepts a req when ANY cross-posted location is Swiss.
+    // Publish only when the req's own primary location is concrete and Swiss;
+    // never substitute the listing union, a description city, or Evionnaz HQ.
+    const resolvedLocation = resolveSiegfriedPublishLocation(info);
+    if (!resolvedLocation) {
+      const primaryText = normalizeWorkdayLocationCandidate(info?.location);
+      console.log(`  ⏭️  Skipped (no Swiss primary location): ${primaryText || '(empty)'} — ${title}`);
       continue;
     }
 
-    const canton = inferCanton(city);
+    const { city, canton } = resolvedLocation;
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = `${WORKDAY_PUBLIC_BASE}${externalPath}`;
@@ -365,7 +360,6 @@ export async function fetchAllSiegfriedJobs() {
 
     if (jobReqId) job.jobReqId = jobReqId;
     if (hiringOrg !== SIEGFRIED_COMPANY_NAME) job.hiringOrganization = hiringOrg;
-    if (cityFromVacancyText) markLocationDerivedFromVacancyText(job);
 
     jobs.push(job);
     await new Promise((r) => setTimeout(r, 300)); // Rate limiting

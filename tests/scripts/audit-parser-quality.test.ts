@@ -26,6 +26,7 @@ import {
   countDuplicates,
   largestDuplicateBucket,
   effectiveDescription,
+  stripHtml,
   sourceLocationMatches,
   extractSourceLocationObservation,
   classifySourceLocationEvidence,
@@ -72,6 +73,20 @@ type Entry = {
   severity: 'CRITICAL' | 'WARNING' | 'OK';
   action?: string;
 };
+
+describe('stripHtml entity handling', () => {
+  it('decodes named and numeric separators after removing tags', () => {
+    expect(stripHtml('<p>Switzerland &gt; Allschwil : H-127</p>'))
+      .toContain('Switzerland > Allschwil : H-127');
+    expect(stripHtml('<p>Switzerland &#62; Allschwil : H-127</p>'))
+      .toContain('Switzerland > Allschwil : H-127');
+  });
+
+  it('does not let a decoded entity fabricate a tag before stripping', () => {
+    expect(stripHtml('<p>Allschwil &lt;b&gt; Basel</p>'))
+      .toContain('Allschwil <b> Basel');
+  });
+});
 
 describe('active parser-quality population', () => {
   it('keeps live records and reports grace/expired exclusions separately', () => {

@@ -20,6 +20,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 import { extractDetailFields, extractJsonLd } from './lib/prospector/extract.mjs';
+import { decodeEntities as decodeScrapedHtmlEntities } from './lib/prospector/entities.mjs';
 import { resolveSourceBackedSwissGeography } from './lib/prospector/location-evidence.mjs';
 import { readAttr } from './lib/html-attr.mjs';
 import {
@@ -281,7 +282,11 @@ const rebaseline = args.includes('--rebaseline');
 
 /* ── Helpers ───────────────────────────────────────────────── */
 function stripHtml(html) {
-  return (html || '').replace(/<[^>]*>/g, ' ').replace(/&[a-z]+;/gi, ' ');
+  // Decode only after tags are gone: an encoded `<` must not become markup
+  // that this stripper can accidentally consume. The prospector decoder wraps
+  // the shared entity table and also handles numeric references such as &#62;.
+  const withoutTags = (html || '').replace(/<[^>]*>/g, ' ');
+  return decodeScrapedHtmlEntities(withoutTags);
 }
 
 function plainText(html) {
@@ -2197,6 +2202,8 @@ function printReport(report) {
   console.log(`\n${total} crawlers checked, ${critical.length} critical, ${warnings.length} warnings`);
 
 }
+
+export { stripHtml };
 
 const isMain = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
 if (isMain) {
