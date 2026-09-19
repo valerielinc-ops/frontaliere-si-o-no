@@ -15,6 +15,32 @@ export const ZERO_MATCH_CAUSES = {
   NO_HARD_FILTERS: 'no-hard-filters',
 };
 
+/**
+ * Decide the lifecycle action for the canonical zero-match monitor issue.
+ * Dry-run and targeted operator sends are deliberately non-authoritative, and
+ * an empty denominator cannot prove recovery.
+ */
+export function getZeroMatchMonitorAction({
+  zeroMatchCount = 0,
+  alertCount = 0,
+  threshold = 0.2,
+  dryRun = false,
+  targeted = false,
+} = {}) {
+  if (
+    dryRun
+    || targeted
+    || !Number.isFinite(zeroMatchCount)
+    || !Number.isFinite(alertCount)
+    || !Number.isFinite(threshold)
+    || alertCount <= 0
+    || zeroMatchCount < 0
+  ) {
+    return 'skip';
+  }
+  return zeroMatchCount / alertCount > threshold ? 'report' : 'resolve';
+}
+
 export function classifyZeroMatchCause(profile) {
   const p = profile || {};
   if ((p.specificJobIds?.length ?? 0) > 0 || p.specificCompanyKey) {

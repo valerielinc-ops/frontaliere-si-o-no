@@ -5,6 +5,7 @@ import {
   isMistralAiJob,
   isTrustedDomain,
   isSwissAshbyJob,
+  isSwissPrimaryAshbyJob,
   pickSwissLocationLabel,
   ashbyLocationEntries,
 } from '../scripts/lib/mistral-ai-job-parser.mjs';
@@ -105,6 +106,21 @@ describe('Mistral AI crawler parser', () => {
 
     it('matches a role whose SECONDARY office is Swiss', () => {
       expect(isSwissAshbyJob(zurichSecondary)).toBe(true);
+    });
+
+    it('does not publish a foreign-primary role just because a secondary office is Swiss', () => {
+      expect(isSwissPrimaryAshbyJob(zurichSecondary)).toBe(false);
+    });
+
+    it('rejects an explicit foreign country even when the label contains Zurich', () => {
+      expect(isSwissPrimaryAshbyJob({
+        location: 'Zurich',
+        address: { postalAddress: { addressCountry: 'France' } },
+      })).toBe(false);
+    });
+
+    it('accepts a Swiss primary role', () => {
+      expect(isSwissPrimaryAshbyJob(zurichPrimary)).toBe(true);
     });
 
     it('rejects a role with no Swiss office', () => {

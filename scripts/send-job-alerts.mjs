@@ -33,7 +33,10 @@ import {
   freshnessBoost,
   FRESHNESS_BOOST_48H_MS,
 } from '../services/jobAlertMatching.mjs';
-import { classifyZeroMatchCause } from './lib/job-alert-zero-match-diagnosis.mjs';
+import {
+  classifyZeroMatchCause,
+  getZeroMatchMonitorAction,
+} from './lib/job-alert-zero-match-diagnosis.mjs';
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
@@ -2263,10 +2266,14 @@ async function main() {
   if (alerts.length > 0) {
     const zeroMatchRate = zeroMatchCount / alerts.length;
     console.log(`   📉 Zero-match: ${zeroMatchCount}/${alerts.length} alerts (${(zeroMatchRate * 100).toFixed(1)}%) — by cause: ${JSON.stringify(zeroMatchByCause)}`);
-    // Skip during --dry-run / TARGET_EMAIL test sends: the denominator there
-    // is tiny and non-representative, so the rate is meaningless noise, not
-    // a real quality signal.
-    if (!DRY_RUN && !ALLOWED_EMAILS && zeroMatchRate > ZERO_MATCH_ISSUE_THRESHOLD_RATIO) {
+    const monitorAction = getZeroMatchMonitorAction({
+      zeroMatchCount,
+      alertCount: alerts.length,
+      threshold: ZERO_MATCH_ISSUE_THRESHOLD_RATIO,
+      dryRun: DRY_RUN,
+      targeted: Boolean(ALLOWED_EMAILS),
+    });
+    if (monitorAction === 'report') {
       // Best-effort diagnostic report: this call sits BEFORE sendBatch, so any
       // exception here (e.g. a future github-issue-creator.mjs change that adds
       // a non-guarded internal path) must never abort main() and skip sending
@@ -2300,6 +2307,17 @@ async function main() {
         });
       } catch (err) {
         console.warn(`   ⚠️ zero-match issue report failed (non-fatal, continuing to send): ${err.message}`);
+      }
+    } else if (monitorAction === 'resolve') {
+      // A recovered production run must close the canonical monitor issue;
+      // otherwise one transient red run leaves a stale OPEN issue forever.
+      try {
+        const { resolveGithubIssue } = await import('./lib/github-issue-creator.mjs');
+        resolveGithubIssue('[Monitor] Job-alert zero-match rate above threshold', {
+          workflow: 'send-job-alerts',
+        });
+      } catch (err) {
+        console.warn(`   ⚠️ zero-match issue recovery failed (non-fatal, continuing to send): ${err.message}`);
       }
     }
   }
