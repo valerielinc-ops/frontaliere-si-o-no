@@ -148,7 +148,65 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Admit only an explicit main-branch production candidate before any build
+  # leg can produce artifacts or mutate deploy targets.
+  # This file is the canonical build producer for the workflow_run handoff;
+  # post-deploy admission binds the source to this workflow's name, path, and
+  # immutable ID before any publish side effect is allowed.
+  validate-promotion-trigger:
+    name: validate production promotion trigger
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout promotion gate
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            /scripts/ci/production-promotion-gate.mjs
+          sparse-checkout-cone-mode: false
+      - name: Reject non-main or unverified source
+        env:
+          PROMOTION_EVENT: ${{ github.event_name }}
+          PROMOTION_REF: ${{ github.ref }}
+          PROMOTION_REPOSITORY: ${{ github.repository }}
+          PROMOTION_SOURCE_REPOSITORY: ${{ github.repository }}
+          PROMOTION_HEAD_SHA: ${{ github.sha }}
+        run: node scripts/ci/production-promotion-gate.mjs trigger
+
+  # The Pages/shard environments provide deployment credentials; this separate
+  # environment is the human approval boundary for production promotion.
+  production-approval:
+    name: approve production promotion
+    needs: validate-promotion-trigger
+    if: needs.validate-promotion-trigger.result == 'success'
+    runs-on: ubuntu-latest
+    environment:
+      name: production-deploy
+    permissions:
+      contents: read
+      deployments: read
+    steps:
+      - name: Checkout promotion gate
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            /scripts/ci/production-promotion-gate.mjs
+          sparse-checkout-cone-mode: false
+      - name: Verify required reviewers and environment attestation
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PROMOTION_REPOSITORY: ${{ github.repository }}
+          PROMOTION_ENVIRONMENT_NAME: production-deploy
+          PRODUCTION_DEPLOY_APPROVAL: ${{ secrets.PRODUCTION_DEPLOY_APPROVAL }}
+        run: |
+          set -euo pipefail
+          gh api --method GET \
+            "repos/${PROMOTION_REPOSITORY}/environments/${PROMOTION_ENVIRONMENT_NAME}" \
+            | node scripts/ci/production-promotion-gate.mjs approval
+
   matrix-setup:
+    needs: [validate-promotion-trigger, production-approval]
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.build.outputs.matrix }}
@@ -304,7 +362,7 @@ jobs:
   # ── Matrix build: one runner per locale. IT serves Pages + uploads the same
   # artifacts as the monolith; en/de/fr push to their frontaliere-<loc> shards.
   build-locale:
-    needs: [matrix-setup, prep]
+    needs: [matrix-setup, prep, production-approval]
     runs-on: ubuntu-latest
     # No per-job concurrency: the workflow-level `pages-build-run` group already
     # guarantees a single build run at a time, so this run's 4 legs never race
@@ -3113,8 +3171,8 @@ jobs:
   # once per superseded commit. See that file's header for the full argument.
   # ───────────────────────────────────────────────────────────────────────
   rearm:
-    needs: [matrix-setup, prep, build-locale]
-    if: always() && github.ref == 'refs/heads/main'
+    needs: [matrix-setup, prep, production-approval, build-locale]
+    if: always() && github.ref == 'refs/heads/main' && needs.production-approval.result == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:

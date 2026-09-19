@@ -1636,6 +1636,29 @@ export function filterUnsentSubscribers(subscribers, alreadySent) {
   });
 }
 
+/**
+ * Keep only the recipients this run is allowed to send to, BEFORE any
+ * per-recipient work (job matching, cohort grouping, AI briefings, HTML).
+ *
+ * The daily cap used to be applied only after Phase 1-5 had built an email for
+ * every unsent subscriber: run 35075707530 (2026-09-16) generated AI briefings
+ * for 7126 subscribers / 3441 cohorts (Phase 2 = 85 min) and then sent 3833.
+ * The other 3293 were thrown away and rebuilt, with fresh AI calls, by the
+ * next daily run of the same `weekly_{monday}` campaign.
+ *
+ * Same order, same limit as the post-assembly cap (`slice(0, limit)` on the
+ * subscriber-ordered email list), so the recipients chosen are identical: the
+ * cap was already a prefix of this list. A cohort's representative subscriber
+ * (its first member) is also unchanged, because the prefix keeps the first
+ * occurrence of every cohort that survives.
+ */
+export function capSubscribersToDailyLimit(subscribers, limit) {
+  if (!Number.isFinite(limit) || limit < 0 || subscribers.length <= limit) {
+    return { kept: subscribers, deferred: 0 };
+  }
+  return { kept: subscribers.slice(0, limit), deferred: subscribers.length - limit };
+}
+
 // ─── Subject A/B auto-promotion ─────────────────────────────
 // On by default (kill switch: NEWSLETTER_AB_AUTOPROMOTE=false). Safe: a no-op
 // until a recent campaign has a statistically significant winner with enough
@@ -1783,6 +1806,17 @@ const NEWSLETTER_SEND_THROTTLE = Object.freeze({
   adaptiveThrottle: Object.freeze({ stepMs: 100, maxDelayMs: 1000 }),
 });
 
+// Parallel sends. Run 35075707530 sent 3833 emails in 68 min at concurrency 1
+// = 1.035 s/email, with the 100ms spacing never binding: the cost was one
+// maileroo round-trip (~0.9 s) plus the per-recipient onSent bookkeeping, paid
+// serially. Four workers overlap those waits (target >= 2.5 email/s). It is
+// safe for dedup: each item is claimed once by the cascade queue, onSent
+// (persistDelivery, resume.record) writes only that recipient's documents, and
+// the resume log's arrayUnion is order-independent. Burst limits stay guarded
+// by the adaptive throttle (429/5xx) plus BULK_PROVIDER_MIN_INTERVAL_MS floors
+// for cloudflare/resend, passed at the call sites below.
+const NEWSLETTER_SEND_CONCURRENCY = 4;
+
 async function sendEmailBatch(emails, finalizeForProvider, onDelivered) {
   // After a per-provider subject swap, the final variant/subject live on the
   // payload (the source of truth for what was actually sent) — read them there
@@ -1808,10 +1842,11 @@ async function sendEmailBatch(emails, finalizeForProvider, onDelivered) {
   // Single provider mode: force a specific provider via cascade
   if (IS_SINGLE_PROVIDER) {
     console.log(`📧 Sending via ${EMAIL_PROVIDER} only (${emails.length} emails)`);
-    const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
+    const { sendEmailCascade, logProviderSummary, BULK_PROVIDER_MIN_INTERVAL_MS } = await import('./lib/email-cascade.mjs');
     const result = await sendEmailCascade(emails, {
-      concurrency: 1,
+      concurrency: NEWSLETTER_SEND_CONCURRENCY,
       ...NEWSLETTER_SEND_THROTTLE,
+      providerMinIntervalMs: BULK_PROVIDER_MIN_INTERVAL_MS,
       forceProvider: EMAIL_PROVIDER,
       finalizeForProvider,
       onSent: persistSent,
@@ -1822,10 +1857,11 @@ async function sendEmailBatch(emails, finalizeForProvider, onDelivered) {
   // Cascade: multi-provider free tier (default)
   if (EMAIL_PROVIDER === 'cascade') {
     console.log(`📧 Sending via email cascade (${emails.length} emails)`);
-    const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
+    const { sendEmailCascade, logProviderSummary, BULK_PROVIDER_MIN_INTERVAL_MS } = await import('./lib/email-cascade.mjs');
     const result = await sendEmailCascade(emails, {
-      concurrency: 1,
+      concurrency: NEWSLETTER_SEND_CONCURRENCY,
       ...NEWSLETTER_SEND_THROTTLE,
+      providerMinIntervalMs: BULK_PROVIDER_MIN_INTERVAL_MS,
       finalizeForProvider,
       onSent: persistSent,
     });
@@ -2189,6 +2225,9 @@ async function main() {
   // for a real 'send' run (test/dry-run recipients are single-target and
   // don't need — nor compute — the site-wide aggregate).
   let globalPreferredHour = { hourUtc: null, sampleUsers: 0 };
+  // Unsent audience of this campaign before the daily cap trims it (send mode
+  // only); null elsewhere, where every built email is the whole audience.
+  let unsentBeforeDailyCap = null;
   if (mode === 'test') {
     const target = targetEmail
       ? await fetchTargetSubscriber(targetEmail)
@@ -2311,6 +2350,15 @@ async function main() {
     if (subscribers.length === 0) {
       console.log('✅ All eligible subscribers already received this campaign. Nothing to prepare or send.');
       return;
+    }
+
+    // Daily cap BEFORE Phase 1-5: build (and pay AI for) only the emails this
+    // run can actually send. See capSubscribersToDailyLimit.
+    unsentBeforeDailyCap = subscribers.length;
+    const capped = capSubscribersToDailyLimit(subscribers, DAILY_SEND_LIMIT);
+    if (capped.deferred > 0) {
+      subscribers = capped.kept;
+      console.log(`⏱️  Daily cap (pre-build): preparing ${subscribers.length}/${unsentBeforeDailyCap} (limit: ${DAILY_SEND_LIMIT}/day); ${capped.deferred} deferred to the next run, no AI briefing built for them.`);
     }
   }
 
@@ -2690,6 +2738,9 @@ async function main() {
   }
 
   // ── Daily cap: limit to DAILY_SEND_LIMIT for production sends ──
+  // Normally a no-op: send mode already trimmed `subscribers` to the same
+  // prefix before Phase 1 (capSubscribersToDailyLimit). Kept as the last
+  // guard in front of the cascade.
   let cappedEmails = pendingEmails;
   if (mode === 'send' && pendingEmails.length > DAILY_SEND_LIMIT) {
     cappedEmails = pendingEmails.slice(0, DAILY_SEND_LIMIT);
@@ -2782,7 +2833,12 @@ async function main() {
   }
 
   const totalForCampaign = alreadySent.size + sent.length;
-  const totalSubscribers = emails.length;
+  // Emails are now built only for the capped prefix, so emails.length no longer
+  // covers the recipients deferred to the next run: count them from the
+  // pre-cap unsent audience instead, plus what earlier runs already sent.
+  const totalSubscribers = unsentBeforeDailyCap === null
+    ? emails.length
+    : alreadySent.size + unsentBeforeDailyCap;
   console.log(`\u2705 Newsletter: ${sent.length} sent, ${failed.length} failed today | ${totalForCampaign}/${totalSubscribers} total for campaign`);
 
   // Per-user send-time (#3798): the cascade already logs scheduled vs

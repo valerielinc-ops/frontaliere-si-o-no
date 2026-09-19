@@ -311,9 +311,17 @@ push_shard() {
     if git clone -q --depth 1 --filter=blob:none --no-checkout \
          "$SHARD_REPO" "$stage" 2>/dev/null \
        && [ -d "$stage/.git" ]; then
-      dcount="$(shard_read_counter "$stage" .shard-deploys)"
-      prev_n="$(shard_read_counter "$stage" .shard-filecount)"
-      if [ "$dcount" -ge "$SHARD_HISTORY_CAP" ]; then
+      # A listed-but-unreadable marker is not a zero: flatten the staged
+      # payload to the same orphan path used at the history cap, so a failed
+      # lazy-fetch cannot bypass SHARD_HISTORY_CAP.
+      if ! dcount="$(shard_read_counter "$stage" .shard-deploys)" \
+        || ! prev_n="$(shard_read_counter "$stage" .shard-filecount)"; then
+        echo "::warning::$loc shard: marker lazy-fetch failed — flattening before full overlay"
+        rm -rf "$stage"; mkdir -p "$stage"
+        shard_orphan_init "$stage"
+        dcount=0
+        prev_n=0
+      elif [ "$dcount" -ge "$SHARD_HISTORY_CAP" ]; then
         # History cap reached → flatten: drop the cloned .git and start a
         # fresh orphan commit (full push), resetting the deploy counter.
         echo "$loc shard: history cap $SHARD_HISTORY_CAP reached (dcount=$dcount) — flattening with orphan force-push"

@@ -93,6 +93,8 @@ Ogni 🟡 nit che sollevi **deve dichiarare la propria disposizione**:
 
 Determina tier dai file toccati. `pr-review-loop.yml` lo passa nel prompt; il reviewer regola depth+probing in base al tier.
 
+**Effort del modello per tier** (`tests.yml` → input `reasoning_effort` dell'action): `max` per `high` e `high-mega`, `high` per `minimal`, `incremental`, `incremental-high` e `normal`. Il valore è registrato nell'evidenza strutturata e validato dal review gate contro l'insieme chiuso `CODEX_ALLOWED_EFFORTS`.
+
 **Il tier si decide SOLO sul CODE.** I file dati/static rigenerati — `data/**` (job JSON, snapshot, translation-cache, blog-articles), `public/**` (immagini/asset), `reports/**`, `_newsletter_variants/**`, `docs/**` — NON sono code: non escalano il tier e non vanno revieweati riga-per-riga (vedi "CODE vs DATA nel diff").
 
 | Tier | Trigger files (CODE) | Adversarial depth |
@@ -100,8 +102,8 @@ Determina tier dai file toccati. `pr-review-loop.yml` lo passa nel prompt; il re
 | **high** | `tests/**`, `.github/workflows/**`, `build-plugins/**`, e gli script **funnel-critical**: crawler/parser/adapter, `backfill-*`, `migrate-*`, `assemble-*`, sitemap/canonical/slug/redirect/structured-data — tutto `scripts/**` ECCETTO i non-funnel sotto | Bug nel test/CI/build/emitter = falso senso sicurezza che si propaga su ogni merge. Probe regex/assertion/exit-code/idempotency. Lista 3 cose NON verificate prima dell'output (`## Adversarial check`). |
 | **high-mega** | Stesso trigger di `high`, ma con ≥25 code file nel diff (PR batch di grande taglia: crawler multipli, migrazioni cross-file) | Stesso rigore/probing di `high` (`## Adversarial check` incluso) — solo più budget di turni (90 vs 60), non più severity: la taglia della PR non abbassa lo standard. |
 | **normal** | tutto il resto, inclusi gli script NON-funnel: `scripts/{ci,dev,evals}/` (helper CI/dev) e gli audit/report read-only (`audit-*`, `analytics*`, `*-report` — verificano, non mutano l'indice) | Single-pass standard. No adversarial step obbligatorio. |
-| **minimal** | PR data/docs-only (ZERO code reviewable) | Percorso corto ≤6 turni di Codex Luna Max: solo completeness-contract del body, niente REVIEW.md/cross-file/adversarial. Posta `## LGTM`. |
-| **incremental** / **incremental-high** | Re-review con delta-code non-funnel (→ `incremental`) o funnel-critical (→ `incremental-high`). Codex Luna Max (`gpt-5.6-luna`, effort `max`) su entrambi: cambia solo il probing, non il modello. | **Token-lever**: i commit fino a `INCREMENTAL_BASE` erano già reviewati → review SOLO il delta dei file PR (`compare $INCREMENTAL_BASE...$HEAD`), non l'intero contributo. Read/grep dei file pieni consentito per il contesto. `incremental-high` mantiene il probing rigoroso + `## Adversarial check` sul delta; `incremental` è single-pass. Prima review → NON incrementale (high|normal full). Delta-code vuoto → vedi `carry-forward`. |
+| **minimal** | PR data/docs-only (ZERO code reviewable) | Percorso corto ≤6 turni di Codex Luna (effort `high`): solo completeness-contract del body, niente REVIEW.md/cross-file/adversarial. Posta `## LGTM`. |
+| **incremental** / **incremental-high** | Re-review con delta-code non-funnel (→ `incremental`) o funnel-critical (→ `incremental-high`). Codex Luna (`gpt-5.6-luna`, effort `high`) su entrambi: cambia solo il probing, non il modello. | **Token-lever**: i commit fino a `INCREMENTAL_BASE` erano già reviewati → review SOLO il delta dei file PR (`compare $INCREMENTAL_BASE...$HEAD`), non l'intero contributo. Read/grep dei file pieni consentito per il contesto. `incremental-high` mantiene il probing rigoroso + `## Adversarial check` sul delta; `incremental` è single-pass. Prima review → NON incrementale (high|normal full). Delta-code vuoto → vedi `carry-forward`. |
 | **carry-forward** | Nessun file code della PR cambiato dall'ultima review (merge di main, commit vuoto, sola metadata) **e** fingerprint del contributo identico (`scripts/ci/pr-contribution-fingerprint.mjs`) | Zero modello se l'ultimo verdetto era `## LGTM`: `scripts/ci/lib/review-carry-forward.mjs` pubblica sulla HEAD esatta una review marcata `REVIEW_CARRY_FORWARD` e il review gate la riverifica da capo. Se l'ultimo verdetto non era approvante → tier `minimal` con la sezione `## Code contribution unchanged` nel bundle: si rigiudica solo il body, i 🔴 di codice si riportano identici e non si chiudono con `Fix di`. Stesso tier `minimal` quando il body viene corretto sulla stessa HEAD dopo un verdetto non approvante (`shouldAdmitBodyReReview`). Fingerprint non calcolabile o diverso → review piena. |
 
 ### CODE vs DATA nel diff
@@ -137,6 +139,10 @@ PR body DEVE avere:
 | `blocked: <causa tecnica>` | lavoro sospeso su una causa esterna | **sì** |
 
 `per scelta` e `by construction` non sono una scappatoia con un nome nuovo: valgono **solo** se il bullet porta anche il motivo. Un bullet che dice `per scelta` e basta è un `out of scope` travestito → 🔴.
+
+### Una sola fonte di verità sul body
+
+Il contratto del body è validato in modo deterministico da `scripts/lib/pr-body-sections-check.mjs` (step `PR-body completeness` di `tests.yml`): sezioni, stato di ogni voce, `Motivo`/`Prossimo passo`, placeholder, `Closes`. Il suo verdetto arriva nel bundle (`## Deterministic body contract`). **Se è ✅, il body non genera 🔴 Important**: al massimo un 🟡 Nit ancorato `PR body:L<n>`. Ogni stato accettato dal contratto — incluso qualunque `blocked: <causa>` — è valido; `Prossimo passo` concreto non si ridiscute. Il review gate declassa comunque un 🔴 ancorato solo su una riga `PR body:L<n>` dentro `## Non implementato` quando il contratto è verde (`DECLASSIFIED-BODY` nel log); il claim perf senza baseline (step 7) non è una regola del contratto e resta 🔴. Una regola del body che il contratto non copre va aggiunta al contratto, non applicata a mano dal reviewer. Le regole qui sotto valgono per i punti che il contratto non vede (coerenza fra `## Implementato` e diff) e quando il verdetto non è disponibile.
 
 ### Reviewer behavior
 
@@ -177,7 +183,12 @@ Behavior claims richiedono `file:linea`. No speculazione. Incerto → `❓ q:`.
 Dopo prima review:
 - Sopprimi 🟡. Posta solo 🔴.
 - Fix di `path:L<linea>` già applicato → conferma esplicitamente «Fix di `path:L<linea>`: ok.»
-- Un riallineamento della base non chiude un 🔴 Important precedente per silenzio: se l'anchor `path:Llinea` è ancora presente, riportalo; se corretto, conferma la riga di fix prima di scendere a `Important: 0` + `## LGTM`.
+- Un riallineamento della base non chiude un 🔴 Important precedente per silenzio: se l’anchor `path:Llinea` è ancora presente, riportalo; se corretto, conferma la riga di fix prima di scendere a `Important: 0` + `## LGTM`.
+- Il gate tratta come citazione ogni path di repository trovato nella prosa del
+  finding, anche quando è un companion senza `:L`. Se il rilievo è risolto,
+  emetti una riga `Fix di \`path:L<linea corrente>\`: ok.` separata per ciascun
+  path citato (non solo per la location primaria), prima di `Important: 0` +
+  `## LGTM`.
 - 🔴 Important senza citazione di file → non chiuderlo per silenzio: se il rilievo è risolto, conferma «Fix di `<testo normalizzato>`: ok.» usando il testo del finding senza backtick interni.
 - No rilanciare nit già detti.
 
