@@ -68,11 +68,13 @@ function writeManifest(
   version: string,
   prefix = 'en',
   includeRoot = false,
+  omitCountKinds: string[] = [],
 ): void {
   mkdirSync(scenario.manifestDir, { recursive: true });
   const manifestPages = includeRoot ? ['', ...pages] : pages;
   const counts = Object.fromEntries(KINDS.map((kind) => [kind, 0]));
   counts['active-job'] = manifestPages.length;
+  for (const kind of omitCountKinds) delete counts[kind];
   const lines = [
     JSON.stringify({ type: 'header', manifestVersion: MANIFEST_VERSION, format: 'jsonl', locale: 'en' }),
     JSON.stringify({
@@ -275,6 +277,20 @@ describe('delta push degli shard', () => {
       assertContent(scenario.remote, 'en/pages/a/index.html', '<html>A</html>');
       assertContent(scenario.remote, 'en/pages/b/index.html', '<html>B v2</html>');
       assertContent(scenario.remote, 'en/pages/d/index.html', '<html>D</html>');
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
+  it('fa fallback se manca il count di un kind obbligatorio', () => {
+    const scenario = createScenario('required-kind-count-missing');
+    try {
+      writePayload(scenario, { 'pages/a': '<html>A</html>' });
+      writeManifest(scenario, ['pages/a'], 'v1', 'en', false, ['active-job']);
+      const result = runPush(scenario, 'delta');
+      expect(result.status).toBe(0);
+      expect(result.output).toContain('delta fallback: fallback reason=current manifest invalid or payload missing');
+      assertContent(scenario.remote, 'en/pages/a/index.html', '<html>A</html>');
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }
