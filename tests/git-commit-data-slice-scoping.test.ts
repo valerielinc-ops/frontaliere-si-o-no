@@ -132,6 +132,56 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
     }
   });
 
+  it('does not publish the shared AI cache from a crawler-owned slice commit', () => {
+    const originDir = mkdtempSync(join(tmpdir(), 'git-commit-data-origin-'));
+    const repoDir = mkdtempSync(join(tmpdir(), 'git-commit-data-repo-'));
+
+    try {
+      execFileSync('git', ['init', '-q', '--bare', '--initial-branch=main', originDir]);
+      execFileSync('git', ['clone', '-q', originDir, repoDir]);
+      execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: repoDir });
+      execFileSync('git', ['config', 'user.name', 'Test'], { cwd: repoDir });
+
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[]\n');
+      writeFileSync(join(repoDir, 'data/jobs-ai-cache.json'), '{"entries":[]}\n');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"a1"}]\n');
+      writeFileSync(join(repoDir, 'data/jobs-ai-cache.json'), '{"entries":[{"key":"a","touchedAt":1}]}\n');
+
+      execFileSync(BASH_BIN, [SCRIPT_PATH, '--slice-only', 'slice without shared cache'], {
+        cwd: repoDir,
+        env: {
+          ...process.env,
+          JOBS_SLICE_FILE: 'data/jobs/by-crawler/a.json',
+          SKIP_AI_TRANSLATION: '1',
+          SLUG_HISTORY_SUMMARY_FILE: join(repoDir, 'no-such-slug-history-summary.txt'),
+          GH_TOKEN: '',
+          GITHUB_TOKEN: '',
+          GITHUB_RUN_ID: '',
+          GITHUB_REPOSITORY: '',
+          GITHUB_OUTPUT: '',
+        },
+      });
+
+      const committedFiles = execFileSync(
+        'git',
+        ['show', '--stat', '--format=', 'origin/main'],
+        { cwd: repoDir, encoding: 'utf-8' },
+      );
+      expect(committedFiles).toContain('a.json');
+      expect(committedFiles).not.toContain('jobs-ai-cache.json');
+      expect(readFileSync(join(repoDir, 'data/jobs-ai-cache.json'), 'utf-8')).toContain('"touchedAt":1');
+      expect(execFileSync('git', ['status', '--short'], { cwd: repoDir, encoding: 'utf-8' })).toContain('jobs-ai-cache.json');
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+    }
+  });
+
   it('falls back to directory-wide staging when JOBS_SLICE_FILE is unset (e.g. translate-pending.yml)', () => {
     const originDir = mkdtempSync(join(tmpdir(), 'git-commit-data-origin-'));
     const repoDir = mkdtempSync(join(tmpdir(), 'git-commit-data-repo-'));
