@@ -98,6 +98,7 @@ import path from 'node:path';
 import os from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
+import { assertCorpusObserved } from './lib/assert-corpus-observed.mjs';
 
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DEFAULT_SAMPLE_SIZE = 20; // per section — see header comment for the reasoned budget
@@ -411,6 +412,16 @@ async function main() {
   fs.mkdirSync(path.dirname(reportPath), { recursive: true });
   fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + '\n', 'utf-8');
   console.log(`[audit-article-corpus-drift] report written to ${reportPath}`);
+
+  // Dopo la scrittura del report, non prima: se il campione e' vuoto il report
+  // coi `corpusSize` per sezione e' esattamente cio' che serve a capire perche',
+  // e lo step `Upload the drift report` del workflow lo pubblica comunque.
+  assertCorpusObserved(
+    '[audit-article-corpus-drift]',
+    Object.fromEntries(
+      Object.entries(report.sections).map(([name, s]) => [name, { total: s.corpusSize, observed: s.sampled }]),
+    ),
+  );
 
   if (anyDivergence) {
     console.error('[audit-article-corpus-drift] FAIL — at least one sampled article diverged (see categories above / report for detail)');
