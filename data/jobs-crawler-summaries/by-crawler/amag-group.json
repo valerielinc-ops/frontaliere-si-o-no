@@ -1,18 +1,79 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-09-17T03:47:40.914Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-09-19T22:54:49.451Z",
+  "total": 3,
+  "newCount": 2,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4608,
-  "avgDurationMs": 4608,
+  "durationMs": 121757,
+  "avgDurationMs": 121757,
   "durationHistory": [
-    4608
+    121757
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Apprendista carrozziere/a verniciatore/-trice AFC (m/f) estate 2027 - AMAG Lugano",
+      "slug": "apprendista-carrozziere-a-verniciatore-trice-afc-m-f-estate-2027-amag-lugano",
+      "url": "https://jobs.amag-group.ch/Apprendista-carrozzierea-verniciatore-trice-AFC-mf-estate--it-j20676.html",
+      "applyUrl": "https://jobs.amag-group.ch/Apprendista-carrozzierea-verniciatore-trice-AFC-mf-estate--it-f20676.html",
+      "company": "AMAG Group",
+      "companyKey": "amag-group",
+      "companyDomain": "amag-group.ch",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "apprenticeship",
+      "sector": "Automotive & Mobilità",
+      "source": "amag-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-09-18",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-10-08",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 10,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Carrozziere verniciatore (m/f) - Contratto determinato - 100%",
+      "slug": "carrozziere-verniciatore-m-f-contratto-determinato-100",
+      "url": "https://jobs.amag-group.ch/Carrozziere-verniciatore-mf-Contratto-determinato-100-it-j23080.html",
+      "applyUrl": "https://jobs.amag-group.ch/Carrozziere-verniciatore-mf-Contratto-determinato-100-it-f23080.html",
+      "company": "AMAG Group",
+      "companyKey": "amag-group",
+      "companyDomain": "amag-group.ch",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "automotive",
+      "sector": "Automotive & Mobilità",
+      "source": "amag-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-07-15",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-09-30",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Consulente tecnico (m/f) - 100%",

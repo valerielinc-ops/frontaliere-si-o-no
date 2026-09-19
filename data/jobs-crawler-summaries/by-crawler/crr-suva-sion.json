@@ -1,23 +1,24 @@
 {
   "key": "crr-suva-sion",
   "label": "Clinique romande de réadaptation (CRR Suva)",
-  "generatedAt": "2026-09-17T03:47:50.965Z",
+  "generatedAt": "2026-09-19T22:53:06.690Z",
   "total": 3,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
   "written": 3,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 3483,
-  "avgDurationMs": 3483,
+  "durationMs": 2773,
+  "avgDurationMs": 2773,
   "durationHistory": [
-    3483
+    2773
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "crr-suva-sion-a1375f10b321",
       "slug": "maitre-socioprofessionnel-le-crr-suva-sion-sion",
@@ -25,13 +26,13 @@
       "companyKey": "crr-suva-sion",
       "companyDomain": "crr-suva.ch",
       "title": "Maître socioprofessionnel/le",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Sion",
       "canton": "VS",
       "url": "https://www.crr-suva.ch/clinique-readaptation/maitre-socioprofessionnel-2428.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-17T03:47:43.613Z",
+      "crawledAt": "2026-09-19T22:52:59.617Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -46,16 +47,16 @@
       "featured": false,
       "postedDate": "2026-09-14",
       "applyUrl": "https://www.crr-suva.ch/clinique-readaptation/maitre-socioprofessionnel-2428.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-09-17T03:47:43.613Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -88,7 +89,8 @@
       "firstSeenAt": "2026-07-30T22:22:15.064Z",
       "salaryMin": 97500,
       "salaryMax": 165500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "salarySource": "estimated",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -128,7 +130,8 @@
       "firstSeenAt": "2026-07-27T13:07:10.384Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "salarySource": "reported",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
