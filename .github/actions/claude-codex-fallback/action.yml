@@ -526,6 +526,28 @@ runs:
         bridge_dir="$scratch_dir/bin"
         mkdir -p "$bridge_dir"
         chmod 700 "$bridge_dir"
+        # The caller installs the deterministic PR-body gate through
+        # GITHUB_PATH, but the Codex environment is intentionally rebuilt from
+        # a minimal allowlist below. Re-open that exact runner-temp directory
+        # and put it back in front of the bridge so PR writes keep the same
+        # fail-closed body contract inside the sandbox too.
+        body_gate_dir="${PR_BODY_GATE_BIN:-}"
+        if [ -n "$body_gate_dir" ]; then
+          body_gate_dir="$(realpath "$body_gate_dir" 2>/dev/null || true)"
+          runner_temp_real="$(realpath "$runner_temp" 2>/dev/null || true)"
+          case "$body_gate_dir:$runner_temp_real" in
+            "$runner_temp_real"/*:*) ;;
+            *)
+              echo '::error::PR_BODY_GATE_BIN must stay under RUNNER_TEMP.'
+              exit 1
+              ;;
+          esac
+          [ -d "$body_gate_dir" ] || {
+            echo '::error::PR_BODY_GATE_BIN is not a readable directory.'
+            exit 1
+          }
+          PR_BODY_GATE_BIN="$body_gate_dir"
+        fi
         action_path="${CODEX_ACTION_PATH:?Codex action path unavailable}"
         runtime_snapshot="${CODEX_RUNTIME_SNAPSHOT:?Codex primary runtime snapshot unavailable}"
         workspace_root="${GITHUB_WORKSPACE:-${PWD:-$(pwd)}}"
@@ -785,6 +807,7 @@ runs:
         config_file="$CODEX_HOME/config.toml"
         scratch_dir_toml="$(toml_quote_path "$scratch_dir")"
         bridge_dir_toml="$(toml_quote_path "$bridge_dir")"
+        body_gate_dir_toml="$(toml_quote_path "${body_gate_dir:-}")"
         trusted_node_realpath_toml="$(toml_quote_path "$node_realpath")"
         codex_realpath_toml="$(toml_quote_path "$codex_realpath")"
         codex_launcher_dir_toml="$(toml_quote_path "$codex_launcher_dir")"
@@ -853,6 +876,13 @@ runs:
         "config" = "read"
         EOF
         fi
+        if [ -n "$body_gate_dir_toml" ]; then
+          cat >> "$config_file" <<EOF
+
+        [permissions.codex-fallback.filesystem."$body_gate_dir_toml"]
+        "." = "read"
+        EOF
+        fi
         chmod 600 "$config_file"
 
         # 0.153.4 strict mode also validates the checked-out project config;
@@ -867,6 +897,9 @@ runs:
         # remain denied outside the explicit workspace/runtime/scratch roots.
         base_filesystem_rules='{":root"="deny",":minimal"="read",":slash_tmp"="deny",":workspace_roots"={"."="write"}'
         codex_filesystem_rules="\"$trusted_node_realpath_toml\"={\".\"=\"read\"},\"$codex_realpath_toml\"={\".\"=\"read\"},\"$codex_launcher_dir_toml\"={\".\"=\"read\"}"
+        if [ -n "$body_gate_dir_toml" ]; then
+          codex_filesystem_rules="\"$body_gate_dir_toml\"={\".\"=\"read\"},$codex_filesystem_rules"
+        fi
         if [ "$codex_runtime_root" != "$codex_launcher_dir" ]; then
           codex_filesystem_rules="$codex_filesystem_rules,\"$codex_runtime_root_toml\"={\".\"=\"read\"}"
         fi
@@ -974,6 +1007,10 @@ runs:
           echo "::error::The Codex Git bridge did not start."
           exit 1
         fi
+        codex_command_path="$bridge_dir:$(/usr/bin/dirname "$node_realpath"):/usr/bin:/bin"
+        if [ -n "$body_gate_dir" ]; then
+          codex_command_path="$body_gate_dir:$codex_command_path"
+        fi
         # Do not let the token remain in the environment inherited by Codex;
         # only the host-side bridge process received it above.
         RUNNER_TEMP="$scratch_dir"
@@ -1041,7 +1078,7 @@ runs:
         codex_env=(
           "CODEX_BRIDGE_TRANSPORT=files"
           "CODEX_HOME=$CODEX_HOME"
-          "PATH=$bridge_dir:$(/usr/bin/dirname "$node_realpath"):/usr/bin:/bin"
+          "PATH=$codex_command_path"
           "HOME=$scratch_home"
           "TMPDIR=$scratch_dir"
           "CODEX_NODE_REAL=$node_realpath"

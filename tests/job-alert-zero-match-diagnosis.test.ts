@@ -7,7 +7,11 @@
  * production, not a hand-rolled stand-in.
  */
 import { buildAlertProfile } from '../services/jobAlertMatching.mjs';
-import { classifyZeroMatchCause, ZERO_MATCH_CAUSES } from '../scripts/lib/job-alert-zero-match-diagnosis.mjs';
+import {
+  classifyZeroMatchCause,
+  getZeroMatchMonitorAction,
+  ZERO_MATCH_CAUSES,
+} from '../scripts/lib/job-alert-zero-match-diagnosis.mjs';
 
 describe('classifyZeroMatchCause', () => {
   it('flags a pinned job/company scope first, even if keywords/geo are also set', () => {
@@ -59,5 +63,22 @@ describe('classifyZeroMatchCause', () => {
 
   it('handles a missing/undefined profile without throwing', () => {
     expect(classifyZeroMatchCause(undefined)).toBe(ZERO_MATCH_CAUSES.NO_HARD_FILTERS);
+  });
+});
+
+describe('getZeroMatchMonitorAction', () => {
+  it('reports only when the production rate is strictly above the threshold', () => {
+    expect(getZeroMatchMonitorAction({ zeroMatchCount: 3, alertCount: 10 })).toBe('report');
+    expect(getZeroMatchMonitorAction({ zeroMatchCount: 2, alertCount: 10 })).toBe('resolve');
+  });
+
+  it('does not resolve from dry-run or targeted operator sends', () => {
+    expect(getZeroMatchMonitorAction({ zeroMatchCount: 0, alertCount: 10, dryRun: true })).toBe('skip');
+    expect(getZeroMatchMonitorAction({ zeroMatchCount: 0, alertCount: 10, targeted: true })).toBe('skip');
+  });
+
+  it('does not infer recovery from an empty or invalid denominator', () => {
+    expect(getZeroMatchMonitorAction({ zeroMatchCount: 0, alertCount: 0 })).toBe('skip');
+    expect(getZeroMatchMonitorAction({ zeroMatchCount: -1, alertCount: 10 })).toBe('skip');
   });
 });
