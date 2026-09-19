@@ -1,6 +1,6 @@
 {
   "crawlerKey": "denner",
-  "assembledAt": "2026-09-18T23:13:44.488Z",
+  "assembledAt": "2026-09-18T20:49:56.004Z",
   "jobs": [
     {
       "id": "company-o4qo0h",
@@ -12759,7 +12759,21 @@
         "verkaufer-in-denner-ag-schluein",
         "verkaufer-in-denner-ag-schluein-kketoa",
         "verkaufer-in-denner-schluein",
-        "venditore-denner-ag-schluein"
+        "venditore-denner-ag-schluein",
+        "venditore-denner-ag-schluein-2408df",
+        "seller-denner-ag-schluein-2408df",
+        "vendeur-denner-ag-schluein-2408df",
+        "verkaufer-in-denner-ag-schluein-2z2sqy",
+        "venditore-denner-lenzburg",
+        "verkaufer-in-denner-ag-lenzburg-6gum9a",
+        "verkaufer-in-denner-5",
+        "verkaufer-in-denner-9",
+        "verkaufer-in-denner-6",
+        "verkaufer-in-denner-ag-lenzburg",
+        "verkaufer-in-denner-4",
+        "verkaufer-in-denner-3",
+        "seller-denner-lenzburg",
+        "vendeur-denner-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12767,17 +12781,32 @@
           "verkaufer-in-denner-ag-schluein",
           "verkaufer-in-denner-ag-schluein-kketoa",
           "verkaufer-in-denner-schluein",
-          "venditore-denner-ag-schluein"
+          "venditore-denner-ag-schluein",
+          "venditore-denner-ag-schluein-2408df",
+          "seller-denner-ag-schluein-2408df",
+          "vendeur-denner-ag-schluein-2408df",
+          "verkaufer-in-denner-ag-schluein-2z2sqy",
+          "venditore-denner-lenzburg",
+          "verkaufer-in-denner-ag-lenzburg-6gum9a",
+          "verkaufer-in-denner-5",
+          "verkaufer-in-denner-9",
+          "verkaufer-in-denner-6",
+          "verkaufer-in-denner-ag-lenzburg",
+          "verkaufer-in-denner-4",
+          "verkaufer-in-denner-3",
+          "seller-denner-lenzburg",
+          "vendeur-denner-lenzburg"
         ],
         "en": [
-          "verkaufer-in-denner-ag-schluein"
+          "verkaufer-in-denner-ag-schluein",
+          "seller-denner-ag-schluein-2408df"
         ],
         "fr": [
-          "verkaufer-in-denner-ag-schluein"
+          "verkaufer-in-denner-ag-schluein",
+          "vendeur-denner-ag-schluein-2408df"
         ]
       },
       "firstSeenAt": "2026-08-27T00:39:43.033Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -12790,7 +12819,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-16edf27b0787",

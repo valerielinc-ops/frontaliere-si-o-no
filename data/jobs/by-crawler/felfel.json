@@ -219,6 +219,7 @@
       "jobReqId": "2798583",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "sales-representative-felfel-zurich"
       ],
@@ -230,7 +231,6 @@
           "sales-representative-felfel-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-16T23:38:50.081Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -244,7 +244,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 2
     },
     {
       "id": "felfel-fab704df78ec",
