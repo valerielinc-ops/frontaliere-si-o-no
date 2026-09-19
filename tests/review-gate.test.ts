@@ -1160,6 +1160,48 @@ describe('review gate: citazioni e conferme', () => {
     })).toHaveLength(0);
   });
 
+  it('retains a bare companion path when the same path is also illustrative context', () => {
+    const opened = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`build-plugins/shared/jobPostingSchema.ts:L597`: 🔴 Important: the locality is present only in `data/swiss-postal-codes.json` such as `Novaggio`; also fix `data/swiss-postal-codes.json`.',
+    ].join('\n'));
+    const partial = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `build-plugins/shared/jobPostingSchema.ts:L597`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+    const confirmed = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `build-plugins/shared/jobPostingSchema.ts:L597`: ok.',
+      'Fix di `data/swiss-postal-codes.json:L144`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+
+    expect(importantFindings(opened.body)[0]?.citations).toEqual([
+      { path: 'build-plugins/shared/jobPostingSchema.ts', line: 597 },
+      { path: 'data/swiss-postal-codes.json', line: null },
+    ]);
+    expect(historicalImportantFindings([opened, partial], {
+      includeLatest: true,
+      repositoryPaths: [
+        'build-plugins/shared/jobPostingSchema.ts',
+        'data/swiss-postal-codes.json',
+      ],
+    })).toHaveLength(1);
+    expect(historicalImportantFindings([opened, confirmed], {
+      includeLatest: true,
+      repositoryPaths: [
+        'build-plugins/shared/jobPostingSchema.ts',
+        'data/swiss-postal-codes.json',
+      ],
+    })).toHaveLength(0);
+  });
+
   it('non tronca le estensioni piu lunghe di un prefisso valido', () => {
     // `ts` viene prima di `tsx` nell'alternanza: senza il lookahead il path
     // citato diventava un file che non esiste, e un path non risolvibile e'
