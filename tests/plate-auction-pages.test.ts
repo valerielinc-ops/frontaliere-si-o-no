@@ -204,7 +204,7 @@ describe('plate-auction static pages', () => {
 
     expect(rendered.html).toContain('EXPIRED0');
     expect(rendered.html).not.toContain('EXPIRED48');
-    expect((rendered.html.match(/<li>/g) || []).length).toBeLessThanOrEqual(48);
+    expect((rendered.html.match(/href="[^"]*\/expired\d+\//g) || []).length).toBeLessThanOrEqual(48);
   });
 
   it('renders a historical detail page with the same indexable ad surfaces', () => {
@@ -282,10 +282,15 @@ describe('plate-auction static pages', () => {
   it('bounds a large canton index while keeping detail pages separate', () => {
     const rootDir = fixtureRoot({ auctionCount: 2000 });
     const rendered = renderPlateAuctionPage({ locale: 'de', view: 'canton', canton: 'GR', rootDir });
+    const pageTwoPath = buildPlateAuctionPath({ locale: 'de', view: 'canton', canton: 'GR', page: 2 });
+    const pageTwo = renderPlateAuctionPage({ locale: 'de', view: 'canton', canton: 'GR', page: 2, rootDir });
 
     expect(Buffer.byteLength(rendered.html, 'utf8')).toBeLessThan(260 * 1024);
     expect(rendered.html).toContain('GR2006');
     expect(rendered.html).not.toContain('/gr56/');
+    expect(rendered.html).toContain(`href="${pageTwoPath}"`);
+    expect(pageTwo.urlPath).toBe(pageTwoPath.slice(1, -1));
+    expect(pageTwo.html).toContain('GR56');
   });
 
   it('materializes every published detail URL and includes it in the sitemap', async () => {
