@@ -39,6 +39,7 @@ import {
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
+  workdayPrimaryLocationState,
 } from './ats-clients/workday-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -301,7 +302,17 @@ export async function fetchAllCslBehringJobs() {
     // `|| 'Bern'` / `|| 'BE'` below were the generic-city fallback
     // audit-parser-quality.mjs names in its ACTION line, and one US-PA req in
     // the slice is published as `Bern` purely through it.
-    const rawLocation = resolvedDetailLocation || listing.locationRaw || '';
+    // The listing row may stand in for the primary only when the detail has NO
+    // primary at all. `resolveCslPublishLocation` returns '' both when the field
+    // is absent and when it is present but unrecognised, and `resolved ||
+    // listing.locationRaw` turned the second case into the first — so a Swiss
+    // listing row could publish an unknown or foreign primary under a Swiss
+    // city and canton. That is fail-open, and it is the same semantic error as
+    // a canton resolver that never fails: the resolver is right, the caller
+    // misreads its empty answer.
+    const primaryState = workdayPrimaryLocationState(info);
+    const rawLocation = resolvedDetailLocation
+      || (primaryState.present ? '' : (listing.locationRaw || ''));
     if (!rawLocation || isLocationExplicitlyForeign(rawLocation)) {
       console.log(`  ⏭️  Skipped (no Swiss primary location): ${detailLocationText || rawLocation} — ${title}`);
       await new Promise((r) => setTimeout(r, 400));

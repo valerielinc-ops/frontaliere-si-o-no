@@ -31,6 +31,7 @@ import {
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
+  workdayPrimaryLocationState,
 } from './ats-clients/workday-client.mjs';
 
 // Switzerland country UUID — standard across nearly all Workday tenants.
@@ -329,7 +330,21 @@ export function createWorkdaySwissParser(config) {
         console.log(`  ⏭️  Skipped foreign detail location: ${detailLocations.join(' | ')} — ${title}`);
         continue;
       }
-      const rawLocation = detailLocation || listingRawLocation;
+      // Carry the PRIMARY's state through every fallback below.
+      // `resolveWorkdayPrimarySwissLocation` returns '' both when the detail has
+      // no primary at all and when it has one that was not recognised, and
+      // `detailLocation || listingRawLocation` collapsed the second case into
+      // the first — so a Swiss listing row, or the `externalPath` segment
+      // further down, could still emit the job with a Swiss locality even
+      // though the req's own primary said something else. Fail-open, and the
+      // same semantic error as a resolver that never fails, one layer up.
+      //
+      // A primary that is PRESENT but unresolved is evidence about the req, not
+      // an absence to be filled in: the only legitimate substitute is a primary
+      // that genuinely is not there.
+      const primaryState = workdayPrimaryLocationState(detailInfo);
+      const mayFallBackToListing = !primaryState.present;
+      const rawLocation = detailLocation || (mayFallBackToListing ? listingRawLocation : '');
       if (isLocationExplicitlyForeign(rawLocation)) {
         console.log(`  ⏭️  Skipped foreign location: ${rawLocation} — ${title}`);
         continue;
@@ -347,7 +362,11 @@ export function createWorkdaySwissParser(config) {
       // canton and isn't explicitly foreign, so this can only recover
       // legitimate CH jobs that would otherwise be dropped — never widens the
       // gate for tenants where `locationsText` already resolves.
-      if (!cleaned) {
+      // Gated on the same primary state: this recovery exists for tenants whose
+      // `locationsText` is a rollup, NOT to overrule a primary that is present
+      // and unrecognised. Without the gate it is a second fail-open path to the
+      // very same outcome the check above closes.
+      if (!cleaned && mayFallBackToListing) {
         const pathLocation = locationFromExternalPath(listing.externalPath);
         if (
           pathLocation &&

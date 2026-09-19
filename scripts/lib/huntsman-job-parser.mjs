@@ -12,6 +12,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { workdayPrimaryLocationState } from './ats-clients/workday-client.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
@@ -242,13 +243,24 @@ function inferCanton(location = '') {
  */
 export function resolveHuntsmanPublishCity(detail) {
   const info = detail?.jobPostingInfo || {};
-  const primary = typeof info.location === 'string'
-    ? info.location
-    : (info.location?.descriptor || info.location?.location || '');
-  if (!primary) return '';
-  if (isLocationExplicitlyForeign(primary)) return '';
-  if (!normalize(primary).includes('switzerland')) return '';
-  return parseWorkdayLocation(primary);
+  // Structured country metadata, NOT a literal `switzerland` substring. The
+  // first version of this gate tested `normalize(primary).includes('switzerland')`
+  // and so REJECTED every other valid representation Workday sends — a
+  // `country.alpha2Code` of `CH`, a localised country name (`Suisse`,
+  // `Schweiz`, `Svizzera`), and the `CH-ZH` / `CHE-8002` shapes — which drops
+  // legitimate Swiss reqs. That is the opposite defect to the one this gate
+  // exists to close: fail-closed instead of fail-open.
+  // `workdayPrimaryLocationState` flattens the primary through
+  // `normalizeWorkdayLocationCandidate`, so the country object is folded into
+  // the text before the Swiss predicate reads it.
+  const primary = workdayPrimaryLocationState(info);
+  if (!primary.present || !primary.text) return '';
+  if (isLocationExplicitlyForeign(primary.text)) return '';
+  if (!primary.isSwiss) return '';
+  // The city/canton resolution is the second half: the caller drops the req
+  // when `inferCanton` cannot place this string, so "Switzerland" alone never
+  // publishes on its own.
+  return parseWorkdayLocation(primary.text);
 }
 
 /**

@@ -21,6 +21,7 @@
  *   - Tenant URL:       https://{tenant}.{datacenter}.myworkdayjobs.com/{lang}/{site}
  */
 
+import { isSwissLocationText } from '../target-swiss-locations.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS, isTransientFetchError } from '../transient-fetch.mjs';
 import { assertJsonListShape } from '../assert-json-list-shape.mjs';
 import { normalizeDescriptionBullets } from '../crawler-template.mjs';
@@ -537,6 +538,63 @@ export function normalizeWorkdayLocationCandidate(candidate) {
   ].map(normalizeWorkdayLocationField).filter(Boolean);
 
   return [...new Set(parts)].join(', ');
+}
+
+/**
+ * Whether a Workday location candidate names Switzerland.
+ *
+ * Shared because the alternative is a literal-substring test per tenant, and a
+ * substring test is fail-CLOSED on the representations Workday actually sends:
+ * `CH`, `CHE`, `756`, a `country.alpha2Code` of `CH` that
+ * `normalizeWorkdayLocationCandidate` above folds into the flattened string,
+ * and the localised country names. `huntsman-job-parser.mjs` shipped exactly
+ * that bug for one commit — it accepted a primary only if the normalised text
+ * contained the English word `switzerland`, which drops legitimate Swiss reqs.
+ *
+ * The hyphenated branch is narrow on purpose: `CH-ZH` and `CHE-8002` are the
+ * observed country+canton / country+postcode shapes, while an arbitrary
+ * internal code such as `CH-WID` is NOT a country signal.
+ */
+export function isSwissWorkdayLocationCandidate(locationText) {
+  const text = String(locationText || '');
+  const tokens = text.split(/[\s,;|/-]+/);
+  const hasStandaloneSwissCountryCode = tokens.some((token) =>
+    /^(?:ch|che|756)$/i.test(token)
+    && new RegExp(`(?:^|[\\s,;|/])${token}(?=$|[\\s,;|/])`, 'i').test(text),
+  );
+  const hasHyphenatedSwissCountryCode = /\b(?:ch-[a-z]{2}|che-\d{4})\b/i.test(text);
+  return /\b(?:switzerland|schweiz|suisse|svizzera)\b/i.test(text)
+    || hasStandaloneSwissCountryCode
+    || hasHyphenatedSwissCountryCode
+    || isSwissLocationText(text);
+}
+
+/**
+ * The state of a req's OWN primary location: is the field there at all, and
+ * what does it say.
+ *
+ * `present` and `text` are separate answers because a resolver that returns
+ * `''` conflates «the field is absent» with «the field is there and I did not
+ * recognise it», and every caller that then writes
+ * `resolved || listing.locationRaw` turns the second case into the first. That
+ * is fail-OPEN: a Swiss listing row can publish an unknown — or foreign —
+ * primary under a Swiss city and canton. It is the same semantic error as a
+ * canton resolver that never fails, one layer up: here the resolver fails
+ * correctly and the CALLER misreads the empty answer.
+ *
+ * A listing fallback is legitimate only when `present` is false.
+ */
+export function workdayPrimaryLocationState(info = {}) {
+  const raw = info?.location;
+  const hasField = raw !== undefined && raw !== null && raw !== '';
+  const text = normalizeWorkdayLocationCandidate(raw);
+  return {
+    // A primary that is present but unreadable still counts as PRESENT: that is
+    // precisely the case the listing fallback must not paper over.
+    present: Boolean(hasField),
+    text,
+    isSwiss: Boolean(text) && isSwissWorkdayLocationCandidate(text),
+  };
 }
 
 /**
