@@ -367,7 +367,9 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
   // suite di una PR dietro quella di tutte le altre, e nessuna ✗ da run
   // sfrattato. `contract` e `typecheck` restano qui e restano bloccanti.
   it('tests.yml ha un solo job required e nessun lock di job', () => {
-    expect(jobKeys).toEqual(['vitest']);
+    // `post-review` (autorebase + opt-in auto-merge) gira DOPO il required,
+    // non produce il check del ruleset e non puo' colorare la run.
+    expect(jobKeys).toEqual(['vitest', 'post-review']);
     expect(
       /^ {4}concurrency:/m.test(jobsBody),
       'un `concurrency:` di JOB e\' tornato in tests.yml: un gruppo globale ' +
