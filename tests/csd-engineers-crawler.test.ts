@@ -85,6 +85,59 @@ describe('CSD ENGINEERS crawler parser', () => {
       expect(parsed?.description).not.toMatch(/<[^>]+>/);
       expect(parsed?.description).not.toContain('CSD ENGINEERS, Zürich');
     });
+
+    it('selects the current posting by its structured URL before recommendations', () => {
+      const pageUrl = 'https://jobs.csd.ch/jobs/current-role';
+      const html = `<h1>Current Role</h1><script type="application/ld+json">${JSON.stringify([
+        {
+          '@type': 'JobPosting',
+          title: 'Current Role',
+          url: pageUrl,
+          description: '<p>Current detail description with enough content to publish safely.</p>',
+          jobLocation: { address: { addressLocality: 'Zürich' } },
+        },
+        {
+          '@type': 'JobPosting',
+          title: 'Recommended Role',
+          url: 'https://jobs.csd.ch/jobs/recommended-role',
+          description: '<p>Recommended detail description that must not be published for the current page.</p>',
+          jobLocation: { address: { addressLocality: 'Genève' } },
+        },
+      ])}</script>`;
+
+      expect(parseCsdDetailPage(html, { url: pageUrl, title: 'Current Role' })).toMatchObject({
+        city: 'Zürich',
+        description: 'Current detail description with enough content to publish safely.',
+      });
+    });
+
+    it('uses a unique current title when structured URLs are absent', () => {
+      const html = `<h1>Current Role</h1><script type="application/ld+json">${JSON.stringify([
+        {
+          '@type': 'JobPosting',
+          title: 'Current Role',
+          description: '<p>Current detail description with enough content to publish safely.</p>',
+          jobLocation: { address: { addressLocality: 'Zürich' } },
+        },
+        {
+          '@type': 'JobPosting',
+          title: 'Recommended Role',
+          description: '<p>Recommended detail description that must not be published for the current page.</p>',
+          jobLocation: { address: { addressLocality: 'Genève' } },
+        },
+      ])}</script>`;
+
+      expect(parseCsdDetailPage(html, { title: 'Current Role' })).toMatchObject({ city: 'Zürich' });
+    });
+
+    it('fails closed when multiple postings cannot be tied to the current page', () => {
+      const html = `<script type="application/ld+json">${JSON.stringify([
+        { '@type': 'JobPosting', title: 'First Role', description: '<p>First role.</p>' },
+        { '@type': 'JobPosting', title: 'Second Role', description: '<p>Second role.</p>' },
+      ])}</script>`;
+
+      expect(parseCsdDetailPage(html, { url: 'https://jobs.csd.ch/jobs/current-role' })).toBeNull();
+    });
   });
 
   // ── slugify (imported from crawler-template) ──

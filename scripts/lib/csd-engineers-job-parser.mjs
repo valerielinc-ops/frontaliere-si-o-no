@@ -199,6 +199,54 @@ function isCsdJobPostingNode(node) {
   return types.some((type) => String(type || '').split('/').pop().toLowerCase() === 'jobposting');
 }
 
+function identityText(value = '') {
+  return String(value || '').toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function canonicalDetailUrl(value = '', baseUrl = '') {
+  try {
+    const url = new URL(value, baseUrl || undefined);
+    url.hash = '';
+    url.pathname = url.pathname.replace(/\/+$/, '') || '/';
+    return url.toString();
+  } catch {
+    return '';
+  }
+}
+
+function structuredUrlValues(node) {
+  const values = [node?.url, node?.sameAs, node?.mainEntityOfPage, node?.['@id']];
+  return values.flatMap((value) => {
+    const candidates = Array.isArray(value) ? value : [value];
+    return candidates.flatMap((candidate) => {
+      if (candidate && typeof candidate === 'object') return [candidate.url, candidate['@id']].filter(Boolean);
+      return candidate ? [candidate] : [];
+    });
+  });
+}
+
+function selectCsdJobPostingNode(nodes, { url = '', title = '' } = {}, renderedTitle = '') {
+  if (nodes.length <= 1) return nodes[0] || null;
+
+  const pageIdentity = canonicalDetailUrl(url);
+  if (pageIdentity) {
+    const exactUrlMatches = nodes.filter((node) => structuredUrlValues(node)
+      .some((value) => canonicalDetailUrl(value, url) === pageIdentity));
+    if (exactUrlMatches.length === 1) return exactUrlMatches[0];
+    if (exactUrlMatches.length > 1) return null;
+  }
+
+  const expectedTitles = new Set([identityText(title), identityText(renderedTitle)].filter(Boolean));
+  if (!expectedTitles.size) return null;
+  const titleMatches = nodes.filter((node) => expectedTitles.has(identityText(node.title || node.name)));
+  return titleMatches.length === 1 ? titleMatches[0] : null;
+}
+
 /**
  * Parse a CSD detail page's JobPosting JSON-LD.
  *
@@ -207,13 +255,16 @@ function isCsdJobPostingNode(node) {
  * keeps pretty-printed whitespace outside strings valid, so this parser does
  * not need a second, subtly different JSON-LD implementation.
  *
+ * @param {{ url?: string, title?: string } | string} expectedDetail
  * @returns {{ city: string, postalCode: string, street: string, description: string, employmentType: string, datePosted: string } | null}
  */
-export function parseCsdDetailPage(html = '') {
+export function parseCsdDetailPage(html = '', expectedDetail = {}) {
   if (!html || typeof html !== 'string') return null;
 
   const nodes = jsonLdBlocks(html).filter(isCsdJobPostingNode);
-  const data = nodes.find((node) => node.description) || nodes[0];
+  const expected = typeof expectedDetail === 'string' ? { url: expectedDetail } : expectedDetail || {};
+  const renderedTitle = stripHtml(/<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(html)?.[1] || '');
+  const data = selectCsdJobPostingNode(nodes, expected, renderedTitle);
   if (!data) return null;
 
   const locations = Array.isArray(data.jobLocation) ? data.jobLocation : [data.jobLocation];
@@ -239,7 +290,7 @@ export function parseCsdDetailPage(html = '') {
  * Fetch a detail page and extract structured data from JSON-LD.
  * Returns { city, postalCode, street, description, employmentType, datePosted } or null.
  */
-async function fetchDetailPage(url) {
+async function fetchDetailPage(url, title = '') {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15_000;
 
   try {
@@ -247,7 +298,7 @@ async function fetchDetailPage(url) {
     // the single-attempt fetch left ~12 jobs on the "{title} — CSD" placeholder
     // whenever one request hiccuped (audit run 29094286784 residue).
     const html = await fetchHtml(url, { timeoutMs, headers: { Accept: 'text/html', 'User-Agent': USER_AGENT } });
-    return parseCsdDetailPage(html);
+    return parseCsdDetailPage(html, { url, title });
   } catch {
     return null;
   }
@@ -301,7 +352,7 @@ export async function fetchAllCsdEngineersJobs() {
     let detail = null;
     if (item.link) {
       try {
-        detail = await fetchDetailPage(item.link);
+        detail = await fetchDetailPage(item.link, title);
         console.log(`  ✅ ${title.substring(0, 60)}`);
       } catch (err) {
         console.warn(`  ⚠️ Detail fetch failed for ${title}: ${err?.message}`);
