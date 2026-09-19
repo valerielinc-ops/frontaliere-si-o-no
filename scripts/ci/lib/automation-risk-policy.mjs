@@ -138,7 +138,18 @@ export const KNOWN_ORDINARY_ISSUE_LABELS = Object.freeze([
   'job-title-locale',
 ]);
 const KNOWN_ORDINARY_ISSUE_LABEL_SET = new Set(KNOWN_ORDINARY_ISSUE_LABELS);
-const ISSUE_PATH_TOKEN_RE = /(?<![\w.-])((?:\.github|[A-Za-z0-9_.-]+)\/[A-Za-z0-9_.-]+(?:\/[A-Za-z0-9_.-]+)*(?:\.[A-Za-z0-9_.-]+)?)(?![\w.-])/gu;
+const ISSUE_PATH_TOKEN_RE = /(?<![\w.-])((?:\.github|[A-Za-z0-9_.-]+)[\\/][A-Za-z0-9_.-]+(?:[\\/][A-Za-z0-9_.-]+)*(?:\.[A-Za-z0-9_.-]+)?)(?![\w.-])/gu;
+const ISSUE_URL_RE = /\bhttps?:\/\/[^\s<>()]+/giu;
+const ISSUE_CODE_REFERENCE_RE = /\x60([^\x60\r\n]+)\x60/gu;
+const ISSUE_ABSOLUTE_PATH_RE = /(?<![\w.-])(\/(?:[A-Za-z0-9_.-]+\/)*[A-Za-z0-9_.-]+)(?![\w.-])/gu;
+const ISSUE_RELATIVE_PATH_RE = /(?<![\w.-])(?:\.{1,2}[\\/])(?:[A-Za-z0-9_.-]+[\\/])*[A-Za-z0-9_.-]+/gu;
+const ISSUE_REPEATED_SEPARATOR_RE = /(?<![\w.-])(?:[A-Za-z0-9_.-]+\/){2,}(?![\w.-])/gu;
+const ISSUE_ROOT_PATH_RE = /(?<![\w.-])(?:REVIEW\.md|LICENSE(?:\.[A-Za-z0-9_.-]+)?|README(?:\.[A-Za-z0-9_.-]+)?|CHANGELOG(?:\.[A-Za-z0-9_.-]+)?|Makefile|Dockerfile|CODEOWNERS)(?![\w.-])/giu;
+const ISSUE_FILE_EXTENSION_RE = /\.(?:[cm]?[jt]sx?|json|ya?ml|toml|ini|cfg|conf|md|mdx|css|scss|less|html?|xml|svg|txt|sql|py|rb|go|rs|java|kt|swift|sh|bash|zsh|vue|svelte|lock|rules)$/iu;
+const ISSUE_ROOT_FILE_RE = /(?<![\w./\\-])[A-Za-z0-9_.-]+\.(?:[cm]?[jt]sx?|json|ya?ml|toml|ini|cfg|conf|md|mdx|css|scss|less|html?|xml|svg|txt|sql|py|rb|go|rs|java|kt|swift|sh|bash|zsh|vue|svelte|lock|rules)(?![\w.-])/giu;
+const ISSUE_DOTFILE_RE = /(?<![\w.-])\.[A-Za-z0-9][A-Za-z0-9_.-]*/gu;
+const ISSUE_SECURITY_DOTFILE_RE = /^\.(?:env(?:\.[A-Za-z0-9_.-]+)?|npmrc|gitignore|dockerignore|netrc|pypirc)$/iu;
+const ISSUE_GITHUB_FILE_HOSTS = new Set(['github.com', 'www.github.com', 'raw.githubusercontent.com']);
 
 function labelName(label) {
   if (typeof label === 'string') return label;
@@ -156,6 +167,175 @@ function unique(values) {
   return [...new Set(values)];
 }
 
+function cleanIssueReference(value) {
+  return String(value || '')
+    .trim()
+    .replace(/^[\x60'"(,[{]+/u, '')
+    .replace(/[)\x60"',;:!?}\].]+$/u, '');
+}
+
+function normalizeIssueReference(path) {
+  if (typeof path !== 'string') return '';
+  const normalized = cleanIssueReference(path).replaceAll('\\', '/').replace(/^\.\//u, '');
+  if (!normalized
+    || normalized.startsWith('/')
+    || /^[A-Za-z]:\//u.test(normalized)
+    || normalized.includes('://')) {
+    return '';
+  }
+  const segments = normalized.split('/');
+  if (segments.some((segment) => !segment || segment === '.' || segment === '..'
+      || !/^[A-Za-z0-9_.-]+$/u.test(segment))) return '';
+  return normalized;
+}
+
+function isDottedIdentifier(value) {
+  return /^[A-Za-z_$][A-Za-z0-9_$]*(?:\.[A-Za-z_$][A-Za-z0-9_$]*)+$/u.test(value);
+}
+
+function isIssuePathCandidate(value, { fromCommand = false } = {}) {
+  const candidate = cleanIssueReference(value);
+  const isRootFile = ISSUE_FILE_EXTENSION_RE.test(candidate)
+    || /^(?:REVIEW\.md|LICENSE(?:\.[A-Za-z0-9_.-]+)?|README(?:\.[A-Za-z0-9_.-]+)?|CHANGELOG(?:\.[A-Za-z0-9_.-]+)?|Makefile|Dockerfile|CODEOWNERS)$/iu.test(candidate);
+  if (!candidate || (isDottedIdentifier(candidate) && !isRootFile)) return false;
+  if (fromCommand && /^\.?[A-Za-z_$][A-Za-z0-9_$]*$/u.test(candidate)) return false;
+  return candidate.includes('\\')
+    || candidate.includes('..')
+    || /\.[A-Za-z0-9_-]+$/u.test(candidate)
+    || /^(?:\.github|scripts|src|components|services|hooks|build-plugins|packages|tests?|docs|functions)(?:[\\/]|$)/iu.test(candidate)
+    || pathDomains(candidate).length > 0
+    || /^(?:REVIEW\.md|LICENSE(?:\.[A-Za-z0-9_.-]+)?|README(?:\.[A-Za-z0-9_.-]+)?|CHANGELOG(?:\.[A-Za-z0-9_.-]+)?)$/iu.test(candidate);
+}
+
+function isStandaloneIssuePathCandidate(value) {
+  const candidate = cleanIssueReference(value);
+  return !/[\s|:="'()[\]{}]/u.test(candidate) && isIssuePathCandidate(candidate);
+}
+
+function isIssueDotfileCandidate(value, { fromCommand = false } = {}) {
+  const candidate = cleanIssueReference(value);
+  if (fromCommand && !ISSUE_SECURITY_DOTFILE_RE.test(candidate)) return false;
+  return isIssuePathCandidate(candidate);
+}
+
+function parseGithubFileReference(urlValue, repository) {
+  if (!repository) return { kind: 'ignore' };
+  let parsed;
+  try {
+    parsed = new URL(urlValue);
+  } catch {
+    return { kind: 'ignore' };
+  }
+  const host = parsed.hostname.toLowerCase();
+  if (!ISSUE_GITHUB_FILE_HOSTS.has(host)) return { kind: 'ignore' };
+  const encodedParts = parsed.pathname.split('/').slice(1);
+  const targetParts = repository.split('/').filter(Boolean).map((part) => part.toLowerCase());
+  if (targetParts.length !== 2 || encodedParts.length < 2) return { kind: 'ignore' };
+  let owner;
+  let repo;
+  try {
+    owner = decodeURIComponent(encodedParts[0]).toLowerCase();
+    repo = decodeURIComponent(encodedParts[1]).toLowerCase();
+  } catch {
+    return { kind: 'ignore' };
+  }
+  if (owner !== targetParts[0] || repo !== targetParts[1]) return { kind: 'ignore' };
+  const parts = encodedParts.map((part) => {
+    try {
+      return decodeURIComponent(part);
+    } catch {
+      return '';
+    }
+  });
+  if (host === 'raw.githubusercontent.com') {
+    if (parts.length !== 4 || parts.some((part) => !part)) return { kind: 'unverifiable' };
+    return { kind: 'path', path: parts[3] };
+  }
+  const route = parts[2]?.toLowerCase();
+  if (!route) return { kind: 'unverifiable' };
+  if (!['blob', 'tree', 'raw'].includes(route)) return { kind: 'ignore' };
+  const refStart = 3;
+  if (parts.length !== refStart + 2 || parts.some((part) => !part)) {
+    return { kind: 'unverifiable' };
+  }
+  return { kind: 'path', path: parts[refStart + 1] };
+}
+
+/**
+ * Extract a complete, normalized issue reference snapshot for both the
+ * classifier and issue-fix workflow. Non-file GitHub URLs and dotted
+ * identifiers are prose, not repository paths. Same-repository file URLs
+ * with an ambiguous ref/path split are deliberately incomplete.
+ */
+export function extractIssueReferences(text = '', { repository = '' } = {}) {
+  if (typeof text !== 'string') return { paths: [], pathsComplete: false, hasReferences: true };
+  const rawPaths = [];
+  let complete = true;
+  for (const match of text.matchAll(ISSUE_URL_RE)) {
+    const resolved = parseGithubFileReference(match[0], String(repository || '').trim().toLowerCase());
+    if (resolved.kind === 'unverifiable') {
+      complete = false;
+    } else if (resolved.kind === 'path') {
+      rawPaths.push(resolved.path);
+    }
+  }
+
+  const withoutUrls = text.replace(ISSUE_URL_RE, ' ');
+  const withoutCode = withoutUrls.replace(ISSUE_CODE_REFERENCE_RE, (_match, code) => {
+    if (isStandaloneIssuePathCandidate(code)) {
+      rawPaths.push(code);
+    } else {
+      for (const token of code.matchAll(ISSUE_PATH_TOKEN_RE)) {
+        if (isIssuePathCandidate(token[1], { fromCommand: true })) rawPaths.push(token[1]);
+      }
+      for (const token of code.matchAll(ISSUE_DOTFILE_RE)) {
+        if (isIssueDotfileCandidate(token[0], { fromCommand: true })) rawPaths.push(token[0]);
+      }
+      for (const token of code.matchAll(ISSUE_ROOT_PATH_RE)) rawPaths.push(token[0]);
+      for (const token of code.matchAll(ISSUE_ROOT_FILE_RE)) rawPaths.push(token[0]);
+      for (const token of code.matchAll(ISSUE_ABSOLUTE_PATH_RE)) rawPaths.push(token[1]);
+      for (const token of code.matchAll(ISSUE_RELATIVE_PATH_RE)) rawPaths.push(token[0]);
+      ISSUE_REPEATED_SEPARATOR_RE.lastIndex = 0;
+      if (ISSUE_REPEATED_SEPARATOR_RE.test(code)) {
+        rawPaths.push('');
+        complete = false;
+      }
+    }
+    return ' ';
+  });
+  for (const match of withoutCode.matchAll(ISSUE_PATH_TOKEN_RE)) {
+    if (isIssuePathCandidate(match[1])) rawPaths.push(match[1]);
+  }
+  for (const match of withoutCode.matchAll(ISSUE_ABSOLUTE_PATH_RE)) {
+    rawPaths.push(match[1]);
+  }
+  for (const match of withoutCode.matchAll(ISSUE_RELATIVE_PATH_RE)) {
+    rawPaths.push(match[0]);
+  }
+  for (const match of withoutCode.matchAll(ISSUE_DOTFILE_RE)) {
+    if (isIssueDotfileCandidate(match[0])) rawPaths.push(match[0]);
+  }
+  ISSUE_REPEATED_SEPARATOR_RE.lastIndex = 0;
+  if (ISSUE_REPEATED_SEPARATOR_RE.test(withoutCode)) {
+    rawPaths.push('');
+    complete = false;
+  }
+  for (const match of withoutCode.matchAll(ISSUE_ROOT_PATH_RE)) {
+    rawPaths.push(match[0]);
+  }
+  for (const match of withoutCode.matchAll(ISSUE_ROOT_FILE_RE)) {
+    rawPaths.push(match[0]);
+  }
+
+  const paths = unique(rawPaths.map(normalizeIssueReference));
+  const hasInvalidPath = paths.some((path) => !path);
+  return {
+    paths,
+    pathsComplete: complete && paths.length > 0 && !hasInvalidPath,
+    hasReferences: rawPaths.length > 0 || !complete,
+  };
+}
+
 function pathDomains(path) {
   const normalized = normalizedPath(path);
   if (!normalized) return [];
@@ -170,11 +350,9 @@ export function isControlPlanePath(path) {
   return normalized.length > 0 && CONTROL_PLANE_PATH_RE.some((pattern) => pattern.test(normalized));
 }
 
-/** Extract path-like references from issue prose for an explicit deny check. */
-export function extractIssuePathCandidates(text = '') {
-  if (typeof text !== 'string') return [];
-  const withoutUrls = text.replace(/\bhttps?:\/\/[^\s<>()]+/giu, ' ');
-  return unique([...withoutUrls.matchAll(ISSUE_PATH_TOKEN_RE)].map((match) => match[1]));
+/** Extract valid path-like references from issue prose for an explicit deny check. */
+export function extractIssuePathCandidates(text = '', options = {}) {
+  return extractIssueReferences(text, options).paths.filter(Boolean);
 }
 
 /** Unknown paths are unsafe even when they do not contain a risk keyword. */

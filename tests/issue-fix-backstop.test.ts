@@ -88,14 +88,15 @@ describe('issue-fix F1/F7 policy gate', () => {
     const outputGate = workflow.indexOf('- name: Enforce F1/F7 output diff gate');
 
     expect(gate).toContain('Preflight F1/F7 path-risk policy before capabilities');
-    expect(gate).toContain('const pathTokenRe =');
-    expect(gate).toContain('const absolutePathRe =');
-    expect(gate).toContain('const repeatedSeparatorRe =');
-    expect(gate).toContain('const rootPathRe =');
-    expect(gate).toContain('const codeReferenceRe =');
-    expect(gate).toContain("replaceAll('\\\\', '/')");
+    expect(gate).toContain('extractIssueReferences');
+    expect(gate).toContain('references.paths');
+    expect(gate).not.toContain('const pathTokenRe =');
+    expect(gate).not.toContain('const absolutePathRe =');
+    expect(gate).not.toContain('const repeatedSeparatorRe =');
+    expect(gate).not.toContain('const rootPathRe =');
+    expect(gate).not.toContain('const codeReferenceRe =');
     expect(gate).toContain('classifyAutomationRisk');
-    expect(gate).toContain('policyInput.pathsComplete = pathsComplete');
+    expect(gate).toContain('policyInput.pathsComplete = references.pathsComplete');
     expect(gate).toContain('automationBlocked: risk.blocked');
     expect(gate).toContain('snapshot_fingerprint');
     expect(end).toBeLessThan(appToken);
@@ -211,6 +212,62 @@ describe('issue-fix F1/F7 policy gate', () => {
       riskDenyCode: 'control-plane',
       pathsComplete: true,
     });
+  });
+
+  it('ignora URL GitHub non-file e non trasforma un comando in un path vuoto', () => {
+    expect(runInlineRisk(
+      'Run: https://github.com/valerielinc-ops/frontaliere-si-o-no/actions/runs/123',
+    )).toMatchObject({
+      automationBlocked: false,
+      riskDenyCode: null,
+      pathsComplete: null,
+    });
+    expect(runInlineRisk(
+      'Run: https://github.com/valerielinc-ops/frontaliere-si-o-no/actions/runs/123/',
+    )).toMatchObject({
+      automationBlocked: false,
+      riskDenyCode: null,
+      pathsComplete: null,
+    });
+    const code = String.fromCharCode(96);
+    const commandBody = code
+      + "git show origin/main:data/crawler-health.json | jq -r '.status'"
+      + code;
+    expect(runInlineRisk(commandBody)).toMatchObject({
+      automationBlocked: true,
+      riskDenyCode: 'unknown-path',
+      pathsComplete: true,
+    });
+    expect(runInlineRisk('Europe/Zurich gh/push REST/GraphQL github.event_name')).toMatchObject({
+      automationBlocked: false,
+      riskDenyCode: null,
+      pathsComplete: null,
+    });
+  });
+
+  it('mantiene parity tra classifier e preflight inline sullo stesso snapshot', () => {
+    const code = String.fromCharCode(96);
+    const bodies = [
+      'Workflow run: https://github.com/valerielinc-ops/frontaliere-si-o-no/actions/runs/123',
+      'Workflow run: https://github.com/valerielinc-ops/frontaliere-si-o-no/actions/runs/123/',
+      code + "git show origin/main:data/crawler-health.json | jq -r '.status'" + code,
+      code + 'cat unknown.json' + code,
+      code + 'git show origin/main:package.json' + code,
+      'https://github.com/valerielinc-ops/frontaliere-si-o-no/blob/feature/docs/.github/workflows/issue-fix.yml',
+      'Suggested action: edit src/fix.ts.',
+      'Suggested action: edit `package.json` and `unknown.json`.',
+    ];
+    for (const body of bodies) {
+      const inline = runInlineRisk(body);
+      const classifier = classifyIssue(
+        'Follow-up: update the source module',
+        ['follow-up'],
+        body,
+        { repository: 'valerielinc-ops/frontaliere-si-o-no' },
+      );
+      expect(inline.automationBlocked).toBe(classifier.automationBlocked);
+      expect(inline.riskDenyCode).toBe(classifier.riskDenyCode);
+    }
   });
 
   it('nega URL GitHub con confine ref/path non verificabile', () => {

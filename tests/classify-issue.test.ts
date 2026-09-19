@@ -11,6 +11,7 @@ import { classifyIssue, isFixerExempt, FIXER_EXEMPT_LABELS } from '../scripts/li
 import {
   classifyAutomationRisk,
   CONTROL_PLANE_PATHS,
+  extractIssueReferences,
   extractIssuePathCandidates,
   findSeparateHumanApproval,
   KNOWN_ORDINARY_ISSUE_LABELS,
@@ -394,6 +395,80 @@ describe('policy automazione F1/F7', () => {
     expect(extractIssuePathCandidates(
       'Fix `src/safe.ts`; reference https://github.com/example/repo/blob/main/secret/key.txt.',
     )).toEqual(['src/safe.ts']);
+  });
+
+  it('condivide snapshot URL/comando tra classifier e issue-fix', () => {
+    const repository = 'valerielinc-ops/frontaliere-si-o-no';
+    const code = String.fromCharCode(96);
+    expect(extractIssueReferences(
+      'Workflow run: https://github.com/valerielinc-ops/frontaliere-si-o-no/actions/runs/123',
+      { repository },
+    )).toMatchObject({
+      paths: [],
+      pathsComplete: false,
+      hasReferences: false,
+    });
+    expect(extractIssueReferences(
+      'Workflow run: https://github.com/valerielinc-ops/frontaliere-si-o-no/actions/runs/123/',
+      { repository },
+    )).toMatchObject({
+      paths: [],
+      pathsComplete: false,
+      hasReferences: false,
+    });
+    expect(extractIssueReferences('Modifica `package.json`', { repository })).toMatchObject({
+      paths: ['package.json'],
+      pathsComplete: true,
+      hasReferences: true,
+    });
+    expect(extractIssueReferences('Modifica `unknown.json`', { repository })).toMatchObject({
+      paths: ['unknown.json'],
+      pathsComplete: true,
+      hasReferences: true,
+    });
+    expect(extractIssueReferences(code + 'cat unknown.json' + code, { repository })).toMatchObject({
+      paths: ['unknown.json'],
+      pathsComplete: true,
+      hasReferences: true,
+    });
+    expect(extractIssueReferences(code + 'git show origin/main:package.json' + code, { repository })).toMatchObject({
+      paths: ['package.json'],
+      pathsComplete: true,
+      hasReferences: true,
+    });
+    expect(classifyIssue(
+      'Follow-up: update the source module',
+      ['follow-up'],
+      code + 'cat unknown.json' + code,
+      { repository },
+    )).toMatchObject({
+      automationBlocked: true,
+      riskDenyCode: 'unknown-path',
+    });
+    expect(extractIssueReferences(
+      code + "git show origin/main:data/crawler-health.json | jq -r '.status'" + code,
+      { repository },
+    )).toMatchObject({
+      paths: ['data/crawler-health.json'],
+      pathsComplete: true,
+      hasReferences: true,
+    });
+    expect(extractIssueReferences(
+      'Europe/Zurich gh/push REST/GraphQL github.event_name',
+      { repository },
+    )).toMatchObject({
+      paths: [],
+      pathsComplete: false,
+      hasReferences: false,
+    });
+    expect(extractIssueReferences(
+      'https://github.com/valerielinc-ops/frontaliere-si-o-no/blob/feature/docs/src/fix.ts',
+      { repository },
+    )).toMatchObject({
+      paths: [],
+      pathsComplete: false,
+      hasReferences: true,
+    });
   });
 
   it('riconosce solo una review umana APPROVED sulla HEAD esatta', () => {

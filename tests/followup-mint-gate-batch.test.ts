@@ -100,6 +100,7 @@ describe('gate sul conio — proceed-safe PER ISSUE, non per PR', () => {
         '- Acceptance token: `firstGuard()`',
         '',
       ].join('\n'),
+      labels: [],
       createdAt: new Date().toISOString(),
     };
     const comments = { comments: [{ body: '## Post-merge follow-up triage: zero outstanding items.' }] };
@@ -161,11 +162,13 @@ else if (args[0] === 'pr' && args[1] === 'view') process.stdout.write(JSON.strin
         number: 501,
         title: 'follow-up(daily:2026-09-09): 1 item — o/r',
         body: makeBody('FU-2026-09-09-001', 'sealed', 8101, 'firstGuard()'),
+        labels: [],
       },
       {
         number: 502,
         title: 'follow-up(daily:2026-09-09): 1 item — o/r',
         body: makeBody('FU-2026-09-09-002', 'collecting', 8102, 'thirdGuard()'),
+        labels: [],
       },
     ];
     const log = join(binDir, 'mixed-calls.log');
@@ -202,5 +205,188 @@ else if (args[0] === 'issue' && args[1] === 'view') {
     expect(out).toContain('duplicati consolidati/chiusi');
     expect(calls).toContain('"issue","close","502"');
     expect(calls).toContain('follow-up(daily:2026-09-09): 2 items');
+  });
+
+  it('non accoda un daily bucket sealed quando la snapshot porta needs-human', () => {
+    const tick = String.fromCharCode(96);
+    const body = [
+      '## Batch',
+      '- Daily key: 2026-09-09 (Europe/Zurich)',
+      '- State: sealed',
+      '- Target repository: o/r',
+      '',
+      '## Item',
+      '',
+      '### FU-2026-09-09-001 — proteggi il comportamento',
+      '- State: open',
+      '- Sources: PR #8101',
+      '- Target file: ' + tick + 'scripts/example.mjs' + tick,
+      '- Original text:',
+      '  > il controllo non è sempre applicato',
+      '- Suggested action: aggiungi ' + tick + 'firstGuard()' + tick,
+      '- Acceptance token: ' + tick + 'firstGuard()' + tick,
+      '',
+    ].join('\n');
+    const issue = {
+      number: 601,
+      title: 'follow-up(daily:2026-09-09): 1 item — o/r',
+      body,
+      labels: [{ name: 'needs-human' }],
+      createdAt: new Date().toISOString(),
+    };
+    const log = join(binDir, 'needs-human-calls.log');
+    writeFileSync(log, '');
+    const fake = [
+      '#!/usr/bin/env node',
+      "const fs = require('node:fs');",
+      'const args = process.argv.slice(2);',
+      'const issue = ' + JSON.stringify(issue) + ';',
+      "fs.appendFileSync(process.env.CALL_LOG, JSON.stringify(args) + '\\n');",
+      "if (args[0] === 'api') process.stdout.write(JSON.stringify([[{ number: issue.number, title: issue.title, created_at: issue.createdAt }]]));",
+      "else if (args[0] === 'issue' && args[1] === 'view') process.stdout.write(JSON.stringify(issue));",
+    ].join('\n') + '\n';
+    writeFileSync(join(binDir, 'gh'), fake);
+    chmodSync(join(binDir, 'gh'), 0o755);
+    const out = execFileSync('node', [GATE], {
+      encoding: 'utf-8',
+      env: {
+        ...process.env,
+        PATH: binDir + ':' + (process.env.PATH ?? ''),
+        BATCH_PRS: '',
+        COLLECTION_OK: 'false',
+        DRY_RUN: '0',
+        GH_REPO: 'o/r',
+        CALL_LOG: log,
+      },
+    });
+    const calls = readFileSync(log, 'utf-8');
+    expect(out).toContain('nessuna nuova agent:fix-queued (needs-human veto)');
+    expect(calls).not.toContain('"--add-label","agent:fix-queued"');
+  });
+
+  it('non accoda un daily bucket sealed quando una label è malformata', () => {
+    const tick = String.fromCharCode(96);
+    const body = [
+      '## Batch',
+      '- Daily key: 2026-09-09 (Europe/Zurich)',
+      '- State: sealed',
+      '- Target repository: o/r',
+      '',
+      '## Item',
+      '',
+      '### FU-2026-09-09-001 — proteggi il comportamento',
+      '- State: open',
+      '- Sources: PR #8101',
+      '- Target file: ' + tick + 'scripts/example.mjs' + tick,
+      '- Original text:',
+      '  > il controllo non è sempre applicato',
+      '- Suggested action: aggiungi ' + tick + 'firstGuard()' + tick,
+      '- Acceptance token: ' + tick + 'firstGuard()' + tick,
+      '',
+    ].join('\n');
+    const issue = {
+      number: 602,
+      title: 'follow-up(daily:2026-09-09): 1 item — o/r',
+      body,
+      labels: [{}],
+      createdAt: new Date().toISOString(),
+    };
+    const log = join(binDir, 'malformed-label-calls.log');
+    writeFileSync(log, '');
+    const fake = [
+      '#!/usr/bin/env node',
+      "const fs = require('node:fs');",
+      'const args = process.argv.slice(2);',
+      'const issue = ' + JSON.stringify(issue) + ';',
+      "fs.appendFileSync(process.env.CALL_LOG, JSON.stringify(args) + '\\n');",
+      "if (args[0] === 'api') process.stdout.write(JSON.stringify([[{ number: issue.number, title: issue.title, created_at: issue.createdAt }]]));",
+      "else if (args[0] === 'issue' && args[1] === 'view') process.stdout.write(JSON.stringify(issue));",
+    ].join('\n') + '\n';
+    writeFileSync(join(binDir, 'gh'), fake);
+    chmodSync(join(binDir, 'gh'), 0o755);
+    const out = execFileSync('node', [GATE], {
+      encoding: 'utf-8',
+      env: {
+        ...process.env,
+        PATH: binDir + ':' + (process.env.PATH ?? ''),
+        BATCH_PRS: '',
+        COLLECTION_OK: 'false',
+        DRY_RUN: '0',
+        GH_REPO: 'o/r',
+        CALL_LOG: log,
+      },
+    });
+    const calls = readFileSync(log, 'utf-8');
+    expect(out).toContain('labels non verificabili');
+    expect(calls).not.toContain('"--add-label","agent:fix-queued"');
+  });
+
+  it('non riusa le label precedenti se la latest snapshot le omette prima della coda', () => {
+    const tick = String.fromCharCode(96);
+    const body = [
+      '## Batch',
+      '- Daily key: 2026-09-09 (Europe/Zurich)',
+      '- State: sealed',
+      '- Target repository: o/r',
+      '',
+      '## Item',
+      '',
+      '### FU-2026-09-09-001 — proteggi il comportamento',
+      '- State: open',
+      '- Sources: PR #8101',
+      '- Target file: ' + tick + 'scripts/example.mjs' + tick,
+      '- Original text:',
+      '  > il controllo non è sempre applicato',
+      '- Suggested action: aggiungi ' + tick + 'firstGuard()' + tick,
+      '- Acceptance token: ' + tick + 'firstGuard()' + tick,
+      '',
+      '### FU-2026-09-09-002 — verifica la documentazione',
+      '- State: open',
+      '- Sources: PR #8101',
+      '- Target file: ' + tick + 'scripts/example.mjs' + tick,
+      '- Original text:',
+      '  > il comportamento non è documentato',
+      '- Suggested action: valuta il testo',
+      '',
+    ].join('\n');
+    const issue = {
+      number: 603,
+      title: 'follow-up(daily:2026-09-09): 2 items — o/r',
+      body,
+      labels: [],
+      createdAt: new Date().toISOString(),
+    };
+    const log = join(binDir, 'latest-missing-label-calls.log');
+    writeFileSync(log, '');
+    const fake = [
+      '#!/usr/bin/env node',
+      "const fs = require('node:fs');",
+      'const args = process.argv.slice(2);',
+      'const issue = ' + JSON.stringify(issue) + ';',
+      "const priorCalls = fs.existsSync(process.env.CALL_LOG) ? fs.readFileSync(process.env.CALL_LOG, 'utf8').split('\\n').filter(Boolean).length : 0;",
+      "fs.appendFileSync(process.env.CALL_LOG, JSON.stringify(args) + '\\n');",
+      "if (args[0] === 'api') process.stdout.write(JSON.stringify([[{ number: issue.number, title: issue.title, created_at: issue.createdAt }]]));",
+      "else if (args[0] === 'issue' && args[1] === 'view') { const latest = { ...issue }; if (priorCalls >= 2) delete latest.labels; process.stdout.write(JSON.stringify(latest)); }",
+      "else if (args[0] === 'pr' && args[1] === 'comment') process.stdout.write('');",
+    ].join('\n') + '\n';
+    writeFileSync(join(binDir, 'gh'), fake);
+    chmodSync(join(binDir, 'gh'), 0o755);
+    const out = execFileSync('node', [GATE], {
+      encoding: 'utf-8',
+      env: {
+        ...process.env,
+        PATH: binDir + ':' + (process.env.PATH ?? ''),
+        BATCH_PRS: '8101',
+        COLLECTION_OK: 'false',
+        TRIAGE_COMPLETE: 'false',
+        DRY_RUN: '0',
+        GH_REPO: 'o/r',
+        CALL_LOG: log,
+      },
+    });
+    const calls = readFileSync(log, 'utf-8');
+    expect(out).toContain('demozione sigillata senza nuova coda');
+    expect(out).toContain('labels non verificabili');
+    expect(calls).not.toContain('"--add-label","agent:fix-queued"');
   });
 });
