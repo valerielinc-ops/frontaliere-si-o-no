@@ -49,7 +49,6 @@ import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import {
  buildMinimalJobInput,
- computeRelatedJobPoolSignature,
  getIncrementalManifestInputCache,
  getIncrementalManifestMap,
  logIncrementalManifestMemory,
@@ -3076,14 +3075,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return h;
  })();
  // The HTML renderer selects six cards from the full candidate pool. The
- // manifest carries those same six records plus a compact signature of the
- // full pool, so a pool membership/order change still invalidates the page
- // without serializing every candidate for every locale.
+ // manifest carries those same six records; their projections cover every
+ // related link the renderer emits, so an unrelated pool candidate must not
+ // invalidate this page.
  const perJob_relatedJobs = incrementalManifests
   ? selectRelatedJobs(perJob_relatedPool, perJob_relatedSeed)
-  : null;
- const perJob_relatedPoolSignature = incrementalManifests
-  ? computeRelatedJobPoolSignature(perJob_relatedPool)
   : null;
  const perJob_salaryMin = Number.isFinite(Number(job.salaryMin))
  ? Number(job.salaryMin)
@@ -3144,7 +3140,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    ...buildMinimalJobInput(job, locale, perLocaleSlug[locale], perJob_relatedJobs || [], incrementalManifestInputCache, job),
    canton: jobCanton,
    canonicalUrl: effectiveCanonicalUrl,
-   relatedPoolSignature: perJob_relatedPoolSignature,
    renderDateBucket: jobsSeoReuseBuildDay,
   }
  : null;
@@ -13314,9 +13309,7 @@ ${staticAnalyticsHtml}
     ejData || { slug },
     locale,
     slug,
-    (sameCompanyActiveJobs.length > 0 ? sameCompanyActiveJobs : selectRecentJobs(slug, slug))
-     .map((relatedJob: any) => stableJobId(relatedJob))
-     .filter(Boolean),
+    sameCompanyActiveJobs.length > 0 ? sameCompanyActiveJobs : selectRecentJobs(slug, slug),
     incrementalManifestInputCache,
    ),
    path: relPath,
