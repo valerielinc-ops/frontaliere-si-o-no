@@ -54,8 +54,8 @@ import {
  logIncrementalManifestMemory,
  INCREMENTAL_MANIFEST_ENABLED,
  resetIncrementalManifestInputCache,
- stableJobId,
 } from './shared/incrementalManifest.mjs';
+import { stableJobId } from './shared/stableJobId.mjs';
 import {
   computeJobsSeoEmitterFingerprints,
   createJobsSeoHtmlReuse,

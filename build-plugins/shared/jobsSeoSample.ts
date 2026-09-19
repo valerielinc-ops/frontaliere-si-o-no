@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 
-import { stableJobId } from './incrementalManifest.mjs';
+import { stableJobId } from './stableJobId.mjs';
 
 export const JOBS_SEO_SAMPLE_ENV = 'JOBS_SEO_SAMPLE';
 export const BUILD_BENCH_ENV = 'BUILD_BENCH';

@@ -839,9 +839,122 @@ describe('jobs SEO disk HTML reuse', () => {
     expect(eventsImport?.[1]).toBeDefined();
     expect(eventsImport?.[1]).not.toMatch(/[Tt]ranslat/);
     expect(Object.keys(JOBS_SEO_FINGERPRINT_INERT_MODULES).sort()).toEqual([
+      'build-plugins/batchWrite.ts',
+      'build-plugins/shared/buildMemLog.ts',
+      'build-plugins/shared/forceGc.ts',
+      'build-plugins/shared/incrementalManifest.mjs',
+      'build-plugins/shared/jobsSeoProfiler.ts',
+      'build-plugins/sharedWriteRegistry.ts',
       'data/border-wait-averages.json',
       'scripts/lib/free-translate.mjs',
     ]);
+  });
+
+  it('keeps the deploy I/O and telemetry modules out of the real render graph', () => {
+    // WriteCollector must write the string it receives: no reassignment of
+    // `content` and no string rewrite anywhere in batchWrite.ts.
+    const repoRoot = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../..');
+    const read = (relativeFile: string) => fs.readFileSync(path.join(repoRoot, relativeFile), 'utf8');
+    const batchWrite = read('build-plugins/batchWrite.ts');
+    expect(batchWrite).not.toMatch(/\bcontent\s*=[^=>]/);
+    expect(batchWrite).not.toMatch(/\bcontent\s*\.\s*(?:replace|replaceAll|slice|substring|trim)\b/);
+    const plugin = read('build-plugins/jobsSeoPagesPlugin.ts');
+    // The renderer reads only the size of the registry history (memory log).
+    expect(plugin.match(/getPathHistory\(\)[^\n]*/g)).toEqual(['getPathHistory().size,']);
+    // No pass-through profiler wrapper wraps a render call.
+    const profilerImport = plugin.match(/import\s*\{([^}]*)\}\s*from\s*['"]\.\/shared\/jobsSeoProfiler(?:\.ts)?['"]/);
+    expect(profilerImport?.[1]).toBeDefined();
+    expect(profilerImport?.[1]).not.toMatch(/\btimed\b/);
+    // From the incremental manifest the renderer takes only manifest/digest
+    // plumbing; a render-time helper imported from it would be a render input.
+    const manifestImport = plugin.match(/import\s*\{([^}]*)\}\s*from\s*['"]\.\/shared\/incrementalManifest\.mjs['"]/);
+    expect(manifestImport?.[1].split(',').map((name) => name.trim()).filter(Boolean).sort()).toEqual([
+      'INCREMENTAL_MANIFEST_ENABLED',
+      'buildMinimalJobInput',
+      'getIncrementalManifestInputCache',
+      'getIncrementalManifestMap',
+      'logIncrementalManifestMemory',
+      'resetIncrementalManifestInputCache',
+    ]);
+
+    const graph = collectSourceModuleFiles(
+      repoRoot,
+      ['build-plugins/jobsSeoPagesPlugin.ts'],
+      JOBS_SEO_FINGERPRINT_INERT_MODULES,
+    );
+    for (const inert of [
+      'build-plugins/batchWrite.ts',
+      'build-plugins/contentHash.ts',
+      'build-plugins/shared/buildMemLog.ts',
+      'build-plugins/shared/forceGc.ts',
+      'build-plugins/shared/incrementalManifest.mjs',
+      'build-plugins/shared/jobsSeoProfiler.ts',
+      'build-plugins/shared/postWalkDerivedDigest.ts',
+      'build-plugins/sharedWriteRegistry.ts',
+    ]) {
+      expect(graph).not.toContain(inert);
+    }
+    for (const renderModule of [
+      'build-plugins/jobsSeoPagesPlugin.ts',
+      'build-plugins/htmlTemplate.ts',
+      'build-plugins/shared/jobDetailHtml/index.ts',
+      'build-plugins/shared/jobPostingSchema.ts',
+      'build-plugins/shared/localeEmitFilter.ts',
+      'build-plugins/shared/stableJobId.mjs',
+    ]) {
+      expect(graph).toContain(renderModule);
+    }
+  });
+
+  it('ignores a write-path edit but not a template edit, until an unlisted module imports the writer', () => {
+    const rootDir = fingerprintFixtureRoot();
+    try {
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/jobsSeoPagesPlugin.ts',
+        [
+          "import { WriteCollector } from './batchWrite';",
+          "import { logBuildMem } from './shared/buildMemLog';",
+          "import { renderJobCardHtml } from './shared/jobCardHtml';",
+          'export const renderVersion = "v1";',
+          '',
+        ].join('\n'),
+      );
+      writeFixtureFile(rootDir, 'build-plugins/batchWrite.ts', "import { claim } from './sharedWriteRegistry';\nexport class WriteCollector {}\n");
+      writeFixtureFile(rootDir, 'build-plugins/sharedWriteRegistry.ts', 'export const claim = () => "accepted";\n');
+      writeFixtureFile(rootDir, 'build-plugins/shared/buildMemLog.ts', "import { forceGc } from './forceGc';\nexport const logBuildMem = () => ({ gcFreed: 0 });\n");
+      writeFixtureFile(rootDir, 'build-plugins/shared/forceGc.ts', 'export const forceGc = () => true;\n');
+      writeFixtureFile(rootDir, 'build-plugins/shared/jobCardHtml.ts', 'export const renderJobCardHtml = () => "<li>v1</li>";\n');
+      clearFingerprintEnv();
+      const before = computeJobsSeoEmitterFingerprints(rootDir)['active-job'];
+
+      writeFixtureFile(rootDir, 'build-plugins/batchWrite.ts', "import { claim } from './sharedWriteRegistry';\nexport class WriteCollector { flushEvery = 64; }\n");
+      writeFixtureFile(rootDir, 'build-plugins/sharedWriteRegistry.ts', 'export const claim = () => "accepted-v2";\n');
+      writeFixtureFile(rootDir, 'build-plugins/shared/buildMemLog.ts', "import { forceGc } from './forceGc';\nexport const logBuildMem = () => ({ gcFreed: 1 });\n");
+      writeFixtureFile(rootDir, 'build-plugins/shared/forceGc.ts', 'export const forceGc = () => false;\n');
+      expect(computeJobsSeoEmitterFingerprints(rootDir)['active-job']).toBe(before);
+
+      writeFixtureFile(rootDir, 'build-plugins/shared/jobCardHtml.ts', 'export const renderJobCardHtml = () => "<li>v2</li>";\n');
+      const afterTemplate = computeJobsSeoEmitterFingerprints(rootDir)['active-job'];
+      expect(afterTemplate).not.toBe(before);
+
+      // A template that starts importing the writer makes it a render input.
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/shared/jobCardHtml.ts',
+        "import { WriteCollector } from '../batchWrite';\nexport const renderJobCardHtml = () => `<li>${WriteCollector.name}</li>`;\n",
+      );
+      expect(collectSourceModuleFiles(
+        rootDir,
+        ['build-plugins/jobsSeoPagesPlugin.ts'],
+        JOBS_SEO_FINGERPRINT_INERT_MODULES,
+      )).toEqual(expect.arrayContaining(['build-plugins/batchWrite.ts', 'build-plugins/sharedWriteRegistry.ts']));
+      const withConsumer = computeJobsSeoEmitterFingerprints(rootDir)['active-job'];
+      writeFixtureFile(rootDir, 'build-plugins/batchWrite.ts', "import { claim } from './sharedWriteRegistry';\nexport class WriteCollector { flushEvery = 128; }\n");
+      expect(computeJobsSeoEmitterFingerprints(rootDir)['active-job']).not.toBe(withConsumer);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
   });
 
   it('includes statically imported JSON content in the renderer fingerprint', () => {
