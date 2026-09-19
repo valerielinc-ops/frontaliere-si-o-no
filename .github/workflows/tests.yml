@@ -1944,7 +1944,7 @@ jobs:
       # anche dopo un rosso, perche' gli step `always()` a valle non devono
       # poter essere interrotti a meta'.
       - name: Stop superseded-head watcher
-        if: ${{ always() && steps.head_watch.outcome == 'success' }}
+        if: ${{ always() && steps.body_contract.outcome != 'failure' && steps.head_watch.outcome == 'success' }}
         continue-on-error: true
         run: |
           set -uo pipefail
