@@ -1,10 +1,11 @@
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 
 import { getBuildGeneration, getPathHistory, hashContent } from '../sharedWriteRegistry';
 
-export const POST_WALK_DERIVED_SIDECAR_VERSION = 2;
-export const POST_WALK_DERIVED_SIDECAR_FILE = 'post-walk-derived-v2.jsonl';
+export const POST_WALK_DERIVED_SIDECAR_VERSION = 3;
+export const POST_WALK_DERIVED_SIDECAR_FILE = 'post-walk-derived-v3.jsonl';
 export const POST_WALK_UNMANIFESTED_SIDECAR_VERSION = 1;
 export const POST_WALK_UNMANIFESTED_SIDECAR_FILE = 'post-walk-unmanifested-v1.json';
 
@@ -20,6 +21,12 @@ export type PostWalkDerivedDigestRecord = {
   readonly sourcePath: string;
   /** Hash of the source dependency before the post-walk transform. */
   readonly sourceHash: string | null;
+  /**
+   * Fingerprint of the contextual maps consumed by the post-walk.
+   * `existingHtmlSet` controls bridge/hreflang decisions and
+   * `blogIndexHtmlByPath` controls contextual-link injection.
+   */
+  readonly dependencyHash: string;
   /** Bump when the corresponding transform/template changes. */
   readonly templateHash: string;
 };
@@ -59,6 +66,8 @@ function normalizeRecord(value: unknown): PostWalkDerivedDigestRecord | null {
     || typeof record.sourcePath !== 'string'
     || !record.sourcePath
     || (record.sourceHash !== null && typeof record.sourceHash !== 'string')
+    || typeof record.dependencyHash !== 'string'
+    || !record.dependencyHash
     || typeof record.templateHash !== 'string'
   ) return null;
   const kind = record.kind as PostWalkDerivedKind;
@@ -69,6 +78,7 @@ function normalizeRecord(value: unknown): PostWalkDerivedDigestRecord | null {
     inputHash: record.inputHash as string | null,
     sourcePath: record.sourcePath,
     sourceHash: record.sourceHash as string | null,
+    dependencyHash: record.dependencyHash,
     templateHash: record.templateHash,
   };
 }
@@ -111,6 +121,27 @@ function readSidecar(file: string): LoadedSidecar {
 
 export function postWalkDerivedTemplateHash(kind: PostWalkDerivedKind): string {
   return templateHashes[kind];
+}
+
+/**
+ * Fingerprint the two global inputs that can change a derived post-walk result
+ * without changing that file's own bytes. The callers feed the collections in
+ * the order produced by the current HTML/blog walkers; a traversal reorder can
+ * only cause a safe extra invalidation. Hashing incrementally avoids
+ * materialising a second copy of the full HTML inventory.
+ */
+export function postWalkDependencyHash(
+  existingHtmlSet: ReadonlySet<string>,
+  blogIndexHtmlByPath: ReadonlyMap<string, string>,
+): string {
+  const hash = createHash('sha1');
+  hash.update('existing-html-set\0');
+  for (const filePath of existingHtmlSet) hash.update(filePath).update('\0');
+  hash.update('blog-index-html-by-path\0');
+  for (const [filePath, locale] of blogIndexHtmlByPath) {
+    hash.update(filePath).update('\0').update(locale).update('\0');
+  }
+  return hash.digest('hex');
 }
 
 export function loadPostWalkDerivedDigestSidecar(rootDir: string): LoadedSidecar {
@@ -240,7 +271,28 @@ export function loadPostWalkUnmanifestedTopLevels(rootDir: string): readonly str
       || !Array.isArray(parsed.topLevels)
       || parsed.topLevels.some((value) => typeof value !== 'string' || value.length === 0)
     ) return null;
-    return [...new Set(parsed.topLevels as string[])].sort();
+    const distDir = path.join(path.resolve(rootDir), 'dist');
+    const normalized = (parsed.topLevels as string[]).map((topLevel) => {
+      // Version 1 recorded root-level files by filename (for example
+      // `404.html`) even though the targeted walker accepts only directory
+      // roots plus the <root> sentinel. Migrate an existing cache on load
+      // when that filename is still a real root-level HTML file.
+      if (
+        topLevel !== '<root>'
+        && topLevel.endsWith('.html')
+        && !topLevel.includes('/')
+        && !topLevel.includes('\\')
+      ) {
+        try {
+          if (fs.statSync(path.join(distDir, topLevel)).isFile()) return '<root>';
+        } catch {
+          // A missing legacy root file is safe to leave as a directory name;
+          // the targeted walker will skip it when it is absent.
+        }
+      }
+      return topLevel;
+    });
+    return [...new Set(normalized)].sort();
   } catch {
     return null;
   }

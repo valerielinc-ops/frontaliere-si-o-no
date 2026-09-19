@@ -328,9 +328,10 @@ shard_delta_check_unchanged_payload_paths() {
 # A removed manifest key may still map to a replacement key's payload (for
 # example a trailing-slash active-job key replaced by a legacy-slug bridge).
 # Such a tombstone is a logged no-op when no related target exists in the
-# indexed HEAD, or when the current manifest covers the retained payload. An
-# indexed live payload outside the filtered manifest remains a cross-check
-# failure because the sidecar/index ownership is ambiguous.
+# indexed HEAD, when the current manifest covers the retained payload, or when
+# the current payload is deliberately unmanifested and will be overlaid by the
+# source pass. Only a route-form mismatch in the indexed HEAD is a cross-check
+# failure.
 # Callers run this pass before shard_delta_apply_source_tree so “absent from
 # HEAD” cannot be masked by a newly added current payload.
 # One raw parser emits all deletion records and, by default, cross-checks every
@@ -426,6 +427,27 @@ shard_delta_remove_stale_payload_paths() {
         return 0;
       };
 
+      # Keys of %removed for which $route_related->($target, key) holds.
+      # Equivalent by construction: a non-empty base matches when it equals
+      # $target, equals $target without ".html" ($target eq "$base.html"),
+      # or is a prefix followed by "/" (covers "$base/index.html" too).
+      my $route_related_keys = sub {
+        my ($target) = @_;
+        my %hit;
+        $hit{$target} = 1 if exists $removed{$target};
+        if (length($target) > 5 && substr($target, -5) eq q{.html}) {
+          my $stem = substr($target, 0, -5);
+          $hit{$stem} = 1 if exists $removed{$stem};
+        }
+        my $pos = index($target, q{/});
+        while ($pos >= 0) {
+          my $prefix = substr($target, 0, $pos);
+          $hit{$prefix} = 1 if $prefix ne q{} && exists $removed{$prefix};
+          $pos = index($target, q{/}, $pos + 1);
+        }
+        return keys %hit;
+      };
+
       open my $delete_handle, ">:raw", $delete_info_file or die "open $delete_info_file: $!";
       open my $missing_handle, ">:raw", $missing_file or die "open $missing_file: $!";
       open my $missing_reason_handle, ">:raw", $missing_reason_file or die "open $missing_reason_file: $!";
@@ -461,8 +483,13 @@ shard_delta_remove_stale_payload_paths() {
           || index($target, q{.deploy-manifest/}) == 0
           || ($scope_prefix ne q{} && $target eq "$scope_prefix.html");
         return if $is_service;
-        for my $path (keys %removed) {
-          next unless $route_related->($target, $path);
+        # Linear lookup: the removed keys route-related to $target are exactly
+        # $target itself, $target minus a trailing ".html", and every prefix
+        # of $target that ends right before a "/". Probing those in %removed
+        # yields the same set as scanning every removed key through
+        # $route_related, without the O(index x removed) scan that cost
+        # ~710 s on the ticino-it shard (373k entries x 1.4k removals).
+        for my $path ($route_related_keys->($target)) {
           $index_related{$path} = 1;
           $live_related{$path} = 1 if exists $live{$target};
           $manifest_live_related{$path} = 1 if exists $manifest_live{$target};
@@ -476,8 +503,8 @@ shard_delta_remove_stale_payload_paths() {
 
       for my $path (sort keys %removed) {
         if (exists $live_related{$path} && !exists $manifest_live_related{$path}) {
-          print {$missing_handle} "$path$nul";
-          print {$missing_reason_handle} "$path$nul" . q{current indexed payload is not covered by the filtered manifest (filtered or unmanifested)} . "$nul";
+          print {$noop_handle} "$path$nul";
+          print {$noop_reason_handle} "$path$nul" . q{retained by current unmanifested payload; source overlay will replace it} . "$nul";
         } elsif (exists $manifest_live_related{$path}) {
           print {$noop_handle} "$path$nul";
           print {$noop_reason_handle} "$path$nul" . q{retained by current manifest payload} . "$nul";
@@ -550,7 +577,7 @@ shard_delta_apply_source_tree() {
   local stage="$1" source_root="$2" target_prefix="$3"
   local changed_file_list="$4" unmanifested_file_list="$5" payload_file_list="$6"
   local work candidate_list metadata source_paths index_dump hashes
-  local changed_sources index_info count_file source_count changed_count
+  local changed_sources index_info count_file source_count unmanifested_count changed_count
   [ -d "$source_root" ] || return 1
   source_root="$(cd "$source_root" && pwd)" || return 1
   [ -f "$changed_file_list" ] || return 1
@@ -558,6 +585,7 @@ shard_delta_apply_source_tree() {
   [ -f "$payload_file_list" ] || return 1
   SHARD_DELTA_SOURCE_FILES=0
   SHARD_DELTA_CHANGED_FILES=0
+  SHARD_DELTA_UNMANIFESTED_FILES=0
   SHARD_DELTA_REUSED_FILES=0
   SHARD_DELTA_REMOVED_FILES="${SHARD_DELTA_REMOVED_FILES:-0}"
   SHARD_DELTA_CONTENT_CHANGES="${SHARD_DELTA_CONTENT_CHANGES:-0}"
@@ -578,6 +606,8 @@ shard_delta_apply_source_tree() {
   fi
   source_count="$(perl -0ne '$count += 1; END { print $count + 0 }' < "$payload_file_list")"
   SHARD_DELTA_SOURCE_FILES="${source_count:-0}"
+  unmanifested_count="$(perl -0ne '$count += 1 if $_ ne q{}; END { print $count + 0 }' < "$unmanifested_file_list")"
+  SHARD_DELTA_UNMANIFESTED_FILES="${unmanifested_count:-0}"
 
   if [ -s "$candidate_list" ]; then
     # Keep source and target paths as raw byte strings. The metadata stream is

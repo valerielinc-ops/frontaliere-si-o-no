@@ -155,6 +155,14 @@ describe('parseWorkdayJobDetail', () => {
   it('returns null for null input', () => {
     expect(parseWorkdayJobDetail(null, '/job/test')).toBeNull();
   });
+
+  it('rejects a country-only detail without a verifiable city and canton', () => {
+    const countryOnly = {
+      ...MOCK_DETAIL,
+      jobPostingInfo: { ...MOCK_DETAIL.jobPostingInfo, location: 'Switzerland' },
+    };
+    expect(parseWorkdayJobDetail(countryOnly, '/job/test')).toBeNull();
+  });
 });
 
 // ─── isTicinoLocation tests ───────────────────────────────────────────────────

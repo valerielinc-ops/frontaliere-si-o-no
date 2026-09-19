@@ -1,5 +1,45 @@
 import { describe, it, expect, afterEach, vi } from 'vitest';
-import { createWorkdaySwissParser } from '../scripts/lib/workday-swiss-job-parser-common.mjs';
+import {
+  createWorkdaySwissParser,
+  resolveWorkdayPrimarySwissLocation,
+} from '../scripts/lib/workday-swiss-job-parser-common.mjs';
+
+/**
+ * The publish gate reads the req's OWN primary workplace, never the union of
+ * `[info.location, ...info.additionalLocations]`, and the HQ
+ * `defaultCity`/`defaultCanton` is no longer a fallback on either the facet or
+ * the strict path — a req that does not resolve is dropped.
+ *
+ * Measured 2026-09-19 across the factory's 10 consumer slices (eraneos 58,
+ * everest-re 1, galderma 6, georg-fischer 19, medbase 163,
+ * siemens-healthineers 3, temenos 0, trafigura 6, vontobel 32, ferring no
+ * slice): 0 misattributed records, so the union is a latent defect. The one
+ * live change is siemens-healthineers' 3 records, whose opaque path segments
+ * (`LPN-BO`, `TOI-L-112`, `CEY-BO`) were published as `Zurich`/`ZH` purely by
+ * the HQ default.
+ */
+describe('resolveWorkdayPrimarySwissLocation — primary-only publish gate', () => {
+  it('refuses a foreign primary even when an additional location is Swiss', () => {
+    expect(resolveWorkdayPrimarySwissLocation({
+      location: { descriptor: 'Frankfurt, Germany' },
+      additionalLocations: [{ descriptor: 'Zug, Switzerland' }],
+    })).toBe('');
+  });
+
+  it('refuses a req with no primary location', () => {
+    expect(resolveWorkdayPrimarySwissLocation({
+      additionalLocations: [{ descriptor: 'Zug, Switzerland' }],
+    })).toBe('');
+    expect(resolveWorkdayPrimarySwissLocation({})).toBe('');
+  });
+
+  it('accepts the req own Swiss primary location', () => {
+    expect(resolveWorkdayPrimarySwissLocation({
+      location: { descriptor: 'Lausanne, Switzerland' },
+      additionalLocations: [{ descriptor: 'Frankfurt, Germany' }],
+    })).toBe('Lausanne');
+  });
+});
 
 /**
  * Regression tests for the `externalPath` primary-location fallback added
@@ -311,5 +351,66 @@ describe('createWorkdaySwissParser — detail URL is required for vacancy identi
     expect((jobs as any).missingDetailUrlCount).toBe(1);
     expect(detailCalls).toHaveLength(1);
     expect(detailCalls[0]).not.toContain('undefined');
+  });
+});
+
+describe('createWorkdaySwissParser — HQ default is not a fallback on the facet path', () => {
+  const ORIGINAL_FETCH = global.fetch;
+
+  afterEach(() => {
+    global.fetch = ORIGINAL_FETCH;
+    vi.restoreAllMocks();
+  });
+
+  /**
+   * The siemens-healthineers shape: the Swiss country facet IS accepted (so
+   * `strictSwiss` is false, the path all 11 wrappers take), but the posting's
+   * location is an opaque requisition-site code that resolves to no Swiss
+   * canton. It used to be published as `defaultCity`/`defaultCanton` —
+   * `Zurich`/`ZH` — with `addressCountry: 'CH'`, which is the HQ default
+   * firing unverifiably on all 3 of that slice's records. It must now drop.
+   */
+  it('drops a posting whose location resolves to no Swiss canton instead of stamping the HQ', async () => {
+    global.fetch = vi.fn(async (url: string, init: any = {}) => {
+      const urlStr = String(url);
+      if (urlStr.endsWith('/jobs') && init?.method === 'POST') {
+        return new Response(JSON.stringify({
+          total: 2,
+          jobPostings: [
+            {
+              title: 'Opaque site role',
+              externalPath: '/job/LPN-BO/Opaque-site-role_JR1',
+              locationsText: 'LPN-BO',
+              postedOn: 'Posted Today',
+              bulletFields: ['JR1'],
+            },
+            {
+              title: 'Real Swiss role',
+              externalPath: '/job/Zug/Real-Swiss-role_JR2',
+              locationsText: 'Zug',
+              postedOn: 'Posted Today',
+              bulletFields: ['JR2'],
+            },
+          ],
+        }), { status: 200 });
+      }
+      return new Response('', { status: 404 });
+    });
+
+    const parser = createWorkdaySwissParser({
+      companyKey: 'testco',
+      companyName: 'Test Co',
+      companyDomain: 'testco.com',
+      tenantHost: 'testco.wd3.myworkdayjobs.com',
+      sitePath: 'Test_Careers',
+      defaultCanton: 'ZH',
+      defaultCity: 'Zurich',
+    });
+
+    const jobs = await parser.fetchAllJobs();
+
+    expect(jobs.some((j: any) => j.title === 'Opaque site role')).toBe(false);
+    expect(jobs.map((j: any) => j.title)).toEqual(['Real Swiss role']);
+    expect(jobs[0]).toMatchObject({ location: 'Zug', canton: 'ZG' });
   });
 });

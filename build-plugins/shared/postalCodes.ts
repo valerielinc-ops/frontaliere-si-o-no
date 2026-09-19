@@ -9,6 +9,8 @@
  * we never emit an empty postal code.
  */
 
+import SWISS_POSTAL_CODES from '../../data/swiss-postal-codes.json';
+
 /** Ticino primary cities → postal codes. */
 export const TICINO_POSTAL_BY_CITY: Record<string, string> = {
   'lugano': '6900',
@@ -115,6 +117,67 @@ export const POSTAL_BY_CITY: Record<string, string> = {
   ...TICINO_POSTAL_BY_CITY,
 };
 
+/**
+ * Known city/postal pairs used as a coherence guard, not as an exhaustive
+ * address directory. The source snapshot intentionally contains only one
+ * representative postal code for some municipalities, so unknown postcodes
+ * remain admissible; a known postcode belonging to another known locality does
+ * not. This catches the recurring "valid CAP, wrong city" class without
+ * rejecting legitimate secondary CAPs that are absent from the snapshot.
+ */
+function normalizePostalCityKey(value: string | undefined | null): string {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+/**
+ * Normalized lookup for the complete snapshot, with curated aliases taking
+ * precedence. The curated table is intentionally small; the snapshot fills
+ * the gap for valid municipalities such as Novaggio that are not frequent
+ * enough to need a hand-maintained alias.
+ */
+const NORMALIZED_POSTAL_BY_CITY = new Map<string, string>(
+  [
+    ...Object.entries(SWISS_POSTAL_CODES as Record<string, string>),
+    ...Object.entries(POSTAL_BY_CITY),
+  ]
+    .map(([city, postalCode]) => [normalizePostalCityKey(city), String(postalCode || '').trim()] as const)
+    .filter(([city, postalCode]) => city.length > 0 && /^\d{4}$/.test(postalCode)),
+);
+
+const KNOWN_CITY_KEYS_BY_POSTAL = new Map<string, Set<string>>();
+for (const [city, postalCode] of [
+  ...Object.entries(SWISS_POSTAL_CODES as Record<string, string>),
+  ...Object.entries(POSTAL_BY_CITY),
+]) {
+  const postal = String(postalCode || '').trim();
+  const cityKey = normalizePostalCityKey(city);
+  if (!/^\d{4}$/.test(postal) || !cityKey) continue;
+  const cities = KNOWN_CITY_KEYS_BY_POSTAL.get(postal) || new Set<string>();
+  cities.add(cityKey);
+  KNOWN_CITY_KEYS_BY_POSTAL.set(postal, cities);
+}
+
+/**
+ * Return false only when the source postcode is known to belong to a different
+ * locality than the already-sanitised schema city. Unknown postcodes return
+ * true deliberately: this guard rejects contradictions, it does not pretend
+ * the representative fallback dataset is a complete postal registry.
+ */
+export function isPostalCodeCoherentWithCity(
+  city: string | undefined | null,
+  postalCode: string | undefined | null,
+): boolean {
+  const postal = String(postalCode || '').trim();
+  const knownCities = KNOWN_CITY_KEYS_BY_POSTAL.get(postal);
+  if (!knownCities || knownCities.size === 0) return true;
+  return knownCities.has(normalizePostalCityKey(city));
+}
+
 /** Canton → capital postal code (last-resort fallback). */
 export const CANTON_CAPITAL_POSTAL: Record<string, string> = {
   TI: '6500',
@@ -158,8 +221,9 @@ export function resolvePostalCode(
   canton: string | undefined | null,
 ): string {
   if (city) {
-    const key = String(city).trim().toLowerCase();
-    if (POSTAL_BY_CITY[key]) return POSTAL_BY_CITY[key];
+    const key = normalizePostalCityKey(city);
+    const snapshotPostalCode = NORMALIZED_POSTAL_BY_CITY.get(key);
+    if (snapshotPostalCode) return snapshotPostalCode;
   }
   if (canton) {
     const cap = CANTON_CAPITAL_POSTAL[String(canton).toUpperCase().trim()];

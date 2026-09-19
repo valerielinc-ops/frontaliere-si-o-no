@@ -1015,6 +1015,27 @@ describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)'
     expect(isLocationExplicitlyForeign('IT, Support in Lugano')).toBe(false);
     expect(isLocationExplicitlyForeign('Brussels, BE')).toBe(true);
     expect(isLocationExplicitlyForeign('Athens, GR')).toBe(true);
+
+    // Mid-field country code. An end-of-field anchor could not see it, and the
+    // three tenants below each reached production with a wrong published city
+    // because of it: csl-behring 12 of 25 records (US-PA King of Prussia,
+    // US-MA Waltham, GB Berkshire-Maidenhead published as Glattbrugg/Opfikon/
+    // Bern) and lonza 1 of 215 (IN - Hyderabad published as Visp/VS).
+    expect(isLocationExplicitlyForeign('Americas, US-PA, King of Prussia, CSL Behring')).toBe(true);
+    expect(isLocationExplicitlyForeign('EMEA, GB, Berkshire, Maidenhead, CSL Behring')).toBe(true);
+    expect(isLocationExplicitlyForeign('Americas, US-MA, Waltham, CSL Behring')).toBe(true);
+    expect(isLocationExplicitlyForeign('IN - Hyderabad')).toBe(true);
+    // A Swiss place anywhere in the field keeps a mid-field code ambiguous, so
+    // the same tenant shape stays Swiss when the workplace IS Swiss, and a
+    // two-letter DEPARTMENT label is not mistaken for a country. The case
+    // directly above ('IT, Support in Lugano') is the one that caught this.
+    expect(isLocationExplicitlyForeign('EMEA, CH, Glattbrugg, CSL Behring')).toBe(false);
+    expect(isLocationExplicitlyForeign('EMEA, CH, Kanton Bern, Bern, CSL Behring')).toBe(false);
+    expect(isLocationExplicitlyForeign('Zurich, IT, Engineering')).toBe(false);
+    // Canton-shaped codes are deliberately NOT read mid-field: they keep the
+    // final-position rule, so these two verdicts are unchanged from before.
+    expect(isLocationExplicitlyForeign('Industriestrasse 10, SG')).toBe(false);
+    expect(isLocationExplicitlyForeign('Berner Switzerland - Headquarters Reinach')).toBe(false);
     expect(isLocationExplicitlyForeign('Paris, FR')).toBe(true);
     expect(isLocationExplicitlyForeign('Lugano, CH')).toBe(false);
     expect(isLocationExplicitlyForeign('Bern, BE')).toBe(false);

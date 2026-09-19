@@ -4,6 +4,7 @@ import {
   SIEGFRIED_COMPANY_NAME,
   isSiegfriedJob,
   isTrustedDomain,
+  resolveSiegfriedPublishLocation,
 } from '../scripts/lib/siegfried-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -56,6 +57,37 @@ describe('Siegfried crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('resolveSiegfriedPublishLocation', () => {
+    it('uses a concrete Swiss primary location', () => {
+      expect(resolveSiegfriedPublishLocation({ location: 'Zofingen' })).toEqual({
+        city: 'Zofingen',
+        canton: 'AG',
+      });
+      expect(resolveSiegfriedPublishLocation({ location: 'Evionnaz' })).toEqual({
+        city: 'Evionnaz',
+        canton: 'VS',
+      });
+    });
+
+    it('rejects a foreign primary even when a Swiss cross-post exists', () => {
+      expect(resolveSiegfriedPublishLocation({
+        location: 'UK - Stockton-on-Tees-Wynyard',
+        additionalLocations: [{ descriptor: 'Zofingen', country: { alpha2Code: 'CH' } }],
+        jobRequisitionLocation: { descriptor: 'Zofingen' },
+      })).toBeNull();
+    });
+
+    it('does not turn an unresolved primary into a fixed Swiss site', () => {
+      expect(resolveSiegfriedPublishLocation({
+        location: 'Remote / Multiple Locations',
+        jobRequisitionLocation: { descriptor: 'Zofingen' },
+      })).toBeNull();
+      expect(resolveSiegfriedPublishLocation({
+        jobRequisitionLocation: { descriptor: 'Evionnaz' },
+      })).toBeNull();
     });
   });
 

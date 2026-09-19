@@ -3,6 +3,7 @@ import {
   inferAnyCanton,
   isCantonOnlyLabel,
   isSwissLocationText,
+  swissMunicipalityCantons,
   swissCityFromLocationField,
 } from './target-swiss-locations.mjs';
 
@@ -89,13 +90,46 @@ function isCountryOnlySwissSignal(signal) {
 }
 
 /**
+ * Does the req's OWN primary workplace license a Swiss publication?
+ *
+ * `candidates[0]` is the req's primary Workday location (`info.location`) by
+ * construction in both callers; the rest of the list is cross-post entries,
+ * the requisition object and the listing summary. Deciding to publish from the
+ * UNION lets a req worked in Frankfurt that merely lists `Switzerland` among
+ * its other locations reach the country-only branch below, which then
+ * fabricates `addressLocality: Bern, addressRegion: BE` for a foreign
+ * vacancy. `location: 'Switzerland'` is honest and stays; a made-up Bern
+ * address for a foreign primary is the defect.
+ *
+ * Measured 2026-09-19 on the published slice `data/jobs/by-crawler/fnz.json`:
+ * 1 record, resolved from its own primary (`/job/Chiasso---Switzerland/` →
+ * Chiasso / TI), and 0 records currently carry `nationalFallback` — so the
+ * defect is LATENT and this guard drops nothing that is published today.
+ *
+ * Exported so the call site cannot drift back to the union without breaking
+ * the test that names this rule.
+ */
+export function hasFnzSwissPrimaryLocation(candidates = []) {
+  const primary = (Array.isArray(candidates) ? candidates : [])[0];
+  const { signal } = normalizeCandidate(primary);
+  if (!signal) return false;
+  return isCountryOnlySwissSignal(signal) || isSwissLocationText(signal);
+}
+
+/**
  * Resolve a Workday posting to a concrete Swiss location. Workday may put a
  * country-only value before a more specific additional location, so all
  * candidates are inspected before accepting one. If no candidate supplies a
  * concrete municipality, preserve a country-only Swiss posting with an
  * unresolved public location and a coherent national address fallback.
+ *
+ * Fail closed on the primary first: enriching a Swiss (or Swiss-country-only)
+ * primary from a later candidate is legitimate, publishing a req whose own
+ * primary is foreign is not.
  */
 export function resolveFnzSwissLocation(candidates = []) {
+  if (!hasFnzSwissPrimaryLocation(candidates)) return null;
+
   let countryOnlyFallback = null;
 
   for (const candidate of Array.isArray(candidates) ? candidates : []) {
@@ -113,6 +147,16 @@ export function resolveFnzSwissLocation(candidates = []) {
     const location = resolvedLocation || city || firstLocationSegment(raw);
     const signalCanton = inferAnyCanton(signal);
     const locationCanton = inferAnyCanton(location);
+    // A scoped canton must come from the source, not from the same bare
+    // homonymous locality that is being validated. Structured address fields
+    // can otherwise make `Buchs` look coherent while arbitrarily selecting
+    // SG over its other BFS cantons (follow-up #9139/#9159).
+    if (
+      swissMunicipalityCantons(location).length > 1
+      && !signalCity
+    ) {
+      continue;
+    }
     // A city and a richer address signal must describe the same canton. If
     // they disagree, reject the candidate rather than emit plausible-looking
     // but internally inconsistent structured data. A city field or structured

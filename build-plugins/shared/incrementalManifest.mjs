@@ -19,9 +19,13 @@ export const SOURCE_VERSION = 'input@1';
 // The reusable job-page input now carries the UTC build-day bucket used by
 // deterministic JobPosting fallbacks. Bump the digest contract explicitly so
 // manifests produced before that field cannot be mistaken for current input.
-// job-digest@5: HTML cache files are keyed by page + emitter kind + input hash,
-// so transient writers for one URL cannot read or overwrite another variant.
-export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@5';
+// The previous digest contract keyed HTML cache files by page + emitter kind +
+// input hash, so transient writers for one URL could not read or overwrite
+// another variant.
+// job-digest@6: active-page input now depends only on the selected related-job
+// projections. The renderer never reads the complete candidate pool, and the
+// selected projections already cover every related link it emits.
+export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@6';
 export const INCREMENTAL_MANIFEST_ENABLED = process.env.INCREMENTAL_MANIFEST === '1';
 
 export const PAGE_KINDS = Object.freeze([
@@ -32,6 +36,7 @@ export const PAGE_KINDS = Object.freeze([
   'cross-locale-reconciliation',
   'related-search-cluster',
   'related-search-sitemap',
+  'cf-hot-404-bridge',
 ]);
 
 export const TEMPLATE_VERSIONS = Object.freeze({
@@ -42,12 +47,27 @@ export const TEMPLATE_VERSIONS = Object.freeze({
   'cross-locale-reconciliation': 'cross-locale-reconciliation@1',
   'related-search-cluster': 'related-search-cluster@1',
   'related-search-sitemap': 'related-search-sitemap@1',
+  'cf-hot-404-bridge': 'cf-hot-404-bridge@1',
 });
 
 // Added after the first manifest format was deployed. Treat the missing field
 // as zero so readers can compare an old snapshot with a new one; newly written
 // manifests still always serialize the key.
-export const LEGACY_OPTIONAL_KINDS = new Set(['related-search-sitemap']);
+export const LEGACY_OPTIONAL_KINDS = new Set([
+  'related-search-sitemap',
+  'cf-hot-404-bridge',
+]);
+
+// These crawler/editorial metadata fields affect upstream eligibility or
+// ranking, but are not read by the HTML renderer whose page input is built
+// with `buildMinimalJobInput()`. A change that alters the selected set still
+// changes the related-job projections; keeping the fields in every selected
+// record digest would also invalidate otherwise identical job HTML.
+const NON_RENDERED_JOB_KEYS = new Set([
+  'needsRetranslation',
+  'qualityScore',
+  'retranslationAttempts',
+]);
 
 const RUNTIME_INPUT_KEYS = new Set([
   'ftbuildid',
@@ -100,6 +120,10 @@ function normalizeJobsSeoEmitterFingerprint(value) {
 
 function isRuntimeInputKey(key) {
   return RUNTIME_INPUT_KEYS.has(normalizedKey(key));
+}
+
+function isNonRenderedJobKey(key) {
+  return NON_RENDERED_JOB_KEYS.has(String(key));
 }
 
 function isCanonicalJsonReady(value, inArray = false) {
@@ -212,16 +236,18 @@ function markCanonicalJson(value, canonicalJson) {
 
 /**
  * Keep the digest input aligned with the fields available to the renderer.
- * Generated build metadata is excluded, but source fields are retained in
- * full: dates, organization, location, salary, description, and every other
- * value that can affect the JobPosting or page content must invalidate reuse.
+ * Generated build metadata and proven non-rendered crawler/editorial metadata
+ * are excluded, but source fields are retained in full: dates, organization,
+ * location, salary, description, and every other value that can affect the
+ * JobPosting or page content must invalidate reuse.
  */
 function jobRecordForDigest(job) {
-  const keys = Object.keys(job);
-  if (!keys.some((key) => isRuntimeInputKey(key))) return job;
+  const allKeys = Object.keys(job);
+  const keys = allKeys.filter((key) => !isRuntimeInputKey(key) && !isNonRenderedJobKey(key));
+  if (keys.length === allKeys.length) return job;
   const record = {};
   for (const key of keys) {
-    if (!isRuntimeInputKey(key)) record[key] = job[key];
+    record[key] = job[key];
   }
   return record;
 }
@@ -296,6 +322,7 @@ function setInputCacheEntry(inputCache, mapName, key, value) {
 function shallowJobRecordSignature(job) {
   const signature = [];
   for (const key of Object.keys(job)) {
+    if (isNonRenderedJobKey(key)) continue;
     const value = job[key];
     signature.push(key, value);
     if (Array.isArray(value)) {
@@ -419,22 +446,6 @@ export function stableJobVersion(job) {
     ?? job?.firstSeenAt
     ?? '',
   );
-}
-
-/**
- * Fingerprint the complete related-job candidate pool without retaining or
- * serializing its records. The renderer chooses only six entries from this
- * ordered pool; the compact signature keeps additions/removals/reordering and
- * the slug used by the selection guard in the page dependency set.
- */
-export function computeRelatedJobPoolSignature(relatedJobs = []) {
-  const jobs = Array.isArray(relatedJobs) ? relatedJobs : [];
-  const membership = jobs.map((relatedJob) => (
-    relatedJob && typeof relatedJob === 'object'
-      ? [stableJobId(relatedJob), String(relatedJob.slug ?? '')]
-      : [String(relatedJob ?? ''), '']
-  ));
-  return sha256(JSON.stringify(membership));
 }
 
 /**

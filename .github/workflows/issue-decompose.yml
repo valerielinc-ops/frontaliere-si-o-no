@@ -103,8 +103,9 @@ jobs:
       # Identità di creazione delle sub-issue. Con l'App token gli eventi
       # `issues:[opened]` delle figlie TRIGGERANO issue-triage (routing
       # immediato in coda); con GITHUB_TOKEN no (anti-ricorsione GitHub) e le
-      # figlie aspetterebbero il cron sweep (≤4h). Fallback benigno: il conio
-      # fallito lascia APP_TOKEN vuota e si ricade su GITHUB_TOKEN.
+      # figlie aspetterebbero il cron sweep (≤4h). Se il conio fallisce,
+      # APP_TOKEN resta vuota: il bridge non ricade su GITHUB_TOKEN e l'action
+      # rifiuta il run prima di avviare Codex.
       - name: Mint GitHub App token (zero-Claude, pre-npm)
         continue-on-error: true
         env:
@@ -152,7 +153,12 @@ jobs:
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           github_token: ${{ env.APP_TOKEN }}
-          codex_github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          # Il bridge host-side può creare sub-issue e il loro evento deve
+          # riaprire il triage: usa solo l'identità operativa App/PAT, mai
+          # GITHUB_TOKEN (anti-ricorsione GitHub). Se il conio fallisce,
+          # APP_TOKEN resta vuota, il bridge non ricade su GITHUB_TOKEN e
+          # l'action rifiuta il run prima di avviare Codex.
+          codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           prompt: |
             Sei l'agente di DECOMPOSIZIONE per la issue #${{ github.event.issue.number }} ("${{ github.event.issue.title }}").
             La issue è stata instradata qui perché è troppo grande o eterogenea per un singolo run di fix (max-turns, contenitore di lavoro residuo, o escalation too-large). Il tuo compito NON è implementare: è scorporarla in sub-issue ATOMICHE che il fixer autonomo possa chiudere una alla volta.

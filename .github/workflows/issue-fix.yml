@@ -151,6 +151,7 @@ jobs:
           import { classifyIssue } from './scripts/lib/classify-issue.mjs';
           import {
             classifyAutomationRisk,
+            extractIssueReferences,
           } from './scripts/ci/lib/automation-risk-policy.mjs';
 
           const issue = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
@@ -163,91 +164,12 @@ jobs:
               || (issue.body !== null && typeof issue.body !== 'string')) {
             throw new Error('issue metadata non verificabile per la policy F1/F7');
           }
-          const cleanReference = (value) => String(value || '')
-            .trim()
-            .replace(/[.,;:!?)}\]]+$/u, '');
-          const normalizeReference = (value) => {
-            const candidate = cleanReference(value).replaceAll('\\', '/');
-            if (!candidate || candidate.startsWith('/') || /^[A-Za-z]:\//u.test(candidate)
-                || candidate.includes('://')) return '';
-            const normalized = candidate.replace(/^\.\//u, '');
-            const segments = normalized.split('/');
-            if (!normalized || segments.some((segment) => !segment || segment === '.' || segment === '..'
-                || !/^[A-Za-z0-9_.-]+$/u.test(segment))) return '';
-            return normalized;
-          };
-          const pathTokenRe = /(?<![\w./-])((?:(?:\.{1,2}|[A-Za-z0-9_.-]+)[\\/])+[A-Za-z0-9_.-]+(?:\.[A-Za-z][A-Za-z0-9_-]*)?|[A-Za-z0-9_.-]+\.[A-Za-z][A-Za-z0-9_-]*|\.[A-Za-z0-9][A-Za-z0-9_.-]*)(?![\w./-])/gu;
-          const absolutePathRe = /(?<![\w])(?:\/\.[A-Za-z0-9][A-Za-z0-9_.-]*|\/(?:[A-Za-z0-9_.-]+[\\/])+[A-Za-z0-9_.-]+|[A-Za-z]:[\\/](?:[A-Za-z0-9_.-]+[\\/])+[A-Za-z0-9_.-]+)/gu;
-          const repeatedSeparatorRe = /(?<![\w.-])(?:[A-Za-z0-9_.-]+[\\/])+[\\/]/gu;
-          const rootPathRe = /(?<![\w.-])(?:REVIEW\.md|README(?:\.[A-Za-z0-9_.-]+)?|CHANGELOG(?:\.[A-Za-z0-9_.-]+)?|LICENSE(?:\.[A-Za-z0-9_.-]+)?|Makefile|Dockerfile|CODEOWNERS)(?![\w.-])/giu;
-          const urlRe = /\bhttps?:\/\/[^\s<>()]+/giu;
-          const githubWebHosts = new Set(['github.com', 'www.github.com']);
-          const githubRawHosts = new Set(['raw.githubusercontent.com']);
-          const targetRepo = String(process.env.REPO || '').toLowerCase();
-          const resolveGithubPath = (parts, refStart) => {
-            // GitHub's blob/tree URL has no delimiter between a slash-containing
-            // ref and its pathname. Only a root-level path has one syntactic
-            // boundary; every directory path could instead start after another
-            // ref segment, so leave it unverifiable and deny by policy.
-            if (parts.length !== refStart + 2) return '';
-            return normalizeReference(parts[refStart + 1]);
-          };
-          const codeReferenceRe = /`([^`\r\n]+)`/gu;
-          const pathReferences = [];
-          const isPathCandidate = (value) => {
-            const candidate = cleanReference(value);
-            return /[\\]/u.test(candidate)
-              || /(?:^|[\\/])\.{1,2}[\\/]/u.test(candidate)
-              || /\.[A-Za-z][A-Za-z0-9_-]*$/u.test(candidate)
-              || /^(?:\.github|scripts|src|components|services|hooks|build-plugins|packages|tests?|docs|functions)(?:[\\/]|$)/iu.test(candidate);
-          };
           const issueText = [
             issue.title,
             issue.body ?? '',
             ...issue.labels.map(({ name }) => name),
           ].join('\n');
-          for (const match of issueText.matchAll(urlRe)) {
-            let parsed;
-            try { parsed = new URL(match[0]); } catch { pathReferences.push(''); continue; }
-            const hostname = parsed.hostname.toLowerCase();
-            if (!githubWebHosts.has(hostname) && !githubRawHosts.has(hostname)) continue;
-            let parts;
-            try {
-              const encodedParts = parsed.pathname.split('/').slice(1);
-              if (encodedParts.length === 0 || encodedParts.some((part) => part.length === 0)) {
-                pathReferences.push('');
-                continue;
-              }
-              parts = encodedParts.map((part) => decodeURIComponent(part));
-            } catch {
-              pathReferences.push('');
-              continue;
-            }
-            const repo = parts.length >= 2 ? `${parts[0]}/${parts[1]}`.toLowerCase() : '';
-            if (repo !== targetRepo) continue;
-            const isWebHost = githubWebHosts.has(hostname);
-            const refStart = isWebHost ? 3 : 2;
-            if (isWebHost && !['blob', 'tree', 'raw'].includes(parts[2] || '')) {
-              pathReferences.push('');
-              continue;
-            }
-            pathReferences.push(resolveGithubPath(parts, refStart));
-          }
-          const withoutUrls = issueText.replace(urlRe, ' ');
-          for (const match of withoutUrls.matchAll(pathTokenRe)) {
-            if (isPathCandidate(match[1])) pathReferences.push(match[1]);
-          }
-          for (const match of withoutUrls.matchAll(absolutePathRe)) pathReferences.push(match[0]);
-          for (const match of withoutUrls.matchAll(repeatedSeparatorRe)) pathReferences.push('');
-          for (const match of withoutUrls.matchAll(rootPathRe)) pathReferences.push(match[0]);
-          for (const match of issueText.matchAll(codeReferenceRe)) {
-            const value = cleanReference(match[1]);
-            if (/[\\/]/u.test(value) || /^\.{1,2}[\\/]/u.test(value)
-                || /\.[A-Za-z][A-Za-z0-9_-]*$/u.test(value)) pathReferences.push(value);
-          }
-          const uniqueReferences = [...new Set(pathReferences)];
-          const normalizedPaths = uniqueReferences.map(normalizeReference);
-          const pathsComplete = uniqueReferences.length > 0 && normalizedPaths.every(Boolean);
+          const references = extractIssueReferences(issueText, { repository: process.env.REPO });
           const classification = classifyIssue(issue.title, issue.labels, issue.body ?? '');
           const policyInput = {
             title: issue.title,
@@ -255,9 +177,9 @@ jobs:
             labels: issue.labels,
             category: classification.category,
           };
-          if (uniqueReferences.length > 0) {
-            policyInput.paths = normalizedPaths;
-            policyInput.pathsComplete = pathsComplete;
+          if (references.hasReferences) {
+            policyInput.paths = references.paths;
+            policyInput.pathsComplete = references.pathsComplete;
           }
           const risk = classifyAutomationRisk(policyInput);
           process.stdout.write(JSON.stringify({
@@ -282,6 +204,9 @@ jobs:
               and (.riskDecision | type) == "string"
               and ((.riskDecision == "allow") or (.riskDecision == "deny"))
               and (.unknownPaths | type) == "array"
+              and ((.riskDenyCode == null) or ((.riskDenyCode | type) == "string"))
+              and ((.riskReason == null) or ((.riskReason | type) == "string"))
+              and ((.pathsComplete == null) or ((.pathsComplete | type) == "boolean"))
               and (.snapshotFingerprint | type) == "string"
               and (.snapshotFingerprint | test("^[0-9a-f]{64}$"))
               and (.automationBlocked == (.riskDecision == "deny"))
@@ -290,7 +215,11 @@ jobs:
             end' <<< "$decision")
           domains=$(jq -er '(.riskDomains // []) | map(tostring) | join(", ")' <<< "$decision")
           version=$(jq -er '.policyVersion | strings | select(length > 0)' <<< "$decision")
-          echo "policy=$version blocked=$blocked domains=${domains:-none} snapshot=$snapshot_fingerprint"
+          deny_code=$(jq -r '.riskDenyCode // .denyCode // "none"' <<< "$decision" | tr '\r\n' '  ')
+          risk_reason=$(jq -r '.riskReason // .reason // "none"' <<< "$decision" \
+            | sed -E 's/:.*$//' | tr '\r\n' '  ' | cut -c1-120)
+          paths_complete=$(jq -r 'if .pathsComplete == null then "null" else (.pathsComplete | tostring) end' <<< "$decision")
+          echo "policy=$version blocked=$blocked denyCode=$deny_code pathsComplete=$paths_complete reason=$risk_reason domains=${domains:-none} snapshot=$snapshot_fingerprint"
           echo "blocked=$blocked" >> "$GITHUB_OUTPUT"
           echo "snapshot_fingerprint=$snapshot_fingerprint" >> "$GITHUB_OUTPUT"
 
@@ -1233,14 +1162,11 @@ jobs:
           # da `permissions` nella risposta di conio (#5288). Qui il log distingue i due
           # casi, così un push rifiutato si legge nei log senza dover indovinare.
           #
-          # ATTENZIONE — questo step DA SOLO non basta, e per settimane si è creduto di sì.
-          # Il lane Codex RI-SCRIVE il remote appena parte: `configureGitAuth()` →
-          # `replaceCheckoutCredentials()` fa un `git remote set-url origin
-          # https://x-access-token:<suo-token>@github.com/...` incondizionato, sovrascrivendo
-          # ciò che si è appena configurato qui. Il `git push` del fixer usa quindi il token
-          # della action, non questo. L'unico modo per farlo restare è passarle
-          # `github_token: ${{ env.APP_TOKEN }}` — vedi lo step `Run Codex Luna Max fix`. Senza quello
-          # le righe qui sotto sono vere solo fino all'avvio della action.
+          # Questo remote è l'identità App per i push deterministici di recovery/handoff;
+          # resta distinto dal bridge host-side del lane Codex, che riceve
+          # `codex_github_token` e conserva la credenziale fuori dal processo del modello.
+          # `github_token` alimenta gli helper provider-neutral dell'action: non è una
+          # prova che il bridge abbia pushato, né una sostituzione del token App/PAT.
           if [ -n "${APP_TOKEN:-}" ]; then
             git config --unset-all "http.https://github.com/.extraheader" || true
             git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${REPO}.git"
@@ -1311,42 +1237,26 @@ jobs:
           ISSUE_GROUP: ${{ steps.group.outputs.is_group }}
           ISSUE_GROUP_LABEL: ${{ steps.group.outputs.group_label }}
           ISSUE_GROUP_NUMBERS: ${{ steps.group.outputs.group_numbers }}
+        # `github_token` serve agli helper provider-neutral di quota/delivery dell'action.
+        # Manteniamo l'identità App-only di questo lane per il cascade; non è la
+        # credenziale del bridge host-side e non va usato per dedurre un push riuscito.
+        # Credenziale distinta per i bridge host-side `gh`/Git usati da Codex. Deve
+        # essere un'identità operativa App/PAT, mai GITHUB_TOKEN: il bridge può eseguire
+        # operazioni mutanti autorizzate (push, label, issue/PR handoff) oltre alle
+        # letture. Se entrambe le variabili sono vuote, l'action esistente rifiuta il
+        # run prima di `codex exec`; il modello non riceve comunque il token.
+        # Whitelist esplicita (hardening #898): mai `*` né prefissi. I soli
+        # sender ammessi dal gate sono `claude[bot]`,
+        # `frontaliere-automation[bot]` e l'utente esatto `valerielinc-ops`,
+        # ciascuno con il proprio actor type. `github-actions[bot]` non è
+        # ammesso: un evento GITHUB_TOKEN non deve riattivare il fixer.
+        # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped
+        # (rationale completo: post-merge-followup.yml action-input comment, stesso
+        # fix, evita drift tra copie duplicate).
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
-          # L'IDENTITÀ DI PUSH DEL FIXER. Senza questo input la action ne conia uno suo
-          # (la App `claude`, cioè `claude[bot]`) e con quello RI-SCRIVE il remote:
-          # `src/github/operations/git-config.ts` → `replaceCheckoutCredentials()` esegue
-          # `git remote set-url origin https://x-access-token:<token>@github.com/...`
-          # in modo incondizionato, buttando via il remote impostato da
-          # `Configure git identity`. Risultato misurato sulla issue #5595 (2026-08-11):
-          # il conio aveva loggato `workflows=write` e lo step aveva stampato
-          # «scope workflows CONFERMATO», eppure il push moriva con
-          #   ! [remote rejected] fix/issue-5595 -> fix/issue-5595 (refusing to allow a
-          #     GitHub App to create or update workflow
-          #     `.github/workflows/sync-articles-sitemaps.yml` without `workflows` permission)
-          # — perché a pushare non era la App con lo scope, ma quella della action.
-          # Il fix era già stato prodotto per intero (254 righe, 3 file) e si è perso al push,
-          # sopravvivendo solo come commento sulla issue. Stessa forma di #5288: una
-          # capacità dichiarata vera a monte e smentita a valle, con la CI verde.
-          #
-          # Perché `env.APP_TOKEN` NUDO e non un fallback su `secrets.GITHUB_TOKEN`:
-          # quando il conio fallisce la variabile non è scritta, l'espressione rende `''`,
-          # e `''` è ESATTAMENTE il ramo di default della action (`inputs.github_token == ''`
-          # → conia il suo token e lo revoca a fine run) — cioè il comportamento di oggi,
-          # invariato. Mettere `secrets.GITHUB_TOKEN` come fallback sarebbe invece una
-          # REGRESSIONE: gli eventi generati da GITHUB_TOKEN non ri-attivano i workflow a
-          # valle (anti-ricorsione), quindi `tests` e `pr-review-loop` non partirebbero
-          # più sulle PR del fixer e ogni PR resterebbe ferma senza review.
           github_token: ${{ env.APP_TOKEN }}
-          codex_github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
-          # Whitelist esplicita (hardening #898): mai `*` né prefissi. I soli
-          # sender ammessi dal gate sono `claude[bot]`,
-          # `frontaliere-automation[bot]` e l'utente esatto `valerielinc-ops`,
-          # ciascuno con il proprio actor type. `github-actions[bot]` non è
-          # ammesso: un evento GITHUB_TOKEN non deve riattivare il fixer.
-          # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped
-          # (rationale completo: post-merge-followup.yml action-input comment, stesso
-          # fix, evita drift tra copie duplicate).
+          codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           prompt: |
             Sei l'agent di fix autonomo per la issue #${{ github.event.issue.number }} ("${{ github.event.issue.title }}"). Tier: ${{ steps.tier.outputs.tier }}.
 

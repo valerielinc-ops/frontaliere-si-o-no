@@ -6,6 +6,7 @@ import { pathToFileURL } from 'node:url';
 
 import { afterEach, describe, expect, it } from 'vitest';
 
+import { WriteCollector } from '../build-plugins/batchWrite';
 import { IncrementalManifest } from '../build-plugins/shared/incrementalManifest.mjs';
 import {
   buildSharedHtmlPathIndex,
@@ -13,11 +14,17 @@ import {
 } from '../build-plugins/shared/htmlPathIndex.mjs';
 import { collectHtmlFromClaimedPaths } from '../build-plugins/shared/distHtmlWalk';
 import {
+  loadPostWalkWalkInventory,
+  POST_WALK_WALK_INVENTORY_FILE,
+  writePostWalkWalkInventory,
+} from '../build-plugins/shared/postWalkWalkInventory';
+import {
   buildPostWalkIncrementalPlanFromState,
   comparePostWalkVerification,
   describePostWalkVerificationPaths,
   loadPostWalkManifestState,
   postWalkIncrementalEnabled,
+  postWalkTargetedWalkEnabled,
   releasePostWalkManifestState,
   replacePostWalkPathList,
   selectPostWalkVerificationPaths,
@@ -27,6 +34,7 @@ import {
   filterPostWalkDerivedDigestRecords,
   loadPostWalkDerivedDigestSidecar,
   loadPostWalkUnmanifestedTopLevels,
+  postWalkDependencyHash,
   preservePostWalkDerivedOutput,
   writePostWalkDerivedDigestSidecar,
   writePostWalkUnmanifestedTopLevels,
@@ -36,6 +44,7 @@ import { claim, hashContent, reset as resetWriteRegistry } from '../build-plugin
 const BASE_URL = 'https://frontaliereticino.ch';
 const ROOT = path.resolve(__dirname, '..');
 const roots: string[] = [];
+const DEPENDENCY_HASH = 'fixture-dependency-hash';
 
 function writeManifest(
   root: string,
@@ -112,6 +121,21 @@ afterEach(() => {
 });
 
 describe('post-walk incremental planning', () => {
+  it('accepts a seed current manifest and marks the missing previous snapshot as full fallback', async () => {
+    const root = fixtureRoot();
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/seed/', kind: 'active-job', input: { title: 'seed' } },
+    ]);
+
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+
+    expect(loaded.ok).toBe(true);
+    if ('reason' in loaded) throw new Error(loaded.reason);
+    expect(loaded.state.previousEntryCount).toBe(0);
+    expect(loaded.state.current.entries.has('jobs/seed')).toBe(true);
+    expect(loaded.state.fallbackReason).toMatch(/precedente.*seed/i);
+  });
+
   it('rejects duplicate paths in the current streamed manifest', async () => {
     const root = fixtureRoot();
     writeManifest(root, 'incremental-manifest-prev', [
@@ -213,7 +237,7 @@ describe('post-walk incremental planning', () => {
     ]);
   });
 
-  it('falls back when the previous manifest is missing', async () => {
+  it('keeps the current projection when the previous manifest is missing', async () => {
     const root = fixtureRoot();
     const distDir = path.join(root, 'dist');
     const htmlPaths = collectFixtureHtml(root);
@@ -222,11 +246,13 @@ describe('post-walk incremental planning', () => {
     ]);
 
     const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
-    expect(loaded.ok).toBe(false);
-    if (!('reason' in loaded)) throw new Error('expected missing previous manifest');
-    expect(loaded.reason).toContain('precedente manifest mancante');
+    expect(loaded.ok).toBe(true);
+    if ('reason' in loaded) throw new Error(loaded.reason);
+    expect(loaded.state.current.entries.has('jobs/changed')).toBe(true);
+    expect(loaded.state.fallbackReason).toContain('precedente assente');
 
-    // A caller that cannot load the pair keeps the exact full process list.
+    // A seed still uses the exact full process list, but can persist its
+    // current unmanifested inventory for the next build.
     expect(fs.existsSync(distDir)).toBe(true);
     expect(htmlPaths).toHaveLength(7);
   });
@@ -239,11 +265,10 @@ describe('post-walk incremental planning', () => {
 
     const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
 
-    expect(loaded.ok).toBe(false);
-    if (!('reason' in loaded)) {
-      throw new Error('expected producer fingerprint mismatch to fall back before loading entries');
-    }
-    expect(loaded.reason).toContain('emitter fingerprint cambiato');
+    expect(loaded.ok).toBe(true);
+    if ('reason' in loaded) throw new Error(loaded.reason);
+    expect(loaded.state.current.entries.has('jobs/changed')).toBe(true);
+    expect(loaded.state.fallbackReason).toContain('emitter fingerprint cambiato');
   });
 
   it('can omit unmanifested paths only for the sampled-verifier plan', async () => {
@@ -273,6 +298,40 @@ describe('post-walk incremental planning', () => {
     expect(plan.processHtmlPaths).toEqual([manifestPath]);
     expect(plan.unmanifested).toBe(1);
     expect(plan.unmanifestedSkipped).toBe(1);
+  });
+
+  it('selects an unmanifested path proven transformable by the full walk', async () => {
+    const root = fixtureRoot();
+    const manifestPath = writeHtml(root, 'jobs/unchanged/index.html', 'unchanged');
+    const transformablePath = writeHtml(
+      root,
+      'cerca-lavoro-ticino/ricerca-stale/index.html',
+      'stale landing',
+    );
+    writeManifest(root, 'incremental-manifest-prev', [
+      { path: 'jobs/unchanged/', kind: 'active-job', input: { title: 'same' } },
+    ]);
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/unchanged/', kind: 'active-job', input: { title: 'same' } },
+    ]);
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+    expect(loaded.ok).toBe(true);
+    if ('reason' in loaded) throw new Error(loaded.reason);
+
+    const plan = buildPostWalkIncrementalPlanFromState({
+      distDir: path.join(root, 'dist'),
+      allHtmlPaths: [manifestPath, transformablePath],
+      processableHtmlPaths: [manifestPath, transformablePath],
+      existingHtmlSet: new Set([manifestPath, transformablePath]),
+      baseUrl: BASE_URL,
+      includeUncoveredPaths: false,
+      transformableUnmanifestedPaths: [transformablePath],
+      state: loaded.state,
+    });
+
+    expect(plan.processHtmlPaths).toEqual([transformablePath]);
+    expect(plan.unmanifested).toBe(1);
+    expect(plan.unmanifestedSkipped).toBe(0);
   });
 
   it('classifies sampled paths before the manifest state is released', async () => {
@@ -332,6 +391,7 @@ describe('post-walk incremental planning', () => {
         inputHash: hashContent('<!DOCTYPE html>source'),
         sourcePath: 'jobs/bridge/index.html',
         sourceHash: hashContent('<!DOCTYPE html>source'),
+        dependencyHash: DEPENDENCY_HASH,
         templateHash: 'flat-bridge@1',
       }],
     ]));
@@ -340,6 +400,39 @@ describe('post-walk incremental planning', () => {
     claim(filePath, 'fixture', '<!DOCTYPE html>source');
 
     expect(preservePostWalkDerivedOutput(distDir, filePath, '<!DOCTYPE html>source')).toBe(true);
+    expect(fs.readFileSync(filePath, 'utf8')).toBe('<!DOCTYPE html>bridge');
+  });
+
+  it('does not queue an unchanged derived bridge through WriteCollector', async () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const filePath = writeHtml(root, 'jobs/bridge.html', '<!DOCTYPE html>bridge');
+    const sourcePath = writeHtml(root, 'jobs/bridge/index.html', '<!DOCTYPE html>source');
+    process.env.POST_WALK_INCREMENTAL = '1';
+    writePostWalkDerivedDigestSidecar(root, new Map([
+      ['jobs/bridge.html', {
+        path: 'jobs/bridge.html',
+        kind: 'bridge',
+        inputHash: hashContent('<!DOCTYPE html>source'),
+        sourcePath: 'jobs/bridge/index.html',
+        sourceHash: hashContent('<!DOCTYPE html>source'),
+        dependencyHash: DEPENDENCY_HASH,
+        templateHash: 'flat-bridge@1',
+      }],
+    ]));
+    clearPostWalkDerivedDigestCacheForTest();
+    claim(sourcePath, 'fixture', '<!DOCTYPE html>source');
+
+    const collector = new WriteCollector({
+      distDir,
+      pluginName: 'fixture',
+      postWalkDerivedKind: 'bridge',
+    });
+    collector.add(filePath, '<!DOCTYPE html>source');
+
+    expect(collector.count).toBe(0);
+    expect(await collector.flush()).toBe(0);
+    expect(collector.hasWritten(filePath)).toBe(false);
     expect(fs.readFileSync(filePath, 'utf8')).toBe('<!DOCTYPE html>bridge');
   });
 
@@ -356,6 +449,7 @@ describe('post-walk incremental planning', () => {
         inputHash: hashContent('<!DOCTYPE html>source'),
         sourcePath: 'jobs/bridge/index.html',
         sourceHash: hashContent('<!DOCTYPE html>source-old'),
+        dependencyHash: DEPENDENCY_HASH,
         templateHash: 'flat-bridge@1',
       }],
     ]));
@@ -378,6 +472,7 @@ describe('post-walk incremental planning', () => {
         inputHash: hashContent('<!DOCTYPE html>article'),
         sourcePath: 'blog/article/index.html',
         sourceHash: hashContent('<!DOCTYPE html>article'),
+        dependencyHash: DEPENDENCY_HASH,
         templateHash: 'contextual-blog-links@1',
       }],
     ]));
@@ -398,6 +493,7 @@ describe('post-walk incremental planning', () => {
         inputHash: 'input-failed',
         sourcePath: 'jobs/failed/index.html',
         sourceHash: 'source-failed',
+        dependencyHash: DEPENDENCY_HASH,
         templateHash: 'flat-bridge@1',
       }],
       ['jobs/ok.html', {
@@ -406,6 +502,7 @@ describe('post-walk incremental planning', () => {
         inputHash: 'input-ok',
         sourcePath: 'jobs/ok/index.html',
         sourceHash: 'source-ok',
+        dependencyHash: DEPENDENCY_HASH,
         templateHash: 'flat-bridge@1',
       }],
     ]);
@@ -428,12 +525,13 @@ describe('post-walk incremental planning', () => {
         inputHash: null,
         sourcePath: 'jobs/bridge/index.html',
         sourceHash: null,
+        dependencyHash: DEPENDENCY_HASH,
         templateHash: 'flat-bridge@1',
       }],
     ]));
     const sidecarPath = path.join(
       root,
-      '.cache/incremental-manifest/post-walk-derived-v2.jsonl',
+      '.cache/incremental-manifest/post-walk-derived-v3.jsonl',
     );
     const lines = fs.readFileSync(sidecarPath, 'utf8').trimEnd().split('\n');
     lines.pop();
@@ -441,6 +539,21 @@ describe('post-walk incremental planning', () => {
     clearPostWalkDerivedDigestCacheForTest();
 
     expect(loadPostWalkDerivedDigestSidecar(root)).toEqual(new Map());
+  });
+
+  it('changes when either contextual dependency map changes', () => {
+    const existing = new Set(['/dist/blog/article/index.html']);
+    const blog = new Map<string, string>([['/dist/blog/article/index.html', 'it']]);
+    const initial = postWalkDependencyHash(existing, blog);
+
+    expect(postWalkDependencyHash(
+      new Set([...existing, '/dist/blog/second/index.html']),
+      blog,
+    )).not.toBe(initial);
+    expect(postWalkDependencyHash(
+      existing,
+      new Map([['/dist/blog/article/index.html', 'en']]),
+    )).not.toBe(initial);
   });
 
   it('rebuilds the HTML inventory from claimed paths plus unmanifested roots', () => {
@@ -467,6 +580,128 @@ describe('post-walk incremental planning', () => {
     ]);
   });
 
+  it('reuses the persisted exact inventory for bridges without walking the unmanifested root', async () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const claimed = writeHtml(root, 'it/jobs/claimed/index.html', 'claimed');
+    const bridgeSource = writeHtml(root, 'legacy/page/index.html', 'source');
+    const bridge = writeHtml(root, 'legacy/page.html', 'bridge');
+
+    await writePostWalkWalkInventory(root, distDir, {
+      topLevels: ['it', 'legacy'],
+      unmanifestedTopLevels: ['legacy'],
+      claimedPaths: [claimed],
+      unmanifestedPaths: [bridgeSource, bridge],
+    });
+    const inventory = await loadPostWalkWalkInventory(root);
+    expect(inventory).not.toBeNull();
+
+    const result = collectHtmlFromClaimedPaths(
+      distDir,
+      [claimed],
+      ['legacy'],
+      inventory ?? undefined,
+    );
+
+    expect(result.topLevelsChanged).toBe(false);
+    expect(result.targeted).toBe(2);
+    expect(result.paths).toEqual([claimed, bridge, bridgeSource]);
+  });
+
+  it('invalidates the exact inventory when a new top-level appears', async () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const claimed = writeHtml(root, 'it/jobs/claimed/index.html', 'claimed');
+    const legacy = writeHtml(root, 'legacy/page/index.html', 'source');
+    writeHtml(root, 'new-root/page/index.html', 'new');
+
+    await writePostWalkWalkInventory(root, distDir, {
+      topLevels: ['it', 'legacy'],
+      unmanifestedTopLevels: ['legacy'],
+      claimedPaths: [claimed],
+      unmanifestedPaths: [legacy],
+    });
+    const inventory = await loadPostWalkWalkInventory(root);
+    expect(inventory).not.toBeNull();
+
+    const result = collectHtmlFromClaimedPaths(
+      distDir,
+      [claimed],
+      ['legacy'],
+      inventory ?? undefined,
+    );
+
+    expect(result.topLevelsChanged).toBe(true);
+    expect(result.paths).toContain(legacy);
+    expect(result.paths).toContain(path.join(distDir, 'new-root/page/index.html'));
+  });
+
+  it('keeps the targeted walk an explicit opt-in on top of POST_WALK_INCREMENTAL', () => {
+    const previous = process.env.POST_WALK_TARGETED_WALK;
+    try {
+      delete process.env.POST_WALK_TARGETED_WALK;
+      expect(postWalkTargetedWalkEnabled()).toBe(false);
+      process.env.POST_WALK_TARGETED_WALK = 'true';
+      expect(postWalkTargetedWalkEnabled()).toBe(false);
+      process.env.POST_WALK_TARGETED_WALK = '1';
+      expect(postWalkTargetedWalkEnabled()).toBe(true);
+    } finally {
+      if (previous === undefined) delete process.env.POST_WALK_TARGETED_WALK;
+      else process.env.POST_WALK_TARGETED_WALK = previous;
+    }
+  });
+
+  it('reuses a root-level 404.html from the persisted inventory on the next targeted walk', async () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const claimed = writeHtml(root, 'it/jobs/claimed/index.html', 'claimed');
+    const rootHtml = writeHtml(root, '404.html', 'root');
+
+    // The completed walk hands absolute paths and a root-file top-level; the
+    // writer must persist it as the <root> sentinel, never as a directory.
+    await writePostWalkWalkInventory(root, distDir, {
+      topLevels: ['it', '404.html'],
+      unmanifestedTopLevels: ['<root>'],
+      claimedPaths: [claimed],
+      unmanifestedPaths: [rootHtml],
+    });
+    const inventory = await loadPostWalkWalkInventory(root);
+    expect(inventory?.topLevels).toEqual(['<root>', 'it']);
+    expect(inventory?.unmanifestedTopLevels).toEqual(['<root>']);
+    expect(inventory?.unmanifestedPaths).toEqual(['404.html']);
+
+    // Neither the indexed reuse nor the <root> fallback may readdir a file
+    // (ENOTDIR on dist/404.html was the original failure).
+    const indexed = collectHtmlFromClaimedPaths(
+      distDir,
+      [claimed],
+      inventory?.unmanifestedTopLevels ?? [],
+      inventory ?? undefined,
+    );
+    expect(indexed.topLevelsChanged).toBe(false);
+    expect(indexed.indexed).toBe(1);
+    expect(indexed.paths).toEqual([claimed, rootHtml]);
+
+    const fallback = collectHtmlFromClaimedPaths(
+      distDir,
+      [claimed],
+      inventory?.unmanifestedTopLevels ?? [],
+    );
+    expect(fallback.indexed).toBe(0);
+    expect(new Set(fallback.paths)).toEqual(new Set([claimed, rootHtml]));
+  });
+
+  it('walks root-level unmanifested HTML through the <root> sentinel', () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const rootHtml = writeHtml(root, '404.html', 'root');
+
+    const result = collectHtmlFromClaimedPaths(distDir, [], ['<root>']);
+
+    expect(result.paths).toEqual([rootHtml]);
+    expect(result.targeted).toBe(1);
+  });
+
   it('finds a new direct HTML subtree below an already-claimed top-level root', () => {
     const root = fixtureRoot();
     const distDir = path.join(root, 'dist');
@@ -480,10 +715,85 @@ describe('post-walk incremental planning', () => {
     expect(result.paths).toEqual([claimed, direct]);
   });
 
+  it('finds flat HTML and new subtrees below an already-claimed child', () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const claimed = writeHtml(root, 'it/jobs/claimed/index.html', 'claimed');
+    const directFlat = writeHtml(root, 'it/jobs/direct-new.html', 'direct-flat');
+    const directSubtree = writeHtml(root, 'it/jobs/new-subtree/index.html', 'direct-subtree');
+
+    const result = collectHtmlFromClaimedPaths(distDir, [claimed], []);
+
+    expect(result.claimed).toBe(1);
+    expect(result.targeted).toBe(2);
+    expect(new Set(result.paths)).toEqual(new Set([claimed, directFlat, directSubtree]));
+  });
+
   it('round-trips the targeted-walk inventory and fails closed when absent', () => {
     const root = fixtureRoot();
     expect(loadPostWalkUnmanifestedTopLevels(root)).toBeNull();
     writePostWalkUnmanifestedTopLevels(root, ['legacy', '<root>', 'legacy']);
+    expect(loadPostWalkUnmanifestedTopLevels(root)).toEqual(['<root>', 'legacy']);
+  });
+
+  it('migrates a legacy root HTML filename in the persisted walk inventory', async () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const rootHtml = writeHtml(root, '404.html', 'root');
+    const inventoryPath = path.join(
+      root,
+      '.cache/incremental-manifest',
+      POST_WALK_WALK_INVENTORY_FILE,
+    );
+    fs.mkdirSync(path.dirname(inventoryPath), { recursive: true });
+    fs.writeFileSync(
+      inventoryPath,
+      [
+        JSON.stringify({
+          type: 'header',
+          version: 1,
+          format: 'jsonl',
+          topLevels: ['404.html', 'legacy'],
+          unmanifestedTopLevels: ['404.html', 'legacy'],
+        }),
+        JSON.stringify({ type: 'footer', claimed: 0, unmanifested: 0 }),
+        '',
+      ].join('\n'),
+      'utf8',
+    );
+
+    const inventory = await loadPostWalkWalkInventory(root);
+    expect(inventory?.topLevels).toEqual(['<root>', 'legacy']);
+    expect(inventory?.unmanifestedTopLevels).toEqual(['<root>', 'legacy']);
+
+    const result = collectHtmlFromClaimedPaths(
+      distDir,
+      [],
+      inventory?.unmanifestedTopLevels ?? [],
+      inventory ?? undefined,
+    );
+    expect(result.paths).toEqual([rootHtml]);
+    expect(result.targeted).toBe(1);
+  });
+
+  it('migrates a legacy root HTML filename in the targeted-walk inventory', () => {
+    const root = fixtureRoot();
+    writeHtml(root, '404.html', 'root');
+    const sidecar = path.join(
+      root,
+      '.cache/incremental-manifest/post-walk-unmanifested-v1.json',
+    );
+    fs.mkdirSync(path.dirname(sidecar), { recursive: true });
+    fs.writeFileSync(
+      sidecar,
+      `${JSON.stringify({
+        type: 'post-walk-unmanifested',
+        version: 1,
+        topLevels: ['404.html', 'legacy'],
+      })}\n`,
+      'utf8',
+    );
+
     expect(loadPostWalkUnmanifestedTopLevels(root)).toEqual(['<root>', 'legacy']);
   });
 

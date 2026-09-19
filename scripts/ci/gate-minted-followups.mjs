@@ -112,6 +112,28 @@ const COLLECTION_OK = process.env.COLLECTION_OK === 'true';
 // duplicato costa una riga, mentre perderli è irreversibile.
 const MINT_GATE_MARKER = '<!-- followup-mint-gate -->';
 
+/** Labels are part of the queue admission snapshot, not an optional hint. */
+function issueLabelName(label) {
+  if (typeof label === 'string') return label.trim();
+  if (label && typeof label.name === 'string') return label.name.trim();
+  return '';
+}
+
+function issueLabelsAreVerifiable(labels) {
+  return Array.isArray(labels)
+    && labels.every((label) => issueLabelName(label).length > 0);
+}
+
+export function hasNeedsHumanLabel(issue) {
+  return Array.isArray(issue?.labels)
+    && issue.labels.some((label) => issueLabelName(label).toLowerCase() === 'needs-human');
+}
+
+/** Missing labels are unverifiable: never mint a new fixer queue entry. */
+export function canMintQueueLabel(issue) {
+  return issueLabelsAreVerifiable(issue?.labels) && !hasNeedsHumanLabel(issue);
+}
+
 /**
  * Spezza il corpo coniato in testa + item, e partiziona gli item con l'oracolo
  * condiviso e con l'ammissibilità della macchina. L'osservazione della macchina è
@@ -547,13 +569,14 @@ export function retitleDailyBucket(title, n) {
  * accesso a un suo campo farebbe esplodere il ciclo, facendo perdere tutte le ALTRE issue
  * della stessa PR invece della sola issue illeggibile. Puro.
  *
- * @param {string|null} raw @returns {object|null}
+ * @param {string|null} raw @returns {object|null} issue con numero intero positivo
  */
 export function parseIssueJson(raw) {
   if (typeof raw !== 'string' || !raw.trim()) return null;
   try {
     const o = JSON.parse(raw);
-    return o && typeof o === 'object' && !Array.isArray(o) ? o : null;
+    return o && typeof o === 'object' && !Array.isArray(o)
+      && Number.isInteger(o.number) && o.number > 0 ? o : null;
   } catch {
     return null;
   }
@@ -566,8 +589,32 @@ export function parseIssueJson(raw) {
  */
 function sameIssueSnapshot(expected, actual) {
   return !!actual
+    && Number.isInteger(expected?.number) && expected.number > 0
+    && Number.isInteger(actual.number) && actual.number > 0
+    && actual.number === expected.number
     && String(actual.title || '') === String(expected?.title || '')
     && String(actual.body || '') === String(expected?.body || '');
+}
+
+function stableQueueSnapshotValue(value) {
+  if (Array.isArray(value)) return value.map(stableQueueSnapshotValue);
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(Object.keys(value).sort().map((key) => [key, stableQueueSnapshotValue(value[key])]));
+  }
+  return value;
+}
+
+function rawQueueLabelsFingerprint(labels) {
+  return issueLabelsAreVerifiable(labels) ? JSON.stringify(stableQueueSnapshotValue(labels)) : null;
+}
+
+function sameQueueSnapshot(expected, actual) {
+  const expectedLabels = rawQueueLabelsFingerprint(expected?.labels);
+  const actualLabels = rawQueueLabelsFingerprint(actual?.labels);
+  return sameIssueSnapshot(expected, actual)
+    && expectedLabels !== null
+    && actualLabels !== null
+    && expectedLabels === actualLabels;
 }
 
 /**
@@ -648,6 +695,36 @@ function gh(args, { allowFail = false, token = process.env.GH_TOKEN } = {}) {
     }
     throw e;
   }
+}
+
+function addQueueLabelIfEligible(issue, repoArgs) {
+  if (!canMintQueueLabel(issue)) {
+    const reason = hasNeedsHumanLabel(issue) ? 'needs-human veto' : 'labels non verificabili';
+    console.log('#' + (issue?.number || 'unknown') + ': nessuna nuova agent:fix-queued (' + reason + ').');
+    return false;
+  }
+  // This is a freshness check, not an atomic HTTP CAS: GitHub's issue edit API
+  // cannot condition a label mutation on an unchanged body/title/labels
+  // snapshot.  Read the complete raw snapshot immediately before the mutation;
+  // any missing, malformed, or changed metadata fails closed.
+  const latest = parseIssueJson(gh(['issue', 'view', String(issue?.number), ...repoArgs,
+    '--json', 'number,title,body,labels,createdAt'], { allowFail: true }));
+  if (!latest) {
+    console.log('#' + (issue?.number || 'unknown') + ': nessuna nuova agent:fix-queued (latest snapshot non verificabile).');
+    return false;
+  }
+  if (!sameQueueSnapshot(issue, latest)) {
+    console.log('#' + (issue?.number || 'unknown') + ': nessuna nuova agent:fix-queued (latest snapshot stale).');
+    return false;
+  }
+  if (!canMintQueueLabel(latest)) {
+    const reason = hasNeedsHumanLabel(latest) ? 'needs-human veto' : 'labels non verificabili';
+    console.log('#' + (latest.number || issue?.number || 'unknown') + ': nessuna nuova agent:fix-queued (' + reason + ').');
+    return false;
+  }
+  gh(['issue', 'e' + 'dit', String(latest.number), ...repoArgs,
+    '--add-label', 'agent:fix-queued'], { allowFail: true });
+  return true;
 }
 
 function ghPr(args, options = {}) {
@@ -968,7 +1045,7 @@ function main() {
       if (!uniqueFound.length) { console.log(`PR #${pr}: nessuna issue coniata → niente da fare.`); continue; }
       const issues = [];
       for (const f of uniqueFound) {
-        const one = parseIssueJson(gh(['issue', 'view', String(f.number), ...repoArgs, '--json', 'number,title,body,createdAt'], { allowFail: true }));
+        const one = parseIssueJson(gh(['issue', 'view', String(f.number), ...repoArgs, '--json', 'number,title,body,labels,createdAt'], { allowFail: true }));
         // Proceed-safe PER ISSUE, non per PR: una lettura fallita salta QUELLA issue e le
         // altre del lotto proseguono. Lasciare entrare un `null` qui farebbe esplodere il
         // ciclo al primo accesso a un campo, e il catch per-PR abbandonerebbe tutte le altre.
@@ -996,7 +1073,7 @@ function main() {
           // queued; a fully-done bucket stays out of the fixer queue.
           if (d.action === 'keep' && daily && bucketState(iss.body || '') === 'sealed'
               && selectFirstOpenItem(iss.body || '') && !DRY_RUN) {
-            gh(['issue', 'e' + 'dit', String(iss.number), ...repoArgs, '--add-label', 'agent:fix-queued'], { allowFail: true });
+            addQueueLabelIfEligible(iss, repoArgs);
           }
           if (d.action === 'skip') {
             report.push(`- ⏭️ #${iss.number} skip (${d.reason}) — PR #${pr}`);
@@ -1011,12 +1088,15 @@ function main() {
             continue;
           }
           const latest = parseIssueJson(gh(['issue', 'view', String(iss.number), ...repoArgs,
-            '--json', 'number,title,body,createdAt'], { allowFail: true }));
+            '--json', 'number,title,body,labels,createdAt'], { allowFail: true }));
           if (!latest || !sameIssueSnapshot(iss, latest)) {
             console.log(`#${iss.number}: body cambiato/non leggibile prima del sealing → lascio collecting, retry con lettura nuova.`);
             report.push(`- ⚠️ #${iss.number} sealing rinviato per baseline concorrente/illeggibile`);
             continue;
           }
+          // The latest response is the admission snapshot. Missing or malformed
+          // labels must replace the previous snapshot, never silently reuse it.
+          iss = { ...iss, labels: latest.labels };
           const bf = writeBodyFile(d.body);
           const newTitle = retitleDailyBucket(iss.title, d.valid.length);
           const editVerb = 'edit';
@@ -1028,9 +1108,19 @@ function main() {
             report.push(`- ⚠️ #${iss.number} sealing non riuscito, bucket collecting — target ${daily?.targetRepository || 'unknown'}`);
             continue;
           }
+          const queueEligible = canMintQueueLabel(iss);
+          const queueMessage = queueEligible
+            ? '✅ Daily bucket sigillato in modo deterministico: tutti gli item hanno ID stabile e acceptance verificabile. Ora può essere accodato a agent:fix-queued.'
+            : '⚠️ Daily bucket sigillato, ma '
+              + (hasNeedsHumanLabel(iss) ? 'needs-human è presente' : 'labels non verificabili')
+              + ': nessuna nuova coda automatica.';
           gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
-            `${MINT_GATE_MARKER}\n✅ Daily bucket sigillato in modo deterministico: tutti gli item hanno ID stabile e acceptance verificabile. Ora può essere accodato a \`agent:fix-queued\`.`], { allowFail: true });
-          gh(['issue', editVerb, String(iss.number), ...repoArgs, '--add-label', 'agent:fix-queued'], { allowFail: true });
+            MINT_GATE_MARKER + '\n' + queueMessage], { allowFail: true });
+          if (queueEligible) addQueueLabelIfEligible({
+            ...iss,
+            title: newTitle === null ? iss.title : newTitle,
+            body: d.body,
+          }, repoArgs);
           report.push(`- 🔒 #${iss.number} daily bucket sealed, ${d.valid.length} item accodabili — ${daily?.targetRepository || 'unknown'}`);
           continue;
         }
@@ -1038,7 +1128,7 @@ function main() {
         // concurrent retry) appended an item after the list snapshot, recompute from
         // that fresh body instead of overwriting it with a stale baseline.
         const latest = parseIssueJson(gh(['issue', 'view', String(iss.number), ...repoArgs,
-          '--json', 'number,title,body,createdAt'], { allowFail: true }));
+          '--json', 'number,title,body,labels,createdAt'], { allowFail: true }));
         if (!latest || !sameIssueSnapshot(iss, latest)) {
           if (!latest) {
             console.log(`⚠️ #${iss.number}: body baseline non leggibile prima della riscrittura → lascio collecting/intatta.`);
@@ -1073,6 +1163,9 @@ function main() {
         // poggia l'intera scelta di demozione («resta leggibile sulla PR») sarebbe falsa,
         // in modo irreversibile e ~11 volte al giorno. Nel ramo `suppress` il corpo resta
         // perché la issue è solo chiusa, ma il blocco integrale non fa danno neanche lì.
+        // The latest response is the admission snapshot. Missing or malformed
+        // labels must replace the previous snapshot, never silently reuse it.
+        iss = { ...iss, labels: latest.labels };
         const verbatim = demotedBlock(d.demoted);
         const why = d.action === 'dedupe'
           ? `${MINT_GATE_MARKER}\n🧹 **Gate deterministico sul conio** (zero-Claude): ${d.duplicates.length} item con fingerprint duplicato sono stati accorpati nel primo item; le rispettive \`Sources\` restano unite e non viene creato un secondo lavoro. Fingerprint: \`target repository + target file + token/azione normalizzata\`.\n\n${duplicateList}`
@@ -1129,9 +1222,23 @@ function main() {
             `${why}\n\nRimoss${d.demoted.length === 1 ? 'o' : 'i'} dal corpo; ${d.valid.length} item valid${d.valid.length === 1 ? 'o' : 'i'} rest${d.valid.length === 1 ? 'a' : 'ano'}.`],
             { allowFail: true });
           if (daily && bucketState(d.body) === 'sealed' && selectFirstOpenItem(d.body)) {
-            gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
-              `${MINT_GATE_MARKER}\n✅ Dopo la demozione il daily bucket è stato sigillato: gli item validi possono entrare in \`agent:fix-queued\`.`], { allowFail: true });
-            gh(['issue', 'edit', String(iss.number), ...repoArgs, '--add-label', 'agent:fix-queued'], { allowFail: true });
+            const queueEligible = canMintQueueLabel(iss);
+            if (queueEligible) {
+              gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
+                MINT_GATE_MARKER + '\n✅ Dopo la demozione il daily bucket è stato sigillato: gli item validi possono entrare in agent:fix-queued.'], { allowFail: true });
+              addQueueLabelIfEligible({
+                ...iss,
+                title: newTitle === null ? iss.title : newTitle,
+                body: d.body,
+              }, repoArgs);
+            } else {
+              gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
+                MINT_GATE_MARKER + '\n⚠️ Dopo la demozione il daily bucket resta sigillato, ma '
+                  + (hasNeedsHumanLabel(iss) ? 'needs-human è presente' : 'labels non verificabili')
+                  + ': nessuna nuova coda automatica.'], { allowFail: true });
+              console.log('#' + iss.number + ': demozione sigillata senza nuova coda ('
+                + (hasNeedsHumanLabel(iss) ? 'needs-human veto' : 'labels non verificabili') + ').');
+            }
           }
           report.push(d.action === 'dedupe'
             ? `- 🧹 #${iss.number} ${d.duplicates.length} item duplicati accorpati, ${d.valid.length} restano — daily ${daily?.dailyKey || 'unknown'}`

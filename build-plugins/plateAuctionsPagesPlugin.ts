@@ -17,7 +17,7 @@ import { adSlotHtml } from './lib/adSlotHtml';
 import { shouldPlaceInfeedAd } from '../services/adsenseSlots';
 import { buildSitemapIndexXml, discoverSitemapFiles } from './sitemapAliasPlugin';
 import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
-import { buildPlateAuctionPath, allPlateAuctionCantonCodes } from '../services/plateAuctions/paths';
+import { buildPlateAuctionPath, allPlateAuctionCantonCodes, PLATE_AUCTION_INDEX_PAGE_SIZE } from '../services/plateAuctions/paths';
 import { validatePlateAuctionSourcesRegistry } from '../services/plateAuctions/types';
 import type {
   PlateAuctionSourceStatus,
@@ -32,16 +32,15 @@ const LOCALES: readonly PlateLocale[] = ['it', 'en', 'de', 'fr'];
 // whole data set into one HTML document; every detail page remains emitted and
 // listed in the plate-auction sitemap below.
 const CANTON_INDEX_MAX_ROWS = 24;
-const CANTON_INDEX_MAX_DETAIL_LINKS = 48;
 const OG_LOCALE: Record<PlateLocale, string> = { it: 'it_CH', en: 'en_US', de: 'de_CH', fr: 'fr_CH' };
 const CANTON_NAMES: Record<string, Record<PlateLocale, string>> = {
   AG: { it: 'Argovia', en: 'Aargau', de: 'Aargau', fr: 'Argovie' }, AI: { it: 'Appenzello Interno', en: 'Appenzell Innerrhoden', de: 'Appenzell Innerrhoden', fr: 'Appenzell Rhodes-Intérieures' }, AR: { it: 'Appenzello Esterno', en: 'Appenzell Ausserrhoden', de: 'Appenzell Ausserrhoden', fr: 'Appenzell Rhodes-Extérieures' }, BE: { it: 'Berna', en: 'Bern', de: 'Bern', fr: 'Berne' }, BL: { it: 'Basilea Campagna', en: 'Basel-Landschaft', de: 'Basel-Landschaft', fr: 'Bâle-Campagne' }, BS: { it: 'Basilea Città', en: 'Basel-Stadt', de: 'Basel-Stadt', fr: 'Bâle-Ville' }, FR: { it: 'Friburgo', en: 'Fribourg', de: 'Freiburg', fr: 'Fribourg' }, GE: { it: 'Ginevra', en: 'Geneva', de: 'Genf', fr: 'Genève' }, GL: { it: 'Glarona', en: 'Glarus', de: 'Glarus', fr: 'Glaris' }, GR: { it: 'Grigioni', en: 'Graubünden', de: 'Graubünden', fr: 'Grisons' }, JU: { it: 'Giura', en: 'Jura', de: 'Jura', fr: 'Jura' }, LU: { it: 'Lucerna', en: 'Lucerne', de: 'Luzern', fr: 'Lucerne' }, NE: { it: 'Neuchâtel', en: 'Neuchâtel', de: 'Neuenburg', fr: 'Neuchâtel' }, NW: { it: 'Nidvaldo', en: 'Nidwalden', de: 'Nidwalden', fr: 'Nidwald' }, OW: { it: 'Obvaldo', en: 'Obwalden', de: 'Obwalden', fr: 'Obwald' }, SG: { it: 'San Gallo', en: 'St. Gallen', de: 'St. Gallen', fr: 'Saint-Gall' }, SH: { it: 'Sciaffusa', en: 'Schaffhausen', de: 'Schaffhausen', fr: 'Schaffhouse' }, SO: { it: 'Soletta', en: 'Solothurn', de: 'Solothurn', fr: 'Soleure' }, SZ: { it: 'Svitto', en: 'Schwyz', de: 'Schwyz', fr: 'Schwytz' }, TG: { it: 'Turgovia', en: 'Thurgau', de: 'Thurgau', fr: 'Thurgovie' }, TI: { it: 'Ticino', en: 'Ticino', de: 'Tessin', fr: 'Tessin' }, UR: { it: 'Uri', en: 'Uri', de: 'Uri', fr: 'Uri' }, VD: { it: 'Vaud', en: 'Vaud', de: 'Waadt', fr: 'Vaud' }, VS: { it: 'Vallese', en: 'Valais', de: 'Wallis', fr: 'Valais' }, ZG: { it: 'Zugo', en: 'Zug', de: 'Zug', fr: 'Zoug' }, ZH: { it: 'Zurigo', en: 'Zurich', de: 'Zürich', fr: 'Zurich' },
 };
-const COPY: Record<PlateLocale, { title: string; intro: string; context: string; sources: string; current: string; rankings: string; allListings: string; noData: string; notDiscovered: string; method: string; detail: string; coverage: string; coverageInProgress: string; coverageIntro: string; coverageInProgressIntro: string; status: string; lastUpdated: string; official: string; registryUpdated: string; coverageUnavailable: string }> = {
-  it: { title: 'Aste targhe svizzere', intro: 'Aste pubbliche di targhe svizzere: prezzi correnti, scadenze e risultati finali verificati.', context: 'Questa pagina raccoglie i cataloghi cantonali esposti pubblicamente. Un prezzo corrente indica l’ultima offerta visibile, non una vendita conclusa. I risultati finali entrano nello storico soltanto quando una fonte ufficiale li rende verificabili. I nomi degli offerenti non vengono raccolti né pubblicati.', sources: 'Fonti cantonali', current: 'Aste in corso', rankings: 'Classifiche', allListings: 'Altre aste pubblicate', noData: 'Nessuna riga pubblica disponibile in questo momento.', notDiscovered: 'La fonte d’asta pubblica di questo cantone non è ancora stata verificata: la pagina resta visibile per documentare la copertura, senza inventare valori.', method: 'Metodo e limiti dei dati', detail: 'Dettaglio', coverage: 'Copertura per cantone', coverageInProgress: 'Copertura in corso', coverageIntro: 'Il registro mostra, cantone per cantone, quale fonte ufficiale è stata verificata e quale stato ha il connettore. Le aste vengono mostrate solo per le fonti con stato attivo.', coverageInProgressIntro: 'Nessun cantone ha ancora una fonte con stato attivo. Mostriamo quindi soltanto lo stato di verifica e i link ufficiali: non pubblichiamo prezzi, offerte o nuove aste non verificati.', status: 'Stato', lastUpdated: 'Ultimo aggiornamento', official: 'Sito ufficiale', registryUpdated: 'Registro aggiornato', coverageUnavailable: 'Il registro delle fonti cantonali non è disponibile: la copertura resta esplicitamente non verificata e i dati d’asta non vengono mostrati.', },
-  en: { title: 'Swiss plate auctions', intro: 'Public Swiss plate auctions: current prices, closing times and verified final results.', context: 'This page collects cantonal catalogues that are publicly exposed. A current price is the latest visible bid, not a completed sale. Final results enter the history only when an official source makes them verifiable. Bidder names are not collected or published.', sources: 'Cantonal sources', current: 'Live auctions', rankings: 'Rankings', allListings: 'More published auctions', noData: 'No public row is available right now.', notDiscovered: 'The public auction source for this canton has not been verified yet. We keep the coverage page visible without inventing values.', method: 'Data method and limits', detail: 'Details', coverage: 'Coverage by canton', coverageInProgress: 'Coverage in progress', coverageIntro: 'The registry shows which official source is verified for each canton and the current connector status. Auction rows are shown only for sources marked active.', coverageInProgressIntro: 'No canton has an active source yet. We therefore show only verification status and official links, without publishing unverified prices, bids or new auctions.', status: 'Status', lastUpdated: 'Last updated', official: 'Official website', registryUpdated: 'Registry updated', coverageUnavailable: 'The cantonal source registry is unavailable: coverage remains explicitly unverified and auction data is hidden.', },
-  de: { title: 'Schweizer Kontrollschildauktionen', intro: 'Öffentliche Schweizer Kontrollschildauktionen: aktuelle Preise und verifizierte Ergebnisse.', context: 'Diese Seite sammelt öffentlich zugängliche kantonale Kataloge. Ein aktueller Preis ist das letzte sichtbare Gebot und kein abgeschlossener Verkauf. Ergebnisse werden erst in die Historie übernommen, wenn eine offizielle Quelle sie überprüfbar macht. Bieternamen werden weder gesammelt noch veröffentlicht.', sources: 'Kantonale Quellen', current: 'Laufende Auktionen', rankings: 'Ranglisten', allListings: 'Weitere veröffentlichte Auktionen', noData: 'Zurzeit ist keine öffentliche Zeile verfügbar.', notDiscovered: 'Die öffentliche Auktionsquelle dieses Kantons ist noch nicht verifiziert. Die Abdeckungsseite bleibt sichtbar, ohne Werte zu erfinden.', method: 'Methode und Grenzen', detail: 'Details', coverage: 'Abdeckung nach Kanton', coverageInProgress: 'Abdeckung im Aufbau', coverageIntro: 'Das Register zeigt für jeden Kanton die geprüfte offizielle Quelle und den Status des Konnektors. Auktionen werden nur für Quellen mit aktivem Status angezeigt.', coverageInProgressIntro: 'Noch kein Kanton hat eine aktive Quelle. Deshalb zeigen wir nur Prüfstatus und offizielle Links und veröffentlichen keine ungeprüften Preise, Gebote oder neuen Auktionen.', status: 'Status', lastUpdated: 'Letzte Aktualisierung', official: 'Offizielle Website', registryUpdated: 'Register aktualisiert', coverageUnavailable: 'Das Register der kantonalen Quellen ist nicht verfügbar: Die Abdeckung bleibt ausdrücklich ungeprüft und Auktionsdaten werden ausgeblendet.', },
-  fr: { title: 'Ventes aux enchères de plaques suisses', intro: 'Enchères publiques de plaques suisses: prix actuels et résultats finaux vérifiés.', context: 'Cette page rassemble les catalogues cantonaux publics. Un prix actuel est la dernière offre visible, pas une vente conclue. Les résultats finaux ne sont ajoutés à l’historique que lorsqu’une source officielle les rend vérifiables. Les noms des enchérisseurs ne sont ni collectés ni publiés.', sources: 'Sources cantonales', current: 'Enchères en cours', rankings: 'Classements', allListings: 'Autres enchères publiées', noData: 'Aucune ligne publique n’est disponible pour le moment.', notDiscovered: 'La source publique d’enchères de ce canton n’est pas encore vérifiée. La page de couverture reste visible sans inventer de valeurs.', method: 'Méthode et limites', detail: 'Détails', coverage: 'Couverture par canton', coverageInProgress: 'Couverture en cours', coverageIntro: 'Le registre indique, pour chaque canton, la source officielle vérifiée et le statut du connecteur. Les enchères ne sont affichées que pour les sources actives.', coverageInProgressIntro: 'Aucun canton ne dispose encore d’une source active. Nous affichons donc uniquement le statut de vérification et les liens officiels, sans publier de prix, d’offres ou de nouvelles enchères non vérifiés.', status: 'Statut', lastUpdated: 'Dernière mise à jour', official: 'Site officiel', registryUpdated: 'Registre mis à jour', coverageUnavailable: 'Le registre des sources cantonales est indisponible : la couverture reste explicitement non vérifiée et les données d’enchères sont masquées.', },
+const COPY: Record<PlateLocale, { title: string; intro: string; context: string; sources: string; current: string; rankings: string; allListings: string; page: string; noData: string; notDiscovered: string; method: string; detail: string; coverage: string; coverageInProgress: string; coverageIntro: string; coverageInProgressIntro: string; status: string; lastUpdated: string; official: string; registryUpdated: string; coverageUnavailable: string }> = {
+  it: { title: 'Aste targhe svizzere', intro: 'Aste pubbliche di targhe svizzere: prezzi correnti, scadenze e risultati finali verificati.', context: 'Questa pagina raccoglie i cataloghi cantonali esposti pubblicamente. Un prezzo corrente indica l’ultima offerta visibile, non una vendita conclusa. I risultati finali entrano nello storico soltanto quando una fonte ufficiale li rende verificabili. I nomi degli offerenti non vengono raccolti né pubblicati.', sources: 'Fonti cantonali', current: 'Aste in corso', rankings: 'Classifiche', allListings: 'Altre aste pubblicate', page: 'Pagina', noData: 'Nessuna riga pubblica disponibile in questo momento.', notDiscovered: 'La fonte d’asta pubblica di questo cantone non è ancora stata verificata: la pagina resta visibile per documentare la copertura, senza inventare valori.', method: 'Metodo e limiti dei dati', detail: 'Dettaglio', coverage: 'Copertura per cantone', coverageInProgress: 'Copertura in corso', coverageIntro: 'Il registro mostra, cantone per cantone, quale fonte ufficiale è stata verificata e quale stato ha il connettore. Le aste vengono mostrate solo per le fonti con stato attivo.', coverageInProgressIntro: 'Nessun cantone ha ancora una fonte con stato attivo. Mostriamo quindi soltanto lo stato di verifica e i link ufficiali: non pubblichiamo prezzi, offerte o nuove aste non verificati.', status: 'Stato', lastUpdated: 'Ultimo aggiornamento', official: 'Sito ufficiale', registryUpdated: 'Registro aggiornato', coverageUnavailable: 'Il registro delle fonti cantonali non è disponibile: la copertura resta esplicitamente non verificata e i dati d’asta non vengono mostrati.', },
+  en: { title: 'Swiss plate auctions', intro: 'Public Swiss plate auctions: current prices, closing times and verified final results.', context: 'This page collects cantonal catalogues that are publicly exposed. A current price is the latest visible bid, not a completed sale. Final results enter the history only when an official source makes them verifiable. Bidder names are not collected or published.', sources: 'Cantonal sources', current: 'Live auctions', rankings: 'Rankings', allListings: 'More published auctions', page: 'Page', noData: 'No public row is available right now.', notDiscovered: 'The public auction source for this canton has not been verified yet. We keep the coverage page visible without inventing values.', method: 'Data method and limits', detail: 'Details', coverage: 'Coverage by canton', coverageInProgress: 'Coverage in progress', coverageIntro: 'The registry shows which official source is verified for each canton and the current connector status. Auction rows are shown only for sources marked active.', coverageInProgressIntro: 'No canton has an active source yet. We therefore show only verification status and official links, without publishing unverified prices, bids or new auctions.', status: 'Status', lastUpdated: 'Last updated', official: 'Official website', registryUpdated: 'Registry updated', coverageUnavailable: 'The cantonal source registry is unavailable: coverage remains explicitly unverified and auction data is hidden.', },
+  de: { title: 'Schweizer Kontrollschildauktionen', intro: 'Öffentliche Schweizer Kontrollschildauktionen: aktuelle Preise und verifizierte Ergebnisse.', context: 'Diese Seite sammelt öffentlich zugängliche kantonale Kataloge. Ein aktueller Preis ist das letzte sichtbare Gebot und kein abgeschlossener Verkauf. Ergebnisse werden erst in die Historie übernommen, wenn eine offizielle Quelle sie überprüfbar macht. Bieternamen werden weder gesammelt noch veröffentlicht.', sources: 'Kantonale Quellen', current: 'Laufende Auktionen', rankings: 'Ranglisten', allListings: 'Weitere veröffentlichte Auktionen', page: 'Seite', noData: 'Zurzeit ist keine öffentliche Zeile verfügbar.', notDiscovered: 'Die öffentliche Auktionsquelle dieses Kantons ist noch nicht verifiziert. Die Abdeckungsseite bleibt sichtbar, ohne Werte zu erfinden.', method: 'Methode und Grenzen', detail: 'Details', coverage: 'Abdeckung nach Kanton', coverageInProgress: 'Abdeckung im Aufbau', coverageIntro: 'Das Register zeigt für jeden Kanton die geprüfte offizielle Quelle und den Status des Konnektors. Auktionen werden nur für Quellen mit aktivem Status angezeigt.', coverageInProgressIntro: 'Noch kein Kanton hat eine aktive Quelle. Deshalb zeigen wir nur Prüfstatus und offizielle Links und veröffentlichen keine ungeprüften Preise, Gebote oder neuen Auktionen.', status: 'Status', lastUpdated: 'Letzte Aktualisierung', official: 'Offizielle Website', registryUpdated: 'Register aktualisiert', coverageUnavailable: 'Das Register der kantonalen Quellen ist nicht verfügbar: Die Abdeckung bleibt ausdrücklich ungeprüft und Auktionsdaten werden ausgeblendet.', },
+  fr: { title: 'Ventes aux enchères de plaques suisses', intro: 'Enchères publiques de plaques suisses: prix actuels et résultats finaux vérifiés.', context: 'Cette page rassemble les catalogues cantonaux publics. Un prix actuel est la dernière offre visible, pas une vente conclue. Les résultats finaux ne sont ajoutés à l’historique que lorsqu’une source officielle les rend vérifiables. Les noms des enchérisseurs ne sont ni collectés ni publiés.', sources: 'Sources cantonales', current: 'Enchères en cours', rankings: 'Classements', allListings: 'Autres enchères publiées', page: 'Page', noData: 'Aucune ligne publique n’est disponible pour le moment.', notDiscovered: 'La source publique d’enchères de ce canton n’est pas encore vérifiée. La page de couverture reste visible sans inventer de valeurs.', method: 'Méthode et limites', detail: 'Détails', coverage: 'Couverture par canton', coverageInProgress: 'Couverture en cours', coverageIntro: 'Le registre indique, pour chaque canton, la source officielle vérifiée et le statut du connecteur. Les enchères ne sont affichées que pour les sources actives.', coverageInProgressIntro: 'Aucun canton ne dispose encore d’une source active. Nous affichons donc uniquement le statut de vérification et les liens officiels, sans publier de prix, d’offres ou de nouvelles enchères non vérifiés.', status: 'Statut', lastUpdated: 'Dernière mise à jour', official: 'Site officiel', registryUpdated: 'Registre mis à jour', coverageUnavailable: 'Le registre des sources cantonales est indisponible : la couverture reste explicitement non vérifiée et les données d’enchères sont masquées.', },
 };
 
 const STATUS_LABELS: Record<PlateLocale, Record<PlateAuctionSourceStatus, string>> = {
@@ -110,9 +109,9 @@ function renderCoverageSection(registry: PlateAuctionSourcesRegistry | null, ent
 }
 function listingTypeLabel(value: string | undefined, locale: PlateLocale): string { if (value === 'fixed-price') return locale === 'it' ? 'Prezzo fisso' : locale === 'de' ? 'Festpreis' : locale === 'fr' ? 'Prix fixe' : 'Fixed price'; if (value === 'wanted') return locale === 'it' ? 'Ricerca' : locale === 'de' ? 'Gesucht' : locale === 'fr' ? 'Recherche' : 'Wanted'; return locale === 'it' ? 'Asta' : locale === 'de' ? 'Auktion' : locale === 'fr' ? 'Enchère' : 'Auction'; }
 function vehicleTypeLabel(value: PlateVehicleType | undefined, locale: PlateLocale): string { if (value === 'motorcycle') return locale === 'it' ? 'Moto' : locale === 'de' ? 'Motorrad' : locale === 'fr' ? 'Moto' : 'Motorcycle'; if (value === 'trailer') return locale === 'it' ? 'Rimorchio' : locale === 'de' ? 'Anhänger' : locale === 'fr' ? 'Remorque' : 'Trailer'; if (value === 'other') return locale === 'it' ? 'Altro' : locale === 'de' ? 'Andere' : locale === 'fr' ? 'Autre' : 'Other'; return locale === 'it' ? 'Auto' : locale === 'de' ? 'Auto' : locale === 'fr' ? 'Auto' : 'Car'; }
-function pathFor(locale: PlateLocale, view: 'hub' | 'rankings' | 'canton' | 'detail', canton?: string, plate?: string, vehicleType?: PlateVehicleType): string { return buildPlateAuctionPath({ locale, view, canton, plate, vehicleType }); }
+function pathFor(locale: PlateLocale, view: 'hub' | 'rankings' | 'canton' | 'directory' | 'detail', canton?: string, plate?: string, vehicleType?: PlateVehicleType, page?: number): string { return buildPlateAuctionPath({ locale, view, canton, plate, vehicleType, page }); }
 function detailPathForRow(row: SnapshotRow, locale: PlateLocale): string { return pathFor(locale, 'detail', row.sourceKey || row.platePrefix, row.normalizedPlate, row.vehicleType); }
-function alternates(view: 'hub' | 'rankings' | 'canton' | 'detail', canton?: string, plate?: string, vehicleType?: PlateVehicleType): string { return LOCALES.map((locale) => `<link rel="alternate" hreflang="${locale}" href="${BASE_URL}${pathFor(locale, view, canton, plate, vehicleType)}">`).concat(`<link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathFor('it', view, canton, plate, vehicleType)}">`).join('\n'); }
+function alternates(view: 'hub' | 'rankings' | 'canton' | 'directory' | 'detail', canton?: string, plate?: string, vehicleType?: PlateVehicleType, page?: number): string { return LOCALES.map((locale) => `<link rel="alternate" hreflang="${locale}" href="${BASE_URL}${pathFor(locale, view, canton, plate, vehicleType, page)}">`).concat(`<link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathFor('it', view, canton, plate, vehicleType, page)}">`).join('\n'); }
 function normalizeExpiredRow(row: SnapshotRow): SnapshotRow {
   const endsAt = row.endsAt ? Date.parse(row.endsAt) : Number.NaN;
   if (!['active', 'upcoming'].includes(row.auctionStatus) || !Number.isFinite(endsAt) || endsAt > Date.now()) return row;
@@ -172,6 +171,33 @@ function unlistedDetailLinks(rows: SnapshotRow[], locale: PlateLocale, listedRow
   }
   return links.join('');
 }
+function publishedDetailRows(rows: SnapshotRow[], locale: PlateLocale): SnapshotRow[] {
+  const seen = new Set<string>();
+  return rows.filter((row) => {
+    if (row.dataConfidence === 'conflicting') return false;
+    const href = detailPathForRow(row, locale);
+    if (seen.has(href)) return false;
+    seen.add(href);
+    return true;
+  });
+}
+function detailLinksForRows(rows: SnapshotRow[], locale: PlateLocale): string {
+  return publishedDetailRows(rows, locale).map((row) => {
+    const href = detailPathForRow(row, locale);
+    return `<li><a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(row.normalizedPlate)}</a></li>`;
+  }).join('');
+}
+
+function cantonPaginationLinks(locale: PlateLocale, canton: string, currentPage: number | undefined, pageCount: number, copy: typeof COPY.it): string {
+  if (pageCount <= 1) return '';
+  const links = Array.from({ length: pageCount - 1 }, (_, index) => {
+    const page = index + 2;
+    const href = pathFor(locale, 'canton', canton, undefined, undefined, page);
+    const active = currentPage === page ? ' aria-current="page"' : '';
+    return `<li><a href="${esc(href)}" style="${LINK_ACCENT_STYLE}"${active}>${esc(copy.page)} ${page}</a></li>`;
+  }).join('');
+  return `<nav aria-label="${esc(copy.allListings)}"><h3 style="${H2_STYLE}">${esc(copy.allListings)}</h3><ul>${links}</ul></nav>`;
+}
 
 export type PlateAuctionContext = {
   snapshot: Snapshot;
@@ -180,6 +206,7 @@ export type PlateAuctionContext = {
   activeHistoryRows: SnapshotRow[];
   detailRows: SnapshotRow[];
   detailRowsByPlate: Map<string, SnapshotRow[]>;
+  detailRowsByCanton: Map<string, SnapshotRow[]>;
   rankingRows: SnapshotRow[];
 };
 
@@ -199,13 +226,17 @@ export function loadPlateAuctionContext(rootDir: string): PlateAuctionContext {
     .filter((row) => activeSourceCodes.has(String(row.sourceKey || row.platePrefix).toUpperCase()));
   const detailRows = detailRowsForSnapshot({ ...snapshot, history: activeHistoryRows }, auctionRows);
   const detailRowsByPlate = new Map<string, SnapshotRow[]>();
+  const detailRowsByCanton = new Map<string, SnapshotRow[]>();
   for (const row of detailRows) {
     const key = row.normalizedPlate.toLowerCase();
     const bucket = detailRowsByPlate.get(key);
     if (bucket) bucket.push(row); else detailRowsByPlate.set(key, [row]);
+    const cantonKey = String(row.sourceKey || row.platePrefix).toUpperCase();
+    const cantonBucket = detailRowsByCanton.get(cantonKey);
+    if (cantonBucket) cantonBucket.push(row); else detailRowsByCanton.set(cantonKey, [row]);
   }
   const rankingRows = latestVerifiedFinalRows(activeHistoryRows.length ? activeHistoryRows : auctionRows);
-  return { snapshot, coverage, auctionRows, activeHistoryRows, detailRows, detailRowsByPlate, rankingRows };
+  return { snapshot, coverage, auctionRows, activeHistoryRows, detailRows, detailRowsByPlate, detailRowsByCanton, rankingRows };
 }
 
 /**
@@ -252,37 +283,50 @@ const DETAIL_GUIDE: Record<PlateLocale, { heading: string; fields: string; verif
   },
 };
 
-export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleType, rootDir, distDir, context }: { locale: PlateLocale; view: 'hub' | 'rankings' | 'canton' | 'detail'; canton?: string; plate?: string; vehicleType?: PlateVehicleType; rootDir: string; distDir?: string; context?: PlateAuctionContext }): { urlPath: string; html: string } {
+export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehicleType, rootDir, distDir, context }: { locale: PlateLocale; view: 'hub' | 'rankings' | 'canton' | 'directory' | 'detail'; canton?: string; page?: number; plate?: string; vehicleType?: PlateVehicleType; rootDir: string; distDir?: string; context?: PlateAuctionContext }): { urlPath: string; html: string } {
   const copy = COPY[locale];
-  const { snapshot, coverage, auctionRows, detailRowsByPlate, rankingRows } = context ?? loadPlateAuctionContext(rootDir);
+  const { snapshot, coverage, auctionRows, detailRows, detailRowsByPlate, detailRowsByCanton, rankingRows } = context ?? loadPlateAuctionContext(rootDir);
+  const pageNumber = Number.isSafeInteger(page) && page >= 2 ? page : undefined;
+  const cantonDetailRows = canton ? (detailRowsByCanton.get(canton.toUpperCase()) || []) : [];
   const detailRow = view === 'detail'
     ? (detailRowsByPlate.get(String(plate || '').toLowerCase()) || []).find((row) => (!canton || row.sourceKey === canton || row.platePrefix === canton) && (vehicleType ? (row.vehicleType || 'car') === vehicleType : (row.vehicleType || 'car') === 'car'))
     : undefined;
   // Le liste servono solo alle pagine indice: su un dettaglio filtrare e
   // ordinare 17k righe per pagina è lo stesso O(n²) appena tolto.
-  const candidateRows = view === 'detail' ? [] : (view === 'rankings' ? rankingRows : auctionRows)
+  const candidateRows = view === 'detail' || view === 'directory' ? [] : (view === 'rankings' ? rankingRows : auctionRows)
     .filter((row) => (view === 'rankings'
       ? ['closed', 'sold', 'unsold'].includes(row.auctionStatus) && row.dataConfidence === 'verified' && typeof row.finalPriceChf === 'number' && Boolean(row.finalPriceVerifiedAt)
       : isCurrentRow(row))
       && row.dataConfidence !== 'conflicting'
       && (!canton || row.sourceKey === canton || row.platePrefix === canton))
     .sort((a, b) => (view === 'rankings' ? (b.finalPriceChf || 0) - (a.finalPriceChf || 0) : (b.currentBidChf ?? b.startingPriceChf ?? 0) - (a.currentBidChf ?? a.startingPriceChf ?? 0)));
+  const pagedRows = pageNumber ? cantonDetailRows.slice((pageNumber - 1) * PLATE_AUCTION_INDEX_PAGE_SIZE, pageNumber * PLATE_AUCTION_INDEX_PAGE_SIZE) : [];
   const rows = detailRow
     ? [detailRow]
-    : view === 'detail'
+    : view === 'detail' || view === 'directory'
       ? []
-      : view === 'canton'
-        ? candidateRows.slice(0, CANTON_INDEX_MAX_ROWS)
-        : candidateRows.slice(0, 24);
+      : view === 'canton' && pageNumber
+        ? pagedRows
+        : view === 'canton'
+          ? candidateRows.slice(0, CANTON_INDEX_MAX_ROWS)
+          : candidateRows.slice(0, 24);
   const name = canton ? (CANTON_NAMES[canton]?.[locale] || canton) : undefined;
-  const title = view === 'detail' ? `${detailRow?.normalizedPlate || plate || copy.detail} — ${name || detailRow?.canton || copy.title}` : view === 'rankings' ? `${copy.title} — ${copy.rankings}` : name ? `${copy.title}: ${name}` : copy.title;
-  const description = view === 'detail' ? `${copy.intro} ${detailRow?.normalizedPlate || plate || copy.detail}, ${name || detailRow?.canton || copy.title}.` : name ? `${copy.intro} ${name}.` : copy.intro;
-  const urlPath = pathFor(locale, view, canton, detailRow?.normalizedPlate || plate, detailRow?.vehicleType || vehicleType);
+  const directoryRows = view === 'directory' ? publishedDetailRows(cantonDetailRows, locale) : [];
+  const pageSuffix = pageNumber ? ` — ${copy.page} ${pageNumber}` : '';
+  const title = view === 'detail' ? `${detailRow?.normalizedPlate || plate || copy.detail} — ${name || detailRow?.canton || copy.title}` : view === 'rankings' ? `${copy.title} — ${copy.rankings}` : view === 'directory' ? `${copy.title}: ${name || canton || copy.title} — ${copy.allListings}` : name ? `${copy.title}: ${name}${pageSuffix}` : copy.title;
+  const description = view === 'detail' ? `${copy.intro} ${detailRow?.normalizedPlate || plate || copy.detail}, ${name || detailRow?.canton || copy.title}.` : name ? `${copy.intro} ${name}${pageSuffix}.` : copy.intro;
+  const urlPath = pathFor(locale, view, canton, detailRow?.normalizedPlate || plate, detailRow?.vehicleType || vehicleType, pageNumber);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
   const links = allPlateAuctionCantonCodes().map((code) => `<li><a href="${esc(pathFor(locale, 'canton', code))}" style="${LINK_ACCENT_STYLE}">${esc(code)} — ${esc(CANTON_NAMES[code]?.[locale] || code)}</a></li>`).join('');
-  const cantonAuctionRows = view === 'canton' && canton ? auctionRows.filter((row) => row.sourceKey === canton || row.platePrefix === canton) : [];
-  const detailLinks = view === 'canton'
-    ? unlistedDetailLinks(cantonAuctionRows, locale, rows, CANTON_INDEX_MAX_DETAIL_LINKS)
+  const detailLinks = view === 'canton' && !pageNumber
+    ? unlistedDetailLinks(cantonDetailRows, locale, rows, PLATE_AUCTION_INDEX_PAGE_SIZE)
+    : '';
+  const paginationLinks = view === 'canton' && canton
+    ? cantonPaginationLinks(locale, canton, pageNumber, Math.ceil(cantonDetailRows.length / PLATE_AUCTION_INDEX_PAGE_SIZE), copy)
+    : '';
+  const directoryLinks = view === 'directory' ? detailLinksForRows(directoryRows, locale) : '';
+  const directoryIndexLink = view === 'canton' && canton && cantonDetailRows.length > 0
+    ? `<p><a href="${esc(pathFor(locale, 'directory', canton))}" style="${LINK_ACCENT_STYLE}">${esc(copy.allListings)}</a></p>`
     : '';
   const parentPath = canton ? pathFor(locale, 'canton', canton) : view === 'rankings' ? pathFor(locale, 'rankings') : pathFor(locale, 'hub');
   const parentLabel = canton ? name : view === 'rankings' ? copy.rankings : copy.current;
@@ -295,9 +339,12 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleTyp
   const topAdHtml = `<section class="ft-plate-auction-top-ad" aria-label="advertisement">${adSlotHtml('JOBDETAIL_TOP_BANNER')}</section>`;
   const coverageSection = view === 'hub' ? renderCoverageSection(coverage.registry, coverage.entries, locale, copy) : '';
   const hasActiveSource = coverage.entries.some((entry) => entry.status === 'active');
+  const listingHeading = view === 'rankings' ? copy.rankings : view === 'detail' ? copy.detail : pageNumber ? copy.allListings : copy.current;
   const listingSection = view === 'hub' && !hasActiveSource
     ? ''
-    : `<section><h2 style="${H2_STYLE}">${esc(view === 'rankings' ? copy.rankings : view === 'detail' ? copy.detail : copy.current)}</h2>${tableRows(rows, locale, copy)}${detailLinks ? `<h3 style="${H2_STYLE}">${esc(copy.allListings)}</h3><ul>${detailLinks}</ul>` : ''}</section>`;
+    : view === 'directory'
+      ? `<section><h2 style="${H2_STYLE}">${esc(copy.allListings)}</h2><p>${esc(copy.context)}</p><ul>${directoryLinks || `<li>${esc(copy.noData)}</li>`}</ul></section>`
+      : `<section><h2 style="${H2_STYLE}">${esc(listingHeading)}</h2>${tableRows(rows, locale, copy)}${directoryIndexLink}${detailLinks ? `<h3 style="${H2_STYLE}">${esc(copy.allListings)}</h3><ul>${detailLinks}</ul>` : ''}${paginationLinks}</section>`;
   const coverageSource = coverage.entries.find((source) => source.plateCode.toUpperCase() === String(canton || '').toUpperCase());
   const sourceSection = `<section><h2 style="${H2_STYLE}">${esc(canton ? copy.method : copy.sources)}</h2><p>${esc(canton && coverageSource?.status !== 'active' ? copy.notDiscovered : copy.context)}</p>${canton || view === 'detail' ? '' : `<ul>${links}</ul>`}</section>`;
   // Detail pages only: index pages already carry a table of many rows plus the
@@ -311,7 +358,7 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleTyp
   // this page-specific string as inner content so React mounts only its lite
   // chrome in #root and cannot replace the crawler-facing table.
   const staticBody = body.replace(/^<main>/, '').replace(/<\/main>$/, '');
-  const itemList = rows.map((row, index) => ({ '@type': 'ListItem', position: index + 1, name: row.normalizedPlate, url: `${BASE_URL}${detailPathForRow(row, locale)}` }));
+  const itemList = (view === 'directory' ? directoryRows : rows).map((row, index) => ({ '@type': 'ListItem', position: index + 1, name: row.normalizedPlate, url: `${BASE_URL}${detailPathForRow(row, locale)}` }));
   const jsonLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': view === 'detail' ? 'WebPage' : 'CollectionPage', name: title, url: canonicalUrl, description, inLanguage: locale, ...(snapshot.generatedAt ? { dateModified: snapshot.generatedAt } : {}), ...(view === 'detail' ? { about: { '@type': 'Thing', name: detailRow?.normalizedPlate || plate } } : { mainEntity: { '@type': 'ItemList', itemListElement: itemList } }) });
   const breadcrumbItems: Array<Record<string, unknown>> = [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` }];
   if (view !== 'hub') {
@@ -321,13 +368,13 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleTyp
   // final item below. A canton crumb is a parent only for a detail page;
   // otherwise adding it here would repeat the canonical URL and invalidate
   // the breadcrumb chain for every index page.
-  if (view === 'detail' && canton) {
+  if ((view === 'detail' || view === 'directory') && canton) {
     breadcrumbItems.push({ '@type': 'ListItem', position: breadcrumbItems.length + 1, name: name || canton, item: `${BASE_URL}${pathFor(locale, 'canton', canton)}` });
   }
   breadcrumbItems.push({ '@type': 'ListItem', position: breadcrumbItems.length + 1, name: title, item: canonicalUrl });
   const breadcrumbJsonLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: breadcrumbItems });
   const robots = 'index,follow';
-  return { urlPath: urlPath.replace(/^\//, '').replace(/\/$/, ''), html: buildSeoPageHtml({ locale, title, description, canonicalUrl, hreflangHtml: alternates(view, canton, detailRow?.normalizedPlate || plate, detailRow?.vehicleType || vehicleType), bodyHtml: staticBody, jsonLdScripts: [jsonLd, breadcrumbJsonLd], robots, distDir, seoContentOutsideRoot: true, seoMainClass: 'seo-static-content plate-auction-static' }) };
+  return { urlPath: urlPath.replace(/^\//, '').replace(/\/$/, ''), html: buildSeoPageHtml({ locale, title, description, canonicalUrl, hreflangHtml: alternates(view, canton, detailRow?.normalizedPlate || plate, detailRow?.vehicleType || vehicleType, pageNumber), bodyHtml: staticBody, jsonLdScripts: [jsonLd, breadcrumbJsonLd], robots, distDir, seoContentOutsideRoot: true, seoMainClass: 'seo-static-content plate-auction-static' }) };
 }
 
 export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
@@ -336,7 +383,8 @@ export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
     const distDir = np.join(rootDir, 'dist');
     if (!fs.existsSync(distDir)) return;
     const context = loadPlateAuctionContext(rootDir);
-    const { detailRows } = context;
+    const { detailRows, detailRowsByCanton } = context;
+    const directoryCantons = new Set(detailRows.map((row) => String(row.sourceKey || row.platePrefix).toUpperCase()));
     let written = 0;
     for (const locale of LOCALES) {
       for (const view of ['hub', 'rankings'] as const) {
@@ -346,13 +394,28 @@ export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
       for (const canton of allPlateAuctionCantonCodes()) {
         const rendered = renderPlateAuctionPage({ locale, view: 'canton', canton, rootDir, distDir, context });
         const out = np.join(distDir, rendered.urlPath, 'index.html'); fs.mkdirSync(np.dirname(out), { recursive: true }); fs.writeFileSync(out, rendered.html, 'utf8'); written++;
+        if (directoryCantons.has(canton)) {
+          const directory = renderPlateAuctionPage({ locale, view: 'directory', canton, rootDir, distDir, context });
+          const directoryOut = np.join(distDir, directory.urlPath, 'index.html'); fs.mkdirSync(np.dirname(directoryOut), { recursive: true }); fs.writeFileSync(directoryOut, directory.html, 'utf8'); written++;
+        }
+        const pageCount = Math.ceil((detailRowsByCanton.get(canton) || []).length / PLATE_AUCTION_INDEX_PAGE_SIZE);
+        for (let page = 2; page <= pageCount; page++) {
+          const paged = renderPlateAuctionPage({ locale, view: 'canton', canton, page, rootDir, distDir, context });
+          const pagedOut = np.join(distDir, paged.urlPath, 'index.html'); fs.mkdirSync(np.dirname(pagedOut), { recursive: true }); fs.writeFileSync(pagedOut, paged.html, 'utf8'); written++;
+        }
       }
       for (const row of detailRows) {
         const rendered = renderPlateAuctionPage({ locale, view: 'detail', canton: row.sourceKey || row.platePrefix, plate: row.normalizedPlate, vehicleType: row.vehicleType, rootDir, distDir, context });
         const out = np.join(distDir, rendered.urlPath, 'index.html'); fs.mkdirSync(np.dirname(out), { recursive: true }); fs.writeFileSync(out, rendered.html, 'utf8'); written++;
       }
     }
-    const sitemapUrls = LOCALES.flatMap((locale) => [pathFor(locale, 'hub'), pathFor(locale, 'rankings'), ...allPlateAuctionCantonCodes().map((code) => pathFor(locale, 'canton', code)), ...detailRows.map((row) => detailPathForRow(row, locale))]);
+    const sitemapUrls = LOCALES.flatMap((locale) => {
+      const cantonPaths = allPlateAuctionCantonCodes().flatMap((code) => {
+        const pageCount = Math.ceil((detailRowsByCanton.get(code) || []).length / PLATE_AUCTION_INDEX_PAGE_SIZE);
+        return [pathFor(locale, 'canton', code), ...(directoryCantons.has(code) ? [pathFor(locale, 'directory', code)] : []), ...Array.from({ length: Math.max(0, pageCount - 1) }, (_, index) => pathFor(locale, 'canton', code, undefined, undefined, index + 2))];
+      });
+      return [pathFor(locale, 'hub'), pathFor(locale, 'rankings'), ...cantonPaths, ...detailRows.map((row) => detailPathForRow(row, locale))];
+    });
     const sitemapShardCount = Math.max(1, Math.ceil(sitemapUrls.length / SITEMAP_SHARD_CAP));
     for (let shardIndex = 0; shardIndex < sitemapShardCount; shardIndex++) {
       const shardUrls = sitemapUrls.slice(shardIndex * SITEMAP_SHARD_CAP, (shardIndex + 1) * SITEMAP_SHARD_CAP);
