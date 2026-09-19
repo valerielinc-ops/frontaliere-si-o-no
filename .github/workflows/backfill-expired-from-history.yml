@@ -171,13 +171,52 @@ jobs:
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
 
+      # ─── Perche' questo step esiste ────────────────────────────────────────
+      # Il reporter qui sotto e' `run: node scripts/lib/github-issue-creator.mjs`,
+      # cioe' vive nell'albero che il Checkout materializza. Quando e' il Checkout
+      # A FALLIRE, quel file non esiste e il reporter muore con
+      # `Cannot find module .../scripts/lib/github-issue-creator.mjs` — e
+      # `continue-on-error: true` fa risultare lo step `success`, quindi il
+      # fallimento della rete di sicurezza e' INVISIBILE nella lista degli step.
+      # MISURA: 0 issue sulla run rossa 33490566667 (2026-09-01, Checkout morto a 20 min
+      # con 19m50s di fetch) = 415 h di silenzio su un cron MENSILE, dove la
+      # prossima occasione di accorgersene sarebbe il 2026-10-01.
+      #
+      # Il recupero va in un path SEPARATO, non nel workspace: un Checkout morto
+      # in timeout lascia l'albero PARZIALE, e un secondo checkout sullo stesso
+      # path lo ripulirebbe o litigherebbe con quello che c'e' gia'.
+      # `sparse-checkout: scripts/lib` basta, e non e' una stima: la chiusura
+      # degli import di github-issue-creator.mjs e' UN SOLO file, con soli
+      # builtin di node e zero dipendenze npm (misurata il 2026-09-19), quindi
+      # niente `npm ci` e niente `setup-node` da rifare.
+      #
+      # Perche' inline in due file invece di una composite action condivisa
+      # (AGENTS.md #6): una composite LOCALE non e' risolvibile senza checkout —
+      # e' il commento di .github/actions/report-failure/action.yml a dirlo,
+      # «lo step deve stare DOPO un actions/checkout». Una action che serve
+      # proprio quando il checkout e' fallito non puo' vivere nel repo:
+      # by construction, qui l'unica forma possibile e' `actions/checkout`.
+      - name: Recover the failure reporter (when the checkout is what failed)
+        if: failure()
+        continue-on-error: true
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          path: .reporter
+          sparse-checkout: scripts/lib
+
       - name: Report failure to GitHub Issues
         if: failure()
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          node scripts/lib/github-issue-creator.mjs \
+          # L'albero puo' essere assente (Checkout fallito) o parziale: usa la
+          # copia recuperata solo se la canonica non c'e'.
+          SCRIPT=scripts/lib/github-issue-creator.mjs
+          [ -f "$SCRIPT" ] || SCRIPT=.reporter/scripts/lib/github-issue-creator.mjs
+          node "$SCRIPT" \
             --title "Workflow Failure: ${{ github.workflow }}" \
             --description "## Workflow fallito
           **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
