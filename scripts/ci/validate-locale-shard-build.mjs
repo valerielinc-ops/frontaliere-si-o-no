@@ -92,10 +92,11 @@ function localeOfRootFile(name) {
 }
 
 /**
- * Count the root (non-subtree) pages, split by the locale that OWNS them.
- * `en`/`de`/`fr` are skipped as DIRECTORY names — their subtrees are counted
- * by countPages() — while a root FILE named `<loc>.html` is attributed to
- * `<loc>` instead of silently inflating `it` (see the header).
+ * Count the exact pages for locales that this shard does NOT own. The owned
+ * locale's subtree is deliberately checked with sampleHtml() instead of a
+ * full walk; `en`/`de`/`fr` are skipped as DIRECTORY names here and counted
+ * by countPages() below only when they are non-owned. A root FILE named
+ * `<loc>.html` is attributed to `<loc>` instead of silently inflating `it`.
  */
 function countRootPagesByLocale() {
   const n = { it: 0, en: 0, de: 0, fr: 0 };
@@ -109,8 +110,12 @@ function countRootPagesByLocale() {
     // the prune for those legs too.
     if (e.name === '404.html') continue;
     const full = path.join(distDir, e.name);
-    if (e.isDirectory()) n.it += countPages(full);
-    else if (e.isFile() && e.name.endsWith('.html')) n[localeOfRootFile(e.name)] += 1;
+    if (e.isDirectory()) {
+      if (!emit.includes('it')) n.it += countPages(full);
+    } else if (e.isFile() && e.name.endsWith('.html')) {
+      const owner = localeOfRootFile(e.name);
+      if (!emit.includes(owner)) n[owner] += 1;
+    }
   }
   return n;
 }
@@ -139,24 +144,27 @@ function sampleHtml(locale) {
   return null;
 }
 
-// A locale's page count is its subtree PLUS its flat homepage at the root.
+// Owned locales use their first sample as the positive-presence assertion.
+// Exact counts remain for non-owned locales, where they detect filter leaks.
+const samples = Object.fromEntries(emit.map((loc) => [loc, sampleHtml(loc)]));
 const rootByLocale = countRootPagesByLocale();
 const counts = {
-  it: rootByLocale.it,
-  en: countPages(path.join(distDir, 'en')) + rootByLocale.en,
-  de: countPages(path.join(distDir, 'de')) + rootByLocale.de,
-  fr: countPages(path.join(distDir, 'fr')) + rootByLocale.fr,
+  it: emit.includes('it') ? null : rootByLocale.it,
+  en: emit.includes('en') ? null : countPages(path.join(distDir, 'en')) + rootByLocale.en,
+  de: emit.includes('de') ? null : countPages(path.join(distDir, 'de')) + rootByLocale.de,
+  fr: emit.includes('fr') ? null : countPages(path.join(distDir, 'fr')) + rootByLocale.fr,
 };
+const displayCount = (loc) => (emit.includes(loc) ? (samples[loc] ? 'owned=present' : 'owned=missing') : counts[loc]);
 
 console.log(`Locale shard validation — BUILD_LOCALE=${rawLocale || '(all)'} → emit [${emit.join(', ')}]`);
 console.log(`dist: ${distDir}`);
-console.log(`page counts: it=${counts.it}  en=${counts.en}  de=${counts.de}  fr=${counts.fr}`);
+console.log(`page counts: it=${displayCount('it')}  en=${displayCount('en')}  de=${displayCount('de')}  fr=${displayCount('fr')}`);
 
 const errors = [];
 
-// (1) target locales must have pages
+// (1) target locales must have at least one sample page
 for (const loc of emit) {
-  if (counts[loc] <= 0) errors.push(`expected pages for emitted locale '${loc}', found ${counts[loc]}`);
+  if (!samples[loc]) errors.push(`no sample index.html found for emitted locale '${loc}'`);
 }
 
 // (2) non-emitted locales must be empty
@@ -168,9 +176,8 @@ for (const loc of ALL) {
 
 // (3) hreflang completeness on a sampled page from each emitted locale
 for (const loc of emit) {
-  const sample = sampleHtml(loc);
+  const sample = samples[loc];
   if (!sample) {
-    errors.push(`no sample index.html found for emitted locale '${loc}'`);
     continue;
   }
   const html = fs.readFileSync(sample, 'utf-8');
@@ -224,7 +231,7 @@ console.log('\n✓ Locale shard validation PASSED');
 
 // Emit a GitHub step-summary table when running in Actions.
 if (process.env.GITHUB_STEP_SUMMARY) {
-  const rows = ALL.map((l) => `| ${l}${emit.includes(l) ? ' ✅' : ''} | ${counts[l]} |`).join('\n');
+  const rows = ALL.map((l) => `| ${l}${emit.includes(l) ? ' ✅' : ''} | ${displayCount(l)} |`).join('\n');
   fs.appendFileSync(
     process.env.GITHUB_STEP_SUMMARY,
     `\n### Locale shard \`${rawLocale || 'all'}\` — page counts\n\n| locale | pages |\n|---|---|\n${rows}\n`,
