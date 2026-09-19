@@ -22,6 +22,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   isReportableRun,
+  isReportableScope,
   cronFieldValues,
   maxCronGapMinutes,
   dormancyThresholdMinutes,
@@ -344,6 +345,46 @@ describe('lettura del cron dal file di workflow', () => {
       "    - cron: '0 5 * * *'",
     ].join('\n'));
     expect(crons).toEqual(['0 5 * * *']);
+  });
+});
+
+describe('il perimetro è UNO: il rientro si misura dove si misura il rosso', () => {
+  // Difetto trovato in review sul guard di rientro: confrontava il rosso di
+  // `main` con «l'ultima run completata» qualunque fosse, quindi una run verde
+  // su un branch di feature o su una PR — la maggioranza qui, 610 su 930 in
+  // 48 h — veniva letta come guarigione e SOPPRIMEVA il rosso di `main`.
+  // `isReportableScope` è la sola definizione di perimetro, usata da entrambi i
+  // lati: due predicati che non si parlano sono già stati un difetto qui.
+  it('un verde su branch di feature NON è nel perimetro, quindi non può guarire main', () => {
+    expect(isReportableScope({ event: 'push', head_branch: 'fix/issue-1', conclusion: 'success' })).toBe(false);
+    expect(isReportableScope({ event: 'pull_request', head_branch: 'main', conclusion: 'success' })).toBe(false);
+  });
+
+  it('un verde su main o da schedule è nel perimetro e può guarire', () => {
+    expect(isReportableScope({ event: 'push', head_branch: 'main', conclusion: 'success' })).toBe(true);
+    expect(isReportableScope({ event: 'schedule', head_branch: 'whatever', conclusion: 'success' })).toBe(true);
+  });
+
+  it('il perimetro non guarda l\'esito: vale identico per un rosso e per un verde', () => {
+    const scope = { event: 'schedule', head_branch: 'main' };
+    expect(isReportableScope({ ...scope, conclusion: 'failure' }))
+      .toBe(isReportableScope({ ...scope, conclusion: 'success' }));
+  });
+
+  it('isReportableRun e isReportableScope concordano sul perimetro', () => {
+    // Se un giorno divergessero, il rosso selezionato e il verde che lo chiude
+    // parlerebbero di due popolazioni diverse: e' esattamente il difetto.
+    for (const ev of ['schedule', 'push', 'pull_request', 'workflow_dispatch']) {
+      for (const br of ['main', 'fix/x']) {
+        const r = { conclusion: 'failure', event: ev, head_branch: br, updated_at: fresh, workflow_name: 'x' };
+        expect(isReportableRun(r, { since: null, ignore: new Set() }))
+          .toBe(isReportableScope(r, { ignore: new Set() }));
+      }
+    }
+  });
+
+  it('IGNORE vale su entrambi i lati del perimetro', () => {
+    expect(isReportableScope({ event: 'schedule', head_branch: 'main', workflow_name: 'x' }, { ignore: new Set(['x']) })).toBe(false);
   });
 });
 

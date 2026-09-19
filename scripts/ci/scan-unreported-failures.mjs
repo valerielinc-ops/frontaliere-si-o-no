@@ -385,11 +385,30 @@ function ghApiRows(apiPath, jqExpr, fields, { paginate = true } = {}) {
  */
 export function isReportableRun(run, { since, ignore = IGNORE } = {}) {
   if (!run || run.conclusion !== 'failure') return false;
+  if (!isReportableScope(run, { ignore })) return false;
+  const stamp = run.updated_at || run.created_at;
+  if (since && !(stamp && Date.parse(stamp) >= Date.parse(since))) return false;
+  return true;
+}
+
+/**
+ * La run appartiene al perimetro che questo scanner giudica? (a prescindere
+ * dall'esito)
+ *
+ * Estratta da `isReportableRun` perché serve DUE volte con lo stesso
+ * significato: per decidere se un rosso va segnalato, e per decidere se un verde
+ * conta come RIENTRO. Tenerla in un posto solo non è estetica — il guard sul
+ * rientro nasceva confrontando il rosso di `main` con «l'ultima run completata»
+ * qualunque essa fosse, e una run verde su un branch di feature o su una PR
+ * veniva letta come guarigione: il rosso di `main` restava soppresso e
+ * invisibile. Due predicati di perimetro che non si parlano sono già stati un
+ * difetto in questo repo; qui il perimetro è uno.
+ */
+export function isReportableScope(run, { ignore = IGNORE } = {}) {
+  if (!run) return false;
   if (String(run.event || '').startsWith('pull_request')) return false;
   if (run.head_branch !== 'main' && run.event !== 'schedule') return false;
   if (ignore.has(run.workflow_name)) return false;
-  const stamp = run.updated_at || run.created_at;
-  if (since && !(stamp && Date.parse(stamp) >= Date.parse(since))) return false;
   return true;
 }
 
@@ -800,23 +819,35 @@ async function scanFailures() {
 
     // La finestra e' larga 24 h, quindi una run rossa di stanotte puo' essere
     // gia' stata seguita da una verde: aprire ora segnalerebbe un guasto
-    // rientrato. Si chiede l'ultima run COMPLETATA del workflow e si apre solo
-    // se il rosso e' ancora l'ultima parola. Una lettura illeggibile non fa
-    // saltare la segnalazione: in dubbio si segnala, perche' il costo di una
-    // issue in piu' e' un commento, quello di un rosso perso e' giorni.
-    const latest = ghApiRows(
+    // rientrato. Una lettura illeggibile non fa saltare la segnalazione: in
+    // dubbio si segnala, perche' il costo di una issue in piu' e' un commento,
+    // quello di un rosso perso e' giorni.
+    //
+    // Il verde deve stare nello STESSO perimetro del rosso, non essere solo
+    // «l'ultima run completata». Senza questo filtro una run verde su un branch
+    // di feature o su una PR — che su questo repo sono la maggioranza, 610 su
+    // 930 in 48 h — veniva letta come guarigione e sopprimeva il rosso di
+    // `main`: un rosso reale reso invisibile dal guard che doveva solo evitare
+    // rumore. Si chiede quindi una pagina di run completate e si guarda la piu'
+    // recente CHE RICADE NEL PERIMETRO, con lo stesso `isReportableScope` che
+    // ha selezionato il rosso.
+    const recent = ghApiRows(
       `repos/${REPO || '{owner}/{repo}'}/actions/workflows/${run.workflow_id}/runs`
-        + '?per_page=1&status=completed',
-      '.workflow_runs[] | [.conclusion, .created_at] | @tsv',
-      ['conclusion', 'created_at'],
+        + '?per_page=20&status=completed',
+      '.workflow_runs[] | [.conclusion, .created_at, .event, .head_branch] | @tsv',
+      ['conclusion', 'created_at', 'event', 'head_branch'],
       { paginate: false },
     );
-    if (latest && latest.length && latest[0].conclusion === 'success'
-      && Date.parse(latest[0].created_at) > Date.parse(run.created_at)) {
+    const inScope = (recent || [])
+      .filter((r) => isReportableScope({ ...r, workflow_name: workflowName }))
+      .sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
+    const newest = inScope[0];
+    if (newest && newest.conclusion === 'success'
+      && Date.parse(newest.created_at) > Date.parse(run.created_at)) {
       tally.recovered += 1;
       console.log(
-        `[scan-unreported-failures] ${workflowName}: rientrato (run verde ${latest[0].created_at} `
-          + `dopo il rosso ${run.created_at}) → nessuna issue.`,
+        `[scan-unreported-failures] ${workflowName}: rientrato (run verde ${newest.created_at} `
+          + `su \`${newest.head_branch}\`/\`${newest.event}\` dopo il rosso ${run.created_at}) → nessuna issue.`,
       );
       continue;
     }
