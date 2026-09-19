@@ -842,6 +842,7 @@ describe('jobs SEO disk HTML reuse', () => {
       'build-plugins/batchWrite.ts',
       'build-plugins/shared/buildMemLog.ts',
       'build-plugins/shared/forceGc.ts',
+      'build-plugins/shared/incrementalManifest.mjs',
       'build-plugins/shared/jobsSeoProfiler.ts',
       'build-plugins/sharedWriteRegistry.ts',
       'data/border-wait-averages.json',
@@ -864,6 +865,17 @@ describe('jobs SEO disk HTML reuse', () => {
     const profilerImport = plugin.match(/import\s*\{([^}]*)\}\s*from\s*['"]\.\/shared\/jobsSeoProfiler(?:\.ts)?['"]/);
     expect(profilerImport?.[1]).toBeDefined();
     expect(profilerImport?.[1]).not.toMatch(/\btimed\b/);
+    // From the incremental manifest the renderer takes only manifest/digest
+    // plumbing; a render-time helper imported from it would be a render input.
+    const manifestImport = plugin.match(/import\s*\{([^}]*)\}\s*from\s*['"]\.\/shared\/incrementalManifest\.mjs['"]/);
+    expect(manifestImport?.[1].split(',').map((name) => name.trim()).filter(Boolean).sort()).toEqual([
+      'INCREMENTAL_MANIFEST_ENABLED',
+      'buildMinimalJobInput',
+      'getIncrementalManifestInputCache',
+      'getIncrementalManifestMap',
+      'logIncrementalManifestMemory',
+      'resetIncrementalManifestInputCache',
+    ]);
 
     const graph = collectSourceModuleFiles(
       repoRoot,
@@ -875,6 +887,7 @@ describe('jobs SEO disk HTML reuse', () => {
       'build-plugins/contentHash.ts',
       'build-plugins/shared/buildMemLog.ts',
       'build-plugins/shared/forceGc.ts',
+      'build-plugins/shared/incrementalManifest.mjs',
       'build-plugins/shared/jobsSeoProfiler.ts',
       'build-plugins/shared/postWalkDerivedDigest.ts',
       'build-plugins/sharedWriteRegistry.ts',
@@ -887,6 +900,7 @@ describe('jobs SEO disk HTML reuse', () => {
       'build-plugins/shared/jobDetailHtml/index.ts',
       'build-plugins/shared/jobPostingSchema.ts',
       'build-plugins/shared/localeEmitFilter.ts',
+      'build-plugins/shared/stableJobId.mjs',
     ]) {
       expect(graph).toContain(renderModule);
     }
