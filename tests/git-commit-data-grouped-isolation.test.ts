@@ -336,14 +336,14 @@ exec ${JSON.stringify(process.execPath)} "$@"
       expect(firstBatch.status, `${firstBatch.stdout}${firstBatch.stderr}`).toBe(0);
       execFileSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: repoDir });
       const pushed = execFileSync('git', ['rev-parse', 'origin/main'], { cwd: repoDir, encoding: 'utf8' }).trim();
-      expect(execFileSync('git', ['show', `${pushed}:data/jobs/by-crawler/ipersonal.json`], {
+      expect(JSON.parse(execFileSync('git', ['show', `${pushed}:data/jobs/by-crawler/ipersonal.json`], {
         cwd: repoDir,
         encoding: 'utf8',
-      })).toBe(deferredActive);
-      expect(execFileSync('git', ['show', `${pushed}:data/jobs/expired/by-crawler/ipersonal.json`], {
+      }))).toEqual(JSON.parse(deferredActive));
+      expect(JSON.parse(execFileSync('git', ['show', `${pushed}:data/jobs/expired/by-crawler/ipersonal.json`], {
         cwd: repoDir,
         encoding: 'utf8',
-      })).toBe(deferredExpired);
+      }))).toEqual(JSON.parse(deferredExpired));
       expect(readFileSync(join(repoDir, 'data/jobs/by-crawler/ipersonal.json'), 'utf8')).toContain('degraded-active');
 
       const secondBatch = commitGroup(repoDir, runnerTemp);
@@ -834,7 +834,7 @@ exec ${JSON.stringify(process.execPath)} "$@"
     }
   });
 
-  it('3-way merges a shared tracked file (jobs-ai-cache) when the remote updated it after checkout', () => {
+  it('3-way merges a shared tracked file (jobs-ai-cache) for the sequential directory-wide writer', () => {
     const { originDir, repoDir } = initClonePair();
     const otherDir = mkdtempSync(join(tmpdir(), 'gcd-grouped-other-'));
 
@@ -861,7 +861,7 @@ exec ${JSON.stringify(process.execPath)} "$@"
       writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"a1"}]\n');
       writeFileSync(join(repoDir, 'data/jobs-ai-cache.json'), '{"seed":1,"localEntry":3}\n');
 
-      runScript(repoDir, 'data/jobs/by-crawler/a.json');
+      runScript(repoDir, '');
 
       execFileSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: repoDir });
       const merged = JSON.parse(
