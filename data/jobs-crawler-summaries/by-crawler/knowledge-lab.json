@@ -1,16 +1,16 @@
 {
   "key": "knowledge-lab",
   "label": "Knowledge Lab",
-  "generatedAt": "2026-09-17T06:57:37.273Z",
+  "generatedAt": "2026-09-19T23:01:37.923Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 524,
-  "avgDurationMs": 524,
+  "durationMs": 868,
+  "avgDurationMs": 868,
   "durationHistory": [
-    524
+    868
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,15 +41,15 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "streetAddress": "",
-      "postalCode": "8001",
+      "postalCode": "",
       "firstSeenAt": "2026-05-10T10:24:48.366Z",
       "salarySource": "reported",
-      "_qualityScore": 90,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 19
       }
     }
   ],
