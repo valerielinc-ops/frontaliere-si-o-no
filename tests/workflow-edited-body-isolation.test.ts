@@ -31,6 +31,24 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
       })} -->`,
   }] : [];
   const github = {
+    request: async (route: string, input: { comment_id: number; body?: string; headers?: Record<string, string> }) => {
+      const target = comments.find(comment => comment.id === input.comment_id);
+      if (!target) throw new Error(`comment ${input.comment_id} not found`);
+      const etag = `"marker-${target.id}-${target.body.length}"`;
+      if (route.startsWith('GET ')) {
+        return { data: target, headers: { etag } };
+      }
+      if (route.startsWith('PATCH ')) {
+        if (input.headers?.['If-Match'] !== etag) {
+          const error = new Error('precondition failed') as Error & { status?: number };
+          error.status = 412;
+          throw error;
+        }
+        target.body = input.body || '';
+        return { data: target, headers: { etag: `"marker-${target.id}-${target.body.length}"` } };
+      }
+      throw new Error(`unexpected request ${route}`);
+    },
     rest: {
       pulls: {
         list: 'pulls',
@@ -207,6 +225,14 @@ describe('one code verdict and metadata-triggered review recovery', () => {
       .toContain('steps.review_policy_final.outputs.final_root');
     const publisherRefresh = job.steps.find((step: { id?: string }) => step.id === 'review_policy_publishers') as { run?: string } | undefined;
     expect(publisherRefresh?.run).toContain('review-policy-publish-${GITHUB_RUN_ID}');
+    expect((job.steps.find((step: { id?: string }) => step.id === 'trusted_gh') as { run?: string } | undefined)?.run)
+      .toContain('command -v gh');
+    expect((job.steps.find((step: { id?: string }) => step.id === 'trusted_gh') as { run?: string } | undefined)?.run)
+      .toContain('realpath');
+    for (const publisherId of ['review_policy_publishers', 'review_policy_abort', 'review_policy_final']) {
+      expect((job.steps.find((step: { id?: string }) => step.id === publisherId) as { env?: Record<string, string> } | undefined)?.env?.TRUSTED_GH_BIN)
+        .toContain('steps.trusted_gh.outputs.path');
+    }
     for (const publisherId of ['test_only_review', 'carry_forward_review']) {
       expect((job.steps.find((step: { id?: string }) => step.id === publisherId) as { env?: Record<string, string> } | undefined)?.env?.REVIEW_POLICY_ROOT)
         .toContain('steps.review_policy_publishers.outputs.root');
@@ -253,7 +279,8 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(script).toContain('workflow_run');
     expect(recovery.concurrency.group).toContain('tests-body-recovery-schedule');
     expect(recovery.concurrency.group).toContain('tests-body-recovery-pr-');
-    expect(recovery.concurrency.group).toContain('workflow_run.head_branch');
+    expect(recovery.concurrency.group).toContain('workflow_run.id');
+    expect(recovery.concurrency.group).not.toContain('workflow_run.head_branch');
     expect(recovery.concurrency['cancel-in-progress']).toBe(false);
     expect(script).toContain('markerMatchesRun');
     expect(script).not.toContain('createWorkflowDispatch');
@@ -265,6 +292,9 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(script).toContain('releaseNativeAutoMergeLease');
     expect(script).toContain('NATIVE_AUTO_MERGE_LEASE');
     expect(script).toContain('disablePullRequestAutoMerge');
+    expect(script).toContain('MarkerWriteConflict');
+    expect(script).toContain("headers: { 'If-Match': current.etag }");
+    expect(script).toContain('readCommentWithEtag');
     expect(script).toContain('await revokeNativeAutoMerge(number)');
     expect(script).not.toContain('setTimeout');
   });

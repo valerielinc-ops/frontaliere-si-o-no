@@ -199,6 +199,35 @@ jobs:
     # 30→40 (2026-07-17): headroom per il cap turni alzato 45→60.
     timeout-minutes: 40
     steps:
+      # Resolve the runner-owned GitHub CLI before checking out the PR.  Every
+      # later trusted-policy download uses this immutable absolute path, never
+      # a PR-controlled `gh` shim placed on PATH.
+      - name: Resolve trusted GitHub CLI (before PR checkout)
+        id: trusted_gh
+        run: |
+          set -euo pipefail
+          gh_bin="$(command -v gh || true)"
+          if [ -z "$gh_bin" ] || [[ "$gh_bin" != /* ]] || [ ! -x "$gh_bin" ]; then
+            echo "::error::GitHub CLI path non assoluto o non eseguibile: ${gh_bin:-missing}"
+            exit 1
+          fi
+          gh_bin="$(realpath "$gh_bin")"
+          case "$gh_bin" in
+            "$GITHUB_WORKSPACE"/*|"$RUNNER_TEMP"/*)
+              echo "::error::GitHub CLI risolve in un path controllabile dalla PR: $gh_bin"
+              exit 1
+              ;;
+          esac
+          probe="$gh_bin"
+          while [ "$probe" != '/' ]; do
+            if [ -w "$probe" ]; then
+              echo "::error::GitHub CLI o una directory del suo path è scrivibile dal runner: $probe"
+              exit 1
+            fi
+            probe="$(dirname "$probe")"
+          done
+          printf 'path=%s\n' "$gh_bin" >> "$GITHUB_OUTPUT"
+
       - name: Checkout
         uses: actions/checkout@v5
         with:
@@ -222,6 +251,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           POLICY_REF: main
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: |
           set -euo pipefail
           policy_root="${RUNNER_TEMP}/redcheck-trusted-policy-${GITHUB_RUN_ID}"
@@ -231,7 +261,7 @@ jobs:
             local path="$1"
             local destination="$policy_root/$path"
             mkdir -p "$(dirname "$destination")"
-            gh api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+            "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
               --header 'Accept: application/vnd.github.raw+json' > "$destination"
           }
           for trusted_path in \
@@ -784,6 +814,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           POLICY_REF: main
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: |
           set -euo pipefail
           policy_root="${RUNNER_TEMP}/redcheck-trusted-policy-final-${GITHUB_RUN_ID}"
@@ -793,7 +824,7 @@ jobs:
             local path="$1"
             local destination="$policy_root/$path"
             mkdir -p "$(dirname "$destination")"
-            gh api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+            "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
               --header 'Accept: application/vnd.github.raw+json' > "$destination"
           }
           for trusted_path in \

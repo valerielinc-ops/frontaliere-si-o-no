@@ -100,6 +100,9 @@ describe('trusted claim policy — il checkout PR non decide l ammissione', () =
   it('scarica e ri-materializza l helper dei claim da main', () => {
     expect(src).toContain('Bootstrap trusted redcheck policy (no PR code)');
     expect(src).toContain('POLICY_REF: main');
+    expect(src).toContain('Resolve trusted GitHub CLI (before PR checkout)');
+    expect(src).toContain('TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}');
+    expect(src).toContain('"$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}"');
     expect(src).toContain('TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy.outputs.root }}');
     expect(src).toContain('Refresh trusted redcheck policy before finalize');
     expect(src).toContain('TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_final.outputs.root }}');
