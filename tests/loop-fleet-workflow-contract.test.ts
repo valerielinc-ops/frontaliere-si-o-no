@@ -48,6 +48,34 @@ describe('loop fleet workflow contract', () => {
     expect(pushBlock).not.toContain('data/loop-fleet/**');
   });
 
+  it('runs L11 on a PR only when the PR touches what L11 audits', () => {
+    // Senza filtro: ~15 run/ora di npm ci + artifact a 90 giorni per un
+    // osservatore che sulle PR non apre issue e non e' un check richiesto.
+    const source = fs.readFileSync(path.join(workflowDir, 'technical-operations-supervisor.yml'), 'utf8');
+    const prBlock = source.match(/\n  pull_request:\n([\s\S]*?)\n\npermissions:/u)?.[1] ?? '';
+    expect(prBlock).toMatch(/^    paths:$/mu);
+    for (const p of [
+      '.github/workflows/**',
+      'scripts/ci/technical-operations-audit.mjs',
+      'scripts/ci/loop-fleet-*.mjs',
+      'scripts/lib/loop-fleet-*.mjs',
+      'scripts/lib/github-issue-creator.mjs',
+      'data/loop-fleet/loop-registry.json',
+    ]) {
+      expect(prBlock).toContain(`- '${p}'`);
+    }
+    // Il grafo di import dell'audit deve restare coperto dal filtro.
+    const audit = fs.readFileSync(path.resolve('scripts/ci/technical-operations-audit.mjs'), 'utf8');
+    const localImports = [...audit.matchAll(/from '(\.\.?\/[^']+)'/gu)].map((m) =>
+      path.posix.normalize(path.posix.join('scripts/ci', m[1])),
+    );
+    const globs = [...prBlock.matchAll(/- '([^']+)'/gu)].map((m) => m[1]);
+    const covered = (file: string) =>
+      globs.some((g) => new RegExp(`^${g.replace(/[.+^${}()|[\]\\]/gu, '\\$&').replace(/\*\*/gu, '.*').replace(/\*/gu, '[^/]*')}$`, 'u').test(file));
+    expect(localImports.length).toBeGreaterThan(0);
+    for (const file of localImports) expect(covered(file), file).toBe(true);
+  });
+
   it('does not feed the durable health ledger back into L10 on main pushes', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-l10-fleet-control.yml'), 'utf8');
     const pushBlock = source.match(/\n  push:\n([\s\S]*?)\n  pull_request:/u)?.[1] ?? '';
