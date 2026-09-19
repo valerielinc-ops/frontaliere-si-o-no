@@ -188,6 +188,10 @@ export function parseWorkdayJobDetail(detail, externalPath = '') {
   const locationRaw = info.location || '';
   const city = parseWorkdayCity(locationRaw);
   const canton = inferAnyCanton(locationRaw);
+  // A country-only or otherwise unresolved detail is not safe to publish as a
+  // structured Swiss job location. Keep the listing admission broad, but
+  // require both fields before emitting the detail record.
+  if (!city || !canton) return null;
   const descriptionHtml = info.jobDescription || '';
   const descriptionText = stripHtml(descriptionHtml);
   const publicUrl = buildPublicUrl(externalPath);

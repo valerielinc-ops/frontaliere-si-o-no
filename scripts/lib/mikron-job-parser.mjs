@@ -11,7 +11,7 @@
  * rendered server-side with division, function, and location metadata.
  */
 
-import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { isSwissLocationText } from './target-swiss-locations.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
@@ -69,7 +69,33 @@ export function slugify(value = '', suffix = '') {
  * Check if a location string resolves to a Swiss site.
  */
 export function isSwissLocation(locationText = '') {
-  return isTargetSwissLocation(locationText);
+  return isSwissLocationText(locationText);
+}
+
+/**
+ * Return one balanced listing element starting at an opening row tag.
+ * Views rows can contain nested divs, so a first-closing-tag regex is not a
+ * reliable boundary for extracting metadata.
+ */
+function extractBalancedRowHtml(html, start) {
+  const opening = html.slice(start).match(/^<(article|div|tr)\b[^>]*>/i);
+  if (!opening) return '';
+
+  const tag = opening[1];
+  const tagRe = new RegExp(`<(/?)${tag}\\b[^>]*>`, 'gi');
+  tagRe.lastIndex = start;
+  let depth = 0;
+  let match;
+  while ((match = tagRe.exec(html)) !== null) {
+    const token = match[0];
+    if (token.startsWith('</')) {
+      depth -= 1;
+      if (depth === 0) return html.slice(start, tagRe.lastIndex);
+    } else if (!/\/\s*>$/.test(token)) {
+      depth += 1;
+    }
+  }
+  return '';
 }
 
 /**
@@ -129,15 +155,21 @@ export function parseMikronJobs(html = '', options = {}) {
     });
   }
   if (jobs.length > 0) {
-    const filtered = filterSwiss ? jobs.filter((j) => !j.location || isSwissLocation(j.location)) : jobs;
+    // A Swiss-only parse must have a positive Swiss signal; an unknown
+    // location is not safe to publish before detail enrichment verifies it.
+    const filtered = filterSwiss ? jobs.filter((j) => isSwissLocation(j.location)) : jobs;
     return dedupeByUrl(filtered);
   }
 
   // Strategy 1: Look for views-row or article elements containing job links
-  const rowRe = /<(?:article|div|tr)[^>]*class="[^"]*(?:views-row|job|node)[^"]*"[^>]*>([\s\S]*?)<\/(?:article|div|tr)>/gi;
+  const rowRe = /<(?:article|div|tr)[^>]*class="[^"]*(?:views-row|job(?:[-\s"]|$)|node(?:[-\s"]|$))[^"]*"[^>]*>([\s\S]*?)<\/(?:article|div|tr)>/gi;
   let rowMatch;
   while ((rowMatch = rowRe.exec(html)) !== null) {
-    const block = rowMatch[1];
+    const rowStart = rowMatch.index ?? 0;
+    const rowHtml = extractBalancedRowHtml(html, rowStart) || rowMatch[0];
+    // Prevent the row regex from re-entering nested wrappers in the same row.
+    rowRe.lastIndex = rowStart + rowHtml.length;
+    const block = rowHtml;
     const linkMatch = block.match(/<a[^>]*href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/i);
     if (!linkMatch) continue;
 
@@ -146,17 +178,17 @@ export function parseMikronJobs(html = '', options = {}) {
     if (!title || title.length < 3) continue;
 
     // Extract metadata fields
-    const textContent = normalizeSpace(htmlToText(block));
+    const textContent = normalizeSpace(htmlToText(rowHtml));
     const divisionMatch = textContent.match(/(?:division|business)[:\s]*([A-Za-z\s&]+?)(?=\s*(?:function|location|$))/i);
     const functionMatch = textContent.match(/(?:function|category)[:\s]*([A-Za-z\s&/]+?)(?=\s*(?:location|$))/i);
-    const locationMatch = textContent.match(/(?:location|place)[:\s]*([A-Za-z\s,]+?)$/i)
-      || textContent.match(/(Switzerland\s*,\s*[A-Za-z]+)/i);
+    const locationMatch = textContent.match(/(Switzerland\s*,\s*[A-Za-z]+)/i)
+      || textContent.match(/(?:location|place)[:\s]*([A-Za-z\s,]+?)$/i);
 
     const division = divisionMatch ? normalizeSpace(divisionMatch[1]) : '';
     const jobFunction = functionMatch ? normalizeSpace(functionMatch[1]) : '';
     const location = locationMatch ? normalizeSpace(locationMatch[1]) : '';
 
-    if (filterSwiss && location && !isSwissLocation(location)) continue;
+    if (filterSwiss && !isSwissLocation(location)) continue;
 
     idx++;
     jobs.push({
@@ -192,7 +224,7 @@ export function parseMikronJobs(html = '', options = {}) {
     }
   }
 
-  return dedupeByUrl(jobs);
+  return dedupeByUrl(filterSwiss ? jobs.filter((j) => isSwissLocation(j.location)) : jobs);
 }
 
 /** Deduplicate parsed job rows by their (lowercased) URL. */
