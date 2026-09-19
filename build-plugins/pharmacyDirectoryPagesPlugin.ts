@@ -250,6 +250,20 @@ const RATIO_QUALITY_COPY: Record<Locale, Partial<Record<PharmacyPageKind, string
   },
 };
 
+const DETAIL_VERIFICATION_NOTE: Record<Locale, string> = {
+  it: 'Questa scheda descrive una sede censita nella fonte indicata; non certifica l’apertura attuale, i turni o la disponibilità dei medicinali. Per un’informazione aggiornata verifica il collegamento alla fonte e contatta direttamente la farmacia.',
+  en: 'This page describes a location listed by the cited source; it does not certify current opening, duty status or medicine availability. For up-to-date information, check the source link and contact the pharmacy directly.',
+  de: 'Diese Seite beschreibt einen Standort aus der angegebenen Quelle; sie bestätigt nicht die aktuelle Öffnung, einen Notdienst oder die Verfügbarkeit von Arzneimitteln. Für aktuelle Informationen bitte den Quellenlink prüfen und die Apotheke direkt kontaktieren.',
+  fr: 'Cette fiche décrit un site recensé par la source citée; elle ne certifie ni l’ouverture actuelle, ni une garde, ni la disponibilité des médicaments. Pour une information à jour, vérifiez le lien source et contactez directement la pharmacie.',
+};
+
+const CITY_VERIFICATION_NOTE: Record<Locale, string> = {
+  it: 'Il conteggio descrive le schede pubblicate per questa località nel dataset corrente, non il numero di farmacie aperte né un calendario di turni. Indirizzi, orari e servizi possono cambiare: apri la scheda, controlla la fonte indicata e contatta direttamente la sede prima di partire.',
+  en: 'The count describes records published for this locality in the current dataset, not the number of pharmacies open now or a duty timetable. Addresses, hours and services can change: open the record, check its cited source and contact the location directly before travelling.',
+  de: 'Die Zahl beschreibt die im aktuellen Datensatz veröffentlichten Einträge für diesen Ort, nicht die Zahl jetzt geöffneter Apotheken oder einen Notdienstplan. Adressen, Zeiten und Leistungen können sich ändern: Eintrag öffnen, Quelle prüfen und den Standort vor der Fahrt direkt kontaktieren.',
+  fr: 'Le nombre décrit les fiches publiées pour cette localité dans le jeu actuel, pas le nombre de pharmacies ouvertes ni un calendrier de garde. Adresses, horaires et services peuvent changer : ouvrez la fiche, vérifiez sa source et contactez directement le site avant de partir.',
+};
+
 function formatDate(iso: string, locale: Locale): string {
   const date = new Date(iso);
   if (!Number.isFinite(date.getTime())) return iso;
@@ -768,7 +782,7 @@ function renderBody(
     const website = safePharmacyUrl(pharmacy.website);
     const maps = pharmacy.latitude !== undefined && pharmacy.longitude !== undefined ? `https://www.openstreetmap.org/?mlat=${encodeURIComponent(String(pharmacy.latitude))}&mlon=${encodeURIComponent(String(pharmacy.longitude))}#map=18/${encodeURIComponent(String(pharmacy.latitude))}/${encodeURIComponent(String(pharmacy.longitude))}` : undefined;
     const parent = pharmacy.country === 'IT' ? cityPath('IT', locale, pharmacyCitySlug(pharmacy.city), ITALY_BORDER_PROVINCES.find((area) => area.code === pharmacy.province)?.slug) : cityPath('CH', locale, pharmacyCitySlug(pharmacy.city));
-    sections = `<p style="${BODY_STYLE}">${href(parent, `${copy.directoryHeading}: ${pharmacy.city}`)}</p><section><h2 style="${H2_STYLE}">${esc(copy.contactHeading)}</h2><p style="${BODY_STYLE}"><strong>${esc(copy.address)}:</strong> ${esc(pharmacy.address)}, ${esc(pharmacy.postalCode)} ${esc(pharmacy.city)}</p>${pharmacy.phone ? `<p style="${BODY_STYLE}"><strong>${esc(copy.phone)}:</strong> <a href="tel:${esc(pharmacy.phone)}">${esc(pharmacy.phone)}</a></p>` : ''}${website ? `<p style="${BODY_STYLE}"><strong>${esc(copy.website)}:</strong> <a href="${esc(website)}" rel="nofollow noopener">${esc(website)}</a></p>` : ''}${maps ? `<p style="${BODY_STYLE}"><strong>${esc(copy.map)}:</strong> <a href="${esc(maps)}" rel="nofollow noopener">${esc(copy.openMap)}</a></p>` : ''}</section><section><h2 style="${H2_STYLE}">${esc(copy.hoursHeading)}</h2>${renderHours(pharmacy, locale)}</section><section><h2 style="${H2_STYLE}">${esc(copy.servicesHeading)}</h2>${renderServices(pharmacy, locale)}</section><section><h2 style="${H2_STYLE}">${esc(copy.sourcesHeading)}</h2>${sourceLine(pharmacy, locale)}<p style="${BODY_STYLE}">${esc(copy.osmNote)}</p></section>`;
+    sections = `<p style="${BODY_STYLE}">${href(parent, `${copy.directoryHeading}: ${pharmacy.city}`)}</p><section><h2 style="${H2_STYLE}">${esc(copy.contactHeading)}</h2><p style="${BODY_STYLE}"><strong>${esc(copy.address)}:</strong> ${esc(pharmacy.address)}, ${esc(pharmacy.postalCode)} ${esc(pharmacy.city)}</p>${pharmacy.phone ? `<p style="${BODY_STYLE}"><strong>${esc(copy.phone)}:</strong> <a href="tel:${esc(pharmacy.phone)}">${esc(pharmacy.phone)}</a></p>` : ''}${website ? `<p style="${BODY_STYLE}"><strong>${esc(copy.website)}:</strong> <a href="${esc(website)}" rel="nofollow noopener">${esc(website)}</a></p>` : ''}${maps ? `<p style="${BODY_STYLE}"><strong>${esc(copy.map)}:</strong> <a href="${esc(maps)}" rel="nofollow noopener">${esc(copy.openMap)}</a></p>` : ''}</section><section><h2 style="${H2_STYLE}">${esc(copy.hoursHeading)}</h2>${renderHours(pharmacy, locale)}</section><section><h2 style="${H2_STYLE}">${esc(copy.servicesHeading)}</h2>${renderServices(pharmacy, locale)}</section><section><h2 style="${H2_STYLE}">${esc(copy.sourcesHeading)}</h2>${sourceLine(pharmacy, locale)}<p style="${BODY_STYLE}">${esc(copy.osmNote)}</p><p style="${BODY_STYLE}">${esc(DETAIL_VERIFICATION_NOTE[locale])}</p></section>`;
   } else {
     const pharmacies = pagePharmacies(descriptor, dataset, now);
     const directory = descriptor.kind === 'area'
@@ -779,7 +793,8 @@ function renderBody(
   const faq = descriptor.kind === 'city' && descriptor.country === 'CH'
     ? renderCityFaq(locale, descriptor.cityName || '', pharmaciesForCity(descriptor.cityName || '').length)
     : '';
-  return `<header><h1 style="${H1_STYLE}">${esc(h1)}</h1><p style="${LEDE_STYLE}">${esc(pageLede(descriptor.kind, locale))}</p></header>${sections}${faq}<section><h2 style="${H2_STYLE}">${esc(copy.disclaimerHeading)}</h2><p style="${BODY_STYLE}">${esc(copy.disclaimer)}</p></section>`;
+  const cityVerificationNote = descriptor.kind === 'city' ? `<p style="${BODY_STYLE}">${esc(CITY_VERIFICATION_NOTE[locale])}</p>` : '';
+  return `<header><h1 style="${H1_STYLE}">${esc(h1)}</h1><p style="${LEDE_STYLE}">${esc(pageLede(descriptor.kind, locale))}</p></header>${sections}${cityVerificationNote}${faq}<section><h2 style="${H2_STYLE}">${esc(copy.disclaimerHeading)}</h2><p style="${BODY_STYLE}">${esc(copy.disclaimer)}</p></section>`;
 }
 
 function breadcrumbJsonLd(descriptor: PageDescriptor, locale: Locale): string {

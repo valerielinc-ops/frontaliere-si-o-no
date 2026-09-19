@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { buildPharmacyDirectoryPage, pharmacyDirectoryPagesPlugin, pharmacyPageDescriptors, pharmacyUrlAliasDescriptors } from '../build-plugins/pharmacyDirectoryPagesPlugin';
+import { auditPage } from '../scripts/adsense-prereview-audit.mjs';
 import { AD_SLOTS } from '../services/adsenseSlots';
 import catalogueJson from '../data/pharmacies-ticino-complete.json';
 import dutiesJson from '../data/pharmacy-duties-ticino.json';
@@ -44,6 +45,18 @@ function robotsOf(html: string): string {
 }
 
 describe('pharmacy directory static pages', () => {
+  it('keeps a sparse Italian border city above the AdSense content floor', () => {
+    const root = makeTempRoot();
+    const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'city' && candidate.citySlug === 'rodero');
+    expect(descriptor).toBeDefined();
+    const built = buildPharmacyDirectoryPage(descriptor!, 'de', root);
+    const audited = auditPage('https://frontaliereticino.ch/de/apotheken/italien/como/rodero/', 'rodero', built.html, 'pharmacies');
+
+    expect(audited.metrics.wordCount).toBeGreaterThanOrEqual(140);
+    expect(audited.issues).not.toContain('ads_on_thin_content_page');
+    expect(built.html).toContain('Die Zahl beschreibt die im aktuellen Datensatz veröffentlichten Einträge');
+  });
+
   it('keeps duty-week model indexability fail-closed and tied to the sitemap', async () => {
     const root = makeTempRoot();
     await runCloseBundle(root);

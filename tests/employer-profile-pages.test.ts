@@ -199,6 +199,7 @@ describe('employerProfilePagesPlugin', () => {
     // range distinct from the single CHF 100'000 median stat tile.
     expect(html).toContain('CHF 81');
     expect(html).toContain('CHF 127');
+    expect(html).toContain('I conteggi riflettono gli annunci attivi disponibili al momento della compilazione');
   });
 
   it('renders the complete active list and uses the shared in-feed cadence', () => {
