@@ -60,6 +60,8 @@ jobs:
             /scripts/ci/production-promotion-gate.mjs
           sparse-checkout-cone-mode: false
       - name: Reject non-canonical workflow_run caller
+        # Keep the source identity tuple together: the gate validates the
+        # workflow name, canonical path, immutable ID, and approved event.
         env:
           PROMOTION_EVENT: ${{ github.event_name }}
           PROMOTION_CALLER_WORKFLOW: ${{ github.workflow }}
@@ -71,9 +73,9 @@ jobs:
           PROMOTION_SOURCE_WORKFLOW: ${{ github.event.workflow_run.name }}
           PROMOTION_SOURCE_WORKFLOW_PATH: ${{ github.event.workflow_run.path }}
           PROMOTION_SOURCE_WORKFLOW_ID: ${{ github.event.workflow_run.workflow_id }}
+          PROMOTION_SOURCE_EVENT: ${{ github.event.workflow_run.event }}
           PROMOTION_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
           PROMOTION_SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
-          PROMOTION_SOURCE_EVENT: ${{ github.event.workflow_run.event }}
           INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
           INPUT_DEPLOY_EVENT_NAME: ${{ inputs.deploy_event_name }}
           INPUT_DEPLOY_REF: ${{ inputs.deploy_ref }}
