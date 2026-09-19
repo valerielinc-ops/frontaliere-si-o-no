@@ -41,6 +41,14 @@ describe('trigger — parte solo su un rosso vero, di una PR vera', () => {
     expect(src).toContain("github.event.workflow_run.event != 'push'");
   });
 
+  it('non crea run sui `tests` di main: filtro sul branch nel trigger', () => {
+    // Il gate del job le rendeva `skipped`, ma la run nasceva comunque:
+    // 64 run skipped su 86 in 4 ore il 2026-09-19.
+    const trigger = src.match(/\n  workflow_run:\n([\s\S]*?)\n  workflow_dispatch:/u)?.[1] ?? '';
+    expect(trigger).toMatch(/^    branches-ignore: \[main\]$/mu);
+    expect(trigger).not.toMatch(/^    branches:/mu);
+  });
+
   it('NON si restringe a `pull_request`: le head rebasate arrivano da dispatch', () => {
     // `pr-autorebase.yml` ri-testa una head rebasata con un `workflow_dispatch`
     // di `tests`, perché un push con PAT non ri-triggera affidabilmente i
