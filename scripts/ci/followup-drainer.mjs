@@ -196,6 +196,12 @@ const budget = runBudgetFromEnv();
 // Costo per item: un'azione di age-out sono 2 chiamate gh (comment + close), un
 // rescue/park 1-2 (view commenti + edit label). 8s copre entrambe con margine.
 const ITEM_COST_MS = intFromEnv('FOLLOWUP_ITEM_COST_MS', 8_000);
+// Una pagina REST è una sola lettura bounded; il costo è configurabile per i
+// run con una deadline stretta, ma ogni pagina deve essere prenotata prima di
+// essere letta. Se il budget si esaurisce a metà listing, la snapshot resta
+// esplicitamente incompleta e nessuno stadio che dipende da essa muta label.
+const ISSUE_LIST_PAGE_SIZE = 100;
+const ISSUE_LIST_PAGE_COST_MS = intFromEnv('FOLLOWUP_ISSUE_LIST_PAGE_COST_MS', 1_000);
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
@@ -2063,6 +2069,101 @@ function gh(args, { json = true } = {}) {
 }
 
 /**
+ * Normalizza una pagina REST `issues` e scarta le pull request, che l'endpoint
+ * GitHub include ma `gh issue list` escludeva. `null` significa risposta
+ * malformata: non è mai lecito convertirla in una coda vuota.
+ *
+ * La lunghezza raw serve al paginatore per distinguere una pagina composta da
+ * sole PR da una pagina terminale. Le issue conservano la forma che i filtri
+ * storici del drainer si aspettano (`createdAt`, `updatedAt`, labels.name).
+ */
+function isFiniteDateString(value) {
+  return typeof value === 'string' && value.length > 0 && Number.isFinite(Date.parse(value));
+}
+
+export function normalizeIssuePage(raw) {
+  if (!Array.isArray(raw)) return null;
+  const rows = [];
+  for (const item of raw) {
+    if (!item || typeof item !== 'object' || Array.isArray(item)) return null;
+    const number = Number(item.number);
+    const title = item.title;
+    const labels = item.labels;
+    const createdAt = item.createdAt ?? item.created_at;
+    const updatedAt = item.updatedAt ?? item.updated_at;
+    if (!Number.isInteger(number) || number <= 0 || typeof title !== 'string'
+      || !Array.isArray(labels) || !isFiniteDateString(createdAt)
+      || !isFiniteDateString(updatedAt)) return null;
+    const normalizedLabels = [];
+    for (const label of labels) {
+      const name = typeof label === 'string' ? label : label?.name;
+      if (typeof name !== 'string' || !name) return null;
+      normalizedLabels.push({ name });
+    }
+    const body = item.body == null ? '' : item.body;
+    if (typeof body !== 'string') return null;
+    // The REST issues endpoint is shared with pull requests. A PR is a valid
+    // API row, but it is not an issue in any of the drainer pools.
+    if (item.pull_request) continue;
+    rows.push({ number, title, body, labels: normalizedLabels, createdAt, updatedAt });
+  }
+  return { rows, pageLength: raw.length };
+}
+
+/**
+ * Complete, testable pagination state machine for remote snapshots.
+ *
+ * `beforePage` is called before every remote read. Returning false records a
+ * budget stop while preserving rows already read; callers must treat both an
+ * empty and a non-empty incomplete result as unsafe for mutation.
+ */
+export function scanPaginatedRows(fetchPage, {
+  pageSize = ISSUE_LIST_PAGE_SIZE,
+  beforePage = () => true,
+  normalize = normalizeIssuePage,
+  maxPages = 10_000,
+} = {}) {
+  const rows = [];
+  for (let page = 1; page <= maxPages; page += 1) {
+    if (!beforePage(page)) return { complete: false, reason: 'budget', rows, pages: page - 1 };
+    let raw;
+    try {
+      raw = fetchPage(page);
+    } catch {
+      return { complete: false, reason: 'error', rows, pages: page - 1 };
+    }
+    const parsed = normalize(raw);
+    if (!parsed || !Number.isInteger(parsed.pageLength) || parsed.pageLength < 0
+      || parsed.pageLength > pageSize || !Array.isArray(parsed.rows)) {
+      return { complete: false, reason: 'malformed', rows, pages: page };
+    }
+    rows.push(...parsed.rows);
+    // Page size, not normalized issue count, is the terminal condition: a full
+    // page can contain only pull requests and still require another request.
+    if (parsed.pageLength < pageSize) return { complete: true, reason: null, rows, pages: page };
+  }
+  return { complete: false, reason: 'page-limit', rows, pages: maxPages };
+}
+
+export function scanPaginatedIssuePages(fetchPage, options = {}) {
+  return scanPaginatedRows(fetchPage, options);
+}
+
+function issueSnapshot(label, what) {
+  const queryLabel = label == null ? '' : `&labels=${encodeURIComponent(label)}`;
+  const scan = scanPaginatedIssuePages(
+    (page) => gh(['api', `repos/${REPO}/issues?state=open&per_page=${ISSUE_LIST_PAGE_SIZE}&page=${page}${queryLabel}`]),
+    {
+      beforePage: (page) => budget.take(`${what} pagina ${page}`, ISSUE_LIST_PAGE_COST_MS),
+    },
+  );
+  if (!scan.complete) {
+    console.log(`::warning::${what}: snapshot incompleta (${scan.reason}, ${scan.rows.length} issue già lette) → nessuna mutazione basata su questo listing; retry al prossimo tick.`);
+  }
+  return scan;
+}
+
+/**
  * Complete, paginated open-PR scan used only for the daily item mutex.  This is
  * intentionally separate from the historical overlap map: that map is
  * fail-open for a transient diff failure, while a daily item must never be
@@ -2103,66 +2204,25 @@ function inFlightFixCount() {
   return n;
 }
 
-// Tetto dei listing di issue. `gh issue list` ordina dalle più RECENTI, quindi
-// un limite raggiunto non taglia via un campione qualunque: taglia via le issue
-// più VECCHIE — cioè, per ogni passo di questo file, esattamente quelle che
-// hanno più diritto di essere lavorate o chiuse.
-//
-// Misurato il 2026-08-23 sul sito: 107 issue `fu-parked` contro un `--limit`
-// di 100, e le 7 fuori (#5321 #5314 #5139 #5041 #4854 #4675 #1951) erano
-// invisibili a OGNI passo che parte da `listIssues` — parked-retry ed
-// escalation too-large compresi. Fra queste #4854, che superava il cooldown di
-// 5 giorni e non è capability-scoped: lavoro ri-accodabile che nessun tick
-// avrebbe mai potuto vedere, e senza una riga di log a dirlo. Un silent cap in
-// senso proprio, contro la regola esplicita di AGENTS.md.
-const ISSUE_LIST_LIMIT = intFromEnv('FOLLOWUP_ISSUE_LIST_LIMIT', 300);
+// I listing issue non usano più un cap di `gh issue list`: ogni categoria viene
+// letta per pagine REST fino alla pagina terminale. Una pagina mancante, un
+// errore o una risposta malformata lascia lo stage senza mutazioni; solo una
+// pagina vuota realmente terminale rappresenta una coda vuota valida.
 // Il pass PARKED-WIP può fare fino a quattro letture/mutazioni per candidato
 // (compare, PR aperta, commenti, merge) e non deve consumare l'intero tick prima
 // del rescue ordinario. Il cap è indipendente dal deadline-budget: protegge
 // anche i run locali o i workflow che non esportano una deadline.
 const PARKED_WIP_MAX_PER_RUN = intFromEnv('FOLLOWUP_PARKED_WIP_MAX_PER_RUN', 25);
 
-/** Elenco issue con tetto DICHIARATO: se il tetto è stato raggiunto lo dice,
- * invece di restituire in silenzio una vista parziale che sembra completa. */
-function listIssuesBounded(args, what) {
-  try {
-    const out = gh([...args, '--limit', String(ISSUE_LIST_LIMIT)]);
-    const rows = Array.isArray(out) ? out : [];
-    if (rows.length >= ISSUE_LIST_LIMIT) {
-      console.log(`::warning::listing ${what} al tetto di ${ISSUE_LIST_LIMIT}: la vista è PARZIALE e taglia le issue più vecchie (no silent cap). Alza FOLLOWUP_ISSUE_LIST_LIMIT.`);
-    }
-    return rows;
-  } catch {
-    return [];
-  }
-}
-
 function listIssues(label) {
-  return listIssuesBounded([
-    'issue', 'list', '--repo', REPO, '--state', 'open', '--label', label,
-    '--json', 'number,title,labels,createdAt,updatedAt',
-  ], `issue aperte con label \`${label}\``);
+  return issueSnapshot(label, `issue aperte con label \`${label}\``);
 }
 
-/** Elenco della coda con body, usato solo dal planner dei gruppi. `null` è
- * diverso da una coda vuota: su errore di lettura non si prende alcuna
- * decisione di raggruppamento e il flusso singolo resta il fallback sicuro. */
+/** Elenco della coda con body, usato solo dal planner dei gruppi. Il caller
+ * controlla `complete`: su errore di lettura non si prende alcuna decisione di
+ * raggruppamento e il flusso singolo resta il fallback sicuro. */
 function listIssuesWithBodies(label) {
-  try {
-    const out = gh([
-      'issue', 'list', '--repo', REPO, '--state', 'open', '--label', label,
-      '--json', 'number,title,body,labels,createdAt,updatedAt',
-      '--limit', String(ISSUE_LIST_LIMIT),
-    ]);
-    const rows = Array.isArray(out) ? out : [];
-    if (rows.length >= ISSUE_LIST_LIMIT) {
-      console.log(`::warning::listing issue raggruppabili al tetto di ${ISSUE_LIST_LIMIT}: planner parziale, nessun gruppo oltre la vista (no silent cap).`);
-    }
-    return rows;
-  } catch (e) {
-    console.log(`::warning::lettura body della coda per il grouping fallita: ${String(e).slice(0, 160)} — nessun raggruppamento deciso.`);
-    return null;
-  }
+  return issueSnapshot(label, `issue raggruppabili con label \`${label}\``);
 }
 
 /** Quante run issue-decompose sono in volo (queued|in_progress). Gemello di
@@ -2188,13 +2248,22 @@ function inFlightDecomposeCount() {
 // Age-out scorre TUTTE le categorie queue-managed (non solo `follow-up`, dal
 // 2026-07-05), quindi non può più filtrare lato-API su una singola label:
 // serve l'elenco open completo, poi isAgeOutEligible/isQueueManaged filtrano
-// in-process. Limit bound (no scan illimitato); eccesso oltre il cap non è un
-// problema qui perché age-out ha già il suo AGEOUT_MAX_PER_RUN sulle azioni.
+// in-process. Il cap resta solo sulle azioni (`AGEOUT_MAX_PER_RUN`), non sulla
+// snapshot: il listing completo è necessario per non perdere le più vecchie.
 function listAllOpenIssues() {
-  return listIssuesBounded([
-    'issue', 'list', '--repo', REPO, '--state', 'open',
-    '--json', 'number,title,labels,createdAt,updatedAt',
-  ], 'issue aperte');
+  return issueSnapshot(null, 'issue aperte');
+}
+
+/**
+ * Conversione fail-closed per gli stadi mutanti. Una coda vuota valida ha
+ * `complete:true` e passa; una snapshot vuota ma incompleta non può diventare
+ * «nessun candidato», perché nasconderebbe proprio gli item fuori pagina.
+ */
+function completeRows(scan, stage) {
+  if (scan?.complete === true && Array.isArray(scan.rows)) return scan.rows;
+  const count = Array.isArray(scan?.rows) ? scan.rows.length : 0;
+  console.log(`::warning::${stage}: snapshot non completa (${scan?.reason || 'unavailable'}, ${count} issue) → stadio saltato senza mutazioni.`);
+  return [];
 }
 
 const names = (iss) => (iss.labels || []).map((l) => l.name);
@@ -2214,6 +2283,42 @@ const attemptOf = (iss) => {
   return m ? parseInt(m[1], 10) : 0;
 };
 const prioRank = (iss) => (has(iss, 'fu-prio:high') ? 0 : 1); // high prima
+
+// Fairness bounded dello slot issue-fix: la priorità resta dominante, ma una
+// issue che ha appena tenuto lo slot non può restare sempre in testa quando la
+// coda viene ricostruita a ogni tick. Il valore è validato come intero decimale
+// e clampato a un massimo operativo: un env `NaN` o enorme non può trasformare
+// la misura in una scansione illimitata. La lettura della timeline avviene
+// soltanto dopo una snapshot queued completa.
+const SLOT_FAIRNESS_SCAN_MAX_OPERATIONAL = 25;
+export const SLOT_FAIRNESS_SCAN_MAX = Math.min(
+  intFromEnv('FOLLOWUP_SLOT_FAIRNESS_SCAN_MAX', 5),
+  SLOT_FAIRNESS_SCAN_MAX_OPERATIONAL,
+);
+
+export function slotFairnessWindow(queued, { scanMax = SLOT_FAIRNESS_SCAN_MAX, prioOf = prioRank } = {}) {
+  const list = Array.isArray(queued) ? queued : [];
+  if (list.length < 2 || scanMax < 2) return [];
+  const headPrio = prioOf(list[0]);
+  const win = [];
+  for (const iss of list) {
+    if (prioOf(iss) !== headPrio) break;
+    win.push(iss);
+    if (win.length >= scanMax) break;
+  }
+  return win.length > 1 ? win : [];
+}
+
+export function slotFairnessOrder(queued, promotedAtBy, { scanMax = SLOT_FAIRNESS_SCAN_MAX, prioOf = prioRank } = {}) {
+  const list = Array.isArray(queued) ? queued.slice() : [];
+  const win = slotFairnessWindow(list, { scanMax, prioOf });
+  if (!win.length) return list;
+  const get = (n) => {
+    const value = promotedAtBy instanceof Map ? promotedAtBy.get(n) : promotedAtBy?.[n];
+    return Number.isFinite(value) ? value : 0;
+  };
+  return [...win.slice().sort((a, b) => get(a.number) - get(b.number)), ...list.slice(win.length)];
+}
 
 // --- PARKED-RETRY: ri-accoda i parked ritentabili (convergenza backlog) -------
 // Un follow-up va `fu-parked` dopo MAX_ATTEMPTS fix falliti. Molti fallirono per
@@ -3124,28 +3229,61 @@ function quotaResetsAt(num) {
   return maxQuotaResetsAt(issueComments(num) || []);
 }
 
+export function normalizeOpenPrPage(raw) {
+  if (!Array.isArray(raw)) return null;
+  const rows = [];
+  for (const item of raw) {
+    if (!item || typeof item !== 'object' || Array.isArray(item)) return null;
+    const number = Number(item.number);
+    if (!Number.isInteger(number) || number <= 0 || typeof item.title !== 'string'
+      || (item.body !== null && typeof item.body !== 'string')) return null;
+    rows.push({ number, title: item.title, body: item.body || '' });
+  }
+  return { rows, pageLength: raw.length };
+}
+
+function normalizeOpenPrFilesPage(raw) {
+  if (!Array.isArray(raw)) return null;
+  const rows = [];
+  for (const item of raw) {
+    if (!item || typeof item !== 'object' || Array.isArray(item)
+      || typeof item.filename !== 'string' || !item.filename) return null;
+    rows.push(item.filename);
+  }
+  return { rows, pageLength: raw.length };
+}
+
 /**
- * Carica la mappa PR aperta → {title, body, files modificati} per il ciclo drainer
- * corrente. In caso di errore gh → mappa vuota (bias a promuovere: mai bloccare
- * una promozione per un glitch API transiente).
- * @returns {Map<number, {title:string, body:string, files:Set<string>}>}
+ * Carica una mappa completa PR aperte → {title, body, files modificati} per il
+ * ciclo drainer corrente. Una lista o un diff incompleto NON equivale a mappa
+ * vuota: le azioni che richiedono il controllo overlap si fermano, mentre una
+ * mappa vuota completa (nessuna PR aperta) resta un risultato valido.
  */
 function loadOpenPrFilesMap() {
+  const prScan = scanPaginatedRows(
+    (page) => gh(['api', `repos/${REPO}/pulls?state=open&per_page=${ISSUE_LIST_PAGE_SIZE}&page=${page}`]),
+    {
+      normalize: normalizeOpenPrPage,
+      beforePage: (page) => budget.take(`PR aperte pagina ${page}`, ISSUE_LIST_PAGE_COST_MS),
+    },
+  );
+  if (!prScan.complete) return { complete: false, reason: `pr-list:${prScan.reason}`, map: new Map() };
+
   const map = new Map();
-  let openPrs;
-  try {
-    openPrs = gh(['pr', 'list', '--state', 'open', '--json', 'number,title,body', '--limit', '50']);
-  } catch { return map; } // lista PR non disponibile → mappa vuota → promuovi
-  for (const pr of Array.isArray(openPrs) ? openPrs : []) {
-    try {
-      const diffOut = gh(['pr', 'diff', String(pr.number), '--name-only'], { json: false });
-      const files = new Set(
-        String(diffOut || '').split('\n').map((l) => l.trim()).filter(Boolean),
-      );
-      map.set(pr.number, { title: String(pr.title || ''), body: String(pr.body || ''), files });
-    } catch { /* diff non disponibile → salta questa PR (bias a promuovere) */ }
+  for (const pr of prScan.rows) {
+    const filesScan = scanPaginatedRows(
+      (page) => gh(['api', `repos/${REPO}/pulls/${pr.number}/files?per_page=${ISSUE_LIST_PAGE_SIZE}&page=${page}`]),
+      {
+        normalize: normalizeOpenPrFilesPage,
+        beforePage: (page) => budget.take(`PR #${pr.number} file pagina ${page}`, ISSUE_LIST_PAGE_COST_MS),
+      },
+    );
+    if (!filesScan.complete) {
+      return { complete: false, reason: `pr-${pr.number}-files:${filesScan.reason}`, map };
+    }
+    map.set(pr.number, { title: pr.title, body: pr.body, files: new Set(filesScan.rows) });
   }
-  return map;
+  return { complete: true, reason: null, map };
 }
 
 /** Wrapper: qualunque sia il `return` con cui `runDrain` esce, il riepilogo di
@@ -3181,11 +3319,12 @@ export function runDrain() {
   //
   // Il pass è prima dell'AGE-OUT anche per `--dry-run`: la preview non deve
   // suggerire una chiusura che la modalità reale non può fare.
-  const parkedForWip = listIssues(LBL_PARKED)
+  const parkedForWip = listIssues(LBL_PARKED);
+  const parkedForWipRows = completeRows(parkedForWip, 'parked-wip')
     .filter((iss) => isRecoverableQueueManaged(iss))
     .filter((iss) => !has(iss, LBL_FIX) && !has(iss, LBL_QUEUED))
     .filter((iss) => !isDecomposedParent(iss));
-  const parkedWipOrder = rotateForScan(parkedForWip, {
+  const parkedWipOrder = rotateForScan(parkedForWipRows, {
     scanMax: PARKED_WIP_MAX_PER_RUN, now: Date.now(), periodMs: SCAN_ROTATION_PERIOD_MS,
   });
   let parkedWipFound = 0;
@@ -3270,7 +3409,7 @@ export function runDrain() {
     const now = Date.now();
     // Chi supera TUTTO tranne l'inattività: è su questo insieme, e solo su
     // questo, che ha senso spendere una lettura commenti.
-    const aged = listAllOpenIssues().filter((iss) => isAgeOutCandidate(iss, { now, ageOutDays: AGEOUT_DAYS }));
+    const aged = completeRows(listAllOpenIssues(), 'age-out').filter((iss) => isAgeOutCandidate(iss, { now, ageOutDays: AGEOUT_DAYS }));
     // Passo 1 — quiete già su `updatedAt`: eleggibili GRATIS. L'invariante
     // `significativo ≤ updatedAt` rende il salto sicuro (vedi `isAgeOutEligible`).
     const eligible = [];
@@ -3365,7 +3504,7 @@ export function runDrain() {
   // PARENT_CLOSE_MAX_PER_RUN padri esaminati per tick (1 view commenti + K view
   // di stato ciascuno), i restanti al tick successivo (no silent cap).
   if (DECOMPOSE_ENABLED) {
-    const parents = listIssues(LBL_DECOMPOSED);
+    const parents = completeRows(listIssues(LBL_DECOMPOSED), 'parent-close');
     // PARENT-DEQUEUE: un padre decomposto non è lavoro del fixer (vedi
     // `isDecomposedParent`). I filtri di RESCUE/DRAIN impediscono che ci
     // rientri, ma non tolgono la label a chi ci è già dentro: senza questo
@@ -3449,7 +3588,8 @@ export function runDrain() {
   // che per definizione non cambierà (misura e prove nel commento di
   // `verdictExitDecision`). Zero Claude: legge un marker e applica una label.
   {
-    const parked = listIssues(LBL_PARKED)
+    const parked = listIssues(LBL_PARKED);
+    const parkedPool = completeRows(parked, 'verdict-exit')
       .filter((iss) => isQueueManaged(iss))
       // Chi è già in coda, in lavoro, nello stadio decompose o già escalato non
       // ha bisogno di un'uscita: ce l'ha. `needs-human` incluso, altrimenti
@@ -3470,7 +3610,7 @@ export function runDrain() {
     // taglia SEMPRE dalla stessa coda della lista (`gh issue list` ordina dalla
     // più recente), e le parcheggiate da più tempo — esattamente quelle che
     // aspettano un'uscita da più giorni — non verrebbero mai lette.
-    const rotated = rotateForScan(parked, {
+    const rotated = rotateForScan(parkedPool, {
       scanMax: VERDICT_EXIT_MAX_PER_RUN,
       now: Date.now(),
       periodMs: SCAN_ROTATION_PERIOD_MS,
@@ -3481,7 +3621,7 @@ export function runDrain() {
     let scanned = 0;
     for (const iss of rotated) {
       if (attempted >= VERDICT_EXIT_MAX_PER_RUN) {
-        console.log(`verdict-exit: cap ${VERDICT_EXIT_MAX_PER_RUN}/run raggiunto, ${parked.length - scanned} candidate rinviate al prossimo tick (no silent cap).`);
+        console.log(`verdict-exit: cap ${VERDICT_EXIT_MAX_PER_RUN}/run raggiunto, ${parkedPool.length - scanned} candidate rinviate al prossimo tick (no silent cap).`);
         break;
       }
       // Coppia non atomica (comment → close/edit): non si comincia se non c'è il
@@ -3654,12 +3794,12 @@ export function runDrain() {
       } catch { /* il commento è la spiegazione, non il meccanismo */ }
       console.log(`VERDICT-EXIT escalate #${iss.number} → needs-human (${outcome}) — "${iss.title?.slice(0, 50)}"`);
     }
-    if (succeeded) console.log(`verdict-exit: ${succeeded} uscite terminali su ${scanned} candidate lette (tentate ${attempted}, pool parked ${parked.length}).`);
+    if (succeeded) console.log(`verdict-exit: ${succeeded} uscite terminali su ${scanned} candidate lette (tentate ${attempted}, pool parked ${parkedPool.length}).`);
     else if (scanned) {
       const transitionSummary = attempted
         ? `nessuna transizione confermata dopo ${attempted} tentativi`
         : 'nessun verdetto NON_RETRYABLE da instradare';
-      console.log(`verdict-exit: ${scanned} candidate lette, ${transitionSummary} (pool parked ${parked.length}).`);
+      console.log(`verdict-exit: ${scanned} candidate lette, ${transitionSummary} (pool parked ${parkedPool.length}).`);
     }
   }
 
@@ -3674,7 +3814,7 @@ export function runDrain() {
   // teneva questi item parked-e-riciclati invece di escalarli). Gira sempre;
   // needs-human li toglie dal reparkable → mai più ri-bruciati. WF-scope esclusi.
   {
-    const tooLarge = listIssues(LBL_PARKED)
+    const tooLarge = completeRows(listIssues(LBL_PARKED), 'too-large')
       .filter((iss) => isQueueManaged(iss))
       .filter((iss) => !has(iss, LBL_FIX) && !has(iss, LBL_QUEUED) && !has(iss, 'needs-human'))
       .filter((iss) => !hasActiveAgentClaim(iss))
@@ -3716,10 +3856,7 @@ export function runDrain() {
   // coprendo solo le future. Il costo qui è UNA `gh issue list` (i body arrivano
   // nella stessa risposta, non una `issue view` per candidata).
   if (SIBLING_DEBT_MAX_PER_RUN > 0) {
-    const withBodies = listIssuesBounded([
-      'issue', 'list', '--repo', REPO, '--state', 'open',
-      '--json', 'number,title,labels,body',
-    ], 'issue aperte (sibling-debt scan)');
+    const withBodies = completeRows(listAllOpenIssues(), 'sibling-debt');
     let attempted = 0;
     let succeeded = 0;
     let ensured = false;
@@ -3773,7 +3910,7 @@ export function runDrain() {
     // su una protezione che non deve dipendere da quale token stia girando.
     // L'esclusione precede il cooldown anche per costo: i tracker sono i più
     // ri-commentati dai bot, e qui si risparmiano le `gh issue view` dello scan.
-    const pool = listIssues(LBL_PARKED).filter(isReparkableCandidate);
+    const pool = completeRows(listIssues(LBL_PARKED), 'parked-retry').filter(isReparkableCandidate);
     // Cooldown (vedi `lastSignificantActivityAt`): lo scarto è fra chi è quieto
     // DAVVERO e chi lo sembra soltanto perché nessun bot lo sta ri-commentando.
     // `updatedAt` è un limite superiore dell'ultimo evento significativo, quindi
@@ -3925,7 +4062,8 @@ export function runDrain() {
   // attempt), park a MAX_ATTEMPTS. Solo su categorie queue-managed (route
   // 'queue': ogni categoria tranne crawler, dal 2026-07-05) per non toccare i
   // crawler agent:fix (production-critical, route diretto, gestione separata).
-  const allFix = listIssues(LBL_FIX);
+  const allFixScan = listIssues(LBL_FIX);
+  const allFix = completeRows(allFixScan, 'rescue');
 
   // INVARIANTE DEI RESCUE: `inflight === 0`.
   //
@@ -3980,12 +4118,17 @@ export function runDrain() {
   // `gh issue view` per candidato, cap QUOTA_SCAN_MAX, e si esce al primo beacon
   // attivo trovato.
   let quotaBackoffUntil = null;
+  const quotaDecompScan = listIssues(LBL_DECOMP);
+  const quotaQueuedScan = listIssues(LBL_QUEUED);
+  const quotaScanComplete = allFixScan.complete === true
+    && quotaDecompScan.complete === true
+    && quotaQueuedScan.complete === true;
   const quotaScanPool = [
     ...allFix,
     // Anche le issue in decomposizione: una run di issue-decompose morta su 429
     // lascia lo stesso beacon QUOTA_RESETS_AT, e la quota è la stessa.
-    ...listIssues(LBL_DECOMP),
-    ...listIssues(LBL_QUEUED)
+    ...completeRows(quotaDecompScan, 'quota-scan decompose'),
+    ...completeRows(quotaQueuedScan, 'quota-scan queued')
       .filter((i) => !has(i, LBL_PARKED))
       .sort((a, b) => Date.parse(b.updatedAt) - Date.parse(a.updatedAt))
       .slice(0, QUOTA_SCAN_MAX),
@@ -4010,7 +4153,10 @@ export function runDrain() {
     nowSec: Math.floor(Date.now() / 1000),
     codexFallbackMode: CODEX_FALLBACK_MODE,
   });
-  const quotaBlocksPromotions = quotaDecision.quotaBlocked;
+  const quotaBlocksPromotions = quotaDecision.quotaBlocked || !quotaScanComplete;
+  if (!quotaScanComplete) {
+    console.log('::warning::quota-scan incompleta → nessuna promozione dipendente dal beacon in questo tick; retry al prossimo tick.');
+  }
 
   // --- FAIRNESS DI QUOTA (peer repo, opt-in via env) --------------------------
   // La quota Claude è UNA per i due repo, e il beacon peer è a senso unico: il
@@ -4379,7 +4525,7 @@ export function runDrain() {
       // una issue `agent:decompose` morta su 429 è il portatore del beacon
       // (quotaScanPool la include), e ri-accodarla durante la finestra
       // toglierebbe la label su cui il beacon viene cercato.
-      const decomposing = listIssues(LBL_DECOMP);
+      const decomposing = completeRows(listIssues(LBL_DECOMP), 'decompose-rescue');
       for (const iss of decomposing) {
         if (hasActiveAgentClaim(iss)) {
           console.log(`CLAIM-SKIP #${iss.number} (agent claim presente: ${names(iss).filter((name) => [LBL_IN_PROGRESS, LBL_LOCAL, LBL_REMOTE].includes(name)).join(', ') || 'stato claim incompleto'}) → lascio intatta la decomposizione della flotta locale/remota`);
@@ -4410,7 +4556,7 @@ export function runDrain() {
         if (settling.length) {
           console.log(`decompose: promozione in assestamento (${settling.map((i) => `#${i.number}`).join(', ')}) → nessuna promozione decompose in questo tick.`);
         } else {
-          const dq = listIssues(LBL_DECOMP_QUEUED)
+          const dq = completeRows(listIssues(LBL_DECOMP_QUEUED), 'decompose-drain')
             .filter((i) => !has(i, LBL_PARKED))
             .filter((i) => !hasActiveAgentClaim(i))
             .sort((a, b) => prioRank(a) - prioRank(b) || Date.parse(a.createdAt) - Date.parse(b.createdAt));
@@ -4436,6 +4582,10 @@ export function runDrain() {
   // dichiarata dal server. Il beacon resta sulla issue in `agent:fix`, quindi il
   // tick successivo lo rilegge senza bisogno di alcuno store esterno.
   if (quotaBlocksPromotions) {
+    if (!quotaScanComplete) {
+      console.log('DRAIN sospeso: quota-scan incompleta → nessuna promozione in questo tick; retry al prossimo tick.');
+      return;
+    }
     const mins = Math.max(1, Math.round((quotaBackoffUntil - Math.floor(Date.now() / 1000)) / 60));
     console.log(`DRAIN sospeso: quota Claude esaurita per altri ~${mins} min (reset ${new Date(quotaBackoffUntil * 1000).toISOString()}). Nessuna promozione — evito run che morirebbero a turno 1.`);
     return;
@@ -4456,10 +4606,32 @@ export function runDrain() {
   // stampato al momento della decisione, qui si onora e basta.
   if (fairnessHold) return;
 
-  const queued = listIssues(LBL_QUEUED)
+  let queued = completeRows(listIssues(LBL_QUEUED), 'drain')
     .filter((i) => !has(i, LBL_PARKED) && !isDecomposedParent(i) && !hasActiveAgentClaim(i))
     .sort((a, b) => prioRank(a) - prioRank(b) || Date.parse(a.createdAt) - Date.parse(b.createdAt));
   if (!queued.length) { console.log('coda vuota → niente da promuovere.'); return; }
+
+  // Equità dello slot: misura solo la finestra della stessa priorità e solo su
+  // una coda completa. Se la deadline non copre l'intera finestra, la coda
+  // resta nell'ordine originario e il rinvio è dichiarato.
+  const fairWindow = slotFairnessWindow(queued);
+  if (fairWindow.length) {
+    if (budget.canAfford(fairWindow.length * COMMENT_SCAN_COST_MS)) {
+      const promotedAtBy = new Map();
+      let measured = true;
+      for (const iss of fairWindow) {
+        if (!budget.take(`#${iss.number} (slot-fairness)`, COMMENT_SCAN_COST_MS)) {
+          measured = false;
+          break;
+        }
+        promotedAtBy.set(iss.number, fixPromotion(iss.number).at);
+      }
+      if (measured) queued = slotFairnessOrder(queued, promotedAtBy);
+      else console.log(`equità slot: budget insufficiente durante la misura (${fairWindow.length} candidati) → nessuna rotazione in questo tick (no silent cap).`);
+    } else {
+      console.log(`equità slot: budget insufficiente per misurare la finestra (${fairWindow.length} candidati) → nessuna rotazione in questo tick (no silent cap).`);
+    }
+  }
 
   // The issue-fix preflight reuses the reservation written here. The ledger is
   // read only after the queue is known to be non-empty, so a temporary GitHub
@@ -4530,7 +4702,7 @@ export function runDrain() {
   };
 
   let overlapSkipped = 0;
-  let prFilesMap = null; // lazy: caricato al primo candidato con path estratti, poi cached
+  let prFilesScan = null; // lazy: una snapshot completa per ciclo; gli errori restano fail-closed
   let dailyOpenPrScan = null; // complete/paginated scan; null means not needed yet
 
   // --- GROUPING (B19): pianifica prima, arma solo il leader ------------------
@@ -4539,11 +4711,20 @@ export function runDrain() {
   // gruppo non sostituisce i pre-flight del drain; li anticipa solo per evitare
   // di mescolare un candidato non lavorabile con membri sani.
   const queuedNumbers = new Set(queued.map((i) => Number(i.number)));
-  const activeGroupDigestsSet = activeGroupDigests(allFix);
+  // `allFix` è stato letto prima del rescue, che può aver mutato le label:
+  // rileggerlo qui evita di riusare un vettore stale per decidere se un gruppo
+  // è già armato. Se la rilettura non è completa, il grouping resta disabilitato
+  // e i candidati già marcati come membri vengono lasciati intatti.
+  const activeGroupScan = listIssues(LBL_FIX);
+  const activeGroupScanComplete = activeGroupScan.complete === true;
+  const activeGroupDigestsSet = activeGroupScanComplete
+    ? activeGroupDigests(activeGroupScan.rows)
+    : new Set();
   const groupsByMember = new Map();
   const groupStates = new Map();
-  const queuedWithBodies = listIssuesWithBodies(LBL_QUEUED);
-  if (queuedWithBodies !== null) {
+  const queuedWithBodiesScan = listIssuesWithBodies(LBL_QUEUED);
+  const queuedWithBodies = queuedWithBodiesScan.complete === true ? queuedWithBodiesScan.rows : null;
+  if (queuedWithBodies !== null && activeGroupScanComplete) {
     const groupable = queuedWithBodies
       .filter((i) => queuedNumbers.has(Number(i.number)))
       // A daily bucket is already an aggregate with its own one-item circuit
@@ -4573,8 +4754,12 @@ export function runDrain() {
       for (const issue of group.issues) {
         const paths = extractCodePaths(`${issue.title || ''}\n${issue.body || ''}`);
         if (paths.length > 0) {
-          if (prFilesMap === null) prFilesMap = loadOpenPrFilesMap();
-          const overlap = findOverlapFile(paths, prFilesMap);
+          if (prFilesScan === null) prFilesScan = loadOpenPrFilesMap();
+          if (!prFilesScan.complete) {
+            console.log(`::warning::GROUP-MEMBER-SKIP #${issue.number}: mappa PR aperte incompleta (${prFilesScan.reason}) → controllo overlap rinviato al prossimo tick.`);
+            continue;
+          }
+          const overlap = findOverlapFile(paths, prFilesScan.map);
           if (overlap) {
             console.log(`GROUP-MEMBER-SKIP #${issue.number} (file \`${overlap.file}\` in-volo in PR #${overlap.prNumber}) → il gruppo non ingloba il membro transitorio`);
             continue;
@@ -4621,6 +4806,10 @@ export function runDrain() {
       .filter(Boolean);
     if (candidateGroupDigests.some((digest) => activeGroupDigestsSet.has(digest))) {
       console.log(`GROUP-SKIP #${cand.number}: membro di un gruppo già armato → nessuna promozione singola.`);
+      continue;
+    }
+    if (!activeGroupScanComplete && candidateGroupDigests.length) {
+      console.log(`GROUP-SKIP #${cand.number}: snapshot dei gruppi attivi incompleta → nessuna promozione singola del membro in questo tick.`);
       continue;
     }
     if (plannedGroup) {
@@ -4899,8 +5088,13 @@ export function runDrain() {
     // Check: overlap-file con PR aperta (escalation #3810). Zero-Claude, pre-promozione.
     const candPaths = extractCodePaths(`${cand.title}\n${body}`);
     if (candPaths.length > 0) {
-      if (prFilesMap === null) prFilesMap = loadOpenPrFilesMap(); // lazy init, cached per ciclo
-      const overlap = findOverlapFile(candPaths, prFilesMap);
+      if (prFilesScan === null) prFilesScan = loadOpenPrFilesMap(); // lazy init, completa o fail-closed per ciclo
+      if (!prFilesScan.complete) {
+        console.log(`::warning::OVERLAP-SKIP #${cand.number}: mappa PR aperte incompleta (${prFilesScan.reason}) → nessuna promozione path-sensitive in questo tick.`);
+        overlapSkipped++;
+        continue;
+      }
+      const overlap = findOverlapFile(candPaths, prFilesScan.map);
       if (overlap) {
         console.log(`OVERLAP-SKIP #${cand.number} (file \`${overlap.file}\` in-volo in PR #${overlap.prNumber} "${overlap.prTitle.slice(0, 40)}") → rinvio al prossimo tick`);
         overlapSkipped++;
