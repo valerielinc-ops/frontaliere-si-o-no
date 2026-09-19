@@ -9,7 +9,7 @@
 // for that latent defect.
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import { execSync } from 'node:child_process';
-import { chmodSync, mkdtempSync, rmSync, writeFileSync, existsSync } from 'node:fs';
+import { chmodSync, existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -137,6 +137,15 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
       expect(output).toContain('marker .shard-deploys is listed at HEAD but its blob is unreadable');
       expect(output).toContain('RC=1');
     });
+  });
+
+  it('full shard overlays flatten when either marker lazy-fetch fails', () => {
+    for (const script of ['scripts/lib/push-section-shard.sh', 'scripts/lib/push-locale-shard.sh']) {
+      const source = readFileSync(join(process.cwd(), script), 'utf8');
+      expect(source).toContain('if ! dcount="$(shard_read_counter "$stage" .shard-deploys)"');
+      expect(source).toContain('marker lazy-fetch failed');
+      expect(source).toContain('shard_orphan_init "$stage"');
+    }
   });
 
   describe('shard_orphan_init', () => {

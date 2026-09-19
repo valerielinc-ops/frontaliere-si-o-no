@@ -365,9 +365,17 @@ push_section_shard() {
         # checks — --no-checkout NEVER materializes a working-tree file, so a
         # `[ -f "$stage/.shard-deploys" ]` check here was always false (see
         # scripts/lib/shard-git-helpers.sh header for the full incident).
-        dcount="$(shard_read_counter "$stage" .shard-deploys)"
-        prev_n="$(shard_read_counter "$stage" .shard-filecount)"
-        if [ "$dcount" -ge "$SHARD_HISTORY_CAP" ]; then
+        # A listed-but-unreadable marker is not a zero: flatten the staged
+        # payload to the same orphan path used at the history cap, so a failed
+        # lazy-fetch cannot bypass SHARD_HISTORY_CAP.
+        if ! dcount="$(shard_read_counter "$stage" .shard-deploys)" \
+          || ! prev_n="$(shard_read_counter "$stage" .shard-filecount)"; then
+          echo "::warning::$section-$loc shard: marker lazy-fetch failed — flattening before full overlay"
+          rm -rf "$stage"; mkdir -p "$stage"
+          shard_orphan_init "$stage"
+          dcount=0
+          prev_n=0
+        elif [ "$dcount" -ge "$SHARD_HISTORY_CAP" ]; then
           echo "$section-$loc shard: history cap $SHARD_HISTORY_CAP reached (dcount=$dcount) — flattening with orphan force-push"
           rm -rf "$stage"; mkdir -p "$stage"
           shard_orphan_init "$stage"
