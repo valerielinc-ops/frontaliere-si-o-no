@@ -12,7 +12,7 @@ import { spawnSync, execFileSync } from 'node:child_process';
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
-import { isDeclaredFalsePositive, DECLARATION_HOWTO, resolveSiblingGateTarget } from '../scripts/ci/sibling-check-gate.mjs';
+import { isDeclaredFalsePositive, DECLARATION_HOWTO, isPrCreateCommand, resolveSiblingGateTarget } from '../scripts/ci/sibling-check-gate.mjs';
 import { resolveGatedHeadRef } from '../scripts/ci/lib/hook-target-cwd.mjs';
 import { describePrBodySource, localDiffPaths } from '../scripts/ci/pr-body-check-gate.mjs';
 import { EXIT_BLOCK } from '../scripts/ci/lib/hook-exit-codes.mjs';
@@ -621,5 +621,32 @@ describe('sibling-check-gate — difetti misurati il 2026-09-05', () => {
       const res = runGate(`gh pr create --head feature-x --title x --body-file ${bodyPath}`);
       expect(res.status).toBe(0);
     });
+  });
+});
+
+describe('sibling-check-gate: a quoted mention is not a command', () => {
+  const CREATE = ['gh', 'pr', 'create'].join(' ');
+
+  it('recognizes the real invocation, including behind an assignment prefix', () => {
+    expect(isPrCreateCommand(`${CREATE} --title t --body-file b.md`)).toBe(true);
+    expect(isPrCreateCommand(`GH_TOKEN=x ${CREATE} --fill`)).toBe(true);
+    expect(isPrCreateCommand(`cd /tmp && ${CREATE} --fill`)).toBe(true);
+  });
+
+  it('ignores the same words quoted inside a heredoc or an argument', () => {
+    // Reproduced three times on 2026-09-20 while changing these hooks: a
+    // commit message that documented the gate was blocked BY the gate.
+    const heredoc = ["git commit -F - <<'MSG'", 'docs: how to open a PR', '', `  ${CREATE} --fill`, 'MSG'].join('\n');
+    expect(isPrCreateCommand(heredoc)).toBe(false);
+    expect(isPrCreateCommand(`echo "${CREATE} --fill"`)).toBe(false);
+    expect(isPrCreateCommand(`grep -n '${CREATE}' scripts/ci/foo.mjs`)).toBe(false);
+  });
+
+  it('does not treat `gh pr edit` as a creation', () => {
+    expect(isPrCreateCommand('gh pr edit 12 --body-file b.md')).toBe(false);
+  });
+
+  it('keeps the conservative substring test when the syntax cannot be parsed', () => {
+    expect(isPrCreateCommand(`${CREATE} --title "unterminated`)).toBe(true);
   });
 });
