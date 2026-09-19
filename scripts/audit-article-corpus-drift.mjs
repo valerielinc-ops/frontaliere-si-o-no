@@ -292,9 +292,18 @@ export const DIVERGENT_CATEGORIES = new Set(['content-mismatch', 'no-locale-verd
  */
 export function assertHeroImagesOnDisk(rootDir, deps = {}) {
   const {
+    // RICORSIVO, per costruzione accoppiato a `countTracked`. Contare i soli
+    // figli diretti qui mentre `git ls-files` cammina l'albero e' confrontare due
+    // popolazioni diverse, cioe' il difetto di misura che questa guardia esiste
+    // per impedire — e in questo repo non era teorico: `public/images/blog`
+    // tiene 9'514 file tracciati di cui 3'697 sotto `thumbnails/`, quindi un
+    // checkout PIENO avrebbe dato 5'817 >= 9'514 = falso e la guardia avrebbe
+    // abortito ogni run sana, fail-closed (rilievo della review su questa PR).
     countOnDisk = (dir) => {
       try {
-        return fs.readdirSync(dir, { withFileTypes: true }).filter((e) => e.isFile()).length;
+        return fs
+          .readdirSync(dir, { withFileTypes: true, recursive: true })
+          .filter((e) => e.isFile()).length;
       } catch {
         return 0;
       }
@@ -311,9 +320,15 @@ export function assertHeroImagesOnDisk(rootDir, deps = {}) {
     },
   } = deps;
 
-  const rel = path.join('public', 'images', 'blog');
-  const blogImagesDir = path.join(rootDir, rel);
-  const onDisk = countOnDisk(blogImagesDir);
+  // Il bucket e' `public/images`, non `public/images/blog`: e' l'unita' che il
+  // profilo sparse esclude (`!/public/images/`) ed e' anche l'insieme giusto
+  // per il renderer, che risolve il candidato hero con una regex su QUALUNQUE
+  // `/images/...` citato nella entry SEO — quindi un articolo puo' puntare a
+  // `public/images/places/...` e non solo a `blog/`. Misurare la sola
+  // sottocartella `blog/` lasciava scoperti quei casi (rilievo della review).
+  const rel = path.join('public', 'images');
+  const imagesDir = path.join(rootDir, rel);
+  const onDisk = countOnDisk(imagesDir);
   const tracked = countTracked(rel);
 
   // Il confronto e' contro l'INDICE di git, non contro una soglia inventata:
