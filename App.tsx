@@ -2788,6 +2788,7 @@ const App: React.FC = () => {
  setVitaSubTab(key);
  Analytics.trackUIInteraction('vita', 'navigazione', 'tab_sezione', 'cambio', key);
  }}
+ onIntent={(key) => prefetchTab('vita', key)}
  />
  )}
 

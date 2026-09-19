@@ -63,7 +63,7 @@ const TAB_LOADERS: Record<string, PrefetchFn[]> = {
   () => import('@/components/pages/PlateAuctionsPage'),
  ],
  vita: [
- () => import('@/components/comparators/CostOfLiving'),
+  () => import('@/components/tabs/VitaTabContent'),
  ],
  blog: [
  () => import('@/components/community/BlogArticles'),
@@ -80,17 +80,33 @@ const TAB_LOADERS: Record<string, PrefetchFn[]> = {
  ],
 };
 
+const TAB_SUBTAB_LOADERS: Record<string, Record<string, PrefetchFn[]>> = {
+ vita: {
+  'living-ch': [() => import('@/components/guide/FrontierGuide')],
+  'living-it': [() => import('@/components/guide/FrontierGuide')],
+  schools: [() => import('@/components/guide/FrontierGuide')],
+  places: [() => import('@/components/guide/FrontierGuide')],
+  municipalities: [() => import('@/components/guide/FrontierGuide')],
+  companies: [() => import('@/components/vita/TicinoCompanies')],
+  nursery: [() => import('@/components/comparators/NurseryComparator')],
+  transport: [() => import('@/components/vita/TransportCalculator')],
+ },
+};
+
 /**
  * Call on mouseenter/focus of a tab button to prefetch its primary chunks.
  */
-export function prefetchTab(tabName: string) {
+export function prefetchTab(tabName: string, subTab?: string) {
  // Avoid kicking off many real dynamic imports in Vitest, which can leave
  // pending module fetches during worker teardown and produce flaky unhandled rejections.
  if (typeof process !== 'undefined' && (process as any).env?.VITEST) return;
 
- const loaders = TAB_LOADERS[tabName];
- if (!loaders) return;
- for (const loader of loaders) {
- prefetchOnIdle(`tab:${tabName}:${loaders.indexOf(loader)}`, loader);
+ const rootLoaders = TAB_LOADERS[tabName] ?? [];
+ const subTabLoaders = subTab ? TAB_SUBTAB_LOADERS[tabName]?.[subTab] ?? [] : [];
+ for (const [index, loader] of rootLoaders.entries()) {
+  prefetchOnIdle(`tab:${tabName}:root:${index}`, loader);
+ }
+ for (const [index, loader] of subTabLoaders.entries()) {
+  prefetchOnIdle(`tab:${tabName}:${subTab}:${index}`, loader);
  }
 }

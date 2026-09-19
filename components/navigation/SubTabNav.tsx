@@ -15,9 +15,11 @@ interface SubTabNavProps<K extends string> {
  hubKey: string;
  /** Build the canonical href for a sub-tab key. Anchors use it for SEO + middle-click support. */
  hrefFor: (key: K) => string;
+ /** Warm the route-specific lazy chunk on pointer or keyboard intent. */
+ onIntent?: (key: K) => void;
 }
 
-export function SubTabNav<K extends string>({ items, activeKey, onSelect, hubKey, hrefFor }: SubTabNavProps<K>) {
+export function SubTabNav<K extends string>({ items, activeKey, onSelect, hubKey, hrefFor, onIntent }: SubTabNavProps<K>) {
  const tabRefs = useRef<(HTMLAnchorElement | null)[]>([]);
  const scrollRef = useRef<HTMLDivElement | null>(null);
  const [hasScrollEnd, setHasScrollEnd] = useState(false);
@@ -95,6 +97,8 @@ export function SubTabNav<K extends string>({ items, activeKey, onSelect, hubKey
          data-subtab-active={isActive ? 'true' : undefined}
          data-subtab-key={key}
          tabIndex={isActive ? 0 : -1}
+         onMouseEnter={() => onIntent?.(key)}
+         onFocus={() => onIntent?.(key)}
          onClick={(e) => handleClick(e, key)}
          onKeyDown={(e) => handleKeyDown(e, index)}
          className={`flex items-center md:flex-col gap-2 md:gap-0.5 px-3 md:px-1 py-2 md:py-1.5 min-h-[44px] md:min-h-0 rounded-xl text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 shrink-0 md:shrink ${
