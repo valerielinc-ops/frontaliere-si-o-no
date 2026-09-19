@@ -4154,12 +4154,21 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           1,
           Number(process.env.RELATED_SEARCH_PREPASS_CONCURRENCY) || 2,
         );
+        // Sparse gram index + full 3-gram intersection before `includes`
+        // (relatedSearchPostingsCore.mjs): identical entries, less work.
+        // Repository-variable opt-in; unset keeps the dense path.
+        const prepassSparse = process.env.RELATED_SEARCH_POSTINGS_SPARSE === '1';
+        type PrepassResult = {
+          locale: Locale;
+          entries: Array<{ token: string; list: number[] }>;
+          timings?: Record<string, number>;
+        };
         const runPrepassWorker = (workerLocale: Locale) => {
           const localeTokens = Array.from(tokensByLocale.get(workerLocale) as Set<string>);
-          return new Promise<{ locale: Locale; entries: Array<{ token: string; list: number[] }> }>(
+          return new Promise<PrepassResult>(
             (resolve, reject) => {
               const worker = new Worker(workerUrl, {
-                workerData: { jobs: slimJobs, locale: workerLocale, tokens: localeTokens },
+                workerData: { jobs: slimJobs, locale: workerLocale, tokens: localeTokens, sparse: prepassSparse },
               });
               // Resolve on 'exit', NOT 'message': the worker holds its full
               // per-locale gram index (~hundreds of MB) in memory until it tears
@@ -4170,7 +4179,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
               // reclamation airtight: batch N is fully torn down before N+1
               // allocates. The message payload is captured first, then surfaced
               // once the worker has exited cleanly.
-              let payload: { locale: Locale; entries: Array<{ token: string; list: number[] }> } | null = null;
+              let payload: PrepassResult | null = null;
               worker.once('message', (msg) => {
                 payload = msg;
               });
@@ -4196,10 +4205,21 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           for (const r of batchResults) {
             tokenIndex.seedPostings(r.locale, r.entries);
             seededCount += r.entries.length;
+            if (r.timings) {
+              const t = r.timings;
+              // Bench-only digest of the seeded postings: a dense and a sparse
+              // variant of the same sha must print the same value per locale.
+              const digest = process.env.BUILD_BENCH === '1'
+                ? ` digest=${crypto.createHash('sha1').update(JSON.stringify(r.entries)).digest('hex').slice(0, 16)}`
+                : '';
+              console.log(
+                `\x1b[36m[related-search-clusters]\x1b[0m postings pre-pass ${r.locale}: tokens=${r.entries.length} haystacks_ms=${Math.round(t.haystacks ?? 0)} index_ms=${Math.round(t.index ?? 0)} resolve_ms=${Math.round(t.resolve ?? 0)} mode=${prepassSparse ? 'sparse' : 'dense'}${digest}`,
+              );
+            }
           }
         }
         console.log(
-          `\x1b[36m[related-search-clusters]\x1b[0m postings pre-pass: ${localeKeys.length} worker(s) seeded ${seededCount} token postings (concurrency ${PREPASS_CONCURRENCY})`,
+          `\x1b[36m[related-search-clusters]\x1b[0m postings pre-pass: ${localeKeys.length} worker(s) seeded ${seededCount} token postings (concurrency ${PREPASS_CONCURRENCY}, mode ${prepassSparse ? 'sparse' : 'dense'})`,
         );
       }
       profileRecord('postings-prepass', __tPrePass);

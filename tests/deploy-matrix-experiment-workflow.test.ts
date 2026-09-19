@@ -31,6 +31,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'POST_WALK_INCREMENTAL',
       'POST_WALK_INCREMENTAL_VERIFY',
       'RELATED_SEARCH_CLUSTERS_NO_CACHE',
+      'RELATED_SEARCH_POSTINGS_SPARSE',
       'SEQUENTIAL_PROFILE',
     ]);
   });
