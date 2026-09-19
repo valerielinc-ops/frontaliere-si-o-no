@@ -216,8 +216,31 @@ export function collectHtmlFromClaimedPaths(
         if (entry.name.endsWith('.html')) targetedPaths.push(root + path.sep + entry.name);
         continue;
       }
-      if (entry.isDirectory() && !claimedChildren.has(entry.name)) {
-        collectHtml(root + path.sep + entry.name, targetedPaths);
+      if (!entry.isDirectory()) continue;
+      const childRoot = root + path.sep + entry.name;
+      if (!claimedChildren.has(entry.name)) {
+        collectHtml(childRoot, targetedPaths);
+        continue;
+      }
+      // A claimed child can still receive a flat bridge or a new page
+      // directory from an emitter that bypasses WriteCollector. Inspect only
+      // this immediate level. Existing claimed page directories are identified
+      // by their registered index.html and remain unopened; a directory without
+      // that claim is new and can be walked safely in full.
+      for (const childEntry of fs.readdirSync(childRoot, { withFileTypes: true })) {
+        if (childEntry.name === 'assets' || childEntry.name === 'data' || childEntry.name === 'images') continue;
+        if (childEntry.isFile()) {
+          if (childEntry.name.endsWith('.html')) {
+            targetedPaths.push(childRoot + path.sep + childEntry.name);
+          }
+          continue;
+        }
+        if (
+          childEntry.isDirectory()
+          && !seen.has(path.join(childRoot, childEntry.name, 'index.html'))
+        ) {
+          collectHtml(childRoot + path.sep + childEntry.name, targetedPaths);
+        }
       }
     }
   }
