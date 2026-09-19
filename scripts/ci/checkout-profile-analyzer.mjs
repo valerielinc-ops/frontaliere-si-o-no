@@ -99,6 +99,43 @@ const OPAQUE_RULES = [
   // testuale specifico: e' l'unico modo sicuro di trattare un'invocazione che
   // puo' eseguire qualunque script npm del repo.
   ['dynamic-npm-run', /\bnpm\s+run\s+(?:"\$|'\$|\$\{?)/],
+  // `check-article-byte-identity.mjs` raggiunge l'albero attraverso una catena
+  // di SPAWN, non di import: spawna `publish-article-fast.mjs`, che a sua volta
+  // symlinka `public/images` dentro il `distDir` (riga 168) perche' il renderer
+  // verifica l'esistenza dei file hero con `statSync` prima di metterli in
+  // `og:image`. `checkoutEntryPoints` segue gli entry point scritti nel passo
+  // YAML e `transitiveClosure` solo gli import statici: uno `spawnSync` dentro
+  // uno script e' invisibile a entrambi, quindi il bucket `public/images/` non
+  // e' mai entrato nei needs e il profilo generato lo escludeva.
+  //
+  // Il danno non e' stato un errore: e' stato un VERDE sbagliato diventato un
+  // rosso sbagliato. Il symlink verso una directory assente riesce comunque
+  // (symlink pendente), ogni `statSync` fallisce in silenzio e ogni articolo
+  // cade sul fallback `/og-image.png` — cosi' `audit-article-corpus-drift.yml`
+  // ha riportato 40 divergenze `content-mismatch` su 40 (10 articoli x 4
+  // locale) nella run 34751134339, tutte false, confrontando il proprio
+  // rendering mutilato con la produzione sana. L'ultima run verde e' del
+  // 2026-08-10, il blocco sparse e' stato iniettato il 2026-08-19 (91983bf5d825).
+  //
+  // Opaco per costruzione, come `dynamic-npm-run`: non e' un path che si puo'
+  // dedurre meglio, e' una catena che l'analisi statica non vede.
+  //
+  // Il pattern nomina l'entry point SCRITTO NEL PASSO — `npx -y tsx@4
+  // scripts/audit-article-corpus-drift.mjs` — e non gli anelli successivi della
+  // catena. `textOfSteps` passa per il parser YAML, quindi i commenti non
+  // esistono per questa analisi: `check-article-byte-identity.mjs` nel workflow
+  // compare SOLO in cinque commenti (righe 18, 66, 74, 89, 140) e una regola su
+  // quel nome matcherebbe zero workflow. Verificato misurando: con quel pattern
+  // il dry-run restituiva gli stessi «2 modificati | 281 invariati» della
+  // baseline, cioe' nessun effetto.
+  //
+  // NON si nomina `publish-article-fast.mjs`, che sarebbe l'anello dove il
+  // bisogno nasce: e' invocato da 6 workflow (deploy, fast-publish-article,
+  // rerender-article-corpus, rerender-article-hubs, article-hub-landing-watchdog)
+  // che NON hanno il difetto — verificato, nessuno dei loro profili esclude
+  // `public/images/` — e portarli tutti a checkout pieno sarebbe una regressione
+  // di costo per riparare un guasto che non hanno.
+  ['article-corpus-drift-spawn', /\baudit-article-corpus-drift\.mjs\b/],
 ];
 
 /**
