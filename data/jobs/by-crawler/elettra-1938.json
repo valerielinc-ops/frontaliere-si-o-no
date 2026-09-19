@@ -1,6 +1,6 @@
 {
   "crawlerKey": "elettra-1938",
-  "assembledAt": "2026-09-18T23:20:39.744Z",
+  "assembledAt": "2026-09-19T23:03:48.418Z",
   "jobs": [
     {
       "id": "elettra-1938-ef6f82493666",
@@ -25,7 +25,7 @@
       "descriptionByLocale": {
         "it": "Per la nostra sede di Stabio siamo alla ricerca di un operatore di produzione che si occuperà delle seguenti mansioni: handling delle batterie; attività di test e riparazione; assemblaggio di schede elettroniche; attività su linea di...",
         "en": "For our headquarters in Stabio we are looking for a production operator who will take care of the following tasks: battery handling; test and repair activities; electronic card assembly; line-up activities...",
-        "de": "Für unseren Hauptsitz in Stabio suchen wir einen Produktionsbetreiber, der sich um folgende Aufgaben kümmert: Batteriehandling; Test- und Reparaturtätigkeiten; elektronische Kartenmontage; Line-up-Aktivitäten...",
+        "de": "Für unseren Hauptsitz in Stabio suchen wir einen Produktionsbetreiber, der sich um folgende \n• Aufgaben kümmert: Batteriehandling; Test- und Reparaturtätigkeiten; elektronische Kartenmontage; Line-up-Aktivitäten...",
         "fr": "Pour notre siège social à Stabio, nous recherchons un opérateur de production qui s'occupera des tâches suivantes : la manipulation des batteries ; les activités de test et de réparation ; l'assemblage de cartes électroniques ; les activités de line-up..."
       },
       "location": "Sede Stabio Svizzera",
@@ -33,7 +33,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-18T23:20:34.167Z",
+      "crawledAt": "2026-09-19T23:03:43.016Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -49,9 +49,8 @@
       "postedDate": "2026-09-18",
       "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it/",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-18T23:20:34.167Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -64,8 +63,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-18T23:20:34.167Z"
+      }
     },
     {
       "id": "elettra-1938-73b81e3ccbae",
@@ -82,7 +80,7 @@
       "title": "CUSTOMER QUALITY ENGINEER",
       "titleByLocale": {
         "it": "CUSTOMER QUALITY Ingegnere",
-        "en": "CUSTOMER QUALITY ENGINE",
+        "en": "CUSTOMER QUALITY ENGINEER",
         "de": "CUSTOMER Qualität Ingenieur",
         "fr": "CUSTOMER Qualité Ingénieur"
       },
@@ -137,7 +135,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

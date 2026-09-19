@@ -1,23 +1,24 @@
 {
   "key": "elettra-1938",
   "label": "Elettra 1938",
-  "generatedAt": "2026-09-18T23:20:42.901Z",
+  "generatedAt": "2026-09-19T23:03:50.942Z",
   "total": 2,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
   "written": 2,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4325,
-  "avgDurationMs": 4325,
+  "durationMs": 4960,
+  "avgDurationMs": 4960,
   "durationHistory": [
-    4325
+    4960
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "elettra-1938-ef6f82493666",
       "slug": "operaio-d-esercizio-elettra-1938-ch",
@@ -30,7 +31,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-18T23:20:34.167Z",
+      "crawledAt": "2026-09-19T23:03:43.016Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -45,16 +46,16 @@
       "featured": false,
       "postedDate": "2026-09-18",
       "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it/",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-09-18T23:20:34.167Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -88,7 +89,7 @@
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
