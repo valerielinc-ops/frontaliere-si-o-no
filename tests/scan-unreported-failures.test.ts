@@ -28,6 +28,7 @@ import {
   dormancyThresholdMinutes,
   isCoveredIssueStale,
   workflowScheduleFromSource,
+  workflowNameFromIssue,
   runBody,
   dormantBody,
 } from '../scripts/ci/scan-unreported-failures.mjs';
@@ -67,6 +68,29 @@ describe('accoppiamento con chi CHIUDE', () => {
     const m = TITLE_RE.exec('CI Failure: seo-serp-autopilot');
     expect(m).not.toBeNull();
     expect(m![1]).toBe('seo-serp-autopilot');
+  });
+});
+
+describe('dedup con issue canoniche che dichiarano il workflow nel corpo', () => {
+  it('mantiene la precedenza del titolo nella famiglia centrale', () => {
+    expect(workflowNameFromIssue({
+      title: 'CI Failure: sync-pharmacy-duties',
+      body: '**Workflow:** altro-workflow',
+    })).toBe('sync-pharmacy-duties');
+  });
+
+  it('riconosce una issue di monitor con titolo di dominio', () => {
+    expect(workflowNameFromIssue({
+      title: '[crawler-health] clinique-generale-ste-anne: crawler unhealthy',
+      body: '**Workflow:** crawler-health-monitor\n\nAutomated health check flagged a crawler.',
+    })).toBe('crawler-health-monitor');
+  });
+
+  it('non deduce il workflow da testo libero', () => {
+    expect(workflowNameFromIssue({
+      title: 'A crawler needs attention',
+      body: 'The workflow crawler-health-monitor reported a stale crawler.',
+    })).toBeNull();
   });
 });
 
