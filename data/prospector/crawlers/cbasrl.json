@@ -1,0 +1,20 @@
+{
+  "companyKey": "cbasrl",
+  "companyName": "C.B.A. srl",
+  "companyHost": "cbasrl.altamiraweb.com",
+  "platform": "altamiraweb.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://cbasrl.altamiraweb.com/"
+  ],
+  "detailTemplate": "/annunci-lavoro/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "RESPONSABILE OPERATIONS E SVILUPPO SERVIZI AMBIENTALI",
+    "MANUTENTORE ELETTROMECCANICO"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-09-19T09:32:06.431Z"
+}

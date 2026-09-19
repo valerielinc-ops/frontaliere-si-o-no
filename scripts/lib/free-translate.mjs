@@ -20,6 +20,7 @@
  * without depending on the full shared-jobs-crawler.mjs infrastructure.
  */
 
+import { performance } from 'node:perf_hooks';
 import { translateWithMyMemory } from './mymemory-translate.mjs';
 import { finalizeTranslatedText, maskProtectedTokens } from './translation-glossary.mjs';
 import { translateWithLocalOpusMt, localOpusMtEnabled } from './local-opus-mt.mjs';
@@ -1291,6 +1292,27 @@ function noteTranslationOutcome(state, outcome) {
   state[outcome] = (state[outcome] || 0) + 1;
 }
 
+function monotonicDurationMs(startedAtMs) {
+  return Math.max(0, Math.round(performance.now() - startedAtMs));
+}
+
+/**
+ * Record one completed translation unit without making observability part of
+ * the translation contract. The callback is deliberately optional and never
+ * allowed to make a provider failure look like a translation failure.
+ */
+function recordTranslationAttribution(outcome, startedAtMs) {
+  if (typeof outcome?.onAttribution !== 'function') return;
+  const rung = typeof outcome.lastRung === 'string' && outcome.lastRung
+    ? outcome.lastRung
+    : 'unserved';
+  try {
+    outcome.onAttribution({ rung, durationMs: monotonicDurationMs(startedAtMs) });
+  } catch {
+    // Observability is best-effort and must never alter localization behavior.
+  }
+}
+
 function snapshotTranslationOutcome(state) {
   return state ? { passthroughs: state.passthroughs, errors: state.errors } : null;
 }
@@ -1310,8 +1332,8 @@ async function translateWithLocalOpusMtWithOutcome(text, sourceLang, targetLang,
 
 export function mergeTranslationOutcome(target, source) {
   if (!target || !source) return;
-  target.passthroughs += source.passthroughs || 0;
-  target.errors += source.errors || 0;
+  target.passthroughs = (target.passthroughs || 0) + (source.passthroughs || 0);
+  target.errors = (target.errors || 0) + (source.errors || 0);
   target.incomplete = target.incomplete || source.incomplete === true;
   target.tierUnavailable = target.tierUnavailable || source.tierUnavailable === true;
 }
@@ -1320,6 +1342,11 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
   const sourceClean = normalizeBlock(text);
   if (!sourceClean) return '';
   if (sourceLang === targetLang) return sourceClean;
+
+  if (_outcome) {
+    _outcome.lastRung = null;
+    _outcome.pendingRung = null;
+  }
 
   _cascadeStats.calls++;
   const fieldStats = _fieldStats(fieldType);
@@ -1352,6 +1379,11 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
       protectedTokens,
     });
     if (!finalized) noteTranslationOutcome(_outcome, 'incomplete');
+    if (finalized) {
+      if (_outcome) _outcome.lastRung = _outcome.pendingRung || null;
+    } else if (_outcome) {
+      _outcome.pendingRung = null;
+    }
     return finalized;
   };
 
@@ -1375,6 +1407,7 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
         _cascadeStats.tierHits[tierName] = (_cascadeStats.tierHits[tierName] || 0) + 1;
         _cascadeStats.successes++;
         fieldStats.successes++;
+        if (_outcome) _outcome.pendingRung = tierName;
         return result;
       }
     } catch (err) {
@@ -1551,16 +1584,24 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
  * @returns {Promise<string>} Translated text or ''
  */
 export async function freeTranslateWithRetry({ text, sourceLang, targetLang, fieldType = 'title', maxRetries = 2, _outcome = null }) {
+  const shouldObserve = typeof _outcome?.onAttribution === 'function'
+    && normalizeBlock(text)
+    && sourceLang !== targetLang;
+  const startedAtMs = performance.now();
+  const finish = (value) => {
+    if (shouldObserve) recordTranslationAttribution(_outcome, startedAtMs);
+    return value;
+  };
   const result = await freeTranslate({ text, sourceLang, targetLang, fieldType, _outcome });
-  if (result) return result;
+  if (result) return finish(result);
 
   for (let i = 1; i <= maxRetries; i++) {
     await delay(i * 1000);
     const retry = await freeTranslate({ text, sourceLang, targetLang, fieldType, _outcome });
-    if (retry) return retry;
+    if (retry) return finish(retry);
   }
 
-  return '';
+  return finish('');
 }
 
 /**
@@ -1579,10 +1620,30 @@ export function asTranslationResult(value) {
 }
 
 /** Return the retry result together with the reason for an empty translation. */
-export async function freeTranslateWithRetryDetailed({ text, sourceLang, targetLang, fieldType = 'title', maxRetries = 2 }) {
-  const outcome = { passthroughs: 0, errors: 0, incomplete: false, tierUnavailable: false };
+export async function freeTranslateWithRetryDetailed({ text, sourceLang, targetLang, fieldType = 'title', maxRetries = 2, _outcome = null }) {
+  const outcome = {
+    passthroughs: 0,
+    errors: 0,
+    incomplete: false,
+    tierUnavailable: false,
+    onAttribution: _outcome?.onAttribution,
+  };
+  const shouldObserve = typeof outcome.onAttribution === 'function'
+    && normalizeBlock(text)
+    && sourceLang !== targetLang;
+  const startedAtMs = performance.now();
+  const finish = (value) => {
+    if (_outcome) {
+      _outcome.passthroughs = (_outcome.passthroughs || 0) + outcome.passthroughs;
+      _outcome.errors = (_outcome.errors || 0) + outcome.errors;
+      _outcome.incomplete = _outcome.incomplete || outcome.incomplete;
+      _outcome.tierUnavailable = _outcome.tierUnavailable || outcome.tierUnavailable;
+    }
+    if (shouldObserve) recordTranslationAttribution(outcome, startedAtMs);
+    return value;
+  };
   let out = await freeTranslate({ text, sourceLang, targetLang, fieldType, _outcome: outcome });
-  if (out) return { text: out, passthrough: false };
+  if (out) return finish({ text: out, passthrough: false });
 
   for (let i = 1; i <= maxRetries; i++) {
     // This flag describes the current attempt. A later source echo may be a
@@ -1590,7 +1651,7 @@ export async function freeTranslateWithRetryDetailed({ text, sourceLang, targetL
     outcome.tierUnavailable = false;
     await delay(i * 1000);
     out = await freeTranslate({ text, sourceLang, targetLang, fieldType, _outcome: outcome });
-    if (out) return { text: out, passthrough: false };
+    if (out) return finish({ text: out, passthrough: false });
   }
 
   // passthroughs/errors/incomplete are aggregated across attempts. The
@@ -1601,5 +1662,5 @@ export async function freeTranslateWithRetryDetailed({ text, sourceLang, targetL
     && outcome.errors === 0
     && !outcome.incomplete
     && !outcome.tierUnavailable;
-  return { text: '', passthrough };
+  return finish({ text: '', passthrough });
 }
