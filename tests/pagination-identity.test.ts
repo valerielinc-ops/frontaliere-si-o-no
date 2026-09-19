@@ -47,5 +47,7 @@ describe('pagination source identity contract', () => {
     expect(postfinance).toContain('const pageRecords = entries.map((entry) => entry?.response);');
     expect(postfinance).toContain('pageRecords.some((record) => !record)');
     expect(postfinance).toContain('if (!paginationComplete && pageNumber >= RECRUITING_API_MAX_PAGES)');
+    expect(postfinance).toContain('if (!page) {');
+    expect(postfinance).toContain('if (!Array.isArray(page.jobSearchResult)) {');
   });
 });

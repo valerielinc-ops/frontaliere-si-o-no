@@ -237,9 +237,14 @@ async function fetchPostFinanceListingsViaRecruitingApi() {
 
   while (pageNumber < RECRUITING_API_MAX_PAGES) {
     const page = await fetchRecruitingApiPage(pageNumber);
-    if (!page) break;
+    if (!page) {
+      throw new Error(`PostFinance API pagination failed at page ${pageNumber}: no response received.`);
+    }
+    if (!Array.isArray(page.jobSearchResult)) {
+      throw new Error(`PostFinance API pagination failed at page ${pageNumber}: expected jobSearchResult array.`);
+    }
 
-    const entries = Array.isArray(page.jobSearchResult) ? page.jobSearchResult : [];
+    const entries = page.jobSearchResult;
     if (total === null) {
       const declared = Number(page.totalJobs);
       if (Number.isFinite(declared) && declared > 0) total = declared;
