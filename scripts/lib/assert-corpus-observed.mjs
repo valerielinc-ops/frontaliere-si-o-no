@@ -59,24 +59,50 @@
  */
 
 /**
+ * Il verdetto e' PER SEZIONE, non sulla somma.
+ *
+ * Rilievo 🔴 Important della review su #9205: aggregare gli `observed` di tutte
+ * le sezioni fa si' che una sezione popolata MASCHERI una sorella vuota o
+ * troncata. Con `--section all` l'audit potrebbe dire PASS avendo osservato
+ * `frontaliere` e zero articoli di `svizzera`, e rerender potrebbe uscire 0
+ * avendo pushato un corpus parziale. E' lo stesso verde fabbricato della run
+ * 32620849579, semplicemente per-sezione invece che totale — e la
+ * smaterializzazione parziale di un albero e' piu' probabile di quella totale,
+ * quindi il caso mascherato e' anche il piu' frequente.
+ *
+ * Una sezione selezionata con zero osservati e' quindi sempre un abort. Non
+ * esiste un caso legittimo fra questi chiamanti: con `--only-ids` entrambi gli
+ * script assegnano la STESSA lista di id a ogni sezione
+ * (`args.onlyIds && args.onlyIds.length ? args.onlyIds : enumerate...`), quindi
+ * una sezione non puo' restare vuota per costruzione dell'input; e con
+ * `--section <x>` la sezione selezionata e' una sola. Il chiamante che ha
+ * bisogno di tollerare una sezione vuota — build-plugins/staticPagesPlugin.ts —
+ * non usa questa guardia e non deve usarla.
+ *
  * @param {string} label            prefisso di log dello script chiamante
  * @param {Record<string, {total: number, observed: number}>} sections
- * @throws {Error} se la somma degli `observed` e' zero
+ * @throws {Error} se una qualsiasi sezione selezionata ha zero osservati
  */
 export function assertCorpusObserved(label, sections) {
   const entries = Object.entries(sections || {});
-  const totalObserved = entries.reduce((n, [, s]) => n + (Number(s?.observed) || 0), 0);
-  if (totalObserved > 0) return;
-
   const misura = entries.length
     ? entries.map(([name, s]) => `${name}: total=${s?.total ?? 0} observed=${s?.observed ?? 0}`).join(', ')
     : 'nessuna sezione selezionata';
 
+  const empty = entries.filter(([, s]) => !(Number(s?.observed) > 0)).map(([name]) => name);
+  if (entries.length > 0 && empty.length === 0) return;
+
+  const quali = entries.length
+    ? `sezioni senza osservazioni: ${empty.join(', ')}`
+    : 'nessuna sezione selezionata';
+
   throw new Error(
-    `${label} ABORT: zero articoli osservati — ${misura}.\n` +
+    `${label} ABORT: zero articoli osservati — ${quali}. Conteggi: ${misura}.\n` +
       "  Un verdetto sul corpus che non ha osservato niente non puo' essere verde: e' il\n" +
-      '  verde fabbricato della run 32620849579, dove 7\'171 file su 38\'176 tracciati erano\n' +
+      "  verde fabbricato della run 32620849579, dove 7'171 file su 38'176 tracciati erano\n" +
       '  materializzati e le sezioni risultavano vuote.\n' +
+      '  Il controllo e per-sezione di proposito: una sezione popolata non riscatta una\n' +
+      '  sorella vuota, altrimenti un albero smaterializzato a META` passerebbe.\n' +
       '  Cause tipiche, in ordine di probabilita:\n' +
       "    - un profilo sparse-checkout che ampute l'albero (vedi assertHeroImagesOnDisk);\n" +
       '    - `--only-ids` con id che non esistono nella sezione richiesta;\n' +

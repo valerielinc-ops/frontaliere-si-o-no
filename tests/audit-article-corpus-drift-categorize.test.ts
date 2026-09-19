@@ -89,18 +89,20 @@ describe('categorizeLocaleVerdicts — precedence', () => {
 });
 
 /**
- * Terza occorrenza della stessa classe descritta nell'header: l'audit esce 0
+ * Terza occorrenza della stessa classe descritta nell'header: lo script esce 0
  * dichiarando successo dopo aver verificato zero articoli. Le prime due volte
  * era il categorizzatore; qui e' il campione vuoto.
  *
  * Riproduce la run 32620849579 (2026-08-23), l'unico verde in sei run:
  * `corpusSize=0 sampled=0` su entrambe le sezioni, poi `PASS`, poi
- * `conclusion: success`. Senza questo caso il prossimo profilo sparse che
- * ampute l'albero rifabbrica quel verde senza che nessuno lo veda — e questo
- * workflow non ha, per scelta, nessuno step `if: failure()` che apra una issue.
+ * `conclusion: success`. Senza questi casi il prossimo profilo sparse che
+ * ampute l'albero rifabbrica quel verde senza che nessuno lo veda — e
+ * audit-article-corpus-drift non ha, per scelta motivata nel suo header,
+ * nessuno step `if: failure()` che apra una issue: qui l'unico osservatore
+ * possibile e' lo script che rifiuta di mentire.
  */
-describe('assertSomethingWasObserved — «non ho osservato niente» non e` PASS', () => {
-  it('rifiuta la run 32620849579: due sezioni, corpusSize 0, sampled 0', () => {
+describe('assertCorpusObserved — «non ho osservato niente» non e` PASS', () => {
+  it('rifiuta la run 32620849579: due sezioni, total 0, observed 0', () => {
     expect(() =>
       assertCorpusObserved('[t]', {
         frontaliere: { total: 0, observed: 0 },
@@ -110,8 +112,8 @@ describe('assertSomethingWasObserved — «non ho osservato niente» non e` PASS
   });
 
   it('nomina nel messaggio la sezione e i suoi conteggi, non solo «errore»', () => {
-    // Il messaggio E` la diagnosi: la run non ha issue e il report va letto a
-    // mano, quindi i numeri devono stare nella riga di log.
+    // Il messaggio E` la diagnosi: con rerender il manifest resta in /tmp e non
+    // viene caricato come artifact, quindi i numeri devono stare nel log.
     expect(() => assertCorpusObserved('[t]', { svizzera: { total: 0, observed: 0 } })).toThrow(
       /svizzera: total=0 observed=0/,
     );
@@ -121,18 +123,36 @@ describe('assertSomethingWasObserved — «non ho osservato niente» non e` PASS
     expect(() => assertCorpusObserved('[t]', {})).toThrow(/nessuna sezione selezionata/);
   });
 
-  it('non e` una soglia: un solo articolo osservato passa', () => {
-    // Il confronto e` contro zero. Alzare questo numero trasformerebbe una
-    // guardia di osservabilita` in un gate sulla dimensione del campione.
+  // ─── Il rilievo 🔴 Important della review su #9205 ───────────────────────
+  // La prima versione sommava gli `observed` di TUTTE le sezioni, quindi una
+  // sezione popolata mascherava una sorella vuota: `--section all` poteva dire
+  // PASS avendo osservato solo `frontaliere`, e rerender poteva uscire 0 avendo
+  // pushato un corpus parziale. Questi due casi sono quella regressione, e la
+  // smaterializzazione PARZIALE di un albero e' piu' probabile di quella totale.
+  it('una sezione popolata NON riscatta una sorella vuota', () => {
     expect(() =>
       assertCorpusObserved('[t]', {
-        frontaliere: { total: 3889, observed: 1 },
+        frontaliere: { total: 3889, observed: 10 },
         svizzera: { total: 0, observed: 0 },
       }),
-    ).not.toThrow();
+    ).toThrow(/zero articoli osservati/);
   });
 
-  it('passa quando il campione e` quello della run rossa reale (10 + 10)', () => {
+  it('dice QUALE sezione e` vuota, non solo che qualcosa lo e`', () => {
+    expect(() =>
+      assertCorpusObserved('[t]', {
+        frontaliere: { total: 3889, observed: 10 },
+        svizzera: { total: 0, observed: 0 },
+      }),
+    ).toThrow(/sezioni senza osservazioni: svizzera/);
+  });
+
+  it('non e` una soglia: una sola sezione selezionata con un solo articolo passa', () => {
+    // Il confronto e` contro zero, non contro una dimensione di campione.
+    expect(() => assertCorpusObserved('[t]', { frontaliere: { total: 3889, observed: 1 } })).not.toThrow();
+  });
+
+  it('passa quando OGNI sezione ha osservato: il campione 10+10 della run rossa', () => {
     expect(() =>
       assertCorpusObserved('[t]', {
         frontaliere: { total: 3889, observed: 10 },
