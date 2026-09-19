@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unispital-basel",
-  "assembledAt": "2026-09-17T19:02:21.580Z",
+  "assembledAt": "2026-09-18T21:43:50.683Z",
   "jobs": [
     {
       "id": "unispital-basel-a292aece20e2",
@@ -1524,11 +1524,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-hf-fh-im-springerpool-unispital-basel-ch"
+        "fachfrau-fachmann-operationstechnik-hf-fh-im-springerpool-unispital-basel-ch",
+        "fachfrau-fachmann-op-lagerung-hf-fh-im-springerpool-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-operationstechnik-hf-fh-im-springerpool-unispital-basel-ch"
+          "fachfrau-fachmann-operationstechnik-hf-fh-im-springerpool-unispital-basel-ch",
+          "fachfrau-fachmann-op-lagerung-hf-fh-im-springerpool-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-06-18T13:20:47.073Z",
@@ -1542,88 +1544,6 @@
           "@type": "QuantitativeValue",
           "minValue": 69500,
           "maxValue": 93500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "unispital-basel-8e89686cf7a8",
-      "slug": "smaltimento-chirurgico-hf-fh-specialista-expert-in-springerpool-universitatsspital-basel-basel",
-      "slugByLocale": {
-        "it": "smaltimento-chirurgico-hf-fh-specialista-expert-in-springerpool-universitatsspital-basel-basel",
-        "en": "specialist-expert-surgical-storage-hf-fh-in-springerpool-universitatsspital-basel-basel",
-        "de": "fachfrau-fachmann-op-lagerung-hf-fh-im-springerpool-unispital-basel-ch",
-        "fr": "specialiste-ou-positionnement-hf-fh-dans-la-piscine-de-sauteurs-universitatsspital-basel-basel"
-      },
-      "company": "Universitätsspital Basel",
-      "companyKey": "unispital-basel",
-      "companyDomain": "unispital-basel.ch",
-      "title": "Fachfrau/Fachmann OP-Lagerung HF/FH im Springerpool",
-      "titleByLocale": {
-        "it": "Smaltimento chirurgico HF/FH Specialista/Expert in Springerpool",
-        "en": "Specialist/Expert surgical storage HF/FH in Springerpool",
-        "de": "Fachfrau/Fachmann OP-Lagerung HF/FH im Springerpool",
-        "fr": "Spécialiste OU positionnement HF/FH dans la piscine de sauteurs"
-      },
-      "description": "Aufgaben:\n• Gewährleisten eines persönlichen Empfanges der Patientinnen und Patienten sowie deren Betreuung\n\n• Situationsbezogenes Lagern und Vorbereiten jeglicher Patientinnen und Patienten auf dem Operationstisch\n\n• Berücksichtigen der Prävention möglicher Schäden\n\n• Sicherstellen der Asepsis und Hygiene in der Operationsabteilung\n\n• Einrichten von Extensionen, Anlegen von postoperativen Gips- und Operationsverbänden\n\n• Vor- und Nachbereiten von Materialien, Bewirtschaften, Bedienen und Kontrollieren hochspezialisierter, medizintechnischer Geräte\n\nAnforderungen:\n• Eidg. Berufsattest, z.B. als Assistent*in Gesundheit & Soziales, Eidg. Fähigkeitszeugnis als Fachperson Gesundheit und Betreuung oder vergleichbare Ausbildung mit Abschluss\n\n• Basis- und Fachkurs Operationslagerungspflege von Vorteil\n\n• Grundkenntnisse in Anatomie\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Garantire l'accoglienza personalizzata dei pazienti e la loro cura\n• Conservazione e preparazione di tutti i pazienti sul tavolo operatorio in base alla situazione\n• Tenere conto della prevenzione di possibili danni\n• Garantire l'asepsi e l'igiene nel reparto operatorio\n• Allestimento di estensioni, applicazione di cerotti postoperatori e bende chirurgiche\n• Preparazione e post-lavorazione dei materiali, gestione, utilizzo e controllo di attrezzature mediche altamente specializzate Requisiti:\n• Federale. Certificato professionale, ad es. come assistente in ambito sanitario e sociale, attestato federale di idoneità come specialista in sanità o formazione comparabile con una laurea\n• Costituisce vantaggio un corso base e specialistico in cure di posizionamento chirurgico\n• Conoscenze di base di anatomia\n• Ottima conoscenza della lingua tedesca parlata e scritta Offriamo:\n• Politica salariale interessante ed eccellenti prestazioni sociali\n• Riduzioni nei settori dello shopping, dello sport e del tempo libero\n• Supporto per il trasloco e la ricerca di un appartamento\n• 25 giorni di ferie più 5 giorni flessibili, anch'essi gratuiti\n• Supporto per formazione continua e pianificazione della carriera\n• Campus nel cuore di Basilea e nel triangolo di confine\n• Ampia offerta di assistenza ai bambini\n• Programma sportivo e di movimento gratuito",
-        "en": "Tasks:\n• Ensuring a personal reception of patients and their care\n• Situation-related storage and preparation of all patients on the operating table\n• Taking into account the prevention of possible damage\n• Ensuring asepsis and hygiene in the operating department\n• Setting up extensions, applying postoperative plaster and surgical bandages\n• Preparing and post-processing materials, managing, operating and controlling highly specialized medical equipment Requirements:\n• Federal. Professional certificate, e.g. as an assistant in health and social affairs, federal certificate of competency as a health and care specialist or comparable training with a degree\n• Basic and specialist course in surgical positioning care is an advantage\n• Basic knowledge of anatomy\n• Very good knowledge of spoken and written German We offer:\n• Attractive wage policy and excellent social benefits\n• Discounts in the areas of shopping, sports and leisure\n• Support with moving and looking for an apartment\n• 25 days of vacation plus 5 flexi days, which are also free\n• Support with further training and further education and Career planning\n• Campus in the heart of Basel and in the border triangle\n• Comprehensive childcare options\n• Free sports and exercise program",
-        "de": "Aufgaben:\n• Gewährleisten eines persönlichen Empfanges der Patientinnen und Patienten sowie deren Betreuung\n\n• Situationsbezogenes Lagern und Vorbereiten jeglicher Patientinnen und Patienten auf dem Operationstisch\n\n• Berücksichtigen der Prävention möglicher Schäden\n\n• Sicherstellen der Asepsis und Hygiene in der Operationsabteilung\n\n• Einrichten von Extensionen, Anlegen von postoperativen Gips- und Operationsverbänden\n\n• Vor- und Nachbereiten von Materialien, Bewirtschaften, Bedienen und Kontrollieren hochspezialisierter, medizintechnischer Geräte\n\nAnforderungen:\n• Eidg. Berufsattest, z.B. als Assistent*in Gesundheit & Soziales, Eidg. Fähigkeitszeugnis als Fachperson Gesundheit und Betreuung oder vergleichbare Ausbildung mit Abschluss\n\n• Basis- und Fachkurs Operationslagerungspflege von Vorteil\n\n• Grundkenntnisse in Anatomie\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Tâches :\n• Assurer un accueil personnalisé des patients et de leurs soins\n• Stockage et préparation adaptés à la situation de tous les patients sur la table d'opération\n• Prendre en compte la prévention d'éventuels dommages\n• Assurer l'asepsie et l'hygiène dans le bloc opératoire\n• Mettre en place des extensions, appliquer des plâtres postopératoires et des bandages chirurgicaux\n• Préparer et post-traiter le matériel, gérer, exploiter et contrôler les équipements médicaux hautement spécialisés Exigences :\n• Fédérales. Certificat professionnel, par ex. en tant qu'assistant en santé et affaires sociales, certificat fédéral de capacité de spécialiste de la santé et des soins ou formation équivalente avec diplôme\n• Une formation de base et spécialisée en soins chirurgicaux de positionnement est un avantage\n• Connaissances de base en anatomie\n• Très bonne connaissance de l'allemand parlé et écrit Nous offrons :\n• Une politique salariale attractive et d'excellentes prestations sociales\n• Des réductions dans les domaines du shopping, du sport et des loisirs\n• Une aide au déménagement et à la recherche d'un appartement\n• 25 jours de vacances plus 5 jours flexibles, qui sont également gratuits\n• Un soutien à la formation continue et à la formation continue et à la carrière planification\n• Campus au cœur de Bâle et dans le triangle frontalier\n• Possibilités complètes de garde d'enfants\n• Programme de sport et de remise en forme gratuit"
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://job.unispital-basel.ch/offene-stellen/fachfrau-fachmann-op-lagerung-hf-fh-im-springerpool/36dad475-8ffc-4345-8ce9-4bf8c5eaaaab",
-      "source": "USB Dedicated Parser (Prospective API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-17T06:56:59.166Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4031",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-18",
-      "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=26799",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachfrau-fachmann-op-lagerung-hf-fh-im-springerpool-unispital-basel-ch",
-        "specialista-or-posizionando-hf-fh-nel-pool-di-saltatori-universitatsspital-basel-basel",
-        "specialist-or-positioning-hf-fh-in-the-jumper-pool-universitatsspital-basel-basel",
-        "fachfrau-fachmann-op-lagerung-hf-fh-im-springerpool-universitatsspital-basel-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-fachmann-op-lagerung-hf-fh-im-springerpool-unispital-basel-ch",
-          "specialista-or-posizionando-hf-fh-nel-pool-di-saltatori-universitatsspital-basel-basel"
-        ],
-        "en": [
-          "fachfrau-fachmann-op-lagerung-hf-fh-im-springerpool-unispital-basel-ch",
-          "specialist-or-positioning-hf-fh-in-the-jumper-pool-universitatsspital-basel-basel"
-        ],
-        "fr": [
-          "fachfrau-fachmann-op-lagerung-hf-fh-im-springerpool-unispital-basel-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-18T13:20:47.081Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
@@ -2951,86 +2871,6 @@
       }
     },
     {
-      "id": "unispital-basel-e8a23a936af7",
-      "slug": "dipl-infermieristica-hf-fh-theragnostics-care-oncology-universitatsspital-basel-basel",
-      "slugByLocale": {
-        "it": "dipl-infermieristica-hf-fh-theragnostics-care-oncology-universitatsspital-basel-basel",
-        "en": "dipl-nursing-specialist-hf-fh-theragnostics-care-oncology-universitatsspital-basel-basel",
-        "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-theragnostik-pflege-onkologie-unispital-basel-ch",
-        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-universitatsspital-basel-basel"
-      },
-      "company": "Universitätsspital Basel",
-      "companyKey": "unispital-basel",
-      "companyDomain": "unispital-basel.ch",
-      "title": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH (Theragnostik Pflege/Onkologie)",
-      "titleByLocale": {
-        "it": "Dipl. Infermieristica HF/FH (Theragnostics Care/Oncology)",
-        "en": "Dipl. Nursing specialist HF/FH (Theragnostics Care/Oncology)",
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH (Theragnostik Pflege/Onkologie)",
-        "fr": "Dipl. Spécialiste des soins infirmiers (HF/FH)"
-      },
-      "description": "Aufgaben:\n• Fachgerechte Pflege, Begleitung und Beratung unserer Patientinnen und Patienten sowie deren Angehörigen im ambulanten Bereich\n\n• Ziel- und lösungsorientierte Zusammenarbeit im interprofessionellen Behandlungsteam\n\n• Selbstständige Organisation des eigenen Arbeitsbereichs sowie Sicherstellung eines professionellen und kontinuierlichen Pflegeprozesses\n\n• Punktuelle Begleitung und Unterstützung von Studierenden HF sowie von Lernenden verschiedener Gesundheitsberufe\n\nAnforderungen:\n• Abgeschlossene Ausbildung als dipl. Pflegefachperson HF/FH oder eine gleichwertige, in der Schweiz anerkannte Ausbildung\n\n• CAS Onkologie oder die Bereitschaft, diese Weiterbildung zu absolvieren\n\n• Berufserfahrung im Akutbereich, idealerweise in der Onkologie\n\n• Interesse an der Weiterentwicklung der Pflegequalität und der klinischen Pflegepraxis\n\n• Bereitschaft, flexibel auf die Anforderungen des ambulanten Bereichs einzugehen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Assistenza professionale, supporto e consulenza dei nostri pazienti e dei loro parenti nell'area ambulatoria\n\n• Cooperazione mirata e orientata alla soluzione nel team di trattamento interprofessionale\n\n• Organizzazione indipendente della propria area di lavoro e garantire un processo di cura professionale e continuo\n\n• Accompagnamento punto per punto e supporto degli studenti HF e degli studenti di varie professioni sanitarie\n\nRequisiti\n• Allenamento completato come dipl. Infermiera HF/FH o una formazione equivalente riconosciuta in Svizzera\n\n• CASA Oncologia o volontà di intraprendere questa formazione\n\n• Esperienza professionale in cura acuta, idealmente in oncologia\n\n• Interessi nello sviluppo della qualità della cura e della pratica clinica\n\n• La volontà di rispondere in modo flessibile alle esigenze dell'area ambulatoria\n\nOffriamo:\n• Politica salariale attraente e benefici sociali eccellenti\n\n• Vantaggi per shopping, sport e tempo libero\n\n• Assistenza nel trasferimento e nella ricerca di alloggi\n\n• 25 giorni di vacanza plus 5 anche free flexitage\n\n• Sostegno all'ulteriore istruzione e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e l'angolo trinazionale\n\n• Servizi per l'infanzia completi\n\n• Programma gratuito di sport ed esercizio",
-        "en": "Tasks:\n• Professional care, support and advice of our patients and their relatives in the ambulatory area\n\n• Goal- and solution-oriented cooperation in the interprofessional treatment team\n\n• Independent organization of your own work area as well as ensuring a professional and continuous care process\n\n• Point-by-point accompaniment and support of students HF as well as learners of various health professions\n\nRequirements\n• Completed training as a dipl. Nurse HF/FH or an equivalent education recognised in Switzerland\n\n• CAS Oncology or willingness to undertake this training\n\n• Professional experience in acute care, ideally in oncology\n\n• Interest in further developing quality of care and clinical care practice\n\n• Willingness to respond flexibly to the requirements of the ambulatory area\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Advantages for shopping, sports and leisure\n\n• Assistance in moving and finding accommodation\n\n• 25 holiday days plus 5 also free flexitage\n\n• Support for further education and career planning\n\n• Campus in the heart of Basel and the Trinational Corner\n\n• Comprehensive childcare facilities\n\n• Free Sports and Exercise Program",
-        "de": "Aufgaben:\n• Fachgerechte Pflege, Begleitung und Beratung unserer Patientinnen und Patienten sowie deren Angehörigen im ambulanten Bereich\n\n• Ziel- und lösungsorientierte Zusammenarbeit im interprofessionellen Behandlungsteam\n\n• Selbstständige Organisation des eigenen Arbeitsbereichs sowie Sicherstellung eines professionellen und kontinuierlichen Pflegeprozesses\n\n• Punktuelle Begleitung und Unterstützung von Studierenden HF sowie von Lernenden verschiedener Gesundheitsberufe\n\nAnforderungen:\n• Abgeschlossene Ausbildung als dipl. Pflegefachperson HF/FH oder eine gleichwertige, in der Schweiz anerkannte Ausbildung\n\n• CAS Onkologie oder die Bereitschaft, diese Weiterbildung zu absolvieren\n\n• Berufserfahrung im Akutbereich, idealerweise in der Onkologie\n\n• Interesse an der Weiterentwicklung der Pflegequalität und der klinischen Pflegepraxis\n\n• Bereitschaft, flexibel auf die Anforderungen des ambulanten Bereichs einzugehen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Tâches :\n• Soins professionnels, soutien et conseils de nos patients et de leurs proches dans le domaine ambulatoire\n\n• Coopération axée sur les objectifs et les solutions au sein de l'équipe interprofessionnelle de traitement\n\n• Organisation indépendante de votre propre domaine de travail et garantie d'un processus de soins professionnels et continus\n\n• Accompagnement et soutien point par point des étudiants HF ainsi que des apprenants de diverses professions de la santé\n\nExigences\n• Achevé la formation comme dipl. Infirmière HF/FH ou un enseignement équivalent reconnu en Suisse\n\n• CAS Oncologie ou volonté d'entreprendre cette formation\n\n• Expérience professionnelle en soins actifs, idéalement en oncologie\n\n• Intérêt pour le développement de la qualité des soins et des pratiques cliniques\n\n• Volonté de répondre avec souplesse aux exigences de la zone ambulatoire\n\nNous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n\n• Avantages pour le shopping, le sport et les loisirs\n\n• Aide au déménagement et à la recherche de logements\n\n• 25 jours de vacances plus 5 flexitage gratuit\n\n• Appui à la formation continue et à la planification des carrières\n\n• Campus au cœur de Bâle et du Coin Trinational\n\n• Établissements complets de garde d ' enfants\n\n• Programme de sports et d'exercices gratuits"
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-theragnostik-pflege-onkologie/76adfd8a-297d-4bdc-899c-01b4b6c6f360",
-      "source": "USB Dedicated Parser (Prospective API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-17T06:56:59.149Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4031",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-20",
-      "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27707",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-theragnostik-pflege-onkologie-unispital-basel-ch",
-        "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-theragnostik-pflege-onkologie-unispital-basel-ch",
-          "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-theragnostik-pflege-onkologie-unispital-basel-ch"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-theragnostik-pflege-onkologie-unispital-basel-ch",
-          "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel"
-        ]
-      },
-      "firstSeenAt": "2026-07-20T12:40:34.139Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "unispital-basel-c8ddda1db683",
       "slug": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel",
       "slugByLocale": {
@@ -3093,77 +2933,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:10:12.203Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "unispital-basel-be47136b8caa",
-      "slug": "controller-in-bereich-immobilien-e-grossbauprojekte-universitatsspital-basel",
-      "slugByLocale": {
-        "it": "controller-in-bereich-immobilien-e-grossbauprojekte-universitatsspital-basel",
-        "en": "controller-in-bereich-immobilien-und-grossbauprojekte-universitatsspital-basel-basel",
-        "de": "controller-in-bereich-immobilien-und-grossbauprojekte-unispital-basel-ch",
-        "fr": "controller-in-bereich-immobilien-und-grossbauprojekte-universitatsspital-basel-basel"
-      },
-      "company": "Universitätsspital Basel",
-      "companyKey": "unispital-basel",
-      "companyDomain": "unispital-basel.ch",
-      "title": "Controller*in (Bereich Immobilien und Grossbauprojekte)",
-      "titleByLocale": {
-        "it": "Controller (progetti immobiliari e costruzioni su larga scala)",
-        "en": "Controller (real estate and large-scale construction projects)",
-        "de": "Controller*in (Bereich Immobilien und Grossbauprojekte)",
-        "fr": "Contrôleur* dans (projets immobiliers et de construction à grande échelle)"
-      },
-      "description": "Aufgaben:\n• Verantwortung für das Finanzmanagement im Bereich Immobilien und bei Grossbauprojekten – inklusive Mittelabflussplanung, Teuerungsüberwachung und Reservenmanagement\n\n• Sicherstellung der korrekten Kosten- und Leistungskontrolle sowie Durchführung der Rechnungsabwicklung in SAP und Abgleich mit dem Projektmanagementsystem\n\n• Koordination und Erstellung der Jahres-, Finanz- und Investitionsplanung für den Bereich Immobilien\n\n• Erstellung von Forecasts, Business Cases sowie aussagekräftigen Monats-, Quartals- und Jahresreportings für die Bereichsleitung\n\n• Mitwirkung bei der Optimierung finanzieller Prozesse, Sicherstellung der Einhaltung von Rechnungsprozessvorgaben sowie Förderung eines effizienten Informationsaustauschs mit allen Projektbeteiligten\n\nAnforderungen:\n• Höhere kaufmännische Ausbildung (HF/FH) oder Abschluss als dipl. Hochbautechniker*in mit betriebswirtschaftlicher Weiterbildung\n\n• Mehrjährige Berufserfahrung im Finanzmanagement von Grossbauprojekten, im Bereichscontrolling oder in einer vergleichbaren Funktion\n\n• Fundierte Kenntnisse in SAP; Erfahrung mit der Messerli-Baubuchhaltung ist von Vorteil\n\n• Gute Kenntnisse im Baumanagement sowie idealerweise im öffentlichen Beschaffungswesen; eine Weiterbildung im Projektmanagement ist ein Plus\n\n• Teamorientierte, strukturierte und analytisch denkende Persönlichkeit mit selbstständiger und lösungsorientierter Arbeitsweise\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Responsabilità per la gestione finanziaria in progetti immobiliari e di costruzione su larga scala – tra cui pianificazione del deflusso di cassa, monitoraggio dei prezzi e gestione delle riserve\n\n• Garantire un corretto controllo dei costi e delle prestazioni, nonché l'esecuzione dell'elaborazione delle fatture in SAP e il confronto con il sistema di gestione dei progetti\n\n• Coordinamento e preparazione della pianificazione annuale, finanziaria e di investimento per il settore immobiliare\n\n• Preparazione delle previsioni, dei casi di business e delle relazioni mensili, trimestrali e annuali di gestione delle divisioni\n\n• Partecipazione all'ottimizzazione dei processi finanziari, al rispetto dei requisiti di fatturazione e alla promozione di uno scambio efficiente di informazioni con tutti i partecipanti al progetto\n\nRequisiti\n• Istruzione commerciale superiore (HF/FH) o grado come dipl. Tecnico di costruzione con l'istruzione aziendale\n\n• Diversi anni di esperienza professionale nella gestione finanziaria di grandi progetti di costruzione, nel controllo o in una funzione comparabile\n\n• Conoscenza approfondita di SAP; Experience with Messerli Building Accounting è un vantaggio\n\n• Buona conoscenza della gestione delle costruzioni e, idealmente, degli appalti pubblici; ulteriore formazione nella gestione dei progetti è un vantaggio\n\n• personalità orientata al team, strutturata e analiticamente pensata con un metodo di lavoro indipendente e orientato alla soluzione\n\nOffriamo:\n• Politica salariale attraente e benefici sociali eccellenti\n\n• Vantaggi per shopping, sport e tempo libero\n\n• Assistenza nel trasferimento e nella ricerca di alloggi\n\n• 25 giorni festivi plus 5 anche free flexitage\n\n• Sostegno all'ulteriore istruzione e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e l'angolo trinazionale\n\n• Servizi per l'infanzia completi\n\n• Programma gratuito di sport ed esercizio",
-        "en": "Tasks:\n• Responsibility for financial management in real estate and large-scale construction projects – including cash outflow planning, price monitoring and reserve management\n\n• Ensuring correct cost and performance control as well as execution of invoice processing in SAP and comparison with the project management system\n\n• Coordination and preparation of annual, financial and investment planning for the real estate sector\n\n• Preparation of forecasts, business cases and meaningful monthly, quarterly and annual reports for division management\n\n• Participation in the optimisation of financial processes, ensuring compliance with invoicing requirements and promoting an efficient exchange of information with all project participants\n\nRequirements\n• Higher commercial education (HF/FH) or degree as a dipl. Construction technician with business education\n\n• Several years of professional experience in the financial management of large construction projects, in area controlling or in a comparable function\n\n• In-depth knowledge of SAP; Experience with Messerli Building Accounting is an advantage\n\n• Good knowledge of construction management and, ideally, public procurement; further training in project management is a plus\n\n• Team-oriented, structured and analytically thinking personality with an independent and solution-oriented working method\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Advantages for shopping, sports and leisure\n\n• Assistance in moving and finding accommodation\n\n• 25 holiday days plus 5 also free flexitage\n\n• Support for further education and career planning\n\n• Campus in the heart of Basel and the Trinational Corner\n\n• Comprehensive childcare facilities\n\n• Free Sports and Exercise Program",
-        "de": "Aufgaben:\n• Verantwortung für das Finanzmanagement im Bereich Immobilien und bei Grossbauprojekten – inklusive Mittelabflussplanung, Teuerungsüberwachung und Reservenmanagement\n\n• Sicherstellung der korrekten Kosten- und Leistungskontrolle sowie Durchführung der Rechnungsabwicklung in SAP und Abgleich mit dem Projektmanagementsystem\n\n• Koordination und Erstellung der Jahres-, Finanz- und Investitionsplanung für den Bereich Immobilien\n\n• Erstellung von Forecasts, Business Cases sowie aussagekräftigen Monats-, Quartals- und Jahresreportings für die Bereichsleitung\n\n• Mitwirkung bei der Optimierung finanzieller Prozesse, Sicherstellung der Einhaltung von Rechnungsprozessvorgaben sowie Förderung eines effizienten Informationsaustauschs mit allen Projektbeteiligten\n\nAnforderungen:\n• Höhere kaufmännische Ausbildung (HF/FH) oder Abschluss als dipl. Hochbautechniker*in mit betriebswirtschaftlicher Weiterbildung\n\n• Mehrjährige Berufserfahrung im Finanzmanagement von Grossbauprojekten, im Bereichscontrolling oder in einer vergleichbaren Funktion\n\n• Fundierte Kenntnisse in SAP; Erfahrung mit der Messerli-Baubuchhaltung ist von Vorteil\n\n• Gute Kenntnisse im Baumanagement sowie idealerweise im öffentlichen Beschaffungswesen; eine Weiterbildung im Projektmanagement ist ein Plus\n\n• Teamorientierte, strukturierte und analytisch denkende Persönlichkeit mit selbstständiger und lösungsorientierter Arbeitsweise\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Tâches :\n• Responsabilité de la gestion financière dans les projets immobiliers et de construction à grande échelle – y compris la planification des sorties de trésorerie, le contrôle des prix et la gestion des réserves\n\n• Assurer un contrôle correct des coûts et des performances ainsi que l'exécution du traitement des factures dans SAP et la comparaison avec le système de gestion de projet\n\n• Coordination et préparation de la planification annuelle, financière et des investissements dans le secteur immobilier\n\n• Préparation de prévisions, d'analyses de rentabilisation et de rapports mensuels, trimestriels et annuels significatifs pour la gestion des divisions\n\n• Participation à l'optimisation des processus financiers, au respect des exigences de facturation et à la promotion d'un échange efficace d'informations avec tous les participants au projet\n\nExigences\n• Enseignement supérieur commercial (HF/FH) ou diplôme en tant que diplômé. Technicien en construction avec formation aux affaires\n\n• Plusieurs années d'expérience professionnelle dans la gestion financière de grands projets de construction, dans le contrôle de zone ou dans une fonction comparable\n\n• Une connaissance approfondie du SAP; L'expérience de la comptabilité du bâtiment Messerli est un avantage\n\n• Bonne connaissance de la gestion de la construction et, idéalement, des marchés publics; la formation continue à la gestion de projets est un atout\n\n• Personnalité axée sur l'équipe, structurée et analytique, avec une méthode de travail indépendante et orientée vers la solution\n\nNous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n\n• Avantages pour le shopping, le sport et les loisirs\n\n• Aide au déménagement et à la recherche d ' un logement\n\n• 25 jours de vacances plus 5 flexitage gratuit\n\n• Appui à la formation continue et à la planification des carrières\n\n• Campus au cœur de Bâle et du Coin Trinational\n\n• Établissements complets de garde d ' enfants\n\n• Programme de sports et d'exercices gratuits"
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://job.unispital-basel.ch/offene-stellen/controller-in-bereich-immobilien-und-grossbauprojekte/8e9cfded-440d-4a16-90f7-4368a800a7eb",
-      "source": "USB Dedicated Parser (Prospective API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-17T06:56:59.148Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4031",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-21",
-      "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27710",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "controller-in-bereich-immobilien-und-grossbauprojekte-unispital-basel-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "controller-in-bereich-immobilien-und-grossbauprojekte-unispital-basel-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-21T11:54:51.139Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -4767,14 +4536,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch",
+        "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch",
+          "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch",
+          "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-08-20T21:47:46.714Z",
@@ -5108,77 +4880,6 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "unispital-basel-22a4cc549c55",
-      "slug": "case-manager-case-manager-universitatsspital-basel-basel",
-      "slugByLocale": {
-        "it": "case-manager-case-manager-universitatsspital-basel-basel",
-        "en": "case-managerin-case-manager-universitatsspital-basel-basel",
-        "de": "case-managerin-case-manager-unispital-basel-ch",
-        "fr": "gestionnaire-de-cas-gestionnaire-de-cas-universitatsspital-basel-basel"
-      },
-      "company": "Universitätsspital Basel",
-      "companyKey": "unispital-basel",
-      "companyDomain": "unispital-basel.ch",
-      "title": "Case Managerin / Case Manager",
-      "titleByLocale": {
-        "it": "Case Manager / Case Manager",
-        "en": "Case Manager / Case Manager",
-        "de": "Case Managerin / Case Manager",
-        "fr": "Gestionnaire de cas / Gestionnaire de cas"
-      },
-      "description": "Aufgaben:\n• Verantwortung für die Durchführung von Austritts- und Verlegungsplanungen, die auf den Versorgungsbedarf der Patientinnen und Patienten abgestimmt sind, in Zusammenarbeit mit dem Behandlungsteam\n\n• Fachgerechte Steuerung und kontinuierliche Optimierung der Prozesse im Entlassungsmanagement sowie die Weiterentwicklung des Case Managements hin zu einer ganzheitlichen Begleitung der Patienten über den gesamten Behandlungsverlauf\n\n• Organisieren und koordinieren von massgeschneiderten Anschlusslösungen (ambulant und stationär) unter Berücksichtigung der Leitprinzipien des Case Managements\n\n• Beraten und Begleiten von Patientinnen und Patienten, Angehörigen und Behandlungsteams in anspruchsvollen Patientensituationen innerhalb des zuständigen medizinischen/pflegerische Fachgebiet\n\nAnforderungen:\n• Pflegefachdiplom HF/FH, Weiterbildung (CAS Case Management) oder Bereitschaft diese zeitnah zu absolvieren\n\n• Mehrjährige Berufserfahrung im akutmedizinischen Bereich\n\n• Gute EDV-Anwenderkenntnisse der gängigen MS-Office-Programme\n\n• Ausgesprochen hohe Kommunikationsfähigkeit und Dienstleistungsorientierung\n\n• Fremdsprachenkenntnisse von Vorteil\n\n• Hohe Sozialkompetenz und ausgeprägte Teamorientierung im multiprofessionellen Rahmen\n\n• Koordinations- und Organisationsfähigkeit gepaart mit Durchsetzungsvermögen und Belastbarkeit\n\n• Aktive Begleitung und Umsetzung von Change-Prozessen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Responsabilità per l’attuazione della pianificazione dell’uscita e del trasferimento, che si adattano alle esigenze del paziente, in collaborazione con il team di trattamento\n\n• Controllo professionale e ottimizzazione continua dei processi di gestione dello scarico, nonché l'ulteriore sviluppo della gestione dei casi verso un supporto olistico dei pazienti nell'intero corso del trattamento\n\n• Organizzare e coordinare soluzioni di connessione personalizzate (ambulatorio e stazionario) tenendo conto dei principi guida della gestione dei casi\n\n• Consulenza e accompagnamento di pazienti, parenti e team di trattamento in situazioni di pazienti esigenti all'interno del reparto medico/fermieristico responsabile\n\nRequisiti\n• Diploma di infermieristica HF/FH, ulteriore istruzione (CAS Case Management) o disponibilità a completarlo in modo tempestivo\n\n• Diversi anni di esperienza professionale in medicina acuta\n\n• Buona conoscenza dell'utente del computer dei programmi comuni di MS Office\n\n• Capacità di comunicazione estremamente elevate e orientamento al servizio\n\n• La conoscenza delle lingue straniere è vantaggiosa\n\n• Alta competenza sociale e forte orientamento del team in un quadro multiprofessionale\n\n• Coordinamento e capacità organizzativa accoppiata con assertività e resilienza\n\n• Supporto attivo e implementazione dei processi di cambiamento\n\nOffriamo:\n• Politica salariale attraente e benefici sociali eccellenti\n\n• Vantaggi per shopping, sport e tempo libero\n\n• Assistenza nel trasferimento e nella ricerca di alloggi\n\n• 25 giorni festivi plus 5 anche free flexitage\n\n• Sostegno all'ulteriore istruzione e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e l'angolo trinazionale\n\n• Servizi per l'infanzia completi\n\n• Programma gratuito di sport ed esercizio",
-        "en": "Tasks:\n• Responsibility for the implementation of exit and relocation planning, which are tailored to the patient’s needs, in cooperation with the treatment team\n\n• Professional control and continuous optimization of discharge management processes as well as the further development of case management towards a holistic support of patients over the entire course of treatment\n\n• Organize and coordinate customized connection solutions (ambulatory and stationary) taking into account the guiding principles of case management\n\n• Advising and accompanying patients, relatives and treatment teams in demanding patient situations within the responsible medical/nursing department\n\nRequirements\n• Nursing diploma HF/FH, further education (CAS Case Management) or willingness to complete it in a timely manner\n\n• Several years of professional experience in acute medicine\n\n• Good computer user knowledge of the common MS Office programs\n\n• Extremely high communication skills and service orientation\n\n• Knowledge of foreign languages is advantageous\n\n• High social competence and strong team orientation in a multi-professional framework\n\n• Coordination and organizational ability paired with assertiveness and resilience\n\n• Active support and implementation of change processes\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Advantages for shopping, sports and leisure\n\n• Assistance in moving and finding accommodation\n\n• 25 holiday days plus 5 also free flexitage\n\n• Support for further education and career planning\n\n• Campus in the heart of Basel and the Trinational Corner\n\n• Comprehensive childcare facilities\n\n• Free Sports and Exercise Program",
-        "de": "Aufgaben:\n• Verantwortung für die Durchführung von Austritts- und Verlegungsplanungen, die auf den Versorgungsbedarf der Patientinnen und Patienten abgestimmt sind, in Zusammenarbeit mit dem Behandlungsteam\n\n• Fachgerechte Steuerung und kontinuierliche Optimierung der Prozesse im Entlassungsmanagement sowie die Weiterentwicklung des Case Managements hin zu einer ganzheitlichen Begleitung der Patienten über den gesamten Behandlungsverlauf\n\n• Organisieren und koordinieren von massgeschneiderten Anschlusslösungen (ambulant und stationär) unter Berücksichtigung der Leitprinzipien des Case Managements\n\n• Beraten und Begleiten von Patientinnen und Patienten, Angehörigen und Behandlungsteams in anspruchsvollen Patientensituationen innerhalb des zuständigen medizinischen/pflegerische Fachgebiet\n\nAnforderungen:\n• Pflegefachdiplom HF/FH, Weiterbildung (CAS Case Management) oder Bereitschaft diese zeitnah zu absolvieren\n\n• Mehrjährige Berufserfahrung im akutmedizinischen Bereich\n\n• Gute EDV-Anwenderkenntnisse der gängigen MS-Office-Programme\n\n• Ausgesprochen hohe Kommunikationsfähigkeit und Dienstleistungsorientierung\n\n• Fremdsprachenkenntnisse von Vorteil\n\n• Hohe Sozialkompetenz und ausgeprägte Teamorientierung im multiprofessionellen Rahmen\n\n• Koordinations- und Organisationsfähigkeit gepaart mit Durchsetzungsvermögen und Belastbarkeit\n\n• Aktive Begleitung und Umsetzung von Change-Prozessen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Tâches :\n• Responsabilité de la mise en œuvre de la planification de la sortie et de la réinstallation, adaptée aux besoins du patient, en coopération avec l'équipe de traitement\n\n• Contrôle professionnel et optimisation continue des processus de gestion des rejets ainsi que le développement de la gestion des cas vers un soutien holistique des patients pendant toute la durée du traitement\n\n• Organiser et coordonner des solutions de connexion personnalisées (ambulatoires et fixes) en tenant compte des principes directeurs de la gestion des cas\n\n• Conseiller et accompagner les patients, les membres de la famille et les équipes de traitement dans des situations exigeantes au sein du service médical/infirmière responsable\n\nExigences\n• Diplôme de soins infirmiers HF/FH, formation continue (gestion de cas CAS) ou volonté de l'achever en temps opportun\n\n• Plusieurs années d'expérience professionnelle en médecine aiguë\n\n• Bonne connaissance par les utilisateurs des programmes communs du MS Office\n\n• Compétences de communication et orientation des services extrêmement élevées\n\n• La connaissance des langues étrangères est avantageuse\n\n• Haute compétence sociale et forte orientation de l'équipe dans un cadre multiprofessionnel\n\n• Coordination et capacité organisationnelle associées à l'affirmation et à la résilience\n\n• Appui actif et mise en œuvre des processus de changement\n\nNous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n\n• Avantages pour le shopping, le sport et les loisirs\n\n• Aide au déménagement et à la recherche d ' un logement\n\n• 25 jours de vacances plus 5 flexitage gratuit\n\n• Appui à la formation continue et à la planification des carrières\n\n• Campus au cœur de Bâle et du Coin Trinational\n\n• Établissements complets de garde d ' enfants\n\n• Programme de sports et d'exercices gratuits"
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://job.unispital-basel.ch/offene-stellen/case-managerin-case-manager/7d22ecca-8291-45a2-bff9-2d05e075bf15",
-      "source": "USB Dedicated Parser (Prospective API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-17T06:56:59.131Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4031",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27081",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "case-managerin-case-manager-unispital-basel-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "case-managerin-case-manager-unispital-basel-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-25T22:00:22.020Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
           "unitText": "YEAR"
         }
       }

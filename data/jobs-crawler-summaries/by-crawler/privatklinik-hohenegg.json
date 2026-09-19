@@ -1,7 +1,7 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-09-17T03:46:04.806Z",
+  "generatedAt": "2026-09-18T23:14:30.033Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -10,12 +10,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3650,
-  "avgDurationMs": 3650,
+  "durationMs": 3601,
+  "avgDurationMs": 3601,
   "durationHistory": [
-    3650
+    3601
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://apply.refline.ch/640332/0052/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-17T03:45:56.409Z",
+      "crawledAt": "2026-09-18T23:14:21.960Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -72,7 +72,7 @@
       "url": "https://apply.refline.ch/640332/0055/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-17T03:45:56.862Z",
+      "crawledAt": "2026-09-18T23:14:22.404Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -100,50 +100,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "privatklinik-hohenegg-ce6d6d862ab0",
-      "slug": "personale-dell-hotel-su-richiesta-privatklinik-hohenegg-meilen-78a10d",
-      "company": "Privatklinik Hohenegg",
-      "companyKey": "privatklinik-hohenegg",
-      "companyDomain": "hohenegg.ch",
-      "title": "Mitarbeitende Hotellerie (auf Abruf)",
-      "location": "Meilen",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/640332/0063/pub/3/index.html",
-      "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-11T13:35:20.844Z",
-      "addressLocality": "Meilen",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8706",
-      "category": "Ospitalità",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-14",
-      "applyUrl": "https://apply.refline.ch/640332/0063/pub/3/index.html",
-      "pensumMin": 10,
-      "pensumMax": 10,
-      "pensum": "10%",
-      "firstSeenAt": "2026-08-14T21:28:33.112Z",
-      "salaryMin": 73000,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

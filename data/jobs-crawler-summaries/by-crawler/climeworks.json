@@ -1,23 +1,24 @@
 {
   "key": "climeworks",
   "label": "Climeworks",
-  "generatedAt": "2026-09-18T13:44:12.234Z",
+  "generatedAt": "2026-09-18T23:13:27.748Z",
   "total": 6,
   "discovered": null,
   "parsed": 5,
   "lastFetchOutcome": null,
   "written": 6,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3543,
-  "avgDurationMs": 3543,
+  "durationMs": 3363,
+  "avgDurationMs": 3363,
   "durationHistory": [
-    3543
+    3363
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "climeworks-ecfc8c7a030d",
       "slug": "commercial-operations-manager-100-climeworks-opfikon-zurich",
@@ -30,7 +31,7 @@
       "url": "https://climeworks.recruitee.com/o/commercial-operations-manager-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-18T13:44:03.542Z",
+      "crawledAt": "2026-09-18T23:13:19.756Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -44,16 +45,15 @@
       "postedDate": "2026-09-08",
       "applyUrl": "https://climeworks.recruitee.com/o/commercial-operations-manager-100",
       "remote": true,
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-09-18T13:44:03.542Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "climeworks-81a8f1260c6e",
       "slug": "sorbent-module-product-owner-80-100-climeworks-opfikon-zurich",
@@ -66,7 +66,7 @@
       "url": "https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-18T13:44:03.544Z",
+      "crawledAt": "2026-09-18T23:13:19.759Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -101,7 +101,7 @@
       "url": "https://climeworks.recruitee.com/o/hse-facility-senior-manager-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-18T13:44:03.547Z",
+      "crawledAt": "2026-09-18T23:13:19.763Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -137,7 +137,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-eic-engineer-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-18T13:44:03.550Z",
+      "crawledAt": "2026-09-18T23:13:19.766Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -172,7 +172,7 @@
       "url": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-18T13:44:03.553Z",
+      "crawledAt": "2026-09-18T23:13:19.769Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -229,7 +229,7 @@
       "salaryMax": 127500,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,

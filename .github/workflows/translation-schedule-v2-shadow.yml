@@ -55,6 +55,16 @@ jobs:
         env:
           TRANSLATION_SHADOW_REPORT_PATH: ${{ runner.temp }}/translation-scheduler-v2-report.json
         run: |
+          # The `env:` above is scoped to THIS step, so no later step could see
+          # it: the upload step read `${{ env.TRANSLATION_SHADOW_REPORT_PATH }}`
+          # and got an empty string, failing with `Input required and not
+          # supplied: path` (run 35391043408 — the first run in the lane's life
+          # to get this far, because the slice scan and then commit-tree had
+          # always killed it earlier). Publishing it to $GITHUB_ENV keeps the
+          # single definition above as the only source and makes it visible
+          # downstream. It cannot simply be hoisted to the job-level `env:`,
+          # because the `runner` context is not available there.
+          echo "TRANSLATION_SHADOW_REPORT_PATH=$TRANSLATION_SHADOW_REPORT_PATH" >> "$GITHUB_ENV"
           if [ "${{ inputs.enable_generation }}" = "true" ]; then
             export TRANSLATION_SHADOW_ENABLE_GENERATION=1
           fi
