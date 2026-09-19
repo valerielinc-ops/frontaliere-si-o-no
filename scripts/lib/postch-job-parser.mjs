@@ -224,8 +224,41 @@ function htmlBlockToTextWithBullets(value = '') {
   return withBullets
     .replace(/[ \t]+/g, ' ')
     .replace(/[ \t]*\n[ \t]*/g, '\n')
+    .replace(/(^|\n)-\n+/g, '$1- ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
+}
+
+/**
+ * Extract the first `.rtltextaligneligible` span while honoring nested spans.
+ * Post.ch uses nested spans in the rich description token, so a non-greedy
+ * closing-tag match would truncate the description at the first child span.
+ */
+function extractBalancedRtlTextAlignEligibleInner(block = '') {
+  const rtlOpening = String(block || '').match(
+    /<span[^>]*class=["'][^"']*\brtltextaligneligible\b[^"']*["'][^>]*>/i,
+  );
+  if (!rtlOpening || rtlOpening.index === undefined) return '';
+
+  const rtlContentStart = rtlOpening.index + rtlOpening[0].length;
+  const nestedRtlSpanTag = /<\/?span\b[^>]*>/gi;
+  nestedRtlSpanTag.lastIndex = rtlContentStart;
+  let rtlDepth = 1;
+  let nestedRtlTagMatch;
+
+  while ((nestedRtlTagMatch = nestedRtlSpanTag.exec(block)) !== null) {
+    const nestedRtlTag = nestedRtlTagMatch[0];
+    if (/^<\//.test(nestedRtlTag)) {
+      rtlDepth -= 1;
+    } else if (!/\/\s*>$/.test(nestedRtlTag)) {
+      rtlDepth += 1;
+    }
+    if (rtlDepth === 0) return block.slice(rtlContentStart, nestedRtlTagMatch.index);
+  }
+
+  // Keep a partial body rather than falling back to the short first nested
+  // span when a source response omits the outer closing tag.
+  return block.slice(rtlContentStart);
 }
 
 /**
@@ -244,13 +277,11 @@ function extractJobLayoutTokens(html = '') {
   // the next opening tag or before the wrapper's closing region.
   const wrapper = wrapperMatch[1];
   const tokenRe = /<div\s+class=["']joblayouttoken[^"']*["'][^>]*>([\s\S]*?)(?=<div\s+class=["']joblayouttoken|<div\s+id=["']page-bottom|<\/div>\s*<\/div>\s*<div\s+id=["']page-bottom|$)/gi;
-  const spanRe = /<span[^>]*class=["'][^"']*rtltextaligneligible[^"']*["'][^>]*>([\s\S]*?)<\/span>/i;
   const tokens = [];
   let m;
   while ((m = tokenRe.exec(wrapper)) !== null) {
     const block = m[1];
-    const spanMatch = block.match(spanRe);
-    const inner = spanMatch ? spanMatch[1] : '';
+    const inner = extractBalancedRtlTextAlignEligibleInner(block);
     tokens.push({ inner, text: htmlBlockToText(inner) });
   }
   return tokens;
