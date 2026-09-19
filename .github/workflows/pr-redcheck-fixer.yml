@@ -27,6 +27,13 @@ on:
   workflow_run:
     workflows: ['tests']
     types: [completed]
+    # `tests` gira anche su ogni push su main: senza questo filtro ogni sua
+    # run creava una run di questo workflow poi `skipped` dal gate del job
+    # (86 run in 4 ore, 64 skipped, misura del 2026-09-19). Su main non c'e'
+    # nessuna PR da riparare. Il filtro e' sul branch, NON sull'evento: le
+    # head rebasate arrivano da `workflow_dispatch` di `tests` sul branch
+    # della PR e devono restare dentro.
+    branches-ignore: [main]
   workflow_dispatch:
     inputs:
       pr:
