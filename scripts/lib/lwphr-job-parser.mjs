@@ -125,9 +125,8 @@ export function parseLwphrOpenJobs(html = '') {
  * empty so the crawler cannot fabricate an address.
  */
 const LWPHR_LOCATION_LABEL_RE = /\b(?:luogo\s+di\s+lavoro|sede\s+di\s+lavoro|posto\s+di\s+lavoro|localit(?:a|à)\s+di\s+lavoro|arbeitsort|arbeitsplatz|standort|lieu\s+de\s+travail|work(?:ing)?\s+location|based\s+(?:in|at)|office\s+in)\b\s*[:\-–]?\s*(.*)$/iu;
-const LWPHR_NARRATIVE_LOCATION_RE = /\b(?:con\s+)?sede(?:\s+principale)?\s+(?:a|ad|in|nel|nella|nei|nelle)\s+([^,.;:\n]+)/iu;
-const LWPHR_NARRATIVE_SITUATED_RE = /\bsit[aoe]\s+(?:a|ad|in|nel|nella|nei|nelle)\s+([^,.;:\n]+)/iu;
-const LWPHR_MANDATE_LEAD_RE = /\b(?:ricerc\w*|selezion\w*|incaricat\w*|cerchiamo|posizion\w*|figur\w*|ruol\w*|candidat\w*)\b/iu;
+const LWPHR_OPERATIONAL_WORKSITE_RE = /\b(?:presso|per|nella|nello|nel|nella|nei|nelle|alla|allo|all[’']?interno\s+(?:della|del))\s+(?:la|il|una|un)?\s*(?:sede(?:\s+(?:operativa|prestigiosa|di\s+lavoro))?|ufficio|filiale|studio|stabilimento|struttura)\s+(?:a|ad|in|nel|nella|nei|nelle|di)\s+([^,;:\n]+?)(?=\s*(?:[,;:]|$))/iu;
+const LWPHR_OPERATIONAL_MANDATE_RE = /\b(?:siamo\s+stati|ci\s+ha(?:nno)?|siamo)\s+incaricat\w*\b|\bsiamo\s+alla\s+ricerca\b/iu;
 const LWPHR_PARENTHETICAL_RE = /\(([^()\n]{2,100})\)/gu;
 
 function extractLwphrLocationContext(title = '', pdfText = '') {
@@ -146,21 +145,16 @@ function extractLwphrLocationContext(title = '', pdfText = '') {
     else if (lines[index + 1]?.trim()) contexts.push(lines[index + 1].trim());
   }
 
-  // LWP PDFs commonly state the employer's seat in narrative prose rather
-  // than a standalone "Sede di lavoro:" field (for example "con sede nel
-  // Luganese" or "sita nel luganese"). Treat that phrase as a source-specific
-  // work-site signal only when it belongs to the same mandate lead that names
-  // the searched role. A generic company description must not turn its HQ
-  // into a vacancy location, and an explicit worksite label always wins.
+  // LWP PDFs sometimes state an operational worksite in narrative prose
+  // (for example "Per la sede prestigiosa di St. Moritz, siamo stati
+  // incaricati..."). Require both the operational relation and the exact
+  // mandate wording: employer-seat prose such as "con sede a Lugano ricerca"
+  // is not a worksite signal, and an explicit worksite label always wins.
   const narrativeText = String(pdfText || '');
   for (const line of narrativeText.split(/\r?\n/)) {
-    if (hasExplicitWorksiteLabel || !LWPHR_MANDATE_LEAD_RE.test(line)) continue;
-    for (const pattern of [LWPHR_NARRATIVE_LOCATION_RE, LWPHR_NARRATIVE_SITUATED_RE]) {
-      const match = line.match(pattern);
-      if (!match?.[1]) continue;
-      const nearby = line.slice(Math.max(0, (match.index || 0) - 120), (match.index || 0) + match[0].length + 220);
-      if (LWPHR_MANDATE_LEAD_RE.test(nearby)) contexts.push(match[1].trim());
-    }
+    if (hasExplicitWorksiteLabel || !LWPHR_OPERATIONAL_MANDATE_RE.test(line)) continue;
+    const match = line.match(LWPHR_OPERATIONAL_WORKSITE_RE);
+    if (match?.[1]) contexts.push(match[1].trim());
   }
 
   // A few LWP PDFs put the work city in the heading as "City/CANTON". Only

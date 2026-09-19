@@ -44,16 +44,24 @@ describe('lwphr-job-parser', () => {
 
   it('recovers an explicit narrative workplace from LWP PDFs', () => {
     expect(inferLwphrLocation(
-      'Segretaria legale',
-      'Studio legale e notarile con sede nel Luganese, ci ha incaricati di ricercare una/un candidata/o.',
-    )).toBe('Lugano');
+      'Relationship manager',
+      'Per la sede prestigiosa di St. Moritz, siamo stati incaricati di selezionare il seguente profilo professionale.',
+    )).toBe('St. Moritz');
     expect(inferLwphrLocation(
       'Consulente patrimoniale',
-      'Il nostro cliente è una banca svizzera sita nel luganese, ci ha incaricato di selezionare la seguente figura professionale.',
+      'Per la sede operativa nel Luganese, ci ha incaricato di selezionare la seguente figura professionale.',
     )).toBe('Lugano');
   });
 
-  it('does not promote an employer seat without a mandate lead to a work location', () => {
+  it('does not promote an employer seat even when a broad mandate token shares the line', () => {
+    expect(inferLwphrLocation(
+      'Consulente',
+      'Azienda con sede a Lugano ricerca una figura da inserire altrove.',
+    )).toBe('');
+    expect(inferLwphrLocation(
+      'Consulente',
+      'Il nostro cliente è una banca svizzera sita nel luganese, ci ha incaricato di selezionare la seguente figura professionale.',
+    )).toBe('');
     expect(inferLwphrLocation(
       'Consulente',
       'La società ha sede nel Luganese e opera su tutto il territorio svizzero.',
