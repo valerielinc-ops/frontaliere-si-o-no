@@ -763,7 +763,7 @@ describe('copertura workflow diretti', () => {
   });
 
   it('separa l’identità del bridge dalla GITHUB_TOKEN sui fixer mutanti', () => {
-    for (const workflowName of ['issue-fix.yml', 'pr-redflag-fixer.yml', 'pr-redcheck-fixer.yml']) {
+    for (const workflowName of ['issue-fix.yml', 'pr-redflag-fixer.yml', 'pr-redcheck-fixer.yml', 'issue-decompose.yml']) {
       const workflow = readFileSync(resolve(repoRoot, '.github', 'workflows', workflowName), 'utf8');
       const bridgeLine = workflow.split('\n').find((line) => line.trim().startsWith('codex_github_token:'));
       expect(bridgeLine, `${workflowName} deve dichiarare il token bridge`).toContain(
@@ -773,8 +773,8 @@ describe('copertura workflow diretti', () => {
     }
   });
 
-  it('conserva il fallback GITHUB_TOKEN solo nei lane che non hanno il bridge mutante F4', () => {
-    for (const workflowName of ['tests.yml', 'issue-decompose.yml', 'needs-human-sweep.yml', 'growth-report.yml']) {
+  it('conserva il fallback GITHUB_TOKEN solo nei lane non inclusi nel bridge mutante F4', () => {
+    for (const workflowName of ['tests.yml', 'needs-human-sweep.yml', 'growth-report.yml']) {
       const workflow = readFileSync(resolve(repoRoot, '.github', 'workflows', workflowName), 'utf8');
       expect(workflow).toContain('codex_github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}');
     }
