@@ -26,7 +26,21 @@ describe('Italian pharmacy duty importer', () => {
     expect(result.status).toBe(1);
     expect(result.stdout).toContain('"state": "not_published"');
     expect(result.stdout).toContain('"publishable": false');
-    expect(result.stdout).toContain('"duties": 0');
+    // L'invariante non e' "zero righe in totale": e' che una fonte
+    // `full-calendar` INCOMPLETA non pubblichi nulla. Le fixture di Como e
+    // Varese coprono pochi giorni contro un minimo di 300, quindi pubblicano 0
+    // righe e la release non e' pubblicabile. VCO, che e' `corrections-only`,
+    // pubblica legittimamente i suoi cambi turno: pretendere `"duties": 0`
+    // sull'intero payload pinnava il difetto invece dell'invariante.
+    const report = JSON.parse(result.stdout);
+    const byProvince = Object.fromEntries(report.provinces.map((entry: { province: string }) => [entry.province, entry]));
+    expect(byProvince.CO).toMatchObject({ dutyCount: 0, state: 'partial', publication: 'required' });
+    expect(byProvince.VA).toMatchObject({ dutyCount: 0, state: 'partial', publication: 'required' });
+    expect(byProvince.VB).toMatchObject({ publication: 'best-effort' });
+    // La misura esposta e' quella del CALENDARIO: sulle fixture e' un numero
+    // piccolo, ed e' esattamente cio' che rende Como/Varese incomplete.
+    expect(byProvince.CO.observedCalendarDays).toBeLessThan(300);
+    expect(byProvince.CO.observedCalendarDays).toBeGreaterThan(0);
   });
 
   it('rejects HTTP raw URLs and HTTP redirect targets', () => {

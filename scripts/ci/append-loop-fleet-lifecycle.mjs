@@ -30,25 +30,27 @@ const OBSERVED_EVENT_TYPES = new Set([
   'inconclusive',
 ]);
 const RECORDER_OWNED_EVENT_TYPES = new Set(['candidate', 'owner_assigned']);
+// `tests_passed` and `review_approved` are CONCURRENT, not sequential: this
+// repo's review gate runs inside the test workflow ("Code checks and review"),
+// so the bot submits its review while the `vitest (unit + integration)` job is
+// still running, and that job's completion is what `tests_passed` records.
+// Measured on 2026-09-18: the review preceded the test job's completion in
+// 110/110 candidates of the blocked batch and in 234/234 already persisted in
+// the durable ledger — the inversion is the pipeline, with no exception. A
+// stage groups event types that may occur in any order relative to each other;
+// the next stage must still follow all of them.
 const REQUIRED_PREDECESSOR_CHAIN = Object.freeze({
   pr_opened: Object.freeze(['candidate', 'owner_assigned']),
   tests_passed: Object.freeze(['candidate', 'owner_assigned', 'pr_opened']),
-  review_approved: Object.freeze(['candidate', 'owner_assigned', 'pr_opened', 'tests_passed']),
-  merged: Object.freeze(['candidate', 'owner_assigned', 'pr_opened', 'tests_passed', 'review_approved']),
-  post_merge_verified: Object.freeze([
-    'candidate',
-    'owner_assigned',
-    'pr_opened',
-    'tests_passed',
-    'review_approved',
-    'merged',
-  ]),
+  // No `tests_passed` predecessor: at review time the tests genuinely have not
+  // finished yet, so requiring it would require a future event.
+  review_approved: Object.freeze(['candidate', 'owner_assigned', 'pr_opened']),
+  merged: Object.freeze(['candidate', 'owner_assigned', 'pr_opened']),
+  post_merge_verified: Object.freeze(['candidate', 'owner_assigned', 'pr_opened', 'merged']),
   rollback_requested: Object.freeze([
     'candidate',
     'owner_assigned',
     'pr_opened',
-    'tests_passed',
-    'review_approved',
     'merged',
     'post_merge_verified',
   ]),
@@ -56,8 +58,6 @@ const REQUIRED_PREDECESSOR_CHAIN = Object.freeze({
     'candidate',
     'owner_assigned',
     'pr_opened',
-    'tests_passed',
-    'review_approved',
     'merged',
     'post_merge_verified',
     'rollback_requested',
@@ -65,6 +65,40 @@ const REQUIRED_PREDECESSOR_CHAIN = Object.freeze({
   // Inconclusive is the explicit TTL terminal for an owned candidate that did
   // not advance into a PR; it intentionally needs no pr_opened.
   inconclusive: Object.freeze(['candidate', 'owner_assigned']),
+});
+// Pre-merge authorisation is ordered-when-present rather than required,
+// because `approvedReviewEvidence` only emits `review_approved` when the LGTM
+// review's commit equals the PR's CURRENT head (`reviewIsForHead`, mirroring
+// `auto-merge-eval.mjs`'s `reviewCommitMatchesHead`) — and on the ledger's own
+// bot PRs the head keeps moving after the review.
+// Measured on 2026-09-18: 233 merged CANDIDATES lack `review_approved`, but they
+// collapse to just 23 distinct PRs, every one of them an
+// `app/frontaliere-automation` `chore(loop-fleet): persist ... evidence` PR
+// touching only `data/loop-fleet/ledger/*.jsonl` — no production code. Of the 22
+// verifiable, 21 DO carry an LGTM review, just on a commit before the final head
+// (#8910: LGTM on commit 4 of 12, 8 commits landed after it); the remaining one
+// (#8695) carries LGTM on the exact head but with literal `\n` two-character
+// sequences instead of newlines, so every matcher anchored on `(?:^|\r?\n)##
+// LGTM` is blind to it. 12 candidates have no `tests_passed` and 4 record it
+// after the merge.
+// Demanding either event therefore makes the ledger unwritable instead of
+// stricter: the rule shipped on 2026-09-17 (#8991) blocked 100% of batches and
+// produced no true positive. When the event IS observed it must still fall
+// before the merge, and the post-merge ordering below keeps its teeth.
+// Note the ledger's population is limited to fleet-ledger PRs (`isFleetLedgerPr`),
+// so none of this measures production merges.
+// `merged` is concurrent with `tests_passed` for the same reason: auto-merge is
+// triggered by the review, and the review is emitted from inside the very job
+// whose completion `tests_passed` records, so the merge can land before that job
+// reports. Measured: 4 of 568 merges precede their own test job's completion by
+// seconds (#8916 merged at 18:49:04 against a job completing 18:49:28) — the
+// known hazard #1454, already owned by auto-merge-eval.mjs's awaiting-vitest
+// gate, and not something a record of what happened can refuse to write.
+const ORDERED_WHEN_PRESENT = Object.freeze({
+  merged: Object.freeze(['review_approved']),
+  post_merge_verified: Object.freeze(['tests_passed', 'review_approved']),
+  rollback_requested: Object.freeze(['tests_passed', 'review_approved']),
+  rolled_back: Object.freeze(['tests_passed', 'review_approved']),
 });
 const PREDECESSOR_ORDER_ERRORS = Object.freeze({
   'rollback_requested:post_merge_verified': 'rollback_requested occurs before post_merge_verified',
@@ -140,7 +174,7 @@ function occurredAtMs(event) {
   return Number.isFinite(timestamp) ? timestamp : null;
 }
 
-function validateLifecycleTransition(candidateId, priorEvents, event) {
+function validateLifecycleTransition(candidateId, priorEvents, event, { allCandidateEvents } = {}) {
   const eventType = event?.eventType;
   if (RECORDER_OWNED_EVENT_TYPES.has(eventType)) {
     throw new Error(`${candidateId}.lifecycle ${eventType} is recorder-owned`);
@@ -154,7 +188,7 @@ function validateLifecycleTransition(candidateId, priorEvents, event) {
   if (eventTime === null) {
     throw new Error(`${candidateId}.lifecycle ${eventType} has an invalid occurredAt`);
   }
-  const missing = predecessorTypes.filter((predecessorType) =>
+  const missing = predecessorTypes.flat().filter((predecessorType) =>
     !priorEvents.some((priorEvent) => priorEvent.eventType === predecessorType));
   if (missing.length) {
     throw new Error(
@@ -164,23 +198,62 @@ function validateLifecycleTransition(candidateId, priorEvents, event) {
 
   let previousTime = Number.NEGATIVE_INFINITY;
   let previousType = null;
-  for (const predecessorType of predecessorTypes) {
-    const predecessor = priorEvents
-      .map((priorEvent, index) => ({ priorEvent, index, time: occurredAtMs(priorEvent) }))
-      .filter(({ priorEvent, time }) => priorEvent.eventType === predecessorType
-        && time !== null
-        && time >= previousTime
-        && time <= eventTime)
-      .sort((left, right) => left.time - right.time || left.index - right.index)[0];
-    if (!predecessor) {
-      const orderError = PREDECESSOR_ORDER_ERRORS[`${eventType}:${predecessorType}`];
+  for (const stage of predecessorTypes) {
+    // Every member of a stage is bounded by the stage's own entry time, never
+    // by its siblings, so members stay mutually unordered. The next stage then
+    // starts after the latest of them.
+    const stageTypes = Array.isArray(stage) ? stage : [stage];
+    // Recorder-owned events carry a RECORDING clock, not an event clock:
+    // `occurredAt` is the instant the supervisor inventoried the candidate
+    // (millisecond precision, equal to `recordedAt`), while observed events
+    // carry GitHub's own second-precision event times. The recorder routinely
+    // notices work whose PR is already open — measured on 2026-09-18,
+    // `pr_opened` precedes `candidate` in 454/579 candidates (78.4%), median
+    // 17 min and up to 12.7 h earlier. Ordering the two clocks against each
+    // other is therefore meaningless; their presence is what the ledger needs,
+    // and the `missing` check above still enforces it fail-closed.
+    if (stageTypes.every((stageType) => RECORDER_OWNED_EVENT_TYPES.has(stageType))) continue;
+    let stageEndTime = previousTime;
+    for (const predecessorType of stageTypes) {
+      const predecessor = priorEvents
+        .map((priorEvent, index) => ({ priorEvent, index, time: occurredAtMs(priorEvent) }))
+        .filter(({ priorEvent, time }) => priorEvent.eventType === predecessorType
+          && time !== null
+          && time >= previousTime
+          && time <= eventTime)
+        .sort((left, right) => left.time - right.time || left.index - right.index)[0];
+      if (!predecessor) {
+        const orderError = PREDECESSOR_ORDER_ERRORS[`${eventType}:${predecessorType}`];
+        throw new Error(
+          `${candidateId}.lifecycle ${orderError || `${eventType} occurs before predecessor ${predecessorType}`}`
+            + (!orderError && previousType ? ` after ${previousType}` : ''),
+        );
+      }
+      if (predecessor.time > stageEndTime) stageEndTime = predecessor.time;
+    }
+    previousTime = stageEndTime;
+    previousType = stageTypes.join(' + ');
+  }
+
+  // Ordered-when-present: an observed authorisation event may not sit after the
+  // event it is supposed to authorise. A candidate that never produced one is
+  // not blocked (see ORDERED_WHEN_PRESENT).
+  for (const optionalType of ORDERED_WHEN_PRESENT[eventType] || []) {
+    const observed = (allCandidateEvents || priorEvents)
+      .filter((candidateEvent) => candidateEvent.eventType === optionalType)
+      .map((priorEvent) => occurredAtMs(priorEvent))
+      .filter((time) => time !== null);
+    // `some`, not `Math.min`: with the minimum, a candidate that already has an
+    // earlier authorisation would silently accept a SECOND one landing after
+    // the merge. A candidate can legitimately hold several — 3 pairs in the
+    // 4217-event ledger, from one candidate that ran two PR cycles (#8981 then
+    // #9041) — and there the merge still follows all of them, so rejecting on
+    // any late one costs nothing real and closes the gap.
+    if (observed.some((time) => time > eventTime)) {
       throw new Error(
-        `${candidateId}.lifecycle ${orderError || `${eventType} occurs before predecessor ${predecessorType}`}`
-          + (!orderError && previousType ? ` after ${previousType}` : ''),
+        `${candidateId}.lifecycle ${eventType} occurs before observed ${optionalType}`,
       );
     }
-    previousTime = predecessor.time;
-    previousType = predecessorType;
   }
 
   // Candidate TTL gates this alternative terminal transition. ownerSlaHours
@@ -247,6 +320,21 @@ export function appendLoopFleetLifecycle({
     if (!previous) newById.set(event.recordId, event);
   }
 
+  // Everything known about each touched candidate, regardless of where it sits
+  // in the batch. The predecessor chain stays incremental — a predecessor that
+  // appears later in the input is still rejected — but "an authorisation may
+  // not postdate what it authorises" is a property of the candidate, not of the
+  // observer's write order, so it needs the whole set.
+  const allEventsByCandidate = new Map();
+  for (const event of newById.values()) {
+    if (!allEventsByCandidate.has(event.candidateId)) {
+      allEventsByCandidate.set(event.candidateId, [
+        ...(existingByCandidate.get(event.candidateId) || []),
+      ]);
+    }
+    allEventsByCandidate.get(event.candidateId).push(event);
+  }
+
   const candidateEventsToValidate = new Map();
   for (const event of newById.values()) {
     if (!candidateEventsToValidate.has(event.candidateId)) {
@@ -255,7 +343,9 @@ export function appendLoopFleetLifecycle({
       ]);
     }
     const candidateEvents = candidateEventsToValidate.get(event.candidateId);
-    validateLifecycleTransition(event.candidateId, candidateEvents, event);
+    validateLifecycleTransition(event.candidateId, candidateEvents, event, {
+      allCandidateEvents: allEventsByCandidate.get(event.candidateId) || candidateEvents,
+    });
     candidateEvents.push(event);
   }
   for (const [candidateId, candidateEvents] of candidateEventsToValidate.entries()) {

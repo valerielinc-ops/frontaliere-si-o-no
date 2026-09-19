@@ -92,7 +92,39 @@ jobs:
     # the dist deploy.yml already built, so the budget covers artifact download
     # + shard rehydrate + 6 audits, not a build. Kept generous: rehydrate falls
     # back to cloning the shard repos when a run's artifacts have expired.
-    timeout-minutes: 180
+    #
+    # ─── 2026-09-19: il tetto era 180 e STAVA CENSURANDO la misura ──────────
+    # Durate del job (started_at -> completed_at, non createdAt della run, che
+    # include la coda: una `success` sembrava 335 min per quella ragione) sulle
+    # ultime 30 run:
+    #   success:   66, 70, 76, 157, 174, 180
+    #   failure:   82, 116
+    #   cancelled: 180 x8, 181, 185, 204
+    # Dieci run `cancelled`, OTTO esattamente a 180: non e' varianza, e' il cap
+    # colpito di sistema. E la `success` a 180 e' finita sul filo, quindi la coda
+    # superiore della distribuzione e' >= 180 e il suo VERO massimo e' IGNOTO —
+    # il cap lo taglia prima che si possa osservare. Non si puo' quindi tarare
+    # questo numero sui dati che abbiamo: sono dati censurati dal numero stesso.
+    #
+    # La conseguenza non era solo una misura persa. Un job ucciso dal
+    # `timeout-minutes` ha conclusion `cancelled`, NON `failure`, quindi lo step
+    # `Report unexpected failure to GitHub Issues` (`if: failure()`) viene
+    # SKIPPATO: verificato sul job 101264445215 della run 33950575510, dove lo
+    # step 11 e' `cancelled` e gli step 12/14/15/17 sono `skipped`. Tre run su
+    # quattro erano misure che non hanno mai allarmato nessuno.
+    # NB: lo step 16 (`if: always()`) e' invece uscito `success` — `always()`
+    # GIRA sulla cancellazione. Il muto e' solo il ramo `failure()`, e NON si
+    # corregge qui: la condizione la riconcilia centralmente
+    # scripts/ci/scan-job-timeouts.mjs, che esiste proprio per non patchare il
+    # predicato in ~647 file di workflow (leggi il suo header prima di
+    # aggiungere un `|| cancelled()` qui).
+    #
+    # 300 e' scelto per DECENSURARE, non per assorbire: il job e' read-only
+    # (audita un dist scaricato, non builda), quindi il costo di un tetto
+    # generoso e' qualche minuto di runner sulla run lenta, contro una misura
+    # distrutta 10 volte. Va RISTRETTO sui dati veri appena esistono run lente
+    # non tagliate dal cap.
+    timeout-minutes: 300
     # Skip draft PR runs + closed-PR re-runs. The workflow does not subscribe
     # to pull_request events; this `if` is belt-and-braces for any future
     # operator who adds one without rereading the safety contract.
@@ -461,7 +493,16 @@ jobs:
                 echo ""
                 echo "- Current:  **${current}**"
                 echo "- Baseline: ${baseline}"
-                echo "- Delta:    +${delta}"
+                # `${delta}` porta GIA' il segno (`current - baseline`), quindi il
+                # `+` letterale che stava qui stampava `+-1955` — visto sulla
+                # issue #8602, dove il gate `text-html-ratio` e' regredito con un
+                # conteggio SCESO di 1955. Non e' una contraddizione del gate: i
+                # gate con `usesOwnRatchet` sono giudicati dal ratchet
+                # mix-adjusted del loro audit (il rate, non il conteggio grezzo),
+                # e current/baseline/delta restano solo informativi. Ma un
+                # «+-1955» accanto a «ELIMINATE the new offenders» manda il triage
+                # a cercare 1955 pagine nuove che non esistono.
+                echo "- Delta:    ${delta}"
                 echo "- Reproduce locally: \`${audit_cmd}\`"
                 echo "- Notes: ${notes}"
                 echo ""

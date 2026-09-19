@@ -23,6 +23,7 @@ const KINDS = [
   'cross-locale-reconciliation',
   'related-search-cluster',
   'related-search-sitemap',
+  'cf-hot-404-bridge',
 ];
 
 type Scenario = {
@@ -58,13 +59,22 @@ function hash(value: string): string {
 }
 
 function pagePath(page: string, prefix = 'en'): string {
-  return `${prefix}/${page}/`;
+  return page ? `${prefix}/${page}/` : `${prefix}/`;
 }
 
-function writeManifest(scenario: Scenario, pages: string[], version: string, prefix = 'en'): void {
+function writeManifest(
+  scenario: Scenario,
+  pages: string[],
+  version: string,
+  prefix = 'en',
+  includeRoot = false,
+  omitCountKinds: string[] = [],
+): void {
   mkdirSync(scenario.manifestDir, { recursive: true });
+  const manifestPages = includeRoot ? ['', ...pages] : pages;
   const counts = Object.fromEntries(KINDS.map((kind) => [kind, 0]));
-  counts['active-job'] = pages.length;
+  counts['active-job'] = manifestPages.length;
+  for (const kind of omitCountKinds) delete counts[kind];
   const lines = [
     JSON.stringify({ type: 'header', manifestVersion: MANIFEST_VERSION, format: 'jsonl', locale: 'en' }),
     JSON.stringify({
@@ -74,11 +84,11 @@ function writeManifest(scenario: Scenario, pages: string[], version: string, pre
       sourceVersion: 'input@1',
       state: 'live',
     }),
-    ...pages.map((page) => JSON.stringify({
+    ...manifestPages.map((page) => JSON.stringify({
       path: pagePath(page, prefix),
       hash: hash(`${version}:${page}`),
     })),
-    JSON.stringify({ type: 'footer', counts: { total: pages.length, byKind: counts } }),
+    JSON.stringify({ type: 'footer', counts: { total: manifestPages.length, byKind: counts } }),
   ];
   writeFileSync(join(scenario.manifestDir, 'en.jsonl'), `${lines.join('\n')}\n`);
 }
@@ -244,7 +254,8 @@ describe('delta push degli shard', () => {
       writeManifest(scenario, ['pages/a', 'pages/b', 'pages/c'], 'v1');
       const first = runPush(scenario, 'delta');
       expect(first.status).toBe(0);
-      expect(first.output).toMatch(/delta fallback: .*remote empty|delta fallback: first push/);
+      expect(first.output).toContain('manifest delta: mode=snapshot');
+      expect(first.output).toMatch(/delta fallback: fallback reason=(first push \/ remote empty|remote empty)/);
       expect(treeFiles(scenario.remote)).toContain('.deploy-manifest/v1/en.jsonl');
       const oldA = blobSha(scenario.remote, 'en/pages/a/index.html');
       const oldB = blobSha(scenario.remote, 'en/pages/b/index.html');
@@ -257,6 +268,7 @@ describe('delta push degli shard', () => {
       writeManifest(scenario, ['pages/a', 'pages/b', 'pages/d'], 'v2');
       const second = runPush(scenario, 'delta');
       expect(second.status).toBe(0);
+      expect(second.output).toContain('manifest delta: mode=delta');
       expect(second.output).toContain('delta indexed tree');
       expect(treeFiles(scenario.remote)).not.toContain('en/pages/c/index.html');
       expect(treeFiles(scenario.remote)).toContain('en/pages/d/index.html');
@@ -265,6 +277,20 @@ describe('delta push degli shard', () => {
       assertContent(scenario.remote, 'en/pages/a/index.html', '<html>A</html>');
       assertContent(scenario.remote, 'en/pages/b/index.html', '<html>B v2</html>');
       assertContent(scenario.remote, 'en/pages/d/index.html', '<html>D</html>');
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
+  it('fa fallback se manca il count di un kind obbligatorio', () => {
+    const scenario = createScenario('required-kind-count-missing');
+    try {
+      writePayload(scenario, { 'pages/a': '<html>A</html>' });
+      writeManifest(scenario, ['pages/a'], 'v1', 'en', false, ['active-job']);
+      const result = runPush(scenario, 'delta');
+      expect(result.status).toBe(0);
+      expect(result.output).toContain('delta fallback: fallback reason=current manifest invalid or payload missing');
+      assertContent(scenario.remote, 'en/pages/a/index.html', '<html>A</html>');
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }
@@ -309,6 +335,93 @@ describe('delta push degli shard', () => {
       expect(result.output).toMatch(/removed=1/);
       expect(treeFiles(scenario.remote)).not.toContain('en/pages/a/obsolete.txt');
       assertContent(scenario.remote, 'en/pages/a/index.html', '<html>A</html>');
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
+  it('fa fallback se il sidecar marca unchanged un file assente dall’indice HEAD', () => {
+    const scenario = createScenario('unchanged-missing-from-head');
+    try {
+      writePayload(scenario, { 'pages/a': '<html>A</html>' });
+      writeManifest(scenario, ['pages/a'], 'v1');
+      expect(runPush(scenario, 'delta').status).toBe(0);
+
+      // Simulate a torn/filtered shard commit: keep the published sidecar,
+      // but remove the payload blob from HEAD. The next manifest says the
+      // entry is unchanged, so delta must refuse to reuse a missing file and
+      // rebuild via the full overlay.
+      const corrupt = join(scenario.root, 'corrupt-head');
+      git(['clone', '-q', scenario.remote, corrupt]);
+      git(['config', 'user.email', 'test@example.com'], corrupt);
+      git(['config', 'user.name', 'Test User'], corrupt);
+      rmSync(join(corrupt, 'en/pages/a/index.html'));
+      git(['add', '-A'], corrupt);
+      git(['commit', '-qm', 'simulate missing unchanged payload'], corrupt);
+      git(['push', '-q', 'origin', 'main'], corrupt);
+
+      writePayload(scenario, { 'pages/a': '<html>A</html>' });
+      writeManifest(scenario, ['pages/a'], 'v1');
+      const result = runPush(scenario, 'delta');
+      expect(result.status).toBe(0);
+      expect(result.output).toMatch(/delta fallback: fallback reason=unchanged payload missing from indexed HEAD/);
+      assertContent(scenario.remote, 'en/pages/a/index.html', '<html>A</html>');
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
+  it('tratta come no-op un tombstone assente dall’indice anche con payload correlato', () => {
+    const scenario = createScenario('tombstone-absent-from-head');
+    try {
+      writePayload(scenario, { 'pages/gone': '<html>old</html>' });
+      writeManifest(scenario, ['pages/gone'], 'v1');
+      expect(runPush(scenario, 'delta').status).toBe(0);
+
+      // Leave the sidecar tombstone source in HEAD, but remove the old target
+      // from the indexed tree before the next build. The current payload is
+      // deliberately unmanifested and route-related: the tombstone pass must
+      // still be a no-op because there is nothing in HEAD to delete.
+      const corrupt = join(scenario.root, 'corrupt-head');
+      git(['clone', '-q', scenario.remote, corrupt]);
+      git(['config', 'user.email', 'test@example.com'], corrupt);
+      git(['config', 'user.name', 'Test User'], corrupt);
+      rmSync(join(corrupt, 'en/pages/gone/index.html'));
+      git(['add', '-A'], corrupt);
+      git(['commit', '-qm', 'remove tombstone target from head'], corrupt);
+      git(['push', '-q', 'origin', 'main'], corrupt);
+
+      writePayload(scenario, { 'pages/gone': '<html>replacement</html>' });
+      writeManifest(scenario, [], 'v2');
+      const result = runPush(scenario, 'delta');
+      expect(result.status).toBe(0);
+      expect(result.output).toContain('manifest tombstone no-op for en/pages/gone');
+      expect(result.output).toContain('reason=absent from indexed HEAD');
+      expect(result.output).not.toContain('delta fallback: manifest tombstone cross-check failed');
+      assertContent(scenario.remote, 'en/pages/gone/index.html', '<html>replacement</html>');
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
+  it('sovrascrive e conta un payload non manifestato senza fallback dello shard', () => {
+    const scenario = createScenario('unmanifested-overlay');
+    try {
+      writePayload(scenario, { 'pages/gone': '<html>old</html>' });
+      writeManifest(scenario, ['pages/gone'], 'v1', 'en', true);
+      expect(runPush(scenario, 'delta').status).toBe(0);
+
+      // The old manifest entry disappears, but the direct emitter still
+      // produces the same route in the current payload. It must be overlaid
+      // from source, not treated as an ambiguous tombstone.
+      writePayload(scenario, { 'pages/gone': '<html>replacement</html>' });
+      writeManifest(scenario, [], 'v2', 'en', true);
+      const result = runPush(scenario, 'delta');
+      expect(result.status).toBe(0);
+      expect(result.output).toContain('delta indexed tree');
+      expect(result.output).toContain('unmanifested-overlay=1');
+      expect(result.output).not.toContain('delta fallback:');
+      assertContent(scenario.remote, 'en/pages/gone/index.html', '<html>replacement</html>');
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }
@@ -408,7 +521,7 @@ describe('delta push degli shard', () => {
       writeManifest(scenario, ['pages/a'], 'v2');
       const result = runPush(scenario, 'delta');
       expect(result.status).toBe(1);
-      expect(result.output).toMatch(/delta fallback: shrink guard/);
+      expect(result.output).toMatch(/delta fallback: fallback reason=shrink guard/);
       expect(result.output).toContain('refusing push');
       expect(git(['-C', scenario.remote, 'rev-parse', 'main'])).toBe(before);
     } finally {
@@ -646,7 +759,7 @@ describe('delta push degli shard', () => {
       const result = runPush(scenario, 'delta');
       expect(result.status).toBe(0);
       expect(result.output).toContain('delta indexed tree');
-      expect(result.output).toMatch(/changed=1, reused=3001/);
+      expect(result.output).toMatch(/changed=1, unmanifested-overlay=3001, reused=3001/);
       expect(result.elapsedMs).toBeLessThan(15000);
       assertContent(scenario.remote, 'en/assets/asset-1777.txt', 'asset-1777-v2\n');
     } finally {

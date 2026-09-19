@@ -1,7 +1,72 @@
 {
   "crawlerKey": "elettra-1938",
-  "assembledAt": "2026-09-13T14:03:53.742Z",
+  "assembledAt": "2026-09-18T23:20:39.744Z",
   "jobs": [
+    {
+      "id": "elettra-1938-ef6f82493666",
+      "slug": "operaio-d-esercizio-elettra-1938-ch",
+      "slugByLocale": {
+        "it": "operaio-d-esercizio-elettra-1938-ch",
+        "en": "operating-unit-elettra-1938-sede-stabio-svizzera",
+        "de": "bedieneinheit-elettra-1938-sede-stabio-svizzera",
+        "fr": "unite-d-exploitation-elettra-1938-sede-stabio-svizzera"
+      },
+      "company": "Elettra 1938",
+      "companyKey": "elettra-1938",
+      "companyDomain": "elettra1938.ch",
+      "title": "Operaio d'esercizio",
+      "titleByLocale": {
+        "it": "Operaio d'esercizio",
+        "en": "Operating unit",
+        "de": "Bedieneinheit",
+        "fr": "Unité d'exploitation"
+      },
+      "description": "Per la nostra sede di Stabio siamo alla ricerca di un operatore di produzione che si occuperà delle seguenti mansioni: handling delle batterie; attività di test e riparazione; assemblaggio di schede elettroniche; attività su linea di...",
+      "descriptionByLocale": {
+        "it": "Per la nostra sede di Stabio siamo alla ricerca di un operatore di produzione che si occuperà delle seguenti mansioni: handling delle batterie; attività di test e riparazione; assemblaggio di schede elettroniche; attività su linea di...",
+        "en": "For our headquarters in Stabio we are looking for a production operator who will take care of the following tasks: battery handling; test and repair activities; electronic card assembly; line-up activities...",
+        "de": "Für unseren Hauptsitz in Stabio suchen wir einen Produktionsbetreiber, der sich um folgende Aufgaben kümmert: Batteriehandling; Test- und Reparaturtätigkeiten; elektronische Kartenmontage; Line-up-Aktivitäten...",
+        "fr": "Pour notre siège social à Stabio, nous recherchons un opérateur de production qui s'occupera des tâches suivantes : la manipulation des batteries ; les activités de test et de réparation ; l'assemblage de cartes électroniques ; les activités de line-up..."
+      },
+      "location": "Sede Stabio Svizzera",
+      "canton": "TI",
+      "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it/",
+      "source": "Elettra 1938 Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-18T23:20:34.167Z",
+      "addressLocality": "Sede Stabio Svizzera",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6855",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Impiantistica elettrica / Automazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-18",
+      "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "salaryMin": 55500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 55500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-18T23:20:34.167Z"
+    },
     {
       "id": "elettra-1938-73b81e3ccbae",
       "slug": "customer-quality-engineer-elettra-1938-ch",
@@ -71,7 +136,8 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }

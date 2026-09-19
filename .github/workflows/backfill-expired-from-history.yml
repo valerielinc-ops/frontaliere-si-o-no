@@ -61,10 +61,34 @@ jobs:
         # consuma l'intero budget e il job muore `cancelled` — stato invisibile
         # agli `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
         # posteriori. Col tetto e' un `failure` diagnosticabile.
-        # Un solo run completato disponibile (Checkout 166s, 3% di un cap da
-        # 90min): dato insufficiente per giustificare blob:none, e nessun segnale
-        # di rischio. Solo il tetto.
-        timeout-minutes: 20
+        #
+        # Il tetto era 20min, tarato sull'UNICA run completata disponibile
+        # (Checkout 166s il 2026-06-15, 3% di un cap da 90min). Quei 166s non
+        # descrivono piu' il repo: la run 33490566667 (2026-09-01) e' morta
+        # proprio qui, e il log dice che il tetto ha tagliato il FETCH, non il
+        # checkout dell'albero — `git fetch` dalle 09:07:33 alle 09:27:23, cioe'
+        # 19m50s dei 20min, e il `git checkout` dietro era al 11% (4526/41140
+        # file) dopo pochi secondi, quindi avrebbe finito in ~100s. Il tetto
+        # stava sotto il costo intrinseco del fetch: non e' severita', e' un
+        # rosso che nessuna modifica al repo puo' togliere.
+        #
+        # Perche' si alza il tetto invece di ridurre il fetch — le due cure
+        # abituali sono entrambe escluse, misurate:
+        #  - `filter: blob:none` e' VELENO qui, per la stessa ragione scritta nel
+        #    Checkout di recover-prev-slugs.yml: `backfill-expired-from-history.mjs`
+        #    non cammina solo i commit, legge il CONTENUTO di ogni revisione con
+        #    `git show <sha>:<path>` (una per commit, fino a ~640 per slice su 596
+        #    slice). Con un clone blobless ognuna di quelle letture e' un
+        #    lazy-fetch di rete.
+        #  - restringere la finestra (`--shallow-since`) non compra niente: la
+        #    history di questo repo e' TUTTA recente dopo il rewrite del
+        #    2026-05-27, 117'771 commit su main di cui 96'198 negli ultimi 3
+        #    mesi. Tagliare a 3 mesi togliere il 18% del fetch, non il costo.
+        # Resta quindi il tetto, alzato al costo reale con margine: 40min contro
+        # i 19m50s+ misurati. Il budget del job (90min) lo assorbe — l'ultima run
+        # riuscita ha speso 25m30s in TOTALE (walk 12m41s, reassemble 45s,
+        # npm test 7m51s, commit 1m04s), quindi 40 + ~23 = ~63min.
+        timeout-minutes: 40
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -78,6 +102,28 @@ jobs:
           APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
           APPROVAL_CONSENT: ${{ inputs.human_approval }}
           APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          # Senza questa riga il cron di questo workflow e' VERDE E INERTE.
+          # scripts/ci/human-side-effect-gate.mjs:180 calcola
+          # `isTrustedScheduleEvent = eventName === 'schedule' &&
+          # APPROVAL_TRUSTED_SCHEDULE === 'true'`, e alla riga 214 un evento che
+          # non e' ne' dispatch ne' schedule fidato aggiunge
+          # `event-not-workflow-dispatch` alle `reasons` -> diniego. Un diniego
+          # «exits successfully so the workflow can finish quietly» (riga 34 di
+          # quello script), e ogni step di scrittura di questo workflow e'
+          # condizionato a `allow_side_effect == 'true'`: quindi il cron del
+          # 2026-10-01 sarebbe risultato `success` avendo backfillato ZERO
+          # expired job. Non e' un'ipotesi: `grep -c APPROVAL_TRUSTED_SCHEDULE`
+          # su questo file rendeva 0, mentre 19 workflow fratelli lo dichiarano
+          # (recover-prev-slugs.yml:170, send-job-alerts.yml,
+          # refresh-plate-auctions.yml e altri 16) — quindi e' il pattern
+          # stabilito del repo, non un privilegio inventato per questo caso.
+          #
+          # Questa riga ABILITA SCRITTURE SU `main` DA CRON: il percorso di
+          # questo workflow fa `git-commit-data.sh --slice-only` con push
+          # diretto su main e poi `trigger-deploy.sh`. Il gate resta comunque
+          # l'unico cancello (run_attempt == 1, nonce monouso, e `dry_run`
+          # continua a valere sul dispatch manuale).
+          APPROVAL_TRUSTED_SCHEDULE: 'true'
           APPROVAL_SCOPE: backfill-expired-from-history
         run: node scripts/ci/human-side-effect-gate.mjs
 
@@ -147,13 +193,72 @@ jobs:
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
 
+      # ─── Perche' questo step esiste ────────────────────────────────────────
+      # Il reporter qui sotto e' `run: node scripts/lib/github-issue-creator.mjs`,
+      # cioe' vive nell'albero che il Checkout materializza. Quando e' il Checkout
+      # A FALLIRE, quel file non esiste e il reporter muore con
+      # `Cannot find module .../scripts/lib/github-issue-creator.mjs` — e
+      # `continue-on-error: true` fa risultare lo step `success`, quindi il
+      # fallimento della rete di sicurezza e' INVISIBILE nella lista degli step.
+      # MISURA: 0 issue sulla run rossa 33490566667 (2026-09-01, Checkout morto a 20 min
+      # con 19m50s di fetch) = 415 h di silenzio su un cron MENSILE, dove la
+      # prossima occasione di accorgersene sarebbe il 2026-10-01.
+      #
+      # Il recupero va in un path SEPARATO, non nel workspace: un Checkout morto
+      # in timeout lascia l'albero PARZIALE, e un secondo checkout sullo stesso
+      # path lo ripulirebbe o litigherebbe con quello che c'e' gia'.
+      # `sparse-checkout: scripts/lib` basta, e non e' una stima: la chiusura
+      # degli import di github-issue-creator.mjs e' UN SOLO file, con soli
+      # builtin di node e zero dipendenze npm (misurata il 2026-09-19), quindi
+      # niente `npm ci` e niente `setup-node` da rifare.
+      #
+      # Perche' inline in due file invece di una composite action condivisa
+      # (AGENTS.md #6): una composite LOCALE non e' risolvibile senza checkout —
+      # e' il commento di .github/actions/report-failure/action.yml a dirlo,
+      # «lo step deve stare DOPO un actions/checkout». Una action che serve
+      # proprio quando il checkout e' fallito non puo' vivere nel repo:
+      # by construction, qui l'unica forma possibile e' `actions/checkout`.
+      - name: Recover the failure reporter (when the checkout is what failed)
+        if: failure()
+        continue-on-error: true
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          path: .reporter
+          sparse-checkout: scripts/lib
+
       - name: Report failure to GitHub Issues
         if: failure()
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Rilievo 🔴 della review: senza questo, `repoFlag()` in
+          # github-issue-creator.mjs rende `[]` (riga 175) e `apiRepoPath()`
+          # lascia i placeholder `{owner}/{repo}` (riga 560), che `gh` risolve
+          # dal REMOTE GIT DELLA CWD. Se il Checkout fallito non ha lasciato un
+          # `.git` usabile, il reporter non sa su quale repo scrivere e la rete
+          # di sicurezza non parte — cioe' il reporter di recupero aveva la
+          # stessa dipendenza implicita dal checkout che stava riparando, un
+          # livello piu' in basso. Con GH_REPO esplicito non dipende piu' da
+          # nessun albero.
+          GH_REPO: ${{ github.repository }}
         run: |
-          node scripts/lib/github-issue-creator.mjs \
+          # L'albero puo' essere assente (Checkout fallito) o parziale: usa la
+          # copia recuperata solo se la canonica non c'e'.
+          SCRIPT=scripts/lib/github-issue-creator.mjs
+          [ -f "$SCRIPT" ] || SCRIPT=.reporter/scripts/lib/github-issue-creator.mjs
+          # Se anche il recupero e' fallito, questo step sotto
+          # `continue-on-error: true` risulterebbe `success` senza aver
+          # riportato niente — il «no-report riuscito in silenzio», che e'
+          # esattamente il difetto di partenza spostato di un passo. Un
+          # `::error::` lascia un'annotation visibile sulla run, e la issue la
+          # apre comunque la rete centrale (scripts/ci/scan-unreported-failures.mjs).
+          if [ ! -f "$SCRIPT" ]; then
+            echo "::error::reporter di fallimento non raggiungibile: ne' scripts/lib/ ne' .reporter/scripts/lib/ esistono. Nessuna issue aperta da questo workflow; la copertura resta su unreported-failure-issues.yml."
+            exit 0
+          fi
+          node "$SCRIPT" \
             --title "Workflow Failure: ${{ github.workflow }}" \
             --description "## Workflow fallito
           **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}

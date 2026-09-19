@@ -1,7 +1,808 @@
 {
   "crawlerKey": "kispi-zurich",
-  "assembledAt": "2026-09-17T14:25:37.701Z",
+  "assembledAt": "2026-09-18T23:12:47.757Z",
   "jobs": [
+    {
+      "id": "kispi-zurich-708c6a92817d",
+      "slug": "gestione-dei-casi-dei-dipendenti-90-m-f-universitats-kinderspital-zurich-kispi-zurich",
+      "slugByLocale": {
+        "it": "gestione-dei-casi-dei-dipendenti-90-m-f-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "employee-case-management-90-m-f-universitats-kinderspital-zurich-kispi-zurich",
+        "de": "mitarbeiterin-fallmanagement-90-m-w-kispi-zurich-zurich",
+        "fr": "gestion-des-cas-des-employes-90-h-f-universitats-kinderspital-zurich-kispi-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Mitarbeiterin Fallmanagement 90% (m/w)",
+      "titleByLocale": {
+        "it": "Gestione dei casi dei dipendenti 90% (m/f)",
+        "en": "Employee Case Management 90% (m/f)",
+        "de": "Mitarbeiterin Fallmanagement 90% (m/w)",
+        "fr": "Gestion des cas des employés 90% (h/f)"
+      },
+      "description": "Mitarbeiterin Fallmanagement 90% (m/w) bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+      "descriptionByLocale": {
+        "it": "Case Management dei dipendenti 90% (m/f) presso Kinderspital Zürich Eleonorenstiftung a Zurigo (8032, ZH), Svizzera.\n\n• Posizione: Zurigo (ZH)\n• Applicazione tramite il Portale Umantis Career dell'Ospedale pediatrico dell'Università di Zurigo (Kispi)",
+        "en": "Employee Case Management 90% (m/f) at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n\n• Location: Zurich (ZH)\n• Application via the Umantis Career Portal of the University Children's Hospital Zurich (Kispi)",
+        "de": "Mitarbeiterin Fallmanagement 90% (m/w) bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "fr": "Gestion des dossiers des employés 90% (h/f) à Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
+      },
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3746/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-18T23:12:41.973Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-11",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3746/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiterin-fallmanagement-90-m-w-kispi-zurich-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-fallmanagement-90-m-w-kispi-zurich-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-fallmanagement-90-m-w-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "mitarbeiterin-fallmanagement-90-m-w-kispi-zurich-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-11T13:41:44.380Z",
+      "salaryMin": 82400,
+      "salaryMax": 115200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82400,
+          "maxValue": 115200,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "kispi-zurich-808ae1b1761d",
+      "slug": "koordinatorin-ricerca-management-administration-w-m-80-100-universitats-kinderspital-zurich-kispi-zurich",
+      "slugByLocale": {
+        "it": "koordinatorin-ricerca-management-administration-w-m-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "koordinatorin-research-management-administration-w-m-80-100-kispi-zurich-zurich",
+        "de": "koordinatorin-research-management-administration-w-m-80-100-kispi-zurich-zurich",
+        "fr": "koordinatorin-recherche-management-administration-w-m-80-100-universitats-kinderspital-zurich-kispi-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Koordinatorin Research Management & Administration (w/m) 80-100%",
+      "titleByLocale": {
+        "it": "Koordinatorin Ricerca Management & Administration (w/m) 80-100%",
+        "en": "Coordinator Research Management & Administration (m/f) 80-100 %",
+        "de": "Koordinatorin Forschung Management & Administration (w/m) 80-100%",
+        "fr": "Koordinatorin Recherche Management & Administration (w/m) 80-100%"
+      },
+      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 14.09.2026\n\nPinnacle - Forschungsgruppe für pädiatrishe und neonatale Intensivmedizin\n\nDeine Aufgaben\n• Du unterstützt die Research Managerin im operativen und administrativen Tagesgeschäft und sorgst für einen reibungslosen Ablauf.\n• Administrative HR-Prozesse für neue und bestehende Teammitglieder begleitest du von der Vorbereitung der erforderlichen Unterlagen über Rekrutierungen und Interviews bis hin zu Eintritten und Onboarding.\n• Bei administrativen Finanzprozessen packst du mit an – insbesondere bei der Erstellung und Aktualisierung von Budgetübersichten, der Rechnungsstellung und -bearbeitung sowie der Kontierung in Zusammenarbeit mit den zuständigen Fachstellen.\n• Sitzungen, Workshops, Retreats und weitere Veranstaltungen organisierst du selbstständig und übernimmst deren Vor- und Nachbereitung.\n• Agenden und Protokolle erstellst du zuverlässig und behältst dabei Pendenzen, Termine und Fristen im Blick.\n• Interne und externe Meetings sowie Termine koordinierst und bereitest du sorgfältig vor.\n• Bei der Erstellung, Zusammenstellung und Aufbereitung von Forschungs-, Projekt- und weiteren Berichten unterstützt du das Team tatkräftig.\n• Projektunterlagen und administrative Dokumentationen koordinierst und pflegst du strukturiert und gewissenhaft.\n• Im Rahmen von Forschungsprojekten und klinischen Studien unterstützt du bei administrativen und regulatorischen Abläufen, insbesondere bei der Koordination von Studiendokumenten, Vereinbarungen und weiteren regulatorisch relevanten Unterlagen.\n• Als zentrale Ansprechperson koordinierst du die Kommunikation mit internen und externen Partnern sowie Fachstellen.\n• Beim Aufbau und bei der Weiterentwicklung und Optimierung administrativer Prozesse und Strukturen bringst du deine Ideen aktiv ein.\n• Teammitglieder unterstützt du bei der Klärung von Abläufen, Zuständigkeiten und erforderlichen Unterlagen und trägst damit zu effizienten Arbeitsprozessen bei.\n\nDein Profil\n• Abgeschlossene höhere Ausbildung in einem für die Funktion relevanten Bereich, beispielsweise in Administration/Management, Gesundheitswesen oder Life Sciences; ein Hochschulabschluss (Bachelor oder Master) ist von Vorteil\n• Mehrjährige Erfahrung in einer administrativen oder koordinierenden Funktion, idealerweise im universitären, klinischen oder wissenschaftlichen Umfeld\n• Kenntnisse regulatorischer Anforderungen und Abläufe in der klinischen Forschung sowie Erfahrung mit Studiendokumenten und Vereinbarungen sind von Vorteil oder alternativ Bereitschaft, sich diese Kenntnisse rasch anzueignen\n• Interesse an wissenschaftlichen und medizinischen Fragestellungen sowie Offenheit und Neugier für Forschungsthemen\n• Erfahrung in der Budget-/Finanzadministration und Projektkoordination\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise sowie ausgeprägtes Organisationstalent\n• Freude an einer dynamischen, vielseitigen Schnittstellenfunktion und an der Koordination unterschiedlicher Aufgaben\n• Ausgeprägte Kommunikations- und Teamfähigkeit sowie eine lösungsorientierte und kooperative Arbeitsweise\n• Sehr gute Kenntnisse der MS-Office-Anwendungen, insbesondere Excel\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nClaudia Guetg Senior HR Business Partner\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück\n\n• Befristung: unbefristet",
+      "descriptionByLocale": {
+        "it": "Ospedale per bambini Zurigo Eleonorenstiftung | online da: 14.09.2026\n\nPinnacle - Gruppo di ricerca per la cura intensiva pediatrica e neonatale\n\nI tuoi compiti\n• Supporti il Responsabile della Ricerca in attività operative e amministrative quotidiane e garantisci un processo regolare.\n• I processi amministrativi delle risorse umane per i nuovi e già esistenti vi accompagneranno dalla preparazione dei documenti richiesti alle assunzioni e alle interviste all'ingresso e all'imbarco.\n• Sei coinvolto in processi finanziari amministrativi – in particolare nella creazione e nell'aggiornamento di bilanci, fatturazione e elaborazione, nonché nella contabilità in collaborazione con i rispettivi dipartimenti specializzati.\n• Sessioni, workshop, ritiri e altri eventi si organizzano in modo indipendente e prendono il sopravvento e la preparazione.\n• Crea agevolmente agevoli e protocolli e tieni d'occhio pendenze, date e scadenze.\n• Coordinate con attenzione le riunioni e gli appuntamenti interni ed esterni e preparateli.\n• Nella preparazione, nella compilazione e nella preparazione della ricerca, del progetto e di altri rapporti, si sostiene attivamente il team.\n• Documenti di progetto e documentazione amministrativa sono coordinati e mantenuti in modo strutturato e coscienzioso.\n• Nell'ambito dei progetti di ricerca e delle sperimentazioni cliniche, si sosterrà con i processi amministrativi e normativi, in particolare con il coordinamento dei documenti di studio, degli accordi e di altri documenti regolamentari rilevanti.\n• Come persona di contatto centrale, coordina la comunicazione con partner interni ed esterni e dipartimenti specializzati.\n• Quando crei e sviluppi e ottimizza i processi e le strutture amministrative, contribuisci attivamente alle tue idee.\n• I membri del team ti supportano nel chiarire processi, responsabilità e documenti richiesti e contribuiscono così a processi di lavoro efficienti.\n\nIl tuo profilo\n• L'istruzione superiore completata in un'area pertinente alla funzione, come l'amministrazione/gestione, la sanità o le scienze della vita; una laurea (Bachelor o Master) è un vantaggio\n• Diversi anni di esperienza in una funzione amministrativa o coordinatrice, idealmente nell'ambiente universitario, clinico o scientifico\n• La conoscenza dei requisiti normativi e delle procedure nella ricerca clinica e l'esperienza con i documenti di studio e gli accordi sono vantaggiosi o in alternativa disposti ad acquisire rapidamente questa conoscenza\n• Interessi in materia scientifica e medica, nonché apertura e curiosità per argomenti di ricerca\n• Esperienza di bilancio/amministrazione finanziaria e coordinamento dei progetti\n• Metodi di lavoro indipendenti, strutturati e affidabili nonché forte talento organizzativo\n• Godetevi una funzione di interfaccia dinamica e versatile e il coordinamento delle diverse attività\n• Forte capacità di comunicazione e di squadra, nonché un metodo di lavoro orientato alla soluzione e cooperativo\n• Ottima conoscenza delle applicazioni MS Office, in particolare Excel\n• Molto buona conoscenza del tedesco e dell'inglese in parola e scrittura\n\nClaudia Guetg Senior HR Business Partner\n\nhttp://www.kispi.uzh.ch\n\nSono interessato e vorrei candidarmi\n\nIndietro\n\n• Termine: perpetuo",
+        "en": "Children's Hospital Zurich Eleonorenstiftung | online since : 14.09.2026\n\nPinnacle - Research group for pediatric and neonatal intensive care\n\nYour tasks\n• You support the Research Manager in operational and administrative day-to-day business and ensure a smooth process.\n• Administrative HR processes for new and existing team members will accompany you from the preparation of the required documents to recruitments and interviews to entry and onboarding.\n• You are involved in administrative financial processes – especially in the creation and updating of budget overviews, invoicing and processing as well as accounting in cooperation with the relevant specialist departments.\n• Sessions, workshops, retreats and other events you organize independently and take over their preparation and follow-up.\n• You create agendas and protocols reliably and keep an eye on pendences, dates and deadlines.\n• You coordinate internal and external meetings and appointments carefully and prepare them.\n• In the preparation, compilation and preparation of research, project and other reports, you actively support the team.\n• Project documents and administrative documentation are coordinated and maintained in a structured and conscientious manner.\n• Within the framework of research projects and clinical trials, you will support with administrative and regulatory processes, in particular with the coordination of study documents, agreements and other relevant regulatory documents.\n• As a central contact person, you coordinate communication with internal and external partners and specialist departments.\n• When setting up and further developing and optimizing administrative processes and structures, you actively contribute your ideas.\n• Team members support you in clarifying processes, responsibilities and required documents and thus contribute to efficient work processes.\n\nYour profile\n• Completed higher education in an area relevant to the function, such as administration/management, healthcare or life sciences; a university degree (Bachelor or Master) is an advantage\n• Several years of experience in an administrative or coordinating function, ideally in the university, clinical or scientific environment\n• Knowledge of regulatory requirements and procedures in clinical research as well as experience with study documents and agreements are beneficial or alternatively willing to acquire this knowledge quickly\n• Interest in scientific and medical issues as well as openness and curiosity for research topics\n• Experience in budget/financial administration and project coordination\n• Independent, structured and reliable working methods as well as strong organisational talent\n• Enjoy a dynamic, versatile interface function and the coordination of different tasks\n• Strong communication and team skills as well as a solution-oriented and cooperative working method\n• Very good knowledge of MS Office applications, especially Excel\n• Very good knowledge of German and English in word and writing\n\nClaudia Guetg Senior HR Business Partner\n\nhttp://www.kispi.uzh.ch\n\nI am interested and would like to apply\n\nBack\n\n• Time limit: perpetual",
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 14.09.2026\n\nPinnacle - Forschungsgruppe für pädiatrishe und neonatale Intensivmedizin\n\nDeine Aufgaben\n• Du unterstützt die Research Managerin im operativen und administrativen Tagesgeschäft und sorgst für einen reibungslosen Ablauf.\n• Administrative HR-Prozesse für neue und bestehende Teammitglieder begleitest du von der Vorbereitung der erforderlichen Unterlagen über Rekrutierungen und Interviews bis hin zu Eintritten und Onboarding.\n• Bei administrativen Finanzprozessen packst du mit an – insbesondere bei der Erstellung und Aktualisierung von Budgetübersichten, der Rechnungsstellung und -bearbeitung sowie der Kontierung in Zusammenarbeit mit den zuständigen Fachstellen.\n• Sitzungen, Workshops, Retreats und weitere Veranstaltungen organisierst du selbstständig und übernimmst deren Vor- und Nachbereitung.\n• Agenden und Protokolle erstellst du zuverlässig und behältst dabei Pendenzen, Termine und Fristen im Blick.\n• Interne und externe Meetings sowie Termine koordinierst und bereitest du sorgfältig vor.\n• Bei der Erstellung, Zusammenstellung und Aufbereitung von Forschungs-, Projekt- und weiteren Berichten unterstützt du das Team tatkräftig.\n• Projektunterlagen und administrative Dokumentationen koordinierst und pflegst du strukturiert und gewissenhaft.\n• Im Rahmen von Forschungsprojekten und klinischen Studien unterstützt du bei administrativen und regulatorischen Abläufen, insbesondere bei der Koordination von Studiendokumenten, Vereinbarungen und weiteren regulatorisch relevanten Unterlagen.\n• Als zentrale Ansprechperson koordinierst du die Kommunikation mit internen und externen Partnern sowie Fachstellen.\n• Beim Aufbau und bei der Weiterentwicklung und Optimierung administrativer Prozesse und Strukturen bringst du deine Ideen aktiv ein.\n• Teammitglieder unterstützt du bei der Klärung von Abläufen, Zuständigkeiten und erforderlichen Unterlagen und trägst damit zu effizienten Arbeitsprozessen bei.\n\nDein Profil\n• Abgeschlossene höhere Ausbildung in einem für die Funktion relevanten Bereich, beispielsweise in Administration/Management, Gesundheitswesen oder Life Sciences; ein Hochschulabschluss (Bachelor oder Master) ist von Vorteil\n• Mehrjährige Erfahrung in einer administrativen oder koordinierenden Funktion, idealerweise im universitären, klinischen oder wissenschaftlichen Umfeld\n• Kenntnisse regulatorischer Anforderungen und Abläufe in der klinischen Forschung sowie Erfahrung mit Studiendokumenten und Vereinbarungen sind von Vorteil oder alternativ Bereitschaft, sich diese Kenntnisse rasch anzueignen\n• Interesse an wissenschaftlichen und medizinischen Fragestellungen sowie Offenheit und Neugier für Forschungsthemen\n• Erfahrung in der Budget-/Finanzadministration und Projektkoordination\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise sowie ausgeprägtes Organisationstalent\n• Freude an einer dynamischen, vielseitigen Schnittstellenfunktion und an der Koordination unterschiedlicher Aufgaben\n• Ausgeprägte Kommunikations- und Teamfähigkeit sowie eine lösungsorientierte und kooperative Arbeitsweise\n• Sehr gute Kenntnisse der MS-Office-Anwendungen, insbesondere Excel\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nClaudia Guetg Senior HR Business Partner\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück\n\n• Befristung: unbefristet",
+        "fr": "L'hôpital des enfants Zurich Eleonorenstiftung en ligne depuis : 14.09.2026\n\nPinnacle - Groupe de recherche sur les soins intensifs pédiatriques et néonatals\n\nVos tâches\n• Vous soutenez le gestionnaire de recherche dans les activités opérationnelles et administratives quotidiennes et vous assurez un processus en douceur.\n• Les processus administratifs de RH pour les membres de l'équipe, nouveaux et existants, vous accompagneront de la préparation des documents requis aux recrutements et aux entrevues jusqu'à l'entrée et à l'embarquement.\n• Vous participez à des processus financiers administratifs – notamment à la création et à la mise à jour d'aperçus budgétaires, à la facturation et au traitement ainsi qu'à la comptabilité en collaboration avec les services spécialisés concernés.\n• Sessions, ateliers, retraites et autres événements que vous organisez de façon indépendante et prenez en charge leur préparation et leur suivi.\n• Vous créez des agendas et des protocoles de façon fiable et gardez un œil sur les pendules, les dates et les délais.\n• Vous coordonnez soigneusement les réunions et les nominations internes et externes et vous les préparez.\n• Dans la préparation, la compilation et la préparation de recherches, de projets et d'autres rapports, vous soutenez activement l'équipe.\n• Les documents de projet et les documents administratifs sont coordonnés et tenus de façon structurée et consciencieuse.\n• Dans le cadre de projets de recherche et d'essais cliniques, vous soutenirz les processus administratifs et réglementaires, en particulier la coordination des documents d'étude, des accords et d'autres documents réglementaires pertinents.\n• En tant que personne-ressource centrale, vous coordonnez la communication avec les partenaires internes et externes et les services spécialisés.\n• Lors de la mise en place, du développement et de l'optimisation des processus et structures administratifs, vous contribuez activement à vos idées.\n• Les membres de l'équipe vous aident à clarifier les processus, les responsabilités et les documents requis et contribuent ainsi à l'efficacité des processus de travail.\n\nVotre profil\n• Études supérieures terminées dans un domaine pertinent à la fonction, comme l'administration/gestion, les soins de santé ou les sciences de la vie; un diplôme universitaire (Bachelor ou Master) est un avantage\n• Plusieurs années d'expérience dans une fonction administrative ou de coordination, idéalement dans l'environnement universitaire, clinique ou scientifique\n• La connaissance des exigences réglementaires et des procédures en matière de recherche clinique ainsi que l'expérience des documents d'étude et des accords sont bénéfiques ou sont disposés à acquérir ces connaissances rapidement\n• Intérêt pour les questions scientifiques et médicales ainsi que l'ouverture et la curiosité pour les sujets de recherche\n• Expérience en matière de gestion budgétaire et financière et de coordination des projets\n• Méthodes de travail indépendantes, structurées et fiables ainsi qu'un fort talent organisationnel\n• Profitez d'une fonction d'interface dynamique et polyvalente et de la coordination des différentes tâches\n• Des compétences solides en communication et en équipe ainsi qu'une méthode de travail axée sur la solution et la coopération\n• Très bonne connaissance des applications MS Office, en particulier Excel\n• Très bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\nClaudia Guetg Senior HR Business Partner\n\nhttp://www.kispi.uzh.ch\n\nJe suis intéressé et je voudrais m'inscrire\n\nPrécédent\n\n• Délai: perpétuel"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3744/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-18T23:12:39.998Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Amministrazione",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-16",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3744/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "koordinatorin-research-management-administration-w-m-80-100-kispi-zurich-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "koordinatorin-research-management-administration-w-m-80-100-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "koordinatorin-research-management-administration-w-m-80-100-kispi-zurich-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-16T23:42:32.420Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "kispi-zurich-616707186b7b",
+      "slug": "applicazioni-aziendali-di-project-manager-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich",
+      "slugByLocale": {
+        "it": "applicazioni-aziendali-di-project-manager-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "project-manager-business-applications-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "de": "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich",
+        "fr": "gestionnaire-de-projet-applications-operationnelles-h-f-80-100-universitats-kinderspital-zurich-kispi-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Projektleiterin Business Applikationen (m/w) 80-100%",
+      "titleByLocale": {
+        "it": "Applicazioni aziendali di Project Manager (m/f) 80-100 %",
+        "en": "Project Manager Business Applications (m/f) 80-100 %",
+        "de": "Projektleiterin Business Applikationen (m/w) 80-100%",
+        "fr": "Gestionnaire de projet Applications opérationnelles (h/f) 80-100 %"
+      },
+      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 15.09.2026\n\nDeine Aufgaben\n• Projektplanung und -steuerung: Erstellen von Projektplänen (Termine, Meilensteine, Ressourcen, Budget) und Überwachung des Fortschritts mittels geeigneter Methoden (z. B. HERMES, Scrum).\n• Anforderungsmanagement: Erheben, Dokumentieren und Priorisieren von fachlichen und technischen Anforderungen gemeinsam mit den Stakeholdern in Fach und ICT.\n• Risiko- und Qualitätsmanagement: Identifizieren von Projektrisiken, Ableiten von Massnahmen sowie Sicherstellen der definierten Qualitätsstandards.\n• Teamführung und -koordination: Führen des ICT-Projektteams, Aufgabenverteilung, Moderation von Besprechungen und Sicherstellen einer effektiven Zusammenarbeit.\n• Kommunikation und Reporting: Regelmässiger Austausch und Information aller Beteiligten.\n\nDein Profil\n• Abgeschlossenes Hochschulstudium (Uni/FH) im Bereich Wirtschaftsinformatik, Betriebswirtschaft, Gesundheitsmanagement oder eine vergleichbare Qualifikation\n• Mehrjährige Berufserfahrung in der Projektleitung, idealerweise in einem Spital oder einer anderen Einrichtung des Gesundheitswesens\n• Nachgewiesene Projekterfahrung im Umfeld von Patientendaten, medizinischen Leistungen und ERP-Systemen (z. B. Nexus, SAP oder ähnliche Lösungen)\n• Fundierte Kenntnisse und nachgewiesene Expertise in gängigen Projektmanagementmethoden – insbesondere PRINCE2, PMP (PMBOK) und/oder HERMES (Zertifizierung von Vorteil)\n• Souveräner Umgang mit ServiceNow und Azure DevOps (oder vergleichbaren PM-/ITSM-Tools)\n• Verhandlungssicheres Deutsch (mind. C1) sowie gute Englischkenntnisse in Wort und Schrift\n• Strukturierte, lösungsorientierte und eigenverantwortliche Arbeitsweise\n• Hohe Sozialkompetenz und Durchsetzungsfähigkeit – auch in komplexen, multiprofessionellen Umgebungen\n• Analytisches Denkvermögen und ein Gespür für kritische Erfolgsfaktoren\n• Kommunikationsstärke und Freude an der Zusammenarbeit mit klinischen und administrativen Fachbereichen\n• Belastbarkeit und Flexibilität in einem dynamischen Spitalalltag\n\nDenise Rudolf von Rohr Senior HR Business Partner +41 44 249 23 35\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück\n\n• Art: Teilzeit\n• Befristung: unbefristet",
+      "descriptionByLocale": {
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 15.09.2026\n\nDeine Aufgaben\n• Projektplanung und -steuerung: Erstellen von Projektplänen (Termine, Meilensteine, Ressourcen, Budget) und Überwachung des Fortschritts mittels geeigneter Methoden (z. B. HERMES, Scrum).\n• Anforderungsmanagement: Erheben, Dokumentieren und Priorisieren von fachlichen und technischen Anforderungen gemeinsam mit den Stakeholdern in Fach und ICT.\n• Risiko- und Qualitätsmanagement: Identifizieren von Projektrisiken, Ableiten von Massnahmen sowie Sicherstellen der definierten Qualitätsstandards.\n• Teamführung und -koordination: Führen des ICT-Projektteams, Aufgabenverteilung, Moderation von Besprechungen und Sicherstellen einer effektiven Zusammenarbeit.\n• Kommunikation und Reporting: Regelmässiger Austausch und Information aller Beteiligten.\n\nDein Profil\n• Abgeschlossenes Hochschulstudium (Uni/FH) im Bereich Wirtschaftsinformatik, Betriebswirtschaft, Gesundheitsmanagement oder eine vergleichbare Qualifikation\n• Mehrjährige Berufserfahrung in der Projektleitung, idealerweise in einem Spital oder einer anderen Einrichtung des Gesundheitswesens\n• Nachgewiesene Projekterfahrung im Umfeld von Patientendaten, medizinischen Leistungen und ERP-Systemen (z. B. Nexus, SAP oder ähnliche Lösungen)\n• Fundierte Kenntnisse und nachgewiesene Expertise in gängigen Projektmanagementmethoden – insbesondere PRINCE2, PMP (PMBOK) und/oder HERMES (Zertifizierung von Vorteil)\n• Souveräner Umgang mit ServiceNow und Azure DevOps (oder vergleichbaren PM-/ITSM-Tools)\n• Verhandlungssicheres Deutsch (mind. C1) sowie gute Englischkenntnisse in Wort und Schrift\n• Strukturierte, lösungsorientierte und eigenverantwortliche Arbeitsweise\n• Hohe Sozialkompetenz und Durchsetzungsfähigkeit – auch in komplexen, multiprofessionellen Umgebungen\n• Analytisches Denkvermögen und ein Gespür für kritische Erfolgsfaktoren\n• Kommunikationsstärke und Freude an der Zusammenarbeit mit klinischen und administrativen Fachbereichen\n• Belastbarkeit und Flexibilität in einem dynamischen Spitalalltag\n\nDenise Rudolf von Rohr Senior HR Business Partner +41 44 249 23 35\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück\n\n• Art: Teilzeit\n• Befristung: unbefristet",
+        "it": "Ospedale per bambini Zurigo Eleonorenstiftung | online dal: 15.09.2026\n\nI tuoi compiti\n• Pianificazione e gestione del progetto: Creazione di piani di progetto (date, pietre miliari, risorse, bilancio) e monitoraggio dei progressi utilizzando metodi appropriati (ad esempio HERMES, Scrum).\n• Gestione dei requisiti: Raccogliere, documentare e privilegiare i requisiti professionali e tecnici insieme con gli stakeholder nel campo e le TIC.\n• Gestione del rischio e della qualità: Identificare i rischi del progetto, derivanti misure e garantire standard di qualità definiti.\n• Leader del team e coordinamento: guidare il team di progetto ICT, la distribuzione dei compiti, la facilitazione degli incontri e garantire una collaborazione efficace.\n• Comunicazione e reporting: scambio regolare e informazioni di tutte le parti coinvolte.\n\nIl tuo profilo\n• Laurea universitaria completata (Uni/FH) nel settore dell'informatica aziendale, dell'amministrazione aziendale, della gestione della salute o di una qualifica paragonabile\n• Diversi anni di esperienza professionale nella gestione del progetto, idealmente in un ospedale o in un altro istituto sanitario\n• Provata esperienza di progetto nel campo dei dati dei pazienti, dei servizi medici e dei sistemi ERP (ad esempio Nexus, SAP o soluzioni simili)\n• Conoscenza approfondita e comprovata esperienza nei metodi di gestione dei progetti comuni – in particolare PRINCE2, PMP (PMBOK) e/o HERMES (certificazione del vantaggio)\n• Utilizzo sicuro di ServiceNow e Azure DevOps (o strumenti PM/ITSM comparabili)\n• Tedesco anti-negoziazione (minimo C1) e buone abilità inglesi in parola e scrittura\n• Metodo di lavoro strutturato, orientato alla soluzione e autonomo\n• Alte competenze sociali e assertività – anche in ambienti complessi e multi-professionali\n• Il pensiero analitico e il senso di fattori critici di successo\n• Resistenza alla comunicazione e piacere nel lavorare con i dipartimenti clinici e amministrativi\n• Resilienza e flessibilità in una vita quotidiana ospedaliera dinamica\n\nDenise Rudolf von Rohr Senior HR Business Partner +41 44 249 23 35\n\nhttp://www.kispi.uzh.ch\n\nSono interessato e vorrei candidarmi\n\nIndietro\n\n• Tipo: Tempo parziale\n• Termine: perpetuo",
+        "en": "Children's Hospital Zurich Eleonorenstiftung | online since : 15.09.2026\n\nYour tasks\n• Project planning and management: Creation of project plans (dates, milestones, resources, budget) and monitoring of progress using appropriate methods (e.g. HERMES, Scrum).\n• Requirements management: Collecting, documenting and prioritizing professional and technical requirements together with stakeholders in the field and ICT.\n• Risk and quality management: Identifying project risks, deriving measures and ensuring defined quality standards.\n• Team leadership and coordination: lead the ICT project team, distribution of tasks, facilitation of meetings and ensuring effective collaboration.\n• Communication and reporting: Regular exchange and information of all parties involved.\n\nYour profile\n• Completed university degree (Uni/FH) in the field of business informatics, business administration, health management or a comparable qualification\n• Several years of professional experience in project management, ideally in a hospital or other healthcare institution\n• Proven project experience in the field of patient data, medical services and ERP systems (e.g. Nexus, SAP or similar solutions)\n• In-depth knowledge and proven expertise in common project management methods – in particular PRINCE2, PMP (PMBOK) and/or HERMES (certification of advantage)\n• Confident use of ServiceNow and Azure DevOps (or comparable PM/ITSM tools)\n• Negotiation-proof German (minimum C1) as well as good English skills in word and writing\n• Structured, solution-oriented and autonomous working method\n• High social skills and assertiveness – even in complex, multi-professional environments\n• Analytical thinking and a sense of critical success factors\n• Communication strength and pleasure in working with clinical and administrative departments\n• Resilience and flexibility in a dynamic hospital everyday life\n\nDenise Rudolf von Rohr Senior HR Business Partner +41 44 249 23 35\n\nhttp://www.kispi.uzh.ch\n\nI am interested and would like to apply\n\nBack\n\n• Type: Part-time\n• Time limit: perpetual",
+        "fr": "L'hôpital pour enfants Zurich Eleonorenstiftung en ligne depuis : 15.09.2026\n\nVos tâches\n• Planification et gestion du projet : Création de plans de projet (dates, étapes, ressources, budget) et suivi des progrès au moyen de méthodes appropriées (par exemple HERMES, Scrum).\n• Gestion des besoins : Recueillir, documenter et hiérarchiser les besoins professionnels et techniques en collaboration avec les parties prenantes sur le terrain et les TIC.\n• Gestion des risques et de la qualité: Identification des risques liés aux projets, élaboration de mesures et mise en place de normes de qualité définies.\n• Direction et coordination de l'équipe : diriger l'équipe du projet TIC, répartir les tâches, faciliter les réunions et assurer une collaboration efficace.\n• Communication et rapports: Échanges et informations réguliers de toutes les parties concernées.\n\nVotre profil\n• Diplôme universitaire (Uni/FH) dans le domaine de l'informatique des affaires, de l'administration des affaires, de la gestion de la santé ou d'une qualification comparable\n• Plusieurs années d'expérience professionnelle en gestion de projet, idéalement dans un hôpital ou un autre établissement de santé\n• Expérience éprouvée dans le domaine des données sur les patients, des services médicaux et des systèmes ERP (p. ex. Nexus, SAP ou solutions similaires)\n• Connaissances approfondies et expertise éprouvée dans les méthodes communes de gestion de projet – en particulier PRINCE2, PMP (PMBOK) et/ou HERMES (certification d'avantage)\n• Utilisation fiable de ServiceNow et Azure DevOps (ou outils MP/ITSM comparables)\n• L'allemand à l'épreuve de la négociation (minimum C1) ainsi que de bonnes compétences en anglais en paroles et en écriture\n• Méthode de travail structurée, orientée vers la solution et autonome\n• Hautes compétences sociales et assurance – même dans des environnements complexes et multiprofessionnels\n• Pensée analytique et sens des facteurs critiques de réussite\n• Force de communication et plaisir de travailler avec les services cliniques et administratifs\n• Résilience et flexibilité dans une vie quotidienne d'hôpital dynamique\n\nDenise Rudolf von Rohr Associée principale en RH +41 44 249 23 35\n\nhttp://www.kispi.uzh.ch\n\nJe suis intéressé et je voudrais m'inscrire\n\nPrécédent\n\n• Type: Temps partiel\n• Délai: perpétuel"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3739/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-18T23:12:37.972Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-16",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3739/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich"
+        ],
+        "en": [
+          "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-16T23:42:30.406Z",
+      "salaryMin": 124000,
+      "salaryMax": 173000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 124000,
+          "maxValue": 173000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "kispi-zurich-bbc26e0a7ef6",
+      "slug": "stage-in-ospedale-scuola-bambini-rehab-svizzera-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
+      "slugByLocale": {
+        "it": "stage-in-ospedale-scuola-bambini-rehab-svizzera-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "internship-in-hospital-school-children-s-rehab-switzerland-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
+        "de": "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich",
+        "fr": "stage-a-l-hopital-ecole-pour-enfants-rehab-suisse-h-f-80-universitats-kinderspital-zurich-kispi-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Praktikantin Spitalschule Kinder-Reha Schweiz (w/m) 80%",
+      "titleByLocale": {
+        "it": "Stage in Ospedale Scuola Bambini Rehab Svizzera (m/f) 80 %",
+        "en": "Internship in Hospital School Children's Rehab Switzerland (m/f) 80 %",
+        "de": "Praktikantin Spitalschule Kinder-Reha Schweiz (w/m) 80%",
+        "fr": "Stage à l'hôpital École pour enfants Rehab Suisse (h/f) 80 %"
+      },
+      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 15.09.2026\n\nAb 8. Februar 2027 befristet bis 20. August 2027, Pensum verteilt auf 5 Arbeitstage (MO-FR) Arbeitsort: Affoltern am Albis\n\nDeine Aufgaben\n• Du unterrichtest zusammen mit den Lehrpersonen Kinder und Jugendliche aller Altersstufen (einzeln oder in Kleingruppen).\n• Du unterstützt die Lehrpersonen in ihrer pädagogischen Arbeit und übernimmst auch administrative Aufgaben.\n• Du wirkst bei der Planung und Durchführung von schulischen Anlässen und Projekten mit.\n\nDein Profil\n• Mindestalter 18 Jahre\n• Gymnasiale Matur, abgeschlossene Berufsausbildung oder FMS\n• Erfahrung in der Arbeit mit Kindern und/oder Jugendlichen\n• Sehr gute Deutschkenntnisse\n• Flexibel, engagiert und verantwortungsbewusst\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück\n\n• Art: Teilzeit\n• Befristung: befristet",
+      "descriptionByLocale": {
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 15.09.2026\n\nAb 8. Februar 2027 befristet bis 20. August 2027, Pensum verteilt auf 5 Arbeitstage (MO-FR) Arbeitsort: Affoltern am Albis\n\nDeine Aufgaben\n• Du unterrichtest zusammen mit den Lehrpersonen Kinder und Jugendliche aller Altersstufen (einzeln oder in Kleingruppen).\n• Du unterstützt die Lehrpersonen in ihrer pädagogischen Arbeit und übernimmst auch administrative Aufgaben.\n• Du wirkst bei der Planung und Durchführung von schulischen Anlässen und Projekten mit.\n\nDein Profil\n• Mindestalter 18 Jahre\n• Gymnasiale Matur, abgeschlossene Berufsausbildung oder FMS\n• Erfahrung in der Arbeit mit Kindern und/oder Jugendlichen\n• Sehr gute Deutschkenntnisse\n• Flexibel, engagiert und verantwortungsbewusst\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück\n\n• Art: Teilzeit\n• Befristung: befristet",
+        "it": "Ospedale per bambini Zurigo Eleonorenstiftung | online dal: 15.09.2026\n\nDall'8 febbraio 2027 limitata a 20. Agosto 2027, Legato a 5 giorni lavorativi (MO-FR) Ubicazione: Affoltern am Albis\n\nI tuoi compiti\n• Insieme con gli insegnanti, insegni bambini e giovani di tutte le età (individualmente o in piccoli gruppi).\n• Sostieni gli insegnanti nel loro lavoro pedagogico e prendi anche i compiti amministrativi.\n• Partecipate alla pianificazione e alla realizzazione di eventi scolastici e progetti.\n\nIl tuo profilo\n• Età minima 18 anni\n• Scuola superiore, formazione professionale completa o FMS\n• Esperienza di lavoro con bambini e/o adolescenti\n• Molto buona conoscenza del tedesco\n• Flessibile, impegnato e responsabile\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nSono interessato e vorrei candidarmi\n\nIndietro\n\n• Tipo: Tempo parziale\n• Termine temporaneo: temporaneo",
+        "en": "Children's Hospital Zurich Eleonorenstiftung | online since : 15.09.2026\n\nFrom 8 February 2027 limited to 20. August 2027, Allocated to 5 working days (MO-FR) Location: Affoltern am Albis\n\nYour tasks\n• Together with the teachers, you teach children and young people of all ages (individually or in small groups).\n• You support the teachers in their pedagogical work and also take on administrative tasks.\n• You participate in the planning and implementation of school events and projects.\n\nYour profile\n• Minimum age 18 years\n• High school grade, completed vocational training or FMS\n• Experience working with children and/or adolescents\n• Very good knowledge of German\n• Flexible, committed and responsible\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nI am interested and would like to apply\n\nBack\n\n• Type: Part-time\n• Temporary term: temporary",
+        "fr": "L'hôpital pour enfants Zurich Eleonorenstiftung en ligne depuis : 15.09.2026\n\nA partir du 8 février 2027 limité à 20. Août 2027, Attribué à 5 jours ouvrables (MO-FR) Lieu: Affoltern am Albis\n\nVos tâches\n• Avec les enseignants, vous enseignez aux enfants et aux jeunes de tous âges (individuellement ou en petits groupes).\n• Vous soutenez les enseignants dans leur travail pédagogique et prenez également des tâches administratives.\n• Vous participez à la planification et à la mise en oeuvre d'événements et de projets scolaires.\n\nVotre profil\n• Âge minimum 18 ans\n• Niveau secondaire, formation professionnelle terminée ou FMS\n• Expérience de travail avec les enfants et/ou les adolescents\n• Très bonne connaissance de l'allemand\n• Flexible, engagé et responsable\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nJe suis intéressé et je voudrais m'inscrire\n\nPrécédent\n\n• Type: Temps partiel\n• Durée temporaire : temporaire"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3606/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-18T23:12:36.002Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Formazione",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-16",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3606/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich"
+        ],
+        "en": [
+          "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-16T23:42:22.920Z",
+      "salaryMin": 42800,
+      "salaryMax": 78800,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 42800,
+          "maxValue": 78800,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "kispi-zurich-c1a5c85a8244",
+      "slug": "dipl-pflegefachperson-per-das-nds-hf-intensivpflege-padiatrie-universitats-kinderspital-zurich-kispi-zurich",
+      "slugByLocale": {
+        "it": "dipl-pflegefachperson-per-das-nds-hf-intensivpflege-padiatrie-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "dipl-nurse-for-nds-hf-intensive-care-pediatrics-universitats-kinderspital-zurich-kispi-zurich",
+        "de": "dipl-pflegefachperson-fur-das-nds-hf-intensivpflege-padiatrie-kispi-zurich-zurich",
+        "fr": "dipl-infirmiere-en-pediatrie-de-soins-intensifs-de-la-snd-universitats-kinderspital-zurich-kispi-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Dipl. Pflegefachperson für das NDS HF Intensivpflege Pädiatrie",
+      "titleByLocale": {
+        "it": "Dipl. Infermiera per NDS HF terapia intensiva pediatrica",
+        "en": "Dipl. Nurse for NDS HF intensive care pediatrics",
+        "de": "Dipl. Pflegefachperson für das NDS HF Intensivpflege Pädiatrie",
+        "fr": "Dipl. Infirmière en pédiatrie de soins intensifs de la SND"
+      },
+      "description": "Dipl. Pflegefachperson für das NDS HF Intensivpflege Pädiatrie bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+      "descriptionByLocale": {
+        "it": "Dipl. Infermiera per NDS HF Intensive Care Pediatrics presso Kinderspital Zürich Eleonorenstiftung a Zurigo (8032, ZH), Svizzera.\n\n• Tipo: Tempo pieno\n• Termine temporaneo: temporaneo\n• Posizione: Zurigo (ZH)\n• Applicazione tramite il Portale Umantis Career dell'Ospedale pediatrico dell'Università di Zurigo (Kispi)",
+        "en": "Dipl. Nurse for NDS HF Intensive Care Pediatrics at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n\n• Type: Full-time\n• Temporary term: temporary\n• Location: Zurich (ZH)\n• Application via the Umantis Career Portal of the University Children's Hospital Zurich (Kispi)",
+        "de": "Dipl. Pflegefachperson für das NDS HF Intensivpflege Pädiatrie bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "fr": "Dipl. Nurse for NDS HF Intensive Care Pédiatrics at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Suisse.\n\n• Type: Temps plein\n• Terme temporaire : temporaire\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
+      },
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/393/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-18T23:12:18.645Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-17",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/393/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-fur-das-nds-hf-intensivpflege-padiatrie-kispi-zurich-zurich",
+        "dipl-esperto-dipl-cura-intensiva-esperto-60-100-universitats-kinderspital-zurich-kispi-zurich",
+        "dipl-expertin-dipl-experte-intensivpflege-60-100-universitats-kinderspital-zurich-kispi-zurich",
+        "dipl-expertin-dipl-experte-intensivpflege-60-100-kispi-zurich-zurich",
+        "dipl-expert-dipl-expert-en-soins-intensifs-60-100-universitats-kinderspital-zurich-kispi-zurich",
+        "dipl-expert-dipl-expert-intensive-care-60-100-universitats-kinderspital-zurich-kispi-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-fur-das-nds-hf-intensivpflege-padiatrie-kispi-zurich-zurich",
+          "dipl-esperto-dipl-cura-intensiva-esperto-60-100-universitats-kinderspital-zurich-kispi-zurich",
+          "dipl-expertin-dipl-experte-intensivpflege-60-100-universitats-kinderspital-zurich-kispi-zurich",
+          "dipl-expertin-dipl-experte-intensivpflege-60-100-kispi-zurich-zurich",
+          "dipl-expert-dipl-expert-en-soins-intensifs-60-100-universitats-kinderspital-zurich-kispi-zurich",
+          "dipl-expert-dipl-expert-intensive-care-60-100-universitats-kinderspital-zurich-kispi-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachperson-fur-das-nds-hf-intensivpflege-padiatrie-kispi-zurich-zurich",
+          "dipl-expertin-dipl-experte-intensivpflege-60-100-universitats-kinderspital-zurich-kispi-zurich"
+        ],
+        "de": [
+          "dipl-expertin-dipl-experte-intensivpflege-60-100-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-fur-das-nds-hf-intensivpflege-padiatrie-kispi-zurich-zurich",
+          "dipl-expert-dipl-expert-en-soins-intensifs-60-100-universitats-kinderspital-zurich-kispi-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-17T14:24:26.736Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "kispi-zurich-22cc5e50164b",
+      "slug": "ricevimento-del-paziente-dipendente-m-f-40-universitats-kinderspital-zurich-kispi-zurich",
+      "slugByLocale": {
+        "de": "mitarbeiterin-patientenaufnahme-w-m-40-kispi-zurich-zurich",
+        "it": "ricevimento-del-paziente-dipendente-m-f-40-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "employee-patient-reception-m-f-40-universitats-kinderspital-zurich-kispi-zurich",
+        "fr": "reception-du-patient-salarie-h-f-40-universitats-kinderspital-zurich-kispi-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Mitarbeiterin Patientenaufnahme (w/m) 40%",
+      "titleByLocale": {
+        "de": "Mitarbeiterin Patientenaufnahme (w/m) 40%",
+        "it": "Ricevimento del paziente dipendente (m/f) 40 %",
+        "en": "Employee patient reception (m/f) 40 %",
+        "fr": "Réception du patient salarié (h/f) 40 %"
+      },
+      "description": "Mitarbeiterin Patientenaufnahme (w/m) 40% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+      "descriptionByLocale": {
+        "de": "Mitarbeiterin Patientenaufnahme (w/m) 40% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "it": "(m/f) 40% dipendente al Kinderspital Zürich Eleonorenstiftung di Zurigo (8032, ZH), Svizzera.\n\n• Tipo: Tempo parziale\n• Termine: perpetuo\n• Posizione: Zurigo (ZH)\n• Applicazione tramite il Portale Umantis Career dell'Ospedale pediatrico dell'Università di Zurigo (Kispi)",
+        "en": "(m/f) 40% employee at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n\n• Type: Part-time\n• Time limit: perpetual\n• Location: Zurich (ZH)\n• Application via the Umantis Career Portal of the University Children's Hospital Zurich (Kispi)",
+        "fr": "(h/f) 40% d'employés à Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n\n• Type: Temps partiel\n• Délai: perpétuel\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3349/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-18T23:11:58.444Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-18",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3349/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 36600,
+      "salaryMax": 51200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 36600,
+          "maxValue": 51200,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-18T23:11:58.444Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-patientenaufnahme-w-m-40-kispi-zurich-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-patientenaufnahme-w-m-40-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "mitarbeiterin-patientenaufnahme-w-m-40-kispi-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-patientenaufnahme-w-m-40-kispi-zurich-zurich"
+      ]
+    },
+    {
+      "id": "kispi-zurich-b621e31d8c5f",
+      "slug": "allenamento-dietetic-chef-con-federal-fa-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
+      "slugByLocale": {
+        "de": "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich",
+        "it": "allenamento-dietetic-chef-con-federal-fa-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "training-dietetic-chef-with-federal-fa-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
+        "fr": "formation-chef-dietetique-avec-fa-federale-h-f-80-universitats-kinderspital-zurich-kispi-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Ausbildung Diätköchin mit eidg. FA (w/m) 80%",
+      "titleByLocale": {
+        "de": "Ausbildung Diätköchin mit eidg. FA (w/m) 80%",
+        "it": "Allenamento Dietetic Chef con Federal FA (m/f) 80 %",
+        "en": "Training Dietetic Chef with Federal FA (m/f) 80 %",
+        "fr": "Formation Chef diététique avec FA fédérale (h/f) 80 %"
+      },
+      "description": "Ausbildung Diätköchin mit eidg. FA (w/m) 80% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+      "descriptionByLocale": {
+        "de": "Ausbildung Diätköchin mit eidg. FA (w/m) 80% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "it": "Cucina dietetica con FA (m/f) 80% presso Kinderspital Zürich Eleonorenstiftung a Zurigo (8032, ZH), Svizzera.\n\n• Tipo: Tempo parziale\n• Termine: perpetuo\n• Posizione: Zurigo (ZH)\n• Applicazione tramite il Portale Umantis Career dell'Ospedale pediatrico dell'Università di Zurigo (Kispi)",
+        "en": "Dietetic cook with federal FA (m/f) 80% at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n\n• Type: Part-time\n• Time limit: perpetual\n• Location: Zurich (ZH)\n• Application via the Umantis Career Portal of the University Children's Hospital Zurich (Kispi)",
+        "fr": "Cuisine diététique avec FA fédérale (h/f) 80% à Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n\n• Type: Temps partiel\n• Délai: perpétuel\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3749/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-18T23:11:57.734Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Formazione",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-18",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3749/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 50400,
+      "salaryMax": 93200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 50400,
+          "maxValue": 93200,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-18T23:11:57.734Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich"
+        ],
+        "en": [
+          "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich"
+      ]
+    },
+    {
+      "id": "kispi-zurich-cf43ac7e40c5",
+      "slug": "formazione-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich",
+      "slugByLocale": {
+        "de": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
+        "it": "formazione-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "vocational-trainer-care-m-f-universitats-kinderspital-zurich-kispi-zurich",
+        "fr": "soins-aux-formateurs-professionnels-h-f-universitats-kinderspital-zurich-kispi-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Berufsbildnerin Pflege (m/w)",
+      "titleByLocale": {
+        "de": "Berufsbildnerin Pflege (m/w)",
+        "it": "Formazione professionale (m/f)",
+        "en": "Vocational trainer care (m/f)",
+        "fr": "Soins aux formateurs professionnels (h/f)"
+      },
+      "description": "Berufsbildnerin Pflege (m/w) bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+      "descriptionByLocale": {
+        "de": "Berufsbildnerin Pflege (m/w) bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "it": "Allenatore professionale (m/f) presso Kinderspital Zürich Eleonorenstiftung a Zurigo (8032, ZH), Svizzera.\n\n• Tipo: Tempo parziale\n• Termine: perpetuo\n• Posizione: Zurigo (ZH)\n• Applicazione tramite il Portale Umantis Career dell'Ospedale pediatrico dell'Università di Zurigo (Kispi)",
+        "en": "Care professional trainer (m/f) at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n\n• Type: Part-time\n• Time limit: perpetual\n• Location: Zurich (ZH)\n• Application via the Umantis Career Portal of the University Children's Hospital Zurich (Kispi)",
+        "fr": "Entraîneur professionnel de soins (h/f) à Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n\n• Type: Temps partiel\n• Délai: perpétuel\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3747/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-18T23:11:57.218Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-18",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3747/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-18T23:11:57.218Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
+          "formazione-professionale-m-w-universitats-kinderspital-zurich-kispi-zurich"
+        ],
+        "en": [
+          "berufsbildnerin-pflege-m-w-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "berufsbildnerin-pflege-m-w-kispi-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
+        "formazione-professionale-m-w-universitats-kinderspital-zurich-kispi-zurich"
+      ]
+    },
+    {
+      "id": "kispi-zurich-ac08735a244c",
+      "slug": "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
+      "slugByLocale": {
+        "it": "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
+        "de": "psychomotoriktherapeutin-m-w-d-30-40-kispi-zurich-zurich",
+        "fr": "psychomotherapeute-h-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Psychomotoriktherapeutin (m/w) 30-40%",
+      "titleByLocale": {
+        "it": "terapeuta psicomotore (m/f/d) 30-40 %",
+        "en": "Psychomotor therapist (m/f) 30-40 %",
+        "de": "Psychomotoriktherapeutin (m/w) 30-40%",
+        "fr": "Psychomothérapeute (h/f/d) 30-40 %"
+      },
+      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 18.09.2026\n\nArbeitstage Donnerstag + Freitag, oder nach Vereinbarung.\n\nDeine Aufgaben\n• Deine Hauptaufgabe ist die therapeutische Begleitung von stationären (v.a. Psychosomatik und Langzeitpatient/innen) und ambulanten Klientinnen und Klienten.\n• Du übernimmst Einzel- und Gruppentherapien.\n• Du bist zuständig für die Begleitung und Beratung von Bezugspersonen.\n• Du übernimmst selbstständig die Leistungserfassung und Administration.\n• Zudem nimmst du an interdisziplinären Sitzungen und Rapporten teil.\n\nDein Profil\n• Abgeschlossene Ausbildung als Psychomotoriktherapeutin oder -therapeut EDK / BA\n• Einige Jahre Berufserfahrung, von Vorteil in der Psychosomatik/Psychiatrie\n• Zusatzausbildung in Entspannungstechniken oder die Bereitschaft, dies zu erlernen\n• Freude an der anspruchsvollen Arbeit mit kranken Kindern und Jugendlichen und deren Angehörigen\n• Flexibilität und Bereitschaft zur Weiterentwicklung der Therapiestelle\n\nHR Business Partnerin\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück\n\n• Art: Teilzeit",
+      "descriptionByLocale": {
+        "it": "Ospedale per bambini Zurigo Eleonorenstiftung | online da: 10.09.2026\n\nGiorni lavorativi giovedì + venerdì, o per accordo.\n\nI tuoi compiti\n• Il vostro compito principale è il supporto terapeutico di pazienti malati (in particolare psicosomatici e pazienti a lungo termine) e pazienti ambulati.\n• Si prendono terapie individuali e di gruppo.\n• Lei è responsabile di accompagnamento e consulenza caregiver.\n• Prendere indipendentemente la registrazione delle prestazioni e l'amministrazione.\n• Parteciperete anche a sessioni interdisciplinari e rapporti.\n\nIl tuo profilo\n• Allenamento completo come psicomotore terapeuta EDK / BA\n• Alcuni anni di esperienza professionale, benefica nella psicosomatica/psichiatria\n• Formazione supplementare nelle tecniche di rilassamento o la volontà di imparare questo\n• Divertimento del lavoro impegnativo con i bambini malati e i giovani e i loro parenti\n• Flessibilità e disponibilità a sviluppare ulteriormente il sito di terapia\n\nSonja Schoch HR Business Partner\n\nhttp://www.kispi.uzh.ch\n\nSono interessato e vorrei candidarmi\n\nIndietro\n\n• Tipo: part-time",
+        "en": "Children's Hospital Zurich Eleonorenstiftung | online since : 10.09.2026\n\nWorking days Thursday + Friday, or by arrangement.\n\nYour tasks\n• Your main task is the therapeutic support of inpatient (especially psychosomatics and long-term patients) and outpatient clients.\n• You take individual and group therapies.\n• You are responsible for accompanying and advising caregivers.\n• You independently take over the performance recording and administration.\n• You will also participate in interdisciplinary sessions and rapports.\n\nYour profile\n• Completed training as psychomotor therapist EDK / BA\n• Some years of professional experience, beneficial in psychosomatics/psychiatry\n• Additional training in relaxation techniques or the willingness to learn this\n• Enjoyment of the demanding work with sick children and young people and their relatives\n• Flexibility and willingness to further develop the therapy site\n\nSonja Schoch HR Business Partner\n\nhttp://www.kispi.uzh.ch\n\nI am interested and would like to apply\n\nBack\n\n• Type: part-time",
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 18.09.2026\n\nArbeitstage Donnerstag + Freitag, oder nach Vereinbarung.\n\nDeine Aufgaben\n• Deine Hauptaufgabe ist die therapeutische Begleitung von stationären (v.a. Psychosomatik und Langzeitpatient/innen) und ambulanten Klientinnen und Klienten.\n• Du übernimmst Einzel- und Gruppentherapien.\n• Du bist zuständig für die Begleitung und Beratung von Bezugspersonen.\n• Du übernimmst selbstständig die Leistungserfassung und Administration.\n• Zudem nimmst du an interdisziplinären Sitzungen und Rapporten teil.\n\nDein Profil\n• Abgeschlossene Ausbildung als Psychomotoriktherapeutin oder -therapeut EDK / BA\n• Einige Jahre Berufserfahrung, von Vorteil in der Psychosomatik/Psychiatrie\n• Zusatzausbildung in Entspannungstechniken oder die Bereitschaft, dies zu erlernen\n• Freude an der anspruchsvollen Arbeit mit kranken Kindern und Jugendlichen und deren Angehörigen\n• Flexibilität und Bereitschaft zur Weiterentwicklung der Therapiestelle\n\nHR Business Partnerin\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück\n\n• Art: Teilzeit",
+        "fr": "L'hôpital des enfants Zurich Eleonorenstiftung en ligne depuis : 10.09.2026\n\nJours ouvrables Jeudi + Vendredi, ou par arrangement.\n\nVos tâches\n• Votre tâche principale est le soutien thérapeutique des patients hospitalisés (surtout psychosomatiques et patients de longue durée) et des patients externes.\n• Vous prenez des thérapies individuelles et de groupe.\n• Vous êtes responsable d'accompagner et de conseiller les soignants.\n• Vous prenez en charge l'enregistrement de performance et l'administration.\n• Vous participerez également à des sessions et des rapports interdisciplinaires.\n\nVotre profil\n• Formation complète en psychomotrice EDK / BA\n• Quelques années d'expérience professionnelle, bénéfique en psychosomatique/psychiatrie\n• Formation supplémentaire en techniques de relaxation ou la volonté d'apprendre ceci\n• Appréciation du travail exigeant auprès des enfants et des jeunes malades et de leurs proches\n• Flexibilité et volonté de développer le site thérapeutique\n\nSonja Schoch partenaire d'affaires RH\n\nhttp://www.kispi.uzh.ch\n\nJe suis intéressé et je voudrais m'inscrire\n\nPrécédent\n\n• Type: temps partiel"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3745/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-18T23:11:37.012Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-10",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3745/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "psychomotoriktherapeutin-m-w-d-30-40-kispi-zurich-zurich",
+        "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
+        "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich",
+        "psychomotor-therapist-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
+        "psychomotor-therapist-m-f-30-40-universitats-kinderspital-zurich-kispi-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "psychomotoriktherapeutin-m-w-d-30-40-kispi-zurich-zurich",
+          "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
+          "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich"
+        ],
+        "en": [
+          "psychomotor-therapist-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
+          "psychomotor-therapist-m-f-30-40-universitats-kinderspital-zurich-kispi-zurich"
+        ],
+        "fr": [
+          "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-10T23:03:57.656Z",
+      "salaryMin": 36600,
+      "salaryMax": 51200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 36600,
+          "maxValue": 51200,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "kispi-zurich-2c6de88740b8",
+      "slug": "pedagoga-sociale-pedagoga-sociale-in-educazione-60-80-universitats-kinderspital-zurich-kispi-zurich",
+      "slugByLocale": {
+        "de": "sozialpadagogin-sozialpadagoge-in-ausbildung-60-80-kispi-zurich-zurich",
+        "it": "pedagoga-sociale-pedagoga-sociale-in-educazione-60-80-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "social-pedagogue-social-pedagogue-in-education-60-80-universitats-kinderspital-zurich-kispi-zurich",
+        "fr": "pedagogue-sociale-pedagogue-sociale-dans-l-education-60-80-universitats-kinderspital-zurich-kispi-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Sozialpädagogin / Sozialpädagoge in Ausbildung 60-80%",
+      "titleByLocale": {
+        "de": "Sozialpädagogin / Sozialpädagoge in Ausbildung 60-80%",
+        "it": "Pedagoga sociale / Pedagoga sociale in Educazione 60-80 %",
+        "en": "Social Pedagogue / Social Pedagogue in Education 60-80 %",
+        "fr": "Pédagogue sociale / Pédagogue sociale dans l'éducation 60-80 %"
+      },
+      "description": "Sozialpädagogin / Sozialpädagoge in Ausbildung 60-80% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+      "descriptionByLocale": {
+        "de": "Sozialpädagogin / Sozialpädagoge in Ausbildung 60-80% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "it": "Social Pedagogue / Social Pedagogue in Education 60-80% presso Kinderspital Zürich Eleonorenstiftung a Zurigo (8032, ZH), Svizzera.\n\n• Posizione: Zurigo (ZH)\n• Applicazione tramite il Portale Umantis Career dell'Ospedale pediatrico dell'Università di Zurigo (Kispi)",
+        "en": "Social Pedagogue / Social Pedagogue in Education 60-80% at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n\n• Location: Zurich (ZH)\n• Application via the Umantis Career Portal of the University Children's Hospital Zurich (Kispi)",
+        "fr": "Pédagogue sociale / Pédagogue sociale en éducation 60-80% au Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3750/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-18T23:11:09.027Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Formazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-18",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3750/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 50400,
+      "salaryMax": 93200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 50400,
+          "maxValue": 93200,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-18T23:11:09.027Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialpadagogin-sozialpadagoge-in-ausbildung-60-80-kispi-zurich-zurich"
+        ],
+        "en": [
+          "sozialpadagogin-sozialpadagoge-in-ausbildung-60-80-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "sozialpadagogin-sozialpadagoge-in-ausbildung-60-80-kispi-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sozialpadagogin-sozialpadagoge-in-ausbildung-60-80-kispi-zurich-zurich"
+      ]
+    },
     {
       "id": "kispi-zurich-0a38b3dc1a38",
       "slug": "polypoint-pep-m-f-70-universitats-kinderspital-zurich-kispi-zurich",
@@ -19,12 +820,12 @@
         "it": "Responsabile applicazione PolyPoint PEP (m/f) 70%",
         "en": "Application Manager PolyPoint PEP (m/f) 70%",
         "de": "Applikationsverantwortliche PolyPoint PEP (m/w) 70%",
-        "fr": "Application responsable PolyPoint PEP (h/f) 70 %"
+        "fr": "Responsable de l'application PolyPoint PEP (h/f) 70 %"
       },
       "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 01.09.2026\n\nRessourcendispositions- und Personaleinsatzplanungssysteme\n\nDeine Aufgaben\n• Du fungierst als MitarbeiterIn / Backup im Tagesbetrieb und im Team.\n• Zu deinen Haupttätigkeiten gehört die tägliche Unterstützung und Beratung der PEP-AnwenderInnen.\n• Schulungen und Support der PEP-AnwenderInnen aller Berufsgruppen gehören ebenfalls zu deinen Aufgaben.\n• Du bearbeitest die Abwicklung der Monatsabschlüsse im PEP sowie den Datenexport der variablen Lohndaten und Absenzen vom PEP zu HOSPIS.\n• In deinem Verantwortungsbereich liegt das Abgleichen von Krankheitsabsenzen mit Arztzeugnissen im Tool.\n• Du übernimmst die Prozess - und Applikationsverantwortung im PEP.\n• Beim Erstellen und Aktualisieren von Dokumentationen zählen wir auf deine Mitarbeit.\n• Durch Controlling und das Erstellen von Statistiken für verschiedene Ansprechpartner leistest du einen wertvollen Beitrag.\n• Die Mitarbeit in Arbeitsgruppen bei Schnittstellenprojekten in Bezug auf das PEP rundet dein Aufgabengebiet ab.\n\nDein Profil\n• Eine abgeschlossene Grundausbildung im Gesundheitswesen mit Berufserfahrung\n• Sehr gute IT-AnwenderInnenkenntnisse und ein ausgesprochenes Flair für Informatikthemen auch im Umgang mit Datenbanken und Erstellen von Auswertungen\n• Erfahrung in der Ressourcen- und Personaleinsatzplanung oder Disposition, vorzugsweise mit Polypoint PEP, RAP und DIS\n\nDenise Rudolf von Rohr Senior HR Business Partner +41 44 249 23 35\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück\n\n• Art: Teilzeit\n• Befristung: unbefristet",
       "descriptionByLocale": {
         "it": "Kinderspital Zürich Eleonorenstiftung | online dal : 01/09/2026\n\nDisposizione delle risorse e sistemi di pianificazione del personale\n\nI tuoi compiti\n• Agisci come dipendente / backup nelle operazioni quotidiane e nel team.\n• Le tue attività principali includono il supporto quotidiano e la consulenza agli utenti PEP.\n• Anche la formazione e il supporto degli utenti PEP di tutti i gruppi professionali fanno parte dei tuoi compiti.\n• Elabori l'elaborazione dei bilanci mensili nel PEP e l'esportazione dei dati salariali variabili e delle assenze dal PEP a Hospiz.\n• È tua responsabilità confrontare le assenze per malattia con i certificati medici nello strumento.\n• Ti assumi la responsabilità del processo e dell'applicazione nel PEP.\n• Contiamo sulla tua collaborazione per la creazione e l'aggiornamento della documentazione.\n• Con il controlling e la creazione di statistiche per diversi interlocutori, darai un prezioso contributo.\n• La collaborazione in gruppi di lavoro in progetti di interfaccia in relazione al PEP completa la tua area di responsabilità.\n\nIl tuo profilo\n• Una formazione di base completata nel settore sanitario con esperienza professionale\n• Ottime conoscenze degli utenti IT e una spiccata attitudine per gli argomenti informatici, anche nella gestione dei database e nella creazione di valutazioni\n• Esperienza nella pianificazione o pianificazione delle risorse e del personale, preferibilmente con Polypoint PEP, RAP e dis\n\nDenise Rudolf von Rohr Senior HR Business",
-        "en": "Children's Hospital Zurich Eleonor Foundation, online since : 01.09.2026\n\nResource management and personnel planning systems\n\nYour tasks • You are a member of the company as a member of staff in daily operation and in the team. • Your main activities include the daily support and advice of PEP users. • Training and support of PEP users of all professional groups are also part of your tasks. • You are working on the processing of monthly accounts in the PEP as well as the data export of variable wage data and percentages from PEP to HOSPIS. • Your responsibility is to balance sickness absences with medical certificates in the tool.\n\n• You take over the process and application responsibility in the PEP. • We count on your cooperation when creating and updating documentation. • By controlling and creating statistics for different contact persons you make a valuable contribution. • The cooperation in working groups in interface projects in relation to the PEP completes your field of work.\n\nYour profile • A complete basic training in healthcare with professional experience • Very good IT user knowledge and a distinct flair for computer science topics also in the handling of databases and creation of evaluations • Experience in resource and personnel planning or disposition, preferably with Polypoint PEP, RAP and DIS\n\nMr. Rudolf von Rohr Senior HR Business Partner +41 44 249 23 35\n\nhttp://www.kispi.uzh.ch\n\nI am interested and would like to apply\n\nPrev\n\n• Type: part-time • Time limit: indefinite",
+        "en": "Children's Hospital Zurich Eleonor Foundation, online since : 01.09.2026\n\nResource management and personnel planning systems\n\nYour tasks\n• You are a member of the company as a member of staff in daily operation and in the team.\n• Your main activities include the daily support and advice of PEP users.\n• Training and support of PEP users of all professional groups are also part of your tasks.\n• You are working on the processing of monthly accounts in the PEP as well as the data export of variable wage data and percentages from PEP to HOSPIS.\n• Your responsibility is to balance sickness absences with medical certificates in the tool.\n\n• You take over the process and application responsibility in the PEP.\n• We count on your cooperation when creating and updating documentation.\n• By controlling and creating statistics for different contact persons you make a valuable contribution.\n• The cooperation in working groups in interface projects in relation to the PEP completes your field of work.\n\nYour profile\n• A complete basic training in healthcare with professional experience\n• Very good IT user knowledge and a distinct flair for computer science topics also in the handling of databases and creation of evaluations\n• Experience in resource and personnel planning or disposition, preferably with Polypoint PEP, RAP and DIS\n\nMr. Rudolf von Rohr Senior HR Business Partner +41 44 249 23 35\n\nhttp://www.kispi.uzh.ch\n\nI am interested and would like to apply\n\nPrev\n\n• Type: part-time\n• Time limit: indefinite",
         "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 01.09.2026\n\nRessourcendispositions- und Personaleinsatzplanungssysteme\n\nDeine Aufgaben\n• Du fungierst als MitarbeiterIn / Backup im Tagesbetrieb und im Team.\n• Zu deinen Haupttätigkeiten gehört die tägliche Unterstützung und Beratung der PEP-AnwenderInnen.\n• Schulungen und Support der PEP-AnwenderInnen aller Berufsgruppen gehören ebenfalls zu deinen Aufgaben.\n• Du bearbeitest die Abwicklung der Monatsabschlüsse im PEP sowie den Datenexport der variablen Lohndaten und Absenzen vom PEP zu HOSPIS.\n• In deinem Verantwortungsbereich liegt das Abgleichen von Krankheitsabsenzen mit Arztzeugnissen im Tool.\n• Du übernimmst die Prozess - und Applikationsverantwortung im PEP.\n• Beim Erstellen und Aktualisieren von Dokumentationen zählen wir auf deine Mitarbeit.\n• Durch Controlling und das Erstellen von Statistiken für verschiedene Ansprechpartner leistest du einen wertvollen Beitrag.\n• Die Mitarbeit in Arbeitsgruppen bei Schnittstellenprojekten in Bezug auf das PEP rundet dein Aufgabengebiet ab.\n\nDein Profil\n• Eine abgeschlossene Grundausbildung im Gesundheitswesen mit Berufserfahrung\n• Sehr gute IT-AnwenderInnenkenntnisse und ein ausgesprochenes Flair für Informatikthemen auch im Umgang mit Datenbanken und Erstellen von Auswertungen\n• Erfahrung in der Ressourcen- und Personaleinsatzplanung oder Disposition, vorzugsweise mit Polypoint PEP, RAP und DIS\n\nDenise Rudolf von Rohr Senior HR Business Partner +41 44 249 23 35\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück\n\n• Art: Teilzeit\n• Befristung: unbefristet",
         "fr": "Kinderspital Zürich Eleonorenstiftung | en ligne depuis : 01/09/2026\n\nSystèmes de planification de l'affectation des ressources et du personnel\n\nVos tâches\n• Tu agis en tant qu'employé / backup dans les opérations quotidiennes et dans l'équipe.\n• L'une de vos principales activités consiste à fournir un soutien et des conseils quotidiens aux utilisateurs de PEP.\n• La formation et le soutien des utilisateurs de PEP de tous les groupes professionnels font également partie de tes tâches.\n• Vous traitez le traitement des clôtures mensuelles dans le PEP ainsi que l'exportation des données salariales variables et des absences du PEP vers HOSPIS.\n• Il est de votre responsabilité de comparer les absences pour maladie avec les certificats médicaux dans l'outil.\n• Vous assumez la responsabilité du processus et de l'application au sein du PPE.\n• Lors de la création et de la mise à jour de la documentation, nous comptons sur votre collaboration.\n• En contrôlant et en créant des statistiques pour différents interlocuteurs, tu apportes une contribution précieuse.\n• La participation à des groupes de travail sur des projets d'interface relatifs au PEP complète votre domaine d'activité.\n\nVotre profil\n• Une formation de base achevée dans le domaine de la santé avec une expérience professionnelle\n• Très bonnes connaissances des utilisateurs informatiques et un flair prononcé pour les sujets informatiques, y compris dans le traitement des bases de données et la création d'évaluations\n• Expérience dans la planification ou la disposition des ressources et du personnel, de préférence avec Polypoint PEP, RAP et dis\n\nDenise Rudolf von Rohr Senior HR Business"
       },
@@ -67,7 +868,7 @@
       "firstSeenAt": "2026-09-01T14:09:41.793Z",
       "salaryMin": 64000,
       "salaryMax": 89600,
-      "salarySource": "estimated",
+      "salarySource": "reported",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -77,7 +878,8 @@
           "maxValue": 89600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "kispi-zurich-bfa11d7344c4",
@@ -155,7 +957,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "kispi-zurich-509f3ec20351",
@@ -179,7 +982,7 @@
       "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 09.09.2026\n\nDeine Aufgaben\n• Planung und Koordination von Sprechstundentermine und Behandlungen für das Zentrum 3 (Onkologie, Immunologie, SZT, Hämatologie).\n• Planung der Tagesklinik im Zentrum 3 gestützt auf komplexe Vorgaben und Protokolle (Chemotherapien, Infusionstermine, Eingriffe inkl. Anästhesie)\n• Planung der dazugehörenden Bettenstation (Administration Patienten- und Falldaten, Aufgebote, Abklärungen)\n• Gewährleistung einer optimalen Auslastung aller beteiligten Zentrums-Ressourcen in enger Zusammenarbeit mit dem ganzen Behandlungsteam\n• Terminkoordination mit verschiedenen Fachbereichen\n• Der tägliche Austausch mit Patienteneltern sowie internen und externen Stellen – teils auch auf Englisch – gehört für dich dazu.\n\nDein Profil\n• Berufserfahrung als Disponent/in im Gesundheitswesen\n• Sehr gut organisierte, strukturierte und dienstleistungsorientierte Persönlichkeit\n• IT-Kenntnisse in den Tools PEP, RAP sowie PHOENIX von Vorteil\n• Sehr gute Sprachkenntnisse in Deutsch und Englisch, weitere Sprachen von Vorteil\n• Kreativität und Durchhaltevermögen sind ein wichtiger Bestandteil, auch wenn es hektisch wird, bewahrst du einen kühlen Kopf und behältst den Überblick.\n\nAlbion Zairi HR Business Partner +41 44 249 23 45\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück\n\n• Art: Teilzeit\n• Befristung: unbefristet",
       "descriptionByLocale": {
         "it": "Kinderspital Zürich Eleonorenstiftung | online dal : 09/09/2026\n\nI tuoi compiti\n• Pianificazione e coordinamento di visite e trattamenti per il Centro 3 (oncologia, immunologia, SZT, ematologia).\n• Pianificazione della clinica diurna nel centro 3 sulla base di specifiche e protocolli complessi (chemioterapie, appuntamenti per l'infusione, interventi incl. anestesia)\n• Pianificazione del reparto di degenza associato (amministrazione dati del paziente e del caso, convocazioni, chiarimenti)\n• Garantire un utilizzo ottimale di tutte le risorse del centro coinvolte in stretta collaborazione con l'intero team di trattamento\n• Coordinamento degli appuntamenti con diverse discipline\n• Lo scambio quotidiano con i genitori dei pazienti e con gli uffici interni ed esterni, in parte anche in inglese, fa parte della tua attività.\n\nIl tuo profilo\n• Esperienza professionale come disponente/disponente nel settore sanitario\n• Personalità molto ben organizzata, strutturata e orientata ai servizi\n• Vantaggiosa conoscenza informatica degli strumenti PEP, RAP e PHOENIX\n• Ottime competenze linguistiche in tedesco e inglese, altre lingue vantaggiose\n• La creatività e la perseveranza sono una componente importante, anche quando le cose si fanno frenetiche, mantieni la calma e tieni tutto sotto controllo.\n\nAlbion Zairi HR Business Partner +41 44 249 23 45\n\nhttp://www.kispi.uzh.ch\n\nSono interessato/a e desidero candidarmi\n\nIndietro\n\n• Tipo: part-time\n• Scadenza: a tempo indeterminato",
-        "en": "Children's Hospital Zurich Eleonorenstiftung, online since : 09.09.2026\n\nYour tasks • Planning and coordination of consultation hours and treatments for the Center 3 (oncology, immunology, SZT, haematology). • Planning of the day clinic in the Center 3 based on complex guidelines and protocols (chemotherapy, infusion dates, procedures incl.\n\nAnesthesia) • Planning of the corresponding bed station (admini-session patient and case data, arrays, clarifications) • Ensure optimal utilization of all the participating center resources in close cooperation with the entire treatment team • Termenko-Syllion with different departments • The daily exchange with patient parents as well as internal and external positions – partly also in English – is part of this for you.\n\nYour profile • Professional experience as a dispatcher in healthcare • Very well organized, structured and service-oriented personality • IT skills in the tools PEP, RAP and PHOENIX are of benefit • Very good language skills in German and English, other languages are of benefit • Creativity and perseverance are an important part, even if it becomes hectic, you keep a cool head and keep an overview.\n\nAlbion Zairi HR Business Partner +41 44 249 23 45\n\nhttp://www.kispi.uzh.ch\n\nI am interested and would like to apply\n\nPrev\n\n• Type: part-time • Time limit: indefinite",
+        "en": "Children's Hospital Zurich Eleonorenstiftung, online since : 09.09.2026\n\nYour tasks\n• Planning and coordination of consultation hours and treatments for the Center 3 (oncology, immunology, SZT, haematology).\n• Planning of the day clinic in the Center 3 based on complex guidelines and protocols (chemotherapy, infusion dates, procedures incl.\n\nAnesthesia)\n• Planning of the corresponding bed station (admini-session patient and case data, arrays, clarifications)\n• Ensure optimal utilization of all the participating center resources in close cooperation with the entire treatment team\n• Termenko-Syllion with different departments\n• The daily exchange with patient parents as well as internal and external positions – partly also in English – is part of this for you.\n\nYour profile\n• Professional experience as a dispatcher in healthcare\n• Very well organized, structured and service-oriented personality\n• IT skills in the tools PEP, RAP and PHOENIX are of benefit\n• Very good language skills in German and English, other languages are of benefit\n• Creativity and perseverance are an important part, even if it becomes hectic, you keep a cool head and keep an overview.\n\nAlbion Zairi HR Business Partner +41 44 249 23 45\n\nhttp://www.kispi.uzh.ch\n\nI am interested and would like to apply\n\nPrev\n\n• Type: part-time\n• Time limit: indefinite",
         "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 09.09.2026\n\nDeine Aufgaben\n• Planung und Koordination von Sprechstundentermine und Behandlungen für das Zentrum 3 (Onkologie, Immunologie, SZT, Hämatologie).\n• Planung der Tagesklinik im Zentrum 3 gestützt auf komplexe Vorgaben und Protokolle (Chemotherapien, Infusionstermine, Eingriffe inkl. Anästhesie)\n• Planung der dazugehörenden Bettenstation (Administration Patienten- und Falldaten, Aufgebote, Abklärungen)\n• Gewährleistung einer optimalen Auslastung aller beteiligten Zentrums-Ressourcen in enger Zusammenarbeit mit dem ganzen Behandlungsteam\n• Terminkoordination mit verschiedenen Fachbereichen\n• Der tägliche Austausch mit Patienteneltern sowie internen und externen Stellen – teils auch auf Englisch – gehört für dich dazu.\n\nDein Profil\n• Berufserfahrung als Disponent/in im Gesundheitswesen\n• Sehr gut organisierte, strukturierte und dienstleistungsorientierte Persönlichkeit\n• IT-Kenntnisse in den Tools PEP, RAP sowie PHOENIX von Vorteil\n• Sehr gute Sprachkenntnisse in Deutsch und Englisch, weitere Sprachen von Vorteil\n• Kreativität und Durchhaltevermögen sind ein wichtiger Bestandteil, auch wenn es hektisch wird, bewahrst du einen kühlen Kopf und behältst den Überblick.\n\nAlbion Zairi HR Business Partner +41 44 249 23 45\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück\n\n• Art: Teilzeit\n• Befristung: unbefristet",
         "fr": "Kinderspital Zürich Eleonorenstiftung | en ligne depuis : 09/09/2026\n\nVos tâches\n• Planification et coordination des consultations et des traitements pour le centre 3 (oncologie, immunologie, SZT, hématologie).\n• Planification de la clinique de jour au centre 3 sur la base de spécifications et de protocoles complexes (chimiothérapies, rendez-vous pour la perfusion, interventions, y compris l'anesthésie)\n• Planification du service des lits correspondant (administration des données des patients et des cas, convocations, clarifications)\n• Assurer une utilisation optimale de toutes les ressources du centre impliquées en étroite collaboration avec toute l'équipe de traitement\n• Coordination des rendez-vous avec différents domaines spécialisés\n• L'échange quotidien avec les parents des patients et les organismes internes et externes – en partie en anglais – en fait partie pour vous.\n\nVotre profil\n• Expérience professionnelle en tant que répartiteur/trice dans le secteur de la santé\n• Personnalité très organisée, structurée et axée sur le service\n• Des compétences informatiques dans les outils PEP, RAP et PHOENIX sont un atout\n• Très bonnes connaissances de l'allemand et de l'anglais, d'autres langues sont un avantage\n• La créativité et la persévérance sont un élément important, même si les choses deviennent trépidantes, vous gardez la tête froide et la vue d'ensemble.\n\nAlbion Zairi HR Business Partner +41 44 249 23 45\n\nhttp://www.kispi.uzh.ch\n\nJe suis intéressé et je souhaite postuler\n\nRetour\n\n• Type : Temps partiel\n• Limitation dans le temps : indéterminée"
       },
@@ -210,7 +1013,9 @@
         "disponentin-m-w-80-kispi-zurich-zurich",
         "disponentin-m-w-d-80-universitats-kinderspital-zurich-kispi-zurich",
         "depontine-m-p-universitats-kinderspital-zurich-kispi-zurich",
-        "ampliamento-m-f-70-universitats-kinderspital-zurich-kispi-zurich"
+        "ampliamento-m-f-70-universitats-kinderspital-zurich-kispi-zurich",
+        "disponent-m-w-d-70-universitats-kinderspital-zurich-kispi-zurich",
+        "depot-m-w-d-70-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -221,10 +1026,12 @@
           "ampliamento-m-f-70-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
-          "disponentin-m-w-70-kispi-zurich-zurich"
+          "disponentin-m-w-70-kispi-zurich-zurich",
+          "disponent-m-w-d-70-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "fr": [
-          "disponentin-m-w-70-kispi-zurich-zurich"
+          "disponentin-m-w-70-kispi-zurich-zurich",
+          "depot-m-w-d-70-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "firstSeenAt": "2026-09-09T13:42:02.172Z",
@@ -240,91 +1047,8 @@
           "maxValue": 89600,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "kispi-zurich-ac08735a244c",
-      "slug": "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
-      "slugByLocale": {
-        "it": "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
-        "de": "psychomotoriktherapeutin-m-w-d-30-40-kispi-zurich-zurich",
-        "fr": "psychomotherapeute-h-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
       },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "Psychomotoriktherapeutin (m/w) 30-40%",
-      "titleByLocale": {
-        "it": "terapeuta psicomotore (m/f/d) 30-40 %",
-        "en": "Psychomotor therapist (m/f) 30-40 %",
-        "de": "Psychomotoriktherapeutin (m/w) 30-40%",
-        "fr": "Psychomothérapeute (h/f/d) 30-40 %"
-      },
-      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 11.09.2026\n\nArbeitstage Donnerstag + Freitag, oder nach Vereinbarung.\n\nDeine Aufgaben\n• Deine Hauptaufgabe ist die therapeutische Begleitung von stationären (v.a. Psychosomatik und Langzeitpatient/innen) und ambulanten Klientinnen und Klienten.\n• Du übernimmst Einzel- und Gruppentherapien.\n• Du bist zuständig für die Begleitung und Beratung von Bezugspersonen.\n• Du übernimmst selbstständig die Leistungserfassung und Administration.\n• Zudem nimmst du an interdisziplinären Sitzungen und Rapporten teil.\n\nDein Profil\n• Abgeschlossene Ausbildung als Psychomotoriktherapeutin oder -therapeut EDK / BA\n• Einige Jahre Berufserfahrung, von Vorteil in der Psychosomatik/Psychiatrie\n• Zusatzausbildung in Entspannungstechniken oder die Bereitschaft, dies zu erlernen\n• Freude an der anspruchsvollen Arbeit mit kranken Kindern und Jugendlichen und deren Angehörigen\n• Flexibilität und Bereitschaft zur Weiterentwicklung der Therapiestelle\n\nSonja Schoch HR Business Partnerin\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück\n\n• Art: Teilzeit",
-      "descriptionByLocale": {
-        "it": "Ospedale per bambini Zurigo Eleonorenstiftung | online da: 10.09.2026\n\nGiorni lavorativi giovedì + venerdì, o per accordo.\n\nI tuoi compiti\n• Il vostro compito principale è il supporto terapeutico di pazienti malati (in particolare psicosomatici e pazienti a lungo termine) e pazienti ambulati.\n• Si prendono terapie individuali e di gruppo.\n• Lei è responsabile di accompagnamento e consulenza caregiver.\n• Prendere indipendentemente la registrazione delle prestazioni e l'amministrazione.\n• Parteciperete anche a sessioni interdisciplinari e rapporti.\n\nIl tuo profilo\n• Allenamento completo come psicomotore terapeuta EDK / BA\n• Alcuni anni di esperienza professionale, benefica nella psicosomatica/psichiatria\n• Formazione supplementare nelle tecniche di rilassamento o la volontà di imparare questo\n• Divertimento del lavoro impegnativo con i bambini malati e i giovani e i loro parenti\n• Flessibilità e disponibilità a sviluppare ulteriormente il sito di terapia\n\nSonja Schoch HR Business Partner\n\nhttp://www.kispi.uzh.ch\n\nSono interessato e vorrei candidarmi\n\nIndietro\n\n• Tipo: part-time",
-        "en": "Children's Hospital Zurich Eleonorenstiftung | online since : 10.09.2026\n\nWorking days Thursday + Friday, or by arrangement.\n\nYour tasks\n• Your main task is the therapeutic support of inpatient (especially psychosomatics and long-term patients) and outpatient clients.\n• You take individual and group therapies.\n• You are responsible for accompanying and advising caregivers.\n• You independently take over the performance recording and administration.\n• You will also participate in interdisciplinary sessions and rapports.\n\nYour profile\n• Completed training as psychomotor therapist EDK / BA\n• Some years of professional experience, beneficial in psychosomatics/psychiatry\n• Additional training in relaxation techniques or the willingness to learn this\n• Enjoyment of the demanding work with sick children and young people and their relatives\n• Flexibility and willingness to further develop the therapy site\n\nSonja Schoch HR Business Partner\n\nhttp://www.kispi.uzh.ch\n\nI am interested and would like to apply\n\nBack\n\n• Type: part-time",
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 11.09.2026\n\nArbeitstage Donnerstag + Freitag, oder nach Vereinbarung.\n\nDeine Aufgaben\n• Deine Hauptaufgabe ist die therapeutische Begleitung von stationären (v.a. Psychosomatik und Langzeitpatient/innen) und ambulanten Klientinnen und Klienten.\n• Du übernimmst Einzel- und Gruppentherapien.\n• Du bist zuständig für die Begleitung und Beratung von Bezugspersonen.\n• Du übernimmst selbstständig die Leistungserfassung und Administration.\n• Zudem nimmst du an interdisziplinären Sitzungen und Rapporten teil.\n\nDein Profil\n• Abgeschlossene Ausbildung als Psychomotoriktherapeutin oder -therapeut EDK / BA\n• Einige Jahre Berufserfahrung, von Vorteil in der Psychosomatik/Psychiatrie\n• Zusatzausbildung in Entspannungstechniken oder die Bereitschaft, dies zu erlernen\n• Freude an der anspruchsvollen Arbeit mit kranken Kindern und Jugendlichen und deren Angehörigen\n• Flexibilität und Bereitschaft zur Weiterentwicklung der Therapiestelle\n\nSonja Schoch HR Business Partnerin\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück\n\n• Art: Teilzeit",
-        "fr": "L'hôpital des enfants Zurich Eleonorenstiftung en ligne depuis : 10.09.2026\n\nJours ouvrables Jeudi + Vendredi, ou par arrangement.\n\nVos tâches\n• Votre tâche principale est le soutien thérapeutique des patients hospitalisés (surtout psychosomatiques et patients de longue durée) et des patients externes.\n• Vous prenez des thérapies individuelles et de groupe.\n• Vous êtes responsable d'accompagner et de conseiller les soignants.\n• Vous prenez en charge l'enregistrement de performance et l'administration.\n• Vous participerez également à des sessions et des rapports interdisciplinaires.\n\nVotre profil\n• Formation complète en psychomotrice EDK / BA\n• Quelques années d'expérience professionnelle, bénéfique en psychosomatique/psychiatrie\n• Formation supplémentaire en techniques de relaxation ou la volonté d'apprendre ceci\n• Appréciation du travail exigeant auprès des enfants et des jeunes malades et de leurs proches\n• Flexibilité et volonté de développer le site thérapeutique\n\nSonja Schoch partenaire d'affaires RH\n\nhttp://www.kispi.uzh.ch\n\nJe suis intéressé et je voudrais m'inscrire\n\nPrécédent\n\n• Type: temps partiel"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3745/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-17T14:25:25.697Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-10",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3745/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "psychomotoriktherapeutin-m-w-d-30-40-kispi-zurich-zurich",
-        "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
-        "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich",
-        "psychomotor-therapist-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
-        "psychomotor-therapist-m-f-30-40-universitats-kinderspital-zurich-kispi-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "psychomotoriktherapeutin-m-w-d-30-40-kispi-zurich-zurich",
-          "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
-          "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich"
-        ],
-        "en": [
-          "psychomotor-therapist-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
-          "psychomotor-therapist-m-f-30-40-universitats-kinderspital-zurich-kispi-zurich"
-        ],
-        "fr": [
-          "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-09-10T23:03:57.656Z",
-      "salaryMin": 36600,
-      "salaryMax": 51200,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 36600,
-          "maxValue": 51200,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1
     },
     {
       "id": "kispi-zurich-b9d23423e27c",
@@ -403,408 +1127,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "kispi-zurich-708c6a92817d",
-      "slug": "gestione-dei-casi-dei-dipendenti-90-m-f-universitats-kinderspital-zurich-kispi-zurich",
-      "slugByLocale": {
-        "it": "gestione-dei-casi-dei-dipendenti-90-m-f-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "employee-case-management-90-m-f-universitats-kinderspital-zurich-kispi-zurich",
-        "de": "mitarbeiterin-fallmanagement-90-m-w-kispi-zurich-zurich",
-        "fr": "gestion-des-cas-des-employes-90-h-f-universitats-kinderspital-zurich-kispi-zurich"
       },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "Mitarbeiterin Fallmanagement 90% (m/w)",
-      "titleByLocale": {
-        "it": "Gestione dei casi dei dipendenti 90% (m/f)",
-        "en": "Employee Case Management 90% (m/f)",
-        "de": "Mitarbeiterin Fallmanagement 90% (m/w)",
-        "fr": "Gestion des cas des employés 90% (h/f)"
-      },
-      "description": "Mitarbeiterin Fallmanagement 90% (m/w) bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-      "descriptionByLocale": {
-        "it": "Case Management dei dipendenti 90% (m/f) presso Kinderspital Zürich Eleonorenstiftung a Zurigo (8032, ZH), Svizzera.\n\n• Posizione: Zurigo (ZH)\n• Applicazione tramite il Portale Umantis Career dell'Ospedale pediatrico dell'Università di Zurigo (Kispi)",
-        "en": "Employee Case Management 90% (m/f) at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n\n• Location: Zurich (ZH)\n• Application via the Umantis Career Portal of the University Children's Hospital Zurich (Kispi)",
-        "de": "Mitarbeiterin Fallmanagement 90% (m/w) bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "fr": "Gestion des dossiers des employés 90% (h/f) à Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3746/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-17T14:25:21.695Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-11",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3746/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiterin-fallmanagement-90-m-w-kispi-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiterin-fallmanagement-90-m-w-kispi-zurich-zurich"
-        ],
-        "en": [
-          "mitarbeiterin-fallmanagement-90-m-w-kispi-zurich-zurich"
-        ],
-        "fr": [
-          "mitarbeiterin-fallmanagement-90-m-w-kispi-zurich-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-09-11T13:41:44.380Z",
-      "salaryMin": 82400,
-      "salaryMax": 115200,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 82400,
-          "maxValue": 115200,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kispi-zurich-808ae1b1761d",
-      "slug": "koordinatorin-ricerca-management-administration-w-m-80-100-universitats-kinderspital-zurich-kispi-zurich",
-      "slugByLocale": {
-        "it": "koordinatorin-ricerca-management-administration-w-m-80-100-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "koordinatorin-research-management-administration-w-m-80-100-kispi-zurich-zurich",
-        "de": "koordinatorin-research-management-administration-w-m-80-100-kispi-zurich-zurich",
-        "fr": "koordinatorin-recherche-management-administration-w-m-80-100-universitats-kinderspital-zurich-kispi-zurich"
-      },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "Koordinatorin Research Management & Administration (w/m) 80-100%",
-      "titleByLocale": {
-        "it": "Koordinatorin Ricerca Management & Administration (w/m) 80-100%",
-        "en": "Coordinator Research Management & Administration (m/f) 80-100 %",
-        "de": "Koordinatorin Forschung Management & Administration (w/m) 80-100%",
-        "fr": "Koordinatorin Recherche Management & Administration (w/m) 80-100%"
-      },
-      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 14.09.2026\n\nPinnacle - Forschungsgruppe für pädiatrishe und neonatale Intensivmedizin\n\nDeine Aufgaben\n• Du unterstützt die Research Managerin im operativen und administrativen Tagesgeschäft und sorgst für einen reibungslosen Ablauf.\n• Administrative HR-Prozesse für neue und bestehende Teammitglieder begleitest du von der Vorbereitung der erforderlichen Unterlagen über Rekrutierungen und Interviews bis hin zu Eintritten und Onboarding.\n• Bei administrativen Finanzprozessen packst du mit an – insbesondere bei der Erstellung und Aktualisierung von Budgetübersichten, der Rechnungsstellung und -bearbeitung sowie der Kontierung in Zusammenarbeit mit den zuständigen Fachstellen.\n• Sitzungen, Workshops, Retreats und weitere Veranstaltungen organisierst du selbstständig und übernimmst deren Vor- und Nachbereitung.\n• Agenden und Protokolle erstellst du zuverlässig und behältst dabei Pendenzen, Termine und Fristen im Blick.\n• Interne und externe Meetings sowie Termine koordinierst und bereitest du sorgfältig vor.\n• Bei der Erstellung, Zusammenstellung und Aufbereitung von Forschungs-, Projekt- und weiteren Berichten unterstützt du das Team tatkräftig.\n• Projektunterlagen und administrative Dokumentationen koordinierst und pflegst du strukturiert und gewissenhaft.\n• Im Rahmen von Forschungsprojekten und klinischen Studien unterstützt du bei administrativen und regulatorischen Abläufen, insbesondere bei der Koordination von Studiendokumenten, Vereinbarungen und weiteren regulatorisch relevanten Unterlagen.\n• Als zentrale Ansprechperson koordinierst du die Kommunikation mit internen und externen Partnern sowie Fachstellen.\n• Beim Aufbau und bei der Weiterentwicklung und Optimierung administrativer Prozesse und Strukturen bringst du deine Ideen aktiv ein.\n• Teammitglieder unterstützt du bei der Klärung von Abläufen, Zuständigkeiten und erforderlichen Unterlagen und trägst damit zu effizienten Arbeitsprozessen bei.\n\nDein Profil\n• Abgeschlossene höhere Ausbildung in einem für die Funktion relevanten Bereich, beispielsweise in Administration/Management, Gesundheitswesen oder Life Sciences; ein Hochschulabschluss (Bachelor oder Master) ist von Vorteil\n• Mehrjährige Erfahrung in einer administrativen oder koordinierenden Funktion, idealerweise im universitären, klinischen oder wissenschaftlichen Umfeld\n• Kenntnisse regulatorischer Anforderungen und Abläufe in der klinischen Forschung sowie Erfahrung mit Studiendokumenten und Vereinbarungen sind von Vorteil oder alternativ Bereitschaft, sich diese Kenntnisse rasch anzueignen\n• Interesse an wissenschaftlichen und medizinischen Fragestellungen sowie Offenheit und Neugier für Forschungsthemen\n• Erfahrung in der Budget-/Finanzadministration und Projektkoordination\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise sowie ausgeprägtes Organisationstalent\n• Freude an einer dynamischen, vielseitigen Schnittstellenfunktion und an der Koordination unterschiedlicher Aufgaben\n• Ausgeprägte Kommunikations- und Teamfähigkeit sowie eine lösungsorientierte und kooperative Arbeitsweise\n• Sehr gute Kenntnisse der MS-Office-Anwendungen, insbesondere Excel\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nClaudia Guetg Senior HR Business Partner\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück\n\n• Befristung: unbefristet",
-      "descriptionByLocale": {
-        "it": "Ospedale per bambini Zurigo Eleonorenstiftung | online da: 14.09.2026\n\nPinnacle - Gruppo di ricerca per la cura intensiva pediatrica e neonatale\n\nI tuoi compiti\n• Supporti il Responsabile della Ricerca in attività operative e amministrative quotidiane e garantisci un processo regolare.\n• I processi amministrativi delle risorse umane per i nuovi e già esistenti vi accompagneranno dalla preparazione dei documenti richiesti alle assunzioni e alle interviste all'ingresso e all'imbarco.\n• Sei coinvolto in processi finanziari amministrativi – in particolare nella creazione e nell'aggiornamento di bilanci, fatturazione e elaborazione, nonché nella contabilità in collaborazione con i rispettivi dipartimenti specializzati.\n• Sessioni, workshop, ritiri e altri eventi si organizzano in modo indipendente e prendono il sopravvento e la preparazione.\n• Crea agevolmente agevoli e protocolli e tieni d'occhio pendenze, date e scadenze.\n• Coordinate con attenzione le riunioni e gli appuntamenti interni ed esterni e preparateli.\n• Nella preparazione, nella compilazione e nella preparazione della ricerca, del progetto e di altri rapporti, si sostiene attivamente il team.\n• Documenti di progetto e documentazione amministrativa sono coordinati e mantenuti in modo strutturato e coscienzioso.\n• Nell'ambito dei progetti di ricerca e delle sperimentazioni cliniche, si sosterrà con i processi amministrativi e normativi, in particolare con il coordinamento dei documenti di studio, degli accordi e di altri documenti regolamentari rilevanti.\n• Come persona di contatto centrale, coordina la comunicazione con partner interni ed esterni e dipartimenti specializzati.\n• Quando crei e sviluppi e ottimizza i processi e le strutture amministrative, contribuisci attivamente alle tue idee.\n• I membri del team ti supportano nel chiarire processi, responsabilità e documenti richiesti e contribuiscono così a processi di lavoro efficienti.\n\nIl tuo profilo\n• L'istruzione superiore completata in un'area pertinente alla funzione, come l'amministrazione/gestione, la sanità o le scienze della vita; una laurea (Bachelor o Master) è un vantaggio\n• Diversi anni di esperienza in una funzione amministrativa o coordinatrice, idealmente nell'ambiente universitario, clinico o scientifico\n• La conoscenza dei requisiti normativi e delle procedure nella ricerca clinica e l'esperienza con i documenti di studio e gli accordi sono vantaggiosi o in alternativa disposti ad acquisire rapidamente questa conoscenza\n• Interessi in materia scientifica e medica, nonché apertura e curiosità per argomenti di ricerca\n• Esperienza di bilancio/amministrazione finanziaria e coordinamento dei progetti\n• Metodi di lavoro indipendenti, strutturati e affidabili nonché forte talento organizzativo\n• Godetevi una funzione di interfaccia dinamica e versatile e il coordinamento delle diverse attività\n• Forte capacità di comunicazione e di squadra, nonché un metodo di lavoro orientato alla soluzione e cooperativo\n• Ottima conoscenza delle applicazioni MS Office, in particolare Excel\n• Molto buona conoscenza del tedesco e dell'inglese in parola e scrittura\n\nClaudia Guetg Senior HR Business Partner\n\nhttp://www.kispi.uzh.ch\n\nSono interessato e vorrei candidarmi\n\nIndietro\n\n• Termine: perpetuo",
-        "en": "Children's Hospital Zurich Eleonorenstiftung | online since : 14.09.2026\n\nPinnacle - Research group for pediatric and neonatal intensive care\n\nYour tasks\n• You support the Research Manager in operational and administrative day-to-day business and ensure a smooth process.\n• Administrative HR processes for new and existing team members will accompany you from the preparation of the required documents to recruitments and interviews to entry and onboarding.\n• You are involved in administrative financial processes – especially in the creation and updating of budget overviews, invoicing and processing as well as accounting in cooperation with the relevant specialist departments.\n• Sessions, workshops, retreats and other events you organize independently and take over their preparation and follow-up.\n• You create agendas and protocols reliably and keep an eye on pendences, dates and deadlines.\n• You coordinate internal and external meetings and appointments carefully and prepare them.\n• In the preparation, compilation and preparation of research, project and other reports, you actively support the team.\n• Project documents and administrative documentation are coordinated and maintained in a structured and conscientious manner.\n• Within the framework of research projects and clinical trials, you will support with administrative and regulatory processes, in particular with the coordination of study documents, agreements and other relevant regulatory documents.\n• As a central contact person, you coordinate communication with internal and external partners and specialist departments.\n• When setting up and further developing and optimizing administrative processes and structures, you actively contribute your ideas.\n• Team members support you in clarifying processes, responsibilities and required documents and thus contribute to efficient work processes.\n\nYour profile\n• Completed higher education in an area relevant to the function, such as administration/management, healthcare or life sciences; a university degree (Bachelor or Master) is an advantage\n• Several years of experience in an administrative or coordinating function, ideally in the university, clinical or scientific environment\n• Knowledge of regulatory requirements and procedures in clinical research as well as experience with study documents and agreements are beneficial or alternatively willing to acquire this knowledge quickly\n• Interest in scientific and medical issues as well as openness and curiosity for research topics\n• Experience in budget/financial administration and project coordination\n• Independent, structured and reliable working methods as well as strong organisational talent\n• Enjoy a dynamic, versatile interface function and the coordination of different tasks\n• Strong communication and team skills as well as a solution-oriented and cooperative working method\n• Very good knowledge of MS Office applications, especially Excel\n• Very good knowledge of German and English in word and writing\n\nClaudia Guetg Senior HR Business Partner\n\nhttp://www.kispi.uzh.ch\n\nI am interested and would like to apply\n\nBack\n\n• Time limit: perpetual",
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 14.09.2026\n\nPinnacle - Forschungsgruppe für pädiatrishe und neonatale Intensivmedizin\n\nDeine Aufgaben\n• Du unterstützt die Research Managerin im operativen und administrativen Tagesgeschäft und sorgst für einen reibungslosen Ablauf.\n• Administrative HR-Prozesse für neue und bestehende Teammitglieder begleitest du von der Vorbereitung der erforderlichen Unterlagen über Rekrutierungen und Interviews bis hin zu Eintritten und Onboarding.\n• Bei administrativen Finanzprozessen packst du mit an – insbesondere bei der Erstellung und Aktualisierung von Budgetübersichten, der Rechnungsstellung und -bearbeitung sowie der Kontierung in Zusammenarbeit mit den zuständigen Fachstellen.\n• Sitzungen, Workshops, Retreats und weitere Veranstaltungen organisierst du selbstständig und übernimmst deren Vor- und Nachbereitung.\n• Agenden und Protokolle erstellst du zuverlässig und behältst dabei Pendenzen, Termine und Fristen im Blick.\n• Interne und externe Meetings sowie Termine koordinierst und bereitest du sorgfältig vor.\n• Bei der Erstellung, Zusammenstellung und Aufbereitung von Forschungs-, Projekt- und weiteren Berichten unterstützt du das Team tatkräftig.\n• Projektunterlagen und administrative Dokumentationen koordinierst und pflegst du strukturiert und gewissenhaft.\n• Im Rahmen von Forschungsprojekten und klinischen Studien unterstützt du bei administrativen und regulatorischen Abläufen, insbesondere bei der Koordination von Studiendokumenten, Vereinbarungen und weiteren regulatorisch relevanten Unterlagen.\n• Als zentrale Ansprechperson koordinierst du die Kommunikation mit internen und externen Partnern sowie Fachstellen.\n• Beim Aufbau und bei der Weiterentwicklung und Optimierung administrativer Prozesse und Strukturen bringst du deine Ideen aktiv ein.\n• Teammitglieder unterstützt du bei der Klärung von Abläufen, Zuständigkeiten und erforderlichen Unterlagen und trägst damit zu effizienten Arbeitsprozessen bei.\n\nDein Profil\n• Abgeschlossene höhere Ausbildung in einem für die Funktion relevanten Bereich, beispielsweise in Administration/Management, Gesundheitswesen oder Life Sciences; ein Hochschulabschluss (Bachelor oder Master) ist von Vorteil\n• Mehrjährige Erfahrung in einer administrativen oder koordinierenden Funktion, idealerweise im universitären, klinischen oder wissenschaftlichen Umfeld\n• Kenntnisse regulatorischer Anforderungen und Abläufe in der klinischen Forschung sowie Erfahrung mit Studiendokumenten und Vereinbarungen sind von Vorteil oder alternativ Bereitschaft, sich diese Kenntnisse rasch anzueignen\n• Interesse an wissenschaftlichen und medizinischen Fragestellungen sowie Offenheit und Neugier für Forschungsthemen\n• Erfahrung in der Budget-/Finanzadministration und Projektkoordination\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise sowie ausgeprägtes Organisationstalent\n• Freude an einer dynamischen, vielseitigen Schnittstellenfunktion und an der Koordination unterschiedlicher Aufgaben\n• Ausgeprägte Kommunikations- und Teamfähigkeit sowie eine lösungsorientierte und kooperative Arbeitsweise\n• Sehr gute Kenntnisse der MS-Office-Anwendungen, insbesondere Excel\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nClaudia Guetg Senior HR Business Partner\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück\n\n• Befristung: unbefristet",
-        "fr": "L'hôpital des enfants Zurich Eleonorenstiftung en ligne depuis : 14.09.2026\n\nPinnacle - Groupe de recherche sur les soins intensifs pédiatriques et néonatals\n\nVos tâches\n• Vous soutenez le gestionnaire de recherche dans les activités opérationnelles et administratives quotidiennes et vous assurez un processus en douceur.\n• Les processus administratifs de RH pour les membres de l'équipe, nouveaux et existants, vous accompagneront de la préparation des documents requis aux recrutements et aux entrevues jusqu'à l'entrée et à l'embarquement.\n• Vous participez à des processus financiers administratifs – notamment à la création et à la mise à jour d'aperçus budgétaires, à la facturation et au traitement ainsi qu'à la comptabilité en collaboration avec les services spécialisés concernés.\n• Sessions, ateliers, retraites et autres événements que vous organisez de façon indépendante et prenez en charge leur préparation et leur suivi.\n• Vous créez des agendas et des protocoles de façon fiable et gardez un œil sur les pendules, les dates et les délais.\n• Vous coordonnez soigneusement les réunions et les nominations internes et externes et vous les préparez.\n• Dans la préparation, la compilation et la préparation de recherches, de projets et d'autres rapports, vous soutenez activement l'équipe.\n• Les documents de projet et les documents administratifs sont coordonnés et tenus de façon structurée et consciencieuse.\n• Dans le cadre de projets de recherche et d'essais cliniques, vous soutenirz les processus administratifs et réglementaires, en particulier la coordination des documents d'étude, des accords et d'autres documents réglementaires pertinents.\n• En tant que personne-ressource centrale, vous coordonnez la communication avec les partenaires internes et externes et les services spécialisés.\n• Lors de la mise en place, du développement et de l'optimisation des processus et structures administratifs, vous contribuez activement à vos idées.\n• Les membres de l'équipe vous aident à clarifier les processus, les responsabilités et les documents requis et contribuent ainsi à l'efficacité des processus de travail.\n\nVotre profil\n• Études supérieures terminées dans un domaine pertinent à la fonction, comme l'administration/gestion, les soins de santé ou les sciences de la vie; un diplôme universitaire (Bachelor ou Master) est un avantage\n• Plusieurs années d'expérience dans une fonction administrative ou de coordination, idéalement dans l'environnement universitaire, clinique ou scientifique\n• La connaissance des exigences réglementaires et des procédures en matière de recherche clinique ainsi que l'expérience des documents d'étude et des accords sont bénéfiques ou sont disposés à acquérir ces connaissances rapidement\n• Intérêt pour les questions scientifiques et médicales ainsi que l'ouverture et la curiosité pour les sujets de recherche\n• Expérience en matière de gestion budgétaire et financière et de coordination des projets\n• Méthodes de travail indépendantes, structurées et fiables ainsi qu'un fort talent organisationnel\n• Profitez d'une fonction d'interface dynamique et polyvalente et de la coordination des différentes tâches\n• Des compétences solides en communication et en équipe ainsi qu'une méthode de travail axée sur la solution et la coopération\n• Très bonne connaissance des applications MS Office, en particulier Excel\n• Très bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\nClaudia Guetg Senior HR Business Partner\n\nhttp://www.kispi.uzh.ch\n\nJe suis intéressé et je voudrais m'inscrire\n\nPrécédent\n\n• Délai: perpétuel"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3744/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-17T14:25:19.733Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "Amministrazione",
-      "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-16",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3744/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-16T23:42:32.420Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "koordinatorin-research-management-administration-w-m-80-100-kispi-zurich-zurich"
-        ],
-        "fr": [
-          "koordinatorin-research-management-administration-w-m-80-100-kispi-zurich-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "koordinatorin-research-management-administration-w-m-80-100-kispi-zurich-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kispi-zurich-616707186b7b",
-      "slug": "applicazioni-aziendali-di-project-manager-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich",
-      "slugByLocale": {
-        "it": "applicazioni-aziendali-di-project-manager-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "project-manager-business-applications-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich",
-        "de": "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich",
-        "fr": "gestionnaire-de-projet-applications-operationnelles-h-f-80-100-universitats-kinderspital-zurich-kispi-zurich"
-      },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "Projektleiterin Business Applikationen (m/w) 80-100%",
-      "titleByLocale": {
-        "it": "Applicazioni aziendali di Project Manager (m/f) 80-100 %",
-        "en": "Project Manager Business Applications (m/f) 80-100 %",
-        "de": "Projektleiterin Business Applikationen (m/w) 80-100%",
-        "fr": "Gestionnaire de projet Applications opérationnelles (h/f) 80-100 %"
-      },
-      "description": "Projektleiterin Business Applikationen (m/w) 80-100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-      "descriptionByLocale": {
-        "de": "Projektleiterin Business Applikationen (m/w) 80-100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "it": "(m/f) 80-100% in Kinderspital Zürich Eleonorenstiftung a Zurigo (8032, ZH), Svizzera.\n\n• Tipo: part-time\n• Termine: perpetuo\n• Posizione: Zurigo (ZH)\n• Applicazione tramite il Portale Umantis Career dell'Ospedale pediatrico dell'Università di Zurigo (Kispi)",
-        "en": "Project Manager Business Applications (m/f) 80-100% at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n\n• Type: part-time\n• Time limit: perpetual\n• Location: Zurich (ZH)\n• Application via the Umantis Career Portal of the University Children's Hospital Zurich (Kispi)",
-        "fr": "Gestionnaire de projet Applications commerciales (h/f) 80-100% chez Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n\n• Type: temps partiel\n• Délai: perpétuel\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3739/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-17T14:25:07.144Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-16",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3739/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich"
-        ],
-        "en": [
-          "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich"
-        ],
-        "fr": [
-          "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-09-16T23:42:30.406Z",
-      "salaryMin": 124000,
-      "salaryMax": 173000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 124000,
-          "maxValue": 173000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kispi-zurich-bbc26e0a7ef6",
-      "slug": "stage-in-ospedale-scuola-bambini-rehab-svizzera-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
-      "slugByLocale": {
-        "it": "stage-in-ospedale-scuola-bambini-rehab-svizzera-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "internship-in-hospital-school-children-s-rehab-switzerland-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
-        "de": "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich",
-        "fr": "stage-a-l-hopital-ecole-pour-enfants-rehab-suisse-h-f-80-universitats-kinderspital-zurich-kispi-zurich"
-      },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "Praktikantin Spitalschule Kinder-Reha Schweiz (w/m) 80%",
-      "titleByLocale": {
-        "it": "Stage in Ospedale Scuola Bambini Rehab Svizzera (m/f) 80 %",
-        "en": "Internship in Hospital School Children's Rehab Switzerland (m/f) 80 %",
-        "de": "Praktikantin Spitalschule Kinder-Reha Schweiz (w/m) 80%",
-        "fr": "Stage à l'hôpital École pour enfants Rehab Suisse (h/f) 80 %"
-      },
-      "description": "Praktikantin Spitalschule Kinder-Reha Schweiz (w/m) 80% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-      "descriptionByLocale": {
-        "it": "Stage presso (m/f) 80% presso Kinderspital Zürich Eleonorenstiftung a Zurigo (8032, ZH), Svizzera.\n\n• Tipo: part-time\n• Termine temporaneo: temporaneo\n• Posizione: Zurigo (ZH)\n• Applicazione tramite il Portale Umantis Career dell'Ospedale pediatrico dell'Università di Zurigo (Kispi)",
-        "en": "Internship at (m/f) 80% at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n\n• Type: part-time\n• Temporary term: temporary\n• Location: Zurich (ZH)\n• Application via the Umantis Career Portal of the University Children's Hospital Zurich (Kispi)",
-        "de": "Praktikantin Spitalschule Kinder-Reha Schweiz (w/m) 80% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "fr": "Stage à (h/f) 80% à Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n\n• Type: temps partiel\n• Terme temporaire: temporaire\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3606/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-17T14:24:46.941Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "Formazione",
-      "contract": "temporary",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-16",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3606/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich"
-        ],
-        "en": [
-          "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich"
-        ],
-        "fr": [
-          "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-09-16T23:42:22.920Z",
-      "salaryMin": 42800,
-      "salaryMax": 78800,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 42800,
-          "maxValue": 78800,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kispi-zurich-c1a5c85a8244",
-      "slug": "dipl-pflegefachperson-per-das-nds-hf-intensivpflege-padiatrie-universitats-kinderspital-zurich-kispi-zurich",
-      "slugByLocale": {
-        "de": "dipl-pflegefachperson-fur-das-nds-hf-intensivpflege-padiatrie-kispi-zurich-zurich",
-        "it": "dipl-pflegefachperson-per-das-nds-hf-intensivpflege-padiatrie-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "dipl-nurse-for-nds-hf-intensive-care-pediatrics-universitats-kinderspital-zurich-kispi-zurich",
-        "fr": "dipl-infirmiere-en-pediatrie-de-soins-intensifs-de-la-snd-universitats-kinderspital-zurich-kispi-zurich"
-      },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "Dipl. Pflegefachperson für das NDS HF Intensivpflege Pädiatrie",
-      "titleByLocale": {
-        "de": "Dipl. Pflegefachperson für das NDS HF Intensivpflege Pädiatrie",
-        "it": "Dipl. Infermiera per NDS HF terapia intensiva pediatrica",
-        "en": "Dipl. Nurse for NDS HF intensive care pediatrics",
-        "fr": "Dipl. Infirmière en pédiatrie de soins intensifs de la SND"
-      },
-      "description": "Dipl. Pflegefachperson für das NDS HF Intensivpflege Pädiatrie bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-      "descriptionByLocale": {
-        "de": "Dipl. Pflegefachperson für das NDS HF Intensivpflege Pädiatrie bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "it": "Dipl. Infermiera per NDS HF Intensive Care Pediatrics presso Kinderspital Zürich Eleonorenstiftung a Zurigo (8032, ZH), Svizzera.\n\n• Tipo: Tempo pieno\n• Termine temporaneo: temporaneo\n• Posizione: Zurigo (ZH)\n• Applicazione tramite il Portale Umantis Career dell'Ospedale pediatrico dell'Università di Zurigo (Kispi)",
-        "en": "Dipl. Nurse for NDS HF Intensive Care Pediatrics at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n\n• Type: Full-time\n• Temporary term: temporary\n• Location: Zurich (ZH)\n• Application via the Umantis Career Portal of the University Children's Hospital Zurich (Kispi)",
-        "fr": "Dipl. Nurse for NDS HF Intensive Care Pédiatrics at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Suisse.\n\n• Type: Temps plein\n• Terme temporaire : temporaire\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/393/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-17T14:24:26.736Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-17",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/393/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-fur-das-nds-hf-intensivpflege-padiatrie-kispi-zurich-zurich",
-          "dipl-esperto-dipl-cura-intensiva-esperto-60-100-universitats-kinderspital-zurich-kispi-zurich",
-          "dipl-expertin-dipl-experte-intensivpflege-60-100-universitats-kinderspital-zurich-kispi-zurich",
-          "dipl-expertin-dipl-experte-intensivpflege-60-100-kispi-zurich-zurich",
-          "dipl-expert-dipl-expert-en-soins-intensifs-60-100-universitats-kinderspital-zurich-kispi-zurich",
-          "dipl-expert-dipl-expert-intensive-care-60-100-universitats-kinderspital-zurich-kispi-zurich"
-        ],
-        "en": [
-          "dipl-pflegefachperson-fur-das-nds-hf-intensivpflege-padiatrie-kispi-zurich-zurich",
-          "dipl-expertin-dipl-experte-intensivpflege-60-100-universitats-kinderspital-zurich-kispi-zurich"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-fur-das-nds-hf-intensivpflege-padiatrie-kispi-zurich-zurich",
-          "dipl-expert-dipl-expert-en-soins-intensifs-60-100-universitats-kinderspital-zurich-kispi-zurich"
-        ],
-        "de": [
-          "dipl-expertin-dipl-experte-intensivpflege-60-100-kispi-zurich-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachperson-fur-das-nds-hf-intensivpflege-padiatrie-kispi-zurich-zurich",
-        "dipl-esperto-dipl-cura-intensiva-esperto-60-100-universitats-kinderspital-zurich-kispi-zurich",
-        "dipl-expertin-dipl-experte-intensivpflege-60-100-universitats-kinderspital-zurich-kispi-zurich",
-        "dipl-expertin-dipl-experte-intensivpflege-60-100-kispi-zurich-zurich",
-        "dipl-expert-dipl-expert-en-soins-intensifs-60-100-universitats-kinderspital-zurich-kispi-zurich",
-        "dipl-expert-dipl-expert-intensive-care-60-100-universitats-kinderspital-zurich-kispi-zurich"
-      ],
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-17T14:24:26.736Z"
+      "crawlerMissStreak": 1
     },
     {
       "id": "kispi-zurich-528ff3bdd900",
@@ -898,230 +1222,6 @@
           "@type": "QuantitativeValue",
           "minValue": 53500,
           "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "kispi-zurich-8bf163faa35f",
-      "slug": "responsabile-del-servizio-di-assistenza-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich",
-      "slugByLocale": {
-        "it": "responsabile-del-servizio-di-assistenza-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "head-of-care-service-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich",
-        "de": "leiterin-pflegedienst-w-m-80-100-kispi-zurich-zurich",
-        "fr": "chef-du-service-de-soins-h-f-80-100-universitats-kinderspital-zurich-kispi-zurich"
-      },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "Leiterin Pflegedienst (w/m) 80-100%",
-      "titleByLocale": {
-        "it": "Responsabile del servizio di assistenza (m/f) 80-100 %",
-        "en": "Head of Care Service (m/f) 80-100 %",
-        "de": "Leiterin Pflegedienst (w/m) 80-100%",
-        "fr": "Chef du service de soins (h/f) 80-100 %"
-      },
-      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 27.08.2026\n\nKinder-Reha Schweiz - Affoltern am Albis\n\nDeine Aufgaben\n• Als Mitglied der 6-köpfigen Klinikleitung der Kinder-Reha Schweiz übernimmst du die strategische, konzeptionelle und betriebswirtschaftliche Verantwortung für den Pflegedienst.\n• Du bist für die Umsetzung des Leistungsauftrages der Pflege inkl. der Pflegeentwicklung und Pflegeausbildung mitverantwortlich, dabei steht eine wirksame und familienzentrierte Pflege und Versorgung im Vordergrund.\n• Die personelle, organisatorische und finanzielle Führung unter Einhaltung der Budgetvorgaben liegt in deiner Verantwortung.\n• Du förderst eine zukunftsorientierte Personal- und Teamentwicklung unter Einbezug der betrieblichen Anforderungen.\n• An inter- und intraprofessionellen Projekten beteiligst du dich aktiv und übernimmst gegebenenfalls die Projektleitung.\n• Als Mitglied des Kaderteams der Direktion Pflege & MTB wirkst du aktiv an der Umsetzung und Weiterentwicklung der Qualitätssicherung mit.\n\nDein Profil\n• Diplom Pflege HF / FH\n• MSc. oder MAS in Pflege und/oder Management\n• fundierte Berufserfahrung in der pädiatrischen Pflege und/oder Rehabilitation\n• qualifizierende Kenntnisse im Bereich Betriebswirtschaft\n• Ausgeprägte Leadership-Fähigkeiten und Leistungsnachweis in einer Führungsfunktion\n• Freude an der Mitarbeit in der interprofessionellen Klinikleitung und im Rehabilitationskontext\n\nMelanie Rieger Co-Leiterin HR Consulting +41 44 249 23 33\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück\n\n• Art: Vollzeit\n• Befristung: unbefristet",
-      "descriptionByLocale": {
-        "it": "Ospedale per bambini Zurigo Eleonorenstiftung | online da: 27.08.2026 riabilitazione per bambini Svizzera - Affoltern am Albis I tuoi compiti\n• Come membro della gestione clinica di 6 membri di Kinder-Reha Svizzera, si assume la responsabilità strategica, concettuale e aziendale per il servizio di assistenza.\n\n• Tipo: Tempo pieno\n• Termine: perpetuo",
-        "en": "Children's Hospital Zurich Eleonorenstiftung | online since : 27.08.2026 Children's rehab Switzerland - Affoltern am Albis Your tasks\n• As a member of the 6-member clinic management of Kinder-Reha Switzerland, you assume strategic, conceptual and business responsibility for the care service.\n\n• Type: Full-time\n• Time limit: perpetual",
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 27.08.2026\n\nKinder-Reha Schweiz - Affoltern am Albis\n\nDeine Aufgaben\n• Als Mitglied der 6-köpfigen Klinikleitung der Kinder-Reha Schweiz übernimmst du die strategische, konzeptionelle und betriebswirtschaftliche Verantwortung für den Pflegedienst.\n• Du bist für die Umsetzung des Leistungsauftrages der Pflege inkl. der Pflegeentwicklung und Pflegeausbildung mitverantwortlich, dabei steht eine wirksame und familienzentrierte Pflege und Versorgung im Vordergrund.\n• Die personelle, organisatorische und finanzielle Führung unter Einhaltung der Budgetvorgaben liegt in deiner Verantwortung.\n• Du förderst eine zukunftsorientierte Personal- und Teamentwicklung unter Einbezug der betrieblichen Anforderungen.\n• An inter- und intraprofessionellen Projekten beteiligst du dich aktiv und übernimmst gegebenenfalls die Projektleitung.\n• Als Mitglied des Kaderteams der Direktion Pflege & MTB wirkst du aktiv an der Umsetzung und Weiterentwicklung der Qualitätssicherung mit.\n\nDein Profil\n• Diplom Pflege HF / FH\n• MSc. oder MAS in Pflege und/oder Management\n• fundierte Berufserfahrung in der pädiatrischen Pflege und/oder Rehabilitation\n• qualifizierende Kenntnisse im Bereich Betriebswirtschaft\n• Ausgeprägte Leadership-Fähigkeiten und Leistungsnachweis in einer Führungsfunktion\n• Freude an der Mitarbeit in der interprofessionellen Klinikleitung und im Rehabilitationskontext\n\nMelanie Rieger Co-Leiterin HR Consulting +41 44 249 23 33\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück\n\n• Art: Vollzeit\n• Befristung: unbefristet",
-        "fr": "L'hôpital des enfants Zurich Eleonorenstiftung en ligne depuis : 27.08.2026 Réadaptation des enfants Suisse - Affoltern am Albis Vos tâches\n• En tant que membre de la direction clinique de Kinder-Reha Suisse, vous assumez la responsabilité stratégique, conceptuelle et commerciale du service de soins.\n\n• Type: Temps plein\n• Délai: perpétuel"
-      },
-      "needsRetranslation": true,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3734/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:51:46.637Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-27",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3734/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "leiterin-pflegedienst-w-m-80-100-kispi-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leiterin-pflegedienst-w-m-80-100-kispi-zurich-zurich"
-        ],
-        "en": [
-          "leiterin-pflegedienst-w-m-80-100-kispi-zurich-zurich"
-        ],
-        "fr": [
-          "leiterin-pflegedienst-w-m-80-100-kispi-zurich-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-08-27T19:48:43.434Z",
-      "salaryMin": 124000,
-      "salaryMax": 173000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 124000,
-          "maxValue": 173000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "kispi-zurich-d32100e38d11",
-      "slug": "phd-position-in-trustworthy-and-efficient-language-models-for-pediatric-clinical-data",
-      "slugByLocale": {
-        "it": "phd-position-in-trustworthy-and-efficient-language-models-for-pediatric-clinical-data",
-        "en": "phd-position-in-developing-language-model-methods-for-pediatric-critical-care-universitats-kinderspital-zurich-kispi",
-        "de": "phd-position-in-developing-language-model-methods-for-pediatric-critical-care-kispi-zurich",
-        "fr": "phd-position-in-trustworthy-and-efficient-language-models-for-pediatric-clinical-data"
-      },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "PhD position in Developing Language-Model Methods for Pediatric Critical Care",
-      "titleByLocale": {
-        "it": "PhD position in trustworthy and Efficient Language Models for Pediatric Clinical Data",
-        "en": "Ph position in103 Language-Model Georgia for Pediatric Critical Care",
-        "de": "PhD position in Developing Language-Model Methods for Pediatric Critical Care",
-        "fr": "PhD position in trustworthy and Efficient Language Models for Pediatric Clinical Data"
-      },
-      "description": "PhD position in Developing Language-Model Methods for Pediatric Critical Care bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-      "descriptionByLocale": {
-        "it": "PhD position in trustworthy and Efficient Language Models for Pediatric Clinical Data bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "en": "PhD position in trustworthy and Efficient Language Models for Pediatric Clinical Data bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "de": "PhD position in Developing Language-Model Methods for Pediatric Critical Care bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "fr": "PhD position in trustworthy and Efficient Language Models for Pediatric Clinical Data bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)"
-      },
-      "needsRetranslation": true,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3737/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:51:39.397Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-01",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3737/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-in-developing-language-model-methods-for-pediatric-critical-care-kispi-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-developing-language-model-methods-for-pediatric-critical-care-kispi-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-09-01T23:07:19.953Z",
-      "salaryMin": 79000,
-      "salaryMax": 134500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 134500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "kispi-zurich-e984252b332b",
-      "slug": "medizinische-praxisassistentin-cfc-m-w-60-100-universitats-kinderspital-zurich-kispi-zurich",
-      "slugByLocale": {
-        "it": "medizinische-praxisassistentin-cfc-m-w-60-100-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "medical-practice-assistant-efz-m-f-60-100-universitats-kinderspital-zurich-kispi-zurich",
-        "de": "medizinische-praxisassistentin-efz-m-w-60-100-kispi-zurich-zurich",
-        "fr": "assistant-de-medecine-efz-h-f-60-100-universitats-kinderspital-zurich-kispi-zurich"
-      },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "Medizinische Praxisassistentin EFZ (m/w) 60-100%",
-      "titleByLocale": {
-        "it": "Medizinische Praxisassistentin CFC (m/w) 60-100%",
-        "en": "Medical practice assistant EFZ (m/f) 60-100 %",
-        "de": "Medizinische Praxisassistentin EFZ (m/w) 60-100%",
-        "fr": "Assistant de médecine EFZ (h/f) 60-100 %"
-      },
-      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 07.09.2026\n\nPolikliniken Montag bis Freitag im Tagdienst\n\nDeine Aufgaben\n• Du betreust Kinder und Jugendliche aller Altersstufen sowie deren Angehörige.\n• Du führst selbstständig Aufgaben wie dem Wiegen/ Messen, der Medizinaltechnik, Abrechnen im Tarmed, Bewirtschaftung der Konsultationsräume, dem Bestellwesen oder dem Empfang von Patienten und ihren Bezugspersonen aus.\n• Du unterstützt bei der Koordination und Organisation der Sprechstunden.\n• Du bist bereit für den Umgang mit Patientenadministrationssystemen.\n• Du unterstützt Praktikanten und Lernende FaGe.\n\nDein Profil\n• Abgeschlossene Ausbildung als medizinische/r Praxisasstistent/in EFZ mit Fähigkeitszeugnis\n• Idealerweise Erfahrung im Umgang mit Kindern, Jugendlichen und ihren Familien\n• Flexibilität in der Arbeitsorganisation, Hohe Eigenverantwortung und strukturierte Arbeitsweise\n• Freude an der Arbeit im interdisziplinären Team\n\nSonja Schoch HR Business Partner +41 44 249 23 53\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück\n\n• Art: Teilzeit\n• Befristung: unbefristet",
-      "descriptionByLocale": {
-        "it": "Ospedale per bambini Zurigo Eleonorenstiftung | online da: 07.09.2026\n\nPoliclinici dal lunedì al venerdì in servizio\n\nI tuoi compiti\n• Ti interessano bambini e giovani di tutte le età e dei loro parenti.\n• Effettuate in modo indipendente attività come la pesatura/misurazione, la tecnologia medica, la fatturazione nel Tarmed, la gestione delle sale di consultazione, l'ordinazione o la ricezione dei pazienti e dei loro assistenti.\n• Lei sostiene nel coordinamento e nell'organizzazione delle ore di ufficio.\n• Siete pronti ad affrontare i sistemi di amministrazione del paziente.\n• Supporti stagisti e studenti FaGe.\n\nIl tuo profilo\n• Formazione completa come assistente medico/pratico/EFZ con certificato di competenza\n• Esperienza ideale nel trattare con bambini, adolescenti e le loro famiglie\n• Flessibilità nell'organizzazione del lavoro, alto livello di responsabilità personale e metodi di lavoro strutturati\n• Divertimento del lavoro in un team interdisciplinare\n\nSonja Schoch HR Business Partner +41 44 249 23 53\n\nhttp://www.kispi.uzh.ch\n\nSono interessato e vorrei candidarmi\n\nIndietro\n\n• Tipo: part-time\n• Termine: perpetuo",
-        "en": "Children's Hospital Zurich Eleonorenstiftung | online since : 07.09.2026\n\nPolyclinics Monday to Friday on day duty\n\nYour tasks\n• You care for children and young people of all ages and their relatives.\n• You independently carry out tasks such as weighing/measuring, medical technology, billing in the Tarmed, management of the consultation rooms, ordering or receiving patients and their caregivers.\n• You support in the coordination and organization of the office hours.\n• You are ready to deal with patient administration systems.\n• You support interns and learners FaGe.\n\nYour profile\n• Completed training as medical/practice assistant/EFZ with certificate of competence\n• Ideally experience in dealing with children, adolescents and their families\n• Flexibility in work organisation, high level of personal responsibility and structured working methods\n• Enjoyment of working in an interdisciplinary team\n\nSonja Schoch HR Business Partner +41 44 249 23 53\n\nhttp://www.kispi.uzh.ch\n\nI am interested and would like to apply\n\nBack\n\n• Type: part-time\n• Time limit: perpetual",
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 07.09.2026\n\nPolikliniken Montag bis Freitag im Tagdienst\n\nDeine Aufgaben\n• Du betreust Kinder und Jugendliche aller Altersstufen sowie deren Angehörige.\n• Du führst selbstständig Aufgaben wie dem Wiegen/ Messen, der Medizinaltechnik, Abrechnen im Tarmed, Bewirtschaftung der Konsultationsräume, dem Bestellwesen oder dem Empfang von Patienten und ihren Bezugspersonen aus.\n• Du unterstützt bei der Koordination und Organisation der Sprechstunden.\n• Du bist bereit für den Umgang mit Patientenadministrationssystemen.\n• Du unterstützt Praktikanten und Lernende FaGe.\n\nDein Profil\n• Abgeschlossene Ausbildung als medizinische/r Praxisasstistent/in EFZ mit Fähigkeitszeugnis\n• Idealerweise Erfahrung im Umgang mit Kindern, Jugendlichen und ihren Familien\n• Flexibilität in der Arbeitsorganisation, Hohe Eigenverantwortung und strukturierte Arbeitsweise\n• Freude an der Arbeit im interdisziplinären Team\n\nSonja Schoch HR Business Partner +41 44 249 23 53\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück\n\n• Art: Teilzeit\n• Befristung: unbefristet",
-        "fr": "L'hôpital des enfants Zurich Eleonorenstiftung en ligne depuis : 07.09.2026\n\nPolycliniques Du lundi au vendredi en service quotidien\n\nVos tâches\n• Vous prenez soin des enfants et des jeunes de tous âges et de leurs proches.\n• Vous exécutez indépendamment des tâches telles que la pesée/la mesure, la technologie médicale, la facturation dans le Tarmed, la gestion des salles de consultation, la commande ou la réception des patients et de leurs soignants.\n• Vous soutenez la coordination et l'organisation des heures de bureau.\n• Vous êtes prêt à gérer les systèmes d'administration des patients.\n• Vous aidez les stagiaires et les apprenants FaGe.\n\nVotre profil\n• Achevé la formation en tant qu'assistant médical/professionnel/EFZ avec certificat de compétence\n• Expérience idéale dans le traitement des enfants, des adolescents et de leur famille\n• Flexibilité dans l'organisation du travail, haut niveau de responsabilité personnelle et méthodes de travail structurées\n• Appréciation de travailler dans une équipe interdisciplinaire\n\nSonja Schoch HR Business Partner +41 44 249 23 53\n\nhttp://www.kispi.uzh.ch\n\nJe suis intéressé et je voudrais m'inscrire\n\nPrécédent\n\n• Type: temps partiel\n• Délai: perpétuel"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3446/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:51:38.496Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-07",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3446/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "medizinische-praxisassistentin-efz-m-w-60-100-kispi-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-praxisassistentin-efz-m-w-60-100-kispi-zurich-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-09-07T15:03:25.404Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
           "unitText": "YEAR"
         }
       },

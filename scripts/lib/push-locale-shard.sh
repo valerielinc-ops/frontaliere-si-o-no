@@ -216,13 +216,10 @@ push_shard() {
             "$loc" "$dist_dir" "$manifest_tool" "$delta_output" \
             "$SHARD_HISTORY_CAP" "$loc shard"; then
           delta_apply_ok=1
-          if ! shard_delta_apply_source_tree \
-              "$stage" "$dist_dir/$loc" "$loc" \
-              "$delta_output/changed-files.txt" \
-              "$delta_output/unmanifested-files.txt" \
-              "$delta_output/payload-files.txt"; then
+          if ! shard_delta_check_unchanged_payload_paths \
+              "$stage" "$loc" "$delta_output/unchanged-files.txt"; then
             delta_apply_ok=0
-            delta_fallback_reason='delta source application failed'
+            delta_fallback_reason="${SHARD_DELTA_REASON:-delta unchanged payload check failed}"
           fi
           if [ "$delta_apply_ok" = 1 ]; then
             if ! shard_delta_remove_stale_payload_paths \
@@ -231,6 +228,14 @@ push_shard() {
               delta_apply_ok=0
               delta_fallback_reason="${SHARD_DELTA_REASON:-delta tombstone application failed}"
             fi
+          fi
+          if [ "$delta_apply_ok" = 1 ] && ! shard_delta_apply_source_tree \
+              "$stage" "$dist_dir/$loc" "$loc" \
+              "$delta_output/changed-files.txt" \
+              "$delta_output/unmanifested-files.txt" \
+              "$delta_output/payload-files.txt"; then
+            delta_apply_ok=0
+            delta_fallback_reason='delta source application failed'
           fi
           if [ "$delta_apply_ok" = 1 ]; then
             if ! shard_delta_add_text "$stage" .nojekyll ''; then delta_apply_ok=0; fi
@@ -274,7 +279,7 @@ push_shard() {
           fi
           if [ "$delta_apply_ok" = 1 ]; then
             delta_applied=1
-            echo "$loc shard: delta indexed tree, $n files served / $built_n built (src $src_n, prev $prev_n, changed=$SHARD_DELTA_CHANGED_FILES, reused=$SHARD_DELTA_REUSED_FILES, removed=$SHARD_DELTA_REMOVED_FILES, deploys-since-flatten=$((dcount + 1)))"
+            echo "$loc shard: delta indexed tree, $n files served / $built_n built (src $src_n, prev $prev_n, changed=$SHARD_DELTA_CHANGED_FILES, unmanifested-overlay=$SHARD_DELTA_UNMANIFESTED_FILES, reused=$SHARD_DELTA_REUSED_FILES, removed=$SHARD_DELTA_REMOVED_FILES, deploys-since-flatten=$((dcount + 1)))"
           fi
         else
           delta_fallback_reason="${SHARD_DELTA_REASON:-remote delta preparation failed}"
@@ -283,7 +288,7 @@ push_shard() {
         delta_fallback_reason="${SHARD_DELTA_REASON:-current manifest missing or invalid}"
       fi
       if [ "$delta_applied" != 1 ]; then
-        echo "::warning::$loc shard: delta fallback: $delta_fallback_reason — using full overlay"
+        echo "::warning::$loc shard: delta fallback: fallback reason=$delta_fallback_reason — using full overlay"
       fi
     fi
 

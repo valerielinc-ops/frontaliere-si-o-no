@@ -1,39 +1,38 @@
 {
   "key": "oscam-castelrotto",
   "label": "Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi)",
-  "generatedAt": "2026-09-18T13:40:47.279Z",
-  "total": 3,
+  "generatedAt": "2026-09-18T23:09:37.801Z",
+  "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
-  "written": 3,
+  "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6791,
-  "avgDurationMs": 6791,
+  "unchangedCount": 0,
+  "durationMs": 6508,
+  "avgDurationMs": 6508,
   "durationHistory": [
-    6791
+    6508
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "oscam-castelrotto-2026-08-psi-psicologo-assistente-1-5c9b56f8e650",
-      "slug": "concorso-psicologo-a-assistente-100-oscam-castelrotto-castelrotto",
+      "id": "oscam-castelrotto-concorso-generale-2025-per-medici-assistenti-be80f019a870",
+      "slug": "concorso-generale-assunzione-medico-assistente-2025-2026-oscam-castelrotto-castelrotto",
       "company": "Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi)",
       "companyKey": "oscam-castelrotto",
       "companyDomain": "oscam.ch",
-      "title": "Concorso Psicologo/a assistente (100%)",
+      "title": "Concorso generale assunzione medico assistente 2025-2026",
+      "needsRetranslation": false,
       "location": "Castelrotto",
       "canton": "TI",
-      "url": "https://www.oscam.ch/lavoraconnoi/#2026-08-psi-psicologo-assistente-1",
+      "url": "https://www.oscam.ch/lavoraconnoi/#concorso-generale-2025-per-medici-assistenti",
       "source": "OSCAM Castelrotto Dedicated Parser (WordPress HTML, PDF concorsi)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-16T23:38:46.734Z",
+      "crawledAt": "2026-09-18T23:09:26.018Z",
       "addressLocality": "Castelrotto",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -42,24 +41,22 @@
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
+      "experienceLevel": "junior",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-19",
-      "applyUrl": "https://www.oscam.ch/wp-content/uploads/2026/08/2026_08_PSI-Psicologo-assistente-1.pdf",
+      "applyUrl": "https://www.oscam.ch/wp-content/uploads/2025/01/Concorso-generale-2025-per-medici-assistenti.pdf",
       "firstSeenAt": "2026-05-19T21:17:11.055Z",
-      "salaryMin": 70500,
-      "salaryMax": 98500,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 92,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

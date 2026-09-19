@@ -232,20 +232,12 @@ export const GATES = [
     auditCmd: 'npm run audit:max-bfs-depth',
     rebaselineCmd: 'npm run audit:max-bfs-depth:rebaseline',
     baselineFile: 'data/bfs-depth-baseline.json',
-    extractCurrent: (parsed) => {
-      const p = /** @type {Record<string, unknown>} */ (parsed);
-      const perSitemap = /** @type {Record<string, Record<string, unknown>>|undefined} */ (
-        p.perSitemap
-      );
-      if (perSitemap && typeof perSitemap === 'object') {
-        let total = 0;
-        for (const v of Object.values(perSitemap)) {
-          total += Number(v.atDepthGtMax ?? 0);
-        }
-        return total;
-      }
-      return Number(p.atDepthGtMax ?? 0);
-    },
+    // The audit writes the authoritative flattened count to the structured
+    // report. Its --json stdout is a diagnostic per-sitemap dump, and parsing
+    // that shape previously produced current=0 in the cathedral verdict even
+    // when the run had thousands of offenders (#9195).
+    readsOwnReport: true,
+    extractCurrent: reportOffenders('max-bfs-depth'),
     extractBaseline: (baseline) => {
       const b = /** @type {Record<string, unknown>} */ (baseline);
       const perSitemap = /** @type {Record<string, Record<string, unknown>>|undefined} */ (
@@ -387,9 +379,21 @@ function run(argv) {
  *   title-no-disambig-hash 13:27:01 -> 13:58:08   31m 07s
  *   ------------------------------------------- 2h 36m 39s
  *
- * against a `timeout-minutes: 180` cap, i.e. 23 minutes of margin on a dist/
- * that grows daily. Three of the last four runs were then cancelled at 3h
- * (issue #7421); on run 33922555269 this step ran 00:23:10 -> 03:03:59.
+ * against what was then a `timeout-minutes: 180` cap, i.e. 23 minutes of margin
+ * on a dist/ that grows daily. Three of the last four runs were then cancelled
+ * at 3h (issue #7421); on run 33922555269 this step ran 00:23:10 -> 03:03:59.
+ *
+ * AGGIORNATO 2026-09-19: quel cap e' ora `timeout-minutes: 300`. I 23 minuti di
+ * margine descritti sopra si erano esauriti — misurate sulle ultime 30 run, le
+ * durate del job erano success 66/70/76/157/174/180 min e cancelled 180 min per
+ * OTTO volte, cioe' il cap colpito di sistema, non varianza. Il vecchio numero
+ * censurava la propria misura: la `success` a 180 e' finita sul filo, quindi il
+ * massimo vero della coda superiore e' >= 180 e resta ignoto. La motivazione
+ * completa, e la nota che un job ucciso dal cap esce `cancelled` e non
+ * `failure` (quindi lo step reporter `if: failure()` viene SKIPPATO, e la
+ * riconciliazione la fa centralmente scripts/ci/scan-job-timeouts.mjs), sta nel
+ * commento accanto a `timeout-minutes` in
+ * .github/workflows/cathedral-seo-gates-check.yml.
  *
  * The two BFS gates are 18 of those 156 minutes. The other 138 belong to the
  * four gates above that are plain per-file scans -- and all four are already

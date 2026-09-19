@@ -168,6 +168,17 @@ jobs:
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
+      # Il bridge host-side scrive issue/commenti nel repo sito; il PAT RC resta
+      # il fallback operativo, mentre il bridge corpus rimane separato sotto.
+      - name: Mint GitHub App token for Codex bridge (zero-Claude)
+        if: steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       # Prefetch zero-agent (token-lever, stesso bundle di tests.yml/pr-review-loop):
       # il prompt sotto rifà, per OGNI PR del batch, `gh pr view N --json ...` + `gh api
       # .../reviews`, e il check "In-flight PR overlap" rifà `gh pr list --state open` +
@@ -256,7 +267,9 @@ jobs:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           # Token effimero limitato ai permessi del job; non è un PAT statico.
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          codex_github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Il bridge site-side può creare/editare issue e commenti: App/PAT
+          # soltanto, con guardia fail-closed prima del modello.
+          codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           # The corpus PAT is a separate host-side bridge scope. It is never
           # included in the Codex child environment and is accepted only for
           # nanakokyobashi-rgb/frontaliere-articles issue operations.
@@ -463,11 +476,36 @@ jobs:
                 marker_ok=false
               else
                 marker_body=$(printf '%s' "$comments" | jq -r '[.comments[]?.body // "" | select(contains("## Post-merge follow-up triage"))] | last // ""' 2>/dev/null || true)
-                bucket_refs=$(printf '%s\n' "$marker_body" | sed -n -E '/^[[:space:]]*(-[[:space:]]+|\*[[:space:]]+)?Created(\/updated)?:/p' | grep -Eo 'bucket #[0-9]+' | sed -E 's/.*#//' | sort -un || true)
+                # `grep -Ei` e non `sed -n -E`: la grammatica del claim e'
+                # case-insensitive nel gemello JS, e un `created/updated:` in
+                # minuscolo non deve sparire da questo lato (finding review L478).
+                claim_head='^[[:space:]]*(-[[:space:]]+|\*[[:space:]]+)?Created(/updated)?:'
+                claim_lines=$(printf '%s\n' "$marker_body" | grep -Ei "$claim_head" || true)
+                bucket_refs=$(printf '%s\n' "$claim_lines" | grep -Eio 'bucket[[:space:]]*:?[[:space:]]*#[0-9]+' | sed -E 's/.*#//' | sort -un || true)
                 # A zero-candidate summary may name the unchanged daily bucket for
                 # audit context. That is not a claim that this PR was persisted in
                 # the bucket, so it must use the empty-result path below.
-                if printf '%s' "$marker_body" | grep -Eiq 'zero outstanding items|backfill skipped|Created:[[:space:]]*0 issue[[:space:]]*\(solo live-verification batchata\)|Created/updated:[[:space:]]*(0 issue[[:space:]]*[—-][[:space:]]*nessun item nuovo aggiunto|nessun nuovo item nel bucket)'; then
+                # Discriminante STRUTTURALE, gemello di `triageMarkerPersistenceExpectation`
+                # in scripts/ci/collect-followup-batch.mjs (il legame e' coperto da
+                # tests/followup-marker-zero-claim.test.ts): sulla riga di claim
+                # isolata qui sopra conta il NUMERO dichiarato, non la prosa. La
+                # lista di formule ammesse che stava qui e' stata superata tre volte
+                # dalla variante successiva; l'ultima il 2026-09-18 con
+                # «Created/updated: 0 item; nessun bucket creato.», marker corretto
+                # per un esito legittimo, run rossa.
+                # `0([^0-9.]|$)`: un `Created: 0.5 item` non e' un claim a zero.
+                zero_claim=false
+                if [ -n "$claim_lines" ] && ! printf '%s\n' "$claim_lines" \
+                  | grep -Eqvi "${claim_head}[[:space:]]*0([^0-9.]|\$)"; then
+                  zero_claim=true
+                fi
+                # Le formule d'intestazione valgono SOLO se non esiste alcuna riga
+                # di claim: cercarle nell'intero corpo anche con un claim non-zero
+                # permetteva a una prosa successiva di scavalcare la verifica del
+                # bucket per una persistenza REALE (finding review L484).
+                if [ "$zero_claim" = true ] \
+                  || { [ -z "$claim_lines" ] \
+                    && printf '%s' "$marker_body" | grep -Eiq 'zero outstanding items|backfill skipped'; }; then
                   # The explicit zero-item marker is an empty-result claim. A
                   # bucket named only as unchanged audit context is not a
                   # persistence claim and must not fail this branch.

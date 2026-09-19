@@ -187,7 +187,7 @@ elif [ "$GROUP_BATCH" = true ]; then
   # shared worktree.
   STANDARD_FILES=()
 elif [ "$SLICE_ONLY" = true ]; then
-  # Slice-only mode: only commit per-crawler slice files + ai-cache.
+  # Slice-only mode: only commit per-crawler slice files.
   # Shared monolithic files are assembled during deploy, not per-crawler.
   #
   # Crawler-group workflows run ~25 sibling crawlers concurrently against ONE
@@ -199,6 +199,14 @@ elif [ "$SLICE_ONLY" = true ]; then
   # SPITEX BASEL jobs". The group workflow generator already exports
   # JOBS_SLICE_FILE (this crawler's own slice path) for the crawler's own
   # pipeline; reuse it to scope staging to exactly this crawler's own files.
+  #
+  # `data/jobs-ai-cache.json` is intentionally absent below. It is a shared
+  # whole-file accumulator, not a crawler-owned slice: concurrent grouped
+  # writers can each hold a stale copy even when the private-index retry path
+  # merges their slices safely. Keeping it out of every JOBS_SLICE_FILE commit
+  # prevents a lease-free crawler from publishing that stale candidate. The
+  # cache remains in the directory-wide fallback for sequential writers, which
+  # are the only callers that own the whole cache file.
   # Falls back to the old directory-wide behavior when unset (non-grouped
   # callers, e.g. translate-pending.yml, which legitimately touches every
   # crawler's slice in one sequential job).
@@ -209,7 +217,6 @@ elif [ "$SLICE_ONLY" = true ]; then
       "data/jobs/expired/by-crawler/${SLICE_BASENAME}"
       "data/jobs-crawler-summaries/by-crawler/${SLICE_BASENAME}"
       "data/translation-cache/${SLICE_BASENAME}"
-      data/jobs-ai-cache.json
     )
     # SLICE_ONLY + JOBS_SLICE_FILE set ⇔ this invocation comes from a grouped
     # crawler-group-*.yml background step sharing ONE checkout with ~25
@@ -1040,6 +1047,35 @@ function preserveDroppedActiveSlugs(remoteObj, localObj, merged, warnings, pathL
   bank(localObj?.slug, '');
 }
 
+// The usual object-recursion path above is skipped when mergeValue() takes a
+// base-equality fast path. Job slices are root arrays, so walk matching job
+// objects explicitly before returning a cloned remote/local value. This keeps
+// active slugs reachable for both one-sided cases: local==base and remote==base.
+function preserveDroppedActiveSlugsInValue(remoteValue, localValue, merged, warnings, pathLabel, forcedKey = '') {
+  if (isPlainObject(merged)) {
+    preserveDroppedActiveSlugs(remoteValue, localValue, merged, warnings, pathLabel);
+    return;
+  }
+  if (!Array.isArray(merged)) return;
+
+  const keyHint = detectArrayKey([remoteValue, localValue, merged], forcedKey);
+  if (!keyHint) return;
+  const remoteData = arrayToMap(Array.isArray(remoteValue) ? remoteValue : [], keyHint);
+  const localData = arrayToMap(Array.isArray(localValue) ? localValue : [], keyHint);
+  const mergedData = arrayToMap(merged, keyHint);
+  for (const key of new Set([...remoteData.map.keys(), ...localData.map.keys()])) {
+    const mergedObj = mergedData.map.get(key);
+    if (!isPlainObject(mergedObj)) continue;
+    preserveDroppedActiveSlugs(
+      remoteData.map.get(key),
+      localData.map.get(key),
+      mergedObj,
+      warnings,
+      `${pathLabel}[${keyHint}=${key}]`,
+    );
+  }
+}
+
 function mergeArrayByDelta(baseArr, remoteArr, localArr) {
   const baseFp = baseArr.map((v) => stableStringify(v));
   const remoteFp = remoteArr.map((v) => stableStringify(v));
@@ -1161,9 +1197,21 @@ function mergeArray(baseArr, remoteArr, localArr, warnings, pathLabel, forcedKey
 }
 
 function mergeValue(baseValue, remoteValue, localValue, warnings, pathLabel, forcedKey = '') {
-  if (isSame(localValue, baseValue)) return clone(remoteValue);
-  if (isSame(remoteValue, baseValue)) return clone(localValue);
-  if (isSame(localValue, remoteValue)) return clone(localValue);
+  if (isSame(localValue, baseValue)) {
+    const merged = clone(remoteValue);
+    preserveDroppedActiveSlugsInValue(remoteValue, localValue, merged, warnings, pathLabel, forcedKey);
+    return merged;
+  }
+  if (isSame(remoteValue, baseValue)) {
+    const merged = clone(localValue);
+    preserveDroppedActiveSlugsInValue(remoteValue, localValue, merged, warnings, pathLabel, forcedKey);
+    return merged;
+  }
+  if (isSame(localValue, remoteValue)) {
+    const merged = clone(localValue);
+    preserveDroppedActiveSlugsInValue(remoteValue, localValue, merged, warnings, pathLabel, forcedKey);
+    return merged;
+  }
 
   const anyArray = Array.isArray(baseValue) || Array.isArray(remoteValue) || Array.isArray(localValue);
   if (anyArray) {
@@ -1388,8 +1436,11 @@ ensure_git_auth() {
 # GitHub concurrency groups cannot serialize the site and corpus repositories
 # together. The generated crawler groups and translate-pending therefore opt
 # into one Firestore-backed lease. Keep acquisition outside the isolated
-# plumbing function: the lease covers every retry and every remote push, while
-# the EXIT trap releases it on all normal failure/success paths.
+# plumbing function, and the EXIT trap releases it on all normal failure/success
+# paths. The lease covers each attempt's fetch/rebuild/push but NOT the backoff
+# sleep between attempts: see the note on
+# global_data_pipeline_lease_release_for_backoff for the measurement that
+# changed this, and why narrowing the lock is safe here.
 GLOBAL_DATA_PIPELINE_LEASE_ACQUIRED=0
 global_data_pipeline_lease_acquire() {
   [ "${DATA_PIPELINE_LEASE:-0}" = "1" ] || return 0
@@ -1421,6 +1472,73 @@ global_data_pipeline_lease_cleanup() {
   return "$exit_status"
 }
 trap global_data_pipeline_lease_cleanup EXIT
+
+# ── Il lease NON deve coprire il sonno del backoff ──────────────────────────
+#
+# L'acquisizione sta fuori da `commit_isolated_from_worktree` e il commento
+# sopra dichiarava che il lease copriva ogni tentativo e ogni push. Copriva
+# anche i SONNI, e li' sta il difetto misurato: con `MAX_PUSH_ATTEMPTS=14` e
+# `delay = attempt*5 + RANDOM%20`, l'esaustione dorme ~10 minuti tenendo il
+# mutex globale. Sommato a `translate-pending` (350 minuti di budget, quattro
+# acquisizioni dello stesso lease) e agli scrittori del sito che NON passano dal
+# lease e vincono le ref race, l'hold non e' limitato dalla pazienza di nessuno:
+# il gruppo 08 ha perso l'attesa piena di 60 minuti DUE volte e ha buttato 27
+# crawl su 27 riusciti (run 35404434208, corpus issue #1573).
+#
+# Restringere il lock e' sicuro per una proprieta' del codice, non per una
+# speranza: il loop di retry rifa' `git_fetch_retry` e RICOSTRUISCE l'albero da
+# `read-tree "$remote_sha"` — la testa remota CORRENTE — all'inizio di ogni
+# tentativo. Quindi il mutex deve coprire un solo `fetch → rebuild → push`, e
+# che il remoto si muova durante il sonno e' esattamente il caso che il
+# tentativo successivo gestisce per costruzione.
+#
+# Direzione del fail-safe: se il RILASCIO fallisce si CONTINUA A TENERE il lease
+# (il comportamento di oggi, fino al TTL), non si prosegue credendo di averlo
+# ceduto. Un lease creduto libero mentre e' tenuto e' peggio della congestione
+# che stiamo riparando.
+global_data_pipeline_lease_release_for_backoff() {
+  [ "${DATA_PIPELINE_LEASE:-0}" = "1" ] || return 0
+  [ "${GLOBAL_DATA_PIPELINE_LEASE_ACQUIRED:-0}" = "1" ] || return 0
+  local lease_script
+  lease_script="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/global-data-pipeline-lease.mjs"
+  if node "$lease_script" release; then
+    GLOBAL_DATA_PIPELINE_LEASE_ACQUIRED=0
+    return 0
+  fi
+  # Rilascio fallito: il flag resta a 1, quindi il writer continua a comportarsi
+  # da detentore e l'EXIT trap riprovera' il rilascio. Nessun `--resume` seguira'
+  # (vedi sotto), quindi non si acquisisce due volte.
+  echo "::warning::global data-pipeline lease release before backoff failed; keeping the lease for this attempt (expires at TTL)"
+  return 1
+}
+
+# Riprende il lease dopo il sonno. Attesa breve e DEDICATA
+# (`--resume-wait`): il writer aveva gia' il suo turno e lo ha ceduto solo per la
+# durata del backoff, quindi rimetterlo in coda per un'ora sarebbe scambiare la
+# congestione con una latenza peggiore.
+global_data_pipeline_lease_resume_after_backoff() {
+  [ "${DATA_PIPELINE_LEASE:-0}" = "1" ] || return 0
+  # Se il rilascio non e' andato a buon fine il lease e' ancora nostro: non si
+  # ri-acquisisce, o si pagherebbe un'attesa per qualcosa che si possiede.
+  [ "${GLOBAL_DATA_PIPELINE_LEASE_ACQUIRED:-0}" = "0" ] || return 0
+  local lease_script lease_status
+  lease_script="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/global-data-pipeline-lease.mjs"
+  # `lease_status=$?` DEVE stare nel ramo `else`, non dopo il `fi`: dopo il `fi`
+  # cattura lo stato del comando composto `if` — che e' 0 quando nessun ramo
+  # esegue — non l'uscita di `node`. Con quel bug la funzione rendeva 0 mentre
+  # `..._ACQUIRED` restava 0, quindi i chiamanti (`|| return $?`, `|| exit $?`)
+  # proseguivano e potevano fare reset/push SENZA il lease globale: l'inverso
+  # esatto della garanzia che questa modifica esiste per dare. E' la stessa
+  # forma che `global_data_pipeline_lease_acquire` usa da sempre, qui sopra.
+  if node "$lease_script" acquire --resume-wait; then
+    GLOBAL_DATA_PIPELINE_LEASE_ACQUIRED=1
+    return 0
+  else
+    lease_status=$?
+  fi
+  echo "::warning::global data-pipeline lease not re-acquired after backoff (exit ${lease_status}); this writer staged nothing and the next scheduled run retries"
+  return "$lease_status"
+}
 
 # `git fetch` inside the retry loop below is otherwise unguarded under
 # `set -e` — a transient network blip (e.g. "Connection reset by peer" under
@@ -1769,8 +1887,11 @@ commit_isolated_from_worktree() {
       # updates or another group's ai-cache entries pushed mid-run).
       if { [[ "$f" == *.json ]] || [ "$f" = "data/crawler-generation-ledger.jsonl" ]; } \
         && [ -n "$remote_blob" ] \
-        && [ "$remote_blob" != "$base_blob" ] \
-        && [ "$remote_blob" != "$local_blob" ]; then
+        && [ "$remote_blob" != "$local_blob" ] \
+        && { [ "$remote_blob" != "$base_blob" ] || [ "$local_blob" != "$base_blob" ]; }; then
+        # Merge both one-sided changes too. When only local changed, the
+        # remote/base equality fast path still has to bank an active slug that
+        # local removed; direct staging would bypass that safety net.
         key_hint=""
         is_job_slice_path "$f" && key_hint="url"
         mkdir -p "$merge_dir/base/$(dirname "$f")" "$merge_dir/remote/$(dirname "$f")" "$merge_dir/out/$(dirname "$f")"
@@ -1869,7 +1990,13 @@ commit_isolated_from_worktree() {
 
     delay=$(( push_attempt * 5 + RANDOM % 20 ))
     echo "⚠️ Push rejected (attempt $push_attempt/$MAX_PUSH_ATTEMPTS) — refetching origin/main and rebuilding commit in ${delay}s..."
+    # Il mutex globale NON copre il sonno: il tentativo successivo rifa' fetch e
+    # ricostruisce l'albero dalla testa remota corrente, quindi cedere il turno
+    # qui non riapre nessuna corsa. Vedi la nota su
+    # `global_data_pipeline_lease_release_for_backoff`.
+    global_data_pipeline_lease_release_for_backoff || true
     sleep "$delay"
+    global_data_pipeline_lease_resume_after_backoff || return $?
   done
 }
 
@@ -2124,7 +2251,13 @@ fi
 # Backoff: 5s, 10s, 15s, ... + random jitter (0-5s)
 DELAY=$(( push_attempt * 5 + RANDOM % 20 ))
 echo "⚠️ Push rejected (attempt $push_attempt/$MAX_PUSH_ATTEMPTS) — waiting ${DELAY}s before resync..."
+# Stesso trattamento del percorso grouped-isolated, e qui vale DI PIU': questo e'
+# il ramo che usa `translate-pending` (`--slice-only`, quattro volte in un job da
+# 350 minuti), cioe' il detentore che nella finestra 23:23-01:25 ha bloccato 19
+# gruppi. Sweepare solo l'altro sito avrebbe lasciato in piedi il blocco vero.
+global_data_pipeline_lease_release_for_backoff || true
 sleep "$DELAY"
+global_data_pipeline_lease_resume_after_backoff || exit $?
 git reset --mixed HEAD~1
 
 done  # end retry loop

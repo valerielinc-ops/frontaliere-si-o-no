@@ -34,14 +34,35 @@ jobs:
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
+          # I numeri che dicevano «niente blob:none» sono scaduti. Il commento
+          # precedente si appoggiava a «Checkout 84-799s su 10 run, sotto la
+          # soglia di rischio»: da allora le DUE run schedulate successive sono
+          # morte entrambe nel Checkout — run 34219278033 (2026-09-08) e
+          # 34964250017 (2026-09-15), `The action 'Checkout' has timed out after
+          # 20 minutes`. Il massimo storico di 799s non era un margine, era la
+          # coda di una curva: il fetch pieno di questo repo ha superato il tetto.
+          #
+          # `fetch-depth: 0` RESTA, e non e' cargo-cult: `git-push-with-retry.sh`
+          # fa `git rebase origin/main` sul push rifiutato, e la history dei
+          # commit e' cio' che gli serve per trovare la merge-base. Quello che non
+          # serve sono i BLOB della storia — `scripts/seo-serp-autopilot.mjs` non
+          # invoca git nemmeno una volta (zero `spawn`/`exec` su git nel file), e
+          # l'unico blob storico che questo job legge e' quello del
+          # `--regenerate-cmd` qui sotto, che pesca da un commit creato in questo
+          # stesso job e quindi presente in locale. Nessun lazy-fetch possibile.
+          #
+          # Stessa forma di ai-visibility-check.yml (fetch-depth: 0 + blob:none,
+          # nessuno sparse) e stessa motivazione scritta in refresh-thin-promotions.yml:
+          # «full history + blobs risks exceeding the timeout budget ... blob:none
+          # e' load-bearing, non solo un'ottimizzazione», con la history piena
+          # tenuta APPOSTA per il loop di rebase-retry.
+          filter: blob:none
         # Tetto Checkout (classe #5145/#5144/#5162): senza, un fetch degenere
         # consuma l'intero budget e il job muore `cancelled` — stato invisibile
         # agli `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
-        # posteriori. Col tetto e' un `failure` diagnosticabile.
-        # Checkout 84-799s su 10 run (max = 30% di un cap da 45min): sotto la
-        # soglia di rischio, quindi NIENTE blob:none — i numeri dicono che sta
-        # bene e su questo repo un cambio non giustificato dai dati e' documentato
-        # costare caro. Solo il tetto.
+        # posteriori. Col tetto e' un `failure` diagnosticabile. Il tetto resta a
+        # 20min: con blob:none il fetch non deve piu' avvicinarglisi, quindi
+        # toccarlo mascherebbe la prossima degenerazione invece di segnalarla.
         timeout-minutes: 20
 
       - name: Setup Node.js
@@ -120,13 +141,72 @@ jobs:
             --branch "$GITHUB_REF_NAME" \
             --regenerate-cmd "git checkout $COMMIT_SHA -- data/seo-serp-autopilot-last-run.json && node scripts/lib/merge-seo-serp-experiment-history.mjs $COMMIT_SHA data/seo-serp-experiment-history.json && git add data/seo-serp-autopilot-last-run.json data/seo-serp-experiment-history.json"
 
+      # ─── Perche' questo step esiste ────────────────────────────────────────
+      # Il reporter qui sotto e' `run: node scripts/lib/github-issue-creator.mjs`,
+      # cioe' vive nell'albero che il Checkout materializza. Quando e' il Checkout
+      # A FALLIRE, quel file non esiste e il reporter muore con
+      # `Cannot find module .../scripts/lib/github-issue-creator.mjs` — e
+      # `continue-on-error: true` fa risultare lo step `success`, quindi il
+      # fallimento della rete di sicurezza e' INVISIBILE nella lista degli step.
+      # MISURA: 0 issue su 2 run rosse consecutive (34219278033 del 2026-09-08 e
+      # 34964250017 del 2026-09-15, entrambe morte nel Checkout a 20 min
+      # esatti) = 126 h di silenzio su un cron settimanale.
+      #
+      # Il recupero va in un path SEPARATO, non nel workspace: un Checkout morto
+      # in timeout lascia l'albero PARZIALE, e un secondo checkout sullo stesso
+      # path lo ripulirebbe o litigherebbe con quello che c'e' gia'.
+      # `sparse-checkout: scripts/lib` basta, e non e' una stima: la chiusura
+      # degli import di github-issue-creator.mjs e' UN SOLO file, con soli
+      # builtin di node e zero dipendenze npm (misurata il 2026-09-19), quindi
+      # niente `npm ci` e niente `setup-node` da rifare.
+      #
+      # Perche' inline in due file invece di una composite action condivisa
+      # (AGENTS.md #6): una composite LOCALE non e' risolvibile senza checkout —
+      # e' il commento di .github/actions/report-failure/action.yml a dirlo,
+      # «lo step deve stare DOPO un actions/checkout». Una action che serve
+      # proprio quando il checkout e' fallito non puo' vivere nel repo:
+      # by construction, qui l'unica forma possibile e' `actions/checkout`.
+      - name: Recover the failure reporter (when the checkout is what failed)
+        if: failure()
+        continue-on-error: true
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          path: .reporter
+          sparse-checkout: scripts/lib
+
       - name: Report failure to GitHub Issues
         if: failure()
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Rilievo 🔴 della review: senza questo, `repoFlag()` in
+          # github-issue-creator.mjs rende `[]` (riga 175) e `apiRepoPath()`
+          # lascia i placeholder `{owner}/{repo}` (riga 560), che `gh` risolve
+          # dal REMOTE GIT DELLA CWD. Se il Checkout fallito non ha lasciato un
+          # `.git` usabile, il reporter non sa su quale repo scrivere e la rete
+          # di sicurezza non parte — cioe' il reporter di recupero aveva la
+          # stessa dipendenza implicita dal checkout che stava riparando, un
+          # livello piu' in basso. Con GH_REPO esplicito non dipende piu' da
+          # nessun albero.
+          GH_REPO: ${{ github.repository }}
         run: |
-          node scripts/lib/github-issue-creator.mjs \
+          # L'albero puo' essere assente (Checkout fallito) o parziale: usa la
+          # copia recuperata solo se la canonica non c'e'.
+          SCRIPT=scripts/lib/github-issue-creator.mjs
+          [ -f "$SCRIPT" ] || SCRIPT=.reporter/scripts/lib/github-issue-creator.mjs
+          # Se anche il recupero e' fallito, questo step sotto
+          # `continue-on-error: true` risulterebbe `success` senza aver
+          # riportato niente — il «no-report riuscito in silenzio», che e'
+          # esattamente il difetto di partenza spostato di un passo. Un
+          # `::error::` lascia un'annotation visibile sulla run, e la issue la
+          # apre comunque la rete centrale (scripts/ci/scan-unreported-failures.mjs).
+          if [ ! -f "$SCRIPT" ]; then
+            echo "::error::reporter di fallimento non raggiungibile: ne' scripts/lib/ ne' .reporter/scripts/lib/ esistono. Nessuna issue aperta da questo workflow; la copertura resta su unreported-failure-issues.yml."
+            exit 0
+          fi
+          node "$SCRIPT" \
             --title "Workflow Failure: ${{ github.workflow }}" \
             --description "## Workflow fallito
           **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}

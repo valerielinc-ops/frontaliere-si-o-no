@@ -53,18 +53,42 @@ const IT = [
   'Chi ha iniziato a lavorare in Svizzera dopo il 2023 rientra fra i nuovi frontalieri e paga le imposte in entrambi i Paesi.',
 ].join('\n');
 
-function runRealCascadeWithSelfHostedBody(selfHostedBody: Record<string, unknown>) {
+function runRealCascadeWithSelfHostedBody(
+  selfHostedBody: Record<string, unknown>,
+  observe = false,
+  options: {
+    maxRetries?: number;
+    selfHostedFailures?: number;
+    selfHostedBodies?: Array<Record<string, unknown>>;
+    myMemoryResults?: string[];
+  } = {},
+) {
   const moduleUrl = new URL('../scripts/lib/free-translate.mjs', import.meta.url).href;
   const childScript = `
     const echo = ${JSON.stringify(IT)};
     const selfHostedBody = ${JSON.stringify(selfHostedBody)};
+    const options = ${JSON.stringify(options)};
+    const selfHostedBodies = Array.isArray(options.selfHostedBodies) && options.selfHostedBodies.length > 0
+      ? options.selfHostedBodies
+      : [selfHostedBody];
+    const myMemoryResults = Array.isArray(options.myMemoryResults) && options.myMemoryResults.length > 0
+      ? options.myMemoryResults
+      : [echo];
+    let selfHostedCalls = 0;
+    let myMemoryCalls = 0;
     globalThis.fetch = async (url) => {
       const value = String(url);
       if (value.startsWith('http://self-hosted.test/')) {
-        return { ok: true, json: async () => selfHostedBody };
+        const call = selfHostedCalls++;
+        if (call < Number(options.selfHostedFailures || 0)) {
+          return { ok: false, status: 503, json: async () => ({}) };
+        }
+        const body = selfHostedBodies[Math.min(call, selfHostedBodies.length - 1)];
+        return { ok: true, json: async () => body };
       }
       if (value.includes('api.mymemory.translated.net')) {
-        return { ok: true, json: async () => ({ responseData: { translatedText: echo, match: 1 } }) };
+        const result = myMemoryResults[Math.min(myMemoryCalls++, myMemoryResults.length - 1)];
+        return { ok: true, json: async () => ({ responseData: { translatedText: result, match: 1 } }) };
       }
       if (value.includes('translate.googleapis.com')) {
         return { ok: true, text: async () => JSON.stringify([[[echo]]]) };
@@ -87,13 +111,15 @@ function runRealCascadeWithSelfHostedBody(selfHostedBody: Record<string, unknown
       throw new Error('endpoint inatteso: ' + value);
     };
     const { freeTranslateWithRetryDetailed } = await import(${JSON.stringify(moduleUrl)});
+    const attributions = [];
     const result = await freeTranslateWithRetryDetailed({
       text: echo,
       sourceLang: 'it',
       targetLang: 'en',
-      maxRetries: 0,
+      maxRetries: Number.isInteger(options.maxRetries) ? options.maxRetries : 0,
+      _outcome: { onAttribution: (entry) => attributions.push(entry) },
     });
-    process.stdout.write(JSON.stringify(result));
+    process.stdout.write(JSON.stringify(${observe} ? { result, attributions } : result));
   `;
 
   return spawnSync(process.execPath, ['--input-type=module', '--eval', childScript], {
@@ -488,6 +514,57 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
 
     expect(child.status).toBe(0);
     expect(JSON.parse(child.stdout)).toEqual({ text: '', passthrough: false });
+  });
+
+  it('attribuisce una sola volta il rung servente e la durata della translation unit', () => {
+    const child = runRealCascadeWithSelfHostedBody({ translatedText: 'Traduzione riuscita' }, true);
+
+    expect(child.status).toBe(0);
+    const output = JSON.parse(child.stdout);
+    expect(output.result).toEqual({ text: 'Traduzione riuscita', passthrough: false });
+    expect(output.attributions).toHaveLength(1);
+    expect(output.attributions[0]).toMatchObject({ rung: 'libreTranslateSelfHosted' });
+    expect(output.attributions[0].durationMs).toEqual(expect.any(Number));
+    expect(output.attributions[0].durationMs).toBeGreaterThanOrEqual(0);
+  });
+
+  it('attribuisce il secondo rung quando il primo provider fallisce', () => {
+    const child = runRealCascadeWithSelfHostedBody({}, true, {
+      selfHostedFailures: 1,
+      myMemoryResults: ['Traduzione da MyMemory'],
+    });
+
+    expect(child.status).toBe(0);
+    const output = JSON.parse(child.stdout);
+    expect(output.result).toEqual({ text: 'Traduzione da MyMemory', passthrough: false });
+    expect(output.attributions).toHaveLength(1);
+    expect(output.attributions[0]).toMatchObject({ rung: 'myMemory' });
+  });
+
+  it('attribuisce il rung servente dopo un retry completo', () => {
+    const child = runRealCascadeWithSelfHostedBody(
+      { translatedText: 'Traduzione al retry' },
+      true,
+      { maxRetries: 1, selfHostedFailures: 1 },
+    );
+
+    expect(child.status).toBe(0);
+    const output = JSON.parse(child.stdout);
+    expect(output.result).toEqual({ text: 'Traduzione al retry', passthrough: false });
+    expect(output.attributions).toHaveLength(1);
+    expect(output.attributions[0]).toMatchObject({ rung: 'libreTranslateSelfHosted' });
+    expect(output.attributions[0].durationMs).toBeGreaterThanOrEqual(0);
+  });
+
+  it('conserva il caso unserved quando nessun rung produce una traduzione', () => {
+    const child = runRealCascadeWithSelfHostedBody({}, true);
+
+    expect(child.status).toBe(0);
+    const output = JSON.parse(child.stdout);
+    expect(output.result).toEqual({ text: '', passthrough: false });
+    expect(output.attributions).toHaveLength(1);
+    expect(output.attributions[0]).toMatchObject({ rung: 'unserved' });
+    expect(output.attributions[0].durationMs).toBeGreaterThanOrEqual(0);
   });
 
   it.each(['deepl', 'azure'] as const)('non marca incomplete quando tutte le chiavi %s sono gia esauste e il tier non prova alcuna chiave', (service) => {

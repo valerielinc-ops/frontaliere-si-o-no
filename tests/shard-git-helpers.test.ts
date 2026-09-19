@@ -177,17 +177,22 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
       const payload = join(root, 'tombstone-absent-payload');
       const removed = join(root, 'tombstone-absent-removed');
       const manifestPayload = join(root, 'tombstone-absent-manifest-payload');
-      writeFileSync(payload, 'jobs/other/index.html\0');
+      // The current payload has a route related to the tombstone, but the
+      // seeded HEAD does not. This is the production-shaped false fallback:
+      // current payload membership alone must not turn an absent tombstone
+      // target into a cross-check failure.
+      writeFileSync(payload, 'jobs/gone/index.html\0');
       writeFileSync(removed, 'en/jobs/gone/\0');
       writeFileSync(manifestPayload, '');
 
       const output = removeStale(stage, payload, removed, manifestPayload);
       expect(output).toContain('manifest tombstone no-op');
       expect(output).toContain('en/jobs/gone');
+      expect(output).toContain('reason=absent from indexed HEAD');
       expect(output).toContain('RC=0 REASON=');
     });
 
-    it('mantiene il fallback se il payload live non è coperto dal manifest corrente', () => {
+    it('tratta il payload live non coperto dal manifest come overlay unmanifested', () => {
       const stage = stageWithFiles('tombstone-unmanifested-stage', {
         'en/jobs/job/index.html': '<html>orphan route</html>',
       });
@@ -199,7 +204,26 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
       writeFileSync(manifestPayload, '');
 
       const output = removeStale(stage, payload, removed, manifestPayload);
-      expect(output).toContain('RC=1 REASON=manifest tombstone cross-check failed');
+      expect(output).toContain('manifest tombstone no-op');
+      expect(output).toContain('reason=retained by current unmanifested payload; source overlay will replace it');
+      expect(output).toContain('RC=0 REASON=');
+      expect(output).not.toContain('cross-check failed');
+    });
+
+    it('fa fallback se un file unchanged non è presente nell’indice HEAD', () => {
+      const stage = stageWithFiles('unchanged-missing-stage', {
+        'en/jobs/other/index.html': '<html>other</html>',
+      });
+      const unchanged = join(root, 'unchanged-missing-files');
+      writeFileSync(unchanged, 'jobs/gone/index.html\0');
+
+      const output = runHelperScript(
+        `SHARD_DELTA_REASON=''; shard_delta_check_unchanged_payload_paths "${stage}" en "${unchanged}" 2>&1; `
+          + 'rc=$?; echo "RC=$rc REASON=$SHARD_DELTA_REASON"',
+      );
+      expect(output).toContain('unchanged payload check failed: missing=1');
+      expect(output).toContain('missing path=en/jobs/gone/index.html reason=absent from indexed HEAD');
+      expect(output).toContain('RC=1 REASON=unchanged payload missing from indexed HEAD');
     });
 
     it('fallisce chiuso se manca l’inventario dei file coperti dal manifest', () => {

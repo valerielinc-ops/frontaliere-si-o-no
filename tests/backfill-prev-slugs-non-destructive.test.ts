@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { applyRecoveredSlug } from '../scripts/backfill-prev-slugs-from-loss-events.mjs';
+import { classifyJobSliceRemovals } from '../scripts/scan-prev-slug-losses.mjs';
 
 // Regression test for issue #3587 ("previousSlugs writer regression: 5886
 // losses in 24 hours"). The scheduled "Recover Lost previousSlugs" workflow
@@ -17,11 +18,12 @@ import { applyRecoveredSlug } from '../scripts/backfill-prev-slugs-from-loss-eve
 // slugs, which the next scan then re-reported as new losses — an
 // unbounded recover-then-lose oscillation.
 //
-// The fix (applyRecoveredSlug): recovery is capacity-permitting and
-// strictly additive — it skips adding a recovered slug once a bucket is
-// already at cap instead of evicting live entries to fit it in.
-describe('applyRecoveredSlug (previousSlugs recovery, #3587)', () => {
-  it('does not evict existing entries when the locale bucket is already at cap', () => {
+// The fix (applyRecoveredSlug): recovery is bounded and strictly additive —
+// it uses one cap-sized overflow window for proven losses, then skips without
+// evicting live entries. Recovered values are prepended so a later normal cap
+// trim removes recovery overflow first.
+describe('applyRecoveredSlug (previousSlugs recovery, #3587/#9056)', () => {
+  it('uses bounded overflow without evicting existing entries at the live cap', () => {
     const existing = Array.from({ length: 20 }, (_, i) => `roche-ch-${i}`);
     const job = {
       id: 'roche-4da2a57c7c98',
@@ -31,12 +33,52 @@ describe('applyRecoveredSlug (previousSlugs recovery, #3587)', () => {
 
     const result = applyRecoveredSlug(job, 'it', 'roche-nanjing-4mxh6m', 20);
 
-    expect(result).toEqual({ restored: false, skippedAtCap: true });
+    expect(result).toEqual({ restored: true, skippedAtCap: false });
     // Every previously-tracked entry must survive — recovery must never
     // evict a live redirect target just to fit a recovered one.
-    expect(job.previousSlugsByLocale.it).toEqual(existing);
-    expect(job.previousSlugs).toEqual(existing);
-    expect(job.previousSlugsByLocale.it).not.toContain('roche-nanjing-4mxh6m');
+    expect(job.previousSlugsByLocale.it).toEqual(['roche-nanjing-4mxh6m', ...existing]);
+    expect(job.previousSlugs).toEqual(['roche-nanjing-4mxh6m', ...existing]);
+  });
+
+  it('stops at the bounded recovery cap without evicting live history', () => {
+    const existing = ['live-0', 'live-1'];
+    const job = {
+      id: 'bounded-recovery',
+      previousSlugsByLocale: { en: [...existing] },
+      previousSlugs: [...existing],
+    };
+
+    expect(applyRecoveredSlug(job, 'en', 'recovered-0', 2)).toEqual({ restored: true, skippedAtCap: false });
+    expect(applyRecoveredSlug(job, 'en', 'recovered-1', 2)).toEqual({ restored: true, skippedAtCap: false });
+    expect(applyRecoveredSlug(job, 'en', 'recovered-2', 2)).toEqual({ restored: false, skippedAtCap: true });
+
+    expect(job.previousSlugsByLocale.en).toEqual(['recovered-1', 'recovered-0', ...existing]);
+    expect(job.previousSlugsByLocale.en).toHaveLength(4);
+    expect(job.previousSlugs).toEqual(['recovered-1', 'recovered-0', ...existing]);
+  });
+
+  it('persists all 17 full-bucket recoveries with locale ownership and clears the next scan', () => {
+    const live = Array.from({ length: 20 }, (_, i) => `live-en-${i}`);
+    const recovered = Array.from({ length: 17 }, (_, i) => `proven-en-${i}`);
+    const job = {
+      id: 'full-bucket-recovery',
+      url: 'https://example.ch/jobs/full-bucket-recovery',
+      slugByLocale: { en: 'live-en-19' },
+      previousSlugsByLocale: { en: [...live] },
+      previousSlugs: [...live],
+    };
+
+    for (const slug of recovered) {
+      expect(applyRecoveredSlug(job, 'en', slug, 20)).toEqual({ restored: true, skippedAtCap: false });
+    }
+
+    expect(job.previousSlugsByLocale.en).toHaveLength(37);
+    expect(job.previousSlugsByLocale.en).toEqual(expect.arrayContaining([...live, ...recovered]));
+    expect(job.previousSlugs).toEqual(expect.arrayContaining([...live, ...recovered]));
+    expect(classifyJobSliceRemovals(
+      [{ ...job, previousSlugsByLocale: { en: [...recovered, ...live] }, previousSlugs: [...recovered, ...live] }],
+      [job],
+    )).toEqual([]);
   });
 
   it('restores a recovered slug normally when the bucket has spare capacity', () => {
@@ -49,8 +91,8 @@ describe('applyRecoveredSlug (previousSlugs recovery, #3587)', () => {
     const result = applyRecoveredSlug(job, 'it', 'recovered-slug', 20);
 
     expect(result).toEqual({ restored: true, skippedAtCap: false });
-    expect(job.previousSlugsByLocale.it).toEqual(['old-slug-1', 'recovered-slug']);
-    expect(job.previousSlugs).toEqual(['old-slug-1', 'recovered-slug']);
+    expect(job.previousSlugsByLocale.it).toEqual(['recovered-slug', 'old-slug-1']);
+    expect(job.previousSlugs).toEqual(['recovered-slug', 'old-slug-1']);
   });
 
   it('is idempotent for a slug already present in the bucket', () => {

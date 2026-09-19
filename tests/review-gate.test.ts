@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   classifyReview,
   citationConfirmed,
@@ -1133,6 +1134,74 @@ describe('review gate: citazioni e conferme', () => {
     expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
   });
 
+  it('treats a source snapshot path in an illustrative locality example as context', () => {
+    const opened = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`build-plugins/shared/jobPostingSchema.ts:L597`: 🔴 Important: resolvePostalCode() falls back incorrectly for a locality present in `data/swiss-postal-codes.json` such as `Novaggio`.',
+    ].join('\n'));
+    const confirmed = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `build-plugins/shared/jobPostingSchema.ts:L597`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+
+    expect(importantFindings(opened.body)[0]?.citations).toEqual([
+      { path: 'build-plugins/shared/jobPostingSchema.ts', line: 597 },
+    ]);
+    expect(historicalImportantFindings([opened, confirmed], {
+      includeLatest: true,
+      repositoryPaths: [
+        'build-plugins/shared/jobPostingSchema.ts',
+        'data/swiss-postal-codes.json',
+      ],
+    })).toHaveLength(0);
+  });
+
+  it('retains a bare companion path when the same path is also illustrative context', () => {
+    const opened = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`build-plugins/shared/jobPostingSchema.ts:L597`: 🔴 Important: the locality is present only in `data/swiss-postal-codes.json` such as `Novaggio`; also fix `data/swiss-postal-codes.json`.',
+    ].join('\n'));
+    const partial = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `build-plugins/shared/jobPostingSchema.ts:L597`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+    const confirmed = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `build-plugins/shared/jobPostingSchema.ts:L597`: ok.',
+      'Fix di `data/swiss-postal-codes.json:L144`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+
+    expect(importantFindings(opened.body)[0]?.citations).toEqual([
+      { path: 'build-plugins/shared/jobPostingSchema.ts', line: 597 },
+      { path: 'data/swiss-postal-codes.json', line: null },
+    ]);
+    expect(historicalImportantFindings([opened, partial], {
+      includeLatest: true,
+      repositoryPaths: [
+        'build-plugins/shared/jobPostingSchema.ts',
+        'data/swiss-postal-codes.json',
+      ],
+    })).toHaveLength(1);
+    expect(historicalImportantFindings([opened, confirmed], {
+      includeLatest: true,
+      repositoryPaths: [
+        'build-plugins/shared/jobPostingSchema.ts',
+        'data/swiss-postal-codes.json',
+      ],
+    })).toHaveLength(0);
+  });
+
   it('non tronca le estensioni piu lunghe di un prefisso valido', () => {
     // `ts` viene prima di `tsx` nell'alternanza: senza il lookahead il path
     // citato diventava un file che non esiste, e un path non risolvibile e'
@@ -1233,5 +1302,164 @@ describe('review gate: citazioni e conferme', () => {
     const opened = bot('## Findings (Important: 1, Nit: 0)\n\n`src/dup.mjs:L4`: 🔴 Important: rotto.\n');
     const other = bot('## Findings (Important: 0, Nit: 0)\n\nFix di `lib/dup.mjs:L4`: ok.\n\n## LGTM');
     expect(historicalImportantFindings([opened, other], { includeLatest: true })).toHaveLength(1);
+  });
+});
+
+describe('review gate: gitignored citations declass, everything else stays fail-closed', () => {
+  const IGNORED = 'data/seo-health/latest.json';
+  const ignoresOnly = (path: string) => path === IGNORED;
+
+  it('keeps blocking a path that is absent from the tree and not ignored', () => {
+    const result = classifyReview(reviewFor('scripts/ghost-typo.mjs', 'rotto'), {
+      files: DIFF_FILES,
+      complete: true,
+      repositoryPaths: TREE_FILES,
+      isIgnoredPath: ignoresOnly,
+    });
+
+    expect(result.blocking).toBe(true);
+    expect(result.unresolved).toHaveLength(1);
+    expect(result.unresolved[0].reason).toBe('file non risolto');
+    expect(result.outside).toHaveLength(0);
+    expect(result.ignoredCitations).toHaveLength(0);
+  });
+
+  it('still blocks an unknown path when no ignore proof is available at all', () => {
+    const result = classifyReview(reviewFor(IGNORED, 'artefatto di run'), {
+      files: DIFF_FILES,
+      complete: true,
+      repositoryPaths: TREE_FILES,
+    });
+
+    expect(result.blocking).toBe(true);
+    expect(result.unresolved[0].reason).toBe('file non risolto');
+  });
+
+  it('declasses a finding whose only citation is a proven gitignored path', () => {
+    const result = classifyReview(reviewFor(IGNORED, 'artefatto di run'), {
+      files: DIFF_FILES,
+      complete: true,
+      repositoryPaths: TREE_FILES,
+      isIgnoredPath: ignoresOnly,
+    });
+
+    expect(result.blocking).toBe(false);
+    expect(result.outsideOnly).toBe(true);
+    expect(result.unresolved).toHaveLength(0);
+    expect(result.outside).toHaveLength(1);
+    expect(result.outside[0].resolvedFiles).toEqual([IGNORED]);
+    expect(result.ignoredCitations).toEqual([{ findingNumber: 1, path: IGNORED }]);
+  });
+
+  it('keeps blocking when an ignored path sits beside a real in-diff citation', () => {
+    const body = `## Findings (Important: 1, Nit: 0)\n\n\`${IGNORED}\` and \`src/changed.mjs:L12\`: 🔴 Important: rotto.\n\n## LGTM`;
+    const result = classifyReview(body, {
+      files: DIFF_FILES,
+      complete: true,
+      repositoryPaths: TREE_FILES,
+      isIgnoredPath: ignoresOnly,
+    });
+
+    expect(result.blocking).toBe(true);
+    expect(result.inScope).toHaveLength(1);
+  });
+
+  it('logs the declassed ignored citation with its reason', () => {
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    try {
+      logClassification(classifyReview(reviewFor(IGNORED, 'artefatto di run'), {
+        files: DIFF_FILES,
+        complete: true,
+        repositoryPaths: TREE_FILES,
+        isIgnoredPath: ignoresOnly,
+      }));
+      expect(log.mock.calls.map(([line]) => String(line)).join('\n'))
+        .toContain(`DECLASSIFIED-IGNORED finding=1 path=${IGNORED}`);
+    } finally {
+      log.mockRestore();
+    }
+  });
+});
+
+describe('review gate: a fallback tree proves scope without tightening anchors', () => {
+  const bot = (body: string, commit = HEAD_SHA) => ({
+    user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+    body,
+    commit_id: commit,
+  });
+  // A precise anchor plus a bare companion path, both absent from the tree.
+  // This is the only shape where `preciseAnchorsConfirmed` changes the verdict:
+  // it gates the `isUnresolvableBareContext` escape hatch.
+  const opened = bot('## Findings (Important: 1, Nit: 0)\n\n`scripts/vanished.mjs:L4` e `lib/ghost-helper.mjs`: 🔴 Important: rotto.\n');
+  const confirmed = bot('## Findings (Important: 0, Nit: 0)\n\nFix di `scripts/vanished.mjs:L4`: ok.\n\n## LGTM');
+  const openCount = (options: Record<string, unknown>) =>
+    historicalImportantFindings([opened, confirmed], { includeLatest: true, ...options }).length;
+
+  it('an authoritative API tree tightens the anchor and keeps the finding open', () => {
+    expect(openCount({ repositoryPaths: TREE_FILES, repositoryPathsFromFallback: false })).toBe(1);
+  });
+
+  // The property the mitigation has to guarantee: a fallback tree may only
+  // prove that a path is outside the diff. Inside `findingConfirmed` it is
+  // inert, so it neither tightens the anchor check nor opens the bare-companion
+  // escape hatch: the verdict is exactly the tree-unavailable one.
+  it('is inert inside findingConfirmed, matching the tree-unavailable verdict', () => {
+    const unavailable = openCount({});
+    const fallback = openCount({ repositoryPaths: TREE_FILES, repositoryPathsFromFallback: true });
+    expect(unavailable).toBe(1);
+    expect(fallback).toBe(unavailable);
+  });
+});
+
+describe('review gate: the ignore carve-out is narrow', () => {
+  const alwaysIgnored = () => true;
+
+  it('keeps blocking an ambiguous citation even when the path looks ignored', () => {
+    // `dup.mjs` matches two tree paths, so nothing about it is proven.
+    const tree = ['src/changed.mjs', 'a/dup.mjs', 'b/dup.mjs'];
+    const result = classifyReview(reviewFor('dup.mjs', 'rotto'), {
+      files: DIFF_FILES,
+      complete: true,
+      repositoryPaths: tree,
+      isIgnoredPath: alwaysIgnored,
+    });
+
+    expect(result.blocking).toBe(true);
+    expect(result.unresolved[0].reason).toBe('path ambiguo');
+    expect(result.ignoredCitations).toHaveLength(0);
+  });
+
+  it('keeps blocking a citation that is in the changed list even if git ignores it', () => {
+    // A deleted or newly ignored file is still part of this PR.
+    const result = classifyReview(reviewFor('src/gone.mjs', 'rotto'), {
+      files: ['src/gone.mjs'],
+      complete: true,
+      repositoryPaths: ['src/other.mjs'],
+      isIgnoredPath: alwaysIgnored,
+    });
+
+    expect(result.blocking).toBe(true);
+    expect(result.unresolved).toHaveLength(1);
+    expect(result.ignoredCitations).toHaveLength(0);
+  });
+});
+
+describe('review gate: fallback provenance reaches every authoritative consumer', () => {
+  it('refuses a fallback tree inside auditHistoricalCitations, not just at the call site', () => {
+    // The function is exported: the guard has to live in it, or a caller that
+    // drops the provenance gets an authoritative verdict from a local tree.
+    expect(() => auditHistoricalCitations([], TREE_FILES, { fromFallback: true }))
+      .toThrow(/fallback non ammesso/u);
+    expect(() => auditHistoricalCitations([], TREE_FILES)).not.toThrow();
+  });
+
+  it('never resolves the local tree against HEAD instead of the requested SHA', () => {
+    // Pinned on the source: falling back to HEAD would resolve citations
+    // against a tree other than the one under review.
+    const src = readFileSync(new URL('../scripts/ci/review-gate.mjs', import.meta.url), 'utf8');
+    const body = src.slice(src.indexOf('function localTreePaths'));
+    const fn = body.slice(0, body.indexOf('\n}\n') + 3);
+    expect(fn).toContain('ls-tree');
+    expect(fn).not.toMatch(/['"`]HEAD['"`]/u);
   });
 });

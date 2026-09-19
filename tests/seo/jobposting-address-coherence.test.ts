@@ -134,6 +134,44 @@ describe('buildJobPostingSchema — address coherence (#3513)', () => {
     expect(s.jobLocation.address.postalCode).toBe('6900');
   });
 
+  it('rejects a known CAP from another locality as a pair, not just as a field (#9108)', () => {
+    const s = buildJobPostingSchema(
+      {
+        ...baseJob,
+        addressLocality: 'Lugano',
+        addressRegion: 'TI',
+        streetAddress: 'Piazza Governo 1',
+        postalCode: '6500', // Bellinzona's known CAP, not Lugano's
+      },
+      OPTS,
+    );
+    const addr = s.jobLocation.address;
+    expect(addr.addressLocality).toBe('Lugano');
+    expect(addr.addressRegion).toBe('TI');
+    expect(addr.postalCode).toBe('6900');
+    expect(addr.streetAddress).not.toBe('Piazza Governo 1');
+    expect(addr.streetAddress).toBeTruthy();
+  });
+
+  it('uses the complete postal snapshot for a municipality outside the curated aliases', () => {
+    const s = buildJobPostingSchema(
+      {
+        ...baseJob,
+        addressLocality: 'Novaggio',
+        addressRegion: 'TI',
+        streetAddress: 'Via del Centro 1',
+        postalCode: '6500', // Bellinzona's CAP, not Novaggio's snapshot CAP
+      },
+      OPTS,
+    );
+    const addr = s.jobLocation.address;
+    expect(addr.addressLocality).toBe('Novaggio');
+    expect(addr.addressRegion).toBe('TI');
+    expect(addr.postalCode).toBe('6986');
+    expect(addr.streetAddress).not.toBe('Via del Centro 1');
+    expect(addr.streetAddress).toBeTruthy();
+  });
+
   it('garbage/leaked free-text locality (Hirslanden Arbeitsort leak) never survives into the schema', () => {
     const s = buildJobPostingSchema(
       {
