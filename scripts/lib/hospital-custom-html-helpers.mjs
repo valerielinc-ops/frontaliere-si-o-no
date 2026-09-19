@@ -230,21 +230,30 @@ export function locateTagByAttribute(html, attrMatcher, { skipVoidTags = false }
  * walks nesting depth instead. The scan window is capped defensively in
  * case the close tag is never found.
  */
-export function extractBalancedTagBlock(rest, tagName, scanCap = 20000) {
+export function extractBalancedTagBlockWithStatus(rest, tagName, scanCap = 20000) {
   const scoped = String(rest || '').slice(0, scanCap);
   const tagRe = new RegExp(`<(/?)${tagName}\\b[^>]*>`, 'gi');
   let depth = 1;
   let end = scoped.length;
+  let complete = false;
   let tagMatch;
   while ((tagMatch = tagRe.exec(scoped)) !== null) {
     if (tagMatch[1] === '/') {
       depth -= 1;
-      if (depth === 0) { end = tagMatch.index; break; }
+      if (depth === 0) {
+        end = tagMatch.index;
+        complete = true;
+        break;
+      }
     } else {
       depth += 1;
     }
   }
-  return scoped.slice(0, end);
+  return { html: scoped.slice(0, end), complete };
+}
+
+export function extractBalancedTagBlock(rest, tagName, scanCap = 20000) {
+  return extractBalancedTagBlockWithStatus(rest, tagName, scanCap).html;
 }
 
 /**
