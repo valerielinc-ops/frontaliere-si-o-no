@@ -216,13 +216,10 @@ push_shard() {
             "$loc" "$dist_dir" "$manifest_tool" "$delta_output" \
             "$SHARD_HISTORY_CAP" "$loc shard"; then
           delta_apply_ok=1
-          if ! shard_delta_apply_source_tree \
-              "$stage" "$dist_dir/$loc" "$loc" \
-              "$delta_output/changed-files.txt" \
-              "$delta_output/unmanifested-files.txt" \
-              "$delta_output/payload-files.txt"; then
+          if ! shard_delta_check_unchanged_payload_paths \
+              "$stage" "$loc" "$delta_output/unchanged-files.txt"; then
             delta_apply_ok=0
-            delta_fallback_reason='delta source application failed'
+            delta_fallback_reason="${SHARD_DELTA_REASON:-delta unchanged payload check failed}"
           fi
           if [ "$delta_apply_ok" = 1 ]; then
             if ! shard_delta_remove_stale_payload_paths \
@@ -231,6 +228,14 @@ push_shard() {
               delta_apply_ok=0
               delta_fallback_reason="${SHARD_DELTA_REASON:-delta tombstone application failed}"
             fi
+          fi
+          if [ "$delta_apply_ok" = 1 ] && ! shard_delta_apply_source_tree \
+              "$stage" "$dist_dir/$loc" "$loc" \
+              "$delta_output/changed-files.txt" \
+              "$delta_output/unmanifested-files.txt" \
+              "$delta_output/payload-files.txt"; then
+            delta_apply_ok=0
+            delta_fallback_reason='delta source application failed'
           fi
           if [ "$delta_apply_ok" = 1 ]; then
             if ! shard_delta_add_text "$stage" .nojekyll ''; then delta_apply_ok=0; fi

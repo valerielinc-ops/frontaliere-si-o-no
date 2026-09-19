@@ -54,6 +54,23 @@ shard_delta_manifest_sidecar() {
   printf '.deploy-manifest/v1/%s.jsonl' "$locale"
 }
 
+# shard_delta_report_missing_paths <check_name> <NUL path/reason pairs>
+# Keep the fallback warning actionable without flooding the Actions log. The
+# file deliberately stores the reason next to each path: a missing exact path
+# may be an absent HEAD entry, a route-form mismatch, or a current payload that
+# the filtered manifest does not cover.
+shard_delta_report_missing_paths() {
+  local check_name="$1" details_file="$2" path reason shown=0 count
+  local limit="${SHARD_DELTA_DIAGNOSTIC_LIMIT:-10}"
+  if ! [[ "$limit" =~ ^[0-9]+$ ]] || [ "$limit" -lt 1 ]; then limit=10; fi
+  count="$(perl -0ne '$count += 1 if $_ ne q{}; END { print int(($count + 0) / 2) }' < "$details_file")"
+  echo "shard delta: $check_name failed: missing=$count (showing up to $limit)" >&2
+  while [ "$shown" -lt "$limit" ] && IFS= read -r -d '' path && IFS= read -r -d '' reason; do
+    echo "shard delta: missing path=$path reason=$reason" >&2
+    shown=$((shown + 1))
+  done < "$details_file"
+}
+
 # shard_manifest_snapshot <current_manifest> <scope> <source_root> <tool> <out_dir>
 # Validates the current build manifest and writes the filtered snapshot used by
 # a full fallback as well as by a successful delta. The Node tool owns the
@@ -212,6 +229,95 @@ shard_index_has_content_changes() {
   return "$diff_status"
 }
 
+# shard_delta_check_unchanged_payload_paths <stage> <scope_prefix>
+#   <unchanged_file_list>
+# Every file in this list was classified as manifest-covered and unchanged by
+# the current-vs-sidecar plan, so shard_delta_apply_source_tree intentionally
+# does not hash or add it. It MUST already exist in the seeded HEAD index. A
+# missing exact path would otherwise produce a green but incomplete shard.
+# Route-form aliases are reported separately because x/, x/index.html, and
+# x.html are different published files even when they describe one route.
+shard_delta_check_unchanged_payload_paths() {
+  local stage="$1" scope_prefix="$2" unchanged_file_list="$3"
+  local work index_dump missing_file
+  [ -n "$unchanged_file_list" ] && [ -f "$unchanged_file_list" ] || return 0
+  [ -s "$unchanged_file_list" ] || return 0
+
+  work="$(mktemp -d)" || return 1
+  index_dump="$work/index.dump"
+  missing_file="$work/missing-unchanged"
+  if [ -n "$scope_prefix" ]; then
+    if ! git -C "$stage" -c core.quotePath=false ls-files --stage -z -- "$scope_prefix/" > "$index_dump"; then
+      rm -rf "$work"
+      return 1
+    fi
+  elif ! git -C "$stage" -c core.quotePath=false ls-files --stage -z > "$index_dump"; then
+    rm -rf "$work"
+    return 1
+  fi
+  if ! perl -e '
+      use strict;
+      use warnings;
+
+      my ($index_file, $unchanged_file, $scope_prefix, $missing_file) = @ARGV;
+      my (%indexed, @unchanged);
+      my $nul = "\0";
+
+      sub read_nul_records {
+        my ($file, $callback) = @_;
+        open my $handle, "<:raw", $file or die "open $file: $!";
+        local $/ = $nul;
+        while (defined(my $record = <$handle>)) {
+          chop $record;
+          next if $record eq q{};
+          $callback->($record);
+        }
+        close $handle or die "close $file: $!";
+      }
+
+      read_nul_records($index_file, sub {
+        my ($record) = @_;
+        my $tab = index($record, "\t");
+        die "index record without path separator" if $tab < 0;
+        $indexed{substr($record, $tab + 1)} = 1;
+      });
+      read_nul_records($unchanged_file, sub { push @unchanged, $_[0] });
+
+      open my $missing, ">:raw", $missing_file or die "open $missing_file: $!";
+      for my $relative (@unchanged) {
+        my $target = $scope_prefix eq q{} ? $relative : "$scope_prefix/$relative";
+        next if exists $indexed{$target};
+        my $reason = "absent from indexed HEAD";
+        my @aliases;
+        if ($target =~ m{/index\.html\z}) {
+          (my $base = $target) =~ s{/index\.html\z}{};
+          @aliases = ($base, "$base.html");
+        } elsif ($target =~ m{\.html\z}) {
+          (my $base = $target) =~ s{\.html\z}{};
+          @aliases = ("$base/index.html", $base);
+        } else {
+          @aliases = ("$target/index.html", "$target.html");
+        }
+        if (grep { exists $indexed{$_} } @aliases) {
+          $reason = "different route form in indexed HEAD";
+        }
+        print {$missing} "$target$nul$reason$nul";
+      }
+      close $missing or die "close $missing_file: $!";
+    ' "$index_dump" "$unchanged_file_list" "$scope_prefix" "$missing_file"; then
+    rm -rf "$work"
+    return 1
+  fi
+  if [ -s "$missing_file" ]; then
+    shard_delta_report_missing_paths 'unchanged payload check' "$missing_file"
+    SHARD_DELTA_REASON='unchanged payload missing from indexed HEAD'
+    rm -rf "$work"
+    return 1
+  fi
+  rm -rf "$work"
+  return 0
+}
+
 # shard_delta_remove_stale_payload_paths <stage> <scope_prefix>
 #   <payload_file_list> <removed_file> [require_tombstones]
 #   [manifest_covered_file_list]
@@ -221,8 +327,12 @@ shard_index_has_content_changes() {
 # files are handled separately by the caller and are never part of this set.
 # A removed manifest key may still map to a replacement key's payload (for
 # example a trailing-slash active-job key replaced by a legacy-slug bridge).
-# Such a tombstone is a logged no-op only when the current manifest covers that
-# payload; an unmanifested live route remains a cross-check failure.
+# Such a tombstone is a logged no-op when no related target exists in the
+# indexed HEAD, or when the current manifest covers the retained payload. An
+# indexed live payload outside the filtered manifest remains a cross-check
+# failure because the sidecar/index ownership is ambiguous.
+# Callers run this pass before shard_delta_apply_source_tree so “absent from
+# HEAD” cannot be masked by a newly added current payload.
 # One raw parser emits all deletion records and, by default, cross-checks every
 # manifest tombstone before one index-info update. The advisory verifier passes
 # 0 when no previous sidecar exists and derives deletions from the old index.
@@ -230,7 +340,13 @@ shard_delta_remove_stale_payload_paths() {
   local stage="$1" scope_prefix="$2" payload_file_list="$3" removed_file="$4"
   local require_tombstones="${5:-1}"
   local manifest_payload_file="${6:-}"
-  local work index_dump delete_info count_file missing_file noop_file removed_count
+  local work index_dump delete_info count_file missing_file missing_reason_file
+  local noop_file noop_reason_file removed_count noop_reason
+  # This pass runs once per shard before source application. Reset the
+  # per-plan counters here so a multi-shard deploy cannot inherit removals
+  # from the preceding locale/section shard.
+  SHARD_DELTA_REMOVED_FILES=0
+  SHARD_DELTA_CONTENT_CHANGES=0
   [ -f "$payload_file_list" ] || return 1
   [ -f "$removed_file" ] || return 1
   if [ "$require_tombstones" = 1 ]; then
@@ -247,7 +363,9 @@ shard_delta_remove_stale_payload_paths() {
   delete_info="$work/delete.info"
   count_file="$work/count"
   missing_file="$work/missing-tombstones"
+  missing_reason_file="$work/missing-tombstone-details"
   noop_file="$work/noop-tombstones"
+  noop_reason_file="$work/noop-tombstone-details"
   if [ -n "$scope_prefix" ]; then
     if ! git -C "$stage" -c core.quotePath=false ls-files --stage -z -- "$scope_prefix/" > "$index_dump"; then
       rm -rf "$work"
@@ -263,7 +381,7 @@ shard_delta_remove_stale_payload_paths() {
 
       my ($index_file, $payload_file, $manifest_payload_file, $removed_file,
           $scope_prefix, $delete_info_file, $count_file, $missing_file,
-          $noop_file) = @ARGV;
+          $missing_reason_file, $noop_file, $noop_reason_file) = @ARGV;
       my (%live, %manifest_live, %removed, %found, %index_related,
           %live_related, %manifest_live_related);
       my $nul = "\0";
@@ -308,20 +426,11 @@ shard_delta_remove_stale_payload_paths() {
         return 0;
       };
 
-      for my $target (keys %live) {
-        for my $path (keys %removed) {
-          $live_related{$path} = 1 if $route_related->($target, $path);
-        }
-      }
-      for my $target (keys %manifest_live) {
-        for my $path (keys %removed) {
-          $manifest_live_related{$path} = 1 if $route_related->($target, $path);
-        }
-      }
-
       open my $delete_handle, ">:raw", $delete_info_file or die "open $delete_info_file: $!";
       open my $missing_handle, ">:raw", $missing_file or die "open $missing_file: $!";
+      open my $missing_reason_handle, ">:raw", $missing_reason_file or die "open $missing_reason_file: $!";
       open my $noop_handle, ">:raw", $noop_file or die "open $noop_file: $!";
+      open my $noop_reason_handle, ">:raw", $noop_reason_file or die "open $noop_reason_file: $!";
       my $matched = 0;
 
       my $mark_removed_candidates = sub {
@@ -365,35 +474,43 @@ shard_delta_remove_stale_payload_paths() {
       });
       close $delete_handle or die "close $delete_info_file: $!";
 
-      for my $path (keys %removed) {
+      for my $path (sort keys %removed) {
         if (exists $live_related{$path} && !exists $manifest_live_related{$path}) {
           print {$missing_handle} "$path$nul";
+          print {$missing_reason_handle} "$path$nul" . q{current indexed payload is not covered by the filtered manifest (filtered or unmanifested)} . "$nul";
         } elsif (exists $manifest_live_related{$path}) {
           print {$noop_handle} "$path$nul";
+          print {$noop_reason_handle} "$path$nul" . q{retained by current manifest payload} . "$nul";
         } elsif (exists $found{$path}) {
           next;
         } elsif (!exists $index_related{$path}) {
           print {$noop_handle} "$path$nul";
+          print {$noop_reason_handle} "$path$nul" . q{absent from indexed HEAD} . "$nul";
         } else {
           print {$missing_handle} "$path$nul";
+          print {$missing_reason_handle} "$path$nul" . q{different route form in indexed HEAD} . "$nul";
         }
       }
       close $missing_handle or die "close $missing_file: $!";
+      close $missing_reason_handle or die "close $missing_reason_file: $!";
       close $noop_handle or die "close $noop_file: $!";
+      close $noop_reason_handle or die "close $noop_reason_file: $!";
       open my $count_handle, ">:raw", $count_file or die "open $count_file: $!";
       print {$count_handle} "$matched\n";
       close $count_handle or die "close $count_file: $!";
     ' "$index_dump" "$payload_file_list" "$manifest_payload_file" "$removed_file" "$scope_prefix" \
-      "$delete_info" "$count_file" "$missing_file" "$noop_file"; then
+      "$delete_info" "$count_file" "$missing_file" "$missing_reason_file" "$noop_file" "$noop_reason_file"; then
     rm -rf "$work"
     return 1
   fi
   if [ "$require_tombstones" = 1 ] && [ -s "$noop_file" ]; then
-    while IFS= read -r -d '' tombstone; do
-      echo "shard delta: manifest tombstone no-op for $tombstone (target already absent or retained by current payload)" >&2
-    done < "$noop_file"
+    while IFS= read -r -d '' tombstone \
+        && IFS= read -r -d '' noop_reason; do
+      echo "shard delta: manifest tombstone no-op for $tombstone (target already absent or retained by current payload; reason=$noop_reason)" >&2
+    done < "$noop_reason_file"
   fi
   if [ "$require_tombstones" = 1 ] && [ -s "$missing_file" ]; then
+    shard_delta_report_missing_paths 'manifest tombstone cross-check' "$missing_reason_file"
     SHARD_DELTA_REASON='manifest tombstone cross-check failed'
     rm -rf "$work"
     return 1
@@ -442,8 +559,8 @@ shard_delta_apply_source_tree() {
   SHARD_DELTA_SOURCE_FILES=0
   SHARD_DELTA_CHANGED_FILES=0
   SHARD_DELTA_REUSED_FILES=0
-  SHARD_DELTA_REMOVED_FILES=0
-  SHARD_DELTA_CONTENT_CHANGES=0
+  SHARD_DELTA_REMOVED_FILES="${SHARD_DELTA_REMOVED_FILES:-0}"
+  SHARD_DELTA_CONTENT_CHANGES="${SHARD_DELTA_CONTENT_CHANGES:-0}"
   work="$(mktemp -d)" || return 1
   candidate_list="$work/candidates.list"
   metadata="$work/metadata.list"
@@ -588,7 +705,7 @@ shard_delta_apply_source_tree() {
       fi
     fi
     SHARD_DELTA_CHANGED_FILES="$changed_count"
-    SHARD_DELTA_CONTENT_CHANGES="$changed_count"
+    SHARD_DELTA_CONTENT_CHANGES=$((SHARD_DELTA_CONTENT_CHANGES + changed_count))
   fi
   SHARD_DELTA_REUSED_FILES=$((SHARD_DELTA_SOURCE_FILES - SHARD_DELTA_CHANGED_FILES))
   rm -rf "$work"
@@ -720,18 +837,23 @@ shard_delta_verify_prepare() {
     require_tombstones=0
   fi
 
-  if ! shard_delta_apply_source_tree \
-      "$stage" "$payload_root" "$scope" \
-      "$out_dir/changed-files.txt" \
-      "$out_dir/unmanifested-files.txt" \
-      "$out_dir/payload-files.txt"; then
-    SHARD_VERIFY_REASON='verification source hashing failed'
+  if ! shard_delta_check_unchanged_payload_paths \
+      "$stage" "$scope" "$out_dir/unchanged-files.txt"; then
+    SHARD_VERIFY_REASON="${SHARD_DELTA_REASON:-verification unchanged payload check failed}"
     return 1
   fi
   if ! shard_delta_remove_stale_payload_paths \
       "$stage" "$scope" "$out_dir/payload-files.txt" "$out_dir/removed.txt" "$require_tombstones" \
       "$out_dir/manifest-covered-files.txt"; then
     SHARD_VERIFY_REASON="${SHARD_DELTA_REASON:-verification tombstone application failed}"
+    return 1
+  fi
+  if ! shard_delta_apply_source_tree \
+      "$stage" "$payload_root" "$scope" \
+      "$out_dir/changed-files.txt" \
+      "$out_dir/unmanifested-files.txt" \
+      "$out_dir/payload-files.txt"; then
+    SHARD_VERIFY_REASON='verification source hashing failed'
     return 1
   fi
   return 0
