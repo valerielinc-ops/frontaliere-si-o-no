@@ -77,6 +77,13 @@ export const DEFAULT_CYCLE_BUDGET_MS = 25 * 60 * 1000;
 export const SEO_CONCURRENCY_GROUP = 'seo-health-loop';
 const MAX_ISSUE_FINDINGS = 50;
 const MAX_HISTORY_LINES = 400;
+const OBSERVATION_ONLY_FINDING_CODES = new Set([
+  'cloudflare-5xx-unverified',
+]);
+
+export function isSeoIssueActionable(finding) {
+  return !OBSERVATION_ONLY_FINDING_CODES.has(String(finding?.code || ''));
+}
 
 const JOB_DETAIL_RX = /^\/(?:cerca-lavoro-[^/]+|en\/find-jobs-[^/]+|de\/jobs-(?:im|in|in-der)-[^/]+|fr\/trouver-emploi-[^/]+)\/[^/]+\/?$/i;
 
@@ -814,6 +821,8 @@ export async function runSeoHealthLoop({
   }));
   const unresolved5xx = Number(cloudflare.unresolved5xx || 0);
   if (unresolved5xx > 0) {
+    // Keep sampled-out/unprobed evidence visible and degraded, but leave issue
+    // ownership with cf-5xx-monitor until a live edge failure is confirmed.
     cfFindings.push({
       code: 'cloudflare-5xx-unverified',
       url: 'source:cloudflare-5xx-unverified',
@@ -845,8 +854,8 @@ export async function runSeoHealthLoop({
   const previousState = readJson(statePath, {});
   const nextState = advanceFindingStreaks(previousState, allFindings, now);
   nextState.cleanRuns = allFindings.length === 0 ? Number(previousState.cleanRuns || 0) + 1 : 0;
-  nextState.lastActionable = allFindings.length > 0 && Object.values(nextState.findings).some((finding) => Number(finding.consecutiveRuns) >= opts.findingThreshold);
-  const actionable = actionableStreaks(nextState, opts.findingThreshold);
+  const actionable = actionableStreaks(nextState, opts.findingThreshold).filter(isSeoIssueActionable);
+  nextState.lastActionable = actionable.length > 0;
   const actionableKeys = new Set(actionable.map((finding) => `${finding.code}|${finding.url}`));
   const demandPhase = phaseStatus(allFindings, ['source-unavailable', 'gsc-state-stale'], actionableKeys, (finding) => finding.code === 'gsc-state-stale' || finding.url === 'source:ga4' || finding.url === 'source:gsc-ctr-monitor');
   const demandOpportunities = {
