@@ -84,6 +84,11 @@ jobs:
   vitest:
     name: vitest (unit + integration)
     runs-on: ubuntu-latest
+    # Letti dal job `post-review` (vedi `Decide post-review follow-up`).
+    outputs:
+      automerge: ${{ steps.post_review.outputs.automerge }}
+      autorebase: ${{ steps.post_review.outputs.autorebase }}
+      pr_number: ${{ steps.post_review.outputs.pr_number }}
     # 60 min. NON è il vecchio 30 lasciato lì: il job fuso paga in SERIE ciò che
     # quattro job pagavano in parallelo. Somma dei massimi osservati citati in
     # questo file: checkout profilo `contract` 420s + `npm ci` ~60s + detector
@@ -2107,13 +2112,21 @@ jobs:
         # (num_turns morto ma minuti di CI esauriti prima) — vedi job timeout-minutes.
         run: |
           set -euo pipefail
+          # Effort per tier: `max` solo dove il contratto chiede probing
+          # avversario sull'intero contributo funnel-critical (high,
+          # high-mega); `high` per minimal/incremental/normal, che leggono un
+          # body, un delta o codice non funnel. Il tier cambiava solo lo
+          # scope mentre l'action passava sempre `model_reasoning_effort=max`.
           set_tier() {
+            local effort=high
+            case "$1" in high|high-mega) effort=max ;; esac
             {
               echo "tier=$1"
               echo "model=$2"
               echo "max_turns=$3"
+              echo "effort=$effort"
             } >> "$GITHUB_OUTPUT"
-            echo "Review tier: $1 ($2, max-turns $3)"
+            echo "Review tier: $1 ($2, max-turns $3, effort $effort)"
           }
           # Body corretto sulla stessa HEAD dopo un verdetto non approvante
           # (vedi il guard): il codice e' identico per costruzione, quindi
@@ -2512,6 +2525,9 @@ jobs:
           codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           review_marker: '<!-- CODEX_FALLBACK_REVIEW -->'
+          # Per-tier effort from the tier step; `max` when the tier step did
+          # not emit one, so a missing output never lowers the effort.
+          reasoning_effort: ${{ steps.tier.outputs.effort || 'max' }}
           # Le PR fix-issue possono essere aperte da `claude[bot]`: senza whitelist
           # il lane Codex abortisce ("non-human actor"). Whitelist esplicita
           # (hardening #898): mai `*`. `claude[bot]` copre le PR fix-issue;
@@ -2669,151 +2685,39 @@ jobs:
           echo "::error::Required review gate was skipped on a pull request; no approving review verdict was evaluated."
           exit 1
 
-      # L’autorebase usa esattamente il checkout e npm ci già pagati da questo
-      # job. Il ramo stale-review usa la label corrente letta dalle API,
-      # il percorso di review completato e il solo review gate rosso.
-      # Così un errore duro precedente non rebasea un workspace parziale e la
-      # label viene rimossa dal consumer dopo un re-trigger riuscito.
-      # Il token App è l’identità primaria; il fallback GITHUB_TOKEN mantiene il
-      # job fail-soft, ma non riattiva i workflow downstream per l’anti-recursion.
-      - name: Mint autorebase App token
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && ((success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.codex_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure')) }}
+      # ── Cosa fare dopo la review: lo decide il job required, lo fa un altro ─
+      #
+      # Autorebase e opt-in all'auto-merge nativo stavano QUI, in coda al job
+      # required: 46-88 s dentro `vitest (unit + integration)` (misurato il
+      # 2026-09-19, es. run 35456925413: rebase 83 s + opt-in 8 s) che tenevano
+      # il check giallo dopo che test e review avevano gia' deciso. Ora questo
+      # step calcola soltanto le due decisioni, con le STESSE condizioni che
+      # quegli step portavano, e le pubblica come output del job; il job
+      # `post-review` (in fondo al file) le esegue dopo, con `needs: vitest`.
+      #
+      # `job.status` e' letto qui, dopo il review gate e il suo guard sullo
+      # skip: da questo punto in poi solo step `continue-on-error` possono
+      # girare, quindi il verdetto che il job pubblichera' e' gia' questo.
+      - name: Decide post-review follow-up
+        id: post_review
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled()) }}
         continue-on-error: true
         env:
-          APP_ID: ${{ secrets.APP_ID }}
-          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: node scripts/ci/mint-app-token.mjs
-
-      - name: Rebase near-merge PRs after review or stale rescue
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && ((success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.codex_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure')) }}
-        env:
-          GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          DRY_RUN: 'false'
-        run: node scripts/ci/pr-autorebase.mjs
-
-      # ── Opt-in al native auto-merge, dentro il job required ──────────────
-      #
-      # PERCHÉ QUI. `enable-native-automerge.yml` aveva nove trigger per PR (5
-      # `pull_request_target` + 3 `pull_request_review` + 1 `workflow_run`), e
-      # ognuno era un run separato che rifaceva da zero checkout sparse,
-      # Firebase, PAT da Remote Config e riletta di review e check via API.
-      # Misurato il 2026-09-18 sulle ultime 100 run di quel workflow: 49
-      # `workflow_run`, 29 `pull_request_target`, 22 `pull_request_review`; e
-      # 59 delle 79 run in coda sull'account (75%) erano quel workflow, cioè
-      # affamavano proprio i run `vitest` che stavano aspettando. Il
-      # `concurrency` per-branch introdotto prima deduplica le raffiche sulla
-      # STESSA PR e non il volume fra PR diverse: su 11 run create dopo quel
-      # push una sola è stata cancellata.
-      #
-      # ESCALATION DI PRIVILEGIO — il motivo per cui il workflow era separato.
-      # Questo job ha in checkout l'head della PR. Il gate NON può essere
-      # eseguito da quella copia con un token che può mergiare, altrimenti una
-      # PR potrebbe modificare il proprio gate e auto-mergiarsi. La sorgente
-      # arriva quindi dallo stesso checkout `ref: main` sparse/blobless usato da
-      # `enable-native-automerge.yml` e `retry-native-automerge.yml`, ed è
-      # validata file per file da `native-automerge-source.mjs` prima che una
-      # riga venga importata. Nessun path della PR entra in quel cono.
-      - name: Checkout trusted native auto-merge source
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && job.status == 'success' && steps.review_gate.outputs.approved == 'true' && steps.resolve.outputs.pr_number != '') }}
-        continue-on-error: true
-        uses: actions/checkout@v5
-        with:
-          repository: ${{ github.repository }}
-          ref: main
-          path: native-automerge-main
-          fetch-depth: 1
-          filter: blob:none
-          sparse-checkout: |
-            /scripts/ci/native-automerge-source.mjs
-            /scripts/ci/native-automerge-gate.mjs
-            /scripts/ci/review-test-policy.mjs
-            /scripts/ci/lib/automation-risk-policy.mjs
-            /scripts/ci/lib/fetchPrFiles.mjs
-            /scripts/ci/lib/vitestCheck.mjs
-            /scripts/ci/lib/constants.mjs
-            /scripts/ci/lib/pr-review-admission.mjs
-            /scripts/lib/loop-fleet-contract.mjs
-            /data/loop-fleet/loop-registry.json
-          sparse-checkout-cone-mode: false
-          persist-credentials: false
-
-      # Profilo `in-job`: lo stesso validatore, sulla lista senza i due file di
-      # Remote Config, che questo chiamante non usa (usa l'App token del job).
-      # È un SOTTOINSIEME dichiarato in `native-automerge-source.mjs`, non un
-      # allentamento: ogni file che il gate può eseguire o importare è ancora
-      # validato uno per uno e un file mancante ferma l'opt-in.
-      - name: Validate trusted native auto-merge source
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && job.status == 'success' && steps.review_gate.outputs.approved == 'true' && steps.resolve.outputs.pr_number != '') }}
-        continue-on-error: true
-        env:
-          NATIVE_AUTOMERGE_SOURCE_ROOT: ${{ github.workspace }}/native-automerge-main
-          NATIVE_AUTOMERGE_SOURCE_PROFILE: in-job
-        run: node "$NATIVE_AUTOMERGE_SOURCE_ROOT/scripts/ci/native-automerge-source.mjs"
-
-      # IDENTITÀ DEL TOKEN — e perché NON è il `GITHUB_PAT` di Remote Config.
-      # L'opt-in event-driven carica il PAT con il loader Remote Config di
-      # `scripts/`, ma quel loader non può entrare in questo workflow (il suo
-      # nome è deliberatamente assente da questo file): scrive ~92 variabili su
-      # `$GITHUB_ENV`, visibili a OGNI step successivo dello stesso job, e nel
-      # job fuso aveva reso rossi 14 test su 11 file (run 32937626053, tutti
-      # quelli che asseriscono un ambiente pulito). L'invariante è difesa per
-      # costruzione da `tests/ci-vitest-check-name.test.ts` («nessun segreto di
-      # Remote Config viene caricato in questo workflow») e non si abbassa; il
-      # PAT non esiste come Actions secret (`secrets.GITHUB_PAT` è vuoto — due
-      # commenti in monitor-gsc-seo.yml e generate-article.yml avvisano proprio
-      # di questo). Resta l'App token già presente nel job.
-      #
-      # L'App token NON è `secrets.GITHUB_TOKEN`: gli eventi scritti da
-      # `github-actions[bot]` non avviano altri workflow (anti-recursion), e
-      # sopra il merge di `main` c'è il deploy. Misurato il 2026-09-18 sulle
-      # ultime 100 run del repo: 15 sono state innescate da
-      # `frontaliere-automation[bot]`, cioè gli eventi di quell'identità creano
-      # run. Se `mint-app-token.mjs` non ha prodotto un token (è
-      # `continue-on-error`), l'opt-in viene SALTATO: nessun ripiego su
-      # `GITHUB_TOKEN`, e `retry-native-automerge.yml` ritenta col PAT entro 20
-      # minuti.
-      #
-      # `continue-on-error: true` non è cosmetico: un 5xx dell'API durante
-      # l'opt-in non può tingere di rosso `vitest`, perché quel rosso bloccherebbe
-      # il merge di OGNI PR del repo. Il prezzo è che un opt-in fallito non ha un
-      # evento che lo riprovi: lo riprende `retry-native-automerge.yml`, cron
-      # `*/20 * * * *`, UNA run per tick per tutte le PR aperte (fino a 100),
-      # che passa per questo stesso gate e sa anche revocare un opt-in non più
-      # valido. Quello, non il fan-out per-evento, è il canale di ritentativo.
-      #
-      # Il gate riceve il RUN ID di questa run, non un booleano «i test sono
-      # passati»: `native-automerge-gate.mjs` usa quell'id per CONFERMARE via API
-      # che il check required in volo su questa HEAD è quello di questa run, che
-      # la run è `tests.yml` su `pull_request` per questa HEAD, e che lo step
-      # `Require approving Codex review` dentro di essa è già `success`. Un flag
-      # booleano sarebbe stato un buco; un run id è un'affermazione che GitHub
-      # può smentire.
-      - name: Enable native auto-merge from the required job
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && job.status == 'success' && steps.review_gate.outputs.approved == 'true' && steps.resolve.outputs.pr_number != '') }}
-        continue-on-error: true
-        env:
-          REPOSITORY: ${{ github.repository }}
+          AUTOMERGE: ${{ job.status == 'success' && steps.review_gate.outputs.approved == 'true' && steps.resolve.outputs.pr_number != '' }}
+          AUTOREBASE: ${{ (job.status == 'success' && steps.review_gate.outputs.approved == 'true') || (steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.codex_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure') }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
-          NATIVE_AUTOMERGE_IN_JOB_RUN_ID: ${{ github.run_id }}
         run: |
           set -euo pipefail
-          if [ -z "${NATIVE_AUTOMERGE_HELPER_DIR:-}" ] || [ -z "${NATIVE_AUTOMERGE_SOURCE_ROOT:-}" ]; then
-            echo "::warning::sorgente native auto-merge da main non validata; nessun opt-in in-job — retry-native-automerge.yml ritenta entro 20 min."
-            exit 0
-          fi
-          if [ -z "${APP_TOKEN:-}" ]; then
-            echo "::warning::App token assente; nessun opt-in in-job (nessun ripiego su GITHUB_TOKEN, che non risveglierebbe il deploy) — retry-native-automerge.yml ritenta entro 20 min."
-            exit 0
-          fi
-          cd "$NATIVE_AUTOMERGE_SOURCE_ROOT"
-          GH_TOKEN="$APP_TOKEN" node "$NATIVE_AUTOMERGE_HELPER_DIR/native-automerge-gate.mjs" \
-            "$REPOSITORY" "$PR_NUMBER"
-
-      - name: Cleanup autorebase credentials
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always()) }}
-        run: rm -f /tmp/firebase-sa.json
+          automerge=false
+          autorebase=false
+          [ "$AUTOMERGE" = "true" ] && [[ "$PR_NUMBER" =~ ^[1-9][0-9]*$ ]] && automerge=true
+          [ "$AUTOREBASE" = "true" ] && autorebase=true
+          {
+            echo "automerge=$automerge"
+            echo "autorebase=$autorebase"
+            echo "pr_number=$PR_NUMBER"
+          } >> "$GITHUB_OUTPUT"
+          echo "post-review: automerge=$automerge autorebase=$autorebase pr=${PR_NUMBER:-none}"
 
       - name: Classify cancelled run
         if: ${{ always() && cancelled() }}
@@ -2860,3 +2764,198 @@ jobs:
           # fallire è stato solo uno step `continue-on-error`.
           JOB_STATUS: ${{ job.status }}
         run: node scripts/ci/explain-job-verdict.mjs
+
+  # ══════════════════════════════════════════════════════════════════════════
+  # Autorebase e opt-in all'auto-merge nativo, FUORI dal check required.
+  #
+  # Il check `vitest (unit + integration)` diventa verde (o rosso) appena test
+  # e review hanno deciso; questo job parte dopo, solo se il job required ha
+  # pubblicato una delle due decisioni, e non puo' colorare la run:
+  # `continue-on-error: true` a livello di job impedisce che un suo errore
+  # faccia fallire la run (e quindi che il redcheck-fixer o
+  # scan-unreported-failures lo leggano come un rosso della PR).
+  #
+  # Cosa cambia rispetto a quando stava in coda al job required:
+  #   - l'opt-in usa il percorso ORDINARIO del gate (check required completato
+  #     e `success` sulla HEAD), lo stesso di `retry-native-automerge.yml`,
+  #     invece del percorso in-job che confermava un check ancora in volo;
+  #   - l'opt-in viene PRIMA dell'autorebase: e' il passo che il merge aspetta,
+  #     l'autorebase riguarda le altre PR (la propria la rimanda finche' questa
+  #     run e' in volo, `testsRunInFlightOnHead`);
+  #   - token App e `pr-autorebase.mjs` arrivano da `main`, non dall'albero
+  #     della PR: prima una PR poteva eseguire la propria versione modificata
+  #     dello sweeper, che lavora su fino a 10 PR altrui, con il token App.
+  # ══════════════════════════════════════════════════════════════════════════
+  post-review:
+    name: post-review (auto-merge opt-in + autorebase)
+    needs: vitest
+    if: ${{ always() && (needs.vitest.outputs.automerge == 'true' || needs.vitest.outputs.autorebase == 'true') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    # Anche ogni step e' `continue-on-error`: il check-run di questo job resta
+    # verde e nessun consumatore che legge «un check rosso sulla PR» lo scambia
+    # per un guasto della PR.
+    continue-on-error: true
+    steps:
+      # Storia completa dei commit per i merge dell'autorebase, nessun tree
+      # storico (stesso profilo `tree:0` del job required).
+      - name: Checkout trusted main for autorebase and token minting
+        uses: actions/checkout@v5
+        continue-on-error: true
+        with:
+          ref: main
+          fetch-depth: 0
+          filter: tree:0
+          sparse-checkout: |
+            /.github/actions/
+            /scripts/
+            /functions/src/githubApiHeaders.js
+            /data/loop-fleet/
+            /packages/*/package.json
+            /package.json
+            /package-lock.json
+            /.npmrc
+          sparse-checkout-cone-mode: false
+
+      # Il token App e' l'identita' primaria; senza, l'opt-in viene saltato e
+      # l'autorebase ripiega su GITHUB_TOKEN (fail-soft, come prima).
+      - name: Mint post-review App token
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      # ── Opt-in al native auto-merge, dopo il job required ────────────────
+      #
+      # PERCHÉ QUI. `enable-native-automerge.yml` aveva nove trigger per PR (5
+      # `pull_request_target` + 3 `pull_request_review` + 1 `workflow_run`), e
+      # ognuno era un run separato che rifaceva da zero checkout sparse,
+      # Firebase, PAT da Remote Config e riletta di review e check via API.
+      # Misurato il 2026-09-18 sulle ultime 100 run di quel workflow: 49
+      # `workflow_run`, 29 `pull_request_target`, 22 `pull_request_review`; e
+      # 59 delle 79 run in coda sull'account (75%) erano quel workflow, cioè
+      # affamavano proprio i run `vitest` che stavano aspettando. Il
+      # `concurrency` per-branch introdotto prima deduplica le raffiche sulla
+      # STESSA PR e non il volume fra PR diverse: su 11 run create dopo quel
+      # push una sola è stata cancellata.
+      #
+      # ESCALATION DI PRIVILEGIO — il motivo per cui il workflow era separato.
+      # Il gate NON può essere eseguito dall'albero della PR con un token che
+      # può mergiare, altrimenti una PR potrebbe modificare il proprio gate e
+      # auto-mergiarsi. Questo job non ha l'head della PR in checkout, ma il
+      # gate resta nel suo cono dedicato e validato. La sorgente
+      # arriva quindi dallo stesso checkout `ref: main` sparse/blobless usato da
+      # `enable-native-automerge.yml` e `retry-native-automerge.yml`, ed è
+      # validata file per file da `native-automerge-source.mjs` prima che una
+      # riga venga importata. Nessun path della PR entra in quel cono.
+      - name: Checkout trusted native auto-merge source
+        if: ${{ needs.vitest.outputs.automerge == 'true' }}
+        continue-on-error: true
+        uses: actions/checkout@v5
+        with:
+          repository: ${{ github.repository }}
+          ref: main
+          path: native-automerge-main
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            /scripts/ci/native-automerge-source.mjs
+            /scripts/ci/native-automerge-gate.mjs
+            /scripts/ci/review-test-policy.mjs
+            /scripts/ci/lib/automation-risk-policy.mjs
+            /scripts/ci/lib/fetchPrFiles.mjs
+            /scripts/ci/lib/vitestCheck.mjs
+            /scripts/ci/lib/constants.mjs
+            /scripts/ci/lib/pr-review-admission.mjs
+            /scripts/lib/loop-fleet-contract.mjs
+            /data/loop-fleet/loop-registry.json
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
+
+      # Profilo `in-job`: la lista senza i due file di Remote Config, che
+      # questo chiamante non usa (usa l'App token). Nome storico: il profilo
+      # serve ai chiamanti dentro tests.yml, ed e' un SOTTOINSIEME dichiarato
+      # in `native-automerge-source.mjs`.
+      - name: Validate trusted native auto-merge source
+        if: ${{ needs.vitest.outputs.automerge == 'true' }}
+        continue-on-error: true
+        env:
+          NATIVE_AUTOMERGE_SOURCE_ROOT: ${{ github.workspace }}/native-automerge-main
+          NATIVE_AUTOMERGE_SOURCE_PROFILE: in-job
+        run: node "$NATIVE_AUTOMERGE_SOURCE_ROOT/scripts/ci/native-automerge-source.mjs"
+
+      # IDENTITÀ DEL TOKEN — e perché NON è il `GITHUB_PAT` di Remote Config.
+      # L'opt-in event-driven carica il PAT con il loader Remote Config di
+      # `scripts/`, ma quel loader non può entrare in questo workflow (il suo
+      # nome è deliberatamente assente da questo file): scrive ~92 variabili su
+      # `$GITHUB_ENV`, visibili a OGNI step successivo dello stesso job, e nel
+      # job fuso aveva reso rossi 14 test su 11 file (run 32937626053, tutti
+      # quelli che asseriscono un ambiente pulito). L'invariante è difesa per
+      # costruzione da `tests/ci-vitest-check-name.test.ts` («nessun segreto di
+      # Remote Config viene caricato in questo workflow») e non si abbassa; il
+      # PAT non esiste come Actions secret (`secrets.GITHUB_PAT` è vuoto — due
+      # commenti in monitor-gsc-seo.yml e generate-article.yml avvisano proprio
+      # di questo). Resta l'App token già presente nel job.
+      #
+      # L'App token NON è `secrets.GITHUB_TOKEN`: gli eventi scritti da
+      # `github-actions[bot]` non avviano altri workflow (anti-recursion), e
+      # sopra il merge di `main` c'è il deploy. Misurato il 2026-09-18 sulle
+      # ultime 100 run del repo: 15 sono state innescate da
+      # `frontaliere-automation[bot]`, cioè gli eventi di quell'identità creano
+      # run. Se `mint-app-token.mjs` non ha prodotto un token (è
+      # `continue-on-error`), l'opt-in viene SALTATO: nessun ripiego su
+      # `GITHUB_TOKEN`, e `retry-native-automerge.yml` ritenta col PAT entro 20
+      # minuti.
+      #
+      # `continue-on-error: true` non è cosmetico: un 5xx dell'API durante
+      # l'opt-in non può tingere di rosso `vitest`, perché quel rosso bloccherebbe
+      # il merge di OGNI PR del repo. Il prezzo è che un opt-in fallito non ha un
+      # evento che lo riprovi: lo riprende `retry-native-automerge.yml`, cron
+      # `*/20 * * * *`, UNA run per tick per tutte le PR aperte (fino a 100),
+      # che passa per questo stesso gate e sa anche revocare un opt-in non più
+      # valido. Quello, non il fan-out per-evento, è il canale di ritentativo.
+      #
+      # Nessun flag «i test sono passati»: qui il check required e' gia'
+      # COMPLETATO, e il gate lo verifica da solo via API (ultimo check
+      # `vitest (unit + integration)` sulla HEAD = `success`, step
+      # `Require approving Codex review` = `success`), come fa il retry.
+      - name: Enable native auto-merge after the required job
+        if: ${{ needs.vitest.outputs.automerge == 'true' }}
+        continue-on-error: true
+        env:
+          REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ needs.vitest.outputs.pr_number }}
+        run: |
+          set -euo pipefail
+          if [ -z "${NATIVE_AUTOMERGE_HELPER_DIR:-}" ] || [ -z "${NATIVE_AUTOMERGE_SOURCE_ROOT:-}" ]; then
+            echo "::warning::sorgente native auto-merge da main non validata; nessun opt-in — retry-native-automerge.yml ritenta entro 20 min."
+            exit 0
+          fi
+          if [ -z "${APP_TOKEN:-}" ]; then
+            echo "::warning::App token assente; nessun opt-in (nessun ripiego su GITHUB_TOKEN, che non risveglierebbe il deploy) — retry-native-automerge.yml ritenta entro 20 min."
+            exit 0
+          fi
+          cd "$NATIVE_AUTOMERGE_SOURCE_ROOT"
+          GH_TOKEN="$APP_TOKEN" node "$NATIVE_AUTOMERGE_HELPER_DIR/native-automerge-gate.mjs" \
+            "$REPOSITORY" "$PR_NUMBER"
+
+      # `pr-autorebase.mjs` importa `typescript` (duplicateDeclarations), quindi
+      # serve l'install; `--ignore-scripts` perche' nessun postinstall serve a
+      # uno sweeper che fa solo git e API.
+      - name: Setup Node.js + npm ci for autorebase
+        if: ${{ needs.vitest.outputs.autorebase == 'true' }}
+        continue-on-error: true
+        uses: ./.github/actions/ci-npm-setup
+        with:
+          npm-ci-args: --ignore-scripts
+
+      - name: Rebase near-merge PRs after review or stale rescue
+        if: ${{ needs.vitest.outputs.autorebase == 'true' }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          DRY_RUN: 'false'
+        run: node scripts/ci/pr-autorebase.mjs

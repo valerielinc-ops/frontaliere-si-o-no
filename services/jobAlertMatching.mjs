@@ -417,6 +417,64 @@ export function partitionByGeoPreference(jobs, profile, { minLocal = GEO_PREFERE
 }
 
 /**
+ * The job-side half of {@link scoreJobForAlert}: every string/token set that
+ * depends ONLY on the job and the recipient locale, never on the alert.
+ *
+ * Computing these is most of the scorer's cost (lower-casing a ~2.5 KB
+ * description, tokenising the title, canonicalising the company) and the daily
+ * sender repeats it for every alert x every job — 4,353 alerts x 3,567 jobs in
+ * run 35422626497, ~4.5 of the ~9 minutes of the matching loop. Pure: same job
+ * + locale in, same features out.
+ *
+ * @param {object} job
+ * @param {string} [locale]
+ */
+export function jobMatchFeatures(job, locale) {
+  const localizedTitles = locale
+    ? String((job.titleByLocale || {})[locale] || '')
+    : Object.values(job.titleByLocale || {}).join(' ');
+  const titleText = `${job.title || ''} ${localizedTitles}`.toLowerCase();
+  return {
+    titleText,
+    fullText: `${titleText} ${(job.description || '').toLowerCase()}`,
+    jobTokens: extractKeywords(
+      `${job.title || ''} ${localizedTitles} ${job.category || ''} ${job.sector || ''}`,
+    ),
+    jobCompany: normalizeCompanyToken(job.companyKey || job.company),
+    jobLoc: `${job.location || ''} ${job.addressLocality || ''} ${job.addressRegion || ''} ${job.canton || ''}`.toLowerCase(),
+    jobCanton: String(job.canton || '').toLowerCase(),
+    jobSector: `${job.sector || ''} ${job.category || ''}`.toLowerCase(),
+    jobContract: String(job.contract || '').toLowerCase(),
+  };
+}
+
+/**
+ * Memo of {@link jobMatchFeatures} for one scoring pass over an IMMUTABLE job
+ * pool (keyed by object identity, then locale). Opt-in via the 4th argument of
+ * {@link scoreJobForAlert}: a caller that mutates a job between two scores must
+ * not pass one, and the default (no cache) recomputes exactly as before.
+ */
+export function createJobFeatureCache() {
+  const byJob = new WeakMap();
+  return {
+    get(job, locale) {
+      let byLocale = byJob.get(job);
+      if (!byLocale) {
+        byLocale = new Map();
+        byJob.set(job, byLocale);
+      }
+      const key = locale || '';
+      let features = byLocale.get(key);
+      if (!features) {
+        features = jobMatchFeatures(job, locale);
+        byLocale.set(key, features);
+      }
+      return features;
+    },
+  };
+}
+
+/**
  * Score one job against a pre-built alert profile.
  * Returns 0 when the job should NOT be surfaced; a positive integer otherwise
  * (higher = more relevant). The send loop sorts by this score, then recency.
@@ -429,9 +487,12 @@ export function partitionByGeoPreference(jobs, profile, { minLocal = GEO_PREFERE
  *   (e.g. a French MT error inserting an unrelated word) must not cause a
  *   job to wrongly match and get emailed to a subscriber in a DIFFERENT
  *   locale. Omitted keeps the prior locale-agnostic behavior. See #4715.
+ * @param {ReturnType<typeof createJobFeatureCache>|null} [featureCache] Memo of
+ *   the job-side features, for a caller scoring the same immutable pool against
+ *   many alerts. Omitted: computed per call, as before.
  * @returns {number}
  */
-export function scoreJobForAlert(job, profile, locale) {
+export function scoreJobForAlert(job, profile, locale, featureCache = null) {
   if (!job || !profile) return 0;
 
   // Job-specific scope: a pinned alert ("notify me about THIS job/company")
@@ -451,15 +512,9 @@ export function scoreJobForAlert(job, profile, locale) {
     return (idHit || companyHit) ? 10 : 0;
   }
 
-  const localizedTitles = locale
-    ? String((job.titleByLocale || {})[locale] || '')
-    : Object.values(job.titleByLocale || {}).join(' ');
-  const titleText = `${job.title || ''} ${localizedTitles}`.toLowerCase();
-  const fullText = `${titleText} ${(job.description || '').toLowerCase()}`;
-  const jobTokens = extractKeywords(
-    `${job.title || ''} ${localizedTitles} ${job.category || ''} ${job.sector || ''}`,
-  );
-  const jobCompany = normalizeCompanyToken(job.companyKey || job.company);
+  const {
+    titleText, fullText, jobTokens, jobCompany, jobLoc, jobCanton, jobSector, jobContract,
+  } = featureCache ? featureCache.get(job, locale) : jobMatchFeatures(job, locale);
 
   let score = 0;
 
@@ -488,8 +543,7 @@ export function scoreJobForAlert(job, profile, locale) {
   for (const t of profile.softTokens) if (jobTokens.has(t)) softOverlap++;
   if (softOverlap > 0) score += Math.min(5, softOverlap * 2);
 
-  // Location.
-  const jobLoc = `${job.location || ''} ${job.addressLocality || ''} ${job.addressRegion || ''} ${job.canton || ''}`.toLowerCase();
+  // Location (jobLoc: see jobMatchFeatures).
 
   // HARD geo filter: when the user scoped the alert to explicit locations and/or
   // cantons, a job OUTSIDE that geography is dropped — even when keywords or
@@ -499,7 +553,6 @@ export function scoreJobForAlert(job, profile, locale) {
   // hard; soft profile-derived locations (geo_city, pref cities) still only rank.
   const hasGeoScope = profile.alertLocations.length > 0 || profile.cantons.length > 0;
   if (hasGeoScope) {
-    const jobCanton = String(job.canton || '').toLowerCase();
     const geoHit =
       profile.alertLocations.some((l) => locTokenHit(jobLoc, l)) ||
       (profile.cantons.length > 0 && jobCanton && profile.cantons.includes(jobCanton));
@@ -508,16 +561,14 @@ export function scoreJobForAlert(job, profile, locale) {
 
   const locationMatch = profile.locations.some((l) => locTokenHit(jobLoc, l));
   if (locationMatch) score += 2;
-  const cantonMatch = profile.cantons.length > 0 && profile.cantons.includes(String(job.canton || '').toLowerCase());
+  const cantonMatch = profile.cantons.length > 0 && profile.cantons.includes(jobCanton);
   if (cantonMatch) score += 1;
 
   // Sector (match against sector/category AND title — sectors often surface in titles).
-  const jobSector = `${job.sector || ''} ${job.category || ''}`.toLowerCase();
   const sectorMatch = profile.sectors.some((s) => jobSector.includes(s) || titleText.includes(s));
   if (sectorMatch) score += 2;
 
   // Contract type.
-  const jobContract = String(job.contract || '').toLowerCase();
   const contractMatch = profile.contractTypes.some((c) => jobContract.includes(c));
   if (contractMatch) score += 1;
 

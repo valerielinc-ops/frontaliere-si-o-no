@@ -44,7 +44,11 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
 
 describe('one code verdict and metadata-triggered review recovery', () => {
   it('has exactly one unconditional required execution job and reviews edited PR metadata', () => {
-    expect(Object.keys(workflow.jobs)).toEqual(['vitest']);
+    // L'unico altro job, `post-review`, e' condizionato, dipende da `vitest` e
+    // non porta il nome del check required.
+    expect(Object.keys(workflow.jobs)).toEqual(['vitest', 'post-review']);
+    expect(workflow.jobs['post-review'].needs).toBe('vitest');
+    expect(workflow.jobs['post-review'].name).not.toBe(VITEST_CHECK_NAME);
     expect(job.name).toBe(VITEST_CHECK_NAME);
     expect(job.name).toBe(VITEST_EXECUTION_JOB_NAME);
     expect(job.if).toBeUndefined();
