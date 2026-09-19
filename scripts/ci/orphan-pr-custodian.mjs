@@ -51,7 +51,6 @@
  * del marker 🔴 arrivano da `scripts/ci/lib/constants.mjs` di ciascun lato.
  */
 import { execFileSync } from 'node:child_process';
-import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { isReviewerBot, REDFLAG_IMPORTANT_RE, VITEST_CHECK_NAME } from './lib/constants.mjs';
@@ -59,7 +58,11 @@ import { isReviewerBot, REDFLAG_IMPORTANT_RE, VITEST_CHECK_NAME } from './lib/co
 // (`\n` come due caratteri) e pretende la riga di contratto completa, esattamente
 // come `review-gate`. Una seconda copia della regex qui sarebbe la deriva che
 // AGENTS.md #6 vieta, e il gate la giudicherebbe con un parser diverso dal nostro.
-import { reviewHasInputRevision, reviewInputRevisions } from './lib/review-input-revision.mjs';
+import {
+  reviewHasInputRevision,
+  reviewInputRevisionFromBody,
+  reviewInputRevisions,
+} from './lib/review-input-revision.mjs';
 
 export const ORPHAN_MIN_AGE_S = 2 * 60 * 60;
 export const ORPHANED_LABEL = 'orphaned';
@@ -84,20 +87,22 @@ export function actionMarker(action, headSha, key = '') {
 }
 
 /**
- * `body:<sha256>` della rappresentazione esatta con cui il CORPUS emette il
- * marker (`scripts/ci/review-test-policy.mjs`: `sha256(body + "\n")`, la forma
- * che esce da `gh api --jq`). NON e' un duplicato di
- * `scripts/ci/lib/review-input-revision.mjs`: quel modulo esiste solo sul sito
- * e digerisce `sha256(body)` senza newline finale, quindi produrrebbe un
- * digest che non coincide con nessun marker realmente emesso. Questo file e'
- * `identical` fra i due repo e deve validare i marker del lato che li scrive.
- * Sul sito il reviewer non emette il marker (verificato sulle review di
- * `frontaliere-automation[bot]`): li' questa funzione non viene mai confrontata
- * con nulla e la selezione resta quella per HEAD.
+ * `body:<sha256>` della rappresentazione esatta con cui viene emesso il marker
+ * (`gh api --jq`, cioe' il body seguito da newline).
+ *
+ * Non e' piu' una seconda definizione: dal 2026-09-20 la formula vive in
+ * `scripts/ci/lib/review-input-revision.mjs`, che prima digeriva `sha256(body)`
+ * senza newline finale e produceva quindi un digest che non coincideva con
+ * nessun marker realmente emesso. Questa funzione resta come nome locale —
+ * il suo call site e il suo test la usano — ma delega, cosi' le due copie
+ * letterali che AGENTS.md #6 vieta non possono piu' divergere.
+ *
+ * @param {string} body
+ * @returns {string|null} `null` quando il body non e' una stringa
  */
 export function reviewRevisionForBody(body) {
   if (typeof body !== 'string') return null;
-  return `body:${createHash('sha256').update(`${body}\n`).digest('hex')}`;
+  return reviewInputRevisionFromBody(body);
 }
 
 
