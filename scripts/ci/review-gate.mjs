@@ -37,6 +37,14 @@ import {
   reviewHasInputRevision,
   reviewInputRevisionFromPullRequest,
 } from './lib/review-input-revision.mjs';
+import {
+  changedLinesFromPatch,
+  dedupeFindingsById,
+  isMalformedReviewBody,
+  reviewBodyDefects,
+  stableFindingId,
+  unchangedLineImportants,
+} from './lib/review-findings.mjs';
 import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
@@ -332,6 +340,13 @@ export function classifyReview(body, {
   // `## Non implementato`, the section the contract validates. Without it
   // nothing is declassified.
   prBody = null,
+  // Id stabili (`review-findings.mjs`) dei 🔴 già emessi dalle review
+  // precedenti. Un finding il cui id è qui non è nuovo e non viene mai
+  // declassato dalla regola sulle righe non cambiate.
+  priorFindingIds = null,
+  // Map path → Set(righe) toccate DALL'ultima review a questa HEAD, ricavata
+  // dal patch. `null` = delta non calcolabile → nessuna declassazione.
+  changedLinesSince = null,
 } = {}) {
   const findings = importantFindings(body);
   if (findings.length === 0) return emptyClassification(findings);
@@ -364,7 +379,29 @@ export function classifyReview(body, {
   const ignoredCitations = [];
   const bodyDeclassified = [];
 
+  // Righe realmente confrontate fra l'ultima review e questa HEAD. Il seed con
+  // l'elenco file della PR è la parte che rende la regola utile: dopo un merge
+  // di main che NON tocca i file della PR il patch è vuoto, e senza il seed
+  // ogni path citato risulterebbe «mai confrontato» — cioè l'esatto caso
+  // (#9238) che la regola deve coprire.
+  const comparedLines = changedLinesSince instanceof Map
+    ? new Map(changed.map((file) => [file, changedLinesSince.get(file) ?? new Set()]))
+    : null;
+  const staleImportants = comparedLines
+    ? unchangedLineImportants({
+      findings,
+      priorFindingIds: priorFindingIds instanceof Set ? priorFindingIds : new Set(priorFindingIds || []),
+      changedLines: comparedLines,
+    })
+    : [];
+  const staleIds = new Set(staleImportants.map((finding) => finding.findingNumber));
+  const staleDeclassified = [];
+
   for (const finding of findings) {
+    if (staleIds.has(finding.findingNumber)) {
+      staleDeclassified.push({ ...finding, stableId: stableFindingId(finding) });
+      continue;
+    }
     if (finding.parserUncertain) {
       unresolved.push({ ...finding, reason: 'struttura della review ambigua' });
       continue;
@@ -441,7 +478,9 @@ export function classifyReview(body, {
     unresolved,
     ignoredCitations,
     bodyDeclassified,
-    outsideOnly: (outside.length + bodyDeclassified.length) > 0 && inScope.length === 0 && unresolved.length === 0,
+    staleDeclassified,
+    outsideOnly: (outside.length + bodyDeclassified.length + staleDeclassified.length) > 0
+      && inScope.length === 0 && unresolved.length === 0,
     blocking: inScope.length > 0 || unresolved.length > 0,
   };
 }
@@ -927,8 +966,17 @@ export function auditHistoricalCitations(reviews, repositoryPaths, { fromFallbac
 
 /** Insert inherited findings before the latest review's LGTM marker. */
 export function reviewBodyWithHistoricalFindings(body, historicalFindings) {
-  const currentKeys = new Set(importantFindings(body).map(findingKey));
-  const carry = (historicalFindings || []).filter((finding) => !currentKeys.has(findingKey(finding)));
+  const current = importantFindings(body);
+  const currentKeys = new Set(current.map(findingKey));
+  // L'id stabile è il secondo criterio, non il primo: `findingKey` ancora al
+  // path:riga, quindi una riga che si sposta lo cambia e lo stesso rilievo
+  // veniva riportato UNA SECONDA VOLTA sotto «Findings ereditati» (9 duplicati
+  // parola per parola misurati il 19-09). L'id stabile non contiene la riga.
+  const currentIds = new Set(current.map(stableFindingId));
+  const carry = dedupeFindingsById(
+    (historicalFindings || []).filter((finding) =>
+      !currentKeys.has(findingKey(finding)) && !currentIds.has(stableFindingId(finding))),
+  );
   if (carry.length === 0) return String(body || '');
 
   const section = [
@@ -940,6 +988,30 @@ export function reviewBodyWithHistoricalFindings(body, historicalFindings) {
   const lgtm = String(body || '').search(/^## LGTM\b/imu);
   if (lgtm === -1) return `${String(body || '').trimEnd()}\n\n${section}`;
   return `${String(body || '').slice(0, lgtm)}${section}${String(body || '').slice(lgtm)}`;
+}
+
+/**
+ * Ultima review gestita PRIMA di `latest`, su un commit diverso. Il commit
+ * diverso non è un dettaglio: è la finestra su cui si misura «righe non
+ * cambiate». Due review sulla stessa HEAD hanno delta vuoto per costruzione e
+ * declasserebbero qualunque rilievo nuovo. Il filtro `isTerminalManagedReview`
+ * è lo stesso che `latestReviewer` applica: una review non terminale non
+ * definisce una finestra di confronto.
+ */
+function priorManagedReview(reviews, latest) {
+  const bots = reviewerList(reviews).filter((review) =>
+    review?.user?.type === 'Bot'
+      && REVIEWER_LOGIN_RE.test(review.user.login || '')
+      && isTerminalManagedReview(review),
+  );
+  const index = bots.findIndex((review) => String(review?.id) === String(latest?.id));
+  const before = index === -1 ? bots : bots.slice(0, index);
+  for (let cursor = before.length - 1; cursor >= 0; cursor -= 1) {
+    const candidate = before[cursor];
+    const commit = String(candidate?.commit_id || '');
+    if (/^[0-9a-f]{40}$/iu.test(commit) && commit !== String(latest?.commit_id || '')) return candidate;
+  }
+  return null;
 }
 
 function latestReviewer(reviews, { reviewRevision } = {}) {
@@ -1092,6 +1164,26 @@ function readReviews(repo, pr) {
   const reviews = parseReviewPages(pages);
   if (!reviews) throw new Error('reviews PR: JSON/pagine/entry malformate');
   return reviews;
+}
+
+/**
+ * Righe toccate fra due commit, nel formato della Map di `review-findings.mjs`.
+ * Deliberatamente a 2 punti: l'oggetto della regola è «cosa è cambiato sotto la
+ * review precedente», merge di main compresi, non il contributo della PR (per
+ * quello esiste il fingerprint). `null` = non calcolabile.
+ */
+function changedLinesBetween(fromSha, toSha) {
+  if (!/^[0-9a-f]{40}$/iu.test(String(fromSha || ''))
+      || !/^[0-9a-f]{40}$/iu.test(String(toSha || ''))) return null;
+  try {
+    const patch = execFileSync('git', ['diff', '--unified=0', '--no-color', `${fromSha}..${toSha}`], {
+      encoding: 'utf8',
+      maxBuffer: 64 * 1024 * 1024,
+    });
+    return changedLinesFromPatch(String(patch));
+  } catch {
+    return null;
+  }
 }
 
 function changedPathsBetween(fromSha, toSha) {
@@ -1280,6 +1372,9 @@ export function logClassification(classification) {
   for (const finding of classification.bodyDeclassified ?? []) {
     console.log(`review-gate: DECLASSIFIED-BODY finding=${finding.findingNumber} reason=deterministic PR-body contract passed on the current body; a body remark is at most a Nit`);
   }
+  for (const finding of classification.staleDeclassified ?? []) {
+    console.log(`review-gate: DECLASSIFIED-UNCHANGED-LINE finding=${finding.findingNumber} id=${finding.stableId} reason=new Important anchored only on lines untouched since the previous review; declare 🔴 Important: [regression] to keep it blocking`);
+  }
   for (const { findingNumber, path } of classification.ignoredCitations ?? []) {
     console.log(`review-gate: DECLASSIFIED-IGNORED finding=${findingNumber} path=${path} reason=path ignored by git, cannot be in the PR diff`);
   }
@@ -1314,6 +1409,8 @@ export async function classifyAndMintReview(body, {
   repositoryPaths: suppliedRepositoryPaths,
   bodyContractPassed = false,
   prBody = null,
+  priorFindingIds = null,
+  changedLinesSince = null,
 } = {}) {
   if (!repo || !/^\d+$/u.test(String(pr || ''))) {
     throw new Error('repo o PR number non valido');
@@ -1351,6 +1448,8 @@ export async function classifyAndMintReview(body, {
     isIgnoredPath: gitPathIsIgnored,
     bodyContractPassed,
     prBody: bodyContractPassed && prBody === null ? readPrBody(repo, pr) : prBody,
+    priorFindingIds,
+    changedLinesSince,
   });
   logClassification(classification);
 
@@ -1382,6 +1481,7 @@ export async function runReviewGate({
   repositoryPaths,
   repositoryPathsFromFallback = false,
   changedPathsFn = changedPathsBetween,
+  changedLinesFn = changedLinesBetween,
   classifyAndMintReviewFn = classifyAndMintReview,
   carryFingerprintFn = contributionFingerprint,
   bodyContractPassed = false,
@@ -1449,6 +1549,20 @@ export async function runReviewGate({
     };
   }
   const body = normalizeReviewBody(latest.body || '');
+  // Un body malformato non è un verdetto. Le due forme misurate il 19-09 su 220
+  // review — `\n` letterali al posto delle righe e `Fix di ``: ok` con anchor
+  // vuoto — producono un testo che il parser legge come review valida ma che
+  // non contiene né finding né conferme leggibili: scartarlo è l'unica lettura
+  // onesta, e lascia il ciclo di re-review a rifare la review.
+  const bodyDefects = reviewBodyDefects(body);
+  if (isMalformedReviewBody(body)) {
+    return {
+      approved: false,
+      reason: `body della review malformato (${bodyDefects.join(', ')}): verdetto scartato`,
+      review: latest,
+      bodyDefects,
+    };
+  }
   // A verdict carried onto this HEAD without a model run is accepted only
   // after the gate re-derives, on its own, that the origin was an approving
   // verdict and that the PR's code contribution is unchanged.
@@ -1504,6 +1618,20 @@ export async function runReviewGate({
       bodyContractPassed,
     };
     if (repositoryPaths !== undefined) classificationOptions.repositoryPaths = repositoryPaths;
+    const priorReview = priorManagedReview(reviewHistory, latest);
+    if (priorReview) {
+      classificationOptions.priorFindingIds = new Set(
+        historicalImportantFindings(reviewHistory, {
+          includeLatest: false,
+          repositoryPaths: repositoryPaths ?? null,
+          repositoryPathsFromFallback,
+        }).map(stableFindingId),
+      );
+      classificationOptions.changedLinesSince = changedLinesFn(
+        String(priorReview.commit_id || ''),
+        headSha,
+      );
+    }
     classification = await classifyAndMintReviewFn(effectiveBody, classificationOptions);
   } else if (findings.length > 0 && !applies) {
     classification = {
