@@ -307,9 +307,16 @@ function dateOnly(raw = '') {
 function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
   const attr30 = String(job?.attributes?.['30']?.[0] || '').trim();
   const attrCanton = resolveCoopCantonCode(attr30, '', fallbackCanton);
-  // Try to get city-level location from various API fields before falling back to canton
+  const workplaceCity = normalizeSpace(String(
+    job?.szas?.['sza_workplace.city'] ||
+    job?.szas?.['sza_location.city'] ||
+    job?.szas?.sza_workplace?.city ||
+    job?.szas?.sza_location?.city ||
+    '',
+  ));
+  // Prefer the job's explicit workplace over the generic listing location and canton.
   const apiCity = String(job?.location || job?.place || job?.city || job?.address?.city || '').trim();
-  const location = apiCity || attr30 || cantonLabel(attrCanton || fallbackCanton);
+  const location = workplaceCity || apiCity || attr30 || cantonLabel(attrCanton || fallbackCanton);
   const canton = preferLocationEncodedCanton(location, attrCanton || fallbackCanton)
     || attrCanton
     || fallbackCanton;
@@ -318,6 +325,7 @@ function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
   return {
     location,
     canton,
+    ...(workplaceCity ? { preferWorkplaceLocation: true } : {}),
     ...(company ? { company } : {}),
     ...(contract ? { contract } : {}),
     ...(job?.date || job?.datePosted || job?.publishedAt || job?.published_at || job?.createdAt
