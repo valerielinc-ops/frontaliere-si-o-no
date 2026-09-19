@@ -480,6 +480,20 @@ describe('post-walk incremental planning', () => {
     expect(result.paths).toEqual([claimed, direct]);
   });
 
+  it('finds flat HTML and new subtrees below an already-claimed child', () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const claimed = writeHtml(root, 'it/jobs/claimed/index.html', 'claimed');
+    const directFlat = writeHtml(root, 'it/jobs/direct-new.html', 'direct-flat');
+    const directSubtree = writeHtml(root, 'it/jobs/new-subtree/index.html', 'direct-subtree');
+
+    const result = collectHtmlFromClaimedPaths(distDir, [claimed], []);
+
+    expect(result.claimed).toBe(1);
+    expect(result.targeted).toBe(2);
+    expect(new Set(result.paths)).toEqual(new Set([claimed, directFlat, directSubtree]));
+  });
+
   it('round-trips the targeted-walk inventory and fails closed when absent', () => {
     const root = fixtureRoot();
     expect(loadPostWalkUnmanifestedTopLevels(root)).toBeNull();
