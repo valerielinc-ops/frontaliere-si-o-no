@@ -27,8 +27,8 @@ import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
 import { REVIEWER_BOT_LOGIN_RE } from './lib/constants.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
-import { hasEnumeratedItems } from './followup-resolution-match.mjs';
-import { isAggregateForAnalytics } from './check-issue-already-resolved.mjs';
+import { ACCEPTANCE_CONDITION, hasEnumeratedItems } from './followup-resolution-match.mjs';
+import { isAggregate, isAggregateForAnalytics } from './check-issue-already-resolved.mjs';
 
 export { hasEnumeratedItems };
 
@@ -493,7 +493,13 @@ export function tallyFindings(prs, { bucketOf = bucketFinding } = {}) {
 //      never be pre-empted by a content-token matcher.
 // Same feedback-loop class as the reconcile-bot / pre-flight-deterministic skips in
 // the outcome loop below: don't count burn that no safe gate could have prevented.
-// Pure → unit-tested. `labels` is an array of label-name strings.
+// A single-item follow-up is countable when the deterministic pre-flight has
+// actionable evidence: either the explicit `Suggested action` + distinctive
+// code-token contract, or a body keyword that the pre-flight still recognizes
+// (the analytics classifier intentionally excludes that body-only fallback).
+// Path-only or body-less follow-ups still need the Claude verification path, so
+// counting them here would recreate the false escalation loop tracked by #9109.
+// Pure → unit-tested. `labels` is an array of label names.
 export function isAvoidableAlreadyFixed(title, labels, body = '') {
   const names = Array.isArray(labels) ? labels : [];
   if (!names.includes('follow-up')) return false; // out of the gate's scope
@@ -501,7 +507,11 @@ export function isAvoidableAlreadyFixed(title, labels, body = '') {
   // its title-only keyword contract. A daily bucket is aggregate even with one
   // current item; it is processed item by item and must not be counted as burn.
   if (isAggregateForAnalytics(title, body)) return false;
-  return true; // single-item follow-up → the gate's real target → countable
+  // Keep this classifier aligned with deterministic pre-flight evidence. The
+  // body-keyword fallback is intentionally retained here because pre-flight
+  // recognizes it even though analytics does not (G5 contract).
+  if (ACCEPTANCE_CONDITION.holds(body) || isAggregate(title, body)) return true;
+  return false; // no actionable evidence → Claude verification is expected
 }
 
 // ---- `max-turns` avoidability classifier (DETERMINISTIC) --------------------
