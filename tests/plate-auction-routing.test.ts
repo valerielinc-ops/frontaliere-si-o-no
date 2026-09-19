@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { buildPlateAuctionPath, parsePlateAuctionPath } from '../services/plateAuctions/paths';
+import { buildPath, parsePath } from '../services/router';
 
 describe('plate-auction localized routing', () => {
   it.each([
@@ -43,6 +44,28 @@ describe('plate-auction localized routing', () => {
     const path = buildPlateAuctionPath({ locale: 'en', view: 'rankings' });
     expect(path).toBe('/en/swiss-plate-auctions/rankings/');
     expect(parsePlateAuctionPath(path)).toEqual({ locale: 'en', view: 'rankings' });
+  });
+
+  it('round-trips localized canton index pages without treating them as details', () => {
+    const italian = buildPlateAuctionPath({ locale: 'it', view: 'canton', canton: 'BS', page: 2 });
+    expect(italian).toBe('/aste-targhe-svizzera/basilea-citta-bs/pagina-2/');
+    expect(parsePlateAuctionPath(italian)).toEqual({ locale: 'it', view: 'canton', canton: 'BS', page: 2 });
+
+    const german = buildPlateAuctionPath({ locale: 'de', view: 'canton', canton: 'BS', page: 3 });
+    expect(german).toBe('/de/schweizer-nummernschildauktionen/basel-stadt-bs/seite-3/');
+    expect(parsePlateAuctionPath(german)).toEqual({ locale: 'de', view: 'canton', canton: 'BS', page: 3 });
+  });
+
+  it('fails closed on malformed canton index pages', () => {
+    expect(parsePlateAuctionPath('/aste-targhe-svizzera/basilea-citta-bs/pagina-1/')).toBeNull();
+    expect(parsePlateAuctionPath('/aste-targhe-svizzera/basilea-citta-bs/pagina-next/')).toBeNull();
+  });
+
+  it('keeps a paginated canton route through the app router', () => {
+    const route = { activeTab: 'plate-auctions' as const, plateAuctionView: 'canton' as const, plateAuctionCanton: 'BS', plateAuctionPage: 2 };
+    const path = buildPath(route, 'it');
+    expect(path).toBe('/aste-targhe-svizzera/basilea-citta-bs/pagina-2/');
+    expect(parsePath(path).route).toMatchObject(route);
   });
 
   it('keeps every canton slug unique in each locale', () => {
