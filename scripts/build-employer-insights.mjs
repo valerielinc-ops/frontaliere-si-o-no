@@ -2671,6 +2671,7 @@ export function buildGa4EventQueryBody(window, { limit = GA4_EVENT_QUERY_PAGE_SI
       { name: 'eventName' },
       { name: 'customEvent:employer_key' },
       { name: 'customEvent:job_slug' },
+      { name: 'customEvent:emission_id' },
       { name: 'pagePath' },
     ],
     metrics: [
@@ -2686,6 +2687,7 @@ export function buildGa4EventQueryBody(window, { limit = GA4_EVENT_QUERY_PAGE_SI
       { dimension: { dimensionName: 'eventName' } },
       { dimension: { dimensionName: 'customEvent:employer_key' } },
       { dimension: { dimensionName: 'customEvent:job_slug' } },
+      { dimension: { dimensionName: 'customEvent:emission_id' } },
       { dimension: { dimensionName: 'pagePath' } },
     ],
     limit,
@@ -2704,7 +2706,7 @@ export function normalizeGa4EventRows(rows = []) {
       event,
       timestamp,
       week: weekStart(timestamp),
-      path: ga4DimensionValue(row, 4),
+      path: ga4DimensionValue(row, 5),
       jobSlug: ga4DimensionValue(row, 3),
       jobId: '',
       providerId: '',
@@ -2716,7 +2718,7 @@ export function normalizeGa4EventRows(rows = []) {
       observed,
       persons: ga4MetricValue(row, 1),
       sessions: ga4MetricValue(row, 2),
-      emissionId: '',
+      emissionId: ga4DimensionValue(row, 4),
     };
   });
 }
