@@ -418,6 +418,16 @@ const LBL_MAYBE_RESOLVED = 'maybe-resolved';
 const DECOMPOSE_ENABLED = process.env.DECOMPOSE_ENABLED !== 'false';
 const DECOMPOSED_INTO_RE = /<!--\s*DECOMPOSED_INTO:\s*((?:#?\d+[\s,]*)+)-->/i;
 const PARENT_CLOSE_MAX_PER_RUN = intFromEnv('FOLLOWUP_PARENT_CLOSE_MAX_PER_RUN', 5);
+// `parent-close` deve ricordare l'ultima posizione davvero esaminata fra run
+// distinti: il tempo di parete salta bucket quando un cron ritarda e il budget
+// può consumare solo una parte della finestra. Il marker vive sulla issue
+// aggregatrice che ha originato questo pass; è aggiornato in-place, quindi non
+// crea un commento a ogni tick.
+const PARENT_CLOSE_CURSOR_ISSUE = positiveIntFromEnv('FOLLOWUP_PARENT_CLOSE_CURSOR_ISSUE', 7645);
+const PARENT_CLOSE_CURSOR_MARKER = 'FOLLOWUP_PARENT_CLOSE_CURSOR_V1';
+const PARENT_CLOSE_CURSOR_RE = new RegExp(
+  `<!--\\s*${PARENT_CLOSE_CURSOR_MARKER}:\\s*([^\\s<]+)\\s*-->`,
+);
 
 /**
  * La issue può entrare nello stadio di decomposizione? Pura (solo label) →
@@ -1909,11 +1919,81 @@ export function scanWindowOffset(poolSize, { scanMax, now, periodMs }) {
   return ((tick * scanMax) % n + n) % n;
 }
 
-/** Il pool, ruotato sulla finestra di scansione di questo tick. */
-export function rotateForScan(pool, opts) {
+function defaultScanKey(item) {
+  if (item && typeof item === 'object') return item.number ?? item.id ?? null;
+  return item;
+}
+
+function compareScanKeys(a, b) {
+  const as = String(a);
+  const bs = String(b);
+  const an = Number(as);
+  const bn = Number(bs);
+  if (Number.isFinite(an) && Number.isFinite(bn)) return an - bn;
+  return as.localeCompare(bs);
+}
+
+/**
+ * Cursor stabile per pool il cui ordine/numero di elementi cambia fra le run.
+ *
+ * Il ramo `cursor` ordina per una chiave d'identità, poi riparte dal primo
+ * elemento strettamente successivo al cursore. Se il cursore è oltre la coda
+ * corrente, il giro ricomincia dalla testa: rimozioni e inserimenti non
+ * cambiano la posizione relativa degli elementi già presenti. Il ramo senza
+ * cursore conserva la rotazione a tempo usata dagli altri pass storici.
+ *
+ * @param {Array<unknown>} pool
+ * @param {{scanMax?:number, now?:number, periodMs?:number, cursor?:unknown, getKey?:(item:unknown)=>unknown}} opts
+ * @returns {Array<unknown>}
+ */
+export function rotateForScan(pool, opts = {}) {
   const items = Array.isArray(pool) ? pool : [];
+
+  if (Object.prototype.hasOwnProperty.call(opts, 'cursor')) {
+    const getKey = typeof opts.getKey === 'function' ? opts.getKey : defaultScanKey;
+    const keyed = items
+      .map((item, index) => ({ item, index, key: getKey(item) }))
+      .filter(({ key }) => key !== null && key !== undefined && String(key) !== '')
+      .sort((a, b) => compareScanKeys(a.key, b.key) || a.index - b.index);
+    if (!keyed.length) return [];
+
+    const cursor = opts.cursor === null || opts.cursor === undefined
+      ? null
+      : String(opts.cursor);
+    const start = cursor === null
+      ? 0
+      : keyed.findIndex(({ key }) => compareScanKeys(key, cursor) > 0);
+    const offset = start === -1 ? 0 : start;
+    return [...keyed.slice(offset), ...keyed.slice(0, offset)].map(({ item }) => item);
+  }
+
   const off = scanWindowOffset(items.length, opts);
   return off ? [...items.slice(off), ...items.slice(0, off)] : items;
+}
+
+/** Marker HTML del cursore persistito del pass `parent-close`. */
+export function parentCloseCursorMarkerBody(cursor) {
+  return `<!-- ${PARENT_CLOSE_CURSOR_MARKER}: ${String(cursor)} -->`;
+}
+
+/**
+ * Legge l'ultimo marker del cursore dai commenti di una issue.
+ * @param {Array<{body?:string,url?:string}>|null} comments
+ * @returns {{cursor:string, commentId:string|null}|null}
+ */
+export function parentCloseCursorFromComments(comments) {
+  if (!Array.isArray(comments)) return null;
+  let found = null;
+  for (const comment of comments) {
+    const match = PARENT_CLOSE_CURSOR_RE.exec(String(comment?.body || ''));
+    if (!match) continue;
+    const id = String(comment?.id || '').match(/^\d+$/)?.[0]
+      || /issuecomment-(\d+)/.exec(String(comment?.url || ''))?.[1]
+      || /\/issues\/comments\/(\d+)(?:[/?#]|$)/.exec(String(comment?.url || ''))?.[1]
+      || null;
+    found = { cursor: match[1], commentId: id };
+  }
+  return found;
 }
 
 /**
@@ -2954,20 +3034,63 @@ function issueComments(num) {
   }
 }
 
-/** Commenti della issue in forma REST, o `null` su errore gh. Serve SOLO al
- * cooldown del PARKED-RETRY, ed è l'unica sorgente che porta `user.type` — il
- * flag di bot autoritativo, che non richiede alcuna allowlist da mantenere
- * (vedi `isBotComment`). `--paginate` è obbligatorio: la REST restituisce i
- * commenti in ordine CRESCENTE, quindi senza paginare una issue con >100
- * commenti darebbe i più VECCHI e l'ultimo evento significativo risulterebbe
- * più antico del vero — cioè un ri-accodo troppo eager, l'errore nel verso
- * sbagliato. `per_page=100` tiene le pagine (e quindi le chiamate) al minimo. */
+/** Commenti della issue in forma REST, o `null` su errore gh. È l'unica
+ * sorgente che porta `user.type` — il flag di bot autoritativo, che non
+ * richiede alcuna allowlist da mantenere (vedi `isBotComment`) — e ora serve
+ * anche al cursore durevole di `parent-close`. `--paginate --slurp` è
+ * obbligatorio: la REST restituisce i commenti in ordine CRESCENTE, quindi
+ * senza paginare una issue con >100 commenti darebbe i più VECCHI e l'ultimo
+ * evento significativo (o il marker del cursore) risulterebbe più antico del
+ * vero. `per_page=100` tiene le pagine (e quindi le chiamate) al minimo. */
 function issueCommentsRest(num) {
   try {
-    const out = gh(['api', `repos/${REPO}/issues/${num}/comments?per_page=100`, '--paginate']);
-    return Array.isArray(out) ? out : [];
+    const out = gh(['api', `repos/${REPO}/issues/${num}/comments?per_page=100`, '--paginate', '--slurp']);
+    const comments = Array.isArray(out) ? out.flat(Infinity) : null;
+    return comments && comments.every((comment) => comment && typeof comment === 'object' && !Array.isArray(comment))
+      ? comments
+      : null;
   } catch {
     return null;
+  }
+}
+
+/** Stato durevole della rotazione `parent-close`, o errore di lettura. */
+function loadParentCloseCursor() {
+  const comments = issueCommentsRest(PARENT_CLOSE_CURSOR_ISSUE);
+  if (comments === null) return { ok: false, cursor: null, commentId: null };
+  const marker = parentCloseCursorFromComments(comments);
+  return {
+    ok: true,
+    cursor: marker?.cursor ?? null,
+    commentId: marker?.commentId ?? null,
+  };
+}
+
+/**
+ * Scrive il cursore senza aggiungere un commento a ogni run. Una prima run
+ * crea il marker invisibile; le successive aggiornano lo stesso commento.
+ */
+function persistParentCloseCursor({ cursor, commentId }) {
+  if (cursor === null || cursor === undefined) return;
+  const body = parentCloseCursorMarkerBody(cursor);
+  if (DRY) {
+    console.log(`[dry] parent-close cursor #${PARENT_CLOSE_CURSOR_ISSUE} → ${cursor}`);
+    return;
+  }
+  try {
+    if (commentId) {
+      gh([
+        'api', `repos/${REPO}/issues/comments/${commentId}`,
+        '--method', 'PATCH', '--raw-field', `body=${body}`,
+      ], { json: false });
+    } else {
+      gh([
+        'issue', 'comment', String(PARENT_CLOSE_CURSOR_ISSUE),
+        '--repo', REPO, '--body', body,
+      ], { json: false });
+    }
+  } catch (e) {
+    console.log(`::warning::parent-close: cursore ${cursor} non persistito (${String(e).slice(0, 160)})`);
   }
 }
 
@@ -3245,56 +3368,57 @@ export function runDrain() {
     // di age-out (`slice` su candidate già filtrate), verdict-exit (`acted`) e
     // sibling-debt (`labelled`), dove uno slot lo consuma solo chi agisce. Qui
     // l'esame È il costo (1 view commenti + K view di stato per padre), quindi
-    // il cap sulle esaminate è giusto e resta. Senza rotazione, però, quel cap
-    // cade SEMPRE sulle stesse 5 posizioni di testa: `gh issue list` ordina
-    // dalla più recente, e i padri più recenti sono per costruzione quelli con
-    // le figlie ancora aperte. Il «rinviati al prossimo tick» del log diventa
-    // una bugia — il tick successivo riesamina gli stessi cinque.
+    // il cap sulle esaminate è giusto e resta.
     //
-    // Misurato il 2026-09-05 sul sito: 39 padri `decomposed:1`, deferred fermo
-    // a 33-34 per ~25 run consecutive e ZERO `PARENT-CLOSE` in 40 run. Degli 8
-    // padri con TUTTE le figlie chiuse — chiudibili subito — nessuno era nella
-    // testa da 5: stavano alle posizioni 20, 22, 23, 27, 29, 31, 33 e 36, da
-    // 11-23 giorni. Irraggiungibili per costruzione, non per difficoltà.
-    //
-    // Stessa cura già applicata agli altri stadi scansionati: `rotateForScan`
-    // avanza di `cap` posizioni per tick, quindi il pool è coperto in
-    // ⌈pool/cap⌉ tick (39/5 → 8 tick) senza alzare il costo per run.
-    const rotatedParents = rotateForScan(parents, {
-      scanMax: PARENT_CLOSE_MAX_PER_RUN,
-      now: Date.now(),
-      periodMs: SCAN_ROTATION_PERIOD_MS,
-    });
-    let examined = 0;
-    for (const p of rotatedParents) {
-      if (hasActiveAgentClaim(p)) {
-        console.log(`CLAIM-SKIP #${p.number} (agent claim presente: ${names(p).filter((name) => [LBL_IN_PROGRESS, LBL_LOCAL, LBL_REMOTE].includes(name)).join(', ') || 'stato claim incompleto'}) → nessun parent-close sulla flotta locale/remota`);
-        continue;
-      }
-      if (examined >= PARENT_CLOSE_MAX_PER_RUN) {
-        console.log(`parent-close: cap ${PARENT_CLOSE_MAX_PER_RUN}/run raggiunto, ${parents.length - examined} padri rinviati al prossimo tick (no silent cap).`);
-        break;
-      }
-      if (!budget.take(`#${p.number} (parent-close)`, ITEM_COST_MS)) break;
-      examined++;
-      const kids = decomposedChildNumbers(issueComments(p.number) || []);
-      if (!kids.length) continue; // marker assente/illeggibile → nessuna decisione
-      let allClosed = true;
-      for (const k of kids) {
+    // La rotazione non usa più il tempo di parete: il cron può saltare bucket e
+    // il budget può fermare la finestra a metà. Il marker durevole conserva
+    // l'ultima issue davvero esaminata; la chiave numerica mantiene l'ordine
+    // anche quando `gh issue list` cambia recenza, lunghezza o ordine del pool.
+    const cursorState = loadParentCloseCursor();
+    if (!cursorState.ok) {
+      console.log(`::warning::parent-close: cursore sulla issue #${PARENT_CLOSE_CURSOR_ISSUE} illeggibile → nessuna scansione al buio, retry al prossimo tick.`);
+    } else {
+      const rotatedParents = rotateForScan(parents, {
+        scanMax: PARENT_CLOSE_MAX_PER_RUN,
+        cursor: cursorState.cursor,
+        getKey: (p) => p.number,
+      });
+      let examined = 0;
+      let lastExaminedCursor = cursorState.cursor;
+      for (const p of rotatedParents) {
+        if (hasActiveAgentClaim(p)) {
+          console.log(`CLAIM-SKIP #${p.number} (agent claim presente: ${names(p).filter((name) => [LBL_IN_PROGRESS, LBL_LOCAL, LBL_REMOTE].includes(name)).join(', ') || 'stato claim incompleto'}) → nessun parent-close sulla flotta locale/remota`);
+          continue;
+        }
+        if (examined >= PARENT_CLOSE_MAX_PER_RUN) {
+          console.log(`parent-close: cap ${PARENT_CLOSE_MAX_PER_RUN}/run raggiunto, ${parents.length - examined} padri rinviati al prossimo tick (no silent cap).`);
+          break;
+        }
+        if (!budget.take(`#${p.number} (parent-close)`, ITEM_COST_MS)) break;
+        examined++;
+        lastExaminedCursor = String(p.number);
+        const kids = decomposedChildNumbers(issueComments(p.number) || []);
+        if (!kids.length) continue; // marker assente/illeggibile → nessuna decisione
+        let allClosed = true;
+        for (const k of kids) {
+          try {
+            const st = gh(['issue', 'view', String(k), '--repo', REPO, '--json', 'state']);
+            if (String(st?.state || '').toUpperCase() !== 'CLOSED') { allClosed = false; break; }
+          } catch { allClosed = false; break; } // stato illeggibile → non chiudere
+        }
+        if (!allClosed) continue;
+        if (DRY) { console.log(`[dry] parent-close #${p.number} (figlie ${kids.join(', ')} tutte chiuse)`); continue; }
         try {
-          const st = gh(['issue', 'view', String(k), '--repo', REPO, '--json', 'state']);
-          if (String(st?.state || '').toUpperCase() !== 'CLOSED') { allClosed = false; break; }
-        } catch { allClosed = false; break; } // stato illeggibile → non chiudere
+          gh(['issue', 'comment', String(p.number), '--repo', REPO, '--body',
+            `✅ Auto-chiusa dal followup-drainer (PARENT-CLOSE): tutte le sub-issue della decomposizione (${kids.map((n) => `#${n}`).join(', ')}) risultano chiuse. Riapri se una parte dello scope originario non è coperta dalle figlie.`], { json: false });
+          gh(['issue', 'close', String(p.number), '--repo', REPO], { json: false });
+          console.log(`PARENT-CLOSE #${p.number} (figlie tutte chiuse: ${kids.join(', ')}) — "${p.title?.slice(0, 50)}"`);
+        } catch (e) {
+          console.log(`parent-close: #${p.number} fallita (${e.message}) — continuo col batch.`);
+        }
       }
-      if (!allClosed) continue;
-      if (DRY) { console.log(`[dry] parent-close #${p.number} (figlie ${kids.join(', ')} tutte chiuse)`); continue; }
-      try {
-        gh(['issue', 'comment', String(p.number), '--repo', REPO, '--body',
-          `✅ Auto-chiusa dal followup-drainer (PARENT-CLOSE): tutte le sub-issue della decomposizione (${kids.map((n) => `#${n}`).join(', ')}) risultano chiuse. Riapri se una parte dello scope originario non è coperta dalle figlie.`], { json: false });
-        gh(['issue', 'close', String(p.number), '--repo', REPO], { json: false });
-        console.log(`PARENT-CLOSE #${p.number} (figlie tutte chiuse: ${kids.join(', ')}) — "${p.title?.slice(0, 50)}"`);
-      } catch (e) {
-        console.log(`parent-close: #${p.number} fallita (${e.message}) — continuo col batch.`);
+      if (examined > 0) {
+        persistParentCloseCursor({ cursor: lastExaminedCursor, commentId: cursorState.commentId });
       }
     }
   }
