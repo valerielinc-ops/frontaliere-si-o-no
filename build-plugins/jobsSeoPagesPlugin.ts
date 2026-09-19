@@ -13320,6 +13320,7 @@ ${staticAnalyticsHtml}
     incrementalManifestInputCache,
    ),
    path: relPath,
+   title: pageTitleRaw,
    trackingPaths: paths,
    company: jobCompany,
    location: jobLocation,
