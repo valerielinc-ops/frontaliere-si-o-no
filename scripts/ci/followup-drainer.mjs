@@ -424,6 +424,10 @@ const LBL_MAYBE_RESOLVED = 'maybe-resolved';
 const DECOMPOSE_ENABLED = process.env.DECOMPOSE_ENABLED !== 'false';
 const DECOMPOSED_INTO_RE = /<!--\s*DECOMPOSED_INTO:\s*((?:#?\d+[\s,]*)+)-->/i;
 const PARENT_CLOSE_MAX_PER_RUN = intFromEnv('FOLLOWUP_PARENT_CLOSE_MAX_PER_RUN', 5);
+// `parent-dequeue` è una mutazione separata dal controllo `parent-close` che
+// segue. Il cap impedisce che un backlog di padri consumi tutta la finestra del
+// job prima che il tracker possa essere esaminato e chiuso.
+const PARENT_DEQUEUE_MAX_PER_RUN = positiveIntFromEnv('FOLLOWUP_PARENT_DEQUEUE_MAX_PER_RUN', 5);
 // `parent-close` deve ricordare l'ultima posizione davvero esaminata fra run
 // distinti: il tempo di parete salta bucket quando un cron ritarda e il budget
 // può consumare solo una parte della finestra. Il marker vive sulla issue
@@ -434,6 +438,34 @@ const PARENT_CLOSE_CURSOR_MARKER = 'FOLLOWUP_PARENT_CLOSE_CURSOR_V1';
 const PARENT_CLOSE_CURSOR_RE = new RegExp(
   `<!--\\s*${PARENT_CLOSE_CURSOR_MARKER}:\\s*([^\\s<]+)\\s*-->`,
 );
+
+/**
+ * Il dequeue deve lasciare tempo per almeno un intero pass `parent-close`.
+ * Pura e separata dal loop per rendere visibile il contratto di prenotazione:
+ * `remainingMs` è già al netto della riserva generale del job.
+ *
+ * @param {{remainingMs?: number, itemCostMs?: number, parentCloseMaxPerRun?: number}} opts
+ * @returns {{canStart: boolean, reserveMs: number, requiredMs: number}}
+ */
+export function parentDequeueBudgetDecision({
+  remainingMs,
+  itemCostMs,
+  parentCloseMaxPerRun,
+} = {}) {
+  const cost = Number(itemCostMs);
+  const closeCap = Number(parentCloseMaxPerRun);
+  const safeCost = Number.isFinite(cost) && cost > 0 ? cost : 0;
+  const safeCloseCap = Number.isFinite(closeCap) && closeCap > 0 ? closeCap : 0;
+  const reserveMs = safeCost * safeCloseCap;
+  const requiredMs = reserveMs + safeCost;
+  const remaining = Number(remainingMs);
+  const unbounded = remainingMs === Number.POSITIVE_INFINITY;
+  return {
+    canStart: unbounded || (Number.isFinite(remaining) && remaining >= requiredMs),
+    reserveMs,
+    requiredMs,
+  };
+}
 
 /**
  * La issue può entrare nello stadio di decomposizione? Pura (solo label) →
@@ -3509,9 +3541,37 @@ export function runDrain() {
     // `isDecomposedParent`). I filtri di RESCUE/DRAIN impediscono che ci
     // rientri, ma non tolgono la label a chi ci è già dentro: senza questo
     // passo #7340 & C. resterebbero `agent:fix` per sempre, invisibili a ogni
-    // altro strato. Solo label (nessuna `gh view`), e solo per i pochi padri
-    // che le portano davvero.
-    for (const p of parents.filter((x) => !hasActiveAgentClaim(x) && (has(x, LBL_FIX) || has(x, LBL_QUEUED)))) {
+    // altro strato. È una mutazione comment+edit, quindi ha lo stesso costo
+    // degli altri item e deve lasciare la capacità del PARENT-CLOSE.
+    const parentDequeueCandidates = parents.filter(
+      (x) => !hasActiveAgentClaim(x) && (has(x, LBL_FIX) || has(x, LBL_QUEUED)),
+    );
+    const dequeueCap = Math.min(PARENT_DEQUEUE_MAX_PER_RUN, parentDequeueCandidates.length);
+    if (parentDequeueCandidates.length > dequeueCap) {
+      console.log(`parent-dequeue: cap ${PARENT_DEQUEUE_MAX_PER_RUN}/run raggiunto, ${parentDequeueCandidates.length - dequeueCap} rinviati al prossimo tick (no silent cap).`);
+    }
+    for (let dequeueIndex = 0; dequeueIndex < dequeueCap; dequeueIndex += 1) {
+      const p = parentDequeueCandidates[dequeueIndex];
+      const budgetGate = parentDequeueBudgetDecision({
+        remainingMs: budget.remainingMs(),
+        itemCostMs: ITEM_COST_MS,
+        parentCloseMaxPerRun: PARENT_CLOSE_MAX_PER_RUN,
+      });
+      if (!budgetGate.canStart) {
+        const deferred = parentDequeueCandidates.slice(dequeueIndex, dequeueCap);
+        for (const deferredParent of deferred) {
+          budget.defer(`#${deferredParent.number} (parent-dequeue: riserva parent-close)`);
+        }
+        console.log(`parent-dequeue: budget insufficiente per ${deferred.length} item, `
+          + `riservati ${budgetGate.reserveMs}ms a parent-close → rinvio al prossimo tick.`);
+        break;
+      }
+      if (!budget.take(`#${p.number} (parent-dequeue)`, ITEM_COST_MS)) {
+        for (const deferredParent of parentDequeueCandidates.slice(dequeueIndex + 1, dequeueCap)) {
+          budget.defer(`#${deferredParent.number} (parent-dequeue: riserva parent-close)`);
+        }
+        break;
+      }
       if (DRY) { console.log(`[dry] parent-dequeue #${p.number}`); continue; }
       try {
         gh(['issue', 'comment', String(p.number), '--repo', REPO, '--body',

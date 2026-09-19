@@ -629,12 +629,7 @@ export function openFailureIssueWorkflows() {
     );
     return null;
   }
-  const byWorkflow = new Map();
-  for (const issue of issues) {
-    const workflowName = workflowNameFromIssue(issue);
-    if (workflowName) byWorkflow.set(workflowName, { number: issue.number, updatedAt: issue.updatedAt ?? null });
-  }
-  return byWorkflow;
+  return latestIssuePerWorkflow(issues);
 }
 
 /**
@@ -652,6 +647,38 @@ export function workflowNameFromIssue(issue) {
 
   const bodyMatch = String(issue?.body || '').match(/^\*\*Workflow:\*\*\s*(.+?)\s*$/m);
   return bodyMatch?.[1]?.trim() || null;
+}
+
+/**
+ * Sceglie una sola issue canonica quando piu' reporter dichiarano lo stesso
+ * workflow. Il listing GitHub non e' un ordine stabile: conservare l'ultima
+ * riga iterata puo' quindi riattivare una issue generica vecchia mentre una
+ * issue specifica piu' recente sta gia' seguendo lo stesso guasto.
+ */
+export function latestIssuePerWorkflow(issues) {
+  const byWorkflow = new Map();
+  for (const issue of issues) {
+    const workflowName = workflowNameFromIssue(issue);
+    if (!workflowName) continue;
+
+    const candidate = { number: issue.number, updatedAt: issue.updatedAt ?? null };
+    const previous = byWorkflow.get(workflowName);
+    if (!previous) {
+      byWorkflow.set(workflowName, candidate);
+      continue;
+    }
+
+    const candidateTime = Date.parse(String(candidate.updatedAt ?? ''));
+    const previousTime = Date.parse(String(previous.updatedAt ?? ''));
+    if (
+      (Number.isFinite(candidateTime) && !Number.isFinite(previousTime))
+      || (candidateTime > previousTime)
+      || (candidateTime === previousTime && Number(candidate.number) > Number(previous.number))
+    ) {
+      byWorkflow.set(workflowName, candidate);
+    }
+  }
+  return byWorkflow;
 }
 
 /* ── modalità failure ───────────────────────────────────────────────── */

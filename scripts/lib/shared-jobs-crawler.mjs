@@ -3715,7 +3715,7 @@ async function crawlWorkdayJobs(
   source,
   crawlerConfig,
   knownJobUrls = new Set(),
-  { requireConcreteLocation = false } = {},
+  { requireConcreteLocation = true } = {},
 ) {
   const collected = [];
   let skippedKnown = 0;
@@ -3909,9 +3909,6 @@ async function crawlWorkdayJobs(
       if (requireConcreteLocation && !isConcreteSwissWorkdayLocation(location)) {
         console.warn(`  ⚠️ Skipping Workday job without a concrete Swiss locality: "${title}" (${location || 'unknown'})`);
         continue;
-      }
-      if (!location) {
-        location = company.city || 'Ticino';
       }
       if (!isTargetSwissLocation(`${title} ${location} ${descriptionSeed}`)) continue;
       const inferredCanton = (requireConcreteLocation
@@ -5025,7 +5022,7 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
       let wdJobs = [];
       try {
         // eslint-disable-next-line no-await-in-loop
-        wdJobs = await crawlWorkdayJobs(company, source, crawlerConfig, knownJobUrls, { requireConcreteLocation: true });
+        wdJobs = await crawlWorkdayJobs(company, source, crawlerConfig, knownJobUrls);
       } catch (err) {
         const outcome = err?.workdayFetchFailure ? 'connection_error' : 'feed_endpoint_unavailable';
         result.fetchOutcome = outcome;
@@ -6589,6 +6586,7 @@ export const __testables = {
   aiValidateJobDetailPage,
   fetchWithTimeout,
   buildKnownJobUrlsSet,
+  crawlWorkdayJobs,
   buildCompanyKeyResolver,
   migrateCompanyJobKeys,
   pruneStaleCrawlerJobs,

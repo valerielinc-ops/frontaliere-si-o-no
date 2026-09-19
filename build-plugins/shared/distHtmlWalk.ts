@@ -55,14 +55,62 @@ export function collectHtml(dir: string, out: string[]): string[] {
 }
 
 export type IncrementalHtmlWalkResult = {
-  readonly paths: readonly string[];
+  readonly paths: string[];
   readonly claimed: number;
   readonly targeted: number;
+  readonly topLevels: readonly string[];
+  readonly topLevelsChanged: boolean;
+  readonly indexed: number;
 };
+
+export type PostWalkIndexedInventory = {
+  readonly topLevels: readonly string[];
+  readonly unmanifestedPaths: readonly string[];
+};
+
+function isSkippedDirectory(name: string): boolean {
+  return name === 'assets' || name === 'data' || name === 'images';
+}
+
+/** List the shallow roots that can contain HTML without descending into them. */
+export function listWalkableDistTopLevels(distDir: string): string[] {
+  const topLevels: string[] = [];
+  for (const entry of fs.readdirSync(distDir, { withFileTypes: true })) {
+    if (entry.isDirectory()) {
+      if (!isSkippedDirectory(entry.name)) topLevels.push(entry.name);
+    } else if (entry.isFile() && entry.name.endsWith('.html')) {
+      topLevels.push('<root>');
+    }
+  }
+  return [...new Set(topLevels)].sort();
+}
+
+function sameStringList(left: readonly string[], right: readonly string[]): boolean {
+  if (left.length !== right.length) return false;
+  for (let index = 0; index < left.length; index += 1) {
+    if (left[index] !== right[index]) return false;
+  }
+  return true;
+}
+
+/**
+ * Return a dist-relative path without invoking path.relative for the normal
+ * case. Every path emitted by collectHtml and WriteCollector is rooted below
+ * the same absolute dist directory, so the prefix slice is both cheaper and
+ * equivalent on the hot path.
+ */
+export function relativeDistPath(distDir: string, filePath: string): string {
+  const prefixLength = distDir.endsWith(path.sep) ? distDir.length : distDir.length + 1;
+  return filePath.startsWith(distDir)
+    && filePath.length >= prefixLength
+    && (prefixLength === distDir.length || filePath[distDir.length] === path.sep)
+    ? filePath.slice(prefixLength)
+    : path.relative(distDir, filePath);
+}
 
 function isWalkableHtmlPath(distDir: string, filePath: string): boolean {
   if (!filePath.endsWith('.html')) return false;
-  const relative = path.relative(distDir, filePath);
+  const relative = relativeDistPath(distDir, filePath);
   if (relative.startsWith('..') || path.isAbsolute(relative)) return false;
   const segments = relative.split(path.sep);
   return !segments.some((segment) => segment === 'assets' || segment === 'data' || segment === 'images');
@@ -79,6 +127,7 @@ export function collectHtmlFromClaimedPaths(
   distDir: string,
   claimedPaths: Iterable<string>,
   targetedTopLevels: readonly string[],
+  indexedInventory?: PostWalkIndexedInventory,
 ): IncrementalHtmlWalkResult {
   const paths: string[] = [];
   const seen = new Set<string>();
@@ -89,7 +138,7 @@ export function collectHtmlFromClaimedPaths(
     if (!isWalkableHtmlPath(distDir, filePath) || seen.has(filePath)) continue;
     seen.add(filePath);
     paths.push(filePath);
-    const relative = path.relative(distDir, filePath);
+    const relative = relativeDistPath(distDir, filePath);
     const segments = relative.split(path.sep);
     const topLevel = segments[0] || '<root>';
     claimedTopLevels.add(topLevel);
@@ -104,12 +153,34 @@ export function collectHtmlFromClaimedPaths(
     claimed++;
   }
 
-  const rootsToWalk = new Set(targetedTopLevels);
+  const topLevels = listWalkableDistTopLevels(distDir);
+  const indexedTopLevels = indexedInventory?.topLevels ?? [];
+  const topLevelsChanged = indexedInventory !== undefined
+    && !sameStringList(topLevels, [...indexedTopLevels].sort());
+  const canReuseIndexedPaths = indexedInventory !== undefined && !topLevelsChanged;
+  let indexed = 0;
+  if (canReuseIndexedPaths) {
+    for (const relative of indexedInventory.unmanifestedPaths) {
+      const filePath = path.join(distDir, relative);
+      // The exact index is the replacement for reopening the unmanifested
+      // trees. Do not turn it into one stat per path: the completed walk that
+      // produced this sidecar already proved these paths, and a changed
+      // top-level invalidates the whole index above. The coordinator's
+      // read/transform path still treats a disappeared file as a safe miss.
+      if (seen.has(filePath)) continue;
+      seen.add(filePath);
+      paths.push(filePath);
+      indexed++;
+    }
+  }
+
+  const rootsToWalk = new Set(canReuseIndexedPaths ? [] : targetedTopLevels);
+  const indexedTopLevelSet = new Set(indexedTopLevels);
   // A new direct emitter can introduce a top-level that was not present in
   // the previous inventory. The single shallow readdir is cheap and catches
   // that case without reopening any already-claimed tree.
   for (const entry of fs.readdirSync(distDir, { withFileTypes: true })) {
-    if (entry.isDirectory() && (entry.name === 'assets' || entry.name === 'data' || entry.name === 'images')) {
+    if (entry.isDirectory() && isSkippedDirectory(entry.name)) {
       continue;
     }
     const topLevel = entry.isDirectory()
@@ -117,7 +188,11 @@ export function collectHtmlFromClaimedPaths(
       : entry.isFile() && entry.name.endsWith('.html')
         ? '<root>'
         : null;
-    if (topLevel !== null && !claimedTopLevels.has(topLevel)) rootsToWalk.add(topLevel);
+    if (
+      topLevel !== null
+      && !claimedTopLevels.has(topLevel)
+      && (!canReuseIndexedPaths || !indexedTopLevelSet.has(topLevel))
+    ) rootsToWalk.add(topLevel);
   }
 
   const targetedPaths: string[] = [];
@@ -136,7 +211,7 @@ export function collectHtmlFromClaimedPaths(
     if (!fs.existsSync(root) || !fs.statSync(root).isDirectory()) continue;
     const claimedChildren = claimedChildrenByTopLevel.get(topLevel) ?? new Set<string>();
     for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
-      if (entry.name === 'assets' || entry.name === 'data' || entry.name === 'images') continue;
+      if (isSkippedDirectory(entry.name)) continue;
       if (entry.isFile()) {
         if (entry.name.endsWith('.html')) targetedPaths.push(root + path.sep + entry.name);
         continue;
@@ -169,12 +244,12 @@ export function collectHtmlFromClaimedPaths(
       }
     }
   }
-  let targeted = 0;
+  let targeted = indexed;
   for (const filePath of targetedPaths) {
     if (!isWalkableHtmlPath(distDir, filePath) || seen.has(filePath)) continue;
     seen.add(filePath);
     paths.push(filePath);
     targeted++;
   }
-  return { paths, claimed, targeted };
+  return { paths, claimed, targeted, topLevels, topLevelsChanged, indexed };
 }
