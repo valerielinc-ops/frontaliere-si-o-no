@@ -7,7 +7,7 @@
  *
  * Phase 3 optimization: reduces string concatenation overhead for 55k+ pages.
  */
-import { FAVICON_LINKS, GTAG_SNIPPET, ADSENSE_SNIPPET, PARTNERIZE_TAG_SNIPPET, BASE_URL, SPA_ACTION_REDIRECT_SCRIPT, SEO_STATIC_CSS_FILENAME, CDN_PRECONNECT_HINT, normalizeRobotsDirective, BUILD_ID_META_TAG } from './constants';
+import { FAVICON_LINKS, GTAG_SNIPPET, ADSENSE_SNIPPET, PARTNERIZE_TAG_SNIPPET, BASE_URL, SPA_ACTION_REDIRECT_SCRIPT, SEO_STATIC_CSS_FILENAME, CDN_PRECONNECT_HINT, normalizeRobotsDirective, STATIC_BUILD_ID_META_TAG } from './constants';
 import { escapeInlineScript } from './shared/inlineJsonScript';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { CRITICAL_CSS_LINK } from './shared/criticalCss';
@@ -126,7 +126,7 @@ export function asyncCssHeadBlock(entryCss?: string): string {
  */
 export const HEAD_PREFIX = `<meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
- ${BUILD_ID_META_TAG}
+ ${STATIC_BUILD_ID_META_TAG}
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests;">
  <meta http-equiv="X-Content-Type-Options" content="nosniff">
  <meta name="referrer" content="strict-origin-when-cross-origin">

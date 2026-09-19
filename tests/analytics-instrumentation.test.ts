@@ -97,8 +97,8 @@ describe('analytics.ts — app_error payload', () => {
   it('attaches the embedded build id to app errors and error-page views', () => {
     const appErrorBlock = analyticsSrc.match(/log\('app_error',[\s\S]*?\}\);/);
     const errorPageBlock = analyticsSrc.match(/trackErrorPageView:[\s\S]*?log\('error_page_view',[\s\S]*?\}\);/);
-    expect(appErrorBlock?.[0]).toMatch(/build_id:\s*truncate\(readEmbeddedBuildId\(\)/);
-    expect(errorPageBlock?.[0]).toMatch(/build_id:\s*truncate\(readEmbeddedBuildId\(\)/);
+    expect(appErrorBlock?.[0]).toMatch(/build_id:\s*truncate\(readBuildIdForTelemetry\(\)/);
+    expect(errorPageBlock?.[0]).toMatch(/build_id:\s*truncate\(readBuildIdForTelemetry\(\)/);
   });
 });
 

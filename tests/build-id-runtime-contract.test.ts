@@ -26,7 +26,7 @@ describe('runtime build identity contract', () => {
     expect(constants).toContain('name="ft-build-id"');
     expect(plugin).toContain('transformIndexHtml(html)');
     expect(plugin).toContain('BUILD_ID_META_TAG');
-    expect(template).toContain('${BUILD_ID_META_TAG}');
+    expect(template).toContain('${STATIC_BUILD_ID_META_TAG}');
   });
 
   it('adds build identity to every runtime health event family', () => {
