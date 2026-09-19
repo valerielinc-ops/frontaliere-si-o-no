@@ -129,6 +129,17 @@ export const JOBS_SEO_FINGERPRINT_INERT_MODULES = Object.freeze({
   // hrtime counters and the timing summary; the renderer imports no
   // pass-through wrapper (`timed`) from it, only start/record/print.
   'build-plugins/shared/jobsSeoProfiler.ts': Object.freeze(['build-plugins/jobsSeoPagesPlugin.ts']),
+  // Incremental manifest I/O and the reuse digest (buildMinimalJobInput,
+  // computeInputHash). The renderer uses it to build the manifest input next
+  // to each page, never to build the page. The only render-time helper it
+  // had, stableJobId (a memo key), lives in stableJobId.mjs and stays hashed;
+  // templateVersionForKind and JOB_DIGEST_ALGORITHM_VERSION are hashed by
+  // value in computeJobsSeoEmitterFingerprints. A digest change needs no
+  // fingerprint: pages whose input hash moves are simply not reused.
+  'build-plugins/shared/incrementalManifest.mjs': Object.freeze([
+    'build-plugins/jobsSeoPagesPlugin.ts',
+    'build-plugins/shared/incrementalHtmlReuse.mjs',
+  ]),
 });
 
 function sha256(value) {
