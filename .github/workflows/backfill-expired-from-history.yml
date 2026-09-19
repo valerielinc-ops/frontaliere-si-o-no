@@ -61,10 +61,34 @@ jobs:
         # consuma l'intero budget e il job muore `cancelled` — stato invisibile
         # agli `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
         # posteriori. Col tetto e' un `failure` diagnosticabile.
-        # Un solo run completato disponibile (Checkout 166s, 3% di un cap da
-        # 90min): dato insufficiente per giustificare blob:none, e nessun segnale
-        # di rischio. Solo il tetto.
-        timeout-minutes: 20
+        #
+        # Il tetto era 20min, tarato sull'UNICA run completata disponibile
+        # (Checkout 166s il 2026-06-15, 3% di un cap da 90min). Quei 166s non
+        # descrivono piu' il repo: la run 33490566667 (2026-09-01) e' morta
+        # proprio qui, e il log dice che il tetto ha tagliato il FETCH, non il
+        # checkout dell'albero — `git fetch` dalle 09:07:33 alle 09:27:23, cioe'
+        # 19m50s dei 20min, e il `git checkout` dietro era al 11% (4526/41140
+        # file) dopo pochi secondi, quindi avrebbe finito in ~100s. Il tetto
+        # stava sotto il costo intrinseco del fetch: non e' severita', e' un
+        # rosso che nessuna modifica al repo puo' togliere.
+        #
+        # Perche' si alza il tetto invece di ridurre il fetch — le due cure
+        # abituali sono entrambe escluse, misurate:
+        #  - `filter: blob:none` e' VELENO qui, per la stessa ragione scritta nel
+        #    Checkout di recover-prev-slugs.yml: `backfill-expired-from-history.mjs`
+        #    non cammina solo i commit, legge il CONTENUTO di ogni revisione con
+        #    `git show <sha>:<path>` (una per commit, fino a ~640 per slice su 596
+        #    slice). Con un clone blobless ognuna di quelle letture e' un
+        #    lazy-fetch di rete.
+        #  - restringere la finestra (`--shallow-since`) non compra niente: la
+        #    history di questo repo e' TUTTA recente dopo il rewrite del
+        #    2026-05-27, 117'771 commit su main di cui 96'198 negli ultimi 3
+        #    mesi. Tagliare a 3 mesi togliere il 18% del fetch, non il costo.
+        # Resta quindi il tetto, alzato al costo reale con margine: 40min contro
+        # i 19m50s+ misurati. Il budget del job (90min) lo assorbe — l'ultima run
+        # riuscita ha speso 25m30s in TOTALE (walk 12m41s, reassemble 45s,
+        # npm test 7m51s, commit 1m04s), quindi 40 + ~23 = ~63min.
+        timeout-minutes: 40
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
