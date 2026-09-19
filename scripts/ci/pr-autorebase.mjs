@@ -1210,6 +1210,82 @@ _Segnale deterministico da pr-autorebase.yml (zero-Claude). La label sparisce da
   return true;
 }
 
+// --- HAND-OFF di un conflitto DOPO il LGTM (2026-09-19) ---------------------
+// Un conflitto non import-only si ferma qui: abort, `stale-review`, un
+// commento. Su una PR gia' approvata e' il punto in cui il ciclo perde la PR:
+// nessun fixer risolve conflitti (redcheck-fixer vuole un check rosso,
+// redflag-fixer un 🔴), il rescuer aspetta 2 h di silenzio e il recycle 24 h.
+// #9260: LGTM alle 14:04, conflitto su 3 file di codice, ripresa a mano solo
+// alle 16:13. Il rimedio esistente che risolve un conflitto e' un agente con
+// il contesto della PR, e il ciclo ne avvia uno solo da una issue `agent:fix`:
+// la issue qui sotto lo avvia subito, con la PR, la HEAD e i file in
+// conflitto gia' scritti, invece di attendere che qualcuno legga la label.
+//
+// Solo con LGTM: senza, la PR non e' pronta al merge e il conflitto resta un
+// dettaglio del lavoro in corso del suo autore. One-shot per HEAD (marker nel
+// commento della PR): una HEAD nuova e' un conflitto nuovo.
+export const CONFLICT_HANDOFF_MARKER_PREFIX = '<!-- AUTOREBASE_CONFLICT_HANDOFF';
+
+export function conflictHandoffMarker(head) {
+  return `${CONFLICT_HANDOFF_MARKER_PREFIX} head=${String(head).slice(0, 12)} -->`;
+}
+
+/** Il conflitto merita un agente adesso? Puro: niente rete. */
+export function shouldHandOffConflict({ lgtm, alreadyHandedOff }) {
+  return Boolean(lgtm) && !alreadyHandedOff;
+}
+
+/** Titolo stabile e body della issue di hand-off. Puro: niente rete. */
+export function buildConflictHandoffIssue({ num, branch, head, files }) {
+  const list = (files || []).slice(0, 30).map((f) => `- \`${f}\``).join('\n') || '- (elenco non disponibile: ricalcolalo con il comando sotto)';
+  const title = `Conflitto con main dopo LGTM: riapplicare la PR #${num} su main`;
+  const body = [
+    `La PR #${num} (branch \`${branch}\`, HEAD \`${String(head).slice(0, 12)}\`) aveva un \`## LGTM\` ed e' entrata in conflitto con \`main\`. L'autorebase deterministico ha provato \`git merge origin/main\` e l'unione degli import, poi ha abortito: il conflitto tocca codice, non solo import.`,
+    '',
+    'File in conflitto:',
+    '',
+    list,
+    '',
+    'Da fare:',
+    '',
+    `1. \`git fetch origin main ${branch}\` e \`git diff $(git merge-base origin/main origin/${branch}) origin/${branch}\`: e' il contributo della PR, gia' approvato.`,
+    '2. Riapplicalo su `origin/main` nel branch di questa issue risolvendo i conflitti: conserva il comportamento arrivato su `main` E quello della PR. Nessuna modifica oltre a quella gia\' approvata.',
+    `3. Apri la PR con \`Supersedes #${num}\` e \`Closes\` di questa issue, poi chiudi #${num} con un commento che rimanda alla nuova PR.`,
+    '',
+    'Se il conflitto e\' gia\' stato risolto sul branch originale (la PR torna mergeable), chiudi questa issue senza PR.',
+    '',
+    '_Aperta da pr-autorebase (zero-Claude) al primo conflitto non auto-risolvibile dopo il LGTM._',
+  ].join('\n');
+  return { title, body };
+}
+
+function handOffConflictToFixer(num, branch, head, lgtm) {
+  const marker = conflictHandoffMarker(head);
+  if (!shouldHandOffConflict({ lgtm, alreadyHandedOff: lgtm && hasCommentMarker(num, marker) })) return;
+  const verdict = mergeTreeVerdict(head);
+  const { title, body } = buildConflictHandoffIssue({ num, branch, head, files: verdict.files });
+  if (DRY) { console.log(`[dry] #${num} conflitto dopo LGTM → issue agent:fix «${title}»`); return; }
+  // `agent:triaged` alla creazione: il triage la salterebbe comunque verso la
+  // coda (`agent:fix-queued`), cioe' ore invece di minuti. `agent:fix` arriva
+  // con un edit separato, perche' e' l'evento `labeled` a far partire
+  // issue-fix, e l'identita' di GH_TOKEN (PAT/App) e' quella ammessa dal suo
+  // sender gate.
+  const url = String(gh(['issue', 'create', '--repo', REPO, '--title', title, '--body', body,
+    '--label', 'agent:triaged'], { json: false, allowFail: true }) || '').trim();
+  const issue = /\/issues\/(\d+)/.exec(url)?.[1];
+  if (!issue) {
+    console.log(`::warning::PR #${num}: issue di hand-off del conflitto non creata — resta la label stale-review.`);
+    return;
+  }
+  const routed = String(gh(['issue', 'edit', issue, '--repo', REPO, '--add-label', 'agent:fix'],
+    { json: false, allowFail: true }) || '').trim();
+  if (!routed) console.log(`::warning::issue #${issue}: agent:fix non applicata — il triage/drainer la riprendera'.`);
+  gh(['pr', 'comment', String(num), '--repo', REPO, '--body',
+    `${marker}\n♻️ **autorebase / conflitto dopo LGTM**: affidato a issue-fix con #${issue}, che riapplica il contributo approvato su \`main\` in una PR nuova. _Segnale deterministico da pr-autorebase (zero-Claude)._`],
+  { json: false, allowFail: true });
+  console.log(`PR #${num}: conflitto dopo LGTM → hand-off a issue-fix con #${issue}.`);
+}
+
 function commentConflictOnce(num, branch) {
   // Dedup: salta se il marker è già presente in un commento.
   if (hasCommentMarker(num, CONFLICT_MARKER)) {
@@ -1477,6 +1553,7 @@ async function processPR(pr) {
         console.log(`PR #${num} CONFLICTING non auto-risolvibile (non import-only) → stale-review + comment (recycle).`);
         ensureStaleLabel(num);
         commentConflictOnce(num, branch);
+        handOffConflictToFixer(num, branch, head, lgtm);
       }
       return;
     }
@@ -1588,6 +1665,7 @@ async function processPR(pr) {
     console.log(`PR #${num} mergeable=CONFLICTING → label stale-review + comment once.`);
     ensureStaleLabel(num);
     commentConflictOnce(num, branch);
+    handOffConflictToFixer(num, branch, head, lgtm);
     return;
   }
 
@@ -1652,6 +1730,7 @@ async function processPR(pr) {
       git(['merge', '--abort'], { allowFail: true });
       ensureStaleLabel(num);
       commentConflictOnce(num, branch);
+      handOffConflictToFixer(num, branch, head, lgtm);
       return;
     }
   }
