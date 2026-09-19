@@ -11,10 +11,11 @@
  * ASSEMBLE_AUX_DATA_INPUTS), nor an output of the assembly, nor listed below
  * with the reason it cannot change the output.
  *
- * It also pins the workflow side: every send-* workflow keys actions/cache on
- * the script's own `--print-cache-key` (no second, weaker hashFiles()
- * definition, no restore-keys fallback), and the newsletter no longer turns a
- * failed assembly into a green step with `|| echo`.
+ * It also pins the workflow side: every workflow that caches the assembler's
+ * output keys actions/cache on the script's own `--print-cache-key` (through
+ * .github/actions/assemble-jobs-cache-key; no second, weaker hashFiles()
+ * definition), the send-* ones without a restore-keys fallback, and the
+ * newsletter no longer turns a failed assembly into a green step with `|| echo`.
  */
 import { describe, it, expect } from 'vitest';
 import { existsSync, readFileSync } from 'node:fs';
@@ -123,38 +124,63 @@ describe('assemble-jobs cache key covers every data input of the closure', () =>
   });
 });
 
-describe('send-* workflows key actions/cache on the assembler fingerprint', () => {
-  const WORKFLOWS = [
+describe('workflows key the assemble-jobs cache on the assembler fingerprint', () => {
+  const readWf = (wf: string) => readFileSync(path.join(REPO_ROOT, '.github', 'workflows', wf), 'utf8');
+
+  it('the shared key action asks the assembler for its own key', () => {
+    const action = readFileSync(
+      path.join(REPO_ROOT, '.github', 'actions', 'assemble-jobs-cache-key', 'action.yml'),
+      'utf8',
+    );
+    expect(action).toContain('node scripts/assemble-jobs-dataset.mjs --print-cache-key $ASSEMBLE_ARGS');
+    // Only a well-formed key reaches the output; anything else leaves it empty.
+    expect(action).toContain("grep -Eq '^[0-9a-f]{16}_[a-z_]+$'");
+  });
+
+  // Every workflow that caches .cache/assemble-jobs. A hashFiles() over a subset
+  // of the inputs gives an exact actions/cache hit on a directory whose
+  // internal key no longer matches: the script re-assembles and the save is
+  // skipped because the key exists, run after run.
+  const CACHING = [
+    'deploy.yml',
+    'tests.yml',
+    'corpus-wide-gates.yml',
+    'deploy-matrix-experiment.yml',
     'send-job-alerts.yml',
     'send-company-alerts.yml',
     'send-saved-jobs-digest.yml',
     'send-newsletter.yml',
   ];
-
-  for (const wf of WORKFLOWS) {
-    it(`${wf}: restore + save on --print-cache-key, no restore-keys`, () => {
-      const src = readFileSync(path.join(REPO_ROOT, '.github', 'workflows', wf), 'utf8');
-      expect(src).toContain('node scripts/assemble-jobs-dataset.mjs --print-cache-key');
-      expect(src).toContain('uses: actions/cache/restore@v5');
-      expect(src).toContain('uses: actions/cache/save@v5');
-      const keyLines = src.match(/key: assemble-jobs-send-[^\n]+/g) ?? [];
-      expect(keyLines).toHaveLength(2);
+  for (const wf of CACHING) {
+    it(`${wf}: the key comes from the assembler, never from hashFiles()`, () => {
+      const src = readWf(wf);
+      expect(src).toContain('uses: ./.github/actions/assemble-jobs-cache-key');
+      const keyLines = src.match(/key: assemble-jobs-[^\n]+/g) ?? [];
+      expect(keyLines.length).toBeGreaterThan(0);
       for (const line of keyLines) {
         expect(line).toContain('steps.assemble_cache_key.outputs.key');
         expect(line).not.toContain('hashFiles(');
       }
+    });
+  }
+
+  const SEND = ['send-job-alerts.yml', 'send-company-alerts.yml', 'send-saved-jobs-digest.yml', 'send-newsletter.yml'];
+  for (const wf of SEND) {
+    it(`${wf}: restore + save of its own entry, no restore-keys, save only after a finished assembly`, () => {
+      const src = readWf(wf);
+      expect(src).toContain('uses: actions/cache/restore@v5');
+      expect(src).toContain('uses: actions/cache/save@v5');
+      expect(src.match(/key: assemble-jobs-send-[^\n]+/g) ?? []).toHaveLength(2);
       // A prefix fallback would restore another fingerprint's directory: the
-      // script would then MISS anyway, and the job would pay a 70 MB download.
-      expect(src).not.toMatch(/restore-keys:[^\n]*\n\s*assemble-jobs-send-/);
-      // Save only an output the assembler actually finished writing.
+      // script would MISS anyway after a 70 MB download.
+      expect(src).not.toMatch(/restore-keys:[^\n]*\n\s*assemble-jobs-/);
       expect(src).toMatch(/Save assemble-jobs cache\n\s*if: steps\.assemble\.outcome == 'success'/);
-      // The assemble step is the one the save gate refers to.
       expect(src).toMatch(/- name: Assemble jobs dataset[^\n]*\n\s*id: assemble\n/);
     });
   }
 
   it('send-newsletter.yml: a failed assembly is visible, not swallowed', () => {
-    const src = readFileSync(path.join(REPO_ROOT, '.github', 'workflows', 'send-newsletter.yml'), 'utf8');
+    const src = readWf('send-newsletter.yml');
     const step = src.split('- name: Assemble jobs dataset from per-crawler slices')[1].split('\n      - name:')[0];
     expect(step).not.toMatch(/\|\|\s*echo/);
     expect(step).toContain('continue-on-error: true');

@@ -79,23 +79,16 @@ jobs:
         if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
-      # Content-addressed cache of the assembled dataset (#assemble-cache).
-      # The key is printed by the assembler itself: sha256 of every slice, of
-      # its local import closure, of the aux data files it reads, of
-      # package-lock.json and of the Node major (computeAssembleInputFingerprint).
-      # It is the SAME value the script checks before restoring, so a hit can
-      # only replay an output built from byte-identical inputs: no restore-keys
-      # fallback by construction. Measured miss cost: 4m41 (run 35422626497).
+      # Content-addressed cache of the assembled dataset. The key is printed by
+      # the assembler itself (.github/actions/assemble-jobs-cache-key): sha256
+      # of every slice, of its local import closure, of the aux data files it
+      # reads, of package-lock.json and of the Node major. It is the SAME value
+      # the script checks before restoring, so a hit can only replay an output
+      # built from byte-identical inputs; no restore-keys fallback. Measured
+      # miss cost: 4m41 (run 35422626497).
       - name: Compute assemble-jobs cache key
         id: assemble_cache_key
-        run: |
-          if key="$(node scripts/assemble-jobs-dataset.mjs --print-cache-key | tail -n 1)" \
-            && printf '%s' "$key" | grep -Eq '^[0-9a-f]{16}_[a-z_]+$'; then
-            echo "key=$key" >> "$GITHUB_OUTPUT"
-            echo "assemble-jobs cache key: $key"
-          else
-            echo "::warning::assemble-jobs cache key not computable — full assembly without cache"
-          fi
+        uses: ./.github/actions/assemble-jobs-cache-key
 
       - name: Restore assemble-jobs cache
         id: assemble_cache
