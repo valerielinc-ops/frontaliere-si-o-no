@@ -44,6 +44,23 @@ describe('fnz-job-parser / resolveFnzSwissLocation', () => {
     });
   });
 
+  it('rejects an ambiguous structured municipality unless the source scopes its canton independently', () => {
+    expect(resolveFnzSwissLocation([{
+      descriptor: 'CH Buchs',
+      addressLocality: 'Buchs',
+      postalCode: '9470',
+    }])).toBeNull();
+    expect(resolveFnzSwissLocation([{
+      descriptor: 'CH Buchs SG',
+      addressLocality: 'Buchs',
+      addressRegion: 'SG',
+      postalCode: '9470',
+    }])).toMatchObject({
+      location: 'Buchs (SG)',
+      canton: 'SG',
+    });
+  });
+
   it('retains concrete capital municipalities whose names also identify cantons', () => {
     expect(resolveFnzSwissLocation(['Bern'])).toMatchObject({
       location: 'Bern',

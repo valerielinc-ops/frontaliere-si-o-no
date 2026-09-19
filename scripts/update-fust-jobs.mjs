@@ -75,6 +75,7 @@ import { extractStableJobId } from './lib/job-match-key.mjs';
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { enrichCoopSourceBackedJobs, validateCoopDescription } from './lib/coop-job-parser.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
+import { preferLocationEncodedCanton } from './lib/job-location-display.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -254,8 +255,11 @@ function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
   // before inferring the canton so a border place cannot become Swiss merely
   // because inferAnyCanton knows the nearby canton.
   const sourceLocation = attr30 || apiCity;
-  const canton = normalizeCantonCode(sourceLocation, fallbackCanton);
-  const location = apiCity || attr30 || cantonLabel(canton || fallbackCanton);
+  const attrCanton = normalizeCantonCode(sourceLocation, fallbackCanton);
+  const location = apiCity || attr30 || cantonLabel(attrCanton || fallbackCanton);
+  const canton = preferLocationEncodedCanton(location, attrCanton || fallbackCanton)
+    || attrCanton
+    || fallbackCanton;
   const company = String(job?.attributes?.['70']?.[0] || job?.company || '').trim();
   const contract = String(job?.attributes?.['40']?.[0] || '').trim();
   return {
