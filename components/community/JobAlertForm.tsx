@@ -90,6 +90,34 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  const [editingAlertId, setEditingAlertId] = useState<string | null>(null);
  const [toast, setToast] = useState<string | null>(null);
 
+ const oneTapKeyword = initialKeyword.trim();
+ const [oneTapEligible, setOneTapEligible] = useState(false);
+
+ // A known user with an active search already supplied the alert criterion.
+ // Reuse the shared resolver (and its session cache) so the one-tap CTA is
+ // never shown for an existing matching alert or a full alert budget.
+ useEffect(() => {
+   if (!authUser?.uid || !authUser.email || !oneTapKeyword) {
+     setOneTapEligible(false);
+     return;
+   }
+   let cancelled = false;
+   setOneTapEligible(false);
+   import('@/services/jobAlertEligibility')
+     .then(({ getJobAlertEligibility }) => getJobAlertEligibility(authUser.uid, oneTapKeyword))
+     .then((result) => {
+       if (!cancelled) setOneTapEligible(result.eligible);
+     })
+     .catch(() => {
+       // A failed eligibility read must not expose a create action that could
+       // duplicate an existing alert or fail predictably at the quota guard.
+       if (!cancelled) setOneTapEligible(false);
+     });
+   return () => {
+     cancelled = true;
+   };
+ }, [authUser?.email, authUser?.uid, oneTapKeyword]);
+
  // Update keyword when search changes
  useEffect(() => {
  if (initialKeyword) setKeyword(initialKeyword);
@@ -199,6 +227,20 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
     frequencyOverride: true,
     locale: locale as "it" | "en" | "de" | "fr",
   }), [keyword, selectedLocations, selectedContracts, selectedSectors, selectedCantons, frequency, locale]);
+
+  const buildOneTapConfig = useCallback((): JobAlertConfig => ({
+    keywords: oneTapKeyword ? [oneTapKeyword] : [],
+    locations: [],
+    contractTypes: [],
+    sectors: [],
+    cantonFilter: initialCantonCode && CANTON_CODES.includes(initialCantonCode)
+      ? [initialCantonCode]
+      : null,
+    // Preset/one-tap alerts stay engine-managed; the manual picker above is
+    // the only path that pins a cadence explicitly.
+    frequency: 'weekly',
+    locale: locale as "it" | "en" | "de" | "fr",
+  }), [initialCantonCode, locale, oneTapKeyword]);
 
   const configIsEmpty = (c: JobAlertConfig): boolean => c.keywords.length === 0 && c.locations.length === 0;
 
@@ -317,6 +359,24 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  }
  };
 
+ const handleOneTapCreate = async () => {
+   if (!authUser?.uid || !authUser.email || !oneTapEligible || !oneTapKeyword) return;
+   setSaving(true);
+   try {
+     const config = buildOneTapConfig();
+     const created = await persistAlert(authUser.uid, authUser.email, config, 'inline_card');
+     showToast(t('jobAlert.created') || 'Alert creata! Riceverai una email con le nuove offerte.');
+     setOneTapEligible(false);
+     resetForm();
+     if (authUser.email) maybeShowEnrichmentPrompt(authUser.email, created);
+     try { localStorage.setItem(JOB_ALERT_SUBSCRIBED_KEY, 'true'); } catch { /* no-op */ }
+   } catch (err: any) {
+     showToast(err?.message || (t('jobAlert.error.generic') as string) || 'Errore durante la creazione dell\'alert.');
+   } finally {
+     setSaving(false);
+   }
+ };
+
  const handleDelete = async (alertId: string) => {
  const target = alerts.find((a) => a.id === alertId);
  const email = target?.email || authUser?.email;
@@ -413,8 +473,25 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
  return (
  <div className="mt-4 mb-6">
+ {oneTapEligible && !expanded && (
+ <div className="mb-2">
+        <button
+          type="button"
+          onClick={handleOneTapCreate}
+          disabled={saving}
+          aria-busy={saving}
+          data-testid="job-alert-one-tap"
+          aria-label={`${t('jobAlert.create') || 'Crea alert'}: ${oneTapKeyword}`}
+ className="w-full flex items-center justify-center gap-2 min-h-[44px] px-4 py-2.5 rounded-xl bg-accent-strong text-on-accent text-sm font-semibold hover:bg-accent-strong-hover disabled:opacity-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+ >
+ {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Bell className="w-4 h-4" />}
+ {t('jobAlert.create') || 'Crea alert'}
+ </button>
+ </div>
+ )}
  {/* Trigger card */}
  <button
+ type="button"
  onClick={() => {
  if (!expanded) {
  import('@/services/analytics')
