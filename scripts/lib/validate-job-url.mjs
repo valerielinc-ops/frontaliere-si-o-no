@@ -27,11 +27,18 @@ const DEFAULT_FRESH_PROTECTION_HOURS = 72;
 // ── Strong "job closed" phrases ───────────────────────────────────────────────
 // A match on any of these in the response body = strong unavailable signal.
 
+function normalizeStrongPhraseText(value = '') {
+  return String(value || '').toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
 const STRONG_PHRASES = [
   // English
   'no longer accepting applications',
   'this job is no longer available',
   'job is no longer available',
+  // ABB careers detail pages (observed 2026-09-19): expired pages keep HTTP
+  // 200 and JobPosting JSON-LD while showing this tombstone banner.
+  'the job you are trying to apply for is no longer available',
   'position has been filled',
   'this position is no longer accepting applications',
   'this position has been closed',
@@ -83,7 +90,7 @@ const STRONG_PHRASES = [
   'cette position a été pourvue',
   'offre expirée',
   'poste pourvu',
-].map((s) => s.toLowerCase());
+].map(normalizeStrongPhraseText);
 
 // ── Career portal redirect patterns ──────────────────────────────────────────
 // If a job URL redirects to a generic careers/listing page, the position is gone.
@@ -317,7 +324,7 @@ export async function validateJobUrl(rawUrl, { timeoutMs, userAgent, id } = {}) 
 
     // Read body for content-level signals
     const text = await res.text();
-    const htmlLower = text.slice(0, 300_000).toLowerCase();
+    const htmlLower = normalizeStrongPhraseText(text.slice(0, 300_000));
 
     // Strong "job closed" phrases — definitive, bypasses fresh protection
     for (const phrase of STRONG_PHRASES) {
