@@ -351,9 +351,9 @@ describe('isSystemicBoilerplateFailure — sample-size floor', () => {
     expect(isSystemicBoilerplateFailure(report)).toBe(false);
   });
 
-  it('2/4 (50%) meets both floors: IS systemic', () => {
+  it('2/4 (50%) is NOT systemic: the small sample is quarantineable, not conclusive', () => {
     const report = { ratio: 0.5, boilerplateCount: 2, totalJobs: 4 };
-    expect(isSystemicBoilerplateFailure(report)).toBe(true);
+    expect(isSystemicBoilerplateFailure(report)).toBe(false);
   });
 
   it('5/10 (50%) on a large crawler: IS systemic (unchanged from pre-floor behavior)', () => {
@@ -410,14 +410,28 @@ describe('isSystemicBoilerplateFailure — sample-size floor', () => {
     expect(isSystemicBoilerplateFailure(report)).toBe(true);
   });
 
-  it('marker-phrase boilerplate is untouched by the band, at any length (artificialy 8/8 at 24-27)', () => {
-    // Same word band as postch, opposite verdict: the text IS there, it is the
-    // wrong text (privacy-policy chrome), so length says nothing about it.
+  it('8/8 marker-phrase boilerplate is quarantineable but not systemic', () => {
+    // The text is still classified as marker boilerplate and is removed by the
+    // non-systemic quarantine path, but eight eligible records do not prove a
+    // fleet-wide parser break.
     const report = {
       ratio: 1,
       boilerplateCount: 8,
       totalJobs: 8,
       boilerplateJobs: [24, 26, 26, 27, 27, 27, 27, 27].map((uniqueWords, i) => ({
+        slug: `ai-engineer-${i}`, title: 'AI Engineer',
+        reason: 'marker_phrases', totalWords: uniqueWords + 4, uniqueWords,
+      })),
+    };
+    expect(isSystemicBoilerplateFailure(report)).toBe(false);
+  });
+
+  it('10/12 marker-phrase boilerplate remains systemic at any description length', () => {
+    const report = {
+      ratio: 10 / 12,
+      boilerplateCount: 10,
+      totalJobs: 12,
+      boilerplateJobs: [24, 26, 26, 27, 27, 27, 27, 27, 25, 25].map((uniqueWords, i) => ({
         slug: `ai-engineer-${i}`, title: 'AI Engineer',
         reason: 'marker_phrases', totalWords: uniqueWords + 4, uniqueWords,
       })),
@@ -479,6 +493,18 @@ describe('isSystemicBoilerplateFailure — sample-size floor', () => {
 // while silently and permanently dropping real short listings.
 
 describe('quarantineBoilerplateJobs — below-floor quarantine', () => {
+  it('quarantines an 8/8 marker-only sample instead of hard-failing the run', () => {
+    const jobs = Array.from({ length: 8 }, (_, i) =>
+      makeJob('marker-' + i, BOILERPLATE_2_MARKERS),
+    );
+    const report = detectBoilerplateDescriptions(jobs, 'small-marker-crawler');
+
+    expect(report.totalJobs).toBe(8);
+    expect(report.boilerplateCount).toBe(8);
+    expect(isSystemicBoilerplateFailure(report)).toBe(false);
+    expect(quarantineBoilerplateJobs(jobs, report.boilerplateJobs)).toHaveLength(0);
+  });
+
   it('drops confirmed marker-phrase boilerplate jobs while keeping good jobs, mirroring the #3254 shape', () => {
     const jobs = [
       makeJob('eligible-good', RICH_DESCRIPTION),

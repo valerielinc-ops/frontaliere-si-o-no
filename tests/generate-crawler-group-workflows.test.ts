@@ -22,7 +22,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
-import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerAggregateFailureGateShellBody, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource } from '../scripts/generate-crawler-group-workflows.mjs';
+import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource } from '../scripts/generate-crawler-group-workflows.mjs';
 import { assertCrawlerManifestDelta, CORPUS_OBSERVER_FILES, CRAWLER_WORKFLOW_FILES, prepareCrawlerWorkflowCorpusSync } from '../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
@@ -506,6 +506,29 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     expect(stdout).not.toContain('TITLE=Crawler Failure: Run test-crawler');
   });
 
+  it('exit 143 (runner shutdown): preserves systemic status without a per-crawler issue', () => {
+    const crawler = withInspectableFailureReporter(crawlerFixture({ runCommand: 'bash -c "exit 143"' }));
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(exitCode).toBe(143);
+    expect(stdout).not.toContain('TITLE=Crawler Failure: Run test-crawler');
+    expect(stdout).toContain('runner shutdown interrupted the crawler (exit 143)');
+  });
+
+  it('exit 143 under the target timeout wrapper stays systemic', () => {
+    const crawler = {
+      ...withInspectableFailureReporter(crawlerFixture({ runCommand: 'bash -c "exit 143"' })),
+      targetTimeoutMinutes: 30,
+    };
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(exitCode).toBe(143);
+    expect(stdout).not.toContain('TITLE=Crawler Failure: Run test-crawler');
+    expect(stdout).toContain('runner shutdown interrupted the crawler (exit 143)');
+  });
+
   // Il contrappeso: il carve-out deve restare stretto. Un fallimento di
   // commit VERO del singolo crawler (exit 1) tiene la sua issue, altrimenti
   // la fix avrebbe barattato il rumore con il silenzio.
@@ -621,7 +644,14 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
       ...crawlerFixture(),
       targetTimeoutMinutes: 340,
     };
-    expect(() => buildCrawlerShellBody(crawler)).toThrow(/positive integer below the 340 minute group timeout/);
+    expect(() => buildCrawlerShellBody(crawler)).toThrow(/at or below the 320 minute target ceiling/);
+  });
+
+  it('rejects a target timeout that leaves no watchdog headroom', () => {
+    expect(() => buildCrawlerShellBody({
+      ...crawlerFixture(),
+      targetTimeoutMinutes: 331,
+    })).toThrow(/at or below the 320 minute target ceiling/);
   });
 
   it('renders the validated timeout value and rejects malformed raw input', () => {
@@ -636,7 +666,7 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     expect(() => buildCrawlerShellBody({
       ...crawlerFixture(),
       targetTimeoutMinutes: '30m',
-    })).toThrow(/positive integer below the 340 minute group timeout/);
+    })).toThrow(/at or below the 320 minute target ceiling/);
   });
 
   it('OLD (pre-fix) logic would have swallowed a commit failure — this documents the exact defect the fix closes', () => {
@@ -764,10 +794,20 @@ describe('buildCrawlerLaunchShellBody — runner cleanup isolation', () => {
     }, 2);
 
     expect(body).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-4}"`);
+    expect(body).toContain('worker_watchdog_max=330');
+    expect(body).toContain('[ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]');
     expect(body).toContain('for slot_index in $(seq 1 "$max_parallel"); do');
-    expect(body).toContain('flock -n "$slot_path" bash "$worker_path"');
+    expect(body).toContain('flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"');
+    expect(body).toContain('timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"');
     expect(body).toContain('started_file="$RUNNER_TEMP/crawler-generation/group-02/bounded-crawler.started"');
     expect(body).toContain('terminal_exit=143');
+  });
+
+  it('derives a bounded worker watchdog from the target override or duration baseline', () => {
+    expect(crawlerWorkerWatchdogMinutes({ targetTimeoutMinutes: 60 })).toBe(70);
+    expect(crawlerWorkerWatchdogMinutes({ targetTimeoutMinutes: 320 })).toBe(330);
+    expect(crawlerWorkerWatchdogMinutes({ durationMs: 60 * 60 * 1000 })).toBe(180);
+    expect(crawlerWorkerWatchdogMinutes({ durationMs: 0 })).toBe(330);
   });
 });
 
@@ -791,6 +831,7 @@ describe('crawler group outcome isolation', () => {
       CRAWLER_AGGREGATE_SUCCESS: '3',
       CRAWLER_AGGREGATE_FAILURES: '0',
       CRAWLER_AGGREGATE_MISSING: '0',
+      CRAWLER_AGGREGATE_SYSTEMIC: '1',
     })).toBe(0);
     expect(run({
       CRAWLER_AGGREGATE_OUTCOME: 'success',
@@ -798,6 +839,33 @@ describe('crawler group outcome isolation', () => {
       CRAWLER_AGGREGATE_FAILURES: '1',
       CRAWLER_AGGREGATE_MISSING: '0',
     })).not.toBe(0);
+  });
+
+  it('counts exit 143 as systemic instead of a failed crawler', () => {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-aggregate-143-'));
+    try {
+      const stateDir = path.join(temp, 'crawler-generation', 'group-01');
+      fs.mkdirSync(stateDir, { recursive: true });
+      fs.writeFileSync(path.join(stateDir, 'shutdown-crawler.status'), '143\n');
+      const output = path.join(temp, 'output.txt');
+      const summary = path.join(temp, 'summary.md');
+      execFileSync('bash', ['-e', '-c', buildCrawlerAggregateShellBody([{ slug: 'shutdown-crawler' }], 1)], {
+        env: {
+          ...process.env,
+          RUNNER_TEMP: temp,
+          GITHUB_OUTPUT: output,
+          GITHUB_STEP_SUMMARY: summary,
+        },
+        encoding: 'utf8',
+      });
+
+      expect(fs.readFileSync(output, 'utf8')).toContain('failure_count=0');
+      expect(fs.readFileSync(output, 'utf8')).toContain('systemic_count=1');
+      expect(fs.readFileSync(output, 'utf8')).toContain('wait_outcome=success');
+      expect(fs.readFileSync(summary, 'utf8')).toContain('systemic runner shutdown (143)');
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
   });
 });
 
