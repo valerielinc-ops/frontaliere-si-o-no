@@ -56,6 +56,8 @@ import {
   isCantonOnlyLabel,
   isKnownSwissCity,
   isSwissLocationText,
+  swissCityFromLocationField,
+  swissMunicipalityCantons,
   normalizeSwissTargetLocationText,
   isTargetSwissLocation,
 } from './target-swiss-locations.mjs';
@@ -118,6 +120,15 @@ function canonicalNordAngliaCity(value = '', canton = '') {
     ? canonicalSwissCityName(candidate)
     : candidate;
   return normalizeSwissTargetLocationText(canonical);
+}
+
+function isUnscopedAmbiguousSwissLocality(value = '') {
+  const candidate = normalizeSpace(value);
+  return Boolean(
+    candidate
+    && swissMunicipalityCantons(candidate).length > 1
+    && !swissCityFromLocationField(candidate),
+  );
 }
 
 function toArray(val) {
@@ -338,6 +349,17 @@ async function fetchNordAngliaDetail(url) {
     const html = await fetchNordAngliaHtml(url, 'detail');
     return parseCsbDetailPage(html);
   } catch (error) {
+    if (error?.feedEndpointUnavailable) throw error;
+    if (Number.isFinite(error?.status) || isConnectionLevelFetchError(error)) {
+      const unavailable = new FeedEndpointUnavailableError(
+        `[nord-anglia] SuccessFactors detail endpoint unavailable for ${jobUrlForDiagnostic(url)}`
+          + (Number.isFinite(error?.status) ? ` (HTTP ${error.status})` : '')
+          + ' — keeping the indexed slice',
+      );
+      if (Number.isFinite(error?.status)) unavailable.status = error.status;
+      if (error.retryBudgetExhausted === true) unavailable.retryBudgetExhausted = true;
+      throw unavailable;
+    }
     console.warn(`⚠️ Nord Anglia detail fetch failed for ${jobUrlForDiagnostic(url)}: ${error?.message || error}`);
     return null;
   }
@@ -662,6 +684,22 @@ export async function fetchAllNordAngliaJobs() {
     swissSignalCandidates++;
 
     let scopeDropped = false;
+    const routeTokenCantonEvidence = swissCityFromLocationField(routeToken.replace(/[-_]+/g, ' '));
+    const hasIndependentCantonEvidence = Boolean(
+      swissCityFromLocationField(titleLocation)
+      || swissCityFromLocationField(routeLocation)
+      || routeTokenCantonEvidence,
+    );
+    if (
+      (isUnscopedAmbiguousSwissLocality(titleLocation) || isUnscopedAmbiguousSwissLocality(routeLocation))
+      && !hasIndependentCantonEvidence
+    ) {
+      scopeDropped = true;
+      console.warn(
+        `[nord-anglia-ambiguous-location-drop] Skipped "${title}" at `
+        + `${jobUrlForDiagnostic(link)} because its homonymous locality has no independent canton evidence`,
+      );
+    }
     if (routeToken && !routeIsSwiss) {
       scopeDropped = true;
       console.warn(

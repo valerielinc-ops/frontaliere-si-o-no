@@ -296,6 +296,73 @@ describe('Nord Anglia Education Switzerland crawler parser', () => {
     );
   });
 
+  it('preserves the indexed slice when an HTML detail endpoint returns HTTP 403', async () => {
+    const searchHtml = '<a href="/job/Aubonne-PE-teacher/1428165033/">PE teacher</a>';
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response('RSS unavailable', { status: 403 }))
+      .mockResolvedValueOnce(new Response(searchHtml, { status: 200 }))
+      .mockResolvedValueOnce(new Response('Detail unavailable', { status: 403 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const error = await fetchAllNordAngliaJobs().catch((caught) => caught);
+    expect(error).toBeInstanceOf(FeedEndpointUnavailableError);
+    expect(error).toMatchObject({ status: 403, feedEndpointUnavailable: true });
+    expect(error.message).toContain('detail endpoint unavailable');
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+  });
+
+  it('preserves the indexed slice when an HTML detail endpoint has a transport failure', async () => {
+    const previousRetries = process.env.JOBS_CRAWLER_RETRIES;
+    const previousBaseMs = process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+    process.env.JOBS_CRAWLER_RETRIES = '0';
+    process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
+    const searchHtml = '<a href="/job/Aubonne-PE-teacher/1428165033/">PE teacher</a>';
+    const fetchMock = vi.fn()
+      .mockRejectedValueOnce(new TypeError('fetch failed'))
+      .mockResolvedValueOnce(new Response(searchHtml, { status: 200 }))
+      .mockRejectedValueOnce(new TypeError('fetch failed'));
+    vi.stubGlobal('fetch', fetchMock);
+
+    try {
+      const error = await fetchAllNordAngliaJobs().catch((caught) => caught);
+      expect(error).toBeInstanceOf(FeedEndpointUnavailableError);
+      expect(error).toMatchObject({ feedEndpointUnavailable: true });
+      expect(error.message).toContain('detail endpoint unavailable');
+      expect(fetchMock).toHaveBeenCalledTimes(3);
+    } finally {
+      if (previousRetries === undefined) delete process.env.JOBS_CRAWLER_RETRIES;
+      else process.env.JOBS_CRAWLER_RETRIES = previousRetries;
+      if (previousBaseMs === undefined) delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+      else process.env.JOBS_CRAWLER_RETRY_BASE_MS = previousBaseMs;
+    }
+  });
+
+  it('rejects a bare homonymous locality without independent canton evidence', async () => {
+    const bareBuchs = validRssItem({
+      title: '<title><![CDATA[Teacher of Biology (Buchs, CH)]]></title>',
+      link: '<link>https://careers.nordanglia.com/job/Buchs-Teacher-of-Biology/1399902133/</link>',
+    });
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(bareBuchs, { status: 200 })));
+
+    await expect(fetchAllNordAngliaJobs()).rejects.toThrow(
+      /\[nord-anglia-drop-ratio\] Swiss location guard: dropped 1\/1 items/,
+    );
+    expect(warnSpy.mock.calls.flat().join(' ')).toContain('[nord-anglia-ambiguous-location-drop]');
+    warnSpy.mockRestore();
+  });
+
+  it('accepts a homonymous route only when the route supplies a canton marker', async () => {
+    const scopedBuchs = validRssItem({
+      title: '<title><![CDATA[Teacher of Biology (Buchs, CH)]]></title>',
+      link: '<link>https://careers.nordanglia.com/job/Buchs-SG-Teacher-of-Biology/1399902133/</link>',
+    });
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(scopedBuchs, { status: 200 })));
+
+    const [job] = await fetchAllNordAngliaJobs();
+    expect(job).toMatchObject({ location: 'Buchs', canton: 'SG' });
+  });
+
   it('reports a retired ATS host as an unavailable endpoint, not as malformed XML (#7853)', async () => {
     vi.stubGlobal('fetch', vi.fn(async () => {
       const html = new Response(
