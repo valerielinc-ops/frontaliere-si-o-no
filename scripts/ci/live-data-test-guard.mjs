@@ -497,7 +497,17 @@ export function listLiveDataTestsForCi() {
  */
 export function listLiveDataMonitorTests() {
   const corpus = new Set(listCorpusWideTests());
-  return listLiveDataTestsForCi().filter((file) => !corpus.has(file));
+  // I file MISTI vanno inclusi, e non e' un dettaglio: nel gate delle PR i
+  // loro casi vivi non girano perche' `SKIP_LIVE_DATA` li salta, e se non
+  // girassero nemmeno qui non girerebbero in NESSUN posto — il taglio per test
+  // diventerebbe una cancellazione silenziosa, che e' esattamente cio' che
+  // questa partizione esiste per evitare. Qui `VITEST_SKIP_LIVE_DATA` non e'
+  // impostata, quindi il file gira intero.
+  const files = new Set([
+    ...listLiveDataTestsForCi(),
+    ...LIVE_DATA_PARTIAL_TESTS.map((e) => e.file),
+  ]);
+  return [...files].filter((file) => !corpus.has(file)).sort();
 }
 
 /** Il complemento del gruppo monitor: tutto cio' che quel giro NON esegue. */
