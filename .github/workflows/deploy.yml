@@ -393,6 +393,12 @@ jobs:
       # Optional deterministic verify sample (0-1, e.g. 0.02) for production:
       # verifies a stable 2% of reuse hits instead of re-rendering everything.
       JOBS_SEO_REUSE_VERIFY_SAMPLE: ${{ vars.JOBS_SEO_REUSE_VERIFY_SAMPLE || '' }}
+      # Output-validated reuse fingerprint (opt-in, unset = byte-for-byte the
+      # old path). When only the render source graph changed, render a
+      # stratified sample of unchanged-input pages and keep reusing a block only
+      # if every sampled page is byte-identical to its cached HTML; the post-walk
+      # delta follows the same per-block verdict. The 2% verify stays active.
+      JOBS_SEO_REUSE_PROBE: ${{ vars.JOBS_SEO_REUSE_PROBE == '1' && '1' || '' }}
       # Related-search postings pre-pass: sparse gram index + 3-gram
       # intersection (same postings, less CPU). Repository-variable opt-in;
       # unset keeps the dense pre-pass byte-for-byte.

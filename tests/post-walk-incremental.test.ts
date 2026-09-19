@@ -271,6 +271,49 @@ describe('post-walk incremental planning', () => {
     expect(loaded.state.fallbackReason).toContain('emitter fingerprint cambiato');
   });
 
+  it('keeps the delta when the jobs SEO output probe inherited every changed block', async () => {
+    const root = fixtureRoot();
+    const entry = { path: 'jobs/changed/', kind: 'active-job', input: { jobId: 'job-1', title: 'same' } };
+    const before = { 'active-job': 'active@old', 'expired-soft-landing': 'expired@old' };
+    const after = { 'active-job': 'active@new', 'expired-soft-landing': 'expired@new' };
+    writeManifest(root, 'incremental-manifest-prev', [entry], true, before);
+    writeManifest(root, 'incremental-manifest', [entry], true, after);
+    const probeFile = path.join(root, '.cache', 'incremental-html', 'probe-it.json');
+    fs.mkdirSync(path.dirname(probeFile), { recursive: true });
+    const writeVerdict = (active: string) => fs.writeFileSync(probeFile, JSON.stringify({
+      version: 1,
+      locale: 'it',
+      previousFingerprint: before,
+      currentFingerprint: after,
+      blocks: {
+        active: { verdict: active },
+        'expired-soft-landing': { verdict: 'inherit' },
+      },
+    }));
+    const previousProbe = process.env.JOBS_SEO_REUSE_PROBE;
+    process.env.JOBS_SEO_REUSE_PROBE = '1';
+    try {
+      writeVerdict('inherit');
+      const inherited = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+      if ('reason' in inherited) throw new Error(inherited.reason);
+      expect(inherited.state.fallbackReason).toBeUndefined();
+
+      writeVerdict('invalidate');
+      const invalidated = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+      if ('reason' in invalidated) throw new Error(invalidated.reason);
+      expect(invalidated.state.fallbackReason).toContain('emitter fingerprint cambiato');
+
+      delete process.env.JOBS_SEO_REUSE_PROBE;
+      writeVerdict('inherit');
+      const disabled = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+      if ('reason' in disabled) throw new Error(disabled.reason);
+      expect(disabled.state.fallbackReason).toContain('emitter fingerprint cambiato');
+    } finally {
+      if (previousProbe === undefined) delete process.env.JOBS_SEO_REUSE_PROBE;
+      else process.env.JOBS_SEO_REUSE_PROBE = previousProbe;
+    }
+  });
+
   it('can omit unmanifested paths only for the sampled-verifier plan', async () => {
     const root = fixtureRoot();
     const manifestPath = writeHtml(root, 'jobs/changed/index.html', 'changed');

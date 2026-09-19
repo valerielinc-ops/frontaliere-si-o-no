@@ -10,6 +10,7 @@ import {
   streamIncrementalManifest,
 } from './incrementalManifest.mjs';
 import { relativeDistPath } from './distHtmlWalk';
+import { jobsSeoProbeInheritsEmitterChange } from './incrementalHtmlReuse.mjs';
 
 export const POST_WALK_INCREMENTAL_ENV = 'POST_WALK_INCREMENTAL';
 export const POST_WALK_INCREMENTAL_VERIFY_ENV = 'POST_WALK_INCREMENTAL_VERIFY';
@@ -815,11 +816,31 @@ export async function loadPostWalkManifestState(
     // changes. The plan still falls back as one full unit, but the coordinator
     // can classify the full walk against the current manifest and persist the
     // exact unmanifested index for the next identical build.
-    const emitterFingerprintChanged = previousManifestAvailable && Boolean(
+    let emitterFingerprintChanged = previousManifestAvailable && Boolean(
       (currentEmitterFingerprint || previousEmitterFingerprint)
       && JSON.stringify(currentEmitterFingerprint ?? null)
         !== JSON.stringify(previousEmitterFingerprint ?? null),
     );
+    // JOBS_SEO_REUSE_PROBE=1: the jobs SEO plugin of this same build rendered
+    // a stratified sample of unchanged-input pages with the new code and found
+    // them byte-identical to the cached HTML for every block whose kinds
+    // changed fingerprint. The delta is then as valid as with an unchanged
+    // fingerprint; any other probe verdict keeps the full fallback.
+    if (emitterFingerprintChanged) {
+      const probe = jobsSeoProbeInheritsEmitterChange(
+        rootDir,
+        selectedLocales,
+        previousEmitterFingerprint,
+        currentEmitterFingerprint,
+      );
+      if (probe.inherit) emitterFingerprintChanged = false;
+      if (probe.reason !== 'probe-disabled') {
+        console.log(
+          `[jobs-seo-reuse-probe] post-walk verdict=${probe.inherit ? 'inherit' : 'full-fallback'}`
+          + ` reason=${probe.reason}`,
+        );
+      }
+    }
     const previousResult = previousManifestAvailable && !emitterFingerprintChanged
       ? await streamManifestFiles(
         previousFiles,

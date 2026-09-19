@@ -738,7 +738,7 @@ jobs:
               # [post-walk-coordinator][incremental-verify] sample/mismatch
               # counters visible in the summary, alongside profile rows.
               strip_ansi < "$BUILD_LOG" \
-                | { grep -E '^(\[(mem|jobs-seo-profile|incremental-manifest)\]|\[jobs-seo-reuse\]|\[post-walk[^]]*\])' || true; } \
+                | { grep -E '^(\[(mem|jobs-seo-profile|incremental-manifest)\]|\[jobs-seo-reuse(-probe)?\]|\[post-walk[^]]*\])' || true; } \
                 | awk '
                   {
                     marker = $1;
