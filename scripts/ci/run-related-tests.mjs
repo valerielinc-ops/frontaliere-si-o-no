@@ -9,9 +9,12 @@
  * reverse from changed sources, and passes the resulting test files directly
  * to Vitest. It stays related-only for ordinary imports, with a conservative
  * full-test fallback only when the changed-path collector cannot prove a
- * complete diff. Runtime/configuration files are deliberately not treated as
- * global Vitest dependencies: changing CI or TypeScript configuration must
- * not expand an application test diff into the complete suite. `--select-only`
+ * complete diff. Runtime/configuration files are not treated as global Vitest
+ * dependencies by default: the root `vitest.config.ts` is the explicit
+ * exception because it configures every test project, while CI and TypeScript
+ * configuration stay outside this policy. `scripts/ci/run-related-tests.mjs`
+ * has an explicit, bounded regression-test allow-list because its consumers
+ * read it by path instead of importing it. `--select-only`
  * computes the same selection without invoking Vitest and emits the
  * pre-assembly dataset decision for tests.yml.
  */
@@ -32,6 +35,17 @@ const graphFile = process.env.VITEST_RELATED_GRAPH || '.cache/vitest-related/gra
 const selectionOnly = process.argv.includes('--select-only');
 const sourceRe = GRAPH_SOURCE_RE;
 const testRe = /^(?:tests|packages\/[^/]+\/tests)\/.*\.(?:test|spec)\.[cm]?[jt]sx?$/i;
+const runnerPath = 'scripts/ci/run-related-tests.mjs';
+const globalVitestConfigPaths = new Set(['vitest.config.ts']);
+// These tests exercise the runner through its real subprocess seam or pin its
+// CI wiring. They are deliberately explicit: broadening every `scripts/` or
+// `.github/` change into a full suite would undo the related-test bound.
+const runnerRegressionTests = new Set([
+  'tests/run-related-tests-github-assets.test.ts',
+  'tests/run-related-tests-sparse.test.ts',
+  'tests/ci-vitest-check-name.test.ts',
+  'tests/agents-related-tests-recipe.test.ts',
+]);
 // faq-readability-gate misura il ratchet sulle FAQ dell'INTERO corpus articoli
 // e si difende dal falso verde con `expect(total).toBeGreaterThan(1000)`. Il job
 // PR non materializza `packages/articles/content`, quindi quel guard scatta
@@ -313,9 +327,12 @@ const candidates = [...new Set(changed.filter((file) =>
     && (sourceRe.test(file) || githubAssetRe.test(file) || testFixtureRe.test(file))
     && !alwaysExcludedTests.has(file)))];
 const forceFull = changedStatus !== 'complete';
+const runnerChanged = changed.includes(runnerPath);
+const globalVitestConfigChanged = changed.some((file) => globalVitestConfigPaths.has(file));
+const fullSuiteRequired = forceFull || globalVitestConfigChanged;
 rejectDryRunInCi();
 requireFullCheckoutForVerdict();
-if (candidates.length === 0 && !forceFull) {
+if (candidates.length === 0 && !fullSuiteRequired && !runnerChanged) {
   console.log('No existing source/test files in the diff → related-only run has no tests.');
   if (selectionOnly) writeAssembleDecision([]);
   process.exit(0);
@@ -397,11 +414,19 @@ for (const [file, entry] of Object.entries(graph)) {
     reverse.get(dep).push(file);
   }
 }
-const related = new Set(forceFull ? allTests : candidates.filter(isRunnableTest));
+const related = new Set(fullSuiteRequired ? allTests : candidates.filter(isRunnableTest));
 if (forceFull) {
   console.log(`Changed-paths status is ${changedStatus} → running all tracked tests conservatively.`);
+} else if (globalVitestConfigChanged) {
+  console.log('vitest.config.ts changed → running all tracked tests because it configures the complete Vitest suite.');
 }
-let usedFullFallback = forceFull;
+if (runnerChanged && !fullSuiteRequired) {
+  for (const test of runnerRegressionTests) {
+    if (isRunnableTest(test)) related.add(test);
+  }
+  console.log('run-related-tests.mjs changed → running its explicit regression-test suite.');
+}
+let usedFullFallback = fullSuiteRequired;
 const queue = [...candidates];
 const visited = new Set();
 while (queue.length) {
@@ -425,7 +450,7 @@ while (queue.length) {
 // workflow, che oggi ne paga zero. La politica related-only di `tests.yml`
 // resta invariata.
 const sourceCandidates = candidates.filter((file) => sourceRe.test(file));
-if (related.size === 0 && sourceCandidates.length > 0) {
+if (!fullSuiteRequired && related.size === 0 && sourceCandidates.length > 0) {
   if (shouldSkipFullSuiteFallback(sourceCandidates, reverse)) {
     console.log('No static related edge found, and every changed file has zero importers anywhere in the repo (standalone CLI script) → nothing to run, as expected.');
   } else {
@@ -437,7 +462,8 @@ if (related.size === 0 && sourceCandidates.length > 0) {
 const tests = [...related].filter((file) => existsSync(file)).sort();
 const githubCandidateCount = candidates.filter((file) => githubAssetRe.test(file)).length;
 const fixtureCandidateCount = candidates.filter((file) => testFixtureRe.test(file)).length;
-console.log(`Running Vitest related to ${sourceCandidates.length} changed source/test file(s)`
+const changedSourceCount = sourceCandidates.length + (runnerChanged ? 1 : 0);
+console.log(`Running Vitest related to ${changedSourceCount} changed source/test file(s)`
   + (githubCandidateCount ? ` + ${githubCandidateCount} .github asset(s)` : '')
   + (fixtureCandidateCount ? ` + ${fixtureCandidateCount} tests fixture(s)` : '')
   + `: ${tests.length} test file(s)`);
