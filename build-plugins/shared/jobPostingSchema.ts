@@ -60,6 +60,7 @@ import {
 } from '../../scripts/lib/target-swiss-locations.mjs';
 import {
   DEFAULT_POSTAL_CODE,
+  isPostalCodeCoherentWithCity,
   isValidPostalCode,
   resolvePostalCode,
 } from './postalCodes';
@@ -580,12 +581,18 @@ function resolveAddress(
     String(hqEntry.addressRegion || '').toUpperCase() === String(region || '').toUpperCase() &&
     localityMatchesHq(cityRaw, hqEntry);
 
-  // Precedence: explicit source value → company HQ (only when same city, or
-  // no city signal) → city lookup → canton-capital fallback. Company HQ wins
-  // over city lookup because the HQ registry is curated and therefore more
-  // accurate than a generic-city postal code.
-  const postalCode = isValidPostalCode(job.postalCode)
+  // Precedence: coherent explicit source value → company HQ (only when same
+  // city, or no city signal) → city lookup → canton-capital fallback. A source
+  // CAP can be formally valid and still belong to another known locality (for
+  // example 6500 on a Lugano posting). Treat that pair as unusable by
+  // construction so every JobPosting consumer shares the same guard.
+  const sourcePostalCode = isValidPostalCode(job.postalCode)
     ? String(job.postalCode).trim()
+    : '';
+  const sourcePostalIsCoherent = sourcePostalCode.length === 0
+    || isPostalCodeCoherentWithCity(addressLocality, sourcePostalCode);
+  const postalCode = sourcePostalIsCoherent && sourcePostalCode.length > 0
+    ? sourcePostalCode
     : (hqUsable && hqEntry.postalCode && isValidPostalCode(hqEntry.postalCode) ? hqEntry.postalCode : '') ||
       resolvePostalCode(addressLocality, region) ||
       fallback.postalCode ||
@@ -593,7 +600,7 @@ function resolveAddress(
 
   const streetAddressRaw = String(job.streetAddress || job.address || '').trim();
   const streetAddress =
-    streetAddressRaw.length > 0
+    sourcePostalIsCoherent && streetAddressRaw.length > 0
       ? streetAddressRaw
       : (hqUsable && hqEntry.streetAddress && hqEntry.streetAddress.length > 0 ? hqEntry.streetAddress : '') ||
         fallback.streetAddress ||
