@@ -40,7 +40,7 @@
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { REDFLAG_IMPORTANT_RE, VITEST_CHECK_NAME } from './lib/constants.mjs';
+import { isReviewerBot, REDFLAG_IMPORTANT_RE, VITEST_CHECK_NAME } from './lib/constants.mjs';
 
 export const ORPHAN_MIN_AGE_S = 2 * 60 * 60;
 export const ORPHANED_LABEL = 'orphaned';
@@ -50,7 +50,6 @@ export const OUT_OF_SCOPE_MARKER = '<!-- REDFLAG_OUT_OF_SCOPE -->';
 export const CODEX_FALLBACK_MARKER = '<!-- CODEX_FALLBACK_REVIEW -->';
 
 const SHA_RE = /^[0-9a-f]{40}$/i;
-const MANAGED_REVIEWER_RE = /^(claude|frontaliere-automation)/i;
 const TRUSTED_COMMENTER_RE = /^(github-actions\[bot\]|frontaliere-automation(\[bot\])?|claude(\[bot\])?|nanakokyobashi-rgb|valerielinc-ops)$/i;
 
 export function actionMarker(action, headSha) {
@@ -70,9 +69,10 @@ function isManagedReview(review) {
   const state = String(review.state || '').toUpperCase();
   if (state === 'PENDING' || state === 'DISMISSED') return false;
   if (review.user?.type !== 'Bot') return false;
-  const login = String(review.user?.login || '');
-  if (MANAGED_REVIEWER_RE.test(login)) return true;
-  return login === 'github-actions[bot]' && String(review.body || '').includes(CODEX_FALLBACK_MARKER);
+  // Stessa allowlist dei gate (constants.mjs di ciascun repo); il marker Codex
+  // resta locale perche' solo il corpus lo esporta.
+  if (isReviewerBot(review.user)) return true;
+  return review.user?.login === 'github-actions[bot]' && String(review.body || '').includes(CODEX_FALLBACK_MARKER);
 }
 
 export function hasImportantFinding(body) {
@@ -159,6 +159,9 @@ export function classifyOrphan({
 
   if (important) {
     if (isAutonomousPr(pr)) return none('PR gia autonoma: la prendono fixer e rescuer');
+    // Un head di fork non si adotta: il fixer non puo' pushare li' e il suo
+    // ref non esiste nel repo base per il dispatch.
+    if (pr.headRepo && pr.baseRepo && pr.headRepo !== pr.baseRepo) return none('head da fork: non adottabile');
     if ((pr.labels || []).includes(NEEDS_HUMAN_LABEL)) return none('needs-human: veto terminale');
     const outOfScope = (comments || []).some((comment) => (
       TRUSTED_COMMENTER_RE.test(String(comment?.user?.login || ''))
@@ -216,6 +219,8 @@ function main() {
       headSha: raw.head?.sha,
       updatedAt: raw.updated_at,
       authorType: raw.user?.type,
+      headRepo: raw.head?.repo?.full_name || '',
+      baseRepo: raw.base?.repo?.full_name || '',
       labels: (raw.labels || []).map((label) => label.name),
     };
     // Filtro economico prima delle letture per-PR.
@@ -247,7 +252,7 @@ function main() {
     if (decision.action === 'rerun') {
       for (const runId of decision.runIds) {
         try {
-          gh(['run', 'rerun', runId, '--failed', '--repo', repo]);
+          gh(['run', 'rerun', runId, '--repo', repo]);
         } catch (error) {
           ok = false;
           console.log(`::warning::PR #${pr.number}: rerun della run ${runId} fallito (${error.message.split('\n')[0]}).`);
@@ -275,7 +280,17 @@ function main() {
             '-f', `${dispatchInput}=${pr.number}`]);
           dispatched = true;
         } catch (error) {
-          console.log(`::warning::PR #${pr.number}: dispatch del redflag-fixer fallito (${error.message.split('\n')[0]}).`);
+          // Senza dispatch la PR resterebbe etichettata autonoma ma senza
+          // fixer, e il marker impedirebbe il retry: si ritirano le label e
+          // non si scrive il marker, cosi' il prossimo giro riprova.
+          ok = false;
+          console.log(`::warning::PR #${pr.number}: dispatch del redflag-fixer fallito (${error.message.split('\n')[0]}) — label ritirate, ritento al prossimo giro.`);
+          try {
+            gh(['pr', 'edit', String(pr.number), '--repo', repo,
+              '--remove-label', AUTOFIX_LABEL, '--remove-label', ORPHANED_LABEL]);
+          } catch {
+            console.log(`::warning::PR #${pr.number}: ritiro delle label fallito.`);
+          }
         }
       }
       detail = dispatched
