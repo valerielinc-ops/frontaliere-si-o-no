@@ -32,6 +32,9 @@ export const JOBS_SEO_EMITTER_KINDS = Object.freeze([
 ]);
 
 const JOBS_SEO_RENDER_ENTRY = 'build-plugins/jobsSeoPagesPlugin.ts';
+// This module owns cache persistence only. Changes here must not invalidate
+// already-rendered HTML by changing the emitter fingerprint.
+const JOBS_SEO_REUSE_STORAGE_MODULE = 'build-plugins/shared/incrementalHtmlReuse.mjs';
 export const JOBS_SEO_HTML_PACK_VERSION = 'pack@1';
 const JOBS_SEO_HTML_PACK_FORMAT = 'frontaliere-jobs-seo-html-pack';
 const JOBS_SEO_HTML_INDEX_FORMAT = 'frontaliere-jobs-seo-html-index';
@@ -131,12 +134,12 @@ function collectSourceModuleFiles(rootDir, entryFiles) {
   return [...files].sort((left, right) => left < right ? -1 : left > right ? 1 : 0);
 }
 
-function hashSourceModuleFiles(rootDir, entryFiles) {
+function hashSourceModuleFiles(rootDir, entryFiles, excludedRelativePaths = new Set()) {
   const files = collectSourceModuleFiles(rootDir, entryFiles);
   const records = files.map((file) => ({
     path: path.relative(rootDir, file).replaceAll(path.sep, '/'),
     hash: sha256File(file),
-  }));
+  })).filter(({ path: relativePath }) => !excludedRelativePaths.has(relativePath));
   return sha256(JSON.stringify(records));
 }
 
@@ -161,7 +164,11 @@ function hashStaticShellAssetManifest(rootDir) {
 }
 
 export function computeJobsSeoEmitterFingerprints(rootDir) {
-  const codeHash = hashSourceModuleFiles(rootDir, [JOBS_SEO_RENDER_ENTRY]);
+  const codeHash = hashSourceModuleFiles(
+    rootDir,
+    [JOBS_SEO_RENDER_ENTRY],
+    new Set([JOBS_SEO_REUSE_STORAGE_MODULE]),
+  );
   const assetManifestHash = hashStaticShellAssetManifest(rootDir);
   const renderFlags = {
     STRIP_ACTIVE_JOB_PROSE: process.env.STRIP_ACTIVE_JOB_PROSE ?? '1',

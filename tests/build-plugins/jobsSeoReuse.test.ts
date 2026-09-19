@@ -538,6 +538,32 @@ describe('jobs SEO disk HTML reuse', () => {
     }
   });
 
+  it('keeps the emitter fingerprint stable when cache storage changes', () => {
+    const rootDir = fingerprintFixtureRoot();
+    try {
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/jobsSeoPagesPlugin.ts',
+        'import "./shared/incrementalHtmlReuse.mjs";\nexport const renderVersion = "v1";\n',
+      );
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/shared/incrementalHtmlReuse.mjs',
+        'export const storageVersion = "v1";\n',
+      );
+      clearFingerprintEnv();
+      const before = computeJobsSeoEmitterFingerprints(rootDir)['active-job'];
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/shared/incrementalHtmlReuse.mjs',
+        'export const storageVersion = "v2";\n',
+      );
+      expect(computeJobsSeoEmitterFingerprints(rootDir)['active-job']).toBe(before);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
   it('changes the emitter fingerprint when a render flag changes', () => {
     const rootDir = fingerprintFixtureRoot();
     try {
