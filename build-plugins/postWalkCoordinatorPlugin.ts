@@ -100,6 +100,7 @@ import {
   latestClaimHash,
   loadPostWalkDerivedDigestSidecar,
   loadPostWalkUnmanifestedTopLevels,
+  postWalkDependencyHash,
   postWalkDerivedTemplateHash,
   wasPostWalkDerivedOutputPreserved,
   writePostWalkDerivedDigestSidecar,
@@ -456,6 +457,7 @@ function prepareDerivedPostWalkScope(input: {
   readonly paths: readonly string[];
   readonly existingHtmlSet: ReadonlySet<string>;
   readonly blogIndexHtmlByPath: ReadonlyMap<string, BlogLinkLocale>;
+  readonly dependencyHash: string;
   readonly previous: ReadonlyMap<string, PostWalkDerivedDigestRecord>;
 }): {
   readonly processPaths: readonly string[];
@@ -479,6 +481,7 @@ function prepareDerivedPostWalkScope(input: {
       inputHash,
       sourcePath: path.relative(input.distDir, sourceFilePath).split(path.sep).join('/'),
       sourceHash: latestClaimHash(sourceFilePath),
+      dependencyHash: input.dependencyHash,
       templateHash: postWalkDerivedTemplateHash(kind),
     });
     const previous = input.previous.get(relative);
@@ -486,6 +489,7 @@ function prepareDerivedPostWalkScope(input: {
       && previous.kind === kind
       && previous.inputHash !== null
       && previous.inputHash === inputHash
+      && previous.dependencyHash === input.dependencyHash
       && wasPostWalkDerivedOutputPreserved(input.rootDir, filePath);
     if (preserved) skipped.add(filePath);
     else selected.add(filePath);
@@ -868,6 +872,7 @@ export function postWalkCoordinatorPlugin(
             blogIndexHtmlByPath.set(article.absPath, article.locale);
           }
         }
+        const dependencyHash = postWalkDependencyHash(existingHtmlSet, blogIndexHtmlByPath);
         profileRecord('load-blog-articles', __tBlogLoad);
         const blogPhaseMs = Date.now() - blogPhaseStartedAt;
 
@@ -878,6 +883,7 @@ export function postWalkCoordinatorPlugin(
             paths: fullProcessHtmlPaths,
             existingHtmlSet,
             blogIndexHtmlByPath,
+            dependencyHash,
             previous: previousDerivedSidecar,
           });
           derivedSidecarSkipped = incrementalPlan.mode === 'incremental'
