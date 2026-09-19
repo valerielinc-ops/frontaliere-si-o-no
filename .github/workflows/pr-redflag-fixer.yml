@@ -460,8 +460,11 @@ jobs:
             # e ripostava label+commento (5 volte su #9202, 4 su #9238). Si
             # posta una volta sola: il marker nascosto (o il testo storico,
             # per le PR escalate prima del marker) dice che e' gia' stato fatto.
-            if printf '%s' "$comments" | grep -qF '<!-- NEEDS_HUMAN_ESCALATION: redflag -->' \
-               || printf '%s' "$comments" | grep -qF '**needs-human** (auto): il 🔴-fixer'; then
+            # Here-string, non `printf | grep -q`: con `pipefail` il SIGPIPE di
+            # printf su un elenco commenti grande rendeva falso il guard e
+            # ripostava l'escalation (review di #9283).
+            if grep -qF '<!-- NEEDS_HUMAN_ESCALATION: redflag -->' <<<"$comments" \
+               || grep -qF '**needs-human** (auto): il 🔴-fixer' <<<"$comments"; then
               echo "needs-human gia' escalato su questa PR → nessun nuovo label/commento."
             else
               gh pr edit "$PR_NUMBER" --repo "$REPO" --add-label "needs-human" 2>/dev/null \
