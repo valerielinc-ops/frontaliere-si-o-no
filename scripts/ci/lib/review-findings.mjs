@@ -269,12 +269,21 @@ export function changedLinesFromPatch(patch) {
  * `Fix di ...: ok`. Il reviewer riceve gli id stabili, quindi può riportare un
  * rilievo aperto senza riscriverlo e non ha motivo di duplicarne uno chiuso.
  */
+export const LEDGER_MAX_ENTRIES = 40;
+
 export function renderFindingsLedger({ open = [], confirmed = [] } = {}) {
   const lines = [];
   const uniqueOpen = dedupeFindingsById(open);
   const openIds = new Set(uniqueOpen.map(stableFindingId));
-  const uniqueConfirmed = dedupeFindingsById(confirmed)
+  const allConfirmed = dedupeFindingsById(confirmed)
     .filter((finding) => !openIds.has(stableFindingId(finding)));
+  // Il ledger finisce nel bundle che il reviewer legge: gli `open` non si
+  // tagliano mai (sono lavoro dovuto), i `confirmed` sì, perché servono solo a
+  // non far rialzare un rilievo chiuso e una coda lunga costerebbe contesto
+  // senza cambiare il verdetto.
+  const budget = Math.max(0, LEDGER_MAX_ENTRIES - uniqueOpen.length);
+  const uniqueConfirmed = allConfirmed.slice(-budget);
+  const dropped = allConfirmed.length - uniqueConfirmed.length;
   if (uniqueOpen.length === 0 && uniqueConfirmed.length === 0) {
     return 'Nessun finding Important storico: questa è la prima review utile.';
   }
@@ -287,6 +296,7 @@ export function renderFindingsLedger({ open = [], confirmed = [] } = {}) {
   for (const finding of uniqueConfirmed) {
     lines.push(`- \`${stableFindingId(finding)}\` **confirmed-fixed** — ${firstLine(finding)}`);
   }
+  if (dropped > 0) lines.push(`- (+${dropped} confirmed-fixed più vecchi, omessi per budget di contesto)`);
   return lines.join('\n');
 }
 

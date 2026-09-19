@@ -6,6 +6,7 @@ import {
   findingSymbol,
   isMalformedReviewBody,
   isRegressionFinding,
+  LEDGER_MAX_ENTRIES,
   renderFindingsLedger,
   reviewBodyDefects,
   stableFindingId,
@@ -258,5 +259,16 @@ describe('ledger passato al reviewer', () => {
 
   it('dichiara la prima review quando non c’è storia', () => {
     expect(renderFindingsLedger({})).toMatch(/prima review/u);
+  });
+
+  it('tiene tutti gli open e taglia solo la coda dei confirmed', () => {
+    const open = Array.from({ length: 3 }, (_unused, index) =>
+      importantFindings(`\`scripts/ci/o${index}.mjs:L1\`: 🔴 Important: \`open${index}()\` rotto.`)[0]);
+    const confirmed = Array.from({ length: 50 }, (_unused, index) =>
+      importantFindings(`\`scripts/ci/c${index}.mjs:L1\`: 🔴 Important: \`done${index}()\` rotto.`)[0]);
+    const ledger = renderFindingsLedger({ open, confirmed });
+    expect((ledger.match(/\*\*open\*\*/gu) || []).length).toBe(3);
+    expect((ledger.match(/\*\*confirmed-fixed\*\*/gu) || []).length).toBe(LEDGER_MAX_ENTRIES - 3);
+    expect(ledger).toMatch(/\(\+13 confirmed-fixed più vecchi/u);
   });
 });
