@@ -426,7 +426,7 @@ function isDetailContentValid(content, title) {
 
 const GERMAN_COMPOUND_HEADS = [
   /^(?:management|eröffnung)$/u,
-  /^pädagog(?:e|in)$/u,
+  /^pädagog(?:e|in|ik)$/u,
   /^(?:kompetenz|köchin|koch)$/u,
   /^(?:en|innen)?aufnahme$/u,
   /^etisch(?:e|en|er|es|em)?$/u,

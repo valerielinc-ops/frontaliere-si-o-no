@@ -40,6 +40,7 @@ describe('isDetailContentValid — Kispi German compound titles', () => {
 
     expect(content).toContain('Sozialkompetenz');
     expect(isDetailContentValid(content, 'Sozialpädagogin / Sozialpädagoge in Ausbildung 60-80%')).toBe(true);
+    expect(isDetailContentValid(content, 'Sozialpädagogik / Sozialpädagoge in Ausbildung 60-80%')).toBe(true);
   });
 
   it('does not let a generic Mitarbeiter reference validate the wrong detail page', () => {

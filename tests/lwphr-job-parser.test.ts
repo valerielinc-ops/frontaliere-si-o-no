@@ -53,6 +53,21 @@ describe('lwphr-job-parser', () => {
     )).toBe('Lugano');
   });
 
+  it('accepts contracted and possessive worksite articles across PDF line wraps', () => {
+    expect(inferLwphrLocation(
+      'Consulente',
+      "presso l'ufficio di Lugano,\nsiamo stati incaricati di selezionare il profilo.",
+    )).toBe('Lugano');
+    expect(inferLwphrLocation(
+      'Consulente',
+      'presso la nostra sede di Lugano,\nsiamo stati incaricati di selezionare il profilo.',
+    )).toBe('Lugano');
+    expect(inferLwphrLocation(
+      'Consulente',
+      "all'interno dell'ufficio di Lugano,\nsiamo stati incaricati di selezionare il profilo.",
+    )).toBe('Lugano');
+  });
+
   it('does not promote an employer seat even when a broad mandate token shares the line', () => {
     expect(inferLwphrLocation(
       'Consulente',

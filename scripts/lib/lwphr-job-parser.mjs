@@ -125,7 +125,7 @@ export function parseLwphrOpenJobs(html = '') {
  * empty so the crawler cannot fabricate an address.
  */
 const LWPHR_LOCATION_LABEL_RE = /\b(?:luogo\s+di\s+lavoro|sede\s+di\s+lavoro|posto\s+di\s+lavoro|localit(?:a|à)\s+di\s+lavoro|arbeitsort|arbeitsplatz|standort|lieu\s+de\s+travail|work(?:ing)?\s+location|based\s+(?:in|at)|office\s+in)\b\s*[:\-–]?\s*(.*)$/iu;
-const LWPHR_OPERATIONAL_WORKSITE_RE = /\b(?:presso|per|nella|nello|nel|nella|nei|nelle|alla|allo|all[’']?interno\s+(?:della|del))\s+(?:la|il|una|un)?\s*(?:sede(?:\s+(?:operativa|prestigiosa|di\s+lavoro))?|ufficio|filiale|studio|stabilimento|struttura)\s+(?:a|ad|in|nel|nella|nei|nelle|di)\s+([^,;:\n]+?)(?=\s*(?:[,;:]|$))/iu;
+const LWPHR_OPERATIONAL_WORKSITE_RE = /\b(?:presso|per|nella|nello|nel|nella|nei|nelle|alla|allo|all[’']?interno)\s+(?:(?:la|il|una|un|della|dello|delle|dei|degli|del)\s+)?(?:(?:nostr[oaie]|propri[oaie]|su[oaie]|vostr[oaie]|loro)\s+)?(?:l[’']|dell[’'])?(?:sede(?:\s+(?:operativa|prestigiosa|di\s+lavoro))?|ufficio|filiale|studio|stabilimento|struttura)\s+(?:a|ad|in|nel|nella|nei|nelle|di)\s+([^,;:\n]+?)(?=\s*(?:[,;:]|$))/iu;
 const LWPHR_OPERATIONAL_MANDATE_RE = /\b(?:siamo\s+stati|ci\s+ha(?:nno)?|siamo)\s+incaricat\w*\b|\bsiamo\s+alla\s+ricerca\b/iu;
 const LWPHR_PARENTHETICAL_RE = /\(([^()\n]{2,100})\)/gu;
 
@@ -151,9 +151,13 @@ function extractLwphrLocationContext(title = '', pdfText = '') {
   // mandate wording: employer-seat prose such as "con sede a Lugano ricerca"
   // is not a worksite signal, and an explicit worksite label always wins.
   const narrativeText = String(pdfText || '');
-  for (const line of narrativeText.split(/\r?\n/)) {
-    if (hasExplicitWorksiteLabel || !LWPHR_OPERATIONAL_MANDATE_RE.test(line)) continue;
-    const match = line.match(LWPHR_OPERATIONAL_WORKSITE_RE);
+  const narrativeParagraphs = narrativeText
+    .split(/\r?\n\s*\r?\n/)
+    .map((paragraph) => paragraph.replace(/\s+/g, ' ').trim())
+    .filter(Boolean);
+  for (const paragraph of narrativeParagraphs) {
+    if (hasExplicitWorksiteLabel || !LWPHR_OPERATIONAL_MANDATE_RE.test(paragraph)) continue;
+    const match = paragraph.match(LWPHR_OPERATIONAL_WORKSITE_RE);
     if (match?.[1]) contexts.push(match[1].trim());
   }
 
