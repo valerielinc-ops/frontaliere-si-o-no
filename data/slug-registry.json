@@ -701157,7 +701157,8 @@
     "slugByLocale": {
       "fr": "tecnico-di-avvolgimento-elettrico-pemsa-geneve",
       "en": "technician-di-avvolgimento-elettrico-pemsa-geneve",
-      "de": "techniker-di-avvolgimento-elettrico-pemsa-geneve"
+      "de": "techniker-di-avvolgimento-elettrico-pemsa-geneve",
+      "it": "t-a-t-a-t-a-t-a-t-a-t-t-t-t-t-a-t-a-t-a-t-a-t-a-t-a-t-a-t-t-t-t-t-a-t-a-t-a-t-a-t-a-t-a-t-a-t-a-t-a-t-a-t-a-t-t-t-a-t-a"
     },
     "createdAt": "2026-09-10",
     "canton": "GE"
@@ -748752,7 +748753,8 @@
     "slugByLocale": {
       "fr": "apprenti-e-laborantin-e-option-chimie-hopital-du-valais-sion",
       "it": "apprenti-e-laborantin-e-opzione-chimica-hopital-du-valais-sion",
-      "de": "anwendende-laborantin-e-chemie-option-hopital-du-valais-sion"
+      "de": "anwendende-laborantin-e-chemie-option-hopital-du-valais-sion",
+      "en": "laboratory-technician-apprentice-chemistry-option-hopital-du-valais-sion"
     },
     "createdAt": "2026-09-17",
     "canton": "VS"
@@ -753298,7 +753300,9 @@
     "canonicalSlug": "record-to-report-project-management-office-lead-abb-svizzera-sede-ticino-zurich-2dnn17",
     "slugByLocale": {
       "en": "record-to-report-project-management-office-lead-abb-svizzera-sede-ticino-zurich-2dnn17",
-      "fr": "dossier-pour-rapport-bureau-de-gestion-de-projet-responsable-abb-svizzera-sede-ticino-zurich"
+      "fr": "dossier-pour-rapport-bureau-de-gestion-de-projet-responsable-abb-svizzera-sede-ticino-zurich",
+      "it": "registrare-per-segnalare-il-responsabile-dell-ufficio-di-gestione-del-progetto-abb-svizzera-sede-ticino-zurich",
+      "de": "fuhrende-stelle-fur-projektmanagement-abb-svizzera-sede-ticino-zurich"
     },
     "createdAt": "2026-09-19",
     "canton": "ZH"
@@ -753496,5 +753500,36 @@
     },
     "createdAt": "2026-09-19",
     "canton": "ZH"
+  },
+  "url|https://www.alpiq.com/career/open-jobs/your-application/98": {
+    "canonicalSlug": "project-manager-non-it-iii-alpiq-switzerland",
+    "slugByLocale": {
+      "it": "direttore-del-progetto-non-it-iii-alpiq-switzerland",
+      "de": "projektleiter-nicht-it-iii-alpiq-switzerland",
+      "fr": "gestionnaire-de-projet-non-ti-iii-alpiq-switzerland"
+    },
+    "createdAt": "2026-09-19",
+    "canton": "VD"
+  },
+  "url|https://www.alpiq.com/career/open-jobs/your-application/33": {
+    "canonicalSlug": "it-domain-architetto-trading-alpiq-lausanne",
+    "slugByLocale": {
+      "it": "it-domain-architetto-trading-alpiq-lausanne",
+      "de": "it-bereich-architektenhandel-alpiq-switzerland",
+      "fr": "domaine-it-architect-trading-alpiq-switzerland"
+    },
+    "createdAt": "2026-09-19",
+    "canton": "VD"
+  },
+  "id|capri.wd1.myworkdayjobs.com|r_786577": {
+    "canonicalSlug": "direttore-del-negozio-landquart-capri-holdings-michael-kors-versace-graubunden",
+    "slugByLocale": {
+      "it": "direttore-del-negozio-landquart-capri-holdings-michael-kors-versace-graubunden",
+      "en": "store-manager-landquart-capri-holdings",
+      "de": "filialleiter-landquart-capri-holdings-michael-kors-versace-graubunden",
+      "fr": "gestionnaire-de-magasin-landquart-capri-holdings-michael-kors-versace-graubunden"
+    },
+    "createdAt": "2026-09-19",
+    "canton": "GR"
   }
 }
