@@ -110,9 +110,9 @@ function renderCoverageSection(registry: PlateAuctionSourcesRegistry | null, ent
 }
 function listingTypeLabel(value: string | undefined, locale: PlateLocale): string { if (value === 'fixed-price') return locale === 'it' ? 'Prezzo fisso' : locale === 'de' ? 'Festpreis' : locale === 'fr' ? 'Prix fixe' : 'Fixed price'; if (value === 'wanted') return locale === 'it' ? 'Ricerca' : locale === 'de' ? 'Gesucht' : locale === 'fr' ? 'Recherche' : 'Wanted'; return locale === 'it' ? 'Asta' : locale === 'de' ? 'Auktion' : locale === 'fr' ? 'Enchère' : 'Auction'; }
 function vehicleTypeLabel(value: PlateVehicleType | undefined, locale: PlateLocale): string { if (value === 'motorcycle') return locale === 'it' ? 'Moto' : locale === 'de' ? 'Motorrad' : locale === 'fr' ? 'Moto' : 'Motorcycle'; if (value === 'trailer') return locale === 'it' ? 'Rimorchio' : locale === 'de' ? 'Anhänger' : locale === 'fr' ? 'Remorque' : 'Trailer'; if (value === 'other') return locale === 'it' ? 'Altro' : locale === 'de' ? 'Andere' : locale === 'fr' ? 'Autre' : 'Other'; return locale === 'it' ? 'Auto' : locale === 'de' ? 'Auto' : locale === 'fr' ? 'Auto' : 'Car'; }
-function pathFor(locale: PlateLocale, view: 'hub' | 'rankings' | 'canton' | 'detail', canton?: string, plate?: string, vehicleType?: PlateVehicleType): string { return buildPlateAuctionPath({ locale, view, canton, plate, vehicleType }); }
+function pathFor(locale: PlateLocale, view: 'hub' | 'rankings' | 'canton' | 'directory' | 'detail', canton?: string, plate?: string, vehicleType?: PlateVehicleType): string { return buildPlateAuctionPath({ locale, view, canton, plate, vehicleType }); }
 function detailPathForRow(row: SnapshotRow, locale: PlateLocale): string { return pathFor(locale, 'detail', row.sourceKey || row.platePrefix, row.normalizedPlate, row.vehicleType); }
-function alternates(view: 'hub' | 'rankings' | 'canton' | 'detail', canton?: string, plate?: string, vehicleType?: PlateVehicleType): string { return LOCALES.map((locale) => `<link rel="alternate" hreflang="${locale}" href="${BASE_URL}${pathFor(locale, view, canton, plate, vehicleType)}">`).concat(`<link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathFor('it', view, canton, plate, vehicleType)}">`).join('\n'); }
+function alternates(view: 'hub' | 'rankings' | 'canton' | 'directory' | 'detail', canton?: string, plate?: string, vehicleType?: PlateVehicleType): string { return LOCALES.map((locale) => `<link rel="alternate" hreflang="${locale}" href="${BASE_URL}${pathFor(locale, view, canton, plate, vehicleType)}">`).concat(`<link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathFor('it', view, canton, plate, vehicleType)}">`).join('\n'); }
 function normalizeExpiredRow(row: SnapshotRow): SnapshotRow {
   const endsAt = row.endsAt ? Date.parse(row.endsAt) : Number.NaN;
   if (!['active', 'upcoming'].includes(row.auctionStatus) || !Number.isFinite(endsAt) || endsAt > Date.now()) return row;
@@ -171,6 +171,16 @@ function unlistedDetailLinks(rows: SnapshotRow[], locale: PlateLocale, listedRow
     links.push(`<li><a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(row.normalizedPlate)}</a></li>`);
   }
   return links.join('');
+}
+function detailLinksForRows(rows: SnapshotRow[], locale: PlateLocale): string {
+  const seen = new Set<string>();
+  return rows.flatMap((row) => {
+    if (row.dataConfidence === 'conflicting') return [];
+    const href = detailPathForRow(row, locale);
+    if (seen.has(href)) return [];
+    seen.add(href);
+    return [`<li><a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(row.normalizedPlate)}</a></li>`];
+  }).join('');
 }
 
 export type PlateAuctionContext = {
@@ -252,15 +262,15 @@ const DETAIL_GUIDE: Record<PlateLocale, { heading: string; fields: string; verif
   },
 };
 
-export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleType, rootDir, distDir, context }: { locale: PlateLocale; view: 'hub' | 'rankings' | 'canton' | 'detail'; canton?: string; plate?: string; vehicleType?: PlateVehicleType; rootDir: string; distDir?: string; context?: PlateAuctionContext }): { urlPath: string; html: string } {
+export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleType, rootDir, distDir, context }: { locale: PlateLocale; view: 'hub' | 'rankings' | 'canton' | 'directory' | 'detail'; canton?: string; plate?: string; vehicleType?: PlateVehicleType; rootDir: string; distDir?: string; context?: PlateAuctionContext }): { urlPath: string; html: string } {
   const copy = COPY[locale];
-  const { snapshot, coverage, auctionRows, detailRowsByPlate, rankingRows } = context ?? loadPlateAuctionContext(rootDir);
+  const { snapshot, coverage, auctionRows, detailRows, detailRowsByPlate, rankingRows } = context ?? loadPlateAuctionContext(rootDir);
   const detailRow = view === 'detail'
     ? (detailRowsByPlate.get(String(plate || '').toLowerCase()) || []).find((row) => (!canton || row.sourceKey === canton || row.platePrefix === canton) && (vehicleType ? (row.vehicleType || 'car') === vehicleType : (row.vehicleType || 'car') === 'car'))
     : undefined;
   // Le liste servono solo alle pagine indice: su un dettaglio filtrare e
   // ordinare 17k righe per pagina è lo stesso O(n²) appena tolto.
-  const candidateRows = view === 'detail' ? [] : (view === 'rankings' ? rankingRows : auctionRows)
+  const candidateRows = view === 'detail' || view === 'directory' ? [] : (view === 'rankings' ? rankingRows : auctionRows)
     .filter((row) => (view === 'rankings'
       ? ['closed', 'sold', 'unsold'].includes(row.auctionStatus) && row.dataConfidence === 'verified' && typeof row.finalPriceChf === 'number' && Boolean(row.finalPriceVerifiedAt)
       : isCurrentRow(row))
@@ -269,13 +279,15 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleTyp
     .sort((a, b) => (view === 'rankings' ? (b.finalPriceChf || 0) - (a.finalPriceChf || 0) : (b.currentBidChf ?? b.startingPriceChf ?? 0) - (a.currentBidChf ?? a.startingPriceChf ?? 0)));
   const rows = detailRow
     ? [detailRow]
-    : view === 'detail'
+    : view === 'detail' || view === 'directory'
       ? []
       : view === 'canton'
         ? candidateRows.slice(0, CANTON_INDEX_MAX_ROWS)
         : candidateRows.slice(0, 24);
   const name = canton ? (CANTON_NAMES[canton]?.[locale] || canton) : undefined;
-  const title = view === 'detail' ? `${detailRow?.normalizedPlate || plate || copy.detail} — ${name || detailRow?.canton || copy.title}` : view === 'rankings' ? `${copy.title} — ${copy.rankings}` : name ? `${copy.title}: ${name}` : copy.title;
+  const cantonDetailRows = canton ? detailRows.filter((row) => row.sourceKey === canton || row.platePrefix === canton) : [];
+  const directoryRows = view === 'directory' ? cantonDetailRows : [];
+  const title = view === 'detail' ? `${detailRow?.normalizedPlate || plate || copy.detail} — ${name || detailRow?.canton || copy.title}` : view === 'rankings' ? `${copy.title} — ${copy.rankings}` : view === 'directory' ? `${copy.title}: ${name || canton || copy.title} — ${copy.allListings}` : name ? `${copy.title}: ${name}` : copy.title;
   const description = view === 'detail' ? `${copy.intro} ${detailRow?.normalizedPlate || plate || copy.detail}, ${name || detailRow?.canton || copy.title}.` : name ? `${copy.intro} ${name}.` : copy.intro;
   const urlPath = pathFor(locale, view, canton, detailRow?.normalizedPlate || plate, detailRow?.vehicleType || vehicleType);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
@@ -283,6 +295,10 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleTyp
   const cantonAuctionRows = view === 'canton' && canton ? auctionRows.filter((row) => row.sourceKey === canton || row.platePrefix === canton) : [];
   const detailLinks = view === 'canton'
     ? unlistedDetailLinks(cantonAuctionRows, locale, rows, CANTON_INDEX_MAX_DETAIL_LINKS)
+    : '';
+  const directoryLinks = view === 'directory' ? detailLinksForRows(directoryRows, locale) : '';
+  const directoryIndexLink = view === 'canton' && canton && cantonDetailRows.length > 0
+    ? `<p><a href="${esc(pathFor(locale, 'directory', canton))}" style="${LINK_ACCENT_STYLE}">${esc(copy.allListings)}</a></p>`
     : '';
   const parentPath = canton ? pathFor(locale, 'canton', canton) : view === 'rankings' ? pathFor(locale, 'rankings') : pathFor(locale, 'hub');
   const parentLabel = canton ? name : view === 'rankings' ? copy.rankings : copy.current;
@@ -297,7 +313,9 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleTyp
   const hasActiveSource = coverage.entries.some((entry) => entry.status === 'active');
   const listingSection = view === 'hub' && !hasActiveSource
     ? ''
-    : `<section><h2 style="${H2_STYLE}">${esc(view === 'rankings' ? copy.rankings : view === 'detail' ? copy.detail : copy.current)}</h2>${tableRows(rows, locale, copy)}${detailLinks ? `<h3 style="${H2_STYLE}">${esc(copy.allListings)}</h3><ul>${detailLinks}</ul>` : ''}</section>`;
+    : view === 'directory'
+      ? `<section><h2 style="${H2_STYLE}">${esc(copy.allListings)}</h2><p>${esc(copy.context)}</p><ul>${directoryLinks || `<li>${esc(copy.noData)}</li>`}</ul></section>`
+      : `<section><h2 style="${H2_STYLE}">${esc(view === 'rankings' ? copy.rankings : view === 'detail' ? copy.detail : copy.current)}</h2>${tableRows(rows, locale, copy)}${directoryIndexLink}${detailLinks ? `<h3 style="${H2_STYLE}">${esc(copy.allListings)}</h3><ul>${detailLinks}</ul>` : ''}</section>`;
   const coverageSource = coverage.entries.find((source) => source.plateCode.toUpperCase() === String(canton || '').toUpperCase());
   const sourceSection = `<section><h2 style="${H2_STYLE}">${esc(canton ? copy.method : copy.sources)}</h2><p>${esc(canton && coverageSource?.status !== 'active' ? copy.notDiscovered : copy.context)}</p>${canton || view === 'detail' ? '' : `<ul>${links}</ul>`}</section>`;
   // Detail pages only: index pages already carry a table of many rows plus the
@@ -311,7 +329,7 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleTyp
   // this page-specific string as inner content so React mounts only its lite
   // chrome in #root and cannot replace the crawler-facing table.
   const staticBody = body.replace(/^<main>/, '').replace(/<\/main>$/, '');
-  const itemList = rows.map((row, index) => ({ '@type': 'ListItem', position: index + 1, name: row.normalizedPlate, url: `${BASE_URL}${detailPathForRow(row, locale)}` }));
+  const itemList = (view === 'directory' ? directoryRows : rows).map((row, index) => ({ '@type': 'ListItem', position: index + 1, name: row.normalizedPlate, url: `${BASE_URL}${detailPathForRow(row, locale)}` }));
   const jsonLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': view === 'detail' ? 'WebPage' : 'CollectionPage', name: title, url: canonicalUrl, description, inLanguage: locale, ...(snapshot.generatedAt ? { dateModified: snapshot.generatedAt } : {}), ...(view === 'detail' ? { about: { '@type': 'Thing', name: detailRow?.normalizedPlate || plate } } : { mainEntity: { '@type': 'ItemList', itemListElement: itemList } }) });
   const breadcrumbItems: Array<Record<string, unknown>> = [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` }];
   if (view !== 'hub') {
@@ -321,7 +339,7 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleTyp
   // final item below. A canton crumb is a parent only for a detail page;
   // otherwise adding it here would repeat the canonical URL and invalidate
   // the breadcrumb chain for every index page.
-  if (view === 'detail' && canton) {
+  if ((view === 'detail' || view === 'directory') && canton) {
     breadcrumbItems.push({ '@type': 'ListItem', position: breadcrumbItems.length + 1, name: name || canton, item: `${BASE_URL}${pathFor(locale, 'canton', canton)}` });
   }
   breadcrumbItems.push({ '@type': 'ListItem', position: breadcrumbItems.length + 1, name: title, item: canonicalUrl });
@@ -337,6 +355,7 @@ export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
     if (!fs.existsSync(distDir)) return;
     const context = loadPlateAuctionContext(rootDir);
     const { detailRows } = context;
+    const directoryCantons = new Set(detailRows.map((row) => String(row.sourceKey || row.platePrefix).toUpperCase()));
     let written = 0;
     for (const locale of LOCALES) {
       for (const view of ['hub', 'rankings'] as const) {
@@ -346,13 +365,17 @@ export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
       for (const canton of allPlateAuctionCantonCodes()) {
         const rendered = renderPlateAuctionPage({ locale, view: 'canton', canton, rootDir, distDir, context });
         const out = np.join(distDir, rendered.urlPath, 'index.html'); fs.mkdirSync(np.dirname(out), { recursive: true }); fs.writeFileSync(out, rendered.html, 'utf8'); written++;
+        if (directoryCantons.has(canton)) {
+          const directory = renderPlateAuctionPage({ locale, view: 'directory', canton, rootDir, distDir, context });
+          const directoryOut = np.join(distDir, directory.urlPath, 'index.html'); fs.mkdirSync(np.dirname(directoryOut), { recursive: true }); fs.writeFileSync(directoryOut, directory.html, 'utf8'); written++;
+        }
       }
       for (const row of detailRows) {
         const rendered = renderPlateAuctionPage({ locale, view: 'detail', canton: row.sourceKey || row.platePrefix, plate: row.normalizedPlate, vehicleType: row.vehicleType, rootDir, distDir, context });
         const out = np.join(distDir, rendered.urlPath, 'index.html'); fs.mkdirSync(np.dirname(out), { recursive: true }); fs.writeFileSync(out, rendered.html, 'utf8'); written++;
       }
     }
-    const sitemapUrls = LOCALES.flatMap((locale) => [pathFor(locale, 'hub'), pathFor(locale, 'rankings'), ...allPlateAuctionCantonCodes().map((code) => pathFor(locale, 'canton', code)), ...detailRows.map((row) => detailPathForRow(row, locale))]);
+    const sitemapUrls = LOCALES.flatMap((locale) => [pathFor(locale, 'hub'), pathFor(locale, 'rankings'), ...allPlateAuctionCantonCodes().flatMap((code) => [pathFor(locale, 'canton', code), ...(directoryCantons.has(code) ? [pathFor(locale, 'directory', code)] : [])]), ...detailRows.map((row) => detailPathForRow(row, locale))]);
     const sitemapShardCount = Math.max(1, Math.ceil(sitemapUrls.length / SITEMAP_SHARD_CAP));
     for (let shardIndex = 0; shardIndex < sitemapShardCount; shardIndex++) {
       const shardUrls = sitemapUrls.slice(shardIndex * SITEMAP_SHARD_CAP, (shardIndex + 1) * SITEMAP_SHARD_CAP);

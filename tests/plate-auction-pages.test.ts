@@ -174,7 +174,17 @@ describe('plate-auction static pages', () => {
 
     expect(Buffer.byteLength(rendered.html)).toBeLessThan(260 * 1024);
     expect((rendered.html.match(/<tr>/g) || []).length).toBeLessThanOrEqual(106);
-    expect(rendered.html).not.toContain('Alle veröffentlichten Auktionen');
+    expect(rendered.html).toContain('/de/schweizer-nummernschildauktionen/graubuenden-gr/katalog/');
+  });
+
+  it('links the capped canton page to an uncapped directory of all detail pages', () => {
+    const rootDir = fixtureRoot({ auctionCount: 2000 });
+    const rendered = renderPlateAuctionPage({ locale: 'it', view: 'directory', canton: 'GR', rootDir });
+
+    expect(rendered.urlPath).toBe('aste-targhe-svizzera/grigioni-gr/catalogo');
+    expect(rendered.html).toContain('/aste-targhe-svizzera/grigioni-gr/gr8/');
+    expect(rendered.html).toContain('/aste-targhe-svizzera/grigioni-gr/gr2006/');
+    expect((rendered.html.match(/<li>/g) || []).length).toBe(2000);
   });
 
   it('caps extra detail links when a small current catalogue has old rows', () => {
@@ -286,7 +296,7 @@ describe('plate-auction static pages', () => {
 
     const sitemap = readFileSync(join(rootDir, 'dist', 'sitemap-plate-auctions.xml'), 'utf8');
     const sitemapLocs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-    expect(sitemapLocs).toHaveLength(4 * (2 + 26 + 41));
+    expect(sitemapLocs).toHaveLength(4 * (2 + 26 + 3 + 41));
     expect(new Set(sitemapLocs).size).toBe(sitemapLocs.length);
     const expectedDetailUrls = new Set<string>();
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
@@ -295,7 +305,10 @@ describe('plate-auction static pages', () => {
       for (const group of FULL_FIXTURE_GROUPS) {
         const cantonPath = buildPlateAuctionPath({ locale, view: 'canton', canton: group.sourceKey });
         const canton = readFileSync(join(rootDir, 'dist', cantonPath.slice(1), 'index.html'), 'utf8');
+        const directoryPath = buildPlateAuctionPath({ locale, view: 'directory', canton: group.sourceKey });
+        const directory = readFileSync(join(rootDir, 'dist', directoryPath.slice(1), 'index.html'), 'utf8');
         expect(hub).toContain(`href="${cantonPath}"`);
+        expect(canton).toContain(`href="${directoryPath}"`);
         for (let index = 0; index < group.count; index++) {
           const detailPath = buildPlateAuctionPath({ locale, view: 'detail', canton: group.sourceKey, plate: `${group.platePrefix}${index + 8}` });
           const detailUrl = `https://frontaliereticino.ch${detailPath}`;
@@ -306,7 +319,7 @@ describe('plate-auction static pages', () => {
           } else {
             expectedDetailUrls.add(detailUrl);
             expect(sitemap).toContain(`<loc>${detailUrl}</loc>`);
-            expect(canton).toContain(`href="${detailPath}"`);
+            expect(directory).toContain(`href="${detailPath}"`);
           }
         }
       }
