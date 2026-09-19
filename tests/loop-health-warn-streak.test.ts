@@ -13,28 +13,42 @@
  * dimension: "new this report" vs "above threshold for 9 consecutive reports",
  * derived from the tracker's own prior comments so there is no extra state file.
  */
+import { execFileSync } from 'node:child_process';
+import { chmodSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 // @ts-expect-error — plain .mjs CI script, no type declarations
 import {
   backlogTrendWarning,
-  claudeAllocation,
-  claudeReviewRunStats,
-  claudeReviewCount,
-  claudeUsageStepRan,
+  botReviewCount,
+  classifyFixerJob,
+  fixerJobStats,
+  fetchTrackerComments,
+  FIX_JOB_INSPECTION_LIMIT,
+  labelStats,
+  LABEL_LIST_LIMIT,
   MERGED_PR_LIST_LIMIT,
   mergedPrStats,
   PR_REPAIR_RUN_WARN,
   REPAIR_TO_ISSUE_RATIO_WARN,
+  repairAllocation,
   repairEfficiencyWarnings,
+  renderThresholdSection,
+  runStats,
+  summarizeRunStats,
   warnKey,
   warnStreaks,
+  zombieStats,
+  ZOMBIE_PR_CHECK_LIMIT,
 } from '../scripts/ci/loop-health-report.mjs';
 
 /** Reports are dated relative to now — never a calendar literal in a fixture. */
 const daysAgoIso = (n: number) => new Date(Date.now() - n * 86_400_000).toISOString().slice(0, 10);
 
 function report(sinceDaysAgo: number, warnings: string[]): string {
-  const head = `## Loop health — ultimi 7gg (dal ${daysAgoIso(sinceDaysAgo)})\n\n| Workflow Claude |\n|---|\n`;
+  const head = `## Loop health — ultimi 7gg (dal ${daysAgoIso(sinceDaysAgo)})\n\n| Workflow |\n|---|\n`;
   const tail = warnings.length
     ? `\n### ⚠️ Da investigare\n${warnings.map((w) => `- ${w}`).join('\n')}\n`
     : '\n### ✅ Nessuna soglia superata\n';
@@ -43,6 +57,79 @@ function report(sinceDaysAgo: number, warnings: string[]): string {
 
 function backlogReport(sinceDaysAgo: number, queued: number, warnings: string[] = []): string {
   return `${report(sinceDaysAgo, warnings)}\n**Backlog:** agent:fix zombie 0 · in coda ${queued} · fu-parked 0 · needs-human 0.\n`;
+}
+
+function runReportWithFakeGh() {
+  const sandbox = mkdtempSync(join(tmpdir(), 'loop-health-report-'));
+  const fakeGhPath = join(sandbox, 'gh');
+  const logPath = join(sandbox, 'gh.log');
+  const fakeGh = `#!/usr/bin/env node
+const { appendFileSync } = require('node:fs');
+const args = process.argv.slice(2);
+appendFileSync(process.env.FAKE_GH_LOG, JSON.stringify(args) + String.fromCharCode(10));
+const writeJson = (value) => process.stdout.write(JSON.stringify(value));
+
+if (args[0] === 'run' && args[1] === 'list') {
+  const workflow = args[args.indexOf('--workflow') + 1];
+  if (workflow === 'issue-fix.yml') {
+    writeJson([
+      { databaseId: 101, status: 'completed', conclusion: 'success' },
+      { databaseId: 102, status: 'completed', conclusion: 'success' },
+    ]);
+  } else if (workflow === 'pr-redflag-fixer.yml') {
+    writeJson([{ databaseId: 201, status: 'completed', conclusion: 'future_state' }]);
+  } else {
+    writeJson([]);
+  }
+  process.exit(0);
+}
+
+if (args[0] === 'api' && args[1] && args[1].includes('/actions/runs/101/jobs')) {
+  writeJson({ jobs: [{ name: 'fix', status: 'completed', conclusion: 'success', started_at: '2026-09-19T10:00:00Z' }] });
+  process.exit(0);
+}
+if (args[0] === 'api' && args[1] && args[1].includes('/actions/runs/102/jobs')) {
+  writeJson({ jobs: [{ name: 'fix', status: 'queued', conclusion: null, started_at: null }] });
+  process.exit(0);
+}
+if (args[0] === 'pr' && args[1] === 'list') {
+  writeJson([]);
+  process.exit(0);
+}
+if (args[0] === 'issue' && args[1] === 'list') {
+  const searchIndex = args.indexOf('--search');
+  if (searchIndex >= 0 && args[searchIndex + 1].includes('in:title')) process.exit(2);
+  writeJson([]);
+  process.exit(0);
+}
+if (args[0] === 'label' || (args[0] === 'issue' && (args[1] === 'create' || args[1] === 'comment'))) {
+  process.exit(0);
+}
+writeJson([]);
+`;
+  writeFileSync(fakeGhPath, fakeGh);
+  chmodSync(fakeGhPath, 0o755);
+  const reportScript = fileURLToPath(new URL('../scripts/ci/loop-health-report.mjs', import.meta.url));
+  try {
+    const stdout = execFileSync(process.execPath, [reportScript, '--days', '7'], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        GH_REPO: '',
+        GITHUB_REPOSITORY: 'owner/repo',
+        PATH: `${sandbox}:${process.env.PATH || ''}`,
+        FAKE_GH_LOG: logPath,
+      },
+    });
+    const calls = readFileSync(logPath, 'utf8')
+      .trim()
+      .split('\n')
+      .filter(Boolean)
+      .map((line) => JSON.parse(line) as string[]);
+    return { stdout, calls };
+  } finally {
+    rmSync(sandbox, { recursive: true, force: true });
+  }
 }
 
 describe('warnKey — a streak survives the numbers moving', () => {
@@ -59,9 +146,10 @@ describe('warnKey — a streak survives the numbers moving', () => {
   });
 
   it('keys the non-workflow warnings too', () => {
-    expect(warnKey('first-shot LGTM rate 42% (<50%)')).toBe('first-shot-lgtm');
+    expect(warnKey('PR con una sola review del bot 42% (<50%)')).toBe('single-bot-review-rate');
+    expect(warnKey('first-shot LGTM rate 42% (<50%)')).toBe('single-bot-review-rate');
     expect(warnKey('3 issue agent:fix zombie (>24h, nessuna PR aperta)')).toBe('zombie');
-    expect(warnKey('PR repair volume 401 run reali (> 400)')).toBe('pr-repair-volume');
+    expect(warnKey('PR repair volume 401 run workflow (> 400)')).toBe('pr-repair-volume');
     expect(warnKey('rapporto riparazione PR:issue-fix 598:24 (> 7:1)')).toBe('repair-to-issue-ratio');
     expect(warnKey('coda agent:fix-queued in crescita: 10 → 20 → 30 per 3 report consecutivi'))
       .toBe('queued-growth');
@@ -75,7 +163,7 @@ describe('repairEfficiencyWarnings — allarmi di allocazione senza nuove chiama
       issueFixRuns: 50,
     });
     expect(warnings).toEqual([
-      'PR repair volume 401 run reali (> 400)',
+      'PR repair volume 401 run workflow (> 400)',
       'rapporto riparazione PR:issue-fix 401:50 (> 7:1)',
     ]);
   });
@@ -103,53 +191,179 @@ describe('repairEfficiencyWarnings — allarmi di allocazione senza nuove chiama
   });
 });
 
-describe('tests.yml — segnale Claude incorporato e allocazione', () => {
-  it('conta solo il passo persistito del fallback realmente usato', () => {
-    expect(claudeUsageStepRan([{
-      steps: [
-        { name: 'Run Codex Luna Max review', status: 'completed', conclusion: 'success' },
-        { name: 'Claude usage metrics', status: 'completed', conclusion: 'skipped' },
-      ],
-    }])).toBe(false); // Codex-primary o tests-only
-    expect(claudeUsageStepRan([{
-      steps: [
-        { name: 'Run Codex Luna Max review', status: 'completed', conclusion: 'success' },
-        { name: 'Claude usage metrics', status: 'completed', conclusion: 'success' },
-      ],
-    }])).toBe(true);
-    expect(claudeUsageStepRan([{
-      steps: [{ name: 'Claude usage metrics', status: 'in_progress', conclusion: '' }],
-    }])).toBe(false);
+describe('workflow outcome e fixer job — segnali distinti e bounded', () => {
+  it('esclude i run in corso dal denominatore e separa cancelled/skipped', () => {
+    const stats = summarizeRunStats([
+      { databaseId: 1, status: 'in_progress', conclusion: null },
+      { databaseId: 2, status: 'completed', conclusion: 'success' },
+      { databaseId: 3, status: 'completed', conclusion: 'failure' },
+      { databaseId: 4, status: 'completed', conclusion: 'cancelled' },
+      { databaseId: 5, status: 'completed', conclusion: 'skipped' },
+    ]);
+
+    expect(stats).toMatchObject({
+      measured: true,
+      total: 5,
+      completed: 4,
+      eligible: 2,
+      running: 1,
+      unknown: 0,
+      ok: 1,
+      fail: 1,
+      cancelled: 1,
+      skipped: 1,
+      rate: 0.5,
+      truncated: false,
+    });
   });
 
-  it('rende esplicita una lettura GitHub incompleta e non la trasforma in zero', () => {
-    const calls: string[][] = [];
-    const stats = claudeReviewRunStats('2026-09-01', (args: string[]) => {
-      calls.push(args);
-      if (args[0] === 'run') return [{ databaseId: 1 }, { databaseId: 2 }];
-      if (args.some((arg) => arg.includes('/runs/1/'))) {
-        return { jobs: [{ steps: [{ name: 'Claude usage metrics', status: 'completed', conclusion: 'success' }] }] };
-      }
+  it('rende n/d un errore della lista run invece di un falso zero', () => {
+    const stats = runStats('issue-fix.yml', daysAgoIso(7), () => {
       throw new Error('HTTP 429');
     });
 
-    expect(stats).toEqual({ total: 2, claudeRuns: 1, measured: false, truncated: false });
-    expect(calls).toHaveLength(3);
-    expect(calls[0]).toEqual(expect.arrayContaining(['--event', 'pull_request', '--status', 'completed']));
+    expect(stats).toMatchObject({ measured: false, total: null, eligible: null, rate: null });
   });
 
-  it('include il reviewer incorporato nel rapporto riparazione PR:issue-fix', () => {
-    expect(claudeAllocation({
+  it('non mette una conclusion sconosciuta nel denominatore della failure-rate', () => {
+    const stats = summarizeRunStats([
+      { databaseId: 1, status: 'completed', conclusion: 'future_state' },
+      { databaseId: 2, status: 'completed', conclusion: 'success' },
+      { databaseId: 3, status: 'completed', conclusion: 'failure' },
+    ]);
+
+    expect(stats).toMatchObject({
+      measured: true,
+      completed: 2,
+      eligible: 2,
+      unknown: 1,
+      fail: 1,
+      rate: null,
+    });
+  });
+
+  it('rende n/d anche backlog e zombie quando le rispettive API falliscono', () => {
+    expect(labelStats('agent:fix-queued', () => { throw new Error('HTTP 500'); }))
+      .toEqual({ measured: false, value: null, truncated: false });
+    expect(labelStats('agent:fix-queued', () => [{}]))
+      .toEqual({ measured: false, value: null, truncated: false });
+    expect(labelStats('agent:fix-queued', () => [{ number: 42 }]))
+      .toEqual({ measured: true, value: 1, truncated: false });
+    expect(zombieStats(() => { throw new Error('HTTP 500'); }))
+      .toEqual({ measured: false, value: null, candidates: null, inspected: 0, truncated: false });
+    expect(LABEL_LIST_LIMIT).toBe(200);
+    expect(ZOMBIE_PR_CHECK_LIMIT).toBe(40);
+  });
+
+  it('non confonde risk_policy success + fix skipped con un fixer avviato', () => {
+    expect(classifyFixerJob([
+      { name: 'risk_policy', status: 'completed', conclusion: 'success' },
+      { name: 'fix', status: 'completed', conclusion: 'skipped', started_at: null },
+    ])).toEqual({ state: 'skipped', outcome: 'skipped' });
+    expect(classifyFixerJob([
+      { name: 'risk_policy', status: 'completed', conclusion: 'success' },
+      { name: 'fix', status: 'completed', conclusion: 'success', started_at: '2026-09-19T10:00:00Z' },
+    ])).toEqual({ state: 'started', outcome: 'success' });
+  });
+
+  it('separa job pending da un job davvero avviato', () => {
+    expect(classifyFixerJob([
+      { name: 'fix', status: 'queued', conclusion: null },
+    ])).toEqual({ state: 'pending', outcome: 'queued' });
+    expect(classifyFixerJob([
+      { name: 'fix', status: 'waiting', conclusion: null },
+    ])).toEqual({ state: 'pending', outcome: 'waiting' });
+    expect(classifyFixerJob([
+      { name: 'fix', status: 'in_progress', conclusion: null, started_at: '2026-09-19T10:00:00Z' },
+    ])).toEqual({ state: 'started', outcome: 'in_progress' });
+    expect(classifyFixerJob([
+      { name: 'fix', status: 'queued', started_at: '2026-09-19T10:00:00Z', conclusion: null },
+    ])).toEqual({ state: 'started', outcome: 'queued' });
+  });
+
+  it('usa la shape REST e non inferisce un avvio da un cancelled senza started_at', () => {
+    expect(classifyFixerJob([
+      { name: 'fix', status: 'completed', conclusion: 'cancelled', started_at: null },
+    ])).toEqual({ state: 'unknown', outcome: null });
+    expect(classifyFixerJob([
+      { name: 'fix', status: 'completed', conclusion: 'completed', started_at: '2026-09-19T10:00:00Z' },
+    ])).toEqual({ state: 'unknown', outcome: null });
+  });
+
+  it('rispetta il cap di 40 chiamate jobs e segnala il troncamento', () => {
+    const calls: string[][] = [];
+    const runs = Array.from({ length: FIX_JOB_INSPECTION_LIMIT + 5 }, (_, i) => ({ databaseId: i + 1 }));
+    const stats = fixerJobStats(runs, (args: string[]) => {
+      calls.push(args);
+      return { jobs: [{ name: 'fix', status: 'completed', conclusion: 'skipped' }] };
+    }, { repo: 'owner/repo' });
+
+    expect(calls).toHaveLength(FIX_JOB_INSPECTION_LIMIT);
+    expect(stats).toMatchObject({
+      measured: true,
+      total: FIX_JOB_INSPECTION_LIMIT + 5,
+      inspected: FIX_JOB_INSPECTION_LIMIT,
+      skipped: FIX_JOB_INSPECTION_LIMIT,
+      started: 0,
+      truncated: true,
+    });
+  });
+
+  it('rende non misurabile un jobs response incompleto', () => {
+    const stats = fixerJobStats([{ databaseId: 1 }], () => ({ jobs: [] }), { repo: 'owner/repo' });
+    expect(stats).toMatchObject({ measured: false, started: 0, skipped: 0, unknown: 1 });
+  });
+
+  it('mantiene l allocazione n/d se una fonte non è misurabile', () => {
+    expect(repairAllocation({
       prRepairRuns: 4,
-      embeddedReviewRuns: 2,
       issueFixRuns: 3,
-    })).toEqual({ repairRuns: 6, issueFixRuns: 3, ratio: '2.0:1' });
-    expect(claudeAllocation({
+    })).toEqual({ repairRuns: 4, issueFixRuns: 3, ratio: '1.3:1' });
+    expect(repairAllocation({
       prRepairRuns: 4,
-      embeddedReviewRuns: 2,
-      embeddedMeasured: false,
-      issueFixRuns: 3,
-    })).toEqual({ repairRuns: null, issueFixRuns: 3, ratio: 'n/d' });
+      issueFixRuns: null,
+    })).toEqual({ repairRuns: 4, issueFixRuns: null, ratio: 'n/d' });
+  });
+
+  it('non stampa una soglia verde rassicurante con dati incompleti', () => {
+    expect(renderThresholdSection([], true)).toContain('Dati incompleti');
+    expect(renderThresholdSection([], true)).not.toContain('Nessuna soglia superata');
+    expect(renderThresholdSection([], false)).toBe('### ✅ Nessuna soglia superata');
+  });
+
+  it('legge gli ultimi 14 commenti via GraphQL e ne conserva lordine', () => {
+    const calls: string[][] = [];
+    const result = fetchTrackerComments(1951, (args: string[]) => {
+      calls.push(args);
+      return {
+        data: {
+          repository: {
+            issue: {
+              comments: { nodes: [{ body: 'older' }, { body: 'newer' }] },
+            },
+          },
+        },
+      };
+    }, { repo: 'owner/repo' });
+
+    expect(result).toEqual({ measured: true, comments: ['older', 'newer'] });
+    expect(calls).toHaveLength(1);
+    expect(calls[0][0]).toBe('api');
+    expect(calls[0][1]).toBe('graphql');
+    expect(calls[0].join(' ')).toContain('comments(last:14)');
+    expect(calls[0]).toContain('-F');
+    expect(calls[0]).toContain('number=1951');
+  });
+
+  it('main mantiene n/d su allocation unknown e non crea tracker dopo lookup fallito', () => {
+    const { stdout, calls } = runReportWithFakeGh();
+
+    expect(stdout).toContain('job avviati 1, pending 1');
+    expect(stdout).toContain('Allocazione workflow:** riparazione PR n/d run eleggibili · issue-fix 2 · rapporto n/d');
+    expect(stdout).toContain('tracker loop health non misurabile');
+    expect(calls.some((args) => args[0] === 'label' && args[1] === 'create')).toBe(false);
+    expect(calls.some((args) => args[0] === 'issue' && args[1] === 'create')).toBe(false);
+    expect(calls.some((args) => args[0] === 'issue' && args[1] === 'comment')).toBe(false);
   });
 });
 
@@ -192,13 +406,13 @@ describe('warnStreaks — counts CONSECUTIVE prior reports', () => {
       report(7, [
         'failure-rate 55% su issue-fix.yml (60/109 run reali)',
         'failure-rate 44% su post-merge-followup.yml (21/48 run reali)',
-        'first-shot LGTM rate 42% (<50%)',
+        'PR con una sola review del bot 42% (<50%)',
       ]),
     ];
     const streaks = warnStreaks(1951, () => comments);
     expect(streaks.get(ISSUE_FIX)!.count).toBe(3);
     expect(streaks.get('failure-rate:post-merge-followup.yml')!.count).toBe(2);
-    expect(streaks.get('first-shot-lgtm')!.count).toBe(1);
+    expect(streaks.get('single-bot-review-rate')!.count).toBe(1);
   });
 
   it('ignores comments that are not loop-health reports', () => {
@@ -242,7 +456,7 @@ describe('mergedPrStats — review identity and list completeness', () => {
       { author: { login: 'someone-else' } },
     ];
 
-    expect(claudeReviewCount({ reviews })).toBe(4);
+    expect(botReviewCount({ reviews })).toBe(4);
   });
 
   it('raises an observable truncation flag when the GitHub list reaches its limit', () => {
@@ -250,7 +464,7 @@ describe('mergedPrStats — review identity and list completeness', () => {
     const runGh = (args: string[]) => {
       calls.push(args);
       return Array.from({ length: MERGED_PR_LIST_LIMIT }, (_, number) => ({
-        number,
+        number: number + 1,
         reviews: [],
       }));
     };
@@ -263,9 +477,26 @@ describe('mergedPrStats — review identity and list completeness', () => {
     expect(calls[0]).toContain('--limit');
     expect(calls[0]).toContain(String(MERGED_PR_LIST_LIMIT));
     expect(stats).toMatchObject({
+      measured: true,
       merged: MERGED_PR_LIST_LIMIT,
       limit: MERGED_PR_LIST_LIMIT,
       truncated: true,
     });
+  });
+
+  it('non trasforma un record PR senza reviews in uno zero misurato', () => {
+    const stats = mergedPrStats('2026-09-12', () => [{}]);
+    expect(stats).toMatchObject({
+      measured: false,
+      merged: null,
+      singleReview: null,
+      zeroReview: null,
+      totalReviews: null,
+    });
+  });
+
+  it('non trasforma un updatedAt invalido in zero zombie misurato', () => {
+    const stats = zombieStats(() => [{ updatedAt: 'invalid' }]);
+    expect(stats).toMatchObject({ measured: false, value: null, candidates: null });
   });
 });

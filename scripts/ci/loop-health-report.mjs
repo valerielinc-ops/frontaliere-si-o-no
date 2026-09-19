@@ -1,8 +1,8 @@
 /**
  * loop-health-report.mjs — osservabilità DETERMINISTICA del loop autonomo
- * (zero-Claude). Calcola le metriche di salute che altrimenti vanno raccolte
- * a mano (fatto l'ultima volta il 2026-06-12, ~4 agent-ore): failure-rate per
- * workflow Claude, first-shot LGTM rate, zombie agent:fix, backlog coda.
+ * (zero-model). Calcola le metriche di salute che altrimenti vanno raccolte
+ * a mano: failure-rate dei workflow di automazione, PR con una sola review del
+ * bot, zombie agent:fix e backlog della coda.
  *
  * Perché: il sistema si auto-ripara solo se l'osservazione è essa stessa
  * automatica. Questo report chiude il ciclo osserva→fixa→valida: dopo ogni
@@ -31,20 +31,17 @@ const TRACKER_TITLE = '📊 Loop health report (tracker)';
 // (scripts/ci/followup-drainer.mjs); keep the literal in sync.
 const LBL_NO_AGE_OUT = 'agent:no-age-out';
 
-// Workflow Claude = i soli 6 che bruciano quota Max (AGENTS.md § frugalità).
-// `pr-redcheck-fixer.yml` è il sesto (2026-08-23): gemello del 🔴-fixer per il
-// sintomo che quello non copre (check required rosso senza un 🔴 del reviewer).
-// Va censito QUI o la sua quota diventa invisibile al loop-health — ed è
-// esattamente il tipo di consumo che si vuole vedere, non scoprire a posteriori.
-const CLAUDE_WORKFLOWS = [
+// Workflow di automazione osservati dal report. Il provider può cambiare: il
+// report non usa questi run per inferire consumo di modello o token.
+const AUTOMATION_WORKFLOWS = [
   'issue-fix.yml',
   'pr-redflag-fixer.yml',
   'pr-redcheck-fixer.yml',
   'post-merge-followup.yml',
   'lessons-harvester.yml',
 ];
-// Failure-rate sopra questa soglia (sui run reali, esclusi skipped/cancelled)
-// = regressione da investigare (baseline post-#1919: redflag-fixer era al 56%).
+// Failure-rate sopra questa soglia sui run terminali eleggibili = regressione
+// da investigare (baseline post-#1919: redflag-fixer era al 56%).
 const FAIL_RATE_WARN = 0.2;
 // Target misurati nell'issue #8306: la quota non deve essere assorbita dalla
 // riparazione delle PR generate dal ciclo. Sono warning, non gate: il report
@@ -52,12 +49,24 @@ const FAIL_RATE_WARN = 0.2;
 export const PR_REPAIR_RUN_WARN = 400;
 export const REPAIR_TO_ISSUE_RATIO_WARN = 7;
 export const MERGED_PR_LIST_LIMIT = 1000;
-const CLAUDE_REVIEW_LOGIN = /^(?:claude|frontaliere-automation)(?:\[bot\])?$/i;
-const TESTS_CLAUDE_RUN_LIMIT = 1000;
-// `tests.yml` already emits this persisted step only after the Claude fallback
-// was actually used. A skipped step therefore distinguishes tests-only and
-// Codex-primary runs without changing the adapted workflow here.
-export const CLAUDE_USAGE_STEP_NAME = 'Claude usage metrics';
+export const RUN_LIST_LIMIT = 1000;
+export const FIX_JOB_INSPECTION_LIMIT = 40;
+export const ZOMBIE_PR_CHECK_LIMIT = 40;
+export const LABEL_LIST_LIMIT = 200;
+const REVIEW_BOT_LOGIN = /^(?:claude|frontaliere-automation)(?:\[bot\])?$/i;
+const TERMINAL_CONCLUSIONS = new Set([
+  'success',
+  'failure',
+  'cancelled',
+  'skipped',
+  'neutral',
+  'timed_out',
+  'startup_failure',
+  'action_required',
+  'stale',
+]);
+const FAILURE_CONCLUSIONS = new Set(['failure', 'timed_out', 'startup_failure', 'action_required', 'stale']);
+const ACTIVE_JOB_STATUSES = new Set(['queued', 'waiting', 'requested', 'pending']);
 
 function gh(args, { json = true } = {}) {
   const out = execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
@@ -68,124 +77,279 @@ function isoDaysAgo(d) {
   return new Date(Date.now() - d * 86_400_000).toISOString().slice(0, 10);
 }
 
-function runStats(workflow, since) {
-  let runs = [];
-  try {
-    runs = gh(['run', 'list', '--repo', REPO, '--workflow', workflow,
-      '--created', `>${since}`, '--limit', '1000', '--json', 'conclusion,status']);
-  } catch { /* workflow senza run nel periodo */ }
-  const total = runs.length;
+function unavailableRunStats(reason = 'github-api-error') {
+  return {
+    measured: false,
+    reason,
+    total: null,
+    completed: null,
+    eligible: null,
+    running: null,
+    unknown: null,
+    fail: null,
+    ok: null,
+    cancelled: null,
+    skipped: null,
+    rate: null,
+    truncated: false,
+    records: [],
+  };
+}
+
+/**
+ * Summarize a run-list response without treating an active run as a completed
+ * attempt. `records` is retained only for the bounded job inspection below;
+ * no provider, token, or delivery claim is derived from it.
+ */
+export function summarizeRunStats(runs, { limit = RUN_LIST_LIMIT } = {}) {
+  if (!Array.isArray(runs)) return unavailableRunStats('invalid-github-response');
   const by = {};
-  for (const r of runs) {
-    const k = r.conclusion || r.status || 'unknown';
-    by[k] = (by[k] || 0) + 1;
-  }
-  // PUNTO CIECO NOTO, non una svista: `cancelled` NON è una cosa sola. GitHub marca
-  // `cancelled` anche il job che sfonda `timeout-minutes` (è la premessa di
-  // `scan-job-timeouts.mjs`), quindi un timeout esce sia da `fail` sia da `real` e questo
-  // report non lo vede. Il discriminante esiste — `total_count` dei job della run, zero
-  // per uno scarto in coda e >0 per un timeout: è quello che usa `hasNoJobs` in
-  // `close-recovered-failure-issues.mjs` (#5333). Qui NON si applica per costo: sarebbe
-  // una chiamata `gh api .../jobs` per run, su una finestra di 1000 run × 11 workflow.
-  // Per i timeout la fonte giusta resta `scan-job-timeouts.mjs`, che li apre come issue.
-  const real = total - (by.cancelled || 0) - (by.skipped || 0); // run che hanno lavorato
-  const fail = by.failure || 0;
-  return { total, real, fail, ok: by.success || 0, cancelled: by.cancelled || 0, skipped: by.skipped || 0, rate: real ? fail / real : 0 };
-}
-
-/**
- * Whether a tests.yml job persisted the actual Claude-fallback signal.
- * @param {unknown} jobs Actions jobs response (or its `jobs` array)
- */
-export function claudeUsageStepRan(jobs) {
-  const list = Array.isArray(jobs) ? jobs : [];
-  return list.some((job) => (Array.isArray(job?.steps) ? job.steps : []).some((step) =>
-    step?.name === CLAUDE_USAGE_STEP_NAME
-    && step.status === 'completed'
-    && step.conclusion !== 'skipped'));
-}
-
-/**
- * Count actual Claude fallback consumers in the embedded tests.yml reviewer.
- * Jobs are inspected only for this workflow; an API failure makes the metric
- * explicitly indeterminate instead of silently reporting a false zero.
- */
-export function claudeReviewRunStats(since, runGh = gh) {
-  let runs = [];
-  try {
-    runs = runGh(['run', 'list', '--repo', REPO, '--workflow', 'tests.yml',
-      '--event', 'pull_request', '--status', 'completed', '--created', `>${since}`,
-      '--limit', String(TESTS_CLAUDE_RUN_LIMIT), '--json', 'databaseId']);
-  } catch {
-    return { total: 0, claudeRuns: 0, measured: false, truncated: false };
-  }
-  if (!Array.isArray(runs)) return { total: 0, claudeRuns: 0, measured: false, truncated: false };
-
-  let claudeRuns = 0;
-  let measured = true;
   for (const run of runs) {
-    if (!run?.databaseId) {
+    const key = typeof run?.conclusion === 'string' && run.conclusion.length > 0
+      ? run.conclusion
+      : typeof run?.status === 'string' && run.status.length > 0
+        ? run.status
+        : 'unknown';
+    by[key] = (by[key] || 0) + 1;
+  }
+  const terminal = runs.filter((run) => TERMINAL_CONCLUSIONS.has(run?.conclusion));
+  const activeStatuses = new Set(['queued', 'in_progress', 'waiting', 'requested', 'pending']);
+  const running = runs.filter((run) => !run?.conclusion && activeStatuses.has(run?.status));
+  const unknown = runs.length - terminal.length - running.length;
+  const eligible = terminal.filter((run) => !['cancelled', 'skipped'].includes(run.conclusion));
+  const fail = eligible.filter((run) => FAILURE_CONCLUSIONS.has(run.conclusion)).length;
+  const truncated = Number.isFinite(limit) && runs.length === limit;
+  return {
+    measured: true,
+    reason: null,
+    total: runs.length,
+    completed: terminal.length,
+    eligible: eligible.length,
+    running: running.length,
+    unknown,
+    fail,
+    ok: by.success || 0,
+    cancelled: by.cancelled || 0,
+    skipped: by.skipped || 0,
+    // A full run list with no eligible denominator is measured but undefined,
+    // not a reassuring 0%.
+    // An unrecognised conclusion makes the period incomplete: keep it out of
+    // the denominator, but also avoid presenting a partial rate as definitive.
+    rate: !truncated && unknown === 0 && eligible.length > 0 ? fail / eligible.length : null,
+    truncated,
+    records: runs,
+  };
+}
+
+export function runStats(workflow, since, runGh = gh) {
+  try {
+    const runs = runGh(['run', 'list', '--repo', REPO, '--workflow', workflow,
+      '--created', `>${since}`, '--limit', String(RUN_LIST_LIMIT),
+      '--json', 'databaseId,conclusion,status,createdAt']);
+    return summarizeRunStats(runs);
+  } catch {
+    return unavailableRunStats('github-api-error');
+  }
+}
+
+function unavailableFixerStats(reason = 'github-api-error') {
+  return {
+    measured: false,
+    reason,
+    total: null,
+    inspected: 0,
+    started: null,
+    skipped: null,
+    running: null,
+    pending: null,
+    success: null,
+    failure: null,
+    cancelled: null,
+    neutral: null,
+    unknown: null,
+    truncated: false,
+  };
+}
+
+/**
+ * Classify only the dedicated issue-fix job. A skipped `fix` job is not a
+ * fixer execution; a terminal job conclusion is only a job result, never a
+ * claim that a model ran or that a PR was delivered.
+ */
+export function classifyFixerJob(jobs) {
+  if (!Array.isArray(jobs)) return { state: 'unknown', outcome: null };
+  const rawJob = jobs.find((candidate) => candidate?.name === 'fix');
+  if (!rawJob) return { state: 'unknown', outcome: null };
+  const job = {
+    name: rawJob.name,
+    status: typeof rawJob.status === 'string' ? rawJob.status : null,
+    conclusion: typeof rawJob.conclusion === 'string' && rawJob.conclusion.length > 0
+      ? rawJob.conclusion
+      : null,
+    // The jobs endpoint is REST-shaped (`started_at`); retain camelCase only
+    // as a compatibility input for older local fixtures.
+    startedAt: rawJob.started_at ?? rawJob.startedAt ?? null,
+  };
+  if (job.conclusion === 'skipped') return { state: 'skipped', outcome: 'skipped' };
+  const hasStartedAt = typeof job.startedAt === 'string'
+    && Number.isFinite(Date.parse(job.startedAt));
+  // A terminal conclusion is the result. Check it before using `status` or
+  // `started_at` as execution evidence, so `status: completed` never becomes
+  // the reported outcome when the actual result is `success`/`failure`.
+  if (TERMINAL_CONCLUSIONS.has(job.conclusion)) {
+    return hasStartedAt
+      ? { state: 'started', outcome: job.conclusion }
+      : { state: 'unknown', outcome: null };
+  }
+  if (job.conclusion !== null) return { state: 'unknown', outcome: null };
+  if (job.status === 'in_progress') {
+    return { state: 'started', outcome: 'in_progress' };
+  }
+  if (ACTIVE_JOB_STATUSES.has(job.status)) {
+    return hasStartedAt
+      ? { state: 'started', outcome: job.status }
+      : { state: 'pending', outcome: job.status };
+  }
+  return { state: 'unknown', outcome: null };
+}
+
+/**
+ * Inspect at most `FIX_JOB_INSPECTION_LIMIT` recent issue-fix runs. The cap is
+ * deliberate: a report must not turn a metric into an unbounded jobs API scan.
+ */
+export function fixerJobStats(runs, runGh = gh, {
+  repo = REPO,
+  limit = FIX_JOB_INSPECTION_LIMIT,
+} = {}) {
+  if (!Array.isArray(runs)) return unavailableFixerStats('invalid-run-list');
+  const runsWithIds = runs.filter((run) => run?.databaseId);
+  const candidates = runsWithIds.slice(0, limit);
+  const truncated = candidates.length < runs.length;
+  let measured = runsWithIds.length === runs.length;
+  let started = 0;
+  let skipped = 0;
+  let pending = 0;
+  let running = 0;
+  let success = 0;
+  let failure = 0;
+  let cancelled = 0;
+  let neutral = 0;
+  let unknown = 0;
+  for (const run of candidates) {
+    let response;
+    try {
+      response = runGh([
+        'api',
+        `repos/${repo}/actions/runs/${run.databaseId}/jobs?filter=latest&per_page=100`,
+      ]);
+    } catch {
       measured = false;
       continue;
     }
-    try {
-      const response = runGh([
-        'api',
-        `repos/${REPO}/actions/runs/${run.databaseId}/jobs?filter=latest&per_page=100`,
-      ]);
-      if (claudeUsageStepRan(response?.jobs)) claudeRuns += 1;
-    } catch {
+    const result = classifyFixerJob(response?.jobs);
+    if (result.state === 'skipped') {
+      skipped += 1;
+    } else if (result.state === 'pending') {
+      pending += 1;
+    } else if (result.state === 'started') {
+      started += 1;
+      if (result.outcome === 'success') success += 1;
+      else if (FAILURE_CONCLUSIONS.has(result.outcome)) failure += 1;
+      else if (result.outcome === 'cancelled') cancelled += 1;
+      else if (result.outcome === 'neutral') neutral += 1;
+      else if (['in_progress', ...ACTIVE_JOB_STATUSES].includes(result.outcome)) running += 1;
+      else {
+        unknown += 1;
+        measured = false;
+      }
+    } else {
+      unknown += 1;
       measured = false;
     }
   }
-  const truncated = runs.length === TESTS_CLAUDE_RUN_LIMIT;
-  return { total: runs.length, claudeRuns, measured: measured && !truncated, truncated };
+  return {
+    measured,
+    reason: measured ? null : 'jobs-api-error-or-incomplete-response',
+    total: runs.length,
+    inspected: candidates.length,
+    started,
+    skipped,
+    pending,
+    running,
+    success,
+    failure,
+    cancelled,
+    neutral,
+    unknown,
+    truncated,
+  };
 }
 
-/**
- * Merge the embedded reviewer into the PR-repair allocation only when its
- * measurement is complete. The report remains advisory when GitHub is
- * temporarily unreadable: it prints n/d and does not invent a ratio.
- */
-export function claudeAllocation({
-  prRepairRuns = 0,
-  embeddedReviewRuns = 0,
-  embeddedMeasured = true,
-  issueFixRuns = 0,
+export function repairAllocation({
+  prRepairRuns = null,
+  issueFixRuns = null,
 } = {}) {
-  const repairs = Number(prRepairRuns);
-  const embedded = Number(embeddedReviewRuns);
-  const issueFix = Number(issueFixRuns);
-  const repairRuns = embeddedMeasured && Number.isFinite(repairs) && Number.isFinite(embedded)
-    ? repairs + embedded
-    : null;
-  const ratio = repairRuns !== null && Number.isFinite(issueFix) && issueFix > 0
-    ? `${(repairRuns / issueFix).toFixed(1)}:1`
+  const repairs = prRepairRuns === null || prRepairRuns === undefined ? null : Number(prRepairRuns);
+  const issueFix = issueFixRuns === null || issueFixRuns === undefined ? null : Number(issueFixRuns);
+  const repairRuns = Number.isFinite(repairs) ? repairs : null;
+  const issueFixValue = Number.isFinite(issueFix) ? issueFix : null;
+  const ratio = repairRuns !== null && issueFixValue !== null && issueFixValue > 0
+    ? `${(repairRuns / issueFixValue).toFixed(1)}:1`
     : 'n/d';
-  return { repairRuns, issueFixRuns: issueFix, ratio };
+  return { repairRuns, issueFixRuns: issueFixValue, ratio };
 }
 
-export function claudeReviewCount(pr) {
-  return (pr.reviews || []).filter((r) => CLAUDE_REVIEW_LOGIN.test(r.author?.login || '')).length;
+export function botReviewCount(pr) {
+  return (Array.isArray(pr?.reviews) ? pr.reviews : [])
+    .filter((review) => REVIEW_BOT_LOGIN.test(review?.author?.login || '')).length;
 }
 
 export function mergedPrStats(since, runGh = gh) {
-  let prs = [];
+  let prs;
   try {
     prs = runGh(['pr', 'list', '--repo', REPO, '--state', 'merged',
       '--search', `merged:>${since}`, '--limit', String(MERGED_PR_LIST_LIMIT), '--json', 'number,reviews']);
-  } catch { /* noop */ }
-  if (!Array.isArray(prs)) prs = [];
+  } catch {
+    return {
+      measured: false,
+      merged: null,
+      singleReview: null,
+      zeroReview: null,
+      totalReviews: null,
+      limit: MERGED_PR_LIST_LIMIT,
+      truncated: false,
+    };
+  }
+  if (!Array.isArray(prs)) {
+    return {
+      measured: false,
+      merged: null,
+      singleReview: null,
+      zeroReview: null,
+      totalReviews: null,
+      limit: MERGED_PR_LIST_LIMIT,
+      truncated: false,
+    };
+  }
+  if (prs.some((pr) => !Number.isInteger(pr?.number) || pr.number <= 0 || !Array.isArray(pr.reviews))) {
+    return {
+      measured: false,
+      merged: null,
+      singleReview: null,
+      zeroReview: null,
+      totalReviews: null,
+      limit: MERGED_PR_LIST_LIMIT,
+      truncated: false,
+    };
+  }
   const merged = prs.length;
-  // === 1 (non <=1): una PR mergiata con ZERO review claude (merge manuale,
-  // o reopen-path prima che la review atterri) non e' un "first-shot LGTM" —
-  // contarla gonfierebbe la metrica (adversarial check review #1930).
-  const firstShot = prs.filter((p) => claudeReviewCount(p) === 1).length;
-  const zeroReview = prs.filter((p) => claudeReviewCount(p) === 0).length;
-  const totalReviews = prs.reduce((a, p) => a + claudeReviewCount(p), 0);
+  const singleReview = prs.filter((pr) => botReviewCount(pr) === 1).length;
+  const zeroReview = prs.filter((pr) => botReviewCount(pr) === 0).length;
+  const totalReviews = prs.reduce((sum, pr) => sum + botReviewCount(pr), 0);
   return {
+    measured: true,
     merged,
-    firstShot,
+    singleReview,
     zeroReview,
     totalReviews,
     limit: MERGED_PR_LIST_LIMIT,
@@ -195,31 +359,69 @@ export function mergedPrStats(since, runGh = gh) {
 
 /** Zombie: issue follow-up con agent:fix, ferma da >24h, senza PR fix APERTA
  * (stessa semantica open-only del drainer post-#1919). */
-function zombieCount() {
-  let issues = [];
+export function zombieStats(runGh = gh, {
+  repo = REPO,
+  issueLimit = 100,
+  prCheckLimit = ZOMBIE_PR_CHECK_LIMIT,
+} = {}) {
+  let issues;
   try {
-    issues = gh(['issue', 'list', '--repo', REPO, '--state', 'open',
+    issues = runGh(['issue', 'list', '--repo', repo, '--state', 'open',
       '--label', 'agent:fix', '--label', 'follow-up',
-      '--json', 'number,updatedAt', '--limit', '100']);
-  } catch { /* noop */ }
-  const old = issues.filter((i) => Date.now() - Date.parse(i.updatedAt) > 24 * 3_600_000);
-  let z = 0;
-  for (const i of old) {
-    try {
-      const prs = gh(['pr', 'list', '--repo', REPO, '--head', `fix/issue-${i.number}`,
-        '--state', 'open', '--json', 'number', '--limit', '1']);
-      if (!Array.isArray(prs) || prs.length === 0) z++;
-    } catch { /* conservativo: non contare */ }
+      '--json', 'number,updatedAt', '--limit', String(issueLimit)]);
+  } catch {
+    return { measured: false, value: null, candidates: null, inspected: 0, truncated: false };
   }
-  return z;
+  if (!Array.isArray(issues)) {
+    return { measured: false, value: null, candidates: null, inspected: 0, truncated: false };
+  }
+  if (issues.some((issue) => (
+    !Number.isInteger(issue?.number)
+    || issue.number <= 0
+    || !Number.isFinite(Date.parse(issue.updatedAt))
+  ))) {
+    return { measured: false, value: null, candidates: null, inspected: 0, truncated: false };
+  }
+  const old = issues.filter((issue) => Date.now() - Date.parse(issue.updatedAt) > 24 * 3_600_000);
+  const candidates = old.slice(0, prCheckLimit);
+  let measured = true;
+  let zombies = 0;
+  for (const issue of candidates) {
+    try {
+      const prs = runGh(['pr', 'list', '--repo', repo, '--head', `fix/issue-${issue.number}`,
+        '--state', 'open', '--json', 'number', '--limit', '1']);
+      if (!Array.isArray(prs) || prs.some((pr) => !Number.isInteger(pr?.number) || pr.number <= 0)) {
+        measured = false;
+      } else if (prs.length === 0) zombies += 1;
+    } catch {
+      measured = false;
+    }
+  }
+  const truncated = issues.length === issueLimit || old.length > candidates.length;
+  return {
+    measured,
+    value: measured ? zombies : null,
+    candidates: old.length,
+    inspected: candidates.length,
+    truncated,
+  };
 }
 
-function labelCount(label) {
+export function labelStats(label, runGh = gh, {
+  repo = REPO,
+  limit = LABEL_LIST_LIMIT,
+} = {}) {
   try {
-    const out = gh(['issue', 'list', '--repo', REPO, '--state', 'open',
-      '--label', label, '--json', 'number', '--limit', '200']);
-    return Array.isArray(out) ? out.length : 0;
-  } catch { return 0; }
+    const out = runGh(['issue', 'list', '--repo', repo, '--state', 'open',
+      '--label', label, '--json', 'number', '--limit', String(limit)]);
+    if (!Array.isArray(out)) return { measured: false, value: null, truncated: false };
+    if (out.some((issue) => !Number.isInteger(issue?.number) || issue.number <= 0)) {
+      return { measured: false, value: null, truncated: false };
+    }
+    return { measured: true, value: out.length, truncated: out.length === limit };
+  } catch {
+    return { measured: false, value: null, truncated: false };
+  }
 }
 
 /** Tracker issue number (find only — creation stays in the posting path). */
@@ -227,19 +429,25 @@ function findTracker() {
   try {
     const found = gh(['issue', 'list', '--repo', REPO, '--state', 'open',
       '--search', `in:title "${TRACKER_TITLE}"`, '--json', 'number,title', '--limit', '5']);
-    return (found.find((i) => i.title === TRACKER_TITLE) || {}).number || null;
-  } catch { return null; }
+    if (!Array.isArray(found)) return { measured: false, number: null };
+    if (found.some((issue) => (
+      !Number.isInteger(issue?.number)
+      || issue.number <= 0
+      || typeof issue.title !== 'string'
+    ))) return { measured: false, number: null };
+    return { measured: true, number: (found.find((i) => i.title === TRACKER_TITLE) || {}).number || null };
+  } catch { return { measured: false, number: null }; }
 }
 
 /**
  * Stable key for a warning, so a streak survives the numbers changing.
- * "failure-rate 53% su issue-fix.yml (54/102 run reali)" → "failure-rate:issue-fix.yml".
+ * "failure-rate 53% su issue-fix.yml (54/102 run eleggibili)" → "failure-rate:issue-fix.yml".
  */
 export function warnKey(text) {
   const s = String(text || '');
   const wf = s.match(/\bsu ([a-z0-9-]+\.yml)/i);
   if (/failure-rate/i.test(s) && wf) return `failure-rate:${wf[1]}`;
-  if (/first-shot LGTM rate/i.test(s)) return 'first-shot-lgtm';
+  if (/first-shot LGTM rate/i.test(s) || /PR con una sola review del bot/i.test(s)) return 'single-bot-review-rate';
   if (/agent:fix zombie/i.test(s)) return 'zombie';
   if (/PR repair volume/i.test(s)) return 'pr-repair-volume';
   if (/rapporto riparazione PR:issue-fix/i.test(s)) return 'repair-to-issue-ratio';
@@ -272,8 +480,8 @@ function priorBacklogValues(comments) {
  * @returns {string}
  */
 export function backlogTrendWarning(currentQueued, comments = []) {
-  const current = Number(currentQueued);
-  if (!Number.isFinite(current)) return '';
+  const current = currentQueued === null || currentQueued === undefined ? null : Number(currentQueued);
+  if (current === null || !Number.isFinite(current)) return '';
   const history = priorBacklogValues(comments);
   if (history.length < 2) return '';
   const before = history.at(-2);
@@ -293,16 +501,16 @@ export function backlogTrendWarning(currentQueued, comments = []) {
  * @returns {string[]}
  */
 export function repairEfficiencyWarnings({
-  repairRuns = 0,
-  issueFixRuns = 0,
-  queued = 0,
+  repairRuns = null,
+  issueFixRuns = null,
+  queued = null,
   priorComments = [],
 } = {}) {
-  const repairs = Number(repairRuns);
-  const issueFix = Number(issueFixRuns);
+  const repairs = repairRuns === null || repairRuns === undefined ? null : Number(repairRuns);
+  const issueFix = issueFixRuns === null || issueFixRuns === undefined ? null : Number(issueFixRuns);
   const warnings = [];
   if (Number.isFinite(repairs) && repairs > PR_REPAIR_RUN_WARN) {
-    warnings.push(`PR repair volume ${repairs} run reali (> ${PR_REPAIR_RUN_WARN})`);
+    warnings.push(`PR repair volume ${repairs} run workflow (> ${PR_REPAIR_RUN_WARN})`);
   }
   if (Number.isFinite(repairs) && Number.isFinite(issueFix)
       && issueFix > 0 && repairs / issueFix > REPAIR_TO_ISSUE_RATIO_WARN) {
@@ -384,13 +592,70 @@ export function warnStreaks(tracker, fetchComments = defaultFetchComments) {
 
 /** How far back a streak can be measured (tracker comments, newest last). */
 const COMMENT_WINDOW = 14;
+const TRACKER_COMMENTS_QUERY = [
+  'query($owner:String!,$name:String!,$number:Int!){',
+  'repository(owner:$owner,name:$name){issue(number:$number){',
+  `comments(last:${COMMENT_WINDOW}){nodes{body}}}}}`,
+].join('');
 
-/** Last COMMENT_WINDOW tracker comments. Read-only; failures degrade to []. */
-function defaultFetchComments(tracker) {
+/** Last COMMENT_WINDOW tracker comments, requested bounded from GitHub. */
+export function fetchTrackerComments(tracker, runGh = gh, { repo = REPO } = {}) {
+  const [owner, name] = String(repo).split('/');
+  if (!owner || !name || !Number.isInteger(Number(tracker)) || Number(tracker) <= 0) {
+    return { measured: false, comments: [] };
+  }
   try {
-    const out = gh(['issue', 'view', String(tracker), '--repo', REPO, '--json', 'comments']);
-    return (out.comments || []).slice(-COMMENT_WINDOW).map((c) => c.body || '');
-  } catch { return []; }
+    const out = runGh([
+      'api', 'graphql',
+      '-f', `query=${TRACKER_COMMENTS_QUERY}`,
+      '-F', `owner=${owner}`,
+      '-F', `name=${name}`,
+      '-F', `number=${Number(tracker)}`,
+    ]);
+    if (Array.isArray(out?.errors) && out.errors.length > 0) {
+      return { measured: false, comments: [] };
+    }
+    const nodes = out?.data?.repository?.issue?.comments?.nodes;
+    if (!Array.isArray(nodes) || nodes.some((comment) => typeof comment?.body !== 'string')) {
+      return { measured: false, comments: [] };
+    }
+    return { measured: true, comments: nodes.map((comment) => comment.body) };
+  } catch { return { measured: false, comments: [] }; }
+}
+
+function defaultFetchComments(tracker) {
+  return fetchTrackerComments(tracker).comments;
+}
+
+function countLabel(value) {
+  return value === null || value === undefined ? 'n/d' : String(value);
+}
+
+function percentLabel(value) {
+  return Number.isFinite(value) ? `${(value * 100).toFixed(0)}%` : 'n/d';
+}
+
+function unavailableFixerStatsForRunList() {
+  return unavailableFixerStats('run-list-unavailable');
+}
+
+/**
+ * Keep the healthy-state line honest when one or more source metrics are
+ * incomplete. A report with no warnings is not the same as a complete report.
+ */
+export function renderThresholdSection(warns, dataIncomplete, streaks = new Map()) {
+  if (warns.length) {
+    return `### ⚠️ Da investigare\n${warns.map((warning) => {
+      const streak = streaks.get(warnKey(warning));
+      if (!streak) return `- ${warning} — **nuovo** questo report`;
+      const count = `${streak.capped ? '≥' : ''}${streak.count + 1}`;
+      return `- ${warning} — sopra soglia da **${count} report consecutivi** (almeno dal ${streak.since})`;
+    }).join('\n')}`;
+  }
+  if (dataIncomplete) {
+    return '### ⚠️ Dati incompleti\n- Nessuna soglia è stata dichiarata superata, ma una o più fonti non sono state misurate completamente.';
+  }
+  return '### ✅ Nessuna soglia superata';
 }
 
 function main() {
@@ -398,66 +663,128 @@ function main() {
   const since = isoDaysAgo(DAYS);
   const lines = [];
   const warns = [];
+  let dataIncomplete = false;
   const workflowStats = {};
 
   lines.push(`## Loop health — ultimi ${DAYS}gg (dal ${since})`);
   lines.push('');
-  lines.push('| Workflow Claude | run reali | ok | fail | rate | canc | skip |');
-  lines.push('|---|---|---|---|---|---|---|');
-  let claudePerDay = 0;
-  for (const wf of CLAUDE_WORKFLOWS) {
+  lines.push('| Workflow | run eleggibili | ok | fail | rate | in corso | canc | skip |');
+  lines.push('|---|---:|---:|---:|---:|---:|---:|---:|');
+  for (const wf of AUTOMATION_WORKFLOWS) {
     const s = runStats(wf, since);
     workflowStats[wf] = s;
-    claudePerDay += s.real / DAYS;
-    const flag = s.rate > FAIL_RATE_WARN && s.real >= 5 ? ' ⚠️' : '';
-    if (flag) warns.push(`failure-rate ${(s.rate * 100).toFixed(0)}% su ${wf} (${s.fail}/${s.real} run reali)`);
-    lines.push(`| ${wf}${flag} | ${s.real} | ${s.ok} | ${s.fail} | ${(s.rate * 100).toFixed(0)}% | ${s.cancelled} | ${s.skipped} |`);
+    if (!s.measured) {
+      dataIncomplete = true;
+      warns.push(`dati workflow non misurabili su ${wf}: ${s.reason}`);
+    } else if (s.truncated) {
+      dataIncomplete = true;
+      warns.push(`run list troncata su ${wf} al limite ${RUN_LIST_LIMIT}: failure-rate non completo`);
+    }
+    if (s.measured && s.unknown > 0) {
+      dataIncomplete = true;
+      warns.push(`run workflow non classificabili su ${wf}: ${s.unknown}`);
+    }
+    if (s.measured && !s.truncated && s.eligible === 0) {
+      dataIncomplete = true;
+      warns.push(`failure-rate n/d su ${wf}: nessun run eleggibile nel periodo`);
+    }
+    const flag = s.rate !== null && s.rate > FAIL_RATE_WARN && s.eligible >= 5 ? ' ⚠️' : '';
+    if (flag) warns.push(`failure-rate ${percentLabel(s.rate)} su ${wf} (${s.fail}/${s.eligible} run eleggibili)`);
+    lines.push(`| ${wf}${flag} | ${countLabel(s.eligible)} | ${countLabel(s.ok)} | ${countLabel(s.fail)} | ${percentLabel(s.rate)} | ${countLabel(s.running)} | ${countLabel(s.cancelled)} | ${countLabel(s.skipped)} |`);
   }
-  const embeddedClaude = claudeReviewRunStats(since);
-  const embeddedClaudeLabel = embeddedClaude.measured ? embeddedClaude.claudeRuns : 'n/d';
-  if (embeddedClaude.measured) claudePerDay += embeddedClaude.claudeRuns / DAYS;
-  lines.push(`| tests.yml (Claude usage metrics) | ${embeddedClaudeLabel} | — | — | — | — | — |`);
   lines.push('');
-  lines.push(`**Invocazioni Claude ≈ ${claudePerDay.toFixed(0)}/giorno** (run reali, proxy token-burn).`);
+  const issueFix = workflowStats['issue-fix.yml'];
+  const fixer = issueFix?.measured ? fixerJobStats(issueFix.records) : unavailableFixerStatsForRunList();
+  if (!fixer.measured) {
+    dataIncomplete = true;
+    warns.push(`job fixer issue-fix non misurabile: ${fixer.reason}`);
+  } else if (fixer.truncated) {
+    dataIncomplete = true;
+    warns.push(`ispezione job fixer troncata al cap ${FIX_JOB_INSPECTION_LIMIT}: ${fixer.inspected}/${fixer.total} run`);
+  }
+  const fixerLabel = fixer.measured
+    ? `job avviati ${fixer.started}, pending ${fixer.pending}, saltati ${fixer.skipped}, esito success ${fixer.success}, failure ${fixer.failure}, cancelled ${fixer.cancelled}, neutral ${fixer.neutral}, in corso ${fixer.running}`
+    : 'n/d';
+  lines.push(`**Esecuzione fixer issue-fix:** ${fixerLabel} (ispezionati ${countLabel(fixer.inspected)}/${countLabel(fixer.total)}). È un conteggio dei job GitHub: non misura consumo modello, token o PR consegnate.`);
 
   const pr = mergedPrStats(since);
-  const fsRate = pr.merged ? pr.firstShot / pr.merged : 0;
-  if (pr.merged >= 10 && fsRate < 0.5) warns.push(`first-shot LGTM rate ${(fsRate * 100).toFixed(0)}% (<50%)`);
-  if (pr.truncated) warns.push(`merged PR list truncated at ${pr.limit}; first-shot and review totals are incomplete`);
+  if (!pr.measured) {
+    dataIncomplete = true;
+    warns.push('PR merged non misurabili: GitHub API non disponibile');
+  }
+  const singleReviewRate = pr.measured && pr.merged > 0 ? pr.singleReview / pr.merged : null;
+  if (pr.measured && !pr.truncated && pr.merged >= 10 && singleReviewRate < 0.5) {
+    warns.push(`PR con una sola review del bot ${(singleReviewRate * 100).toFixed(0)}% (<50%)`);
+  }
+  if (pr.truncated) {
+    dataIncomplete = true;
+    warns.push(`merged PR list troncata al limite ${pr.limit}: conteggi review incompleti`);
+  }
   lines.push('');
-  lines.push(`**PR merged:** ${pr.merged} (${(pr.merged / DAYS).toFixed(1)}/g) · first-shot LGTM ${pr.firstShot}/${pr.merged} (${(fsRate * 100).toFixed(0)}%, zero-review ${pr.zeroReview}) · review Claude totali ${pr.totalReviews} (overhead ${pr.merged ? ((pr.totalReviews / Math.max(pr.merged, 1) - 1) * 100).toFixed(0) : 0}%).`);
+  const mergedLabel = pr.measured ? `${pr.merged} (${(pr.merged / DAYS).toFixed(1)}/g)` : 'n/d';
+  const singleReviewLabel = pr.measured ? `${pr.singleReview}/${pr.merged} (${percentLabel(singleReviewRate)}, zero-review ${pr.zeroReview})` : 'n/d';
+  const reviewTotalLabel = pr.measured
+    ? `${pr.totalReviews} (overhead ${pr.merged ? ((pr.totalReviews / Math.max(pr.merged, 1) - 1) * 100).toFixed(0) : 0}%)`
+    : 'n/d';
+  lines.push(`**PR merged:** ${mergedLabel} · PR con una sola review del bot ${singleReviewLabel} · review bot totali ${reviewTotalLabel}.`);
 
-  const zombies = zombieCount();
-  if (zombies > 0) warns.push(`${zombies} issue agent:fix zombie (>24h, nessuna PR aperta)`);
-  const queued = labelCount('agent:fix-queued');
-  const parked = labelCount('fu-parked');
-  const needsHuman = labelCount('needs-human');
-  lines.push(`**Backlog:** agent:fix zombie ${zombies} · in coda ${queued} · fu-parked ${parked} · needs-human ${needsHuman}.`);
+  const zombies = zombieStats();
+  if (!zombies.measured) {
+    dataIncomplete = true;
+    warns.push('zombie agent:fix non misurabili: GitHub API incompleta');
+  } else if (zombies.truncated) {
+    dataIncomplete = true;
+    warns.push(`controllo zombie troncato al cap ${ZOMBIE_PR_CHECK_LIMIT}: risultato parziale`);
+  } else if (zombies.value > 0) {
+    warns.push(`${zombies.value} issue agent:fix zombie (>24h, nessuna PR aperta)`);
+  }
+  const queued = labelStats('agent:fix-queued');
+  const parked = labelStats('fu-parked');
+  const needsHuman = labelStats('needs-human');
+  for (const [label, stat] of [['agent:fix-queued', queued], ['fu-parked', parked], ['needs-human', needsHuman]]) {
+    if (!stat.measured) {
+      dataIncomplete = true;
+      warns.push(`conteggio label ${label} non misurabile`);
+    } else if (stat.truncated) {
+      dataIncomplete = true;
+      warns.push(`conteggio label ${label} troncato al limite ${LABEL_LIST_LIMIT}`);
+    }
+  }
+  lines.push(`**Backlog:** agent:fix zombie ${countLabel(zombies.measured && !zombies.truncated ? zombies.value : null)} · in coda ${countLabel(queued.measured && !queued.truncated ? queued.value : null)} · fu-parked ${countLabel(parked.measured && !parked.truncated ? parked.value : null)} · needs-human ${countLabel(needsHuman.measured && !needsHuman.truncated ? needsHuman.value : null)}.`);
 
   // The tracker comments are already the source for warning streaks. Reuse
   // the same read for the queue trend: no extra GitHub request per report.
-  const tracker = findTracker();
-  const trackerComments = tracker ? defaultFetchComments(tracker) : [];
-  const issueFixRuns = workflowStats['issue-fix.yml']?.real || 0;
-  const allocation = claudeAllocation({
-    prRepairRuns: (workflowStats['pr-redflag-fixer.yml']?.real || 0)
-      + (workflowStats['pr-redcheck-fixer.yml']?.real || 0),
-    embeddedReviewRuns: embeddedClaude.claudeRuns,
-    embeddedMeasured: embeddedClaude.measured,
+  const trackerInfo = findTracker();
+  const tracker = trackerInfo.number;
+  if (!trackerInfo.measured) {
+    dataIncomplete = true;
+    warns.push('tracker loop health non misurabile: GitHub API incompleta');
+  }
+  const trackerCommentsResult = tracker ? fetchTrackerComments(tracker) : { measured: true, comments: [] };
+  if (tracker && !trackerCommentsResult.measured) {
+    dataIncomplete = true;
+    warns.push('commenti tracker loop health non misurabili: GitHub API incompleta');
+  }
+  const trackerComments = trackerCommentsResult.comments;
+  const completeWorkflowCount = (stats) => (
+    stats?.measured && !stats.truncated && stats.unknown === 0 ? stats.eligible : null
+  );
+  const issueFixRuns = completeWorkflowCount(issueFix);
+  const redFlagRuns = completeWorkflowCount(workflowStats['pr-redflag-fixer.yml']);
+  const redCheckRuns = completeWorkflowCount(workflowStats['pr-redcheck-fixer.yml']);
+  const allocation = repairAllocation({
+    prRepairRuns: redFlagRuns !== null && redCheckRuns !== null ? redFlagRuns + redCheckRuns : null,
     issueFixRuns,
   });
+  if (allocation.repairRuns === null || allocation.issueFixRuns === null) dataIncomplete = true;
   const allocationRepairs = allocation.repairRuns === null ? 'n/d' : allocation.repairRuns;
-  lines.push(`**Allocazione:** riparazione PR ${allocationRepairs} run reali (incluso tests.yml Claude ${embeddedClaudeLabel}) · issue-fix ${issueFixRuns} · rapporto ${allocation.ratio}.`);
-  if (!embeddedClaude.measured) {
-    warns.push('tests.yml Claude reviewer non misurabile: jobs API incompleta');
-  } else {
-    warns.push(...repairEfficiencyWarnings({
-      repairRuns: allocation.repairRuns,
-      issueFixRuns,
-      queued,
-      priorComments: trackerComments,
-    }));
-  }
+  lines.push(`**Allocazione workflow:** riparazione PR ${allocationRepairs} run eleggibili · issue-fix ${countLabel(issueFixRuns)} · rapporto ${allocation.ratio}. Non è una stima di consumo modello.`);
+  warns.push(...repairEfficiencyWarnings({
+    repairRuns: allocation.repairRuns,
+    issueFixRuns: allocation.issueFixRuns,
+    queued: queued.measured && !queued.truncated ? queued.value : null,
+    priorComments: trackerComments,
+  }));
 
   // Quanto dura ciascun allarme: una riga di soglia accesa da due mesi senza
   // mai cambiare stato non si legge più. Il conteggio la rende di nuovo
@@ -465,16 +792,9 @@ function main() {
   // è un'escalation che nessuno ha raccolto.
   const streaks = warnStreaks(tracker, () => trackerComments);
   lines.push('');
-  lines.push(warns.length
-    ? `### ⚠️ Da investigare\n${warns.map((w) => {
-      const s = streaks.get(warnKey(w));
-      if (!s) return `- ${w} — **nuovo** questo report`;
-      const n = `${s.capped ? '≥' : ''}${s.count + 1}`;
-      return `- ${w} — sopra soglia da **${n} report consecutivi** (almeno dal ${s.since})`;
-    }).join('\n')}`
-    : '### ✅ Nessuna soglia superata');
+  lines.push(renderThresholdSection(warns, dataIncomplete, streaks));
   lines.push('');
-  lines.push('_Report deterministico da loop-health-report.yml (zero-Claude). Baseline 2026-06-12 pre-tuning: ~89 run/g, redflag-fail 56%, first-shot 69%._');
+  lines.push('_Report deterministico da loop-health-report.yml. Non inferisce provider, consumo token o consegna PR. Baseline storico 2026-06-12 pre-tuning: ~89 run/g, redflag-fail 56%._');
 
   const report = lines.join('\n');
   console.log(report);
@@ -482,7 +802,9 @@ function main() {
   if (NO_POST) return;
   // Find-or-create issue tracker, poi commenta il report (storico in un posto).
   let num = tracker;
-  if (!num) {
+  // A failed lookup is not evidence that the tracker is absent. Do not turn an
+  // unreadable API response into an issue/label mutation.
+  if (!num && trackerInfo.measured) {
     try {
       // Best-effort: `gh issue create --label` errors if the label doesn't
       // exist yet. `gh label create` errors if it already does — both fine.
@@ -490,7 +812,7 @@ function main() {
       const url = gh(['issue', 'create', '--repo', REPO, '--title', TRACKER_TITLE,
         '--label', 'automation',
         '--label', LBL_NO_AGE_OUT,
-        '--body', 'Tracker permanente: il report settimanale di salute del loop autonomo atterra qui come commento (loop-health-report.yml, zero-Claude). NON chiudere: il prossimo run la ricreerebbe.'],
+        '--body', 'Tracker permanente: il report settimanale di salute del loop autonomo atterra qui come commento (loop-health-report.yml, deterministico e senza modello). NON chiudere: il prossimo run la ricreerebbe.'],
         { json: false });
       num = Number((url.match(/\/issues\/(\d+)/) || [])[1]) || null;
     } catch (e) { console.log(`::warning::create tracker fallita: ${String(e).slice(0, 160)}`); }
