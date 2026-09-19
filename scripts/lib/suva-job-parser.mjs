@@ -50,6 +50,10 @@ export const SUVA_COMPANY_NAME = 'Suva';
 export const SUVA_COMPANY_DOMAIN = 'suva.ch';
 
 const SITEMAP_URL = 'https://jobs.suva.ch/sitemap.xml';
+// Suva's rich-text bodies can exceed the generic helper's defensive 20k scan
+// window. Keep an explicit source-specific ceiling, and reject an unclosed
+// scan at that ceiling rather than persisting a silently truncated description.
+const SUVA_DESCRIPTION_SCAN_CAP = 50_000;
 
 /**
  * Static Suva regional-agency address table — reproduced from the inline
@@ -239,13 +243,25 @@ export function parseDetailPage(html = '') {
     `itemprop=["']description["']`,
     { skipVoidTags: true },
   );
+  // `rest` starts immediately after the selected opening tag. Deriving the
+  // boundary from it keeps the location scan aligned with the same element
+  // even when the attribute uses single quotes or different casing.
+  const descriptionOpeningEnd = descriptionField
+    ? html.length - descriptionField.rest.length
+    : -1;
   const descriptionHtml = descriptionField
-    ? extractBalancedTagBlock(descriptionField.rest, descriptionField.tagName)
+    ? extractBalancedTagBlock(
+      descriptionField.rest,
+      descriptionField.tagName,
+      SUVA_DESCRIPTION_SCAN_CAP,
+    )
     : '';
-  const description = normalizeSpace(stripHtml(descriptionHtml));
+  const descriptionComplete = Boolean(
+    descriptionField && descriptionHtml.length < SUVA_DESCRIPTION_SCAN_CAP,
+  );
+  const description = descriptionComplete ? normalizeSpace(stripHtml(descriptionHtml)) : '';
 
-  const descIdx = html.indexOf('itemprop="description"');
-  const before = descIdx >= 0 ? html.slice(0, descIdx) : html;
+  const before = descriptionOpeningEnd >= 0 ? html.slice(0, descriptionOpeningEnd) : html;
   const spanPattern = /<span[^>]*class="rtltextaligneligible"[^>]*>([\s\S]*?)<\/span>/gi;
   let spanMatch;
   let location = '';

@@ -93,6 +93,32 @@ describe('Suva crawler parser', () => {
       expect(parsed?.description).toContain('Fälle unserer Versicherten');
       expect(parsed?.description).toContain('folgt weiterer Inhalt');
     });
+
+    it('keeps long descriptions beyond the shared 20k scan default', () => {
+      const longBody = 'Langtext für die SUVA-Stelle mit relevanten Aufgaben. '.repeat(900);
+      const html = `
+        <meta property="og:title" content="Sachbearbeiter:in">
+        <span class="rtltextaligneligible">Luzern</span>
+        <span ITEMPROP='description'><p>${longBody}</p><p>Der finale Abschnitt bleibt erhalten.</p></span>
+      `;
+
+      const parsed = parseDetailPage(html);
+
+      expect(parsed?.description.length).toBeGreaterThan(20_000);
+      expect(parsed?.description).toContain('Der finale Abschnitt bleibt erhalten');
+      expect(parsed?.location).toBe('Luzern');
+    });
+
+    it('does not persist a prefix when the capped description never closes', () => {
+      const html = `
+        <meta property="og:title" content="Sachbearbeiter:in">
+        <span itemprop="description">${'Unvollständiger Langtext. '.repeat(2_500)}
+      `;
+
+      const parsed = parseDetailPage(html);
+
+      expect(parsed?.description).toBe('');
+    });
   });
 
   // ── slugify (imported from crawler-template) ──
