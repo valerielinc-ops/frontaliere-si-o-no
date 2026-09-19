@@ -23,7 +23,7 @@ const TESTS_YML = readFileSync(resolve(ROOT, '.github/workflows/tests.yml'), 'ut
 // sorgente (`vitestCheck.mjs`) ed è esattamente il motivo per cui il modulo
 // sotto test lo importa invece di dichiararlo.
 const REVIEW_GATE = REVIEW_GATE_STEP_NAME;
-const PR_BODY_GATE = 'PR-body completeness + multi-issue Closes (no checkout, all events)';
+const PR_BODY_GATE = 'PR-body completeness + multi-issue Closes (no checkout, pull requests)';
 const SUMMARY_STEP = 'Explain the job verdict in the run summary';
 const INDEPENDENT_GATES = 'Collect independent source gates';
 
