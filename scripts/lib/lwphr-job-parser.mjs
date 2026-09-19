@@ -125,6 +125,8 @@ export function parseLwphrOpenJobs(html = '') {
  * empty so the crawler cannot fabricate an address.
  */
 const LWPHR_LOCATION_LABEL_RE = /\b(?:luogo\s+di\s+lavoro|sede\s+di\s+lavoro|posto\s+di\s+lavoro|localit(?:a|à)\s+di\s+lavoro|arbeitsort|arbeitsplatz|standort|lieu\s+de\s+travail|work(?:ing)?\s+location|based\s+(?:in|at)|office\s+in)\b\s*[:\-–]?\s*(.*)$/iu;
+const LWPHR_NARRATIVE_LOCATION_RE = /\b(?:con\s+)?sede(?:\s+principale)?\s+(?:a|ad|in|nel|nella|nei|nelle)\s+([^,.;:\n]+)/iu;
+const LWPHR_NARRATIVE_SITUATED_RE = /\bsit[aoe]\s+(?:a|ad|in|nel|nella|nei|nelle)\s+([^,.;:\n]+)/iu;
 const LWPHR_PARENTHETICAL_RE = /\(([^()\n]{2,100})\)/gu;
 
 function extractLwphrLocationContext(title = '', pdfText = '') {
@@ -139,6 +141,18 @@ function extractLwphrLocationContext(title = '', pdfText = '') {
     const value = match[1].trim();
     if (value) contexts.push(value);
     else if (lines[index + 1]?.trim()) contexts.push(lines[index + 1].trim());
+  }
+
+  // LWP PDFs commonly state the employer's seat in narrative prose rather
+  // than a standalone "Sede di lavoro:" field (for example "con sede nel
+  // Luganese" or "sita nel luganese"). These are explicit workplace signals;
+  // keep ordinary city mentions in the body excluded.
+  const narrativeText = String(pdfText || '');
+  for (const line of narrativeText.split(/\r?\n/)) {
+    for (const pattern of [LWPHR_NARRATIVE_LOCATION_RE, LWPHR_NARRATIVE_SITUATED_RE]) {
+      const match = line.match(pattern);
+      if (match?.[1]) contexts.push(match[1].trim());
+    }
   }
 
   // A few LWP PDFs put the work city in the heading as "City/CANTON". Only

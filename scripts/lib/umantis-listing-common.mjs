@@ -408,7 +408,18 @@ function isDetailContentValid(content, title) {
     .split(/[^\p{L}\p{N}]+/u)
     .filter((tok) => tok.length >= 4 && !/^(und|der|die|das|für|mit|von|bei|ein|eine)$/.test(tok));
   if (tokens.length >= 2) {
-    const overlap = tokens.some((tok) => lower.includes(tok));
+    const bodyTokens = lower.match(/[\p{L}\p{N}]{4,}/gu) || [];
+    const overlap = tokens.some((tok) => bodyTokens.some((bodyToken) => {
+      if (bodyToken === tok) return true;
+      // German vacancy prose often inflects or compounds a title noun:
+      // "Fallmanagement" is evidenced by "Falleröffnung", and
+      // "Sozialpädagogin" by "Sozialkompetenz". A four-letter prefix is
+      // deliberately the minimum so generic one-letter/short-token matches
+      // cannot make an unrelated page look like the requested vacancy.
+      return tok.length >= 10
+        && bodyToken.length >= tok.length - 1
+        && bodyToken.startsWith(tok.slice(0, 4));
+    }));
     if (!overlap) return false;
   }
   return true;

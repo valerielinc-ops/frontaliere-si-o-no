@@ -41,4 +41,15 @@ describe('lwphr-job-parser', () => {
     expect(localized.descriptions.it).toContain('PDF ufficiale');
     expect(localized.descriptions.en).toContain('official PDF');
   });
+
+  it('recovers an explicit narrative workplace from LWP PDFs', () => {
+    expect(inferLwphrLocation(
+      'Segretaria legale',
+      'Studio legale e notarile con sede nel Luganese, ci ha incaricati di ricercare una/un candidata/o.',
+    )).toBe('Lugano');
+    expect(inferLwphrLocation(
+      'Consulente patrimoniale',
+      'Il nostro cliente è una banca svizzera sita nel luganese.',
+    )).toBe('Lugano');
+  });
 });
