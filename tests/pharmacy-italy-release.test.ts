@@ -85,7 +85,10 @@ describe('Italian duty release contract', () => {
 
     const tamperedStatusState = {
       ...status,
-      _release: { ...status._release, state: 'fresh' },
+      _release: {
+        ...status._release,
+        state: status._release.state === 'fresh' ? 'not_published' : 'fresh',
+      },
     };
     expect(verifyItalyDutyRelease({ duties, status: tamperedStatusState })).toContain('status release metadata does not match the payload contract');
 
@@ -161,7 +164,10 @@ describe('Italian duty release contract', () => {
 
     const missingProvince = {
       ...status,
-      _provinces: { CO: status._provinces.CO, VA: status._provinces.VA },
+      // VB is best-effort in the registry, so its absence must not mask fresh
+      // CO/VA data. Remove CO instead: a missing required province is still a
+      // release blocker.
+      _provinces: { VA: status._provinces.VA, VB: status._provinces.VB },
     };
     expect(buildItalyDutyRelease({ duties, status: missingProvince, evaluatedAt: NOW }).state).toBe('not_published');
   });
@@ -202,7 +208,10 @@ describe('Italian duty release contract', () => {
 
     const statusStateTampered = {
       ...status,
-      _release: { ...status._release, state: 'fresh' },
+      _release: {
+        ...status._release,
+        state: status._release.state === 'fresh' ? 'not_published' : 'fresh',
+      },
     };
     expect(checkItalyDutyData({ duties, status: statusStateTampered, sources, catalogue, now: new Date('2026-09-15T12:00:00.000Z') }))
       .toContain('release metadata differs between duties and status');
