@@ -28,7 +28,14 @@ export const JOBS_SEO_REUSE_PROBE_DEFAULTS = Object.freeze({
   max: 5000,
   perStratum: 3,
 });
-const JOBS_SEO_REUSE_PROBE_VERSION = 1;
+const JOBS_SEO_REUSE_PROBE_VERSION = 2;
+// Identity of THIS build process. The verdict sidecar lives in the same cache
+// directory that CI restores between builds, so a file restored (or left over)
+// from another build could otherwise vouch for a fingerprint change that this
+// build never probed. Only the process that wrote the sidecar can read it back
+// as valid; anything else — another build, a restored cache, a second process —
+// fails closed on the historical full invalidation.
+export const JOBS_SEO_REUSE_PROBE_BUILD_ID = randomBytes(16).toString('hex');
 export const JOBS_SEO_REUSE_BLOCKS = Object.freeze([
   'active',
   'expired-soft-landing',
@@ -490,6 +497,20 @@ function newProbeState(target) {
   };
 }
 
+/** Drop any verdict left by another build before this one can consult it. */
+export function discardJobsSeoReuseProbeVerdicts(rootDir, locales) {
+  for (const locale of locales) {
+    try {
+      fs.rmSync(jobsSeoReuseProbePath(rootDir, locale), { force: true });
+    } catch (error) {
+      console.warn(
+        `[jobs-seo-reuse-probe] verdict-discard-failed locale=${locale}`
+        + ` reason=${error?.message || error}`,
+      );
+    }
+  }
+}
+
 export function jobsSeoReuseProbePath(rootDir, locale) {
   const cacheRoot = configuredPath(
     rootDir,
@@ -534,6 +555,9 @@ export function jobsSeoProbeInheritsEmitterChange(rootDir, locales, previousFing
       record = JSON.parse(fs.readFileSync(jobsSeoReuseProbePath(rootDir, locale), 'utf8'));
     } catch {
       return { inherit: false, reason: `probe-verdict-missing:${locale}` };
+    }
+    if (record?.buildId !== JOBS_SEO_REUSE_PROBE_BUILD_ID) {
+      return { inherit: false, reason: `probe-verdict-foreign-build:${locale}` };
     }
     if (
       record?.version !== JOBS_SEO_REUSE_PROBE_VERSION
@@ -1510,18 +1534,30 @@ export class JobsSeoHtmlReuse {
           );
         }
         fs.mkdirSync(this.cacheRoot, { recursive: true });
-        fs.writeFileSync(outputPath, `${JSON.stringify({
+        // Atomic and fail-closed: a half-written or unwritable verdict must
+        // leave NO file behind, otherwise an older sidecar with the same
+        // fingerprint pair would answer for a probe that never ran.
+        const temp = `${outputPath}.${process.pid}.tmp`;
+        fs.writeFileSync(temp, `${JSON.stringify({
           version: JOBS_SEO_REUSE_PROBE_VERSION,
+          buildId: JOBS_SEO_REUSE_PROBE_BUILD_ID,
           locale,
           previousFingerprint: this.previousByLocale.get(locale)?.data?.jobsSeoEmitterFingerprint || null,
           currentFingerprint: this.emitterFingerprints || null,
           config: this.probe,
           blocks,
         }, null, 2)}\n`, 'utf8');
+        fs.renameSync(temp, outputPath);
       } catch (error) {
+        try {
+          if (outputPath) fs.rmSync(outputPath, { force: true });
+          if (outputPath) fs.rmSync(`${outputPath}.${process.pid}.tmp`, { force: true });
+        } catch {
+          // Best effort: the post-walk still refuses a verdict it cannot read.
+        }
         console.warn(
           `[jobs-seo-reuse-probe] verdict-write-failed locale=${locale} path=${outputPath}`
-          + ` reason=${error?.message || error}`,
+          + ` verdict=discarded reason=${error?.message || error}`,
         );
       }
     }
@@ -1737,6 +1773,10 @@ export async function createJobsSeoHtmlReuse(rootDir, locales, emitterFingerprin
     process.env.JOBS_SEO_REUSE_HTML_CACHE_DIR,
     path.join(rootDir, '.cache', 'incremental-html'),
   );
+  // The HTML cache is restored from the previous build, so it can carry that
+  // build's verdicts. Discard them before anything can read them: only the
+  // verdict written by this build at the end of jobs-seo may be consulted.
+  discardJobsSeoReuseProbeVerdicts(rootDir, locales);
   const previousByLocale = new Map();
   for (const rawLocale of locales) {
     const locale = safeLocale(rawLocale);

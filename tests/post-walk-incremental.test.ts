@@ -7,6 +7,7 @@ import { pathToFileURL } from 'node:url';
 import { afterEach, describe, expect, it } from 'vitest';
 
 import { WriteCollector } from '../build-plugins/batchWrite';
+import { JOBS_SEO_REUSE_PROBE_BUILD_ID } from '../build-plugins/shared/incrementalHtmlReuse.mjs';
 import { IncrementalManifest } from '../build-plugins/shared/incrementalManifest.mjs';
 import {
   buildSharedHtmlPathIndex,
@@ -281,7 +282,8 @@ describe('post-walk incremental planning', () => {
     const probeFile = path.join(root, '.cache', 'incremental-html', 'probe-it.json');
     fs.mkdirSync(path.dirname(probeFile), { recursive: true });
     const writeVerdict = (active: string) => fs.writeFileSync(probeFile, JSON.stringify({
-      version: 1,
+      version: 2,
+      buildId: JOBS_SEO_REUSE_PROBE_BUILD_ID,
       locale: 'it',
       previousFingerprint: before,
       currentFingerprint: after,
@@ -308,6 +310,14 @@ describe('post-walk incremental planning', () => {
       const disabled = await loadPostWalkManifestState(root, ['it'], BASE_URL);
       if ('reason' in disabled) throw new Error(disabled.reason);
       expect(disabled.state.fallbackReason).toContain('emitter fingerprint cambiato');
+
+      // A verdict restored from another build never answers for this one.
+      process.env.JOBS_SEO_REUSE_PROBE = '1';
+      const record = JSON.parse(fs.readFileSync(probeFile, 'utf8'));
+      fs.writeFileSync(probeFile, JSON.stringify({ ...record, buildId: 'another-build' }));
+      const foreign = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+      if ('reason' in foreign) throw new Error(foreign.reason);
+      expect(foreign.state.fallbackReason).toContain('emitter fingerprint cambiato');
     } finally {
       if (previousProbe === undefined) delete process.env.JOBS_SEO_REUSE_PROBE;
       else process.env.JOBS_SEO_REUSE_PROBE = previousProbe;

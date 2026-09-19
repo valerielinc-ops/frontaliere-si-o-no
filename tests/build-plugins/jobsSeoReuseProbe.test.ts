@@ -9,6 +9,7 @@ import {
 import {
   createJobsSeoHtmlReuse,
   htmlReuseCachePath,
+  discardJobsSeoReuseProbeVerdicts,
   jobsSeoProbeInheritsEmitterChange,
   jobsSeoProbeShapeHints,
   jobsSeoProbeStratum,
@@ -235,6 +236,66 @@ describe('jobs SEO reuse output probe (JOBS_SEO_REUSE_PROBE)', () => {
       inherit: false,
       reason: 'probe-verdict-missing:en',
     });
+  });
+});
+
+describe('the verdict sidecar belongs to one build only', () => {
+  it('discards a verdict restored from another build before anyone reads it', async () => {
+    const allPages = pages(3);
+    const rootDir = fixture(allPages);
+    const restored = jobsSeoReuseProbePath(rootDir, 'it');
+    fs.mkdirSync(path.dirname(restored), { recursive: true });
+    // A cache restore can carry the verdict of the PREVIOUS build, with the
+    // same fingerprint pair: it must not answer for this build's probe.
+    fs.writeFileSync(restored, JSON.stringify({
+      version: 2,
+      buildId: 'another-build',
+      locale: 'it',
+      previousFingerprint: V1,
+      currentFingerprint: V2,
+      blocks: { active: { verdict: 'inherit' } },
+    }));
+    process.env.JOBS_SEO_REUSE_PROBE = '1';
+    expect(jobsSeoProbeInheritsEmitterChange(rootDir, ['it'], V1, V2)).toMatchObject({
+      inherit: false,
+      reason: 'probe-verdict-foreign-build:it',
+    });
+    enableProbe({ min: 1, max: 1 });
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    await createJobsSeoHtmlReuse(rootDir, ['it'], V2);
+    expect(fs.existsSync(restored)).toBe(false);
+  });
+
+  it('leaves no verdict behind when the write fails', async () => {
+    const allPages = pages(3);
+    const rootDir = fixture(allPages);
+    enableProbe({ min: 1, max: 1 });
+    const stale = jobsSeoReuseProbePath(rootDir, 'it');
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const reuse = (await createJobsSeoHtmlReuse(rootDir, ['it'], V2))!;
+    fs.mkdirSync(path.dirname(stale), { recursive: true });
+    fs.writeFileSync(stale, JSON.stringify({ version: 2, buildId: 'another-build' }));
+    const realWrite = fs.writeFileSync;
+    vi.spyOn(fs, 'writeFileSync').mockImplementation(((file: fs.PathOrFileDescriptor, ...rest: unknown[]) => {
+      if (String(file).includes('probe-it.json')) throw new Error('disk full');
+      return (realWrite as (...args: unknown[]) => void)(file, ...rest);
+    }) as typeof fs.writeFileSync);
+    reuse.logSummary();
+    vi.mocked(fs.writeFileSync).mockRestore();
+    expect(fs.existsSync(stale)).toBe(false);
+    expect(warn.mock.calls.flat().join('\n')).toContain('verdict=discarded');
+    expect(jobsSeoProbeInheritsEmitterChange(rootDir, ['it'], V1, V2).inherit).toBe(false);
+  });
+
+  it('exposes the discard helper for callers that skip the reuse object', () => {
+    const rootDir = fixture(pages(1));
+    const file = jobsSeoReuseProbePath(rootDir, 'it');
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, '{}');
+    discardJobsSeoReuseProbeVerdicts(rootDir, ['it']);
+    expect(fs.existsSync(file)).toBe(false);
   });
 });
 
