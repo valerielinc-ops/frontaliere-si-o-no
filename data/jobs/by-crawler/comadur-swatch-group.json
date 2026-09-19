@@ -1,6 +1,6 @@
 {
   "crawlerKey": "comadur-swatch-group",
-  "assembledAt": "2026-09-18T23:17:47.006Z",
+  "assembledAt": "2026-09-19T22:58:59.253Z",
   "jobs": [
     {
       "id": "company-7ubzze",
@@ -84,7 +84,8 @@
       "employmentType": "FULL_TIME",
       "addressLocality": "0200 Français Rechercher Rechercher Responsable d",
       "addressRegion": "JU",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
