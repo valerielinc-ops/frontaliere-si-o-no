@@ -184,13 +184,15 @@ export async function writePostWalkWalkInventory(
   const topLevels = uniqueSorted(
     [...input.topLevels]
       .map(normalizeTopLevel)
-      .filter((value): value is string => value !== null),
-  ).map((value) => migrateLegacyRootFileTopLevel(distDir, value));
+      .filter((value): value is string => value !== null)
+      .map((value) => migrateLegacyRootFileTopLevel(distDir, value)),
+  );
   const unmanifestedTopLevels = uniqueSorted(
     [...input.unmanifestedTopLevels]
       .map(normalizeTopLevel)
-      .filter((value): value is string => value !== null),
-  ).map((value) => migrateLegacyRootFileTopLevel(distDir, value));
+      .filter((value): value is string => value !== null)
+      .map((value) => migrateLegacyRootFileTopLevel(distDir, value)),
+  );
   const claimed = uniqueSorted(
     [...input.claimedPaths]
       .map((value) => normalizePathInput(distDir, value))

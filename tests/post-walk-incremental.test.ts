@@ -415,6 +415,7 @@ describe('post-walk incremental planning', () => {
         inputHash: hashContent('<!DOCTYPE html>source'),
         sourcePath: 'jobs/bridge/index.html',
         sourceHash: hashContent('<!DOCTYPE html>source'),
+        dependencyHash: DEPENDENCY_HASH,
         templateHash: 'flat-bridge@1',
       }],
     ]));
