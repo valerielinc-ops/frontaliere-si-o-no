@@ -168,7 +168,7 @@ jobs:
           fi
 
           # ---- rehab-basel: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run rehab-basel" \
               --description "## Crawler fallito
@@ -191,8 +191,13 @@ jobs:
             echo "::error::rehab-basel: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ rehab-basel: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::rehab-basel: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ rehab-basel: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -215,6 +220,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/rehab-basel.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/rehab-basel.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/rehab-basel.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-182}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 182)"
+            worker_watchdog_minutes=182
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -222,15 +233,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -316,7 +342,7 @@ jobs:
           fi
 
           # ---- luks: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run luks" \
               --description "## Crawler fallito
@@ -339,8 +365,13 @@ jobs:
             echo "::error::luks: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ luks: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::luks: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ luks: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -363,6 +394,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/luks.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/luks.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/luks.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-153}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 153)"
+            worker_watchdog_minutes=153
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -370,15 +407,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -464,7 +516,7 @@ jobs:
           fi
 
           # ---- swiss-re: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run swiss-re" \
               --description "## Crawler fallito
@@ -487,8 +539,13 @@ jobs:
             echo "::error::swiss-re: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ swiss-re: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::swiss-re: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ swiss-re: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -511,6 +568,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/swiss-re.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/swiss-re.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/swiss-re.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-131}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 131)"
+            worker_watchdog_minutes=131
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -518,15 +581,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -612,7 +690,7 @@ jobs:
           fi
 
           # ---- spitex-ch: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run spitex-ch" \
               --description "## Crawler fallito
@@ -635,8 +713,13 @@ jobs:
             echo "::error::spitex-ch: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ spitex-ch: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::spitex-ch: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ spitex-ch: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -659,6 +742,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/spitex-ch.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/spitex-ch.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/spitex-ch.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-124}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 124)"
+            worker_watchdog_minutes=124
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -666,15 +755,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -760,7 +864,7 @@ jobs:
           fi
 
           # ---- pictet: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run pictet" \
               --description "## Crawler fallito
@@ -783,8 +887,13 @@ jobs:
             echo "::error::pictet: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ pictet: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::pictet: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ pictet: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -807,6 +916,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/pictet.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/pictet.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/pictet.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-116}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 116)"
+            worker_watchdog_minutes=116
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -814,15 +929,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -908,7 +1038,7 @@ jobs:
           fi
 
           # ---- nord-anglia: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run nord-anglia" \
               --description "## Crawler fallito
@@ -931,8 +1061,13 @@ jobs:
             echo "::error::nord-anglia: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ nord-anglia: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::nord-anglia: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ nord-anglia: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -955,6 +1090,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/nord-anglia.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/nord-anglia.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/nord-anglia.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-109}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 109)"
+            worker_watchdog_minutes=109
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -962,15 +1103,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -1056,7 +1212,7 @@ jobs:
           fi
 
           # ---- spital-thurgau: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run spital-thurgau" \
               --description "## Crawler fallito
@@ -1079,8 +1235,13 @@ jobs:
             echo "::error::spital-thurgau: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ spital-thurgau: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::spital-thurgau: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ spital-thurgau: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -1103,6 +1264,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/spital-thurgau.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/spital-thurgau.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/spital-thurgau.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-102}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 102)"
+            worker_watchdog_minutes=102
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -1110,15 +1277,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -1205,7 +1387,7 @@ jobs:
           fi
 
           # ---- klinik-siloah: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run klinik-siloah" \
               --description "## Crawler fallito
@@ -1228,8 +1410,13 @@ jobs:
             echo "::error::klinik-siloah: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ klinik-siloah: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::klinik-siloah: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ klinik-siloah: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -1252,6 +1439,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/klinik-siloah.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/klinik-siloah.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/klinik-siloah.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-98}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 98)"
+            worker_watchdog_minutes=98
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -1259,15 +1452,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -1353,7 +1561,7 @@ jobs:
           fi
 
           # ---- tecan: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run tecan" \
               --description "## Crawler fallito
@@ -1376,8 +1584,13 @@ jobs:
             echo "::error::tecan: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ tecan: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::tecan: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ tecan: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -1400,6 +1613,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/tecan.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/tecan.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/tecan.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-91}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 91)"
+            worker_watchdog_minutes=91
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -1407,15 +1626,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -1501,7 +1735,7 @@ jobs:
           fi
 
           # ---- tsmg: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run tsmg" \
               --description "## Crawler fallito
@@ -1524,8 +1758,13 @@ jobs:
             echo "::error::tsmg: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ tsmg: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::tsmg: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ tsmg: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -1548,6 +1787,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/tsmg.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/tsmg.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/tsmg.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-86}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 86)"
+            worker_watchdog_minutes=86
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -1555,15 +1800,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -1649,7 +1909,7 @@ jobs:
           fi
 
           # ---- novelis: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run novelis" \
               --description "## Crawler fallito
@@ -1672,8 +1932,13 @@ jobs:
             echo "::error::novelis: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ novelis: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::novelis: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ novelis: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -1696,6 +1961,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/novelis.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/novelis.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/novelis.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-82}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 82)"
+            worker_watchdog_minutes=82
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -1703,15 +1974,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -1797,7 +2083,7 @@ jobs:
           fi
 
           # ---- hornbach: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run hornbach" \
               --description "## Crawler fallito
@@ -1820,8 +2106,13 @@ jobs:
             echo "::error::hornbach: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ hornbach: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::hornbach: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ hornbach: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -1844,6 +2135,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/hornbach.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/hornbach.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/hornbach.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-76}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 76)"
+            worker_watchdog_minutes=76
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -1851,15 +2148,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -1945,7 +2257,7 @@ jobs:
           fi
 
           # ---- michel-gruppe: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run michel-gruppe" \
               --description "## Crawler fallito
@@ -1968,8 +2280,13 @@ jobs:
             echo "::error::michel-gruppe: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ michel-gruppe: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::michel-gruppe: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ michel-gruppe: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -1992,6 +2309,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/michel-gruppe.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/michel-gruppe.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/michel-gruppe.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-74}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 74)"
+            worker_watchdog_minutes=74
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -1999,15 +2322,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -2093,7 +2431,7 @@ jobs:
           fi
 
           # ---- tpl-lugano: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run tpl-lugano" \
               --description "## Crawler fallito
@@ -2116,8 +2454,13 @@ jobs:
             echo "::error::tpl-lugano: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ tpl-lugano: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::tpl-lugano: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ tpl-lugano: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -2140,6 +2483,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/tpl-lugano.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/tpl-lugano.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/tpl-lugano.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-67}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 67)"
+            worker_watchdog_minutes=67
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -2147,15 +2496,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -2241,7 +2605,7 @@ jobs:
           fi
 
           # ---- jysk: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run jysk" \
               --description "## Crawler fallito
@@ -2264,8 +2628,13 @@ jobs:
             echo "::error::jysk: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ jysk: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::jysk: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ jysk: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -2288,6 +2657,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/jysk.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/jysk.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/jysk.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-59}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 59)"
+            worker_watchdog_minutes=59
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -2295,15 +2670,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -2389,7 +2779,7 @@ jobs:
           fi
 
           # ---- hess-carrosserie: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run hess-carrosserie" \
               --description "## Crawler fallito
@@ -2412,8 +2802,13 @@ jobs:
             echo "::error::hess-carrosserie: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ hess-carrosserie: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::hess-carrosserie: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ hess-carrosserie: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -2436,6 +2831,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/hess-carrosserie.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/hess-carrosserie.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/hess-carrosserie.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-50}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 50)"
+            worker_watchdog_minutes=50
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -2443,15 +2844,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -2537,7 +2953,7 @@ jobs:
           fi
 
           # ---- hilcona: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run hilcona" \
               --description "## Crawler fallito
@@ -2560,8 +2976,13 @@ jobs:
             echo "::error::hilcona: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ hilcona: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::hilcona: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ hilcona: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -2584,6 +3005,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/hilcona.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/hilcona.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/hilcona.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-45}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 45)"
+            worker_watchdog_minutes=45
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -2591,15 +3018,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -2685,7 +3127,7 @@ jobs:
           fi
 
           # ---- msc-cargo: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run msc-cargo" \
               --description "## Crawler fallito
@@ -2708,8 +3150,13 @@ jobs:
             echo "::error::msc-cargo: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ msc-cargo: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::msc-cargo: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ msc-cargo: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -2732,6 +3179,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/msc-cargo.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/msc-cargo.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/msc-cargo.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-38}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 38)"
+            worker_watchdog_minutes=38
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -2739,15 +3192,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -2833,7 +3301,7 @@ jobs:
           fi
 
           # ---- crr-suva-sion: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run crr-suva-sion" \
               --description "## Crawler fallito
@@ -2856,8 +3324,13 @@ jobs:
             echo "::error::crr-suva-sion: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ crr-suva-sion: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::crr-suva-sion: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ crr-suva-sion: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -2880,6 +3353,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/crr-suva-sion.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/crr-suva-sion.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/crr-suva-sion.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-32}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 32)"
+            worker_watchdog_minutes=32
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -2887,15 +3366,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -2981,7 +3475,7 @@ jobs:
           fi
 
           # ---- clienia-ag: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run clienia-ag" \
               --description "## Crawler fallito
@@ -3004,8 +3498,13 @@ jobs:
             echo "::error::clienia-ag: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ clienia-ag: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::clienia-ag: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ clienia-ag: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -3028,6 +3527,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/clienia-ag.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/clienia-ag.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/clienia-ag.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 30)"
+            worker_watchdog_minutes=30
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -3035,15 +3540,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -3129,7 +3649,7 @@ jobs:
           fi
 
           # ---- cnp: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run cnp" \
               --description "## Crawler fallito
@@ -3152,8 +3672,13 @@ jobs:
             echo "::error::cnp: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ cnp: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::cnp: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ cnp: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -3176,6 +3701,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/cnp.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/cnp.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/cnp.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 30)"
+            worker_watchdog_minutes=30
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -3183,15 +3714,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -3278,7 +3824,7 @@ jobs:
           fi
 
           # ---- igs-bern: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run igs-bern" \
               --description "## Crawler fallito
@@ -3301,8 +3847,13 @@ jobs:
             echo "::error::igs-bern: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ igs-bern: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::igs-bern: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ igs-bern: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -3325,6 +3876,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/igs-bern.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/igs-bern.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/igs-bern.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 30)"
+            worker_watchdog_minutes=30
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -3332,15 +3889,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -3426,7 +3998,7 @@ jobs:
           fi
 
           # ---- axpo: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run axpo" \
               --description "## Crawler fallito
@@ -3449,8 +4021,13 @@ jobs:
             echo "::error::axpo: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ axpo: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::axpo: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ axpo: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -3473,6 +4050,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/axpo.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/axpo.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/axpo.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 30)"
+            worker_watchdog_minutes=30
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -3480,15 +4063,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -3574,7 +4172,7 @@ jobs:
           fi
 
           # ---- ardentis: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run ardentis" \
               --description "## Crawler fallito
@@ -3597,8 +4195,13 @@ jobs:
             echo "::error::ardentis: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ ardentis: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::ardentis: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ ardentis: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -3621,6 +4224,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/ardentis.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/ardentis.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/ardentis.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 30)"
+            worker_watchdog_minutes=30
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -3628,15 +4237,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -3722,7 +4346,7 @@ jobs:
           fi
 
           # ---- amag: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run amag" \
               --description "## Crawler fallito
@@ -3745,8 +4369,13 @@ jobs:
             echo "::error::amag: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ amag: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::amag: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ amag: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -3769,6 +4398,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/amag.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/amag.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/amag.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 30)"
+            worker_watchdog_minutes=30
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -3776,15 +4411,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -3870,7 +4520,7 @@ jobs:
           fi
 
           # ---- a-plus-plus-group: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run a-plus-plus-group" \
               --description "## Crawler fallito
@@ -3893,8 +4543,13 @@ jobs:
             echo "::error::a-plus-plus-group: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ a-plus-plus-group: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::a-plus-plus-group: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ a-plus-plus-group: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -3917,6 +4572,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/a-plus-plus-group.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/a-plus-plus-group.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/a-plus-plus-group.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 30)"
+            worker_watchdog_minutes=30
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -3924,15 +4585,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -4018,7 +4694,7 @@ jobs:
           fi
 
           # ---- stellenpartner: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run stellenpartner" \
               --description "## Crawler fallito
@@ -4041,8 +4717,13 @@ jobs:
             echo "::error::stellenpartner: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ stellenpartner: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::stellenpartner: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ stellenpartner: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -4065,6 +4746,12 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-11/stellenpartner.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/stellenpartner.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/stellenpartner.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-74}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 74)"
+            worker_watchdog_minutes=74
+          fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
@@ -4072,15 +4759,30 @@ jobs:
             mv "$status_tmp" "$status_file"
             exit 1
           fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
-            bash "$worker_path"
-            exit $?
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" bash "$worker_path"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
                 exit 0
@@ -5615,6 +6317,7 @@ jobs:
           success_count=0
           failure_count=0
           missing_count=0
+          systemic_count=0
           printf '%s\n' '### Crawler group 11 outcome' >> "$summary_file"
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           status_file="$state_dir/rehab-basel.status"
@@ -5628,6 +6331,10 @@ jobs:
               echo "::error::rehab-basel: invalid terminal status: $status"
               printf '%s\n' '| rehab-basel | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::rehab-basel: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| rehab-basel | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| rehab-basel | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -5648,6 +6355,10 @@ jobs:
               echo "::error::luks: invalid terminal status: $status"
               printf '%s\n' '| luks | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::luks: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| luks | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| luks | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -5668,6 +6379,10 @@ jobs:
               echo "::error::swiss-re: invalid terminal status: $status"
               printf '%s\n' '| swiss-re | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::swiss-re: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| swiss-re | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| swiss-re | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -5688,6 +6403,10 @@ jobs:
               echo "::error::spitex-ch: invalid terminal status: $status"
               printf '%s\n' '| spitex-ch | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::spitex-ch: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| spitex-ch | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| spitex-ch | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -5708,6 +6427,10 @@ jobs:
               echo "::error::pictet: invalid terminal status: $status"
               printf '%s\n' '| pictet | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::pictet: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| pictet | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| pictet | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -5728,6 +6451,10 @@ jobs:
               echo "::error::nord-anglia: invalid terminal status: $status"
               printf '%s\n' '| nord-anglia | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::nord-anglia: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| nord-anglia | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| nord-anglia | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -5748,6 +6475,10 @@ jobs:
               echo "::error::spital-thurgau: invalid terminal status: $status"
               printf '%s\n' '| spital-thurgau | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::spital-thurgau: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| spital-thurgau | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| spital-thurgau | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -5768,6 +6499,10 @@ jobs:
               echo "::error::klinik-siloah: invalid terminal status: $status"
               printf '%s\n' '| klinik-siloah | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::klinik-siloah: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| klinik-siloah | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| klinik-siloah | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -5788,6 +6523,10 @@ jobs:
               echo "::error::tecan: invalid terminal status: $status"
               printf '%s\n' '| tecan | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::tecan: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| tecan | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| tecan | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -5808,6 +6547,10 @@ jobs:
               echo "::error::tsmg: invalid terminal status: $status"
               printf '%s\n' '| tsmg | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::tsmg: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| tsmg | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| tsmg | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -5828,6 +6571,10 @@ jobs:
               echo "::error::novelis: invalid terminal status: $status"
               printf '%s\n' '| novelis | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::novelis: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| novelis | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| novelis | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -5848,6 +6595,10 @@ jobs:
               echo "::error::hornbach: invalid terminal status: $status"
               printf '%s\n' '| hornbach | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::hornbach: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| hornbach | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| hornbach | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -5868,6 +6619,10 @@ jobs:
               echo "::error::michel-gruppe: invalid terminal status: $status"
               printf '%s\n' '| michel-gruppe | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::michel-gruppe: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| michel-gruppe | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| michel-gruppe | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -5888,6 +6643,10 @@ jobs:
               echo "::error::tpl-lugano: invalid terminal status: $status"
               printf '%s\n' '| tpl-lugano | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::tpl-lugano: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| tpl-lugano | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| tpl-lugano | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -5908,6 +6667,10 @@ jobs:
               echo "::error::jysk: invalid terminal status: $status"
               printf '%s\n' '| jysk | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::jysk: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| jysk | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| jysk | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -5928,6 +6691,10 @@ jobs:
               echo "::error::hess-carrosserie: invalid terminal status: $status"
               printf '%s\n' '| hess-carrosserie | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::hess-carrosserie: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| hess-carrosserie | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| hess-carrosserie | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -5948,6 +6715,10 @@ jobs:
               echo "::error::hilcona: invalid terminal status: $status"
               printf '%s\n' '| hilcona | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::hilcona: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| hilcona | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| hilcona | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -5968,6 +6739,10 @@ jobs:
               echo "::error::msc-cargo: invalid terminal status: $status"
               printf '%s\n' '| msc-cargo | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::msc-cargo: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| msc-cargo | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| msc-cargo | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -5988,6 +6763,10 @@ jobs:
               echo "::error::crr-suva-sion: invalid terminal status: $status"
               printf '%s\n' '| crr-suva-sion | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::crr-suva-sion: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| crr-suva-sion | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| crr-suva-sion | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -6008,6 +6787,10 @@ jobs:
               echo "::error::clienia-ag: invalid terminal status: $status"
               printf '%s\n' '| clienia-ag | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::clienia-ag: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| clienia-ag | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| clienia-ag | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -6028,6 +6811,10 @@ jobs:
               echo "::error::cnp: invalid terminal status: $status"
               printf '%s\n' '| cnp | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::cnp: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| cnp | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| cnp | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -6048,6 +6835,10 @@ jobs:
               echo "::error::igs-bern: invalid terminal status: $status"
               printf '%s\n' '| igs-bern | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::igs-bern: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| igs-bern | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| igs-bern | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -6068,6 +6859,10 @@ jobs:
               echo "::error::axpo: invalid terminal status: $status"
               printf '%s\n' '| axpo | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::axpo: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| axpo | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| axpo | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -6088,6 +6883,10 @@ jobs:
               echo "::error::ardentis: invalid terminal status: $status"
               printf '%s\n' '| ardentis | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::ardentis: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| ardentis | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| ardentis | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -6108,6 +6907,10 @@ jobs:
               echo "::error::amag: invalid terminal status: $status"
               printf '%s\n' '| amag | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::amag: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| amag | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| amag | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -6128,6 +6931,10 @@ jobs:
               echo "::error::a-plus-plus-group: invalid terminal status: $status"
               printf '%s\n' '| a-plus-plus-group | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::a-plus-plus-group: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| a-plus-plus-group | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| a-plus-plus-group | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -6148,6 +6955,10 @@ jobs:
               echo "::error::stellenpartner: invalid terminal status: $status"
               printf '%s\n' '| stellenpartner | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::stellenpartner: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| stellenpartner | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| stellenpartner | success |' >> "$summary_file"
               success_count=$((success_count + 1))
@@ -6157,13 +6968,13 @@ jobs:
               failure_count=$((failure_count + 1))
             fi
           fi
-          printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing." >> "$summary_file"
+          printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ]; then
             wait_outcome=failure
           else
             wait_outcome=success
           fi
-          printf '%s\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" "wait_outcome=$wait_outcome" >> "$output_file"
+          printf '%s\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" "systemic_count=$systemic_count" "wait_outcome=$wait_outcome" >> "$output_file"
           exit 0
       - name: Commit crawler group data atomically
         if: always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success'
@@ -6258,27 +7069,29 @@ jobs:
           CRAWLER_AGGREGATE_SUCCESS: ${{ steps.crawler_aggregate.outputs.success_count || 'invalid' }}
           CRAWLER_AGGREGATE_FAILURES: ${{ steps.crawler_aggregate.outputs.failure_count || 'invalid' }}
           CRAWLER_AGGREGATE_MISSING: ${{ steps.crawler_aggregate.outputs.missing_count || 'invalid' }}
+          CRAWLER_AGGREGATE_SYSTEMIC: ${{ steps.crawler_aggregate.outputs.systemic_count || '0' }}
         run: |-
           set -euo pipefail
           aggregate_outcome="${CRAWLER_AGGREGATE_OUTCOME:-failure}"
           success_count="${CRAWLER_AGGREGATE_SUCCESS:-invalid}"
           failure_count="${CRAWLER_AGGREGATE_FAILURES:-invalid}"
           missing_count="${CRAWLER_AGGREGATE_MISSING:-invalid}"
+          systemic_count="${CRAWLER_AGGREGATE_SYSTEMIC:-0}"
           if [ "$aggregate_outcome" != "success" ]; then
             echo "::error::crawler aggregate step did not complete; group failed after preserving already-running siblings"
             exit 1
           fi
-          for count in "$success_count" "$failure_count" "$missing_count"; do
+          for count in "$success_count" "$failure_count" "$missing_count" "$systemic_count"; do
             if ! [[ "$count" =~ ^[0-9]+$ ]]; then
               echo "::error::crawler aggregate produced an invalid count: $count"
               exit 1
             fi
           done
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ]; then
-            echo "::error::crawler group completed with $success_count succeeded, $failure_count failed, $missing_count missing; healthy siblings were preserved, but the group remains failed until incomplete crawlers are recovered"
+            echo "::error::crawler group completed with $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic; healthy siblings were preserved, but the group remains failed until incomplete crawlers are recovered"
             exit 1
           fi
-          echo "✅ all $success_count crawler members completed successfully"
+          echo "✅ all $success_count crawler members completed successfully; $systemic_count systemic outcomes recorded"
       - name: Release cross-entry crawler live-run lease
         if: always() && env.CRAWLER_GROUP_LIVE_LEASE_OWNED == '1'
         continue-on-error: true
