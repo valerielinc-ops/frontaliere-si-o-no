@@ -1,11 +1,21 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, it, expect } from 'vitest';
 import {
   CSD_ENGINEERS_KEY,
   CSD_ENGINEERS_COMPANY_NAME,
   isCsdEngineersJob,
   isTrustedDomain,
+  parseCsdDetailPage,
 } from '../scripts/lib/csd-engineers-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+const DETAIL_FIXTURE = path.join(
+  path.dirname(fileURLToPath(import.meta.url)),
+  'fixtures',
+  'csd-engineers-detail-raw-control.html',
+);
 
 describe('CSD ENGINEERS crawler parser', () => {
   // ── Constants ──
@@ -56,6 +66,24 @@ describe('CSD ENGINEERS crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('parseCsdDetailPage', () => {
+    it('recovers the rich description from entity-escaped JSON-LD with raw line breaks', () => {
+      const parsed = parseCsdDetailPage(fs.readFileSync(DETAIL_FIXTURE, 'utf8'));
+
+      expect(parsed).toMatchObject({
+        city: 'Zürich',
+        postalCode: '8005',
+        street: 'Hardturmstrasse 253',
+        employmentType: 'FULL_TIME',
+      });
+      expect(parsed?.description).toContain('Leitung von anspruchsvollen Hochbauprojekten');
+      expect(parsed?.description).toContain('Bauingenieur:innen');
+      expect(parsed?.description.length).toBeGreaterThan(180);
+      expect(parsed?.description).not.toMatch(/<[^>]+>/);
+      expect(parsed?.description).not.toContain('CSD ENGINEERS, Zürich');
     });
   });
 

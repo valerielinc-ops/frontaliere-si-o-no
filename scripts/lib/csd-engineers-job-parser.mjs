@@ -13,6 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml } from './crawler-template.mjs';
+import { jsonLdBlocks } from './prospector/extract.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -193,6 +194,47 @@ function extractTag(block, tag) {
   return m ? m[1].trim() : '';
 }
 
+function isCsdJobPostingNode(node) {
+  const types = Array.isArray(node?.['@type']) ? node['@type'] : [node?.['@type']];
+  return types.some((type) => String(type || '').split('/').pop().toLowerCase() === 'jobposting');
+}
+
+/**
+ * Parse a CSD detail page's JobPosting JSON-LD.
+ *
+ * The live Teamtailor page currently embeds entity-escaped rich HTML and raw
+ * line breaks inside the JSON string. jsonLdBlocks owns both repairs and
+ * keeps pretty-printed whitespace outside strings valid, so this parser does
+ * not need a second, subtly different JSON-LD implementation.
+ *
+ * @returns {{ city: string, postalCode: string, street: string, description: string, employmentType: string, datePosted: string } | null}
+ */
+export function parseCsdDetailPage(html = '') {
+  if (!html || typeof html !== 'string') return null;
+
+  const nodes = jsonLdBlocks(html).filter(isCsdJobPostingNode);
+  const data = nodes.find((node) => node.description) || nodes[0];
+  if (!data) return null;
+
+  const locations = Array.isArray(data.jobLocation) ? data.jobLocation : [data.jobLocation];
+  const location = locations.find(Boolean) || {};
+  const addresses = Array.isArray(location.address) ? location.address : [location.address];
+  const address = addresses.find(Boolean) || {};
+  // jsonLdBlocks preserves &lt; and &gt; inside decoded JSON values so that
+  // entity-escaped JSON syntax remains parseable. The first pass decodes those
+  // entities; the second pass strips the HTML tags they reveal.
+  const description = data.description ? stripHtml(stripHtml(data.description)) : '';
+
+  return {
+    city: normalizeSpace(address.addressLocality || ''),
+    postalCode: normalizeSpace(address.postalCode || ''),
+    street: normalizeSpace(address.streetAddress || ''),
+    description: description.length >= 50 ? description : '',
+    employmentType: normalizeSpace(data.employmentType || ''),
+    datePosted: normalizeSpace(data.datePosted || ''),
+  };
+}
+
 /**
  * Fetch a detail page and extract structured data from JSON-LD.
  * Returns { city, postalCode, street, description, employmentType, datePosted } or null.
@@ -205,41 +247,7 @@ async function fetchDetailPage(url) {
     // the single-attempt fetch left ~12 jobs on the "{title} — CSD" placeholder
     // whenever one request hiccuped (audit run 29094286784 residue).
     const html = await fetchHtml(url, { timeoutMs, headers: { Accept: 'text/html', 'User-Agent': USER_AGENT } });
-    if (!html) return null;
-
-    const result = {
-      city: '', postalCode: '', street: '',
-      description: '', employmentType: '', datePosted: '',
-    };
-
-    // Extract JSON-LD JobPosting data
-    const ldRegex = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi;
-    let ldMatch;
-    while ((ldMatch = ldRegex.exec(html)) !== null) {
-      try {
-        const data = JSON.parse(ldMatch[1]);
-        if (data['@type'] !== 'JobPosting') continue;
-
-        // Location
-        const loc = data.jobLocation;
-        const addr = Array.isArray(loc) ? (loc[0]?.address || {}) : (loc?.address || {});
-        result.city = normalizeSpace(addr.addressLocality || '');
-        result.postalCode = normalizeSpace(addr.postalCode || '');
-        result.street = normalizeSpace(addr.streetAddress || '');
-
-        // Description
-        if (data.description) {
-          const desc = stripHtml(data.description);
-          if (desc.length >= 50) result.description = desc;
-        }
-
-        // Employment type and date
-        result.employmentType = normalizeSpace(data.employmentType || '');
-        result.datePosted = normalizeSpace(data.datePosted || '');
-      } catch { /* ignore malformed JSON-LD */ }
-    }
-
-    return result;
+    return parseCsdDetailPage(html);
   } catch {
     return null;
   }
