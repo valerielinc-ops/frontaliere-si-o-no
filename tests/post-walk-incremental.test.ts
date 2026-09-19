@@ -565,6 +565,27 @@ describe('post-walk incremental planning', () => {
     expect(loadPostWalkUnmanifestedTopLevels(root)).toEqual(['<root>', 'legacy']);
   });
 
+  it('migrates a legacy root HTML filename in the targeted-walk inventory', () => {
+    const root = fixtureRoot();
+    writeHtml(root, '404.html', 'root');
+    const sidecar = path.join(
+      root,
+      '.cache/incremental-manifest/post-walk-unmanifested-v1.json',
+    );
+    fs.mkdirSync(path.dirname(sidecar), { recursive: true });
+    fs.writeFileSync(
+      sidecar,
+      `${JSON.stringify({
+        type: 'post-walk-unmanifested',
+        version: 1,
+        topLevels: ['404.html', 'legacy'],
+      })}\n`,
+      'utf8',
+    );
+
+    expect(loadPostWalkUnmanifestedTopLevels(root)).toEqual(['<root>', 'legacy']);
+  });
+
   it('keeps an unresolved removal as a per-entry fallback', async () => {
     const root = fixtureRoot();
     const distDir = path.join(root, 'dist');
