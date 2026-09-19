@@ -655,6 +655,35 @@ jobs:
           download_main scripts/lib/loop-fleet-contract.mjs "$policy_root/scripts/lib/loop-fleet-contract.mjs"
           download_main scripts/lib/pr-body-closes-check.mjs "$policy_root/scripts/lib/pr-body-closes-check.mjs"
           download_main scripts/lib/pr-body-sections-check.mjs "$policy_root/scripts/lib/pr-body-sections-check.mjs"
+          # Moduli che una PR CONCORRENTE può introdurre nel grafo di import di
+          # review-gate.mjs (p.es. `scripts/ci/lib/review-findings.mjs` di
+          # #9318): sul base possono non esistere ancora, quindi il download è
+          # best-effort. La prova che il grafo è completo non è `node --check`
+          # — che vede solo la sintassi — ma la risoluzione reale degli import,
+          # fatta subito sotto.
+          download_optional() {
+            local path="$1"
+            local destination="$2"
+            mkdir -p "$(dirname "$destination")"
+            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' \
+              > "$destination" 2>/dev/null; then
+              rm -f "$destination"
+            fi
+          }
+          for optional_path in \
+            scripts/ci/lib/review-findings.mjs \
+            scripts/ci/followup-resolution-match.mjs; do
+            download_optional "$optional_path" "$policy_root/$optional_path"
+          done
+          # Un import irrisolvibile nella copia trusted spegnerebbe il gate in
+          # silenzio a runtime: qui fallisce subito e dice quale modulo manca.
+          for trusted_entry in \
+            "$policy_root/scripts/ci/review-gate.mjs" \
+            "$policy_root/scripts/ci/lib/review-carry-forward.mjs"; do
+            node --input-type=module -e 'await import(process.argv[1]);' "$trusted_entry" \
+              || { echo "::error::grafo di import incompleto nella copia trusted: $trusted_entry"; exit 1; }
+          done
           for trusted_file in \
             "$policy_root/scripts/ci/review-gate.mjs" \
             "$policy_root/scripts/ci/pr-contribution-fingerprint.mjs" \
@@ -2973,6 +3002,35 @@ jobs:
             scripts/lib/pr-body-closes-check.mjs \
             scripts/lib/pr-body-sections-check.mjs; do
             download_main "$trusted_path"
+          done
+          # Moduli che una PR CONCORRENTE può introdurre nel grafo di import di
+          # review-gate.mjs (p.es. `scripts/ci/lib/review-findings.mjs` di
+          # #9318): sul base possono non esistere ancora, quindi il download è
+          # best-effort. La prova che il grafo è completo non è `node --check`
+          # — che vede solo la sintassi — ma la risoluzione reale degli import,
+          # fatta subito sotto.
+          download_optional() {
+            local path="$1"
+            local destination="$2"
+            mkdir -p "$(dirname "$destination")"
+            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' \
+              > "$destination" 2>/dev/null; then
+              rm -f "$destination"
+            fi
+          }
+          for optional_path in \
+            scripts/ci/lib/review-findings.mjs \
+            scripts/ci/followup-resolution-match.mjs; do
+            download_optional "$optional_path" "$policy_root/$optional_path"
+          done
+          # Un import irrisolvibile nella copia trusted spegnerebbe il gate in
+          # silenzio a runtime: qui fallisce subito e dice quale modulo manca.
+          for trusted_entry in \
+            "$policy_root/scripts/ci/review-gate.mjs" \
+            "$policy_root/scripts/ci/lib/review-carry-forward.mjs"; do
+            node --input-type=module -e 'await import(process.argv[1]);' "$trusted_entry" \
+              || { echo "::error::grafo di import incompleto nella copia trusted: $trusted_entry"; exit 1; }
           done
           for trusted_file in \
             "$policy_root/scripts/ci/review-gate.mjs" \
