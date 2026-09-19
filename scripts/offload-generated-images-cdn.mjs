@@ -181,7 +181,8 @@ const DATA_FILE = "([^\"'\\s)?<>]+?\\.(?:json|csv))";
 //   4. Collect every literal same-origin /data/ ref (sitemap/href) so those files
 //      stay same-origin (kept), while cdn-only data files are deleted.
 // Then the guarded deletes (og dirs if no leak; cdn-only dist/data files).
-function offloadAll(distDir, cdnBase) {
+function offloadAll(distDir, cdnBase, onlyFiles = null) {
+  const partial = Array.isArray(onlyFiles);
   const escOrigin = ORIGIN.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
   // og/image rewrite/guard regexes: compiled for EVERY target, NOT gated on
@@ -322,7 +323,7 @@ function offloadAll(distDir, cdnBase) {
   const ogLeaks = [];
   const assetsLeaks = [];
 
-  walk(distDir, (fp) => {
+  const visit = (fp) => {
     scanned++;
     const orig = fs.readFileSync(fp, 'utf8');
     let out = orig;
@@ -421,7 +422,28 @@ function offloadAll(distDir, cdnBase) {
       let m;
       while ((m = reDataKeep.exec(out))) dataReferenced.add(decodeURIComponent('/data/' + m[1].split('?')[0]));
     }
-  });
+  };
+
+  if (!partial) {
+    walk(distDir, visit);
+  } else {
+    // --files-from (SHARD_DELTA_CDN_REWRITE=changed): the SAME per-file
+    // rewrite, applied only to the listed files. Same filters as walk(): the
+    // SCAN_EXT set and the top-level dist/{assets,data,images} exclusion, so a
+    // listed file gets exactly the bytes a full walk would have produced.
+    for (const fp of onlyFiles) {
+      const top = path.relative(distDir, fp).split(path.sep)[0];
+      if (top === 'assets' || top === 'data' || top === 'images') continue;
+      if (!SCAN_EXT.has(path.extname(fp))) continue;
+      visit(fp);
+    }
+    // A partial scan proves nothing about the rest of the tree: no /assets/
+    // verdict marker (the Drop step would read a subset as a verdict) and no
+    // guarded delete (a leak outside the list would be invisible). The full
+    // pass that completes the staged copy writes both, exactly as today.
+    log(`partial offload (--files-from): rewrote ${scanned} of ${onlyFiles.length} listed file(s) ; og ${ogRewritten}, assets ${assetRewritten}, data refs ${dataRefRewritten}, base inject ${injected}/${htmlSeen} ; marker + guarded deletes skipped`);
+    return { cdnAssetUrls: [...cdnAssetUrls], assetsLeaks };
+  }
 
   // Emit the same-origin /assets/ verdict so the deploy "Drop dist/assets" step
   // can SKIP its redundant full-tree grep (it reads this marker, and falls back
@@ -539,7 +561,8 @@ async function main() {
     return;
   }
 
-  const { cdnAssetUrls, assetsLeaks } = offloadAll(distDir, cdnBase);
+  const onlyFiles = cli.filesFrom ? readFileList(cli.filesFrom, distDir) : null;
+  const { cdnAssetUrls, assetsLeaks } = offloadAll(distDir, cdnBase, onlyFiles);
 
   // GUARDIA DI ESISTENZA (issue #7366). Gli /assets/ sono l'unica famiglia che
   // l'ordine del deploy non garantisce: puntano al bundle dell'ULTIMO deploy e
@@ -561,9 +584,66 @@ async function main() {
   }
 }
 
+// CLI options (both optional; with neither, the behaviour is the historical
+// full, non-fatal pass byte for byte):
+//   --files-from <file>  rewrite ONLY the listed files. The list holds paths
+//                        relative to dist/, NUL- or newline-separated (the
+//                        shard delta lists are NUL-separated). Used by
+//                        push-section-shard.sh under SHARD_DELTA_CDN_REWRITE=
+//                        changed, where every unlisted file is taken from the
+//                        shard's HEAD (already rewritten) and never read.
+//                        Implies --strict.
+//   --strict             exit 1 on an internal error instead of the non-fatal
+//                        exit 0. The deferred shard rewrite needs to KNOW that
+//                        a pass failed, because it then falls back to a full
+//                        pass (or skips the validate-dist pack) instead of
+//                        publishing unrewritten bytes as if they were done.
+function parseCli(argv) {
+  const out = { filesFrom: '', strict: false };
+  for (let i = 0; i < argv.length; i += 1) {
+    const arg = argv[i];
+    if (arg === '--strict') out.strict = true;
+    else if (arg === '--files-from' || arg.startsWith('--files-from=')) {
+      out.filesFrom = arg === '--files-from' ? (argv[++i] || '') : arg.slice('--files-from='.length);
+      // A bare flag must not silently degrade to the full walk.
+      if (!out.filesFrom) throw new Error('--files-from requires a file');
+    } else throw new Error(`unknown argument ${arg}`);
+  }
+  if (out.filesFrom) out.strict = true;
+  return out;
+}
+
+function readFileList(listFile, distDir) {
+  const raw = fs.readFileSync(listFile, 'utf8');
+  const sep = raw.includes('\0') ? '\0' : '\n';
+  const files = [];
+  const seen = new Set();
+  for (const entry of raw.split(sep)) {
+    const rel = sep === '\n' ? entry.replace(/\r$/, '') : entry;
+    if (!rel) continue;
+    const abs = path.resolve(distDir, rel);
+    if (abs !== distDir && !abs.startsWith(distDir + path.sep)) {
+      throw new Error(`--files-from entry escapes dist/: ${JSON.stringify(rel)}`);
+    }
+    if (seen.has(abs)) continue;
+    seen.add(abs);
+    // A listed path that is not a regular file is a planning bug, not a
+    // no-op: the caller would publish a tree it believes rewritten.
+    if (!fs.statSync(abs).isFile()) throw new Error(`--files-from entry is not a file: ${JSON.stringify(rel)}`);
+    files.push(abs);
+  }
+  return files;
+}
+
+let cli = { filesFrom: '', strict: false };
 try {
+  cli = parseCli(process.argv.slice(2));
   await main();
 } catch (err) {
+  if (cli.strict || process.argv.includes('--strict') || process.argv.some((a) => a.startsWith('--files-from'))) {
+    console.log(`[offload-generated-cdn] error (strict mode, exit 1): ${err && err.message ? err.message : err}`);
+    process.exit(1);
+  }
   // NON-FATAL: never break a deploy over an image-offload optimisation.
   console.log(`[offload-generated-cdn] error (non-fatal, images kept in dist): ${err && err.message ? err.message : err}`);
   process.exit(0);

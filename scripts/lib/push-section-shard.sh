@@ -53,6 +53,13 @@
 #   SHARD_PUSH_VERIFY — `1` enables an advisory full-vs-delta tree comparison.
 #   SHARD_INCREMENTAL_MANIFEST_DIR — current build manifest directory; defaults
 #                                   to .cache/incremental-manifest.
+#   SHARD_DELTA_CDN_REWRITE — unset/`off` (default, byte-identical path) or
+#                  `changed`: in delta mode, CDN-rewrite only the files the
+#                  delta reads (changed + unmanifested overlay + 404.html);
+#                  the unchanged ones come from the shard HEAD, already
+#                  rewritten. A delta fallback to full rewrites everything
+#                  first, as today. The staged copy the pack step tars is
+#                  completed in background — see scripts/lib/shard-cdn-rewrite.sh.
 #
 # On success writes $RUNNER_TEMP/shard-ok-<section>-<locale> (consumed by the
 # strip step) and exits 0. SKIP (no key / subtree absent) exits 0 without the
@@ -90,6 +97,8 @@ verify_tool="$repo_root/scripts/ci/shard-push-verify.mjs"
 # shard_orphan_flatten_and_push — shared with push-locale-shard.sh and
 # compact-article-shard-history.sh (issue #4881, AGENTS.md #6).
 source "$(dirname "${BASH_SOURCE[0]}")/shard-git-helpers.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/shard-cdn-rewrite.sh"
+offload_script="$repo_root/scripts/offload-generated-images-cdn.mjs"
 
 # Canonical section path per locale, from the shared single source of truth.
 # Keep in lockstep with SECTION_ROUTES in infra/cloudflare-worker/locale-router.js
@@ -119,6 +128,35 @@ if [ -z "${RUNNER_TEMP:-}" ]; then
   echo "ℹ️ RUNNER_TEMP unset — using temp dir $RUNNER_TEMP"
 fi
 
+# The historical full, non-fatal CDN rewrite of the whole staged copy.
+offload_full_stage() {
+  ( cd "$stage_src" && CDN_BASE="$CDN_BASE_FIXED" node "$offload_script" ) \
+    || echo "::warning::offload on $loc $section subtree returned non-zero (offload is fail-safe/exit-0; continuing)"
+}
+
+# offload_delta_stage <delta_output> — rewrite only the files the delta push
+# reads from the staged copy: changed + unmanifested overlay (NUL lists,
+# relative to $sub) plus the root 404.html. Returns non-zero when the list
+# cannot be built or the strict partial pass fails; the caller then runs the
+# full pass (idempotent, so no byte differs from the historical output).
+offload_delta_stage() {
+  local out="$1" list="$1/cdn-rewrite-files.txt"
+  perl -e '
+    use strict; use warnings;
+    my ($prefix, $dest, @lists) = @ARGV;
+    open my $o, ">:raw", $dest or die "open $dest: $!";
+    local $/ = "\0";
+    for my $f (@lists) {
+      open my $i, "<:raw", $f or die "open $f: $!";
+      while (defined(my $r = <$i>)) { $r =~ s{\0\z}{}; next if $r eq q{}; print {$o} "$prefix/$r\0"; }
+      close $i;
+    }
+    close $o or die "close $dest: $!";
+  ' "$sub" "$list" "$out/changed-files.txt" "$out/unmanifested-files.txt" || return 1
+  if [ -f "$stage_src/dist/404.html" ]; then printf '404.html\0' >> "$list" || return 1; fi
+  ( cd "$stage_src" && CDN_BASE="$CDN_BASE_FIXED" node "$offload_script" --files-from "$list" )
+}
+
 push_section_shard() {
   local key_var key_val stage stage_src keyfile src_n prev_n rc
   LOC_UPPER="$(echo "$loc" | tr a-z A-Z)"
@@ -144,8 +182,16 @@ push_section_shard() {
   if [ "$loc" = "it" ] && [ -f "$dist_dir/404.html" ]; then
     cp "$dist_dir/404.html" "$stage_src/dist/404.html"
   fi
-  ( cd "$stage_src" && CDN_BASE="$CDN_BASE_FIXED" node "$repo_root/scripts/offload-generated-images-cdn.mjs" ) \
-    || echo "::warning::offload on $loc $section subtree returned non-zero (offload is fail-safe/exit-0; continuing)"
+  # SHARD_DELTA_CDN_REWRITE=changed (delta mode only): defer the rewrite until
+  # the delta plan says which staged files the push will actually read.
+  rm -f "$RUNNER_TEMP/shard-cdn-partial-$section-$loc" "$RUNNER_TEMP/shard-cdn-done-$section-$loc"
+  cdn_rewrite_deferred=0
+  if shard_cdn_rewrite_enabled "$SHARD_PUSH_MODE"; then
+    cdn_rewrite_deferred=1
+    echo "$section-$loc shard: SHARD_DELTA_CDN_REWRITE=changed — CDN rewrite deferred to the delta plan"
+  else
+    offload_full_stage
+  fi
 
   src_n="$(shard_count_files "$stage_src/dist/$sub")"
   printf '%s' "$src_n" > "$RUNNER_TEMP/shard-srcn-$section-$loc"
@@ -179,6 +225,7 @@ push_section_shard() {
     verify_plan_seconds=0
     verify_stage="$RUNNER_TEMP/shard-push-verify-stage-$section-$loc"
     verify_output="$RUNNER_TEMP/shard-push-verify-plan-$section-$loc"
+    cdn_rewrite_partial=0
 
     # Full mode keeps the historical push as the source of truth. When the
     # canary is enabled, build the delta index beside it without pushing; the
@@ -220,6 +267,15 @@ push_section_shard() {
             "$sub" "$stage_src/dist" "$manifest_tool" "$delta_output" \
             "$SHARD_HISTORY_CAP" "$section-$loc shard"; then
           delta_apply_ok=1
+          if [ "$cdn_rewrite_deferred" = 1 ]; then
+            if offload_delta_stage "$delta_output"; then
+              cdn_rewrite_partial=1
+            else
+              echo "::warning::$section-$loc shard: partial CDN rewrite failed — rewriting the whole staged copy"
+              offload_full_stage
+              cdn_rewrite_deferred=0
+            fi
+          fi
           if ! shard_delta_check_unchanged_payload_paths \
               "$stage" "$sub" "$delta_output/unchanged-files.txt"; then
             delta_apply_ok=0
@@ -293,6 +349,14 @@ push_section_shard() {
     if [ "$delta_applied" != 1 ]; then
       if [ "$SHARD_PUSH_MODE" = delta ]; then
         rm -rf "$stage"; mkdir -p "$stage"
+      fi
+      # Full fallback reads EVERY staged file: complete the deferred rewrite
+      # first (idempotent over the files a partial pass already rewrote).
+      if [ "$cdn_rewrite_deferred" = 1 ]; then
+        echo "$section-$loc shard: delta fell back to full — rewriting the whole staged copy"
+        offload_full_stage
+        cdn_rewrite_deferred=0
+        cdn_rewrite_partial=0
       fi
       if git clone -q --depth 1 --filter=blob:none --no-checkout \
            "$SHARD_REPO" "$stage" 2>/dev/null \
@@ -379,6 +443,12 @@ push_section_shard() {
     echo "$section-$loc shard: $(du -sh "$stage" 2>/dev/null | cut -f1), $n files (src $src_n, prev $prev_n, incremental=$incremental, deploys-since-flatten=$((dcount + 1)))"
     fi
 
+    if [ "$delta_applied" = 1 ] && [ "$cdn_rewrite_partial" = 1 ]; then
+      # Records how to complete this staged copy, so the pack-step barrier can
+      # re-run the full pass synchronously if the background one fails.
+      printf '%s\n%s\n%s\n' "$stage_src" "$offload_script" "$CDN_BASE_FIXED" \
+        > "$RUNNER_TEMP/shard-cdn-partial-$section-$loc"
+    fi
     if [ "$delta_applied" = 1 ]; then
       cd "$stage"
       git config user.email "valerielinc@gmail.com"
@@ -475,6 +545,14 @@ push_section_shard() {
   # push its CDN build id, which is what made the downstream de/en/fr
   # locales' cross-shard ordering wait (#2569) time out (issue #4734).
   rm -rf "$stage"
+  # Partial rewrite pushed: complete the staged copy for the pack step in
+  # background (the pack steps wait for it — scripts/lib/shard-cdn-rewrite.sh).
+  # On a failed push the pack skips this section anyway (no ok-marker), but the
+  # staged files are hardlinked to dist/<sub>, which then stays in the apex:
+  # complete it too, so no step after this one sees a half-rewritten subtree.
+  if [ -e "$RUNNER_TEMP/shard-cdn-partial-$section-$loc" ]; then
+    shard_cdn_rewrite_launch "$RUNNER_TEMP" "$section" "$loc" "$stage_src" "$offload_script" "$CDN_BASE_FIXED"
+  fi
   if [ "$rc" -eq 0 ]; then
     touch "$RUNNER_TEMP/shard-ok-$section-$loc"   # consumed by the strip step
     echo "✅ pushed $section-$loc shard"
