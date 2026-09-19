@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-09-13T14:08:43.405Z",
+  "generatedAt": "2026-09-19T23:07:36.546Z",
   "total": 19,
   "newCount": 0,
-  "updatedCount": 19,
+  "updatedCount": 16,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 65454,
-  "avgDurationMs": 65454,
+  "unchangedCount": 3,
+  "durationMs": 42402,
+  "avgDurationMs": 42402,
   "durationHistory": [
-    65454
+    42402
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -146,38 +146,6 @@
       }
     },
     {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/imo/imo-leaps-2posdoc-2024.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/imo/imo-leaps-2posdoc-2024.pdf",
-      "title": "Due ricercatori post-dottorato",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "due-ricercatori-post-dottorato-usi-universita-della-svizzera-italiana-lugano",
-      "department": "Facoltà di scienze economiche – Institute of Management and Organisation (IMO)",
-      "category": "researcher",
-      "datePosted": "2026-03-29",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "usi-universita-della-svizzera-italiana-ceb3beaca884",
-      "sourceLang": "it",
-      "firstSeenAt": "2026-04-13T22:38:02.110Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-postdoc-radioligand-radiotherapy-prostate-cancer-2026.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-postdoc-radioligand-radiotherapy-prostate-cancer-2026.pdf",
       "title": "Posizione post-dottorato sulla resistenza ai radioligando e alla radioterapia nel cancro alla prostata nel Functional Cancer Genomics Lab",
@@ -242,38 +210,6 @@
       }
     },
     {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-usi-eoc-phd-2025.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-usi-eoc-phd-2025.pdf",
-      "title": "Dottorato di Ricerca in Neuroscienze con focus su cronobiologia, medicina del lavoro e medicina del sonno",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "dottorato-di-ricerca-in-neuroscienze-con-focus-su-cronobiologia-medicina-del-lavoro-e-medicina-del-sonno-usi-universita-della-svizzera-italiana-lugano",
-      "department": "",
-      "category": "staff",
-      "datePosted": "2026-03-29",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "usi-universita-della-svizzera-italiana-adda987d8317",
-      "sourceLang": "it",
-      "firstSeenAt": "2026-04-13T22:38:02.110Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/idep/idep-phd-position-2025.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/idep/idep-phd-position-2025.pdf",
       "title": "Posizione dello studente DI dottorato",
@@ -301,38 +237,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/idusi/idusi-phd-refuel-2025-2.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/idusi/idusi-phd-refuel-2025-2.pdf",
-      "title": "Posizione di dottorando in Diritto Economico Internazionale",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "posizione-di-dottorando-in-diritto-economico-internazionale-usi-universita-della-svizzera-italiana-lugano",
-      "department": "Faculty of Economics – Law Institute (IDUSI)",
-      "category": "phd",
-      "datePosted": "2026-03-29",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "usi-universita-della-svizzera-italiana-c86503b7b022",
-      "sourceLang": "it",
-      "firstSeenAt": "2026-04-13T22:38:02.110Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
         "translation": 25,
         "completeness": 9
       }
@@ -372,14 +276,14 @@
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-bmed-iph-242869_phd_17.07.2026.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-bmed-iph-242869_phd_17.07.2026.pdf",
-      "title": "Istituto di sanità pubblica Posizione di dottorando presso l'Istituto di sanità pubblica",
+      "title": "Posizione di dottorando presso l'Istituto di Sanità Pubblica",
       "company": "USI – Università della Svizzera italiana",
       "companyKey": "usi-universita-della-svizzera-italiana",
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
       "slug": "istituto-di-sanita-pubblica-posizione-di-dottorando-presso-l-istituto-di-sanita-pubblica-usi-lugano",
-      "department": "Faculty of Biomedical Sciences",
+      "department": "Faculty of Biomedical Sciences – Institute of Public Health",
       "category": "phd",
       "datePosted": "2026-07-17",
       "source": "usi-drupal-crawler",
@@ -393,38 +297,6 @@
       "id": "usi-universita-della-svizzera-italiana-19ab83c519f2",
       "sourceLang": "it",
       "firstSeenAt": "2026-07-17T22:09:12.866Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-functional-cancer-genomics-lab-techncian-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-functional-cancer-genomics-lab-techncian-2026.pdf",
-      "title": "Posizione di tecnico di laboratorio nel laboratorio di genomica del cancro funzionale",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "posizione-di-tecnico-di-laboratorio-nel-laboratorio-di-genomica-del-cancro-funzionale-usi-lugano",
-      "department": "Institute of Oncology Research (IOR)",
-      "category": "staff",
-      "datePosted": "2026-07-27",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "usi-universita-della-svizzera-italiana-5f787a06ff5b",
-      "sourceLang": "it",
-      "firstSeenAt": "2026-07-27T12:40:12.918Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -624,8 +496,173 @@
         "translation": 25,
         "completeness": 9
       }
+    },
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-usi-eoc-phd-2025.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-usi-eoc-phd-2025.pdf",
+      "title": "Dottorato di Ricerca in Neuroscienze con focus su cronobiologia, medicina del lavoro e medicina del sonno",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "dottorato-di-ricerca-in-neuroscienze-con-focus-su-cronobiologia-medicina-del-lavoro-e-medicina-del-sonno-usi-universita-della-svizzera-italiana-lugano",
+      "department": "",
+      "category": "staff",
+      "datePosted": "2026-03-29",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "usi-universita-della-svizzera-italiana-adda987d8317",
+      "sourceLang": "it",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Via Giuseppe Buffi 13",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/imo/imo-leaps-2posdoc-2024.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/imo/imo-leaps-2posdoc-2024.pdf",
+      "title": "Due ricercatori post-dottorato",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "due-ricercatori-post-dottorato-usi-universita-della-svizzera-italiana-lugano",
+      "department": "Facoltà di scienze economiche – Institute of Management and Organisation (IMO)",
+      "category": "researcher",
+      "datePosted": "2026-03-29",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "usi-universita-della-svizzera-italiana-ceb3beaca884",
+      "sourceLang": "it",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Via Giuseppe Buffi 13",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/idusi/idusi-phd-refuel-2025-2.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/idusi/idusi-phd-refuel-2025-2.pdf",
+      "title": "Posizione di dottorando in Diritto Economico Internazionale",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "posizione-di-dottorando-in-diritto-economico-internazionale-usi-universita-della-svizzera-italiana-lugano",
+      "department": "Faculty of Economics – Law Institute (IDUSI)",
+      "category": "phd",
+      "datePosted": "2026-03-29",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "usi-universita-della-svizzera-italiana-c86503b7b022",
+      "sourceLang": "it",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Via Giuseppe Buffi 13",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-functional-cancer-genomics-lab-techncian-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-functional-cancer-genomics-lab-techncian-2026.pdf",
+      "title": "Posizione di tecnico di laboratorio nel laboratorio di genomica del cancro funzionale",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "posizione-di-tecnico-di-laboratorio-nel-laboratorio-di-genomica-del-cancro-funzionale-usi-lugano",
+      "department": "Institute of Oncology Research (IOR)",
+      "category": "staff",
+      "datePosted": "2026-07-27",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "usi-universita-della-svizzera-italiana-5f787a06ff5b",
+      "sourceLang": "it",
+      "firstSeenAt": "2026-07-27T12:40:12.918Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Via Giuseppe Buffi 13",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ]
 }

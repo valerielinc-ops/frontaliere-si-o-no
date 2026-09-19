@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sfs-group",
-  "assembledAt": "2026-09-13T14:07:44.852Z",
+  "assembledAt": "2026-09-19T23:05:43.651Z",
   "jobs": [
     {
       "id": "sfs-group-f207510fa814",
@@ -33,7 +33,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/verkaufsberater-in-im-handwerkercenter-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:07:38.415Z",
+      "crawledAt": "2026-09-19T23:05:38.348Z",
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
       "postalCode": "9435",
@@ -53,11 +53,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein"
+        "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein",
+        "consulente-commerciale-presso-il-handwerkercenter-m-f-d-sfs-group-munchenstein"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein"
+          "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein",
+          "consulente-commerciale-presso-il-handwerkercenter-m-f-d-sfs-group-munchenstein"
         ],
         "en": [
           "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein"
@@ -67,6 +69,7 @@
         ]
       },
       "firstSeenAt": "2026-09-01T14:25:28.882Z",
+      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -112,7 +115,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/techniker-in-wärmebehandlung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:07:38.246Z",
+      "crawledAt": "2026-09-19T23:05:38.232Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -133,11 +136,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
+        "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg",
+        "trattamento-tecnico-riscaldamento-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
+          "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg",
+          "trattamento-tecnico-riscaldamento-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
@@ -192,7 +197,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/projektleiter-kunststofftechnik-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:07:38.065Z",
+      "crawledAt": "2026-09-19T23:05:38.117Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "postalCode": "9000",
@@ -213,12 +218,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-kunststofftechnik-m-f-d-sfs-group-altstatten",
-        "projektleiter-kunststofftechnik-m-w-d-sfs-group-altstatten"
+        "projektleiter-kunststofftechnik-m-w-d-sfs-group-altstatten",
+        "project-manager-plastics-engineering-m-f-d-sfs-group-altstatten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-kunststofftechnik-m-f-d-sfs-group-altstatten",
-          "projektleiter-kunststofftechnik-m-w-d-sfs-group-altstatten"
+          "projektleiter-kunststofftechnik-m-w-d-sfs-group-altstatten",
+          "project-manager-plastics-engineering-m-f-d-sfs-group-altstatten"
         ],
         "en": [
           "projektleiter-kunststofftechnik-m-f-d-sfs-group-altstatten"
@@ -228,6 +235,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:49:47.672Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -257,7 +265,7 @@
       "title": "Project Manager Building Components (m/f/d)",
       "titleByLocale": {
         "it": "Componenti per la costruzione di Project Manager (m/f/d)",
-        "en": "Project Manager Building mm2 (m/f/d)",
+        "en": "Project Manager Building Components (m/f/d)",
         "de": "Project Manager Building Components (m/f/d)",
         "fr": "Gestionnaire de projet Composants de construction (h/f/d)"
       },
@@ -273,7 +281,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/project-manager-building-components-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:07:37.886Z",
+      "crawledAt": "2026-09-19T23:05:37.999Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -298,7 +306,8 @@
         "project-manager-eprozesse-m-f-d-sfs-group-heerbrugg",
         "projektleiter-in-eprozesse-m-f-d-sfs-group-heerbrugg",
         "chef-de-projet-eprozesse-m-f-d-sfs-group-heerbrugg",
-        "project-manager-building-components-m-f-d-sfs-group-heerbrugg"
+        "project-manager-building-components-m-f-d-sfs-group-heerbrugg",
+        "componenti-per-la-costruzione-di-project-manager-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -306,7 +315,8 @@
           "project-manager-eprozesse-m-f-d-sfs-group-heerbrugg",
           "projektleiter-in-eprozesse-m-f-d-sfs-group-heerbrugg",
           "chef-de-projet-eprozesse-m-f-d-sfs-group-heerbrugg",
-          "project-manager-building-components-m-f-d-sfs-group-heerbrugg"
+          "project-manager-building-components-m-f-d-sfs-group-heerbrugg",
+          "componenti-per-la-costruzione-di-project-manager-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "project-manager-eprozesse-m-f-d-sfs-group-heerbrugg"
@@ -320,6 +330,7 @@
         ]
       },
       "firstSeenAt": "2026-09-01T14:25:28.644Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -365,7 +376,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/process-engineer-aerospace-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:07:37.718Z",
+      "crawledAt": "2026-09-19T23:05:37.881Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -386,6 +397,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-11T13:52:15.375Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -431,7 +443,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-erosion-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:07:37.545Z",
+      "crawledAt": "2026-09-19T23:05:37.765Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -483,11 +495,13 @@
         ]
       },
       "previousSlugs": [
-        "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
+        "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg",
+        "polimeccanica-in-erosione-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
+          "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg",
+          "polimeccanica-in-erosione-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
@@ -497,6 +511,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:55:34.456Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -542,7 +557,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/messtechniker-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:07:37.375Z",
+      "crawledAt": "2026-09-19T23:05:37.650Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -562,11 +577,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "messtechniker-in-m-f-d-sfs-group-hallau"
+        "messtechniker-in-m-f-d-sfs-group-hallau",
+        "tecnico-di-misura-m-f-d-sfs-group-hallau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "messtechniker-in-m-f-d-sfs-group-hallau"
+          "messtechniker-in-m-f-d-sfs-group-hallau",
+          "tecnico-di-misura-m-f-d-sfs-group-hallau"
         ],
         "en": [
           "messtechniker-in-m-f-d-sfs-group-hallau"
@@ -589,6 +606,151 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "sfs-group-11eaf92f960a",
+      "slug": "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg",
+      "slugByLocale": {
+        "de": "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg",
+        "it": "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg",
+        "en": "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg",
+        "fr": "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg"
+      },
+      "company": "SFS Group",
+      "companyKey": "sfs-group",
+      "companyDomain": "sfs.com",
+      "title": "Maschinenbediener/in Umformtechnik (m/f/d)",
+      "titleByLocale": {
+        "de": "Maschinenbediener/in Umformtechnik (m/f/d)",
+        "it": "Maschinenbediener/in Umformtechnik (m/f/d)",
+        "en": "Maschinenbediener/in Umformtechnik (m/f/d)",
+        "fr": "Maschinenbediener/in Umformtechnik (m/f/d)"
+      },
+      "description": "Auf ausgewählten und wachstumsstarken Endanwendungen liegt unser Fokus. Am Standort Heerbrugg werden wichtige Präzisionsformteile sowie technische Verbindungselemente und Baugruppen für die Automobilindustrie gefertigt. Wir stellen mit der Kaltmassivumformtechnologie Präzisionsformteile auf modernsten Mehrstufenpressmaschinen her. Möchtest du in diesem Bereich dein Fachwissen aktiv einbringen? Wir freuen uns auf deine Bewerbung! Your Tasks:\n• Einstellen, Bedienen und Überwachen von Mehrstufenpressmaschinen, auf welchen komplexe Kaltumformteile hergestellt werden\n• Verantwortlich für das Beheben von Prozessstörungen\n• Einbringen von Prozessoptimierungen\n• Verantwortlich für die Qualität der gefertigten Produkte\n• Messwerteingaben in das Qualitätssystem Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Gutes technisches Verständnis\n• Hohe Leistungsbereitschaft, Teamfähigkeit und Verlässlichkeit\n• Positive Einstellung zum flexiblen Zweischichtbetrieb\n• Selbständigkeit und Eigeninitiative\n• Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
+      "descriptionByLocale": {
+        "de": "Auf ausgewählten und wachstumsstarken Endanwendungen liegt unser Fokus. Am Standort Heerbrugg werden wichtige Präzisionsformteile sowie technische Verbindungselemente und Baugruppen für die Automobilindustrie gefertigt. Wir stellen mit der Kaltmassivumformtechnologie Präzisionsformteile auf modernsten Mehrstufenpressmaschinen her. Möchtest du in diesem Bereich dein Fachwissen aktiv einbringen? Wir freuen uns auf deine Bewerbung! Your Tasks:\n• Einstellen, Bedienen und Überwachen von Mehrstufenpressmaschinen, auf welchen komplexe Kaltumformteile hergestellt werden\n• Verantwortlich für das Beheben von Prozessstörungen\n• Einbringen von Prozessoptimierungen\n• Verantwortlich für die Qualität der gefertigten Produkte\n• Messwerteingaben in das Qualitätssystem Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Gutes technisches Verständnis\n• Hohe Leistungsbereitschaft, Teamfähigkeit und Verlässlichkeit\n• Positive Einstellung zum flexiblen Zweischichtbetrieb\n• Selbständigkeit und Eigeninitiative\n• Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
+        "it": "Auf ausgewählten und wachstumsstarken Endanwendungen liegt unser Fokus. Am Standort Heerbrugg werden wichtige Präzisionsformteile sowie technische Verbindungselemente und Baugruppen für die Automobilindustrie gefertigt. Wir stellen mit der Kaltmassivumformtechnologie Präzisionsformteile auf modernsten Mehrstufenpressmaschinen her. Möchtest du in diesem Bereich dein Fachwissen aktiv einbringen? Wir freuen uns auf deine Bewerbung! Your Tasks:\n• Einstellen, Bedienen und Überwachen von Mehrstufenpressmaschinen, auf welchen komplexe Kaltumformteile hergestellt werden\n• Verantwortlich für das Beheben von Prozessstörungen\n• Einbringen von Prozessoptimierungen\n• Verantwortlich für die Qualität der gefertigten Produkte\n• Messwerteingaben in das Qualitätssystem Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Gutes technisches Verständnis\n• Hohe Leistungsbereitschaft, Teamfähigkeit und Verlässlichkeit\n• Positive Einstellung zum flexiblen Zweischichtbetrieb\n• Selbständigkeit und Eigeninitiative\n• Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
+        "en": "Auf ausgewählten und wachstumsstarken Endanwendungen liegt unser Fokus. Am Standort Heerbrugg werden wichtige Präzisionsformteile sowie technische Verbindungselemente und Baugruppen für die Automobilindustrie gefertigt. Wir stellen mit der Kaltmassivumformtechnologie Präzisionsformteile auf modernsten Mehrstufenpressmaschinen her. Möchtest du in diesem Bereich dein Fachwissen aktiv einbringen? Wir freuen uns auf deine Bewerbung! Your Tasks:\n• Einstellen, Bedienen und Überwachen von Mehrstufenpressmaschinen, auf welchen komplexe Kaltumformteile hergestellt werden\n• Verantwortlich für das Beheben von Prozessstörungen\n• Einbringen von Prozessoptimierungen\n• Verantwortlich für die Qualität der gefertigten Produkte\n• Messwerteingaben in das Qualitätssystem Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Gutes technisches Verständnis\n• Hohe Leistungsbereitschaft, Teamfähigkeit und Verlässlichkeit\n• Positive Einstellung zum flexiblen Zweischichtbetrieb\n• Selbständigkeit und Eigeninitiative\n• Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
+        "fr": "Auf ausgewählten und wachstumsstarken Endanwendungen liegt unser Fokus. Am Standort Heerbrugg werden wichtige Präzisionsformteile sowie technische Verbindungselemente und Baugruppen für die Automobilindustrie gefertigt. Wir stellen mit der Kaltmassivumformtechnologie Präzisionsformteile auf modernsten Mehrstufenpressmaschinen her. Möchtest du in diesem Bereich dein Fachwissen aktiv einbringen? Wir freuen uns auf deine Bewerbung! Your Tasks:\n• Einstellen, Bedienen und Überwachen von Mehrstufenpressmaschinen, auf welchen komplexe Kaltumformteile hergestellt werden\n• Verantwortlich für das Beheben von Prozessstörungen\n• Einbringen von Prozessoptimierungen\n• Verantwortlich für die Qualität der gefertigten Produkte\n• Messwerteingaben in das Qualitätssystem Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Gutes technisches Verständnis\n• Hohe Leistungsbereitschaft, Teamfähigkeit und Verlässlichkeit\n• Positive Einstellung zum flexiblen Zweischichtbetrieb\n• Selbständigkeit und Eigeninitiative\n• Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents"
+      },
+      "location": "Heerbrugg",
+      "canton": "SG",
+      "url": "https://join.sfs.com/ch/en/vacancies/maschinenbediener-in-umformtechnik-(m-f-d).html",
+      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-19T23:05:37.535Z",
+      "addressLocality": "Heerbrugg",
+      "addressRegion": "SG",
+      "streetAddress": "Rosenbergsaustrasse 8",
+      "postalCode": "9435",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Meccanica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-19",
+      "applyUrl": "https://jobapplication.sfs.com/Vacancies/2816/Application/CheckLogin/1?lang=eng",
+      "jobReqId": "2816",
+      "legalEntity": "SFS Group Schweiz AG",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-19T23:05:37.535Z"
+    },
+    {
+      "id": "sfs-group-e7ba8983fe25",
+      "slug": "logistiker-in-kommissionierung-2-schicht-m-w-d-sfs-group-rotkreuz",
+      "slugByLocale": {
+        "de": "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz",
+        "it": "logistiker-in-kommissionierung-2-schicht-m-w-d-sfs-group-rotkreuz",
+        "en": "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz",
+        "fr": "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz"
+      },
+      "company": "SFS Group",
+      "companyKey": "sfs-group",
+      "companyDomain": "sfs.com",
+      "title": "Logistiker/in Kommissionierung (2-Schicht) (m/f/d)",
+      "titleByLocale": {
+        "de": "Logistiker/in Kommissionierung (2-Schicht) (m/f/d)",
+        "it": "Logistiker/in Kommissionierung (2-Schicht) (m/f/d)",
+        "en": "Logistiker/in Kommissionierung (2-Schicht) (m/f/d)",
+        "fr": "Logistiker/in Kommissionierung (2-Schicht) (m/f/d)"
+      },
+      "description": "SFS ist schweizweit ein flächendeckender Anbieter von Schrauben, Werkzeugen, Beschlägen, Bausortimenten, Sonderteilen und chemisch-technischen Produkten. Unseren Kunden bieten wir sowohl online als auch mit lokalen Verkaufsfilialen eine professionelle Beratung. Zahlreiche Mitarbeitende im Aussendienst betreuen Sie mit kompetenten Empfehlungen und Lösungsvorschlägen. Dazu gehört ein zeit- und marktgerechtes Sortiment. Your Tasks:\n• Kommissionieren und Einlagern von Waren im manuellen und automatischen Bereich\n• Versandgerechtes Verpacken von Sendungen\n• Durchführen der rollenden Inventur\n• Mithilfe bei Engpässen an anderen logistischen Arbeitsplätzen\n• Verantwortung für die Behebung von Anlagestörungen im Tagesgeschäft sowie Sicherstellung eines störungsfreien Betriebs Your profile:\n• Abgeschlossene logistische oder handwerkliche Grundausbildung (idealerweise Logistiker/in EFZ)\n• Erfahrung im Logistikbereich sowie ein SUVA-anerkannter Staplerausweis\n• PC-Grundkenntnisse (SAP-Kenntnisse von Vorteil)\n• Einsatzbereitschaft im flexiblen Schichtmodell (Frühschicht: 05.30 – 14.15 Uhr / Spätschicht: 13.45 – 22.30 Uhr)\n• Gute Deutschkenntnisse in Wort und Schrift\n• Körperlich robust und physisch belastbar\n• Teamplayer mit offener Kommunikation, flexibler Arbeitsweise und selbständiger Mentalität We offer:\n• Anstellung in einem zukunftsorientierten und innovativen Unternehmen\n• Sechs Wochen Ferien und die Option auf zusätzlichen Ferienkauf\n• Jährliche Erfolgsbeteiligung\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Viele weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+      "descriptionByLocale": {
+        "de": "SFS ist schweizweit ein flächendeckender Anbieter von Schrauben, Werkzeugen, Beschlägen, Bausortimenten, Sonderteilen und chemisch-technischen Produkten. Unseren Kunden bieten wir sowohl online als auch mit lokalen Verkaufsfilialen eine professionelle Beratung. Zahlreiche Mitarbeitende im Aussendienst betreuen Sie mit kompetenten Empfehlungen und Lösungsvorschlägen. Dazu gehört ein zeit- und marktgerechtes Sortiment. Your Tasks:\n• Kommissionieren und Einlagern von Waren im manuellen und automatischen Bereich\n• Versandgerechtes Verpacken von Sendungen\n• Durchführen der rollenden Inventur\n• Mithilfe bei Engpässen an anderen logistischen Arbeitsplätzen\n• Verantwortung für die Behebung von Anlagestörungen im Tagesgeschäft sowie Sicherstellung eines störungsfreien Betriebs Your profile:\n• Abgeschlossene logistische oder handwerkliche Grundausbildung (idealerweise Logistiker/in EFZ)\n• Erfahrung im Logistikbereich sowie ein SUVA-anerkannter Staplerausweis\n• PC-Grundkenntnisse (SAP-Kenntnisse von Vorteil)\n• Einsatzbereitschaft im flexiblen Schichtmodell (Frühschicht: 05.30 – 14.15 Uhr / Spätschicht: 13.45 – 22.30 Uhr)\n• Gute Deutschkenntnisse in Wort und Schrift\n• Körperlich robust und physisch belastbar\n• Teamplayer mit offener Kommunikation, flexibler Arbeitsweise und selbständiger Mentalität We offer:\n• Anstellung in einem zukunftsorientierten und innovativen Unternehmen\n• Sechs Wochen Ferien und die Option auf zusätzlichen Ferienkauf\n• Jährliche Erfolgsbeteiligung\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Viele weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+        "it": "SFS ist schweizweit ein flächendeckender Anbieter von Schrauben, Werkzeugen, Beschlägen, Bausortimenten, Sonderteilen und chemisch-technischen Produkten. Unseren Kunden bieten wir sowohl online als auch mit lokalen Verkaufsfilialen eine professionelle Beratung. Zahlreiche Mitarbeitende im Aussendienst betreuen Sie mit kompetenten Empfehlungen und Lösungsvorschlägen. Dazu gehört ein zeit- und marktgerechtes Sortiment. Your Tasks:\n• Kommissionieren und Einlagern von Waren im manuellen und automatischen Bereich\n• Versandgerechtes Verpacken von Sendungen\n• Durchführen der rollenden Inventur\n• Mithilfe bei Engpässen an anderen logistischen Arbeitsplätzen\n• Verantwortung für die Behebung von Anlagestörungen im Tagesgeschäft sowie Sicherstellung eines störungsfreien Betriebs Your profile:\n• Abgeschlossene logistische oder handwerkliche Grundausbildung (idealerweise Logistiker/in EFZ)\n• Erfahrung im Logistikbereich sowie ein SUVA-anerkannter Staplerausweis\n• PC-Grundkenntnisse (SAP-Kenntnisse von Vorteil)\n• Einsatzbereitschaft im flexiblen Schichtmodell (Frühschicht: 05.30 – 14.15 Uhr / Spätschicht: 13.45 – 22.30 Uhr)\n• Gute Deutschkenntnisse in Wort und Schrift\n• Körperlich robust und physisch belastbar\n• Teamplayer mit offener Kommunikation, flexibler Arbeitsweise und selbständiger Mentalität We offer:\n• Anstellung in einem zukunftsorientierten und innovativen Unternehmen\n• Sechs Wochen Ferien und die Option auf zusätzlichen Ferienkauf\n• Jährliche Erfolgsbeteiligung\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Viele weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+        "en": "SFS ist schweizweit ein flächendeckender Anbieter von Schrauben, Werkzeugen, Beschlägen, Bausortimenten, Sonderteilen und chemisch-technischen Produkten. Unseren Kunden bieten wir sowohl online als auch mit lokalen Verkaufsfilialen eine professionelle Beratung. Zahlreiche Mitarbeitende im Aussendienst betreuen Sie mit kompetenten Empfehlungen und Lösungsvorschlägen. Dazu gehört ein zeit- und marktgerechtes Sortiment. Your Tasks:\n• Kommissionieren und Einlagern von Waren im manuellen und automatischen Bereich\n• Versandgerechtes Verpacken von Sendungen\n• Durchführen der rollenden Inventur\n• Mithilfe bei Engpässen an anderen logistischen Arbeitsplätzen\n• Verantwortung für die Behebung von Anlagestörungen im Tagesgeschäft sowie Sicherstellung eines störungsfreien Betriebs Your profile:\n• Abgeschlossene logistische oder handwerkliche Grundausbildung (idealerweise Logistiker/in EFZ)\n• Erfahrung im Logistikbereich sowie ein SUVA-anerkannter Staplerausweis\n• PC-Grundkenntnisse (SAP-Kenntnisse von Vorteil)\n• Einsatzbereitschaft im flexiblen Schichtmodell (Frühschicht: 05.30 – 14.15 Uhr / Spätschicht: 13.45 – 22.30 Uhr)\n• Gute Deutschkenntnisse in Wort und Schrift\n• Körperlich robust und physisch belastbar\n• Teamplayer mit offener Kommunikation, flexibler Arbeitsweise und selbständiger Mentalität We offer:\n• Anstellung in einem zukunftsorientierten und innovativen Unternehmen\n• Sechs Wochen Ferien und die Option auf zusätzlichen Ferienkauf\n• Jährliche Erfolgsbeteiligung\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Viele weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+        "fr": "SFS ist schweizweit ein flächendeckender Anbieter von Schrauben, Werkzeugen, Beschlägen, Bausortimenten, Sonderteilen und chemisch-technischen Produkten. Unseren Kunden bieten wir sowohl online als auch mit lokalen Verkaufsfilialen eine professionelle Beratung. Zahlreiche Mitarbeitende im Aussendienst betreuen Sie mit kompetenten Empfehlungen und Lösungsvorschlägen. Dazu gehört ein zeit- und marktgerechtes Sortiment. Your Tasks:\n• Kommissionieren und Einlagern von Waren im manuellen und automatischen Bereich\n• Versandgerechtes Verpacken von Sendungen\n• Durchführen der rollenden Inventur\n• Mithilfe bei Engpässen an anderen logistischen Arbeitsplätzen\n• Verantwortung für die Behebung von Anlagestörungen im Tagesgeschäft sowie Sicherstellung eines störungsfreien Betriebs Your profile:\n• Abgeschlossene logistische oder handwerkliche Grundausbildung (idealerweise Logistiker/in EFZ)\n• Erfahrung im Logistikbereich sowie ein SUVA-anerkannter Staplerausweis\n• PC-Grundkenntnisse (SAP-Kenntnisse von Vorteil)\n• Einsatzbereitschaft im flexiblen Schichtmodell (Frühschicht: 05.30 – 14.15 Uhr / Spätschicht: 13.45 – 22.30 Uhr)\n• Gute Deutschkenntnisse in Wort und Schrift\n• Körperlich robust und physisch belastbar\n• Teamplayer mit offener Kommunikation, flexibler Arbeitsweise und selbständiger Mentalität We offer:\n• Anstellung in einem zukunftsorientierten und innovativen Unternehmen\n• Sechs Wochen Ferien und die Option auf zusätzlichen Ferienkauf\n• Jährliche Erfolgsbeteiligung\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Viele weitere Benefits: https://join.sfs.com/ch/de/benefits/"
+      },
+      "location": "Rotkreuz",
+      "canton": "SG",
+      "url": "https://join.sfs.com/ch/en/vacancies/logistiker-in-kommissionierung-(2-schicht)-(m-f-d).html",
+      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-19T23:05:37.420Z",
+      "addressLocality": "Rotkreuz",
+      "addressRegion": "SG",
+      "postalCode": "9000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Meccanica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-19",
+      "applyUrl": "https://jobapplication.sfs.com/Vacancies/3000/Application/CheckLogin/1?lang=eng",
+      "jobReqId": "3000",
+      "legalEntity": "SFS Group Schweiz AG",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz"
+        ]
+      },
+      "previousSlugs": [
+        "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz"
+      ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-19T23:05:37.420Z"
     },
     {
       "id": "sfs-group-e580de844c37",
@@ -621,7 +783,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-für-verfahrenstechnik-spritzgiessen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:07:37.206Z",
+      "crawledAt": "2026-09-19T23:05:37.288Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "postalCode": "9000",
@@ -642,12 +804,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kunststofftechnologe-in-fur-verfahrenstechnik-spritzgiessen-m-f-d-sfs-group-altstatten",
-        "kunststofftechnologe-in-per-verfahrenstechnik-spritzgiessen-m-w-d-sfs-group-altstatten"
+        "kunststofftechnologe-in-per-verfahrenstechnik-spritzgiessen-m-w-d-sfs-group-altstatten",
+        "tecnologo-di-plastica-per-l-ingegneria-di-processo-stampaggio-ad-iniezione-m-f-d-sfs-group-altstatten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kunststofftechnologe-in-fur-verfahrenstechnik-spritzgiessen-m-f-d-sfs-group-altstatten",
-          "kunststofftechnologe-in-per-verfahrenstechnik-spritzgiessen-m-w-d-sfs-group-altstatten"
+          "kunststofftechnologe-in-per-verfahrenstechnik-spritzgiessen-m-w-d-sfs-group-altstatten",
+          "tecnologo-di-plastica-per-l-ingegneria-di-processo-stampaggio-ad-iniezione-m-f-d-sfs-group-altstatten"
         ],
         "en": [
           "kunststofftechnologe-in-fur-verfahrenstechnik-spritzgiessen-m-f-d-sfs-group-altstatten"
@@ -702,7 +866,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:07:37.036Z",
+      "crawledAt": "2026-09-19T23:05:37.172Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -723,11 +887,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kunststofftechnologe-in-m-f-d-sfs-group-hallau",
-        "kunststofftechnologe-in-m-w-d-sfs-group-hallau"
+        "kunststofftechnologe-in-m-w-d-sfs-group-hallau",
+        "tecnologo-delle-materie-plastiche-m-f-d-sfs-group-hallau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kunststofftechnologe-in-m-f-d-sfs-group-hallau"
+          "kunststofftechnologe-in-m-f-d-sfs-group-hallau",
+          "tecnologo-delle-materie-plastiche-m-f-d-sfs-group-hallau"
         ],
         "en": [
           "kunststofftechnologe-in-m-w-d-sfs-group-hallau"
@@ -737,6 +903,7 @@
         ]
       },
       "firstSeenAt": "2026-08-09T21:42:09.947Z",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -756,7 +923,7 @@
       "slug": "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
       "slugByLocale": {
         "it": "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
-        "en": "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
+        "en": "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg",
         "de": "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
         "fr": "operateur-operatrice-de-formage-a-froid-m-w-d-sfs-group-heerbrugg"
       },
@@ -766,7 +933,7 @@
       "title": "Kaltmassivumformer/in (m/f/d)",
       "titleByLocale": {
         "it": "Operatore/Operatrice di stampaggio a freddo (m/f/d)",
-        "en": "Cold mass converter (m/f/d)",
+        "en": "Kaltmassivumformer/in (m/f/d)",
         "de": "Kaltmassivumformer/in (m/f/d)",
         "fr": "Opérateur/Opératrice de formage à froid (m/f/d)"
       },
@@ -782,7 +949,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kaltmassivumformer-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:07:36.867Z",
+      "crawledAt": "2026-09-19T23:05:37.057Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -831,15 +998,19 @@
         "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
         "convertisseur-de-masse-froide-en-h-f-d-sfs-group-heerbrugg",
         "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg",
+        "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
+        "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
         "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
-          "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg"
+          "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg",
+          "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
+          "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
           "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg"
         ],
         "fr": [
@@ -848,6 +1019,7 @@
         ]
       },
       "firstSeenAt": "2026-08-20T22:10:07.433Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -861,6 +1033,163 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "sfs-group-cde51c26acb7",
+      "slug": "risorse-umane-specialista-recruiting-administration-befristet-bis-31-12-2027-m-w-d-sfs-group-heerbrugg",
+      "slugByLocale": {
+        "de": "hr-specialist-recruiting-administration-befristet-bis-31-12-2027-m-f-d-sfs-group-heerbrugg",
+        "it": "risorse-umane-specialista-recruiting-administration-befristet-bis-31-12-2027-m-w-d-sfs-group-heerbrugg",
+        "en": "hr-specialist-recruiting-administration-befristet-bis-31-12-2027-m-f-d-sfs-group-heerbrugg",
+        "fr": "hr-specialist-recruiting-administration-befristet-bis-31-12-2027-m-f-d-sfs-group-heerbrugg"
+      },
+      "company": "SFS Group",
+      "companyKey": "sfs-group",
+      "companyDomain": "sfs.com",
+      "title": "HR Specialist Recruiting & Administration–befristet bis 31.12.2027 (m/f/d)",
+      "titleByLocale": {
+        "de": "Personalwesen Spezialist Recruiting & Administration–befristet bis 31.12.2027 (m/f/d)",
+        "en": "HR Specialist Recruiting & Administration–befristet bis 31.12.2027 (m/f/d)",
+        "it": "Risorse Umane Specialista Recruiting & Administration–befristet bis 31.12.2027 (m/f/d)",
+        "fr": "Ressources Humaines Spécialiste Recruiting & Administration–befristet bis 31.12.2027 (m/f/d)"
+      },
+      "description": "Als zentraler Dreh- und Angelpunkt prägst du unsere HR-Prozesse während einer spannenden Transformationsphase aktiv mit. Im Rahmen dieser Befristung bis zum 31. Dezember 2027 übernimmst du die eigenverantwortliche Personaladministration, unterstützt das Team in der Rekrutierung und bringst dich bei HR-Projekten ein. Mit deinem Organisationstalent und vernetzten Denken sorgst du für reibungslose Abläufe vom Erstkontakt bis zum Austritt. Your Tasks:\n• Selbstständige Bearbeitung der Personaladministration über den gesamten Employee Life Cycle (Eintritte, Mutationen, Austritte, Erstellung von Arbeitszeugnissen, Bewilligungswesen, sowie Betreuung von Personalereignissen)\n• Koordination und Verantwortung wiederkehrender Monats- und Jahresprozesse (z. B Ferienaushilfen)\n• Verantwortung für den gesamten Rekrutierungsprozess\n• Koordination und Verantwortung wiederkehrender Monats- und Jahresprozesse (z. B Ferienaushilfen)\n• Aktive Mitarbeit an der kontinuierlichen Optimierung von HR-Abläufen\n• Ansprechperson für Führungskräfte, Mitarbeitende und Bewerbende in sämtlichen HR-relevanten Fragestellungen sowie enge Zusammenarbeit mit Recruitern, HR Business Partnern und HR Payroll\n• Aktive Mitarbeit an internen HR-Projekten sowie Repräsentation des Unternehmens auf Jobmessen und Recruiting-Events Your profile:\n• Kaufmännische Grundbildung (EFZ) mit spezifischer Weiterbildung im HR (z. B. HR-Assistent/in)\n• Fundierte Kenntnisse und mehrjährige Praxis in der Personaladministration und Rekrutierung\n• Ausgeprägte Fähigkeit, verschiedene administrative Aufgaben gleichzeitig sicher zu steuern\n• Vernetztes Denken mit Freude daran, bestehende Schnittstellen zu verstehen und Prozesse aktiv mitzugestalten\n• Hoher Qualitätsanspruch bei administrativen Routineaufgaben sowie exaktes Datenmanagement\n• Versierter Umgang mit MS Office sowie HR- und Bewerbermanagementsystemen (z. B. SAP, Workday, Umantis)\n• Verhandlungssicheres Deutsch und sehr gute Englischkenntnisse; Französisch von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Flexible Arbeitszeitmodelle & Homeoffice\n• Raum für Eigenverantwortung und Initiative\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Personalrestaurant mit attraktiven Preisen\n• Jährliche Erfolgsbeteiligung Have we sparked your interest?: Nähere Auskunft erteilt dir Roland Auer, Teamleiter Recruiting & Administration (T +41 71 727 66 21). Diese Stelle besetzen wir ohne Unterstützung von Personaldienstleistern.",
+      "descriptionByLocale": {
+        "de": "Als zentraler Dreh- und Angelpunkt prägst du unsere HR-Prozesse während einer spannenden Transformationsphase aktiv mit. Im Rahmen dieser Befristung bis zum 31. Dezember 2027 übernimmst du die eigenverantwortliche Personaladministration, unterstützt das Team in der Rekrutierung und bringst dich bei HR-Projekten ein. Mit deinem Organisationstalent und vernetzten Denken sorgst du für reibungslose Abläufe vom Erstkontakt bis zum Austritt. Your Tasks:\n• Selbstständige Bearbeitung der Personaladministration über den gesamten Employee Life Cycle (Eintritte, Mutationen, Austritte, Erstellung von Arbeitszeugnissen, Bewilligungswesen, sowie Betreuung von Personalereignissen)\n• Koordination und Verantwortung wiederkehrender Monats- und Jahresprozesse (z. B Ferienaushilfen)\n• Verantwortung für den gesamten Rekrutierungsprozess\n• Koordination und Verantwortung wiederkehrender Monats- und Jahresprozesse (z. B Ferienaushilfen)\n• Aktive Mitarbeit an der kontinuierlichen Optimierung von HR-Abläufen\n• Ansprechperson für Führungskräfte, Mitarbeitende und Bewerbende in sämtlichen HR-relevanten Fragestellungen sowie enge Zusammenarbeit mit Recruitern, HR Business Partnern und HR Payroll\n• Aktive Mitarbeit an internen HR-Projekten sowie Repräsentation des Unternehmens auf Jobmessen und Recruiting-Events Your profile:\n• Kaufmännische Grundbildung (EFZ) mit spezifischer Weiterbildung im HR (z. B. HR-Assistent/in)\n• Fundierte Kenntnisse und mehrjährige Praxis in der Personaladministration und Rekrutierung\n• Ausgeprägte Fähigkeit, verschiedene administrative Aufgaben gleichzeitig sicher zu steuern\n• Vernetztes Denken mit Freude daran, bestehende Schnittstellen zu verstehen und Prozesse aktiv mitzugestalten\n• Hoher Qualitätsanspruch bei administrativen Routineaufgaben sowie exaktes Datenmanagement\n• Versierter Umgang mit MS Office sowie HR- und Bewerbermanagementsystemen (z. B. SAP, Workday, Umantis)\n• Verhandlungssicheres Deutsch und sehr gute Englischkenntnisse; Französisch von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Flexible Arbeitszeitmodelle & Homeoffice\n• Raum für Eigenverantwortung und Initiative\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Personalrestaurant mit attraktiven Preisen\n• Jährliche Erfolgsbeteiligung Have we sparked your interest?: Nähere Auskunft erteilt dir Roland Auer, Teamleiter Recruiting & Administration (T +41 71 727 66 21). Diese Stelle besetzen wir ohne Unterstützung von Personaldienstleistern.",
+        "it": "Als zentraler Dreh- und Angelpunkt prägst du unsere HR-Prozesse während einer spannenden Transformationsphase aktiv mit. Im Rahmen dieser Befristung bis zum 31. Dezember 2027 übernimmst du die eigenverantwortliche Personaladministration, unterstützt das Team in der Rekrutierung und bringst dich bei HR-Projekten ein. Mit deinem Organisationstalent und vernetzten Denken sorgst du für reibungslose Abläufe vom Erstkontakt bis zum Austritt. Your Tasks:\n• Selbstständige Bearbeitung der Personaladministration über den gesamten Employee Life Cycle (Eintritte, Mutationen, Austritte, Erstellung von Arbeitszeugnissen, Bewilligungswesen, sowie Betreuung von Personalereignissen)\n• Koordination und Verantwortung wiederkehrender Monats- und Jahresprozesse (z. B Ferienaushilfen)\n• Verantwortung für den gesamten Rekrutierungsprozess\n• Koordination und Verantwortung wiederkehrender Monats- und Jahresprozesse (z. B Ferienaushilfen)\n• Aktive Mitarbeit an der kontinuierlichen Optimierung von HR-Abläufen\n• Ansprechperson für Führungskräfte, Mitarbeitende und Bewerbende in sämtlichen HR-relevanten Fragestellungen sowie enge Zusammenarbeit mit Recruitern, HR Business Partnern und HR Payroll\n• Aktive Mitarbeit an internen HR-Projekten sowie Repräsentation des Unternehmens auf Jobmessen und Recruiting-Events Your profile:\n• Kaufmännische Grundbildung (EFZ) mit spezifischer Weiterbildung im HR (z. B. HR-Assistent/in)\n• Fundierte Kenntnisse und mehrjährige Praxis in der Personaladministration und Rekrutierung\n• Ausgeprägte Fähigkeit, verschiedene administrative Aufgaben gleichzeitig sicher zu steuern\n• Vernetztes Denken mit Freude daran, bestehende Schnittstellen zu verstehen und Prozesse aktiv mitzugestalten\n• Hoher Qualitätsanspruch bei administrativen Routineaufgaben sowie exaktes Datenmanagement\n• Versierter Umgang mit MS Office sowie HR- und Bewerbermanagementsystemen (z. B. SAP, Workday, Umantis)\n• Verhandlungssicheres Deutsch und sehr gute Englischkenntnisse; Französisch von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Flexible Arbeitszeitmodelle & Homeoffice\n• Raum für Eigenverantwortung und Initiative\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Personalrestaurant mit attraktiven Preisen\n• Jährliche Erfolgsbeteiligung Have we sparked your interest?: Nähere Auskunft erteilt dir Roland Auer, Teamleiter Recruiting & Administration (T +41 71 727 66 21). Diese Stelle besetzen wir ohne Unterstützung von Personaldienstleistern.",
+        "en": "Als zentraler Dreh- und Angelpunkt prägst du unsere HR-Prozesse während einer spannenden Transformationsphase aktiv mit. Im Rahmen dieser Befristung bis zum 31. Dezember 2027 übernimmst du die eigenverantwortliche Personaladministration, unterstützt das Team in der Rekrutierung und bringst dich bei HR-Projekten ein. Mit deinem Organisationstalent und vernetzten Denken sorgst du für reibungslose Abläufe vom Erstkontakt bis zum Austritt. Your Tasks:\n• Selbstständige Bearbeitung der Personaladministration über den gesamten Employee Life Cycle (Eintritte, Mutationen, Austritte, Erstellung von Arbeitszeugnissen, Bewilligungswesen, sowie Betreuung von Personalereignissen)\n• Koordination und Verantwortung wiederkehrender Monats- und Jahresprozesse (z. B Ferienaushilfen)\n• Verantwortung für den gesamten Rekrutierungsprozess\n• Koordination und Verantwortung wiederkehrender Monats- und Jahresprozesse (z. B Ferienaushilfen)\n• Aktive Mitarbeit an der kontinuierlichen Optimierung von HR-Abläufen\n• Ansprechperson für Führungskräfte, Mitarbeitende und Bewerbende in sämtlichen HR-relevanten Fragestellungen sowie enge Zusammenarbeit mit Recruitern, HR Business Partnern und HR Payroll\n• Aktive Mitarbeit an internen HR-Projekten sowie Repräsentation des Unternehmens auf Jobmessen und Recruiting-Events Your profile:\n• Kaufmännische Grundbildung (EFZ) mit spezifischer Weiterbildung im HR (z. B. HR-Assistent/in)\n• Fundierte Kenntnisse und mehrjährige Praxis in der Personaladministration und Rekrutierung\n• Ausgeprägte Fähigkeit, verschiedene administrative Aufgaben gleichzeitig sicher zu steuern\n• Vernetztes Denken mit Freude daran, bestehende Schnittstellen zu verstehen und Prozesse aktiv mitzugestalten\n• Hoher Qualitätsanspruch bei administrativen Routineaufgaben sowie exaktes Datenmanagement\n• Versierter Umgang mit MS Office sowie HR- und Bewerbermanagementsystemen (z. B. SAP, Workday, Umantis)\n• Verhandlungssicheres Deutsch und sehr gute Englischkenntnisse; Französisch von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Flexible Arbeitszeitmodelle & Homeoffice\n• Raum für Eigenverantwortung und Initiative\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Personalrestaurant mit attraktiven Preisen\n• Jährliche Erfolgsbeteiligung Have we sparked your interest?: Nähere Auskunft erteilt dir Roland Auer, Teamleiter Recruiting & Administration (T +41 71 727 66 21). Diese Stelle besetzen wir ohne Unterstützung von Personaldienstleistern.",
+        "fr": "Als zentraler Dreh- und Angelpunkt prägst du unsere HR-Prozesse während einer spannenden Transformationsphase aktiv mit. Im Rahmen dieser Befristung bis zum 31. Dezember 2027 übernimmst du die eigenverantwortliche Personaladministration, unterstützt das Team in der Rekrutierung und bringst dich bei HR-Projekten ein. Mit deinem Organisationstalent und vernetzten Denken sorgst du für reibungslose Abläufe vom Erstkontakt bis zum Austritt. Your Tasks:\n• Selbstständige Bearbeitung der Personaladministration über den gesamten Employee Life Cycle (Eintritte, Mutationen, Austritte, Erstellung von Arbeitszeugnissen, Bewilligungswesen, sowie Betreuung von Personalereignissen)\n• Koordination und Verantwortung wiederkehrender Monats- und Jahresprozesse (z. B Ferienaushilfen)\n• Verantwortung für den gesamten Rekrutierungsprozess\n• Koordination und Verantwortung wiederkehrender Monats- und Jahresprozesse (z. B Ferienaushilfen)\n• Aktive Mitarbeit an der kontinuierlichen Optimierung von HR-Abläufen\n• Ansprechperson für Führungskräfte, Mitarbeitende und Bewerbende in sämtlichen HR-relevanten Fragestellungen sowie enge Zusammenarbeit mit Recruitern, HR Business Partnern und HR Payroll\n• Aktive Mitarbeit an internen HR-Projekten sowie Repräsentation des Unternehmens auf Jobmessen und Recruiting-Events Your profile:\n• Kaufmännische Grundbildung (EFZ) mit spezifischer Weiterbildung im HR (z. B. HR-Assistent/in)\n• Fundierte Kenntnisse und mehrjährige Praxis in der Personaladministration und Rekrutierung\n• Ausgeprägte Fähigkeit, verschiedene administrative Aufgaben gleichzeitig sicher zu steuern\n• Vernetztes Denken mit Freude daran, bestehende Schnittstellen zu verstehen und Prozesse aktiv mitzugestalten\n• Hoher Qualitätsanspruch bei administrativen Routineaufgaben sowie exaktes Datenmanagement\n• Versierter Umgang mit MS Office sowie HR- und Bewerbermanagementsystemen (z. B. SAP, Workday, Umantis)\n• Verhandlungssicheres Deutsch und sehr gute Englischkenntnisse; Französisch von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Flexible Arbeitszeitmodelle & Homeoffice\n• Raum für Eigenverantwortung und Initiative\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Personalrestaurant mit attraktiven Preisen\n• Jährliche Erfolgsbeteiligung Have we sparked your interest?: Nähere Auskunft erteilt dir Roland Auer, Teamleiter Recruiting & Administration (T +41 71 727 66 21). Diese Stelle besetzen wir ohne Unterstützung von Personaldienstleistern."
+      },
+      "location": "Heerbrugg",
+      "canton": "SG",
+      "url": "https://join.sfs.com/ch/en/vacancies/hr-specialist-recruiting-administration-–-befristet-bis-31.12.2027-(m-f-d).html",
+      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-19T23:05:36.939Z",
+      "addressLocality": "Heerbrugg",
+      "addressRegion": "SG",
+      "streetAddress": "Rosenbergsaustrasse 8",
+      "postalCode": "9435",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Meccanica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-19",
+      "applyUrl": "https://jobapplication.sfs.com/Vacancies/3033/Application/CheckLogin/1?lang=eng",
+      "jobReqId": "3033",
+      "legalEntity": "SFS Group Schweiz AG",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-specialist-recruiting-administration-befristet-bis-31-12-2027-m-f-d-sfs-group-heerbrugg"
+        ]
+      },
+      "previousSlugs": [
+        "hr-specialist-recruiting-administration-befristet-bis-31-12-2027-m-f-d-sfs-group-heerbrugg"
+      ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-19T23:05:36.939Z"
+    },
+    {
+      "id": "sfs-group-98ca54d31023",
+      "slug": "responsabile-vendite-di-zona-industria-e-metallo-m-f-d-sfs-group-rotkreuz",
+      "slugByLocale": {
+        "de": "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz",
+        "it": "responsabile-vendite-di-zona-industria-e-metallo-m-f-d-sfs-group-rotkreuz",
+        "en": "gebietsverkaufsleiter-in-industrie-und-metall-m-w-d-sfs-group-rotkreuz",
+        "fr": "directeur-des-ventes-industrie-et-metal-h-f-d-sfs-group-rotkreuz"
+      },
+      "company": "SFS Group",
+      "companyKey": "sfs-group",
+      "companyDomain": "sfs.com",
+      "title": "Gebietsverkaufsleiter/in–Industrie und Metall (m/f/d)",
+      "titleByLocale": {
+        "de": "Gebietsverkaufsleiter/in–Industrie und Metall (m/f/d)",
+        "it": "Gebietsverkaufsleiter/in–Industrie e Metall (m/f/d)",
+        "en": "Gebietsverkaufsleiter/in–Industrie und Metall (m/f/d)",
+        "fr": "Gebietsverkaufsleiter/in–Industrie und Metall (m/f/d)"
+      },
+      "description": "Als führendes Unternehmen in der mechanischen Befestigungstechnik bietet die SFS Group Schweiz AG innovative Lösungen, die die Produktionsprozesse unserer Kunden optimieren. Für unser Team in der Region Basel suchen wir eine/n motivierte/n Gebiets-Verkaufsleiter/in – Industrie und Metall. Your Tasks:\n• Beratung unserer Industrie- und Metallverarbeitenden Kunden\n• Verkauf und Einführung neuer Produkte und Dienstleistungen\n• Akquisition von Neukunden und Pflege bestehender Kundenbeziehungen\n• Sicherstellung der Kundenzufriedenheit und Bearbeitung von Kundenreklamationen\n• Besuchsplanung, Rapportwesen und Pflege der Kundenstammdaten im CRM\n• Markttrends und neue Kundenbedürfnisse erfassen und absatzwirksame Massnahmen einleiten Your profile:\n• Technische Grundbildung, idealerweise als Polymechaniker kombiniert mit einer kaufmännischen Weiterbildung\n• Branchenerfahrung aus dem Industrie- oder Metallsektor\n• Verkaufserfahrung im Aussendienst\n• Verhandlungssichere Deutschkenntnisse\n• Wohnort im Marktgebiet\n• Selbständige und kundenorientierte Persönlichkeit\n• Verhandlungsgeschick und Freude am Akquirieren von Neukunden We offer:\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+      "descriptionByLocale": {
+        "de": "Als führendes Unternehmen in der mechanischen Befestigungstechnik bietet die SFS Group Schweiz AG innovative Lösungen, die die Produktionsprozesse unserer Kunden optimieren. Für unser Team in der Region Basel suchen wir eine/n motivierte/n Gebiets-Verkaufsleiter/in – Industrie und Metall. Your Tasks:\n• Beratung unserer Industrie- und Metallverarbeitenden Kunden\n• Verkauf und Einführung neuer Produkte und Dienstleistungen\n• Akquisition von Neukunden und Pflege bestehender Kundenbeziehungen\n• Sicherstellung der Kundenzufriedenheit und Bearbeitung von Kundenreklamationen\n• Besuchsplanung, Rapportwesen und Pflege der Kundenstammdaten im CRM\n• Markttrends und neue Kundenbedürfnisse erfassen und absatzwirksame Massnahmen einleiten Your profile:\n• Technische Grundbildung, idealerweise als Polymechaniker kombiniert mit einer kaufmännischen Weiterbildung\n• Branchenerfahrung aus dem Industrie- oder Metallsektor\n• Verkaufserfahrung im Aussendienst\n• Verhandlungssichere Deutschkenntnisse\n• Wohnort im Marktgebiet\n• Selbständige und kundenorientierte Persönlichkeit\n• Verhandlungsgeschick und Freude am Akquirieren von Neukunden We offer:\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+        "it": "Als führendes Unternehmen in der mechanischen Befestigungstechnik bietet die SFS Group Schweiz AG innovative Lösungen, die die Produktionsprozesse unserer Kunden optimieren. Für unser Team in der Region Basel suchen wir eine/n motivierte/n Gebiets-Verkaufsleiter/in – Industrie und Metall. Your Tasks:\n• Beratung unserer Industrie- und Metallverarbeitenden Kunden\n• Verkauf und Einführung neuer Produkte und Dienstleistungen\n• Akquisition von Neukunden und Pflege bestehender Kundenbeziehungen\n• Sicherstellung der Kundenzufriedenheit und Bearbeitung von Kundenreklamationen\n• Besuchsplanung, Rapportwesen und Pflege der Kundenstammdaten im CRM\n• Markttrends und neue Kundenbedürfnisse erfassen und absatzwirksame Massnahmen einleiten Your profile:\n• Technische Grundbildung, idealerweise als Polymechaniker kombiniert mit einer kaufmännischen Weiterbildung\n• Branchenerfahrung aus dem Industrie- oder Metallsektor\n• Verkaufserfahrung im Aussendienst\n• Verhandlungssichere Deutschkenntnisse\n• Wohnort im Marktgebiet\n• Selbständige und kundenorientierte Persönlichkeit\n• Verhandlungsgeschick und Freude am Akquirieren von Neukunden We offer:\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+        "en": "Als führendes Unternehmen in der mechanischen Befestigungstechnik bietet die SFS Group Schweiz AG innovative Lösungen, die die Produktionsprozesse unserer Kunden optimieren. Für unser Team in der Region Basel suchen wir eine/n motivierte/n Gebiets-Verkaufsleiter/in – Industrie und Metall. Your Tasks:\n• Beratung unserer Industrie- und Metallverarbeitenden Kunden\n• Verkauf und Einführung neuer Produkte und Dienstleistungen\n• Akquisition von Neukunden und Pflege bestehender Kundenbeziehungen\n• Sicherstellung der Kundenzufriedenheit und Bearbeitung von Kundenreklamationen\n• Besuchsplanung, Rapportwesen und Pflege der Kundenstammdaten im CRM\n• Markttrends und neue Kundenbedürfnisse erfassen und absatzwirksame Massnahmen einleiten Your profile:\n• Technische Grundbildung, idealerweise als Polymechaniker kombiniert mit einer kaufmännischen Weiterbildung\n• Branchenerfahrung aus dem Industrie- oder Metallsektor\n• Verkaufserfahrung im Aussendienst\n• Verhandlungssichere Deutschkenntnisse\n• Wohnort im Marktgebiet\n• Selbständige und kundenorientierte Persönlichkeit\n• Verhandlungsgeschick und Freude am Akquirieren von Neukunden We offer:\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+        "fr": "Als führendes Unternehmen in der mechanischen Befestigungstechnik bietet die SFS Group Schweiz AG innovative Lösungen, die die Produktionsprozesse unserer Kunden optimieren. Für unser Team in der Region Basel suchen wir eine/n motivierte/n Gebiets-Verkaufsleiter/in – Industrie und Metall. Your Tasks:\n• Beratung unserer Industrie- und Metallverarbeitenden Kunden\n• Verkauf und Einführung neuer Produkte und Dienstleistungen\n• Akquisition von Neukunden und Pflege bestehender Kundenbeziehungen\n• Sicherstellung der Kundenzufriedenheit und Bearbeitung von Kundenreklamationen\n• Besuchsplanung, Rapportwesen und Pflege der Kundenstammdaten im CRM\n• Markttrends und neue Kundenbedürfnisse erfassen und absatzwirksame Massnahmen einleiten Your profile:\n• Technische Grundbildung, idealerweise als Polymechaniker kombiniert mit einer kaufmännischen Weiterbildung\n• Branchenerfahrung aus dem Industrie- oder Metallsektor\n• Verkaufserfahrung im Aussendienst\n• Verhandlungssichere Deutschkenntnisse\n• Wohnort im Marktgebiet\n• Selbständige und kundenorientierte Persönlichkeit\n• Verhandlungsgeschick und Freude am Akquirieren von Neukunden We offer:\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/"
+      },
+      "location": "Rotkreuz",
+      "canton": "SG",
+      "url": "https://join.sfs.com/ch/en/vacancies/gebietsverkaufsleiter-in-–-industrie-und-metall-(m-f-d).html",
+      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-19T23:05:36.822Z",
+      "addressLocality": "Rotkreuz",
+      "addressRegion": "SG",
+      "postalCode": "9000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Meccanica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-19",
+      "applyUrl": "https://jobapplication.sfs.com/Vacancies/2985/Application/CheckLogin/1?lang=eng",
+      "jobReqId": "2985",
+      "legalEntity": "SFS Group Schweiz AG",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz"
+        ],
+        "en": [
+          "area-sales-manager-industry-and-metal-m-f-d-sfs-group-rotkreuz"
+        ]
+      },
+      "previousSlugs": [
+        "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz",
+        "area-sales-manager-industry-and-metal-m-f-d-sfs-group-rotkreuz"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-19T23:05:36.822Z"
     },
     {
       "id": "sfs-group-b7ae0a461f4b",
@@ -893,7 +1222,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/filialleiter-in-handwerkstadt-(m-f-d)-2.html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:07:36.690Z",
+      "crawledAt": "2026-09-19T23:05:36.707Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "9435",
@@ -943,12 +1272,14 @@
       "previousSlugs": [
         "filialleiter-in-handwerkstadt-m-f-d-sfs-group-aarau",
         "responsabile-di-filiale-handwerkstadt-m-f-d-sfs-group-aarau",
-        "directeur-d-agence-handwerkstadt-h-f-d-sfs-group-aarau"
+        "directeur-d-agence-handwerkstadt-h-f-d-sfs-group-aarau",
+        "branch-manager-craft-city-m-f-d-sfs-group-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-handwerkstadt-m-f-d-sfs-group-aarau",
-          "responsabile-di-filiale-handwerkstadt-m-f-d-sfs-group-aarau"
+          "responsabile-di-filiale-handwerkstadt-m-f-d-sfs-group-aarau",
+          "branch-manager-craft-city-m-f-d-sfs-group-aarau"
         ],
         "en": [
           "filialleiter-in-handwerkstadt-m-f-d-sfs-group-aarau"
@@ -959,6 +1290,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:32:13.728Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -1004,7 +1336,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/filialleiter-in-handwerkstadt-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:07:36.509Z",
+      "crawledAt": "2026-09-19T23:05:36.590Z",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "postalCode": "9435",
@@ -1024,11 +1356,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil"
+        "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil",
+        "branch-manager-craft-city-m-f-d-80-sfs-group-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil"
+          "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil",
+          "branch-manager-craft-city-m-f-d-80-sfs-group-hinwil"
         ],
         "en": [
           "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil"
@@ -1038,6 +1372,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T10:08:10.879Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1083,7 +1418,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-labor-(metallographie-werkstoffprüfung)-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:07:36.336Z",
+      "crawledAt": "2026-09-19T23:05:36.473Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1104,11 +1439,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg"
+        "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg",
+        "laboratorio-specialistico-metallografia-test-materiale-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg"
+          "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg",
+          "laboratorio-specialistico-metallografia-test-materiale-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg"
@@ -1163,7 +1500,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-debitorenbuchhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:07:36.162Z",
+      "crawledAt": "2026-09-19T23:05:36.356Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1215,11 +1552,13 @@
         ]
       },
       "previousSlugs": [
-        "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
+        "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg",
+        "specialista-contabilita-clienti-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
+          "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg",
+          "specialista-contabilita-clienti-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
@@ -1229,6 +1568,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:32:13.503Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1274,7 +1614,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/conseiller-de-vente-cité-de-l'artisan-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T14:07:35.992Z",
+      "crawledAt": "2026-09-19T23:05:36.217Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "postalCode": "9435",
@@ -1294,11 +1634,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion"
+        "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion",
+        "consulente-commerciale-citta-dell-artigiano-m-f-d-sfs-group-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion"
+          "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion",
+          "consulente-commerciale-citta-dell-artigiano-m-f-d-sfs-group-sion"
         ],
         "en": [
           "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion"
@@ -1353,7 +1695,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:07:35.821Z",
+      "crawledAt": "2026-09-19T23:05:36.100Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1374,11 +1716,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
+        "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg",
+        "modello-di-livello-automatico-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
+          "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg",
+          "modello-di-livello-automatico-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
@@ -1388,6 +1732,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:31.291Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1417,7 +1762,7 @@
       "title": "Automatiker/in Instandhaltung (m/f/d)",
       "titleByLocale": {
         "it": "Tecnico automazione - Manutenzione (m/f/d)",
-        "en": "Automatic maintenance (m/f/d)",
+        "en": "Automatiker/in Instandhaltung (m/f/d)",
         "de": "Automatiker/in Instandhaltung (m/f/d)",
         "fr": "Automaticien/ne - Maintenance (m/f/d)"
       },
@@ -1514,7 +1859,9 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }
