@@ -80,7 +80,9 @@ describe('assemble-jobs-dataset --no-summaries is opt-in', () => {
     // Without this the snapshot of a --no-summaries run (which copies the
     // PREVIOUS summaries file verbatim) would be restored by a later full run
     // with the same input fingerprint, and the stale file would survive.
-    expect(SOURCE).toMatch(/const cacheKey = `\$\{inputFingerprint\}_.*withSummaries \?/);
+    // computeAssembleCacheKey builds the key; its behaviour per mode is pinned
+    // in tests/scripts/assemble-jobs-cache.test.ts ("keys the run mode …").
+    expect(SOURCE).toMatch(/cacheKey: `\$\{inputFingerprint\}_.*withSummaries \?/);
   });
 });
 

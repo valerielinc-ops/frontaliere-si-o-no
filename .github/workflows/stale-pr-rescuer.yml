@@ -35,6 +35,12 @@ on:
   workflow_run:
     workflows: ["tests"]
     types: [completed]
+    # I `tests` dei push su main non riguardano nessuna PR aperta. Il filtro
+    # sul trigger evita che il run venga creato: il solo `if:` del job lo
+    # lasciava nascere, occupare la concurrency e sfrattare il run in attesa
+    # (anche un dispatch manuale, 2026-09-19 run 35462167973). `head_branch`
+    # qui e' quello del run di `tests`, cioe' il branch della PR o `main`.
+    branches-ignore: [main]
   schedule:
     - cron: '20 * * * *'  # slow fallback @ :20 (best-effort on this account)
   workflow_dispatch:
