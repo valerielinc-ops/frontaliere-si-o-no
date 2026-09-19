@@ -76,6 +76,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { readAttr, readMetaContent } from './lib/html-attr.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { recordUniquePageProgress } from './lib/pagination-identity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -231,20 +232,40 @@ async function fetchPostFinanceListingsViaRecruitingApi() {
   const results = [];
   let total = null;
   let pageNumber = 0;
+  const sourceIdentities = new Set();
 
   while (pageNumber < RECRUITING_API_MAX_PAGES) {
     const page = await fetchRecruitingApiPage(pageNumber);
     if (!page) break;
 
     const entries = Array.isArray(page.jobSearchResult) ? page.jobSearchResult : [];
-    if (total === null) total = Number(page.totalJobs) || 0;
-    for (const entry of entries) {
-      if (entry?.response) results.push(entry.response);
+    if (total === null) {
+      const declared = Number(page.totalJobs);
+      if (Number.isFinite(declared) && declared > 0) total = declared;
+    }
+    const pageRecords = entries.map((entry) => entry?.response).filter(Boolean);
+    if (entries.length > 0 && pageRecords.length === 0) {
+      throw new Error(`PostFinance API pagination failed at page ${pageNumber}: rows without a response identity.`);
+    }
+    if (pageRecords.length > 0) {
+      recordUniquePageProgress(sourceIdentities, pageRecords, {
+        getIdentity: (record) => record?.id,
+        source: 'PostFinance API',
+        page: pageNumber,
+      });
+      results.push(...pageRecords);
     }
 
     pageNumber += 1;
-    if (entries.length === 0) break;
-    if (total !== null && results.length >= total) break;
+    if (entries.length === 0) {
+      if (total !== null && sourceIdentities.size < total) {
+        throw new Error(
+          `PostFinance API pagination incomplete: received ${sourceIdentities.size} of ${total} declared jobs.`,
+        );
+      }
+      break;
+    }
+    if (total !== null && sourceIdentities.size >= total) break;
     await delay(300);
   }
 
