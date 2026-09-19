@@ -627,6 +627,58 @@ function labelsOf(num) {
   return (raw || '').trim().split(',').filter(Boolean);
 }
 
+/**
+ * Compare-and-swap sull'head: lo sweep può pushare solo se il branch remoto è
+ * ANCORA il commit su cui ogni gate sopra ha deciso.
+ *
+ * Questo script è uno sweep di FLOTTA invocato una volta per ogni PR che gira
+ * CI, quindi N PR aperte producono N sweep concorrenti che valutano le stesse N
+ * PR. Ognuno decide su `pr.headRefOid`, cioè sullo snapshot che il suo
+ * `gh pr list` ha letto all'avvio. Poi faceva `checkout -B origin/<branch>`
+ * prendendo l'head CORRENTE — qualunque fosse — e ci mergiava `origin/main`
+ * sopra: il push risultante è un fast-forward LEGITTIMO, quindi il guard TOCTOU
+ * sul push (che si affida al rifiuto di un non-fast-forward) non lo intercetta
+ * mai, e nemmeno l'activity-guard a `AUTOREBASE_ACTIVITY_GUARD_MIN`, che misura
+ * l'età dell'head VECCHIO e non il fatto che sia cambiato.
+ *
+ * Misurato su #9192 il 2026-09-19: due `Merge remote-tracking branch
+ * 'origin/main'` a 39 secondi di distanza (09:23:17 e 09:23:56), entrambi di
+ * `frontaliere-automation[bot]`. Ogni push invalida la review, perché il gate
+ * esige `commit_id === headSha` — quindi due sweep concorrenti bruciano la
+ * review che il primo dei due aveva appena reso valida.
+ *
+ * Fail-closed: un `rev-parse` illeggibile NON autorizza il push. Perdere il
+ * turno costa un tick; pushare su un head che non si è potuto verificare
+ * rifà il danno che questo guard esiste per fermare.
+ */
+export function sweepMayPush({ decidedHead, actualHead }) {
+  return /^[0-9a-f]{40}$/iu.test(decidedHead || '')
+    && /^[0-9a-f]{40}$/iu.test(actualHead || '')
+    && String(decidedHead).toLowerCase() === String(actualHead).toLowerCase();
+}
+
+/**
+ * fetch + checkout del branch sull'head remoto, con il CAS di `sweepMayPush`.
+ * `false` = non procedere: lo stato è cambiato sotto lo sweep e il prossimo tick
+ * ricalcola tutto da GitHub (il loop è idempotente per costruzione, niente da
+ * ripulire). Non è una rinuncia alla riparazione: se l'head è cambiato è perché
+ * qualcun altro — lo sweep vincente, il redflag-fixer o un umano — ha già
+ * pushato, e quel push ha il suo dispatch di `tests.yml` dietro.
+ */
+function checkoutDecidedHead(num, branch, decidedHead) {
+  git(['fetch', 'origin', branch, 'main'], { allowFail: true });
+  const co = git(['checkout', '-B', branch, `origin/${branch}`], { allowFail: true });
+  if (co === null) { console.log(`PR #${num}: checkout di ${branch} fallito — skip.`); return false; }
+  const actualHead = (git(['rev-parse', 'HEAD'], { allowFail: true }) || '').trim();
+  if (!sweepMayPush({ decidedHead, actualHead })) {
+    console.log(`PR #${num}: head cambiato sotto lo sweep (deciso ${String(decidedHead).slice(0, 8)}, `
+      + `remoto ${actualHead ? actualHead.slice(0, 8) : 'illeggibile'}) — skip: un altro sweep ha già pushato. `
+      + `Il prossimo tick ricalcola.`);
+    return false;
+  }
+  return true;
+}
+
 /** behind_by: commit di main non nella head. */
 function behindMain(head) {
   const out = gh(['api', `repos/${REPO}/compare/main...${head}`, '--jq', '.behind_by // 0'],
@@ -1282,9 +1334,7 @@ async function processPR(pr) {
     if (mc === 'CONFLICTING') {
       if (DRY) { console.log(`[dry] #${num} CONFLICTING → tenta auto-resolve import-union, else stale-review`); return; }
       let done = false;
-      git(['fetch', 'origin', branch, 'main'], { allowFail: true });
-      const co = git(['checkout', '-B', branch, `origin/${branch}`], { allowFail: true });
-      if (co !== null) {
+      if (checkoutDecidedHead(num, branch, head)) {
         git(['config', 'user.name', 'Valerie Linc']);
         git(['config', 'user.email', 'valerielinc@gmail.com']);
         const mg = git(['merge', '--no-edit', 'origin/main'], { allowFail: true });
@@ -1461,10 +1511,9 @@ async function processPR(pr) {
   // MERGEABLE → tenta il merge di origin/main nel branch.
   if (DRY) { console.log(`[dry] rebase #${num}: fetch + merge origin/main + push ${branch}`); return; }
 
-  git(['fetch', 'origin', branch, 'main'], { allowFail: true });
-  // checkout del branch sull'head remoto (worktree CI pulito).
-  const co = git(['checkout', '-B', branch, `origin/${branch}`], { allowFail: true });
-  if (co === null) { console.log(`PR #${num}: checkout di ${branch} fallito — skip.`); return; }
+  // checkout del branch sull'head remoto (worktree CI pulito), solo se è ancora
+  // l'head su cui i gate sopra hanno deciso.
+  if (!checkoutDecidedHead(num, branch, head)) return;
   git(['config', 'user.name', 'Valerie Linc']);
   git(['config', 'user.email', 'valerielinc@gmail.com']);
 

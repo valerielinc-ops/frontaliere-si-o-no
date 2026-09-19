@@ -3,7 +3,7 @@ import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'nod
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { writeReviewDiff } from '../scripts/ci/prefetch-review-diff.mjs';
+import { main, writeReviewDiff } from '../scripts/ci/prefetch-review-diff.mjs';
 
 const roots: string[] = [];
 afterEach(() => roots.splice(0).forEach(root => rmSync(root, { recursive: true, force: true })));
@@ -79,5 +79,65 @@ describe('host-prepared complete review patch', () => {
   it('fails instead of returning an empty review when a revision is unavailable', () => {
     const f = fixture();
     expect(() => writeReviewDiff({ base: 'a'.repeat(40), head: f.base, directory: f.output, exclusions: ['data'], cwd: f.repo })).toThrow();
+  });
+
+  // Issue #9189. Reproduces the real topology of #9141: the branch was
+  // force-pushed, so the previous review's commit sits on abandoned history and
+  // `merge_base(lastRev, HEAD)` lands on `main` — 90 commits behind HEAD there,
+  // which put 506 files in a 3-file PR's delta and made #9175's merged work
+  // (`scripts/lib/nord-anglia-job-parser.mjs`) a finding against #9141.
+  it('never anchors the incremental delta on foreign commits that reached main', () => {
+    const f = fixture();
+    // main advances with work this PR never touched.
+    writeFileSync(join(f.repo, 'foreign-parser.mjs'), 'export const foreign = "other PR work";\n');
+    f.git('add', '.'); f.git('commit', '-qm', 'foreign PR merged on main');
+    const mainTip = f.git('rev-parse', 'HEAD');
+    // The head that was reviewed, branched BEFORE main advanced: abandoned by a
+    // later force-push, so it is not an ancestor of the current head.
+    f.git('checkout', '-q', '-b', 'abandoned', f.base);
+    writeFileSync(join(f.repo, 'owned-stable.mjs'), 'export const stable = 1;\n');
+    f.git('add', '.'); f.git('commit', '-qm', 'reviewed head');
+    const lastRev = f.git('rev-parse', 'HEAD');
+    // The current head, rebased onto the advanced main.
+    f.git('checkout', '-q', '-b', 'pr', mainTip);
+    writeFileSync(join(f.repo, 'owned-stable.mjs'), 'export const stable = 1;\n');
+    writeFileSync(join(f.repo, 'owned-moved.mjs'), 'export const moved = "new since review";\n');
+    f.git('add', '.'); f.git('commit', '-qm', 'pr head');
+    const head = f.git('rev-parse', 'HEAD');
+    expect(f.git('merge-base', lastRev, head)).toBe(f.base); // the contaminating anchor
+
+    const compare: Record<string, string> = {
+      [`repos/o/r/compare/${mainTip}...${head}`]: JSON.stringify({ merge_base_commit: { sha: mainTip } }),
+      'repos/o/r/pulls/9141': JSON.stringify({ base: { sha: mainTip } }),
+    };
+    main({
+      HEAD_SHA: head, REPO: 'o/r', PR_NUMBER: '9141', CTX_DIR: f.output,
+      INCREMENTAL_BASE: lastRev, REVIEW_DIFF_EXCLUSIONS: 'data',
+    }, { api: (endpoint: string) => compare[endpoint], cwd: f.repo });
+
+    const delta = readFileSync(join(f.output, 'delta.patch'), 'utf8');
+    const deltaFiles = readFileSync(join(f.output, 'delta-files.txt'), 'utf8').trim().split('\n').filter(Boolean);
+    // The whole point: a file only `main` advanced by must never be reviewable.
+    expect(deltaFiles).not.toContain('foreign-parser.mjs');
+    expect(delta).not.toContain('other PR work');
+    // ...while what this PR actually moved since the review is still there.
+    expect(deltaFiles).toEqual(['owned-moved.mjs']);
+    expect(delta).toContain('new since review');
+  });
+
+  it('writes an empty delta rather than the whole PR when nothing moved', () => {
+    const f = fixture();
+    writeFileSync(join(f.repo, 'owned.mjs'), 'export const owned = 1;\n');
+    f.git('add', '.'); f.git('commit', '-qm', 'pr head');
+    const head = f.git('rev-parse', 'HEAD');
+    // `reviewedFrom === head` → nothing moved. An empty pathspec list must not
+    // degrade into `git diff --`, which would serve every file again.
+    const names = writeReviewDiff({
+      base: f.base, head, directory: f.output, exclusions: ['data'],
+      incremental: true, reviewedFrom: head, cwd: f.repo,
+    });
+    expect(names).toEqual([]);
+    expect(readFileSync(join(f.output, 'delta.patch'), 'utf8')).toBe('');
+    expect(readFileSync(join(f.output, 'delta-files.txt'), 'utf8')).toBe('');
   });
 });
