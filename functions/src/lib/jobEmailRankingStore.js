@@ -12,6 +12,10 @@ export const JOB_EMAIL_RANKING_STATS_COLLECTION = 'job_email_ranking_stats';
 export const JOB_EMAIL_RANKING_EVENTS_COLLECTION = 'job_email_ranking_events';
 export const JOB_EMAIL_RANKING_DELIVERIES_COLLECTION = 'job_email_ranking_deliveries';
 export const JOB_EMAIL_RANKING_RETENTION_DAYS = 100;
+// Writes per impression batch (Firestore caps a batch at 500) and how many of
+// those batches may commit at once — see recordJobEmailImpressions.
+export const IMPRESSION_BATCH_SIZE = 400;
+export const IMPRESSION_COMMIT_CONCURRENCY = 8;
 
 function hashId(value) {
   return createHash('sha256').update(String(value || '')).digest('hex').slice(0, 40);
@@ -176,15 +180,33 @@ export async function recordJobEmailImpressions(db, records) {
     operations.push({ type: 'set', ref, data: delivery });
   }
 
-  let committed = 0;
-  for (let offset = 0; offset < operations.length; offset += 400) {
-    const batch = db.batch();
-    for (const operation of operations.slice(offset, offset + 400)) {
-      batch.set(operation.ref, operation.data, { merge: true });
-    }
-    await batch.commit();
-    committed += operations.slice(offset, offset + 400).length;
+  // Every operation targets a distinct document (the three Maps above are
+  // keyed by document id), so no two batches touch the same document and
+  // their commit order carries no meaning. Committing them one at a time made
+  // this the slowest step after a job-alert send: ~33k writes = 83 serial
+  // commits, 157 s in run 35422626497. A small bounded pool keeps the same
+  // batches and the same writes, only overlapped.
+  const chunks = [];
+  for (let offset = 0; offset < operations.length; offset += IMPRESSION_BATCH_SIZE) {
+    chunks.push(operations.slice(offset, offset + IMPRESSION_BATCH_SIZE));
   }
+  let committed = 0;
+  let cursor = 0;
+  const commitNext = async () => {
+    while (cursor < chunks.length) {
+      const chunk = chunks[cursor];
+      cursor += 1;
+      const batch = db.batch();
+      for (const operation of chunk) {
+        batch.set(operation.ref, operation.data, { merge: true });
+      }
+      await batch.commit();
+      committed += chunk.length;
+    }
+  };
+  await Promise.all(
+    Array.from({ length: Math.min(IMPRESSION_COMMIT_CONCURRENCY, chunks.length) }, commitNext),
+  );
   return { recorded: deliveries.size, writes: committed };
 }
 
