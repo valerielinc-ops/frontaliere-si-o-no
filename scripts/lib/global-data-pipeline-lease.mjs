@@ -84,6 +84,21 @@ export const GLOBAL_DATA_PIPELINE_LEASE_WAIT_MS = GLOBAL_DATA_PIPELINE_LEASE_TTL
 // 3x reduction in transactions. Worth it; if the convoy ever needs to drain
 // faster, shorten the HOLD (see the note on the wait above), not this.
 export const GLOBAL_DATA_PIPELINE_LEASE_POLL_MS = 15 * 1000;
+
+/**
+ * Attesa usata quando si RIPRENDE il lease dopo il backoff del push-retry.
+ *
+ * Il writer ha gia' il suo turno nel convoglio e lo restituisce solo per la
+ * durata del sonno: rimetterlo in coda per un'ora intera significherebbe
+ * scambiare la congestione con una latenza peggiore. Ma non puo' nemmeno essere
+ * zero, o basterebbe un altro writer nell'istante sbagliato per fargli perdere
+ * il turno appena ceduto.
+ *
+ * Il valore e' legato al backoff che copre: `delay = attempt*5 + RANDOM%20`
+ * arriva a ~85 s all'ultimo tentativo, quindi 3 minuti coprono il sonno piu'
+ * lungo piu' il tempo di un hold tipico misurato (2m23s) davanti a se'.
+ */
+export const GLOBAL_DATA_PIPELINE_LEASE_RESUME_WAIT_MS = 3 * 60 * 1000;
 // Keep this distinct from git-commit-data.sh's 42 (push contention). A lease
 // convoy is a coordination outcome, not evidence that a push lost a race.
 export const GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT = 44;
@@ -488,9 +503,19 @@ export async function releaseLease(options = {}) {
 async function main() {
   const action = process.argv[2];
   if (action !== 'acquire' && action !== 'release') {
-    throw new Error('usage: global-data-pipeline-lease.mjs acquire|release');
+    throw new Error('usage: global-data-pipeline-lease.mjs acquire|release [--resume-wait]');
   }
-  const result = action === 'acquire' ? await acquireLease() : await releaseLease();
+  // `--resume-wait`: il writer sta RIPRENDENDO il lease dopo il sonno del
+  // backoff, non entrando in coda da zero. Aveva gia' il suo turno e lo ha
+  // ceduto solo per la durata del sonno, quindi rimetterlo in coda per l'ora
+  // intera scambierebbe la congestione con una latenza peggiore.
+  const resumeWait = process.argv.includes('--resume-wait');
+  if (resumeWait && action !== 'acquire') {
+    throw new Error('--resume-wait applies only to acquire');
+  }
+  const result = action === 'acquire'
+    ? await acquireLease(resumeWait ? { waitMs: GLOBAL_DATA_PIPELINE_LEASE_RESUME_WAIT_MS } : {})
+    : await releaseLease();
   if (result.busy) {
     console.error('global data pipeline lease is still busy after the bounded wait; retry on the next scheduled run');
     process.exitCode = GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT;
