@@ -66,6 +66,21 @@ describe('lwphr-job-parser', () => {
       'Consulente',
       "all'interno dell'ufficio di Lugano,\nsiamo stati incaricati di selezionare il profilo.",
     )).toBe('Lugano');
+    expect(inferLwphrLocation(
+      'Consulente',
+      'nell’ufficio di Lugano, siamo stati incaricati di selezionare il profilo.',
+    )).toBe('Lugano');
+    expect(inferLwphrLocation(
+      'Consulente',
+      "all'ufficio di Lugano, siamo stati incaricati di selezionare il profilo.",
+    )).toBe('Lugano');
+  });
+
+  it('removes PDF hyphenation before matching narrative worksite and mandate', () => {
+    expect(inferLwphrLocation(
+      'Relationship manager',
+      'Per la sede presti-\ngiosa di St. Moritz, siamo stati incari-\ncati di selezionare il profilo.',
+    )).toBe('St. Moritz');
   });
 
   it('does not promote an employer seat even when a broad mandate token shares the line', () => {
