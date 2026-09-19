@@ -84,6 +84,14 @@ describe('isAvoidableAlreadyFixed — non escalare il burn che nessun gate sicur
     )).toBe(false);
   });
 
+  it('preserves the pre-flight body-keyword fallback without enabling analytics keywords', () => {
+    expect(isAvoidableAlreadyFixed(
+      'follow-up(#9109): cleanup',
+      ['follow-up'],
+      'The single item has a batch-related note in ordinary prose.',
+    )).toBe(true);
+  });
+
   it('input degeneri → NON contabile (proceed-safe: non gonfia il bucket)', () => {
     expect(isAvoidableAlreadyFixed(undefined as unknown as string, undefined as unknown as string[])).toBe(false);
     expect(isAvoidableAlreadyFixed('', null as unknown as string[])).toBe(false);
