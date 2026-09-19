@@ -73,6 +73,32 @@ export function isSwissLocation(locationText = '') {
 }
 
 /**
+ * Return one balanced listing element starting at an opening row tag.
+ * Views rows can contain nested divs, so a first-closing-tag regex is not a
+ * reliable boundary for extracting metadata.
+ */
+function extractBalancedRowHtml(html, start) {
+  const opening = html.slice(start).match(/^<(article|div|tr)\b[^>]*>/i);
+  if (!opening) return '';
+
+  const tag = opening[1];
+  const tagRe = new RegExp(`<(/?)${tag}\\b[^>]*>`, 'gi');
+  tagRe.lastIndex = start;
+  let depth = 0;
+  let match;
+  while ((match = tagRe.exec(html)) !== null) {
+    const token = match[0];
+    if (token.startsWith('</')) {
+      depth -= 1;
+      if (depth === 0) return html.slice(start, tagRe.lastIndex);
+    } else if (!/\/\s*>$/.test(token)) {
+      depth += 1;
+    }
+  }
+  return '';
+}
+
+/**
  * Parse job listings from Mikron's Drupal HTML career page.
  *
  * Job cards typically have structure like:
@@ -136,19 +162,14 @@ export function parseMikronJobs(html = '', options = {}) {
   }
 
   // Strategy 1: Look for views-row or article elements containing job links
-  const rowRe = /<(?:article|div|tr)[^>]*class="[^"]*(?:views-row|job|node)[^"]*"[^>]*>([\s\S]*?)<\/(?:article|div|tr)>/gi;
+  const rowRe = /<(?:article|div|tr)[^>]*class="[^"]*(?:views-row|job(?:[-\s"]|$)|node(?:[-\s"]|$))[^"]*"[^>]*>([\s\S]*?)<\/(?:article|div|tr)>/gi;
   let rowMatch;
   while ((rowMatch = rowRe.exec(html)) !== null) {
-    const block = rowMatch[1];
-    // The Views rows contain nested divs, so the legacy closing-tag match can
-    // stop at the first metadata field. Extend metadata extraction to the
-    // next sibling row without changing the link boundary used below.
     const rowStart = rowMatch.index ?? 0;
-    const rowTail = html.slice(rowStart + rowMatch[0].length);
-    const nextRowOffset = rowTail.search(/<(?:article|div|tr)[^>]*class="[^"]*(?:views-row|job|node)[^"]*"[^>]*>/i);
-    const rowHtml = nextRowOffset < 0
-      ? html.slice(rowStart)
-      : html.slice(rowStart, rowStart + rowMatch[0].length + nextRowOffset);
+    const rowHtml = extractBalancedRowHtml(html, rowStart) || rowMatch[0];
+    // Prevent the row regex from re-entering nested wrappers in the same row.
+    rowRe.lastIndex = rowStart + rowHtml.length;
+    const block = rowHtml;
     const linkMatch = block.match(/<a[^>]*href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/i);
     if (!linkMatch) continue;
 
@@ -160,8 +181,8 @@ export function parseMikronJobs(html = '', options = {}) {
     const textContent = normalizeSpace(htmlToText(rowHtml));
     const divisionMatch = textContent.match(/(?:division|business)[:\s]*([A-Za-z\s&]+?)(?=\s*(?:function|location|$))/i);
     const functionMatch = textContent.match(/(?:function|category)[:\s]*([A-Za-z\s&/]+?)(?=\s*(?:location|$))/i);
-    const locationMatch = textContent.match(/(?:location|place)[:\s]*([A-Za-z\s,]+?)$/i)
-      || textContent.match(/(Switzerland\s*,\s*[A-Za-z]+)/i);
+    const locationMatch = textContent.match(/(Switzerland\s*,\s*[A-Za-z]+)/i)
+      || textContent.match(/(?:location|place)[:\s]*([A-Za-z\s,]+?)$/i);
 
     const division = divisionMatch ? normalizeSpace(divisionMatch[1]) : '';
     const jobFunction = functionMatch ? normalizeSpace(functionMatch[1]) : '';
