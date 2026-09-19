@@ -96,6 +96,7 @@ const ALLOW_NO_TRAFFIC = String(process.env.RELOCALIZE_ALLOW_NO_TRAFFIC || '0') 
 const TRANSLATION_CACHE_DIR = path.join(ROOT, 'data', 'translation-cache');
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const MIN_DESC_CHARS = 120;
+const CASCADE_OBSERVABILITY_LIMITS = Object.freeze({ jobTimings: 4096, companies: 2048, rungs: 64 });
 const DRY_RUN = String(process.env.RELOCALIZE_DRY_RUN || '0') === '1';
 // After this many runs where a flagged job still fails isIncomplete(), give up:
 // LibreTranslate cannot satisfy the locale detectors (proper-noun-heavy text,
@@ -226,6 +227,78 @@ export function createObserverCompensatedClock(now = Date.now) {
 const LEGACY_CLOCK = createObserverCompensatedClock();
 const readWallClockMs = () => Date.now();
 
+function finiteNonNegative(value) {
+  return typeof value === 'number' && Number.isFinite(value) && value >= 0 ? value : 0;
+}
+
+function integerCount(value) {
+  return Number.isFinite(value) && value > 0 ? Math.floor(value) : 0;
+}
+
+function mergeCascadeObservability(
+  phase,
+  observation = null,
+  { queuedByCompany = new Map(), clearedByCompany = new Map() } = {},
+) {
+  if (!phase) return;
+  phase.jobDurationsMs ||= [];
+  phase.rungAttribution ||= [];
+  phase.companyConcentration ||= [];
+
+  if (Array.isArray(observation?.jobDurationsMs)) {
+    for (const durationMs of observation.jobDurationsMs) {
+      if (phase.jobDurationsMs.length >= CASCADE_OBSERVABILITY_LIMITS.jobTimings) break;
+      if (Number.isFinite(durationMs) && durationMs >= 0) phase.jobDurationsMs.push(Math.round(durationMs));
+    }
+  }
+
+  const rungs = new Map(phase.rungAttribution.map((row) => [row.rung, row]));
+  for (const entry of Array.isArray(observation?.rungAttribution) ? observation.rungAttribution : []) {
+    const rung = typeof entry?.rung === 'string' && entry.rung.trim() ? entry.rung.trim().slice(0, 64) : 'unserved';
+    const row = rungs.get(rung) || { rung, count: 0, durationMs: 0 };
+    row.count += integerCount(entry?.count);
+    row.durationMs += finiteNonNegative(entry?.durationMs);
+    if (rungs.size < CASCADE_OBSERVABILITY_LIMITS.rungs || rungs.has(rung)) rungs.set(rung, row);
+  }
+  phase.rungAttribution = [...rungs.values()];
+
+  const companies = new Map(phase.companyConcentration.map((row) => [row.companyKey, row]));
+  const ensureCompany = (companyKey) => {
+    const key = normalizeCompanyKey(companyKey) || 'unknown';
+    if (companies.has(key)) return companies.get(key);
+    if (companies.size >= CASCADE_OBSERVABILITY_LIMITS.companies) return null;
+    const row = { companyKey: key, queued: 0, served: 0, cleared: 0, durationMs: 0 };
+    companies.set(key, row);
+    return row;
+  };
+  for (const [companyKey, queued] of queuedByCompany instanceof Map ? queuedByCompany : []) {
+    const row = ensureCompany(companyKey);
+    if (row) row.queued = Math.max(row.queued, integerCount(queued));
+  }
+  for (const [companyKey, cleared] of clearedByCompany instanceof Map ? clearedByCompany : []) {
+    const row = ensureCompany(companyKey);
+    if (row) row.cleared += integerCount(cleared);
+  }
+  for (const entry of Array.isArray(observation?.companies) ? observation.companies : []) {
+    const row = ensureCompany(entry?.companyKey);
+    if (!row) continue;
+    row.served += integerCount(entry?.served);
+    row.durationMs += finiteNonNegative(entry?.durationMs);
+  }
+  phase.companyConcentration = [...companies.values()];
+}
+
+function hashCompanyKeyForArtifact(value) {
+  return `sha256:${createHash('sha256').update(normalizeCompanyKey(value) || 'unknown').digest('hex')}`;
+}
+
+function redactedCompanyConcentration(rows) {
+  return (Array.isArray(rows) ? rows : []).map(({ companyKey, ...row }) => ({
+    companyFingerprint: hashCompanyKeyForArtifact(companyKey),
+    ...row,
+  }));
+}
+
 function writeThinkingArtifacts({
   enabled,
   salt,
@@ -233,10 +306,13 @@ function writeThinkingArtifacts({
   companiesQueued,
   rows,
   failedCompanyKeys,
+  phase,
 }) {
-  if (!enabled) return;
   const summary = summarizeThinkingAb(rows);
-  const companiesProcessed = new Set(rows.map((row) => row.companyKey)).size;
+  const concentration = redactedCompanyConcentration(phase?.companyConcentration);
+  const companiesProcessed = enabled
+    ? new Set(rows.map((row) => row.companyKey)).size
+    : concentration.filter((row) => row.served > 0).length;
   // L'artefatto vive nel RUNNER_TEMP e viene caricato dal workflow: non
   // committarlo, sarebbe un file di dati riscritto a ogni run. Il flush viene
   // richiamato dal finally e dai signal handler, così non dipende dal fondo
@@ -252,12 +328,15 @@ function writeThinkingArtifacts({
       companiesQueued,
       companiesProcessed,
       companiesFailed: failedCompanyKeys.size,
-      summary,
-      rows,
+      summary: enabled ? summary : null,
+      rows: enabled ? rows : [],
+      companyConcentration: concentration,
     };
-    writeJsonAtomic(outPath, artifact);
+    if (enabled) writeJsonAtomic(outPath, artifact);
     writeJsonAtomic(cascadeOutPath, artifact);
-    console.log(`   📄 righe scritte in ${outPath} e ${cascadeOutPath}`);
+    console.log(enabled
+      ? `   📄 righe scritte in ${outPath} e ${cascadeOutPath}`
+      : `   📄 concentrazione cascade scritta in ${cascadeOutPath}`);
   } catch (err) {
     console.log(`   ⚠️  impossibile scrivere l'artefatto A/B: ${err.message}`);
   }
@@ -1493,6 +1572,9 @@ async function main() {
     stopReason: 'nothing to relocalize',
     failed: false,
     clockFallback: false,
+    jobDurationsMs: [],
+    rungAttribution: [],
+    companyConcentration: [],
   };
   try {
     await runRelocalization(phase);
@@ -1523,6 +1605,7 @@ export async function runRelocalization(phase) {
     companiesQueued,
     rows: thinkingRows,
     failedCompanyKeys,
+    phase,
   });
   const onTermination = (signal) => {
     cascadeStop = 'runner terminated';
@@ -2062,10 +2145,19 @@ export async function runRelocalization(phase) {
       // incoerente, cascadeNow() resta ancorato al wall clock usato per il
       // fallback della finestra e mantiene il budget coerente.
       const companyStartedMs = cascadeNow();
+      const queuedByCompany = new Map(executionKeys.map((companyKey) => [
+        companyKey,
+        companyJobCounts.get(companyKey) || 0,
+      ]));
+      // Publish the queue before entering the crawler: a timeout or provider
+      // failure must still leave concentration evidence for the visited group.
+      mergeCascadeObservability(phase, null, { queuedByCompany });
+      recordRunPhase(phase, { replaceLast: true });
+      let crawlerResult = null;
       let servedCompanyKeys = new Set();
       let sterileCompanyKeys = new Set();
       try {
-        const crawlerResult = await runSharedCrawler(executionKeys, companyJobCount);
+        crawlerResult = await runSharedCrawler(executionKeys, companyJobCount);
         const coverage = companyCoverageFromCrawlerResult(crawlerResult);
         servedCompanyKeys = coverage.served;
         sterileCompanyKeys = coverage.sterile;
@@ -2094,6 +2186,12 @@ export async function runRelocalization(phase) {
 
         if (cleared > 0) console.log(`   ✅ ${executionLabel}: ${cleared} jobs translated, progress saved`);
       }
+
+      mergeCascadeObservability(phase, crawlerResult?.localizationObservability, {
+        queuedByCompany,
+        clearedByCompany,
+      });
+      recordRunPhase(phase, { replaceLast: true });
 
       const elapsedShare = (companyKey) => companyJobCount > 0
         ? companyElapsedMs * (companyJobCounts.get(companyKey) || 0) / companyJobCount
@@ -2285,9 +2383,16 @@ export async function runRelocalization(phase) {
           const retryArm = thinkingAb ? assignThinkingArm(key, thinkingSalt) : null;
           const retryHandle = retryArm ? applyThinkingArm(retryArm, process.env) : null;
           const retryStartedMs = cascadeNow();
+          const retryQueuedByCompany = new Map(retryKeys.map((companyKey) => [
+            companyKey,
+            companyJobCounts.get(companyKey) || retryCompanies.get(companyKey) || 0,
+          ]));
+          mergeCascadeObservability(phase, null, { queuedByCompany: retryQueuedByCompany });
+          recordRunPhase(phase, { replaceLast: true });
+          let retryCrawlerResult = null;
           let retryServedCompanyKeys = new Set();
           try {
-            const retryCrawlerResult = await runSharedCrawler(retryKeys, count);
+            retryCrawlerResult = await runSharedCrawler(retryKeys, count);
             retryServedCompanyKeys = servedCompanyKeysFromCrawlerResult(retryCrawlerResult);
           } finally {
             if (retryHandle) retryHandle.restore();
@@ -2307,6 +2412,7 @@ export async function runRelocalization(phase) {
               ? changedSlugsSince(preRetrySignatures.get(companyKey), afterRetry, companyKey) : new Set(),
           ]));
           const retryRowsByCompany = new Map();
+          const retryClearedByCompany = new Map();
           if (retryArm) {
             for (const companyKey of retryKeys) {
               const row = {
@@ -2329,12 +2435,11 @@ export async function runRelocalization(phase) {
             }
           }
           if (Array.isArray(afterRetry)) {
-            const clearedByCompany = new Map();
             const cleared = clearRetranslationFlags(afterRetry, {
               onCleared: (job) => {
                 const clearedKey = canonicalCompanyKeyForJob(job);
                 if (retryKeys.includes(clearedKey)) {
-                  clearedByCompany.set(clearedKey, (clearedByCompany.get(clearedKey) || 0) + 1);
+                  retryClearedByCompany.set(clearedKey, (retryClearedByCompany.get(clearedKey) || 0) + 1);
                 }
               },
             });
@@ -2343,7 +2448,7 @@ export async function runRelocalization(phase) {
               totalFixed += cleared;
               console.log(`   ✅ ${retryLabel} retry: ${cleared} more jobs translated`);
               for (const companyKey of retryKeys) {
-                const companyCleared = clearedByCompany.get(companyKey) || 0;
+                const companyCleared = retryClearedByCompany.get(companyKey) || 0;
                 if (companyCleared > 0) {
                   // Il passaggio principale ha appena registrato questa azienda
                   // come sterile; il retry lo smentisce. Senza questa riga
@@ -2364,6 +2469,11 @@ export async function runRelocalization(phase) {
               writeCompanySkipState(companySkipState);
             }
           }
+          mergeCascadeObservability(phase, retryCrawlerResult?.localizationObservability, {
+            queuedByCompany: retryQueuedByCompany,
+            clearedByCompany: retryClearedByCompany,
+          });
+          recordRunPhase(phase, { replaceLast: true });
         } catch {
           for (const companyKey of retryKeys) failedCompanyKeys.add(companyKey);
           console.log(`   ⚠️  ${retryLabel} retry failed — will be picked up by next scheduled run`);
@@ -2455,6 +2565,8 @@ export async function runRelocalization(phase) {
       flushThinkingArtifacts();
       process.off('SIGINT', onTermination);
       process.off('SIGTERM', onTermination);
+    } else {
+      flushThinkingArtifacts();
     }
   }
 }

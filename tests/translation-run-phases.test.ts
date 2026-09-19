@@ -124,6 +124,30 @@ describe('summarizeRunPhases', () => {
     expect(summary?.cascade).toBeNull();
     expect(summary?.phases).toHaveLength(1);
   });
+
+  it('computes p50, p90 and max from actual per-job samples', () => {
+    const summary = summarizeRunPhases([cascade({
+      jobDurationsMs: [300, 20, 100, 10, 40],
+    })]);
+
+    expect(summary?.cascade?.jobTiming).toEqual({
+      count: 5,
+      p50Ms: 40,
+      p90Ms: 300,
+      maxMs: 300,
+    });
+  });
+
+  it('makes an empty cascade explicit without inventing percentile zeros', () => {
+    const summary = summarizeRunPhases([cascade({ jobsCleared: 0, jobDurationsMs: [] })]);
+
+    expect(summary?.cascade?.jobTiming).toEqual({
+      count: 0,
+      p50Ms: null,
+      p90Ms: null,
+      maxMs: null,
+    });
+  });
 });
 
 describe('the phase sidecar', () => {

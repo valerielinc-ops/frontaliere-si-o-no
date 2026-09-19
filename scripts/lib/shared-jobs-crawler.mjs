@@ -18,6 +18,7 @@
 import fs from 'node:fs';
 import { listSliceFileNames } from './crawler-slice-files.mjs';
 import path from 'node:path';
+import { performance } from 'node:perf_hooks';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { readAllAttr, readAttr, readMetaContent } from './html-attr.mjs';
 import { createHash } from 'node:crypto';
@@ -176,6 +177,54 @@ const registerJobSlug = _registerJobSlug;
 // FRO-232: merge/dedup utilities re-aliases
 const LOCALES = _LOCALES;
 const normalizeCompanyKey = _normalizeCompanyKey;
+
+const LOCALIZATION_OBSERVABILITY_LIMITS = Object.freeze({
+  jobTimings: 4096,
+  companies: 2048,
+  rungs: 64,
+});
+
+function boundedDurationMs(value) {
+  return Number.isFinite(value) && value >= 0 ? Math.round(value) : 0;
+}
+
+function createLocalizationObservability() {
+  const jobDurationsMs = [];
+  const rungAttribution = new Map();
+  const companies = new Map();
+
+  return {
+    recordJob({ companyKey, durationMs }) {
+      const duration = boundedDurationMs(durationMs);
+      if (jobDurationsMs.length < LOCALIZATION_OBSERVABILITY_LIMITS.jobTimings) {
+        jobDurationsMs.push(duration);
+      }
+      const key = normalizeCompanyKey(companyKey) || 'unknown';
+      const row = companies.get(key) || { companyKey: key, served: 0, durationMs: 0 };
+      row.served += 1;
+      row.durationMs += duration;
+      if (companies.size < LOCALIZATION_OBSERVABILITY_LIMITS.companies || companies.has(key)) {
+        companies.set(key, row);
+      }
+    },
+    recordTranslationAttribution({ rung, durationMs }) {
+      const label = typeof rung === 'string' && rung.trim() ? rung.trim().slice(0, 64) : 'unserved';
+      const row = rungAttribution.get(label) || { rung: label, count: 0, durationMs: 0 };
+      row.count += 1;
+      row.durationMs += boundedDurationMs(durationMs);
+      if (rungAttribution.size < LOCALIZATION_OBSERVABILITY_LIMITS.rungs || rungAttribution.has(label)) {
+        rungAttribution.set(label, row);
+      }
+    },
+    toJSON() {
+      return {
+        jobDurationsMs: [...jobDurationsMs],
+        rungAttribution: [...rungAttribution.values()],
+        companies: [...companies.values()],
+      };
+    },
+  };
+}
 const dateOnly = _dateOnly;
 const hasSeedMetaTargetScope = _hasSeedMetaTargetScope;
 const isJobPortalRelevant = _isJobPortalRelevant;
@@ -2366,7 +2415,7 @@ export function ensureLocaleFields(job) {
 // SJC builds a context object with its internal state and passes it to DCC.
 
 /** Build the localization context object for DCC functions. */
-function _buildLocalizationCtx() {
+function _buildLocalizationCtx(observation = null) {
   return {
     LOCALES,
     FORCE_LOCALIZE_COMPANY_KEYS: getForceLocalizeCompanyKeys(),
@@ -2395,6 +2444,9 @@ function _buildLocalizationCtx() {
     incrAiLocalizationCalls: () => { aiLocalizationCalls += 1; },
     getDeeplFallbackToLlm: () => deeplFallbackToLlm,
     incrDeeplFallbackToLlm: () => { deeplFallbackToLlm += 1; },
+    recordTranslationAttribution: typeof observation?.recordTranslationAttribution === 'function'
+      ? observation.recordTranslationAttribution
+      : null,
   };
 }
 
@@ -2430,8 +2482,16 @@ function hasUntranslatedLocaleTitles(job = {}) {
   return _hasUntranslatedLocaleTitlesDCC(job, _buildLocalizationCtx());
 }
 
-async function enrichJobLocalesWithRetry(job, crawlerConfig, maxAttempts = 3) {
-  return _enrichJobLocalesWithRetryDCC(job, crawlerConfig, _buildLocalizationCtx(), maxAttempts);
+async function enrichJobLocalesWithRetry(job, crawlerConfig, maxAttempts = 3, observation = null) {
+  const startedAtMs = performance.now();
+  try {
+    return await _enrichJobLocalesWithRetryDCC(job, crawlerConfig, _buildLocalizationCtx(observation), maxAttempts);
+  } finally {
+    observation?.recordJob?.({
+      companyKey: job?.companyKey || job?.company || 'unknown',
+      durationMs: performance.now() - startedAtMs,
+    });
+  }
 }
 
 // Guards the crude "label: <up to N chars>" regex fallbacks in
@@ -5850,6 +5910,9 @@ async function main() {
   // Compatibility observation for callers that have not yet moved to the
   // two explicit categories below. It is always their union.
   const localizationCoveredCompanyKeys = new Set();
+  const localizationObservability = localizeExistingOnly
+    ? createLocalizationObservability()
+    : null;
 
   if (localizeExistingOnly) {
     // Only log on first invocation — message is identical every time
@@ -6177,7 +6240,7 @@ async function main() {
             // is the only path that calls captureLostSlugs.
             const _preAiSlug = job.slug;
             const _preAiSlugByLocale = job.slugByLocale ? { ...job.slugByLocale } : {};
-            const enriched = await enrichJobLocalesWithRetry(job, crawlerConfig);
+            const enriched = await enrichJobLocalesWithRetry(job, crawlerConfig, 3, localizationObservability);
             if (enriched && (enriched.slug !== _preAiSlug || _slugByLocaleDiffer(enriched.slugByLocale, _preAiSlugByLocale))) {
               captureLostSlugs(enriched, _preAiSlugByLocale, _preAiSlug);
             }
@@ -6510,6 +6573,7 @@ async function main() {
     localizationAttemptedCompanyKeys: [...localizationAttemptedCompanyKeys],
     localizationSterileCompanyKeys: [...localizationSterileCompanyKeys],
     localizationCoveredCompanyKeys: [...localizationCoveredCompanyKeys],
+    localizationObservability: localizationObservability?.toJSON() || null,
   };
 }
 
