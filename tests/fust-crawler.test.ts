@@ -213,6 +213,22 @@ describe('Fust authoritative discovery', () => {
     }
   });
 
+  it('reconciles a location-encoded canton before exposing API seed metadata', async () => {
+    const sourceJob = {
+      ...fixture.api.jobs[0],
+      location: 'Reinach (AG)',
+      attributes: {
+        ...fixture.api.jobs[0].attributes,
+        30: ['Basel-Landschaft'],
+      },
+    };
+    const fetchImpl = async () => new Response(JSON.stringify({ total: 1, jobs: [sourceJob] }), { status: 200 });
+
+    const discovery = await fetchFustJobUrls({ fetchImpl, enrichDetails: false });
+    const meta = discovery.seedMetaByUrl[fixture.details[0].url];
+    expect(meta).toMatchObject({ location: 'Reinach (AG)', canton: 'AG' });
+  });
+
   it('accepts a verified total=0 as an authoritative empty discovery', async () => {
     const fetchImpl = async () => new Response(JSON.stringify({ total: 0, jobs: [] }), { status: 200 });
     await expect(fetchFustJobUrls({ fetchImpl })).resolves.toMatchObject({

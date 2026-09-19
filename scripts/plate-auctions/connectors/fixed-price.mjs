@@ -8,10 +8,10 @@
  */
 import {
   FIXED_PRICE_SOURCE_CONFIGS,
-  extractPdfUrl,
   fetchHtml,
   fetchJson,
   fetchPdfText,
+  resolveVariantPdfUrl,
   parseAiFixedPricePdfText,
   parseBsFixedPricePdfText,
   parseGlFixedPriceJson,
@@ -50,12 +50,11 @@ export async function fetchFixedPriceSource(sourceKey) {
   }];
   const rows = [];
   for (const variant of variants) {
-    const pdfUrl = variant.pdfUrlPattern
-      ? extractPdfUrl(indexHtml, {
-        baseUrl: config.pageUrl,
-        pattern: variant.pdfUrlPattern,
-      }) || variant.fallbackPdfUrl
-      : variant.fallbackPdfUrl;
+    const pdfUrl = resolveVariantPdfUrl(variant, {
+      sourceKey,
+      pageUrl: config.pageUrl,
+      indexHtml,
+    });
     const pdf = await fetchPdfText(pdfUrl);
     rows.push(...parse(pdf, {
       canton: config.canton,

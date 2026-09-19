@@ -295,6 +295,17 @@ describe('Prada Group crawler — Swiss ownership', () => {
     })).toBe('Villars sur Ollon');
   });
 
+  it('fails closed for a bare homonymous locality until the route scopes its canton', () => {
+    expect(resolvePradaSwissLocation({
+      location: 'Buchs',
+      url: 'https://jobs.pradagroup.com/job/Buchs-Client-Advisor/1377980237/',
+    })).toBeNull();
+    expect(resolvePradaSwissLocation({
+      location: 'Buchs',
+      url: 'https://jobs.pradagroup.com/job/Buchs_(SG)-Client-Advisor/1377980238/',
+    })).toBe('Buchs (SG)');
+  });
+
   it.each([
     ['Arezzo Purchasing intern', 'https://jobs.pradagroup.com/job/Arezzo-Purchasing-intern/1387030233/'],
     ['Nearest Major Market: Las Vegas', 'https://jobs.pradagroup.com/job/Las-Vegas-Client-Advisor/1387030234/'],
