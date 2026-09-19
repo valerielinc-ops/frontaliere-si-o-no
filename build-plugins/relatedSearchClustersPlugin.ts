@@ -353,6 +353,8 @@ const CACHE_KEY_INPUTS = [
   // jobs each cluster page matches, so it must bust the emit cache.
   'services/searchStem.mjs',
   'build-plugins/relatedSearchPostingsWorker.mjs',
+  // Holds the worker's haystack + postings logic since the sparse pre-pass.
+  'build-plugins/relatedSearchPostingsCore.mjs',
 ];
 
 // v2 (2026-05-07) invalidates v1 entries that were saved before the
