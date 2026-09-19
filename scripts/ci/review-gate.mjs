@@ -341,9 +341,18 @@ export function classifyReview(body, {
     // unresolved and therefore blocking.
     const ignoredPaths = [];
     const citations = finding.citations.filter((citation) => {
-      if (resolveCitedPath(citation, knownPaths).status === 'resolved') return true;
-      if (!isIgnoredPath(citation.path)) return true;
+      const result = resolveCitedPath(citation, knownPaths);
+      if (result.status === 'resolved') return true;
+      // An ambiguous citation is not proven to be anything: a basename that
+      // happens to match an ignore rule must stay blocking, so only a
+      // zero-candidate path qualifies.
+      if (result.candidates.length > 0) return true;
       const path = normalizePath(citation.path, { stripGitPrefix: false });
+      if (!path) return true;
+      // A path in the changed list is in the diff whatever git says about
+      // ignoring it: a deleted or newly ignored file still belongs to this PR.
+      if (changedContains(changed, path) || changed.includes(path)) return true;
+      if (!isIgnoredPath(path)) return true;
       ignoredCitations.push({ findingNumber: finding.findingNumber, path });
       ignoredPaths.push(path);
       return false;
@@ -677,10 +686,15 @@ function findingConfirmed(
     // files. Once every precise repository anchor is confirmed, a bare path
     // with no HEAD-tree match is context rather than a second edit target.
     // Keep the default strict when the tree is unavailable, and never apply
-    // this exception to precise or resolvable paths.
+    // this exception to precise or resolvable paths. A fallback tree does not
+    // qualify either: it may only prove that a path is outside the diff, so it
+    // must not close a historical Important whose bare companion is
+    // unconfirmed. That keeps the whole of `findingConfirmed` at the
+    // tree-unavailable posture whenever the provenance is the local fallback.
     const isUnresolvableBareContext = isBareCompanion
       && preciseAnchorsConfirmed
       && Array.isArray(repositoryPaths)
+      && !repositoryPathsFromFallback
       && resolveCitedPath(citation, repositoryPaths).status === 'non-risolubile'
       && resolveCitedPath(citation, repositoryPaths).candidates.length === 0;
     if (isUnresolvableBareContext) return true;
@@ -874,12 +888,17 @@ function readCodexEvidenceFile(file) {
  * `truncated`, and the local coordinator caps a response body at 8 MiB
  * (`MAX_BODY_BYTES`), which cuts the JSON mid-string and makes it unparseable.
  * `git ls-tree` has neither limit and needs no network.
+ *
+ * Only the requested SHA is read, never `HEAD`: resolving citations against a
+ * different tree could declass a path as outside the diff on the strength of a
+ * tree that is not the one under review. If that SHA is not in the local
+ * checkout the tree stays unavailable and the strict posture holds.
  */
 function localTreePaths(sha) {
-  for (const ref of [/^[0-9a-f]{40}$/iu.test(String(sha || '')) ? sha : null, 'HEAD']) {
+  for (const ref of [/^[0-9a-f]{40}$/iu.test(String(sha || '')) ? String(sha) : null]) {
     if (!ref) continue;
     try {
-      const output = execFileSync('git', ['ls-tree', '-r', '--name-only', String(ref)], {
+      const output = execFileSync('git', ['ls-tree', '-r', '--name-only', ref], {
         encoding: 'utf8',
         maxBuffer: 64 * 1024 * 1024,
         stdio: ['ignore', 'pipe', 'ignore'],
@@ -1385,8 +1404,12 @@ async function auditHistoricalCitationsMain() {
   if (!/^\d+$/u.test(String(pr))) throw new Error('PR audit non valido');
 
   const reviews = readReviews(repo, pr);
-  const { paths: repositoryPaths } = fetchRepositoryHeadPaths(repo, pr);
+  const { paths: repositoryPaths, fromFallback } = fetchRepositoryHeadPaths(repo, pr);
   if (!repositoryPaths) throw new Error('tree HEAD non recuperabile per audit storico');
+  // The audit reports historical anchors as clean, so it needs an
+  // authoritative tree. A local fallback would let it declare anchors resolved
+  // on the strength of a tree the API never confirmed.
+  if (fromFallback) throw new Error('tree HEAD di fallback non ammesso per audit storico');
   const result = auditHistoricalCitations(reviews, repositoryPaths);
   console.log(`review-gate: historical citation audit ${repo}#${pr}`);
   console.log(`review-gate: reviews=${result.reviewCount} citations=${result.citationCount}`);

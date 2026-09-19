@@ -1330,17 +1330,47 @@ describe('review gate: a fallback tree proves scope without tightening anchors',
     expect(openCount({ repositoryPaths: TREE_FILES, repositoryPathsFromFallback: false })).toBe(1);
   });
 
-  it('a fallback tree does not inherit that tightening', () => {
-    expect(openCount({ repositoryPaths: TREE_FILES, repositoryPathsFromFallback: true })).toBe(0);
-  });
-
-  // The property the mitigation has to guarantee: supplying a fallback tree
-  // never leaves a finding open that the tree-unavailable posture would close,
-  // so no PR in flight is newly blocked.
-  it('never blocks more than the tree-unavailable posture', () => {
+  // The property the mitigation has to guarantee: a fallback tree may only
+  // prove that a path is outside the diff. Inside `findingConfirmed` it is
+  // inert, so it neither tightens the anchor check nor opens the bare-companion
+  // escape hatch: the verdict is exactly the tree-unavailable one.
+  it('is inert inside findingConfirmed, matching the tree-unavailable verdict', () => {
     const unavailable = openCount({});
     const fallback = openCount({ repositoryPaths: TREE_FILES, repositoryPathsFromFallback: true });
     expect(unavailable).toBe(1);
-    expect(fallback).toBeLessThanOrEqual(unavailable);
+    expect(fallback).toBe(unavailable);
+  });
+});
+
+describe('review gate: the ignore carve-out is narrow', () => {
+  const alwaysIgnored = () => true;
+
+  it('keeps blocking an ambiguous citation even when the path looks ignored', () => {
+    // `dup.mjs` matches two tree paths, so nothing about it is proven.
+    const tree = ['src/changed.mjs', 'a/dup.mjs', 'b/dup.mjs'];
+    const result = classifyReview(reviewFor('dup.mjs', 'rotto'), {
+      files: DIFF_FILES,
+      complete: true,
+      repositoryPaths: tree,
+      isIgnoredPath: alwaysIgnored,
+    });
+
+    expect(result.blocking).toBe(true);
+    expect(result.unresolved[0].reason).toBe('path ambiguo');
+    expect(result.ignoredCitations).toHaveLength(0);
+  });
+
+  it('keeps blocking a citation that is in the changed list even if git ignores it', () => {
+    // A deleted or newly ignored file is still part of this PR.
+    const result = classifyReview(reviewFor('src/gone.mjs', 'rotto'), {
+      files: ['src/gone.mjs'],
+      complete: true,
+      repositoryPaths: ['src/other.mjs'],
+      isIgnoredPath: alwaysIgnored,
+    });
+
+    expect(result.blocking).toBe(true);
+    expect(result.unresolved).toHaveLength(1);
+    expect(result.ignoredCitations).toHaveLength(0);
   });
 });
