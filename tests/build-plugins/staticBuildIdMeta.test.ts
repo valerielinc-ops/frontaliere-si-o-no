@@ -86,12 +86,24 @@ describe('readBuildIdForTelemetry', () => {
   it('falls back to /build-id.txt on a static page without the marker', async () => {
     const fetchMock = vi.fn(async () => new Response('1789819319547\n', { status: 200 }));
     vi.stubGlobal('fetch', fetchMock);
-    const { readBuildIdForTelemetry } = await import('../../services/buildInfo');
+    const { fetchBuildId, readBuildIdForTelemetry } = await import('../../services/buildInfo');
     expect(readBuildIdForTelemetry()).toBe('');
     expect(readBuildIdForTelemetry()).toBe('');
-    await vi.waitFor(() => expect(window.sessionStorage.getItem('ft-build-id')).toBe('1789819319547'));
+    await expect(fetchBuildId()).resolves.toBe('1789819319547');
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(readBuildIdForTelemetry()).toBe('1789819319547');
+    expect(window.sessionStorage.getItem('ft-build-id')).toMatch(/^1789819319547@\d+$/);
+  });
+
+  it('uses a fresh session value from an earlier page but not a stale one', async () => {
+    vi.stubGlobal('fetch', vi.fn(() => new Promise<Response>(() => {})));
+    window.sessionStorage.setItem('ft-build-id', `1789000000001@${Date.now() - 60_000}`);
+    let mod = await import('../../services/buildInfo');
+    expect(mod.readBuildIdForTelemetry()).toBe('1789000000001');
+    vi.resetModules();
+    window.sessionStorage.setItem('ft-build-id', `1789000000001@${Date.now() - 11 * 60_000}`);
+    mod = await import('../../services/buildInfo');
+    expect(mod.readBuildIdForTelemetry()).toBe('');
   });
 
   it('ignores a non-numeric body (for example an HTML 404 page)', async () => {
