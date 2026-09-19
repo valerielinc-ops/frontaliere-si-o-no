@@ -177,9 +177,10 @@ describe('i nomi di step classificati esistono davvero in tests.yml', () => {
     expect(block).toMatch(/JOB_STATUS:\s*\$\{\{\s*job\.status\s*\}\}/);
   });
 
-  it('il workflow ha il permesso di sola lettura che la jobs API richiede', () => {
+  it('il workflow ha il permesso di lettura che la jobs API richiede', () => {
     // Senza `actions: read` la lettura degli step risponde 403 e il summary
     // resta muto (fail-soft: nessun rosso in più, nessuna diagnosi in meno).
-    expect(TESTS_YML.slice(0, TESTS_YML.indexOf('jobs:'))).toMatch(/^ {2}actions: read$/m);
+    // `write` (per il self-cancel della run superata) include `read`.
+    expect(TESTS_YML.slice(0, TESTS_YML.indexOf('jobs:'))).toMatch(/^ {2}actions: (read|write)$/m);
   });
 });
