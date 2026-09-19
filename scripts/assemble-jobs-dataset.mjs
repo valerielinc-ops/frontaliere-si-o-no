@@ -581,10 +581,20 @@ const EXPIRED_JOBS_CAP = 5000;
  * runs and translate-pending. Between events the inputs are stable for
  * hours → ~80 % of deploys can skip the 58 s assembly entirely.
  *
- * Cache key = assembler output-version + sha256(filePath \0 bytes \0 …) of
- * every slice file across the three input directories. The version is bumped
- * whenever assembly logic changes emitted artifacts without changing slice
- * bytes, so a stale cached `data/jobs.json` cannot bypass new normalization.
+ * Cache key = assembler output-version + Node major + sha256(filePath \0
+ * bytes \0 …) of every slice file across the three input directories + the
+ * bytes of every OTHER input the assembly reads: the source of its local
+ * import closure (walked at runtime, so a new `./lib/*` import is covered
+ * without editing a list) and the tracked data files in
+ * ASSEMBLE_AUX_DATA_INPUTS, plus package-lock.json for npm dependencies.
+ *
+ * Why the closure and the aux files are in the key: the send-* workflows
+ * (job alerts, company alerts, newsletter, saved-jobs digest) restore this
+ * cache from GitHub Actions and mail the restored `data/jobs.json` to
+ * subscribers. A key that covered only the slices would keep serving the
+ * output of the PREVIOUS assembler after a merged fix to `scripts/lib/*` or to
+ * `data/job-canton-pins.json`, until the next slice commit. A false HIT is the
+ * failure that matters here; a false MISS only costs one full assembly.
  */
 const CACHE_ROOT = path.join(ROOT, '.cache', 'assemble-jobs');
 const DATA_STATS = path.join(ROOT, 'data', 'jobs-stats.json');
@@ -615,6 +625,8 @@ export function computeAssembleInputFingerprint() {
   const hasher = crypto.createHash('sha256');
   hasher.update(`version:${ASSEMBLE_OUTPUT_CACHE_VERSION}`);
   hasher.update('\0');
+  hasher.update(`node:${process.versions.node.split('.')[0]}`);
+  hasher.update('\0');
   for (const f of files) {
     const buf = fs.readFileSync(f);
     hasher.update(f);
@@ -624,7 +636,127 @@ export function computeAssembleInputFingerprint() {
     hasher.update(buf);
     hasher.update('\0');
   }
+  hasher.update('code\0');
+  for (const f of listAssembleCodeClosure()) {
+    hashRepoFile(hasher, f);
+  }
+  hasher.update('aux\0');
+  for (const rel of ASSEMBLE_AUX_DATA_INPUTS) {
+    const abs = path.join(ROOT, rel);
+    let stat = null;
+    try { stat = fs.statSync(abs); } catch { stat = null; }
+    if (stat?.isDirectory()) {
+      for (const f of listFilesRecursive(abs)) hashRepoFile(hasher, f);
+    } else {
+      hashRepoFile(hasher, abs);
+    }
+  }
   return hasher.digest('hex').slice(0, 16);
+}
+
+/**
+ * Tracked files, outside the three slice directories, that the assembly reads
+ * (directly or through its local import closure) and whose bytes can change
+ * the emitted `data/jobs.json` / `expired-jobs.json` / `jobs-meta.json` /
+ * `jobs-crawler-summaries.json`. Missing entries hash as `missing:<path>`, so
+ * adding or removing one also changes the key. Over-inclusion is safe (it only
+ * costs a cache miss); an omission is a false HIT. The coverage test in
+ * tests/scripts/assemble-jobs-cache-key-coverage.test.ts fails when a module in
+ * the closure names a `data/` path that is neither here nor explicitly excluded.
+ */
+export const ASSEMBLE_AUX_DATA_INPUTS = Object.freeze([
+  'data/job-canton-pins.json',
+  'data/swiss-postal-codes.json',
+  'data/orphan-indexed-job-slugs.json',
+  'data/orphan-enriched-data.json',
+  'data/orphan-enriched-data',
+  'data/prev-slug-restore-denylist.json',
+  'data/canton-url-slugs.json',
+  'data/canton-municipalities.json',
+  'data/crawler-companies-auto.json',
+  'data/jobs-crawler-config.json',
+  'data/ticino-companies-extra.json',
+  'data/jobs-crawler-adapters',
+  'data/swiss-canton-salary-index.json',
+  'package-lock.json',
+]);
+
+// Relative specifiers only, in the four forms: static `from`, dynamic
+// `import(...)`, side-effect `import`, and a `new URL(...)` worker entry. Bare
+// npm specifiers are covered by package-lock.json in ASSEMBLE_AUX_DATA_INPUTS.
+// (Written without a quoted example on purpose: this file is itself scanned.)
+const LOCAL_SPECIFIER_RX = /(?:\bfrom\s*|\bimport\s*\(\s*|\bimport\s+|\bnew\s+URL\(\s*)['"](\.{1,2}\/[^'"]+)['"]/g;
+
+/**
+ * Local (relative-import) closure of this script, as sorted absolute paths.
+ * Includes dynamic imports and worker entry points; an unresolvable specifier
+ * is kept as a path that hashes as `missing:<path>`.
+ *
+ * @param {string} [entry] absolute path of the entry module
+ * @returns {string[]}
+ */
+export function listAssembleCodeClosure(entry = fileURLToPath(import.meta.url)) {
+  const seen = new Set();
+  const stack = [entry];
+  while (stack.length > 0) {
+    const file = stack.pop();
+    if (seen.has(file)) continue;
+    seen.add(file);
+    if (file.endsWith('.json')) continue;
+    let src;
+    try { src = fs.readFileSync(file, 'utf8'); } catch { continue; }
+    for (const m of src.matchAll(LOCAL_SPECIFIER_RX)) {
+      let target = path.resolve(path.dirname(file), m[1]);
+      if (!fs.existsSync(target)) {
+        const withExt = ['.mjs', '.js', '.json'].map((ext) => target + ext).find((c) => fs.existsSync(c));
+        if (withExt) target = withExt;
+      }
+      stack.push(target);
+    }
+  }
+  return [...seen].sort();
+}
+
+function listFilesRecursive(dir) {
+  const out = [];
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const abs = path.join(dir, entry.name);
+    if (entry.isDirectory()) out.push(...listFilesRecursive(abs));
+    else if (entry.isFile()) out.push(abs);
+  }
+  return out.sort();
+}
+
+function hashRepoFile(hasher, abs) {
+  const rel = path.relative(ROOT, abs).split(path.sep).join('/');
+  let buf;
+  try { buf = fs.readFileSync(abs); } catch { buf = null; }
+  hasher.update(buf === null ? `missing:${rel}` : rel);
+  hasher.update('\0');
+  if (buf !== null) {
+    hasher.update(String(buf.length));
+    hasher.update('\0');
+    hasher.update(buf);
+    hasher.update('\0');
+  }
+}
+
+/**
+ * Cache key (sub-directory name under .cache/assemble-jobs/) that a run with
+ * these options would look up and then snapshot into. Exposed on the CLI as
+ * `--print-cache-key`, so a workflow can key `actions/cache` on exactly the
+ * value the script checks — no second, weaker `hashFiles()` definition.
+ */
+export function computeAssembleCacheKey({ withStats = false, withSummaries = true } = {}) {
+  const inputFingerprint = computeAssembleInputFingerprint();
+  // The suffix is part of the key because the snapshot below copies whatever is
+  // on disk: a `--no-summaries` run stores the PREVIOUS jobs-crawler-summaries
+  // .json, so sharing a key with a full run would let a later full run restore
+  // that stale file from cache instead of regenerating it.
+  return {
+    inputFingerprint,
+    cacheKey: `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}${withSummaries ? '' : '_nosummaries'}`,
+  };
 }
 
 /* ── I/O helpers ──────────────────────────────────────────────────────── */
@@ -3273,13 +3405,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   // Skip the 58 s assembly when the slice fingerprint matches a previous run.
   // Inputs change on a few cron hours per day; between those events, ~80 % of
   // deploys feed identical bytes through the same pipeline.
-  const inputFingerprint = computeAssembleInputFingerprint();
-  // The suffix is part of the key because the snapshot below copies whatever is
-  // on disk: a `--no-summaries` run stores the PREVIOUS jobs-crawler-summaries
-  // .json, so sharing a key with a full run would let a later full run restore
-  // that stale file from cache instead of regenerating it. The default arm keeps
-  // its historical key byte-for-byte, so no existing cache entry goes cold.
-  const cacheKey = `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}${withSummaries ? '' : '_nosummaries'}`;
+  const { inputFingerprint, cacheKey } = computeAssembleCacheKey({ withStats, withSummaries });
   const cacheDir = path.join(CACHE_ROOT, cacheKey);
   const manifestPath = path.join(cacheDir, 'manifest.json');
 
@@ -3647,7 +3773,13 @@ export function parseAssembleCliArgs(argv = []) {
   };
 }
 
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+if (process.argv[1] === fileURLToPath(import.meta.url) && process.argv.includes('--print-cache-key')) {
+  // Prints ONLY the key on stdout (last line), assembles nothing. Workflows
+  // use it as the actions/cache key: see .github/workflows/send-*.yml.
+  const { cacheKey } = computeAssembleCacheKey(parseAssembleCliArgs(process.argv.slice(2)));
+  process.stdout.write(`${cacheKey}\n`);
+  process.exit(0);
+} else if (process.argv[1] === fileURLToPath(import.meta.url)) {
   assembleJobsDataset(parseAssembleCliArgs(process.argv.slice(2)))
     .then(() => {
       // Some optional SDKs imported during assembly can leave idle handles

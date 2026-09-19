@@ -156,11 +156,20 @@ jobs:
           else
             echo "⚠️ load-rc-env.mjs is absent in this checkout (non-fatal)"
           fi
+      - name: Compute assemble-jobs cache key
+        id: assemble_cache_key
+        # The assembler prints the key it checks itself: a hashFiles() over a
+        # subset of its inputs gave exact hits on stale directories, whose save
+        # actions/cache then skipped. See the action for the full reason.
+        uses: ./.github/actions/assemble-jobs-cache-key
+        with:
+          args: --stats
       - name: Cache assemble-jobs output
+        if: steps.assemble_cache_key.outputs.key != ''
         uses: actions/cache/restore@v5
         with:
           path: .cache/assemble-jobs
-          key: assemble-jobs-${{ runner.os }}-${{ hashFiles('scripts/assemble-jobs-dataset.mjs', 'scripts/lib/parse-job-slices-worker.mjs', 'data/jobs/by-crawler/**/*.json', 'data/jobs/expired/by-crawler/**/*.json', 'data/jobs-crawler-summaries/by-crawler/**/*.json') }}
+          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
           restore-keys: |
             assemble-jobs-${{ runner.os }}-
       - name: Assemble jobs dataset from per-crawler slices

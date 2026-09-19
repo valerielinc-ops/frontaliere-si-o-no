@@ -169,9 +169,80 @@ jobs:
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
 
+      # Content-addressed cache of the assembled dataset. The key is printed by
+      # the assembler itself (.github/actions/assemble-jobs-cache-key): sha256
+      # of every slice, of its local import closure, of the aux data files it
+      # reads, of package-lock.json and of the Node major. It is the SAME value
+      # the script checks before restoring, so a hit can only replay an output
+      # built from byte-identical inputs; no restore-keys fallback. Measured
+      # miss cost: 4m41 (run 35422626497).
+      - name: Compute assemble-jobs cache key
+        id: assemble_cache_key
+        uses: ./.github/actions/assemble-jobs-cache-key
+
+      - name: Restore assemble-jobs cache
+        id: assemble_cache
+        if: steps.assemble_cache_key.outputs.key != ''
+        uses: actions/cache/restore@v5
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-send-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+
+      # The newsletter must still go out without job data (intended), but the
+      # degradation must be VISIBLE: continue-on-error keeps the job going while
+      # the step stays red in the UI, and the next step turns the failure into
+      # a ::warning::, a step-summary line and a deduplicated issue. The former
+      # `|| echo` swallowed the exit code and painted the step green.
       - name: Assemble jobs dataset from per-crawler slices
+        id: assemble
         continue-on-error: true
-        run: node scripts/assemble-jobs-dataset.mjs 2>&1 || echo "⚠️ Jobs assembly failed — newsletter will proceed without job data"
+        run: node scripts/assemble-jobs-dataset.mjs 2>&1
+
+      - name: Report degraded newsletter (jobs assembly failed)
+        if: steps.assemble.outcome == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          msg="Jobs assembly failed — the newsletter proceeds WITHOUT job data (run ${{ github.run_id }})"
+          echo "::warning title=Newsletter degraded::$msg"
+          {
+            echo "### ⚠️ Newsletter degraded: jobs assembly failed"
+            echo ""
+            echo "$msg. See the log of step \"Assemble jobs dataset from per-crawler slices\"."
+          } >> "$GITHUB_STEP_SUMMARY"
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Newsletter degraded: jobs assembly failed" \
+            --description "## Newsletter inviata senza annunci
+          Lo step \"Assemble jobs dataset from per-crawler slices\" e' fallito: la newsletter prosegue senza la sezione jobs (comportamento voluto), ma il fallimento va indagato.
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
+
+      # Recovery mirror (model rpm-canary.yml): the title above is custom, so
+      # close-recovered-failure-issues.mjs never sees it; the next newsletter
+      # run whose assembly succeeds closes it. Best-effort, exits 0.
+      - name: Resolve degraded-newsletter issue on green assembly
+        if: steps.assemble.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "Newsletter degraded: jobs assembly failed" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Save assemble-jobs cache
+        if: steps.assemble.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true'
+        continue-on-error: true
+        uses: actions/cache/save@v5
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-send-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
 
       # Job popularity is refreshed once a day by refresh-job-popularity.yml
       # and committed to data/job-popularity.json. The newsletter reads the

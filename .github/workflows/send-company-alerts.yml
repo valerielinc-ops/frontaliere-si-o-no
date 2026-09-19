@@ -102,8 +102,36 @@ jobs:
 
       # data/jobs.json is gitignored — it is assembled from the committed
       # by-crawler slices. The sender reads firstSeenAt off it.
+      # Content-addressed cache of the assembled dataset. The key is printed by
+      # the assembler itself (.github/actions/assemble-jobs-cache-key): sha256
+      # of every slice, of its local import closure, of the aux data files it
+      # reads, of package-lock.json and of the Node major. It is the SAME value
+      # the script checks before restoring, so a hit can only replay an output
+      # built from byte-identical inputs; no restore-keys fallback. Measured
+      # miss cost: 4m41 (run 35422626497).
+      - name: Compute assemble-jobs cache key
+        id: assemble_cache_key
+        uses: ./.github/actions/assemble-jobs-cache-key
+
+      - name: Restore assemble-jobs cache
+        id: assemble_cache
+        if: steps.assemble_cache_key.outputs.key != ''
+        uses: actions/cache/restore@v5
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-send-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+
       - name: Assemble jobs dataset
+        id: assemble
         run: node scripts/assemble-jobs-dataset.mjs
+
+      - name: Save assemble-jobs cache
+        if: steps.assemble.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true'
+        continue-on-error: true
+        uses: actions/cache/save@v5
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-send-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
 
       - name: Send CompanyAlert emails
         if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
