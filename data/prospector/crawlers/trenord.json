@@ -1,0 +1,23 @@
+{
+  "companyKey": "trenord",
+  "companyName": "trenord",
+  "companyHost": "trenord.altamiraweb.com",
+  "platform": "altamiraweb.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://trenord.altamiraweb.com/"
+  ],
+  "detailTemplate": "/Annunci/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Operatori e Tecnici Manutenzione Rotabili",
+    "Addetto Controllo Qualità Pulizia",
+    "Addetto/a Modelli e Integrazione Tariffaria_ stage extracurriculare",
+    "Addetto/a Modelli e Integrazione Tariffaria",
+    "HR Business Partner"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-09-19T09:31:44.867Z"
+}
