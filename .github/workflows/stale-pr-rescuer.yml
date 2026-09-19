@@ -57,6 +57,13 @@ concurrency:
 
 jobs:
   rescue:
+    # Il `tests` di un push su `main` non cambia lo stato di nessuna PR: lo
+    # scan qui sotto legge solo le PR aperte e non usa il payload
+    # `workflow_run` (niente `head_branch`/`head_sha`, vedi la nota piu' in
+    # basso). Quei completamenti erano 86 run in 4 h il 2026-09-19, tutte
+    # identiche al tick successivo. Restano le completion delle PR, il cron e
+    # il dispatch.
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.event != 'push'
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
@@ -70,6 +77,8 @@ jobs:
           fetch-depth: 1
           sparse-checkout: |
             scripts/ci/mint-app-token.mjs
+            scripts/ci/orphan-pr-custodian.mjs
+            scripts/ci/lib/constants.mjs
             scripts/lib/githubApiHeaders.mjs
             functions/src/githubApiHeaders.js
           sparse-checkout-cone-mode: false
@@ -292,3 +301,16 @@ jobs:
               2>/dev/null || echo "comment fallito PR #$N"
           done
           echo "Scan completo."
+
+      # Le PR non autonome (branch non `fix/*`, autore umano, senza
+      # `agent:autofix`) sono saltate dallo scan qui sopra e dai fixer: quando
+      # l'agente che le ha aperte muore restano ferme per ore (9 PR, 6-8 h, il
+      # 2026-09-19). Il custode rilancia un check richiesto CANCELLED su una
+      # HEAD con LGTM e adotta per i fixer le PR con un 🔴 dichiarato fuori
+      # scope. Zero-Claude, idempotente per (azione, HEAD).
+      - name: Orphan PR custodian
+        env:
+          GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: node scripts/ci/orphan-pr-custodian.mjs
