@@ -76,6 +76,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { readAttr, readMetaContent } from './lib/html-attr.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { recordUniquePageProgress } from './lib/pagination-identity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -231,21 +232,58 @@ async function fetchPostFinanceListingsViaRecruitingApi() {
   const results = [];
   let total = null;
   let pageNumber = 0;
+  const sourceIdentities = new Set();
+  let paginationComplete = false;
 
   while (pageNumber < RECRUITING_API_MAX_PAGES) {
     const page = await fetchRecruitingApiPage(pageNumber);
-    if (!page) break;
+    if (!page) {
+      throw new Error(`PostFinance API pagination failed at page ${pageNumber}: no response received.`);
+    }
+    if (!Array.isArray(page.jobSearchResult)) {
+      throw new Error(`PostFinance API pagination failed at page ${pageNumber}: expected jobSearchResult array.`);
+    }
 
-    const entries = Array.isArray(page.jobSearchResult) ? page.jobSearchResult : [];
-    if (total === null) total = Number(page.totalJobs) || 0;
-    for (const entry of entries) {
-      if (entry?.response) results.push(entry.response);
+    const entries = page.jobSearchResult;
+    if (total === null) {
+      const declared = Number(page.totalJobs);
+      if (Number.isFinite(declared) && declared > 0) total = declared;
+    }
+    const pageRecords = entries.map((entry) => entry?.response);
+    if (entries.length > 0 && pageRecords.some((record) => !record)) {
+      throw new Error(`PostFinance API pagination failed at page ${pageNumber}: rows without a response identity.`);
+    }
+    if (pageRecords.length > 0) {
+      recordUniquePageProgress(sourceIdentities, pageRecords, {
+        getIdentity: (record) => record?.id,
+        source: 'PostFinance API',
+        page: pageNumber,
+      });
+      results.push(...pageRecords);
     }
 
     pageNumber += 1;
-    if (entries.length === 0) break;
-    if (total !== null && results.length >= total) break;
+    if (entries.length === 0) {
+      if (total !== null && sourceIdentities.size < total) {
+        throw new Error(
+          `PostFinance API pagination incomplete: received ${sourceIdentities.size} of ${total} declared jobs.`,
+        );
+      }
+      paginationComplete = true;
+      break;
+    }
+    if (total !== null && sourceIdentities.size >= total) {
+      paginationComplete = true;
+      break;
+    }
     await delay(300);
+  }
+
+  if (!paginationComplete && pageNumber >= RECRUITING_API_MAX_PAGES) {
+    throw new Error(
+      `PostFinance API pagination incomplete after ${pageNumber} pages: ` +
+        `${sourceIdentities.size} records received${total !== null ? ` of ${total} declared` : ''}.`,
+    );
   }
 
   const pfJobs = results.filter((r) => r?.brandUrl === 'PostFinance');
