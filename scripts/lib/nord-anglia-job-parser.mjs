@@ -349,7 +349,14 @@ async function fetchNordAngliaDetail(url) {
     const html = await fetchNordAngliaHtml(url, 'detail');
     return parseCsbDetailPage(html);
   } catch (error) {
-    if (error?.feedEndpointUnavailable) throw error;
+    // A detail URL is an individual vacancy, not proof that the whole ATS
+    // endpoint is unavailable. Return a tagged per-listing failure so the
+    // caller can retain successful siblings; fetchAllNordAngliaJobs() promotes
+    // the error only when every requested detail failed, which is endpoint-wide
+    // evidence and keeps the indexed slice instead of de-indexing it.
+    if (error?.feedEndpointUnavailable) {
+      return { detailEndpointUnavailable: true, error };
+    }
     if (Number.isFinite(error?.status) || isConnectionLevelFetchError(error)) {
       const unavailable = new FeedEndpointUnavailableError(
         `[nord-anglia] SuccessFactors detail endpoint unavailable for ${jobUrlForDiagnostic(url)}`
@@ -358,7 +365,7 @@ async function fetchNordAngliaDetail(url) {
       );
       if (Number.isFinite(error?.status)) unavailable.status = error.status;
       if (error.retryBudgetExhausted === true) unavailable.retryBudgetExhausted = true;
-      throw unavailable;
+      return { detailEndpointUnavailable: true, error: unavailable };
     }
     console.warn(`⚠️ Nord Anglia detail fetch failed for ${jobUrlForDiagnostic(url)}: ${error?.message || error}`);
     return null;
@@ -655,6 +662,7 @@ export async function fetchAllNordAngliaJobs() {
   let swissSignalCandidates = 0;
   let swissScopeDrops = 0;
   let detailFetches = 0;
+  const detailEndpointFailures = [];
   for (const item of listings) {
     const isHtmlListing = item.sourceFormat === 'html';
     const rawTitle = normalizeSpace(item.title || '');
@@ -745,7 +753,17 @@ export async function fetchAllNordAngliaJobs() {
     if (isHtmlListing) {
       if (detailFetches > 0) await new Promise((resolve) => setTimeout(resolve, DETAIL_DELAY_MS));
       detailFetches += 1;
-      detail = await fetchNordAngliaDetail(publicUrl);
+      const detailResult = await fetchNordAngliaDetail(publicUrl);
+      if (detailResult?.detailEndpointUnavailable) {
+        detailEndpointFailures.push(detailResult.error);
+        swissScopeDrops++;
+        console.warn(
+          `[nord-anglia-detail-unavailable] Skipped "${title}" at `
+          + `${jobUrlForDiagnostic(publicUrl)}; retaining successful sibling listings`,
+        );
+        continue;
+      }
+      detail = detailResult;
     }
     const detailDescriptionText = normalizeSpace(detail?.descriptionText || '');
     if (isHtmlListing && detailDescriptionText.split(/\s+/).filter(Boolean).length < 50) {
@@ -827,6 +845,10 @@ export async function fetchAllNordAngliaJobs() {
     };
 
     jobs.push(job);
+  }
+
+  if (detailFetches > 0 && detailEndpointFailures.length === detailFetches) {
+    throw detailEndpointFailures[0];
   }
 
   // A non-empty relevant feed with zero Swiss signals is an explicit hard

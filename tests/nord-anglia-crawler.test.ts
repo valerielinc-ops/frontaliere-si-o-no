@@ -337,6 +337,35 @@ describe('Nord Anglia Education Switzerland crawler parser', () => {
     }
   });
 
+  it('isolates one unavailable HTML detail while retaining a successful sibling listing', async () => {
+    const description = Array.from({ length: 60 }, (_, index) => `detail-word-${index}`).join(' ');
+    const searchHtml = `
+      <a href="/job/Aubonne-PE-teacher/1428165033/">PE teacher</a>
+      <a href="/job/Geneva-Boarding-Activity-Leader/1432993533/">Geneva activity leader</a>
+    `;
+    const detailHtml = `
+      <html lang="en">
+        <span data-careersite-propertyid="title">Geneva activity leader</span>
+        <div data-careersite-propertyid="description"><p>${description}</p></div>
+      </html>
+    `;
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response('RSS unavailable', { status: 403 }))
+      .mockResolvedValueOnce(new Response(searchHtml, { status: 200 }))
+      .mockResolvedValueOnce(new Response('Stale detail', { status: 404 }))
+      .mockResolvedValueOnce(new Response(detailHtml, { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = await fetchAllNordAngliaJobs();
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      title: 'Geneva activity leader',
+      jobReqId: '1432993533',
+      canton: 'GE',
+    });
+    expect(fetchMock).toHaveBeenCalledTimes(4);
+  });
+
   it('rejects a bare homonymous locality without independent canton evidence', async () => {
     const bareBuchs = validRssItem({
       title: '<title><![CDATA[Teacher of Biology (Buchs, CH)]]></title>',
