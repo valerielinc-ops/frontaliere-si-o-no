@@ -24,6 +24,7 @@ set -eu
 log="\${FAKE_LOG:?}"
 state="\${FAKE_STATE:?}"
 printf '%s\\n' "$*" >>"$log"
+printf '%s|%s\\n' "\${GH_TOKEN:-}" "$*" >>"$log.tok"
 
 get_state() {
   awk -F= -v key="$1" '$1 == key { print substr($0, index($0, "=") + 1); exit }' "$state"
@@ -53,6 +54,19 @@ case "$command" in
     fi
     if printf '%s' "$args" | grep -q -- '-X DELETE'; then
       set_state REF_PRESENT false
+      exit 0
+    fi
+    if printf '%s' "$args" | grep -q -- 'issues/17/comments'; then
+      if [ "\${FAKE_COMMENT:-ok}" = fail ]; then exit 1; fi
+      printf '%s 2026-01-01T00:00:00Z\\n' "\${FAKE_ACTOR:-fixer-bot}"
+      exit 0
+    fi
+    if printf '%s' "$args" | grep -q -- 'repos/owner/repo/issues/17 '; then
+      if [ "$(get_state PR_STATE)" = CLOSED ]; then
+        printf 'closed %s %s\\n' "\${FAKE_CLOSED_AT:-2026-01-01T00:00:05Z}" "\${FAKE_CLOSED_BY:-fixer-bot}"
+      else
+        printf 'open - -\\n'
+      fi
       exit 0
     fi
     if printf '%s' "$args" | grep -q -- '--include'; then
@@ -85,8 +99,8 @@ case "$command" in
       exit 0
     fi
     if [ "$sub" = view ]; then
-      if printf '%s' "$args" | grep -q -- '--json state'; then
-        printf '%s\\n' "$(get_state PR_STATE)"
+      if printf '%s' "$args" | grep -q -- '--json state,headRefOid'; then
+        printf '%s %s\\n' "$(get_state PR_STATE)" "\${FAKE_PRE_SHA:-${SHA}}"
       else
         if [ "\${FAKE_HEAD_METADATA:-ok}" = partial ]; then
           printf '{"commits":[{"committedDate":"2020-01-01T00:00:00Z"}],"headRepository":{"nameWithOwner":"%s"}}\\n' "\${FAKE_HEAD_REPO:-owner/repo}"
@@ -169,9 +183,15 @@ function runScenario(overrides: Record<string, string> = {}) {
     output = `${failure.stdout || ''}${failure.stderr || ''}`;
   }
   const events = readFileSync(log, 'utf8').trim().split('\n').filter(Boolean);
+  let tokens: string[] = [];
+  try {
+    tokens = readFileSync(`${log}.tok`, 'utf8').trim().split('\n').filter(Boolean);
+  } catch {
+    tokens = [];
+  }
   const stateText = readFileSync(state, 'utf8');
   rmSync(dir, { recursive: true, force: true });
-  return { output, events, stateText };
+  return { output, events, tokens, stateText };
 }
 
 function eventIndex(events: string[], pattern: RegExp, from = 0): number {
@@ -182,15 +202,19 @@ describe('recycle-stale-prs — R2 action contract', () => {
   it('esegue close, verifica, ref guard e remove→verify→add→verify in ordine', () => {
     const result = runScenario();
     expect(result.output).toContain('issue #77 ri-accodata');
+    const preClose = eventIndex(result.events, /^pr view 17 .*--json state,headRefOid/);
+    const announce = eventIndex(result.events, /^api -X POST repos\/owner\/repo\/issues\/17\/comments/);
     const close = eventIndex(result.events, /^pr close 17/);
-    const state = eventIndex(result.events, /^pr view 17 .*--json state/);
+    const state = eventIndex(result.events, /^api repos\/owner\/repo\/issues\/17 /);
     const probe = eventIndex(result.events, /^api .*--include/);
     const del = eventIndex(result.events, /^api -X DELETE /);
     const remove = eventIndex(result.events, /^issue edit 77 .*--remove-label agent:fix/);
     const removeVerify = eventIndex(result.events, /^issue view 77 .*--json labels/);
     const add = eventIndex(result.events, /^issue edit 77 .*--add-label agent:fix/);
     const addVerify = eventIndex(result.events, /^issue view 77 .*--json labels/, removeVerify + 1);
-    expect(close).toBeGreaterThanOrEqual(0);
+    expect(preClose).toBeGreaterThanOrEqual(0);
+    expect(announce).toBeGreaterThan(preClose);
+    expect(close).toBeGreaterThan(announce);
     expect(state).toBeGreaterThan(close);
     expect(probe).toBeGreaterThan(state);
     expect(del).toBeGreaterThan(probe);
@@ -252,7 +276,7 @@ describe('recycle-stale-prs — R2 action contract', () => {
   });
 
   it('max_recycles enorme o oltre il limite operativo è fail-closed', () => {
-    for (const value of ['999999999999999999999999999999999999', '101']) {
+    for (const value of ['999999999999999999999999999999999999', '101', '21']) {
       const result = runScenario({ MAX_RECYCLES_PER_RUN: value });
       const log = result.events.join('\n');
       expect(log).not.toMatch(/^pr close 17/m);
@@ -275,5 +299,66 @@ describe('recycle-stale-prs — R2 action contract', () => {
     const log = result.events.join('\n');
     expect(log).not.toMatch(/^pr close 17/m);
     expect(log).not.toMatch(/--remove-label agent:fix/);
+  });
+
+  it('tutte le mutazioni usano la stessa identita\' PAT/App, mai GITHUB_TOKEN', () => {
+    const result = runScenario();
+    expect(result.output).toContain('issue #77 ri-accodata');
+    const mutations = result.tokens.filter((line) =>
+      /\|(pr close |api -X |issue edit |issue comment )/.test(line));
+    expect(mutations.length).toBeGreaterThanOrEqual(5);
+    for (const line of mutations) expect(line.startsWith('runtime-token|')).toBe(true);
+  });
+
+  it('token PAT/App non operativo: il preflight fallisce prima di close e DELETE', () => {
+    const result = runScenario({ FAKE_COMMENT: 'fail' });
+    const log = result.events.join('\n');
+    expect(log).not.toMatch(/^pr close 17/m);
+    expect(log).not.toMatch(/-X DELETE/);
+    expect(log).not.toMatch(/--remove-label agent:fix/);
+    expect(result.output).toContain('preflight del token');
+    expect(result.stateText).toMatch(/REF_PRESENT=true/);
+  });
+
+  it('head o stato cambiati prima della close: nessuna mutazione', () => {
+    const result = runScenario({ FAKE_PRE_SHA: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb' });
+    const log = result.events.join('\n');
+    expect(log).not.toMatch(/issues\/17\/comments/);
+    expect(log).not.toMatch(/^pr close 17/m);
+    expect(result.output).toContain('cambiata prima della close');
+  });
+
+  it.each([
+    ['chiusa da un altro actor', { FAKE_CLOSED_BY: 'someone-else' }],
+    ['chiusa prima del preflight', { FAKE_CLOSED_AT: '2025-12-31T23:59:59Z' }],
+    ['closed_by illeggibile', { FAKE_CLOSED_BY: '-' }],
+  ])('close non attribuibile (%s): niente DELETE ne\' re-queue, commento di recovery', (_name, overrides) => {
+    const result = runScenario(overrides);
+    const log = result.events.join('\n');
+    expect(log).not.toMatch(/--include/);
+    expect(log).not.toMatch(/-X DELETE/);
+    expect(log).not.toMatch(/--remove-label agent:fix/);
+    expect(log).toMatch(/^issue comment 77 /m);
+    expect(result.output).toContain('close non attribuibile');
+    expect(result.stateText).toMatch(/REF_PRESENT=true/);
+  });
+
+  it('deadline: nessuna nuova close se il tempo restante e\' sotto il budget di un riciclo', () => {
+    const result = runScenario({ RECYCLE_STEP_BUDGET_SECONDS: '30', RECYCLE_PER_ITEM_BUDGET_SECONDS: '60' });
+    const log = result.events.join('\n');
+    expect(log).not.toMatch(/issues\/17\/comments/);
+    expect(log).not.toMatch(/^pr close 17/m);
+    expect(result.output).toContain('Deadline');
+  });
+
+  it('il job ha un tetto coerente con la deadline interna e il cap 20', () => {
+    expect(WORKFLOW).toMatch(/timeout-minutes: 15/);
+    expect(WORKFLOW).toMatch(/RECYCLE_STEP_BUDGET_SECONDS: '420'/);
+    expect(WORKFLOW).toMatch(/timeout-minutes: 9\n        run: \|/);
+  });
+
+  it('remove fallito dopo close+DELETE lascia un commento di recovery', () => {
+    const result = runScenario({ FAKE_REMOVE: 'fail' });
+    expect(result.events.join('\n')).toMatch(/^issue comment 77 /m);
   });
 });
