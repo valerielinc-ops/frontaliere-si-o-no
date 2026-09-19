@@ -1,23 +1,60 @@
 {
   "key": "cordenpharma",
   "label": "CordenPharma",
-  "generatedAt": "2026-09-13T13:52:16.238Z",
-  "total": 6,
+  "generatedAt": "2026-09-19T22:49:16.624Z",
+  "total": 7,
   "discovered": null,
-  "parsed": 6,
+  "parsed": 7,
   "lastFetchOutcome": null,
-  "written": 6,
+  "written": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6758,
-  "avgDurationMs": 6758,
+  "durationMs": 6023,
+  "avgDurationMs": 6023,
   "durationHistory": [
-    6758
+    6023
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "cordenpharma-fbf3481e6e7f",
+      "slug": "laborant-qc-ipc-100-m-w-d-cordenpharma-liestal",
+      "company": "CordenPharma",
+      "companyKey": "cordenpharma",
+      "companyDomain": "cordenpharma.com",
+      "title": "Laborant QC / IPC 100%, (m/w/d)",
+      "location": "Liestal",
+      "canton": "BL",
+      "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20979/laborant-qc-ipc-100-mwd-fachrichtung-chemie-im-bereich-qualitatskontrolle-inprozesskontrolle",
+      "source": "CordenPharma Dedicated Parser (d.vinci)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-19T22:49:08.956Z",
+      "addressLocality": "Liestal",
+      "addressRegion": "BL",
+      "streetAddress": "Eichenweg 1 A",
+      "postalCode": "4410",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Qualità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutico / CDMO",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-09",
+      "applyUrl": "https://career.cordenpharma.com/de/p/liestal/jobs/20979/laborant-qc-ipc-100-mwd-fachrichtung-chemie-im-bereich-qualitatskontrolle-inprozesskontrolle",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "cordenpharma-16f2c9557475",
@@ -31,7 +68,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20958/innovation-scientist-postdoc-chemiker-100-mwd-dauer-12-monate-mit-moglichkeit-auf-verlangerung",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:52:08.662Z",
+      "crawledAt": "2026-09-19T22:49:08.006Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -48,11 +85,11 @@
       "postedDate": "2026-08-21",
       "applyUrl": "https://career.cordenpharma.com/de/p/liestal/jobs/20958/innovation-scientist-postdoc-chemiker-100-mwd-dauer-12-monate-mit-moglichkeit-auf-verlangerung",
       "firstSeenAt": "2026-09-03T23:09:49.890Z",
-      "_qualityScore": 88,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -68,7 +105,7 @@
       "url": "https://career.cordenpharma.com/en/p/liestal/jobs/20959/innovation-scientist-postdoc-chemist-solid-state-development-100-mwd-initial-12-month-contract-with-the-possibility-of-extension",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-13T13:52:09.112Z",
+      "crawledAt": "2026-09-19T22:49:08.437Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -84,7 +121,6 @@
       "featured": false,
       "postedDate": "2026-08-21",
       "applyUrl": "https://career.cordenpharma.com/en/p/liestal/jobs/20959/innovation-scientist-postdoc-chemist-solid-state-development-100-mwd-initial-12-month-contract-with-the-possibility-of-extension",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-08T13:32:21.104Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -106,7 +142,7 @@
       "url": "https://career.cordenpharma.com/de/p/ettingen/jobs/20956/gruppenleiter-produktion-mwd-2-schicht-ettingen-basel-land-schweiz",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:52:10.107Z",
+      "crawledAt": "2026-09-19T22:49:09.841Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "streetAddress": "Brühlstrasse 50",
@@ -143,7 +179,7 @@
       "url": "https://career.cordenpharma.com/de/p/ettingen/jobs/20929/technischer-mitarbeitender-infrastruktur-projekte-80-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:52:10.548Z",
+      "crawledAt": "2026-09-19T22:49:10.280Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "streetAddress": "Brühlstrasse 50",
@@ -180,7 +216,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20925/laborant-100-mwd-fachrichtung-chemie-prozessforschung-entwicklung-schwerpunkt-synthese",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:52:09.670Z",
+      "crawledAt": "2026-09-19T22:49:09.406Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -197,11 +233,11 @@
       "postedDate": "2026-07-03",
       "applyUrl": "https://career.cordenpharma.com/de/p/liestal/jobs/20925/laborant-100-mwd-fachrichtung-chemie-prozessforschung-entwicklung-schwerpunkt-synthese",
       "firstSeenAt": "2026-07-07T22:16:49.306Z",
-      "_qualityScore": 90,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -217,7 +253,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20922/analytical-project-leader-apl-100-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:52:08.210Z",
+      "crawledAt": "2026-09-19T22:49:07.575Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -234,11 +270,11 @@
       "postedDate": "2026-07-01",
       "applyUrl": "https://career.cordenpharma.com/de/p/liestal/jobs/20922/analytical-project-leader-apl-100-mwd",
       "firstSeenAt": "2026-07-04T10:47:48.276Z",
-      "_qualityScore": 90,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
+        "translation": 15,
         "completeness": 20
       }
     }

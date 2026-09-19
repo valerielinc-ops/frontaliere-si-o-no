@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-09-13T13:51:43.507Z",
+  "generatedAt": "2026-09-19T22:46:03.093Z",
   "total": 11,
   "newCount": 0,
-  "updatedCount": 11,
+  "updatedCount": 10,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 12540,
-  "avgDurationMs": 12540,
+  "unchangedCount": 1,
+  "durationMs": 8909,
+  "avgDurationMs": 8909,
   "durationHistory": [
-    12540
+    8909
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -161,42 +161,6 @@
       }
     },
     {
-      "url": "https://app.ncoreplat.com/jobposition/804884/production-engineer-couvet-site-ch/sintetica",
-      "applyUrl": "https://app.ncoreplat.com/jobposition/804884/production-engineer-couvet-site-ch/sintetica",
-      "title": "Production Engineer - Couvet site",
-      "company": "Sintetica SA",
-      "companyKey": "sintetica",
-      "location": "Couvet",
-      "canton": "NE",
-      "country": "CH",
-      "addressLocality": "Couvet",
-      "addressRegion": "NE",
-      "addressCountry": "CH",
-      "postalCode": "2108",
-      "streetAddress": "Rue de l'Ecluse 28",
-      "slug": "production-engineer-couvet-site-sintetica",
-      "category": "production",
-      "datePosted": "2026-07-10",
-      "source": "sintetica-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Farmaceutica",
-      "_targetScope": {
-        "canton": "NE",
-        "location": "Couvet"
-      },
-      "sourceLang": "en",
-      "id": "sintetica-70d63209d4ff",
-      "firstSeenAt": "2026-07-10T22:01:42.430Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 15
-      }
-    },
-    {
       "url": "https://app.ncoreplat.com/jobposition/803812/pv-project-manager-and-deputy-qppv-mendrisio-site-ticino-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/803812/pv-project-manager-and-deputy-qppv-mendrisio-site-ticino-ch/sintetica",
       "title": "PV Project Manager and Deputy QPPV – Mendrisio site (Ticino)",
@@ -257,13 +221,13 @@
         "canton": "TI",
         "location": "Mendrisio"
       },
-      "sourceLang": "it",
+      "sourceLang": "en",
       "id": "sintetica-1dee0615eb96",
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
-      "_qualityScore": 75,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 20,
         "translation": 25,
         "completeness": 15
       }
@@ -329,13 +293,13 @@
         "canton": "TI",
         "location": "Mendrisio"
       },
-      "sourceLang": "it",
+      "sourceLang": "en",
       "id": "sintetica-8218af8800e4",
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
-      "_qualityScore": 75,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 25,
         "completeness": 15
       }
@@ -583,47 +547,6 @@
       }
     },
     {
-      "url": "https://app.ncoreplat.com/jobposition/804884/production-engineer-couvet-site-ch/sintetica",
-      "applyUrl": "https://app.ncoreplat.com/jobposition/804884/production-engineer-couvet-site-ch/sintetica",
-      "title": "Production Engineer - Couvet site",
-      "company": "Sintetica SA",
-      "companyKey": "sintetica",
-      "location": "Couvet",
-      "canton": "NE",
-      "country": "CH",
-      "addressLocality": "Couvet",
-      "addressRegion": "NE",
-      "addressCountry": "CH",
-      "postalCode": "2108",
-      "streetAddress": "Rue de l'Ecluse 28",
-      "slug": "production-ingegnere-couvet-site-sintetica-sa-couvet",
-      "category": "production",
-      "datePosted": "2026-07-10",
-      "source": "sintetica-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Farmaceutica",
-      "_targetScope": {
-        "canton": "NE",
-        "location": "Couvet"
-      },
-      "sourceLang": "en",
-      "id": "sintetica-70d63209d4ff",
-      "firstSeenAt": "2026-07-10T22:01:42.430Z",
-      "crawledAt": "",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
       "url": "https://app.ncoreplat.com/jobposition/803812/pv-project-manager-and-deputy-qppv-mendrisio-site-ticino-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/803812/pv-project-manager-and-deputy-qppv-mendrisio-site-ticino-ch/sintetica",
       "title": "PV Project Manager and Deputy QPPV – Mendrisio site (Ticino)",
@@ -690,7 +613,7 @@
         "canton": "TI",
         "location": "Mendrisio"
       },
-      "sourceLang": "it",
+      "sourceLang": "en",
       "id": "sintetica-1dee0615eb96",
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
       "crawledAt": "",
@@ -698,10 +621,11 @@
       "salaryMax": 110500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 80,
+      "needsRetranslation": true,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 20,
         "translation": 25,
         "completeness": 20
       }
@@ -772,7 +696,7 @@
         "canton": "TI",
         "location": "Mendrisio"
       },
-      "sourceLang": "it",
+      "sourceLang": "en",
       "id": "sintetica-8218af8800e4",
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
@@ -781,10 +705,10 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "needsRetranslation": true,
-      "_qualityScore": 80,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 25,
         "completeness": 20
       }
@@ -868,6 +792,48 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://app.ncoreplat.com/jobposition/804884/production-engineer-couvet-site-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/804884/production-engineer-couvet-site-ch/sintetica",
+      "title": "Production Engineer - Couvet site",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Couvet",
+      "canton": "NE",
+      "country": "CH",
+      "addressLocality": "Couvet",
+      "addressRegion": "NE",
+      "addressCountry": "CH",
+      "postalCode": "2108",
+      "streetAddress": "Rue de l'Ecluse 28",
+      "slug": "production-ingegnere-couvet-site-sintetica-sa-couvet",
+      "category": "production",
+      "datePosted": "2026-07-10",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Couvet"
+      },
+      "sourceLang": "en",
+      "id": "sintetica-70d63209d4ff",
+      "firstSeenAt": "2026-07-10T22:01:42.430Z",
+      "crawledAt": "",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
         "translation": 25,
         "completeness": 20
       }
