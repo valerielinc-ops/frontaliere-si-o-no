@@ -22,6 +22,8 @@ import {
 } from '../scripts/ci/review-test-policy.mjs';
 import { codeContributionFingerprint } from '../scripts/ci/auto-merge-eval.mjs';
 const head = 'a'.repeat(40);
+const reviewRevision = `body:${'c'.repeat(64)}`;
+const reviewRevisionMarker = `<!-- REVIEW_INPUT_REVISION: ${reviewRevision} -->`;
 function fixture({ files = ['tests/a.test.ts'], complete = true, changedHead = false, previous = '', reviews = [] as any[] } = {}) {
   const posts: any[] = [];
   let reads = 0;
@@ -218,28 +220,37 @@ describe('owner policy excluding test files from review', () => {
   });
   it('posts one structured LGTM on the pinned tests-only head', () => {
     const f = fixture();
-    postTestOnlyReview({ repo: 'owner/repo', pr: 1, head, ghFn: f.ghFn });
+    postTestOnlyReview({ repo: 'owner/repo', pr: 1, head, reviewRevision, ghFn: f.ghFn });
     expect(f.posts).toHaveLength(1);
     expect(f.posts[0]).toMatchObject({ commit_id: head, event: 'COMMENT' });
     expect(f.posts[0].body).toContain(TEST_REVIEW_MARKER);
+    expect(f.posts[0].body).toContain(reviewRevisionMarker);
     expect(f.posts[0].body).toContain('## LGTM');
+  });
+  it('does not publish an automatic LGTM when the reviews API is malformed', () => {
+    const f = fixture({ reviews: null as any });
+    expect(() => postTestOnlyReview({ repo: 'owner/repo', pr: 1, head, reviewRevision, ghFn: f.ghFn }))
+      .toThrow(/Reviews API.*malformed/i);
+    expect(f.posts).toEqual([]);
   });
   it.each([{ complete: false }, { changedHead: true }, { previous: 'src/production.ts' }, { files: ['tests/a.ts', 'src/a.ts'] }])('does not approve incomplete, changed-head or mixed input: %j', options => {
     const f = fixture(options);
-    expect(() => postTestOnlyReview({ repo: 'owner/repo', pr: 1, head, ghFn: f.ghFn })).toThrow();
+    expect(() => postTestOnlyReview({ repo: 'owner/repo', pr: 1, head, reviewRevision, ghFn: f.ghFn })).toThrow();
     expect(f.posts).toEqual([]);
   });
   it('accepts the marked bot review only after independently verifying the current complete file list', () => {
-    const review = { commit_id: head, user: { type: 'Bot', login: 'github-actions[bot]' }, body: `${TEST_REVIEW_MARKER}\n## LGTM` };
+    const review = { commit_id: head, user: { type: 'Bot', login: 'github-actions[bot]' }, state: 'COMMENTED', body: `${TEST_REVIEW_MARKER}\n${reviewRevisionMarker}\n## LGTM` };
     expect(findTestOnlyApproval([review], head, { ...fixture(), repo: 'owner/repo', pr: 1 })).toBe(review);
+    expect(findTestOnlyApproval([review], head, { ...fixture(), repo: 'owner/repo', pr: 1, reviewRevision })).toBe(review);
+    expect(findTestOnlyApproval([review], head, { ...fixture(), repo: 'owner/repo', pr: 1, reviewRevision: `body:${'d'.repeat(64)}` })).toBeNull();
     expect(findTestOnlyApproval([review], head, { ...fixture({ files: ['src/a.ts'] }), repo: 'owner/repo', pr: 1 })).toBeNull();
     expect(findTestOnlyApproval([{ ...review, user: { type: 'User', login: 'someone' } }], head, { ...fixture(), repo: 'owner/repo', pr: 1 })).toBeNull();
     expect(findTestOnlyApproval([{ ...review, commit_id: 'b'.repeat(40) }], head, { ...fixture(), repo: 'owner/repo', pr: 1 })).toBeNull();
   });
   it('does not repost on the same head and keeps test-only changes out of the code fingerprint', () => {
-    const review = { commit_id: head, user: { type: 'Bot', login: 'github-actions[bot]' }, body: `${TEST_REVIEW_MARKER}\n## LGTM` };
+    const review = { commit_id: head, user: { type: 'Bot', login: 'github-actions[bot]' }, state: 'COMMENTED', body: `${TEST_REVIEW_MARKER}\n${reviewRevisionMarker}\n## LGTM` };
     const f = fixture({ reviews: [review] });
-    postTestOnlyReview({ repo: 'owner/repo', pr: 1, head, ghFn: f.ghFn });
+    postTestOnlyReview({ repo: 'owner/repo', pr: 1, head, reviewRevision, ghFn: f.ghFn });
     expect(f.posts).toEqual([]);
     expect(codeContributionFingerprint([{ filename: 'tests/huge.test.ts' }])).toBe(codeContributionFingerprint([]));
     expect(codeContributionFingerprint([{ filename: 'tests/a.test.ts', previous_filename: 'src/a.ts', patch: '-production', status: 'renamed' }])).not.toBe(codeContributionFingerprint([]));
@@ -531,6 +542,15 @@ describe('owner policy excluding test files from review', () => {
     expect(source).not.toContain("set_tier ledger-only bounded 0");
     expect(source).toContain('Bootstrap trusted bounded-ledger policy (no checkout)');
     expect(source).toContain('download_main package.json');
+    expect(source).toContain('download_main scripts/ci/lib/review-input-revision.mjs');
+    expect(source).toContain('download_main scripts/ci/lib/constants.mjs');
+    expect(source).toContain('download_main scripts/ci/lib/pr-review-admission.mjs');
+    expect(source).toContain('PR review context/body illeggibile');
+    expect(source).toContain('Review history illeggibile');
+    expect(source).toContain('review_pr_file=$PR_FILE');
+    expect(source).toContain('PR_FILE: ${{ steps.review_input.outputs.review_pr_file }}');
+    expect(source).toContain('Review history non valida');
+    expect(source).toContain('reviews API shape non verificabile');
     expect(source).toContain('POLICY_ROOT=');
     expect(source).toContain('scripts/lib/loop-fleet-contract.mjs');
     expect(source).toContain('data/loop-fleet/loop-registry.json');
@@ -559,7 +579,7 @@ describe('owner policy excluding test files from review', () => {
     }
     expect(ledgerPolicy.if).toContain("startsWith(github.head_ref, 'chore/loop-fleet-ledger-lifecycle-')");
     expect(ledgerPolicy.if).not.toContain("startsWith(github.head_ref, 'chore/loop-fleet-ledger-')");
-    expect(source).toContain('group: tests-${{ github.workflow }}-${{ github.event.pull_request.number || inputs.pr_number || github.ref }}-${{ inputs.head_sha || github.event.pull_request.head.sha || github.sha }}');
+    expect(source).toContain('group: tests-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}-${{ github.event.pull_request.head.sha || github.sha }}');
     expect(source).toContain('cancel-in-progress: false');
     expect(source).toContain('trusted loop-fleet bridge');
     expect(source).toContain('Classify bounded loop-fleet ledger path');

@@ -25,6 +25,11 @@ import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { BODY_FILE_INFRA } from './ci/pr-body-check-gate.mjs';
 import { EXIT_BLOCK } from './ci/lib/hook-exit-codes.mjs';
+import {
+  normalizeReviewInputRevision,
+  reviewInputRevisionFromBody,
+  reviewInputRevisionFromPullRequest,
+} from './ci/lib/review-input-revision.mjs';
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const GATE = join(REPO_ROOT, 'scripts', 'ci', 'pr-body-check-gate.mjs');
@@ -58,6 +63,56 @@ function hasFlag(flag) {
   return args.some((arg) => names.some(
     (name) => arg === name || arg.startsWith(`${name}=`),
   ));
+}
+
+function optionValue(name) {
+  const equals = args.find((arg) => arg.startsWith(`${name}=`));
+  if (equals) {
+    const value = equals.slice(name.length + 1);
+    return value && !value.startsWith('-') ? value : undefined;
+  }
+  const index = args.indexOf(name);
+  const value = index >= 0 ? args[index + 1] : undefined;
+  return value && !value.startsWith('-') ? value : undefined;
+}
+
+function pullRequestTarget() {
+  const editIndex = args.indexOf('edit');
+  const prNumber = process.env.PR_NUMBER || (editIndex >= 0 ? args[editIndex + 1] : '') || '';
+  const repo = process.env.REPO || process.env.GH_REPO || process.env.GITHUB_REPOSITORY
+    || optionValue('--repo') || optionValue('-R') || '';
+  if (!/^\d+$/.test(String(prNumber)) || !/^[\w.-]+\/[\w.-]+$/.test(String(repo))) {
+    return null;
+  }
+  return { prNumber: String(prNumber), repo: String(repo) };
+}
+
+/**
+ * `gh pr edit` has no conditional body-write primitive.  The fixer therefore
+ * uses the REST ETag when it has a body-only edit: GET the current PR, then
+ * PATCH only `body` with `If-Match`.  A concurrent human/bot edit returns 412
+ * and the model round stops without overwriting the newer body.
+ */
+function bodyOnlyEdit(target) {
+  if (!target) return false;
+  let bodyFileSeen = false;
+  for (let index = 0; index < args.length; index += 1) {
+    const arg = args[index];
+    if (arg === 'pr' || arg === 'edit' || arg === target.prNumber) continue;
+    if (arg === '--repo' || arg === '-R' || arg === '--body-file' || arg === '-F') {
+      if (index + 1 >= args.length) return false;
+      if (arg === '--body-file' || arg === '-F') bodyFileSeen = true;
+      index += 1;
+      continue;
+    }
+    if (arg.startsWith('--repo=') || arg.startsWith('-R=')) continue;
+    if (arg.startsWith('--body-file=') || arg.startsWith('-F=')) {
+      bodyFileSeen = true;
+      continue;
+    }
+    return false;
+  }
+  return bodyFileSeen;
 }
 
 function findPrMutation() {
@@ -195,6 +250,175 @@ function runRealGh({ bestEffort = false, commandArgs = args } = {}) {
   return result.status ?? (bestEffort ? 0 : 1);
 }
 
+function parseIncludedJson(output) {
+  const raw = String(output || '');
+  const chunks = raw.split(/\r?\n\r?\n/u);
+  for (let index = chunks.length - 1; index >= 1; index -= 1) {
+    const candidate = chunks[index].trim();
+    if (!candidate) continue;
+    try {
+      return {
+        headers: chunks.slice(0, index).join('\n\n'),
+        value: JSON.parse(candidate),
+      };
+    } catch {
+      // A redirect/proxy can add another header block.  Try the last JSON
+      // block, then fail closed instead of treating a partial response as CAS.
+    }
+  }
+  return null;
+}
+
+function responseHeader(headers, name) {
+  const pattern = new RegExp(`^${name}:\\s*(.+)$`, 'imu');
+  return String(headers || '').match(pattern)?.[1]?.trim() || '';
+}
+
+function runConditionalBodyEdit(bodyFile, target) {
+  const command = realGhCommand();
+  if (canonicalPath(command.path) === canonicalPath(process.argv[1])) {
+    process.stderr.write('::error::gh-pr-body-check: gh è stato risolto sullo shim stesso; nessuna scrittura CAS\n');
+    return EXIT_BLOCK;
+  }
+  const endpoint = `repos/${target.repo}/pulls/${target.prNumber}`;
+  const read = spawnSync(command.path, ['api', '--include', endpoint], {
+    cwd: process.cwd(),
+    env: { ...process.env, PATH: command.pathValue },
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+  });
+  if (read.error || read.status !== 0) {
+    process.stderr.write(`::error::gh-pr-body-check: PR body/ETag non leggibile, nessuna scrittura CAS (${read.stderr || read.error?.message || `exit ${read.status}`})\n`);
+    return EXIT_BLOCK;
+  }
+  const parsed = parseIncludedJson(read.stdout);
+  const etag = responseHeader(parsed?.headers, 'etag');
+  if (!parsed?.value || !etag || (parsed.value.body !== null && typeof parsed.value.body !== 'string')) {
+    process.stderr.write('::error::gh-pr-body-check: risposta PR senza ETag/body verificabile, nessuna scrittura CAS\n');
+    return EXIT_BLOCK;
+  }
+  const expected = normalizeReviewInputRevision(process.env.PR_BODY_EXPECTED_REVISION || '');
+  let currentRevision;
+  try {
+    currentRevision = reviewInputRevisionFromPullRequest(parsed.value);
+  } catch {
+    currentRevision = null;
+  }
+  if (!currentRevision || (expected && currentRevision !== expected)) {
+    process.stderr.write(`::error::gh-pr-body-check: body PR cambiato concorrente (${expected || 'revision-unavailable'} != ${currentRevision || 'unavailable'}), nessuna scrittura CAS\n`);
+    return EXIT_BLOCK;
+  }
+  let body;
+  try {
+    body = readFileSync(bodyFile, 'utf8');
+  } catch (error) {
+    process.stderr.write(`::error::gh-pr-body-check: body-file non leggibile per CAS (${error?.message ?? error})\n`);
+    return EXIT_BLOCK;
+  }
+  const desired = reviewInputRevisionFromBody(body);
+  const patch = spawnSync(command.path, [
+    // The Codex bridge transports argv, not the caller's stdin.  Pass the
+    // already-gated body as a workspace/scratch file field so the host-side
+    // real gh can read it without reopening an unbounded stdin channel.
+    'api', endpoint, '--method', 'PATCH', '--header', `If-Match: ${etag}`,
+    '--field', `body=@${bodyFile}`,
+  ], {
+    cwd: process.cwd(),
+    env: { ...process.env, PATH: command.pathValue },
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+  });
+  if (patch.error || patch.status !== 0) {
+    const details = String(patch.stderr || patch.error?.message || '').trim();
+    process.stderr.write(`::error::gh-pr-body-check: CAS body rifiutato; nessun overwrite concorrente (${details || `exit ${patch.status}`})\n`);
+    return EXIT_BLOCK;
+  }
+  let result;
+  try {
+    result = JSON.parse(patch.stdout);
+  } catch {
+    process.stderr.write('::error::gh-pr-body-check: risposta PATCH body non verificabile\n');
+    return EXIT_BLOCK;
+  }
+  let observed;
+  try {
+    observed = reviewInputRevisionFromPullRequest(result);
+  } catch {
+    observed = null;
+  }
+  if (!observed || observed !== desired) {
+    process.stderr.write(`::error::gh-pr-body-check: body PATCH diverso da quello richiesto (${desired} != ${observed || 'unavailable'})\n`);
+    return EXIT_BLOCK;
+  }
+  return 0;
+}
+
+/**
+ * Body-fixer writes are admitted against the exact body revision read by the
+ * trusted preflight.  A concurrent human/bot edit must win over the fixer;
+ * never let `gh pr edit` overwrite it with a stale model result.
+ */
+function currentPullRequestRevision() {
+  const prNumber = process.env.PR_NUMBER || args[args.indexOf('edit') + 1] || '';
+  const repo = process.env.REPO || process.env.GH_REPO || process.env.GITHUB_REPOSITORY
+    || optionValue('--repo') || optionValue('-R') || '';
+  if (!/^\d+$/.test(String(prNumber)) || !/^[\w.-]+\/[\w.-]+$/.test(String(repo))) {
+    return null;
+  }
+  const command = realGhCommand();
+  if (canonicalPath(command.path) === canonicalPath(process.argv[1])) {
+    return null;
+  }
+  const result = spawnSync(command.path, [
+    'pr', 'view', prNumber, '--repo', repo, '--json', 'body',
+  ], {
+    cwd: process.cwd(),
+    env: { ...process.env, PATH: command.pathValue },
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+  });
+  if (result.error || result.status !== 0) {
+    return null;
+  }
+  try {
+    return reviewInputRevisionFromPullRequest(JSON.parse(result.stdout));
+  } catch {
+    return null;
+  }
+}
+
+function verifyExpectedBodyRevision() {
+  const expected = normalizeReviewInputRevision(process.env.PR_BODY_EXPECTED_REVISION || '');
+  if (!expected) return true;
+  const observedRevision = currentPullRequestRevision();
+  if (!observedRevision) {
+    process.stderr.write('::error::gh-pr-body-check: body PR corrente illeggibile, nessuna scrittura\n');
+    return false;
+  }
+  if (observedRevision !== expected) {
+    process.stderr.write(`::error::gh-pr-body-check: body PR cambiato concorrente (${expected} != ${observedRevision}), nessuna scrittura\n`);
+    return false;
+  }
+  return true;
+}
+
+/** Detect an edit racing immediately after the pre-write CAS. */
+function verifyWrittenBodyRevision(bodyFile) {
+  let desired;
+  try {
+    desired = reviewInputRevisionFromBody(readFileSync(bodyFile, 'utf8'));
+  } catch {
+    process.stderr.write('::error::gh-pr-body-check: body scritto non rileggibile localmente\n');
+    return false;
+  }
+  const observed = currentPullRequestRevision();
+  if (!observed || observed !== desired) {
+    process.stderr.write(`::error::gh-pr-body-check: body PR diverso dal body richiesto dopo la scrittura (${desired} != ${observed || 'unavailable'}); revisione manuale\n`);
+    return false;
+  }
+  return true;
+}
+
 const mutation = findPrMutation();
 const inlineBody = hasFlag('--body');
 const bodyFile = flagValue('--body-file');
@@ -226,7 +450,22 @@ if (!mutation) {
       process.exitCode = 0;
     } else {
       const commandArgs = bodyFile === '-' ? replaceBodyFileArg(effectiveBodyFile) : args;
-      process.exitCode = runRealGh({ bestEffort: true, commandArgs });
+      const target = mutation.subcommand === 'edit' ? pullRequestTarget() : null;
+      const expectedRevision = normalizeReviewInputRevision(process.env.PR_BODY_EXPECTED_REVISION || '');
+      if (mutation.subcommand === 'edit' && expectedRevision && !bodyOnlyEdit(target)) {
+        process.exitCode = block('body CAS richiede una modifica body-only; separa titolo/label dalla scrittura del body');
+      } else if (mutation.subcommand === 'edit' && bodyOnlyEdit(target)) {
+        process.exitCode = runConditionalBodyEdit(effectiveBodyFile, target);
+      } else if (mutation.subcommand === 'edit' && !verifyExpectedBodyRevision()) {
+        process.exitCode = EXIT_BLOCK;
+      } else {
+        const remoteStatus = runRealGh({ bestEffort: mutation.subcommand === 'create', commandArgs });
+        process.exitCode = remoteStatus;
+        if (mutation.subcommand === 'edit' && remoteStatus === 0
+            && !verifyWrittenBodyRevision(effectiveBodyFile)) {
+          process.exitCode = EXIT_BLOCK;
+        }
+      }
     }
   } catch (error) {
     process.exitCode = block(`body PR da stdin non leggibile (${error?.message ?? error})`);

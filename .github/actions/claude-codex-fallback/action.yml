@@ -1013,8 +1013,12 @@ runs:
           exit 1
         fi
         codex_command_path="$bridge_dir:$(/usr/bin/dirname "$node_realpath"):/usr/bin:/bin"
-        if [ -n "$body_gate_dir" ]; then
-          codex_command_path="$body_gate_dir:$codex_command_path"
+        if [ -n "${PR_BODY_GATE_BIN:-}" ]; then
+          # PR_BODY_GATE_BIN is rewritten above from runner.temp to the copied
+          # scratch path.  Put that rewritten path in PATH; the original
+          # runner-temp directory is outside the Codex sandbox and resolving it
+          # first makes the shim identify itself as the real gh command.
+          codex_command_path="$PR_BODY_GATE_BIN:$codex_command_path"
         fi
         # Do not let the token remain in the environment inherited by Codex;
         # only the host-side bridge process received it above.
@@ -1078,6 +1082,7 @@ runs:
           GITHUB_WORKSPACE GITHUB_ACTOR GITHUB_TRIGGERING_ACTOR GITHUB_EVENT_PATH
           RUNNER_TEMP CTX_DIR PR_BODY_GATE_BIN REPO ISSUE_NUMBER ISSUE_TITLE ISSUE_GROUP ISSUE_GROUP_LABEL
           ISSUE_GROUP_NUMBERS PR_NUMBER PR_TITLE HEAD_SHA REVIEW_TIER INCREMENTAL_BASE
+          PR_BODY_EXPECTED_REVISION
           FIX_TIER FIX_ROUND BATCH_PRS BATCH_COUNT TRIAGE_DAILY_KEY EVENT_NAME BODY_FILE
         )
         codex_env=(
@@ -1103,7 +1108,7 @@ runs:
         for name in "${metadata_vars[@]}"; do
           if [ -n "${!name+x}" ]; then codex_env+=("$name=${!name}"); fi
         done
-        codex_env_patterns='["CODEX_BRIDGE_TRANSPORT","PATH","HOME","TMPDIR","PWD","SHELL","USER","LOGNAME","LANG","LC_*","CI","GITHUB_REPOSITORY","GITHUB_RUN_ID","GITHUB_RUN_ATTEMPT","GITHUB_WORKFLOW","GITHUB_EVENT_NAME","GITHUB_SHA","GITHUB_REF","GITHUB_REF_NAME","GITHUB_HEAD_REF","GITHUB_BASE_REF","GITHUB_SERVER_URL","GITHUB_API_URL","GITHUB_GRAPHQL_URL","GITHUB_WORKSPACE","GITHUB_ACTOR","GITHUB_TRIGGERING_ACTOR","GITHUB_EVENT_PATH","RUNNER_TEMP","CTX_DIR","PR_BODY_GATE_BIN","REPO","ISSUE_NUMBER","ISSUE_TITLE","ISSUE_GROUP","ISSUE_GROUP_LABEL","ISSUE_GROUP_NUMBERS","PR_NUMBER","PR_TITLE","HEAD_SHA","REVIEW_TIER","INCREMENTAL_BASE","FIX_TIER","FIX_ROUND","BATCH_PRS","BATCH_COUNT","TRIAGE_DAILY_KEY","EVENT_NAME","BODY_FILE","CODEX_NODE_REAL","CODEX_GH_SOCKET","CODEX_GH_CLIENT","CODEX_GH_REAL","CODEX_GIT_SOCKET","CODEX_GIT_CLIENT","CODEX_GIT_REAL"]'
+        codex_env_patterns='["CODEX_BRIDGE_TRANSPORT","PATH","HOME","TMPDIR","PWD","SHELL","USER","LOGNAME","LANG","LC_*","CI","GITHUB_REPOSITORY","GITHUB_RUN_ID","GITHUB_RUN_ATTEMPT","GITHUB_WORKFLOW","GITHUB_EVENT_NAME","GITHUB_SHA","GITHUB_REF","GITHUB_REF_NAME","GITHUB_HEAD_REF","GITHUB_BASE_REF","GITHUB_SERVER_URL","GITHUB_API_URL","GITHUB_GRAPHQL_URL","GITHUB_WORKSPACE","GITHUB_ACTOR","GITHUB_TRIGGERING_ACTOR","GITHUB_EVENT_PATH","RUNNER_TEMP","CTX_DIR","PR_BODY_GATE_BIN","REPO","ISSUE_NUMBER","ISSUE_TITLE","ISSUE_GROUP","ISSUE_GROUP_LABEL","ISSUE_GROUP_NUMBERS","PR_NUMBER","PR_TITLE","HEAD_SHA","REVIEW_TIER","INCREMENTAL_BASE","FIX_TIER","FIX_ROUND","BATCH_PRS","BATCH_COUNT","TRIAGE_DAILY_KEY","EVENT_NAME","BODY_FILE","PR_BODY_EXPECTED_REVISION","CODEX_NODE_REAL","CODEX_GH_SOCKET","CODEX_GH_CLIENT","CODEX_GH_REAL","CODEX_GIT_SOCKET","CODEX_GIT_CLIENT","CODEX_GIT_REAL"]'
 
         # Closed set, same as CODEX_ALLOWED_EFFORTS in claude-codex-fallback.mjs:
         # an unknown value must fail here, not silently fall back to a default.

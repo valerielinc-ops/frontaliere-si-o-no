@@ -92,7 +92,7 @@ export const FAILURE_CATEGORIES = Object.freeze([
   },
   {
     id: 'pr-body',
-    names: ['PR-body completeness + multi-issue Closes (no checkout, all events)'],
+    names: ['PR-body completeness + multi-issue Closes (no checkout, pull requests)'],
     tail: 'il body della PR non rispetta il contratto (`## Implementato` / `## Non implementato (ancora)`)',
   },
   {

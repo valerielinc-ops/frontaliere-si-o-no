@@ -3,7 +3,7 @@
  *
  * stale-pr-rescuer.yml oggi LABELLA + commenta "fai git merge origin/main", ma
  * nessuno lo esegue → le PR restano ferme. Qui lo automatizziamo: dopo il
- * rebase ri-eseguiamo test E review sulla nuova HEAD (dispatch di tests.yml)
+ * rebase ri-eseguiamo test E review sulla nuova HEAD (push + pull_request.synchronize)
  * e consideriamo stantio ogni LGTM della HEAD precedente. RIPARIAMO solo le PR
  * "near-merge"; la
  * RILEVAZIONE dei conflitti con main gira invece su tutte (vedi
@@ -13,8 +13,8 @@
  *
  * NB sul trigger: il push del rebase si autentica via App/PAT (x-access-token) e
  * RI-TRIGGERA i workflow `pull_request` — incluso `tests.yml`. Il workflow ha
- * una corsia per PR+HEAD e non cancella i run precedenti; il dispatch esplicito
- * con `pr_number` copre comunque i push PAT che non producono un evento utile.
+ * una corsia per PR+HEAD e non cancella i run precedenti; non esiste un
+ * dispatch trusted su un ref scelto dalla PR.
  * Per evitare il livelock del push mentre una review sta leggendo la HEAD,
  * resta il **defer del rebase finché una review è in volo** (vedi
  * reviewInProgress): la review vecchia termina, poi il rebase invalida il suo
@@ -34,7 +34,7 @@
  *     - porta label `collision-risk` o `stale-review`.
  *     Altrimenti skip.
  *   - behind = commit di origin/main non nella head. behind==0 (già allineata):
- *     di norma skip, MA si HEAL-dispatcha tests.yml (no rebase) in due casi così
+ *     di norma skip, MA lascia un checkpoint manuale (no dispatch trusted) in due casi così
  *     auto-merge-eval può gattare+mergiare, senza i quali la PR near-merge resta
  *     stuck per sempre: (a) head "orfana" (0 check-run `vitest`, lasciata da un
  *     push PAT che non ri-triggera `pull_request` o da un rebase pre-#1597 che
@@ -47,8 +47,8 @@
  *   - mergeable (gh pr view --json mergeable; UNKNOWN → poll una volta dopo una
  *     breve attesa; se ancora UNKNOWN → skip questo run).
  *   - MERGEABLE → fetch + checkout branch + `git merge origin/main` (identity
- *     canonica). Clean → push via PAT + dispatch tests.yml sul branch (vitest
- *     e review nuove sulla nuova HEAD; nessun LGTM precedente viene riusato).
+ *     canonica). Clean → push via PAT; `pull_request.synchronize` avvia tests
+ *     e review nuove sulla nuova HEAD (nessun LGTM precedente viene riusato).
  *     Log.
  *   - CONFLITTO (CONFLICTING o merge nonzero) → `git merge --abort`; assicura
  *     label `stale-review` (così rescuer/recycle gestiscono); commenta UNA volta
@@ -56,7 +56,7 @@
  *   Cap: ~10 PR/run; logga le skippate per cap (AGENTS.md no-silent-cap).
  *
  * Uso:  node scripts/ci/pr-autorebase.mjs [--dry-run]
- * Env:  GH_TOKEN (PAT, per push + dispatch tests.yml; serve scope actions:write),
+ * Env:  GH_TOKEN (PAT/App token per il push del branch PR),
  *       GITHUB_REPOSITORY. Richiede `gh` + `git` in un checkout full-history.
  */
 import { execFileSync, spawnSync } from 'node:child_process';
@@ -544,9 +544,8 @@ function hasClaudeReviewOnHead(num, head) {
   return reviewerReviewOnHead(reviews, head);
 }
 
-/** Re-trigger DETERMINISTICO di review+tests per una PR classe-A: il push PAT
- * non ri-triggera `pull_request` in modo affidabile e pr-review-loop non ha
- * workflow_dispatch — ma un close+reopen via PAT emette `reopened`, che
+/** Re-trigger DETERMINISTICO di review+tests per una PR classe-A: un
+ * close+reopen via PAT emette `reopened`, che
  * triggera SIA pr-review-loop SIA tests.yml. Senza questo, una PR rebasata ma
  * senza review resta senza LGTM fino al recycle 24h (finestra morta ~22h
  * osservata, dead-end #4 della mappa loop 2026-06-12). */
@@ -829,10 +828,10 @@ function checkRunsOf(head) {
 }
 
 /** Esiste già un check-run `vitest (unit + integration)` sull'head (qualunque
- * stato: queued/in_progress/completed)? Serve a (a) non ri-dispatchare se vitest
+ * stato: queued/in_progress/completed)? Serve a (a) non riavviare se vitest
  * sta già girando o è concluso, e (b) rilevare gli head "orfani" a 0 check-run
  * lasciati da un push PAT che non ha ri-triggerato `pull_request` o da un
- * autorebase pre-#1597 che pushava senza dispatchare. */
+ * autorebase pre-#1597 che pushava senza sincronizzare. */
 function headHasVitestCheck(head) {
   return checkRunsOf(head).some((c) => c && c.name === VITEST_CHECK_NAME);
 }
@@ -844,7 +843,7 @@ function headHasVitestCheck(head) {
  * va rebasata per ereditare eventuali fix lato main invece di restare stuck
  * (autorebase skippa, auto-merge rifiuta → loop). Prende l'ultimo check-run
  * vitest COMPLETATO (per completed_at), non un `[0]` arbitrario, così un
- * workflow_dispatch manuale cancellato sullo stesso SHA non avvelena il verdetto
+ * run storico cancellato sullo stesso SHA non avvelena il verdetto
  * (stessa classe del bug #2394). Vedi lib/vitestCheck.mjs. */
 function vitestConclusion(head) {
   return latestCompletedVitestConclusion(checkRunsOf(head));
@@ -1080,28 +1079,39 @@ function collisionGateBlocks(num, head, behind) {
   return !collisionGateDecision({ behind, mergedPeers }).allow;
 }
 
-/** Dispatcha tests.yml sul branch e passa il numero della PR: il check-run di
- * test e la review atterrano sulla stessa head. Il workflow dispatch è il
- * percorso esplicito per i push del PAT, che non garantiscono un nuovo evento
- * `pull_request`; il guard del workflow rifiuta comunque ogni verdict stantio.
- * Best-effort: serve PAT con scope actions:write. */
+/**
+ * A push on a PR branch is the trusted trigger for `tests.yml`: GitHub emits a
+ * `pull_request.synchronize` event with the pushed HEAD. Never replace that
+ * event with `workflow_dispatch --ref <branch>`: the ref would select
+ * attacker-controlled workflow YAML and run it with trusted permissions.
+ * The name is retained for the callers' bounded rescue accounting; it now
+ * records the expected synchronize hand-off and performs no dispatch.  A
+ * successful return would incorrectly consume `stale-review` even when GitHub
+ * drops the synchronize event, so callers must keep the label until a real
+ * tests run is observed.
+ */
 function dispatchTests(num, branch) {
-  if (DRY) { console.log(`[dry] dispatch tests.yml --ref ${branch} -f pr_number=${num} (#${num})`); return true; }
-  // `gh workflow run` stampa l'URL del run SOLO "if available" (spesso vuoto
-  // anche a successo, per propagazione API) → lo stesso sentinel ambiguo di
-  // gh(json:false) qui non basta a distinguere successo da errore (vedi fix
-  // di collisionGateBlocks sopra). Rileva il fallimento reale via eccezione
-  // (exit code), non via contenuto di stdout.
-  try {
-    execFileSync('gh', [
-      'workflow', 'run', 'tests.yml', '--ref', branch, '-f', `pr_number=${num}`,
-    ],
-      { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
-    return true;
-  } catch {
-    console.log(`::warning::PR #${num}: dispatch tests.yml con pr_number=${num} sul ref ${branch} fallito — test/review potrebbero non ripartire sull'head; verifica scope actions:write del PAT.`);
+  const prefix = DRY ? '[dry] ' : '';
+  console.log(`${prefix}PR #${num}: push su ${branch} accettato; atteso tests.yml via pull_request.synchronize (nessun workflow_dispatch trusted).`);
+  return false;
+}
+
+const TESTS_MANUAL_MARKER_PREFIX = '<!-- AUTOREBASE_TESTS_MANUAL_CHECKPOINT:';
+
+/** Leave one durable, idempotent checkpoint when no safe pull_request run can
+ * be re-run. A missing run must not be repaired through workflow_dispatch:
+ * that API would execute workflow YAML selected by a PR-controlled ref. */
+function manualTestsCheckpoint(num, head, reason) {
+  const marker = `${TESTS_MANUAL_MARKER_PREFIX} pr=${num} head=${String(head).slice(0, 12)} -->`;
+  if (hasCommentMarker(num, marker)) return false;
+  if (DRY) {
+    console.log(`[dry] ${marker} ${reason}`);
     return false;
   }
+  gh(['pr', 'comment', String(num), '--repo', REPO, '--body',
+    `${marker}\n⚠️ **tests checkpoint manuale**: ${reason}\n\nNessun workflow trusted è stato dispatchato su un ref della PR; il prossimo push sul branch deve generare pull_request.synchronize.`,
+  ], { json: false, allowFail: true });
+  return false;
 }
 
 /** mergeable con un poll su UNKNOWN. */
@@ -1524,27 +1534,27 @@ async function processPR(pr) {
   if (behind === 0) {
     // Già allineata a main, ma l'head può essere "orfano" (0 check-run vitest):
     // rebasato da un push PAT che non ha ri-triggerato `pull_request`, o da un
-    // autorebase pre-#1597 che pushava senza dispatchare. In quel caso
+    // autorebase pre-#1597 che pushava senza sincronizzare. In quel caso
     // auto-merge-eval resta in attesa per sempre (gate vitest==success mai
     // soddisfatto) → PR near-merge bloccata (osservato #1595/#1526). HEAL: se
-    // manca del tutto il check vitest, dispatchiamo tests.yml. Idempotente:
+    // manca del tutto il check vitest, lasciamo un checkpoint manuale. Idempotente:
     // appena un run è queued, headHasVitestCheck torna true → niente
-    // ri-dispatch. Nessun rebase: il dispatch parametrizzato avvia test +
-    // review sulla stessa HEAD e non richiede più una transizione close+reopen.
+    // nuovo evento synchronize. Nessun rebase: il prossimo push avvia test +
+    // review sulla stessa HEAD; nessun ref PR viene usato per dispatch trusted.
     if (!headHasVitestCheck(head)) {
-      console.log(`PR #${num} 0 dietro main ma head ${head.slice(0, 8)} SENZA check-run vitest → dispatch tests.yml con pr_number=${num} (heal, test + review, no rebase).`);
-      if (dispatchTests(num, branch)) clearStaleReviewLabel(num);
+      console.log(`PR #${num} 0 dietro main ma head ${head.slice(0, 8)} SENZA check-run vitest → checkpoint manuale (nessun dispatch trusted).`);
+      manualTestsCheckpoint(num, head, 'head senza un check-run pull_request tests.yml');
     } else if (vitestVerdictIsTransient(head)) {
       // Il check vitest ESISTE ma il suo verdetto rosso è una CANCELLAZIONE da
       // concurrency, non un test rotto, e nessun run fresco è già pendente:
       // `cancelled` sul check stesso (job singolo, post-de-shard #2882) o
       // `failure` collassato da shard cancellati (vecchia matrice, #2438).
       // L'head resterebbe ferma (l'heal sopra scatta solo su check ASSENTE;
-      // auto-merge esige `success`) finché un evento esterno non ri-dispatcha.
-      // Ri-dispatch tests.yml (heal), NESSUN rebase. Un `failure` REALE non passa
+      // auto-merge esige `success`) finché un evento esterno non sincronizza.
+      // Nessun dispatch trusted (heal), NESSUN rebase. Un `failure` REALE non passa
       // di qui → niente re-run gratis (AGENTS #5 + frugalità CI).
-      console.log(`PR #${num} 0 dietro main, vitest rosso da CANCELLAZIONE (transient, nessun verdetto sul codice) → dispatch tests.yml (heal, no rebase).`);
-      if (dispatchTests(num, branch)) clearStaleReviewLabel(num);
+      console.log(`PR #${num} 0 dietro main, vitest rosso da CANCELLAZIONE (transient, nessun verdetto sul codice) → checkpoint manuale.`);
+      manualTestsCheckpoint(num, head, 'check-run vitest cancellato senza una nuova run pull_request');
     } else {
       console.log(`PR #${num} 0 dietro main, vitest già presente sull'head — skip.`);
     }
@@ -1627,8 +1637,8 @@ async function processPR(pr) {
     hasVitestCheck: headHasVitestCheck(head),
   });
   if (action === 'heal') {
-    console.log(`PR #${num} LGTM non-collision, ${behind} dietro main, head ${head.slice(0, 8)} SENZA check-run vitest → dispatch tests (heal, NO rebase: main non-strict, auto-merge la mergia behind).`);
-    if (dispatchTests(num, branch)) clearStaleReviewLabel(num);
+    console.log(`PR #${num} LGTM non-collision, ${behind} dietro main, head ${head.slice(0, 8)} SENZA check-run vitest → checkpoint manuale (NO rebase, nessun dispatch trusted).`);
+    manualTestsCheckpoint(num, head, 'head senza un check-run pull_request tests.yml');
     return;
   }
   if (action === 'skip') {
@@ -1774,37 +1784,31 @@ async function processPR(pr) {
     return;
   }
 
-  // Riesegui test E review sull'head rebasato. Un push PAT su un branch PR NON
-  // ri-triggera in modo affidabile i workflow `pull_request` (osservato: head
-  // rebasati di #1587/#1526 con ZERO check-run), quindi il dispatch esplicito
-  // passa anche `pr_number`: `tests.yml` può risolvere la PR, verificare la HEAD
-  // e postare un verdetto nuovo. L'LGTM precedente è stantio per costruzione e
-  // non viene portato avanti. Best-effort: se il dispatch fallisce (PAT senza
-  // scope actions:write) lo logghiamo soltanto.
-  // Dopo un rebase ogni LGTM sulla HEAD precedente è stantio, anche quando
-  // mancava del tutto o la review aveva finding aperti. Il dispatch esplicito
-  // ora risolve la PR dal numero e lancia direttamente test + review sulla HEAD
-  // nuova: close+reopen aggiungerebbe una race di stato senza alcun segnale
-  // necessario. La label `needs-human` non introduce un'eccezione: il round-cap
-  // resta tracciato dalla sua causa e dal marker sticky, non dalla presenza della
-  // label.
+  // Riesegui test E review sull'head rebasato tramite il normale evento
+  // `pull_request.synchronize` generato dal push. Non invocare workflow_dispatch
+  // su un ref della PR: quel ref controlla anche il workflow YAML e non è una
+  // sorgente trusted. L'LGTM precedente è stantio per costruzione e non viene
+  // portato avanti; se GitHub non emette il synchronize, stale-review resta
+  // visibile per il rescuer/operatore e nessun falso successo viene registrato.
+  // La label `needs-human` non introduce un'eccezione: il round-cap resta
+  // tracciato dalla sua causa e dal marker sticky, non dalla presenza della label.
   if (!lgtm) {
     const why = hasAnyClaudeReview(num) ? '🔴/❓ non chiuso + drift sanato' : 'classe-A senza review';
     if (dispatchTests(num, branch)) {
       clearStaleReviewLabel(num);
-      console.log(`✅ PR #${num}: rebasata, pushata (${branch}) (${why}) e dispatchato tests.yml con pr_number=${num} → test + review nuova sulla HEAD.`);
+       console.log(`✅ PR #${num}: rebasata, pushata (${branch}) (${why}) → atteso tests.yml via pull_request.synchronize sulla HEAD nuova.`);
     }
     return;
   }
   if (dispatchTests(num, branch)) {
     clearStaleReviewLabel(num);
-    console.log(`✅ PR #${num}: rebasata su origin/main, pushata (${branch}) e dispatchato tests.yml con pr_number=${num} → test + review sulla nuova head.`);
+    console.log(`✅ PR #${num}: rebasata su origin/main e pushata (${branch}) → tests.yml via pull_request.synchronize, test + review sulla nuova head.`);
   }
 }
 
 async function main() {
   if (!REPO) { console.error('GITHUB_REPOSITORY mancante'); process.exit(1); }
-  if (!TOKEN) { console.error('::warning::GH_TOKEN (PAT) assente → autorebase inerte (serve per push + dispatch tests.yml).'); process.exit(0); }
+  if (!TOKEN) { console.error('::warning::GH_TOKEN (PAT/App token) assente → autorebase inerte (serve per il push del branch PR).'); process.exit(0); }
   console.log(`pr-autorebase${DRY ? ' [DRY-RUN]' : ''} repo=${REPO}`);
 
   let prs;

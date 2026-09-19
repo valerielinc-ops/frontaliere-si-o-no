@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import * as net from './bridge-transport.mjs';
+import os from 'node:os';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import {
@@ -269,7 +270,200 @@ function isApiBodyFlag(arg) {
     || (arg.startsWith('-f') && arg.length > 2);
 }
 
-function apiMethodError(args, start) {
+function pullRequestApiEndpoint(args, start, repository) {
+  const endpoint = apiEndpoint(args, start);
+  const prefix = `repos/${repository}/pulls/`;
+  if (!endpoint.startsWith(prefix)) return '';
+  const number = endpoint.slice(prefix.length);
+  return /^\d+$/.test(number) ? endpoint : '';
+}
+
+/**
+ * The body gate needs the REST ETag, but the fallback bridge otherwise keeps
+ * `--include` and every API body mutation closed.  This exact read is safe:
+ * it can only fetch metadata for the current repository's one PR endpoint.
+ */
+function isPullRequestBodyRead(args, start, repository) {
+  const endpoint = pullRequestApiEndpoint(args, start, repository);
+  if (!endpoint) return false;
+  let endpointSeen = false;
+  let includeSeen = false;
+  for (let index = start; index < args.length; index += 1) {
+    const arg = args[index];
+    if (arg === endpoint && !endpointSeen) {
+      endpointSeen = true;
+      continue;
+    }
+    if (arg === '--include' && !includeSeen) {
+      includeSeen = true;
+      continue;
+    }
+    return false;
+  }
+  return endpointSeen && includeSeen;
+}
+
+/**
+ * The body gate is the sole caller allowed to use a conditional PR-body
+ * PATCH. Keep this allow-list narrower than generic `gh api`: one current-PR
+ * endpoint, explicit PATCH, one If-Match header and one body field loaded from
+ * a validated workspace/scratch file. The bridge transports argv, not stdin.
+ */
+function isConditionalPullRequestBodyPatch(args, start, repository) {
+  const endpoint = pullRequestApiEndpoint(args, start, repository);
+  if (!endpoint) return false;
+  let endpointSeen = false;
+  let method = '';
+  let explicitMethod = false;
+  let ifMatchSeen = false;
+  let bodyFieldSeen = false;
+  for (let index = start; index < args.length; index += 1) {
+    const arg = args[index];
+    if (arg === endpoint && !endpointSeen) {
+      endpointSeen = true;
+      continue;
+    }
+    if (arg === '--method' || arg === '-X') {
+      if (explicitMethod || index + 1 >= args.length) return false;
+      method = String(args[index + 1] || '').toUpperCase();
+      explicitMethod = true;
+      index += 1;
+      continue;
+    }
+    if (arg.startsWith('--method=') || arg.startsWith('-X=')) {
+      if (explicitMethod) return false;
+      method = (arg.startsWith('--method=') ? arg.slice('--method='.length) : arg.slice(3)).toUpperCase();
+      explicitMethod = true;
+      continue;
+    }
+    if (arg === '--header' || arg === '-H') {
+      if (ifMatchSeen || index + 1 >= args.length) return false;
+      const header = String(args[index + 1] || '');
+      if (!/^If-Match:\s*(?:W\/)?"[^"\r\n]+"$/iu.test(header)) return false;
+      ifMatchSeen = true;
+      index += 1;
+      continue;
+    }
+    if (arg.startsWith('--header=') || arg.startsWith('-H=')) {
+      if (ifMatchSeen) return false;
+      const header = arg.startsWith('--header=') ? arg.slice('--header='.length) : arg.slice(3);
+      if (!/^If-Match:\s*(?:W\/)?"[^"\r\n]+"$/iu.test(header)) return false;
+      ifMatchSeen = true;
+      continue;
+    }
+    if (arg === '--field' || arg === '-F') {
+      if (bodyFieldSeen || index + 1 >= args.length || !/^body=@[^\r\n]+$/u.test(String(args[index + 1] || ''))) return false;
+      bodyFieldSeen = true;
+      index += 1;
+      continue;
+    }
+    if (arg.startsWith('--field=') || arg.startsWith('-F=')) {
+      if (bodyFieldSeen) return false;
+      const value = arg.startsWith('--field=') ? arg.slice('--field='.length) : arg.slice(3);
+      if (!/^body=@[^\r\n]+$/u.test(value)) return false;
+      bodyFieldSeen = true;
+      continue;
+    }
+    if (arg.startsWith('-F') && arg.length > 2) {
+      if (bodyFieldSeen) return false;
+      if (!/^body=@[^\r\n]+$/u.test(arg.slice(2))) return false;
+      bodyFieldSeen = true;
+      continue;
+    }
+    return false;
+  }
+  return endpointSeen && explicitMethod && method === 'PATCH' && ifMatchSeen && bodyFieldSeen;
+}
+
+function conditionalBodyFieldValue(args, start) {
+  for (let index = start; index < args.length; index += 1) {
+    const arg = args[index];
+    if (arg === '--field' || arg === '-F') return args[index + 1] || '';
+    if (arg.startsWith('--field=')) return arg.slice('--field='.length);
+    if (arg.startsWith('-F=')) return arg.slice(3);
+    if (arg.startsWith('-F') && arg.length > 2) return arg.slice(2);
+  }
+  return '';
+}
+
+function conditionalBodyPatchError(args, start, context) {
+  const value = conditionalBodyFieldValue(args, start);
+  if (!value.startsWith('body=@')) return 'gh API conditional PR body field is not verifiable';
+  const file = bodyFilePath(value.slice('body=@'.length), context);
+  if (file.error) return file.error;
+  const validation = validatePrBodyContract(file.body);
+  return validation.ok ? '' : 'gh API conditional PR body contract is not satisfied';
+}
+
+function replaceConditionalBodyField(args, start, bodyPath) {
+  const replaced = args.slice();
+  const value = `body=@${bodyPath}`;
+  for (let index = start; index < replaced.length; index += 1) {
+    const arg = replaced[index];
+    if (arg === '--field' || arg === '-F') {
+      replaced[index + 1] = value;
+      return replaced;
+    }
+    if (arg.startsWith('--field=')) {
+      replaced[index] = `--field=${value}`;
+      return replaced;
+    }
+    if (arg.startsWith('-F=')) {
+      replaced[index] = `-F=${value}`;
+      return replaced;
+    }
+    if (arg.startsWith('-F') && arg.length > 2) {
+      replaced[index] = `-F${value}`;
+      return replaced;
+    }
+  }
+  throw new Error('gh API conditional PR body field is missing');
+}
+
+/**
+ * Pin a validated PR body to a host-private file before spawning real gh.
+ * The model can edit the workspace/scratch source after validation, so passing
+ * its path directly would reintroduce a local TOCTOU. The temporary directory
+ * is mode 0700 and the file 0600; only the host bridge and its child can read
+ * it, and cleanup runs when the request completes.
+ */
+export function materializeConditionalBodyPatch(args, start, {
+  repository,
+  cwd,
+  allowedRoots = [],
+} = {}) {
+  if (!isConditionalPullRequestBodyPatch(args, start, repository)) {
+    throw new Error('gh API conditional PR body PATCH is not an allowed operation');
+  }
+  const value = conditionalBodyFieldValue(args, start);
+  const source = bodyFilePath(value.slice('body=@'.length), { cwd: cwd || process.cwd(), allowedRoots });
+  if (source.error) throw new Error(source.error);
+  const validation = validatePrBodyContract(source.body);
+  if (!validation.ok) throw new Error('gh API conditional PR body contract is not satisfied');
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-gh-body-'));
+  let cleaned = false;
+  const cleanup = () => {
+    if (cleaned) return;
+    cleaned = true;
+    fs.rmSync(directory, { recursive: true, force: true });
+  };
+  try {
+    fs.chmodSync(directory, 0o700);
+    const bodyPath = path.join(directory, 'body.md');
+    fs.writeFileSync(bodyPath, source.body, { flag: 'wx', mode: 0o600 });
+    return {
+      args: replaceConditionalBodyField(args, start, bodyPath),
+      cleanup,
+      bodyPath,
+    };
+  } catch (error) {
+    cleanup();
+    throw error;
+  }
+}
+
+function apiMethodError(args, start, repository) {
+  if (isConditionalPullRequestBodyPatch(args, start, repository)) return '';
   let method = 'GET';
   let explicitMethod = false;
   let hasBody = false;
@@ -300,7 +494,7 @@ function apiMethodError(args, start) {
 }
 
 function validateOperation(args, commandIndex, command, repository, allowedSubcommandMap = allowedSubcommands) {
-  if (command === 'api') return apiMethodError(args, commandIndex + 1);
+  if (command === 'api') return apiMethodError(args, commandIndex + 1, repository);
   const operation = firstOperationArg(args, commandIndex + 1);
   if (!allowedSubcommandMap.get(command)?.has(operation)) {
     return `gh ${command} operation is not permitted by the Codex fallback bridge: ${operation || '<missing>'}`;
@@ -643,9 +837,18 @@ export function validateGhArgs(args, {
   const context = { cwd: cwd || process.cwd(), allowedRoots };
   const bodyError = command === 'pr' ? validatePrBodyArgs(args, commandIndex, context) : '';
   if (bodyError) return bodyError;
+  const conditionalBodyPatch = command === 'api'
+    && isConditionalPullRequestBodyPatch(args, commandIndex + 1, repository);
+  if (conditionalBodyPatch) {
+    const conditionalBodyError = conditionalBodyPatchError(args, commandIndex + 1, context);
+    if (conditionalBodyError) return conditionalBodyError;
+  }
   for (let index = 0; index < args.length; index += 1) {
     const arg = args[index];
-    if (blockedFlags.has(arg) || [...blockedFlags].some((flag) => arg.startsWith(`${flag}=`))) {
+    const allowedBodyRead = command === 'api'
+      && isPullRequestBodyRead(args, commandIndex + 1, repository)
+      && arg === '--include';
+    if (!allowedBodyRead && (blockedFlags.has(arg) || [...blockedFlags].some((flag) => arg.startsWith(`${flag}=`)))) {
       return `gh flag is not permitted by the Codex fallback bridge: ${arg}`;
     }
     const fileFlag = [...fileFlags].find((flag) => arg === flag || arg.startsWith(`${flag}=`));
@@ -731,6 +934,7 @@ function main() {
     let terminationRequested = false;
     let responseSent = false;
     let timedOut = false;
+    let cleanupExecution = () => {};
     let reviewProbeChild = null;
     const terminateChild = (reason) => {
       if (!child || childExited) return;
@@ -749,6 +953,9 @@ function main() {
       responseSent = true;
       if (childTimer) clearTimeout(childTimer);
       if (childTerminationTimer) clearTimeout(childTerminationTimer);
+      const cleanup = cleanupExecution;
+      cleanupExecution = () => {};
+      cleanup();
       if (childExited) releaseSlot();
       responseFor(client, result);
     };
@@ -800,6 +1007,21 @@ function main() {
       }
       const commandIndex = commandIndexFor(args);
       if (isMutatingGhArgs(args)) markSideEffect(sideEffectFile);
+      let executionArgs = args;
+      if (isConditionalPullRequestBodyPatch(args, commandIndex + 1, scope.repository)) {
+        try {
+          const materialized = materializeConditionalBodyPatch(args, commandIndex + 1, {
+            repository: scope.repository,
+            cwd,
+            allowedRoots: [realRoot(workspaceRoot), realRoot(scratchRoot)].filter(Boolean),
+          });
+          executionArgs = materialized.args;
+          cleanupExecution = materialized.cleanup;
+        } catch (error) {
+          finish({ code: 2, stderr: `bridge request: ${error.message}\n` });
+          return;
+        }
+      }
       client.setTimeout(RESPONSE_TIMEOUT_MS, timeoutClient);
       const reviewDetails = reviewRetryDetails(args, commandIndex, {
         cwd,
@@ -884,7 +1106,7 @@ function main() {
         reviewAttempt += 1;
         terminationRequested = false;
         childTerminationTimer = null;
-        child = spawn(realGh, args, {
+        child = spawn(realGh, executionArgs, {
           cwd,
           env: {
             ...baseEnv,

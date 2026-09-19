@@ -59,10 +59,9 @@ describe('trigger — parte solo su un rosso vero, di una PR vera', () => {
     expect(src).toContain('Nessuna PR aperta per il branch');
   });
 
-  it('è serializzato per branch, e NON cancella la run in corso', () => {
-    // `cancel-in-progress: true` ucciderebbe un fix a metà push.
-    expect(src).toMatch(/group: redcheck-fix-\$\{\{ github\.event\.workflow_run\.head_branch/);
-    expect(src).toMatch(/cancel-in-progress: false/);
+  it('serializza i body writer e cancella il precedente prima del nuovo CAS', () => {
+    expect(src).toMatch(/group: body-revision-\$\{\{ github\.event\.workflow_run\.head_branch/);
+    expect(src).toMatch(/cancel-in-progress: true/);
   });
 });
 
@@ -94,6 +93,20 @@ describe('scope — non tocca ciò che non è suo', () => {
   it('non corre sopra il 🔴-fixer sullo stesso branch (push race)', () => {
     expect(src).toContain('pr-redflag-fixer.yml');
     expect(src).toContain('push race');
+  });
+});
+
+describe('trusted claim policy — il checkout PR non decide l ammissione', () => {
+  it('scarica e ri-materializza l helper dei claim da main', () => {
+    expect(src).toContain('Bootstrap trusted redcheck policy (no PR code)');
+    expect(src).toContain('POLICY_REF: main');
+    expect(src).toContain('Resolve trusted GitHub CLI (before PR checkout)');
+    expect(src).toContain('TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}');
+    expect(src).toContain('"$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}"');
+    expect(src).toContain('TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy.outputs.root }}');
+    expect(src).toContain('Refresh trusted redcheck policy before finalize');
+    expect(src).toContain('TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_final.outputs.root }}');
+    expect(src).not.toMatch(/run: node scripts\/ci\/pr-fixer-claim\.mjs --claim/);
   });
 });
 

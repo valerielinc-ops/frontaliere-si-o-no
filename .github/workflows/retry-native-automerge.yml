@@ -11,6 +11,7 @@ on:
 permissions:
   contents: read
   pull-requests: write
+  issues: read
 
 concurrency:
   group: retry-native-automerge
@@ -43,6 +44,7 @@ jobs:
             /scripts/ci/lib/vitestCheck.mjs
             /scripts/ci/lib/constants.mjs
             /scripts/ci/lib/pr-review-admission.mjs
+            /scripts/ci/lib/review-input-revision.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /data/loop-fleet/loop-registry.json
           sparse-checkout-cone-mode: false

@@ -19,6 +19,7 @@ import {
 const review = (commit_id: string, body: string, login = 'frontaliere-automation[bot]') => ({
   commit_id,
   user: { login, type: 'Bot' },
+  state: 'COMMENTED',
   body,
 });
 

@@ -13,6 +13,7 @@ import {
   admissionCli,
   shouldAdmitBodyReReview,
 } from '../scripts/ci/lib/pr-review-admission.mjs';
+import { reviewInputRevisionFromBody } from '../scripts/ci/lib/review-input-revision.mjs';
 import { runReviewGate } from '../scripts/ci/review-gate.mjs';
 
 const HEAD = 'a'.repeat(40);
@@ -20,6 +21,7 @@ const PRIOR = 'b'.repeat(40);
 const OLDER = 'c'.repeat(40);
 const FP = 'f'.repeat(64);
 const OTHER_FP = 'e'.repeat(64);
+const REVIEW_REVISION = reviewInputRevisionFromBody('');
 const CLEAN = '## Findings (Important: 0, Nit: 0)\n\n## LGTM';
 const IMPORTANT = '## Findings (Important: 1, Nit: 0)\n\n`scripts/lib/foo.mjs:L12`: 🔴 Important: pagination is incomplete.\n';
 const BODY_IMPORTANT = '## Findings (Important: 1, Nit: 0)\n\n`PR body:L4`: 🔴 Important: bullet senza stato.\n';
@@ -31,7 +33,7 @@ function review(id: number, body: string, commit_id: string, submitted_at: strin
 const sameFp = () => FP;
 
 function carried(id: number, from: { id: number; commit: string }, submitted_at = '2026-09-19T12:00:00Z', fp = FP) {
-  return review(id, renderCarryForwardBody({ priorReviewId: String(from.id), priorCommit: from.commit, fingerprint: fp }), HEAD, submitted_at);
+  return review(id, renderCarryForwardBody({ priorReviewId: String(from.id), priorCommit: from.commit, fingerprint: fp, reviewRevision: REVIEW_REVISION }), HEAD, submitted_at);
 }
 
 describe('decideNoCodeDeltaTier', () => {
@@ -141,7 +143,7 @@ describe('postCarryForward', () => {
     const ghFn = (args: string[], input?: string) => {
       if (args.includes('--method')) { posts.push(String(input)); return {}; }
       if (args[1].endsWith('/reviews')) return [reviews];
-      return { state: 'open', head: { sha: head } };
+      return { state: 'open', body: '', head: { sha: head } };
     };
     return { ghFn, posts };
   }
@@ -199,7 +201,11 @@ describe('body re-review on the same HEAD', () => {
     const errWrite = process.stderr.write.bind(process.stderr);
     (process.stderr as unknown as { write: () => boolean }).write = () => true;
     try {
-      admissionCli(['node', 'x', 'skip', '--head', HEAD, '--body-edited-at', '2026-09-19T11:05:00Z'], JSON.stringify([[red]]));
+      admissionCli([
+        'node', 'x', 'skip', '--head', HEAD,
+        '--revision', reviewInputRevisionFromBody(''),
+        '--body-edited-at', '2026-09-19T11:05:00Z',
+      ], JSON.stringify([[red]]));
     } finally {
       (process.stdout as unknown as { write: typeof write }).write = write;
       (process.stderr as unknown as { write: typeof errWrite }).write = errWrite;
@@ -216,8 +222,8 @@ describe('tests.yml wiring', () => {
 
   it('no longer turns an empty code delta into a full review without trying the carry', () => {
     const tier = byId('tier')?.run || '';
-    expect(tier).toContain('review-carry-forward.mjs decide');
-    expect(tier).toContain('pr-contribution-fingerprint.mjs "$HEAD_SHA"');
+    expect(tier).toContain('review-carry-forward.mjs" decide');
+    expect(tier).toContain('pr-contribution-fingerprint.mjs" "$HEAD_SHA"');
     expect(tier).toContain('set_tier carry-forward none 0');
     expect(tier).not.toContain("Nessun delta-code nei file PR dall'ultima review → review piena.\"\n");
     expect(tier).toContain('BODY_REREVIEW');
@@ -226,7 +232,7 @@ describe('tests.yml wiring', () => {
   it('publishes the carry without a model and keeps the model off that tier', () => {
     const carry = byId('carry_forward_review');
     expect(carry?.if).toContain("steps.tier.outputs.tier == 'carry-forward'");
-    expect(carry?.run).toContain('review-carry-forward.mjs post');
+    expect(carry?.run).toContain('review-carry-forward.mjs" post');
     for (const id of ['prefetch', 'codex_review', 'review_abort']) {
       expect(byId(id)?.if).toContain("steps.tier.outputs.tier != 'carry-forward'");
     }

@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
 import { markerCli, parseReviewPages, reviewMarkerDecision } from '../scripts/ci/review-marker-recovery.mjs';
 import { reviewInputMarker } from '../scripts/ci/lib/review-input-revision.mjs';
 
@@ -67,5 +68,15 @@ describe('deterministic review input marker recovery', () => {
       ['node', 'review-marker-recovery.mjs', 'validate', '--head', HEAD, '--revision', REVISION],
       raw,
     )).toBe(1);
+  });
+
+  it('wires the zero-agent validator between review action and gate', () => {
+    const workflow = readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8');
+    const marker = workflow.indexOf('name: Validate deterministic review input marker');
+    const gate = workflow.indexOf('name: Require approving Codex review');
+    expect(marker).toBeGreaterThan(-1);
+    expect(marker).toBeLessThan(gate);
+    expect(workflow.slice(marker, gate)).toContain('review-marker-recovery.mjs" validate');
+    expect(workflow.slice(marker, gate)).toContain('nessun retry Codex');
   });
 });

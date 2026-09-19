@@ -33,6 +33,11 @@ import {
   isTerminalManagedReview,
   reviewBodyIsApproving,
 } from './pr-review-admission.mjs';
+import {
+  normalizeReviewInputRevision,
+  reviewInputMarker,
+  reviewInputRevisionFromPullRequest,
+} from './review-input-revision.mjs';
 
 export const CARRY_FORWARD_MARKER = '<!-- REVIEW_CARRY_FORWARD -->';
 const CARRY_FROM_RE = /<!-- REVIEW_CARRY_FORWARD_FROM: review=(\d+) commit=([0-9a-f]{40}) fingerprint=([0-9a-f]{64}) -->/u;
@@ -118,10 +123,13 @@ export function decideNoCodeDeltaTier({ reviews, headSha, priorCommit, fpHead, f
   };
 }
 
-export function renderCarryForwardBody({ priorReviewId, priorCommit, fingerprint }) {
+export function renderCarryForwardBody({ priorReviewId, priorCommit, fingerprint, reviewRevision }) {
+  const revision = normalizeReviewInputRevision(reviewRevision);
+  if (!revision) throw new Error('review input revision mancante per carry-forward');
   return [
     CARRY_FORWARD_MARKER,
     `<!-- REVIEW_CARRY_FORWARD_FROM: review=${priorReviewId} commit=${priorCommit} fingerprint=${fingerprint} -->`,
+    reviewInputMarker(revision),
     '## Scope',
     `Verdetto riportato senza modello (tier: carry-forward): il contributo CODE della PR è identico a quello approvato dalla review ${priorReviewId} sul commit \`${priorCommit.slice(0, 12)}\` (fingerprint \`${fingerprint.slice(0, 12)}\`). Dall'ultima review nessun file code della PR è cambiato: merge di main, commit vuoto o sola metadata. Test e contratto del body sono rieseguiti su questa HEAD.`,
     '',
@@ -232,7 +240,7 @@ function emit(line) {
  * verdict on the exact HEAD.
  */
 export function postCarryForward({
-  repo, pr, head, priorReviewId, priorCommit, fingerprint,
+  repo, pr, head, priorReviewId, priorCommit, fingerprint, reviewRevision,
   ghFn = ghJson, fingerprintFn = contributionFingerprint,
 }) {
   if (!/^[\w.-]+\/[\w.-]+$/u.test(repo || '') || !/^\d+$/u.test(String(pr))
@@ -244,12 +252,22 @@ export function postCarryForward({
   if (current?.state !== 'open' || current?.head?.sha !== head) {
     throw new Error('la PR non è aperta sulla HEAD attesa');
   }
+  const currentRevision = reviewInputRevisionFromPullRequest(current);
+  const expectedRevision = normalizeReviewInputRevision(reviewRevision);
+  if (expectedRevision && expectedRevision !== currentRevision) {
+    throw new Error('body PR cambiato prima del carry-forward');
+  }
   const reviews = flattenReviewPages(ghFn(['api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate', '--slurp']));
   if (reviews.some((review) => review?.commit_id === head && isCarryForwardReview(review)
       && isTerminalManagedReview(review))) {
     return { posted: false, reason: 'carry-forward già pubblicato su questa HEAD' };
   }
-  const body = renderCarryForwardBody({ priorReviewId, priorCommit, fingerprint });
+  const body = renderCarryForwardBody({
+    priorReviewId,
+    priorCommit,
+    fingerprint,
+    reviewRevision: currentRevision,
+  });
   const candidate = {
     id: Number.MAX_SAFE_INTEGER,
     user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
@@ -301,6 +319,7 @@ export function carryForwardCli(argv = process.argv, stdinText = '') {
       priorReviewId: process.env.CARRY_PRIOR_REVIEW,
       priorCommit: process.env.CARRY_PRIOR_COMMIT,
       fingerprint: process.env.CARRY_FINGERPRINT,
+      reviewRevision: process.env.REVIEW_REVISION,
     });
     emit(`posted=${result.posted ? 'true' : 'false'}`);
     process.stderr.write(`carry-forward: ${result.reason}\n`);

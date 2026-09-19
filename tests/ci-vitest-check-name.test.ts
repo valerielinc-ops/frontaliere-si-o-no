@@ -468,9 +468,9 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
     expect(TESTS_YML).toContain('fallback su diff locale degli SHA');
   });
 
-  it('materializza gli artifact del diff anche nel workflow_dispatch manuale', () => {
+  it('materializza gli artifact del diff sul solo percorso PR trusted', () => {
     const collector = TESTS_YML.match(/- name: Collect changed paths[\s\S]*?(?=\n      - name:)/)?.[0] || '';
-    expect(collector).toContain("github.event_name == 'workflow_dispatch'");
+    expect(collector).not.toContain("github.event_name == 'workflow_dispatch'");
     expect(collector).toContain(': > changed-paths.txt');
     expect(collector).toContain('changed-paths-status.txt');
   });
@@ -479,7 +479,7 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
     expect(TESTS_YML).toContain('review-bundle.md');
     const prefetch = YAML.parse(TESTS_YML).jobs.vitest.steps.find((step: any) => step.id === 'prefetch');
     expect(prefetch.env.INCREMENTAL_BASE).toBe('${{ steps.tier.outputs.incremental_base }}');
-    expect(prefetch.run).toContain('node scripts/ci/prefetch-review-diff.mjs || exit 1');
+    expect(prefetch.run).toContain('node "$REVIEW_POLICY_ROOT/scripts/ci/prefetch-review-diff.mjs" || exit 1');
     expect(prefetch.run).not.toContain('gh pr diff');
     expect(TESTS_YML).toContain('review-code-files.txt');
     expect(TESTS_YML).toContain('delta-files.txt');

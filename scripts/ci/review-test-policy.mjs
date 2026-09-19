@@ -5,6 +5,12 @@ import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
 import {
+  normalizeReviewInputRevision,
+  reviewHasInputRevision,
+  reviewInputMarker,
+} from './lib/review-input-revision.mjs';
+import { isTerminalManagedReview } from './lib/pr-review-admission.mjs';
+import {
   validateActionClassAgainstPolicy,
   validateDecisionLifecycle,
   validateLifecycleEvent,
@@ -243,20 +249,32 @@ export function verifyTestOnlyHead(ghFn, repo, pr, head) {
   const after = current();
   return onlyTests && after.state === 'open' && after.head?.sha === head && before.base?.sha === after.base?.sha;
 }
-export function findTestOnlyApproval(reviews, head, { ghFn = gh, repo, pr } = {}) {
-  const candidates = (reviews ?? []).flat().filter(review => review.user?.type === 'Bot'
+export function findTestOnlyApproval(
+  reviews,
+  head,
+  { ghFn = gh, repo, pr, reviewRevision } = {},
+) {
+  const revision = reviewRevision === undefined
+    ? undefined
+    : normalizeReviewInputRevision(reviewRevision);
+  if (reviewRevision !== undefined && !revision) return null;
+  const candidates = (reviews ?? []).flat().filter(review => isTerminalManagedReview(review)
     && /^(github-actions|frontaliere-automation)\[bot\]$/.test(review.user.login ?? '')
     && review.commit_id === head && String(review.body ?? '').includes(TEST_REVIEW_MARKER)
+    && (revision === undefined || reviewHasInputRevision(review.body, revision))
     && /^## LGTM\s*$/m.test(review.body) && !/🔴/.test(review.body));
   if (!candidates.length || !verifyTestOnlyHead(ghFn, repo, pr, head)) return null;
   return candidates.at(-1);
 }
-export function postTestOnlyReview({ repo, pr, head, ghFn = gh }) {
+export function postTestOnlyReview({ repo, pr, head, reviewRevision, ghFn = gh }) {
   if (!/^[\w.-]+\/[\w.-]+$/.test(repo ?? '') || !/^\d+$/.test(String(pr)) || !/^[a-f0-9]{40}$/.test(head ?? '')) throw new Error('Invalid review target');
+  const revision = normalizeReviewInputRevision(reviewRevision);
+  if (!revision) throw new Error('Review input revision is not verifiable');
   if (!verifyTestOnlyHead(ghFn, repo, pr, head)) throw new Error('PR is not a complete tests-only change on the expected HEAD');
   const reviews = ghFn(['api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate']);
-  if (findTestOnlyApproval(reviews, head, { ghFn, repo, pr })) return;
-  const body = `${TEST_REVIEW_MARKER}\n## Scope\nApprovazione automatica: la PR modifica esclusivamente test. I controlli CI e il contratto del body restano obbligatori; nessuna review del modello richiesta dalla policy del proprietario.\n\n## Findings (Important: 0, Nit: 0)\n\n## LGTM\n`;
+  if (!Array.isArray(reviews)) throw new Error('Reviews API is unavailable or malformed');
+  if (findTestOnlyApproval(reviews, head, { ghFn, repo, pr, reviewRevision: revision })) return;
+  const body = `${TEST_REVIEW_MARKER}\n${reviewInputMarker(revision)}\n## Scope\nApprovazione automatica: la PR modifica esclusivamente test. I controlli CI e il contratto del body restano obbligatori; nessuna review del modello richiesta dalla policy del proprietario.\n\n## Findings (Important: 0, Nit: 0)\n\n## LGTM\n`;
   ghFn(['api', `repos/${repo}/pulls/${pr}/reviews`, '--method', 'POST', '--input', '-'], {
     input: JSON.stringify({ commit_id: head, event: 'COMMENT', body }),
   });
@@ -604,7 +622,12 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
   } else if (process.argv[2] === 'check') {
     process.exitCode = verifyTestOnlyHead(gh, process.env.REPO || process.env.GITHUB_REPOSITORY, process.env.PR_NUMBER, process.env.HEAD_SHA) ? 0 : 1;
   } else if (process.argv[2] === 'post') {
-    postTestOnlyReview({ repo: process.env.REPO || process.env.GITHUB_REPOSITORY, pr: process.env.PR_NUMBER, head: process.env.HEAD_SHA });
+    postTestOnlyReview({
+      repo: process.env.REPO || process.env.GITHUB_REPOSITORY,
+      pr: process.env.PR_NUMBER,
+      head: process.env.HEAD_SHA,
+      reviewRevision: process.env.REVIEW_REVISION,
+    });
   } else if (process.argv[2] === 'ledger-check') {
     const result = inspectLedgerOnlyHead(gh, process.env.REPO || process.env.GITHUB_REPOSITORY, process.env.PR_NUMBER, process.env.HEAD_SHA);
     process.stdout.write(`ledger-fast-path: ${result.kind} — ${result.reason}\n`);
