@@ -67,14 +67,18 @@ if (!existsSync(outputPath)) {
   fatal(`snapshot does not exist: ${outputPath}`);
 } else {
   let snapshot;
+  let parsed = false;
   try {
     snapshot = JSON.parse(readFileSync(outputPath, "utf8"));
+    parsed = true;
   } catch (error) {
     fatal(
       `snapshot is not valid JSON: ${error instanceof Error ? error.message : String(error)}`,
     );
   }
-  if (snapshot) {
+  if (parsed && (snapshot === null || typeof snapshot !== "object" || Array.isArray(snapshot))) {
+    fatal("snapshot must be a JSON object");
+  } else if (parsed) {
     if (snapshot.complete !== true)
       fatal("snapshot is not explicitly marked complete");
     const auctions = Array.isArray(snapshot.auctions) ? snapshot.auctions : [];
@@ -112,7 +116,7 @@ if (!existsSync(outputPath)) {
         )
           unhealthy(`${key}: missing successful fetch timestamps`);
         if (actualRowCount < 1)
-          unhealthy(`${key}: active source returned no rows`);
+          fatal(`${key}: active source returned no rows`);
       } else if (actualRowCount > 0) {
         fatal(`${key}: non-active source has ${actualRowCount} snapshot rows`);
       }
@@ -161,13 +165,16 @@ console.log(JSON.stringify(summary, null, 2));
 // verdict, and the workflow requires a literal `false` — a missing output (this
 // script crashed) must not read as permission to commit.
 if (process.env.GITHUB_OUTPUT) {
-  appendFileSync(process.env.GITHUB_OUTPUT, `blocking=${blocking}\n`);
+  appendFileSync(
+    process.env.GITHUB_OUTPUT,
+    `blocking=${blocking}\nhealth_failed=${errors.length > 0}\n`,
+  );
 }
 // `--blocking-only` exits non-zero for the structural errors alone. It exists
 // for the push-retry regenerate command, which rebuilds the snapshot after
 // losing a race and must refuse to publish a broken one — but must not abort
 // the push just because a source is degraded, since that is the very state the
-// commit is now allowed to carry. The full verdict is still enforced by the
-// workflow step that runs this script without the flag.
+// commit is now allowed to carry. `health_failed` still carries the complete
+// source-health verdict to the workflow step that runs after the retry.
 const blockingOnly = process.argv.includes("--blocking-only");
 if (blockingOnly ? blocking : errors.length > 0) process.exitCode = 1;

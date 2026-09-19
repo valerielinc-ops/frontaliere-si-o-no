@@ -484,6 +484,7 @@ describe('check-health publication gate', () => {
     const { status, summary, githubOutput } = runCheckHealth(healthySnapshot());
     expect(summary.errors).toEqual([]);
     expect(githubOutput).toContain('blocking=false');
+    expect(githubOutput).toContain('health_failed=false');
     expect(status).toBe(0);
   });
 
@@ -503,6 +504,28 @@ describe('check-health publication gate', () => {
     expect(summary.errors.join('\n')).toContain('lu: snapshot status degraded');
     expect(summary.blockingErrors).toEqual([]);
     expect(githubOutput).toContain('blocking=false');
+    expect(githubOutput).toContain('health_failed=true');
+    expect(status).toBe(1);
+  });
+
+  it('rejects valid JSON null before running structural checks', () => {
+    const { status, summary, githubOutput } = runCheckHealth(null);
+    expect(summary.blockingErrors).toContain('snapshot must be a JSON object');
+    expect(githubOutput).toContain('blocking=true');
+    expect(status).toBe(1);
+  });
+
+  it('blocks an active source whose published catalogue is empty', () => {
+    const snapshot = healthySnapshot();
+    snapshot.auctions = snapshot.auctions.filter(
+      (row) => String(row.sourceKey).toLowerCase() !== 'gr',
+    );
+    (snapshot.sources.gr as Record<string, unknown>).rowCount = 0;
+    snapshot.counts.active -= 1;
+
+    const { status, summary, githubOutput } = runCheckHealth(snapshot);
+    expect(summary.blockingErrors).toContain('gr: active source returned no rows');
+    expect(githubOutput).toContain('blocking=true');
     expect(status).toBe(1);
   });
 
@@ -530,5 +553,14 @@ describe('check-health publication gate', () => {
     const contradictory = healthySnapshot();
     (contradictory.sources.gr as Record<string, unknown>).rowCount = 99;
     expect(runCheckHealth(contradictory, ['--blocking-only']).status).toBe(1);
+  });
+
+  it('propagates source-health errors from push-retry regeneration', () => {
+    const workflow = readFileSync(
+      resolve(dirname(fileURLToPath(import.meta.url)), '../.github/workflows/refresh-plate-auctions.yml'),
+      'utf8',
+    );
+    expect(workflow).toContain('check-health.mjs --blocking-only');
+    expect(workflow).toContain('steps.commit.outputs.health_failed');
   });
 });

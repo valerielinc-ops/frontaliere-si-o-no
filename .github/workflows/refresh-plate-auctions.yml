@@ -183,9 +183,9 @@ jobs:
         # `steps.health.outcome == 'failure'` fires only when check-health
         # actually reported errors, so a cancelled or skipped run is not
         # relabelled as a health failure.
-        if: ${{ !cancelled() && steps.health.outcome == 'failure' }}
+        if: ${{ !cancelled() && (steps.health.outcome == 'failure' || steps.commit.outputs.health_failed == 'true') }}
         run: |
-          echo "::error::Plate-auction source health reported errors (see the 'Fail closed on source health or snapshot drift' step for the list). The snapshot was still committed if it was structurally sound, so the baseline advanced; this step keeps the run red so the degraded sources stay visible."
+          echo "::error::Plate-auction source health reported errors (see the 'Fail closed on source health or snapshot drift' step for the list). The snapshot was still committed if it was structurally sound, so the baseline advanced; this step keeps the run red so the degraded sources stay visible, including after a push-retry regeneration."
           exit 1
 
       - name: Report failure to GitHub Issues
