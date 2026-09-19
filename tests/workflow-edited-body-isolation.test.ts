@@ -165,7 +165,7 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(job.steps[0].with.script).not.toContain('head_sha completo e verificabile');
     const guard = job.steps.find((step: { name?: string }) => step.name?.startsWith('Re-review guard')) as { env?: Record<string, string>; run?: string } | undefined;
     expect(guard?.run).toContain('node "$REVIEW_POLICY_ROOT/scripts/ci/lib/pr-review-admission.mjs" skip');
-    expect(guard?.run).toContain('gh api "repos/$REPO/pulls/$PR_NUMBER/reviews"');
+    expect(guard?.run).toContain('"$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews"');
     expect(guard?.run).not.toContain('PR metadata modificata → review piena sulla revisione corrente del review input.');
     expect(guard?.env?.EVENT_ACTION).toBeUndefined();
   });

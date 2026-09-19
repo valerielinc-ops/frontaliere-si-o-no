@@ -382,7 +382,7 @@ describe('workflow wiring for one review per HEAD', () => {
   it('tests.yml skip guard calls the shipped helper and does not re-review on edited', () => {
     const guard = tests.jobs.vitest.steps.find((step: { id?: string }) => step.id === 'guard');
     expect(guard?.run).toContain('node "$REVIEW_POLICY_ROOT/scripts/ci/lib/pr-review-admission.mjs" skip');
-    expect(guard?.run).toContain('gh api "repos/$REPO/pulls/$PR_NUMBER/reviews"');
+    expect(guard?.run).toContain('"$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews"');
     expect(guard?.run).toContain('--revision "$REVIEW_REVISION"');
     const input = tests.jobs.vitest.steps.find((step: { id?: string }) => step.id === 'review_input');
     expect(input?.run).toContain('review-input-revision.mjs" hash-pr-json');
