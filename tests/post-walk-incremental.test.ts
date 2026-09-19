@@ -534,6 +534,17 @@ describe('post-walk incremental planning', () => {
     ]);
   });
 
+  it('walks root-level unmanifested HTML through the <root> sentinel', () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const rootHtml = writeHtml(root, '404.html', 'root');
+
+    const result = collectHtmlFromClaimedPaths(distDir, [], ['<root>']);
+
+    expect(result.paths).toEqual([rootHtml]);
+    expect(result.targeted).toBe(1);
+  });
+
   it('finds a new direct HTML subtree below an already-claimed top-level root', () => {
     const root = fixtureRoot();
     const distDir = path.join(root, 'dist');
