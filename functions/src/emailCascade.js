@@ -1442,7 +1442,7 @@ function isProviderCoolingDown(providerId) {
   return (_providerCooldownUntil[providerId] || 0) > Date.now();
 }
 
-async function sendSingle(email, forceProvider, finalizeForProvider, signal, adaptiveThrottle) {
+async function sendSingle(email, forceProvider, finalizeForProvider, signal, adaptiveThrottle, spacing) {
   const errors = [];
   const providers = forceProvider
     ? PROVIDERS.filter(p => p.id === forceProvider)
@@ -1455,6 +1455,18 @@ async function sendSingle(email, forceProvider, finalizeForProvider, signal, ada
       const waitMs = (_providerCooldownUntil[provider.id] || 0) - Date.now();
       errors.push(`[${provider.id}] cooling down${waitMs > 0 ? ` (${Math.ceil(waitMs / 1000)}s left)` : ''}`);
       continue;
+    }
+
+    // Spacing slot for THIS provider attempt — the first choice and every
+    // fallback alike. Reserving only the first provider (before this loop) let
+    // concurrent workers that fell through to a fallback hit it with no spacing
+    // at all, bypassing its floor (review of #9292).
+    if (spacing) {
+      await reserveProviderSlot(provider.id, spacing, adaptiveThrottle);
+      // Another worker may have used the last quota slot, or benched/cooled the
+      // provider, while this one waited for its turn.
+      if (remainingQuota(provider.id) <= 0) { errors.push(`[${provider.id}] quota exhausted (${getCounter(provider.id)}/${provider.dailyLimit})`); continue; }
+      if (isProviderCoolingDown(provider.id)) { errors.push(`[${provider.id}] cooling down`); continue; }
     }
 
     // Reserve one quota slot synchronously, before the first await in the send
@@ -1534,46 +1546,33 @@ function providerSpacingMs(providerId, delayMs, adaptiveThrottle, providerMinInt
 export const BULK_PROVIDER_MIN_INTERVAL_MS = Object.freeze({ cloudflare: 1000, resend: 500 });
 
 /**
- * Send a single email with per-provider throttling.
- * Waits until at least `delayMs` has elapsed since the last send to the same provider,
- * then delegates to the provider loop in sendSingle.
+ * Reserve a delay-spaced slot for one attempt at `providerId`, then wait for it.
+ * The read + write of lastSendMap happen SYNCHRONOUSLY (no await in between) so
+ * concurrent attempts at the same provider each get a distinct slot instead of
+ * all reading the same timestamp and firing as a burst. The reservation
+ * advances the clock up-front, so spacing holds even when the send FAILS — the
+ * failure mode behind the "258 Mailtrap 403s in 5s" incident.
+ */
+async function reserveProviderSlot(providerId, spacing, adaptiveThrottle) {
+  const { lastSendMap, delayMs, providerMinIntervalMs } = spacing;
+  const now = Date.now();
+  const providerDelayMs = providerSpacingMs(providerId, delayMs, adaptiveThrottle, providerMinIntervalMs);
+  const slot = Math.max(now, lastSendMap[providerId] || 0);
+  lastSendMap[providerId] = slot + providerDelayMs;
+  const wait = slot - now;
+  if (wait > 0) {
+    await new Promise(r => setTimeout(r, wait));
+  }
+}
+
+/**
+ * Send a single email with per-provider throttling: every provider attempt in
+ * sendSingle's cascade loop (first choice and fallbacks) reserves its own
+ * spacing slot via reserveProviderSlot.
  */
 async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, finalizeForProvider, signal, adaptiveThrottle, providerMinIntervalMs) {
-  // Determine which provider will be tried first (the one with remaining quota)
-  const providers = forceProvider
-    ? PROVIDERS.filter(p => p.id === forceProvider)
-    : PROVIDERS;
-  const nextProvider = providers.find(p =>
-    isProviderConfigured(p.id) && remainingQuota(p.id) > 0 && !isProviderCoolingDown(p.id));
-
-  if (nextProvider) {
-    // Reserve a delay-spaced slot SYNCHRONOUSLY (read + write lastSendMap with no
-    // await in between) so concurrent sends to the same provider each get a
-    // distinct slot instead of all reading the same timestamp, waiting the same
-    // delta, and firing as a burst. The reservation advances the clock up-front,
-    // so spacing holds even when the send FAILS — the failure mode behind the
-    // "258 Mailtrap 403s in 5s" incident, now concurrency-safe for any future
-    // concurrency>1 caller (was latent at the default concurrency=1).
-    const now = Date.now();
-    const providerDelayMs = providerSpacingMs(nextProvider.id, delayMs, adaptiveThrottle, providerMinIntervalMs);
-    const slot = Math.max(now, lastSendMap[nextProvider.id] || 0);
-    lastSendMap[nextProvider.id] = slot + providerDelayMs;
-    const wait = slot - now;
-    if (wait > 0) {
-      await new Promise(r => setTimeout(r, wait));
-    }
-  }
-
-  // Slot already reserved above (advances even on throw), so no post-hoc clock
-  // bump is needed — the worker's try/catch handles a thrown send.
-  const result = await sendSingle(email, forceProvider, finalizeForProvider, signal, adaptiveThrottle);
-  // If a different provider ended up sending, reserve its slot too.
-  if (result?.provider && result.provider !== nextProvider?.id) {
-    const now = Date.now();
-    const providerDelayMs = providerSpacingMs(result.provider, delayMs, adaptiveThrottle, providerMinIntervalMs);
-    lastSendMap[result.provider] = Math.max(now, lastSendMap[result.provider] || 0) + providerDelayMs;
-  }
-  return result;
+  return sendSingle(email, forceProvider, finalizeForProvider, signal, adaptiveThrottle,
+    { lastSendMap, delayMs, providerMinIntervalMs });
 }
 
 // ── Batch cascade ────────────────────────────────────────────

@@ -154,6 +154,42 @@ describe('sendEmailCascade bulk throughput', () => {
     }
   });
 
+  it('il floor vale anche per il provider di fallback, non solo per il primo scelto', async () => {
+    process.env.RESEND_API_KEY = 'test-resend';
+    const resendAt: number[] = [];
+    const t0 = Date.now();
+    try {
+      globalThis.fetch = vi.fn(async (url: string, opts: any) => {
+        if (url === SEND_URL) {
+          // maileroo down: a definite 503 (no adaptive opt-in) falls through to resend
+          return { ok: false, status: 503, text: async () => 'Service Unavailable' } as any;
+        }
+        if (url === 'https://api.resend.com/emails' && opts?.method === 'POST') {
+          resendAt.push(Date.now() - t0);
+          return { ok: true, status: 200, json: async () => ({ id: `re-${resendAt.length}` }) } as any;
+        }
+        return { ok: true, status: 200, json: async () => ({ data: [] }), text: async () => '{}' } as any;
+      });
+
+      const { sendEmailCascade } = await import('../functions/src/emailCascade.js');
+      const pending = sendEmailCascade([email(1), email(2), email(3), email(4)], {
+        concurrency: 4,
+        delayMs: 0,
+        providerMinIntervalMs: { resend: 500 },
+      });
+      await vi.runAllTimersAsync();
+      const result = await pending;
+
+      expect(result.sent.map((s) => s.provider)).toEqual(['resend', 'resend', 'resend', 'resend']);
+      expect(resendAt).toHaveLength(4);
+      for (let i = 1; i < resendAt.length; i += 1) {
+        expect(resendAt[i] - resendAt[i - 1]).toBeGreaterThanOrEqual(500);
+      }
+    } finally {
+      delete process.env.RESEND_API_KEY;
+    }
+  });
+
   it('i floor bulk coprono i provider con limiti di burst noti', async () => {
     const { BULK_PROVIDER_MIN_INTERVAL_MS } = await import('../functions/src/emailCascade.js');
     expect(BULK_PROVIDER_MIN_INTERVAL_MS.cloudflare).toBeGreaterThanOrEqual(1000);
