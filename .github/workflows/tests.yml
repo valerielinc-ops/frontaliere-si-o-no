@@ -49,11 +49,12 @@ permissions:
   pull-requests: write
   issues: write
   id-token: write
-  # Sola lettura, per l'ultimo step del job di esecuzione: legge gli step del
-  # job STESSO dalla jobs API per scrivere nello Step Summary quale famiglia ha
-  # fatto rosso. Lo stesso job `vitest (unit + integration)` pubblica il check
-  # required e contiene tutti gli step da diagnosticare.
-  actions: read
+  # Lettura: l'ultimo step del job di esecuzione legge gli step del job STESSO
+  # dalla jobs API per scrivere nello Step Summary quale famiglia ha fatto
+  # rosso. Scrittura: serve a UNA sola chiamata, il self-cancel della run
+  # superata (`Watch for a superseded PR head`): POST
+  # actions/runs/<questa run>/cancel e nient'altro. `write` include `read`.
+  actions: write
 
 # Questo workflow serve sia le PR sia i segnali di salute di main/merge queue.
 # Le chiavi separano le PR per numero+HEAD e nessuna run viene cancellata: un
@@ -675,6 +676,89 @@ jobs:
           LOOP_FLEET_REGISTRY_PATH="$POLICY_ROOT/data/loop-fleet/loop-registry.json" \
             GH_TOKEN="$APP_TOKEN" node "$POLICY_ROOT/scripts/ci/review-test-policy.mjs" ledger-post
 
+      # ── Una run superata muore subito ────────────────────────────────────
+      #
+      # Misurato il 2026-09-19 sulle ultime 200 run: 23 run PR sono state
+      # superate da un nuovo push mentre giravano, 21 delle quali DOPO l'avvio
+      # (quindi un controllo della HEAD solo prima del checkout ne avrebbe
+      # prese 2). Arrivavano fino a `Resolve PR from pull request`, che fallisce
+      # su «PR head changed»: 271 minuti di runner buttati in circa 7 ore.
+      #
+      # PERCHE' NON `cancel-in-progress`. Il gruppo di concorrenza resta per
+      # PR+HEAD e non cancellante (vedi il blocco `concurrency:` e #8862): una
+      # cancellazione nativa arriva in QUALSIASI step, compreso
+      # `pr-autorebase.mjs`, che lavora su fino a 10 PR ALTRUI e ha una sezione
+      # critica non atomica `gh pr close` + `gh pr reopen` — un cancel fra le
+      # due lascia chiusa la PR di qualcun altro. Qui invece la run si cancella
+      # DA SOLA e solo in una finestra nota: dal checkout fino allo step
+      # `Stop superseded-head watcher`, che precede `Resolve PR` e quindi review,
+      # autorebase e opt-in all'auto-merge. Oltre quello stop nessun cancel
+      # viene piu' chiesto; se uno era gia' partito, la HEAD era gia' cambiata e
+      # `Resolve PR` fallisce comunque, quindi nessuno step con effetti esterni
+      # parte.
+      #
+      # Il controllo usa `git ls-remote` su refs/pull/N/head (protocollo git,
+      # fuori dal rate limit REST del GITHUB_TOKEN); l'unica chiamata REST e' il
+      # cancel. Una run `cancelled` non suona allarmi: il redcheck-fixer parte
+      # solo su `failure`, scan-unreported-failures ignora `cancelled`,
+      # scan-job-timeouts pretende l'annotazione di timeout, e
+      # `Classify cancelled run` la etichetta `superseded` nello Step Summary.
+      - name: Start superseded-head watcher
+        id: head_watch
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' && (github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.pr_number != '')) }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PRN: ${{ github.event.pull_request.number || inputs.pr_number }}
+          HEAD_SHA: ${{ inputs.head_sha || github.event.pull_request.head.sha || github.sha }}
+          RUN_ID: ${{ github.run_id }}
+          WATCH_INTERVAL_S: '15'
+        run: |
+          set -euo pipefail
+          [[ "$PRN" =~ ^[1-9][0-9]*$ ]] || { echo "::warning::PR number non valido: watcher non avviato."; exit 0; }
+          [[ "$HEAD_SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "::warning::HEAD non valida: watcher non avviato."; exit 0; }
+          dir="${RUNNER_TEMP}/head-watch"
+          mkdir -p "$dir"
+          # Il watcher lavora da RUNNER_TEMP, non dal workspace: dopo il
+          # checkout il workspace e' un repo con il suo
+          # `http.https://github.com/.extraheader`, che si SOMMA a quello
+          # passato qui e manda due Authorization. Misurato sulla run
+          # 35460312069: dopo il checkout nessuna lettura della ref e' andata a
+          # buon fine e la run superata e' arrivata a `Resolve PR`.
+          cat > "$dir/watch.sh" <<'WATCH_EOF'
+          set -u
+          cd "$WATCH_DIR" || exit 0
+          failures=0
+          auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          export GIT_TERMINAL_PROMPT=0 GIT_CONFIG_COUNT=1
+          export GIT_CONFIG_KEY_0='http.https://github.com/.extraheader'
+          export GIT_CONFIG_VALUE_0="AUTHORIZATION: basic $auth"
+          while [ ! -e "$WATCH_DIR/stop" ]; do
+            sleep "$WATCH_INTERVAL_S"
+            [ -e "$WATCH_DIR/stop" ] && exit 0
+            if ! line=$(git ls-remote "https://github.com/${REPO}.git" "refs/pull/${PRN}/head" 2>"$WATCH_DIR/ls-remote.err"); then
+              failures=$((failures + 1))
+              # La prima e poi ogni decima: il log resta leggibile.
+              if [ $((failures % 10)) -eq 1 ]; then
+                echo "$(date -u +%FT%TZ) ls-remote fallito ($failures): $(head -c 300 "$WATCH_DIR/ls-remote.err")"
+              fi
+              continue
+            fi
+            current=${line%%[[:space:]]*}
+            [[ "$current" =~ ^[0-9a-f]{40}$ ]] || continue
+            [ "$current" = "$HEAD_SHA" ] && continue
+            [ -e "$WATCH_DIR/stop" ] && exit 0
+            printf '%s\n' "$current" > "$WATCH_DIR/superseded-by"
+            echo "$(date -u +%FT%TZ) PR #$PRN head ${HEAD_SHA:0:12} -> ${current:0:12}: cancel della run $RUN_ID"
+            gh api -X POST "repos/${REPO}/actions/runs/${RUN_ID}/cancel" --silent || echo "cancel non riuscito"
+            exit 0
+          done
+          WATCH_EOF
+          WATCH_DIR="$dir" nohup setsid bash "$dir/watch.sh" > "$dir/watch.log" 2>&1 < /dev/null &
+          printf '%s\n' "$!" > "$dir/pid"
+          echo "Watcher avviato sulla HEAD ${HEAD_SHA:0:12} di PR #$PRN (ogni ${WATCH_INTERVAL_S}s)."
+
       # `git checkout` scrive l'albero con un thread solo per default (issue
       # #6152). Misurato in locale sull'albero pieno di questo repo: 51,0s ->
       # 37,4s (-27%) impostando `checkout.workers 0` (= usa tutti i core).
@@ -686,12 +770,27 @@ jobs:
 
       # CHECKOUT UNICO per tutte e quattro le famiglie del percorso ordinario;
       # il ledger-only verificato sopra lo salta deliberatamente. Il perché di questo
-      # profilo esatto — albero pieno + storia profonda + `blob:none` — sta in
+      # profilo esatto — albero pieno + storia profonda + `tree:0` — sta in
       # «Il checkout: uno solo» nella testata. In breve: i source guard del
       # contract diffano a tre punti e senza storia non hanno un merge-base
       # (`resolve-merge-base.mjs` andrebbe in blocking-skip, issue #5195, cioè
       # il guard direbbe «NON ESEGUITO» a ogni run); vitest vuole l'albero
       # intero; `fetch-depth: 0` senza `filter:` sarebbe il clone da 15 GB.
+      #
+      # `tree:0` invece di `blob:none` (2026-09-19). Il grafo dei commit resta
+      # completo (123.789 commit, 32 MB), quindi merge-base, `rev-list --count`,
+      # il `git merge` e il push di `pr-autorebase.mjs` funzionano come prima; a
+      # non arrivare piu' sono gli 1,22 milioni di tree storici, cioe' il grosso
+      # dei ~414 MB che `blob:none` scaricava a ogni run. I tree che servono
+      # davvero (HEAD, base, merge-base) arrivano pigri e a lotti: misurato su
+      # un clone treeless di questo repo, `ls-tree -r` di un commit = 2 fetch,
+      # 1 s; `diff` fra commit distanti 300 = 4 fetch, 5 s; `merge-tree` di un
+      # ramo 750 commit indietro = 5 fetch, 3 s; push del merge risultante = 0
+      # fetch. Cio' che NON si puo' fare qui e' una storia per path
+      # (`git log -- <path>`, `rev-list -- <path>`): 186 fetch in 120 s senza
+      # finire. Nessuno step di questo job, e nessuno script o test che il job
+      # esegue sul repo reale, lo fa; `tests/ci-tests-treeless-checkout.test.ts`
+      # tiene l'elenco degli script chiamati sotto quel vincolo.
       #
       # NB: con `fetch-depth: 0` `actions/checkout` scarica tutta la storia del
       # ref che gli è stato chiesto, ma NON crea `refs/remotes/origin/<base>` —
@@ -702,7 +801,7 @@ jobs:
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         with:
           fetch-depth: 0
-          filter: blob:none
+          filter: tree:0
           # Allowlist non-cone: il job usa tsc e Vitest con riferimenti runtime
           # che il profilo statico non può chiudere in modo affidabile.
           sparse-checkout: |
@@ -1870,6 +1969,26 @@ jobs:
           VITEST_REPORT_FILES: shard-timing-related.json
         run: node scripts/ci/report-vitest-failure.mjs
 
+      # Chiude la finestra di self-cancel PRIMA di review, autorebase e
+      # auto-merge (vedi `Start superseded-head watcher`). `always()`: va chiusa
+      # anche dopo un rosso, perche' gli step `always()` a valle non devono
+      # poter essere interrotti a meta'.
+      - name: Stop superseded-head watcher
+        if: ${{ always() && steps.body_contract.outcome != 'failure' && steps.head_watch.outcome == 'success' }}
+        continue-on-error: true
+        run: |
+          set -uo pipefail
+          dir="${RUNNER_TEMP}/head-watch"
+          touch "$dir/stop"
+          pid=$(cat "$dir/pid" 2>/dev/null || true)
+          if [[ "$pid" =~ ^[0-9]+$ ]]; then
+            kill -- "-$pid" 2>/dev/null || kill "$pid" 2>/dev/null || true
+          fi
+          cat "$dir/watch.log" 2>/dev/null || true
+          if [ -s "$dir/superseded-by" ]; then
+            echo "::notice::PR head superata da $(head -c 12 "$dir/superseded-by"): run cancellata dal watcher."
+          fi
+
       - name: Resolve PR from pull request
         id: resolve
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.pr_number != '')) }}
@@ -1918,7 +2037,18 @@ jobs:
           # An `edited` body/title event must not launch a second model review
           # on the same SHA (PRs #9066/#9074: LGTM then 🔴 Important).
           reviews=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null || echo '[]')
-          decision=$(printf '%s' "$reviews" | node scripts/ci/lib/pr-review-admission.mjs skip --head "$HEAD_SHA")
+          # Unica eccezione: un verdetto NON approvante sulla HEAD e un body
+          # corretto dopo di esso (retry-code-check-after-body-edit.yml riesegue
+          # questa run) ammettono una review `minimal` sul body invece di
+          # costringere l'autore a un commit vuoto, che comprava una review
+          # piena. `lastEditedAt` e' l'ultima modifica del body; vuoto = mai
+          # modificato, e l'eccezione non scatta.
+          # shellcheck disable=SC2016 # $owner/$name/$number sono variabili GraphQL, non shell.
+          body_edited_at=$(gh api graphql \
+            -f query='query($owner:String!,$name:String!,$number:Int!){repository(owner:$owner,name:$name){pullRequest(number:$number){lastEditedAt}}}' \
+            -F owner="${REPO%%/*}" -F name="${REPO#*/}" -F number="$PR_NUMBER" \
+            --jq '.data.repository.pullRequest.lastEditedAt // empty' 2>/dev/null || true)
+          decision=$(printf '%s' "$reviews" | node scripts/ci/lib/pr-review-admission.mjs skip --head "$HEAD_SHA" --body-edited-at "${body_edited_at:-none}")
           printf '%s\n' "$decision" >> "$GITHUB_OUTPUT"
 
       - name: Determine review tier
@@ -1929,6 +2059,7 @@ jobs:
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
           REPO: ${{ github.repository }}
+          BODY_REREVIEW: ${{ steps.guard.outputs.body_rereview }}
         # Tier high (gpt-5.6-luna, max-turns 60, adversarial pass): toccato CODE
         # funnel-critical — test gate, workflow CI, build-plugin SEO, o script
         # che mutano/emettono dati indicizzati (crawler/parser/adapter, backfill,
@@ -1973,6 +2104,15 @@ jobs:
             } >> "$GITHUB_OUTPUT"
             echo "Review tier: $1 ($2, max-turns $3)"
           }
+          # Body corretto sulla stessa HEAD dopo un verdetto non approvante
+          # (vedi il guard): il codice e' identico per costruzione, quindi
+          # si rigiudica solo il body e i 🔴 di codice restano aperti.
+          if [ "${BODY_REREVIEW:-}" = "true" ]; then
+            echo "code_unchanged_since=$HEAD_SHA" >> "$GITHUB_OUTPUT"
+            echo "Body modificato dopo un verdetto non approvante sulla stessa HEAD → tier minimal (solo body)."
+            set_tier minimal gpt-5.6-luna 12
+            exit 0
+          fi
           # File cambiati dalla PR (per tier). Fallback GraphQL→REST/cap-100 +
           # `expected`/`files_complete` sono nel CLI condiviso
           # `scripts/ci/fetch-pr-files.mjs` (issue #6233: prima erano una
@@ -2088,7 +2228,34 @@ jobs:
               fi
               exit 0
             fi
-            echo "Nessun delta-code nei file PR dall'ultima review → review piena."
+            # Nessun file code della PR e' cambiato dall'ultima review: merge
+            # di main, commit vuoto o sola metadata. Se anche il fingerprint
+            # del contributo (3-dot vs merge-base, righe +/- dei soli file
+            # code: la stessa funzione del review gate) e' identico, il
+            # verdetto precedente si riusa: LGTM → carry-forward senza modello,
+            # verdetto non approvante → minimal che riporta i 🔴 aperti.
+            # Fingerprint non calcolabile o diverso → review piena, come prima.
+            fp_head=$(node scripts/ci/pr-contribution-fingerprint.mjs "$HEAD_SHA" 2>/dev/null || echo NULL)
+            fp_prior=$(node scripts/ci/pr-contribution-fingerprint.mjs "$lastRev" 2>/dev/null || echo NULL)
+            carry=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null \
+              | node scripts/ci/lib/review-carry-forward.mjs decide --head "$HEAD_SHA" --prior-commit "$lastRev" \
+                  --fp-head "$fp_head" --fp-prior "$fp_prior" || echo 'carry_tier=full')
+            carry_tier=$(printf '%s\n' "$carry" | sed -n 's/^carry_tier=//p' | tail -n 1)
+            case "$carry_tier" in
+              carry-forward)
+                printf '%s\n' "$carry" | grep -E '^carry_(prior_review|prior_commit|fingerprint)=' >> "$GITHUB_OUTPUT"
+                echo "Nessun delta-code e contributo identico alla review LGTM su $lastRev → carry-forward senza modello."
+                set_tier carry-forward none 0
+                exit 0
+                ;;
+              minimal)
+                echo "code_unchanged_since=$lastRev" >> "$GITHUB_OUTPUT"
+                echo "Nessun delta-code e contributo identico a un verdetto non approvante su $lastRev → tier minimal (body + 🔴 riportati)."
+                set_tier minimal gpt-5.6-luna 12
+                exit 0
+                ;;
+            esac
+            echo "Nessun delta-code nei file PR dall'ultima review, ma contributo non verificabile o cambiato → review piena."
           fi
 
           # CODE funnel-critical → high (full scope, 60 turni), altrimenti normal
@@ -2124,7 +2291,7 @@ jobs:
         # ripiegare su `gh pr view --json files`. Il risparmio non era nelle tre
         # `gh` call (puro bash, zero Claude) ma nel `gh pr diff`, che su una PR
         # data-only puo' essere enorme: quello resta saltato, sotto.
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.tier.outputs.tier != 'carry-forward' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         # Fetch una volta sola, PRIMA che Claude parta, ciò che il prompt gli
         # farebbe rifare turno-per-turno (osservato in 3/3 transcript morti
         # error_max_turns analizzati 2026-07-17: `gh pr view`, `gh pr diff`, il
@@ -2140,6 +2307,7 @@ jobs:
           REPO: ${{ github.repository }}
           CTX_DIR: ${{ runner.temp }}/review-ctx
           TIER: ${{ steps.tier.outputs.tier }}
+          CODE_UNCHANGED_SINCE: ${{ steps.tier.outputs.code_unchanged_since }}
           REVIEW_DIFF_EXCLUSIONS: data,public,reports,_newsletter_variants,docs
         run: |
           set -uo pipefail
@@ -2237,6 +2405,11 @@ jobs:
             echo "## PR metadata"
             cat "$CTX_DIR/pr.json"
             echo
+            if [ -n "${CODE_UNCHANGED_SINCE:-}" ]; then
+              echo "## Code contribution unchanged"
+              echo "The PR code contribution is identical to the one reviewed at ${CODE_UNCHANGED_SINCE} (same contribution fingerprint, no PR code file changed since). This is a body-only re-review: judge only the PR body, carry every historical code Important below verbatim with its anchor, and never write \`Fix di\` for a code anchor."
+              echo
+            fi
             echo "## Historical open Important findings"
             cat "$CTX_DIR/inherited-findings.md"
             echo
@@ -2274,6 +2447,30 @@ jobs:
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
         run: node scripts/ci/review-test-policy.mjs post
 
+      - name: Publish carry-forward LGTM (code contribution unchanged)
+        id: carry_forward_review
+        # Zero modello: il tier step ha provato che nessun file code della PR
+        # e' cambiato dall'ultima review LGTM e che il fingerprint del
+        # contributo e' identico. Lo script rilegge PR e review, rifa' la
+        # stessa verifica e pubblica sulla HEAD esatta con il token App (la
+        # stessa identita' del reviewer). Il review gate sotto la riverifica
+        # da capo; senza token App lo step fallisce e il gate resta rosso.
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && success() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.tier.outputs.tier == 'carry-forward' }}
+        env:
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
+          HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
+          CARRY_PRIOR_REVIEW: ${{ steps.tier.outputs.carry_prior_review }}
+          CARRY_PRIOR_COMMIT: ${{ steps.tier.outputs.carry_prior_commit }}
+          CARRY_FINGERPRINT: ${{ steps.tier.outputs.carry_fingerprint }}
+        run: |
+          set -euo pipefail
+          if [ -z "${APP_TOKEN:-}" ]; then
+            echo "::error::Token App assente: il carry-forward non puo' pubblicare con l'identita' del reviewer. Rilancia la run."
+            exit 1
+          fi
+          GH_TOKEN="$APP_TOKEN" node scripts/ci/lib/review-carry-forward.mjs post
+
       - name: Run Codex Luna Max review
         # Tetto sullo step (classe #7310: nessun tetto sotto il cap del job →
         # morte `cancelled` che nessun `if: failure()` vede). Qui il cap del job
@@ -2283,7 +2480,7 @@ jobs:
         # `continue-on-error` sotto, lo scadere non tinge il job di rosso.
         timeout-minutes: 45
         id: codex_review
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.tier.outputs.tier != 'carry-forward' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         # Don't let a hard action failure abort the job before the guard below
         # can classify it — the guard decides whether to fail loudly.
         continue-on-error: true
@@ -2334,6 +2531,8 @@ jobs:
 
             If `INCREMENTAL_BASE` is set, review only the delta and its interactions, but do not treat the prior Codex review as permission to erase an open Important finding. The bundle's historical section is authoritative: if a cited anchor is unchanged or the delta is only a base alignment, carry that finding into this review with the same path and line and do not append `## LGTM`; if the cited code was actually fixed, write `Fix di \`path:L<line>\`: ok.` for every cited anchor before allowing `Important: 0` and `## LGTM`. For an Important without a file citation, carry it unless it is explicitly resolved with `Fix di \`<normalized finding text>\`: ok.` (omit inner backticks). A merge-only delta can never resolve a prior Important by silence. If the bundle says the code contribution is unchanged, post a short review only when the historical section has no open Important findings.
 
+            If the bundle has a `## Code contribution unchanged` section, the code has not changed since that review: re-judge only the PR body, carry every historical code Important verbatim with the same path and line, never write `Fix di` for a code anchor, and resolve a PR-body Important only when the current body fixes it.
+
             If the bundle identifies a historical Important on the PR body with an anchor `PR body:L<n>`, its resolution MUST be written exactly as `Fix di \`PR body:L<n>\`: ok.` (one line per anchor), before `Important: 0` and `## LGTM`; never replace that metadata anchor with a prose paraphrase. For an Important without a file or PR-body anchor, use the normalized finding text required above, inside the confirmation backticks.
 
             Review in one pass with a hard repository-tool budget: read the two contract files and the bundle, then use at most one batched read/search call for direct delta interactions. Never scan the whole repository, enumerate all siblings, or re-fetch the PR through GitHub. Validate the body contract, inspect only concrete interactions, verify declared performance claims against supplied evidence, and stop probing once the verdict is determined. Do not invent missing-test findings. Use sibling candidates as leads, not verdicts. For high tiers, include exactly three concise unresolved items in `## Adversarial check`; they must be real unverified risks, not generic missing coverage. Every non-funnel `❓ q:` in that section MUST end with the exact disposition `— deferred, non funnel-critical.`. The words `report-only`, `deferred`, or `non-funnel-critical` inside the question do not dispose it; a funnel-critical question must be promoted to `🔴 Important` instead.
@@ -2369,7 +2568,7 @@ jobs:
         #    completed run. There is no shared quota lease or admission cap:
         #    independent PR+HEAD reviews remain concurrent.
         # `set -uo pipefail` (NOT -e): grep in conditionals must not abort.
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.tier.outputs.tier != 'carry-forward' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}

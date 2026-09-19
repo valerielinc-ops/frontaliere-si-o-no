@@ -215,7 +215,7 @@ describe('handleAssistedApplicationAdmin', () => {
       },
     });
     mocks.getAdminDb.mockReturnValue(database.db);
-    signedStripe.refunds.create.mockResolvedValue({ id: 're_assisted_1' });
+    signedStripe.refunds.create.mockResolvedValue({ id: 're_assisted_1', status: 'succeeded' });
 
     const missingReason = await handleAssistedApplicationAdmin(request({
       method: 'POST',
@@ -234,5 +234,31 @@ describe('handleAssistedApplicationAdmin', () => {
     expect(refunded).toMatchObject({ status: 200, body: { ok: true, orderId: 'blocked', submissionStatus: 'refunded', refundId: 're_assisted_1' } });
     expect(database.store.assisted_applications.blocked).toMatchObject({ paymentStatus: 'refunded', submissionStatus: 'refunded' });
     expect(database.events.blocked[0].data).toMatchObject({ eventType: 'refund_issued', refundId: 're_assisted_1' });
+  });
+
+  it('does not mark an order refunded when Stripe returns a pending refund', async () => {
+    const database = makeDb({
+      blocked: {
+        paymentStatus: 'paid', submissionStatus: 'in_progress', stripePaymentIntentId: 'pi_assisted_pending',
+      },
+    });
+    mocks.getAdminDb.mockReturnValue(database.db);
+    signedStripe.refunds.create.mockResolvedValue({ id: 're_assisted_pending', status: 'pending' });
+
+    const result = await handleAssistedApplicationAdmin(request({
+      method: 'POST',
+      body: { action: 'refund', orderId: 'blocked' },
+    }));
+
+    expect(result).toEqual({ status: 502, body: { ok: false, error: 'stripe_refund_failed' } });
+    expect(database.store.assisted_applications.blocked).toMatchObject({
+      paymentStatus: 'paid',
+      submissionStatus: 'in_progress',
+      refundStatus: null,
+      refundReservationId: null,
+      refundPendingAt: null,
+    });
+    expect(database.store.assisted_applications.blocked).not.toHaveProperty('stripeRefundId');
+    expect(database.events.blocked || []).toHaveLength(0);
   });
 });

@@ -384,6 +384,10 @@ jobs:
       # Optional deterministic verify sample (0-1, e.g. 0.02) for production:
       # verifies a stable 2% of reuse hits instead of re-rendering everything.
       JOBS_SEO_REUSE_VERIFY_SAMPLE: ${{ vars.JOBS_SEO_REUSE_VERIFY_SAMPLE || '' }}
+      # Related-search postings pre-pass: sparse gram index + 3-gram
+      # intersection (same postings, less CPU). Repository-variable opt-in;
+      # unset keeps the dense pre-pass byte-for-byte.
+      RELATED_SEARCH_POSTINGS_SPARSE: ${{ vars.RELATED_SEARCH_POSTINGS_SPARSE == '1' && '1' || '' }}
       # Post-walk incremental mode is repository-variable opt-in like the two
       # flags above; it requires INCREMENTAL_MANIFEST=1 (previous manifest).
       # Unset keeps the full post-walk byte-for-byte.

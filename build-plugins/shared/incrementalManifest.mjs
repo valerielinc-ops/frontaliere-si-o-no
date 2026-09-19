@@ -2,6 +2,9 @@ import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { StringDecoder } from 'node:string_decoder';
+import { stableJobId } from './stableJobId.mjs';
+
+export { stableJobId };
 
 // Version 3 adds the optional jobs-emitter fingerprint to the header.  A
 // fingerprint mismatch invalidates the whole post-walk delta, so an old
@@ -431,10 +434,6 @@ export function computeInputHash(input, kind, templateVersion = templateVersionF
  * provides it and otherwise fall back to the stable job id/slug plus the
  * dataset's existing version-like fields.
  */
-export function stableJobId(job) {
-  return String(job?.id ?? job?.slug ?? '');
-}
-
 export function stableJobVersion(job) {
   return String(
     job?.sourceRecordHash
