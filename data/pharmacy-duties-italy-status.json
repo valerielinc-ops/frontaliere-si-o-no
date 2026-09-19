@@ -5,9 +5,9 @@
     "varese-ats-2026-2027",
     "vco-asl-2026"
   ],
-  "_fetchedAt": "2026-09-15T11:30:00.000Z",
-  "_attemptedAt": "2026-09-15T11:30:00.000Z",
-  "_lastSuccessfulFetchAt": null,
+  "_fetchedAt": "2026-09-19T01:30:27.021Z",
+  "_attemptedAt": "2026-09-19T01:30:27.021Z",
+  "_lastSuccessfulFetchAt": "2026-09-19T01:30:27.021Z",
   "_timezone": "Europe/Rome",
   "_scope": {
     "country": "IT",
@@ -17,72 +17,80 @@
       "VB"
     ]
   },
-  "_successfulProvinces": [],
-  "_allSourcesFailed": true,
+  "_successfulProvinces": [
+    "CO",
+    "VA"
+  ],
+  "_requiredProvinces": [
+    "CO",
+    "VA"
+  ],
+  "_allSourcesFailed": false,
   "_provinces": {
     "CO": {
       "province": "CO",
       "sourceKey": "como-ats-2026-2027",
       "sourceUrl": "https://www.comune.merone.co.it/novita/comunicati_stampa/novita_138.html",
-      "fetchedAt": "2026-09-15T11:30:00.000Z",
-      "dutyCount": 0,
-      "observedDutyCount": 4,
+      "fetchedAt": "2026-09-19T01:30:27.021Z",
+      "dutyCount": 76,
+      "observedDutyCount": 76,
       "freshness": "fresh",
-      "coverage": "partial",
-      "state": "partial",
-      "errors": [
-        "official calendar coverage is incomplete: 3/300 distinct calendar days",
-        "no operational duty rows published because official calendar coverage is incomplete"
-      ],
+      "coverage": "covered",
+      "state": "fresh",
+      "publication": "required",
+      "coverageModel": "full-calendar",
+      "observedCalendarDays": 365,
+      "minimumCalendarDays": 300,
+      "errors": [],
       "warnings": []
     },
     "VA": {
       "province": "VA",
       "sourceKey": "varese-ats-2026-2027",
       "sourceUrl": "https://comune.marchirolo.varese.it/Dettaglionews?IDNews=400586",
-      "fetchedAt": "2026-09-15T11:30:00.000Z",
-      "dutyCount": 0,
-      "observedDutyCount": 3,
+      "fetchedAt": "2026-09-19T01:30:27.021Z",
+      "dutyCount": 86,
+      "observedDutyCount": 86,
       "freshness": "fresh",
-      "coverage": "partial",
-      "state": "partial",
-      "errors": [
-        "official calendar coverage is incomplete: 2/300 distinct calendar days",
-        "no operational duty rows published because official calendar coverage is incomplete"
-      ],
+      "coverage": "covered",
+      "state": "fresh",
+      "publication": "required",
+      "coverageModel": "full-calendar",
+      "observedCalendarDays": 355,
+      "minimumCalendarDays": 300,
+      "errors": [],
       "warnings": []
     },
     "VB": {
       "province": "VB",
       "sourceKey": "vco-asl-2026",
       "sourceUrl": "https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf?x88295=",
-      "fetchedAt": "2026-09-15T11:30:00.000Z",
+      "fetchedAt": "2026-09-19T01:30:27.021Z",
       "dutyCount": 0,
-      "observedDutyCount": 4,
-      "freshness": "fresh",
-      "coverage": "partial",
-      "state": "partial",
+      "observedDutyCount": 0,
+      "freshness": "unknown",
+      "coverage": "not_published",
+      "state": "not_published",
+      "publication": "best-effort",
+      "coverageModel": "corrections-only",
+      "observedCalendarDays": null,
+      "minimumCalendarDays": null,
       "errors": [
-        "official calendar coverage is incomplete: 4/300 distinct calendar days",
-        "no operational duty rows published because official calendar coverage is incomplete"
+        "vco-asl-2026: fetch failed (UND_ERR_CONNECT_TIMEOUT)"
       ],
       "warnings": []
     }
   },
-  "_errors": [
-    "como-ats-2026-2027: official calendar coverage is incomplete: 3/300 distinct calendar days",
-    "como-ats-2026-2027: no operational duty rows published because official calendar coverage is incomplete",
-    "varese-ats-2026-2027: official calendar coverage is incomplete: 2/300 distinct calendar days",
-    "varese-ats-2026-2027: no operational duty rows published because official calendar coverage is incomplete",
-    "vco-asl-2026: official calendar coverage is incomplete: 4/300 distinct calendar days",
-    "vco-asl-2026: no operational duty rows published because official calendar coverage is incomplete"
+  "_errors": [],
+  "_bestEffortErrors": [
+    "vco-asl-2026: fetch failed (UND_ERR_CONNECT_TIMEOUT)"
   ],
   "_warnings": [],
   "_release": {
     "version": 1,
     "timezone": "Europe/Rome",
-    "state": "not_published",
-    "evaluatedAt": "2026-09-15T11:30:00.000Z",
+    "state": "fresh",
+    "evaluatedAt": "2026-09-19T01:30:27.021Z",
     "scope": {
       "country": "IT",
       "provinces": [
@@ -94,13 +102,13 @@
     "snapshots": {
       "duties": {
         "path": "data/pharmacy-duties-italy.json",
-        "sha256": "a280a8de12cf1eed50ba74987a3e98b9a3625079e84c8ed281c1baa394430bcd",
-        "fetchedAt": "2026-09-15T11:30:00.000Z"
+        "sha256": "f6b7e2609c7314a7ddeeb269abf63882922d09743aecb9c821a6c1f339d81de2",
+        "fetchedAt": "2026-09-19T01:30:27.021Z"
       },
       "status": {
         "path": "data/pharmacy-duties-italy-status.json",
-        "sha256": "8ad11a4ee3e89ef0325063724ebeb00bf70b95dd54eb82abf269d7895c1b70ef",
-        "fetchedAt": "2026-09-15T11:30:00.000Z"
+        "sha256": "d918b3f4041e6903bb108cfd9bf2a8a365280c8efaaaf2f68a1da5c1866b4db6",
+        "fetchedAt": "2026-09-19T01:30:27.021Z"
       }
     },
     "provinces": {
@@ -108,51 +116,56 @@
         "province": "CO",
         "sourceKey": "como-ats-2026-2027",
         "sourceUrl": "https://www.comune.merone.co.it/novita/comunicati_stampa/novita_138.html",
-        "fetchedAt": "2026-09-15T11:30:00.000Z",
-        "dutyCount": 0,
-        "observedDutyCount": 4,
+        "fetchedAt": "2026-09-19T01:30:27.021Z",
+        "dutyCount": 76,
+        "observedDutyCount": 76,
         "freshness": "fresh",
-        "coverage": "partial",
-        "state": "partial",
-        "errors": [
-          "official calendar coverage is incomplete: 3/300 distinct calendar days",
-          "no operational duty rows published because official calendar coverage is incomplete"
-        ],
+        "coverage": "covered",
+        "state": "fresh",
+        "publication": "required",
+        "coverageModel": "full-calendar",
+        "observedCalendarDays": 365,
+        "minimumCalendarDays": 300,
+        "errors": [],
         "warnings": []
       },
       "VA": {
         "province": "VA",
         "sourceKey": "varese-ats-2026-2027",
         "sourceUrl": "https://comune.marchirolo.varese.it/Dettaglionews?IDNews=400586",
-        "fetchedAt": "2026-09-15T11:30:00.000Z",
-        "dutyCount": 0,
-        "observedDutyCount": 3,
+        "fetchedAt": "2026-09-19T01:30:27.021Z",
+        "dutyCount": 86,
+        "observedDutyCount": 86,
         "freshness": "fresh",
-        "coverage": "partial",
-        "state": "partial",
-        "errors": [
-          "official calendar coverage is incomplete: 2/300 distinct calendar days",
-          "no operational duty rows published because official calendar coverage is incomplete"
-        ],
+        "coverage": "covered",
+        "state": "fresh",
+        "publication": "required",
+        "coverageModel": "full-calendar",
+        "observedCalendarDays": 355,
+        "minimumCalendarDays": 300,
+        "errors": [],
         "warnings": []
       },
       "VB": {
         "province": "VB",
         "sourceKey": "vco-asl-2026",
         "sourceUrl": "https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf?x88295=",
-        "fetchedAt": "2026-09-15T11:30:00.000Z",
+        "fetchedAt": "2026-09-19T01:30:27.021Z",
         "dutyCount": 0,
-        "observedDutyCount": 4,
-        "freshness": "fresh",
-        "coverage": "partial",
-        "state": "partial",
+        "observedDutyCount": 0,
+        "freshness": "unknown",
+        "coverage": "not_published",
+        "state": "not_published",
+        "publication": "best-effort",
+        "coverageModel": "corrections-only",
+        "observedCalendarDays": null,
+        "minimumCalendarDays": null,
         "errors": [
-          "official calendar coverage is incomplete: 4/300 distinct calendar days",
-          "no operational duty rows published because official calendar coverage is incomplete"
+          "vco-asl-2026: fetch failed (UND_ERR_CONNECT_TIMEOUT)"
         ],
         "warnings": []
       }
     },
-    "releaseId": "pharmacy-italy-v1-4a00489cacc66a0cb6d411713c04b5e4cc373ddf93b0c292775a2dc8630c5665"
+    "releaseId": "pharmacy-italy-v1-917a3940da2b0681070c3b965161976409ecd3b5c09f0a7786e574f26f666c88"
   }
 }
