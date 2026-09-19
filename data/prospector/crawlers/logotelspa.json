@@ -1,0 +1,22 @@
+{
+  "companyKey": "logotelspa",
+  "companyName": "Logotel Spa",
+  "companyHost": "logotelspa.altamiraweb.com",
+  "platform": "altamiraweb.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://logotelspa.altamiraweb.com/"
+  ],
+  "detailTemplate": "/annunci-lavoro/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Video Editor Junior - Stage",
+    "Digital Content Manager Junior - Stage",
+    "Cybersecurity Lead",
+    "Digital Communication junior - Stage"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-09-19T09:31:59.394Z"
+}

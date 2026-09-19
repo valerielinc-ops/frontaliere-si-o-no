@@ -1,0 +1,23 @@
+{
+  "companyKey": "mutti",
+  "companyName": "Mutti Spa",
+  "companyHost": "mutti.altamiraweb.com",
+  "platform": "altamiraweb.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://mutti.altamiraweb.com/"
+  ],
+  "detailTemplate": "/annunci-lavoro/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "HR Service Intern",
+    "Operatore/trice di Linea Tempo Determinato - Montechiarugolo (PR)",
+    "Addetto/a alla Logistica",
+    "ADDETTO/A ALLA LOGISTICA - CONTRATTO A TEMPO DETERMINATO",
+    "Operatore/trice di linea Tempo Determinato - Stabilimento di Collecchio"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-09-19T09:31:48.243Z"
+}

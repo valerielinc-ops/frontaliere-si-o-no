@@ -1,24 +1,23 @@
 {
   "companyKey": "jobs",
-  "companyName": "Smart-Hotel",
-  "companyHost": "jobs.hangl.ch",
-  "platform": "hangl.ch",
-  "mode": "jsonld",
+  "companyName": "Ospena Group AG",
+  "companyHost": "jobs.migros.ch",
+  "platform": "migros.ch",
+  "mode": "template",
   "seedUrls": [
-    "https://jobs.hangl.ch/"
+    "https://jobs.migros.ch/de/unsere-unternehmen/ospena-group-ag/offene-stellen"
   ],
-  "detailTemplate": "/",
+  "detailTemplate": "/fr/nos-entreprises/job/pizzeria-ristorante-molino/*/*",
   "detailEnrichment": true,
   "detailFetchWorkers": 4,
-  "sampleVacancyCount": 29,
+  "sampleVacancyCount": 4,
   "sampleTitles": [
-    "Direktionsassistent (m/w/d)",
-    "Skilehrer/in (m/w/d)                                                                                     ",
-    "Funpark-Skilehrer/in (m/w/d)",
-    "Chef de Partie - Gardemanger / Patissier (m/w/d)",
-    "Snowboardlehrer/in (m/w/d)"
+    "<p class=\"font-micro font-bold md:font-sans m",
+    "<p class=\"font-micro font-bold md:font-sans m",
+    "<p class=\"font-micro font-bold md:font-sans m",
+    "<p class=\"font-micro font-bold md:font-sans m"
   ],
-  "canton": "GR",
+  "canton": "GE",
   "sourceLang": "de",
-  "learnedAt": "2026-09-11T09:06:11.681Z"
+  "learnedAt": "2026-09-19T09:31:57.753Z"
 }
