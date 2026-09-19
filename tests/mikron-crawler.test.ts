@@ -56,6 +56,15 @@ const FIXTURE_NO_AGNO = `
 </body></html>
 `;
 
+const FIXTURE_MISSING_LOCATION = `
+<html><body>
+<article class="mi-job-teaser">
+  <h3><a href="/en/group/our-people/join-us/jobs/unknown-site">Unknown site role</a></h3>
+  <div class="field--division">Machining</div>
+</article>
+</body></html>
+`;
+
 // ─── Fixture: Empty page ──────────────────────────────────────────────────────
 
 const FIXTURE_EMPTY = `
@@ -136,6 +145,13 @@ describe('parseMikronJobs — edge cases', () => {
     // Swiss filtering must not discard a valid Swiss site.
     expect(jobsFiltered.length).toBeLessThanOrEqual(jobsUnfiltered.length);
     expect(jobsFiltered).toHaveLength(1);
+  });
+
+  it('rejects teaser rows without a Swiss location when filterSwiss is true', () => {
+    const jobsFiltered = parseMikronJobs(FIXTURE_MISSING_LOCATION, { filterSwiss: true });
+    const jobsUnfiltered = parseMikronJobs(FIXTURE_MISSING_LOCATION, { filterSwiss: false });
+    expect(jobsFiltered).toHaveLength(0);
+    expect(jobsUnfiltered).toHaveLength(1);
   });
 
   it('returns empty for empty page', () => {

@@ -129,7 +129,9 @@ export function parseMikronJobs(html = '', options = {}) {
     });
   }
   if (jobs.length > 0) {
-    const filtered = filterSwiss ? jobs.filter((j) => !j.location || isSwissLocation(j.location)) : jobs;
+    // A Swiss-only parse must have a positive Swiss signal; an unknown
+    // location is not safe to publish before detail enrichment verifies it.
+    const filtered = filterSwiss ? jobs.filter((j) => isSwissLocation(j.location)) : jobs;
     return dedupeByUrl(filtered);
   }
 
@@ -138,6 +140,15 @@ export function parseMikronJobs(html = '', options = {}) {
   let rowMatch;
   while ((rowMatch = rowRe.exec(html)) !== null) {
     const block = rowMatch[1];
+    // The Views rows contain nested divs, so the legacy closing-tag match can
+    // stop at the first metadata field. Extend metadata extraction to the
+    // next sibling row without changing the link boundary used below.
+    const rowStart = rowMatch.index ?? 0;
+    const rowTail = html.slice(rowStart + rowMatch[0].length);
+    const nextRowOffset = rowTail.search(/<(?:article|div|tr)[^>]*class="[^"]*(?:views-row|job|node)[^"]*"[^>]*>/i);
+    const rowHtml = nextRowOffset < 0
+      ? html.slice(rowStart)
+      : html.slice(rowStart, rowStart + rowMatch[0].length + nextRowOffset);
     const linkMatch = block.match(/<a[^>]*href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/i);
     if (!linkMatch) continue;
 
@@ -146,7 +157,7 @@ export function parseMikronJobs(html = '', options = {}) {
     if (!title || title.length < 3) continue;
 
     // Extract metadata fields
-    const textContent = normalizeSpace(htmlToText(block));
+    const textContent = normalizeSpace(htmlToText(rowHtml));
     const divisionMatch = textContent.match(/(?:division|business)[:\s]*([A-Za-z\s&]+?)(?=\s*(?:function|location|$))/i);
     const functionMatch = textContent.match(/(?:function|category)[:\s]*([A-Za-z\s&/]+?)(?=\s*(?:location|$))/i);
     const locationMatch = textContent.match(/(?:location|place)[:\s]*([A-Za-z\s,]+?)$/i)
@@ -156,7 +167,7 @@ export function parseMikronJobs(html = '', options = {}) {
     const jobFunction = functionMatch ? normalizeSpace(functionMatch[1]) : '';
     const location = locationMatch ? normalizeSpace(locationMatch[1]) : '';
 
-    if (filterSwiss && location && !isSwissLocation(location)) continue;
+    if (filterSwiss && !isSwissLocation(location)) continue;
 
     idx++;
     jobs.push({
@@ -192,7 +203,7 @@ export function parseMikronJobs(html = '', options = {}) {
     }
   }
 
-  return dedupeByUrl(jobs);
+  return dedupeByUrl(filterSwiss ? jobs.filter((j) => isSwissLocation(j.location)) : jobs);
 }
 
 /** Deduplicate parsed job rows by their (lowercased) URL. */
