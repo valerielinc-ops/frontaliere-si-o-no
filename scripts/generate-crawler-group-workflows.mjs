@@ -1176,7 +1176,12 @@ export function buildCrawlerAggregateShellBody(crawlers, groupIndex) {
   }
   lines.push(
     `printf '%s\\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"`,
-    'if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ]; then',
+    // A runner shutdown (143) is not a crawler defect, so it files no
+    // per-crawler issue, but it is not a completed crawl either: counting it
+    // as success let a group whose members were ALL interrupted report
+    // «all 0 crawler members completed successfully» and hand the finalizer a
+    // successful generation with those crawlers' data never refreshed.
+    'if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then',
     '  wait_outcome=failure',
     'else',
     '  wait_outcome=success',
@@ -1208,6 +1213,10 @@ export function buildCrawlerAggregateFailureGateShellBody() {
     'done',
     'if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ]; then',
     '  echo "::error::crawler group completed with $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic; healthy siblings were preserved, but the group remains failed until incomplete crawlers are recovered"',
+    '  exit 1',
+    'fi',
+    'if [ "$systemic_count" -gt 0 ]; then',
+    '  echo "::error::crawler group interrupted: $systemic_count member(s) stopped by a runner shutdown (exit 143) before completing; $success_count succeeded and were preserved, no per-crawler issue filed (systemic class), and the interrupted crawlers keep their previous data until the next wave"',
     '  exit 1',
     'fi',
     'echo "✅ all $success_count crawler members completed successfully; $systemic_count systemic outcomes recorded"',

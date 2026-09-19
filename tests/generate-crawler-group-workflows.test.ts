@@ -832,6 +832,13 @@ describe('crawler group outcome isolation', () => {
       CRAWLER_AGGREGATE_FAILURES: '0',
       CRAWLER_AGGREGATE_MISSING: '0',
       CRAWLER_AGGREGATE_SYSTEMIC: '1',
+    })).not.toBe(0);
+    expect(run({
+      CRAWLER_AGGREGATE_OUTCOME: 'success',
+      CRAWLER_AGGREGATE_SUCCESS: '3',
+      CRAWLER_AGGREGATE_FAILURES: '0',
+      CRAWLER_AGGREGATE_MISSING: '0',
+      CRAWLER_AGGREGATE_SYSTEMIC: '0',
     })).toBe(0);
     expect(run({
       CRAWLER_AGGREGATE_OUTCOME: 'success',
@@ -861,7 +868,7 @@ describe('crawler group outcome isolation', () => {
 
       expect(fs.readFileSync(output, 'utf8')).toContain('failure_count=0');
       expect(fs.readFileSync(output, 'utf8')).toContain('systemic_count=1');
-      expect(fs.readFileSync(output, 'utf8')).toContain('wait_outcome=success');
+      expect(fs.readFileSync(output, 'utf8')).toContain('wait_outcome=failure');
       expect(fs.readFileSync(summary, 'utf8')).toContain('systemic runner shutdown (143)');
     } finally {
       fs.rmSync(temp, { recursive: true, force: true });
