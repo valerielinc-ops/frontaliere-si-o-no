@@ -216,6 +216,9 @@ export const OUTLIER_MEDIAN_MULTIPLE = 4;
 // GitHub Actions hard job timeout is 360min (6h). Keep meaningful margin.
 export const JOB_TIMEOUT_MINUTES = 340;
 export const SAFETY_CEILING_MS = JOB_TIMEOUT_MINUTES * 60 * 1000;
+const CRAWLER_WORKER_WATCHDOG_MARGIN_MINUTES = 10;
+const CRAWLER_WORKER_WATCHDOG_MAX_MINUTES = JOB_TIMEOUT_MINUTES - CRAWLER_WORKER_WATCHDOG_MARGIN_MINUTES;
+const CRAWLER_TARGET_TIMEOUT_MAX_MINUTES = CRAWLER_WORKER_WATCHDOG_MAX_MINUTES - CRAWLER_WORKER_WATCHDOG_MARGIN_MINUTES;
 // A group contains up to 28 crawlers and several of them run Chromium, large
 // parsers, or AI translation. Starting every detached process together can
 // exhaust a hosted runner and surface as a bare SIGTERM/exit 143. Four active
@@ -526,9 +529,9 @@ function indentBlock(text, spaces) {
 function validateTargetTimeoutMinutes(crawler) {
   if (crawler.targetTimeoutMinutes == null) return null;
   const minutes = Number(crawler.targetTimeoutMinutes);
-  if (!Number.isSafeInteger(minutes) || minutes < 1 || minutes >= JOB_TIMEOUT_MINUTES) {
+  if (!Number.isSafeInteger(minutes) || minutes < 1 || minutes > CRAWLER_TARGET_TIMEOUT_MAX_MINUTES) {
     throw new Error(
-      `${crawler.slug}: targetTimeoutMinutes must be a positive integer below the ${JOB_TIMEOUT_MINUTES} minute group timeout`,
+      `${crawler.slug}: targetTimeoutMinutes must be a positive integer at or below the ${CRAWLER_TARGET_TIMEOUT_MAX_MINUTES} minute target ceiling (the ${CRAWLER_WORKER_WATCHDOG_MARGIN_MINUTES} minute watchdog margin must fit below the ${CRAWLER_WORKER_WATCHDOG_MAX_MINUTES} minute worker ceiling)`,
     );
   }
   return minutes;
@@ -609,7 +612,8 @@ function sharedPreconditionNotice(slug, { propagate = false } = {}) {
 /**
  * Exit 143 is the runner/host SIGTERM convention, not an individual crawler
  * diagnosis. Keep the breadcrumb visible and optionally propagate the code to
- * the timeout wrapper so the outer failure reporter can suppress it too.
+ * the timeout wrapper or detached launcher so the terminal aggregate preserves
+ * the systemic status while the per-crawler failure reporter stays suppressed.
  */
 function runnerShutdownNotice(slug, { propagate = false } = {}) {
   return [
@@ -705,6 +709,9 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
     outer.push('');
   }
 
+  outer.push(`if [ "$target_exit" -eq ${RUNNER_SHUTDOWN_EXIT} ]; then`);
+  outer.push(`  exit ${RUNNER_SHUTDOWN_EXIT}`);
+  outer.push('fi');
   outer.push(`if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$target_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; then`);
   outer.push('  exit 1');
   outer.push('fi');
@@ -834,7 +841,7 @@ export function buildCrawlerShellBody(crawler) {
       lines.push('fi');
       lines.push(...globalLeaseBusyNotice(crawler.slug));
       lines.push(...sharedPreconditionNotice(crawler.slug));
-      lines.push(...runnerShutdownNotice(crawler.slug));
+      lines.push(...runnerShutdownNotice(crawler.slug, { propagate: true }));
       lines.push('');
       continue;
     }
@@ -941,9 +948,10 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     `status_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status"`,
     `status_tmp="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status.tmp.$$"`,
     `started_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.started"`,
+    `worker_watchdog_max=${CRAWLER_WORKER_WATCHDOG_MAX_MINUTES}`,
     `worker_watchdog_minutes="\${CRAWLER_WORKER_TIMEOUT_MINUTES:-${watchdogMinutes}}"`,
-    'if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]]; then',
-    `  echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (default ${watchdogMinutes})"`,
+    'if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then',
+    `  echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default ${watchdogMinutes})"`,
     `  worker_watchdog_minutes=${watchdogMinutes}`,
     'fi',
     `max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-${CRAWLER_GROUP_MAX_PARALLEL}}"`,
@@ -1046,14 +1054,14 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
  */
 export function crawlerWorkerWatchdogMinutes(crawler = {}) {
   const explicitTarget = Number(crawler.targetTimeoutMinutes);
-  if (Number.isSafeInteger(explicitTarget) && explicitTarget > 0 && explicitTarget < JOB_TIMEOUT_MINUTES) {
-    return Math.min(JOB_TIMEOUT_MINUTES - 10, explicitTarget + 10);
+  if (Number.isSafeInteger(explicitTarget) && explicitTarget > 0 && explicitTarget <= CRAWLER_TARGET_TIMEOUT_MAX_MINUTES) {
+    return Math.min(CRAWLER_WORKER_WATCHDOG_MAX_MINUTES, explicitTarget + CRAWLER_WORKER_WATCHDOG_MARGIN_MINUTES);
   }
   const averageMinutes = Number(crawler.durationMs) / 60_000;
   const derived = Number.isFinite(averageMinutes) && averageMinutes > 0
     ? Math.ceil(averageMinutes * 3)
-    : JOB_TIMEOUT_MINUTES - 10;
-  return Math.min(JOB_TIMEOUT_MINUTES - 10, Math.max(30, derived));
+    : CRAWLER_WORKER_WATCHDOG_MAX_MINUTES;
+  return Math.min(CRAWLER_WORKER_WATCHDOG_MAX_MINUTES, Math.max(30, derived));
 }
 
 /** Wait for one detached crawler and expose its real exit code to Actions. */

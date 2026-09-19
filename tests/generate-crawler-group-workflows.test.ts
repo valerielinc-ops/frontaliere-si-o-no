@@ -506,12 +506,12 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     expect(stdout).not.toContain('TITLE=Crawler Failure: Run test-crawler');
   });
 
-  it('exit 143 (runner shutdown): no per-crawler issue and systemic soft success', () => {
+  it('exit 143 (runner shutdown): preserves systemic status without a per-crawler issue', () => {
     const crawler = withInspectableFailureReporter(crawlerFixture({ runCommand: 'bash -c "exit 143"' }));
 
     const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
 
-    expect(exitCode).toBe(0);
+    expect(exitCode).toBe(143);
     expect(stdout).not.toContain('TITLE=Crawler Failure: Run test-crawler');
     expect(stdout).toContain('runner shutdown interrupted the crawler (exit 143)');
   });
@@ -524,7 +524,7 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
 
     const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
 
-    expect(exitCode).toBe(0);
+    expect(exitCode).toBe(143);
     expect(stdout).not.toContain('TITLE=Crawler Failure: Run test-crawler');
     expect(stdout).toContain('runner shutdown interrupted the crawler (exit 143)');
   });
@@ -644,7 +644,14 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
       ...crawlerFixture(),
       targetTimeoutMinutes: 340,
     };
-    expect(() => buildCrawlerShellBody(crawler)).toThrow(/positive integer below the 340 minute group timeout/);
+    expect(() => buildCrawlerShellBody(crawler)).toThrow(/at or below the 320 minute target ceiling/);
+  });
+
+  it('rejects a target timeout that leaves no watchdog headroom', () => {
+    expect(() => buildCrawlerShellBody({
+      ...crawlerFixture(),
+      targetTimeoutMinutes: 331,
+    })).toThrow(/at or below the 320 minute target ceiling/);
   });
 
   it('renders the validated timeout value and rejects malformed raw input', () => {
@@ -659,7 +666,7 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     expect(() => buildCrawlerShellBody({
       ...crawlerFixture(),
       targetTimeoutMinutes: '30m',
-    })).toThrow(/positive integer below the 340 minute group timeout/);
+    })).toThrow(/at or below the 320 minute target ceiling/);
   });
 
   it('OLD (pre-fix) logic would have swallowed a commit failure — this documents the exact defect the fix closes', () => {
@@ -787,6 +794,8 @@ describe('buildCrawlerLaunchShellBody — runner cleanup isolation', () => {
     }, 2);
 
     expect(body).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-4}"`);
+    expect(body).toContain('worker_watchdog_max=330');
+    expect(body).toContain('[ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]');
     expect(body).toContain('for slot_index in $(seq 1 "$max_parallel"); do');
     expect(body).toContain('flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"');
     expect(body).toContain('timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"');
@@ -796,6 +805,7 @@ describe('buildCrawlerLaunchShellBody — runner cleanup isolation', () => {
 
   it('derives a bounded worker watchdog from the target override or duration baseline', () => {
     expect(crawlerWorkerWatchdogMinutes({ targetTimeoutMinutes: 60 })).toBe(70);
+    expect(crawlerWorkerWatchdogMinutes({ targetTimeoutMinutes: 320 })).toBe(330);
     expect(crawlerWorkerWatchdogMinutes({ durationMs: 60 * 60 * 1000 })).toBe(180);
     expect(crawlerWorkerWatchdogMinutes({ durationMs: 0 })).toBe(330);
   });
