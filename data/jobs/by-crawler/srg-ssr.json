@@ -87,7 +87,7 @@
         "it": "Praticanta / praticant",
         "en": "Intern",
         "de": "Praktikant",
-        "fr": "Praticanta / praticant"
+        "fr": "Pratique / Pratique"
       },
       "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
       "descriptionByLocale": {
@@ -142,7 +142,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "fr": [
           "pratique-pratique-srg-ssr-cuira"
@@ -244,7 +243,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T21:37:03.185Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -343,7 +341,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:15.082Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -443,7 +440,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:14.284Z",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -545,7 +541,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:28:35.078Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -647,7 +642,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:28:34.182Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -747,7 +741,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T09:46:05.638Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -843,7 +836,6 @@
         "orgLabel": "RSI"
       },
       "firstSeenAt": "2026-08-24T10:00:42.039Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -943,7 +935,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:00:42.256Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -1028,7 +1019,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-08-31T17:00:43.065Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -1129,7 +1119,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:00:43.813Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -1221,7 +1210,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-02T13:33:58.696Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 74000,
       "salarySource": "estimated",
@@ -1313,7 +1301,11 @@
         "weather-presenter-srg-ssr-bern",
         "wettermoderator-srg-ssr-bern",
         "presentatrice-ou-presentateur-meteo-srg-ssr-bern",
-        "sviluppatori-di-imprese-srg-ssr-bern"
+        "sviluppatori-di-imprese-srg-ssr-bern",
+        "formazione-di-ricerca-srg-ssr-bern",
+        "research-trainee-srg-ssr-bern",
+        "forschungspraktikant-srg-ssr-bern",
+        "stagiaire-recherchiste-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1322,22 +1314,28 @@
           "weather-presenter-srg-ssr-bern",
           "wettermoderator-srg-ssr-bern",
           "presentatrice-ou-presentateur-meteo-srg-ssr-bern",
-          "sviluppatori-di-imprese-srg-ssr-bern"
+          "sviluppatori-di-imprese-srg-ssr-bern",
+          "formazione-di-ricerca-srg-ssr-bern",
+          "research-trainee-srg-ssr-bern",
+          "forschungspraktikant-srg-ssr-bern",
+          "stagiaire-recherchiste-srg-ssr-bern"
         ],
         "en": [
           "unternehmensentwickler-in-srg-ssr-bern",
-          "weather-presenter-srg-ssr-bern"
+          "weather-presenter-srg-ssr-bern",
+          "research-trainee-srg-ssr-bern"
         ],
         "de": [
-          "wettermoderator-srg-ssr-bern"
+          "wettermoderator-srg-ssr-bern",
+          "forschungspraktikant-srg-ssr-bern"
         ],
         "fr": [
           "unternehmensentwickler-in-srg-ssr-bern",
-          "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
+          "presentatrice-ou-presentateur-meteo-srg-ssr-bern",
+          "stagiaire-recherchiste-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-09-08T13:36:17.762Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -1439,7 +1437,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:36:17.077Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1525,7 +1522,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-08T13:36:16.364Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1632,7 +1628,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T23:04:42.334Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 163000,
       "salarySource": "estimated",
@@ -1745,7 +1740,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:45:01.576Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1829,7 +1823,6 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-09-10T23:07:07.025Z",
-      "needsRetranslation": true,
       "salaryMin": 63500,
       "salaryMax": 112500,
       "salarySource": "estimated",
@@ -1915,7 +1908,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-10T23:07:06.414Z",
-      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 133000,
       "salarySource": "estimated",
@@ -2009,7 +2001,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-11T13:35:22.240Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 74000,
       "salarySource": "estimated",
@@ -2104,7 +2095,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-11T13:35:21.643Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 74000,
       "salarySource": "estimated",
@@ -2210,7 +2200,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:44:42.352Z",
-      "needsRetranslation": true,
       "salaryMin": 66000,
       "salaryMax": 112000,
       "salarySource": "estimated",
@@ -2319,7 +2308,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:44:41.782Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2427,7 +2415,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:44:41.139Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2458,7 +2445,7 @@
       "title": "Stagiaire Interactive media designer (IMD) - Tataki",
       "titleByLocale": {
         "it": "Intern Interactive media designer (IMD) - Tataki",
-        "en": "Stagiaire Interactive media designer (IMD) - Tataki",
+        "en": "Intern Interactive media designer (IMD) - Tataki",
         "de": "Intern Interactive Media Designer (IMD) - Tataki",
         "fr": "Stagiaire Interactive media designer (IMD) - Tataki"
       },
@@ -2521,7 +2508,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-17T03:44:40.556Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2620,7 +2606,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:44:39.982Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2725,7 +2710,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:44:39.392Z",
-      "needsRetranslation": true,
       "salaryMin": 106500,
       "salaryMax": 188500,
       "salarySource": "estimated",
@@ -2812,7 +2796,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-17T03:44:38.850Z",
-      "needsRetranslation": true,
       "salaryMin": 106500,
       "salaryMax": 188500,
       "salarySource": "estimated",
@@ -2915,7 +2898,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:44:37.959Z",
-      "needsRetranslation": true,
       "salaryMin": 106500,
       "salaryMax": 188500,
       "salarySource": "estimated",
@@ -3008,7 +2990,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:44:37.401Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -3039,16 +3020,16 @@
       "title": "3 Responsables atelier graphique Information RTS (70%)",
       "titleByLocale": {
         "fr": "3 Responsables atelier graphique Information RTS (70%)",
-        "it": "3 Responsables atelier graphique Information RTS (70%)",
-        "en": "3 Responsables atelier graphique Information RTS (70%)",
-        "de": "3 Responsables atelier graphique Information RTS (70%)"
+        "it": "3 direttori di workshop grafici Informazioni RTS (70%)",
+        "en": "3 Graphic workshop managers Information RTS (70%)",
+        "de": "3 Grafik-Workshop-Manager Information RTS (70%)"
       },
       "description": "Votre mission Coordination équipe, suivi graphique et technique Information (60%)\n• Réceptionner les besoins auprès de la rédaction d'Information et challenger les demandes.\n• Répartir la charge de travail au quotidien et assurer le suivi opérationnel des créations graphiques (TV, digital).\n• Veiller au respect de l'identité visuelle RTS sur toutes les plateformes et des chartes graphiques des événements.\n• Préparer et mettre à disposition les éléments graphiques nécessaires aux événements afin de faciliter les échanges.\n• Collaborer avec l'équipe d'intégration graphique pour la création et l'évolution des templates.\n• Effectuer une veille technique et organisationnelle afin d'anticiper les besoins et d'optimiser les processus.\n• Accompagner la transformation des productions vers le digital en collaboration avec le directeur artistique.\n• Trouver de manière autonome des solutions rapides face aux imprévus. Macro planification (10%)\n• Établir une planification à moyen terme (trimestre), dans un souci d'anticiper les besoins et en prenant en compte les grands événements à venir à partir d'une matrice de service.\n• Gérer le planning de production au quotidien en veillant à la charge de travail.\n• Assurer le bon fonctionnement de la planification hebdomadaire en étroite collaboration avec la planificatrice.\n• Orienter la planificatrice en cas de besoin pour remplacer un·e graphiste absent·e. Votre profil\n• Minimum 5 ans d'expérience en production graphique et/ou gestion de projet, en agence ou au sein d'un média.\n• Connaissance approfondie des métiers de l'audiovisuel, des process de post-production et des modes de production d'une émission TV.\n• Connaissances techniques liées au studio, au plateau et à la régie\n• Sens des priorités et bonne résistance au stress.\n• Capacité à coordonner plusieurs projets simultanément avec rigueur.\n• Esprit d'équipe affirmé et grande aisance relationnelle.\n• Adaptabilité et ouverture au changement.\n• Autonomie, proactivité\n• Maîtrise des outils graphiques (adobe, cinema4d, blender, figma...)\n• Maitrise des outils graphiques de production (pixotop, unreal, watchout) un atout. Ce que nous vous offrons\n• La possibilité d'intégrer une équipe créative, dynamique et motivée, au sein d'un environnement où l'innovation et la collaboration sont au cœur des projets.\n• La chance de participer à des projets ambitieux qui contribuent à la transformation du média audiovisuel de service public.\n• Un cadre de travail stimulant, où vous pourrez enrichir vos compétences. A propos du processus de recrutement Les relations humaines La RTS met au concours trois postes de Responsable atelier graphique pour les productions de l'Information RTS au sein de son service Direction Artistique. Votre mission consiste à assurer le suivi opérationnel avec la rédaction de l'Information RTS, tout en organisant la vie de l'atelier graphique chargé de produire les éléments visuels pour les contenus TV et digitaux. Vous contribuez activement à renforcer la collaboration entre les différentes parties prenantes et veillez à la bonne application de l'identité visuelle de la RTS sur l'ensemble de ses plateformes.",
       "descriptionByLocale": {
         "fr": "Votre mission Coordination équipe, suivi graphique et technique Information (60%)\n• Réceptionner les besoins auprès de la rédaction d'Information et challenger les demandes.\n• Répartir la charge de travail au quotidien et assurer le suivi opérationnel des créations graphiques (TV, digital).\n• Veiller au respect de l'identité visuelle RTS sur toutes les plateformes et des chartes graphiques des événements.\n• Préparer et mettre à disposition les éléments graphiques nécessaires aux événements afin de faciliter les échanges.\n• Collaborer avec l'équipe d'intégration graphique pour la création et l'évolution des templates.\n• Effectuer une veille technique et organisationnelle afin d'anticiper les besoins et d'optimiser les processus.\n• Accompagner la transformation des productions vers le digital en collaboration avec le directeur artistique.\n• Trouver de manière autonome des solutions rapides face aux imprévus. Macro planification (10%)\n• Établir une planification à moyen terme (trimestre), dans un souci d'anticiper les besoins et en prenant en compte les grands événements à venir à partir d'une matrice de service.\n• Gérer le planning de production au quotidien en veillant à la charge de travail.\n• Assurer le bon fonctionnement de la planification hebdomadaire en étroite collaboration avec la planificatrice.\n• Orienter la planificatrice en cas de besoin pour remplacer un·e graphiste absent·e. Votre profil\n• Minimum 5 ans d'expérience en production graphique et/ou gestion de projet, en agence ou au sein d'un média.\n• Connaissance approfondie des métiers de l'audiovisuel, des process de post-production et des modes de production d'une émission TV.\n• Connaissances techniques liées au studio, au plateau et à la régie\n• Sens des priorités et bonne résistance au stress.\n• Capacité à coordonner plusieurs projets simultanément avec rigueur.\n• Esprit d'équipe affirmé et grande aisance relationnelle.\n• Adaptabilité et ouverture au changement.\n• Autonomie, proactivité\n• Maîtrise des outils graphiques (adobe, cinema4d, blender, figma...)\n• Maitrise des outils graphiques de production (pixotop, unreal, watchout) un atout. Ce que nous vous offrons\n• La possibilité d'intégrer une équipe créative, dynamique et motivée, au sein d'un environnement où l'innovation et la collaboration sont au cœur des projets.\n• La chance de participer à des projets ambitieux qui contribuent à la transformation du média audiovisuel de service public.\n• Un cadre de travail stimulant, où vous pourrez enrichir vos compétences. A propos du processus de recrutement Les relations humaines La RTS met au concours trois postes de Responsable atelier graphique pour les productions de l'Information RTS au sein de son service Direction Artistique. Votre mission consiste à assurer le suivi opérationnel avec la rédaction de l'Information RTS, tout en organisant la vie de l'atelier graphique chargé de produire les éléments visuels pour les contenus TV et digitaux. Vous contribuez activement à renforcer la collaboration entre les différentes parties prenantes et veillez à la bonne application de l'identité visuelle de la RTS sur l'ensemble de ses plateformes.",
-        "it": "Votre mission Coordination équipe, suivi graphique et technique Information (60%)\n• Réceptionner les besoins auprès de la rédaction d'Information et challenger les demandes.\n• Répartir la charge de travail au quotidien et assurer le suivi opérationnel des créations graphiques (TV, digital).\n• Veiller au respect de l'identité visuelle RTS sur toutes les plateformes et des chartes graphiques des événements.\n• Préparer et mettre à disposition les éléments graphiques nécessaires aux événements afin de faciliter les échanges.\n• Collaborer avec l'équipe d'intégration graphique pour la création et l'évolution des templates.\n• Effectuer une veille technique et organisationnelle afin d'anticiper les besoins et d'optimiser les processus.\n• Accompagner la transformation des productions vers le digital en collaboration avec le directeur artistique.\n• Trouver de manière autonome des solutions rapides face aux imprévus. Macro planification (10%)\n• Établir une planification à moyen terme (trimestre), dans un souci d'anticiper les besoins et en prenant en compte les grands événements à venir à partir d'une matrice de service.\n• Gérer le planning de production au quotidien en veillant à la charge de travail.\n• Assurer le bon fonctionnement de la planification hebdomadaire en étroite collaboration avec la planificatrice.\n• Orienter la planificatrice en cas de besoin pour remplacer un·e graphiste absent·e. Votre profil\n• Minimum 5 ans d'expérience en production graphique et/ou gestion de projet, en agence ou au sein d'un média.\n• Connaissance approfondie des métiers de l'audiovisuel, des process de post-production et des modes de production d'une émission TV.\n• Connaissances techniques liées au studio, au plateau et à la régie\n• Sens des priorités et bonne résistance au stress.\n• Capacité à coordonner plusieurs projets simultanément avec rigueur.\n• Esprit d'équipe affirmé et grande aisance relationnelle.\n• Adaptabilité et ouverture au changement.\n• Autonomie, proactivité\n• Maîtrise des outils graphiques (adobe, cinema4d, blender, figma...)\n• Maitrise des outils graphiques de production (pixotop, unreal, watchout) un atout. Ce que nous vous offrons\n• La possibilité d'intégrer une équipe créative, dynamique et motivée, au sein d'un environnement où l'innovation et la collaboration sont au cœur des projets.\n• La chance de participer à des projets ambitieux qui contribuent à la transformation du média audiovisuel de service public.\n• Un cadre de travail stimulant, où vous pourrez enrichir vos compétences. A propos du processus de recrutement Les relations humaines La RTS met au concours trois postes de Responsable atelier graphique pour les productions de l'Information RTS au sein de son service Direction Artistique. Votre mission consiste à assurer le suivi opérationnel avec la rédaction de l'Information RTS, tout en organisant la vie de l'atelier graphique chargé de produire les éléments visuels pour les contenus TV et digitaux. Vous contribuez activement à renforcer la collaboration entre les différentes parties prenantes et veillez à la bonne application de l'identité visuelle de la RTS sur l'ensemble de ses plateformes.",
-        "en": "Votre mission Coordination équipe, suivi graphique et technique Information (60%)\n• Réceptionner les besoins auprès de la rédaction d'Information et challenger les demandes.\n• Répartir la charge de travail au quotidien et assurer le suivi opérationnel des créations graphiques (TV, digital).\n• Veiller au respect de l'identité visuelle RTS sur toutes les plateformes et des chartes graphiques des événements.\n• Préparer et mettre à disposition les éléments graphiques nécessaires aux événements afin de faciliter les échanges.\n• Collaborer avec l'équipe d'intégration graphique pour la création et l'évolution des templates.\n• Effectuer une veille technique et organisationnelle afin d'anticiper les besoins et d'optimiser les processus.\n• Accompagner la transformation des productions vers le digital en collaboration avec le directeur artistique.\n• Trouver de manière autonome des solutions rapides face aux imprévus. Macro planification (10%)\n• Établir une planification à moyen terme (trimestre), dans un souci d'anticiper les besoins et en prenant en compte les grands événements à venir à partir d'une matrice de service.\n• Gérer le planning de production au quotidien en veillant à la charge de travail.\n• Assurer le bon fonctionnement de la planification hebdomadaire en étroite collaboration avec la planificatrice.\n• Orienter la planificatrice en cas de besoin pour remplacer un·e graphiste absent·e. Votre profil\n• Minimum 5 ans d'expérience en production graphique et/ou gestion de projet, en agence ou au sein d'un média.\n• Connaissance approfondie des métiers de l'audiovisuel, des process de post-production et des modes de production d'une émission TV.\n• Connaissances techniques liées au studio, au plateau et à la régie\n• Sens des priorités et bonne résistance au stress.\n• Capacité à coordonner plusieurs projets simultanément avec rigueur.\n• Esprit d'équipe affirmé et grande aisance relationnelle.\n• Adaptabilité et ouverture au changement.\n• Autonomie, proactivité\n• Maîtrise des outils graphiques (adobe, cinema4d, blender, figma...)\n• Maitrise des outils graphiques de production (pixotop, unreal, watchout) un atout. Ce que nous vous offrons\n• La possibilité d'intégrer une équipe créative, dynamique et motivée, au sein d'un environnement où l'innovation et la collaboration sont au cœur des projets.\n• La chance de participer à des projets ambitieux qui contribuent à la transformation du média audiovisuel de service public.\n• Un cadre de travail stimulant, où vous pourrez enrichir vos compétences. A propos du processus de recrutement Les relations humaines La RTS met au concours trois postes de Responsable atelier graphique pour les productions de l'Information RTS au sein de son service Direction Artistique. Votre mission consiste à assurer le suivi opérationnel avec la rédaction de l'Information RTS, tout en organisant la vie de l'atelier graphique chargé de produire les éléments visuels pour les contenus TV et digitaux. Vous contribuez activement à renforcer la collaboration entre les différentes parties prenantes et veillez à la bonne application de l'identité visuelle de la RTS sur l'ensemble de ses plateformes.",
-        "de": "Votre mission Coordination équipe, suivi graphique et technique Information (60%)\n• Réceptionner les besoins auprès de la rédaction d'Information et challenger les demandes.\n• Répartir la charge de travail au quotidien et assurer le suivi opérationnel des créations graphiques (TV, digital).\n• Veiller au respect de l'identité visuelle RTS sur toutes les plateformes et des chartes graphiques des événements.\n• Préparer et mettre à disposition les éléments graphiques nécessaires aux événements afin de faciliter les échanges.\n• Collaborer avec l'équipe d'intégration graphique pour la création et l'évolution des templates.\n• Effectuer une veille technique et organisationnelle afin d'anticiper les besoins et d'optimiser les processus.\n• Accompagner la transformation des productions vers le digital en collaboration avec le directeur artistique.\n• Trouver de manière autonome des solutions rapides face aux imprévus. Macro planification (10%)\n• Établir une planification à moyen terme (trimestre), dans un souci d'anticiper les besoins et en prenant en compte les grands événements à venir à partir d'une matrice de service.\n• Gérer le planning de production au quotidien en veillant à la charge de travail.\n• Assurer le bon fonctionnement de la planification hebdomadaire en étroite collaboration avec la planificatrice.\n• Orienter la planificatrice en cas de besoin pour remplacer un·e graphiste absent·e. Votre profil\n• Minimum 5 ans d'expérience en production graphique et/ou gestion de projet, en agence ou au sein d'un média.\n• Connaissance approfondie des métiers de l'audiovisuel, des process de post-production et des modes de production d'une émission TV.\n• Connaissances techniques liées au studio, au plateau et à la régie\n• Sens des priorités et bonne résistance au stress.\n• Capacité à coordonner plusieurs projets simultanément avec rigueur.\n• Esprit d'équipe affirmé et grande aisance relationnelle.\n• Adaptabilité et ouverture au changement.\n• Autonomie, proactivité\n• Maîtrise des outils graphiques (adobe, cinema4d, blender, figma...)\n• Maitrise des outils graphiques de production (pixotop, unreal, watchout) un atout. Ce que nous vous offrons\n• La possibilité d'intégrer une équipe créative, dynamique et motivée, au sein d'un environnement où l'innovation et la collaboration sont au cœur des projets.\n• La chance de participer à des projets ambitieux qui contribuent à la transformation du média audiovisuel de service public.\n• Un cadre de travail stimulant, où vous pourrez enrichir vos compétences. A propos du processus de recrutement Les relations humaines La RTS met au concours trois postes de Responsable atelier graphique pour les productions de l'Information RTS au sein de son service Direction Artistique. Votre mission consiste à assurer le suivi opérationnel avec la rédaction de l'Information RTS, tout en organisant la vie de l'atelier graphique chargé de produire les éléments visuels pour les contenus TV et digitaux. Vous contribuez activement à renforcer la collaboration entre les différentes parties prenantes et veillez à la bonne application de l'identité visuelle de la RTS sur l'ensemble de ses plateformes."
+        "it": "La vostra missione Coordinamento del Team, monitoraggio grafico e tecnico Informazioni (60%)\n• Ricevi le esigenze dell'editor di notizie e le richieste di sfida.\n• Distribuire quotidianamente il carico di lavoro e garantire il monitoraggio operativo delle creazioni grafiche (TV, digitale).\n• Assicurarsi che l'identità visiva RTS sia rispettata su tutte le piattaforme e le carte grafiche dell'evento.\n• Preparare e rendere disponibili gli elementi grafici necessari per gli eventi per facilitare gli scambi.\n• Collabora con il team di integrazione grafica per la creazione e l'evoluzione dei modelli.\n• Condurre il monitoraggio tecnico e organizzativo per anticipare le esigenze e ottimizzare i processi.\n• Sostenere la trasformazione delle produzioni in digitale in collaborazione con il direttore artistico.\n• Trova soluzioni autonome per eventi imprevisti. Macro pianificazione (10%)\n• Stabilire la pianificazione a medio termine (quarto), al fine di anticipare le esigenze e tenendo conto dei principali eventi imminenti da una matrice di servizi.\n• Gestisci la pianificazione quotidiana della produzione assicurando il carico di lavoro.\n• Assicurare il corretto funzionamento della pianificazione settimanale in stretta collaborazione con il pianificatore.\n• Orientare il progettista se necessario per sostituire un grafico assente. Il tuo profilo\n• Esperienza minima di 5 anni nella produzione grafica e/o nella gestione di progetti, agenzia o media.\n• Conoscenza approfondita delle professioni audiovisive, dei processi di post-produzione e dei metodi di produzione di uno spettacolo televisivo.\n• Conoscenze tecniche relative a studio, set e gestione\n• Senso di priorità e buona resistenza allo stress.\n• Capacità di coordinare diversi progetti contemporaneamente con rigore.\n• Lo spirito di squadra ha affermato e grande facilità relazionale.\n• Adattabilità e apertura al cambiamento.\n• Autonomia, proattività\n• Mastery di strumenti grafici (adobe, cinema4d, frullatore, figma...)\n• Mastering strumenti di produzione grafica (pixotop, irreale, watchout) un bene. Cosa ti offriamo\n• La possibilità di integrare un team creativo, dinamico e motivato in un ambiente in cui innovazione e collaborazione sono al centro dei progetti.\n• La possibilità di partecipare a progetti ambiziosi che contribuiscono alla trasformazione dei media audiovisivi di servizio pubblico.\n• Un ambiente di lavoro stimolante dove è possibile arricchire le vostre abilità. Informazioni sul processo di reclutamento Relazioni umane La RTS mette in concorso tre posizioni di direttore di laboratorio grafico per le produzioni della RST nell'ambito della sua Direzione Artistica. La vostra missione è garantire il follow-up operativo con la scrittura dell'Information RTS, mentre l'organizzazione della vita del workshop grafico responsabile della produzione di elementi visivi per la TV e il contenuto digitale. Stai attivamente contribuendo a rafforzare la collaborazione tra diversi stakeholder e a garantire la corretta applicazione dell'identità visiva della RTS su tutte le sue piattaforme.",
+        "en": "Your mission Team coordination, graphical and technical monitoring Information (60%)\n• Receive needs from the news editor and challenge requests.\n• Distribute the workload on a daily basis and ensure the operational monitoring of graphic creations (TV, digital).\n• Ensure that RTS visual identity is respected on all platforms and the event graphic charters.\n• Prepare and make available the graphic elements necessary for events to facilitate exchanges.\n• Collaborate with the graphical integration team for the creation and evolution of templates.\n• Conduct technical and organizational monitoring to anticipate needs and optimize processes.\n• Support the transformation of productions into digital in collaboration with the artistic director.\n• Find autonomous solutions to unforeseen events. Macro planning (10%)\n• Establish medium-term planning (quarterly), with a view to anticipating needs and taking into account major upcoming events from a service matrix.\n• Manage daily production planning by ensuring workload.\n• Ensure the proper functioning of weekly planning in close collaboration with the planner.\n• Orient the planner if necessary to replace an absent graphic designer. Your profile\n• Minimum 5 years experience in graphic production and/or project management, agency or media.\n• In-depth knowledge of the audiovisual professions, post-production processes and production methods of a TV show.\n• Technical knowledge related to studio, set and management\n• Sense of priorities and good stress resistance.\n• Ability to coordinate several projects simultaneously with rigour.\n• Team spirit affirmed and great relational ease.\n• Adaptability and openness to change.\n• Autonomy, proactivity\n• Mastery of graphic tools (adobe, cinema4d, blender, figma...)\n• Mastering graphic production tools (pixotop, unreal, watchout) an asset. What we offer you\n• The possibility of integrating a creative, dynamic and motivated team into an environment where innovation and collaboration are at the heart of projects.\n• The chance to participate in ambitious projects that contribute to the transformation of public service audiovisual media.\n• A stimulating work environment where you can enrich your skills. About the recruitment process Human relations The RTS puts in the competition three positions of Graphic workshop manager for the productions of the Information RTS within its department Artistic Directorate. Your mission is to ensure the operational follow-up with the writing of the Information RTS, while organizing the life of the graphic workshop responsible for producing visual elements for TV and digital content. You are actively contributing to strengthening collaboration between different stakeholders and ensuring the proper application of the visual identity of the RTS on all its platforms.",
+        "de": "Ihre Mission Teamkoordination, grafische und technische Überwachung Informationen (60%)\n• Erhalten sie bedürfnisse vom nachrichtenredakteur und herausforderungsanfragen.\n• Verteilen Sie die Arbeitslast täglich und sorgen Sie für die operative Überwachung von Grafikerstellung (TV, digital).\n• Stellen Sie sicher, dass die visuelle Identität von RTS auf allen Plattformen und den Grafikchartern der Veranstaltung respektiert wird.\n• Bereiten Sie die grafischen Elemente vor, die für Veranstaltungen erforderlich sind, um den Austausch zu erleichtern.\n• Arbeiten Sie mit dem grafischen Integrationsteam bei der Erstellung und Entwicklung von Vorlagen zusammen.\n• Führen Sie eine technische und organisatorische Überwachung durch, um Bedürfnisse zu antizipieren und Prozesse zu optimieren.\n• Unterstützen Sie die Transformation von Produktionen ins Digitale in Zusammenarbeit mit dem künstlerischen Leiter.\n• Finden Sie autonome Lösungen für unvorhergesehene Ereignisse. Makroplanung (10 %)\n• Festlegung der mittelfristigen Planung (quartalsweise), um den Bedarf zu antizipieren und wichtige bevorstehende Ereignisse aus einer Servicematrix zu berücksichtigen.\n• Verwalten Sie die tägliche Produktionsplanung, indem Sie die Arbeitsbelastung sicherstellen.\n• Gewährleistung des ordnungsgemäßen Funktionierens der wöchentlichen Planung in enger Zusammenarbeit mit dem Planer.\n• Orientieren Sie den Planer, wenn nötig, um einen abwesenden Grafikdesigner zu ersetzen. Dein Profil\n• Mindestens 5 Jahre Erfahrung in der grafischen Produktion und / oder Projektmanagement, Agentur oder Medien.\n• Tiefe Kenntnisse der audiovisuellen Berufe, Postproduktionsprozesse und Produktionsmethoden einer TV-Show.\n• Technische Kenntnisse in Bezug auf Studio, Set und Management\n• Sinn für Prioritäten und gute Stressresistenz.\n• Fähigkeit, mehrere Projekte gleichzeitig mit Strenge zu koordinieren.\n• Teamgeist bestätigt und große relationale Leichtigkeit.\n• Anpassungsfähigkeit und Offenheit für Veränderungen.\n• Autonomie, Proaktivität\n• Beherrschung von Grafikwerkzeugen (adobe, cinema4d, blender, figma...)\n• Beherrschung von grafischen Produktionswerkzeugen (Pixotop, unwirklich, Watchout) ein Asset. Was wir Ihnen bieten\n• Die Möglichkeit, ein kreatives, dynamisches und motiviertes Team in ein Umfeld zu integrieren, in dem Innovation und Zusammenarbeit im Mittelpunkt von Projekten stehen.\n• Die Chance, an ehrgeizigen Projekten teilzunehmen, die zur Transformation der öffentlich-rechtlichen audiovisuellen Medien beitragen.\n• Ein anregendes Arbeitsumfeld, in dem Sie Ihre Fähigkeiten bereichern können. Über den Rekrutierungsprozess Human Relations Das RTS stellt im Wettbewerb drei Positionen als Grafikwerkstattleiter für die Produktionen des Information RTS in seiner Abteilung Künstlerische Direktion. Ihre Mission ist es, das operative Follow-up mit dem Schreiben der Information RTS zu gewährleisten, während Sie das Leben der Grafikwerkstatt organisieren, die für die Produktion visueller Elemente für TV und digitale Inhalte verantwortlich ist. Sie tragen aktiv dazu bei, die Zusammenarbeit zwischen verschiedenen Interessengruppen zu stärken und die ordnungsgemäße Anwendung der visuellen Identität des RTS auf allen seinen Plattformen sicherzustellen."
       },
       "location": "Lausanne",
       "canton": "VD",
@@ -3103,7 +3084,6 @@
         "pensumMin": 70,
         "pensumMax": 70
       },
-      "needsRetranslation": true,
       "salaryMin": 43100,
       "salaryMax": 76300,
       "salarySource": "estimated",
@@ -3135,16 +3115,16 @@
       "title": "Videoproduzent:in SRF Studio 404",
       "titleByLocale": {
         "de": "Videoproduzent:in SRF Studio 404",
-        "it": "Videoproduzent:in SRF Studio 404",
-        "en": "Videoproduzent:in SRF Studio 404",
-        "fr": "Videoproduzent:in SRF Studio 404"
+        "it": "Video produttore SRF Studio 404",
+        "en": "Video producer SRF Studio 404",
+        "fr": "Producteur vidéo SRF Studio 404"
       },
       "description": "Was sind Ihre Aufgaben? Studio 404 ist die digitale Sketch-Marke von SRF. Wir produzieren kurze, pointierte Comedy für TikTok, Instagram und YouTube. Unsere Bühne ist das Smartphone. Wir erzählen den ganz normalen Wahnsinn einer Generation zwischen Selbstoptimierung, Dauerkrise und Meme-Kultur. Wir suchen ein:e Videoproduzent:in mit Lust auf Tempo, Verantwortung und Humor.\n• Produktion und Realisation unserer Videos für alle Kanäle von Studio 404, von Instagram und TikTok bis YouTube\n• Eigenverantwortliche visuelle Umsetzung unserer Sketches und Formate: Drehs planen, Kamera führen, Licht und Ton mitdenken sowie Content schneiden und postproduzieren\n• Weiterentwicklung unserer visuellen und produktionstechnischen Handschrift: Eigene Ideen einbringen, neue Bildsprachen und Produktionsweisen ausprobieren und unsere Inhalte qualitativ auf das nächste Level bringen\n• Enge Zusammenarbeit mit Redaktion, Hosts und Distribution, um aus inhaltlichen Ideen starke, plattformgerechte Videos zu machen Was bringen Sie mit?\n• Sie beherrschen die gesamte videotechnische Umsetzung, von Kamera, Licht und Ton über Schnitt und Postproduktion bis zum fertigen Export, sind sicher im Umgang mit gängigen Schnittprogrammen wie DaVinci Resolve und bringen idealerweise Grundkenntnisse in Animation und Motion Design mit\n• Sie haben redaktionelle Erfahrung, verstehen Storytelling und wissen, wie Inhalte visuell erzählt und plattformgerecht umgesetzt werden\n• Sie haben ein ausgeprägtes Flair für Comedy, Satire und Social Media und verstehen, welche Bildsprache und welcher Schnitt einen Inhalt stärker machen\n• Sie arbeiten selbstständig, lösungsorientiert und zuverlässig und behalten auch bei schnellen Produktionen und engen Timings den Überblick Worauf können Sie sich freuen?\n• Gags, Gags, Gags\n• Ein schnelles, kreatives Team im Bereich Show, Spiele & Humor mit viel Eigenverantwortung\n• Arbeit an relevanten Themen aus der eigenen Lebenswelt mit grossem Gestaltungsspielraum und Verantwortung\n• Die Chance, eine digitale Marke aktiv mitzuprägen und sich innerhalb von SRF weiterzuentwickeln zum Bewerbungsprozess Katrin Junker HR Beraterin +41 58 135 19 30 Die Abteilung Unterhaltung erreicht alle Zielgruppen und trifft mit ihren Produktionen das Herz der Menschen. Sie lösen Emotionen aus, ecken an und verbinden. Die Abteilung Unterhaltung bietet Plattformen für Profis, Nachwuchs und UGC. Interaktion hat dabei einen zentralen Stellenwert.",
       "descriptionByLocale": {
         "de": "Was sind Ihre Aufgaben? Studio 404 ist die digitale Sketch-Marke von SRF. Wir produzieren kurze, pointierte Comedy für TikTok, Instagram und YouTube. Unsere Bühne ist das Smartphone. Wir erzählen den ganz normalen Wahnsinn einer Generation zwischen Selbstoptimierung, Dauerkrise und Meme-Kultur. Wir suchen ein:e Videoproduzent:in mit Lust auf Tempo, Verantwortung und Humor.\n• Produktion und Realisation unserer Videos für alle Kanäle von Studio 404, von Instagram und TikTok bis YouTube\n• Eigenverantwortliche visuelle Umsetzung unserer Sketches und Formate: Drehs planen, Kamera führen, Licht und Ton mitdenken sowie Content schneiden und postproduzieren\n• Weiterentwicklung unserer visuellen und produktionstechnischen Handschrift: Eigene Ideen einbringen, neue Bildsprachen und Produktionsweisen ausprobieren und unsere Inhalte qualitativ auf das nächste Level bringen\n• Enge Zusammenarbeit mit Redaktion, Hosts und Distribution, um aus inhaltlichen Ideen starke, plattformgerechte Videos zu machen Was bringen Sie mit?\n• Sie beherrschen die gesamte videotechnische Umsetzung, von Kamera, Licht und Ton über Schnitt und Postproduktion bis zum fertigen Export, sind sicher im Umgang mit gängigen Schnittprogrammen wie DaVinci Resolve und bringen idealerweise Grundkenntnisse in Animation und Motion Design mit\n• Sie haben redaktionelle Erfahrung, verstehen Storytelling und wissen, wie Inhalte visuell erzählt und plattformgerecht umgesetzt werden\n• Sie haben ein ausgeprägtes Flair für Comedy, Satire und Social Media und verstehen, welche Bildsprache und welcher Schnitt einen Inhalt stärker machen\n• Sie arbeiten selbstständig, lösungsorientiert und zuverlässig und behalten auch bei schnellen Produktionen und engen Timings den Überblick Worauf können Sie sich freuen?\n• Gags, Gags, Gags\n• Ein schnelles, kreatives Team im Bereich Show, Spiele & Humor mit viel Eigenverantwortung\n• Arbeit an relevanten Themen aus der eigenen Lebenswelt mit grossem Gestaltungsspielraum und Verantwortung\n• Die Chance, eine digitale Marke aktiv mitzuprägen und sich innerhalb von SRF weiterzuentwickeln zum Bewerbungsprozess Katrin Junker HR Beraterin +41 58 135 19 30 Die Abteilung Unterhaltung erreicht alle Zielgruppen und trifft mit ihren Produktionen das Herz der Menschen. Sie lösen Emotionen aus, ecken an und verbinden. Die Abteilung Unterhaltung bietet Plattformen für Profis, Nachwuchs und UGC. Interaktion hat dabei einen zentralen Stellenwert.",
-        "it": "Was sind Ihre Aufgaben? Studio 404 ist die digitale Sketch-Marke von SRF. Wir produzieren kurze, pointierte Comedy für TikTok, Instagram und YouTube. Unsere Bühne ist das Smartphone. Wir erzählen den ganz normalen Wahnsinn einer Generation zwischen Selbstoptimierung, Dauerkrise und Meme-Kultur. Wir suchen ein:e Videoproduzent:in mit Lust auf Tempo, Verantwortung und Humor.\n• Produktion und Realisation unserer Videos für alle Kanäle von Studio 404, von Instagram und TikTok bis YouTube\n• Eigenverantwortliche visuelle Umsetzung unserer Sketches und Formate: Drehs planen, Kamera führen, Licht und Ton mitdenken sowie Content schneiden und postproduzieren\n• Weiterentwicklung unserer visuellen und produktionstechnischen Handschrift: Eigene Ideen einbringen, neue Bildsprachen und Produktionsweisen ausprobieren und unsere Inhalte qualitativ auf das nächste Level bringen\n• Enge Zusammenarbeit mit Redaktion, Hosts und Distribution, um aus inhaltlichen Ideen starke, plattformgerechte Videos zu machen Was bringen Sie mit?\n• Sie beherrschen die gesamte videotechnische Umsetzung, von Kamera, Licht und Ton über Schnitt und Postproduktion bis zum fertigen Export, sind sicher im Umgang mit gängigen Schnittprogrammen wie DaVinci Resolve und bringen idealerweise Grundkenntnisse in Animation und Motion Design mit\n• Sie haben redaktionelle Erfahrung, verstehen Storytelling und wissen, wie Inhalte visuell erzählt und plattformgerecht umgesetzt werden\n• Sie haben ein ausgeprägtes Flair für Comedy, Satire und Social Media und verstehen, welche Bildsprache und welcher Schnitt einen Inhalt stärker machen\n• Sie arbeiten selbstständig, lösungsorientiert und zuverlässig und behalten auch bei schnellen Produktionen und engen Timings den Überblick Worauf können Sie sich freuen?\n• Gags, Gags, Gags\n• Ein schnelles, kreatives Team im Bereich Show, Spiele & Humor mit viel Eigenverantwortung\n• Arbeit an relevanten Themen aus der eigenen Lebenswelt mit grossem Gestaltungsspielraum und Verantwortung\n• Die Chance, eine digitale Marke aktiv mitzuprägen und sich innerhalb von SRF weiterzuentwickeln zum Bewerbungsprozess Katrin Junker HR Beraterin +41 58 135 19 30 Die Abteilung Unterhaltung erreicht alle Zielgruppen und trifft mit ihren Produktionen das Herz der Menschen. Sie lösen Emotionen aus, ecken an und verbinden. Die Abteilung Unterhaltung bietet Plattformen für Profis, Nachwuchs und UGC. Interaktion hat dabei einen zentralen Stellenwert.",
-        "en": "Was sind Ihre Aufgaben? Studio 404 ist die digitale Sketch-Marke von SRF. Wir produzieren kurze, pointierte Comedy für TikTok, Instagram und YouTube. Unsere Bühne ist das Smartphone. Wir erzählen den ganz normalen Wahnsinn einer Generation zwischen Selbstoptimierung, Dauerkrise und Meme-Kultur. Wir suchen ein:e Videoproduzent:in mit Lust auf Tempo, Verantwortung und Humor.\n• Produktion und Realisation unserer Videos für alle Kanäle von Studio 404, von Instagram und TikTok bis YouTube\n• Eigenverantwortliche visuelle Umsetzung unserer Sketches und Formate: Drehs planen, Kamera führen, Licht und Ton mitdenken sowie Content schneiden und postproduzieren\n• Weiterentwicklung unserer visuellen und produktionstechnischen Handschrift: Eigene Ideen einbringen, neue Bildsprachen und Produktionsweisen ausprobieren und unsere Inhalte qualitativ auf das nächste Level bringen\n• Enge Zusammenarbeit mit Redaktion, Hosts und Distribution, um aus inhaltlichen Ideen starke, plattformgerechte Videos zu machen Was bringen Sie mit?\n• Sie beherrschen die gesamte videotechnische Umsetzung, von Kamera, Licht und Ton über Schnitt und Postproduktion bis zum fertigen Export, sind sicher im Umgang mit gängigen Schnittprogrammen wie DaVinci Resolve und bringen idealerweise Grundkenntnisse in Animation und Motion Design mit\n• Sie haben redaktionelle Erfahrung, verstehen Storytelling und wissen, wie Inhalte visuell erzählt und plattformgerecht umgesetzt werden\n• Sie haben ein ausgeprägtes Flair für Comedy, Satire und Social Media und verstehen, welche Bildsprache und welcher Schnitt einen Inhalt stärker machen\n• Sie arbeiten selbstständig, lösungsorientiert und zuverlässig und behalten auch bei schnellen Produktionen und engen Timings den Überblick Worauf können Sie sich freuen?\n• Gags, Gags, Gags\n• Ein schnelles, kreatives Team im Bereich Show, Spiele & Humor mit viel Eigenverantwortung\n• Arbeit an relevanten Themen aus der eigenen Lebenswelt mit grossem Gestaltungsspielraum und Verantwortung\n• Die Chance, eine digitale Marke aktiv mitzuprägen und sich innerhalb von SRF weiterzuentwickeln zum Bewerbungsprozess Katrin Junker HR Beraterin +41 58 135 19 30 Die Abteilung Unterhaltung erreicht alle Zielgruppen und trifft mit ihren Produktionen das Herz der Menschen. Sie lösen Emotionen aus, ecken an und verbinden. Die Abteilung Unterhaltung bietet Plattformen für Profis, Nachwuchs und UGC. Interaktion hat dabei einen zentralen Stellenwert.",
-        "fr": "Was sind Ihre Aufgaben? Studio 404 ist die digitale Sketch-Marke von SRF. Wir produzieren kurze, pointierte Comedy für TikTok, Instagram und YouTube. Unsere Bühne ist das Smartphone. Wir erzählen den ganz normalen Wahnsinn einer Generation zwischen Selbstoptimierung, Dauerkrise und Meme-Kultur. Wir suchen ein:e Videoproduzent:in mit Lust auf Tempo, Verantwortung und Humor.\n• Produktion und Realisation unserer Videos für alle Kanäle von Studio 404, von Instagram und TikTok bis YouTube\n• Eigenverantwortliche visuelle Umsetzung unserer Sketches und Formate: Drehs planen, Kamera führen, Licht und Ton mitdenken sowie Content schneiden und postproduzieren\n• Weiterentwicklung unserer visuellen und produktionstechnischen Handschrift: Eigene Ideen einbringen, neue Bildsprachen und Produktionsweisen ausprobieren und unsere Inhalte qualitativ auf das nächste Level bringen\n• Enge Zusammenarbeit mit Redaktion, Hosts und Distribution, um aus inhaltlichen Ideen starke, plattformgerechte Videos zu machen Was bringen Sie mit?\n• Sie beherrschen die gesamte videotechnische Umsetzung, von Kamera, Licht und Ton über Schnitt und Postproduktion bis zum fertigen Export, sind sicher im Umgang mit gängigen Schnittprogrammen wie DaVinci Resolve und bringen idealerweise Grundkenntnisse in Animation und Motion Design mit\n• Sie haben redaktionelle Erfahrung, verstehen Storytelling und wissen, wie Inhalte visuell erzählt und plattformgerecht umgesetzt werden\n• Sie haben ein ausgeprägtes Flair für Comedy, Satire und Social Media und verstehen, welche Bildsprache und welcher Schnitt einen Inhalt stärker machen\n• Sie arbeiten selbstständig, lösungsorientiert und zuverlässig und behalten auch bei schnellen Produktionen und engen Timings den Überblick Worauf können Sie sich freuen?\n• Gags, Gags, Gags\n• Ein schnelles, kreatives Team im Bereich Show, Spiele & Humor mit viel Eigenverantwortung\n• Arbeit an relevanten Themen aus der eigenen Lebenswelt mit grossem Gestaltungsspielraum und Verantwortung\n• Die Chance, eine digitale Marke aktiv mitzuprägen und sich innerhalb von SRF weiterzuentwickeln zum Bewerbungsprozess Katrin Junker HR Beraterin +41 58 135 19 30 Die Abteilung Unterhaltung erreicht alle Zielgruppen und trifft mit ihren Produktionen das Herz der Menschen. Sie lösen Emotionen aus, ecken an und verbinden. Die Abteilung Unterhaltung bietet Plattformen für Profis, Nachwuchs und UGC. Interaktion hat dabei einen zentralen Stellenwert."
+        "it": "Quali sono i tuoi compiti? Studio 404 è il marchio di schizzo digitale di SRF. Produciamo commedia breve e appuntita per TikTok, Instagram e YouTube. Il nostro stadio è lo smartphone. Noi diciamo la follia normale di una generazione tra auto-ottimizzazione, crisi permanente e cultura meme. Stiamo cercando un produttore video:in con il desiderio di velocità, responsabilità e umorismo.\n• Produzione e realizzazione dei nostri video per tutti i canali di Studio 404, da Instagram e TikTok a YouTube\n• Realizzazione visiva auto-responsabile dei nostri schizzi e formati: progettazione di riprese, guida della fotocamera, pensiero di luce e suono, oltre alla modifica e post-produzione di contenuti\n• Ulteriore sviluppo della nostra scrittura visiva e produttiva: portare le nostre idee, provare nuovi linguaggi visivi e metodi di produzione e portare i nostri contenuti qualitativamente al livello successivo\n• Una stretta collaborazione con editor, host e distribuzione per trasformare le idee dei contenuti in video forti e adatti alle piattaforme Cosa porti?\n• Essi padroneggiano l'intera implementazione tecnica video, dalla fotocamera, dalla luce e dal suono alla modifica e post-produzione all'esportazione finita, sono fiduciosi nella gestione di programmi di editing comuni come DaVinci Resolve e portano idealmente le conoscenze di base nell'animazione e nella progettazione del movimento.\n• Avete esperienza editoriale, comprendere lo storytelling e sapere come il contenuto è visivamente raccontato e implementato su piattaforme\n• Hanno un tocco distinto per commedia, satira e social media e capiscono quale linguaggio visivo e taglio rendono il contenuto più forte\n• Si lavora in modo indipendente, orientato alla soluzione e affidabile e tenere traccia di produzioni veloci e tempi stretti.\n• Gags, gags, gags\n• Un team veloce e creativo nel campo dello spettacolo, giochi e umorismo con un sacco di responsabilità personale\n• Lavorare su argomenti rilevanti dal proprio ambiente di vita con grande ambito creativo e responsabilità\n• L'opportunità di plasmare attivamente un marchio digitale e di svilupparsi all'interno della SRF nel processo di applicazione Katrin Junker HR consulente +41 58 135 19 30 Il reparto di intrattenimento raggiunge tutti i gruppi target e incontra il cuore delle persone con le sue produzioni. Attivano emozioni, angolo e collegano. Il reparto di intrattenimento offre piattaforme per professionisti, giovani e UGC. L'interazione è di fondamentale importanza.",
+        "en": "What are your tasks? Studio 404 is SRF’s digital sketch brand. We produce short, pointed comedy for TikTok, Instagram and YouTube. Our stage is the smartphone. We tell the normal madness of a generation between self-optimization, permanent crisis and meme culture. We are looking for a:e video producer:in with a desire for speed, responsibility and humor.\n• Production and realization of our videos for all channels from Studio 404, from Instagram and TikTok to YouTube\n• Self-responsible visual implementation of our sketches and formats: planning shooting, guiding the camera, thinking light and sound as well as editing and post-producing content\n• Further development of our visual and production handwriting: bringing our own ideas, trying out new visual languages and production methods and bringing our content qualitatively to the next level\n• Close cooperation with editors, hosts and distribution to turn content ideas into strong, platform-friendly videos What do you bring?\n• They master the entire video technical implementation, from camera, light and sound to editing and post-production to finished export, are confident in handling common editing programs such as DaVinci Resolve and ideally bring basic knowledge in animation and motion design.\n• You have editorial experience, understand storytelling and know how content is visually told and implemented on platforms\n• They have a distinct flair for comedy, satire and social media and understand which visual language and cut make content stronger\n• You work independently, solution-oriented and reliable and keep track of fast productions and tight timings.\n• Gags, gags, gags\n• A fast, creative team in the field of show, games & humor with a lot of personal responsibility\n• Work on relevant topics from your own living environment with great creative scope and responsibility\n• The opportunity to actively shape a digital brand and develop within SRF into the application process Katrin Junker HR consultant +41 58 135 19 30 The entertainment department reaches all target groups and meets the heart of the people with its productions. They trigger emotions, corner and connect. The entertainment department offers platforms for professionals, young people and UGC. Interaction is of central importance.",
+        "fr": "Quelles sont vos tâches ? Studio 404 est la marque de croquis numériques SRF. Nous produisons une comédie courte et pointue pour TikTok, Instagram et YouTube. Notre scène est le smartphone. Nous disons la folie normale d'une génération entre l'auto-optimisation, la crise permanente et la culture mème. Nous sommes à la recherche d'un producteur vidéo:e:in avec un désir de vitesse, de responsabilité et d'humour.\n• Production et réalisation de nos vidéos pour toutes les chaînes de Studio 404, Instagram et TikTok à YouTube\n• Implémentation visuelle auto-responsable de nos croquis et formats : planification de la prise de vue, guidage de la caméra, réflexion de la lumière et du son ainsi que montage et post-production du contenu\n• Poursuite du développement de notre écriture visuelle et de notre production : apporter nos propres idées, essayer de nouveaux langages visuels et méthodes de production et porter notre contenu qualitativement au niveau supérieur\n• Coopération étroite avec les éditeurs, les hôtes et la distribution pour transformer les idées de contenu en vidéos fortes et conviviales. Qu'est-ce que tu apportes ?\n• Ils maîtrisent l'ensemble de l'implémentation technique de la vidéo, depuis la caméra, la lumière et le son jusqu'à l'édition et la postproduction jusqu'à l'exportation finie, sont confiants dans la gestion de programmes d'édition communs tels que DaVinci Resolve et apportent idéalement des connaissances de base dans l'animation et la conception de mouvement.\n• Vous avez une expérience éditoriale, vous comprenez la narration et vous savez comment le contenu est décrit visuellement et mis en place sur les plateformes\n• Ils ont un style distinct pour la comédie, la satire et les médias sociaux et de comprendre quel langage visuel et couper rendent le contenu plus fort\n• Vous travaillez de façon indépendante, orientée vers la solution et fiable et suivez les productions rapides et les horaires serrés.\n• Des gags, des gags, des gags\n• Une équipe rapide et créative dans le domaine du show, des jeux et de l'humour avec beaucoup de responsabilité personnelle\n• Travailler sur des sujets pertinents de votre propre milieu de vie avec une grande créativité et une grande responsabilité\n• L'opportunité de façonner activement une marque numérique et de développer au sein de SRF dans le processus de candidature Katrin Junker HR consultant +41 58 135 19 30 Le service de divertissement atteint tous les groupes cibles et rencontre le cœur de la population avec ses productions. Ils déclenchent des émotions, se coincent et se connectent. Le service de divertissement offre des plateformes pour les professionnels, les jeunes et l'UGC. L'interaction est d'une importance capitale."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -3187,7 +3167,6 @@
         "pensumMin": 40,
         "pensumMax": 40
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",

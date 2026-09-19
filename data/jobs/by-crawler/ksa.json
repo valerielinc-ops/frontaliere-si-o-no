@@ -59,7 +59,8 @@
         "arztsekretar-in-oder-med-praxisassistent-in-ksa-ch",
         "secretaire-medical-ou-med-assistant-pratique-kantonsspital-aarau-ksa-aarau",
         "arztsekretar-in-o-med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-uinml1",
-        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlsy"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -70,7 +71,8 @@
           "arztsekretar-in-oder-med-praxisassistent-in-ksa-ch",
           "secretaire-medical-ou-med-assistant-pratique-kantonsspital-aarau-ksa-aarau",
           "arztsekretar-in-o-med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-uinml1",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlsy"
         ],
         "en": [
           "medical-secretary-or-med-practical-assistant-kantonsspital-aarau-ksa-aarau"
@@ -84,7 +86,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T09:44:27.746Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -173,7 +174,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T21:34:35.235Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -275,14 +275,14 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermiera / nurse professionale",
         "en": "Dipl. Nursing professional / nursing professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Dipl. Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -321,7 +321,8 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9zu4ig",
-        "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau"
+        "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -333,14 +334,14 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
         ],
         "en": [
           "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-21T21:48:21.989Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -585,7 +586,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T22:02:55.986Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -691,7 +691,7 @@
       "title": "Nachdiplomstudiengang Dipl. Expertin / Experte Anästhesiepflege NDS HF",
       "titleByLocale": {
         "it": "Corso di laurea Dipl. Expert / Expert Anesthesia Care NDS HF",
-        "en": "Nachdiplomstudiengang Dipl. Expertin / Experte Anästhesiepflege NDS HF",
+        "en": "Postgraduate degree program Dipl. Expert / Expert Anesthesia Care NDS HF",
         "de": "Nachdiplomstudiengang Dipl. Expertin / Experte Anästhesiepflege NDS HF",
         "fr": "Programme d'études supérieures Dipl. Expert / Expert Anesthésie Soins NDS HF"
       },
@@ -744,7 +744,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.725Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -856,7 +855,7 @@
       "title": "Dipl. Pflegefachfrau / Pflegefachmann Chirurgie",
       "titleByLocale": {
         "it": "Dipl. Infermiera / chirurgia dell'infermiera",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann Chirurgie",
+        "en": "Dipl. Nurse / nurse surgery",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann Chirurgie",
         "fr": "Dipl. Chirurgie infirmière/infirmière"
       },
@@ -918,7 +917,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.726Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1034,7 +1032,7 @@
       "title": "Pflegeexpertin / Pflegeexperte",
       "titleByLocale": {
         "it": "Esperto di cura / esperto di cura",
-        "en": "Pflegeexpertin / Pflegeexperte",
+        "en": "Care expert / care expert",
         "de": "Pflegeexpertin / Pflegeexperte",
         "fr": "Expert en soins / expert en soins"
       },
@@ -1086,7 +1084,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:58:54.338Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1107,7 +1104,7 @@
       "slugByLocale": {
         "it": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau-ca1a26",
         "en": "med-practical-assistant-kantonsspital-aarau-ksa-aarau-ca1a26",
-        "de": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+        "de": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztly5",
         "fr": "med-assistant-pratique-kantonsspital-aarau-ksa-aarau-ca1a26"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -1175,7 +1172,6 @@
         "med-assistente-pratico-kantonsspital-aarau-ksa-aarau-ca1a26"
       ],
       "firstSeenAt": "2026-08-07T01:20:17.707Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1205,7 +1201,7 @@
       "title": "Pflegeexpertin / Pflegeexperte",
       "titleByLocale": {
         "it": "Esperto di cura / esperto di cura",
-        "en": "Pflegeexpertin / Pflegeexperte",
+        "en": "Care expert / care expert",
         "de": "Pflegeexpertin / Pflegeexperte",
         "fr": "Expert en soins / expert en soins"
       },
@@ -1270,7 +1266,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:20:17.707Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1451,7 +1446,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:54:11.993Z",
-      "needsRetranslation": true,
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
@@ -1808,7 +1802,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T11:45:41.568Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1838,7 +1831,7 @@
       "title": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF",
       "titleByLocale": {
         "it": "Laurea specialistica Dipl. Expert / Expert Emergency Care NDS HF",
-        "en": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF",
+        "en": "Postgraduate Degree Dipl. Expert / Expert Emergency Care NDS HF",
         "de": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF",
         "fr": "Diplôme supérieur Dipl. Expert / Expert Soins d'urgence NDS HF"
       },
@@ -1889,7 +1882,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1919,7 +1911,7 @@
       "title": "Dipl. Expertin / Experte Intensivpflege",
       "titleByLocale": {
         "it": "Dipl. Expert / Expert Intensive Care",
-        "en": "Dipl. Expertin / Experte Intensivpflege",
+        "en": "Dipl. Expert / Expert Intensive Care",
         "de": "Dipl. Expertin / Experte Intensivpflege",
         "fr": "Dipl. Expert / Expert soins intensifs"
       },
@@ -1954,7 +1946,6 @@
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2274,7 +2265,6 @@
         "med-assistente-pratico-in-consulenza-per-l-infanzia-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2304,7 +2294,7 @@
       "title": "Dipl. Expertin / Experte Notfallpflege NDS HF",
       "titleByLocale": {
         "it": "Certificato esperto / certificato di assistenza di emergenza NDS HF",
-        "en": "Dipl. Expertin / Experte Notfallpflege NDS HF",
+        "en": "Dipl. Expert / Expert Emergency Care NDS HF",
         "de": "Dipl. Expertin / Experte Notfallpflege NDS HF",
         "fr": "Expert certifié / Expert certifié Soins d'urgence NDS HF"
       },
@@ -2360,7 +2350,6 @@
         "esperto-certificato-in-cure-di-emergenza-nds-hf-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2465,7 +2454,7 @@
         "it": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
         "en": "med-practical-assistant-kantonsspital-aarau-ksa-aarau",
         "de": "med-praxisassistent-in-ksa-ch",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -2538,11 +2527,11 @@
         ],
         "fr": [
           "med-praxissing-in-notfall-kantonsspital-aarau-ksa-aarau",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2792,7 +2781,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
@@ -2867,7 +2855,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
@@ -2942,7 +2929,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -3156,7 +3142,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.794Z",
-      "needsRetranslation": true,
       "salaryMin": 52500,
       "salaryMax": 96500,
       "salarySource": "estimated",
@@ -3272,7 +3257,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.794Z",
-      "needsRetranslation": true,
       "salaryMin": 52500,
       "salaryMax": 96500,
       "salarySource": "estimated",
@@ -3347,7 +3331,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.794Z",
-      "needsRetranslation": true,
       "salaryMin": 52500,
       "salaryMax": 96500,
       "salarySource": "estimated",
@@ -3840,7 +3823,7 @@
         "it": "Business Controller",
         "en": "Business Controller",
         "de": "Business Controller/in",
-        "fr": "Business Controller/in"
+        "fr": "Contrôleur d'entreprise"
       },
       "description": "Aufgaben:\n• Du steuerst die Budgetplanung, führst Wirtschaftlichkeitsanalysen durch und begleitest die Klinikleitungen und den Bereichsmanager bei finanziellen Entscheidungen.\n\n• Du erstellst aussagekräftige Reportings und Analysen und leitest daraus konkrete Handlungs- und Optimierungspotenziale ab.\n\n• Du analysierst Kosten, Leistungen und Leistungsstrukturen der Kliniken und unterstützt deren betriebswirtschaftliche Steuerung.\n\n• Du stellst die Qualität der periodischen Abschlüsse und finanziellen Abgrenzungen sicher.\n\n• Du berätst das Bereichsmanagement und die Kliniken als kompetente Sparringspartner in betriebswirtschaftlichen Fragestellungen.\n\n• Du begleitest die Umsetzung von Verbesserungsmassnahmen und wirkst aktiv an Projekten sowie an der Weiterentwicklung unserer Controllingprozesse und -instrumente mit.\n\nAnforderungen:\n• Abgeschlossenes Studium (FH/Uni) in Betriebswirtschaft mit Schwerpunkt Finanzen/Controlling oder vergleichbare Ausbildung mit Weiterbildung im Controlling\n\n• Erfahrung im Business Controlling, idealerweise im Gesundheitswesen oder in einem komplexen Dienstleistungsumfeld\n\n• Ausgeprägte analytische und konzeptionelle Fähigkeiten sowie Freude daran, aus Zahlen konkrete Handlungsempfehlungen abzuleiten\n\n• Selbstständige und initiative Persönlichkeit mit unternehmerischem Denken, Durchsetzungsvermögen und hoher Kommunikationskompetenz\n\n• Sehr gute MS-Excel-Kenntnisse; Erfahrung mit BI-Tools wie Qlik Sense oder TIP HCe ist ein Plus\n\n• Interesse an den medizinischen und betriebswirtschaftlichen Zusammenhängen eines Akutspitals\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
@@ -4167,7 +4150,7 @@
       "companyDomain": "ksa.ch",
       "title": "Business Intelligence Spezialist/in",
       "titleByLocale": {
-        "it": "Business Intelligence Spezialist/in",
+        "it": "Specialista dell'intelligenza aziendale",
         "en": "Business Intelligence Specialist",
         "de": "Business Intelligence Spezialist/in",
         "fr": "Spécialiste du renseignement commercial"
@@ -4216,7 +4199,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:42:13.466Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -4376,7 +4358,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:42:13.467Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -4406,7 +4387,7 @@
       "title": "Nachdiplomstudiengang Dipl. Expertin / Experte Intensivpflege NDS HF",
       "titleByLocale": {
         "it": "Corso di laurea Dipl. Expert / Expert Intensive Care NDS HF",
-        "en": "Nachdiplomstudiengang Dipl. Expertin / Experte Intensivpflege NDS HF",
+        "en": "Postgraduate degree program Dipl. Expert / Expert Intensive Care NDS HF",
         "de": "Nachdiplomstudiengang Dipl. Expertin / Experte Intensivpflege NDS HF",
         "fr": "Programme d'études supérieures Dipl. Expert / Expert Soins intensifs NDS HF"
       },
@@ -4453,7 +4434,6 @@
         "nachdiplomstudieng-dipl-experten-experten-intensivpflege-nds-hf-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-09-08T13:32:49.217Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -4538,7 +4518,6 @@
         ]
       },
       "firstSeenAt": "2026-09-07T15:03:33.541Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -4799,7 +4778,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:26:20.862Z",
-      "needsRetranslation": true,
       "salaryMin": 67500,
       "salaryMax": 84500,
       "salarySource": "estimated",
@@ -4917,7 +4895,7 @@
       "title": "Ergotherapeut/in",
       "titleByLocale": {
         "it": "terapeuta del lavoro",
-        "en": "Ergotherapeut/in",
+        "en": "Occupational therapists",
         "de": "Ergotherapeut/in",
         "fr": "ergothérapeute"
       },
@@ -4970,7 +4948,6 @@
         "terapeuta-del-lavoro-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-09-03T23:15:12.099Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -5378,7 +5355,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermiera / nurse professionale",
         "en": "Dipl. Nursing professional / nursing professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Dipl. Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -5479,7 +5456,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -5846,7 +5822,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T09:53:28.951Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -5876,7 +5851,7 @@
       "title": "Betriebselektriker/in",
       "titleByLocale": {
         "it": "Elettricista aziendale",
-        "en": "Betriebselektriker/in",
+        "en": "Business electricians",
         "de": "Betriebselektriker/in",
         "fr": "Électricien"
       },
@@ -6102,7 +6077,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T09:53:28.951Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6211,7 +6185,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T21:48:21.990Z",
-      "needsRetranslation": true,
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
@@ -6243,7 +6216,7 @@
         "it": "Controller di cura",
         "en": "Care controller",
         "de": "Pflegecontroller/in",
-        "fr": "Pflegecontroller/in"
+        "fr": "Contrôleur de soins"
       },
       "description": "Aufgaben:\n• Die finanzielle Führung des gesamten KSA läuft in der Direktion Finanzen zusammen. Du bist Teil dieses engagierten Teams und zuständig für die finanziellen Belange der Direktion CNO.\n\n• Du übernimmst eine zentrale Rolle in der betriebswirtschaftlichen Führung und Steuerung des Pflegebereichs und unterstützen die CNO sowie die Pflegeverantwortlichen in der finanziellen Führung. Insbesondere überwachst du die Budgeteinhaltung der Direktion CNO.\n\n• Du gestaltest die Finanz- und Budgetplanung des Pflegebereichs aktiv mit und erstellst Kalkulationen zur Ressourcen- und Personalplanung, unter anderem auf Basis von NHPPD (Nursing Hours Per Patient Day).\n\n• Du analysierst Personal-, Leistungs-, Belegungs- und Qualitätsdaten, erkennst Entwicklungspotenziale und leitest gemeinsam mit der CNO sowie den Verantwortlichen der Pflege konkrete Massnahmen zur Optimierung der Prozesse ab.\n\n• Du verantwortest pflegespezifische Datenerhebungen und Auswertungen, insbesondere in den Bereichen LEP, NHPPD und Pflegekomplexbehandlung (CHOP) sowie weiterer gesetzlicher und betrieblicher Anforderungen.\n\n• Du entwickelst Steuerungsinstrumente, Kennzahlenmodelle und Reportings kontinuierlich weiter und leistest damit einen wichtigen Beitrag zur datenbasierten Steuerung der Direktion CNO.\n\nAnforderungen:\n• Abgeschlossenes Studium auf Fachhochschul- oder Hochschulniveau, vorzugsweise mit betriebswirtschaftlichem, gesundheitsökonomischem oder pflegerischem Hintergrund.\n\n• Mehrjährige Berufserfahrung in einer betriebswirtschaftlichen Steuerungsfunktion im Gesundheitswesen, idealerweise im Pflegecontrolling, Gesundheitsmanagement oder einem vergleichbaren Umfeld.\n\n• Ausgeprägtes Verständnis für betriebswirtschaftliche Zusammenhänge sowie Erfahrung in der Beratung und Unterstützung von Führungskräften bei strategischen und operativen Fragestellungen.\n\n• Sehr gute analytische und konzeptionelle Fähigkeiten, hohe Zahlen- und IT-Affinität sowie fundierte Kenntnisse in der Datenanalyse; Erfahrung mit LEP ist von Vorteil.\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise mit hoher Eigenverantwortung sowie Freude daran, Veränderungsprozesse aktiv mitzugestalten und eine moderne, datenbasierte Unternehmenssteuerung weiterzuentwickeln.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
@@ -6310,7 +6283,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:42:21.739Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6342,7 +6314,7 @@
         "it": "mentore pratico",
         "en": "Practical mentor",
         "de": "Praxismentor/in",
-        "fr": "Praxismentor/in"
+        "fr": "Maître de pratique"
       },
       "description": "Aufgaben:\n• Beratung, Begleitung und Unterstützung der Berufsbildner/innen in pädagogischen Fragestellungen.\n\n• Coaching und individuelle Begleitung von Lernenden und Studierenden in ihrem Lern- und Entwicklungsprozess.\n\n• Planung, Gestaltung und Durchführung von praxisnahen Lerneinheiten (Einführung, Peermentoring etc.)\n\n• Mitwirkung bei der Weiterentwicklung und Sicherstellung der Ausbildungsqualität in der Praxis.\n\nAnforderungen:\n• Dipl. Pflegefachfrau HF / FH\n\n• Zwei Jahre Berufserfahrung als Berufsbildner/in Pflege\n\n• Eidg. FA Ausbilder/in oder die Bereitschaft, diesen zu absolvieren\n\n• Sie zeichnen sich durch eine gute Organisationsfähigkeit, hohe Sozial- und Selbstkompetenz aus.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
@@ -6394,7 +6366,6 @@
         ]
       },
       "firstSeenAt": "2026-08-12T22:20:09.667Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6424,7 +6395,7 @@
       "title": "Dipl. Pflegefachfrau / Pflegefachmann Chirurgie",
       "titleByLocale": {
         "it": "Dipl. Infermiera / chirurgia dell'infermiera",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann Chirurgie",
+        "en": "Dipl. Nurse / nurse surgery",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann Chirurgie",
         "fr": "Dipl. Chirurgie infirmière/infirmière"
       },
@@ -6483,7 +6454,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.727Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6669,7 +6639,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T22:00:59.199Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6699,7 +6668,7 @@
       "title": "Pflegeexpertin / Pflegeexperte",
       "titleByLocale": {
         "it": "Esperto di cura / esperto di cura",
-        "en": "Pflegeexpertin / Pflegeexperte",
+        "en": "Care expert / care expert",
         "de": "Pflegeexpertin / Pflegeexperte",
         "fr": "Expert en soins / expert en soins"
       },
@@ -6757,7 +6726,6 @@
         "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau-6ded8e"
       ],
       "firstSeenAt": "2026-08-07T21:58:54.338Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6873,7 +6841,7 @@
       "title": "Dipl. Expertin / Experte Anästhesiepflege NDS HF",
       "titleByLocale": {
         "it": "Dipl. Expert / Expert Anesthesia Care NDS HF",
-        "en": "Dipl. Expertin / Experte Anästhesiepflege NDS HF",
+        "en": "Dipl. Expert / Expert Anesthesia Care NDS HF",
         "de": "Dipl. Expertin / Experte Anästhesiepflege NDS HF",
         "fr": "Dipl. Expert / Expert Anesthésie Soins NDS HF"
       },
@@ -6924,7 +6892,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -7048,7 +7015,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermiera / nurse professionale",
         "en": "Dipl. Nursing professional / nursing professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Dipl. Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -7103,7 +7070,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -7292,7 +7258,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann IMC",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann IMC",
+        "it": "Dipl. Infermieristica professionale / infermieristica IMC",
         "en": "Registered Nurse / Nursing Specialist",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann IMC",
         "fr": "Infirmier / Infirmière Diplômé(e)"
@@ -7357,7 +7323,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -7386,7 +7351,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann Dialyse",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann Dialyse",
+        "it": "Dipl. Infermiera / Infermiera specialista dialisi",
         "en": "Dipl. Nurse / nurse specialist Dialysis",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann Dialyse",
         "fr": "Dipl. Infirmière / Infirmière spécialiste Dialyse"
@@ -7435,7 +7400,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -7592,7 +7556,6 @@
         ]
       },
       "firstSeenAt": "2026-09-18T13:41:14.672Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -7621,7 +7584,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Radiologiefachfrau / Radiologiefachmann",
       "titleByLocale": {
-        "it": "Dipl. Radiologiefachfrau / Radiologiefachmann",
+        "it": "Dipl. Specialista di radiologia / Specialista di radiologia",
         "en": "Dipl. Radiology specialist / Radiology specialist",
         "de": "Dipl. Radiologiefachfrau / Radiologiefachmann",
         "fr": "Dipl. Spécialiste en radiologie / Spécialiste en radiologie"
@@ -7667,7 +7630,6 @@
         ]
       },
       "firstSeenAt": "2026-09-18T13:41:14.672Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -7735,20 +7697,30 @@
         "fachfrau-fachmann-gesundheit-ksa-ch",
         "fachfrau-fachmann-gesundheit-ksa-ch-4",
         "fachfrau-fachmann-gesundheit-ksa-ch-2",
-        "salute-professionale-kantonsspital-aarau-ksa-aarau-d76b02"
+        "salute-professionale-kantonsspital-aarau-ksa-aarau-d76b02",
+        "salute-professionale-kantonsspital-aarau-ksa-aarau",
+        "professional-health-kantonsspital-aarau-ksa-aarau",
+        "sante-professionnelle-kantonsspital-aarau-ksa-aarau",
+        "fachfrau-fachmann-gesundheit-ksa-ch-9ztixq"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-ksa-ch",
           "fachfrau-fachmann-gesundheit-ksa-ch-4",
           "fachfrau-fachmann-gesundheit-ksa-ch-2",
-          "salute-professionale-kantonsspital-aarau-ksa-aarau-d76b02"
+          "salute-professionale-kantonsspital-aarau-ksa-aarau-d76b02",
+          "salute-professionale-kantonsspital-aarau-ksa-aarau",
+          "professional-health-kantonsspital-aarau-ksa-aarau",
+          "sante-professionnelle-kantonsspital-aarau-ksa-aarau",
+          "fachfrau-fachmann-gesundheit-ksa-ch-9ztixq"
         ],
         "en": [
-          "fachfrau-fachmann-gesundheit-ksa-ch-4"
+          "fachfrau-fachmann-gesundheit-ksa-ch-4",
+          "professional-health-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "fachfrau-fachmann-gesundheit-ksa-ch-4"
+          "fachfrau-fachmann-gesundheit-ksa-ch-4",
+          "sante-professionnelle-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-17T14:23:50.726Z",
@@ -7817,18 +7789,33 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "teamleitung-pflege-ksa-ch",
-        "cura-della-leadership-del-team-kantonsspital-aarau-ksa-aarau"
+        "cura-della-leadership-del-team-kantonsspital-aarau-ksa-aarau",
+        "gestione-del-team-kantonsspital-aarau-ksa-aarau",
+        "team-management-kantonsspital-aarau-ksa-aarau",
+        "teamleitung-ksa-ch",
+        "gestion-de-l-equipe-kantonsspital-aarau-ksa-aarau",
+        "teamleitung-ksa-ch-9ztjnf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleitung-pflege-ksa-ch",
-          "cura-della-leadership-del-team-kantonsspital-aarau-ksa-aarau"
+          "cura-della-leadership-del-team-kantonsspital-aarau-ksa-aarau",
+          "gestione-del-team-kantonsspital-aarau-ksa-aarau",
+          "team-management-kantonsspital-aarau-ksa-aarau",
+          "teamleitung-ksa-ch",
+          "gestion-de-l-equipe-kantonsspital-aarau-ksa-aarau",
+          "teamleitung-ksa-ch-9ztjnf"
         ],
         "en": [
-          "teamleitung-pflege-ksa-ch"
+          "teamleitung-pflege-ksa-ch",
+          "team-management-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "teamleitung-pflege-ksa-ch"
+          "teamleitung-pflege-ksa-ch",
+          "gestion-de-l-equipe-kantonsspital-aarau-ksa-aarau"
+        ],
+        "de": [
+          "teamleitung-ksa-ch"
         ]
       },
       "firstSeenAt": "2026-09-17T14:23:50.727Z",
@@ -7860,7 +7847,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermiera / nurse professionale",
         "en": "Dipl. Nursing professional / nursing professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Dipl. Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -7960,7 +7947,6 @@
         ]
       },
       "firstSeenAt": "2026-09-16T23:40:43.623Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
