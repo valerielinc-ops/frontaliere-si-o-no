@@ -101,6 +101,33 @@ describe('global data-pipeline lease durante il backoff', () => {
     expect(stdout).toContain('held=1');
   });
 
+  it('se la RIPRESA fallisce propaga l uscita 44 e NON si procede senza lease', () => {
+    // Bug reale trovato dalla review su #9190: `lease_status=$?` dopo il `fi`
+    // cattura lo stato del comando composto `if` — 0 quando nessun ramo esegue —
+    // non l'uscita di node. La funzione rendeva 0 con il flag a 0, quindi i
+    // chiamanti (`|| return $?`, `|| exit $?`) proseguivano e potevano fare
+    // reset/push SENZA il lease globale: l'inverso della garanzia che questa
+    // modifica esiste per dare. Il test cattura il codice di uscita, che e' il
+    // solo modo di distinguere le due forme.
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'lease-resume-fail-'));
+    const bin = path.join(dir, 'bin');
+    fs.mkdirSync(bin);
+    fs.writeFileSync(path.join(bin, 'node'), '#!/bin/bash\nexit 44\n', { mode: 0o755 });
+    fs.writeFileSync(path.join(dir, 'global-data-pipeline-lease.mjs'), '// stub\n');
+    const lib = path.join(dir, 'lib.sh');
+    fs.writeFileSync(lib, `${extractFn('global_data_pipeline_lease_resume_after_backoff')}\n`);
+    const res = require('node:child_process').spawnSync('bash', ['-c',
+      `source "${lib}"\n`
+      + 'GLOBAL_DATA_PIPELINE_LEASE_ACQUIRED=0\n'
+      + 'global_data_pipeline_lease_resume_after_backoff\n'
+      + 'echo "rc=$?"\n'],
+    { encoding: 'utf8', env: { ...process.env, PATH: `${bin}:${process.env.PATH}`, DATA_PIPELINE_LEASE: '1' }, cwd: dir });
+    fs.rmSync(dir, { recursive: true, force: true });
+    // Il codice del lease-busy deve arrivare al chiamante, non diventare 0.
+    expect(res.stdout).toContain('rc=44');
+    expect(res.stdout).not.toContain('rc=0');
+  });
+
   it('FAIL-SAFE: se il rilascio fallisce il lease resta TENUTO, non creduto libero', () => {
     // La direzione del fail-safe è il punto: un lease creduto libero mentre è
     // tenuto è peggio della congestione che stiamo riparando. Il comportamento

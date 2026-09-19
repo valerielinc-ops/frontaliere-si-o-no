@@ -1475,11 +1475,19 @@ global_data_pipeline_lease_resume_after_backoff() {
   [ "${GLOBAL_DATA_PIPELINE_LEASE_ACQUIRED:-0}" = "0" ] || return 0
   local lease_script lease_status
   lease_script="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/global-data-pipeline-lease.mjs"
+  # `lease_status=$?` DEVE stare nel ramo `else`, non dopo il `fi`: dopo il `fi`
+  # cattura lo stato del comando composto `if` — che e' 0 quando nessun ramo
+  # esegue — non l'uscita di `node`. Con quel bug la funzione rendeva 0 mentre
+  # `..._ACQUIRED` restava 0, quindi i chiamanti (`|| return $?`, `|| exit $?`)
+  # proseguivano e potevano fare reset/push SENZA il lease globale: l'inverso
+  # esatto della garanzia che questa modifica esiste per dare. E' la stessa
+  # forma che `global_data_pipeline_lease_acquire` usa da sempre, qui sopra.
   if node "$lease_script" acquire --resume-wait; then
     GLOBAL_DATA_PIPELINE_LEASE_ACQUIRED=1
     return 0
+  else
+    lease_status=$?
   fi
-  lease_status=$?
   echo "::warning::global data-pipeline lease not re-acquired after backoff (exit ${lease_status}); this writer staged nothing and the next scheduled run retries"
   return "$lease_status"
 }
