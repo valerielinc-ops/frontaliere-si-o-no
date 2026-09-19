@@ -1162,14 +1162,11 @@ jobs:
           # da `permissions` nella risposta di conio (#5288). Qui il log distingue i due
           # casi, così un push rifiutato si legge nei log senza dover indovinare.
           #
-          # ATTENZIONE — questo step DA SOLO non basta, e per settimane si è creduto di sì.
-          # Il lane Codex RI-SCRIVE il remote appena parte: `configureGitAuth()` →
-          # `replaceCheckoutCredentials()` fa un `git remote set-url origin
-          # https://x-access-token:<suo-token>@github.com/...` incondizionato, sovrascrivendo
-          # ciò che si è appena configurato qui. Il `git push` del fixer usa quindi il token
-          # della action, non questo. L'unico modo per farlo restare è passarle
-          # `github_token: ${{ env.APP_TOKEN }}` — vedi lo step `Run Codex Luna Max fix`. Senza quello
-          # le righe qui sotto sono vere solo fino all'avvio della action.
+          # Questo remote è l'identità App per i push deterministici di recovery/handoff;
+          # resta distinto dal bridge host-side del lane Codex, che riceve
+          # `codex_github_token` e conserva la credenziale fuori dal processo del modello.
+          # `github_token` alimenta gli helper provider-neutral dell'action: non è una
+          # prova che il bridge abbia pushato, né una sostituzione del token App/PAT.
           if [ -n "${APP_TOKEN:-}" ]; then
             git config --unset-all "http.https://github.com/.extraheader" || true
             git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${REPO}.git"
@@ -1242,32 +1239,16 @@ jobs:
           ISSUE_GROUP_NUMBERS: ${{ steps.group.outputs.group_numbers }}
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
-          # L'IDENTITÀ DI PUSH DEL FIXER. Senza questo input la action ne conia uno suo
-          # (la App `claude`, cioè `claude[bot]`) e con quello RI-SCRIVE il remote:
-          # `src/github/operations/git-config.ts` → `replaceCheckoutCredentials()` esegue
-          # `git remote set-url origin https://x-access-token:<token>@github.com/...`
-          # in modo incondizionato, buttando via il remote impostato da
-          # `Configure git identity`. Risultato misurato sulla issue #5595 (2026-08-11):
-          # il conio aveva loggato `workflows=write` e lo step aveva stampato
-          # «scope workflows CONFERMATO», eppure il push moriva con
-          #   ! [remote rejected] fix/issue-5595 -> fix/issue-5595 (refusing to allow a
-          #     GitHub App to create or update workflow
-          #     `.github/workflows/sync-articles-sitemaps.yml` without `workflows` permission)
-          # — perché a pushare non era la App con lo scope, ma quella della action.
-          # Il fix era già stato prodotto per intero (254 righe, 3 file) e si è perso al push,
-          # sopravvivendo solo come commento sulla issue. Stessa forma di #5288: una
-          # capacità dichiarata vera a monte e smentita a valle, con la CI verde.
-          #
-          # Perché `env.APP_TOKEN` NUDO e non un fallback su `secrets.GITHUB_TOKEN`:
-          # quando il conio fallisce la variabile non è scritta, l'espressione rende `''`,
-          # e `''` è ESATTAMENTE il ramo di default della action (`inputs.github_token == ''`
-          # → conia il suo token e lo revoca a fine run) — cioè il comportamento di oggi,
-          # invariato. Mettere `secrets.GITHUB_TOKEN` come fallback sarebbe invece una
-          # REGRESSIONE: gli eventi generati da GITHUB_TOKEN non ri-attivano i workflow a
-          # valle (anti-ricorsione), quindi `tests` e `pr-review-loop` non partirebbero
-          # più sulle PR del fixer e ogni PR resterebbe ferma senza review.
+          # `github_token` serve agli helper provider-neutral di quota/delivery dell'action.
+          # Manteniamo l'identità App-only di questo lane per il cascade; non è la
+          # credenziale del bridge host-side e non va usato per dedurre un push riuscito.
           github_token: ${{ env.APP_TOKEN }}
-          codex_github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          # Credenziale distinta per i bridge host-side `gh`/Git usati da Codex. Deve
+          # essere un'identità operativa App/PAT, mai GITHUB_TOKEN: il bridge può eseguire
+          # operazioni mutanti autorizzate (push, label, issue/PR handoff) oltre alle
+          # letture. Se entrambe le variabili sono vuote, l'action esistente rifiuta il
+          # run prima di `codex exec`; il modello non riceve comunque il token.
+          codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           # Whitelist esplicita (hardening #898): mai `*` né prefissi. I soli
           # sender ammessi dal gate sono `claude[bot]`,
           # `frontaliere-automation[bot]` e l'utente esatto `valerielinc-ops`,
