@@ -165,6 +165,18 @@ describe('il censimento 2026-09-19 regge le proprie premesse', () => {
     }
   }, 60_000);
 
+  it('i file MISTI girano interi nel monitor, dove la env non li spegne', () => {
+    // Nel gate PR i loro casi vivi sono saltati da `SKIP_LIVE_DATA`. Se il
+    // monitor non li eseguisse, quei casi non girerebbero da nessuna parte e
+    // il taglio per test sarebbe una cancellazione con un altro nome.
+    const monitor = new Set(listLiveDataMonitorTests());
+    const corpus = new Set(listCorpusWideTests());
+    const missing = LIVE_DATA_PARTIAL_TESTS
+      .map((e) => e.file)
+      .filter((f) => !corpus.has(f) && !monitor.has(f));
+    expect(missing, `file MISTI che non girano da nessuna parte: ${missing.join(', ')}`).toEqual([]);
+  });
+
   it('ogni file MISTO usa davvero l`interruttore per-test', () => {
     // Un file nell'elenco parziale e' un file in cui il taglio e' stato fatto
     // DENTRO, per test. Se qualcuno lo elenca qui senza marcare niente, il
