@@ -18,6 +18,7 @@
       "fetchMode": "halley-post-pdf",
       "halley": { "engine": "e1046", "descriptor": "0001OV010265T" },
       "format": "como-calendar-v1",
+      "coverageModel": "full-calendar",
       "validFrom": "2026-06-01",
       "validTo": "2027-05-31",
       "minimumCalendarDays": 300,
@@ -41,6 +42,7 @@
       "fixturePath": "va",
       "fetchMode": "pdf",
       "format": "varese-calendar-v1",
+      "coverageModel": "full-calendar",
       "validFrom": "2026-06-01",
       "validTo": "2027-05-31",
       "minimumCalendarDays": 300,
@@ -65,10 +67,11 @@
       "fixturePath": "vb",
       "fetchMode": "pdf",
       "format": "vco-calendar-v1",
+      "coverageModel": "corrections-only",
+      "publication": "best-effort",
       "calendarYear": 2026,
       "validFrom": "2026-01-01",
       "validTo": "2026-12-31",
-      "minimumCalendarDays": 300,
       "maxAgeHours": 72,
       "identityAliases": [
         { "sourceLabel": "GIUSSANI - VERBANIA", "pharmacyId": "it-msal-1007" },
@@ -76,7 +79,7 @@
         { "sourceLabel": "BORRONI - VERBANIA", "pharmacyId": "it-msal-1020" },
         { "sourceLabel": "SAN GIORGIO - VERBANIA", "pharmacyId": "it-msal-1005" }
       ],
-      "notes": "Determina ASL VCO n. 1755 del 09/12/2025: il calendario base è una rotazione; il parser pubblica solo le righe con data esplicita (cambi turno), non inventa date dalla successione 1-15."
+      "notes": "Determina ASL VCO n. 1755 del 09/12/2025: il calendario base è una rotazione; il parser pubblica solo le righe con data esplicita (cambi turno), non inventa date dalla successione 1-15. MODELLO DI COPERTURA: corrections-only — il calendario base è una rotazione e il parser pubblica solo le righe con data esplicita, quindi un minimo in giorni-calendario è insoddisfacibile per costruzione e non gli si applica (misurate 14 righe su 7 giorni distinti). PUBBLICAZIONE: best-effort — il PDF risponde HTTP 200 da rete residenziale (3/3 tentativi, 3.014.912 byte, 37 pagine) ma da runner GitHub fallisce con UND_ERR_CONNECT_TIMEOUT, cioè un blocco di egress sulle reti Azure che il retry non supera; finché dura, VB non deve azzerare la release di CO e VA e il suo errore resta registrato in _bestEffortErrors, visibile al monitor."
     }
   ],
   "thirdPartyLinkOut": {
