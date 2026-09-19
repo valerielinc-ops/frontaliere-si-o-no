@@ -119,6 +119,17 @@ describe('Suva crawler parser', () => {
 
       expect(parsed?.description).toBe('');
     });
+
+    it('does not treat an under-cap unclosed description as complete', () => {
+      const html = `
+        <meta property="og:title" content="Sachbearbeiter:in">
+        <span itemprop="description">${'Unvollständiger Kurztext. '.repeat(900)}
+      `;
+
+      const parsed = parseDetailPage(html);
+
+      expect(parsed?.description).toBe('');
+    });
   });
 
   // ── slugify (imported from crawler-template) ──

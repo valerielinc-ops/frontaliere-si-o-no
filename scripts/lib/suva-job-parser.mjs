@@ -41,7 +41,10 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, buildJobSlug, stripHtml, fetchHtml, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
-import { locateTagByAttribute, extractBalancedTagBlock } from './hospital-custom-html-helpers.mjs';
+import {
+  locateTagByAttribute,
+  extractBalancedTagBlockWithStatus,
+} from './hospital-custom-html-helpers.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -249,17 +252,16 @@ export function parseDetailPage(html = '') {
   const descriptionOpeningEnd = descriptionField
     ? html.length - descriptionField.rest.length
     : -1;
-  const descriptionHtml = descriptionField
-    ? extractBalancedTagBlock(
+  const descriptionScan = descriptionField
+    ? extractBalancedTagBlockWithStatus(
       descriptionField.rest,
       descriptionField.tagName,
       SUVA_DESCRIPTION_SCAN_CAP,
     )
+    : null;
+  const description = descriptionScan?.complete
+    ? normalizeSpace(stripHtml(descriptionScan.html))
     : '';
-  const descriptionComplete = Boolean(
-    descriptionField && descriptionHtml.length < SUVA_DESCRIPTION_SCAN_CAP,
-  );
-  const description = descriptionComplete ? normalizeSpace(stripHtml(descriptionHtml)) : '';
 
   const before = descriptionOpeningEnd >= 0 ? html.slice(0, descriptionOpeningEnd) : html;
   const spanPattern = /<span[^>]*class="rtltextaligneligible"[^>]*>([\s\S]*?)<\/span>/gi;
