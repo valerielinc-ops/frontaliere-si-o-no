@@ -59,17 +59,7 @@
           "maxValue": 179500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "project-manager-non-it-iii-alpiq-switzerland",
-          "direttore-del-progetto-non-it-iii-alpiq-switzerland"
-        ]
-      },
-      "previousSlugs": [
-        "project-manager-non-it-iii-alpiq-switzerland",
-        "direttore-del-progetto-non-it-iii-alpiq-switzerland"
-      ]
+      }
     },
     {
       "id": "alpiq-c58e916d1b0b",
@@ -133,9 +123,9 @@
     },
     {
       "id": "alpiq-24db5dc75d88",
-      "slug": "it-domain-architect-trading-alpiq-switzerland",
+      "slug": "it-domain-architetto-trading-alpiq-lausanne",
       "slugByLocale": {
-        "it": "it-domain-architect-trading-alpiq-switzerland",
+        "it": "it-domain-architetto-trading-alpiq-lausanne",
         "de": "it-bereich-architektenhandel-alpiq-switzerland",
         "fr": "domaine-it-architect-trading-alpiq-switzerland"
       },
@@ -189,7 +179,15 @@
           "maxValue": 127000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "it-domain-architect-trading-alpiq-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "it-domain-architect-trading-alpiq-switzerland"
+      ]
     },
     {
       "id": "alpiq-afdc6bd66056",

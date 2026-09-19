@@ -18,6 +18,11 @@ on:
 
 permissions:
   contents: write
+  # The shadow lane had no failure reporting at all, which is why it ran red on
+  # every single run from its first (2026-09-12) to 2026-09-18 without anyone
+  # being told. `github-issue-creator.mjs` dedups on a stable title, so a
+  # recurring failure comments on one canonical issue instead of opening 20.
+  issues: write
 
 concurrency:
   group: translation-scheduler-v2-shadow
@@ -50,6 +55,16 @@ jobs:
         env:
           TRANSLATION_SHADOW_REPORT_PATH: ${{ runner.temp }}/translation-scheduler-v2-report.json
         run: |
+          # The `env:` above is scoped to THIS step, so no later step could see
+          # it: the upload step read `${{ env.TRANSLATION_SHADOW_REPORT_PATH }}`
+          # and got an empty string, failing with `Input required and not
+          # supplied: path` (run 35391043408 — the first run in the lane's life
+          # to get this far, because the slice scan and then commit-tree had
+          # always killed it earlier). Publishing it to $GITHUB_ENV keeps the
+          # single definition above as the only source and makes it visible
+          # downstream. It cannot simply be hoisted to the job-level `env:`,
+          # because the `runner` context is not available there.
+          echo "TRANSLATION_SHADOW_REPORT_PATH=$TRANSLATION_SHADOW_REPORT_PATH" >> "$GITHUB_ENV"
           if [ "${{ inputs.enable_generation }}" = "true" ]; then
             export TRANSLATION_SHADOW_ENABLE_GENERATION=1
           fi
@@ -69,3 +84,40 @@ jobs:
           path: ${{ env.TRANSLATION_SHADOW_REPORT_PATH }}
           if-no-files-found: error
           retention-days: 14
+
+      # A shadow lane is an observation instrument: a red run means it observed
+      # nothing, so the silence is the whole failure. No `|| cancelled()` here —
+      # `cancelled()` is reconciled by job-timeout-monitor, and folding it in
+      # would page on every routine supersede.
+      - name: Report failure as an issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Translation scheduler v2 shadow lane is failing" \
+            --description "The shadow lane failed and produced no scheduler report, so the translation queue went unobserved for this cycle.
+
+          Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          ### Where to start
+          - The scanner reads every real slice in \`data/jobs/by-crawler/\`. That directory also holds crawler scratch companions that are **not** slices (\`<key>-locale-cache.json\`, \`<key>.json.cleanup-tmp.json\`); anything enumerating it must filter through \`isSliceFile\` from \`scripts/lib/crawler-slice-files.mjs\`. A hand-rolled \`.endsWith('.json')\` is the bug this lane died of for its first 20 runs.
+          - Reproduce locally with \`npx vitest run tests/translation-schedule-run-v2.test.ts\`, which pins the scratch-companion case.
+          - This lane never writes \`main\`; a failure is an observation gap, never data loss. Do not silence the error to get a green run — the report is the deliverable.
+
+          Issue auto-resolves on the next green shadow run." \
+            --priority 2 \
+            --label automation \
+            --workflow "${{ github.workflow }}"
+
+      # Closer half, so a recovered lane does not leave a stale open issue.
+      - name: Resolve issue on recovery
+        if: success()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "Translation scheduler v2 shadow lane is failing" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

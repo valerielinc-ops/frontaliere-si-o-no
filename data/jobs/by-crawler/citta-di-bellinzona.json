@@ -1,7 +1,62 @@
 {
   "crawlerKey": "citta-di-bellinzona",
-  "assembledAt": "2026-09-17T23:30:36.444Z",
+  "assembledAt": "2026-09-18T23:10:55.311Z",
   "jobs": [
+    {
+      "id": "citta-di-bellinzona-agente-di-polizia-presso-la-polizia-comunale-bellinzona",
+      "slug": "agente-di-polizia-presso-la-polizia-comunale-bellinzona",
+      "slugByLocale": {
+        "it": "agente-di-polizia-presso-la-polizia-comunale-bellinzona"
+      },
+      "company": "Città di Bellinzona",
+      "companyKey": "citta-di-bellinzona",
+      "companyDomain": "bellinzona.ch",
+      "title": "Agente di polizia, presso la Polizia comunale",
+      "titleByLocale": {
+        "it": "Agente di polizia, presso la Polizia comunale"
+      },
+      "description": "## Agente di polizia, presso la Polizia comunale\n\nCittà di Bellinzona — concorso pubblico a Bellinzona (TI), Svizzera.\n\nConcorso pubblico presso la Città di Bellinzona per la posizione di Agente di polizia, presso la Polizia comunale. Consultare il bando di concorso per i requisiti completi.\n\n**Settore:** Pubblica Amministrazione\n\n**Sede:** Piazza Nosetto, 6500 Bellinzona, TI, Svizzera",
+      "descriptionByLocale": {
+        "it": "## Agente di polizia, presso la Polizia comunale\n\nCittà di Bellinzona — concorso pubblico a Bellinzona (TI), Svizzera.\n\nConcorso pubblico presso la Città di Bellinzona per la posizione di Agente di polizia, presso la Polizia comunale. Consultare il bando di concorso per i requisiti completi.\n\n**Settore:** Pubblica Amministrazione\n\n**Sede:** Piazza Nosetto, 6500 Bellinzona, TI, Svizzera"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "location": "Bellinzona",
+      "canton": "TI",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6500",
+      "streetAddress": "Piazza Nosetto",
+      "category": "public-admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-18",
+      "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=64ce8328-085b-4978-8175-2d7c37391d5e,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "pdfUrl": null,
+      "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=64ce8328-085b-4978-8175-2d7c37391d5e,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Bellinzona Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-18T23:10:50.201Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-18T23:10:50.201Z"
+    },
     {
       "id": "citta-di-bellinzona-assistente-dentale-presso-il-settore-attivita-sociali-servizio-clinica-dentaria-bellinzona",
       "slug": "assistente-dentale-presso-il-settore-attivita-sociali-servizio-clinica-dentaria-bellinzona",
@@ -48,7 +103,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=884ae3e2-9776-4e19-b06b-a49066a6ccd8,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-17T23:30:33.099Z",
+      "crawledAt": "2026-09-18T23:10:50.200Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "salaryMin": 49500,
       "salaryMax": 75000,

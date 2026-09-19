@@ -54,7 +54,7 @@ import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator } from './lib/dedicated-crawler-common.mjs';
-import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, isKnownSwissMunicipalityInCanton, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
 import { getCantonDisplayName, markLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
@@ -267,6 +267,28 @@ export function realignCantonOnlyLocality(value, canton) {
   const code = String(canton || '').toUpperCase().trim();
   if (!s || !code) return value;
   if (!isCantonOnlyLabel(s)) return value;
+  // A real municipality of the job's OWN canton is never a placeholder.
+  //
+  // `isCantonOnlyLabel` answers `true` for a bare AMBIGUOUS municipality name:
+  // each canton's alias list folds in representative city names to strengthen
+  // fuzzy canton detection, and BFS stores a name shared by several cantons
+  // only in disambiguated `<City> (XX)` form, so the bare spelling resolves to
+  // whichever canton owns the alias. `inferAnyCanton('Buchs')` is therefore
+  // `SG`, and on an AG job the two checks above both fell through and rewrote
+  // the correct city into its canton's name — `Buchs` → `Argovia`. That is
+  // precisely the shape this function exists to REMOVE from `addressLocality`
+  // (AGENTS.md Non-Negotiable #3: jobLocation must be correct in every
+  // locale), produced by the repair itself.
+  //
+  // Seven BFS municipalities carry this collision — Buchs (AG), Reinach (AG),
+  // Rapperswil (BE), Kilchberg (BL), Buchs (ZH), Gossau (ZH), Wil (ZH) — and
+  // swisslog's five Buchs AG postings shipped `addressLocality: "Argovia"`,
+  // the single `locationMismatch` that holds that crawler CRITICAL in
+  // audit-parser-quality.yml (the source detail page says `Buchs`).
+  //
+  // The BFS snapshot is the authority for canton membership, so ask it
+  // directly instead of going through the alias-folded inference.
+  if (isKnownSwissMunicipalityInCanton(s, code)) return value;
   if (inferAnyCanton(s) === code) return value;
   const label = getCantonDisplayName(code, 'it');
   return label && label !== code ? label : value;
@@ -1485,10 +1507,64 @@ export function detectBoilerplateDescriptions(jobs, crawlerKey) {
  * @param {{ratio:number, boilerplateCount:number, totalJobs:number}} report
  * @returns {boolean}
  */
+/**
+ * A `low_unique_words` description this close to the floor is a SHORT
+ * description, not an absent one.
+ *
+ * `MIN_UNIQUE_WORDS` stays 30 and still flags/warns: what changes here is only
+ * what counts as evidence that the PARSER broke. The two populations measured
+ * on the crawler-group runs of 2026-09-18 do not overlap and are not close:
+ *
+ *   posta-svizzera-centro-regionale (group 08, run 35351265455)
+ *     5/5 low_unique_words at 27, 28, 28, 29, 29 unique words — real prose
+ *     ("Zusteller:in Briefe und Pakete", an apprenticeship ad). Its own slice
+ *     holds 211 jobs with a MEDIAN of 163 unique words and only 3 below the
+ *     floor, so the crawler is bimodal and the eligible sample (5 of 211,
+ *     because fresh discoveries are excluded) happened to be all-terse. 100%
+ *     ratio, whole crawler bricked, group red.
+ *
+ *   csd-engineers (group 05, run 35350952957)
+ *     10/12 low_unique_words at 6, 8, 8, 9, 9, 9, 10, 10, 10, 11 unique words —
+ *     the synthesized `<title> — CSD ENGINEERS, <city>` placeholder, i.e. no
+ *     description at all.
+ *
+ * 11 against 27 is a 2.45x separation with NO observed value in between, so
+ * the band sits at 60% of the floor (18) with >=5 words of margin on each
+ * side. Above it the systemic verdict stops counting the job; the job is still
+ * reported, and marker-phrase or empty descriptions are untouched at any
+ * length — which is why artificialy (8/8 `marker_phrases` at 24-27 unique
+ * words, group 12) keeps failing exactly as before.
+ */
+const MARGINAL_UNIQUE_WORDS_FLOOR = Math.ceil(MIN_UNIQUE_WORDS * 0.6);
+
+/**
+ * A short-but-real description: `low_unique_words` within the marginal band.
+ *
+ * @param {{reason?:string, uniqueWords?:number}} job
+ * @returns {boolean}
+ */
+export function isMarginallyTerseDescription(job) {
+  return job?.reason === 'low_unique_words'
+    && Number.isFinite(Number(job?.uniqueWords))
+    && Number(job.uniqueWords) >= MARGINAL_UNIQUE_WORDS_FLOOR;
+}
+
 export function isSystemicBoilerplateFailure(report) {
+  // Callers that pass only the aggregate (the #3254 floor tests, and any
+  // consumer that kept the documented `{ratio, boilerplateCount, totalJobs}`
+  // shape) keep the exact pre-existing verdict: without the per-job reasons
+  // there is nothing to discriminate on, and inventing one would be worse
+  // than the ratio.
+  const jobs = Array.isArray(report?.boilerplateJobs) ? report.boilerplateJobs : null;
+  const count = jobs
+    ? jobs.filter((job) => !isMarginallyTerseDescription(job)).length
+    : report.boilerplateCount;
+  const ratio = jobs
+    ? (report.totalJobs > 0 ? count / report.totalJobs : 0)
+    : report.ratio;
   return (
-    report.ratio >= BOILERPLATE_THRESHOLD &&
-    report.boilerplateCount >= BOILERPLATE_MIN_COUNT &&
+    ratio >= BOILERPLATE_THRESHOLD &&
+    count >= BOILERPLATE_MIN_COUNT &&
     report.totalJobs >= BOILERPLATE_MIN_ELIGIBLE
   );
 }

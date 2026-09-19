@@ -106,6 +106,42 @@ describe('stato letterale dei bullet: classificazione', () => {
     )).toBe(null);
   });
 
+  it('`not a false positive` dichiara l\'opposto anche in inglese: resta lavoro dovuto', () => {
+    // Il sinonimo inglese `false positive` e' stato accettato in `byChoice` da
+    // #9137, ma solo la forma NEGATA italiana era pinnata (test sopra, #3367).
+    // Senza questo caso nessun test prova che il `NEGATION_LOOKBEHIND` copre
+    // anche `not a …`: un bullet che dichiara «questo NON e' un falso positivo,
+    // va sistemato» verrebbe classificato `by-choice` e chiuderebbe una voce
+    // che invece deve restare lavoro dovuto, sopprimendo il follow-up.
+    expect(bulletState(
+      'scripts/foo-parser.mjs — not a false positive, it needs a follow-up',
+    )).toBe(null);
+    // Anche senza l'articolo: il lookbehind ha `(?:a\s+)?` opzionale.
+    expect(bulletState('scripts/foo-parser.mjs — not false positive, must be fixed')).toBe(null);
+    // Controprova: la forma NON negata resta il sinonimo accettato di by-choice.
+    expect(bulletState('scripts/foo-parser.mjs — false positive: shares the token only')).toBe('by-choice');
+  });
+
+  it('la negazione contratta inglese e l\'italiano senza accento non chiudono la voce', () => {
+    // Misurato su #9134: prima di questo fix quattro negazioni passavano come
+    // `by-choice`, chiudendo un bullet il cui autore diceva l'OPPOSTO. Il caso
+    // portante sono le contrazioni: `isn't` non contiene la parola `not`,
+    // quindi `\bnot\s+` non puo' vederla. L'ultimo caso e' l'italiano ASCII:
+    // l'arm richiedeva la `è` accentata, cosi' `non e un falso positivo`
+    // — stessa frase, tastiera diversa — veniva letto come dichiarazione.
+    for (const bullet of [
+      "scripts/foo.mjs — isn't a false positive, must be fixed",
+      "scripts/foo.mjs — aren't false positive, must be fixed",
+      "scripts/foo.mjs — wasn't a false positive, must be fixed",
+      "scripts/foo.mjs — weren't a false positive, must be fixed",
+      'scripts/foo.mjs — never a false positive, must be fixed',
+      'scripts/foo.mjs — non e un falso positivo, va sistemato',
+      'scripts/foo.mjs — non sono un falso positivo, va sistemato',
+    ]) {
+      expect(bulletState(bullet), bullet).toBe(null);
+    }
+  });
+
   it('`PR concatenata` senza numero non conta come stato', () => {
     // Senza #N non e' tracciabile: sarebbe una scappatoia travestita da stato.
     expect(bulletState('Roba — PR concatenata (in arrivo)')).toBe(null);

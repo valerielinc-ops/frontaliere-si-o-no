@@ -211,75 +211,19 @@ function markCanonicalJson(value, canonicalJson) {
 }
 
 /**
- * Return an explicit content version when the upstream record provides one.
- * These fields are contracts, not guesses: callers may reuse a digest for a
- * cloned record only when the producer promises to bump the token for every
- * rendered-content mutation. The crawler snapshot currently has no such field,
- * so its records are reused by object identity only.
+ * Keep the digest input aligned with the fields available to the renderer.
+ * Generated build metadata is excluded, but source fields are retained in
+ * full: dates, organization, location, salary, description, and every other
+ * value that can affect the JobPosting or page content must invalidate reuse.
  */
-function authoritativeJobRecordVersion(job) {
-  for (const key of [
-    'contentHash',
-    'recordHash',
-    'sourceRecordHash',
-    'sourceHash',
-    'contentVersion',
-    'recordVersion',
-  ]) {
-    const value = job?.[key];
-    if (typeof value === 'string' && value.length > 0) return `${key}:${value}`;
-    if (typeof value === 'number' && Number.isFinite(value)) return `${key}:${value}`;
+function jobRecordForDigest(job) {
+  const keys = Object.keys(job);
+  if (!keys.some((key) => isRuntimeInputKey(key))) return job;
+  const record = {};
+  for (const key of keys) {
+    if (!isRuntimeInputKey(key)) record[key] = job[key];
   }
-  return null;
-}
-
-/**
- * Validate cache entries without walking or serializing the large record.
- * A versioned clone is checked by its authoritative content token plus cheap
- * route/status scalars. An unversioned clone deliberately misses both caches:
- * reusing it from a bounded sample would make a middle-of-description change
- * invisible. The WeakMap path may reuse an unversioned record by identity;
- * build snapshots are read-only after loading, so that is the only safe cheap
- * reuse available when the producer exposes no content version.
- */
-function cheapJobRecordSignature(job) {
-  if (!job || typeof job !== 'object') return '';
-  const titleByLocale = job.titleByLocale;
-  const slugByLocale = job.slugByLocale;
-  return [
-    authoritativeJobRecordVersion(job),
-    job.title,
-    job.slug,
-    titleByLocale?.it,
-    titleByLocale?.en,
-    titleByLocale?.de,
-    titleByLocale?.fr,
-    slugByLocale?.it,
-    slugByLocale?.en,
-    slugByLocale?.de,
-    slugByLocale?.fr,
-    job.canonicalUrl,
-    job.status,
-    job.state,
-    job.expiredAt,
-  ];
-}
-
-function hasMatchingJobRecordSignature(job, signature, allowUnversionedIdentity = false) {
-  if (!job || typeof job !== 'object' || !Array.isArray(signature)) return false;
-  // A WeakMap hit already proves object identity. Do not rebuild any tuple for
-  // the common unversioned crawler-record path; the snapshot is immutable by
-  // contract and this keeps the identity fast path out of the page hot loop.
-  if (signature[0] === null) return allowUnversionedIdentity;
-  const current = cheapJobRecordSignature(job);
-  if (current.length !== signature.length) return false;
-  return current.every((value, index) => value === signature[index]);
-}
-
-function hasMatchingSignature(entry, job, allowUnversionedIdentity = false) {
-  return entry
-    && typeof entry === 'object'
-    && hasMatchingJobRecordSignature(job, entry.signature, allowUnversionedIdentity);
+  return record;
 }
 
 export function createIncrementalManifestInputCache() {
@@ -339,40 +283,71 @@ function setInputCacheEntry(inputCache, mapName, key, value) {
   inputCache._estimatedBytes[mapName] += estimateMapEntryBytes(key, value);
 }
 
+/**
+ * Shallow signature of a job record: primitives by value, nested objects by
+ * reference, arrays by reference + length + every element (primitive by
+ * value, object by reference). It is what the WeakMap identity fast path
+ * checks before trusting a cached digest, so an in-place `Array.push`, an
+ * element replacement or a top-level reassignment by a downstream plugin
+ * forces a recompute. Mutation inside a nested object (`job.foo.bar = x`) is
+ * not detected: the assembler does not do that, and a deep walk would cost
+ * as much as the digest itself on the related-jobs hot path.
+ */
+function shallowJobRecordSignature(job) {
+  const signature = [];
+  for (const key of Object.keys(job)) {
+    const value = job[key];
+    signature.push(key, value);
+    if (Array.isArray(value)) {
+      signature.push(value.length);
+      for (const element of value) signature.push(element);
+    }
+  }
+  return signature;
+}
+
+function shallowSignatureMatches(left, right) {
+  if (!left || !right || left.length !== right.length) return false;
+  for (let index = 0; index < left.length; index += 1) {
+    if (left[index] !== right[index]) return false;
+  }
+  return true;
+}
+
 function digestJobRecord(job, inputCache = null) {
   if (!job || typeof job !== 'object') return sha256('{}');
   const stableId = stableJobId(job);
-  if (inputCache && stableId) {
-    const cachedById = inputCache.jobDigestsById.get(stableId);
-    if (hasMatchingSignature(cachedById, job)) return cachedById.digest;
-  }
-  const cachedDigest = jobRecordDigestCache.get(job);
-  if (hasMatchingSignature(cachedDigest, job, true)) {
-    if (inputCache && stableId && cachedDigest.signature[0] !== null) {
-      setInputCacheEntry(inputCache, 'jobDigestsById', stableId, cachedDigest);
-    }
-    return cachedDigest.digest;
+  const signature = shallowJobRecordSignature(job);
+  const cached = jobRecordDigestCache.get(job);
+  if (cached && shallowSignatureMatches(cached.signature, signature)) {
+    rememberDigestById(inputCache, stableId, cached.entry);
+    return cached.entry.digest;
   }
 
   // The assembler preserves source JSON key order. A shallow filter keeps the
   // full record covered without recursively canonicalizing its large fields.
-  const keys = Object.keys(job);
-  let record = job;
-  if (keys.some((key) => isRuntimeInputKey(key))) {
-    record = {};
-    for (const key of keys) {
-      if (!isRuntimeInputKey(key)) record[key] = job[key];
-    }
-  }
-  // Job records do not carry fetch-only `fetchedAt`; `updatedAt`, `crawledAt`,
-  // and posting dates are retained because they are source/freshness inputs to
-  // the rendered JobPosting. Only generated build metadata is excluded above.
+  const record = jobRecordForDigest(job);
   if (inputCache?._metrics) inputCache._metrics.jobDigestComputations += 1;
   const digest = sha256(JSON.stringify(record));
-  const cacheEntry = { signature: cheapJobRecordSignature(job), digest };
-  jobRecordDigestCache.set(job, cacheEntry);
-  if (inputCache && stableId) setInputCacheEntry(inputCache, 'jobDigestsById', stableId, cacheEntry);
+  // Do NOT freeze the record to make the identity cache sound: downstream
+  // closeBundle plugins push into its arrays and a frozen record fails the
+  // whole build (deploy 35397312111, `object is not extensible`). The shallow
+  // signature above detects those mutations instead. The signature lives only
+  // in the WeakMap (same lifetime as the record); the by-id entry stays a
+  // tiny `{ digest }` so the input cache does not retain nested objects.
+  const cachedById = inputCache && stableId ? inputCache.jobDigestsById.get(stableId) : null;
+  const entry = cachedById?.digest === digest ? cachedById : { digest };
+  jobRecordDigestCache.set(job, { signature, entry });
+  rememberDigestById(inputCache, stableId, entry);
   return digest;
+}
+
+// Content-identical clones of a stable id share the by-id entry: only a
+// different digest replaces it (keeps the input-cache footprint stable).
+function rememberDigestById(inputCache, stableId, entry) {
+  if (!inputCache || !stableId) return;
+  if (inputCache.jobDigestsById.get(stableId)?.digest === entry.digest) return;
+  setInputCacheEntry(inputCache, 'jobDigestsById', stableId, entry);
 }
 
 function projectRelatedJob(relatedJob, locale, inputCache = null) {
@@ -381,9 +356,10 @@ function projectRelatedJob(relatedJob, locale, inputCache = null) {
   if (!id) return null;
   if (!isRecord) return { id, slug: '', digest: null };
   const cacheKey = inputCache ? `${String(locale)}\u0000${id}` : null;
+  const digest = digestJobRecord(relatedJob, inputCache);
   if (cacheKey) {
     const cachedById = inputCache.relatedJobProjectionsByKey.get(cacheKey);
-    if (hasMatchingSignature(cachedById, relatedJob)) return cachedById.projection;
+    if (cachedById?.digest === digest) return cachedById.projection;
   }
   let projectionsByLocale = relatedJobProjectionCache.get(relatedJob);
   if (!projectionsByLocale) {
@@ -391,23 +367,18 @@ function projectRelatedJob(relatedJob, locale, inputCache = null) {
     relatedJobProjectionCache.set(relatedJob, projectionsByLocale);
   }
   const cachedProjection = projectionsByLocale.get(locale);
-  if (hasMatchingSignature(cachedProjection, relatedJob, true)) {
-    if (cacheKey && cachedProjection.signature[0] !== null) {
-      setInputCacheEntry(inputCache, 'relatedJobProjectionsByKey', cacheKey, cachedProjection);
-      const digestEntry = jobRecordDigestCache.get(relatedJob);
-      if (digestEntry) setInputCacheEntry(inputCache, 'jobDigestsById', id, digestEntry);
-    }
+  if (cachedProjection?.digest === digest) {
+    if (cacheKey) setInputCacheEntry(inputCache, 'relatedJobProjectionsByKey', cacheKey, cachedProjection);
     return cachedProjection.projection;
   }
   const projection = {
     id,
     slug: String(relatedJob?.slugByLocale?.[locale] || relatedJob?.slug || ''),
-    digest: digestJobRecord(relatedJob, inputCache),
+    digest,
   };
   if (inputCache?._metrics) inputCache._metrics.relatedProjectionComputations += 1;
-  const digestEntry = jobRecordDigestCache.get(relatedJob);
   const cacheEntry = {
-    signature: digestEntry?.signature ?? cheapJobRecordSignature(relatedJob),
+    digest,
     projection,
   };
   projectionsByLocale.set(locale, cacheEntry);

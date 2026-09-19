@@ -69,3 +69,45 @@ describe('followup-drainer dependency-free import closure (#7341)', () => {
     expect(importSpecifiers("export { value } from './reexport.mjs';")).toEqual(['./reexport.mjs']);
   });
 });
+
+const HEALTH_MONITOR_WORKFLOW = '.github/workflows/pharmacy-data-health-monitor.yml';
+
+describe('pharmacy data-health monitor dependency-free closure', () => {
+  it('keeps the monitor closure free of the crawler fetch stack', () => {
+    // pharmacy-data-health-monitor.yml runs this observer WITHOUT `npm ci`.
+    // From 2026-09-14 its closure reached scripts/lib/crawler-template.mjs for
+    // the single `slugify` helper, and that module imports
+    // ./prospector/public-fetch-policy.mjs -> npm `undici`. The monitor died at
+    // module load with ERR_MODULE_NOT_FOUND before writing
+    // data/pharmacy-data-health-report.json, so it was blind rather than red —
+    // the exact failure class the monitor exists to close.
+    const { files } = scanImportClosure();
+    expect(files).toContain('scripts/check-pharmacy-data-health.mjs');
+    // The chain is walked for real, so the guard cannot pass vacuously.
+    expect(files).toContain('scripts/lib/pharmacy-ticino-parser.mjs');
+    expect(files).toContain('scripts/lib/slugify.mjs');
+    // The carrier of the npm import must stay out of the closure.
+    expect(files).not.toContain('scripts/lib/crawler-template.mjs');
+    expect(files).not.toContain('scripts/lib/prospector/public-fetch-policy.mjs');
+  });
+
+  it('verifies the closure before running the dashboard', () => {
+    const document = YAML.parse(readFileSync(resolve(ROOT, HEALTH_MONITOR_WORKFLOW), 'utf8')) as any;
+    const steps = Object.values<any>(document.jobs ?? {}).flatMap((job: any) => job.steps ?? []);
+    const checkIndex = steps.findIndex(
+      (step: any) => typeof step.run === 'string' && step.run.includes(SCRIPT),
+    );
+    const dashboardIndex = steps.findIndex(
+      (step: any) => typeof step.run === 'string'
+        && step.run.includes('node scripts/check-pharmacy-data-health.mjs'),
+    );
+    expect(checkIndex).toBeGreaterThan(-1);
+    expect(dashboardIndex).toBeGreaterThan(checkIndex);
+    // This workflow installs no node_modules, so the closure check is the only
+    // thing standing between an upstream npm import and a blind observer.
+    // Asserted on the steps, not on the file text: the prose above the step
+    // legitimately mentions `npm ci` when explaining why there is none.
+    const runSteps = steps.filter((step: any) => typeof step.run === 'string');
+    expect(runSteps.some((step: any) => /(^|\s)npm ci(\s|$)/.test(step.run))).toBe(false);
+  });
+});

@@ -21,6 +21,8 @@ import { chunkPlateAuctionWrites } from './plateAuctionBatch.js';
 import {
   checkPlateAuctionQuality,
   derivePlateAuctionDataConfidence,
+  observeCatalogueDisappearance,
+  recognizeCatalogueSales,
 } from './plateAuctionQualityCore.js';
 
 export const PLATE_AUCTION_COLLECTION = 'plate_auctions_current';
@@ -632,9 +634,46 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
         writes.push({ ref: db.collection(PLATE_AUCTION_HISTORY_COLLECTION).doc(`${row.id}-${fetchedAt.replace(/[^0-9]/g, '').slice(0, 14)}`), record });
       }
       const currentIds = new Set(rows.map((row) => row.id));
-      for (const [id, old] of previousById) {
-        if (currentIds.has(id)) continue;
-        const record = closeExpiredObservation(old, now);
+      // Same defect class as scripts/plate-auctions/ingest.mjs, in the other
+      // pipeline: closeExpiredObservation() returns null without an `endsAt`,
+      // which no fixed-price row has, so a sold plate was skipped here and
+      // never recorded as closed. The decision and its threshold come from the
+      // shared quality core so the two pipelines cannot drift apart.
+      const vanished = [...previousById.entries()].filter(([id]) => !currentIds.has(id));
+      // Mirrors the ingest predicate: fixed-price AND no usable deadline.
+      // Without the type check a malformed timed-auction row would be stamped
+      // closed as a sale; every other missing row stays protected.
+      const isSaleCandidate = (row) => row.listingType === 'fixed-price'
+        && timestampMs(row.endsAt) === undefined
+        && ['active', 'upcoming'].includes(row.auctionStatus);
+      const saleCandidates = vanished.filter(([, old]) => isSaleCandidate(old));
+      const protectedVanished = vanished.filter(([, old]) => !isSaleCandidate(old)
+        && ['active', 'upcoming'].includes(old.auctionStatus));
+      // Only LIVE observations may enter the denominator. This same path
+      // writes closed records back into PLATE_AUCTION_COLLECTION below, so
+      // `previousById.size` grows with every accumulated sale while
+      // `rows.length` only ever counts the live feed: the 95% band would
+      // tighten run after run until a healthy feed was classified
+      // preserve-as-live and sales stopped being recorded altogether.
+      const previousLiveCount = [...previousById.values()]
+        .filter((row) => ['active', 'upcoming'].includes(row?.auctionStatus)).length;
+      const saleDecision = recognizeCatalogueSales({
+        previousCount: previousLiveCount,
+        fetchedCount: rows.length,
+        vanishedCount: saleCandidates.length,
+      });
+      console.log(
+        `[refreshPlateAuctions:${key}] sale-recognition previous=${previousLiveCount} `
+        + `fetched=${rows.length} vanished=${saleCandidates.length} protected=${protectedVanished.length} cap=${saleDecision.cap} `
+        + (saleDecision.recognized ? `decision=sales sold=${saleCandidates.length}` : `decision=preserve-as-live blocked-by=${saleDecision.blockedBy.join('+')}`),
+      );
+      const recognizedSaleIds = new Set(saleDecision.recognized ? saleCandidates.map(([id]) => id) : []);
+      for (const [id, old] of vanished) {
+        // A deadline that has passed archives the row; a catalogue removal in
+        // a healthy catalogue is a sale. Neither ever carries a final price.
+        const record = recognizedSaleIds.has(id)
+          ? observeCatalogueDisappearance({ ...old, id }, now)
+          : closeExpiredObservation(old, now);
         if (!record) continue;
         writes.push({ ref: db.collection(PLATE_AUCTION_COLLECTION).doc(id), record, merge: true });
         writes.push({ ref: db.collection(PLATE_AUCTION_HISTORY_COLLECTION).doc(`${id}-${fetchedAt.replace(/[^0-9]/g, '').slice(0, 14)}-closed`), record });
@@ -660,11 +699,20 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
         }
         await batch.commit();
       }
-      const sourcePatch = sourceDisappeared
+      // Same rule as ingest's sourceStatus(): recognized fixed-price sales
+      // leave `sourceDisappeared` true, so deriving the patch from that raw
+      // flag kept a healthy source `degraded` and could hide its active rows
+      // from consumers that require an active source. A single protected row
+      // still means an upstream anomaly, so it must NOT be laundered into
+      // `active` by one recognized sale.
+      const allLossesAreSales = saleDecision.recognized
+        && protectedVanished.length === 0
+        && recognizedSaleIds.size > 0;
+      const sourcePatch = sourceDisappeared && !allLossesAreSales
         ? { status: 'degraded', rowCount: rows.length, errorCode: 'source_disappeared' }
         : { status: 'active', rowCount: rows.length, lastSuccessAt: fetchedAt, errorCode: null };
       await sourceRef.set(sourceDocument(key, config, fetchedAt, sourcePatch), { merge: true });
-      summaries[key] = { status: sourcePatch.status, rowCount: rows.length, ...(sourceDisappeared ? { errorCode: 'source_disappeared' } : {}) };
+      summaries[key] = { status: sourcePatch.status, rowCount: rows.length, ...(sourcePatch.errorCode ? { errorCode: sourcePatch.errorCode } : {}) };
     } catch (error) {
       await db.collection(PLATE_AUCTION_SOURCE_COLLECTION).doc(key).set(sourceDocument(key, config, fetchedAt, { status: 'degraded', errorCode: 'fetch_failed', errorMessage: error instanceof Error ? error.message.slice(0, 180) : 'unknown_error' }), { merge: true });
       summaries[key] = { status: 'degraded', errorCode: 'fetch_failed' };
@@ -680,6 +728,29 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
     const patch = source.status === 'active'
       ? { status: 'degraded', errorCode: 'missing_connector' }
       : { status: source.status, errorCode: null };
+    if (source.status !== 'active') {
+      // Zeroing the source document is not enough: the rows stay in the
+      // current collection. getPublicPlateAuctionSnapshot already refuses to
+      // serve a row whose source is not active, so nothing leaks today, but a
+      // later re-activation would publish those days-old bids before the first
+      // successful fetch — the same staleness the SZ relay guard rejects.
+      // Retire them here, with the same chunked batching as the active path.
+      // ponytail: one indexed query per non-active source per run (6 today);
+      // read the rowCount off the source document first if that ever matters.
+      const staleRows = await readSourceRows(db, canonicalPlateCode(source.plateCode));
+      const retirements = staleRows.map((doc) => ({
+        ref: db.collection(PLATE_AUCTION_COLLECTION).doc(doc.id),
+        delete: true,
+      }));
+      for (const chunk of chunkPlateAuctionWrites(retirements)) {
+        const batch = db.batch();
+        for (const write of chunk) batch.delete(write.ref);
+        await batch.commit();
+      }
+      if (retirements.length > 0) {
+        console.warn(`[refreshPlateAuctions:${key}] retired ${retirements.length} row(s) of a ${source.status} source`);
+      }
+    }
     await db.collection(PLATE_AUCTION_SOURCE_COLLECTION).doc(key).set({
       ...source,
       rowCount: 0,
