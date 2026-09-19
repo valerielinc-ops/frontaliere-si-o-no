@@ -1235,3 +1235,112 @@ describe('review gate: citazioni e conferme', () => {
     expect(historicalImportantFindings([opened, other], { includeLatest: true })).toHaveLength(1);
   });
 });
+
+describe('review gate: gitignored citations declass, everything else stays fail-closed', () => {
+  const IGNORED = 'data/seo-health/latest.json';
+  const ignoresOnly = (path: string) => path === IGNORED;
+
+  it('keeps blocking a path that is absent from the tree and not ignored', () => {
+    const result = classifyReview(reviewFor('scripts/ghost-typo.mjs', 'rotto'), {
+      files: DIFF_FILES,
+      complete: true,
+      repositoryPaths: TREE_FILES,
+      isIgnoredPath: ignoresOnly,
+    });
+
+    expect(result.blocking).toBe(true);
+    expect(result.unresolved).toHaveLength(1);
+    expect(result.unresolved[0].reason).toBe('file non risolto');
+    expect(result.outside).toHaveLength(0);
+    expect(result.ignoredCitations).toHaveLength(0);
+  });
+
+  it('still blocks an unknown path when no ignore proof is available at all', () => {
+    const result = classifyReview(reviewFor(IGNORED, 'artefatto di run'), {
+      files: DIFF_FILES,
+      complete: true,
+      repositoryPaths: TREE_FILES,
+    });
+
+    expect(result.blocking).toBe(true);
+    expect(result.unresolved[0].reason).toBe('file non risolto');
+  });
+
+  it('declasses a finding whose only citation is a proven gitignored path', () => {
+    const result = classifyReview(reviewFor(IGNORED, 'artefatto di run'), {
+      files: DIFF_FILES,
+      complete: true,
+      repositoryPaths: TREE_FILES,
+      isIgnoredPath: ignoresOnly,
+    });
+
+    expect(result.blocking).toBe(false);
+    expect(result.outsideOnly).toBe(true);
+    expect(result.unresolved).toHaveLength(0);
+    expect(result.outside).toHaveLength(1);
+    expect(result.outside[0].resolvedFiles).toEqual([IGNORED]);
+    expect(result.ignoredCitations).toEqual([{ findingNumber: 1, path: IGNORED }]);
+  });
+
+  it('keeps blocking when an ignored path sits beside a real in-diff citation', () => {
+    const body = `## Findings (Important: 1, Nit: 0)\n\n\`${IGNORED}\` and \`src/changed.mjs:L12\`: 🔴 Important: rotto.\n\n## LGTM`;
+    const result = classifyReview(body, {
+      files: DIFF_FILES,
+      complete: true,
+      repositoryPaths: TREE_FILES,
+      isIgnoredPath: ignoresOnly,
+    });
+
+    expect(result.blocking).toBe(true);
+    expect(result.inScope).toHaveLength(1);
+  });
+
+  it('logs the declassed ignored citation with its reason', () => {
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    try {
+      logClassification(classifyReview(reviewFor(IGNORED, 'artefatto di run'), {
+        files: DIFF_FILES,
+        complete: true,
+        repositoryPaths: TREE_FILES,
+        isIgnoredPath: ignoresOnly,
+      }));
+      expect(log.mock.calls.map(([line]) => String(line)).join('\n'))
+        .toContain(`DECLASSIFIED-IGNORED finding=1 path=${IGNORED}`);
+    } finally {
+      log.mockRestore();
+    }
+  });
+});
+
+describe('review gate: a fallback tree proves scope without tightening anchors', () => {
+  const bot = (body: string, commit = HEAD_SHA) => ({
+    user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+    body,
+    commit_id: commit,
+  });
+  // A precise anchor plus a bare companion path, both absent from the tree.
+  // This is the only shape where `preciseAnchorsConfirmed` changes the verdict:
+  // it gates the `isUnresolvableBareContext` escape hatch.
+  const opened = bot('## Findings (Important: 1, Nit: 0)\n\n`scripts/vanished.mjs:L4` e `lib/ghost-helper.mjs`: 🔴 Important: rotto.\n');
+  const confirmed = bot('## Findings (Important: 0, Nit: 0)\n\nFix di `scripts/vanished.mjs:L4`: ok.\n\n## LGTM');
+  const openCount = (options: Record<string, unknown>) =>
+    historicalImportantFindings([opened, confirmed], { includeLatest: true, ...options }).length;
+
+  it('an authoritative API tree tightens the anchor and keeps the finding open', () => {
+    expect(openCount({ repositoryPaths: TREE_FILES, repositoryPathsFromFallback: false })).toBe(1);
+  });
+
+  it('a fallback tree does not inherit that tightening', () => {
+    expect(openCount({ repositoryPaths: TREE_FILES, repositoryPathsFromFallback: true })).toBe(0);
+  });
+
+  // The property the mitigation has to guarantee: supplying a fallback tree
+  // never leaves a finding open that the tree-unavailable posture would close,
+  // so no PR in flight is newly blocked.
+  it('never blocks more than the tree-unavailable posture', () => {
+    const unavailable = openCount({});
+    const fallback = openCount({ repositoryPaths: TREE_FILES, repositoryPathsFromFallback: true });
+    expect(unavailable).toBe(1);
+    expect(fallback).toBeLessThanOrEqual(unavailable);
+  });
+});

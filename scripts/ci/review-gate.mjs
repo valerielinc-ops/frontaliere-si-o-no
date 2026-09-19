@@ -290,6 +290,10 @@ export function classifyReview(body, {
   complete,
   reason = 'diff non verificabile',
   repositoryPaths = null,
+  // Proof that a path is ignored by the repository. Default `false` keeps this
+  // pure classifier fail-closed: only a caller holding a real checkout can
+  // prove the carve-out, and everything unproven keeps blocking.
+  isIgnoredPath = () => false,
 } = {}) {
   const findings = importantFindings(body);
   if (findings.length === 0) return emptyClassification(findings);
@@ -319,6 +323,7 @@ export function classifyReview(body, {
   const outside = [];
   const inScope = [];
   const unresolved = [];
+  const ignoredCitations = [];
 
   for (const finding of findings) {
     if (finding.parserUncertain) {
@@ -329,7 +334,33 @@ export function classifyReview(body, {
       unresolved.push({ ...finding, reason: 'nessun file citato' });
       continue;
     }
-    const resolved = finding.citations.map((citation) => ({
+    // A path the repository ignores is absent from the tree by construction,
+    // so it cannot be part of the PR diff and cannot be a second edit target.
+    // Such a citation is context: drop it instead of failing the whole finding.
+    // Only a proven ignore qualifies; a missing or misspelled path stays
+    // unresolved and therefore blocking.
+    const ignoredPaths = [];
+    const citations = finding.citations.filter((citation) => {
+      if (resolveCitedPath(citation, knownPaths).status === 'resolved') return true;
+      if (!isIgnoredPath(citation.path)) return true;
+      const path = normalizePath(citation.path, { stripGitPrefix: false });
+      ignoredCitations.push({ findingNumber: finding.findingNumber, path });
+      ignoredPaths.push(path);
+      return false;
+    });
+    if (citations.length === 0) {
+      // Every citation is an ignored path: the finding cannot describe the
+      // diff. It is still declassed rather than dropped, so the aggregate
+      // follow-up records what the reviewer said.
+      outside.push({
+        ...finding,
+        resolvedFiles: [...new Set(ignoredPaths.filter(Boolean))],
+        resolved: [],
+        ignoredOnly: true,
+      });
+      continue;
+    }
+    const resolved = citations.map((citation) => ({
       citation,
       result: resolveCitedPath(citation, knownPaths),
     }));
@@ -355,6 +386,7 @@ export function classifyReview(body, {
     outside,
     inScope,
     unresolved,
+    ignoredCitations,
     outsideOnly: outside.length > 0 && inScope.length === 0 && unresolved.length === 0,
     blocking: inScope.length > 0 || unresolved.length > 0,
   };
@@ -615,7 +647,7 @@ function findingConfirmed(
   finding,
   confirmations,
   openFindings = [finding],
-  { repositoryPaths = null } = {},
+  { repositoryPaths = null, repositoryPathsFromFallback = false } = {},
 ) {
   if (finding.citations.length === 0) {
     const bodyAnchor = prBodyAnchor(finding.line);
@@ -630,8 +662,15 @@ function findingConfirmed(
       finding,
       openFindings,
     ))
-    && (!Array.isArray(repositoryPaths) || preciseCitations.every((citation) =>
-      resolveCitedPath(citation, repositoryPaths).status === 'resolved'));
+    // The tree only ever *tightens* this anchor check, so a locally rebuilt
+    // tree would newly close findings on PRs that pass today. The fallback is
+    // allowed to prove that a path is outside the diff, never to raise the bar
+    // here: under a fallback tree this clause keeps the tree-unavailable
+    // posture. Only an authoritative API tree tightens it.
+    && (repositoryPathsFromFallback
+      || !Array.isArray(repositoryPaths)
+      || preciseCitations.every((citation) =>
+        resolveCitedPath(citation, repositoryPaths).status === 'resolved'));
   return finding.citations.every((citation) => {
     const isBareCompanion = citation.line === null && citation.path.includes('/');
     // Review prose often uses illustrative paths that are not repository
@@ -670,6 +709,7 @@ export function historicalImportantFindings(
     includeLatest = false,
     citationExtractor = extractFileCitations,
     repositoryPaths = null,
+    repositoryPathsFromFallback = false,
   } = {},
 ) {
   const bots = reviewerList(reviews).filter((review) =>
@@ -684,7 +724,10 @@ export function historicalImportantFindings(
     const openFindings = [...open.values()].map(({ finding }) => finding);
     for (const [key, entry] of open.entries()) {
       if (entry.reviewIndex >= index) continue;
-      if (findingConfirmed(entry.finding, confirmations, openFindings, { repositoryPaths })) {
+      if (findingConfirmed(entry.finding, confirmations, openFindings, {
+        repositoryPaths,
+        repositoryPathsFromFallback,
+      })) {
         open.delete(key);
       }
     }
@@ -824,26 +867,70 @@ function readCodexEvidenceFile(file) {
   }
 }
 
+/**
+ * Full tree of this repository from the local checkout.
+ *
+ * On a repository this size the API tree is unusable: GitHub flags it
+ * `truncated`, and the local coordinator caps a response body at 8 MiB
+ * (`MAX_BODY_BYTES`), which cuts the JSON mid-string and makes it unparseable.
+ * `git ls-tree` has neither limit and needs no network.
+ */
+function localTreePaths(sha) {
+  for (const ref of [/^[0-9a-f]{40}$/iu.test(String(sha || '')) ? sha : null, 'HEAD']) {
+    if (!ref) continue;
+    try {
+      const output = execFileSync('git', ['ls-tree', '-r', '--name-only', String(ref)], {
+        encoding: 'utf8',
+        maxBuffer: 64 * 1024 * 1024,
+        stdio: ['ignore', 'pipe', 'ignore'],
+      });
+      const paths = [...new Set(String(output).split(/\r?\n/u)
+        .map((path) => normalizePath(path, { stripGitPrefix: false }))
+        .filter(Boolean))];
+      if (paths.length) return paths;
+    } catch {
+      // try the next ref; an unusable local tree keeps the strict default
+    }
+  }
+  return null;
+}
+
+/**
+ * Resolve the repository tree, reporting where it came from.
+ *
+ * `fromFallback` is not cosmetic: a locally rebuilt tree may only prove that a
+ * path is outside the diff. It must not tighten `preciseAnchorsConfirmed`,
+ * which would newly close findings on PRs that pass today.
+ */
 function fetchRepositoryTreePaths(repo, sha) {
+  let apiPaths = null;
   try {
     if (!/^[0-9a-f]{40}$/iu.test(String(sha || ''))) {
-      console.log('review-gate: tree non recuperabile (SHA assente o non valida).');
-      return null;
+      console.log('review-gate: tree API non recuperabile (SHA assente o non valida).');
+    } else {
+      const tree = gh(['api', `repos/${repo}/git/trees/${sha}?recursive=1`]);
+      if (tree?.truncated || !Array.isArray(tree?.tree) || tree.tree.length === 0) {
+        console.log('review-gate: tree API non recuperabile (risposta troncata o vuota).');
+      } else {
+        apiPaths = tree.tree
+          .filter((entry) => entry?.type === 'blob' && entry.path)
+          .map((entry) => normalizePath(entry.path, { stripGitPrefix: false }))
+          .filter(Boolean);
+        if (!apiPaths.length) apiPaths = null;
+      }
     }
-    const tree = gh(['api', `repos/${repo}/git/trees/${sha}?recursive=1`]);
-    if (tree?.truncated || !Array.isArray(tree?.tree) || tree.tree.length === 0) {
-      console.log('review-gate: tree non recuperabile (risposta troncata o vuota).');
-      return null;
-    }
-    const paths = tree.tree
-      .filter((entry) => entry?.type === 'blob' && entry.path)
-      .map((entry) => normalizePath(entry.path, { stripGitPrefix: false }))
-      .filter(Boolean);
-    return paths.length ? paths : null;
   } catch (error) {
-    console.log(`review-gate: tree non recuperabile (${String(error).slice(0, 160)}).`);
-    return null;
+    console.log(`review-gate: tree API non recuperabile (${String(error).slice(0, 160)}).`);
   }
+  if (apiPaths) return { paths: apiPaths, fromFallback: false };
+
+  const paths = localTreePaths(sha);
+  if (!paths) {
+    console.log('review-gate: tree non recuperabile nemmeno da git ls-tree; resta la postura stretta.');
+    return { paths: null, fromFallback: false };
+  }
+  console.log(`review-gate: tree da fallback locale (git ls-tree) paths=${paths.length}; usato solo per provare che un path e' fuori dal diff.`);
+  return { paths, fromFallback: true };
 }
 
 function fetchRepositoryHeadPaths(repo, pr) {
@@ -851,6 +938,29 @@ function fetchRepositoryHeadPaths(repo, pr) {
     'api', `repos/${repo}/pulls/${pr}`, '--jq', '.head.sha',
   ], { json: false })).trim();
   return fetchRepositoryTreePaths(repo, head);
+}
+
+const ignoredPathCache = new Map();
+
+/**
+ * `git check-ignore` exits 0 only for a path the repository provably ignores.
+ * Exit 1 (not ignored), 128 (no checkout) and any spawn error all mean "not
+ * proven" and therefore keep the citation blocking.
+ */
+function gitPathIsIgnored(path) {
+  const wanted = normalizePath(path, { stripGitPrefix: false });
+  if (!wanted || wanted.includes('\0')) return false;
+  if (!ignoredPathCache.has(wanted)) {
+    let ignored = false;
+    try {
+      execFileSync('git', ['check-ignore', '-q', '--', wanted], { stdio: 'ignore' });
+      ignored = true;
+    } catch {
+      ignored = false;
+    }
+    ignoredPathCache.set(wanted, ignored);
+  }
+  return ignoredPathCache.get(wanted);
 }
 
 function readReviews(repo, pr) {
@@ -1037,6 +1147,9 @@ async function mintFollowup({ repo, pr, prUrl, findings }) {
 }
 
 export function logClassification(classification) {
+  for (const { findingNumber, path } of classification.ignoredCitations ?? []) {
+    console.log(`review-gate: DECLASSIFIED-IGNORED finding=${findingNumber} path=${path} reason=path ignored by git, cannot be in the PR diff`);
+  }
   for (const finding of classification.outside) {
     for (const path of finding.resolvedFiles) {
       console.log(`review-gate: DECLASSIFIED finding=${finding.findingNumber} path=${path} reason=all cited files resolved outside current PR diff`);
@@ -1093,13 +1206,14 @@ export async function classifyAndMintReview(body, {
   const repositoryPaths = suppliedRepositoryPaths !== undefined
     ? suppliedRepositoryPaths
     : changed.complete === true && changed.files.length > 0
-      ? fetchRepositoryHeadPaths(repo, pr)
+      ? fetchRepositoryHeadPaths(repo, pr).paths
     : null;
   const classification = classifyReview(body, {
     files: changed.files,
     complete: changed.complete,
     reason: changed.reason,
     repositoryPaths,
+    isIgnoredPath: gitPathIsIgnored,
   });
   logClassification(classification);
 
@@ -1128,6 +1242,7 @@ export async function runReviewGate({
   codexEvidence,
   codexEvidenceFile,
   repositoryPaths,
+  repositoryPathsFromFallback = false,
   changedPathsFn = changedPathsBetween,
   classifyAndMintReviewFn = classifyAndMintReview,
 } = {}) {
@@ -1177,6 +1292,7 @@ export async function runReviewGate({
   }
   const historical = historicalImportantFindings(reviewHistory, {
     repositoryPaths: repositoryPaths ?? null,
+    repositoryPathsFromFallback,
   });
   const effectiveBody = reviewBodyWithHistoricalFindings(body, historical);
   const findings = importantFindings(effectiveBody);
@@ -1242,14 +1358,15 @@ async function main() {
   const repo = process.env.REPO || process.env.GITHUB_REPOSITORY || '';
   const pr = process.env.PR_NUMBER || '';
   const headSha = process.env.HEAD_SHA || '';
-  const repositoryPaths = fetchRepositoryHeadPaths(repo, pr);
+  const tree = fetchRepositoryHeadPaths(repo, pr);
   const result = await runReviewGate({
     repo,
     pr,
     headSha,
     runUrl: process.env.RUN_URL,
     prUrl: process.env.PR_URL,
-    repositoryPaths,
+    repositoryPaths: tree.paths,
+    repositoryPathsFromFallback: tree.fromFallback,
   });
   writeApproved(result.approved);
   if (!result.approved) {
@@ -1268,7 +1385,7 @@ async function auditHistoricalCitationsMain() {
   if (!/^\d+$/u.test(String(pr))) throw new Error('PR audit non valido');
 
   const reviews = readReviews(repo, pr);
-  const repositoryPaths = fetchRepositoryHeadPaths(repo, pr);
+  const { paths: repositoryPaths } = fetchRepositoryHeadPaths(repo, pr);
   if (!repositoryPaths) throw new Error('tree HEAD non recuperabile per audit storico');
   const result = auditHistoricalCitations(reviews, repositoryPaths);
   console.log(`review-gate: historical citation audit ${repo}#${pr}`);
