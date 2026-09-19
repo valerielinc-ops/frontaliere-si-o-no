@@ -1064,6 +1064,10 @@ jobs:
           SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY }}
           SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
           SHARD_PUSH_MODE: ${{ vars.SHARD_PUSH_MODE == 'delta' && 'delta' || 'full' }}
+          # Off unless the repo variable is exactly `changed` (delta mode only):
+          # CDN-rewrite only the files the delta push reads — see
+          # scripts/lib/shard-cdn-rewrite.sh. Off = byte-identical to before.
+          SHARD_DELTA_CDN_REWRITE: ${{ vars.SHARD_DELTA_CDN_REWRITE == 'changed' && 'changed' || '' }}
           SHARD_PUSH_VERIFY: ${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_RUN_ID: ${{ github.run_id }}
@@ -1270,6 +1274,16 @@ jobs:
           # (memoised in $RUNNER_TEMP, so this reuses the push step's walk of
           # dist instead of paying for a second one).
           source scripts/lib/bounded-parallel.sh
+          # SHARD_DELTA_CDN_REWRITE=changed: the push rewrote only the files it
+          # read and completes each staged copy in background. Barrier FIRST,
+          # before any live gate — the staged files are hardlinked to
+          # dist/<sub>, which later steps read for non-stripped sections. It
+          # waits for every pass and re-runs a failed one synchronously; a
+          # section still failing is not packed (see shard-cdn-rewrite.sh for
+          # why its dist/<sub> stays safe). With the variable off there is no
+          # partial marker: both calls are no-ops.
+          source scripts/lib/shard-cdn-rewrite.sh
+          shard_cdn_rewrite_wait_all "$RUNNER_TEMP" || true
           pack_section() {
             local section="$1"
             local live_var
@@ -1290,6 +1304,8 @@ jobs:
               echo "no push ok-marker for $section-it (push skipped/failed this run) — validate-dist will fall back to git clone"
               return 0
             fi
+            # Never pack a staged copy the deferred CDN rewrite did not complete.
+            shard_cdn_rewrite_ready "$RUNNER_TEMP" "$section" it || return 0
             local sub src packed_n persisted_src_n live_src_n
             sub="$(jq -r --arg s "$section" --arg l "it" '.[$s][$l] // empty' scripts/lib/section-shard-slugs.json)"
             src="$RUNNER_TEMP/${section}-src-it/dist"
@@ -1904,6 +1920,10 @@ jobs:
           SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY }}
           SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
           SHARD_PUSH_MODE: ${{ vars.SHARD_PUSH_MODE == 'delta' && 'delta' || 'full' }}
+          # Off unless the repo variable is exactly `changed` (delta mode only):
+          # CDN-rewrite only the files the delta push reads — see
+          # scripts/lib/shard-cdn-rewrite.sh. Off = byte-identical to before.
+          SHARD_DELTA_CDN_REWRITE: ${{ vars.SHARD_DELTA_CDN_REWRITE == 'changed' && 'changed' || '' }}
           SHARD_PUSH_VERIFY: ${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_RUN_ID: ${{ github.run_id }}
@@ -2063,6 +2083,16 @@ jobs:
           # sliding-window driver and same longest-first order (memoised by
           # the push step, so no second walk of dist).
           source scripts/lib/bounded-parallel.sh
+          # SHARD_DELTA_CDN_REWRITE=changed: the push rewrote only the files it
+          # read and completes each staged copy in background. Barrier FIRST,
+          # before any live gate — the staged files are hardlinked to
+          # dist/<sub>, which later steps read for non-stripped sections. It
+          # waits for every pass and re-runs a failed one synchronously; a
+          # section still failing is not packed (see shard-cdn-rewrite.sh for
+          # why its dist/<sub> stays safe). With the variable off there is no
+          # partial marker: both calls are no-ops.
+          source scripts/lib/shard-cdn-rewrite.sh
+          shard_cdn_rewrite_wait_all "$RUNNER_TEMP" || true
           pack_section() {
             local section="$1"
             local live_var
@@ -2077,6 +2107,8 @@ jobs:
               echo "no push ok-marker for $section-$loc (push skipped/failed this run) — validate-dist will fall back to git clone"
               return 0
             fi
+            # Never pack a staged copy the deferred CDN rewrite did not complete.
+            shard_cdn_rewrite_ready "$RUNNER_TEMP" "$section" "$loc" || return 0
             local slug sub src packed_n persisted_src_n live_src_n
             slug="$(jq -r --arg s "$section" --arg l "$loc" '.[$s][$l] // empty' scripts/lib/section-shard-slugs.json)"
             sub="$loc/$slug"

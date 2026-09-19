@@ -76,7 +76,6 @@
  * Env:  GH_TOKEN, GH_REPO/GITHUB_REPOSITORY, STALE_CLAIM_HOURS (default 12).
  */
 import { execFileSync } from 'node:child_process';
-import { hasCommentMarker } from './lib/prComments.mjs';
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
@@ -107,6 +106,63 @@ export function removeLabelArgs(labels) {
     .map((label) => String(label || ''))
     .filter(Boolean))]
     .flatMap((label) => ['--remove-label', label]);
+}
+
+/**
+ * Legge il marker distinguendo «assente» da «lettura non riuscita».
+ *
+ * Il detector può rimuovere un lock solo quando sa che il motivo è già
+ * persistito. Una lettura fallita non è un elenco commenti vuoto: in quel caso
+ * il verso sicuro è lasciare il claim per il retry successivo.
+ * @returns {boolean|null} true/false se la lettura è riuscita, null altrimenti
+ */
+function readCommentMarker(num) {
+  try {
+    // `hasCommentMarker` è best-effort per i consumer osservatori e converte
+    // l'errore in «assente»; qui quella conversione sbloccherebbe il claim.
+    const comments = gh([
+      'api', `repos/${REPO}/issues/${num}/comments`, '--paginate',
+      '--jq', '[.[] | .body] | join("\\n")',
+    ], { json: false });
+    return String(comments || '').includes(MARKER);
+  } catch (e) {
+    console.log(`::warning::lettura marker ${MARKER} #${num} fallita: ${String(e).slice(0, 160)}`);
+    return null;
+  }
+}
+
+/**
+ * Contratto marker-before-release, con dipendenze iniettate per il test.
+ *
+ * Un marker già confermato è idempotente: si può ritentare solo la rimozione
+ * del claim. Se manca, il commento deve riuscire e risultare leggibile prima
+ * di sbloccare la issue. Un errore in uno dei passaggi lascia il claim per il
+ * giro successivo.
+ */
+export function releaseStaleClaim({
+  markerState,
+  postComment,
+  confirmMarker,
+  removeClaim,
+}) {
+  if (markerState !== true && markerState !== false) {
+    return { released: false, reason: 'marker-read-failed' };
+  }
+
+  if (!markerState) {
+    let posted = false;
+    try { posted = postComment() === true; } catch { /* retry next run */ }
+    if (!posted) return { released: false, reason: 'comment-failed' };
+
+    let persisted = false;
+    try { persisted = confirmMarker() === true; } catch { /* retry next run */ }
+    if (!persisted) return { released: false, reason: 'marker-not-persisted' };
+  }
+
+  let removed = false;
+  try { removed = removeClaim() === true; } catch { /* retry next run */ }
+  if (!removed) return { released: false, reason: 'claim-remove-failed' };
+  return { released: true, reason: markerState ? 'marker-existing' : 'marker-posted' };
 }
 
 function gh(args, { json = true, allowFail = false } = {}) {
@@ -325,19 +381,49 @@ function main() {
       '(via PAT).\n\n' +
       '_Segnale deterministico da `stale-claim-detector.mjs`. Il commento non si ripete._';
 
-    if (hasCommentMarker(gh, REPO, iss.number, MARKER)) {
-      console.log(`  #${iss.number}: marker già presente — no comment (rilascio comunque riprovato).`);
-    } else if (DRY) {
-      console.log(`  [dry] comment ${MARKER} #${iss.number}`);
-    } else {
-      gh(['issue', 'comment', String(iss.number), '--repo', REPO, '--body', `${MARKER}\n${body}`],
-        { json: false, allowFail: true });
+    const markerState = readCommentMarker(iss.number);
+    if (markerState === null) {
+      console.log(`  #${iss.number}: marker non verificabile — claim conservato per il retry.`);
+      continue;
+    }
+    if (DRY) {
+      console.log(markerState
+        ? `  #${iss.number}: marker già presente — no comment (rilascio comunque riprovato).`
+        : `  [dry] comment ${MARKER} #${iss.number}`);
+      console.log(`  [dry] -label ${CLAIM_LABEL} #${iss.number}`);
+      continue;
     }
 
-    if (DRY) { console.log(`  [dry] -label ${CLAIM_LABEL} #${iss.number}`); }
-    else {
-      gh(['issue', 'edit', String(iss.number), '--repo', REPO, ...removeLabelArgs(removeLabels)],
-        { json: false, allowFail: true });
+    const result = releaseStaleClaim({
+      markerState,
+      postComment: () => {
+        try {
+          gh(['issue', 'comment', String(iss.number), '--repo', REPO,
+            '--body', `${MARKER}\n${body}`], { json: false });
+          return true;
+        } catch (e) {
+          console.log(`::warning::commento marker #${iss.number} fallito: ${String(e).slice(0, 160)}`);
+          return false;
+        }
+      },
+      confirmMarker: () => readCommentMarker(iss.number),
+      removeClaim: () => {
+        try {
+          gh(['issue', 'edit', String(iss.number), '--repo', REPO,
+            ...removeLabelArgs(removeLabels)], { json: false });
+          return true;
+        } catch (e) {
+          console.log(`::warning::rilascio claim #${iss.number} fallito: ${String(e).slice(0, 160)}`);
+          return false;
+        }
+      },
+    });
+    if (result.released) {
+      console.log(markerState
+        ? `  #${iss.number}: marker già presente — claim rilasciato.`
+        : `  #${iss.number}: marker persistito — claim rilasciato.`);
+    } else {
+      console.log(`  #${iss.number}: ${result.reason} — claim conservato per il retry.`);
     }
   }
   console.log('stale-claim scan completo.');

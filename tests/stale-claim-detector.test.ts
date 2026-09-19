@@ -27,6 +27,7 @@ import {
   claimOwner,
   hasClaimLabel,
   removeLabelArgs,
+  releaseStaleClaim,
 } from '../scripts/ci/stale-claim-detector.mjs';
 
 const NOW = Date.parse('2026-08-08T12:00:00Z');
@@ -211,5 +212,79 @@ describe('lettura produzione', () => {
       '--remove-label', 'agent:in-progress',
       '--remove-label', 'agent:remote',
     ]);
+  });
+});
+
+describe('releaseStaleClaim — marker-before-release', () => {
+  it('lettura commenti non disponibile → non commenta e non rimuove il claim', () => {
+    const calls: string[] = [];
+    const result = releaseStaleClaim({
+      markerState: null,
+      postComment: () => { calls.push('comment'); return true; },
+      confirmMarker: () => { calls.push('confirm'); return true; },
+      removeClaim: () => { calls.push('remove'); return true; },
+    });
+
+    expect(result).toEqual({ released: false, reason: 'marker-read-failed' });
+    expect(calls).toEqual([]);
+  });
+
+  it('marker già confermato → rilascia in modo idempotente senza duplicare il commento', () => {
+    const calls: string[] = [];
+    const result = releaseStaleClaim({
+      markerState: true,
+      postComment: () => { calls.push('comment'); return true; },
+      confirmMarker: () => { calls.push('confirm'); return true; },
+      removeClaim: () => { calls.push('remove'); return true; },
+    });
+
+    expect(result).toEqual({ released: true, reason: 'marker-existing' });
+    expect(calls).toEqual(['remove']);
+  });
+
+  it('commento non riuscito → non rimuove il claim', () => {
+    const calls: string[] = [];
+    const result = releaseStaleClaim({
+      markerState: false,
+      postComment: () => { calls.push('comment'); return false; },
+      confirmMarker: () => { calls.push('confirm'); return true; },
+      removeClaim: () => { calls.push('remove'); return true; },
+    });
+
+    expect(result).toEqual({ released: false, reason: 'comment-failed' });
+    expect(calls).toEqual(['comment']);
+  });
+
+  it('commento riuscito ma marker non confermato → claim conservato per retry', () => {
+    const calls: string[] = [];
+    const result = releaseStaleClaim({
+      markerState: false,
+      postComment: () => { calls.push('comment'); return true; },
+      confirmMarker: () => { calls.push('confirm'); return false; },
+      removeClaim: () => { calls.push('remove'); return true; },
+    });
+
+    expect(result).toEqual({ released: false, reason: 'marker-not-persisted' });
+    expect(calls).toEqual(['comment', 'confirm']);
+  });
+
+  it('edit fallito → marker resta il punto di retry e il giro successivo può rimuovere', () => {
+    const calls: string[] = [];
+    const first = releaseStaleClaim({
+      markerState: true,
+      postComment: () => { calls.push('comment'); return true; },
+      confirmMarker: () => { calls.push('confirm'); return true; },
+      removeClaim: () => { calls.push('remove-fail'); return false; },
+    });
+    const second = releaseStaleClaim({
+      markerState: true,
+      postComment: () => { calls.push('comment-duplicate'); return true; },
+      confirmMarker: () => { calls.push('confirm-duplicate'); return true; },
+      removeClaim: () => { calls.push('remove-retry'); return true; },
+    });
+
+    expect(first).toEqual({ released: false, reason: 'claim-remove-failed' });
+    expect(second).toEqual({ released: true, reason: 'marker-existing' });
+    expect(calls).toEqual(['remove-fail', 'remove-retry']);
   });
 });
