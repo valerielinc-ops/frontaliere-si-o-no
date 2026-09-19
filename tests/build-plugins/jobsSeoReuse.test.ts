@@ -7,7 +7,9 @@ import {
   IncrementalManifest,
 } from '../../build-plugins/shared/incrementalManifest.mjs';
 import {
+  collectSourceModuleFiles,
   computeJobsSeoEmitterFingerprints,
+  JOBS_SEO_FINGERPRINT_INERT_MODULES,
   createJobsSeoHtmlReuse,
   diagnoseHtmlReuseMismatch,
   htmlHasIndexableRobots,
@@ -688,6 +690,126 @@ describe('jobs SEO disk HTML reuse', () => {
     expect(computeInputHash(base, 'active-job')).not.toBe(
       computeInputHash({ ...base, renderDateBucket: '2026-09-19' }, 'active-job'),
     );
+  });
+
+  it('ignores type-only imports and imports quoted inside comments', () => {
+    const rootDir = fingerprintFixtureRoot();
+    try {
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/jobsSeoPagesPlugin.ts',
+        [
+          "import type { JobListing } from '../components/community/JobBoard';",
+          "export type { Spa } from '../components/community/JobBoard';",
+          "// NOT a static `import … from '@/data/job-popularity.json'` here.",
+          ' * import x from "../components/community/JobBoard";',
+          'export const renderVersion = "v1";',
+          '',
+        ].join('\n'),
+      );
+      writeFixtureFile(rootDir, 'components/community/JobBoard.tsx', 'export const spa = "v1";\n');
+      writeFixtureFile(rootDir, 'data/job-popularity.json', '{"v":1}\n');
+      clearFingerprintEnv();
+      const before = computeJobsSeoEmitterFingerprints(rootDir)['active-job'];
+      expect(collectSourceModuleFiles(rootDir, ['build-plugins/jobsSeoPagesPlugin.ts']))
+        .toEqual(['build-plugins/jobsSeoPagesPlugin.ts']);
+      writeFixtureFile(rootDir, 'components/community/JobBoard.tsx', 'export const spa = "v2";\n');
+      writeFixtureFile(rootDir, 'data/job-popularity.json', '{"v":2}\n');
+      expect(computeJobsSeoEmitterFingerprints(rootDir)['active-job']).toBe(before);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('changes the emitter fingerprint when a template module imported by value changes', () => {
+    const rootDir = fingerprintFixtureRoot();
+    try {
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/jobsSeoPagesPlugin.ts',
+        [
+          "import type { Shape } from './shared/jobDetailHtml/types';",
+          "import { renderHero, type Hero } from './shared/jobDetailHtml/hero';",
+          'const a = 1; import { footer } from "./shared/footer";',
+          'export const renderVersion = "v1";',
+          '',
+        ].join('\n'),
+      );
+      writeFixtureFile(rootDir, 'build-plugins/shared/jobDetailHtml/types.ts', 'export type Shape = 1;\n');
+      writeFixtureFile(rootDir, 'build-plugins/shared/jobDetailHtml/hero.ts', 'export const renderHero = () => "<h1>";\n');
+      writeFixtureFile(rootDir, 'build-plugins/shared/footer.ts', 'export const footer = "<footer>";\n');
+      clearFingerprintEnv();
+      const before = computeJobsSeoEmitterFingerprints(rootDir)['active-job'];
+      writeFixtureFile(rootDir, 'build-plugins/shared/jobDetailHtml/types.ts', 'export type Shape = 2;\n');
+      expect(computeJobsSeoEmitterFingerprints(rootDir)['active-job']).toBe(before);
+      writeFixtureFile(rootDir, 'build-plugins/shared/jobDetailHtml/hero.ts', 'export const renderHero = () => "<h2>";\n');
+      const afterHero = computeJobsSeoEmitterFingerprints(rootDir)['active-job'];
+      expect(afterHero).not.toBe(before);
+      writeFixtureFile(rootDir, 'build-plugins/shared/footer.ts', 'export const footer = "<footer class=x>";\n');
+      expect(computeJobsSeoEmitterFingerprints(rootDir)['active-job']).not.toBe(afterHero);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('prunes an inert module only while every importer is on its allowlist', () => {
+    const rootDir = fingerprintFixtureRoot();
+    try {
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/jobsSeoPagesPlugin.ts',
+        "import { borderCrossings } from '../data/borderCrossings';\nexport const renderVersion = \"v1\";\n",
+      );
+      writeFixtureFile(
+        rootDir,
+        'data/borderCrossings.ts',
+        "import averages from './border-wait-averages.json' with { type: 'json' };\nexport const borderCrossings = [averages];\n",
+      );
+      writeFixtureFile(rootDir, 'data/border-wait-averages.json', '{"chiasso":{"morning":"10 min"}}\n');
+      clearFingerprintEnv();
+      const before = computeJobsSeoEmitterFingerprints(rootDir)['active-job'];
+      writeFixtureFile(rootDir, 'data/border-wait-averages.json', '{"chiasso":{"morning":"25 min"}}\n');
+      expect(computeJobsSeoEmitterFingerprints(rootDir)['active-job']).toBe(before);
+
+      // A second, unlisted consumer makes the same data a render input again.
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/jobsSeoPagesPlugin.ts',
+        [
+          "import { borderCrossings } from '../data/borderCrossings';",
+          "import averages from '../data/border-wait-averages.json';",
+          'export const renderVersion = "v1";',
+          '',
+        ].join('\n'),
+      );
+      expect(collectSourceModuleFiles(
+        rootDir,
+        ['build-plugins/jobsSeoPagesPlugin.ts'],
+        JOBS_SEO_FINGERPRINT_INERT_MODULES,
+      )).toContain('data/border-wait-averages.json');
+      const withConsumer = computeJobsSeoEmitterFingerprints(rootDir)['active-job'];
+      writeFixtureFile(rootDir, 'data/border-wait-averages.json', '{"chiasso":{"morning":"40 min"}}\n');
+      expect(computeJobsSeoEmitterFingerprints(rootDir)['active-job']).not.toBe(withConsumer);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps the inert-module rationale true for the real render graph', () => {
+    // data/border-wait-averages.json is inert only while the job renderer reads
+    // no wait average from borderCrossings; free-translate.mjs only while the
+    // renderer imports no translator from events-utils.mjs.
+    const repoRoot = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../..');
+    const snapshot = fs.readFileSync(path.join(repoRoot, 'services/jobLocationSnapshot.ts'), 'utf8');
+    expect(snapshot).not.toMatch(/avgWait/);
+    const crosslink = fs.readFileSync(path.join(repoRoot, 'build-plugins/shared/jobEventsCrosslink.ts'), 'utf8');
+    const eventsImport = crosslink.match(/import\s*\{([^}]*)\}\s*from\s*['"][^'"]*events-utils\.mjs['"]/);
+    expect(eventsImport?.[1]).toBeDefined();
+    expect(eventsImport?.[1]).not.toMatch(/[Tt]ranslat/);
+    expect(Object.keys(JOBS_SEO_FINGERPRINT_INERT_MODULES).sort()).toEqual([
+      'data/border-wait-averages.json',
+      'scripts/lib/free-translate.mjs',
+    ]);
   });
 
   it('includes statically imported JSON content in the renderer fingerprint', () => {

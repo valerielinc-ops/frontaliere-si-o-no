@@ -61,10 +61,42 @@ const JOBS_SEO_ASSET_MANIFEST_FILES = Object.freeze([
   'public/favicon.svg',
 ]);
 const SOURCE_MODULE_EXTENSIONS = Object.freeze(['.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs']);
-const STATIC_IMPORT_RE = /\b(?:import|export)\s+(?:(?:type\s+)?[\s\S]*?\sfrom\s+)?['"](\.[^'"]+)['"]/g;
-const DYNAMIC_IMPORT_RE = /\bimport\s*\(\s*['"](\.[^'"]+)['"]\s*\)/g;
-const STATIC_ALIAS_IMPORT_RE = /\b(?:import|export)\s+(?:(?:type\s+)?[\s\S]*?\sfrom\s+)?['"](@\/[^'"]+)['"]/g;
-const DYNAMIC_ALIAS_IMPORT_RE = /\bimport\s*\(\s*['"](@\/[^'"]+)['"]\s*\)/g;
+// Static `import … from` / `export … from` statements. The statement must
+// start a line (or follow a `;`): a quoted `import … from '@/…'` inside a
+// comment is documentation, not a dependency, and used to drag the whole SPA
+// JobBoard graph into the fingerprint. The clause `[^;'"]*?` cannot cross a
+// quote, so one match never spans two statements and the `type` modifier is
+// attributed to the statement it belongs to.
+const STATIC_FROM_RE = /(?:^|;)[ \t]*(?:import|export)\b([^;'"]*?)\bfrom\s*['"]([^'"]+)['"]/gm;
+const SIDE_EFFECT_IMPORT_RE = /(?:^|;)[ \t]*import\s*['"]([^'"]+)['"]/gm;
+const DYNAMIC_IMPORT_RE = /\bimport\s*\(\s*['"]([^'"]+)['"]\s*\)/g;
+// `import type` / `export type` are erased by TypeScript and esbuild in every
+// configuration, so the module they name never executes at render time.
+// Type-only imports of SPA components (e.g. `import type { JobListing } from
+// '../components/community/JobBoard'`) were the path by which ~300 SPA and
+// locale modules entered the render graph. Mixed `import { type A, b }` keeps
+// the edge: only the whole-statement modifier is proof of erasure.
+const TYPE_ONLY_CLAUSE_RE = /^\s*type\s+(?!from\b)[{*\w$]/;
+
+// Modules reachable from the renderer that provably cannot change a job page's
+// HTML, pruned from the render graph together with their own imports. Each
+// entry names the only importers allowed to reach it: if any other module of
+// the render graph imports it, the module is hashed again (fail-closed), so a
+// new consumer cannot silently depend on data the fingerprint ignores.
+// Changing one of the listed importers still changes the fingerprint, because
+// the importer itself stays in the graph.
+export const JOBS_SEO_FINGERPRINT_INERT_MODULES = Object.freeze({
+  // Nightly-refreshed wait averages. borderCrossings.ts copies them into
+  // `avgWaitMorning`/`avgWaitEvening`; the job renderer reaches borderCrossings
+  // only through services/jobLocationSnapshot.ts, which reads name, lat/lng,
+  // type, trafficLevel, customsPresent and province — never the averages.
+  'data/border-wait-averages.json': Object.freeze(['data/borderCrossings.ts']),
+  // Crawler-time machine-translation cascade. events-utils.mjs uses it only as
+  // the default translator of the event crawlers; the job renderer imports
+  // loadEventsDataset/upcomingEvents/normalizeText/slugifyComune/
+  // eventsBasePathForCanton, none of which translates.
+  'scripts/lib/free-translate.mjs': Object.freeze(['scripts/lib/events-utils.mjs']),
+});
 
 function sha256(value) {
   return createHash('sha256').update(value, 'utf8').digest('hex');
@@ -95,51 +127,76 @@ function resolveSourceModule(fromFile, specifier) {
   return null;
 }
 
-function importedSourceModules(source, fromFile, rootDir) {
+function resolveGraphSpecifier(fromFile, specifier, rootDir) {
+  if (specifier.startsWith('.')) return resolveSourceModule(fromFile, specifier);
+  // Vite's application entry uses the repository-root `@/` alias.
+  if (specifier.startsWith('@/')) {
+    return resolveSourceModule(path.join(rootDir, 'index.tsx'), `./${specifier.slice(2)}`);
+  }
+  return null;
+}
+
+export function importedSourceModules(source, fromFile, rootDir) {
   const specifiers = new Set();
-  for (const pattern of [STATIC_IMPORT_RE, DYNAMIC_IMPORT_RE]) {
+  STATIC_FROM_RE.lastIndex = 0;
+  for (const match of source.matchAll(STATIC_FROM_RE)) {
+    if (TYPE_ONLY_CLAUSE_RE.test(match[1])) continue;
+    specifiers.add(match[2]);
+  }
+  for (const pattern of [SIDE_EFFECT_IMPORT_RE, DYNAMIC_IMPORT_RE]) {
     pattern.lastIndex = 0;
     for (const match of source.matchAll(pattern)) specifiers.add(match[1]);
   }
-  // Vite's application entry uses the repository-root `@/` alias. The jobs
-  // emitter itself is relative-import based, but including this alias keeps
-  // the asset-side source graph honest if the entry wiring changes.
-  const aliasSpecifiers = [];
-  for (const pattern of [STATIC_ALIAS_IMPORT_RE, DYNAMIC_ALIAS_IMPORT_RE]) {
-    pattern.lastIndex = 0;
-    for (const match of source.matchAll(pattern)) aliasSpecifiers.push(match[1]);
-  }
-  return [
-    ...[...specifiers]
-      .map((specifier) => resolveSourceModule(fromFile, specifier))
-      .filter(Boolean),
-    ...aliasSpecifiers
-      .map((specifier) => resolveSourceModule(path.join(rootDir, 'index.tsx'), `./${specifier.slice(2)}`))
-      .filter(Boolean),
-  ];
+  return [...specifiers]
+    .map((specifier) => resolveGraphSpecifier(fromFile, specifier, rootDir))
+    .filter(Boolean);
 }
 
-function collectSourceModuleFiles(rootDir, entryFiles) {
+function walkSourceGraph(rootDir, entryFiles, prunedFiles = new Set()) {
   const queue = entryFiles.map((file) => path.resolve(rootDir, file));
   const files = new Set();
+  const importers = new Map();
   for (let index = 0; index < queue.length; index += 1) {
     const file = queue[index];
-    if (!file || files.has(file) || !fs.existsSync(file)) continue;
+    if (!file || files.has(file) || prunedFiles.has(file) || !fs.existsSync(file)) continue;
     files.add(file);
     const source = fs.readFileSync(file, 'utf8');
     for (const imported of importedSourceModules(source, file, rootDir)) {
+      if (!importers.has(imported)) importers.set(imported, new Set());
+      importers.get(imported).add(file);
       if (!files.has(imported)) queue.push(imported);
     }
   }
-  return [...files].sort((left, right) => left < right ? -1 : left > right ? 1 : 0);
+  return { files, importers };
 }
 
-function hashSourceModuleFiles(rootDir, entryFiles, excludedRelativePaths = new Set()) {
-  const files = collectSourceModuleFiles(rootDir, entryFiles);
-  const records = files.map((file) => ({
-    path: path.relative(rootDir, file).replaceAll(path.sep, '/'),
-    hash: sha256File(file),
-  })).filter(({ path: relativePath }) => !excludedRelativePaths.has(relativePath));
+export function collectSourceModuleFiles(rootDir, entryFiles, inertModules = {}) {
+  const toRelative = (file) => path.relative(rootDir, file).replaceAll(path.sep, '/');
+  const full = walkSourceGraph(rootDir, entryFiles);
+  const pruned = new Set();
+  for (const [relativeFile, allowedImporters] of Object.entries(inertModules)) {
+    const file = path.resolve(rootDir, relativeFile);
+    if (!full.files.has(file)) continue;
+    const allowed = new Set(allowedImporters);
+    const actual = [...(full.importers.get(file) || [])].map(toRelative);
+    if (actual.length > 0 && actual.every((importer) => allowed.has(importer))) pruned.add(file);
+  }
+  const { files } = pruned.size > 0 ? walkSourceGraph(rootDir, entryFiles, pruned) : full;
+  return [...files].map(toRelative).sort((left, right) => left < right ? -1 : left > right ? 1 : 0);
+}
+
+function hashSourceModuleFiles(
+  rootDir,
+  entryFiles,
+  inertModules = {},
+  excludedRelativePaths = new Set(),
+) {
+  const records = collectSourceModuleFiles(rootDir, entryFiles, inertModules)
+    .filter((relativeFile) => !excludedRelativePaths.has(relativeFile))
+    .map((relativeFile) => ({
+    path: relativeFile,
+    hash: sha256File(path.resolve(rootDir, relativeFile)),
+    }));
   return sha256(JSON.stringify(records));
 }
 
@@ -167,6 +224,7 @@ export function computeJobsSeoEmitterFingerprints(rootDir) {
   const codeHash = hashSourceModuleFiles(
     rootDir,
     [JOBS_SEO_RENDER_ENTRY],
+    JOBS_SEO_FINGERPRINT_INERT_MODULES,
     new Set([JOBS_SEO_REUSE_STORAGE_MODULE]),
   );
   const assetManifestHash = hashStaticShellAssetManifest(rootDir);
