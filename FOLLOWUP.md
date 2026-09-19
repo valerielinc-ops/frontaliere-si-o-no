@@ -1,6 +1,6 @@
 # Follow-up Triage Instructions
 
-Contratto per `post-merge-followup.yml`: residui di PR/review finiscono in un solo bucket giornaliero `follow-up` per repository target; quota: `AGENTS.md → Auth automazioni & frugalità quota`.
+Contratto per `post-merge-followup.yml`: residui di PR/review finiscono in un solo bucket giornaliero `follow-up` per repository target.
 
 ## Contratto corrente — bucket giornaliero
 
