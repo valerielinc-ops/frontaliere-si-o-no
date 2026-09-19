@@ -57,12 +57,14 @@ export const RESOLVED_STATUSES = new Set(['merged', 'closed', 'lgtm']);
 /**
  * Stati del broker eventi (`bin/github-event-broker.mjs`) che una sessione
  * deve attendere su una PR: il terminale (`merged`/`closed`/`failed`) E la
- * review. Il bot reviewer pubblica review `COMMENTED` → `commented`;
- * `needs_review` e' l'alias di `changes_requested`, `approved` di APPROVED.
- * Con il solo `merged,failed` una review 🔴 non sveglia nessuno: la PR resta
- * aperta in silenzio finche' qualcuno non la guarda a mano.
+ * review. `reviewed` e' il segnale indipendente dallo stato: scatta su ogni
+ * `pull_request_review` inviata, qualunque sia l'esito (COMMENTED, APPROVED,
+ * CHANGES_REQUESTED). Prima si usava `commented`, che scatta anche su ogni
+ * `issue_comment` della PR: il commento advisory del sibling-check svegliava
+ * la sessione (e chiudeva la subscription `once`) prima della review vera.
+ * Con il solo `merged,failed` una review 🔴 non sveglia nessuno.
  */
-export const PR_WATCH_WAIT_FOR = ['merged', 'closed', 'failed', 'commented', 'needs_review', 'approved'];
+export const PR_WATCH_WAIT_FOR = ['merged', 'closed', 'failed', 'reviewed'];
 
 /**
  * Comando event-driven da consigliare all'agente per seguire la PR: una
