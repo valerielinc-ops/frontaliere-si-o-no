@@ -29,6 +29,8 @@ import {
   utimesSync,
   cpSync,
   existsSync,
+  readFileSync,
+  realpathSync,
 } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -41,6 +43,8 @@ const REAL_SCRIPT = path.join(REPO_ROOT, 'scripts', 'assemble-jobs-dataset.mjs')
 let tmpRoot;
 let tmpScriptUrl;
 let computeAssembleInputFingerprint;
+let listAssembleCodeClosure;
+let computeAssembleCacheKey;
 
 beforeAll(async () => {
   // Build a minimal repo-shaped tmp dir so the script's `ROOT = path.resolve(__dirname, '..')`
@@ -84,6 +88,8 @@ beforeAll(async () => {
   tmpScriptUrl = pathToFileURL(path.join(tmpRoot, 'scripts', 'assemble-jobs-dataset.mjs')).href;
   const mod = await import(tmpScriptUrl);
   computeAssembleInputFingerprint = mod.computeAssembleInputFingerprint;
+  listAssembleCodeClosure = mod.listAssembleCodeClosure;
+  computeAssembleCacheKey = mod.computeAssembleCacheKey;
 });
 
 afterAll(() => {
@@ -176,5 +182,60 @@ describe('computeAssembleInputFingerprint', () => {
     }
     const fpAfter = computeAssembleInputFingerprint();
     expect(fpAfter).toEqual(fpBefore);
+  });
+});
+
+// The send-* workflows mail the restored data/jobs.json to subscribers: a key
+// that ignored the assembler's own code or its aux data files would replay the
+// output of the previous assembler after a merged fix, until the next slice
+// commit. These pin that every such input moves the key.
+describe('computeAssembleInputFingerprint — non-slice inputs', () => {
+  it('changes when a module of the local import closure changes', () => {
+    const lib = path.join(tmpRoot, 'scripts', 'lib', 'compare-expired-at.mjs');
+    // realpath: on macOS tmpdir() is /var/… while module URLs resolve to /private/var/….
+    expect(listAssembleCodeClosure()).toContain(realpathSync(lib));
+    const fpBefore = computeAssembleInputFingerprint();
+    writeFileSync(lib, `${readFileSync(lib, 'utf8')}\n// touched\n`, 'utf8');
+    expect(computeAssembleInputFingerprint()).not.toEqual(fpBefore);
+  });
+
+  it('changes when an aux data input changes, appears or disappears', () => {
+    const fp0 = computeAssembleInputFingerprint();
+    writeSlice('data/job-canton-pins.json', '{"a":"TI"}');
+    const fp1 = computeAssembleInputFingerprint();
+    writeSlice('data/job-canton-pins.json', '{"a":"GR"}');
+    const fp2 = computeAssembleInputFingerprint();
+    rmSync(path.join(tmpRoot, 'data', 'job-canton-pins.json'));
+    const fp3 = computeAssembleInputFingerprint();
+    expect(new Set([fp0, fp1, fp2]).size).toBe(3);
+    expect(fp3).toEqual(fp0);
+  });
+
+  it('changes when a file inside an aux data DIRECTORY changes', () => {
+    writeSlice('data/orphan-enriched-data/part-00.json', '[]');
+    const fpBefore = computeAssembleInputFingerprint();
+    writeSlice('data/orphan-enriched-data/part-00.json', '[{"slug":"x"}]');
+    expect(computeAssembleInputFingerprint()).not.toEqual(fpBefore);
+  });
+
+  it('changes when package-lock.json changes (npm dependencies)', () => {
+    writeSlice('package-lock.json', '{"lockfileVersion":3}');
+    const fpBefore = computeAssembleInputFingerprint();
+    writeSlice('package-lock.json', '{"lockfileVersion":3,"x":1}');
+    expect(computeAssembleInputFingerprint()).not.toEqual(fpBefore);
+  });
+
+  it('follows dynamic imports and worker entry points', () => {
+    const closure = listAssembleCodeClosure();
+    const root = realpathSync(tmpRoot);
+    expect(closure).toContain(path.join(root, 'scripts', 'reconcile-job-slugs.mjs'));
+    expect(closure).toContain(path.join(root, 'scripts', 'lib', 'parse-job-slices-worker.mjs'));
+  });
+
+  it('keys the run mode so a --no-summaries or --stats snapshot is never restored for a default run', () => {
+    const fp = computeAssembleInputFingerprint();
+    expect(computeAssembleCacheKey().cacheKey).toBe(`${fp}_nostats`);
+    expect(computeAssembleCacheKey({ withStats: true }).cacheKey).toBe(`${fp}_stats`);
+    expect(computeAssembleCacheKey({ withSummaries: false }).cacheKey).toBe(`${fp}_nostats_nosummaries`);
   });
 });
