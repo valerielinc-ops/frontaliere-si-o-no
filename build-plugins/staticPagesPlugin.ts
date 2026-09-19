@@ -28,6 +28,7 @@ import { DATA_CONTROLLER_NAME, DATA_CONTROLLER_EMAIL } from '../functions/src/li
 // Node ESM.
 import { renderArticleHubCards, renderArticleHubGridBlock } from '../packages/articles/engine/articlesHubCards.ts';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
+import { routePreloadChunksFor } from './staticPagePreloadMap';
 import { normalizeArticleStructuredData, normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { ORGANIZATION_LD_JSON } from '../services/seo/organizationLd';
 import { GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription } from '../services/seo/glossaryTermDefinitions';
@@ -2311,7 +2312,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  if (!firstSeg) return '';
 
  const tags: string[] = [];
- const componentPrefixes = sectionChunks[firstSeg];
+ const componentPrefixes = routePreloadChunksFor(urlPath) ?? sectionChunks[firstSeg];
  if (componentPrefixes) {
  for (const prefix of componentPrefixes) {
  const chunk = resolveChunk(prefix);

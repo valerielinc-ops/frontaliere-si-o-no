@@ -9,6 +9,8 @@ import { measureDescriptionLocales, measureTitleLocales } from './job-locale-pop
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const MAX_COMPANIES = 20;
 const MAX_FINGERPRINTS = 100;
+const MAX_JOB_TIMINGS = 4096;
+const MAX_RUNG_ATTRIBUTIONS = 64;
 const HASH_BYTES = 32;
 const ACTIVE_ROW_BYTES = 65;
 const RETIRED_ROW_BYTES = 69;
@@ -159,6 +161,97 @@ export function createTranslationObservabilitySnapshot(document, { now = Date.no
 
 function finiteOrNull(value) {
   return typeof value === 'number' && Number.isFinite(value) ? value : null;
+}
+
+function nonNegativeFinite(value) {
+  return typeof value === 'number' && Number.isFinite(value) && value >= 0 ? value : null;
+}
+
+function percentileNearestRank(values, percentile) {
+  if (values.length === 0) return null;
+  const rank = Math.max(1, Math.ceil(values.length * percentile));
+  return values[rank - 1];
+}
+
+function summarizeJobTiming(values) {
+  const durations = Array.isArray(values)
+    ? values.map(nonNegativeFinite).filter((value) => value !== null).slice(0, MAX_JOB_TIMINGS)
+    : [];
+  durations.sort((left, right) => left - right);
+  return {
+    count: durations.length,
+    p50Ms: percentileNearestRank(durations, 0.5),
+    p90Ms: percentileNearestRank(durations, 0.9),
+    maxMs: durations.length > 0 ? durations[durations.length - 1] : null,
+  };
+}
+
+function boundedCount(value) {
+  return typeof value === 'number' && Number.isFinite(value) && value > 0 ? Math.floor(value) : 0;
+}
+
+function safeRung(value) {
+  const label = String(value || '').trim();
+  return label ? label.slice(0, 64) : 'unserved';
+}
+
+function summarizeRungAttribution(entries) {
+  const byRung = new Map();
+  for (const entry of Array.isArray(entries) ? entries : []) {
+    const rung = safeRung(entry?.rung || entry?.provider);
+    const row = byRung.get(rung) || { rung, count: 0, durationMs: 0 };
+    row.count += boundedCount(entry?.count);
+    row.durationMs += nonNegativeFinite(entry?.durationMs) || 0;
+    byRung.set(rung, row);
+  }
+  return [...byRung.values()]
+    .sort((left, right) => left.rung.localeCompare(right.rung))
+    .slice(0, MAX_RUNG_ATTRIBUTIONS)
+    .map((row) => ({ ...row, durationMs: Math.round(row.durationMs) }));
+}
+
+function companyFingerprint(value) {
+  const raw = String(value || '').trim();
+  if (/^sha256:[a-f0-9]{64}$/.test(raw)) return raw;
+  return `sha256:${sha256(normalized(raw) || 'unknown')}`;
+}
+
+function summarizeCompanyConcentration(entries) {
+  const byCompany = new Map();
+  for (const entry of Array.isArray(entries) ? entries : []) {
+    const fingerprint = companyFingerprint(entry?.companyFingerprint || entry?.companyKey);
+    const row = byCompany.get(fingerprint) || {
+      companyFingerprint: fingerprint,
+      queued: 0,
+      served: 0,
+      cleared: 0,
+      durationMs: 0,
+    };
+    row.queued += boundedCount(entry?.queued);
+    row.served += boundedCount(entry?.served);
+    row.cleared += boundedCount(entry?.cleared);
+    row.durationMs += nonNegativeFinite(entry?.durationMs) || 0;
+    byCompany.set(fingerprint, row);
+  }
+  return [...byCompany.values()]
+    .sort((left, right) => right.queued - left.queued
+      || right.served - left.served
+      || right.cleared - left.cleared
+      || left.companyFingerprint.localeCompare(right.companyFingerprint))
+    .slice(0, MAX_COMPANIES)
+    .map((row) => ({ ...row, durationMs: Math.round(row.durationMs) }));
+}
+
+/** Summarize the raw cascade observations without persisting company keys. */
+export function summarizeCascadeObservability(phases) {
+  const cascadePhases = Array.isArray(phases)
+    ? phases.filter((phase) => phase?.name === 'cascade')
+    : [];
+  return {
+    jobTiming: summarizeJobTiming(cascadePhases.flatMap((phase) => phase?.jobDurationsMs || [])),
+    rungAttribution: summarizeRungAttribution(cascadePhases.flatMap((phase) => phase?.rungAttribution || [])),
+    companyConcentration: summarizeCompanyConcentration(cascadePhases.flatMap((phase) => phase?.companyConcentration || [])),
+  };
 }
 
 function assertHash(value, field) {
@@ -511,6 +604,10 @@ export function summarizeRunPhases(phases) {
       stopReason: typeof recorded?.stopReason === 'string' ? recorded.stopReason : null,
       failed: recorded?.failed === true,
       clockFallback: recorded?.clockFallback === true,
+      // One sample per localization job, measured around the actual
+      // localization call. Empty runs are explicit: zero jobs is different
+      // from an uninstrumented cascade, and percentile fields stay null.
+      jobTiming: summarizeJobTiming(recorded?.jobDurationsMs),
       // The only figure comparable across runs: a run given 38 minutes and one
       // given 2 cannot be compared on jobs alone, and dividing by the NOMINAL
       // deadline instead of the granted window is what produced the bogus
@@ -551,6 +648,7 @@ export function buildTranslationObservabilityReport({ before, final, runId, star
     }
   }
   const observation = generationObservation || { advanced: false, state: null, identityHashes: [], continuity: unavailableContinuity('cross_generation_state_not_supplied', null) };
+  const cascadeObservability = summarizeCascadeObservability(runPhases);
   const report = {
     schemaVersion: 2,
     runId: String(runId),
@@ -576,6 +674,12 @@ export function buildTranslationObservabilityReport({ before, final, runId, star
     },
     continuity: { ...observation.continuity, fingerprints: boundedFingerprints([...fingerprints, ...(observation.identityHashes || [])]) },
     runPhases: summarizeRunPhases(runPhases),
+    // These fields are deliberately top-level so the weekly/monthly history
+    // can answer cost/provider/company questions without re-reading the
+    // ephemeral phase sidecar. All company identities are fingerprinted in
+    // summarizeCascadeObservability before this report is persisted.
+    rungAttribution: cascadeObservability.rungAttribution,
+    companyConcentration: cascadeObservability.companyConcentration,
   };
   report.digest = digestDocument(report);
   return report;
