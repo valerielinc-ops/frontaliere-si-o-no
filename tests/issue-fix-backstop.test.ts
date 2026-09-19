@@ -354,6 +354,25 @@ describe('issue-fix F1/F7 policy gate', () => {
     }
   });
 
+  it('consuma le label normalizzate dello snapshot come stringhe', () => {
+    const group = workflow.indexOf(
+      '- name: Load issue group context (B19, frozen before capabilities)',
+    );
+    const tier = workflow.indexOf('- name: Determine fix tier');
+    const closing = workflow.indexOf('- name: Closing keyword for the PR body');
+    const groupContext = workflow.slice(group, tier);
+    const tierDecision = workflow.slice(tier, closing);
+    const normalizedIssueBody =
+      'body=$(jq -r \'.title + "\\n" + (.body // "") + "\\n" + ([.labels[]?] | join("\\n"))\' "$CTX_DIR/issue.json")';
+    const objectIssueBody =
+      'body=$(jq -r \'.title + "\\n" + (.body // "") + "\\n" + ([.labels[]?.name] | join("\\n"))\' "$CTX_DIR/issue.json")';
+
+    expect(groupContext).toContain('[.labels[]? | select(test($pattern))]');
+    expect(groupContext).not.toContain('[.labels[]?.name | select(test($pattern))]');
+    expect(tierDecision).toContain(normalizedIssueBody);
+    expect(tierDecision).not.toContain(objectIssueBody);
+  });
+
   it('classifica ogni membro B19 prima di coniare capability', () => {
     const group = workflow.indexOf(
       '- name: Validate issue group context and member risk (zero-Claude)',
