@@ -31,9 +31,27 @@
 # shard_read_counter <clone_dir> <path-in-repo>
 # Prints the numeric content of <path> at HEAD in <clone_dir>, or 0 if the
 # path is absent, the clone has no commits yet, or the content isn't numeric.
+# Returns non-zero when HEAD lists the marker but its blob cannot be read. A
+# filtered clone can lazy-fetch the former case successfully or fail silently
+# into the latter; those cases must not share the same "missing" value.
 shard_read_counter() {
-  local dir="$1" path="$2" val
-  val="$(git -C "$dir" show "HEAD:$path" 2>/dev/null || echo 0)"
+  local dir="$1" path="$2" val tree_entry
+  if ! git -C "$dir" rev-parse -q --verify HEAD >/dev/null 2>&1; then
+    printf '0'
+    return 0
+  fi
+  if ! tree_entry="$(git -C "$dir" ls-tree HEAD -- "$path" 2>/dev/null)"; then
+    echo "::error::cannot inspect shard marker $path in $dir" >&2
+    return 1
+  fi
+  if [ -z "$tree_entry" ]; then
+    printf '0'
+    return 0
+  fi
+  if ! val="$(git -C "$dir" show "HEAD:$path" 2>/dev/null)"; then
+    echo "::error::shard marker $path is listed at HEAD but its blob is unreadable (lazy-fetch failed)" >&2
+    return 1
+  fi
   # Older section pushes wrote the `wc -l` padding into this marker. Keep
   # reading those trees while all new writes use the canonical decimal form;
   # reject malformed internal whitespace instead of silently joining digits.
@@ -120,8 +138,14 @@ shard_delta_clone_and_prepare() {
     return 1
   fi
 
-  SHARD_DELTA_DCOUNT="$(shard_read_counter "$stage" .shard-deploys)"
-  SHARD_DELTA_PREV_N="$(shard_read_counter "$stage" .shard-filecount)"
+  if ! SHARD_DELTA_DCOUNT="$(shard_read_counter "$stage" .shard-deploys)"; then
+    SHARD_DELTA_REASON='shard deploy counter unreadable'
+    return 1
+  fi
+  if ! SHARD_DELTA_PREV_N="$(shard_read_counter "$stage" .shard-filecount)"; then
+    SHARD_DELTA_REASON='shard file counter unreadable'
+    return 1
+  fi
   if [ "$SHARD_DELTA_DCOUNT" -ge "$history_cap" ]; then
     SHARD_DELTA_REASON="history cap $history_cap reached"
     return 1
@@ -823,8 +847,14 @@ shard_delta_verify_prepare() {
       SHARD_VERIFY_REASON='verification base tree unavailable'
       return 1
     fi
-    SHARD_VERIFY_DCOUNT="$(shard_read_counter "$stage" .shard-deploys)"
-    SHARD_VERIFY_PREV_N="$(shard_read_counter "$stage" .shard-filecount)"
+    if ! SHARD_VERIFY_DCOUNT="$(shard_read_counter "$stage" .shard-deploys)"; then
+      SHARD_VERIFY_REASON='verification shard deploy counter unreadable'
+      return 1
+    fi
+    if ! SHARD_VERIFY_PREV_N="$(shard_read_counter "$stage" .shard-filecount)"; then
+      SHARD_VERIFY_REASON='verification shard file counter unreadable'
+      return 1
+    fi
     # A full push flattens at the cap. Model its reset counters in the plan so
     # the comparison is about the published tree, not history bookkeeping.
     if [ "$SHARD_VERIFY_DCOUNT" -ge "$history_cap" ]; then SHARD_VERIFY_DCOUNT=0; fi

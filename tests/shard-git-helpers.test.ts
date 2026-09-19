@@ -9,7 +9,7 @@
 // for that latent defect.
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import { execSync } from 'node:child_process';
-import { mkdtempSync, rmSync, writeFileSync, existsSync } from 'node:fs';
+import { chmodSync, mkdtempSync, rmSync, writeFileSync, existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -24,10 +24,19 @@ function sh(cmd: string, cwd?: string): string {
 // `env -u` keeps the PAT fallback (shard_pat_push) deterministic: a developer
 // shell with GITHUB_PAT exported would otherwise make these tests take a
 // different branch than CI does.
-function runHelperScript(statements: string, timeoutMs = 10_000): string {
+function runHelperScript(
+  statements: string,
+  timeoutMs = 10_000,
+  env: NodeJS.ProcessEnv = process.env,
+): string {
   return execSync(
     `env -u GITHUB_PAT -u SHARD_PUSH_PAT bash -c 'set -uo pipefail; source "${HELPERS}"; ${statements}'`,
-    { encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'], timeout: timeoutMs },
+    {
+      encoding: 'utf8',
+      stdio: ['pipe', 'pipe', 'pipe'],
+      timeout: timeoutMs,
+      env,
+    },
   ).trim();
 }
 
@@ -107,6 +116,26 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
       sh(`git init -q -b main "${emptyClone}"`);
       const val = runHelperScript(`shard_read_counter "${emptyClone}" .shard-deploys`);
       expect(val).toBe('0');
+    });
+
+    it('fails closed when the tree lists a marker whose blob cannot be lazy-fetched', () => {
+      const fakeGitDir = join(root, 'fake-git-bin');
+      const fakeGit = join(fakeGitDir, 'git');
+      sh(`mkdir -p "${fakeGitDir}"`);
+      const realGit = sh('command -v git');
+      writeFileSync(
+        fakeGit,
+        `#!/bin/sh\nfor arg in "$@"; do\n  if [ "$arg" = "HEAD:.shard-deploys" ]; then exit 1; fi\ndone\nexec "${realGit}" "$@"\n`,
+      );
+      chmodSync(fakeGit, 0o755);
+
+      const output = runHelperScript(
+        `shard_read_counter "${clone}" .shard-deploys 2>&1; echo "RC=$?"`,
+        10_000,
+        { ...process.env, PATH: `${fakeGitDir}:${process.env.PATH || ''}` },
+      );
+      expect(output).toContain('marker .shard-deploys is listed at HEAD but its blob is unreadable');
+      expect(output).toContain('RC=1');
     });
   });
 
