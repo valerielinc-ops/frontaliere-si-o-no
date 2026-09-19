@@ -7,11 +7,16 @@
  * Fail-safe: any internal error → exit 0, no output. A hook that could break
  * `gh pr create` itself would be worse than the problem it fixes — see
  * hook-exit-codes.mjs's note on the same principle for the sibling gates.
+ *
+ * Dopo la registrazione restituisce all'agente (additionalContext) il comando
+ * di subscription event-driven con i waitFor della review oltre al terminale:
+ * con il solo `merged,failed` di prima una review 🔴 non svegliava nessuno.
  */
 import { fileURLToPath } from 'node:url';
 import { readHookStdin } from './lib/hook-stdin.mjs';
 import { dirname, join } from 'node:path';
 import { readEntries, writeEntries, addEntry, extractPrRef } from './lib/pr-watch-store.mjs';
+import { subscribeCommand } from './lib/pr-watch-classify.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, '..', '..');
@@ -53,6 +58,16 @@ async function main() {
     // Store write failed — the Stop gate will simply not know about this PR.
     // Not registering is safer than crashing the hook chain.
   }
+
+  const context = [
+    `PR #${ref.number} (${ref.owner}/${ref.repo}) registrata nel pr-watch.`,
+    'Seguila event-driven, review comprese (niente polling di gh pr view/checks):',
+    `  ${subscribeCommand(ref)}`,
+    'poi UN solo `bin/gh-frontaliere events listen <subscription-id>`; a un evento `commented`/`needs_review` leggi la review.',
+  ].join('\n');
+  process.stdout.write(JSON.stringify({
+    hookSpecificOutput: { hookEventName: 'PostToolUse', additionalContext: context },
+  }));
 }
 
 main().catch(() => {});
