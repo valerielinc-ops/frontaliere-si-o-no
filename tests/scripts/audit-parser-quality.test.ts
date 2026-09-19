@@ -26,6 +26,7 @@ import {
   countDuplicates,
   largestDuplicateBucket,
   effectiveDescription,
+  stripHtml,
   sourceLocationMatches,
   extractSourceLocationObservation,
   classifySourceLocationEvidence,
@@ -72,6 +73,20 @@ type Entry = {
   severity: 'CRITICAL' | 'WARNING' | 'OK';
   action?: string;
 };
+
+describe('stripHtml entity handling', () => {
+  it('decodes named and numeric separators after removing tags', () => {
+    expect(stripHtml('<p>Switzerland &gt; Allschwil : H-127</p>'))
+      .toContain('Switzerland > Allschwil : H-127');
+    expect(stripHtml('<p>Switzerland &#62; Allschwil : H-127</p>'))
+      .toContain('Switzerland > Allschwil : H-127');
+  });
+
+  it('does not let a decoded entity fabricate a tag before stripping', () => {
+    expect(stripHtml('<p>Allschwil &lt;b&gt; Basel</p>'))
+      .toContain('Allschwil <b> Basel');
+  });
+});
 
 describe('active parser-quality population', () => {
   it('keeps live records and reports grace/expired exclusions separately', () => {
@@ -1837,14 +1852,13 @@ describe('source-detail observation counters (#7714)', () => {
       locationMismatches: 1,
       sourceCorroboratedLocationObservations: 2,
       inconclusiveLocationObservations: 5,
-      tenantConstantLocationObservations: 3,
       descriptionMismatches: 4,
       processingFailed: 2,
     });
     expect(lines).toEqual([
       'Source detail location observations: 7/8 authoritative checks matched, 1 mismatched',
       '  corroborated by other page evidence: 2/8 (25.0 % of authoritative checks)',
-      '  inconclusive: 5 (3 tenant-constant)',
+      '  inconclusive: 5',
       'Source detail description mismatches: 4',
       'Source detail processing failures: 2/2',
     ]);

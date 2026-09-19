@@ -633,6 +633,14 @@ describe('deploy-publish.yml — Pages poll usa il budget residuo del job', () =
     expect(pollStep!.run).toContain('job_deadline="${{ steps.publish_budget.outputs.job_deadline }}"');
     expect(pollStep!.run).toContain('deadline=$((job_deadline - 60))');
     expect(pollStep!.run).toContain('pre-poll publish steps consumed the available job budget');
+    expect(pollStep!.run).toContain('gh_api_with_deadline()');
+    expect(pollStep!.run).toContain('remaining=$((deadline - $(date +%s)))');
+    expect(pollStep!.run).toContain('timeout --foreground --signal=TERM --kill-after=5s "${remaining}s" gh api "$@"');
+    expect(pollStep!.run).toContain('ids=$(gh_api_with_deadline');
+    expect(pollStep!.run).toContain('st=$(gh_api_with_deadline');
+    expect(pollStep!.run).toContain('sleep "$sleep_for"');
+    expect(pollStep!.run).not.toMatch(/ids=\$\(gh api/);
+    expect(pollStep!.run).not.toMatch(/st=\$\(gh api/);
     expect(pollStep!.run).not.toContain('date +%s) + 330*60');
   });
 });

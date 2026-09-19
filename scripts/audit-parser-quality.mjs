@@ -20,6 +20,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 import { extractDetailFields, extractJsonLd } from './lib/prospector/extract.mjs';
+import { decodeEntities as decodeScrapedHtmlEntities } from './lib/prospector/entities.mjs';
 import { resolveSourceBackedSwissGeography } from './lib/prospector/location-evidence.mjs';
 import { readAttr } from './lib/html-attr.mjs';
 import {
@@ -281,7 +282,11 @@ const rebaseline = args.includes('--rebaseline');
 
 /* ── Helpers ───────────────────────────────────────────────── */
 function stripHtml(html) {
-  return (html || '').replace(/<[^>]*>/g, ' ').replace(/&[a-z]+;/gi, ' ');
+  // Decode only after tags are gone: an encoded `<` must not become markup
+  // that this stripper can accidentally consume. The prospector decoder wraps
+  // the shared entity table and also handles numeric references such as &#62;.
+  const withoutTags = (html || '').replace(/<[^>]*>/g, ' ');
+  return decodeScrapedHtmlEntities(withoutTags);
 }
 
 function plainText(html) {
@@ -851,6 +856,7 @@ export function sourceCorroboratesPublishedLocation(detail, publishedLocation, {
 
 export function compareSourceDetail(job, detail, {
   locationEvidence = 'jsonld',
+  crawlerKey = job?.crawlerKey,
 } = {}) {
   const publishedLocation = job?.addressLocality || job?.location || '';
   const sourceLocation = detail?.location || '';
@@ -879,15 +885,24 @@ export function compareSourceDetail(job, detail, {
     && isUsableSourceLocation(sourceLocation)
     && locationEvidence !== 'generic'
     && !circularCorroboration;
+  const foreignMistralLocation = crawlerKey === 'mistral-ai'
+    && locationChecked
+    && hasExplicitForeignCountry(sourceLocation, detail?.addressCountry);
+  // Mistral's structured source declares a foreign primary office while the
+  // Swiss publication remains intentional. Keep this as an inconclusive
+  // observation in the replay payload, and scope it by both crawler and
+  // explicit country evidence so no other crawler or mismatch is exempted.
   const observation = {
     location: {
-      checked: locationChecked,
+      checked: locationChecked && !foreignMistralLocation,
       matchesPublished: locationMatchesPublished,
-      inconclusive: Boolean(sourceLocation) && !locationChecked,
+      inconclusive: Boolean(sourceLocation) && (!locationChecked || foreignMistralLocation),
       evidence: locationEvidence,
       authority: circularCorroboration
         ? 'circular'
-        : (publishedCorroboratedBySource ? 'source-corroborated' : 'source-detail'),
+        : foreignMistralLocation
+          ? 'foreign-source-exempt'
+          : (publishedCorroboratedBySource ? 'source-corroborated' : 'source-detail'),
       published: publishedLocation,
       source: sourceLocation,
     },
@@ -985,7 +1000,10 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
       );
       if (locationObservation.location) detail.location = locationObservation.location;
       const locationEvidence = locationObservation.evidence;
-      const comparison = compareSourceDetail(item.job, detail, { locationEvidence });
+      const comparison = compareSourceDetail(item.job, detail, {
+        locationEvidence,
+        crawlerKey: item.crawlerKey,
+      });
       const sourceDetailEvidence = evidenceContext
         ? createSourceDetailEvidence({
           crawlerKey: item.crawlerKey,
@@ -1036,52 +1054,6 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
 export function sourceDetailUnobserved(result) {
   return !result.sourceLocation
     && Number(result.sourceDescriptionLength || 0) < COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS;
-}
-
-/**
- * A source location repeated identically on distinct vacancies of one crawler
- * whose PUBLISHED locations differ cannot be describing either of them: two
- * different workplaces do not share one address, so at most one reading can be
- * right and the value carries no per-vacancy information. In practice it is
- * the ATS tenant's own address, served unchanged on every posting — measured
- * on run 33953283741: `jobs.coopjobs.ch` declares `Reservatstrasse 1-3, 8953
- * Dietikon` (Coop's own site) for a Bern store and a Baden-Dättwil store
- * alike, `jobs.fenaco.com` declares fenaco's `Erlachstrasse 5, 3001 Bern` for
- * a Volg shop in Wetzikon, and Livit, Mistral and Interdiscount do the same
- * with their head offices.
- *
- * The rule is the constancy, never a list of tenant names, so it holds for
- * every ATS that starts doing this tomorrow. It is deliberately the strict
- * form — identical source AND differing published values — because two
- * vacancies genuinely in the same town legitimately share a source location,
- * and treating that as non-evidence would blind the check on exactly the
- * single-site employers it protects best.
- *
- * @param {Array<Record<string, any>>} sourceResults
- * @returns {Set<string>} keys `${crawlerKey}\u0000${normalized source location}`
- */
-export function tenantConstantSourceLocations(sourceResults) {
-  const seen = new Map();
-  for (const result of sourceResults) {
-    if (!result?.locationChecked || !result.sourceLocation) continue;
-    const key = `${result.crawlerKey}\u0000${normalizePlace(result.sourceLocation)}`;
-    if (!seen.has(key)) seen.set(key, { published: new Set(), everMatched: false });
-    const bucket = seen.get(key);
-    bucket.published.add(normalizePlace(result.publishedLocation || ''));
-    if (!result.locationMismatch) bucket.everMatched = true;
-  }
-  const constant = new Set();
-  for (const [key, bucket] of seen) {
-    // `everMatched` is the guard that keeps this from eating a real defect. If
-    // one vacancy carrying this source location DOES agree with it, the value
-    // is a genuine workplace and the disagreement of the other one is a
-    // finding, not noise. Without it the rule silenced agroscope, where the
-    // source says Wädenswil, one record publishes Wädenswil correctly and the
-    // other publishes Zürich — measured on run 33953283741, and exactly the
-    // kind of red this check exists to raise.
-    if (bucket.published.size >= 2 && !bucket.everMatched) constant.add(key);
-  }
-  return constant;
 }
 
 /**
@@ -1246,7 +1218,6 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     // "fetched pages that yielded nothing" — a mute page yielded nothing
     // either. The split only decides whether it is the PARSER's fault.
     unobservedSourceMute: 0,
-    tenantConstantLocationObservations: 0,
     authoritativeLocationChecks: 0,
     authoritativeLocationChecksByEvidence: {
       jsonld: 0,
@@ -1262,7 +1233,6 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     inconclusiveLocationObservations: 0,
     descriptionMismatches: 0,
   };
-  const tenantConstant = tenantConstantSourceLocations(sourceResults);
   const byKey = {};
   for (const result of sourceResults) {
     const key = result.crawlerKey;
@@ -1270,7 +1240,6 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       checked: 0, fetchFailed: 0, processingFailed: 0, processingErrors: [],
       locationChecked: 0, locationInconclusive: 0, locationMismatches: 0,
       descriptionMismatches: 0, unobserved: 0, unobservedSourceMute: 0,
-      tenantConstantObservations: 0,
       circularCorroborationObservations: 0,
       unobservedDetails: [], details: [], failureFamilies: {},
     };
@@ -1323,17 +1292,7 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
         info.unobservedDetails.push(`${sourceReference}: fetched, but no source location was readable and only ${result.sourceDescriptionLength} chars of source description (< ${COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS}) — this sample can contradict nothing`);
       }
     }
-    const isTenantConstant = result.locationChecked
-      && tenantConstant.has(`${result.crawlerKey}\u0000${normalizePlace(result.sourceLocation || '')}`);
-    if (isTenantConstant) {
-      // Not authoritative and not a match: an observation that cannot
-      // discriminate is inconclusive, and stays visible as such.
-      info.locationInconclusive++;
-      info.tenantConstantObservations++;
-      sourceDetailSummary.inconclusiveLocationObservations++;
-      sourceDetailSummary.tenantConstantLocationObservations++;
-      info.unobservedDetails.push(`${sourceReference}: source location "${result.sourceLocation}" is repeated across vacancies published at different places — it is the tenant address, not this vacancy's`);
-    } else if (result.locationChecked) {
+    if (result.locationChecked) {
       info.locationChecked++;
       sourceDetailSummary.authoritativeLocationChecks++;
       const evidence = result.locationEvidence === 'jsonld'
@@ -1359,7 +1318,7 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
         info.unobservedDetails.push(`${sourceReference}: published "${result.publishedLocation}" is named only in the vacancy text used to derive the locality; the source detail corroborates nothing here`);
       }
     }
-    if (result.locationMismatch && !isTenantConstant) {
+    if (result.locationMismatch) {
       info.locationMismatches++;
       info.details.push(`${sourceReference}: published "${result.publishedLocation || 'empty'}", source "${result.sourceLocation}" [${result.locationEvidence}]`);
     }
@@ -1379,17 +1338,15 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       });
       entry.severity = 'CRITICAL';
     }
-    if (info.unobserved > 0 || info.tenantConstantObservations > 0 || info.circularCorroborationObservations > 0) {
+    if (info.unobserved > 0 || info.circularCorroborationObservations > 0) {
       const parts = [];
       if (info.unobserved > 0) parts.push(`${info.unobserved}/${info.checked} fetched but observable in neither location nor description`);
-      if (info.tenantConstantObservations > 0) parts.push(`${info.tenantConstantObservations}/${info.checked} carrying the tenant address instead of the vacancy's`);
       if (info.circularCorroborationObservations > 0) parts.push(`${info.circularCorroborationObservations}/${info.checked} circular locality corroborations`);
       entry.issues.push({
         type: 'source-detail-unobserved',
-        count: info.unobserved + info.tenantConstantObservations + info.circularCorroborationObservations,
+        count: info.unobserved + info.circularCorroborationObservations,
         total: info.checked,
         unobserved: info.unobserved,
-        tenantConstantObservations: info.tenantConstantObservations,
         circularCorroborationObservations: info.circularCorroborationObservations,
         details: info.unobservedDetails,
         message: `${parts.join(', ')} — those samples are inconclusive and prove nothing`,
@@ -1449,7 +1406,6 @@ export function formatSourceDetailObservationLines(summary = {}) {
     const matches = count(summary.locationMatches);
     const mismatches = count(summary.locationMismatches);
     const corroborated = count(summary.sourceCorroboratedLocationObservations);
-    const tenantConstant = count(summary.tenantConstantLocationObservations);
     const circular = count(summary.circularCorroborationObservations);
     const share = authoritative
       ? (100 * corroborated / authoritative).toFixed(1)
@@ -1469,7 +1425,7 @@ export function formatSourceDetailObservationLines(summary = {}) {
       const after = summary.locationEvidenceAfterGateByEvidence || {};
       lines.push(`  evidence gate: JSON-LD ${count(before.jsonld)}→${count(after.jsonld)}, DOM/label ${count(before['strong-markup'])}→${count(after['strong-markup'])}`);
     }
-    lines.push(`  inconclusive: ${inconclusive} (${tenantConstant} tenant-constant)`);
+    lines.push(`  inconclusive: ${inconclusive}`);
     if (circular > 0) lines.push(`  circular corroboration: ${circular} (inconclusive)`);
   }
   if (descriptionMismatches > 0) {
@@ -2246,6 +2202,8 @@ function printReport(report) {
   console.log(`\n${total} crawlers checked, ${critical.length} critical, ${warnings.length} warnings`);
 
 }
+
+export { stripHtml };
 
 const isMain = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
 if (isMain) {

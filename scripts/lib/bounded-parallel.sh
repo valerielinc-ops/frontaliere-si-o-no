@@ -169,8 +169,9 @@ bp_run_bounded() {
 
 # bp_section_order <dist_dir> <locale> [repo_root]
 #
-# Print the deployable section keys ordered by descending file count of the
-# locale's dist subtree (ties broken alphabetically for determinism). Sections
+# Print the deployable section keys ordered by descending size of the
+# locale's dist subtree, estimated as its top-level entry count (ties broken
+# alphabetically for determinism). Sections
 # with no subtree in this build sort last with count 0 — they are still
 # printed, because push-section-shard.sh is the component that decides to skip
 # them, and dropping them here would turn an explicit "subtree absent" log
@@ -205,7 +206,13 @@ bp_section_order() {
       if [ "$loc" = "it" ]; then sub="$slug"; else sub="$loc/$slug"; fi
       n=0
       if [ -n "$slug" ] && [ -d "$dist_dir/$sub" ]; then
-        n="$(find "$dist_dir/$sub" -type f 2>/dev/null | wc -l)"
+        # Cheap size estimate: the entries directly under the section root.
+        # Section subtrees are flat (one directory per job page holding its
+        # index.html), so the top-level entry count ranks sections the same
+        # way the full recursive file count did — without the 63 s (en) /
+        # 112 s (it) walk of every file in dist (deploy 35440963700). The
+        # count only orders the fan-out; which sections run is unchanged.
+        n="$(find "$dist_dir/$sub" -mindepth 1 -maxdepth 1 2>/dev/null | wc -l)"
       fi
       printf '%s\t%s\n' "$n" "$section"
     done <<< "$sections" | sort -k1,1nr -k2,2 | cut -f2

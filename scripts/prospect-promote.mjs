@@ -559,41 +559,6 @@ let branch = `prospector/promote-${stamp}`;
 for (let n = 2; branchExists(branch) && n < 20; n++) branch = `prospector/promote-${stamp}-${n}`;
 const totalVacancies = shipped.reduce((a, s) => a + (s.vacancyCount || 0), 0);
 
-const bullets = shipped.map((s) => {
-  const h = (s.validationHistory || []).filter((v) => v.verdict === 'good');
-  const days = new Set(h.map((v) => String(v.at).slice(0, 10))).size;
-  return `- **in questa PR** — \`${s.spec.companyKey}\` · ${s.spec.companyName} · ${s.vacancyCount} annunci · qualita' ${Number(s.qualityScore).toFixed(2)} su ${days} giorni distinti · estrazione \`${s.spec.mode}\` · ${s.spec.companyHost}`;
-}).join('\n');
-
-const relaxedNote = relaxed
-  ? `\n- **in questa PR** — ⚠️ **giro di verifica a gate ridotto**: stabilita' richiesta ${minDays} giorno/i invece di ${GATE_DEFAULTS.minDistinctDays}. Serviva a eseguire il percorso di promozione senza attendere il secondo giorno; tutte le altre condizioni del gate sono quelle normali. Il cron non usa mai questa leva.`
-  : '';
-
-// Il registro aziende e' un file di dati PUBBLICO che questo diff modifica: se
-// il body non lo nomina, e' esattamente il gap di #6301/#6279 — un file
-// funnel-critical nel diff e mai citato nel corpo. Il ramo negativo non e'
-// silenzio: dice che il file resta alla versione precedente, cosi' chi legge la
-// PR sa che la directory aziende e' indietro di questi crawler.
-const companiesNote = companiesRegenerated
-  ? `
-- **in questa PR** — \`data/crawler-companies-auto.json\` rigenerato nello stesso commit dei runner: la directory aziende del sito resta allineata all'insieme dei crawler realmente in produzione, invece di dipendere da un \`npm run companies:generate\` lanciato a mano (era fermo a 213 voci su 614 runner, issue #6481).`
-  : `
-- **blocked: la rigenerazione del registro aziende e' fallita in questo giro** — \`data/crawler-companies-auto.json\` resta alla versione precedente e non copre questi crawler; la scrittura del generatore e' atomica, quindi il file NON e' troncato. La causa e' nel log dello stadio PROMOTE e \`npm run companies:generate\` la riproduce.`;
-
-const body = `## Implementato
-
-- **in questa PR** — ${shipped.length} crawler promossi dal prospector, per **${totalVacancies} annunci** di datori che non coprivamo. Ognuno ha superato il gate di \`scripts/lib/prospector/promotion-gate.mjs\`: qualita' >= ${GATE_DEFAULTS.minScore} contro la pagina ufficiale del datore, su almeno ${GATE_DEFAULTS.minSampled} pagine di dettaglio, con **${stabilityRequirement}**${stabilityClaim} — e con almeno il ${Math.round(GATE_DEFAULTS.minJobLike * 100)}% delle pagine di dettaglio che **legge come un annuncio di lavoro** e non come contenuto promozionale o editoriale.
-${bullets}${relaxedNote}
-- **in questa PR** — voci nel manifest${groupsRegenerated ? ' e gruppi di workflow rigenerati, quindi i crawler entrano nella schedulazione esistente' : ''}.${groupsRegenerated ? '' : `
-- **blocked: manca il permesso \`workflows\` sul token** — i gruppi non sono stati rigenerati, quindi questi crawler esistono ma non sono ancora schedulati. Basta un \`node scripts/generate-crawler-group-workflows.mjs\` da un'identita' che possa scrivere in \`.github/workflows/\`.`}${companiesNote}
-
-## Non implementato (ancora)
-
-- **by construction** — nessun parser scritto a mano: cio' che e' specifico del datore vive nella spec dichiarativa sotto \`data/prospector/crawlers/\`, e l'estrazione in produzione e' la stessa che il gate ha misurato.
-- **per scelta** — al massimo ${maxPerRun} crawler per giro. Una pipeline non presidiata che ne aggiunge dieci al giorno e' recuperabile, una che ne aggiunge quattrocento no.
-- **blocked: serve una run successiva** — ${blocked.length} candidati graduati non hanno superato il gate (${blockedSummary.stabilityOnly} solo per la stabilita' richiesta da ${stabilityRequirement}; ${blockedSummary.other} per altre condizioni). Le cause dettagliate sono nel log dello stadio PROMOTE: solo il primo gruppo si risolve con una run successiva.
-`;
-
 // Il body sopra non cita mai i file `.github/workflows/**` che
 // `generate-crawler-group-workflows.mjs` puo' aver toccato quando
 // `groupsRegenerated` (solo la frase generica "gruppi di workflow rigenerati") —
@@ -610,6 +575,22 @@ function changedWorkflowPaths() {
   }
 }
 
+const workflowPaths = groupsRegenerated ? changedWorkflowPaths() : [];
+const body = buildPromotionPrBody({
+  shipped,
+  totalVacancies,
+  relaxed,
+  minDays,
+  maxPerRun,
+  stabilityRequirement,
+  stabilityClaim,
+  blocked,
+  blockedSummary,
+  groupsRegenerated,
+  companiesRegenerated,
+  workflowPaths,
+});
+
 const bodyFile = path.join(PROSPECTOR_DIR, 'promote-pr-body.md');
 fs.writeFileSync(bodyFile, body);
 
@@ -619,7 +600,7 @@ fs.writeFileSync(bodyFile, body);
 // percorso; un problema infrastrutturale nel file non trasforma in rosso il
 // lavoro di promozione gia' eseguito.
 const contract = validatePrBodyFile(bodyFile, ROOT, {
-  diffPaths: groupsRegenerated ? changedWorkflowPaths() : [],
+  diffPaths: workflowPaths,
 });
 if (contract.kind === 'infrastructure-error') {
   console.error(`::warning::body PR del prospector non verificabile; nessuna PR scritta: ${contract.reason}`);
@@ -705,6 +686,67 @@ try {
   console.error(`\n❌ apertura PR fallita: ${String(err.stderr || err.message).slice(0, 400)}`);
   process.exit(1);
 }
+}
+
+/**
+ * Costruisce il body della PR di promozione senza effetti collaterali.
+ *
+ * Il body e' un contratto remoto, non solo testo descrittivo: ogni decisione
+ * (`per scelta` / `by construction`) e ogni blocco deve lasciare una ragione
+ * auditabile e un prossimo passo concreto. Tenerlo in una funzione pura rende
+ * verificabile il caso che in precedenza rompeva `prospector-loop` solo quando
+ * GitHub provava ad aprire la PR.
+ */
+export function buildPromotionPrBody({
+  shipped,
+  totalVacancies,
+  relaxed,
+  minDays,
+  maxPerRun,
+  stabilityRequirement,
+  stabilityClaim,
+  blocked = [],
+  blockedSummary = { stabilityOnly: 0, other: 0 },
+  groupsRegenerated,
+  companiesRegenerated,
+  workflowPaths = [],
+}) {
+  const bullets = shipped.map((s) => {
+    const h = (s.validationHistory || []).filter((v) => v.verdict === 'good');
+    const days = new Set(h.map((v) => String(v.at).slice(0, 10))).size;
+    return `- **in questa PR** — \`${s.spec.companyKey}\` · ${s.spec.companyName} · ${s.vacancyCount} annunci · qualita' ${Number(s.qualityScore).toFixed(2)} su ${days} giorni distinti · estrazione \`${s.spec.mode}\` · ${s.spec.companyHost}`;
+  }).join('\n');
+
+  const relaxedNote = relaxed
+    ? `\n- **in questa PR** — ⚠️ **giro di verifica a gate ridotto**: stabilita' richiesta ${minDays} giorno/i invece di ${GATE_DEFAULTS.minDistinctDays}. Serviva a eseguire il percorso di promozione senza attendere il secondo giorno; tutte le altre condizioni del gate sono quelle normali. Il cron non usa mai questa leva.`
+    : '';
+
+  const workflowPathsNote = workflowPaths.length > 0
+    ? `\n- **in questa PR** — file workflow rigenerati: ${workflowPaths.map((workflowPath) => `\`${workflowPath}\``).join(', ')}.`
+    : '';
+
+  const workflowNote = groupsRegenerated
+    ? workflowPathsNote
+    : `\n- **blocked: manca il permesso \`workflows\` sul token** — i gruppi non sono stati rigenerati, quindi questi crawler esistono ma non sono ancora schedulati. **Motivo:** l'identita' di push non ha potuto completare la rigenerazione in questo giro. **Prossimo passo:** eseguire \`node scripts/generate-crawler-group-workflows.mjs\` da un'identita' che possa scrivere in \`.github/workflows/\`.`;
+
+  const companiesNote = companiesRegenerated
+    ? `
+- **in questa PR** — \`data/crawler-companies-auto.json\` rigenerato nello stesso commit dei runner: la directory aziende del sito resta allineata all'insieme dei crawler realmente in produzione, invece di dipendere da un \`npm run companies:generate\` lanciato a mano (era fermo a 213 voci su 614 runner, issue #6481).`
+    : `
+- **blocked: la rigenerazione del registro aziende e' fallita in questo giro** — \`data/crawler-companies-auto.json\` resta alla versione precedente e non copre questi crawler; la scrittura del generatore e' atomica, quindi il file NON e' troncato. **Motivo:** la generazione ha fallito dopo aver preservato il file precedente. **Prossimo passo:** ripetere \`npm run companies:generate\` dopo aver corretto la causa indicata nel log dello stadio PROMOTE.`;
+
+  return `## Implementato
+
+- **in questa PR** — ${shipped.length} crawler promossi dal prospector, per **${totalVacancies} annunci** di datori che non coprivamo. Ognuno ha superato il gate di \`scripts/lib/prospector/promotion-gate.mjs\`: qualita' >= ${GATE_DEFAULTS.minScore} contro la pagina ufficiale del datore, su almeno ${GATE_DEFAULTS.minSampled} pagine di dettaglio, con **${stabilityRequirement}**${stabilityClaim} — e con almeno il ${Math.round(GATE_DEFAULTS.minJobLike * 100)}% delle pagine di dettaglio che **legge come un annuncio di lavoro** e non come contenuto promozionale o editoriale.
+${bullets}${relaxedNote}
+- **in questa PR** — voci nel manifest${groupsRegenerated ? ' e gruppi di workflow rigenerati, quindi i crawler entrano nella schedulazione esistente' : ''}.${workflowNote}${companiesNote}
+
+## Non implementato (ancora)
+
+- **by construction** — nessun parser scritto a mano: cio' che e' specifico del datore vive nella spec dichiarativa sotto \`data/prospector/crawlers/\`, e l'estrazione in produzione e' la stessa che il gate ha misurato. **Motivo:** il percorso comune elimina divergenze fra scaffolding, test e runtime. **Prossimo passo:** mantenere i nuovi datori nel percorso dichiarativo e nel gate esistente.
+- **per scelta** — al massimo ${maxPerRun} crawler per giro. Una pipeline non presidiata che ne aggiunge dieci al giorno e' recuperabile, una che ne aggiunge quattrocento no. **Motivo:** il limite contiene il blast radius di una promozione automatica. **Prossimo passo:** il giro successivo continua dai candidati graduati rimasti.
+- **blocked: serve una run successiva** — ${blocked.length} candidati graduati non hanno superato il gate (${blockedSummary.stabilityOnly} solo per la stabilita' richiesta da ${stabilityRequirement}; ${blockedSummary.other} per altre condizioni). Le cause dettagliate sono nel log dello stadio PROMOTE: solo il primo gruppo si risolve con una run successiva. **Motivo:** la stabilita' o le altre condizioni del gate non sono ancora soddisfatte. **Prossimo passo:** eseguire una run successiva per ricontrollare la stabilita' e rivalutare le altre condizioni del gate.
+`;
 }
 
 if (invokedDirectly) {

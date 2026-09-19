@@ -1,6 +1,7 @@
-import { createHash } from 'node:crypto';
+import { createHash, randomBytes } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { StringDecoder } from 'node:string_decoder';
 import {
   computeInputHash,
   JOB_DIGEST_ALGORITHM_VERSION,
@@ -31,6 +32,20 @@ export const JOBS_SEO_EMITTER_KINDS = Object.freeze([
 ]);
 
 const JOBS_SEO_RENDER_ENTRY = 'build-plugins/jobsSeoPagesPlugin.ts';
+// This module owns cache persistence only. Changes here must not invalidate
+// already-rendered HTML by changing the emitter fingerprint.
+const JOBS_SEO_REUSE_STORAGE_MODULE = 'build-plugins/shared/incrementalHtmlReuse.mjs';
+export const JOBS_SEO_HTML_PACK_VERSION = 'pack@1';
+const JOBS_SEO_HTML_PACK_FORMAT = 'frontaliere-jobs-seo-html-pack';
+const JOBS_SEO_HTML_INDEX_FORMAT = 'frontaliere-jobs-seo-html-index';
+const PACK_HEADER_READ_BYTES = 4096;
+const KIND_TO_REUSE_BLOCK = Object.freeze({
+  'active-job': 'active',
+  'expired-soft-landing': 'expired-soft-landing',
+  'legacy-slug-bridge': 'previous-slug-legacy',
+  'previous-slugs-full-content': 'previous-slug-legacy',
+  'cross-locale-reconciliation': 'cross-locale-reconciliation',
+});
 const JOBS_SEO_ASSET_MANIFEST_FILES = Object.freeze([
   // These files are the stable-name contract or external assets referenced by
   // one of the reusable job-page HTML variants. The renderer source graph
@@ -46,10 +61,41 @@ const JOBS_SEO_ASSET_MANIFEST_FILES = Object.freeze([
   'public/favicon.svg',
 ]);
 const SOURCE_MODULE_EXTENSIONS = Object.freeze(['.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs']);
-const STATIC_IMPORT_RE = /\b(?:import|export)\s+(?:(?:type\s+)?[\s\S]*?\sfrom\s+)?['"](\.[^'"]+)['"]/g;
-const DYNAMIC_IMPORT_RE = /\bimport\s*\(\s*['"](\.[^'"]+)['"]\s*\)/g;
-const STATIC_ALIAS_IMPORT_RE = /\b(?:import|export)\s+(?:(?:type\s+)?[\s\S]*?\sfrom\s+)?['"](@\/[^'"]+)['"]/g;
-const DYNAMIC_ALIAS_IMPORT_RE = /\bimport\s*\(\s*['"](@\/[^'"]+)['"]\s*\)/g;
+// Static `import … from` / `export … from` statements. The statement must
+// start a line (or follow a `;`): a quoted `import … from '@/…'` inside a
+// comment is documentation, not a dependency, and used to drag the whole SPA
+// JobBoard graph into the fingerprint. The clause `[^;'"]*?` cannot cross a
+// quote, so one match never spans two statements and the `type` modifier is
+// attributed to the statement it belongs to.
+const STATIC_FROM_RE = /(?:^|;)[ \t]*(?:import|export)\b([^;'"]*?)\bfrom\s*['"]([^'"]+)['"]/gm;
+const SIDE_EFFECT_IMPORT_RE = /(?:^|;)[ \t]*import\s*['"]([^'"]+)['"]/gm;
+const DYNAMIC_IMPORT_RE = /\bimport\s*\(\s*['"]([^'"]+)['"]\s*\)/g;
+// `import type` / `export type` are erased by TypeScript and esbuild in every
+// configuration, so the module they name never executes at render time.
+// Type-only imports of SPA components (e.g. `import type { JobListing } from
+// '../components/community/JobBoard'`) were the path by which ~300 SPA and
+// locale modules entered the render graph. Mixed `import { type A, b }` keeps
+// the edge: only the whole-statement modifier is proof of erasure.
+const TYPE_ONLY_CLAUSE_RE = /^\s*type\s+(?!from\b)[{*\w$]/;
+
+// Modules reachable from the renderer that provably cannot change a job page's
+// HTML, pruned from the render graph together with their own imports. Each
+// entry names the only importers allowed to reach it: if any other module of
+// the render graph imports it, the module is hashed again (fail-closed), so a
+// new consumer cannot silently depend on data the fingerprint ignores.
+// Changing one of the listed importers still changes the fingerprint, because
+// the importer itself stays in the graph.
+export const JOBS_SEO_FINGERPRINT_INERT_MODULES = Object.freeze({
+  // Nightly-refreshed wait averages. borderCrossings.ts copies them onto the
+  // morning/evening average fields; the job renderer reaches borderCrossings
+  // only through the job location snapshot service, which ranks crossings by
+  // position and static metadata and never reads the averages.
+  'data/border-wait-averages.json': Object.freeze(['data/borderCrossings.ts']),
+  // Crawler-time machine-translation cascade. events-utils.mjs uses it only as
+  // the default translator of the event crawlers; the job renderer imports
+  // dataset and listing helpers from it, none of which translates.
+  'scripts/lib/free-translate.mjs': Object.freeze(['scripts/lib/events-utils.mjs']),
+});
 
 function sha256(value) {
   return createHash('sha256').update(value, 'utf8').digest('hex');
@@ -80,51 +126,97 @@ function resolveSourceModule(fromFile, specifier) {
   return null;
 }
 
-function importedSourceModules(source, fromFile, rootDir) {
-  const specifiers = new Set();
-  for (const pattern of [STATIC_IMPORT_RE, DYNAMIC_IMPORT_RE]) {
-    pattern.lastIndex = 0;
-    for (const match of source.matchAll(pattern)) specifiers.add(match[1]);
+function resolveGraphSpecifier(fromFile, specifier, rootDir) {
+  if (specifier.startsWith('.')) return resolveSourceModule(fromFile, specifier);
+  // Vite's application entry uses the repository-root `@/` alias.
+  if (specifier.startsWith('@/')) {
+    return resolveSourceModule(path.join(rootDir, 'index.tsx'), `./${specifier.slice(2)}`);
   }
-  // Vite's application entry uses the repository-root `@/` alias. The jobs
-  // emitter itself is relative-import based, but including this alias keeps
-  // the asset-side source graph honest if the entry wiring changes.
-  const aliasSpecifiers = [];
-  for (const pattern of [STATIC_ALIAS_IMPORT_RE, DYNAMIC_ALIAS_IMPORT_RE]) {
-    pattern.lastIndex = 0;
-    for (const match of source.matchAll(pattern)) aliasSpecifiers.push(match[1]);
-  }
-  return [
-    ...[...specifiers]
-      .map((specifier) => resolveSourceModule(fromFile, specifier))
-      .filter(Boolean),
-    ...aliasSpecifiers
-      .map((specifier) => resolveSourceModule(path.join(rootDir, 'index.tsx'), `./${specifier.slice(2)}`))
-      .filter(Boolean),
-  ];
+  return null;
 }
 
-function collectSourceModuleFiles(rootDir, entryFiles) {
+// Blanks block and line comments (keeping newlines, so line anchors survive).
+// Deliberately naive: a `/*` or `//` inside a string or regex literal can blank
+// real code, so the stripped text is only ever scanned IN ADDITION to the raw
+// text — it can add edges (`/* c */ import …`, `import /* c */ x from …`),
+// never remove one the raw scan found.
+function blankComments(source) {
+  return source
+    .replace(/\/\*[\s\S]*?\*\//g, (comment) => comment.replace(/[^\n]/g, ' '))
+    .replace(/\/\/[^\n]*/g, (comment) => ' '.repeat(comment.length));
+}
+
+function collectImportSpecifiers(text, specifiers) {
+  STATIC_FROM_RE.lastIndex = 0;
+  for (const match of text.matchAll(STATIC_FROM_RE)) {
+    if (TYPE_ONLY_CLAUSE_RE.test(match[1])) continue;
+    specifiers.add(match[2]);
+  }
+  for (const pattern of [SIDE_EFFECT_IMPORT_RE, DYNAMIC_IMPORT_RE]) {
+    pattern.lastIndex = 0;
+    for (const match of text.matchAll(pattern)) specifiers.add(match[1]);
+  }
+}
+
+export function importedSourceModules(source, fromFile, rootDir) {
+  const specifiers = new Set();
+  // Union of the raw and comment-blanked scans: the raw scan keeps every
+  // line-start import even if blanking misfires on a string; the blanked scan
+  // catches imports that follow or contain a comment. A commented-out import
+  // only enters through the raw scan when it starts its own line, which errs
+  // on the side of invalidating.
+  collectImportSpecifiers(source, specifiers);
+  collectImportSpecifiers(blankComments(source), specifiers);
+  return [...specifiers]
+    .map((specifier) => resolveGraphSpecifier(fromFile, specifier, rootDir))
+    .filter(Boolean);
+}
+
+function walkSourceGraph(rootDir, entryFiles, prunedFiles = new Set()) {
   const queue = entryFiles.map((file) => path.resolve(rootDir, file));
   const files = new Set();
+  const importers = new Map();
   for (let index = 0; index < queue.length; index += 1) {
     const file = queue[index];
-    if (!file || files.has(file) || !fs.existsSync(file)) continue;
+    if (!file || files.has(file) || prunedFiles.has(file) || !fs.existsSync(file)) continue;
     files.add(file);
     const source = fs.readFileSync(file, 'utf8');
     for (const imported of importedSourceModules(source, file, rootDir)) {
+      if (!importers.has(imported)) importers.set(imported, new Set());
+      importers.get(imported).add(file);
       if (!files.has(imported)) queue.push(imported);
     }
   }
-  return [...files].sort((left, right) => left < right ? -1 : left > right ? 1 : 0);
+  return { files, importers };
 }
 
-function hashSourceModuleFiles(rootDir, entryFiles) {
-  const files = collectSourceModuleFiles(rootDir, entryFiles);
-  const records = files.map((file) => ({
-    path: path.relative(rootDir, file).replaceAll(path.sep, '/'),
-    hash: sha256File(file),
-  }));
+export function collectSourceModuleFiles(rootDir, entryFiles, inertModules = {}) {
+  const toRelative = (file) => path.relative(rootDir, file).replaceAll(path.sep, '/');
+  const full = walkSourceGraph(rootDir, entryFiles);
+  const pruned = new Set();
+  for (const [relativeFile, allowedImporters] of Object.entries(inertModules)) {
+    const file = path.resolve(rootDir, relativeFile);
+    if (!full.files.has(file)) continue;
+    const allowed = new Set(allowedImporters);
+    const actual = [...(full.importers.get(file) || [])].map(toRelative);
+    if (actual.length > 0 && actual.every((importer) => allowed.has(importer))) pruned.add(file);
+  }
+  const { files } = pruned.size > 0 ? walkSourceGraph(rootDir, entryFiles, pruned) : full;
+  return [...files].map(toRelative).sort((left, right) => left < right ? -1 : left > right ? 1 : 0);
+}
+
+function hashSourceModuleFiles(
+  rootDir,
+  entryFiles,
+  inertModules = {},
+  excludedRelativePaths = new Set(),
+) {
+  const records = collectSourceModuleFiles(rootDir, entryFiles, inertModules)
+    .filter((relativeFile) => !excludedRelativePaths.has(relativeFile))
+    .map((relativeFile) => ({
+    path: relativeFile,
+    hash: sha256File(path.resolve(rootDir, relativeFile)),
+    }));
   return sha256(JSON.stringify(records));
 }
 
@@ -149,7 +241,12 @@ function hashStaticShellAssetManifest(rootDir) {
 }
 
 export function computeJobsSeoEmitterFingerprints(rootDir) {
-  const codeHash = hashSourceModuleFiles(rootDir, [JOBS_SEO_RENDER_ENTRY]);
+  const codeHash = hashSourceModuleFiles(
+    rootDir,
+    [JOBS_SEO_RENDER_ENTRY],
+    JOBS_SEO_FINGERPRINT_INERT_MODULES,
+    new Set([JOBS_SEO_REUSE_STORAGE_MODULE]),
+  );
   const assetManifestHash = hashStaticShellAssetManifest(rootDir);
   const renderFlags = {
     STRIP_ACTIVE_JOB_PROSE: process.env.STRIP_ACTIVE_JOB_PROSE ?? '1',
@@ -209,6 +306,14 @@ function previousManifestPath(rootDir, locale) {
   return path.join(rootDir, '.cache', 'incremental-manifest-prev', `${locale}.jsonl`);
 }
 
+function safeReuseBlock(block) {
+  const value = String(block || '').trim();
+  if (!JOBS_SEO_REUSE_BLOCKS.includes(value)) {
+    throw new Error(`Invalid jobs SEO reuse block: ${block}`);
+  }
+  return value;
+}
+
 function cacheFileName(pagePath, kind = 'legacy', inputHash = 'legacy') {
   const normalized = normalizeManifestPath(pagePath);
   // The manifest is path-keyed, but one build can transiently render multiple
@@ -218,6 +323,10 @@ function cacheFileName(pagePath, kind = 'legacy', inputHash = 'legacy') {
   return `v2-${sha256(JSON.stringify([normalized, String(kind), String(inputHash)]))}.html`;
 }
 
+/**
+ * Legacy one-file path retained only for a one-deploy migration from the old
+ * cache layout. New entries are written to the locale/block pack below.
+ */
 export function htmlReuseCachePath(
   rootDir,
   locale,
@@ -228,6 +337,406 @@ export function htmlReuseCachePath(
 ) {
   const root = cacheRoot || path.join(rootDir, '.cache', 'incremental-html');
   return path.join(root, safeLocale(locale), cacheFileName(pagePath, kind, inputHash));
+}
+
+export function htmlReusePackPath(rootDir, locale, block, cacheRoot = null) {
+  const root = cacheRoot || path.join(rootDir, '.cache', 'incremental-html');
+  return path.join(root, safeLocale(locale), `${safeReuseBlock(block)}.pack`);
+}
+
+export function htmlReusePackIndexPath(rootDir, locale, block, cacheRoot = null) {
+  const root = cacheRoot || path.join(rootDir, '.cache', 'incremental-html');
+  return path.join(root, safeLocale(locale), `${safeReuseBlock(block)}.idx`);
+}
+
+function reusePackHeader(block, generation) {
+  return `${JSON.stringify({
+    format: JOBS_SEO_HTML_PACK_FORMAT,
+    version: JOBS_SEO_HTML_PACK_VERSION,
+    block,
+    generation,
+  })}\n`;
+}
+
+function reuseIndexHeader(block, generation) {
+  return `${JSON.stringify({
+    format: JOBS_SEO_HTML_INDEX_FORMAT,
+    version: JOBS_SEO_HTML_PACK_VERSION,
+    block,
+    generation,
+  })}\n`;
+}
+
+function newPackGeneration() {
+  return randomBytes(16).toString('hex');
+}
+
+function writePackBytes(fd, buffer) {
+  let written = 0;
+  while (written < buffer.length) {
+    const count = fs.writeSync(fd, buffer, written, buffer.length - written, null);
+    if (!count) throw new Error('zero-byte write in jobs SEO HTML pack');
+    written += count;
+  }
+}
+
+function readFirstLine(fd) {
+  const buffer = Buffer.allocUnsafe(PACK_HEADER_READ_BYTES);
+  const bytesRead = fs.readSync(fd, buffer, 0, buffer.length, 0);
+  const newline = buffer.subarray(0, bytesRead).indexOf(0x0a);
+  if (newline < 0) throw new Error('jobs SEO HTML pack header truncated');
+  return {
+    line: buffer.subarray(0, newline).toString('utf8'),
+    length: newline + 1,
+  };
+}
+
+function readLines(file, onLine) {
+  const fd = fs.openSync(file, 'r');
+  const decoder = new StringDecoder('utf8');
+  const buffer = Buffer.allocUnsafe(64 * 1024);
+  let carry = '';
+  let lineNumber = 0;
+  try {
+    while (true) {
+      const bytesRead = fs.readSync(fd, buffer, 0, buffer.length, null);
+      if (bytesRead === 0) break;
+      carry += decoder.write(buffer.subarray(0, bytesRead));
+      let newline;
+      while ((newline = carry.indexOf('\n')) !== -1) {
+        lineNumber += 1;
+        onLine(carry.slice(0, newline), lineNumber);
+        carry = carry.slice(newline + 1);
+      }
+    }
+    carry += decoder.end();
+    if (carry.length > 0) throw new Error(`${file}:${lineNumber + 1}: indice troncato`);
+  } finally {
+    fs.closeSync(fd);
+  }
+}
+
+function packEntryKeyIsValid(key) {
+  return /^v2-[0-9a-f]{64}\.html$/u.test(key);
+}
+
+class JobsSeoHtmlPackStore {
+  constructor(rootDir, locale, block, cacheRoot) {
+    this.locale = safeLocale(locale);
+    this.block = safeReuseBlock(block);
+    this.cacheRoot = cacheRoot;
+    this.packPath = htmlReusePackPath(rootDir, this.locale, this.block, cacheRoot);
+    this.indexPath = htmlReusePackIndexPath(rootDir, this.locale, this.block, cacheRoot);
+    this.entries = new Map();
+    this.packFd = null;
+    this.appendPackFd = null;
+    this.appendIndexFd = null;
+    this.loaded = false;
+    this.valid = false;
+    this.packSize = 0;
+    this.headerLength = 0;
+    this.liveBytes = 0;
+    this.generation = null;
+  }
+
+  close() {
+    for (const field of ['packFd', 'appendPackFd', 'appendIndexFd']) {
+      const fd = this[field];
+      if (fd === null) continue;
+      try {
+        fs.closeSync(fd);
+      } catch {
+        // Cache file descriptors are best-effort and never affect rendering.
+      }
+      this[field] = null;
+    }
+  }
+
+  invalidate() {
+    this.close();
+    this.entries.clear();
+    this.loaded = false;
+    this.valid = false;
+    this.packSize = 0;
+    this.headerLength = 0;
+    this.liveBytes = 0;
+    this.generation = null;
+  }
+
+  load() {
+    if (this.loaded) return this.valid;
+    this.loaded = true;
+    this.valid = false;
+    this.entries.clear();
+    this.liveBytes = 0;
+    let packFd = null;
+    try {
+      packFd = fs.openSync(this.packPath, 'r');
+      const packHeader = readFirstLine(packFd);
+      const parsedPackHeader = JSON.parse(packHeader.line);
+      if (
+        parsedPackHeader.format !== JOBS_SEO_HTML_PACK_FORMAT
+        || parsedPackHeader.version !== JOBS_SEO_HTML_PACK_VERSION
+        || parsedPackHeader.block !== this.block
+        || typeof parsedPackHeader.generation !== 'string'
+        || !/^[0-9a-f]{32}$/u.test(parsedPackHeader.generation)
+      ) {
+        throw new Error('jobs SEO HTML pack version/header non riconosciuto');
+      }
+      const packSize = fs.fstatSync(packFd).size;
+      if (packSize < packHeader.length) throw new Error('jobs SEO HTML pack troncato');
+      fs.closeSync(packFd);
+      packFd = null;
+
+      let indexHeader = null;
+      readLines(this.indexPath, (line, lineNumber) => {
+        if (lineNumber === 1) {
+          indexHeader = JSON.parse(line);
+          if (
+            indexHeader.format !== JOBS_SEO_HTML_INDEX_FORMAT
+            || indexHeader.version !== JOBS_SEO_HTML_PACK_VERSION
+            || indexHeader.block !== this.block
+            || indexHeader.generation !== parsedPackHeader.generation
+          ) {
+            throw new Error('indice jobs SEO HTML non compatibile con il pack');
+          }
+          return;
+        }
+        if (!indexHeader) throw new Error('header indice jobs SEO HTML mancante');
+        const fields = line.split('\t');
+        if (fields.length !== 3 || !packEntryKeyIsValid(fields[0])) {
+          throw new Error(`indice jobs SEO HTML non valido alla riga ${lineNumber}`);
+        }
+        const offset = Number(fields[1]);
+        const length = Number(fields[2]);
+        if (
+          !Number.isSafeInteger(offset)
+          || !Number.isSafeInteger(length)
+          || offset < packHeader.length
+          || length <= 0
+          || offset + length > packSize
+        ) {
+          throw new Error(`entry jobs SEO HTML troncata alla riga ${lineNumber}`);
+        }
+        this.entries.set(fields[0], { offset, length });
+      });
+      if (!indexHeader) throw new Error('header indice jobs SEO HTML mancante');
+      for (const entry of this.entries.values()) this.liveBytes += entry.length;
+      this.packSize = packSize;
+      this.headerLength = packHeader.length;
+      this.generation = parsedPackHeader.generation;
+      this.packFd = fs.openSync(this.packPath, 'r');
+      this.valid = true;
+      return true;
+    } catch {
+      if (packFd !== null) {
+        try {
+          fs.closeSync(packFd);
+        } catch {
+          // Ignore a descriptor that failed while loading a corrupt cache.
+        }
+      }
+      this.entries.clear();
+      this.liveBytes = 0;
+      this.packSize = 0;
+      this.headerLength = 0;
+      this.generation = null;
+      return false;
+    }
+  }
+
+  readEntryBuffer(entry) {
+    if (this.packFd === null || !entry) return null;
+    const buffer = Buffer.allocUnsafe(entry.length);
+    let read = 0;
+    while (read < entry.length) {
+      const count = fs.readSync(
+        this.packFd,
+        buffer,
+        read,
+        entry.length - read,
+        entry.offset + read,
+      );
+      if (!count) return null;
+      read += count;
+    }
+    return buffer;
+  }
+
+  read(key) {
+    if (!this.load()) return null;
+    const entry = this.entries.get(key);
+    if (!entry) return null;
+    try {
+      const buffer = this.readEntryBuffer(entry);
+      return buffer && buffer.length > 0 ? buffer.toString('utf8') : null;
+    } catch {
+      return null;
+    }
+  }
+
+  has(key) {
+    return this.load() && this.entries.has(key);
+  }
+
+  writeIndex(file, generation, entries) {
+    const fd = fs.openSync(file, 'w');
+    try {
+      writePackBytes(fd, Buffer.from(reuseIndexHeader(this.block, generation), 'utf8'));
+      for (const [key, entry] of entries) {
+        writePackBytes(fd, Buffer.from(`${key}\t${entry.offset}\t${entry.length}\n`, 'utf8'));
+      }
+    } finally {
+      fs.closeSync(fd);
+    }
+  }
+
+  initializeFresh() {
+    this.close();
+    fs.mkdirSync(path.dirname(this.packPath), { recursive: true });
+    const generation = newPackGeneration();
+    const stamp = `${process.pid}.${Date.now()}.${Math.random().toString(16).slice(2)}`;
+    const packTemp = `${this.packPath}.${stamp}.tmp`;
+    const indexTemp = `${this.indexPath}.${stamp}.tmp`;
+    let packFd = null;
+    try {
+      packFd = fs.openSync(packTemp, 'w');
+      const packHeader = reusePackHeader(this.block, generation);
+      writePackBytes(packFd, Buffer.from(packHeader, 'utf8'));
+      fs.closeSync(packFd);
+      packFd = null;
+      this.writeIndex(indexTemp, generation, new Map());
+      fs.renameSync(packTemp, this.packPath);
+      fs.renameSync(indexTemp, this.indexPath);
+      this.entries.clear();
+      this.loaded = true;
+      this.valid = true;
+      this.packSize = Buffer.byteLength(packHeader, 'utf8');
+      this.headerLength = this.packSize;
+      this.liveBytes = 0;
+      this.generation = generation;
+      this.packFd = fs.openSync(this.packPath, 'r');
+    } finally {
+      if (packFd !== null) fs.closeSync(packFd);
+      for (const temp of [packTemp, indexTemp]) {
+        if (fs.existsSync(temp)) {
+          try {
+            fs.unlinkSync(temp);
+          } catch {
+            // Best-effort cleanup; the next cache write can use a new temp name.
+          }
+        }
+      }
+    }
+  }
+
+  append(key, html) {
+    if (!this.load()) this.initializeFresh();
+    if (!this.valid) return false;
+    const bytes = Buffer.from(String(html), 'utf8');
+    if (bytes.length === 0) return false;
+    const previous = this.entries.get(key);
+    const offset = this.packSize;
+    try {
+      if (this.appendPackFd === null) this.appendPackFd = fs.openSync(this.packPath, 'a');
+      writePackBytes(this.appendPackFd, bytes);
+      this.packSize = offset + bytes.length;
+      if (this.appendIndexFd === null) this.appendIndexFd = fs.openSync(this.indexPath, 'a');
+      writePackBytes(this.appendIndexFd, Buffer.from(`${key}\t${offset}\t${bytes.length}\n`, 'utf8'));
+    } catch (error) {
+      this.invalidate();
+      throw error;
+    }
+    this.entries.set(key, { offset, length: bytes.length });
+    this.liveBytes += bytes.length - (previous?.length || 0);
+    return true;
+  }
+
+  rewriteIndex() {
+    const stamp = `${process.pid}.${Date.now()}.${Math.random().toString(16).slice(2)}`;
+    const temp = `${this.indexPath}.${stamp}.tmp`;
+    try {
+      if (this.appendIndexFd !== null) {
+        fs.closeSync(this.appendIndexFd);
+        this.appendIndexFd = null;
+      }
+      this.writeIndex(temp, this.generation, this.entries);
+      fs.renameSync(temp, this.indexPath);
+    } finally {
+      if (fs.existsSync(temp)) {
+        try {
+          fs.unlinkSync(temp);
+        } catch {
+          // Best-effort cleanup for a cache-only artifact.
+        }
+      }
+    }
+  }
+
+  compact() {
+    if (!this.load()) return false;
+    const generation = newPackGeneration();
+    const stamp = `${process.pid}.${Date.now()}.${Math.random().toString(16).slice(2)}`;
+    const packTemp = `${this.packPath}.${stamp}.tmp`;
+    const indexTemp = `${this.indexPath}.${stamp}.tmp`;
+    const nextEntries = new Map();
+    let packFd = null;
+    let nextPackSize = 0;
+    try {
+      packFd = fs.openSync(packTemp, 'w');
+      const packHeader = reusePackHeader(this.block, generation);
+      writePackBytes(packFd, Buffer.from(packHeader, 'utf8'));
+      nextPackSize = Buffer.byteLength(packHeader, 'utf8');
+      for (const [key, entry] of this.entries) {
+        const bytes = this.readEntryBuffer(entry);
+        if (!bytes || bytes.length === 0) continue;
+        const nextEntry = { offset: nextPackSize, length: bytes.length };
+        writePackBytes(packFd, bytes);
+        nextEntries.set(key, nextEntry);
+        nextPackSize += bytes.length;
+      }
+      fs.closeSync(packFd);
+      packFd = null;
+      this.writeIndex(indexTemp, generation, nextEntries);
+      this.close();
+      fs.renameSync(packTemp, this.packPath);
+      fs.renameSync(indexTemp, this.indexPath);
+      this.loaded = false;
+      this.valid = false;
+      this.entries.clear();
+      return this.load();
+    } catch (error) {
+      if (packFd !== null) fs.closeSync(packFd);
+      this.invalidate();
+      throw error;
+    } finally {
+      for (const temp of [packTemp, indexTemp]) {
+        if (fs.existsSync(temp)) {
+          try {
+            fs.unlinkSync(temp);
+          } catch {
+            // Best-effort cleanup for a cache-only artifact.
+          }
+        }
+      }
+    }
+  }
+
+  prune(liveKeys) {
+    if (!this.load()) return false;
+    let changed = false;
+    for (const key of this.entries.keys()) {
+      if (liveKeys.has(key)) continue;
+      this.entries.delete(key);
+      changed = true;
+    }
+    this.liveBytes = 0;
+    for (const entry of this.entries.values()) this.liveBytes += entry.length;
+    const overCompactionRatio = this.packSize > (Math.max(1, this.liveBytes) * 2) + this.headerLength;
+    if (overCompactionRatio) return this.compact();
+    if (changed) this.rewriteIndex();
+    return changed;
+  }
 }
 
 /**
@@ -412,6 +921,16 @@ function hasUnavailableSourceInput(input) {
   return false;
 }
 
+function manifestCacheEntries(manifest) {
+  if (typeof manifest?.entriesByPath?.entries === 'function') return manifest.entriesByPath.entries();
+  if (typeof manifest?.entries?.entries === 'function') return manifest.entries.entries();
+  const entries = [];
+  for (const kindEntries of manifest?.entriesByKind?.values?.() || []) {
+    entries.push(...kindEntries.entries());
+  }
+  return entries;
+}
+
 export class JobsSeoHtmlReuse {
   constructor({ cacheRoot, previousByLocale, verify, verifySample = 1, emitterFingerprints = {} }) {
     this.cacheRoot = cacheRoot;
@@ -423,7 +942,17 @@ export class JobsSeoHtmlReuse {
     this.stats = new Map(JOBS_SEO_REUSE_BLOCKS.map((block) => [block, newBlockStats()]));
     this.mismatchLogCount = 0;
     this.diagnosticsByLocale = new Map();
-    this.writeCounter = 0;
+    this.packStores = new Map();
+  }
+
+  packStore(locale, block) {
+    const safe = `${safeLocale(locale)}\0${safeReuseBlock(block)}`;
+    let store = this.packStores.get(safe);
+    if (!store) {
+      store = new JobsSeoHtmlPackStore(this.cacheRoot, locale, block, this.cacheRoot);
+      this.packStores.set(safe, store);
+    }
+    return store;
   }
 
   shouldRender(candidate) {
@@ -442,16 +971,12 @@ export class JobsSeoHtmlReuse {
     // Treat the missing dependency as an explicit render miss instead.
     const inputUnavailable = hasUnavailableSourceInput(input);
     const inputHash = inputUnavailable ? null : computeInputHash(input, kind);
-    const cachePath = htmlReuseCachePath(
-      this.cacheRoot,
-      locale,
-      normalizedPath,
-      this.cacheRoot,
-      kind,
-      inputHash || 'input-unavailable',
-    );
+    const cacheKey = cacheFileName(normalizedPath, kind, inputHash || 'input-unavailable');
+    const packStore = this.packStore(locale, block);
+    const cachePath = packStore.packPath;
     let missReason = inputUnavailable ? 'input-unavailable' : null;
     let html = null;
+    let storage = null;
 
     if (!missReason && !previous) {
       missReason = 'manifest-missing';
@@ -472,19 +997,25 @@ export class JobsSeoHtmlReuse {
       } else if (entry.inputHash !== inputHash) {
         missReason = 'input-hash-changed';
       } else {
-        try {
-          const previousCachePath = htmlReuseCachePath(
-            this.cacheRoot,
-            locale,
-            normalizedPath,
-            this.cacheRoot,
-            entry.kind,
-            entry.inputHash,
-          );
-          html = fs.readFileSync(previousCachePath, 'utf8');
+        html = packStore.read(cacheKey);
+        if (html) {
+          storage = 'pack';
+        } else {
+          try {
+            const previousCachePath = htmlReuseCachePath(
+              this.cacheRoot,
+              locale,
+              normalizedPath,
+              this.cacheRoot,
+              entry.kind,
+              entry.inputHash,
+            );
+            html = fs.readFileSync(previousCachePath, 'utf8');
+            if (html) storage = 'legacy';
+          } catch {
+            // The old one-file layout is a migration fallback only.
+          }
           if (!html) missReason = 'html-unavailable';
-        } catch {
-          missReason = 'html-unavailable';
         }
       }
     }
@@ -508,8 +1039,10 @@ export class JobsSeoHtmlReuse {
       locale: String(locale),
       path: normalizedPath,
       cachePath,
+      cacheKey,
       html,
       hit: html !== null,
+      storage,
       verify,
       cacheable: !inputUnavailable,
       startedAt: process.hrtime.bigint(),
@@ -525,6 +1058,9 @@ export class JobsSeoHtmlReuse {
       stats.reusable += 1;
       if (!candidate.verify) {
         stats.reused += 1;
+        if (candidate.storage === 'legacy' && candidate.cacheable) {
+          this.persist(candidate, candidate.html);
+        }
         return;
       }
       stats.verified += 1;
@@ -564,7 +1100,7 @@ export class JobsSeoHtmlReuse {
       }
     }
     if (!candidate.cacheable) return;
-    this.persist(candidate.cachePath, renderedHtml, candidate.block, candidate.path);
+    this.persist(candidate, renderedHtml);
   }
 
   reusedHtml(candidate, buildId) {
@@ -572,23 +1108,16 @@ export class JobsSeoHtmlReuse {
     return refreshHtmlBuildId(candidate.html, buildId);
   }
 
-  persist(cachePath, html, block, pagePath) {
-    let temp = null;
+  persist(candidate, html) {
     try {
-      fs.mkdirSync(path.dirname(cachePath), { recursive: true });
-      temp = `${cachePath}.${process.pid}.${this.writeCounter += 1}.tmp`;
-      fs.writeFileSync(temp, String(html), 'utf8');
-      fs.renameSync(temp, cachePath);
-    } catch (error) {
-      if (temp) {
-        try {
-          fs.unlinkSync(temp);
-        } catch {
-          // The cache is best-effort; retain the render fallback on cleanup failure.
-        }
+      const store = this.packStore(candidate.locale, candidate.block);
+      if (!store.append(candidate.cacheKey, html)) {
+        throw new Error('empty jobs SEO HTML pack entry');
       }
+    } catch (error) {
       console.warn(
-        `[jobs-seo-reuse] cache-write-failed block=${block} path=${pagePath} reason=${error?.message || error}`,
+        `[jobs-seo-reuse] cache-write-failed block=${candidate.block} path=${candidate.path}`
+        + ` reason=${error?.message || error}`,
       );
     }
   }
@@ -596,24 +1125,37 @@ export class JobsSeoHtmlReuse {
   prune(locale, manifest) {
     const localeDir = path.join(this.cacheRoot, safeLocale(locale));
     if (!fs.existsSync(localeDir)) return;
+    const liveByBlock = new Map(
+      JOBS_SEO_REUSE_BLOCKS.map((block) => [block, new Set()]),
+    );
+    for (const [pagePath, entry] of manifestCacheEntries(manifest)) {
+      const block = KIND_TO_REUSE_BLOCK[entry?.kind];
+      const inputHash = entry?.inputHash || entry?.hash;
+      if (!block || !inputHash) continue;
+      liveByBlock.get(block).add(cacheFileName(pagePath, entry.kind, inputHash));
+    }
     const currentCacheNames = new Set();
-    if (manifest?.entriesByPath?.entries) {
-      for (const [pagePath, entry] of manifest.entriesByPath.entries()) {
-        currentCacheNames.add(cacheFileName(pagePath, entry.kind, entry.hash));
-      }
-    } else if (manifest?.entries?.entries) {
-      for (const [pagePath, entry] of manifest.entries.entries()) {
-        currentCacheNames.add(cacheFileName(pagePath, entry.kind, entry.inputHash));
-      }
-    } else {
-      for (const entries of manifest?.entriesByKind?.values?.() || []) {
-        for (const [pagePath, entry] of entries.entries()) {
-          currentCacheNames.add(cacheFileName(pagePath, entry.kind, entry.inputHash || entry.hash));
+    for (const keys of liveByBlock.values()) {
+      for (const key of keys) currentCacheNames.add(key);
+    }
+    const packedCacheNames = new Set();
+    for (const block of JOBS_SEO_REUSE_BLOCKS) {
+      const store = this.packStore(locale, block);
+      try {
+        store.prune(liveByBlock.get(block));
+        for (const key of liveByBlock.get(block)) {
+          if (store.has(key)) packedCacheNames.add(key);
         }
+      } catch (error) {
+        console.warn(
+          `[jobs-seo-reuse] cache-pack-prune-failed locale=${locale} block=${block}`
+          + ` reason=${error?.message || error}`,
+        );
       }
     }
     for (const fileName of fs.readdirSync(localeDir)) {
-      if (currentCacheNames.has(fileName)) continue;
+      if (!fileName.endsWith('.html')) continue;
+      if (currentCacheNames.has(fileName) && !packedCacheNames.has(fileName)) continue;
       try {
         fs.unlinkSync(path.join(localeDir, fileName));
       } catch (error) {
