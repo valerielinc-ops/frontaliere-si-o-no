@@ -310,6 +310,39 @@ jobs:
           node-version: '22'
           cache: npm
 
+      # Admission/claim predicates are security-sensitive.  The checkout above
+      # is the PR branch, so materialize their complete import cone from the
+      # immutable base before the first predicate is evaluated.
+      - name: Bootstrap trusted fixer policy (no PR code)
+        id: trusted_policy
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POLICY_REF: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          policy_root="${RUNNER_TEMP}/redflag-trusted-policy-${GITHUB_RUN_ID}"
+          rm -rf "$policy_root"
+          mkdir -p "$policy_root"
+          download_main() {
+            local path="$1"
+            local destination="$policy_root/$path"
+            mkdir -p "$(dirname "$destination")"
+            gh api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' > "$destination"
+          }
+          for trusted_path in \
+            scripts/ci/pr-fixer-claim.mjs \
+            scripts/ci/lib/pr-review-admission.mjs \
+            scripts/ci/lib/review-input-revision.mjs \
+            scripts/ci/lib/constants.mjs \
+            scripts/lib/int-from-env.mjs; do
+            download_main "$trusted_path"
+          done
+          node --check "$policy_root/scripts/ci/pr-fixer-claim.mjs"
+          node --check "$policy_root/scripts/ci/lib/pr-review-admission.mjs"
+          node --check "$policy_root/scripts/ci/lib/review-input-revision.mjs"
+          printf 'root=%s\n' "$policy_root" >> "$GITHUB_OUTPUT"
+
       - name: Admit only the first terminal 🔴 on this HEAD
         id: admission
         env:
@@ -319,9 +352,10 @@ jobs:
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           REVIEW_ID: ${{ github.event.review.id }}
           REVIEW_COMMIT: ${{ github.event.review.commit_id }}
+          TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy.outputs.root }}
         run: |
           set -euo pipefail
-          if [ ! -f scripts/ci/lib/pr-review-admission.mjs ]; then
+          if [ ! -f "$TRUSTED_POLICY_ROOT/scripts/ci/lib/pr-review-admission.mjs" ]; then
             echo "::error::helper admission assente anche dopo l'allineamento a origin/main → 🔴-fix bloccato, nessun Codex."
             echo "actionable=false" >> "$GITHUB_OUTPUT"
             exit 1
@@ -331,7 +365,7 @@ jobs:
             echo "::error::PR metadata/body illeggibile → review input unavailable, nessun Codex."
             exit 1
           fi
-          review_revision=$(node scripts/ci/lib/review-input-revision.mjs hash-pr-json --file "$pr_file")
+          review_revision=$(node "$TRUSTED_POLICY_ROOT/scripts/ci/lib/review-input-revision.mjs" hash-pr-json --file "$pr_file")
           printf '%s\n' "$review_revision" | grep -qE '^body:[0-9a-f]{64}$' || {
             echo "::error::PR body non verificabile → review input unavailable, nessun Codex."
             exit 1
@@ -340,7 +374,7 @@ jobs:
             echo "::error::Reviews API illeggibile → 🔴-fix bloccato, nessun Codex."
             exit 1
           fi
-          if ! decision=$(printf '%s' "$reviews" | node scripts/ci/lib/pr-review-admission.mjs fixer \
+          if ! decision=$(printf '%s' "$reviews" | node "$TRUSTED_POLICY_ROOT/scripts/ci/lib/pr-review-admission.mjs" fixer \
             --head "$HEAD_SHA" --review-id "$REVIEW_ID" --review-commit "$REVIEW_COMMIT" \
             --revision "$review_revision"); then
             echo "::error::Review admission non verificabile → 🔴-fix bloccato, nessun Codex."
@@ -383,6 +417,40 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
 
+      # npm ci, Remote Config loading, and the fixer action execute PR-controlled
+      # code on this runner.  Use a fresh trusted path for every later claim so
+      # none of those phases can replace the admission/claim predicate.
+      - name: Refresh trusted fixer policy before claim
+        id: trusted_policy_final
+        if: steps.admission.outputs.actionable == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POLICY_REF: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          policy_root="${RUNNER_TEMP}/redflag-trusted-policy-final-${GITHUB_RUN_ID}"
+          rm -rf "$policy_root"
+          mkdir -p "$policy_root"
+          download_main() {
+            local path="$1"
+            local destination="$policy_root/$path"
+            mkdir -p "$(dirname "$destination")"
+            gh api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' > "$destination"
+          }
+          for trusted_path in \
+            scripts/ci/pr-fixer-claim.mjs \
+            scripts/ci/lib/pr-review-admission.mjs \
+            scripts/ci/lib/review-input-revision.mjs \
+            scripts/ci/lib/constants.mjs \
+            scripts/lib/int-from-env.mjs; do
+            download_main "$trusted_path"
+          done
+          node --check "$policy_root/scripts/ci/pr-fixer-claim.mjs"
+          node --check "$policy_root/scripts/ci/lib/pr-review-admission.mjs"
+          node --check "$policy_root/scripts/ci/lib/review-input-revision.mjs"
+          printf 'root=%s\n' "$policy_root" >> "$GITHUB_OUTPUT"
+
       # Token-down = degrado silenzioso a catena del loop autonomo (merge senza
       # cascade, coda congelata, routing/re-queue inerti). Alert inline
       # deterministico, dedup sul titolo canonico del monitor daily
@@ -413,7 +481,8 @@ jobs:
           REVIEW_BODY: ${{ github.event.review.body }}
           CLAIM_TTL_SEC: '3600'
           GITHUB_RUN_ID: ${{ github.run_id }}
-        run: node scripts/ci/pr-fixer-claim.mjs --claim
+          TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_final.outputs.root }}
+        run: node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim
 
       - name: Revalidate redflag claim before model (bounded final snapshot)
         id: claim_verify
@@ -430,7 +499,8 @@ jobs:
           EVENT_KEY: review:${{ github.event.review.id }}
           REVIEW_BODY: ${{ github.event.review.body }}
           CLAIM_TOKEN: ${{ steps.claim.outputs.claim_token }}
-        run: node scripts/ci/pr-fixer-claim.mjs --claim
+          TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_final.outputs.root }}
+        run: node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim
 
       - name: Stop when redflag claim changed before model
         if: steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid != 'true'
@@ -782,7 +852,8 @@ jobs:
           EVENT_KEY: review:${{ github.event.review.id }}
           REVIEW_BODY: ${{ github.event.review.body }}
           CLAIM_TOKEN: ${{ steps.claim.outputs.claim_token }}
-        run: node scripts/ci/pr-fixer-claim.mjs --claim
+          TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_final.outputs.root }}
+        run: node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim
 
       - name: Stop when final redflag claim changed before model
         if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify_final.outputs.claim_valid != 'true'
@@ -946,6 +1017,39 @@ jobs:
           echo "Nessun push ma l'azione è terminata pulita ('$ACTION_OUTCOME') con una spiegazione nuova sulla PR → terminale legittimo (es. non auto-fixabile). Job verde."
           exit 0
 
+      # The model action can execute PR-controlled code after the previous
+      # refresh.  Re-materialize once more before finalizing the durable claim.
+      - name: Refresh trusted fixer policy after model
+        id: trusted_policy_post_model
+        if: always() && steps.claim.outputs.claim_acquired == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POLICY_REF: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          policy_root="${RUNNER_TEMP}/redflag-trusted-policy-post-${GITHUB_RUN_ID}"
+          rm -rf "$policy_root"
+          mkdir -p "$policy_root"
+          download_main() {
+            local path="$1"
+            local destination="$policy_root/$path"
+            mkdir -p "$(dirname "$destination")"
+            gh api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' > "$destination"
+          }
+          for trusted_path in \
+            scripts/ci/pr-fixer-claim.mjs \
+            scripts/ci/lib/pr-review-admission.mjs \
+            scripts/ci/lib/review-input-revision.mjs \
+            scripts/ci/lib/constants.mjs \
+            scripts/lib/int-from-env.mjs; do
+            download_main "$trusted_path"
+          done
+          node --check "$policy_root/scripts/ci/pr-fixer-claim.mjs"
+          node --check "$policy_root/scripts/ci/lib/pr-review-admission.mjs"
+          node --check "$policy_root/scripts/ci/lib/review-input-revision.mjs"
+          printf 'root=%s\n' "$policy_root" >> "$GITHUB_OUTPUT"
+
       - name: Finalize redflag PR + HEAD + review claim
         if: always() && steps.claim.outputs.claim_acquired == 'true'
         continue-on-error: true
@@ -964,4 +1068,5 @@ jobs:
           ACTION_OUTCOME: ${{ steps.codex_fix.outcome }}
           EXEC_FILE: ''
           GITHUB_RUN_ID: ${{ github.run_id }}
-        run: node scripts/ci/pr-fixer-claim.mjs --claim
+          TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_post_model.outputs.root }}
+        run: node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim

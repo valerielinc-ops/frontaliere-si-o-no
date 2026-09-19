@@ -214,6 +214,39 @@ jobs:
         # Tetto sullo step → `failure` diagnosticabile invece di `cancelled`.
         timeout-minutes: 15
 
+      # The PR checkout is attacker-controlled. Claims are the zero-Claude
+      # admission barrier, so load their complete import cone from trusted main
+      # before evaluating the first claim.
+      - name: Bootstrap trusted redcheck policy (no PR code)
+        id: trusted_policy
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POLICY_REF: main
+        run: |
+          set -euo pipefail
+          policy_root="${RUNNER_TEMP}/redcheck-trusted-policy-${GITHUB_RUN_ID}"
+          rm -rf "$policy_root"
+          mkdir -p "$policy_root"
+          download_main() {
+            local path="$1"
+            local destination="$policy_root/$path"
+            mkdir -p "$(dirname "$destination")"
+            gh api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' > "$destination"
+          }
+          for trusted_path in \
+            scripts/ci/pr-fixer-claim.mjs \
+            scripts/ci/lib/pr-review-admission.mjs \
+            scripts/ci/lib/review-input-revision.mjs \
+            scripts/ci/lib/constants.mjs \
+            scripts/lib/int-from-env.mjs; do
+            download_main "$trusted_path"
+          done
+          node --check "$policy_root/scripts/ci/pr-fixer-claim.mjs"
+          node --check "$policy_root/scripts/ci/lib/pr-review-admission.mjs"
+          node --check "$policy_root/scripts/ci/lib/review-input-revision.mjs"
+          printf 'root=%s\n' "$policy_root" >> "$GITHUB_OUTPUT"
+
       - name: Claim redcheck PR + HEAD + failed check (zero-Claude)
         id: claim
         continue-on-error: true
@@ -229,7 +262,8 @@ jobs:
           CHECK_FAILURE_KEY: ${{ needs.preflight.outputs.failed_check_key }}
           CLAIM_TTL_SEC: '3600'
           GITHUB_RUN_ID: ${{ github.run_id }}
-        run: node scripts/ci/pr-fixer-claim.mjs --claim
+          TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy.outputs.root }}
+        run: node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim
 
       - name: Fail closed when redcheck claim is unreadable
         if: steps.claim.outputs.claim_error == 'true'
@@ -742,6 +776,39 @@ jobs:
           echo "Nessun push ma l'azione è terminata pulita ('$ACTION_OUTCOME') con una spiegazione nuova sulla PR → terminale legittimo (es. non auto-fixabile). Job verde."
           exit 0
 
+      # The fixer action and npm lifecycle scripts ran from the PR checkout.
+      # Re-materialize the claim helper from main before the final mutation.
+      - name: Refresh trusted redcheck policy before finalize
+        id: trusted_policy_final
+        if: always() && steps.claim.outputs.claim_acquired == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POLICY_REF: main
+        run: |
+          set -euo pipefail
+          policy_root="${RUNNER_TEMP}/redcheck-trusted-policy-final-${GITHUB_RUN_ID}"
+          rm -rf "$policy_root"
+          mkdir -p "$policy_root"
+          download_main() {
+            local path="$1"
+            local destination="$policy_root/$path"
+            mkdir -p "$(dirname "$destination")"
+            gh api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' > "$destination"
+          }
+          for trusted_path in \
+            scripts/ci/pr-fixer-claim.mjs \
+            scripts/ci/lib/pr-review-admission.mjs \
+            scripts/ci/lib/review-input-revision.mjs \
+            scripts/ci/lib/constants.mjs \
+            scripts/lib/int-from-env.mjs; do
+            download_main "$trusted_path"
+          done
+          node --check "$policy_root/scripts/ci/pr-fixer-claim.mjs"
+          node --check "$policy_root/scripts/ci/lib/pr-review-admission.mjs"
+          node --check "$policy_root/scripts/ci/lib/review-input-revision.mjs"
+          printf 'root=%s\n' "$policy_root" >> "$GITHUB_OUTPUT"
+
       - name: Finalize redcheck PR + HEAD + failed check claim
         if: always() && steps.claim.outputs.claim_acquired == 'true'
         continue-on-error: true
@@ -760,4 +827,5 @@ jobs:
           ACTION_OUTCOME: ${{ steps.codex_fix.outcome }}
           EXEC_FILE: ''
           GITHUB_RUN_ID: ${{ github.run_id }}
-        run: node scripts/ci/pr-fixer-claim.mjs --claim
+          TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_final.outputs.root }}
+        run: node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim

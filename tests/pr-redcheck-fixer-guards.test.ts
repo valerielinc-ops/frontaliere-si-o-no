@@ -96,6 +96,17 @@ describe('scope — non tocca ciò che non è suo', () => {
   });
 });
 
+describe('trusted claim policy — il checkout PR non decide l ammissione', () => {
+  it('scarica e ri-materializza l helper dei claim da main', () => {
+    expect(src).toContain('Bootstrap trusted redcheck policy (no PR code)');
+    expect(src).toContain('POLICY_REF: main');
+    expect(src).toContain('TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy.outputs.root }}');
+    expect(src).toContain('Refresh trusted redcheck policy before finalize');
+    expect(src).toContain('TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_final.outputs.root }}');
+    expect(src).not.toMatch(/run: node scripts\/ci\/pr-fixer-claim\.mjs --claim/);
+  });
+});
+
 describe('anti-loop — bounded come il gemello', () => {
   it('conta i round con un marker proprio, non con quello del 🔴-fixer', () => {
     // Un marker condiviso farebbe consumare a un fixer i round dell'altro.

@@ -396,8 +396,12 @@ describe('workflow wiring for one review per HEAD', () => {
   });
 
   it('pr-redflag-fixer admits only the first terminal Important and forbids empty commits', () => {
-    expect(fixerYml).toContain('node scripts/ci/lib/pr-review-admission.mjs fixer');
-    expect(fixerYml).toContain('review-input-revision.mjs hash-pr-json');
+    expect(fixerYml).toContain('node "$TRUSTED_POLICY_ROOT/scripts/ci/lib/pr-review-admission.mjs" fixer');
+    expect(fixerYml).toContain('node "$TRUSTED_POLICY_ROOT/scripts/ci/lib/review-input-revision.mjs" hash-pr-json');
+    expect(fixerYml).toContain('Bootstrap trusted fixer policy (no PR code)');
+    expect(fixerYml).toContain('Refresh trusted fixer policy before claim');
+    expect(fixerYml).toContain('Refresh trusted fixer policy after model');
+    expect(fixerYml).toContain('TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_post_model.outputs.root }}');
     expect(fixerYml).toContain('--revision "$review_revision"');
     expect(fixerYml).toMatch(/Reviews API illeggibile.*nessun Codex/s);
     expect(fixerYml).toContain('Admit only the first terminal');

@@ -197,6 +197,14 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(bootstrapIndex).toBeLessThan(checkoutIndex);
     expect(job.steps.find((step: { id?: string }) => step.id === 'review_gate')?.run)
       .toContain('node "$REVIEW_POLICY_ROOT/scripts/ci/review-gate.mjs"');
+    const finalPolicy = job.steps.find((step: { id?: string }) => step.id === 'review_policy_final') as { if?: string; run?: string; id?: string } | undefined;
+    expect(finalPolicy?.if).toContain('always()');
+    expect(finalPolicy?.run).toContain('review-policy-final-${GITHUB_RUN_ID}');
+    expect(finalPolicy?.run).toContain('printf \'final_root=%s');
+    expect((job.steps.find((step: { id?: string }) => step.id === 'review_marker') as { env?: Record<string, string> } | undefined)?.env?.REVIEW_POLICY_ROOT)
+      .toContain('steps.review_policy_final.outputs.final_root');
+    expect((job.steps.find((step: { id?: string }) => step.id === 'review_gate') as { env?: Record<string, string> } | undefined)?.env?.REVIEW_POLICY_ROOT)
+      .toContain('steps.review_policy_final.outputs.final_root');
   });
 
   it('keeps a fail-closed roster for detached source gates', () => {
@@ -236,7 +244,7 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(script).toContain('BODY_REVIEW_RECOVERY_PENDING');
     expect(script).toContain('workflow_run');
     expect(recovery.concurrency.group).toBe('tests-body-recovery');
-    expect(recovery.concurrency['cancel-in-progress']).toBe(true);
+    expect(recovery.concurrency['cancel-in-progress']).toBe(false);
     expect(script).toContain('markerMatchesRun');
     expect(script).not.toContain('createWorkflowDispatch');
     expect(script).toContain('status: \'manual\'');

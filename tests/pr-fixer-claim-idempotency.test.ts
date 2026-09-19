@@ -329,7 +329,7 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
   const claimSource = readFileSync(new URL('../scripts/ci/pr-fixer-claim.mjs', import.meta.url), 'utf8');
 
   it('persists a redflag claim before the bounded fixer and finalizes it', () => {
-    expect(redflag).toContain('scripts/ci/pr-fixer-claim.mjs --claim');
+    expect(redflag).toContain('node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim');
     expect(redflag).toContain('CLAIM_KIND: redflag');
     expect(redflag).toContain('EVENT_KEY: review:');
     expect(redflag).toContain('REVIEW_BODY:');
@@ -338,6 +338,7 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
     expect(redflag).toContain('Revalidate redflag claim before model');
     expect(redflag).toContain('Revalidate redflag claim immediately before model');
     expect(redflag).toContain('claim_verify_final.outputs.claim_valid');
+    expect(redflag).toContain('Refresh trusted fixer policy after model');
     expect(claimSource).toContain("parseReviewsJson(raw)");
     expect(redflag).toContain('claim_error');
     expect(redflag).toContain('MAX_ROUNDS=2');
@@ -347,12 +348,15 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
   it('persists a redcheck claim on the current failed check set', () => {
     expect(redcheck).toContain('head_sha: ${{ steps.pre.outputs.head_sha }}');
     expect(redcheck).toContain('failed_check_key: ${{ steps.pre.outputs.failed_check_key }}');
-    expect(redcheck).toContain('scripts/ci/pr-fixer-claim.mjs --claim');
+    expect(redcheck).toContain('node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim');
     expect(redcheck).toContain('CLAIM_KIND: redcheck');
     expect(redcheck).toContain('CHECK_FAILURE_KEY:');
     expect(redcheck).toContain('claim_error');
     expect(redcheck).toContain('MAX_ROUNDS=2');
     expect(redcheck).toContain('CLAIM_ACTION: finalize');
+    expect(redcheck).toContain('Bootstrap trusted redcheck policy (no PR code)');
+    expect(redcheck).toContain('Refresh trusted redcheck policy before finalize');
+    expect(redcheck).toContain('TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_final.outputs.root }}');
   });
 
   it('serializes the redcheck failure set without comma ambiguity', () => {

@@ -27,10 +27,10 @@ concurrency:
   # One lane is deliberate: a scheduled reconciliation has no PR/HEAD fields,
   # so a per-PR expression would let it overlap a workflow_run/body-edit lane
   # and consume the same durable marker twice. The marker is the source of
-  # truth; cancelling the older API-only attempt is safe and keeps one rerun
-  # request in flight, across all PRs and event types.
+  # truth; cancelling after revokeAutoMerge() but before persistMarker() would
+  # lose the only retry signal, so serialize the API-only attempts instead.
   group: tests-body-recovery
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   recover:

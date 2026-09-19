@@ -2794,6 +2794,69 @@ jobs:
             fi
           fi
           echo "Review step completed without an unrecovered transient API error."
+
+      # npm lifecycle hooks and the PR checkout run with the same runner
+      # permissions as this job.  Re-materialize the complete trusted import
+      # cone after those PR-controlled phases, into a fresh run-specific path,
+      # before the marker and final gate.  The final steps use this output
+      # explicitly instead of the mutable GITHUB_ENV value from bootstrap.
+      - name: Refresh trusted review policy before final verdict
+        id: review_policy_final
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true') }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POLICY_REF: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          policy_root="${RUNNER_TEMP}/review-policy-final-${GITHUB_RUN_ID}"
+          rm -rf "$policy_root"
+          mkdir -p "$policy_root"
+          download_main() {
+            local path="$1"
+            local destination="$policy_root/$path"
+            mkdir -p "$(dirname "$destination")"
+            gh api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' \
+              > "$destination"
+          }
+          for trusted_path in \
+            scripts/ci/review-gate.mjs \
+            scripts/ci/lib/review-carry-forward.mjs \
+            scripts/ci/pr-contribution-fingerprint.mjs \
+            scripts/ci/auto-merge-eval.mjs \
+            scripts/ci/prefetch-review-diff.mjs \
+            scripts/ci/review-test-policy.mjs \
+            scripts/ci/review-marker-recovery.mjs \
+            scripts/ci/fetch-pr-files.mjs \
+            scripts/ci/claude-codex-fallback.mjs \
+            scripts/ci/claude-rate-limit.mjs \
+            scripts/ci/claude-rate-limit-contract.mjs \
+            scripts/ci/lib/constants.mjs \
+            scripts/ci/lib/fetchPrFiles.mjs \
+            scripts/ci/lib/vitestCheck.mjs \
+            scripts/ci/lib/automation-risk-policy.mjs \
+            scripts/ci/lib/mergePreviewCheck.mjs \
+            scripts/ci/lib/checkRunObservation.mjs \
+            scripts/ci/lib/prComments.mjs \
+            scripts/ci/lib/false-positive-declaration.mjs \
+            scripts/ci/lib/duplicateDeclarations.mjs \
+            scripts/ci/lib/pr-review-admission.mjs \
+            scripts/ci/lib/review-input-revision.mjs \
+            scripts/lib/github-issue-creator.mjs \
+            scripts/lib/loop-fleet-contract.mjs \
+            scripts/lib/pr-body-closes-check.mjs \
+            scripts/lib/pr-body-sections-check.mjs; do
+            download_main "$trusted_path"
+          done
+          for trusted_file in \
+            "$policy_root/scripts/ci/review-gate.mjs" \
+            "$policy_root/scripts/ci/review-marker-recovery.mjs" \
+            "$policy_root/scripts/ci/lib/pr-review-admission.mjs" \
+            "$policy_root/scripts/ci/lib/review-input-revision.mjs"; do
+            node --check "$trusted_file"
+          done
+          printf 'final_root=%s\n' "$policy_root" >> "$GITHUB_OUTPUT"
+
       - name: Validate deterministic review input marker
         id: review_marker
         # This is a zero-agent recovery gate: a missing/duplicate/stale marker
@@ -2805,6 +2868,7 @@ jobs:
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
           REVIEW_REVISION: ${{ steps.review_input.outputs.review_revision }}
+          REVIEW_POLICY_ROOT: ${{ steps.review_policy_final.outputs.final_root }}
         run: |
           set -euo pipefail
           if ! reviews=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp); then
@@ -2831,6 +2895,7 @@ jobs:
           # Single source of truth for the PR body: a model 🔴 anchored only on
           # `PR body:L<n>` does not block when this contract passed.
           BODY_CONTRACT_OUTCOME: ${{ steps.body_contract.outcome }}
+          REVIEW_POLICY_ROOT: ${{ steps.review_policy_final.outputs.final_root }}
         run: |
           set -euo pipefail
           # Il gate autorevole resta questo step required; la decisione è
