@@ -19,6 +19,8 @@
  * `locationsText` only ever says "N Locations" for these — the real
  * location list lives on the detail endpoint (`jobPostingInfo.location` +
  * `.additionalLocations`), which we already fetch for the description body.
+ * The primary detail location is authoritative for publication; an additional
+ * location cannot turn a foreign-primary requisition into a Zurich job.
  * Live verification (2026-07-03) confirmed every one of the 36
  * Switzerland-tagged postings resolves to either "Switzerland, Zurich" or
  * "Switzerland, Remote" — never another Swiss city — consistent with the
@@ -31,7 +33,7 @@
  *   - NVIDIA_ZURICH_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {
   buildWorkdayApiBase,
@@ -43,7 +45,7 @@ import {
   WorkdayAuthError,
   getWorkdayLocationCandidates,
 } from './ats-clients/workday-client.mjs';
-import { isSwissLocationText, rescueSwissCityFromText } from './target-swiss-locations.mjs';
+import { isSwissLocationText } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -97,6 +99,16 @@ function isSwissLocationCandidate(locationText) {
 
 export function hasNvidiaSwissLocation(info = {}, listingLocation = '') {
   return getWorkdayLocationCandidates(info, listingLocation).some(isSwissLocationCandidate);
+}
+
+/**
+ * Return true only when the authoritative Workday primary location is Swiss.
+ * Additional locations are useful diagnostics, but publishing a requisition
+ * as Zurich based on one of them mislabels foreign-primary jobs.
+ */
+export function hasNvidiaSwissPrimaryLocation(info = {}) {
+  const primary = getWorkdayLocationCandidates({ location: info?.location }, '')[0] || '';
+  return Boolean(primary && !isLocationExplicitlyForeign(primary) && isSwissLocationCandidate(primary));
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -226,17 +238,10 @@ export async function fetchAllNvidiaZurichJobs() {
     // only reports "N Locations" for these multi-country reqs.
     const detail = await fetchWorkdayJobDetail(WORKDAY_API_BASE, listing.externalPath);
     const info = detail?.jobPostingInfo || {};
-    const isSwissRole = hasNvidiaSwissLocation(info, listing.locationsText);
-    // Rescue: the search facet already scoped this listing to Switzerland
-    // (locationHierarchy1), so a literal-text miss on the detail payload
-    // doesn't necessarily mean a foreign role — give it the same
-    // second-chance anchor as assemble-jobs-dataset.mjs's canton rescue:
-    // a real Swiss city named in the job description.
-    const hasRescueCity = !isSwissRole && Boolean(rescueSwissCityFromText(stripHtml(String(info.jobDescription || ''))));
-    if (!isSwissRole && !hasRescueCity) {
-      // Facet match without a confirmed Switzerland location on detail —
-      // skip rather than mislabel a foreign-only role as Zurich.
-      console.log(`  ⏭️  Skipped (no confirmed CH location on detail): ${title}`);
+    if (!hasNvidiaSwissPrimaryLocation(info)) {
+      // A Swiss additional location or a Swiss city mentioned in the prose is
+      // not an authoritative workplace for this requisition.
+      console.log(`  ⏭️  Skipped (primary detail location is not Swiss): ${title}`);
       await new Promise((r) => setTimeout(r, 300));
       continue;
     }
