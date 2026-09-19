@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
-import { resolveFnzSwissLocation } from '../scripts/lib/fnz-job-parser.mjs';
+import { resolveFnzSwissLocation, hasFnzSwissPrimaryLocation } from '../scripts/lib/fnz-job-parser.mjs';
 import { resolveFnzLocation } from '../scripts/update-fnz-jobs.mjs';
 import { isCantonOnlyLabel } from '../scripts/lib/target-swiss-locations.mjs';
 
@@ -176,6 +176,36 @@ describe('fnz-job-parser / resolveFnzSwissLocation', () => {
 
   it('rejects foreign-only candidates', () => {
     expect(resolveFnzSwissLocation(['London, United Kingdom'])).toBeNull();
+  });
+
+  // Workday reqs are cross-posted to several countries. Only candidates[0] —
+  // the req's OWN primary workplace — licenses publication; a later
+  // `Switzerland` entry must not reach the national fallback and fabricate
+  // `Bern / BE / 3011 Bundesplatz 3` for a foreign vacancy. 0 of the 1 record
+  // in `data/jobs/by-crawler/fnz.json` uses that fallback today, so this pins
+  // a latent regression.
+  it('refuses a foreign primary even when a later candidate is Swiss', () => {
+    expect(resolveFnzSwissLocation(['Frankfurt, Germany', 'Switzerland'])).toBeNull();
+    expect(resolveFnzSwissLocation(['Frankfurt, Germany', 'Zurich'])).toBeNull();
+    expect(resolveFnzLocation(['London, United Kingdom', 'Switzerland'])).toBeNull();
+  });
+
+  it('refuses a req with no primary location instead of inventing a Bern address', () => {
+    expect(resolveFnzSwissLocation(['', 'Switzerland'])).toBeNull();
+    expect(resolveFnzSwissLocation([])).toBeNull();
+  });
+
+  it('still enriches a Swiss country-only primary from a later candidate', () => {
+    expect(resolveFnzSwissLocation(['Switzerland', 'Chiasso'])).toMatchObject({
+      location: 'Chiasso',
+      canton: 'TI',
+    });
+  });
+
+  it('keeps the primary-only publish gate exported and wired into the resolver', () => {
+    expect(hasFnzSwissPrimaryLocation(['Frankfurt, Germany', 'Switzerland'])).toBe(false);
+    expect(hasFnzSwissPrimaryLocation(['Switzerland'])).toBe(true);
+    expect(hasFnzSwissPrimaryLocation([])).toBe(false);
   });
 
   it('fails closed when pagination reaches its cap without a verified end', () => {

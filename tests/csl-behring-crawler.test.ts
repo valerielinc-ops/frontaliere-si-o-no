@@ -20,6 +20,41 @@ describe('CSL Behring crawler parser', () => {
     )).toBe('Glattbrugg');
   });
 
+  // The union above is NOT the publish decision. Measured on
+  // data/jobs/by-crawler/csl-behring.json: 12 of 25 records carried a non-Swiss
+  // primary location in their own Workday path (US-PA King of Prussia, US-MA
+  // Waltham, GB Berkshire-Maidenhead) and were published as Glattbrugg,
+  // Opfikon or Bern. All 13 correctly-published records have an `EMEA-CH-*`
+  // primary.
+  it('refuses to publish a foreign req that merely lists a Swiss site alongside', () => {
+    const crossPosted = {
+      location: 'Americas, US-PA, King of Prussia, CSL Behring',
+      additionalLocations: [{ descriptor: 'EMEA, CH, Glattbrugg, CSL Behring' }],
+    };
+    // The union still resolves a Swiss city…
+    expect(resolveCslLocation(crossPosted.location, crossPosted.additionalLocations)).toBe('Glattbrugg');
+    // …but the publish decision reads only the req's own primary location.
+    expect(resolveCslPublishLocation(crossPosted)).toBe('');
+  });
+
+  it('publishes a req whose own primary location is Swiss', () => {
+    expect(resolveCslPublishLocation({
+      location: 'EMEA, CH, Glattbrugg, CSL Behring',
+      additionalLocations: [{ descriptor: 'Americas, US-PA, King of Prussia, CSL Behring' }],
+    })).toBe('Glattbrugg');
+    expect(resolveCslPublishLocation({
+      location: 'EMEA, CH, Kanton Bern, Bern, CSL Behring',
+    })).toBe('Bern');
+  });
+
+  it('fails closed when the req has no readable primary location', () => {
+    // Used to fall back to the hardcoded `Bern` / `BE`, which is the
+    // generic-city fallback audit-parser-quality.mjs names in its ACTION line.
+    expect(resolveCslPublishLocation({ additionalLocations: [{ descriptor: 'EMEA, CH, Glattbrugg' }] })).toBe('');
+    expect(resolveCslPublishLocation({ location: '' })).toBe('');
+    expect(resolveCslPublishLocation({})).toBe('');
+  });
+
   it('resolves detail locations when the listing is only an N Locations roll-up', () => {
     expect(resolveCslLocation(
       '3 Locations',

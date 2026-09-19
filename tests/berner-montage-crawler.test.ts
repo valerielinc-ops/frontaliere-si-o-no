@@ -5,6 +5,7 @@ import {
   isBernerMontageJob,
   isTrustedDomain,
   resolveBernerLocation,
+  resolveBernerPrimaryLocation,
 } from '../scripts/lib/berner-montage-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -66,6 +67,35 @@ describe('Montagetechnik BERNER AG crawler parser', () => {
         location: 'Berlin, Germany',
         additionalLocations: [{ descriptor: 'Reinach, Switzerland' }],
       }, 'N Locations')).toBe('Reinach, Switzerland');
+    });
+  });
+
+  // The publish decision must read the req's OWN primary location, never the
+  // union above: a Workday req cross-posted to Reinach while worked in Berlin
+  // otherwise goes out stamped `Reinach / BL / CH`. 0 of the 10 records in
+  // `data/jobs/by-crawler/berner-montage.json` are misattributed today, so
+  // this pins a latent regression rather than a live one.
+  describe('resolveBernerPrimaryLocation (publish gate)', () => {
+    it('refuses a foreign primary even when an additional location is Swiss', () => {
+      expect(resolveBernerPrimaryLocation({
+        location: 'Berlin, Germany',
+        additionalLocations: [{ descriptor: 'Reinach, Switzerland' }],
+        jobRequisitionLocation: 'Reinach, Switzerland',
+      })).toBe('');
+    });
+
+    it('refuses a req with no primary location instead of defaulting to the HQ', () => {
+      expect(resolveBernerPrimaryLocation({
+        additionalLocations: [{ descriptor: 'Reinach, Switzerland' }],
+      })).toBe('');
+      expect(resolveBernerPrimaryLocation({})).toBe('');
+    });
+
+    it('accepts the req own Swiss primary location', () => {
+      expect(resolveBernerPrimaryLocation({
+        location: 'Reinach, Switzerland',
+        additionalLocations: [{ descriptor: 'Berlin, Germany' }],
+      })).toBe('Reinach, Switzerland');
     });
   });
 

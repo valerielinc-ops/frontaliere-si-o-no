@@ -10,8 +10,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
-import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
 
@@ -214,6 +213,35 @@ function resolveWorkdayLocation(info = {}, listing = {}) {
  return null;
 }
 
+/** The req's own primary workplace descriptor, as the source wrote it. */
+export function lonzaPrimaryLocationText(info = {}) {
+ const primary = info?.location;
+ if (typeof primary === 'string') return primary;
+ return primary?.descriptor || primary?.location || '';
+}
+
+/**
+ * The location a req may be PUBLISHED under, or `null`.
+ *
+ * `resolveWorkdayLocation` above reads the union of the primary location, the
+ * listing summary and every additional location — and `listing.locationsText`
+ * degrades to «N Locations» on exactly the multi-country reqs where that union
+ * is misleading. Only the req's own primary workplace licenses a Swiss stamp.
+ *
+ * Measured on data/jobs/by-crawler/lonza.json: 1 of 215 records carries a
+ * non-Swiss primary location in its own Workday path — `IN---Hyderabad`,
+ * "Digital HR Time Management Specialist" — and it is published as Visp/VS.
+ * It reached production through the `|| 'Visp'` / `|| 'VS'` rescue, which this
+ * predicate replaces with a skip.
+ */
+export function resolveLonzaPublishLocation(info = {}) {
+ const primary = lonzaPrimaryLocationText(info);
+ if (!primary) return null;
+ const city = parseWorkdayLocation(primary);
+ const canton = inferCanton(`${city} ${primary}`);
+ return city && canton ? { city, canton } : null;
+}
+
 /* ── Job classification ────────────────────────────────────── */
 
 function detectCategory(title = '') {
@@ -292,20 +320,30 @@ export async function fetchAllLonzaJobs() {
  // assemble-jobs-dataset.mjs's canton rescue: a real Swiss city named in
  // the description, falling back to Lonza's main Swiss site (Visp)
  // rather than dropping a listing the facet already confirmed is Swiss.
- let cityFromVacancyText = '';
- let resolvedLocation = resolveWorkdayLocation(info, listing);
+ // ORDER IS THE POINT. The foreign check has to see the SOURCE string, not a
+ // substitute. It used to run below on `city`, i.e. on the already-rescued
+ // 'Visp', so it inspected a Swiss name and never the source: that is how the
+ // req whose own Workday path is `IN---Hyderabad` is published as Visp/VS.
+ // `isLocationExplicitlyForeign('IN - Hyderabad')` now returns true (it
+ // returned false before the mid-field country-code branch added to
+ // dedicated-crawler-common.mjs in this PR), so the skip fires here.
+ const primaryLocationText = lonzaPrimaryLocationText(info);
+ if (isLocationExplicitlyForeign(primaryLocationText)) {
+  console.log(`  ⏭️  Skipped foreign primary location: ${primaryLocationText} — ${title}`);
+  continue;
+ }
+
+ // Fail closed instead of rescuing. The old rescue read a Swiss city out of
+ // the job DESCRIPTION and then defaulted to Lonza's main site, and Lonza
+ // names Visp in the boilerplate of reqs worked anywhere — the circular
+ // corroboration audit-parser-quality.mjs counts as inconclusive, not as
+ // evidence.
+ const resolvedLocation = resolveLonzaPublishLocation(info);
  if (!resolvedLocation) {
-  cityFromVacancyText = rescueSwissCityFromText(stripHtml(info.jobDescription || ''));
-  const rescueCity = cityFromVacancyText || 'Visp';
-  resolvedLocation = { city: rescueCity, canton: inferCanton(rescueCity) || 'VS' };
+  console.log(`  ⏭️  Skipped (no Swiss primary location): ${primaryLocationText || '(empty)'} — ${title}`);
+  continue;
  }
  const { city, canton } = resolvedLocation;
-
-    // Skip foreign locations that slipped through Workday's country filter
-    if (isLocationExplicitlyForeign(city)) {
-      console.log(`  ⏭️  Skipped foreign location: ${city} — ${title}`);
-      continue;
-    }
 
  const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
@@ -359,7 +397,9 @@ export async function fetchAllLonzaJobs() {
     };
 
     if (jobReqId) job.jobReqId = jobReqId;
-    if (cityFromVacancyText) markLocationDerivedFromVacancyText(job);
+    // No vacancy-text marker any more: the location can only come from the
+    // req's own primary workplace, never from the description, so it is never
+    // "derived from vacancy text".
 
     jobs.push(job);
     await new Promise((r) => setTimeout(r, 300));

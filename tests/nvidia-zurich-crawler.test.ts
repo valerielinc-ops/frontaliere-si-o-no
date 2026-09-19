@@ -107,6 +107,60 @@ describe('NVIDIA (ufficio Zurich) crawler parser', () => {
     });
   });
 
+  // The publish predicate is NOT the facet predicate. `hasNvidiaSwissLocation`
+  // above answers «does this req touch Switzerland anywhere» over the union of
+  // primary + additional + requisition + listing locations, and the cases above
+  // pin that union on purpose. What licenses stamping a record
+  // `Zürich / ZH / addressCountry: CH` is narrower: the req's OWN primary
+  // workplace. Measured 2026-09-19 on data/jobs/by-crawler/nvidia-zurich.json —
+  // 35 records, all published as `Zürich`, of which 21 had a non-Swiss primary
+  // location in their own Workday path (France/Poland/Germany/UK/Italy/Spain).
+  // Those are the mismatches audit-parser-quality.mjs --strict reports.
+  describe('publish gate: primary workplace only', () => {
+    it('refuses a foreign req that is merely cross-posted to Switzerland', () => {
+      const crossPosted = {
+        location: 'Germany, Munich',
+        additionalLocations: [
+          { descriptor: 'Zurich, Switzerland', country: { alpha2Code: 'CH' } },
+        ],
+      };
+      // Still Switzerland-tagged for the facet…
+      expect(hasNvidiaSwissLocation(crossPosted)).toBe(true);
+      // …but not publishable as a Zürich job.
+      expect(hasNvidiaSwissPrimaryLocation(crossPosted)).toBe(false);
+    });
+
+    it('accepts a req whose primary workplace is Swiss', () => {
+      expect(hasNvidiaSwissPrimaryLocation({
+        location: 'Switzerland, Zurich',
+        additionalLocations: [{ descriptor: 'Germany, Munich' }],
+      })).toBe(true);
+      expect(hasNvidiaSwissPrimaryLocation({
+        location: { descriptor: 'Zurich, Switzerland', country: { alpha2Code: 'CH' } },
+      })).toBe(true);
+      expect(hasNvidiaSwissPrimaryLocation({ location: 'Switzerland, Remote' })).toBe(true);
+    });
+
+    it('fails closed when the primary location is unreadable', () => {
+      // No primary location on the detail payload: skip rather than default to
+      // the hub city. Same rule as the shared Workday factory's empty-raw guard.
+      expect(hasNvidiaSwissPrimaryLocation({
+        additionalLocations: [{ descriptor: 'Zurich, Switzerland' }],
+      })).toBe(false);
+      expect(hasNvidiaSwissPrimaryLocation({ location: '' })).toBe(false);
+      expect(hasNvidiaSwissPrimaryLocation({})).toBe(false);
+    });
+
+    it('ignores the listing summary, which is only a rollup count', () => {
+      // `locationsText` degrades to "5 Locations" on multi-country reqs, and
+      // used to be part of the union the publish decision read.
+      expect(hasNvidiaSwissPrimaryLocation({
+        location: 'Poland, Remote',
+        jobRequisitionLocation: { descriptor: 'Zurich, Switzerland' },
+      })).toBe(false);
+    });
+  });
+
   // ── slugify (imported from crawler-template) ──
   describe('slugify', () => {
     it('converts title to URL-safe slug', () => {

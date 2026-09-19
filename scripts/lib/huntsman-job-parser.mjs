@@ -11,10 +11,10 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { workdayPrimaryLocationState } from './ats-clients/workday-client.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
-import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -220,7 +220,47 @@ function inferCanton(location = '') {
   if (loc.includes('zürich') || loc.includes('zurich')) return 'ZH';
   if (loc.includes('genev') || loc.includes('genf')) return 'GE';
   if (loc.includes('bern') || loc.includes('berne')) return 'BE';
-  return 'VS'; // Default: Monthey is Huntsman's main Swiss site
+  // Was `return 'VS'` ("Monthey is Huntsman's main Swiss site"). A canton
+  // resolver that never fails makes an unresolvable location undetectable by
+  // every caller: inferCanton('Stockton-on-Tees') answered 'VS'. Returning ''
+  // lets the publish path skip instead of stamping Valais on a UK req.
+  return '';
+}
+
+/**
+ * The city a req may be PUBLISHED under, or `''`.
+ *
+ * `resolveSwissCity` below answers "is any location on this req Swiss" over
+ * the primary location, the listing summary and every additional location, and
+ * then falls through to `parseWorkdayLocation(primaryLoc)` for ANYTHING at all —
+ * so a UK req returns a UK city and the caller stamps a Swiss canton on it.
+ *
+ * Measured on data/jobs/by-crawler/huntsman.json: 1 of 7 records carries a
+ * non-Swiss primary location in its own Workday path —
+ * `UK---Stockton-on-Tees-Wynyard` — and it is published as Basel/BS.
+ * `isLocationExplicitlyForeign` already flagged that string, but the guard ran
+ * on the already-substituted city, so it never saw it.
+ */
+export function resolveHuntsmanPublishCity(detail) {
+  const info = detail?.jobPostingInfo || {};
+  // Structured country metadata, NOT a literal `switzerland` substring. The
+  // first version of this gate tested `normalize(primary).includes('switzerland')`
+  // and so REJECTED every other valid representation Workday sends — a
+  // `country.alpha2Code` of `CH`, a localised country name (`Suisse`,
+  // `Schweiz`, `Svizzera`), and the `CH-ZH` / `CHE-8002` shapes — which drops
+  // legitimate Swiss reqs. That is the opposite defect to the one this gate
+  // exists to close: fail-closed instead of fail-open.
+  // `workdayPrimaryLocationState` flattens the primary through
+  // `normalizeWorkdayLocationCandidate`, so the country object is folded into
+  // the text before the Swiss predicate reads it.
+  const primary = workdayPrimaryLocationState(info);
+  if (!primary.present || !primary.text) return '';
+  if (isLocationExplicitlyForeign(primary.text)) return '';
+  if (!primary.isSwiss) return '';
+  // The city/canton resolution is the second half: the caller drops the req
+  // when `inferCanton` cannot place this string, so "Switzerland" alone never
+  // publishes on its own.
+  return parseWorkdayLocation(primary.text);
 }
 
 /**
@@ -287,17 +327,18 @@ export async function fetchAllHuntsmanJobs() {
       continue;
     }
 
-    // listSwissJobs() already scoped this listing to Switzerland; a
-    // free-text location that failed to parse doesn't mean it's foreign —
-    // give it the same second-chance anchor as assemble-jobs-dataset.mjs's
-    // canton rescue: a real Swiss city named in the description, falling
-    // back to Huntsman's documented main Swiss site (Monthey) rather than
-    // dropping a listing the API itself already confirmed is Swiss.
-    const cityFromSource = resolveSwissCity(detail, listing);
-    const cityFromVacancyText = cityFromSource
-      ? '' : rescueSwissCityFromText(stripHtml(info.jobDescription || ''));
-    const city = cityFromSource || cityFromVacancyText || 'Monthey';
-    const canton = inferCanton(city);
+    // The country facet matches a req on ANY of its locations, so "the API
+    // confirmed it is Swiss" does not say the WORKPLACE is. Fail closed on the
+    // req's own primary location instead of rescuing a city out of the
+    // description: Huntsman's boilerplate names "a major production site in
+    // Monthey (Valais), Switzerland" in EVERY description, so that rescue
+    // corroborated the company, never the vacancy.
+    const city = resolveHuntsmanPublishCity(detail);
+    const canton = city ? inferCanton(city) : '';
+    if (!city || !canton) {
+      console.log(`  ⏭️  Skipped (no Swiss primary location): ${title}`);
+      continue;
+    }
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = `${WORKDAY_PUBLIC_BASE}${externalPath}`;
@@ -347,7 +388,8 @@ export async function fetchAllHuntsmanJobs() {
     };
 
     if (jobReqId) job.jobReqId = jobReqId;
-    if (cityFromVacancyText) markLocationDerivedFromVacancyText(job);
+    // No vacancy-text marker any more: the city can only come from the req's
+    // own primary workplace, never from the description.
 
     jobs.push(job);
     await new Promise((r) => setTimeout(r, 300));

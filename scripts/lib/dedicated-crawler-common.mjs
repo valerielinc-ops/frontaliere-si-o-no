@@ -6259,10 +6259,58 @@ const FINAL_FOREIGN_COUNTRY_CODE_RE = new RegExp(
 // merely because it contains digits.
 const SWISS_STREET_ADDRESS_RE = /^\s*(?:ch[-\s]?\d{4}\s+)?[^,;]+\s+\d+[a-z]?\s*$/iu;
 
+/**
+ * Foreign codes that cannot also be read as a Swiss canton suffix.
+ *
+ * `FOREIGN_COUNTRY_CODES` overlaps the canton codes on BE, FR, GR and SG, and
+ * the whole point of `FINAL_FOREIGN_COUNTRY_CODE_RE`'s end-of-field anchor
+ * plus its Swiss-agreement rule is to keep `Industriestrasse 10, SG` and
+ * `Zurich, FR` in their existing buckets. Those four therefore stay with the
+ * final-position rule and are deliberately excluded here.
+ */
+const FOREIGN_ONLY_COUNTRY_CODES = new Set(
+  FOREIGN_COUNTRY_CODES.filter((code) => !SWISS_LOCATION_CODES.has(code)),
+);
+
+// Region-prefixed ATS location fields put the country code in the MIDDLE,
+// where an end-of-field anchor cannot see it. This is not hypothetical: the
+// three tenants that reached production with a wrong published city all
+// returned `false` from this helper before this branch existed —
+// `Americas, US-PA, King of Prussia, CSL Behring` and
+// `EMEA, GB, Berkshire, Maidenhead, CSL Behring` (12 of 25 csl-behring records)
+// and `IN - Hyderabad` (one lonza record published as Visp/VS). The subdivision
+// suffix in `US-PA` keeps the country in the first component.
+const LOCATION_SEGMENT_SPLIT_RE = /\s*(?:[,;|/]|\s+-\s+|\s{2,})\s*/;
+
+function segmentNamesForeignCountry(lower) {
+  const segments = String(lower)
+    .split(LOCATION_SEGMENT_SPLIT_RE)
+    .map((segment) => segment.trim())
+    .filter(Boolean);
+  // A single-segment field carries no region/country prefix to read.
+  if (segments.length < 2) return false;
+  // A Swiss place named ANYWHERE in the same field makes a mid-field code
+  // ambiguous, so this branch declines and lets the function's own Swiss checks
+  // below decide. Two-letter codes double as department labels — `IT` is the
+  // clearest — and `tests/dedicated-crawler-common.test.ts:1015` already pins
+  // `IT, Support in Lugano` as NOT foreign. The check has to run on the whole
+  // field, not per segment: the city sits inside `Support in Lugano`, which is
+  // not itself a municipality name. Same word-boundary helpers, and the same
+  // `includeBorderProximity: false`, the final-position rule further down uses,
+  // so `Como, Italy` keeps its verdict.
+  if (isTargetSwissLocation(lower, { includeBorderProximity: false })) return false;
+  if (isKnownSwissMunicipality(lower)) return false;
+  return segments.some(
+    (segment) => FOREIGN_ONLY_COUNTRY_CODES.has(segment.split('-')[0].trim().toUpperCase()),
+  );
+}
+
 function hasExplicitForeignCountryCode(lower) {
   // A labelled field is authoritative even when its two-letter value also
   // names a Swiss canton (for example, country: FR).
   if (EXPLICIT_FOREIGN_COUNTRY_FIELD_CODE_RE.test(lower)) return true;
+
+  if (segmentNamesForeignCountry(lower)) return true;
 
   for (const match of lower.matchAll(FINAL_FOREIGN_COUNTRY_CODE_RE)) {
     const location = String(match[1] || '').trim();

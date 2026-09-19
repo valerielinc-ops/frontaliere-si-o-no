@@ -1333,6 +1333,19 @@ function selectNewestCrawlerObservation(
  * it only changes the reason we report, because "returned 0 jobs" is a claim
  * about the source that an aborted run never made.
  */
+/**
+ * How old a crawler's last SUCCESS may be before a transport failure stops
+ * counting as transient.
+ *
+ * Ten days = twice the measured p90 refresh age of the tracked fleet (5 days;
+ * 552 of the 597 crawlers carrying a `lastSuccessfulRunAt` refresh inside a
+ * week). Only reachable together with a proven transport failure on the last
+ * observation — see the rationale at its use site. Raising it past 14 days
+ * re-opens the hole it closes: `nord-anglia` sat at exactly 14 days.
+ */
+export const TRANSPORT_ABORT_STALE_FLOOR_DAYS = 10;
+export const TRANSPORT_ABORT_STALE_FLOOR_MS = TRANSPORT_ABORT_STALE_FLOOR_DAYS * 24 * 60 * 60 * 1000;
+
 function nextCrawlerState(prev, observation, nowIso, nowMs) {
   const previous = prev && typeof prev === 'object' ? prev : {};
   const hadPriorState = Boolean(prev);
@@ -1387,7 +1400,37 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   // the previous live slice. Keep that run in the ordinary empty streak so a
   // single CI/egress incident cannot turn a healthy crawler into a broken one.
   const abortedRun = observation.earlyExit === true && lastObservedJobs === 0;
-  const transientTransportAbort = abortedRun && abortKind === 'connection-level-fetch';
+  // ...but only while it is genuinely a blip. That reclassification routes a
+  // proven transport failure into the 3-empty-run streak, and the streak
+  // counter is the wrong witness for a source that has actually died: it only
+  // advances on runs that observe the crawler at all, so `nord-anglia` sat at
+  // `consecutiveEmptyRuns: 1` with `feed_endpoint_unavailable` and a last
+  // success of 2026-09-04 — fifteen days. Without a floor this monitor goes
+  // green with nothing repaired, which is a detection change wearing a
+  // recovery's clothes.
+  //
+  // The floor is the age of the last SUCCESS, which is independent of the
+  // counter. It is deliberately NOT a bare age check: measured on the 612
+  // tracked crawlers (597 carry a `lastSuccessfulRunAt`), 37 are older than 14
+  // days and all 37 are `healthy`, because the field only advances on a
+  // non-zero-jobs run and a source with no vacancies for months is legitimately
+  // quiet — `linnea` is at 108 days. Age alone would flag all 37 and drown the
+  // signal. The predicate is age AND a proven transport failure on the last
+  // observation, which today holds for exactly 4 crawlers.
+  //
+  // Threshold from that same distribution: p50 and p90 of the age are both 5
+  // days (552 of 597 refresh inside a week), so 10 days is twice the p90
+  // cadence and cannot fire on normal quiet. Measured effect at this value:
+  // 1 crawler (nord-anglia, 14 days). The three genuine 5-day transport blips
+  // stay inside the transient window, which is what that window is for.
+  const lastSuccessAtMs = previous.lastSuccessfulRunAt
+    ? Date.parse(previous.lastSuccessfulRunAt)
+    : NaN;
+  const transportAbortOutlivedFloor =
+    Number.isFinite(lastSuccessAtMs) &&
+    nowMs - lastSuccessAtMs > TRANSPORT_ABORT_STALE_FLOOR_MS;
+  const transientTransportAbort =
+    abortedRun && abortKind === 'connection-level-fetch' && !transportAbortOutlivedFloor;
   // Same evidence as the #5945 filtered-empty counts, stated directly instead
   // of derived: the run fetched and parsed fine, its own filter kept nothing.
   const filteredEmptyOutcome = fetchOutcome === 'filtered_empty' && lastObservedJobs === 0;

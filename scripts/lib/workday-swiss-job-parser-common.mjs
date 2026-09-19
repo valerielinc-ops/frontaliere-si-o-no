@@ -31,6 +31,7 @@ import {
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
+  workdayPrimaryLocationState,
 } from './ats-clients/workday-client.mjs';
 
 // Switzerland country UUID — standard across nearly all Workday tenants.
@@ -89,23 +90,32 @@ function locationDescriptor(value) {
 }
 
 /**
- * Resolve a Swiss city from the detail payload's primary/additional locations.
- * Workday listing rows often collapse multi-location vacancies to `N Locations`;
- * the detail payload is the per-vacancy source of truth in that case.
+ * Resolve the Swiss city a req may be PUBLISHED under, from its OWN primary
+ * workplace (`jobPostingInfo.location`), or `''`.
+ *
+ * This used to walk `[info.location, ...info.additionalLocations]` and return
+ * the first Swiss hit. Workday reqs are cross-posted to several countries, so
+ * that union is true while the workplace is abroad: a req worked in Frankfurt
+ * that also lists Zug resolved to Zug and went out stamped `Zug / ZG / CH`.
+ * Only the primary licenses the stamp; fail closed otherwise.
+ *
+ * Measured 2026-09-19 across the 10 published slices of the factory's
+ * consumers (eraneos 58, everest-re 1, galderma 6, georg-fischer 19, medbase
+ * 163, siemens-healthineers 3, temenos 0, trafigura 6, vontobel 32, ferring no
+ * slice): 0 misattributed records, so the union defect is LATENT. The single
+ * behaviour change is siemens-healthineers, whose 3 records have opaque
+ * requisition-site path segments (`LPN-BO`, `TOI-L-112`, `CEY-BO`) published
+ * as its `defaultCity`/`defaultCanton` (`Zurich`/`ZH`) — i.e. the HQ default
+ * firing unverifiably — and are now dropped.
+ *
+ * Exported so a call site cannot drift back to the union without breaking the
+ * test that names this rule.
  */
-function locationFromDetail(detail) {
-  const info = detail?.jobPostingInfo || {};
-  const candidates = [
-    info.location,
-    ...(Array.isArray(info.additionalLocations) ? info.additionalLocations : []),
-  ];
-  for (const candidate of candidates) {
-    const raw = locationDescriptor(candidate);
-    if (!raw || isLocationExplicitlyForeign(raw)) continue;
-    const cleaned = cleanWorkdayLocation(raw);
-    if (cleaned && inferSwissTargetCanton(cleaned)) return cleaned;
-  }
-  return '';
+export function resolveWorkdayPrimarySwissLocation(info = {}) {
+  const raw = locationDescriptor(info?.location);
+  if (!raw || isLocationExplicitlyForeign(raw)) return '';
+  const cleaned = cleanWorkdayLocation(raw);
+  return cleaned && inferSwissTargetCanton(cleaned) ? cleaned : '';
 }
 
 function detectCategory(title = '') {
@@ -286,7 +296,12 @@ export function createWorkdaySwissParser(config) {
       // Count URL loss only after the same listing-level foreign-location gate
       // used below. Ambiguous locations stay conservative; detail-only
       // geography cannot be checked once the detail URL is missing.
-      const listingRawLocation = listing.locationRaw || (strictSwiss ? '' : defaultCity);
+      // Never substitute the HQ city for an absent `locationRaw`, on EITHER
+      // path: an empty listing location carries no per-site Swiss signal, and
+      // defaulting it here would make `cleaned` non-empty and slip the posting
+      // past the guards below, stamping it with the HQ canton. Keep it empty
+      // so the guards drop it.
+      const listingRawLocation = listing.locationRaw || '';
       const detailUrl = String(listing.url || '').trim();
       if (!detailUrl) {
         if (!isLocationExplicitlyForeign(listingRawLocation)) missingDetailUrlCount += 1;
@@ -294,12 +309,6 @@ export function createWorkdaySwissParser(config) {
         continue;
       }
 
-      // In strict mode (unfiltered board) never substitute the HQ city before
-      // the location gate: an empty `locationRaw` carries no per-site Swiss
-      // signal, and defaulting it to `defaultCity` here would make `cleaned`
-      // non-empty and slip the posting past the guard below, mislabelling it as
-      // the HQ canton. Keep the raw empty so the guard drops it. The facet path
-      // (board already CH-only) keeps the benign HQ fallback.
       // Fetch detail once: besides the body it carries the real primary and
       // additional locations when the listing is an `N Locations` roll-up.
       let detail = null;
@@ -313,7 +322,7 @@ export function createWorkdaySwissParser(config) {
         detailInfo.location,
         ...(Array.isArray(detailInfo.additionalLocations) ? detailInfo.additionalLocations : []),
       ].map(locationDescriptor).filter(Boolean);
-      const detailLocation = locationFromDetail(detail);
+      const detailLocation = resolveWorkdayPrimarySwissLocation(detailInfo);
       const detailIsForeignOnly = detailLocations.length > 0
         && !detailLocation
         && detailLocations.some((value) => isLocationExplicitlyForeign(value));
@@ -321,14 +330,28 @@ export function createWorkdaySwissParser(config) {
         console.log(`  ⏭️  Skipped foreign detail location: ${detailLocations.join(' | ')} — ${title}`);
         continue;
       }
-      const rawLocation = detailLocation || listingRawLocation;
+      // Carry the PRIMARY's state through every fallback below.
+      // `resolveWorkdayPrimarySwissLocation` returns '' both when the detail has
+      // no primary at all and when it has one that was not recognised, and
+      // `detailLocation || listingRawLocation` collapsed the second case into
+      // the first — so a Swiss listing row, or the `externalPath` segment
+      // further down, could still emit the job with a Swiss locality even
+      // though the req's own primary said something else. Fail-open, and the
+      // same semantic error as a resolver that never fails, one layer up.
+      //
+      // A primary that is PRESENT but unresolved is evidence about the req, not
+      // an absence to be filled in: the only legitimate substitute is a primary
+      // that genuinely is not there.
+      const primaryState = workdayPrimaryLocationState(detailInfo);
+      const mayFallBackToListing = !primaryState.present;
+      const rawLocation = detailLocation || (mayFallBackToListing ? listingRawLocation : '');
       if (isLocationExplicitlyForeign(rawLocation)) {
         console.log(`  ⏭️  Skipped foreign location: ${rawLocation} — ${title}`);
         continue;
       }
       let cleaned = cleanWorkdayLocation(rawLocation);
       if (!cleaned && detailLocation) cleaned = detailLocation;
-      // In strict mode an empty `cleaned` means the listing exposed no usable
+      // On BOTH paths an empty `cleaned` means the listing exposed no usable
       // single Swiss location from `locationsText` — a multi-site "N Locations"
       // rollup, an unparseable string, or an absent location. Before dropping,
       // try the `externalPath` primary-location segment (Workday's stable
@@ -339,7 +362,11 @@ export function createWorkdaySwissParser(config) {
       // canton and isn't explicitly foreign, so this can only recover
       // legitimate CH jobs that would otherwise be dropped — never widens the
       // gate for tenants where `locationsText` already resolves.
-      if (strictSwiss && !cleaned) {
+      // Gated on the same primary state: this recovery exists for tenants whose
+      // `locationsText` is a rollup, NOT to overrule a primary that is present
+      // and unrecognised. Without the gate it is a second fail-open path to the
+      // very same outcome the check above closes.
+      if (!cleaned && mayFallBackToListing) {
         const pathLocation = locationFromExternalPath(listing.externalPath);
         if (
           pathLocation &&
@@ -355,20 +382,24 @@ export function createWorkdaySwissParser(config) {
       // HQ canton. None of the remaining cases carry per-site detail to
       // recover the CH location from, so drop the posting instead of
       // guessing HQ.
-      if (strictSwiss && !cleaned) {
+      if (!cleaned) {
         console.log(`  ⏭️  Skipped unresolved multi-site/empty location: ${rawLocation} — ${title}`);
         continue;
       }
-      const location = cleaned || defaultCity;
+      const location = cleaned;
       const inferredCanton = inferSwissTargetCanton(location);
-      // When the Swiss facet was applied the board is already CH-only, so a
-      // tiny village the municipality DB doesn't know still falls back to the
-      // HQ canton. When it wasn't (full board), require a confident Swiss match
-      // so non-CH roles can't leak through mislabelled as `addressCountry: CH`.
-      if (strictSwiss && !inferredCanton) {
+      // Require a confident Swiss match on BOTH paths, not just the unfiltered
+      // board: the facet only proves the tenant filtered the board, never that
+      // this req's own workplace is in Switzerland, so the HQ-canton fallback
+      // here stamped `addressCountry: CH` on a location nothing had verified.
+      // Measured 2026-09-19: 0 misattributed records in the 10 consumer
+      // slices, so this is LATENT except siemens-healthineers, whose 3 records
+      // (`LPN-BO`, `TOI-L-112`, `CEY-BO`) were published as `Zurich`/`ZH` by
+      // this very default and are now dropped.
+      if (!inferredCanton) {
         continue;
       }
-      const canton = inferredCanton || defaultCanton;
+      const canton = inferredCanton;
       const publicUrl = detailUrl;
       const employmentType = detectEmploymentType(listing.timeType || '', title);
 
