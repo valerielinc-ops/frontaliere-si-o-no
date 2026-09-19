@@ -84,6 +84,54 @@ describe('claim di persistenza a zero', () => {
   });
 });
 
+describe('i due finding della review', () => {
+  it('L478 — la grammatica del claim e case-insensitive su entrambi i lati', () => {
+    const body = '## Post-merge follow-up triage\n\ncreated/updated: 0 item; nessun bucket creato.\n';
+    expect(triageMarkerPersistenceExpectation(body).requiresBucket).toBe(false);
+  });
+
+  it('L484 — una prosa con la formula legacy non scavalca un claim NON zero', () => {
+    // Il buco: `zero outstanding items` cercato in tutto il corpo anche con un
+    // claim positivo. Il marker prometteva 2 item e il gate lo dava per vuoto.
+    const body = [
+      '## Post-merge follow-up triage',
+      '',
+      'Created/updated: 2 item; bucket non nominato.',
+      '',
+      'Nota: la run precedente aveva zero outstanding items.',
+    ].join('\n');
+    const expectation = triageMarkerPersistenceExpectation(body);
+    expect(expectation.requiresBucket).toBe(true);
+    expect(verifyTriageMarkerPersistence(body, 8928, () => null)).toBe(false);
+  });
+
+  it('la formula legacy resta valida quando NON c e alcuna riga di claim', () => {
+    const body = '## Post-merge follow-up triage: zero outstanding items.\n\nNessun candidato.\n';
+    expect(triageMarkerPersistenceExpectation(body).requiresBucket).toBe(false);
+  });
+
+  it('un conteggio non intero non e uno zero', () => {
+    const body = '## Post-merge follow-up triage\n\nCreated: 0.5 item\n';
+    expect(triageMarkerPersistenceExpectation(body).requiresBucket).toBe(true);
+  });
+
+  it('righe di claim miste zero/non-zero restano fail-closed', () => {
+    const body = '## Post-merge follow-up triage\n\nCreated: 0 issue\nCreated/updated: 2 item\n';
+    expect(triageMarkerPersistenceExpectation(body).requiresBucket).toBe(true);
+  });
+
+  it('piu bucket dichiarati e uno illeggibile: esito non positivo', () => {
+    const body = '## Post-merge follow-up triage\n\nCreated/updated: 2 item nei bucket #9102 e bucket #9182.\n';
+    const expectation = triageMarkerPersistenceExpectation(body);
+    expect(expectation.buckets).toEqual([9102, 9182]);
+    // Uno leggibile e valido, l'altro illeggibile -> null (retry), mai true.
+    const readIssue = (n: number) => (n === 9102
+      ? { number: 9102, title: 'follow-up(daily:2026-09-18): 1 items — x/y', body: '### FU-2026-09-18-001\n- Sources: PR #8928\n' }
+      : null);
+    expect(verifyTriageMarkerPersistence(body, 8928, readIssue)).not.toBe(true);
+  });
+});
+
 describe('il gemello bash dello YAML resta allineato', () => {
   // Regola #6 di AGENTS.md: un valore condiviso ha UNA sorgente, e quando i due
   // lati non possono importarsi il legame va coperto da un test. Qui il gate
@@ -99,10 +147,20 @@ describe('il gemello bash dello YAML resta allineato', () => {
     expect(yml).not.toMatch(/solo live-verification batchata/);
   });
 
-  it('lo YAML legge il conteggio sulla riga di claim', () => {
-    expect(yml).toMatch(/zero_claim=true/);
-    expect(yml).toMatch(/Created\(\/updated\)\?:\[\[:space:\]\]\*0/);
-    // E tiene ancora le due forme d'intestazione, che non hanno un conteggio.
-    expect(yml).toMatch(/zero outstanding items\|backfill skipped/);
+  it('lo YAML compone la grammatica del claim in UNA variabile condivisa', () => {
+    // La grammatica sta in `claim_head` e viene riusata sia per estrarre le
+    // righe di claim sia per leggerne il conteggio: una sola sorgente dentro il
+    // bash, allineata al gemello JS.
+    expect(yml).toMatch(/claim_head='\^\[\[:space:\]\]\*\(-\[\[:space:\]\]\+\|\\\*\[\[:space:\]\]\+\)\?Created\(\/updated\)\?:'/);
+    expect(yml).toMatch(/grep -Ei "\$claim_head"/);
+    // Case-insensitive su entrambi gli usi (finding L478).
+    expect(yml).toMatch(/grep -Eqvi "\$\{claim_head\}\[\[:space:\]\]\*0\(\[\^0-9\.\]\|\\\$\)"/);
+    expect(yml).toMatch(/grep -Eio 'bucket\[\[:space:\]\]\*:\?\[\[:space:\]\]\*#\[0-9\]\+'/);
+  });
+
+  it('le formule legacy sono ammesse SOLO senza righe di claim (finding L484)', () => {
+    // Il fallback non deve piu' essere cercato nell'intero corpo quando esiste
+    // un claim: nello YAML e' racchiuso in un gruppo con `-z "$claim_lines"`.
+    expect(yml).toMatch(/\[ -z "\$claim_lines" \][\s\S]{0,120}zero outstanding items\|backfill skipped/);
   });
 });
