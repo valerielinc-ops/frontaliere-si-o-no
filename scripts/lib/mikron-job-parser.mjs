@@ -11,7 +11,7 @@
  * rendered server-side with division, function, and location metadata.
  */
 
-import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { isSwissLocationText } from './target-swiss-locations.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
@@ -69,7 +69,7 @@ export function slugify(value = '', suffix = '') {
  * Check if a location string resolves to a Swiss site.
  */
 export function isSwissLocation(locationText = '') {
-  return isTargetSwissLocation(locationText);
+  return isSwissLocationText(locationText);
 }
 
 /**

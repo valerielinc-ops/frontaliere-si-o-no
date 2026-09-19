@@ -178,6 +178,7 @@ describe('parseMikronJobDetail', () => {
 
 describe('isSwissLocation', () => {
   it('returns true for Switzerland, Agno', () => { expect(isSwissLocation('Switzerland, Agno')).toBe(true); });
+  it('returns true for a country-only Swiss location', () => { expect(isSwissLocation('Switzerland')).toBe(true); });
   it('returns true for agno lowercase', () => { expect(isSwissLocation('agno')).toBe(true); });
   it('returns true for Ticino', () => { expect(isSwissLocation('Ticino')).toBe(true); });
   it('returns true for Boudry', () => { expect(isSwissLocation('Switzerland, Boudry')).toBe(true); });
