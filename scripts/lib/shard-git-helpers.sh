@@ -427,6 +427,27 @@ shard_delta_remove_stale_payload_paths() {
         return 0;
       };
 
+      # Keys of %removed for which $route_related->($target, key) holds.
+      # Equivalent by construction: a non-empty base matches when it equals
+      # $target, equals $target without ".html" ($target eq "$base.html"),
+      # or is a prefix followed by "/" (covers "$base/index.html" too).
+      my $route_related_keys = sub {
+        my ($target) = @_;
+        my %hit;
+        $hit{$target} = 1 if exists $removed{$target};
+        if (length($target) > 5 && substr($target, -5) eq q{.html}) {
+          my $stem = substr($target, 0, -5);
+          $hit{$stem} = 1 if exists $removed{$stem};
+        }
+        my $pos = index($target, q{/});
+        while ($pos >= 0) {
+          my $prefix = substr($target, 0, $pos);
+          $hit{$prefix} = 1 if $prefix ne q{} && exists $removed{$prefix};
+          $pos = index($target, q{/}, $pos + 1);
+        }
+        return keys %hit;
+      };
+
       open my $delete_handle, ">:raw", $delete_info_file or die "open $delete_info_file: $!";
       open my $missing_handle, ">:raw", $missing_file or die "open $missing_file: $!";
       open my $missing_reason_handle, ">:raw", $missing_reason_file or die "open $missing_reason_file: $!";
@@ -462,8 +483,13 @@ shard_delta_remove_stale_payload_paths() {
           || index($target, q{.deploy-manifest/}) == 0
           || ($scope_prefix ne q{} && $target eq "$scope_prefix.html");
         return if $is_service;
-        for my $path (keys %removed) {
-          next unless $route_related->($target, $path);
+        # Linear lookup: the removed keys route-related to $target are exactly
+        # $target itself, $target minus a trailing ".html", and every prefix
+        # of $target that ends right before a "/". Probing those in %removed
+        # yields the same set as scanning every removed key through
+        # $route_related, without the O(index x removed) scan that cost
+        # ~710 s on the ticino-it shard (373k entries x 1.4k removals).
+        for my $path ($route_related_keys->($target)) {
           $index_related{$path} = 1;
           $live_related{$path} = 1 if exists $live{$target};
           $manifest_live_related{$path} = 1 if exists $manifest_live{$target};
