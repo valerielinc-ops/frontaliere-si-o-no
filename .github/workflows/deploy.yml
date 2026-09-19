@@ -206,7 +206,7 @@ jobs:
             | node scripts/ci/production-promotion-gate.mjs approval
 
   matrix-setup:
-    needs: validate-promotion-trigger
+    needs: [validate-promotion-trigger, production-approval]
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.build.outputs.matrix }}

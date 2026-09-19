@@ -196,6 +196,7 @@ describe('production promotion admission', () => {
     expect(needs(approval)).toContain('validate-promotion-trigger');
     expect(findStep(approval, 'approval')).toBeDefined();
     expect(needs(workflow.jobs['matrix-setup'])).toContain('validate-promotion-trigger');
+    expect(needs(workflow.jobs['matrix-setup'])).toContain('production-approval');
     expect(needs(workflow.jobs['build-locale'])).toContain('production-approval');
     expect(needs(workflow.jobs.rearm)).toContain('production-approval');
     expect(workflow.jobs.rearm.if).toContain("needs.production-approval.result == 'success'");
