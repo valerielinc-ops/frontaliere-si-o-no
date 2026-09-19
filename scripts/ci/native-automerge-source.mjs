@@ -41,9 +41,32 @@ export const NATIVE_AUTOMERGE_SOURCE_FILES = Object.freeze([
   'data/loop-fleet/loop-registry.json',
 ]);
 
-const NATIVE_AUTOMERGE_EXECUTABLE_FILES = Object.freeze(
-  NATIVE_AUTOMERGE_SOURCE_FILES.filter((file) => file.endsWith('.mjs')),
-);
+/**
+ * The same trusted source list, minus the two Remote Config files, for the
+ * caller that opts a PR in from INSIDE the required `tests` job.
+ *
+ * That caller does not read Remote Config: it uses the App token already minted
+ * in its job, because `scripts/load-rc-env.mjs` may not enter `tests.yml` at all
+ * — it writes ~92 variables to `$GITHUB_ENV`, visible to every later step of the
+ * same job, and that pollution once turned 14 tests red across 11 files. The
+ * invariant is defended by `tests/ci-vitest-check-name.test.ts`; naming the
+ * loader even in a checkout cone would trip it, so the in-job profile does not
+ * fetch it. This is a SUBSET, never a relaxation: it still contains every file
+ * the gate can execute or import (the eight helpers are import-closed over this
+ * list, and the loader is only ever executed by a workflow step, never
+ * imported), and a missing or invalid one still fails the job closed.
+ */
+export const NATIVE_AUTOMERGE_IN_JOB_SOURCE_FILES = Object.freeze([
+  'scripts/ci/native-automerge-source.mjs',
+  ...NATIVE_AUTOMERGE_HELPER_FILES,
+  'data/loop-fleet/loop-registry.json',
+]);
+
+export const NATIVE_AUTOMERGE_SOURCE_PROFILES = Object.freeze({
+  full: NATIVE_AUTOMERGE_SOURCE_FILES,
+  'in-job': NATIVE_AUTOMERGE_IN_JOB_SOURCE_FILES,
+});
+
 const UNAVAILABLE_SOURCE_CODE = 'ERR_NATIVE_AUTOMERGE_SOURCE_UNAVAILABLE';
 
 function pathInsideRoot(root, file) {
@@ -83,20 +106,27 @@ function unavailableError(root, unavailable) {
  * Validate the exact files that the native gate may execute or import.
  *
  * @param {string} sourceRoot absolute or relative checkout root
- * @param {{syntaxCheck?: (file: string) => void}} options
+ * @param {{syntaxCheck?: (file: string) => void, files?: readonly string[]}} options
  * @returns {{root: string, helperDir: string, files: readonly string[]}}
  */
-export function validateNativeAutoMergeSource(sourceRoot, { syntaxCheck: check = syntaxCheck } = {}) {
+export function validateNativeAutoMergeSource(sourceRoot, {
+  syntaxCheck: check = syntaxCheck,
+  files = NATIVE_AUTOMERGE_SOURCE_FILES,
+} = {}) {
   if (typeof sourceRoot !== 'string' || sourceRoot.trim() === '') {
     throw new TypeError('root della sorgente native auto-merge mancante');
   }
   if (typeof check !== 'function') {
     throw new TypeError('syntaxCheck deve essere una funzione');
   }
+  if (!Array.isArray(files) || files.length === 0
+    || files.some((file) => !NATIVE_AUTOMERGE_SOURCE_FILES.includes(file))) {
+    throw new TypeError('lista sorgente native auto-merge non riconosciuta');
+  }
 
   const root = resolve(sourceRoot);
   const unavailable = [];
-  for (const file of NATIVE_AUTOMERGE_SOURCE_FILES) {
+  for (const file of files) {
     const absolute = pathInsideRoot(root, file);
     try {
       const stat = lstatSync(absolute);
@@ -107,7 +137,7 @@ export function validateNativeAutoMergeSource(sourceRoot, { syntaxCheck: check =
       if (contents.trim() === '') {
         throw new Error('file vuoto');
       }
-      if (NATIVE_AUTOMERGE_EXECUTABLE_FILES.includes(file)) {
+      if (file.endsWith('.mjs')) {
         check(absolute);
       } else if (file.endsWith('.json')) {
         JSON.parse(contents);
@@ -124,7 +154,7 @@ export function validateNativeAutoMergeSource(sourceRoot, { syntaxCheck: check =
   return Object.freeze({
     root,
     helperDir: join(root, 'scripts/ci'),
-    files: NATIVE_AUTOMERGE_SOURCE_FILES,
+    files: Object.freeze([...files]),
   });
 }
 
@@ -149,7 +179,12 @@ function main() {
   const sourceRoot = process.env.NATIVE_AUTOMERGE_SOURCE_ROOT
     || process.argv[2]
     || resolve(process.cwd(), NATIVE_AUTOMERGE_SOURCE_CHECKOUT_DIR);
-  const validated = validateNativeAutoMergeSource(sourceRoot);
+  const profile = process.env.NATIVE_AUTOMERGE_SOURCE_PROFILE || 'full';
+  const files = NATIVE_AUTOMERGE_SOURCE_PROFILES[profile];
+  if (!files) {
+    throw new Error(`profilo sorgente native auto-merge sconosciuto: ${profile}`);
+  }
+  const validated = validateNativeAutoMergeSource(sourceRoot, { files });
   persistNativeAutoMergeEnvironment(validated, process.env.GITHUB_ENV);
   const head = (() => {
     try {
@@ -161,7 +196,7 @@ function main() {
       return 'unknown-head';
     }
   })();
-  console.log(`Native auto-merge source validated from main checkout (${head}); ${validated.files.length} files ready.`);
+  console.log(`Native auto-merge source validated from main checkout (${head}); profile=${profile}; ${validated.files.length} files ready.`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
