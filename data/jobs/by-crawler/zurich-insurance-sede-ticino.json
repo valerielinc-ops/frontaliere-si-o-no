@@ -219,10 +219,10 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1372586657",
-      "slug": "senior-property-lease-manager-m-w-d-zurich-insurance-sede-ticino-zurich",
+      "slug": "gestore-di-proprieta-e-leasing-m-f-d-zurich-insurance-zurich-1372586657",
       "slugByLocale": {
         "de": "senior-property-lease-manager-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "it": "senior-property-lease-manager-m-w-d-zurich-insurance-sede-ticino-zurich",
+        "it": "gestore-di-proprieta-e-leasing-m-f-d-zurich-insurance-zurich-1372586657",
         "en": "senior-property-lease-manager-m-w-d-zurich-insurance-zurich-1372586657",
         "fr": "gestionnaire-principal-de-biens-et-de-location-h-f-d-zurich-insurance-zurich-1372586657"
       },
@@ -285,7 +285,15 @@
         }
       },
       "firstSeenAt": "2026-09-18T23:20:41.276Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-property-lease-manager-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-property-lease-manager-m-w-d-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1369698157",
@@ -2205,9 +2213,9 @@
     },
     {
       "id": "company-stf1cl",
-      "slug": "senior-anaplan-model-builder-fp-a-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-stf1cl",
+      "slug": "costruttore-di-modelli-anaplan-senior-fp-a-m-f-d-zurich-insurance-zurich",
       "slugByLocale": {
-        "it": "senior-anaplan-model-builder-fp-a-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-stf1cl",
+        "it": "costruttore-di-modelli-anaplan-senior-fp-a-m-f-d-zurich-insurance-zurich",
         "en": "senior-anaplan-model-builder-fp-a-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-stf1cl",
         "de": "senior-anaplan-model-builder-fp-a-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-stf1cl",
         "fr": "modele-principal-d-anaplan-fp-a-h-f-d-80-100-zurich-insurance-sede-ticino-lugano"
@@ -2262,11 +2270,13 @@
       "needsRetranslation": true,
       "previousSlugs": [
         "senior-anaplan-model-builder-fp-a-m-w-d-80-100-zurich-insurance-sede-ticino-lugano",
-        "conception-principale-de-modeles-anaplan-fp-a-h-f-d-80-100-zurich-insurance-sede-ticino-lugano"
+        "conception-principale-de-modeles-anaplan-fp-a-h-f-d-80-100-zurich-insurance-sede-ticino-lugano",
+        "senior-anaplan-model-builder-fp-a-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-stf1cl"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-anaplan-model-builder-fp-a-m-w-d-80-100-zurich-insurance-sede-ticino-lugano"
+          "senior-anaplan-model-builder-fp-a-m-w-d-80-100-zurich-insurance-sede-ticino-lugano",
+          "senior-anaplan-model-builder-fp-a-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-stf1cl"
         ],
         "fr": [
           "conception-principale-de-modeles-anaplan-fp-a-h-f-d-80-100-zurich-insurance-sede-ticino-lugano"
