@@ -216,6 +216,27 @@ describe('bounded-parallel.sh — bp_section_order', () => {
     }
   });
 
+  it('ranks by top-level entry count without walking every file of the subtree', () => {
+    // Real section subtrees are flat (one directory per job page), so the
+    // entries directly under the section root estimate its size. A deep
+    // subtree under ONE entry must not outrank three top-level pages: that is
+    // what proves the estimate no longer enumerates the whole subtree.
+    const sections = ['deep', 'flat'];
+    const dir = stubRepo(sections, { flat: 3 });
+    const deep = join(dir, 'dist', 'slug-deep', 'only-page');
+    mkdirSync(deep, { recursive: true });
+    for (let i = 0; i < 20; i++) writeFileSync(join(deep, `f${i}.html`), 'x');
+    try {
+      const out = runBash(
+        `set -uo pipefail; source '${DRIVER}'; export RUNNER_TEMP='${dir}/rt'; mkdir -p "$RUNNER_TEMP"; bp_section_order '${dir}/dist' it '${dir}'`,
+        dir,
+      );
+      expect(out.trim().split('\n')).toEqual(['flat', 'deep']);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
   it('hard-fails instead of returning an empty fan-out when the section list is empty', () => {
     const dir = stubRepo([], {});
     try {

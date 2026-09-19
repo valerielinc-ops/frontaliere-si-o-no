@@ -3,6 +3,7 @@ import type { PlateVehicleType } from './types';
 import { PLATE_AUCTION_BASE_BY_LOCALE } from '../../scripts/lib/plateAuctionSections.mjs';
 
 export type PlateAuctionPageView = 'hub' | 'canton' | 'directory' | 'detail' | 'rankings';
+export const PLATE_AUCTION_INDEX_PAGE_SIZE = 48;
 
 const BASE_BY_LOCALE = PLATE_AUCTION_BASE_BY_LOCALE as Record<Locale, string>;
 
@@ -37,11 +38,13 @@ const CANTON_SLUGS: Record<string, Record<Locale, string>> = {
 
 const RANKING_SEGMENT: Record<Locale, string> = { it: 'classifiche', en: 'rankings', de: 'ranglisten', fr: 'classements' };
 const DIRECTORY_SEGMENT: Record<Locale, string> = { it: 'catalogo', en: 'catalogue', de: 'katalog', fr: 'catalogue' };
+const CANTON_PAGE_SEGMENT: Record<Locale, string> = { it: 'pagina', en: 'page', de: 'seite', fr: 'page' };
 
 export interface PlateAuctionPath {
   locale: Locale;
   view: PlateAuctionPageView;
   canton?: string;
+  page?: number;
   plate?: string;
   vehicleType?: PlateVehicleType;
 }
@@ -62,6 +65,18 @@ function parseDetailPlateSegment(segment: string): { plate: string; vehicleType?
     if (segment.endsWith(suffix)) return { plate: segment.slice(0, -suffix.length).toUpperCase(), vehicleType };
   }
   return { plate: segment.toUpperCase() };
+}
+
+function cantonPageSegment(locale: Locale, page: number): string {
+  return `${CANTON_PAGE_SEGMENT[locale]}-${page}`;
+}
+
+function parseCantonPageSegment(segment: string, locale: Locale): number | null | undefined {
+  const prefix = `${CANTON_PAGE_SEGMENT[locale]}-`;
+  if (!segment.startsWith(prefix)) return undefined;
+  const match = segment.match(new RegExp(`^${prefix}(\\d+)$`));
+  const page = match ? Number(match[1]) : Number.NaN;
+  return Number.isSafeInteger(page) && page >= 2 ? page : null;
 }
 
 function localeAndParts(pathname: string): { locale: Locale; parts: string[] } | null {
@@ -94,12 +109,14 @@ export function buildPlateAuctionPath({
   locale,
   view = 'hub',
   canton,
+  page,
   plate,
   vehicleType,
 }: {
   locale: Locale;
   view?: PlateAuctionPageView;
   canton?: string;
+  page?: number;
   plate?: string;
   vehicleType?: PlateVehicleType;
 }): string {
@@ -108,7 +125,8 @@ export function buildPlateAuctionPath({
   if (!canton) return `${base}/`;
   const cantonSlug = cantonAuctionSlug(canton, locale) || canton.toLowerCase();
   if (view === 'directory') return `${base}/${cantonSlug}/${DIRECTORY_SEGMENT[locale]}/`;
-  return `${base}/${cantonSlug}${view === 'detail' && plate ? `/${encodeURIComponent(detailPlateSegment(plate, vehicleType))}` : ''}/`;
+  const pagePath = view === 'canton' && Number.isSafeInteger(page) && page >= 2 ? `/${cantonPageSegment(locale, page)}` : '';
+  return `${base}/${cantonSlug}${pagePath}${view === 'detail' && plate ? `/${encodeURIComponent(detailPlateSegment(plate, vehicleType))}` : ''}/`;
 }
 
 export function parsePlateAuctionPath(pathname: string): PlateAuctionPath | null {
@@ -120,7 +138,11 @@ export function parsePlateAuctionPath(pathname: string): PlateAuctionPath | null
   const canton = cantonCodeFromAuctionSlug(rest[0]);
   if (!canton) return null;
   if (rest[1] === DIRECTORY_SEGMENT[parsed.locale]) return { locale: parsed.locale, view: 'directory', canton };
-  if (rest[1]) return { locale: parsed.locale, view: 'detail', canton, ...parseDetailPlateSegment(rest[1]) };
+  if (rest[1]) {
+    const page = parseCantonPageSegment(rest[1], parsed.locale);
+    if (page !== undefined) return page === null ? null : { locale: parsed.locale, view: 'canton', canton, page };
+    return { locale: parsed.locale, view: 'detail', canton, ...parseDetailPlateSegment(rest[1]) };
+  }
   return { locale: parsed.locale, view: 'canton', canton };
 }
 
