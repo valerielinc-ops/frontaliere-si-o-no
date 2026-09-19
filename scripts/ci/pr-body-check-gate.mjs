@@ -26,6 +26,11 @@ import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
 import { hookStdinTimeoutMs, readHookStdin } from './lib/hook-stdin.mjs';
+import {
+  commandVariables,
+  expandShellValue,
+  findPrBodyWriteCommand,
+} from './lib/hook-command-parser.mjs';
 
 export { hookStdinTimeoutMs, readHookStdin };
 import {
@@ -72,7 +77,19 @@ export function describePrBodySource(command, cwd = process.cwd()) {
   const cmd = String(command ?? '');
   const fileMatch = cmd.match(BODY_FILE_RE);
   if (fileMatch) {
-    const path = fileMatch[1] ?? fileMatch[2] ?? fileMatch[3];
+    const declared = fileMatch[1] ?? fileMatch[2] ?? fileMatch[3];
+    const expansion = expandShellValue(declared, commandVariables(cmd).variables);
+    if (!expansion.ok) {
+      return {
+        kind: 'body-file',
+        ok: false,
+        cwd,
+        path: declared,
+        missing: expansion.missing,
+        reason: unexpandedReason(declared, expansion.missing),
+      };
+    }
+    const path = expansion.value;
     const resolved = resolve(cwd, path);
     try {
       readFileSync(resolved, 'utf8');
@@ -101,6 +118,24 @@ export function describePrBodySource(command, cwd = process.cwd()) {
 }
 
 /**
+ * The one message that has to be precise: «path non leggibile» sent two
+ * agents hunting for a missing file on 2026-09-20, when the file existed and
+ * the variable simply never reached the hook.
+ *
+ * @param {string} declared the `--body-file` argument as written
+ * @param {string[]} missing variable names the gate could not resolve
+ */
+export function unexpandedReason(declared, missing = []) {
+  const names = missing.length ? missing.map((name) => `$${name}`).join(', ') : 'una variabile';
+  return (
+    `il path contiene ${names}, che questo gate non puo' risolvere: legge la riga di comando, non la esegue, `
+    + "e non vede l'ambiente della tua shell. "
+    + `Assegna la variabile NELLO STESSO comando (\`${missing[0] ?? 'BODY'}=/percorso/body.md gh pr create --body-file "$${missing[0] ?? 'BODY'}" ...\`) `
+    + `oppure scrivi il path letterale al posto di \`${declared}\`.`
+  );
+}
+
+/**
  * Best-effort extraction of the PR body text from a `gh pr create` shell
  * command string. Returns `undefined` when no recognizable `--body` /
  * `--body-file` argument is found (caller should fail-safe / allow).
@@ -116,9 +151,15 @@ export function extractPrBody(command, cwd = process.cwd()) {
   // --body-file <path> | --body-file=<path> (quoted or bare)
   const fileMatch = command.match(BODY_FILE_RE);
   if (fileMatch) {
-    const path = fileMatch[1] ?? fileMatch[2] ?? fileMatch[3];
+    const declared = fileMatch[1] ?? fileMatch[2] ?? fileMatch[3];
+    // A `"$BODY"` written on the same command line is resolvable: the
+    // assignment is right there in the text the hook was handed. Only a
+    // variable assigned in some EARLIER tool call stays unknown, and that is
+    // the case `describePrBodySource` names for the caller.
+    const expansion = expandShellValue(declared, commandVariables(command).variables);
+    if (!expansion.ok) return undefined;
     try {
-      return readFileSync(resolve(cwd, path), 'utf8');
+      return readFileSync(resolve(cwd, expansion.value), 'utf8');
     } catch {
       return undefined; // unreadable path → can't verify, fail-safe
     }
@@ -190,6 +231,14 @@ export function validatePrBody(body, options = {}) {
  */
 export function isPrBodyWriteCommand(command) {
   const cmd = String(command ?? '');
+  const found = findPrBodyWriteCommand(cmd);
+  if (found) return true;
+
+  // Unknown shell syntax → the lexer refuses to guess, so fall back to the
+  // historical conservative grep. Blocking a command this gate cannot parse
+  // is the safe half of the trade; silently passing a real body write is not.
+  const parsable = commandVariables(cmd).ok;
+  if (parsable) return false;
   if (/\bgh\s+pr\s+create\b/.test(cmd)) return true;
   if (!/\bgh\s+pr\s+edit\b/.test(cmd)) return false;
   return /(?:--body(?:-file)?|-b|-F)(?:[=\s]|$)/.test(cmd);
@@ -387,10 +436,10 @@ async function main() {
     process.exit(0); // stdin failure → fail-safe
   }
 
-  const isBodyWrite = isPrBodyWriteCommand(command);
-  if (!command.includes('gh pr create')) {
-    if (!isBodyWrite) process.exit(0);
-  }
+  // Parsed detection, not a grep over the whole tool call: `gh pr edit …
+  // --body-file x.md` quoted inside a heredoc (a commit message, a brief) is
+  // text, and blocking it stops work this gate has no business stopping.
+  if (!isPrBodyWriteCommand(command)) process.exit(0);
 
   let body;
   try {
@@ -404,8 +453,16 @@ async function main() {
   }
 
   if (body === undefined) {
+    // Say WHICH of the three failures happened. «path non leggibile» sent two
+    // agents looking for a missing file on 2026-09-20 when the file was there
+    // and only the variable had not reached the hook.
+    let diagnosis;
+    try {
+      diagnosis = describePrBodySource(command, targetCwd);
+    } catch { /* diagnosis is additive: never turn it into the failure */ }
     process.stderr.write(
       '\n🚫 pr-body-check-gate: body PR mancante o non leggibile; scrittura bloccata.\n' +
+        (diagnosis?.reason ? `Causa: ${diagnosis.reason}\n` : '') +
         'Usa `--body-file <path>` con un file leggibile, come il check remoto.\n',
     );
     process.exit(EXIT_BLOCK);

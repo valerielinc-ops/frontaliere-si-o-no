@@ -15,8 +15,10 @@ import { join } from 'node:path';
 import { resolve } from 'node:path';
 import {
   BODY_FILE_INFRA,
+  describePrBodySource,
   extractPrBody,
   hookStdinTimeoutMs,
+  isPrBodyWriteCommand,
   readHookStdin,
   validatePrBody,
 } from '../scripts/ci/pr-body-check-gate.mjs';
@@ -754,5 +756,95 @@ describe('pr-body-check-gate — never hangs on an open stdin', () => {
     expect(hookStdinTimeoutMs({ PR_BODY_GATE_STDIN_TIMEOUT_MS: '250' })).toBe(250);
     expect(hookStdinTimeoutMs({ PR_BODY_GATE_STDIN_TIMEOUT_MS: 'nope' })).toBe(5000);
     expect(hookStdinTimeoutMs({})).toBe(5000);
+  });
+});
+
+/**
+ * A gate that reads a command line without running it has two failure modes
+ * that cost agents real time on 2026-09-20: it cannot see a variable, and it
+ * cannot tell a command from a quoted mention of one.
+ */
+describe('pr-body-check-gate: variables and quoted mentions', () => {
+  const dirs: string[] = [];
+  afterEach(() => {
+    while (dirs.length) rmSync(dirs.pop()!, { recursive: true, force: true });
+  });
+
+  const GH_CREATE = ['gh', 'pr', 'create'].join(' ');
+  const GH_EDIT = ['gh', 'pr', 'edit'].join(' ');
+
+  function bodyFile(content = BOTH_HEADERS) {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-var-'));
+    dirs.push(dir);
+    const path = join(dir, 'body.md');
+    writeFileSync(path, content, 'utf8');
+    return path;
+  }
+
+  it('resolves a --body-file variable assigned in the same command', () => {
+    const path = bodyFile();
+    const result = runGate(`BODY=${path} ${GH_CREATE} --title t --body-file "$BODY"`);
+    expect(result.status).toBe(0);
+  });
+
+  it('resolves it when the assignment is its own statement', () => {
+    const path = bodyFile();
+    const result = runGate(`BODY=${path}; ${GH_CREATE} --title t --body-file "$BODY"`);
+    expect(result.status).toBe(0);
+  });
+
+  it('still judges the CONTENT behind the variable, it does not wave it through', () => {
+    const path = bodyFile(MISSING_NON);
+    const result = runGate(`BODY=${path} ${GH_CREATE} --title t --body-file "$BODY"`);
+    expect(result.status).toBe(EXIT_BLOCK);
+    expect(result.stderr).toMatch(/non conforme|missing/i);
+  });
+
+  it('names the unresolved variable instead of blaming the path', () => {
+    const result = runGate(`${GH_CREATE} --title t --body-file "$BODY"`);
+    expect(result.status).toBe(EXIT_BLOCK);
+    expect(result.stderr).toContain('$BODY');
+    expect(result.stderr).toContain("non vede l'ambiente della tua shell");
+  });
+
+  it('extractPrBody expands a same-command assignment', () => {
+    const path = bodyFile();
+    expect(extractPrBody(`BODY=${path} ${GH_CREATE} --body-file "$BODY"`)).toBe(BOTH_HEADERS);
+    expect(extractPrBody(`${GH_CREATE} --body-file "$NOWHERE"`)).toBeUndefined();
+  });
+
+  it('describePrBodySource reports the missing variable by name', () => {
+    const described = describePrBodySource(`${GH_CREATE} --body-file "$BODY"`);
+    expect(described).toMatchObject({ kind: 'body-file', ok: false, missing: ['BODY'] });
+    expect(described.reason).toContain('$BODY');
+  });
+
+  it('does not block a command that merely QUOTES a body write in a heredoc', () => {
+    // Reproduced twice on 2026-09-20: a commit message documenting this gate.
+    const command = [
+      "git commit -F - <<'MSG'",
+      'fix(hooks): document the gate',
+      '',
+      `  ${GH_EDIT} 1599 --repo owner/name --body-file /tmp/body.md`,
+      'MSG',
+    ].join('\n');
+    expect(isPrBodyWriteCommand(command)).toBe(false);
+    expect(runGate(command).status).toBe(0);
+  });
+
+  it('does not block on a body flag that is only an argument value', () => {
+    expect(isPrBodyWriteCommand(`echo ${GH_CREATE} --body-file x.md`)).toBe(false);
+    expect(isPrBodyWriteCommand(`git log --grep "${GH_EDIT} --body-file x.md"`)).toBe(false);
+  });
+
+  it('still recognizes the real write, including behind an assignment prefix', () => {
+    expect(isPrBodyWriteCommand(`${GH_CREATE} --title t --body-file b.md`)).toBe(true);
+    expect(isPrBodyWriteCommand(`GH_TOKEN=x ${GH_EDIT} 12 --body-file b.md`)).toBe(true);
+    expect(isPrBodyWriteCommand(`${GH_EDIT} 12 --add-label ready`)).toBe(false);
+  });
+
+  it('keeps the conservative grep when the shell syntax cannot be parsed', () => {
+    // An unterminated quote makes the lexer refuse; blocking is the safe half.
+    expect(isPrBodyWriteCommand(`${GH_CREATE} --title "t --body-file b.md`)).toBe(true);
   });
 });

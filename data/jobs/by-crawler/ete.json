@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ete",
-  "assembledAt": "2026-09-18T20:53:55.750Z",
+  "assembledAt": "2026-09-19T22:53:28.804Z",
   "jobs": [
     {
       "id": "ete-8e1b044575dd",
@@ -34,7 +34,7 @@
       "url": "https://www.ete.ch/jobs/operateur-logistique-maintenance-magasin-automatise/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T13:57:04.554Z",
+      "crawledAt": "2026-09-19T22:53:24.340Z",
       "addressLocality": "Avenches",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -73,6 +73,7 @@
         "operateur-logistique-038-maintenance-magasin-automatise-emil-egger-ag-avenches-8e1b0445"
       ],
       "firstSeenAt": "2026-08-23T21:34:46.434Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -119,7 +120,7 @@
       "url": "https://www.ete.ch/jobs/lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.551Z",
+      "crawledAt": "2026-09-19T22:53:24.338Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -156,7 +157,11 @@
         "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
         "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-6517d934"
       ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1867,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-23T21:34:46.129Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -169,10 +174,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1867
+      }
     },
     {
       "id": "ete-dad26f9be703",
@@ -206,7 +208,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-chauffeuse-fuer-kat-c-e-fuer-hebebuehnen-und-baumaschinen-sattelschlepper-100-2/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.549Z",
+      "crawledAt": "2026-09-19T22:53:24.337Z",
       "addressLocality": "Bassersdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -291,7 +293,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-chauffeuse-fuer-kat-c-e-fuer-hebebuehnen-und-baumaschinen-sattelschlepper-100/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.543Z",
+      "crawledAt": "2026-09-19T22:53:24.334Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -307,6 +309,12 @@
       "applyUrl": "https://www.ete.ch/jobs/chauffeur-chauffeuse-fuer-kat-c-e-fuer-hebebuehnen-und-baumaschinen-sattelschlepper-100/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "chauffeur-chauffeuse-per-kat-c-e-per-hebebuhnen-e-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen-feec8724"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-chauffeuse-per-kat-c-e-per-hebebuhnen-e-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen",
@@ -323,13 +331,11 @@
           "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete"
         ]
       },
-      "previousSlugs": [
-        "chauffeur-chauffeuse-per-kat-c-e-per-hebebuhnen-e-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen",
-        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete",
-        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen",
-        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen-feec8724"
-      ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1831,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-09-01T05:44:50.244Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -342,10 +348,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1831
+      }
     },
     {
       "id": "ete-4f890e1dbbc4",
@@ -379,7 +382,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-c-e-transports-speciaux-h-f-11/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T13:57:04.538Z",
+      "crawledAt": "2026-09-19T22:53:24.333Z",
       "addressLocality": "Avenches",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -467,7 +470,7 @@
       "url": "https://www.ete.ch/jobs/sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-2/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.535Z",
+      "crawledAt": "2026-09-19T22:53:24.332Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -553,7 +556,7 @@
       "url": "https://www.ete.ch/jobs/lehre-zum-logistikerin-efz-start-ab-sommer-2027/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.534Z",
+      "crawledAt": "2026-09-19T22:53:24.331Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -589,7 +592,11 @@
         "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
         "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-harkingen-9499465d"
       ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1908,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-23T21:34:44.604Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -602,10 +609,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1908
+      }
     },
     {
       "id": "ete-b3aa4e179045",
@@ -639,7 +643,7 @@
       "url": "https://www.ete.ch/jobs/mitarbeiterin-gueterumschlag-dauerhafte-nachtschicht-2/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.531Z",
+      "crawledAt": "2026-09-19T22:53:24.329Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -708,7 +712,7 @@
       "companyDomain": "ete.ch",
       "title": "Transport Disponent/in",
       "titleByLocale": {
-        "it": "Smaltimento dei trasporti",
+        "it": "Transport Disponent/in",
         "en": "Transport Disposal",
         "de": "Transport Disponent/in",
         "fr": "Détecteur de transport"
@@ -725,7 +729,7 @@
       "url": "https://www.ete.ch/jobs/transport-disponent-in-2/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.512Z",
+      "crawledAt": "2026-09-19T22:53:24.328Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -741,6 +745,13 @@
       "applyUrl": "https://www.ete.ch/jobs/transport-disponent-in-2/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "transport-disponent-in-emil-egger-ag-harkingen",
+        "transport-disponent-in-ete-ch-harkingen",
+        "smaltimento-dei-trasporti-emil-egger-ag-harkingen",
+        "servizi-di-trasporto-emil-egger-ag-harkingen",
+        "transport-disponent-in-emil-egger-ag-harkingen-8f9f30e9"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "transport-disponent-in-emil-egger-ag-harkingen",
@@ -759,13 +770,6 @@
           "transport-disponent-in-ete-ch-harkingen"
         ]
       },
-      "previousSlugs": [
-        "transport-disponent-in-emil-egger-ag-harkingen",
-        "transport-disponent-in-ete-ch-harkingen",
-        "smaltimento-dei-trasporti-emil-egger-ag-harkingen",
-        "servizi-di-trasporto-emil-egger-ag-harkingen",
-        "transport-disponent-in-emil-egger-ag-harkingen-8f9f30e9"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T05:44:48.734Z",
       "salaryMin": 68500,
@@ -814,7 +818,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-kat-c-e-fuer-wechselpritschen-100-m-w-d-4/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.510Z",
+      "crawledAt": "2026-09-19T22:53:24.326Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -899,7 +903,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-kat-c-e-fuer-wechselpritschen-100-m-w-d-3/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.506Z",
+      "crawledAt": "2026-09-19T22:53:24.325Z",
       "addressLocality": "Bassersdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -915,6 +919,12 @@
       "applyUrl": "https://www.ete.ch/jobs/chauffeur-kat-c-e-fuer-wechselpritschen-100-m-w-d-3/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "chauffeur-kat-c-e-per-wechselpritschen-100-m-w-d-emil-egger-ag-bassersdorf",
+        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch-bassersdorf",
+        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-bassersdorf",
+        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-bassersdorf-03c5de57"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-kat-c-e-per-wechselpritschen-100-m-w-d-emil-egger-ag-bassersdorf",
@@ -931,13 +941,11 @@
           "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch-bassersdorf"
         ]
       },
-      "previousSlugs": [
-        "chauffeur-kat-c-e-per-wechselpritschen-100-m-w-d-emil-egger-ag-bassersdorf",
-        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch-bassersdorf",
-        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-bassersdorf",
-        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-bassersdorf-03c5de57"
-      ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1330,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-09-01T05:44:48.129Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -950,10 +958,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1330
+      }
     },
     {
       "id": "ete-08d39e2960e3",
@@ -987,7 +992,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-chauffeuse-fuer-kat-c-e-fuer-spezialtransporte-fuer-offenen-sattelschlepper-100/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.503Z",
+      "crawledAt": "2026-09-19T22:53:24.323Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1041,94 +1046,6 @@
       }
     },
     {
-      "id": "ete-207db82bf35c",
-      "slug": "disponent-in-lw-krane-100-emil-egger-ag-st-gallen-207db82b",
-      "slugByLocale": {
-        "it": "disponent-in-lw-krane-100-emil-egger-ag-lugano",
-        "en": "equipped-in-lw-krane-100-emil-egger-ag-lugano",
-        "de": "ausgestattet-in-lw-krane-100-emil-egger-ag-lugano",
-        "fr": "equipe-en-lw-krane-100-emil-egger-ag-lugano"
-      },
-      "slugDisambiguator": "207db82b",
-      "company": "Emil Egger AG",
-      "companyKey": "ete",
-      "companyDomain": "ete.ch",
-      "title": "Disponent / in LW-Krane 100%",
-      "titleByLocale": {
-        "it": "dotato / in gru LW 100%",
-        "en": "Equipped / in LW-Krane 100%",
-        "de": "Disponent / in LW-Krane 100%",
-        "fr": "Équipé / en LW-Krane 100%"
-      },
-      "description": "Jobbeschreibung Die Emil Egger Gruppe ist in der Schweiz der führende Anbieter von Schwergut-Logistik. In den Bereichen Kranarbeiten, Spezialtransporte, Industrieumzüge und Miethebebühnen sind über 230 Mitarbeitende beschäftigt. Mit dem umfassenden Spezial Know-how werden tagtäglich individuelle und innovative Kundenlösungen erarbeitet. Für unseren Hauptsitz in St. Gallen suchen wir eine engagierte Persönlichkeit für die Einsatz- und Transportplanung. In dieser Funktion koordinierst und planst du komplexe Kran- und Transportaufträge und stellst einen reibungslosen operativen Ablauf sicher. In dieser Schlüsselrolle bist du das organisatorische Herzstück zwischen Kunden, Chauffeuren und internen Projektteams. \n• Aufgaben Du planst und koordinierst den täglichen Einsatz unserer LKW-Krane und Teams Du stellst sicher, dass Fahrzeuge, Personal und Material effizient eingesetzt werden Du hältst alle Fäden in der Hand und sorgst für einen reibungslosen Tagesablauf Du kommunizierst aktiv mit Kunden, Fahrern und Projektleitern und findest schnelle, pragmatische Lösungen Du optimierst laufend die Auslastung unserer Ressourcen Wir erwarten Eine abgeschlossene technische oder kaufmännische Grundausbildung Erfahrung in Logistik, Transport oder operativer Planung ist von Vorteil Begeisterung für Technik, Krane, LKWs und anspruchsvolle Abläufe Du denkst strukturiert, handelst lösungsorientiert und behältst auch in hektischen Situationen den Überblick Sehr gute Deutschkenntnisse in Wort und Schrift \n• Wir bieten Eine verantwortungsvolle Rolle mit direktem Einfluss auf den operativen Erfolg Ein vielseitiges Arbeitsumfeld mit täglich neuen Herausforderungen Moderne Arbeitsmittel und Infrastruktur auf aktuellem Stand Ein eingespieltes, unterstützendes Team mit familiärer Unternehmenskultur (Du-Kultur) Attraktive Anstellungsbedingungen und zeitgemässe Sozialleistungen Kostenlose Parkmöglichkeiten direkt am Standort Wenn du Lust hast, in einem technisch spannenden Umfeld Verantwortung zu übernehmen und aktiv mitzudenken statt nur abzuarbeiten, dann bist du bei uns richtig. --> -->",
-      "descriptionByLocale": {
-        "it": "Il Gruppo Emil Egger è il fornitore leader della logistica dei beni pesanti in Svizzera. Nei settori dei lavori di gru, dei trasporti speciali, delle rimozioni industriali e degli impianti di noleggio, sono impiegati più di 230 dipendenti. Con il know-how speciale completo, le soluzioni clienti individuali e innovative vengono sviluppate ogni giorno. Per la nostra sede a St. Gallen, stiamo cercando una personalità impegnata per la pianificazione del trasporto e della distribuzione. In questa funzione, coordinare e pianificare ordini di gru e trasporto complessi e garantire un processo operativo regolare. In questo ruolo chiave, sei il centro organizzativo tra clienti, autista e team di progetto interni.\n• Pianifica e coordina l'uso quotidiano delle nostre gru e dei nostri team Assicurarsi che veicoli, personale e materiali vengano utilizzati in modo efficiente Tenere tutte le stringhe in mano e garantire una routine quotidiana liscia Si comunica attivamente con clienti, piloti e project manager e trovare soluzioni rapide e pragmatiche Ottimizzare continuamente l'utilizzo delle nostre risorse Ci aspettiamo che una completa esperienza di formazione di base tecnica o commerciale nella logistica, nei trasporti o nella pianificazione operativa sia di vantaggio per la tecnologia, gru, camion e processi esigenti Pensi strutturato, agire orientato alla soluzione e mantenere la panoramica anche in situazioni frenetiche Molto buona conoscenza del tedesco in parola e scrittura\n• Offriamo un ruolo responsabile con influenza diretta sul successo operativo Un ambiente di lavoro versatile con nuove sfide quotidiane Attrezzature e infrastrutture di lavoro moderne a livello attuale Un team consolidato e di supporto con una cultura familiare (du-culture) Condizioni di lavoro attraenti e vantaggi sociali contemporanei Possibilità di parcheggio gratuito direttamente in loco Se ti piace assumerti la responsabilità in un ambiente tecnicamente eccitante e pensare attivamente invece di lavorare, allora hai ragione con noi. - > >",
-        "en": "The Emil Egger Group is the leading provider of heavy goods logistics in Switzerland. In the areas of crane work, special transports, industrial removals and rental lifts, more than 230 employees are employed. With the comprehensive special know-how, individual and innovative customer solutions are developed every day. For our headquarters in St. Gallen, we are looking for a committed personality for deployment and transport planning. In this function, you coordinate and plan complex crane and transport orders and ensure a smooth operational process. In this key role, you are the organizational centerpiece between customers, chauffeurs and internal project teams.\n• You plan and coordinate the daily use of our truck cranes and teams You ensure that vehicles, personnel and materials are used efficiently You hold all the strings in your hand and ensure a smooth daily routine You actively communicate with customers, drivers and project managers and find fast, pragmatic solutions You continuously optimize the utilization of our resources We expect a completed technical or commercial basic training experience in logistics, transport or operational planning is of advantage enthusiasm for technology, cranes, trucks and demanding processes You think structured, act solution-oriented and keep the overview even in hectic situations Very good knowledge of German in word and writing\n• We offer a responsible role with direct influence on operational success A versatile working environment with daily new challenges Modern work equipment and infrastructure at the current level A well-established, supportive team with a family culture (du-culture) Attractive employment conditions and contemporary social benefits Free parking opportunities directly at the location If you feel like taking on responsibility in a technically exciting environment and thinking actively instead of just working, then you are right with us. --> -->>",
-        "de": "Jobbeschreibung Die Emil Egger Gruppe ist in der Schweiz der führende Anbieter von Schwergut-Logistik. In den Bereichen Kranarbeiten, Spezialtransporte, Industrieumzüge und Miethebebühnen sind über 230 Mitarbeitende beschäftigt. Mit dem umfassenden Spezial Know-how werden tagtäglich individuelle und innovative Kundenlösungen erarbeitet. Für unseren Hauptsitz in St. Gallen suchen wir eine engagierte Persönlichkeit für die Einsatz- und Transportplanung. In dieser Funktion koordinierst und planst du komplexe Kran- und Transportaufträge und stellst einen reibungslosen operativen Ablauf sicher. In dieser Schlüsselrolle bist du das organisatorische Herzstück zwischen Kunden, Chauffeuren und internen Projektteams. \n• Aufgaben Du planst und koordinierst den täglichen Einsatz unserer LKW-Krane und Teams Du stellst sicher, dass Fahrzeuge, Personal und Material effizient eingesetzt werden Du hältst alle Fäden in der Hand und sorgst für einen reibungslosen Tagesablauf Du kommunizierst aktiv mit Kunden, Fahrern und Projektleitern und findest schnelle, pragmatische Lösungen Du optimierst laufend die Auslastung unserer Ressourcen Wir erwarten Eine abgeschlossene technische oder kaufmännische Grundausbildung Erfahrung in Logistik, Transport oder operativer Planung ist von Vorteil Begeisterung für Technik, Krane, LKWs und anspruchsvolle Abläufe Du denkst strukturiert, handelst lösungsorientiert und behältst auch in hektischen Situationen den Überblick Sehr gute Deutschkenntnisse in Wort und Schrift \n• Wir bieten Eine verantwortungsvolle Rolle mit direktem Einfluss auf den operativen Erfolg Ein vielseitiges Arbeitsumfeld mit täglich neuen Herausforderungen Moderne Arbeitsmittel und Infrastruktur auf aktuellem Stand Ein eingespieltes, unterstützendes Team mit familiärer Unternehmenskultur (Du-Kultur) Attraktive Anstellungsbedingungen und zeitgemässe Sozialleistungen Kostenlose Parkmöglichkeiten direkt am Standort Wenn du Lust hast, in einem technisch spannenden Umfeld Verantwortung zu übernehmen und aktiv mitzudenken statt nur abzuarbeiten, dann bist du bei uns richtig. --> -->",
-        "fr": "Le Groupe Emil Egger est le premier fournisseur de logistique de marchandises lourdes en Suisse. Dans les domaines du travail des grues, des transports spéciaux, des déménagements industriels et des ascenseurs de location, plus de 230 employés sont employés. Grâce au savoir-faire complet, des solutions client individuelles et innovantes sont développées chaque jour. Pour notre siège à St. Gallen, nous recherchons une personnalité engagée pour le déploiement et la planification des transports. Dans cette fonction, vous coordonnez et planifiez des commandes de grue et de transport complexes et assurez un processus opérationnel en douceur. Dans ce rôle clé, vous êtes la pièce maîtresse de l'organisation entre clients, chauffeurs et équipes internes de projet.\n• Vous planifiez et coordonnez l'utilisation quotidienne de nos grues et équipes de camions Vous assurez que les véhicules, le personnel et le matériel sont utilisés efficacement Vous maintenez toutes les cordes dans votre main et vous assurez une routine quotidienne fluide Vous communiquez activement avec les clients, les pilotes et les gestionnaires de projets et trouvez des solutions rapides et pragmatiques Vous optimisez en permanence l'utilisation de nos ressources Nous nous attendons à une formation de base technique ou commerciale complète dans la logistique, le transport ou la planification opérationnelle est d'un enthousiasme d'avantage pour la technologie, les grues, les camions et les processus exigeants Vous pensez structuré, agir orienté solution et garder l'aperçu même dans des situations mouvementées Très bonne connaissance de l'allemand en paroles et en écriture\n• Nous offrons un rôle responsable avec une influence directe sur la réussite opérationnelle Un environnement de travail polyvalent avec de nouveaux défis quotidiens Équipement et infrastructure de travail modernes au niveau actuel Une équipe bien établie et solidaire avec une culture familiale (du-culture) Conditions d'emploi attrayantes et avantages sociaux contemporains Possibilités de stationnement gratuites directement sur place Si vous avez envie d'assumer la responsabilité dans un environnement techniquement passionnant et de penser activement au lieu de travailler, alors vous avez raison avec nous. -> -->>"
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://www.ete.ch/jobs/disponent-in-lw-krane-100-2/",
-      "source": "Emil Egger AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.501Z",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://www.ete.ch/jobs/disponent-in-lw-krane-100-2/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "it": [
-          "disponent-in-lw-krane-100-ete-ch",
-          "disponent-in-lw-krane-100-emil-egger-ag-lugano",
-          "disponent-in-industrieumzuge-100-ete-ch-st-gallen",
-          "disponent-in-industrieumzuge-100-emil-egger-ag-st-gallen",
-          "disponent-in-lw-krane-100-emil-egger-ag-st-gallen-207db82b"
-        ],
-        "de": [
-          "ausgestattet-in-lw-krane-100-emil-egger-ag-lugano",
-          "disponent-in-industrieumzuge-100-ete-ch-st-gallen",
-          "disponent-in-lw-krane-100-emil-egger-ag-st-gallen-207db82b"
-        ],
-        "fr": [
-          "disponent-in-industrieumzuge-100-emil-egger-ag-st-gallen"
-        ]
-      },
-      "previousSlugs": [
-        "disponent-in-lw-krane-100-ete-ch",
-        "ausgestattet-in-lw-krane-100-emil-egger-ag-lugano",
-        "disponent-in-lw-krane-100-emil-egger-ag-lugano",
-        "disponent-in-industrieumzuge-100-ete-ch-st-gallen",
-        "disponent-in-industrieumzuge-100-emil-egger-ag-st-gallen",
-        "disponent-in-lw-krane-100-emil-egger-ag-st-gallen-207db82b"
-      ],
-      "firstSeenAt": "2026-08-23T21:34:42.782Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "ete-7a440ff68edb",
       "slug": "mecanicien-machines-de-chantier-agricole-h-f-emil-egger-ag-avenches-7a440ff6",
       "slugByLocale": {
@@ -1160,7 +1077,7 @@
       "url": "https://www.ete.ch/jobs/mecanicien-machines-de-chantier-agricoleh-f/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T13:57:04.499Z",
+      "crawledAt": "2026-09-19T22:53:24.321Z",
       "addressLocality": "Avenches",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1210,6 +1127,95 @@
       }
     },
     {
+      "id": "ete-207db82bf35c",
+      "slug": "disponent-in-lw-krane-100-emil-egger-ag-st-gallen-207db82b",
+      "slugByLocale": {
+        "it": "disponent-in-lw-krane-100-emil-egger-ag-lugano",
+        "en": "equipped-in-lw-krane-100-emil-egger-ag-lugano",
+        "de": "ausgestattet-in-lw-krane-100-emil-egger-ag-lugano",
+        "fr": "equipe-en-lw-krane-100-emil-egger-ag-lugano"
+      },
+      "slugDisambiguator": "207db82b",
+      "company": "Emil Egger AG",
+      "companyKey": "ete",
+      "companyDomain": "ete.ch",
+      "title": "Disponent / in LW-Krane 100%",
+      "titleByLocale": {
+        "it": "Disponent / in LW-Krane 100%",
+        "en": "Equipped / in LW-Krane 100%",
+        "de": "Disponent / in LW-Krane 100%",
+        "fr": "Équipé / en LW-Krane 100%"
+      },
+      "description": "Jobbeschreibung Die Emil Egger Gruppe ist in der Schweiz der führende Anbieter von Schwergut-Logistik. In den Bereichen Kranarbeiten, Spezialtransporte, Industrieumzüge und Miethebebühnen sind über 230 Mitarbeitende beschäftigt. Mit dem umfassenden Spezial Know-how werden tagtäglich individuelle und innovative Kundenlösungen erarbeitet. Für unseren Hauptsitz in St. Gallen suchen wir eine engagierte Persönlichkeit für die Einsatz- und Transportplanung. In dieser Funktion koordinierst und planst du komplexe Kran- und Transportaufträge und stellst einen reibungslosen operativen Ablauf sicher. In dieser Schlüsselrolle bist du das organisatorische Herzstück zwischen Kunden, Chauffeuren und internen Projektteams. \n• Aufgaben Du planst und koordinierst den täglichen Einsatz unserer LKW-Krane und Teams Du stellst sicher, dass Fahrzeuge, Personal und Material effizient eingesetzt werden Du hältst alle Fäden in der Hand und sorgst für einen reibungslosen Tagesablauf Du kommunizierst aktiv mit Kunden, Fahrern und Projektleitern und findest schnelle, pragmatische Lösungen Du optimierst laufend die Auslastung unserer Ressourcen Wir erwarten Eine abgeschlossene technische oder kaufmännische Grundausbildung Erfahrung in Logistik, Transport oder operativer Planung ist von Vorteil Begeisterung für Technik, Krane, LKWs und anspruchsvolle Abläufe Du denkst strukturiert, handelst lösungsorientiert und behältst auch in hektischen Situationen den Überblick Sehr gute Deutschkenntnisse in Wort und Schrift \n• Wir bieten Eine verantwortungsvolle Rolle mit direktem Einfluss auf den operativen Erfolg Ein vielseitiges Arbeitsumfeld mit täglich neuen Herausforderungen Moderne Arbeitsmittel und Infrastruktur auf aktuellem Stand Ein eingespieltes, unterstützendes Team mit familiärer Unternehmenskultur (Du-Kultur) Attraktive Anstellungsbedingungen und zeitgemässe Sozialleistungen Kostenlose Parkmöglichkeiten direkt am Standort Wenn du Lust hast, in einem technisch spannenden Umfeld Verantwortung zu übernehmen und aktiv mitzudenken statt nur abzuarbeiten, dann bist du bei uns richtig. --> -->",
+      "descriptionByLocale": {
+        "it": "Il Gruppo Emil Egger è il fornitore leader della logistica dei beni pesanti in Svizzera. Nei settori dei lavori di gru, dei trasporti speciali, delle rimozioni industriali e degli impianti di noleggio, sono impiegati più di 230 dipendenti. Con il know-how speciale completo, le soluzioni clienti individuali e innovative vengono sviluppate ogni giorno. Per la nostra sede a St. Gallen, stiamo cercando una personalità impegnata per la pianificazione del trasporto e della distribuzione. In questa funzione, coordinare e pianificare ordini di gru e trasporto complessi e garantire un processo operativo regolare. In questo ruolo chiave, sei il centro organizzativo tra clienti, autista e team di progetto interni.\n• Pianifica e coordina l'uso quotidiano delle nostre gru e dei nostri team Assicurarsi che veicoli, personale e materiali vengano utilizzati in modo efficiente Tenere tutte le stringhe in mano e garantire una routine quotidiana liscia Si comunica attivamente con clienti, piloti e project manager e trovare soluzioni rapide e pragmatiche Ottimizzare continuamente l'utilizzo delle nostre risorse Ci aspettiamo che una completa esperienza di formazione di base tecnica o commerciale nella logistica, nei trasporti o nella pianificazione operativa sia di vantaggio per la tecnologia, gru, camion e processi esigenti Pensi strutturato, agire orientato alla soluzione e mantenere la panoramica anche in situazioni frenetiche Molto buona conoscenza del tedesco in parola e scrittura\n• Offriamo un ruolo responsabile con influenza diretta sul successo operativo Un ambiente di lavoro versatile con nuove sfide quotidiane Attrezzature e infrastrutture di lavoro moderne a livello attuale Un team consolidato e di supporto con una cultura familiare (du-culture) Condizioni di lavoro attraenti e vantaggi sociali contemporanei Possibilità di parcheggio gratuito direttamente in loco Se ti piace assumerti la responsabilità in un ambiente tecnicamente eccitante e pensare attivamente invece di lavorare, allora hai ragione con noi. - > >",
+        "en": "The Emil Egger Group is the leading provider of heavy goods logistics in Switzerland. In the areas of crane work, special transports, industrial removals and rental lifts, more than 230 employees are employed. With the comprehensive special know-how, individual and innovative customer solutions are developed every day. For our headquarters in St. Gallen, we are looking for a committed personality for deployment and transport planning. In this function, you coordinate and plan complex crane and transport orders and ensure a smooth operational process. In this key role, you are the organizational centerpiece between customers, chauffeurs and internal project teams.\n• You plan and coordinate the daily use of our truck cranes and teams You ensure that vehicles, personnel and materials are used efficiently You hold all the strings in your hand and ensure a smooth daily routine You actively communicate with customers, drivers and project managers and find fast, pragmatic solutions You continuously optimize the utilization of our resources We expect a completed technical or commercial basic training experience in logistics, transport or operational planning is of advantage enthusiasm for technology, cranes, trucks and demanding processes You think structured, act solution-oriented and keep the overview even in hectic situations Very good knowledge of German in word and writing\n• We offer a responsible role with direct influence on operational success A versatile working environment with daily new challenges Modern work equipment and infrastructure at the current level A well-established, supportive team with a family culture (du-culture) Attractive employment conditions and contemporary social benefits Free parking opportunities directly at the location If you feel like taking on responsibility in a technically exciting environment and thinking actively instead of just working, then you are right with us. --> -->>",
+        "de": "Jobbeschreibung Die Emil Egger Gruppe ist in der Schweiz der führende Anbieter von Schwergut-Logistik. In den Bereichen Kranarbeiten, Spezialtransporte, Industrieumzüge und Miethebebühnen sind über 230 Mitarbeitende beschäftigt. Mit dem umfassenden Spezial Know-how werden tagtäglich individuelle und innovative Kundenlösungen erarbeitet. Für unseren Hauptsitz in St. Gallen suchen wir eine engagierte Persönlichkeit für die Einsatz- und Transportplanung. In dieser Funktion koordinierst und planst du komplexe Kran- und Transportaufträge und stellst einen reibungslosen operativen Ablauf sicher. In dieser Schlüsselrolle bist du das organisatorische Herzstück zwischen Kunden, Chauffeuren und internen Projektteams. \n• Aufgaben Du planst und koordinierst den täglichen Einsatz unserer LKW-Krane und Teams Du stellst sicher, dass Fahrzeuge, Personal und Material effizient eingesetzt werden Du hältst alle Fäden in der Hand und sorgst für einen reibungslosen Tagesablauf Du kommunizierst aktiv mit Kunden, Fahrern und Projektleitern und findest schnelle, pragmatische Lösungen Du optimierst laufend die Auslastung unserer Ressourcen Wir erwarten Eine abgeschlossene technische oder kaufmännische Grundausbildung Erfahrung in Logistik, Transport oder operativer Planung ist von Vorteil Begeisterung für Technik, Krane, LKWs und anspruchsvolle Abläufe Du denkst strukturiert, handelst lösungsorientiert und behältst auch in hektischen Situationen den Überblick Sehr gute Deutschkenntnisse in Wort und Schrift \n• Wir bieten Eine verantwortungsvolle Rolle mit direktem Einfluss auf den operativen Erfolg Ein vielseitiges Arbeitsumfeld mit täglich neuen Herausforderungen Moderne Arbeitsmittel und Infrastruktur auf aktuellem Stand Ein eingespieltes, unterstützendes Team mit familiärer Unternehmenskultur (Du-Kultur) Attraktive Anstellungsbedingungen und zeitgemässe Sozialleistungen Kostenlose Parkmöglichkeiten direkt am Standort Wenn du Lust hast, in einem technisch spannenden Umfeld Verantwortung zu übernehmen und aktiv mitzudenken statt nur abzuarbeiten, dann bist du bei uns richtig. --> -->",
+        "fr": "Le Groupe Emil Egger est le premier fournisseur de logistique de marchandises lourdes en Suisse. Dans les domaines du travail des grues, des transports spéciaux, des déménagements industriels et des ascenseurs de location, plus de 230 employés sont employés. Grâce au savoir-faire complet, des solutions client individuelles et innovantes sont développées chaque jour. Pour notre siège à St. Gallen, nous recherchons une personnalité engagée pour le déploiement et la planification des transports. Dans cette fonction, vous coordonnez et planifiez des commandes de grue et de transport complexes et assurez un processus opérationnel en douceur. Dans ce rôle clé, vous êtes la pièce maîtresse de l'organisation entre clients, chauffeurs et équipes internes de projet.\n• Vous planifiez et coordonnez l'utilisation quotidienne de nos grues et équipes de camions Vous assurez que les véhicules, le personnel et le matériel sont utilisés efficacement Vous maintenez toutes les cordes dans votre main et vous assurez une routine quotidienne fluide Vous communiquez activement avec les clients, les pilotes et les gestionnaires de projets et trouvez des solutions rapides et pragmatiques Vous optimisez en permanence l'utilisation de nos ressources Nous nous attendons à une formation de base technique ou commerciale complète dans la logistique, le transport ou la planification opérationnelle est d'un enthousiasme d'avantage pour la technologie, les grues, les camions et les processus exigeants Vous pensez structuré, agir orienté solution et garder l'aperçu même dans des situations mouvementées Très bonne connaissance de l'allemand en paroles et en écriture\n• Nous offrons un rôle responsable avec une influence directe sur la réussite opérationnelle Un environnement de travail polyvalent avec de nouveaux défis quotidiens Équipement et infrastructure de travail modernes au niveau actuel Une équipe bien établie et solidaire avec une culture familiale (du-culture) Conditions d'emploi attrayantes et avantages sociaux contemporains Possibilités de stationnement gratuites directement sur place Si vous avez envie d'assumer la responsabilité dans un environnement techniquement passionnant et de penser activement au lieu de travailler, alors vous avez raison avec nous. -> -->>"
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.ete.ch/jobs/disponent-in-lw-krane-100-2/",
+      "source": "Emil Egger AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-19T22:53:24.321Z",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-23",
+      "applyUrl": "https://www.ete.ch/jobs/disponent-in-lw-krane-100-2/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-in-lw-krane-100-ete-ch",
+          "disponent-in-lw-krane-100-emil-egger-ag-lugano",
+          "disponent-in-industrieumzuge-100-ete-ch-st-gallen",
+          "disponent-in-industrieumzuge-100-emil-egger-ag-st-gallen",
+          "disponent-in-lw-krane-100-emil-egger-ag-st-gallen-207db82b"
+        ],
+        "de": [
+          "ausgestattet-in-lw-krane-100-emil-egger-ag-lugano",
+          "disponent-in-industrieumzuge-100-ete-ch-st-gallen",
+          "disponent-in-lw-krane-100-emil-egger-ag-st-gallen-207db82b"
+        ],
+        "fr": [
+          "disponent-in-industrieumzuge-100-emil-egger-ag-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "disponent-in-lw-krane-100-ete-ch",
+        "ausgestattet-in-lw-krane-100-emil-egger-ag-lugano",
+        "disponent-in-lw-krane-100-emil-egger-ag-lugano",
+        "disponent-in-industrieumzuge-100-ete-ch-st-gallen",
+        "disponent-in-industrieumzuge-100-emil-egger-ag-st-gallen",
+        "disponent-in-lw-krane-100-emil-egger-ag-st-gallen-207db82b"
+      ],
+      "firstSeenAt": "2026-08-23T21:34:42.782Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "ete-0a81ee617f81",
       "slug": "quereinsteigerin-fur-kat-c-emil-egger-ag-harkingen-0a81ee61",
       "slugByLocale": {
@@ -1241,7 +1247,7 @@
       "url": "https://www.ete.ch/jobs/quereinsteigerin-fuer-kat-c-5/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.496Z",
+      "crawledAt": "2026-09-19T22:53:24.319Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1326,7 +1332,7 @@
       "url": "https://www.ete.ch/jobs/ausnahmetransportbegleiter-in-100-3/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.494Z",
+      "crawledAt": "2026-09-19T22:53:24.317Z",
       "addressLocality": "Bassersdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1364,7 +1370,11 @@
         "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano",
         "ausnahmetransportbegleiter-in-100-emil-egger-ag-bassersdorf-224fcb1a"
       ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1710,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-23T21:34:41.871Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1377,10 +1387,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1710
+      }
     },
     {
       "id": "ete-d82a5625610a",
@@ -1414,7 +1421,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-chauffeuse-kat-c-e-6/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.488Z",
+      "crawledAt": "2026-09-19T22:53:24.315Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1444,7 +1451,11 @@
         "chauffeur-chauffeuse-kat-c-e-ete-ch",
         "chauffeur-chauffeuse-kat-c-e-emil-egger-ag-harkingen-d82a5625"
       ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1873,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-23T21:34:41.568Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1457,10 +1468,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1873
+      }
     },
     {
       "id": "ete-692f3baf5d3f",
@@ -1494,7 +1502,7 @@
       "url": "https://www.ete.ch/jobs/chauffeurin-kat-c-e-fuer-spezialtransporte-4x4-man-100/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.485Z",
+      "crawledAt": "2026-09-19T22:53:24.314Z",
       "addressLocality": "Bassersdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1531,7 +1539,11 @@
         "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-emil-egger-ag-lugano",
         "chauffeur-in-kat-c-e-fur-spezialtransporte-4-215-4-man-100-emil-egger-ag-bassersdorf-692f3baf"
       ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2296,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-23T21:34:41.264Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1544,10 +1556,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2296
+      }
     },
     {
       "id": "ete-f8c27dc9648c",
@@ -1581,7 +1590,7 @@
       "url": "https://www.ete.ch/jobs/sachbearbeiterin-auftragserfassung-transport-logistik-100-4/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.482Z",
+      "crawledAt": "2026-09-19T22:53:24.311Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1597,6 +1606,11 @@
       "applyUrl": "https://www.ete.ch/jobs/sachbearbeiterin-auftragserfassung-transport-logistik-100-4/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen",
+        "sachbearbeiterin-auftragserfassung-transport-logistik-100-ete-ch-harkingen",
+        "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen-f8c27dc9"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen",
@@ -1613,11 +1627,6 @@
           "sachbearbeiterin-auftragserfassung-transport-logistik-100-ete-ch-harkingen"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen",
-        "sachbearbeiterin-auftragserfassung-transport-logistik-100-ete-ch-harkingen",
-        "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen-f8c27dc9"
-      ],
       "firstSeenAt": "2026-09-04T23:01:38.513Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1665,7 +1674,7 @@
       "url": "https://www.ete.ch/jobs/allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.479Z",
+      "crawledAt": "2026-09-19T22:53:24.310Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1733,7 +1742,7 @@
       "companyDomain": "ete.ch",
       "title": "Logisticien/ne de nuit",
       "titleByLocale": {
-        "it": "Logisticista",
+        "it": "Logisticien/ne de nuit",
         "en": "Logistician",
         "de": "Logistiker",
         "fr": "Logisticien/ne de nuit"
@@ -1750,7 +1759,7 @@
       "url": "https://www.ete.ch/jobs/logisticien-ne-de-nuit-7/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T13:57:04.478Z",
+      "crawledAt": "2026-09-19T22:53:24.309Z",
       "addressLocality": "Avenches",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1766,6 +1775,11 @@
       "applyUrl": "https://www.ete.ch/jobs/logisticien-ne-de-nuit-7/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "logisticien-ne-de-nuit-emil-egger-ag-avenches",
+        "logisticien-ne-de-nuit-ete-ch-avenches",
+        "logisticien-ne-de-nuit-emil-egger-ag-avenches-f71f0455"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "logisticien-ne-de-nuit-emil-egger-ag-avenches",
@@ -1782,12 +1796,11 @@
           "logisticien-ne-de-nuit-ete-ch-avenches"
         ]
       },
-      "previousSlugs": [
-        "logisticien-ne-de-nuit-emil-egger-ag-avenches",
-        "logisticien-ne-de-nuit-ete-ch-avenches",
-        "logisticien-ne-de-nuit-emil-egger-ag-avenches-f71f0455"
-      ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1114,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-09-01T05:44:45.407Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1800,10 +1813,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1114
+      }
     },
     {
       "id": "ete-d5ea0472e9b7",
@@ -1837,7 +1847,7 @@
       "url": "https://www.ete.ch/jobs/lw-kranchauffeurin-kat-ce-100-36mt-fassi-kran/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.475Z",
+      "crawledAt": "2026-09-19T22:53:24.307Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1922,7 +1932,7 @@
       "url": "https://www.ete.ch/jobs/atb-fahrer-ausnahmetransportbegleiter-a-100/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.472Z",
+      "crawledAt": "2026-09-19T22:53:24.305Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -2008,7 +2018,7 @@
       "url": "https://www.ete.ch/jobs/spontanbewerbung-2/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.469Z",
+      "crawledAt": "2026-09-19T22:53:24.304Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2024,6 +2034,11 @@
       "applyUrl": "https://www.ete.ch/jobs/spontanbewerbung-2/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "spontanbewerbung-emil-egger-ag-st-gallen",
+        "spontanbewerbung-ete-ch-st-gallen",
+        "spontanbewerbung-emil-egger-ag-st-gallen-b5449b49"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "spontanbewerbung-emil-egger-ag-st-gallen",
@@ -2040,12 +2055,11 @@
           "spontanbewerbung-ete-ch-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "spontanbewerbung-emil-egger-ag-st-gallen",
-        "spontanbewerbung-ete-ch-st-gallen",
-        "spontanbewerbung-emil-egger-ag-st-gallen-b5449b49"
-      ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1298,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-09-01T05:44:44.499Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2058,10 +2072,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1298
+      }
     },
     {
       "id": "ete-f45d285760e0",
@@ -2095,7 +2106,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-chauffeuse-kat-c-e-4/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.468Z",
+      "crawledAt": "2026-09-19T22:53:24.303Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2111,6 +2122,10 @@
       "applyUrl": "https://www.ete.ch/jobs/chauffeur-chauffeuse-kat-c-e-4/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "chauffeur-chauffeuse-kat-c-e-ete-ch-st-gallen",
+        "chauffeur-chauffeuse-kat-c-e-emil-egger-ag-st-gallen-f45d2857"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-chauffeuse-kat-c-e-ete-ch-st-gallen",
@@ -2123,11 +2138,11 @@
           "chauffeur-chauffeuse-kat-c-e-ete-ch-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "chauffeur-chauffeuse-kat-c-e-ete-ch-st-gallen",
-        "chauffeur-chauffeuse-kat-c-e-emil-egger-ag-st-gallen-f45d2857"
-      ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1772,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-09-01T05:44:44.198Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2140,10 +2155,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1772
+      }
     },
     {
       "id": "ete-d5fd3983aedd",
@@ -2177,7 +2189,7 @@
       "url": "https://www.ete.ch/jobs/quereinsteiger-in-fuer-kat-c-2/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.467Z",
+      "crawledAt": "2026-09-19T22:53:24.302Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2262,7 +2274,7 @@
       "url": "https://www.ete.ch/jobs/lehre-zum-logistikerin-efz-start-ab-sommer-2027-2/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.465Z",
+      "crawledAt": "2026-09-19T22:53:24.301Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2278,6 +2290,11 @@
       "applyUrl": "https://www.ete.ch/jobs/lehre-zum-logistikerin-efz-start-ab-sommer-2027-2/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehre-zum-logistikerin-cfc-start-ab-sommer-2027-emil-egger-ag-st-gallen",
+        "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch-st-gallen",
+        "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-2aa60663"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-zum-logistikerin-cfc-start-ab-sommer-2027-emil-egger-ag-st-gallen",
@@ -2294,12 +2311,11 @@
           "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "lehre-zum-logistikerin-cfc-start-ab-sommer-2027-emil-egger-ag-st-gallen",
-        "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch-st-gallen",
-        "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-2aa60663"
-      ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1914,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-09-01T05:44:43.595Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -2312,10 +2328,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1914
+      }
     },
     {
       "id": "ete-a74ebdca32fe",
@@ -2349,7 +2362,7 @@
       "url": "https://www.ete.ch/jobs/lkw-mechaniker-in-80-100/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.464Z",
+      "crawledAt": "2026-09-19T22:53:24.300Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2385,7 +2398,11 @@
         "lkw-mechaniker-in-80-100-ete-ch",
         "lkw-mechaniker-in-80-100-emil-egger-ag-st-gallen-a74ebdca"
       ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1936,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-23T21:34:39.144Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2398,10 +2415,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1936
+      }
     },
     {
       "id": "ete-d86c95825995",
@@ -2435,7 +2449,7 @@
       "url": "https://www.ete.ch/jobs/lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-2/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.462Z",
+      "crawledAt": "2026-09-19T22:53:24.299Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -2471,7 +2485,11 @@
         "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
         "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-harkingen-d86c9582"
       ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1720,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-28T05:22:56.006Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2484,10 +2502,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1720
+      }
     },
     {
       "id": "ete-89271a69d1db",
@@ -2521,7 +2536,7 @@
       "url": "https://www.ete.ch/jobs/lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.459Z",
+      "crawledAt": "2026-09-19T22:53:24.294Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2537,6 +2552,11 @@
       "applyUrl": "https://www.ete.ch/jobs/lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehre-zum-strassentransportfachfrau-mann-cfc-start-ab-sommer-2027-emil-egger-ag-st-gallen",
+        "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-ete-ch-st-gallen",
+        "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-89271a69"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-zum-strassentransportfachfrau-mann-cfc-start-ab-sommer-2027-emil-egger-ag-st-gallen",
@@ -2553,12 +2573,11 @@
           "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-ete-ch-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "lehre-zum-strassentransportfachfrau-mann-cfc-start-ab-sommer-2027-emil-egger-ag-st-gallen",
-        "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-ete-ch-st-gallen",
-        "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-89271a69"
-      ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1690,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-09-01T05:44:42.690Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -2571,10 +2590,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1690
+      }
     },
     {
       "id": "ete-db7ff58f1338",
@@ -2608,7 +2624,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-chauffeuse-kat-c-e-100-maschinenumzuege-spezialtransporte-100/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:57:04.456Z",
+      "crawledAt": "2026-09-19T22:53:24.293Z",
       "addressLocality": "Bassersdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2624,6 +2640,11 @@
       "applyUrl": "https://www.ete.ch/jobs/chauffeur-chauffeuse-kat-c-e-100-maschinenumzuege-spezialtransporte-100/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "chauffeur-chauffeuse-kat-c-e-100-maschinenumzuge-spezialtransporte-100-emil-egger-ag-bassersdorf",
+        "chauffeur-chauffeuse-kat-c-e-100-8211-maschinenumzuge-038-spezialtransporte-100-ete-ch",
+        "chauffeur-chauffeuse-kat-c-e-100-8211-maschinenumzuge-038-spezialtransporte-100-emil-egger-ag-bassersdorf-db7ff58f"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-chauffeuse-kat-c-e-100-maschinenumzuge-spezialtransporte-100-emil-egger-ag-bassersdorf",
@@ -2640,11 +2661,6 @@
           "chauffeur-chauffeuse-kat-c-e-100-8211-maschinenumzuge-038-spezialtransporte-100-ete-ch"
         ]
       },
-      "previousSlugs": [
-        "chauffeur-chauffeuse-kat-c-e-100-maschinenumzuge-spezialtransporte-100-emil-egger-ag-bassersdorf",
-        "chauffeur-chauffeuse-kat-c-e-100-8211-maschinenumzuge-038-spezialtransporte-100-ete-ch",
-        "chauffeur-chauffeuse-kat-c-e-100-8211-maschinenumzuge-038-spezialtransporte-100-emil-egger-ag-bassersdorf-db7ff58f"
-      ],
       "firstSeenAt": "2026-09-11T23:12:03.618Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2659,6 +2675,138 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "ete-b4bfe6080b87",
+      "slug": "chauffeur-chauffeuse-auf-lw-kran-23m-t-emil-egger-ag-harkingen-b4bfe608",
+      "slugByLocale": {
+        "de": "chauffeur-chauffeuse-auf-lw-kran-23m-t-emil-egger-ag-harkingen-b4bfe608",
+        "it": "chauffeur-chauffeuse-auf-lw-kran-23m-t-emil-egger-ag-harkingen-b4bfe608",
+        "en": "chauffeur-chauffeuse-auf-lw-kran-23m-t-emil-egger-ag-harkingen-b4bfe608",
+        "fr": "chauffeur-chauffeuse-auf-lw-kran-23m-t-emil-egger-ag-harkingen-b4bfe608"
+      },
+      "slugDisambiguator": "b4bfe608",
+      "company": "Emil Egger AG",
+      "companyKey": "ete",
+      "companyDomain": "ete.ch",
+      "title": "Chauffeur / Chauffeuse auf LW-Kran 23m/t",
+      "titleByLocale": {
+        "de": "Chauffeur / Chauffeuse auf LW-Kran 23m/t",
+        "it": "Chauffeur / Chauffeuse auf LW-Kran 23m/t",
+        "en": "Chauffeur / Chauffeuse auf LW-Kran 23m/t",
+        "fr": "Chauffeur / Chauffeuse auf LW-Kran 23m/t"
+      },
+      "description": "Jobbeschreibung Vom Stückgut in die Schwergut-Logistik? Deine Chance! Du bist als Chauffeur/in im Stückguttransport unterwegs und möchtest dich weiterentwickeln? Bei uns kannst du den nächsten Schritt machen. Die EMIL EGGER Gruppe ist die führende Anbieterin von Schwergut-Logistik in der Schweiz. Wir bewegen täglich besondere Güter und realisieren anspruchsvolle Transport- und Kranlösungen für unsere Kunden. Deine \n• Aufgaben Mit unserem LKW mit Planenaufbau und Drehschemel-Anhänger bist du in der ganzen Schweiz unterwegs. Du transportierst unterschiedliche Güter, übernimmst das fachgerechte Auf- und Abladen und führst selbstständig Kranarbeiten aus. 🚛 Dein Einstieg in die Schwergut-Logistik Du musst nicht jahrelang in der Schwergut-Logistik gearbeitet haben. Wenn du Erfahrung im Stückguttransport mitbringst, zuverlässig arbeitest und Lust auf eine neue Herausforderung hast, bieten wir dir die Möglichkeit, dich in diesem spannenden Bereich weiterzuentwickeln. So kannst du dein bestehendes Know-how als Chauffeur/in mit neuen Fähigkeiten rund um Kranarbeiten, Spezialtransporte und Schwergut-Logistik verbinden. Zu deinen \n• Aufgaben gehören: Transport von Kundengütern in der ganzen Schweiz Fachgerechtes Auf- und Abladen mit dem LW-Kran Transporte von beispielsweise Baumaterial, Containern und Baustelleninstallationen Selbstständige Kranarbeiten mit dem 23-m/t-LW-Kran Verantwortungsbewusster Umgang mit Fahrzeug, Kran und Ladegut Direkter Kontakt mit Kunden auf unterschiedlichen Einsatzorten Übernachtungen ausserhalb des Wohnorts gehören bei schweizweiten Einsätzen dazu Wir erwarten Fachkenntnisse im Stückguttransport Erfahrung als Chauffeur/euse mit LW-Kran von Vorteil, nicht zwingend Zuverlässige und präzise Arbeitsweise Freund an abwechslungsreichen Einsätzen und Verantwortung \n• Wir bieten Die Chance, vom Stückgut in die Schwergut-Logistik einzusteigen Abwechslungsreiche und zukunftsorientierte Tätigkeit Spannende Einsätze in der ganzen Schweiz Moderner Fuhrpark Fortschrittliche Anstellungsbedingungen und Sozialleistungen Gutes Arbeitsklima in einem aufgestellten und kompetenten Team Familiäre Firmenkultur und Du-Kultur Kostenloser Parkplatz --> -->",
+      "descriptionByLocale": {
+        "de": "Jobbeschreibung Vom Stückgut in die Schwergut-Logistik? Deine Chance! Du bist als Chauffeur/in im Stückguttransport unterwegs und möchtest dich weiterentwickeln? Bei uns kannst du den nächsten Schritt machen. Die EMIL EGGER Gruppe ist die führende Anbieterin von Schwergut-Logistik in der Schweiz. Wir bewegen täglich besondere Güter und realisieren anspruchsvolle Transport- und Kranlösungen für unsere Kunden. Deine \n• Aufgaben Mit unserem LKW mit Planenaufbau und Drehschemel-Anhänger bist du in der ganzen Schweiz unterwegs. Du transportierst unterschiedliche Güter, übernimmst das fachgerechte Auf- und Abladen und führst selbstständig Kranarbeiten aus. 🚛 Dein Einstieg in die Schwergut-Logistik Du musst nicht jahrelang in der Schwergut-Logistik gearbeitet haben. Wenn du Erfahrung im Stückguttransport mitbringst, zuverlässig arbeitest und Lust auf eine neue Herausforderung hast, bieten wir dir die Möglichkeit, dich in diesem spannenden Bereich weiterzuentwickeln. So kannst du dein bestehendes Know-how als Chauffeur/in mit neuen Fähigkeiten rund um Kranarbeiten, Spezialtransporte und Schwergut-Logistik verbinden. Zu deinen \n• Aufgaben gehören: Transport von Kundengütern in der ganzen Schweiz Fachgerechtes Auf- und Abladen mit dem LW-Kran Transporte von beispielsweise Baumaterial, Containern und Baustelleninstallationen Selbstständige Kranarbeiten mit dem 23-m/t-LW-Kran Verantwortungsbewusster Umgang mit Fahrzeug, Kran und Ladegut Direkter Kontakt mit Kunden auf unterschiedlichen Einsatzorten Übernachtungen ausserhalb des Wohnorts gehören bei schweizweiten Einsätzen dazu Wir erwarten Fachkenntnisse im Stückguttransport Erfahrung als Chauffeur/euse mit LW-Kran von Vorteil, nicht zwingend Zuverlässige und präzise Arbeitsweise Freund an abwechslungsreichen Einsätzen und Verantwortung \n• Wir bieten Die Chance, vom Stückgut in die Schwergut-Logistik einzusteigen Abwechslungsreiche und zukunftsorientierte Tätigkeit Spannende Einsätze in der ganzen Schweiz Moderner Fuhrpark Fortschrittliche Anstellungsbedingungen und Sozialleistungen Gutes Arbeitsklima in einem aufgestellten und kompetenten Team Familiäre Firmenkultur und Du-Kultur Kostenloser Parkplatz --> -->",
+        "it": "Jobbeschreibung Vom Stückgut in die Schwergut-Logistik? Deine Chance! Du bist als Chauffeur/in im Stückguttransport unterwegs und möchtest dich weiterentwickeln? Bei uns kannst du den nächsten Schritt machen. Die EMIL EGGER Gruppe ist die führende Anbieterin von Schwergut-Logistik in der Schweiz. Wir bewegen täglich besondere Güter und realisieren anspruchsvolle Transport- und Kranlösungen für unsere Kunden. Deine \n• Aufgaben Mit unserem LKW mit Planenaufbau und Drehschemel-Anhänger bist du in der ganzen Schweiz unterwegs. Du transportierst unterschiedliche Güter, übernimmst das fachgerechte Auf- und Abladen und führst selbstständig Kranarbeiten aus. 🚛 Dein Einstieg in die Schwergut-Logistik Du musst nicht jahrelang in der Schwergut-Logistik gearbeitet haben. Wenn du Erfahrung im Stückguttransport mitbringst, zuverlässig arbeitest und Lust auf eine neue Herausforderung hast, bieten wir dir die Möglichkeit, dich in diesem spannenden Bereich weiterzuentwickeln. So kannst du dein bestehendes Know-how als Chauffeur/in mit neuen Fähigkeiten rund um Kranarbeiten, Spezialtransporte und Schwergut-Logistik verbinden. Zu deinen \n• Aufgaben gehören: Transport von Kundengütern in der ganzen Schweiz Fachgerechtes Auf- und Abladen mit dem LW-Kran Transporte von beispielsweise Baumaterial, Containern und Baustelleninstallationen Selbstständige Kranarbeiten mit dem 23-m/t-LW-Kran Verantwortungsbewusster Umgang mit Fahrzeug, Kran und Ladegut Direkter Kontakt mit Kunden auf unterschiedlichen Einsatzorten Übernachtungen ausserhalb des Wohnorts gehören bei schweizweiten Einsätzen dazu Wir erwarten Fachkenntnisse im Stückguttransport Erfahrung als Chauffeur/euse mit LW-Kran von Vorteil, nicht zwingend Zuverlässige und präzise Arbeitsweise Freund an abwechslungsreichen Einsätzen und Verantwortung \n• Wir bieten Die Chance, vom Stückgut in die Schwergut-Logistik einzusteigen Abwechslungsreiche und zukunftsorientierte Tätigkeit Spannende Einsätze in der ganzen Schweiz Moderner Fuhrpark Fortschrittliche Anstellungsbedingungen und Sozialleistungen Gutes Arbeitsklima in einem aufgestellten und kompetenten Team Familiäre Firmenkultur und Du-Kultur Kostenloser Parkplatz --> -->",
+        "en": "Jobbeschreibung Vom Stückgut in die Schwergut-Logistik? Deine Chance! Du bist als Chauffeur/in im Stückguttransport unterwegs und möchtest dich weiterentwickeln? Bei uns kannst du den nächsten Schritt machen. Die EMIL EGGER Gruppe ist die führende Anbieterin von Schwergut-Logistik in der Schweiz. Wir bewegen täglich besondere Güter und realisieren anspruchsvolle Transport- und Kranlösungen für unsere Kunden. Deine \n• Aufgaben Mit unserem LKW mit Planenaufbau und Drehschemel-Anhänger bist du in der ganzen Schweiz unterwegs. Du transportierst unterschiedliche Güter, übernimmst das fachgerechte Auf- und Abladen und führst selbstständig Kranarbeiten aus. 🚛 Dein Einstieg in die Schwergut-Logistik Du musst nicht jahrelang in der Schwergut-Logistik gearbeitet haben. Wenn du Erfahrung im Stückguttransport mitbringst, zuverlässig arbeitest und Lust auf eine neue Herausforderung hast, bieten wir dir die Möglichkeit, dich in diesem spannenden Bereich weiterzuentwickeln. So kannst du dein bestehendes Know-how als Chauffeur/in mit neuen Fähigkeiten rund um Kranarbeiten, Spezialtransporte und Schwergut-Logistik verbinden. Zu deinen \n• Aufgaben gehören: Transport von Kundengütern in der ganzen Schweiz Fachgerechtes Auf- und Abladen mit dem LW-Kran Transporte von beispielsweise Baumaterial, Containern und Baustelleninstallationen Selbstständige Kranarbeiten mit dem 23-m/t-LW-Kran Verantwortungsbewusster Umgang mit Fahrzeug, Kran und Ladegut Direkter Kontakt mit Kunden auf unterschiedlichen Einsatzorten Übernachtungen ausserhalb des Wohnorts gehören bei schweizweiten Einsätzen dazu Wir erwarten Fachkenntnisse im Stückguttransport Erfahrung als Chauffeur/euse mit LW-Kran von Vorteil, nicht zwingend Zuverlässige und präzise Arbeitsweise Freund an abwechslungsreichen Einsätzen und Verantwortung \n• Wir bieten Die Chance, vom Stückgut in die Schwergut-Logistik einzusteigen Abwechslungsreiche und zukunftsorientierte Tätigkeit Spannende Einsätze in der ganzen Schweiz Moderner Fuhrpark Fortschrittliche Anstellungsbedingungen und Sozialleistungen Gutes Arbeitsklima in einem aufgestellten und kompetenten Team Familiäre Firmenkultur und Du-Kultur Kostenloser Parkplatz --> -->",
+        "fr": "Jobbeschreibung Vom Stückgut in die Schwergut-Logistik? Deine Chance! Du bist als Chauffeur/in im Stückguttransport unterwegs und möchtest dich weiterentwickeln? Bei uns kannst du den nächsten Schritt machen. Die EMIL EGGER Gruppe ist die führende Anbieterin von Schwergut-Logistik in der Schweiz. Wir bewegen täglich besondere Güter und realisieren anspruchsvolle Transport- und Kranlösungen für unsere Kunden. Deine \n• Aufgaben Mit unserem LKW mit Planenaufbau und Drehschemel-Anhänger bist du in der ganzen Schweiz unterwegs. Du transportierst unterschiedliche Güter, übernimmst das fachgerechte Auf- und Abladen und führst selbstständig Kranarbeiten aus. 🚛 Dein Einstieg in die Schwergut-Logistik Du musst nicht jahrelang in der Schwergut-Logistik gearbeitet haben. Wenn du Erfahrung im Stückguttransport mitbringst, zuverlässig arbeitest und Lust auf eine neue Herausforderung hast, bieten wir dir die Möglichkeit, dich in diesem spannenden Bereich weiterzuentwickeln. So kannst du dein bestehendes Know-how als Chauffeur/in mit neuen Fähigkeiten rund um Kranarbeiten, Spezialtransporte und Schwergut-Logistik verbinden. Zu deinen \n• Aufgaben gehören: Transport von Kundengütern in der ganzen Schweiz Fachgerechtes Auf- und Abladen mit dem LW-Kran Transporte von beispielsweise Baumaterial, Containern und Baustelleninstallationen Selbstständige Kranarbeiten mit dem 23-m/t-LW-Kran Verantwortungsbewusster Umgang mit Fahrzeug, Kran und Ladegut Direkter Kontakt mit Kunden auf unterschiedlichen Einsatzorten Übernachtungen ausserhalb des Wohnorts gehören bei schweizweiten Einsätzen dazu Wir erwarten Fachkenntnisse im Stückguttransport Erfahrung als Chauffeur/euse mit LW-Kran von Vorteil, nicht zwingend Zuverlässige und präzise Arbeitsweise Freund an abwechslungsreichen Einsätzen und Verantwortung \n• Wir bieten Die Chance, vom Stückgut in die Schwergut-Logistik einzusteigen Abwechslungsreiche und zukunftsorientierte Tätigkeit Spannende Einsätze in der ganzen Schweiz Moderner Fuhrpark Fortschrittliche Anstellungsbedingungen und Sozialleistungen Gutes Arbeitsklima in einem aufgestellten und kompetenten Team Familiäre Firmenkultur und Du-Kultur Kostenloser Parkplatz --> -->"
+      },
+      "location": "Härkingen",
+      "canton": "SO",
+      "url": "https://www.ete.ch/jobs/chauffeur-chauffeuse-auf-lw-kran-23m-t-5/",
+      "source": "Emil Egger AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-19T22:53:24.290Z",
+      "addressLocality": "Härkingen",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-19",
+      "applyUrl": "https://www.ete.ch/jobs/chauffeur-chauffeuse-auf-lw-kran-23m-t-5/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-19T22:53:24.290Z"
+    },
+    {
+      "id": "ete-6346c369df43",
+      "slug": "lw-kranchauffeur-in-kat-ce-100-8211-36mt-fassi-kran-emil-egger-ag-bassersdorf-6346c369",
+      "slugByLocale": {
+        "de": "lw-kranchauffeur-in-kat-ce-100-8211-36mt-fassi-kran-emil-egger-ag-bassersdorf-6346c369",
+        "it": "lw-kranchauffeur-in-kat-ce-100-8211-36mt-fassi-kran-emil-egger-ag-bassersdorf-6346c369",
+        "en": "lw-kranchauffeur-in-kat-ce-100-8211-36mt-fassi-kran-emil-egger-ag-bassersdorf-6346c369",
+        "fr": "lw-kranchauffeur-in-kat-ce-100-8211-36mt-fassi-kran-emil-egger-ag-bassersdorf-6346c369"
+      },
+      "slugDisambiguator": "6346c369",
+      "company": "Emil Egger AG",
+      "companyKey": "ete",
+      "companyDomain": "ete.ch",
+      "title": "LW-Kranchauffeur:in Kat.CE 100% – 36mt Fassi-Kran",
+      "titleByLocale": {
+        "de": "LW-Kranchauffeur:in Kat.CE 100% – 36mt Fassi-Kran",
+        "it": "LW-Kranchauffeur:in Kat.CE 100% – 36mt Fassi-Kran",
+        "en": "LW-Kranchauffeur:in Kat.CE 100% – 36mt Fassi-Kran",
+        "fr": "LW-Kranchauffeur:in Kat.CE 100% – 36mt Fassi-Kran"
+      },
+      "description": "Jobbeschreibung Du willst nicht nur fahren – sondern richtig was bewegen? Dann bist du bei der EMIL EGGER Gruppe genau richtig. Als führendes Unternehmen der Schweizer Schwergut-Logistik sorgen wir mit 800 Mitarbeitenden täglich dafür, dass selbst die anspruchsvollsten Transporte und Kranarbeiten sicher ans Ziel kommen. Für unseren SCANIA G490 mit 36 mt Fassi-Kran suchen wir dich als: Was dich erwartet SCANIA G490 mit 36 mt Fassi-Kran Kranarbeiten mit Seilwinde (ohne Fly-JIB) Spannende Einsätze in der ganzen Schweiz Wechselsystem mit offener Brücke oder Sattelkupplung für offene und geschlossene Auflieger Abwechslungsreiche Spezialtransporte und Hebearbeiten Touren mit gelegentlichen Übernachtungen Viel Eigenverantwortung und kein 08/15-Alltag Was du mitbringst Führerausweis Kat. CE SUVA-Ausweis A Erfahrung mit LKW-Kranen Technisches Flair und Freude an anspruchsvollen Einsätzen Zuverlässige, flexible und motivierte Persönlichkeit Teamgeist und einen kühlen Kopf auch in herausfordernden Situationen Darauf kannst du dich freuen Top moderner Fuhrpark Spannende und vielseitige Einsätze Fortschrittliche Anstellungsbedingungen & starke Sozialleistungen Kostenloser Parkplatz Ein aufgestelltes, kollegiales Team Familiäre Du-Kultur mit kurzen Entscheidungswegen Sicherer Arbeitsplatz in einem starken Schweizer Unternehmen Bereit, Grosses zu bewegen? Dann steig ein und werde Teil der EMIL EGGER Gruppe. --> -->",
+      "descriptionByLocale": {
+        "de": "Jobbeschreibung Du willst nicht nur fahren – sondern richtig was bewegen? Dann bist du bei der EMIL EGGER Gruppe genau richtig. Als führendes Unternehmen der Schweizer Schwergut-Logistik sorgen wir mit 800 Mitarbeitenden täglich dafür, dass selbst die anspruchsvollsten Transporte und Kranarbeiten sicher ans Ziel kommen. Für unseren SCANIA G490 mit 36 mt Fassi-Kran suchen wir dich als: Was dich erwartet SCANIA G490 mit 36 mt Fassi-Kran Kranarbeiten mit Seilwinde (ohne Fly-JIB) Spannende Einsätze in der ganzen Schweiz Wechselsystem mit offener Brücke oder Sattelkupplung für offene und geschlossene Auflieger Abwechslungsreiche Spezialtransporte und Hebearbeiten Touren mit gelegentlichen Übernachtungen Viel Eigenverantwortung und kein 08/15-Alltag Was du mitbringst Führerausweis Kat. CE SUVA-Ausweis A Erfahrung mit LKW-Kranen Technisches Flair und Freude an anspruchsvollen Einsätzen Zuverlässige, flexible und motivierte Persönlichkeit Teamgeist und einen kühlen Kopf auch in herausfordernden Situationen Darauf kannst du dich freuen Top moderner Fuhrpark Spannende und vielseitige Einsätze Fortschrittliche Anstellungsbedingungen & starke Sozialleistungen Kostenloser Parkplatz Ein aufgestelltes, kollegiales Team Familiäre Du-Kultur mit kurzen Entscheidungswegen Sicherer Arbeitsplatz in einem starken Schweizer Unternehmen Bereit, Grosses zu bewegen? Dann steig ein und werde Teil der EMIL EGGER Gruppe. --> -->",
+        "it": "Jobbeschreibung Du willst nicht nur fahren – sondern richtig was bewegen? Dann bist du bei der EMIL EGGER Gruppe genau richtig. Als führendes Unternehmen der Schweizer Schwergut-Logistik sorgen wir mit 800 Mitarbeitenden täglich dafür, dass selbst die anspruchsvollsten Transporte und Kranarbeiten sicher ans Ziel kommen. Für unseren SCANIA G490 mit 36 mt Fassi-Kran suchen wir dich als: Was dich erwartet SCANIA G490 mit 36 mt Fassi-Kran Kranarbeiten mit Seilwinde (ohne Fly-JIB) Spannende Einsätze in der ganzen Schweiz Wechselsystem mit offener Brücke oder Sattelkupplung für offene und geschlossene Auflieger Abwechslungsreiche Spezialtransporte und Hebearbeiten Touren mit gelegentlichen Übernachtungen Viel Eigenverantwortung und kein 08/15-Alltag Was du mitbringst Führerausweis Kat. CE SUVA-Ausweis A Erfahrung mit LKW-Kranen Technisches Flair und Freude an anspruchsvollen Einsätzen Zuverlässige, flexible und motivierte Persönlichkeit Teamgeist und einen kühlen Kopf auch in herausfordernden Situationen Darauf kannst du dich freuen Top moderner Fuhrpark Spannende und vielseitige Einsätze Fortschrittliche Anstellungsbedingungen & starke Sozialleistungen Kostenloser Parkplatz Ein aufgestelltes, kollegiales Team Familiäre Du-Kultur mit kurzen Entscheidungswegen Sicherer Arbeitsplatz in einem starken Schweizer Unternehmen Bereit, Grosses zu bewegen? Dann steig ein und werde Teil der EMIL EGGER Gruppe. --> -->",
+        "en": "Jobbeschreibung Du willst nicht nur fahren – sondern richtig was bewegen? Dann bist du bei der EMIL EGGER Gruppe genau richtig. Als führendes Unternehmen der Schweizer Schwergut-Logistik sorgen wir mit 800 Mitarbeitenden täglich dafür, dass selbst die anspruchsvollsten Transporte und Kranarbeiten sicher ans Ziel kommen. Für unseren SCANIA G490 mit 36 mt Fassi-Kran suchen wir dich als: Was dich erwartet SCANIA G490 mit 36 mt Fassi-Kran Kranarbeiten mit Seilwinde (ohne Fly-JIB) Spannende Einsätze in der ganzen Schweiz Wechselsystem mit offener Brücke oder Sattelkupplung für offene und geschlossene Auflieger Abwechslungsreiche Spezialtransporte und Hebearbeiten Touren mit gelegentlichen Übernachtungen Viel Eigenverantwortung und kein 08/15-Alltag Was du mitbringst Führerausweis Kat. CE SUVA-Ausweis A Erfahrung mit LKW-Kranen Technisches Flair und Freude an anspruchsvollen Einsätzen Zuverlässige, flexible und motivierte Persönlichkeit Teamgeist und einen kühlen Kopf auch in herausfordernden Situationen Darauf kannst du dich freuen Top moderner Fuhrpark Spannende und vielseitige Einsätze Fortschrittliche Anstellungsbedingungen & starke Sozialleistungen Kostenloser Parkplatz Ein aufgestelltes, kollegiales Team Familiäre Du-Kultur mit kurzen Entscheidungswegen Sicherer Arbeitsplatz in einem starken Schweizer Unternehmen Bereit, Grosses zu bewegen? Dann steig ein und werde Teil der EMIL EGGER Gruppe. --> -->",
+        "fr": "Jobbeschreibung Du willst nicht nur fahren – sondern richtig was bewegen? Dann bist du bei der EMIL EGGER Gruppe genau richtig. Als führendes Unternehmen der Schweizer Schwergut-Logistik sorgen wir mit 800 Mitarbeitenden täglich dafür, dass selbst die anspruchsvollsten Transporte und Kranarbeiten sicher ans Ziel kommen. Für unseren SCANIA G490 mit 36 mt Fassi-Kran suchen wir dich als: Was dich erwartet SCANIA G490 mit 36 mt Fassi-Kran Kranarbeiten mit Seilwinde (ohne Fly-JIB) Spannende Einsätze in der ganzen Schweiz Wechselsystem mit offener Brücke oder Sattelkupplung für offene und geschlossene Auflieger Abwechslungsreiche Spezialtransporte und Hebearbeiten Touren mit gelegentlichen Übernachtungen Viel Eigenverantwortung und kein 08/15-Alltag Was du mitbringst Führerausweis Kat. CE SUVA-Ausweis A Erfahrung mit LKW-Kranen Technisches Flair und Freude an anspruchsvollen Einsätzen Zuverlässige, flexible und motivierte Persönlichkeit Teamgeist und einen kühlen Kopf auch in herausfordernden Situationen Darauf kannst du dich freuen Top moderner Fuhrpark Spannende und vielseitige Einsätze Fortschrittliche Anstellungsbedingungen & starke Sozialleistungen Kostenloser Parkplatz Ein aufgestelltes, kollegiales Team Familiäre Du-Kultur mit kurzen Entscheidungswegen Sicherer Arbeitsplatz in einem starken Schweizer Unternehmen Bereit, Grosses zu bewegen? Dann steig ein und werde Teil der EMIL EGGER Gruppe. --> -->"
+      },
+      "location": "Bassersdorf",
+      "canton": "ZH",
+      "url": "https://www.ete.ch/jobs/lw-kranchauffeurin-kat-ce-100-36mt-fassi-kran-2/",
+      "source": "Emil Egger AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-19T22:53:24.287Z",
+      "addressLocality": "Bassersdorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-19",
+      "applyUrl": "https://www.ete.ch/jobs/lw-kranchauffeurin-kat-ce-100-36mt-fassi-kran-2/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-19T22:53:24.287Z"
     }
   ]
 }

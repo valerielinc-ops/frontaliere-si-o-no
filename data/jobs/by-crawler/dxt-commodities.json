@@ -1,6 +1,6 @@
 {
   "crawlerKey": "dxt-commodities",
-  "assembledAt": "2026-09-13T13:57:06.257Z",
+  "assembledAt": "2026-09-19T22:51:01.997Z",
   "jobs": [
     {
       "url": "https://dxt.com/careers/?panel=20897_1",
@@ -63,6 +63,7 @@
       ],
       "firstSeenAt": "2026-07-10T12:04:35.208Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -102,7 +103,7 @@
         "it": "Junior Contabile",
         "en": "Junior Accountant",
         "de": "Junior Buchhalter",
-        "fr": "Comptable junior"
+        "fr": "Junior Accountant"
       },
       "slug": "junior-contabile-dxt-commodities-s-a-lugano",
       "slugByLocale": {
@@ -142,6 +143,7 @@
       },
       "firstSeenAt": "2026-09-11T13:33:33.445Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",

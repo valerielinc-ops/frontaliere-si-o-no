@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zermatt-bergbahnen",
-  "assembledAt": "2026-09-16T22:39:38.995Z",
+  "assembledAt": "2026-09-19T23:05:48.505Z",
   "jobs": [
     {
       "id": "zermatt-bergbahnen-51636c8a52d4",
@@ -46,7 +46,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/sachbearbeiter-in-lohnbuchhaltung_job_4524271",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:08:08.683Z",
+      "crawledAt": "2026-09-19T23:05:43.797Z",
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipendente-regista-zermatt-bergbahnen-zermatt",
@@ -54,12 +54,14 @@
         "employee-wage-accountant-zermatt-bergbahnen-zermatt",
         "sachbearbeiter-in-lohnbuchhaltung-zermatt-zermatt-bergbahnen-k53494",
         "comptable-des-salaires-zermatt-bergbahnen-zermatt",
-        "sachbearbeiter-in-lohnbuchhaltung-zermatt-zermatt-bergbahnen"
+        "sachbearbeiter-in-lohnbuchhaltung-zermatt-zermatt-bergbahnen",
+        "addetto-alla-contabilita-delle-buste-paga-zermatt-bergbahnen-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipendente-regista-zermatt-bergbahnen-zermatt",
-          "sachbearbeiter-in-lohnbuchhaltung-zermatt-zermatt-bergbahnen"
+          "sachbearbeiter-in-lohnbuchhaltung-zermatt-zermatt-bergbahnen",
+          "addetto-alla-contabilita-delle-buste-paga-zermatt-bergbahnen-zermatt"
         ],
         "en": [
           "sachbearbeiter-in-lohnbuchhaltung-zermatt-bergbahnen-zermatt",
@@ -76,6 +78,7 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:53:04.855Z",
+      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "currency": "CHF",
@@ -106,7 +109,7 @@
       "title": "Lehrstelle Informatiker/in EFZ",
       "titleByLocale": {
         "it": "Apprendistato come informatico EFZ",
-        "en": "Apprenticeship in computer science EFZ",
+        "en": "Lehrstelle Informatiker/in EFZ",
         "de": "Lehrstelle Informatiker/in EFZ",
         "fr": "Apprentissage Informaticien/ne CFC"
       },
@@ -135,10 +138,11 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-informatiker-in-efz_job_3706844",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:08:08.018Z",
+      "crawledAt": "2026-09-19T23:05:43.227Z",
       "previousSlugsByLocale": {
         "en": [
-          "lehrstelle-informatiker-in-efz-zermatt-zermatt-bergbahnen"
+          "lehrstelle-informatiker-in-efz-zermatt-zermatt-bergbahnen",
+          "apprenticeship-computer-scientist-efz-zermatt-bergbahnen-zermatt"
         ],
         "it": [
           "lehrstelle-informatiker-in-efz-zermatt-zermatt-bergbahnen",
@@ -152,7 +156,8 @@
           "informatiker-in-zermatt-zermatt-bergbahnen",
           "informatique-zermatt-bergbahnen-zermatt",
           "informaticien-ne-zermatt-bergbahnen-zermatt",
-          "informatiker-in-zermatt-bergbahnen-zermatt"
+          "informatiker-in-zermatt-bergbahnen-zermatt",
+          "apprendistato-informatiker-in-cfc-zermatt-bergbahnen-zermatt"
         ],
         "fr": [
           "lehrstelle-informatiker-in-efz-zermatt-zermatt-bergbahnen"
@@ -170,7 +175,8 @@
         "informatiker-in-zermatt-zermatt-bergbahnen",
         "informatique-zermatt-bergbahnen-zermatt",
         "informaticien-ne-zermatt-bergbahnen-zermatt",
-        "informatiker-in-zermatt-bergbahnen-zermatt"
+        "informatiker-in-zermatt-bergbahnen-zermatt",
+        "apprendistato-informatiker-in-cfc-zermatt-bergbahnen-zermatt"
       ],
       "requirementsByLocale": {
         "en": [
@@ -255,20 +261,22 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-seilbahn-mechatroniker-in-efz-seilbahner-in-eba_job_3704876",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:08:07.353Z",
+      "crawledAt": "2026-09-19T23:05:42.633Z",
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-seilbahn-mechatroniker-in-efz-seilbahner-in-eba-zermatt-zermatt-bergbahnen",
         "apprendistato-seilbahn-mechatroniker-in-cfc-seilbahner-in-afp-zermatt-bergbahnen-ze-jzsp74",
         "apprenticeship-of-ropeway-mechatronics-engineer-in-efz-ropeway-engineer-in-eba-zermatt-bergbahnen-zermatt",
-        "apprentissage-de-l-ingenieur-mecatronique-a-cables-en-efz-ingenieur-a-cables-en-eba-zermatt-bergbahnen-zermatt"
+        "apprentissage-de-l-ingenieur-mecatronique-a-cables-en-efz-ingenieur-a-cables-en-eba-zermatt-bergbahnen-zermatt",
+        "apprendistato-seilbahn-mechatroniker-in-cfc-seilbahner-in-afp-zermatt-bergbahnen-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-seilbahn-mechatroniker-in-efz-seilbahner-in-eba-zermatt-zermatt-bergbahnen",
           "apprendistato-seilbahn-mechatroniker-in-cfc-seilbahner-in-afp-zermatt-bergbahnen-ze-jzsp74",
           "apprenticeship-of-ropeway-mechatronics-engineer-in-efz-ropeway-engineer-in-eba-zermatt-bergbahnen-zermatt",
-          "apprentissage-de-l-ingenieur-mecatronique-a-cables-en-efz-ingenieur-a-cables-en-eba-zermatt-bergbahnen-zermatt"
+          "apprentissage-de-l-ingenieur-mecatronique-a-cables-en-efz-ingenieur-a-cables-en-eba-zermatt-bergbahnen-zermatt",
+          "apprendistato-seilbahn-mechatroniker-in-cfc-seilbahner-in-afp-zermatt-bergbahnen-zermatt"
         ],
         "en": [
           "apprenticeship-of-ropeway-mechatronics-engineer-in-efz-ropeway-engineer-in-eba-zermatt-bergbahnen-zermatt",
@@ -340,7 +348,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/mitarbeitende-r-unterhalt-revision-gletscherlifte_job_3001261",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:08:04.998Z",
+      "crawledAt": "2026-09-19T23:05:42.045Z",
       "requirementsByLocale": {
         "it": [
           "Costituisce titolo preferenziale l'esperienza nella costruzione di funivie o impianti",
@@ -352,11 +360,13 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeitende-r-unterhalt-revision-gletscherlifte-zermatt-zermatt-bergbahnen"
+        "mitarbeitende-r-unterhalt-revision-gletscherlifte-zermatt-zermatt-bergbahnen",
+        "manutenzione-del-personale-e-revisione-degli-impianti-di-risalita-dei-ghiacciai-zermatt-bergbahnen-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeitende-r-unterhalt-revision-gletscherlifte-zermatt-zermatt-bergbahnen"
+          "mitarbeitende-r-unterhalt-revision-gletscherlifte-zermatt-zermatt-bergbahnen",
+          "manutenzione-del-personale-e-revisione-degli-impianti-di-risalita-dei-ghiacciai-zermatt-bergbahnen-zermatt"
         ],
         "en": [
           "mitarbeitende-r-unterhalt-revision-gletscherlifte-zermatt-zermatt-bergbahnen"
@@ -366,6 +376,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:33:46.526Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "currency": "CHF",

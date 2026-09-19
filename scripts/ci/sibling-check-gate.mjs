@@ -49,6 +49,7 @@ import { readHookStdin } from './lib/hook-stdin.mjs';
 import { fileURLToPath } from 'node:url';
 import { basename, resolve } from 'node:path';
 import { extractPrBody, describePrBodySource } from './pr-body-check-gate.mjs';
+import { commandVariables, findPrBodyWriteCommand } from './lib/hook-command-parser.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
 import {
   ALLOW_UNRESOLVED_ENV,
@@ -149,6 +150,30 @@ export const DECLARATION_HOWTO =
   'Formule valide: «falso positivo» / «false positive» / «solo lessicalmente simile\n' +
   'ma semanticamente diverso» / «not the same bug class». Un rinvio a follow-up NO.';
 
+/**
+ * True when the tool call really RUNS `gh pr create`.
+ *
+ * `command.includes()` could not tell a command from a quoted mention of one,
+ * so a commit message or a brief that documented this gate was blocked by it
+ * (reproduced three times on 2026-09-20 while changing these hooks). The
+ * lexer in `lib/hook-command-parser.mjs` masks heredoc bodies and quoted
+ * words, which is exactly the distinction that was missing.
+ *
+ * Unparseable shell syntax falls back to the historical substring test: this
+ * gate blocking something it cannot read is recoverable, this gate missing a
+ * real PR creation is not.
+ *
+ * @param {string} command
+ * @returns {boolean}
+ */
+export function isPrCreateCommand(command) {
+  const text = String(command ?? '');
+  const found = findPrBodyWriteCommand(text);
+  if (found) return found.action === 'create';
+  if (commandVariables(text).ok) return false;
+  return text.includes('gh pr create');
+}
+
 async function main() {
   let command = '';
   let toolName = '';
@@ -188,7 +213,7 @@ async function main() {
   if (
     process.env.ISSUE_NUMBER &&
     process.env.FIX_TIER &&
-    !command.includes('gh pr create')
+    !isPrCreateCommand(command)
   ) {
     try {
       const violation = toolName === 'Read'
@@ -209,7 +234,7 @@ async function main() {
     }
   }
 
-  if (!command.includes('gh pr create')) {
+  if (!isPrCreateCommand(command)) {
     process.exit(0);
   }
 
