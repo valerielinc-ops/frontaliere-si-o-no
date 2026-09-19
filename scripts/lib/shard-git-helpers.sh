@@ -328,9 +328,10 @@ shard_delta_check_unchanged_payload_paths() {
 # A removed manifest key may still map to a replacement key's payload (for
 # example a trailing-slash active-job key replaced by a legacy-slug bridge).
 # Such a tombstone is a logged no-op when no related target exists in the
-# indexed HEAD, or when the current manifest covers the retained payload. An
-# indexed live payload outside the filtered manifest remains a cross-check
-# failure because the sidecar/index ownership is ambiguous.
+# indexed HEAD, when the current manifest covers the retained payload, or when
+# the current payload is deliberately unmanifested and will be overlaid by the
+# source pass. Only a route-form mismatch in the indexed HEAD is a cross-check
+# failure.
 # Callers run this pass before shard_delta_apply_source_tree so “absent from
 # HEAD” cannot be masked by a newly added current payload.
 # One raw parser emits all deletion records and, by default, cross-checks every
@@ -476,8 +477,8 @@ shard_delta_remove_stale_payload_paths() {
 
       for my $path (sort keys %removed) {
         if (exists $live_related{$path} && !exists $manifest_live_related{$path}) {
-          print {$missing_handle} "$path$nul";
-          print {$missing_reason_handle} "$path$nul" . q{current indexed payload is not covered by the filtered manifest (filtered or unmanifested)} . "$nul";
+          print {$noop_handle} "$path$nul";
+          print {$noop_reason_handle} "$path$nul" . q{retained by current unmanifested payload; source overlay will replace it} . "$nul";
         } elsif (exists $manifest_live_related{$path}) {
           print {$noop_handle} "$path$nul";
           print {$noop_reason_handle} "$path$nul" . q{retained by current manifest payload} . "$nul";
@@ -550,7 +551,7 @@ shard_delta_apply_source_tree() {
   local stage="$1" source_root="$2" target_prefix="$3"
   local changed_file_list="$4" unmanifested_file_list="$5" payload_file_list="$6"
   local work candidate_list metadata source_paths index_dump hashes
-  local changed_sources index_info count_file source_count changed_count
+  local changed_sources index_info count_file source_count unmanifested_count changed_count
   [ -d "$source_root" ] || return 1
   source_root="$(cd "$source_root" && pwd)" || return 1
   [ -f "$changed_file_list" ] || return 1
@@ -558,6 +559,7 @@ shard_delta_apply_source_tree() {
   [ -f "$payload_file_list" ] || return 1
   SHARD_DELTA_SOURCE_FILES=0
   SHARD_DELTA_CHANGED_FILES=0
+  SHARD_DELTA_UNMANIFESTED_FILES=0
   SHARD_DELTA_REUSED_FILES=0
   SHARD_DELTA_REMOVED_FILES="${SHARD_DELTA_REMOVED_FILES:-0}"
   SHARD_DELTA_CONTENT_CHANGES="${SHARD_DELTA_CONTENT_CHANGES:-0}"
@@ -578,6 +580,8 @@ shard_delta_apply_source_tree() {
   fi
   source_count="$(perl -0ne '$count += 1; END { print $count + 0 }' < "$payload_file_list")"
   SHARD_DELTA_SOURCE_FILES="${source_count:-0}"
+  unmanifested_count="$(perl -0ne '$count += 1 if $_ ne q{}; END { print $count + 0 }' < "$unmanifested_file_list")"
+  SHARD_DELTA_UNMANIFESTED_FILES="${unmanifested_count:-0}"
 
   if [ -s "$candidate_list" ]; then
     # Keep source and target paths as raw byte strings. The metadata stream is

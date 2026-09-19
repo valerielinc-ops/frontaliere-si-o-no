@@ -4,7 +4,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadManifest } from './incremental-manifest-report.mjs';
-import { MANIFEST_FORMAT, MANIFEST_VERSION, PAGE_KINDS } from '../../build-plugins/shared/incrementalManifest.mjs';
+import {
+  LEGACY_OPTIONAL_KINDS,
+  MANIFEST_FORMAT,
+  MANIFEST_VERSION,
+  PAGE_KINDS,
+} from '../../build-plugins/shared/incrementalManifest.mjs';
 
 const SECTION_SHARD_SLUGS = JSON.parse(
   fs.readFileSync(
@@ -66,7 +71,15 @@ function inScope(pagePath, scope, excludedScopes) {
 }
 
 function validateManifest(manifest, label) {
-  if (!manifest?.data || !PAGE_KINDS.every((kind) => kind in manifest.data.kinds || manifest.data.counts.byKind[kind] === 0)) {
+  const kinds = manifest?.data?.kinds;
+  const countsByKind = manifest?.data?.counts?.byKind;
+  if (!manifest?.data || !kinds || !countsByKind || !PAGE_KINDS.every((kind) => {
+    if (kind in kinds) return true;
+    if (Object.prototype.hasOwnProperty.call(countsByKind, kind)) {
+      return countsByKind[kind] === 0;
+    }
+    return LEGACY_OPTIONAL_KINDS.has(kind);
+  })) {
     throw new Error(`${label}: manifest kind metadata non valida`);
   }
   for (const entry of manifest.entries.values()) {
@@ -251,8 +264,9 @@ async function main() {
     changed: changed.length,
     removed: removed.length,
     unchanged: unchangedFiles.length,
+    unmanifested: unmanifestedFiles.length,
   })}\n`);
-  console.log(`manifest delta: mode=${args.snapshotOnly ? 'snapshot' : 'delta'} scope=${scope || '/'} current=${currentEntries.size} previous=${previousEntries.size} changed=${changed.length} unchanged=${unchangedFiles.length} removed=${removed.length}`);
+  console.log(`manifest delta: mode=${args.snapshotOnly ? 'snapshot' : 'delta'} scope=${scope || '/'} current=${currentEntries.size} previous=${previousEntries.size} changed=${changed.length} unchanged=${unchangedFiles.length} unmanifested=${unmanifestedFiles.length} removed=${removed.length}`);
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
