@@ -4524,11 +4524,9 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
     '';
   // The selected city/address is stronger than stale adapter metadata: keep
   // the canton coherent with the location we are about to publish.
-  const selectedAddressCountry = coerceCountryField(selectedAddress?.addressCountry);
   const hasExplicitLocationEvidence = Boolean(
     seedMeta?.preferWorkplaceLocation ||
-    addressRegion ||
-    selectedAddressCountry,
+    Array.isArray(node?.jobLocation),
   );
   const resolvedJsonLdCanton = hasExplicitLocationEvidence
     ? inferredJsonLdCanton || seedCanton || ''
