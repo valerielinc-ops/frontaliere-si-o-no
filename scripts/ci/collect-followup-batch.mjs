@@ -283,7 +283,26 @@ export function triageMarkerPersistenceExpectation(markerBody) {
   const buckets = [...claim.matchAll(/\bbucket\s+#([1-9]\d*)\b/gi)]
     .map((match) => Number(match[1]));
   const uniqueBuckets = [...new Set(buckets)];
-  const noBucketExpected = /zero outstanding items|backfill skipped|Created:\s*0 issue\s*\(solo live-verification batchata\)|Created\/updated:\s*(?:0 issue\s*[—-]\s*nessun item nuovo aggiunto|nessun nuovo item nel bucket)/i.test(body);
+  // Il discriminante e' STRUTTURALE: sulla riga di claim gia' isolata sopra
+  // conta il NUMERO dichiarato, non la prosa che lo segue. La versione
+  // precedente elencava le formule ammesse una per una, ed e' stata superata
+  // tre volte dalla variante successiva — l'ultima il 2026-09-18, quando il
+  // triage ha scritto «Created/updated: 0 item; nessun bucket creato.» per un
+  // esito legittimo (candidati tutti dropped/skipped) che il contratto non
+  // aveva mai nominato: `persistence_ok=false` e run rossa su un marker giusto.
+  // Un claim a zero non promette nulla da verificare, qualunque parola usi.
+  const claimLines = claim.split(/\r?\n/).filter((line) => line.trim());
+  // `0(?![0-9.])`: un `Created: 0.5 item` non e' un claim a zero.
+  const zeroClaim = claimLines.length > 0
+    && claimLines.every((line) => /^\s*(?:[-*]\s+)?Created(?:\/updated)?:\s*0(?![0-9.])/i.test(line));
+  // Le formule d'intestazione valgono SOLO in assenza di una riga di claim.
+  // Cercarle nell'intero corpo anche quando un claim NON-zero esiste lasciava a
+  // una prosa successiva la possibilita' di scavalcare la verifica del bucket
+  // per una persistenza reale: il gate diceva «vuoto» su un marker che prometteva
+  // item. E' il secondo finding 🔴 della review su questa PR.
+  const legacyEmptyHeader = claimLines.length === 0
+    && /zero outstanding items|backfill skipped/i.test(body);
+  const noBucketExpected = zeroClaim || legacyEmptyHeader;
   return {
     buckets: uniqueBuckets,
     requiresBucket: uniqueBuckets.length > 0 || !noBucketExpected,

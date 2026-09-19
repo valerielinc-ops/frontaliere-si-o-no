@@ -66,16 +66,23 @@ describe('daily writer concurrency contract', () => {
 describe('post-merge triage marker contract', () => {
   it('treats an explicit zero-candidate marker naming an unchanged bucket as empty', () => {
     const workflow = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
-    const verifierLine = workflow.split('\n').find((line) => line.includes("grep -Eiq '") && line.includes('zero outstanding items'));
-    const pattern = verifierLine?.match(/grep -Eiq '([^']+)'/)?.[1];
-    expect(pattern).toBeTruthy();
+    // L'invariante non cambia: quel marker va classificato come VUOTO e non deve
+    // mai produrre `persistence_ok=false`. Il discriminante e' il CONTEGGIO sulla
+    // riga di claim, e la grammatica vive in `claim_head` (una sola sorgente nel
+    // bash, allineata al gemello JS e case-insensitive).
+    const head = workflow.match(/claim_head='([^']+)'/)?.[1];
+    expect(head).toBeTruthy();
 
     const marker = '## Post-merge follow-up triage\n\nCreated/updated: 0 issue — nessun item nuovo aggiunto al daily bucket #8248.';
-    expect(() => execFileSync('grep', ['-Eiq', pattern!], { input: marker })).not.toThrow();
+    const claimLines = execFileSync('grep', ['-Ei', head!], { input: marker, encoding: 'utf8' });
+    expect(claimLines.trim()).not.toBe('');
+    // `grep -Eqvi` esce 1 quando NESSUNA riga viola il pattern del claim a zero:
+    // e' la condizione con cui lo YAML imposta `zero_claim=true`.
+    expect(() => execFileSync('grep', ['-Eqvi', `${head}[[:space:]]*0([^0-9.]|$)`], { input: claimLines })).toThrow();
 
     const zeroResultBranch = workflow
-      .split("elif [ -z \"$bucket_refs\" ]")[0]
-      .split("if printf '%s' \"$marker_body\" | grep -Eiq '")
+      .split('elif [ -z "$bucket_refs" ]')[0]
+      .split('if [ "$zero_claim" = true ]')
       .at(-1);
     expect(zeroResultBranch).toBeTruthy();
     expect(zeroResultBranch).not.toContain('persistence_ok=false');
@@ -83,9 +90,11 @@ describe('post-merge triage marker contract', () => {
 
   it('reads positive persistence only from the explicit creation/update line', () => {
     const workflow = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
+    // I riferimenti al bucket si leggono SOLO dalle righe di claim: una prosa
+    // che cita un bucket storico per contesto non e' una promessa di persistenza.
     const bucketLine = workflow.split('\n').find((line) => line.includes('bucket_refs=$(printf'));
-    expect(bucketLine).toContain('Created');
-    expect(bucketLine).toContain('bucket #[0-9]+');
+    expect(bucketLine).toContain('$claim_lines');
+    expect(bucketLine).toMatch(/bucket\[\[:space:\]\]\*:\?\[\[:space:\]\]\*#\[0-9\]\+/);
   });
 });
 
