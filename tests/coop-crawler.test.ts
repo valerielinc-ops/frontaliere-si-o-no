@@ -181,6 +181,48 @@ describe('Coop authoritative detail routing', () => {
     )?.conflict).toBeFalsy();
   });
 
+  it('prefers the explicit workplace city over the generic API location', async () => {
+    const url = 'https://jobs.coopjobs.ch/posti-vacanti/addetto-vendita/11111111-1111-4111-8111-111111111111';
+    const jobs = [{
+      links: { directlink: url },
+      location: 'Gossau',
+      attributes: { '30': ['Ticino'], '70': ['Coop Genossenschaft'] },
+      szas: {
+        'sza_workplace.city': 'Mendrisio',
+        'sza_workplace.zip': '6850',
+        'sza_workplace.street': 'Via Ligornetto 1',
+      },
+    }];
+    const discovery = await fetchCoopJobDetailUrls({
+      fetchImpl: async () => new Response(JSON.stringify({ total: 1, jobs }), { status: 200 }),
+    });
+
+    expect(discovery.seedMetaByUrl[url]).toMatchObject({
+      location: 'Mendrisio',
+      canton: 'TI',
+      preferWorkplaceLocation: true,
+    });
+  });
+
+  it('accepts the live Prospective location-city field variant', async () => {
+    const url = 'https://jobs.coopjobs.ch/posti-vacanti/addetto-vendita/22222222-2222-4222-8222-222222222222';
+    const jobs = [{
+      links: { directlink: url },
+      location: 'Gossau',
+      attributes: { '30': ['Ticino'], '70': ['Coop Genossenschaft'] },
+      szas: { 'sza_location.city': 'Bioggio' },
+    }];
+    const discovery = await fetchCoopJobDetailUrls({
+      fetchImpl: async () => new Response(JSON.stringify({ total: 1, jobs }), { status: 200 }),
+    });
+
+    expect(discovery.seedMetaByUrl[url]).toMatchObject({
+      location: 'Bioggio',
+      canton: 'TI',
+      preferWorkplaceLocation: true,
+    });
+  });
+
   it('fails closed when a partially repeated page cannot prove unique progress', async () => {
     const firstPage = Array.from({ length: 500 }, (_, index) => makeCoopApiJob(index));
     const mixedPage = [...firstPage.slice(1), makeCoopApiJob(500)];

@@ -954,13 +954,34 @@ function extractRequirements(description) {
 
 function normalizeAdapterSeedMeta(rawMeta) {
   if (!rawMeta || typeof rawMeta !== 'object') return null;
-  const location = sanitizeLocation(normalizeSpace(rawMeta.location || rawMeta.regionLabel || rawMeta.addressLocality || ''));
+  const workplaceLocation = sanitizeLocation(normalizeSpace(
+    rawMeta.workplaceLocation ||
+    rawMeta['sza_workplace.city'] ||
+    rawMeta['sza_location.city'] ||
+    rawMeta.sza_workplace?.city ||
+    rawMeta.sza_location?.city ||
+    rawMeta.szas?.['sza_workplace.city'] ||
+    rawMeta.szas?.['sza_location.city'] ||
+    rawMeta.szas?.sza_workplace?.city ||
+    rawMeta.szas?.sza_location?.city ||
+    '',
+  ));
+  const location = workplaceLocation || sanitizeLocation(normalizeSpace(rawMeta.location || rawMeta.regionLabel || rawMeta.addressLocality || ''));
   const canton = normalizeCantonCode(rawMeta.canton || rawMeta.cantonCode || rawMeta.region || rawMeta.regionCode || '');
   const company = normalizeSpace(rawMeta.company || rawMeta.companyName || rawMeta.brand || '');
   const contract = normalizeSpace(rawMeta.contract || rawMeta.employmentType || '');
   const postedDate = normalizeSpace(rawMeta.postedDate || rawMeta.datePosted || '');
   if (!location && !canton && !company && !contract && !postedDate) return null;
-  return { location, canton, company, contract, postedDate };
+  return {
+    location,
+    canton,
+    company,
+    contract,
+    postedDate,
+    ...(rawMeta.preferWorkplaceLocation === true || workplaceLocation
+      ? { preferWorkplaceLocation: true }
+      : {}),
+  };
 }
 
 function isAdapterSeedMetaTargetRelevant(seedMeta) {
@@ -2565,10 +2586,11 @@ export function extractCompanyFromText(html = '', fallback = '') {
 
 export function extractLocationFromText(html = '', fallback = '') {
   const jd = bestJobPostingNodeFromHtml(html);
+  const ldAddress = selectJsonLdJobLocationAddress(jd);
   const ldLoc = normalizeSpace(
-    jd?.jobLocation?.address?.addressLocality ||
-    jd?.jobLocation?.address?.addressRegion ||
-    jd?.jobLocation?.address?.streetAddress ||
+    ldAddress?.addressLocality ||
+    ldAddress?.addressRegion ||
+    ldAddress?.streetAddress ||
     ''
   );
   if (ldLoc) return ldLoc;
@@ -2579,7 +2601,7 @@ export function extractLocationFromText(html = '', fallback = '') {
   const clerDetailLoc = normalizeSpace(
     stripHtml(
       String(html).match(
-        /JobDetail__item-slot[^>]*>\s*(?:Sede di lavoro|Workplace|Lieu de travail|Arbeitsort)\s*<\/span>\s*<span[^>]*JobDetail__item-slot[^>]*>([\s\S]*?)<\/span>/i
+        /JobDetail__item-slot[^>]*>\s*(?:Luogo di lavoro|Sede di lavoro|Workplace|Lieu de travail|Arbeitsort)\s*<\/span>\s*<span[^>]*JobDetail__item-slot[^>]*>([\s\S]*?)<\/span>/i
       )?.[1] || ''
     )
   );
@@ -2599,7 +2621,7 @@ export function extractLocationFromText(html = '', fallback = '') {
 
   const plain = stripHtml(html);
   const labelMatch = plain.match(
-    /(?:Arbeitsort|Lieu de travail|Workplace|Sede di lavoro|Work location)\s*:?\s*([^\n]{3,180})/i
+    /(?:Luogo di lavoro|Arbeitsort|Lieu de travail|Workplace|Sede di lavoro|Work location)\s*:?\s*([^\n]{3,180})/i
   )?.[1];
   const labelLoc = sanitizeLocation(normalizeSpace(labelMatch || ''));
   // #4587: sanitizeLocation trims known noise-phrase boundaries but doesn't
@@ -4325,6 +4347,44 @@ function jsonLdDeclaredCountryTokens(node) {
   return tokens;
 }
 
+function selectJsonLdJobLocationAddress(node, preferredCanton = '') {
+  const locations = Array.isArray(node?.jobLocation) ? node.jobLocation : [node?.jobLocation];
+  const candidates = locations
+    .map((location, index) => {
+      const address = location?.address && typeof location.address === 'object'
+        ? location.address
+        : {};
+      const locality = normalizeSpace(address.addressLocality || '');
+      const region = normalizeSpace(address.addressRegion || '');
+      const country = coerceCountryField(address.addressCountry);
+      const inferredCanton = inferAnyCanton(`${locality} ${region}`) || normalizeCantonCode(region);
+      const explicitlyForeign = Boolean(country && !isChCountry(country) && !normalizeCantonCode(country));
+      const cantonMatchesSeed = preferredCanton && inferredCanton === preferredCanton;
+      const score = (cantonMatchesSeed ? 1000 : 0)
+        + (isChCountry(country) ? 100 : 0)
+        + (inferredCanton ? 40 : 0)
+        + (locality ? 10 : 0)
+        + (region ? 2 : 0)
+        + (country ? 1 : 0)
+        - (explicitlyForeign ? 1000 : 0);
+      return { address, index, score };
+    })
+    .filter(({ address }) => Object.keys(address).length > 0)
+    .sort((a, b) => b.score - a.score || a.index - b.index);
+  return candidates[0]?.address || null;
+}
+
+function normalizeJsonLdLocality(locality, addressRegion) {
+  const normalizedLocality = normalizeSpace(locality || '');
+  const normalizedRegion = normalizeSpace(addressRegion || '');
+  if (!normalizedLocality || !normalizedRegion) return normalizedLocality;
+  const escapedRegion = normalizedRegion.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const withoutRegion = normalizedLocality
+    .replace(new RegExp(`(?:,|\\s+)\\s*${escapedRegion}$`, 'i'), '')
+    .trim();
+  return withoutRegion || normalizedLocality;
+}
+
 /**
  * True when the posting ITSELF declares a country that is unambiguously not
  * Switzerland.
@@ -4362,17 +4422,21 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
   const title = normalizeSpace(node.title);
   const description = cleanDescription(node.description || '');
   const hiringOrg = normalizeSpace(node.hiringOrganization?.name || fallbackCompany);
+  const selectedAddress = selectJsonLdJobLocationAddress(node, seedCanton);
   const rawLoc =
-    node.jobLocation?.address?.addressLocality ||
-    node.jobLocation?.address?.addressRegion ||
-    node.jobLocation?.address?.streetAddress ||
+    selectedAddress?.addressLocality ||
+    selectedAddress?.addressRegion ||
+    selectedAddress?.streetAddress ||
     '';
-  const addressRegion = normalizeSpace(node.jobLocation?.address?.addressRegion || '');
-  const locality = normalizeSpace(node.jobLocation?.address?.addressLocality || '');
+  const addressRegion = normalizeSpace(selectedAddress?.addressRegion || '');
+  const rawLocality = normalizeSpace(selectedAddress?.addressLocality || '');
+  const locality = normalizeJsonLdLocality(rawLocality, addressRegion);
   // Append region to locality when both present and different (e.g. "Taverne, Ticino")
   // so that post-merge target matching can recognise smaller towns via their canton.
   let location;
-  if (locality && addressRegion && !locality.toLowerCase().includes(addressRegion.toLowerCase())) {
+  if (locality !== rawLocality) {
+    location = sanitizeLocation(locality);
+  } else if (locality && addressRegion && !locality.toLowerCase().includes(addressRegion.toLowerCase())) {
     location = sanitizeLocation(`${locality}, ${addressRegion}`);
   } else {
     location = sanitizeLocation(normalizeSpace(rawLoc || 'Ticino'));
@@ -4447,13 +4511,28 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
   const salaryMax = Number(salary.maxValue);
   const currency = normalizeSpace(node.baseSalary?.currency || 'CHF').toUpperCase() === 'EUR' ? 'EUR' : 'CHF';
   const company = normalizeSpace(seedMeta?.company || hiringOrg || fallbackCompany);
-  const normalizedLocation = seedMetaRelevant && !isTargetSwissLocation(mergedLocText)
+  const normalizedLocation = seedMeta?.preferWorkplaceLocation && seedLocation
     ? seedLocation
-    : location;
+    : seedMetaRelevant && !isTargetSwissLocation(mergedLocText)
+      ? seedLocation
+      : location;
   const inferredJsonLdCanton =
-    inferSwissTargetCanton(`${normalizedLocation || location} ${addressRegion}`) ||
+    inferSwissTargetCanton(seedMeta?.preferWorkplaceLocation
+      ? normalizedLocation
+      : `${normalizedLocation || location} ${addressRegion}`) ||
     inferSwissTargetCanton(`${title} ${description}`) ||
     '';
+  // The selected city/address is stronger than stale adapter metadata: keep
+  // the canton coherent with the location we are about to publish.
+  const selectedAddressCountry = coerceCountryField(selectedAddress?.addressCountry);
+  const hasExplicitLocationEvidence = Boolean(
+    seedMeta?.preferWorkplaceLocation ||
+    addressRegion ||
+    selectedAddressCountry,
+  );
+  const resolvedJsonLdCanton = hasExplicitLocationEvidence
+    ? inferredJsonLdCanton || seedCanton || ''
+    : seedCanton || inferredJsonLdCanton || '';
 
   const job = {
     id: '',
@@ -4461,7 +4540,7 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
     company: company || fallbackCompany,
     title,
     location: normalizedLocation || seedLocation || 'Ticino',
-    canton: seedCanton || inferredJsonLdCanton || '',
+    canton: resolvedJsonLdCanton,
     category: guessCategory(title, description),
     contract: normalizeContract(seedMeta?.contract || node.employmentType, title, description),
     salaryMin: Number.isFinite(salaryMin) ? salaryMin : undefined,
@@ -4639,6 +4718,7 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
   const locationMatch =
     supsiParsed?.location ||
     microdataLocation ||
+    (seedMeta?.preferWorkplaceLocation ? seedLocation : '') ||
     extractLocationFromText(html, '') ||
     sanitizeLocation(normalizeSpace(extractMetaContent(html, 'property', 'jobLocation'))) ||
     (isTargetSwissLocation(description) ? companyCity : '') ||
