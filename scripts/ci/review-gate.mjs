@@ -837,7 +837,20 @@ function findingConfirmed(
  * review bodies; this preserves the path+line anchors without adding storage.
  * `includeLatest` is used by the reviewer bundle, before the new review exists.
  */
-export function historicalImportantFindings(
+export function historicalImportantFindings(reviews, options = {}) {
+  return partitionHistoricalImportantFindings(reviews, options).open;
+}
+
+/**
+ * Stesso cammino di `historicalImportantFindings`, ma restituisce ANCHE i
+ * finding usciti dall'insieme aperto, e solo quelli usciti per una conferma
+ * esplicita `Fix di ...: ok`. Il ledger nel bundle non può dedurre
+ * «confirmed-fixed» per sottrazione (`tutti` meno `aperti`): un finding
+ * declassato per scope o per riga non cambiata non è stato confermato da
+ * nessuno, e dirlo al reviewer lo autorizza a sopprimere un rilievo ancora
+ * valido.
+ */
+export function partitionHistoricalImportantFindings(
   reviews,
   {
     includeLatest = false,
@@ -851,9 +864,10 @@ export function historicalImportantFindings(
       && REVIEWER_LOGIN_RE.test(review.user.login || '')
       && isTerminalManagedReview(review),
   );
-  if (bots.length < (includeLatest ? 1 : 2)) return [];
+  if (bots.length < (includeLatest ? 1 : 2)) return { open: [], confirmed: [] };
 
   const open = new Map();
+  const confirmed = [];
   const latestIndex = bots.length - 1;
   for (const [index, review] of bots.entries()) {
     const confirmations = fixConfirmations(review?.body);
@@ -864,6 +878,7 @@ export function historicalImportantFindings(
         repositoryPaths,
         repositoryPathsFromFallback,
       })) {
+        confirmed.push(entry.finding);
         open.delete(key);
       }
     }
@@ -878,10 +893,13 @@ export function historicalImportantFindings(
     }
   }
 
-  return [...open.values()].map(({ finding, reviewCommit }) => ({
-    ...finding,
-    reviewCommit,
-  }));
+  return {
+    open: [...open.values()].map(({ finding, reviewCommit }) => ({
+      ...finding,
+      reviewCommit,
+    })),
+    confirmed,
+  };
 }
 
 function truncatedPathCandidates(citation, repositoryPaths) {

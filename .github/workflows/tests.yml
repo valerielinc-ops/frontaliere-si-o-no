@@ -2596,6 +2596,11 @@ jobs:
           } catch {
             findings = null;
           }
+          // `confirmed` viene SOLO dalle conferme esplicite `Fix di ...: ok`,
+          // mai per sottrazione fra «tutti» e «aperti»: un finding declassato
+          // per scope o per riga non cambiata non è stato confermato da
+          // nessuno, e marcarlo chiuso autorizzerebbe il reviewer a
+          // sopprimere un rilievo ancora valido.
           if (findings && gate.partitionHistoricalImportantFindings) {
             const { open, confirmed } = gate.partitionHistoricalImportantFindings(reviews, { includeLatest: true });
             console.log(findings.renderFindingsLedger({ open, confirmed }));

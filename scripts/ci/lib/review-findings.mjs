@@ -122,10 +122,17 @@ function primaryPath(finding) {
 export function stableFindingId(finding) {
   const path = primaryPath(finding);
   const text = String(finding?.text || finding?.line || '');
-  const symbol = findingSymbol(text) || normalizeProse(text);
+  const symbol = findingSymbol(text);
   const klass = findingDeclaredClass(text);
+  // La prosa normalizzata entra SEMPRE nell'id, non solo come ripiego quando
+  // manca il simbolo. Con `(path, simbolo, classe)` due rilievi diversi che
+  // nominano per primo lo stesso simbolo nello stesso file collidevano, e
+  // `dedupeFindingsById` ne faceva sparire uno dal carry storico e dal ledger:
+  // un Important ancora aperto spariva e l'LGTM diventava possibile. La prosa
+  // non contiene il numero di riga (`normalizeProse` toglie gli span in
+  // backtick, anchor compreso), quindi l'invarianza al rebase resta.
   return createHash('sha256')
-    .update(`${path}\u0000${symbol}\u0000${klass}`)
+    .update(`${path}\u0000${symbol}\u0000${klass}\u0000${normalizeProse(text)}`)
     .digest('hex')
     .slice(0, 12);
 }
@@ -237,26 +244,52 @@ export function changedLinesFromPatch(patch) {
   const map = new Map();
   let path = null;
   let newLine = 0;
+  // Dentro un hunk NIENTE è un header: una riga aggiunta il cui contenuto
+  // inizia con `++ ` arriva nel patch come `+++ ...` e la vecchia regex la
+  // leggeva come intestazione di file, spostando il path o perdendo le
+  // aggiunte successive — un Important su codice appena aggiunto finiva
+  // declassato come «riga non cambiata». I contatori del `@@` dicono
+  // esattamente quante righe dura il hunk, quindi il confine non si indovina.
+  let oldLeft = 0;
+  let newLeft = 0;
+  const inHunk = () => oldLeft > 0 || newLeft > 0;
   for (const line of patch.split(/\r?\n/u)) {
-    const header = /^\+\+\+ (?:b\/)?(.+)$/u.exec(line);
-    if (header) {
-      path = header[1] === '/dev/null' ? null : header[1];
-      if (path && !map.has(path)) map.set(path, new Set());
+    if (!inHunk()) {
+      if (/^diff --git /u.test(line)) {
+        path = null;
+        continue;
+      }
+      // Solo le due forme che un header può avere davvero.
+      const header = /^\+\+\+ (?:b\/(.+)|\/dev\/null)$/u.exec(line);
+      if (header) {
+        path = header[1] ?? null;
+        if (path && !map.has(path)) map.set(path, new Set());
+        continue;
+      }
+      const hunk = /^@@ -\d+(?:,(\d+))? \+(\d+)(?:,(\d+))? @@/u.exec(line);
+      if (hunk) {
+        newLine = Number(hunk[2]);
+        oldLeft = hunk[1] === undefined ? 1 : Number(hunk[1]);
+        newLeft = hunk[3] === undefined ? 1 : Number(hunk[3]);
+      }
       continue;
     }
-    const hunk = /^@@ -\d+(?:,\d+)? \+(\d+)(?:,(\d+))? @@/u.exec(line);
-    if (hunk) {
-      newLine = Number(hunk[1]);
-      continue;
-    }
-    if (!path) continue;
+    // `\ No newline at end of file` non è una riga del file.
+    if (line.startsWith('\\')) continue;
     if (line.startsWith('+')) {
-      map.get(path).add(newLine);
+      if (path) map.get(path).add(newLine);
       newLine += 1;
+      newLeft -= 1;
       continue;
     }
-    if (line.startsWith('-')) continue;
-    if (line.startsWith(' ')) newLine += 1;
+    if (line.startsWith('-')) {
+      oldLeft -= 1;
+      continue;
+    }
+    // Contesto: una riga vuota nel patch è una riga di contesto vuota.
+    newLine += 1;
+    oldLeft -= 1;
+    newLeft -= 1;
   }
   return map;
 }

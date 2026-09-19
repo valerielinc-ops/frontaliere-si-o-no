@@ -14,7 +14,9 @@ import {
 } from '../scripts/ci/lib/review-findings.mjs';
 import {
   classifyReview,
+  historicalImportantFindings,
   importantFindings,
+  partitionHistoricalImportantFindings,
   reviewBodyWithHistoricalFindings,
   runReviewGate,
 } from '../scripts/ci/review-gate.mjs';
@@ -270,5 +272,122 @@ describe('ledger passato al reviewer', () => {
     expect((ledger.match(/\*\*open\*\*/gu) || []).length).toBe(3);
     expect((ledger.match(/\*\*confirmed-fixed\*\*/gu) || []).length).toBe(LEDGER_MAX_ENTRIES - 3);
     expect(ledger).toMatch(/\(\+13 confirmed-fixed più vecchi/u);
+  });
+});
+
+
+describe('collisione dell’id stabile (review #9318, finding 1)', () => {
+  // Due rilievi DIVERSI sullo stesso file, stessa classe, che nominano per
+  // primo lo stesso simbolo: con `(path, simbolo, classe)` collidevano e
+  // `dedupeFindingsById` ne faceva sparire uno dal carry storico.
+  const a = finding('`scripts/ci/foo.mjs:L12`: 🔴 Important: `parseFoo()` non gestisce il null e emette structured data invalido.');
+  const b = finding('`scripts/ci/foo.mjs:L44`: 🔴 Important: `parseFoo()` scrive il file fuori dal tmpdir.');
+
+  it('non collassa due rilievi diversi che citano lo stesso simbolo', () => {
+    expect(stableFindingId(a)).not.toBe(stableFindingId(b));
+    expect(dedupeFindingsById([a, b])).toHaveLength(2);
+  });
+
+  it('un Important aperto non sparisce dal carry per colpa dell’altro', () => {
+    const current = `## Findings (Important: 1, Nit: 0)\n\n${a.text}\n\n## LGTM`;
+    expect(reviewBodyWithHistoricalFindings(current, [a, b])).toContain(b.text);
+  });
+
+  it('resta invariante allo spostamento della riga', () => {
+    const moved = finding('`scripts/ci/foo.mjs:L900`: 🔴 Important: `parseFoo()` non gestisce il null e emette structured data invalido.');
+    expect(stableFindingId(moved)).toBe(stableFindingId(a));
+  });
+});
+
+describe('ledger: confirmed-fixed solo da conferma esplicita (review #9318, finding 2)', () => {
+  const HEAD_A = 'a'.repeat(40);
+  const HEAD_B = 'b'.repeat(40);
+  const bot = (id: number, body: string, commit: string, at: string) => ({
+    id, user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+    state: 'COMMENTED', commit_id: commit, body, submitted_at: at,
+  });
+
+  it('classifica confermato solo ciò che una review successiva chiude con `Fix di`', () => {
+    const reviews = [[
+      bot(1, '## Findings (Important: 2, Nit: 0)\n\n`scripts/ci/uno.mjs:L3`: 🔴 Important: `alfa()` rotto.\n\n`scripts/ci/due.mjs:L7`: 🔴 Important: `beta()` rotto.\n', HEAD_B, '2026-09-19T10:00:00Z'),
+      bot(2, '## Findings (Important: 1, Nit: 0)\n\n- Fix di `scripts/ci/uno.mjs:L3`: ok.\n\n`scripts/ci/due.mjs:L7`: 🔴 Important: `beta()` rotto.\n', HEAD_A, '2026-09-19T11:00:00Z'),
+    ]];
+    const { open, confirmed } = partitionHistoricalImportantFindings(reviews, { includeLatest: true });
+    expect(confirmed.map((f) => f.text).join('\n')).toContain('alfa()');
+    expect(confirmed.map((f) => f.text).join('\n')).not.toContain('beta()');
+    expect(open.map((f) => f.text).join('\n')).toContain('beta()');
+    // `historicalImportantFindings` resta il contratto precedente.
+    expect(historicalImportantFindings(reviews, { includeLatest: true })).toEqual(open);
+  });
+
+  it('un finding mai confermato non finisce nel ledger come chiuso', () => {
+    const reviews = [[
+      bot(1, '## Findings (Important: 1, Nit: 0)\n\n`scripts/ci/uno.mjs:L3`: 🔴 Important: `alfa()` rotto.\n', HEAD_B, '2026-09-19T10:00:00Z'),
+      bot(2, '## Findings (Important: 0, Nit: 0)\n\n## LGTM\n', HEAD_A, '2026-09-19T11:00:00Z'),
+    ]];
+    const { open, confirmed } = partitionHistoricalImportantFindings(reviews, { includeLatest: true });
+    expect(confirmed).toHaveLength(0);
+    expect(renderFindingsLedger({ open, confirmed })).not.toContain('confirmed-fixed');
+    expect(renderFindingsLedger({ open, confirmed })).toContain('**open**');
+  });
+});
+
+describe('changedLinesFromPatch: dentro un hunk niente è un header (review #9318, finding 3)', () => {
+  it('una riga AGGIUNTA che inizia con `++ ` non viene letta come header', () => {
+    const patch = [
+      'diff --git a/scripts/ci/foo.mjs b/scripts/ci/foo.mjs',
+      '--- a/scripts/ci/foo.mjs',
+      '+++ b/scripts/ci/foo.mjs',
+      '@@ -10,0 +11,3 @@',
+      '+++ /dev/null',
+      '+const added = 1;',
+      '+-- non un header',
+    ].join('\n');
+    const map = changedLinesFromPatch(patch)!;
+    expect([...map.keys()]).toEqual(['scripts/ci/foo.mjs']);
+    expect([...map.get('scripts/ci/foo.mjs')!]).toEqual([11, 12, 13]);
+  });
+
+  it('un file cancellato non crea una voce di path', () => {
+    const patch = [
+      'diff --git a/scripts/ci/via.mjs b/scripts/ci/via.mjs',
+      '--- a/scripts/ci/via.mjs',
+      '+++ /dev/null',
+      '@@ -1,2 +0,0 @@',
+      '-uno',
+      '-due',
+    ].join('\n');
+    expect([...changedLinesFromPatch(patch)!.keys()]).toEqual([]);
+  });
+
+  it('conta il contesto e ignora `\\ No newline at end of file`', () => {
+    const patch = [
+      '--- a/scripts/ci/foo.mjs',
+      '+++ b/scripts/ci/foo.mjs',
+      '@@ -1,2 +1,3 @@',
+      ' contesto',
+      '+aggiunta',
+      ' altro contesto',
+      '\\ No newline at end of file',
+    ].join('\n');
+    expect([...changedLinesFromPatch(patch)!.get('scripts/ci/foo.mjs')!]).toEqual([2]);
+  });
+
+  it('separa due file nello stesso patch', () => {
+    const patch = [
+      'diff --git a/uno.mjs b/uno.mjs',
+      '--- a/uno.mjs',
+      '+++ b/uno.mjs',
+      '@@ -1,0 +1,1 @@',
+      '+primo',
+      'diff --git a/due.mjs b/due.mjs',
+      '--- a/due.mjs',
+      '+++ b/due.mjs',
+      '@@ -5,0 +6,1 @@',
+      '+secondo',
+    ].join('\n');
+    const map = changedLinesFromPatch(patch)!;
+    expect([...map.get('uno.mjs')!]).toEqual([1]);
+    expect([...map.get('due.mjs')!]).toEqual([6]);
   });
 });
