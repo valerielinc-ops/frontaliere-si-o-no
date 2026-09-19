@@ -281,7 +281,7 @@ jobs:
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"
           git fetch origin "+refs/heads/main:refs/remotes/origin/main" -q || true
-          if git merge --no-edit origin/main; then
+          if git merge --no-edit -m "$(printf 'Merge origin/main into the PR branch (redflag-fixer align)\n\nFixer: redflag-align')" origin/main; then
             echo "✓ branch allineato a origin/main (workflow-validation drift evitato)."
           else
             echo "::warning::merge origin/main in conflitto → abort, branch invariato (no regressione; eventuale 401 drift resta possibile su questo branch)."
@@ -456,10 +456,19 @@ jobs:
 
           if [ "$ROUND" -ge "$MAX_ROUNDS" ]; then
             echo "::warning::Round cap raggiunto ($ROUND >= $MAX_ROUNDS) → escalation needs-human, no Claude."
-            gh pr edit "$PR_NUMBER" --repo "$REPO" --add-label "needs-human" 2>/dev/null \
-              || echo "label needs-human assente — creala: gh label create needs-human"
-            gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '🛑 **needs-human** (auto): il 🔴-fixer ha già tentato %s round senza chiudere i findings 🔴. STOP automatico (anti-loop, nessun progresso). Serve revisione umana: leggi le review più recenti e applica il fix a mano.' "$ROUND")" \
-              2>/dev/null || true
+            # Idempotente: ogni nuova review/rosso oltre il cap ripassava di qui
+            # e ripostava label+commento (5 volte su #9202, 4 su #9238). Si
+            # posta una volta sola: il marker nascosto (o il testo storico,
+            # per le PR escalate prima del marker) dice che e' gia' stato fatto.
+            if printf '%s' "$comments" | grep -qF '<!-- NEEDS_HUMAN_ESCALATION: redflag -->' \
+               || printf '%s' "$comments" | grep -qF '**needs-human** (auto): il 🔴-fixer'; then
+              echo "needs-human gia' escalato su questa PR → nessun nuovo label/commento."
+            else
+              gh pr edit "$PR_NUMBER" --repo "$REPO" --add-label "needs-human" 2>/dev/null \
+                || echo "label needs-human assente — creala: gh label create needs-human"
+              gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- NEEDS_HUMAN_ESCALATION: redflag -->\n🛑 **needs-human** (auto): il 🔴-fixer ha già tentato %s round senza chiudere i findings 🔴. STOP automatico (anti-loop, nessun progresso). Serve revisione umana: leggi le review più recenti e applica il fix a mano.' "$ROUND")" \
+                2>/dev/null || true
+            fi
             echo "proceed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
@@ -783,6 +792,7 @@ jobs:
             - CODE vs DATA: non scorrere i blob `data/**`/`public/**`; fixa il CODE che li genera.
             - Esegui i test pertinenti: `npm test` (o il subset rilevante) per validare il fix prima di committare.
             - Commit con identity canonica già configurata (Valerie Linc <valerielinc@gmail.com>), messaggio conventional, nessuna email non-canonica in coda.
+            - Ogni commit porta il trailer `Fixer: redflag-round-${{ steps.guard.outputs.round }}` (`git commit -m "<messaggio>" --trailer "Fixer: redflag-round-${{ steps.guard.outputs.round }}"`): l'identity e' la stessa degli agenti locali e il trailer e' l'unico modo di distinguere i tuoi push.
             - Push sullo stesso branch: `git push origin HEAD:${{ github.event.pull_request.head.ref }}`. Il remote `origin` è già autenticato con l'App token (se disponibile, altrimenti PAT) → ri-attiva pr-review-loop (re-review). Se il push fallisce per scope/auth → documenta in un commento e TERMINA.
             - Aggiorna il body della PR: scrivi il testo completo nel file assoluto `$RUNNER_TEMP/pr-redflag-pr-body.md` (imposta `BODY_FILE` a quel path), poi esegui `node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"` e solo con exit 0 chiama `gh pr edit "$PR_NUMBER" --repo "$REPO" --body-file "$BODY_FILE"`. Non usare un body inline: il wrapper deterministico su `gh` blocca ogni riscrittura senza body-file o con body non conforme prima della chiamata remota. Mantieni `## Implementato` (aggiungi cosa hai fixato) + `## Non implementato (ancora)`. Ogni bullet della seconda sezione vuole uno STATO LETTERALE, scritto esattamente così: `in questa PR` / `PR concatenata #N` (col numero) / `per scelta` / `by construction` / `falso positivo` / `blocked: <causa esterna reale>` (AGENTS.md #8). La forma `PR concatenata` senza `#N` non è tracciabile, non chiude il bullet e va trattata come lavoro aperto. Non è cosmesi: `scripts/ci/followup-has-candidates.mjs` riapre come issue di follow-up ogni bullet `blocked: <causa tecnica>` **e ogni bullet senza stato** — un 🔴 che hai appena chiuso, descritto senza stato, torna indietro come issue nuova. Le deroghe decisionali (`per scelta`, `by construction`, `falso positivo`, `blocked: decisione del proprietario`) sono chiusure solo con `**Motivo:** <causa concreta>. **Prossimo passo:** <azione concreta>.` nello stesso bullet; una formula nuda, generica o con placeholder resta aperta e il gate la blocca. **Divieto: non scrivere MAI `per scelta` / `by construction` / `falso positivo` / `blocked: decisione del proprietario` su un item che stai SALTANDO in questo round** (sibling non sweepati, finding rimandati, lavoro che non hai fatto). Quei quattro stati chiudono la voce, e al round 2 saresti TU a rileggere il bullet che hai scritto tu come decisione già presa: ritireresti il 🔴 senza averlo fixato, con il round cap che non scatta mai perché ogni round si dichiara terminato. Per ciò che salti usa `PR concatenata #N` (col numero) o `blocked: <causa esterna reale>`; gli stati chiudenti valgono solo per ciò che hai deciso di non fare MAI, col motivo scritto dopo lo stato.
 
@@ -833,6 +843,13 @@ jobs:
           REMOTE_SHA=$(git rev-parse "origin/$HEAD_REF" 2>/dev/null || echo "")
           echo "base=$BASE_SHA local=$HEAD_NOW remote=$REMOTE_SHA action=$ACTION_OUTCOME"
           if [ -n "$HEAD_NOW" ] && [ -n "$BASE_SHA" ] && [ "$HEAD_NOW" != "$BASE_SHA" ] && [ "$REMOTE_SHA" = "$HEAD_NOW" ]; then
+            # Osservatore del trailer: gli hook sono disattivati per costruzione
+            # nel sandbox Codex (`sanitize-git-config.mjs` toglie core.hooksPath),
+            # quindi il trailer lo scrive l'agente e qui si misura se c'e'.
+            MISSING=$(git log --format='%H %(trailers:key=Fixer,valueonly,separator=%x2C)' "$BASE_SHA..$HEAD_NOW" 2>/dev/null | awk 'NF < 2 {print $1}' | tr '\n' ' ')
+            if [ -n "$MISSING" ]; then
+              echo "::warning::Commit del fixer senza trailer 'Fixer: redflag-round-N': $MISSING"
+            fi
             echo "✓ Fix pushato questo round (HEAD avanzato e presente su origin/$HEAD_REF) → round SUCCESS. Job verde anche se l'azione è uscita '$ACTION_OUTCOME'."
             exit 0
           fi
