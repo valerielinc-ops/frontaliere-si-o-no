@@ -1476,7 +1476,25 @@ function extractFindingCitations(text, extractCitations) {
     .split(/\r?\n/u)
     .filter((line) => !FIX_CONFIRMATION_RE.test(line))
     .join('\n');
-  return extractCitations(findingText);
+  return extractCitations(findingText).filter((citation) => !isIllustrativeBareCitation(findingText, citation));
+}
+
+/**
+ * A reviewer may cite a source file as an example of where a value comes
+ * from, not as a second edit anchor. Keep this carve-out deliberately narrow:
+ * an explicit line citation, or an imperative such as "also fix <path>",
+ * remains an actionable citation and must still be confirmed independently.
+ */
+function isIllustrativeBareCitation(text, citation) {
+  if (!citation || citation.line !== null) return false;
+  const escapedPath = String(citation.path || '').replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
+  if (!escapedPath) return false;
+  const backtick = String.fromCharCode(96);
+  const pathToken = `(?:${backtick}${escapedPath}${backtick}|${escapedPath})`;
+  return new RegExp(
+    `\\bpresent(?:\\s+only)?\\s+in\\s+${pathToken}\\s+(?:such\\s+as|for\\s+example|e\\.g\\.|come)`,
+    'iu',
+  ).test(String(text || ''));
 }
 
 if (isDirectRun) {
