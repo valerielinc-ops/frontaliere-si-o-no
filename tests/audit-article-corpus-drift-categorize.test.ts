@@ -16,6 +16,7 @@
  */
 import { describe, it, expect } from 'vitest';
 import { categorizeLocaleVerdicts, DIVERGENT_CATEGORIES } from '../scripts/audit-article-corpus-drift.mjs';
+import { assertCorpusObserved } from '../scripts/lib/assert-corpus-observed.mjs';
 
 describe('categorizeLocaleVerdicts — precedence', () => {
   it('reports no-locale-verdicts when the checker printed nothing', () => {
@@ -84,5 +85,59 @@ describe('categorizeLocaleVerdicts — precedence', () => {
     for (const c of ['ok', 'ok-cf-bot-script-only', 'render-failure', 'fetch-or-liveness']) {
       expect(DIVERGENT_CATEGORIES.has(c)).toBe(false);
     }
+  });
+});
+
+/**
+ * Terza occorrenza della stessa classe descritta nell'header: l'audit esce 0
+ * dichiarando successo dopo aver verificato zero articoli. Le prime due volte
+ * era il categorizzatore; qui e' il campione vuoto.
+ *
+ * Riproduce la run 32620849579 (2026-08-23), l'unico verde in sei run:
+ * `corpusSize=0 sampled=0` su entrambe le sezioni, poi `PASS`, poi
+ * `conclusion: success`. Senza questo caso il prossimo profilo sparse che
+ * ampute l'albero rifabbrica quel verde senza che nessuno lo veda — e questo
+ * workflow non ha, per scelta, nessuno step `if: failure()` che apra una issue.
+ */
+describe('assertSomethingWasObserved — «non ho osservato niente» non e` PASS', () => {
+  it('rifiuta la run 32620849579: due sezioni, corpusSize 0, sampled 0', () => {
+    expect(() =>
+      assertCorpusObserved('[t]', {
+        frontaliere: { total: 0, observed: 0 },
+        svizzera: { total: 0, observed: 0 },
+      }),
+    ).toThrow(/zero articoli osservati/);
+  });
+
+  it('nomina nel messaggio la sezione e i suoi conteggi, non solo «errore»', () => {
+    // Il messaggio E` la diagnosi: la run non ha issue e il report va letto a
+    // mano, quindi i numeri devono stare nella riga di log.
+    expect(() => assertCorpusObserved('[t]', { svizzera: { total: 0, observed: 0 } })).toThrow(
+      /svizzera: total=0 observed=0/,
+    );
+  });
+
+  it('rifiuta anche il caso senza sezioni selezionate', () => {
+    expect(() => assertCorpusObserved('[t]', {})).toThrow(/nessuna sezione selezionata/);
+  });
+
+  it('non e` una soglia: un solo articolo osservato passa', () => {
+    // Il confronto e` contro zero. Alzare questo numero trasformerebbe una
+    // guardia di osservabilita` in un gate sulla dimensione del campione.
+    expect(() =>
+      assertCorpusObserved('[t]', {
+        frontaliere: { total: 3889, observed: 1 },
+        svizzera: { total: 0, observed: 0 },
+      }),
+    ).not.toThrow();
+  });
+
+  it('passa quando il campione e` quello della run rossa reale (10 + 10)', () => {
+    expect(() =>
+      assertCorpusObserved('[t]', {
+        frontaliere: { total: 3889, observed: 10 },
+        svizzera: { total: 1899, observed: 10 },
+      }),
+    ).not.toThrow();
   });
 });
