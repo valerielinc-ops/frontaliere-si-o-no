@@ -678,12 +678,41 @@ jobs:
           done
           # Un import irrisolvibile nella copia trusted spegnerebbe il gate in
           # silenzio a runtime: qui fallisce subito e dice quale modulo manca.
-          for trusted_entry in \
+          # Il grafo si cammina STATICAMENTE, senza `import()`: questi moduli
+          # hanno una guardia `isDirectRun` che confronta `process.argv[1]`, e
+          # importarli passandogli il loro stesso path li fa PARTIRE davvero
+          # (misurato: il gate ha provato `gh api .../pulls/` e ha risposto 404).
+          cat > "${RUNNER_TEMP}/trusted-module-graph.mjs" <<'GRAPH'
+          import { existsSync, readFileSync, statSync } from 'node:fs';
+          import { dirname, resolve } from 'node:path';
+
+          const SPEC_RE = /(?:\bfrom\s*|\bimport\s*\(\s*)(['"])(\.[^'"]+)\1/gu;
+          const seen = new Set();
+          const missing = [];
+
+          function walk(file) {
+            if (seen.has(file)) return;
+            seen.add(file);
+            if (!existsSync(file) || !statSync(file).isFile()) {
+              missing.push(file);
+              return;
+            }
+            for (const match of readFileSync(file, 'utf8').matchAll(SPEC_RE)) {
+              walk(resolve(dirname(file), match[2]));
+            }
+          }
+
+          for (const entry of process.argv.slice(2)) walk(resolve(entry));
+          if (missing.length > 0) {
+            console.error(`moduli mancanti nella copia trusted: ${missing.join(', ')}`);
+            process.exit(1);
+          }
+          console.log(`grafo trusted completo: ${seen.size} moduli risolti`);
+          GRAPH
+          node "${RUNNER_TEMP}/trusted-module-graph.mjs" \
             "$policy_root/scripts/ci/review-gate.mjs" \
-            "$policy_root/scripts/ci/lib/review-carry-forward.mjs"; do
-            node --input-type=module -e 'await import(process.argv[1]);' "$trusted_entry" \
-              || { echo "::error::grafo di import incompleto nella copia trusted: $trusted_entry"; exit 1; }
-          done
+            "$policy_root/scripts/ci/lib/review-carry-forward.mjs" \
+            || { echo "::error::grafo di import incompleto nella copia trusted"; exit 1; }
           for trusted_file in \
             "$policy_root/scripts/ci/review-gate.mjs" \
             "$policy_root/scripts/ci/pr-contribution-fingerprint.mjs" \
@@ -3026,12 +3055,41 @@ jobs:
           done
           # Un import irrisolvibile nella copia trusted spegnerebbe il gate in
           # silenzio a runtime: qui fallisce subito e dice quale modulo manca.
-          for trusted_entry in \
+          # Il grafo si cammina STATICAMENTE, senza `import()`: questi moduli
+          # hanno una guardia `isDirectRun` che confronta `process.argv[1]`, e
+          # importarli passandogli il loro stesso path li fa PARTIRE davvero
+          # (misurato: il gate ha provato `gh api .../pulls/` e ha risposto 404).
+          cat > "${RUNNER_TEMP}/trusted-module-graph.mjs" <<'GRAPH'
+          import { existsSync, readFileSync, statSync } from 'node:fs';
+          import { dirname, resolve } from 'node:path';
+
+          const SPEC_RE = /(?:\bfrom\s*|\bimport\s*\(\s*)(['"])(\.[^'"]+)\1/gu;
+          const seen = new Set();
+          const missing = [];
+
+          function walk(file) {
+            if (seen.has(file)) return;
+            seen.add(file);
+            if (!existsSync(file) || !statSync(file).isFile()) {
+              missing.push(file);
+              return;
+            }
+            for (const match of readFileSync(file, 'utf8').matchAll(SPEC_RE)) {
+              walk(resolve(dirname(file), match[2]));
+            }
+          }
+
+          for (const entry of process.argv.slice(2)) walk(resolve(entry));
+          if (missing.length > 0) {
+            console.error(`moduli mancanti nella copia trusted: ${missing.join(', ')}`);
+            process.exit(1);
+          }
+          console.log(`grafo trusted completo: ${seen.size} moduli risolti`);
+          GRAPH
+          node "${RUNNER_TEMP}/trusted-module-graph.mjs" \
             "$policy_root/scripts/ci/review-gate.mjs" \
-            "$policy_root/scripts/ci/lib/review-carry-forward.mjs"; do
-            node --input-type=module -e 'await import(process.argv[1]);' "$trusted_entry" \
-              || { echo "::error::grafo di import incompleto nella copia trusted: $trusted_entry"; exit 1; }
-          done
+            "$policy_root/scripts/ci/lib/review-carry-forward.mjs" \
+            || { echo "::error::grafo di import incompleto nella copia trusted"; exit 1; }
           for trusted_file in \
             "$policy_root/scripts/ci/review-gate.mjs" \
             "$policy_root/scripts/ci/review-marker-recovery.mjs" \
