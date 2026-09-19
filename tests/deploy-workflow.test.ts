@@ -311,7 +311,7 @@ describe('deploy.yml + post-deploy-validate-dist.yml — tar-pack rehydrate fast
     const packSteps = DEPLOY_YML.match(/- name: Pack [^\n]*shard dist \(tar\)[^\n]*\n(?:.*\n)*?(?=\n {6}- name:|\n {4}- name:)/g) || [];
     expect(packSteps.length, 'expected at least the IT/non-IT Ticino + locale pack steps').toBeGreaterThanOrEqual(3);
     for (const step of packSteps) {
-      expect(step, `pack step missing tar -cvf output count:\n${step}`).toMatch(/packed_n=\$\(tar -C [^\n]* -cvf [^\n]*\| \{ grep -vc '\/\$' \|\| true; \}\)/);
+      expect(step, `pack step missing tar -cvf output count:\n${step}`).toMatch(/if ! packed_n=\$\(tar -C [^\n]* -cvf [^\n]*\| awk '!\/\\\/\$\/ \{ n\+\+ \} END \{ print n \+ 0 \}'\); then[\s\S]*rm -f "\$RUNNER_TEMP\/[^\"]+\.tar"[\s\S]*(?:return|exit) 0/);
       expect(step, `pack step missing packed-vs-source file count comparison:\n${step}`).toMatch(/if \[ "\$packed_n" -ne "\$(?:live_src_n|src_n)" \]/);
       expect(step, `pack step must discard a mismatched tar (rm -f), not upload it:\n${step}`).toMatch(/rm -f "\$RUNNER_TEMP\/[^"]*\.tar"/);
     }

@@ -1255,7 +1255,11 @@ jobs:
                 return 0
               fi
             fi
-            packed_n=$(tar -C "$src" -cvf "$RUNNER_TEMP/$section-dist-it.tar" "$sub" | { grep -vc '/$' || true; })
+            if ! packed_n=$(tar -C "$src" -cvf "$RUNNER_TEMP/$section-dist-it.tar" "$sub" | awk '!/\/$/ { n++ } END { print n + 0 }'); then
+              echo "::warning::$section-dist-it.tar creation failed — discarding tar, validate-dist will fall back to git-clone"
+              rm -f "$RUNNER_TEMP/$section-dist-it.tar"
+              return 0
+            fi
             ls -lh "$RUNNER_TEMP/$section-dist-it.tar"
             # Byte-identity guard (#2761 item 1): this tar and push-section-shard.sh's
             # own push both read the SAME already-offloaded "$src/$sub" staged copy
@@ -2039,7 +2043,11 @@ jobs:
                 return 0
               fi
             fi
-            packed_n=$(tar -C "$src" -cvf "$RUNNER_TEMP/$section-dist-$loc.tar" "$sub" | { grep -vc '/$' || true; })
+            if ! packed_n=$(tar -C "$src" -cvf "$RUNNER_TEMP/$section-dist-$loc.tar" "$sub" | awk '!/\/$/ { n++ } END { print n + 0 }'); then
+              echo "::warning::$section-dist-$loc.tar creation failed — discarding tar, validate-dist will fall back to git-clone"
+              rm -f "$RUNNER_TEMP/$section-dist-$loc.tar"
+              return 0
+            fi
             ls -lh "$RUNNER_TEMP/$section-dist-$loc.tar"
             # Byte-identity guard (#2761 item 1) — see the IT leg's "Pack section
             # shard dist" step above for the full rationale: this tar and
@@ -2277,7 +2285,11 @@ jobs:
           if [ -f "dist/${{ matrix.locale }}.html" ]; then
             members+=( "${{ matrix.locale }}.html" )
           fi
-          packed_n=$(tar -C dist -cvf "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar" "${members[@]}" | { grep -vc '/$' || true; })
+          if ! packed_n=$(tar -C dist -cvf "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar" "${members[@]}" | awk '!/\/$/ { n++ } END { print n + 0 }'); then
+            echo "::warning::locale-dist-${{ matrix.locale }}.tar creation failed — discarding tar, validate-dist will fall back to git-clone"
+            rm -f "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar"
+            exit 0
+          fi
           ls -lh "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar"
           # Byte-identity guard (#2761 item 1): this tar and push-locale-shard.sh's
           # `cp -al "$dist_dir/$loc" "$stage/$loc"` both read the SAME dist/<loc>

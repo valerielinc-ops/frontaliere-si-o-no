@@ -47,10 +47,11 @@ describe('deploy.yml pack_section() — independent shrink guard (issue #6283)',
     }
   });
 
-  it('walks the source once and counts tar members from tar -cvf output', () => {
+  it('walks the source once and counts tar members from tar -cvf output without masking tar failures', () => {
     for (const fn of fns) {
       expect(fn.match(/find "\$src\/\$sub" -type f \| wc -l/g)).toHaveLength(1);
-      expect(fn).toMatch(/packed_n=\$\(tar -C "\$src" -cvf[\s\S]*grep -vc '\/\$'/);
+      expect(fn).toMatch(/if ! packed_n=\$\(tar -C "\$src" -cvf[\s\S]*\| awk '!\/\\\/\$\/ \{ n\+\+ \} END \{ print n \+ 0 \}'\); then[\s\S]*rm -f "\$RUNNER_TEMP\/[^\"]+\.tar"[\s\S]*return 0/);
+      expect(fn).not.toMatch(/tar -C "\$src" -cvf[\s\S]*\|[^\n]*\|\| true/);
       expect(fn).not.toContain('tar -tf');
       expect(fn).toContain('if [ "$packed_n" -ne "$live_src_n" ]');
     }
