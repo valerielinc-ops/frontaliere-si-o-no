@@ -156,6 +156,17 @@ describe('extractLocationFromText — does not let stray label keywords in body 
     `;
     expect(extractLocationFromText(html, '')).toBe('Lugano');
   });
+
+  it('reads the Italian workplace label used by the Coop detail page', () => {
+    const html = `
+      <html><body>
+        <h1>Impiegata o impiegato del commercio al dettaglio</h1>
+        <h4>Luogo di lavoro</h4>
+        <p>Mendrisio</p>
+      </body></html>
+    `;
+    expect(extractLocationFromText(html, '')).toBe('Mendrisio');
+  });
 });
 
 describe('buildKnownJobUrlsSet — skip-optimization must not trust jobs with a pending crawler miss (issue 4826)', () => {
@@ -476,6 +487,118 @@ describe('toJobFromJsonLd — explicit adapter detail URLs', () => {
     });
     expect(result.filteredOutByReason.jsonld_not_detail_url).toBeUndefined();
     expect(result.scrapedJobPages).toBe(1);
+  });
+});
+
+describe('toJobFromJsonLd — employer workplace and multi-site locations (#9210)', () => {
+  const { toJobFromJsonLd, toJobFromHtmlFallback } = __testables;
+  const DESCRIPTION = [
+    'We are looking for an experienced specialist to join the team.',
+    'You will manage daily operations and collaborate with colleagues.',
+    'Requirements: professional experience, excellent communication skills,',
+    'fluent English and a relevant degree.',
+  ].join(' ');
+
+  const posting = (jobLocation: unknown) => ({
+    '@type': 'JobPosting',
+    title: 'Experienced Operations Specialist',
+    description: DESCRIPTION,
+    hiringOrganization: { name: 'Example Employer' },
+    jobLocation,
+  });
+
+  it('chooses the Swiss ABB site from a multi-site JSON-LD posting and strips the canton suffix', () => {
+    const result = toJobFromJsonLd(
+      posting([
+        {
+          '@type': 'Place',
+          address: {
+            addressCountry: 'United States of America',
+            addressLocality: 'Richmond',
+            addressRegion: 'Virginia',
+          },
+        },
+        {
+          '@type': 'Place',
+          address: {
+            addressCountry: 'Switzerland',
+            addressLocality: 'Quartino, Ticino',
+            addressRegion: 'Ticino',
+            postalCode: '6572',
+            streetAddress: 'Via Luserte Sud 9',
+          },
+        },
+      ]),
+      'ABB',
+      'https://careers.abb/global/en/job/ABB1GLOBALJR00045264EXTERNALENGLOBAL/R-D-Hardware-Engineer_JR00045264',
+      { seedMeta: { location: 'Untersiggenthal, Aargau, Switzerland', canton: 'AG' } },
+    );
+
+    expect(result.job).toMatchObject({ location: 'Quartino', canton: 'TI' });
+  });
+
+  it('prefers the Coop workplace metadata over the administrative JSON-LD location', () => {
+    const result = toJobFromJsonLd(
+      posting({
+        '@type': 'Place',
+        address: {
+          addressCountry: 'Svizzera',
+          addressLocality: 'Gossau',
+          addressRegion: 'Gossau',
+          postalCode: '9200',
+          streetAddress: 'Industriestrasse 109',
+        },
+      }),
+      'Coop',
+      'https://jobs.coopjobs.ch/posti-vacanti/impiegata-o-del-commercio-al-dettaglio/ec40ee71-3b7d-4a3a-8bd2-a593aa2df109',
+      {
+        isSeedDetail: true,
+        seedMeta: {
+          canton: 'TI',
+          'sza_workplace.city': 'Mendrisio',
+          'sza_workplace.zip': '6850',
+          'sza_workplace.street': 'Via Ligornetto 1',
+        },
+      },
+    );
+
+    expect(result.job).toMatchObject({ location: 'Mendrisio', canton: 'TI' });
+  });
+
+  it('keeps the workplace city in the HTML fallback branch', () => {
+    const html = `
+      <html><head><title>Experienced Operations Specialist</title></head><body>
+        <h1>Experienced Operations Specialist</h1>
+        <h4>Luogo di lavoro</h4><p>Mendrisio</p>
+        <h2>Responsabilità</h2>
+        <p>In this role you will support daily operations, coordinate colleagues, and maintain reliable service for customers across the region.</p>
+        <h2>Requisiti</h2>
+        <p>Professional experience, good communication skills, attention to detail, and a relevant vocational or academic qualification are required.</p>
+      </body></html>
+    `;
+    const result = toJobFromHtmlFallback(
+      html,
+      'https://jobs.coopjobs.ch/posti-vacanti/impiegata-o-del-commercio-al-dettaglio/ec40ee71-3b7d-4a3a-8bd2-a593aa2df109',
+      'Coop',
+      'Gossau',
+      {
+        isSeedDetail: true,
+        seedMeta: { canton: 'TI', 'sza_workplace.city': 'Mendrisio' },
+      },
+    );
+
+    expect(result.job).toMatchObject({ location: 'Mendrisio', canton: 'TI' });
+  });
+
+  it('keeps the historical Ticino fallback when no location field is readable', () => {
+    const result = toJobFromJsonLd(
+      posting({ '@type': 'Place', address: {} }),
+      'Example Employer',
+      'https://careers.example.com/job/experienced-operations-specialist',
+      { seedMeta: { canton: 'TI' } },
+    );
+
+    expect(result.job).toMatchObject({ location: 'Ticino', canton: 'TI' });
   });
 });
 

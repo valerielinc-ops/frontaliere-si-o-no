@@ -29,6 +29,7 @@ import { renderRecommendedBlock } from '../services/newsletter/recommendedBlock.
 import {
   buildAlertProfile,
   scoreJobForAlert,
+  createJobFeatureCache,
   partitionByGeoPreference,
   freshnessBoost,
   FRESHNESS_BOOST_48H_MS,
@@ -187,7 +188,13 @@ const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({ canto
 // check-journalist-article-links.mjs) is the real liveness signal: GET + look
 // for the `window.__EXPIRED_JOB_DATA__` marker buildSoftLandingHtml alone
 // seeds.
-const JOB_LIVE_CHECK_CONCURRENCY = 5;
+// 16, not the 5 it was: with the checks now prefetched by ONE pool across
+// alerts (createJobLivenessPrefetcher), this cap is the throughput of the
+// step: run 35422626497 spent ~262 s awaiting per-alert checks with 5 slots
+// (first alert: 403 pages in ~11 s, ~37/s). 16 same-origin GETs in flight on our own
+// Cloudflare-cached pages; a burst that did make checks fail is still caught
+// per alert by the fail-open guard below, never an emptied email.
+const JOB_LIVE_CHECK_CONCURRENCY = 16;
 // Fail-open guard: check-journalist-article-links.mjs is a monitoring/report
 // tool (a failed check just marks one outlink broken in a report — never
 // empties anything), so it has no analogous "distrust the batch" step. Here
@@ -247,6 +254,68 @@ async function filterLiveJobs(jobs, locale, cache) {
     console.log(`   🔗 Live-link check: ${deadCount}/${checked} job(s) filtered out (dead link — pulled/expired or not yet deployed)`);
   }
   return results.filter((r) => r.live).map((r) => r.job);
+}
+
+/**
+ * Background filler of the `filterLiveJobs` cache. The send loop used to await
+ * each alert's live-link batch before scoring the next alert, so the network
+ * sat idle during scoring and a batch of 2 new URLs used 2 of the pool slots
+ * (run 35422626497: ~260 s of the ~9 min matching loop spent inside those
+ * awaits). This keeps ONE pool of `concurrency` workers busy across alerts
+ * while scoring continues, so `filterLiveJobs` later finds every URL cached.
+ *
+ * Same check (`checkJobPageLive`), same URL (`jobPageUrl`), same cache, same
+ * cap on in-flight requests: only WHEN a URL is checked changes, never what
+ * the check answers. A check that throws leaves its URL uncached, so
+ * `filterLiveJobs` re-checks it exactly as it would have without prefetch.
+ * Exported for tests.
+ */
+function createJobLivenessPrefetcher(cache, { concurrency = JOB_LIVE_CHECK_CONCURRENCY, check = checkJobPageLive } = {}) {
+  const queue = [];
+  let head = 0;
+  const queued = new Set();
+  let active = 0;
+  let idleWaiters = [];
+  const settleIfIdle = () => {
+    if (active !== 0 || head < queue.length) return;
+    const waiters = idleWaiters;
+    idleWaiters = [];
+    for (const resolve of waiters) resolve();
+  };
+  const worker = async () => {
+    active += 1;
+    try {
+      while (head < queue.length) {
+        const url = queue[head];
+        head += 1;
+        try {
+          cache.set(url, await check(url));
+        } catch {
+          // Left uncached on purpose — filterLiveJobs checks it again.
+        }
+      }
+    } finally {
+      active -= 1;
+      settleIfIdle();
+    }
+  };
+  return {
+    enqueue(jobs, locale) {
+      for (const job of jobs) {
+        const url = jobPageUrl(job, locale);
+        if (!url || cache.has(url) || queued.has(url)) continue;
+        queued.add(url);
+        queue.push(url);
+      }
+      while (active < concurrency && head < queue.length) void worker();
+    },
+    drain() {
+      return new Promise((resolve) => {
+        idleWaiters.push(resolve);
+        settleIfIdle();
+      });
+    },
+  };
 }
 
 // Brand logo lookup. Builds slug→filename map from public/images/brands/ at
@@ -1306,9 +1375,24 @@ async function onSentComposed(item, sendResult) {
   await persistJobAlertDelivery(item, sendResult);
 }
 
+// Throttle for both job-alert cascade calls (first send + retry queue). Run
+// 35422626497 sent 1591 emails in 26.5 min = 1.0 email/s at concurrency 3:
+// the cascade's default delayMs (1000) is spacing PER PROVIDER shared by all
+// workers, and ~99% went to maileroo, so 1/s was the ceiling whatever the
+// concurrency. Same scheme as the newsletter (NEWSLETTER_SEND_THROTTLE): 100ms
+// base spacing, adaptive backoff on explicit 429/5xx up to 1s, four workers,
+// per-provider floors for cloudflare/resend (BULK_PROVIDER_MIN_INTERVAL_MS).
+// Target >= 2.5 email/s. Dedup is per item: the cascade claims each item once
+// and onSentComposed writes only that recipient's documents.
+const JOB_ALERT_SEND_THROTTLE = Object.freeze({
+  concurrency: 4,
+  delayMs: 100,
+  adaptiveThrottle: Object.freeze({ stepMs: 100, maxDelayMs: 1000 }),
+});
+
 async function sendBatch(emails) {
   // Use cascade for bulk sending
-  const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
+  const { sendEmailCascade, logProviderSummary, BULK_PROVIDER_MIN_INTERVAL_MS } = await import('./lib/email-cascade.mjs');
 
   const cascadeEmails = emails.map(e => {
     // Gmail FBL: Feedback-ID category:identifier:sender-name
@@ -1356,7 +1440,8 @@ async function sendBatch(emails) {
   });
 
   const result = await sendEmailCascade(cascadeEmails, {
-    concurrency: 3,
+    ...JOB_ALERT_SEND_THROTTLE,
+    providerMinIntervalMs: BULK_PROVIDER_MIN_INTERVAL_MS,
     onSent: onSentComposed,
   });
   logProviderSummary();
@@ -1435,7 +1520,7 @@ async function processRetryQueue(db) {
   }
 
   console.log(`   🔄 Retry queue: ${snap.size} pending email(s) to retry`);
-  const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
+  const { sendEmailCascade, logProviderSummary, BULK_PROVIDER_MIN_INTERVAL_MS } = await import('./lib/email-cascade.mjs');
   const { FieldValue } = await import('firebase-admin/firestore');
 
   const retryEmails = [];
@@ -1547,7 +1632,8 @@ async function processRetryQueue(db) {
   // record — otherwise their open/click webhooks fall back to `skipped` (the exact
   // attribution bug fixed for the first-send path in #1135).
   const result = await sendEmailCascade(retryEmails, {
-    concurrency: 3,
+    ...JOB_ALERT_SEND_THROTTLE,
+    providerMinIntervalMs: BULK_PROVIDER_MIN_INTERVAL_MS,
     onSent: onSentComposed,
   });
   logProviderSummary();
@@ -1624,6 +1710,132 @@ async function processRetryQueue(db) {
 }
 
 // ── Main ─────────────────────────────────────────────────────
+
+/**
+ * Everything the send loop decides about ONE alert before the network is
+ * involved: profile, scoring, per-company cap, geo preference, and the
+ * per-alert dedup against already-sent jobs. Pure and synchronous, so main()
+ * can plan every alert while the live-link prefetcher checks the URLs of the
+ * plans already made. Returns the ranked count (for the "all already sent"
+ * log), the zero-match cause when nothing ranked, and the unsent `matched`
+ * list the rest of the loop consumes. Exported for tests.
+ */
+function planAlertMatch(alert, {
+  behaviorProfiles,
+  lastClickedUrlByEmail,
+  locationIndex,
+  cityToCanton,
+  subscriberProfiles,
+  recentJobs,
+  now,
+  featureCache = null,
+}) {
+  // Enrich the alert with the subscriber's newsletter profile, browsing
+  // personalization (filter usage + viewed-job geography) and the geography of
+  // the job it was created from, then score every recent job against it.
+  const behavior = behaviorProfiles.get(alert.email.toLowerCase()) || {};
+  // The job the subscriber last clicked in an email — fold its geography into
+  // the soft location boost (strongest intent; #3025).
+  const clicked = clickedJobMeta(lastClickedUrlByEmail.get(alert.email.toLowerCase()), locationIndex);
+  const sourceJobLocations = sourceJobLocationsFor(alert, locationIndex);
+  const extras = {
+    behaviorLocations: [...(behavior.behaviorLocations || []), ...clicked.locations],
+    behaviorTokens: behavior.behaviorTokens || [],
+    sourceJobLocations,
+    // High-confidence geo signals for the graduated geo preference (#2993):
+    // explicit on-site filters + clicked/source job geography. Passive
+    // viewed-job cities are deliberately excluded (see buildAlertProfile).
+    strongLocations: [
+      ...(behavior.filterLocations || []),
+      ...clicked.locations,
+      ...sourceJobLocations,
+    ],
+    cityToCanton,
+  };
+  const profile = buildAlertProfile(
+    alert,
+    subscriberProfiles.get(alert.email.toLowerCase()) || null,
+    extras,
+  );
+  // Canary gate: broadcast-restricted ads only ever match the OWNER's alerts,
+  // so a test listing can't reach real alert subscribers.
+  const canaryEligible = isOwnerEmail(alert.email) ? recentJobs : recentJobs.filter((j) => !isCanaryJob(j));
+  // needsRetranslation only means translations FROM the job's source locale
+  // are stale — exclude a job from THIS alert only when its own source
+  // locale differs from the recipient's locale (#4715).
+  const alertLocale = nlNormLocale(alert.locale);
+  const eligibleJobs = canaryEligible.filter(
+    (j) => !(j.needsRetranslation === true && alertLocale !== (j.sourceLang || 'it')),
+  );
+  // Relevance score + graduated freshness boost: a job first seen within
+  // 24h/48h gets +2/+1 on top of its relevance so GENUINELY new listings win
+  // near-ties against the re-crawled backlog (the pool re-admits the whole
+  // inventory daily — see MATCH_WINDOW_MS). The boost never resurrects a
+  // 0-score job: relevance still decides IF a job surfaces, freshness only
+  // decides how high.
+  const sorted = eligibleJobs
+    .map((job) => {
+      const relevance = scoreJobForAlert(job, profile, nlNormLocale(alert.locale), featureCache);
+      return {
+        job: relevance > 0 ? { ...job, relevanceScore: relevance } : job,
+        score: relevance > 0 ? relevance + freshnessBoost(job, now) : 0,
+      };
+    })
+    .filter((m) => m.score > 0)
+    .sort((a, b) => {
+      // Primary: higher score first.
+      const scoreDiff = b.score - a.score;
+      if (scoreDiff !== 0) return scoreDiff;
+      // Tiebreak: more recently first-seen jobs first. Without this, location-only
+      // alerts (where every match has score=2) yielded an arbitrary insertion order
+      // and stale jobs leaked into the subject line.
+      const aTime = a.job.firstSeenAt ? new Date(a.job.firstSeenAt).getTime() : 0;
+      const bTime = b.job.firstSeenAt ? new Date(b.job.firstSeenAt).getTime() : 0;
+      return bTime - aTime;
+    });
+
+  // Per-company cap: at most 2 jobs per company in the surfaced list. Without
+  // this, recency-sorted location-only alerts produce 9/10 cards from the same
+  // employer (e.g. all EOC) — visually monotone. Overflow jobs are kept in
+  // `remainder` and appended after the cap is exhausted, so the user still
+  // sees the count when they have enough variety.
+  const PER_COMPANY_CAP = 2;
+  const perCompany = new Map();
+  const surfaced = [];
+  const remainder = [];
+  for (const m of sorted) {
+    const key = String(m.job.company || '\u2205').toLowerCase();
+    const count = perCompany.get(key) || 0;
+    if (count < PER_COMPANY_CAP) {
+      surfaced.push(m.job);
+      perCompany.set(key, count + 1);
+    } else {
+      remainder.push(m.job);
+    }
+  }
+  const rankedAll = surfaced.concat(remainder).map((job) => job);
+
+  // Graduated geo preference (#2993): for a keyword-only alert with no explicit
+  // location/canton scope, prefer jobs in the subscriber's area (resolved from
+  // their home city + explicit on-site filters + clicked/source job) so a
+  // Ticino nurse stops receiving Basel/Zürich roles — while still falling back
+  // to out-of-area matches when too few local ones exist (never starves a
+  // sparse alert). No-op when the alert already scopes geography itself.
+  const ranked = partitionByGeoPreference(rankedAll, profile);
+
+  if (ranked.length === 0) {
+    return { alert, rankedCount: 0, zeroCause: classifyZeroMatchCause(profile), sentMap: null, matched: [] };
+  }
+
+  // De-dup: drop jobs already emailed to THIS alert within the dedup window.
+  // Without this a re-crawled job (its crawledAt refreshes, so it re-enters the
+  // 24h pool) headlines the alert every single day — the "I keep getting the
+  // same jobs" report (#2993). When nothing new remains we skip the send
+  // entirely rather than re-mail stale offers.
+  const sentMap = normalizeSentMap(alert.sentJobIds);
+  const matched = filterUnsentJobs(ranked, sentMap, now, DEDUP_WINDOW_MS);
+  return { alert, rankedCount: ranked.length, zeroCause: null, sentMap, matched };
+}
 
 async function main() {
   console.log('🔔 Job Alert Matching — Starting...');
@@ -2038,117 +2250,40 @@ async function main() {
   // HEAD-checked twice in one run (#3172).
   const jobLiveCheckCache = new Map();
 
+  // 3a. Plan every alert (CPU only), letting the live-link prefetcher check
+  // the URLs of the plans already made in the background. The yield after each
+  // alert is what lets the pool's I/O callbacks run between two plans. Job-side
+  // scoring features are memoised across alerts (the pool is not mutated here).
+  const featureCache = createJobFeatureCache();
+  const livenessPrefetcher = createJobLivenessPrefetcher(jobLiveCheckCache);
+  const plans = [];
   for (const alert of alerts) {
-    // Enrich the alert with the subscriber's newsletter profile, browsing
-    // personalization (filter usage + viewed-job geography) and the geography of
-    // the job it was created from, then score every recent job against it.
-    const behavior = behaviorProfiles.get(alert.email.toLowerCase()) || {};
-    // The job the subscriber last clicked in an email — fold its geography into
-    // the soft location boost (strongest intent; #3025).
-    const clicked = clickedJobMeta(lastClickedUrlByEmail.get(alert.email.toLowerCase()), locationIndex);
-    const sourceJobLocations = sourceJobLocationsFor(alert, locationIndex);
-    const extras = {
-      behaviorLocations: [...(behavior.behaviorLocations || []), ...clicked.locations],
-      behaviorTokens: behavior.behaviorTokens || [],
-      sourceJobLocations,
-      // High-confidence geo signals for the graduated geo preference (#2993):
-      // explicit on-site filters + clicked/source job geography. Passive
-      // viewed-job cities are deliberately excluded (see buildAlertProfile).
-      strongLocations: [
-        ...(behavior.filterLocations || []),
-        ...clicked.locations,
-        ...sourceJobLocations,
-      ],
+    const plan = planAlertMatch(alert, {
+      behaviorProfiles,
+      lastClickedUrlByEmail,
+      locationIndex,
       cityToCanton,
-    };
-    const profile = buildAlertProfile(
-      alert,
-      subscriberProfiles.get(alert.email.toLowerCase()) || null,
-      extras,
-    );
-    // Canary gate: broadcast-restricted ads only ever match the OWNER's alerts,
-    // so a test listing can't reach real alert subscribers.
-    const canaryEligible = isOwnerEmail(alert.email) ? recentJobs : recentJobs.filter((j) => !isCanaryJob(j));
-    // needsRetranslation only means translations FROM the job's source locale
-    // are stale — exclude a job from THIS alert only when its own source
-    // locale differs from the recipient's locale (#4715).
-    const alertLocale = nlNormLocale(alert.locale);
-    const eligibleJobs = canaryEligible.filter(
-      (j) => !(j.needsRetranslation === true && alertLocale !== (j.sourceLang || 'it')),
-    );
-    // Relevance score + graduated freshness boost: a job first seen within
-    // 24h/48h gets +2/+1 on top of its relevance so GENUINELY new listings win
-    // near-ties against the re-crawled backlog (the pool re-admits the whole
-    // inventory daily — see MATCH_WINDOW_MS). The boost never resurrects a
-    // 0-score job: relevance still decides IF a job surfaces, freshness only
-    // decides how high.
-    const sorted = eligibleJobs
-      .map((job) => {
-        const relevance = scoreJobForAlert(job, profile, nlNormLocale(alert.locale));
-        return {
-          job: relevance > 0 ? { ...job, relevanceScore: relevance } : job,
-          score: relevance > 0 ? relevance + freshnessBoost(job, now) : 0,
-        };
-      })
-      .filter((m) => m.score > 0)
-      .sort((a, b) => {
-        // Primary: higher score first.
-        const scoreDiff = b.score - a.score;
-        if (scoreDiff !== 0) return scoreDiff;
-        // Tiebreak: more recently first-seen jobs first. Without this, location-only
-        // alerts (where every match has score=2) yielded an arbitrary insertion order
-        // and stale jobs leaked into the subject line.
-        const aTime = a.job.firstSeenAt ? new Date(a.job.firstSeenAt).getTime() : 0;
-        const bTime = b.job.firstSeenAt ? new Date(b.job.firstSeenAt).getTime() : 0;
-        return bTime - aTime;
-      });
+      subscriberProfiles,
+      recentJobs,
+      now,
+      featureCache,
+    });
+    plans.push(plan);
+    if (plan.matched.length > 0) livenessPrefetcher.enqueue(plan.matched, nlNormLocale(alert.locale));
+    await new Promise((resolve) => setImmediate(resolve));
+  }
+  await livenessPrefetcher.drain();
 
-    // Per-company cap: at most 2 jobs per company in the surfaced list. Without
-    // this, recency-sorted location-only alerts produce 9/10 cards from the same
-    // employer (e.g. all EOC) — visually monotone. Overflow jobs are kept in
-    // `remainder` and appended after the cap is exhausted, so the user still
-    // sees the count when they have enough variety.
-    const PER_COMPANY_CAP = 2;
-    const perCompany = new Map();
-    const surfaced = [];
-    const remainder = [];
-    for (const m of sorted) {
-      const key = String(m.job.company || '\u2205').toLowerCase();
-      const count = perCompany.get(key) || 0;
-      if (count < PER_COMPANY_CAP) {
-        surfaced.push(m.job);
-        perCompany.set(key, count + 1);
-      } else {
-        remainder.push(m.job);
-      }
-    }
-    const rankedAll = surfaced.concat(remainder).map((job) => job);
-
-    // Graduated geo preference (#2993): for a keyword-only alert with no explicit
-    // location/canton scope, prefer jobs in the subscriber's area (resolved from
-    // their home city + explicit on-site filters + clicked/source job) so a
-    // Ticino nurse stops receiving Basel/Zürich roles — while still falling back
-    // to out-of-area matches when too few local ones exist (never starves a
-    // sparse alert). No-op when the alert already scopes geography itself.
-    const ranked = partitionByGeoPreference(rankedAll, profile);
-
-    if (ranked.length === 0) {
-      const cause = classifyZeroMatchCause(profile);
+  // 3b. Build, in the original alert order, with the same logs and counters.
+  for (const { alert, rankedCount, zeroCause, sentMap, matched } of plans) {
+    if (rankedCount === 0) {
       zeroMatchCount++;
-      zeroMatchByCause[cause] = (zeroMatchByCause[cause] || 0) + 1;
-      console.log(`   ⏭️ Alert ${alert.id}: 0 matches (${cause}) → skip`);
+      zeroMatchByCause[zeroCause] = (zeroMatchByCause[zeroCause] || 0) + 1;
+      console.log(`   ⏭️ Alert ${alert.id}: 0 matches (${zeroCause}) → skip`);
       continue;
     }
-
-    // De-dup: drop jobs already emailed to THIS alert within the dedup window.
-    // Without this a re-crawled job (its crawledAt refreshes, so it re-enters the
-    // 24h pool) headlines the alert every single day — the "I keep getting the
-    // same jobs" report (#2993). When nothing new remains we skip the send
-    // entirely rather than re-mail stale offers.
-    const sentMap = normalizeSentMap(alert.sentJobIds);
-    const matched = filterUnsentJobs(ranked, sentMap, now, DEDUP_WINDOW_MS);
     if (matched.length === 0) {
-      console.log(`   ⏭️  Alert ${alert.id}: ${ranked.length} matches, all already sent → skip`);
+      console.log(`   ⏭️  Alert ${alert.id}: ${rankedCount} matches, all already sent → skip`);
       continue;
     }
 
@@ -2579,4 +2714,4 @@ if (isEntryPoint) {
   });
 }
 
-export { buildAlertEmail, filterLiveJobs, jobPageUrl };
+export { buildAlertEmail, filterLiveJobs, jobPageUrl, createJobLivenessPrefetcher, planAlertMatch };

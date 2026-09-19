@@ -50,3 +50,15 @@ describe('pr-autorebase — conflitto dopo LGTM affidato a issue-fix (#9260)', (
     expect(SOURCE).toMatch(/'issue', 'edit', issue, '--repo', REPO, '--add-label', 'agent:fix'/);
   });
 });
+
+describe('pr-autorebase — hand-off fail-closed (review #1620)', () => {
+  it('merge-tree deve confermare il conflitto e il marker segue il routing confermato', () => {
+    const fn = SOURCE.slice(SOURCE.indexOf('function handOffConflictToFixer('), SOURCE.indexOf('function commentConflictOnce('));
+    expect(fn).toContain("if (verdict.state !== 'conflicted')");
+    const routed = fn.indexOf("if (!ghOk(['issue', 'edit', issue, '--repo', REPO, '--add-label', 'agent:fix']))");
+    const marker = fn.indexOf('${marker}');
+    expect(routed).toBeGreaterThan(0);
+    expect(marker).toBeGreaterThan(routed);
+    expect(fn).toMatch(/'issue', 'list'[\s\S]*in:title/);
+  });
+});
