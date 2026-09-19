@@ -177,7 +177,12 @@ Behavior claims richiedono `file:linea`. No speculazione. Incerto → `❓ q:`.
 Dopo prima review:
 - Sopprimi 🟡. Posta solo 🔴.
 - Fix di `path:L<linea>` già applicato → conferma esplicitamente «Fix di `path:L<linea>`: ok.»
-- Un riallineamento della base non chiude un 🔴 Important precedente per silenzio: se l'anchor `path:Llinea` è ancora presente, riportalo; se corretto, conferma la riga di fix prima di scendere a `Important: 0` + `## LGTM`.
+- Un riallineamento della base non chiude un 🔴 Important precedente per silenzio: se l’anchor `path:Llinea` è ancora presente, riportalo; se corretto, conferma la riga di fix prima di scendere a `Important: 0` + `## LGTM`.
+- Il gate tratta come citazione ogni path di repository trovato nella prosa del
+  finding, anche quando è un companion senza `:L`. Se il rilievo è risolto,
+  emetti una riga `Fix di \`path:L<linea corrente>\`: ok.` separata per ciascun
+  path citato (non solo per la location primaria), prima di `Important: 0` +
+  `## LGTM`.
 - 🔴 Important senza citazione di file → non chiuderlo per silenzio: se il rilievo è risolto, conferma «Fix di `<testo normalizzato>`: ok.» usando il testo del finding senza backtick interni.
 - No rilanciare nit già detti.
 
