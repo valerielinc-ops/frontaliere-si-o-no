@@ -232,6 +232,9 @@ async function main() {
   const changedFiles = payloadFiles.filter((relativePath) => isCoveredByManifest(relativePath, changedBases));
   const manifestCoveredFiles = payloadFiles.filter((relativePath) => isCoveredByManifest(relativePath, currentBases));
   const unmanifestedFiles = payloadFiles.filter((relativePath) => !isCoveredByManifest(relativePath, currentBases));
+  const unchangedFiles = manifestCoveredFiles.filter((relativePath) => (
+    !isCoveredByManifest(relativePath, changedBases)
+  ));
   writeSnapshot(current, currentEntries, path.join(args.out, 'snapshot.jsonl'));
   writePathList(path.join(args.out, 'changed.txt'), changed);
   writePathList(path.join(args.out, 'removed.txt'), removed);
@@ -239,6 +242,7 @@ async function main() {
   writePathList(path.join(args.out, 'changed-files.txt'), changedFiles);
   writePathList(path.join(args.out, 'manifest-covered-files.txt'), manifestCoveredFiles);
   writePathList(path.join(args.out, 'unmanifested-files.txt'), unmanifestedFiles);
+  writePathList(path.join(args.out, 'unchanged-files.txt'), unchangedFiles);
   fs.writeFileSync(path.join(args.out, 'summary.json'), `${JSON.stringify({
     locale: current.data.locale,
     scope,
@@ -246,8 +250,9 @@ async function main() {
     previous: previousEntries.size,
     changed: changed.length,
     removed: removed.length,
+    unchanged: unchangedFiles.length,
   })}\n`);
-  console.log(`manifest delta: scope=${scope || '/'} current=${currentEntries.size} previous=${previousEntries.size} changed=${changed.length} removed=${removed.length}`);
+  console.log(`manifest delta: mode=${args.snapshotOnly ? 'snapshot' : 'delta'} scope=${scope || '/'} current=${currentEntries.size} previous=${previousEntries.size} changed=${changed.length} unchanged=${unchangedFiles.length} removed=${removed.length}`);
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {

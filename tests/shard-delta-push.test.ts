@@ -244,6 +244,7 @@ describe('delta push degli shard', () => {
       writeManifest(scenario, ['pages/a', 'pages/b', 'pages/c'], 'v1');
       const first = runPush(scenario, 'delta');
       expect(first.status).toBe(0);
+      expect(first.output).toContain('manifest delta: mode=snapshot');
       expect(first.output).toMatch(/delta fallback: .*remote empty|delta fallback: first push/);
       expect(treeFiles(scenario.remote)).toContain('.deploy-manifest/v1/en.jsonl');
       const oldA = blobSha(scenario.remote, 'en/pages/a/index.html');
@@ -257,6 +258,7 @@ describe('delta push degli shard', () => {
       writeManifest(scenario, ['pages/a', 'pages/b', 'pages/d'], 'v2');
       const second = runPush(scenario, 'delta');
       expect(second.status).toBe(0);
+      expect(second.output).toContain('manifest delta: mode=delta');
       expect(second.output).toContain('delta indexed tree');
       expect(treeFiles(scenario.remote)).not.toContain('en/pages/c/index.html');
       expect(treeFiles(scenario.remote)).toContain('en/pages/d/index.html');
@@ -309,6 +311,70 @@ describe('delta push degli shard', () => {
       expect(result.output).toMatch(/removed=1/);
       expect(treeFiles(scenario.remote)).not.toContain('en/pages/a/obsolete.txt');
       assertContent(scenario.remote, 'en/pages/a/index.html', '<html>A</html>');
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
+  it('fa fallback se il sidecar marca unchanged un file assente dall’indice HEAD', () => {
+    const scenario = createScenario('unchanged-missing-from-head');
+    try {
+      writePayload(scenario, { 'pages/a': '<html>A</html>' });
+      writeManifest(scenario, ['pages/a'], 'v1');
+      expect(runPush(scenario, 'delta').status).toBe(0);
+
+      // Simulate a torn/filtered shard commit: keep the published sidecar,
+      // but remove the payload blob from HEAD. The next manifest says the
+      // entry is unchanged, so delta must refuse to reuse a missing file and
+      // rebuild via the full overlay.
+      const corrupt = join(scenario.root, 'corrupt-head');
+      git(['clone', '-q', scenario.remote, corrupt]);
+      git(['config', 'user.email', 'test@example.com'], corrupt);
+      git(['config', 'user.name', 'Test User'], corrupt);
+      rmSync(join(corrupt, 'en/pages/a/index.html'));
+      git(['add', '-A'], corrupt);
+      git(['commit', '-qm', 'simulate missing unchanged payload'], corrupt);
+      git(['push', '-q', 'origin', 'main'], corrupt);
+
+      writePayload(scenario, { 'pages/a': '<html>A</html>' });
+      writeManifest(scenario, ['pages/a'], 'v1');
+      const result = runPush(scenario, 'delta');
+      expect(result.status).toBe(0);
+      expect(result.output).toMatch(/delta fallback: unchanged payload missing from indexed HEAD/);
+      assertContent(scenario.remote, 'en/pages/a/index.html', '<html>A</html>');
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
+  it('tratta come no-op un tombstone assente dall’indice anche con payload correlato', () => {
+    const scenario = createScenario('tombstone-absent-from-head');
+    try {
+      writePayload(scenario, { 'pages/gone': '<html>old</html>' });
+      writeManifest(scenario, ['pages/gone'], 'v1');
+      expect(runPush(scenario, 'delta').status).toBe(0);
+
+      // Leave the sidecar tombstone source in HEAD, but remove the old target
+      // from the indexed tree before the next build. The current payload is
+      // deliberately unmanifested and route-related: the tombstone pass must
+      // still be a no-op because there is nothing in HEAD to delete.
+      const corrupt = join(scenario.root, 'corrupt-head');
+      git(['clone', '-q', scenario.remote, corrupt]);
+      git(['config', 'user.email', 'test@example.com'], corrupt);
+      git(['config', 'user.name', 'Test User'], corrupt);
+      rmSync(join(corrupt, 'en/pages/gone/index.html'));
+      git(['add', '-A'], corrupt);
+      git(['commit', '-qm', 'remove tombstone target from head'], corrupt);
+      git(['push', '-q', 'origin', 'main'], corrupt);
+
+      writePayload(scenario, { 'pages/gone': '<html>replacement</html>' });
+      writeManifest(scenario, [], 'v2');
+      const result = runPush(scenario, 'delta');
+      expect(result.status).toBe(0);
+      expect(result.output).toContain('manifest tombstone no-op for en/pages/gone');
+      expect(result.output).toContain('reason=absent from indexed HEAD');
+      expect(result.output).not.toContain('delta fallback: manifest tombstone cross-check failed');
+      assertContent(scenario.remote, 'en/pages/gone/index.html', '<html>replacement</html>');
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }
