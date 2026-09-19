@@ -172,14 +172,20 @@ function unlistedDetailLinks(rows: SnapshotRow[], locale: PlateLocale, listedRow
   }
   return links.join('');
 }
-function detailLinksForRows(rows: SnapshotRow[], locale: PlateLocale): string {
+function publishedDetailRows(rows: SnapshotRow[], locale: PlateLocale): SnapshotRow[] {
   const seen = new Set<string>();
-  return rows.flatMap((row) => {
-    if (row.dataConfidence === 'conflicting') return [];
+  return rows.filter((row) => {
+    if (row.dataConfidence === 'conflicting') return false;
     const href = detailPathForRow(row, locale);
-    if (seen.has(href)) return [];
+    if (seen.has(href)) return false;
     seen.add(href);
-    return [`<li><a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(row.normalizedPlate)}</a></li>`];
+    return true;
+  });
+}
+function detailLinksForRows(rows: SnapshotRow[], locale: PlateLocale): string {
+  return publishedDetailRows(rows, locale).map((row) => {
+    const href = detailPathForRow(row, locale);
+    return `<li><a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(row.normalizedPlate)}</a></li>`;
   }).join('');
 }
 
@@ -286,7 +292,7 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleTyp
         : candidateRows.slice(0, 24);
   const name = canton ? (CANTON_NAMES[canton]?.[locale] || canton) : undefined;
   const cantonDetailRows = canton ? detailRows.filter((row) => row.sourceKey === canton || row.platePrefix === canton) : [];
-  const directoryRows = view === 'directory' ? cantonDetailRows : [];
+  const directoryRows = view === 'directory' ? publishedDetailRows(cantonDetailRows, locale) : [];
   const title = view === 'detail' ? `${detailRow?.normalizedPlate || plate || copy.detail} — ${name || detailRow?.canton || copy.title}` : view === 'rankings' ? `${copy.title} — ${copy.rankings}` : view === 'directory' ? `${copy.title}: ${name || canton || copy.title} — ${copy.allListings}` : name ? `${copy.title}: ${name}` : copy.title;
   const description = view === 'detail' ? `${copy.intro} ${detailRow?.normalizedPlate || plate || copy.detail}, ${name || detailRow?.canton || copy.title}.` : name ? `${copy.intro} ${name}.` : copy.intro;
   const urlPath = pathFor(locale, view, canton, detailRow?.normalizedPlate || plate, detailRow?.vehicleType || vehicleType);

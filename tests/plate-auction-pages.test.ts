@@ -322,6 +322,15 @@ describe('plate-auction static pages', () => {
             expect(directory).toContain(`href="${detailPath}"`);
           }
         }
+        if (group.sourceKey === 'ZH') {
+          const itemListPayload = [...directory.matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)]
+            .map((match) => match[1])
+            .find((json) => json.includes('"@type":"ItemList"'));
+          expect(itemListPayload).toBeDefined();
+          const itemList = JSON.parse(itemListPayload!) as { mainEntity: { itemListElement: Array<{ name: string }> } };
+          expect(itemList.mainEntity.itemListElement).toHaveLength(group.count - 1);
+          expect(itemList.mainEntity.itemListElement.map((item) => item.name)).not.toContain('ZH38');
+        }
       }
       const historyPath = buildPlateAuctionPath({ locale, view: 'detail', canton: 'GR', plate: 'GR7' });
       const historyUrl = `https://frontaliereticino.ch${historyPath}`;
