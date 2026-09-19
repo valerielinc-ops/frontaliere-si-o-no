@@ -1,5 +1,6 @@
 import { describe, it, expect, afterEach } from 'vitest';
-import { spawnSync } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
+import { PassThrough } from 'node:stream';
 import {
   chmodSync,
   mkdirSync,
@@ -15,6 +16,8 @@ import { resolve } from 'node:path';
 import {
   BODY_FILE_INFRA,
   extractPrBody,
+  hookStdinTimeoutMs,
+  readHookStdin,
   validatePrBody,
 } from '../scripts/ci/pr-body-check-gate.mjs';
 import { EXIT_BLOCK } from '../scripts/ci/lib/hook-exit-codes.mjs';
@@ -648,5 +651,108 @@ describe('B22 review-efficiency gates — process invariants', () => {
       encoding: 'utf8',
     });
     expect(res.status).toBe(0);
+  });
+});
+
+describe('pr-body-check-gate — never hangs on an open stdin', () => {
+  // Riproduzione del 2026-09-19: dalla shell di un agente stdin e' un socket
+  // che non si chiude mai; `--help` (o nessun argomento) ricadeva nella
+  // modalita' hook e restava appeso per ore senza output.
+  function spawnWithOpenStdin(args: string[], env: Record<string, string> = {}) {
+    return new Promise<{ status: number | null; stdout: string; stderr: string; ms: number }>((done) => {
+      const started = Date.now();
+      const child = spawn(process.execPath, [GATE, ...args], {
+        stdio: ['pipe', 'pipe', 'pipe'],
+        env: { ...process.env, ...env },
+      });
+      let stdout = '';
+      let stderr = '';
+      child.stdout.on('data', (c) => { stdout += c; });
+      child.stderr.on('data', (c) => { stderr += c; });
+      const killer = setTimeout(() => child.kill('SIGKILL'), 15_000);
+      child.on('close', (status) => {
+        clearTimeout(killer);
+        child.stdin.destroy();
+        done({ status, stdout, stderr, ms: Date.now() - started });
+      });
+    });
+  }
+
+  it('prints usage and exits 0 on --help without reading stdin', async () => {
+    const res = await spawnWithOpenStdin(['--help']);
+    expect(res.status).toBe(0);
+    expect(res.stdout).toMatch(/--body-file <path>/);
+    expect(res.ms).toBeLessThan(5_000);
+  });
+
+  it('rejects an unknown argument with usage instead of waiting for a hook payload', async () => {
+    const res = await spawnWithOpenStdin(['--bogus']);
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/argomento non riconosciuto: --bogus/);
+    expect(res.ms).toBeLessThan(5_000);
+  });
+
+  it('gives up on a silent open stdin after the timeout with a clear message (hook fail-safe)', async () => {
+    const res = await spawnWithOpenStdin([], { PR_BODY_GATE_STDIN_TIMEOUT_MS: '300' });
+    expect(res.status).toBe(0);
+    expect(res.stderr).toMatch(/nessun payload hook su stdin entro 300 ms/);
+    expect(res.ms).toBeLessThan(5_000);
+  });
+
+  it('validates --body-file even when stdin stays open', async () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-open-stdin-'));
+    const file = join(dir, 'body.md');
+    writeFileSync(file, MISSING_NON, 'utf8');
+    try {
+      const res = await spawnWithOpenStdin(['--body-file', file]);
+      expect(res.status).toBe(EXIT_BLOCK);
+      expect(res.stderr).toMatch(/body PR non conforme/);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it.each([
+    'scripts/ci/sibling-check-gate.mjs',
+    'scripts/ci/pr-watch-register.mjs',
+    'scripts/ci/pr-body-write-gate.mjs',
+    'scripts/ci/run-mutation-gate.mjs',
+    'scripts/ci/pr-watch-gate.mjs',
+  ])('sibling hook %s also exits on a silent open stdin (lib/hook-stdin.mjs)', async (script) => {
+    const res = await new Promise<{ status: number | null; ms: number }>((done) => {
+      const started = Date.now();
+      const child = spawn(process.execPath, [resolve(ROOT, script)], {
+        stdio: ['pipe', 'ignore', 'ignore'],
+        env: { ...process.env, HOOK_STDIN_TIMEOUT_MS: '300' },
+      });
+      const killer = setTimeout(() => child.kill('SIGKILL'), 15_000);
+      child.on('close', (status) => {
+        clearTimeout(killer);
+        child.stdin.destroy();
+        done({ status, ms: Date.now() - started });
+      });
+    });
+    expect(res.status).toBe(0);
+    expect(res.ms).toBeLessThan(5_000);
+  });
+
+  it('readHookStdin returns what arrived and flags the timeout', async () => {
+    const stream = new PassThrough();
+    stream.write('{"partial":');
+    const res = await readHookStdin(stream, 50);
+    expect(res).toMatchObject({ raw: '{"partial":', timedOut: true });
+  });
+
+  it('readHookStdin resolves on EOF without timing out', async () => {
+    const stream = new PassThrough();
+    stream.end('{"tool_input":{"command":"ls"}}');
+    const res = await readHookStdin(stream, 5_000);
+    expect(res).toMatchObject({ raw: '{"tool_input":{"command":"ls"}}', timedOut: false });
+  });
+
+  it('hookStdinTimeoutMs honours the env override and ignores garbage', () => {
+    expect(hookStdinTimeoutMs({ PR_BODY_GATE_STDIN_TIMEOUT_MS: '250' })).toBe(250);
+    expect(hookStdinTimeoutMs({ PR_BODY_GATE_STDIN_TIMEOUT_MS: 'nope' })).toBe(5000);
+    expect(hookStdinTimeoutMs({})).toBe(5000);
   });
 });

@@ -13,6 +13,7 @@
  * con il solo `merged,failed` di prima una review 🔴 non svegliava nessuno.
  */
 import { fileURLToPath } from 'node:url';
+import { readHookStdin } from './lib/hook-stdin.mjs';
 import { dirname, join } from 'node:path';
 import { readEntries, writeEntries, addEntry, extractPrRef } from './lib/pr-watch-store.mjs';
 import { subscribeCommand } from './lib/pr-watch-classify.mjs';
@@ -23,9 +24,8 @@ const REPO_ROOT = join(__dirname, '..', '..');
 async function main() {
   let payload;
   try {
-    const chunks = [];
-    for await (const chunk of process.stdin) chunks.push(chunk);
-    payload = JSON.parse(Buffer.concat(chunks).toString('utf8'));
+    // Timeout: uno stdin mai chiuso non deve appendere l'hook (lib/hook-stdin.mjs).
+    payload = JSON.parse((await readHookStdin()).raw);
   } catch {
     return; // no stdin / malformed — nothing to register
   }

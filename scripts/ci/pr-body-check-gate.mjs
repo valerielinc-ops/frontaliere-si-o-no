@@ -25,6 +25,9 @@ import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
+import { hookStdinTimeoutMs, readHookStdin } from './lib/hook-stdin.mjs';
+
+export { hookStdinTimeoutMs, readHookStdin };
 import {
   resolveHookRepository,
   resolveHookTargetCwd,
@@ -345,15 +348,31 @@ export function warnAboutUncitedFiles(body, cwd, headRef = 'HEAD') {
   return uncited;
 }
 
+const USAGE = [
+  'Uso:',
+  '  node scripts/ci/pr-body-check-gate.mjs --body-file <path>   valida un body PR (exit 0 conforme, 2 non conforme)',
+  '  node scripts/ci/pr-body-check-gate.mjs < payload.json        modalita\' hook PreToolUse (payload JSON su stdin)',
+  '',
+].join('\n');
+
 async function main() {
   let command = '';
   let targetCwd;
   try {
-    const chunks = [];
-    for await (const chunk of process.stdin) {
-      chunks.push(chunk);
+    const { raw: rawInput, timedOut } = await readHookStdin(process.stdin, hookStdinTimeoutMs());
+    const raw = rawInput.trim();
+    if (timedOut && !raw) {
+      // Nessun hook reale arriva qui: Claude Code e Codex scrivono il payload
+      // e chiudono stdin. Uno stdin aperto e muto e' un'invocazione manuale
+      // (socket/pipe ereditati da una shell di agente) — prima restava appesa
+      // per ore senza output. Esito fail-safe dell'hook, ma dichiarato.
+      process.stderr.write(
+        `pr-body-check-gate: nessun payload hook su stdin entro ${hookStdinTimeoutMs()} ms; `
+          + 'nessun body e\' stato validato.\n'
+          + 'Per validare un body usa: node scripts/ci/pr-body-check-gate.mjs --body-file <path>\n',
+      );
+      process.exit(0);
     }
-    const raw = Buffer.concat(chunks).toString('utf8').trim();
     if (raw) {
       try {
         const payload = JSON.parse(raw);
@@ -439,6 +458,22 @@ async function main() {
 // hook) — not when imported (e.g. by tests importing `extractPrBody`).
 const isMain = process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1]);
 if (isMain) {
+  const firstArg = process.argv[2];
+  if (firstArg === '--help' || firstArg === '-h') {
+    process.stdout.write(USAGE);
+    process.exit(0);
+  }
+  if (firstArg !== undefined && !firstArg.startsWith('--body-file')) {
+    // Un argomento sconosciuto non e' un hook (gli hook non passano argomenti):
+    // prima ricadeva nella modalita' hook e restava appeso su stdin.
+    process.stderr.write(`pr-body-check-gate: argomento non riconosciuto: ${firstArg}\n${USAGE}`);
+    process.exit(EXIT_BLOCK);
+  }
+  if (firstArg === undefined && process.stdin.isTTY) {
+    // Un terminale non e' mai un hook: niente payload da aspettare.
+    process.stderr.write(USAGE);
+    process.exit(EXIT_BLOCK);
+  }
   const bodyFileArg = process.argv[2] === '--body-file'
     ? process.argv[3]
     : process.argv[2]?.startsWith('--body-file=')
