@@ -106,6 +106,31 @@ export function resolveBernerLocation(info = {}, listingLocation = '') {
     || '';
 }
 
+/**
+ * The location text a req may be PUBLISHED under, or `''`.
+ *
+ * `resolveBernerLocation` above answers a different question — «is any
+ * location on this req Swiss, and which» — over the UNION of `info.location`,
+ * `info.additionalLocations`, `info.jobRequisitionLocation` and the listing
+ * summary, and its test pins that union deliberately. It is the wrong question
+ * for the publish decision: a req worked in Berlin that also lists Reinach
+ * resolves to `Reinach, Switzerland` and goes out stamped `Reinach / BL / CH`.
+ *
+ * Only the req's own primary workplace (`info.location`) licenses that stamp.
+ * Measured 2026-09-19 on the published slice `data/jobs/by-crawler/berner-montage.json`:
+ * 0 of 10 records are currently misattributed — all 10 match their own
+ * `/job/<Segment>/` primary-location path segment — so the defect is LATENT
+ * here and this predicate changes none of those 10 verdicts.
+ *
+ * Kept as its own exported predicate so the call site cannot drift back to the
+ * union without breaking the test that names this rule.
+ */
+export function resolveBernerPrimaryLocation(info = {}) {
+  const [primary] = getWorkdayLocationCandidates({ location: info?.location }, '');
+  if (!primary || isLocationExplicitlyForeign(primary)) return '';
+  return cityFromLocationText(primary) ? primary : '';
+}
+
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
@@ -296,16 +321,26 @@ export async function fetchAllBernerMontageJobs() {
     await new Promise((r) => setTimeout(r, 400));
 
     const info = detail?.jobPostingInfo || {};
-    const rawLocation = resolveBernerLocation(info, listing.location);
-    if (isLocationExplicitlyForeign(rawLocation)) {
-      console.log(`  ⏭️ Skipped foreign location: ${rawLocation} — ${title}`);
+    // Only the req's own primary workplace licenses a Swiss publication, and
+    // fail closed: a req whose primary does not resolve to a Swiss city with a
+    // resolvable canton is skipped, never defaulted to the HQ (Reinach / BL).
+    // 0 of 10 currently published records are misattributed — all 10 match
+    // their own `/job/<Segment>/` — so this is a LATENT fix that leaves those
+    // 10 verdicts unchanged.
+    const rawLocation = resolveBernerPrimaryLocation(info);
+    if (!rawLocation) {
+      console.log(`  ⏭️ Skipped non-Swiss/unresolved primary location: ${String(info?.location || listing.location || 'unknown')} — ${title}`);
       continue;
     }
 
     const resolvedCity = cityFromLocationText(rawLocation);
     const { city, postalCode, streetAddress } = resolveAddress(resolvedCity);
-    const location = resolvedCity || city || HQ.city;
-    const canton = inferSwissTargetCanton(location) || inferSwissTargetCanton(city) || HQ.canton;
+    const location = resolvedCity;
+    const canton = inferSwissTargetCanton(location);
+    if (!canton) {
+      console.warn(`  ⚠️ Skipping unresolvable primary location "${location}" — ${title}`);
+      continue;
+    }
 
     const descriptionHtml = String(detail?.jobPostingInfo?.jobDescription || '').trim();
     const detailDescription = descriptionHtml
