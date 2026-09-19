@@ -7,6 +7,22 @@
  * resulting digest is then carried into the review marker and the gate; a
  * HEAD-only identity is not enough because a body edit changes the review
  * input without changing the contribution commit.
+ *
+ * WHAT IS HASHED, and why it has a trailing newline (2026-09-20).  The digest
+ * covers the body AS THE WORKFLOWS SERIALIZE IT: `gh api --jq` writes the
+ * string followed by a newline, and the producer of every marker in existence
+ * — the corpus' `scripts/ci/review-test-policy.mjs`, together with the
+ * `sha256sum "$BODY_FILE"` of its `tests.yml` — hashes that file. This module
+ * used to hash the body WITHOUT the newline, so it produced a digest that
+ * matched no marker ever emitted: every consumer here compared a value against
+ * markers it could not equal. `scripts/ci/orphan-pr-custodian.mjs` had already
+ * worked around it with a private copy of the correct formula; that copy is
+ * now a re-export of this one, because two literal definitions of the same
+ * digest are exactly the drift AGENTS.md #6 forbids.
+ *
+ * Changing the REPRESENTATION here would break the parity with `sha256sum`
+ * that the corpus' shell depends on, so the alignment goes in this direction
+ * and not the other one.
  */
 import { createHash } from 'node:crypto';
 import { readFileSync, realpathSync } from 'node:fs';
@@ -20,9 +36,23 @@ export function normalizeReviewInputRevision(value) {
   return REVIEW_INPUT_REVISION_RE.test(revision) ? revision : '';
 }
 
+/**
+ * The `gh api --jq` serialization of a PR body: the string plus the newline
+ * that jq writes after it. Exported so a test can pin the representation
+ * itself, not only the hex it produces.
+ *
+ * @param {string} body
+ * @returns {string}
+ */
+export function reviewInputSerialization(body) {
+  return `${body}\n`;
+}
+
 export function reviewInputRevisionFromBody(body) {
   if (typeof body !== 'string') throw new TypeError('PR body must be a string');
-  const digest = createHash('sha256').update(body, 'utf8').digest('hex');
+  const digest = createHash('sha256')
+    .update(reviewInputSerialization(body), 'utf8')
+    .digest('hex');
   const revision = `body:${digest}`;
   if (!REVIEW_INPUT_REVISION_RE.test(revision)) {
     throw new Error('PR body revision digest is malformed');
