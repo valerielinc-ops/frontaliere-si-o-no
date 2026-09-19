@@ -81,6 +81,7 @@ import path from 'node:path';
 import os from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { spawn, spawnSync } from 'node:child_process';
+import { assertCorpusObserved } from './lib/assert-corpus-observed.mjs';
 
 const SELF_PATH = fileURLToPath(import.meta.url);
 const ROOT_DIR = path.resolve(path.dirname(SELF_PATH), '..');
@@ -330,6 +331,26 @@ async function runOrchestrator(args) {
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + '\n', 'utf-8');
   console.log(`[rerender-article-corpus] manifest written to ${manifestPath}`);
   console.log(`[rerender-article-corpus] scratch dist at ${distDir}`);
+
+  // Stesso antipattern dell'audit gemello, stessa sorgente di verita'
+  // (enumerateSectionArticleIds, riga 250): con `ids` vuoto `batches` e' vuoto,
+  // il corpo del ciclo non gira mai, `anyFailure` resta false e questo script
+  // esce 0 — dopo aver re-renderizzato zero articoli e, sul percorso non
+  // dry-run, dopo aver pushato zero shard. Superficiato da
+  // check-sibling-patterns.mjs sul diff che ha aggiunto la guardia all'audit
+  // (costrutti condivisi: articleSectionDescriptors, enumerateSectionArticleIds),
+  // e verificato a mano: e' la stessa classe, non un omonimo lessicale.
+  // Qui il danno e' maggiore che nell'audit — questo e' il RIMEDIO che il
+  // workflow rerender-article-corpus.yml invoca per riparare il drift, quindi
+  // un no-op verde fa credere riparato un corpus intatto.
+  // Prima del ramo --dry-run di proposito: entrambi i percorsi hanno lo stesso
+  // bisogno, e il manifest e' gia' su disco per la diagnosi.
+  assertCorpusObserved(
+    '[rerender-article-corpus]',
+    Object.fromEntries(
+      Object.entries(manifest.sections).map(([name, s]) => [name, { total: s.requestedIds, observed: s.rendered }]),
+    ),
+  );
 
   if (args.dryRun) {
     console.log('[rerender-article-corpus] --dry-run set — skipping shard push');
