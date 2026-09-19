@@ -1,83 +1,5 @@
 [
   {
-    "timestamp": "2026-09-02T21:43:07.166Z",
-    "label": "after",
-    "total": 28663,
-    "needsRetranslation": 14850,
-    "suppressed": 88,
-    "incomplete": 15911,
-    "complete": 12752,
-    "slotsPresent": 12752,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 12752,
-    "sourceCopyExcused": 574,
-    "languageVerified": null,
-    "missingByLocale": {
-      "it": 5039,
-      "en": 4375,
-      "de": 1197,
-      "fr": 4546
-    },
-    "queueAge": {
-      "count": 14850,
-      "withTimestamp": 14850,
-      "oldestAgeDays": 142.5,
-      "p50AgeDays": 8,
-      "p90AgeDays": 60.5,
-      "buckets": {
-        "0-7d": 7002,
-        "7-30d": 3491,
-        "30-90d": 3643,
-        "90-180d": 714,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 3194
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1478
-      },
-      {
-        "company": "Roche",
-        "pending": 777
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 393
-      },
-      {
-        "company": "VOLG",
-        "pending": 347
-      },
-      {
-        "company": "Migros Bank",
-        "pending": 301
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 273
-      },
-      {
-        "company": "BKW",
-        "pending": 235
-      },
-      {
-        "company": "Sulzer",
-        "pending": 206
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 192
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-02T23:20:31.060Z",
     "label": "before",
     "total": 28663,
@@ -18486,6 +18408,118 @@
       {
         "company": "Coop Genossenschaft",
         "pending": 313
+      },
+      {
+        "company": "Roche",
+        "pending": 236
+      },
+      {
+        "company": "Sulzer",
+        "pending": 131
+      },
+      {
+        "company": "PEMSA",
+        "pending": 129
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 102
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 62
+      },
+      {
+        "company": "JUMBO",
+        "pending": 59
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 58
+      },
+      {
+        "company": "Stellentreff AG",
+        "pending": 57
+      },
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 55
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-19T08:28:13.966Z",
+    "label": "after",
+    "total": 31710,
+    "needsRetranslation": 2555,
+    "suppressed": 198,
+    "incomplete": 2903,
+    "complete": 28807,
+    "slotsPresent": 28807,
+    "flaggedAmongSlotsPresent": 18,
+    "verifiedTranslated": 28789,
+    "sourceCopyExcused": 414,
+    "slotsPresentByLength": 31593,
+    "languageVerified": 29609,
+    "missingByLocale": {
+      "it": 59,
+      "en": 45,
+      "de": 60,
+      "fr": 65
+    },
+    "queueAge": {
+      "count": 2555,
+      "withTimestamp": 2555,
+      "oldestAgeDays": 158.9,
+      "p50AgeDays": 25.9,
+      "p90AgeDays": 106.8,
+      "buckets": {
+        "0-1d": 17,
+        "1-2d": 4,
+        "2-7d": 42,
+        "0-7d": 63,
+        "7-30d": 1252,
+        "30-90d": 910,
+        "90-180d": 330,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 28,
+      "withTimestamp": 28,
+      "oldestAgeDays": 76.9,
+      "p50AgeDays": 49.3,
+      "p90AgeDays": 49.3,
+      "buckets": {
+        "0-1d": 2,
+        "1-2d": 0,
+        "2-7d": 0,
+        "0-7d": 2,
+        "7-30d": 6,
+        "30-90d": 20,
+        "90-180d": 0,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "genderFormRepair": {
+      "measured": false,
+      "status": "awaiting-retranslation",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 575,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 297
       },
       {
         "company": "Roche",
