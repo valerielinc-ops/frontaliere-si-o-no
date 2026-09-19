@@ -137,23 +137,30 @@ export function ownerEmitLocale(locale: string): string {
  * Owning `<loc>.html` by `<loc>` closes both halves at once.
  */
 function relOfDistPath(filePath: string, distDir: string): string {
-  let rel = filePath.split(path.sep).join('/');
-  if (distDir) {
-    const dnorm = distDir.split(path.sep).join('/').replace(/\/+$/, '');
-    if (rel === dnorm) rel = '';
-    else if (rel.startsWith(`${dnorm}/`)) rel = rel.slice(dnorm.length + 1);
+  if (!distDir) return filePath.split(path.sep).join('/').replace(/^\/+/, '');
+  const normalizedDistDir = distDir.endsWith(path.sep)
+    ? distDir.slice(0, -path.sep.length)
+    : distDir;
+  const prefix = `${normalizedDistDir}${path.sep}`;
+  if (filePath.startsWith(prefix)) {
+    const relative = filePath.slice(prefix.length);
+    return path.sep === '/' ? relative : relative.replaceAll(path.sep, '/');
   }
-  return rel.replace(/^\/+/, '');
+  if (filePath === normalizedDistDir) return '';
+  return path.relative(normalizedDistDir, filePath).replaceAll(path.sep, '/').replace(/^\/+/, '');
 }
 
-export function localeOfDistPath(filePath: string, distDir: string): EmitLocale {
-  const rel = relOfDistPath(filePath, distDir);
+function localeOfRelativePath(rel: string): EmitLocale {
   // Exact match only: `dist/en.html` is EN's homepage, but `dist/enigma.html`
   // is an IT page and `dist/foo/en.html` is a nested file with no such role.
   if (rel === 'en' || rel.startsWith('en/') || rel === 'en.html') return 'en';
   if (rel === 'de' || rel.startsWith('de/') || rel === 'de.html') return 'de';
   if (rel === 'fr' || rel.startsWith('fr/') || rel === 'fr.html') return 'fr';
   return 'it';
+}
+
+export function localeOfDistPath(filePath: string, distDir: string): EmitLocale {
+  return localeOfRelativePath(relOfDistPath(filePath, distDir));
 }
 
 /**
@@ -186,6 +193,7 @@ const SHARD_ROOT_SHARED_FILES: ReadonlySet<string> = new Set(['404.html']);
 /** Whether a dist output path should be written by this shard build. */
 export function shouldEmitPath(filePath: string, distDir: string): boolean {
   if (EMIT_ALL_LOCALES) return true;
-  if (SHARD_ROOT_SHARED_FILES.has(relOfDistPath(filePath, distDir))) return true;
-  return EMIT_LOCALES.has(localeOfDistPath(filePath, distDir));
+  const relative = relOfDistPath(filePath, distDir);
+  if (SHARD_ROOT_SHARED_FILES.has(relative)) return true;
+  return EMIT_LOCALES.has(localeOfRelativePath(relative));
 }
