@@ -223,15 +223,29 @@ describe('production promotion admission', () => {
     const workflow = readWorkflow('post-deploy-publish.yml');
     const publish = workflow.jobs.publish;
     const dispatch = workflow.on.workflow_dispatch;
+    const workflowCallInputs = workflow.on.workflow_call.inputs;
+    const caller = readWorkflow('deploy-publish.yml').jobs.publish;
 
     expect(dispatch.inputs.source_run_id).toMatchObject({ required: true, type: 'string' });
     expect(dispatch.inputs.deploy_run_id).toBeUndefined();
+    expect(workflowCallInputs).toMatchObject({
+      source_workflow: { required: true, type: 'string' },
+      source_workflow_path: { required: true, type: 'string' },
+      source_workflow_id: { required: true, type: 'string' },
+      source_event_name: { required: true, type: 'string' },
+    });
     expect(findStep(workflow.jobs['validate-deploy-publish-caller'], 'caller')).toBeDefined();
     const callerStep = findStep(workflow.jobs['validate-deploy-publish-caller'], 'caller');
-    expect(callerStep?.env?.PROMOTION_SOURCE_WORKFLOW).toBe('${{ github.event.workflow_run.name }}');
-    expect(callerStep?.env?.PROMOTION_SOURCE_WORKFLOW_PATH).toBe('${{ github.event.workflow_run.path }}');
-    expect(callerStep?.env?.PROMOTION_SOURCE_WORKFLOW_ID).toBe('${{ github.event.workflow_run.workflow_id }}');
-    expect(callerStep?.env?.PROMOTION_SOURCE_EVENT).toBe('${{ github.event.workflow_run.event }}');
+    expect(callerStep?.env?.PROMOTION_SOURCE_WORKFLOW).toBe('${{ inputs.source_workflow }}');
+    expect(callerStep?.env?.PROMOTION_SOURCE_WORKFLOW_PATH).toBe('${{ inputs.source_workflow_path }}');
+    expect(callerStep?.env?.PROMOTION_SOURCE_WORKFLOW_ID).toBe('${{ inputs.source_workflow_id }}');
+    expect(callerStep?.env?.PROMOTION_SOURCE_EVENT).toBe('${{ inputs.source_event_name }}');
+    expect(caller.with).toMatchObject({
+      source_workflow: '${{ github.event.workflow_run.name }}',
+      source_workflow_path: '${{ github.event.workflow_run.path }}',
+      source_workflow_id: '${{ github.event.workflow_run.workflow_id }}',
+      source_event_name: '${{ github.event.workflow_run.event }}',
+    });
     expect(findStep(workflow.jobs['validate-recovery-trigger'], 'trigger')).toBeDefined();
     expect(findStep(workflow.jobs['validate-recovery-source'], 'source-run')).toBeDefined();
     expect(findStep(workflow.jobs['recovery-production-approval'], 'approval')).toBeDefined();

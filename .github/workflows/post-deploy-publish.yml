@@ -19,9 +19,10 @@ name: Post-deploy Publish (side-effects + mark good)
 # rolled-back dist (mismatch or 404). IndexNow had pinged Bing on the
 # bad-dist URLs, baking the bad version into search engines.
 #
-# Inputs match validate-live (deploy_run_id + deploy_event_name). The reusable
-# workflow inherits the caller's `workflow_run` context; recovery has a separate
-# source-run input and cannot select arbitrary artifacts.
+# Inputs match validate-live (deploy_run_id + deploy_event_name) and carry the
+# complete source-workflow identity tuple. The caller must pass the tuple from
+# its `workflow_run` payload; recovery has a separate source-run input and
+# cannot select arbitrary artifacts.
 on:
   workflow_call:
     inputs:
@@ -38,6 +39,22 @@ on:
         required: false
         type: string
         default: ''
+      source_workflow:
+        description: 'Canonical source workflow name from the workflow_run payload.'
+        required: true
+        type: string
+      source_workflow_path:
+        description: 'Canonical source workflow path from the workflow_run payload.'
+        required: true
+        type: string
+      source_workflow_id:
+        description: 'Immutable source workflow ID from the workflow_run payload.'
+        required: true
+        type: string
+      source_event_name:
+        description: 'Approved source event from the workflow_run payload.'
+        required: true
+        type: string
   workflow_dispatch:
     inputs:
       source_run_id:
@@ -70,10 +87,10 @@ jobs:
           PROMOTION_SOURCE_REPOSITORY: ${{ github.event.workflow_run.head_repository.full_name }}
           PROMOTION_SOURCE_REF: ${{ github.event.workflow_run.head_branch }}
           PROMOTION_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
-          PROMOTION_SOURCE_WORKFLOW: ${{ github.event.workflow_run.name }}
-          PROMOTION_SOURCE_WORKFLOW_PATH: ${{ github.event.workflow_run.path }}
-          PROMOTION_SOURCE_WORKFLOW_ID: ${{ github.event.workflow_run.workflow_id }}
-          PROMOTION_SOURCE_EVENT: ${{ github.event.workflow_run.event }}
+          PROMOTION_SOURCE_WORKFLOW: ${{ inputs.source_workflow }}
+          PROMOTION_SOURCE_WORKFLOW_PATH: ${{ inputs.source_workflow_path }}
+          PROMOTION_SOURCE_WORKFLOW_ID: ${{ inputs.source_workflow_id }}
+          PROMOTION_SOURCE_EVENT: ${{ inputs.source_event_name }}
           PROMOTION_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
           PROMOTION_SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
           INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
