@@ -128,6 +128,7 @@ describe('production promotion admission', () => {
 
   it('ties post-deploy publishing to the canonical workflow_run caller', () => {
     const buildSha = '0123456789abcdef0123456789abcdef01234567';
+    expect(EXPECTED_PUBLISH_WORKFLOW_PATH).toBe('.github/workflows/post-deploy-publish.yml');
     const caller = {
       eventName: 'workflow_run',
       workflow: EXPECTED_PUBLISH_WORKFLOW,
@@ -227,8 +228,10 @@ describe('production promotion admission', () => {
     expect(dispatch.inputs.deploy_run_id).toBeUndefined();
     expect(findStep(workflow.jobs['validate-deploy-publish-caller'], 'caller')).toBeDefined();
     const callerStep = findStep(workflow.jobs['validate-deploy-publish-caller'], 'caller');
+    expect(callerStep?.env?.PROMOTION_SOURCE_WORKFLOW).toBe('${{ github.event.workflow_run.name }}');
     expect(callerStep?.env?.PROMOTION_SOURCE_WORKFLOW_PATH).toBe('${{ github.event.workflow_run.path }}');
     expect(callerStep?.env?.PROMOTION_SOURCE_WORKFLOW_ID).toBe('${{ github.event.workflow_run.workflow_id }}');
+    expect(callerStep?.env?.PROMOTION_SOURCE_EVENT).toBe('${{ github.event.workflow_run.event }}');
     expect(findStep(workflow.jobs['validate-recovery-trigger'], 'trigger')).toBeDefined();
     expect(findStep(workflow.jobs['validate-recovery-source'], 'source-run')).toBeDefined();
     expect(findStep(workflow.jobs['recovery-production-approval'], 'approval')).toBeDefined();

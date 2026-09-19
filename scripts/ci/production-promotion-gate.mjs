@@ -23,7 +23,7 @@ export const EXPECTED_BUILD_WORKFLOW_PATH = '.github/workflows/deploy.yml';
 export const EXPECTED_BUILD_WORKFLOW_ID = '233284293';
 export const EXPECTED_BUILD_EVENTS = Object.freeze(['push', 'workflow_dispatch']);
 export const EXPECTED_PUBLISH_WORKFLOW = 'Publish to GitHub Pages (deploy + validate)';
-export const EXPECTED_PUBLISH_WORKFLOW_PATH = '.github/workflows/deploy-publish.yml';
+export const EXPECTED_PUBLISH_WORKFLOW_PATH = '.github/workflows/post-deploy-publish.yml';
 
 function normalizeRef(value) {
   const ref = String(value || '').trim();
