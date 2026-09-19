@@ -241,7 +241,6 @@
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
       "crawledAt": "2026-09-18T14:21:45.184Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:23:08.460Z",
       "salaryMin": 117500,
       "salaryMax": 179500,
@@ -264,7 +263,9 @@
       "previousSlugs": [
         "head-of-algorithmic-trading-governance-alpiq-lausanne"
       ],
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3000
     }
   ]
 }
