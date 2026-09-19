@@ -140,6 +140,10 @@ PR body DEVE avere:
 
 `per scelta` e `by construction` non sono una scappatoia con un nome nuovo: valgono **solo** se il bullet porta anche il motivo. Un bullet che dice `per scelta` e basta è un `out of scope` travestito → 🔴.
 
+### Una sola fonte di verità sul body
+
+Il contratto del body è validato in modo deterministico da `scripts/lib/pr-body-sections-check.mjs` (step `PR-body completeness` di `tests.yml`): sezioni, stato di ogni voce, `Motivo`/`Prossimo passo`, placeholder, `Closes`. Il suo verdetto arriva nel bundle (`## Deterministic body contract`). **Se è ✅, il body non genera 🔴 Important**: al massimo un 🟡 Nit ancorato `PR body:L<n>`. Ogni stato accettato dal contratto — incluso qualunque `blocked: <causa>` — è valido; `Prossimo passo` concreto non si ridiscute. Il review gate declassa comunque un 🔴 ancorato solo su una riga `PR body:L<n>` dentro `## Non implementato` quando il contratto è verde (`DECLASSIFIED-BODY` nel log); il claim perf senza baseline (step 7) non è una regola del contratto e resta 🔴. Una regola del body che il contratto non copre va aggiunta al contratto, non applicata a mano dal reviewer. Le regole qui sotto valgono per i punti che il contratto non vede (coerenza fra `## Implementato` e diff) e quando il verdetto non è disponibile.
+
 ### Reviewer behavior
 
 1. **Implementato item** → critical thinking: diff lo implementa? edge case? logica boundary/null/async/ordering? modo più semplice? buco visibile? Code-smell con maintenance debt anche se non blocca il funnel → 🟡 Nit.

@@ -311,6 +311,15 @@ export function classifyReview(body, {
   // pure classifier fail-closed: only a caller holding a real checkout can
   // prove the carve-out, and everything unproven keeps blocking.
   isIgnoredPath = () => false,
+  // The deterministic PR-body contract of this same run passed on the current
+  // body. It is the single source of truth for the body: a model 🔴 anchored
+  // only on `PR body:L<n>` is then at most a Nit and never blocks (20% of the
+  // 🔴 measured on 2026-09-19 were body findings on a green contract).
+  bodyContractPassed = false,
+  // Current PR body, needed to prove that the anchored line lies inside
+  // `## Non implementato`, the section the contract validates. Without it
+  // nothing is declassified.
+  prBody = null,
 } = {}) {
   const findings = importantFindings(body);
   if (findings.length === 0) return emptyClassification(findings);
@@ -341,10 +350,16 @@ export function classifyReview(body, {
   const inScope = [];
   const unresolved = [];
   const ignoredCitations = [];
+  const bodyDeclassified = [];
 
   for (const finding of findings) {
     if (finding.parserUncertain) {
       unresolved.push({ ...finding, reason: 'struttura della review ambigua' });
+      continue;
+    }
+    if (bodyContractPassed && finding.citations.length === 0
+        && isContractDomainBodyFinding(finding, prBody)) {
+      bodyDeclassified.push(finding);
       continue;
     }
     if (finding.citations.length === 0) {
@@ -413,9 +428,42 @@ export function classifyReview(body, {
     inScope,
     unresolved,
     ignoredCitations,
-    outsideOnly: outside.length > 0 && inScope.length === 0 && unresolved.length === 0,
+    bodyDeclassified,
+    outsideOnly: (outside.length + bodyDeclassified.length) > 0 && inScope.length === 0 && unresolved.length === 0,
     blocking: inScope.length > 0 || unresolved.length > 0,
   };
+}
+
+/** Line anchor of a finding whose only anchor is the PR description. */
+export function prBodyFindingLine(finding) {
+  const fromText = prBodyAnchor(finding?.text);
+  if (fromText !== null) return fromText;
+  const match = String(finding?.line || '').match(/`?PR body[:#]L?([1-9]\d*)/iu);
+  return match ? Number(match[1]) : null;
+}
+
+// Claims the contract cannot judge (REVIEW.md step 7: perf/optimization claim
+// without a baseline) keep blocking even when anchored on the body.
+const NON_CONTRACT_BODY_RE = /\b(?:baseline|perf|performance|speed-?up|misura|misurat|pre\/post|revert|ottimizzazion|optimi[sz]ation|claim)\w*/iu;
+
+/**
+ * A 🔴 anchored only on `PR body:L<n>`, on a line inside `## Non implementato`
+ * (the section the deterministic contract validates), about a contract rule.
+ * Anything else — a line elsewhere in the body, a perf claim, no body text to
+ * prove the position — stays blocking.
+ */
+export function isContractDomainBodyFinding(finding, prBody) {
+  const line = prBodyFindingLine(finding);
+  if (line === null || typeof prBody !== 'string' || !prBody) return false;
+  if (NON_CONTRACT_BODY_RE.test(String(finding?.text || ''))) return false;
+  const lines = prBody.split(/\r?\n/u);
+  if (line > lines.length) return false;
+  let section = null;
+  for (let index = 0; index < line; index += 1) {
+    const heading = lines[index].match(/^\s{0,3}#{2,3}\s+(.+?)\s*$/u);
+    if (heading) section = heading[1];
+  }
+  return Boolean(section && /^Non implementato\b/iu.test(section));
 }
 
 function safeText(value) {
@@ -1005,6 +1053,11 @@ function gitPathIsIgnored(path) {
   return ignoredPathCache.get(wanted);
 }
 
+function readPrBody(repo, pr) {
+  const view = gh(['api', `repos/${repo}/pulls/${pr}`], { allowFail: true });
+  return typeof view?.body === 'string' ? view.body : null;
+}
+
 function readReviews(repo, pr) {
   return gh(['api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate', '--slurp']);
 }
@@ -1189,6 +1242,9 @@ async function mintFollowup({ repo, pr, prUrl, findings }) {
 }
 
 export function logClassification(classification) {
+  for (const finding of classification.bodyDeclassified ?? []) {
+    console.log(`review-gate: DECLASSIFIED-BODY finding=${finding.findingNumber} reason=deterministic PR-body contract passed on the current body; a body remark is at most a Nit`);
+  }
   for (const { findingNumber, path } of classification.ignoredCitations ?? []) {
     console.log(`review-gate: DECLASSIFIED-IGNORED finding=${findingNumber} path=${path} reason=path ignored by git, cannot be in the PR diff`);
   }
@@ -1221,6 +1277,8 @@ export async function classifyAndMintReview(body, {
   reviewCommit,
   headSha,
   repositoryPaths: suppliedRepositoryPaths,
+  bodyContractPassed = false,
+  prBody = null,
 } = {}) {
   if (!repo || !/^\d+$/u.test(String(pr || ''))) {
     throw new Error('repo o PR number non valido');
@@ -1256,6 +1314,8 @@ export async function classifyAndMintReview(body, {
     reason: changed.reason,
     repositoryPaths,
     isIgnoredPath: gitPathIsIgnored,
+    bodyContractPassed,
+    prBody: bodyContractPassed && prBody === null ? readPrBody(repo, pr) : prBody,
   });
   logClassification(classification);
 
@@ -1288,6 +1348,7 @@ export async function runReviewGate({
   changedPathsFn = changedPathsBetween,
   classifyAndMintReviewFn = classifyAndMintReview,
   carryFingerprintFn = contributionFingerprint,
+  bodyContractPassed = false,
 } = {}) {
   if (!repo || !/^\d+$/u.test(String(pr || '')) || !/^[0-9a-f]{40}$/iu.test(String(headSha || ''))) {
     throw new Error('repo, PR number or HEAD SHA non valido');
@@ -1367,6 +1428,7 @@ export async function runReviewGate({
       pr,
       prUrl: prUrl || process.env.PR_URL,
       mutate,
+      bodyContractPassed,
     };
     if (repositoryPaths !== undefined) classificationOptions.repositoryPaths = repositoryPaths;
     classification = await classifyAndMintReviewFn(effectiveBody, classificationOptions);
@@ -1425,6 +1487,7 @@ async function main() {
     prUrl: process.env.PR_URL,
     repositoryPaths: tree.paths,
     repositoryPathsFromFallback: tree.fromFallback,
+    bodyContractPassed: process.env.BODY_CONTRACT_OUTCOME === 'success',
   });
   writeApproved(result.approved);
   if (!result.approved) {
