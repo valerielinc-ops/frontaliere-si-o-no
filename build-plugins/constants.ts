@@ -118,6 +118,18 @@ export const BUILD_DATE_STAMP = new Date(Number(BUILD_ID)).toISOString().slice(0
 // the document/chunk pair synchronously, including errors raised before the
 // async metadata fetch in services/buildInfo.ts completes.
 export const BUILD_ID_META_TAG = `<meta name="ft-build-id" content="${BUILD_ID}">`;
+// Static SEO pages (HEAD_PREFIX) carry the same marker by default. Its value
+// changes on EVERY build, so a page whose content did not change still gets a
+// new blob: with SHARD_PUSH_MODE=delta, 64 of the 73 changed unmanifested
+// pages on the glarona-en shard (deploy 35440963700) differed ONLY by this
+// meta. STATIC_BUILD_ID_META=off (repository variable, unset = legacy) drops it
+// from static pages only: the Vite shell index.html keeps it through
+// buildIdPlugin, and services/buildInfo.ts falls back to /build-id.txt, which
+// names the build whose stable-named bundle the page actually executes.
+export const STATIC_BUILD_ID_META_ENABLED = process.env.STATIC_BUILD_ID_META !== 'off';
+export const STATIC_BUILD_ID_META_TAG = STATIC_BUILD_ID_META_ENABLED ? BUILD_ID_META_TAG : '';
+// Build id a reused static page must carry: null means "strip the marker".
+export const STATIC_PAGE_BUILD_ID: string | null = STATIC_BUILD_ID_META_ENABLED ? BUILD_ID : null;
 
 /**
  * Fail-fast guard for the externalised stylesheets that live in

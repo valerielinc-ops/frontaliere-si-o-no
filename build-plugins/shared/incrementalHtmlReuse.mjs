@@ -739,26 +739,30 @@ class JobsSeoHtmlPackStore {
   }
 }
 
+// Matches the whole ft-build-id marker in any attribute order and in both the
+// quoted (rendered) and unquoted (minified) spelling.
+const BUILD_ID_META_PATTERN = /<meta\b(?=[^>]*\bname\s*=\s*["']?ft-build-id(?:["'\s>]|\/>))[^>]*>/gi;
+
 /**
  * Compare rendered pages without letting build-only values turn a reusable
  * page into a false mismatch. This deliberately normalizes only generated
  * build-id/date fields; source dates such as datePosted remain significant.
+ * The ft-build-id marker is removed whole, so a cached page rendered with the
+ * marker still matches a render made with STATIC_BUILD_ID_META=off.
  */
 export function normalizeHtmlForReuse(html) {
   return String(html)
-    .replace(
-      /(<meta\b[^>]*\bname\s*=\s*["']ft-build-id["'][^>]*\bcontent\s*=\s*["'])[^"']*(["'][^>]*>)/gi,
-      '$1__BUILD_ID__$2',
-    )
-    .replace(
-      /(<meta\b[^>]*\bcontent\s*=\s*["'])[^"']*(["'][^>]*\bname\s*=\s*["']ft-build-id["'][^>]*>)/gi,
-      '$1__BUILD_ID__$2',
-    )
+    .replace(BUILD_ID_META_PATTERN, '')
     .replace(/(<lastmod>)[^<]*(<\/lastmod>)/gi, '$1__GENERATED_DATE__$2')
     .replace(
       /((?:data-)?(?:build|generated)-(?:id|at)\s*=\s*["'])[^"']*(["'])/gi,
       '$1__GENERATED_VALUE__$2',
     );
+}
+
+/** Remove the ft-build-id marker (STATIC_BUILD_ID_META=off). */
+export function stripHtmlBuildId(html) {
+  return String(html).replace(BUILD_ID_META_PATTERN, '');
 }
 
 export function refreshHtmlBuildId(html, buildId) {
@@ -1103,8 +1107,13 @@ export class JobsSeoHtmlReuse {
     this.persist(candidate, renderedHtml);
   }
 
+  /**
+   * `buildId === null` (STATIC_BUILD_ID_META=off) strips the marker, so a page
+   * cached before the switch matches a fresh render byte for byte.
+   */
   reusedHtml(candidate, buildId) {
     if (!candidate?.hit || candidate.verify) return null;
+    if (buildId === null) return stripHtmlBuildId(candidate.html);
     return refreshHtmlBuildId(candidate.html, buildId);
   }
 

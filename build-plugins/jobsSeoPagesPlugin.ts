@@ -18,7 +18,7 @@ import path from 'path';
 import os from 'node:os';
 import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
-import { BASE_URL, BUILD_ID, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, ROBOTS_INDEX_ENHANCED, ROBOTS_NOINDEX_FOLLOW, robotsMetaEnhancedForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, PARTNERIZE_TAG_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT } from './constants';
+import { BASE_URL, STATIC_PAGE_BUILD_ID, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, ROBOTS_INDEX_ENHANCED, ROBOTS_NOINDEX_FOLLOW, robotsMetaEnhancedForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, PARTNERIZE_TAG_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT } from './constants';
 import { buildSimplePage, asyncCssHeadBlock, rootShell, esc as escHtml } from './htmlTemplate';
 import { railGutters } from './shared/railGutters';
 import { buildSeoPageHtml } from './shared/seoPageShell';
@@ -4032,7 +4032,7 @@ ${staticAnalyticsHtml}
 </html>`;
  recordPhase('template-render', __tPh_template);
  } else {
-  html = jobsSeoReuse.reusedHtml(activeReuse, BUILD_ID) || activeReuse.html;
+  html = jobsSeoReuse.reusedHtml(activeReuse, STATIC_PAGE_BUILD_ID) || activeReuse.html;
  }
  jobsSeoReuse?.finish(activeReuse, html);
  activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
@@ -4112,7 +4112,7 @@ ${staticAnalyticsHtml}
  );
  let legacyIndexHtml: string;
  if (legacyReuse?.hit && !jobsSeoReuse?.shouldRender(legacyReuse)) {
-  legacyIndexHtml = jobsSeoReuse.reusedHtml(legacyReuse, BUILD_ID) || legacyReuse.html;
+  legacyIndexHtml = jobsSeoReuse.reusedHtml(legacyReuse, STATIC_PAGE_BUILD_ID) || legacyReuse.html;
  } else {
   const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(perLocaleSlug[locale])};</script>`;
   legacyIndexHtml = html.replace('</head>', ` ${bridgeScript}\n </head>`);
@@ -4170,7 +4170,7 @@ ${staticAnalyticsHtml}
  );
  let legacyTIIndexHtml: string;
  if (legacyTIReuse?.hit && !jobsSeoReuse?.shouldRender(legacyTIReuse)) {
-  legacyTIIndexHtml = jobsSeoReuse.reusedHtml(legacyTIReuse, BUILD_ID) || legacyTIReuse.html;
+  legacyTIIndexHtml = jobsSeoReuse.reusedHtml(legacyTIReuse, STATIC_PAGE_BUILD_ID) || legacyTIReuse.html;
  } else {
   const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(perLocaleSlug[locale])};</script>`;
   legacyTIIndexHtml = html.replace('</head>', ` ${bridgeScript}\n </head>`);
@@ -13740,7 +13740,7 @@ ${staticAnalyticsHtml}
  softLandingFullCount++;
  }
  } else {
-  softLandingHtml = jobsSeoReuse.reusedHtml(softLandingReuse, BUILD_ID) || softLandingReuse.html;
+  softLandingHtml = jobsSeoReuse.reusedHtml(softLandingReuse, STATIC_PAGE_BUILD_ID) || softLandingReuse.html;
   if (locale === 'it') {
    itBodyWordCount = htmlHasIndexableRobots(softLandingHtml) ? MIN_INDEXABLE_WORDS : 0;
   }
@@ -13808,7 +13808,7 @@ ${staticAnalyticsHtml}
   'previous-slug-legacy',
  );
  const legacySoftLandingHtml = legacySoftLandingReuse?.hit && !jobsSeoReuse?.shouldRender(legacySoftLandingReuse)
-  ? jobsSeoReuse.reusedHtml(legacySoftLandingReuse, BUILD_ID) || legacySoftLandingReuse.html
+  ? jobsSeoReuse.reusedHtml(legacySoftLandingReuse, STATIC_PAGE_BUILD_ID) || legacySoftLandingReuse.html
   : softLandingHtml;
  jobsSeoReuse?.finish(legacySoftLandingReuse, legacySoftLandingHtml);
  const wroteLegacySoftLanding = writeSoftLandingPage(legacyRel, legacySoftLandingHtml);
@@ -14048,7 +14048,7 @@ ${staticAnalyticsHtml}
   'cross-locale-reconciliation',
  );
  const bridgeHtml = crossLocaleExpiredReuse?.hit && !jobsSeoReuse?.shouldRender(crossLocaleExpiredReuse)
-  ? jobsSeoReuse.reusedHtml(crossLocaleExpiredReuse, BUILD_ID) || crossLocaleExpiredReuse.html
+  ? jobsSeoReuse.reusedHtml(crossLocaleExpiredReuse, STATIC_PAGE_BUILD_ID) || crossLocaleExpiredReuse.html
   : baseHtml.replace(
    '</head>',
    ` <script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(baseSlug)};</script>\n </head>`,
@@ -14449,7 +14449,7 @@ ${staticAnalyticsHtml}
  );
  let indexHtml: string;
  if (previousSlugReuse?.hit && !jobsSeoReuse?.shouldRender(previousSlugReuse)) {
-  indexHtml = jobsSeoReuse.reusedHtml(previousSlugReuse, BUILD_ID) || previousSlugReuse.html;
+  indexHtml = jobsSeoReuse.reusedHtml(previousSlugReuse, STATIC_PAGE_BUILD_ID) || previousSlugReuse.html;
  } else {
   indexHtml = ensureBridgeHtml(__brAction).indexHtml;
  }
@@ -14532,7 +14532,7 @@ ${staticAnalyticsHtml}
   'previous-slug-legacy',
  );
  const legacyTIHtml = legacyTIReuse?.hit && !jobsSeoReuse?.shouldRender(legacyTIReuse)
-  ? jobsSeoReuse.reusedHtml(legacyTIReuse, BUILD_ID) || legacyTIReuse.html
+  ? jobsSeoReuse.reusedHtml(legacyTIReuse, STATIC_PAGE_BUILD_ID) || legacyTIReuse.html
   : indexHtml;
  jobsSeoReuse?.finish(legacyTIReuse, legacyTIHtml);
  _md(legacyTIOutDir);
@@ -14780,7 +14780,7 @@ ${staticAnalyticsHtml}
   'cross-locale-reconciliation',
  );
  const crossLocaleActiveHtml = crossLocaleActiveReuse?.hit && !jobsSeoReuse?.shouldRender(crossLocaleActiveReuse)
-  ? jobsSeoReuse.reusedHtml(crossLocaleActiveReuse, BUILD_ID) || crossLocaleActiveReuse.html
+  ? jobsSeoReuse.reusedHtml(crossLocaleActiveReuse, STATIC_PAGE_BUILD_ID) || crossLocaleActiveReuse.html
   : getBridgeHtml();
  jobsSeoReuse?.finish(crossLocaleActiveReuse, crossLocaleActiveHtml);
  _md(outDir);
