@@ -27,6 +27,7 @@ import {
   filterPostWalkDerivedDigestRecords,
   loadPostWalkDerivedDigestSidecar,
   loadPostWalkUnmanifestedTopLevels,
+  postWalkDependencyHash,
   preservePostWalkDerivedOutput,
   writePostWalkDerivedDigestSidecar,
   writePostWalkUnmanifestedTopLevels,
@@ -36,6 +37,7 @@ import { claim, hashContent, reset as resetWriteRegistry } from '../build-plugin
 const BASE_URL = 'https://frontaliereticino.ch';
 const ROOT = path.resolve(__dirname, '..');
 const roots: string[] = [];
+const DEPENDENCY_HASH = 'fixture-dependency-hash';
 
 function writeManifest(
   root: string,
@@ -332,6 +334,7 @@ describe('post-walk incremental planning', () => {
         inputHash: hashContent('<!DOCTYPE html>source'),
         sourcePath: 'jobs/bridge/index.html',
         sourceHash: hashContent('<!DOCTYPE html>source'),
+        dependencyHash: DEPENDENCY_HASH,
         templateHash: 'flat-bridge@1',
       }],
     ]));
@@ -356,6 +359,7 @@ describe('post-walk incremental planning', () => {
         inputHash: hashContent('<!DOCTYPE html>source'),
         sourcePath: 'jobs/bridge/index.html',
         sourceHash: hashContent('<!DOCTYPE html>source-old'),
+        dependencyHash: DEPENDENCY_HASH,
         templateHash: 'flat-bridge@1',
       }],
     ]));
@@ -378,6 +382,7 @@ describe('post-walk incremental planning', () => {
         inputHash: hashContent('<!DOCTYPE html>article'),
         sourcePath: 'blog/article/index.html',
         sourceHash: hashContent('<!DOCTYPE html>article'),
+        dependencyHash: DEPENDENCY_HASH,
         templateHash: 'contextual-blog-links@1',
       }],
     ]));
@@ -398,6 +403,7 @@ describe('post-walk incremental planning', () => {
         inputHash: 'input-failed',
         sourcePath: 'jobs/failed/index.html',
         sourceHash: 'source-failed',
+        dependencyHash: DEPENDENCY_HASH,
         templateHash: 'flat-bridge@1',
       }],
       ['jobs/ok.html', {
@@ -406,6 +412,7 @@ describe('post-walk incremental planning', () => {
         inputHash: 'input-ok',
         sourcePath: 'jobs/ok/index.html',
         sourceHash: 'source-ok',
+        dependencyHash: DEPENDENCY_HASH,
         templateHash: 'flat-bridge@1',
       }],
     ]);
@@ -428,12 +435,13 @@ describe('post-walk incremental planning', () => {
         inputHash: null,
         sourcePath: 'jobs/bridge/index.html',
         sourceHash: null,
+        dependencyHash: DEPENDENCY_HASH,
         templateHash: 'flat-bridge@1',
       }],
     ]));
     const sidecarPath = path.join(
       root,
-      '.cache/incremental-manifest/post-walk-derived-v2.jsonl',
+      '.cache/incremental-manifest/post-walk-derived-v3.jsonl',
     );
     const lines = fs.readFileSync(sidecarPath, 'utf8').trimEnd().split('\n');
     lines.pop();
@@ -441,6 +449,21 @@ describe('post-walk incremental planning', () => {
     clearPostWalkDerivedDigestCacheForTest();
 
     expect(loadPostWalkDerivedDigestSidecar(root)).toEqual(new Map());
+  });
+
+  it('changes when either contextual dependency map changes', () => {
+    const existing = new Set(['/dist/blog/article/index.html']);
+    const blog = new Map<string, string>([['/dist/blog/article/index.html', 'it']]);
+    const initial = postWalkDependencyHash(existing, blog);
+
+    expect(postWalkDependencyHash(
+      new Set([...existing, '/dist/blog/second/index.html']),
+      blog,
+    )).not.toBe(initial);
+    expect(postWalkDependencyHash(
+      existing,
+      new Map([['/dist/blog/article/index.html', 'en']]),
+    )).not.toBe(initial);
   });
 
   it('rebuilds the HTML inventory from claimed paths plus unmanifested roots', () => {
