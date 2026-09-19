@@ -240,7 +240,7 @@ export function validateCanonicalBuildRun({ runId, run }) {
   if (String(run.workflow_id ?? '').trim() !== EXPECTED_BUILD_WORKFLOW_ID) {
     errors.push(`source build workflow id must be ${EXPECTED_BUILD_WORKFLOW_ID}`);
   }
-  if (!['push', 'workflow_dispatch'].includes(String(run.event || '').trim())) {
+  if (!EXPECTED_BUILD_EVENTS.includes(String(run.event || '').trim())) {
     errors.push('source build event is not an approved build trigger');
   }
   if (String(run.head_branch || '').trim() !== 'main') {
