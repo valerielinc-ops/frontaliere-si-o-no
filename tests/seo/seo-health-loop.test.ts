@@ -21,6 +21,7 @@ import {
   buildCycleIdentity,
   createCycleBudget,
   fetchWithRetry,
+  isSeoIssueActionable,
   loadSitemapGraph,
   runSeoHealthLoop,
   summarizeCloudflareProbeCoverage,
@@ -175,6 +176,11 @@ describe('SEO health contract', () => {
       unprobed5xx: 2,
       unresolved5xx: 3,
     });
+  });
+
+  it('keeps sampled-out Cloudflare evidence observable without opening an SEO issue', () => {
+    expect(isSeoIssueActionable({ code: 'cloudflare-5xx-unverified' })).toBe(false);
+    expect(isSeoIssueActionable({ code: 'cloudflare-5xx-persistent' })).toBe(true);
   });
 });
 
