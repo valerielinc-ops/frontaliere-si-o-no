@@ -49,11 +49,12 @@ permissions:
   pull-requests: write
   issues: write
   id-token: write
-  # Sola lettura, per l'ultimo step del job di esecuzione: legge gli step del
-  # job STESSO dalla jobs API per scrivere nello Step Summary quale famiglia ha
-  # fatto rosso. Lo stesso job `vitest (unit + integration)` pubblica il check
-  # required e contiene tutti gli step da diagnosticare.
-  actions: read
+  # Lettura: l'ultimo step del job di esecuzione legge gli step del job STESSO
+  # dalla jobs API per scrivere nello Step Summary quale famiglia ha fatto
+  # rosso. Scrittura: serve a UNA sola chiamata, il self-cancel della run
+  # superata (`Watch for a superseded PR head`): POST
+  # actions/runs/<questa run>/cancel e nient'altro. `write` include `read`.
+  actions: write
 
 # Questo workflow serve sia le PR sia i segnali di salute di main/merge queue.
 # Le chiavi separano le PR per numero+HEAD e nessuna run viene cancellata: un
@@ -674,6 +675,89 @@ jobs:
           fi
           LOOP_FLEET_REGISTRY_PATH="$POLICY_ROOT/data/loop-fleet/loop-registry.json" \
             GH_TOKEN="$APP_TOKEN" node "$POLICY_ROOT/scripts/ci/review-test-policy.mjs" ledger-post
+
+      # ── Una run superata muore subito ────────────────────────────────────
+      #
+      # Misurato il 2026-09-19 sulle ultime 200 run: 23 run PR sono state
+      # superate da un nuovo push mentre giravano, 21 delle quali DOPO l'avvio
+      # (quindi un controllo della HEAD solo prima del checkout ne avrebbe
+      # prese 2). Arrivavano fino a `Resolve PR from pull request`, che fallisce
+      # su «PR head changed»: 271 minuti di runner buttati in circa 7 ore.
+      #
+      # PERCHE' NON `cancel-in-progress`. Il gruppo di concorrenza resta per
+      # PR+HEAD e non cancellante (vedi il blocco `concurrency:` e #8862): una
+      # cancellazione nativa arriva in QUALSIASI step, compreso
+      # `pr-autorebase.mjs`, che lavora su fino a 10 PR ALTRUI e ha una sezione
+      # critica non atomica `gh pr close` + `gh pr reopen` — un cancel fra le
+      # due lascia chiusa la PR di qualcun altro. Qui invece la run si cancella
+      # DA SOLA e solo in una finestra nota: dal checkout fino allo step
+      # `Stop superseded-head watcher`, che precede `Resolve PR` e quindi review,
+      # autorebase e opt-in all'auto-merge. Oltre quello stop nessun cancel
+      # viene piu' chiesto; se uno era gia' partito, la HEAD era gia' cambiata e
+      # `Resolve PR` fallisce comunque, quindi nessuno step con effetti esterni
+      # parte.
+      #
+      # Il controllo usa `git ls-remote` su refs/pull/N/head (protocollo git,
+      # fuori dal rate limit REST del GITHUB_TOKEN); l'unica chiamata REST e' il
+      # cancel. Una run `cancelled` non suona allarmi: il redcheck-fixer parte
+      # solo su `failure`, scan-unreported-failures ignora `cancelled`,
+      # scan-job-timeouts pretende l'annotazione di timeout, e
+      # `Classify cancelled run` la etichetta `superseded` nello Step Summary.
+      - name: Start superseded-head watcher
+        id: head_watch
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' && (github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.pr_number != '')) }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PRN: ${{ github.event.pull_request.number || inputs.pr_number }}
+          HEAD_SHA: ${{ inputs.head_sha || github.event.pull_request.head.sha || github.sha }}
+          RUN_ID: ${{ github.run_id }}
+          WATCH_INTERVAL_S: '15'
+        run: |
+          set -euo pipefail
+          [[ "$PRN" =~ ^[1-9][0-9]*$ ]] || { echo "::warning::PR number non valido: watcher non avviato."; exit 0; }
+          [[ "$HEAD_SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "::warning::HEAD non valida: watcher non avviato."; exit 0; }
+          dir="${RUNNER_TEMP}/head-watch"
+          mkdir -p "$dir"
+          # Il watcher lavora da RUNNER_TEMP, non dal workspace: dopo il
+          # checkout il workspace e' un repo con il suo
+          # `http.https://github.com/.extraheader`, che si SOMMA a quello
+          # passato qui e manda due Authorization. Misurato sulla run
+          # 35460312069: dopo il checkout nessuna lettura della ref e' andata a
+          # buon fine e la run superata e' arrivata a `Resolve PR`.
+          cat > "$dir/watch.sh" <<'WATCH_EOF'
+          set -u
+          cd "$WATCH_DIR" || exit 0
+          failures=0
+          auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          export GIT_TERMINAL_PROMPT=0 GIT_CONFIG_COUNT=1
+          export GIT_CONFIG_KEY_0='http.https://github.com/.extraheader'
+          export GIT_CONFIG_VALUE_0="AUTHORIZATION: basic $auth"
+          while [ ! -e "$WATCH_DIR/stop" ]; do
+            sleep "$WATCH_INTERVAL_S"
+            [ -e "$WATCH_DIR/stop" ] && exit 0
+            if ! line=$(git ls-remote "https://github.com/${REPO}.git" "refs/pull/${PRN}/head" 2>"$WATCH_DIR/ls-remote.err"); then
+              failures=$((failures + 1))
+              # La prima e poi ogni decima: il log resta leggibile.
+              if [ $((failures % 10)) -eq 1 ]; then
+                echo "$(date -u +%FT%TZ) ls-remote fallito ($failures): $(head -c 300 "$WATCH_DIR/ls-remote.err")"
+              fi
+              continue
+            fi
+            current=${line%%[[:space:]]*}
+            [[ "$current" =~ ^[0-9a-f]{40}$ ]] || continue
+            [ "$current" = "$HEAD_SHA" ] && continue
+            [ -e "$WATCH_DIR/stop" ] && exit 0
+            printf '%s\n' "$current" > "$WATCH_DIR/superseded-by"
+            echo "$(date -u +%FT%TZ) PR #$PRN head ${HEAD_SHA:0:12} -> ${current:0:12}: cancel della run $RUN_ID"
+            gh api -X POST "repos/${REPO}/actions/runs/${RUN_ID}/cancel" --silent || echo "cancel non riuscito"
+            exit 0
+          done
+          WATCH_EOF
+          WATCH_DIR="$dir" nohup setsid bash "$dir/watch.sh" > "$dir/watch.log" 2>&1 < /dev/null &
+          printf '%s\n' "$!" > "$dir/pid"
+          echo "Watcher avviato sulla HEAD ${HEAD_SHA:0:12} di PR #$PRN (ogni ${WATCH_INTERVAL_S}s)."
 
       # `git checkout` scrive l'albero con un thread solo per default (issue
       # #6152). Misurato in locale sull'albero pieno di questo repo: 51,0s ->
@@ -1884,6 +1968,26 @@ jobs:
           HEAD_SHA: ${{ inputs.head_sha || github.event.pull_request.head.sha || github.sha }}
           VITEST_REPORT_FILES: shard-timing-related.json
         run: node scripts/ci/report-vitest-failure.mjs
+
+      # Chiude la finestra di self-cancel PRIMA di review, autorebase e
+      # auto-merge (vedi `Start superseded-head watcher`). `always()`: va chiusa
+      # anche dopo un rosso, perche' gli step `always()` a valle non devono
+      # poter essere interrotti a meta'.
+      - name: Stop superseded-head watcher
+        if: ${{ always() && steps.body_contract.outcome != 'failure' && steps.head_watch.outcome == 'success' }}
+        continue-on-error: true
+        run: |
+          set -uo pipefail
+          dir="${RUNNER_TEMP}/head-watch"
+          touch "$dir/stop"
+          pid=$(cat "$dir/pid" 2>/dev/null || true)
+          if [[ "$pid" =~ ^[0-9]+$ ]]; then
+            kill -- "-$pid" 2>/dev/null || kill "$pid" 2>/dev/null || true
+          fi
+          cat "$dir/watch.log" 2>/dev/null || true
+          if [ -s "$dir/superseded-by" ]; then
+            echo "::notice::PR head superata da $(head -c 12 "$dir/superseded-by"): run cancellata dal watcher."
+          fi
 
       - name: Resolve PR from pull request
         id: resolve
