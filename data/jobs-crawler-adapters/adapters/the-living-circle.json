@@ -8,16 +8,160 @@
     "jsonld"
   ],
   "seedUrls": [
-    "https://jobs.thelivingcircle.ch/#jobs:location=%5B%22Ascona%22%5D"
+    "https://jobs.thelivingcircle.ch/#jobs"
   ],
-  "notes": "Dedicated The Living Circle crawler uses the public Softgarden jobs.feed.json feed and filters vacancies in Ascona, Ticino.",
-  "updatedAt": "2026-09-13T13:56:10.750Z",
+  "notes": "Dedicated The Living Circle crawler uses the public Softgarden jobs.feed.json feed and keeps vacancies anywhere in Switzerland.",
+  "updatedAt": "2026-09-19T22:51:40.332Z",
   "seedMetaByUrl": {
+    "https://jobs.thelivingcircle.ch/jobs/65853461/Aushilfe-Servicemitarbeiter-all-genders-/": {
+      "location": "Thalwil",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-07-06"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/65999853/Housekeeping-Porter-Aushilfe-20-40%25-all-genders-/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-07-10"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/66000183/Room-Attendant-Aushilfe-20-40%25-all-genders-/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-07-10"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/66045703/Lehrstelle-als-Fachfrau--mann-Hotellerie-Hauswirtschaft-EFZ/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-07-13"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/66046008/Lehrstelle-als-Restaurantfachfrau--mann-EFZ/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-07-13"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/66046048/Lehrstelle-als-Koch-K%C3%B6chin-EFZ/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-07-13"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/66110663/Connectivity-Specialist-80-100%25-all-genders-befristet/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-07-15"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/66115513/Servicepraktikant-Widder-Wonder-Garden-100%25-all-genders-/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-07-16"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/66115898/Praktikant-Service-Widder-Bar-100%25-all-genders-/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-07-16"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/66625183/Demi-Chef-de-Partie-Restaurant-Buech-80-100%25-all-genders-/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-08-07"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/66713473/Front-Office-Agent-80-100%25-all-genders-/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-08-13"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/66768370/Concierge-80-100%25-all-genders-/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-08-17"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/66828400/Supervisor-Corporate-Events-80%25-all-genders-/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-08-19"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/67094610/Kaderpraktikum-Human-Resources-100%25-all-genders-/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-08-31"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/67178225/Head-Chef-La-R%C3%B4tisserie-100%25-all-genders-/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-09-03"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/67238646/Allrounder-Housekeeping-80-100%25-all-genders-/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-09-07"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/67373500/Praktikant-K%C3%BCche-100%25-all-genders-/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-09-11"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/67375000/Praktikant-Service-La-R%C3%B4tisserie-100%25-all-genders-/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-09-11"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/67375065/Praktikant-Front-Office-100%25-all-genders-/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-09-11"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/67377180/Praktikant-Service-Barchetta-Bar-Lounge-100%25-all-genders-/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-09-11"
+    },
     "https://jobs.thelivingcircle.ch/jobs/67378285/F-B-und-Event-Manager-100%25-all-genders-/": {
       "location": "Ascona",
       "canton": "TI",
       "company": "The Living Circle",
       "postedDate": "2026-09-11"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/67470292/Barkeeper-80-100%25-all-genders-/": {
+      "location": "Grindelwald",
+      "canton": "BE",
+      "company": "The Living Circle",
+      "postedDate": "2026-09-16"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/67470622/Aushilfe-SPA-Therapeut-und-oder-SPA-Rezeptionist-all-genders-/": {
+      "location": "Grindelwald",
+      "canton": "BE",
+      "company": "The Living Circle",
+      "postedDate": "2026-09-16"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/67470922/Chef-de-Rang-Restaurant-Pinte-80-100-%25-all-genders-/": {
+      "location": "Grindelwald",
+      "canton": "BE",
+      "company": "The Living Circle",
+      "postedDate": "2026-09-16"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/67524797/General-Manager-Bergwelt-Grindelwald-100%25-all-genders-/": {
+      "location": "Grindelwald",
+      "canton": "BE",
+      "company": "The Living Circle",
+      "postedDate": "2026-09-18"
     }
   }
 }
