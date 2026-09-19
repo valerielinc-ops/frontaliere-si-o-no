@@ -889,6 +889,11 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('[permissions.codex-fallback.filesystem.":workspace_roots"]');
     expect(action).toContain('scratch_dir="$CODEX_HOME/scratch"');
     expect(action).toContain('bridge_dir="$scratch_dir/bin"');
+    expect(action).toContain('body_gate_dir="${PR_BODY_GATE_BIN:-}"');
+    expect(action).toContain('PR_BODY_GATE_BIN must stay under RUNNER_TEMP');
+    expect(action).toContain('[permissions.codex-fallback.filesystem."$body_gate_dir_toml"]');
+    expect(action).toContain('codex_command_path="$body_gate_dir:$codex_command_path"');
+    expect(action).toContain('"PATH=$codex_command_path"');
     expect(action).toContain('[permissions.codex-fallback.filesystem."$bridge_dir_toml"]');
     expect(action).toContain('"TMPDIR=$scratch_dir"');
     expect(action).toContain('PATH="$bridge_dir:$(/usr/bin/dirname "$node_realpath"):/usr/bin:/bin"');
