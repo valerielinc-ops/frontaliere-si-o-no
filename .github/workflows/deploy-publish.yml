@@ -512,6 +512,7 @@ jobs:
       contents: write   # sync previous-slug winners (git push)
       actions: read     # cross-run download small artifacts (sitemaps, winners)
       issues: write     # github-issue-creator on publish failure
+      deployments: read # post-deploy-publish validates deployment provenance
 
   # `workflow_run` is the preferred trigger for the watchdog, but GitHub can
   # omit a chained workflow_run event when this workflow was itself started by
