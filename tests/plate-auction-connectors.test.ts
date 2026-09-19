@@ -5,6 +5,8 @@ import { describe, expect, it, vi } from 'vitest';
 import {
   extractPdfUrl,
   fetchHtml,
+  FIXED_PRICE_SOURCE_CONFIGS,
+  resolveVariantPdfUrl,
   parseAiFixedPricePdfText,
   parseBsFixedPricePdfText,
   parseGlFixedPriceJson,
@@ -310,5 +312,59 @@ describe('expanded plate-auction connectors', () => {
     expect(lu.find((row) => row.vehicleType === 'motorcycle')).toMatchObject({ startingPriceChf: 200 });
     expect(aiMotorcycle[0]).toMatchObject({ id: 'ai-motorcycle-153', vehicleType: 'motorcycle', startingPriceChf: 200 });
     expect(ur.find((row) => row.plateNumber === '3086')).toMatchObject({ startingPriceChf: 700 });
+  });
+});
+
+describe('fixed-price PDF url resolution', () => {
+  const pageUrl = 'https://www.bs.ch/themen/mobilitaet/kontrollschilder/wunschkontrollschilder';
+  const carPattern = /\/wuko-pw-[^/]+\.pdf$/i;
+  const liveIndexHtml = '<a href="https://media.bs.ch/original_file/33ac87d5/wuko-pw-36.pdf">PW</a>';
+
+  it('reads the week the live page links, not a pinned one', () => {
+    expect(resolveVariantPdfUrl({ pdfUrlPattern: carPattern }, {
+      sourceKey: 'bs', pageUrl, indexHtml: liveIndexHtml,
+    })).toBe('https://media.bs.ch/original_file/33ac87d5/wuko-pw-36.pdf');
+  });
+
+  it('names the failure instead of silently substituting a pinned week', () => {
+    // The bug this replaces: `extractPdfUrl(...) || variant.fallbackPdfUrl`
+    // turned "the pattern matched nothing" into "fetch this hardcoded URL".
+    // BS pins one content-addressed PDF per ISO week, so on 2026-09-19 that
+    // substitute was week 35 against a live week 36 and answered HTTP 404 —
+    // and a hashed asset still answering 200 would instead have published a
+    // five-week-old catalogue as current. The miss has to be an error.
+    expect(() => resolveVariantPdfUrl({ pdfUrlPattern: carPattern }, {
+      sourceKey: 'bs', pageUrl, indexHtml: '<a href="/unrelated.pdf">x</a>',
+    })).toThrow(/bs: no PDF href matched .* on https:\/\/www\.bs\.ch/);
+  });
+
+  it('still honours an evergreen fallback, and says when it used one', () => {
+    // AI and LU point at canonical paths that are not week-pinned, so the
+    // fallback stays legitimate — but a pattern that stopped matching is the
+    // same signal that preceded the BS breakage, so it must be visible.
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      expect(resolveVariantPdfUrl({
+        pdfUrlPattern: /wunschschilder\.pdf$/i,
+        fallbackPdfUrl: 'https://strassenverkehrsamt.lu.ch/downloads/wunschschilder.pdf',
+      }, { sourceKey: 'lu', pageUrl, indexHtml: '<a href="/other.pdf">x</a>' }))
+        .toBe('https://strassenverkehrsamt.lu.ch/downloads/wunschschilder.pdf');
+      expect(warn).toHaveBeenCalledWith(expect.stringContaining('matched no href'));
+    } finally {
+      warn.mockRestore();
+    }
+  });
+
+  it('keeps every BS variant free of a hardcoded weekly PDF', () => {
+    // Re-adding one would re-arm the exact failure: a URL captured in one week
+    // that keeps being fetched in every later one.
+    const bs = FIXED_PRICE_SOURCE_CONFIGS.bs as Record<string, unknown> & {
+      pdfVariants: Record<string, unknown>[];
+    };
+    expect(bs.fallbackPdfUrl).toBeUndefined();
+    for (const variant of bs.pdfVariants) {
+      expect(variant.fallbackPdfUrl).toBeUndefined();
+      expect(variant.pdfUrlPattern).toBeInstanceOf(RegExp);
+    }
   });
 });
