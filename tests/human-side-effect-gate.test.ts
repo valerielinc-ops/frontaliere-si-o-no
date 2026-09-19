@@ -241,6 +241,9 @@ const SCHEDULE_ARMED_WORKFLOWS = [
   // `side_effect_gate` and a `schedule:` appears in exactly one of the two
   // inventories. Enumerated 2026-09-18: 12 were in neither.
   'sync-articles-sitemaps.yml',
+  // Recovery is an approved scheduled write: it remains non-destructive and
+  // its backfill/commit steps keep their own dry-run guards in depth.
+  'recover-prev-slugs.yml',
 ];
 
 const SCHEDULE_UNARMED_WORKFLOWS = [
@@ -252,7 +255,6 @@ const SCHEDULE_UNARMED_WORKFLOWS = [
   'mailtrap-suppression-retry.yml',
   'probe-mailgun-scheduled.yml',
   'publisher-blast.yml',
-  'recover-prev-slugs.yml',
   'reddit-jobs-daily-schedule.yml',
 ];
 
@@ -979,8 +981,8 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
   });
 
   it('arms trusted schedules only on workflows whose schedules apply side effects', () => {
-    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(18);
-    expect(SCHEDULE_UNARMED_WORKFLOWS).toHaveLength(10);
+    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(19);
+    expect(SCHEDULE_UNARMED_WORKFLOWS).toHaveLength(9);
     expect(SCHEDULE_SIDE_EFFECT_WORKFLOWS).toHaveLength(28);
 
     for (const name of SCHEDULE_SIDE_EFFECT_WORKFLOWS) {

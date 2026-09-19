@@ -31,7 +31,7 @@ import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
-import { stableSlugHash } from './lib/dedicated-crawler-common.mjs';
+import { LOCALES, stableSlugHash } from './lib/dedicated-crawler-common.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { createCatFileBatch } from './lib/git-cat-file-batch.mjs';
 
@@ -40,6 +40,12 @@ const ROOT = path.resolve(__dirname, '..');
 const BY_CRAWLER_DIR = path.resolve(ROOT, 'data', 'jobs', 'by-crawler');
 
 const CAP = 20;
+// A recovery run may have proof for more history than the live writer's
+// per-locale cap can hold. Keep a bounded emergency headroom so those proven
+// routes become reachable without turning malformed input into an unbounded
+// history array. The incident that motivated #9056 had 17 proven slugs in a
+// full bucket, which fits in this one-cap overflow window.
+const RECOVERY_OVERFLOW_MULTIPLIER = 2;
 
 /**
  * data/prev-slug-restore-denylist.json lists {file, jobId, slug} pairs that
@@ -198,7 +204,7 @@ export function resolveRecoveryTarget(job, slug, bySuffixHash) {
 }
 
 /**
- * Write a single recovered slug onto its target job, capacity-permitting.
+ * Write a single recovered slug onto its target job with bounded overflow.
  *
  * Recovered slugs are, by definition, the OLDEST entries a job ever had
  * (they were captured long enough ago to have since fallen off history) —
@@ -209,14 +215,23 @@ export function resolveRecoveryTarget(job, slug, bySuffixHash) {
  * manufacture brand-new losses of live slugs on every run — the exact
  * oscillation that kept this workflow's own "Recover N previousSlugs"
  * commits showing up as the top offending commits in the next scan (#3587).
- * Recovery must stay capacity-permitting and non-destructive (see
- * recover-prev-slugs.yml header: "Recovery is non-destructive — only
- * ADDS"): skip instead of evicting once a bucket is already at cap.
+ * Recovery stays non-destructive (see recover-prev-slugs.yml header: "Recovery
+ * is non-destructive — only ADDS"): it never evicts a live entry. A proven
+ * recovery may use one additional cap-sized window, but once that bounded
+ * headroom is full the slug is skipped. Recovered entries are prepended
+ * because they are older than the live history; a later normal writer that
+ * applies the ordinary cap therefore drops recovery overflow before current
+ * entries.
+ *
+ * The flat legacy array is a union of the locale buckets, so it receives the
+ * same bounded headroom over its established `cap * LOCALES.length` limit.
  *
  * @param {object} targetJob – job to mutate in place.
  * @param {string} locale – locale bucket the slug is attributed to.
  * @param {string} slug – recovered slug value.
- * @param {number} [cap=CAP] – max entries per bucket / flat array.
+ * @param {number} [cap=CAP] – normal per-locale bucket cap; recovery can use
+ * one additional cap-sized window, and the flat legacy cap is multiplied by
+ * the number of supported locales.
  * @returns {{ restored: boolean, skippedAtCap: boolean }}
  */
 export function applyRecoveredSlug(targetJob, locale, slug, cap = CAP) {
@@ -228,21 +243,27 @@ export function applyRecoveredSlug(targetJob, locale, slug, cap = CAP) {
   }
 
   let restored = false;
-  let skippedAtCap = false;
-  if (!targetJob.previousSlugsByLocale[locale].includes(slug)) {
-    if (targetJob.previousSlugsByLocale[locale].length < cap) {
-      targetJob.previousSlugsByLocale[locale].push(slug);
-      restored = true;
-    } else {
-      skippedAtCap = true;
+  const skippedAtCap = false;
+  const localeBucket = targetJob.previousSlugsByLocale[locale];
+  const recoveryBucketCap = cap * RECOVERY_OVERFLOW_MULTIPLIER;
+  if (!localeBucket.includes(slug)) {
+    if (localeBucket.length >= recoveryBucketCap) {
+      return { restored: false, skippedAtCap: true };
     }
+    // Recovered values are older than the current live history. Put them at
+    // the front so a future ordinary cap-trim removes these values first.
+    localeBucket.unshift(slug);
+    restored = true;
   }
 
-  // Also sync flat previousSlugs for legacy consumers — same
-  // non-destructive, capacity-permitting rule as above.
+  // Also sync flat previousSlugs for legacy consumers. It has one bucket-sized
+  // window per supported locale, matching the normal legacy union cap, plus
+  // the same bounded recovery headroom.
   if (!Array.isArray(targetJob.previousSlugs)) targetJob.previousSlugs = [];
-  if (!targetJob.previousSlugs.includes(slug) && targetJob.previousSlugs.length < cap) {
-    targetJob.previousSlugs.push(slug);
+  const recoveryLegacyCap = cap * LOCALES.length * RECOVERY_OVERFLOW_MULTIPLIER;
+  if (!targetJob.previousSlugs.includes(slug) && targetJob.previousSlugs.length < recoveryLegacyCap) {
+    targetJob.previousSlugs.unshift(slug);
+    restored = true;
   }
 
   return { restored, skippedAtCap };
@@ -426,8 +447,8 @@ async function main() {
           locale = detectLocaleFromSlug(slug);
           stats.slugsRestoredFromDetection++;
         }
-        // Write the recovered slug capacity-permitting (see applyRecoveredSlug
-        // docstring for why this must never evict currently-live entries).
+        // Write the recovered slug with bounded overflow (see
+        // applyRecoveredSlug for why this never evicts currently-live entries).
         const { restored, skippedAtCap } = applyRecoveredSlug(targetJob, locale, slug, CAP);
         if (restored) {
           changedJobIds.add(resolveJobDiffKey(targetJob));

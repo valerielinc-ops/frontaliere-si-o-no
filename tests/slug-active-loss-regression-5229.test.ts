@@ -268,6 +268,63 @@ describe('git-commit-data.sh 3-way merge — active slugs survive conflict resol
     }
   });
 
+  it('banks an active slug when local is unchanged and remote wins (local==base)', () => {
+    const h = initHarness();
+    try {
+      const base: JobRecord = {
+        url: 'https://example.ch/jobs/local-base',
+        slug: 'base-title',
+        slugByLocale: { it: 'base-title', en: 'base-title-en' },
+        previousSlugs: [],
+        previousSlugsByLocale: {},
+      };
+      writeJson(h.repoDir, SLICE, [base]);
+      commitAndPush(h.repoDir, 'seed');
+      pushFromConcurrentWriter(
+        h,
+        (dir) => writeJson(dir, SLICE, [{ ...base, slugByLocale: { it: 'base-title', en: 'remote-title-en' } }]),
+        'other writer: remote slug rename',
+      );
+
+      // The local snapshot is byte-for-byte the base. The remote active slug
+      // wins, but the old local route must remain a redirect.
+      runScript(h, SLICE);
+
+      const [merged] = readFromOrigin<JobRecord[]>(h, SLICE);
+      expect(merged.slugByLocale.en).toBe('remote-title-en');
+      expect(reachable(merged)).toContain('base-title-en');
+    } finally {
+      cleanup(h);
+    }
+  });
+
+  it('banks an active slug when remote is unchanged and local wins (remote==base)', () => {
+    const h = initHarness();
+    try {
+      const base: JobRecord = {
+        url: 'https://example.ch/jobs/remote-base',
+        slug: 'base-title',
+        slugByLocale: { it: 'base-title', en: 'base-title-en' },
+        previousSlugs: [],
+        previousSlugsByLocale: {},
+      };
+      writeJson(h.repoDir, SLICE, [base]);
+      commitAndPush(h.repoDir, 'seed');
+      writeJson(h.repoDir, SLICE, [{ ...base, slugByLocale: { it: 'base-title', en: 'local-title-en' } }]);
+
+      // Remote still equals base, so this used to stage local directly and
+      // bypass mergeValue() entirely. The local active slug wins, while the
+      // remote/base route remains reachable through history.
+      runScript(h, SLICE);
+
+      const [merged] = readFromOrigin<JobRecord[]>(h, SLICE);
+      expect(merged.slugByLocale.en).toBe('local-title-en');
+      expect(reachable(merged)).toContain('base-title-en');
+    } finally {
+      cleanup(h);
+    }
+  });
+
   it('leaves a conflict-free merge untouched', () => {
     const h = initHarness();
     try {
