@@ -10,7 +10,6 @@ process.env.INCREMENTAL_MANIFEST = '1';
 const {
   buildMinimalJobInput,
   computeInputHash,
-  computeRelatedJobPoolSignature,
   getIncrementalManifestInputCache,
   getIncrementalManifestMap,
   getIncrementalManifestMemoryStats,
@@ -192,17 +191,12 @@ function runFullPoolBridgeScenario(label, relatedJobs, sourceJobOrFactory, sourc
   return finishScenario(rootDir, manifest, startedAt);
 }
 
-function runCompactBridgeScenario(sourceJob, selectedRelatedJobs, relatedPool) {
+function runCompactBridgeScenario(sourceJob, selectedRelatedJobs) {
   const label = 'compact-bridge';
   const rootDir = path.join(os.tmpdir(), `incremental-manifest-time-${process.pid}-${label}`);
   const manifest = getIncrementalManifestMap(rootDir, [BENCHMARK_LOCALE]).get(BENCHMARK_LOCALE);
   const inputCache = getIncrementalManifestInputCache(rootDir);
-  // The production emitter computes this once while preparing the canonical
-  // active page, then reuses its hash for all legacy bridges. Keep that
-  // one-time O(pool) work inside the measured scenario and amortize it over
-  // the bridge pages instead of hiding it in setup.
   const startedAt = performance.now();
-  const relatedPoolSignature = computeRelatedJobPoolSignature(relatedPool);
   const activeInput = {
     ...buildMinimalJobInput(
       sourceJob,
@@ -214,7 +208,6 @@ function runCompactBridgeScenario(sourceJob, selectedRelatedJobs, relatedPool) {
     ),
     canton: 'TI',
     canonicalUrl: 'https://frontaliereticino.ch/cerca-lavoro-ticino/current-role/',
-    relatedPoolSignature,
   };
   const sourceInputHash = computeInputHash(activeInput, 'active-job');
 
@@ -258,7 +251,6 @@ const sourceJob = makeRealJob(0, 'primary');
 const relatedPool = Array.from({ length: RELATED_POOL_COUNT }, (_, index) => makeRealJob(index, 'related'));
 const relatedThirty = relatedPool.slice(0, ESTIMATE_RELATED_COUNT);
 const selectedRelated = relatedPool.slice(0, RENDERED_RELATED_COUNT);
-const relatedPoolSignature = computeRelatedJobPoolSignature(relatedPool);
 const measuredRecordBytes = Buffer.byteLength(JSON.stringify(sourceJob), 'utf8');
 const measuredRelatedBytes = Buffer.byteLength(JSON.stringify(relatedThirty[0]), 'utf8');
 const recordPlus30DigestMs = measureRecordDigestCost([sourceJob, ...relatedThirty]);
@@ -300,7 +292,7 @@ const report = {
     () => sourceJob,
     'c'.repeat(64),
   ),
-  after: runCompactBridgeScenario(sourceJob, selectedRelated, relatedPool),
+  after: runCompactBridgeScenario(sourceJob, selectedRelated),
 };
 
 if (!noAssert) assertReport(report);

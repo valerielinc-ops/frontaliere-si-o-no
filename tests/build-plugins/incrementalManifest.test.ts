@@ -7,10 +7,10 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
   buildMinimalJobInput,
-  computeRelatedJobPoolSignature,
   createIncrementalManifestInputCache,
   IncrementalManifest,
   INCREMENTAL_MANIFEST_ENABLED,
+  JOB_DIGEST_ALGORITHM_VERSION,
   MANIFEST_FORMAT,
   MANIFEST_VERSION,
   canonicalizeInput,
@@ -26,6 +26,7 @@ const ROOT = path.resolve(TEST_DIR, '../..');
 const REPORT = path.join(ROOT, 'scripts/ci/incremental-manifest-report.mjs');
 const PREVIOUS = path.join(ROOT, 'tests/fixtures/incremental-manifest/previous.jsonl');
 const CURRENT = path.join(ROOT, 'tests/fixtures/incremental-manifest/current.jsonl');
+const JOBS_SEO_PLUGIN = path.join(ROOT, 'build-plugins/jobsSeoPagesPlugin.ts');
 
 describe('incremental manifest input contract', () => {
   it('canonicalizes object keys independently of insertion order', () => {
@@ -76,6 +77,95 @@ describe('incremental manifest input contract', () => {
       'active-job',
     );
     expect(secondHash).not.toBe(firstHash);
+  });
+
+  it('includes the resolved expired-page title in its reuse input', () => {
+    const source = fs.readFileSync(JOBS_SEO_PLUGIN, 'utf8');
+    const resolvedTitle = source.indexOf('const pageTitle = esc(pageTitleRaw);');
+    const inputStart = source.indexOf('const softLandingManifestInput', resolvedTitle);
+    const reuseStart = source.indexOf('const softLandingReuse', inputStart);
+    expect(resolvedTitle).toBeGreaterThanOrEqual(0);
+    expect(inputStart).toBeGreaterThan(resolvedTitle);
+    expect(reuseStart).toBeGreaterThan(inputStart);
+    expect(source.slice(inputStart, reuseStart)).toContain('title: pageTitleRaw,');
+  });
+
+  it('ignores changed non-rendered job metadata but keeps rendered fields covered', () => {
+    const baseJob = {
+      id: 'metadata-job-1',
+      slug: 'metadata-role',
+      title: 'Role',
+      salaryMin: 80_000,
+    };
+    const baseDigest = buildMinimalJobInput(baseJob, 'it', baseJob.slug).jobRecordDigest;
+    for (const [field, value] of [
+      ['needsRetranslation', true],
+      ['qualityScore', 91],
+      ['retranslationAttempts', 2],
+    ] as const) {
+      const changedJob = { ...baseJob, [field]: value };
+      expect(buildMinimalJobInput(changedJob, 'it', changedJob.slug).jobRecordDigest).toBe(baseDigest);
+    }
+
+    for (const renderedChange of [
+      { ...baseJob, salaryMin: 95_000 },
+      { ...baseJob, salarySource: 'estimated' },
+    ]) {
+      expect(buildMinimalJobInput(renderedChange, 'it', renderedChange.slug).jobRecordDigest).not.toBe(baseDigest);
+    }
+  });
+
+  it('keeps expired soft-landing related links in the hash projection', () => {
+    const source = fs.readFileSync(JOBS_SEO_PLUGIN, 'utf8');
+    const inputStart = source.indexOf('const softLandingManifestInput');
+    const reuseStart = source.indexOf('const softLandingReuse', inputStart);
+    expect(inputStart).toBeGreaterThanOrEqual(0);
+    expect(reuseStart).toBeGreaterThan(inputStart);
+    const inputSource = source.slice(inputStart, reuseStart);
+
+    // The renderer receives records and renders their locale slug/title. Passing
+    // only stable ids would turn that dependency into { slug: '', digest: null }.
+    expect(inputSource).toContain(
+      'sameCompanyActiveJobs.length > 0 ? sameCompanyActiveJobs : selectRecentJobs(slug, slug)',
+    );
+    expect(inputSource).not.toContain('.map((relatedJob: any) => stableJobId(relatedJob))');
+
+    const expiredJob = { id: 'expired-job-1', slug: 'expired-role' };
+    const relatedBefore = {
+      id: 'active-job-1',
+      slugByLocale: { en: 'old-role-company' },
+      titleByLocale: { en: 'Old role' },
+      company: 'Company',
+      location: 'Lugano',
+    };
+    const relatedAfter = {
+      ...relatedBefore,
+      slugByLocale: { en: 'new-role-company' },
+      titleByLocale: { en: 'New role' },
+    };
+    const beforeHash = computeInputHash(
+      buildMinimalJobInput(expiredJob, 'en', expiredJob.slug, [relatedBefore]),
+      'expired-soft-landing',
+    );
+    const afterHash = computeInputHash(
+      buildMinimalJobInput(expiredJob, 'en', expiredJob.slug, [relatedAfter]),
+      'expired-soft-landing',
+    );
+
+    expect(afterHash).not.toBe(beforeHash);
+  });
+
+  it('keeps active reuse tied to selected rendered related jobs, not the full pool', () => {
+    const source = fs.readFileSync(JOBS_SEO_PLUGIN, 'utf8');
+    const inputStart = source.indexOf('const activeJobManifestInput');
+    const outputStart = source.indexOf('const outDir', inputStart);
+    expect(inputStart).toBeGreaterThanOrEqual(0);
+    expect(outputStart).toBeGreaterThan(inputStart);
+    expect(source.slice(inputStart, outputStart)).not.toContain('relatedPoolSignature');
+  });
+
+  it('bumps the digest contract when the reuse input shape changes', () => {
+    expect(JOB_DIGEST_ALGORITHM_VERSION).toBe('job-digest@6');
   });
 
   it('changes the cross-locale hash when the rendered datePosted changes', () => {
@@ -334,21 +424,6 @@ describe('incremental manifest input contract', () => {
     expect(cache._metrics.relatedProjectionComputations).toBe(2);
   });
 
-  it('keeps the complete related pool in a compact page signature', () => {
-    const pool = [
-      { id: 'related-a', slug: 'a' },
-      { id: 'related-b', slug: 'b' },
-    ];
-    const samePool = pool.map((job) => ({ ...job }));
-    expect(computeRelatedJobPoolSignature(samePool)).toBe(computeRelatedJobPoolSignature(pool));
-    expect(computeRelatedJobPoolSignature([...pool].reverse())).not.toBe(
-      computeRelatedJobPoolSignature(pool),
-    );
-    expect(computeRelatedJobPoolSignature([{ ...pool[0], slug: 'changed' }, pool[1]])).not.toBe(
-      computeRelatedJobPoolSignature(pool),
-    );
-  });
-
   it('represents a full-content bridge with its canonical source hash only', () => {
     const cache = createIncrementalManifestInputCache();
     const job = {
@@ -358,10 +433,7 @@ describe('incremental manifest input contract', () => {
       updatedAt: 'fixture-v1',
       descriptionByLocale: { it: 'A'.repeat(4_000) },
     };
-    const activeInput = {
-      ...buildMinimalJobInput(job, 'it', job.slug, [], cache),
-      relatedPoolSignature: computeRelatedJobPoolSignature([]),
-    };
+    const activeInput = buildMinimalJobInput(job, 'it', job.slug, [], cache);
     const sourceInputHash = computeInputHash(activeInput, 'active-job');
     const bridgeInput = {
       source: 'active-job',

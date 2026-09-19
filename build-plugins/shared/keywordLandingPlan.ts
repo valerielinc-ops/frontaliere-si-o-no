@@ -61,6 +61,7 @@
 
 export {
   type KeywordLandingOwner,
+  type KeywordLandingPlanSnapshot,
   normalizeLandingPath,
   isKeywordLandingPath,
   registerKeywordLandingPaths,
@@ -69,6 +70,7 @@ export {
   registerRetiredKeywordLandingPaths,
   isRetiredKeywordLanding,
   keywordLandingPlanSize,
+  getKeywordLandingPlanSnapshot,
   retiredKeywordLandingCount,
   landingPathFromDistRelative,
   isStaleKeywordLanding,
