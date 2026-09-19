@@ -67,22 +67,32 @@ const REGISTRY_DIR = 'packages/articles/content';
 /**
  * The verdict, as a pure function of the measured residue.
  *
- * `pendingBySection` maps a section to how many registry rows the working tree
- * carries that `HEAD` does not. A negative number is a REMOVAL that did commit
- * (or an unrelated prune) and is not a delivery failure, so only positives
- * count.
+ * `pendingBySection` maps a section to the article IDS the working tree carries
+ * and `HEAD` does not.
+ *
+ * IDENTITIES, NOT A NET COUNT. The first draft subtracted row counts and
+ * ignored negatives, and review caught what that hides: the corpus retires
+ * articles as well as adding them (`pinRetiredLocaleGroups`,
+ * `scripts/lib/corpus-removal-guard.mjs`), so one new slug arriving alongside
+ * one retirement nets to ZERO and a replacement nets to zero too. Both would
+ * have passed as delivered with the new article absent from `main` — the exact
+ * silent un-publish this guard exists to catch, reintroduced by the arithmetic.
+ * A set difference cannot net out: a removal simply is not in it.
  */
 export function deliveryVerdict({ pendingBySection = {}, skipReason = '' } = {}) {
   const undelivered = Object.entries(pendingBySection)
-    .filter(([, n]) => Number.isFinite(n) && n > 0)
+    .map(([section, ids]) => [section, [...new Set(ids ?? [])].sort()])
+    .filter(([, ids]) => ids.length > 0)
     .sort(([a], [b]) => a.localeCompare(b));
 
   if (undelivered.length === 0) {
     return { ok: true, message: `${LOG} every article this run pulled is committed — no residue` };
   }
 
-  const total = undelivered.reduce((sum, [, n]) => sum + n, 0);
-  const detail = undelivered.map(([section, n]) => `${section} +${n}`).join(', ');
+  const total = undelivered.reduce((sum, [, ids]) => sum + ids.length, 0);
+  const detail = undelivered
+    .map(([section, ids]) => `${section} +${ids.length} (${ids.slice(0, 5).join(', ')}${ids.length > 5 ? ', …' : ''})`)
+    .join(', ');
   const reason = skipReason.trim()
     ? `Reason recorded by the gate: ${skipReason.trim()}`
     : 'The gate recorded no skip reason, so the commit step itself delivered nothing — '
@@ -99,7 +109,8 @@ export function deliveryVerdict({ pendingBySection = {}, skipReason = '' } = {})
 }
 
 /**
- * Registry row counts in the working tree and in `HEAD`, per section.
+ * Article ids present in the working tree's registry and absent from `HEAD`'s,
+ * per section.
  *
  * `ARTICLE_REGISTRY_FILES` names each registry by its `services/` path — the
  * SPA's own copy, which this workflow does not touch. The synced corpus lives
@@ -113,26 +124,28 @@ export function measureResidue({ root = ROOT, git = gitShow } = {}) {
   for (const section of ARTICLE_SECTION_KEYS) {
     const { file, constName } = ARTICLE_REGISTRY_FILES[section];
     const rel = `${REGISTRY_DIR}/${path.basename(file)}`;
-    const worktree = readSlugRegistryWithRows(path.join(root, rel), constName).rows;
-    const committed = readCommittedRows(rel, constName, git);
+    const worktree = Object.keys(readSlugRegistryWithRows(path.join(root, rel), constName).registry);
+    const committed = Object.keys(readCommittedRegistry(rel, constName, git));
 
-    // A zero on EITHER side is a measurement failure, never a fact, and it is
-    // the one that fails OPEN if waved through: an absent working-tree registry
-    // parses as 0 rows (`readSlugRegistryWithRows` swallows a missing file by
-    // design), which subtracts to a NEGATIVE residue and reads as "delivered".
-    // Found on the first local run of this guard: in a sparse worktree
-    // `packages/articles/content/` is not materialised, and the guard cheerfully
-    // reported "no residue" while measuring nothing. Neither section has ever
-    // had an empty registry — both carry thousands of rows — so a zero means
-    // the file is missing, unparseable, or the const was renamed.
-    if (worktree < 1 || committed < 1) {
+    // An empty registry on EITHER side is a measurement failure, never a fact,
+    // and it is the one that fails OPEN if waved through: an absent
+    // working-tree registry parses as ZERO ids (`readSlugRegistryWithRows`
+    // swallows a missing file by design), an empty set has no difference, and
+    // "no residue" reads as delivered. Found on the first local run of this
+    // guard — in a sparse worktree `packages/articles/content/` is not
+    // materialised and it cheerfully reported success while measuring nothing.
+    // Neither section has ever had an empty registry (thousands of rows each),
+    // so a zero means the file is missing, unparseable, or the const renamed.
+    if (worktree.length < 1 || committed.length < 1) {
       throw new Error(
-        `${rel} (${constName}) parses to ${worktree} row(s) in the working tree and `
-        + `${committed} in HEAD — a registry is never legitimately empty, so this is a `
+        `${rel} (${constName}) parses to ${worktree.length} id(s) in the working tree and `
+        + `${committed.length} in HEAD — a registry is never legitimately empty, so this is a `
         + 'measurement failure, not a delivered sync',
       );
     }
-    pendingBySection[section] = worktree - committed;
+
+    const onMain = new Set(committed);
+    pendingBySection[section] = worktree.filter((id) => !onMain.has(id));
   }
   return pendingBySection;
 }
@@ -164,16 +177,16 @@ function gitShow(rel, dest) {
 }
 
 /**
- * `readSlugRegistryWithRows` takes a path, and reusing it is the point — the row
- * count must be produced by exactly the same parser on both sides, or the
- * difference measures the parser instead of the residue.
+ * `readSlugRegistryWithRows` takes a path, and reusing it is the point — both
+ * sides must be parsed by exactly the same parser, or the set difference
+ * measures the parser instead of the residue.
  */
-function readCommittedRows(rel, constName, git) {
+function readCommittedRegistry(rel, constName, git) {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'sync-delivered-'));
   try {
     const dest = path.join(tmp, path.basename(rel));
     git(rel, dest);
-    return readSlugRegistryWithRows(dest, constName).rows;
+    return readSlugRegistryWithRows(dest, constName).registry;
   } finally {
     fs.rmSync(tmp, { recursive: true, force: true });
   }

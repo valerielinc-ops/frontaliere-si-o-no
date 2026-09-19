@@ -783,16 +783,32 @@ jobs:
       # conclusion, same escalation counter. The residue is what separates them,
       # so the residue is what decides.
       #
-      # `github.event_name != 'workflow_dispatch'` for the reason the escalation
-      # above carries it: a manual preview defaults `dry_run` to true, so it
-      # legitimately pulls without committing, and a red preview would describe a
-      # broken pipeline that is not broken.
+      # THE CONDITION IS THE HUMAN'S STATED INTENT, not the event name and not
+      # the effective verdict. Review caught both wrong answers:
+      #
+      #   - `github.event_name != 'workflow_dispatch'` (the first draft) excused
+      #     EVERY manual run, including one an owner dispatched with
+      #     `dry_run: false` and an approval nonce precisely because they wanted
+      #     a real sync. A denial on that run would have finished green with the
+      #     new corpus rows absent from `main` — this guard's own failure mode.
+      #   - `effective_dry_run != 'true'` is worse, and it is why the fix is not
+      #     the obvious one: `human-side-effect-gate.mjs` sets
+      #     `effectiveDryRun: reasons.length !== 0 || nonce === null`, so a
+      #     DENIAL forces it true. Gating on it would skip the guard on exactly
+      #     the runs it exists for, which is how the 2026-09-19 incident stayed
+      #     invisible in the first place.
+      #
+      # `github.event.inputs.dry_run` is the input as the human left it: `'true'`
+      # on a preview (the declared default), `'false'` when they asked for a real
+      # sync, and null on `repository_dispatch` and `schedule`, which therefore
+      # run the guard. A preview pulls without committing on purpose and must
+      # stay green; everything else must prove delivery.
       #
       # No `always()`: when an earlier step already failed, the job is red and a
       # second, more confusing cause helps nobody. The mode this exists for is a
       # job that is otherwise entirely green.
       - name: Assert the pulled corpus actually reached main
-        if: github.event_name != 'workflow_dispatch'
+        if: github.event.inputs.dry_run != 'true'
         env:
           SKIP_REASON: ${{ steps.gate.outputs.skip-reason }}
         run: node scripts/ci/assert-articles-sync-delivered.mjs
