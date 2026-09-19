@@ -153,6 +153,7 @@ describe('WriteCollector collision visibility', () => {
           inputHash: hashContent(sourceContent),
           sourcePath: 'jobs/bridge/index.html',
           sourceHash: hashContent(sourceContent),
+          dependencyHash: 'fixture-dependency-hash',
           templateHash: 'flat-bridge@1',
         }],
       ]));
