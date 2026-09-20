@@ -9,11 +9,12 @@ const readWorkflow = (name: string) => YAML.parse(readFileSync(new URL(`../.gith
 const workflow = readWorkflow('tests.yml');
 const job = workflow.jobs.vitest;
 const recovery = readWorkflow('retry-code-check-after-body-edit.yml');
-const script = recovery.jobs.recover.steps[0].with.script;
+const recoveryScriptStep = recovery.jobs.recover.steps.find((step: { uses?: string }) => step.uses === 'actions/github-script@v8') as { with: Record<string, string> };
+const script = recoveryScriptStep.with.script;
 const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
 const require = createRequire(import.meta.url);
 
-async function runRecovery({ body = 'failure', status = 'completed', conclusion = 'failure', changedHead = false, changedAttempt = false, finishing = false, olderFailed = false, workflowRuns = 'existing', eventName = 'pull_request_target', pendingStatus = null, rerunFails = false, dispatchFails = false, eventRunId = 42, eventRunAttempt = 1, nativeAutoMerge = false } = {}) {
+async function runRecovery({ body = 'failure', status = 'completed', conclusion = 'failure', changedHead = false, changedAttempt = false, finishing = false, olderFailed = false, workflowRuns = 'existing', eventName = 'pull_request_target', pendingStatus = null, rerunFails = false, dispatchFails = false, eventRunId = 42, eventRunAttempt = 1, nativeAutoMerge = false, trustedToken = 'test-app-token', returnComments = false } = {}) {
   const reruns: number[] = [];
   const dispatches: unknown[] = [];
   const callOrder: string[] = [];
@@ -120,6 +121,9 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
     },
   };
   let error = '';
+  const previousAppToken = process.env.APP_TOKEN;
+  if (trustedToken) process.env.APP_TOKEN = trustedToken;
+  else delete process.env.APP_TOKEN;
   try {
     await new AsyncFunction('github', 'context', 'core', 'require', script)(github, {
       eventName,
@@ -131,9 +135,12 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
   } catch (caught) {
     if (!rerunFails && !dispatchFails) throw caught;
     error = String((caught as Error)?.message || caught);
+  } finally {
+    if (previousAppToken === undefined) delete process.env.APP_TOKEN;
+    else process.env.APP_TOKEN = previousAppToken;
   }
   if (rerunFails || dispatchFails) return { reruns, dispatches, comments, error };
-  if (nativeAutoMerge) return { reruns, dispatches, callOrder };
+  if (nativeAutoMerge) return { reruns, dispatches, callOrder, ...(returnComments ? { comments } : {}) };
   return { reruns, dispatches };
 }
 
@@ -275,9 +282,23 @@ describe('one code verdict and metadata-triggered review recovery', () => {
       schedule: [{ cron: '*/15 * * * *' }],
     });
     expect(recovery.permissions['pull-requests']).toBe('write');
+    expect(recovery.permissions.contents).toBe('read');
     expect(recovery.jobs.recover.if).toContain("github.event_name == 'workflow_run'");
     expect(recovery.jobs.recover.if).toContain('github.event.changes.body != null');
-    expect(recovery.jobs.recover.steps).toHaveLength(1);
+    expect(recovery.jobs.recover.steps).toHaveLength(3);
+    const trustedCheckout = recovery.jobs.recover.steps.find((step: { uses?: string }) => step.uses === 'actions/checkout@v5') as { with?: Record<string, string | boolean> } | undefined;
+    expect(trustedCheckout?.with?.ref).toBe('main');
+    expect(trustedCheckout?.with?.path).toBe('.trusted-main');
+    expect(trustedCheckout?.with?.['persist-credentials']).toBe(false);
+    expect(trustedCheckout?.with?.['sparse-checkout']).toContain('scripts/ci/mint-app-token.mjs');
+    expect(trustedCheckout?.with?.['sparse-checkout']).toContain('scripts/lib/githubApiHeaders.mjs');
+    expect(trustedCheckout?.with?.['sparse-checkout']).toContain('functions/src/githubApiHeaders.js');
+    const mint = recovery.jobs.recover.steps.find((step: { id?: string }) => step.id === 'mint_recovery_token') as { run?: string; env?: Record<string, string> } | undefined;
+    expect(mint?.run).toBe('node .trusted-main/scripts/ci/mint-app-token.mjs');
+    expect(mint?.env?.APP_ID).toContain('secrets.APP_ID');
+    expect(mint?.env?.APP_PRIVATE_KEY).toContain('secrets.APP_PRIVATE_KEY');
+    expect(recoveryScriptStep.with['github-token']).toContain('env.APP_TOKEN');
+    expect(recoveryScriptStep.with['github-token']).toContain('env.GITHUB_PAT');
     expect(script).not.toContain('createCheckRun');
     expect(script).not.toContain('exec(');
     expect(script).toContain('BODY_REVIEW_RECOVERY_PENDING');
@@ -297,6 +318,9 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(script).toContain('releaseNativeAutoMergeLease');
     expect(script).toContain('NATIVE_AUTO_MERGE_LEASE');
     expect(script).toContain('disablePullRequestAutoMerge');
+    expect(script).toContain('nativeRevokeCapabilityAvailable');
+    expect(script).toContain("native-revoke-token-unavailable");
+    expect(script).toContain("native-revoke-failed");
     expect(script).toContain('MarkerWriteConflict');
     expect(script).toContain("headers: { 'If-Match': current.etag }");
     expect(script).toContain('readCommentWithEtag');
@@ -316,6 +340,15 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     });
     expect(script.indexOf('await revokeNativeAutoMerge(number)'))
       .toBeLessThan(script.indexOf('await releaseNativeAutoMergeLease(number, pr)'));
+  });
+
+  it('fails closed with a durable checkpoint when the App/PAT capability is unavailable', async () => {
+    const result = await runRecovery({ nativeAutoMerge: true, trustedToken: '', returnComments: true });
+    expect(result.reruns).toEqual([]);
+    expect(result.dispatches).toEqual([]);
+    expect(result.callOrder).toEqual(['comment']);
+    expect(result.callOrder).not.toContain('mutation');
+    expect(JSON.stringify(result)).toContain('native-revoke-token-unavailable');
   });
 
   it('leaves a manual checkpoint when no pull_request run exists', async () => {
