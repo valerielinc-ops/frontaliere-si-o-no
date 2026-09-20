@@ -1,6 +1,6 @@
 {
   "crawlerKey": "logitech",
-  "assembledAt": "2026-09-13T14:14:43.962Z",
+  "assembledAt": "2026-09-19T23:13:12.147Z",
   "jobs": [
     {
       "id": "logitech-171aac38ec54",
@@ -33,7 +33,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-13T14:14:39.491Z",
+      "crawledAt": "2026-09-19T23:13:07.105Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -50,12 +50,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-hardware-product-user-experience-designer-logitech-ch",
-        "progettista-senior-dell-esperienza-utente-prodotto-hardware-logitech-lausanne-switzerland"
+        "progettista-senior-dell-esperienza-utente-prodotto-hardware-logitech-lausanne-switzerland",
+        "progettista-senior-dell-esperienza-utente-del-prodotto-hardware-logitech-lausanne-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-hardware-product-user-experience-designer-logitech-ch",
-          "progettista-senior-dell-esperienza-utente-prodotto-hardware-logitech-lausanne-switzerland"
+          "progettista-senior-dell-esperienza-utente-prodotto-hardware-logitech-lausanne-switzerland",
+          "progettista-senior-dell-esperienza-utente-del-prodotto-hardware-logitech-lausanne-switzerland"
         ],
         "de": [
           "senior-hardware-product-user-experience-designer-logitech-ch"
@@ -65,6 +67,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T13:21:21.034Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -111,7 +114,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Audio-Machine-Learning-Data-Engineer_148005",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-13T14:14:38.544Z",
+      "crawledAt": "2026-09-19T23:13:06.193Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -127,11 +130,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "audio-machine-learning-data-engineer-logitech-ch"
+        "audio-machine-learning-data-engineer-logitech-ch",
+        "audio-machine-learning-data-ingegnere-logitech-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "audio-machine-learning-data-engineer-logitech-ch"
+          "audio-machine-learning-data-engineer-logitech-ch",
+          "audio-machine-learning-data-ingegnere-logitech-lausanne"
         ],
         "de": [
           "audio-machine-learning-data-engineer-logitech-ch"
@@ -154,7 +159,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "logitech-9e9c2ed0e9da",
@@ -187,7 +193,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Sourcing-Specialist_148044",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-13T14:14:37.612Z",
+      "crawledAt": "2026-09-19T23:13:05.296Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -203,11 +209,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-sourcing-specialist-logitech-ch"
+        "senior-sourcing-specialist-logitech-ch",
+        "senior-sourcing-specialista-logitech-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-sourcing-specialist-logitech-ch"
+          "senior-sourcing-specialist-logitech-ch",
+          "senior-sourcing-specialista-logitech-lausanne"
         ],
         "de": [
           "senior-sourcing-specialist-logitech-ch"
@@ -263,7 +271,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/DTX-Data-Analytics---Insights-Manager_147018",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-13T14:14:36.597Z",
+      "crawledAt": "2026-09-19T23:13:04.401Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -278,7 +286,24 @@
       "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/DTX-Data-Analytics---Insights-Manager_147018",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dtx-data-analytics-insights-manager-logitech-ch",
+        "responsabile-analisi-e-approfondimenti-dei-dati-dtx-logitech-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dtx-data-analytics-insights-manager-logitech-ch",
+          "responsabile-analisi-e-approfondimenti-dei-dati-dtx-logitech-lausanne"
+        ],
+        "de": [
+          "dtx-data-analytics-insights-manager-logitech-ch"
+        ],
+        "fr": [
+          "dtx-data-analytics-insights-manager-logitech-ch"
+        ]
+      },
       "firstSeenAt": "2026-09-08T13:52:23.708Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -292,21 +317,72 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "previousSlugsByLocale": {
-        "it": [
-          "dtx-data-analytics-insights-manager-logitech-ch"
-        ],
-        "de": [
-          "dtx-data-analytics-insights-manager-logitech-ch"
-        ],
-        "fr": [
-          "dtx-data-analytics-insights-manager-logitech-ch"
-        ]
+      "addressRegion": "VD"
+    },
+    {
+      "id": "logitech-b591bfe0cc9b",
+      "slug": "pws-global-marketing-manager-logitech-ch",
+      "slugByLocale": {
+        "en": "pws-global-marketing-manager-logitech-ch",
+        "it": "pws-global-marketing-manager-logitech-ch",
+        "de": "pws-global-marketing-manager-logitech-ch",
+        "fr": "pws-global-marketing-manager-logitech-ch"
       },
-      "previousSlugs": [
-        "dtx-data-analytics-insights-manager-logitech-ch"
-      ]
+      "company": "Logitech",
+      "companyKey": "logitech",
+      "companyDomain": "logitech.com",
+      "title": "PWS Global Marketing Manager",
+      "titleByLocale": {
+        "en": "PWS Global Marketing Manager",
+        "it": "PWS Global Marketing Manager",
+        "de": "PWS Global Marketing Manager",
+        "fr": "PWS Global Marketing Manager"
+      },
+      "description": "Logitech is the Sweet Spot for people who want their actions to have a positive global impact while having the flexibility to do it in their own way.\n\nLocation : Lausanne\nWorking model: 2-3 days/week in the office (Hybrid)\n\nAbout the Team & the Role:\nAs the Global DTX Marketing Manager, you will serve as the strategic lead for our global digital consumer ecosystem, focusing specifically on the Personal Workspace Solutions (PWS) category within Logitech’s DTX (Direct-To-Consumer) online channel.\nThis global role is responsible for driving category-specific marketing strategy and defining the key audiences and strategies that fuel our growth. You will focus on the high-level development of holistic consumer journeys and the creation of scalable frameworks. You will own the strategic marketing roadmap for the PWS category within the DTX channel, ensuring that every touchpoint resonates with our target audiences and aligns with our broader organizational objectives.\nThis role may require up to 15% travel for internal meetings, workshops or industry conferences (as required/needed).\n\nYour Contribution:\nBe Yourself. Be Open. Stay Hungry and Humble. Collaborate. Challenge. Decide and just Do. Share our passion for Equality and the Environment. These are the behaviors and values you’ll need for success at Logitech. In this role you will work on:\n\nMarketing Strategy & Audience Architecture\n\n• Define and segment key global audiences for the DTX channel, leveraging data insights to build tailored marketing strategies that drive engagement and conversion.\n\n• Architect the long-term DTX marketing strategy and roadmap, ensuring alignment with commercial objectives and growth targets.\n\n• Establish strategic frameworks for PWS consumer journey mapping, identifying critical touchpoints for audience acquisition and retention within the digital ecosystem.\n\n• Lead upstream content strategy by defining the narrative requirements needed to resonate with specific PWS consumer personas on the DTX platform.\n\nGlobal Leadership & Framework Development\n\n• Develop scalable global playbooks and marketing frameworks that empower regional teams to activate local DTX campaigns effectively.\n\n• Partner closely with PWS Product Marketing teams to ensure DTX strategies are perfectly synchronized with global product launches and long-term category goals.\n\n• Drive cross-functional alignment between PWS Brand, Product, and Regional teams to ensure a unified marketing voice across all digital touchpoints.\n\n• Oversee the global PWS DTX marketing calendar, prioritizing strategic initiatives that maximize category impact and audience growth.\n\nInsights & Performance Optimization\n\n• Analyze complex market data and consumer feedback to refine PWS audience definitions and optimize category-specific marketing strategies.\n\n• Lead the implementation of a rigorous A/B testing culture focused on gaining strategic audience insights for the PWS category.\n\n• Synthesize performance metrics into actionable insights for executive leadership to influence future PWS business planning and investments.\n\n• Monitor the competitive landscape to identify emerging opportunities for strategic differentiation and PWS audience expansion within the DTC space.\n\nKey Qualifications:\nFor consideration, you must bring the following minimum skills and experiences to our team:\n\n• Bachelor’s degree in Marketing, Communications, Digital Media, or related field (Master’s preferred)\n\n• 5+ years in marketing, digital content strategy, or e-commerce (category/campaign management experience preferred). Prior experience in eCommerce is preferred.\n\n• Proven success launching, managing, and optimizing cross-channel campaigns and digital content\n\n• Strong collaborative skills with demonstrated ability to lead cross-functional, global teams\n\n• Expertise in consumer journey design, digital content best practices, and performance analytics\n\n• Excellent project management, creative briefing, stakeholder communicati",
+      "descriptionByLocale": {
+        "en": "Logitech is the Sweet Spot for people who want their actions to have a positive global impact while having the flexibility to do it in their own way.\n\nLocation : Lausanne\nWorking model: 2-3 days/week in the office (Hybrid)\n\nAbout the Team & the Role:\nAs the Global DTX Marketing Manager, you will serve as the strategic lead for our global digital consumer ecosystem, focusing specifically on the Personal Workspace Solutions (PWS) category within Logitech’s DTX (Direct-To-Consumer) online channel.\nThis global role is responsible for driving category-specific marketing strategy and defining the key audiences and strategies that fuel our growth. You will focus on the high-level development of holistic consumer journeys and the creation of scalable frameworks. You will own the strategic marketing roadmap for the PWS category within the DTX channel, ensuring that every touchpoint resonates with our target audiences and aligns with our broader organizational objectives.\nThis role may require up to 15% travel for internal meetings, workshops or industry conferences (as required/needed).\n\nYour Contribution:\nBe Yourself. Be Open. Stay Hungry and Humble. Collaborate. Challenge. Decide and just Do. Share our passion for Equality and the Environment. These are the behaviors and values you’ll need for success at Logitech. In this role you will work on:\n\nMarketing Strategy & Audience Architecture\n\n• Define and segment key global audiences for the DTX channel, leveraging data insights to build tailored marketing strategies that drive engagement and conversion.\n\n• Architect the long-term DTX marketing strategy and roadmap, ensuring alignment with commercial objectives and growth targets.\n\n• Establish strategic frameworks for PWS consumer journey mapping, identifying critical touchpoints for audience acquisition and retention within the digital ecosystem.\n\n• Lead upstream content strategy by defining the narrative requirements needed to resonate with specific PWS consumer personas on the DTX platform.\n\nGlobal Leadership & Framework Development\n\n• Develop scalable global playbooks and marketing frameworks that empower regional teams to activate local DTX campaigns effectively.\n\n• Partner closely with PWS Product Marketing teams to ensure DTX strategies are perfectly synchronized with global product launches and long-term category goals.\n\n• Drive cross-functional alignment between PWS Brand, Product, and Regional teams to ensure a unified marketing voice across all digital touchpoints.\n\n• Oversee the global PWS DTX marketing calendar, prioritizing strategic initiatives that maximize category impact and audience growth.\n\nInsights & Performance Optimization\n\n• Analyze complex market data and consumer feedback to refine PWS audience definitions and optimize category-specific marketing strategies.\n\n• Lead the implementation of a rigorous A/B testing culture focused on gaining strategic audience insights for the PWS category.\n\n• Synthesize performance metrics into actionable insights for executive leadership to influence future PWS business planning and investments.\n\n• Monitor the competitive landscape to identify emerging opportunities for strategic differentiation and PWS audience expansion within the DTC space.\n\nKey Qualifications:\nFor consideration, you must bring the following minimum skills and experiences to our team:\n\n• Bachelor’s degree in Marketing, Communications, Digital Media, or related field (Master’s preferred)\n\n• 5+ years in marketing, digital content strategy, or e-commerce (category/campaign management experience preferred). Prior experience in eCommerce is preferred.\n\n• Proven success launching, managing, and optimizing cross-channel campaigns and digital content\n\n• Strong collaborative skills with demonstrated ability to lead cross-functional, global teams\n\n• Expertise in consumer journey design, digital content best practices, and performance analytics\n\n• Excellent project management, creative briefing, stakeholder communicati",
+        "it": "Logitech is the Sweet Spot for people who want their actions to have a positive global impact while having the flexibility to do it in their own way.\n\nLocation : Lausanne\nWorking model: 2-3 days/week in the office (Hybrid)\n\nAbout the Team & the Role:\nAs the Global DTX Marketing Manager, you will serve as the strategic lead for our global digital consumer ecosystem, focusing specifically on the Personal Workspace Solutions (PWS) category within Logitech’s DTX (Direct-To-Consumer) online channel.\nThis global role is responsible for driving category-specific marketing strategy and defining the key audiences and strategies that fuel our growth. You will focus on the high-level development of holistic consumer journeys and the creation of scalable frameworks. You will own the strategic marketing roadmap for the PWS category within the DTX channel, ensuring that every touchpoint resonates with our target audiences and aligns with our broader organizational objectives.\nThis role may require up to 15% travel for internal meetings, workshops or industry conferences (as required/needed).\n\nYour Contribution:\nBe Yourself. Be Open. Stay Hungry and Humble. Collaborate. Challenge. Decide and just Do. Share our passion for Equality and the Environment. These are the behaviors and values you’ll need for success at Logitech. In this role you will work on:\n\nMarketing Strategy & Audience Architecture\n\n• Define and segment key global audiences for the DTX channel, leveraging data insights to build tailored marketing strategies that drive engagement and conversion.\n\n• Architect the long-term DTX marketing strategy and roadmap, ensuring alignment with commercial objectives and growth targets.\n\n• Establish strategic frameworks for PWS consumer journey mapping, identifying critical touchpoints for audience acquisition and retention within the digital ecosystem.\n\n• Lead upstream content strategy by defining the narrative requirements needed to resonate with specific PWS consumer personas on the DTX platform.\n\nGlobal Leadership & Framework Development\n\n• Develop scalable global playbooks and marketing frameworks that empower regional teams to activate local DTX campaigns effectively.\n\n• Partner closely with PWS Product Marketing teams to ensure DTX strategies are perfectly synchronized with global product launches and long-term category goals.\n\n• Drive cross-functional alignment between PWS Brand, Product, and Regional teams to ensure a unified marketing voice across all digital touchpoints.\n\n• Oversee the global PWS DTX marketing calendar, prioritizing strategic initiatives that maximize category impact and audience growth.\n\nInsights & Performance Optimization\n\n• Analyze complex market data and consumer feedback to refine PWS audience definitions and optimize category-specific marketing strategies.\n\n• Lead the implementation of a rigorous A/B testing culture focused on gaining strategic audience insights for the PWS category.\n\n• Synthesize performance metrics into actionable insights for executive leadership to influence future PWS business planning and investments.\n\n• Monitor the competitive landscape to identify emerging opportunities for strategic differentiation and PWS audience expansion within the DTC space.\n\nKey Qualifications:\nFor consideration, you must bring the following minimum skills and experiences to our team:\n\n• Bachelor’s degree in Marketing, Communications, Digital Media, or related field (Master’s preferred)\n\n• 5+ years in marketing, digital content strategy, or e-commerce (category/campaign management experience preferred). Prior experience in eCommerce is preferred.\n\n• Proven success launching, managing, and optimizing cross-channel campaigns and digital content\n\n• Strong collaborative skills with demonstrated ability to lead cross-functional, global teams\n\n• Expertise in consumer journey design, digital content best practices, and performance analytics\n\n• Excellent project management, creative briefing, stakeholder communicati",
+        "de": "Logitech is the Sweet Spot for people who want their actions to have a positive global impact while having the flexibility to do it in their own way.\n\nLocation : Lausanne\nWorking model: 2-3 days/week in the office (Hybrid)\n\nAbout the Team & the Role:\nAs the Global DTX Marketing Manager, you will serve as the strategic lead for our global digital consumer ecosystem, focusing specifically on the Personal Workspace Solutions (PWS) category within Logitech’s DTX (Direct-To-Consumer) online channel.\nThis global role is responsible for driving category-specific marketing strategy and defining the key audiences and strategies that fuel our growth. You will focus on the high-level development of holistic consumer journeys and the creation of scalable frameworks. You will own the strategic marketing roadmap for the PWS category within the DTX channel, ensuring that every touchpoint resonates with our target audiences and aligns with our broader organizational objectives.\nThis role may require up to 15% travel for internal meetings, workshops or industry conferences (as required/needed).\n\nYour Contribution:\nBe Yourself. Be Open. Stay Hungry and Humble. Collaborate. Challenge. Decide and just Do. Share our passion for Equality and the Environment. These are the behaviors and values you’ll need for success at Logitech. In this role you will work on:\n\nMarketing Strategy & Audience Architecture\n\n• Define and segment key global audiences for the DTX channel, leveraging data insights to build tailored marketing strategies that drive engagement and conversion.\n\n• Architect the long-term DTX marketing strategy and roadmap, ensuring alignment with commercial objectives and growth targets.\n\n• Establish strategic frameworks for PWS consumer journey mapping, identifying critical touchpoints for audience acquisition and retention within the digital ecosystem.\n\n• Lead upstream content strategy by defining the narrative requirements needed to resonate with specific PWS consumer personas on the DTX platform.\n\nGlobal Leadership & Framework Development\n\n• Develop scalable global playbooks and marketing frameworks that empower regional teams to activate local DTX campaigns effectively.\n\n• Partner closely with PWS Product Marketing teams to ensure DTX strategies are perfectly synchronized with global product launches and long-term category goals.\n\n• Drive cross-functional alignment between PWS Brand, Product, and Regional teams to ensure a unified marketing voice across all digital touchpoints.\n\n• Oversee the global PWS DTX marketing calendar, prioritizing strategic initiatives that maximize category impact and audience growth.\n\nInsights & Performance Optimization\n\n• Analyze complex market data and consumer feedback to refine PWS audience definitions and optimize category-specific marketing strategies.\n\n• Lead the implementation of a rigorous A/B testing culture focused on gaining strategic audience insights for the PWS category.\n\n• Synthesize performance metrics into actionable insights for executive leadership to influence future PWS business planning and investments.\n\n• Monitor the competitive landscape to identify emerging opportunities for strategic differentiation and PWS audience expansion within the DTC space.\n\nKey Qualifications:\nFor consideration, you must bring the following minimum skills and experiences to our team:\n\n• Bachelor’s degree in Marketing, Communications, Digital Media, or related field (Master’s preferred)\n\n• 5+ years in marketing, digital content strategy, or e-commerce (category/campaign management experience preferred). Prior experience in eCommerce is preferred.\n\n• Proven success launching, managing, and optimizing cross-channel campaigns and digital content\n\n• Strong collaborative skills with demonstrated ability to lead cross-functional, global teams\n\n• Expertise in consumer journey design, digital content best practices, and performance analytics\n\n• Excellent project management, creative briefing, stakeholder communicati",
+        "fr": "Logitech is the Sweet Spot for people who want their actions to have a positive global impact while having the flexibility to do it in their own way.\n\nLocation : Lausanne\nWorking model: 2-3 days/week in the office (Hybrid)\n\nAbout the Team & the Role:\nAs the Global DTX Marketing Manager, you will serve as the strategic lead for our global digital consumer ecosystem, focusing specifically on the Personal Workspace Solutions (PWS) category within Logitech’s DTX (Direct-To-Consumer) online channel.\nThis global role is responsible for driving category-specific marketing strategy and defining the key audiences and strategies that fuel our growth. You will focus on the high-level development of holistic consumer journeys and the creation of scalable frameworks. You will own the strategic marketing roadmap for the PWS category within the DTX channel, ensuring that every touchpoint resonates with our target audiences and aligns with our broader organizational objectives.\nThis role may require up to 15% travel for internal meetings, workshops or industry conferences (as required/needed).\n\nYour Contribution:\nBe Yourself. Be Open. Stay Hungry and Humble. Collaborate. Challenge. Decide and just Do. Share our passion for Equality and the Environment. These are the behaviors and values you’ll need for success at Logitech. In this role you will work on:\n\nMarketing Strategy & Audience Architecture\n\n• Define and segment key global audiences for the DTX channel, leveraging data insights to build tailored marketing strategies that drive engagement and conversion.\n\n• Architect the long-term DTX marketing strategy and roadmap, ensuring alignment with commercial objectives and growth targets.\n\n• Establish strategic frameworks for PWS consumer journey mapping, identifying critical touchpoints for audience acquisition and retention within the digital ecosystem.\n\n• Lead upstream content strategy by defining the narrative requirements needed to resonate with specific PWS consumer personas on the DTX platform.\n\nGlobal Leadership & Framework Development\n\n• Develop scalable global playbooks and marketing frameworks that empower regional teams to activate local DTX campaigns effectively.\n\n• Partner closely with PWS Product Marketing teams to ensure DTX strategies are perfectly synchronized with global product launches and long-term category goals.\n\n• Drive cross-functional alignment between PWS Brand, Product, and Regional teams to ensure a unified marketing voice across all digital touchpoints.\n\n• Oversee the global PWS DTX marketing calendar, prioritizing strategic initiatives that maximize category impact and audience growth.\n\nInsights & Performance Optimization\n\n• Analyze complex market data and consumer feedback to refine PWS audience definitions and optimize category-specific marketing strategies.\n\n• Lead the implementation of a rigorous A/B testing culture focused on gaining strategic audience insights for the PWS category.\n\n• Synthesize performance metrics into actionable insights for executive leadership to influence future PWS business planning and investments.\n\n• Monitor the competitive landscape to identify emerging opportunities for strategic differentiation and PWS audience expansion within the DTC space.\n\nKey Qualifications:\nFor consideration, you must bring the following minimum skills and experiences to our team:\n\n• Bachelor’s degree in Marketing, Communications, Digital Media, or related field (Master’s preferred)\n\n• 5+ years in marketing, digital content strategy, or e-commerce (category/campaign management experience preferred). Prior experience in eCommerce is preferred.\n\n• Proven success launching, managing, and optimizing cross-channel campaigns and digital content\n\n• Strong collaborative skills with demonstrated ability to lead cross-functional, global teams\n\n• Expertise in consumer journey design, digital content best practices, and performance analytics\n\n• Excellent project management, creative briefing, stakeholder communicati"
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/PWS-Global-Marketing-Manager_147736",
+      "source": "Logitech Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-19T23:13:03.509Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Tecnologia / Hardware Consumer",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-19",
+      "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/PWS-Global-Marketing-Manager_147736",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 92000,
+      "salaryMax": 163000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 92000,
+          "maxValue": 163000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-19T23:13:03.509Z"
     }
   ]
 }
