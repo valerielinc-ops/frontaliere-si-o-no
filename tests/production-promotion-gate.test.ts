@@ -124,7 +124,9 @@ describe('production promotion admission', () => {
 
   it('ties post-deploy publishing to the canonical workflow_run caller', () => {
     const buildSha = '0123456789abcdef0123456789abcdef01234567';
-    expect(EXPECTED_PUBLISH_WORKFLOW_PATH).toBe('.github/workflows/post-deploy-publish.yml');
+    // A reusable workflow inherits the caller's workflow_ref, so GitHub
+    // reports deploy-publish.yml here rather than this callee's path.
+    expect(EXPECTED_PUBLISH_WORKFLOW_PATH).toBe('.github/workflows/deploy-publish.yml');
     const caller = {
       eventName: 'workflow_run',
       workflow: EXPECTED_PUBLISH_WORKFLOW,
