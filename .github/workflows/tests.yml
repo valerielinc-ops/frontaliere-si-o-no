@@ -2619,29 +2619,52 @@ jobs:
           const policyRoot = process.env.REVIEW_POLICY_ROOT;
           if (!policyRoot) throw new Error('REVIEW_POLICY_ROOT mancante');
           const admission = await import(pathToFileURL(`${policyRoot}/scripts/ci/lib/pr-review-admission.mjs`).href);
-          // Bootstrap: la copia trusted arriva dal BASE sha, e `parseReviewPages`
-          // è introdotto da questa stessa PR — su main non esiste ancora, quindi
-          // l'import nominale la rendeva non-reviewabile da sé (run 35472199618:
-          // `TypeError: parseReviewPages is not a function`, zero review mai
-          // postate). Finché non è mergiata si ricade su `flattenReviewPages`,
-          // che sul base c'è; dopo il merge il ramo di fallback è morto.
           const parseReviewPages = admission.parseReviewPages
             ?? ((value) => {
               const flat = admission.flattenReviewPages(value);
               return Array.isArray(flat) ? flat : null;
             });
-          const { historicalImportantFindings } = await import(pathToFileURL(`${policyRoot}/scripts/ci/review-gate.mjs`).href);
+          const gate = await import(pathToFileURL(`${policyRoot}/scripts/ci/review-gate.mjs`).href);
 
           const pages = JSON.parse(readFileSync(process.argv[2], 'utf8'));
           const reviews = parseReviewPages(pages);
           if (!reviews) {
             throw new Error('reviews API shape non verificabile');
           }
-          const findings = historicalImportantFindings(reviews, { includeLatest: true });
-          if (findings.length === 0) {
-            console.log('Nessun finding Important storico ancora aperto.');
+          // `review-findings.mjs` è introdotto da QUESTA PR: la copia trusted
+          // arriva da un commit di main che non ce l'ha ancora, e il download
+          // opzionale lo salta. Finché non è mergiata si degrada all'elenco
+          // semplice dei soli aperti, che è il comportamento di main; dal
+          // merge in poi il ledger con id e stato compare da sé.
+          let findings = null;
+          try {
+            findings = await import(pathToFileURL(`${policyRoot}/scripts/ci/lib/review-findings.mjs`).href);
+          } catch {
+            findings = null;
+          }
+          // `confirmed` viene SOLO dalle conferme esplicite `Fix di ...: ok`,
+          // mai per sottrazione fra «tutti» e «aperti»: un finding declassato
+          // per scope o per riga non cambiata non è stato confermato da
+          // nessuno, e marcarlo chiuso autorizzerebbe il reviewer a
+          // sopprimere un rilievo ancora valido.
+          if (findings && gate.partitionHistoricalImportantFindings) {
+            const { open, confirmed } = gate.partitionHistoricalImportantFindings(reviews, { includeLatest: true });
+            console.log(findings.renderFindingsLedger({ open, confirmed }));
+            console.log('');
+            for (const finding of open) {
+              const anchors = finding.citations.map((citation) =>
+                `${citation.path}${citation.line ? `:L${citation.line}` : ''}`,
+              ).join(', ');
+              console.log(`- Open Important \`${findings.stableFindingId(finding)}\` (${anchors || 'anchor non risolvibile'}):`);
+              console.log(finding.text);
+              console.log('');
+            }
           } else {
-            for (const finding of findings) {
+            const open = gate.historicalImportantFindings(reviews, { includeLatest: true });
+            if (open.length === 0) {
+              console.log('Nessun finding Important storico ancora aperto.');
+            }
+            for (const finding of open) {
               const anchors = finding.citations.map((citation) =>
                 `${citation.path}${citation.line ? `:L${citation.line}` : ''}`,
               ).join(', ');
@@ -2726,7 +2749,10 @@ jobs:
               echo "Verdict unavailable (${BODY_CONTRACT_OUTCOME:-unknown}): apply the REVIEW.md body rules."
             fi
             echo
-            echo "## Historical open Important findings"
+            echo "## Findings ledger (id stabile + stato)"
+            echo "Un id stabile è \`(path, simbolo, classe)\`: NON contiene il numero di riga, quindi sopravvive a un rebase o a un merge di main."
+            echo "Un 🔴 NUOVO ancorato solo su righe non toccate dall'ultima review viene declassato dal gate (\`DECLASSIFIED-UNCHANGED-LINE\`): se è davvero una regressione introdotta dopo, scrivilo \`🔴 Important: [regression] <problema>\`."
+            echo
             cat "$CTX_DIR/inherited-findings.md"
             echo
             echo "## Changed code-file list"
