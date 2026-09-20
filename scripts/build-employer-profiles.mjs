@@ -5,7 +5,7 @@
  * (build-plugins/employerProfilePagesPlugin.ts, epic #4462 / sub #4463).
  *
  * Source of truth: the assembled active-job corpus data/jobs.json (fallback
- * public/data/jobs.json) + the hiring history data/jobs-stats-history.json.
+ * public/data/jobs.json) + the logical monthly-sharded hiring history store.
  *
  * For every company ABOVE the floor (>= MIN_ACTIVE_JOBS active postings) it
  * emits a profile with ONLY corpus-derived facts:
@@ -14,7 +14,7 @@
  *   - work locations: cantons + cities aggregated from the postings
  *   - salary median (CHF/yr) over the group's real salary bands
  *   - hiring trend: postings added / removed over a trailing window, read
- *     from jobs-stats-history.json (net = added − removed)
+ *     from the job stats history store (net = added − removed)
  *
  * NO editorial judgement, NO generated prose, NO PII — the page templates own
  * the localized (factual) copy; this file is pure numbers + labels
@@ -35,6 +35,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { MIN_ACTIVE_JOBS, BRIDGE_FLOOR } from '../build-plugins/shared/employerProfileConfig.mjs';
+import { readJobsStatsHistory } from './lib/job-stats-history-store.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_PATH = path.join(ROOT, 'data', 'employer-profiles.json');
@@ -141,14 +142,7 @@ function cityLabel(job) {
  * History rows carry `key`/`name`; we canonicalise BOTH to the profile slug so
  * a row matches regardless of which one aligns.
  */
-function buildTrendMap(historyPath) {
-  if (!fs.existsSync(historyPath)) return new Map();
-  let hist;
-  try {
-    hist = JSON.parse(fs.readFileSync(historyPath, 'utf8'));
-  } catch {
-    return new Map();
-  }
+function buildTrendMap(hist) {
   const entries = Array.isArray(hist.entries) ? hist.entries : [];
   if (entries.length === 0) return new Map();
   const dated = entries.filter((e) => e && e.date).sort((a, b) => (a.date < b.date ? -1 : 1));
@@ -189,7 +183,7 @@ function buildTrendMap(historyPath) {
 
 function build() {
   const jobs = loadJobs();
-  const trendMap = buildTrendMap(path.join(ROOT, 'data', 'jobs-stats-history.json'));
+  const trendMap = buildTrendMap(readJobsStatsHistory(ROOT));
 
   // Group active jobs by canonical company slug.
   const groups = new Map();

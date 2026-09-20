@@ -89,6 +89,11 @@ git config merge.known-slugs-shard.driver 'node scripts/ci/merge-known-slugs-sha
 # of git's default line merge, which on a re-serialised sorted JSON ARRAY
 # produces duplicate records rather than bloat alone.
 git config merge.orphan-enriched-shard.driver 'node scripts/ci/merge-orphan-enriched-shard.mjs %O %A %B' || true
+
+# Same registration for monthly job stats history shards. The driver merges
+# concurrent rewrites by date and action-key union instead of line-merging two
+# complete JSON serialisations.
+git config merge.job-stats-history-shard.driver 'node scripts/ci/merge-job-stats-history-shard.mjs %O %A %B' || true
 # ── Clear orphaned .git/index.lock left by a crashed prior git operation ────
 # Same class of bug as scripts/lib/git-commit-data.sh (see that file's header
 # comment for the full incident writeup: group-06 production failure,

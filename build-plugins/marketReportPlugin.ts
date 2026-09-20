@@ -10,7 +10,7 @@
  * Data sources (read-only at build time, degrade gracefully if missing):
  *   - data/jobs-stats.json  (leaders, salary coverage, top salaries per company/location/title)
  *   - data/jobs.json        (optional — fall back to jobs-stats if jobs.json is gitignored)
- *   - data/jobs-stats-history.json  (optional — trend arrow)
+ *   - logical job stats history store  (optional — trend arrow)
  *
  * Page shape (per locale):
  *   - H1 + lede with headline numbers (total jobs, active companies, median salary)

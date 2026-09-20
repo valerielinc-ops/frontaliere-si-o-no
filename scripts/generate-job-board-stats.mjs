@@ -6,11 +6,11 @@ import { fileURLToPath } from 'node:url';
 
 import { buildJobsStatsArtifacts, buildJobKeysSnapshot } from './lib/job-board-stats.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { readJobsStatsHistory, writeJobsStatsHistory } from './lib/job-stats-history-store.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const DATA_JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
-const DATA_HISTORY_PATH = path.join(ROOT, 'data', 'jobs-stats-history.json');
 const DATA_KEYS_SNAPSHOT_PATH = path.join(ROOT, 'data', 'jobs-keys-snapshot.json');
 const DATA_SUMMARY_PATH = path.join(ROOT, 'data', 'jobs-stats.json');
 const PUBLIC_SUMMARY_PATH = path.join(ROOT, 'public', 'data', 'jobs-stats.json');
@@ -42,7 +42,7 @@ function syntheticJobFromKey(key) {
 
 export function generateJobBoardStats(now = new Date().toISOString()) {
   const currentJobs = readJson(DATA_JOBS_PATH, []);
-  const existingHistory = readJson(DATA_HISTORY_PATH, { version: 1, generatedAt: '', entries: [] });
+  const existingHistory = readJobsStatsHistory(ROOT);
 
   if (!Array.isArray(currentJobs)) {
     throw new Error('data/jobs.json must be a JSON array');
@@ -62,7 +62,7 @@ export function generateJobBoardStats(now = new Date().toISOString()) {
     now,
   });
 
-  writeJson(DATA_HISTORY_PATH, history, { compact: true });
+  writeJobsStatsHistory(history, ROOT, { currentDate: history.entries.at(-1)?.date });
   writeJson(DATA_SUMMARY_PATH, summary);
   writeJson(PUBLIC_SUMMARY_PATH, summary);
 

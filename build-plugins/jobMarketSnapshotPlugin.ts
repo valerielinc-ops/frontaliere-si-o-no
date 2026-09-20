@@ -4,10 +4,10 @@
  *
  * Data sources
  * ────────────
- *   data/jobs-stats-history.json — daily aggregates: totalJobs, added,
+ *   logical job stats history store — daily aggregates: totalJobs, added,
  *     removed, plus per-company / per-location / per-title delta arrays.
  *   data/jobs.json — current job list; used for the hub "latest weeks" tease
- *     and to synthesise a "current week" snapshot when jobs-stats-history
+ *     and to synthesise a "current week" snapshot when the history store
  *     is sparse (<2 entries).
  *
  * Pages emitted
@@ -108,6 +108,7 @@ import {
 } from './shared/cantonSection';
 import { getCantonCities } from './shared/cantonCities';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { readJobsStatsHistory } from '../scripts/lib/job-stats-history-store.mjs';
 
 // ── Canton-aware section helpers (P2.S1) ──────────────────────────
 //
@@ -236,7 +237,7 @@ interface StatDelta {
   url?: string;
   addedKeys: string[];
   // updatedKeys/removedKeys are slimmed to empty arrays for all but the
-  // current day in data/jobs-stats-history.json (file-size ceiling, see
+  // current day in the job stats history store (file-size ceiling, see
   // scripts/lib/job-board-stats.mjs). The magnitude survives as these counts.
   updatedKeys: string[];
   removedKeys: string[];
@@ -3233,18 +3234,14 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
       const today = new Date(BUILD_DATE_STAMP);
       const dateStamp = today.toISOString().slice(0, 10);
 
-      const historyPath = np.resolve(rootDir, 'data', 'jobs-stats-history.json');
       const jobsPath = np.resolve(rootDir, 'data', 'jobs.json');
 
       let history: StatsHistoryDataset | null = null;
       try {
-        if (fs.existsSync(historyPath)) {
-          const raw = fs.readFileSync(historyPath, 'utf-8');
-          const parsed = JSON.parse(raw) as StatsHistoryDataset;
-          if (parsed && Array.isArray(parsed.entries)) history = parsed;
-        }
+        const parsed = readJobsStatsHistory(rootDir) as StatsHistoryDataset;
+        if (parsed && Array.isArray(parsed.entries) && parsed.entries.length > 0) history = parsed;
       } catch (err) {
-        console.warn('[job-market-snapshot] failed to read data/jobs-stats-history.json', err);
+        console.warn('[job-market-snapshot] failed to read the job stats history store', err);
       }
 
       let jobs: JobRecord[] = [];
