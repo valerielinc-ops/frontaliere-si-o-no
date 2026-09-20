@@ -59,7 +59,15 @@ jobs:
                 && TRUSTED_AUTOMATION_USER_RE.test(String(user.login || '')));
             const BODY_REVISION = (body) => {
               const crypto = require('node:crypto');
-              return `body:${crypto.createHash('sha256').update(String(body ?? ''), 'utf8').digest('hex')}`;
+              // La rappresentazione hashata è quella con cui i marker sono EMESSI:
+            // `gh api --jq` scrive la stringa seguita da un a capo, e
+            // `scripts/ci/lib/review-input-revision.mjs` (#9328) hasha quella.
+            // Questa copia inline era rimasta sulla forma senza a capo, quindi
+            // il recovery non riconosceva più i propri marker: stesso digest,
+            // due formule. Finché la copia inline esiste (lo script gira in
+            // `actions/github-script`, senza il repo a disposizione) deve
+            // almeno produrre lo stesso valore.
+            return `body:${crypto.createHash('sha256').update(`${String(body ?? '')}\n`, 'utf8').digest('hex')}`;
             };
             const markerBody = (state) => `${PENDING_MARKER} ${JSON.stringify(state)} -->\n`
               + `_body-review recovery ${state.status} · head ${state.headSha.slice(0, 12)} · body ${state.bodyRevision}._`;
