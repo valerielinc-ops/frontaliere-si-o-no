@@ -30,13 +30,15 @@ describe('review → autorebase ordering', () => {
     expect(commitIf).not.toContain('always()');
   });
 
-  it('consuma stale-review dopo un re-trigger riuscito, senza perdere il rescue se fallisce', () => {
+  it('non consuma stale-review finché non esiste un tests.yml synchronize osservato', () => {
     expect(autorebase).toContain("'--remove-label', 'stale-review'");
     expect(autorebase).toContain('function clearStaleReviewLabel');
     expect(autorebase).toContain('if (dispatchTests(num, branch)) clearStaleReviewLabel(num);');
+    expect(autorebase).toContain('return false;');
+    expect(autorebase).not.toMatch(/gh workflow run tests\.yml[^\n]*--ref/u);
     const postRebase = autorebase.slice(autorebase.indexOf('// Riesegui test E review'));
     expect(postRebase).toContain('dispatchTests(num, branch)');
-    expect(postRebase).toContain('pr_number=${num}');
+    expect(postRebase).not.toContain('pr_number=${num}');
     expect(postRebase).not.toContain('guardedReopen(num, head');
   });
 
@@ -75,7 +77,8 @@ describe('review → autorebase ordering', () => {
     expect(staleRescuer).toContain('functions/src/githubApiHeaders.js');
     expect(staleRescuer).toContain('GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}');
     expect(staleRescuer).toContain('gh run rerun "$RESCUE_RUN"');
-    expect(staleRescuer).toContain('-f "pr_number=$N"');
+    expect(staleRescuer).not.toContain('gh workflow run tests.yml --repo "$REPO" --ref "$BRANCH"');
+    expect(staleRescuer).toContain('checkpoint manuale, nessun dispatch trusted');
     expect(staleRescuer).toContain('and .conclusion != "skipped"');
     expect(workflow).toContain('id: review_abort');
   });
@@ -88,7 +91,7 @@ describe('review → autorebase ordering', () => {
   it('keeps Claude Important findings inside the required native-merge check', () => {
     expect(workflow).toContain('name: vitest (unit + integration)');
     expect(workflow).toContain('id: review_gate');
-    expect(workflow).toContain('node scripts/ci/review-gate.mjs');
+    expect(workflow).toContain('node "$REVIEW_POLICY_ROOT/scripts/ci/review-gate.mjs"');
     expect(reviewGate).toContain("import { REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';");
     expect(reviewGate).toContain('classification.blocking');
     expect(reviewGate).toContain('reviewCommit === headSha');

@@ -40,13 +40,13 @@ on:
         description: 'Numero PR da riparare (bypassa il gate workflow_run)'
         required: true
 
-# Serializzato per BRANCH, non per numero PR: nel contesto `workflow_run` il
-# numero non e' affidabile (`pull_requests` e' vuoto in diversi casi), mentre
-# `head_branch` c'e' sempre. Due round Claude concorrenti sullo stesso branch si
-# sovrascriverebbero il push.
+# Serializzato per branch/PR: nel contesto `workflow_run` il numero non e'
+# affidabile (`pull_requests` e' vuoto in diversi casi), mentre `head_branch`
+# c'e' sempre. La cancellazione evita due writer body concorrenti; il wrapper
+# esegue comunque il CAS body+post-read prima di una scrittura.
 concurrency:
-  group: redcheck-fix-${{ github.event.workflow_run.head_branch || github.event.inputs.pr }}
-  cancel-in-progress: false
+  group: body-revision-${{ github.event.workflow_run.head_branch || github.event.inputs.pr }}
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -78,6 +78,7 @@ jobs:
       pr_number: ${{ steps.pre.outputs.pr_number }}
       head_ref: ${{ steps.pre.outputs.head_ref }}
       head_sha: ${{ steps.pre.outputs.head_sha }}
+      review_revision: ${{ steps.pre.outputs.review_revision }}
       failed_check_key: ${{ steps.pre.outputs.failed_check_key }}
       failed_run_id: ${{ steps.pre.outputs.failed_run_id }}
     steps:
@@ -97,7 +98,7 @@ jobs:
 
           if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
             PR="$DISPATCH_PR"
-            HEAD_SHA=$(gh api "repos/$REPO/pulls/$PR" --jq '.head.sha' 2>/dev/null || echo "")
+            HEAD_SHA=$(gh api "repos/$REPO/pulls/$PR" --jq ".head.sha" 2>/dev/null || echo "")
             RUN_ID=$(gh run list --repo "$REPO" --workflow=tests.yml --limit 20 \
               --json databaseId,headSha,conclusion \
               --jq "[.[] | select(.headSha==\"$HEAD_SHA\" and .conclusion==\"failure\")][0].databaseId" 2>/dev/null || echo "")
@@ -125,6 +126,7 @@ jobs:
           author=$(printf '%s' "$pr" | jq -r '.user.login')
           head_ref=$(printf '%s' "$pr" | jq -r '.head.ref')
           head_sha=$(printf '%s' "$pr" | jq -r '.head.sha')
+          review_revision=$(printf '%s' "$pr" | node -e 'const crypto=require("node:crypto");let s="";process.stdin.on("data",c=>s+=c).on("end",()=>{const body=JSON.parse(s).body ?? "";process.stdout.write("body:"+crypto.createHash("sha256").update(body,"utf8").digest("hex"));});')
           has_autofix=$(printf '%s' "$pr" | jq -r 'any(.labels[]?.name; . == "agent:autofix")')
 
           if [ "$state" != "open" ]; then
@@ -185,6 +187,7 @@ jobs:
             echo "pr_number=$PR"
             echo "head_ref=$head_ref"
             echo "head_sha=$head_sha"
+            echo "review_revision=$review_revision"
             echo "failed_check_key=$rollup"
             echo "failed_run_id=$RUN_ID"
           } >> "$GITHUB_OUTPUT"
@@ -196,6 +199,35 @@ jobs:
     # 30→40 (2026-07-17): headroom per il cap turni alzato 45→60.
     timeout-minutes: 40
     steps:
+      # Resolve the runner-owned GitHub CLI before checking out the PR.  Every
+      # later trusted-policy download uses this immutable absolute path, never
+      # a PR-controlled `gh` shim placed on PATH.
+      - name: Resolve trusted GitHub CLI (before PR checkout)
+        id: trusted_gh
+        run: |
+          set -euo pipefail
+          gh_bin="$(command -v gh || true)"
+          if [ -z "$gh_bin" ] || [[ "$gh_bin" != /* ]] || [ ! -x "$gh_bin" ]; then
+            echo "::error::GitHub CLI path non assoluto o non eseguibile: ${gh_bin:-missing}"
+            exit 1
+          fi
+          gh_bin="$(realpath "$gh_bin")"
+          case "$gh_bin" in
+            "$GITHUB_WORKSPACE"/*|"$RUNNER_TEMP"/*)
+              echo "::error::GitHub CLI risolve in un path controllabile dalla PR: $gh_bin"
+              exit 1
+              ;;
+          esac
+          probe="$gh_bin"
+          while [ "$probe" != '/' ]; do
+            if [ -w "$probe" ]; then
+              echo "::error::GitHub CLI o una directory del suo path è scrivibile dal runner: $probe"
+              exit 1
+            fi
+            probe="$(dirname "$probe")"
+          done
+          printf 'path=%s\n' "$gh_bin" >> "$GITHUB_OUTPUT"
+
       - name: Checkout
         uses: actions/checkout@v5
         with:
@@ -210,6 +242,48 @@ jobs:
           filter: blob:none
         # Tetto sullo step → `failure` diagnosticabile invece di `cancelled`.
         timeout-minutes: 15
+
+      # The PR checkout is attacker-controlled. Claims are the zero-Claude
+      # admission barrier, so load their complete import cone from trusted main
+      # before evaluating the first claim.
+      - name: Bootstrap trusted redcheck policy (no PR code)
+        id: trusted_policy
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POLICY_REF: main
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+        run: |
+          set -euo pipefail
+          policy_root="${RUNNER_TEMP}/redcheck-trusted-policy-${GITHUB_RUN_ID}"
+          rm -rf "$policy_root"
+          mkdir -p "$policy_root"
+          # Un 404 qui vuol dire «${POLICY_REF} non ha questo file», non «rete
+          # giù»: il messaggio deve nominare file e ref, altrimenti il rosso
+          # arriva come «gate saltato» e manda a cercare la causa altrove.
+          download_main() {
+            local path="$1"
+            local destination="$policy_root/$path"
+            mkdir -p "$(dirname "$destination")"
+            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' > "$destination" 2>"${destination}.err"; then
+              echo "::error::policy fidata: '${path}' non scaricabile da ${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
+              rm -f "$destination" "${destination}.err"
+              exit 1
+            fi
+            rm -f "${destination}.err"
+          }
+          for trusted_path in \
+            scripts/ci/pr-fixer-claim.mjs \
+            scripts/ci/lib/pr-review-admission.mjs \
+            scripts/ci/lib/review-input-revision.mjs \
+            scripts/ci/lib/constants.mjs \
+            scripts/lib/int-from-env.mjs; do
+            download_main "$trusted_path"
+          done
+          node --check "$policy_root/scripts/ci/pr-fixer-claim.mjs"
+          node --check "$policy_root/scripts/ci/lib/pr-review-admission.mjs"
+          node --check "$policy_root/scripts/ci/lib/review-input-revision.mjs"
+          printf 'root=%s\n' "$policy_root" >> "$GITHUB_OUTPUT"
 
       - name: Claim redcheck PR + HEAD + failed check (zero-Claude)
         id: claim
@@ -226,7 +300,8 @@ jobs:
           CHECK_FAILURE_KEY: ${{ needs.preflight.outputs.failed_check_key }}
           CLAIM_TTL_SEC: '3600'
           GITHUB_RUN_ID: ${{ github.run_id }}
-        run: node scripts/ci/pr-fixer-claim.mjs --claim
+          TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy.outputs.root }}
+        run: node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim
 
       - name: Fail closed when redcheck claim is unreadable
         if: steps.claim.outputs.claim_error == 'true'
@@ -604,6 +679,7 @@ jobs:
           PR_NUMBER: ${{ needs.preflight.outputs.pr_number }}
           PR_TITLE: ${{ needs.preflight.outputs.pr_number }}
           REPO: ${{ github.repository }}
+          PR_BODY_EXPECTED_REVISION: ${{ needs.preflight.outputs.review_revision }}
           FIX_TIER: ${{ steps.guard.outputs.tier }}
           FIX_ROUND: ${{ steps.guard.outputs.round }}
         with:
@@ -738,6 +814,48 @@ jobs:
           echo "Nessun push ma l'azione è terminata pulita ('$ACTION_OUTCOME') con una spiegazione nuova sulla PR → terminale legittimo (es. non auto-fixabile). Job verde."
           exit 0
 
+      # The fixer action and npm lifecycle scripts ran from the PR checkout.
+      # Re-materialize the claim helper from main before the final mutation.
+      - name: Refresh trusted redcheck policy before finalize
+        id: trusted_policy_final
+        if: always() && steps.claim.outputs.claim_acquired == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POLICY_REF: main
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+        run: |
+          set -euo pipefail
+          policy_root="${RUNNER_TEMP}/redcheck-trusted-policy-final-${GITHUB_RUN_ID}"
+          rm -rf "$policy_root"
+          mkdir -p "$policy_root"
+          # Un 404 qui vuol dire «${POLICY_REF} non ha questo file», non «rete
+          # giù»: il messaggio deve nominare file e ref, altrimenti il rosso
+          # arriva come «gate saltato» e manda a cercare la causa altrove.
+          download_main() {
+            local path="$1"
+            local destination="$policy_root/$path"
+            mkdir -p "$(dirname "$destination")"
+            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' > "$destination" 2>"${destination}.err"; then
+              echo "::error::policy fidata: '${path}' non scaricabile da ${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
+              rm -f "$destination" "${destination}.err"
+              exit 1
+            fi
+            rm -f "${destination}.err"
+          }
+          for trusted_path in \
+            scripts/ci/pr-fixer-claim.mjs \
+            scripts/ci/lib/pr-review-admission.mjs \
+            scripts/ci/lib/review-input-revision.mjs \
+            scripts/ci/lib/constants.mjs \
+            scripts/lib/int-from-env.mjs; do
+            download_main "$trusted_path"
+          done
+          node --check "$policy_root/scripts/ci/pr-fixer-claim.mjs"
+          node --check "$policy_root/scripts/ci/lib/pr-review-admission.mjs"
+          node --check "$policy_root/scripts/ci/lib/review-input-revision.mjs"
+          printf 'root=%s\n' "$policy_root" >> "$GITHUB_OUTPUT"
+
       - name: Finalize redcheck PR + HEAD + failed check claim
         if: always() && steps.claim.outputs.claim_acquired == 'true'
         continue-on-error: true
@@ -756,4 +874,5 @@ jobs:
           ACTION_OUTCOME: ${{ steps.codex_fix.outcome }}
           EXEC_FILE: ''
           GITHUB_RUN_ID: ${{ github.run_id }}
-        run: node scripts/ci/pr-fixer-claim.mjs --claim
+          TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_final.outputs.root }}
+        run: node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim

@@ -6,6 +6,10 @@
  * rendered `with:` mapping that contains it — exceeds the server-side limit.
  * Keep that contract in this zero-dependency gate so a future issue-fix
  * prompt cannot silently produce a zero-job run.
+ *
+ * Secondo contratto, stessa porta: un workflow che parte su `push:` verso
+ * `main` senza `paths`/`paths-ignore` occupa uno slot runner dell'account per
+ * OGNI commit, compresi quelli che non toccano una riga di codice.
  */
 import { appendFileSync, existsSync, readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
@@ -105,6 +109,247 @@ function removeYamlComments(source) {
 
 function lineFor(source, index) {
   return source.slice(0, index).split('\n').length;
+}
+
+// ── Contratto «push su main senza filtro di path» ────────────────────────────
+//
+// Misurato il 2026-09-19 sulle 24 h del repo (5.268 run, 15.692 job-minuti
+// campionati sulle run >= 5 min): il tetto di concorrenza dell'account è di
+// 20-22 job in esecuzione insieme — osservato come plateau piatto fra le 18:30
+// e le 19:45Z, 76 minuti consecutivi a 20-22 senza mai superarlo. A tetto
+// saturo l'attesa in coda di `tests` su una PR passa da 258 s medi (meno di 50
+// run vive) a 985 s (50 o più), con una punta misurata di 2.733 s.
+//
+// Nelle stesse 24 h `main` ha ricevuto 317 commit, di cui 201 toccano solo
+// `data/`, `public/data/`, `docs/` o `*.md`: nessuna riga di codice. Ogni push
+// sveglia ogni workflow che dichiara `on: push` su `main`, e un workflow senza
+// `paths`/`paths-ignore` paga quei 201 commit per intero.
+//
+// La convenzione regge già da sola — 28 dei 29 workflow con `push` su `main`
+// dichiarano un filtro — ma è convenzione, non contratto: nessuno impediva al
+// 30° di nascere senza. Questo gate la rende verificabile sul file modificato
+// dalla PR, quindi non aggiunge una run alla coda che sta proteggendo.
+const PUSH_PATH_FILTER_KEYS = Object.freeze(['paths', 'paths-ignore']);
+
+/**
+ * Workflow ammessi a girare su OGNI push verso `main`.
+ *
+ * Una voce è un debito misurato, non un permesso: porta il costo che la
+ * deroga impone alla coda e va tolta quando il filtro arriva.
+ */
+export const PUSH_MAIN_PATH_FILTER_EXEMPTIONS = Object.freeze({
+  '.github/workflows/tests.yml': [
+    'required check di main e delle PR: un filtro di path qui cambia quali',
+    'commit hanno un check verde, quindi è una decisione del contratto di',
+    'merge, non di questo gate. Costo misurato il 2026-09-19: 293 run da',
+    'push su main in 24 h, ~1.600 job-minuti, di cui ~63% su commit che non',
+    'toccano codice.',
+  ].join(' '),
+});
+
+function blockBaseIndent(lines) {
+  return lines
+    .filter((line) => line.trim() !== '')
+    .reduce((minimum, line) => Math.min(minimum, indentWidth(line)), Number.POSITIVE_INFINITY);
+}
+
+function unquote(entry) {
+  return String(entry).trim().replace(/^['"]|['"]$/gu, '');
+}
+
+/** Elementi di una sequenza flow (`[a, b]`) o di uno scalare singolo. */
+function inlineSequenceValues(inlineValue) {
+  const inline = String(inlineValue || '').trim();
+  if (inline === '') return [];
+  return splitFlowParts(inline.replace(/^\[|\]$/gu, ''))
+    .map(unquote)
+    .filter((entry) => entry !== '');
+}
+
+/** Elementi di una sequenza a blocchi (`- push`) alle righe di `baseIndent`. */
+function blockSequenceItems(lines, baseIndent) {
+  return lines
+    .filter((line) => line.trim() !== '' && indentWidth(line) === baseIndent)
+    .map((line) => /^\s*-\s*(.+?)\s*$/u.exec(line)?.[1])
+    .filter(Boolean)
+    .map(unquote);
+}
+
+/**
+ * Spezza il corpo di una struttura flow sulle virgole di primo livello.
+ *
+ * `{branches: [main], paths: [a, b]}` ha virgole annidate: tagliare su ogni
+ * virgola spezzerebbe `paths` a meta' e farebbe sparire la chiave.
+ */
+function splitFlowParts(body) {
+  const parts = [];
+  let depth = 0;
+  let start = 0;
+  for (let index = 0; index < body.length; index += 1) {
+    const character = body[index];
+    if (character === '{' || character === '[') depth += 1;
+    else if (character === '}' || character === ']') depth -= 1;
+    else if (character === ',' && depth === 0) {
+      parts.push(body.slice(start, index));
+      start = index + 1;
+    }
+  }
+  parts.push(body.slice(start));
+  return parts;
+}
+
+/**
+ * Voci di una flow map YAML (`{push: {branches: [main]}}`), o `null` quando il
+ * valore non e' una flow map.
+ *
+ * `on: {push: ...}` e `push: {branches: ...}` sono YAML validi e producono lo
+ * stesso workflow della forma a blocchi: senza questo ramo il gate le lasciava
+ * passare (reperto 🟡 della review di PR #9326, riprodotto su entrambe).
+ */
+function flowMapEntries(value) {
+  const text = String(value || '').trim();
+  if (!text.startsWith('{') || !text.endsWith('}')) return null;
+  const entries = new Map();
+  for (const part of splitFlowParts(text.slice(1, -1))) {
+    if (part.trim() === '') continue;
+    const separator = part.indexOf(':');
+    if (separator === -1) entries.set(unquote(part), '');
+    else entries.set(unquote(part.slice(0, separator)), part.slice(separator + 1).trim());
+  }
+  return entries;
+}
+
+/** Valori di una chiave YAML scalare/sequenza, sia in forma flow che a lista. */
+function sequenceValues(lines, headerIndex, headerIndent, inlineValue) {
+  const inline = String(inlineValue || '').trim();
+  if (inline !== '') return inlineSequenceValues(inline);
+  const { block } = collectIndentedYaml(lines, headerIndex, headerIndent);
+  return block
+    .map((line) => /^\s*-\s*(.+?)\s*$/u.exec(line)?.[1])
+    .filter(Boolean)
+    .map(unquote);
+}
+
+/** Chiavi di primo livello di un blocco YAML già dedentato a `baseIndent`. */
+function blockKeys(lines, baseIndent) {
+  const keys = new Map();
+  for (const [index, line] of lines.entries()) {
+    if (line.trim() === '' || indentWidth(line) !== baseIndent) continue;
+    const match = /^\s*(?:["']?)([A-Za-z0-9_-]+)(?:["']?):\s*(.*)$/u.exec(line);
+    if (match) keys.set(match[1], { index, inline: match[2].trim() });
+  }
+  return keys;
+}
+
+/** `main` è coperto dal pattern di branch GitHub `pattern`? */
+export function branchPatternCoversMain(pattern) {
+  const raw = String(pattern || '').trim();
+  if (raw === '') return false;
+  const negated = raw.startsWith('!');
+  const glob = negated ? raw.slice(1) : raw;
+  const source = glob
+    .replace(/[.+^${}()|[\]\\]/gu, '\\$&')
+    .replace(/\*\*/gu, '\u0000')
+    .replace(/\*/gu, '[^/]*')
+    .replace(/\u0000/gu, '.*')
+    .replace(/\?/gu, '.');
+  return new RegExp(`^${source}$`, 'u').test('main');
+}
+
+function branchesCoverMain(patterns) {
+  let covered = false;
+  for (const pattern of patterns) {
+    if (!branchPatternCoversMain(pattern)) continue;
+    covered = !String(pattern).trim().startsWith('!');
+  }
+  return covered;
+}
+
+/**
+ * Verdetto sulla mappa di `push:`, dato un accessore uniforme delle sue chiavi.
+ *
+ * `readKey(nome)` restituisce i valori della chiave, oppure `null` quando la
+ * chiave non c'e'. Un solo posto decide, così la forma a blocchi e la flow map
+ * non possono dare due risposte diverse sullo stesso workflow.
+ */
+function pushMapIsFiltered(readKey) {
+  const has = (name) => readKey(name) !== null;
+  // Solo tag: non parte su un push di branch.
+  if (!has('branches') && !has('branches-ignore') && (has('tags') || has('tags-ignore'))) return true;
+
+  const branches = readKey('branches');
+  if (branches && branches.length > 0 && !branchesCoverMain(branches)) return true;
+  const ignored = readKey('branches-ignore');
+  if (ignored && branchesCoverMain(ignored)) return true;
+
+  return PUSH_PATH_FILTER_KEYS.some((filterKey) => has(filterKey));
+}
+
+/**
+ * Il workflow parte su un push verso `main` senza dichiarare `paths`/`paths-ignore`?
+ *
+ * Restituisce l'elenco (vuoto o con una voce sola) dei reperti, nella stessa
+ * forma degli altri validatori di questo modulo.
+ */
+export function validatePushMainPathFilter(file, text) {
+  const key = String(file).replace(/^\.\//u, '');
+  if (Object.hasOwn(PUSH_MAIN_PATH_FILTER_EXEMPTIONS, key)) return [];
+
+  const lines = removeYamlComments(text).split('\n');
+  const onIndex = lines.findIndex((line) => /^(?:["']?)on(?:["']?):\s*(.*)$/u.test(line)
+    && indentWidth(line) === 0);
+  if (onIndex === -1) return [];
+
+  const onInline = /^(?:["']?)on(?:["']?):\s*(.*)$/u.exec(lines[onIndex])[1].trim();
+  const offender = (reason) => [{ file: key, rule: 'push-main-senza-filtro-di-path', reason }];
+
+  const missingFilter = () => offender('parte su ogni push verso `main` senza `paths` né `paths-ignore`');
+  const nakedPush = () => offender('`push:` senza mappa parte su ogni branch, `main` compreso');
+  const flowPushVerdict = (pushValue) => {
+    const pushFlow = flowMapEntries(pushValue);
+    if (!pushFlow) return nakedPush();
+    const readKey = (name) => (pushFlow.has(name) ? inlineSequenceValues(pushFlow.get(name)) : null);
+    return pushMapIsFiltered(readKey) ? [] : missingFilter();
+  };
+
+  // `on: push` / `on: [push, ...]` / `on: {push: {...}}`.
+  if (onInline !== '') {
+    const onFlow = flowMapEntries(onInline);
+    if (onFlow) return onFlow.has('push') ? flowPushVerdict(onFlow.get('push')) : [];
+    return inlineSequenceValues(onInline).includes('push')
+      ? offender('`on:` in forma inline non può dichiarare `paths`/`paths-ignore`')
+      : [];
+  }
+
+  const { block: onBlock } = collectIndentedYaml(lines, onIndex, 0);
+  const onIndent = blockBaseIndent(onBlock);
+  if (!Number.isFinite(onIndent)) return [];
+
+  // `on:` come sequenza a blocchi (`- push`): eventi senza mappa, quindi senza
+  // posto in cui dichiarare un filtro.
+  const onKeys = blockKeys(onBlock, onIndent);
+  if (onKeys.size === 0) {
+    return blockSequenceItems(onBlock, onIndent).includes('push')
+      ? offender('`on:` come sequenza di eventi non può dichiarare `paths`/`paths-ignore`')
+      : [];
+  }
+
+  const push = onKeys.get('push');
+  if (!push) return [];
+  if (push.inline !== '') return flowPushVerdict(push.inline);
+
+  const { block: pushBlock } = collectIndentedYaml(onBlock, push.index, onIndent);
+  const pushIndent = blockBaseIndent(pushBlock);
+  // `push:` senza mappa (`push:` nudo) = ogni branch, nessun filtro possibile.
+  if (!Number.isFinite(pushIndent)) return nakedPush();
+
+  const pushKeys = blockKeys(pushBlock, pushIndent);
+  const readKey = (name) => {
+    const entry = pushKeys.get(name);
+    if (!entry) return null;
+    return sequenceValues(pushBlock, entry.index, pushIndent, entry.inline);
+  };
+  return pushMapIsFiltered(readKey) ? [] : missingFilter();
 }
 
 const LOOP_FLEET_WORKFLOW_RE = /(?:^|\/)(?:loop-l[0-9]+-[^/]+|loop-fleet-[^/]+|technical-operations-supervisor)\.ya?ml$/u;
@@ -266,12 +511,14 @@ function main() {
   const files = changedWorkflowFiles(base, head);
   const offenders = [];
   const safetyOffenders = [];
+  const queueOffenders = [];
   for (const file of files) {
     const absolute = resolve(file);
     if (!existsSync(absolute)) throw new Error(`workflow modificato non trovato nel checkout: ${file}`);
     const source = readFileSync(absolute, 'utf8');
     offenders.push(...validateWorkflowText(file, source));
     safetyOffenders.push(...validateLoopFleetWorkflowText(file, source));
+    queueOffenders.push(...validatePushMainPathFilter(file, source));
   }
 
   if (offenders.length > 0) {
@@ -286,6 +533,20 @@ function main() {
       console.error(`${offender.file}:${offender.line}: fleet deny-list ${offender.rule}: ${offender.snippet}`);
     }
     throw new Error('un workflow della flotta contiene un’operazione vietata dal control-plane safety gate');
+  }
+
+  if (queueOffenders.length > 0) {
+    for (const offender of queueOffenders) {
+      console.error(`${offender.file}: ${offender.rule}: ${offender.reason}`);
+    }
+    console.error([
+      'Ogni push su main costa uno slot dei 20-22 job concorrenti dell’account',
+      '(misura del 2026-09-19), e 201 dei 317 commit di quelle 24 h non toccano',
+      'codice. Dichiara `paths:` con ciò che il workflow legge davvero, oppure',
+      '`paths-ignore:` con la telemetria che non deve svegliarlo. Una deroga',
+      'consapevole va in PUSH_MAIN_PATH_FILTER_EXEMPTIONS con il suo costo.',
+    ].join(' '));
+    throw new Error('un workflow modificato parte su ogni push verso main senza filtro di path');
   }
 
   setOutput('files', files.join(','));

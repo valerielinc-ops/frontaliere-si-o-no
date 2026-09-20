@@ -13,10 +13,13 @@
  * fuori dal diff.
  * Ogni informazione mancante resta bloccante: una lista incompleta, vuota o un
  * tree non risolvibile non autorizzano mai un'inferenza «fuori dal diff».
+ * La review deve inoltre riportare il digest della body revision trusted
+ * corrente; una review sulla sola HEAD non è sufficiente dopo un body edit.
  */
 import { isReviewTestPath, findTestOnlyApproval } from './review-test-policy.mjs';
 import { execFileSync } from 'node:child_process';
 import { realpathSync, readFileSync, appendFileSync } from 'node:fs';
+import { isAbsolute } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';
 import { boundReviewsToFirstHeadVerdict } from './lib/pr-review-admission.mjs';
@@ -25,6 +28,23 @@ import {
   isCarryForwardReview,
   verifyCarryForwardReview,
 } from './lib/review-carry-forward.mjs';
+import {
+  isTerminalManagedReview,
+  parseReviewPages,
+} from './lib/pr-review-admission.mjs';
+import {
+  normalizeReviewInputRevision,
+  reviewHasInputRevision,
+  reviewInputRevisionFromPullRequest,
+} from './lib/review-input-revision.mjs';
+import {
+  changedLinesFromPatch,
+  dedupeFindingsById,
+  isMalformedReviewBody,
+  reviewBodyDefects,
+  stableFindingId,
+  unchangedLineImportants,
+} from './lib/review-findings.mjs';
 import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
@@ -320,6 +340,13 @@ export function classifyReview(body, {
   // `## Non implementato`, the section the contract validates. Without it
   // nothing is declassified.
   prBody = null,
+  // Id stabili (`review-findings.mjs`) dei 🔴 già emessi dalle review
+  // precedenti. Un finding il cui id è qui non è nuovo e non viene mai
+  // declassato dalla regola sulle righe non cambiate.
+  priorFindingIds = null,
+  // Map path → Set(righe) toccate DALL'ultima review a questa HEAD, ricavata
+  // dal patch. `null` = delta non calcolabile → nessuna declassazione.
+  changedLinesSince = null,
 } = {}) {
   const findings = importantFindings(body);
   if (findings.length === 0) return emptyClassification(findings);
@@ -352,9 +379,39 @@ export function classifyReview(body, {
   const ignoredCitations = [];
   const bodyDeclassified = [];
 
+  // Righe realmente confrontate fra l'ultima review e questa HEAD. Il seed con
+  // l'elenco file della PR è la parte che rende la regola utile: dopo un merge
+  // di main che NON tocca i file della PR il patch è vuoto, e senza il seed
+  // ogni path citato risulterebbe «mai confrontato» — cioè l'esatto caso
+  // (#9238) che la regola deve coprire.
+  const comparedLines = changedLinesSince instanceof Map
+    ? new Map(changed.map((file) => [file, changedLinesSince.get(file) ?? new Set()]))
+    : null;
+  // Un finding che il parser non sa delimitare non è un finding di cui si
+  // possa dire «punta a una riga non cambiata»: non si sa nemmeno dove
+  // finisca, quindi non entra proprio nel calcolo. L'insieme dei candidati
+  // alla declassazione si costruisce QUI, sui soli finding certi: così la
+  // proprietà non dipende dall'ordine dei controlli nel loop sotto, che è
+  // com'era scritta prima e che bastava invertire per lasciar passare una
+  // review malformata.
+  const certainFindings = findings.filter((finding) => !finding.parserUncertain);
+  const staleImportants = comparedLines
+    ? unchangedLineImportants({
+      findings: certainFindings,
+      priorFindingIds: priorFindingIds instanceof Set ? priorFindingIds : new Set(priorFindingIds || []),
+      changedLines: comparedLines,
+    })
+    : [];
+  const staleIds = new Set(staleImportants.map((finding) => finding.findingNumber));
+  const staleDeclassified = [];
+
   for (const finding of findings) {
     if (finding.parserUncertain) {
       unresolved.push({ ...finding, reason: 'struttura della review ambigua' });
+      continue;
+    }
+    if (staleIds.has(finding.findingNumber)) {
+      staleDeclassified.push({ ...finding, stableId: stableFindingId(finding) });
       continue;
     }
     if (bodyContractPassed && finding.citations.length === 0
@@ -429,7 +486,9 @@ export function classifyReview(body, {
     unresolved,
     ignoredCitations,
     bodyDeclassified,
-    outsideOnly: (outside.length + bodyDeclassified.length) > 0 && inScope.length === 0 && unresolved.length === 0,
+    staleDeclassified,
+    outsideOnly: (outside.length + bodyDeclassified.length + staleDeclassified.length) > 0
+      && inScope.length === 0 && unresolved.length === 0,
     blocking: inScope.length > 0 || unresolved.length > 0,
   };
 }
@@ -585,7 +644,11 @@ export function followupIssueBody({ repo, pr, prUrl, findings, existingBody = ''
 
 function gh(args, { json = true, allowFail = false } = {}) {
   try {
-    const output = execFileSync('gh', args, {
+    const trustedGhBin = process.env.TRUSTED_GH_BIN || '';
+    if (!isAbsolute(trustedGhBin)) {
+      throw new Error('TRUSTED_GH_BIN mancante o non assoluto');
+    }
+    const output = execFileSync(trustedGhBin, args, {
       encoding: 'utf8',
       maxBuffer: 64 * 1024 * 1024,
     });
@@ -782,7 +845,20 @@ function findingConfirmed(
  * review bodies; this preserves the path+line anchors without adding storage.
  * `includeLatest` is used by the reviewer bundle, before the new review exists.
  */
-export function historicalImportantFindings(
+export function historicalImportantFindings(reviews, options = {}) {
+  return partitionHistoricalImportantFindings(reviews, options).open;
+}
+
+/**
+ * Stesso cammino di `historicalImportantFindings`, ma restituisce ANCHE i
+ * finding usciti dall'insieme aperto, e solo quelli usciti per una conferma
+ * esplicita `Fix di ...: ok`. Il ledger nel bundle non può dedurre
+ * «confirmed-fixed» per sottrazione (`tutti` meno `aperti`): un finding
+ * declassato per scope o per riga non cambiata non è stato confermato da
+ * nessuno, e dirlo al reviewer lo autorizza a sopprimere un rilievo ancora
+ * valido.
+ */
+export function partitionHistoricalImportantFindings(
   reviews,
   {
     includeLatest = false,
@@ -792,11 +868,14 @@ export function historicalImportantFindings(
   } = {},
 ) {
   const bots = reviewerList(reviews).filter((review) =>
-    review?.user?.type === 'Bot' && REVIEWER_LOGIN_RE.test(review.user.login || ''),
+    review?.user?.type === 'Bot'
+      && REVIEWER_LOGIN_RE.test(review.user.login || '')
+      && isTerminalManagedReview(review),
   );
-  if (bots.length < (includeLatest ? 1 : 2)) return [];
+  if (bots.length < (includeLatest ? 1 : 2)) return { open: [], confirmed: [] };
 
   const open = new Map();
+  const confirmed = [];
   const latestIndex = bots.length - 1;
   for (const [index, review] of bots.entries()) {
     const confirmations = fixConfirmations(review?.body);
@@ -807,6 +886,7 @@ export function historicalImportantFindings(
         repositoryPaths,
         repositoryPathsFromFallback,
       })) {
+        confirmed.push(entry.finding);
         open.delete(key);
       }
     }
@@ -821,10 +901,13 @@ export function historicalImportantFindings(
     }
   }
 
-  return [...open.values()].map(({ finding, reviewCommit }) => ({
-    ...finding,
-    reviewCommit,
-  }));
+  return {
+    open: [...open.values()].map(({ finding, reviewCommit }) => ({
+      ...finding,
+      reviewCommit,
+    })),
+    confirmed,
+  };
 }
 
 function truncatedPathCandidates(citation, repositoryPaths) {
@@ -909,8 +992,17 @@ export function auditHistoricalCitations(reviews, repositoryPaths, { fromFallbac
 
 /** Insert inherited findings before the latest review's LGTM marker. */
 export function reviewBodyWithHistoricalFindings(body, historicalFindings) {
-  const currentKeys = new Set(importantFindings(body).map(findingKey));
-  const carry = (historicalFindings || []).filter((finding) => !currentKeys.has(findingKey(finding)));
+  const current = importantFindings(body);
+  const currentKeys = new Set(current.map(findingKey));
+  // L'id stabile è il secondo criterio, non il primo: `findingKey` ancora al
+  // path:riga, quindi una riga che si sposta lo cambia e lo stesso rilievo
+  // veniva riportato UNA SECONDA VOLTA sotto «Findings ereditati» (9 duplicati
+  // parola per parola misurati il 19-09). L'id stabile non contiene la riga.
+  const currentIds = new Set(current.map(stableFindingId));
+  const carry = dedupeFindingsById(
+    (historicalFindings || []).filter((finding) =>
+      !currentKeys.has(findingKey(finding)) && !currentIds.has(stableFindingId(finding))),
+  );
   if (carry.length === 0) return String(body || '');
 
   const section = [
@@ -924,20 +1016,55 @@ export function reviewBodyWithHistoricalFindings(body, historicalFindings) {
   return `${String(body || '').slice(0, lgtm)}${section}${String(body || '').slice(lgtm)}`;
 }
 
-function latestReviewer(reviews) {
+/**
+ * Ultima review gestita PRIMA di `latest`, su un commit diverso. Il commit
+ * diverso non è un dettaglio: è la finestra su cui si misura «righe non
+ * cambiate». Due review sulla stessa HEAD hanno delta vuoto per costruzione e
+ * declasserebbero qualunque rilievo nuovo. Il filtro `isTerminalManagedReview`
+ * è lo stesso che `latestReviewer` applica: una review non terminale non
+ * definisce una finestra di confronto.
+ */
+function priorManagedReview(reviews, latest) {
   const bots = reviewerList(reviews).filter((review) =>
-    review?.user?.type === 'Bot' && REVIEWER_LOGIN_RE.test(review.user.login || ''),
+    review?.user?.type === 'Bot'
+      && REVIEWER_LOGIN_RE.test(review.user.login || '')
+      && isTerminalManagedReview(review),
+  );
+  const index = bots.findIndex((review) => String(review?.id) === String(latest?.id));
+  const before = index === -1 ? bots : bots.slice(0, index);
+  for (let cursor = before.length - 1; cursor >= 0; cursor -= 1) {
+    const candidate = before[cursor];
+    const commit = String(candidate?.commit_id || '');
+    if (/^[0-9a-f]{40}$/iu.test(commit) && commit !== String(latest?.commit_id || '')) return candidate;
+  }
+  return null;
+}
+
+function latestReviewer(reviews, { reviewRevision } = {}) {
+  const revision = reviewRevision === undefined
+    ? undefined
+    : normalizeReviewInputRevision(reviewRevision);
+  const bots = reviewerList(reviews).filter((review) =>
+    review?.user?.type === 'Bot'
+      && REVIEWER_LOGIN_RE.test(review.user.login || '')
+      && isTerminalManagedReview(review)
+      && (revision === undefined || reviewHasInputRevision(review?.body, revision)),
   );
   return bots.length ? bots[bots.length - 1] : null;
 }
 
-function latestCodexReviewer(reviews, headSha) {
+function latestCodexReviewer(reviews, headSha, { reviewRevision } = {}) {
+  const revision = reviewRevision === undefined
+    ? undefined
+    : normalizeReviewInputRevision(reviewRevision);
   const list = reviewerList(reviews);
   for (let index = list.length - 1; index >= 0; index -= 1) {
     const review = list[index];
     if (review?.user?.type !== 'Bot' || !CODEX_REVIEWER_LOGIN_RE.test(review.user.login || '')) continue;
+    if (!isTerminalManagedReview(review)) continue;
     if (String(review.commit_id || '') !== String(headSha || '')) continue;
     if (!String(review.body || '').includes(CODEX_REVIEW_MARKER)) continue;
+    if (revision !== undefined && !reviewHasInputRevision(review.body, revision)) continue;
     return review;
   }
   return null;
@@ -1059,7 +1186,30 @@ function readPrBody(repo, pr) {
 }
 
 function readReviews(repo, pr) {
-  return gh(['api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate', '--slurp']);
+  const pages = gh(['api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate', '--slurp']);
+  const reviews = parseReviewPages(pages);
+  if (!reviews) throw new Error('reviews PR: JSON/pagine/entry malformate');
+  return reviews;
+}
+
+/**
+ * Righe toccate fra due commit, nel formato della Map di `review-findings.mjs`.
+ * Deliberatamente a 2 punti: l'oggetto della regola è «cosa è cambiato sotto la
+ * review precedente», merge di main compresi, non il contributo della PR (per
+ * quello esiste il fingerprint). `null` = non calcolabile.
+ */
+function changedLinesBetween(fromSha, toSha) {
+  if (!/^[0-9a-f]{40}$/iu.test(String(fromSha || ''))
+      || !/^[0-9a-f]{40}$/iu.test(String(toSha || ''))) return null;
+  try {
+    const patch = execFileSync('git', ['diff', '--unified=0', '--no-color', `${fromSha}..${toSha}`], {
+      encoding: 'utf8',
+      maxBuffer: 64 * 1024 * 1024,
+    });
+    return changedLinesFromPatch(String(patch));
+  } catch {
+    return null;
+  }
 }
 
 function changedPathsBetween(fromSha, toSha) {
@@ -1082,6 +1232,7 @@ function staleFallbackCarryForward({
   reviews,
   latest,
   headSha,
+  reviewRevision,
   changedPathsFn = changedPathsBetween,
 } = {}) {
   // This optimization is only a replay of a fallback emitted for the current
@@ -1092,6 +1243,7 @@ function staleFallbackCarryForward({
   const latestBody = normalizeReviewBody(latest?.body || '');
   if (!latestBody.includes(CODEX_REVIEW_MARKER)
       || /^##\s+LGTM\b/imu.test(latestBody)) return null;
+  if (reviewRevision !== undefined && !reviewHasInputRevision(latestBody, reviewRevision)) return null;
 
   const findings = importantFindings(latestBody);
   // A fallback with a new, ambiguous or unanchored Important must still go
@@ -1102,6 +1254,7 @@ function staleFallbackCarryForward({
 
   const bots = reviewerList(reviews).filter((review) =>
     review?.user?.type === 'Bot'
+      && isTerminalManagedReview(review)
       && (REVIEWER_LOGIN_RE.test(review.user.login || '')
         || CODEX_REVIEWER_LOGIN_RE.test(review.user.login || '')),
   );
@@ -1245,6 +1398,9 @@ export function logClassification(classification) {
   for (const finding of classification.bodyDeclassified ?? []) {
     console.log(`review-gate: DECLASSIFIED-BODY finding=${finding.findingNumber} reason=deterministic PR-body contract passed on the current body; a body remark is at most a Nit`);
   }
+  for (const finding of classification.staleDeclassified ?? []) {
+    console.log(`review-gate: DECLASSIFIED-UNCHANGED-LINE finding=${finding.findingNumber} id=${finding.stableId} reason=new Important anchored only on lines untouched since the previous review; declare 🔴 Important: [regression] to keep it blocking`);
+  }
   for (const { findingNumber, path } of classification.ignoredCitations ?? []) {
     console.log(`review-gate: DECLASSIFIED-IGNORED finding=${findingNumber} path=${path} reason=path ignored by git, cannot be in the PR diff`);
   }
@@ -1279,6 +1435,8 @@ export async function classifyAndMintReview(body, {
   repositoryPaths: suppliedRepositoryPaths,
   bodyContractPassed = false,
   prBody = null,
+  priorFindingIds = null,
+  changedLinesSince = null,
 } = {}) {
   if (!repo || !/^\d+$/u.test(String(pr || ''))) {
     throw new Error('repo o PR number non valido');
@@ -1316,6 +1474,8 @@ export async function classifyAndMintReview(body, {
     isIgnoredPath: gitPathIsIgnored,
     bodyContractPassed,
     prBody: bodyContractPassed && prBody === null ? readPrBody(repo, pr) : prBody,
+    priorFindingIds,
+    changedLinesSince,
   });
   logClassification(classification);
 
@@ -1343,9 +1503,11 @@ export async function runReviewGate({
   reviews,
   codexEvidence,
   codexEvidenceFile,
+  reviewRevision,
   repositoryPaths,
   repositoryPathsFromFallback = false,
   changedPathsFn = changedPathsBetween,
+  changedLinesFn = changedLinesBetween,
   classifyAndMintReviewFn = classifyAndMintReview,
   carryFingerprintFn = contributionFingerprint,
   bodyContractPassed = false,
@@ -1354,13 +1516,42 @@ export async function runReviewGate({
     throw new Error('repo, PR number or HEAD SHA non valido');
   }
 
+  const expectedRevision = reviewRevision === undefined
+    ? undefined
+    : normalizeReviewInputRevision(reviewRevision);
+  if (reviewRevision !== undefined && !expectedRevision) {
+    return { approved: false, reason: 'review input revision assente o non verificabile' };
+  }
+
+  // Keep the injected/test harness path under the same strict schema gate as
+  // the API path.  Otherwise a caller could pass a decoded array containing a
+  // malformed entry, bypass `readReviews()`/`parseReviewPages()`, and let the
+  // historical flattening logic treat a partial response as a real verdict.
+  let parsedReviews;
+  try {
+    parsedReviews = parseReviewPages(reviews === undefined ? readReviews(repo, pr) : reviews);
+  } catch {
+    parsedReviews = null;
+  }
+  if (!parsedReviews) {
+    return {
+      approved: false,
+      reason: 'nessuna review Codex verificabile: elenco review malformato o non disponibile',
+    };
+  }
   const reviewHistory = boundReviewsToFirstHeadVerdict(
-    reviews ?? readReviews(repo, pr),
+    parsedReviews,
     headSha,
+    { reviewRevision: expectedRevision },
   );
   const structuredCodexEvidence = codexEvidence
     || readCodexEvidenceFile(codexEvidenceFile || process.env.CODEX_FALLBACK_EVIDENCE_FILE);
-  const automatic = findTestOnlyApproval(reviewHistory, headSha, { ghFn: gh, repo, pr });
+  const automatic = findTestOnlyApproval(reviewHistory, headSha, {
+    ghFn: gh,
+    repo,
+    pr,
+    reviewRevision: expectedRevision,
+  });
   if (automatic) return { approved: true, reason: 'tests-only owner policy', review: automatic, reviewCommit: headSha };
   const codexEvidenceRequested = Boolean(codexEvidence || codexEvidenceFile || process.env.CODEX_FALLBACK_EVIDENCE_FILE);
   if (codexEvidenceRequested
@@ -1369,14 +1560,35 @@ export async function runReviewGate({
     return { approved: false, reason: 'evidenza Codex assente, non valida o fallita' };
   }
   const codexReview = structuredCodexEvidence?.status === FALLBACK_STATUS.SUCCESS
-    ? latestCodexReviewer(reviewHistory, headSha)
+    ? latestCodexReviewer(reviewHistory, headSha, { reviewRevision: expectedRevision })
     : null;
   if (codexEvidenceRequested && !codexReview) {
     return { approved: false, reason: 'evidenza Codex valida ma nessuna review Codex marcata sulla HEAD' };
   }
-  const latest = codexReview || latestReviewer(reviewHistory);
-  if (!latest) return { approved: false, reason: 'nessuna review Codex leggibile' };
+  const latest = codexReview || latestReviewer(reviewHistory, { reviewRevision: expectedRevision });
+  if (!latest) {
+    return {
+      approved: false,
+      reason: expectedRevision === undefined
+        ? 'nessuna review Codex leggibile'
+        : 'nessuna review sulla revisione body corrente',
+    };
+  }
   const body = normalizeReviewBody(latest.body || '');
+  // Un body malformato non è un verdetto. Le due forme misurate il 19-09 su 220
+  // review — `\n` letterali al posto delle righe e `Fix di ``: ok` con anchor
+  // vuoto — producono un testo che il parser legge come review valida ma che
+  // non contiene né finding né conferme leggibili: scartarlo è l'unica lettura
+  // onesta, e lascia il ciclo di re-review a rifare la review.
+  const bodyDefects = reviewBodyDefects(body);
+  if (isMalformedReviewBody(body)) {
+    return {
+      approved: false,
+      reason: `body della review malformato (${bodyDefects.join(', ')}): verdetto scartato`,
+      review: latest,
+      bodyDefects,
+    };
+  }
   // A verdict carried onto this HEAD without a model run is accepted only
   // after the gate re-derives, on its own, that the origin was an approving
   // verdict and that the PR's code contribution is unchanged.
@@ -1396,6 +1608,7 @@ export async function runReviewGate({
     reviews: reviewHistory,
     latest,
     headSha,
+    reviewRevision: expectedRevision,
     changedPathsFn,
   });
   if (staleCarry) {
@@ -1431,6 +1644,20 @@ export async function runReviewGate({
       bodyContractPassed,
     };
     if (repositoryPaths !== undefined) classificationOptions.repositoryPaths = repositoryPaths;
+    const priorReview = priorManagedReview(reviewHistory, latest);
+    if (priorReview) {
+      classificationOptions.priorFindingIds = new Set(
+        historicalImportantFindings(reviewHistory, {
+          includeLatest: false,
+          repositoryPaths: repositoryPaths ?? null,
+          repositoryPathsFromFallback,
+        }).map(stableFindingId),
+      );
+      classificationOptions.changedLinesSince = changedLinesFn(
+        String(priorReview.commit_id || ''),
+        headSha,
+      );
+    }
     classification = await classifyAndMintReviewFn(effectiveBody, classificationOptions);
   } else if (findings.length > 0 && !applies) {
     classification = {
@@ -1479,6 +1706,9 @@ async function main() {
   const pr = process.env.PR_NUMBER || '';
   const headSha = process.env.HEAD_SHA || '';
   const tree = fetchRepositoryHeadPaths(repo, pr);
+  const reviewRevision = reviewInputRevisionFromPullRequest(gh([
+    'api', `repos/${repo}/pulls/${pr}`,
+  ]));
   const result = await runReviewGate({
     repo,
     pr,
@@ -1487,6 +1717,7 @@ async function main() {
     prUrl: process.env.PR_URL,
     repositoryPaths: tree.paths,
     repositoryPathsFromFallback: tree.fromFallback,
+    reviewRevision,
     bodyContractPassed: process.env.BODY_CONTRACT_OUTCOME === 'success',
   });
   writeApproved(result.approved);

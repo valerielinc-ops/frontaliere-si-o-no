@@ -197,7 +197,47 @@ describe('Capri Workday location resolution', () => {
 
     await expect(listSwissJobs('Michael_Kors', 'Michael Kors'))
       .rejects.toThrow(/changed its total/);
-    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(fetchMock).toHaveBeenCalledTimes(4);
+  });
+
+  it('retries a transient total drift without dropping the page', async () => {
+    const firstPage = {
+      total: 40,
+      jobPostings: Array.from({ length: 20 }, (_, index) => ({
+        externalPath: `/job/Mendrisio/first-${index + 1}`,
+        title: `First role ${index + 1}`,
+        locationsText: 'Mendrisio, Switzerland',
+      })),
+    };
+    const secondPage = {
+      total: 40,
+      jobPostings: Array.from({ length: 20 }, (_, index) => ({
+        externalPath: `/job/Mendrisio/second-${index + 1}`,
+        title: `Second role ${index + 1}`,
+        locationsText: 'Mendrisio, Switzerland',
+      })),
+    };
+    let offset20Attempts = 0;
+    const fetchMock = vi.fn(async (_url, options) => {
+      const { offset, searchText } = JSON.parse(options.body);
+      if (searchText !== 'Switzerland') {
+        return new Response(JSON.stringify({ total: 0, jobPostings: [] }), { status: 200 });
+      }
+      if (offset === 0) {
+        return new Response(JSON.stringify(firstPage), { status: 200 });
+      }
+      offset20Attempts += 1;
+      const page = offset20Attempts === 1
+        ? { total: 0, jobPostings: secondPage.jobPostings }
+        : secondPage;
+      return new Response(JSON.stringify(page), { status: 200 });
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = await listSwissJobs('Michael_Kors', 'Michael Kors');
+
+    expect(jobs).toHaveLength(40);
+    expect(offset20Attempts).toBe(2);
   });
 });
 
