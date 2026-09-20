@@ -20,6 +20,7 @@ import {
   classifyJobSliceRemovals,
   diffJobSlices,
   formatJsonLines,
+  isHistoricalOnlyLoss,
   isProvenCurrentCrossJobOwner,
 } from '../scripts/scan-prev-slug-losses.mjs';
 import { stableSlugHash } from '../scripts/lib/dedicated-crawler-common.mjs';
@@ -368,5 +369,13 @@ describe('safe cross-job decontamination classification (#5348)', () => {
       'claimant',
       [{ jobKey: 'stable-owner', file: 'owner.json', hash: stableSlugHash(owner) }],
     )).toBe(false);
+  });
+
+  it('keeps mixed historical and active loss evidence recoverable', () => {
+    const slug = 'senior-engineer-real-owner-zurich-t3ssxj';
+    const historicalSlugs = new Set([slug]);
+
+    expect(isHistoricalOnlyLoss(slug, historicalSlugs, new Set())).toBe(true);
+    expect(isHistoricalOnlyLoss(slug, historicalSlugs, new Set([slug]))).toBe(false);
   });
 });

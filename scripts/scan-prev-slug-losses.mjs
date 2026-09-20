@@ -444,6 +444,14 @@ export function isProvenCurrentCrossJobOwner(slug, claimantJobKey, owners) {
   return uniqueOwners.length === 1;
 }
 
+/**
+ * A slug may be historical in one loss event and active in a later one for
+ * the same job. That mixed evidence must remain recoverable.
+ */
+export function isHistoricalOnlyLoss(slug, historicalSlugs, activeLossSlugs) {
+  return historicalSlugs?.has(slug) === true && activeLossSlugs?.has(slug) !== true;
+}
+
 async function loadJobsAtRef(ref, files, catFile, cache) {
   const jobs = [];
   for (const rel of files) {
@@ -558,6 +566,7 @@ async function main() {
       lossesByJob.set(event.jobKey, {
         slugs: new Set(),
         historicalSlugs: new Set(),
+        activeLossSlugs: new Set(),
         file: event.file,
       });
     }
@@ -565,6 +574,7 @@ async function main() {
     for (const slug of kept) {
       loss.slugs.add(slug);
       if (event.historicalLost?.includes(slug)) loss.historicalSlugs.add(slug);
+      else loss.activeLossSlugs.add(slug);
     }
   }
   catFile.close();
@@ -598,7 +608,7 @@ async function main() {
   // Cross-reference with current state: emit "recoverable" list (entries still missing today).
   const recoverable = [];
   let alreadyPresent = 0, rehomedElsewhere = 0, deletedJobs = 0;
-  for (const [jobKey, { file, slugs, historicalSlugs }] of lossesByJob.entries()) {
+  for (const [jobKey, { file, slugs, historicalSlugs, activeLossSlugs }] of lossesByJob.entries()) {
     if (!fs.existsSync(file)) { deletedJobs++; continue; }
     const d = JSON.parse(fs.readFileSync(file, 'utf8'));
     const j = d.jobs?.find(x => resolveJobDiffKey(x) === jobKey);
@@ -612,7 +622,7 @@ async function main() {
     const toRestore = [...slugs].filter((s) => {
       if (known.has(s)) return false;
       if (
-        historicalSlugs.has(s)
+        isHistoricalOnlyLoss(s, historicalSlugs, activeLossSlugs)
         && isProvenCurrentCrossJobOwner(s, jobKey, currentCandidateOwners.get(s))
       ) {
         rehomedElsewhere++;
