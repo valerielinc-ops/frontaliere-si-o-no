@@ -180,6 +180,11 @@ describe('separazione dispatch manuale / raccolta schedulata', () => {
     expect(collectionMode('pull_request')).toBeNull();
   });
 
+  it('keeps unsupported CI events fail-closed instead of querying as a schedule', () => {
+    expect(() => main({ eventName: 'pull_request', inputPRNumber: '8101' }))
+      .toThrow(/evento non supportato/);
+  });
+
   it('validates the single PR number for a manual backfill', () => {
     expect(manualDispatchPR(' 8101 ')).toBe(8101);
     expect(() => manualDispatchPR('')).toThrow();
