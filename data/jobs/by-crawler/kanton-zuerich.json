@@ -85,12 +85,12 @@
     },
     {
       "id": "kanton-zuerich-cfc8189bdb45",
-      "slug": "immobilienbewirtschafter-in-kantonale-verwaltung-zurich-zurich",
+      "slug": "gestione-delle-proprieta-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "immobilienbewirtschafter-in-kantonale-verwaltung-zurich-zurich",
-        "it": "immobilienbewirtschafter-in-kantonale-verwaltung-zurich-zurich",
-        "en": "immobilienbewirtschafter-in-kantonale-verwaltung-zurich-zurich",
-        "fr": "immobilienbewirtschafter-in-kantonale-verwaltung-zurich-zurich"
+        "it": "gestione-delle-proprieta-kantonale-verwaltung-zurich-zurich",
+        "en": "property-managers-kantonale-verwaltung-zurich-zurich",
+        "fr": "gestionnaires-de-biens-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -139,14 +139,22 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "immobilienbewirtschafter-in-kanton-zuerich-zurich"
+          "immobilienbewirtschafter-in-kanton-zuerich-zurich",
+          "immobilienbewirtschafter-in-kantonale-verwaltung-zurich-zurich"
         ],
         "de": [
           "immobilienbewirtschafter-in-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "immobilienbewirtschafter-in-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-in-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "immobilienbewirtschafter-in-kanton-zuerich-zurich"
+        "immobilienbewirtschafter-in-kanton-zuerich-zurich",
+        "immobilienbewirtschafter-in-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -326,7 +334,7 @@
         "it": "aspirante-di-polizia-kantonale-verwaltung-zurich-zurich-002669",
         "en": "police-aspirant-kantonale-verwaltung-zurich-zurich-002669",
         "de": "polizeiaspirant-in-kanton-zuerich-zurich",
-        "fr": "polizeiaspirant-in-kantonale-verwaltung-zurich"
+        "fr": "aspirant-policier-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -415,7 +423,8 @@
         "controller-in-kantonale-verwaltung-zurich",
         "certificates-controller-kantonale-verwaltung-zurich",
         "controleur-de-certificats-kantonale-verwaltung-zurich",
-        "aspirant-policier-kantonale-verwaltung-zurich-zurich"
+        "aspirant-policier-kantonale-verwaltung-zurich-zurich",
+        "polizeiaspirant-in-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -449,7 +458,8 @@
         "fr": [
           "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich",
           "verwaltungssekretar-in-kantonale-verwaltung-zurich-8001-zurich",
-          "aspirant-policier-kantonale-verwaltung-zurich-zurich"
+          "aspirant-policier-kantonale-verwaltung-zurich-zurich",
+          "polizeiaspirant-in-kantonale-verwaltung-zurich"
         ]
       },
       "firstSeenAt": "2026-09-08T13:51:26.443Z",
@@ -1688,12 +1698,12 @@
     },
     {
       "id": "kanton-zuerich-10fa386e8c26",
-      "slug": "jurist-in-kanton-zuerich-zurich",
+      "slug": "avvocato-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "jurist-in-kantonale-verwaltung-zurich-zurich",
-        "it": "jurist-in-kanton-zuerich-zurich",
-        "en": "jurist-in-kanton-zuerich-zurich",
-        "fr": "jurist-in-kanton-zuerich-zurich"
+        "it": "avvocato-kantonale-verwaltung-zurich-zurich",
+        "en": "lawyer-kantonale-verwaltung-zurich-zurich",
+        "fr": "avocat-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -1753,7 +1763,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:06:34.492Z"
+      "firstSeenAt": "2026-09-19T23:06:34.492Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "jurist-in-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "jurist-in-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "jurist-in-kanton-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "jurist-in-kanton-zuerich-zurich"
+      ]
     },
     {
       "id": "kanton-zuerich-6480f16ab758",
@@ -2920,12 +2944,12 @@
     },
     {
       "id": "kanton-zuerich-326d5b5acb1b",
-      "slug": "business-analista-in-fachgebiet-steuern-kantonale-verwaltung-zurich-zurich",
+      "slug": "tasse-speciali-per-gli-analisti-aziendali-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich",
-        "it": "business-analista-in-fachgebiet-steuern-kantonale-verwaltung-zurich-zurich",
-        "en": "business-analyst-in-fachgebiet-steuern-kantonale-verwaltung-zurich-zurich",
-        "fr": "business-analyste-in-fachgebiet-steuern-kantonale-verwaltung-zurich-zurich"
+        "it": "tasse-speciali-per-gli-analisti-aziendali-kantonale-verwaltung-zurich-zurich",
+        "en": "business-analyst-specialty-taxes-kantonale-verwaltung-zurich-zurich",
+        "fr": "analyste-des-affaires-impots-speciaux-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -2988,14 +3012,22 @@
       "firstSeenAt": "2026-09-19T23:06:28.245Z",
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich"
+          "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich",
+          "business-analista-in-fachgebiet-steuern-kantonale-verwaltung-zurich-zurich"
         ],
         "fr": [
-          "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich"
+          "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich",
+          "business-analyste-in-fachgebiet-steuern-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
+          "business-analyst-in-fachgebiet-steuern-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich"
+        "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich",
+        "business-analyst-in-fachgebiet-steuern-kantonale-verwaltung-zurich-zurich",
+        "business-analista-in-fachgebiet-steuern-kantonale-verwaltung-zurich-zurich",
+        "business-analyste-in-fachgebiet-steuern-kantonale-verwaltung-zurich-zurich"
       ]
     },
     {
@@ -3088,8 +3120,8 @@
       "slugByLocale": {
         "de": "studentische-r-mitarbeiter-in-kantonale-verwaltung-zurich-zurich",
         "it": "studentische-r-collaboratore-trice-kantonale-verwaltung-zurich",
-        "en": "studentische-r-mitarbeiter-in-kantonale-verwaltung-zurich-zurich",
-        "fr": "studentische-r-mitarbeiter-in-kantonale-verwaltung-zurich-zurich"
+        "en": "student-staff-kantonale-verwaltung-zurich-zurich",
+        "fr": "personnel-etudiant-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3152,10 +3184,12 @@
           "studentische-r-mitarbeiter-in-kanton-zuerich-zurich"
         ],
         "en": [
-          "student-staff-member-kantonale-verwaltung-zurich-zurich"
+          "student-staff-member-kantonale-verwaltung-zurich-zurich",
+          "studentische-r-mitarbeiter-in-kantonale-verwaltung-zurich-zurich"
         ],
         "fr": [
-          "personnel-etudiant-kantonale-verwaltung-zurich-zurich"
+          "personnel-etudiant-kantonale-verwaltung-zurich-zurich",
+          "studentische-r-mitarbeiter-in-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
@@ -3167,7 +3201,8 @@
         "reception-security-service-kantonale-verwaltung-zurich-zurich",
         "mitarbeiter-in-empfang-sicherheitsdienst-kantonale-verwaltung-zurich-zurich",
         "reception-service-de-securite-kantonale-verwaltung-zurich-zurich",
-        "mitarbeiter-in-empfang-sicherheitsdienst-kanton-zuerich-zurich"
+        "mitarbeiter-in-empfang-sicherheitsdienst-kanton-zuerich-zurich",
+        "studentische-r-mitarbeiter-in-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3553,12 +3588,12 @@
     },
     {
       "id": "kanton-zuerich-d229cf01ff36",
-      "slug": "praktikant-in-pflanzenschutz-kanton-zuerich-lindau",
+      "slug": "protezione-delle-piante-da-traino-kantonale-verwaltung-zurich-lindau",
       "slugByLocale": {
         "de": "praktikant-in-pflanzenschutz-kantonale-verwaltung-zurich-lindau",
-        "it": "praktikant-in-pflanzenschutz-kanton-zuerich-lindau",
-        "en": "praktikant-in-pflanzenschutz-kanton-zuerich-lindau",
-        "fr": "praktikant-in-pflanzenschutz-kanton-zuerich-lindau"
+        "it": "protezione-delle-piante-da-traino-kantonale-verwaltung-zurich-lindau",
+        "en": "trainee-plant-protection-kantonale-verwaltung-zurich-lindau",
+        "fr": "protection-des-plantes-des-stagiaires-kantonale-verwaltung-zurich-lindau"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3618,7 +3653,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:06:25.056Z"
+      "firstSeenAt": "2026-09-19T23:06:25.056Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-pflanzenschutz-kanton-zuerich-lindau"
+        ],
+        "en": [
+          "praktikant-in-pflanzenschutz-kanton-zuerich-lindau"
+        ],
+        "fr": [
+          "praktikant-in-pflanzenschutz-kanton-zuerich-lindau"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-pflanzenschutz-kanton-zuerich-lindau"
+      ]
     },
     {
       "id": "kanton-zuerich-5156e50ca388",
@@ -3814,7 +3863,7 @@
         "de": "projektleiter-in-product-owner-kanton-zuerich-zurich",
         "it": "responsabile-di-progetto-product-owner-kantonale-verwaltung-zurich",
         "en": "projektleiter-in-product-owner-kantonale-verwaltung-zurich-zurich",
-        "fr": "projektleiter-in-product-owner-kanton-zuerich-zurich"
+        "fr": "chef-de-projet-product-owner-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3865,6 +3914,9 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-product-owner-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "projektleiter-in-product-owner-kanton-zuerich-zurich"
         ]
       },
       "previousSlugs": [
@@ -3892,7 +3944,7 @@
         "de": "m365-service-engineer-mit-requirements-engineering-und-consulting-kanton-zuerich-zurich",
         "it": "m365-service-ingegnere-con-requirements-engineering-e-consulting-kantonale-verwaltung-zurich",
         "en": "m365-service-engineer-mit-requirements-engineering-und-consulting-kantonale-verwaltung-zurich-zurich",
-        "fr": "m365-service-engineer-mit-requirements-engineering-und-consulting-kanton-zuerich-zurich"
+        "fr": "m365-ingenieur-de-service-avec-exigences-ingenierie-et-conseil-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3941,6 +3993,9 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "m365-service-engineer-mit-requirements-engineering-und-consulting-kanton-zuerich-zurich"
+        ],
+        "fr": [
           "m365-service-engineer-mit-requirements-engineering-und-consulting-kanton-zuerich-zurich"
         ]
       },
@@ -7560,7 +7615,7 @@
         "it": "neuropsicologo-neuropsicologo-kantonale-verwaltung-zurich-zurich-altstetten",
         "en": "neuropsychologist-neuropsychologist-kantonale-verwaltung-zurich-zurich-altstetten",
         "de": "neuropsychologin-neuropsychologe-kanton-zuerich-zurich-altstetten",
-        "fr": "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-altstetten"
+        "fr": "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -7610,7 +7665,8 @@
         "neuropsychologin-neuropsychologe-kanton-zuerich-zurich-altstetten",
         "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-zurich-altstetten",
         "neuropsychologist-neuropsychologist-kantonale-verwaltung-zurich-zurich",
-        "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten"
+        "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten",
+        "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-altstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7623,7 +7679,8 @@
         ],
         "fr": [
           "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-zurich-altstetten",
-          "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten"
+          "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten",
+          "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-altstetten"
         ]
       },
       "firstSeenAt": "2026-09-04T13:47:25.654Z",
@@ -8623,12 +8680,12 @@
     },
     {
       "id": "kanton-zuerich-a5ebf6e9a502",
-      "slug": "business-analista-in-kantonale-verwaltung-zurich-zurich",
+      "slug": "analista-di-affari-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "business-analyst-in-kanton-zuerich-zurich",
-        "it": "business-analista-in-kantonale-verwaltung-zurich-zurich",
+        "it": "analista-di-affari-kantonale-verwaltung-zurich-zurich",
         "en": "business-analyst-in-kantonale-verwaltung-zurich-zurich",
-        "fr": "business-analyste-in-kantonale-verwaltung-zurich-zurich"
+        "fr": "analyste-des-entreprises-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -8692,14 +8749,18 @@
       "firstSeenAt": "2026-09-19T23:05:59.242Z",
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-in-kanton-zuerich-zurich"
+          "business-analyst-in-kanton-zuerich-zurich",
+          "business-analista-in-kantonale-verwaltung-zurich-zurich"
         ],
         "fr": [
-          "business-analyst-in-kanton-zuerich-zurich"
+          "business-analyst-in-kanton-zuerich-zurich",
+          "business-analyste-in-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "business-analyst-in-kanton-zuerich-zurich"
+        "business-analyst-in-kanton-zuerich-zurich",
+        "business-analista-in-kantonale-verwaltung-zurich-zurich",
+        "business-analyste-in-kantonale-verwaltung-zurich-zurich"
       ]
     },
     {
@@ -9288,12 +9349,12 @@
     },
     {
       "id": "kanton-zuerich-8d5a77586eb6",
-      "slug": "abteilungsleitung-automobiltechnik-kantonale-verwaltung-zurich-zurich",
+      "slug": "responsabile-del-dipartimento-automotive-technology-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "abteilungsleitung-automobiltechnik-kantonale-verwaltung-zurich-zurich",
-        "it": "abteilungsleitung-automobiltechnik-kantonale-verwaltung-zurich-zurich",
-        "en": "abteilungsleitung-automobiltechnik-kantonale-verwaltung-zurich-zurich",
-        "fr": "abteilungsleitung-automobiltechnik-kantonale-verwaltung-zurich-zurich"
+        "it": "responsabile-del-dipartimento-automotive-technology-kantonale-verwaltung-zurich-zurich",
+        "en": "head-of-department-automotive-technology-kantonale-verwaltung-zurich-zurich",
+        "fr": "chef-du-departement-technologie-automobile-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -9342,14 +9403,22 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleitung-automobiltechnik-kanton-zuerich-zurich"
+          "abteilungsleitung-automobiltechnik-kanton-zuerich-zurich",
+          "abteilungsleitung-automobiltechnik-kantonale-verwaltung-zurich-zurich"
         ],
         "de": [
           "abteilungsleitung-automobiltechnik-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "abteilungsleitung-automobiltechnik-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "abteilungsleitung-automobiltechnik-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "abteilungsleitung-automobiltechnik-kanton-zuerich-zurich"
+        "abteilungsleitung-automobiltechnik-kanton-zuerich-zurich",
+        "abteilungsleitung-automobiltechnik-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -9864,7 +9933,7 @@
       "slug": "rettore-rettore-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "it": "rettore-rettore-kantonale-verwaltung-zurich-zurich",
-        "en": "rektor-rektorin-kantonale-verwaltung-zurich",
+        "en": "rector-rector-kantonale-verwaltung-zurich-zurich",
         "de": "rektor-rektorin-kanton-zuerich-zurich",
         "fr": "recteur-recteur-kantonale-verwaltung-zurich-zurich"
       },
@@ -9915,7 +9984,8 @@
       "previousSlugs": [
         "rektor-rektorin-kanton-zuerich-zurich",
         "rektor-rektorin-kantonale-verwaltung-zurich-zurich",
-        "rector-rector-kantonale-verwaltung-zurich-zurich"
+        "rector-rector-kantonale-verwaltung-zurich-zurich",
+        "rektor-rektorin-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9923,7 +9993,8 @@
         ],
         "en": [
           "rektor-rektorin-kantonale-verwaltung-zurich-zurich",
-          "rector-rector-kantonale-verwaltung-zurich-zurich"
+          "rector-rector-kantonale-verwaltung-zurich-zurich",
+          "rektor-rektorin-kantonale-verwaltung-zurich"
         ],
         "fr": [
           "rektor-rektorin-kanton-zuerich-zurich"
@@ -12377,12 +12448,12 @@
     },
     {
       "id": "kanton-zuerich-f3e99c07d33a",
-      "slug": "fachspezialist-in-einsprachen-alv-gestalte-con-uns-den-arbeitsmarkt-von-zurich-kantonale-verwaltung-zurich-zurich",
+      "slug": "lingua-specialistica-alv-modellare-il-mercato-del-lavoro-di-zurigo-con-noi-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "fachspezialist-in-einsprachen-alv-gestalte-mit-uns-den-arbeitsmarkt-von-zurich-kantonale-verwaltung-zurich-zurich",
-        "it": "fachspezialist-in-einsprachen-alv-gestalte-con-uns-den-arbeitsmarkt-von-zurich-kantonale-verwaltung-zurich-zurich",
-        "en": "fachspezialist-in-einsprachen-alv-gestalte-mit-uns-den-arbeitsmarkt-von-zurich-kanton",
-        "fr": "fachspezialist-in-einsprachen-alv-gestalte-mit-uns-den-arbeitsmarkt-von-zurich-kanton"
+        "it": "lingua-specialistica-alv-modellare-il-mercato-del-lavoro-di-zurigo-con-noi-kantonale-verwaltung-zurich-zurich",
+        "en": "specialist-language-alv-shape-the-labour-market-of-zurich-with-us-kantonale-verwaltung-zurich-zurich",
+        "fr": "langue-specialisee-alv-faconner-le-marche-du-travail-de-zurich-avec-nous-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -12445,14 +12516,22 @@
       "firstSeenAt": "2026-09-19T23:05:40.913Z",
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-einsprachen-alv-gestalte-mit-uns-den-arbeitsmarkt-von-zurich-kanton"
+          "fachspezialist-in-einsprachen-alv-gestalte-mit-uns-den-arbeitsmarkt-von-zurich-kanton",
+          "fachspezialist-in-einsprachen-alv-gestalte-con-uns-den-arbeitsmarkt-von-zurich-kantonale-verwaltung-zurich-zurich"
         ],
         "de": [
+          "fachspezialist-in-einsprachen-alv-gestalte-mit-uns-den-arbeitsmarkt-von-zurich-kanton"
+        ],
+        "en": [
+          "fachspezialist-in-einsprachen-alv-gestalte-mit-uns-den-arbeitsmarkt-von-zurich-kanton"
+        ],
+        "fr": [
           "fachspezialist-in-einsprachen-alv-gestalte-mit-uns-den-arbeitsmarkt-von-zurich-kanton"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-einsprachen-alv-gestalte-mit-uns-den-arbeitsmarkt-von-zurich-kanton"
+        "fachspezialist-in-einsprachen-alv-gestalte-mit-uns-den-arbeitsmarkt-von-zurich-kanton",
+        "fachspezialist-in-einsprachen-alv-gestalte-con-uns-den-arbeitsmarkt-von-zurich-kantonale-verwaltung-zurich-zurich"
       ]
     },
     {
@@ -13184,12 +13263,12 @@
     },
     {
       "id": "kanton-zuerich-2ab183db4546",
-      "slug": "verfahrensassistentin-verfahrensassistent-kantonale-verwaltung-zurich-zurich",
+      "slug": "assistente-di-procedura-assistente-di-procedura-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "verfahrensassistentin-verfahrensassistent-kantonale-verwaltung-zurich-zurich",
-        "it": "verfahrensassistentin-verfahrensassistent-kantonale-verwaltung-zurich-zurich",
-        "en": "verfahrensassistentin-verfahrensassistent-kantonale-verwaltung-zurich-zurich",
-        "fr": "verfahrensassistentin-verfahrensassistent-kantonale-verwaltung-zurich-zurich"
+        "it": "assistente-di-procedura-assistente-di-procedura-kantonale-verwaltung-zurich-zurich",
+        "en": "procedure-assistant-procedure-assistant-kantonale-verwaltung-zurich-zurich",
+        "fr": "assistant-de-procedure-assistant-de-procedure-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -13238,14 +13317,22 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
-          "verfahrensassistentin-verfahrensassistent-kanton-zuerich-zurich"
+          "verfahrensassistentin-verfahrensassistent-kanton-zuerich-zurich",
+          "verfahrensassistentin-verfahrensassistent-kantonale-verwaltung-zurich-zurich"
         ],
         "de": [
           "verfahrensassistentin-verfahrensassistent-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "verfahrensassistentin-verfahrensassistent-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "verfahrensassistentin-verfahrensassistent-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "verfahrensassistentin-verfahrensassistent-kanton-zuerich-zurich"
+        "verfahrensassistentin-verfahrensassistent-kanton-zuerich-zurich",
+        "verfahrensassistentin-verfahrensassistent-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -13364,7 +13451,7 @@
       "slug": "cuoco-cuoca-kantonale-verwaltung-zurich-lindau",
       "slugByLocale": {
         "it": "cuoco-cuoca-kantonale-verwaltung-zurich-lindau",
-        "en": "koch-kochin-kantonale-verwaltung-zurich-lindau",
+        "en": "cook-chef-kantonale-verwaltung-zurich-lindau",
         "de": "koch-kochin-kanton-zuerich-lindau",
         "fr": "cuisinier-cuisiniere-kantonale-verwaltung-zurich-lindau"
       },
@@ -13445,7 +13532,8 @@
         "koch-kochin-kanton-zuerich-hinwil",
         "cuire-faire-cuire-kantonale-verwaltung-zurich-hinwil",
         "cuisinier-cuisiniere-kantonale-verwaltung-zurich-hinwil",
-        "cook-chef-kantonale-verwaltung-zurich-lindau"
+        "cook-chef-kantonale-verwaltung-zurich-lindau",
+        "koch-kochin-kantonale-verwaltung-zurich-lindau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13459,7 +13547,8 @@
         ],
         "en": [
           "koch-kochin-kantonale-verwaltung-zurich-hinwil",
-          "cook-chef-kantonale-verwaltung-zurich-lindau"
+          "cook-chef-kantonale-verwaltung-zurich-lindau",
+          "koch-kochin-kantonale-verwaltung-zurich-lindau"
         ],
         "de": [
           "koch-kochin-kanton-zuerich-hinwil"
@@ -13492,7 +13581,7 @@
         "de": "personalwesen-business-partner-in-kantonale-verwaltung-zurich-zurich",
         "it": "risorse-umane-business-partner-in-kantonale-verwaltung-zurich-zurich",
         "en": "hr-business-partner-in-kanton-zuerich-zurich",
-        "fr": "hr-business-partner-in-kantonale-verwaltung-zurich-zurich"
+        "fr": "partenaire-d-affaires-rh-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -13560,10 +13649,14 @@
         ],
         "de": [
           "hr-business-partner-in-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "hr-business-partner-in-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "hr-business-partner-in-kanton-zuerich-zurich"
+        "hr-business-partner-in-kanton-zuerich-zurich",
+        "hr-business-partner-in-kantonale-verwaltung-zurich-zurich"
       ]
     },
     {
@@ -17519,7 +17612,7 @@
         "it": "controllore-medico-kantonale-verwaltung-zurich-zurich",
         "en": "medical-controller-kantonale-verwaltung-zurich-zurich",
         "de": "medizincontroller-in-kanton-zuerich-zurich",
-        "fr": "medizincontroller-in-kantonale-verwaltung-zurich"
+        "fr": "les-controleurs-medicaux-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -17600,8 +17693,7 @@
         "medizincontroller-in-kantonale-verwaltung-zurich-zurich",
         "medizincontroller-in-kantonale-verwaltung-zurich",
         "controleur-medical-kantonale-verwaltung-zurich-zurich",
-        "le-controleur-medical-kantonale-verwaltung-zurich-zurich",
-        "les-controleurs-medicaux-kantonale-verwaltung-zurich-zurich"
+        "le-controleur-medical-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17616,7 +17708,8 @@
           "controleur-medical-kantonale-verwaltung-zurich-zurich",
           "medizincontroller-in-kantonale-verwaltung-zurich-zurich",
           "le-controleur-medical-kantonale-verwaltung-zurich-zurich",
-          "les-controleurs-medicaux-kantonale-verwaltung-zurich-zurich"
+          "les-controleurs-medicaux-kantonale-verwaltung-zurich-zurich",
+          "medizincontroller-in-kantonale-verwaltung-zurich"
         ]
       },
       "firstSeenAt": "2026-08-19T09:50:22.960Z",

@@ -80,12 +80,12 @@
     },
     {
       "id": "marriott-535f8194dc78",
-      "slug": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
+      "slug": "cameriera-tress-brasserie-u-yama-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
-        "it": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
+        "it": "cameriera-tress-brasserie-u-yama-inverno-26-27-w-verbier-marriott-international-verbier",
         "de": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
-        "fr": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
+        "fr": "serveur-tress-brasserie-u-yama-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -162,10 +162,12 @@
           "morning-waiter-waitress-winter-26-27-w-verbier-marriott-international-verbier",
           "waiter-tress-morning-winter-26-27-w-verbier-marriott-verbier",
           "serveur-serveuse-matin-hiver-26-27-w-verbier-marriott-international-verbier",
-          "waiter-tress-morning-winter-26-27-w-verbier-marriott-international-verbier"
+          "waiter-tress-morning-winter-26-27-w-verbier-marriott-international-verbier",
+          "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
         ],
         "fr": [
-          "serveur-tress-brasserie-u-yama-hiver-26-27-w-verbier-marriott-international-verbier"
+          "serveur-tress-brasserie-u-yama-hiver-26-27-w-verbier-marriott-international-verbier",
+          "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
         ]
       },
       "previousSlugs": [
@@ -178,7 +180,8 @@
         "waiter-tress-morning-winter-26-27-w-verbier-marriott-verbier",
         "serveur-serveuse-matin-hiver-26-27-w-verbier-marriott-international-verbier",
         "waiter-tress-morning-winter-26-27-w-verbier-marriott-international-verbier",
-        "serveur-tress-brasserie-u-yama-hiver-26-27-w-verbier-marriott-international-verbier"
+        "serveur-tress-brasserie-u-yama-hiver-26-27-w-verbier-marriott-international-verbier",
+        "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
       ]
     },
     {
@@ -438,12 +441,12 @@
     },
     {
       "id": "marriott-c226a5696886",
-      "slug": "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier",
+      "slug": "spa-terapeuta-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier",
-        "it": "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier",
+        "it": "spa-terapeuta-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier",
         "de": "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier",
-        "fr": "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier"
+        "fr": "spa-therapeute-et-agent-de-bienvenue-spa-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -509,7 +512,18 @@
         }
       },
       "addressRegion": "WALLI",
-      "firstSeenAt": "2026-09-19T23:20:39.380Z"
+      "firstSeenAt": "2026-09-19T23:20:39.380Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier"
+      ]
     },
     {
       "id": "marriott-5cd1241a6795",
@@ -589,12 +603,12 @@
     },
     {
       "id": "marriott-de7add8ff9aa",
-      "slug": "revenue-manager-marriott-zurich",
+      "slug": "responsabile-delle-entrate-marriott-international-zurich",
       "slugByLocale": {
         "en": "revenue-manager-marriott-zurich",
-        "it": "revenue-manager-marriott-zurich",
+        "it": "responsabile-delle-entrate-marriott-international-zurich",
         "de": "revenue-manager-marriott-zurich",
-        "fr": "revenue-manager-marriott-zurich"
+        "fr": "directeur-des-recettes-marriott-international-zurich"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -666,19 +680,22 @@
         "it": [
           "responsabile-delle-entrate-marriott-international-zurich",
           "einnahmenmanager-marriott-international-zurich",
-          "gestionnaire-des-recettes-marriott-international-zurich"
+          "gestionnaire-des-recettes-marriott-international-zurich",
+          "revenue-manager-marriott-zurich"
         ],
         "de": [
           "einnahmenmanager-marriott-international-zurich"
         ],
         "fr": [
-          "gestionnaire-des-recettes-marriott-international-zurich"
+          "gestionnaire-des-recettes-marriott-international-zurich",
+          "revenue-manager-marriott-zurich"
         ]
       },
       "previousSlugs": [
         "responsabile-delle-entrate-marriott-international-zurich",
         "einnahmenmanager-marriott-international-zurich",
-        "gestionnaire-des-recettes-marriott-international-zurich"
+        "gestionnaire-des-recettes-marriott-international-zurich",
+        "revenue-manager-marriott-zurich"
       ]
     },
     {
@@ -924,12 +941,12 @@
     },
     {
       "id": "marriott-96b1ff964283",
-      "slug": "event-service-shiftleader-marriott-zurich",
+      "slug": "servizio-eventi-shiftleader-marriott-international-zurich-9b19fa",
       "slugByLocale": {
         "en": "event-service-shiftleader-marriott-zurich",
-        "it": "event-service-shiftleader-marriott-zurich",
+        "it": "servizio-eventi-shiftleader-marriott-international-zurich-9b19fa",
         "de": "event-service-shiftleader-marriott-zurich",
-        "fr": "event-service-shiftleader-marriott-zurich"
+        "fr": "chef-de-quart-de-service-d-evenement-marriott-international-zurich-9b19fa"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -996,16 +1013,27 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-19T23:20:39.372Z"
+      "firstSeenAt": "2026-09-19T23:20:39.372Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "event-service-shiftleader-marriott-zurich"
+        ],
+        "fr": [
+          "event-service-shiftleader-marriott-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "event-service-shiftleader-marriott-zurich"
+      ]
     },
     {
       "id": "marriott-af6920ea58fc",
-      "slug": "event-manager-marriott-zurich",
+      "slug": "gestione-eventi-marriott-international-zurich",
       "slugByLocale": {
         "en": "event-manager-marriott-zurich",
-        "it": "event-manager-marriott-zurich",
+        "it": "gestione-eventi-marriott-international-zurich",
         "de": "event-manager-marriott-zurich",
-        "fr": "event-manager-marriott-zurich"
+        "fr": "gestionnaire-d-evenements-marriott-international-zurich"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -1072,7 +1100,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-19T23:20:39.371Z"
+      "firstSeenAt": "2026-09-19T23:20:39.371Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "event-manager-marriott-zurich"
+        ],
+        "fr": [
+          "event-manager-marriott-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "event-manager-marriott-zurich"
+      ]
     },
     {
       "id": "marriott-327f8834b977",
@@ -1152,12 +1191,12 @@
     },
     {
       "id": "marriott-f8a1d54680c0",
-      "slug": "cook-apprentice-marriott-geneva",
+      "slug": "apprendista-di-cottura-marriott-international-geneva",
       "slugByLocale": {
         "fr": "cook-apprentice-marriott-geneva",
-        "it": "cook-apprentice-marriott-geneva",
+        "it": "apprendista-di-cottura-marriott-international-geneva",
         "en": "cook-apprentice-marriott-geneva",
-        "de": "cook-apprentice-marriott-geneva"
+        "de": "kochlehrling-marriott-international-geneva"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -1224,16 +1263,27 @@
         }
       },
       "addressRegion": "GE",
-      "firstSeenAt": "2026-09-19T23:20:39.365Z"
+      "firstSeenAt": "2026-09-19T23:20:39.365Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cook-apprentice-marriott-geneva"
+        ],
+        "de": [
+          "cook-apprentice-marriott-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "cook-apprentice-marriott-geneva"
+      ]
     },
     {
       "id": "marriott-533553381a65",
-      "slug": "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
+      "slug": "commissione-di-cucina-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
-        "it": "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
+        "it": "commissione-di-cucina-inverno-26-27-w-verbier-marriott-international-verbier",
         "de": "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
-        "fr": "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier"
+        "fr": "commission-de-cuisine-hiver-26-27-w-verbier-marriott-international-verbier-47647f"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -1300,14 +1350,25 @@
         }
       },
       "addressRegion": "WALLI",
-      "firstSeenAt": "2026-09-19T23:20:39.358Z"
+      "firstSeenAt": "2026-09-19T23:20:39.358Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier"
+      ]
     },
     {
       "id": "marriott-039532f703f0",
-      "slug": "commis-de-cuisine-a-la-carte-echo-marriott-zurich",
+      "slug": "commissione-di-cucina-a-la-carte-marriott-international-zurich-fe85fb",
       "slugByLocale": {
         "en": "commis-de-cuisine-a-la-carte-echo-marriott-zurich",
-        "it": "commis-de-cuisine-a-la-carte-echo-marriott-zurich",
+        "it": "commissione-di-cucina-a-la-carte-marriott-international-zurich-fe85fb",
         "de": "commis-de-cuisine-a-la-carte-echo-marriott-zurich",
         "fr": "commis-de-cuisine-a-la-carte-echo-marriott-zurich"
       },
@@ -1376,7 +1437,15 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-19T23:20:39.357Z"
+      "firstSeenAt": "2026-09-19T23:20:39.357Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-de-cuisine-a-la-carte-echo-marriott-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "commis-de-cuisine-a-la-carte-echo-marriott-zurich"
+      ]
     },
     {
       "id": "marriott-34d1477bb4e1",
@@ -2619,7 +2688,7 @@
       "slugByLocale": {
         "it": "servizio-eventi-shiftleader-marriott-international-zurich",
         "en": "event-service-shiftleader-marriott-zurich-yj09kn",
-        "de": "event-service-shiftleader-marriott-international-zurich",
+        "de": "schichtleiter-im-veranstaltungsdienst-marriott-international-zurich",
         "fr": "chef-de-quart-de-service-d-evenement-marriott-international-zurich"
       },
       "company": "Marriott International",
@@ -2672,7 +2741,7 @@
       },
       "previousSlugs": [
         "event-service-shiftleader-marriott-zurich",
-        "schichtleiter-im-veranstaltungsdienst-marriott-international-zurich"
+        "event-service-shiftleader-marriott-international-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2683,7 +2752,7 @@
         ],
         "de": [
           "event-service-shiftleader-marriott-zurich",
-          "schichtleiter-im-veranstaltungsdienst-marriott-international-zurich"
+          "event-service-shiftleader-marriott-international-zurich"
         ],
         "en": [
           "event-service-shiftleader-marriott-zurich"
@@ -2907,9 +2976,9 @@
       "id": "marriott-ae2a2cc7c199",
       "slug": "cook-apprendista-marriott-international-geneva",
       "slugByLocale": {
-        "it": "cook-apprendista-marriott-international-geneva",
+        "it": "cuocere-marriott-international-geneva",
         "en": "cook-apprentice-marriott-geneva-oq3p97",
-        "de": "kochlehrer-marriott-international-geneva",
+        "de": "kochlehrling-marriott-international-geneva",
         "fr": "cook-apprentice-marriott-international-geneva"
       },
       "company": "Marriott International",
@@ -2987,7 +3056,9 @@
         "chef-de-rang-marriott-geneva",
         "apparecchio-di-cottura-marriott-international-geneva",
         "cuocere-marriott-international-geneva",
-        "kochlehrling-marriott-international-geneva"
+        "kochlehrling-marriott-international-geneva",
+        "kochlehrer-marriott-international-geneva",
+        "cook-apprentice-marriott-geneva-oq3p97"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3008,18 +3079,19 @@
           "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
           "commis-de-cuisine-winter-26-27-w-verbier-marriott-international-verbier",
           "pastry-cook-winter-26-27-w-verbier-marriott-verbier",
-          "apparecchio-di-cottura-marriott-international-geneva",
-          "cuocere-marriott-international-geneva"
+          "apparecchio-di-cottura-marriott-international-geneva"
         ],
         "fr": [
           "cook-apprentice-marriott-geneva",
           "apprentis-cuisinier-marriott-international-geneva"
         ],
         "de": [
-          "kochlehrling-marriott-international-geneva"
+          "kochlehrling-marriott-international-geneva",
+          "kochlehrer-marriott-international-geneva"
         ],
         "en": [
-          "cook-apprentice-marriott-geneva"
+          "cook-apprentice-marriott-geneva",
+          "cook-apprentice-marriott-geneva-oq3p97"
         ]
       },
       "needsRetranslation": true,
@@ -3047,8 +3119,8 @@
       "slugByLocale": {
         "it": "responsabile-di-turno-e-qualita-a-lungo-termine-w-verbier-marriott-international-verbier",
         "en": "the-commission-has-decided-to-grant-aid-to-the-steel-industry-in-the-form-of-a-loan-of-ecu-1-million-marriott-international-verbier",
-        "de": "commis-de-cuisine-winter-26-27-w-verbier-marriott-international-verbier",
-        "fr": "commission-de-cuisine-hiver-26-27-w-verbier-marriott-international-verbier"
+        "de": "dienstleiter-qualitatsmanager-langfristig-w-verbier-marriott-international-verbier",
+        "fr": "responsable-de-service-et-qualite-long-terme-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -3102,7 +3174,8 @@
         "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
         "commis-de-cuisine-winter-26-27-w-verbier-marriott-international-verbier",
         "dienstleiter-qualitatsmanager-langfristig-w-verbier-marriott-international-verbier",
-        "responsable-de-service-et-qualite-long-terme-w-verbier-marriott-international-verbier"
+        "responsable-de-service-et-qualite-long-terme-w-verbier-marriott-international-verbier",
+        "commission-de-cuisine-hiver-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3113,11 +3186,13 @@
           "commis-de-cuisine-winter-26-27-w-verbier-marriott-international-verbier"
         ],
         "de": [
-          "dienstleiter-qualitatsmanager-langfristig-w-verbier-marriott-international-verbier"
+          "dienstleiter-qualitatsmanager-langfristig-w-verbier-marriott-international-verbier",
+          "commis-de-cuisine-winter-26-27-w-verbier-marriott-international-verbier"
         ],
         "fr": [
           "commis-de-cuisine-winter-26-27-w-verbier-marriott-international-verbier",
-          "responsable-de-service-et-qualite-long-terme-w-verbier-marriott-international-verbier"
+          "responsable-de-service-et-qualite-long-terme-w-verbier-marriott-international-verbier",
+          "commission-de-cuisine-hiver-26-27-w-verbier-marriott-international-verbier"
         ]
       },
       "firstSeenAt": "2026-09-10T23:23:18.808Z",
@@ -3234,8 +3309,8 @@
       "slugByLocale": {
         "it": "commissione-de-cuisine-banquets-marriott-international-zurich",
         "en": "commis-de-cuisine-banquets-marriott-zurich-m9fjx4",
-        "de": "commis-de-cuisine-banquets-marriott-zurich-m9fjx4",
-        "fr": "commis-de-cuisine-banquets-marriott-zurich-m9fjx4"
+        "de": "commis-de-cuisine-bankette-marriott-international-zurich",
+        "fr": "commission-de-cuisine-banquets-marriott-international-zurich"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -3286,7 +3361,8 @@
         "publishEndDate": ""
       },
       "previousSlugs": [
-        "commis-de-cuisine-banquets-marriott-zurich"
+        "commis-de-cuisine-banquets-marriott-zurich",
+        "commis-de-cuisine-banquets-marriott-zurich-m9fjx4"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3296,10 +3372,12 @@
           "commis-de-cuisine-banquets-marriott-zurich"
         ],
         "de": [
-          "commis-de-cuisine-banquets-marriott-zurich"
+          "commis-de-cuisine-banquets-marriott-zurich",
+          "commis-de-cuisine-banquets-marriott-zurich-m9fjx4"
         ],
         "fr": [
-          "commis-de-cuisine-banquets-marriott-zurich"
+          "commis-de-cuisine-banquets-marriott-zurich",
+          "commis-de-cuisine-banquets-marriott-zurich-m9fjx4"
         ]
       },
       "firstSeenAt": "2026-08-31T17:19:19.246Z",

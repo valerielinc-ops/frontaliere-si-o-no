@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "elektroplaner-3d-bim-m-w-d-80-100-wallisellen-zurich-elprom-ch",
         "it": "progettista-elettrico-a-3d-bim-m-w-d-80-100-elprom-wallisellen",
-        "en": "elektroplaner-3d-bim-m-w-d-80-100-wallisellen-zurich-elprom-ch",
-        "fr": "elektroplaner-3d-bim-m-w-d-80-100-wallisellen-zurich-elprom-ch"
+        "en": "electrical-planner-3d-bim-m-w-d-80-100-elprom-wallisellen-zurich",
+        "fr": "planificateur-trice-electrique-3d-bim-m-w-d-80-100-elprom-wallisellen-zurich"
       },
       "company": "elprom",
       "companyKey": "elprom",
@@ -69,6 +69,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroplaner-3d-bim-m-w-d-80-100-wallisellen-zurich-elprom-ch"
+        ],
+        "en": [
+          "elektroplaner-3d-bim-m-w-d-80-100-wallisellen-zurich-elprom-ch"
+        ],
+        "fr": [
           "elektroplaner-3d-bim-m-w-d-80-100-wallisellen-zurich-elprom-ch"
         ]
       },

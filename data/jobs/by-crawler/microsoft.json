@@ -50,13 +50,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "strategic-account-technology-strategist-s-ats-financial-services-insurance-microsoft",
-        "strategista-strategic-account-technology-s-ats-servizi-finanziari-assicurazione-microsoft-zurich"
+        "strategic-account-technology-strategist-s-ats-financial-services-insurance-microsoft"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "strategic-account-technology-strategist-s-ats-financial-services-insurance-microsoft",
-          "strategista-strategic-account-technology-s-ats-servizi-finanziari-assicurazione-microsoft-zurich"
+          "strategic-account-technology-strategist-s-ats-financial-services-insurance-microsoft"
         ],
         "fr": [
           "strategic-account-technology-strategist-s-ats-financial-services-insurance-microsoft"
@@ -130,17 +128,14 @@
       "firstSeenAt": "2026-08-10T10:28:35.165Z",
       "previousSlugsByLocale": {
         "it": [
-          "member-of-technical-staff-data-research-engineer-microsoft-zurich",
-          "member-of-technical-staff-software-engineer-microsoft-zurich"
+          "member-of-technical-staff-data-research-engineer-microsoft-zurich"
         ],
         "en": [
-          "member-of-technical-staff-data-research-engineer-microsoft-zurich",
-          "member-of-technical-staff-software-engineer-microsoft-zurich"
+          "member-of-technical-staff-data-research-engineer-microsoft-zurich"
         ]
       },
       "previousSlugs": [
-        "member-of-technical-staff-data-research-engineer-microsoft-zurich",
-        "member-of-technical-staff-software-engineer-microsoft-zurich"
+        "member-of-technical-staff-data-research-engineer-microsoft-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -231,7 +226,7 @@
         "en": "business-manager-account-team-unit-microsoft-zurich",
         "it": "business-manager-account-team-unit-microsoft-zurich",
         "de": "business-manager-account-team-unit-microsoft-zurich",
-        "fr": "business-manager-account-team-unit-microsoft-zurich"
+        "fr": "chef-d-entreprise-unite-de-l-equipe-de-comptabilite-microsoft-zurich"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -359,12 +354,12 @@
     },
     {
       "id": "microsoft-200056018",
-      "slug": "logistics-technician-microsoft-zurich",
+      "slug": "logistica-technician-microsoft-zurich",
       "slugByLocale": {
         "en": "logistics-technician-microsoft-zurich",
-        "it": "logistics-technician-microsoft-zurich",
-        "de": "logistics-technician-microsoft-zurich",
-        "fr": "logistics-technician-microsoft-zurich"
+        "it": "logistica-technician-microsoft-zurich",
+        "de": "logistik-techniker-microsoft-zurich",
+        "fr": "logistique-technicien-microsoft-zurich"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -421,7 +416,21 @@
       },
       "streetAddress": "The Circle 02",
       "postalCode": "8058",
-      "firstSeenAt": "2026-09-19T22:48:36.403Z"
+      "firstSeenAt": "2026-09-19T22:48:36.403Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logistics-technician-microsoft-zurich"
+        ],
+        "de": [
+          "logistics-technician-microsoft-zurich"
+        ],
+        "fr": [
+          "logistics-technician-microsoft-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "logistics-technician-microsoft-zurich"
+      ]
     },
     {
       "id": "microsoft-200053528",
@@ -475,8 +484,7 @@
         "customer-success-account-manager-microsoft-zurich-2",
         "customer-success-account-manager-microsoft-zurich",
         "gestione-account-di-successo-del-cliente-microsoft-zurich-906d96",
-        "gestionnaire-de-compte-de-reussite-client-microsoft-zurich-906d96",
-        "gestione-account-di-successo-del-cliente-microsoft-zurich"
+        "gestionnaire-de-compte-de-reussite-client-microsoft-zurich-906d96"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -484,8 +492,7 @@
           "customer-success-account-manager-microsoft-zurich-2",
           "customer-success-account-manager-microsoft-zurich",
           "gestione-account-di-successo-del-cliente-microsoft-zurich-906d96",
-          "gestionnaire-de-compte-de-reussite-client-microsoft-zurich-906d96",
-          "gestione-account-di-successo-del-cliente-microsoft-zurich"
+          "gestionnaire-de-compte-de-reussite-client-microsoft-zurich-906d96"
         ],
         "de": [
           "customer-success-account-manager-microsoft-zurich"

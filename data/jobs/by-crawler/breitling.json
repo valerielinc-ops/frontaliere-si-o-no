@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "breitling-857a8b77f06d",
-      "slug": "ingenieur-methodes-m-w-d-mission-temporaire-12-mois-breitling-la-chaux-de-fonds",
+      "slug": "metodi-di-ingegnere-m-f-x-missione-temporanea-12-mesi-breitling-la-chaux-de-fonds-ne",
       "slugByLocale": {
         "fr": "ingenieur-methodes-f-m-x-mission-temporaire-12-mois-breitling-la-chaux-de-fonds-ne",
-        "it": "ingenieur-methodes-m-w-d-mission-temporaire-12-mois-breitling-la-chaux-de-fonds",
-        "en": "ingenieur-methodes-f-m-x-mission-temporaire-12-mois-breitling-la-chaux-de-fonds-ne",
-        "de": "ingenieur-methodes-f-m-x-mission-temporaire-12-mois-breitling-la-chaux-de-fonds-ne"
+        "it": "metodi-di-ingegnere-m-f-x-missione-temporanea-12-mesi-breitling-la-chaux-de-fonds-ne",
+        "en": "engineer-methods-m-f-x-temporary-mission-12-months-breitling-la-chaux-de-fonds-ne",
+        "de": "ingenieur-methoden-m-w-x-temporare-mission-12-monate-breitling-la-chaux-de-fonds-ne"
       },
       "company": "Breitling",
       "companyKey": "breitling",
@@ -56,11 +56,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "ingenieur-methodes-f-m-x-mission-temporaire-12-mois-breitling-la-chaux-de-fonds-ne",
+          "ingenieur-methodes-m-w-d-mission-temporaire-12-mois-breitling-la-chaux-de-fonds"
+        ],
+        "en": [
+          "ingenieur-methodes-f-m-x-mission-temporaire-12-mois-breitling-la-chaux-de-fonds-ne"
+        ],
+        "de": [
           "ingenieur-methodes-f-m-x-mission-temporaire-12-mois-breitling-la-chaux-de-fonds-ne"
         ]
       },
       "previousSlugs": [
-        "ingenieur-methodes-f-m-x-mission-temporaire-12-mois-breitling-la-chaux-de-fonds-ne"
+        "ingenieur-methodes-f-m-x-mission-temporaire-12-mois-breitling-la-chaux-de-fonds-ne",
+        "ingenieur-methodes-m-w-d-mission-temporaire-12-mois-breitling-la-chaux-de-fonds"
       ],
       "salaryMin": 72000,
       "salaryMax": 110500,
@@ -79,12 +87,12 @@
     },
     {
       "id": "breitling-661e0a237872",
-      "slug": "movement-purchasing-manager-f-m-x-breitling-la-chaux-de-fonds-ne",
+      "slug": "gestione-dell-acquisto-del-movimento-m-f-x-breitling-la-chaux-de-fonds-ne",
       "slugByLocale": {
         "en": "movement-purchasing-manager-f-m-x-breitling-la-chaux-de-fonds-ne",
-        "it": "movement-purchasing-manager-f-m-x-breitling-la-chaux-de-fonds-ne",
-        "de": "movement-purchasing-manager-f-m-x-breitling-la-chaux-de-fonds-ne",
-        "fr": "movement-purchasing-manager-f-m-x-breitling-la-chaux-de-fonds-ne"
+        "it": "gestione-dell-acquisto-del-movimento-m-f-x-breitling-la-chaux-de-fonds-ne",
+        "de": "bewegungskaufmanager-m-w-x-breitling-la-chaux-de-fonds-ne",
+        "fr": "gestionnaire-des-achats-de-mouvements-h-f-x-breitling-la-chaux-de-fonds-ne"
       },
       "company": "Breitling",
       "companyKey": "breitling",
@@ -142,7 +150,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:48:52.827Z"
+      "firstSeenAt": "2026-09-19T22:48:52.827Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "movement-purchasing-manager-f-m-x-breitling-la-chaux-de-fonds-ne"
+        ],
+        "de": [
+          "movement-purchasing-manager-f-m-x-breitling-la-chaux-de-fonds-ne"
+        ],
+        "fr": [
+          "movement-purchasing-manager-f-m-x-breitling-la-chaux-de-fonds-ne"
+        ]
+      },
+      "previousSlugs": [
+        "movement-purchasing-manager-f-m-x-breitling-la-chaux-de-fonds-ne"
+      ]
     },
     {
       "id": "breitling-c79d49ef26da",
@@ -197,14 +219,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "controleur-polyvalent-composants-mouvement-f-m-x-breitling-la-chaux-de-fonds-ne",
-        "controleur-polyvalent-composants-mouvement-h-m-x-breitling-la-chaux-de-fonds-ne",
-        "multiuso-controllore-componenti-movimento-m-f-x-breitling-la-chaux-de-fonds-ne"
+        "controleur-polyvalent-composants-mouvement-h-m-x-breitling-la-chaux-de-fonds-ne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "controleur-polyvalent-composants-mouvement-f-m-x-breitling-la-chaux-de-fonds-ne",
-          "controleur-polyvalent-composants-mouvement-h-m-x-breitling-la-chaux-de-fonds-ne",
-          "multiuso-controllore-componenti-movimento-m-f-x-breitling-la-chaux-de-fonds-ne"
+          "controleur-polyvalent-composants-mouvement-h-m-x-breitling-la-chaux-de-fonds-ne"
         ],
         "en": [
           "controleur-polyvalent-composants-mouvement-f-m-x-breitling-la-chaux-de-fonds-ne",
@@ -361,13 +381,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicien-ne-qualite-assemblage-mouvement-f-m-x-breitling-la-chaux-de-fonds-ne",
-        "technician-ne-movimento-di-assemblaggio-di-qualita-f-m-x-breitling-la-chaux-de-fonds-ne"
+        "technicien-ne-qualite-assemblage-mouvement-f-m-x-breitling-la-chaux-de-fonds-ne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-ne-qualite-assemblage-mouvement-f-m-x-breitling-la-chaux-de-fonds-ne",
-          "technician-ne-movimento-di-assemblaggio-di-qualita-f-m-x-breitling-la-chaux-de-fonds-ne"
+          "technicien-ne-qualite-assemblage-mouvement-f-m-x-breitling-la-chaux-de-fonds-ne"
         ],
         "en": [
           "technicien-ne-qualite-assemblage-mouvement-f-m-x-breitling-la-chaux-de-fonds-ne"
@@ -443,13 +461,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manager-machines-garnissage-t0-m-f-x-breitling-la-chaux-de-fonds-ne",
-        "rivestimento-delle-macchine-di-gestione-t0-m-f-x-breitling-la-chaux-de-fonds-ne"
+        "manager-machines-garnissage-t0-m-f-x-breitling-la-chaux-de-fonds-ne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-machines-garnissage-t0-m-f-x-breitling-la-chaux-de-fonds-ne",
-          "rivestimento-delle-macchine-di-gestione-t0-m-f-x-breitling-la-chaux-de-fonds-ne"
+          "manager-machines-garnissage-t0-m-f-x-breitling-la-chaux-de-fonds-ne"
         ],
         "de": [
           "manager-machines-garnissage-t0-m-f-x-breitling-la-chaux-de-fonds-ne"
@@ -477,7 +493,7 @@
         "en": "universal-geneve-senior-editor-f-m-x-breitling-geneva-ge",
         "it": "universal-geneve-senior-editor-f-m-x-breitling-geneva-ge",
         "de": "universal-geneve-senior-editor-f-m-x-breitling-geneva-ge",
-        "fr": "universal-geneve-senior-editor-f-m-x-breitling-geneva-ge"
+        "fr": "universal-geneve-editeur-principal-h-f-x-breitling-geneva-ge"
       },
       "company": "Breitling",
       "companyKey": "breitling",
@@ -657,20 +673,16 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "universal-geneve-customer-service-ambassador-meyrin-f-m-x-breitling-geneva-ge",
-          "universal-geneve-conciergerie-ambassador-meyrin-f-m-x-breitling-geneva-ge"
+          "universal-geneve-customer-service-ambassador-meyrin-f-m-x-breitling-geneva-ge"
         ],
         "it": [
           "universal-geneve-customer-service-ambassador-meyrin-f-m-x-breitling-geneva-ge",
-          "universal-geneve-ambasciatrice-della-conciergerie-meyrin-f-m-x-breitling-geneva",
-          "universal-geneve-ambasciatore-conciergerie-meyrin-f-m-x-breitling-geneva"
+          "universal-geneve-ambasciatrice-della-conciergerie-meyrin-f-m-x-breitling-geneva"
         ]
       },
       "previousSlugs": [
         "universal-geneve-customer-service-ambassador-meyrin-f-m-x-breitling-geneva-ge",
-        "universal-geneve-ambasciatrice-della-conciergerie-meyrin-f-m-x-breitling-geneva",
-        "universal-geneve-conciergerie-ambassador-meyrin-f-m-x-breitling-geneva-ge",
-        "universal-geneve-ambasciatore-conciergerie-meyrin-f-m-x-breitling-geneva"
+        "universal-geneve-ambasciatrice-della-conciergerie-meyrin-f-m-x-breitling-geneva"
       ],
       "firstSeenAt": "2026-09-10T23:04:54.921Z",
       "salaryMin": 72000,
@@ -738,13 +750,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "universal-geneve-visual-merchandising-manager-f-m-x-breitling-geneva-ge",
-        "ginevra-universale-responsabile-visual-merchandising-f-m-x-breitling-geneva-ge"
+        "universal-geneve-visual-merchandising-manager-f-m-x-breitling-geneva-ge"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "universal-geneve-visual-merchandising-manager-f-m-x-breitling-geneva-ge",
-          "ginevra-universale-responsabile-visual-merchandising-f-m-x-breitling-geneva-ge"
+          "universal-geneve-visual-merchandising-manager-f-m-x-breitling-geneva-ge"
         ],
         "fr": [
           "universal-geneve-visual-merchandising-manager-f-m-x-breitling-geneva-ge"
@@ -816,13 +826,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "universal-geneve-client-advisor-geneva-flagship-f-m-x-breitling-geneva-ge",
-        "universal-geneve-client-consulente-geneva-flagship-f-m-x-breitling-geneva"
+        "universal-geneve-client-advisor-geneva-flagship-f-m-x-breitling-geneva-ge"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "universal-geneve-client-advisor-geneva-flagship-f-m-x-breitling-geneva-ge",
-          "universal-geneve-client-consulente-geneva-flagship-f-m-x-breitling-geneva"
+          "universal-geneve-client-advisor-geneva-flagship-f-m-x-breitling-geneva-ge"
         ],
         "de": [
           "universal-geneve-client-advisor-geneva-flagship-f-m-x-breitling-geneva-ge"
@@ -899,14 +907,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "universal-geneve-grand-vendeur-geneva-flagship-f-m-x-breitling-geneva-ge",
-        "universal-geneve-grand-vendeur-geneva-flagship-m-w-d-breitling-geneva",
-        "universal-geneve-grand-vendeur-nave-ammiraglia-di-ginevra-m-w-d-breitling-geneva"
+        "universal-geneve-grand-vendeur-geneva-flagship-m-w-d-breitling-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "universal-geneve-grand-vendeur-geneva-flagship-f-m-x-breitling-geneva-ge",
-          "universal-geneve-grand-vendeur-geneva-flagship-m-w-d-breitling-geneva",
-          "universal-geneve-grand-vendeur-nave-ammiraglia-di-ginevra-m-w-d-breitling-geneva"
+          "universal-geneve-grand-vendeur-geneva-flagship-m-w-d-breitling-geneva"
         ],
         "de": [
           "universal-geneve-grand-vendeur-geneva-flagship-f-m-x-breitling-geneva-ge"
@@ -929,12 +935,12 @@
     },
     {
       "id": "breitling-e3d6aca8307c",
-      "slug": "hse-working-student-50-6-months-f-m-x-breitling-grenchen-so",
+      "slug": "hse-studente-di-lavoro-50-6-mesi-m-f-x-breitling-grenchen-so",
       "slugByLocale": {
         "en": "hse-working-student-50-6-months-f-m-x-breitling-grenchen-so",
-        "it": "hse-working-student-50-6-months-f-m-x-breitling-grenchen-so",
+        "it": "hse-studente-di-lavoro-50-6-mesi-m-f-x-breitling-grenchen-so",
         "de": "hse-working-student-50-6-months-f-m-x-breitling-grenchen-so",
-        "fr": "hse-working-student-50-6-months-f-m-x-breitling-grenchen-so"
+        "fr": "etudiant-en-sse-50-6-mois-h-f-x-breitling-grenchen-so"
       },
       "company": "Breitling",
       "companyKey": "breitling",
@@ -992,7 +998,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:48:48.524Z"
+      "firstSeenAt": "2026-09-19T22:48:48.524Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hse-working-student-50-6-months-f-m-x-breitling-grenchen-so"
+        ],
+        "fr": [
+          "hse-working-student-50-6-months-f-m-x-breitling-grenchen-so"
+        ]
+      },
+      "previousSlugs": [
+        "hse-working-student-50-6-months-f-m-x-breitling-grenchen-so"
+      ]
     },
     {
       "id": "breitling-0933adfb42c1",
@@ -1046,13 +1063,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hr-specialist-apprenticeship-vocational-training-60-m-f-x-breitling-grenchen-so",
-        "risorse-umane-specialista-apprendistato-vocational-training-60-m-f-x-breitling-grenchen-so"
+        "hr-specialist-apprenticeship-vocational-training-60-m-f-x-breitling-grenchen-so"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-specialist-apprenticeship-vocational-training-60-m-f-x-breitling-grenchen-so",
-          "risorse-umane-specialista-apprendistato-vocational-training-60-m-f-x-breitling-grenchen-so"
+          "hr-specialist-apprenticeship-vocational-training-60-m-f-x-breitling-grenchen-so"
         ],
         "de": [
           "hr-specialist-apprenticeship-vocational-training-60-m-f-x-breitling-grenchen-so"
@@ -1127,13 +1142,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "trade-marketing-intern-12-months-f-m-x-breitling-grenchen-so",
-        "trade-marketing-tirocinante-12-months-f-m-x-breitling-grenchen"
+        "trade-marketing-intern-12-months-f-m-x-breitling-grenchen-so"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trade-marketing-intern-12-months-f-m-x-breitling-grenchen-so",
-          "trade-marketing-tirocinante-12-months-f-m-x-breitling-grenchen"
+          "trade-marketing-intern-12-months-f-m-x-breitling-grenchen-so"
         ],
         "de": [
           "trade-marketing-intern-12-months-f-m-x-breitling-grenchen-so"
@@ -1209,14 +1222,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sales-associate-70-100-lucerne-boutique-breitling-luzern-lu",
-        "sales-associate-70-lucerne-boutique-breitling-luzern-lu",
-        "vendite-associate-70-100-lucerne-boutique-breitling-luzern"
+        "sales-associate-70-lucerne-boutique-breitling-luzern-lu"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sales-associate-70-100-lucerne-boutique-breitling-luzern-lu",
-          "sales-associate-70-lucerne-boutique-breitling-luzern-lu",
-          "vendite-associate-70-100-lucerne-boutique-breitling-luzern"
+          "sales-associate-70-lucerne-boutique-breitling-luzern-lu"
         ],
         "en": [
           "sales-associate-70-lucerne-boutique-breitling-luzern-lu"
