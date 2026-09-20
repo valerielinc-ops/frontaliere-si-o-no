@@ -23,6 +23,27 @@
  * Changing the REPRESENTATION here would break the parity with `sha256sum`
  * that the corpus' shell depends on, so the alignment goes in this direction
  * and not the other one.
+ *
+ * PERCHE' GLI SCHEMI RITIRATI RESTANO ACCETTATI IN VERIFICA (2026-09-20).
+ * Produttore e verificatore del marker non girano dallo stesso codice: la
+ * review nasce da un job che ha fatto checkout del BRANCH della PR, mentre il
+ * guard del native auto-merge gira da `main` perche' deve essere fidato. Nel
+ * momento in cui un cambio di schema entra in `main`, ogni review gia' emessa
+ * porta il digest vecchio e il guard ne calcola uno nuovo: i due non possono
+ * combaciare finche' qualcuno non ribasa il branch. Non e' un'ipotesi —
+ * misurato il 2026-09-19: il merge di #9328 alle 23:35:32Z ha fatto rifiutare
+ * con «nessuna review bot verificabile» TUTTE e 6 le PR aperte, una delle
+ * quali e' rimasta ferma 74 minuti pur avendo `## LGTM` e tutti i check verdi,
+ * e l'unico rimedio e' stato un `git merge origin/main` a mano su ogni branch.
+ *
+ * Il rimedio non indebolisce niente. Un digest vecchio resta una funzione
+ * resistente alle collisioni degli STESSI byte del body: una review che porta
+ * `sha256(body)` dimostra di aver visto quel body esattamente quanto una che
+ * porta `sha256(body + "\n")`. Cambia soltanto quante rappresentazioni dello
+ * stesso body il verificatore sa riconoscere. Per questo si EMETTE sempre e
+ * solo con `REVIEW_INPUT_SERIALIZATIONS[0]`, mentre in verifica si accettano
+ * anche le voci ritirate: aggiungere uno schema non moltiplica i marker in
+ * circolazione, li rende solo leggibili.
  */
 import { createHash } from 'node:crypto';
 import { readFileSync, realpathSync } from 'node:fs';
@@ -37,6 +58,34 @@ export function normalizeReviewInputRevision(value) {
 }
 
 /**
+ * Le rappresentazioni del body che un marker puo' portare.
+ *
+ * La PRIMA e' quella con cui si emette, sempre e solo: aggiungere una voce non
+ * crea marker nuovi in circolazione. Le successive sono schemi RITIRATI che il
+ * verificatore continua a riconoscere, perche' i marker gia' scritti sulle
+ * review in volo non si riscrivono da soli (vedi l'intestazione del file).
+ *
+ * Togliere una voce ritirata e' lecito quando nessuna PR aperta puo' piu'
+ * portarne il marker — in pratica, quando tutte le review emesse prima della
+ * data di ritiro sono state sostituite. Toglierla prima riapre esattamente
+ * l'incidente del 2026-09-19.
+ */
+export const REVIEW_INPUT_SERIALIZATIONS = Object.freeze([
+  Object.freeze({
+    id: 'jq-newline',
+    retiredOn: null,
+    reason: 'la serializzazione di `gh api --jq`: il body piu\' il newline che jq scrive dopo. E\' cio\' che `sha256sum "$BODY_FILE"` nel tests.yml del corpus digerisce.',
+    serialize: (body) => `${body}\n`,
+  }),
+  Object.freeze({
+    id: 'raw-body',
+    retiredOn: '2026-09-20',
+    reason: 'il body senza il newline finale. Ritirata da #9328 perche\' non corrispondeva al produttore; le review emesse prima di quel merge la portano ancora.',
+    serialize: (body) => body,
+  }),
+]);
+
+/**
  * The `gh api --jq` serialization of a PR body: the string plus the newline
  * that jq writes after it. Exported so a test can pin the representation
  * itself, not only the hex it produces.
@@ -45,19 +94,40 @@ export function normalizeReviewInputRevision(value) {
  * @returns {string}
  */
 export function reviewInputSerialization(body) {
-  return `${body}\n`;
+  return REVIEW_INPUT_SERIALIZATIONS[0].serialize(body);
 }
 
-export function reviewInputRevisionFromBody(body) {
-  if (typeof body !== 'string') throw new TypeError('PR body must be a string');
+function revisionFor(serialization, body) {
   const digest = createHash('sha256')
-    .update(reviewInputSerialization(body), 'utf8')
+    .update(serialization.serialize(body), 'utf8')
     .digest('hex');
   const revision = `body:${digest}`;
   if (!REVIEW_INPUT_REVISION_RE.test(revision)) {
     throw new Error('PR body revision digest is malformed');
   }
   return revision;
+}
+
+export function reviewInputRevisionFromBody(body) {
+  if (typeof body !== 'string') throw new TypeError('PR body must be a string');
+  return revisionFor(REVIEW_INPUT_SERIALIZATIONS[0], body);
+}
+
+/**
+ * Tutte le revision che un marker puo' legittimamente portare per QUESTO body:
+ * quella corrente per prima, poi quelle degli schemi ritirati.
+ *
+ * Da usare nei consumer che verificano un marker prodotto da un altro
+ * checkout — il guard del native auto-merge, il recupero dei marker, il
+ * custode delle PR orfane. Chi EMETTE un marker usa
+ * `reviewInputRevisionFromBody`, che resta a schema singolo.
+ *
+ * @param {string} body
+ * @returns {string[]}
+ */
+export function acceptedReviewInputRevisionsFromBody(body) {
+  if (typeof body !== 'string') throw new TypeError('PR body must be a string');
+  return REVIEW_INPUT_SERIALIZATIONS.map((serialization) => revisionFor(serialization, body));
 }
 
 /** Validate the exact API shape before hashing; null is GitHub's empty body. */
@@ -70,6 +140,12 @@ export function reviewInputRevisionFromPullRequest(value) {
     throw new TypeError('PR body is not a string or null');
   }
   return reviewInputRevisionFromBody(value.body ?? '');
+}
+
+/** Come `acceptedReviewInputRevisionsFromBody`, ma dalla risposta API di una PR. */
+export function acceptedReviewInputRevisionsFromPullRequest(value) {
+  reviewInputRevisionFromPullRequest(value);
+  return acceptedReviewInputRevisionsFromBody(value.body ?? '');
 }
 
 export function reviewInputMarker(revision) {
@@ -94,10 +170,52 @@ export function reviewInputRevisions(body) {
     .filter(Boolean);
 }
 
+/**
+ * Normalizza l'atteso, che puo' essere una revision sola o l'elenco degli
+ * schemi accettati. Una voce non valida viene scartata, non tollerata: un
+ * elenco che si riduce a vuoto fa fallire la verifica, come prima.
+ *
+ * @param {string|string[]} expectedRevision
+ * @returns {string[]}
+ */
+export function acceptedReviewInputRevisions(expectedRevision) {
+  const values = Array.isArray(expectedRevision) ? expectedRevision : [expectedRevision];
+  return [...new Set(values.map(normalizeReviewInputRevision).filter(Boolean))];
+}
+
+/**
+ * Variante per i guard che fanno `normalizeReviewInputRevision(x) || return`:
+ * accetta anche l'elenco degli schemi e restituisce un valore che
+ * `reviewHasInputRevision` sa consumare, oppure `''` quando non resta niente di
+ * valido — cosi' quei guard continuano a chiudere sul falsy come prima.
+ *
+ * @param {string|string[]} expectedRevision
+ * @returns {string|string[]}
+ */
+export function normalizeReviewInputRevisionInput(expectedRevision) {
+  if (!Array.isArray(expectedRevision)) return normalizeReviewInputRevision(expectedRevision);
+  const accepted = acceptedReviewInputRevisions(expectedRevision);
+  return accepted.length > 0 ? accepted : '';
+}
+
+/**
+ * Il marker della review corrisponde al body atteso.
+ *
+ * `expectedRevision` puo' essere una revision sola — i chiamanti storici — o
+ * l'elenco prodotto da `acceptedReviewInputRevisionsFromBody`, per i consumer
+ * che verificano un marker emesso da un altro checkout. Il contratto duro non
+ * cambia: la review deve portare ESATTAMENTE un marker, e quel marker deve
+ * essere una rappresentazione del body atteso. Un marker di un body diverso
+ * resta rifiutato da ogni schema, perche' ogni schema e' una funzione
+ * resistente alle collisioni degli stessi byte.
+ *
+ * @param {string} body corpo della review
+ * @param {string|string[]} expectedRevision
+ */
 export function reviewHasInputRevision(body, expectedRevision) {
-  const expected = normalizeReviewInputRevision(expectedRevision);
+  const expected = acceptedReviewInputRevisions(expectedRevision);
   const revisions = reviewInputRevisions(body);
-  return Boolean(expected) && revisions.length === 1 && revisions[0] === expected;
+  return expected.length > 0 && revisions.length === 1 && expected.includes(revisions[0]);
 }
 
 function readJsonFile(path) {
