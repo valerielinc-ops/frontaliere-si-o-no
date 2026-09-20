@@ -251,6 +251,11 @@ describe('il workflow osservatore: forma pinnata', () => {
     expect(WF.concurrency['cancel-in-progress']).toBe(false);
   });
 
+  it('usa una coda distinta per ogni run osservata', () => {
+    expect(String(WF.concurrency.group)).toContain('github.event.workflow_run.id');
+    expect(String(WF.concurrency.group)).toContain('github.run_id');
+  });
+
   it('apre e chiude lo STESSO titolo — il dedup e la chiusura sono la stessa chiave', () => {
     const opener = WF_RAW.match(/--title "([^"]+)"[\s\S]{0,400}?--priority/);
     const resolver = WF_RAW.match(/--resolve[\s\S]{0,200}?--title "([^"]+)"/);

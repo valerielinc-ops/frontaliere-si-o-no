@@ -64,10 +64,11 @@ on:
         type: boolean
 
 concurrency:
-  # Serializza, non collassa: due run di deploy che falliscono a pochi secondi
-  # di distanza devono essere osservate entrambe. `cancel-in-progress: true`
-  # perderebbe proprio il primo allarme di una serie.
-  group: deploy-failure-alarm
+  # Una chiave distinta per ogni run osservata evita che due eventi ravvicinati
+  # condividano l'unico slot pending del gruppo globale di GitHub Actions.
+  # `github.run_id` copre anche il replay manuale quando manca l'evento
+  # `workflow_run`; `cancel-in-progress: false` conserva ogni coda per-run.
+  group: deploy-failure-alarm-${{ github.event.workflow_run.id || inputs.run_id || github.run_id }}
   cancel-in-progress: false
 
 permissions:
