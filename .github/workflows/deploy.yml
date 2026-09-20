@@ -174,39 +174,15 @@ jobs:
           PROMOTION_HEAD_SHA: ${{ github.sha }}
         run: node scripts/ci/production-promotion-gate.mjs trigger
 
-  # The Pages/shard environments provide deployment credentials; this separate
-  # environment is the human approval boundary for production promotion.
-  production-approval:
-    name: approve production promotion
-    needs: validate-promotion-trigger
-    if: needs.validate-promotion-trigger.result == 'success'
-    runs-on: ubuntu-latest
-    environment:
-      name: production-deploy
-    permissions:
-      contents: read
-      deployments: read
-    steps:
-      - name: Checkout promotion gate
-        uses: actions/checkout@v5
-        with:
-          sparse-checkout: |
-            /scripts/ci/production-promotion-gate.mjs
-          sparse-checkout-cone-mode: false
-      - name: Verify required reviewers and environment attestation
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PROMOTION_REPOSITORY: ${{ github.repository }}
-          PROMOTION_ENVIRONMENT_NAME: production-deploy
-          PRODUCTION_DEPLOY_APPROVAL: ${{ secrets.PRODUCTION_DEPLOY_APPROVAL }}
-        run: |
-          set -euo pipefail
-          gh api --method GET \
-            "repos/${PROMOTION_REPOSITORY}/environments/${PROMOTION_ENVIRONMENT_NAME}" \
-            | node scripts/ci/production-promotion-gate.mjs approval
+  # No human-approval environment gates this pipeline: the owner's 16/09
+  # decision is that PRs and deploys flow without a human veto (the deny
+  # control-plane survives only on the issue surface). Admission stays
+  # fail-closed through `validate-promotion-trigger` and the workflow-identity
+  # checks, which are provable from the run context and need no reviewer.
+  # See tests/deploy-no-human-approval-gate.test.ts before adding one back.
 
   matrix-setup:
-    needs: [validate-promotion-trigger, production-approval]
+    needs: [validate-promotion-trigger]
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.build.outputs.matrix }}
@@ -362,7 +338,7 @@ jobs:
   # ── Matrix build: one runner per locale. IT serves Pages + uploads the same
   # artifacts as the monolith; en/de/fr push to their frontaliere-<loc> shards.
   build-locale:
-    needs: [matrix-setup, prep, production-approval]
+    needs: [matrix-setup, prep]
     runs-on: ubuntu-latest
     # No per-job concurrency: the workflow-level `pages-build-run` group already
     # guarantees a single build run at a time, so this run's 4 legs never race
@@ -3171,8 +3147,10 @@ jobs:
   # once per superseded commit. See that file's header for the full argument.
   # ───────────────────────────────────────────────────────────────────────
   rearm:
-    needs: [matrix-setup, prep, production-approval, build-locale]
-    if: always() && github.ref == 'refs/heads/main' && needs.production-approval.result == 'success'
+    needs: [validate-promotion-trigger, matrix-setup, prep, build-locale]
+    # `always()` bypasses the implicit needs-success gate, so admission is
+    # re-asserted explicitly here against the fail-closed trigger check.
+    if: always() && github.ref == 'refs/heads/main' && needs.validate-promotion-trigger.result == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
