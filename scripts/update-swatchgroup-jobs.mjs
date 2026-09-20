@@ -16,6 +16,7 @@ import {
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang } from './lib/dedicated-crawler-common.mjs';
+import { holdSourceLang } from './lib/job-locale-utils.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import {
@@ -114,8 +115,8 @@ function ensureSourceLang(companyKeys) {
   let changed = 0;
   for (const job of jobs) {
     if (!isSwatchJob(job, swatchKeysSet)) continue;
-    const lang = detectLang(job.description || job.title, 'de');
-    if (job.sourceLang !== lang) { job.sourceLang = lang; changed++; }
+    const heldLang = holdSourceLang(job, job.description || job.title, 'de');
+    if (job.sourceLang !== heldLang) { job.sourceLang = heldLang; changed++; }
   }
   if (changed > 0) {
     writeJsonAtomic(DATA_JOBS, jobs);

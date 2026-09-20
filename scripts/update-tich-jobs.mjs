@@ -46,6 +46,7 @@ import {
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang } from './lib/dedicated-crawler-common.mjs';
+import { holdSourceLang } from './lib/job-locale-utils.mjs';
 import { parseTichDetailPage, titleOverlap, MIN_TICH_DESC_LENGTH } from './lib/tich-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -278,7 +279,7 @@ function postProcessTichJobs() {
     job.companyKey = TICH_KEY;
     job.companyDomain = 'concorsi.ti.ch';
     job.canton = HQ.canton;
-    job.sourceLang = detectLang(job.description || job.title, 'it');
+    job.sourceLang = holdSourceLang(job, job.description || job.title, 'it');
 
     const normalizedTitle = normalizeTichTitle(job.title || '');
     if (normalizedTitle) {

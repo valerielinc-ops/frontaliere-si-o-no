@@ -49,6 +49,7 @@ import {
   parseRaiffeisenDetailPage,
   MIN_DESC_LENGTH,
 } from './lib/raiffeisen-vc-job-parser.mjs';
+import { holdSourceLang } from './lib/job-locale-utils.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -358,8 +359,8 @@ function ensureSourceLang() {
   let changed = 0;
   for (const job of jobs) {
     if (!isRaiffeisenVCJob(job)) continue;
-    const lang = detectLang(job.description || job.title, 'it');
-    if (job.sourceLang !== lang) { job.sourceLang = lang; changed++; }
+    const heldLang = holdSourceLang(job, job.description || job.title, 'it');
+    if (job.sourceLang !== heldLang) { job.sourceLang = heldLang; changed++; }
   }
   if (changed > 0) {
     writeJsonAtomic(DATA_JOBS, jobs);
@@ -394,7 +395,7 @@ function patchDescriptionsFromDetailBodies(detailBodies) {
     // Only update if the new body is meaningfully longer (> 10% gain)
     if (newLen > currentLen * 1.1 || currentLen < MIN_DESC_LENGTH) {
       job.description = body.descriptionText;
-      job.sourceLang = detectLang(body.descriptionText || job.title, 'it');
+      job.sourceLang = holdSourceLang(job, body.descriptionText || job.title, 'it');
       // Update English locale description too
       if (job.descriptionByLocale?.en) {
         job.descriptionByLocale.en = body.descriptionText;

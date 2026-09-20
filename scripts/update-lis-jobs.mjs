@@ -40,6 +40,7 @@ import {
 } from './lib/lis-lugano-istituti-sociali-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
+import { holdSourceLang } from './lib/job-locale-utils.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -744,7 +745,7 @@ async function cleanLisJobs() {
     }
 
     // ── sourceLang ──
-    job.sourceLang = detectLang(job.description || job.title);
+    job.sourceLang = holdSourceLang(job, job.description || job.title, 'it');
 
     // Canonical source for LIS should be Italian when available.
     const canonicalItDesc = String(job.descriptionByLocale?.it || '').trim();
