@@ -3293,6 +3293,99 @@ jobs:
           done
           printf 'final_root=%s\n' "$policy_root" >> "$GITHUB_OUTPUT"
 
+      - name: Repair missing Codex review marker (zero-agent)
+        id: review_marker_repair
+        # The model may post a clean, current App review while omitting only
+        # the provenance marker requested in its prompt (observed on #9346).
+        # Repair that formatting defect deterministically; never rerun the
+        # model and never copy a stale, red, or ambiguous verdict.
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.codex_review.outputs.primary_success == 'true' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true') }}
+        env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
+          HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
+          REVIEW_REVISION: ${{ steps.review_input.outputs.review_revision }}
+          REVIEW_POLICY_ROOT: ${{ steps.review_policy_final.outputs.final_root }}
+        run: |
+          set -euo pipefail
+          reviews_file="${RUNNER_TEMP}/review-marker-repair-${GITHUB_RUN_ID}.json"
+          decision_file="${RUNNER_TEMP}/review-marker-repair-${GITHUB_RUN_ID}.decision.json"
+          body_file="${RUNNER_TEMP}/review-marker-repair-${GITHUB_RUN_ID}.md"
+          # This PR can be the first publisher of the repair helper itself.
+          # The final policy is deliberately pinned to main, so its trusted
+          # copy may still be the previous schema during this run. Defer the
+          # optional repair in that bootstrap window; the ordinary validator
+          # below remains fail-closed, and the next run after this policy lands
+          # activates the repair. Never execute the PR-controlled helper here.
+          if ! node --input-type=module - "$REVIEW_POLICY_ROOT/scripts/ci/review-marker-recovery.mjs" <<'NODE'
+          import { pathToFileURL } from 'node:url';
+          const modulePath = process.argv[2];
+          const module = await import(pathToFileURL(modulePath).href);
+          if (typeof module.reviewMarkerRepair !== 'function') process.exit(1);
+          NODE
+          then
+            echo '::notice::Trusted main policy has no marker-repair command yet; deferring zero-agent repair until the policy merge.'
+            exit 0
+          fi
+          if ! "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp > "$reviews_file"; then
+            echo "::error::Reviews API unavailable before marker repair: no model retry is allowed."
+            exit 1
+          fi
+          if ! node "$REVIEW_POLICY_ROOT/scripts/ci/review-marker-recovery.mjs" repair \
+            --head "$HEAD_SHA" --revision "$REVIEW_REVISION" < "$reviews_file" > "$decision_file"; then
+            echo "::error::No deterministic Codex marker repair is admissible; review remains fail-closed."
+            exit 1
+          fi
+          action=$(jq -r '.action // empty' "$decision_file")
+          case "$action" in
+            noop)
+              echo '✓ Codex review marker already valid; no model retry.'
+              ;;
+            repair)
+              candidate_review_id=$(jq -r '.reviewId // empty' "$decision_file")
+              if ! [[ "$candidate_review_id" =~ ^[1-9][0-9]*$ ]]; then
+                echo '::error::Marker repair did not return a stable review id; refusing mutation.'
+                exit 1
+              fi
+              # Re-read immediately before the mutation. If another writer
+              # repaired the same HEAD meanwhile, the second decision is a
+              # no-op; otherwise only the same review id may be copied. A
+              # newly-arrived clean review must never replace the candidate
+              # whose verdict was admitted by the first read.
+              if ! "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp > "$reviews_file"; then
+                echo "::error::Reviews API unavailable during marker repair race check."
+                exit 1
+              fi
+              if ! node "$REVIEW_POLICY_ROOT/scripts/ci/review-marker-recovery.mjs" repair \
+                --head "$HEAD_SHA" --revision "$REVIEW_REVISION" < "$reviews_file" > "$decision_file"; then
+                echo "::error::Marker repair became ambiguous during the race check; refusing mutation."
+                exit 1
+              fi
+              action=$(jq -r '.action // empty' "$decision_file")
+              if [ "$action" = 'noop' ]; then
+                echo '✓ Concurrent writer already repaired the Codex marker; no duplicate review.'
+                exit 0
+              fi
+              if [ "$action" != 'repair' ] || [ "$(jq -r '.reviewId // empty' "$decision_file")" != "$candidate_review_id" ]; then
+                echo '::error::Marker repair candidate changed during the race check; refusing mutation.'
+                exit 1
+              fi
+              jq -r '.body // empty' "$decision_file" > "$body_file"
+              if [ ! -s "$body_file" ]; then
+                echo '::error::Marker repair returned an empty review body.'
+                exit 1
+              fi
+              "$TRUSTED_GH_BIN" pr review "$PR_NUMBER" --repo "$REPO" --comment --body-file "$body_file"
+              echo '✓ Added the missing Codex marker to the already-valid clean review; no model retry.'
+              ;;
+            *)
+              echo "::error::Unknown marker repair action '$action'."
+              exit 1
+              ;;
+          esac
+
       - name: Validate deterministic review input marker
         id: review_marker
         # This is a zero-agent recovery gate: a missing/duplicate/stale marker
