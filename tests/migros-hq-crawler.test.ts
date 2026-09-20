@@ -97,6 +97,37 @@ describe('Migros HQ Zürich crawler parser', () => {
     })).rejects.toThrow(/refusing to publish a partial dataset/);
   });
 
+  it('skips a stale 404 sitemap entry without publishing a partial failure', async () => {
+    const staleUrl = 'https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/old-role/c7a8f09b-0219-4d8c-b9ba-8926d74095c9';
+    const liveUrl = 'https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/live-role/5ebe9a24-db13-4fee-a3b1-b041531b7f2b';
+    const liveDetail = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Live Migros role',
+      description: 'A live Migros role.',
+      datePosted: '2026-09-20',
+      jobLocation: { address: { addressLocality: 'Lugano' } },
+    })}</script>`;
+
+    const jobs = await fetchAllMigrosHqJobs({
+      fetchPage: async (url: string) => {
+        if (url === 'https://jobs.migros.ch/de/sitemap.xml') {
+          return `<url><loc>${staleUrl}</loc></url><url><loc>${liveUrl}</loc></url>`;
+        }
+        if (url === staleUrl) {
+          const err = new Error('HTTP 404 from stale detail URL');
+          Object.assign(err, { status: 404 });
+          throw err;
+        }
+        if (url === liveUrl) return liveDetail;
+        throw new Error(`unexpected URL: ${url}`);
+      },
+      delayMs: 0,
+    });
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ title: 'Live Migros role', url: liveUrl });
+  });
+
   // ── isTrustedDomain ──
   describe('isTrustedDomain', () => {
     it('trusts primary domain', () => {
