@@ -57,8 +57,44 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     ]));
     expect(WORKFLOW_TEXT).not.toMatch(/hashFiles\([^)]*(?:incremental-html|dist)\/\*\*/u);
     expect(WORKFLOW_TEXT).not.toMatch(/uses:\s*actions\/cache@/u);
-    expect(WORKFLOW.concurrency.group).toBe('deploy-matrix-experiment-${{ github.run_id }}');
+    expect(WORKFLOW.concurrency.group).toBe('deploy-matrix-experiment');
     expect(String(WORKFLOW.concurrency.group)).not.toBe('pages-build-run');
+  });
+
+  // Osservatore del budget di capacità (misura 2026-09-19: 3.091 job-minuti/24 h,
+  // media 2,14 slot, picco 6, media 5,24 nel plateau 18:30→19:45Z, su un tetto
+  // account di 20-22 job). Lo studio scarta il proprio output: il costo va
+  // tenuto limitato per costruzione, non per disciplina di chi fa il dispatch.
+  describe('budget di capacità', () => {
+    it('serializza i dispatch con un gruppo di concorrenza STABILE', () => {
+      // `github.run_id` è unico per run: un gruppo che lo contiene non può
+      // serializzare nulla ed è ciò che permetteva 6 run vivi insieme.
+      const group = String(WORKFLOW.concurrency.group);
+      expect(group).toBe('deploy-matrix-experiment');
+      expect(group).not.toMatch(/github\.run_id|github\.run_number|github\.sha/u);
+      // Un run già partito non va ucciso a metà misura.
+      expect(WORKFLOW.concurrency['cancel-in-progress']).toBe(false);
+    });
+
+    it('limita il ventaglio della matrix a due gambe per volta', () => {
+      expect(WORKFLOW.jobs['build-locale'].strategy['max-parallel']).toBeLessThanOrEqual(2);
+    });
+
+    it('dichiara una scadenza e la fa valere prima di accendere un runner di build', () => {
+      const expiry = String(WORKFLOW.env?.EXPERIMENT_EXPIRES_ON ?? '');
+      expect(expiry).toMatch(/^\d{4}-\d{2}-\d{2}$/u);
+      expect(Number.isNaN(Date.parse(`${expiry}T00:00:00Z`))).toBe(false);
+
+      const setupSteps = WORKFLOW.jobs['matrix-setup'].steps as Array<Record<string, any>>;
+      const guard = setupSteps[0];
+      expect(String(guard.name)).toMatch(/expiry/iu);
+      expect(String(guard.run)).toContain('EXPERIMENT_EXPIRES_ON');
+
+      // `prep` da solo vale ~11 job-minuti a dispatch: senza questa dipendenza
+      // girerebbe anche a studio scaduto, perché non ha altri `needs`.
+      expect(WORKFLOW.jobs.prep.needs).toContain('matrix-setup');
+      expect(WORKFLOW.jobs['build-locale'].needs).toContain('matrix-setup');
+    });
   });
 
   it('builds the expected locale × variant include rows', () => {

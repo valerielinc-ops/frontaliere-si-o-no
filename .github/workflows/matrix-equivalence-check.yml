@@ -29,8 +29,14 @@ permissions:
   contents: read
   actions: read
 
+# Gruppo di concorrenza STABILE: uno studio manuale non deve poter tenere
+# N runner insieme. Il tetto dell'account e' 20-22 job e il 2026-09-19
+# `Deploy Matrix Experiment`, con un gruppo per-run identico a questo,
+# arrivava a 6 run vivi insieme (3.091 job-minuti in 24 h) rubando slot a
+# `tests`. `cancel-in-progress: false` protegge la misura gia' partita:
+# l'eccedenza resta pendente e non occupa mai un runner.
 concurrency:
-  group: matrix-equivalence-${{ github.run_id }}
+  group: matrix-equivalence
   cancel-in-progress: false
 
 jobs:

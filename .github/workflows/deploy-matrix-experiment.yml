@@ -22,6 +22,36 @@
 # a single shared `prep` job that uploads the assembled dataset as an artifact
 # consumed by every locale, guaranteeing atomicity across the crawler-commit
 # window (see PR body "Non implementato").
+#
+# ── BUDGET DI CAPACITÀ (misurato il 2026-09-19 sulle 24 h, job per job) ───────
+# Lo studio scarta il proprio output, ma NON è gratis: il tetto dell'account è
+# 20-22 job in esecuzione insieme, e in quelle 24 h questo workflow ha consumato
+# 3.091 job-minuti (90 job su 30 dispatch, ~105 job-min l'uno) tenendo in media
+# 2,14 slot, con picco 6 e media 5,24 slot nel plateau 18:30→19:45Z — cioè oltre
+# un quarto della capacità totale sottratta a `tests`, la cui attesa passa da
+# 258 s sotto 50 run vive a 985 s sopra (3,8×).
+#
+# La larghezza della matrix NON era il driver: 29 dispatch su 30 avevano UNA
+# sola gamba (`it`, un solo variant). A costare erano i dispatch CONCORRENTI,
+# perché `concurrency.group` conteneva `github.run_id` ed è quindi unico per run:
+# un gruppo che non ha mai potuto serializzare nulla. Ora il gruppo è stabile,
+# quindi al più UN run dello studio è vivo per volta (~1 slot); GitHub tiene in
+# coda al più un run pendente e scarta il precedente pendente, così i dispatch
+# in eccesso muoiono PRIMA di occupare un runner, invece di rubare slot a
+# `tests`. `cancel-in-progress: false` garantisce che un run già partito non
+# venga mai ucciso a metà misura.
+#
+# Per confrontare più varianti in parallelo NON si fanno più dispatch: si usa
+# l'input `variants` multilinea in UN dispatch. `max-parallel: 2` limita quel
+# ventaglio a due gambe per volta.
+#
+# SCADENZA DICHIARATA: `EXPERIMENT_EXPIRES_ON` sotto. Passata quella data il
+# workflow si rifiuta di partire finché qualcuno non la sposta con una PR, cioè
+# finché non riconferma consapevolmente che lo studio è ancora vivo. È il punto
+# aperto da `docs/LOCALE-SHARD-BUILD-PLAN.md`, che dichiara già MISURATA e
+# ROBUSTA la domanda originale sul wall-time (la matrix non scende a ~15 min, è
+# overhead-bound, Fase 5 resta flag-gated default OFF): quello che resta vivo è
+# il riuso come banco di misura memoria/OOM, e il suo costo va riconfermato.
 name: Deploy Matrix Experiment (per-locale, no deploy)
 
 on:
@@ -79,8 +109,18 @@ on:
 permissions:
   contents: read
 
+env:
+  # Data oltre la quale lo studio non parte più senza una riconferma esplicita
+  # (formato YYYY-MM-DD, UTC). Spostarla è una PR di una riga: serve proprio a
+  # rendere visibile la scelta di continuare a spendere capacità.
+  EXPERIMENT_EXPIRES_ON: '2026-10-20'
+
+# Gruppo STABILE, non `github.run_id`: al più un run dello studio vivo per volta
+# (vedi «BUDGET DI CAPACITÀ» in testa al file). `cancel-in-progress: false`
+# protegge la misura già partita; l'eccedenza resta pendente e GitHub scarta il
+# pendente precedente senza mai occupare un runner.
 concurrency:
-  group: deploy-matrix-experiment-${{ github.run_id }}
+  group: deploy-matrix-experiment
   cancel-in-progress: false
 
 jobs:
@@ -92,6 +132,22 @@ jobs:
       single_variant: ${{ steps.build.outputs.single_variant }}
       single_env_json: ${{ steps.build.outputs.single_env_json }}
     steps:
+      # Primo step del primo job: se lo studio è scaduto, nessun runner di build
+      # viene mai acceso (`prep` dipende da questo job apposta).
+      - name: Enforce the declared experiment expiry
+        shell: bash
+        run: |
+          set -euo pipefail
+          today="$(date -u +%Y-%m-%d)"
+          if [[ ! "${EXPERIMENT_EXPIRES_ON}" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+            echo "::error::EXPERIMENT_EXPIRES_ON non è una data YYYY-MM-DD: '${EXPERIMENT_EXPIRES_ON}'"
+            exit 1
+          fi
+          if [[ "${today}" > "${EXPERIMENT_EXPIRES_ON}" ]]; then
+            echo "::error::Deploy Matrix Experiment è scaduto il ${EXPERIMENT_EXPIRES_ON} (oggi ${today}). Lo studio scarta il proprio output e costava 3.091 job-minuti/giorno: per riaprirlo sposta EXPERIMENT_EXPIRES_ON in .github/workflows/deploy-matrix-experiment.yml con una PR, dichiarando cosa resta da misurare."
+            exit 1
+          fi
+          echo "Studio attivo fino al ${EXPERIMENT_EXPIRES_ON} (oggi ${today})."
       - name: Checkout matrix parser
         uses: actions/checkout@v5
         with:
@@ -122,6 +178,10 @@ jobs:
   # every shard builds from the IDENTICAL job snapshot (no crawler-commit-window
   # divergence). OG images stay per-shard (rendered in build:ci, og-jobs cache).
   prep:
+    # Dipende da `matrix-setup` solo per il gate di scadenza: costa ~6 s (quel
+    # job non fa altro che parsare l'input) e in cambio uno studio scaduto non
+    # accende MAI il runner di prep, che da solo vale ~11 job-minuti a dispatch.
+    needs: [matrix-setup]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -214,6 +274,10 @@ jobs:
     timeout-minutes: 360
     strategy:
       fail-fast: false
+      # Il confronto fra varianti si fa in UN dispatch con `variants` multilinea
+      # (vedi «BUDGET DI CAPACITÀ»): questo tetto impedisce che quel ventaglio,
+      # o un `locales: it,en,de,fr`, apra 4 gambe da ~105 min insieme.
+      max-parallel: 2
       matrix:
         include: ${{ fromJSON(needs.matrix-setup.outputs.matrix) }}
     env:
