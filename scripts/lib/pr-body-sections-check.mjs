@@ -295,14 +295,32 @@ function isDecisionDeferral(text) {
   return DECISION_RE.test(normalized) || DECISION_STATES.has(bulletState(normalized));
 }
 
+function leadingIndentWidth(line) {
+  const prefix = line.match(/^[ \t]*/u)?.[0] || '';
+  return [...prefix].reduce((width, character) => width + (character === '\t' ? 4 : 1), 0);
+}
+
 function topLevelDecisionBullets(rawContent) {
   const clean = stripNonContent(rawContent ?? '');
+  const lines = clean.split('\n');
+  const bulletLines = lines.filter((line) => /^[ \t]*[-*+][ \t]+\S/.test(line));
+  const rootIndent = bulletLines.length > 0
+    ? Math.min(...bulletLines.map(leadingIndentWidth))
+    : 0;
   const bullets = [];
   let current = null;
-  for (const line of clean.split('\n')) {
+  for (const line of lines) {
     if (/^[ \t]*[-*+][ \t]+\S/.test(line)) {
-      if (current) bullets.push(current);
-      current = { index: bullets.length + 1, text: line.trim() };
+      // A nested bullet is metadata for its parent (e.g. separate Motivo and
+      // Prossimo passo fields), not a second decision to validate. Root
+      // indentation is measured from the section so a consistently indented
+      // top-level list remains valid.
+      if (leadingIndentWidth(line) <= rootIndent) {
+        if (current) bullets.push(current);
+        current = { index: bullets.length + 1, text: line.trim() };
+      } else if (current) {
+        current.text += ` ${line.trim()}`;
+      }
     } else if (current && line.trim()) {
       current.text += ` ${line.trim()}`;
     }

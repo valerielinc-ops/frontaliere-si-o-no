@@ -217,6 +217,19 @@ describe('decision deferrals', () => {
     expect(checkPrBodySections(body, { strictDecisionDeferrals: true }).ok).toBe(false);
   });
 
+  it('associates nested Motivo and Prossimo passo bullets with their parent decision', () => {
+    const body = makeBody({
+      nonImplContent:
+        '- Il residuo resta per scelta.\n'
+        + '  - **Motivo:** il contratto richiede una scelta del proprietario.\n'
+        + '  - **Prossimo passo:** riaprire dopo la decisione registrata.\n',
+    });
+
+    expect(decisionDeferralFindings(body)).toHaveLength(0);
+    expect(decisionDeferralsAreSpecific(body)).toBe(true);
+    expect(checkPrBodySections(body, { strictDecisionDeferrals: true }).ok).toBe(true);
+  });
+
   it('rejects placeholder tokens used as a prefix or suffix of an audit field', () => {
     const prefixed = makeBody({
       nonImplContent:
