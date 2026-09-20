@@ -23,6 +23,26 @@
  * A single entry whose repo/PR no longer resolves (renamed, deleted) is
  * dropped rather than blocking forever on something nobody can fix from here.
  *
+ * ATTESA ARMATA (2026-09-20): l'istruzione che il gate stampa deve poter
+ * funzionare. Il messaggio di blocco dice di non fare polling e di
+ * sottoscrivere l'evento con `bin/gh-frontaliere events subscribe` + UN solo
+ * `events listen` — ma fino a oggi `main()` decideva guardando SOLO il
+ * registro locale, senza mai consultare il coordinatore: una sessione che
+ * eseguiva alla lettera il rimedio suggerito veniva bloccata lo stesso al
+ * turno dopo, e a quello dopo, fino al merge. Osservato dal vivo su #9356
+ * (subscription `sub-8fb13ea2-…`, agentId `fleet-V`, `listenerAlive: true`,
+ * `waitState: "waiting_external"`): due blocchi consecutivi con l'attesa
+ * perfettamente armata. Misura sulle 24h precedenti: 63 Stop bloccati, 41 dei
+ * quali su PR che avevano già la subscription — ognuno un turno intero più il
+ * `throttleBeforeBlocking()`.
+ * Ora una entry in `awaiting-review` non blocca se il coordinatore prova che
+ * l'attesa è armata (subscription viva, non scaduta, listener vivo, `waitFor`
+ * che copre gli stati terminali): l'evento risveglierà la sessione, che è
+ * esattamente ciò che AGENTS.md e CLAUDE.md chiedono. Tutto il resto blocca
+ * come prima — nessuna subscription, subscription scaduta, listener morto,
+ * `waitFor` che non copre, coordinatore non interrogabile, review 🔴 già
+ * arrivata. Contratto e confini in `lib/pr-watch-subscription.mjs`.
+ *
  * COOLDOWN (2026-08-24, incidente in diretta): senza freno, un blocco fa
  * rientrare l'agente nel turno, che risponde e finisce di nuovo subito nello
  * Stop — zero tempo reale trascorso fra un controllo e l'altro. Con la coda
@@ -76,6 +96,7 @@ import { dirname, join } from 'node:path';
 import { readEntries, writeEntries, removeEntry, entriesForSession, entriesOfOtherSessions } from './lib/pr-watch-store.mjs';
 import { buildBlockReason, classifyPr, RESOLVED_STATUSES } from './lib/pr-watch-classify.mjs';
 import { readHookStdin } from './lib/hook-stdin.mjs';
+import { armedWaitCanReplaceBlock, waitIsArmed } from './lib/pr-watch-subscription.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, '..', '..');
@@ -191,6 +212,33 @@ function checkOne(ref) {
 }
 
 /**
+ * Questa entry bloccherebbe, ma l'attesa è già armata come il gate stesso
+ * chiede? Allora il turno può finire: l'evento risveglierà la sessione.
+ *
+ * Fail-closed per costruzione — `waitIsArmed` non lancia e restituisce
+ * `armed:false` su qualunque dubbio (daemon giù, timeout, CLI non trovata,
+ * JSON illeggibile), quindi il comportamento di default resta il blocco.
+ * Il `try` qui è la seconda cintura: nemmeno un errore inatteso deve
+ * trasformare un'esenzione mancata in un'eccezione dello Stop hook.
+ *
+ * Si paga un subprocess locale (~74 ms, nessuna chiamata a GitHub) SOLO per
+ * le entry che stanno per bloccare: un turno che finirebbe comunque non
+ * interroga il coordinatore.
+ *
+ * @param {{owner:string, repo:string, number:number}} ref
+ * @param {{status:string}} verdict
+ * @returns {boolean}
+ */
+function exemptBecauseWaitIsArmed(ref, verdict) {
+  if (!armedWaitCanReplaceBlock(verdict.status)) return false;
+  try {
+    return waitIsArmed(ref, { startDir: REPO_ROOT }).armed === true;
+  } catch {
+    return false;
+  }
+}
+
+/**
  * `session_id` dall'input dell'hook Stop, se c'è.
  *
  * Lettura sincrona di stdin: l'hook riceve un JSON, ma un harness che non lo
@@ -249,7 +297,11 @@ async function main() {
     const verdict = checkOne(entry);
     if (verdict === null) continue; // unresolvable — drop, do not carry forward
     if (RESOLVED_STATUSES.has(verdict.status)) continue; // resolved — drop
+    // L'entry resta SEMPRE nel registro: l'attesa armata esenta dal BLOCCO di
+    // questo turno, non chiude il watch. Se il listener muore o la
+    // subscription scade, il prossimo Stop ritrova l'entry e blocca.
     remaining.push(entry);
+    if (exemptBecauseWaitIsArmed(entry, verdict)) continue;
     blocked.push({ ref: entry, verdict });
   }
 
