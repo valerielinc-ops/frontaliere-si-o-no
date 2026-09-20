@@ -1,4 +1,4 @@
-import type { Locale } from '@/services/i18n';
+import type { Locale } from '../i18n';
 import type { PlateVehicleType } from './types';
 import { PLATE_AUCTION_BASE_BY_LOCALE } from '../../scripts/lib/plateAuctionSections.mjs';
 

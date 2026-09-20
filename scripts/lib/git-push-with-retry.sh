@@ -197,7 +197,8 @@ restore_stashed_wip() {
   fi
 
   echo "::warning::Stash restoration conflicted on generated paths; keeping the stashed version for: $(printf '%s' "$conflicted" | tr '\n' ' ')"
-  while IFS= read -r path; do
+  # fd 9, not stdin: the git commands in the body must not consume the list (#7777).
+  while IFS= read -r -u 9 path; do
     [ -n "$path" ] || continue
     git checkout --theirs -- "$path"
     git add -- "$path"
@@ -205,7 +206,7 @@ restore_stashed_wip() {
     # above is required to clear the unmerged index entry; reset the path back
     # to HEAD so generated output keeps that same later-step contract.
     git reset --quiet HEAD -- "$path"
-  done <<< "$conflicted"
+  done 9<<< "$conflicted"
 
   if [ -n "$(git diff --name-only --diff-filter=U || true)" ]; then
     echo "::error::Failed to resolve every stashed working-tree conflict; stash left in stack"
@@ -280,7 +281,8 @@ apply_stashed_wip_for_resolver() {
   fi
 
   all_paths="$(printf '%s\n%s\n%s\n' "$worktree_paths" "$index_paths" "$untracked_paths" | sort -u)"
-  while IFS= read -r path; do
+  # fd 9, not stdin: the git commands in the body must not consume the list (#7777).
+  while IFS= read -r -u 9 path; do
     [ -n "$path" ] || continue
     if [ -n "$excluded_paths" ] && path_is_listed "$path" "$excluded_paths"; then
       continue
@@ -314,7 +316,7 @@ apply_stashed_wip_for_resolver() {
       echo "::error::Failed to restore stashed path before in-place conflict resolver: $path"
       return 1
     fi
-  done <<< "$all_paths"
+  done 9<<< "$all_paths"
 }
 
 # --no-verify: skip the .githooks/pre-push sibling-patterns gate. Every caller

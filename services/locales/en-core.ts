@@ -539,6 +539,7 @@ const enCore: Record<string, string> = {
  'traffic.realData': 'Real data from Google Maps (1h cache)',
  'traffic.simulatedData': 'Simulated data — rush hours: 7-9 (IT→CH), 17-19 (CH→IT)',
  'traffic.navigateHere': 'Navigate here',
+ 'traffic.notAvailable': 'n/a',
  'traffic.openGoogleMaps': 'Open in Google Maps',
  'traffic.tipsTitle': 'Tips to Avoid Queues',
 

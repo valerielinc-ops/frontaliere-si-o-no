@@ -60,9 +60,10 @@ describe('JobBoard outbound ATS links carry nofollow', () => {
   const outbound = anchors.filter(isOutboundAnchor);
 
   it('has at least one outbound anchor (sanity check)', () => {
-    // applyUrl on the apply CTA + header logo + header title +
-    // concorsi.ti.ch official-source link = 4 known outbounds.
-    expect(outbound.length).toBeGreaterThanOrEqual(4);
+    // Header logo + header title + concorsi.ti.ch official-source link =
+    // 3 known outbound anchors. The apply CTA stopped being an anchor in
+    // #8757 (see the next-but-one test).
+    expect(outbound.length).toBeGreaterThanOrEqual(3);
   });
 
   it('every outbound <a target="_blank"> has rel="nofollow noopener noreferrer"', () => {
@@ -70,11 +71,23 @@ describe('JobBoard outbound ATS links carry nofollow', () => {
     expect(offenders, `Outbound anchors missing nofollow:\n${offenders.join('\n---\n')}`).toEqual([]);
   });
 
-  it('the apply CTA points to applyUrl with nofollow', () => {
-    // Hybrid A/B apply CTA — the most clicked outbound link on the site.
+  it('the apply CTA exposes no crawlable applyUrl link', () => {
+    // Hybrid A/B apply CTA — the most clicked outbound action on the site.
+    // Until #8757 it was `<a className="hybrid-ab-cta" href={applyUrl}
+    // target="_blank" rel="nofollow …">`. The assisted-application A/B made it
+    // a `<button>` routed through handleApply, which may show the assisted
+    // offer before handing off. A button has no href, so crawlers have nothing
+    // to follow: the nofollow invariant now holds by construction. Guard both
+    // halves: the CTA stays a hrefless button, and any anchor that ever takes
+    // the class back must carry nofollow again.
     expect(source).toMatch(
-      /className="hybrid-ab-cta"\s+href=\{applyUrl\}\s+target="_blank"\s+rel="nofollow noopener noreferrer"/,
+      /<button\s+type="button"\s+className="hybrid-ab-cta"\s+onClick=\{\(\) => handleApply\(selectedJob\)\}/,
     );
+    const ctaAnchors = anchors.filter((tag) => /className="hybrid-ab-cta"/.test(tag));
+    for (const tag of ctaAnchors) expect(tag).toMatch(REL_PATTERN);
+    // The programmatic hand-off opens the ATS without leaking the opener or
+    // the referrer, like the rel the anchor used to carry.
+    expect(source).toContain("window.open(applyDestination, '_blank', 'noopener,noreferrer')");
   });
 
   it('the header logo and title apply links carry nofollow when outbound', () => {

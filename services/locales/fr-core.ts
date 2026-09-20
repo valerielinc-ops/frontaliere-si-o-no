@@ -542,6 +542,7 @@ const frCore: Record<string, string> = {
  'traffic.realData': 'Données réelles de Google Maps (cache 1h)',
  'traffic.simulatedData': 'Données simulées — heures de pointe : 7-9 (IT→CH), 17-19 (CH→IT)',
  'traffic.navigateHere': 'Naviguer ici',
+ 'traffic.notAvailable': 'n.d.',
  'traffic.openGoogleMaps': 'Ouvrir dans Google Maps',
  'traffic.tipsTitle': 'Conseils pour éviter les bouchons',
 

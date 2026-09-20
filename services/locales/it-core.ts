@@ -572,6 +572,7 @@ const translations: Record<string, string> = {
  'traffic.realData': 'Dati reali da Google Maps (cache 1h)',
  'traffic.simulatedData': 'Dati simulati — orari di punta: 7-9 (IT→CH), 17-19 (CH→IT)',
  'traffic.navigateHere': 'Naviga qui',
+ 'traffic.notAvailable': 'n.d.',
  'traffic.openGoogleMaps': 'Apri su Google Maps',
  'traffic.tipsTitle': 'Consigli per Evitare le Code',
 

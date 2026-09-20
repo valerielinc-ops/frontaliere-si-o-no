@@ -246,11 +246,16 @@ function mergeJobs(jobs) {
       byId.set(id, { ...raw, id });
       continue;
     }
-    const merged = { ...previous, ...raw, id };
-    merged.previousSlugs = [...new Set([...(previous.previousSlugs || []), ...(raw.previousSlugs || [])])];
-    merged.slugByLocale = { ...(previous.slugByLocale || {}), ...(raw.slugByLocale || {}) };
-    merged.previousSlugsByLocale = { ...(previous.previousSlugsByLocale || {}), ...(raw.previousSlugsByLocale || {}) };
-    byId.set(id, merged);
+    // Read-side union of two in-memory copies of the same job: built as a
+    // fresh object so no persisted job's slug fields are mutated (#5157 guard).
+    byId.set(id, {
+      ...previous,
+      ...raw,
+      id,
+      previousSlugs: [...new Set([...(previous.previousSlugs || []), ...(raw.previousSlugs || [])])],
+      slugByLocale: { ...(previous.slugByLocale || {}), ...(raw.slugByLocale || {}) },
+      previousSlugsByLocale: { ...(previous.previousSlugsByLocale || {}), ...(raw.previousSlugsByLocale || {}) },
+    });
   }
   return [...byId.values()];
 }

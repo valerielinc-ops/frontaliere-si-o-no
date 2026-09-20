@@ -111,6 +111,11 @@ describe('profili di sparse-checkout', () => {
     ]);
   });
 
+  it('ignora un checkout secondario in una sottodirectory: tsc non gira li', () => {
+    const source = `jobs:\n  typecheck:\n    steps:\n      - uses: actions/checkout@v5\n        with:\n          sparse-checkout: |\n            /data/\n            /packages/articles/content/blog-articles-data.ts\n      - run: npm run typecheck:gate\n      - uses: actions/checkout@v5\n        with:\n          path: trusted-main\n          sparse-checkout: |\n            /scripts/ci/x.mjs\n`;
+    expect(missingTypecheckSparsePaths(source, 'synthetic.yml')).toEqual([]);
+  });
+
   it('riconosce un percorso escluso — la prova che il guard puo davvero fallire', () => {
     // Il caso reale che ha fatto scattare questo controllo: `public/data/` escluso
     // mentre `scripts/ci/guard-data-integrity.mjs` lo legge.
