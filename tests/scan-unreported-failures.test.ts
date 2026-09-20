@@ -565,6 +565,17 @@ describe('«issue aperta e attiva» non significa «questo guasto è già segnal
     expect(signatureAlreadyRecorded(thread, failureSignature(INCIDENTE)!)).toBe(true);
   });
 
+  it('richiede il marker delimitato e non confonde prefissi o suffissi', () => {
+    const shorter = 'same-job — step: Build';
+    const longer = 'same-job — step: Build and verify';
+    const markerFor = (signature: string) => `<!-- ${SIGNATURE_MARKER} ${signature} -->`;
+
+    expect(signatureAlreadyRecorded([markerFor(longer)], shorter)).toBe(false);
+    expect(signatureAlreadyRecorded([markerFor(shorter)], longer)).toBe(false);
+    expect(signatureAlreadyRecorded([markerFor(shorter)], shorter)).toBe(true);
+    expect(signatureAlreadyRecorded([markerFor(longer)], longer)).toBe(true);
+  });
+
   it('il marker non si confonde col testo libero della issue', () => {
     // Un body riscritto a mano che CITA il job non deve valere come
     // registrazione: il marker lo scrive questo file e lo legge questo file.
