@@ -1,7 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { markerCli, parseReviewPages, reviewMarkerDecision } from '../scripts/ci/review-marker-recovery.mjs';
+import {
+  markerCli,
+  parseReviewPages,
+  reviewMarkerDecision,
+  reviewMarkerRepair,
+} from '../scripts/ci/review-marker-recovery.mjs';
 import { reviewInputMarker } from '../scripts/ci/lib/review-input-revision.mjs';
+import { CODEX_FALLBACK_REVIEW_MARKER } from '../scripts/ci/lib/pr-review-admission.mjs';
 
 const HEAD = 'a'.repeat(40);
 const REVISION = `body:${'b'.repeat(64)}`;
@@ -15,6 +21,13 @@ function review(body = `${MARKER}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM
     commit_id: HEAD,
     body,
     submitted_at: '2026-09-19T10:00:00Z',
+  };
+}
+
+function appReview(body = `${MARKER}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM`) {
+  return {
+    ...review(body),
+    user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
   };
 }
 
@@ -57,6 +70,50 @@ describe('deterministic review input marker recovery', () => {
       .toMatchObject({ ok: false });
   });
 
+  it('repairs only a clean current App LGTM that lacks the Codex marker', () => {
+    const result = reviewMarkerRepair({
+      reviews: [[appReview()]],
+      headSha: HEAD,
+      reviewRevision: REVISION,
+    });
+    expect(result).toMatchObject({ ok: true, action: 'repair', reviewId: 42 });
+    expect(result.body).toContain(CODEX_FALLBACK_REVIEW_MARKER);
+    expect(result.body).toContain(MARKER);
+    expect(result.body).toContain('## LGTM');
+  });
+
+  it('uses the gate classifier for a clean LGTM whose zero count is below the heading', () => {
+    const result = reviewMarkerRepair({
+      reviews: [[appReview(`${MARKER}\n## Findings\nImportant: 0\n\n## LGTM`)]],
+      headSha: HEAD,
+      reviewRevision: REVISION,
+    });
+    expect(result).toMatchObject({ ok: true, action: 'repair' });
+  });
+
+  it('is idempotent after the repaired review becomes the latest verdict', () => {
+    const repaired = `${CODEX_FALLBACK_REVIEW_MARKER}\n${MARKER}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM`;
+    expect(reviewMarkerRepair({
+      reviews: [[appReview(repaired)]],
+      headSha: HEAD,
+      reviewRevision: REVISION,
+    })).toMatchObject({ ok: true, action: 'noop' });
+  });
+
+  it.each([
+    ['Important finding', `${MARKER}\n## Findings (Important: 1, Nit: 0)\n\n🔴 Important: bug`],
+    ['missing LGTM', `${MARKER}\n## Findings (Important: 0, Nit: 0)`],
+    ['stale body revision', `${reviewInputMarker(`body:${'c'.repeat(64)}`)}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM`],
+    ['non-App reviewer', `${MARKER}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM`],
+  ])('refuses marker repair for %s', (_label, body) => {
+    const candidate = _label === 'non-App reviewer' ? review(body) : appReview(body);
+    expect(reviewMarkerRepair({
+      reviews: [[candidate]],
+      headSha: HEAD,
+      reviewRevision: REVISION,
+    })).toMatchObject({ ok: false });
+  });
+
   it.each([
     ['malformed JSON', '{'],
     ['malformed pages', JSON.stringify([review()])],
@@ -72,8 +129,15 @@ describe('deterministic review input marker recovery', () => {
 
   it('wires the zero-agent validator between review action and gate', () => {
     const workflow = readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8');
+    const repair = workflow.indexOf('name: Repair missing Codex review marker (zero-agent)');
     const marker = workflow.indexOf('name: Validate deterministic review input marker');
     const gate = workflow.indexOf('name: Require approving Codex review');
+    expect(repair).toBeGreaterThan(-1);
+    expect(repair).toBeLessThan(marker);
+    expect(workflow.slice(repair, marker)).toContain('module.reviewMarkerRepair');
+    expect(workflow.slice(repair, marker)).toContain('deferring zero-agent repair');
+    expect(workflow.slice(repair, marker)).toContain('candidate_review_id');
+    expect(workflow.slice(repair, marker)).toContain('Marker repair candidate changed during the race check');
     expect(marker).toBeGreaterThan(-1);
     expect(marker).toBeLessThan(gate);
     expect(workflow.slice(marker, gate)).toContain('review-marker-recovery.mjs" validate');
