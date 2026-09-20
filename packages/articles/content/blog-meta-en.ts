@@ -11867,6 +11867,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.comuni-frontiera-ristorni-108-milioni.title': 'Border refurbishment: 89-108 million, mayors rejoice',
     'blog.article.comuni-frontiera-ristorni-108-milioni.excerpt': 'The Italian government increases funds for border municipalities. The mayors: \'Satisfied with the increase in refreshments\'.',
     'blog.article.comuni-frontiera-ristorni-108-milioni.imageAlt': 'A panoramic view of the city of Lugano, in Ticino, Switzerland.',
+    'blog.article.ristorni-comuni-frontiera-incremento.title': 'Funds for border municipalities: refunds rise to 108 million',
+    'blog.article.ristorni-comuni-frontiera-incremento.excerpt': 'The Associazione Comuni Italiani di Frontiera (Acif) welcomes the increase in the refreshments fund from 89 to 108 million euros and the allocation of the extra revenue.',
+    'blog.article.ristorni-comuni-frontiera-incremento.imageAlt': 'Border crossing between Italy and Switzerland in the Mendrisiotto region',
 };
 
 export default blogMetaEn;

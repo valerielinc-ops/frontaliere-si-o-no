@@ -11869,6 +11869,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.comuni-frontiera-ristorni-108-milioni.title': 'Ristors frontière : 89-108 millions, les maires se réjouissent',
     'blog.article.comuni-frontiera-ristorni-108-milioni.excerpt': 'Le gouvernement italien augmente les fonds pour les communes frontalières. Les maires : « Satisfaits de l\'augmentation des restaurations ».',
     'blog.article.comuni-frontiera-ristorni-108-milioni.imageAlt': 'Une vue panoramique de la ville de Lugano, au Tessin, en Suisse.',
+    'blog.article.ristorni-comuni-frontiera-incremento.title': 'Fonds pour les communes frontalières : les remboursements s\'élèvent à 108 millions',
+    'blog.article.ristorni-comuni-frontiera-incremento.excerpt': 'L\'Association des communes italiennes de la frontière (Acif) accueille l\'augmentation du fonds de restauration de 89 à 108 millions d\'euros et l\'allocation des recettes supplémentaires.',
+    'blog.article.ristorni-comuni-frontiera-incremento.imageAlt': 'Passage frontière entre l\'Italie et la Suisse in la région du Mendrisiotto',
 };
 
 export default blogMetaFr;

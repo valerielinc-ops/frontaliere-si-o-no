@@ -11868,6 +11868,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.comuni-frontiera-ristorni-108-milioni.title': 'Ristori frontiera: 89-108 mln, sindaci esultano',
     'blog.article.comuni-frontiera-ristorni-108-milioni.excerpt': 'Il governo italiano aumenta i fondi per i comuni di frontiera. I sindaci: \'Soddisfatti per l\'aumento dei ristorni\'.',
     'blog.article.comuni-frontiera-ristorni-108-milioni.imageAlt': 'Una vista panoramica della città di Lugano, in Ticino, Svizzera.',
+    'blog.article.ristorni-comuni-frontiera-incremento.title': 'Fondi per comuni di frontiera: ristorni salgono a 108 milioni',
+    'blog.article.ristorni-comuni-frontiera-incremento.excerpt': 'L\'Associazione Comuni Italiani di Frontiera (Acif) accoglie l\'incremento del fondo ristorni da 89 a 108 milioni di euro e l\'assegnazione dell\'extra gettito.',
+    'blog.article.ristorni-comuni-frontiera-incremento.imageAlt': 'Passaggio di frontiera tra Italia e Svizzera nel Mendrisiotto',
 };
 
 export default blogMetaIt;
