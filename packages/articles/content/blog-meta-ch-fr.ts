@@ -6614,6 +6614,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.referendum-nuove-centrali-nucleari.title': 'Référendum réussi : 125\'000 signatures contre de nouvelles centrales',
     'blog.article.referendum-nuove-centrali-nucleari.excerpt': 'Le comité a recueilli plus de 125\'000 signatures en 3 mois. Le vote est prévu pour le 28 février 2027.',
     'blog.article.referendum-nuove-centrali-nucleari.imageAlt': 'Centrales nucléaires et vue sur le lac de Lugano: le référendum contre les nouvelles constructions a réussi',
+    'blog.article.migros-fusione-cooperative-2035.title': 'Migros évalue la fusion des 10 coopératives',
+    'blog.article.migros-fusione-cooperative-2035.excerpt': 'PDG Irminger évalue une seule coopérative nationale. 2,3 millions d\'associés potentiellement impliqués, décision en cours.',
+    'blog.article.migros-fusione-cooperative-2035.imageAlt': 'Vue du Palais fédéral à Berne, siège des institutions suisses, au crépuscule.',
 };
 
 export default blogMetaChFr;

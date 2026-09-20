@@ -6614,6 +6614,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.referendum-nuove-centrali-nucleari.title': 'Erfolgreiches Referendum: 125\'000 Unterschriften gegen neue Kraftwerke',
     'blog.article.referendum-nuove-centrali-nucleari.excerpt': 'Das Komitee hat in 3 Monaten über 125\'000 Unterschriften gesammelt. Die Abstimmung ist für den 28. Februar 2027 vorgesehen.',
     'blog.article.referendum-nuove-centrali-nucleari.imageAlt': 'Kernkraftwerke und Blick auf den Luganersee: Referendum gegen neue Bauwerke erfolgreich',
+    'blog.article.migros-fusione-cooperative-2035.title': 'Migros Währung Fusion der 10 Genossenschaften',
+    'blog.article.migros-fusione-cooperative-2035.excerpt': 'CEO Irminger bewertet eine einzige nationale Genossenschaft. 2,3 Millionen potenziell beteiligte Mitglieder, Entscheidung im Gange.',
+    'blog.article.migros-fusione-cooperative-2035.imageAlt': 'Ansicht des Bundeshauses in Bern, Sitz der Schweizer Institutionen, bei Dämmerung.',
 };
 
 export default blogMetaChDe;

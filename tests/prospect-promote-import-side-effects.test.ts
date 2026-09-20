@@ -119,7 +119,27 @@ describe('promozione crawler — nessun side-effect a load-time nelle catene imp
     expect(main).toBeGreaterThan(guard);
     expect(gate).toBeGreaterThan(main);
     expect(source).toContain('pathToFileURL(realpathSync(process.argv[1])).href');
-    expect(source).toMatch(/if \(invokedDirectly\) \{\s+await main\(\);\s+\}/);
+    expect(source).toMatch(/catch \(error\) \{\s+if \(process\.argv\[1\]\) throw error;\s+return false;\s+\}/);
+    expect(source).toMatch(/if \(invokedDirectly\) \{\s+await main\(\)\.catch\(\(error\) => \{\s+process\.exitCode = 1;\s+console\.error\(error\?\.stack \|\| error\);\s+\}\);\s+\}/);
+  });
+
+  it('non nasconde il fallimento di realpath dell entrypoint dichiarato', () => {
+    const dir = mkdtempSync(path.join(tmpdir(), 'promote-entrypoint-'));
+    const wrapper = path.join(dir, 'run-promote.mjs');
+    writeFileSync(
+      wrapper,
+      `import { unlinkSync } from 'node:fs';\n`
+        + `unlinkSync(process.argv[1]);\n`
+        + `await import(${JSON.stringify(path.join(ROOT, 'scripts/prospect-promote.mjs'))});\n`,
+    );
+
+    const res = spawnSync(process.execPath, [wrapper], {
+      cwd: ROOT,
+      encoding: 'utf8',
+    });
+
+    expect(res.status).not.toBe(0);
+    expect(res.stderr).toContain('ENOENT');
   });
 
   it('la chiusura di prospect-promote contiene davvero la catena del drainer', () => {
