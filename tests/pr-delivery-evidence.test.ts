@@ -9,6 +9,7 @@ import {
   classifyWorkflowOutcome,
   createDeliveryBaseline,
   evaluatePrDelivery,
+  normalizeDeliveryEvidence,
   normalizePrList,
 } from '../scripts/ci/lib/pr-delivery-evidence.mjs';
 
@@ -153,6 +154,27 @@ describe('pr-delivery-evidence', () => {
       actionOutcome: 'cancelled',
       delivery: { status: DELIVERY_STATUS.UNAVAILABLE },
     })).toMatchObject({ classification: 'cancelled', exitCode: 0 });
+  });
+
+  it('rifiuta prNumber coercibili ma non interi espliciti nel sidecar', () => {
+    for (const prNumber of [true, [1], 1.5, Number.MAX_SAFE_INTEGER + 1]) {
+      expect(normalizeDeliveryEvidence({
+        status: DELIVERY_STATUS.DELIVERED,
+        prNumber,
+      })).toEqual({
+        status: DELIVERY_STATUS.UNAVAILABLE,
+        reason: 'evidence-pr-number-invalid',
+        prNumber: null,
+      });
+    }
+    expect(normalizeDeliveryEvidence({
+      status: DELIVERY_STATUS.DELIVERED,
+      prNumber: '701',
+    })).toEqual({
+      status: DELIVERY_STATUS.DELIVERED,
+      reason: null,
+      prNumber: 701,
+    });
   });
 
   it('con un lookup REST/gh fallito restituisce unavailable, non verified-none', () => {
