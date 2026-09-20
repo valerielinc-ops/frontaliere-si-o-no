@@ -203,6 +203,13 @@ async function fetchJobListings(jobUrls, {
     try {
       html = await fetchPage(url);
     } catch (err) {
+      // The sitemap can briefly retain a job after the portal has removed its
+      // detail page. Treat that concrete stale-entry signal as a normal skip;
+      // connection errors and malformed live pages remain fail-closed below.
+      if (err?.status === 404) {
+        console.warn(`  ℹ️ Skipping stale Migros sitemap entry ${url}: HTTP 404`);
+        continue;
+      }
       fetchFailures += 1;
       console.warn(`  ⚠️ Failed to fetch ${url}: ${err.message}`);
       continue;
