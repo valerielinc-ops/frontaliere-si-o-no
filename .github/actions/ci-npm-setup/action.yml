@@ -1,6 +1,7 @@
 name: 'CI npm setup'
 description: >-
-  Shared post-checkout setup: actions/setup-node + npm ci.
+  Shared post-checkout setup: actions/setup-node + restore della cache npm +
+  npm ci, con il SAVE della cache npm confinato a `refs/heads/main`.
 
   Storia, perché spiega perché questa action esiste ancora con UN chiamante
   solo. Nata in #6534 per i quattro job PARALLELI di tests.yml (collision,
@@ -30,10 +31,87 @@ inputs:
 runs:
   using: 'composite'
   steps:
+    # `cache: 'npm'` NON si usa più qui, e la ragione non è il tempo di
+    # install: è il tetto di 10 GiB del pool cache del repo.
+    #
+    # `setup-node` fa restore E save con la stessa chiave, e il save avviene
+    # nello scope del ref CORRENTE. Dopo questa PR questa action è l'UNICO
+    # punto del repo in cui una cache npm viene montata su un ref di PR: i due
+    # workflow `pull_request` che ne avevano una — `tests.yml` (già chiamante)
+    # e `technical-operations-supervisor.yml` (che aveva la sua copia inline e
+    # ora passa di qui) — la prendono entrambi da questi step. Gli altri 37
+    # `cache: 'npm'` del repo stanno su schedule/push-main/workflow_run/
+    # workflow_call da main, quindi salvano già tutti nello scope di `main`, e
+    # `tests/npm-cache-save-main-only.test.ts` tiene ferma quella proprietà.
+    # Risultato misurato il 2026-09-20: la stessa identica chiave
+    # `node-cache-Linux-x64-npm-965db012…` esisteva in TRE copie da 487 MB —
+    # `refs/heads/main`, `refs/pull/9339/merge`, `refs/pull/9344/merge` — cioè
+    # 0,91 GiB di byte identici su un pool che quel giorno stava all'87 %
+    # (8,73 GiB/10 GiB) con una finestra di ritenzione di ~10 h. Con 5-6 PR
+    # aperte le copie sono ~2,4-2,9 GB, e ogni GB occupato da un duplicato è un
+    # GB che sfratta il manifest incrementale e i pack HTML di jobs-seo, che
+    # sopravvivono solo se il deploy successivo arriva dentro la finestra.
+    #
+    # Il restore resta OVUNQUE perché lo scope delle cache Actions è
+    # gerarchico: una run su `refs/pull/N/merge` legge anche le cache del
+    # branch di default. Verificato sulla run 35507603250 (PR
+    # `fix-common-signup-prompt`), che ha fatto `Cache hit` su
+    # `node-cache-Linux-x64-npm-965db012…` e su
+    # `assemble-jobs-Linux-dd3d4bb70284802f_stats`, entrambe esistenti SOLO su
+    # `refs/heads/main`. Tolto il save per-ref resta una copia sola, tenuta
+    # calda dall'ultimo accesso (LRU) di ogni PR che la legge.
     - uses: actions/setup-node@v5
       with:
         node-version: '22'
-        cache: 'npm'
+
+    # La chiave e il path devono essere BYTE-IDENTICI a quelli che
+    # `setup-node` usa, altrimenti le copie già scritte su `main` dagli altri
+    # 37 workflow diventano irraggiungibili e il risparmio si paga in miss.
+    # `setup-node` compone `node-cache-<RUNNER_OS>-<process.arch>-npm-<hash>`
+    # con `hashFiles()` del lockfile, e il path è la cache GLOBALE di npm
+    # (`npm config get cache`, cioè `~/.npm`), non `node_modules`.
+    # `process.arch` è minuscolo (`x64`) mentre `runner.arch` è `X64`: va letto
+    # da node, non dal contesto. L'hash è quello che `deploy.yml` già calcola
+    # con `hashFiles('package-lock.json')` — verificato uguale al suffisso
+    # della chiave scritta da `setup-node` (965db012…).
+    - name: Resolve npm cache path and key
+      id: npm-cache-meta
+      shell: bash
+      env:
+        LOCK_HASH: ${{ hashFiles('package-lock.json') }}
+      run: |
+        set -euo pipefail
+        dir="$(npm config get cache)"
+        arch="$(node -p 'process.arch')"
+        key="node-cache-${RUNNER_OS}-${arch}-npm-${LOCK_HASH}"
+        printf 'dir=%s\n' "$dir" >> "$GITHUB_OUTPUT"
+        printf 'key=%s\n' "$key" >> "$GITHUB_OUTPUT"
+        printf 'npm cache dir: %s\nkey: %s\n' "$dir" "$key"
+
+    # Nessuna `restore-keys`: `setup-node` non ne usa, e un prefisso
+    # riporterebbe una `~/.npm` di un altro lockfile — byte scaricati per
+    # niente. Un miss qui non rompe nulla: `npm ci` scarica dalla rete.
+    - name: Restore npm cache
+      id: npm-cache
+      uses: actions/cache/restore@v5
+      with:
+        path: ${{ steps.npm-cache-meta.outputs.dir }}
+        key: ${{ steps.npm-cache-meta.outputs.key }}
+
     - name: npm ci
       shell: bash
       run: npm ci ${{ inputs.npm-ci-args }}
+
+    # Save solo su `main`: è l'unico ref il cui scope è leggibile da tutti gli
+    # altri. Su un ref di PR il save produrrebbe una copia che NESSUN altro ref
+    # può leggere e che vive solo quanto la PR — esattamente il duplicato che
+    # questa action esiste per non scrivere più.
+    # `always()` perché il save va fatto anche se `npm ci` è rosso a metà: la
+    # `~/.npm` popolata è comunque valida. `cache-hit != 'true'` evita il
+    # warning «Cache already exists» quando la chiave c'è già.
+    - name: Save npm cache (solo su main)
+      if: ${{ always() && github.ref == 'refs/heads/main' && steps.npm-cache.outputs.cache-hit != 'true' }}
+      uses: actions/cache/save@v5
+      with:
+        path: ${{ steps.npm-cache-meta.outputs.dir }}
+        key: ${{ steps.npm-cache-meta.outputs.key }}
