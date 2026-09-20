@@ -1924,11 +1924,11 @@ function renderPage(inp: PageInputs): string {
   // that keeps title !== h1 and `audit:h1-title-duplicates` (baseline 0) green.
   // Falls back to the bare dated title when the price form would overflow the
   // 66-char budget, so this can never add an `audit:title-length` offender.
-  // Match the regional Italian benzina query exactly in the SERP title. Keep
+  // Match the regional Italian fuel queries exactly in the SERP title. Keep
   // the visible H1 and WebPage JSON-LD name unchanged: they are the source of
   // the live page label and must not drift as a side effect of a metadata fix.
-  const titleHeadline = !zone && locale === 'it' && fuel === 'benzina'
-    ? 'Prezzi benzina oggi in Ticino'
+  const titleHeadline = !zone && locale === 'it'
+    ? `Prezzi ${fuel} oggi in Ticino`
     : h1;
   const titleWithDate = `${titleHeadline} (${dateDisplay})`;
   const titleWithPrice = `${titleHeadline} · ${priceFmt} CHF/l (${dateDisplay})`;

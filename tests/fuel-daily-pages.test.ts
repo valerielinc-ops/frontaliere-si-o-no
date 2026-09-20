@@ -242,6 +242,7 @@ describe('fuel-daily page generation — content quality', () => {
 
   it('includes localized H1 and no dark: color classes', () => {
     const itRegional = pages['/prezzi-diesel/oggi/'];
+    expect(itRegional).toMatch(/<title>Prezzi diesel oggi in Ticino · .*\(\d{2}\.\d{2}\.\d{4}\)<\/title>/i);
     expect(itRegional).toMatch(/<h1[^>]*>.*Prezzo Diesel Svizzera oggi/i);
     const itBenzinaRegional = pages['/prezzi-benzina/oggi/'];
     // The CTR-facing title follows the exact regional query, while the
