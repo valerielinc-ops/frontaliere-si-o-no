@@ -749,13 +749,14 @@ function hashRepoFile(hasher, abs) {
  */
 export function computeAssembleCacheKey({ withStats = false, withSummaries = true } = {}) {
   const inputFingerprint = computeAssembleInputFingerprint();
+  const skipReconciliation = String(process.env.JOBS_SKIP_RECONCILIATION || '0') === '1';
   // The suffix is part of the key because the snapshot below copies whatever is
   // on disk: a `--no-summaries` run stores the PREVIOUS jobs-crawler-summaries
   // .json, so sharing a key with a full run would let a later full run restore
   // that stale file from cache instead of regenerating it.
   return {
     inputFingerprint,
-    cacheKey: `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}${withSummaries ? '' : '_nosummaries'}`,
+    cacheKey: `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}${withSummaries ? '' : '_nosummaries'}${skipReconciliation ? '_noreconcile' : ''}`,
   };
 }
 
@@ -3406,6 +3407,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   // Inputs change on a few cron hours per day; between those events, ~80 % of
   // deploys feed identical bytes through the same pipeline.
   const { inputFingerprint, cacheKey } = computeAssembleCacheKey({ withStats, withSummaries });
+  const skipReconciliation = String(process.env.JOBS_SKIP_RECONCILIATION || '0') === '1';
   const cacheDir = path.join(CACHE_ROOT, cacheKey);
   const manifestPath = path.join(cacheDir, 'manifest.json');
 
@@ -3624,7 +3626,14 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
       console.log(`✅ data/expired-jobs.json assembled: ${cleanedExpired.length} expired jobs`);
 
       // --- Orphan + Expired slug reconciliation (Jaccard similarity) ---
-      try {
+      // Translation runs assemble the same slices several times. The first,
+      // post-mop-up, and true-final passes only need the dataset projection;
+      // the expensive historical-slug sweep belongs to a full assembly pass.
+      // The cache key carries the flag so a no-reconcile snapshot can never
+      // satisfy a later full-reconciliation request.
+      if (skipReconciliation) {
+        console.log('⏭️  Slug reconciliation skipped (JOBS_SKIP_RECONCILIATION=1)');
+      } else try {
         const { reconcileOrphanSlugs, reconcileExpiredSlugs } = await import('./reconcile-job-slugs.mjs');
 
         // Reconcile orphan slugs → merge into active jobs' previousSlugs

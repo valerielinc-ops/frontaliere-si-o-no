@@ -46,6 +46,7 @@ const JOBS_DATA_PIPELINE_GROUP = 'jobs-data-pipeline';
 const QUEUE_CAP = 100;
 const SATURATION_WARN_THRESHOLD = intFromEnv('QUEUE_SATURATION_WARN_THRESHOLD', 80);
 const CANCELLED_LOOKBACK_MINUTES = intFromEnv('QUEUE_CANCELLED_LOOKBACK_MINUTES', 180);
+const TELEMETRY_LOOKBACK_HOURS = intFromEnv('QUEUE_TELEMETRY_LOOKBACK_HOURS', 24);
 
 function repoPath(suffix) {
   return REPO ? `repos/${REPO}/${suffix}` : `repos/{owner}/{repo}/${suffix}`;
@@ -134,6 +135,119 @@ export function measureQueueDepth(workflowPaths) {
   return { depth, perWorkflow };
 }
 
+function median(values) {
+  if (values.length === 0) return null;
+  const sorted = [...values].sort((a, b) => a - b);
+  const middle = Math.floor(sorted.length / 2);
+  return sorted.length % 2 === 0
+    ? (sorted[middle - 1] + sorted[middle]) / 2
+    : sorted[middle];
+}
+
+function timestamp(value) {
+  const parsed = Date.parse(value || '');
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+/**
+ * Summarize queue health without making any network calls. `runs` is the
+ * bounded set returned by the Actions workflow-runs endpoint for the watched
+ * workflows. Wait is measured from creation to the first runner start; the
+ * utilization numerator is the union of runner intervals, so overlapping or
+ * duplicate observations cannot push it above 100%.
+ */
+export function summarizeQueueTelemetry(
+  runs,
+  { now = Date.now(), lookbackMs = TELEMETRY_LOOKBACK_HOURS * 60 * 60_000 } = {},
+) {
+  const windowStart = now - Math.max(1, lookbackMs);
+  const validRuns = Array.isArray(runs) ? runs : [];
+  const queuedRuns = validRuns.filter((run) => run?.status === 'queued');
+  const activeRuns = validRuns.filter((run) => run?.status === 'in_progress');
+  const waits = validRuns
+    .map((run) => {
+      const created = timestamp(run?.created_at);
+      const started = timestamp(run?.run_started_at || run?.started_at);
+      return created !== null && started !== null && started >= windowStart && started <= now
+        ? Math.max(0, started - created)
+        : null;
+    })
+    .filter((wait) => wait !== null);
+  const queuedWaits = queuedRuns
+    .map((run) => {
+      const created = timestamp(run?.created_at);
+      return created !== null && created <= now ? Math.max(0, now - created) : null;
+    })
+    .filter((wait) => wait !== null);
+
+  const intervals = validRuns
+    .map((run) => {
+      const started = timestamp(run?.run_started_at || run?.started_at);
+      if (started === null || started > now) return null;
+      const ended = run?.status === 'in_progress'
+        ? now
+        : (timestamp(run?.completed_at || run?.updated_at) ?? now);
+      const from = Math.max(windowStart, started);
+      const to = Math.min(now, ended);
+      return to > from ? [from, to] : null;
+    })
+    .filter(Boolean)
+    .sort((a, b) => a[0] - b[0]);
+  let busyMs = 0;
+  let current = null;
+  for (const [from, to] of intervals) {
+    if (!current || from > current[1]) {
+      if (current) busyMs += current[1] - current[0];
+      current = [from, to];
+    } else {
+      current[1] = Math.max(current[1], to);
+    }
+  }
+  if (current) busyMs += current[1] - current[0];
+
+  const effectiveLookbackMs = Math.max(1, lookbackMs);
+  return {
+    sampledRuns: validRuns.length,
+    queued: queuedRuns.length,
+    active: activeRuns.length,
+    medianWaitMs: median(waits),
+    medianQueuedWaitMs: median(queuedWaits),
+    oldestQueuedWaitMs: queuedWaits.length > 0 ? Math.max(...queuedWaits) : null,
+    busyMs,
+    utilizationPct: Math.min(100, (busyMs / effectiveLookbackMs) * 100),
+    lookbackMs: effectiveLookbackMs,
+  };
+}
+
+/**
+ * Fetch the bounded historical sample used by the watchdog's utilization and
+ * wait metrics. The queue-depth scan remains separate because it needs the
+ * current `status=queued` view and is intentionally cheap.
+ */
+export function measureQueueTelemetry(
+  workflowPaths,
+  now = Date.now(),
+  lookbackMs = TELEMETRY_LOOKBACK_HOURS * 60 * 60_000,
+) {
+  const since = new Date(now - lookbackMs).toISOString();
+  const allRuns = [];
+  const perWorkflow = [];
+  for (const workflowPath of workflowPaths) {
+    const file = workflowFileName(workflowPath);
+    const encodedSince = encodeURIComponent(since);
+    const data = ghJson(repoPath(
+      `actions/workflows/${file}/runs?status=all&created=%3E%3D${encodedSince}&per_page=100`,
+    ));
+    const runs = Array.isArray(data?.workflow_runs) ? data.workflow_runs : [];
+    allRuns.push(...runs);
+    perWorkflow.push({ file, runs: runs.length });
+  }
+  return {
+    ...summarizeQueueTelemetry(allRuns, { now, lookbackMs }),
+    perWorkflow,
+  };
+}
+
 /**
  * A run cancelled BEFORE any of its jobs ever started is the signature of
  * `queue: max` NOT being honoured: with `cancel-in-progress: false` declared,
@@ -181,6 +295,15 @@ export async function main() {
   console.log(
     `[monitor-jobs-pipeline-queue] queue depth: ${depth}/${QUEUE_CAP} `
       + `(${perWorkflow.map((w) => `${w.file}=${w.count}`).join(', ')})`,
+  );
+
+  const telemetry = measureQueueTelemetry(workflowPaths);
+  const formatMs = (value) => value === null ? 'n/a' : `${Math.round(value / 60_000)}m`;
+  console.log(
+    `[monitor-jobs-pipeline-queue] telemetry: active=${telemetry.active}, `
+      + `median wait=${formatMs(telemetry.medianWaitMs)}, `
+      + `oldest queued=${formatMs(telemetry.oldestQueuedWaitMs)}, `
+      + `utilization=${telemetry.utilizationPct.toFixed(1)}%/${TELEMETRY_LOOKBACK_HOURS}h`,
   );
 
   const cutoffMs = Date.now() - CANCELLED_LOOKBACK_MINUTES * 60_000;
@@ -259,6 +382,9 @@ export async function main() {
         + `(soglia di preallarme: ${SATURATION_WARN_THRESHOLD}).`,
       '',
       ...perWorkflow.map((w) => `- ${w.file}: ${w.count} run in coda`),
+      `- Telemetria ${TELEMETRY_LOOKBACK_HOURS}h: active=${telemetry.active}, `
+        + `median wait=${formatMs(telemetry.medianWaitMs)}, `
+        + `utilization=${telemetry.utilizationPct.toFixed(1)}%`,
       '',
       `Oltre il cap di ${QUEUE_CAP} le run vengono scartate silenziosamente, senza `
         + 'segnale operativo. Rilevato da `scripts/monitor-jobs-pipeline-queue.mjs`.',

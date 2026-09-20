@@ -294,6 +294,13 @@ describe('finalizeTranslatedText — the shared exit transform', () => {
       targetLang: 'it',
     })).toBe(s);
   });
+
+  it('scrubs a mangled sentinel rendered as a circled-number percentage', () => {
+    const { tokens } = maskProtectedTokens('Pflegefachperson (m/w/d)');
+    const out = restoreProtectedTokens('Infermiere ZQ ①000%', tokens, 'it', { fieldType: 'title' });
+    expect(out).not.toMatch(/ZQ|①000/iu);
+    expect(out).toContain('(m/f/d)');
+  });
 });
 
 /**
@@ -585,6 +592,7 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
       'masculineGermanTitle',
       'missingSlots',
       'needsWork',
+      'negativeMopupCacheKey',
       'opusMtRescueEnabled',
       'orderMopupJobsByTraffic',
       'rescueMopupRejects',
@@ -649,9 +657,14 @@ describe('translation writers — every scripts/ caller routes through finalizeT
   it('finds every known read-only reader of the glossary (and notices a new one)', () => {
     // #5587 item2: audit-job-title-locale.mjs reads localizeGenderTrigraphs to
     // COUNT unlocalized trigraphs — it never writes a translation, so it is
-    // deliberately not held to the writer contract below.
+    // deliberately not held to the writer contract below. The DCC pipeline
+    // likewise reads the pure German normalizer before handing text to the
+    // shared localization writer.
     const rel = readers.map(({ file }) => path.relative(SCRIPTS_DIR, file)).sort();
-    expect(rel).toEqual(['audit-job-title-locale.mjs']);
+    expect(rel).toEqual([
+      'audit-job-title-locale.mjs',
+      'lib/dedicated-crawler-common.mjs',
+    ]);
   });
 
   it('none of them calls applyGlossaryCorrections directly', () => {

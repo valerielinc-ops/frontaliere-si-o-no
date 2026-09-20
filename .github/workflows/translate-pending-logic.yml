@@ -38,9 +38,9 @@
 #     unaffected — the overall run's ORIGINAL triggering event (schedule,
 #     workflow_dispatch) propagates through workflow_call unchanged, and this
 #     workflow already read every dispatch input via the `inputs.` context
-#     (never `github.event.inputs.`), so the housekeeping-gate step and every
-#     `if: inputs.*` guard need NO change — the caller replicates the same 5
-#     cron strings, so `github.event.schedule` still matches on the daily run.
+#     (never `github.event.inputs.`), so every `if: inputs.*` guard needs NO
+#     change — the caller replicates the three translation cron strings, so
+#     `github.event.schedule` still matches on the daily run.
 #
 #  2. `scripts/lib/trigger-deploy.sh` (-> trigger-workflow.sh) resolves its
 #     target repo from the ambient `GITHUB_REPOSITORY` env var, which is the
@@ -88,11 +88,11 @@ on:
         type: string
         default: ''
       skip_housekeeping:
-        description: 'Skip housekeeping (URL validation, expired pruning)'
+        description: 'Deprecated compatibility input; housekeeping runs in its own workflow'
         type: boolean
         default: false
       skip_translate:
-        description: 'Skip translations (only housekeeping + slug hardening)'
+        description: 'Skip translations (only slug hardening)'
         type: boolean
         default: false
       dry_run:
@@ -101,8 +101,6 @@ on:
         default: false
     secrets:
       FIREBASE_SERVICE_ACCOUNT_JSON:
-        required: false
-      CODEX_AUTH_JSON:
         required: false
 # No concurrency: block here — see the header note (checklist point 3).
 permissions:
@@ -113,6 +111,8 @@ env:
   # Every translation consumer must use the one run-wide clock. The initializer
   # below verifies the marker before any soft-failing phase can run.
   TRANSLATE_RUN_CLOCK_REQUIRED: '1'
+  # Bounded, opt-out memo for repeated stats/observability language detection.
+  TRANSLATION_DETECTOR_MEMO: ${{ vars.TRANSLATION_DETECTOR_MEMO || '1' }}
 
 jobs:
   translate:
@@ -201,43 +201,9 @@ jobs:
           echo "GH_TOKEN=${GITHUB_PAT}" >> "$GITHUB_ENV"
           echo "GH_REPO=valerielinc-ops/frontaliere-si-o-no" >> "$GITHUB_ENV"
 
-      # ── Codex Luna Max article lane (ON by default, historical kill-switch '0') ──
-      - id: setup_claude_haiku_fallback
-        uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/setup-claude-haiku-fallback@main
-        with:
-          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
-
-      # ── Phase 1: Housekeeping (prune expired, validate URLs, dedup) ──────
-      - name: Check if housekeeping should run
-        id: hk
-        run: |
-          if [ "${{ github.event.schedule }}" = "0 7 * * *" ]; then
-            echo "run=true" >> "$GITHUB_OUTPUT"
-            echo "🧹 Daily 07:00 UTC — housekeeping enabled"
-          elif [ "${{ inputs.skip_housekeeping }}" = "true" ]; then
-            echo "run=false" >> "$GITHUB_OUTPUT"
-            echo "⏭️  Housekeeping skipped (user input)"
-          else
-            echo "run=false" >> "$GITHUB_OUTPUT"
-            echo "⏭️  Housekeeping skipped (not daily cron)"
-          fi
-
-      - name: "Phase 1: Housekeeping"
-        if: steps.hk.outputs.run == 'true'
-        env:
-          JOBS_SKIP_LOCALE_HARDENING: '1'
-        run: |
-          echo "🧹 Running housekeeping (no slug hardening — deferred to Phase 3)..."
-          for slice in data/jobs/by-crawler/*.json; do
-            [ -f "$slice" ] || continue
-            JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs
-          done
-          echo "✅ Housekeeping complete"
-
-      - name: Commit housekeeping
-        if: success() && steps.checkout.outcome == 'success' && steps.hk.outputs.run == 'true' && inputs.dry_run != true
-        run: bash scripts/lib/git-commit-data.sh --slice-only "🧹 Housekeeping — prune expired + validate URLs"
-
+      # Housekeeping is a separate two-lane workflow. Keeping it outside this
+      # long translation run prevents URL validation from consuming the same
+      # single data-pipeline slot and makes its host-local bottleneck visible.
       # ── Phase 2: Translate pending jobs (ARGOS-FIRST) ────────────────────
       - name: Install Argos Translate (local MT engine)
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
@@ -246,10 +212,6 @@ jobs:
           python3 -m pip install --quiet --upgrade pip
           python3 -m pip install --quiet argostranslate
           python3 scripts/local-mt-translate.py --install
-
-      - name: Assemble dataset
-        if: inputs.skip_translate != true
-        run: node scripts/assemble-jobs-dataset.mjs
 
       # Seed the clock in a non-optional step. Phase 2a/2b/2c may continue on
       # error, so relying on any one of them to publish the marker would let a
@@ -269,6 +231,16 @@ jobs:
           console.log(`Translation run clock initialized at ${startMs}.`);
           NODE
 
+      - name: Assemble dataset
+        if: inputs.skip_translate != true
+        env:
+          # Phase 2a is the first writer and the following cascade consumes its
+          # projection. If Argos is disabled, the initial assembly remains the
+          # full producer for relocalize/scatter; otherwise defer reconciliation
+          # to the separate full assembly pass.
+          JOBS_SKIP_RECONCILIATION: ${{ vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1' && '1' || '0' }}
+        run: node scripts/assemble-jobs-dataset.mjs
+
       - name: Record translation rollout context
         env:
           ROLLOUT_REPOSITORY: ${{ github.repository }}
@@ -278,6 +250,10 @@ jobs:
           echo "Translation rollout repository=$ROLLOUT_REPOSITORY"
           echo "LOCAL_MT_LANG_AWARE_OVERWRITE=$ROLLOUT_SWITCH"
           echo "LOCAL_MT_OPUSMT_RESCUE=$OPUSMT_RESCUE_SWITCH"
+
+      - name: Log translation stats (before)
+        if: inputs.skip_translate != true
+        run: node scripts/log-translation-stats.mjs before
 
       # ── Phase 2a: Local MT BULK (Argos / CTranslate2) — PRIMARY workhorse ──
       - name: "Phase 2a: Local MT bulk translate (Argos)"
@@ -314,7 +290,23 @@ jobs:
       # and would hide pending summary work until a later run.
       - name: Re-assemble dataset after Argos bulk
         if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
+        env:
+          JOBS_SKIP_RECONCILIATION: '1'
         run: node scripts/assemble-jobs-dataset.mjs
+
+      # Persist the free bulk pass before the quota-bound cascade starts. This
+      # makes fresh arrivals visible on main as soon as 2a finishes and keeps a
+      # later timeout from hiding work that was already translated locally.
+      - name: Commit Argos translations before cascade
+        id: commit_argos_translations
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
+        env:
+          SKIP_AI_TRANSLATION: '1'
+        run: |
+          before="$(git rev-parse HEAD)"
+          bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs (Argos bulk)" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json
+          after="$(git rev-parse HEAD)"
+          if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
 
       - name: "Phase 2 pre: Flag locale-mismatched job descriptions"
         if: inputs.skip_translate != true
@@ -328,10 +320,6 @@ jobs:
           TITLE_MISTRANSLATION_MARK_CAP: ${{ vars.TITLE_MISTRANSLATION_MARK_CAP || '100' }}
           TITLE_MISTRANSLATION_QUEUE_CEILING: ${{ vars.TITLE_MISTRANSLATION_QUEUE_CEILING || '2000' }}
         run: node scripts/mark-mistranslated-jobs.mjs
-
-      - name: Log translation stats (before)
-        if: inputs.skip_translate != true
-        run: node scripts/log-translation-stats.mjs before
 
       # Shadow-only baseline: hashes and aggregates only. The temporary snapshot
       # is needed to calculate the final delta, but is never uploaded or committed.
@@ -354,17 +342,10 @@ jobs:
         if: inputs.skip_translate != true
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
-          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
           # Translation and metadata calls deliberately keep the normal
           # cascade; Codex preference is scoped to body generation inside
           # create-article.
           JOBS_CASCADE_DEADLINE_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '15000000' || '5400000' }}
-          # A/B sul thinking di Codex Luna Max. Ogni azienda va a un braccio
-          # (sale = id della run, quindi l'assegnazione cambia a ogni giro), e
-          # per ognuna si registrano tempo e traduzioni accettate. Si spegne
-          # mettendo la repo var a '0': il default del codice e' gia' spento,
-          # questa riga e' cio' che lo accende.
-          TRANSLATION_THINKING_AB: ${{ vars.TRANSLATION_THINKING_AB || '1' }}
           MT_LOCAL_OPUSMT: '1'
           TRANSFORMERS_CACHE: .cache/transformers
           INPUT_MAX_JOBS: ${{ inputs.max_jobs || '900' }}
@@ -414,23 +395,6 @@ jobs:
           printf 'expected_contract_digest=%s\n' "$expected_contract_digest" >> "$GITHUB_OUTPUT"
           exit "$legacy_status"
 
-      # Upload the cascade measurement before the long mop-up/title phases.
-      # relocalize-pending-jobs.mjs flushes this file in its finally block, but
-      # a job timeout can terminate the runner before the end-of-job upload.
-      # Keeping the same artifact name preserves the existing run-level lookup.
-      - name: Upload thinking A/B rows
-        if: always() && inputs.skip_translate != true
-        continue-on-error: true
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
-        with:
-          name: translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/translation-thinking-ab.json
-          retention-days: 30
-          # `warn` e non `error`: l'esperimento e' opt-in e una run con la repo
-          # var a '0' non produce il file. Un upload rosso direbbe che qualcosa
-          # si e' rotto quando invece l'esperimento e' semplicemente spento.
-          if-no-files-found: warn
-
       - name: Scatter changes back to per-crawler slices
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
         run: node scripts/scatter-jobs-to-slices.mjs
@@ -458,23 +422,26 @@ jobs:
       # the stale assembled file in this direction would erase its new fills.
       - name: Re-assemble dataset after Phase 2c mop-up
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        env:
+          JOBS_SKIP_RECONCILIATION: '1'
         run: node scripts/assemble-jobs-dataset.mjs
 
       - name: Commit translations
         id: commit_translations
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true
+        env:
+          SKIP_AI_TRANSLATION: '1'
         run: |
           before="$(git rev-parse HEAD)"
-          bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json data/cascade-company-skip.json
+          bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json data/cascade-company-skip.json
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
 
-      # ── Phase 2d: Fix source-copy titles (scheduled non-housekeeping runs)
+      # ── Phase 2d: Fix source-copy titles (once-daily repair lane)
       - name: "Phase 2d: Fix untranslated titles (free cascade)"
-        # The original cron expression survives the cross-repo workflow_call:
-        # run this lane on every scheduled non-07:00 run, never on manual
-        # dispatches and never alongside the long daily housekeeping pass.
-        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        # The original cron expression survives the cross-repo workflow_call.
+        # Run this cheap repair once daily; its queue ordering is starvation-safe.
+        if: github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
         env:
           # 240min from the shared marker leaves 110min before the 350min hard
           # cap for title commit, final assemble, publication-tree stats,
@@ -485,28 +452,32 @@ jobs:
 
       - name: Commit title fixes
         id: commit_title_fixes
-        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        if: github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        env:
+          SKIP_AI_TRANSLATION: '1'
         run: |
           before="$(git rev-parse HEAD)"
-          bash scripts/lib/git-commit-data.sh --slice-only "🔤 Fix untranslated titles (free cascade)"
+          bash scripts/lib/git-commit-data.sh --slice-only "🔤 Fix untranslated titles (free cascade)" data/translation-title-fix-attempts.json
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
 
-      # ── Phase 2e: Fix source-copy descriptions (same scheduled lane) ──────
-      # Run immediately after Phase 2d on the same non-housekeeping schedules.
-      # This deadline is measured from the shared run marker, so it shares the
-      # 240min repair envelope with title fixes instead of adding 240min.
+      # ── Phase 2e: Fix source-copy descriptions (bounded repair lane) ──────
+      # The shorter runs retain this lane, with an explicit item cap so a
+      # pathological backlog cannot consume the commit window.
       - name: "Phase 2e: Fix untranslated descriptions (free cascade)"
         if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
         env:
           # Same 240min run-wide envelope as Phase 2d; 110min remain before
           # the 350min hard cap for commits, final assemble, and publication.
           UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: '14400000' # shared with title fixes; not additive.
-        run: node scripts/fix-untranslated-descriptions.mjs
+          UNTRANSLATED_DESCRIPTION_FIX_MAX: ${{ vars.UNTRANSLATED_DESCRIPTION_FIX_MAX || '2000' }}
+        run: node scripts/fix-untranslated-descriptions.mjs --max "$UNTRANSLATED_DESCRIPTION_FIX_MAX"
 
       - name: Commit description fixes
         id: commit_description_fixes
         if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        env:
+          SKIP_AI_TRANSLATION: '1'
         run: |
           before="$(git rev-parse HEAD)"
           bash scripts/lib/git-commit-data.sh --slice-only "📝 Fix untranslated descriptions (free cascade)"
@@ -517,6 +488,8 @@ jobs:
       # persistence barrier; Phase 3 below changes only slugs.
       - name: Re-assemble true-final translation dataset
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        env:
+          JOBS_SKIP_RECONCILIATION: '1'
         run: node scripts/assemble-jobs-dataset.mjs
 
       # The commit helper refreshes origin/main, performs its private-index
@@ -530,7 +503,7 @@ jobs:
           if [ "${{ inputs.dry_run }}" = "true" ]; then
             node scripts/log-translation-stats.mjs after
           else
-            TRANSLATION_STATS_AFTER_TREE=1 bash scripts/lib/git-commit-data.sh --slice-only "📊 Translation stats (after)" data/translation-stats-history.json
+            SKIP_AI_TRANSLATION=1 TRANSLATION_STATS_AFTER_TREE=1 bash scripts/lib/git-commit-data.sh --slice-only "📊 Translation stats (after)" data/translation-stats-history.json
           fi
 
       - name: Capture final translation observability (shadow)
@@ -634,6 +607,8 @@ jobs:
 
       - name: Commit translation observability history
         if: always() && steps.translation_observability_before.outputs.ready == 'true' && inputs.dry_run != true
+        env:
+          SKIP_AI_TRANSLATION: '1'
         run: |
           telemetry_paths=(data/translation-observability-history.json)
           if [ -f data/translation-observability-state.json ]; then
@@ -657,6 +632,8 @@ jobs:
 
       - name: Commit slug regeneration
         if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        env:
+          SKIP_AI_TRANSLATION: '1'
         run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Regenerate locale slugs (post-translation)"
 
       - name: Save per-company translation cache
@@ -690,19 +667,6 @@ jobs:
             echo "⏳ Some translations still incomplete — skipping deploy trigger"
             echo "   The next cron run will retry and trigger deploy once all jobs are translated."
           fi
-
-      - name: Cleanup Codex auth broker
-        if: always()
-        continue-on-error: true
-        env:
-          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-        run: |
-          if [ -z "$CODEX_AUTH_BROKER_SOCKET" ] || [ ! -S "$CODEX_AUTH_BROKER_SOCKET" ]; then
-            exit 0
-          fi
-          node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs \
-            --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" \
-            || echo "::warning::Codex auth broker cleanup did not complete"
 
       - name: Report failure to GitHub Issues
         if: failure()
