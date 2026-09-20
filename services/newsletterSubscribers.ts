@@ -1769,13 +1769,18 @@ export async function applyNewsletterDeliveryEvent(
 export async function upsertNewsletterSubscriber(
  db: Firestore,
  input: NewsletterUpsertInput,
+ options: { skipRateLimit?: boolean } = {},
 ): Promise<NewsletterCaptureResult> {
- // FRO-19: Rate limiting
- const rateCheck = checkSubscriptionRateLimit();
- if (!rateCheck.allowed) {
- throw new Error(`Rate limited. Retry after ${Math.ceil(rateCheck.retryAfterMs / 1000)}s.`);
+ // FRO-19: Rate limiting. Authentication profile reconciliation opts out at
+ // the call site because it is an idempotent background write, not a new
+ // newsletter/alert attempt. Explicit subscription actions keep the limit.
+ if (!options.skipRateLimit) {
+  const rateCheck = checkSubscriptionRateLimit();
+  if (!rateCheck.allowed) {
+   throw new Error(`Rate limited. Retry after ${Math.ceil(rateCheck.retryAfterMs / 1000)}s.`);
+  }
+  recordSubscriptionAttempt();
  }
- recordSubscriptionAttempt();
  const result = await captureNewsletterSubscriber(db, input);
 
  // NOT ONE ORDINARY/AUTHENTICATION EMAIL to an address with a recorded opt-out,

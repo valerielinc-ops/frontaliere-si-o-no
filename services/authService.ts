@@ -193,6 +193,11 @@ export async function saveUserProfileToFirestore(
   registrationTermsAccepted: true,
   registrationMethod: provider === 'email' ? 'email' : 'authenticated',
   skipConfirmationEmail: provider !== 'email',
+ }, {
+  // This function is called both by the sign-in handler and the auth-state
+  // listener. It reconciles an existing account profile; it is not a new
+  // interactive newsletter/alert subscription attempt.
+  skipRateLimit: true,
  });
  const subRef = fsModule.doc(db, 'newsletter_subscribers', email);
 
