@@ -6611,6 +6611,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.votazioni-cantoni-27-settembre.title': 'Voting in nine cantons: tax and voting mobility',
     'blog.article.votazioni-cantoni-27-settembre.excerpt': 'On Sunday, September 27, nine cantons are voting: tax in Vaud, contraception in Geneva and cross-border mobility of 39.5 million.',
     'blog.article.votazioni-cantoni-27-settembre.imageAlt': 'Voters queuing outside a Swiss government building for the September 27 cantonal elections',
+    'blog.article.referendum-nuove-centrali-nucleari.title': 'Successful referendum: 125,000 signatures against new plants',
+    'blog.article.referendum-nuove-centrali-nucleari.excerpt': 'The committee collected over 125,000 signatures in 3 months. The vote is scheduled for February 28, 2027.',
+    'blog.article.referendum-nuove-centrali-nucleari.imageAlt': 'Nuclear power plants and view of Lake Lugano: referendum against new constructions succeeded',
 };
 
 export default blogMetaChEn;

@@ -6611,6 +6611,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.votazioni-cantoni-27-settembre.title': 'Votazioni in nove Cantoni: fisco e mobilità al voto',
     'blog.article.votazioni-cantoni-27-settembre.excerpt': 'Domenica 27 settembre si vota in nove Cantoni: fisco a Vaud, contraccezione a Ginevra e mobilità transfrontaliera da 39,5 milioni.',
     'blog.article.votazioni-cantoni-27-settembre.imageAlt': 'Elettori in coda all\'esterno di un edificio governativo svizzero per le votazioni cantonali del 27 settembre',
+    'blog.article.referendum-nuove-centrali-nucleari.title': 'Referendum riuscito: 125\'000 firme contro nuove centrali',
+    'blog.article.referendum-nuove-centrali-nucleari.excerpt': 'Il comitato ha raccolto oltre 125\'000 firme in 3 mesi. Il voto è previsto per il 28 febbraio 2027.',
+    'blog.article.referendum-nuove-centrali-nucleari.imageAlt': 'Centrali nucleari e vista sul Lago di Lugano: il referendum contro le nuove costruzioni è riuscito',
 };
 
 export default blogMetaChIt;
