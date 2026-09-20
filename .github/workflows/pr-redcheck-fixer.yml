@@ -169,9 +169,153 @@ jobs:
             echo "::error::Check-runs HEAD illeggibili: impossibile verificare quale rosso redcheck dovrebbe riparare."
             exit 1
           fi
-          if [ -z "$rollup" ]; then
+          if ! printf '%s' "$rollup" | jq -e 'type == "array" and all(.[]; type == "string")' >/dev/null 2>&1; then
+            echo "::error::Check-runs HEAD hanno restituito una firma non interpretabile: stop fail-closed."
+            exit 1
+          fi
+          if [ -z "$rollup" ] || [ "$rollup" = "[]" ]; then
             skip "Nessun check in stato failure sulla HEAD adesso → gia' rientrato, skip (no-op)."
           fi
+
+          # `tests` è un job consolidato: il check-run rosso ha sempre il nome
+          # del job, anche quando il rosso viene dal contratto del body o dal
+          # gate di review. In quei due casi il redcheck-fixer non ha codice da
+          # riparare: spendere Claude qui trasformerebbe un errore di processo
+          # in una modifica arbitraria della PR. Leggiamo quindi la Jobs API
+          # della run e classifichiamo gli step falliti, non solo il rollup.
+          #
+          # Fail-closed intenzionale: una risposta mancante, non JSON, senza il
+          # job consolidato, senza steps o senza uno step failure verificabile
+          # non autorizza il fixer. Un falso skip lascia il required check
+          # visibile; un falso `actionable=true` spende Claude e può pushare.
+          if ! jobs_json=$(gh api "repos/$REPO/actions/runs/$RUN_ID/jobs?filter=latest&per_page=100" \
+            --paginate --slurp 2>/dev/null); then
+            echo "::error::Jobs API della run tests illeggibile: impossibile distinguere body/review da test failure. Stop fail-closed."
+            exit 1
+          fi
+          # The single-quoted node program intentionally contains template
+          # expressions owned by JavaScript, not shell interpolation.
+          # shellcheck disable=SC2016
+          if ! failure_kind=$(printf '%s' "$jobs_json" | node -e '
+            let raw = "";
+            process.stdin.setEncoding("utf8");
+            process.stdin.on("data", (chunk) => { raw += chunk; });
+            process.stdin.on("end", () => {
+              const BODY_CONTRACT_STEPS = new Set([
+                // Current consolidated-job signature.
+                "PR-body completeness + multi-issue Closes (no checkout, all events)",
+                // Compatibility with the immediately preceding main topology.
+                "PR-body completeness + multi-issue Closes (no checkout, pull requests)",
+              ]);
+              const REVIEW_STEPS = new Set([
+                "Resolve trusted GitHub CLI (before checkout)",
+                "Resolve trusted policy ref (main tip, pinned)",
+                "Bootstrap trusted review policy (no checkout)",
+                "Bootstrap trusted bounded-ledger policy (no checkout)",
+                "Classify bounded loop-fleet ledger path",
+                "Publish bounded ledger-only automatic LGTM",
+                "Resolve PR from pull request",
+                "Resolve review input revision (zero-agent)",
+                "Re-review guard (skip Claude when no code changed since last LGTM)",
+                "Re-review guard (one terminal verdict per HEAD)",
+                "Determine review tier",
+                "Prefetch review context (zero-Claude, saves turns)",
+                "Mint GitHub App token for Codex review",
+                "Refresh trusted review policy before automatic publishers",
+                "Publish automatic LGTM for a tests-only PR",
+                "Publish carry-forward LGTM (code contribution unchanged)",
+                "Run Claude review",
+                "Run Codex " + "Luna Max review",
+                "Refresh trusted review policy before transient-error classifier",
+                "Fail on transient API error (no review posted)",
+                "Refresh trusted review policy before final verdict",
+                "Validate deterministic review input marker",
+                "Require approving Claude review",
+                "Require approving Codex review",
+                "Fail when required review gate is skipped",
+                "Decide post-review follow-up",
+                "Classify cancelled run",
+                "Explain the job verdict in the run summary",
+                "Checkout trusted main for autorebase and token minting",
+                "Mint post-review App token",
+                "Checkout trusted native auto-merge source",
+                "Validate trusted native auto-merge source",
+                "Enable native auto-merge after the required job",
+                "Setup Node.js + npm ci for autorebase",
+                "Rebase near-merge PRs after review or stale rescue",
+              ]);
+              const ACTIONABLE_STEPS = new Set([
+                // Known code/test gates take priority when a later review gate
+                // also fails: a real test/source failure must not be hidden by
+                // the missing review verdict.
+                "vitest related (PR diff)",
+                "Collect independent source gates",
+                "Run source guards in parallel",
+              ]);
+              const fail = (message) => {
+                console.error(message);
+                process.exit(1);
+              };
+              try {
+                const pages = JSON.parse(raw);
+                if (!Array.isArray(pages) || pages.length === 0) fail("Jobs API: pagine assenti o malformate");
+                const jobs = pages.flatMap((page) => {
+                  if (!page || !Array.isArray(page.jobs)) fail("Jobs API: pagina senza elenco jobs");
+                  return page.jobs;
+                });
+                const vitestJobs = jobs.filter((job) => job && job.name === "vitest (unit + integration)");
+                if (vitestJobs.length !== 1) fail(`Jobs API: attesi 1 job vitest consolidato, trovati ${vitestJobs.length}`);
+                const [job] = vitestJobs;
+                if (job.status !== "completed" || job.conclusion !== "failure") {
+                  fail(`Jobs API: job vitest non è un failure completato (${job.status}/${job.conclusion})`);
+                }
+                if (!Array.isArray(job.steps)) fail("Jobs API: steps del job vitest assenti o malformati");
+                const failedSteps = job.steps
+                  .filter((step) => step && step.conclusion === "failure")
+                  .map((step) => step.name)
+                  .filter((name) => typeof name === "string" && name.length > 0);
+                if (failedSteps.length === 0) fail("Jobs API: nessuno step failure verificabile nel job vitest");
+                if (failedSteps.some((name) => ACTIONABLE_STEPS.has(name))) {
+                  console.log("test-or-infra");
+                  return;
+                }
+                if (failedSteps.some((name) => BODY_CONTRACT_STEPS.has(name))) {
+                  console.log("body-contract");
+                  return;
+                }
+                if (failedSteps.some((name) => REVIEW_STEPS.has(name))) {
+                  console.log("review-gate");
+                  return;
+                }
+                // A completed, named failure in the consolidated job is still
+                // the redcheck signal (tsc, assemble, a newly added guard,
+                // etc.). Do not enumerate every code gate here: a new step
+                // must remain actionable, while a malformed job/steps payload
+                // has already failed closed above.
+                console.log("test-or-infra");
+              } catch (error) {
+                fail(`Jobs API: JSON non interpretabile (${error instanceof Error ? error.message : String(error)})`);
+              }
+            });
+          '); then
+            echo "::error::Failure signature della run tests illeggibile o inattesa. Stop fail-closed."
+            exit 1
+          fi
+          case "$failure_kind" in
+            body-contract)
+              skip "Il failure di tests è il PR-body contract, non un test del codice → nessun redcheck-fixer (no-op)."
+              ;;
+            review-gate)
+              skip "Il failure di tests è il review gate/input, non un test del codice → nessun redcheck-fixer (no-op)."
+              ;;
+            test-or-infra)
+              echo "Failure verificato in uno step del job tests consolidato → redcheck-fixer azionabile."
+              ;;
+            *)
+              echo "::error::Categoria failure tests inattesa: $failure_kind. Stop fail-closed."
+              exit 1
+              ;;
+          esac
 
           # Non correre sopra il gemello: se il 🔴-fixer sta girando su questo
           # branch, il suo push arriverebbe sopra il nostro (o viceversa).

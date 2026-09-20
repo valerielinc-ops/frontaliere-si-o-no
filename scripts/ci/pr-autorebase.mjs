@@ -936,18 +936,29 @@ function hasCommentMarker(num, marker) {
   return hasCommentMarkerShared(gh, REPO, num, marker);
 }
 
-/** C'è una review Claude ANCORA in volo sull'head (Jobs API: lo step `Run Claude
- * review` è `queued`/`in_progress`)? Dal 2026-08-26 la review vive dentro il
- * job `vitest (unit + integration)`: cercare un check-run chiamato `review`
- * è quindi un segnale morto. Il push del rebase crea una nuova corsia
- * PR+HEAD, ma lascia il run vecchio libero di terminare; deferire il rebase
- * evita comunque due decisioni interleaved mentre il reviewer sta leggendo lo
- * stesso tree. Con main caldo la review conclude sulla HEAD vecchia e il tick
- * successivo crea la nuova HEAD: quel verdetto viene poi rifiutato come
- * stantio. */
-function reviewInProgress(head) {
-  const checks = checkRunsOf(head);
-  const activeVitest = checks.filter(
+/**
+ * Decide if an authoritative Vitest execution still has the review step in
+ * flight. The old standalone `review` check-run is deliberately ignored: the
+ * reviewer now runs as a step inside `vitest (unit + integration)`.
+ *
+ * Pure with respect to GitHub: callers provide the check-run snapshot and the
+ * Jobs API reader. Keeping this decision separate makes the no-rebase contract
+ * executable in tests without starting a real autorebase sweep.
+ *
+ * An active required check without a job link, or a job that remains
+ * non-terminal/without steps after bounded polling, is an unknown review state
+ * and therefore blocks the rebase (fail closed).
+ */
+export function reviewInProgressForChecks(
+  checks,
+  readJob,
+  {
+    attempts = VITEST_POLL_ATTEMPTS,
+    delayMs = VITEST_POLL_DELAY_MS,
+    sleep = sleepSync,
+  } = {},
+) {
+  const activeVitest = (Array.isArray(checks) ? checks : []).filter(
     (check) => check?.name === VITEST_EXECUTION_JOB_NAME &&
       ['queued', 'in_progress'].includes(String(check.status || '')),
   );
@@ -956,14 +967,14 @@ function reviewInProgress(head) {
     // An active check with no job link is still an unknown review state. Do
     // not rebase into that gap: the push could cancel a review whose Jobs API
     // record has not been materialized yet.
-    if (!jobId) return true;
+    if (!jobId || typeof readJob !== 'function') return true;
     const job = pollUntil({
-      read: () => gh(['api', `repos/${REPO}/actions/jobs/${jobId}`]),
+      read: () => readJob(jobId),
       ready: (response) => vitestJobIsConcluded(response)
         && Array.isArray(response.steps) && response.steps.length > 0,
-      attempts: VITEST_POLL_ATTEMPTS,
-      delayMs: VITEST_POLL_DELAY_MS,
-      sleep: sleepSync,
+      attempts,
+      delayMs,
+      sleep,
     });
     // During startup GitHub can return the job with `steps: []` or without a
     // terminal conclusion; neither is a negative answer, it is the short
@@ -972,6 +983,24 @@ function reviewInProgress(head) {
     if (reviewStepIsInFlight(job?.steps)) return true;
   }
   return false;
+}
+
+/** C'è una review Claude ANCORA in volo sull'head (Jobs API: lo step `Run Codex
+ * Luna Max review` è `queued`/`in_progress`)? Dal 2026-08-26 la review vive
+ * dentro il job `vitest (unit + integration)`: cercare un check-run chiamato
+ * `review` è quindi un segnale morto. Il push del rebase crea una nuova corsia
+ * PR+HEAD, ma lascia il run vecchio libero di terminare; deferire il rebase
+ * evita comunque due decisioni interleaved mentre il reviewer sta leggendo lo
+ * stesso tree. Con main caldo la review conclude sulla HEAD vecchia e il tick
+ * successivo crea la nuova HEAD: quel verdetto viene poi rifiutato come
+ * stantio. */
+function reviewInProgress(head) {
+  const checks = checkRunsOf(head);
+  return reviewInProgressForChecks(
+    checks,
+    (jobId) => gh(['api', `repos/${REPO}/actions/jobs/${jobId}`]),
+    { attempts: VITEST_POLL_ATTEMPTS, delayMs: VITEST_POLL_DELAY_MS, sleep: sleepSync },
+  );
 }
 
 /** Statuti NON terminali di un workflow-run GitHub: il run sta ancora
