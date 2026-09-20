@@ -100,6 +100,26 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Restore per-company translation cache
+        id: translation_cache_restore
+        uses: actions/cache/restore@v5
+        with:
+          path: data/translation-cache
+          key: translation-cache-v1-crawler-group-09-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: translation-cache-v1-crawler-group-09-
+      - name: Prepare per-company translation cache
+        if: always()
+        env:
+          TRANSLATION_CACHE_MATCHED_KEY: ${{ steps.translation_cache_restore.outputs.cache-matched-key }}
+        run: |-
+          mkdir -p data/translation-cache
+          if [ -n "$TRANSLATION_CACHE_MATCHED_KEY" ]; then
+            echo "✅ Per-company translation cache restored: $TRANSLATION_CACHE_MATCHED_KEY"
+            echo "translation-cache: hit ($TRANSLATION_CACHE_MATCHED_KEY)" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "ℹ️ Per-company translation cache miss; translations will repopulate it."
+            echo "translation-cache: miss" >> "$GITHUB_STEP_SUMMARY"
+          fi
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
       - name: Prepare Firebase credentials (optional)
@@ -7007,6 +7027,13 @@ jobs:
         with:
           path: .cache/jobs-ai-cache.json
           key: jobs-ai-cache-v1-crawler-group-09-${{ github.repository }}-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Save per-company translation cache
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
+        uses: actions/cache/save@v5
+        with:
+          path: data/translation-cache
+          key: translation-cache-v1-crawler-group-09-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Cleanup Codex auth broker
         if: always()
         continue-on-error: true
