@@ -605,6 +605,36 @@ jobs:
           done
           printf 'path=%s\n' "$gh_bin" >> "$GITHUB_OUTPUT"
 
+      # `base.sha` è il commit di main da cui la PR è partita, non la policy che
+      # main applica oggi. Se main ha AGGIUNTO un modulo del gate dopo
+      # l'apertura della PR, quel ref non ce l'ha: `contents/<path>?ref=` torna
+      # 404, il download muore e il rosso che ne esce è «gate di review
+      # saltato» — che non nomina né il file né il ref, e manda a cercare la
+      # causa dove non è. Misurato sul corpus (#1599) e riprodotto qui
+      # (run 35472199618). La punta di main è ugualmente fidata — è lo stesso
+      # branch protetto, e una PR non la può muovere senza mergiare — ed è
+      # COMPLETA per costruzione. Si risolve UNA volta e si pinna lo SHA, così
+      # un main che avanza a metà run non cambia la policy sotto i piedi.
+      - name: Resolve trusted policy ref (main tip, pinned)
+        id: policy_ref
+        if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          FALLBACK_REF: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          policy_ref="$("$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/commits/main" \
+            --jq '.sha' 2>/dev/null || true)"
+          if ! printf '%s' "$policy_ref" | grep -qE '^[0-9a-f]{40}$'; then
+            # Nessun ripiego silenzioso su `base.sha`: sarebbe di nuovo la
+            # policy incompleta, e il fallimento tornerebbe a non avere nome.
+            echo "::error::punta di main non risolvibile (risposta: '${policy_ref:-vuota}'); la policy fidata non è determinabile, gate fail-closed."
+            exit 1
+          fi
+          echo "Policy fidata pinnata su main@${policy_ref}."
+          printf 'sha=%s\n' "$policy_ref" >> "$GITHUB_OUTPUT"
+
       # Review admission, body-revision and gate code are security-sensitive:
       # the PR checkout below is attacker-controlled. Download the complete
       # import cone from the immutable base commit before checkout and execute
@@ -616,18 +646,26 @@ jobs:
         if: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main' && steps.body_contract.outcome != 'failure' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          POLICY_REF: ${{ github.event.pull_request.base.sha }}
+          POLICY_REF: ${{ steps.policy_ref.outputs.sha }}
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: |
           set -euo pipefail
           policy_root="${RUNNER_TEMP}/review-policy"
           mkdir -p "$policy_root/scripts/ci/lib" "$policy_root/scripts/lib"
+          # Un 404 qui vuol dire «main@ref non ha questo file», non «rete giù»:
+          # il messaggio deve nominare file e ref, altrimenti il rosso arriva
+          # come «gate di review saltato» e manda a cercare la causa altrove.
           download_main() {
             local path="$1"
             local destination="$2"
-            "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
               --header 'Accept: application/vnd.github.raw+json' \
-              > "$destination"
+              > "$destination" 2>"${destination}.err"; then
+              echo "::error::policy fidata: '${path}' non scaricabile da main@${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
+              rm -f "$destination" "${destination}.err"
+              exit 1
+            fi
+            rm -f "${destination}.err"
           }
           download_main scripts/ci/review-gate.mjs "$policy_root/scripts/ci/review-gate.mjs"
           download_main scripts/ci/lib/review-carry-forward.mjs "$policy_root/scripts/ci/lib/review-carry-forward.mjs"
@@ -734,18 +772,26 @@ jobs:
         if: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main' && github.event.pull_request.user.type == 'Bot' && github.event.pull_request.user.login == 'frontaliere-automation[bot]' && github.event.pull_request.head.repo.full_name == github.repository && (github.head_ref == 'chore/loop-fleet-ledger' || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L0-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L1-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L2-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L3-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L4-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L5-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L6-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L7-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L8-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L9-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L10-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L11-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-lifecycle-')) && steps.body_contract.outcome != 'failure' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          POLICY_REF: ${{ github.event.pull_request.base.sha }}
+          POLICY_REF: ${{ steps.policy_ref.outputs.sha }}
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: |
           set -euo pipefail
           policy_root="${RUNNER_TEMP}/ledger-fast-policy"
           mkdir -p "$policy_root/scripts/ci/lib" "$policy_root/scripts/lib" "$policy_root/functions/src" "$policy_root/data/loop-fleet"
+          # Un 404 qui vuol dire «main@ref non ha questo file», non «rete giù»:
+          # il messaggio deve nominare file e ref, altrimenti il rosso arriva
+          # come «gate di review saltato» e manda a cercare la causa altrove.
           download_main() {
             local path="$1"
             local destination="$2"
-            "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
               --header 'Accept: application/vnd.github.raw+json' \
-              > "$destination"
+              > "$destination" 2>"${destination}.err"; then
+              echo "::error::policy fidata: '${path}' non scaricabile da main@${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
+              rm -f "$destination" "${destination}.err"
+              exit 1
+            fi
+            rm -f "${destination}.err"
           }
           download_main package.json "$policy_root/package.json"
           download_main scripts/ci/review-test-policy.mjs "$policy_root/scripts/ci/review-test-policy.mjs"
@@ -2573,29 +2619,52 @@ jobs:
           const policyRoot = process.env.REVIEW_POLICY_ROOT;
           if (!policyRoot) throw new Error('REVIEW_POLICY_ROOT mancante');
           const admission = await import(pathToFileURL(`${policyRoot}/scripts/ci/lib/pr-review-admission.mjs`).href);
-          // Bootstrap: la copia trusted arriva dal BASE sha, e `parseReviewPages`
-          // è introdotto da questa stessa PR — su main non esiste ancora, quindi
-          // l'import nominale la rendeva non-reviewabile da sé (run 35472199618:
-          // `TypeError: parseReviewPages is not a function`, zero review mai
-          // postate). Finché non è mergiata si ricade su `flattenReviewPages`,
-          // che sul base c'è; dopo il merge il ramo di fallback è morto.
           const parseReviewPages = admission.parseReviewPages
             ?? ((value) => {
               const flat = admission.flattenReviewPages(value);
               return Array.isArray(flat) ? flat : null;
             });
-          const { historicalImportantFindings } = await import(pathToFileURL(`${policyRoot}/scripts/ci/review-gate.mjs`).href);
+          const gate = await import(pathToFileURL(`${policyRoot}/scripts/ci/review-gate.mjs`).href);
 
           const pages = JSON.parse(readFileSync(process.argv[2], 'utf8'));
           const reviews = parseReviewPages(pages);
           if (!reviews) {
             throw new Error('reviews API shape non verificabile');
           }
-          const findings = historicalImportantFindings(reviews, { includeLatest: true });
-          if (findings.length === 0) {
-            console.log('Nessun finding Important storico ancora aperto.');
+          // `review-findings.mjs` è introdotto da QUESTA PR: la copia trusted
+          // arriva da un commit di main che non ce l'ha ancora, e il download
+          // opzionale lo salta. Finché non è mergiata si degrada all'elenco
+          // semplice dei soli aperti, che è il comportamento di main; dal
+          // merge in poi il ledger con id e stato compare da sé.
+          let findings = null;
+          try {
+            findings = await import(pathToFileURL(`${policyRoot}/scripts/ci/lib/review-findings.mjs`).href);
+          } catch {
+            findings = null;
+          }
+          // `confirmed` viene SOLO dalle conferme esplicite `Fix di ...: ok`,
+          // mai per sottrazione fra «tutti» e «aperti»: un finding declassato
+          // per scope o per riga non cambiata non è stato confermato da
+          // nessuno, e marcarlo chiuso autorizzerebbe il reviewer a
+          // sopprimere un rilievo ancora valido.
+          if (findings && gate.partitionHistoricalImportantFindings) {
+            const { open, confirmed } = gate.partitionHistoricalImportantFindings(reviews, { includeLatest: true });
+            console.log(findings.renderFindingsLedger({ open, confirmed }));
+            console.log('');
+            for (const finding of open) {
+              const anchors = finding.citations.map((citation) =>
+                `${citation.path}${citation.line ? `:L${citation.line}` : ''}`,
+              ).join(', ');
+              console.log(`- Open Important \`${findings.stableFindingId(finding)}\` (${anchors || 'anchor non risolvibile'}):`);
+              console.log(finding.text);
+              console.log('');
+            }
           } else {
-            for (const finding of findings) {
+            const open = gate.historicalImportantFindings(reviews, { includeLatest: true });
+            if (open.length === 0) {
+              console.log('Nessun finding Important storico ancora aperto.');
+            }
+            for (const finding of open) {
               const anchors = finding.citations.map((citation) =>
                 `${citation.path}${citation.line ? `:L${citation.line}` : ''}`,
               ).join(', ');
@@ -2680,7 +2749,10 @@ jobs:
               echo "Verdict unavailable (${BODY_CONTRACT_OUTCOME:-unknown}): apply the REVIEW.md body rules."
             fi
             echo
-            echo "## Historical open Important findings"
+            echo "## Findings ledger (id stabile + stato)"
+            echo "Un id stabile è \`(path, simbolo, classe)\`: NON contiene il numero di riga, quindi sopravvive a un rebase o a un merge di main."
+            echo "Un 🔴 NUOVO ancorato solo su righe non toccate dall'ultima review viene declassato dal gate (\`DECLASSIFIED-UNCHANGED-LINE\`): se è davvero una regressione introdotta dopo, scrivilo \`🔴 Important: [regression] <problema>\`."
+            echo
             cat "$CTX_DIR/inherited-findings.md"
             echo
             echo "## Changed code-file list"
@@ -2718,20 +2790,26 @@ jobs:
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && success() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && (steps.tier.outputs.tier == 'tests-only' || steps.tier.outputs.tier == 'carry-forward') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          POLICY_REF: ${{ github.event.pull_request.base.sha }}
+          POLICY_REF: ${{ steps.policy_ref.outputs.sha }}
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: |
           set -euo pipefail
           policy_root="${RUNNER_TEMP}/review-policy-publish-${GITHUB_RUN_ID}"
           rm -rf "$policy_root"
           mkdir -p "$policy_root"
+          # Vedi sopra: il 404 nomina file e ref.
           download_main() {
             local path="$1"
             local destination="$policy_root/$path"
             mkdir -p "$(dirname "$destination")"
-            "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
               --header 'Accept: application/vnd.github.raw+json' \
-              > "$destination"
+              > "$destination" 2>"${destination}.err"; then
+              echo "::error::policy fidata: '${path}' non scaricabile da main@${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
+              rm -f "$destination" "${destination}.err"
+              exit 1
+            fi
+            rm -f "${destination}.err"
           }
           for trusted_path in \
             scripts/ci/review-test-policy.mjs \
@@ -2873,20 +2951,26 @@ jobs:
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.tier.outputs.tier != 'tests-only' && steps.tier.outputs.tier != 'ledger-only' && steps.tier.outputs.tier != 'carry-forward' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          POLICY_REF: ${{ github.event.pull_request.base.sha }}
+          POLICY_REF: ${{ steps.policy_ref.outputs.sha }}
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: |
           set -euo pipefail
           policy_root="${RUNNER_TEMP}/review-policy-abort-${GITHUB_RUN_ID}"
           rm -rf "$policy_root"
           mkdir -p "$policy_root"
+          # Vedi sopra: il 404 nomina file e ref.
           download_main() {
             local path="$1"
             local destination="$policy_root/$path"
             mkdir -p "$(dirname "$destination")"
-            "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
               --header 'Accept: application/vnd.github.raw+json' \
-              > "$destination"
+              > "$destination" 2>"${destination}.err"; then
+              echo "::error::policy fidata: '${path}' non scaricabile da main@${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
+              rm -f "$destination" "${destination}.err"
+              exit 1
+            fi
+            rm -f "${destination}.err"
           }
           for trusted_path in \
             scripts/ci/claude-codex-fallback.mjs \
@@ -2995,20 +3079,26 @@ jobs:
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          POLICY_REF: ${{ github.event.pull_request.base.sha }}
+          POLICY_REF: ${{ steps.policy_ref.outputs.sha }}
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: |
           set -euo pipefail
           policy_root="${RUNNER_TEMP}/review-policy-final-${GITHUB_RUN_ID}"
           rm -rf "$policy_root"
           mkdir -p "$policy_root"
+          # Vedi sopra: il 404 nomina file e ref.
           download_main() {
             local path="$1"
             local destination="$policy_root/$path"
             mkdir -p "$(dirname "$destination")"
-            "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
               --header 'Accept: application/vnd.github.raw+json' \
-              > "$destination"
+              > "$destination" 2>"${destination}.err"; then
+              echo "::error::policy fidata: '${path}' non scaricabile da main@${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
+              rm -f "$destination" "${destination}.err"
+              exit 1
+            fi
+            rm -f "${destination}.err"
           }
           for trusted_path in \
             scripts/ci/review-gate.mjs \

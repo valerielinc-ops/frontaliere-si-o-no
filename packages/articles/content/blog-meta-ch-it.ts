@@ -6599,6 +6599,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.scuola-canton-vaud-iscrizioni-cicli.title': 'Sistema scolastico Canton Vaud: iscrizioni e cicli',
     'blog.article.scuola-canton-vaud-iscrizioni-cicli.excerpt': 'Guida completa alla scuola dell\'obbligo nel Canton Vaud: cicli di studio, età di iscrizione, lingue e passaggio alle medie superiori.',
     'blog.article.scuola-canton-vaud-iscrizioni-cicli.imageAlt': 'Edificio scolastico moderno nel Canton Vaud',
+    'blog.article.permesso-l-grigioni-validita-proroga.title': 'Permesso L Grigioni: validità e proroga',
+    'blog.article.permesso-l-grigioni-validita-proroga.excerpt': 'Il permesso L per i Grigioni ha validità fino a 1 anno, con possibilità di proroga e passaggio a permesso B sotto specifiche condizioni e vincoli per il datore di lavoro.',
+    'blog.article.permesso-l-grigioni-validita-proroga.imageAlt': 'Castelli di Bellinzona, Cantone dei Grigioni, Svizzera',
 };
 
 export default blogMetaChIt;
