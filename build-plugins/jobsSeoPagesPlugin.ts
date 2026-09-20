@@ -119,6 +119,7 @@ import {
 } from './shared/jobDetailHtml';
 import { renderEmployerCtaJobPage } from './shared/employerCtaBlock';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
+import { resolveJobApplicationUrl } from '../services/jobApplicationDestination';
 import { buildFallbackCanonicalContent, canonicalizeFallbackCleaned, localizeFallbackCanonical, type CleanedFallbackContent } from '../services/jobs/canonicalFallback';
 import {
  loadWinners,
@@ -2410,16 +2411,17 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return `<img src="${LOGO_FALLBACK_SRC}" alt="${safeAlt}" width="${width}" height="${height}" loading="lazy" data-logo-url="${esc(url)}" onerror="this.onerror=null;this.src='${LOGO_FALLBACK_SRC}'"${styleAttr}>`;
  };
 
- const referralUrl = (raw: string, job: { slug?: string; id?: string }): string => {
+ const referralUrl = (raw: string, job: { slug?: string; id?: string; companyKey?: string; company?: string; url?: string; applyUrl?: string }): string => {
+ const effectiveRaw = resolveJobApplicationUrl(job, raw);
  try {
- const u = new URL(raw);
+ const u = new URL(effectiveRaw);
  u.searchParams.set('utm_source', 'frontaliereticino');
  u.searchParams.set('utm_medium', 'referral');
  u.searchParams.set('utm_campaign', 'job-board');
  u.searchParams.set('utm_content', job.slug || job.id || '');
  return u.toString();
  } catch {
- return raw;
+ return effectiveRaw;
  }
  };
 
@@ -3584,7 +3586,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const faqResolvedCanton = sharedResolveJobCanton(job).toUpperCase();
  const faqOpts: BuildJobPostingFaqOptions = {
  locale,
- jobUrl: job.url || canonicalUrl,
+ jobUrl: resolveJobApplicationUrl(job, job.url || canonicalUrl),
  cantonDisplay: getCantonDisplayLabel(faqResolvedCanton, locale),
  isTicino: faqResolvedCanton === 'TI',
  isRemote,

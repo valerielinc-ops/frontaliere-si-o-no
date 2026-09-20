@@ -87,6 +87,22 @@ function buildJobUrl(originalUrl = '', uniqueId = '') {
 }
 
 /**
+ * The Paradox payload sometimes carries an Oracle HCM application URL even
+ * though the public Marriott detail page is the reachable destination. Keep
+ * the direct Marriott page for those records so the CTA cannot dead-end on a
+ * stale Oracle tenant.
+ */
+export function isMarriottOracleApplyUrl(rawUrl = '') {
+  try {
+    const parsed = new URL(rawUrl);
+    return parsed.hostname.toLowerCase().endsWith('.oraclecloud.com')
+      && parsed.pathname.includes('/hcmUI/CandidateExperience/');
+  } catch {
+    return false;
+  }
+}
+
+/**
  * Infer postal code from city name. Falls back to the zipCode from the API
  * or '1936' (Verbier) as default since most Marriott Valais jobs are there.
  */
@@ -383,7 +399,7 @@ function buildJobFromApi(listing) {
     currency: 'CHF',
     featured: false,
     postedDate: new Date().toISOString().split('T')[0],
-    applyUrl: listing.applyURL || publicUrl,
+    applyUrl: isMarriottOracleApplyUrl(listing.applyURL) ? publicUrl : (listing.applyURL || publicUrl),
     requirements: [],
     requirementsByLocale: { [sourceLang]: [] },
 
