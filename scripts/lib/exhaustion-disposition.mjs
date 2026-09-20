@@ -826,7 +826,10 @@ export function isLegitimateQuotaDeferral(err) {
   // un eco `cooling down` (share lordo ~1,0, differimento onesto) — ma il
   // divieto preciso: la sottrazione puo' confermare un verdetto, non ribaltarlo
   // da sola quando e' lei la maggioranza delle prove.
-  if (providerCooldownSkips > total) {
+  // Equality is already a split sample: the removed rows are not a minority
+  // of the evidence left to vote, so the net sample cannot overturn the gross
+  // tie on its own (#832, item 2).
+  if (providerCooldownSkips >= total) {
     const b = err.exhaustionBreakdown || {};
     const grossTotal = Math.max(0, Number(b.total) || 0);
     const grossTransient = Math.max(0, Number(b.transient) || 0);
