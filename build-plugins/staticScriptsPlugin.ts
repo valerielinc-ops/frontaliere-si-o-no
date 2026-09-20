@@ -69,6 +69,7 @@ import {
   PARTNERIZE_TAG_FILENAME,
 } from './constants';
 import { CRITICAL_CSS, CRITICAL_CSS_FILENAME } from './shared/criticalCss';
+import { GPT_LOADER_CONTENT, GPT_LOADER_FILENAME } from './jobBoardGpt';
 
 export function staticScriptsPlugin(rootDir: string): Plugin {
   return {
@@ -85,6 +86,7 @@ export function staticScriptsPlugin(rootDir: string): Plugin {
         [POSTHOG_INIT_FILENAME, POSTHOG_INIT_CONTENT],
         [FUEL_CHART_SCRIPT_FILENAME, FUEL_CHART_SCRIPT_CONTENT],
         [PARTNERIZE_TAG_FILENAME, PARTNERIZE_TAG_CONTENT],
+        [GPT_LOADER_FILENAME, GPT_LOADER_CONTENT],
         [CRITICAL_CSS_FILENAME, CRITICAL_CSS],
       ];
 

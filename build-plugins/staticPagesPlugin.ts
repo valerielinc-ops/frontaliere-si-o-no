@@ -17,6 +17,7 @@ import { stableChunkFile, stableChunkFiles } from './shared/chunkFiles';
 import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { jsToJson as sharedJsToJson } from './shared/jsToJson';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml } from './articleSeoFallback';
+import { GPT_BOOTSTRAP_TAG, isJobBoardPageUrl } from './jobBoardGpt';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { AD_SLOTS, resolveSlotPlaceholderMinHeight } from '../services/adsenseSlots';
 import { DATA_CONTROLLER_NAME, DATA_CONTROLLER_EMAIL } from '../functions/src/lib/dataControllerIdentity.js';
@@ -3100,6 +3101,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // sitemap still tie them to the `/en/...` cluster, which is the
  // proper schema-level link Google uses.
  const fullUrl = `${BASE_URL}${canonicalPath}`;
+ const jobBoardGptTag = isJobBoardPageUrl(fullUrl) ? `\n ${GPT_BOOTSTRAP_TAG}` : '';
  const pp = canonicalPath.slice(1).replace(/&/g, '~and~');
  // Filter out any hreflang entry with an empty lang or empty href —
  // Semrush flags empty hreflang codes as conflicts. Empty strings can
@@ -5392,7 +5394,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 ${hrefTags}
  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
  ${SEO_STATIC_CSS_LINK}
- ${ANALYTICS_SNIPPET}
+ ${ANALYTICS_SNIPPET}${jobBoardGptTag}
  <style>body{font-family:Inter,system-ui,sans-serif;max-width:800px;margin:0 auto;padding:2rem 1rem;background:#f8fafc;color:var(--color-heading)}a{color:var(--color-link);text-decoration:underline}a:hover{color:#1d4ed8}h1{font-size:1.5rem;font-weight:700;margin-bottom:0.5rem}h2{font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem}nav{margin-top:2rem;padding-top:1rem;border-top:1px solid #e2e8f0;font-size:0.9rem}nav a{margin-right:1rem}.byline{font-size:0.85rem;color:var(--color-subtle);margin-bottom:1rem}</style>
  </head>
  <body>
@@ -5543,7 +5545,7 @@ ${hrefTags}
  ${stylesheetMarkup}${preloadTag}${getPagePreloads(urlPath, locale)}
  ${seoStaticCssMarkup}
  <style>${skeletonAnim}</style>
- ${ANALYTICS_SNIPPET}${isBlogDetailPage ? `\n ${OFFERWALL_FC_SNIPPET}` : ''}
+ ${ANALYTICS_SNIPPET}${jobBoardGptTag}${isBlogDetailPage ? `\n ${OFFERWALL_FC_SNIPPET}` : ''}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
  <script type="application/ld+json">${breadcrumbJsonLd}</script>${sdForPage ? `\n <script type="application/ld+json">${sdForPage}</script>` : ''}${speakableLd}${heroImageLd}
@@ -5579,7 +5581,7 @@ ${hrefTags}
  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
  <noscript><meta http-equiv="refresh" content="0;url=/?p=${pp}"></noscript>
  ${SEO_STATIC_CSS_LINK}
- ${ANALYTICS_SNIPPET}${isBlogDetailPage ? `\n ${OFFERWALL_FC_SNIPPET}` : ''}
+ ${ANALYTICS_SNIPPET}${jobBoardGptTag}${isBlogDetailPage ? `\n ${OFFERWALL_FC_SNIPPET}` : ''}
  </head>
  <body>
  <script type="application/ld+json">${breadcrumbJsonLd}</script>${sdForPage ? `\n <script type="application/ld+json">${sdForPage}</script>` : ''}${speakableLd}${heroImageLd}

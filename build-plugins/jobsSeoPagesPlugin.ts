@@ -22,6 +22,7 @@ import { BASE_URL, STATIC_PAGE_BUILD_ID, buildCanonicalBridgePage, SPA_ACTION_RE
 import { buildSimplePage, asyncCssHeadBlock, rootShell, esc as escHtml } from './htmlTemplate';
 import { railGutters } from './shared/railGutters';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { GPT_BOOTSTRAP_TAG } from './jobBoardGpt';
 import { firstParsableMs } from './shared/firstParsableDate';
 import { buildSlimSeed } from './shared/slimJobIndex';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
@@ -1234,7 +1235,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // `<ins>` elements lacking `data-adsbygoogle-status`.
  // Partnerize: fuori dal ternario perche' la doc chiede il tag su OGNI pagina,
  // anche su quelle che caricano il bundle SPA e saltano gtag.
- const staticAnalyticsHtml = `\n ${hasSpaBundle ? '' : `${GTAG_SNIPPET}\n `}${ADSENSE_SNIPPET}\n ${PARTNERIZE_TAG_SNIPPET}`;
+ const staticAnalyticsHtml = `\n ${hasSpaBundle ? '' : `${GTAG_SNIPPET}\n `}${ADSENSE_SNIPPET}\n ${PARTNERIZE_TAG_SNIPPET}\n ${GPT_BOOTSTRAP_TAG}`;
 
  /* ── Per-closeBundle memoization caches ──────────────────────────────
   * Scoped to a single closeBundle invocation so watch-mode rebuilds do not
