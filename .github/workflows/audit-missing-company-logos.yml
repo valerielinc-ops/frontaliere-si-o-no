@@ -53,6 +53,15 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 22
+          cache: npm
+
+      # `assemble-jobs-dataset.mjs` importa `scripts/lib/crawler-template.mjs`,
+      # che importa `scripts/lib/prospector/public-fetch-policy.mjs`, che usa
+      # `undici` per vincolare il lookup DNS alla connessione. Senza installare
+      # il lockfile il job muore con `ERR_MODULE_NOT_FOUND: undici` prima di
+      # assemblare il dataset.
+      - name: Install dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
 
       - name: Prepare Firebase credentials for push auth
         env:
@@ -77,7 +86,7 @@ jobs:
       - name: Audit missing company logos
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx tsx scripts/audit-missing-company-logos.mjs --report-issue
+        run: ./node_modules/.bin/tsx scripts/audit-missing-company-logos.mjs --report-issue
 
       - name: Commit + push missing-logos report
         run: |
@@ -94,7 +103,7 @@ jobs:
           # Rigenera SENZA --report-issue: un retry su conflitto di rebase non
           # deve riaprire/ricommentare la issue una seconda volta.
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "npx tsx scripts/audit-missing-company-logos.mjs; git add data/company-logos-missing.json"
+            --regenerate-cmd "./node_modules/.bin/tsx scripts/audit-missing-company-logos.mjs; git add data/company-logos-missing.json"
 
       - name: Report failure to GitHub Issues
         if: failure()
