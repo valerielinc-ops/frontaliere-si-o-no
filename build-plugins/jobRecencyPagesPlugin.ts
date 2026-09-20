@@ -29,6 +29,7 @@ import {
   robotsMetaEnhancedForContent,
 } from './constants';
 import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
+import { GPT_BOOTSTRAP_TAG } from './jobBoardGpt';
 import {
   JOB_RECENCY_LANDING_SLUGS,
   type JobRecencyVariant,
@@ -351,6 +352,7 @@ ${alternates}
     ${GTAG_SNIPPET}
     ${ADSENSE_SNIPPET}
     ${PARTNERIZE_TAG_SNIPPET}
+    ${GPT_BOOTSTRAP_TAG}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
     ${rootShell(hasSpaBundle)}

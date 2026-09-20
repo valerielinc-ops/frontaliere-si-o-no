@@ -133,6 +133,7 @@ const PreferredSourceCTA = lazyRetry(() => import('@/components/shared/Preferred
 const ConsultingPage = lazyRetry(() => import('@/components/pages/ConsultingPage'));
 const PressKit = lazyRetry(() => import('@/components/pages/PressKit'));
 const JobBoard = lazyRetry(() => import('@/components/community/JobBoard'));
+const GptJobBoardBootstrap = React.lazy(() => import('@/components/shared/GptJobBoardBootstrap'));
 const PlateAuctionsPage = lazyRetry(() => import('@/components/pages/PlateAuctionsPage').then(m => ({ default: m.PlateAuctionsPage })));
 const FooterWeather = lazyRetry(() => import('@/components/shared/FooterWeather'));
 const MorningDashboard = lazyRetry(() => import('@/components/vita/MorningDashboard'));
@@ -2833,6 +2834,15 @@ const App: React.FC = () => {
  />
  )}
  </>)}
+
+ {/* Google Ad Manager Offerwall needs GPT on every job-board route,
+    * including static-overlay pages where the interactive JobBoard is skipped.
+    * This bootstrap is null-rendering and does not create a visible ad slot. */}
+ {activeTab === 'job-board' && (
+   <SafeLazy boundary="jobboard-gpt-bootstrap">
+     <GptJobBoardBootstrap />
+   </SafeLazy>
+ )}
 
  {/* Main Content
   *
