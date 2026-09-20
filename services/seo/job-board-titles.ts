@@ -5,7 +5,7 @@
  * Returns short, CTR-optimized title tags in the 50-60 visible-character
  * range recommended by Google for SERP rendering. Patterns:
  *
- *   - Listing hub (home):    "Offerte Lavoro Ticino 2026 — {N} posti aggiornati oggi 🔥"
+ *   - Listing hub (home):    "Offerte di lavoro Ticino 2026 — {N} posti aggiornati oggi 🔥"
  *   - Per-city:              "Lavoro {City} 2026 — {N} offerte aggiornate ogni giorno"
  *   - Per-role:              "{Role} Ticino 2026 — {N} offerte | Candidati oggi"
  *   - Employer hub:          "Lavorare da {Company} in Svizzera 2026 — {N} posizioni aperte"
@@ -154,8 +154,8 @@ export function buildListingHubTitle({ locale, count, year }: ListingHubArgs): s
   switch (locale) {
     case 'it':
       base = n > 0
-        ? `Offerte Lavoro Ticino ${year} — ${n} posti aggiornati oggi`
-        : `Offerte Lavoro Ticino ${year} — Aggiornate Ogni Giorno`;
+        ? `Offerte di lavoro Ticino ${year} — ${n} posti aggiornati oggi`
+        : `Offerte di lavoro Ticino ${year} — Aggiornate ogni giorno`;
       break;
     case 'en':
       base = n > 0

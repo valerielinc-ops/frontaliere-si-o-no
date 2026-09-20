@@ -64,6 +64,13 @@ describe('visibleLength + isValidTitleLength', () => {
 });
 
 describe('buildListingHubTitle — listing hub (home)', () => {
+  it('uses the natural Italian primary query', () => {
+    expect(buildListingHubTitle({ locale: 'it', count: 2408, year: YEAR }))
+      .toContain('Offerte di lavoro Ticino');
+    expect(buildListingHubTitle({ locale: 'it', count: 0, year: YEAR }))
+      .toContain('Offerte di lavoro Ticino');
+  });
+
   it('stays within 50-60 visible chars across all locales and counts', () => {
     for (const locale of LOCALES) {
       for (const count of SAMPLE_COUNTS) {
