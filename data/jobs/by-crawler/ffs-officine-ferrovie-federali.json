@@ -4557,11 +4557,50 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-19T23:05:32.371Z",
       "previousSlugs": [
-        "chef-fe-de-team-diagnostic-des-vehicules-ffs-officine-ferrovie-federali-biel-bienne"
+        "chef-fe-de-team-diagnostic-des-vehicules-ffs-officine-ferrovie-federali-biel-bienne",
+        "diagnostico-ffs-officine-ferrovie-federali-biel-bienne",
+        "diagnostician-ffs-officine-ferrovie-federali-biel-bienne",
+        "diagnostiker-ffs-officine-ferrovie-federali-biel-bienne",
+        "diagnosticien-e-ffs-officine-ferrovie-federali-biel-bienne",
+        "tecnico-di-manutenzione-qualificato-ffs-officine-ferrovie-federali-biel-bienne",
+        "qualified-maintenance-technician-ffs-officine-ferrovie-federali-biel-bienne",
+        "qualifizierter-wartungstechniker-ffs-officine-ferrovie-federali-biel-bienne",
+        "technicien-ne-qualifie-e-maintenance-ffs-officine-ferrovie-federali-biel-bienne",
+        "tecnico-specializzato-in-manutenzione-ffs-officine-ferrovie-federali-biel-bienne",
+        "maintenancetechnician-ffs-officine-ferrovie-federali-biel-bienne",
+        "fachtechniker-in-instandhaltung-ffs-officine-ferrovie-federali-biel-bienne",
+        "technicien-specialiste-de-maintenance-ffs-officine-ferrovie-federali-biel-bienne",
+        "tecnico-specialista-di-manutenzione-ffs-officine-ferrovie-federali-biel-bienne",
+        "maintenance-specialist-technician-ffs-officine-ferrovie-federali-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-team-diagnostic-des-vehicules-ffs-officine-ferrovie-federali-biel-bienne"
+          "chef-fe-de-team-diagnostic-des-vehicules-ffs-officine-ferrovie-federali-biel-bienne",
+          "diagnostico-ffs-officine-ferrovie-federali-biel-bienne",
+          "diagnostician-ffs-officine-ferrovie-federali-biel-bienne",
+          "diagnostiker-ffs-officine-ferrovie-federali-biel-bienne",
+          "diagnosticien-e-ffs-officine-ferrovie-federali-biel-bienne",
+          "tecnico-di-manutenzione-qualificato-ffs-officine-ferrovie-federali-biel-bienne",
+          "qualified-maintenance-technician-ffs-officine-ferrovie-federali-biel-bienne",
+          "qualifizierter-wartungstechniker-ffs-officine-ferrovie-federali-biel-bienne",
+          "technicien-ne-qualifie-e-maintenance-ffs-officine-ferrovie-federali-biel-bienne",
+          "tecnico-specializzato-in-manutenzione-ffs-officine-ferrovie-federali-biel-bienne",
+          "maintenancetechnician-ffs-officine-ferrovie-federali-biel-bienne",
+          "fachtechniker-in-instandhaltung-ffs-officine-ferrovie-federali-biel-bienne",
+          "technicien-specialiste-de-maintenance-ffs-officine-ferrovie-federali-biel-bienne",
+          "tecnico-specialista-di-manutenzione-ffs-officine-ferrovie-federali-biel-bienne",
+          "maintenance-specialist-technician-ffs-officine-ferrovie-federali-biel-bienne"
+        ],
+        "en": [
+          "diagnostician-ffs-officine-ferrovie-federali-biel-bienne"
+        ],
+        "de": [
+          "diagnostiker-ffs-officine-ferrovie-federali-biel-bienne"
+        ],
+        "fr": [
+          "diagnosticien-e-ffs-officine-ferrovie-federali-biel-bienne",
+          "technicien-ne-qualifie-e-maintenance-ffs-officine-ferrovie-federali-biel-bienne",
+          "technicien-specialiste-de-maintenance-ffs-officine-ferrovie-federali-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-09-04T13:41:14.511Z",
@@ -6939,7 +6978,7 @@
       "slugByLocale": {
         "it": "caposquadra-ferrovie-m-f-d-ffs-officine-ferrovie-federali-allaman",
         "en": "railway-foreman-m-f-d-ffs-officine-ferrovie-federali-allaman",
-        "de": "eisenbahnvorarbeiter-m-w-d-ffs-officine-ferrovie-federali-allaman",
+        "de": "polier-gleis-m-w-d-ffs-officine-ferrovie-federali-allaman",
         "fr": "contremaitre-voies-ferrees-h-f-d-ffs-officine-ferrovie-federali-allaman"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -6998,7 +7037,6 @@
         "caposquadra-ferroviario-m-f-d-ffs-officine-ferrovie-federali-allaman",
         "contremaitre-voies-ferrees-f-m-d-ffs-officine-ferrovie-federali-allaman",
         "eisenbahnvorsteher-m-f-d-ffs-officine-ferrovie-federali-allaman",
-        "polier-gleis-m-w-d-ffs-officine-ferrovie-federali-allaman",
         "eisenbahnvorarbeiter-m-w-d-ffs-officine-ferrovie-federali-allaman"
       ],
       "previousSlugsByLocale": {
@@ -7010,7 +7048,6 @@
         ],
         "de": [
           "eisenbahnvorsteher-m-f-d-ffs-officine-ferrovie-federali-allaman",
-          "polier-gleis-m-w-d-ffs-officine-ferrovie-federali-allaman",
           "eisenbahnvorarbeiter-m-w-d-ffs-officine-ferrovie-federali-allaman"
         ]
       },
@@ -9259,9 +9296,9 @@
       "slug": "riciclatore-in-ffs-officine-ferrovie-federali-trimbach",
       "slugByLocale": {
         "it": "riciclatore-in-ffs-officine-ferrovie-federali-trimbach",
-        "en": "recycling-specialist-ffs-officine-ferrovie-federali-trimbach",
+        "en": "recycler-ffs-officine-ferrovie-federali-trimbach",
         "de": "recyclist-in-ffs-officine-ferrovie-federali-trimbach",
-        "fr": "specialiste-en-recyclage-ffs-officine-ferrovie-federali-trimbach"
+        "fr": "recycler-ffs-officine-ferrovie-federali-trimbach"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -9318,7 +9355,8 @@
       "previousSlugs": [
         "recyclist-in-ffs-officine-ferrovie-federali-trimbach",
         "recycleur-ffs-officine-ferrovie-federali-trimbach",
-        "recycler-ffs-officine-ferrovie-federali-trimbach"
+        "recycling-specialist-ffs-officine-ferrovie-federali-trimbach",
+        "specialiste-en-recyclage-ffs-officine-ferrovie-federali-trimbach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9326,10 +9364,10 @@
         ],
         "fr": [
           "recycleur-ffs-officine-ferrovie-federali-trimbach",
-          "recycler-ffs-officine-ferrovie-federali-trimbach"
+          "specialiste-en-recyclage-ffs-officine-ferrovie-federali-trimbach"
         ],
         "en": [
-          "recycler-ffs-officine-ferrovie-federali-trimbach"
+          "recycling-specialist-ffs-officine-ferrovie-federali-trimbach"
         ]
       },
       "firstSeenAt": "2026-07-23T22:21:23.520Z",
@@ -10687,9 +10725,9 @@
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -10758,8 +10796,6 @@
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf",
         "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
-        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
         "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
@@ -10769,12 +10805,10 @@
           "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "en": [
-          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
           "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
           "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
           "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },

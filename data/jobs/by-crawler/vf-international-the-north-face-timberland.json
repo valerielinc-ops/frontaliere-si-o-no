@@ -87,7 +87,7 @@
     },
     {
       "id": "company-lz29ke",
-      "slug": "senior-financial-analista-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-lz29ke",
+      "slug": "senior-financial-analista-vf-international-the-north-face-timberland-stabio",
       "company": "VF International (The North Face, Timberland)",
       "title": "Senior Financial Analyst",
       "location": "Stabio",
@@ -138,10 +138,10 @@
       "crawledAt": "2026-09-19T22:52:27.907Z",
       "firstSeenAt": "2026-09-19T22:52:27.907Z",
       "slugByLocale": {
-        "it": "senior-financial-analista-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-lz29ke",
+        "it": "senior-financial-analista-vf-international-the-north-face-timberland-stabio",
         "en": "senior-financial-analyst-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-lz29ke",
         "de": "senior-financial-analyst-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-lz29ke",
-        "fr": "senior-financial-analyste-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-lz29ke"
+        "fr": "senior-financial-analyste-vf-international-the-north-face-timberland-stabio"
       },
       "addressLocality": "Stabio",
       "addressRegion": "TI",
@@ -151,11 +151,17 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "senior-financial-analyst-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
+          "senior-financial-analyst-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
+          "senior-financial-analista-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-lz29ke"
+        ],
+        "fr": [
+          "senior-financial-analyste-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-lz29ke"
         ]
       },
       "previousSlugs": [
-        "senior-financial-analyst-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
+        "senior-financial-analyst-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
+        "senior-financial-analista-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-lz29ke",
+        "senior-financial-analyste-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-lz29ke"
       ],
       "salaryMin": 142000,
       "salaryMax": 249500,
@@ -538,8 +544,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "addressCountry": "CH",
-      "needsRetranslation": true
+      "addressCountry": "CH"
     },
     {
       "id": "company-932uun",
@@ -1794,8 +1799,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "addressCountry": "CH",
-      "needsRetranslation": true
+      "addressCountry": "CH"
     },
     {
       "id": "company-k8fbck",
@@ -1885,8 +1889,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "addressCountry": "CH",
-      "needsRetranslation": true
+      "addressCountry": "CH"
     },
     {
       "id": "company-857fcj",

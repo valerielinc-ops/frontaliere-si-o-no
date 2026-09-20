@@ -27,9 +27,10 @@ export const EXPECTED_BUILD_WORKFLOW_PATH = '.github/workflows/deploy.yml';
 export const EXPECTED_BUILD_WORKFLOW_ID = '233284293';
 export const EXPECTED_BUILD_EVENTS = Object.freeze(['push', 'workflow_dispatch']);
 export const EXPECTED_PUBLISH_WORKFLOW = 'Publish to GitHub Pages (deploy + validate)';
-// The caller gate runs inside this reusable workflow; deploy-publish.yml is
-// only its orchestrator and must not satisfy the reusable-workflow ref check.
-export const EXPECTED_PUBLISH_WORKFLOW_PATH = '.github/workflows/post-deploy-publish.yml';
+// The caller gate runs inside the reusable workflow, but GitHub's
+// `workflow_ref` in that context identifies the orchestrator that invoked it.
+// Keep this tied to the canonical workflow_run caller, not the callee path.
+export const EXPECTED_PUBLISH_WORKFLOW_PATH = '.github/workflows/deploy-publish.yml';
 
 function normalizeRef(value) {
   const ref = String(value || '').trim();

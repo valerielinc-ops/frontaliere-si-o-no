@@ -945,8 +945,7 @@
       },
       "previousSlugs": [
         "intern-technology-monitoring-generation-iv-reactor-systems-f-m-d-1b9d7e7e-5319-401e-b680-d1813ca14b23"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Elektro Bauleiter/in Kriens (w/m/d)",
@@ -2748,7 +2747,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:54:55.987Z"
+      "firstSeenAt": "2026-09-19T22:54:55.987Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "process-manager-m-d-axpo-group-baden"
+        ]
+      },
+      "previousSlugs": [
+        "process-manager-m-d-axpo-group-baden"
+      ]
     },
     {
       "title": "Projektleiter (w/m/d)",
@@ -3445,7 +3452,8 @@
         }
       },
       "firstSeenAt": "2026-08-25T10:20:08.975Z",
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "title": "Case Manager Disposition (w/m/d)",

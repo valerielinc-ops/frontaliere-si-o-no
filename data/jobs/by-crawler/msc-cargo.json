@@ -208,7 +208,6 @@
         ]
       },
       "firstSeenAt": "2026-09-12T13:05:47.757Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 163000,
       "salarySource": "estimated",
@@ -613,7 +612,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:39:16.073Z",
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -950,8 +948,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "msc-cargo-cfe1ac9a8218",
@@ -1028,8 +1025,7 @@
       "previousSlugs": [
         "manager-commercial-performance-and-optimisation-msc-geneva"
       ],
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "msc-cargo-1f1a72644d47",
@@ -1109,8 +1105,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "msc-cargo-c0a3fef0fd77",
@@ -1188,8 +1183,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

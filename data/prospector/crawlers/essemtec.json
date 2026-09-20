@@ -1,0 +1,21 @@
+{
+  "companyKey": "essemtec",
+  "companyName": "ESSEMTEC AG",
+  "companyHost": "essemtec.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://essemtec.com/firma/jobs/"
+  ],
+  "detailTemplate": "/firma/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Maschinenmonteur:in 100 %",
+    "Marketing Operations Coordinator 50 %"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-20T10:08:15.568Z"
+}

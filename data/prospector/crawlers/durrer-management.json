@@ -1,0 +1,24 @@
+{
+  "companyKey": "durrer-management",
+  "companyName": "Durrer Management",
+  "companyHost": "durrer-jobs.ch",
+  "platform": "durrer-jobs.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.durrer-jobs.ch/"
+  ],
+  "detailTemplate": "/images/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 18,
+  "sampleTitles": [
+    "Mehr Infos",
+    "Mehr Infos",
+    "Mehr Infos",
+    "Mehr Infos",
+    "Mehr Infos"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-20T10:08:05.375Z"
+}

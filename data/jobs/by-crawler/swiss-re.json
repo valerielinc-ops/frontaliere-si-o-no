@@ -57,7 +57,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:09:42.875Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -1148,7 +1147,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:36:49.024Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "salarySource": "estimated",
@@ -1326,7 +1324,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:36:49.940Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1637,7 +1634,6 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:37:47.281Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -1806,8 +1802,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "swiss-re-3f6e49d76ade",
@@ -1870,7 +1865,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:36:46.346Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -2161,7 +2155,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:22:54.204Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -2397,7 +2390,6 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:20:55.202Z",
-      "needsRetranslation": true,
       "salaryMin": 134000,
       "salaryMax": 180500,
       "salarySource": "estimated",
@@ -2550,7 +2542,6 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:59:24.025Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -2938,7 +2929,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:44:32.389Z",
-      "needsRetranslation": true,
       "salaryMin": 134000,
       "salaryMax": 180500,
       "salarySource": "estimated",
@@ -3171,7 +3161,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:00:16.703Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -3723,8 +3712,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "swiss-re-5eb43e339d70",
@@ -3907,8 +3895,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "swiss-re-d7752682f9b3",
@@ -4129,7 +4116,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T21:48:27.228Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "salarySource": "estimated",
@@ -4363,7 +4349,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:52:02.601Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -4909,7 +4894,6 @@
         ]
       },
       "firstSeenAt": "2026-08-12T22:08:58.508Z",
-      "needsRetranslation": true,
       "salaryMin": 134000,
       "salaryMax": 180500,
       "salarySource": "estimated",
@@ -5924,12 +5908,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-structurer-p-c-re-swiss-re-ch",
-        "struttura-senior-p-c-re-swiss-re-london-gb"
+        "struttura-senior-p-c-re-swiss-re-london-gb",
+        "senior-structurer-p-c-re-swiss-re-london-gb"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-structurer-p-c-re-swiss-re-ch",
-          "struttura-senior-p-c-re-swiss-re-london-gb"
+          "struttura-senior-p-c-re-swiss-re-london-gb",
+          "senior-structurer-p-c-re-swiss-re-london-gb"
         ],
         "de": [
           "senior-structurer-p-c-re-swiss-re-ch"
@@ -6016,7 +6002,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:24:03.302Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -6319,7 +6304,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T11:07:22.383Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -6393,7 +6377,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T11:07:24.167Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -6701,7 +6684,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:51:00.054Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -6995,7 +6977,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T21:57:30.523Z",
-      "needsRetranslation": true,
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
@@ -7524,7 +7505,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T21:37:13.379Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -7680,7 +7660,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:51.801Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -7757,7 +7736,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:51.195Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -8044,7 +8022,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T09:52:23.028Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -8282,7 +8259,6 @@
         ]
       },
       "firstSeenAt": "2026-08-19T21:31:49.877Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -8358,7 +8334,6 @@
         ]
       },
       "firstSeenAt": "2026-08-19T21:31:48.542Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -8542,7 +8517,7 @@
         "it": "responsabile-della-conformita-al-cliente-swiss-re-bratislava-sk",
         "en": "client-compliance-officer-swiss-re-ch",
         "de": "client-compliance-officer-swiss-re-ch",
-        "fr": "client-compliance-officer-12-month-fixed-term-contract-swiss-re-bratislava-sk"
+        "fr": "agent-de-conformite-des-clients-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -8586,7 +8561,8 @@
         "client-compliance-officer-swiss-re-bratislava-sk",
         "client-compliance-officer-12-month-fixed-term-contract-swiss-re-ch",
         "client-compliance-officer-12-month-fixed-term-contract-swiss-re-zurich",
-        "agent-de-conformite-des-clients-swiss-re-bratislava-sk"
+        "agent-de-conformite-des-clients-swiss-re-bratislava-sk",
+        "client-compliance-officer-12-month-fixed-term-contract-swiss-re-bratislava-sk"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8597,7 +8573,8 @@
         "fr": [
           "client-compliance-officer-swiss-re-ch",
           "client-compliance-officer-swiss-re-bratislava-sk",
-          "agent-de-conformite-des-clients-swiss-re-bratislava-sk"
+          "agent-de-conformite-des-clients-swiss-re-bratislava-sk",
+          "client-compliance-officer-12-month-fixed-term-contract-swiss-re-bratislava-sk"
         ]
       },
       "firstSeenAt": "2026-07-20T22:04:48.735Z",
@@ -8753,7 +8730,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:36:07.563Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 138500,
       "salarySource": "estimated",
@@ -8976,7 +8952,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:48.474Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -9178,7 +9153,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T22:09:10.943Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -9869,7 +9843,7 @@
       "slugByLocale": {
         "it": "gestione-dell-ingegneria-swiss-re-bratislava-sk",
         "en": "engineering-manager-swiss-re-ch",
-        "de": "technischer-leiter-swiss-re-bratislava-sk",
+        "de": "engineering-manager-swiss-re-ch-2",
         "fr": "directeur-technique-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
@@ -9922,7 +9896,8 @@
         "directeur-des-operations-swiss-re-bratislava-sk",
         "gestione-delle-operazioni-legali-e-di-conformita-swiss-re-bratislava-sk",
         "legal-compliance-operations-manager-swiss-re-ch",
-        "gestionnaire-des-operations-juridiques-et-de-conformite-swiss-re-bratislava-sk"
+        "gestionnaire-des-operations-juridiques-et-de-conformite-swiss-re-bratislava-sk",
+        "technischer-leiter-swiss-re-bratislava-sk"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9946,7 +9921,7 @@
         "de": [
           "records-management-associate-swiss-re-ch",
           "betriebsleiter-swiss-re-bratislava-sk",
-          "engineering-manager-swiss-re-ch-2"
+          "technischer-leiter-swiss-re-bratislava-sk"
         ],
         "fr": [
           "engineering-manager-swiss-re-ch-2",
@@ -10190,7 +10165,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:12:07.841Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -10425,7 +10399,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:04:40.444Z",
-      "needsRetranslation": true,
       "salaryMin": 65500,
       "salaryMax": 100500,
       "salarySource": "estimated",
@@ -10650,7 +10623,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:51:05.230Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -10875,7 +10847,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:08:16.651Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -12180,7 +12151,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:30.925Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -12416,7 +12386,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T21:44:35.547Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -12487,7 +12456,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:49:40.992Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "salarySource": "estimated",
@@ -12940,7 +12908,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:22.743Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -13414,7 +13381,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:10:28.952Z",
-      "needsRetranslation": true,
       "salaryMin": 134000,
       "salaryMax": 180500,
       "salarySource": "estimated",
@@ -14099,7 +14065,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:03:05.989Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -14590,7 +14555,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:02:50.252Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -14745,7 +14709,6 @@
         ]
       },
       "firstSeenAt": "2026-08-01T10:51:34.967Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -14884,7 +14847,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-17T03:47:58.736Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "event-operations-specialist-swiss-re-ch"
@@ -14977,7 +14939,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:10:00.382Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -15048,7 +15009,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:14.257Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -15625,7 +15585,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-analyst-swiss-re-ch"
+        "business-analyst-swiss-re-ch",
+        "business-analyst-swiss-re-bratislava-sk"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15804,7 +15765,6 @@
         ]
       },
       "firstSeenAt": "2026-09-12T13:05:01.570Z",
-      "needsRetranslation": true,
       "salaryMin": 134000,
       "salaryMax": 180500,
       "salarySource": "estimated",
@@ -16412,7 +16372,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:34:02.020Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -16475,7 +16434,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-17T03:46:48.585Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "p-c-re-financial-analyst-early-talent-2027-swiss-re-ch"
@@ -16863,7 +16821,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:33:53.949Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -17073,7 +17030,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "underwriter-surety-swiss-re-ch",
-        "underwriter-burgschaft-swiss-re-sao-paulo-br"
+        "underwriter-burgschaft-swiss-re-sao-paulo-br",
+        "underwriter-surety-swiss-re-sao-paulo-br"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17547,7 +17505,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:40:46.349Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -17917,7 +17874,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:40:42.118Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -18326,7 +18282,7 @@
       "slugByLocale": {
         "it": "sottoscrittore-l-h-swiss-re-zurich",
         "en": "l-h-underwriter-swiss-re-ch",
-        "de": "l-h-underwriter-swiss-re-zurich",
+        "de": "l-h-unterschreiber-swiss-re-zurich",
         "fr": "sous-traitant-l-h-swiss-re-zurich"
       },
       "company": "Swiss Re",
@@ -18373,7 +18329,15 @@
         "assistant-underwriter-swiss-re-zurich",
         "sous-traitant-adjoint-swiss-re-zurich",
         "l-h-underwriter-swiss-re-ch",
-        "l-h-unterschreiber-swiss-re-zurich"
+        "l-h-unterschreiber-swiss-re-zurich",
+        "sottoscrittore-l-h-swiss-re-zurich",
+        "l-h-underwriter-swiss-re-zurich",
+        "sottoscrittore-agricoltura-p-c-re-swiss-re-zurich",
+        "underwriter-agriculture-p-c-re-swiss-re-ch",
+        "underwriter-landwirtschaft-p-c-re-swiss-re-zurich",
+        "moins-de-107-2-du-total-swiss-re-zurich",
+        "under-107-0-2-of-the-total-swiss-re-zurich",
+        "underwriter-agriculture-p-c-re-swiss-re-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -18382,18 +18346,29 @@
           "assistent-underwriter-swiss-re-zurich",
           "assistant-underwriter-swiss-re-zurich",
           "sous-traitant-adjoint-swiss-re-zurich",
-          "l-h-underwriter-swiss-re-ch"
+          "l-h-underwriter-swiss-re-ch",
+          "sottoscrittore-l-h-swiss-re-zurich",
+          "sottoscrittore-agricoltura-p-c-re-swiss-re-zurich",
+          "underwriter-agriculture-p-c-re-swiss-re-ch",
+          "underwriter-landwirtschaft-p-c-re-swiss-re-zurich",
+          "moins-de-107-2-du-total-swiss-re-zurich",
+          "under-107-0-2-of-the-total-swiss-re-zurich",
+          "underwriter-agriculture-p-c-re-swiss-re-zurich"
         ],
         "en": [
-          "assistant-underwriter-swiss-re-ch"
+          "assistant-underwriter-swiss-re-ch",
+          "underwriter-agriculture-p-c-re-swiss-re-ch"
         ],
         "de": [
           "assistent-underwriter-swiss-re-zurich",
-          "l-h-unterschreiber-swiss-re-zurich"
+          "l-h-unterschreiber-swiss-re-zurich",
+          "l-h-underwriter-swiss-re-zurich",
+          "underwriter-landwirtschaft-p-c-re-swiss-re-zurich"
         ],
         "fr": [
           "assistant-underwriter-swiss-re-zurich",
-          "sous-traitant-adjoint-swiss-re-zurich"
+          "sous-traitant-adjoint-swiss-re-zurich",
+          "moins-de-107-2-du-total-swiss-re-zurich"
         ]
       },
       "firstSeenAt": "2026-09-11T10:00:19.820Z",
@@ -18611,7 +18586,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T10:00:21.676Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -18764,7 +18738,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:45:29.491Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "salarySource": "estimated",
@@ -19519,7 +19492,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-17T03:45:19.090Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "senior-department-operations-officer-hybrid-swiss-re-ch"
@@ -19601,7 +19573,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:45:14.913Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -19754,7 +19725,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:45:15.940Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -20583,7 +20553,7 @@
         "en": "ai-engineering-lead-swiss-re-bratislava-sk",
         "it": "ai-engineering-lead-swiss-re-ch",
         "de": "ai-engineering-lead-swiss-re-ch",
-        "fr": "ai-engineering-lead-swiss-re-ch"
+        "fr": "responsable-du-genie-de-l-ia-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -20593,14 +20563,14 @@
         "en": "AI Engineering Lead",
         "it": "AI Engineering Lead",
         "de": "AI Engineering Lead",
-        "fr": "AI Engineering Lead"
+        "fr": "Responsable du génie de l'IA"
       },
       "description": "Join P&C Reinsurance Engineering as an AI Engineering Lead and help shape the software systems, engineering practices, and technical direction behind our AI and agentic capabilities.\n We are looking for an experienced engineering leader with strong software engineering fundamentals who enjoys building and operating production systems while mentoring others and driving technical excellence.\n This is a hands-on leadership role focused on delivering business value through modern software engineering and practical AI adoption.\n About the Role\n As an AI Engineering Lead, you will lead the design, development, and operation of AI-enabled software systems supporting our reinsurance business. You will provide technical leadership, mentor engineers, and help establish engineering standards while remaining actively involved in architecture and delivery decisions.\n You will work closely with business stakeholders, product teams, architects, and engineers to ensure solutions are scalable, reliable, and aligned with business objectives.\n What You Will Do\n\n• Lead and mentor a team of engineers, fostering a culture of quality, ownership, and continuous learning\n\n• Provide technical leadership across AI-enabled software solutions and platforms\n\n• Drive implementation decisions for scalable, production-grade systems\n\n• Oversee the development of services, integrations, APIs, and workflows supporting AI and agentic applications\n\n• Ensure solutions deliver measurable business value and can be operated effectively at scale\n\n• Guide teams in applying AI technologies pragmatically and responsibly\n\n• Establish engineering standards for testing, deployment, monitoring, quality assurance, and operational excellence\n\n• Support teams in building evaluation frameworks and quality controls for AI-powered systems\n\n• Collaborate with business and technology stakeholders to prioritize and deliver impactful solutions\n\n• Help grow engineering capabilities, knowledge-sharing, and best practices within the team\n About the Team\n You will join a highly skilled engineering team working on strategic initiatives across Swiss Re. We combine software engineering excellence with practical AI adoption to create solutions that solve real business problems.\n We believe strong engineering foundations are critical to successfully applying emerging technologies at scale.\n About You\n You are an experienced technical leader who combines strategic thinking with hands-on engineering expertise. You understand how to build and operate complex software systems and enjoy helping teams deliver impactful outcomes.\n You are comfortable working across technology and business domains and can balance innovation with operational excellence.\n What We Are Looking For\n\n• Degree in Computer Science, Software Engineering, Applied Mathematics, or related field, or equivalent practical experience\n\n• Extensive experience designing, building, and operating production-grade software systems\n\n• Strong software engineering background using Python, TypeScript, Java, Kotlin, or similar technologies\n\n• Deep understanding of software architecture, engineering best practices, testing strategies, and CI/CD\n\n• Experience leading technical initiatives and mentoring engineers\n\n• Strong understanding of distributed systems, cloud environments, and modern software platforms\n\n• Ability to bridge business objectives and technical implementation\n\n• Experience driving technical decision-making in complex environments\n\n• Interest in applying AI and agentic technologies to business problems\n Nice to Have\n\n• Experience leading software engineering, platform engineering, AI engineering, or data engineering teams\n\n• Experience building AI-enabled applications and agentic workflows\n\n• Familiarity with LLM application patterns, RAG, tool calling, and evaluation frameworks\n\n• Experience with cloud AI services such as Azure AI\n\n• Knowledge of MLOps and model lifecycle practices\n\n• Experience with Palantir Foundry / AIP\n\n• Insurance, reinsurance, or financial services experience\n For Slovakia the  base salary range  for this position is between EUR 3,200 and EUR 5,300 per month (for a full-time role). The specific salary offered considers:​\n\n• the requirements, scope, complexity and responsibilities of the role, ​\n\n• the applicant’s own profile including education/qualifications, expertise, specialisation, skills and experience.​\n In addition to your base salary, Swiss Re offers an attractive performance-based variable compensation component, designed to recognise your achievements. Further you will enjoy a variety of global and location specific benefits.​\n Eligibility may vary depending on the terms of Swiss Re policies and your employment contract.\n About Swiss Re\n Swiss Re is one of the world’s leading providers of reinsurance, insurance and other forms of insurance-based risk transfer, working to make the world more resilient. We anticipate and manage a wide variety of risks, from natural catastrophes and climate change to cybercrime. Combining experience with creative thinking and cutting-edge expertise, we create new opportunities and solutions for our clients. This is possible thanks to the collaboration of more than 15,000 employees across the world.\n\nOur success depends on our ability to build an inclusive culture encouraging fresh perspectives and innovative thinking. We embrace a workplace where everyone has equal opportunities to thrive and develop professionally regardless of their age, gender, race, ethnicity, gender identity and/or expression, sexual orientation, physical or mental ability, skillset, thought or other characteristics. In our inclusive and flexible environment everyone can bring their authentic selves to work and their passion for sustainability.\n\nIf you are an experienced professional returning to the workforce after a career break, we encourage you to apply for open positions that match your skills and experience.\n We may use AI-powered tools to support the review and evaluation of applications for this position. These tools provide additional insights to our recruitment teams, but all hiring decisions are carefully reviewed and made by people. To learn more about how we use AI in recruitment and how we handle your personal data, please review our Data Privacy Statement before applying.\n\nKeywords:\n Reference Code:  139366",
       "descriptionByLocale": {
         "en": "Join P&C Reinsurance Engineering as an AI Engineering Lead and help shape the software systems, engineering practices, and technical direction behind our AI and agentic capabilities.\n We are looking for an experienced engineering leader with strong software engineering fundamentals who enjoys building and operating production systems while mentoring others and driving technical excellence.\n This is a hands-on leadership role focused on delivering business value through modern software engineering and practical AI adoption.\n About the Role\n As an AI Engineering Lead, you will lead the design, development, and operation of AI-enabled software systems supporting our reinsurance business. You will provide technical leadership, mentor engineers, and help establish engineering standards while remaining actively involved in architecture and delivery decisions.\n You will work closely with business stakeholders, product teams, architects, and engineers to ensure solutions are scalable, reliable, and aligned with business objectives.\n What You Will Do\n\n• Lead and mentor a team of engineers, fostering a culture of quality, ownership, and continuous learning\n\n• Provide technical leadership across AI-enabled software solutions and platforms\n\n• Drive implementation decisions for scalable, production-grade systems\n\n• Oversee the development of services, integrations, APIs, and workflows supporting AI and agentic applications\n\n• Ensure solutions deliver measurable business value and can be operated effectively at scale\n\n• Guide teams in applying AI technologies pragmatically and responsibly\n\n• Establish engineering standards for testing, deployment, monitoring, quality assurance, and operational excellence\n\n• Support teams in building evaluation frameworks and quality controls for AI-powered systems\n\n• Collaborate with business and technology stakeholders to prioritize and deliver impactful solutions\n\n• Help grow engineering capabilities, knowledge-sharing, and best practices within the team\n About the Team\n You will join a highly skilled engineering team working on strategic initiatives across Swiss Re. We combine software engineering excellence with practical AI adoption to create solutions that solve real business problems.\n We believe strong engineering foundations are critical to successfully applying emerging technologies at scale.\n About You\n You are an experienced technical leader who combines strategic thinking with hands-on engineering expertise. You understand how to build and operate complex software systems and enjoy helping teams deliver impactful outcomes.\n You are comfortable working across technology and business domains and can balance innovation with operational excellence.\n What We Are Looking For\n\n• Degree in Computer Science, Software Engineering, Applied Mathematics, or related field, or equivalent practical experience\n\n• Extensive experience designing, building, and operating production-grade software systems\n\n• Strong software engineering background using Python, TypeScript, Java, Kotlin, or similar technologies\n\n• Deep understanding of software architecture, engineering best practices, testing strategies, and CI/CD\n\n• Experience leading technical initiatives and mentoring engineers\n\n• Strong understanding of distributed systems, cloud environments, and modern software platforms\n\n• Ability to bridge business objectives and technical implementation\n\n• Experience driving technical decision-making in complex environments\n\n• Interest in applying AI and agentic technologies to business problems\n Nice to Have\n\n• Experience leading software engineering, platform engineering, AI engineering, or data engineering teams\n\n• Experience building AI-enabled applications and agentic workflows\n\n• Familiarity with LLM application patterns, RAG, tool calling, and evaluation frameworks\n\n• Experience with cloud AI services such as Azure AI\n\n• Knowledge of MLOps and model lifecycle practices\n\n• Experience with Palantir Foundry / AIP\n\n• Insurance, reinsurance, or financial services experience\n For Slovakia the  base salary range  for this position is between EUR 3,200 and EUR 5,300 per month (for a full-time role). The specific salary offered considers:​\n\n• the requirements, scope, complexity and responsibilities of the role, ​\n\n• the applicant’s own profile including education/qualifications, expertise, specialisation, skills and experience.​\n In addition to your base salary, Swiss Re offers an attractive performance-based variable compensation component, designed to recognise your achievements. Further you will enjoy a variety of global and location specific benefits.​\n Eligibility may vary depending on the terms of Swiss Re policies and your employment contract.\n About Swiss Re\n Swiss Re is one of the world’s leading providers of reinsurance, insurance and other forms of insurance-based risk transfer, working to make the world more resilient. We anticipate and manage a wide variety of risks, from natural catastrophes and climate change to cybercrime. Combining experience with creative thinking and cutting-edge expertise, we create new opportunities and solutions for our clients. This is possible thanks to the collaboration of more than 15,000 employees across the world.\n\nOur success depends on our ability to build an inclusive culture encouraging fresh perspectives and innovative thinking. We embrace a workplace where everyone has equal opportunities to thrive and develop professionally regardless of their age, gender, race, ethnicity, gender identity and/or expression, sexual orientation, physical or mental ability, skillset, thought or other characteristics. In our inclusive and flexible environment everyone can bring their authentic selves to work and their passion for sustainability.\n\nIf you are an experienced professional returning to the workforce after a career break, we encourage you to apply for open positions that match your skills and experience.\n We may use AI-powered tools to support the review and evaluation of applications for this position. These tools provide additional insights to our recruitment teams, but all hiring decisions are carefully reviewed and made by people. To learn more about how we use AI in recruitment and how we handle your personal data, please review our Data Privacy Statement before applying.\n\nKeywords:\n Reference Code:  139366",
-        "it": "Join P&C Reinsurance Engineering as an AI Engineering Lead and help shape the software systems, engineering practices, and technical direction behind our AI and agentic capabilities.\n We are looking for an experienced engineering leader with strong software engineering fundamentals who enjoys building and operating production systems while mentoring others and driving technical excellence.\n This is a hands-on leadership role focused on delivering business value through modern software engineering and practical AI adoption.\n About the Role\n As an AI Engineering Lead, you will lead the design, development, and operation of AI-enabled software systems supporting our reinsurance business. You will provide technical leadership, mentor engineers, and help establish engineering standards while remaining actively involved in architecture and delivery decisions.\n You will work closely with business stakeholders, product teams, architects, and engineers to ensure solutions are scalable, reliable, and aligned with business objectives.\n What You Will Do\n\n• Lead and mentor a team of engineers, fostering a culture of quality, ownership, and continuous learning\n\n• Provide technical leadership across AI-enabled software solutions and platforms\n\n• Drive implementation decisions for scalable, production-grade systems\n\n• Oversee the development of services, integrations, APIs, and workflows supporting AI and agentic applications\n\n• Ensure solutions deliver measurable business value and can be operated effectively at scale\n\n• Guide teams in applying AI technologies pragmatically and responsibly\n\n• Establish engineering standards for testing, deployment, monitoring, quality assurance, and operational excellence\n\n• Support teams in building evaluation frameworks and quality controls for AI-powered systems\n\n• Collaborate with business and technology stakeholders to prioritize and deliver impactful solutions\n\n• Help grow engineering capabilities, knowledge-sharing, and best practices within the team\n About the Team\n You will join a highly skilled engineering team working on strategic initiatives across Swiss Re. We combine software engineering excellence with practical AI adoption to create solutions that solve real business problems.\n We believe strong engineering foundations are critical to successfully applying emerging technologies at scale.\n About You\n You are an experienced technical leader who combines strategic thinking with hands-on engineering expertise. You understand how to build and operate complex software systems and enjoy helping teams deliver impactful outcomes.\n You are comfortable working across technology and business domains and can balance innovation with operational excellence.\n What We Are Looking For\n\n• Degree in Computer Science, Software Engineering, Applied Mathematics, or related field, or equivalent practical experience\n\n• Extensive experience designing, building, and operating production-grade software systems\n\n• Strong software engineering background using Python, TypeScript, Java, Kotlin, or similar technologies\n\n• Deep understanding of software architecture, engineering best practices, testing strategies, and CI/CD\n\n• Experience leading technical initiatives and mentoring engineers\n\n• Strong understanding of distributed systems, cloud environments, and modern software platforms\n\n• Ability to bridge business objectives and technical implementation\n\n• Experience driving technical decision-making in complex environments\n\n• Interest in applying AI and agentic technologies to business problems\n Nice to Have\n\n• Experience leading software engineering, platform engineering, AI engineering, or data engineering teams\n\n• Experience building AI-enabled applications and agentic workflows\n\n• Familiarity with LLM application patterns, RAG, tool calling, and evaluation frameworks\n\n• Experience with cloud AI services such as Azure AI\n\n• Knowledge of MLOps and model lifecycle practices\n\n• Experience with Palantir Foundry / AIP\n\n• Insurance, reinsurance, or financial services experience\n For Slovakia the  base salary range  for this position is between EUR 3,200 and EUR 5,300 per month (for a full-time role). The specific salary offered considers:​\n\n• the requirements, scope, complexity and responsibilities of the role, ​\n\n• the applicant’s own profile including education/qualifications, expertise, specialisation, skills and experience.​\n In addition to your base salary, Swiss Re offers an attractive performance-based variable compensation component, designed to recognise your achievements. Further you will enjoy a variety of global and location specific benefits.​\n Eligibility may vary depending on the terms of Swiss Re policies and your employment contract.\n About Swiss Re\n Swiss Re is one of the world’s leading providers of reinsurance, insurance and other forms of insurance-based risk transfer, working to make the world more resilient. We anticipate and manage a wide variety of risks, from natural catastrophes and climate change to cybercrime. Combining experience with creative thinking and cutting-edge expertise, we create new opportunities and solutions for our clients. This is possible thanks to the collaboration of more than 15,000 employees across the world.\n\nOur success depends on our ability to build an inclusive culture encouraging fresh perspectives and innovative thinking. We embrace a workplace where everyone has equal opportunities to thrive and develop professionally regardless of their age, gender, race, ethnicity, gender identity and/or expression, sexual orientation, physical or mental ability, skillset, thought or other characteristics. In our inclusive and flexible environment everyone can bring their authentic selves to work and their passion for sustainability.\n\nIf you are an experienced professional returning to the workforce after a career break, we encourage you to apply for open positions that match your skills and experience.\n We may use AI-powered tools to support the review and evaluation of applications for this position. These tools provide additional insights to our recruitment teams, but all hiring decisions are carefully reviewed and made by people. To learn more about how we use AI in recruitment and how we handle your personal data, please review our Data Privacy Statement before applying.\n\nKeywords:\n Reference Code:  139366",
-        "de": "Join P&C Reinsurance Engineering as an AI Engineering Lead and help shape the software systems, engineering practices, and technical direction behind our AI and agentic capabilities.\n We are looking for an experienced engineering leader with strong software engineering fundamentals who enjoys building and operating production systems while mentoring others and driving technical excellence.\n This is a hands-on leadership role focused on delivering business value through modern software engineering and practical AI adoption.\n About the Role\n As an AI Engineering Lead, you will lead the design, development, and operation of AI-enabled software systems supporting our reinsurance business. You will provide technical leadership, mentor engineers, and help establish engineering standards while remaining actively involved in architecture and delivery decisions.\n You will work closely with business stakeholders, product teams, architects, and engineers to ensure solutions are scalable, reliable, and aligned with business objectives.\n What You Will Do\n\n• Lead and mentor a team of engineers, fostering a culture of quality, ownership, and continuous learning\n\n• Provide technical leadership across AI-enabled software solutions and platforms\n\n• Drive implementation decisions for scalable, production-grade systems\n\n• Oversee the development of services, integrations, APIs, and workflows supporting AI and agentic applications\n\n• Ensure solutions deliver measurable business value and can be operated effectively at scale\n\n• Guide teams in applying AI technologies pragmatically and responsibly\n\n• Establish engineering standards for testing, deployment, monitoring, quality assurance, and operational excellence\n\n• Support teams in building evaluation frameworks and quality controls for AI-powered systems\n\n• Collaborate with business and technology stakeholders to prioritize and deliver impactful solutions\n\n• Help grow engineering capabilities, knowledge-sharing, and best practices within the team\n About the Team\n You will join a highly skilled engineering team working on strategic initiatives across Swiss Re. We combine software engineering excellence with practical AI adoption to create solutions that solve real business problems.\n We believe strong engineering foundations are critical to successfully applying emerging technologies at scale.\n About You\n You are an experienced technical leader who combines strategic thinking with hands-on engineering expertise. You understand how to build and operate complex software systems and enjoy helping teams deliver impactful outcomes.\n You are comfortable working across technology and business domains and can balance innovation with operational excellence.\n What We Are Looking For\n\n• Degree in Computer Science, Software Engineering, Applied Mathematics, or related field, or equivalent practical experience\n\n• Extensive experience designing, building, and operating production-grade software systems\n\n• Strong software engineering background using Python, TypeScript, Java, Kotlin, or similar technologies\n\n• Deep understanding of software architecture, engineering best practices, testing strategies, and CI/CD\n\n• Experience leading technical initiatives and mentoring engineers\n\n• Strong understanding of distributed systems, cloud environments, and modern software platforms\n\n• Ability to bridge business objectives and technical implementation\n\n• Experience driving technical decision-making in complex environments\n\n• Interest in applying AI and agentic technologies to business problems\n Nice to Have\n\n• Experience leading software engineering, platform engineering, AI engineering, or data engineering teams\n\n• Experience building AI-enabled applications and agentic workflows\n\n• Familiarity with LLM application patterns, RAG, tool calling, and evaluation frameworks\n\n• Experience with cloud AI services such as Azure AI\n\n• Knowledge of MLOps and model lifecycle practices\n\n• Experience with Palantir Foundry / AIP\n\n• Insurance, reinsurance, or financial services experience\n For Slovakia the  base salary range  for this position is between EUR 3,200 and EUR 5,300 per month (for a full-time role). The specific salary offered considers:​\n\n• the requirements, scope, complexity and responsibilities of the role, ​\n\n• the applicant’s own profile including education/qualifications, expertise, specialisation, skills and experience.​\n In addition to your base salary, Swiss Re offers an attractive performance-based variable compensation component, designed to recognise your achievements. Further you will enjoy a variety of global and location specific benefits.​\n Eligibility may vary depending on the terms of Swiss Re policies and your employment contract.\n About Swiss Re\n Swiss Re is one of the world’s leading providers of reinsurance, insurance and other forms of insurance-based risk transfer, working to make the world more resilient. We anticipate and manage a wide variety of risks, from natural catastrophes and climate change to cybercrime. Combining experience with creative thinking and cutting-edge expertise, we create new opportunities and solutions for our clients. This is possible thanks to the collaboration of more than 15,000 employees across the world.\n\nOur success depends on our ability to build an inclusive culture encouraging fresh perspectives and innovative thinking. We embrace a workplace where everyone has equal opportunities to thrive and develop professionally regardless of their age, gender, race, ethnicity, gender identity and/or expression, sexual orientation, physical or mental ability, skillset, thought or other characteristics. In our inclusive and flexible environment everyone can bring their authentic selves to work and their passion for sustainability.\n\nIf you are an experienced professional returning to the workforce after a career break, we encourage you to apply for open positions that match your skills and experience.\n We may use AI-powered tools to support the review and evaluation of applications for this position. These tools provide additional insights to our recruitment teams, but all hiring decisions are carefully reviewed and made by people. To learn more about how we use AI in recruitment and how we handle your personal data, please review our Data Privacy Statement before applying.\n\nKeywords:\n Reference Code:  139366",
-        "fr": "Join P&C Reinsurance Engineering as an AI Engineering Lead and help shape the software systems, engineering practices, and technical direction behind our AI and agentic capabilities.\n We are looking for an experienced engineering leader with strong software engineering fundamentals who enjoys building and operating production systems while mentoring others and driving technical excellence.\n This is a hands-on leadership role focused on delivering business value through modern software engineering and practical AI adoption.\n About the Role\n As an AI Engineering Lead, you will lead the design, development, and operation of AI-enabled software systems supporting our reinsurance business. You will provide technical leadership, mentor engineers, and help establish engineering standards while remaining actively involved in architecture and delivery decisions.\n You will work closely with business stakeholders, product teams, architects, and engineers to ensure solutions are scalable, reliable, and aligned with business objectives.\n What You Will Do\n\n• Lead and mentor a team of engineers, fostering a culture of quality, ownership, and continuous learning\n\n• Provide technical leadership across AI-enabled software solutions and platforms\n\n• Drive implementation decisions for scalable, production-grade systems\n\n• Oversee the development of services, integrations, APIs, and workflows supporting AI and agentic applications\n\n• Ensure solutions deliver measurable business value and can be operated effectively at scale\n\n• Guide teams in applying AI technologies pragmatically and responsibly\n\n• Establish engineering standards for testing, deployment, monitoring, quality assurance, and operational excellence\n\n• Support teams in building evaluation frameworks and quality controls for AI-powered systems\n\n• Collaborate with business and technology stakeholders to prioritize and deliver impactful solutions\n\n• Help grow engineering capabilities, knowledge-sharing, and best practices within the team\n About the Team\n You will join a highly skilled engineering team working on strategic initiatives across Swiss Re. We combine software engineering excellence with practical AI adoption to create solutions that solve real business problems.\n We believe strong engineering foundations are critical to successfully applying emerging technologies at scale.\n About You\n You are an experienced technical leader who combines strategic thinking with hands-on engineering expertise. You understand how to build and operate complex software systems and enjoy helping teams deliver impactful outcomes.\n You are comfortable working across technology and business domains and can balance innovation with operational excellence.\n What We Are Looking For\n\n• Degree in Computer Science, Software Engineering, Applied Mathematics, or related field, or equivalent practical experience\n\n• Extensive experience designing, building, and operating production-grade software systems\n\n• Strong software engineering background using Python, TypeScript, Java, Kotlin, or similar technologies\n\n• Deep understanding of software architecture, engineering best practices, testing strategies, and CI/CD\n\n• Experience leading technical initiatives and mentoring engineers\n\n• Strong understanding of distributed systems, cloud environments, and modern software platforms\n\n• Ability to bridge business objectives and technical implementation\n\n• Experience driving technical decision-making in complex environments\n\n• Interest in applying AI and agentic technologies to business problems\n Nice to Have\n\n• Experience leading software engineering, platform engineering, AI engineering, or data engineering teams\n\n• Experience building AI-enabled applications and agentic workflows\n\n• Familiarity with LLM application patterns, RAG, tool calling, and evaluation frameworks\n\n• Experience with cloud AI services such as Azure AI\n\n• Knowledge of MLOps and model lifecycle practices\n\n• Experience with Palantir Foundry / AIP\n\n• Insurance, reinsurance, or financial services experience\n For Slovakia the  base salary range  for this position is between EUR 3,200 and EUR 5,300 per month (for a full-time role). The specific salary offered considers:​\n\n• the requirements, scope, complexity and responsibilities of the role, ​\n\n• the applicant’s own profile including education/qualifications, expertise, specialisation, skills and experience.​\n In addition to your base salary, Swiss Re offers an attractive performance-based variable compensation component, designed to recognise your achievements. Further you will enjoy a variety of global and location specific benefits.​\n Eligibility may vary depending on the terms of Swiss Re policies and your employment contract.\n About Swiss Re\n Swiss Re is one of the world’s leading providers of reinsurance, insurance and other forms of insurance-based risk transfer, working to make the world more resilient. We anticipate and manage a wide variety of risks, from natural catastrophes and climate change to cybercrime. Combining experience with creative thinking and cutting-edge expertise, we create new opportunities and solutions for our clients. This is possible thanks to the collaboration of more than 15,000 employees across the world.\n\nOur success depends on our ability to build an inclusive culture encouraging fresh perspectives and innovative thinking. We embrace a workplace where everyone has equal opportunities to thrive and develop professionally regardless of their age, gender, race, ethnicity, gender identity and/or expression, sexual orientation, physical or mental ability, skillset, thought or other characteristics. In our inclusive and flexible environment everyone can bring their authentic selves to work and their passion for sustainability.\n\nIf you are an experienced professional returning to the workforce after a career break, we encourage you to apply for open positions that match your skills and experience.\n We may use AI-powered tools to support the review and evaluation of applications for this position. These tools provide additional insights to our recruitment teams, but all hiring decisions are carefully reviewed and made by people. To learn more about how we use AI in recruitment and how we handle your personal data, please review our Data Privacy Statement before applying.\n\nKeywords:\n Reference Code:  139366"
+        "it": "Unisciti a P&C Reinsurance Engineering come AI Engineering Lead e aiuta a modellare i sistemi software, le pratiche ingegneristiche e la direzione tecnica dietro le nostre capacità AI e agentic.\n Siamo alla ricerca di un leader di ingegneria esperto con forti fondamenti di ingegneria del software che gode di sistemi di produzione di costruzione e di funzionamento, mentre mentoring altri e la guida di eccellenza tecnica.\n Questo è un ruolo di leadership pratico focalizzato sulla fornitura di valore aziendale attraverso l'ingegneria software moderna e l'adozione pratica AI.\n Informazioni sul ruolo\n Come AI Engineering Lead, guiderai la progettazione, lo sviluppo e il funzionamento dei sistemi software abilitati all'intelligenza artificiale che supportano il nostro business di riassicurazione. Fornirete la leadership tecnica, gli ingegneri del mentore, e contribuire a stabilire gli standard di ingegneria, pur rimanendo attivamente coinvolti nelle decisioni di architettura e consegna.\n Potrai lavorare a stretto contatto con gli stakeholder aziendali, i team di prodotti, gli architetti e gli ingegneri per garantire soluzioni scalabili, affidabili e allineate agli obiettivi aziendali.\n Cosa farai\n\n• Guidare e mentore un team di ingegneri, promuovere una cultura di qualità, proprietà e apprendimento continuo\n\n• Fornire leadership tecnica attraverso soluzioni e piattaforme software abilitate AI\n\n• Decisioni di implementazione dell'azionamento per sistemi scalabili e di livello di produzione\n\n• Superare lo sviluppo di servizi, integrazioni, API e flussi di lavoro che supportano applicazioni AI e agentic\n\n• Assicurarsi che le soluzioni producano un valore commerciale misurabile e possano essere gestite in modo efficace su scala\n\n• Guide team nell'applicazione delle tecnologie AI pragmaticamente e responsabilmente\n\n• Stabilire standard di ingegneria per test, distribuzione, monitoraggio, garanzia di qualità e eccellenza operativa\n\n• Squadre di supporto in strutture di valutazione edilizio e controlli di qualità per i sistemi alimentati da AI\n\n• Collabora con gli stakeholder di business e tecnologia per priorità e fornire soluzioni efficaci\n\n• Aiuta a sviluppare capacità di ingegneria, condivisione delle conoscenze e migliori pratiche all'interno del team\n Informazioni sulla squadra\n Unisciti a un team di ingegneria altamente qualificato che lavora su iniziative strategiche in Svizzera Re. Uniamo l'eccellenza dell'ingegneria software con l'adozione pratica dell'IA per creare soluzioni che risolvano problemi di business reali.\n Crediamo che le solide basi ingegneristiche siano fondamentali per applicare con successo le tecnologie emergenti in scala.\n A proposito di te\n Sei un leader tecnico esperto che combina il pensiero strategico con competenze ingegneristiche pratiche. Si capisce come costruire e gestire sistemi software complessi e godere di aiutare i team a fornire risultati impeccabili.\n Lei è un lavoro confortevole attraverso la tecnologia e i domini aziendali e può bilanciare l'innovazione con l'eccellenza operativa.\n Cosa stiamo cercando\n\n• Laurea in Informatica, ingegneria del software, matematica applicata, o campo correlato, o esperienza pratica equivalente\n\n• Ampia esperienza di progettazione, costruzione e sistemi software di produzione operativi\n\n• Forte background di ingegneria del software utilizzando Python, TypeScript, Java, Kotlin, o tecnologie simili\n\n• Profonda comprensione dell'architettura del software, migliori pratiche ingegneristiche, strategie di test e CI/CD\n\n• Esperienza di importanti iniziative tecniche e ingegneri di mentoring\n\n• Forte comprensione di sistemi distribuiti, ambienti cloud e piattaforme software moderne\n\n• Capacità di colmare gli obiettivi aziendali e l'implementazione tecnica\n\n• Provare a guidare il processo decisionale tecnico in ambienti complessi\n\n• Interessi nell'applicazione delle tecnologie AI e agentic ai problemi aziendali\n Bello da avere\n\n• Esperienza leader software ingegneria, ingegneria piattaforma, ingegneria AI o team di ingegneria dei dati\n\n• Esperienza costruzione AI-enabled applicazioni e flussi di lavoro agentic\n\n• Familiarità con i modelli di applicazione LLM, RAG, chiamata degli strumenti e framework di valutazione\n\n• Esperienza con servizi AI cloud come Azure AI\n\n• Conoscenza delle pratiche MLOps e modelli del ciclo di vita\n\n• Esperienza con Palantir Foundry / AIP\n\n• Assicurazione, riassicurazione o esperienza di servizi finanziari\n Per la Slovacchia la fascia salariale di base per questa posizione è compresa tra 3.200 euro e 5.300 euro al mese (per un ruolo a tempo pieno). Lo stipendio specifico offerto considera:\n\n• i requisiti, la portata, la complessità e le responsabilità del ruolo,\n\n• il proprio profilo del richiedente, tra cui istruzione/qualifica, competenza, specializzazione, competenze ed esperienza.\n Oltre al tuo stipendio base, Swiss Re offre un attraente componente di compensazione variabile basato sulle prestazioni, progettato per riconoscere i tuoi risultati. Inoltre potrete godere di una varietà di vantaggi globali e specifici posizione.\n L'ammissibilità può variare a seconda dei termini delle politiche di Swiss Re e del contratto di lavoro.\n Informazioni su Swiss Re\n Svizzera Re è uno dei principali fornitori mondiali di riassicurazione, assicurazione e altre forme di trasferimento di rischio basato su assicurazione, lavorando per rendere il mondo più resiliente. Aspettiamo e gestiamo una vasta gamma di rischi, dalle catastrofi naturali e dai cambiamenti climatici al cybercrimine. Combinando l'esperienza con il pensiero creativo e l'esperienza all'avanguardia, creiamo nuove opportunità e soluzioni per i nostri clienti. Questo è possibile grazie alla collaborazione di oltre 15.000 dipendenti in tutto il mondo.\n\nIl nostro successo dipende dalla nostra capacità di costruire una cultura inclusiva che incoraggia prospettive fresche e pensiero innovativo. Abbracciamo un posto di lavoro dove ognuno ha pari opportunità per prosperare e sviluppare professionalmente indipendentemente dalla loro età, sesso, razza, etnia, identità di genere e/o espressione, orientamento sessuale, capacità fisica o mentale, abilità, pensiero o altre caratteristiche. Nel nostro ambiente inclusivo e flessibile tutti possono portare il proprio sé autentico al lavoro e alla loro passione per la sostenibilità.\n\nSe sei un professionista esperto di ritorno alla forza lavoro dopo una pausa di carriera, ti invitiamo a candidarti per posizioni aperte che corrispondono alle tue competenze e esperienza.\n Possiamo utilizzare strumenti basati su AI per supportare la revisione e la valutazione delle applicazioni per questa posizione. Questi strumenti forniscono ulteriori informazioni ai nostri team di reclutamento, ma tutte le decisioni di assunzione sono attentamente esaminate e fatte dalle persone. Per saperne di più su come utilizziamo l'IA nel reclutamento e come gestiamo i tuoi dati personali, si prega di rivedere la nostra Informativa sulla privacy dei dati prima di applicare.\n\nParole chiave:\n Codice di riferimento: 139366",
+        "de": "Treten Sie P&C Reinsurance Engineering als AI Engineering Lead bei und helfen Sie dabei, die Softwaresysteme, Engineering-Praktiken und die technische Ausrichtung hinter unseren KI- und Agentenfähigkeiten zu gestalten.\n Wir suchen einen erfahrenen Ingenieurführer mit starken Software-Engineering-Grundlagen, der gerne Produktionssysteme baut und betreibt, während er andere betreut und technische Exzellenz fördert.\n Dies ist eine praktische Führungsrolle, die sich auf die Bereitstellung von Geschäftswert durch modernes Software-Engineering und praktische KI-Einführung konzentriert.\n Über die Rolle\n Als AI Engineering Lead leiten Sie das Design, die Entwicklung und den Betrieb von KI-fähigen Softwaresystemen, die unser Rückversicherungsgeschäft unterstützen. Sie stellen technische Führungsqualitäten zur Verfügung, beraten Ingenieure und helfen bei der Festlegung von Engineering-Standards, während Sie aktiv an Architektur- und Lieferentscheidungen beteiligt bleiben.\n Sie arbeiten eng mit Geschäftsinteressenten, Produktteams, Architekten und Ingenieuren zusammen, um sicherzustellen, dass die Lösungen skalierbar, zuverlässig und auf die Geschäftsziele ausgerichtet sind.\n Was Sie tun werden\n\n• Führen und beraten Sie ein Team von Ingenieuren und fördern Sie eine Kultur der Qualität, des Eigentums und des kontinuierlichen Lernens\n\n• Technische Führungsrolle bei KI-fähigen Softwarelösungen und -plattformen\n\n• Umsetzungsentscheidungen für skalierbare, produktionsgerechte Systeme vorantreiben\n\n• Beaufsichtigen Sie die Entwicklung von Diensten, Integrationen, APIs und Workflows, die KI- und Agentic-Anwendungen unterstützen\n\n• Sicherstellen, dass Lösungen messbaren Geschäftswert liefern und effektiv in großem Maßstab betrieben werden können\n\n• Führen Sie Teams bei der Anwendung von KI-Technologien pragmatisch und verantwortungsvoll\n\n• Festlegung von Engineering-Standards für Test, Bereitstellung, Überwachung, Qualitätssicherung und operative Exzellenz\n\n• Unterstützung von Teams beim Aufbau von Evaluierungsframeworks und Qualitätskontrollen für KI-gestützte Systeme\n\n• Zusammenarbeit mit Geschäfts- und Technologieakteuren, um wirkungsvolle Lösungen zu priorisieren und zu liefern\n\n• Helfen Sie, Engineering-Fähigkeiten, Wissensaustausch und Best Practices innerhalb des Teams zu erweitern\n Über das Team\n Sie werden einem hochqualifizierten Engineering-Team beitreten, das an strategischen Initiativen in der gesamten Swiss Re arbeitet. Wir kombinieren Software-Engineering-Exzellenz mit praktischer KI-Einführung, um Lösungen zu schaffen, die echte Geschäftsprobleme lösen.\n Wir glauben, dass starke technische Grundlagen entscheidend für die erfolgreiche Anwendung neuer Technologien in großem Maßstab sind.\n Über dich\n Sie sind ein erfahrener technischer Leiter, der strategisches Denken mit praktischer Ingenieurkompetenz verbindet. Sie verstehen, wie Sie komplexe Softwaresysteme erstellen und betreiben und genießen es, Teams dabei zu helfen, wirkungsvolle Ergebnisse zu erzielen.\n Sie arbeiten komfortabel über Technologie- und Geschäftsbereiche hinweg und können Innovation mit operativer Exzellenz in Einklang bringen.\n Was wir suchen\n\n• Abschluss in Informatik, Software Engineering, Angewandte Mathematik oder verwandten Bereichen oder gleichwertige praktische Erfahrung\n\n• Umfangreiche Erfahrung im Entwurf, Bau und Betrieb von Softwaresystemen in Produktionsqualität\n\n• Starker Software-Hintergrund mit Python, TypeScript, Java, Kotlin oder ähnlichen Technologien\n\n• Tiefes Verständnis von Software-Architektur, Engineering Best Practices, Teststrategien und CI/CD\n\n• Erfahren Sie führende technische Initiativen und Mentoring-Ingenieure\n\n• Starkes Verständnis von verteilten Systemen, Cloud-Umgebungen und modernen Softwareplattformen\n\n• Fähigkeit, Geschäftsziele und technische Umsetzung zu überbrücken\n\n• Erleben Sie die technische Entscheidungsfindung in komplexen Umgebungen\n\n• Interesse an der Anwendung von KI und Agentic-Technologien auf Geschäftsprobleme\n Nizza zu haben\n\n• Erfahrung in führenden Teams für Software Engineering, Platform Engineering, AI Engineering oder Data Engineering\n\n• Erleben Sie die Erstellung von KI-fähigen Anwendungen und agentischen Workflows\n\n• Vertrautheit mit LLM-Anwendungsmustern, RAG, Tool Calling und Evaluation Frameworks\n\n• Erfahrung mit Cloud AI Services wie Azure AI\n\n• Kenntnisse über MLOps und Model Lifecycle Practices\n\n• Erfahrungen mit Palantir Foundry / AIP\n\n• Versicherungs-, Rückversicherungs- oder Finanzdienstleistungserfahrung\n Für die Slowakei liegt die Grundgehaltsspanne für diese Position zwischen 3.200 EUR und 5.300 EUR pro Monat (für eine Vollzeitstelle). Das angebotene spezifische Gehalt berücksichtigt:\n\n• Anforderungen, Umfang, Komplexität und Zuständigkeiten der Rolle,\n\n• das eigene Profil des Antragstellers, einschließlich Ausbildung/Qualifikationen, Fachwissen, Spezialisierung, Fähigkeiten und Erfahrung.\n Zusätzlich zu Ihrem Grundgehalt bietet Swiss Re eine attraktive leistungsbasierte variable Vergütungskomponente, die Ihre Leistungen würdigt. Darüber hinaus genießen Sie eine Vielzahl von globalen und standortspezifischen Vorteilen.\n Die Berechtigung kann je nach den Bedingungen der Swiss Re Police und Ihrem Arbeitsvertrag variieren.\n Über Swiss Re\n Schweizer Re ist einer der weltweit führenden Anbieter von Rückversicherungen, Versicherungen und anderen Formen des versicherungsbasierten Risikotransfers und arbeitet daran, die Welt widerstandsfähiger zu machen. Wir antizipieren und managen eine Vielzahl von Risiken, von Naturkatastrophen und Klimawandel bis hin zu Cyberkriminalität. Durch die Kombination von Erfahrung mit kreativem Denken und modernster Expertise schaffen wir neue Möglichkeiten und Lösungen für unsere Kunden. Dies ist dank der Zusammenarbeit von mehr als 15.000 Mitarbeitern auf der ganzen Welt möglich.\n\nUnser Erfolg hängt von unserer Fähigkeit ab, eine integrative Kultur aufzubauen, die neue Perspektiven und innovatives Denken fördert. Wir nehmen einen Arbeitsplatz an, an dem jeder die gleichen Chancen hat, beruflich zu gedeihen und sich zu entwickeln, unabhängig von Alter, Geschlecht, Rasse, ethnischer Zugehörigkeit, Geschlechtsidentität und / oder Ausdruck, sexueller Orientierung, körperlicher oder geistiger Fähigkeit, Fähigkeiten, Gedanken oder anderen Eigenschaften. In unserem integrativen und flexiblen Umfeld kann jeder sein authentisches Selbst und seine Leidenschaft für Nachhaltigkeit mitbringen.\n\nWenn Sie ein erfahrener Profi sind, der nach einer Berufspause in die Belegschaft zurückkehrt, empfehlen wir Ihnen, sich für offene Stellen zu bewerben, die Ihren Fähigkeiten und Ihrer Erfahrung entsprechen.\n Wir können KI-basierte Tools verwenden, um die Überprüfung und Bewertung von Anwendungen für diese Position zu unterstützen. Diese Tools bieten unseren Rekrutierungsteams zusätzliche Einblicke, aber alle Einstellungsentscheidungen werden sorgfältig überprüft und von Menschen getroffen. Um mehr darüber zu erfahren, wie wir KI bei der Rekrutierung einsetzen und wie wir mit Ihren personenbezogenen Daten umgehen, lesen Sie bitte unsere Datenschutzerklärung, bevor Sie sich bewerben.\n\nSchlüsselwörter:\n Bezugscode: 139366",
+        "fr": "Joignez-vous à P&C Reinsurance Engineering comme chef de file en génie de l'IA et aidez à façonner les systèmes logiciels, les pratiques d'ingénierie et la direction technique derrière nos capacités d'IA et d'agents.\n Nous sommes à la recherche d'un leader d'ingénierie expérimenté avec de solides fondamentaux d'ingénierie logicielle qui aime la construction et l'exploitation des systèmes de production tout en guidant d'autres et en conduisant l'excellence technique.\n Il s'agit d'un rôle de leadership pratique axé sur la valeur opérationnelle grâce à l'ingénierie logicielle moderne et à l'adoption pratique de l'IA.\n À propos du rôle\n En tant que responsable de l'ingénierie de l'IA, vous dirigerez la conception, le développement et l'exploitation de systèmes logiciels compatibles avec l'IA qui soutiennent nos activités de réassurance. Vous assurerez le leadership technique, mentorez les ingénieurs et aiderez à établir des normes d'ingénierie tout en restant activement impliqué dans les décisions d'architecture et de prestation.\n Vous travaillerez en étroite collaboration avec les partenaires commerciaux, les équipes de produits, les architectes et les ingénieurs pour vous assurer que les solutions sont évolutives, fiables et alignées sur les objectifs commerciaux.\n Ce que vous ferez\n\n• Diriger et encadrer une équipe d'ingénieurs, favoriser une culture de qualité, de propriété et d'apprentissage continu\n\n• Fournir un leadership technique dans l'ensemble des solutions logicielles et des plateformes compatibles avec l'IA\n\n• Conduire les décisions de mise en œuvre pour les systèmes évolutifs de production\n\n• Superviser le développement de services, d'intégrations, d'API et de workflows supportant les applications d'IA et d'agents\n\n• Veiller à ce que les solutions offrent une valeur opérationnelle mesurable et puissent être exploitées efficacement à l'échelle\n\n• Guider les équipes dans l'application pragmatique et responsable des technologies de l'IA\n\n• Établir des normes techniques pour les essais, le déploiement, la surveillance, l'assurance de la qualité et l'excellence opérationnelle\n\n• Équipes d'appui à la mise en place de cadres d'évaluation et de contrôles de qualité pour les systèmes alimentés par l'IA\n\n• Collaborer avec les intervenants commerciaux et technologiques pour établir des priorités et fournir des solutions efficaces\n\n• Aider à développer les capacités d'ingénierie, le partage des connaissances et les meilleures pratiques au sein de l'équipe\n À propos de l'équipe\n Vous rejoindrez une équipe d'ingénierie hautement qualifiée travaillant sur des initiatives stratégiques à travers Swiss Re. Nous combinons l'excellence en ingénierie logicielle avec l'adoption pratique de l'IA pour créer des solutions qui résolvent de vrais problèmes d'affaires.\n Nous croyons que de solides fondations d'ingénierie sont essentielles pour appliquer avec succès les technologies émergentes à l'échelle.\n À propos de toi\n Vous êtes un leader technique expérimenté qui combine la pensée stratégique avec une expertise pratique en ingénierie. Vous comprenez comment construire et utiliser des systèmes logiciels complexes et aimez aider les équipes à obtenir des résultats significatifs.\n Vous êtes à l'aise de travailler dans les domaines de la technologie et des affaires et pouvez équilibrer l'innovation avec l'excellence opérationnelle.\n Ce que nous cherchons\n\n• Diplôme en informatique, génie logiciel, mathématiques appliquées ou domaine connexe, ou expérience pratique équivalente\n\n• Expérience approfondie dans la conception, la construction et l'exploitation de systèmes logiciels de production\n\n• Forte expérience en génie logiciel utilisant Python, TypeScript, Java, Kotlin, ou des technologies similaires\n\n• Connaissance approfondie de l'architecture des logiciels, des pratiques exemplaires en génie, des stratégies d'essai et de l'IC/DC\n\n• Expérience des initiatives techniques de pointe et des ingénieurs mentors\n\n• Une bonne compréhension des systèmes distribués, des environnements nuageux et des plateformes logicielles modernes\n\n• Capacité de rapprocher les objectifs opérationnels et la mise en œuvre technique\n\n• Expérience en matière de prise de décisions techniques dans des environnements complexes\n\n• Intérêt pour l'application de l'IA et des technologies d'agents aux problèmes commerciaux\n Sympa d'avoir\n\n• Expérience d'équipes de génie logiciel, d'ingénierie de plate-forme, d'ingénierie de l'IA ou d'ingénierie de données\n\n• Expérience de la création d'applications et de flux de travail d'agents compatibles avec l'IA\n\n• Familiarité avec les modèles d'application LLM, RAG, outils d'appel et cadres d'évaluation\n\n• Expérience avec les services cloud AI tels que Azure AI\n\n• Connaissance des MLOps et des pratiques du cycle de vie modèle\n\n• Expérience avec Palantir Foundry / AIP\n\n• Expérience en assurance, réassurance ou services financiers\n Pour la Slovaquie, l'échelle salariale de base pour ce poste se situe entre 3 200 et 5 300 euros par mois (pour un rôle à temps plein). Le salaire spécifique offert tient compte:\n\n• les exigences, la portée, la complexité et les responsabilités du rôle,\n\n• le profil propre du candidat, y compris l'éducation/qualifications, l'expertise, la spécialisation, les compétences et l'expérience.\n En plus de votre salaire de base, Swiss Re offre une composante de rémunération variable axée sur la performance, conçue pour reconnaître vos réalisations. De plus, vous bénéficierez d'une variété d'avantages globaux et spécifiques à l'emplacement.\n L'éligibilité peut varier selon les termes des politiques Swiss Re et votre contrat de travail.\n À propos de Swiss Re\n Suisse Re est l'un des principaux fournisseurs mondiaux de réassurance, d'assurance et d'autres formes de transfert de risque basé sur l'assurance, travaillant à rendre le monde plus résilient. Nous anticipons et gérons une grande variété de risques, allant des catastrophes naturelles et du changement climatique à la cybercriminalité. Combinant l'expérience avec la pensée créative et l'expertise de pointe, nous créons de nouvelles opportunités et solutions pour nos clients. Cela est possible grâce à la collaboration de plus de 15 000 employés à travers le monde.\n\nNotre succès dépend de notre capacité à bâtir une culture inclusive qui encourage de nouvelles perspectives et des idées novatrices. Nous embrassons un lieu de travail où chacun a les mêmes chances de prospérer et de se développer professionnellement, indépendamment de son âge, de son sexe, de sa race, de son appartenance ethnique, de son identité et/ou de son expression, de son orientation sexuelle, de ses aptitudes physiques ou mentales, de ses compétences, de sa pensée ou de toute autre caractéristique. Dans notre environnement inclusif et flexible, chacun peut apporter son authentique soi au travail et sa passion pour la durabilité.\n\nSi vous êtes un professionnel expérimenté qui revient au marché du travail après une interruption de carrière, nous vous encourageons à postuler à des postes ouverts qui correspondent à vos compétences et à votre expérience.\n Nous pouvons utiliser des outils alimentés par l'IA pour appuyer l'examen et l'évaluation des demandes pour ce poste. Ces outils fournissent des renseignements supplémentaires à nos équipes de recrutement, mais toutes les décisions d'embauche sont soigneusement examinées et prises par les gens. Pour en savoir plus sur la façon dont nous utilisons l'IA dans le recrutement et comment nous traitons vos données personnelles, veuillez consulter notre Déclaration de confidentialité des données avant de postuler.\n\nMots clés :\n Code de référence : 139366"
       },
       "location": "Bratislava, SK",
       "canton": "ZH",
