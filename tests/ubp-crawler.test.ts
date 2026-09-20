@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   UBP_KEY,
   UBP_COMPANY_NAME,
+  UBP_CAREERS_URL,
   isUbpJob,
   isTrustedDomain,
 } from '../scripts/lib/ubp-job-parser.mjs';
@@ -47,6 +48,12 @@ describe('Union Bancaire Privée crawler parser', () => {
 
     it('trusts subdomains', () => {
       expect(isTrustedDomain('https://careers.ubp.com/job/456')).toBe(true);
+    });
+
+    it('keeps the application fallback on the employer domain', () => {
+      expect(UBP_CAREERS_URL).toBe('https://www.ubp.com/en/about-us/careers/experienced-professionals');
+      expect(isTrustedDomain(UBP_CAREERS_URL)).toBe(true);
+      expect(UBP_CAREERS_URL).not.toContain('oraclecloud');
     });
 
     it('rejects other domains', () => {

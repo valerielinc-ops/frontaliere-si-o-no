@@ -20,6 +20,7 @@ import { resolveArticleAuthorUrl, loadArticleAuthorRegistry, type ArticleAuthorR
 import { translateSchema } from './seo/schema-translators';
 import { buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jobPostingSchema';
 import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from '../build-plugins/shared/jobPostingFaq';
+import { resolveJobApplicationUrl } from './jobApplicationDestination';
 import { getCantonDisplayName } from '../build-plugins/shared/cantonDisplay';
 import { resolveJobCanton } from '../build-plugins/shared/cantonSection';
 import { buildTitleWithBrand, buildJobTitleWithLocation, clampMetaDescription, truncateHeadline, truncateTitleAtClauseBoundary, MIN_PEELED_TITLE_CHARS } from '../build-plugins/shared/titleSuffix';
@@ -540,7 +541,7 @@ async function resolveJobSeoBySlug(
  const cantonDisplay = getCantonDisplayName(faqCanton, locale);
  const faqOpts: BuildJobPostingFaqOptions = {
  locale,
- jobUrl: String(job?.url || canonicalUrl),
+ jobUrl: resolveJobApplicationUrl(job, canonicalUrl),
  cantonDisplay,
  isTicino,
  isRemote,

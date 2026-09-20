@@ -4,6 +4,7 @@ import {
   MARRIOTT_COMPANY_NAME,
   MARRIOTT_COMPANY_DOMAIN,
   isMarriottJob,
+  isMarriottOracleApplyUrl,
   isTrustedDomain,
 } from '../scripts/lib/marriott-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
@@ -61,6 +62,11 @@ describe('Marriott International crawler parser', () => {
 
     it('trusts Oracle Cloud apply URLs', () => {
       expect(isTrustedDomain('https://ejwl.fa.us2.oraclecloud.com:443/hcmUI/CandidateExperience/en/sites/MI_CS_1/job/26043183/apply/email')).toBe(true);
+    });
+
+    it('recognises stale Oracle application URLs for the direct-page fallback', () => {
+      expect(isMarriottOracleApplyUrl('https://ejwl.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/MI_CS_1/job/26043183/apply/email')).toBe(true);
+      expect(isMarriottOracleApplyUrl('https://careers.marriott.com/bar-supervisor/job/ABC123')).toBe(false);
     });
 
     it('rejects other domains', () => {

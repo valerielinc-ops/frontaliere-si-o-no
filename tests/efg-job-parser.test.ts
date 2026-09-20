@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { parseEfgOracleDescription } from '@/scripts/lib/efg-job-parser.mjs';
+import { EFG_CAREERS_URL, buildEfgApplicationUrl } from '@/scripts/update-efg-jobs.mjs';
 
 describe('parseEfgOracleDescription', () => {
   it('extracts structured sections, requirements and responsibilities from Oracle HTML', () => {
@@ -44,5 +45,13 @@ describe('parseEfgOracleDescription', () => {
 
     expect(parsed.description).toContain('## Application');
     expect(parsed.canonical.process).toContain('Should you wish to apply for this position use this link to apply.');
+  });
+});
+
+describe('EFG application destination', () => {
+  it('uses the verified employer careers page instead of the dead Oracle tenant', () => {
+    expect(buildEfgApplicationUrl()).toBe(EFG_CAREERS_URL);
+    expect(buildEfgApplicationUrl()).toBe('https://www.efginternational.com/us/about/careers');
+    expect(buildEfgApplicationUrl()).not.toContain('oraclecloud.com');
   });
 });
