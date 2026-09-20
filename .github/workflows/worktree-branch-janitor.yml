@@ -92,7 +92,7 @@ jobs:
             NAME="${row%%$'\t'*}"
             PROT="${row##*$'\t'}"
 
-            if echo "$NAME" | grep -qE "$KEEP_RE"; then continue; fi
+            if grep -qE "$KEEP_RE" <<<"$NAME"; then continue; fi
             if [ "$PROT" = "true" ]; then echo "skip protected $NAME"; continue; fi
 
             # stato PR più vivo per questo head: OPEN>MERGED>CLOSED.
@@ -211,7 +211,7 @@ jobs:
               fi
             fi
 
-            if printf '%s' "$prs_rescue" | grep -qF "\"$NAME\""; then
+            if grep -qF "\"$NAME\"" <<<"$prs_rescue"; then
             echo "::warning::origin/$NAME — PR marcata autorebase-reopen-failed: KEEP (unica copia del lavoro, chiusa da un guasto non da una decisione)"
             flagged=$((flagged+1)); continue
             fi

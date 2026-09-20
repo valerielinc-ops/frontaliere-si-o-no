@@ -358,7 +358,7 @@ jobs:
             chmod 600 "$kf"
             if GIT_SSH_COMMAND="ssh -i $kf -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes" \
                git ls-remote --heads "git@github.com:$owner/frontaliere-$shard-$loc.git" main \
-               2>/dev/null | grep -q 'refs/heads/main'; then
+               2>/dev/null | grep 'refs/heads/main' >/dev/null; then
               echo "  reachable  $owner/frontaliere-$shard-$loc"
             else
               echo "::error::$owner/frontaliere-$shard-$loc: the deploy key did not authenticate, or the shard has no main branch to build on"
