@@ -92,7 +92,8 @@ import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
 const invokedDirectly = (() => {
   try {
     return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href;
-  } catch {
+  } catch (error) {
+    if (process.argv[1]) throw error;
     return false;
   }
 })();
@@ -750,5 +751,8 @@ ${bullets}${relaxedNote}
 }
 
 if (invokedDirectly) {
-  await main();
+  await main().catch((error) => {
+    process.exitCode = 1;
+    console.error(error?.stack || error);
+  });
 }
