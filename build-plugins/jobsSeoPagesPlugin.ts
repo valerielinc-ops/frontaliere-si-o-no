@@ -48,6 +48,7 @@ import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import {
+ buildActiveJobPageInput,
  buildMinimalJobInput,
  getIncrementalManifestInputCache,
  getIncrementalManifestMap,
@@ -3138,13 +3139,22 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // The page itself is still emitted with its own URL (breadcrumbs,
  // JobPosting, etc. describe THIS page) so existing backlinks resolve.
  const effectiveCanonicalUrl = resolveCanonicalUrl(perLocaleSlug[locale], canonicalUrl);
+ // `relatedArticlesHtml` is the SAME string the template below interpolates
+ // (`recentArticlesHtmlFor(locale)`, memoized per locale): the input digests
+ // exactly the bytes the page emits, so the two cannot drift apart.
  const activeJobManifestInput = incrementalManifests
-  ? {
-   ...buildMinimalJobInput(job, locale, perLocaleSlug[locale], perJob_relatedJobs || [], incrementalManifestInputCache, job),
+  ? buildActiveJobPageInput({
+   job,
+   locale,
+   slug: perLocaleSlug[locale],
+   relatedJobs: perJob_relatedJobs || [],
+   inputCache: incrementalManifestInputCache,
+   canonicalJob: job,
    canton: jobCanton,
    canonicalUrl: effectiveCanonicalUrl,
+   relatedArticlesHtml: recentArticlesHtmlFor(locale),
    renderDateBucket: jobsSeoReuseBuildDay,
-  }
+  })
  : null;
  const outDir = np.join(distDir, canonicalPath.slice(1));
  const activeReuse = jobsSeoReuse?.lookup(

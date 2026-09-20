@@ -868,8 +868,12 @@ describe('jobs SEO disk HTML reuse', () => {
     // From the incremental manifest the renderer takes only manifest/digest
     // plumbing; a render-time helper imported from it would be a render input.
     const manifestImport = plugin.match(/import\s*\{([^}]*)\}\s*from\s*['"]\.\/shared\/incrementalManifest\.mjs['"]/);
+    // `buildActiveJobPageInput` assembles the active page INPUT (job digest,
+    // related-job projections, related-articles feed digest); it renders
+    // nothing and reads no render helper, so the module stays inert.
     expect(manifestImport?.[1].split(',').map((name) => name.trim()).filter(Boolean).sort()).toEqual([
       'INCREMENTAL_MANIFEST_ENABLED',
+      'buildActiveJobPageInput',
       'buildMinimalJobInput',
       'getIncrementalManifestInputCache',
       'getIncrementalManifestMap',
