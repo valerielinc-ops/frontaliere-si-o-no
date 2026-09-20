@@ -6608,6 +6608,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.revolut-hacker-svizzera-pec.title': 'Revolut hacker : données de 700 clients suisses',
     'blog.article.revolut-hacker-svizzera-pec.excerpt': 'Attaque hacker à Revolut : près de 700 clients suisses touchés. Les criminels demandent 3 millions de dollars pour ne pas publier les données.',
     'blog.article.revolut-hacker-svizzera-pec.imageAlt': 'Smartphone avec application bancaire et icône de sécurité sur bureau',
+    'blog.article.votazioni-cantoni-27-settembre.title': 'Vote dans neuf cantons : fiscalité et mobilité au vote',
+    'blog.article.votazioni-cantoni-27-settembre.excerpt': 'Le dimanche 27 septembre, on vote dans neuf cantons : fiscalité à Vaud, contraception à Genève et mobilité transfrontalière à 39,5 millions.',
+    'blog.article.votazioni-cantoni-27-settembre.imageAlt': 'Électeurs en file devant un bâtiment gouvernemental suisse pour les votations cantonales du 27 septembre',
 };
 
 export default blogMetaChFr;
