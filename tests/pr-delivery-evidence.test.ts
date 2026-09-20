@@ -78,6 +78,20 @@ describe('pr-delivery-evidence', () => {
     expect(evaluate(baseline(), [beforeRun]).status).toBe(DELIVERY_STATUS.UNAVAILABLE);
   });
 
+  it('non considera delivery una nuova PR chiusa senza merge', () => {
+    const closed = pr({
+      number: 702,
+      state: 'CLOSED',
+      createdAt: '2026-09-19T10:04:00Z',
+      updatedAt: '2026-09-19T10:05:00Z',
+    });
+    expect(evaluate(baseline(), [closed])).toEqual({
+      status: DELIVERY_STATUS.NONE,
+      reason: 'no-current-delivery-evidence',
+      prNumber: null,
+    });
+  });
+
   it('prova una delivery OPEN solo quando cambia headSha, non con updatedAt da solo', () => {
     const unchanged = pr({ updatedAt: '2026-09-19T10:20:00Z' });
     expect(evaluate(baseline(), [unchanged]).status).toBe(DELIVERY_STATUS.NONE);
