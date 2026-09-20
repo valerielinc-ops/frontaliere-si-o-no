@@ -786,7 +786,7 @@ describe('native auto-merge gate (#8512)', () => {
     expect(gateSource).toContain('body/HEAD/barrier/lease cambiati dopo la mutation');
   });
 
-  it('blocks an in-flight or stale body-recovery epoch at the mutation boundary', () => {
+  it('blocks current-head recovery but ignores epochs stranded by a newer HEAD', () => {
     const revision = reviewInputRevisionFromBody(PR_BODY);
     const marker = (status: string, bodyRevision = revision, headSha = HEAD) => ({
       user: { type: 'Bot', login: 'github-actions[bot]' },
@@ -825,6 +825,10 @@ describe('native auto-merge gate (#8512)', () => {
     })).toMatchObject({ allow: true });
     expect(bodyRecoveryBarrierDecision({
       comments: [marker('completed', revision, OLD_HEAD)],
+      prNumber: 1, headSha: HEAD, bodyRevision: revision,
+    })).toMatchObject({ allow: true });
+    expect(bodyRecoveryBarrierDecision({
+      comments: [marker('pending'), marker('completed', revision, OLD_HEAD)],
       prNumber: 1, headSha: HEAD, bodyRevision: revision,
     })).toMatchObject({ allow: false });
   });
