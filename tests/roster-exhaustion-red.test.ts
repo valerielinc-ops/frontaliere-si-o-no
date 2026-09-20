@@ -251,6 +251,20 @@ describe('isLegitimateQuotaDeferral — il denominatore include gli ambigui', ()
     expect(isLegitimateQuotaDeferral(cascata({ transient: 501, persistent: 499, total: 1000 }))).toBe(true);
   });
 
+  it('il guardrail degli echi scatta anche quando gli echi sono esattamente meta\'', () => {
+    const e = cascata({ transient: 53, persistent: 53, total: 106 });
+    e.exhaustionBreakdown.providerCooldownSkips = {
+      total: 53,
+      transient: 0,
+      persistent: 53,
+    };
+
+    // La sottrazione lascia 53 transitori su 53 righe e concederebbe il
+    // differimento; il lordo e\' pero\' 53/106, un pareggio che non conferma
+    // la quota. Il caso riproduce il difetto di #832 prima del >=.
+    expect(isLegitimateQuotaDeferral(e)).toBe(false);
+  });
+
   it('senza denominatore non afferma niente', () => {
     // L'affermazione non dimostrata vale «rosso»: e' la direzione in cui
     // l'errore costa meno.
