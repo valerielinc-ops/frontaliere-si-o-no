@@ -31,6 +31,36 @@ const OLD_REVIEW_MARKER = `<!-- REVIEW_INPUT_REVISION: ${OLD_REVIEW_REVISION} --
 const CLEAN = `${REVIEW_MARKER}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM`;
 const LGTM_WITHOUT_FINDINGS = `${REVIEW_MARKER}\n## Scope\nReviewed the delta.\n\n## LGTM`;
 const IMPORTANT = `${REVIEW_MARKER}\n## Findings (Important: 1, Nit: 0)\n\n\`scripts/lib/foo.mjs:L12\`: 🔴 Important: pagination is incomplete.\n`;
+// Shape osservata sulla review 5258385493 della PR #9315 (commit e1fe8e3e): il
+// titolo `## Findings` è nudo e il conteggio sta nella sezione, una riga sotto.
+const CLEAN_COUNT_IN_SECTION = `${REVIEW_MARKER}
+## Scope
+
+Workflow tier: \`incremental-high\`.
+
+## Findings
+
+Important: 0
+
+## Adversarial check
+
+- ❓ q: Is the fallback acceptable for the build-time budget? — deferred, non funnel-critical.
+
+## LGTM`;
+// Stesso formato, ma il reviewer dichiara due Important senza 🔴 nel corpo.
+const IMPORTANT_COUNT_IN_SECTION = `${REVIEW_MARKER}
+## Findings
+
+Important: 2
+
+## LGTM`;
+// Titolo Findings presente, nessun conteggio riconoscibile in sezione.
+const FINDINGS_WITHOUT_COUNT = `${REVIEW_MARKER}
+## Findings
+
+Nothing worth blocking on.
+
+## LGTM`;
 
 function botReview(body: string, commit_id = HEAD, submitted_at = '2026-09-18T01:00:00Z', overrides: Record<string, unknown> = {}) {
   return {
@@ -168,6 +198,50 @@ describe('9066/9074 review-loop admission', () => {
       reviews: [botReview(LGTM_WITHOUT_FINDINGS)],
       checkRuns: [vitest()],
     })).toMatchObject({ allow: true });
+  });
+
+  it('reads Important: 0 from the Findings SECTION, not only from its heading', () => {
+    // Il conteggio sul titolo resta approvante (formato storico).
+    expect(reviewBodyIsApproving(CLEAN)).toBe(true);
+    // #9315/review 5258385493: titolo nudo, conteggio una riga sotto.
+    expect(reviewHasLgtm(CLEAN_COUNT_IN_SECTION)).toBe(true);
+    expect(reviewHasZeroFindings(CLEAN_COUNT_IN_SECTION)).toBe(true);
+    expect(reviewBodyIsApproving(CLEAN_COUNT_IN_SECTION)).toBe(true);
+    expect(reviewIsApproved(botReview(CLEAN_COUNT_IN_SECTION))).toBe(true);
+    expect(evaluateNativeAutoMerge({
+      pr: pr(),
+      reviews: [botReview(CLEAN_COUNT_IN_SECTION)],
+      checkRuns: [vitest()],
+    })).toMatchObject({ allow: true });
+  });
+
+  it('blocks when the Findings section declares Important != 0, even without a 🔴', () => {
+    expect(reviewHasLgtm(IMPORTANT_COUNT_IN_SECTION)).toBe(true);
+    expect(reviewHasZeroFindings(IMPORTANT_COUNT_IN_SECTION)).toBe(false);
+    expect(reviewBodyIsApproving(IMPORTANT_COUNT_IN_SECTION)).toBe(false);
+    expect(evaluateNativeAutoMerge({
+      pr: pr(),
+      reviews: [botReview(IMPORTANT_COUNT_IN_SECTION)],
+      checkRuns: [vitest()],
+    })).toMatchObject({ allow: false });
+  });
+
+  it('stays fail-closed when a Findings section carries no recognisable count', () => {
+    expect(reviewHasZeroFindings(FINDINGS_WITHOUT_COUNT)).toBe(false);
+    expect(reviewBodyIsApproving(FINDINGS_WITHOUT_COUNT)).toBe(false);
+  });
+
+  it('lets a 🔴 Important anywhere in the body override a zero count', () => {
+    const contradictory = `${REVIEW_MARKER}
+## Findings
+
+Important: 0
+
+\`scripts/lib/foo.mjs:L12\`: 🔴 Important: pagination is incomplete.
+
+## LGTM`;
+    expect(reviewHasZeroFindings(contradictory)).toBe(false);
+    expect(reviewBodyIsApproving(contradictory)).toBe(false);
   });
 
   it('keeps a current-HEAD 🔴 Important from opting into native auto-merge', () => {
