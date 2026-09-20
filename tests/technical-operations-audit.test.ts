@@ -611,6 +611,92 @@ describe('technical operations audit', () => {
     expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
   });
 
+  it('segue writer first-party delegati, helper Github e output key/value', () => {
+    const files = new Map([
+      ['/repo/scripts/gate.mjs', [
+        "import { appendFileSync } from 'node:fs';",
+        'function outputLines(decision) {',
+        '  return [',
+        '    `allow_side_effect=${decision.allow}` ,',
+        '    `effective_dry_run=${decision.dryRun}` ,',
+        '    `approval_reason=${decision.reason}` ,',
+        "  ].join('\\n');",
+        '}',
+        'export function writeGithubOutputs(decision, outputPath = process.env.GITHUB_OUTPUT) {',
+        '  appendFileSync(outputPath, outputLines(decision));',
+        '}',
+        'writeGithubOutputs({}, process.env.GITHUB_OUTPUT);',
+      ].join('\n')],
+      ['/repo/scripts/guard.mjs', [
+        "import { appendFileSync } from 'node:fs';",
+        'function writeGithubOutput(line) {',
+        '  appendFileSync(process.env.GITHUB_OUTPUT, `${line}\\n`);',
+        '}',
+        "writeGithubOutput('skip=false');",
+        "writeGithubOutput('body_rereview=true');",
+      ].join('\n')],
+      ['/repo/scripts/verify.mjs', [
+        "import { appendFileSync } from 'node:fs';",
+        'function setOutput(name, value) {',
+        '  appendFileSync(process.env.GITHUB_OUTPUT, `${name}=${value}\\n`);',
+        '}',
+        "setOutput('verified', 'true');",
+      ].join('\n')],
+    ]);
+    const source = [
+      'name: delegated-output-writers',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: gate',
+      '        id: gate',
+      '        run: node scripts/gate.mjs',
+      '      - name: guard',
+      '        id: guard',
+      '        run: node scripts/guard.mjs',
+      '      - name: verify',
+      '        id: verify',
+      '        run: node scripts/verify.mjs',
+      '      - name: consumer',
+      '        run: echo "${{ steps.gate.outputs.allow_side_effect }} ${{ steps.gate.outputs.effective_dry_run }} ${{ steps.gate.outputs.approval_reason }} ${{ steps.guard.outputs.skip }} ${{ steps.guard.outputs.body_rereview }} ${{ steps.verify.outputs.verified }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/delegated-output-writers.yml', source, {
+      root: '/repo',
+      exists: (candidate: string) => files.has(candidate),
+      readFile: (candidate: string) => files.get(candidate) || '',
+    });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
+  it('riconosce output prodotti da node -e multiline e grep verso GITHUB_OUTPUT', () => {
+    const source = [
+      'name: inline-output',
+      'on: [push]',
+      'jobs:',
+      '  build:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: inline producer',
+      '        id: inline',
+      '        run: |',
+      "          node --input-type=module -e '",
+      '            console.log("variant_count=1");',
+      '            console.log("single_variant=alpha");',
+      '            console.log("single_env_json={}");',
+      "          ' >> \"$GITHUB_OUTPUT\"",
+      '      - name: carry producer',
+      '        id: carry',
+      '        run: |',
+      "          printf '%s\\n' \"$carry\" | grep -E '^carry_(prior_review|prior_commit|fingerprint)=' >> \"$GITHUB_OUTPUT\"",
+      '      - name: consumer',
+      '        run: echo "${{ steps.inline.outputs.variant_count }} ${{ steps.inline.outputs.single_variant }} ${{ steps.inline.outputs.single_env_json }} ${{ steps.carry.outputs.carry_prior_review }} ${{ steps.carry.outputs.carry_prior_commit }} ${{ steps.carry.outputs.carry_fingerprint }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/inline-output.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
   it('riconosce tutte le chiavi in template concatenati', () => {
     const files = new Map([
       ['/repo/scripts/check-health.mjs', [

@@ -56,8 +56,9 @@ const DATA_PATH_RE = /\b((?:data|public\/data)\/[A-Za-z0-9_./-]+\.(?:json|jsonl|
 const OUTPUT_RE = /(?:echo|printf)\s+["']?([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/g;
 const SHELL_ASSIGNMENT_RE = /(?:^|[;\n])\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)=/gm;
 const SHELL_OUTPUT_ALIAS_RE = /(?:^|[;\n])\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)=(?:"\$\{GITHUB_OUTPUT(?::-[^"$`(){};\s]+)?\}"|\$\{GITHUB_OUTPUT(?::-[^"$`(){};\s]+)?\}|\$GITHUB_OUTPUT)(?=\s*(?:#.*)?(?:;|\n|$))/gm;
-const OUTPUT_HELPER_CALL_RE = /\b(?:write_output|writeOutput|set_output|setOutput|emit_output|emitOutput)\s*\(\s*["']([A-Za-z_][A-Za-z0-9_-]*)["']/g;
-const OUTPUT_HELPER_SHELL_RE = /\b(?:write_output|writeOutput|set_output|setOutput|emit_output|emitOutput)\s+["']?([A-Za-z_][A-Za-z0-9_-]*)["']?/g;
+const OUTPUT_HELPER_CALL_RE = /\b(?:write_output|writeOutput|writeGithubOutput|writeGithubOutputs|set_output|setOutput|emit_output|emitOutput)\s*\(\s*["'`]([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/g;
+const OUTPUT_HELPER_KV_CALL_RE = /\b(?:write_output|writeOutput|writeGithubOutput|writeGithubOutputs|set_output|setOutput|emit_output|emitOutput)\s*\(\s*["'`]([A-Za-z_][A-Za-z0-9_-]*)["'`]\s*,/g;
+const OUTPUT_HELPER_SHELL_RE = /\b(?:write_output|writeOutput|writeGithubOutput|writeGithubOutputs|set_output|setOutput|emit_output|emitOutput)\s+["']?([A-Za-z_][A-Za-z0-9_-]*)["']?/g;
 const OUTPUT_ACTIONS_FILE_RE = /\bappendActionsFile\s*\(\s*["']GITHUB_OUTPUT["']\s*,\s*["']([A-Za-z_][A-Za-z0-9_-]*)["']/g;
 const LOCAL_MODULE_RE = /\b(?:from\s*|import\s*\(\s*|require\s*\(\s*)["'](\.{1,2}\/[^"']+)["']/g;
 const INVOKED_COMMAND_RE = /\b(?:node|bash|sh|tsx|bun|deno)\s+["']?((?:scripts|functions|tests|\.github\/actions|\.github\/scripts)\/[A-Za-z0-9_./-]+\.(?:mjs|cjs|js|ts|sh|yml|yaml))\b/g;
@@ -743,6 +744,19 @@ function matchingParen(source, openingIndex) {
   return -1;
 }
 
+function inlineShellCommandStart(source, lineStart) {
+  const raw = String(source || '');
+  let cursor = lineStart;
+  for (let distance = 0; distance < 32 && cursor > 0; distance += 1) {
+    const previousEnd = cursor - 1;
+    const previousStart = raw.lastIndexOf('\n', previousEnd - 1) + 1;
+    const line = raw.slice(previousStart, previousEnd);
+    if (/^\s*(?:node|nodejs)\b.*(?:\s-e\b|\s--eval\b)/u.test(line)) return previousStart;
+    cursor = previousStart;
+  }
+  return lineStart;
+}
+
 function heredocOutputRanges(source) {
   const raw = String(source || '');
   const ranges = [];
@@ -807,14 +821,14 @@ function shellOutputRedirectRanges(source, bindings) {
   const raw = String(source || '');
   if (!raw.includes('>') || (bindings.length === 0 && !raw.includes('$GITHUB_OUTPUT'))) return [];
   const ranges = [];
+  let quote = null;
+  let escaped = false;
   let lineStart = 0;
   while (lineStart < raw.length) {
     const newline = raw.indexOf('\n', lineStart);
     const lineEnd = newline < 0 ? raw.length : newline;
     const line = raw.slice(lineStart, lineEnd);
     if (!/^\s*(?:#|\/\/)/u.test(line)) {
-      let quote = null;
-      let escaped = false;
       for (let offset = 0; offset < line.length; offset += 1) {
         const char = line[offset];
         if (quote) {
@@ -854,7 +868,7 @@ function shellOutputRedirectRanges(source, bindings) {
         const isOutput = name === 'GITHUB_OUTPUT'
           || latestShellAssignment(bindings, name, lineStart + offset)?.outputAlias === true;
         if (isOutput) {
-          ranges.push({ start: lineStart, end: lineEnd });
+          ranges.push({ start: inlineShellCommandStart(raw, lineStart), end: lineEnd });
           break;
         }
       }
@@ -909,13 +923,36 @@ function outputSinkRanges(source) {
   ];
 }
 
+function outputKeysFromText(source) {
+  const raw = String(source || '');
+  const keys = new Set();
+  const outputKeyRe = /(?:^|\r?\n|\\n|\\r\\n|["'`])([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/g;
+  for (const match of raw.matchAll(outputKeyRe)) keys.add(match[1]);
+
+  // A shell grep can prove several output keys at once, for example
+  // `^carry_(prior_review|prior_commit)=`, even though the key is not a
+  // literal assignment in the source.
+  const shellPatternRe = /(?:^|\r?\n|\\n|\\r\\n)\^?([A-Za-z_][A-Za-z0-9_-]*)(?:\(([^)\r\n]*)\))?(?:=|<<)/g;
+  for (const match of raw.matchAll(shellPatternRe)) {
+    const prefix = match[1];
+    const suffixes = String(match[2] || '').split('|').filter(Boolean);
+    if (suffixes.length === 0) {
+      keys.add(prefix);
+    } else {
+      for (const suffix of suffixes) {
+        keys.add(`${prefix}${suffix}`);
+      }
+    }
+  }
+  return keys;
+}
+
 function literalOutputKeys(source, sinkRanges = outputSinkRanges(source)) {
   const keys = new Set();
-  const outputKeyRe = /(?:^|\r?\n|\\n|\\r\\n)([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/g;
   for (const literal of stringLiterals(source)) {
     const belongsToSink = sinkRanges.some(({ start, end }) => literal.start >= start && literal.start < end);
     if (!belongsToSink) continue;
-    for (const match of literal.value.matchAll(outputKeyRe)) keys.add(match[1]);
+    for (const key of outputKeysFromText(literal.value)) keys.add(key);
   }
   return keys;
 }
@@ -1009,16 +1046,63 @@ function objectEntryOutputKeys(source, sinkRanges = outputSinkRanges(source)) {
   return keys;
 }
 
+function likelyOutputTarget(value) {
+  return /(?:GITHUB_OUTPUT|output|target)/iu.test(String(value || ''));
+}
+
+function directOutputWriterRanges(source) {
+  const raw = String(source || '');
+  const ranges = [];
+  const writerRe = /\b(?:appendFileSync|writeFileSync)\s*\(\s*([A-Za-z_$][A-Za-z0-9_$]*(?:\.[A-Za-z_$][A-Za-z0-9_$]*)*)\s*,\s*\[/g;
+  for (const match of raw.matchAll(writerRe)) {
+    if (!likelyOutputTarget(match[1])) continue;
+    const openingIndex = raw.indexOf('(', match.index ?? 0);
+    const closingIndex = matchingParen(raw, openingIndex);
+    ranges.push({
+      start: match.index ?? 0,
+      end: closingIndex >= 0 ? closingIndex + 1 : raw.length,
+    });
+  }
+  return ranges;
+}
+
+function returnedOutputArrayKeys(source) {
+  const raw = String(source || '');
+  const keys = new Set();
+  const writerRe = /\b(?:appendFileSync|writeFileSync)\s*\(\s*([A-Za-z_$][A-Za-z0-9_$]*(?:\.[A-Za-z_$][A-Za-z0-9_$]*)*)\s*,\s*([A-Za-z_$][A-Za-z0-9_$]*)\s*\(/g;
+  const helperNames = new Set();
+  for (const match of raw.matchAll(writerRe)) {
+    if (likelyOutputTarget(match[1])) helperNames.add(match[2]);
+  }
+  for (const helperName of helperNames) {
+    const escapedName = helperName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const functionRe = new RegExp(`\\bfunction\\s+${escapedName}\\s*\\([^)]*\\)\\s*\\{`, 'g');
+    for (const match of raw.matchAll(functionRe)) {
+      const openingIndex = raw.indexOf('{', match.index ?? 0);
+      const closingIndex = matchingBrace(raw, openingIndex);
+      if (closingIndex < 0) continue;
+      const body = raw.slice(openingIndex + 1, closingIndex);
+      const returned = body.match(/\breturn\s*\[([\s\S]*?)\]\s*(?:\.join\b|;)/);
+      if (!returned) continue;
+      for (const key of outputKeysFromText(returned[1])) keys.add(key);
+    }
+  }
+  return keys;
+}
+
 function outputKeysFromSource(source) {
   const raw = String(source || '');
   if (!/\$GITHUB_OUTPUT\b|\$\{GITHUB_OUTPUT\b|(?:process|env)\.GITHUB_OUTPUT\b|appendActionsFile\s*\(\s*["']GITHUB_OUTPUT["']/.test(raw)) return new Set();
   const keys = new Set([...raw.matchAll(OUTPUT_RE)].map((match) => match[1]));
   for (const match of raw.matchAll(OUTPUT_HELPER_CALL_RE)) keys.add(match[1]);
+  for (const match of raw.matchAll(OUTPUT_HELPER_KV_CALL_RE)) keys.add(match[1]);
   for (const match of raw.matchAll(OUTPUT_HELPER_SHELL_RE)) keys.add(match[1]);
   for (const match of raw.matchAll(OUTPUT_ACTIONS_FILE_RE)) keys.add(match[1]);
   const sinkRanges = outputSinkRanges(raw);
   for (const key of literalOutputKeys(raw, sinkRanges)) keys.add(key);
   for (const key of objectEntryOutputKeys(raw, sinkRanges)) keys.add(key);
+  for (const key of literalOutputKeys(raw, directOutputWriterRanges(raw))) keys.add(key);
+  for (const key of returnedOutputArrayKeys(raw)) keys.add(key);
 
   // A workflow commonly delegates its output writer to a first-party script.
   // Follow only a statically-known output file (the literal env expression or
