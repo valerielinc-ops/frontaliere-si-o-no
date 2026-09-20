@@ -136,7 +136,7 @@ jobs:
       - name: Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)
         run: |-
           if [ -z "${GITHUB_PAT:-}" ]; then
-            echo "::error::GITHUB_PAT missing from Remote Config (RC_TO_ENV in scripts/load-rc-env.mjs) — cannot push crawler data to valerielinc-ops/frontaliere-si-o-no or file crawler-failure issues there. Aborting before any crawler runs so this fails loud, not as 27 silent push failures."
+            echo "::error::GITHUB_PAT missing from Remote Config (RC_TO_ENV in scripts/load-rc-env.mjs) — cannot push crawler data to valerielinc-ops/frontaliere-si-o-no or file crawler-failure issues there. Aborting before any crawler runs so this fails loud, not as 28 silent push failures."
             exit 1
           fi
           git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/valerielinc-ops/frontaliere-si-o-no.git"
@@ -4824,6 +4824,179 @@ jobs:
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch blatters-hotel
+        id: crawler-launch-blatters-hotel
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-blatters-hotel.txt
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
+          JOBS_BLATTERS_HOTEL_STRICT: ${{ inputs.strict_localization || '1' }}
+          CRAWLER_SLICE_ONLY: "1"
+          SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
+          JOBS_HOUSEKEEPING_SCOPE: blatters-hotel
+          JOBS_SLICE_FILE: data/jobs/by-crawler/blatters-hotel.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+        run: |-
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-08"
+          mkdir -p "$state_dir/slots"
+          script_path="$state_dir/blatters-hotel.sh"
+          launcher_path="$state_dir/blatters-hotel.launcher.sh"
+          worker_path="$state_dir/blatters-hotel.worker.sh"
+          log_path="$state_dir/blatters-hotel.log"
+          pid_path="$state_dir/blatters-hotel.pid"
+          status_path="$state_dir/blatters-hotel.status"
+          started_path="$state_dir/blatters-hotel.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
+          set +e
+
+          # ---- blatters-hotel: run crawler (verbatim from original workflow) ----
+          node scripts/update-blatters-hotel-jobs.mjs
+          crawler_exit=$?
+          git_commit_exit=0
+
+          # ---- blatters-hotel: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          if [ "$crawler_exit" -eq 0 ]; then
+            (node scripts/cleanup-jobs.mjs) || true
+          fi
+
+          # ---- blatters-hotel: Commit and push (verbatim, only if crawler succeeded) ----
+          if [ "$crawler_exit" -eq 0 ]; then
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Blatter'\''\'\'''\''s Arosa Hotel jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
+            git_commit_exit=$?
+          fi
+
+          # ---- blatters-hotel: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+            node scripts/lib/github-issue-creator.mjs \
+              --title "Crawler Failure: Run blatters-hotel" \
+              --description "## Crawler fallito
+            **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            **Branch:** ${{ github.ref_name }}
+            **Trigger:** ${{ github.event_name }}" \
+              --priority 2 \
+              --label Bug \
+              --workflow "Run blatters-hotel"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::blatters-hotel: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ blatters-hotel: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::blatters-hotel: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ blatters-hotel: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::blatters-hotel: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ blatters-hotel: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::blatters-hotel: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ blatters-hotel: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
+
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+            exit 1
+          fi
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-08/blatters-hotel.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-08/blatters-hotel.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-08/blatters-hotel.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-08/blatters-hotel.started"
+          : > "$started_file"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-08"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-08/blatters-hotel.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-08/blatters-hotel.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-08/blatters-hotel.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-08/blatters-hotel.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-74}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 74)"
+            worker_watchdog_minutes=74
+          fi
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Run salina-reha
         id: crawler-salina-reha
         if: always()
@@ -6309,6 +6482,61 @@ jobs:
             exit 1
           fi
           exit "$status"
+      - name: Run blatters-hotel
+        id: crawler-blatters-hotel
+        if: always()
+        continue-on-error: true
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-blatters-hotel'].outcome }}
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-08"
+          status_file="$state_dir/blatters-hotel.status"
+          pid_file="$state_dir/blatters-hotel.pid"
+          log_file="$state_dir/blatters-hotel.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::blatters-hotel: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::blatters-hotel: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::blatters-hotel: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::blatters-hotel: invalid detached crawler PID: $pid"
+                exit 1
+              fi
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::blatters-hotel: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::blatters-hotel: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::blatters-hotel: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
       - name: Aggregate crawler outcomes
         id: crawler_aggregate
         if: always()
@@ -6972,6 +7200,30 @@ jobs:
               failure_count=$((failure_count + 1))
             fi
           fi
+          status_file="$state_dir/blatters-hotel.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::blatters-hotel: no terminal status was published"
+            printf '%s\n' '| blatters-hotel | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::blatters-hotel: invalid terminal status: $status"
+              printf '%s\n' '| blatters-hotel | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::blatters-hotel: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| blatters-hotel | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| blatters-hotel | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::blatters-hotel: crawler exited with status $status"
+              printf '| blatters-hotel | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure
@@ -7030,7 +7282,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
           CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler_aggregate.outputs.wait_outcome || 'failure' }}
-          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"burkhalter","primarySlice":"data/jobs/by-crawler/burkhalter-group.json"},{"crawlerId":"caritas-schweiz","primarySlice":"data/jobs/by-crawler/caritas-schweiz.json"},{"crawlerId":"cds-savognin","primarySlice":"data/jobs/by-crawler/cds-savognin.json"},{"crawlerId":"chopard","primarySlice":"data/jobs/by-crawler/chopard.json"},{"crawlerId":"cs-bregaglia","primarySlice":"data/jobs/by-crawler/cs-bregaglia.json"},{"crawlerId":"damiani-group","primarySlice":"data/jobs/by-crawler/damiani-group.json"},{"crawlerId":"dic-sa","primarySlice":"data/jobs/by-crawler/dic-sa.json"},{"crawlerId":"dxt-commodities","primarySlice":"data/jobs/by-crawler/dxt-commodities.json"},{"crawlerId":"ehc-vd","primarySlice":"data/jobs/by-crawler/ehc-vd.json"},{"crawlerId":"fachkraft","primarySlice":"data/jobs/by-crawler/fachkraft.json"},{"crawlerId":"has-healthcare","primarySlice":"data/jobs/by-crawler/has-healthcare.json"},{"crawlerId":"hes-so-valais","primarySlice":"data/jobs/by-crawler/hes-so-valais.json"},{"crawlerId":"josef-mueller","primarySlice":"data/jobs/by-crawler/josef-mueller.json"},{"crawlerId":"klinik-schoenberg","primarySlice":"data/jobs/by-crawler/klinik-schoenberg.json"},{"crawlerId":"molecular-partners","primarySlice":"data/jobs/by-crawler/molecular-partners.json"},{"crawlerId":"patek-philippe","primarySlice":"data/jobs/by-crawler/patek-philippe.json"},{"crawlerId":"posta-svizzera-centro-regionale","primarySlice":"data/jobs/by-crawler/posta-svizzera-centro-regionale.json"},{"crawlerId":"rieter","primarySlice":"data/jobs/by-crawler/rieter.json"},{"crawlerId":"salina-reha","primarySlice":"data/jobs/by-crawler/salina-reha.json"},{"crawlerId":"skyguide-sa","primarySlice":"data/jobs/by-crawler/skyguide-sa.json"},{"crawlerId":"smg-swiss-marketplace-group","primarySlice":"data/jobs/by-crawler/smg-swiss-marketplace-group.json"},{"crawlerId":"soh-solothurner-spitaeler","primarySlice":"data/jobs/by-crawler/soh-solothurner-spitaeler.json"},{"crawlerId":"sro","primarySlice":"data/jobs/by-crawler/sro.json"},{"crawlerId":"szb-chb","primarySlice":"data/jobs/by-crawler/szb-chb.json"},{"crawlerId":"thurklinik","primarySlice":"data/jobs/by-crawler/thurklinik.json"},{"crawlerId":"victorinox","primarySlice":"data/jobs/by-crawler/victorinox.json"},{"crawlerId":"volg-fenaco","primarySlice":"data/jobs/by-crawler/volg-fenaco.json"}]'
+          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"blatters-hotel","primarySlice":"data/jobs/by-crawler/blatters-hotel.json"},{"crawlerId":"burkhalter","primarySlice":"data/jobs/by-crawler/burkhalter-group.json"},{"crawlerId":"caritas-schweiz","primarySlice":"data/jobs/by-crawler/caritas-schweiz.json"},{"crawlerId":"cds-savognin","primarySlice":"data/jobs/by-crawler/cds-savognin.json"},{"crawlerId":"chopard","primarySlice":"data/jobs/by-crawler/chopard.json"},{"crawlerId":"cs-bregaglia","primarySlice":"data/jobs/by-crawler/cs-bregaglia.json"},{"crawlerId":"damiani-group","primarySlice":"data/jobs/by-crawler/damiani-group.json"},{"crawlerId":"dic-sa","primarySlice":"data/jobs/by-crawler/dic-sa.json"},{"crawlerId":"dxt-commodities","primarySlice":"data/jobs/by-crawler/dxt-commodities.json"},{"crawlerId":"ehc-vd","primarySlice":"data/jobs/by-crawler/ehc-vd.json"},{"crawlerId":"fachkraft","primarySlice":"data/jobs/by-crawler/fachkraft.json"},{"crawlerId":"has-healthcare","primarySlice":"data/jobs/by-crawler/has-healthcare.json"},{"crawlerId":"hes-so-valais","primarySlice":"data/jobs/by-crawler/hes-so-valais.json"},{"crawlerId":"josef-mueller","primarySlice":"data/jobs/by-crawler/josef-mueller.json"},{"crawlerId":"klinik-schoenberg","primarySlice":"data/jobs/by-crawler/klinik-schoenberg.json"},{"crawlerId":"molecular-partners","primarySlice":"data/jobs/by-crawler/molecular-partners.json"},{"crawlerId":"patek-philippe","primarySlice":"data/jobs/by-crawler/patek-philippe.json"},{"crawlerId":"posta-svizzera-centro-regionale","primarySlice":"data/jobs/by-crawler/posta-svizzera-centro-regionale.json"},{"crawlerId":"rieter","primarySlice":"data/jobs/by-crawler/rieter.json"},{"crawlerId":"salina-reha","primarySlice":"data/jobs/by-crawler/salina-reha.json"},{"crawlerId":"skyguide-sa","primarySlice":"data/jobs/by-crawler/skyguide-sa.json"},{"crawlerId":"smg-swiss-marketplace-group","primarySlice":"data/jobs/by-crawler/smg-swiss-marketplace-group.json"},{"crawlerId":"soh-solothurner-spitaeler","primarySlice":"data/jobs/by-crawler/soh-solothurner-spitaeler.json"},{"crawlerId":"sro","primarySlice":"data/jobs/by-crawler/sro.json"},{"crawlerId":"szb-chb","primarySlice":"data/jobs/by-crawler/szb-chb.json"},{"crawlerId":"thurklinik","primarySlice":"data/jobs/by-crawler/thurklinik.json"},{"crawlerId":"victorinox","primarySlice":"data/jobs/by-crawler/victorinox.json"},{"crawlerId":"volg-fenaco","primarySlice":"data/jobs/by-crawler/volg-fenaco.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-08-terminal.json
           CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl
         run: node scripts/crawler-group-generation-finalizer.mjs

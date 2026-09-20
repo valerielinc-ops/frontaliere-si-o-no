@@ -1,9 +1,10 @@
 {
   "schemaVersion": 1,
   "groupCount": 23,
-  "crawlerCount": 606,
+  "crawlerCount": 616,
   "groups": {
     "10": [
+      "atec-personal",
       "berit-klinik",
       "bucherer",
       "centiel",
@@ -35,6 +36,7 @@
     "11": [
       "a-group",
       "amag-group",
+      "apply",
       "ardentis",
       "axpo-group",
       "clienia-ag",
@@ -92,6 +94,7 @@
       "upd"
     ],
     "13": [
+      "1a-hunkeler",
       "afry",
       "answerconsulting",
       "banca-sempione",
@@ -473,6 +476,7 @@
       "mobiliar",
       "oscam-castelrotto",
       "rss-surselva",
+      "schweizerhof-flims",
       "siemens",
       "spital-maennedorf",
       "totalenergies",
@@ -501,6 +505,7 @@
       "klinik-im-hasel",
       "lidl-svizzera",
       "nant",
+      "parmag",
       "pemsa",
       "pole-sante-pays-enhaut",
       "puk-zuerich",
@@ -531,6 +536,7 @@
       "hugo-boss",
       "ipersonal",
       "klinik-schuetzen",
+      "neoproconseils",
       "schulthess-klinik",
       "straumann",
       "talan",
@@ -557,6 +563,7 @@
       "merian-iselin",
       "migrolino",
       "modellstation-somosa",
+      "mueller-steinmaur",
       "palliativklinik",
       "planzer",
       "privatklinik-bethanien",
@@ -580,6 +587,7 @@
       "groupe-mutuel",
       "guess-europe",
       "guggerbach",
+      "im-bethesda-spital",
       "kzu",
       "medtronic",
       "moncucco",
@@ -598,6 +606,7 @@
       "villa-im-park"
     ],
     "08": [
+      "blatters-hotel",
       "burkhalter",
       "caritas-schweiz",
       "cds-savognin",
@@ -630,6 +639,7 @@
       "air-zermatt",
       "apple-retail-switzerland",
       "bcv",
+      "benu",
       "bethesda-spital",
       "colin-cie",
       "concara",
@@ -657,6 +667,7 @@
     ]
   },
   "primarySlices": {
+    "1a-hunkeler": "data/jobs/by-crawler/1a-hunkeler.json",
     "a-group": "data/jobs/by-crawler/a-group.json",
     "aarreha-schinznach": "data/jobs/by-crawler/aarreha-schinznach.json",
     "abb-svizzera-sede-ticino": "data/jobs/by-crawler/abb-svizzera-sede-ticino.json",
@@ -686,6 +697,7 @@
     "apg-sga": "data/jobs/by-crawler/apg-sga.json",
     "apleona-schweiz-ag": "data/jobs/by-crawler/apleona-schweiz-ag.json",
     "apple-retail-switzerland": "data/jobs/by-crawler/apple-retail-switzerland.json",
+    "apply": "data/jobs/by-crawler/apply.json",
     "ardentis": "data/jobs/by-crawler/ardentis.json",
     "ardian": "data/jobs/by-crawler/ardian.json",
     "ariston-group": "data/jobs/by-crawler/ariston-group.json",
@@ -695,6 +707,7 @@
     "artisa-group": "data/jobs/by-crawler/artisa-group.json",
     "arxada": "data/jobs/by-crawler/arxada.json",
     "asana-spital": "data/jobs/by-crawler/asana-spital.json",
+    "atec-personal": "data/jobs/by-crawler/atec-personal.json",
     "audemars-piguet": "data/jobs/by-crawler/audemars-piguet.json",
     "avaloq": "data/jobs/by-crawler/avaloq.json",
     "axa-svizzera": "data/jobs/by-crawler/axa-svizzera.json",
@@ -715,12 +728,14 @@
     "beekeeper": "data/jobs/by-crawler/beekeeper.json",
     "belimo": "data/jobs/by-crawler/belimo.json",
     "benteler": "data/jobs/by-crawler/benteler.json",
+    "benu": "data/jobs/by-crawler/benu.json",
     "berit-klinik": "data/jobs/by-crawler/berit-klinik.json",
     "berner-klinik-montana": "data/jobs/by-crawler/berner-klinik-montana.json",
     "berner-montage": "data/jobs/by-crawler/berner-montage.json",
     "bethesda-spital": "data/jobs/by-crawler/bethesda-spital.json",
     "bitfinex": "data/jobs/by-crawler/bitfinex.json",
     "bkw": "data/jobs/by-crawler/bkw.json",
+    "blatters-hotel": "data/jobs/by-crawler/blatters-hotel.json",
     "bls": "data/jobs/by-crawler/bls.json",
     "bms-building": "data/jobs/by-crawler/bms-building.json",
     "board-international": "data/jobs/by-crawler/board-international.json",
@@ -927,6 +942,7 @@
     "igroove": "data/jobs/by-crawler/igroove.json",
     "igs-bern": "data/jobs/by-crawler/igs-bern.json",
     "ikea": "data/jobs/by-crawler/ikea.json",
+    "im-bethesda-spital": "data/jobs/by-crawler/im-bethesda-spital.json",
     "imad": "data/jobs/by-crawler/imad.json",
     "imerys": "data/jobs/by-crawler/imerys.json",
     "implenia": "data/jobs/by-crawler/implenia.json",
@@ -1037,7 +1053,9 @@
     "moncucco": "data/jobs/by-crawler/moncucco.json",
     "msc-cargo": "data/jobs/by-crawler/msc-cargo.json",
     "mtic-group": "data/jobs/by-crawler/mtic-group.json",
+    "mueller-steinmaur": "data/jobs/by-crawler/mueller-steinmaur.json",
     "nant": "data/jobs/by-crawler/nant.json",
+    "neoproconseils": "data/jobs/by-crawler/neoproconseils.json",
     "nestle": "data/jobs/by-crawler/nestle.json",
     "new-yorker": "data/jobs/by-crawler/new-yorker.json",
     "nord-anglia": "data/jobs/by-crawler/nord-anglia.json",
@@ -1061,6 +1079,7 @@
     "pallas-kliniken": "data/jobs/by-crawler/pallas-kliniken.json",
     "palliativklinik": "data/jobs/by-crawler/palliativklinik.json",
     "paraplegie": "data/jobs/by-crawler/paraplegie.json",
+    "parmag": "data/jobs/by-crawler/parmag.json",
     "patek-philippe": "data/jobs/by-crawler/patek-philippe.json",
     "pbl": "data/jobs/by-crawler/pbl.json",
     "pdag": "data/jobs/by-crawler/pdag.json",
@@ -1122,6 +1141,7 @@
     "scandit": "data/jobs/by-crawler/scandit.json",
     "schindler": "data/jobs/by-crawler/schindler.json",
     "schulthess-klinik": "data/jobs/by-crawler/schulthess-klinik.json",
+    "schweizerhof-flims": "data/jobs/by-crawler/schweizerhof-flims.json",
     "see-spital": "data/jobs/by-crawler/see-spital.json",
     "selecta": "data/jobs/by-crawler/selecta.json",
     "senevita": "data/jobs/by-crawler/senevita.json",
@@ -1264,5 +1284,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:341f84102e1cdc38ec94a692227eec1a34f30e8bc4075ba678657827dd11cdd0"
+  "digest": "sha256:c339d443860b13d0d8734627bd2afa86740cc1e8f74f19586280491b86d3609f"
 }
