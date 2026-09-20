@@ -375,8 +375,15 @@ describe('review gate uses the first HEAD verdict', () => {
 describe('workflow wiring for one review per HEAD', () => {
   const testsYml = readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8');
   const fixerYml = readFileSync(new URL('../.github/workflows/pr-redflag-fixer.yml', import.meta.url), 'utf8');
+  const redcheckYml = readFileSync(new URL('../.github/workflows/pr-redcheck-fixer.yml', import.meta.url), 'utf8');
   const bodyRecoveryYml = readFileSync(new URL('../.github/workflows/retry-code-check-after-body-edit.yml', import.meta.url), 'utf8');
   const reviewGateSource = readFileSync(new URL('../scripts/ci/review-gate.mjs', import.meta.url), 'utf8');
+  const trustedPolicySources = [
+    'scripts/ci/fetch-pr-files.mjs',
+    'scripts/ci/review-test-policy.mjs',
+    'scripts/ci/lib/review-carry-forward.mjs',
+    'scripts/ci/report-vitest-failure.mjs',
+  ].map(path => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8'));
   const tests = YAML.parse(testsYml);
 
   it('tests.yml skip guard calls the shipped helper and does not re-review on edited', () => {
@@ -415,6 +422,41 @@ describe('workflow wiring for one review per HEAD', () => {
     expect(fixerYml).toContain('Admit only the first terminal');
     expect(fixerYml).not.toMatch(/git commit --allow-empty/);
     expect(fixerYml).toMatch(/Niente commit vuoto|non pushare un commit vuoto/i);
+  });
+
+  it('binds every post-checkout review publisher to the attested GitHub CLI', () => {
+    for (const source of trustedPolicySources) {
+      expect(source).toContain('TRUSTED_GH_BIN');
+      expect(source).not.toContain("execFileSync('gh'");
+    }
+    expect(testsYml).toContain('id: test_only_review');
+    expect(testsYml).toContain('id: carry_forward_review');
+    for (const workflow of [fixerYml, redcheckYml]) {
+      expect(workflow).toContain('TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}');
+      expect(workflow).toContain('"$TRUSTED_GH_BIN" api');
+      expect(workflow).toContain('node "$TRUSTED_POLICY_ROOT/scripts/ci/fetch-pr-files.mjs"');
+    }
+  });
+
+  it('does not resolve trusted review tools from a PR-controlled PATH', () => {
+    const trustedSources = [
+      'scripts/ci/prefetch-review-diff.mjs',
+      'scripts/ci/auto-merge-eval.mjs',
+      'scripts/ci/lib/mergePreviewCheck.mjs',
+      'scripts/ci/review-gate.mjs',
+      'scripts/lib/github-issue-creator.mjs',
+    ].map(path => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8'));
+    expect(trustedSources[0]).toContain('TRUSTED_GIT_BIN');
+    expect(trustedSources[2]).toContain('TRUSTED_GIT_BIN');
+    for (const source of trustedSources.filter((_, index) => index !== 2)) {
+      expect(source).toContain('TRUSTED_GH_BIN');
+      expect(source).not.toContain("execFileSync('gh'");
+      expect(source).not.toContain("execFileSync('git'");
+    }
+    expect(trustedSources[2]).not.toContain("execFileSync('git'");
+    expect(testsYml).toContain('TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}');
+    expect(fixerYml).toContain('TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}');
+    expect(testsYml).toContain("node \"$REVIEW_POLICY_ROOT/scripts/ci/prefetch-review-diff.mjs\"");
   });
 
   it('keeps title-only edits out while body edits revalidate the trusted review input', () => {

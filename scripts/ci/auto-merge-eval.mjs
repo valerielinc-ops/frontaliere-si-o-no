@@ -93,10 +93,19 @@ import { upsertStickyComment } from './lib/prComments.mjs';
 const REPO = process.env.GITHUB_REPOSITORY || '';
 const PR = process.argv[2];
 
+function ghBin() {
+  const configured = String(process.env.TRUSTED_GH_BIN || '').trim();
+  if (!configured) return 'gh'; // legacy/debug CLI outside the trusted review workflow
+  if (!configured.startsWith('/') || configured.includes('\0')) {
+    throw new Error('TRUSTED_GH_BIN mancante o non assoluto');
+  }
+  return configured;
+}
+
 function gh(args, { json = true, token } = {}) {
   const env = { ...process.env };
   if (token) env.GH_TOKEN = token;
-  const out = execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, env });
+  const out = execFileSync(ghBin(), args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, env });
   return json ? JSON.parse(out) : out;
 }
 

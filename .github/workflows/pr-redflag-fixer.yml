@@ -47,8 +47,8 @@ jobs:
     # ECONOMICO e volutamente ampio (solo "contiene un 🔴 qualsiasi"). Il match
     # PRECISO (è davvero un finding Important, non un 🔴 decorativo o prosa che lo
     # nega) lo fa il preflight sotto, con una regex tollerante al bold/spaziatura MA
-    # che richiede un delimitatore dopo "Important" — impossibile in un'espressione
-    # `if:` YAML.
+    # che richiede un delimitatore dopo "Important" oppure una location strutturale
+    # (`path:L<linea>:`) — impossibile in un'espressione `if:` YAML.
     # NB: lo scope-check "PR autonoma" (bot-authored, head `fix/*`, head
     # `automerge-*` o label `agent:autofix`) NON vive più
     # in questo `if:` — vedi lo step sotto. Un `if:` di job che fallisce lascia il
@@ -83,13 +83,12 @@ jobs:
         run: |
           set -uo pipefail
           # Marker 🔴-Important tollerante al markdown: il reviewer a volte bolda
-          # ("🔴 **Important —**") o varia la spaziatura. Richiede un delimitatore
-          # (`:`, `—`, `-`) subito dopo "Important" (+ bold di chiusura opzionale) —
-          # senza, la stessa regex matchava anche la prosa di negazione del
-          # reviewer ("zero 🔴 Important findings", PR #3330): "Important" lì è un
-          # aggettivo che dice che non ce ne sono, non il marker. Un 🔴 NON seguito
-          # da "Important<delimitatore>" (decorativo o prosa, es. "nessun 🔴") →
-          # no-op, niente round speso.
+          # ("🔴 **Important —**") o varia la spaziatura. Accetta il delimitatore
+          # (`:`, `—`, `-`) subito dopo "Important" (+ bold di chiusura opzionale)
+          # oppure il formato documentato `<file>:L<linea>: 🔴 Important problema`.
+          # Il bare marker è quindi ammesso solo quando è ancorato a una location;
+          # la prosa "zero 🔴 Important findings" (PR #3330) resta no-op e non
+          # consuma un round.
           #
           # `^[^🟡🟢❓]*` e `(?<!\`)` sono la terza variante della stessa classe, chiusa
           # sulla POSIZIONE invece che sul vocabolario (corpus#909): un 🔴 Important
@@ -114,7 +113,7 @@ jobs:
               exit 1
             fi
           fi
-          if printf '%s' "$REVIEW_BODY" | grep -qP '(*UTF)^[^🟡🟢]*(?<!`)🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]'; then
+          if printf '%s' "$REVIEW_BODY" | grep -qP '(*UTF)^(?:[^🟡🟢]*(?<!\x60)🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]|[ \t]*(?:[-*+>][ \t]*)?(?:\x60[^\x60\n]*:L?\d+(?:[-–]\d+)?\x60?|(?:PR[ \t]+body|[A-Za-z0-9_.@/-]+):L?\d+(?:[-–]\d+)?):[ \t]*🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?=\s+\S))'; then
             :
           else
             marker_status=$?
@@ -204,6 +203,27 @@ jobs:
             probe="$(dirname "$probe")"
           done
           printf 'path=%s\n' "$gh_bin" >> "$GITHUB_OUTPUT"
+          git_bin="$(command -v git || true)"
+          if [ -z "$git_bin" ] || [[ "$git_bin" != /* ]] || [ ! -x "$git_bin" ]; then
+            echo "::error::Git path non assoluto o non eseguibile: ${git_bin:-missing}"
+            exit 1
+          fi
+          git_bin="$(realpath "$git_bin")"
+          case "$git_bin" in
+            "$GITHUB_WORKSPACE"/*|"$RUNNER_TEMP"/*)
+              echo "::error::Git risolve in un path controllabile dalla PR: $git_bin"
+              exit 1
+              ;;
+          esac
+          probe="$git_bin"
+          while [ "$probe" != '/' ]; do
+            if [ -w "$probe" ]; then
+              echo "::error::Git o una directory del suo path è scrivibile dal runner: $probe"
+              exit 1
+            fi
+            probe="$(dirname "$probe")"
+          done
+          printf 'git_path=%s\n' "$git_bin" >> "$GITHUB_OUTPUT"
 
       - name: Checkout trusted classifier from main
         continue-on-error: true
@@ -243,6 +263,7 @@ jobs:
         id: scope
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           PR_URL: ${{ github.event.pull_request.html_url }}
@@ -311,6 +332,27 @@ jobs:
             probe="$(dirname "$probe")"
           done
           printf 'path=%s\n' "$gh_bin" >> "$GITHUB_OUTPUT"
+          git_bin="$(command -v git || true)"
+          if [ -z "$git_bin" ] || [[ "$git_bin" != /* ]] || [ ! -x "$git_bin" ]; then
+            echo "::error::Git path non assoluto o non eseguibile: ${git_bin:-missing}"
+            exit 1
+          fi
+          git_bin="$(realpath "$git_bin")"
+          case "$git_bin" in
+            "$GITHUB_WORKSPACE"/*|"$RUNNER_TEMP"/*)
+              echo "::error::Git risolve in un path controllabile dalla PR: $git_bin"
+              exit 1
+              ;;
+          esac
+          probe="$git_bin"
+          while [ "$probe" != '/' ]; do
+            if [ -w "$probe" ]; then
+              echo "::error::Git o una directory del suo path è scrivibile dal runner: $probe"
+              exit 1
+            fi
+            probe="$(dirname "$probe")"
+          done
+          printf 'git_path=%s\n' "$git_bin" >> "$GITHUB_OUTPUT"
 
       - name: Checkout
         uses: actions/checkout@v5
@@ -394,6 +436,8 @@ jobs:
             scripts/ci/lib/pr-review-admission.mjs \
             scripts/ci/lib/review-input-revision.mjs \
             scripts/ci/lib/constants.mjs \
+            scripts/ci/fetch-pr-files.mjs \
+            scripts/ci/lib/fetchPrFiles.mjs \
             scripts/lib/int-from-env.mjs; do
             download_main "$trusted_path"
           done
@@ -405,6 +449,7 @@ jobs:
       - name: Admit only the first terminal 🔴 on this HEAD
         id: admission
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
@@ -420,7 +465,7 @@ jobs:
             exit 1
           fi
           pr_file="$RUNNER_TEMP/redflag-pr.json"
-          if ! gh api "repos/$REPO/pulls/$PR_NUMBER" > "$pr_file"; then
+          if ! "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" > "$pr_file"; then
             echo "::error::PR metadata/body illeggibile → review input unavailable, nessun Codex."
             exit 1
           fi
@@ -429,7 +474,7 @@ jobs:
             echo "::error::PR body non verificabile → review input unavailable, nessun Codex."
             exit 1
           }
-          if ! reviews=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp); then
+          if ! reviews=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp); then
             echo "::error::Reviews API illeggibile → 🔴-fix bloccato, nessun Codex."
             exit 1
           fi
@@ -503,6 +548,8 @@ jobs:
             scripts/ci/lib/pr-review-admission.mjs \
             scripts/ci/lib/review-input-revision.mjs \
             scripts/ci/lib/constants.mjs \
+            scripts/ci/fetch-pr-files.mjs \
+            scripts/ci/lib/fetchPrFiles.mjs \
             scripts/lib/int-from-env.mjs; do
             download_main "$trusted_path"
           done
@@ -542,6 +589,7 @@ jobs:
           CLAIM_TTL_SEC: '3600'
           GITHUB_RUN_ID: ${{ github.run_id }}
           TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_final.outputs.root }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim
 
       - name: Revalidate redflag claim before model (bounded final snapshot)
@@ -560,6 +608,7 @@ jobs:
           REVIEW_BODY: ${{ github.event.review.body }}
           CLAIM_TOKEN: ${{ steps.claim.outputs.claim_token }}
           TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_final.outputs.root }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim
 
       - name: Stop when redflag claim changed before model
@@ -609,6 +658,8 @@ jobs:
         id: guard
         if: steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_final.outputs.root }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
@@ -618,7 +669,7 @@ jobs:
           MAX_ROUNDS=2
 
           # Round corrente = numero di marker già presenti.
-          if ! comments=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
+          if ! comments=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
             --jq '[.[] | .body] | join("\n")' 2>/dev/null); then
             echo "::error::Commenti PR illeggibili: impossibile verificare il round cap redflag."
             exit 1
@@ -642,9 +693,9 @@ jobs:
                || grep -qF '**needs-human** (auto): il 🔴-fixer' <<<"$comments"; then
               echo "needs-human gia' escalato su questa PR → nessun nuovo label/commento."
             else
-              gh pr edit "$PR_NUMBER" --repo "$REPO" --add-label "needs-human" 2>/dev/null \
+              "$TRUSTED_GH_BIN" pr edit "$PR_NUMBER" --repo "$REPO" --add-label "needs-human" 2>/dev/null \
                 || echo "label needs-human assente — creala: gh label create needs-human"
-              gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- NEEDS_HUMAN_ESCALATION: redflag -->\n🛑 **needs-human** (auto): il 🔴-fixer ha già tentato %s round senza chiudere i findings 🔴. STOP automatico (anti-loop, nessun progresso). Serve revisione umana: leggi le review più recenti e applica il fix a mano.' "$ROUND")" \
+              "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- NEEDS_HUMAN_ESCALATION: redflag -->\n🛑 **needs-human** (auto): il 🔴-fixer ha già tentato %s round senza chiudere i findings 🔴. STOP automatico (anti-loop, nessun progresso). Serve revisione umana: leggi le review più recenti e applica il fix a mano.' "$ROUND")" \
                 2>/dev/null || true
             fi
             echo "proceed=false" >> "$GITHUB_OUTPUT"
@@ -657,7 +708,7 @@ jobs:
           # una reimplementazione shell inline, tenuta allineata a mano alla
           # stessa logica in `scripts/ci/pr-collision-detector.mjs` e nel
           # gemello `pr-review-loop.yml`).
-          result=$(node scripts/ci/fetch-pr-files.mjs --repo "$REPO" --pr "$PR_NUMBER" 2>/dev/null || echo '{}')
+          result=$(node "$TRUSTED_POLICY_ROOT/scripts/ci/fetch-pr-files.mjs" --repo "$REPO" --pr "$PR_NUMBER" 2>/dev/null || echo '{}')
           expected=$(echo "$result" | jq -r '.expected // 0')
           count=$(echo "$result" | jq -r '.count // 0')
           files_complete=$(echo "$result" | jq -r 'if .complete then 1 else 0 end')
@@ -687,7 +738,7 @@ jobs:
               skip_why="l'elenco file è incompleto, quindi non si può escludere che la PR tocchi ${bt}.github/workflows/**${bt}"
             fi
             echo "::warning::Skip capability workflows (causa: $skip_why), manca PAT (scope workflows) → push rifiutato, skip senza bruciare un turno Claude."
-            gh pr comment "$PR_NUMBER" --repo "$REPO" \
+            "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --repo "$REPO" \
               --body "⏭️ 🔴-fixer skip: ${skip_why} e non è disponibile un PAT con scope ${bt}workflows${bt} → il push fallirebbe. Applicare il fix dei 🔴 a mano." \
               2>/dev/null || true
             echo "proceed=false" >> "$GITHUB_OUTPUT"
@@ -710,7 +761,7 @@ jobs:
 
           # Posta/incrementa il marker round PRIMA di invocare Claude (così se la
           # run muore, il round è comunque contato → l'anti-loop tiene).
-          if ! gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- REDFLAG_FIX_ROUND: %s -->\n_🔴-fixer round %s/%s avviato (auto)._' "$NEXT" "$NEXT" "$MAX_ROUNDS")" \
+          if ! "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- REDFLAG_FIX_ROUND: %s -->\n_🔴-fixer round %s/%s avviato (auto)._' "$NEXT" "$NEXT" "$MAX_ROUNDS")" \
             2>/dev/null; then
             echo "::error::Marker REDFLAG_FIX_ROUND non persistito: stop fail-closed prima di Claude."
             exit 1
@@ -753,6 +804,7 @@ jobs:
         id: base
         if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
@@ -762,7 +814,7 @@ jobs:
           # guard): serve al classify sotto per distinguere "Claude ha lasciato
           # una spiegazione" da "Claude non ha fatto/detto nulla" quando esce
           # 'success' senza push (issue #5534).
-          n=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo 0)
+          n=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo 0)
           echo "comments=${n:-0}" >> "$GITHUB_OUTPUT"
 
       # Contesto della PR + della review, deterministico e BOUNDED, prima di
@@ -779,6 +831,7 @@ jobs:
         id: ctx
         if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
@@ -787,13 +840,13 @@ jobs:
           OUT="$RUNNER_TEMP/redflag"
           mkdir -p "$OUT"
 
-          gh pr view "$PR_NUMBER" --repo "$REPO" --json title,body,headRefName \
+          "$TRUSTED_GH_BIN" pr view "$PR_NUMBER" --repo "$REPO" --json title,body,headRefName \
             > "$OUT/pr.json" 2>/dev/null || echo '{}' > "$OUT/pr.json"
           # NON `--json files`: tronca a 100 in silenzio (stessa trappola di
           # tests.yml/fetch-pr-files.mjs). La REST paginata sotto no.
-          gh api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' \
+          "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' \
             > "$OUT/files.txt" 2>/dev/null || : > "$OUT/files.txt"
-          gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" \
+          "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" \
             --jq '[.[] | select(.user.login|test("^(claude(\\[bot\\])?|frontaliere-automation\\[bot\\])$";"i"))] | last | .body // empty' \
             > "$OUT/latest-review.md" 2>/dev/null || : > "$OUT/latest-review.md"
 
@@ -905,9 +958,9 @@ jobs:
         id: trusted_policy_claim_final
         if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true' && steps.ctx.outcome == 'success' && steps.body_gate.outcome == 'success'
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           POLICY_REF: ${{ github.event.pull_request.base.sha }}
-          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: |
           set -euo pipefail
           policy_root="${RUNNER_TEMP}/redflag-trusted-policy-claim-${GITHUB_RUN_ID}"
@@ -949,6 +1002,7 @@ jobs:
           REVIEW_BODY: ${{ github.event.review.body }}
           CLAIM_TOKEN: ${{ steps.claim.outputs.claim_token }}
           TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_claim_final.outputs.root }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim
 
       - name: Stop when final redflag claim changed before model
@@ -1105,7 +1159,7 @@ jobs:
             echo "::error::🔴-fix: nessun commit pushato e l'azione è fallita ('$ACTION_OUTCOME') → non-progress reale. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
             exit 1
           fi
-          NOW_COMMENTS=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo "${BASE_COMMENTS:-0}")
+          NOW_COMMENTS=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo "${BASE_COMMENTS:-0}")
           if [ "${NOW_COMMENTS:-0}" -le "${BASE_COMMENTS:-0}" ]; then
             echo "::error::🔴-fix: nessun commit pushato, l'azione è uscita '$ACTION_OUTCOME', e nessun commento nuovo a spiegare perché (comments $BASE_COMMENTS→$NOW_COMMENTS) → non-progress SILENZIOSO, non un terminale legittimo. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
             exit 1
@@ -1166,4 +1220,5 @@ jobs:
           EXEC_FILE: ''
           GITHUB_RUN_ID: ${{ github.run_id }}
           TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_post_model.outputs.root }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim

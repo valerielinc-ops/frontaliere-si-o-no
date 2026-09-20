@@ -234,8 +234,9 @@ describe('one code verdict and metadata-triggered review recovery', () => {
         .toContain('steps.trusted_gh.outputs.path');
     }
     for (const publisherId of ['test_only_review', 'carry_forward_review']) {
-      expect((job.steps.find((step: { id?: string }) => step.id === publisherId) as { env?: Record<string, string> } | undefined)?.env?.REVIEW_POLICY_ROOT)
-        .toContain('steps.review_policy_publishers.outputs.root');
+      const env = (job.steps.find((step: { id?: string }) => step.id === publisherId) as { env?: Record<string, string> } | undefined)?.env;
+      expect(env?.REVIEW_POLICY_ROOT).toContain('steps.review_policy_publishers.outputs.root');
+      expect(env?.TRUSTED_GH_BIN).toContain('steps.trusted_gh.outputs.path');
     }
     expect((job.steps.find((step: { id?: string }) => step.id === 'review_abort') as { env?: Record<string, string> } | undefined)?.env?.REVIEW_POLICY_ROOT)
       .toContain('steps.review_policy_abort.outputs.root');
