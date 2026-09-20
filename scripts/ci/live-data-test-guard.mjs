@@ -332,6 +332,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
   // costruito sotto `os.tmpdir()`, una stringa attesa in un'asserzione o un
   // argomento passato a una funzione pura.
   {
+    file: 'tests/tests-push-main-data-filter.test.ts',
+    roots: ['data/pharmac', 'data/slug-registry.json'],
+    reason: 'i nomi dei dataset sono i valori ATTESI del rilevatore che il test verifica (`expect(read).toContain(...)`); le uniche letture da disco sono i .yml di .github/workflows',
+  },
+  {
     file: 'tests/check-border-data-health.test.ts',
     roots: ['data/border-wait-averages.json'],
     reason: 'le medie vive entrano da data/borderCrossings.ts e sovrascrivono solo avgWaitMorning/avgWaitEvening, che nessun test asserisce: i casi guardano webcam e minBytes, campi curati a mano',
