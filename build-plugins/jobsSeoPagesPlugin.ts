@@ -221,6 +221,7 @@ import type { CantonRealDataSectorRow, CantonRealDataEmployer } from './shared/c
 // services/seo/meta-descriptions.ts for details.
 import {
  buildEmployerHubTitle,
+ buildItalianCantonLandingTitle,
  buildRoleHubTitle,
 } from '../services/seo/job-board-titles';
 import {
@@ -10767,7 +10768,7 @@ ${staticAnalyticsHtml}
      switch (locale) {
        case 'it':
          return {
-          title: buildTitleWithBrand(`Lavoro in ${display}`),
+          title: buildItalianCantonLandingTitle(display),
           lede: `Pagina indice del job board per il cantone ${display}.`,
           ctaLabel: `Vedi tutte le offerte`,
         };
