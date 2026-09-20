@@ -15,12 +15,33 @@ if (!preflight?.run) throw new Error('preflight step not found in pr-redcheck-fi
 const PREFLIGHT = preflight.run;
 
 const BODY_CONTRACT_STEP = 'PR-body completeness + multi-issue Closes (no checkout, all events)';
+const BODY_CONTRACT_COMPAT_STEP = 'PR-body completeness + multi-issue Closes (no checkout, pull requests)';
 const REVIEW_GATE_STEP = 'Require approving Claude review';
+const REVIEW_GATE_COMPAT_STEP = 'Require approving Codex review';
 const TEST_STEP = 'vitest related (PR diff)';
 const TSC_STEP = 'Collect independent source gates';
 const SOURCE_GUARD_STEP = 'Run source guards in parallel';
 
-type Mode = 'body-contract' | 'review-gate' | 'test' | 'tsc' | 'source-guard' | 'check-api-unavailable' | 'jobs-api-unavailable';
+type Mode = 'body-contract' | 'body-contract-compat' | 'review-gate' | 'review-gate-compat' | 'test' | 'tsc' | 'source-guard' | 'check-api-unavailable' | 'jobs-api-unavailable';
+
+function failedStepForMode(mode: Mode) {
+  switch (mode) {
+    case 'body-contract':
+      return BODY_CONTRACT_STEP;
+    case 'body-contract-compat':
+      return BODY_CONTRACT_COMPAT_STEP;
+    case 'review-gate':
+      return REVIEW_GATE_STEP;
+    case 'review-gate-compat':
+      return REVIEW_GATE_COMPAT_STEP;
+    case 'tsc':
+      return TSC_STEP;
+    case 'source-guard':
+      return SOURCE_GUARD_STEP;
+    default:
+      return TEST_STEP;
+  }
+}
 
 function runPreflight(mode: Mode) {
   const root = mkdtempSync(path.join(tmpdir(), 'redcheck-preflight-'));
@@ -70,11 +91,7 @@ exit 1
   );
   chmodSync(gh, 0o755);
 
-  const failedStep = mode === 'body-contract' ? BODY_CONTRACT_STEP
-    : mode === 'review-gate' ? REVIEW_GATE_STEP
-      : mode === 'tsc' ? TSC_STEP
-        : mode === 'source-guard' ? SOURCE_GUARD_STEP
-          : TEST_STEP;
+  const failedStep = failedStepForMode(mode);
   const jobs = JSON.stringify([{
     jobs: [{
       name: 'vitest (unit + integration)',
@@ -109,16 +126,22 @@ exit 1
 }
 
 describe('pr-redcheck-fixer preflight classifies the consolidated tests job', () => {
-  it('skips a PR-body contract failure before any fixer job can run', () => {
-    const { result, githubOutput, ghCalls } = runPreflight('body-contract');
+  it.each([
+    ['current all-events body contract', 'body-contract'],
+    ['origin/main pull-requests body contract', 'body-contract-compat'],
+  ] as const)('skips a %s failure before any fixer job can run', (_label, mode) => {
+    const { result, githubOutput, ghCalls } = runPreflight(mode);
     expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0);
     expect(githubOutput).toContain('actionable=false');
     expect(githubOutput).not.toContain('actionable=true');
     expect(ghCalls).not.toMatch(/pr (comment|edit)/);
   });
 
-  it('skips a review-gate failure before any fixer job can run', () => {
-    const { result, githubOutput, ghCalls } = runPreflight('review-gate');
+  it.each([
+    ['current Claude review gate', 'review-gate'],
+    ['origin/main Codex review gate', 'review-gate-compat'],
+  ] as const)('skips a %s failure before any fixer job can run', (_label, mode) => {
+    const { result, githubOutput, ghCalls } = runPreflight(mode);
     expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0);
     expect(githubOutput).toContain('actionable=false');
     expect(githubOutput).not.toContain('actionable=true');
