@@ -32,7 +32,11 @@ else process.exit(66);
         encoding: 'utf8',
         env: { ...process.env, PATH: `${root}:${process.env.PATH}`, GH_REPO: 'owner/repo',
           GITHUB_REPOSITORY: 'owner/repo', TEST_GH_CALLS: calls, GITHUB_OUTPUT: output,
-          GITHUB_STEP_SUMMARY: '', BATCH_PRS: '', DRY_RUN: '1' },
+          GITHUB_STEP_SUMMARY: '', BATCH_PRS: '', DRY_RUN: '1',
+          // CI pull_request is not a valid collector event. Keep this CLI
+          // fixture explicit so the production entrypoint remains fail-closed
+          // for unsupported event names.
+          GITHUB_EVENT_NAME: 'schedule' },
       });
       assert.equal(result.status, 0, result.stdout + result.stderr);
       const api = readFileSync(calls, 'utf8').trim().split('\n').map((row) => JSON.parse(row)).filter((args) => args[0] === 'api');

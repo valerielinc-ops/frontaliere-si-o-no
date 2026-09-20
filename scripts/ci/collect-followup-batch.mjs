@@ -114,6 +114,31 @@ function gh(args) {
   }
 }
 
+/**
+ * The workflow has two deliberately different collection modes.  A manual
+ * backfill is an explicit single-PR request and must never run the scheduled
+ * search (or acquire a collection cursor); a schedule is the only mode that
+ * reads the merged-PR window.
+ */
+export function collectionMode(eventName = '') {
+  if (eventName === 'workflow_dispatch') return 'manual';
+  if (!eventName || eventName === 'schedule') return 'scheduled';
+  return null;
+}
+
+/** Parse and validate the one PR number accepted by workflow_dispatch. */
+export function manualDispatchPR(raw) {
+  const value = String(raw ?? '').trim();
+  if (!/^[1-9]\d*$/.test(value)) {
+    throw new Error('INPUT_PR_NUMBER mancante o non valido per un backfill manuale');
+  }
+  const number = Number(value);
+  if (!Number.isSafeInteger(number) || number <= 0) {
+    throw new Error('INPUT_PR_NUMBER fuori dal range numerico verificabile');
+  }
+  return number;
+}
+
 // ── Pure helpers (no I/O) → unit-testable ───────────────────────────
 
 /**
@@ -208,6 +233,18 @@ export function parseMergedPRPages(searchPagesJson) {
     }
   }
   return totalCount === records.length ? records : null;
+}
+
+/**
+ * Parse the complete paginated search response and apply the author filter.
+ * Keeping this guard at the boundary means a provider error, a non-paginated
+ * response, an incomplete search, or a response truncated at the API cap can
+ * never be represented as an empty candidate list.
+ */
+export function parseCompleteMergedPRSearch(searchPagesJson) {
+  const pages = parseMergedPRPages(searchPagesJson);
+  if (!pages) throw new Error('risposta paginata PR incompleta/non verificabile');
+  return parseMergedPRs(JSON.stringify(pages));
 }
 
 /**
@@ -468,7 +505,17 @@ function emit(batch, dailyKey = triageDailyKey(), { collectionOk = true, deferre
   }
 }
 
-export function main() {
+export function main({ eventName = process.env.GITHUB_EVENT_NAME || '', inputPRNumber = process.env.INPUT_PR_NUMBER } = {}) {
+  const mode = collectionMode(eventName);
+  if (!mode) throw new Error(`evento non supportato per il collector: ${eventName || '(vuoto)'}`);
+
+  if (mode === 'manual') {
+    const prNumber = manualDispatchPR(inputPRNumber);
+    console.log(`Backfill manuale per PR #${prNumber}: nessuna ricerca schedulata/watermark viene eseguita.`);
+    emit([prNumber], triageDailyKey(), { collectionOk: true, deferred: 0 });
+    return;
+  }
+
   const dailyKey = triageDailyKey();
   if (!REPO) throw new Error('GH_REPO/GITHUB_REPOSITORY mancante: raccolta non verificabile');
   console.log(`Daily key (successful triage day, Europe/Zurich): ${dailyKey}`);
@@ -486,14 +533,13 @@ export function main() {
     '--paginate', '--slurp',
   ]);
   if (prListRaw === null) throw new Error('gh api search PR non riuscita: elenco incompleto');
-  const mergedPages = parseMergedPRPages(prListRaw);
-  if (!mergedPages) throw new Error('risposta paginata PR incompleta/non verificabile');
+  const scheduledCandidates = parseCompleteMergedPRSearch(prListRaw);
   // FIFO: i piu' VECCHI per primi. Il cap di sessione taglia la coda, quindi
   // l'ordine decide CHI viene rinviato. Prendendo i piu' recenti (l'ordine in
   // cui la Search API li restituisce) la coda vecchia veniva servita per
   // ultima a ogni giro e restava indietro per sempre; dal piu' vecchio, ogni
   // run drena dalla testa della coda e il residuo avanza davvero.
-  const candidates = orderCandidatesFifo(parseMergedPRs(JSON.stringify(mergedPages)));
+  const candidates = orderCandidatesFifo(scheduledCandidates);
   console.log(`Merged PRs nella finestra (autori eleggibili, dal piu' vecchio): ${candidates.length}`);
 
   const batch = [];
