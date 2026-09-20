@@ -85624,6 +85624,46 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-revolut-hacker-svizzera-pec': {
+    title: 'Revolut hacker: dati di 700 clienti svizzeri | Frontaliere Ticino',
+    description: 'Attacco hacker a Revolut: quasi 700 clienti svizzeri colpiti. Riscatto di 3 milioni di dollari e dati sensibili compromessi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, revolut, hacker, dati, clienti',
+    ogTitle: 'Revolut hacker: dati di 700 clienti svizzeri',
+    ogDescription: 'Quasi 700 clienti svizzeri di Revolut hanno subito un attacco hacker tramite PEC italiana. I criminali chiedono 3 milioni di dollari per non pubblicare passaporti e dati bancari.',
+    canonicalPath: '/articoli-svizzera/revolut-hacker-svizzera-pec/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Revolut hacker: dati di 700 clienti svizzeri",
+      "description": "Attacco hacker a Revolut: quasi 700 clienti svizzeri colpiti. Riscatto di 3 milioni di dollari e dati sensibili compromessi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/revolut-hacker-svizzera-pec.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Smartphone con app bancaria e icona di sicurezza su scrivania"
+      },
+      "datePublished": "2026-09-20T06:48:51+00:00",
+      "dateModified": "2026-09-20T06:48:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/revolut-hacker-svizzera-pec/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
