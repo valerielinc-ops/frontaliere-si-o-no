@@ -1,0 +1,20 @@
+{
+  "companyKey": "brefispersonal",
+  "companyName": "brefis personal ag",
+  "companyHost": "brefispersonal.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://brefispersonal.ch/Vacancyboard/Detail/46980"
+  ],
+  "detailTemplate": "/Vacancyboard/Detail/46980",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Sanitärinstallateur/in EFZ"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-20T10:08:11.984Z"
+}
