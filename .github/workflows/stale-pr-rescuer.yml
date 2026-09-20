@@ -206,7 +206,12 @@ jobs:
             # ritarda un intervento, non ne anticipa uno.
             PUSHED_AT=$("$TRUSTED_GH_BIN" api "repos/$REPO/commits/$HEAD" --jq '.commit.committer.date' 2>/dev/null || true)
             IDLE_SINCE="${PUSHED_AT:-$UPD}"
-            UPD_S=$(date -u -d "$IDLE_SINCE" +%s 2>/dev/null || echo "$NOW")
+            # Una risposta non vuota ma senza una data (per esempio `{}`) non
+            # attiva `${PUSHED_AT:-$UPD}`: prova esplicitamente `updated_at`
+            # prima del fallback conservativo su `NOW`.
+            UPD_S=$(date -u -d "$IDLE_SINCE" +%s 2>/dev/null \
+              || date -u -d "$UPD" +%s 2>/dev/null \
+              || echo "$NOW")
             if [ $((NOW - UPD_S)) -lt $AGE_MIN_S ]; then echo "PR #$N con push recente (<2h) — skip"; continue; fi
 
             # NB: il run di `tests` ora contiene anche la review Claude; il
