@@ -44,6 +44,17 @@ function positiveInteger(value) {
   return Number.isInteger(n) && n > 0 ? n : null;
 }
 
+function positiveSafeInteger(value) {
+  if (typeof value === 'number') {
+    return Number.isSafeInteger(value) && value > 0 ? value : null;
+  }
+  if (typeof value !== 'string') return null;
+  const text = value.trim();
+  if (!/^[1-9]\d*$/u.test(text)) return null;
+  const n = Number(text);
+  return Number.isSafeInteger(n) && n > 0 ? n : null;
+}
+
 function identityText(value) {
   return typeof value === 'string' && value.trim() ? value.trim() : null;
 }
@@ -264,7 +275,7 @@ export function normalizeDeliveryEvidence(value) {
   if (!Object.values(DELIVERY_STATUS).includes(status)) {
     return unavailableEvidence('evidence-status-invalid');
   }
-  const prNumber = value.prNumber == null ? null : positiveInteger(value.prNumber);
+  const prNumber = value.prNumber == null ? null : positiveSafeInteger(value.prNumber);
   if (value.prNumber != null && !prNumber) {
     return unavailableEvidence('evidence-pr-number-invalid');
   }
