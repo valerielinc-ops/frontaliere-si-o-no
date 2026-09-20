@@ -20,7 +20,7 @@ import { resolveSourceBackedSwissGeography } from './prospector/location-evidenc
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const BLATTERS_HOTEL_KEY = 'blatters-hotel';
-export const BLATTERS_HOTEL_COMPANY_NAME = "Blatter's Arosa Hotel";
+export const BLATTERS_HOTEL_COMPANY_NAME = 'Blatter';
 export const BLATTERS_HOTEL_COMPANY_DOMAIN = 'hotelcareer.ch';
 
 const CAREER_URL = 'https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340?intcid=autosuggest-company-4340';

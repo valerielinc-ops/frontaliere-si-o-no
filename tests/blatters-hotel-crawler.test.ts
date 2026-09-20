@@ -11,7 +11,7 @@ describe("Blatter's Arosa Hotel crawler parser", () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(BLATTERS_HOTEL_KEY).toBe('blatters-hotel');
-    expect(BLATTERS_HOTEL_COMPANY_NAME).toBe("Blatter's Arosa Hotel");
+    expect(BLATTERS_HOTEL_COMPANY_NAME).toBe('Blatter');
   });
 
   // ── isCompanyJob ──
@@ -91,7 +91,7 @@ describe("Blatter's Arosa Hotel crawler parser", () => {
       id: 'blatters-hotel-abc123',
       slug: 'test-position-blatters-hotel-ch',
       slugByLocale: { de: 'test-position-blatters-hotel-ch' },
-      company: "Blatter's Arosa Hotel",
+      company: 'Blatter',
       companyKey: 'blatters-hotel',
       title: 'Test Position',
       titleByLocale: { de: 'Test Position' },
