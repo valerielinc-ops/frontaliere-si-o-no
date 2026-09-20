@@ -484,7 +484,9 @@ jobs:
               // not the static workflow name `tests`. Bind the event to the
               // immutable workflow path or the recovery would leave every
               // queued body epoch pending forever.
-              if (!run || run.path !== '.github/workflows/tests.yml' || run.status !== 'completed'
+              const isTestsWorkflow = run?.path === '.github/workflows/tests.yml'
+                || (!run?.path && run?.name === 'tests');
+              if (!run || !isTestsWorkflow || run.status !== 'completed'
                   || run.event !== 'pull_request'
                   || run.repository?.full_name !== `${repo.owner}/${repo.repo}`
                   || typeof run.head_sha !== 'string') return;
