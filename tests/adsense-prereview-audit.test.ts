@@ -10,6 +10,7 @@ import {
   extractLocs,
   isLikelyUtilityOrErrorPage,
   isSitemapIndex,
+  isTransportFinding,
   pageSelfDescription,
   stratifiedSample,
 } from '../scripts/adsense-prereview-audit.mjs';
@@ -34,6 +35,20 @@ describe('sitemap discovery', () => {
     expect(isSitemapIndex(index)).toBe(true);
     expect(isSitemapIndex(urlset)).toBe(false);
     expect(extractLocs(index)).toEqual(['https://frontaliereticino.ch/sitemap-blog.xml']);
+  });
+});
+
+describe('transport findings stay separate from policy findings', () => {
+  it('recognises unreachable live pages and site endpoints as infrastructure errors', () => {
+    expect(isTransportFinding('page_unreachable:503')).toBe(true);
+    expect(isTransportFinding('page_fetch_error:fetch failed')).toBe(true);
+    expect(isTransportFinding('homepage_unreachable:502')).toBe(true);
+    expect(isTransportFinding('ads_txt_unreachable:503')).toBe(true);
+  });
+
+  it('does not reclassify content or revenue-policy findings as transport errors', () => {
+    expect(isTransportFinding('ads_on_thin_content_page')).toBe(false);
+    expect(isTransportFinding('ads_txt_missing_publisher_id:pub-123')).toBe(false);
   });
 });
 
