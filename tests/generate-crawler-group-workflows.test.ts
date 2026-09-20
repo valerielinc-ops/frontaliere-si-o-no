@@ -983,6 +983,34 @@ describe('#6380 — one atomic commit per crawler group', () => {
   });
 });
 
+describe('#6381 — crawler AI cache lives outside git', () => {
+  it('restores and saves one runner cache namespace per generated crawler group', () => {
+    const artifacts = [
+      '.github/workflows/crawler-group-01.yml',
+      '.github/workflows/crawler-group-01-logic.yml',
+      '.github/corpus-workflows/crawler-group-01.yml',
+    ];
+
+    for (const relativePath of artifacts) {
+      const doc = YAML.parse(fs.readFileSync(path.resolve(import.meta.dirname, '..', relativePath), 'utf8'));
+      const job = doc.jobs[Object.keys(doc.jobs)[0]];
+      expect(job.env.AI_CACHE_PATH).toBe('.cache/jobs-ai-cache.json');
+
+      const restore = job.steps.find((step: any) => step.name === 'Restore crawler AI cache');
+      expect(restore).toMatchObject({ uses: 'actions/cache/restore@v5', 'continue-on-error': true });
+      expect(restore.with.path).toBe('.cache/jobs-ai-cache.json');
+      expect(restore.with.key).toContain('jobs-ai-cache-v1-crawler-group-01-');
+      expect(restore.with['restore-keys']).toContain('jobs-ai-cache-v1-crawler-group-01-');
+
+      const save = job.steps.find((step: any) => step.name === 'Save crawler AI cache');
+      expect(save).toMatchObject({ uses: 'actions/cache/save@v5', 'continue-on-error': true });
+      expect(save.with.path).toBe('.cache/jobs-ai-cache.json');
+      expect(save.with.key).toBe(restore.with.key);
+      expect(save.if).toContain("hashFiles('.cache/jobs-ai-cache.json')");
+    }
+  });
+});
+
 describe('#6882 — Apleona has one explicit full-target wall timeout', () => {
   const ROOT = path.resolve(import.meta.dirname, '..');
 
