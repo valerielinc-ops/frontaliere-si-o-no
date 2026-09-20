@@ -387,13 +387,46 @@ describe('pr-redflag-fixer.yml: il workflow consuma davvero il verdetto', () => 
     expect(prompt).toContain('non auto-fixabile');
   });
 
-  it('un body riscritto vale come progresso del round (niente commit, niente RED)', () => {
+  it('il round registra il digest del body prima del modello', () => {
     const base = stepOf('redflag-fix', 'Record base SHA')?.run || '';
     expect(base).toContain('body_digest=');
+  });
+
+  it('un body riscritto fa avanzare la HEAD, altrimenti la PR resta bloccata', () => {
+    // `tests.yml` non è triggerato da `edited` (tolto il 2026-09-18) e il suo
+    // re-review guard salta quando esiste già una review terminale sulla HEAD:
+    // un 🔴 che vive solo nel body è assorbente, e correggere il body senza un
+    // commit nuovo lascia la PR ferma per sempre con la run verde.
+    const advance = stepOf('redflag-fix', 'Advance HEAD after a PR-body fix');
+    expect(advance).toBeDefined();
+    const run = advance?.run || '';
+    // Si spinge SOLO quando il body è cambiato e la HEAD non è avanzata: non è
+    // il commit vuoto che il prompt vieta (quello nasce da un round che non ha
+    // fatto nulla).
+    expect(run).toContain('BASE_BODY_DIGEST');
+    expect(run).toContain('git rev-parse HEAD');
+    expect(run).toMatch(/git commit --allow-empty/u);
+    expect(run).toContain('--trailer "Fixer: redflag-round-');
+    expect(run).toMatch(/git push origin "HEAD:\$\{HEAD_REF\}"/u);
+    // Il push è l'unica uscita dallo stallo: se fallisce, non si esce verdi.
+    expect(run).toContain('needs-human');
+    expect(run).toContain('REDFLAG_BODY_DEADLOCK');
+    expect(run.trimEnd().endsWith('exit 1')).toBe(true);
+    // E il modello non deve pushare un secondo commit vuoto per la stessa cosa.
+    const prompt = String(stepOf('redflag-fix', 'Run Codex Luna Max')?.with?.prompt || '');
+    expect(prompt).toContain('Advance HEAD after a PR-body fix');
+    expect(prompt).toContain('Non pushare tu un commit vuoto');
+  });
+
+  it('`Classify outcome` non può uscire verde su un body cambiato con la HEAD ferma', () => {
     const classify = stepOf('redflag-fix', 'Classify outcome');
     const run = classify?.run || '';
-    expect(run).toContain('BASE_BODY_DIGEST');
     expect(run).toContain('NOW_BODY_DIGEST');
+    const branch = run.slice(run.indexOf('NOW_BODY_DIGEST'));
+    const guard = branch.slice(0, branch.indexOf('NOW_COMMENTS'));
+    expect(guard).toContain('::error::');
+    expect(guard).toContain('exit 1');
+    expect(guard).not.toContain('exit 0');
     // `Classify outcome` usava `$TRUSTED_GH_BIN` sotto `set -u` senza
     // dichiararlo: la command substitution moriva e il conteggio commenti
     // tornava vuoto, cioè RED su ogni terminale legittimo senza push.

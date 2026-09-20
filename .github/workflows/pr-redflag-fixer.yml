@@ -1284,7 +1284,8 @@ jobs:
             **Verdetto deterministico dello scope — 🔴 SOLO-BODY: `${{ needs.scope.outputs.body_only }}`.**
             Quando vale `true`, il classificatore ha già stabilito che OGNI `🔴 Important` aperto si ancora a `PR body:L<n>` e non cita nessun file: **il difetto è nel BODY della PR, non nell'albero.** In quel caso:
             - **NON cercare il fix nel codice.** Non aprire i file citati altrove nella review, non sweepare sibling, non committare: non c'è niente da correggere nel tree e un round speso a cercarlo è il round che ha portato la PR #9238 a `needs-human` dopo aver ripetuto lo stesso `PR body:L14` su quattro review consecutive.
-            - **Il fix è riscrivere il body**, ed è nel tuo potere: scrivi il testo completo in `$RUNNER_TEMP/pr-redflag-pr-body.md`, valida con `node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"` e applica con `gh pr edit "$PR_NUMBER" --repo "$REPO" --body-file "$BODY_FILE"` (stessa procedura della regola sul body più sotto). Un body riscritto **è** progresso per questo round anche senza un commit: lo `Classify outcome` lo riconosce confrontando il digest del body prima e dopo.
+            - **Il fix è riscrivere il body**, ed è nel tuo potere: scrivi il testo completo in `$RUNNER_TEMP/pr-redflag-pr-body.md`, valida con `node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"` e applica con `gh pr edit "$PR_NUMBER" --repo "$REPO" --body-file "$BODY_FILE"` (stessa procedura della regola sul body più sotto).
+            - **Correggere il body è necessario ma NON sufficiente, e non devi occupartene tu.** `tests.yml` non è triggerato da `edited` e il suo re-review guard salta quando esiste già una review terminale su questa HEAD: finché la HEAD non cambia, nessuna review potrà mai giudicare il body che hai appena corretto, e la PR resta ferma con il 🔴 terminale addosso. Lo step deterministico `Advance HEAD after a PR-body fix`, subito dopo di te, se ne accorge dal digest del body e spinge lui il commit che fa avanzare la HEAD. **Non pushare tu un commit vuoto per questo**: ne uscirebbero due.
             - **Se il body NON si può correggere** (il finding chiede una decisione che non puoi prendere, o il gate deterministico rifiuta ogni riscrittura onesta), **non uscire in silenzio**: commenta sulla PR `🔴 solo-body non auto-fixabile: <motivo>` citando il bullet e il finding, così il round-cap può escalare a `needs-human` con la diagnosi giusta. Un'uscita senza body riscritto E senza commento viene marcata RED come non-progress silenzioso.
 
             **Regole:**
@@ -1307,6 +1308,85 @@ jobs:
             - SOLO i 🔴 della review corrente. Non rifare l'intera PR, non drive-by.
             - Se i 🔴 non sono fixabili con confidenza (root cause non chiara / serve giudizio umano) → commenta "🔴 non auto-fixabile: <motivo>" e TERMINA senza commit (il round cap + needs-human gestiranno l'escalation).
             - Una sola passata: applica, valida, committa, pusha, aggiorna body, STOP.
+
+      # ── Un body riscritto senza una HEAD nuova è uno stallo, non un fix ──────
+      #
+      # `tests.yml` NON è più triggerato da `edited` (tolto il 2026-09-18: 33%
+      # delle run su PR nascevano da lì e rimisuravano codice immutato) e il suo
+      # `Re-review guard` salta quando esiste già una review terminale sulla
+      # HEAD. Le due cose insieme rendono un 🔴 che vive solo nel body
+      # ASSORBENTE: il fixer corregge il body, nessuna review nuova può essere
+      # emessa sulla stessa HEAD, il verdetto 🔴 resta terminale e la PR si
+      # ferma per sempre — in silenzio, con la run verde. Correggere il body è
+      # necessario e non sufficiente.
+      #
+      # Quindi: quando il body è cambiato in questo round e la HEAD NON è
+      # avanzata, qui si fa avanzare la HEAD. Il commit è vuoto nell'albero
+      # perché il lavoro del round sta nel body, che l'albero non contiene; non
+      # è il commit vuoto che il prompt vieta (quello nasce da un round che non
+      # ha fatto NIENTE e produce una seconda review sullo stesso lavoro —
+      # storm #9066/#9074). Qui la condizione è l'opposta: si spinge solo se una
+      # modifica c'è stata, ed è limitata dal round cap a 2.
+      - name: Advance HEAD after a PR-body fix (un body nuovo non è rivedibile senza un commit)
+        id: body_advance
+        if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          BASE_SHA: ${{ steps.base.outputs.sha }}
+          BASE_BODY_DIGEST: ${{ steps.base.outputs.body_digest }}
+          BODY_ONLY: ${{ needs.scope.outputs.body_only }}
+          FIX_ROUND: ${{ steps.guard.outputs.round }}
+        run: |
+          set -uo pipefail
+          now_digest=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" --jq '.body // ""' 2>/dev/null \
+            | shasum -a 256 | awk '{print $1}')
+          if [ "${BASE_BODY_DIGEST:-unknown}" = "unknown" ] || [ -z "${now_digest:-}" ]; then
+            echo "Digest del body non confrontabile → nessuna decisione qui; il classify sotto resta l'arbitro."
+            echo "advanced=unknown" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if [ "$now_digest" = "$BASE_BODY_DIGEST" ]; then
+            echo "Body invariato in questo round (body_only=${BODY_ONLY:-false}) → niente da sbloccare."
+            echo "advanced=no-body-change" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          head_now=$(git rev-parse HEAD 2>/dev/null || echo "")
+          if [ -n "$head_now" ] && [ "$head_now" != "$BASE_SHA" ]; then
+            echo "Body riscritto e HEAD già avanzata ($BASE_SHA → $head_now): la re-review parte dal push del fix."
+            echo "advanced=by-fix" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          echo "Body riscritto ma HEAD ferma su $BASE_SHA → senza un commit nuovo nessuna review può giudicare il body corretto."
+          if ! git commit --allow-empty \
+              -m "chore(pr-body): rendi rivedibile il body corretto dal 🔴-fixer (round ${FIX_ROUND:-?})" \
+              --trailer "Fixer: redflag-round-${FIX_ROUND:-0}"; then
+            echo "::error::Commit di sblocco non creato: la PR resterebbe ferma su una review terminale."
+            exit 1
+          fi
+          if git push origin "HEAD:${HEAD_REF}"; then
+            echo "✓ HEAD avanzata dopo la correzione del body → la re-review può essere emessa."
+            echo "advanced=by-unblock-commit" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          # Il push è l'unico modo di uscire dallo stallo: se non atterra, non
+          # si esce verdi. Si rende visibile e si attiva il percorso di sblocco.
+          echo "::error::Push del commit di sblocco fallito: il body è corretto ma nessuna review nuova può essere emessa sulla HEAD $BASE_SHA."
+          echo "advanced=push-failed" >> "$GITHUB_OUTPUT"
+          # Idempotente sul marker, come l'escalation del round cap: il round 2
+          # ripasserebbe di qui e riposterebbe la stessa diagnosi. Here-string,
+          # non `printf | grep -q`: con pipefail il SIGPIPE su un elenco
+          # commenti grande rende falso il guard (stessa trappola di #9283).
+          comments=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
+            --jq '[.[] | .body] | join("\n")' 2>/dev/null || echo "")
+          if grep -qF '<!-- REDFLAG_BODY_DEADLOCK -->' <<<"$comments"; then
+            echo "Stallo del body già escalato su questa PR → nessun nuovo label/commento."
+          else
+            "$TRUSTED_GH_BIN" pr edit "$PR_NUMBER" --repo "$REPO" --add-label "needs-human" 2>/dev/null \
+              || echo "label needs-human assente — creala: gh label create needs-human"
+            "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- REDFLAG_BODY_DEADLOCK -->\n🛑 **needs-human** (auto): il 🔴-fixer ha corretto il body della PR, ma il push del commit che rende quel body rivedibile è fallito. Senza una HEAD nuova nessuna review può essere emessa (`tests.yml` non è triggerato da `edited` e il re-review guard salta su una review terminale già presente): la PR resterebbe ferma in silenzio. Serve un commit manuale sul branch.')" \
+              2>/dev/null || true
+          fi
+          exit 1
 
       - name: Cleanup Firebase credentials
         if: always()
@@ -1375,16 +1455,19 @@ jobs:
             echo "::error::🔴-fix: nessun commit pushato e l'azione è fallita ('$ACTION_OUTCOME') → non-progress reale. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
             exit 1
           fi
-          # Un 🔴 ancorato al solo `PR body:L<n>` si chiude riscrivendo il body:
-          # nessun commit, nessun push, ma il round HA lavorato. Senza questo
-          # ramo il classify lo leggeva come non-progress e lo marcava RED,
-          # cioè puniva esattamente il comportamento che il prompt chiede.
+          # Un body riscritto SENZA una HEAD nuova non è un terminale
+          # legittimo: è lo stallo. `tests.yml` non è triggerato da `edited` e
+          # il suo re-review guard salta su una review terminale già presente,
+          # quindi nessuna review potrà mai giudicare il body corretto e la PR
+          # resta ferma. Lo step `Advance HEAD after a PR-body fix` esiste per
+          # impedirlo; se siamo qui, non ci è riuscito, e la cosa peggiore che
+          # si possa fare è uscire verdi.
           NOW_BODY_DIGEST=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" --jq '.body // ""' 2>/dev/null \
             | shasum -a 256 | awk '{print $1}')
           if [ -n "${NOW_BODY_DIGEST:-}" ] && [ "${BASE_BODY_DIGEST:-unknown}" != "unknown" ] \
              && [ "$NOW_BODY_DIGEST" != "$BASE_BODY_DIGEST" ]; then
-            echo "✓ Body della PR riscritto questo round (digest ${BASE_BODY_DIGEST:0:12}→${NOW_BODY_DIGEST:0:12}, body_only=${BODY_ONLY:-false}) → round SUCCESS senza commit."
-            exit 0
+            echo "::error::🔴-fix: body riscritto (digest ${BASE_BODY_DIGEST:0:12}→${NOW_BODY_DIGEST:0:12}, body_only=${BODY_ONLY:-false}) ma HEAD ferma su $BASE_SHA → nessuna review potrà giudicare il body corretto e la PR resta bloccata. Job RED (sblocco: label needs-human dallo step precedente, oppure un commit manuale sul branch)."
+            exit 1
           fi
           NOW_COMMENTS=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo "${BASE_COMMENTS:-0}")
           if [ "${NOW_COMMENTS:-0}" -le "${BASE_COMMENTS:-0}" ]; then

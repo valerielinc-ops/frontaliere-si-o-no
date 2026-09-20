@@ -60,6 +60,16 @@ describe.each(FIXERS)('$file', ({ file, kind }) => {
     // Pinnare la forma attestata è anche più forte: un ritorno al `gh` nudo
     // (che la PR sotto esame potrebbe sostituire su PATH) ora fallisce.
     expect(body).toMatch(/"\$TRUSTED_GH_BIN" pr comment/u);
-    expect(src.match(/--add-label "needs-human"/gu)?.length).toBe(1);
+    // L'invariante è «una escalation per causa, mai ripostata», non «una sola
+    // riga in tutto il file»: il redflag-fixer ha una seconda causa distinta
+    // (body corretto ma HEAD ferma → nessuna review può giudicarlo). Ogni
+    // `--add-label "needs-human"` deve stare dentro un ramo protetto dal
+    // proprio marker nascosto, letto con una here-string (con `pipefail` il
+    // SIGPIPE di `printf | grep -q` su un elenco commenti grande rendeva falso
+    // il guard e ripostava — #9283).
+    const escalations = src.match(/--add-label "needs-human"/gu)?.length ?? 0;
+    expect(escalations).toBeGreaterThanOrEqual(1);
+    const markers = src.match(/grep -qF '<!--[^']*-->' <<<"\$comments"/gu)?.length ?? 0;
+    expect(markers).toBeGreaterThanOrEqual(escalations);
   });
 });
