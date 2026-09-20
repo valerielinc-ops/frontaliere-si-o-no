@@ -6,6 +6,7 @@ import { pathToFileURL } from 'node:url';
 import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
 import {
   normalizeReviewInputRevision,
+  normalizeReviewInputRevisionInput,
   reviewHasInputRevision,
   reviewInputMarker,
 } from './lib/review-input-revision.mjs';
@@ -254,9 +255,14 @@ export function findTestOnlyApproval(
   head,
   { ghFn = gh, repo, pr, reviewRevision } = {},
 ) {
+  // `normalizeReviewInputRevisionInput`, non `normalizeReviewInputRevision`:
+  // il chiamante puo' passare l'ELENCO degli schemi di marker accettati, e un
+  // guard che pretende una stringa sola lo scarterebbe come invalido — che e'
+  // proprio il fail-closed che questo percorso non deve avere (incidente del
+  // 2026-09-19, vedi `lib/review-input-revision.mjs`).
   const revision = reviewRevision === undefined
     ? undefined
-    : normalizeReviewInputRevision(reviewRevision);
+    : normalizeReviewInputRevisionInput(reviewRevision);
   if (reviewRevision !== undefined && !revision) return null;
   const candidates = (reviews ?? []).flat().filter(review => isTerminalManagedReview(review)
     && /^(github-actions|frontaliere-automation)\[bot\]$/.test(review.user.login ?? '')

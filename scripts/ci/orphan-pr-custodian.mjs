@@ -62,6 +62,7 @@ import {
   reviewHasInputRevision,
   reviewInputRevisionFromBody,
   reviewInputRevisions,
+  acceptedReviewInputRevisionsFromBody,
 } from './lib/review-input-revision.mjs';
 
 export const ORPHAN_MIN_AGE_S = 2 * 60 * 60;
@@ -103,6 +104,20 @@ export function actionMarker(action, headSha, key = '') {
 export function reviewRevisionForBody(body) {
   if (typeof body !== 'string') return null;
   return reviewInputRevisionFromBody(body);
+}
+
+/**
+ * Gli schemi di marker accettabili per questo body, non la sola revisione
+ * corrente. Questo custode gira da `main` e legge marker emessi dal checkout
+ * del branch: e' la stessa asimmetria che il 2026-09-19 ha fermato 6 PR su 6
+ * quando #9328 ha cambiato lo schema (vedi `review-input-revision.mjs`).
+ *
+ * @param {string} body
+ * @returns {string[]} vuoto quando il body non e' una stringa
+ */
+export function acceptedReviewRevisionsForBody(body) {
+  if (typeof body !== 'string') return [];
+  return acceptedReviewInputRevisionsFromBody(body);
 }
 
 
@@ -346,7 +361,7 @@ function main() {
       // lista e questo punto il body puo' essere cambiato, e un verdetto va
       // riusato solo contro la revisione che i gate considerano corrente.
       const freshBody = JSON.parse(gh(['api', `repos/${repo}/pulls/${pr.number}`])).body ?? '';
-      const reviewRevision = reviewRevisionForBody(String(freshBody)) || '';
+      const reviewRevision = acceptedReviewRevisionsForBody(String(freshBody));
       decision = classifyOrphan({ pr, checkRuns, reviews, comments, nowS, reviewRevision });
     } catch (error) {
       console.log(`::warning::PR #${pr.number}: stato non leggibile (${error.message.split('\n')[0]}) — nessuna azione.`);

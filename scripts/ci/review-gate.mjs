@@ -33,7 +33,8 @@ import {
   parseReviewPages,
 } from './lib/pr-review-admission.mjs';
 import {
-  normalizeReviewInputRevision,
+  acceptedReviewInputRevisionsFromPullRequest,
+  normalizeReviewInputRevisionInput,
   reviewHasInputRevision,
   reviewInputRevisionFromPullRequest,
 } from './lib/review-input-revision.mjs';
@@ -1043,7 +1044,7 @@ function priorManagedReview(reviews, latest) {
 function latestReviewer(reviews, { reviewRevision } = {}) {
   const revision = reviewRevision === undefined
     ? undefined
-    : normalizeReviewInputRevision(reviewRevision);
+    : normalizeReviewInputRevisionInput(reviewRevision);
   const bots = reviewerList(reviews).filter((review) =>
     review?.user?.type === 'Bot'
       && REVIEWER_LOGIN_RE.test(review.user.login || '')
@@ -1056,7 +1057,7 @@ function latestReviewer(reviews, { reviewRevision } = {}) {
 function latestCodexReviewer(reviews, headSha, { reviewRevision } = {}) {
   const revision = reviewRevision === undefined
     ? undefined
-    : normalizeReviewInputRevision(reviewRevision);
+    : normalizeReviewInputRevisionInput(reviewRevision);
   const list = reviewerList(reviews);
   for (let index = list.length - 1; index >= 0; index -= 1) {
     const review = list[index];
@@ -1518,7 +1519,7 @@ export async function runReviewGate({
 
   const expectedRevision = reviewRevision === undefined
     ? undefined
-    : normalizeReviewInputRevision(reviewRevision);
+    : normalizeReviewInputRevisionInput(reviewRevision);
   if (reviewRevision !== undefined && !expectedRevision) {
     return { approved: false, reason: 'review input revision assente o non verificabile' };
   }
@@ -1706,7 +1707,10 @@ async function main() {
   const pr = process.env.PR_NUMBER || '';
   const headSha = process.env.HEAD_SHA || '';
   const tree = fetchRepositoryHeadPaths(repo, pr);
-  const reviewRevision = reviewInputRevisionFromPullRequest(gh([
+  // L'ELENCO degli schemi accettati: questo gate riusa anche review emesse da
+  // una run precedente, quindi da codice piu' vecchio di quello che sta
+  // girando ora (vedi `lib/review-input-revision.mjs`, 2026-09-19).
+  const reviewRevision = acceptedReviewInputRevisionsFromPullRequest(gh([
     'api', `repos/${repo}/pulls/${pr}`,
   ]));
   const result = await runReviewGate({

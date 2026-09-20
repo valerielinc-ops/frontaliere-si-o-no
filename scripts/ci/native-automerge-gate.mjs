@@ -37,6 +37,7 @@ import {
   reviewHasZeroFindings,
 } from './lib/pr-review-admission.mjs';
 import {
+  acceptedReviewInputRevisionsFromBody,
   reviewHasInputRevision,
   reviewInputRevisionFromBody,
 } from './lib/review-input-revision.mjs';
@@ -124,7 +125,7 @@ function latestBotReviewMatching(reviews, predicate) {
 function isCodexFallbackReviewOnHead(review, head, reviewRevision) {
   return typeof head === 'string'
     && /^[0-9a-f]{40}$/iu.test(head)
-    && typeof reviewRevision === 'string'
+    && (typeof reviewRevision === 'string' || Array.isArray(reviewRevision))
     && review?.user?.type === 'Bot'
     && CODEX_FALLBACK_REVIEWER_RE.test(review.user.login || '')
     && isTerminalManagedReview(review)
@@ -517,7 +518,11 @@ export function evaluateNativeAutoMerge({
   }
   let reviewRevision;
   try {
-    reviewRevision = reviewInputRevisionFromBody(pr.body);
+    // L'ELENCO degli schemi accettati, non la sola revision corrente: questo
+    // guard gira da `main` e verifica marker emessi da un checkout del branch,
+    // cioe' e' esattamente il consumer che un cambio di schema mette fuori
+    // sincrono (vedi review-input-revision.mjs, incidente del 2026-09-19).
+    reviewRevision = acceptedReviewInputRevisionsFromBody(pr.body);
   } catch {
     return {
       allow: false,
@@ -1290,7 +1295,11 @@ function main() {
   const hadAutoMerge = pr.autoMergeRequest !== null;
   let reviewRevision;
   try {
-    reviewRevision = reviewInputRevisionFromBody(pr.body);
+    // L'ELENCO degli schemi accettati, non la sola revision corrente: questo
+    // guard gira da `main` e verifica marker emessi da un checkout del branch,
+    // cioe' e' esattamente il consumer che un cambio di schema mette fuori
+    // sincrono (vedi review-input-revision.mjs, incidente del 2026-09-19).
+    reviewRevision = acceptedReviewInputRevisionsFromBody(pr.body);
   } catch (error) {
     if (hadAutoMerge) {
       revokeExistingAutoMerge(repo, pr, 'body revision review non verificabile');
