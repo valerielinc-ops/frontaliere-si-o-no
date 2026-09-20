@@ -7,6 +7,7 @@ import {
   coverageReport,
   inventory,
   coverageOf,
+  parseWorkflow,
   REPORT_ACTION_USES,
 } from '../scripts/ci/failure-issue-inventory.mjs';
 import {
@@ -198,6 +199,69 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
       expect(block?.[1], `input \`${input}\` non trovato in report-failure/action.yml`).toBeTruthy();
       expect(block?.[1], `input \`${input}\` di report-failure/action.yml`).toMatch(/required:\s*true/);
     }
+  });
+
+  it('un osservatore CROSS-WORKFLOW è coperto quando il titolo nomina il workflow che osserva', () => {
+    // Regola aggiunta il 2026-09-20, dopo le 10h24m di deploy rosso e muto del
+    // 19/09. La causa non era un reporter mancante: `deploy.yml` ne monta sei.
+    // Era che vivono tutti dentro `build-locale`, e quando il guasto è a monte
+    // quel job non è rosso, è `skipped` — un `if: failure()` di un job saltato
+    // non viene mai valutato. L'unica forma che vede quel guasto è un
+    // osservatore ESTERNO su `workflow_run`.
+    //
+    // `coverageOf` chiedeva `named === record.workflowName`, cioè presupponeva
+    // che un workflow parlasse solo di se stesso. Per un osservatore è falso
+    // in modo UTILE: nomina il workflow osservato, ed è esattamente il nome che
+    // `close-recovered-failure-issues.mjs` risolve con `gh run list -w <nome>`.
+    // Senza questa riga l'unica forma capace di vedere quel guasto finirebbe
+    // in `KNOWN_TITLE_NAME_MISMATCH`, cioè sarebbe vietata.
+    const record = parseWorkflow(
+      [
+        "name: Osservatore",
+        'on:',
+        '  workflow_run:',
+        "    workflows: ['Bersaglio']",
+        '    types: [completed]',
+        'jobs:',
+        '  alarm:',
+        '    steps:',
+        '      - name: Open',
+        '        if: >-',
+        "          github.event.workflow_run.conclusion == 'failure'",
+        '        run: |',
+        '          node scripts/lib/github-issue-creator.mjs \\',
+        '            --title "Workflow Failure: Bersaglio"',
+      ].join('\n'),
+      'osservatore.yml',
+    );
+    expect(record.observedWorkflows).toEqual(['Bersaglio']);
+    const opener = record.openers[0];
+    expect(opener.failureGated).toBe(true);
+    expect(coverageOf(opener, record)).toEqual({ by: 'close-recovered-failure-issues' });
+  });
+
+  it('ma un nome che non è né il proprio né un osservato resta un mismatch', () => {
+    // La deroga vale SOLO per i workflow dichiarati in `workflow_run`. Un nome
+    // inventato continua a essere il caso peggiore — sembra coperto, e
+    // `gh run list -w` non risolve niente.
+    const record = parseWorkflow(
+      [
+        'name: Osservatore',
+        'on:',
+        '  workflow_run:',
+        "    workflows: ['Bersaglio']",
+        'jobs:',
+        '  alarm:',
+        '    steps:',
+        '      - name: Open',
+        '        if: failure()',
+        '        run: |',
+        '          node scripts/lib/github-issue-creator.mjs \\',
+        '            --title "Workflow Failure: Inesistente"',
+      ].join('\n'),
+      'osservatore.yml',
+    );
+    expect(coverageOf(record.openers[0], record)?.detail).toBeTruthy();
   });
 
   it('i chiuditori riconosciuti sono esattamente quelli che il reporter conosce', () => {

@@ -112,6 +112,7 @@
  */
 
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -246,6 +247,104 @@ export function isCoveredIssueStale(updatedAt, nowMs = Date.now(), hours = COVER
   // silenzio che questa funzione esiste per rilevare.
   if (!Number.isFinite(t)) return true;
   return nowMs - t > hours * 3600_000;
+}
+
+/**
+ * La FIRMA di un guasto: quali job, e in quale step, sono caduti.
+ *
+ * ─── Il difetto che questa funzione esiste per chiudere ─────────────────
+ *
+ * `isCoveredIssueStale` misura se una ISSUE è ferma. Non misura se il GUASTO
+ * che la issue descrive è ancora quello. Sono due cose diverse, e la differenza
+ * è costata 10 ore e 24 minuti di produzione ferma il 2026-09-19.
+ *
+ * Ricostruzione, dai dati: la issue #9247 («CI Failure: Deploy to GitHub
+ * Pages», aperta da questo stesso scanner l'11:46Z del 19/09) descrive la run
+ * 35402513584 del 18/09, dove erano caduti `build-locale (fr|en|de)` allo step
+ * di build. Etichettata `needs-human` e `agent:triaged`, è rimasta aperta — e
+ * VIVA, perché triage, label e commenti automatici le rinfrescano `updatedAt`
+ * di continuo (all'ultima lettura: 2026-09-20T16:33Z). Alle 20:54Z del 19/09 è
+ * entrato in `deploy.yml` un gate fail-closed del tutto SCORRELATO, e da lì 78
+ * run consecutive sono morte in ~20 secondi nel job `approve production
+ * promotion`. A ogni passata oraria questo scanner ha visto il rosso, ha
+ * trovato #9247 aperta e non-stale, ha scritto «issue aperta e attiva →
+ * nessun commento» ed è rimasto zitto. La rete di sicurezza globale ha girato
+ * verde per dieci ore sopra un guasto nuovo, perché un guasto VECCHIO e
+ * diverso aveva un thread che qualcun altro teneva caldo.
+ *
+ * Una issue parcheggiata `needs-human` è quindi il PEGGIOR caso possibile per
+ * il guard sulla freschezza: è esattamente quella che nessuno chiude e che
+ * l'automazione continua a toccare. La freschezza da sola non può distinguere
+ * «l'allarme è già stato dato» da «l'allarme è stato dato per un'altra cosa».
+ *
+ * ─── Come è costruita ───────────────────────────────────────────────────
+ *
+ * L'insieme ORDINATO delle coppie `job — step` cadute, con il parentetico
+ * finale tolto da entrambi i nomi: `build-locale (fr)` e `build-locale (de)`
+ * sono la stessa gamba di una matrice, e una firma che li distinguesse
+ * cambierebbe a ogni combinazione di locali caduti — cioè un commento per
+ * passata sullo stesso guasto, che è il rumore che questo file governa.
+ * Stesso trattamento per lo step (`Build (BUILD_LOCALE=fr)` → `Build`).
+ *
+ * Uno startup failure ha zero job e nessuna firma dai job: ne ha una propria,
+ * perché «la run non è partita» è una condizione distinta e va potuta seguire.
+ *
+ * `null` = job illeggibili. Chi chiama NON commenta su `null`: senza la firma
+ * non si può dire che il guasto sia cambiato, e affermarlo a ogni passata
+ * oraria produrrebbe esattamente la valanga che la dedup evita.
+ *
+ * @param {{total_count?: number, jobs?: Array<{name?: string, conclusion?: string, steps?: Array<{name?: string, conclusion?: string}>}>}|null} jobs
+ * @returns {string|null}
+ */
+export function failureSignature(jobs) {
+  if (!jobs || typeof jobs !== 'object') return null;
+  if (Number(jobs.total_count) === 0) return 'startup-failure: zero job';
+  if (!Array.isArray(jobs.jobs)) return null;
+  const strip = (v) => String(v ?? '').replace(/\s*\([^()]*\)\s*$/, '').trim();
+  const pairs = new Set();
+  for (const j of jobs.jobs) {
+    if (j?.conclusion !== 'failure') continue;
+    const step = (j.steps || []).find((st) => st?.conclusion === 'failure');
+    pairs.add(`${strip(j.name) || '(job senza nome)'} — step: ${step ? (strip(step.name) || '(step senza nome)') : '(nessuno step attribuito)'}`);
+  }
+  if (!pairs.size) return null;
+  const full = [...pairs].sort().join(' | ');
+  if (full.length <= SIGNATURE_MAX_LEN) return full;
+  // TRONCARE E BASTA sarebbe un silenzio: due guasti che condividono i primi
+  // 300 caratteri — facilissimo su una matrice larga, dove le coppie iniziali
+  // sono identiche e cambia solo la coda — collasserebbero sulla stessa firma,
+  // e il secondo verrebbe letto come «già registrato». Cioè di nuovo un
+  // allarme mancato, la classe di guasto che questo file ripara. Il prefisso
+  // resta perché la firma va anche LETTA da chi apre la issue; a renderla
+  // iniettiva ci pensa il digest della stringa intera.
+  const digest = createHash('sha256').update(full).digest('hex').slice(0, 12);
+  return `${full.slice(0, SIGNATURE_MAX_LEN)}… +${pairs.size} coppie (sha ${digest})`;
+}
+
+/** Quanto della firma resta leggibile prima del digest. */
+export const SIGNATURE_MAX_LEN = 300;
+
+/** Il marker leggibile a macchina che porta la firma dentro il thread. */
+export const SIGNATURE_MARKER = 'failure-signature:';
+
+/**
+ * Il thread ha già registrato QUESTA firma?
+ *
+ * Cerca il marker nei testi passati (body della issue + commenti). Non è un
+ * match sul testo libero: il marker è scritto da qui e letto da qui, così una
+ * riscrittura del body per mano umana non può far ripartire l'allarme.
+ *
+ * Una firma sconosciuta al thread è un guasto NUOVO e va registrata anche se la
+ * issue è freschissima — è tutto il punto. Una firma già presente è la stessa
+ * condizione che ricorre, e su quella decide la sola freschezza, come prima.
+ *
+ * @param {string[]} texts
+ * @param {string} signature
+ */
+export function signatureAlreadyRecorded(texts, signature) {
+  if (!signature) return true; // nessuna firma → nessuna novità dimostrabile
+  const needle = `${SIGNATURE_MARKER} ${signature}`;
+  return (texts || []).some((t) => String(t ?? '').includes(needle));
 }
 
 /**
@@ -703,6 +802,44 @@ function registeredWorkflows() {
   return byId.size ? byId : null;
 }
 
+/**
+ * I job di una run, o `null` se non leggibili. Una sola chiamata, gia' prevista
+ * dal budget dichiarato in testa al file («per ogni workflow candidato 1
+ * lettura dell'ultima run e 1 lettura dei job, entrambe ≤ MAX_ISSUES»).
+ */
+function readRunJobs(runId) {
+  const raw = gh(
+    ['api', `repos/${REPO || '{owner}/{repo}'}/actions/runs/${runId}/jobs?per_page=100`],
+    { allowFailure: true },
+  );
+  if (raw === null) return { jobs: null, readable: false };
+  try {
+    return { jobs: JSON.parse(raw), readable: true };
+  } catch {
+    return { jobs: null, readable: false };
+  }
+}
+
+/** Body + commenti di una issue, per cercarci i marker di firma. `null` = illeggibile. */
+function issueTexts(number) {
+  const raw = gh(
+    ['issue', 'view', String(number), '--json', 'body,comments', ...repoFlag()],
+    { allowFailure: true },
+  );
+  if (raw === null) return null;
+  try {
+    const d = JSON.parse(raw);
+    return [String(d?.body ?? ''), ...(d?.comments || []).map((c) => String(c?.body ?? ''))];
+  } catch {
+    return null;
+  }
+}
+
+/** La riga-marker da allegare a ogni registrazione, cosi' la prossima passata la riconosce. */
+function signatureLine(signature) {
+  return signature ? `\n\n<!-- ${SIGNATURE_MARKER} ${signature} -->` : '';
+}
+
 export function runBody({ run, workflowName, jobs, jobsReadable = true }) {
   const total = jobs?.total_count;
   const failed = (jobs?.jobs || []).filter((j) => j?.conclusion === 'failure');
@@ -818,28 +955,56 @@ async function scanFailures() {
     const already = openIssues.get(workflowName);
 
     if (already) {
-      // Un secondo thread non si apre mai. Ma se la issue e' ferma da oltre la
-      // soglia, il guasto che continua a ricorrere va ri-registrato: «aperta» non
-      // significa «viva» (caso `rerender-article-hubs`/#6650, parcheggiata dal
-      // 2026-08-27 mentre 9 run rosse le deduplicavano sopra).
-      if (!isCoveredIssueStale(already.updatedAt)) {
+      // Un secondo thread non si apre mai. Si registra una ricorrenza in DUE
+      // casi, e il secondo è il difetto riparato il 2026-09-20:
+      //
+      //   1. la issue è ferma da oltre la soglia — «aperta» non significa
+      //      «viva» (caso `rerender-article-hubs`/#6650, parcheggiata dal
+      //      2026-08-27 mentre 9 run rosse le deduplicavano sopra);
+      //   2. il guasto è CAMBIATO — la firma job/step della run rossa non è
+      //      fra quelle che il thread ha già registrato. La freschezza da sola
+      //      non lo vede: #9247 era `needs-human`, tenuta calda dal triage, e
+      //      descriveva un rosso del 18/09 in `build-locale` mentre dal 19/09
+      //      alle 20:54Z ne moriva un altro, in un job completamente diverso e
+      //      PRIMA del build. Dieci ore e ventiquattro minuti di «aperta e
+      //      attiva → nessun commento», su un guasto che nessuno aveva mai
+      //      segnalato. Il caso 2 è la sola cosa che poteva romperlo.
+      const stale = isCoveredIssueStale(already.updatedAt);
+      const { jobs: coveredJobs } = readRunJobs(run.id);
+      const signature = failureSignature(coveredJobs);
+      const known = issueTexts(already.number);
+      // Firma assente (job illeggibili) o thread illeggibile: si TACE sulla
+      // novità e si ricade sulla sola freschezza. In dubbio qui il bias è verso
+      // il silenzio, al contrario del guard sul rientro: là un dubbio costa una
+      // issue in più, qui costerebbe un commento a ogni passata ORARIA sullo
+      // stesso thread, cioè la valanga che la dedup esiste per evitare. La
+      // soglia di staleness resta la rete sotto, a 24 h.
+      const novel = signature !== null && known !== null
+        && !signatureAlreadyRecorded(known, signature);
+      if (!stale && !novel) {
         tally.active += 1;
-        console.log(`[scan-unreported-failures] ${workflowName}: issue #${already.number} aperta e attiva → nessun commento.`);
+        console.log(`[scan-unreported-failures] ${workflowName}: issue #${already.number} aperta e attiva, stessa firma → nessun commento.`);
         continue;
       }
       const silentHours = Math.round((Date.now() - Date.parse(String(already.updatedAt ?? ''))) / 3600_000);
+      const why = novel
+        ? `il guasto è CAMBIATO: \`${signature}\``
+        : `questa issue è ferma da ~${silentHours} h`;
       if (DRY_RUN) {
         tally.delivered += 1;
-        console.log(`[scan-unreported-failures] (dry-run) commenterebbe la ricorrenza su #${already.number} (${workflowName}, ferma da ~${silentHours} h)`);
+        console.log(`[scan-unreported-failures] (dry-run) commenterebbe la ricorrenza su #${already.number} (${workflowName}, ${novel ? 'firma nuova' : `ferma da ~${silentHours} h`})`);
         continue;
       }
       const commented = commentOnGithubIssue(
         already.number,
-        `🔁 Il guasto ricorre e questa issue è ferma da ~${silentHours} h.\n\n`
+        `🔁 Il guasto ricorre e ${why}.\n\n`
           + `- run: ${run.html_url}\n- event: \`${run.event}\` · branch: \`${run.head_branch}\`\n`
-          + `- aggiornata: ${run.updated_at}\n\n`
+          + `- aggiornata: ${run.updated_at}\n`
+          + (signature ? `- job/step: \`${signature}\`\n` : '')
+          + '\n'
           + 'Registrato da `scripts/ci/scan-unreported-failures.mjs`: nessun secondo thread, '
-          + 'solo la prova che la condizione non è rientrata.',
+          + 'solo la prova che la condizione non è rientrata.'
+          + signatureLine(signature),
       );
       if (commented !== true) {
         tally.undelivered.push(`${workflowName} (commento su #${already.number})`);
@@ -905,21 +1070,14 @@ async function scanFailures() {
       continue;
     }
 
-    const jobsRaw = gh(
-      ['api', `repos/${REPO || '{owner}/{repo}'}/actions/runs/${run.id}/jobs?per_page=100`],
-      { allowFailure: true },
-    );
-    let jobs = null;
-    if (jobsRaw !== null) {
-      try {
-        jobs = JSON.parse(jobsRaw);
-      } catch {
-        jobs = null;
-      }
-    }
+    const { jobs, readable: jobsReadable } = readRunJobs(run.id);
+    // Il marker entra nel body fin dall'apertura: senza, la passata successiva
+    // non troverebbe la firma nel thread e leggerebbe come «guasto cambiato»
+    // lo stesso identico guasto, a ogni ora.
     const issue = await createGithubIssue({
       title,
-      description: runBody({ run, workflowName, jobs, jobsReadable: jobsRaw !== null }),
+      description: runBody({ run, workflowName, jobs, jobsReadable })
+        + signatureLine(failureSignature(jobs)),
       priority: 2,
       labels: ['automation', 'ci-failure'],
       workflow: workflowName,
