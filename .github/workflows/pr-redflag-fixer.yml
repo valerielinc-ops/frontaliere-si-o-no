@@ -1322,8 +1322,10 @@ jobs:
             snapshot_state=$(printf '%s' "$snapshot" | jq -r '.state')
             snapshot_draft=$(printf '%s' "$snapshot" | jq -r '.draft')
             snapshot_head=$(printf '%s' "$snapshot" | jq -r '.head.sha')
-            snapshot_body=$(printf '%s' "$snapshot" | jq -r '.body // ""')
-            snapshot_revision=$(printf '%s' "$snapshot_body" | shasum -a 256 | awk '{print "body:" $1}')
+            # Hasha il body in streaming: jq -r + command substitution
+            # eliminerebbero i newline finali e farebbero divergere la
+            # revisione dalla preflight per un body valido.
+            snapshot_revision=$(printf '%s' "$snapshot" | jq -j '.body // ""' | shasum -a 256 | awk '{print "body:" $1}')
             if [ "$snapshot_state" != 'open' ] || [ "$snapshot_draft" != 'false' ] \
               || [ "$snapshot_head" != "$EXPECTED_HEAD_SHA" ] \
               || [ "$snapshot_revision" != "$EXPECTED_REVIEW_REVISION" ]; then

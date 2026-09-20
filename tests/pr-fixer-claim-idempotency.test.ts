@@ -395,6 +395,7 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
       expect(guard, `${name}: marker read-back must bind id and author`).toContain('(.id | tostring) == $marker_id and .user.login == $marker_author');
       expect(guard, `${name}: marker mismatch must refund the identified comment`).toContain('--method DELETE');
       expect(guard, `${name}: marker read-back must be bounded`).toContain('for marker_attempt in 1 2 3');
+      expect(source, `${name}: final snapshot digest must preserve body newlines`).toContain("jq -j '.body // \"\"'");
       expect(guard, `${name}: round must be range-checked before arithmetic`).toContain('fuori intervallo 0..$MAX_ROUNDS');
       expect(guard, `${name}: parser errors must not default to round zero`).not.toMatch(/ROUND=.*\|\| true/u);
     }
