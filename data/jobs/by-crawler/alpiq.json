@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-09-18T14:21:50.934Z",
+  "assembledAt": "2026-09-19T23:18:15.337Z",
   "jobs": [
     {
       "id": "alpiq-150e7535e7a7",
@@ -45,7 +45,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=98&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-18T14:21:45.190Z",
+      "crawledAt": "2026-09-19T23:18:10.015Z",
       "firstSeenAt": "2026-09-17T10:32:06.223Z",
       "salaryMin": 117500,
       "salaryMax": 179500,
@@ -112,7 +112,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=21&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-18T14:21:45.177Z",
+      "crawledAt": "2026-09-19T23:18:10.008Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:23:08.459Z",
       "salaryMin": 130000,
@@ -131,7 +131,7 @@
     },
     {
       "id": "alpiq-24db5dc75d88",
-      "slug": "it-domain-architetto-trading-alpiq-lausanne",
+      "slug": "it-domain-architect-trading-alpiq-switzerland",
       "slugByLocale": {
         "it": "it-domain-architetto-trading-alpiq-lausanne",
         "de": "it-bereich-architektenhandel-alpiq-switzerland",
@@ -172,7 +172,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=33&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-18T14:21:45.182Z",
+      "crawledAt": "2026-09-19T23:18:10.011Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:23:08.460Z",
       "salaryMin": 83000,
@@ -190,11 +190,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "it-domain-architect-trading-alpiq-switzerland"
+          "it-domain-architect-trading-alpiq-switzerland",
+          "it-domain-architetto-trading-alpiq-lausanne"
         ]
       },
       "previousSlugs": [
-        "it-domain-architect-trading-alpiq-switzerland"
+        "it-domain-architect-trading-alpiq-switzerland",
+        "it-domain-architetto-trading-alpiq-lausanne"
       ]
     },
     {
@@ -240,7 +242,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=36&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-18T14:21:45.184Z",
+      "crawledAt": "2026-09-19T23:18:10.012Z",
       "firstSeenAt": "2026-09-10T23:23:08.460Z",
       "salaryMin": 117500,
       "salaryMax": 179500,

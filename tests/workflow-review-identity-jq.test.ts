@@ -68,7 +68,7 @@ describe('tests.yml review identity jq contract', () => {
     const gate = workflowStepContaining('id: review_gate');
     const abort = workflowStepContaining('id: review_abort');
 
-    expect(gate).toContain('node scripts/ci/review-gate.mjs');
+    expect(gate).toContain('node "$REVIEW_POLICY_ROOT/scripts/ci/review-gate.mjs"');
     expect(gate).not.toContain('continue-on-error: true');
     expect(abort).not.toContain('continue-on-error: true');
     expect(workflow).not.toContain('id: quota');

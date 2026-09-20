@@ -20,7 +20,9 @@ name: Stale PR rescuer (self-healing signal)
 # issue-triage). Azione = label `stale-review` + UN commento idempotente con la
 # rescue instruction. La label è applicata con il token App quando disponibile:
 # così può rieseguire il run PR esistente di tests.yml; il
-# GITHUB_TOKEN resta fallback per label e rerun via API.
+# GITHUB_TOKEN resta fallback per label e rerun via API. Se non esiste un run
+# pull_request già creato, il rescuer lascia un checkpoint manuale: non esegue
+# mai `workflow_dispatch` su un ref scelto dal branch della PR.
 # NON fa auto-push (l'auto-merge-origin-main per la classe A richiede PAT con
 # scope `workflows`; è il follow-up dichiarato). Alert-only = safe da girare
 # live accanto agli agent locali attivi sui branch.
@@ -304,11 +306,12 @@ jobs:
               # check-run vitest" degli head orfani) senza esigere alcuna prova.
               #
               # Resta deterministico e non usa Claude: mette una label, rilancia
-              # il check esistente (o lo dispatcha se manca) e scrive UN commento
+              # il check esistente (oppure lascia un checkpoint manuale se manca)
+              # e scrive UN commento
               # idempotente. Il gate d'età di 2h + il marker (classe, head)
               # impediscono il rumore su una PR con lavoro in corso.
               REASON="vitest \`$TESTS_CONCL\` sull'head da >2h, nessun run in volo e nessun segnale a valle (con i test rossi il job si ferma prima dello step di review Claude) — stallo silenzioso"
-              RESCUE="etichettata \`stale-review\` e rieseguito/ri-dispatchato \`tests.yml\` per riaprire il grafo di review. Se il rosso è REALE (del diff della PR) il redcheck-fixer lo corregge entro il suo round cap; il rescuer non abbassa il gate e la label non nasconde il problema. Se il branch è in conflitto, il recycle giornaliero ricrea il fix contro main corrente. Vedi AGENTS.md → \"main rosso blocca a cascata\"."
+              RESCUE="etichettata \`stale-review\`; se esiste un run pull_request viene rieseguito, altrimenti resta un checkpoint manuale senza dispatch trusted. Se il rosso è REALE (del diff della PR) il redcheck-fixer lo corregge entro il suo round cap; il rescuer non abbassa il gate e la label non nasconde il problema. Se il branch è in conflitto, il recycle giornaliero ricrea il fix contro main corrente. Vedi AGENTS.md → \"main rosso blocca a cascata\"."
             else
               echo "PR #$N nessuno stallo noto (tests=$TESTS_CONCL pending=$TESTS_PENDING) — skip"; continue
             fi
@@ -345,10 +348,8 @@ jobs:
                 echo "::warning::Cannot rerun code checks for PR #$N."
               }
             else
-              gh workflow run tests.yml --repo "$REPO" --ref "$BRANCH" -f "pr_number=$N" || {
-                ACTION_OK=false
-                echo "::warning::Cannot dispatch missing code checks for PR #$N."
-              }
+              ACTION_OK=false
+              echo "::warning::Nessun run pull_request esistente per PR #$N: checkpoint manuale, nessun dispatch trusted."
             fi
             COMMENT_MARKER=""
             if [ "$ACTION_OK" = "true" ]; then COMMENT_MARKER="$MARKER"; fi

@@ -10,17 +10,28 @@ import {
   prFixClaimKey,
   normalizedSignal,
   releaseClaimEvent,
+  redflagFindingsFingerprint,
   runIsFinished,
+  validateRedflagClaimSnapshot,
 } from '../scripts/ci/pr-fixer-claim.mjs';
+import {
+  parseReviewsJson,
+} from '../scripts/ci/lib/pr-review-admission.mjs';
+import {
+  reviewInputMarker,
+  reviewInputRevisionFromBody,
+} from '../scripts/ci/lib/review-input-revision.mjs';
 
 const HEAD = 'a'.repeat(40);
 const NEXT_HEAD = 'b'.repeat(40);
+const REVIEW_REVISION = `body:${'c'.repeat(64)}`;
 
 function claim(overrides: Record<string, unknown> = {}) {
   const context = {
     workflow: 'redflag',
     prNumber: '8362',
     headSha: HEAD,
+    reviewRevision: REVIEW_REVISION,
     eventKey: 'review:42',
     verdictKey: 'findings:' + 'c'.repeat(64),
   };
@@ -55,6 +66,7 @@ describe('persisted PR fixer claims (#8362, #8363)', () => {
       workflow: 'redflag',
       prNumber: '8362',
       headSha: HEAD,
+      reviewRevision: REVIEW_REVISION,
       verdictKey: 'findings:' + 'c'.repeat(64),
     };
     const first = prFixClaimKey({ ...base, eventKey: 'review:42' });
@@ -95,6 +107,95 @@ describe('persisted PR fixer claims (#8362, #8363)', () => {
     expect(parsePrFixClaim('ordinary PR comment')).toBeNull();
     expect(parsePrFixClaim(`<!-- PR_FIX_CLAIM: ${JSON.stringify(claim())} -->`))
       .toMatchObject({ workflow: 'redflag', prNumber: '8362', headSha: HEAD });
+  });
+
+  it('parses legacy redflag markers as history without allowing reuse under the new body key', () => {
+    const legacy = { ...claim() } as Record<string, unknown>;
+    delete legacy.reviewRevision;
+    legacy.key = prFixClaimKey({
+      workflow: 'redflag', prNumber: '8362', headSha: HEAD,
+      eventKey: 'review:42', verdictKey: String(legacy.verdictKey),
+    }) || 'legacy-key';
+    legacy.dedupeKey = 'legacy-dedupe';
+    const parsed = parsePrFixClaim(`<!-- PR_FIX_CLAIM: ${JSON.stringify(legacy)} -->`);
+    expect(parsed).toMatchObject({ legacyRedflag: true, reviewRevision: '' });
+    expect(prFixClaimDecision({
+      key: String(claim().key),
+      dedupeKey: String(claim().dedupeKey),
+      claims: parsed ? [parsed] : [],
+    })).toMatchObject({ allowed: true });
+  });
+
+  it('binds the final redflag admission to PR body revision, HEAD and review id', () => {
+    const prBody = 'body before the fixer';
+    const revision = reviewInputRevisionFromBody(prBody);
+    const reviewBody = `${reviewInputMarker(revision)}\n## Findings (Important: 1, Nit: 0)\n\n🔴 Important: stale parser.`;
+    const context = {
+      workflow: 'redflag',
+      prNumber: '8362',
+      headSha: HEAD,
+      reviewRevision: revision,
+      eventKey: 'review:42',
+      verdictKey: `findings:${redflagFindingsFingerprint(reviewBody)}`,
+    };
+    const current = {
+      version: 1,
+      token: 'verify-token',
+      ...context,
+      key: prFixClaimKey(context),
+      dedupeKey: prFixClaimDedupeKey(context),
+      state: 'active',
+      issuedAt: 100,
+      expiresAt: 3_700,
+    };
+    const snapshot = {
+      pr: { state: 'open', body: prBody, head: { sha: HEAD } },
+      reviews: [[{
+        id: 42,
+        user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+        state: 'COMMENTED',
+        commit_id: HEAD,
+        body: reviewBody,
+      }]],
+      claim: current,
+    };
+    expect(validateRedflagClaimSnapshot(snapshot)).toMatchObject({ valid: true });
+    expect(validateRedflagClaimSnapshot({
+      ...snapshot,
+      pr: { ...snapshot.pr, body: 'body changed before the model' },
+    })).toMatchObject({ valid: false, reason: expect.stringMatching(/body revision/i) });
+    expect(validateRedflagClaimSnapshot({
+      ...snapshot,
+      reviews: [[{ ...snapshot.reviews[0][0], id: 43 }]],
+    })).toMatchObject({ valid: false, reason: expect.stringMatching(/review del claim/i) });
+  });
+
+  it('validates raw paginated review API pages before claim consumption', () => {
+    const rawApi = JSON.stringify([[
+      {
+        id: 42,
+        user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+        state: 'COMMENTED',
+        commit_id: HEAD,
+        body: 'review body',
+      },
+    ]]);
+    expect(parseReviewsJson(rawApi)).toEqual(JSON.parse(rawApi));
+    expect(parseReviewsJson(JSON.stringify([[{ id: 42, user: { login: 'bot' } }]]))).toBeNull();
+    expect(parseReviewsJson(JSON.stringify([[{ id: 42, user: { type: 'Bot', login: 'bot' }, state: 'UNKNOWN', commit_id: HEAD, body: '' }]]))).toBeNull();
+  });
+
+  it('requires a body revision for redflag keys while leaving redcheck keys independent', () => {
+    const base = {
+      workflow: 'redflag',
+      prNumber: '8362',
+      headSha: HEAD,
+      eventKey: 'review:42',
+      verdictKey: 'findings:' + 'c'.repeat(64),
+    };
+    expect(prFixClaimKey(base)).toBe('');
+    expect(prFixClaimDedupeKey(base)).toBe('');
+    expect(prFixClaimKey({ ...base, workflow: 'redcheck' })).not.toBe('');
   });
 
   it('blocks active duplicates, skips terminal duplicates, and re-arms only transient retries', () => {
@@ -180,10 +281,12 @@ describe('persisted PR fixer claims (#8362, #8363)', () => {
       verdictKey: 'findings:' + 'd'.repeat(64),
       key: prFixClaimKey({
         workflow: 'redflag', prNumber: '8362', headSha: NEXT_HEAD,
+        reviewRevision: REVIEW_REVISION,
         eventKey: 'review:44', verdictKey: 'findings:' + 'd'.repeat(64),
       }),
       dedupeKey: prFixClaimDedupeKey({
         workflow: 'redflag', prNumber: '8362', headSha: NEXT_HEAD,
+        reviewRevision: REVIEW_REVISION,
         eventKey: 'review:44', verdictKey: 'findings:' + 'd'.repeat(64),
       }),
     });
@@ -223,12 +326,20 @@ describe('persisted PR fixer claims (#8362, #8363)', () => {
 describe('workflow wiring for the two site PR fixer consumers', () => {
   const redflag = readFileSync(new URL('../.github/workflows/pr-redflag-fixer.yml', import.meta.url), 'utf8');
   const redcheck = readFileSync(new URL('../.github/workflows/pr-redcheck-fixer.yml', import.meta.url), 'utf8');
+  const claimSource = readFileSync(new URL('../scripts/ci/pr-fixer-claim.mjs', import.meta.url), 'utf8');
 
   it('persists a redflag claim before the bounded fixer and finalizes it', () => {
-    expect(redflag).toContain('scripts/ci/pr-fixer-claim.mjs --claim');
+    expect(redflag).toContain('node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim');
     expect(redflag).toContain('CLAIM_KIND: redflag');
     expect(redflag).toContain('EVENT_KEY: review:');
     expect(redflag).toContain('REVIEW_BODY:');
+    expect(redflag).toContain('CLAIM_ACTION: verify');
+    expect(redflag).toContain('claim_verify.outputs.claim_valid');
+    expect(redflag).toContain('Revalidate redflag claim before model');
+    expect(redflag).toContain('Revalidate redflag claim immediately before model');
+    expect(redflag).toContain('claim_verify_final.outputs.claim_valid');
+    expect(redflag).toContain('Refresh trusted fixer policy after model');
+    expect(claimSource).toContain("parseReviewsJson(raw)");
     expect(redflag).toContain('claim_error');
     expect(redflag).toContain('MAX_ROUNDS=2');
     expect(redflag).toContain('CLAIM_ACTION: finalize');
@@ -237,12 +348,15 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
   it('persists a redcheck claim on the current failed check set', () => {
     expect(redcheck).toContain('head_sha: ${{ steps.pre.outputs.head_sha }}');
     expect(redcheck).toContain('failed_check_key: ${{ steps.pre.outputs.failed_check_key }}');
-    expect(redcheck).toContain('scripts/ci/pr-fixer-claim.mjs --claim');
+    expect(redcheck).toContain('node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim');
     expect(redcheck).toContain('CLAIM_KIND: redcheck');
     expect(redcheck).toContain('CHECK_FAILURE_KEY:');
     expect(redcheck).toContain('claim_error');
     expect(redcheck).toContain('MAX_ROUNDS=2');
     expect(redcheck).toContain('CLAIM_ACTION: finalize');
+    expect(redcheck).toContain('Bootstrap trusted redcheck policy (no PR code)');
+    expect(redcheck).toContain('Refresh trusted redcheck policy before finalize');
+    expect(redcheck).toContain('TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_final.outputs.root }}');
   });
 
   it('serializes the redcheck failure set without comma ambiguity', () => {

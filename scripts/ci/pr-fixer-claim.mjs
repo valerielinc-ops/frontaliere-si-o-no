@@ -15,6 +15,12 @@ import { createHash, randomUUID } from 'node:crypto';
 import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';
+import {
+  normalizeReviewInputRevision,
+  reviewHasInputRevision,
+  reviewInputRevisionFromPullRequest,
+} from './lib/review-input-revision.mjs';
+import { parseReviewsJson } from './lib/pr-review-admission.mjs';
 import { positiveIntFromEnv } from '../lib/int-from-env.mjs';
 
 export const PR_FIX_CLAIM_MARKER = '<!-- PR_FIX_CLAIM:';
@@ -61,18 +67,26 @@ function validContext({ workflow, prNumber, headSha, eventKey, verdictKey } = {}
     && (normalized(eventKey) !== '' || normalized(verdictKey) !== '');
 }
 
+function validReviewRevision(workflow, reviewRevision) {
+  return workflow !== 'redflag'
+    || Boolean(normalizeReviewInputRevision(reviewRevision));
+}
+
 /**
  * Exact event identity. The event is retained even when a stable verdict is
  * available so a review/rerun remains auditable; the verdict is the stable
  * coalescing identity used by `prFixClaimDecision`.
  */
-export function prFixClaimKey({ workflow, prNumber, headSha, eventKey, verdictKey } = {}) {
-  if (!validContext({ workflow, prNumber, headSha, eventKey, verdictKey })) return '';
+export function prFixClaimKey({ workflow, prNumber, headSha, eventKey, verdictKey, reviewRevision } = {}) {
+  if (!validContext({ workflow, prNumber, headSha, eventKey, verdictKey })
+      || !validReviewRevision(workflow, reviewRevision)) return '';
   const event = normalizedSignal(eventKey) || 'none';
   const verdict = normalizedSignal(verdictKey) || 'none';
+  const revision = normalizeReviewInputRevision(reviewRevision) || 'none';
   return [
     `pr:${String(prNumber)}`,
     `head:${String(headSha).toLowerCase()}`,
+    `body:${revision}`,
     `workflow:${String(workflow)}`,
     `event:${event}`,
     `verdict:${verdict}`,
@@ -83,12 +97,15 @@ export function prFixClaimKey({ workflow, prNumber, headSha, eventKey, verdictKe
  * Stable identity for retries. It deliberately excludes the event id: a new
  * event that carries the same verdict on the same HEAD is still the same work.
  */
-export function prFixClaimDedupeKey({ workflow, prNumber, headSha, eventKey, verdictKey } = {}) {
-  if (!validContext({ workflow, prNumber, headSha, eventKey, verdictKey })) return '';
+export function prFixClaimDedupeKey({ workflow, prNumber, headSha, eventKey, verdictKey, reviewRevision } = {}) {
+  if (!validContext({ workflow, prNumber, headSha, eventKey, verdictKey })
+      || !validReviewRevision(workflow, reviewRevision)) return '';
   const signal = normalizedSignal(verdictKey) || normalizedSignal(eventKey);
+  const revision = normalizeReviewInputRevision(reviewRevision) || 'none';
   return [
     `pr:${String(prNumber)}`,
     `head:${String(headSha).toLowerCase()}`,
+    `body:${revision}`,
     `workflow:${String(workflow)}`,
     `signal:${signal}`,
   ].join('|');
@@ -115,6 +132,7 @@ function claimKeyFromEvent(event) {
     headSha: event?.headSha,
     eventKey: event?.eventKey,
     verdictKey: event?.verdictKey,
+    reviewRevision: event?.reviewRevision,
   });
 }
 
@@ -125,6 +143,7 @@ function dedupeKeyFromEvent(event) {
     headSha: event?.headSha,
     eventKey: event?.eventKey,
     verdictKey: event?.verdictKey,
+    reviewRevision: event?.reviewRevision,
   });
 }
 
@@ -147,6 +166,14 @@ export function parsePrFixClaim(body) {
       || !CLAIM_STATE_SET.has(event.state)
       || !Number.isFinite(Number(event.issuedAt))
       || !Number.isFinite(Number(event.expiresAt))) return null;
+  const hasReviewRevision = Object.hasOwn(event, 'reviewRevision');
+  const reviewRevision = normalizeReviewInputRevision(event.reviewRevision);
+  // Claims written before body-revision binding remain historical comments.
+  // Parse them so one stale marker cannot make every future claim unavailable,
+  // but leave them without a current key: acquire/finalize filters by the new
+  // PR+HEAD+body+review identity and therefore cannot reuse this legacy state.
+  const legacyRedflag = event.workflow === 'redflag' && !hasReviewRevision;
+  if (event.workflow === 'redflag' && !reviewRevision && !legacyRedflag) return null;
 
   const normalizedEvent = {
     ...event,
@@ -155,10 +182,13 @@ export function parsePrFixClaim(body) {
     headSha: String(event.headSha).toLowerCase(),
     eventKey: normalizedSignal(event.eventKey),
     verdictKey: normalizedSignal(event.verdictKey),
+    reviewRevision,
+    legacyRedflag,
     issuedAt: Number(event.issuedAt),
     expiresAt: Number(event.expiresAt),
   };
   if (!normalizedEvent.eventKey && !normalizedEvent.verdictKey) return null;
+  if (legacyRedflag) return normalizedEvent;
   if (normalizedEvent.key !== claimKeyFromEvent(normalizedEvent)) return null;
   if (normalizedEvent.dedupeKey !== dedupeKeyFromEvent(normalizedEvent)) return null;
   return normalizedEvent;
@@ -349,6 +379,7 @@ function output(result) {
     claim_dedupe_key: result.dedupeKey || '',
     claim_state: result.state || '',
     claim_reason: result.reason || '',
+    claim_valid: result.valid === true,
   };
   const lines = Object.entries(values)
     .map(([name, value]) => `${name}=${String(value).replace(/[\r\n]/gu, ' ')}`);
@@ -367,6 +398,7 @@ function contextFromEnv() {
   const workflow = String(process.env.CLAIM_KIND || process.env.WORKFLOW || '').trim();
   const prNumber = String(process.env.PR_NUMBER || '').trim();
   const headSha = String(process.env.HEAD_SHA || '').trim().toLowerCase();
+  const reviewRevision = normalizeReviewInputRevision(process.env.REVIEW_REVISION || '');
   const eventKey = normalizedSignal(process.env.EVENT_KEY || '');
   let verdictKey = normalizedSignal(process.env.VERDICT_KEY || '');
   if (!verdictKey && workflow === 'redcheck') {
@@ -377,9 +409,9 @@ function contextFromEnv() {
     const fingerprint = redflagFindingsFingerprint(process.env.REVIEW_BODY || '');
     if (fingerprint) verdictKey = `findings:${fingerprint}`;
   }
-  const key = prFixClaimKey({ workflow, prNumber, headSha, eventKey, verdictKey });
-  const dedupeKey = prFixClaimDedupeKey({ workflow, prNumber, headSha, eventKey, verdictKey });
-  return { workflow, prNumber, headSha, eventKey, verdictKey, key, dedupeKey };
+  const key = prFixClaimKey({ workflow, prNumber, headSha, eventKey, verdictKey, reviewRevision });
+  const dedupeKey = prFixClaimDedupeKey({ workflow, prNumber, headSha, eventKey, verdictKey, reviewRevision });
+  return { workflow, prNumber, headSha, eventKey, verdictKey, reviewRevision, key, dedupeKey };
 }
 
 function activeRunStates(repo, claims, nowSec) {
@@ -419,6 +451,111 @@ function dryComment(event, order) {
     user: { login: 'github-actions[bot]' },
     body: claimBody(event),
   };
+}
+
+function flattenReviewPages(value) {
+  if (!Array.isArray(value)) return [];
+  return value.flatMap((page) => Array.isArray(page) ? page : [page]);
+}
+
+/**
+ * Final, read-only CAS-style admission immediately before the model. The
+ * append-only comment claim prevents duplicate runners; this second snapshot
+ * prevents a body edit or a review replacement between admission and model
+ * startup from spending a turn against stale input. There is no optimistic
+ * mutation primitive in GitHub's comments API, so the check is intentionally
+ * bounded and fail-closed rather than pretending to provide exactly-once.
+ */
+export function validateRedflagClaimSnapshot({ pr, reviews, claim } = {}) {
+  const deny = (reason) => ({ valid: false, reason });
+  if (!claim || claim.workflow !== 'redflag') return deny('claim redflag mancante');
+  if (!pr || typeof pr !== 'object' || Array.isArray(pr)) return deny('PR metadata mancante');
+  if (String(pr.state || '').toLowerCase() !== 'open') return deny('PR non più aperta');
+  const head = String(pr.head?.sha || pr.headRefOid || '').toLowerCase();
+  if (!SHA_RE.test(head) || head !== String(claim.headSha || '').toLowerCase()) {
+    return deny('HEAD cambiata dopo il claim');
+  }
+  let currentRevision;
+  try {
+    currentRevision = reviewInputRevisionFromPullRequest(pr);
+  } catch {
+    return deny('body PR non verificabile dopo il claim');
+  }
+  if (!currentRevision || currentRevision !== claim.reviewRevision) {
+    return deny('body revision cambiata dopo il claim');
+  }
+  const eventMatch = String(claim.eventKey || '').match(/^review:([1-9][0-9]*)$/u);
+  if (!eventMatch) return deny('review id del claim non verificabile');
+  const current = flattenReviewPages(reviews).find((review) => String(review?.id || '') === eventMatch[1]);
+  if (!current) return deny('review del claim non più presente');
+  if (current.user?.type !== 'Bot' || !CLAIM_ACTOR_RE.test(String(current.user.login || ''))) {
+    return deny('review del claim non è del reviewer bot autorizzato');
+  }
+  if (String(current.commit_id || '').toLowerCase() !== head) {
+    return deny('review del claim non più sulla HEAD corrente');
+  }
+  if (!['APPROVED', 'COMMENTED'].includes(String(current.state || '').toUpperCase())) {
+    return deny('review del claim non terminale');
+  }
+  if (!reviewHasInputRevision(current.body, currentRevision)) {
+    return deny('review del claim senza marker body revision corrente');
+  }
+  const fingerprint = redflagFindingsFingerprint(current.body);
+  if (!fingerprint || claim.verdictKey !== `findings:${fingerprint}`) {
+    return deny('verdetto review cambiato dopo il claim');
+  }
+  return { valid: true, reason: 'claim redflag confermato su PR+HEAD+body revision+review id' };
+}
+
+function readReviewPages(repo, prNumber) {
+  const raw = gh([
+    'api', '--paginate', '--slurp', `repos/${repo}/pulls/${prNumber}/reviews?per_page=100`,
+  ]);
+  const parsed = parseReviewsJson(raw);
+  if (!parsed || !parsed.every((page) => Array.isArray(page))) {
+    throw new Error('reviews PR: JSON/pagine/entry malformate');
+  }
+  return parsed;
+}
+
+function readPullRequest(repo, prNumber) {
+  const raw = gh(['api', `repos/${repo}/pulls/${prNumber}`]);
+  try {
+    const pr = JSON.parse(raw);
+    if (!pr || typeof pr !== 'object' || Array.isArray(pr)) throw new Error('PR non è un oggetto');
+    return pr;
+  } catch (error) {
+    throw new Error(`PR metadata: JSON non valido (${error.message})`);
+  }
+}
+
+function verifyClaim(base, repo) {
+  const tokenValue = String(process.env.CLAIM_TOKEN || '');
+  if (!tokenValue) return output({ ...base, allowed: false, error: true, reason: 'verify-token-missing' });
+  const comments = readComments(repo, base.prNumber);
+  const related = latestPrFixClaims(comments, { dedupeKey: base.dedupeKey });
+  const current = related.find((claim) => claim.key === base.key && claim.token === tokenValue);
+  if (!current || current.state !== 'active') {
+    return output({ ...base, allowed: false, error: true, reason: 'claim-active-state-unverifiable' });
+  }
+  if (related.some((claim) => claim.token !== tokenValue
+      && (claim.state === 'active' || claim.state === 'completed' || claim.state === 'failed-terminal'))) {
+    return output({ ...base, allowed: false, error: true, reason: 'claim-contended-or-terminalized' });
+  }
+  const verdict = validateRedflagClaimSnapshot({
+    pr: readPullRequest(repo, base.prNumber),
+    reviews: readReviewPages(repo, base.prNumber),
+    claim: current,
+  });
+  return output({
+    ...base,
+    allowed: verdict.valid,
+    valid: verdict.valid,
+    error: !verdict.valid,
+    token: tokenValue,
+    state: current.state,
+    reason: verdict.reason,
+  });
 }
 
 function acquireClaim(base, repo) {
@@ -515,6 +652,7 @@ function claimMain() {
       return output({ ...base, allowed: false, error: true, reason: 'invalid-claim-context' });
     }
     if ((process.env.CLAIM_ACTION || 'acquire') === 'acquire') return acquireClaim(base, repo);
+    if ((process.env.CLAIM_ACTION || '') === 'verify') return verifyClaim(base, repo);
     if ((process.env.CLAIM_ACTION || '') === 'finalize') return finalizeClaim(base, repo);
     return output({ ...base, allowed: false, error: true, reason: 'invalid-claim-action' });
   } catch (error) {
