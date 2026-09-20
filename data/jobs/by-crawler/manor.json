@@ -36,7 +36,7 @@
         "it": "Collaborateur/trice vente (Confection Dames) 30%",
         "en": "Collaborateur/trice vente (Confection Dames) 30%",
         "de": "Collaborateur/trice vente (Confection Dames) 30%",
-        "fr": "Collaborateur/trice vente (Confection Dames) 30%"
+        "fr": "Collaborateur/trice vente (Défense Dames) 30%"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -91,9 +91,9 @@
       },
       "titleByLocale": {
         "it": "Responsable secteur (Fruits/Légumes/Takeout) 100%",
-        "fr": "Responsable secteur (Fruits/Légumes/Takeout) 100%",
+        "fr": "Secteur responsable (Fruits/Légumes/Traitement) 100%",
         "en": "Responsable secteur (Fruits/Légumes/Takeout) 100%",
-        "de": "Responsable secteur (Fruits/Légumes/Takeout) 100%"
+        "de": "Verantwortlicher Sekteur (Fruits/Légumes/Takeout) 100%"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -205,13 +205,12 @@
       },
       "titleByLocale": {
         "it": "Collaborateur/trice supermarché (Epicerie) 50%",
-        "en": "Collaborateur/trice supermarché (Epicerie) 50%",
-        "de": "Collaborateur/trice supermarché (Epicerie) 50%",
-        "fr": "Collaborateur/trice supermarché (Epicerie) 50%"
+        "en": "Supermarché co-operator (Epicerie) 50%",
+        "de": "Supermarché-Kooperator (Epicerie) 50%",
+        "fr": "Supermarché coopérateur (Epicerie) 50%"
       },
       "sourceLang": "it",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-886bb53f17b9",
       "salaryMin": 36000,
       "salaryMax": 55500,
@@ -262,9 +261,9 @@
       },
       "titleByLocale": {
         "it": "Collaborateur/trice supermarché (Vins et Spiritueux) 100%",
-        "en": "Collaborateur/trice supermarché (Vins et Spiritueux) 100%",
-        "de": "Collaborateur/trice supermarché (Vins et Spiritueux) 100%",
-        "fr": "Collaborateur/trice supermarché (Vins et Spiritueux) 100%"
+        "en": "Supermarché Collaborateur/trice (Vins et Spiritueux) 100%",
+        "de": "Supermarché Collaborateur/trice (Vins et Spiritueux) 100%",
+        "fr": "Supermarché Collaborateur/trice (Vins et Spiritueux) 100%"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -318,14 +317,13 @@
         "fr": "manor-responsable-secteur-charcuterie-fromages-100-geneve"
       },
       "titleByLocale": {
-        "it": "Responsable secteur (Charcuterie & Fromages) 100%",
+        "it": "Settore Manager (Charcuterie & Cheeses) 100%",
         "fr": "Responsable secteur (Charcuterie & Fromages) 100%",
-        "en": "Responsable secteur (Charcuterie & Fromages) 100%",
-        "de": "Responsable secteur (Charcuterie & Fromages) 100%"
+        "en": "Sector Manager (Charcuterie & Cheeses) 100%",
+        "de": "Sektormanager (Charcuterie & Cheeses) 100%"
       },
       "sourceLang": "fr",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-e87bc2d05448",
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -375,10 +373,10 @@
         "fr": "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice supermarché (Charcuteries/Fromages) 50%",
+        "it": "Collaboratore di Supermercato (carcuteries/Dage) 50%",
         "fr": "Collaborateur/trice supermarché (Charcuteries/Fromages) 50%",
-        "en": "Collaborateur/trice supermarché (Charcuteries/Fromages) 50%",
-        "de": "Collaborateur/trice supermarché (Charcuteries/Fromages) 50%"
+        "en": "Supermarket Collaborator (Charcuteries/Fromage) 50%",
+        "de": "Supermarkt-Mitarbeiter (Charcuteries/Fromage) 50%"
       },
       "sourceLang": "fr",
       "crawledAt": "",
@@ -446,7 +444,7 @@
         "it": "Collaborateur/trice caisse (Confection Dames) 50%",
         "en": "Collaborateur/trice caisse (Confection Dames) 50%",
         "de": "Collaborateur/trice caisse (Confection Dames) 50%",
-        "fr": "Collaborateur/trice caisse (Confection Dames) 50%"
+        "fr": "Collaborateur/mère caisse (Défense Dames) 50%"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -503,7 +501,7 @@
         "it": "Collaborateur/trice caisse (Confection Messieurs) 60%",
         "en": "Collaborateur/trice caisse (Confection Messieurs) 60%",
         "de": "Collaborateur/trice caisse (Confection Messieurs) 60%",
-        "fr": "Collaborateur/trice caisse (Confection Messieurs) 60%"
+        "fr": "Collaborateur/chef de file (Messieurs de la Confédération) 60%"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -560,7 +558,7 @@
         "it": "Collaborateur/trice service 80%",
         "en": "Collaborateur/trice service 80%",
         "de": "Collaborateur/trice service 80%",
-        "fr": "Collaborateur/trice service 80%"
+        "fr": "Collaborateur/service de compagnie 80%"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -616,8 +614,8 @@
       "titleByLocale": {
         "it": "Collaborateur/trice vente (Parfumerie) 50%",
         "en": "Collaborateur/trice vente (Parfumerie) 50%",
-        "de": "Collaborateur/trice vente (Parfumerie) 50%",
-        "fr": "Collaborateur/trice vente (Parfumerie) 50%"
+        "de": "Kollaborateur/trice vente (Parfumerie) 50%",
+        "fr": "Collaborateur/disque (Parfumerie) 50%"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -673,8 +671,8 @@
       "titleByLocale": {
         "it": "Collaborateur/trice vente (Bijouterie) 50%",
         "en": "Collaborateur/trice vente (Bijouterie) 50%",
-        "de": "Collaborateur/trice vente (Bijouterie) 50%",
-        "fr": "Collaborateur/trice vente (Bijouterie) 50%"
+        "de": "Kollaborateur/trice vente (Bijouterie) 50%",
+        "fr": "Collaborateur/chaîne de vente (Bijouterie) 50%"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -730,8 +728,8 @@
       "titleByLocale": {
         "it": "Collaborateur/trice caisse (Parfumerie) 50%",
         "en": "Collaborateur/trice caisse (Parfumerie) 50%",
-        "de": "Collaborateur/trice caisse (Parfumerie) 50%",
-        "fr": "Collaborateur/trice caisse (Parfumerie) 50%"
+        "de": "Kollaborateur/trice caisse (Parfumerie) 50%",
+        "fr": "Collaborateur/caisse de couche (Parfumerie) 50%"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -788,7 +786,7 @@
         "it": "Collaborateur/trice vente (Bijouterie & Montres) 50%",
         "en": "Collaborateur/trice vente (Bijouterie & Montres) 50%",
         "de": "Collaborateur/trice vente (Bijouterie & Montres) 50%",
-        "fr": "Collaborateur/trice vente (Bijouterie & Montres) 50%"
+        "fr": "Collaborateur/chaîne de vente (Bijouterie & Montres) 50%"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -844,8 +842,8 @@
       "titleByLocale": {
         "it": "Collaborateur/trice caisse (Accessoires Dames) 50%",
         "en": "Collaborateur/trice caisse (Accessoires Dames) 50%",
-        "de": "Collaborateur/trice caisse (Accessoires Dames) 50%",
-        "fr": "Collaborateur/trice caisse (Accessoires Dames) 50%"
+        "de": "Kollaborateur/trice caisse (Accessoires Dames) 50%",
+        "fr": "Collaborateur/mère caisse (Accessoires Dames) 50%"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -902,7 +900,7 @@
         "it": "Collaboratore/trice*in Kasse 50%",
         "de": "Mitarbeiter*in Kasse 50%",
         "en": "Mitarbeiter*in Kasse 50%",
-        "fr": "Mitarbeiter*in Kasse 50%"
+        "fr": "Mitarbeiter* dans Kasse 50%"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -959,7 +957,7 @@
         "it": "Collaboratore/trice*in Kasse 20%",
         "de": "Mitarbeiter*in Kasse 20%",
         "en": "Mitarbeiter*in Kasse 20%",
-        "fr": "Mitarbeiter*in Kasse 20%"
+        "fr": "Mitarbeiter* dans Kasse 20%"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -1025,13 +1023,12 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice supermercato (Frutta & Verdura) 50%",
-        "en": "Collaboratore/trice supermercato (Frutta & Verdura) 50%",
-        "de": "Collaboratore/trice supermercato (Frutta & Verdura) 50%",
-        "fr": "Collaboratore/trice supermercato (Frutta & Verdura) 50%"
+        "en": "Supermarket co-operator (Frutta & Verdura) 50%",
+        "de": "Supermarkt-Kooperator (Frutta & Verdura) 50%",
+        "fr": "Coopérateur Supermarché (Frutta & Verdura) 50%"
       },
       "sourceLang": "it",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-7e290aa98568",
       "salaryMin": 29500,
       "salaryMax": 45300,
@@ -1084,7 +1081,7 @@
         "it": "Collaboratore/trice*in Kasse 20%",
         "de": "Mitarbeiter*in Kasse 20%",
         "en": "Mitarbeiter*in Kasse 20%",
-        "fr": "Mitarbeiter*in Kasse 20%"
+        "fr": "Mitarbeiter* dans Kasse 20%"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -1139,7 +1136,7 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita 40%",
-        "de": "Mitarbeiter*in Verkauf 40%",
+        "de": "Mitarbeiter im Verkauf 40%",
         "en": "Mitarbeiter*in Sales 40%",
         "fr": "Mitarbeiter*in Vente 40%"
       },
@@ -1195,14 +1192,13 @@
         "fr": "manor-mitarbeiter-in-supermarkt-100-sargans"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in Supermarkt 100%",
+        "it": "Supermercato dei dipendenti 100%",
         "de": "Mitarbeiter*in Supermarkt 100%",
-        "en": "Mitarbeiter*in Supermarkt 100%",
-        "fr": "Mitarbeiter*in Supermarkt 100%"
+        "en": "Employees Supermarket 100%",
+        "fr": "Supermarché des employés 100%"
       },
       "sourceLang": "de",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-cacc979c49e3",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -1260,14 +1256,13 @@
         "fr": "manor-mitarbeiter-in-supermarkt-20-50-sargans"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in Supermarkt 20-50%",
+        "it": "Supermercato dei dipendenti 20-50 %",
         "de": "Mitarbeiter*in Supermarkt 20-50%",
-        "en": "Mitarbeiter*in Supermarkt 20-50%",
-        "fr": "Mitarbeiter*in Supermarkt 20-50%"
+        "en": "Employees Supermarket 20-50 %",
+        "fr": "Salariés Supermarché 20-50 %"
       },
       "sourceLang": "de",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-f05e8cadc7d2",
       "salaryMin": 34300,
       "salaryMax": 52500,
@@ -1442,7 +1437,7 @@
         "it": "Collaborateur/trice service (Manora) 80%",
         "en": "Collaborateur/trice service (Manora) 80%",
         "de": "Collaborateur/trice service (Manora) 80%",
-        "fr": "Collaborateur/trice service (Manora) 80%"
+        "fr": "Collaborateur/service de texte (Manora) 80%"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -1496,10 +1491,10 @@
         "fr": "manor-collaborateur-trice-supermarche-fruits-legumes-20-chavannes-de-bogis"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice supermarché (Fruits & Légumes) 20%",
+        "it": "Supermercato Collaboratore (Fruit & Verduras) 20%",
         "fr": "Collaborateur/trice supermarché (Fruits & Légumes) 20%",
-        "en": "Collaborateur/trice supermarché (Fruits & Légumes) 20%",
-        "de": "Collaborateur/trice supermarché (Fruits & Légumes) 20%"
+        "en": "Supermarket Collaborator (Fruit & Vegetables) 20%",
+        "de": "Supermarkt-Mitarbeiter (Obst & Gemüse) 20%"
       },
       "sourceLang": "fr",
       "crawledAt": "",
@@ -1613,7 +1608,7 @@
         "it": "Collaboratore/trice*in Merchandising 50% - 60%",
         "de": "Mitarbeiter*in Merchandising 50% - 60%",
         "en": "Mitarbeiter*in Merchandising 50% - 60%",
-        "fr": "Mitarbeiter*in Merchandising 50% - 60%"
+        "fr": "Mitarbeiter*en Marchandising 50% - 60%"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -1732,14 +1727,13 @@
         "fr": "manor-collaborateur-trice-vente-home-menage-60-delemont"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice vente (Home & Ménage) 60%",
+        "it": "Collaboratore di vendita (Home & Household) 60%",
         "fr": "Collaborateur/trice vente (Home & Ménage) 60%",
-        "en": "Collaborateur/trice vente (Home & Ménage) 60%",
-        "de": "Collaborateur/trice vente (Home & Ménage) 60%"
+        "en": "Sales Collaborator (Home & Household) 60%",
+        "de": "Sales Collaborator (Home & Household) 60%"
       },
       "sourceLang": "fr",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-a3d661f0e41a",
       "salaryMin": 43200,
       "salaryMax": 66300,
@@ -1774,7 +1768,7 @@
       "description": "• Minimum of 5 years' experience in a similar senior buying role, preferably within womenswear.\n• A highly developed fashion sensitivity: you do not just follow trends, you understand their origin, evolution, and commercial relevance. You have a natural ability to interpret runway, street style, and cultural signals into product that resonates with the customer.\n• Strong merchandising and commercial acumen, with a proven track record of delivering results.\n• Demonstrated ability to define and communicate a clear vision, inspiring teams and driving execution.\n• Excellent analytical skills, with the capability to turn data into impactful decisions.\n• High level of precision and attention to detail.\n• Strong time management and prioritization skills, with the ability to work in a fast-paced, deadline-driven environment.\n• A genuine passion for womenswear, with an eye for product, silhouette, fabric, and styling that elevates the overall assortment",
       "descriptionIt": "• Minimum of 5 years' experience in a similar senior buying role, preferably within womenswear.\n• A highly developed fashion sensitivity: you do not just follow trends, you understand their origin, evolution, and commercial relevance. You have a natural ability to interpret runway, street style, and cultural signals into product that resonates with the customer.\n• Strong merchandising and commercial acumen, with a proven track record of delivering results.\n• Demonstrated ability to define and communicate a clear vision, inspiring teams and driving execution.\n• Excellent analytical skills, with the capability to turn data into impactful decisions.\n• High level of precision and attention to detail.\n• Strong time management and prioritization skills, with the ability to work in a fast-paced, deadline-driven environment.\n• A genuine passion for womenswear, with an eye for product, silhouette, fabric, and styling that elevates the overall assortment",
       "descriptionByLocale": {
-        "it": "• Minimum of 5 years' experience in a similar senior buying role, preferably within womenswear.\n• A highly developed fashion sensitivity: you do not just follow trends, you understand their origin, evolution, and commercial relevance. You have a natural ability to interpret runway, street style, and cultural signals into product that resonates with the customer.\n• Strong merchandising and commercial acumen, with a proven track record of delivering results.\n• Demonstrated ability to define and communicate a clear vision, inspiring teams and driving execution.\n• Excellent analytical skills, with the capability to turn data into impactful decisions.\n• High level of precision and attention to detail.\n• Strong time management and prioritization skills, with the ability to work in a fast-paced, deadline-driven environment.\n• A genuine passion for womenswear, with an eye for product, silhouette, fabric, and styling that elevates the overall assortment",
+        "it": "• Minimo di 5 anni di esperienza in un simile ruolo di acquisto senior, preferibilmente all'interno di abbigliamento femminile.\n• Una sensibilità della moda altamente sviluppata: non si seguono solo le tendenze, si capisce la loro origine, evoluzione e rilevanza commerciale. Hai una naturale capacità di interpretare passerella, street style e segnali culturali in prodotto che risuona con il cliente.\n• Forte merchandising e acume commerciale, con un comprovato record di risultati.\n• Dimostrata capacità di definire e comunicare una chiara visione, ispirare le squadre e l'esecuzione di guida.\n• Eccellente capacità analitiche, con la capacità di trasformare i dati in decisioni di impatto.\n• Alto livello di precisione e attenzione ai dettagli.\n• Forte gestione del tempo e competenze di priorità, con la capacità di lavorare in un ambiente veloce e guidato da scadenza.\n• Una vera passione per l'abbigliamento femminile, con un occhio per prodotto, silhouette, tessuto e styling che eleva l'assortimento complessivo",
         "en": "• Minimum of 5 years' experience in a similar senior buying role, preferably within womenswear.\n• A highly developed fashion sensitivity: you do not just follow trends, you understand their origin, evolution, and commercial relevance. You have a natural ability to interpret runway, street style, and cultural signals into product that resonates with the customer.\n• Strong merchandising and commercial acumen, with a proven track record of delivering results.\n• Demonstrated ability to define and communicate a clear vision, inspiring teams and driving execution.\n• Excellent analytical skills, with the capability to turn data into impactful decisions.\n• High level of precision and attention to detail.\n• Strong time management and prioritization skills, with the ability to work in a fast-paced, deadline-driven environment.\n• A genuine passion for womenswear, with an eye for product, silhouette, fabric, and styling that elevates the overall assortment",
         "de": "Buyer (Women bei Manor, gelegen in Basel, Kanton Basel-Stadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
         "fr": "Buyer (Women chez Manor, situé à Basel, Canton de Bâle-Ville, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -1789,10 +1783,10 @@
         "fr": "manor-buyer-women-basel"
       },
       "titleByLocale": {
-        "it": "Buyer (Women",
-        "fr": "Buyer (Women",
+        "it": "Compratore (Women)",
+        "fr": "Acheteur (femmes)",
         "en": "Buyer (Women",
-        "de": "Buyer (Women"
+        "de": "Käufer (Frauen)"
       },
       "sourceLang": "en",
       "crawledAt": "",
@@ -1847,13 +1841,12 @@
       },
       "titleByLocale": {
         "it": "Collaborateur/trice supermarché (Boucherie) 50%",
-        "en": "Collaborateur/trice supermarché (Boucherie) 50%",
-        "de": "Collaborateur/trice supermarché (Boucherie) 50%",
-        "fr": "Collaborateur/trice supermarché (Boucherie) 50%"
+        "en": "Supermarche co-operator (Boucherie) 50%",
+        "de": "Supermarche Co-operator (Boucherie) 50%",
+        "fr": "Coopérateur Supermarche (Boucherie) 50%"
       },
       "sourceLang": "it",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-f52400aa0637",
       "salaryMin": 36000,
       "salaryMax": 55500,
@@ -1903,10 +1896,10 @@
         "fr": "manor-collaborateur-trice-vente-bijouterie-montres-etudiant-e-20-delemont"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice vente (Bijouterie & Montres) Etudiant/e 20%",
+        "it": "Vendita Collaboratore (Bijouterie & Orologi) Student 20%",
         "fr": "Collaborateur/trice vente (Bijouterie & Montres) Etudiant/e 20%",
-        "en": "Collaborateur/trice vente (Bijouterie & Montres) Etudiant/e 20%",
-        "de": "Collaborateur/trice vente (Bijouterie & Montres) Etudiant/e 20%"
+        "en": "Collaborator sales (Bijouterie & Watches) Student 20%",
+        "de": "Mitarbeiter Verkauf (Bijouterie & Uhren) Student 20%"
       },
       "sourceLang": "fr",
       "crawledAt": "",
@@ -1960,14 +1953,13 @@
         "fr": "manor-assistent-in-floor-manager-100-basel"
       },
       "titleByLocale": {
-        "it": "Assistent*in Floor Manager 100%",
-        "en": "Assistent*in Floor Manager 100%",
+        "it": "Assistant Floor Manager 100%",
+        "en": "Assistant Floor Manager 100%",
         "de": "Assistent*in Floor Manager 100%",
-        "fr": "Assistent*in Floor Manager 100%"
+        "fr": "Gestionnaire d'étage adjoint 100%"
       },
       "sourceLang": "de",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-84b8193f4d5b",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -2017,14 +2009,13 @@
         "fr": "manor-mitarbeiter-in-supermarkt-85-baden"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in Supermarkt 85%",
+        "it": "Supermercato dei dipendenti 85%",
         "de": "Mitarbeiter*in Supermarkt 85%",
-        "en": "Mitarbeiter*in Supermarkt 85%",
-        "fr": "Mitarbeiter*in Supermarkt 85%"
+        "en": "Employees Supermarket 85%",
+        "fr": "Salariés Supermarché 85%"
       },
       "sourceLang": "de",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-56ac22341f80",
       "salaryMin": 62900,
       "salaryMax": 96500,
@@ -2082,7 +2073,7 @@
         "fr": "manor-pizzaiolo-polyvalent-manora-80-sierre"
       },
       "titleByLocale": {
-        "it": "Pizzaiolo Polyvalent (Manora) 80%",
+        "it": "Pizzaiolo Polivalente (Manora) 80%",
         "fr": "Pizzaiolo Polyvalent (Manora) 80%",
         "en": "Pizzaiolo Polyvalent (Manora) 80%",
         "de": "Pizzaiolo Polyvalent (Manora) 80%"
@@ -2139,14 +2130,13 @@
         "fr": "manor-mitarbeiter-in-verkauf-100-kreuzlingen"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in vendita 100%",
+        "it": "Vendite dipendenti 100%",
         "de": "Mitarbeiter*in Verkauf 100%",
-        "en": "Mitarbeiter*in Sales 100%",
-        "fr": "Mitarbeiter*in Vente 100%"
+        "en": "Employee Sales 100%",
+        "fr": "Ventes d'employés 100%"
       },
       "sourceLang": "de",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-e370e5591db9",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -2207,7 +2197,7 @@
         "it": "Assistant Visual Merchandiser Manager 100%",
         "en": "Assistant Visual Merchandiser Manager 100%",
         "de": "Assistent Visual Merchandiser Manager 100%",
-        "fr": "Assistant Visual Merchandiser Manager 100%"
+        "fr": "Assistant de gestion des marchandises visuelles 100%"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -2410,7 +2400,7 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita 40%",
-        "de": "Mitarbeiter*in Verkauf 40%",
+        "de": "Mitarbeiter im Verkauf 40%",
         "en": "Mitarbeiter*in Sales 40%",
         "fr": "Mitarbeiter*in Vente 40%"
       },
@@ -9211,7 +9201,7 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita 40%",
-        "de": "Mitarbeiter*in Verkauf 40%",
+        "de": "Mitarbeiter im Verkauf 40%",
         "en": "Mitarbeiter*in Sales 40%",
         "fr": "Mitarbeiter*in Vente 40%"
       },
@@ -9288,7 +9278,7 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita 40%",
-        "de": "Mitarbeiter*in Verkauf 40%",
+        "de": "Mitarbeiter im Verkauf 40%",
         "en": "Mitarbeiter*in Sales 40%",
         "fr": "Mitarbeiter*in Vente 40%"
       },
@@ -11519,7 +11509,7 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita 40%",
-        "de": "Mitarbeiter*in Verkauf 40%",
+        "de": "Mitarbeiter im Verkauf 40%",
         "en": "Mitarbeiter*in Sales 40%",
         "fr": "Mitarbeiter*in Vente 40%"
       },
@@ -15026,7 +15016,7 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita 40%",
-        "de": "Mitarbeiter*in Verkauf 40%",
+        "de": "Mitarbeiter im Verkauf 40%",
         "en": "Mitarbeiter*in Sales 40%",
         "fr": "Mitarbeiter*in Vente 40%"
       },
