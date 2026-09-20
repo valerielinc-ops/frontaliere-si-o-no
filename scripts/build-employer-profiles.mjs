@@ -159,9 +159,10 @@ function buildTrendMap(hist) {
         canonicalCompanyProfileSlug(cs.key || '', '');
       if (!slug) continue;
       const added = Array.isArray(cs.addedKeys) ? cs.addedKeys.length : 0;
-      const removed = Array.isArray(cs.removedKeys)
-        ? cs.removedKeys.length
-        : Number(cs.removedCount) || 0;
+      const removed = Math.max(
+        Array.isArray(cs.removedKeys) ? cs.removedKeys.length : 0,
+        Number(cs.removedCount) || 0,
+      );
       const cur = acc.get(slug) || { added: 0, removed: 0 };
       cur.added += added;
       cur.removed += removed;
@@ -327,4 +328,4 @@ if (isMain) {
   main();
 }
 
-export { build };
+export { build, buildTrendMap };
