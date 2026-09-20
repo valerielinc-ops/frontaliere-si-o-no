@@ -275,8 +275,16 @@ export function classifyOrphan({
   return none('nessuno stato orfano noto');
 }
 
+function trustedGhBin() {
+  const value = String(process.env.TRUSTED_GH_BIN || '').trim();
+  if (!value || !value.startsWith('/') || value.includes('\0')) {
+    throw new Error('TRUSTED_GH_BIN mancante o non assoluto');
+  }
+  return value;
+}
+
 function gh(args, { input } = {}) {
-  return execFileSync('gh', args, {
+  return execFileSync(trustedGhBin(), args, {
     encoding: 'utf8',
     input,
     stdio: ['pipe', 'pipe', 'pipe'],

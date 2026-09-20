@@ -100,6 +100,10 @@ printf '%s\\trefs/pull/42/head\\n' "$line"`,
     PATH: `${bin}:${process.env.PATH}`,
     RUNNER_TEMP: runnerTemp,
     GH_TOKEN: 'token',
+    // The production step receives this immutable absolute path from the
+    // pre-checkout attestation step.  The fixture bypasses that step, so bind
+    // the fake runner-owned CLI explicitly instead of relying on PATH.
+    TRUSTED_GH_BIN: join(bin, 'gh'),
     REPO: 'owner/repo',
     PRN: '42',
     HEAD_SHA: head,

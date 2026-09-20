@@ -325,8 +325,16 @@ export function claimStatusFromOutcome({ proceed, actionOutcome = '', claudeOutc
   return 'completed';
 }
 
+function trustedGhBin() {
+  const value = String(process.env.TRUSTED_GH_BIN || '').trim();
+  if (!value || !value.startsWith('/') || value.includes('\0')) {
+    throw new Error('TRUSTED_GH_BIN mancante o non assoluto');
+  }
+  return value;
+}
+
 function gh(args) {
-  return execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+  return execFileSync(trustedGhBin(), args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
 }
 
 function readComments(repo, prNumber) {

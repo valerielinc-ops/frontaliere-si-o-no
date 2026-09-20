@@ -219,13 +219,20 @@ export const TEST_DIFF_EXCLUSIONS = [
     ['test', 'spec'].map(kind => `:(glob,exclude)**/*.${kind}.${ext}`)),
 ];
 export const isReviewTestPath = path => typeof path === 'string' && TEST_PATH_RE.test(path);
+function trustedGhBin() {
+  const value = String(process.env.TRUSTED_GH_BIN || '').trim();
+  if (!value || !value.startsWith('/') || value.includes('\0')) {
+    throw new Error('TRUSTED_GH_BIN mancante o non assoluto');
+  }
+  return value;
+}
 export function isTestOnlySnapshot(snapshot) {
   return snapshot?.complete === true && Array.isArray(snapshot.files)
     && snapshot.files.length > 0 && snapshot.files.every(isReviewTestPath);
 }
 export function gh(args, { json = true, allowFail = false, allowNotFound = false, input } = {}) {
   try {
-    const out = execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, input });
+    const out = execFileSync(trustedGhBin(), args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, input });
     return json ? JSON.parse(out) : out;
   } catch (error) {
     if (allowNotFound && isGithubNotFoundError(error)) return GITHUB_NOT_FOUND;

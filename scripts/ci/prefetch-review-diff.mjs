@@ -9,9 +9,19 @@ const sha = value => {
   if (!/^[a-f0-9]{40}$/.test(value ?? '')) throw new Error('Expected a pinned commit SHA');
   return value;
 };
+const absoluteTool = (name, fallback) => {
+  const value = String(process.env[name] || '').trim();
+  if (!value) return fallback;
+  if (!value.startsWith('/') || value.includes('\0')) {
+    throw new Error(`${name} mancante o non assoluto`);
+  }
+  return value;
+};
 const run = (command, args, options = {}) => execFileSync(command, args, {
   encoding: 'utf8', maxBuffer: 32 * 1024 * 1024, ...options,
 });
+const gitCommand = () => absoluteTool('TRUSTED_GIT_BIN', '/usr/bin/git');
+const ghCommand = () => absoluteTool('TRUSTED_GH_BIN', 'gh');
 
 // Explicit pathspecs filter generated trees BEFORE Git requests missing blobs
 // from a partial clone. No GitHub diff/compare patch-size or file-count caps.
@@ -23,7 +33,7 @@ const diffArgs = (base, head) =>
 /** Files changed between two pinned commits, under the review scope. */
 export function changedNames({ base, head, exclusions, cwd = process.cwd() }) {
   sha(base); sha(head);
-  const names = run('git', [...diffArgs(base, head), '--name-only', '-z', '--', ...scopePathspec(exclusions)], { cwd })
+  const names = run(gitCommand(), [...diffArgs(base, head), '--name-only', '-z', '--', ...scopePathspec(exclusions)], { cwd })
     .split('\0').filter(Boolean);
   if (names.some(name => /[\r\n]/.test(name))) throw new Error('Review file list cannot represent newline paths');
   return names;
@@ -59,7 +69,7 @@ export function writeReviewDiff({
   const fd = openSync(output, 'w');
   try {
     // Stream the complete patch to disk: never truncate it to a process buffer.
-    if (paths.length) run('git', [...diffArgs(base, head), '--', ...paths], { cwd, stdio: ['ignore', fd, 'pipe'] });
+    if (paths.length) run(gitCommand(), [...diffArgs(base, head), '--', ...paths], { cwd, stdio: ['ignore', fd, 'pipe'] });
   } finally { closeSync(fd); }
   if (incremental) {
     writeFileSync(join(directory, 'delta-files.txt'), names.length ? names.join('\n') + '\n' : '');
@@ -73,7 +83,7 @@ export function main(env = process.env, { api: injectedApi, cwd = process.cwd() 
   const repo = env.REPO;
   if (!/^[\w.-]+\/[\w.-]+$/.test(repo ?? '')) throw new Error('Invalid repository');
   if (!/^\d+$/.test(env.PR_NUMBER ?? '')) throw new Error('Invalid PR number');
-  const api = injectedApi ?? (endpoint => run('gh', ['api', endpoint]).trim());
+  const api = injectedApi ?? (endpoint => run(ghCommand(), ['api', endpoint]).trim());
   // Only use compare metadata. Its patches may be absent/truncated; Git below
   // supplies the complete patch, including deletes and binary-change headers.
   const mergeBaseWith = from =>
@@ -91,9 +101,9 @@ export function main(env = process.env, { api: injectedApi, cwd = process.cwd() 
   // it, so the foreign files it also names are filtered out by the intersection.
   const reviewedFrom = incremental ? sha(env.INCREMENTAL_BASE) : null;
   for (const commit of new Set([mergeBase, ...(reviewedFrom ? [reviewedFrom] : []), head])) {
-    try { run('git', ['cat-file', '-e', `${commit}^{commit}`], { stdio: 'pipe', cwd }); }
+    try { run(gitCommand(), ['cat-file', '-e', `${commit}^{commit}`], { stdio: 'pipe', cwd }); }
     catch {
-      run('git', ['fetch', '--no-tags', '--filter=blob:none', '--depth=1', 'origin', commit], { stdio: 'inherit', cwd });
+      run(gitCommand(), ['fetch', '--no-tags', '--filter=blob:none', '--depth=1', 'origin', commit], { stdio: 'inherit', cwd });
     }
   }
   const exclusions = (env.REVIEW_DIFF_EXCLUSIONS ?? '').split(',').filter(Boolean);

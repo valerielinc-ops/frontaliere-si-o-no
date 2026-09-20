@@ -57,8 +57,8 @@ export const FOLLOWUP_MARKER = 'OUT_OF_SCOPE_REVIEW_FOLLOWUP';
 const MAX_FOLLOWUP_BODY_LEN = 60_000;
 const ZERO_IMPORTANT_RE = /^(?:0|none|nessuno)\s*$/iu;
 const NEGATIVE_IMPORTANT_SUMMARY_PREFIX_RE = /^\s*(?:[-*+>]\s*)?(?:nessun[oa]?|no)\s+$/iu;
-const IMPORTANT_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]\s*/u;
-const FINDING_MARKER_RE = /🔴|🟡\s*\*{0,2}\s*Nit\s*\*{0,2}\s*[:—-]|🟣\s*\*{0,2}\s*Pre-existing\s*\*{0,2}\s*[:—-]|❓\s*q\s*:/gu;
+const IMPORTANT_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?:[:—-]\s*|(?=\s+\S))/u;
+const FINDING_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?:[:—-]|(?=\s+\S))|🔴|🟡\s*\*{0,2}\s*Nit\s*\*{0,2}\s*[:—-]|🟣\s*\*{0,2}\s*Pre-existing\s*\*{0,2}\s*[:—-]|❓\s*q\s*:/gu;
 const QUESTION_MARKER_RE = /❓\s*q\s*:/iu;
 // A question is disposable only with the explicit review suffix used by the
 // contract. Words such as "deferred" inside the question itself stay open.
@@ -659,6 +659,18 @@ function gh(args, { json = true, allowFail = false } = {}) {
   }
 }
 
+function trustedGitBin() {
+  const configured = String(process.env.TRUSTED_GIT_BIN || '').trim();
+  // The review workflow attests and passes this path before any PR checkout
+  // can alter PATH. Keep the local/test fallback for pure helpers imported
+  // outside Actions; the authoritative workflow always supplies the variable.
+  const value = configured || '/usr/bin/git';
+  if (!isAbsolute(value) || value.includes('\0')) {
+    throw new Error('TRUSTED_GIT_BIN mancante o non assoluto');
+  }
+  return value;
+}
+
 function reviewerList(raw) {
   if (!Array.isArray(raw)) return [];
   return raw.flatMap((page) => Array.isArray(page) ? page : [page]);
@@ -1096,7 +1108,7 @@ function localTreePaths(sha) {
   for (const ref of [/^[0-9a-f]{40}$/iu.test(String(sha || '')) ? String(sha) : null]) {
     if (!ref) continue;
     try {
-      const output = execFileSync('git', ['ls-tree', '-r', '--name-only', ref], {
+      const output = execFileSync(trustedGitBin(), ['ls-tree', '-r', '--name-only', ref], {
         encoding: 'utf8',
         maxBuffer: 64 * 1024 * 1024,
         stdio: ['ignore', 'pipe', 'ignore'],
@@ -1170,7 +1182,7 @@ function gitPathIsIgnored(path) {
   if (!ignoredPathCache.has(wanted)) {
     let ignored = false;
     try {
-      execFileSync('git', ['check-ignore', '-q', '--', wanted], { stdio: 'ignore' });
+      execFileSync(trustedGitBin(), ['check-ignore', '-q', '--', wanted], { stdio: 'ignore' });
       ignored = true;
     } catch {
       ignored = false;
@@ -1202,7 +1214,7 @@ function changedLinesBetween(fromSha, toSha) {
   if (!/^[0-9a-f]{40}$/iu.test(String(fromSha || ''))
       || !/^[0-9a-f]{40}$/iu.test(String(toSha || ''))) return null;
   try {
-    const patch = execFileSync('git', ['diff', '--unified=0', '--no-color', `${fromSha}..${toSha}`], {
+    const patch = execFileSync(trustedGitBin(), ['diff', '--unified=0', '--no-color', `${fromSha}..${toSha}`], {
       encoding: 'utf8',
       maxBuffer: 64 * 1024 * 1024,
     });
@@ -1216,7 +1228,7 @@ function changedPathsBetween(fromSha, toSha) {
   if (!/^[0-9a-f]{40}$/iu.test(String(fromSha || ''))
       || !/^[0-9a-f]{40}$/iu.test(String(toSha || ''))) return null;
   try {
-    const output = execFileSync('git', ['diff', '--name-only', `${fromSha}...${toSha}`], {
+    const output = execFileSync(trustedGitBin(), ['diff', '--name-only', `${fromSha}...${toSha}`], {
       encoding: 'utf8',
       maxBuffer: 4 * 1024 * 1024,
     });

@@ -10,10 +10,10 @@ import { REDFLAG_IMPORTANT_RE } from '../scripts/ci/lib/constants.mjs';
 // `🔴 **Important —` (PR #2211 round-2) → redflag-fixer skipped + PR stalled.
 // pr-redflag-fixer.yml greps the SAME shape in bash; keep the two equivalent.
 //
-// Requires a delimiter (`:`, `—`, or `-`) right after "Important" — added after
-// PR #3330 false-positived on the reviewer's own negation prose "zero 🔴
-// Important findings (both nits are non-blocking)": bare `Important` with no
-// delimiter is prose describing an ABSENCE of findings, not the marker itself.
+// Requires a delimiter (`:`, `—`, or `-`) right after "Important", unless the
+// marker is anchored to the documented location form `path:L<linea>: 🔴 Important
+// problema`. This keeps PR #3330's negation prose "zero 🔴 Important findings"
+// out of the gate while accepting the review format emitted by the bot.
 describe('REDFLAG_IMPORTANT_RE (markdown-tolerant 🔴 Important detector)', () => {
   it('matches the plain literal form', () => {
     expect(REDFLAG_IMPORTANT_RE.test('🔴 Important: missing canonical')).toBe(true);
@@ -30,6 +30,18 @@ describe('REDFLAG_IMPORTANT_RE (markdown-tolerant 🔴 Important detector)', () 
   it('matches inside a real multi-finding review body', () => {
     const body = '## Findings (Important: 1, Nit: 2)\n🔴 **Important — ** `x.mjs:L1`: bug\n🟡 **Nit** — tidy';
     expect(REDFLAG_IMPORTANT_RE.test(body)).toBe(true);
+  });
+
+  it('matches the documented bare marker after a structural location', () => {
+    expect(REDFLAG_IMPORTANT_RE.test(
+      '.github/workflows/tests.yml:L2199: 🔴 Important The trusted path is mutable',
+    )).toBe(true);
+    expect(REDFLAG_IMPORTANT_RE.test(
+      '- `scripts/ci/review-gate.mjs:L188`: 🔴 Important parser drift',
+    )).toBe(true);
+    expect(REDFLAG_IMPORTANT_RE.test(
+      'PR body:L16: 🔴 Important missing status contract',
+    )).toBe(true);
   });
 
   it('does NOT match a decorative 🔴 not followed by Important', () => {
@@ -185,14 +197,13 @@ describe('REDFLAG_IMPORTANT_RE — le copie bash non possono divergere', () => {
   // costruzione e non fallirebbe mai. Il letterale è ciò che rende il guard un
   // guard — se la regex cambia forma, questa riga va aggiornata di proposito, ed
   // è esattamente il momento in cui si deve guardare anche i due workflow.
-  // NB: stringa singola, non `String.raw`: in un raw template `\`` resta backslash +
-  // backtick, mentre la `.source` porta il backtick nudo. Qui gli unici escape sono
-  // i `\\s`/`\\*` che diventano `\s`/`\*`.
-  const BASH_PATTERN_ATTESO = '(*UTF)^[^🟡🟢]*(?<!`)🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-]';
+  // NB: stringa singola, non `String.raw`: gli escape `\\x60`, `\\s` e `\\*`
+  // diventano rispettivamente `\x60`, `\s` e `\*`, come nella `.source` JS.
+  const BASH_PATTERN_ATTESO = '(*UTF)^(?:[^🟡🟢]*(?<!\\x60)🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-]|[ \\t]*(?:[-*+>][ \\t]*)?(?:\\x60[^\\x60\\n]*:L?\\d+(?:[-–]\\d+)?\\x60?|(?:PR[ \\t]+body|[A-Za-z0-9_.@/-]+):L?\\d+(?:[-–]\\d+)?):[ \\t]*🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}(?=\\s+\\S))';
 
   it('il pattern bash è la source JS senza il `\\n` della classe negata', () => {
     expect(bashPattern).toBe(BASH_PATTERN_ATTESO);
-    expect(REDFLAG_IMPORTANT_RE.source).toBe('^[^\\n🟡🟢]*(?<!`)🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-]');
+    expect(REDFLAG_IMPORTANT_RE.source).toBe('^(?:[^\\n🟡🟢]*(?<!\\x60)🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-]|[ \\t]*(?:[-*+>][ \\t]*)?(?:\\x60[^\\x60\\n]*:L?\\d+(?:[-–]\\d+)?\\x60?|(?:PR[ \\t]+body|[A-Za-z0-9_.@/-]+):L?\\d+(?:[-–]\\d+)?):[ \\t]*🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}(?=\\s+\\S))');
   });
 
   for (const wf of ['pr-redflag-fixer.yml', 'stale-pr-rescuer.yml']) {
@@ -220,8 +231,11 @@ describe('REDFLAG_IMPORTANT_RE — le copie bash non possono divergere', () => {
   it.skipIf(!pcreRunner)('le copie bash hanno lo stesso verdetto della regex JS sui casi decisivi', () => {
     const cases: Array<[string, boolean]> = [
       ['🔴 Important: manca il canonical', true],
+      ['.github/workflows/tests.yml:L2199: 🔴 Important path non trusted', true],
+      ['- `scripts/ci/review-gate.mjs:L188`: 🔴 Important parser drift', true],
       ['🟡 Nit: la review cita 🔴 Important: manca il canonical', false],
       ['Il test usa `🔴 Important: manca il canonical` come fixture', false],
+      ['zero 🔴 Important findings (both nits are non-blocking)', false],
       ['🟣 Pre-existing: 🔴 Important: manca il canonical', true],
     ];
     const bashMatches = (line: string): boolean => {

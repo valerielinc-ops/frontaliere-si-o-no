@@ -141,9 +141,18 @@ export function isFailureReportingDisabled() {
  * Run `gh` with explicit args. Returns trimmed stdout, or null on failure.
  * stderr is forwarded for visibility (workflow logs will show the actual error).
  */
+function ghBin() {
+  const configured = String(process.env.TRUSTED_GH_BIN || '').trim();
+  if (!configured) return 'gh'; // legacy reporters run outside the review cone
+  if (!configured.startsWith('/') || configured.includes('\0')) {
+    throw new Error('TRUSTED_GH_BIN mancante o non assoluto');
+  }
+  return configured;
+}
+
 function gh(args, { allowFailure = false } = {}) {
   try {
-    return execFileSync('gh', args, {
+    return execFileSync(ghBin(), args, {
       encoding: 'utf8',
       maxBuffer: 50 * 1024 * 1024,
       stdio: ['ignore', 'pipe', 'inherit'],

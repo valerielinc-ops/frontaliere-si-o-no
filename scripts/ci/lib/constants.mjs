@@ -49,16 +49,14 @@ export const VITEST_SHARD_NAME_RE = /^vitest shard \d+\/\d+$/;
  * auto-merge 🔴-guard could likewise miss it. Single source for the JS-side gates
  * (auto-merge-eval.mjs).
  *
- * Requires a delimiter (`:`, em-dash `—`, or `-`) right after `Important` (+
- * optional closing bold). Without it, PR #3330 false-positived: the reviewer's
- * own negation prose "zero 🔴 Important findings (both nits are non-blocking...)"
- * matched the bare `🔴\s*\*{0,2}\s*Important` regex — "Important" there is an
- * adjective inside a sentence saying there are NONE, not the marker — so the
- * auto-merge 🔴-guard skipped a PR that actually had `## LGTM` and zero real
- * findings, and the same text would also have mis-tripped stale-pr-rescuer.yml's
- * Class B rescue. Every real marker observed (colon-delimited, or the PR #2211
- * bold/dash form) has punctuation immediately after "Important"; plain
- * continuation prose does not.
+ * A delimiter (`:`, em-dash `—`, or `-`) is required after `Important` unless
+ * the marker is anchored to a structural location (`path:L<linea>:` or
+ * `PR body:L<linea>:`). Without the location guard, PR #3330 false-positived:
+ * the reviewer's own negation prose "zero 🔴 Important findings (both nits are
+ * non-blocking...)" matched the bare marker and made the auto-merge 🔴-guard
+ * skip a PR that actually had `## LGTM` and zero real findings. The location
+ * form is the output contract documented in REVIEW.md and must remain valid
+ * even when the reviewer omits punctuation after the severity prefix.
  *
  * POSIZIONE, non solo forma (2026-09-05). Il delimitatore da solo non basta: la
  * TERZA variante della stessa classe e' arrivata su
@@ -111,13 +109,13 @@ export const VITEST_SHARD_NAME_RE = /^vitest shard \d+\/\d+$/;
  * NB: il preflight di `pr-redflag-fixer.yml` e la Classe B di
  * `stale-pr-rescuer.yml` grepano la STESSA forma in bash — un `if:`/`run:` YAML non
  * puo' importare questa regex. `grep` e' gia' orientato alla riga, quindi il pattern
- * bash e' questa `.source` senza il `\n` nella classe negata:
- * `grep -qP '(*UTF)^[^🟡🟢]*(?<!\`)🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]'`.
+ * bash e' questa `.source` senza il primo `\n` nella classe negata:
+ * `grep -qP '(*UTF)^(?:[^🟡🟢]*(?<!\`)🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]|[ \t]*(?:[-*+>][ \t]*)?(?:`[^`\n]*:L?\d+(?:[-–]\d+)?`?|(?:PR[ \t]+body|[A-Za-z0-9_.@/-]+):L?\d+(?:[-–]\d+)?):[ \t]*🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?=\s+\S))'`.
  * Le tre copie non possono piu' divergere in silenzio: il guard `mirror bash` di
  * `tests/redflag-important-marker.test.ts` deriva il pattern atteso da questa
  * `.source` e lo pretende, verbatim, in entrambi i workflow.
  */
-export const REDFLAG_IMPORTANT_RE = /^[^\n🟡🟢]*(?<!`)🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]/mu;
+export const REDFLAG_IMPORTANT_RE = /^(?:[^\n🟡🟢]*(?<!\x60)🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]|[ \t]*(?:[-*+>][ \t]*)?(?:\x60[^\x60\n]*:L?\d+(?:[-–]\d+)?\x60?|(?:PR[ \t]+body|[A-Za-z0-9_.@/-]+):L?\d+(?:[-–]\d+)?):[ \t]*🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?=\s+\S))/mu;
 
 /**
  * Identità che possono pubblicare la review Claude. Con il token GitHub App

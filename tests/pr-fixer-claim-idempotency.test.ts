@@ -340,6 +340,17 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
     expect(redflag).toContain('claim_verify_final.outputs.claim_valid');
     expect(redflag).toContain('Refresh trusted fixer policy after model');
     expect(claimSource).toContain("parseReviewsJson(raw)");
+    expect(claimSource).toContain('TRUSTED_GH_BIN');
+    expect(claimSource).not.toContain("execFileSync('gh'");
+    expect(redflag).toContain(
+      'TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_final.outputs.root }}\n          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}',
+    );
+    expect(redflag).toContain(
+      'TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_claim_final.outputs.root }}\n          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}',
+    );
+    expect(redflag).toContain(
+      'TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_post_model.outputs.root }}\n          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}',
+    );
     expect(redflag).toContain('claim_error');
     expect(redflag).toContain('MAX_ROUNDS=2');
     expect(redflag).toContain('CLAIM_ACTION: finalize');
@@ -357,6 +368,12 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
     expect(redcheck).toContain('Bootstrap trusted redcheck policy (no PR code)');
     expect(redcheck).toContain('Refresh trusted redcheck policy before finalize');
     expect(redcheck).toContain('TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_final.outputs.root }}');
+    expect(redcheck).toContain(
+      'TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy.outputs.root }}\n          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}',
+    );
+    expect(redcheck).toContain(
+      'TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_final.outputs.root }}\n          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}',
+    );
   });
 
   it('serializes the redcheck failure set without comma ambiguity', () => {

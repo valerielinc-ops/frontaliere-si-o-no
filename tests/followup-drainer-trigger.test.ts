@@ -34,7 +34,10 @@ describe('followup-drainer trigger durability', () => {
 
   it('non tronca gli scan delle PR oltre il vecchio limite 50', () => {
     for (const source of [STALE_RESCUER, RECYCLE]) {
-      expect(source).toContain('gh api --paginate "repos/$REPO/pulls?state=open&per_page=100"');
+      // stale-pr-rescuer attesta un path assoluto prima del checkout; recycle
+      // conserva il vecchio invocatore nel proprio perimetro. Entrambi devono
+      // però usare la stessa query paginata, senza il limite silenzioso a 50.
+      expect(source).toMatch(/(?:gh|"\$TRUSTED_GH_BIN") api --paginate "repos\/\$REPO\/pulls\?state=open&per_page=100"/);
       expect(source).not.toContain('gh pr list --repo "$REPO" --state open --limit 50');
     }
   });

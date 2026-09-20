@@ -25,6 +25,14 @@
 import { execFileSync } from 'node:child_process';
 import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
 
+function trustedGhBin() {
+  const value = String(process.env.TRUSTED_GH_BIN || '').trim();
+  if (!value || !value.startsWith('/') || value.includes('\0')) {
+    throw new Error('TRUSTED_GH_BIN mancante o non assoluto');
+  }
+  return value;
+}
+
 export function parseArgs(argv) {
   let repo = '';
   let pr = '';
@@ -37,7 +45,7 @@ export function parseArgs(argv) {
 
 function gh(args, { json = true, allowFail = false } = {}) {
   try {
-    const out = execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+    const out = execFileSync(trustedGhBin(), args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
     return json ? JSON.parse(out) : out;
   } catch (e) {
     if (allowFail) return json ? null : '';

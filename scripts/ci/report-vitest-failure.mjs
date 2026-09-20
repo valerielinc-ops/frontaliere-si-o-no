@@ -19,6 +19,14 @@ const MAX_MESSAGE_LENGTH = 1800;
 const MAX_BODY_LENGTH = 60_000;
 const MARKER = '<!-- vitest-failure-report -->';
 
+function trustedGhBin() {
+  const value = String(process.env.TRUSTED_GH_BIN || '').trim();
+  if (!value || !value.startsWith('/') || value.includes('\0')) {
+    throw new Error('TRUSTED_GH_BIN mancante o non assoluto');
+  }
+  return value;
+}
+
 function readJson(file) {
   try {
     return JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -114,7 +122,7 @@ export function buildComment(groups, {
 
 function gh(args) {
   try {
-    execFileSync('gh', args, {
+    execFileSync(trustedGhBin(), args, {
       encoding: 'utf8',
       timeout: 120_000,
       stdio: ['ignore', 'pipe', 'inherit'],
@@ -127,7 +135,7 @@ function gh(args) {
 
 function ghOutput(args) {
   try {
-    return execFileSync('gh', args, {
+    return execFileSync(trustedGhBin(), args, {
       encoding: 'utf8',
       timeout: 120_000,
       stdio: ['ignore', 'pipe', 'inherit'],
