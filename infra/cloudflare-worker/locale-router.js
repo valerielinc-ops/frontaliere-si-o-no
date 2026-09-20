@@ -1135,7 +1135,7 @@ async function servePushedEdgeFile(pathname) {
 // here, or an entry here for a slug the corpus still publishes. That test is the
 // mechanism: the next retired article cannot reach main still indexable.
 export const EDGE_RETIRED_PATHS = {
-  // ── 301 — slug consolidations already declared by legacyRedirectsPlugin (22 URLs).
+  // ── 301 — slug consolidations already declared by legacyRedirectsPlugin (23 URLs).
   '/articoli-frontaliere/naspi-disoccupazione-frontalieri/': '/articoli-frontaliere/naspi-ex-frontalieri-2026/',
   '/articoli-frontaliere/elezioni-comunali-ticino-2026/': '/articoli-frontaliere/elezioni-comunali-ticino/',
   '/en/cross-border-articles/ticino-elections-2026/': '/en/cross-border-articles/municipal-elections-ticino/',
@@ -1145,6 +1145,8 @@ export const EDGE_RETIRED_PATHS = {
   '/en/cross-border-articles/transit-fee-switzerland-2023/': '/en/cross-border-articles/transit-fee-switzerland-2026/',
   '/de/grenzgaenger-artikel/transitgebuehr-schweiz-2023/': '/de/grenzgaenger-artikel/transitgebuehr-schweiz-2026/',
   '/fr/articles-frontalier/frais-de-transit-suisse-2023/': '/fr/articles-frontalier/frais-de-transit-suisse-2026/',
+  // Historical unsuffixed FR URL Bing still reports — bridge added by #8730.
+  '/fr/articles-frontalier/frais-de-transit-suisse/': '/fr/articles-frontalier/frais-de-transit-suisse-2026/',
   '/en/cross-border-articles/speed-controls-ticino-2026/': '/en/cross-border-articles/ticino-speed-controls-2026/',
   '/articoli-frontaliere/frontalieri-ticino-calo-dati-2025/': '/articoli-frontaliere/frontalieri-ticino-dati-calo-fine-2025/',
   '/en/cross-border-articles/cross-border-workers-ticino-decline-2025-data/': '/en/cross-border-articles/cross-border-workers-ticino-data-decline-end-2025/',

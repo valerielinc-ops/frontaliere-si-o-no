@@ -348,11 +348,12 @@ describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => 
     // under the eight prefixes + 3 from data/article-redirects.json + 12 for
     // the nanako#356 cross-section duplicate retirements (bridge in
     // legacyRedirectsPlugin.ts, same day) + 8 for the nanako#915 / nanako#943
-    // same-section duplicate retirements of 2026-09-05.
+    // same-section duplicate retirements of 2026-09-05 + 1 for the historical
+    // unsuffixed FR transit-fee URL bridged by #8730 (Bing closed loop).
     expect({ total: actualKeys.length, gone: gone.length, moved: moved.length }).toEqual({
-      total: 81,
+      total: 82,
       gone: 24,
-      moved: 57,
+      moved: 58,
     });
   });
 });

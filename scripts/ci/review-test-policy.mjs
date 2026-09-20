@@ -6,6 +6,7 @@ import { pathToFileURL } from 'node:url';
 import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
 import {
   normalizeReviewInputRevision,
+  normalizeReviewInputRevisionInput,
   reviewHasInputRevision,
   reviewInputMarker,
 } from './lib/review-input-revision.mjs';
@@ -219,13 +220,20 @@ export const TEST_DIFF_EXCLUSIONS = [
     ['test', 'spec'].map(kind => `:(glob,exclude)**/*.${kind}.${ext}`)),
 ];
 export const isReviewTestPath = path => typeof path === 'string' && TEST_PATH_RE.test(path);
+function trustedGhBin() {
+  const value = String(process.env.TRUSTED_GH_BIN || '').trim();
+  if (!value || !value.startsWith('/') || value.includes('\0')) {
+    throw new Error('TRUSTED_GH_BIN mancante o non assoluto');
+  }
+  return value;
+}
 export function isTestOnlySnapshot(snapshot) {
   return snapshot?.complete === true && Array.isArray(snapshot.files)
     && snapshot.files.length > 0 && snapshot.files.every(isReviewTestPath);
 }
 export function gh(args, { json = true, allowFail = false, allowNotFound = false, input } = {}) {
   try {
-    const out = execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, input });
+    const out = execFileSync(trustedGhBin(), args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, input });
     return json ? JSON.parse(out) : out;
   } catch (error) {
     if (allowNotFound && isGithubNotFoundError(error)) return GITHUB_NOT_FOUND;
@@ -254,9 +262,14 @@ export function findTestOnlyApproval(
   head,
   { ghFn = gh, repo, pr, reviewRevision } = {},
 ) {
+  // `normalizeReviewInputRevisionInput`, non `normalizeReviewInputRevision`:
+  // il chiamante puo' passare l'ELENCO degli schemi di marker accettati, e un
+  // guard che pretende una stringa sola lo scarterebbe come invalido — che e'
+  // proprio il fail-closed che questo percorso non deve avere (incidente del
+  // 2026-09-19, vedi `lib/review-input-revision.mjs`).
   const revision = reviewRevision === undefined
     ? undefined
-    : normalizeReviewInputRevision(reviewRevision);
+    : normalizeReviewInputRevisionInput(reviewRevision);
   if (reviewRevision !== undefined && !revision) return null;
   const candidates = (reviews ?? []).flat().filter(review => isTerminalManagedReview(review)
     && /^(github-actions|frontaliere-automation)\[bot\]$/.test(review.user.login ?? '')

@@ -6602,6 +6602,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-grigioni-validita-proroga.title': 'Permesso L Grigioni: validità e proroga',
     'blog.article.permesso-l-grigioni-validita-proroga.excerpt': 'Il permesso L per i Grigioni ha validità fino a 1 anno, con possibilità di proroga e passaggio a permesso B sotto specifiche condizioni e vincoli per il datore di lavoro.',
     'blog.article.permesso-l-grigioni-validita-proroga.imageAlt': 'Castelli di Bellinzona, Cantone dei Grigioni, Svizzera',
+    'blog.article.apprendistato-formazione-professionale-vaud.title': 'Apprendistato e formazione professionale Vaud',
+    'blog.article.apprendistato-formazione-professionale-vaud.excerpt': 'Guida completa su come trovare un posto di tirocinio nel Canton Vaud: contratto, retribuzione apprendista e maturità professionale.',
+    'blog.article.apprendistato-formazione-professionale-vaud.imageAlt': 'Vigneti terrazzati del Canton Vaud al tramonto, con vista sul Lago di Ginevra',
 };
 
 export default blogMetaChIt;

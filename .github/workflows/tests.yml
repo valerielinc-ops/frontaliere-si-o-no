@@ -25,6 +25,75 @@ on:
     types: [opened, synchronize, reopened, ready_for_review]
   push:
     branches: [main]
+    # Su `main` questo workflow e' un segnale di salute, non il gate di merge:
+    # il required check vive sull'evento `pull_request` e sulla merge queue,
+    # che questo filtro non tocca. Misurato il 2026-09-19 su 24 h: 288 run di
+    # `tests` da push su main (45,6% delle 631 run del workflow), ~10,7 minuti
+    # l'una, e 198 dei 333 commit di quella giornata non toccano una riga di
+    # codice — sono i payload che i cron riversano in `data/`.
+    #
+    # `paths-ignore` salta SOLO quando TUTTI i path del push sono ignorati: un
+    # push che mescola un refresh di dati e un file di codice gira comunque.
+    #
+    # L'ELENCO E' ESPLICITO, e questa e' la parte che conta. `data/` non e' una
+    # cartella di soli payload: ci vivono 32 moduli TypeScript, e 37 dei suoi
+    # JSON sono importati STATICAMENTE da test e sorgenti — `canton-url-slugs`,
+    # `pharmacy-duties-ticino`, `border-wait-current`, `fuel-prices`... Un
+    # `data/**/*.json` secco sembrerebbe prudente perche' esclude le estensioni
+    # di codice, e invece spegnerebbe i test proprio sui file che quei test
+    # leggono: 9 di quei 37 sono stati toccati nei commit di soli dati della
+    # giornata misurata. Qui si ignorano soltanto le directory di churn e i file
+    # di radice che NESSUNA riga di codice importa, e
+    # `tests/tests-push-main-data-filter.test.ts` ricalcola a ogni run sia quel
+    # grafo di import sia i path che i test aprono dal disco: il giorno in cui
+    # qualcuno importa o legge uno di questi file, il test diventa rosso e
+    # l'elenco deve accorciarsi.
+    #
+    # Chiusura misurata: 94 dei 333 commit (28,2%), zero file di codice dentro.
+    #
+    # Nessun gate sui dati si indebolisce: `guard-data-integrity.yml` gira sullo
+    # stesso push a main con `paths: ['data/**', 'public/data/**']`, nessun
+    # `paths-ignore` proprio e nessun `continue-on-error` — copre per
+    # costruzione l'intero insieme ignorato qui — e `deploy.yml` continua a
+    # partire su questi stessi commit.
+    paths-ignore:
+      # Directory di churn dei cron.
+      - 'data/jobs/**/*.json'
+      - 'data/jobs-crawler-summaries/**/*.json'
+      - 'data/jobs-crawler-adapters/**/*.json'
+      - 'data/translation-cache/**/*.json'
+      - 'data/all-known-job-slugs/**/*.json'
+      - 'data/prospector/**/*.json'
+      - 'data/seo-404-compat/**/*.json'
+      - 'data/border-wait-history/**/*.json'
+      # File di radice riscritti dai cron, che nessuna riga di codice importa
+      # e nessun test legge dal disco. `data/slug-registry.json`,
+      # `data/job-popularity.json`, `data/job-popularity.meta.json`,
+      # `data/jobs-ai-cache.json` e `data/weather-snapshot.json` sono churn
+      # altrettanto rumoroso e sono deliberatamente FUORI: un test li apre per
+      # path, e ignorarli toglierebbe da `main` l'unico posto in cui quel
+      # controllo puo' ancora girare.
+      - 'data/cascade-company-skip.json'
+      - 'data/cf-5xx-history.jsonl'
+      - 'data/crawler-generation-ledger.jsonl'
+      - 'data/crawler-health.json'
+      - 'data/cron-dispatch-history.jsonl'
+      - 'data/dist-size-history.jsonl'
+      - 'data/job-canton-pins.json'
+      - 'data/jobs-keys-snapshot.json'
+      - 'data/jobs-stats-history.json'
+      - 'data/previous-slug-winners.json'
+      - 'data/quota-history.jsonl'
+      - 'data/quota-state.json'
+      - 'data/seo-health-state.json'
+      - 'data/telegram-member-count-history.jsonl'
+      - 'data/telegram-posted-jobs.json'
+      - 'data/thin-page-promotions-active.json'
+      - 'data/thin-page-promotions.jsonl'
+      - 'data/translation-observability-history.json'
+      - 'data/translation-observability-state.json'
+      - 'data/translation-stats-history.json'
+      - 'data/url-first-seen.json'
   # Required checks are evaluated on the merge queue ref, not on the PR event.
   merge_group:
 # Union of the three original workflows' `permissions:` (tests.yml itself had
@@ -604,6 +673,27 @@ jobs:
             probe="$(dirname "$probe")"
           done
           printf 'path=%s\n' "$gh_bin" >> "$GITHUB_OUTPUT"
+          git_bin="$(command -v git || true)"
+          if [ -z "$git_bin" ] || [[ "$git_bin" != /* ]] || [ ! -x "$git_bin" ]; then
+            echo "::error::Git path non assoluto o non eseguibile: ${git_bin:-missing}"
+            exit 1
+          fi
+          git_bin="$(realpath "$git_bin")"
+          case "$git_bin" in
+            "$GITHUB_WORKSPACE"/*|"$RUNNER_TEMP"/*)
+              echo "::error::Git risolve in un path controllabile dalla PR: $git_bin"
+              exit 1
+              ;;
+          esac
+          probe="$git_bin"
+          while [ "$probe" != '/' ]; do
+            if [ -w "$probe" ]; then
+              echo "::error::Git o una directory del suo path è scrivibile dal runner: $probe"
+              exit 1
+            fi
+            probe="$(dirname "$probe")"
+          done
+          printf 'git_path=%s\n' "$git_bin" >> "$GITHUB_OUTPUT"
 
       # `base.sha` è il commit di main da cui la PR è partita, non la policy che
       # main applica oggi. Se main ha AGGIUNTO un modulo del gate dopo
@@ -814,6 +904,8 @@ jobs:
         id: ledger_scope
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_policy.outcome == 'success' && !cancelled() }}
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
@@ -902,6 +994,7 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           REPO: ${{ github.repository }}
           PRN: ${{ github.event.pull_request.number }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
@@ -944,7 +1037,7 @@ jobs:
             [ -e "$WATCH_DIR/stop" ] && exit 0
             printf '%s\n' "$current" > "$WATCH_DIR/superseded-by"
             echo "$(date -u +%FT%TZ) PR #$PRN head ${HEAD_SHA:0:12} -> ${current:0:12}: cancel della run $RUN_ID"
-            gh api -X POST "repos/${REPO}/actions/runs/${RUN_ID}/cancel" --silent || echo "cancel non riuscito"
+            "$TRUSTED_GH_BIN" api -X POST "repos/${REPO}/actions/runs/${RUN_ID}/cancel" --silent || echo "cancel non riuscito"
             exit 0
           done
           WATCH_EOF
@@ -2183,6 +2276,7 @@ jobs:
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && github.event_name == 'pull_request' && steps.vitest_related.outcome == 'failure') }}
         continue-on-error: true
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
@@ -2572,6 +2666,7 @@ jobs:
         # `Read` invece di rieseguire le stesse `gh` call a ogni turno.
         env:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
@@ -2834,6 +2929,7 @@ jobs:
         id: test_only_review
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && success() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.tier.outputs.tier == 'tests-only' }}
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -2852,6 +2948,7 @@ jobs:
         # da capo; senza token App lo step fallisce e il gate resta rosso.
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && success() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.tier.outputs.tier == 'carry-forward' }}
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
@@ -3236,6 +3333,7 @@ jobs:
           # `PR body:L<n>` does not block when this contract passed.
           BODY_CONTRACT_OUTCOME: ${{ steps.body_contract.outcome }}
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}
           REVIEW_POLICY_ROOT: ${{ steps.review_policy_final.outputs.final_root }}
         run: |
           set -euo pipefail
@@ -3295,6 +3393,7 @@ jobs:
         if: ${{ always() && cancelled() }}
         continue-on-error: true
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
@@ -3302,7 +3401,7 @@ jobs:
         run: |
           set +e
           classification='cancelled_external'
-          if [ -n "${PR_NUMBER:-}" ] && current_sha="$(gh pr view "$PR_NUMBER" --repo "$REPO" --json headRefOid --jq .headRefOid 2>/dev/null)"; then
+          if [ -n "${PR_NUMBER:-}" ] && current_sha=$("$TRUSTED_GH_BIN" pr view "$PR_NUMBER" --repo "$REPO" --json headRefOid --jq .headRefOid 2>/dev/null); then
             if [ -n "$current_sha" ] && [ "$current_sha" != "$HEAD_SHA" ]; then
               classification='superseded'
             fi

@@ -1,16 +1,21 @@
 /**
  * collect-followup-batch — il collector zero-Claude che converte post-merge-followup
- * da trigger per-PR a batch schedulato. Sicurezza > velocità: il watermark si ancora
- * all'ultima run di SUCCESSO (una run fallita NON avanza il watermark → la finestra
- * è ri-coperta dalla run successiva), il filtro autore normalizza le forme login
- * `app/<name>` (gh GraphQL) / `<name>[bot]` (REST), e l'idempotenza salta le PR già
- * commentate. Qui si testano i puri (gh non viene invocato): watermark-fallback,
- * filtro autore, idempotenza, normalizzazione login, max-turns floor.
+ * da trigger per-PR a batch schedulato. Sicurezza > velocità: il lookback fisso
+ * ri-copre la finestra a ogni run, il parser rifiuta sorgenti API incomplete e il
+ * dispatch manuale resta separato dalla ricerca schedulata. Il filtro autore
+ * normalizza le forme login `app/<name>` (gh GraphQL) / `<name>[bot]` (REST), e
+ * l'idempotenza salta le PR già commentate. Qui si testano i puri (gh non viene
+ * invocato): lookback, paginazione fail-closed, filtro autore, idempotenza,
+ * normalizzazione login, max-turns floor.
  */
 import { describe, it, expect } from 'vitest';
 import {
   collectionWindowStartISO,
   positiveHours,
+  collectionMode,
+  manualDispatchPR,
+  main,
+  parseCompleteMergedPRSearch,
   parseMergedPRPages,
   parseMergedPRs,
   hasTriageComment,
@@ -136,6 +141,71 @@ describe('collector fail-closed parsing', () => {
       items: [{ ...complete.items[0], pull_request: { merged_at: 'not-a-date' } }],
       total_count: 1,
     }]))).toBeNull();
+  });
+
+  it('rejects an API error or a non-paginated response instead of treating it as an empty batch', () => {
+    expect(() => parseCompleteMergedPRSearch(null as unknown as string)).toThrow(/incompleta\/non verificabile/);
+    expect(() => parseCompleteMergedPRSearch('')).toThrow(/incompleta\/non verificabile/);
+    expect(parseMergedPRPages(JSON.stringify({
+      total_count: 0,
+      incomplete_results: false,
+      items: [],
+    }))).toBeNull();
+  });
+
+  it('accepts every page beyond the old 100-PR cap when pagination is complete', () => {
+    const items = Array.from({ length: 101 }, (_, index) => ({
+      number: 9000 + index,
+      title: `follow-up candidate ${index}`,
+      user: { login: 'valerielinc-ops' },
+      pull_request: { merged_at: '2026-09-09T08:00:00Z' },
+      head: { ref: `feature/${index}` },
+    }));
+    const pages = [
+      { total_count: items.length, incomplete_results: false, items: items.slice(0, 100) },
+      { total_count: items.length, incomplete_results: false, items: items.slice(100) },
+    ];
+    const parsed = parseCompleteMergedPRSearch(JSON.stringify(pages));
+    expect(parsed).toHaveLength(101);
+    expect(parsed.at(0)?.number).toBe(9000);
+    expect(parsed.at(-1)?.number).toBe(9100);
+  });
+});
+
+describe('separazione dispatch manuale / raccolta schedulata', () => {
+  it('routes only schedule (or local default) through the scheduled collector', () => {
+    expect(collectionMode('schedule')).toBe('scheduled');
+    expect(collectionMode('')).toBe('scheduled');
+    expect(collectionMode('workflow_dispatch')).toBe('manual');
+    expect(collectionMode('pull_request')).toBeNull();
+  });
+
+  it('keeps unsupported CI events fail-closed instead of querying as a schedule', () => {
+    expect(() => main({ eventName: 'pull_request', inputPRNumber: '8101' }))
+      .toThrow(/evento non supportato/);
+  });
+
+  it('validates the single PR number for a manual backfill', () => {
+    expect(manualDispatchPR(' 8101 ')).toBe(8101);
+    expect(() => manualDispatchPR('')).toThrow();
+    expect(() => manualDispatchPR('0')).toThrow();
+    expect(() => manualDispatchPR('not-a-pr')).toThrow();
+    expect(() => manualDispatchPR('9007199254740992')).toThrow();
+  });
+
+  it('runs the manual path without requiring GH_REPO or invoking the scheduled search', () => {
+    const outputPath = process.env.GITHUB_OUTPUT;
+    const summaryPath = process.env.GITHUB_STEP_SUMMARY;
+    delete process.env.GITHUB_OUTPUT;
+    delete process.env.GITHUB_STEP_SUMMARY;
+    try {
+      expect(() => main({ eventName: 'workflow_dispatch', inputPRNumber: '8101' })).not.toThrow();
+    } finally {
+      if (outputPath === undefined) delete process.env.GITHUB_OUTPUT;
+      else process.env.GITHUB_OUTPUT = outputPath;
+      if (summaryPath === undefined) delete process.env.GITHUB_STEP_SUMMARY;
+      else process.env.GITHUB_STEP_SUMMARY = summaryPath;
+    }
   });
 });
 

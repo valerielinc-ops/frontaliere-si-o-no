@@ -37,6 +37,7 @@ import {
   reviewHasZeroFindings,
 } from './lib/pr-review-admission.mjs';
 import {
+  acceptedReviewInputRevisionsFromBody,
   reviewHasInputRevision,
   reviewInputRevisionFromBody,
 } from './lib/review-input-revision.mjs';
@@ -124,7 +125,7 @@ function latestBotReviewMatching(reviews, predicate) {
 function isCodexFallbackReviewOnHead(review, head, reviewRevision) {
   return typeof head === 'string'
     && /^[0-9a-f]{40}$/iu.test(head)
-    && typeof reviewRevision === 'string'
+    && (typeof reviewRevision === 'string' || Array.isArray(reviewRevision))
     && review?.user?.type === 'Bot'
     && CODEX_FALLBACK_REVIEWER_RE.test(review.user.login || '')
     && isTerminalManagedReview(review)
@@ -517,7 +518,11 @@ export function evaluateNativeAutoMerge({
   }
   let reviewRevision;
   try {
-    reviewRevision = reviewInputRevisionFromBody(pr.body);
+    // L'ELENCO degli schemi accettati, non la sola revision corrente: questo
+    // guard gira da `main` e verifica marker emessi da un checkout del branch,
+    // cioe' e' esattamente il consumer che un cambio di schema mette fuori
+    // sincrono (vedi review-input-revision.mjs, incidente del 2026-09-19).
+    reviewRevision = acceptedReviewInputRevisionsFromBody(pr.body);
   } catch {
     return {
       allow: false,
@@ -1169,16 +1174,30 @@ export function bodyRecoveryBarrierDecision({
     if (marker.prNumber !== prNumber) return deny('marker recovery associato a una PR diversa');
     markers.push(marker);
   }
-  const latest = markers.at(-1);
-  if (!latest) return { allow: true, reason: 'nessun epoch recovery attivo' };
+  const currentHead = String(headSha).toLowerCase();
+  // A recovery marker belongs to the exact HEAD whose body/check run it was
+  // created to reconcile.  A later push makes every marker for a predecessor
+  // permanently irrelevant: its tests can no longer authorize this HEAD, and
+  // waiting for its old workflow_run would strand the new commit behind a
+  // dead epoch.  Keep validating every marker above (malformed or untrusted
+  // history still fails closed), then select only the current-head epochs.
+  // This also protects a current pending marker from an out-of-order stale
+  // marker appended by a concurrent recovery writer.
+  const currentMarkers = markers.filter((marker) => marker.headSha === currentHead);
+  const latest = currentMarkers.at(-1);
+  if (!latest) {
+    return {
+      allow: true,
+      reason: markers.length > 0
+        ? 'epoch recovery precedenti ignorati: HEAD corrente non ha un recovery attivo'
+        : 'nessun epoch recovery attivo',
+    };
+  }
   if (latest.bodyRevision !== String(bodyRevision).toLowerCase()) {
     return deny('body revision diversa dall’ultimo epoch recovery');
   }
   if (latest.status !== 'completed') {
     return deny(`epoch recovery ${latest.status} non completato`);
-  }
-  if (latest.headSha !== String(headSha).toLowerCase()) {
-    return deny('epoch recovery completato su una HEAD diversa');
   }
   return { allow: true, reason: 'epoch recovery completato sulla body revision e HEAD correnti' };
 }
@@ -1290,7 +1309,11 @@ function main() {
   const hadAutoMerge = pr.autoMergeRequest !== null;
   let reviewRevision;
   try {
-    reviewRevision = reviewInputRevisionFromBody(pr.body);
+    // L'ELENCO degli schemi accettati, non la sola revision corrente: questo
+    // guard gira da `main` e verifica marker emessi da un checkout del branch,
+    // cioe' e' esattamente il consumer che un cambio di schema mette fuori
+    // sincrono (vedi review-input-revision.mjs, incidente del 2026-09-19).
+    reviewRevision = acceptedReviewInputRevisionsFromBody(pr.body);
   } catch (error) {
     if (hadAutoMerge) {
       revokeExistingAutoMerge(repo, pr, 'body revision review non verificabile');

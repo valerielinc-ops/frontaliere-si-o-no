@@ -270,9 +270,20 @@ describe('stale-pr-rescuer — cablaggio', () => {
     // Lo scan e il custode pongono la stessa domanda («qualcuno spingera' un
     // commit?») e devono usare lo stesso orologio: `updated_at` risponde a una
     // domanda diversa, perche' lo rinfresca ogni review del bot.
-    expect(WORKFLOW).toContain("PUSHED_AT=$(gh api \"repos/$REPO/commits/$HEAD\" --jq '.commit.committer.date'");
+    expect(WORKFLOW).toContain("PUSHED_AT=$(\"$TRUSTED_GH_BIN\" api \"repos/$REPO/commits/$HEAD\" --jq '.commit.committer.date'");
     expect(WORKFLOW).toContain('IDLE_SINCE="${PUSHED_AT:-$UPD}"');
     expect(WORKFLOW).not.toContain('UPD_S=$(date -u -d "$UPD" +%s');
+  });
+
+  it('raggiunge il ripiego su `updated_at` quando la risposta del commit non e\' una data', () => {
+    const ageGate = WORKFLOW.slice(
+      WORKFLOW.indexOf('PUSHED_AT='),
+      WORKFLOW.indexOf('if [ $((NOW - UPD_S))'),
+    );
+    // `${PUSHED_AT:-$UPD}` non copre una risposta non vuota come `{}`: il
+    // secondo `date` deve provare davvero `updated_at` prima di `NOW`.
+    expect(ageGate).toContain('date -u -d "$UPD" +%s 2>/dev/null');
+    expect(ageGate).toContain('|| echo "$NOW")');
   });
 
   it('sceglie la review del bot con il fencing sulla revisione del body', () => {
@@ -289,5 +300,9 @@ describe('stale-pr-rescuer — cablaggio', () => {
     expect(WORKFLOW).toMatch(/sparse-checkout: \|\n(?:\s+\S+\n)*\s+scripts\/ci\/orphan-pr-custodian\.mjs\n/);
     expect(WORKFLOW).toContain('scripts/ci/lib/constants.mjs');
     expect(WORKFLOW).toContain('run: node scripts/ci/orphan-pr-custodian.mjs');
+    expect(WORKFLOW).toContain('TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}');
+    const src = readFileSync(new URL('../scripts/ci/orphan-pr-custodian.mjs', import.meta.url), 'utf8');
+    expect(src).toContain('TRUSTED_GH_BIN');
+    expect(src).not.toContain("execFileSync('gh'");
   });
 });

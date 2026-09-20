@@ -69,7 +69,7 @@ const DIRECT_WRITE_BASELINE: Record<string, number> = {
   'assemble-jobs-dataset.mjs': 2,
   'audit-jobs-source-match.mjs': 1,
   'backfill-orphan-slugs-from-registry.mjs': 4,
-  'backfill-prev-slugs-from-loss-events.mjs': 5,
+  'backfill-prev-slugs-from-loss-events.mjs': 4,
   'backfill-renamed-slugs-from-history.mjs': 2,
   'backfill-slug-aliases.mjs': 9,
   'build-fiscal-municipalities.mjs': 1,
@@ -82,10 +82,18 @@ const DIRECT_WRITE_BASELINE: Record<string, number> = {
   'lib/clinica-hildebrand-job-parser.mjs': 1,
   'lib/clinica-varini-job-parser.mjs': 1,
   'lib/oscam-castelrotto-job-parser.mjs': 1,
+  // Pharmacy directory (#8509), not a job slice: the slug is a pharmacy page
+  // id, outside the previousSlugsByLocale contract (same case as
+  // build-fiscal-municipalities.mjs).
+  'lib/pharmacy-border-parser.mjs': 1,
   'lib/reha-andeer-job-parser.mjs': 1,
   'lib/shared-jobs-crawler.mjs': 5,
   'lib/therapiezentrum-meggen-job-parser.mjs': 1,
   'migrate-collapsed-job-ids.mjs': 2,
+  // One-shot migration that journals every retired slug through
+  // addPreviousSlugForLocale() before writing the new active slug — the
+  // active write itself has no helper (same shape as regenerate-slugs-by-locale).
+  'migrate-prospected-slugs.mjs': 2,
   'migrate-previous-slugs-to-locale-aware.mjs': 6,
   'quality-alerts.mjs': 1,
   'reconcile-job-slugs.mjs': 4,

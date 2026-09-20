@@ -36,18 +36,27 @@ import { findDuplicateTopLevelNames } from './duplicateDeclarations.mjs';
 
 const CHECKED_PATH_RE = /^build-plugins\/(shared\/)?[^/]+\.m?ts$/;
 
+function trustedGitBin() {
+  const configured = String(process.env.TRUSTED_GIT_BIN || '').trim();
+  if (!configured) return '/usr/bin/git'; // legacy auto-merge debug outside the review workflow
+  if (!configured.startsWith('/') || configured.includes('\0')) {
+    throw new Error('TRUSTED_GIT_BIN mancante o non assoluto');
+  }
+  return configured;
+}
+
 /** True for the same file set `tests/build-plugins-no-duplicate-declarations.test.ts` checks. */
 export function isMergePreviewCheckedPath(path) {
   return CHECKED_PATH_RE.test(path) && !path.endsWith('.d.ts');
 }
 
 function git(cwd, args) {
-  return execFileSync('git', args, { cwd, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+  return execFileSync(trustedGitBin(), args, { cwd, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
 }
 
 function fetchShaQuiet(cwd, sha) {
   try {
-    execFileSync('git', ['fetch', '--depth=1', '--quiet', 'origin', sha], { cwd, stdio: 'ignore' });
+    execFileSync(trustedGitBin(), ['fetch', '--depth=1', '--quiet', 'origin', sha], { cwd, stdio: 'ignore' });
     return true;
   } catch {
     return false;

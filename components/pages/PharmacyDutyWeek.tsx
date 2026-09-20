@@ -135,7 +135,7 @@ export default function PharmacyDutyWeek({ page }: { page: PharmacyPath }) {
       <h1 className="font-display text-3xl font-bold tracking-tight text-heading sm:text-4xl">{copy.title(model.weekStart)}</h1>
       <p className="max-w-3xl text-base leading-7 text-muted">{copy.lede}</p>
       <p className="text-sm leading-6 text-body"><strong>{copy.interval}:</strong> {dutyWeekRange(model.weekStart, model.weekEnd, locale)}<br /><strong>{copy.fetched}:</strong> {formatDate(model.fetchedAt, locale)}<br /><strong>{copy.source}:</strong> <a className="text-link underline" href={model.sourceUrl || DUTY_SOURCE} rel="nofollow noopener">{model.sourceUrl || DUTY_SOURCE}</a></p>
-      {model.indexable ? <p className="rounded-xl border border-emerald-300 bg-emerald-50 p-4 text-sm leading-6 text-emerald-900" role="status">{copy.coverage}</p> : <aside className="rounded-xl border border-amber-300 bg-amber-50 p-4 text-sm leading-6 text-amber-950" role="status"><strong>{copy.unavailable}</strong><p className="mt-1">{model.reason}</p></aside>}
+      {model.indexable ? <p className="rounded-xl border border-success-border bg-success-subtle p-4 text-sm leading-6 text-success" role="status">{copy.coverage}</p> : <aside className="rounded-xl border border-warning-border bg-warning-subtle p-4 text-sm leading-6 text-warning" role="status"><strong>{copy.unavailable}</strong><p className="mt-1">{model.reason}</p></aside>}
     </header>
 
     <div className="grid gap-5 md:grid-cols-2">

@@ -18,6 +18,7 @@ import { REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';
 import {
   normalizeReviewInputRevision,
   reviewHasInputRevision,
+  acceptedReviewInputRevisionsFromPullRequest,
   reviewInputRevisionFromPullRequest,
 } from './lib/review-input-revision.mjs';
 import { parseReviewsJson } from './lib/pr-review-admission.mjs';
@@ -325,8 +326,16 @@ export function claimStatusFromOutcome({ proceed, actionOutcome = '', claudeOutc
   return 'completed';
 }
 
+function trustedGhBin() {
+  const value = String(process.env.TRUSTED_GH_BIN || '').trim();
+  if (!value || !value.startsWith('/') || value.includes('\0')) {
+    throw new Error('TRUSTED_GH_BIN mancante o non assoluto');
+  }
+  return value;
+}
+
 function gh(args) {
-  return execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+  return execFileSync(trustedGhBin(), args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
 }
 
 function readComments(repo, prNumber) {
@@ -497,7 +506,11 @@ export function validateRedflagClaimSnapshot({ pr, reviews, claim } = {}) {
   if (!['APPROVED', 'COMMENTED'].includes(String(current.state || '').toUpperCase())) {
     return deny('review del claim non terminale');
   }
-  if (!reviewHasInputRevision(current.body, currentRevision)) {
+  // Il confronto sopra e' revision-contro-revision, entrambe calcolate qui:
+  // resta identita' stretta. Questo invece e' marker-contro-body, e il marker
+  // l'ha scritto un altro checkout: accetta anche gli schemi ritirati (vedi
+  // `lib/review-input-revision.mjs`, incidente del 2026-09-19).
+  if (!reviewHasInputRevision(current.body, acceptedReviewInputRevisionsFromPullRequest(pr))) {
     return deny('review del claim senza marker body revision corrente');
   }
   const fingerprint = redflagFindingsFingerprint(current.body);

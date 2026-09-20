@@ -33,7 +33,8 @@ import {
   parseReviewPages,
 } from './lib/pr-review-admission.mjs';
 import {
-  normalizeReviewInputRevision,
+  acceptedReviewInputRevisionsFromPullRequest,
+  normalizeReviewInputRevisionInput,
   reviewHasInputRevision,
   reviewInputRevisionFromPullRequest,
 } from './lib/review-input-revision.mjs';
@@ -57,8 +58,8 @@ export const FOLLOWUP_MARKER = 'OUT_OF_SCOPE_REVIEW_FOLLOWUP';
 const MAX_FOLLOWUP_BODY_LEN = 60_000;
 const ZERO_IMPORTANT_RE = /^(?:0|none|nessuno)\s*$/iu;
 const NEGATIVE_IMPORTANT_SUMMARY_PREFIX_RE = /^\s*(?:[-*+>]\s*)?(?:nessun[oa]?|no)\s+$/iu;
-const IMPORTANT_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]\s*/u;
-const FINDING_MARKER_RE = /🔴|🟡\s*\*{0,2}\s*Nit\s*\*{0,2}\s*[:—-]|🟣\s*\*{0,2}\s*Pre-existing\s*\*{0,2}\s*[:—-]|❓\s*q\s*:/gu;
+const IMPORTANT_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?:[:—-]\s*|(?=\s+\S))/u;
+const FINDING_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?:[:—-]|(?=\s+\S))|🔴|🟡\s*\*{0,2}\s*Nit\s*\*{0,2}\s*[:—-]|🟣\s*\*{0,2}\s*Pre-existing\s*\*{0,2}\s*[:—-]|❓\s*q\s*:/gu;
 const QUESTION_MARKER_RE = /❓\s*q\s*:/iu;
 // A question is disposable only with the explicit review suffix used by the
 // contract. Words such as "deferred" inside the question itself stay open.
@@ -659,6 +660,18 @@ function gh(args, { json = true, allowFail = false } = {}) {
   }
 }
 
+function trustedGitBin() {
+  const configured = String(process.env.TRUSTED_GIT_BIN || '').trim();
+  // The review workflow attests and passes this path before any PR checkout
+  // can alter PATH. Keep the local/test fallback for pure helpers imported
+  // outside Actions; the authoritative workflow always supplies the variable.
+  const value = configured || '/usr/bin/git';
+  if (!isAbsolute(value) || value.includes('\0')) {
+    throw new Error('TRUSTED_GIT_BIN mancante o non assoluto');
+  }
+  return value;
+}
+
 function reviewerList(raw) {
   if (!Array.isArray(raw)) return [];
   return raw.flatMap((page) => Array.isArray(page) ? page : [page]);
@@ -1043,7 +1056,7 @@ function priorManagedReview(reviews, latest) {
 function latestReviewer(reviews, { reviewRevision } = {}) {
   const revision = reviewRevision === undefined
     ? undefined
-    : normalizeReviewInputRevision(reviewRevision);
+    : normalizeReviewInputRevisionInput(reviewRevision);
   const bots = reviewerList(reviews).filter((review) =>
     review?.user?.type === 'Bot'
       && REVIEWER_LOGIN_RE.test(review.user.login || '')
@@ -1056,7 +1069,7 @@ function latestReviewer(reviews, { reviewRevision } = {}) {
 function latestCodexReviewer(reviews, headSha, { reviewRevision } = {}) {
   const revision = reviewRevision === undefined
     ? undefined
-    : normalizeReviewInputRevision(reviewRevision);
+    : normalizeReviewInputRevisionInput(reviewRevision);
   const list = reviewerList(reviews);
   for (let index = list.length - 1; index >= 0; index -= 1) {
     const review = list[index];
@@ -1096,7 +1109,7 @@ function localTreePaths(sha) {
   for (const ref of [/^[0-9a-f]{40}$/iu.test(String(sha || '')) ? String(sha) : null]) {
     if (!ref) continue;
     try {
-      const output = execFileSync('git', ['ls-tree', '-r', '--name-only', ref], {
+      const output = execFileSync(trustedGitBin(), ['ls-tree', '-r', '--name-only', ref], {
         encoding: 'utf8',
         maxBuffer: 64 * 1024 * 1024,
         stdio: ['ignore', 'pipe', 'ignore'],
@@ -1170,7 +1183,7 @@ function gitPathIsIgnored(path) {
   if (!ignoredPathCache.has(wanted)) {
     let ignored = false;
     try {
-      execFileSync('git', ['check-ignore', '-q', '--', wanted], { stdio: 'ignore' });
+      execFileSync(trustedGitBin(), ['check-ignore', '-q', '--', wanted], { stdio: 'ignore' });
       ignored = true;
     } catch {
       ignored = false;
@@ -1202,7 +1215,7 @@ function changedLinesBetween(fromSha, toSha) {
   if (!/^[0-9a-f]{40}$/iu.test(String(fromSha || ''))
       || !/^[0-9a-f]{40}$/iu.test(String(toSha || ''))) return null;
   try {
-    const patch = execFileSync('git', ['diff', '--unified=0', '--no-color', `${fromSha}..${toSha}`], {
+    const patch = execFileSync(trustedGitBin(), ['diff', '--unified=0', '--no-color', `${fromSha}..${toSha}`], {
       encoding: 'utf8',
       maxBuffer: 64 * 1024 * 1024,
     });
@@ -1216,7 +1229,7 @@ function changedPathsBetween(fromSha, toSha) {
   if (!/^[0-9a-f]{40}$/iu.test(String(fromSha || ''))
       || !/^[0-9a-f]{40}$/iu.test(String(toSha || ''))) return null;
   try {
-    const output = execFileSync('git', ['diff', '--name-only', `${fromSha}...${toSha}`], {
+    const output = execFileSync(trustedGitBin(), ['diff', '--name-only', `${fromSha}...${toSha}`], {
       encoding: 'utf8',
       maxBuffer: 4 * 1024 * 1024,
     });
@@ -1518,7 +1531,7 @@ export async function runReviewGate({
 
   const expectedRevision = reviewRevision === undefined
     ? undefined
-    : normalizeReviewInputRevision(reviewRevision);
+    : normalizeReviewInputRevisionInput(reviewRevision);
   if (reviewRevision !== undefined && !expectedRevision) {
     return { approved: false, reason: 'review input revision assente o non verificabile' };
   }
@@ -1706,7 +1719,10 @@ async function main() {
   const pr = process.env.PR_NUMBER || '';
   const headSha = process.env.HEAD_SHA || '';
   const tree = fetchRepositoryHeadPaths(repo, pr);
-  const reviewRevision = reviewInputRevisionFromPullRequest(gh([
+  // L'ELENCO degli schemi accettati: questo gate riusa anche review emesse da
+  // una run precedente, quindi da codice piu' vecchio di quello che sta
+  // girando ora (vedi `lib/review-input-revision.mjs`, 2026-09-19).
+  const reviewRevision = acceptedReviewInputRevisionsFromPullRequest(gh([
     'api', `repos/${repo}/pulls/${pr}`,
   ]));
   const result = await runReviewGate({
