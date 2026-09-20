@@ -72,6 +72,11 @@ export function missingTypecheckSparsePaths(text, file = 'workflow.yml') {
       if (typeof step?.uses !== 'string' || !step.uses.startsWith('actions/checkout@')) continue;
       const sparse = step?.with?.['sparse-checkout'];
       if (sparse === undefined) continue;
+      // A checkout with `path:` lands in a subdirectory (e.g. tests.yml's
+      // trusted `native-automerge-main` source): tsc never runs there, so its
+      // allowlist is not the typecheck profile.
+      const checkoutPath = String(step?.with?.path ?? '').replace(/^\.\/?/, '').replace(/\/+$/, '');
+      if (checkoutPath !== '') continue;
       for (const target of TYPECHECK_REQUIRED_SPARSE_PATHS) {
         if (!sparseIncludesPath(sparse, target.slice(1))) missing.push(`${file}:${jobId}:${target}`);
       }

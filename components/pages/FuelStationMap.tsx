@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { MapContainer, TileLayer, CircleMarker, Popup, Tooltip, useMap } from 'react-leaflet';
+import { CircleMarker, Popup, Tooltip, useMap } from 'react-leaflet';
 import { ExternalLink, LocateFixed, MapPin, RefreshCw, Search } from 'lucide-react';
 import {
   FUEL_TYPE_LABEL,
@@ -17,7 +17,7 @@ import {
   type FuelStationSwitzerland,
 } from '@/services/fuelPricesService';
 import { MAP_COLORS } from '@/services/mapColors';
-import 'leaflet/dist/leaflet.css';
+import MapCanvas from '@/components/shared/MapCanvas';
 
 export interface FuelMapStation {
   id: string;
@@ -368,53 +368,49 @@ export default function FuelStationMap({ payload }: { payload: FuelStationMapPay
               {isRefreshing ? copy.loading : refreshFailed ? copy.fallback : `${copy.live} · ${visibleStations.length} ${copy.stations}`}
             </div>
           </div>
-          <div className="fuel-map-canvas">
-            <MapContainer
-              center={TICINO_CENTER}
-              zoom={10}
-              bounds={bounds}
-              scrollWheelZoom
-              className="fuel-map-leaflet"
-              aria-label={`${fuelLabel} — ${copy.listTitle}`}
-            >
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-              <MapViewport stations={visibleStations} focused={focused} />
-              {visibleStations.map((station) => {
-                const price = priceForMap(station, payload.fuel);
-                const isFocused = station.id === focusedId;
-                const color = priceColor(price, minPrice, maxPrice);
-                return (
-                  <CircleMarker
-                    key={station.id}
-                    center={[station.lat, station.lng]}
-                    radius={isFocused ? 11 : 8}
-                    eventHandlers={{ click: () => setFocusedId(station.id) }}
-                    pathOptions={{ fillColor: color, color: isFocused ? MAP_COLORS.accent : MAP_COLORS.primaryStroke, weight: isFocused ? 4 : 2, fillOpacity: 0.92 }}
+          <MapCanvas
+            center={TICINO_CENTER}
+            zoom={10}
+            bounds={bounds}
+            scrollWheelZoom
+            height="500px"
+            minHeight={500}
+            className="fuel-map-canvas fuel-map-leaflet"
+            ariaLabel={`${fuelLabel} — ${copy.listTitle}`}
+          >
+            <MapViewport stations={visibleStations} focused={focused} />
+            {visibleStations.map((station) => {
+              const price = priceForMap(station, payload.fuel);
+              const isFocused = station.id === focusedId;
+              const color = priceColor(price, minPrice, maxPrice);
+              return (
+                <CircleMarker
+                  key={station.id}
+                  center={[station.lat, station.lng]}
+                  radius={isFocused ? 11 : 8}
+                  eventHandlers={{ click: () => setFocusedId(station.id) }}
+                  pathOptions={{ fillColor: color, color: isFocused ? MAP_COLORS.accent : MAP_COLORS.primaryStroke, weight: isFocused ? 4 : 2, fillOpacity: 0.92 }}
+                >
+                  <Tooltip
+                    direction="top"
+                    offset={[0, -8]}
+                    opacity={0.96}
+                    permanent={isFocused || (!focusedId && station.id === cheapest?.id)}
                   >
-                    <Tooltip
-                      direction="top"
-                      offset={[0, -8]}
-                      opacity={0.96}
-                      permanent={isFocused || (!focusedId && station.id === cheapest?.id)}
-                    >
-                      {formatPrice(price, payload.locale, copy.fuelUnit)}
-                    </Tooltip>
-                    <Popup>
-                      <div className="fuel-map-popup">
-                        <strong>{station.brand && station.brand !== station.name ? `${station.brand} · ` : ''}{station.name}</strong>
-                        <span>{station.address}</span>
-                        <b>{formatPrice(price, payload.locale, copy.fuelUnit)}</b>
-                        <a href={station.href}>{copy.openDetail} <ExternalLink size={12} aria-hidden="true" /></a>
-                      </div>
-                    </Popup>
-                  </CircleMarker>
-                );
-              })}
-            </MapContainer>
-          </div>
+                    {formatPrice(price, payload.locale, copy.fuelUnit)}
+                  </Tooltip>
+                  <Popup>
+                    <div className="fuel-map-popup">
+                      <strong>{station.brand && station.brand !== station.name ? `${station.brand} · ` : ''}{station.name}</strong>
+                      <span>{station.address}</span>
+                      <b>{formatPrice(price, payload.locale, copy.fuelUnit)}</b>
+                      <a href={station.href}>{copy.openDetail} <ExternalLink size={12} aria-hidden="true" /></a>
+                    </div>
+                  </Popup>
+                </CircleMarker>
+              );
+            })}
+          </MapCanvas>
           <div className="fuel-map-legend" aria-label={copy.cheapest}>
             <span><i style={{ backgroundColor: MAP_COLORS.success }} /> {copy.cheapest}</span>
             <span><i style={{ backgroundColor: MAP_COLORS.warning }} /> {fuelLabel}</span>

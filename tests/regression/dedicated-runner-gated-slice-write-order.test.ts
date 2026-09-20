@@ -68,6 +68,23 @@ function findDirectDedicatedRunners(): string[] {
     .sort();
 }
 
+// A runner may inject the gated writer for testability instead of calling it
+// by name: `writeVerified = writeJobsCrawlerSliceVerified` as a default
+// parameter, then `await writeVerified(...)` (update-fust-jobs.mjs since #6762).
+// The production path still runs the gated write, so the invariant holds when
+// the injected alias itself is called after runDedicatedBaseCrawler. Only an
+// alias bound DIRECTLY to a gated writer counts — any other injected writer
+// stays invisible and keeps the test red.
+const GATED_ALIAS_RE = /\b([A-Za-z_$][\w$]*)\s*=\s*writeJobsCrawlerSlice(?:Verified)?\s*[,;)\n]/g;
+
+function lastGatedWriteLine(source: string): number {
+  let last = lastMatchLine(source, GATED_WRITE_RE);
+  for (const [, alias] of source.matchAll(GATED_ALIAS_RE)) {
+    last = Math.max(last, lastMatchLine(source, new RegExp(`(?<![\\w$.])${alias.replace(/\$/g, '\\$')}\\s*\\(`)));
+  }
+  return last;
+}
+
 function firstCallLine(source: string, name: string): number {
   const lines = source.split('\n');
   const re = CALL_RE(name);
@@ -96,7 +113,7 @@ describe('dedicated-runner gated-slice write order (#3089 item 1)', () => {
       const runLine = firstCallLine(source, 'runDedicatedBaseCrawler');
       expect(runLine, `${file}: expected a runDedicatedBaseCrawler(...) call site`).toBeGreaterThanOrEqual(0);
 
-      const writeLine = lastMatchLine(source, GATED_WRITE_RE);
+      const writeLine = lastGatedWriteLine(source);
       expect(
         writeLine,
         `${file}: expected a writeJobsCrawlerSlice(...) / writeJobsCrawlerSliceVerified(...) call — without it, the raw ` +

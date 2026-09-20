@@ -542,6 +542,7 @@ const deCore: Record<string, string> = {
  'traffic.realData': 'Echtzeitdaten von Google Maps (1h Cache)',
  'traffic.simulatedData': 'Simulierte Daten — Stoßzeiten: 7-9 (IT→CH), 17-19 (CH→IT)',
  'traffic.navigateHere': 'Hierhin navigieren',
+ 'traffic.notAvailable': 'k. A.',
  'traffic.openGoogleMaps': 'In Google Maps öffnen',
  'traffic.tipsTitle': 'Tipps zur Stauvermeidung',
 

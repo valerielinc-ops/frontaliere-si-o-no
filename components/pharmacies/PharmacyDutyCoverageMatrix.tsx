@@ -116,7 +116,7 @@ export default function PharmacyDutyCoverageMatrix({
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
                 <h4 className="font-display text-lg font-bold text-heading">{province.name}</h4>
-                <p className={`text-xs font-semibold uppercase tracking-wide ${province.publishable ? 'text-emerald-700' : 'text-amber-800'}`}>{province.publishable ? copy.italyPublishedLabel : copy.italyNotPublishedLabel}</p>
+                <p className={`text-xs font-semibold uppercase tracking-wide ${province.publishable ? 'text-success' : 'text-warning'}`}>{province.publishable ? copy.italyPublishedLabel : copy.italyNotPublishedLabel}</p>
               </div>
               {province.sourceUrl && <a className="text-sm font-semibold text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={province.sourceUrl} rel="nofollow noopener">{copy.openOfficialSource}<span aria-hidden="true"> ↗</span></a>}
             </div>
