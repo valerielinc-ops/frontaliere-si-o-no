@@ -13,7 +13,10 @@
  */
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { testsRunInFlightOnHead } from '../scripts/ci/pr-autorebase.mjs';
+import {
+  reviewInProgressForChecks,
+  testsRunInFlightOnHead,
+} from '../scripts/ci/pr-autorebase.mjs';
 import { reviewStepIsInFlight } from '../scripts/ci/lib/vitestCheck.mjs';
 
 const HEAD = 'a'.repeat(40);
@@ -40,9 +43,48 @@ describe('testsRunInFlightOnHead (#6037 autorebase↔tests livelock guard)', () 
     expect(AUTOREBASE_SOURCE).toContain('actions/jobs/');
     expect(AUTOREBASE_SOURCE).toContain('reviewStepIsInFlight');
     expect(AUTOREBASE_SOURCE).toContain('ready: (response) => vitestJobIsConcluded(response)');
-    expect(AUTOREBASE_SOURCE).toContain('if (!jobId) return true;');
+    expect(AUTOREBASE_SOURCE).toContain('if (!jobId || typeof readJob !== \'function\') return true;');
     expect(AUTOREBASE_SOURCE).toContain('if (!vitestJobIsConcluded(job) || !Array.isArray(job.steps) || job.steps.length === 0) return true;');
     expect(AUTOREBASE_SOURCE).not.toContain('c.name == "review"');
+  });
+
+  it('contract: review attiva dentro vitest → deferisce il rebase', () => {
+    const jobs = new Map([
+      ['123', {
+        status: 'completed',
+        conclusion: 'failure',
+        steps: [{ name: 'Run Codex Luna Max review', status: 'in_progress' }],
+      }],
+    ]);
+    expect(reviewInProgressForChecks([
+      {
+        name: 'vitest (unit + integration)',
+        status: 'in_progress',
+        details_url: 'https://github.com/example/repo/runs/10/job/123',
+      },
+      // A legacy standalone check must not be the source of truth.
+      { name: 'review', status: 'in_progress' },
+    ], (jobId) => jobs.get(jobId), { attempts: 1 })).toBe(true);
+  });
+
+  it('contract: review conclusa dentro vitest → non deferisce il rebase', () => {
+    expect(reviewInProgressForChecks([
+      {
+        name: 'vitest (unit + integration)',
+        status: 'completed',
+        details_url: 'https://github.com/example/repo/runs/10/job/123',
+      },
+    ], () => ({
+      status: 'completed',
+      conclusion: 'failure',
+      steps: [{ name: 'Run Codex Luna Max review', status: 'completed' }],
+    }), { attempts: 1 })).toBe(false);
+  });
+
+  it('contract: check vitest attivo senza job → fail-closed, niente rebase', () => {
+    expect(reviewInProgressForChecks([
+      { name: 'vitest (unit + integration)', status: 'in_progress' },
+    ], () => undefined, { attempts: 1 })).toBe(true);
   });
 
   it('REGRESSIONE #6037: run in_progress sulla head ATTUALE → blocca (il push lo cancellerebbe)', () => {
