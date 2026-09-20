@@ -421,12 +421,12 @@ jobs:
       # Only runs on the daily cron — no point retrying the same 30 failed titles
       # every run. New jobs from crawlers will have source-copy titles that 2d fixes.
       - name: "Phase 2d: Fix untranslated titles (free cascade)"
-        if: inputs.skip_translate != true && inputs.dry_run != true
+        if: github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
         # Self-hosted LibreTranslate removed (see note above the steps) — was 100% dead.
         run: node scripts/fix-untranslated-titles.mjs
 
       - name: Commit title fixes
-        if: inputs.skip_translate != true && inputs.dry_run != true
+        if: github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
         env:
           SKIP_AI_TRANSLATION: '1'
         run: bash scripts/lib/git-commit-data.sh --slice-only "🔤 Fix untranslated titles (free cascade)" data/translation-title-fix-attempts.json
