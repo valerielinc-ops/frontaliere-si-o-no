@@ -97,11 +97,20 @@ jobs:
           mkdir -p data/loop-fleet/ledger
           git checkout FETCH_HEAD -- data/loop-fleet/ledger
           echo "::notice::overlaid data/loop-fleet/ledger from $LEDGER_BRANCH"
-      - name: Setup Node.js
-        uses: actions/setup-node@v5
+      # Secondo (e ultimo) percorso del repo che gira su un ref di PR con una
+      # cache npm: `pull_request` qui sopra è filtrato su `.github/workflows/**`
+      # e `.github/actions/**`, quindi ogni PR che tocca un workflow faceva
+      # scrivere a `setup-node` una copia da ~487 MB nello scope di
+      # `refs/pull/<n>/merge`. Stessa classe di difetto di `ci-npm-setup`, e
+      # quindi stessa correzione: si riusa la composite invece di duplicarne la
+      # logica restore/save qui (AGENTS.md #6 — una costante duplicata in due
+      # file è drift garantito). `npm-ci-args` esiste esattamente per questo
+      # chiamante: l'install stretto con `--ignore-scripts` che lo step
+      # «Install audit dependencies» faceva più sotto.
+      - name: Setup Node.js + npm ci (install stretto, cache npm salvata solo su main)
+        uses: ./.github/actions/ci-npm-setup
         with:
-          node-version: '22'
-          cache: npm
+          npm-ci-args: '--ignore-scripts'
 
       - name: Start loop operational telemetry
         run: |
@@ -111,9 +120,6 @@ jobs:
             echo 'LOOP_FLEET_COLLISIONS=0'
             echo 'LOOP_FLEET_GATE_BYPASS=false'
           } >> "$GITHUB_ENV"
-
-      - name: Install audit dependencies
-        run: npm ci --ignore-scripts
 
       - name: Audit all workflows and extraction contracts
         id: audit
