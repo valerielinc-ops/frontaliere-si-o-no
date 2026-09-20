@@ -4,20 +4,20 @@
   "generatorSha256": "4cd338d9390629f287333d43ca9da2c9489b063437d68dc448e13a1c3d251635",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "94b9b93dcec6a39d69c4579e8a8df07eddef7e23",
+  "sourceCommit": "4b2c7f0d241f2c6b43df56c3cc0473df02f2eb4f",
   "artifactObservation": {
     "generatorSha256": "4cd338d9390629f287333d43ca9da2c9489b063437d68dc448e13a1c3d251635",
     "sourceRef": "main",
-    "sourceCommit": "94b9b93dcec6a39d69c4579e8a8df07eddef7e23"
+    "sourceCommit": "4b2c7f0d241f2c6b43df56c3cc0473df02f2eb4f"
   },
   "groupCount": 23,
   "artifactCount": 24,
   "observerCount": 7,
-  "crawlerCount": 606,
+  "crawlerCount": 616,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:341f84102e1cdc38ec94a692227eec1a34f30e8bc4075ba678657827dd11cdd0",
+    "rosterDigest": "sha256:c339d443860b13d0d8734627bd2afa86740cc1e8f74f19586280491b86d3609f",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -63,6 +63,7 @@
     "scripts/rollup-translation-observability.mjs",
     "scripts/scatter-jobs-to-slices.mjs",
     "scripts/translation-shadow-preflight-v2.mjs",
+    "scripts/update-1a-hunkeler-jobs.mjs",
     "scripts/update-aarreha-schinznach-jobs.mjs",
     "scripts/update-abbott-jobs.mjs",
     "scripts/update-abraxas-jobs.mjs",
@@ -83,6 +84,7 @@
     "scripts/update-apg-sga-jobs.mjs",
     "scripts/update-apleona-schweiz-ag-jobs.mjs",
     "scripts/update-apple-retail-switzerland-jobs.mjs",
+    "scripts/update-apply-jobs.mjs",
     "scripts/update-ardentis-jobs.mjs",
     "scripts/update-ardian-jobs.mjs",
     "scripts/update-arosa-lenzerheide-jobs.mjs",
@@ -90,6 +92,7 @@
     "scripts/update-artificialy-jobs.mjs",
     "scripts/update-arxada-jobs.mjs",
     "scripts/update-asana-spital-jobs.mjs",
+    "scripts/update-atec-personal-jobs.mjs",
     "scripts/update-audemars-piguet-jobs.mjs",
     "scripts/update-axa-jobs.mjs",
     "scripts/update-bachem-jobs.mjs",
@@ -105,12 +108,14 @@
     "scripts/update-beekeeper-jobs.mjs",
     "scripts/update-belimo-jobs.mjs",
     "scripts/update-benteler-jobs.mjs",
+    "scripts/update-benu-jobs.mjs",
     "scripts/update-berit-klinik-jobs.mjs",
     "scripts/update-berner-klinik-montana-jobs.mjs",
     "scripts/update-berner-montage-jobs.mjs",
     "scripts/update-bethesda-spital-jobs.mjs",
     "scripts/update-bitfinex-jobs.mjs",
     "scripts/update-bkw-jobs.mjs",
+    "scripts/update-blatters-hotel-jobs.mjs",
     "scripts/update-bls-jobs.mjs",
     "scripts/update-bms-building-jobs.mjs",
     "scripts/update-bobst-jobs.mjs",
@@ -265,6 +270,7 @@
     "scripts/update-igroove-jobs.mjs",
     "scripts/update-igs-bern-jobs.mjs",
     "scripts/update-ikea-jobs.mjs",
+    "scripts/update-im-bethesda-spital-jobs.mjs",
     "scripts/update-imad-jobs.mjs",
     "scripts/update-imerys-jobs.mjs",
     "scripts/update-implenia-jobs.mjs",
@@ -354,7 +360,9 @@
     "scripts/update-molecular-partners-jobs.mjs",
     "scripts/update-moncucco-jobs.mjs",
     "scripts/update-msc-cargo-jobs.mjs",
+    "scripts/update-mueller-steinmaur-jobs.mjs",
     "scripts/update-nant-jobs.mjs",
+    "scripts/update-neoproconseils-jobs.mjs",
     "scripts/update-nestle-jobs.mjs",
     "scripts/update-new-yorker-jobs.mjs",
     "scripts/update-nord-anglia-jobs.mjs",
@@ -376,6 +384,7 @@
     "scripts/update-pallas-kliniken-jobs.mjs",
     "scripts/update-palliativklinik-jobs.mjs",
     "scripts/update-paraplegie-jobs.mjs",
+    "scripts/update-parmag-jobs.mjs",
     "scripts/update-patek-philippe-jobs.mjs",
     "scripts/update-pbl-jobs.mjs",
     "scripts/update-pdag-jobs.mjs",
@@ -428,6 +437,7 @@
     "scripts/update-scandit-jobs.mjs",
     "scripts/update-schindler-jobs.mjs",
     "scripts/update-schulthess-klinik-jobs.mjs",
+    "scripts/update-schweizerhof-flims-jobs.mjs",
     "scripts/update-see-spital-jobs.mjs",
     "scripts/update-selecta-jobs.mjs",
     "scripts/update-senevita-jobs.mjs",
@@ -659,8 +669,8 @@
     {
       "file": "crawler-group-03.yml",
       "sourceLogic": "crawler-group-03-logic.yml",
-      "sourceSha256": "116ad0de4cf4f87e0ff74d82ff2e9e7aa1aa749e7757ed37ec3c68d6773b2fe7",
-      "artifactSha256": "aa7e8500dc1a16a1ebab8e67e07103967951fd8d8fa6041447671d156d5b3a03",
+      "sourceSha256": "61767cf6569d5e18381152fe91409067cff852e2595092448ff98cc4bed25c18",
+      "artifactSha256": "144d1ed9cfca2feb17999c068f57bc013119a0117d96d99087cc5e14463629a7",
       "generatorSha256": "4cd338d9390629f287333d43ca9da2c9489b063437d68dc448e13a1c3d251635",
       "members": [
         "felfel",
@@ -689,14 +699,15 @@
         "mobiliar",
         "berner-montage",
         "climeworks",
-        "arosa-lenzerheide"
+        "arosa-lenzerheide",
+        "schweizerhof-flims"
       ]
     },
     {
       "file": "crawler-group-04.yml",
       "sourceLogic": "crawler-group-04-logic.yml",
-      "sourceSha256": "d1b7a1cf8a2315d093ff95b821ad1843fd215d77fd7b7d5ad4080427e003b6e4",
-      "artifactSha256": "bbf0f22ea69397e2b59f1e8df3a2967e20a2e24ed20441491531cb1d8a5e48e3",
+      "sourceSha256": "a841a66c49270ab5f014d8763e67463bde53f5c7654b3e64533f7ff1030593bd",
+      "artifactSha256": "01a35f7a06e0ae25012bd4fd964e80930a1aedb32dae469283ceda7fafd6de2d",
       "generatorSha256": "4cd338d9390629f287333d43ca9da2c9489b063437d68dc448e13a1c3d251635",
       "members": [
         "lidl",
@@ -725,14 +736,15 @@
         "clariant",
         "ameos-ch",
         "anybotics",
-        "aarreha-schinznach"
+        "aarreha-schinznach",
+        "parmag"
       ]
     },
     {
       "file": "crawler-group-05.yml",
       "sourceLogic": "crawler-group-05-logic.yml",
-      "sourceSha256": "04a7ff011f1c6382718a99959635df68db466b655aa4f2d2d2acf9135756c619",
-      "artifactSha256": "28dd458903ce8ca72b099e8edce3140a542fffd404c56c43bd988af1da2a27db",
+      "sourceSha256": "c8e8ed843666044de668cf3626ee9e4f11ac9b90e5bb24b1bb16382d6587ef42",
+      "artifactSha256": "d16dfbf7337598f74b354e12af0a3795fe3811bfe1bc75119fb346a899e3d7eb",
       "generatorSha256": "4cd338d9390629f287333d43ca9da2c9489b063437d68dc448e13a1c3d251635",
       "members": [
         "klinik-schuetzen",
@@ -761,14 +773,15 @@
         "berner-klinik-montana",
         "agroscope",
         "amstein-walthert",
-        "caseificio-gottardo"
+        "caseificio-gottardo",
+        "neoproconseils"
       ]
     },
     {
       "file": "crawler-group-06.yml",
       "sourceLogic": "crawler-group-06-logic.yml",
-      "sourceSha256": "c27d8d1d61a0eb0c5b7969074804aa1709dbfbe5c6616f8ba888e8993cd10424",
-      "artifactSha256": "7b7968fd36529abbe8e5467b98459c09c4ac4d6579e0f822716c17e55d02a008",
+      "sourceSha256": "4f7b6070539ffea1d3156b0342e22356f437148cb6ca27699dab70c8982d0192",
+      "artifactSha256": "02cb6877573cfa6e896a407cb67e24279dd2edb6f7da399d59d34ce828101458",
       "generatorSha256": "4cd338d9390629f287333d43ca9da2c9489b063437d68dc448e13a1c3d251635",
       "members": [
         "merian-iselin",
@@ -797,14 +810,15 @@
         "arsante-clinique-de-carouge",
         "grand-resort-bad-ragaz",
         "abb",
-        "ehnv"
+        "ehnv",
+        "mueller-steinmaur"
       ]
     },
     {
       "file": "crawler-group-07.yml",
       "sourceLogic": "crawler-group-07-logic.yml",
-      "sourceSha256": "1645e34fb743d6b0ad5c02562a7d13f3795d7720f529cfaa058eff55e609d869",
-      "artifactSha256": "3bb30f775cbef9ebcefa7643be69ec840b3851df0611d801b10794e1539fd11d",
+      "sourceSha256": "f15ca88b52715d9fb85b817f0f37b13c1dc832c5a703b818be9cd4bf6ba0475a",
+      "artifactSha256": "c3db80bf6ce9266faa5d3704a83cb6d7ffd7865f167bb0c9d0abcd1e0c3ce577",
       "generatorSha256": "4cd338d9390629f287333d43ca9da2c9489b063437d68dc448e13a1c3d251635",
       "members": [
         "spital-emmental",
@@ -833,14 +847,15 @@
         "clinica-varini",
         "citta-di-lugano",
         "anker-swiss",
-        "guggerbach"
+        "guggerbach",
+        "im-bethesda-spital"
       ]
     },
     {
       "file": "crawler-group-08.yml",
       "sourceLogic": "crawler-group-08-logic.yml",
-      "sourceSha256": "3a948b80c08211e1c7082b9b1fc90b70423ec0b101de7a14895f9eff465d3a12",
-      "artifactSha256": "3cb6fad589b241f6d954119bbb575fb5a0a0e561791f8addfd438b70df097a9a",
+      "sourceSha256": "a4f87db9c899c556f71633a55506e898619f195450203f4ad3f50cf996ee13ab",
+      "artifactSha256": "873ef4a7706edd52045c649cba625a60be099010f1e949d0a41b62c5c58cb586",
       "generatorSha256": "4cd338d9390629f287333d43ca9da2c9489b063437d68dc448e13a1c3d251635",
       "members": [
         "salina-reha",
@@ -869,14 +884,15 @@
         "dxt",
         "cds-savognin",
         "has-healthcare",
-        "damiani"
+        "damiani",
+        "blatters-hotel"
       ]
     },
     {
       "file": "crawler-group-09.yml",
       "sourceLogic": "crawler-group-09-logic.yml",
-      "sourceSha256": "83b1e1e9f5cf4296c874f4c41797a4b4b4e4964e143969ea00b150bd0d30eae5",
-      "artifactSha256": "2e6089f2dd4b4038dae97a0cb3afd8713f5bd6341639162a0a39b1b41e063369",
+      "sourceSha256": "e5f723429ac2edea69604c8d06540d9096849806c9cc38c14ee61cac226d32ce",
+      "artifactSha256": "56c0a37ed83da02c0d610f53701b833280a30ab92420be3c71f1571c8d5cd8d6",
       "generatorSha256": "4cd338d9390629f287333d43ca9da2c9489b063437d68dc448e13a1c3d251635",
       "members": [
         "solina",
@@ -905,14 +921,15 @@
         "bcv",
         "apple-retail-switzerland",
         "bethesda-spital",
-        "air-zermatt"
+        "air-zermatt",
+        "benu"
       ]
     },
     {
       "file": "crawler-group-10.yml",
       "sourceLogic": "crawler-group-10-logic.yml",
-      "sourceSha256": "0d3cdc881df793358760be06a8d4b5261227bc0b74ac272d57db8c0324035a1f",
-      "artifactSha256": "a6b37e7b8ac578b608a05f56bf385b5e3551882641a510df2ff73c24e81d9c1a",
+      "sourceSha256": "bcb1ab03064882949c3ad7d73df4baf09cf373497914ceab3aeb72522fa5efcd",
+      "artifactSha256": "1955cc6edd9386169e4e04960944288d3d5a2e5f87bcbb69e2d41951d1502054",
       "generatorSha256": "4cd338d9390629f287333d43ca9da2c9489b063437d68dc448e13a1c3d251635",
       "members": [
         "jumbo",
@@ -941,14 +958,15 @@
         "endress-hauser",
         "berit-klinik",
         "fondation-domus",
-        "stellentreff"
+        "stellentreff",
+        "atec-personal"
       ]
     },
     {
       "file": "crawler-group-11.yml",
       "sourceLogic": "crawler-group-11-logic.yml",
-      "sourceSha256": "6327ef5c8e9e1432c6dd98ec47608cccadf4575ad4ed1a8eb7e85e40e8af3ca6",
-      "artifactSha256": "074d0710faaca4619508268a301e7ee846aa1cb3e192038a21fa3d77039021cc",
+      "sourceSha256": "c6e152a29977ae3e1a725e3e98d0a21346610e3c1e8c466096eb726f6e7f3665",
+      "artifactSha256": "4b2ce192e5f21f2a95753b2283d79ab047bb02e0c17f5be95ba070ae125854ba",
       "generatorSha256": "4cd338d9390629f287333d43ca9da2c9489b063437d68dc448e13a1c3d251635",
       "members": [
         "rehab-basel",
@@ -977,7 +995,8 @@
         "ardentis",
         "amag",
         "a-plus-plus-group",
-        "stellenpartner"
+        "stellenpartner",
+        "apply"
       ]
     },
     {
@@ -1020,8 +1039,8 @@
     {
       "file": "crawler-group-13.yml",
       "sourceLogic": "crawler-group-13-logic.yml",
-      "sourceSha256": "859a5d3cc8478db4efd2431c4926b8db7d8f8f84a447e230458ca494b5af389a",
-      "artifactSha256": "1b686063a333334b8bc70521bee34f75ae32166535ff82a443aa769f389223fa",
+      "sourceSha256": "4d86d0dbc937df35d2089aebbc74a7bb184136f721ef46ffdb7ed56caf571f02",
+      "artifactSha256": "e56153843f45bc9431054174b0b83a3827046b98b93658486651f778df522a03",
       "generatorSha256": "4cd338d9390629f287333d43ca9da2c9489b063437d68dc448e13a1c3d251635",
       "members": [
         "pwc",
@@ -1050,7 +1069,8 @@
         "banca-sempione",
         "edmond-de-rothschild",
         "csvp-poschiavo",
-        "answerconsulting"
+        "answerconsulting",
+        "1a-hunkeler"
       ]
     },
     {
