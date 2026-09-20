@@ -56,7 +56,7 @@ const DATA_PATH_RE = /\b((?:data|public\/data)\/[A-Za-z0-9_./-]+\.(?:json|jsonl|
 const OUTPUT_RE = /(?:echo|printf)\s+["']?([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/g;
 const SHELL_ASSIGNMENT_RE = /(?:^|[;\n])\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)=/gm;
 const SHELL_OUTPUT_ALIAS_RE = /(?:^|[;\n])\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)=(?:"\$\{GITHUB_OUTPUT(?::-[^"$`(){};\s]+)?\}"|\$\{GITHUB_OUTPUT(?::-[^"$`(){};\s]+)?\}|\$GITHUB_OUTPUT)(?=\s*(?:#.*)?(?:;|\n|$))/gm;
-const OUTPUT_HELPER_CALL_RE = /\b(?:write_output|writeOutput|set_output|setOutput|emit_output|emitOutput)\s*\(\s*["']([A-Za-z_][A-Za-z0-9_-]*)["']/g;
+const OUTPUT_HELPER_CALL_RE = /\b(?:write_output|writeOutput|writeGithubOutput|set_output|setOutput|emit_output|emitOutput)\s*\(\s*["']([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<|["'])/g;
 const OUTPUT_HELPER_SHELL_RE = /\b(?:write_output|writeOutput|set_output|setOutput|emit_output|emitOutput)\s+["']?([A-Za-z_][A-Za-z0-9_-]*)["']?/g;
 const OUTPUT_ACTIONS_FILE_RE = /\bappendActionsFile\s*\(\s*["']GITHUB_OUTPUT["']\s*,\s*["']([A-Za-z_][A-Za-z0-9_-]*)["']/g;
 const LOCAL_MODULE_RE = /\b(?:from\s*|import\s*\(\s*|require\s*\(\s*)["'](\.{1,2}\/[^"']+)["']/g;
@@ -869,8 +869,26 @@ function outputSinkRanges(source) {
   const raw = String(source || '');
   const shellBindings = shellOutputAliasBindings(raw);
   const outputVariables = new Set(['process.env.GITHUB_OUTPUT', 'env.GITHUB_OUTPUT']);
+  for (const variable of outputParameterNames(raw)) outputVariables.add(variable);
   for (const match of raw.matchAll(/\b(?:const|let|var)\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*=\s*process\.env\.GITHUB_OUTPUT\b/g)) {
     outputVariables.add(match[1]);
+  }
+  let changed = true;
+  while (changed) {
+    changed = false;
+    for (const match of raw.matchAll(/\b(?:const|let|var)\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*=\s*([^;\n]+)/g)) {
+      const [, variable, expression] = match;
+      if (outputVariables.has(variable)) continue;
+      if (![...outputVariables].some((candidate) => {
+        const escapedCandidate = candidate.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const aliasExpression = new RegExp(
+          `^(?:[A-Za-z_$][A-Za-z0-9_$]*\\s*\\(\\s*)?${escapedCandidate}(?:\\s*\\))?$`,
+        );
+        return aliasExpression.test(expression.trim());
+      })) continue;
+      outputVariables.add(variable);
+      changed = true;
+    }
   }
   const variableAlternation = [...outputVariables]
     .map((value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
@@ -907,6 +925,71 @@ function outputSinkRanges(source) {
     ...shellOutputRedirectRanges(raw, shellBindings),
     ...heredocOutputRanges(raw),
   ];
+}
+
+function outputParameterNames(source) {
+  const raw = String(source || '');
+  const names = new Set();
+  const functions = new Map();
+  const functionRe = /\bfunction\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*\(([^)]*)\)\s*\{/g;
+  for (const match of raw.matchAll(functionRe)) {
+    const parameters = match[2].split(',').map((parameter) => parameter.trim());
+    functions.set(match[1], parameters);
+    parameters.forEach((parameter) => {
+      const [name, defaultValue] = parameter.split(/\s*=\s*(.*)/s, 2);
+      if (defaultValue && /(?:process|env)\.GITHUB_OUTPUT\b/.test(defaultValue)) names.add(name.trim());
+    });
+  }
+  for (const [name, parameters] of functions) {
+    const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const callRe = new RegExp(`\\b${escapedName}\\s*\\(`, 'g');
+    for (const call of raw.matchAll(callRe)) {
+      const openingIndex = raw.indexOf('(', call.index ?? 0);
+      const closingIndex = matchingParen(raw, openingIndex);
+      if (closingIndex < 0) continue;
+      const argumentsText = raw.slice(openingIndex + 1, closingIndex).split(',');
+      argumentsText.forEach((argument, index) => {
+        if (!parameters[index] || !/(?:process|env)\.GITHUB_OUTPUT\b/.test(argument)) return;
+        names.add(parameters[index].split(/\s*=\s*/, 1)[0].trim());
+      });
+    }
+  }
+  return names;
+}
+
+function inlineNodeOutputKeys(source) {
+  const raw = String(source || '');
+  const keys = new Set();
+  const outputKeyRe = /(?:^|\r?\n|\\n|\\r\n)([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/g;
+  const scriptRes = [
+    /\bnode\s+--input-type=module\s+-e\s+'([\s\S]*?)'\s+[^;\n]*>>\s*["']?\$GITHUB_OUTPUT["']?/g,
+    /\bnode\s+--input-type=module\s+-e\s+"([\s\S]*?)"\s+[^;\n]*>>\s*["']?\$GITHUB_OUTPUT["']?/g,
+  ];
+  for (const scriptRe of scriptRes) {
+    for (const script of raw.matchAll(scriptRe)) {
+      for (const literal of stringLiterals(script[1])) {
+        for (const match of literal.value.matchAll(outputKeyRe)) keys.add(match[1]);
+      }
+    }
+  }
+  return keys;
+}
+
+function shellOutputFilterKeys(source, bindings = shellOutputAliasBindings(source)) {
+  const keys = new Set();
+  const outputKeyRanges = shellOutputRedirectRanges(source, bindings);
+  const groupedKeyRe = /["']\^?([A-Za-z_][A-Za-z0-9_-]*)_\(([^)]+)\)(?:=|<<)["']/g;
+  const literalKeyRe = /["']\^?([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)["']/g;
+  for (const { start, end } of outputKeyRanges) {
+    const line = String(source || '').slice(start, end);
+    for (const match of line.matchAll(groupedKeyRe)) {
+      for (const suffix of match[2].split('|')) {
+        if (/^[A-Za-z_][A-Za-z0-9_-]*$/.test(suffix)) keys.add(`${match[1]}_${suffix}`);
+      }
+    }
+    for (const match of line.matchAll(literalKeyRe)) keys.add(match[1]);
+  }
+  return keys;
 }
 
 function literalOutputKeys(source, sinkRanges = outputSinkRanges(source)) {
@@ -976,6 +1059,32 @@ function matchingBrace(source, openingIndex) {
   return -1;
 }
 
+function functionOutputBuilderKeys(source, sinkRanges) {
+  const raw = String(source || '');
+  const keys = new Set();
+  if (sinkRanges.length === 0) return keys;
+  const builders = new Map();
+  const functionRe = /\bfunction\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*\([^)]*\)\s*\{/g;
+  for (const match of raw.matchAll(functionRe)) {
+    const openingIndex = raw.indexOf('{', match.index ?? 0);
+    const closingIndex = matchingBrace(raw, openingIndex);
+    if (closingIndex < 0) continue;
+    builders.set(match[1], raw.slice(openingIndex + 1, closingIndex));
+  }
+  const outputKeyRe = /(?:^|\r?\n|\\n|\\r\n)([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/g;
+  for (const { start, end } of sinkRanges) {
+    const sink = raw.slice(start, end);
+    for (const call of sink.matchAll(/\b([A-Za-z_$][A-Za-z0-9_$]*)\s*\(/g)) {
+      const body = builders.get(call[1]);
+      if (!body) continue;
+      for (const literal of stringLiterals(body)) {
+        for (const match of literal.value.matchAll(outputKeyRe)) keys.add(match[1]);
+      }
+    }
+  }
+  return keys;
+}
+
 function objectEntryOutputKeys(source, sinkRanges = outputSinkRanges(source)) {
   const raw = String(source || '');
   const keys = new Set();
@@ -1016,8 +1125,11 @@ function outputKeysFromSource(source) {
   for (const match of raw.matchAll(OUTPUT_HELPER_CALL_RE)) keys.add(match[1]);
   for (const match of raw.matchAll(OUTPUT_HELPER_SHELL_RE)) keys.add(match[1]);
   for (const match of raw.matchAll(OUTPUT_ACTIONS_FILE_RE)) keys.add(match[1]);
+  for (const key of inlineNodeOutputKeys(raw)) keys.add(key);
+  for (const key of shellOutputFilterKeys(raw)) keys.add(key);
   const sinkRanges = outputSinkRanges(raw);
   for (const key of literalOutputKeys(raw, sinkRanges)) keys.add(key);
+  for (const key of functionOutputBuilderKeys(raw, sinkRanges)) keys.add(key);
   for (const key of objectEntryOutputKeys(raw, sinkRanges)) keys.add(key);
 
   // A workflow commonly delegates its output writer to a first-party script.

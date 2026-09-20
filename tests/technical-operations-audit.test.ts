@@ -672,6 +672,84 @@ describe('technical operations audit', () => {
     expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
   });
 
+  it('segue un writer locale che inoltra GITHUB_OUTPUT a un helper di formattazione', () => {
+    const files = new Map([
+      ['/repo/scripts/write-review.mjs', [
+        "import { appendFileSync } from 'node:fs';",
+        'function outputLines() {',
+        "  return [`local=yes`, `summary<<EOF\\nready\\nEOF\\n`].join('\\n');",
+        '}',
+        'function writeOutput(decision, outputPath = process.env.GITHUB_OUTPUT) {',
+        '  const target = outputPath;',
+        '  appendFileSync(target, outputLines());',
+        '}',
+        'writeOutput("decision", process.env.GITHUB_OUTPUT);',
+      ].join('\n')],
+    ]);
+    const source = [
+      'name: delegated-output-helper',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: review',
+      '        run: node scripts/write-review.mjs',
+      '      - name: consumer',
+      '        run: echo "${{ steps.review.outputs.local }} ${{ steps.review.outputs.summary }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/delegated-output-helper.yml', source, {
+      root: '/repo',
+      exists: (candidate: string) => files.has(candidate),
+      readFile: (candidate: string) => files.get(candidate) || '',
+    });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
+  it('riconosce le chiavi stampate da Node inline con stdout rediretto a GITHUB_OUTPUT', () => {
+    const source = [
+      'name: inline-node-output',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  build:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: build',
+      '        run: |',
+      '          JSON="{}"',
+      '          node --input-type=module -e \'',
+      '            console.log("variant_count=1");',
+      '            console.log("single_variant=base");',
+      '            console.log("single_env_json={}");',
+      '\' "$JSON" >> "$GITHUB_OUTPUT"',
+      '      - name: consumer',
+      '        run: echo "${{ steps.build.outputs.variant_count }} ${{ steps.build.outputs.single_variant }} ${{ steps.build.outputs.single_env_json }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/inline-node-output.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
+  it('riconosce le chiavi selezionate da grep con regex raggruppata verso GITHUB_OUTPUT', () => {
+    const source = [
+      'name: grep-output',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  build:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: tier',
+      '        run: |',
+      '          printf "%s\\n" "$carry" | grep -E \'^carry_(prior_review|prior_commit|fingerprint)=\' >> "$GITHUB_OUTPUT"',
+      '      - name: consumer',
+      '        run: echo "${{ steps.tier.outputs.carry_prior_review }} ${{ steps.tier.outputs.carry_prior_commit }} ${{ steps.tier.outputs.carry_fingerprint }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/grep-output.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
   it('non tratta decoy letterali o mappe non passati al sink come output', () => {
     const files = new Map([
       ['/repo/scripts/decoys.mjs', [
