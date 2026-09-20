@@ -12,6 +12,7 @@ import { pathToFileURL } from 'node:url';
 import { isReviewerBot, REDFLAG_IMPORTANT_RE } from './constants.mjs';
 import {
   normalizeReviewInputRevision,
+  normalizeReviewInputRevisionInput,
   reviewHasInputRevision,
 } from './review-input-revision.mjs';
 
@@ -80,9 +81,14 @@ function sameReview(left, right) {
 /** Oldest terminal managed review anchored to `head`. Later same-SHA reviews are ignored. */
 export function firstTerminalBotReviewOnHead(reviews, head, { reviewRevision } = {}) {
   if (typeof head !== 'string' || !head) return null;
+  // `normalizeReviewInputRevisionInput`, non `normalizeReviewInputRevision`:
+  // il chiamante puo' passare l'ELENCO degli schemi di marker accettati, e un
+  // guard che pretende una stringa sola lo scarterebbe come invalido — che e'
+  // proprio il fail-closed che questo percorso non deve avere (incidente del
+  // 2026-09-19, vedi `lib/review-input-revision.mjs`).
   const revision = reviewRevision === undefined
     ? undefined
-    : normalizeReviewInputRevision(reviewRevision);
+    : normalizeReviewInputRevisionInput(reviewRevision);
   if (reviewRevision !== undefined && !revision) return null;
   const matches = flattenReviewPages(reviews)
     .map((review, index) => ({ review, index }))

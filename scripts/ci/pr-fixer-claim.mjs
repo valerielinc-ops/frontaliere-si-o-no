@@ -18,6 +18,7 @@ import { REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';
 import {
   normalizeReviewInputRevision,
   reviewHasInputRevision,
+  acceptedReviewInputRevisionsFromPullRequest,
   reviewInputRevisionFromPullRequest,
 } from './lib/review-input-revision.mjs';
 import { parseReviewsJson } from './lib/pr-review-admission.mjs';
@@ -505,7 +506,11 @@ export function validateRedflagClaimSnapshot({ pr, reviews, claim } = {}) {
   if (!['APPROVED', 'COMMENTED'].includes(String(current.state || '').toUpperCase())) {
     return deny('review del claim non terminale');
   }
-  if (!reviewHasInputRevision(current.body, currentRevision)) {
+  // Il confronto sopra e' revision-contro-revision, entrambe calcolate qui:
+  // resta identita' stretta. Questo invece e' marker-contro-body, e il marker
+  // l'ha scritto un altro checkout: accetta anche gli schemi ritirati (vedi
+  // `lib/review-input-revision.mjs`, incidente del 2026-09-19).
+  if (!reviewHasInputRevision(current.body, acceptedReviewInputRevisionsFromPullRequest(pr))) {
     return deny('review del claim senza marker body revision corrente');
   }
   const fingerprint = redflagFindingsFingerprint(current.body);
