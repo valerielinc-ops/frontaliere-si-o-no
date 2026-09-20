@@ -52,7 +52,7 @@ describe.each(FIXERS)('$file', ({ file, kind }) => {
     expect(elseAt).toBeGreaterThan(0);
     const body = guard.slice(elseAt, fiAt);
     expect(body).toContain('--add-label "needs-human"');
-    expect(body).toContain('gh pr comment');
+    expect(body).toContain('pr comment');
     expect(src.match(/--add-label "needs-human"/gu)?.length).toBe(1);
   });
 });

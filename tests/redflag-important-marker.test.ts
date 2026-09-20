@@ -258,12 +258,29 @@ describe('REDFLAG_IMPORTANT_RE — le copie bash non possono divergere', () => {
   });
 });
 
+describe.each([
+  ['pr-redflag-fixer.yml', 'REVIEW_BODY'],
+  ['stale-pr-rescuer.yml', 'LAST_BODY'],
+] as const)('REDFLAG_IMPORTANT_RE — %s non tronca %s sotto pipefail', (file, variable) => {
+  const workflow = readFileSync(new URL(`../.github/workflows/${file}`, import.meta.url), 'utf8');
+
+  it('usa un here-string invece di una pipeline con grep -qP', () => {
+    const matcherLine = workflow
+      .split('\n')
+      .find((line) => line.includes(variable) && line.includes('grep -qP'));
+
+    expect(matcherLine).toBeDefined();
+    expect(matcherLine).toContain(`<<< "$${variable}"`);
+    expect(matcherLine).not.toContain(`printf '%s' "$${variable}" | grep -qP`);
+  });
+});
+
 describe('pr-redflag-fixer — preflight esplicito del supporto PCRE (#8015)', () => {
   const workflow = readFileSync(new URL('../.github/workflows/pr-redflag-fixer.yml', import.meta.url), 'utf8');
 
   function preflightBlock(): string {
     const start = workflow.indexOf("          if printf '%s' '' | grep -qP '(*UTF)a'; then");
-    const end = workflow.indexOf('          if printf \'%s\' "$REVIEW_BODY"', start);
+    const end = workflow.indexOf('          if grep -qP ', start);
     expect(start, 'pr-redflag-fixer PCRE preflight not found').toBeGreaterThanOrEqual(0);
     expect(end, 'pr-redflag-fixer marker guard not found after preflight').toBeGreaterThan(start);
     return workflow.slice(start, end);
