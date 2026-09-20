@@ -22,7 +22,10 @@ import {
 const recovery = YAML.parse(
   readFileSync(new URL('../.github/workflows/retry-code-check-after-body-edit.yml', import.meta.url), 'utf8'),
 );
-const script = String(recovery.jobs.recover.steps[0].with.script);
+const recoveryScriptStep = recovery.jobs.recover.steps.find(
+  (step: { uses?: string }) => step.uses === 'actions/github-script@v8',
+);
+const script = String(recoveryScriptStep?.with?.script);
 
 function inlineDigestFn(): (body: string) => string {
   const start = script.indexOf('body:${crypto.createHash');
