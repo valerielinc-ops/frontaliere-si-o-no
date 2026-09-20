@@ -3,7 +3,10 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import YAML from 'yaml';
-import { checkPrBodySections } from '../../scripts/lib/pr-body-sections-check.mjs';
+import {
+  checkPrBodySections,
+  decisionDeferralsAreSpecific,
+} from '../../scripts/lib/pr-body-sections-check.mjs';
 import { checkClosesLines } from '../../scripts/lib/pr-body-closes-check.mjs';
 
 /**
@@ -315,6 +318,17 @@ describe('the lockstep PR body satisfies the contract nanako gates on', () => {
     // red `contract` check this whole fix is about.
     const body = renderPrBody(DEGRADED_ENV);
     expect(checkPrBodySections(body).violations).toEqual([]);
+  });
+
+  it('non usa deroghe decisionali nude nel corpo generato', () => {
+    // The strict gate rejects `by construction` unless the same bullet carries
+    // concrete Motivo/Prossimo passo fields. These residual mirror effects are
+    // ordinary work deferred until merge, so `in questa PR` is the honest state
+    // and keeps the generated body accepted by the gate.
+    const body = renderPrBody(FULL_ENV);
+    expect(decisionDeferralsAreSpecific(body)).toBe(true);
+    expect(body).not.toMatch(/^\s*- by construction:/m);
+    expect(body).toMatch(/^\s*- in questa PR:/m);
   });
 
   it('carries the two headers literally, with "(ancora)"', () => {
