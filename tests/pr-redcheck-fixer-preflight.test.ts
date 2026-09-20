@@ -18,11 +18,12 @@ const BODY_CONTRACT_STEP = 'PR-body completeness + multi-issue Closes (no checko
 const BODY_CONTRACT_COMPAT_STEP = 'PR-body completeness + multi-issue Closes (no checkout, pull requests)';
 const REVIEW_GATE_STEP = 'Require approving Claude review';
 const REVIEW_GATE_COMPAT_STEP = 'Require approving Codex review';
+const REVIEW_BOOTSTRAP_STEP = 'Bootstrap trusted review policy (no checkout)';
 const TEST_STEP = 'vitest related (PR diff)';
 const TSC_STEP = 'Collect independent source gates';
 const SOURCE_GUARD_STEP = 'Run source guards in parallel';
 
-type Mode = 'body-contract' | 'body-contract-compat' | 'review-gate' | 'review-gate-compat' | 'test' | 'tsc' | 'source-guard' | 'check-api-unavailable' | 'jobs-api-unavailable';
+type Mode = 'body-contract' | 'body-contract-compat' | 'review-gate' | 'review-gate-compat' | 'review-bootstrap' | 'test' | 'tsc' | 'source-guard' | 'check-api-unavailable' | 'jobs-api-unavailable';
 
 function failedStepForMode(mode: Mode) {
   switch (mode) {
@@ -34,6 +35,8 @@ function failedStepForMode(mode: Mode) {
       return REVIEW_GATE_STEP;
     case 'review-gate-compat':
       return REVIEW_GATE_COMPAT_STEP;
+    case 'review-bootstrap':
+      return REVIEW_BOOTSTRAP_STEP;
     case 'tsc':
       return TSC_STEP;
     case 'source-guard':
@@ -140,6 +143,7 @@ describe('pr-redcheck-fixer preflight classifies the consolidated tests job', ()
   it.each([
     ['current Claude review gate', 'review-gate'],
     ['origin/main Codex review gate', 'review-gate-compat'],
+    ['trusted review-policy bootstrap', 'review-bootstrap'],
   ] as const)('skips a %s failure before any fixer job can run', (_label, mode) => {
     const { result, githubOutput, ghCalls } = runPreflight(mode);
     expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0);

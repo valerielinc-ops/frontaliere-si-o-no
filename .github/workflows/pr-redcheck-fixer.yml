@@ -208,6 +208,10 @@ jobs:
                 "PR-body completeness + multi-issue Closes (no checkout, pull requests)",
               ]);
               const REVIEW_STEPS = new Set([
+                "Resolve trusted policy ref (main tip, pinned)",
+                "Bootstrap trusted review policy (no checkout)",
+                "Bootstrap trusted bounded-ledger policy (no checkout)",
+                "Classify bounded loop-fleet ledger path",
                 "Resolve PR from pull request",
                 "Resolve review input revision (zero-agent)",
                 "Re-review guard (skip Claude when no code changed since last LGTM)",
