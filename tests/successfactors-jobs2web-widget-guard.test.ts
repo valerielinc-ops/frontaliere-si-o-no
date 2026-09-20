@@ -10,6 +10,7 @@ import {
   stripSuccessFactorsMoreLocations,
   successFactorsMoreLocationsTail,
 } from '../scripts/lib/successfactors-jobs2web-widget-guard.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 /**
  * Guard against SAP SuccessFactors jobs2web page chrome being scraped as job
@@ -387,7 +388,8 @@ describe('SuccessFactors jobs2web widget guard', () => {
    * if a future pattern addition starts wiping real descriptions, existing
    * records flip from non-empty to empty and this test goes red.
    */
-  describe('description-field corpus sweep (issue #6393)', () => {
+  // Dato vivo: sweep sulle descrizioni delle slice data/jobs/by-crawler/**, riscritte a ogni crawl.
+  describe.skipIf(SKIP_LIVE_DATA)('description-field corpus sweep (issue #6393)', () => {
     const dataDir = join(__dirname, '..', 'data', 'jobs', 'by-crawler');
 
     // Every crawlerKey whose parser applies sanitizeSuccessFactorsField to

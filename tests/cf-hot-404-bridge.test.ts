@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { cfHot404BridgePlugin } from '../build-plugins/cfHot404BridgePlugin';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 /**
  * The plugin resolves paths via resolveSearchConsoleCompatTarget (reads
@@ -88,7 +89,8 @@ describe('cfHot404BridgePlugin', () => {
     expect(fs.readFileSync(file, 'utf-8')).toBe('<html>RICHER</html>');
   });
 
-  it('emits a legacy cluster orphan as a meta-refresh REDIRECT to its live target, not an archived bridge', () => {
+  // pesca una voce reale da data/search-cluster-301-map.json, rigenerato dai cron: rosso possibile senza cambi di codice
+  it.skipIf(SKIP_LIVE_DATA)('emits a legacy cluster orphan as a meta-refresh REDIRECT to its live target, not an archived bridge', () => {
     // Data-driven: pick a real entry from the committed cluster recovery map so
     // the test survives map regeneration.
     const map = (

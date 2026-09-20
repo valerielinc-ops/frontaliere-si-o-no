@@ -48,6 +48,7 @@ import {
   findDeadAllowlistEntries,
 } from '../scripts/audit-slug-prompt-leaks.mjs';
 import { findSlugPromptLeak } from '../scripts/lib/slug-prompt-leak-guard.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const ROOT = resolve(__dirname, '..');
 
@@ -82,7 +83,8 @@ describe('KNOWN_LEGACY_LEAKS carries no dead entry', () => {
     expect(findDeadAllowlistEntries(leaked, scanned).enforceable).toBe(true);
   });
 
-  it('every entry still matches a leaking slug in a scanned source', () => {
+  // Dato vivo: gli slug dei registri packages/articles/content/router*Data.ts, che la pipeline articoli riscrive.
+  it.skipIf(SKIP_LIVE_DATA)('every entry still matches a leaking slug in a scanned source', () => {
     const { dead } = findDeadAllowlistEntries(leaked, scanned);
     expect(
       dead.sort(),
@@ -102,7 +104,8 @@ describe('KNOWN_LEGACY_LEAKS carries no dead entry', () => {
     expect(KNOWN_LEGACY_LEAKS.size).toBeGreaterThan(0);
   });
 
-  it('reports the entries it proved live, as a countable fact', () => {
+  // Dato vivo: conta quante voci dell'allowlist compaiono ancora nei registri articoli riscritti dalla pipeline.
+  it.skipIf(SKIP_LIVE_DATA)('reports the entries it proved live, as a countable fact', () => {
     const live = [...KNOWN_LEGACY_LEAKS].filter((s) => leaked.has(s));
     expect(live.length).toBe(KNOWN_LEGACY_LEAKS.size);
   });

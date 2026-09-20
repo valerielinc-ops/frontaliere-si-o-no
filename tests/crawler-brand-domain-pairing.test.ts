@@ -15,6 +15,7 @@ import {
   MED_IPERSONAL_COMPANY_DOMAIN,
   isMedIpersonalJob,
 } from '../scripts/lib/med-ipersonal-job-parser.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const PARSER_DIR = join(process.cwd(), 'scripts', 'lib');
 
@@ -122,7 +123,8 @@ describe('ipersonal / med-ipersonal brand ↔ source domain pairing', () => {
     expect(MED_IPERSONAL_COMPANY_DOMAIN).toBe('ipersonal.ch');
   });
 
-  it('keeps the crawler spec companyName in sync with the parser label', () => {
+  // legge le spec reali data/prospector/crawlers/*.json, riscritte dal prospector: rosso possibile senza cambi di codice
+  it.skipIf(SKIP_LIVE_DATA)('keeps the crawler spec companyName in sync with the parser label', () => {
     for (const [key, expected] of [
       [IPERSONAL_KEY, IPERSONAL_COMPANY_NAME],
       [MED_IPERSONAL_KEY, MED_IPERSONAL_COMPANY_NAME],

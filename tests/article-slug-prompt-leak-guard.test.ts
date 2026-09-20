@@ -31,6 +31,7 @@ import {
   extractRegistrySlugs,
   extractSitemapSlugs,
 } from '../scripts/audit-slug-prompt-leaks.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const ROOT = resolve(__dirname, '..');
 
@@ -353,7 +354,8 @@ describe('forma nuda numero+unita (la sola differenza misurata col gemello del c
   });
 });
 
-describe('published-corpus sweep (the check that actually runs in CI)', () => {
+// Dato vivo: gli slug pubblicati in packages/articles/content/router*Data.ts e nelle sitemap, riscritti dalla pipeline articoli.
+describe.skipIf(SKIP_LIVE_DATA)('published-corpus sweep (the check that actually runs in CI)', () => {
   // `npm run audit:slug-prompt-leaks` is the operator-facing form of this, but
   // vitest is what runs on every PR, so the enforcement lives here and imports
   // the audit's own sources/extractors rather than restating them — two lists

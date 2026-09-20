@@ -13,6 +13,7 @@ import {
 } from '../scripts/lib/cippatrasporti-job-parser.mjs';
 import { restoreExistingSlugIdentity, slugify } from '../scripts/lib/crawler-template.mjs';
 import { mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const FIXTURES = new URL('./fixtures/cippatrasporti/', import.meta.url);
 const daysAgo = (days: number) => {
@@ -91,7 +92,8 @@ describe('Cippà Trasporti SA crawler parser', () => {
     )).toThrow(/date disagrees/);
   });
 
-  it('publishes two rich jobs with stable live IDs, URLs and slugs across repeated runs', async () => {
+  // Dato vivo: la coda del caso confronta le identita' con data/jobs/by-crawler/cippatrasporti.json, riscritta a ogni crawl.
+  it.skipIf(SKIP_LIVE_DATA)('publishes two rich jobs with stable live IDs, URLs and slugs across repeated runs', async () => {
     const fetchPage = vi.fn(async (url: string, options: { validateRedirectUrl?: (url: string) => unknown }) => {
       options.validateRedirectUrl?.(url);
       if (url === CIPPATRASPORTI_CAREER_URL) return LISTING_HTML;

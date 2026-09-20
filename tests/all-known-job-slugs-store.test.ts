@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 import {
   readAllKnownJobSlugs,
   writeAllKnownJobSlugs,
@@ -347,7 +348,8 @@ describe('all-known-job-slugs store — shard layout', () => {
 
 /* ── 3. The committed registry must stay pushable ──────────────────────── */
 
-describe('all-known-job-slugs store — committed shards stay under the push limit', () => {
+// legge gli shard reali data/all-known-job-slugs/part-NN.json, riscritti dai cron: rosso possibile senza cambi di codice
+describe.skipIf(SKIP_LIVE_DATA)('all-known-job-slugs store — committed shards stay under the push limit', () => {
   it('no committed shard approaches GitHub 100 MB hard limit', () => {
     const shards = listKnownSlugsShardFiles(REPO_ROOT);
     if (shards.length === 0) return; // registry not present in this checkout

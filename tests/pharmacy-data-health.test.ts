@@ -23,6 +23,7 @@ import ticino from '../data/pharmacies-ticino-complete.json';
 import italy from '../data/pharmacies-italy-border.json';
 import borderSources from '../data/pharmacy-border-sources.json';
 import borderDuties from '../data/pharmacy-duties-ticino.json';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const PHARMACY_WORKFLOW = join(__dirname, '..', '.github', 'workflows', 'pharmacy-data-health-monitor.yml');
 const BORDER_SYNC_WORKFLOW = join(__dirname, '..', '.github', 'workflows', 'sync-pharmacies-border.yml');
@@ -114,7 +115,8 @@ describe('evaluateFreshness', () => {
 });
 
 describe('evaluateBorderHealth', () => {
-  it('reports all four policy jurisdictions and their real record counts', () => {
+  // conta i record reali di data/pharmacies-*.json, risincronizzati ogni notte: rosso possibile senza cambi di codice
+  it.skipIf(SKIP_LIVE_DATA)('reports all four policy jurisdictions and their real record counts', () => {
     const health = evaluateBorderHealth({
       sources: borderSources,
       ticino,
@@ -327,7 +329,8 @@ describe('normalizeIdentityField', () => {
 });
 
 describe('the identity check against the real dataset', () => {
-  it('reports zero conflicts on the complete Ticino snapshot, so the monitor is born green', () => {
+  // giudica la snapshot reale data/pharmacies-ticino-complete.json: rosso possibile senza cambi di codice
+  it.skipIf(SKIP_LIVE_DATA)('reports zero conflicts on the complete Ticino snapshot, so the monitor is born green', () => {
     expect(ticino.pharmacies.length).toBeGreaterThan(100);
     expect(detectAnagraficaConflicts('ticino', ticino)).toEqual([]);
   });
@@ -350,7 +353,8 @@ describe('report payload consumed by the workflow', () => {
     expect(report.problems.join('\n')).toContain('sync-pharmacies-border');
   });
 
-  it('includes the border health panel in the machine-readable report and dashboard', () => {
+  // asserisce i conteggi reali (749 record, 193 IT-CO) delle snapshot farmacie: rosso possibile senza cambi di codice
+  it.skipIf(SKIP_LIVE_DATA)('includes the border health panel in the machine-readable report and dashboard', () => {
     const report = buildReport({
       registry,
       datasets: { ticino: anagrafica() },

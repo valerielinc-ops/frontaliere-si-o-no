@@ -17,6 +17,10 @@
  * nell'inventario senza che qualcuno lo scriva a mano e lo giustifichi.
  */
 import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { listCorpusWideTests } from '../scripts/ci/corpus-wide-tests.mjs';
 import {
   scanLiveDataTests,
   diffAgainstInventory,
@@ -26,6 +30,9 @@ import {
   LIVE_DATA_SCAN_EXEMPTIONS,
   LIVE_DATA_ROOTS,
   listLiveDataTestsForCi,
+  listNonLiveDataTestsForCi,
+  listLiveDataMonitorTests,
+  LIVE_DATA_PARTIAL_TESTS,
 } from '../scripts/ci/live-data-test-guard.mjs';
 
 describe('nessun test NUOVO puo` leggere dati vivi', () => {
@@ -111,6 +118,112 @@ describe('il rilevatore', () => {
     expect(listLiveDataTestsForCi()).toContain('tests/ipersonal-route-recovery-7045-live.test.ts');
     for (const { file } of LIVE_DATA_SCAN_EXEMPTIONS) {
       expect(listLiveDataTestsForCi(), `${file} deve restare nel gate PR`).not.toContain(file);
+    }
+  });
+});
+
+describe('il censimento 2026-09-19 regge le proprie premesse', () => {
+  // Il buco che questo blocco chiude. Fino al 2026-09-19 lo scanner leggeva
+  // `readdirSync('tests')` PIATTO: i test sotto `tests/seo/`, `tests/scripts/`,
+  // `tests/build-plugins/` non erano nemmeno guardati, e il guard diceva verde
+  // perche' non guardava. `tests/scripts/prompt-placeholder-guard.test.ts`
+  // scandiva 70.000 campi del corpus pubblicato dentro il job bloccante.
+  it('guarda anche dentro le sottocartelle di tests/', () => {
+    const roots = new Set([
+      ...KNOWN_LIVE_DATA_TESTS.map((e) => e.file),
+      ...LIVE_DATA_PARTIAL_TESTS.map((e) => e.file),
+      ...LIVE_DATA_SCAN_EXEMPTIONS.map((e) => e.file),
+    ]);
+    const nested = [...roots].filter((f) => f.split('/').length > 2);
+    expect(nested.length, 'il censimento deve contenere file annidati').toBeGreaterThan(5);
+  });
+
+  it('la partizione fra gate PR e gruppo dati-vivi e` esatta', () => {
+    // Il gate PR esclude per nome file (`VITEST_SKIP_LIVE_DATA=true`), il
+    // monitor esegue l'elenco che `--monitor-files` stampa: le due parti sono
+    // l'una il complemento dell'altra. Se si sovrapponessero un test girerebbe
+    // due volte, se lasciassero un buco non girerebbe MAI — ed e' esattamente
+    // il modo in cui un gate sparisce senza che nessuno lo decida.
+    const live = listLiveDataMonitorTests();
+    const rest = listNonLiveDataTestsForCi();
+    expect(live.filter((f) => rest.includes(f)), 'nessun file in entrambi i gruppi').toEqual([]);
+    expect(new Set([...live, ...rest]).size).toBe(live.length + rest.length);
+    // 120s, non i 15 di default: il complemento si calcola dalla partizione
+    // dataset, che fa il parse AST di ~2.400 file di test (11,9s misurati a
+    // macchina scarica). Col default questo caso passa in locale e diventa un
+    // rosso da CARICO in CI — cioè un falso rosso sul gate, che è esattamente
+    // la classe di guasto che questa PR sta togliendo di mezzo.
+  }, 120_000);
+
+  it('il monitor non ripesca i gate corpus-wide su main', () => {
+    // `corpus-wide-gates.yml` e` `workflow_dispatch` per decisione del
+    // proprietario: il corpus appartiene a frontaliere-articles e non deve
+    // consumare CI su main di questo repo. Un cron che li riesegue qui sarebbe
+    // quella decisione aggirata da un'altra porta.
+    const monitor = new Set(listLiveDataMonitorTests());
+    for (const file of listCorpusWideTests()) {
+      expect(monitor.has(file), `${file} non va nel monitor dei dati vivi`).toBe(false);
+    }
+  }, 60_000);
+
+  it('il CLI --monitor-files stampa esattamente il gruppo monitor', () => {
+    // Il workflow passa questo elenco a `vitest run`. Serve un CLI e non una
+    // env letta da `vitest.config.ts`: `run-related-tests.mjs` tratta quella
+    // config come globale, quindi una PR che la tocca perde la selezione per
+    // diff e ricade sulla suite intera — che a un worker non sta nei 360
+    // minuti del job (run 35481674287, cancellata a 6 ore).
+    const out = execFileSync(
+      process.execPath,
+      [path.resolve(__dirname, '..', 'scripts', 'ci', 'live-data-test-guard.mjs'), '--monitor-files'],
+      { encoding: 'utf8' },
+    );
+    expect(out.trim().split('\n')).toEqual(listLiveDataMonitorTests());
+  }, 60_000);
+
+  it('i file MISTI girano interi nel monitor, dove la env non li spegne', () => {
+    // Nel gate PR i loro casi vivi sono saltati da `SKIP_LIVE_DATA`. Se il
+    // monitor non li eseguisse, quei casi non girerebbero da nessuna parte e
+    // il taglio per test sarebbe una cancellazione con un altro nome.
+    const monitor = new Set(listLiveDataMonitorTests());
+    const corpus = new Set(listCorpusWideTests());
+    const missing = LIVE_DATA_PARTIAL_TESTS
+      .map((e) => e.file)
+      .filter((f) => !corpus.has(f) && !monitor.has(f));
+    expect(missing, `file MISTI che non girano da nessuna parte: ${missing.join(', ')}`).toEqual([]);
+  });
+
+  it('ogni file MISTO usa davvero l`interruttore per-test', () => {
+    // Un file nell'elenco parziale e' un file in cui il taglio e' stato fatto
+    // DENTRO, per test. Se qualcuno lo elenca qui senza marcare niente, il
+    // guard smette di segnalarlo e i suoi test vivi restano nel gate: la voce
+    // diventerebbe una deroga silenziosa invece di un taglio.
+    const missing = LIVE_DATA_PARTIAL_TESTS.filter(({ file }) => {
+      let src = '';
+      try { src = fs.readFileSync(path.resolve(__dirname, '..', file), 'utf8'); } catch { return true; }
+      return !src.includes('SKIP_LIVE_DATA');
+    }).map((e) => e.file);
+    expect(missing, `file senza skipIf(SKIP_LIVE_DATA): ${missing.join(', ')}`).toEqual([]);
+  });
+
+  it('ogni voce nuova dichiara la prova su cui sta in piedi', () => {
+    const measured = KNOWN_LIVE_DATA_TESTS.filter((e) => e.since === '2026-09-19');
+    expect(measured.length, 'il censimento non puo` sparire silenziosamente').toBeGreaterThan(30);
+    for (const e of measured) {
+      expect(['replay', 'review'], `${e.file}: evidence non riconosciuta`).toContain(e.evidence);
+      expect(e.roots.length, `${e.file}: senza radici misurate`).toBeGreaterThan(0);
+    }
+    // 26 file hanno cambiato esito col solo cambio dei dati (snapshot a 7, 14 e
+    // 30 giorni, stessa revisione di codice). Di quei 26, undici erano gia'
+    // nell'inventario del 2026-08-21: i restanti quindici sono entrati qui, e
+    // sono la parte PROVATA del censimento. Non deve diluirsi in una lista di
+    // sole valutazioni a vista.
+    expect(measured.filter((e) => e.evidence === 'replay').length).toBeGreaterThanOrEqual(15);
+  });
+
+  it('i falsi positivi della scansione portano un motivo', () => {
+    for (const e of LIVE_DATA_SCAN_EXEMPTIONS) {
+      expect(e.reason, `${e.file} senza motivo`).toBeTruthy();
+      expect(e.reason.length).toBeGreaterThan(20);
     }
   });
 });

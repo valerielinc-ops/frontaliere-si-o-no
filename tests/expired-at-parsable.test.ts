@@ -13,6 +13,7 @@ import {
 import { normalizeAndPersistExpiredSlice } from '../scripts/assemble-jobs-dataset.mjs';
 // @ts-expect-error — .mjs module without type declarations
 import { compareExpiredAt } from '../scripts/lib/compare-expired-at.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 /**
  * Issue #7736. Both archive writers sort by `expiredAt` and then cut at
@@ -252,7 +253,8 @@ describe('committed expired archive — the corpus observer', () => {
   const slicesDir = path.resolve(__dirname, '..', 'data', 'jobs', 'expired', 'by-crawler');
   const aggregate = path.resolve(__dirname, '..', 'public', 'data', 'expired-jobs.json');
 
-  it('carries a parsable expiredAt on every committed entry', () => {
+  // Dato vivo: l'archivio data/jobs/expired/by-crawler/** e public/data/expired-jobs.json, scritti dai cron dei crawler.
+  it.skipIf(SKIP_LIVE_DATA)('carries a parsable expiredAt on every committed entry', () => {
     const files = fs.existsSync(slicesDir)
       ? fs.readdirSync(slicesDir).filter((f) => f.endsWith('.json'))
       : [];

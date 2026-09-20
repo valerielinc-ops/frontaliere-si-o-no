@@ -30,6 +30,7 @@ import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import { unescapeTsString } from '../scripts/lib/unescape-ts-string.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -266,7 +267,8 @@ function loadPublishedTitles(): PublishedTitle[] {
   return out;
 }
 
-describe('blog article headlines — A5 integration', () => {
+// legge i titoli pubblicati in services/locales/blog-meta-it.ts, riscritto dal publisher del corpus: rosso possibile senza cambi di codice
+describe.skipIf(SKIP_LIVE_DATA)('blog article headlines — A5 integration', () => {
   const published = loadPublishedTitles();
 
   it('finds at least 100 published article titles', () => {

@@ -16,6 +16,7 @@
  * Run: npx vitest run tests/jobs-sitemap-filters.test.ts
  */
 import { describe, it, expect } from 'vitest';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 interface SitemapJob {
   title?: string;
@@ -121,7 +122,8 @@ describe('sitemap-jobs.xml <lastmod> resolution', () => {
 });
 
 describe('sitemap-jobs.xml regression guard (dataset-level)', () => {
-  it('filters out needsRetranslation jobs from the live jobs.json dataset', async () => {
+  // legge il dataset assemblato data/jobs.json, riscritto a ogni crawl: rosso possibile senza cambi di codice
+  it.skipIf(SKIP_LIVE_DATA)('filters out needsRetranslation jobs from the live jobs.json dataset', async () => {
     // Lightweight smoke-test on the real dataset — ensures the predicate
     // actually prunes entries when run against the current jobs.json.
     const fs = await import('fs');

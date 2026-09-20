@@ -30,6 +30,7 @@ import {
   runTranslationShadowBindingCaptureCli,
   runTranslationShadowObservationCli,
 } from '../scripts/translation-shadow-preflight-v2.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const BASELINE = 'a'.repeat(40);
 const LONG_DESCRIPTION = 'Descrizione completa '.repeat(8);
@@ -904,7 +905,8 @@ describe('translation shadow preflight v2 artifact safety', () => {
 });
 
 describe('translation shadow preflight v2 mapping and run observation', () => {
-  it('preserves traffic ordering/object identity while capturing the exact single-read source', () => {
+  // Costruisce la coda dai due slug piu'/meno visti di `data/job-popularity.json`, che `refresh-job-popularity.yml` riscrive su main.
+  it.skipIf(SKIP_LIVE_DATA)('preserves traffic ordering/object identity while capturing the exact single-read source', () => {
     const popularity = JSON.parse(fs.readFileSync(path.resolve('data/job-popularity.json'), 'utf8'));
     const [hot, cold] = Object.keys(popularity).sort((left, right) => popularity[right] - popularity[left]);
     const pending = [

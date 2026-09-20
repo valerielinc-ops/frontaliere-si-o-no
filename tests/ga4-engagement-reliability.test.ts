@@ -29,6 +29,7 @@ import {
   settledWindow,
   utcDaysBefore,
 } from '../scripts/lib/analytics-settled-window.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const libUrl = new URL('../scripts/lib/analytics-settled-window.mjs', import.meta.url).href;
 
@@ -506,7 +507,8 @@ describe('AI channel history — persistenza diagnostica e trend fail-closed', (
     })).toBeNull();
   });
 
-  it('il consumer appende sempre e il workflow committa solo il JSONL', () => {
+  // legge lo storico reale data/ai-channel-history.jsonl, appeso a ogni run di analytics.yml: rosso possibile senza cambi di codice
+  it.skipIf(SKIP_LIVE_DATA)('il consumer appende sempre e il workflow committa solo il JSONL', () => {
     expect(src).toContain("from './lib/ai-channel-history.mjs'");
     expect(src).toContain('aiChannelHistoryContext = { ...historyContext, previous };');
     expect(src).toContain('append conservato con engagement inaffidabile');

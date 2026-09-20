@@ -34,6 +34,7 @@ import {
   applyCoopSourceDetailToJob,
   validateCoopDescription,
 } from '../scripts/lib/coop-job-parser.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 describe('titleOverlap()', () => {
   it('returns 1 for identical inputs (modulo case/accents/punctuation)', () => {
@@ -414,7 +415,8 @@ describe('Truncated "St" locality guard (issue #1158)', () => {
     expect(jobs[1].addressLocality).toBe('St');
   });
 
-  it('CORPUS INVARIANT: no by-crawler slice emits a bare "St"/"St." addressLocality', () => {
+  // Scandisce ogni slice in `data/jobs/by-crawler/`, che i crawler della pipeline riscrivono da soli su main a ogni giro.
+  it.skipIf(SKIP_LIVE_DATA)('CORPUS INVARIANT: no by-crawler slice emits a bare "St"/"St." addressLocality', () => {
     const dir = resolve(__dirname, '..', 'data/jobs/by-crawler');
     const offenders: string[] = [];
     for (const file of readdirSync(dir).filter((f) => f.endsWith('.json'))) {

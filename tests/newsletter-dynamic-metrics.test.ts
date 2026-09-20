@@ -2,11 +2,13 @@ import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import { JOB_EMAIL_RANKING_DEFAULTS } from '../functions/src/lib/jobEmailRanking.js';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const ROOT = path.resolve(__dirname, '..');
 
 describe('loadDashboardMetrics', () => {
-  it('unemployment data file exists and has valid rate', () => {
+  // legge public/data/switzerland-unemployment-rate.json, risincronizzato dal cron SECO: rosso possibile senza cambi di codice
+  it.skipIf(SKIP_LIVE_DATA)('unemployment data file exists and has valid rate', () => {
     const filePath = path.join(ROOT, 'public', 'data', 'switzerland-unemployment-rate.json');
     expect(fs.existsSync(filePath)).toBe(true);
     const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -15,7 +17,8 @@ describe('loadDashboardMetrics', () => {
     expect(data.rate).toBeLessThan(20);
   });
 
-  it('health premiums data file exists and has Lugano premiums', () => {
+  // legge il dataset reale data/health-premiums(/<anno>).json, aggiornato dai cron: rosso possibile senza cambi di codice
+  it.skipIf(SKIP_LIVE_DATA)('health premiums data file exists and has Lugano premiums', () => {
     // F2-A3 multi-year storage; fall back to legacy flat path when absent.
     const candidates = [
       path.join(ROOT, 'data', 'health-premiums', `${new Date().getUTCFullYear()}.json`),

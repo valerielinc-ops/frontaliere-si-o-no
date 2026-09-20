@@ -274,6 +274,15 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
       // centrale al primo verde: il workflow gira a cron ogni giorno, perciò il
       // verde successivo arriva da solo entro 24h senza intervento.
       'audit-duplicate-crawlers.yml': 'close-recovered-failure-issues',
+      // sesta adozione: i test su DATI VIVI usciti dal job bloccante delle PR
+      // il 2026-09-19. Vale parola per parola quanto scritto sopra per i gate
+      // corpus-wide: l'adozione E' la condizione che rende lo spostamento un
+      // trasloco invece di una cancellazione. Ottantotto test che girano dove
+      // nessuno guarda il rosso sono ottantotto test spenti con un nome
+      // gentile. Titolo canonico `Workflow Failure: <name:>` → lo chiude il
+      // reconciler orario centrale, e il cron giornaliero garantisce che il
+      // primo verde arrivi da solo entro 24h.
+      'live-data-gates.yml': 'close-recovered-failure-issues',
     };
     expect(adopted.map((r) => r.file).sort()).toEqual(Object.keys(EXPECTED).sort());
     for (const r of adopted) expect(r.closedBy).toBe(EXPECTED[r.file]);

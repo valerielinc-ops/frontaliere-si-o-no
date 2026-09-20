@@ -22,6 +22,7 @@ import {
   type PharmacyDuty,
   type PharmacyDutiesDataset,
 } from '../services/pharmacies/types';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const CATALOGUE_FETCHED_AT = '2026-09-14T10:00:00.000Z';
 const DUTIES_FETCHED_AT = '2026-09-14T11:00:00.000Z';
@@ -149,7 +150,8 @@ describe('pharmacy atomic release contract', () => {
     expect(verifyPharmacyReleaseContract({ catalogue: second.catalogue, duties: second.duties })).toEqual([]);
   });
 
-  it('exposes the checked-in release as fresh and limited to five verified Ticino regions', () => {
+  // Unico caso che valuta i dataset committati `data/pharmacies-ticino-complete.json` e `data/pharmacy-duties-ticino.json`, riscritti dal refresh atomico delle farmacie.
+  it.skipIf(SKIP_LIVE_DATA)('exposes the checked-in release as fresh and limited to five verified Ticino regions', () => {
     const catalogue = catalogueJson as unknown as PharmacyCatalogueDataset;
     const duties = dutiesJson as unknown as PharmacyDutiesDataset;
     const now = new Date(Date.parse(duties._fetchedAt) + 60_000);

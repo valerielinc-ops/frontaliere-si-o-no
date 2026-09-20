@@ -3,6 +3,7 @@ import path from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 import { ARTICLE_SECTION_DESCRIPTORS } from '../build-plugins/shared/articleSectionDescriptors';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 describe('static pages blog detail rendering', () => {
   it('renders rich blog detail content instead of the generic editorial stub', () => {
@@ -66,7 +67,8 @@ describe('ogPagesPlugin skip-set covers every article section (no missingTarget 
     }
   });
 
-  it('skip-set parse derives all four locale paths for a svizzera article', () => {
+  // pesca un articolo reale dai registri services/seo/seo-blog-ch.ts e services/routerSwissData.ts, riscritti a ogni pubblicazione: rosso possibile senza cambi di codice
+  it.skipIf(SKIP_LIVE_DATA)('skip-set parse derives all four locale paths for a svizzera article', () => {
     const root = path.resolve(__dirname, '..');
     const seoSrc = readFileSync(path.resolve(root, 'services/seo/seo-blog-ch.ts'), 'utf-8');
     const routerSrc = readFileSync(path.resolve(root, 'services/routerSwissData.ts'), 'utf-8');

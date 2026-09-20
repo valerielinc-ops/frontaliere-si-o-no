@@ -4,6 +4,7 @@ import italy from '../data/pharmacies-italy-border.json';
 import ticino from '../data/pharmacies-ticino-complete.json';
 import { pharmacyCitySlug, provinceSlugForPharmacy } from '../services/pharmacies/data';
 import type { Pharmacy } from '../services/pharmacies/types';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 describe('pharmacy canonical paths', () => {
   it('round-trips hub, canton, city and duty paths in all locales', () => {
@@ -32,7 +33,8 @@ describe('pharmacy canonical paths', () => {
     expect(buildPharmacyPath({ kind: 'duty-week', locale: 'it', weekStart: '2026-09-15' })).toBe('/farmacie-di-turno/');
   });
 
-  it('round-trips Swiss and Italian pharmacy detail URLs', () => {
+  // prende il primo record reale di data/pharmacies-*.json (city/slug rigenerati dal sync): rosso possibile senza cambi di codice
+  it.skipIf(SKIP_LIVE_DATA)('round-trips Swiss and Italian pharmacy detail URLs', () => {
     const samples = [ticino.pharmacies[0], italy.pharmacies[0]] as unknown as Pharmacy[];
     for (const pharmacy of samples) {
       const path = pharmacy.country === 'IT'

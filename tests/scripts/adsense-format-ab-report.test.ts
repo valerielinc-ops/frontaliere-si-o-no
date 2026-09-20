@@ -9,6 +9,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 // importing it is side-effect-free — same pattern as
 // tests/scripts/revenue-monitor.test.ts.
 import * as reportModule from '../../scripts/adsense-format-ab-report.mjs';
+import { SKIP_LIVE_DATA } from '../helpers/live-data';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const {
@@ -144,7 +145,8 @@ describe('adsense-format-ab-report / identifiers', () => {
     }
   });
 
-  it('keeps every checked-in history row explicitly attributed', () => {
+  // Dato vivo: data/adsense-format-ab-history.jsonl, a cui il report settimanale appende una riga per run.
+  it.skipIf(SKIP_LIVE_DATA)('keeps every checked-in history row explicitly attributed', () => {
     const entries = readFileSync(path.resolve(REPO_ROOT, 'data/adsense-format-ab-history.jsonl'), 'utf8')
       .trim()
       .split('\n')

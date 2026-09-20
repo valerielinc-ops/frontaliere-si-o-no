@@ -12,6 +12,7 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'fs';
 import path from 'path';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 const DATA_JOBS_PATH = path.resolve(__dirname, '..', 'data', 'jobs.json');
@@ -54,11 +55,13 @@ describe('cross-locale content leakage guard', () => {
   const jobs: Job[] = JSON.parse(fs.readFileSync(DATA_JOBS_PATH, 'utf-8'));
   const jobsWithCanonical = jobs.filter(j => j.canonicalContent?.byLocale && !j.needsRetranslation);
 
-  it('jobs with canonicalContent exist', () => {
+  // Dato vivo: data/jobs.json, il dataset assemblato dagli output dei crawler.
+  it.skipIf(SKIP_LIVE_DATA)('jobs with canonicalContent exist', () => {
     expect(jobsWithCanonical.length).toBeGreaterThan(0);
   });
 
-  it('Italian canonical content must not be identical to German canonical content', () => {
+  // Dato vivo: il contenuto canonico dei job in data/jobs.json cambia a ogni riassemblaggio.
+  it.skipIf(SKIP_LIVE_DATA)('Italian canonical content must not be identical to German canonical content', () => {
     const leaked: string[] = [];
     for (const job of jobsWithCanonical) {
       const byLocale = job.canonicalContent!.byLocale!;
@@ -79,7 +82,8 @@ describe('cross-locale content leakage guard', () => {
     ).toHaveLength(0);
   });
 
-  it('no two locale entries share identical summary arrays (unless both are empty)', () => {
+  // Dato vivo: i summary per locale dei job in data/jobs.json, riscritti dalla pipeline di traduzione.
+  it.skipIf(SKIP_LIVE_DATA)('no two locale entries share identical summary arrays (unless both are empty)', () => {
     const leaked: string[] = [];
     for (const job of jobsWithCanonical) {
       const byLocale = job.canonicalContent!.byLocale!;

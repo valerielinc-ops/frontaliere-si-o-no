@@ -32,6 +32,7 @@ import {
 } from '../scripts/lib/it-microcopy-guard.mjs';
 import { normalizeTitleCasing } from '../scripts/create-article.mjs';
 import { unescapeTsString } from '../scripts/lib/unescape-ts-string.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const ROOT = resolve(__dirname, '..');
 
@@ -331,7 +332,8 @@ function scanPublishedMeta() {
   return { offenders, scanned, filesRead };
 }
 
-describe('scan dei campi pubblicati', () => {
+// L'intero blocco scansiona gli otto `packages/articles/content/blog-meta-*.ts`, mirror del corpus che il sync riscrive a ogni pubblicazione.
+describe.skipIf(SKIP_LIVE_DATA)('scan dei campi pubblicati', () => {
   const { offenders, scanned, filesRead } = scanPublishedMeta();
 
   it('legge davvero tutti e otto i file meta (fail-closed)', () => {

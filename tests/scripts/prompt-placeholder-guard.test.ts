@@ -15,6 +15,7 @@ import {
   sanitizePromptPlaceholders,
 } from '../../scripts/lib/prompt-placeholder-guard.mjs';
 import { unescapeTsString, tsStringEscapesWithNewlineAs, repairLegacyDoubleEscapedBreaks } from '../../scripts/lib/unescape-ts-string.mjs';
+import { SKIP_LIVE_DATA } from '../helpers/live-data';
 
 /**
  * prompt-placeholder-guard.test.ts — banco del GEMELLO SITO del guard sui
@@ -669,7 +670,8 @@ describe('controllo — un articolo pulito passa senza modifiche', () => {
 // solo giro `title`/`excerpt`/`imageAlt`/`body1..bodyN`/`faq`/`seoDescription`/
 // `ogDescription` — le stesse chiavi, ovunque compaiano, senza doverle
 // enumerare a mano (un campo nuovo nello schema resta coperto automaticamente).
-describe('GATE — 0 offender sul pubblicato, ratchet contro il buco fra scrittura e bonifica', () => {
+// scansiona il corpus pubblicato packages/articles/content/** (blog-meta*/blog-body), riscritto dal publisher: rosso possibile senza cambi di codice
+describe.skipIf(SKIP_LIVE_DATA)('GATE — 0 offender sul pubblicato, ratchet contro il buco fra scrittura e bonifica', () => {
   const CONTENT_ROOT = path.join(ROOT, 'packages', 'articles', 'content');
   const FIELD_RX = /'blog\.article\.([^']+)\.([a-zA-Z0-9]+)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
 
