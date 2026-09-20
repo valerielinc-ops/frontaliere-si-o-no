@@ -47,6 +47,7 @@ import {
   TOPIC_HUB_SECTIONS,
   TOPIC_INDEX_CANONICAL_PATHS,
 } from '../build-plugins/topicClusterHubsData';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const SEEDS = TOPIC_CLUSTERS.map((t) => ({ key: t.key, seedText: t.seedText }));
 
@@ -428,7 +429,8 @@ describe('searchConsoleCompat self-map', () => {
  * pass with the filter deleted. These run against the published corpus, which
  * is where the 99,5%-in-one-component measurement came from.
  */
-describe('topic clustering on the published corpus', () => {
+// misura il corpus pubblicato letto da services/locales/blog-meta-it.ts: rosso possibile senza cambi di codice
+describe.skipIf(SKIP_LIVE_DATA)('topic clustering on the published corpus', () => {
   const rootDir = np.resolve(__dirname, '..');
   const metaFile = np.join(rootDir, 'services/locales/blog-meta-it.ts');
   const available = fs.existsSync(metaFile);
@@ -587,7 +589,8 @@ describe('topic hubs — non annunciare una sezione che il build non spedisce', 
  *    `/assets/...` refs that are guaranteed 404s after the deploy drops
  *    `dist/assets`).
  */
-describe('fast-publish topic hub render', () => {
+// rende gli hub dal corpus reale (services/locales/blog-meta-ch-it.ts): paginazione e conteggi cambiano a ogni articolo pubblicato, rosso possibile senza cambi di codice
+describe.skipIf(SKIP_LIVE_DATA)('fast-publish topic hub render', () => {
   const rootDir = np.resolve(__dirname, '..');
   const available = fs.existsSync(np.join(rootDir, 'services/locales/blog-meta-ch-it.ts'));
 

@@ -21,6 +21,7 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { COMPANION_CHUNKS, REGISTRIES } from '../../scripts/publish-article-chunks.mjs';
+import { SKIP_LIVE_DATA } from '../helpers/live-data';
 
 const ROOT = resolve(__dirname, '..', '..');
 const src = readFileSync(resolve(ROOT, 'scripts/publish-article-chunks.mjs'), 'utf-8');
@@ -57,7 +58,8 @@ describe('publish-article-chunks — registry never ships ahead of its translati
     expect(companionLoop).toBeLessThan(registryLoop);
   });
 
-  it('every registry article id has a translated title and a slug entry', () => {
+  // Confronta i registri articoli con `services/locales/blog-meta-*.ts` e le mappe slug: tutti symlink sul corpus vivo `packages/articles/content/`.
+  it.skipIf(SKIP_LIVE_DATA)('every registry article id has a translated title and a slug entry', () => {
     // The source-level version of the invariant that broke at the CDN layer.
     const idsOf = (rel: string) =>
       [...readFileSync(resolve(ROOT, rel), 'utf-8').matchAll(/^\s*id:\s*'([^']+)'/gm)].map((m) => m[1]);

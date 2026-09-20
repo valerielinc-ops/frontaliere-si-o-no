@@ -7,6 +7,7 @@ import {
   pruneStaleEntries,
 } from '@/scripts/prune-search-cluster-301-map.mjs';
 import searchClusterMapFile from '@/data/search-cluster-301-map.json';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 // Derive real "specific" target shapes from the exported building blocks instead
 // of hardcoding guessed slugs, so this test can't drift from the generator's own
@@ -22,13 +23,15 @@ describe('isSpecificClusterTarget (issue #2918 item 3)', () => {
     expect(isSpecificClusterTarget(LIVE_TARGET)).toBe(true);
   });
 
-  it('recognizes at least one real "specific" target per locale from the live map fixture', () => {
+  // conta i target dentro data/search-cluster-301-map.json, rigenerato dai cron: rosso possibile senza cambi di codice
+  it.skipIf(SKIP_LIVE_DATA)('recognizes at least one real "specific" target per locale from the live map fixture', () => {
     const map = (searchClusterMapFile as { map: Record<string, string> }).map;
     const specificTargets = Object.values(map).filter((t) => isSpecificClusterTarget(t));
     expect(specificTargets.length, 'expected at least one specific target in the map fixture').toBeGreaterThan(0);
   });
 
-  it('does NOT flag a canton/national board or per-city job page as specific', () => {
+  // pretende almeno un target non-specifico dentro data/search-cluster-301-map.json, rigenerato dai cron: rosso possibile senza cambi di codice
+  it.skipIf(SKIP_LIVE_DATA)('does NOT flag a canton/national board or per-city job page as specific', () => {
     const map = (searchClusterMapFile as { map: Record<string, string> }).map;
     // Non-cluster-page target: no locale's searchPrefix appears right after its
     // national-aggregate root — a plain canton/national board or per-city page.
