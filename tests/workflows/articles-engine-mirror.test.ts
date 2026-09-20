@@ -3,7 +3,10 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import YAML from 'yaml';
-import { checkPrBodySections } from '../../scripts/lib/pr-body-sections-check.mjs';
+import {
+  checkPrBodySections,
+  decisionDeferralsAreSpecific,
+} from '../../scripts/lib/pr-body-sections-check.mjs';
 import { checkClosesLines } from '../../scripts/lib/pr-body-closes-check.mjs';
 
 /**
@@ -189,6 +192,45 @@ describe('the articles engine has an automatic transport to the corpus (#4974)',
     ).toBe(true);
   });
 
+  it('materializza il gate del body e tutta la sua closure di import', () => {
+    const checkoutStart = src.indexOf('sparse-checkout: |');
+    const checkoutEnd = src.indexOf('sparse-checkout-cone-mode:', checkoutStart);
+    expect(checkoutStart, 'the sparse checkout block is missing').toBeGreaterThan(-1);
+    expect(checkoutEnd, 'the sparse checkout mode is missing').toBeGreaterThan(checkoutStart);
+    const sparse = src.slice(checkoutStart, checkoutEnd);
+    const validatorClosure = [
+      'scripts/ci/pr-body-check-gate.mjs',
+      'scripts/ci/lib/false-positive-declaration.mjs',
+      'scripts/ci/lib/hook-command-parser.mjs',
+      'scripts/ci/lib/hook-exit-codes.mjs',
+      'scripts/ci/lib/hook-stdin.mjs',
+      'scripts/ci/lib/hook-target-cwd.mjs',
+      'scripts/lib/pr-body-sections-check.mjs',
+    ];
+
+    for (const file of validatorClosure) {
+      expect(
+        sparse,
+        `the sparse checkout must materialise the PR-body validator closure: ${file}`,
+      ).toContain(`/${file}`);
+    }
+  });
+
+  it('fallisce chiuso se il gate del body non è disponibile', () => {
+    const gateStart = live.indexOf('case "$gate_status" in');
+    const gateEnd = live.indexOf('\n          esac', gateStart);
+    expect(gateStart, 'the PR-body gate status switch is missing').toBeGreaterThan(-1);
+    expect(gateEnd, 'the PR-body gate status switch is incomplete').toBeGreaterThan(gateStart);
+    const gate = live.slice(gateStart, gateEnd);
+
+    expect(gate).toMatch(/PR body non conforme[^\n]*exit 2/);
+    expect(gate).toMatch(/PR body gate non disponibile[^\n]*exit 1/);
+    expect(
+      gate,
+      'an unavailable validator must not turn into a successful mirror run',
+    ).not.toContain('exit 0');
+  });
+
   it('preflighta l’albero engine con manifest e swap atomico prima dello staging', () => {
     expect(live).toContain('source_manifest="$RUNNER_TEMP/engine-source-manifest.txt"');
     expect(live).toContain('source_tree_sha="$(git rev-parse HEAD:packages/articles/engine)"');
@@ -276,6 +318,17 @@ describe('the lockstep PR body satisfies the contract nanako gates on', () => {
     // red `contract` check this whole fix is about.
     const body = renderPrBody(DEGRADED_ENV);
     expect(checkPrBodySections(body).violations).toEqual([]);
+  });
+
+  it('non usa deroghe decisionali nude nel corpo generato', () => {
+    // The strict gate rejects `by construction` unless the same bullet carries
+    // concrete Motivo/Prossimo passo fields. These residual mirror effects are
+    // ordinary work deferred until merge, so `in questa PR` is the honest state
+    // and keeps the generated body accepted by the gate.
+    const body = renderPrBody(FULL_ENV);
+    expect(decisionDeferralsAreSpecific(body)).toBe(true);
+    expect(body).not.toMatch(/^\s*- by construction:/m);
+    expect(body).toMatch(/^\s*- in questa PR:/m);
   });
 
   it('carries the two headers literally, with "(ancora)"', () => {

@@ -165,47 +165,20 @@ jobs:
           head_sha=$(jq -er '.head_sha // empty' "$source_run_json")
           printf 'head_sha=%s\n' "$head_sha" >> "$GITHUB_OUTPUT"
 
-  recovery-production-approval:
-    name: approve recovery promotion
-    needs: validate-recovery-source
-    if: >-
-      github.event_name == 'workflow_dispatch' &&
-      github.workflow_ref == format('{0}/.github/workflows/post-deploy-publish.yml@refs/heads/main', github.repository) &&
-      needs.validate-recovery-source.result == 'success'
-    runs-on: ubuntu-latest
-    environment:
-      name: production-deploy
-    permissions:
-      contents: read
-      deployments: read
-    steps:
-      - name: Checkout promotion gate
-        uses: actions/checkout@v5
-        with:
-          sparse-checkout: |
-            /scripts/ci/production-promotion-gate.mjs
-          sparse-checkout-cone-mode: false
-      - name: Verify required reviewers and environment attestation
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PROMOTION_REPOSITORY: ${{ github.repository }}
-          PROMOTION_ENVIRONMENT_NAME: production-deploy
-          PRODUCTION_DEPLOY_APPROVAL: ${{ secrets.PRODUCTION_DEPLOY_APPROVAL }}
-        run: |
-          set -euo pipefail
-          gh api --method GET \
-            "repos/${PROMOTION_REPOSITORY}/environments/${PROMOTION_ENVIRONMENT_NAME}" \
-            | node scripts/ci/production-promotion-gate.mjs approval
+  # The recovery dispatch is already restricted to actors who can run this
+  # workflow from main, and `validate-recovery-source` proves the artifact
+  # comes from a canonical successful build. No human-approval environment is
+  # layered on top: see tests/deploy-no-human-approval-gate.test.ts.
 
   publish:
-    needs: [validate-deploy-publish-caller, validate-recovery-source, recovery-production-approval]
+    needs: [validate-deploy-publish-caller, validate-recovery-source]
     if: >-
       always() &&
       ((github.event_name == 'workflow_run' &&
         needs.validate-deploy-publish-caller.result == 'success') ||
        (github.event_name == 'workflow_dispatch' &&
-        needs.validate-recovery-source.result == 'success' &&
-        needs.recovery-production-approval.result == 'success'))
+        github.workflow_ref == format('{0}/.github/workflows/post-deploy-publish.yml@refs/heads/main', github.repository) &&
+        needs.validate-recovery-source.result == 'success'))
     runs-on: ubuntu-latest
     env:
       EFFECTIVE_DEPLOY_RUN_ID: ${{ github.event_name == 'workflow_dispatch' && inputs.source_run_id || inputs.deploy_run_id }}
