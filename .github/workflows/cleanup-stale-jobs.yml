@@ -1,9 +1,9 @@
 name: Cleanup Stale Job Listings
 
-# Phase 1 (per-slice expired-job pruning and URL validation) runs daily at
-# 06:00 UTC inside translate-pending.yml. This weekly workflow only repeats the
-# bounded age/dedup pass before Phase 2: URL validation is deliberately not
-# duplicated here because it is the 90%-of-runtime hotspot on large slices.
+# Daily URL validation runs in the separate two-lane housekeeping workflow.
+# This weekly workflow only repeats the bounded age/dedup pass: URL validation
+# is deliberately not duplicated here because it is the 90%-of-runtime hotspot
+# on large slices.
 on:
   schedule:
     - cron: '0 5 * * 0'  # Weekly: Sunday 05:00 UTC (before translate-pending daily run)
@@ -70,7 +70,7 @@ jobs:
       - name: Cleanup each per-crawler slice
         env:
           JOBS_STALE_DAYS: ${{ github.event.inputs.stale_days || '' }}
-          # URL validation is owned by the daily translate-pending pass. The
+          # URL validation is owned by the daily two-lane housekeeping pass. The
           # weekly pass must stay bounded by local JSON work, not remote URL
           # latency on every job in every slice.
           JOBS_SKIP_URL_VALIDATION: '1'
@@ -85,7 +85,7 @@ jobs:
             JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs
             slices=$((slices + 1))
           done
-          echo "✅ Bounded per-slice cleanup complete: $slices slice(s), URL validation delegated to translate-pending"
+          echo "✅ Bounded per-slice cleanup complete: $slices slice(s), URL validation delegated to housekeeping"
 
       - name: Commit Phase 1 (per-slice expired jobs)
         id: phase1_commit

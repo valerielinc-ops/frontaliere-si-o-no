@@ -567,6 +567,27 @@ function tokenOverlap(a, b) {
 const normalizeForCompare = (value) =>
   String(value || '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
 
+/**
+ * The one source-copy predicate used by title queueing and title writers.
+ * Punctuation/whitespace-only changes are still a copy; diacritics remain
+ * significant so a real translation such as `Ingénieur` is not discarded.
+ */
+export function isTitleSourceCopy(title, sourceTitle) {
+  const clean = String(title || '').trim();
+  const source = String(sourceTitle || '').trim();
+  return !!clean && !!source && normalizeForCompare(clean) === normalizeForCompare(source);
+}
+
+// A failed LLM call can return its instruction/reasoning as the title. This is
+// not a source-copy and therefore used to evade the repair queue entirely.
+// Keep the detector narrow and phrase-based: it targets meta-instructions, not
+// legitimate titles containing ordinary words such as "translation" or "AI".
+const LLM_REASONING_TITLE_RE = /\b(?:i\s+need\s+to\s+translate|translate\s+(?:this|the)\s+(?:job\s+)?title|the\s+translated\s+(?:job\s+)?title|here\s+is\s+the\s+translation|as\s+an\s+ai|target\s+language\s*:\s*|source\s+language\s*:)/iu;
+
+export function titleContainsLlmReasoning(title = '') {
+  return LLM_REASONING_TITLE_RE.test(String(title || '').trim());
+}
+
 function hasGermanGenderCode(body) {
   GENDER_CODE_RE.lastIndex = 0;
   let match;
@@ -659,7 +680,7 @@ function scanSourceMarkers(body, markerLang, sourceTokens) {
  *            markers: string[], evidence: string, genderCode: boolean}}
  *   reason ∈ 'source-copy' | 'source-function-word' | 'source-orthography' |
  *            'binnen-i' | 'compound-residue' | 'gender-code' |
- *            'source-overlap' | 'ok'
+ *            'source-overlap' | 'llm-reasoning' | 'ok'
  */
 export function titleLooksUntranslated({
   title,
@@ -702,9 +723,14 @@ export function titleLooksUntranslated({
     untranslated: true, reason, overlap, detected, markers, evidence, genderCode,
   });
 
-  if (srcClean && normalizeForCompare(clean) === normalizeForCompare(srcClean)) {
+  if (isTitleSourceCopy(clean, srcClean)) {
     markers.unshift('source-copy');
     return verdict('source-copy', srcClean);
+  }
+
+  if (titleContainsLlmReasoning(clean)) {
+    markers.unshift('llm-reasoning');
+    return verdict('llm-reasoning', clean);
   }
 
   const scanLangs = [];

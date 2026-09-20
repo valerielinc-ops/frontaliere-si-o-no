@@ -158,7 +158,7 @@ describe('crawler generation PR B workflow wiring', () => {
     // `timeout-minutes`, che veniva intercettato SOLO dall'uguaglianza con
     // `origin/main`: tolta quella, la stessa mutazione non proverebbe piu'
     // niente. Ora la sonda infila uno step estraneo dentro la terna shadow —
-    // esattamente la rottura di #7355, `Upload thinking A/B rows` fra finalize
+    // esattamente la rottura di #7355, un passo estraneo fra finalize
     // e upload — e pretende il rosso. Se qualcuno indebolisce o cancella
     // l'adiacenza invece di ripararla, e' questa riga a cadere.
     const adjacencyProbe = cloneDocument(portableCurrent);
@@ -227,7 +227,7 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(contract.crawlerGeneration).toMatchObject({ mode: 'shadow', dispatchesTranslation: false });
   });
 
-  it('carica le righe A/B subito dopo il cascade, prima del mop-up lungo', () => {
+  it('non riattiva l artefatto A/B invalidato nel percorso di traduzione', () => {
     const sourceTranslate = YAML.parse(fs.readFileSync(
       '.github/workflows/translate-pending-logic.yml',
       'utf8',
@@ -239,13 +239,11 @@ describe('crawler generation PR B workflow wiring', () => {
     for (const document of [sourceTranslate, portableTranslate]) {
       const steps = document.jobs.translate.steps;
       const cascade = findUniqueStep(steps, 'Phase 2b: Translate pending jobs (cascade top-up)');
-      const thinkingUpload = findUniqueStep(steps, 'Upload thinking A/B rows');
       const mopUp = findUniqueStep(steps, 'Phase 2c mop-up: local MT (Argos Translate, in-process)');
-      expect(thinkingUpload.index).toBe(cascade.index + 1);
-      expect(thinkingUpload.index).toBeLessThan(mopUp.index);
-      expect(thinkingUpload.step.if).toContain('always()');
-      expect(thinkingUpload.step.with.path).toBe('${{ runner.temp }}/translation-thinking-ab.json');
-      expect(thinkingUpload.step.with['if-no-files-found']).toBe('warn');
+      expect(steps.some((step: any) => step.name === 'Upload thinking A/B rows')).toBe(false);
+      expect(mopUp.index).toBeGreaterThan(cascade.index);
+      expect(JSON.stringify(document)).not.toContain('setup-claude-haiku-fallback');
+      expect(JSON.stringify(document)).not.toContain('TRANSLATION_THINKING_AB');
     }
   });
 
@@ -405,7 +403,10 @@ describe('crawler generation PR B workflow wiring', () => {
 
   it('keeps observe=false when the triggering run ID is not bound by the sentinel', () => {
     const workflow = YAML.parse(fs.readFileSync(observerPath, 'utf8'));
-    const script = workflow.jobs.probe.steps[0].run;
+    // The test launches multiple shells after other tests may have used the
+    // coordinator's `gh` shim. Pin the temporary probe double explicitly so
+    // Bash's command hash cannot bypass it.
+    const script = `hash -p "$PROBE_GH" gh\n${workflow.jobs.probe.steps[0].run}`;
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-probe-'));
     try {
       const payload = path.join(root, 'payload');
@@ -511,6 +512,7 @@ esac
           PROBE_SENTINEL_RUN_JSON: sentinelRunJson,
           PROBE_TRIGGER_RUN_JSON: triggerRunJson,
           PROBE_CALL_LOG: callLog,
+          PROBE_GH: gh,
         },
       });
       expect(fs.readFileSync(output, 'utf8')).toBe('observe=false\n');
@@ -533,6 +535,7 @@ esac
           PROBE_SENTINEL_RUN_JSON: sentinelRunJson,
           PROBE_TRIGGER_RUN_JSON: triggerRunJson,
           PROBE_CALL_LOG: callLog,
+          PROBE_GH: gh,
         },
       });
       expect(fs.readFileSync(output, 'utf8')).toContain('observe=true\n');
@@ -561,6 +564,7 @@ esac
             PROBE_SENTINEL_RUN_JSON: sentinelRunJson,
             PROBE_TRIGGER_RUN_JSON: triggerRunJson,
             PROBE_CALL_LOG: callLog,
+            PROBE_GH: gh,
             PROBE_TRANSIENT_STATUS_ONCE: transientKind,
             PROBE_TRANSIENT_MARKER: transientMarker,
           },
@@ -588,6 +592,7 @@ esac
           PROBE_SENTINEL_RUN_JSON: sentinelRunJson,
           PROBE_TRIGGER_RUN_JSON: triggerRunJson,
           PROBE_CALL_LOG: callLog,
+          PROBE_GH: gh,
         },
       });
       expect(fs.readFileSync(output, 'utf8')).toBe('observe=false\n');
@@ -616,6 +621,7 @@ esac
             PROBE_SENTINEL_RUN_JSON: sentinelRunJson,
             PROBE_TRIGGER_RUN_JSON: triggerRunJson,
             PROBE_CALL_LOG: callLog,
+            PROBE_GH: gh,
           },
         });
         expect(fs.readFileSync(output, 'utf8')).toBe('observe=false\n');
@@ -645,6 +651,7 @@ esac
           PROBE_SENTINEL_RUN_JSON: sentinelRunJson,
           PROBE_TRIGGER_RUN_JSON: triggerRunJson,
           PROBE_CALL_LOG: callLog,
+          PROBE_GH: gh,
         },
       });
       expect(fs.readFileSync(output, 'utf8')).toBe('observe=false\n');
@@ -687,6 +694,7 @@ esac
           PROBE_SENTINEL_RUN_JSON: sentinelRunJson,
           PROBE_TRIGGER_RUN_JSON: triggerRunJson,
           PROBE_CALL_LOG: callLog,
+          PROBE_GH: gh,
         },
       });
       expect(fs.readFileSync(output, 'utf8')).toBe('observe=false\n');

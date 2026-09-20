@@ -414,6 +414,39 @@ export function cascadeCompanyTimeBudgetMs(
   return Math.max(1, Math.min(perCompanyMs, deadlineMs - elapsedMs));
 }
 
+/**
+ * Budget for one shared-crawler invocation. A batch of short companies pays
+ * one process startup but still represents N independent company budgets: the
+ * old call passed only 15 minutes to the whole batch, so an aggregated group
+ * of ~200 companies was almost entirely deferred before its first run could
+ * reach them. Keep the singleton behavior byte-for-byte and scale only the
+ * batch cap, still bounded by the run-wide deadline.
+ */
+export function cascadeExecutionTimeBudgetMs(
+  elapsedMs,
+  {
+    companyCount = 1,
+    deadlineMs = CASCADE_LOCALIZATION_DEADLINE_MS,
+    perCompanyMs = CASCADE_PER_COMPANY_BUDGET_MS,
+  } = {},
+) {
+  const count = Math.max(1, Number(companyCount) || 1);
+  return Math.max(1, Math.min(deadlineMs - elapsedMs, perCompanyMs * count));
+}
+
+/** Put failed companies at the back of a retry queue so healthy pending work
+ * gets another chance in the same run. The stable partition is deliberate:
+ * it rotates failures without changing the traffic order of the rest. */
+export function rotateFailedCompanyKeys(companyKeys, failedCompanyKeys) {
+  const failed = failedCompanyKeys instanceof Set
+    ? failedCompanyKeys
+    : new Set(Array.isArray(failedCompanyKeys) ? failedCompanyKeys : []);
+  return [
+    ...companyKeys.filter((key) => !failed.has(key)),
+    ...companyKeys.filter((key) => failed.has(key)),
+  ];
+}
+
 function readJson(filePath) {
   try {
     return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -1072,7 +1105,9 @@ async function runSharedCrawler(companyKeys, maxJobs) {
     // i.e. a company that starts past the deadline does nothing and leaves its
     // jobs for the next run, never an unbounded run.
     JOBS_AI_LOCALIZATION_TIME_BUDGET_MS: String(
-      cascadeCompanyTimeBudgetMs(LEGACY_CLOCK.now() - RUN_START_MS),
+      cascadeExecutionTimeBudgetMs(LEGACY_CLOCK.now() - RUN_START_MS, {
+        companyCount: companyKeys.length,
+      }),
     ),
   };
 
@@ -1985,6 +2020,9 @@ export async function runRelocalization(phase) {
   // Process each invocation group with per-company intermediate saves
   let totalFixed = 0;
   let totalProcessed = 0;
+  // Aggregate 2b budget: failed invocations still consumed wall-clock and
+  // quota, so the retry pass may use only the unspent part of the same cap.
+  let budgetConsumed = 0;
   let consecutiveFailures = 0;
   const observedStartTime = LEGACY_CLOCK.now();
   const fallbackNowMs = readWallClockMs();
@@ -2083,6 +2121,7 @@ export async function runRelocalization(phase) {
 
     const elapsedMs = companyNowMs - RUN_START_MS;
     console.log(`\n🔄 [${totalProcessed + companyJobCount}/${effectiveMax}] Translating ${executionLabel} (${companyJobCount} jobs) — ${Math.round(elapsedMs / 60_000)}min elapsed...`);
+    budgetConsumed += companyJobCount;
 
     // Invalidate stale cache entries for incomplete jobs so the shared crawler
     // actually calls translation APIs instead of serving cached bad translations.
@@ -2324,13 +2363,16 @@ export async function runRelocalization(phase) {
     timeBudgetMs: TIME_BUDGET_MS,
     timeBudgetFraction: 0.85,
   });
-  if (totalFixed > 0 && !retryStartReason) {
+  const retryBudget = Math.max(0, effectiveMax - budgetConsumed);
+  if (totalFixed > 0 && !retryStartReason && retryBudget > 0) {
     const retryJobs = readJson(DATA_JOBS_PATH);
     const retryPending = Array.isArray(retryJobs)
       ? retryJobs.filter(j => j.needsRetranslation && needsTranslation(j))
       : [];
 
-    // Only retry companies that had at least one success (partial failure)
+    // Only retry companies that had at least one success (partial failure).
+    // Failed companies are deliberately rotated to the back of this queue so
+    // they cannot starve healthy pending work in the same run.
     const retryCompanies = new Map();
     for (const j of retryPending) {
       const k = canonicalCompanyKeyForJob(j);
@@ -2342,18 +2384,29 @@ export async function runRelocalization(phase) {
       }
     }
 
-    if (retryCompanies.size > 0) {
-      const retryTotal = [...retryCompanies.values()].reduce((a, b) => a + b, 0);
-      console.log(`\n🔁 Retry pass: ${retryTotal} jobs across ${retryCompanies.size} companies still pending...`);
+    if (retryCompanies.size > 0 && retryBudget > 0) {
+      const retryOrder = rotateFailedCompanyKeys([...retryCompanies.keys()], failedCompanyKeys);
+      const cappedRetryCompanies = new Map();
+      let retryBudgetLeft = retryBudget;
+      for (const companyKey of retryOrder) {
+        if (retryBudgetLeft <= 0) break;
+        const count = Math.min(retryCompanies.get(companyKey) || 0, retryBudgetLeft);
+        if (count > 0) {
+          cappedRetryCompanies.set(companyKey, count);
+          retryBudgetLeft -= count;
+        }
+      }
+      const retryTotal = [...cappedRetryCompanies.values()].reduce((a, b) => a + b, 0);
+      console.log(`\n🔁 Retry pass: ${retryTotal} jobs across ${cappedRetryCompanies.size} companies still pending (aggregate budget ${retryTotal}/${retryBudget})...`);
 
       const retryExecutionGroups = buildCompanyExecutionGroups(
-        [...retryCompanies.keys()],
+        [...cappedRetryCompanies.keys()],
         companyJobCounts,
       );
       for (const retryKeys of retryExecutionGroups) {
         const key = retryKeys[0];
         const count = retryKeys.reduce((total, companyKey) => (
-          total + (retryCompanies.get(companyKey) || 0)
+          total + (cappedRetryCompanies.get(companyKey) || 0)
         ), 0);
         const retryLabel = retryKeys.join(', ');
         const retryCompanyStopReason = cascadeStopReason({
@@ -2370,6 +2423,7 @@ export async function runRelocalization(phase) {
         }
 
         console.log(`   🔁 Retrying ${retryLabel} (${count} jobs)...`);
+        budgetConsumed += count;
         try {
           const preRetryJobs = readJson(DATA_JOBS_PATH);
           const preRetrySignatures = new Map(retryKeys.map((companyKey) => [
@@ -2385,7 +2439,7 @@ export async function runRelocalization(phase) {
           const retryStartedMs = cascadeNow();
           const retryQueuedByCompany = new Map(retryKeys.map((companyKey) => [
             companyKey,
-            companyJobCounts.get(companyKey) || retryCompanies.get(companyKey) || 0,
+            cappedRetryCompanies.get(companyKey) || 0,
           ]));
           mergeCascadeObservability(phase, null, { queuedByCompany: retryQueuedByCompany });
           recordRunPhase(phase, { replaceLast: true });
@@ -2424,7 +2478,7 @@ export async function runRelocalization(phase) {
                 // msPerJob perche' e' stato speso davvero, ma i job non vanno
                 // contati due volte nel denominatore.
                 jobCount: 0,
-                elapsedMs: retryElapsedMs * (retryCompanies.get(companyKey) || 0) / count,
+                elapsedMs: retryElapsedMs * (cappedRetryCompanies.get(companyKey) || 0) / count,
                 attempted: retryAttemptedByCompany.get(companyKey).size,
                 cleared: 0,
                 companyServed: retryServedCompanyKeys.has(normalizeCompanyKey(companyKey)),
@@ -2480,8 +2534,10 @@ export async function runRelocalization(phase) {
         }
       }
     }
-  } else if (totalFixed > 0) {
+  } else if (totalFixed > 0 && retryStartReason) {
     console.log(`\n⏰ Retry pass skipped: ${retryStartReason} reached — deferring retries to the next run`);
+  } else if (totalFixed > 0 && retryBudget <= 0) {
+    console.log(`\n⏭️  Retry pass skipped: aggregate 2b budget exhausted (${budgetConsumed}/${effectiveMax} jobs attempted)`);
   }
 
   // Final summary — use saved slug set instead of re-reading data/jobs.json

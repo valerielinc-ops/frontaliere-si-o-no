@@ -204,7 +204,7 @@ jobs:
             md += `### Repair path\n\n`;
             md += `\`\`\`bash\nnode scripts/mark-mistranslated-jobs.mjs --dry-run\n\`\`\`\n\n`;
             md += `That marks affected jobs \`needsRetranslation\` (capped per run, see \`TITLE_MISTRANSLATION_MARK_CAP\`); `;
-            md += `\`.github/workflows/translate-pending.yml\` runs it 5x/day and re-translates the queue.\n\n`;
+            md += `\`.github/workflows/translate-pending.yml\` runs it three times/day and re-translates the queue.\n\n`;
             md += `**Detector:** \`titleLooksUntranslated()\` in \`scripts/lib/job-locale-utils.mjs\`\n`;
             md += `**Audit:** \`scripts/audit-job-title-locale.mjs\`\n`;
             md += `**Ratchet:** \`tests/job-locale-consistency.test.ts\` (rate-based)\n`;

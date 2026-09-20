@@ -136,6 +136,56 @@ describe('wasCancelledWhileQueued', () => {
   });
 });
 
+describe('summarizeQueueTelemetry', () => {
+  it('reports median wait, queued age, and capped union utilization', async () => {
+    const { summarizeQueueTelemetry } = await import('../scripts/monitor-jobs-pipeline-queue.mjs');
+    const now = 10_000;
+    const summary = summarizeQueueTelemetry([
+      {
+        status: 'completed',
+        created_at: new Date(0).toISOString(),
+        run_started_at: new Date(1_000).toISOString(),
+        updated_at: new Date(3_000).toISOString(),
+      },
+      {
+        status: 'in_progress',
+        created_at: new Date(4_000).toISOString(),
+        run_started_at: new Date(5_000).toISOString(),
+      },
+      {
+        status: 'queued',
+        created_at: new Date(9_000).toISOString(),
+      },
+    ], { now, lookbackMs: 10_000 });
+
+    expect(summary.active).toBe(1);
+    expect(summary.queued).toBe(1);
+    expect(summary.medianWaitMs).toBe(1_000);
+    expect(summary.oldestQueuedWaitMs).toBe(1_000);
+    expect(summary.busyMs).toBe(7_000);
+    expect(summary.utilizationPct).toBe(70);
+  });
+
+  it('unions overlapping intervals instead of exceeding one pipeline slot', async () => {
+    const { summarizeQueueTelemetry } = await import('../scripts/monitor-jobs-pipeline-queue.mjs');
+    const summary = summarizeQueueTelemetry([
+      {
+        status: 'completed',
+        run_started_at: new Date(2_000).toISOString(),
+        updated_at: new Date(8_000).toISOString(),
+      },
+      {
+        status: 'completed',
+        run_started_at: new Date(4_000).toISOString(),
+        updated_at: new Date(9_000).toISOString(),
+      },
+    ], { now: 10_000, lookbackMs: 10_000 });
+
+    expect(summary.busyMs).toBe(7_000);
+    expect(summary.utilizationPct).toBe(70);
+  });
+});
+
 describe('main — cancelled-while-queued alert (queue:max not honoured)', () => {
   it('opens an issue naming the run when a job was cancelled before ever starting', async () => {
     writeWorkflow('translate-pending.yml', MEMBER_WORKFLOW);

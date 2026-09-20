@@ -311,7 +311,7 @@ jobs:
       # fires even if some crawler-group dispatches above failed or this job
       # is about to fail — the old workflow_run trigger fired on completion
       # regardless of this job's conclusion, success or failure. Never fails
-      # the job over this: translate-pending.yml's own 5 daily crons
+      # the job over this: translate-pending.yml's own three daily crons
       # (unchanged) are the safety net if this dispatch is missed.
       - name: Dispatch translate-pending (frontaliere-articles)
         if: always()
@@ -325,7 +325,7 @@ jobs:
             echo "::warning::crawler generation preflight is $GENERATION_PREFLIGHT_MODE (reasons=$GENERATION_PREFLIGHT_REASONS); translate-pending is only the safety-net dispatch and does not make the blocked crawler wave green."
           fi
           if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
-            echo "ℹ️ GITHUB_PAT_NANAKO not loaded — skipping the translate-pending cross-repo dispatch (its 5 daily crons remain the safety net)."
+            echo "ℹ️ GITHUB_PAT_NANAKO not loaded — skipping the translate-pending cross-repo dispatch (its three daily crons remain the safety net)."
             exit 0
           fi
           for attempt in 1 2 3; do
@@ -337,7 +337,7 @@ jobs:
             echo "⚠️  dispatch attempt $attempt failed, retrying in 5s..."
             sleep 5
           done
-          echo "::warning::translate-pending.yml cross-repo dispatch failed after 3 attempts — its 5 daily crons remain the safety net."
+          echo "::warning::translate-pending.yml cross-repo dispatch failed after 3 attempts — its three daily crons remain the safety net."
 
       - name: Report failure to GitHub Issues
         if: failure()

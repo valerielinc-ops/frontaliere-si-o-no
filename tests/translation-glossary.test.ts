@@ -1,6 +1,19 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 // @ts-expect-error — plain .mjs helper, no type declarations
-import { applyGlossaryCorrections, getGlossaryVetoStats, resetGlossaryVetoStats } from '../scripts/lib/translation-glossary.mjs';
+import {
+  applyGlossaryCorrections,
+  getGlossaryVetoStats,
+  normalizeGermanGenderForms,
+  resetGlossaryVetoStats,
+} from '../scripts/lib/translation-glossary.mjs';
+
+describe('translation glossary — German gender compounds', () => {
+  it('collapses standalone and compound frau:mann forms before MT', () => {
+    expect(normalizeGermanGenderForms('Frau:mann gesucht')).toBe('mann gesucht');
+    expect(normalizeGermanGenderForms('Fachfrau:mann EFZ')).toBe('Fachmann EFZ');
+    expect(normalizeGermanGenderForms('Fachfrau:mann / Fachmann')).toBe('Fachmann / Fachmann');
+  });
+});
 
 describe('translation glossary — protected-term corrections', () => {
   it('fixes Nachtwache → IT timepiece mistranslation', () => {

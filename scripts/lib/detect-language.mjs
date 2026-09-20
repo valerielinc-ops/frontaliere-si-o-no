@@ -58,6 +58,25 @@ const STRONG_MARKERS = {
   fr: /\b(compétences|candidature|responsabilités|missions|environnement)\b/i,
 };
 
+// Language detection is called repeatedly by stats, observability and the
+// translation guards for the same source/locale text. Keep the optimization
+// opt-in: the cache is intentionally bounded, and callers that need the
+// smallest possible heap can retain the historical uncached behavior.
+const LANGUAGE_MEMO_MAX = Math.max(64, Number(process.env.TRANSLATION_DETECTOR_MEMO_MAX) || 4096);
+const languageMemo = new Map();
+
+function languageMemoEnabled() {
+  return String(process.env.TRANSLATION_DETECTOR_MEMO || '0') === '1';
+}
+
+export function clearLanguageDetectionMemo() {
+  languageMemo.clear();
+}
+
+export function languageDetectionMemoStats() {
+  return { size: languageMemo.size, enabled: languageMemoEnabled(), max: LANGUAGE_MEMO_MAX };
+}
+
 /**
  * Build a trigram frequency map from text.
  */
@@ -118,7 +137,7 @@ function countMarkerHits(text, locale) {
  *   - confidence: 0-1, how confident the detection is (>0.6 = reliable)
  *   - scores: raw scores for each language (for debugging)
  */
-export function detectLanguageWithConfidence(text = '', fallback = 'en') {
+function detectLanguageWithConfidenceUncached(text = '', fallback = 'en') {
   const t = String(text).trim();
   if (!t || t.length < 10) return { lang: fallback, confidence: 0, scores: {} };
 
@@ -168,6 +187,21 @@ export function detectLanguageWithConfidence(text = '', fallback = 'en') {
   }
 
   return { lang: maxLang, confidence, scores };
+}
+
+export function detectLanguageWithConfidence(text = '', fallback = 'en') {
+  if (!languageMemoEnabled()) return detectLanguageWithConfidenceUncached(text, fallback);
+  const clean = String(text).trim();
+  const key = `${fallback}\u0000${clean}`;
+  const cached = languageMemo.get(key);
+  if (cached) return cached;
+  const result = detectLanguageWithConfidenceUncached(clean, fallback);
+  if (languageMemo.size >= LANGUAGE_MEMO_MAX) {
+    const oldest = languageMemo.keys().next().value;
+    if (oldest !== undefined) languageMemo.delete(oldest);
+  }
+  languageMemo.set(key, result);
+  return result;
 }
 
 /**

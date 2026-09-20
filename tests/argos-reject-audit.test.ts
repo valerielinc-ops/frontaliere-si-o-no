@@ -90,6 +90,20 @@ describe('classifyMopupWrite() — the mop-up rejection chain, made observable',
     expect(out.decision).toBe('skip:existing-good');
     expect(out.languageDriven).toBeFalsy();
   });
+
+  it('classifies an identical finalized candidate as a no-op', () => {
+    const job = {
+      sourceLang: 'de',
+      title: 'Metzger 60-100%',
+      titleByLocale: { de: 'Metzger 60-100%', it: 'Macellaio 60-100%' },
+    };
+    expect(classifyMopupWrite({
+      job,
+      locale: 'it',
+      field: 'title',
+      rawText: 'Macellaio 60-100%',
+    }).decision).toBe('skip:no-op');
+  });
 });
 
 // The load-bearing pair for workspace issue 16. missingSlots() queues a title

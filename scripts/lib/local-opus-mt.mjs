@@ -27,6 +27,12 @@ const LOCALES = new Set(['it', 'en', 'de', 'fr']);
 // callable, or null if that model is permanently unavailable (so we don't retry
 // a failing download on every chunk). Cleared by the test seam.
 const _pipelines = new Map();
+// The src→en leg of a pivot is independent of the target locale. Memoize the
+// in-flight Promise so one source title translated into DE/FR/IT does not run
+// the same local model three times in the same process. Failed/empty results
+// are memoized too: retrying a deterministic local failure only burns CPU.
+const _pivotMemo = new Map();
+const PIVOT_MEMO_MAX = Math.max(32, Number(process.env.MT_LOCAL_OPUSMT_PIVOT_CACHE_MAX) || 512);
 let _override = null;
 
 /**
@@ -36,6 +42,7 @@ let _override = null;
 export function setLocalOpusMtForTests(fn) {
   _override = fn;
   _pipelines.clear();
+  _pivotMemo.clear();
 }
 
 /** Whether the cascade should attempt the local Opus-MT tier at all. */
@@ -162,7 +169,17 @@ export async function translateWithLocalOpusMt(text, sourceLang, targetLang) {
       // Pivot through English (src→en→tgt) — only the 6 reliable EN-paired models.
       // Identity guard on the intermediate leg: if any chunk echoes its input the
       // en→tgt model would receive source-language text and produce wrong output.
-      const viaEn = await runDirect(clean, modelId(`${sourceLang}-en`), true);
+      const pivotKey = `${sourceLang}\u0000${clean}`;
+      let pivotPromise = _pivotMemo.get(pivotKey);
+      if (!pivotPromise) {
+        pivotPromise = runDirect(clean, modelId(`${sourceLang}-en`), true);
+        _pivotMemo.set(pivotKey, pivotPromise);
+        if (_pivotMemo.size > PIVOT_MEMO_MAX) {
+          const oldest = _pivotMemo.keys().next().value;
+          if (oldest !== undefined) _pivotMemo.delete(oldest);
+        }
+      }
+      const viaEn = await pivotPromise;
       out = viaEn ? await runDirect(viaEn, modelId(`en-${targetLang}`)) : '';
     }
     if (out && out.toLowerCase() !== clean.toLowerCase()) return out;

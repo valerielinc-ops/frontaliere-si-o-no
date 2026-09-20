@@ -53,6 +53,7 @@ import {
   isStructureFlattenedCopy,
 } from './translation-quality.mjs';
 import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
+import { normalizeGermanGenderForms } from './translation-glossary.mjs';
 import { crawlerScratchPathFor } from './crawler-scratch-path.mjs';
 import { intFromEnv } from './int-from-env.mjs';
 import { isSystemicRejection } from './source-record-quarantine.mjs';
@@ -1965,6 +1966,20 @@ function buildCacheEntry(job, hash) {
 
 // ────────────────────────────────────────────────────────────────────────────
 // FRO-234: Localization pipeline — extracted from shared-jobs-crawler.mjs
+
+/**
+ * Gate translation on the effective cloud translation chain, not on the broad
+ * availability probe. `isAnyModelAvailable()` also includes last-resort local
+ * and Codex CLI entries; that made the gate stay true after the cloud chain was
+ * dead, so the free-only fallback branch was silently skipped. The preferred
+ * model peek is side-effect free and mirrors the chain that callLLM() will use.
+ */
+export function hasLiveTranslationModel(ctx = {}) {
+  if (typeof ctx.getPreferredModel === 'function') {
+    try { return ctx.getPreferredModel() != null; } catch { /* fall back below */ }
+  }
+  return typeof ctx.isAnyModelAvailable === 'function' && ctx.isAnyModelAvailable();
+}
 // ────────────────────────────────────────────────────────────────────────────
 
 const MAX_DESC_CHARS = 12000;
@@ -2203,7 +2218,7 @@ export function hasUntranslatedLocaleTitles(job = {}, ctx = {}) {
 export async function aiTranslateJobDescriptionDCC({ description, locale, sourceLang = 'en', minChars = 120 }, ctx = {}) {
   const {
     cleanDescription: clean, buildAiCacheKey, getCachedAiResponse, setCachedAiResponse,
-    AI_CACHE_RAW_SENTINEL, callLLM, isAnyModelAvailable, stripCodeFenceJson: scfj,
+    AI_CACHE_RAW_SENTINEL, callLLM, stripCodeFenceJson: scfj,
   } = ctx;
   const floor = Math.max(minChars, 40);
   const cleanDesc = (clean || cleanDescriptionDCC)(description || '');
@@ -2272,7 +2287,7 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
       '',
       cleanDesc,
     ].join('\n');
-    if (isAnyModelAvailable && isAnyModelAvailable()) {
+    if (hasLiveTranslationModel(ctx)) {
       if (ctx.incrDeeplFallbackToLlm) ctx.incrDeeplFallbackToLlm();
       try {
         const text = await callLLM([{ role: 'user', content: prompt }], { temperature: 0.1, maxTokens: 8192, jsonMode: false });
@@ -2370,13 +2385,16 @@ function titleHasGermanWords(text, targetLocale) {
 export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' }, ctx = {}) {
   const {
     buildAiCacheKey, getCachedAiResponse, setCachedAiResponse,
-    AI_CACHE_RAW_SENTINEL, callLLM, isAnyModelAvailable,
+    AI_CACHE_RAW_SENTINEL, callLLM,
     isLowQualityLocalizedTitle, normalizeSpace: ns,
   } = ctx;
   // Normalize gender-inclusive colon notation before any translation step.
   // "Lokführer:in" → "Lokführer/in", "Mitarbeiter:innen" → "Mitarbeiter/innen"
   // The colon-before-suffix pattern confuses AI models and causes truncated output.
-  const cleanTitle = (ns || normalize)(title || '').replace(/(\w):in(nen)?\b/gi, '$1/in$2');
+  const normalizedTitle = (ns || normalize)(title || '');
+  const cleanTitle = (sourceLang || '').toLowerCase().startsWith('de')
+    ? normalizeGermanGenderForms(normalizedTitle).replace(/(\w):in(nen)?\b/gi, '$1/in$2')
+    : normalizedTitle.replace(/(\w):in(nen)?\b/gi, '$1/in$2');
   // A provider title is input, not a safe fallback: the shared quality floor
   // must run before the same-locale passthrough and before any cache/LLM path.
   // Otherwise a one- or two-character source can be persisted verbatim.
@@ -2419,7 +2437,7 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
     }
     // If DeepL result has Italian remnants (or still reads as sourceLang), fall through to LLM
     // LLM fallback
-    if (isAnyModelAvailable && isAnyModelAvailable()) {
+    if (hasLiveTranslationModel(ctx)) {
       if (ctx.incrDeeplFallbackToLlm) ctx.incrDeeplFallbackToLlm();
       const prompt = [
         `Translate this job title to ${locale}.`,
@@ -2499,7 +2517,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
   }
   const {
     cleanDescription: clean, buildAiCacheKey, getCachedAiResponse, setCachedAiResponse,
-    AI_CACHE_RAW_SENTINEL, callLLM, isAnyModelAvailable, stripCodeFenceJson: scfj,
+    AI_CACHE_RAW_SENTINEL, callLLM, stripCodeFenceJson: scfj,
     normalizeSpace: ns, LOCALES,
   } = ctx;
   const cleanFn = clean || cleanDescriptionDCC;
@@ -2586,7 +2604,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     }
   }
 
-  if (!(isAnyModelAvailable && isAnyModelAvailable())) {
+  if (!hasLiveTranslationModel(ctx)) {
     const cleanedSource = cleanFn(description || '');
     if (cleanedSource.length < floor) return null;
     const out = {
@@ -2704,7 +2722,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
 export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   const {
     LOCALES, cleanDescription: clean, normalizeSpace: ns, mergeRequirements: mr,
-    isLowQualityLocalizedTitle, isAnyModelAvailable, extractRequirements: exReq,
+    isLowQualityLocalizedTitle, extractRequirements: exReq,
     htmlToStructuredText: h2st, structureJobDescription: strDesc, aiEnrichThinDescription: enrichThin,
   } = ctx;
   const locales = LOCALES || DEFAULT_LOCALES;
@@ -2808,7 +2826,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     return true;
   }).length;
   const hasBudget = (ctx.getAiLocalizationCalls ? ctx.getAiLocalizationCalls() : 0) < (crawlerConfig?.aiLocalizationMaxJobsPerRun || 0) || forceLocalization;
-  const canUseAi = isAnyModelAvailable ? isAnyModelAvailable() : false;
+  const canUseAi = hasLiveTranslationModel(ctx);
   const localizationEnabled = Boolean(crawlerConfig?.aiLocalizationEnabled) || forceLocalization;
 
   const shouldRunDescriptionLocalization =

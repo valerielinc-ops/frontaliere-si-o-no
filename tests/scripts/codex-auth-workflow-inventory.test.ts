@@ -13,6 +13,7 @@ const nonGeneratedWorkflowNames = [
   'send-newsletter.yml',
   'smoke-test-ai-models.yml',
   'snapshot-jobs-weekly.yml',
+  'jobs-pipeline-queue-monitor.yml',
 ];
 
 const workflowDir = path.resolve(process.cwd(), '.github/workflows');
@@ -20,6 +21,7 @@ const corpusWorkflowDir = path.resolve(process.cwd(), '.github/corpus-workflows'
 const workflowTargets = [
   ...nonGeneratedWorkflowNames.map((name) => ({ dir: workflowDir, name })),
   { dir: workflowDir, name: 'translate-pending-logic.yml' },
+  { dir: workflowDir, name: 'housekeeping-jobs-logic.yml' },
   ...fs.readdirSync(workflowDir)
     .filter((name) => /^crawler-group-\d+(?:-logic)?\.yml$/.test(name))
     .map((name) => ({ dir: workflowDir, name })),
@@ -31,6 +33,12 @@ const setupActionPattern = /(?:^\.\/|[^/]+\/[^/]+\/)?\.github\/actions\/setup-cl
 const codexSecretExpression = '${{ secrets.CODEX_AUTH_JSON }}';
 const codexBrokerOutputExpression = '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}';
 const claudeOAuthExpression = '${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}';
+const noCodexWorkflowNames = new Set([
+  'translate-pending.yml',
+  'translate-pending-logic.yml',
+  'housekeeping-jobs-logic.yml',
+  'jobs-pipeline-queue-monitor.yml',
+]);
 
 describe('indirect Codex auth workflow inventory', () => {
   it('keeps the raw Codex secret on setup and scopes Claude OAuth to consumers', () => {
@@ -54,6 +62,12 @@ describe('indirect Codex auth workflow inventory', () => {
 
       const setupSteps = jobs.flatMap((job) => job.steps ?? [])
         .filter((step) => typeof step.uses === 'string' && setupActionPattern.test(step.uses));
+      if (noCodexWorkflowNames.has(name)) {
+        expect(setupSteps, name).toHaveLength(0);
+        expect(workflow, name).not.toContain('CODEX_AUTH_BROKER_SOCKET');
+        expect(workflow, name).not.toContain('setup-claude-haiku-fallback');
+        continue;
+      }
       expect(setupSteps, name).toHaveLength(1);
       expect(setupSteps[0].id, name).toBe('setup_claude_haiku_fallback');
       expect(setupSteps[0].with?.codex_auth_json, name).toBe(codexSecretExpression);

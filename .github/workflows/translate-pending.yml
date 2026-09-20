@@ -14,9 +14,9 @@
 # exact thing this migration removes) and once via the frontaliere-articles
 # caller — with two processes racing to commit the same data/jobs/by-crawler/
 # files. So, unlike the crawler-group precedent, both are REMOVED here (not
-# just left disabled-by-absence-of-dispatch). `workflow_dispatch` is kept,
-# same as the crawler-group precedent, for a harmless manual local re-test —
-# it requires deliberate action, unlike the two removed triggers.
+# just left disabled-by-absence-of-dispatch). `workflow_dispatch` is kept for
+# a deliberate manual local re-test; the logic below has no housekeeping or
+# broker setup and follows the current reusable workflow's boundaries.
 #
 # Rollback: restore `workflow_run:` + `schedule:` below (see
 # frontaliere-articles's translate-pending.yml or git history of this file
@@ -38,11 +38,11 @@ on:
         description: 'Single company key to translate (e.g. a-group). Leave empty for all.'
         default: ''
       skip_housekeeping:
-        description: 'Skip housekeeping (URL validation, expired pruning)'
+        description: 'Deprecated compatibility input; housekeeping has its own workflow'
         type: boolean
         default: false
       skip_translate:
-        description: 'Skip translations (only housekeeping + slug hardening)'
+        description: 'Skip translations (only slug hardening)'
         type: boolean
         default: false
       dry_run:
@@ -168,54 +168,9 @@ jobs:
       - name: Load RC secrets
         run: node scripts/load-rc-env.mjs
 
-      # ── Codex Luna Max article lane (ON by default, historical kill-switch '0') ──
-      # Phase 2b cascade (relocalize-pending-jobs.mjs -> dedicated-crawler-
-      # common.mjs -> ai-models.mjs) — tier-0 in ai-models.mjs's DEFAULT_CHAIN
-      # by default since 2026-07-29 (AI_COMPETING_TIERS), competing on real
-      # score instead of being reached only after every free-tier model has
-      # failed. The setup action exposes only a private Codex broker socket to
-      # the translation process; its subscription credential never enters the
-      # job environment.
-      - id: setup_claude_haiku_fallback
-        uses: ./.github/actions/setup-claude-haiku-fallback
-        with:
-          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
-
-      # ── Phase 1: Housekeeping (prune expired, validate URLs, dedup) ──────
-      # Runs BEFORE translations so we don't waste AI quota on dead jobs.
-      # Determine if this is the daily housekeeping run (07:00 UTC cron).
-      # Other triggers (13:00, 01:00, workflow_run, manual) skip housekeeping
-      # to go straight to translations — saves ~8 min of URL validation.
-      - name: Check if housekeeping should run
-        id: hk
-        run: |
-          if [ "${{ github.event.schedule }}" = "0 7 * * *" ]; then
-            echo "run=true" >> "$GITHUB_OUTPUT"
-            echo "🧹 Daily 07:00 UTC — housekeeping enabled"
-          elif [ "${{ inputs.skip_housekeeping }}" = "true" ]; then
-            echo "run=false" >> "$GITHUB_OUTPUT"
-            echo "⏭️  Housekeeping skipped (user input)"
-          else
-            echo "run=false" >> "$GITHUB_OUTPUT"
-            echo "⏭️  Housekeeping skipped (not daily cron)"
-          fi
-
-      # Slug hardening is SKIPPED here — it runs AFTER translations in Phase 3.
-      - name: "Phase 1: Housekeeping"
-        if: steps.hk.outputs.run == 'true'
-        env:
-          JOBS_SKIP_LOCALE_HARDENING: '1'
-        run: |
-          echo "🧹 Running housekeeping (no slug hardening — deferred to Phase 3)..."
-          for slice in data/jobs/by-crawler/*.json; do
-            [ -f "$slice" ] || continue
-            JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs || true
-          done
-          echo "✅ Housekeeping complete"
-
-      - name: Commit housekeeping
-        if: always() && steps.checkout.outcome == 'success' && steps.hk.outputs.run == 'true' && inputs.dry_run != true
-        run: bash scripts/lib/git-commit-data.sh --slice-only "🧹 Housekeeping — prune expired + validate URLs"
+      # Housekeeping is deliberately absent here. The corpus caller runs the
+      # separate two-lane workflow before translation, preserving
+      # JOBS_SKIP_LOCALE_HARDENING=1 there without sharing this long slot.
 
       # ── Phase 2: Translate pending jobs (ARGOS-FIRST) ────────────────────
       # The FAST local engine leads, the slow HTTP cascade tops up.
@@ -355,10 +310,6 @@ jobs:
         if: inputs.skip_translate != true
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
-          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          # Prefer the subscribed Codex lane while preserving every existing
-          # provider as a fallback when the broker is unavailable.
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
           # Cap the slow cascade's run-wide deadline so it does a SHORT top-up pass
           # instead of expanding to fill 250min (measured: Phase 2b grew to 229min /
           # ~269min total on run 28074729486 even though Phase 2a had already drained
@@ -462,19 +413,23 @@ jobs:
 
       - name: Commit translations
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true
-        run: bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json
+        env:
+          SKIP_AI_TRANSLATION: '1'
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json
 
       # ── Phase 2d: Fix source-copy titles (daily 07:00 only) ──────────────
       # Only runs on the daily cron — no point retrying the same 30 failed titles
       # every run. New jobs from crawlers will have source-copy titles that 2d fixes.
       - name: "Phase 2d: Fix untranslated titles (free cascade)"
-        if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        if: github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
         # Self-hosted LibreTranslate removed (see note above the steps) — was 100% dead.
         run: node scripts/fix-untranslated-titles.mjs
 
       - name: Commit title fixes
-        if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
-        run: bash scripts/lib/git-commit-data.sh --slice-only "🔤 Fix untranslated titles (free cascade)"
+        if: github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        env:
+          SKIP_AI_TRANSLATION: '1'
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🔤 Fix untranslated titles (free cascade)" data/translation-title-fix-attempts.json
 
       # Phase 2c REMOVED — descriptions are at 0 source copies.
       # If new crawlers add untranslated descriptions, Phase 2 (AI) handles them.
@@ -490,6 +445,8 @@ jobs:
 
       - name: Commit slug regeneration
         if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        env:
+          SKIP_AI_TRANSLATION: '1'
         run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Regenerate locale slugs (post-translation)"
 
       - name: Save per-company translation cache
@@ -516,19 +473,6 @@ jobs:
             echo "⏳ Some translations still incomplete — skipping deploy trigger"
             echo "   The next cron run will retry and trigger deploy once all jobs are translated."
           fi
-
-      - name: Cleanup Codex auth broker
-        if: always()
-        continue-on-error: true
-        env:
-          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-        run: |
-          if [ -z "$CODEX_AUTH_BROKER_SOCKET" ] || [ ! -S "$CODEX_AUTH_BROKER_SOCKET" ]; then
-            exit 0
-          fi
-          node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs \
-            --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" \
-            || echo "::warning::Codex auth broker cleanup did not complete"
 
       # Title MUST use the standard "Workflow Failure: <name>" prefix so the
       # central reconciler (close-recovered-failure-issues.mjs, TITLE_RE

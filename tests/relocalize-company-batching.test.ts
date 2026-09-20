@@ -408,7 +408,6 @@ describe('relocalize company invocation batching', () => {
       'success-company,short-company',
       'large-company',
       'large-company',
-      'short-company',
     ]);
     expect(crawlerCalls.join('|')).not.toContain('skipped-company');
     expect(ledger.companies['skipped-company']).toEqual({ sterile: 0, skipUntilRun: 5 });

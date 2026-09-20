@@ -2456,6 +2456,7 @@ function _buildLocalizationCtx(observation = null) {
     mergeRequirements,
     callLLM,
     isAnyModelAvailable,
+    getPreferredModel,
     extractRequirements,
     structureJobDescription,
     htmlToStructuredText,
@@ -3897,7 +3898,7 @@ async function crawlWorkdayJobs(
             aiLocalizationCalls < (crawlerConfig?.aiLocalizationMaxJobsPerRun || 0) &&
             localeCoverage === 0 &&
             descriptionSeed.length >= 260 &&
-            isAnyModelAvailable()
+            getPreferredModel() !== null
           ) {
             aiLocalizationCalls += 1;
             // eslint-disable-next-line no-await-in-loop
@@ -5659,7 +5660,7 @@ function loadCrawlerConfig(inputCfg = null) {
       defaults.contentReuse.maxLengthDeltaRatio
     );
   }
-  cfg.aiLocalizationEnabled = Boolean(cfg.aiLocalizationEnabled) && isAnyModelAvailable();
+  cfg.aiLocalizationEnabled = Boolean(cfg.aiLocalizationEnabled) && getPreferredModel() !== null;
   cfg.aiPageValidationEnabled = Boolean(cfg.aiPageValidationEnabled) && isAnyModelAvailable();
   cfg.aiPageValidationMaxPagesPerRun = clampNum(cfg.aiPageValidationMaxPagesPerRun, 0, 1000, defaults.aiPageValidationMaxPagesPerRun);
   cfg.aiLocalizationMaxJobsPerRun = clampNum(cfg.aiLocalizationMaxJobsPerRun, 0, 500, defaults.aiLocalizationMaxJobsPerRun);
@@ -6157,7 +6158,7 @@ async function main() {
   // Backfill localization for existing records still missing locale coverage.
   const hasForcedLocalizationMerged = merged.some((job) => shouldForceLocalizationForJob(job));
   if ((crawlerConfig.aiLocalizationEnabled || hasForcedLocalizationMerged) && merged.length > 0) {
-    const canUseAi = isAnyModelAvailable();
+    const canUseAi = getPreferredModel() !== null;
     const forceRelocalizeAll = String(process.env.JOBS_FORCE_RELOCALIZE_ALL || '0') === '1';
     const localizationConcurrency = clampNum(
       process.env.JOBS_AI_LOCALIZATION_CONCURRENCY,

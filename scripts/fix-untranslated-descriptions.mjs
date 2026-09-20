@@ -45,7 +45,9 @@ export {
 const DRY_RUN = process.argv.includes('--dry-run');
 const MAX = (() => {
   const idx = process.argv.indexOf('--max');
-  return idx !== -1 && process.argv[idx + 1] ? Number(process.argv[idx + 1]) : Infinity;
+  if (idx !== -1 && process.argv[idx + 1]) return Number(process.argv[idx + 1]);
+  const envMax = Number(process.env.UNTRANSLATED_DESCRIPTION_FIX_MAX);
+  return Number.isFinite(envMax) && envMax > 0 ? envMax : Infinity;
 })();
 // Run-wide deadline measured from the shared translate-pending start marker.
 // Standalone invocations keep a local fallback; the workflow requires the marker.

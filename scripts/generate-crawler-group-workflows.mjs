@@ -2520,8 +2520,6 @@ function translateTrigger(logic) {
       { cron: '0 7 * * *' },
       { cron: '0 13 * * *' },
       { cron: '0 1 * * *' },
-      { cron: '20 1 * * *' },
-      { cron: '20 4 * * *' },
     ],
     workflow_dispatch: { inputs: logic.on.workflow_call.inputs },
   };
