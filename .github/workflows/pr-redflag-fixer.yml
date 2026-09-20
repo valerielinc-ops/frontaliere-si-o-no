@@ -888,6 +888,17 @@ jobs:
               echo "::error::Marker REDFLAG_FIX_ROUND non interpretabile: stop fail-closed prima di Claude."
               exit 1
             fi
+            ROUND=$(printf '%s' "$ROUND" | sed -E 's/^0+//')
+            ROUND=${ROUND:-0}
+          fi
+          # Non fare aritmetica su un marker enorme o corrotto: Bash puo'
+          # convertirlo in overflow prima del confronto con il cap. La forma
+          # canonica e il confronto lessicografico a parita' di lunghezza
+          # validano 0..MAX_ROUNDS senza perdere precisione.
+          if [ "${#ROUND}" -gt "${#MAX_ROUNDS}" ] || \
+             { [ "${#ROUND}" -eq "${#MAX_ROUNDS}" ] && [ "$ROUND" -gt "$MAX_ROUNDS" ]; }; then
+            echo "::error::Marker REDFLAG_FIX_ROUND fuori intervallo 0..$MAX_ROUNDS ($ROUND): claim retryable, nessun Claude."
+            exit 1
           fi
           NEXT=$((ROUND + 1))
           echo "Round 🔴-fix correnti: $ROUND (cap $MAX_ROUNDS)"
@@ -974,34 +985,61 @@ jobs:
           # Posta/incrementa il marker round PRIMA di invocare Claude (così se la
           # run muore, il round è comunque contato → l'anti-loop tiene).
           MARKER_BODY=$(printf '<!-- REDFLAG_FIX_ROUND: %s HEAD: %s -->\n_🔴-fixer round %s/%s avviato (auto)._' "$NEXT" "$HEAD_SHA" "$NEXT" "$MAX_ROUNDS")
-          if ! "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --repo "$REPO" --body "$MARKER_BODY" \
-            2>/dev/null; then
+          if ! marker_response=$(
+            "$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" \
+              --method POST --raw-field "body=$MARKER_BODY" 2>/dev/null
+          ); then
             echo "::error::Marker REDFLAG_FIX_ROUND non persistito: stop fail-closed prima di Claude."
             exit 1
           fi
-          # La POST della comment API e' at-least-once e GitHub puo' rispondere
-          # prima che il commento sia visibile. Rileggiamo tutte le pagine e
-          # ammettiamo Claude solo se esiste esattamente il marker appena scritto,
-          # legato allo stesso round e alla stessa HEAD. Errore, marker diverso o
-          # duplicato = retryable: il finalize rilascia il claim senza agente.
-          if ! comments_after=$(
-            "$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" \
-              --paginate --slurp 2>/dev/null
-          ); then
-            echo "::error::Commenti PR illeggibili dopo REDFLAG_FIX_ROUND: claim retryable, nessun Claude."
+          if ! marker_id=$(printf '%s' "$marker_response" \
+            | jq -er 'if (.id | type) == "number" and .id > 0 then .id else error("comment id mancante") end' 2>/dev/null); then
+            echo "::error::Risposta POST marker REDFLAG_FIX_ROUND senza id verificabile: claim retryable, nessun Claude."
             exit 1
           fi
-          if ! marker_count=$(printf '%s' "$comments_after" \
-            | jq --arg expected "$MARKER_BODY" '[.[].[] | select(.body == $expected)] | length' 2>/dev/null); then
-            echo "::error::Verifica JSON del marker REDFLAG_FIX_ROUND fallita: claim retryable, nessun Claude."
+          if ! marker_author=$(printf '%s' "$marker_response" \
+            | jq -er 'if (.user.login | type) == "string" and (.user.login | length) > 0 then .user.login else error("autore mancante") end' 2>/dev/null); then
+            echo "::error::Risposta POST marker REDFLAG_FIX_ROUND senza autore verificabile: claim retryable, nessun Claude."
             exit 1
           fi
-          if ! [[ "$marker_count" =~ ^1$ ]]; then
-            echo "::error::Marker REDFLAG_FIX_ROUND mismatch (attesi 1 marker per round=$NEXT HEAD=$HEAD_SHA, trovati ${marker_count:-invalid}): claim retryable, nessun Claude."
+          # La POST puo' essere visibile con ritardo o una lettura puo' fallire.
+          # Tre probe bounded evitano di consumare il round per consistenza
+          # eventuale; se nessun probe conferma il body esatto, cancelliamo il
+          # commento identificato e lasciamo il claim retryable.
+          marker_verified=false
+          marker_count=0
+          for marker_attempt in 1 2 3; do
+            comments_after=''
+            if comments_after=$(
+              "$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" \
+                --paginate --slurp 2>/dev/null
+            ); then
+              marker_count=''
+              if marker_count=$(printf '%s' "$comments_after" \
+                | jq --arg expected "$MARKER_BODY" --arg marker_id "$marker_id" --arg marker_author "$marker_author" \
+                  '[.[].[] | select((.id | tostring) == $marker_id and .user.login == $marker_author and .body == $expected)] | length' 2>/dev/null); then
+                if [[ "$marker_count" =~ ^1$ ]]; then
+                  marker_verified=true
+                  break
+                fi
+              fi
+            fi
+            if [ "$marker_attempt" -lt 3 ]; then sleep 2; fi
+          done
+          if [ "$marker_verified" != 'true' ]; then
+            if "$TRUSTED_GH_BIN" api --method DELETE \
+              "repos/$REPO/issues/comments/$marker_id" >/dev/null 2>&1; then
+              echo "Marker REDFLAG_FIX_ROUND non verificabile dopo 3 probe: commento $marker_id cancellato, claim retryable, nessun Claude."
+            else
+              echo "::error::Marker REDFLAG_FIX_ROUND non verificabile e rimborso del commento $marker_id fallito: claim retryable, nessun Claude."
+            fi
             exit 1
           fi
-          echo "proceed=true" >> "$GITHUB_OUTPUT"
-          echo "round=$NEXT"  >> "$GITHUB_OUTPUT"
+          {
+            echo "marker_id=$marker_id"
+            echo "proceed=true"
+            echo "round=$NEXT"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Configure git identity
         if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'

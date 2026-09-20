@@ -388,10 +388,24 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
       const guard = source.slice(source.indexOf('MAX_ROUNDS=2'), source.indexOf('Configure git identity'));
       expect(guard, `${name}: marker must carry HEAD`).toContain(`${marker}: %s HEAD: %s`);
       expect(guard, `${name}: marker read-back must paginate`).toContain('--paginate --slurp');
-      expect(guard, `${name}: marker read-back must compare the complete body`).toContain('select(.body == $expected)');
+      expect(guard, `${name}: marker read-back must compare the complete body`).toContain('.body == $expected');
       expect(guard, `${name}: read-back mismatch must not proceed`).toContain('claim retryable, nessun Claude');
+      expect(guard, `${name}: marker POST must expose an id for refund`).toContain('--method POST --raw-field');
+      expect(guard, `${name}: marker POST must expose the author for read-back identity`).toContain('marker_author');
+      expect(guard, `${name}: marker read-back must bind id and author`).toContain('(.id | tostring) == $marker_id and .user.login == $marker_author');
+      expect(guard, `${name}: marker mismatch must refund the identified comment`).toContain('--method DELETE');
+      expect(guard, `${name}: marker read-back must be bounded`).toContain('for marker_attempt in 1 2 3');
+      expect(guard, `${name}: round must be range-checked before arithmetic`).toContain('fuori intervallo 0..$MAX_ROUNDS');
       expect(guard, `${name}: parser errors must not default to round zero`).not.toMatch(/ROUND=.*\|\| true/u);
     }
+  });
+
+  it('revalidates redcheck PR HEAD/body immediately before Codex and releases on a race', () => {
+    expect(redcheck).toContain('Revalidate redcheck PR snapshot immediately before model');
+    expect(redcheck).toContain('snapshot_final.outputs.snapshot_valid');
+    expect(redcheck).toContain('EXPECTED_REVIEW_REVISION: ${{ needs.preflight.outputs.review_revision }}');
+    expect(redcheck).toContain("echo 'CLAIM_STATUS=released' >> \"$GITHUB_ENV\"");
+    expect(redcheck).toContain('Marker REDCHECK_FIX_ROUND $MARKER_ID cancellato: round rimborsato.');
   });
 
   it('releases a run superseded by an external branch push before failure classification', () => {
