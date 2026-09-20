@@ -25,6 +25,34 @@ on:
     types: [opened, synchronize, reopened, ready_for_review]
   push:
     branches: [main]
+    # Su `main` questo workflow e' un segnale di salute, non il gate di merge:
+    # il required check vive sull'evento `pull_request` e sulla merge queue,
+    # che questo filtro non tocca. Misurato il 2026-09-19 su 24 h: 288 run di
+    # `tests` da push su main (45,6% delle 631 run del workflow), ~10,7 minuti
+    # l'una, e 198 dei 333 commit di quella giornata (59,5%) non toccano una
+    # riga di codice — sono i payload che i cron riversano in `data/`.
+    #
+    # `paths-ignore` salta SOLO quando TUTTI i path del push sono ignorati: un
+    # push che mescola un refresh di dati e un file di codice gira comunque.
+    #
+    # L'elenco e' per ESTENSIONE, non per directory, ed e' la parte che conta:
+    # `data/` contiene 32 moduli TypeScript veri (`data/authors.ts`,
+    # `data/faq-hub/**`, `data/blog-articles-data.ts`, ...), quindi un
+    # `data/**` secco avrebbe spento i test proprio sul codice. Nei 204 commit
+    # di soli dati della giornata i 1.438 file toccati sono tutti `.json`,
+    # `.jsonl` o `.xml`: zero file di codice.
+    #
+    # Nessun gate sui dati si indebolisce: `guard-data-integrity.yml` gira su
+    # push a main con `paths: ['data/**', 'public/data/**']`, cioe' copre per
+    # costruzione l'intero insieme ignorato qui, e `deploy.yml` continua a
+    # partire su questi stessi commit (la sua `paths-ignore` elenca solo una
+    # manciata di file di churn). `tests/tests-push-main-data-filter.test.ts`
+    # tiene insieme le due meta'.
+    paths-ignore:
+      - 'data/**/*.json'
+      - 'data/**/*.jsonl'
+      - 'public/data/**/*.json'
+      - 'public/data/**/*.jsonl'
   # Required checks are evaluated on the merge queue ref, not on the PR event.
   merge_group:
 # Union of the three original workflows' `permissions:` (tests.yml itself had
