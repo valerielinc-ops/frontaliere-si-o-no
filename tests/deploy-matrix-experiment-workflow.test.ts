@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import YAML from 'yaml';
 import {
@@ -9,7 +9,8 @@ import {
 } from '../scripts/ci/matrix-experiment-variants.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
-const WORKFLOW_PATH = resolve(ROOT, '.github/workflows/deploy-matrix-experiment.yml');
+const WORKFLOWS_DIR = resolve(ROOT, '.github/workflows');
+const WORKFLOW_PATH = resolve(WORKFLOWS_DIR, 'deploy-matrix-experiment.yml');
 const WORKFLOW_TEXT = readFileSync(WORKFLOW_PATH, 'utf8');
 const WORKFLOW = YAML.parse(WORKFLOW_TEXT) as any;
 
@@ -76,8 +77,42 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       expect(WORKFLOW.concurrency['cancel-in-progress']).toBe(false);
     });
 
-    it('limita il ventaglio della matrix a due gambe per volta', () => {
-      expect(WORKFLOW.jobs['build-locale'].strategy['max-parallel']).toBeLessThanOrEqual(2);
+    it('fa girare UNA gamba per volta, cosi\u2019 il tetto dichiarato vale per costruzione', () => {
+      // Con 2 un dispatch `variants` multilinea terrebbe due runner di build
+      // insieme e il tetto di ~1 slot annunciato in testa al file sarebbe
+      // falso proprio nel caso peggiore.
+      expect(WORKFLOW.jobs['build-locale'].strategy['max-parallel']).toBe(1);
+    });
+
+    it('il gate di scadenza rifiuta una data di CALENDARIO impossibile, non solo la forma', () => {
+      const guard = String((WORKFLOW.jobs['matrix-setup'].steps as Array<Record<string, any>>)[0].run);
+      // La sola regex lascia passare `2026-02-31`, che non esiste: una scadenza
+      // malformata resterebbe attiva invece di fallire subito.
+      expect(guard).toMatch(/date -u -d/u);
+      expect(guard).toMatch(/canonical/u);
+    });
+
+    it('nessun altro workflow contende i gruppi di concorrenza degli studi', () => {
+      // I gruppi ora sono letterali: se un altro workflow ne usasse uno, i due
+      // si serializzerebbero a vicenda senza che nessuno l\u2019abbia chiesto.
+      const groups = new Map<string, string[]>();
+      for (const name of readdirSync(WORKFLOWS_DIR).filter((f) => f.endsWith('.yml'))) {
+        let doc: any;
+        try {
+          doc = YAML.parse(readFileSync(resolve(WORKFLOWS_DIR, name), 'utf8'));
+        } catch {
+          continue;
+        }
+        const seen = [doc?.concurrency, ...Object.values(doc?.jobs ?? {}).map((job: any) => job?.concurrency)];
+        for (const entry of seen) {
+          const group = typeof entry === 'string' ? entry : entry?.group;
+          if (typeof group !== 'string' || !group.trim()) continue;
+          groups.set(group, [...(groups.get(group) ?? []), name]);
+        }
+      }
+      for (const group of ['deploy-matrix-experiment', 'cluster-pages-experiment', 'matrix-equivalence', 'post-build-matrix-test']) {
+        expect(groups.get(group), group).toEqual([`${group === 'matrix-equivalence' ? 'matrix-equivalence-check' : group}.yml`]);
+      }
     });
 
     it('dichiara una scadenza e la fa valere prima di accendere un runner di build', () => {

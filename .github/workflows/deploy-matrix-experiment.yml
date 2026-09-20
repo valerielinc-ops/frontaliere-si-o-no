@@ -42,8 +42,9 @@
 # venga mai ucciso a metà misura.
 #
 # Per confrontare più varianti in parallelo NON si fanno più dispatch: si usa
-# l'input `variants` multilinea in UN dispatch. `max-parallel: 2` limita quel
-# ventaglio a due gambe per volta.
+# l'input `variants` multilinea in UN dispatch, e `max-parallel: 1` fa girare
+# quelle gambe una per volta: cosi' il tetto di ~1 slot vale per costruzione
+# anche nel caso peggiore, non solo sul dispatch tipico a una gamba sola.
 #
 # SCADENZA DICHIARATA: `EXPERIMENT_EXPIRES_ON` sotto. Passata quella data il
 # workflow si rifiuta di partire finché qualcuno non la sposta con una PR, cioè
@@ -139,8 +140,14 @@ jobs:
         run: |
           set -euo pipefail
           today="$(date -u +%Y-%m-%d)"
-          if [[ ! "${EXPERIMENT_EXPIRES_ON}" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
-            echo "::error::EXPERIMENT_EXPIRES_ON non è una data YYYY-MM-DD: '${EXPERIMENT_EXPIRES_ON}'"
+          # La forma NON basta: `2026-02-31` la supera ed e' una data che non
+          # esiste, quindi una scadenza malformata resterebbe attiva per sempre
+          # invece di fallire subito. `date -d` la rifiuta e ne ristampa la
+          # forma canonica, che deve coincidere carattere per carattere.
+          if [[ ! "${EXPERIMENT_EXPIRES_ON}" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] \
+            || ! canonical="$(date -u -d "${EXPERIMENT_EXPIRES_ON}" +%Y-%m-%d 2>/dev/null)" \
+            || [[ "${canonical}" != "${EXPERIMENT_EXPIRES_ON}" ]]; then
+            echo "::error::EXPERIMENT_EXPIRES_ON non è una data di calendario YYYY-MM-DD: '${EXPERIMENT_EXPIRES_ON}'"
             exit 1
           fi
           if [[ "${today}" > "${EXPERIMENT_EXPIRES_ON}" ]]; then
@@ -274,10 +281,15 @@ jobs:
     timeout-minutes: 360
     strategy:
       fail-fast: false
-      # Il confronto fra varianti si fa in UN dispatch con `variants` multilinea
-      # (vedi «BUDGET DI CAPACITÀ»): questo tetto impedisce che quel ventaglio,
-      # o un `locales: it,en,de,fr`, apra 4 gambe da ~105 min insieme.
-      max-parallel: 2
+      # UNA gamba per volta, non due. Il tetto dichiarato in testa al file —
+      # al piu' ~1 slot occupato dallo studio — deve valere PER COSTRUZIONE
+      # anche nel caso peggiore, cioe' un dispatch con `variants` multilinea o
+      # con `locales: it,en,de,fr`: con 2 un run solo terrebbe due runner di
+      # build e il conto dei job-minuti risparmiati sarebbe falso. Le 29
+      # dispatch su 30 misurate hanno una gamba sola, quindi per l'uso reale
+      # non cambia niente; un confronto fra varianti diventa sequenziale, che
+      # e' il prezzo esplicito di non rubare slot a `tests`.
+      max-parallel: 1
       matrix:
         include: ${{ fromJSON(needs.matrix-setup.outputs.matrix) }}
     env:

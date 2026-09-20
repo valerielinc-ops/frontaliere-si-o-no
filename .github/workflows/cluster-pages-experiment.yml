@@ -36,7 +36,6 @@ on:
 permissions:
   contents: read
 
-# Per-run group so multiple experiments can run in parallel without blocking.
 # Gruppo di concorrenza STABILE: uno studio manuale non deve poter tenere
 # N runner insieme. Il tetto dell'account e' 20-22 job e il 2026-09-19
 # `Deploy Matrix Experiment`, con un gruppo per-run identico a questo,
