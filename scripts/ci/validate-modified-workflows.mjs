@@ -153,20 +153,81 @@ function blockBaseIndent(lines) {
     .reduce((minimum, line) => Math.min(minimum, indentWidth(line)), Number.POSITIVE_INFINITY);
 }
 
+function unquote(entry) {
+  return String(entry).trim().replace(/^['"]|['"]$/gu, '');
+}
+
+/** Elementi di una sequenza flow (`[a, b]`) o di uno scalare singolo. */
+function inlineSequenceValues(inlineValue) {
+  const inline = String(inlineValue || '').trim();
+  if (inline === '') return [];
+  return splitFlowParts(inline.replace(/^\[|\]$/gu, ''))
+    .map(unquote)
+    .filter((entry) => entry !== '');
+}
+
+/** Elementi di una sequenza a blocchi (`- push`) alle righe di `baseIndent`. */
+function blockSequenceItems(lines, baseIndent) {
+  return lines
+    .filter((line) => line.trim() !== '' && indentWidth(line) === baseIndent)
+    .map((line) => /^\s*-\s*(.+?)\s*$/u.exec(line)?.[1])
+    .filter(Boolean)
+    .map(unquote);
+}
+
+/**
+ * Spezza il corpo di una struttura flow sulle virgole di primo livello.
+ *
+ * `{branches: [main], paths: [a, b]}` ha virgole annidate: tagliare su ogni
+ * virgola spezzerebbe `paths` a meta' e farebbe sparire la chiave.
+ */
+function splitFlowParts(body) {
+  const parts = [];
+  let depth = 0;
+  let start = 0;
+  for (let index = 0; index < body.length; index += 1) {
+    const character = body[index];
+    if (character === '{' || character === '[') depth += 1;
+    else if (character === '}' || character === ']') depth -= 1;
+    else if (character === ',' && depth === 0) {
+      parts.push(body.slice(start, index));
+      start = index + 1;
+    }
+  }
+  parts.push(body.slice(start));
+  return parts;
+}
+
+/**
+ * Voci di una flow map YAML (`{push: {branches: [main]}}`), o `null` quando il
+ * valore non e' una flow map.
+ *
+ * `on: {push: ...}` e `push: {branches: ...}` sono YAML validi e producono lo
+ * stesso workflow della forma a blocchi: senza questo ramo il gate le lasciava
+ * passare (reperto 🟡 della review di PR #9326, riprodotto su entrambe).
+ */
+function flowMapEntries(value) {
+  const text = String(value || '').trim();
+  if (!text.startsWith('{') || !text.endsWith('}')) return null;
+  const entries = new Map();
+  for (const part of splitFlowParts(text.slice(1, -1))) {
+    if (part.trim() === '') continue;
+    const separator = part.indexOf(':');
+    if (separator === -1) entries.set(unquote(part), '');
+    else entries.set(unquote(part.slice(0, separator)), part.slice(separator + 1).trim());
+  }
+  return entries;
+}
+
 /** Valori di una chiave YAML scalare/sequenza, sia in forma flow che a lista. */
 function sequenceValues(lines, headerIndex, headerIndent, inlineValue) {
   const inline = String(inlineValue || '').trim();
-  if (inline !== '') {
-    return inline.replace(/^\[|\]$/gu, '')
-      .split(',')
-      .map((entry) => entry.trim().replace(/^['"]|['"]$/gu, ''))
-      .filter((entry) => entry !== '');
-  }
+  if (inline !== '') return inlineSequenceValues(inline);
   const { block } = collectIndentedYaml(lines, headerIndex, headerIndent);
   return block
     .map((line) => /^\s*-\s*(.+?)\s*$/u.exec(line)?.[1])
     .filter(Boolean)
-    .map((entry) => entry.replace(/^['"]|['"]$/gu, ''));
+    .map(unquote);
 }
 
 /** Chiavi di primo livello di un blocco YAML già dedentato a `baseIndent`. */
@@ -205,6 +266,26 @@ function branchesCoverMain(patterns) {
 }
 
 /**
+ * Verdetto sulla mappa di `push:`, dato un accessore uniforme delle sue chiavi.
+ *
+ * `readKey(nome)` restituisce i valori della chiave, oppure `null` quando la
+ * chiave non c'e'. Un solo posto decide, così la forma a blocchi e la flow map
+ * non possono dare due risposte diverse sullo stesso workflow.
+ */
+function pushMapIsFiltered(readKey) {
+  const has = (name) => readKey(name) !== null;
+  // Solo tag: non parte su un push di branch.
+  if (!has('branches') && !has('branches-ignore') && (has('tags') || has('tags-ignore'))) return true;
+
+  const branches = readKey('branches');
+  if (branches && branches.length > 0 && !branchesCoverMain(branches)) return true;
+  const ignored = readKey('branches-ignore');
+  if (ignored && branchesCoverMain(ignored)) return true;
+
+  return PUSH_PATH_FILTER_KEYS.some((filterKey) => has(filterKey));
+}
+
+/**
  * Il workflow parte su un push verso `main` senza dichiarare `paths`/`paths-ignore`?
  *
  * Restituisce l'elenco (vuoto o con una voce sola) dei reperti, nella stessa
@@ -222,10 +303,20 @@ export function validatePushMainPathFilter(file, text) {
   const onInline = /^(?:["']?)on(?:["']?):\s*(.*)$/u.exec(lines[onIndex])[1].trim();
   const offender = (reason) => [{ file: key, rule: 'push-main-senza-filtro-di-path', reason }];
 
-  // `on: push` / `on: [push, pull_request]`: nessun posto dove mettere il filtro.
+  const missingFilter = () => offender('parte su ogni push verso `main` senza `paths` né `paths-ignore`');
+  const nakedPush = () => offender('`push:` senza mappa parte su ogni branch, `main` compreso');
+  const flowPushVerdict = (pushValue) => {
+    const pushFlow = flowMapEntries(pushValue);
+    if (!pushFlow) return nakedPush();
+    const readKey = (name) => (pushFlow.has(name) ? inlineSequenceValues(pushFlow.get(name)) : null);
+    return pushMapIsFiltered(readKey) ? [] : missingFilter();
+  };
+
+  // `on: push` / `on: [push, ...]` / `on: {push: {...}}`.
   if (onInline !== '') {
-    const events = sequenceValues(lines, onIndex, 0, onInline);
-    return events.includes('push')
+    const onFlow = flowMapEntries(onInline);
+    if (onFlow) return onFlow.has('push') ? flowPushVerdict(onFlow.get('push')) : [];
+    return inlineSequenceValues(onInline).includes('push')
       ? offender('`on:` in forma inline non può dichiarare `paths`/`paths-ignore`')
       : [];
   }
@@ -233,34 +324,32 @@ export function validatePushMainPathFilter(file, text) {
   const { block: onBlock } = collectIndentedYaml(lines, onIndex, 0);
   const onIndent = blockBaseIndent(onBlock);
   if (!Number.isFinite(onIndent)) return [];
-  const push = blockKeys(onBlock, onIndent).get('push');
+
+  // `on:` come sequenza a blocchi (`- push`): eventi senza mappa, quindi senza
+  // posto in cui dichiarare un filtro.
+  const onKeys = blockKeys(onBlock, onIndent);
+  if (onKeys.size === 0) {
+    return blockSequenceItems(onBlock, onIndent).includes('push')
+      ? offender('`on:` come sequenza di eventi non può dichiarare `paths`/`paths-ignore`')
+      : [];
+  }
+
+  const push = onKeys.get('push');
   if (!push) return [];
+  if (push.inline !== '') return flowPushVerdict(push.inline);
 
   const { block: pushBlock } = collectIndentedYaml(onBlock, push.index, onIndent);
   const pushIndent = blockBaseIndent(pushBlock);
   // `push:` senza mappa (`push:` nudo) = ogni branch, nessun filtro possibile.
-  if (!Number.isFinite(pushIndent)) {
-    return offender('`push:` senza mappa parte su ogni branch, `main` compreso');
-  }
+  if (!Number.isFinite(pushIndent)) return nakedPush();
+
   const pushKeys = blockKeys(pushBlock, pushIndent);
-
-  // Solo tag: non parte su un push di branch.
-  const hasBranchKey = pushKeys.has('branches') || pushKeys.has('branches-ignore');
-  if (!hasBranchKey && (pushKeys.has('tags') || pushKeys.has('tags-ignore'))) return [];
-
-  const branches = pushKeys.get('branches');
-  if (branches) {
-    const patterns = sequenceValues(pushBlock, branches.index, pushIndent, branches.inline);
-    if (patterns.length > 0 && !branchesCoverMain(patterns)) return [];
-  }
-  const ignored = pushKeys.get('branches-ignore');
-  if (ignored) {
-    const patterns = sequenceValues(pushBlock, ignored.index, pushIndent, ignored.inline);
-    if (branchesCoverMain(patterns)) return [];
-  }
-
-  if (PUSH_PATH_FILTER_KEYS.some((filterKey) => pushKeys.has(filterKey))) return [];
-  return offender('parte su ogni push verso `main` senza `paths` né `paths-ignore`');
+  const readKey = (name) => {
+    const entry = pushKeys.get(name);
+    if (!entry) return null;
+    return sequenceValues(pushBlock, entry.index, pushIndent, entry.inline);
+  };
+  return pushMapIsFiltered(readKey) ? [] : missingFilter();
 }
 
 const LOOP_FLEET_WORKFLOW_RE = /(?:^|\/)(?:loop-l[0-9]+-[^/]+|loop-fleet-[^/]+|technical-operations-supervisor)\.ya?ml$/u;
