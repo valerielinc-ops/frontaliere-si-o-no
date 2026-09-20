@@ -144,7 +144,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:46:35.410Z",
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -825,8 +824,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "pictet-b4b13b2b2e72",
@@ -906,8 +904,7 @@
       },
       "previousSlugs": [
         "data-specialist-f-m-d-on-side-in-frankfurt-am-main-pictet-frankfurt"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "pictet-c607a86e8bcc",
@@ -1524,8 +1521,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "pictet-5822a8196436",

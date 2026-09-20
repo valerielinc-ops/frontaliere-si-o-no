@@ -96,7 +96,6 @@
         "team-raccolta-dipendenti-zurigo-ref-1068-corner-banca-wallisellen"
       ],
       "firstSeenAt": "2026-08-14T10:12:28.238Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -186,7 +185,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.988Z",
-      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -291,7 +289,15 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-09-19T23:09:44.974Z"
+      "firstSeenAt": "2026-09-19T23:09:44.974Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "grc-gouvernance-risque-et-conformite-services-bancaires-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "grc-gouvernance-risque-et-conformite-services-bancaires-corner-banca-lugano"
+      ]
     },
     {
       "id": "corner-banca-414e92898c99",
@@ -481,7 +487,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:12:28.211Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -673,7 +678,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:12:28.210Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -772,7 +776,6 @@
       "sourceLang": "en",
       "crawledAt": "2026-09-19T23:09:44.972Z",
       "firstSeenAt": "2026-08-19T21:44:21.463Z",
-      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "salarySource": "estimated",
@@ -1138,7 +1141,6 @@
       "sourceLang": "it",
       "crawledAt": "2026-09-19T23:09:44.969Z",
       "firstSeenAt": "2026-09-03T13:49:26.507Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -1299,7 +1301,6 @@
       "sourceLang": "it",
       "crawledAt": "2026-09-19T23:09:44.968Z",
       "firstSeenAt": "2026-09-03T13:49:26.508Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -1385,7 +1386,6 @@
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
       "crawledAt": "2026-09-19T23:09:44.967Z",
-      "needsRetranslation": true,
       "salaryMin": 33200,
       "salaryMax": 51000,
       "salarySource": "estimated",

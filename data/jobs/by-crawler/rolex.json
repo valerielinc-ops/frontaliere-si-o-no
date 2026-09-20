@@ -70,7 +70,14 @@
         "tech-lead-m-w-d-rolex-geneve",
         "produktionstechniker-m-w-rolex-geneve",
         "tecnico-di-produzione-h-f-rolex-geneve",
-        "betriebstechniker-m-w-d-rolex-geneve"
+        "betriebstechniker-m-w-d-rolex-geneve",
+        "technicien-metrologue-h-f-rolex-ch",
+        "tecnica-operativa-m-f-rolex-geneve",
+        "tecnico-di-metrologia-h-f-rolex-geneve",
+        "operating-technician-m-f-rolex-geneve",
+        "metrology-technician-m-f-rolex-geneve",
+        "betriebstechniker-m-w-rolex-geneve",
+        "messtechniker-m-w-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -90,26 +97,34 @@
           "tech-lead-mobile-h-f-rolex-ch",
           "mobile-di-piombo-tecnologico-h-f-rolex-geneve",
           "tech-lead-m-w-d-rolex-geneve",
-          "tecnico-di-produzione-h-f-rolex-geneve"
+          "tecnico-di-produzione-h-f-rolex-geneve",
+          "technicien-metrologue-h-f-rolex-ch",
+          "tecnica-operativa-m-f-rolex-geneve",
+          "tecnico-di-metrologia-h-f-rolex-geneve"
         ],
         "en": [
           "technicien-d-exploitation-m-w-d-rolex-geneve",
           "production-coordinator-h-f-rolex-geneve",
-          "tech-lead-h-f-rolex-geneve"
+          "tech-lead-h-f-rolex-geneve",
+          "operating-technician-m-f-rolex-geneve",
+          "metrology-technician-m-f-rolex-geneve"
         ],
         "de": [
           "technicien-d-exploitation-m-w-d-rolex-geneve",
           "produktionskoordinator-h-f-rolex-geneve",
           "technischer-leiter-m-w-rolex-geneve",
           "produktionstechniker-m-w-rolex-geneve",
-          "betriebstechniker-m-w-d-rolex-geneve"
+          "betriebstechniker-m-w-d-rolex-geneve",
+          "betriebstechniker-m-w-rolex-geneve",
+          "messtechniker-m-w-rolex-geneve"
         ],
         "fr": [
           "technicien-d-exploitation-h-f-rolex-geneve",
           "technicien-d-exploitation-h-f-rolex-ch-kzmuh9",
           "coordinateur-de-production-h-f-rolex-ch",
           "responsable-technique-m-w-d-rolex-geneve",
-          "responsable-technique-mobile-h-f-rolex-geneve"
+          "responsable-technique-mobile-h-f-rolex-geneve",
+          "technicien-metrologue-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-08-21T09:49:59.353Z",
@@ -185,7 +200,6 @@
         ]
       },
       "firstSeenAt": "2026-06-24T22:42:16.351Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -509,7 +523,6 @@
         "projektleiter-m-w-d-rolex-geneve"
       ],
       "firstSeenAt": "2026-07-20T22:05:15.077Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -895,7 +908,6 @@
         ]
       },
       "firstSeenAt": "2026-06-24T22:42:09.251Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1051,7 +1063,6 @@
         ]
       },
       "firstSeenAt": "2026-06-24T22:42:11.303Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1145,7 +1156,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:29:48.469Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1209,22 +1219,48 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "charge-de-projet-data-logistique-h-f-rolex-ch",
-        "project-manager-data-logistics-h-f-rolex-geneve"
+        "project-manager-data-logistics-h-f-rolex-geneve",
+        "gestione-logistica-h-f-rolex-geneve",
+        "logistics-manager-h-f-rolex-geneve",
+        "logistikmanager-h-f-rolex-geneve",
+        "gestionnaire-logistique-h-f-rolex-ch",
+        "gestionnaire-logistique-h-f-rolex-geneve",
+        "gestionnaire-logistique-m-w-d-rolex-geneve",
+        "gestionnaire-logistique-h-f-rolex-ch-2",
+        "coordinatore-della-logistica-m-f-rolex-geneve",
+        "logistics-coordinator-m-f-rolex-geneve",
+        "logistikkoordinator-h-f-rolex-geneve",
+        "coordinateur-logistique-h-f-rolex-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "charge-de-projet-data-logistique-h-f-rolex-ch",
-          "project-manager-data-logistics-h-f-rolex-geneve"
+          "project-manager-data-logistics-h-f-rolex-geneve",
+          "gestione-logistica-h-f-rolex-geneve",
+          "logistics-manager-h-f-rolex-geneve",
+          "logistikmanager-h-f-rolex-geneve",
+          "gestionnaire-logistique-h-f-rolex-ch",
+          "gestionnaire-logistique-h-f-rolex-geneve",
+          "gestionnaire-logistique-m-w-d-rolex-geneve",
+          "gestionnaire-logistique-h-f-rolex-ch-2",
+          "coordinatore-della-logistica-m-f-rolex-geneve",
+          "logistics-coordinator-m-f-rolex-geneve",
+          "logistikkoordinator-h-f-rolex-geneve",
+          "coordinateur-logistique-h-f-rolex-ch"
         ],
         "en": [
-          "charge-de-projet-data-logistique-h-f-rolex-ch"
+          "charge-de-projet-data-logistique-h-f-rolex-ch",
+          "logistics-manager-h-f-rolex-geneve"
         ],
         "de": [
-          "charge-de-projet-data-logistique-h-f-rolex-ch"
+          "charge-de-projet-data-logistique-h-f-rolex-ch",
+          "logistikmanager-h-f-rolex-geneve"
+        ],
+        "fr": [
+          "gestionnaire-logistique-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-07-27T22:07:54.925Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1384,7 +1420,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:03:57.145Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -2340,7 +2375,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T09:55:16.504Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2830,7 +2864,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T09:55:07.896Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -3323,7 +3356,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T09:51:15.740Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -3503,7 +3535,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:10:15.291Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -3581,7 +3612,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:34:23.582Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -3831,7 +3861,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:15:34.997Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -3992,7 +4021,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:34:29.135Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -4398,7 +4426,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:34:20.230Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -4478,7 +4505,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:34:30.254Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -4716,7 +4742,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:34:11.102Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -4875,7 +4900,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:34:12.210Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -5203,7 +5227,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:34:09.991Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -5283,7 +5306,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:34:16.862Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -5455,7 +5477,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:39:53.532Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -5534,7 +5555,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:01:02.551Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -5688,7 +5708,6 @@
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:54.109Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -5766,7 +5785,6 @@
         "analista-aziendale-cad-cam-m-f-rolex-bienne"
       ],
       "firstSeenAt": "2026-06-24T22:41:51.065Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -5846,7 +5864,6 @@
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:55.122Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -5925,7 +5942,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:33:56.644Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -6408,7 +6424,6 @@
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:47.958Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -7056,7 +7071,6 @@
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:44.903Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -7789,7 +7803,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:23:28.930Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -7867,7 +7880,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:12:33.011Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -8022,7 +8034,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:44:21.904Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -8100,7 +8111,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:44:23.096Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -8834,7 +8844,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:36:23.392Z",
-      "needsRetranslation": true,
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -9294,7 +9303,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T21:53:22.437Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -9372,7 +9380,6 @@
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:04.432Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -9613,7 +9620,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T21:58:52.169Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -10226,7 +10232,6 @@
         "senior-project-manager-di-industrializzazione-m-f-rolex-geneve"
       ],
       "firstSeenAt": "2026-06-24T22:40:48.251Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -10299,7 +10304,6 @@
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:47.237Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -10720,7 +10724,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:39.739Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -10793,7 +10796,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:50.319Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -10966,7 +10968,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:38.546Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -11054,7 +11055,6 @@
         "r-d-technician-h-f-rolex-bienne"
       ],
       "firstSeenAt": "2026-06-18T23:28:22.482Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -11295,7 +11295,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:32.677Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -11499,7 +11498,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:29.166Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -11572,7 +11570,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:31.509Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -11780,7 +11777,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:02:37.106Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -12255,7 +12251,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:09:02.823Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -12406,7 +12401,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:15.075Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -12728,7 +12722,6 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:27:53.338Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -12890,7 +12883,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:19:30.546Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -13122,7 +13114,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:06:54.642Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -13198,7 +13189,6 @@
         ]
       },
       "firstSeenAt": "2026-06-24T12:17:22.333Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -13433,7 +13423,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:02.244Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -13589,7 +13578,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:06:50.421Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -13726,19 +13714,28 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "business-analyst-kinaxis-h-f-rolex-ch",
-        "business-analista-kinaxis-h-f-rolex-geneve"
+        "business-analista-kinaxis-h-f-rolex-geneve",
+        "analista-aziendale-achats-h-f-rolex-geneve",
+        "business-analyst-achats-h-f-rolex-ch",
+        "business-analyst-beschaffung-h-f-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "business-analyst-kinaxis-h-f-rolex-ch",
-          "business-analista-kinaxis-h-f-rolex-geneve"
+          "business-analista-kinaxis-h-f-rolex-geneve",
+          "analista-aziendale-achats-h-f-rolex-geneve",
+          "business-analyst-achats-h-f-rolex-ch",
+          "business-analyst-beschaffung-h-f-rolex-geneve"
         ],
         "de": [
-          "business-analyst-kinaxis-h-f-rolex-ch"
+          "business-analyst-kinaxis-h-f-rolex-ch",
+          "business-analyst-beschaffung-h-f-rolex-geneve"
+        ],
+        "fr": [
+          "business-analyst-achats-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-08-21T21:26:25.746Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -13969,8 +13966,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

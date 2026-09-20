@@ -65,7 +65,6 @@
       },
       "firstSeenAt": "2026-08-07T01:27:52.672Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "currency": "CHF",
@@ -509,7 +508,6 @@
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -590,7 +588,6 @@
       },
       "firstSeenAt": "2026-09-03T13:43:40.656Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 156500,
       "currency": "CHF",
@@ -672,7 +669,6 @@
       },
       "firstSeenAt": "2026-09-01T00:43:04.097Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "currency": "CHF",
@@ -754,7 +750,6 @@
       },
       "firstSeenAt": "2026-09-01T00:43:04.097Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "currency": "CHF",
@@ -836,7 +831,6 @@
       },
       "firstSeenAt": "2026-09-01T00:43:04.097Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -1155,7 +1149,6 @@
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -1322,7 +1315,6 @@
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -1561,7 +1553,6 @@
       },
       "firstSeenAt": "2026-05-29T00:55:24.315Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -1734,7 +1725,6 @@
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -1926,8 +1916,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bellinzona/Apprendistato--Mediamatico-a-AFC_R-0005987",
@@ -2036,8 +2025,7 @@
       "streetAddress": "Via Ghiringhelli 15A",
       "postalCode": "6500",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bellinzona/Apprendistato--Operatore-Operatrice-informatico-a-AFC_R-0005988",
@@ -2149,8 +2137,7 @@
       "streetAddress": "Via Ghiringhelli 15A",
       "postalCode": "6500",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bellinzona/Apprendistato--Sviluppatore-Sviluppatrice-business-digitale-AFC_R-0005989",
@@ -2259,8 +2246,7 @@
       "streetAddress": "Via Ghiringhelli 15A",
       "postalCode": "6500",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Aarau/Lehre--Detailhandelsfachfrau--mann-EFZ_R-0005944",
@@ -4153,8 +4139,7 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }

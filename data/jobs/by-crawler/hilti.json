@@ -556,7 +556,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T10:09:01.457Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -707,8 +706,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "hilti-19175-en",
