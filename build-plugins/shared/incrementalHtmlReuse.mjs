@@ -1485,6 +1485,10 @@ export class JobsSeoHtmlReuse {
    * strata that each collected `perStratum` byte-identical renders with the
    * new code, and they still pass through the sampled verify; the counter
    * `reusedBeforeInvalidate` keeps that exposure visible in the verdict file.
+   *
+   * Idempotent on purpose: the first caller wins, so the reason that reaches
+   * the verdict and the reuse count frozen with it describe the moment the
+   * block stopped being trusted, not the last mismatch that happened to arrive.
    */
   invalidateProbe(state, block, locale, reason, pagePath) {
     if (state.state === 'invalidate') return;
