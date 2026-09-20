@@ -375,19 +375,27 @@ jobs:
         id: trusted_policy
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          POLICY_REF: ${{ github.event.pull_request.base.sha }}
+          POLICY_REF: main
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: |
           set -euo pipefail
           policy_root="${RUNNER_TEMP}/redflag-trusted-policy-${GITHUB_RUN_ID}"
           rm -rf "$policy_root"
           mkdir -p "$policy_root"
+          # Un 404 qui vuol dire «${POLICY_REF} non ha questo file», non «rete
+          # giù»: il messaggio deve nominare file e ref, altrimenti il rosso
+          # arriva come «gate saltato» e manda a cercare la causa altrove.
           download_main() {
             local path="$1"
             local destination="$policy_root/$path"
             mkdir -p "$(dirname "$destination")"
-            "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
-              --header 'Accept: application/vnd.github.raw+json' > "$destination"
+            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' > "$destination" 2>"${destination}.err"; then
+              echo "::error::policy fidata: '${path}' non scaricabile da ${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
+              rm -f "$destination" "${destination}.err"
+              exit 1
+            fi
+            rm -f "${destination}.err"
           }
           for trusted_path in \
             scripts/ci/pr-fixer-claim.mjs \
@@ -484,19 +492,27 @@ jobs:
         if: steps.admission.outputs.actionable == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          POLICY_REF: ${{ github.event.pull_request.base.sha }}
+          POLICY_REF: main
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: |
           set -euo pipefail
           policy_root="${RUNNER_TEMP}/redflag-trusted-policy-final-${GITHUB_RUN_ID}"
           rm -rf "$policy_root"
           mkdir -p "$policy_root"
+          # Un 404 qui vuol dire «${POLICY_REF} non ha questo file», non «rete
+          # giù»: il messaggio deve nominare file e ref, altrimenti il rosso
+          # arriva come «gate saltato» e manda a cercare la causa altrove.
           download_main() {
             local path="$1"
             local destination="$policy_root/$path"
             mkdir -p "$(dirname "$destination")"
-            "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
-              --header 'Accept: application/vnd.github.raw+json' > "$destination"
+            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' > "$destination" 2>"${destination}.err"; then
+              echo "::error::policy fidata: '${path}' non scaricabile da ${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
+              rm -f "$destination" "${destination}.err"
+              exit 1
+            fi
+            rm -f "${destination}.err"
           }
           for trusted_path in \
             scripts/ci/pr-fixer-claim.mjs \
@@ -906,19 +922,27 @@ jobs:
         if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true' && steps.ctx.outcome == 'success' && steps.body_gate.outcome == 'success'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          POLICY_REF: ${{ github.event.pull_request.base.sha }}
+          POLICY_REF: main
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: |
           set -euo pipefail
           policy_root="${RUNNER_TEMP}/redflag-trusted-policy-claim-${GITHUB_RUN_ID}"
           rm -rf "$policy_root"
           mkdir -p "$policy_root"
+          # Un 404 qui vuol dire «${POLICY_REF} non ha questo file», non «rete
+          # giù»: il messaggio deve nominare file e ref, altrimenti il rosso
+          # arriva come «gate saltato» e manda a cercare la causa altrove.
           download_main() {
             local path="$1"
             local destination="$policy_root/$path"
             mkdir -p "$(dirname "$destination")"
-            "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
-              --header 'Accept: application/vnd.github.raw+json' > "$destination"
+            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' > "$destination" 2>"${destination}.err"; then
+              echo "::error::policy fidata: '${path}' non scaricabile da ${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
+              rm -f "$destination" "${destination}.err"
+              exit 1
+            fi
+            rm -f "${destination}.err"
           }
           for trusted_path in \
             scripts/ci/pr-fixer-claim.mjs \
@@ -1120,19 +1144,27 @@ jobs:
         if: always() && steps.claim.outputs.claim_acquired == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          POLICY_REF: ${{ github.event.pull_request.base.sha }}
+          POLICY_REF: main
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: |
           set -euo pipefail
           policy_root="${RUNNER_TEMP}/redflag-trusted-policy-post-${GITHUB_RUN_ID}"
           rm -rf "$policy_root"
           mkdir -p "$policy_root"
+          # Un 404 qui vuol dire «${POLICY_REF} non ha questo file», non «rete
+          # giù»: il messaggio deve nominare file e ref, altrimenti il rosso
+          # arriva come «gate saltato» e manda a cercare la causa altrove.
           download_main() {
             local path="$1"
             local destination="$policy_root/$path"
             mkdir -p "$(dirname "$destination")"
-            "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
-              --header 'Accept: application/vnd.github.raw+json' > "$destination"
+            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' > "$destination" 2>"${destination}.err"; then
+              echo "::error::policy fidata: '${path}' non scaricabile da ${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
+              rm -f "$destination" "${destination}.err"
+              exit 1
+            fi
+            rm -f "${destination}.err"
           }
           for trusted_path in \
             scripts/ci/pr-fixer-claim.mjs \
