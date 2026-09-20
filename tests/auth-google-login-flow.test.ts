@@ -15,4 +15,15 @@ describe('Google auth flow hardening', () => {
     expect(source).toContain("setAuthRedirectState('google');");
     expect(source).toContain('await _authModule.signInWithRedirect(authInstance, googleProvider);');
   });
+
+  it('does not spend the interactive subscription quota on auth profile reconciliation', () => {
+    const source = readFileSync(resolve(root, 'services/authService.ts'), 'utf8');
+    const start = source.indexOf('export async function saveUserProfileToFirestore');
+    const end = source.indexOf('// ─── Auth Functions', start);
+    const profileWriter = source.slice(start, end);
+
+    expect(profileWriter).toMatch(
+      /upsertNewsletterSubscriber\(db,[\s\S]*?skipRateLimit:\s*true[\s\S]*?\}\);/,
+    );
+  });
 });
