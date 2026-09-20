@@ -67,6 +67,44 @@ describe('buildWeekendDigestArticle', () => {
     expect(art.content.fr.body2).toContain('(/fr/evenements/tessin/lugano/)');
   });
 
+  it('uses a usable title for the current locale and falls back to the flat title', () => {
+    const localized = buildWeekendDigestArticle({
+      events: [{
+        id: 'localized',
+        title: 'Flat title',
+        titleByLocale: {
+          it: 'Titolo italiano',
+          en: 'English title',
+          de: 'Deutscher Titel',
+          fr: 'Titre français',
+        },
+        comune: 'Lugano',
+        startDate: '2027-01-02',
+        canton: 'TI',
+      }],
+      todayIso: TODAY,
+    });
+
+    expect(localized.content.it.body2).toContain('Titolo italiano');
+    expect(localized.content.en.body2).toContain('English title');
+    expect(localized.content.de.body2).toContain('Deutscher Titel');
+    expect(localized.content.fr.body2).toContain('Titre français');
+
+    const fallback = buildWeekendDigestArticle({
+      events: [{
+        id: 'fallback',
+        title: 'Flat fallback title',
+        titleByLocale: { en: '   ' },
+        comune: 'Lugano',
+        startDate: '2027-01-02',
+        canton: 'TI',
+      }],
+      todayIso: TODAY,
+    });
+    expect(fallback.content.it.body2).toContain('Flat fallback title');
+    expect(fallback.content.en.body2).toContain('Flat fallback title');
+  });
+
   it('handles an empty weekend without inventing events', () => {
     const empty = buildWeekendDigestArticle({ events: [EVENTS[3]], todayIso: TODAY });
     expect(empty.eventCount).toBe(0);
