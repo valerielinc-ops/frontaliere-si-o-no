@@ -13,10 +13,7 @@ import {
   listNonCorpusWideTests,
   parseCorpusSkipList,
 } from './scripts/ci/corpus-wide-tests.mjs';
-import {
-  listLiveDataTestsForCi,
-  listNonLiveDataTestsForCi,
-} from './scripts/ci/live-data-test-guard.mjs';
+import { listLiveDataTestsForCi } from './scripts/ci/live-data-test-guard.mjs';
 
 // Partizione dataset (usata SOLO da tests.yml, via VITEST_DATASET_GROUP): il
 // job CI lancia `scripts/assemble-jobs-dataset.mjs` come step `background:` e
@@ -81,27 +78,9 @@ const CORPUS_WIDE_EXCLUDE: string[] =
     ? listNonCorpusWideTests()
     : parseCorpusSkipList(process.env.VITEST_CORPUS_SKIP);
 
-// Partizione dati vivi. Asse ORTOGONALE agli altri due, e come loro si compone
-// per concatenazione di `exclude`.
-//
-//   VITEST_SKIP_LIVE_DATA=true → il job bloccante della PR esclude i file
-//        dell'inventario (scripts/ci/live-data-test-guard.mjs). Un test che
-//        legge dati che la pipeline riscrive da sola non e' riproducibile: il
-//        suo rosso non dice niente sul codice della PR e ferma anche le PR
-//        altrui, perche' `vitest` e' il gate su cui si innesca la review.
-//   VITEST_LIVE_DATA_GROUP=only → gira SOLO quel gruppo. E' la run post-merge di
-//        `corpus-wide-gates.yml`, che a rosso apre una issue. Toglierli dalle PR
-//        non li cancella: li sposta dove un rosso da dato e' il segnale voluto
-//        invece che un blocco per il lavoro di qualcun altro.
-//
-// Senza nessuna delle due env il valore e' [] e la suite resta intera: ogni run
-// locale e ogni altro workflow eseguono tutto.
+// Opt-in per tests.yml: i run locali e i gate post-merge conservano la suite.
 const LIVE_DATA_EXCLUDE: string[] =
-  process.env.VITEST_LIVE_DATA_GROUP === 'only'
-    ? listNonLiveDataTestsForCi()
-    : process.env.VITEST_SKIP_LIVE_DATA === 'true'
-      ? listLiveDataTestsForCi()
-      : [];
+  process.env.VITEST_SKIP_LIVE_DATA === 'true' ? listLiveDataTestsForCi() : [];
 
 // Custom shard distribution: balance `--shard=i/N` by estimated per-file
 // duration (tests/shard-weights.json) via LPT bin-packing instead of vitest's

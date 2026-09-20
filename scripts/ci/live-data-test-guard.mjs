@@ -519,6 +519,26 @@ export function listNonLiveDataTestsForCi() {
 }
 
 /**
+ * `node scripts/ci/live-data-test-guard.mjs --monitor-files` stampa l'elenco del
+ * gruppo monitor, uno per riga, da passare a `vitest run`.
+ *
+ * Perche' un CLI e non una env letta da `vitest.config.ts`. Il runner related
+ * (`scripts/ci/run-related-tests.mjs`) tratta `vitest.config.ts` come config
+ * GLOBALE: una PR che lo tocca perde la selezione per diff e ricade sulla suite
+ * intera, che con `VITEST_MAX_WORKERS=1` sfonda il limite di 360 minuti del job
+ * — misurato il 2026-09-20, run 35481674287 cancellata a 6 ore sulla PR che
+ * introduceva questa partizione. Passare i file sulla riga di comando ottiene
+ * la stessa selezione senza toccare la config, quindi senza tassare ogni PR
+ * futura che sfiori questo meccanismo.
+ */
+if (process.argv[1] && process.argv.includes('--monitor-files')) {
+  const self = path.resolve(process.argv[1]);
+  if (self === fileURLToPath(import.meta.url)) {
+    process.stdout.write(`${listLiveDataMonitorTests().join('\n')}\n`);
+  }
+}
+
+/**
  * @param {string} [root]
  * @returns {{ file: string, roots: string[] }[]}
  */

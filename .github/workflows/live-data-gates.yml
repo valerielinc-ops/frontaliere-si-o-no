@@ -96,13 +96,27 @@ jobs:
       - name: Migrate canton-aware tracking
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
+      # L'elenco arriva dal registro e finisce sulla riga di comando, non in
+      # una env letta da `vitest.config.ts`: toccare quella config farebbe
+      # perdere al runner related la selezione per diff su OGNI PR futura che
+      # la sfiori, e la suite intera a un worker non sta nel limite del job
+      # (misurato: run 35481674287 cancellata a 6 ore).
       - name: vitest run (solo i test su dati vivi)
         env:
-          VITEST_LIVE_DATA_GROUP: only
           NODE_OPTIONS: --max-old-space-size=8192
         run: |
-          set -o pipefail
-          npm test -- --reporter=default 2>&1 | tee live-data-vitest.log
+          set -euo pipefail
+          node scripts/ci/live-data-test-guard.mjs --monitor-files > live-data-files.txt
+          count="$(wc -l < live-data-files.txt | tr -d ' ')"
+          echo "gruppo dati vivi: $count file"
+          # Un elenco vuoto qui sarebbe un verde per ASSENZA di test, cioe' il
+          # falso verde che questo workflow esiste per impedire.
+          if [ "$count" -lt 50 ]; then
+            echo "::error::il gruppo dati vivi ha $count file: registro rotto o vuoto, non eseguo un verde vuoto"
+            exit 1
+          fi
+          # shellcheck disable=SC2046
+          npx vitest run $(cat live-data-files.txt) --reporter=default 2>&1 | tee live-data-vitest.log
 
       - name: Report failure to GitHub Issues
         if: failure()
@@ -131,7 +145,7 @@ jobs:
             ```
             node scripts/assemble-jobs-dataset.mjs --stats
             node scripts/migrate-all-known-job-slugs-canton-aware.mjs
-            VITEST_LIVE_DATA_GROUP=only npm test
+            npx vitest run $(node scripts/ci/live-data-test-guard.mjs --monitor-files)
             ```
 
             L'inventario, con la radice dati e la prova (`replay` = ha cambiato

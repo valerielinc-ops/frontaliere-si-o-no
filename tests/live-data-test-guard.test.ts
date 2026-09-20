@@ -19,6 +19,7 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { listCorpusWideTests } from '../scripts/ci/corpus-wide-tests.mjs';
 import {
   scanLiveDataTests,
@@ -138,11 +139,11 @@ describe('il censimento 2026-09-19 regge le proprie premesse', () => {
   });
 
   it('la partizione fra gate PR e gruppo dati-vivi e` esatta', () => {
-    // `VITEST_SKIP_LIVE_DATA=true` e `VITEST_LIVE_DATA_GROUP=only` escludono
-    // l'uno il complemento dell'altro: se le due liste si sovrapponessero un
-    // test girerebbe due volte, se lasciassero un buco non girerebbe MAI —
-    // ed e' esattamente il modo in cui un gate sparisce senza che nessuno lo
-    // decida.
+    // Il gate PR esclude per nome file (`VITEST_SKIP_LIVE_DATA=true`), il
+    // monitor esegue l'elenco che `--monitor-files` stampa: le due parti sono
+    // l'una il complemento dell'altra. Se si sovrapponessero un test girerebbe
+    // due volte, se lasciassero un buco non girerebbe MAI — ed e' esattamente
+    // il modo in cui un gate sparisce senza che nessuno lo decida.
     const live = listLiveDataMonitorTests();
     const rest = listNonLiveDataTestsForCi();
     expect(live.filter((f) => rest.includes(f)), 'nessun file in entrambi i gruppi').toEqual([]);
@@ -163,6 +164,20 @@ describe('il censimento 2026-09-19 regge le proprie premesse', () => {
     for (const file of listCorpusWideTests()) {
       expect(monitor.has(file), `${file} non va nel monitor dei dati vivi`).toBe(false);
     }
+  }, 60_000);
+
+  it('il CLI --monitor-files stampa esattamente il gruppo monitor', () => {
+    // Il workflow passa questo elenco a `vitest run`. Serve un CLI e non una
+    // env letta da `vitest.config.ts`: `run-related-tests.mjs` tratta quella
+    // config come globale, quindi una PR che la tocca perde la selezione per
+    // diff e ricade sulla suite intera — che a un worker non sta nei 360
+    // minuti del job (run 35481674287, cancellata a 6 ore).
+    const out = execFileSync(
+      process.execPath,
+      [path.resolve(__dirname, '..', 'scripts', 'ci', 'live-data-test-guard.mjs'), '--monitor-files'],
+      { encoding: 'utf8' },
+    );
+    expect(out.trim().split('\n')).toEqual(listLiveDataMonitorTests());
   }, 60_000);
 
   it('i file MISTI girano interi nel monitor, dove la env non li spegne', () => {
