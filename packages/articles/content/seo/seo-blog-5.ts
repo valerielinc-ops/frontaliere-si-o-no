@@ -91957,6 +91957,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ristorni-comuni-frontiera-incremento': {
+    title: 'Fondi per comuni di frontiera: ristorni salgono a 108 milioni',
+    description: 'L\'Acif esprime soddisfazione per l\'aumento del fondo ristorni a 108 milioni di euro e l\'assegnazione dell\'extra gettito alle regioni di confine. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, fondi, comuni, frontiera, ristorni',
+    ogTitle: 'Fondi comuni di frontiera: ristorni salgono a 108 milioni',
+    ogDescription: 'L\'Associazione Comuni Italiani di Frontiera (Acif) accoglie l\'incremento del fondo ristorni da 89 a 108 milioni di euro e l\'assegnazione dell\'extra gettito per migliorare servizi e infrastrutture.',
+    canonicalPath: '/articoli-frontaliere/ristorni-comuni-frontiera-incremento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fondi per comuni di frontiera: ristorni salgono a 108 milioni",
+      "description": "L'Acif esprime soddisfazione per l'aumento del fondo ristorni a 108 milioni di euro e l'assegnazione dell'extra gettito alle regioni di confine. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ristorni-comuni-frontiera-incremento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Passaggio di frontiera tra Italia e Svizzera nel Mendrisiotto"
+      },
+      "datePublished": "2026-09-20T16:48:28+00:00",
+      "dateModified": "2026-09-20T16:48:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-comuni-frontiera-incremento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
