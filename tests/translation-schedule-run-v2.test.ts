@@ -9,7 +9,10 @@ import {
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
-import { runTranslationScheduleV2 } from '../scripts/translation-schedule-run-v2.mjs';
+import {
+  collectTranslationSchedulerInput,
+  runTranslationScheduleV2,
+} from '../scripts/translation-schedule-run-v2.mjs';
 
 const roots: string[] = [];
 
@@ -88,6 +91,29 @@ afterEach(() => {
 });
 
 describe('translation scheduler v2 runtime wiring', () => {
+  it('uses the Italian default for legacy jobs without sourceLang', async () => {
+    const { one } = createRepositories();
+    const slicePath = join(one, 'data/jobs/by-crawler/example-crawler.json');
+    const slice = JSON.parse(readFileSync(slicePath, 'utf8'));
+    const job = slice.jobs[0];
+    delete job.sourceLang;
+    job.title = 'Sviluppatore senior per progetti internazionali';
+    job.description = job.descriptionByLocale.it;
+    job.titleByLocale = {
+      it: job.title,
+      en: 'Senior developer for international projects',
+      de: '',
+      fr: 'Développeur senior pour projets internationaux',
+    };
+    writeFileSync(slicePath, `${JSON.stringify(slice, null, 2)}\n`);
+
+    const input = await collectTranslationSchedulerInput({ repository: one });
+
+    expect(input.metrics.selectedInputUnits).toBe(1);
+    expect(input.runtimeJobs[0].units[0].identity.sourceLocale).toBe('it');
+    expect(input.runtimeJobs[0].units[0].identity.targetLocale).toBe('de');
+  });
+
   it('plans, reserves, executes, and settles on the state ref without writing main', async () => {
     const { one, providerModule, remote } = createRepositories();
     const mainBefore = git(one, 'rev-parse', 'HEAD');
