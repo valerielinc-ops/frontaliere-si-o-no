@@ -26,7 +26,11 @@ import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
 import {
   classifyAutomationRisk,
 } from './lib/automation-risk-policy.mjs';
-import { REVIEW_GATE_STEP_NAME } from './lib/vitestCheck.mjs';
+import {
+  REVIEW_GATE_STEP_NAME,
+  RUN_SELECTION_STATES,
+  latestCompletedRunSelectionByName,
+} from './lib/vitestCheck.mjs';
 import {
   CODEX_FALLBACK_REVIEW_MARKER,
   firstTerminalBotReviewOnHead,
@@ -199,26 +203,26 @@ function testOnlyReviewIsApproved(review, head, reviewRevision) {
   return reviewHasZeroFindings(review.body) && reviewHasLgtm(review.body);
 }
 
-/** Select the newest completed required check; an active run always blocks. */
+/** Select the newest verifiable generation; an active generation always blocks. */
 export function requiredVitestDecision(checkRuns, head) {
   if (!Array.isArray(checkRuns) || typeof head !== 'string' || !head) {
     return { allow: false, reason: 'check-runs non verificabili' };
   }
-  const runs = checkRuns.filter((check) => check?.name === VITEST_CHECK_NAME && check.head_sha === head);
-  if (runs.length === 0) {
+  const selection = latestCompletedRunSelectionByName(checkRuns, VITEST_CHECK_NAME);
+  if (selection.state === RUN_SELECTION_STATES.PENDING) {
+    const reason = selection.reason === 'missing'
+      ? `check required ${VITEST_CHECK_NAME} assente sulla HEAD`
+      : `check required ${VITEST_CHECK_NAME} pending sulla HEAD`;
+    return { allow: false, reason };
+  }
+  if (selection.state === RUN_SELECTION_STATES.AMBIGUOUS || !selection.run) {
+    return { allow: false, reason: `check required ${VITEST_CHECK_NAME} non verificabile sulla HEAD` };
+  }
+  if (selection.run.head_sha !== head) {
     return { allow: false, reason: `check required ${VITEST_CHECK_NAME} assente sulla HEAD` };
   }
-  if (runs.some((check) => check.status !== 'completed')) {
-    return { allow: false, reason: `check required ${VITEST_CHECK_NAME} pending sulla HEAD` };
-  }
-  if (runs.some((check) => !check.conclusion || !Number.isFinite(Date.parse(check.completed_at || '')))) {
-    return { allow: false, reason: `check required ${VITEST_CHECK_NAME} senza verdetto completato` };
-  }
-  const latest = [...runs].sort(
-    (left, right) => Date.parse(left.completed_at) - Date.parse(right.completed_at),
-  ).at(-1);
-  if (latest.conclusion !== 'success') {
-    return { allow: false, reason: `check required ${VITEST_CHECK_NAME} conclusion=${latest.conclusion}` };
+  if (selection.run.conclusion !== 'success') {
+    return { allow: false, reason: `check required ${VITEST_CHECK_NAME} conclusion=${selection.run.conclusion}` };
   }
   return { allow: true, reason: `${VITEST_CHECK_NAME} success sulla HEAD` };
 }
@@ -310,10 +314,11 @@ export function inJobRequiredVitestDecision({
 }
 
 function latestRequiredVitestCheck(checkRuns, head) {
-  const runs = checkRuns.filter((check) => check?.name === VITEST_CHECK_NAME && check.head_sha === head);
-  return [...runs].sort(
-    (left, right) => Date.parse(left.completed_at || '') - Date.parse(right.completed_at || ''),
-  ).at(-1) || null;
+  const selection = latestCompletedRunSelectionByName(checkRuns, VITEST_CHECK_NAME);
+  return selection.state === RUN_SELECTION_STATES.SELECTED
+    && selection.run?.head_sha === head
+    ? selection.run
+    : null;
 }
 
 function validTimestamp(value) {

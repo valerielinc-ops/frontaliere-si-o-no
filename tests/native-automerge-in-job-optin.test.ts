@@ -43,6 +43,7 @@ function inFlightCheck(overrides: Record<string, unknown> = {}) {
     head_sha: HEAD,
     status: 'in_progress',
     conclusion: null,
+    created_at: '2026-09-18T10:00:00Z',
     completed_at: null,
     details_url: `https://github.com/${REPO}/actions/runs/${RUN_ID}/job/${JOB_ID}`,
     ...overrides,

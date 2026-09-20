@@ -76,10 +76,12 @@ function botReview(body: string, commit_id = HEAD, submitted_at = '2026-09-18T01
 
 function vitest(overrides: Record<string, unknown> = {}) {
   return {
+    id: 101,
     name: 'vitest (unit + integration)',
     head_sha: HEAD,
     status: 'completed',
     conclusion: 'success',
+    created_at: '2026-09-18T01:00:00Z',
     completed_at: '2026-09-18T01:01:00Z',
     ...overrides,
   };

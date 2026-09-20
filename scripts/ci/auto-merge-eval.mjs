@@ -76,7 +76,9 @@ import {
   REVIEW_WORKFLOW_DRIFT_FILES,
   isReviewerBot,
 } from './lib/constants.mjs';
-import { latestCompletedVitestConclusion } from './lib/vitestCheck.mjs';
+import {
+  latestCompletedVitestRun,
+} from './lib/vitestCheck.mjs';
 import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
 import { classifyAutomationRisk } from './lib/automation-risk-policy.mjs';
 import { checkClosesLines } from '../lib/pr-body-closes-check.mjs';
@@ -564,18 +566,22 @@ function main() {
     return fail(`Nessuna review claude-bot approvante — manca '## LGTM'; skip.`);
   }
 
-  // 3. vitest check-run == success (NON solo != failure). Prende l'ultimo
-  // check-run vitest COMPLETATO (per completed_at), non un `[0]` arbitrario:
-  // un workflow_dispatch manuale di tests.yml sullo stesso SHA può lasciare un
-  // check-run `failure` stantio che, pescato per ordine API, mascherava il
-  // success reale → auto-merge bloccato pur coi test verdi (osservato #2394).
-  // Vedi lib/vitestCheck.mjs.
+  // 3. vitest check-run == success (NON solo != failure). Seleziona la
+  // generazione più recente verificabile (`created_at`, `run_attempt`,
+  // workflow-run ID, check ID), non il runner che ha finito per ultimo. Un
+  // risultato pending/ambiguous o privo di SHA verificabile resta fail-closed.
   let conclusion = '';
   let allCheckRuns = null;
   try {
-    const cr = gh(['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`]);
-    allCheckRuns = (cr && cr.check_runs) || [];
-    conclusion = latestCompletedVitestConclusion(allCheckRuns);
+    const pages = gh(['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`, '--paginate', '--slurp']);
+    if (!Array.isArray(pages) || pages.some((page) => !page || !Array.isArray(page.check_runs))) {
+      throw new Error('payload check-runs paginato non verificabile');
+    }
+    allCheckRuns = pages.flatMap((page) => page.check_runs);
+    const selectedVitest = latestCompletedVitestRun(allCheckRuns);
+    conclusion = selectedVitest?.head_sha === head
+      ? selectedVitest.conclusion || ''
+      : '';
   } catch (e) {
     return fail(`Impossibile leggere check-runs HEAD ${head}: ${String(e).slice(0, 160)} — skip.`);
   }

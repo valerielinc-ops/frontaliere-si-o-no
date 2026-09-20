@@ -139,6 +139,8 @@ jobs:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           REPO: ${{ github.repository }}
           DRY_RUN: ${{ github.event.inputs.dry_run }}
+          CI_CHECK_NAME: 'vitest (unit + integration)'
+          LEGACY_CI_CHECK_NAME: 'vitest execution'
         run: |
           set -uo pipefail
           NOW=$(date -u +%s)
@@ -227,19 +229,97 @@ jobs:
             # Segnale affidabile invece: il check-run di `tests.yml` (trigger
             # `pull_request`, quindi SI attacca correttamente all'head reale della
             # PR) + la review API (il suo `commit_id` è anch'esso corretto).
-            checks=$("$TRUSTED_GH_BIN" api "repos/$REPO/commits/$HEAD/check-runs" 2>/dev/null || echo '{}')
-            # Selezione allineata a `latestCompletedVitestConclusion`
-            # (scripts/ci/lib/vitestCheck.mjs): ULTIMO check-run COMPLETATO con
-            # verdetto per `completed_at`, non `last` per ordine API. Un job
-            # `skipped` è completato ma non è un verdetto. Uno stesso SHA può
-            # portare PIÙ check-run omonimi (run `pull_request` + un
-            # `workflow_dispatch` manuale): prendere l'ultimo per ordine API
-            # pescava un verdetto ARBITRARIO, così un `failure` stantio
-            # mascherava il `success` reale e viceversa (classe del bug #2394,
-            # per cui quel modulo condiviso esiste).
-            TESTS_CONCL=$(echo "$checks" | jq -r '[.check_runs[] | select(.name=="vitest (unit + integration)" and .status=="completed" and .completed_at and .conclusion != "skipped")] | sort_by(.completed_at) | last | .conclusion // "none"')
-            # Un run già in volo sull'head si risolverà da sé → non è uno stallo.
-            TESTS_PENDING=$(echo "$checks" | jq -r '[.check_runs[] | select((.name=="vitest (unit + integration)" or .name=="vitest execution") and .status!="completed")] | length')
+            # `check-runs` è paginato: un head con molti rerun può avere il
+            # verdetto che conta oltre la prima pagina. Una risposta API
+            # illeggibile è distinta da una lista vuota e non può diventare un
+            # rescue mutante per errore.
+            CHECKS_STATE=available
+            if ! checks=$("$TRUSTED_GH_BIN" api --paginate "repos/$REPO/commits/$HEAD/check-runs?per_page=100" 2>/dev/null); then
+              CHECKS_STATE=unavailable
+            elif [ -z "${checks//[[:space:]]/}" ] || ! printf '%s\n' "$checks" | jq -s -e --arg head "$HEAD" '
+              def parse_time:
+                if type != "string" or length == 0 then null
+                else (try (sub("\\.[0-9]+Z$"; "Z") | fromdateiso8601) catch null) end;
+              def workflow_id:
+                if (.details_url | type) != "string" then null
+                else try (.details_url | capture("^https://github[.]com/[^/]+/[^/]+/actions/runs/(?<id>[1-9][0-9]*)/job/[1-9][0-9]*$").id) catch null end;
+              def safe_id: (type == "number" and floor == . and . >= 1 and . <= 9007199254740991);
+              def valid_uuid: (type == "string" and test("^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"; "i"));
+              def generation:
+                if (.created_at | parse_time) != null then true
+                elif (.run_attempt | safe_id) then true
+                else (workflow_id != null and (.check_suite | type) == "object" and (.check_suite.id | safe_id) and (.external_id | valid_uuid)) end;
+              def valid_pages:
+                type == "array" and length > 0 and all(.[];
+                  type == "object"
+                  and (.check_runs | type) == "array"
+                  and all(.check_runs[]; type == "object")
+                );
+              def candidates:
+                [.[].check_runs[] | select(.name == $ENV.CI_CHECK_NAME or .name == $ENV.LEGACY_CI_CHECK_NAME)] as $matches
+                | if any($matches[]; .name == $ENV.CI_CHECK_NAME)
+                  then $matches | map(select(.name == $ENV.CI_CHECK_NAME))
+                  else $matches | map(select(.name == $ENV.LEGACY_CI_CHECK_NAME))
+                  end;
+              if (valid_pages | not) then false
+              else candidates as $all
+              | if ($all | length) == 0 then true else all($all[];
+                (.id | safe_id)
+                and (.head_sha | type) == "string" and (.head_sha | ascii_downcase) == ($head | ascii_downcase)
+                and (.status == "completed" or .status == "queued" or .status == "in_progress" or .status == "requested" or .status == "waiting" or .status == "pending")
+                and ((has("created_at") | not) or .created_at == null or (.created_at | parse_time) != null)
+                and ((has("run_attempt") | not) or .run_attempt == null or (.run_attempt | safe_id))
+                and ((has("external_id") | not) or .external_id == null or (.external_id | valid_uuid))
+                and ((has("check_suite") | not) or .check_suite == null or ((.check_suite | type) == "object" and (.check_suite.id | safe_id) and ((.check_suite.head_sha // null) == null or ((.check_suite.head_sha | type) == "string" and (.check_suite.head_sha | ascii_downcase) == ($head | ascii_downcase))) and ((.check_suite.created_at // null) == null or (.check_suite.created_at | parse_time) != null)))
+                and generation
+                and (.status != "completed" or ((.completed_at | parse_time) and (.conclusion | type) == "string" and (.conclusion | length) > 0))) end
+              end
+            ' >/dev/null 2>&1; then
+              CHECKS_STATE=unavailable
+            fi
+            if [ "$CHECKS_STATE" = "unavailable" ]; then
+              echo "::warning::Check-run della PR #$N non verificabile — nessun rescue o mutation."
+              continue
+            fi
+            # Selezione generation-aware: created_at, poi run_attempt, poi
+            # workflow-run ID e infine check ID. `completed_at` non è un tie-break
+            # di generazione. SHA misto, metadati incomparabili e duplicati sono
+            # tutti pending/ambiguous e restano fail-closed.
+            TESTS_STATE=$(printf '%s\n' "$checks" | jq -rs --arg n "$CI_CHECK_NAME" --arg legacy "$LEGACY_CI_CHECK_NAME" --arg head "$HEAD" '
+              def workflow_id:
+                if (.details_url | type) != "string" then null
+                else try (.details_url | capture("^https://github[.]com/[^/]+/[^/]+/actions/runs/(?<id>[1-9][0-9]*)/job/[1-9][0-9]*$").id) catch null end;
+              def safe_id: (type == "number" and floor == . and . >= 1 and . <= 9007199254740991);
+              def parse_time:
+                if type != "string" or length == 0 then null else (try (sub("\\.[0-9]+Z$"; "Z") | fromdateiso8601) catch null) end;
+              def generation:
+                (.created_at | parse_time) as $created
+                | (if (.run_attempt | safe_id) then .run_attempt else 0 end) as $attempt
+                | (workflow_id // "0") as $workflow
+                | if $created != null then {source:"timestamp", created:$created, attempt:$attempt, workflow:($workflow | tonumber), id:.id}
+                  elif (.run_attempt | safe_id) then {source:"attempt", created:0, attempt:.run_attempt, workflow:($workflow | tonumber), id:.id}
+                  elif $workflow != "0" then {source:"workflow", created:0, attempt:0, workflow:($workflow | tonumber), id:.id}
+                  else null end;
+              def candidates:
+                [.[].check_runs[] | select(.name == $n or .name == $legacy)] as $matches
+                | if any($matches[]; .name == $n)
+                  then $matches | map(select(.name == $n))
+                  else $matches | map(select(.name == $legacy))
+                  end;
+              candidates as $all
+              | if ($all | length) == 0 then {conclusion:"none", pending:0}
+                elif ([ $all[] | .head_sha | ascii_downcase ] | unique | length) != 1 then {conclusion:"none", pending:1}
+                elif any($all[]; (generation == null)) then {conclusion:"none", pending:1}
+                elif ([ $all[] | generation.source ] | unique | length) != 1 then {conclusion:"none", pending:1}
+                elif ([ $all[] | .id ] | unique | length) != ($all | length) then {conclusion:"none", pending:1}
+                else ($all | map(. + {generation:generation}) | map(select(.status != "completed" or .conclusion != "skipped"))) as $verdicts
+                  | if ($verdicts | length) == 0 then {conclusion:"none", pending:0}
+                    else ($verdicts | sort_by([.generation.created, .generation.attempt, .generation.workflow, .generation.id]) | last) as $latest
+                      | if $latest.status == "completed" then {conclusion:$latest.conclusion, pending:0} else {conclusion:"none", pending:1} end
+                    end
+                end')
+            TESTS_CONCL=$(printf '%s' "$TESTS_STATE" | jq -r '.conclusion // "none"' 2>/dev/null || echo "none")
+            TESTS_PENDING=$(printf '%s' "$TESTS_STATE" | jq -r '.pending // 1' 2>/dev/null || echo 1)
 
             # Ultima review del bot reviewer (claude) + commit a cui si riferisce.
             reviews=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$N/reviews" 2>/dev/null || echo '[]')
@@ -365,13 +445,33 @@ jobs:
               echo "label stale-review assente nel repo — creala una volta: gh label create stale-review"
             # Rerun the existing pull_request run: labels are metadata and do
             # not start tests.yml. Keeping its event preserves PR review context.
-            # Prefer the legacy execution job over its wrapper on old heads;
-            # new heads expose only the required execution check itself.
-            RESCUE_RUN=$(echo "$checks" | jq -r '[.check_runs[] |
-              select((.name == "vitest execution" or .name == "vitest (unit + integration)") and .status == "completed" and .conclusion != "skipped")]
-              | sort_by([(.name == "vitest execution"), .completed_at]) | last
-              | (.details_url // "")
-              | (try (capture("/actions/runs/(?<id>[0-9]+)").id) catch "")')
+            # Prefer the current required check; fall back to the legacy
+            # execution name only on heads that do not expose the wrapper.
+            RESCUE_RUN=$(printf '%s\n' "$checks" | jq -rs --arg n "$CI_CHECK_NAME" --arg legacy "$LEGACY_CI_CHECK_NAME" '
+              def parse_time:
+                if type != "string" or length == 0 then null
+                else (try (sub("\\.[0-9]+Z$"; "Z") | fromdateiso8601) catch null) end;
+              def workflow_id:
+                if (.details_url | type) != "string" then null
+                else try (.details_url | capture("^https://github[.]com/[^/]+/[^/]+/actions/runs/(?<id>[1-9][0-9]*)/job/[1-9][0-9]*$").id) catch null end;
+              def safe_id: (type == "number" and floor == . and . >= 1 and . <= 9007199254740991);
+              def generation:
+                (.created_at | parse_time) as $created
+                | (if (.run_attempt | safe_id) then .run_attempt else 0 end) as $attempt
+                | (workflow_id // "0") as $workflow
+                | if $created != null then {source:"timestamp", created:$created, attempt:$attempt, workflow:($workflow | tonumber), id:.id}
+                  elif (.run_attempt | safe_id) then {source:"attempt", created:0, attempt:.run_attempt, workflow:($workflow | tonumber), id:.id}
+                  elif $workflow != "0" then {source:"workflow", created:0, attempt:0, workflow:($workflow | tonumber), id:.id}
+                  else null end;
+              [.[].check_runs[] | select((.name == $n or .name == $legacy) and .status == "completed" and .conclusion != "skipped")] as $matches
+              | if any($matches[]; .name == $n) then $matches | map(select(.name == $n)) else $matches | map(select(.name == $legacy)) end
+              | map(. + {generation:generation})
+              | if length == 0 or any(.[]; .generation == null) then ""
+                elif ([.[] | .generation.source] | unique | length) != 1 then ""
+                else sort_by([.generation.created, .generation.attempt, .generation.workflow, .generation.id]) | last
+                  | (.details_url // "")
+                  | (try (capture("/actions/runs/(?<id>[1-9][0-9]*)").id) catch "")
+                end')
             ACTION_OK=true
             if [ -n "$RESCUE_RUN" ]; then
               "$TRUSTED_GH_BIN" run rerun "$RESCUE_RUN" --repo "$REPO" || {

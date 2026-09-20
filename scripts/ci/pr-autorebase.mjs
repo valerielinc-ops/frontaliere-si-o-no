@@ -813,16 +813,25 @@ function headPushedMinutesAgo(head) {
  * dell'autorebase dura secondi e un head è immutabile, quindi non può servire
  * un dato stantio per il codice che sta esaminando. */
 const _checkRuns = new Map();
+function flattenCheckRunPages(value) {
+  const pages = Array.isArray(value) ? value : [value];
+  if (pages.length === 0 || pages.some((page) => !page || !Array.isArray(page.check_runs))) {
+    throw new Error('payload check-runs paginato non verificabile');
+  }
+  return pages.flatMap((page) => page.check_runs);
+}
 function checkRunsOf(head) {
   if (_checkRuns.has(head)) return _checkRuns.get(head);
   const out = pollUntil({
-    read: () => gh(['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`]),
-    ready: (response) => !vitestCheckNeedsPolling(response?.check_runs),
+    read: () => flattenCheckRunPages(gh([
+      'api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`, '--paginate', '--slurp',
+    ])),
+    ready: (response) => !vitestCheckNeedsPolling(response),
     attempts: VITEST_POLL_ATTEMPTS,
     delayMs: VITEST_POLL_DELAY_MS,
     sleep: sleepSync,
   });
-  const runs = Array.isArray(out?.check_runs) ? out.check_runs : [];
+  const runs = Array.isArray(out) ? out : [];
   _checkRuns.set(head, runs);
   return runs;
 }
@@ -841,8 +850,9 @@ function headHasVitestCheck(head) {
  * NON skippare il rebase quando vitest=`failure` — una PR behind+LGTM con vitest
  * rosso NON è mergeable-as-is (auto-merge-eval esige conclusion==success), quindi
  * va rebasata per ereditare eventuali fix lato main invece di restare stuck
- * (autorebase skippa, auto-merge rifiuta → loop). Prende l'ultimo check-run
- * vitest COMPLETATO (per completed_at), non un `[0]` arbitrario, così un
+ * (autorebase skippa, auto-merge rifiuta → loop). Prende il check-run vitest
+ * COMPLETATO della generazione più recente, non un `[0]` arbitrario né un
+ * ordinamento per `completed_at`, così un
  * run storico cancellato sullo stesso SHA non avvelena il verdetto
  * (stessa classe del bug #2394). Vedi lib/vitestCheck.mjs. */
 function vitestConclusion(head) {
