@@ -1,21 +1,25 @@
 /**
  * Fail-closed admission checks for production promotion workflows.
  *
- * GitHub exposes the required-reviewer configuration for an environment only
- * through the repository API, not in the workflow expression context. The
- * approval job therefore performs an explicit read-only GET and requires a
- * non-empty required_reviewers rule as well as the environment-scoped
- * attestation secret. Missing, unreadable, or unprovable protection stops
- * before any production side effect.
+ * Every check here is decidable from the run context alone: branch, event,
+ * repository identity, upstream workflow name/path/immutable ID, and the
+ * canonical build run. An inadmissible source stops before any production
+ * side effect, without a human in the loop.
+ *
+ * Deliberately absent: a human-approval environment (required reviewers plus
+ * an attestation secret). Per the owner's 16/09 decision, PRs and deploys
+ * flow without a human veto; the deny control-plane lives only on the issue
+ * surface. That gate has broken production deploys twice — #8883 (reverted by
+ * #8947) and #9238 (reverted here) — because the `production-deploy`
+ * environment carries no reviewers and no secret, so the check can never
+ * pass and `build-locale`/`rearm` are skipped. Re-adding it is a regression,
+ * not a policy: see tests/deploy-no-human-approval-gate.test.ts.
  */
 
 import { readFileSync } from 'node:fs';
 
 export const MAIN_REF = 'refs/heads/main';
 export const EXPECTED_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
-export const PRODUCTION_ENVIRONMENT = 'production-deploy';
-export const APPROVAL_SECRET = 'PRODUCTION_DEPLOY_APPROVAL';
-export const REQUIRED_REVIEWERS_RULE = 'required_reviewers';
 export const EXPECTED_BUILD_WORKFLOW = 'Deploy to GitHub Pages';
 export const EXPECTED_BUILD_WORKFLOW_PATH = '.github/workflows/deploy.yml';
 // The path protects against same-name workflows; the immutable workflow ID
@@ -265,34 +269,6 @@ export function validateCanonicalBuildRun({ runId, run }) {
   return { valid: errors.length === 0, errors };
 }
 
-/**
- * The secret is intentionally environment-scoped, but it is not approval proof
- * on its own. A read-only environment response must independently expose a
- * non-empty required_reviewers rule. Its absence, an API denial, or a response
- * without that rule is a hard deny before a promotion job can proceed.
- */
-export function validateApprovalAttestation({ environmentName, attestation, environment }) {
-  const errors = [];
-  if (String(environmentName || '').trim() !== PRODUCTION_ENVIRONMENT) {
-    errors.push(`approval job must declare environment ${PRODUCTION_ENVIRONMENT}`);
-  }
-  if (typeof attestation !== 'string' || attestation.trim() === '') {
-    errors.push(`${APPROVAL_SECRET} is missing from the protected environment`);
-  }
-  if (String(environment?.name || '').trim() !== PRODUCTION_ENVIRONMENT) {
-    errors.push('environment protection response is missing or names a different environment');
-  }
-  const hasRequiredReviewers = Array.isArray(environment?.protection_rules)
-    && environment.protection_rules.some((rule) =>
-      rule?.type === REQUIRED_REVIEWERS_RULE
-      && Array.isArray(rule.reviewers)
-      && rule.reviewers.length > 0);
-  if (!hasRequiredReviewers) {
-    errors.push('required-reviewer protection cannot be verified from the environment response');
-  }
-  return { valid: errors.length === 0, errors };
-}
-
 function fail(errors) {
   for (const error of errors) console.error(`::error::production promotion denied: ${error}`);
   process.exitCode = 1;
@@ -311,24 +287,6 @@ function runCli(mode) {
     });
     if (!verdict.valid) return fail(verdict.errors);
     console.log(`[production-promotion-gate] trigger admitted: ${process.env.PROMOTION_EVENT}`);
-    return;
-  }
-
-  if (mode === 'approval') {
-    const rawEnvironment = readFileSync(0, 'utf8').trim();
-    let environment;
-    try {
-      environment = rawEnvironment ? JSON.parse(rawEnvironment) : undefined;
-    } catch {
-      return fail(['environment protection response is not valid JSON']);
-    }
-    const verdict = validateApprovalAttestation({
-      environmentName: process.env.PROMOTION_ENVIRONMENT_NAME,
-      attestation: process.env[APPROVAL_SECRET],
-      environment,
-    });
-    if (!verdict.valid) return fail(verdict.errors);
-    console.log('[production-promotion-gate] required-reviewer protection verified and environment attestation present; promotion may proceed');
     return;
   }
 
