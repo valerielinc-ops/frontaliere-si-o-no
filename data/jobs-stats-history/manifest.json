@@ -2,5 +2,7 @@
   "version": 1,
   "format": "monthly-entry-shards",
   "legacyFallback": "data/jobs-stats-history.json",
-  "months": []
+  "months": [
+    "2026-09"
+  ]
 }
