@@ -114,7 +114,7 @@ export function createJobTranslationUnitIdentityV2(job, options) {
   return createTranslationUnitIdentityV2({
     kind: 'job',
     fieldPath: checkedFieldPath,
-    sourceLocale: own(job, 'sourceLang'),
+    sourceLocale: own(job, 'sourceLang') || 'it',
     targetLocale: validateTargetLocale(options.targetLocale),
     sourceText: own(job, checkedFieldPath),
     context: canonicalJobTranslationContextV2(job),

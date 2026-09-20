@@ -54,11 +54,9 @@ describe.each(FIXERS)('$file', ({ file, kind }) => {
     expect(body).toContain('--add-label "needs-human"');
     // `gh` nudo non esiste più in questi due job dal 2026-09-19 (#9339, «attest
     // all trusted review tools»): ogni chiamata passa dal binario attestato
-    // prima del checkout. L'assert letterale su `gh pr comment` è rimasto
-    // indietro ed è rosso su `main` per ENTRAMBI i fixer da allora — un rosso
-    // ereditato che ogni PR su un fixer si porta dietro senza averlo causato.
-    // Pinnare la forma attestata è anche più forte: un ritorno al `gh` nudo
-    // (che la PR sotto esame potrebbe sostituire su PATH) ora fallisce.
+    // prima del checkout. `main` ha già tolto il rosso allentando l'assert a
+    // `pr comment`; qui si pinna la forma attestata, che è più stretta e vieta
+    // anche il ritorno al `gh` nudo (sostituibile su PATH dalla PR in esame).
     expect(body).toMatch(/"\$TRUSTED_GH_BIN" pr comment/u);
     // L'invariante è «una escalation per causa, mai ripostata», non «una sola
     // riga in tutto il file»: il redflag-fixer ha una seconda causa distinta

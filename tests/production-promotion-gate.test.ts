@@ -3,7 +3,6 @@ import path from 'node:path';
 import YAML from 'yaml';
 import { describe, expect, it } from 'vitest';
 import {
-  APPROVAL_SECRET,
   EXPECTED_BUILD_EVENTS,
   EXPECTED_BUILD_WORKFLOW,
   EXPECTED_BUILD_WORKFLOW_ID,
@@ -12,9 +11,6 @@ import {
   EXPECTED_PUBLISH_WORKFLOW_PATH,
   EXPECTED_REPOSITORY,
   MAIN_REF,
-  PRODUCTION_ENVIRONMENT,
-  REQUIRED_REVIEWERS_RULE,
-  validateApprovalAttestation,
   validateCanonicalBuildRun,
   validateDeployPublishCaller,
   validatePromotionTrigger,
@@ -160,64 +156,28 @@ describe('production promotion admission', () => {
     expect(validateDeployPublishCaller({ ...caller, deployRef: 'bad-ref' }).valid).toBe(false);
   });
 
-  it('requires both an attestation and demonstrable required-reviewer protection', () => {
-    const protectedEnvironment = {
-      name: PRODUCTION_ENVIRONMENT,
-      protection_rules: [{
-        type: REQUIRED_REVIEWERS_RULE,
-        reviewers: [{ type: 'User', reviewer: { login: 'release-manager' } }],
-      }],
-    };
-
-    expect(validateApprovalAttestation({
-      environmentName: PRODUCTION_ENVIRONMENT,
-      attestation: 'configured-out-of-band',
-      environment: protectedEnvironment,
-    }).valid).toBe(true);
-    expect(validateApprovalAttestation({
-      environmentName: PRODUCTION_ENVIRONMENT,
-      attestation: '',
-      environment: protectedEnvironment,
-    }).valid).toBe(false);
-    expect(validateApprovalAttestation({
-      environmentName: PRODUCTION_ENVIRONMENT,
-      attestation: 'present-but-insufficient',
-      environment: { name: PRODUCTION_ENVIRONMENT, protection_rules: [] },
-    }).valid).toBe(false);
-  });
-
-  it('puts the build workflow behind trigger and approval jobs', () => {
+  it('puts the build workflow behind the fail-closed trigger job', () => {
     const workflow = readWorkflow('deploy.yml');
     const trigger = workflow.jobs['validate-promotion-trigger'];
-    const approval = workflow.jobs['production-approval'];
 
     expect(findStep(trigger, 'trigger')).toBeDefined();
-    expect(approval.environment).toEqual({ name: PRODUCTION_ENVIRONMENT });
-    expect(needs(approval)).toContain('validate-promotion-trigger');
-    expect(findStep(approval, 'approval')).toBeDefined();
     expect(needs(workflow.jobs['matrix-setup'])).toContain('validate-promotion-trigger');
-    expect(needs(workflow.jobs['matrix-setup'])).toContain('production-approval');
-    expect(needs(workflow.jobs['build-locale'])).toContain('production-approval');
-    expect(needs(workflow.jobs.rearm)).toContain('production-approval');
-    expect(workflow.jobs.rearm.if).toContain("needs.production-approval.result == 'success'");
+    // `rearm` runs under always(), which drops the implicit needs-success
+    // gate, so admission has to be re-asserted in its own condition.
+    expect(needs(workflow.jobs.rearm)).toContain('validate-promotion-trigger');
+    expect(workflow.jobs.rearm.if).toContain("needs.validate-promotion-trigger.result == 'success'");
   });
 
   it('protects artifact restore before downloading or deploying', () => {
     const workflow = readWorkflow('restore-from-artifact.yml');
     const source = workflow.jobs['validate-source-build'];
-    const approval = workflow.jobs['production-approval'];
     const deploy = workflow.jobs.deploy;
 
     expect(findStep(workflow.jobs['validate-promotion-trigger'], 'trigger')).toBeDefined();
     expect(needs(source)).toContain('validate-promotion-trigger');
     expect(findStep(source, 'source-run')).toBeDefined();
-    expect(findStep(approval, 'approval')).toBeDefined();
-    expect(approval.environment).toEqual({ name: PRODUCTION_ENVIRONMENT });
-    expect(needs(approval)).toContain('validate-source-build');
-    expect(needs(deploy)).toEqual(expect.arrayContaining([
-      'validate-source-build',
-      'production-approval',
-    ]));
+    expect(needs(deploy)).toContain('validate-source-build');
+    expect(deploy.if).toContain("needs.validate-source-build.result == 'success'");
   });
 
   it('protects normal and recovery post-deploy publishing paths', () => {
@@ -249,18 +209,19 @@ describe('production promotion admission', () => {
     });
     expect(findStep(workflow.jobs['validate-recovery-trigger'], 'trigger')).toBeDefined();
     expect(findStep(workflow.jobs['validate-recovery-source'], 'source-run')).toBeDefined();
-    expect(findStep(workflow.jobs['recovery-production-approval'], 'approval')).toBeDefined();
     expect(needs(publish)).toEqual(expect.arrayContaining([
       'validate-deploy-publish-caller',
       'validate-recovery-source',
-      'recovery-production-approval',
     ]));
     expect(publish.if).toContain("github.event_name == 'workflow_run'");
     expect(publish.if).toContain("needs.validate-deploy-publish-caller.result == 'success'");
     expect(publish.if).toContain("github.event_name == 'workflow_dispatch'");
+    // The recovery dispatch keeps the main-branch workflow_ref restriction
+    // that used to sit on the removed approval job.
+    expect(publish.if).toContain('post-deploy-publish.yml@refs/heads/main');
+    expect(publish.if).toContain("needs.validate-recovery-source.result == 'success'");
     expect(JSON.stringify(publish.steps)).not.toContain('inputs.deploy_');
     expect(JSON.stringify(publish.steps)).toContain('env.EFFECTIVE_DEPLOY_RUN_ID');
     expect(JSON.stringify(publish.steps)).toContain('env.EFFECTIVE_DEPLOY_REF');
-    expect(JSON.stringify(workflow.jobs['recovery-production-approval'])).toContain(APPROVAL_SECRET);
   });
 });

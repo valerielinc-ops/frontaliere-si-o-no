@@ -19787,6 +19787,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'revolut-hacker-svizzera-pec',
+    category: 'pratico',
+    date: '2026-09-20T06:48:51.311Z',
+    image: '/images/blog/revolut-hacker-svizzera-pec.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'votazioni-cantoni-27-settembre',
+    category: 'novita',
+    date: '2026-09-20T07:41:41.075Z',
+    image: '/images/blog/votazioni-cantoni-27-settembre.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
