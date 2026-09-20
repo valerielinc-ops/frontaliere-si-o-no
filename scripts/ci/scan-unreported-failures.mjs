@@ -343,8 +343,8 @@ export const SIGNATURE_MARKER = 'failure-signature:';
  */
 export function signatureAlreadyRecorded(texts, signature) {
   if (!signature) return true; // nessuna firma → nessuna novità dimostrabile
-  const needle = `${SIGNATURE_MARKER} ${signature}`;
-  return (texts || []).some((t) => String(t ?? '').includes(needle));
+  const marker = `<!-- ${SIGNATURE_MARKER} ${signature} -->`;
+  return (texts || []).some((t) => String(t ?? '').includes(marker));
 }
 
 /**
