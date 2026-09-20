@@ -1169,16 +1169,30 @@ export function bodyRecoveryBarrierDecision({
     if (marker.prNumber !== prNumber) return deny('marker recovery associato a una PR diversa');
     markers.push(marker);
   }
-  const latest = markers.at(-1);
-  if (!latest) return { allow: true, reason: 'nessun epoch recovery attivo' };
+  const currentHead = String(headSha).toLowerCase();
+  // A recovery marker belongs to the exact HEAD whose body/check run it was
+  // created to reconcile.  A later push makes every marker for a predecessor
+  // permanently irrelevant: its tests can no longer authorize this HEAD, and
+  // waiting for its old workflow_run would strand the new commit behind a
+  // dead epoch.  Keep validating every marker above (malformed or untrusted
+  // history still fails closed), then select only the current-head epochs.
+  // This also protects a current pending marker from an out-of-order stale
+  // marker appended by a concurrent recovery writer.
+  const currentMarkers = markers.filter((marker) => marker.headSha === currentHead);
+  const latest = currentMarkers.at(-1);
+  if (!latest) {
+    return {
+      allow: true,
+      reason: markers.length > 0
+        ? 'epoch recovery precedenti ignorati: HEAD corrente non ha un recovery attivo'
+        : 'nessun epoch recovery attivo',
+    };
+  }
   if (latest.bodyRevision !== String(bodyRevision).toLowerCase()) {
     return deny('body revision diversa dall’ultimo epoch recovery');
   }
   if (latest.status !== 'completed') {
     return deny(`epoch recovery ${latest.status} non completato`);
-  }
-  if (latest.headSha !== String(headSha).toLowerCase()) {
-    return deny('epoch recovery completato su una HEAD diversa');
   }
   return { allow: true, reason: 'epoch recovery completato sulla body revision e HEAD correnti' };
 }
