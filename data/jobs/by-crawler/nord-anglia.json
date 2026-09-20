@@ -276,12 +276,12 @@
     },
     {
       "id": "nord-anglia-8044b0c14594",
-      "slug": "primary-teacher-maternity-replacement-nord-anglia-aubonne",
+      "slug": "insegnante-primario-sostituzione-maternita-nord-anglia-education-switzerland-aubonne",
       "slugByLocale": {
         "en": "primary-teacher-maternity-replacement-nord-anglia-aubonne",
-        "it": "primary-teacher-maternity-replacement-nord-anglia-aubonne",
-        "de": "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-lausanne",
-        "fr": "primary-teacher-maternity-replacement-nord-anglia-aubonne"
+        "it": "insegnante-primario-sostituzione-maternita-nord-anglia-education-switzerland-aubonne",
+        "de": "grundlehrerin-mutterschaftsersatz-nord-anglia-education-switzerland-aubonne",
+        "fr": "enseignant-principal-remplacement-de-la-maternite-nord-anglia-education-switzerland-aubonne"
       },
       "company": "Nord Anglia Education Switzerland",
       "companyKey": "nord-anglia",
@@ -339,7 +339,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:53:21.946Z"
+      "firstSeenAt": "2026-09-19T22:53:21.946Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "primary-teacher-maternity-replacement-nord-anglia-aubonne"
+        ],
+        "de": [
+          "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-lausanne"
+        ],
+        "fr": [
+          "primary-teacher-maternity-replacement-nord-anglia-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "primary-teacher-maternity-replacement-nord-anglia-aubonne",
+        "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-lausanne"
+      ]
     },
     {
       "id": "nord-anglia-b46acb0a1e06",
@@ -963,12 +978,12 @@
     },
     {
       "id": "nord-anglia-0ea7a6e99fe0",
-      "slug": "pe-teacher-maternity-replacement-nord-anglia-aubonne",
+      "slug": "insegnante-pe-sostituzione-maternita-nord-anglia-education-switzerland-aubonne",
       "slugByLocale": {
         "en": "pe-teacher-maternity-replacement-nord-anglia-aubonne",
-        "it": "pe-teacher-maternity-replacement-nord-anglia-aubonne",
-        "de": "pe-teacher-maternity-replacement-nord-anglia-education-switzerland-lausanne",
-        "fr": "pe-teacher-maternity-replacement-nord-anglia-aubonne"
+        "it": "insegnante-pe-sostituzione-maternita-nord-anglia-education-switzerland-aubonne",
+        "de": "lehrerin-mutterschaftsersatz-nord-anglia-education-switzerland-aubonne",
+        "fr": "professeur-pe-remplacement-de-la-maternite-nord-anglia-education-switzerland-aubonne"
       },
       "company": "Nord Anglia Education Switzerland",
       "companyKey": "nord-anglia",
@@ -1026,16 +1041,31 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:53:14.738Z"
+      "firstSeenAt": "2026-09-19T22:53:14.738Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pe-teacher-maternity-replacement-nord-anglia-aubonne"
+        ],
+        "de": [
+          "pe-teacher-maternity-replacement-nord-anglia-education-switzerland-lausanne"
+        ],
+        "fr": [
+          "pe-teacher-maternity-replacement-nord-anglia-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "pe-teacher-maternity-replacement-nord-anglia-aubonne",
+        "pe-teacher-maternity-replacement-nord-anglia-education-switzerland-lausanne"
+      ]
     },
     {
       "id": "nord-anglia-7f13815d476b",
-      "slug": "learning-support-assistants-nord-anglia-aubonne",
+      "slug": "assistenti-di-supporto-all-apprendimento-nord-anglia-education-switzerland-aubonne",
       "slugByLocale": {
         "en": "learning-support-assistants-nord-anglia-aubonne",
-        "it": "learning-support-assistants-nord-anglia-aubonne",
+        "it": "assistenti-di-supporto-all-apprendimento-nord-anglia-education-switzerland-aubonne",
         "de": "learning-support-assistants-nord-anglia-aubonne",
-        "fr": "learning-support-assistants-nord-anglia-aubonne"
+        "fr": "assistants-d-appui-a-l-apprentissage-nord-anglia-education-switzerland-aubonne"
       },
       "company": "Nord Anglia Education Switzerland",
       "companyKey": "nord-anglia",
@@ -1093,7 +1123,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:53:13.924Z"
+      "firstSeenAt": "2026-09-19T22:53:13.924Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "learning-support-assistants-nord-anglia-aubonne"
+        ],
+        "fr": [
+          "learning-support-assistants-nord-anglia-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "learning-support-assistants-nord-anglia-aubonne"
+      ]
     },
     {
       "id": "nord-anglia-5c318091275c",

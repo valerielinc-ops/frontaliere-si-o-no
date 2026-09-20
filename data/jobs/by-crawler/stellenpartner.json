@@ -511,8 +511,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-mit-fundierter-berufspraxis-schwyz-schwyz-stellenpartner-ch",
         "it": "installatore-trice-elettrico-a-in-con-fundierter-berufspraxis-stellenpartner-ag-schwyz",
-        "en": "elektroinstallateur-in-mit-fundierter-berufspraxis-schwyz-schwyz-stellenpartner-ch",
-        "fr": "elektroinstallateur-in-mit-fundierter-berufspraxis-schwyz-schwyz-stellenpartner-ch"
+        "en": "electrical-installer-mit-fundierter-berufspraxis-stellenpartner-ag-schwyz-schwyz",
+        "fr": "installateur-trice-electricien-ne-mit-fundierter-berufspraxis-stellenpartner-ag-schwyz-schwyz"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -557,6 +557,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-mit-fundierter-berufspraxis-schwyz-schwyz-stellenpartner-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-mit-fundierter-berufspraxis-schwyz-schwyz-stellenpartner-ch"
+        ],
+        "fr": [
           "elektroinstallateur-in-mit-fundierter-berufspraxis-schwyz-schwyz-stellenpartner-ch"
         ]
       },
@@ -730,8 +736,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-hilfsarbeiter-in-fur-lampenmontagen-hochdorf-luzern-stellenpartner",
         "it": "installatore-trice-elettrico-a-in-hilfsarbeiter-in-per-lampenmontagen-stellenpartner-ag-hochdorf",
-        "en": "elektroinstallateur-in-hilfsarbeiter-in-fur-lampenmontagen-hochdorf-luzern-stellenpartner",
-        "fr": "elektroinstallateur-in-hilfsarbeiter-in-fur-lampenmontagen-hochdorf-luzern-stellenpartner"
+        "en": "electrical-installer-hilfsarbeiter-in-fur-lampenmontagen-stellenpartner-ag-hochdorf-luzern",
+        "fr": "installateur-trice-electricien-ne-hilfsarbeiter-in-fur-lampenmontagen-stellenpartner-ag-hochdorf-luzern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -776,6 +782,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-hilfsarbeiter-in-fur-lampenmontagen-hochdorf-luzern-stellenpartner"
+        ],
+        "en": [
+          "elektroinstallateur-in-hilfsarbeiter-in-fur-lampenmontagen-hochdorf-luzern-stellenpartner"
+        ],
+        "fr": [
           "elektroinstallateur-in-hilfsarbeiter-in-fur-lampenmontagen-hochdorf-luzern-stellenpartner"
         ]
       },
@@ -997,8 +1009,7 @@
         "zimmermann-auxiliary-worker-for-interior-construction-work-stellenpartner-ag-baden-aargau",
         "zimmermann-zimmerin-hilfsarbeiter-in-fur-innenausbauarbeiten-baden-aargau-stellenpartner",
         "zimmermann-ouvrier-auxiliaire-pour-travaux-de-construction-interieure-stellenpartner-ag-baden-aargau",
-        "zimmermann-zimmerin-hilfsarbeiter-in-per-innenausbauarbeiten-stellenpartner-ag-baden",
-        "zimmermann-lavoratore-ausiliario-per-interni-stellenpartner-ag-baden-aargau"
+        "zimmermann-zimmerin-hilfsarbeiter-in-per-innenausbauarbeiten-stellenpartner-ag-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1008,8 +1019,7 @@
           "zimmermann-auxiliary-worker-for-interior-construction-work-stellenpartner-ag-baden-aargau",
           "zimmermann-zimmerin-hilfsarbeiter-in-fur-innenausbauarbeiten-baden-aargau-stellenpartner",
           "zimmermann-ouvrier-auxiliaire-pour-travaux-de-construction-interieure-stellenpartner-ag-baden-aargau",
-          "zimmermann-zimmerin-hilfsarbeiter-in-per-innenausbauarbeiten-stellenpartner-ag-baden",
-          "zimmermann-lavoratore-ausiliario-per-interni-stellenpartner-ag-baden-aargau"
+          "zimmermann-zimmerin-hilfsarbeiter-in-per-innenausbauarbeiten-stellenpartner-ag-baden"
         ],
         "en": [
           "zimmermann-zimmerin-hilfsarbeiter-in-fur-innenausbauten-baden-aargau-stellenpartner-ch",
@@ -1087,14 +1097,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "malerpraktiker-in-fur-renovationsprojekte-zurich-zurich-stellenpartner-ch",
-        "malerpraktiker-in-per-renovationsprojekte-stellenpartner-ag-zurich",
-        "professionisti-della-pittura-per-progetti-di-ristrutturazione-stellenpartner-ag-zurich-zurich"
+        "malerpraktiker-in-per-renovationsprojekte-stellenpartner-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "malerpraktiker-in-fur-renovationsprojekte-zurich-zurich-stellenpartner-ch",
-          "malerpraktiker-in-per-renovationsprojekte-stellenpartner-ag-zurich",
-          "professionisti-della-pittura-per-progetti-di-ristrutturazione-stellenpartner-ag-zurich-zurich"
+          "malerpraktiker-in-per-renovationsprojekte-stellenpartner-ag-zurich"
         ],
         "en": [
           "malerpraktiker-in-fur-renovationsprojekte-zurich-zurich-stellenpartner-ch"
@@ -1167,14 +1175,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "malerpraktiker-in-fur-neu-und-umbauten-bulach-zurich-stellenpartner-ch",
-        "malerpraktiker-in-per-neu-e-umbauten-stellenpartner-ag-bulach",
-        "i-professionisti-della-pittura-per-nuove-e-ristrutturazioni-stellenpartner-ag-bulach-zurich"
+        "malerpraktiker-in-per-neu-e-umbauten-stellenpartner-ag-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "malerpraktiker-in-fur-neu-und-umbauten-bulach-zurich-stellenpartner-ch",
-          "malerpraktiker-in-per-neu-e-umbauten-stellenpartner-ag-bulach",
-          "i-professionisti-della-pittura-per-nuove-e-ristrutturazioni-stellenpartner-ag-bulach-zurich"
+          "malerpraktiker-in-per-neu-e-umbauten-stellenpartner-ag-bulach"
         ],
         "en": [
           "malerpraktiker-in-fur-neu-und-umbauten-bulach-zurich-stellenpartner-ch"
@@ -1252,8 +1258,7 @@
         "painter-with-experience-in-renovation-and-new-construction-projects-stellenpartner-ag-muri-ag-aargau",
         "maler-in-mit-erfahrung-in-renovations-und-neubauprojekten-muri-ag-aargau-stellenpartner-ch",
         "peintre-avec-experience-en-renovation-et-nouveaux-projets-de-construction-stellenpartner-ag-muri-ag-aargau",
-        "maler-in-con-erfahrung-in-renovations-e-neubauprojekten-stellenpartner-ag-muri-ag",
-        "pittore-per-nuovi-oggetti-di-costruzione-e-ristrutturazione-stellenpartner-ag-muri-ag-aargau"
+        "maler-in-con-erfahrung-in-renovations-e-neubauprojekten-stellenpartner-ag-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1263,8 +1268,7 @@
           "painter-with-experience-in-renovation-and-new-construction-projects-stellenpartner-ag-muri-ag-aargau",
           "maler-in-mit-erfahrung-in-renovations-und-neubauprojekten-muri-ag-aargau-stellenpartner-ch",
           "peintre-avec-experience-en-renovation-et-nouveaux-projets-de-construction-stellenpartner-ag-muri-ag-aargau",
-          "maler-in-con-erfahrung-in-renovations-e-neubauprojekten-stellenpartner-ag-muri-ag",
-          "pittore-per-nuovi-oggetti-di-costruzione-e-ristrutturazione-stellenpartner-ag-muri-ag-aargau"
+          "maler-in-con-erfahrung-in-renovations-e-neubauprojekten-stellenpartner-ag-muri-ag"
         ],
         "en": [
           "maler-in-fur-neubau-und-renovationsobjekte-muri-ag-aargau-stellenpartner-ch",
@@ -1342,14 +1346,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bauarbeiter-in-hochbau-mit-beton-und-maurerarbeiten-wil-sg-st-gallen-stellenpartner-ch",
-        "bauarbeiter-in-hochbau-con-beton-e-maurerarbeiten-stellenpartner-ag-wil-sg",
-        "costruzionisti-costruzione-con-lavori-di-cemento-e-muratura-stellenpartner-ag-wil-sg-st-gallen"
+        "bauarbeiter-in-hochbau-con-beton-e-maurerarbeiten-stellenpartner-ag-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bauarbeiter-in-hochbau-mit-beton-und-maurerarbeiten-wil-sg-st-gallen-stellenpartner-ch",
-          "bauarbeiter-in-hochbau-con-beton-e-maurerarbeiten-stellenpartner-ag-wil-sg",
-          "costruzionisti-costruzione-con-lavori-di-cemento-e-muratura-stellenpartner-ag-wil-sg-st-gallen"
+          "bauarbeiter-in-hochbau-con-beton-e-maurerarbeiten-stellenpartner-ag-wil-sg"
         ],
         "en": [
           "bauarbeiter-in-hochbau-mit-beton-und-maurerarbeiten-wil-sg-st-gallen-stellenpartner-ch"
@@ -1425,8 +1427,7 @@
         "carpenter-lavoratore-ausiliario-con-resilienza-fisica-stellenpartner-ag-zug-zug",
         "carpenter-auxiliary-worker-with-physical-resilience-stellenpartner-ag-zug-zug",
         "schreiner-in-hilfsarbeiter-in-mit-korperlicher-belastbarkeit-zug-zug-stellenpartner-ch",
-        "charpentier-ouvrier-auxiliaire-avec-resilience-physique-stellenpartner-ag-zug-zug",
-        "carpenter-lavoratore-ausiliario-con-resilienza-stellenpartner-ag-zug-zug"
+        "charpentier-ouvrier-auxiliaire-avec-resilience-physique-stellenpartner-ag-zug-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1434,8 +1435,7 @@
           "carpenter-lavoratore-ausiliario-con-resilienza-fisica-stellenpartner-ag-zug-zug",
           "carpenter-auxiliary-worker-with-physical-resilience-stellenpartner-ag-zug-zug",
           "schreiner-in-hilfsarbeiter-in-mit-korperlicher-belastbarkeit-zug-zug-stellenpartner-ch",
-          "charpentier-ouvrier-auxiliaire-avec-resilience-physique-stellenpartner-ag-zug-zug",
-          "carpenter-lavoratore-ausiliario-con-resilienza-stellenpartner-ag-zug-zug"
+          "charpentier-ouvrier-auxiliaire-avec-resilience-physique-stellenpartner-ag-zug-zug"
         ],
         "en": [
           "schreiner-in-hilfsarbeiter-in-mit-belastbarkeit-zug-zug-stellenpartner-ch",
@@ -1513,14 +1513,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-fur-fassaden-und-innenanstriche-muri-ag-aargau-stellenpartner-ch",
-        "maler-in-per-fassaden-e-innenanstriche-stellenpartner-ag-muri-ag",
-        "pittori-per-facciate-e-dipinti-interni-stellenpartner-ag-muri-ag-aargau"
+        "maler-in-per-fassaden-e-innenanstriche-stellenpartner-ag-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-fassaden-und-innenanstriche-muri-ag-aargau-stellenpartner-ch",
-          "maler-in-per-fassaden-e-innenanstriche-stellenpartner-ag-muri-ag",
-          "pittori-per-facciate-e-dipinti-interni-stellenpartner-ag-muri-ag-aargau"
+          "maler-in-per-fassaden-e-innenanstriche-stellenpartner-ag-muri-ag"
         ],
         "en": [
           "maler-in-fur-fassaden-und-innenanstriche-muri-ag-aargau-stellenpartner-ch"
@@ -24509,8 +24507,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "montage-elektriker-in-mit-anspruchsvollen-projekten-luzern-luzern-stellenpartner-ch",
-        "electricien-d-assemblage-avec-des-projets-difficiles-stellenpartner-ag-luzern-luzern",
-        "montage-elektriker-in-mit-anspruchsvollen-projekten-stellenpartner-ag-luzern"
+        "electricien-d-assemblage-avec-des-projets-difficiles-stellenpartner-ag-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -24521,8 +24518,7 @@
         ],
         "fr": [
           "montage-elektriker-in-mit-anspruchsvollen-projekten-luzern-luzern-stellenpartner-ch",
-          "electricien-d-assemblage-avec-des-projets-difficiles-stellenpartner-ag-luzern-luzern",
-          "montage-elektriker-in-mit-anspruchsvollen-projekten-stellenpartner-ag-luzern"
+          "electricien-d-assemblage-avec-des-projets-difficiles-stellenpartner-ag-luzern-luzern"
         ]
       },
       "firstSeenAt": "2026-09-08T13:58:12.394Z",
@@ -39057,8 +39053,7 @@
       "previousSlugs": [
         "konstrukteur-in-fur-projektabwicklung-im-werkzeugbau-baden-aargau-stellenpartner-ch",
         "konstrukteur-in-per-projektabwicklung-im-werkzeugbau-stellenpartner-ag-baden",
-        "ingenieur-de-conception-pour-la-realisation-de-projets-dans-la-fabrication-d-outils-stellenpartner-ag-baden-aargau",
-        "konstrukteur-in-fur-projektabwicklung-im-werkzeugbau-stellenpartner-ag-baden"
+        "ingenieur-de-conception-pour-la-realisation-de-projets-dans-la-fabrication-d-outils-stellenpartner-ag-baden-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -39070,8 +39065,7 @@
         ],
         "fr": [
           "konstrukteur-in-fur-projektabwicklung-im-werkzeugbau-baden-aargau-stellenpartner-ch",
-          "ingenieur-de-conception-pour-la-realisation-de-projets-dans-la-fabrication-d-outils-stellenpartner-ag-baden-aargau",
-          "konstrukteur-in-fur-projektabwicklung-im-werkzeugbau-stellenpartner-ag-baden"
+          "ingenieur-de-conception-pour-la-realisation-de-projets-dans-la-fabrication-d-outils-stellenpartner-ag-baden-aargau"
         ]
       },
       "firstSeenAt": "2026-09-08T13:58:12.333Z",

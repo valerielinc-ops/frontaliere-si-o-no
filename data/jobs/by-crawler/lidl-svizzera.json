@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-8y6chn",
-      "slug": "collaborateur-collaboratrice-libre-service-et-vente-m-w-d-20-lidl-svizzera-vernier-8y6chn",
+      "slug": "collaboratore-self-service-e-partner-commerciale-m-f-d-20-lidl-svizzera-vernier",
       "company": "Lidl Svizzera",
       "title": "Collaborateur/Collaboratrice libre-service et vente (h/f/d) 20%",
       "location": "Vernier",
@@ -41,9 +41,9 @@
         "de": "Einleitung\n\nSie stehen gerne in direktem Kontakt mit Kunden? Sie möchten all Ihre Energie darauf verwenden, unseren Kunden das beste Einkaufserlebnis zu bieten? Möchten Sie Teil eines Goldteams sein? Du hast die richtige Tür getroffen. In diesem dynamischen Einzelhandelssektor erwarten Sie interessante und abwechslungsreiche Karrieremöglichkeiten.\nDeine Mission\n\n- Arbeiten in den klassischen Caisses\n\n- Beihilfen für das Scannen und die Zahlung an Selbstbedienungsfonds\n\n- Beihilfen für technische oder Selbstbedienungsmanagement\n\n- Kundenunterstützung zur Förderung der Verwendung von Self-Service-Fonds\n\n- Schifffahrt und Lagerhaltung\nDein Profil\n\n- Erfahrung in Verkäufen oder ähnlichen Bereichen ist ein Vermögenswert\n\n- Flexibilität in der Arbeitszeit (Samstagsarbeit tagsüber und abends von ca. 16:00 bis 19:30 Uhr verfügbar)\n\n- Begeisterung für direkten Kontakt mit Kunden und Beratung\n\n- Gute körperliche Verfassung\n\n- Hervorragende Kommunikation und Problemlösungsmöglichkeiten\n\n- Stressresistenz und Flexibilität, auch bei hohen Zuflüssen\n\n- Gutes Französischniveau (geschätzter Wert: Beherrschung anderer Sprachen)\nUnser Angebot\n\nBei Lidl Schweiz gibt es Raum für Ehrgeiz und Innovation. Hilft, die Zukunft zu gestalten. Wachsen Sie jeden Tag professionell und persönlich. Während Ihrer eingehenden Erstausbildung bereiten wir Sie auf Ihre abwechslungsreiche und interessante Mission vor. Wenn Sie möchten und Ihr Profil bereit ist, ist es möglich, an internen Weiterbildungen teilzunehmen. Darüber hinaus garantieren wir Ihnen einen sicheren Job, ein Traumteam, die Privilegien des CLC Lidl, exzellente professionelle Weitsicht und viele weitere interessante Vorteile. Nutzen Sie Ihre Chance und bewerben Sie sich jetzt online!"
       },
       "slugByLocale": {
-        "it": "collaborateur-collaboratrice-libre-service-et-vente-m-w-d-20-lidl-svizzera-vernier-8y6chn",
-        "en": "collaborateur-collaboratrice-libre-service-et-vente-m-w-d-20-lidl-svizzera-vernier-8y6chn",
-        "de": "collaborateur-collaboratrice-libre-service-et-vente-m-w-d-20-lidl-svizzera-vernier-8y6chn",
+        "it": "collaboratore-self-service-e-partner-commerciale-m-f-d-20-lidl-svizzera-vernier",
+        "en": "collaborator-self-service-and-sales-partner-m-f-d-20-lidl-svizzera-vernier",
+        "de": "mitarbeiter-selfservice-und-vertriebspartner-m-w-d-20-lidl-svizzera-vernier",
         "fr": "collaborateur-collaboratrice-libre-service-et-vente-m-w-d-20-lidl-svizzera-vernier-8y6chn"
       },
       "requirementsByLocale": {},
@@ -54,19 +54,27 @@
           "collaborateur-collaboratrice-libre-service-et-vente-m-w-d-20-lidl-svizzera-vernier",
           "collaborateur-collaboratrice-libre-service-et-vente-20-lidl-svizzera-vernier",
           "collaborateur-collaboratrice-libre-service-et-vente-40-martigny-lidl-svizzera-martigny",
-          "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle"
+          "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle",
+          "collaborateur-collaboratrice-libre-service-et-vente-m-w-d-20-lidl-svizzera-vernier-8y6chn"
         ],
         "fr": [
           "collaborateur-collaboratrice-libre-service-et-vente-20-lidl-svizzera-vernier",
           "collaborateur-collaboratrice-libre-service-et-vente-40-martigny-lidl-svizzera-martigny",
           "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle"
+        ],
+        "en": [
+          "collaborateur-collaboratrice-libre-service-et-vente-m-w-d-20-lidl-svizzera-vernier-8y6chn"
+        ],
+        "de": [
+          "collaborateur-collaboratrice-libre-service-et-vente-m-w-d-20-lidl-svizzera-vernier-8y6chn"
         ]
       },
       "previousSlugs": [
         "collaborateur-collaboratrice-libre-service-et-vente-m-w-d-20-lidl-svizzera-vernier",
         "collaborateur-collaboratrice-libre-service-et-vente-20-lidl-svizzera-vernier",
         "collaborateur-collaboratrice-libre-service-et-vente-40-martigny-lidl-svizzera-martigny",
-        "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle"
+        "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle",
+        "collaborateur-collaboratrice-libre-service-et-vente-m-w-d-20-lidl-svizzera-vernier-8y6chn"
       ],
       "salaryMin": 12100,
       "salaryMax": 18300,
@@ -87,7 +95,7 @@
     },
     {
       "id": "company-pk9zdf",
-      "slug": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-20-lidl-svizzera-vernier",
+      "slug": "venditore-multiuso-venditore-multiuso-m-f-d-20-lidl-svizzera-vernier",
       "company": "Lidl Svizzera",
       "title": "Vendeur polyvalent / Vendeuse polyvalente (h/f/d) 20%",
       "location": "Vernier",
@@ -124,9 +132,9 @@
         "de": "Einleitung\n\nHaben Sie eine Leidenschaft für den Verkauf? Sie möchten jeden Tag das Beste von sich geben, um unseren Kunden das beste Einkaufserlebnis zu bieten? Möchten Sie Teil eines Goldteams sein? Du hast die richtige Tür getroffen. Wir bieten Ihnen spannende und abwechslungsreiche Karrieremöglichkeiten im dynamischen Einzelhandelsumfeld.\nDeine Mission\n\n- Platzierung und Verwaltung von Waren im Lager\n\n- Beitrag zu sauberen Verkaufsflächen\n\n- Beitrag zu einem positiven Einkaufserlebnis für unsere Kunden\nDein Profil\n\n- Flexibilität bei der Arbeitszeit (Montag bis Samstag zwischen 5:00 und 9:00 Uhr)\n\n- Gute körperliche Verfassung\n\n- Zuverlässigkeit und Rechenschaftspflicht\n\n- Gute Kenntnisse in Französisch\nUnser Angebot\n\nBei Lidl Schweiz gibt es Raum für Ehrgeiz und Innovation. Hilft, die Zukunft zu gestalten. Wachsen Sie jeden Tag professionell und persönlich. Während Ihrer eingehenden Erstausbildung bereiten wir Sie auf Ihre abwechslungsreiche und interessante Mission vor. Aufgrund Ihrer guten persönlichen Fähigkeiten sind interne berufliche Entwicklungen möglich. Darüber hinaus garantieren wir Ihnen einen sicheren Job, ein Traumteam, die Privilegien des CLC Lidl, exzellente professionelle Weitsicht und viele weitere interessante Vorteile. Nutzen Sie Ihre Chance und bewerben Sie sich jetzt online!"
       },
       "slugByLocale": {
-        "it": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-20-lidl-svizzera-vernier",
-        "en": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-20-lidl-svizzera-vernier-pk9zdf",
-        "de": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-20-lidl-svizzera-vernier-pk9zdf",
+        "it": "venditore-multiuso-venditore-multiuso-m-f-d-20-lidl-svizzera-vernier",
+        "en": "multi-purpose-seller-multi-purpose-seller-m-f-d-20-lidl-svizzera-vernier",
+        "de": "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-20-lidl-svizzera-vernier",
         "fr": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-20-lidl-svizzera-vernier-pk9zdf"
       },
       "requirementsByLocale": {},
@@ -134,11 +142,19 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-20-lidl-svizzera-vernier-pk9zdf",
+          "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-20-lidl-svizzera-vernier"
+        ],
+        "en": [
+          "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-20-lidl-svizzera-vernier-pk9zdf"
+        ],
+        "de": [
           "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-20-lidl-svizzera-vernier-pk9zdf"
         ]
       },
       "previousSlugs": [
-        "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-20-lidl-svizzera-vernier-pk9zdf"
+        "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-20-lidl-svizzera-vernier-pk9zdf",
+        "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-20-lidl-svizzera-vernier"
       ],
       "salaryMin": 12100,
       "salaryMax": 18300,
@@ -334,8 +350,8 @@
       "slugByLocale": {
         "it": "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-luzern-yf1ieu",
         "de": "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-luzern-yf1ieu",
-        "en": "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-luzern-lidl-svizzera-luzern",
-        "fr": "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-luzern-lidl-svizzera-luzern"
+        "en": "cleaning-staff-member-m-f-d-20-40-lucerne-lidl-svizzera-luzern",
+        "fr": "agent-agente-de-nettoyage-m-f-d-20-40-lucerne-lidl-svizzera-luzern"
       },
       "titleByLocale": {
         "de": "Mitarbeiter / Mitarbeiterin Reinigung (m/w/d) 20-40% — Luzern",
@@ -354,15 +370,14 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "en": [
-          "cleaning-staff-member-m-f-d-20-40-lucerne-lidl-svizzera-luzern"
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-luzern-lidl-svizzera-luzern"
         ],
         "fr": [
-          "agent-agente-de-nettoyage-m-f-d-20-40-lucerne-lidl-svizzera-luzern"
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-luzern-lidl-svizzera-luzern"
         ]
       },
       "previousSlugs": [
-        "cleaning-staff-member-m-f-d-20-40-lucerne-lidl-svizzera-luzern",
-        "agent-agente-de-nettoyage-m-f-d-20-40-lucerne-lidl-svizzera-luzern"
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-luzern-lidl-svizzera-luzern"
       ],
       "salaryMin": 27800,
       "salaryMax": 42400,
@@ -455,7 +470,7 @@
     },
     {
       "id": "company-r7icsd",
-      "slug": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-80-lidl-svizzera-biel-bienne-r7icsd",
+      "slug": "venditore-con-responsabilita-a-turni-m-f-d-80-biel-bienne-lidl-svizzera-biel-bienne",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 80% — Biel/Bienne",
       "location": "Biel/Bienne",
@@ -492,21 +507,30 @@
         "fr": "Présentation\n\nVendre est votre passion ? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours ? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Orientation des couches selon m. Planification\n\n- Mise en œuvre des normes d'orientation client et de vente dans nos succursales\n\n- Appui à la planification du personnel, à la gestion du personnel et à l ' organisation des services\n\n- Disposition et présentation des biens\n\n- Activités de trésorerie\nVotre profil\n\n- Expérience professionnelle dans les ventes ou l'industrie comparable\n\n- Idéalement achevée la formation professionnelle dans le commerce de détail\n\n- Flexibilité en ce qui concerne les temps d'exploitation (MO-SA entre 5 h et 22 h); Changement prématuré ou tardif d'environ 9 heures chacun\n\n- Compétences communicatives et plaisir à traiter avec les gens\n\n- Haute motivation, engagement et résilience\n\n- Bonne connaissance de l'allemand en paroles et en écriture\n\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Soyez activement impliqué. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons pour vos tâches variées et intéressantes avec une familiarisation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, des développements internes sont possibles. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-80-lidl-svizzera-biel-bienne-r7icsd",
-        "en": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-biel-bienne-r7icsd",
+        "it": "venditore-con-responsabilita-a-turni-m-f-d-80-biel-bienne-lidl-svizzera-biel-bienne",
+        "en": "seller-with-shift-responsibility-m-f-d-80-biel-bienne-lidl-svizzera-biel-bienne",
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-biel-bienne-r7icsd",
-        "fr": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-biel-bienne-r7icsd"
+        "fr": "vendeur-avec-responsabilite-de-quart-h-f-d-80-bienne-lidl-svizzera-biel-bienne"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-biel-bienne"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-biel-bienne",
+          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-80-lidl-svizzera-biel-bienne-r7icsd"
+        ],
+        "en": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-biel-bienne-r7icsd"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-biel-bienne-r7icsd"
         ]
       },
       "previousSlugs": [
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-biel-bienne"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-biel-bienne",
+        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-80-lidl-svizzera-biel-bienne-r7icsd",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-biel-bienne-r7icsd"
       ],
       "salaryMin": 54800,
       "salaryMax": 83200,
@@ -527,7 +551,7 @@
     },
     {
       "id": "company-bftb4x",
-      "slug": "apprentissage-de-logisticien-logisticienne-cfc-debut-10-2026-lidl-svizzera-sevaz",
+      "slug": "logisticista-logistician-learning-cfc-early-10-2026-lidl-svizzera-sevaz",
       "company": "Lidl Svizzera",
       "title": "Apprentissage de logisticien / logisticienne CFC - Début 10.2026",
       "location": "Sévaz",
@@ -564,9 +588,9 @@
         "de": "Einleitung\n\nHaben Sie eine Ahnung, was Sie nach Ihrem Abschluss tun werden? Starten Sie bei uns in Ihre Zukunft und nutzen Sie die Entwicklungsmöglichkeiten bei Lidl Schweiz. Distributionszentren sind das Rückgrat unseres Geschäfts. Trägt zum Erfolg von Lidl als Lehrling in unserem Vertriebszentrum Sevaz bei.\nStart/Ende: 01.10.2026 – 31.07.2029\nDeine Mission\n\n• Empfang von Warenlieferungen und Registrierung im System\n• Lagerhaltung und Bestandsverwaltung\n• Wirksame Bereitstellung von Waren für den Versand in die Lager\n• Umsetzung nachhaltiger Qualitätskontrollen\n• Antrieb aller Arten von Umschlaggeräten und Gabelstaplern für hohe Regale\nDein Profil\n\n- Durchschnittliche bis sehr gute Note in Klasse I oder Klasse 10\n\n- Deutsch- oder Französischkenntnisse mindestens C1; das andere Sprachniveau mindestens A2\n\n- Flare für Zahlen und elektronische Systeme\n\n- Bereitschaft, unregelmäßig zu arbeiten\n\n- Physikalischer Widerstand\n\n- Hohes Sicherheits- und Hygienebewusstsein\n\n- Selbständigkeit und ein lebendiger Geist\n\n- Teamgeist, Zuverlässigkeit und Verantwortung\nUnser Angebot\n\nEine Lehre, die viele Wege eröffnet. Sobald Ihr Lernen abgeschlossen ist und Ihr Profil geeignet ist, können Sie Ihre Aufgaben als Team Manager Assistant übernehmen. Darüber hinaus profitieren Sie vom Lidl CTC und vielen interessanten Vorteilen."
       },
       "slugByLocale": {
-        "it": "apprentissage-de-logisticien-logisticienne-cfc-debut-10-2026-lidl-svizzera-sevaz",
-        "en": "apprentissage-de-logisticien-logisticienne-cfc-debut-10-2026-lidl-svizzera-sevaz-bftb4x",
-        "de": "apprentissage-de-logisticien-logisticienne-cfc-debut-10-2026-lidl-svizzera-sevaz-bftb4x",
+        "it": "logisticista-logistician-learning-cfc-early-10-2026-lidl-svizzera-sevaz",
+        "en": "logistician-logistician-learning-cfc-early-10-2026-lidl-svizzera-sevaz",
+        "de": "logistiker-logistiker-lernen-cfc-anfang-10-2026-lidl-svizzera-sevaz",
         "fr": "apprentissage-de-logisticien-logisticienne-cfc-debut-10-2026-lidl-svizzera-sevaz-bftb4x"
       },
       "requirementsByLocale": {},
@@ -574,11 +598,19 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-de-logisticien-logisticienne-cfc-debut-10-2026-lidl-svizzera-sevaz-bftb4x",
+          "apprentissage-de-logisticien-logisticienne-cfc-debut-10-2026-lidl-svizzera-sevaz"
+        ],
+        "en": [
+          "apprentissage-de-logisticien-logisticienne-cfc-debut-10-2026-lidl-svizzera-sevaz-bftb4x"
+        ],
+        "de": [
           "apprentissage-de-logisticien-logisticienne-cfc-debut-10-2026-lidl-svizzera-sevaz-bftb4x"
         ]
       },
       "previousSlugs": [
-        "apprentissage-de-logisticien-logisticienne-cfc-debut-10-2026-lidl-svizzera-sevaz-bftb4x"
+        "apprentissage-de-logisticien-logisticienne-cfc-debut-10-2026-lidl-svizzera-sevaz-bftb4x",
+        "apprentissage-de-logisticien-logisticienne-cfc-debut-10-2026-lidl-svizzera-sevaz"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -749,7 +781,7 @@
     },
     {
       "id": "company-kv0kyo",
-      "slug": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-aigle-lidl-svizzera-aigle",
+      "slug": "venditore-multiuso-venditore-multiuso-m-f-d-40-aquila-lidl-svizzera-aigle",
       "company": "Lidl Svizzera",
       "title": "Vendeur polyvalent / Vendeuse polyvalente (h/f/d) 40% — Aigle",
       "location": "Aigle",
@@ -786,9 +818,9 @@
         "de": "Einleitung\n\nHaben Sie eine Leidenschaft für den Verkauf? Sie möchten jeden Tag das Beste von sich geben, um unseren Kunden das beste Einkaufserlebnis zu bieten? Möchten Sie Teil eines Goldteams sein? Du hast die richtige Tür getroffen. Wir bieten Ihnen spannende und abwechslungsreiche Karrieremöglichkeiten im dynamischen Einzelhandelsumfeld.\nDeine Mission\n\n- Platzierung und Verwaltung von Waren im Lager\n\n- Beitrag zu sauberen Verkaufsflächen\n\n- Beitrag zu einem positiven Einkaufserlebnis für unsere Kunden\nDein Profil\n\n- Flexibilität bezüglich der Arbeitszeit (Montag bis Samstag zwischen 5:00 und 22:00 Uhr)\n\n- Gute körperliche Verfassung\n\n- Zuverlässigkeit und Rechenschaftspflicht\n\n- Gute Kenntnisse in Französisch\nUnser Angebot\n\nBei Lidl Schweiz gibt es Raum für Ehrgeiz und Innovation. Hilft, die Zukunft zu gestalten. Wachsen Sie jeden Tag professionell und persönlich. Während Ihrer eingehenden Erstausbildung bereiten wir Sie auf Ihre abwechslungsreiche und interessante Mission vor. Aufgrund Ihrer guten persönlichen Fähigkeiten sind interne berufliche Entwicklungen möglich. Darüber hinaus garantieren wir Ihnen einen sicheren Job, ein Traumteam, die Privilegien des CLC Lidl, exzellente professionelle Weitsicht und viele weitere interessante Vorteile. Nutzen Sie Ihre Chance und bewerben Sie sich jetzt online!"
       },
       "slugByLocale": {
-        "it": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-aigle-lidl-svizzera-aigle",
-        "en": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-aigle-kv0kyo",
-        "de": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-aigle-kv0kyo",
+        "it": "venditore-multiuso-venditore-multiuso-m-f-d-40-aquila-lidl-svizzera-aigle",
+        "en": "multi-purpose-seller-multi-purpose-seller-m-f-d-40-eagle-lidl-svizzera-aigle",
+        "de": "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-eagle-lidl-svizzera-aigle",
         "fr": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-aigle-kv0kyo"
       },
       "requirementsByLocale": {},
@@ -797,12 +829,20 @@
       "previousSlugsByLocale": {
         "it": [
           "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-aigle",
+          "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-aigle-kv0kyo",
+          "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-aigle-lidl-svizzera-aigle"
+        ],
+        "en": [
+          "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-aigle-kv0kyo"
+        ],
+        "de": [
           "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-aigle-kv0kyo"
         ]
       },
       "previousSlugs": [
         "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-aigle",
-        "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-aigle-kv0kyo"
+        "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-aigle-kv0kyo",
+        "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-aigle-lidl-svizzera-aigle"
       ],
       "salaryMin": 24200,
       "salaryMax": 36600,
@@ -823,7 +863,7 @@
     },
     {
       "id": "company-jenvs5",
-      "slug": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-fribourg-lidl-svizzera-fribourg",
+      "slug": "venditore-multiuso-venditore-multiuso-m-f-d-40-fribourg-lidl-svizzera-fribourg",
       "company": "Lidl Svizzera",
       "title": "Vendeur polyvalent / Vendeuse polyvalente (h/f/d) 40% — Fribourg",
       "location": "Fribourg",
@@ -860,9 +900,9 @@
         "de": "Einleitung\n\nHaben Sie eine Leidenschaft für den Verkauf? Sie möchten jeden Tag das Beste von sich geben, um unseren Kunden das beste Einkaufserlebnis zu bieten? Möchten Sie Teil eines Goldteams sein? Du hast die richtige Tür getroffen. Wir bieten Ihnen spannende und abwechslungsreiche Karrieremöglichkeiten im dynamischen Einzelhandelsumfeld.\nDeine Mission\n\n- Platzierung und Verwaltung von Waren im Lager\n\n- Beitrag zu sauberen Verkaufsflächen\n\n- Beitrag zu einem positiven Einkaufserlebnis für unsere Kunden\nDein Profil\n\n- Flexibilität bei der Arbeitszeit (Montag bis Samstag zwischen 5:00 und 9:00 Uhr)\n\n- Gute körperliche Verfassung\n\n- Zuverlässigkeit und Rechenschaftspflicht\n\n- Gute Kenntnisse in Französisch\nUnser Angebot\n\nBei Lidl Schweiz gibt es Raum für Ehrgeiz und Innovation. Hilft, die Zukunft zu gestalten. Wachsen Sie jeden Tag professionell und persönlich. Während Ihrer eingehenden Erstausbildung bereiten wir Sie auf Ihre abwechslungsreiche und interessante Mission vor. Aufgrund Ihrer guten persönlichen Fähigkeiten sind interne berufliche Entwicklungen möglich. Darüber hinaus garantieren wir Ihnen einen sicheren Job, ein Traumteam, die Privilegien des CLC Lidl, exzellente professionelle Weitsicht und viele weitere interessante Vorteile. Nutzen Sie Ihre Chance und bewerben Sie sich jetzt online!"
       },
       "slugByLocale": {
-        "it": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-fribourg-lidl-svizzera-fribourg",
-        "en": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-fribourg-jenvs5",
-        "de": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-fribourg-jenvs5",
+        "it": "venditore-multiuso-venditore-multiuso-m-f-d-40-fribourg-lidl-svizzera-fribourg",
+        "en": "multipurpose-seller-multi-purpose-seller-m-f-d-40-fribourg-lidl-svizzera-fribourg",
+        "de": "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-freiburg-lidl-svizzera-fribourg",
         "fr": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-fribourg-jenvs5"
       },
       "requirementsByLocale": {},
@@ -871,12 +911,20 @@
       "previousSlugsByLocale": {
         "it": [
           "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-fribourg",
+          "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-fribourg-jenvs5",
+          "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-fribourg-lidl-svizzera-fribourg"
+        ],
+        "en": [
+          "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-fribourg-jenvs5"
+        ],
+        "de": [
           "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-fribourg-jenvs5"
         ]
       },
       "previousSlugs": [
         "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-fribourg",
-        "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-fribourg-jenvs5"
+        "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-fribourg-jenvs5",
+        "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-fribourg-lidl-svizzera-fribourg"
       ],
       "salaryMin": 27400,
       "salaryMax": 41600,
@@ -923,8 +971,8 @@
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "slugByLocale": {
         "it": "venditore-multiuso-venditore-multiuso-m-f-d-40-lidl-svizzera-matran",
-        "en": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-matran-lidl-svizzera-matran",
-        "de": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-matran-lidl-svizzera-matran",
+        "en": "multi-purpose-seller-multi-purpose-seller-m-f-d-40-matran-lidl-svizzera-matran",
+        "de": "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-matran-lidl-svizzera-matran",
         "fr": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-matran-nxe5fi"
       },
       "titleByLocale": {
@@ -944,15 +992,14 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "en": [
-          "multi-purpose-seller-multi-purpose-seller-m-f-d-40-matran-lidl-svizzera-matran"
+          "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-matran-lidl-svizzera-matran"
         ],
         "de": [
-          "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-matran-lidl-svizzera-matran"
+          "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-matran-lidl-svizzera-matran"
         ]
       },
       "previousSlugs": [
-        "multi-purpose-seller-multi-purpose-seller-m-f-d-40-matran-lidl-svizzera-matran",
-        "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-matran-lidl-svizzera-matran"
+        "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-matran-lidl-svizzera-matran"
       ],
       "salaryMin": 27400,
       "salaryMax": 41600,
@@ -973,7 +1020,7 @@
     },
     {
       "id": "company-mg3uye",
-      "slug": "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-bevaix",
+      "slug": "venditore-m-f-d-20-40-lidl-svizzera-bevaix",
       "company": "Lidl Svizzera",
       "title": "Vendeur / Vendeuse (h/f/d) 20-40%",
       "location": "Bevaix",
@@ -1010,9 +1057,9 @@
         "de": "Einleitung\n\nHaben Sie eine Leidenschaft für den Verkauf? Sie möchten jeden Tag das Beste von sich geben, um unseren Kunden das beste Einkaufserlebnis zu bieten? Möchten Sie Teil eines Goldteams sein? Du hast die richtige Tür getroffen. Wir bieten Ihnen spannende und abwechslungsreiche Karrieremöglichkeiten im dynamischen Einzelhandelsumfeld.\nDeine Mission\n\n- Beitrag zu einem positiven Einkaufserlebnis für unsere Kunden\n\n- Kassentätigkeit\n\n- Platzierung und Verwaltung von Waren im Lager\n\n- Beitrag zu sauberen Verkaufsflächen\nDein Profil\n\n- Berufserfahrung im Verkauf oder ähnlichen Bereichen ist ein Asset\n\n- Flexibilität in der Arbeitszeit (Montag bis Samstag zwischen 5:00 und 22:00 Uhr; Morgen- und/oder Abendschicht)\n\n- Gute körperliche Verfassung\n\n- Benutzerfreundliche und gepflegte Präsentation\n\n- Zuverlässigkeit und Rechenschaftspflicht\n\n- Gute Kenntnisse in Französisch\nUnser Angebot\n\nBei Lidl Schweiz gibt es Raum für Ehrgeiz und Innovation. Hilft, die Zukunft zu gestalten. Wachsen Sie jeden Tag professionell und persönlich. Während Ihrer eingehenden Erstausbildung bereiten wir Sie auf Ihre abwechslungsreiche und interessante Mission vor. Basierend auf Ihrer Anfrage und Ihren guten persönlichen Fähigkeiten fördern wir Sie als Verkäufer für das (m/w/d)-Team. Darüber hinaus garantieren wir Ihnen einen sicheren Job, ein Traumteam, die Privilegien des CLC Lidl, exzellente professionelle Weitsicht und viele weitere interessante Vorteile. Nutzen Sie Ihre Chance und bewerben Sie sich jetzt online!"
       },
       "slugByLocale": {
-        "it": "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-bevaix",
-        "en": "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-bevaix-mg3uye",
-        "de": "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-bevaix-mg3uye",
+        "it": "venditore-m-f-d-20-40-lidl-svizzera-bevaix",
+        "en": "seller-m-f-d-20-40-lidl-svizzera-bevaix",
+        "de": "verkaufer-m-w-d-20-40-lidl-svizzera-bevaix",
         "fr": "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-bevaix-mg3uye"
       },
       "requirementsByLocale": {},
@@ -1020,11 +1067,19 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-bevaix-mg3uye",
+          "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-bevaix"
+        ],
+        "en": [
+          "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-bevaix-mg3uye"
+        ],
+        "de": [
           "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-bevaix-mg3uye"
         ]
       },
       "previousSlugs": [
-        "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-bevaix-mg3uye"
+        "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-bevaix-mg3uye",
+        "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-bevaix"
       ],
       "salaryMin": 24200,
       "salaryMax": 36600,
@@ -1072,8 +1127,8 @@
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-40-fribourg-lidl-svizzera-fribourg",
         "fr": "vendeur-vendeuse-m-w-d-40-lidl-svizzera-fribourg-jjj6lq",
-        "en": "vendeur-vendeuse-m-w-d-40-fribourg-lidl-svizzera-fribourg",
-        "de": "vendeur-vendeuse-m-w-d-40-fribourg-lidl-svizzera-fribourg"
+        "en": "seller-m-f-d-40-fribourg-lidl-svizzera-fribourg",
+        "de": "verkaufer-m-w-d-40-freiburg-lidl-svizzera-fribourg"
       },
       "titleByLocale": {
         "fr": "Vendeur / Vendeuse (h/f/d) 40% — Fribourg",
@@ -1090,18 +1145,6 @@
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "fr",
-      "previousSlugsByLocale": {
-        "en": [
-          "seller-m-f-d-40-fribourg-lidl-svizzera-fribourg"
-        ],
-        "de": [
-          "verkaufer-m-w-d-40-freiburg-lidl-svizzera-fribourg"
-        ]
-      },
-      "previousSlugs": [
-        "seller-m-f-d-40-fribourg-lidl-svizzera-fribourg",
-        "verkaufer-m-w-d-40-freiburg-lidl-svizzera-fribourg"
-      ],
       "salaryMin": 27400,
       "salaryMax": 41600,
       "salarySource": "estimated",
@@ -1148,8 +1191,8 @@
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-40-givisiez-lidl-svizzera-givisiez",
         "fr": "vendeur-vendeuse-m-w-d-40-lidl-svizzera-givisiez-yjhyy2",
-        "en": "vendeur-vendeuse-m-w-d-40-givisiez-lidl-svizzera-givisiez",
-        "de": "vendeur-vendeuse-m-w-d-40-givisiez-lidl-svizzera-givisiez"
+        "en": "seller-m-f-d-40-givisiez-lidl-svizzera-givisiez",
+        "de": "verkaufer-m-w-d-40-givisiez-lidl-svizzera-givisiez"
       },
       "titleByLocale": {
         "fr": "Vendeur / Vendeuse (h/f/d) 40% — Givisiez",
@@ -1166,18 +1209,6 @@
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "fr",
-      "previousSlugsByLocale": {
-        "en": [
-          "seller-m-f-d-40-givisiez-lidl-svizzera-givisiez"
-        ],
-        "de": [
-          "verkaufer-m-w-d-40-givisiez-lidl-svizzera-givisiez"
-        ]
-      },
-      "previousSlugs": [
-        "seller-m-f-d-40-givisiez-lidl-svizzera-givisiez",
-        "verkaufer-m-w-d-40-givisiez-lidl-svizzera-givisiez"
-      ],
       "salaryMin": 27400,
       "salaryMax": 41600,
       "salarySource": "estimated",
@@ -1222,8 +1253,8 @@
       "crawledAt": "2026-09-19T22:49:40.886Z",
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "slugByLocale": {
-        "de": "vendeur-vendeuse-m-w-d-40-marly-lidl-svizzera-marly",
-        "en": "vendeur-vendeuse-m-w-d-40-marly-lidl-svizzera-marly",
+        "de": "verkaufer-h-w-d-40-marly-lidl-svizzera-marly",
+        "en": "seller-h-f-d-40-marly-lidl-svizzera-marly",
         "fr": "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-h3lbhq",
         "it": "vendeur-vendeuse-m-w-d-40-marly-lidl-svizzera-marly"
       },
@@ -1242,18 +1273,6 @@
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "fr",
-      "previousSlugsByLocale": {
-        "en": [
-          "seller-h-f-d-40-marly-lidl-svizzera-marly"
-        ],
-        "de": [
-          "verkaufer-h-w-d-40-marly-lidl-svizzera-marly"
-        ]
-      },
-      "previousSlugs": [
-        "seller-h-f-d-40-marly-lidl-svizzera-marly",
-        "verkaufer-h-w-d-40-marly-lidl-svizzera-marly"
-      ],
       "salaryMin": 27400,
       "salaryMax": 41600,
       "salarySource": "estimated",
@@ -1300,8 +1319,8 @@
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-40-matran-lidl-svizzera-matran",
         "fr": "vendeur-vendeuse-m-w-d-40-lidl-svizzera-matran-1yw6nk",
-        "en": "vendeur-vendeuse-m-w-d-40-matran-lidl-svizzera-matran",
-        "de": "vendeur-vendeuse-m-w-d-40-matran-lidl-svizzera-matran"
+        "en": "seller-m-f-d-40-matran-lidl-svizzera-matran",
+        "de": "verkaufer-m-w-d-40-matran-lidl-svizzera-matran"
       },
       "titleByLocale": {
         "fr": "Vendeur / Vendeuse (h/f/d) 40% — Matran",
@@ -1318,18 +1337,6 @@
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "fr",
-      "previousSlugsByLocale": {
-        "en": [
-          "seller-m-f-d-40-matran-lidl-svizzera-matran"
-        ],
-        "de": [
-          "verkaufer-m-w-d-40-matran-lidl-svizzera-matran"
-        ]
-      },
-      "previousSlugs": [
-        "seller-m-f-d-40-matran-lidl-svizzera-matran",
-        "verkaufer-m-w-d-40-matran-lidl-svizzera-matran"
-      ],
       "salaryMin": 27400,
       "salaryMax": 41600,
       "salarySource": "estimated",
@@ -1376,8 +1383,8 @@
       "slugByLocale": {
         "it": "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-conthey-lidl-svizzera-conthey",
         "fr": "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-conthey-43uzf1",
-        "en": "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-conthey-lidl-svizzera-conthey",
-        "de": "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-conthey-lidl-svizzera-conthey"
+        "en": "salesperson-responsible-for-team-m-f-d-60-80-conthey-lidl-svizzera-conthey",
+        "de": "verkaufer-verantwortlich-fur-team-m-w-d-60-80-conthey-lidl-svizzera-conthey"
       },
       "titleByLocale": {
         "fr": "Vendeur / Vendeuse responsable d'équipe (h/f/d) 60-80% — Conthey",
@@ -1394,18 +1401,6 @@
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "fr",
-      "previousSlugsByLocale": {
-        "en": [
-          "salesperson-responsible-for-team-m-f-d-60-80-conthey-lidl-svizzera-conthey"
-        ],
-        "de": [
-          "verkaufer-verantwortlich-fur-team-m-w-d-60-80-conthey-lidl-svizzera-conthey"
-        ]
-      },
-      "previousSlugs": [
-        "salesperson-responsible-for-team-m-f-d-60-80-conthey-lidl-svizzera-conthey",
-        "verkaufer-verantwortlich-fur-team-m-w-d-60-80-conthey-lidl-svizzera-conthey"
-      ],
       "salaryMin": 48400,
       "salaryMax": 73200,
       "salarySource": "estimated",
@@ -1554,9 +1549,9 @@
       },
       "slugByLocale": {
         "it": "ch-venditore-venditrice-con-responsabilita-del-turno-m-w-d-60-80-lidl-svizzera-riazzino-korhfh",
-        "en": "ch-venditore-venditrice-con-responsabilita-del-turno-m-w-d-60-80-lidl-svizzera-riazzino-korhfh",
-        "de": "ch-venditore-venditrice-con-responsabilita-del-turno-m-w-d-60-80-lidl-svizzera-riazzino-korhfh",
-        "fr": "ch-venditore-venditrice-con-responsabilita-del-turno-m-w-d-60-80-lidl-svizzera-riazzino-korhfh"
+        "en": "ch-seller-salesman-with-responsibility-for-the-m-f-d-shift-60-80-lidl-svizzera-riazzino",
+        "de": "ch-verkaufer-verkaufer-mit-verantwortung-fur-die-m-w-d-schicht-60-80-lidl-svizzera-riazzino",
+        "fr": "ch-vendeur-vendeur-responsable-du-poste-h-f-d-60-80-lidl-svizzera-riazzino"
       },
       "requirementsByLocale": {
         "it": [
@@ -1667,7 +1662,7 @@
     },
     {
       "id": "company-am8pd8",
-      "slug": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-romanshorn-am8pd8",
+      "slug": "vendor-m-f-d-20-40-romanshorn-lidl-svizzera-romanshorn",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 20-40% — Romanshorn",
       "location": "Romanshorn",
@@ -1704,10 +1699,10 @@
         "fr": "Présentation\n\nVendre est votre passion? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Contribution à une expérience d'achat positive de nos clients\n\n- Activités de trésorerie\n\n- Transport et entretien des marchandises au sein de la succursale\n\n- Contribution à l'aspect propre de la zone de vente\nVotre profil\n\n- Expérience professionnelle en vente ou dans un environnement similaire\n\n- Flexibilité concernant les temps d'exploitation (MO-SA entre 05:00 et 22:00)\n\n- Bonne forme physique\n\n- Aspect convivial et bien entretenu du client\n\n- Fiabilité et sens des responsabilités\n\n- Bonne connaissance de l'allemand\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Soyez activement impliqué. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons pour vos tâches variées et intéressantes avec une familiarisation intensive. Si vous désirez et avez de bonnes qualités personnelles, nous vous développerons en un vendeur avec responsabilité de quart (h/f/d). En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-romanshorn-am8pd8",
+        "it": "vendor-m-f-d-20-40-romanshorn-lidl-svizzera-romanshorn",
         "en": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-romanshorn-am8pd8",
         "de": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-romanshorn-am8pd8",
-        "fr": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-romanshorn-am8pd8"
+        "fr": "fournisseur-h-f-d-20-40-romanshorn-lidl-svizzera-romanshorn"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -1715,12 +1710,17 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-romanshorn",
-          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-romanshorn"
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-romanshorn",
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-romanshorn-am8pd8"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-romanshorn-am8pd8"
         ]
       },
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-romanshorn",
-        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-romanshorn"
+        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-romanshorn",
+        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-romanshorn-am8pd8"
       ],
       "salaryMin": 23000,
       "salaryMax": 34800,
@@ -1741,7 +1741,7 @@
     },
     {
       "id": "company-p3zwf5",
-      "slug": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-schluein-p3zwf5",
+      "slug": "venditore-venditore-m-f-d-20-40-schluein-lidl-svizzera-schluein",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 20-40% — Schluein",
       "location": "Schluein",
@@ -1778,21 +1778,29 @@
         "fr": "Présentation\n\nVendre est votre passion? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Contribution à une expérience d'achat positive de nos clients\n\n- Activités de trésorerie\n\n- Transport et entretien des marchandises au sein de la succursale\n\n- Contribution à l'aspect propre de la zone de vente\nVotre profil\n\n- Expérience professionnelle en vente ou dans un environnement similaire\n\n- Flexibilité concernant les temps d'exploitation (MO-SA entre 05:00 et 22:00)\n\n- Bonne forme physique\n\n- Aspect convivial et bien entretenu du client\n\n- Fiabilité et sens des responsabilités\n\n- Bonne connaissance de l'allemand\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Soyez activement impliqué. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons pour vos tâches variées et intéressantes avec une familiarisation intensive. Si vous désirez et avez de bonnes qualités personnelles, nous vous développerons en un vendeur avec responsabilité de quart (h/f/d). En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-schluein-p3zwf5",
-        "en": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-schluein-p3zwf5",
+        "it": "venditore-venditore-m-f-d-20-40-schluein-lidl-svizzera-schluein",
+        "en": "seller-seller-m-f-d-20-40-schluein-lidl-svizzera-schluein",
         "de": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-schluein-p3zwf5",
-        "fr": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-schluein-p3zwf5"
+        "fr": "vendeur-vendeur-h-f-d-20-40-schluein-lidl-svizzera-schluein"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-schluein"
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-schluein",
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-schluein-p3zwf5"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-schluein-p3zwf5"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-schluein-p3zwf5"
         ]
       },
       "previousSlugs": [
-        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-schluein"
+        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-schluein",
+        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-schluein-p3zwf5"
       ],
       "salaryMin": 23000,
       "salaryMax": 34800,
@@ -1813,7 +1821,7 @@
     },
     {
       "id": "company-5mgw3k",
-      "slug": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-amriswil-5mgw3k",
+      "slug": "vendor-m-f-d-40-60-amriswil-lidl-svizzera-amriswil",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 40-60% — Amriswil",
       "location": "Amriswil",
@@ -1850,10 +1858,10 @@
         "fr": "Présentation\n\nVendre est votre passion? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Contribution à une expérience d'achat positive de nos clients\n\n- Activités de trésorerie\n\n- Transport et entretien des marchandises au sein de la succursale\n\n- Contribution à l'aspect propre de la zone de vente\nVotre profil\n\n- Expérience professionnelle dans les ventes ou un environnement similaire bénéfique\n\n- Flexibilité concernant les temps d'exploitation (MO-SA entre 05:00 et 22:00)\n\n- Bonne forme physique\n\n- Aspect amical et soigné\n\n- Fiabilité et sens des responsabilités\n\n- Bonne connaissance de l'allemand\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Soyez activement impliqué. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons pour vos tâches variées et intéressantes avec une familiarisation intensive. Si vous désirez et avez de bonnes qualités personnelles, nous vous développerons en un vendeur avec responsabilité de quart (h/f/d). En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-amriswil-5mgw3k",
+        "it": "vendor-m-f-d-40-60-amriswil-lidl-svizzera-amriswil",
         "en": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-amriswil-5mgw3k",
         "de": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-amriswil-5mgw3k",
-        "fr": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-amriswil-5mgw3k"
+        "fr": "fournisseur-h-f-d-40-60-amriswil-lidl-svizzera-amriswil"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -1869,7 +1877,8 @@
           "seller-seller-saturdayskraft-m-f-d-20-80-lidl-svizzera-amriswil",
           "verkaufer-verkauferin-samstagskraft-m-w-d-20-80-lidl-svizzera-amriswil-zdc951",
           "vendeur-vendeur-samediskraft-m-f-d-20-80-lidl-svizzera-amriswil",
-          "verkaufer-verkauferin-samstagskraft-m-w-d-20-80-lidl-svizzera-amriswil"
+          "verkaufer-verkauferin-samstagskraft-m-w-d-20-80-lidl-svizzera-amriswil",
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-amriswil-5mgw3k"
         ],
         "en": [
           "sales-assistant-m-f-d-40-60-amriswil-lidl-svizzera-amriswil"
@@ -1878,7 +1887,8 @@
           "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-amriswil-5n0iqq"
         ],
         "fr": [
-          "vendeur-vendeuse-h-f-d-40-60-amriswil-lidl-svizzera-amriswil"
+          "vendeur-vendeuse-h-f-d-40-60-amriswil-lidl-svizzera-amriswil",
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-amriswil-5mgw3k"
         ]
       },
       "previousSlugs": [
@@ -1891,7 +1901,8 @@
         "seller-seller-saturdayskraft-m-f-d-20-80-lidl-svizzera-amriswil",
         "verkaufer-verkauferin-samstagskraft-m-w-d-20-80-lidl-svizzera-amriswil-zdc951",
         "vendeur-vendeur-samediskraft-m-f-d-20-80-lidl-svizzera-amriswil",
-        "verkaufer-verkauferin-samstagskraft-m-w-d-20-80-lidl-svizzera-amriswil"
+        "verkaufer-verkauferin-samstagskraft-m-w-d-20-80-lidl-svizzera-amriswil",
+        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-amriswil-5mgw3k"
       ],
       "salaryMin": 34500,
       "salaryMax": 52200,
@@ -1912,7 +1923,7 @@
     },
     {
       "id": "company-g4ql2x",
-      "slug": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-staad-g4ql2x",
+      "slug": "venditore-venditore-m-f-d-40-60-staad-lidl-svizzera-staad",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 40-60% — Staad",
       "location": "Staad",
@@ -1949,21 +1960,29 @@
         "fr": "Présentation\n\nVendre est votre passion? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Contribution à une expérience d'achat positive de nos clients\n\n- Activités de trésorerie\n\n- Transport et entretien des marchandises au sein de la succursale\n\n- Contribution à l'aspect propre de la zone de vente\nVotre profil\n\n- Expérience professionnelle dans les ventes ou un environnement similaire bénéfique\n\n- Flexibilité en ce qui concerne les temps d'exploitation (MO-SA entre 5 h et 22 h);\n\n- Bonne forme physique\n\n- Aspect amical et soigné\n\n- Fiabilité et sens des responsabilités\n\n- Bonne connaissance de l'allemand\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Soyez activement impliqué. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons pour vos tâches variées et intéressantes avec une familiarisation intensive. Si vous désirez et avez de bonnes qualités personnelles, nous vous développerons en un vendeur avec responsabilité de quart (h/f/d). En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-staad-g4ql2x",
-        "en": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-staad-g4ql2x",
+        "it": "venditore-venditore-m-f-d-40-60-staad-lidl-svizzera-staad",
+        "en": "seller-seller-m-f-d-40-60-staad-lidl-svizzera-staad",
         "de": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-staad-g4ql2x",
-        "fr": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-staad-g4ql2x"
+        "fr": "vendeur-vendeur-h-f-d-40-60-staad-lidl-svizzera-staad"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-staad"
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-staad",
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-staad-g4ql2x"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-staad-g4ql2x"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-staad-g4ql2x"
         ]
       },
       "previousSlugs": [
-        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-staad"
+        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-staad",
+        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-staad-g4ql2x"
       ],
       "salaryMin": 34500,
       "salaryMax": 52200,
@@ -1984,7 +2003,7 @@
     },
     {
       "id": "company-eqgdra",
-      "slug": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-arbon-eqgdra",
+      "slug": "venditore-con-responsabilita-a-turni-m-f-d-60-80-arbon-lidl-svizzera-arbon",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% — Arbon",
       "location": "Arbon",
@@ -2021,21 +2040,30 @@
         "fr": "Présentation\n\nVendre est votre passion? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Le changement de responsabilité en l'absence de la direction générale et du sous-ministre\n\n- Mise en œuvre des normes d'orientation client et de vente dans nos succursales\n\n- Appui à la planification du personnel, à la gestion du personnel et à l ' organisation des services\n\n- Disposition et présentation des biens\n\n- Activités de trésorerie\nVotre profil\n\n- Expérience professionnelle en vente ou environnement similaire\n\n- Idéalement achevée la formation professionnelle dans le commerce de détail\n\n- Flexibilité concernant les temps d'exploitation (MO-SA entre 05:00 et 22:00)\n\n- Compétences communicatives et plaisir à traiter avec les gens\n\n- Haute motivation, engagement et résilience\n\n- Bonne connaissance de l'allemand en paroles et en écriture\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Soyez activement impliqué. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons pour vos tâches variées et intéressantes avec une familiarisation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, nous vous développerons dans la direction générale adjointe (h/f/d). En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-arbon-eqgdra",
-        "en": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-arbon-eqgdra",
+        "it": "venditore-con-responsabilita-a-turni-m-f-d-60-80-arbon-lidl-svizzera-arbon",
+        "en": "seller-with-shift-responsibility-m-f-d-60-80-arbon-lidl-svizzera-arbon",
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-arbon-eqgdra",
-        "fr": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-arbon-eqgdra"
+        "fr": "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-arbon-lidl-svizzera-arbon"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-arbon"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-arbon",
+          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-arbon-eqgdra"
+        ],
+        "en": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-arbon-eqgdra"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-arbon-eqgdra"
         ]
       },
       "previousSlugs": [
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-arbon"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-arbon",
+        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-arbon-eqgdra",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-arbon-eqgdra"
       ],
       "salaryMin": 46000,
       "salaryMax": 69600,
@@ -2056,7 +2084,7 @@
     },
     {
       "id": "company-fme4cz",
-      "slug": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schluein-fme4cz",
+      "slug": "venditore-con-responsabilita-a-turni-m-f-d-60-80-schluein-lidl-svizzera-schluein",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% — Schluein",
       "location": "Schluein",
@@ -2093,21 +2121,30 @@
         "fr": "Présentation\n\nVendre est votre passion? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Le changement de responsabilité en l'absence de la direction générale et du sous-ministre\n\n- Mise en œuvre des normes d'orientation client et de vente dans nos succursales\n\n- Appui à la planification du personnel, à la gestion du personnel et à l ' organisation des services\n\n- Disposition et présentation des biens\n\n- Activités de trésorerie\nVotre profil\n\n- Expérience professionnelle en vente ou environnement similaire\n\n- Idéalement achevée la formation professionnelle dans le commerce de détail\n\n- Flexibilité concernant les temps d'exploitation (MO-SA entre 05:00 et 22:00)\n\n- Compétences communicatives et plaisir à traiter avec les gens\n\n- Haute motivation, engagement et résilience\n\n- Bonne connaissance de l'allemand en paroles et en écriture\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Soyez activement impliqué. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons pour vos tâches variées et intéressantes avec une familiarisation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, nous vous développerons dans la direction générale adjointe (h/f/d). En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schluein-fme4cz",
-        "en": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schluein-fme4cz",
+        "it": "venditore-con-responsabilita-a-turni-m-f-d-60-80-schluein-lidl-svizzera-schluein",
+        "en": "seller-with-shift-responsibility-m-f-d-60-80-schluein-lidl-svizzera-schluein",
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schluein-fme4cz",
-        "fr": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schluein-fme4cz"
+        "fr": "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-schluein-lidl-svizzera-schluein"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schluein"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schluein",
+          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schluein-fme4cz"
+        ],
+        "en": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schluein-fme4cz"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schluein-fme4cz"
         ]
       },
       "previousSlugs": [
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schluein"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schluein",
+        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schluein-fme4cz",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schluein-fme4cz"
       ],
       "salaryMin": 46000,
       "salaryMax": 69600,
@@ -2128,7 +2165,7 @@
     },
     {
       "id": "company-qqdpzd",
-      "slug": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad-qqdpzd",
+      "slug": "venditore-con-responsabilita-a-turni-m-f-d-60-80-staad-lidl-svizzera-staad",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% — Staad",
       "location": "Staad",
@@ -2165,21 +2202,30 @@
         "fr": "Présentation\n\nVendre est votre passion? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Le changement de responsabilité en l'absence de la direction générale et du sous-ministre\n\n- Mise en œuvre des normes d'orientation client et de vente dans nos succursales\n\n- Appui à la planification du personnel, à la gestion du personnel et à l ' organisation des services\n\n- Disposition et présentation des biens\n\n- Activités de trésorerie\nVotre profil\n\n- Expérience professionnelle en vente ou environnement similaire\n\n- Idéalement achevée la formation professionnelle dans le commerce de détail\n\n- Flexibilité concernant les temps d'exploitation (MO-SA entre 05:00 et 22:00)\n\n- Compétences communicatives et plaisir à traiter avec les gens\n\n- Haute motivation, engagement et résilience\n\n- Bonne connaissance de l'allemand en paroles et en écriture\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Soyez activement impliqué. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons pour vos tâches variées et intéressantes avec une familiarisation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, nous vous développerons dans la direction générale adjointe (h/f/d). En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad-qqdpzd",
-        "en": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad-qqdpzd",
+        "it": "venditore-con-responsabilita-a-turni-m-f-d-60-80-staad-lidl-svizzera-staad",
+        "en": "seller-with-shift-responsibility-m-f-d-60-80-staad-lidl-svizzera-staad",
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad-qqdpzd",
-        "fr": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad-qqdpzd"
+        "fr": "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-staad-lidl-svizzera-staad"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad",
+          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad-qqdpzd"
+        ],
+        "en": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad-qqdpzd"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad-qqdpzd"
         ]
       },
       "previousSlugs": [
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad",
+        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad-qqdpzd",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad-qqdpzd"
       ],
       "salaryMin": 46000,
       "salaryMax": 69600,
@@ -2238,7 +2284,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-niederlenz-9xbeyw",
-        "en": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-niederlenz-9xbeyw",
+        "en": "all-rounder-sale-m-f-d-20-40-lower-length-lidl-svizzera-niederlenz",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-niederlenz-9xbeyw",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-niederlenz-9xbeyw"
       },
@@ -2248,10 +2294,14 @@
       "previousSlugsByLocale": {
         "it": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-niederlenz"
+        ],
+        "en": [
+          "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-niederlenz-9xbeyw"
         ]
       },
       "previousSlugs": [
-        "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-niederlenz"
+        "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-niederlenz",
+        "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-niederlenz-9xbeyw"
       ],
       "salaryMin": 24800,
       "salaryMax": 37600,
@@ -2272,7 +2322,7 @@
     },
     {
       "id": "company-e6m6zb",
-      "slug": "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz-e6m6zb",
+      "slug": "ordina-pick-up-m-f-d-40-60-lidl-svizzera-sevaz",
       "company": "Lidl Svizzera",
       "title": "Kommissionierer / Kommissioniererin (m/w/d) 40-60%",
       "location": "Sévaz",
@@ -2309,10 +2359,10 @@
         "fr": "Présentation\n\nAvec un réseau de succursales moderne, Lidl Suisse a une présence de plus en plus dense sur le marché suisse. L'expansion en Suisse s'est poursuivie depuis l'entrée sur le marché en 2009. Chez Lidl, des tâches passionnantes et des possibilités de carrière polyvalentes vous attendent dans l'environnement dynamique du commerce de détail.\nVos tâches\n\n- Choisir les commandes de nos succursales\n\n- Assistance aux stocks d'entrepôts\n\n- Fourniture de palettes pour l'expédition\n\n- Respect des normes d'hygiène et de propreté\n\n- Les jours ouvrables fixes sont définis ensemble\nVotre profil\n\n- Expérience en logistique ou en production\n\n- Personnalité fiable, indépendante et résistante\n\n- Compétences en équipe, coopération et communication\n\n- Préparation pour le travail de nuit et le travail du dimanche\n\n- Bonne connaissance de l'allemand et/ou du français\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Soyez activement impliqué. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons pour vos tâches variées et intéressantes avec une familiarisation intensive. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz-e6m6zb",
-        "en": "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz-e6m6zb",
+        "it": "ordina-pick-up-m-f-d-40-60-lidl-svizzera-sevaz",
+        "en": "order-picker-m-f-d-40-60-lidl-svizzera-sevaz",
         "de": "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz-e6m6zb",
-        "fr": "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz-e6m6zb"
+        "fr": "commandeur-h-f-d-40-60-lidl-svizzera-sevaz"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -2320,12 +2370,20 @@
       "previousSlugsByLocale": {
         "it": [
           "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz",
-          "kommissionierer-kommissioniererin-m-w-d-40-60-1-lidl-svizzera-sevaz"
+          "kommissionierer-kommissioniererin-m-w-d-40-60-1-lidl-svizzera-sevaz",
+          "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz-e6m6zb"
+        ],
+        "en": [
+          "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz-e6m6zb"
+        ],
+        "fr": [
+          "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz-e6m6zb"
         ]
       },
       "previousSlugs": [
         "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz",
-        "kommissionierer-kommissioniererin-m-w-d-40-60-1-lidl-svizzera-sevaz"
+        "kommissionierer-kommissioniererin-m-w-d-40-60-1-lidl-svizzera-sevaz",
+        "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz-e6m6zb"
       ],
       "salaryMin": 41100,
       "salaryMax": 62400,
@@ -2456,9 +2514,9 @@
       },
       "slugByLocale": {
         "it": "apprendistato-commercio-al-dettaglio-afp-o-cfc-lidl-svizzera-niederuzwil-3k6c1i",
-        "en": "lehrstelle-retail-eba-oder-efz-lidl-svizzera-niederuzwil-3k6c1i",
+        "en": "apprenticeship-detailhandel-eba-or-egz-niederuzwil-lidl-svizzera-niederuzwil",
         "de": "lehrstelle-detailhandel-eba-oder-efz-lidl-svizzera-niederuzwil-3k6c1i",
-        "fr": "lehrstelle-commerce-de-detail-eba-oder-efz-lidl-svizzera-niederuzwil-3k6c1i"
+        "fr": "apprenticeship-detailhandel-eba-ou-egz-niederuzwil-lidl-svizzera-niederuzwil"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -2466,10 +2524,18 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-detailhandel-eba-oder-efz-lidl-svizzera-niederuzwil"
+        ],
+        "en": [
+          "lehrstelle-retail-eba-oder-efz-lidl-svizzera-niederuzwil-3k6c1i"
+        ],
+        "fr": [
+          "lehrstelle-commerce-de-detail-eba-oder-efz-lidl-svizzera-niederuzwil-3k6c1i"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-detailhandel-eba-oder-efz-lidl-svizzera-niederuzwil"
+        "lehrstelle-detailhandel-eba-oder-efz-lidl-svizzera-niederuzwil",
+        "lehrstelle-retail-eba-oder-efz-lidl-svizzera-niederuzwil-3k6c1i",
+        "lehrstelle-commerce-de-detail-eba-oder-efz-lidl-svizzera-niederuzwil-3k6c1i"
       ],
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -2562,7 +2628,7 @@
     },
     {
       "id": "company-1afttw",
-      "slug": "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-niederlenz-1afttw",
+      "slug": "venditore-venditore-m-f-d-20-80-niederlenz-lidl-svizzera-niederlenz",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 20-80% — Niederlenz",
       "location": "Niederlenz",
@@ -2599,21 +2665,29 @@
         "fr": "Présentation\n\nVendre est votre passion ? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours ? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Contribution à une expérience d'achat positive de nos clients\n\n- Activités de trésorerie\n\n- Transport et entretien des marchandises au sein de la succursale\n\n- Contribution à l'aspect propre de la zone de vente\nVotre profil\n\n- Expérience professionnelle dans les ventes ou l'industrie comparable est bénéfique\n\n- Flexibilité en ce qui concerne les temps d'exploitation (MO-SA entre 5 h et 22 h); Changement prématuré ou tardif d'environ 9 heures chacun\n\n- Bonne forme physique\n\n- Aspect amical et soigné\n\n- Fiabilité et sens des responsabilités\n\n- Bonne connaissance de l'allemand\n\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Soyez activement impliqué. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons pour vos tâches variées et intéressantes avec une familiarisation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, des développements internes sont possibles. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-niederlenz-1afttw",
-        "en": "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-niederlenz-1afttw",
+        "it": "venditore-venditore-m-f-d-20-80-niederlenz-lidl-svizzera-niederlenz",
+        "en": "seller-seller-m-f-d-20-80-niederlenz-lidl-svizzera-niederlenz",
         "de": "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-niederlenz-1afttw",
-        "fr": "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-niederlenz-1afttw"
+        "fr": "vendeur-vendeur-h-f-d-20-80-niederlenz-lidl-svizzera-niederlenz"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-niederlenz"
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-niederlenz",
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-niederlenz-1afttw"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-niederlenz-1afttw"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-niederlenz-1afttw"
         ]
       },
       "previousSlugs": [
-        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-niederlenz"
+        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-niederlenz",
+        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-niederlenz-1afttw"
       ],
       "salaryMin": 49600,
       "salaryMax": 75200,
@@ -2634,7 +2708,7 @@
     },
     {
       "id": "company-mq7zg6",
-      "slug": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke-mq7zg6",
+      "slug": "venditore-con-responsabilita-a-turni-m-f-d-60-80-emmenbrucke-lidl-svizzera-emmenbrucke",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% — Emmenbrücke",
       "location": "Emmenbrücke",
@@ -2671,21 +2745,30 @@
         "fr": "Présentation\n\nVendre est votre passion? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Le changement de responsabilité en l'absence de la direction générale et du sous-ministre\n\n- Mise en œuvre des normes d'orientation client et de vente dans nos succursales\n\n- Appui à la planification du personnel, à la gestion du personnel et à l ' organisation des services\n\n- Disposition et présentation des biens\n\n- Activités de trésorerie\nVotre profil\n\n- Expérience professionnelle en vente ou environnement similaire\n\n- Idéalement achevée la formation professionnelle dans le commerce de détail\n\n- Flexibilité en ce qui concerne les temps d'exploitation (MO-SA entre 5 h et 22 h);\n\n- Compétences communicatives et plaisir à traiter avec les gens\n\n- Haute motivation, engagement et résilience\n\n- Bonne connaissance de l'allemand en paroles et en écriture\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Soyez activement impliqué. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons pour vos tâches variées et intéressantes avec une familiarisation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, nous vous développerons dans la direction générale adjointe (h/f/d). En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke-mq7zg6",
-        "en": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke-mq7zg6",
+        "it": "venditore-con-responsabilita-a-turni-m-f-d-60-80-emmenbrucke-lidl-svizzera-emmenbrucke",
+        "en": "seller-with-shift-responsibility-m-f-d-60-80-emmenbrucke-lidl-svizzera-emmenbrucke",
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke-mq7zg6",
-        "fr": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke-mq7zg6"
+        "fr": "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-emmenbrucke-lidl-svizzera-emmenbrucke"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke",
+          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke-mq7zg6"
+        ],
+        "en": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke-mq7zg6"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke-mq7zg6"
         ]
       },
       "previousSlugs": [
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke",
+        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke-mq7zg6",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke-mq7zg6"
       ],
       "salaryMin": 55600,
       "salaryMax": 84800,
@@ -2706,7 +2789,7 @@
     },
     {
       "id": "company-5mtpd9",
-      "slug": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-conthey-lidl-svizzera-conthey",
+      "slug": "venditore-multiuso-venditore-multiuso-m-f-d-40-conthey-lidl-svizzera-conthey",
       "company": "Lidl Svizzera",
       "title": "Vendeur polyvalent / Vendeuse polyvalente (h/f/d) 40% — Conthey",
       "location": "Conthey",
@@ -2743,9 +2826,9 @@
         "de": "Einleitung\n\nHaben Sie eine Leidenschaft für den Verkauf? Sie möchten jeden Tag das Beste von sich geben, um unseren Kunden das beste Einkaufserlebnis zu bieten? Möchten Sie Teil eines Goldteams sein? Du hast die richtige Tür getroffen. Wir bieten Ihnen spannende und abwechslungsreiche Karrieremöglichkeiten im dynamischen Einzelhandelsumfeld.\nDeine Mission\n\n- Platzierung und Verwaltung von Waren im Lager\n\n- Beitrag zu sauberen Verkaufsflächen\n\n- Beitrag zu einem positiven Einkaufserlebnis für unsere Kunden\nDein Profil\n\n- Flexibilität bei der Arbeitszeit (Montag bis Samstag zwischen 5:00 und 9:00 Uhr)\n\n- Gute körperliche Verfassung\n\n- Zuverlässigkeit und Rechenschaftspflicht\n\n- Gute Kenntnisse in Französisch\nUnser Angebot\n\nBei Lidl Schweiz gibt es Raum für Ehrgeiz und Innovation. Hilft, die Zukunft zu gestalten. Wachsen Sie jeden Tag professionell und persönlich. Während Ihrer eingehenden Erstausbildung bereiten wir Sie auf Ihre abwechslungsreiche und interessante Mission vor. Aufgrund Ihrer guten persönlichen Fähigkeiten sind interne berufliche Entwicklungen möglich. Darüber hinaus garantieren wir Ihnen einen sicheren Job, ein Traumteam, die Privilegien des CLC Lidl, exzellente professionelle Weitsicht und viele weitere interessante Vorteile. Nutzen Sie Ihre Chance und bewerben Sie sich jetzt online!"
       },
       "slugByLocale": {
-        "it": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-conthey-lidl-svizzera-conthey",
-        "en": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-conthey-5mtpd9",
-        "de": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-conthey-5mtpd9",
+        "it": "venditore-multiuso-venditore-multiuso-m-f-d-40-conthey-lidl-svizzera-conthey",
+        "en": "multi-purpose-seller-multi-purpose-seller-m-f-d-40-conthey-lidl-svizzera-conthey",
+        "de": "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-conthey-lidl-svizzera-conthey",
         "fr": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-conthey-5mtpd9"
       },
       "requirementsByLocale": {},
@@ -2754,12 +2837,20 @@
       "previousSlugsByLocale": {
         "it": [
           "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-conthey",
+          "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-conthey-5mtpd9",
+          "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-conthey-lidl-svizzera-conthey"
+        ],
+        "en": [
+          "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-conthey-5mtpd9"
+        ],
+        "de": [
           "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-conthey-5mtpd9"
         ]
       },
       "previousSlugs": [
         "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-conthey",
-        "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-conthey-5mtpd9"
+        "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-conthey-5mtpd9",
+        "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-conthey-lidl-svizzera-conthey"
       ],
       "salaryMin": 24200,
       "salaryMax": 36600,
@@ -2872,7 +2963,7 @@
         "it": "responsabile-clienti-responsabile-clienti-self-checkout-lucerna-lidl-svizzera-luzern",
         "en": "customer-manager-customer-manager-self-checkout-lucerne-lidl-svizzera-luzern",
         "de": "kundenbetreuer-kundenbetreuerin-self-checkout-lidl-svizzera-luzern-9m9tz1",
-        "fr": "kundenbetreuer-kundenbetreuerin-self-checkout-luzern-lidl-svizzera-luzern"
+        "fr": "gestionnaire-de-clients-gestionnaire-de-clients-auto-controle-lucerne-lidl-svizzera-luzern"
       },
       "titleByLocale": {
         "de": "Kundenbetreuer / Kundenbetreuerin Self-Checkout — Luzern",
@@ -2891,11 +2982,11 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "fr": [
-          "gestionnaire-de-clients-gestionnaire-de-clients-auto-controle-lucerne-lidl-svizzera-luzern"
+          "kundenbetreuer-kundenbetreuerin-self-checkout-luzern-lidl-svizzera-luzern"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-de-clients-gestionnaire-de-clients-auto-controle-lucerne-lidl-svizzera-luzern"
+        "kundenbetreuer-kundenbetreuerin-self-checkout-luzern-lidl-svizzera-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -2916,7 +3007,7 @@
     },
     {
       "id": "company-ssgtoz",
-      "slug": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz",
+      "slug": "stv-branch-manager-stv-branch-manager-m-f-d-80-100-st-moritz-lidl-svizzera-st-moritz",
       "company": "Lidl Svizzera",
       "title": "Stv. Filialleiter / Stv. Filialleiterin (m/w/d) 80-100% — St. Moritz",
       "location": "St. Moritz",
@@ -2954,21 +3045,26 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz",
+        "it": "stv-branch-manager-stv-branch-manager-m-f-d-80-100-st-moritz-lidl-svizzera-st-moritz",
         "en": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz",
         "de": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz",
-        "fr": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz"
+        "fr": "directeur-de-succursale-stv-directeur-de-succursale-stv-h-f-d-80-100-st-moritz-lidl-svizzera-st-moritz"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz"
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz"
+        ],
+        "fr": [
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz"
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz",
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -3062,7 +3158,7 @@
     },
     {
       "id": "company-lli2sq",
-      "slug": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-lli2sq",
+      "slug": "venditore-venditore-m-f-d-20-40-sois-lidl-svizzera-thusis",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 20-40% — Thusis",
       "location": "Thusis",
@@ -3099,21 +3195,29 @@
         "fr": "Présentation\n\nVendre est votre passion? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Contribution à une expérience d'achat positive de nos clients\n\n- Activités de trésorerie\n\n- Transport et entretien des marchandises au sein de la succursale\n\n- Contribution à l'aspect propre de la zone de vente\nVotre profil\n\n- Expérience professionnelle en vente ou dans un environnement similaire\n\n- Flexibilité concernant les temps d'exploitation (MO-SA entre 05:00 et 22:00)\n\n- Bonne forme physique\n\n- Aspect convivial et bien entretenu du client\n\n- Fiabilité et sens des responsabilités\n\n- Bonne connaissance de l'allemand\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Soyez activement impliqué. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons pour vos tâches variées et intéressantes avec une familiarisation intensive. Si vous désirez et avez de bonnes qualités personnelles, nous vous développerons en un vendeur avec responsabilité de quart (h/f/d). En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-lli2sq",
-        "en": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-lli2sq",
+        "it": "venditore-venditore-m-f-d-20-40-sois-lidl-svizzera-thusis",
+        "en": "seller-seller-m-f-d-20-40-thusis-lidl-svizzera-thusis",
         "de": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-lli2sq",
-        "fr": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-lli2sq"
+        "fr": "vendeur-vendeur-h-f-d-20-40-ainsi-lidl-svizzera-thusis"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis"
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis",
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-lli2sq"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-lli2sq"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-lli2sq"
         ]
       },
       "previousSlugs": [
-        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis"
+        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis",
+        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-lli2sq"
       ],
       "salaryMin": 23000,
       "salaryMax": 34800,
@@ -3134,7 +3238,7 @@
     },
     {
       "id": "company-isozig",
-      "slug": "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-luzern-isozig",
+      "slug": "venditore-venditore-m-f-d-20-60-lucerna-lidl-svizzera-luzern",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 20-60% — Luzern",
       "location": "Luzern",
@@ -3171,21 +3275,29 @@
         "fr": "Présentation\n\nVendre est votre passion ? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours ? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Contribution à une expérience d'achat positive de nos clients\n\n- Activités de trésorerie\n\n- Transport et entretien des marchandises au sein de la succursale\n\n- Contribution à l'aspect propre de la zone de vente\nVotre profil\n\n- Expérience professionnelle dans les ventes ou l'industrie comparable est bénéfique\n\n- Flexibilité en ce qui concerne les temps d'exploitation (MO-SA entre 5 h et 22 h); Changement prématuré ou tardif d'environ 9 heures chacun\n\n- Bonne forme physique\n\n- Aspect amical et soigné\n\n- Fiabilité et sens des responsabilités\n\n- Bonne connaissance de l'allemand\n\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Soyez activement impliqué. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons pour vos tâches variées et intéressantes avec une familiarisation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, des développements internes sont possibles. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-luzern-isozig",
-        "en": "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-luzern-isozig",
+        "it": "venditore-venditore-m-f-d-20-60-lucerna-lidl-svizzera-luzern",
+        "en": "seller-seller-m-f-d-20-60-lucerne-lidl-svizzera-luzern",
         "de": "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-luzern-isozig",
-        "fr": "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-luzern-isozig"
+        "fr": "vendeur-vendeur-h-f-d-20-60-lucerne-lidl-svizzera-luzern"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-luzern"
+          "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-luzern",
+          "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-luzern-isozig"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-luzern-isozig"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-luzern-isozig"
         ]
       },
       "previousSlugs": [
-        "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-luzern"
+        "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-luzern",
+        "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-luzern-isozig"
       ],
       "salaryMin": 41700,
       "salaryMax": 63600,
@@ -3206,7 +3318,7 @@
     },
     {
       "id": "company-m1i6ci",
-      "slug": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-burgdorf-m1i6ci",
+      "slug": "venditore-venditore-m-f-d-40-60-burgdorf-lidl-svizzera-burgdorf",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 40-60 % — Burgdorf",
       "location": "Burgdorf",
@@ -3243,21 +3355,29 @@
         "fr": "Présentation\n\nVendre est votre passion ? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours ? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Contribution à une expérience d'achat positive de nos clients\n\n- Activités de trésorerie\n\n- Transport et entretien des marchandises au sein de la succursale\n\n- Contribution à l'aspect propre de la zone de vente\nVotre profil\n\n- Expérience professionnelle dans les ventes ou l'industrie comparable est bénéfique\n\n- Flexibilité en ce qui concerne les temps d'exploitation (MO-SA entre 5 h et 22 h); Changement prématuré ou tardif d'environ 9 heures chacun\n\n- Bonne forme physique\n\n- Aspect amical et soigné\n\n- Fiabilité et sens des responsabilités\n\n- Bonne connaissance de l'allemand\n\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Soyez activement impliqué. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons pour vos tâches variées et intéressantes avec une familiarisation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, des développements internes sont possibles. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-burgdorf-m1i6ci",
-        "en": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-burgdorf-m1i6ci",
+        "it": "venditore-venditore-m-f-d-40-60-burgdorf-lidl-svizzera-burgdorf",
+        "en": "seller-seller-m-f-d-40-60-burgdorf-lidl-svizzera-burgdorf",
         "de": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-burgdorf-m1i6ci",
-        "fr": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-burgdorf-m1i6ci"
+        "fr": "vendeur-vendeur-h-f-d-40-60-burgdorf-lidl-svizzera-burgdorf"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-burgdorf"
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-burgdorf",
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-burgdorf-m1i6ci"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-burgdorf-m1i6ci"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-burgdorf-m1i6ci"
         ]
       },
       "previousSlugs": [
-        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-burgdorf"
+        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-burgdorf",
+        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-burgdorf-m1i6ci"
       ],
       "salaryMin": 41100,
       "salaryMax": 62400,
@@ -3278,7 +3398,7 @@
     },
     {
       "id": "company-xl990p",
-      "slug": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-kloten-xl990p",
+      "slug": "venditore-m-f-d-40-60-kloten-lidl-svizzera-kloten",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 40-60% — Kloten",
       "location": "Kloten",
@@ -3315,21 +3435,29 @@
         "fr": "Présentation\n\nVendre est votre passion? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Contribution à une expérience d'achat positive de nos clients\n\n- Activités de trésorerie\n\n- Transport et entretien des marchandises au sein de la succursale\n\n- Contribution à l'aspect propre de la zone de vente\nVotre profil\n\n- Expérience professionnelle en vente ou dans un environnement similaire\n\n- Flexibilité concernant les temps d'exploitation (MO-SA entre 05:00 et 22:00)\n\n- Bonne forme physique\n\n- Aspect convivial et bien entretenu du client\n\n- Fiabilité et sens des responsabilités\n\n- Bonne connaissance de l'allemand\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Soyez activement impliqué. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons pour vos tâches variées et intéressantes avec une familiarisation intensive. Si vous désirez et avez de bonnes qualités personnelles, nous vous développerons en un vendeur avec responsabilité de quart (h/f/d). En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-kloten-xl990p",
-        "en": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-kloten-xl990p",
+        "it": "venditore-m-f-d-40-60-kloten-lidl-svizzera-kloten",
+        "en": "seller-m-f-d-40-60-kloten-lidl-svizzera-kloten",
         "de": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-kloten-xl990p",
-        "fr": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-kloten-xl990p"
+        "fr": "vendeur-h-f-d-40-60-kloten-lidl-svizzera-kloten"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-kloten"
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-kloten",
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-kloten-xl990p"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-kloten-xl990p"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-kloten-xl990p"
         ]
       },
       "previousSlugs": [
-        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-kloten"
+        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-kloten",
+        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-kloten-xl990p"
       ],
       "salaryMin": 44100,
       "salaryMax": 66900,
@@ -3350,7 +3478,7 @@
     },
     {
       "id": "company-jen2gq",
-      "slug": "collaborateur-collaboratrice-transport-interne-recyclage-m-w-d-60-100-lidl-svizzera-sevaz-jen2gq",
+      "slug": "collaboratore-international-transport-recycling-collaboratore-m-f-d-60-100-lidl-svizzera-sevaz",
       "company": "Lidl Svizzera",
       "title": "Collaborateur / Collaboratrice Transport Interne & Recyclage (h/f/d) 60-100%",
       "location": "Sévaz",
@@ -3387,9 +3515,9 @@
         "de": "Einleitung\n\nLidl Schweiz kann sich einer immer dichter werdenden Präsenz auf dem Schweizer Markt rühmen. Seit dem Markteintritt im Jahr 2009 expandiert das Unternehmen schrittweise. Lidl Schweiz bietet Ihnen interessante Aufgaben und vielfältige Karrieremöglichkeiten in diesem dynamischen Einzelhandel.\nDeine Mission\n\n- Bereitstellung leerer Paletten für Lieferanten\n\n- Entsorgung und Kompression von recycelbaren Materialien, die von den Lagern verschickt werden\n\n- Reinigungsarbeiten im gesamten Lager\nDein Profil\n\n- Zuverlässigkeit, Autonomie und Stressresistenz\n\n- Teamgeist, Kommunikations- und Kooperationsfähigkeit\n\n- Verfügbarkeit für Arbeit im Schicht-, Nacht- und Sonntagsdienst\n\n- Der Führerschein für Gabelstapler wäre ein Plus\n\n- Gute Kenntnisse der deutschen und/oder französischen Sprache\nUnser Angebot\n\nBei Lidl Schweiz gibt es Raum für Ehrgeiz und Innovation. Hilft, die Zukunft zu gestalten. Wachsen Sie jeden Tag professionell und persönlich. Während Ihrer eingehenden Erstausbildung bereiten wir Sie auf Ihre abwechslungsreiche und interessante Mission vor. Darüber hinaus garantieren wir Ihnen einen sicheren Job, ein Traumteam, die Privilegien des CLC Lidl, exzellente professionelle Weitsicht und viele weitere interessante Vorteile. Nutzen Sie Ihre Chance und bewerben Sie sich jetzt online!"
       },
       "slugByLocale": {
-        "it": "collaborateur-collaboratrice-transport-interne-recyclage-m-w-d-60-100-lidl-svizzera-sevaz-jen2gq",
-        "en": "collaborateur-collaboratrice-transport-interne-recyclage-m-w-d-60-100-lidl-svizzera-sevaz-jen2gq",
-        "de": "collaborateur-collaboratrice-transport-interne-recyclage-m-w-d-60-100-lidl-svizzera-sevaz-jen2gq",
+        "it": "collaboratore-international-transport-recycling-collaboratore-m-f-d-60-100-lidl-svizzera-sevaz",
+        "en": "collaborator-international-transport-recycling-collaborator-m-f-d-60-100-lidl-svizzera-sevaz",
+        "de": "mitarbeiter-international-transport-recycling-mitarbeiter-m-w-d-60-100-lidl-svizzera-sevaz",
         "fr": "collaborateur-collaboratrice-transport-interne-recyclage-m-w-d-60-100-lidl-svizzera-sevaz-jen2gq"
       },
       "requirementsByLocale": {},
@@ -3398,15 +3526,23 @@
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-collaboratrice-transport-interne-recyclage-m-w-d-60-100-lidl-svizzera-sevaz",
-          "collaborateur-collaboratrice-transport-interne-recyclage-h-f-d-80-100-lidl-svizzera-sevaz"
+          "collaborateur-collaboratrice-transport-interne-recyclage-h-f-d-80-100-lidl-svizzera-sevaz",
+          "collaborateur-collaboratrice-transport-interne-recyclage-m-w-d-60-100-lidl-svizzera-sevaz-jen2gq"
         ],
         "fr": [
           "collaborateur-collaboratrice-transport-interne-recyclage-h-f-d-80-100-lidl-svizzera-sevaz"
+        ],
+        "en": [
+          "collaborateur-collaboratrice-transport-interne-recyclage-m-w-d-60-100-lidl-svizzera-sevaz-jen2gq"
+        ],
+        "de": [
+          "collaborateur-collaboratrice-transport-interne-recyclage-m-w-d-60-100-lidl-svizzera-sevaz-jen2gq"
         ]
       },
       "previousSlugs": [
         "collaborateur-collaboratrice-transport-interne-recyclage-m-w-d-60-100-lidl-svizzera-sevaz",
-        "collaborateur-collaboratrice-transport-interne-recyclage-h-f-d-80-100-lidl-svizzera-sevaz"
+        "collaborateur-collaboratrice-transport-interne-recyclage-h-f-d-80-100-lidl-svizzera-sevaz",
+        "collaborateur-collaboratrice-transport-interne-recyclage-m-w-d-60-100-lidl-svizzera-sevaz-jen2gq"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -3453,8 +3589,8 @@
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-20-lidl-svizzera-payerne",
-        "en": "vendeur-vendeuse-m-w-d-20-lidl-svizzera-payerne",
-        "de": "vendeur-vendeuse-m-w-d-20-lidl-svizzera-payerne",
+        "en": "seller-m-f-d-20-lidl-svizzera-payerne",
+        "de": "verkaufer-m-w-d-20-lidl-svizzera-payerne",
         "fr": "vendeur-vendeuse-m-w-d-20-lidl-svizzera-payerne-qvr24t"
       },
       "titleByLocale": {
@@ -3472,18 +3608,6 @@
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "fr",
-      "previousSlugsByLocale": {
-        "en": [
-          "seller-m-f-d-20-lidl-svizzera-payerne"
-        ],
-        "de": [
-          "verkaufer-m-w-d-20-lidl-svizzera-payerne"
-        ]
-      },
-      "previousSlugs": [
-        "seller-m-f-d-20-lidl-svizzera-payerne",
-        "verkaufer-m-w-d-20-lidl-svizzera-payerne"
-      ],
       "salaryMin": 12100,
       "salaryMax": 18300,
       "salarySource": "estimated",
@@ -3503,7 +3627,7 @@
     },
     {
       "id": "company-da3utt",
-      "slug": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-winterthur-da3utt",
+      "slug": "vendor-m-f-d-40-60-winterthur-lidl-svizzera-winterthur",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 40-60% — Winterthur",
       "location": "Winterthur",
@@ -3530,22 +3654,20 @@
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-winterthur",
         "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-winterthur-da3usu",
-        "vendor-m-f-d-40-60-winterthur-lidl-svizzera-winterthur",
-        "fournisseur-h-f-d-40-60-winterthur-lidl-svizzera-winterthur"
+        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-winterthur-da3utt"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-winterthur",
           "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-winterthur-da3usu",
-          "vendor-m-f-d-40-60-winterthur-lidl-svizzera-winterthur"
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-winterthur-da3utt"
         ],
         "en": [
-          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-winterthur-da3usu",
-          "vendor-m-f-d-40-60-winterthur-lidl-svizzera-winterthur"
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-winterthur-da3usu"
         ],
         "fr": [
           "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-winterthur-da3usu",
-          "fournisseur-h-f-d-40-60-winterthur-lidl-svizzera-winterthur"
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-winterthur-da3utt"
         ],
         "de": [
           "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-winterthur-da3usu"
@@ -3564,10 +3686,10 @@
         "fr": "Présentation\n\nVendre est votre passion? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Contribution à une expérience d'achat positive de nos clients\n\n- Activités de trésorerie\n\n- Transport et entretien des marchandises au sein de la succursale\n\n- Contribution à l'aspect propre de la zone de vente\nVotre profil\n\n- Expérience professionnelle en vente ou dans un environnement similaire\n\n- Flexibilité concernant les temps d'exploitation (MO-SA entre 05:00 et 22:00)\n\n- Bonne forme physique\n\n- Aspect convivial et bien entretenu du client\n\n- Fiabilité et sens des responsabilités\n\n- Bonne connaissance de l'allemand\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Soyez activement impliqué. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons pour vos tâches variées et intéressantes avec une familiarisation intensive. Si vous désirez et avez de bonnes qualités personnelles, nous vous développerons en un vendeur avec responsabilité de quart (h/f/d). En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-winterthur-da3utt",
+        "it": "vendor-m-f-d-40-60-winterthur-lidl-svizzera-winterthur",
         "en": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-winterthur-da3utt",
         "de": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-winterthur-da3utt",
-        "fr": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-winterthur-da3utt"
+        "fr": "fournisseur-h-f-d-40-60-winterthur-lidl-svizzera-winterthur"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -3628,7 +3750,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-neftenbach-oj65a6",
-        "en": "allrounder-verkauf-m-w-d-20-40-neftenbach-lidl-svizzera-neftenbach",
+        "en": "all-rounder-sale-m-f-d-20-40-neftenbach-lidl-svizzera-neftenbach",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-neftenbach-oj65a6",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-neftenbach-oj65a6"
       },
@@ -3641,14 +3763,12 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-neftenbach-oj65a6",
-          "all-rounder-sale-m-f-d-20-40-neftenbach-lidl-svizzera-neftenbach",
           "allrounder-verkauf-m-w-d-20-40-neftenbach-lidl-svizzera-neftenbach"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-neftenbach",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-neftenbach-oj65a6",
-        "all-rounder-sale-m-f-d-20-40-neftenbach-lidl-svizzera-neftenbach",
         "allrounder-verkauf-m-w-d-20-40-neftenbach-lidl-svizzera-neftenbach"
       ],
       "salarySource": "estimated",
@@ -3709,7 +3829,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-schaffhausen-rbw8mu",
-        "en": "allrounder-verkauf-m-w-d-20-40-schaffhausen-lidl-svizzera-schaffhausen",
+        "en": "all-rounder-sale-m-f-d-20-40-schaffhausen-lidl-svizzera-schaffhausen",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-schaffhausen-rbw8mu",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-schaffhausen-rbw8mu"
       },
@@ -3723,7 +3843,6 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-schaffhausen-rbw8mu",
-          "all-rounder-sale-m-f-d-20-40-schaffhausen-lidl-svizzera-schaffhausen",
           "allrounder-verkauf-m-w-d-20-40-schaffhausen-lidl-svizzera-schaffhausen"
         ]
       },
@@ -3731,7 +3850,6 @@
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-schaffhausen",
         "allrounder-verkauf-m-w-d-20-40-1-schaffhausen-lidl-svizzera-schaffhausen",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-schaffhausen-rbw8mu",
-        "all-rounder-sale-m-f-d-20-40-schaffhausen-lidl-svizzera-schaffhausen",
         "allrounder-verkauf-m-w-d-20-40-schaffhausen-lidl-svizzera-schaffhausen"
       ],
       "salarySource": "estimated",
@@ -3792,7 +3910,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-winterthur-u756tp",
-        "en": "allrounder-verkauf-m-w-d-20-40-winterthur-lidl-svizzera-winterthur",
+        "en": "all-rounder-sale-m-f-d-20-40-winterthur-lidl-svizzera-winterthur",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-winterthur-u756tp",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-winterthur-u756tp"
       },
@@ -3807,7 +3925,6 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-winterthur-u756tp",
-          "all-rounder-sale-m-f-d-20-40-winterthur-lidl-svizzera-winterthur",
           "allrounder-verkauf-m-w-d-20-40-winterthur-lidl-svizzera-winterthur"
         ]
       },
@@ -3816,7 +3933,6 @@
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur",
         "allrounder-verkauf-m-w-d-20-40-1-winterthur-lidl-svizzera-winterthur",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-winterthur-u756tp",
-        "all-rounder-sale-m-f-d-20-40-winterthur-lidl-svizzera-winterthur",
         "allrounder-verkauf-m-w-d-20-40-winterthur-lidl-svizzera-winterthur"
       ],
       "salarySource": "estimated",
@@ -4539,7 +4655,7 @@
     },
     {
       "id": "company-6mlim0",
-      "slug": "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-40-lidl-svizzera-winterthur-6mlim0",
+      "slug": "dipendenti-pulizia-dei-dipendenti-m-f-d-40-lidl-svizzera-winterthur",
       "company": "Lidl Svizzera",
       "title": "Mitarbeiter / Mitarbeiterin Reinigung (m/w/d) 40%",
       "location": "Winterthur",
@@ -4576,21 +4692,30 @@
         "fr": "Présentation\n\nAvec un réseau de succursales moderne, Lidl Suisse a une présence de plus en plus dense sur le marché suisse. L'expansion en Suisse s'est poursuivie depuis l'entrée sur le marché en 2009.\nVos tâches\n\n- Nettoyage de la zone de vente et des magasins\n\n- Respect des normes de qualité et d'hygiène\n\n- Contribution à une expérience d'achat positive de nos clients\nVotre profil\n\n- L'expérience dans le secteur du nettoyage est avantageuse\n\n- Flexibilité des temps d'exploitation (plusieurs fois par semaine entre 05:00 et 09:00)\n\n- Travail fiable et indépendant\n\n- Esprit d'équipe\nNous offrons\n\nNous vous préparons à vos activités avec une formation intensive. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-40-lidl-svizzera-winterthur-6mlim0",
-        "en": "mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-lidl-svizzera-winterthur-6mlim0",
+        "it": "dipendenti-pulizia-dei-dipendenti-m-f-d-40-lidl-svizzera-winterthur",
+        "en": "employee-employee-cleaning-m-f-d-40-lidl-svizzera-winterthur",
         "de": "mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-lidl-svizzera-winterthur-6mlim0",
-        "fr": "mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-lidl-svizzera-winterthur-6mlim0"
+        "fr": "nettoyage-des-employes-h-f-d-40-lidl-svizzera-winterthur"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-lidl-svizzera-winterthur"
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-lidl-svizzera-winterthur",
+          "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-40-lidl-svizzera-winterthur-6mlim0"
+        ],
+        "en": [
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-lidl-svizzera-winterthur-6mlim0"
+        ],
+        "fr": [
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-lidl-svizzera-winterthur-6mlim0"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-lidl-svizzera-winterthur"
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-lidl-svizzera-winterthur",
+        "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-40-lidl-svizzera-winterthur-6mlim0",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-lidl-svizzera-winterthur-6mlim0"
       ],
       "salaryMin": 29400,
       "salaryMax": 44600,
@@ -4715,7 +4840,7 @@
       "crawledAt": "2026-09-19T22:49:40.886Z",
       "firstSeenAt": "2026-09-10T23:05:45.537Z",
       "slugByLocale": {
-        "it": "venditore-m-w-d-40-60-1-lidl-svizzera-sierre",
+        "it": "seller-m-p-d-40-60-1-sierre-lidl-svizzera-sierre",
         "en": "seller-m-w-d-40-60-1-sierre-lidl-svizzera-sierre",
         "de": "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre-0clj8s",
         "fr": "vendeur-m-m-j-40-60-1-sierre-lidl-svizzera-sierre"
@@ -4757,8 +4882,7 @@
         "verkaufer-team-manager-m-w-d-60-80-sierre-lidl-svizzera-sierre",
         "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-sierre-4bok3w",
         "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-sierre",
-        "vertriebsleiter-teammanager-m-w-d-60-80-sierre-lidl-svizzera-sierre",
-        "seller-m-p-d-40-60-1-sierre-lidl-svizzera-sierre"
+        "vertriebsleiter-teammanager-m-w-d-60-80-sierre-lidl-svizzera-sierre"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4769,8 +4893,7 @@
           "verkaufer-team-manager-m-w-d-60-80-sierre-lidl-svizzera-sierre",
           "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-sierre-4bok3w",
           "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-sierre",
-          "vertriebsleiter-teammanager-m-w-d-60-80-sierre-lidl-svizzera-sierre",
-          "seller-m-p-d-40-60-1-sierre-lidl-svizzera-sierre"
+          "vertriebsleiter-teammanager-m-w-d-60-80-sierre-lidl-svizzera-sierre"
         ],
         "en": [
           "seller-team-manager-m-f-d-60-80-sierre-lidl-svizzera-sierre"
@@ -4826,7 +4949,7 @@
       },
       "slugByLocale": {
         "it": "vicedirettore-di-filiale-vicedirettore-di-filiale-m-f-d-80-100-hagendorf-lidl-svizzera-hagendorf",
-        "en": "assistant-store-manager-m-w-d-80-100-hagendorf-lidl-svizzera-hagendorf",
+        "en": "i-need-to-see-the-current-job-data-to-find-this-title-and-translate-it-properly-reading-the-job-files-to-locate-this",
         "de": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-hagendorf-lzoi9n",
         "fr": "directeur-directrice-de-succursale-adjoint-e-m-f-d-80-100-hagendorf-lidl-svizzera-hagendorf"
       },
@@ -4840,7 +4963,7 @@
         ],
         "en": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-hagendorf-lzoi9n",
-          "i-need-to-see-the-current-job-data-to-find-this-title-and-translate-it-properly-reading-the-job-files-to-locate-this"
+          "assistant-store-manager-m-w-d-80-100-hagendorf-lidl-svizzera-hagendorf"
         ],
         "fr": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-hagendorf-lzoi9n"
@@ -4849,7 +4972,7 @@
       "previousSlugs": [
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-hagendorf",
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-hagendorf-lzoi9n",
-        "i-need-to-see-the-current-job-data-to-find-this-title-and-translate-it-properly-reading-the-job-files-to-locate-this"
+        "assistant-store-manager-m-w-d-80-100-hagendorf-lidl-svizzera-hagendorf"
       ],
       "salarySource": "reported",
       "baseSalary": {
@@ -6767,7 +6890,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-zug-aasdjp",
-        "en": "allrounder-verkauf-m-w-d-20-40-zug-lidl-svizzera-zug",
+        "en": "all-rounder-sale-m-f-d-20-40-train-lidl-svizzera-zug",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-zug-aasdjp",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-zug-aasdjp"
       },
@@ -6780,13 +6903,13 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-zug-aasdjp",
-          "all-rounder-sale-m-f-d-20-40-train-lidl-svizzera-zug"
+          "allrounder-verkauf-m-w-d-20-40-zug-lidl-svizzera-zug"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-zug",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-zug-aasdjp",
-        "all-rounder-sale-m-f-d-20-40-train-lidl-svizzera-zug"
+        "allrounder-verkauf-m-w-d-20-40-zug-lidl-svizzera-zug"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -7352,7 +7475,7 @@
         "fr": "Présentation\n\nLidl Suisse est de plus en plus présente sur le marché suisse avec un réseau de succursales moderne. Depuis son entrée sur le marché en 2009, l'expansion en Suisse s'est poursuivie. Chez Lidl, des tâches passionnantes et diverses opportunités de carrière vous attendent dans l'environnement dynamique du commerce de détail.\n\n- gestion de la gamme de produits\n\n- Contrôle des marchandises des articles d'action\n\n- Création de rapports et d'évaluations internes avec Google Sheet\n\n- Modifier les demandes internes des fournisseurs\n\n- Soutien aux salariés de différents secteurs de l'activité des biens\n\n- Calcul et répartition des quantités d'action Votre profil\n\n- Formation professionnelle terminée\n\n- Première expérience professionnelle dans la disposition des aliments est avantageux\n\n- Bonnes compétences Google espace de travail et de flair pour les chiffres\n\n- Capacité d'équipe, flexibilité, coopération et capacité de communication ainsi que résilience\n\n- Méthodes de travail fiables et indépendantes\n\n- Bon allemand, avantage italien que nous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Participez activement. Gagnez chaque jour sur le plan professionnel et personnel. Nous vous préparons à vos tâches variées et intéressantes avec une formation intensive. Nous vous offrons également la sécurité d'une position permanente, une grande équipe, les avantages du Lidl-GAV, une excellente pension professionnelle et d'autres avantages attrayants. Profitez de l'opportunité et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "assistente-supply-chain-m-f-d-80-100-lidl-svizzera-weinfelden",
+        "it": "assistant-supply-chain-m-w-d-80-100-lidl-svizzera-weinfelden-vautza",
         "en": "assistant-supply-chain-m-w-d-80-100-lidl-svizzera-weinfelden-vautza",
         "de": "assistent-lieferkette-m-w-d-80-100-lidl-svizzera-weinfelden-vautza",
         "fr": "assistant-chaine-d-approvisionnement-m-w-d-80-100-lidl-svizzera-weinfelden-vautza"
@@ -7370,8 +7493,7 @@
           "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden",
           "assistent-lieferkette-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
           "assistant-chaine-d-approvisionnement-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
-          "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
-          "assistant-supply-chain-m-w-d-80-100-lidl-svizzera-weinfelden-vautza"
+          "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu"
         ],
         "en": [
           "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-gg2tuc"
@@ -7392,8 +7514,7 @@
         "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden",
         "assistent-lieferkette-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
         "assistant-chaine-d-approvisionnement-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
-        "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
-        "assistant-supply-chain-m-w-d-80-100-lidl-svizzera-weinfelden-vautza"
+        "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -8274,15 +8395,13 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-gattikon-wbm59z",
-          "all-rounder-sale-m-f-d-20-40-gattikon-lidl-svizzera-gattikon",
-          "allrounder-verkauf-m-w-d-20-40-gattikon-lidl-svizzera-gattikon"
+          "all-rounder-sale-m-f-d-20-40-gattikon-lidl-svizzera-gattikon"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-gattikon",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-gattikon-wbm59z",
-        "all-rounder-sale-m-f-d-20-40-gattikon-lidl-svizzera-gattikon",
-        "allrounder-verkauf-m-w-d-20-40-gattikon-lidl-svizzera-gattikon"
+        "all-rounder-sale-m-f-d-20-40-gattikon-lidl-svizzera-gattikon"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -8419,8 +8538,8 @@
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-schlieren-b35n2n",
         "allrounder-verkauf-m-w-d-20-40-schlieren-lidl-svizzera-schlieren",
         "allrounder-vendita-m-w-d-20-40-lidl-svizzera-schlieren-b35n2n",
-        "all-rounder-sale-m-f-d-20-40-schlieren-lidl-svizzera-schlieren",
-        "allrounder-vente-m-w-d-20-40-lidl-svizzera-schlieren-b35n2n"
+        "allrounder-vente-m-w-d-20-40-lidl-svizzera-schlieren-b35n2n",
+        "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-schlieren-b35mi0"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8433,7 +8552,7 @@
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-schlieren-b35n2n",
           "allrounder-verkauf-m-w-d-20-40-schlieren-lidl-svizzera-schlieren",
-          "all-rounder-sale-m-f-d-20-40-schlieren-lidl-svizzera-schlieren"
+          "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-schlieren-b35mi0"
         ],
         "de": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-schlieren-b35n2n"
@@ -8456,7 +8575,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-schlieren-b35mi0",
-        "en": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-schlieren-b35mi0",
+        "en": "all-rounder-sale-m-f-d-20-40-schlieren-lidl-svizzera-schlieren",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-schlieren-b35mi0",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-schlieren-b35mi0"
       },
@@ -8684,15 +8803,13 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
-          "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig",
-          "allrounder-verkauf-m-w-d-20-40-brig-lidl-svizzera-brig"
+          "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
-        "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig",
-        "allrounder-verkauf-m-w-d-20-40-brig-lidl-svizzera-brig"
+        "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -8752,7 +8869,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-dietikon-ygychn",
-        "en": "allrounder-verkauf-m-w-d-20-40-dietikon-lidl-svizzera-dietikon",
+        "en": "all-rounder-sale-m-f-d-20-40-dietikon-lidl-svizzera-dietikon",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-dietikon-ygychn",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-dietikon-ygychn"
       },
@@ -8766,7 +8883,6 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-dietikon-ygychn",
-          "all-rounder-sale-m-f-d-20-40-dietikon-lidl-svizzera-dietikon",
           "allrounder-verkauf-m-w-d-20-40-dietikon-lidl-svizzera-dietikon"
         ]
       },
@@ -8774,7 +8890,6 @@
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-dietikon",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-dietikon-ygychn",
         "allrounder-verkauf-m-w-d-20-40-1-dietikon-lidl-svizzera-dietikon",
-        "all-rounder-sale-m-f-d-20-40-dietikon-lidl-svizzera-dietikon",
         "allrounder-verkauf-m-w-d-20-40-dietikon-lidl-svizzera-dietikon"
       ],
       "baseSalary": {
@@ -8838,7 +8953,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-spreitenbach-w6qqwb",
-        "en": "allrounder-verkauf-m-w-d-20-40-spreitenbach-lidl-svizzera-spreitenbach",
+        "en": "all-rounder-sale-m-f-d-20-40-spreitenbach-lidl-svizzera-spreitenbach",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-spreitenbach-w6qqwb",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-spreitenbach-w6qqwb"
       },
@@ -8851,14 +8966,12 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-spreitenbach-w6qqwb",
-          "all-rounder-sale-m-f-d-20-40-spreitenbach-lidl-svizzera-spreitenbach",
           "allrounder-verkauf-m-w-d-20-40-spreitenbach-lidl-svizzera-spreitenbach"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-spreitenbach",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-spreitenbach-w6qqwb",
-        "all-rounder-sale-m-f-d-20-40-spreitenbach-lidl-svizzera-spreitenbach",
         "allrounder-verkauf-m-w-d-20-40-spreitenbach-lidl-svizzera-spreitenbach"
       ],
       "baseSalary": {
@@ -9264,15 +9377,13 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-rudolfstetten-dobckd",
-          "all-rounder-sale-m-f-d-20-40-rudolfstetten-lidl-svizzera-rudolfstetten",
-          "allrounder-verkauf-m-w-d-20-40-rudolfstetten-lidl-svizzera-rudolfstetten"
+          "all-rounder-sale-m-f-d-20-40-rudolfstetten-lidl-svizzera-rudolfstetten"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-rudolfstetten",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-rudolfstetten-dobckd",
-        "all-rounder-sale-m-f-d-20-40-rudolfstetten-lidl-svizzera-rudolfstetten",
-        "allrounder-verkauf-m-w-d-20-40-rudolfstetten-lidl-svizzera-rudolfstetten"
+        "all-rounder-sale-m-f-d-20-40-rudolfstetten-lidl-svizzera-rudolfstetten"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -10494,7 +10605,7 @@
       "slugByLocale": {
         "it": "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-matran-lidl-svizzera-matran",
         "en": "salesman-team-manager-m-f-d-60-matran-lidl-svizzera-matran",
-        "de": "vertriebsmitarbeiter-teammanager-m-w-d-60-matran-lidl-svizzera-matran",
+        "de": "verkaufer-team-manager-m-w-d-60-matran-lidl-svizzera-matran",
         "fr": "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-matran-xg8se4"
       },
       "requirementsByLocale": {},
@@ -10510,14 +10621,12 @@
         ],
         "de": [
           "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-matran-xg8se4",
-          "verkaufer-team-manager-m-w-d-60-matran-lidl-svizzera-matran",
           "vertriebsmitarbeiter-teammanager-m-w-d-60-matran-lidl-svizzera-matran"
         ]
       },
       "previousSlugs": [
         "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-matran",
         "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-matran-xg8se4",
-        "verkaufer-team-manager-m-w-d-60-matran-lidl-svizzera-matran",
         "vertriebsmitarbeiter-teammanager-m-w-d-60-matran-lidl-svizzera-matran"
       ],
       "baseSalary": {
@@ -15001,7 +15110,7 @@
     },
     {
       "id": "company-28w3kf",
-      "slug": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kf",
+      "slug": "venditore-con-responsabilita-a-turni-m-f-d-60-80-lucerna-lidl-svizzera-luzern",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% — Luzern",
       "location": "Luzern",
@@ -15038,10 +15147,10 @@
         "fr": "Présentation\n\nVendre est votre passion? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Le changement de responsabilité en l'absence de la direction générale et du sous-ministre\n\n- Mise en œuvre des normes d'orientation client et de vente dans nos succursales\n\n- Appui à la planification du personnel, à la gestion du personnel et à l ' organisation des services\n\n- Disposition et présentation des biens\n\n- Activités de trésorerie\nVotre profil\n\n- Expérience professionnelle en vente ou environnement similaire\n\n- Idéalement achevée la formation professionnelle dans le commerce de détail\n\n- Flexibilité en ce qui concerne les temps d'exploitation (MO-SA entre 5 h et 22 h);\n\n- Compétences communicatives et plaisir à traiter avec les gens\n\n- Haute motivation, engagement et résilience\n\n- Bonne connaissance de l'allemand en paroles et en écriture\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Soyez activement impliqué. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons pour vos tâches variées et intéressantes avec une familiarisation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, nous vous développerons dans la direction générale adjointe (h/f/d). En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kf",
-        "en": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kf",
+        "it": "venditore-con-responsabilita-a-turni-m-f-d-60-80-lucerna-lidl-svizzera-luzern",
+        "en": "seller-with-shift-responsibility-m-f-d-60-80-lucerne-lidl-svizzera-luzern",
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kf",
-        "fr": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kf"
+        "fr": "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-lucerne-lidl-svizzera-luzern"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -15051,14 +15160,23 @@
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern",
           "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-2lmnrg",
           "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-jhm403",
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-2lmnrg"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-2lmnrg",
+          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kf"
+        ],
+        "en": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kf"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kf"
         ]
       },
       "previousSlugs": [
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern",
         "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-2lmnrg",
         "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-jhm403",
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-2lmnrg"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-2lmnrg",
+        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kf",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kf"
       ],
       "salaryMin": 55600,
       "salaryMax": 84800,
@@ -16164,7 +16282,7 @@
       "slugByLocale": {
         "it": "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-conthey",
         "en": "assistant-manager-assistant-manager-h-f-d-80-lidl-svizzera-conthey",
-        "de": "stellvertretender-geschaftsfuhrer-stellvertretende-geschaftsfuhrerin-80-lidl-svizzera-conthey",
+        "de": "assistant-manager-assistant-manager-h-w-d-80-lidl-svizzera-conthey",
         "fr": "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-conthey-98tdrr"
       },
       "titleByLocale": {
@@ -16235,7 +16353,6 @@
           "stellvertretender-manager-m-f-d-80-100-oron-lidl-svizzera-oron",
           "stellvertretender-geschaftsfuhrer-stellvertretender-geschaftsfuhrer-h-w-d-80-100-lausanne-lidl-svizzera-lausanne",
           "stellvertretender-manager-m-f-d-80-100-payerne-lidl-svizzera-payerne",
-          "assistant-manager-assistant-manager-h-w-d-80-lidl-svizzera-conthey",
           "stellvertretender-geschaftsfuhrer-stellvertretende-geschaftsfuhrerin-80-lidl-svizzera-conthey"
         ],
         "fr": [
@@ -16293,7 +16410,6 @@
         "stellvertretender-manager-m-f-d-80-100-payerne-lidl-svizzera-payerne",
         "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-payerne-75h5gt",
         "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-payerne",
-        "assistant-manager-assistant-manager-h-w-d-80-lidl-svizzera-conthey",
         "stellvertretender-geschaftsfuhrer-stellvertretende-geschaftsfuhrerin-80-lidl-svizzera-conthey"
       ],
       "salarySource": "reported",
@@ -16505,7 +16621,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-horgen-4e97nd",
-        "en": "allrounder-verkauf-m-w-d-20-40-horgen-lidl-svizzera-horgen",
+        "en": "all-rounder-sale-m-f-d-20-40-horgen-lidl-svizzera-horgen",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horgen-4e97nd",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-horgen-4e97nd"
       },
@@ -16518,14 +16634,12 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horgen-4e97nd",
-          "all-rounder-sale-m-f-d-20-40-horgen-lidl-svizzera-horgen",
           "allrounder-verkauf-m-w-d-20-40-horgen-lidl-svizzera-horgen"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horgen",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horgen-4e97nd",
-        "all-rounder-sale-m-f-d-20-40-horgen-lidl-svizzera-horgen",
         "allrounder-verkauf-m-w-d-20-40-horgen-lidl-svizzera-horgen"
       ],
       "baseSalary": {
@@ -16783,7 +16897,7 @@
         "it": "gestione-clienti-self-checkout-20-30-ostermundigen-lidl-svizzera-ostermundigen",
         "en": "customer-care-provider-self-checkout-20-30-lidl-svizzera-ostermundigen",
         "de": "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen-0928ok",
-        "fr": "gestionnaire-de-clients-autocontrole-20-30-ostermundingen-ostermundigen-lidl-svizzera-ostermundigen"
+        "fr": "fournisseur-de-soins-a-la-clientele-auto-controle-20-30-lidl-svizzera-ostermundigen"
       },
       "titleByLocale": {
         "it": "Gestione clienti Self-Checkout 20-30 — Ostermundigen",
@@ -16828,7 +16942,6 @@
         ],
         "fr": [
           "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen-0928ok",
-          "fournisseur-de-soins-a-la-clientele-auto-controle-20-30-lidl-svizzera-ostermundigen",
           "gestionnaire-de-clients-autocontrole-20-30-ostermundingen-ostermundigen-lidl-svizzera-ostermundigen"
         ]
       },
@@ -16839,7 +16952,6 @@
         "kundenbetreuer-kundenbetreuerin-self-checkout-40-60-lidl-svizzera-bern",
         "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen-0928ok",
         "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen",
-        "fournisseur-de-soins-a-la-clientele-auto-controle-20-30-lidl-svizzera-ostermundigen",
         "gestionnaire-de-clients-autocontrole-20-30-ostermundingen-ostermundigen-lidl-svizzera-ostermundigen"
       ],
       "salarySource": "reported",
@@ -17117,7 +17229,7 @@
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-60-lidl-svizzera-courgevaux",
-        "en": "sales-associate-m-w-d-60-courgevaux-lidl-svizzera-courgevaux",
+        "en": "seller-h-f-d-60-lidl-svizzera-courgevaux",
         "de": "verkaufer-h-f-d-60-lidl-svizzera-courgevaux",
         "fr": "vendeur-vendeuse-m-w-d-60-lidl-svizzera-courgevaux-71jza4"
       },
@@ -17157,7 +17269,6 @@
         ],
         "en": [
           "vendeur-vendeuse-m-w-d-60-lidl-svizzera-courgevaux-71jza4",
-          "seller-h-f-d-60-lidl-svizzera-courgevaux",
           "sales-associate-m-w-d-60-courgevaux-lidl-svizzera-courgevaux"
         ],
         "de": [
@@ -17166,7 +17277,6 @@
       },
       "previousSlugs": [
         "vendeur-vendeuse-m-w-d-60-lidl-svizzera-courgevaux-71jza4",
-        "seller-h-f-d-60-lidl-svizzera-courgevaux",
         "sales-associate-m-w-d-60-courgevaux-lidl-svizzera-courgevaux"
       ],
       "salarySource": "estimated",
@@ -17215,7 +17325,7 @@
         "it": "cassiera-cassiera-lun-f-due-40-60-lidl-svizzera-bern",
         "en": "cashier-m-f-d-40-60-lidl-svizzera-bern",
         "de": "kassierer-kassiererin-m-w-d-40-60-lidl-svizzera-bern-fvg78y",
-        "fr": "caissier-m-w-d-40-60-lidl-svizzera-bern"
+        "fr": "caisse-m-f-j-40-60-lidl-svizzera-bern"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -17230,14 +17340,12 @@
         ],
         "fr": [
           "kassierer-kassiererin-m-w-d-40-60-lidl-svizzera-bern-fvg78y",
-          "caisse-m-f-j-40-60-lidl-svizzera-bern",
           "caissier-m-w-d-40-60-lidl-svizzera-bern"
         ]
       },
       "previousSlugs": [
         "kassierer-kassiererin-m-w-d-40-60-lidl-svizzera-bern",
         "kassierer-kassiererin-m-w-d-40-60-lidl-svizzera-bern-fvg78y",
-        "caisse-m-f-j-40-60-lidl-svizzera-bern",
         "caissier-m-w-d-40-60-lidl-svizzera-bern"
       ],
       "baseSalary": {
@@ -17747,8 +17855,7 @@
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mnlclf",
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mopjxd",
         "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mnlclf",
-        "seller-with-shift-responsibility-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil",
-        "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-wadenswil-lidl-svizzera-wadenswil"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-wadenswil-lidl-svizzera-wadenswil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17772,7 +17879,7 @@
           "seller-with-shift-responsibility-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil-a77759",
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mnlclf",
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mopjxd",
-          "seller-with-shift-responsibility-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-wadenswil-lidl-svizzera-wadenswil"
         ],
         "de": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-51vyzo",
@@ -17789,14 +17896,14 @@
           "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil-a77759",
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mnlclf",
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mopjxd",
-          "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-wadenswil-lidl-svizzera-wadenswil"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-wadenswil-lidl-svizzera-wadenswil"
         ]
       },
       "slugByLocale": {
         "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mopjxd",
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mopjxd",
-        "en": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-wadenswil-lidl-svizzera-wadenswil",
-        "fr": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-wadenswil-lidl-svizzera-wadenswil"
+        "en": "seller-with-shift-responsibility-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil",
+        "fr": "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-wadenswil-lidl-svizzera-wadenswil"
       },
       "titleByLocale": {
         "de": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% — Wädenswil",
@@ -17832,7 +17939,7 @@
     },
     {
       "id": "company-q76ons",
-      "slug": "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q76ons",
+      "slug": "dipendenti-pulizia-dei-dipendenti-m-f-d-20-40-sabato-lidl-svizzera-samstagern",
       "company": "Lidl Svizzera",
       "title": "Mitarbeiter / Mitarbeiterin Reinigung (m/w/d) 20-40% — Samstagern",
       "location": "Samstagern",
@@ -17861,22 +17968,23 @@
         "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q764s7",
         "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q764s7",
         "impiegato-pulizia-dei-dipendenti-m-f-d-20-40-sabato-lidl-svizzera-samstagern",
-        "employee-employee-cleaning-m-f-d-20-40-saturdays-lidl-svizzera-samstagern",
-        "nettoyage-des-employes-h-f-d-20-40-samedis-lidl-svizzera-samstagern"
+        "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q76ons",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q76ons"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern",
           "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q764s7",
-          "impiegato-pulizia-dei-dipendenti-m-f-d-20-40-sabato-lidl-svizzera-samstagern"
+          "impiegato-pulizia-dei-dipendenti-m-f-d-20-40-sabato-lidl-svizzera-samstagern",
+          "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q76ons"
         ],
         "en": [
           "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q764s7",
-          "employee-employee-cleaning-m-f-d-20-40-saturdays-lidl-svizzera-samstagern"
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q76ons"
         ],
         "fr": [
           "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q764s7",
-          "nettoyage-des-employes-h-f-d-20-40-samedis-lidl-svizzera-samstagern"
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q76ons"
         ],
         "de": [
           "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q764s7"
@@ -17895,10 +18003,10 @@
         "fr": "Présentation\n\nAvec un réseau de succursales moderne, Lidl Suisse a une présence de plus en plus dense sur le marché suisse. L'expansion en Suisse s'est poursuivie depuis l'entrée sur le marché en 2009.\nVos tâches\n\n- Nettoyage de la zone de vente et des magasins\n\n- Respect des normes de qualité et d'hygiène\n\n- Contribution à une expérience d'achat positive de nos clients\nVotre profil\n\n- L'expérience dans le secteur du nettoyage est avantageuse\n\n- Flexibilité des temps d'exploitation (plusieurs fois par semaine entre 05:00 et 09:00)\n\n- Travail fiable et indépendant\n\n- Esprit d'équipe\nNous offrons\n\nNous vous préparons à vos activités avec une formation intensive. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q76ons",
-        "en": "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q76ons",
+        "it": "dipendenti-pulizia-dei-dipendenti-m-f-d-20-40-sabato-lidl-svizzera-samstagern",
+        "en": "employee-employee-cleaning-m-f-d-20-40-saturdays-lidl-svizzera-samstagern",
         "de": "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q76ons",
-        "fr": "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q76ons"
+        "fr": "nettoyage-des-employes-h-f-d-20-40-samedis-lidl-svizzera-samstagern"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -18169,7 +18277,7 @@
     },
     {
       "id": "company-imy23g",
-      "slug": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-schlieren-imy23g",
+      "slug": "stv-branch-manager-stv-branch-manager-m-f-d-80-100-schlieren-lidl-svizzera-schlieren",
       "company": "Lidl Svizzera",
       "title": "Stv. Filialleiter / Stv. Filialleiterin (m/w/d) 80-100% — Schlieren",
       "location": "Schlieren",
@@ -18207,10 +18315,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-schlieren-imy23g",
+        "it": "stv-branch-manager-stv-branch-manager-m-f-d-80-100-schlieren-lidl-svizzera-schlieren",
         "en": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-schlieren-imy23g",
         "de": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-schlieren-imy23g",
-        "fr": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-schlieren-imy23g"
+        "fr": "directeur-de-succursale-stv-gestionnaire-de-succursale-stv-h-f-d-80-100-schlieren-lidl-svizzera-schlieren"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -18219,7 +18327,8 @@
         "it": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-schlieren",
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-schlieren-2",
-          "deputy-store-manager-m-w-d-80-100-schlieren-lidl-svizzera-schlieren-imy22o"
+          "deputy-store-manager-m-w-d-80-100-schlieren-lidl-svizzera-schlieren-imy22o",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-schlieren-imy23g"
         ],
         "en": [
           "stv-branch-manager-stv-branch-manager-m-f-d-80-100-schlieren-lidl-svizzera-schlieren"
@@ -18228,7 +18337,8 @@
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-schlieren-imy22o"
         ],
         "fr": [
-          "gestionnaire-de-succursale-stv-gestionnaire-de-succursale-stv-h-f-d-80-100-schlieren-lidl-svizzera-schlieren"
+          "gestionnaire-de-succursale-stv-gestionnaire-de-succursale-stv-h-f-d-80-100-schlieren-lidl-svizzera-schlieren",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-schlieren-imy23g"
         ]
       },
       "previousSlugs": [
@@ -18237,7 +18347,8 @@
         "deputy-store-manager-m-w-d-80-100-schlieren-lidl-svizzera-schlieren-imy22o",
         "stv-branch-manager-stv-branch-manager-m-f-d-80-100-schlieren-lidl-svizzera-schlieren",
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-schlieren-imy22o",
-        "gestionnaire-de-succursale-stv-gestionnaire-de-succursale-stv-h-f-d-80-100-schlieren-lidl-svizzera-schlieren"
+        "gestionnaire-de-succursale-stv-gestionnaire-de-succursale-stv-h-f-d-80-100-schlieren-lidl-svizzera-schlieren",
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-schlieren-imy23g"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

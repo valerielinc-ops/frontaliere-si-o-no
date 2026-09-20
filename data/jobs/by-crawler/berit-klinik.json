@@ -728,7 +728,7 @@
       },
       "slugByLocale": {
         "it": "ristorante-50-berit-klinik-wattwil",
-        "en": "internet-connection-berit-klinik-wattwil",
+        "en": "restaurant-50-berit-klinik-wattwil",
         "de": "restaurant-50-berit-klinik",
         "fr": "restaurant-50-berit-klinik-wattwil"
       },
@@ -738,7 +738,6 @@
       "id": "berit-klinik-3ff0c2424361",
       "previousSlugs": [
         "restaurant-50-berit-klinik",
-        "restaurant-50-berit-klinik-wattwil",
         "internet-connection-berit-klinik-wattwil"
       ],
       "previousSlugsByLocale": {
@@ -747,7 +746,6 @@
         ],
         "en": [
           "restaurant-50-berit-klinik",
-          "restaurant-50-berit-klinik-wattwil",
           "internet-connection-berit-klinik-wattwil"
         ]
       },
@@ -852,7 +850,7 @@
     },
     {
       "title": "Mitarbeiter:in Technischer Dienst, 100%",
-      "slug": "collaboratore-trice-technischer-dienst-100-berit-klinik-wattwil",
+      "slug": "servizio-tecnico-dipendente-100-berit-klinik-wattwil",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_ma_technischer_dienst_ww__100__ec505ebaf2.pdf",
       "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
       "company": "Berit Klinik",
@@ -888,9 +886,9 @@
       },
       "slugByLocale": {
         "de": "mitarbeiter-in-technischer-dienst-100-berit-klinik",
-        "it": "collaboratore-trice-technischer-dienst-100-berit-klinik-wattwil",
-        "en": "mitarbeiter-in-technischer-dienst-100-berit-klinik",
-        "fr": "mitarbeiter-in-technischer-dienst-100-berit-klinik"
+        "it": "servizio-tecnico-dipendente-100-berit-klinik-wattwil",
+        "en": "employee-technical-service-100-berit-klinik-wattwil",
+        "fr": "service-technique-des-employes-100-berit-klinik-wattwil"
       },
       "_meta": {
         "sourceFilename": "stelleninserat_ma_technischer_dienst_ww__100__ec505ebaf2.pdf"
@@ -901,17 +899,25 @@
           "mitarbeiter-in-technischer-dienst-100-berit-klinik",
           "mitarbeiter-in-technischer-dienst-100-fachbereich-sanit-r-berit-klinik",
           "employee-technical-service-100-berit-klinik-speicher",
-          "service-technique-des-employes-100-berit-klinik-speicher"
+          "service-technique-des-employes-100-berit-klinik-speicher",
+          "collaboratore-trice-technischer-dienst-100-berit-klinik-wattwil"
         ],
         "de": [
           "mitarbeiter-in-technischer-dienst-100-fachbereich-sanit-r-berit-klinik"
+        ],
+        "en": [
+          "mitarbeiter-in-technischer-dienst-100-berit-klinik"
+        ],
+        "fr": [
+          "mitarbeiter-in-technischer-dienst-100-berit-klinik"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-technischer-dienst-100-berit-klinik",
         "mitarbeiter-in-technischer-dienst-100-fachbereich-sanit-r-berit-klinik",
         "employee-technical-service-100-berit-klinik-speicher",
-        "service-technique-des-employes-100-berit-klinik-speicher"
+        "service-technique-des-employes-100-berit-klinik-speicher",
+        "collaboratore-trice-technischer-dienst-100-berit-klinik-wattwil"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

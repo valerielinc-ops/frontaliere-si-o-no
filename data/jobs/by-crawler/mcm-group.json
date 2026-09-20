@@ -79,12 +79,12 @@
     },
     {
       "id": "mcm-group-50e682056cc5",
-      "slug": "hausarztin-hausarzt-50-100-mannedorf-mcm-group-ch",
+      "slug": "dottore-di-famiglia-medico-di-famiglia-50-100-medizinisches-center-bonaduz-mannedorf",
       "slugByLocale": {
         "de": "hausarztin-hausarzt-50-100-mannedorf-mcm-group-ch",
-        "it": "hausarztin-hausarzt-50-100-mannedorf-mcm-group-ch",
-        "en": "hausarztin-hausarzt-50-100-mannedorf-mcm-group-ch",
-        "fr": "hausarztin-hausarzt-50-100-mannedorf-mcm-group-ch"
+        "it": "dottore-di-famiglia-medico-di-famiglia-50-100-medizinisches-center-bonaduz-mannedorf",
+        "en": "family-doctor-family-doctor-50-100-medizinisches-center-bonaduz-mannedorf",
+        "fr": "medecin-de-famille-medecin-de-famille-50-100-medizinisches-center-bonaduz-mannedorf"
       },
       "company": "Medizinisches Center Bonaduz",
       "companyKey": "mcm-group",
@@ -141,16 +141,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:50:18.023Z"
+      "firstSeenAt": "2026-09-19T22:50:18.023Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hausarztin-hausarzt-50-100-mannedorf-mcm-group-ch"
+        ],
+        "en": [
+          "hausarztin-hausarzt-50-100-mannedorf-mcm-group-ch"
+        ],
+        "fr": [
+          "hausarztin-hausarzt-50-100-mannedorf-mcm-group-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hausarztin-hausarzt-50-100-mannedorf-mcm-group-ch"
+      ]
     },
     {
       "id": "mcm-group-b8d76fe67ca5",
-      "slug": "facharztin-facharzt-allgemeine-innere-medizin-o-praktische-arztin-praktischer-arzt-medizinisches-center-bonaduz",
+      "slug": "specialista-specialista-medicina-interna-generale-o-medico-pratico-medico-pratico-medizinisches-center-bonaduz-bonaduz",
       "slugByLocale": {
         "de": "facharztin-facharzt-allgemeine-innere-medizin-oder-praktische-arztin-praktischer-arzt",
-        "it": "facharztin-facharzt-allgemeine-innere-medizin-o-praktische-arztin-praktischer-arzt-medizinisches-center-bonaduz",
-        "en": "facharztin-facharzt-allgemeine-innere-medizin-oder-praktische-arztin-praktischer-arzt",
-        "fr": "facharztin-facharzt-allgemeine-innere-medizin-oder-praktische-arztin-praktischer-arzt"
+        "it": "specialista-specialista-medicina-interna-generale-o-medico-pratico-medico-pratico-medizinisches-center-bonaduz-bonaduz",
+        "en": "specialist-specialist-general-internal-medicine-or-practical-doctor-practical-doctor-medizinisches-center-bonaduz",
+        "fr": "specialiste-specialiste-general-medecine-interne-ou-medecin-pratique-medecin-pratique-medizinisches-center-bonaduz"
       },
       "company": "Medizinisches Center Bonaduz",
       "companyKey": "mcm-group",
@@ -194,11 +208,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-allgemeine-innere-medizin-oder-praktische-arztin-praktischer-arzt",
+          "facharztin-facharzt-allgemeine-innere-medizin-o-praktische-arztin-praktischer-arzt-medizinisches-center-bonaduz"
+        ],
+        "en": [
+          "facharztin-facharzt-allgemeine-innere-medizin-oder-praktische-arztin-praktischer-arzt"
+        ],
+        "fr": [
           "facharztin-facharzt-allgemeine-innere-medizin-oder-praktische-arztin-praktischer-arzt"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-allgemeine-innere-medizin-oder-praktische-arztin-praktischer-arzt"
+        "facharztin-facharzt-allgemeine-innere-medizin-oder-praktische-arztin-praktischer-arzt",
+        "facharztin-facharzt-allgemeine-innere-medizin-o-praktische-arztin-praktischer-arzt-medizinisches-center-bonaduz"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

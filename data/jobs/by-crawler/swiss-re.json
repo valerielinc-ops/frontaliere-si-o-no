@@ -5908,12 +5908,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-structurer-p-c-re-swiss-re-ch",
-        "struttura-senior-p-c-re-swiss-re-london-gb"
+        "struttura-senior-p-c-re-swiss-re-london-gb",
+        "senior-structurer-p-c-re-swiss-re-london-gb"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-structurer-p-c-re-swiss-re-ch",
-          "struttura-senior-p-c-re-swiss-re-london-gb"
+          "struttura-senior-p-c-re-swiss-re-london-gb",
+          "senior-structurer-p-c-re-swiss-re-london-gb"
         ],
         "de": [
           "senior-structurer-p-c-re-swiss-re-ch"
@@ -8515,7 +8517,7 @@
         "it": "responsabile-della-conformita-al-cliente-swiss-re-bratislava-sk",
         "en": "client-compliance-officer-swiss-re-ch",
         "de": "client-compliance-officer-swiss-re-ch",
-        "fr": "client-compliance-officer-12-month-fixed-term-contract-swiss-re-bratislava-sk"
+        "fr": "agent-de-conformite-des-clients-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -8559,7 +8561,8 @@
         "client-compliance-officer-swiss-re-bratislava-sk",
         "client-compliance-officer-12-month-fixed-term-contract-swiss-re-ch",
         "client-compliance-officer-12-month-fixed-term-contract-swiss-re-zurich",
-        "agent-de-conformite-des-clients-swiss-re-bratislava-sk"
+        "agent-de-conformite-des-clients-swiss-re-bratislava-sk",
+        "client-compliance-officer-12-month-fixed-term-contract-swiss-re-bratislava-sk"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8570,7 +8573,8 @@
         "fr": [
           "client-compliance-officer-swiss-re-ch",
           "client-compliance-officer-swiss-re-bratislava-sk",
-          "agent-de-conformite-des-clients-swiss-re-bratislava-sk"
+          "agent-de-conformite-des-clients-swiss-re-bratislava-sk",
+          "client-compliance-officer-12-month-fixed-term-contract-swiss-re-bratislava-sk"
         ]
       },
       "firstSeenAt": "2026-07-20T22:04:48.735Z",
@@ -9839,7 +9843,7 @@
       "slugByLocale": {
         "it": "gestione-dell-ingegneria-swiss-re-bratislava-sk",
         "en": "engineering-manager-swiss-re-ch",
-        "de": "technischer-leiter-swiss-re-bratislava-sk",
+        "de": "engineering-manager-swiss-re-ch-2",
         "fr": "directeur-technique-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
@@ -9892,7 +9896,8 @@
         "directeur-des-operations-swiss-re-bratislava-sk",
         "gestione-delle-operazioni-legali-e-di-conformita-swiss-re-bratislava-sk",
         "legal-compliance-operations-manager-swiss-re-ch",
-        "gestionnaire-des-operations-juridiques-et-de-conformite-swiss-re-bratislava-sk"
+        "gestionnaire-des-operations-juridiques-et-de-conformite-swiss-re-bratislava-sk",
+        "technischer-leiter-swiss-re-bratislava-sk"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9916,7 +9921,7 @@
         "de": [
           "records-management-associate-swiss-re-ch",
           "betriebsleiter-swiss-re-bratislava-sk",
-          "engineering-manager-swiss-re-ch-2"
+          "technischer-leiter-swiss-re-bratislava-sk"
         ],
         "fr": [
           "engineering-manager-swiss-re-ch-2",
@@ -15580,7 +15585,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-analyst-swiss-re-ch"
+        "business-analyst-swiss-re-ch",
+        "business-analyst-swiss-re-bratislava-sk"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17024,7 +17030,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "underwriter-surety-swiss-re-ch",
-        "underwriter-burgschaft-swiss-re-sao-paulo-br"
+        "underwriter-burgschaft-swiss-re-sao-paulo-br",
+        "underwriter-surety-swiss-re-sao-paulo-br"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -18275,7 +18282,7 @@
       "slugByLocale": {
         "it": "sottoscrittore-l-h-swiss-re-zurich",
         "en": "l-h-underwriter-swiss-re-ch",
-        "de": "l-h-underwriter-swiss-re-zurich",
+        "de": "l-h-unterschreiber-swiss-re-zurich",
         "fr": "sous-traitant-l-h-swiss-re-zurich"
       },
       "company": "Swiss Re",
@@ -20546,7 +20553,7 @@
         "en": "ai-engineering-lead-swiss-re-bratislava-sk",
         "it": "ai-engineering-lead-swiss-re-ch",
         "de": "ai-engineering-lead-swiss-re-ch",
-        "fr": "ai-engineering-lead-swiss-re-ch"
+        "fr": "responsable-du-genie-de-l-ia-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
