@@ -661,11 +661,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  guide: {
- title: 'Frontalieri Svizzera 2026: Permesso G, Tasse, Dogana',
+ title: 'Guida frontaliere Svizzera 2026: permesso G, tasse e dogana',
  h1: 'Frontalieri Svizzera — guida completa 2026 a permesso G, tasse, dogana e primo giorno',
  description: 'Guida frontalieri Svizzera 2026: permesso G, Nuovo Accordo fiscale, tempi dogana, primo giorno, LAMal, trasferimento auto. 78.000 frontalieri/giorno.',
  keywords: 'frontalieri svizzera, guida frontaliere svizzera, permesso g come ottenerlo, nuovo accordo frontalieri 2026, primo giorno frontaliere, dogana svizzera tempi, trasferire auto svizzera, disoccupazione frontaliere, comuni di frontiera svizzera, lamal frontalieri',
- ogTitle: 'Frontalieri Svizzera 2026 — Guida Completa Pillar',
+ ogTitle: 'Guida frontaliere Svizzera 2026 — permesso G, tasse e dogana',
  ogDescription: 'La guida più completa per frontalieri in Svizzera: permesso G (20 km, 5 anni), Nuovo Accordo fiscale 2026, LAMal, dogana, primo giorno, trasferimento auto. 78.000 frontalieri/giorno.',
  canonicalPath: '/guida-frontaliere/',
  structuredData: [

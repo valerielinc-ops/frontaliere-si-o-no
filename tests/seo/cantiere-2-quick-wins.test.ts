@@ -29,6 +29,12 @@ describe('cantiere 2 — SEO metadata quick wins', () => {
     expect(metadata).toContain("canonicalPath: '/cerca-lavoro-ticino/'");
   });
 
+  it('puts the primary guide query first in the guide title', () => {
+    const entry = entrySource('guide', 'jobboard');
+    expect(entry).toContain("title: 'Guida frontaliere Svizzera 2026: permesso G, tasse e dogana'");
+    expect(entry).toContain("ogTitle: 'Guida frontaliere Svizzera 2026 — permesso G, tasse e dogana'");
+  });
+
   it('keeps calculator metadata grammatical and within the description budget', () => {
     const entry = entrySource('calcolatore', 'guide');
     const description = entry.match(/\n description: '([^']+)'/)?.[1] ?? '';
