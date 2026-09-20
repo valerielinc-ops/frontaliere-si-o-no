@@ -20,6 +20,8 @@ import {
   classifyJobSliceRemovals,
   diffJobSlices,
   formatJsonLines,
+  isHistoricalOnlyLoss,
+  isProvenCurrentCrossJobOwner,
 } from '../scripts/scan-prev-slug-losses.mjs';
 import { stableSlugHash } from '../scripts/lib/dedicated-crawler-common.mjs';
 
@@ -337,5 +339,43 @@ describe('safe cross-job decontamination classification (#5348)', () => {
     ));
     expect(classified.flatMap((event) => event.lost)).toEqual([]);
     expect(classified.flatMap((event) => event.safeCrossJobDecontaminations)).toHaveLength(121);
+  });
+
+  it('recognizes a historical alias already rehomed to its unique current hash owner', () => {
+    const owner = { id: 'stable-owner', url: ownerUrl };
+    const rehomedSlug = `senior-engineer-real-owner-zurich-${stableSlugHash(owner)}`;
+
+    expect(isProvenCurrentCrossJobOwner(
+      rehomedSlug,
+      'claimant',
+      [{ jobKey: 'stable-owner', file: 'owner.json', hash: stableSlugHash(owner) }],
+    )).toBe(true);
+  });
+
+  it('fails closed for collisions and for aliases without a hash proof', () => {
+    const owner = { id: 'stable-owner', url: ownerUrl };
+    const rehomedSlug = `senior-engineer-real-owner-zurich-${stableSlugHash(owner)}`;
+
+    expect(isProvenCurrentCrossJobOwner(
+      rehomedSlug,
+      'claimant',
+      [
+        { jobKey: 'owner-a', file: 'owner-a.json', hash: stableSlugHash(owner) },
+        { jobKey: 'owner-b', file: 'owner-b.json', hash: stableSlugHash(owner) },
+      ],
+    )).toBe(false);
+    expect(isProvenCurrentCrossJobOwner(
+      'senior-engineer-real-owner-zurich',
+      'claimant',
+      [{ jobKey: 'stable-owner', file: 'owner.json', hash: stableSlugHash(owner) }],
+    )).toBe(false);
+  });
+
+  it('keeps mixed historical and active loss evidence recoverable', () => {
+    const slug = 'senior-engineer-real-owner-zurich-t3ssxj';
+    const historicalSlugs = new Set([slug]);
+
+    expect(isHistoricalOnlyLoss(slug, historicalSlugs, new Set())).toBe(true);
+    expect(isHistoricalOnlyLoss(slug, historicalSlugs, new Set([slug]))).toBe(false);
   });
 });
