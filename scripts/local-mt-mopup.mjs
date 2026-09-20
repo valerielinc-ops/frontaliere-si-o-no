@@ -417,9 +417,12 @@ export function finalizeMopupTranslation({
 
 function isProtectedSourceCopy(sourceText = '', candidate = '') {
   const maskedCandidate = maskProtectedTokens(candidate).text;
-  const normalizedCandidate = normalizeProtectedTokenSentinels(maskedCandidate);
-  const hasMangledSentinel = normalizedCandidate !== maskedCandidate
-    && !/z[\s._·•\-]*q[\s._·•\-]*x[\s._·•\-]*\d{1,3}[\s._·•\-]*x[\s._·•\-]*q[\s._·•\-]*z/iu.test(maskedCandidate);
+  const candidateWithoutValidSentinels = maskedCandidate.replace(
+    /z[\s._·•\-]*q[\s._·•\-]*x[\s._·•\-]*\d{1,3}[\s._·•\-]*x[\s._·•\-]*q[\s._·•\-]*z/giu,
+    '',
+  );
+  const hasMangledSentinel = normalizeProtectedTokenSentinels(candidateWithoutValidSentinels)
+    !== candidateWithoutValidSentinels;
   if (!hasMangledSentinel) return false;
 
   const normalize = (value) => normalizeProtectedTokenSentinels(maskProtectedTokens(value).text)
