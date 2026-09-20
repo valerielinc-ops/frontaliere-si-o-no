@@ -198,7 +198,11 @@ describe('one code verdict and metadata-triggered review recovery', () => {
   it('executes review admission and gate helpers from the immutable base, not the PR tree', () => {
     const bootstrap = job.steps.find((step: { id?: string }) => step.id === 'review_policy') as { if?: string; run?: string; env?: Record<string, string> } | undefined;
     expect(bootstrap?.if).toContain("github.event.pull_request.base.ref == 'main'");
-    expect(bootstrap?.env?.POLICY_REF).toBe('${{ github.event.pull_request.base.sha }}');
+    // NON `base.sha`: è il commit di main da cui la PR è partita, quindi non
+    // ha i moduli che main ha aggiunto dopo l'apertura — 404 e gate «saltato»
+    // senza nome. La punta di main è ugualmente immutabile dalla PR (stesso
+    // branch protetto) e completa. Vedi tests/trusted-policy-ref.test.ts.
+    expect(bootstrap?.env?.POLICY_REF).toBe('${{ steps.policy_ref.outputs.sha }}');
     for (const helper of [
       'scripts/ci/review-gate.mjs',
       'scripts/ci/lib/review-carry-forward.mjs',
