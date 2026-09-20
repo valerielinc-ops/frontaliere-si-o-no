@@ -1,0 +1,24 @@
+{
+  "companyKey": "residio",
+  "companyName": "Residio AG",
+  "companyHost": "residio.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://residio.ch/jobs-residio/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "Zum Job",
+    "Zum Job",
+    "Zum Job",
+    "Zum Job",
+    "Zum Job"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-20T10:08:52.535Z"
+}
