@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { filterNewForeignClaims } from '../scripts/lib/crawler-commit-ownership.mjs';
 import { dropForeignOwnedVacancies } from '../scripts/lib/crawler-source-hosts.mjs';
 
 /**
@@ -16,6 +17,21 @@ const ownershipOf = (byKey: Record<string, string[]>) => ({
 });
 
 describe('#6759 — a vacancy belongs to exactly one crawler', () => {
+  it('filters only a new remote-race claim and preserves an existing duplicate for migration', () => {
+    const existingUrl = 'https://jobs.example.test/offene-stellen/existing';
+    const newUrl = 'https://jobs.example.test/offene-stellen/new';
+    const ownership = ownershipOf({ incumbent: [newUrl] });
+    const result = filterNewForeignClaims(
+      'newcomer',
+      { crawlerKey: 'newcomer', jobs: [{ url: existingUrl }, { url: newUrl }] },
+      { crawlerKey: 'newcomer', jobs: [{ url: existingUrl }] },
+      ownership as never,
+    );
+
+    expect(result.payload).toEqual({ crawlerKey: 'newcomer', jobs: [{ url: existingUrl }] });
+    expect(result.dropped).toEqual([{ url: newUrl, owner: 'incumbent' }]);
+  });
+
   it('drops a vacancy another crawler already publishes', () => {
     const ownership = ownershipOf({
       'villa-im-park': ['https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000146906639-mitarbeiter-in-bistro'],
