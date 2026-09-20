@@ -1179,6 +1179,125 @@ describe('review gate: citazioni e conferme', () => {
     expect(remaining[0].citations).toHaveLength(3);
   });
 
+  // Accoppiamento per cardinalità (#9351). Un finding che cita lo stesso file su
+  // due righe diventava non-confermabile per sempre appena le righe si
+  // spostavano: `confirmationHasUniqueTarget(..., { ignoreLine: true })` trovava
+  // due citazioni per quel path e rifiutava ogni conferma. Misurato su #9341:
+  // due `## LGTM` consecutivi con `Important: 0` e gate BLOCKING invariato.
+  it('chiude un finding che cita lo stesso path due volte quando le conferme sono due', () => {
+    const opened = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`.github/workflows/deploy.yml:L280`: 🔴 Important: `max-parallel: 2` occupa due runner; vedi anche `.github/workflows/deploy.yml:L142`.',
+    ].join('\n'));
+    const confirmed = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `.github/workflows/deploy.yml:L308`: ok.',
+      'Fix di `.github/workflows/deploy.yml:L165`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+
+    expect(importantFindings(opened.body)[0].citations).toEqual([
+      { path: '.github/workflows/deploy.yml', line: 280 },
+      { path: '.github/workflows/deploy.yml', line: 142 },
+    ]);
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true }))
+      .toHaveLength(0);
+  });
+
+  // La proprietà da NON perdere: una sola conferma non può chiudere due punti
+  // distinti che il reviewer ha chiesto di correggere entrambi.
+  it('tiene aperto lo stesso finding quando le conferme di quel path sono meno delle citazioni', () => {
+    const opened = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`.github/workflows/deploy.yml:L280`: 🔴 Important: `max-parallel: 2` occupa due runner; vedi anche `.github/workflows/deploy.yml:L142`.',
+    ].join('\n'));
+    const partial = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `.github/workflows/deploy.yml:L308`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+
+    const remaining = historicalImportantFindings([opened, partial], { includeLatest: true });
+    expect(remaining).toHaveLength(1);
+    expect(remaining[0].citations).toHaveLength(2);
+  });
+
+  // Guardia globale invariata: due finding aperti che citano lo stesso path
+  // rendono l'anchor ambiguo FRA finding, e il conteggio non può scioglierlo.
+  it('non chiude per cardinalità quando due finding aperti citano lo stesso path', () => {
+    const first = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`.github/workflows/deploy.yml:L280`: 🔴 Important: il cap è sbagliato; anche `.github/workflows/deploy.yml:L142`.',
+    ].join('\n'));
+    const second = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`.github/workflows/deploy.yml:L281`: 🔴 Important: il timeout manca; anche `.github/workflows/deploy.yml:L143`.',
+    ].join('\n'));
+    const confirmed = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `.github/workflows/deploy.yml:L308`: ok.',
+      'Fix di `.github/workflows/deploy.yml:L165`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+
+    expect(historicalImportantFindings([first, second, confirmed], { includeLatest: true }))
+      .toHaveLength(2);
+  });
+
+  // Controllo: con una citazione sola il cammino è quello di prima, invariato.
+  it('lascia invariato il caso a citazione singola, con riga esatta o spostata', () => {
+    const opened = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`.github/workflows/deploy.yml:L280`: 🔴 Important: il cap è sbagliato.',
+    ].join('\n'));
+    const exact = bot('## Findings (Important: 0, Nit: 0)\nFix di `.github/workflows/deploy.yml:L280`: ok.\n## LGTM');
+    const moved = bot('## Findings (Important: 0, Nit: 0)\nFix di `.github/workflows/deploy.yml:L308`: ok.\n## LGTM');
+    const unrelated = bot('## Findings (Important: 0, Nit: 0)\nFix di `.github/workflows/other.yml:L12`: ok.\n## LGTM');
+
+    expect(historicalImportantFindings([opened, exact], { includeLatest: true })).toHaveLength(0);
+    expect(historicalImportantFindings([opened, moved], { includeLatest: true })).toHaveLength(0);
+    expect(historicalImportantFindings([opened, unrelated], { includeLatest: true })).toHaveLength(1);
+  });
+
+  // Replay di #9341 con gli anchor reali delle sei review: due citazioni su
+  // `deploy-matrix-experiment.yml` più una su `cluster-pages-experiment.yml`,
+  // chiuse da tre conferme su righe tutte spostate.
+  it('replay #9341: tre conferme a righe spostate chiudono il finding a citazioni miste', () => {
+    const opened = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '.github/workflows/deploy-matrix-experiment.yml:L280: 🔴 Important `max-parallel: 2` lets one run occupy two build runners; same for `.github/workflows/cluster-pages-experiment.yml:L40` and `.github/workflows/deploy-matrix-experiment.yml:L142`.',
+    ].join('\n'));
+    const confirmed = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `.github/workflows/deploy-matrix-experiment.yml:L308`: ok.',
+      'Fix di `.github/workflows/cluster-pages-experiment.yml:L39`: ok.',
+      'Fix di `.github/workflows/deploy-matrix-experiment.yml:L165`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+
+    expect(importantFindings(opened.body)[0].citations).toEqual([
+      { path: '.github/workflows/deploy-matrix-experiment.yml', line: 280 },
+      { path: '.github/workflows/cluster-pages-experiment.yml', line: 40 },
+      { path: '.github/workflows/deploy-matrix-experiment.yml', line: 142 },
+    ]);
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true }))
+      .toHaveLength(0);
+  });
+
   it('ignora i path-esempio nudi assenti dal tree dopo la conferma dell’anchor preciso', () => {
     const opened = bot([
       '## Findings (Important: 1, Nit: 0)',

@@ -763,6 +763,93 @@ function confirmationHasUniqueTarget(
 }
 
 /**
+ * Le citazioni precise che condividono un path dentro lo STESSO finding. Sono
+ * il caso normale, non un'anomalia: si citano due punti dello stesso file
+ * perche' vanno corretti entrambi.
+ */
+function ambiguousCitationGroups(finding) {
+  const precise = finding.citations.filter((citation) => citation.line !== null);
+  const groups = [];
+  const grouped = new Set();
+  for (const citation of precise) {
+    if (grouped.has(citation)) continue;
+    const group = precise.filter((other) => citationPathMatches(other.path, citation.path));
+    if (group.length < 2) continue;
+    for (const member of group) grouped.add(member);
+    groups.push(group);
+  }
+  return groups;
+}
+
+/**
+ * Accoppiamento per cardinalita'. Quando le righe si spostano — cioe' appena il
+ * file viene corretto — `citationConfirmed` passa dal ramo `movedLine` e chiede
+ * a `confirmationHasUniqueTarget(..., { ignoreLine: true })` un bersaglio unico;
+ * con due citazioni dello stesso path `findingMatches.length === 2` e OGNI
+ * conferma viene rifiutata. L'unica che chiuderebbe il finding e' quella sulle
+ * righe originali, che nel file non esistono piu': il finding diventa
+ * non-confermabile per sempre e la PR resta rossa con qualunque review
+ * successiva (misurato su #9341: due `## LGTM` con `Important: 0` e verdetto
+ * BLOCKING invariato).
+ *
+ * La regola che scioglie lo stallo senza allargare il gate e' contare: quando
+ * un path compare N volte fra le citazioni del finding servono N conferme
+ * DISTINTE di quel path, accoppiate in ordine e consumate una per citazione.
+ * Con meno di N conferme nessuna citazione del gruppo si chiude — una sola
+ * conferma non puo' valere per due punti da correggere, che e' la proprieta'
+ * per cui la guardia di unicita' esiste. Restano invariate: la guardia globale
+ * (un ALTRO finding aperto che cita lo stesso path tiene l'anchor ambiguo fra
+ * finding, e il conteggio non puo' risolverlo) e il caso a citazione singola,
+ * che non entra mai qui.
+ */
+function cardinalityPairedCitations(finding, confirmations, openFindings) {
+  const paired = new Set();
+  const groups = ambiguousCitationGroups(finding);
+  if (groups.length === 0) return paired;
+
+  // Una conferma ripetuta sulla stessa riga e' un duplicato, non una seconda
+  // conferma: deduplicare per path+riga tiene onesto il conteggio.
+  const candidates = [];
+  const seen = new Set();
+  for (const confirmation of confirmations) {
+    for (const candidate of confirmation.citations) {
+      if (candidate.line === null) continue;
+      const key = `${candidate.path}:${candidate.line}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      candidates.push(candidate);
+    }
+  }
+
+  for (const group of groups) {
+    const matchesGroup = (path) => group.some((citation) => citationPathMatches(path, citation.path));
+    const otherOpen = openFindings.filter((openFinding) => openFinding !== finding
+      && openFinding.citations.some((citation) => matchesGroup(citation.path)));
+    if (otherOpen.length > 0) continue;
+
+    const pool = candidates.filter((candidate) => matchesGroup(candidate.path));
+    if (pool.length < group.length) continue;
+
+    const consumed = new Set();
+    const assigned = [];
+    for (const citation of group) {
+      const available = pool.filter((candidate) => !consumed.has(candidate)
+        && citationPathMatches(candidate.path, citation.path));
+      // Il path identico prima del suffix-match: con `foo.js` e `dir/foo.js`
+      // nello stesso gruppo l'accoppiamento greedy resta quello ovvio.
+      const match = available.find((candidate) => candidate.path === citation.path)
+        || available[0];
+      if (!match) break;
+      consumed.add(match);
+      assigned.push(citation);
+    }
+    if (assigned.length !== group.length) continue;
+    for (const citation of assigned) paired.add(citation);
+  }
+  return paired;
+}
+
+/**
  * `citationConfirmed()` follows a moved path+line anchor only when the path
  * still identifies one finding, preserving convergence without broad matching.
  */
@@ -804,14 +891,15 @@ function findingConfirmed(
     return confirmations.some((confirmation) => confirmation.key === findingKey(finding)
       || (bodyAnchor !== null && confirmation.bodyAnchor === bodyAnchor));
   }
+  // Le citazioni chiuse dall'accoppiamento per cardinalita' non passano da
+  // `citationConfirmed`: li' l'ambiguita' di path dentro lo stesso finding e'
+  // per costruzione irrisolvibile, e il conteggio l'ha gia' risolta.
+  const cardinalityPaired = cardinalityPairedCitations(finding, confirmations, openFindings);
+  const anchorConfirmed = (citation, options = {}) => cardinalityPaired.has(citation)
+    || citationConfirmed(citation, confirmations, finding, openFindings, options);
   const preciseCitations = finding.citations.filter((citation) => citation.line !== null);
   const preciseAnchorsConfirmed = preciseCitations.length > 0
-    && preciseCitations.every((citation) => citationConfirmed(
-      citation,
-      confirmations,
-      finding,
-      openFindings,
-    ))
+    && preciseCitations.every((citation) => anchorConfirmed(citation))
     // The tree only ever *tightens* this anchor check, so a locally rebuilt
     // tree would newly close findings on PRs that pass today. The fallback is
     // allowed to prove that a path is outside the diff, never to raise the bar
@@ -845,8 +933,8 @@ function findingConfirmed(
         .some((other) => other.line !== null)
       && finding.citations
         .filter((other) => other !== citation)
-        .every((other) => citationConfirmed(other, confirmations, finding, openFindings));
-    return citationConfirmed(citation, confirmations, finding, openFindings, {
+        .every((other) => anchorConfirmed(other));
+    return anchorConfirmed(citation, {
       allowSharedBarePath: otherAnchorsConfirmed,
     });
   });
