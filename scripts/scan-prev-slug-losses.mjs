@@ -384,6 +384,74 @@ async function buildCandidateOwnerFileIndex(candidates, historyIndex, catFile) {
   return bySlug;
 }
 
+/**
+ * Index current jobs that already carry a candidate route under its own
+ * disambiguator. This is intentionally stricter than an exact string match:
+ * a duplicate route on an unrelated job must not hide a real loss.
+ *
+ * @param {Set<string>} candidates
+ * @param {Map<string, Set<string>>} possibleOwnerFiles
+ * @param {ReturnType<typeof createCatFileBatch>} catFile
+ * @returns {Promise<Map<string, Array<{jobKey: string, file: string, hash: string}>>>}
+ */
+async function buildCurrentCandidateOwnerIndex(candidates, possibleOwnerFiles, catFile) {
+  const bySlug = new Map([...candidates].map((slug) => [slug, []]));
+  const files = new Set([...possibleOwnerFiles.values()].flatMap((paths) => [...paths]));
+
+  for (const rel of files) {
+    const abs = path.join(ROOT, rel);
+    const content = fs.existsSync(abs)
+      ? fs.readFileSync(abs, 'utf8')
+      : await catFile.get(`HEAD:${rel}`);
+    if (!content) continue;
+    let payload;
+    try { payload = JSON.parse(content); } catch { continue; }
+    for (const job of Array.isArray(payload?.jobs) ? payload.jobs : []) {
+      const jobKey = resolveJobDiffKey(job);
+      const hash = stableSlugHash(job);
+      if (!jobKey || !hash) continue;
+      for (const slug of jobRouteSlugs(job)) {
+        if (!candidates.has(slug)) continue;
+        if (HASH_TAIL_RE.exec(String(slug))?.[1] !== hash) continue;
+        const owners = bySlug.get(slug);
+        if (!owners.some((owner) => owner.jobKey === jobKey && owner.file === rel)) {
+          owners.push({ jobKey, file: rel, hash });
+        }
+      }
+    }
+  }
+
+  return bySlug;
+}
+
+/**
+ * A historical alias is healed by a different current job only when exactly
+ * one current owner has the alias and its hash tail. Active-route removals
+ * never call this helper: they remain losses even if another job has a
+ * coincidentally similar route.
+ *
+ * @param {string} slug
+ * @param {string} claimantJobKey
+ * @param {Array<{jobKey: string, file: string, hash: string}>} owners
+ * @returns {boolean}
+ */
+export function isProvenCurrentCrossJobOwner(slug, claimantJobKey, owners) {
+  const tail = HASH_TAIL_RE.exec(String(slug || ''))?.[1];
+  if (!tail) return false;
+  const uniqueOwners = (owners || []).filter(
+    (owner) => owner?.jobKey !== claimantJobKey && owner?.hash === tail,
+  );
+  return uniqueOwners.length === 1;
+}
+
+/**
+ * A slug may be historical in one loss event and active in a later one for
+ * the same job. That mixed evidence must remain recoverable.
+ */
+export function isHistoricalOnlyLoss(slug, historicalSlugs, activeLossSlugs) {
+  return historicalSlugs?.has(slug) === true && activeLossSlugs?.has(slug) !== true;
+}
+
 async function loadJobsAtRef(ref, files, catFile, cache) {
   const jobs = [];
   for (const rel of files) {
@@ -467,6 +535,11 @@ async function main() {
   }
   const candidateSlugs = new Set(candidateEvents.flatMap((event) => event.lost));
   const possibleOwnerFiles = await buildCandidateOwnerFileIndex(candidateSlugs, ownershipHistory, catFile);
+  const currentCandidateOwners = await buildCurrentCandidateOwnerIndex(
+    candidateSlugs,
+    possibleOwnerFiles,
+    catFile,
+  );
   const snapshotCache = new Map();
 
   for (const event of candidateEvents) {
@@ -489,8 +562,20 @@ async function main() {
     if (kept.length === 0) continue;
     lossEvents.push({ commit: event.commit.slice(0, 10), file: event.fileBase, jobId: event.jobKey, lost: kept });
     lossesByFile.set(event.file, (lossesByFile.get(event.file) || 0) + kept.length);
-    if (!lossesByJob.has(event.jobKey)) lossesByJob.set(event.jobKey, { slugs: new Set(), file: event.file });
-    for (const slug of kept) lossesByJob.get(event.jobKey).slugs.add(slug);
+    if (!lossesByJob.has(event.jobKey)) {
+      lossesByJob.set(event.jobKey, {
+        slugs: new Set(),
+        historicalSlugs: new Set(),
+        activeLossSlugs: new Set(),
+        file: event.file,
+      });
+    }
+    const loss = lossesByJob.get(event.jobKey);
+    for (const slug of kept) {
+      loss.slugs.add(slug);
+      if (event.historicalLost?.includes(slug)) loss.historicalSlugs.add(slug);
+      else loss.activeLossSlugs.add(slug);
+    }
   }
   catFile.close();
 
@@ -522,8 +607,8 @@ async function main() {
 
   // Cross-reference with current state: emit "recoverable" list (entries still missing today).
   const recoverable = [];
-  let alreadyPresent = 0, deletedJobs = 0;
-  for (const [jobKey, { file, slugs }] of lossesByJob.entries()) {
+  let alreadyPresent = 0, rehomedElsewhere = 0, deletedJobs = 0;
+  for (const [jobKey, { file, slugs, historicalSlugs, activeLossSlugs }] of lossesByJob.entries()) {
     if (!fs.existsSync(file)) { deletedJobs++; continue; }
     const d = JSON.parse(fs.readFileSync(file, 'utf8'));
     const j = d.jobs?.find(x => resolveJobDiffKey(x) === jobKey);
@@ -534,7 +619,17 @@ async function main() {
       j.slug,
       ...Object.values(j.slugByLocale || {}),
     ].filter(Boolean));
-    const toRestore = [...slugs].filter(s => !known.has(s));
+    const toRestore = [...slugs].filter((s) => {
+      if (known.has(s)) return false;
+      if (
+        isHistoricalOnlyLoss(s, historicalSlugs, activeLossSlugs)
+        && isProvenCurrentCrossJobOwner(s, jobKey, currentCandidateOwners.get(s))
+      ) {
+        rehomedElsewhere++;
+        return false;
+      }
+      return true;
+    });
     if (toRestore.length === 0) { alreadyPresent++; continue; }
     recoverable.push({ jobId: jobKey, file: file.replace(`${ABS_DIR}/`, ''), slugs: toRestore });
   }
@@ -545,6 +640,7 @@ async function main() {
 
   console.log('\nRECOVERABILITY:');
   console.log(`  already healed:       ${alreadyPresent}`);
+  console.log(`  rehomed to unique owner: ${rehomedElsewhere}`);
   console.log(`  jobs no longer exist: ${deletedJobs}`);
   console.log(`  recoverable jobs:     ${recoverable.length}`);
   console.log(`  recoverable slugs:    ${recoverable.reduce((n, r) => n + r.slugs.length, 0)}`);
