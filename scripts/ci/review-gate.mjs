@@ -2080,6 +2080,7 @@ async function scopeMain() {
   const repo = process.env.REPO || process.env.GITHUB_REPOSITORY || '';
   const pr = process.env.PR_NUMBER || '';
   const headSha = process.env.HEAD_SHA || '';
+  const reviewBody = process.env.REVIEW_BODY || '';
   const options = {
     repo,
     pr,
@@ -2088,12 +2089,16 @@ async function scopeMain() {
     reviewCommit: process.env.REVIEW_COMMIT,
     headSha,
   };
+  // Senza nessun 🔴 il classificatore esce subito: gli input sotto costano tre
+  // chiamate API (tree della HEAD, review paginate, compare) e non cambiano un
+  // verdetto gia' vuoto.
+  const hasFindings = importantFindings(normalizeReviewBody(reviewBody)).length > 0;
   // Gli stessi tre input che `runReviewGate()` passa gia' al classificatore e
   // che questo percorso lasciava cadere: senza, ogni 🔴 ripetuto su righe che
   // nessuno ha toccato rifaceva partire il fixer. Ogni lettura e' fail-open
   // verso il BLOCCO: un dato che non si riesce a leggere lascia l'opzione
   // assente, quindi nessuna declassazione.
-  const tree = fetchRepositoryHeadPaths(repo, pr);
+  const tree = hasFindings ? fetchRepositoryHeadPaths(repo, pr) : { paths: null, fromFallback: false };
   if (tree.paths) options.repositoryPaths = tree.paths;
   // NB: `bodyContractPassed` resta deliberatamente FUORI da questo percorso.
   // Nel gate gemello declassa il 🔴 ancorato al body, che li' e' l'uscita
@@ -2102,7 +2107,7 @@ async function scopeMain() {
   // finding resta azionabile e viene instradato con `bodyOnly`.
   let reviews = null;
   try {
-    reviews = readReviews(repo, pr);
+    reviews = hasFindings ? readReviews(repo, pr) : null;
   } catch {
     reviews = null;
   }
@@ -2120,7 +2125,7 @@ async function scopeMain() {
       options.changedLinesSince = declass.changedLinesSince;
     }
   }
-  const result = await classifyAndMintReview(process.env.REVIEW_BODY || '', options);
+  const result = await classifyAndMintReview(reviewBody, options);
   const exit = scopeExit(result);
   console.log(JSON.stringify({
     blocking: result.blocking === true,
