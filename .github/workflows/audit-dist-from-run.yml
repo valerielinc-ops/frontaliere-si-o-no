@@ -204,7 +204,7 @@ jobs:
           resolve_script() {
             case "$1" in
               *:*)
-                if printf '%s' "$1" | grep -qE "^($KNOWN_PREFIXES):"; then
+                if grep -qE "^($KNOWN_PREFIXES):" <<<"$1"; then
                   printf '%s\n' "$1"
                 else
                   printf 'audit:%s\n' "$1"

@@ -716,7 +716,7 @@ jobs:
           set -euo pipefail
           policy_ref="$("$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/commits/main" \
             --jq '.sha' 2>/dev/null || true)"
-          if ! printf '%s' "$policy_ref" | grep -qE '^[0-9a-f]{40}$'; then
+          if ! grep -qE '^[0-9a-f]{40}$' <<<"$policy_ref"; then
             # Nessun ripiego silenzioso su `base.sha`: sarebbe di nuovo la
             # policy incompleta, e il fallimento tornerebbe a non avere nome.
             echo "::error::punta di main non risolvibile (risposta: '${policy_ref:-vuota}'); la policy fidata non è determinabile, gate fail-closed."
@@ -2363,7 +2363,7 @@ jobs:
             echo "::error::PR body non verificabile → review input unavailable, nessun Codex."
             exit 1
           }
-          printf '%s\n' "$review_revision" | grep -qE '^body:[0-9a-f]{64}$' || {
+          grep -qE '^body:[0-9a-f]{64}$' <<<"$review_revision" || {
             echo "::error::Hash review body malformato → review input unavailable, nessun Codex."
             exit 1
           }
@@ -3149,7 +3149,7 @@ jobs:
           # completed failed run is the durable signal for stale-pr-rescuer;
           # there is no shared quota lease or concurrency veto.
           DECISION=$(GITHUB_OUTPUT=/dev/null EXEC_FILE="${EXEC_FILE:-}" PREFLIGHT_BLOCKED=false FALLBACK_ATTEMPTED=false node "$REVIEW_POLICY_ROOT/scripts/ci/claude-codex-fallback.mjs" 2>/dev/null || true)
-          if printf '%s\n' "$DECISION" | grep -q '^rate_limited=true$'; then
+          if grep -q '^rate_limited=true$' <<<"$DECISION"; then
             echo "::error::Claude review aborted on a 429 (quota/rate-limit) without posting a review — failing so stale-pr-rescuer can re-run the completed run. No shared quota lease blocked this review."
             exit 1
           fi

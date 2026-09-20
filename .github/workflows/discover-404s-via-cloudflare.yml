@@ -193,7 +193,7 @@ jobs:
           rc=$?
           set -e
           echo "$PUSH_LOG"
-          if echo "$PUSH_LOG" | grep -q '::warning::Failed to push after'; then
+          if grep -q '::warning::Failed to push after' <<<"$PUSH_LOG"; then
             echo "push_exhausted=true" >> "$GITHUB_OUTPUT"
             # Nothing landed on main this run — the commit only exists on this
             # ephemeral runner. Don't trigger a deploy for a change that isn't
