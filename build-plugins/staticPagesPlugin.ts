@@ -285,6 +285,7 @@ function readFaqFromLocaleFile(
 function buildDedicatedFaqHtml(
  faqItems: Array<{ category: string; question: string; answer: string }>,
  locale: string,
+ canonicalPath: string,
  esc: (s: string) => string,
 ): { html: string; jsonLd: string } {
  const FAQ_PAGE_HEADING: Record<string, string> = {
@@ -325,7 +326,10 @@ function buildDedicatedFaqHtml(
  '@context': 'https://schema.org',
  '@type': 'FAQPage',
  'name': FAQ_PAGE_HEADING[locale] ?? FAQ_PAGE_HEADING.it,
- 'url': `${BASE_URL}/${locale === 'it' ? 'domande-frequenti-frontalieri' : locale === 'en' ? 'en/cross-border-faq' : locale === 'de' ? 'de/grenzgaenger-faq' : 'fr/faq-frontaliers'}`,
+ // This fallback also renders legacy locale aliases. Derive the structured
+ // data URL from the page path that the caller canonicalises so it cannot
+ // drift from `<link rel="canonical">` (or lose its trailing slash).
+ 'url': `${BASE_URL}${canonicalPath}`,
  'description': FAQ_PAGE_HEADING[locale] ?? FAQ_PAGE_HEADING.it,
  'inLanguage': locale,
  'mainEntity': faqItems.map(item => ({
@@ -4886,7 +4890,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // Read all FAQ content from the locale file at build time
  const faqItems = readFaqFromLocaleFile(fs, np, rootDir, locale);
  if (faqItems.length > 0) {
- const dedicatedFaq = buildDedicatedFaqHtml(faqItems, locale, esc);
+ const dedicatedFaq = buildDedicatedFaqHtml(faqItems, locale, canonicalPath, esc);
  faqHtml = dedicatedFaq.html;
  // Override structured data with complete FAQPage JSON-LD (all 30 Q&A)
  if (seoData.sd) {
