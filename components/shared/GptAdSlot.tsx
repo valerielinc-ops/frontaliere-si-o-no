@@ -82,16 +82,17 @@ function ensureGptScript(): void {
  *  Offerwall evaluates at page entry, so GPT must be present then. The ad slots
  *  themselves stay lazy to protect CWV. */
 export function initGptFramework(): void {
+  if (typeof window === 'undefined' || !GPT_ENABLED || !IS_PROD || SKIP_FOR_BOT) return;
   ensureGptScript();
   const gt = gtag();
   gt.cmd.push(() => {
     try {
-      if (!gptServicesEnabled) {
-        gptServicesEnabled = true;
-        // Modern GPT config API (pubads().enableSingleRequest()/collapseEmptyDivs() are deprecated).
-        gt.setConfig({ singleRequest: true, collapseDiv: 'BEFORE_FETCH' });
-        gt.enableServices();
-      }
+      if (gptServicesEnabled || gt.__frontaliereGptServicesEnabled) return;
+      // Modern GPT config API (pubads().enableSingleRequest()/collapseEmptyDivs() are deprecated).
+      gt.setConfig({ singleRequest: true, collapseDiv: 'BEFORE_FETCH' });
+      gt.enableServices();
+      gt.__frontaliereGptServicesEnabled = true;
+      gptServicesEnabled = true;
     } catch {
       /* fail-soft */
     }
