@@ -44,7 +44,10 @@
 # Per confrontare più varianti in parallelo NON si fanno più dispatch: si usa
 # l'input `variants` multilinea in UN dispatch, e `max-parallel: 1` fa girare
 # quelle gambe una per volta: cosi' il tetto di ~1 slot vale per costruzione
-# anche nel caso peggiore, non solo sul dispatch tipico a una gamba sola.
+# anche nel caso peggiore, non solo sul dispatch tipico a una gamba sola. Per
+# la stessa ragione il job `monolith` di `compare_monolith` dipende da
+# `build-locale`: condividendo i soli prerequisiti partiva in parallelo e
+# teneva un secondo runner di build.
 #
 # SCADENZA DICHIARATA: `EXPERIMENT_EXPIRES_ON` sotto. Passata quella data il
 # workflow si rifiuta di partire finché qualcuno non la sposta con una PR, cioè
@@ -979,10 +982,24 @@ jobs:
   # Reference for the equivalence check. Same data + same wall-clock window as
   # the shards (both start right after prep) ⇒ no time-variance. NO BUILD_LOCALE.
   monolith:
-    needs: [matrix-setup, prep]
+    # `build-locale` fra i `needs` NON e' una dipendenza sui dati: e' la stessa
+    # serializzazione che `max-parallel: 1` impone alle gambe della matrix. Con
+    # `compare_monolith=true` questo job condivideva con `build-locale` i soli
+    # prerequisiti `matrix-setup`/`prep`, quindi partiva in parallelo e un
+    # dispatch teneva DUE runner di build: il tetto di ~1 slot dichiarato in
+    # testa al file, che e' cio' che protegge la coda di `tests`, era falso
+    # proprio nel caso che la modalita' di confronto esiste per coprire.
+    needs: [matrix-setup, prep, build-locale]
+    # `!cancelled()` conserva il comportamento precedente: il monolite e' il
+    # termine di paragone, e deve girare anche quando uno shard e' fallito
+    # (`fail-fast: false`), altrimenti il confronto si perde proprio nel giro
+    # in cui serve. Senza, un `needs` insoddisfatto lo salterebbe in silenzio.
     # A stop-after run has intentionally partial output, so it cannot provide
     # a meaningful full-monolith equivalence reference.
-    if: inputs.compare_monolith == true && inputs.stop_after_jobs_seo != true && inputs.all_locales != true && needs.matrix-setup.outputs.variant_count == '1'
+    if: >-
+      !cancelled()
+      && inputs.compare_monolith == true && inputs.stop_after_jobs_seo != true
+      && inputs.all_locales != true && needs.matrix-setup.outputs.variant_count == '1'
     name: monolith (${{ needs.matrix-setup.outputs.single_variant }})
     runs-on: ubuntu-latest
     env:

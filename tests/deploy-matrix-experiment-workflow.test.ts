@@ -89,6 +89,24 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       expect(WORKFLOW.jobs['build-locale'].strategy['max-parallel']).toBe(1);
     });
 
+    it('nessun job di build puo\u2019 girare accanto a un altro nello stesso run', () => {
+      // `max-parallel: 1` serializza solo le gambe della matrix. Il job
+      // `monolith` di `compare_monolith` condivideva i soli prerequisiti
+      // `matrix-setup`/`prep`, quindi partiva in parallelo a `build-locale` e
+      // il dispatch teneva DUE runner di build: il tetto di ~1 slot dichiarato
+      // in testa al file era falso proprio nella modalita' di confronto.
+      expect(WORKFLOW.jobs.monolith.needs).toContain('build-locale');
+      // E deve comunque girare quando uno shard fallisce (`fail-fast: false`),
+      // altrimenti il termine di paragone sparisce nel giro in cui serve.
+      expect(String(WORKFLOW.jobs.monolith.if)).toContain('!cancelled()');
+
+      // Tutti i job che accendono un runner di build devono stare in catena.
+      const buildJobs = ['prep', 'build-locale', 'monolith'];
+      for (const [index, job] of buildJobs.slice(1).entries()) {
+        expect(WORKFLOW.jobs[job].needs, job).toContain(buildJobs[index]);
+      }
+    });
+
     it('il gate di scadenza rifiuta una data di CALENDARIO impossibile, non solo la forma', () => {
       const guard = String((WORKFLOW.jobs['matrix-setup'].steps as Array<Record<string, any>>)[0].run);
       // La sola regex lascia passare `2026-02-31`, che non esiste: una scadenza
