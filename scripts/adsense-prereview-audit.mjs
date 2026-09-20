@@ -169,6 +169,11 @@ const MIN_CHARS_PER_AD_SLOT = 500;
  */
 const INDEXED_CONTENT_WORD_FLOOR = 50;
 
+/** Findings caused by transport failures, not by page policy/content. */
+export function isTransportFinding(value = '') {
+  return /^(?:page_(?:unreachable|fetch_error)|homepage_unreachable|ads_txt_unreachable|site_checks_error):/i.test(String(value));
+}
+
 function fmtDate(d = new Date()) {
   const y = d.getFullYear();
   const m = String(d.getMonth() + 1).padStart(2, '0');
@@ -684,7 +689,7 @@ async function runSiteChecks(base) {
     }
     site.checked = true;
   } catch (err) {
-    site.warnings.push(`site_checks_error:${String(err?.message || err).slice(0, 120)}`);
+    site.issues.push(`site_checks_error:${String(err?.message || err).slice(0, 120)}`);
   }
   return site;
 }
@@ -697,6 +702,7 @@ function writeReports(report) {
   writeFileSync(jsonPath, `${JSON.stringify(report, null, 2)}\n`, 'utf8');
 
   const topFail = report.pages.filter((p) => p.status === 'fail').slice(0, 25);
+  const topError = report.pages.filter((p) => p.status === 'error').slice(0, 25);
   const topWarn = report.pages.filter((p) => p.status === 'warn').slice(0, 25);
   const lines = [
     '# AdSense Pre-Review Checklist',
@@ -707,6 +713,7 @@ function writeReports(report) {
     `- PASS: ${report.summary.pass}`,
     `- WARN: ${report.summary.warn}`,
     `- FAIL: ${report.summary.fail}`,
+    `- ERROR: ${report.summary.error}`,
     `- Thin pages served by Auto Ads: ${report.summary.autoAdsThin}`,
     '',
     '## Site-level checks',
@@ -721,11 +728,15 @@ function writeReports(report) {
     '',
     ...Object.entries(report.byBucket)
       .sort((a, b) => b[1].n - a[1].n)
-      .map(([b, v]) => `- ${b}: ${v.n} sampled — pass ${v.pass}, warn ${v.warn}, fail ${v.fail}`),
+      .map(([b, v]) => `- ${b}: ${v.n} sampled — pass ${v.pass}, warn ${v.warn}, fail ${v.fail}, error ${v.error}`),
     '',
     '## Top FAIL pages',
     '',
     ...(topFail.length > 0 ? topFail.map((p) => `- ${p.url} | issues: ${p.issues.join(', ')}`) : ['- none']),
+    '',
+    '## Transport errors',
+    '',
+    ...(topError.length > 0 ? topError.map((p) => `- ${p.url} | issues: ${p.issues.join(', ')}`) : ['- none']),
     '',
     '## Top WARN pages',
     '',
@@ -733,9 +744,11 @@ function writeReports(report) {
     '',
     '## Decision',
     '',
-    report.summary.fail > 0 || report.site.issues.length > 0
-      ? '- NOT READY for AdSense re-review: resolve FAIL / site-level findings first.'
-      : '- READY for AdSense re-review (only WARN/non-blocking findings).',
+    report.summary.error > 0 || report.site.issues.some(isTransportFinding)
+      ? '- AUDIT INCOMPLETE: resolve transport errors and rerun the checklist.'
+      : report.summary.fail > 0 || report.site.issues.length > 0
+        ? '- NOT READY for AdSense re-review: resolve FAIL / site-level findings first.'
+        : '- READY for AdSense re-review (only WARN/non-blocking findings).',
     '',
   ];
   writeFileSync(mdPath, `${lines.join('\n')}\n`, 'utf8');
@@ -751,14 +764,17 @@ function writeStepSummary(report) {
     `Source: **${report.source}** — ${report.sampleSize} pages across ${report.bucketsSampled} families `
     + `(of ${report.urlsDiscovered} URLs discovered)`,
     '',
-    `| PASS | WARN | FAIL | Thin+AutoAds |`,
-    `|---|---|---|---|`,
-    `| ${report.summary.pass} | ${report.summary.warn} | ${report.summary.fail} | ${report.summary.autoAdsThin} |`,
+    `| PASS | WARN | FAIL | ERROR | Thin+AutoAds |`,
+    `|---|---|---|---|---|`,
+    `| ${report.summary.pass} | ${report.summary.warn} | ${report.summary.fail} | ${report.summary.error} | ${report.summary.autoAdsThin} |`,
     '',
     `Publisher id: \`${report.site.publisherId || 'NOT FOUND'}\``,
     ...(report.site.issues.length > 0 ? ['', '**Site-level findings**', ...report.site.issues.map((i) => `- ❌ ${i}`)] : []),
     ...(report.summary.fail > 0
       ? ['', '**Blocking page findings**', ...report.pages.filter((p) => p.status === 'fail').slice(0, 20).map((p) => `- ${p.url} — ${p.issues.join(', ')}`)]
+      : []),
+    ...(report.summary.error > 0
+      ? ['', '**Transport errors**', ...report.pages.filter((p) => p.status === 'error').slice(0, 20).map((p) => `- ${p.url} — ${p.issues.join(', ')}`)]
       : []),
     '',
   ];
@@ -816,12 +832,12 @@ async function main() {
         try {
           const res = await fetchText(url, url);
           if (!res.ok) {
-            pages.push({ url, bucket, filePath: '', status: 'fail', issues: [`page_unreachable:${res.status}`], warnings: [], metrics: null });
+            pages.push({ url, bucket, filePath: '', status: 'error', issues: [`page_unreachable:${res.status}`], warnings: [], metrics: null });
             continue;
           }
           pages.push(auditPage(url, '', res.body, bucket));
         } catch (err) {
-          pages.push({ url, bucket, filePath: '', status: 'fail', issues: [`page_fetch_error:${String(err?.message || err).slice(0, 80)}`], warnings: [], metrics: null });
+          pages.push({ url, bucket, filePath: '', status: 'error', issues: [`page_fetch_error:${String(err?.message || err).slice(0, 80)}`], warnings: [], metrics: null });
         }
       }
     }));
@@ -832,7 +848,7 @@ async function main() {
   const byBucket = {};
   for (const p of pages) {
     const b = p.bucket || 'unknown';
-    byBucket[b] = byBucket[b] || { n: 0, pass: 0, warn: 0, fail: 0 };
+    byBucket[b] = byBucket[b] || { n: 0, pass: 0, warn: 0, fail: 0, error: 0 };
     byBucket[b].n += 1;
     byBucket[b][p.status] += 1;
   }
@@ -841,6 +857,7 @@ async function main() {
     pass: pages.filter((p) => p.status === 'pass').length,
     warn: pages.filter((p) => p.status === 'warn').length,
     fail: pages.filter((p) => p.status === 'fail').length,
+    error: pages.filter((p) => p.status === 'error').length,
     autoAdsThin: pages.filter((p) => p.metrics?.autoAdsThin).length,
   };
   const report = {
@@ -866,7 +883,7 @@ async function main() {
   console.log('=== AdSense Pre-Review Checklist ===');
   console.log(`Source: ${flags.source}${flags.source === 'live' ? ` (${flags.base})` : ''}`);
   console.log(`URLs discovered: ${report.urlsDiscovered} | sampled: ${report.sampleSize} across ${report.bucketsSampled} families`);
-  console.log(`PASS: ${summary.pass} | WARN: ${summary.warn} | FAIL: ${summary.fail}`);
+  console.log(`PASS: ${summary.pass} | WARN: ${summary.warn} | FAIL: ${summary.fail} | ERROR: ${summary.error}`);
   console.log(`Thin pages served by Auto Ads (non-blocking): ${summary.autoAdsThin}`);
   console.log(`Publisher id: ${site.publisherId || 'NOT FOUND'}`);
   if (site.issues.length > 0) {
@@ -879,6 +896,12 @@ async function main() {
       console.log(`- ${p.url} -> ${p.issues.join(', ')}`);
     }
   }
+  if (summary.error > 0) {
+    console.log('\nTransport errors:');
+    for (const p of pages.filter((x) => x.status === 'error').slice(0, 20)) {
+      console.log(`- ${p.url} -> ${p.issues.join(', ')}`);
+    }
+  }
 
   if (flags.save) {
     const out = writeReports(report);
@@ -887,6 +910,11 @@ async function main() {
   }
   writeStepSummary(report);
 
+  const transportErrors = summary.error + site.issues.filter(isTransportFinding).length;
+  if (transportErrors > 0) {
+    console.error(`\n❌ ${transportErrors} transport error(s) — audit could not complete.`);
+    process.exit(EXIT_CANNOT_RUN);
+  }
   const blocking = summary.fail + site.issues.length;
   if (flags.strict && blocking > 0) {
     console.error(`\n❌ ${blocking} blocking finding(s) — not ready for AdSense re-review.`);

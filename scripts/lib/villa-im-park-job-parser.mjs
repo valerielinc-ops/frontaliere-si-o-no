@@ -127,7 +127,7 @@ function detectEmploymentType(title = '', srType = '') {
 // no-retry ad-hoc raw-fetch anti-pattern as the WP REST siblings, just against
 // a different API surface (SmartRecruiters, not wp-json) — same bug class.
 
-function isPKVBrand(posting) {
+export function matchesVillaImParkPosting(posting) {
   const cf = Array.isArray(posting?.customField) ? posting.customField : [];
   return cf.some((f) => normalize(f.fieldLabel) === 'brands' && String(f.valueId) === BRAND_VALUE_ID);
 }
@@ -252,7 +252,7 @@ export async function fetchAllVillaImParkJobs() {
   }
   console.log(`   Fetched ${all.length} total SwissMedicalNetwork postings`);
 
-  const pkvOnly = all.filter(isPKVBrand);
+  const pkvOnly = all.filter(matchesVillaImParkPosting);
   console.log(`   PKV-branded postings: ${pkvOnly.length}`);
 
   const jobs = [];

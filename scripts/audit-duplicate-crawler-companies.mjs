@@ -103,6 +103,8 @@ const MAX_CRAWLER_SNAPSHOT_AGE_MS = 48 * 60 * 60 * 1000;
  * - Denner and migrolino have dedicated crawlers on the shared Migros portal;
  *   their brand-exclusive postings belong to those company identities, not to
  *   the broad `migros-ticino` group slice.
+ * - `villa-im-park` owns the PKV-branded postings from the shared
+ *   `SwissMedicalNetwork1` SmartRecruiters tenant, not the umbrella slice.
  *
  * The audit elects `keeper` from the current cardinality, so direction is not
  * stable: a temporarily larger dedicated slice can reverse keeper/witness.
@@ -123,6 +125,7 @@ const NON_COVERAGE_GAP_PAIRS = new Set([
   unorderedCrawlerPair('posta-svizzera-centro-regionale', 'postauto'),
   unorderedCrawlerPair('migros-ticino', 'denner'),
   unorderedCrawlerPair('migros-ticino', 'migrolino'),
+  unorderedCrawlerPair('swiss-medical-network', 'villa-im-park'),
 ]);
 
 /**

@@ -188,6 +188,7 @@ function translationCacheRestoreStep(cacheNamespace) {
   return {
     name: 'Restore per-company translation cache',
     id: 'translation_cache_restore',
+    'continue-on-error': true,
     uses: 'actions/cache/restore@v5',
     with: {
       path: TRANSLATION_CACHE_PATH,
